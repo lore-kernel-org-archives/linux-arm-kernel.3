@@ -4,72 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBADAC5AC7C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 10:30:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAB1FC5AC7C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 10:30:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HZTcrQzGXuunNIwct3+GtblbyDkGvD9ZQvC5QSvDxeM=; b=tHLGQcgaolY4g1y6OxW8k8SYbQ
-	jxgHDu8haWpNq5EG8/FuQsaQopXMyS76J4gWTO1djzHOgGOgHzZTxtoWm0yq9ZUzTTe6QGfc12Phl
-	+we8r9TRKXKc+RQ36v3f9yVIxisuWPhsPaIGLoMPvmeU5kVW+v6uKTYY8XLx1adGhM9Z03J7IQVSF
-	SXrGbxIi9ZqrNbaz3oWv1nw8DW7WqxmG50uMDH/efjq2I0pfeeSrESahye0CKujkZ7TDzkVvEC+rx
-	iQQzpPevek6wD8GyLtuQHPZtjAmvwhTwQCEJErTbdmkFZdyZ+54gy147e4mXELUVlBgvkjzTB3R47
-	VBwyrCFA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4E+mVEpkDh0k8bNZJNbHh0uHQtIkBEm4hCBHMggYxlM=; b=Md5ha6BLbDhyqBUxGUOj5vKakJ
+	rMYMouVoywag7BT6DHYFUwrYiWeRlkxG2XsgKqpq+cCgud/I9TLPwSkOuB6ActcMp9ZGWTjCXwPyu
+	51TPiEgU78PU/e4IWP8eV/jDMARQVadArqpo5jOCgT1y0IwE7zUediAkJ/87FBpubcYVq0HOur1ao
+	r3b5EndMO9RvVpkCQeTS1jeNpuvcvJh1rql8ZQISHBIJbKSYrMuUvKKN6D+rQFyR8D2DSCoTuIYJs
+	5b9c7VkdlIGFkTpenfX+9HzaJOHAEkrZcEkoyc3ExIJ/UMRwIeeiKOadu+VIMZcqdiT1iyc1iNWQr
+	B1uM5xPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsHpr-00000007fsp-0o07;
-	Fri, 07 Aug 2026 10:29:55 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1wsHpv-00000007fvf-1ImI;
+	Fri, 07 Aug 2026 10:29:59 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsHpo-00000007frk-3GvC
+	id 1wsHpt-00000007ftk-0kTo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 10:29:54 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-383cb94f742so3118190a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Aug 2026 03:29:52 -0700 (PDT)
+	Fri, 07 Aug 2026 10:29:58 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2cab973140bso44488475ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Aug 2026 03:29:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786098592; x=1786703392; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=HZTcrQzGXuunNIwct3+GtblbyDkGvD9ZQvC5QSvDxeM=;
-        b=BPXe8N4lVobLvSZ7W3j/PA0C1DBPgu9uvBtWmJUnVrNg3AdYVb2EUCiL2jt9fGvFZq
-         hH81AfVr9Nsk1sRC7hqeheBi4N+ZBZLryOuX8+VnVFXadyAltJyeXFtJEW95m4tQrxOd
-         O6gqui/k33sH81ozQQPd6f8Pm4AW/iTQMZXSFt6k+5blYcOYw9BZruE9v5b2tdOI7xBL
-         35sTjGtw0TytMFAM0eQyQRlePY5PjBG+8yt+HWY/7qGMtm9tKri0hUGja9um+Ib4nteS
-         0yZY3UPA1szfbQd28QeR/0gQhBzVfFbJDKmVmzmm4TlYOFLFIu77o/70uX01r9Ti+28n
-         1TpQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786098592; x=1786703392;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1786098596; x=1786703396; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=HZTcrQzGXuunNIwct3+GtblbyDkGvD9ZQvC5QSvDxeM=;
-        b=YDap6V20l0xme+ktO58/FMzhy2FcSH9xF0Fyw947C2oXoiuXgfFCahAav+LJ9HzMda
-         Aif8h9S09xUOSTQGyW4/eygJpYqRD5035AAEuO6M6VhizlRgZvEExxPSBGTsxshmk+0e
-         BzWt5Ptvmr4chEBdGLKAHHDWkZC29UK7wrAwxjSbcO1Pxyk0720nWhlaM3QdpNrDriqg
-         RGxe2pgqxPqzE61nYbc2lyTluRZsZvXSXgCZln5PJ1mTX99tls40zdN52l7v2AD1lku3
-         Mqb+vfzOCHUr6gG8NIM6pJP7RA5SpqBMqOiJTsDbYt2TSyTvJPuPDXHnmgFlzLLQCiZA
-         zaqw==
-X-Forwarded-Encrypted: i=1; AHgh+RrWI3mhFj/rv5MNE838aiMeRZ52uhKhlNXVrzlH8tEFmotVwwvclXo6jAoN7rfRzOZRO20NuohJxVwYwn+edWKL@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw064y40a3uQeWBWbTf14PNEXNr1Ggi49/tu7jnf68qn4Qh2biC
-	V7TH0Nwm77n6lQ2Xa0O3MiFtgS2pY78w5CbvXlLjdz6PMNmO7LF1fgaU
-X-Gm-Gg: AR+sD13h/+TJE7sPQUwQyNfABSY2HMxemvmO3z0HqGqhDAM4gyLlkr8gk/3GbLvgQNr
-	Kd9lAhHJsGDA0RMuGd0bVkcnkNT88P+Il5S5FylL/hbVeB0ZQaVSxXiJJcP181a4u42mEnxdqGs
-	INSmeUQVsN6shLUCc4lIcxmAL3Tqh3Wv0u/Kg9Zy5Y4+G5QyCvJvJaokOYmfpA0rQ7Fd7grjCBX
-	qIg/oJGVPlYGHBeAcGYrOHZS4thB6MMgSuw1b44J6Uk5KtXvWSvl6tnMUpWK1JEq6EVDj2LQWFs
-	w9QuUdJ/UXWzdFG3Nvewmn3yzABQ+HSq1QQ7RdPI4mkxO5oyPj2UWRMMDgRtEzG9+UVVkrXfoxr
-	K1tcuOYzatiPJ2SIFBLkEPpIZ0eqD1ABFnc8BdZJH4QpM53EChkLskCE+o8SF5vRQCgg5/yBd7z
-	wFqkdQl9RANDs59Pzd0Ie4h8q4gDUYIbD8F8Zf01raU7XBSyex69b05nRlZddG9Tmzy3z9Pm1kC
-	oQbyOuftzdwNAYfwocJazclmVNN6N6wzP2pTBbk9d6iNgK54ptvGs1t+XiWfxb2Wz5HsDqBdO7s
-	Y8sI
-X-Received: by 2002:a17:90b:1d10:b0:390:b41a:b92f with SMTP id 98e67ed59e1d1-390b41acf77mr3051923a91.18.1786098591764;
-        Fri, 07 Aug 2026 03:29:51 -0700 (PDT)
+        bh=4E+mVEpkDh0k8bNZJNbHh0uHQtIkBEm4hCBHMggYxlM=;
+        b=Rq6xeFOQ5PwmfHDPSOfdEArr1R3vfL8nt60n7X31dxQ+b7ua907ZO/x+mFBA03x0Ky
+         iY+RFjucZI13mLKSgJ3DzKLF6XwnBL5pS3/Qp8IyqqwO5NXTar8q5WYHPA+PN8MCVaP3
+         mR8afD6J008K+c/ok+I4YeA4WO+sQXHM8aJKvhWlN5bK8slRRlrEx1S4cwocEP2+tJWO
+         FoRHVMuNwFK1u2EGiK/20VT+cMHQKmwnBsXiuOjIEo7j4CJBy6qjNw2NAh1UMt29pNFn
+         3Zq3jRYMgD84WmRWQJop15L2gVqCT86TcQKEDxhFh6RwWJzmf/6+1IAURRDeLHrTFKaB
+         M7CA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786098596; x=1786703396;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=4E+mVEpkDh0k8bNZJNbHh0uHQtIkBEm4hCBHMggYxlM=;
+        b=MsN9okhM3Yw7hPao4aaxQKat58JpASQix4IzOdnvSRgUPfKDup0wAd3YkZMQY0zVnF
+         gdtzzJ5063+xuWVvuiZDWw3kWr2mTuIoHNYn5iURxOB/e8lhgpXiSXGjV81xGB68elp2
+         E3dn427UnnJtJ1ZzAXmXHxscLtKvq3S9BGSSe0uG5Q3eEX4HcRMidZHdGnBLBTkMqLtN
+         RBm1tvN7dKPQbQP3FlZOmZ0ZAlm72p++E4eRCjAypcVVxfBvlXIHt24wZZD5ZgMcfW8E
+         FpTrNKTSspqAWx0bid0bFPZEWxM8smYYxBf+L8x6ARMTA/wuUaQ1E/01ic0/u2rEKniw
+         8mtA==
+X-Forwarded-Encrypted: i=1; AHgh+RqMMG36rO0YV8wvytRwAeMaHtoy9/1mQHlJ+ZhNlJTIctoHpgv1ISsR4nYJRxLGwfeyup7iDgh3l9XV9/Y5dzMg@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy+GKtfUhNMzijvSibsbn9CeBX+F6eijQjaHmIxjwZc2213AuFz
+	FxSlPK0d/ADJUhfKjG6KEb/rJ6qjhDXgRkE3vBX21aLpOlNqBSLd4+y2
+X-Gm-Gg: AR+sD12VfNv6S1PNJcWMmJnKx3Le0LQKGuwLKMiqjUcAupTxpSbQGq8tinsiGOhH5Yi
+	vqZG06DlNWXIf5/qgJ4cL0JV9xjJK654kwoKZD9l+6RpbHZMr85EhB5zCMLuRLwMgKW1wQH6bRV
+	X4tdlpetbTazQHTGURf2CrmDntokiyK/9IwKiP/grGEGsqe9FPZcPH5GMixx119a8iPvB0SpUc7
+	Tj4z8dTF130IoD7SBavok9NnwaL0E6hztD0w///C8y32jJ+aNSPz9ev17V7R2c/UAp+fQ/VlzIQ
+	rB/UXBwL4vgPgffnxt11v9//994BiAfqovpG2wMm+CLYQMCVE4N6yGeN6rUsZBzM2/8sLkbds/F
+	Os/STefdhDwTLOAvkFom9Y5tH6FeE7fegU9AQRt7tjWYgPbW9dJH5Xdzgp4d8mqKZ4x2KOxdvA9
+	2iRx4m2pr63dEHadifxj3TGwOAdXUfe4D4kgestNGI+wzjIFrDe9oKa/GgjrVrTZHvMgQduF0Pb
+	M//mA0UFLDzXR/m3UFHhTuCoYrzmAUKiXGfULSQr8vjOWZHWD/pX06zAdN5hR4bbnEwFEbx9Yln
+	9WcV
+X-Received: by 2002:a17:90b:57c3:b0:38e:bfe:81e9 with SMTP id 98e67ed59e1d1-3903c5589e0mr24025142a91.1.1786098596171;
+        Fri, 07 Aug 2026 03:29:56 -0700 (PDT)
 Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-390b1389e1fsm1133614a91.0.2026.08.07.03.29.49
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-390b1389e1fsm1133614a91.0.2026.08.07.03.29.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Aug 2026 03:29:51 -0700 (PDT)
+        Fri, 07 Aug 2026 03:29:55 -0700 (PDT)
 From: phucduc.bui@gmail.com
 To: Mark Brown <broonie@kernel.org>,
 	Matthias Brugger <matthias.bgg@gmail.com>,
@@ -79,15 +80,17 @@ Cc: linux-spi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
 	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH 1/2] spi: mtk-nor: Propagate errors from optional IRQ lookup
-Date: Fri,  7 Aug 2026 17:29:30 +0700
-Message-ID: <20260807102932.45785-1-phucduc.bui@gmail.com>
+Subject: [PATCH 2/2] spi: mtk-nor: Propagate errors from IRQ request
+Date: Fri,  7 Aug 2026 17:29:31 +0700
+Message-ID: <20260807102932.45785-2-phucduc.bui@gmail.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260807102932.45785-1-phucduc.bui@gmail.com>
+References: <20260807102932.45785-1-phucduc.bui@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_032952_820743_AA8E9438 
-X-CRM114-Status: GOOD (  12.44  )
+X-CRM114-CacheID: sfid-20260807_032957_217529_A136B2D8 
+X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,41 +107,29 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: bui duc phuc <phucduc.bui@gmail.com>
 
-platform_get_irq_optional() returns a positive IRQ number on success or
-a negative error code on failure. For an optional IRQ, -ENXIO indicates
-that no IRQ is available, while other errors should be propagated.
+Treat a failure from devm_request_irq() as a probe error instead of
+continuing without an IRQ after only reporting a warning.
 
-Propagate errors such as -EPROBE_DEFER and -EINVAL instead of continuing
-probe without the IRQ.
+Return the error through the existing error path to ensure the driver
+does not continue with an unsuccessfully requested IRQ.
 
 Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
 ---
- drivers/spi/spi-mtk-nor.c | 5 +++++
- 1 file changed, 5 insertions(+)
+ drivers/spi/spi-mtk-nor.c | 1 +
+ 1 file changed, 1 insertion(+)
 
 diff --git a/drivers/spi/spi-mtk-nor.c b/drivers/spi/spi-mtk-nor.c
-index 74f34537b02c..6b9a5d728549 100644
+index 6b9a5d728549..c1e15246120f 100644
 --- a/drivers/spi/spi-mtk-nor.c
 +++ b/drivers/spi/spi-mtk-nor.c
-@@ -895,6 +895,10 @@ static int mtk_nor_probe(struct platform_device *pdev)
- 	irq = platform_get_irq_optional(pdev, 0);
- 
- 	if (irq < 0) {
-+		if (irq != -ENXIO) {
-+			ret = irq;
+@@ -905,6 +905,7 @@ static int mtk_nor_probe(struct platform_device *pdev)
+ 				       pdev->name, sp);
+ 		if (ret < 0) {
+ 			dev_warn(sp->dev, "failed to request IRQ.");
 +			goto err_disable_clk;
-+		}
- 		dev_warn(sp->dev, "IRQ not available.");
- 	} else {
- 		ret = devm_request_irq(sp->dev, irq, mtk_nor_irq_handler, 0,
-@@ -928,6 +932,7 @@ static int mtk_nor_probe(struct platform_device *pdev)
- 	pm_runtime_set_suspended(&pdev->dev);
- 	pm_runtime_dont_use_autosuspend(&pdev->dev);
- 
-+err_disable_clk:
- 	mtk_nor_disable_clk(sp);
- 
- 	return ret;
+ 		} else {
+ 			init_completion(&sp->op_done);
+ 			sp->has_irq = true;
 -- 
 2.43.0
 
