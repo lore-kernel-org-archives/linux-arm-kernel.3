@@ -4,82 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 292FCC5AC7A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 15:42:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EFA0C5AC7A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 15:50:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E582xZDvt+4gsNcuth6hcv6sLRoTSurZWsRQ5mdDTfE=; b=Q/kZ0rT9vhOCYl9Zz6F6mBTHNm
-	hdOjde9PigSQQ14SdTmvv+HVS8LepvIUsg1pxz2xVe0S6BGKzbZPgKHuFKd3k/AUbN3W+wNGIzQsU
-	11TpzfdxZ9eV+y3OXTlHKgJu0OqNTpGIQMx9RFekCsituucLPjr8R68Y0DEbchsyUnoTGnzlSmqDB
-	uqszudmzNLZrDLeG3c4yj3+cIJ0gj0I7wqBAuorGQ3CLKeRbDnxD2fAhBT5zssatwAQaTyk6qTKz/
-	vRqHI09MlJdSEXLPNE4Cww0s88BHjPt5I27dyaXGF7rKbfVNGgf5ISKrqhJ7IsMgYn0qlX3gW7JME
-	AbxhFuaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=p2nGN5ZXRiqoTtzpZL872g3TGzGSNiIhzVCcBASG2ew=; b=BEeRtZ3c04ac4EXC0qUcEfYKWw
+	6Up6y+X+uLwOUGEm6hBIYEUfeVfBNLhhmXjXU4qT8TudZUhEqNKcyFqFeZoeKYjngbi5hkVre3J6D
+	cQrCx4TWKuoTTD8ZwOTHsbaKIvEcdWrNTJxZc6JptgW+p0vlI+VB79XaAZCprJntYDTRnnU5BImMf
+	zDlWrdBav2AqKPMwf6plTeq+99z9TpZ+8FnAKOcnY6lnbqScuXjqAaMDNzX6ilRLTovJd7URFrojZ
+	CGR+4gTSorDK8HX8ZUtat6EdpiyJuOz/LjU43ISC/qFTfl9pNIyHkv0khItsPueBDeldnOfN2QkVp
+	uFHyfvIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsMiL-00000008MpV-3Aer;
-	Fri, 07 Aug 2026 15:42:29 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wsMqH-00000008NTu-2Jdv;
+	Fri, 07 Aug 2026 15:50:41 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsMiK-00000008MpF-3qJ9
+	id 1wsMqF-00000008NTW-2LYO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 15:42:28 +0000
+	Fri, 07 Aug 2026 15:50:39 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A970B404F5;
-	Fri,  7 Aug 2026 15:42:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B2781F00A3A;
-	Fri,  7 Aug 2026 15:42:28 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 85BB1600B0;
+	Fri,  7 Aug 2026 15:50:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E5241F000E9;
+	Fri,  7 Aug 2026 15:50:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786117348;
-	bh=E582xZDvt+4gsNcuth6hcv6sLRoTSurZWsRQ5mdDTfE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=fbKUZSLAEE+K/4fea2CIPBaXkUycKN/2PNjz2wULzKmBffAptjyRqGSYjgA/88OQe
-	 jpMHpaoffMQKgdFT21SSYdbKvrtRUZ2fnyAjlBEWkPvvRb2cj22qlwvaFwCSv/Ljtk
-	 U2XiAytFEKYCBDzxmlOR0KoTjYBpRgOGAQcxP0k8EezCGms6eF1+eI3GfpCPcMRAnh
-	 iDDsZdP2WZu5T8CYTWYTTtLoiYt6eq2x3BP5VU07vwDNiFpxHGQ9KMbbMbGWnnJrq2
-	 nQELkZ+bkhoV1Or0mQDWSTgTipkgII/CVNIDPuMbAVVn3DgPqMKuxuFpQybw1kBOdx
-	 Fc+B6mMV9gsRA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wsMiI-0000000DR3X-18fk;
-	Fri, 07 Aug 2026 15:42:26 +0000
-Date: Fri, 07 Aug 2026 16:43:47 +0100
-Message-ID: <87h5l6os0c.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Karl Mehltretter <kmehltretter@gmail.com>
-Cc: Wei-Lin Chang <weilin.chang@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <tabba@google.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
+	s=k20260515; t=1786117838;
+	bh=p2nGN5ZXRiqoTtzpZL872g3TGzGSNiIhzVCcBASG2ew=;
+	h=From:To:Cc:Subject:Date;
+	b=V/KitA0fjocwxz1GdntzyJGUQRV/7s5428bv4zaiwbu5mlfGYe/aJHQ1XW93O/zBG
+	 cQ5hGOuSFSZvc6Iq/lncalhUBnIsUfwq1k4+AhDXQFAOvE2Q+AkmoFkAQfiia3KkKk
+	 LX94URQ+ixLinklf5ty1Pcgka/Rj84tEeHVpEPCXotxPXdLro6QMnKJE34CEwZT7hZ
+	 sTNUKbNxXK875P4BaijdP4dJovtHlC/CeaH87INIAtcT2fD5kCTFwFh5C2Ptvlmw47
+	 PgmxegjWdIZgFeRxmSfsR0Oh6u7/UXTVj38MIRK2jFDl3qmLmZj+oaAx07+xA3NFYK
+	 x2auKZc9BPj/g==
+From: Bjorn Andersson <andersson@kernel.org>
+To: arm@kernel.org,
+	soc@kernel.org
+Cc: linux-arm-msm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	grayhat@foxmail.com
-Subject: Re: [PATCH v3] KVM: arm64: nv: Keep the shadow S2 MMUs at fixed addresses
-In-Reply-To: <anUt9gd8HIwaj9jf@gmail.com>
-References: <20260806192451.10169-1-kmehltretter@gmail.com>
-	<d5svhw3jkjnkucohx2ntwhphemgbtfcmjt2zoyyw6svz56zfrh@z2ziydov5ras>
-	<anUt9gd8HIwaj9jf@gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kmehltretter@gmail.com, weilin.chang@arm.com, oupton@kernel.org, tabba@google.com, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, stable@vger.kernel.org, grayhat@foxmail.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Arnd Bergmann <arnd@arndb.de>,
+	Alexandre Messier <alex@me.ssier.org>,
+	Antony Kurniawan Soemardi <linux@smankusors.com>,
+	David Wales <daviewales@disroot.org>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Erikas Bitovtas <xerikasxx@gmail.com>,
+	Rudraksha Gupta <guptarud@gmail.com>
+Subject: [GIT PULL] Qualcomm Arm32 DeviceTree updates for v7.3
+Date: Fri,  7 Aug 2026 10:50:35 -0500
+Message-ID: <20260807155035.603563-1-andersson@kernel.org>
+X-Mailer: git-send-email 2.53.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,51 +74,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 07 Aug 2026 02:13:17 +0100,
-Karl Mehltretter <kmehltretter@gmail.com> wrote:
-> 
-> On Thu, Aug 06, 2026 at 10:54:03PM +0100, Wei-Lin Chang wrote:
-> > 
-> > Hey sorry for nitpicking once more, I actually like v2 more, as this
-> > version splits the error handling to two places. Marc's implementation
-> > [1] is also good, but that requires a twist in kvm_arch_flush_shadow_all().
-> > So I'd personally go with v2 (+my suggestions for it :)), but also fine if
-> > others have other opinions.
-> > 
-> > I also think the comment in kvm_vcpu_init_nested() is worth adjusting
-> > slightly, too.
-> > 
-> 
-> No worries, thanks for taking another look.
-> 
-> I was following the guidance in include/linux/cleanup.h:
-> 
->   the expectation is that usage of "goto" and cleanup helpers is never
->   mixed in the same function.
-> 
-> But maybe keeping goto is better. I'll wait a bit for others
-> to comment.
 
-The version I proposed in response to your first version had no goto,
-and trivial error handling. Can we *please* stop the bike shedding and
-settle on the simplest possible fix? Or *any* fix at all?
+The following changes since commit dc59e4fea9d83f03bad6bddf3fa2e52491777482:
 
-> 
-> For the comment, I propose replacing the current text with:
-> 
-> 	/*
-> 	 * If allocating an MMU object fails, keep the VNCR page alive so
-> 	 * that userspace can retry vCPU initialisation without affecting
-> 	 * the VM.
-> 	 */
-> 
-> Is that the adjustment you had in mind?
+  Linux 7.2-rc1 (2026-06-28 12:01:31 -0700)
 
-I don't think we need to change any comment. If anything, it should be
-deleted altogether. This is a security fix, not a literary exercise.
+are available in the Git repository at:
 
-	M.
+  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-arm32-for-7.3
 
--- 
-Jazz isn't dead. It just smells funny.
+for you to fetch changes up to 1c436bca83bef0f7ca8d106a878a89af17048270:
+
+  ARM: dts: qcom: msm8926-sony-xperia-yukon-eagle: add initial device tree (2026-07-11 13:11:35 -0500)
+
+----------------------------------------------------------------
+Qualcomm Arm32 DeviceTree updates for v7.3
+
+Add initial device tree support for the MSM8926-based Sony Xperia M2 and
+the MSM8226-based Motorola Moto G2 (2014).
+
+Add touchscreen, Bluetooth pin configuration, NFC, and multicolor status LED
+support to the MSM8974-based HTC One M8 device tree.
+
+Add the coreriver,tc360-touchkey compatible touchkey node to the MSM8960
+Samsung ExpressATT device tree and label PM8921 XOADC channels.
+
+Consolidate shared IPA properties in the SDX55 device tree.
+
+----------------------------------------------------------------
+Alexandre Messier (4):
+      ARM: dts: qcom: msm8974pro-htc-m8: add status LEDs
+      ARM: dts: qcom: msm8974pro-htc-m8: add NFC support
+      ARM: dts: qcom: msm8974pro-htc-m8: add Bluetooth pins
+      ARM: dts: qcom: msm8974pro-htc-m8: add touchscreen
+
+Antony Kurniawan Soemardi (1):
+      ARM: dts: qcom: pm8921: add labels for ADC channels
+
+David Wales (1):
+      ARM: dts: qcom: msm8226: Support Motorola Moto G2 (2014)
+
+Dmitry Baryshkov (1):
+      ARM: dts: qcom: sdx55: consolidate IPA properties
+
+Erikas Bitovtas (1):
+      ARM: dts: qcom: msm8926-sony-xperia-yukon-eagle: add initial device tree
+
+Rudraksha Gupta (1):
+      ARM: dts: qcom: msm8960: expressatt: Add coreriver,tc360-touchkey
+
+ arch/arm/boot/dts/qcom/Makefile                    |   2 +
+ arch/arm/boot/dts/qcom/msm8226-motorola-titan.dts  | 350 ++++++++++++++++++
+ .../dts/qcom/msm8926-sony-xperia-yukon-eagle.dts   | 407 +++++++++++++++++++++
+ arch/arm/boot/dts/qcom/pm8921.dtsi                 |  12 +
+ .../dts/qcom/qcom-msm8960-samsung-expressatt.dts   |  54 +++
+ arch/arm/boot/dts/qcom/qcom-msm8974pro-htc-m8.dts  |  94 ++++-
+ arch/arm/boot/dts/qcom/qcom-sdx55-t55.dts          |   2 -
+ .../boot/dts/qcom/qcom-sdx55-telit-fn980-tlb.dts   |   2 -
+ arch/arm/boot/dts/qcom/qcom-sdx55.dtsi             |   3 +
+ 9 files changed, 918 insertions(+), 8 deletions(-)
+ create mode 100644 arch/arm/boot/dts/qcom/msm8226-motorola-titan.dts
+ create mode 100644 arch/arm/boot/dts/qcom/msm8926-sony-xperia-yukon-eagle.dts
 
