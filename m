@@ -4,107 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46B50C5AC7A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 16:26:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ECDFC2A09B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 16:29:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3WZkuOMbp92kOt8eS8keVcyPScCsl2/DBIJFG9MbM30=; b=waOQaITSlM0G1zC2jOaaLcjGnu
-	eTAHNcHpeskRlzbVW4GABnGIQW31qn+xqmrA7E2TZkq5lj4q/TwiCkhbEkYuFGEKcNq+S9ap9Tw4Z
-	Y0t4BhKECaQPahnR51ZM/E1m9D8bIzaRuEKum2JGufQfGXgdQoPIwTmclQ6zIIF3PgBhkpE6v5C2w
-	JhTb6iqzbKZBwmXi/+ndZ5QqAAm9ramCi2GCEU74oXgHjJkY57YZ6REuaE6NQkcpUFP1JZSNDVEfW
-	S0E214AFVUgkBuZL+SE0MYWDD2BWwSPIp+iJfAhWbhyF0IXzCQ3jaDQ/JN9/68l2q4B2jjxBNkQ4A
-	Mc+MLRQg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zhBDyENIGSwZtQI1mO040SeQxcBm4D5J8P9tXaVMOZ8=; b=sY9BPRbndQ8g8C05Q+ROd5zHeN
+	umLUcbTjuDZSdOFl2RNN8fMIMe5gN4d2RLRoKm/iYhXqXgKPlwP6WlhaPgU26xeojd4yvMl5tIfe8
+	JGsF9pQrtHK2iT76l03b2oJs7gzB1vuyztPjnIGrTXoZyQJDE0ugGnilBhiHZ68juksylj2dNT83/
+	ERB/M0oW1yFRDtABA60N+fQ+e05CUEk+qMSLdCVjS+wxv+zxyQoxO3zkINbC81nni34IuSna4+6sQ
+	VwiXKpinlhlfGyoj7Vd0o/ix+y8OPHcJU9oSA9Jr6UBPV87XFY5fZhgXteNyOm3Jvjf1NiJ1eQaPl
+	bUk3GG1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsNOM-00000008Q5a-2fjf;
-	Fri, 07 Aug 2026 16:25:54 +0000
-Received: from mail-eastusazon11011019.outbound.protection.outlook.com ([52.101.52.19] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	id 1wsNS1-00000008QNk-3NEq;
+	Fri, 07 Aug 2026 16:29:41 +0000
+Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsNOK-00000008Q4q-0Mak;
-	Fri, 07 Aug 2026 16:25:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=EsJctjXA57ZXtCAXdmFvypm9QFGlDRcXSEOUTfhEl9XIU/Nom44f+Fu4n3XUOc/t43Q98EEkfLGJXpcnYN4GWhBQOV8zd+8bJ+oq9RIcb8pFZSS1J7vn9Ku2DWb7R7ZvIuvT8+EpmCud+mZib1Ya57i28mCfRV1zvnYq4RdWU2FtAbRKu3hmS7JjN06ZGrIYL4TjztDco0TZhoacbEa3ij5SbU05YG0kgtzXQxCpGbmbMz6mYilJLBoRsm/Wd8fiIy9a/85lik6oCF6JBnK6FACrr9bUsEg8gF7/iwJ1EwzM1+lxB4/7ZwY6FJvi63Y8WaEGdrWp0KmFuG1QAL1xDg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3WZkuOMbp92kOt8eS8keVcyPScCsl2/DBIJFG9MbM30=;
- b=TFVl4agUu74K8wcB7fM6UU8JhAnMx8uQgGfTxGhZw94/BR+mEiRk5rAsD13Z1V6S8YFcHxkQy+f/I1ojx9Z9SOWqKJPZWDLjRkG+kP7v9bqsmmmKP/hl2Kq+hjE9UyxlVYPL4bQDT8U+r/a4QF9SVrIxb68aOS5b3dgsbaI2/S+KLQSEys6XFAZItppO+76xTHjuObX917Y8Yco3TKNN6v0PY2+3ToHq3mwC1awD0OOZmDj3KDltoj+q6yO2FBzh/g+iw6u40H9fB6r3eomQ0l28mYJf3Vh9Pe8kj4YHBD+2w5FsmHpQEzf9P3iOMWnO1wabpHjZl3M9CaCHf+CEaA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=ideasonboard.com smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3WZkuOMbp92kOt8eS8keVcyPScCsl2/DBIJFG9MbM30=;
- b=1pQqZ8ojKFAZP9eSni1CD/hY7cnf00G8UqgIntOSPkqMk1yDAvfu4556v50o2bjsDP3lxPMwDH1N5MxdkSYh+G7VQfQDYOnD0YS7xqcZPfvgxNNn6UOaJE97MbEUhnkVWJRC5ycaFVx3SxMrMMlb/RQymKOSCD6y6WRt7QYqDlY=
-Received: from SJ0PR05CA0032.namprd05.prod.outlook.com (2603:10b6:a03:33f::7)
- by DS0PR12MB999103.namprd12.prod.outlook.com (2603:10b6:8:2fe::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.23; Fri, 7 Aug
- 2026 16:25:29 +0000
-Received: from SJ1PEPF000026C3.namprd04.prod.outlook.com
- (2603:10b6:a03:33f:cafe::6f) by SJ0PR05CA0032.outlook.office365.com
- (2603:10b6:a03:33f::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.315.8 via Frontend Transport; Fri, 7
- Aug 2026 16:25:29 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- SJ1PEPF000026C3.mail.protection.outlook.com (10.167.244.100) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.315.6 via Frontend Transport; Fri, 7 Aug 2026 16:25:29 +0000
-Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Fri, 7 Aug
- 2026 11:25:27 -0500
-Received: from xhdradheys41.xilinx.com (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
- Transport; Fri, 7 Aug 2026 11:25:25 -0500
-From: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-To: <tomi.valkeinen@ideasonboard.com>, <vkoul@kernel.org>,
-	<neil.armstrong@linaro.org>, <michal.simek@amd.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-phy@lists.infradead.org>,
-	<linux-arm-kernel@lists.infradead.org>, <git@amd.com>, Radhey Shyam Pandey
-	<radhey.shyam.pandey@amd.com>, Sashiko <sashiko-bot@kernel.org>
-Subject: [PATCH] phy: zynqmp: register PHY provider after probe initialization
-Date: Fri, 7 Aug 2026 21:55:10 +0530
-Message-ID: <20260807162510.3681572-1-radhey.shyam.pandey@amd.com>
-X-Mailer: git-send-email 2.44.4
+	id 1wsNRz-00000008QNQ-1UFI
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 07 Aug 2026 16:29:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
+	s=smtpauto.stravinsky; h=X-Debian-User:In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=zhBDyENIGSwZtQI1mO040SeQxcBm4D5J8P9tXaVMOZ8=; b=v8k0yg/S9xgrZnqDl1XJV9HBGK
+	Z7aGiqoART4XAKAqdjg1PC9v+rTvg+Yr2n3k3NPl/7WbiiHrTJvgRobQdJX2m7WKgJRzlYQ/cg4XO
+	oAX673RWxfA+LdthIaZ1HRNYHhSQAfsBa2M+AhVsjD3rk/fK1PWmJIU9dkkux/CmH21OdOjSqivGt
+	aIT03iIwFH9iZt1Pq+cF1OL6zBzNYGUxPCWMA3RIDK+1I0kPXog3yqfgnALIUwZdu48k6wdcnmL6t
+	WhGSlH/65DJ3QyZVOwf0bAv90OjbFoveKx9ZCMN6BTDbOmYT7eEY5gDKOOV6N824FtTeJnc7YFVpP
+	PLXsBIcg==;
+Received: from authenticated-user
+	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.96)
+	(envelope-from <leitao@debian.org>)
+	id 1wsNRd-000YhX-27;
+	Fri, 07 Aug 2026 16:29:17 +0000
+Date: Fri, 7 Aug 2026 09:29:12 -0700
+From: Breno Leitao <leitao@debian.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Subject: Re: [PATCH RFC] arm64: entry: PSTATE_I_SET is leaking on pseudo NMI
+ mode
+Message-ID: <anYHjvJ1_4dDjuzw@gmail.com>
+References: <20260807-arm64_fix-v1-1-d069ccf9d71b@debian.org>
+ <anXkO8YpoadRzm07@J2N7QTR9R3>
+ <anXqMsJ14r3BAbMG@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF000026C3:EE_|DS0PR12MB999103:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3b5a3503-fceb-4f40-b4a5-08def4a07ed3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|36860700016|1800799024|82310400026|13003099007|10067099003|56012099006|11063799006|18002099003;
-X-Microsoft-Antispam-Message-Info: OjyXnKZuxsYzpB0MQcahjJyKeYOz9d/C42LhiNAMI4rSkIym7aSxBJBI8cKhMDJQI06N9729Kf2g6Fno7vxKQSp2K5GSLNfd7LWGLl4cNRwa6F8+dXQxaFPJ82Y2OeQBgDXUe5PSSEeruCVa8r28y7JndNTZiD8O0V0HTfrdVPBfYdulAs1Qi0XMmi8/eezb2ldFmHpZKRMjYwQccm+LVu8zoP5urxDH+bCC6PkdMeQdIKaMwahFJhRVp8RTOf+gpeJDeWpSgG9SU2EzarSVHBITGbVlcXvWOv2le5y/p7Ug12Sx4OYRHY2rjDWXLm9Mo6KvPL9HR+zJSCOvHeG4ys56cvsGqdcuUofJOnce2Et1qL2JxcXd9BAZecMMHTUQQOalLK44pzWqWycwLMBk5Ohq2SkZAtNgXiDqhDjtq+ucSThFPz70Pkpq5IlefGpMoVBRcnKfG3DQ1l8MeVzp1nq+0XEKY8tK+gfUlZXGuMOlSYgLIEquYda/iHADlBrn9sMQy1Y+aASRkipOQtU3GsUjaiYa00nVYVQCgjD47jJ0jv+1jXdC8erwk7wBo2SXFN5Ux/fdsTl0y2pPe95TGSRQ2J/FO6H419vYBKjP3WuC5OP8xtqJ6OmqQz/37hReEGp9+B4kGlRRUFaK8+EGEzDBwi1JqCtc88H1WXFzKBYaIg9Nrj/1p1l6GkvMib/EBhYpP/FrtdpZAJdRzho2BQ==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(23010399003)(36860700016)(1800799024)(82310400026)(13003099007)(10067099003)(56012099006)(11063799006)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: IungOQzrb0yUlhdVPOgyKYB4a250yuJlJPLrb6DdfB0+G2j5okENbzEMdelc16pKJf3650xAcxWjJI/HI5Ihrf0J40GnUzfT+Y00NIA3GZ295eNjafxBxEY/etb0bz8rDmz4LDSzL5k6DlB6SsoXff79tb28txbcY8nwrqIwyRvWhsdlb90HWhS0nhxbLyOoS+tBTuWGixTNUstabw/Ob7Fg7MFPK/uDGT3MyiW2gKT/u8JKGiw3P0rWtJpD39rqlMBvMVejoVi8Tgn6veKqvGXr+v1GK1/DrMRhXaDfPsVwYQ26RQf6iqaGsfssOzcalSzcg3LCwdlzWOkwgmKa7IwhCDeTBKTPXPSK/uZBdWcmwKySyMVAIOCxOmZ/0oMRd7Xlgn8yk2c/qbQ/RRA9uwauZbHiGQhWC7XgCm2p0lTmL2kGIkzCJ/DwgJRwxBdW
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Aug 2026 16:25:29.1673
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3b5a3503-fceb-4f40-b4a5-08def4a07ed3
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000026C3.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB999103
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <anXqMsJ14r3BAbMG@gmail.com>
+X-Debian-User: leitao
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_092552_169083_05102946 
-X-CRM114-Status: GOOD (  10.50  )
+X-CRM114-CacheID: sfid-20260807_092939_397100_021F7966 
+X-CRM114-Status: UNSURE (   7.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,60 +72,66 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Vladimir Murzin <vladimir.murzin@arm.com>, rmikey@meta.com, "Peter Zijlstra \(Intel\)" <peterz@infradead.org>, Catalin Marinas <catalin.marinas@arm.com>, Jinjie Ruan <ruanjinjie@huawei.com>, kernel-team@meta.com, linux-kernel@vger.kernel.org, bpf@vger.kernel.org, Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Register the OF PHY provider only after saved_regs allocation and
-runtime PM setup complete successfully. Publishing the provider
-mid-probe allowed concurrent consumers to obtain a phy via xpsgtr_xlate()
-while probe could still fail, leaving them with references into driver
-state that devres would free on the error path.
+On Fri, Aug 07, 2026 at 07:58:21AM -0700, Breno Leitao wrote:
+> Meanwhile, I will try to ftrace the writes to PMR and regs->pmr to get
+> a better grasp of the states machine we are in (probably on Monday).
 
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Link: https://lore.kernel.org/all/20260720155732.9DA581F000E9@smtp.kernel.org
-Fixes: b3db66f62446 ("phy: xilinx: add runtime PM support")
-Fixes: 5af9b304bc60 ("phy: xilinx: phy-zynqmp: Fix SGMII linkup failure on resume")
-Signed-off-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
----
- drivers/phy/xilinx/phy-zynqmp.c | 15 ++++++++-------
- 1 file changed, 8 insertions(+), 7 deletions(-)
+It seems LLM found a very easy to reproduce this:
 
-diff --git a/drivers/phy/xilinx/phy-zynqmp.c b/drivers/phy/xilinx/phy-zynqmp.c
-index 240626b55475..8930cbe24b5a 100644
---- a/drivers/phy/xilinx/phy-zynqmp.c
-+++ b/drivers/phy/xilinx/phy-zynqmp.c
-@@ -1060,13 +1060,6 @@ static int xpsgtr_probe(struct platform_device *pdev)
- 					    xpsgtr_status_read);
- 	}
- 
--	/* Register the PHY provider. */
--	provider = devm_of_phy_provider_register(&pdev->dev, xpsgtr_xlate);
--	if (IS_ERR(provider)) {
--		dev_err(&pdev->dev, "registering provider failed\n");
--		return PTR_ERR(provider);
--	}
--
- 	gtr_dev->saved_regs = devm_kmalloc(gtr_dev->dev,
- 					   sizeof(save_reg_address),
- 					   GFP_KERNEL);
-@@ -1082,6 +1075,14 @@ static int xpsgtr_probe(struct platform_device *pdev)
- 		return ret;
- 	}
- 
-+	provider = devm_of_phy_provider_register(&pdev->dev, xpsgtr_xlate);
-+	if (IS_ERR(provider)) {
-+		dev_err(&pdev->dev, "registering provider failed\n");
-+		pm_runtime_put(gtr_dev->dev);
-+		pm_runtime_disable(gtr_dev->dev);
-+		return PTR_ERR(provider);
-+	}
-+
- 	return 0;
- }
- 
+	bash-5.1# dmesg
 
-base-commit: ea2bff00da89d7767d677bb68470130ba96f4928
--- 
-2.44.4
+	bash-5.1#  cd /sys/kernel/tracing
+	echo 'r:pmr vfs_read bad=+0($retval):u64' >> kprobe_events
+	echo 1 > events/kprobes/pmr/enable
+
+	bash-5.1# dmesg
+	[   54.997498] ------------[ cut here ]------------
+	[   54.997506] WARNING: ./arch/arm64/include/asm/irqflags.h:63 at arm64_exit_to_kernel_mode+0xc0/0xc8, CPU#1: bash/185
+	[   54.997530] Modules linked in:
+	[   54.997535] CPU: 1 UID: 0 PID: 185 Comm: bash Not tainted 7.2.0-rc6-next-20260806upstream #15 PREEMPT(full)
+	[   54.997538] Hardware name: linux,dummy-virt (DT)
+	[   54.997540] pstate: 234003c5 (nzCv DAIF +PAN -UAO +TCO +DIT -SSBS BTYPE=--)
+	[   54.997542] pc : arm64_exit_to_kernel_mode+0xc0/0xc8
+	[   54.997544] lr : el1_abort+0x5c/0x80
+	[   54.997547] sp : ffff800088ba35f0
+	[   54.997548] pmr: 000000f0
+	[   54.997550] x29: ffff800088ba35f0 x28: ffff0000c3cd0000 x27: 0000000000000000
+	[   54.997554] x26: ffff0000c3f277d0 x25: 0000000000000030 x24: 0000000000000001
+	[   54.997557] x23: 00000000834003c5 x22: 0000000000000000 x21: 0000000000000001
+	[   54.997566] x20: ffff800088ba3650 x19: 0000000000000000 x18: 0000000000000000
+	[   54.997569] x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000001
+	[   54.997572] x14: 0000000040000000 x13: ffff800086b171f8 x12: fff080007fe00000
+	[   54.997576] x11: 0000000000000001 x10: aaaaaaaaaaaaaaab x9 : 000000000000001f
+	[   54.997579] x8 : 00000000000000d0 x7 : 0000000000000000 x6 : ffff0000c0adf02c
+	[   54.997582] x5 : ffff0000c0adf034 x4 : ffff800081408b08 x3 : 000000000000000c
+	[   54.997585] x2 : 00000000000002fe x1 : 0000000000000000 x0 : ffff800088ba3650
+	[   54.997589] Call trace:
+	[   54.997590]  arm64_exit_to_kernel_mode+0xc0/0xc8 (P)
+	[   54.997593]  el1_abort+0x5c/0x80
+	[   54.997595]  el1h_64_sync_handler+0x50/0x100
+	[   54.997597]  el1h_64_sync+0x80/0x88
+	[   54.997601]  __arch_copy_from_user+0x220/0x240 (P)
+	[   54.997604]  process_fetch_insn+0x450/0x8b0
+	[   54.997608]  kretprobe_trace_func+0x1b0/0x298
+	[   54.997611]  kretprobe_dispatcher+0x5c/0x88
+	[   54.997613]  __kretprobe_trampoline_handler+0xc4/0x168
+	[   54.997617]  kretprobe_brk_handler+0x40/0x68
+	[   54.997620]  call_el1_break_hook+0x74/0xa0
+	[   54.997623]  do_el1_brk64+0x30/0x60
+	[   54.997624]  el1_brk64+0x2c/0x48
+	[   54.997626]  el1h_64_sync_handler+0x80/0x100
+	[   54.997628]  el1h_64_sync+0x80/0x88
+	[   54.997630]  ksys_read+0x80/0x100 (P)
+	[   54.997634]  __arm64_sys_read+0x28/0x40
+	[   54.997636]  invoke_syscall+0x54/0xf0
+	[   54.997640]  do_el0_svc+0x7c/0xb8
+	[   54.997642]  el0_svc+0x60/0x188
+	[   54.997644]  el0t_64_sync_handler+0x84/0x130
+	[   54.997645]  el0t_64_sync+0x1ac/0x1b0
+	[   54.997647] ---[ end trace 0000000000000000 ]---
 
 
