@@ -4,66 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E71FC5AC7C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 09:52:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45C86C5AC7A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 09:58:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7wIyNcLqed5ZVpQIQecWwGt1wAPqTwpYyb9INfK67g4=; b=GvpoNlZ6tNeTsS
-	0DNXvGYdUvp5BoRuM2hr0pRVz39VMyufOl6cuOmjFJxt+hFDN2AL7D9g8svoQ9f3P0C+6ttMwaVr6
-	2rTsv/7otIBjtW+1qPhkUa9Gp2nQ7TYUI+F28IQeWBqbnH4tKqejYjuVS3Okba4dp7o0eKHu4/3qn
-	LDeVW/7ihE5MOev3aBwZp/ViMTcVA2uG1VvVkwfTSRByb/tKmehVIqnj3eN7RLSzk7dos1YThuPZx
-	2OkS0GyZPtrUB9JtKUTh6ZKMfgLcJdcFRFEKyGzU5G1gcrtl0+eONRNaUsilL/jBRcKiPA4c5/iM3
-	r/rVPuiJqNf2L+ElAXcQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=E7YUN3acSudzIiV+nemfJRyQohopopchH4wYIZSGQ/4=; b=ozFIetFVf/ssD0xS0wgLnDBWo9
+	FT1mA2sBjfRZtEhi/DjqQh6gaQcD/hvtNyi3lQYYtGp2y3UmTwKHCFfSgrHXy/GLUCKqWCLA7TAsT
+	v0J9YFhsZsiwRGjDVcPwI+p4RE8DqJJDxcBVlhC9iqdoe6d7+3/3hXhYzMsG0KZNUDFPEj7MWJgqU
+	jgd6L8vncFWWwlR1hcWpkHwzVslNrStzwy/n42h3z4usOONmYoinV2BQvqXyH29HLN6kg9/CsIiS2
+	QeKeBK1Bf+ub1bc2edW0rQCAo5cOrf2IQU/9WJPJ5IEOQ3L+a59Nz61uN+zsIPvaRlJ0wqYMVNivX
+	hHVIZLDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsHFV-00000007Yk8-2eek;
-	Fri, 07 Aug 2026 09:52:21 +0000
-Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
+	id 1wsHKm-00000007ZQe-1Vm6;
+	Fri, 07 Aug 2026 09:57:48 +0000
+Received: from mail-westeuropeazon11010048.outbound.protection.outlook.com ([52.101.69.48] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsHFR-00000007YiY-3rlZ
+	id 1wsHKh-00000007ZPd-2Ot5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 09:52:20 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=7wIyNcLqed5ZVpQIQecWwGt1wAPqTwpYyb9INfK67g4=;
-	b=BKgknH5jfAI9E72DWVubPI/Eol/+zWF0BcqV15fW6gH66tKjlge4rG9iEBzyotx4Y+SxA5VcR
-	ERODHCwUBvvEytOAeDt7B7hCbQG6vpp0u6O/Fivy6//hLMPP6SBwr1SzVG8Hfmy+mvfGx3fD4Q9
-	40yeQvqUihSHzF5OEYWx5V0=
-Received: from mail.maildlp.com (unknown [172.19.163.163])
-	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4hGfL23PF9zLlXX;
-	Fri,  7 Aug 2026 17:41:30 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 467E44048B;
-	Fri,  7 Aug 2026 17:52:04 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 7 Aug 2026 17:52:03 +0800
-Message-ID: <6b549b5b-5d90-4d75-94e9-b5f7cf7605f5@huawei.com>
-Date: Fri, 7 Aug 2026 17:52:02 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 02/20] arm64: percpu: Fix this_cpu_and() mask
- generation
-To: Mark Rutland <mark.rutland@arm.com>,
+	Fri, 07 Aug 2026 09:57:46 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=atNgpxF6fwW1b7JuRvCT1IbinrfaEFdfRfkLkEaFinQo0IiWfAOP2890H7I0s2iXzb5/NfITinAEBRMu35gO9oreV3DaZntLOfCF+A2s1l78u5DC5dJDJwJqAicbTmnKjofavJ6sWUtz0JqBCI2ErSZhXQaSynk1bLdftaCzLrYDe8UBGQyjRYm+sxOMffrRXub0ntROGmfss0uS/GMUtiDiOrz0BARXAlNfCVgqQpiSw1u1lhGK5Wul4DhInqalfMQ3lxQc7YUC/jya5szdWmuiiTkR/YN9w9Y0SpElc83uQ6aBWQ8B+FZMS7iIo38tkIZZlvAECmTSSkDTYKoHvA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=E7YUN3acSudzIiV+nemfJRyQohopopchH4wYIZSGQ/4=;
+ b=X6n2fbZU0p8kLfE9vslR/u7bAcsk+ZatmR4sJlNCONoT+Y3ysgVXYSXRmKG76SBJ78CuaEo6AGPnkdWA6voGDGstLCximIAnrSt4V3R3i5MFWbk2PlBFyfmMyj7cQeN3WhYolCNFQHt+bnZ/Ois4qtCAQNOpLr5Ew6cKikPKkfdK7svpMA0EgHa13y5RqhUWYnWLk8/apAs3A7auCqql0Z7v/qQxjW+dDIBad7WFXA66fjfigzcOBKjeUWhhVmZ1O/aFl1iqu6GD9cbPTZsGOelNsUeNSYTYeg1EFKzo+7VDDSXj5VpQZAxsg+NeLew6Yej9VRpx4s+e9Ei/N1UIcQ==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=linux.dev smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=E7YUN3acSudzIiV+nemfJRyQohopopchH4wYIZSGQ/4=;
+ b=c6BXxYgc0wVe/EC0yL5EbRPpC/TsNTcFgFxGBE+pfXMxCLgnsjL+I7BVAPe06oUdg+ty/iH4I6adFd9OWsbduP0IoqnO3Khnl2zayELacZOEkcReYX1gvkvhdOqXX0/dXIF8TEfrM8AksHBv9Hb9TvUTSKWmWT5BBk1FbGoc/5E=
+Received: from AS9PR05CA0247.eurprd05.prod.outlook.com (2603:10a6:20b:493::11)
+ by DB9PR08MB6396.eurprd08.prod.outlook.com (2603:10a6:10:23e::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.19; Fri, 7 Aug
+ 2026 09:57:34 +0000
+Received: from AMS0EPF000001A2.eurprd05.prod.outlook.com
+ (2603:10a6:20b:493:cafe::65) by AS9PR05CA0247.outlook.office365.com
+ (2603:10a6:20b:493::11) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.292.23 via Frontend Transport; Fri, 7
+ Aug 2026 09:57:34 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ AMS0EPF000001A2.mail.protection.outlook.com (10.167.16.235) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.315.6
+ via Frontend Transport; Fri, 7 Aug 2026 09:57:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=lXYrmQ57j767J36O/1wO2bYtiYWkZEgfnV0vnm+YNxKRZ2VjPRLPi2exO+obS4HKxfGYRxffFHz63SrjS6PHyV01moAixgZZYWzigXBIoFx5Xoq1MzKmWdwCdwjXXoe+iIhiYmQZeJJ7wqjRNGPYmIqdtBsxZrq5KjZfwpEAXr9r3/Z8aZww9fdiaL5orym4EILq8+eWUhoDAlmzzIyT5UPEr8vPYN7/73LG+1CvYGmuiWpsqOCwhIhMQjFT1BrC/JwWCbuIQIDKtUePk0fI9miLSGkPTS6vCVfpYPw3I3nHxrMHnm1aPReDH0AJGwZfM6Pszyw9e3oulcVJynjdww==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=E7YUN3acSudzIiV+nemfJRyQohopopchH4wYIZSGQ/4=;
+ b=XTkmPdi7Yx3Sg8r0/7gBejMesgY2qRPvcnXOl+jk8+2ZukJeerP9cRWa23iSwPmNGqAMLJQQU3bAqBnKvOEinWOprZxTkusHBgx1iNbo0+5sYVh9zcAah5y/xnPmc18mqtmbCVF9dnJlpqFQKHh7Q/+3FWz+IEzZp7JeI58fZZusZ7BqR+l8bCQaC6Z7gEBC5Iv9drkIInsXt3jV3O1PulG36585UA9UUhEVmilIR3TOvESb28SsU9f8lShyp0/3Syt1Q7I9Ct0RVPWVKcpXg+CFbP17zBVhj6l0Qe5j+MwkNtSMHalK19Jkzy43D6h0BgPJAiVGuCby6UMDcZnLFQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=E7YUN3acSudzIiV+nemfJRyQohopopchH4wYIZSGQ/4=;
+ b=c6BXxYgc0wVe/EC0yL5EbRPpC/TsNTcFgFxGBE+pfXMxCLgnsjL+I7BVAPe06oUdg+ty/iH4I6adFd9OWsbduP0IoqnO3Khnl2zayELacZOEkcReYX1gvkvhdOqXX0/dXIF8TEfrM8AksHBv9Hb9TvUTSKWmWT5BBk1FbGoc/5E=
+Received: from GV1PR08MB8428.eurprd08.prod.outlook.com (2603:10a6:150:81::5)
+ by DU0PR08MB8065.eurprd08.prod.outlook.com (2603:10a6:10:3e8::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.23; Fri, 7 Aug
+ 2026 09:56:55 +0000
+Received: from GV1PR08MB8428.eurprd08.prod.outlook.com
+ ([fe80::9b97:c973:3308:5ba7]) by GV1PR08MB8428.eurprd08.prod.outlook.com
+ ([fe80::9b97:c973:3308:5ba7%5]) with mapi id 15.21.0292.018; Fri, 7 Aug 2026
+ 09:56:54 +0000
+From: Sascha Bischoff <Sascha.Bischoff@arm.com>
+To: "fuad.tabba@linux.dev" <fuad.tabba@linux.dev>, "maz@kernel.org"
+	<maz@kernel.org>, "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"oupton@kernel.org" <oupton@kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
 	<linux-arm-kernel@lists.infradead.org>
-References: <20260804170503.3513916-1-mark.rutland@arm.com>
- <20260804170503.3513916-3-mark.rutland@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260804170503.3513916-3-mark.rutland@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+CC: Joey Gouly <Joey.Gouly@arm.com>, "yuzenghui@huawei.com"
+	<yuzenghui@huawei.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"will@kernel.org" <will@kernel.org>, Catalin Marinas
+	<Catalin.Marinas@arm.com>, nd <nd@arm.com>
+Subject: Re: [PATCH v1 1/4] KVM: arm64: Validate the host-provided vgic model
+ in pKVM
+Thread-Topic: [PATCH v1 1/4] KVM: arm64: Validate the host-provided vgic model
+ in pKVM
+Thread-Index: AQHdJYrhm8gMT+mVykqpQbRoHfVCP7aSWw+A
+Date: Fri, 7 Aug 2026 09:56:54 +0000
+Message-ID: <6a92d2e40a2195099eed90179efa286295392e39.camel@arm.com>
+References: <20260806100256.371164-1-fuad.tabba@linux.dev>
+	 <20260806100256.371164-2-fuad.tabba@linux.dev>
+In-Reply-To: <20260806100256.371164-2-fuad.tabba@linux.dev>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Evolution 3.52.3-0ubuntu1.1 
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+x-ms-traffictypediagnostic: GV1PR08MB8428:EE_|DU0PR08MB8065:EE_|AMS0EPF000001A2:EE_|DB9PR08MB6396:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8f9bfc75-2454-4793-132e-08def46a4deb
+x-checkrecipientrouted: true
+nodisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|23010399003|376014|366016|1800799024|38070700021|10067099003|11063799006|4143699003|56012099006|18002099003|22082099003|3023799007;
+X-Microsoft-Antispam-Message-Info-Original: DgyPS57bo4DqdpnX4KKgXLGaIMFDLLM9Q0r3DG2ig3W3YKp8UcxL2TcIFSD4gCeLfjSymVXmX1xd/8pb8/gupokG7YKFYvA5M+umHuLDc+jDyRBE6LbJnUookVezJREgvL94MMisdcT04a59sOJuh2Ijgr8pImhqvcX1iI6akL4OCHOPKO5WHav51I49hnSROLHAcBIpSnpddgqixWi1f0kMpC/Xx4Y0zntpcOZnhcfV3OXBcf14e8UPz4XTT0hqkTubYyHlANjSa3tlihN20EdL3QhciQkghokgZBur75OhGncPHlWqrJ0Yk+5Jv4vC24k5vDMfioVrgboEiaQi9KfU0zl+x7ttJHSYEQL9pn6YRpcvbDQJIZRrXiNtOFH/IsRvW1xLf5PeO+6D9jG1qmkD04inuqrZYfgB/oKFZYje5oersw2SKZYfyYlJF8L2z/B1e5eEKGPMEAGaV23mqc9J0bT8LW3s6ZMOfIILygEMcUu2m6s3vX/FueeuMzTgPgf0baXJ5Ad3OtTwFUe/nXTwbHwAG1S9KUyZFiO/O9Mz9ACBCBskWBnwfqyRv/3VRbaqTkf9dUuNA+nbOJ4Z8xwiGLwUAuE6bGvze0Y91qCbXmYqL3crKJS02ShNloh7jg2veJszc5HffkB8CKQ/9HM+ai5N7prVcTZOORcc8PQR142Auu/tCw2X2YUt1CvPLPUq2jnDrMRNEYsFZ+2AHL79eneNUOKeMQUrQNHSywY=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB8428.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(366016)(1800799024)(38070700021)(10067099003)(11063799006)(4143699003)(56012099006)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <E374BB3768CA3F459C6067744463B74D@eurprd08.prod.outlook.com>
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+X-Exchange-RoutingPolicyChecked: NHcMWb8/0/K+EHHQV6zGXn/7/dIvzvK3wjcwX8HrFJMURYuoX1mtaheyrVmnO4IYfXZrM55XG8Ta8/ruEzYtzNf4VoPG7rWwFl02nUMlWshSJLeE+Nm8B0UtVDwDeoxcAN7IpFmrl+K9oeL5FdZlvIufz+U1WKBwap4irYUUC7jX+Vew0q+IyPxWxkPc7uphGrtJ7yjUkxIG9XhGYstHViciWoV4UxBFqKQnedvccARrAkCmg4VRF7di2e6MGB9ijN7TX6TFKfFczNWYyMWz++P/3qtPDsIDl18uAc4Rhnbk28j2pxsx/9n8oKAL+OnZqvBPqf/HOpPI5Ji6MDuN7A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR08MB8065
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS0EPF000001A2.eurprd05.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: a9cdd601-a1db-4afe-e5ac-08def46a3657
+X-Microsoft-Antispam: BCL:0;ARA:13230040|14060799003|376014|35042699022|82310400026|1800799024|36860700016|23010399003|11063799006|56012099006|4143699003|10067099003|18002099003|3023799007|22082099003;
+X-Microsoft-Antispam-Message-Info: ftrlFa/y877JukX7+BW/UQo5rDkBTFrYN8sH86zsgDKdNiO7pgMnZ7LDSQ8FFqIWwIKJ1m9eRqWRmWdjFGuHg1xRQ+rQMJNrfhGZPbDkvSt0+EMHfMDt0kVlYK0KPAIVClAGbtasW0uPofY2S4Ltzp7qEFSr/u5BATFvJs9VHLY+uGIecFjfwtSKdElnG8Gz0li6/W/UyB4G2ddbxX6H1N1Lz6CvAzxMbLtpycpDAk4iVs8Ie4oR5tqVkXNdBrccKfX2hsqnLWJ2a/0E50tjCF/RIy3PD/slCThpTKYrywWo2d4nNfVU0x9YuJA7fEtdWfEt8vaWshJmd+r7ikWur4XcqzB/c+bVI20jhazEOFNOwI3DV+A6JktoVKKb2yKWjouezFiF1tZHlZRtNuoJVem+NA4GCsaFPmBtxOvChEOCPjf/tmRw6lwcHblnQl7ghp5bG6h6YlDkj9Xt0D6jlpSlGlCCgPDLF6VwLQ2NGK9lI4Taq7WTWVRsAD63LlgZqLNjtXqR7ZbZSvxII4RMUNxBT/2HxnwZZpPDUC2ZlQAgTf1GSGN4nkVWE1fJWZrShSqP7maf2K/GihOEaEcXekyqoXDBAXNRbQQDl/BSo4OrcNjc7C7oQ8tZJoQ7aTIXrhTnzjh6ZFxRMm/8yes3RNPoNcTRVcPAgiiO+ao0fVtT9NAIH9hswHd6LiOX4VubWshQ+q2/KhQSz548KQ/w6A==
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(14060799003)(376014)(35042699022)(82310400026)(1800799024)(36860700016)(23010399003)(11063799006)(56012099006)(4143699003)(10067099003)(18002099003)(3023799007)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: XaqWxTfW9Scmm9sq6unmO1PpmhYwByzH7K30i2QgZo6OvEeKvvUAaPkaBlvWq9mWb2mggMhQNO+LCK0snMuyPnpn3P8t+EsCSLAgEM1GYvqNmfZkL1k4XXzjHc0eKmnCYANkjTt7XfWhaL/uxQW4vZxe4hpMH1rqCayF56ZmHF5761YMXCgceqgd+AaIzoemsAh4EV7cuvGjRInJsq+Mj4k1/qIrobqOvJB44CqF6WUP0q+K4UAENX7UG3unbLeLiOCq8DbpQDeXklUO3oRNmYRKxExnQECazx2TNl/6kSC6r0LzwYudooen6P0moPCM49QorPuw8inFPES2W5gV9/Ons1MOwXrEW/AWn/S28zjhYN4zZDOlJEfZjhTAkvpzd5F/E17VX8eQxW4l9AlrivPhvDdV6JVqC6o62650krU6PiE05cNeTXxFzFtjNx7z
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Aug 2026 09:57:34.3235
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8f9bfc75-2454-4793-132e-08def46a4deb
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF000001A2.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR08MB6396
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_025218_628631_244060F8 
-X-CRM114-Status: GOOD (  20.36  )
+X-CRM114-CacheID: sfid-20260807_025743_865060_F777E58A 
+X-CRM114-Status: GOOD (  21.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,232 +162,50 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: vladimir.murzin@arm.com, ryan.roberts@arm.com, peterz@infradead.org, catalin.marinas@arm.com, david.laight.linux@gmail.com, stable@vger.kernel.org, james.morse@arm.com, yang@os.amperecomputing.com, cl@gentwo.org, maz@kernel.org, david@kernel.org, ljs@kernel.org, will@kernel.org, ardb@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-在 2026/8/5 1:04, Mark Rutland 写道:
-> The arm64 implementation of this_cpu_and(pcp, val) is built in terms of
-> ANDNOT operations, which requires the 'val' argument to be bitwise
-> negated. The bitwise negation is not implemented correctly, with two
-> bugs described below.
-> 
-> (1) The bitwise negation is performed as '~val' rather than '~(val)'.
->     This won't always generate the expected value when 'val' is an
->     expression.
-> 
->     For example, for this_cpu_and(pcp, 1 - 1):
-> 
->     * 'val'    is  '1 - 1'   ===> (int) 0x00000000
->     * '~val'   is '~1 - 1'   ===> (int) 0xfffffffd
->     * '~(val)' is '~(1 - 1)' ===> (int) 0xffffffff
-> 
->     ... and thus bit[1] of 'pcp' would be preserved unexpectedly by the
->     ANDNOT operation.
-> 
-> (2) The bitwise negation is performed on 'val' before it has been cast
->     to (at least) the width of 'pcp'. This won't always generate the
->     expected value for the upper bits.
-> 
->     For example, for this_cpu_and(pcp, zero), where 'pcp' is a u64 and
->     'zero' is a u32:
-> 
->     * 'zero'           ===> (u32) 0x00000000
->     * '~(zero)'        ===> (u32) 0xffffffff
->     * '(u64)~(zero)'   ===> (u64) 0x00000000ffffffff
->     * '~((u64)(zero))' ===> (u64) 0xffffffffffffffff
-> 
->     ... and thus bits[63:32] of 'pcp' would be preserved unexpectedly by
->     the ANDNOT operation.
-> 
-> Fix these issues by adding brackets around 'val', and by casting 'val'
-> to an appropriately-sized type before bitwise negation.
-> 
-> The bugs described above can be seen from the disassembly of the
-> following test code:
-> 
-> | void this_cpu_and_u64_zero(u64 __percpu *pcp)
-> | {
-> |         u64 zero = 0;
-> |         this_cpu_and(*pcp, zero);
-> | }
-> |
-> | void this_cpu_and_u32_zero(u64 __percpu *pcp)
-> | {
-> |         u32 zero = 0;
-> |         this_cpu_and(*pcp, zero);
-> | }
-> |
-> | void this_cpu_and_expr_zero(u64 __percpu *pcp)
-> | {
-> |         this_cpu_and(*pcp, 1 - 1);
-> | }
-> |
-> | void this_cpu_and_expr_zero_brackets(u64 __percpu *pcp)
-> | {
-> |         this_cpu_and(*pcp, (1 - 1));
-> | }
-> 
-> Before this patch:
-> 
-> | <this_cpu_and_u64_zero>:
-> |        paciasp
-> |        stp     x29, x30, [sp, #-16]!
-> |        mrs     x1, sp_el0
-> |        mov     x29, sp
-> |        ldr     w2, [x1, #8]
-> |        add     w2, w2, #0x1
-> |        str     w2, [x1, #8]
-> |        mov     x3, #0xffffffffffffffff         // #-1
-> |        mrs     x2, tpidr_el1
-> |        add     x0, x0, x2
-> | 1:     ldxr    x5, [x0]
-> |        bic     x5, x5, x3
-> |        stxr    w4, x5, [x0]
-> |        cbnz    w4, 1b
-> |        ldr     x0, [x1, #8]
-> |        add     x0, x0, x3
-> |        str     w0, [x1, #8]
-> |        cbz     x0, 2f
-> |        ldr     x0, [x1, #8]
-> |        cbnz    x0, 3f
-> | 2:     bl      preempt_schedule_notrace
-> | 3:     ldp     x29, x30, [sp], #16
-> |        autiasp
-> |        ret
-> |
-> | <this_cpu_and_u32_zero>:
-> |        paciasp
-> |        stp     x29, x30, [sp, #-16]!
-> |        mrs     x1, sp_el0
-> |        mov     x29, sp
-> |        ldr     w2, [x1, #8]
-> |        add     w2, w2, #0x1
-> |        str     w2, [x1, #8]
-> |        mov     x3, #0xffffffff                 // #4294967295
-> |        mrs     x2, tpidr_el1
-> |        add     x0, x0, x2
-> | 1:     ldxr    x5, [x0]
-> |        bic     x5, x5, x3
-> |        stxr    w4, x5, [x0]
-> |        cbnz    w4, 1b
-> |        ldr     x0, [x1, #8]
-> |        sub     x0, x0, #0x1
-> |        str     w0, [x1, #8]
-> |        cbz     x0, 2f
-> |        ldr     x0, [x1, #8]
-> |        cbnz    x0, 3f
-> | 2:     bl      preempt_schedule_notrace
-> | 3:     ldp     x29, x30, [sp], #16
-> |        autiasp
-> |        ret
-> |
-> | <this_cpu_and_expr_zero>:
-> |        paciasp
-> |        stp     x29, x30, [sp, #-16]!
-> |        mrs     x1, sp_el0
-> |        mov     x29, sp
-> |        ldr     w2, [x1, #8]
-> |        add     w2, w2, #0x1
-> |        str     w2, [x1, #8]
-> |        mov     x3, #0xfffffffffffffffd         // #-3
-> |        mrs     x2, tpidr_el1
-> |        add     x0, x0, x2
-> | 1:     ldxr    x5, [x0]
-> |        bic     x5, x5, x3
-> |        stxr    w4, x5, [x0]
-> |        cbnz    w4, 1b
-> |        ldr     x0, [x1, #8]
-> |        sub     x0, x0, #0x1
-> |        str     w0, [x1, #8]
-> |        cbz     x0, 2f
-> |        ldr     x0, [x1, #8]
-> |        cbnz    x0, 3f
-> | 2:     bl      preempt_schedule_notrace
-> | 3:     ldp     x29, x30, [sp], #16
-> |        autiasp
-> |        ret
-> 
-> After this patch:
-> 
-> | <this_cpu_and_u64_zero>:
-> |        paciasp
-> |        stp     x29, x30, [sp, #-16]!
-> |        mrs     x1, sp_el0
-> |        mov     x29, sp
-> |        ldr     w2, [x1, #8]
-> |        add     w2, w2, #0x1
-> |        str     w2, [x1, #8]
-> |        mov     x3, #0xffffffffffffffff         // #-1
-> |        mrs     x2, tpidr_el1
-> |        add     x0, x0, x2
-> | 1:     ldxr    x5, [x0]
-> |        bic     x5, x5, x3
-> |        stxr    w4, x5, [x0]
-> |        cbnz    w4, 1b
-> |        ldr     x0, [x1, #8]
-> |        add     x0, x0, x3
-> |        str     w0, [x1, #8]
-> |        cbz     x0, 2f
-> |        ldr     x0, [x1, #8]
-> |        cbnz    x0, 3f
-> | 2:     bl      0 <preempt_schedule_notrace>
-> | 3:     ldp     x29, x30, [sp], #16
-> |        autiasp
-> |        ret
-> |
-> | <this_cpu_and_u32_zero>:
-> |        b       this_cpu_and_u64_zero
-> |
-> | <this_cpu_and_expr_zero>:
-> |        b       this_cpu_and_u64_zero
-> |
-> | <this_cpu_and_expr_zero_brackets>:
-> |        b       this_cpu_and_u64_zero
-> 
-> Fixes: 959bf2fd03b5 ("arm64: percpu: Rewrite per-cpu ops to allow use of LSE atomics")
-> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-> Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> Cc: Ard Biesheuvel <ardb@kernel.org>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: James Morse <james.morse@arm.com>
-> Cc: Jinjie Ruan <ruanjinjie@huawei.com>
-> Cc: Marc Zyngier <maz@kernel.org>
-> Cc: Peter Zijlstra <peterz@infradead.org>
-> Cc: Vladimir Murzin <vladimir.murzin@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Yang Shi <yang@os.amperecomputing.com>
-> Cc: stable@vger.kernel.org
-> ---
->  arch/arm64/include/asm/percpu.h | 8 ++++----
->  1 file changed, 4 insertions(+), 4 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/percpu.h b/arch/arm64/include/asm/percpu.h
-> index 63bbfd4944a37..31193bcf89a2b 100644
-> --- a/arch/arm64/include/asm/percpu.h
-> +++ b/arch/arm64/include/asm/percpu.h
-> @@ -206,13 +206,13 @@ PERCPU_RET_OP(add, add, ldadd)
->  	_pcp_protect_return(__percpu_add_return_case_64, pcp, val)
->  
->  #define this_cpu_and_1(pcp, val)	\
-> -	_pcp_protect(__percpu_andnot_case_8, pcp, ~val)
-> +	_pcp_protect(__percpu_andnot_case_8, pcp, ~(u8)(val))
->  #define this_cpu_and_2(pcp, val)	\
-> -	_pcp_protect(__percpu_andnot_case_16, pcp, ~val)
-> +	_pcp_protect(__percpu_andnot_case_16, pcp, ~(u16)(val))
->  #define this_cpu_and_4(pcp, val)	\
-> -	_pcp_protect(__percpu_andnot_case_32, pcp, ~val)
-> +	_pcp_protect(__percpu_andnot_case_32, pcp, ~(u32)(val))
->  #define this_cpu_and_8(pcp, val)	\
-> -	_pcp_protect(__percpu_andnot_case_64, pcp, ~val)
-> +	_pcp_protect(__percpu_andnot_case_64, pcp, ~(u64)(val))
-
-Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
-
->  
->  #define this_cpu_or_1(pcp, val)		\
->  	_pcp_protect(__percpu_or_case_8, pcp, val)
-
+SGkgRnVhZCwNCk9uIFRodSwgMjAyNi0wOC0wNiBhdCAxMTowMiArMDEwMCwgRnVhZCBUYWJiYSB3
+cm90ZToNCj4gRUwyIGNvcGllcyB2Z2ljX21vZGVsIGZyb20gdGhlIGhvc3QncyBzdHJ1Y3Qga3Zt
+IHVuY2hlY2tlZCwgYW5kIHRoZQ0KPiBuVkhFDQo+IHdvcmxkIHN3aXRjaCBkaXNwYXRjaGVzIG9u
+IGl0IHdpdGggbm8gY3B1Y2FwIGd1YXJkLiBBIGhvc3Qgd3JpdGluZw0KPiBLVk1fREVWX1RZUEVf
+QVJNX1ZHSUNfVjUgbWFrZXMgRUwyIGFjY2VzcyBHSUN2NSBDUFUgaW50ZXJmYWNlDQo+IHJlZ2lz
+dGVycywNCj4gd2hpY2ggYXJlIFVOREVGSU5FRCB3aXRob3V0IEZFQVRfR0NJRSBhbmQgcGFuaWMg
+dGhlIGh5cGVydmlzb3Igb24gYW55DQo+IEdJQ3YzIG1hY2hpbmUuDQo+IA0KPiBBY2NlcHQgb25s
+eSB0aGUgbW9kZWxzIHBLVk0gY2FuIHJ1biwgZm9yY2luZyBhbnl0aGluZyBlbHNlIHRvIDAuDQoN
+CkNhbiBwS1ZNIHJ1biBWR0lDX1YyPyBTZWUgY29tbWVudCBiZWxvdy4NCg0KPiANCj4gRml4ZXM6
+IDliOGUzZDRjYTBlNzMgKCJLVk06IGFybTY0OiBnaWMtdjU6IEltcGxlbWVudCBHSUN2NSBsb2Fk
+L3B1dA0KPiBhbmQgc2F2ZS9yZXN0b3JlIikNCj4gU2lnbmVkLW9mZi1ieTogRnVhZCBUYWJiYSA8
+ZnVhZC50YWJiYUBsaW51eC5kZXY+DQo+IC0tLQ0KPiDCoGFyY2gvYXJtNjQva3ZtL2h5cC9udmhl
+L3Brdm0uYyB8IDE2ICsrKysrKysrKysrKysrLS0NCj4gwqAxIGZpbGUgY2hhbmdlZCwgMTQgaW5z
+ZXJ0aW9ucygrKSwgMiBkZWxldGlvbnMoLSkNCj4gDQo+IGRpZmYgLS1naXQgYS9hcmNoL2FybTY0
+L2t2bS9oeXAvbnZoZS9wa3ZtLmMNCj4gYi9hcmNoL2FybTY0L2t2bS9oeXAvbnZoZS9wa3ZtLmMN
+Cj4gaW5kZXggMjRkNmYxNjQxMjlhYy4uNTliYjE1ZWZkY2E0MiAxMDA2NDQNCj4gLS0tIGEvYXJj
+aC9hcm02NC9rdm0vaHlwL252aGUvcGt2bS5jDQo+ICsrKyBiL2FyY2gvYXJtNjQva3ZtL2h5cC9u
+dmhlL3Brdm0uYw0KPiBAQCAtMzQwLDEzICszNDAsMjUgQEAgc3RhdGljIHZvaWQgcGt2bV9pbml0
+X2ZlYXR1cmVzX2Zyb21faG9zdChzdHJ1Y3QNCj4gcGt2bV9oeXBfdm0gKmh5cF92bSwgY29uc3Qg
+c3RydWMNCj4gwqB7DQo+IMKgCXN0cnVjdCBrdm0gKmt2bSA9ICZoeXBfdm0tPmt2bTsNCj4gwqAJ
+dW5zaWduZWQgbG9uZyBob3N0X2FyY2hfZmxhZ3MgPSBSRUFEX09OQ0UoaG9zdF9rdm0tDQo+ID5h
+cmNoLmZsYWdzKTsNCj4gKwl1MzIgdmdpY19tb2RlbCA9IFJFQURfT05DRShob3N0X2t2bS0+YXJj
+aC52Z2ljLnZnaWNfbW9kZWwpOw0KPiDCoAlERUNMQVJFX0JJVE1BUChhbGxvd2VkX2ZlYXR1cmVz
+LCBLVk1fVkNQVV9NQVhfRkVBVFVSRVMpOw0KPiDCoA0KPiDCoAkvKiBDVFJfRUwwIGlzIGFsd2F5
+cyB1bmRlciBob3N0IGNvbnRyb2wsIGV2ZW4gZm9yIHByb3RlY3RlZA0KPiBWTXMuICovDQo+IMKg
+CWh5cF92bS0+a3ZtLmFyY2guY3RyX2VsMCA9IGhvc3Rfa3ZtLT5hcmNoLmN0cl9lbDA7DQo+IMKg
+DQo+IC0JLyogUHJlc2VydmUgdGhlIHZnaWMgbW9kZWwgc28gdGhhdCBHSUN2MyBlbXVsYXRpb24g
+d29ya3MgKi8NCj4gLQloeXBfdm0tPmt2bS5hcmNoLnZnaWMudmdpY19tb2RlbCA9IGhvc3Rfa3Zt
+LQ0KPiA+YXJjaC52Z2ljLnZnaWNfbW9kZWw7DQo+ICsJLyoNCj4gKwkgKiBQcmVzZXJ2ZSB0aGUg
+dmdpYyBtb2RlbCBmb3IgR0lDdjMgZW11bGF0aW9uLCBidXQgb25seQ0KPiB3aGF0IHBLVk0gY2Fu
+DQo+ICsJICogcnVuOiB0aGUgR0lDdjUgd29ybGQgc3dpdGNoIHRvdWNoZXMgcmVnaXN0ZXJzIFVO
+REVGSU5FRA0KPiBhdCBFTDINCj4gKwkgKiB3aXRob3V0IEZFQVRfR0NJRS4gMCBpcyBub3QgYSB2
+YWxpZCBrdm1fZGV2aWNlX3R5cGU6ICJubw0KPiB2Z2ljIi4NCj4gKwkgKi8NCj4gKwlzd2l0Y2gg
+KHZnaWNfbW9kZWwpIHsNCj4gKwljYXNlIEtWTV9ERVZfVFlQRV9BUk1fVkdJQ19WMjoNCg0KV2h5
+IGFyZSB3ZSBhbGxvd2luZyB0aGUgdjIgY2FzZSB0aHJvdWdoPw0KDQpJbiB2Z2ljX3YzX3Byb2Jl
+KCkgdGhlcmUgaXMgYW4gZXhwbGljaXQgY2hlY2sgdGhhdCBibG9ja3MgdGhlDQpyZWdpc3RyYXRp
+b24gb2YgVkdJQ19WMiBpZiBLVk1fTU9ERV9QUk9URUNURUQgaXMgc2V0LCBzbyBJIGRvbid0IHRo
+aW5rDQp0aGF0IHdlIGNvdWxkIHJlYWNoIGhlcmUgd2l0aCB0aGUgVkdJQ19WMiBtb2RlbC4NCg0K
+PiArCWNhc2UgS1ZNX0RFVl9UWVBFX0FSTV9WR0lDX1YzOg0KPiArCQlicmVhazsNCj4gKwlkZWZh
+dWx0Og0KPiArCQl2Z2ljX21vZGVsID0gMDsNCj4gKwl9DQo+ICsJaHlwX3ZtLT5rdm0uYXJjaC52
+Z2ljLnZnaWNfbW9kZWwgPSB2Z2ljX21vZGVsOw0KPiDCoA0KPiDCoAkvKiBObyByZXN0cmljdGlv
+bnMgZm9yIG5vbi1wcm90ZWN0ZWQgVk1zLiAqLw0KPiDCoAlpZiAoIWt2bV92bV9pc19wcm90ZWN0
+ZWQoa3ZtKSkgew0KDQpUaGFua3MsDQpTYXNjaGENCg0K
 
