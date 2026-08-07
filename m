@@ -4,113 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 603E4C5AC7A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 09:52:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E71FC5AC7C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 09:52:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QYbufw58gsel6FCE1/jEcLG9PAf4/Ixif2gUvboMhY0=; b=XvXBo2Izxr5TyTMPnk3DRGCL4H
-	2j2Uw1GlGL7DzP1H/IikcWALkiP9NQPwyaCB2dQe0NLepmr6z/G9WBGlGA2oqQ0FpUbNFdEGQht3l
-	BzbFUCvwwCw+FWBD+J12YdM+TKGdbhL0jnsB3HrwynXxGQrau/AivV+dQtuDVnylCj6+qybXGGMaa
-	EmibeQT6bV0+MsnE1e1wmLeSeMjcutVBB8WSua4GxezWKXoEw81LqixQ2U8z/iLQrRIokwvlqdjbB
-	GPgTbFlm2smEt0lBRI9W3knAPlhSI5Md1Lhp1XvAW8Qv3bHVeWcHwfxgq4fWhf1Apo6V/rFWXl79P
-	Q1C0WsyA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=7wIyNcLqed5ZVpQIQecWwGt1wAPqTwpYyb9INfK67g4=; b=GvpoNlZ6tNeTsS
+	0DNXvGYdUvp5BoRuM2hr0pRVz39VMyufOl6cuOmjFJxt+hFDN2AL7D9g8svoQ9f3P0C+6ttMwaVr6
+	2rTsv/7otIBjtW+1qPhkUa9Gp2nQ7TYUI+F28IQeWBqbnH4tKqejYjuVS3Okba4dp7o0eKHu4/3qn
+	LDeVW/7ihE5MOev3aBwZp/ViMTcVA2uG1VvVkwfTSRByb/tKmehVIqnj3eN7RLSzk7dos1YThuPZx
+	2OkS0GyZPtrUB9JtKUTh6ZKMfgLcJdcFRFEKyGzU5G1gcrtl0+eONRNaUsilL/jBRcKiPA4c5/iM3
+	r/rVPuiJqNf2L+ElAXcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsHF0-00000007YdB-1wU2;
-	Fri, 07 Aug 2026 09:51:50 +0000
-Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
+	id 1wsHFV-00000007Yk8-2eek;
+	Fri, 07 Aug 2026 09:52:21 +0000
+Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsHEy-00000007Yc4-0n8a
+	id 1wsHFR-00000007YiY-3rlZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 09:51:49 +0000
-Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-6a177b2dc8dso9911a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Aug 2026 02:51:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1786096305; x=1786701105; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=QYbufw58gsel6FCE1/jEcLG9PAf4/Ixif2gUvboMhY0=;
-        b=g6/YUtoPqU/mdGIyxrPrIqLSflE9CuxUq7pfZlx53upNCpG12ZtT4/Xsgl1zKXf+Tb
-         4AHy5nNKFjfI8S5/dzo5568elIUyX/y3ECRXByeXU8D20QLdEqYC8qAuJKZI2crW/ZG1
-         KhlZH74vlXBx5XLELZ7WWrsg0pKs2obU1aWMjwGSSfi/KswOP7ncGFZTNjDVpd5pdMUb
-         L3sHFj7+Ez5C7Hfy+oytbGW3Sqd37w1nV7VoowLs8MWQHndIS9sCZwmJRdJGS/QdfN8Y
-         IiH0iuH9JX8sUQwtTsvyk9iw2Yh+dx7P1q+zUBLSIab8bgaELDcp3w5L7W+y0BtWCHcP
-         E4bQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786096305; x=1786701105;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=QYbufw58gsel6FCE1/jEcLG9PAf4/Ixif2gUvboMhY0=;
-        b=Kr6eS/OYWUWogJTKMiU8PXoa2w9ROwbmsNywtVakpgxIGHUKm57B37jC3J0677DtAC
-         u6/EG5izth8gBd9OltroUp1bZ6IY7WAv7/ctyIHIQHp/bs3iyi4x9r1e4ulLQLSdy0RY
-         UIhvNFZ7QZccsUNtqnvryqM4sJIAy23dmT8b5VsRPI2U6+7inwRD4itLYhIn/rdtLMyr
-         B9Jl60Fu6KocF/zEMwcwqOHZQk2anvPXicR9N2y/rT0R1FLBudfMuIM7v6wUNoHXRZQi
-         30MylkW/Pq0WdeapImE6S4U2LHkIMZ9Q3SVFPTsBu8Tz16YmoQIYm7ku4++2+5GfmwiH
-         gAug==
-X-Forwarded-Encrypted: i=1; AHgh+RrmcbfJLO2BwTosuTumlI5IQgYxoWyajM4IoG2oRX/JYuBggfQB4IebCJPJUigpdsWaELFgfZIT/FQGVwMIwGbH@lists.infradead.org
-X-Gm-Message-State: AOJu0YxV1iICfYEksSjIdGs9Z6/aEB76bpvWi3v374irYsdIa5HRfUMB
-	B2UR1ciDsbMdMZpLf1zxH6hYfwgl68W0YTBLfNtIvqtTBCusc98YvAznKoa3kHWO5g==
-X-Gm-Gg: AR+sD13/SM8/3FtdE6xoB4ezhigl2/38M59HlK0KJchDoyQIbiF9QyeFrR4XN/kOYZ7
-	mIYZEZ/3Pwf1GioW8mMt7P6jL57nWHQPuGsksQPRs3MzKsyNTMf1hCWK0KTrgcSsB6gOZQXczih
-	VZc8+27UJFM5nJCqwwQ5Nwi8PpotUxorjEN+uyUWluNluIlaSuX6DHNGnQC0+yygcblYfv8bQWn
-	RQPwCeE8ntUd4OuZxu4y2THySKrbISPYTxGTM7ZUziNmzJ/QhL6goP6m2eF3HCTIGwuDN8rc3O7
-	UwdTY1CUm/yhb+AbhzKFUm17HssySR5QXcFbooWuQsTL12V7hZ3pRg9mCKCZTY4uUDUtkPtrgff
-	cS+YJAAyB95rcPDMZkwv3a6W3sycrLixVI8YuWpcKRcuQ3YhD1nd59Joqw9SviCYiu9/14dioQ1
-	5vzYWttq+c+N0Jz5+28MO94+uu4pOfwYQkaHjFvOlzdo5WnezTArPnb7GuCAzlpjkIq0gPFOqq6
-	VbAFdCvN/iwcmy2itZom2j5bapLSw==
-X-Received: by 2002:a05:6402:a5c6:20b0:69c:cf5e:a504 with SMTP id 4fb4d7f45d1cf-6a1da7b32camr36697a12.8.1786096304665;
-        Fri, 07 Aug 2026 02:51:44 -0700 (PDT)
-Received: from google.com (250.192.189.35.bc.googleusercontent.com. [35.189.192.250])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c2080a6fa80sm32856466b.22.2026.08.07.02.51.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Aug 2026 02:51:43 -0700 (PDT)
-Date: Fri, 7 Aug 2026 09:51:39 +0000
-From: Mostafa Saleh <smostafa@google.com>
-To: Marek Szyprowski <m.szyprowski@samsung.com>
-Cc: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-coco@lists.linux.dev, Robin Murphy <robin.murphy@arm.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>, Jason Gunthorpe <jgg@ziepe.ca>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
-Subject: Re: [PATCH v8 00/23] dma-mapping: Track shared DMA state through
- direct, pool and swiotlb paths
-Message-ID: <anWqq-vjEwwaziaM@google.com>
-References: <20260717180442.110954-1-aneesh.kumar@kernel.org>
- <CGME20260725070930eucas1p16cbafb514de7a2e7531d0e4ae158acfb@eucas1p1.samsung.com>
- <yq5azezfeeax.fsf@kernel.org>
- <85be992d-9567-433e-ae2e-64ae5483964d@samsung.com>
+	Fri, 07 Aug 2026 09:52:20 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=7wIyNcLqed5ZVpQIQecWwGt1wAPqTwpYyb9INfK67g4=;
+	b=BKgknH5jfAI9E72DWVubPI/Eol/+zWF0BcqV15fW6gH66tKjlge4rG9iEBzyotx4Y+SxA5VcR
+	ERODHCwUBvvEytOAeDt7B7hCbQG6vpp0u6O/Fivy6//hLMPP6SBwr1SzVG8Hfmy+mvfGx3fD4Q9
+	40yeQvqUihSHzF5OEYWx5V0=
+Received: from mail.maildlp.com (unknown [172.19.163.163])
+	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4hGfL23PF9zLlXX;
+	Fri,  7 Aug 2026 17:41:30 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 467E44048B;
+	Fri,  7 Aug 2026 17:52:04 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Fri, 7 Aug 2026 17:52:03 +0800
+Message-ID: <6b549b5b-5d90-4d75-94e9-b5f7cf7605f5@huawei.com>
+Date: Fri, 7 Aug 2026 17:52:02 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <85be992d-9567-433e-ae2e-64ae5483964d@samsung.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 02/20] arm64: percpu: Fix this_cpu_and() mask
+ generation
+To: Mark Rutland <mark.rutland@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>
+References: <20260804170503.3513916-1-mark.rutland@arm.com>
+ <20260804170503.3513916-3-mark.rutland@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260804170503.3513916-3-mark.rutland@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_025148_248395_14A23203 
-X-CRM114-Status: GOOD (  18.21  )
+X-CRM114-CacheID: sfid-20260807_025218_628631_244060F8 
+X-CRM114-Status: GOOD (  20.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,55 +75,232 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: vladimir.murzin@arm.com, ryan.roberts@arm.com, peterz@infradead.org, catalin.marinas@arm.com, david.laight.linux@gmail.com, stable@vger.kernel.org, james.morse@arm.com, yang@os.amperecomputing.com, cl@gentwo.org, maz@kernel.org, david@kernel.org, ljs@kernel.org, will@kernel.org, ardb@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marek,
 
-On Fri, Jul 31, 2026 at 09:33:47AM +0200, Marek Szyprowski wrote:
-> On 25.07.2026 09:09, Aneesh Kumar K.V wrote:
-> > "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org> writes:
-> >> This series tracks confidential-computing shared DMA state through the
-> >> dma-direct, dma-pool, and swiotlb paths so that encrypted and decrypted
-> >> DMA buffers are handled consistently.
-> >>
-> >> Today, the direct DMA path mostly relies on force_dma_unencrypted() for
-> >>
-[...]
-> > pKVM topic branch is now available 
-> >
-> > https://lore.kernel.org/all/178467286876.125042.12010461715645610054.b4-ty@kernel.org/
-> >
-> > https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git for-next/coco
-> I've just got back from my holiday's and I see that there is everything ready to give
-> this patchset some tests in linux-next. I hope nothing will break.
+
+在 2026/8/5 1:04, Mark Rutland 写道:
+> The arm64 implementation of this_cpu_and(pcp, val) is built in terms of
+> ANDNOT operations, which requires the 'val' argument to be bitwise
+> negated. The bitwise negation is not implemented correctly, with two
+> bugs described below.
 > 
-> I've applied this patchset to dma-mapping-for-next, on top of pKVM topic branch with
-
-I was trying to find this tree and it seems the MAINTAINERS file have
-the wrong address:
-DMA MAPPING HELPERS
-M:      Marek Szyprowski <m.szyprowski@samsung.com>
-R:      Robin Murphy <robin.murphy@arm.com>
-L:      iommu@lists.linux.dev
-S:      Supported
-W:      http://git.infradead.org/users/hch/dma-mapping.git
-T:      git git://git.infradead.org/users/hch/dma-mapping.git
-
-I believe the corret one is:
-https://git.kernel.org/pub/scm/linux/kernel/git/mszyprowski/linux.git/
-
-Thanks,
-Mostafa
-
-> patch "[PATCH v8 17/23] dma-direct: make dma_direct_map_phys() honor DMA_ATTR_CC_SHARED"
-> rebased onto latest changes in arch/arm64/mm/init.c.
+> (1) The bitwise negation is performed as '~val' rather than '~(val)'.
+>     This won't always generate the expected value when 'val' is an
+>     expression.
 > 
-> The remaining items pointed in the review can be fixed incrementally.
+>     For example, for this_cpu_and(pcp, 1 - 1):
 > 
-> Best regards
-> -- 
-> Marek Szyprowski, PhD
-> Samsung R&D Institute Poland
+>     * 'val'    is  '1 - 1'   ===> (int) 0x00000000
+>     * '~val'   is '~1 - 1'   ===> (int) 0xfffffffd
+>     * '~(val)' is '~(1 - 1)' ===> (int) 0xffffffff
 > 
+>     ... and thus bit[1] of 'pcp' would be preserved unexpectedly by the
+>     ANDNOT operation.
+> 
+> (2) The bitwise negation is performed on 'val' before it has been cast
+>     to (at least) the width of 'pcp'. This won't always generate the
+>     expected value for the upper bits.
+> 
+>     For example, for this_cpu_and(pcp, zero), where 'pcp' is a u64 and
+>     'zero' is a u32:
+> 
+>     * 'zero'           ===> (u32) 0x00000000
+>     * '~(zero)'        ===> (u32) 0xffffffff
+>     * '(u64)~(zero)'   ===> (u64) 0x00000000ffffffff
+>     * '~((u64)(zero))' ===> (u64) 0xffffffffffffffff
+> 
+>     ... and thus bits[63:32] of 'pcp' would be preserved unexpectedly by
+>     the ANDNOT operation.
+> 
+> Fix these issues by adding brackets around 'val', and by casting 'val'
+> to an appropriately-sized type before bitwise negation.
+> 
+> The bugs described above can be seen from the disassembly of the
+> following test code:
+> 
+> | void this_cpu_and_u64_zero(u64 __percpu *pcp)
+> | {
+> |         u64 zero = 0;
+> |         this_cpu_and(*pcp, zero);
+> | }
+> |
+> | void this_cpu_and_u32_zero(u64 __percpu *pcp)
+> | {
+> |         u32 zero = 0;
+> |         this_cpu_and(*pcp, zero);
+> | }
+> |
+> | void this_cpu_and_expr_zero(u64 __percpu *pcp)
+> | {
+> |         this_cpu_and(*pcp, 1 - 1);
+> | }
+> |
+> | void this_cpu_and_expr_zero_brackets(u64 __percpu *pcp)
+> | {
+> |         this_cpu_and(*pcp, (1 - 1));
+> | }
+> 
+> Before this patch:
+> 
+> | <this_cpu_and_u64_zero>:
+> |        paciasp
+> |        stp     x29, x30, [sp, #-16]!
+> |        mrs     x1, sp_el0
+> |        mov     x29, sp
+> |        ldr     w2, [x1, #8]
+> |        add     w2, w2, #0x1
+> |        str     w2, [x1, #8]
+> |        mov     x3, #0xffffffffffffffff         // #-1
+> |        mrs     x2, tpidr_el1
+> |        add     x0, x0, x2
+> | 1:     ldxr    x5, [x0]
+> |        bic     x5, x5, x3
+> |        stxr    w4, x5, [x0]
+> |        cbnz    w4, 1b
+> |        ldr     x0, [x1, #8]
+> |        add     x0, x0, x3
+> |        str     w0, [x1, #8]
+> |        cbz     x0, 2f
+> |        ldr     x0, [x1, #8]
+> |        cbnz    x0, 3f
+> | 2:     bl      preempt_schedule_notrace
+> | 3:     ldp     x29, x30, [sp], #16
+> |        autiasp
+> |        ret
+> |
+> | <this_cpu_and_u32_zero>:
+> |        paciasp
+> |        stp     x29, x30, [sp, #-16]!
+> |        mrs     x1, sp_el0
+> |        mov     x29, sp
+> |        ldr     w2, [x1, #8]
+> |        add     w2, w2, #0x1
+> |        str     w2, [x1, #8]
+> |        mov     x3, #0xffffffff                 // #4294967295
+> |        mrs     x2, tpidr_el1
+> |        add     x0, x0, x2
+> | 1:     ldxr    x5, [x0]
+> |        bic     x5, x5, x3
+> |        stxr    w4, x5, [x0]
+> |        cbnz    w4, 1b
+> |        ldr     x0, [x1, #8]
+> |        sub     x0, x0, #0x1
+> |        str     w0, [x1, #8]
+> |        cbz     x0, 2f
+> |        ldr     x0, [x1, #8]
+> |        cbnz    x0, 3f
+> | 2:     bl      preempt_schedule_notrace
+> | 3:     ldp     x29, x30, [sp], #16
+> |        autiasp
+> |        ret
+> |
+> | <this_cpu_and_expr_zero>:
+> |        paciasp
+> |        stp     x29, x30, [sp, #-16]!
+> |        mrs     x1, sp_el0
+> |        mov     x29, sp
+> |        ldr     w2, [x1, #8]
+> |        add     w2, w2, #0x1
+> |        str     w2, [x1, #8]
+> |        mov     x3, #0xfffffffffffffffd         // #-3
+> |        mrs     x2, tpidr_el1
+> |        add     x0, x0, x2
+> | 1:     ldxr    x5, [x0]
+> |        bic     x5, x5, x3
+> |        stxr    w4, x5, [x0]
+> |        cbnz    w4, 1b
+> |        ldr     x0, [x1, #8]
+> |        sub     x0, x0, #0x1
+> |        str     w0, [x1, #8]
+> |        cbz     x0, 2f
+> |        ldr     x0, [x1, #8]
+> |        cbnz    x0, 3f
+> | 2:     bl      preempt_schedule_notrace
+> | 3:     ldp     x29, x30, [sp], #16
+> |        autiasp
+> |        ret
+> 
+> After this patch:
+> 
+> | <this_cpu_and_u64_zero>:
+> |        paciasp
+> |        stp     x29, x30, [sp, #-16]!
+> |        mrs     x1, sp_el0
+> |        mov     x29, sp
+> |        ldr     w2, [x1, #8]
+> |        add     w2, w2, #0x1
+> |        str     w2, [x1, #8]
+> |        mov     x3, #0xffffffffffffffff         // #-1
+> |        mrs     x2, tpidr_el1
+> |        add     x0, x0, x2
+> | 1:     ldxr    x5, [x0]
+> |        bic     x5, x5, x3
+> |        stxr    w4, x5, [x0]
+> |        cbnz    w4, 1b
+> |        ldr     x0, [x1, #8]
+> |        add     x0, x0, x3
+> |        str     w0, [x1, #8]
+> |        cbz     x0, 2f
+> |        ldr     x0, [x1, #8]
+> |        cbnz    x0, 3f
+> | 2:     bl      0 <preempt_schedule_notrace>
+> | 3:     ldp     x29, x30, [sp], #16
+> |        autiasp
+> |        ret
+> |
+> | <this_cpu_and_u32_zero>:
+> |        b       this_cpu_and_u64_zero
+> |
+> | <this_cpu_and_expr_zero>:
+> |        b       this_cpu_and_u64_zero
+> |
+> | <this_cpu_and_expr_zero_brackets>:
+> |        b       this_cpu_and_u64_zero
+> 
+> Fixes: 959bf2fd03b5 ("arm64: percpu: Rewrite per-cpu ops to allow use of LSE atomics")
+> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+> Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> Cc: Ard Biesheuvel <ardb@kernel.org>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: James Morse <james.morse@arm.com>
+> Cc: Jinjie Ruan <ruanjinjie@huawei.com>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Peter Zijlstra <peterz@infradead.org>
+> Cc: Vladimir Murzin <vladimir.murzin@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Yang Shi <yang@os.amperecomputing.com>
+> Cc: stable@vger.kernel.org
+> ---
+>  arch/arm64/include/asm/percpu.h | 8 ++++----
+>  1 file changed, 4 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/percpu.h b/arch/arm64/include/asm/percpu.h
+> index 63bbfd4944a37..31193bcf89a2b 100644
+> --- a/arch/arm64/include/asm/percpu.h
+> +++ b/arch/arm64/include/asm/percpu.h
+> @@ -206,13 +206,13 @@ PERCPU_RET_OP(add, add, ldadd)
+>  	_pcp_protect_return(__percpu_add_return_case_64, pcp, val)
+>  
+>  #define this_cpu_and_1(pcp, val)	\
+> -	_pcp_protect(__percpu_andnot_case_8, pcp, ~val)
+> +	_pcp_protect(__percpu_andnot_case_8, pcp, ~(u8)(val))
+>  #define this_cpu_and_2(pcp, val)	\
+> -	_pcp_protect(__percpu_andnot_case_16, pcp, ~val)
+> +	_pcp_protect(__percpu_andnot_case_16, pcp, ~(u16)(val))
+>  #define this_cpu_and_4(pcp, val)	\
+> -	_pcp_protect(__percpu_andnot_case_32, pcp, ~val)
+> +	_pcp_protect(__percpu_andnot_case_32, pcp, ~(u32)(val))
+>  #define this_cpu_and_8(pcp, val)	\
+> -	_pcp_protect(__percpu_andnot_case_64, pcp, ~val)
+> +	_pcp_protect(__percpu_andnot_case_64, pcp, ~(u64)(val))
+
+Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+
+>  
+>  #define this_cpu_or_1(pcp, val)		\
+>  	_pcp_protect(__percpu_or_case_8, pcp, val)
+
 
