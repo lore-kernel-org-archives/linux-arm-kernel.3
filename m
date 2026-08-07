@@ -4,80 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38D01C5AC7A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 19:45:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2335FC5AC7A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 19:50:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SLfsZXX5/E+IfEtyY4p83itvgdWnsgPZnXzLGjQa8G4=; b=Zh2vdBKFSwuUOj+oQlOzRDHQX+
-	CSSmyrN+ODPLlPRUmirA52R1/GFnsSAwUmnO0LWlqtF+YDw1Jq48toLll12PnN/o7jxr4Lyfv2iDz
-	Ogl262ez0CS5L91YZN8Vh/x+zVOzP/8KeGDKFybDAsUFfbYI5iVZo6ThR0mNQZEnSuuFV54hgxCfg
-	NPe79rd+/k3ElZo50ShBPPKDL080ySEVRlKJOsBxEGk8/bEeig2/+C3TGnV8xmeJlg8PcDR9Q8U/N
-	oUE93/RFBeBxzspLjXlilBqshz62Xl7v4Od4nOdIZE0x9sVcq6FOpoQsqKlyBgvnacCmsj/9d7GP6
-	f8iorFeA==;
+	bh=SxyKUAmrI0LwYfrXT8fRXwyn/HyoaEU+MOGavpvLNWE=; b=A6JgO0v3c/auy4iJ05nYqBpea9
+	VCgLWYmXsPzHXj+FNHxt7FS3J3NI5RS1k3Jby4Du3Q1ucCU/wLlp3jVGmhlnl+kYk2pO7IZQ9Wyrk
+	DnPQtqWkq1Aq/DaHdxz0MpuanXQGJIkEdP3bjRF+lXvO7+bLILI2Amt/SaoOUT6kUREyBUapzbOrV
+	rL8KSC791OAxRQcMlVvAGg/E+QSbZjbDFr1Ka0VgE1dWiVlalGpHbL2pDQk/FNx0KwDp/olZisWIG
+	74pO2IiOMeDcpVx0JHnBUyMJzZBOfHyhKIslKFkrdrphZAFr6saIN0ziZybX2EDWCEXTx7kRp7gUt
+	5JqqaXLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsQVA-00000008gTc-0eXZ;
-	Fri, 07 Aug 2026 19:45:08 +0000
-Received: from mgamail.intel.com ([198.175.65.14])
+	id 1wsQZp-00000008gcr-2cQx;
+	Fri, 07 Aug 2026 19:49:57 +0000
+Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsQV7-00000008gT5-3R3d
+	id 1wsQZn-00000008gcI-0OkV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 19:45:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1786131906; x=1817667906;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=+w0PGlKmPEFGqlIuidQ1lzrH3L8TG2Zmd2apHS/JsGU=;
-  b=V1mY5b/Zdk6w+hhh0m4Wm7UiJOagCp8FFKZrEb1hb9kqQIysIZlCI4hB
-   pPXA4hvhzEauPPvfvHO3U4rzLE8tqYSEkiL8Puqbqx6n7iy6bClgfjboB
-   u6CleoWtM1UfZVTjaeV9337ccIUOWBC0tp5zd5lvLNt8sXkjaUtk2/cNX
-   yiCj+plB+MrMVKwjsfU5+JMBH4v6GUrEurwPrQNj74QsohlpzOQ3dkMei
-   k68TPJ+DDlutfNoaRY/0MDv8MVci4C9l0YqZ4OUm18Fq4vqTH4cevALOk
-   OLDJ/N8HzVbL0zYSv+e7UTV1DKHLixi5LD/mYLOOzOOJyW34Hfv40Lf8C
-   g==;
-X-CSE-ConnectionGUID: FiHgAd5VTROFVQfZPi+xHQ==
-X-CSE-MsgGUID: Af1OvOK/SguEcg+v52Dxfw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11868"; a="90626939"
-X-IronPort-AV: E=Sophos;i="6.25,210,1779174000"; 
-   d="scan'208";a="90626939"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Aug 2026 12:45:05 -0700
-X-CSE-ConnectionGUID: UtqLO1MXSF+yKYI1YUiWUw==
-X-CSE-MsgGUID: tNN/1NNcRt+7n7Hn0VoAuA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,210,1779174000"; 
-   d="scan'208";a="258619825"
-Received: from lkp-server01.sh.intel.com (HELO 6eda058d650d) ([10.239.97.150])
-  by fmviesa010.fm.intel.com with ESMTP; 07 Aug 2026 12:45:02 -0700
-Received: from kbuild by 6eda058d650d with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1wsQV1-00000000J45-1cVi;
-	Fri, 07 Aug 2026 19:44:59 +0000
-Date: Sat, 8 Aug 2026 03:44:33 +0800
-From: kernel test robot <lkp@intel.com>
-To: Rosen Penev <rosenp@gmail.com>, linux-sunxi@lists.linux.dev
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	Jassi Brar <jassisinghbrar@gmail.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] mailbox: sun6i: modernize probe and convert to fully
- managed
-Message-ID: <202608080303.ryiYJhRA-lkp@intel.com>
-References: <20260727194208.10082-1-rosenp@gmail.com>
+	Fri, 07 Aug 2026 19:49:56 +0000
+Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-5aeb24c0807so2803456e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Aug 2026 12:49:54 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1786132192; cv=none;
+        d=google.com; s=arc-20260327;
+        b=ajss4xRC8Mrb4aB2LHHmrwVxxOy9OKIQmP+22+mJufWCf3Uil4ZiZECA2PYJ1uHo0u
+         /DnJm8Nopv26FO7CiRtsPHmdjX23UJKAjU4rgWfiYNWrOStnyfoRzUcR1JiC6kKTxiuT
+         X6OB+9Mje0lsHQYYgVC3wzGYKAG9cX7C7Lm01f78P/JUWAYD0FWB1VU3dMtA+Sev1zr0
+         5GDGsxXwf86Vp+Pod1cvie0BK4UVEmrARiANolfvOPHvJT9alFtsAZ86tMXFL5E24RnW
+         Jyrim6/Q+OQYgYNsgHz78nObc3EpfI8JQqGP+t4F4+6LR2hQ4LhrcIvPXBeBoWmOgOqK
+         T5IQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=SxyKUAmrI0LwYfrXT8fRXwyn/HyoaEU+MOGavpvLNWE=;
+        fh=Qq1QEUyOz181R/f1Kuisf+FgQ5nADU0yDb7JGmjCJGM=;
+        b=WLuwrNffzrC0RPxvwqfbBVtl4BhHEuDuc95zCPDj3+2VGre7hMwqG/NpqYD3MPpjj/
+         n6a4LvBVqNpkUWUqEhlV53lwDugOpFdME4coMkqbCynWvOWuMeL7HlJGs/N3c0vA+Jbs
+         kUtMmceaE1wGT7xZ+x+BEcAn6prHXtOAXiOVMzTkyjNiQtzXZUrPwNXXoVy3VWLK3bX0
+         arFabhW8XWhTKi5Kl7/9ctsop0ihFldwh0HWMf/6NJxDu1PE+MoEmlep1JGHZeVeRQv5
+         4Oz7AB1SWU0K/hdb0HuFpS/ocxwxSWDsMHCpLTQovOyAGy1rgYu46EWnwKaFzvQxGjNj
+         H5LA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786132192; x=1786736992; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=SxyKUAmrI0LwYfrXT8fRXwyn/HyoaEU+MOGavpvLNWE=;
+        b=e5IqjANl5fE3ud+oNrMavIwtc0j/GvKH2f4/oJnuov12Xs7o5urlNw28Pt5WDKcnlF
+         rU5UL+GE80FPxHo9WKwdojM5OM2ECl84KOjLJj8ChU7yUYpPvUB0vohOY22PkyNINsvu
+         R3ea7DG1TP06PTUVmZES3ShwbvzE58Gt3orJmZM3viuFFHATxj7/HQ9AZjQV1lZ4HIOQ
+         10ns2GUJP0P8MDhrlrlZEwBzGPeRmEw8ZkRGMDpMfyVuv2bQVLL0SGUd0RDW4ECw+w3y
+         Z8BTnKAuCaHBReQ22STI9ItsW8hRTPN97smUC0cOkcfrAfv0AmUYz6hfaHOiHmFkCrIk
+         njLw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786132192; x=1786736992;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=SxyKUAmrI0LwYfrXT8fRXwyn/HyoaEU+MOGavpvLNWE=;
+        b=NXAKJ7UEwSTlpgZnS8Z0ormk9pQqiaaxd6MkqcVnTE+6ie1OC6IhzruqUbuxnvxGN5
+         7f1WVFlsbJgQsUhh0gSp0KEF1TBnJSVlTqFy1vfZpL4yk/qqwcWZpaIjBi6PSEoPkm8G
+         a8ryr3aVqK4MIm3muI4R1wINXbJP7D/+PqLzbkdPzxPLcsInXDaeYKg7eMrRfoqKFRW0
+         6D3sbsSEHYMGcrOubdF2p8cNqMY39ELuLiaSouB2PVu/8UvP7S4xdB2NvA9H3Ca675w9
+         MMXUc1uiLP2XdftDXKxoVNKHTn2OAB28Viofv3rQ4RZZ7dezeXLKPRVUv5JiU8jKwNUv
+         YjXA==
+X-Forwarded-Encrypted: i=1; AHgh+RoSLE4PudnGyOR1fe3iX2VRSi/XQfVszC7QIAAnJpZIWkv4VqGQb5bmru6ry1WAbW2xmF4OSN7/9BK/anKEsoHd@lists.infradead.org
+X-Gm-Message-State: AOJu0YxRFLDwU4UoYp8WgsE5bX9AxtmwVhh9XWeCBdz3AUSbLxefNYxU
+	DKaOvfhVZb4743J5z64L9Jb1ZIDlxsWNnJON8KI5HbK98O+I6PTQ34ahzo87Imp4v518HFwTI/D
+	uTnivMbM9mj3QeVj7xPFf4zH6T4Qwrn4=
+X-Gm-Gg: AR+sD12/esMq4aYKzOFoAogxZ6W34yvg2r3F5Zlbt8juMYkMM9W4ECNoxmwmughCkrW
+	oV4eHNzVCUN40mIQo3J0+xzpmvISX3MRRb1htRwhvGdfxbUOA2JDm6V2WC78kSBo8eG5SBq9dlI
+	3zogwgGX3g0JcrXD74YpxhbVnLwTYpV/+u8oSnlyvIvh+gQdpW1oauF4/aPIiEH/5UOf9Q8MNPi
+	7eMn7EqO8DU97ufZBQUOS+cz5tdjyTNz0NwduAGhOsFuUcYgAm6qoRppmjYTrktRb4wHZXkMOpu
+	dlINrxth8Boomeem8jHqPzpNJdeumDfUt/xCRMcjh7ZyNkstNuY4xIj/dR/c0ezmYkByrlmz2zf
+	8PPfCWLg4sZD8K1VPZTPIKG6+wg==
+X-Received: by 2002:a05:6512:3c92:b0:5ae:d80f:c77c with SMTP id
+ 2adb3069b0e04-5b2f4cc45ffmr3489843e87.30.1786132192296; Fri, 07 Aug 2026
+ 12:49:52 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260727194208.10082-1-rosenp@gmail.com>
+References: <anWWr80yAcOQaVVS@nxpwireless-Inspiron-14-Plus-7440>
+ <20260807182124.41572-1-gvalkov@gmail.com> <9cf8e6ee9c4c655e685708bc5660429074b18326.camel@sipsolutions.net>
+In-Reply-To: <9cf8e6ee9c4c655e685708bc5660429074b18326.camel@sipsolutions.net>
+From: George Valkov <gvalkov@gmail.com>
+Date: Fri, 7 Aug 2026 22:49:40 +0300
+X-Gm-Features: AUfX_mxRBT9-U8Aa_GHxuMmHTk-qUbjASbhV_06GViPmHzIDoVy768Olpa7FjGk
+Message-ID: <CADOrJmbhdWhqRj_TSKYEgb_TrbJUpkQeYTGDb_93WSDdeaJPpQ@mail.gmail.com>
+Subject: Re: [PATCH v3 1/2] wifi: mwifiex: ignore ROM regulatory hint on WRT3200ACM/WRT32x
+To: Johannes Berg <johannes@sipsolutions.net>, sashiko-bot@kernel.org
+Cc: briannorris@chromium.org, andrew@lunn.ch, chunfan.chen@gmail.com, 
+	francesco@dolcini.it, kees@kernel.org, miriam.rachel.korenblit@intel.com, 
+	wenst@chromium.org, rafael.beims@toradex.com, avraham.stern@intel.com, 
+	peddolla.reddy@oss.qualcomm.com, error27@gmail.com, s.kerkmann@pengutronix.de, 
+	gregory.clement@bootlin.com, sebastian.hesselbarth@gmail.com, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_124505_952885_09AE5E3C 
-X-CRM114-Status: GOOD (  16.25  )
+X-CRM114-CacheID: sfid-20260807_124955_163591_2B56C01C 
+X-CRM114-Status: GOOD (  20.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,126 +123,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rosen,
+Hello Johannes, and thank you for your quick reply!
 
-kernel test robot noticed the following build errors:
+> You're supposed to always update bindings first, no?
+To me the logical order is to implement the feature in the driver and
+then enable it in each board which needs it. For Linux just WRT3200ACM.
+A separate patch for WRT32x should be sent to OpenWrt.
 
-[auto build test ERROR on sunxi/sunxi/for-next]
-[also build test ERROR on linus/master v7.2-rc6 next-20260806]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Rosen-Penev/mailbox-sun6i-modernize-probe-and-convert-to-fully-managed/20260807-054041
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/sunxi/linux.git sunxi/for-next
-patch link:    https://lore.kernel.org/r/20260727194208.10082-1-rosenp%40gmail.com
-patch subject: [PATCH] mailbox: sun6i: modernize probe and convert to fully managed
-config: arm64-randconfig-001-20260807 (https://download.01.org/0day-ci/archive/20260808/202608080303.ryiYJhRA-lkp@intel.com/config)
-compiler: clang version 24.0.0git (https://github.com/llvm/llvm-project 12df34b8469b8095359de8c249cb1b2753fadeea)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260808/202608080303.ryiYJhRA-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202608080303.ryiYJhRA-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
->> drivers/mailbox/sun6i-msgbox.c:271:56: error: too few arguments to function call, expected 2, have 1
-     271 |         return devm_mbox_controller_register(&mbox->controller);
-         |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~                  ^
-   include/linux/mailbox_controller.h:149:5: note: 'devm_mbox_controller_register' declared here
-     149 | int devm_mbox_controller_register(struct device *dev,
-         |     ^                             ~~~~~~~~~~~~~~~~~~~
-     150 |                                   struct mbox_controller *mbox);
-         |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   1 error generated.
+Please let me know if I should reverse the order.
 
 
-vim +271 drivers/mailbox/sun6i-msgbox.c
+Hello Sashiko AI,
+Yes, I intentionally implemented the flag as a root node.
+This way the new device-tree property can be reused for the
+other radios, which use mwlwifi, and also require this fix.
 
-   194	
-   195	static int sun6i_msgbox_probe(struct platform_device *pdev)
-   196	{
-   197		struct device *dev = &pdev->dev;
-   198		struct mbox_chan *chans;
-   199		struct reset_control *reset;
-   200		struct sun6i_msgbox *mbox;
-   201		void __iomem *regs;
-   202		int i, ret;
-   203		int irq;
-   204	
-   205		irq = platform_get_irq(pdev, 0);
-   206		if (irq < 0)
-   207			return irq;
-   208	
-   209		regs = devm_platform_ioremap_resource(pdev, 0);
-   210		if (IS_ERR(regs))
-   211			return PTR_ERR(regs);
-   212	
-   213		mbox = devm_kzalloc(dev, sizeof(*mbox), GFP_KERNEL);
-   214		if (!mbox)
-   215			return -ENOMEM;
-   216	
-   217		chans = devm_kcalloc(dev, NUM_CHANS, sizeof(*chans), GFP_KERNEL);
-   218		if (!chans)
-   219			return -ENOMEM;
-   220	
-   221		for (i = 0; i < NUM_CHANS; ++i)
-   222			chans[i].con_priv = mbox;
-   223	
-   224		mbox->clk = devm_clk_get_enabled(dev, NULL);
-   225		if (IS_ERR(mbox->clk)) {
-   226			ret = PTR_ERR(mbox->clk);
-   227			dev_err(dev, "Failed to get clock: %d\n", ret);
-   228			return ret;
-   229		}
-   230	
-   231		reset = devm_reset_control_get_exclusive(dev, NULL);
-   232		if (IS_ERR(reset)) {
-   233			ret = PTR_ERR(reset);
-   234			dev_err(dev, "Failed to get reset control: %d\n", ret);
-   235			return ret;
-   236		}
-   237	
-   238		/*
-   239		 * NOTE: We rely on platform firmware to preconfigure the channel
-   240		 * directions, and we share this hardware block with other firmware
-   241		 * that runs concurrently with Linux (e.g. a trusted monitor).
-   242		 *
-   243		 * Therefore, we do *not* assert the reset line if probing fails or
-   244		 * when removing the device.
-   245		 */
-   246		ret = reset_control_deassert(reset);
-   247		if (ret) {
-   248			dev_err(dev, "Failed to deassert reset: %d\n", ret);
-   249			return ret;
-   250		}
-   251	
-   252		mbox->regs = regs;
-   253	
-   254		/* Disable all IRQs for this end of the msgbox. */
-   255		writel(0, mbox->regs + LOCAL_IRQ_EN_REG);
-   256	
-   257		ret = devm_request_irq(dev, irq, sun6i_msgbox_irq, 0, dev_name(dev), mbox);
-   258		if (ret)
-   259			return ret;
-   260	
-   261		mbox->controller.dev           = dev;
-   262		mbox->controller.ops           = &sun6i_msgbox_chan_ops;
-   263		mbox->controller.chans         = chans;
-   264		mbox->controller.num_chans     = NUM_CHANS;
-   265		mbox->controller.txdone_irq    = false;
-   266		mbox->controller.txdone_poll   = true;
-   267		mbox->controller.txpoll_period = 5;
-   268	
-   269		spin_lock_init(&mbox->lock);
-   270	
- > 271		return devm_mbox_controller_register(&mbox->controller);
-   272	}
-   273	
+It would be inefficient and impractical to define a separate
+device-tree property for each radio, where it is actually the
+board that is affected, so it should be a per-board setting.
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Also my attempts to use per device nodes or the parent always
+return false so they are not usable.
+
+I do not understand the part about dependence on CONFIG_OF.
+of_property_read_bool() returns false when the flag is not
+defined. This preserves the original behaviour as if it is
+set to false, so the feature is disabled.
+External radios which do not implement support for this flag
+are not affected.
+
+v2 of this PR used of_machine_is_compatible, but there was an
+objection that this adds platform code to the driver.
+
+How can I add binding documentation and where?
+
+On Fri, 7 Aug 2026 at 21:39, Johannes Berg <johannes@sipsolutions.net> wrote:
+>
+> On Fri, 2026-08-07 at 21:21 +0300, Georgi Valkov wrote:
+> >
+> > +                             /* Allow platforms to ignore an incorrect
+> > +                              * regulatory hint from ROM, so userspace
+> > +                              * can set the correct regulatory domain.
+> > +                              */
+> >                               if (country_code &&
+> > +                                 !of_property_read_bool(of_root,
+> > +                                                        "marvell,ignore-regulatory-hint") &&
+> >                                   regulatory_hint(wiphy, country_code))
+>
+> You're supposed to always update bindings first, no?
+>
+> johannes
 
