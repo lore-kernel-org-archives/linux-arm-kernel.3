@@ -4,67 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 343C5C5AC7C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 08:09:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76439C5AC82
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 08:09:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=44gHspEmvf0KR3CCD0fyMRuJn7BHiloWc8UW7doqt4s=; b=N7cP2D0We8YPHd56Xk13ix4T90
-	er0HuwwIzx5hu+JNXbMSGzdpPJEWRsPH207XEXVtFznT67H1h+YUrVs0GbW6nZLlO50dG7NIomM24
-	uC/z/0BEoIphMW31TqRqRVa9OpQIV+Rv2yzz7kGdBPGrkCSl2BHeU4F1/Mxges+VIjr7wqHM6rErx
-	c0PUhg4W8lCw9/Q6KfN+9QmzbwxcakmpbOskrXr1Gj18ws5rDoOHSGv8eAXcWRg5FjhLc0KPetVpr
-	6AHvMtPcna4RhQoaG7PEl3F2pclN4ZsQ11qUE1zI3zbb+tJn43qBmvaQ6hpGz5IiKziwbhG3uD5wA
-	sRftMQWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=H5fvm4vsVH0OnFXrLGEU+AZpeN2gyJyWt/x56OcEQKs=; b=OtjOHUF1lZ4XQP
+	E9VK3nZqTNlpqvp0YWl5ehn8wjiybD99SJ81ugckGEW3E3FId8JdC4LeJAqWLioQxtaTl7pnrgZWy
+	iYiteUaT6Jjene9uhF7Bdp9bSS8mI7KoJlvWJYDPodnl/gu8LHaq6RSKkKGqf+GNJmEnvVJnryxrz
+	X1wnV9omtqnfqdGn9TqLq3/CC8lz5kzpdvq66iUwINXQajjuKet1U2ChOVxGYpBKwZB1PxPO1x8r1
+	xdliJyLKMj1kNR7WIi6uAM0Lv0UekLBGCxsDqH61tNmP1Mqd/wQeNy63k/XDx9EvUvf0QKfiLI8YU
+	1oj3Xt4tsUHom9VZgOsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsFdR-00000007KmP-1sLm;
-	Fri, 07 Aug 2026 08:08:57 +0000
-Received: from out-171.mta0.migadu.com ([2001:41d0:1004:224b::ab])
+	id 1wsFdl-00000007Ksw-38NY;
+	Fri, 07 Aug 2026 08:09:17 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsFdO-00000007Klj-1BUj
+	id 1wsFdk-00000007Krn-3ecS
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 07 Aug 2026 08:09:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:From:Sender:Reply-To:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=H5fvm4vsVH0OnFXrLGEU+AZpeN2gyJyWt/x56OcEQKs=; b=XdtT95wHc0DIW+iDaB55g4IB9m
+	LJKp7QmOWPssvJoGE177nuhkPhHut4T5HGdq4bFmP6zkNVHJUDf4pZq80zm13cxILSO4PUn5taKYH
+	IhrzD7xdQ6XI67n/6pTB1fPT8C3Js/yw8+gCCvopUiJo57KKrVQas5X8HHbTgfbRydI2z5V4AOczW
+	08JGptP5wyC/4ZIl8OVMY1QIV+u7jnw2R3Dbp1IQ5E030uFE3whb9ww1k9Iv0ZETP/8R7zj1FgVNx
+	oaB5SAnI/RBjjVT4k2S8obNwx55kHX7Jgz4UoJrCwJ/NrhkJSMUnqMA4sIkIC18qJpjCIQiuXFBT0
+	Chw+Eh8g==;
+Received: from out-174.mta0.migadu.com ([2001:41d0:1004:224b::ae])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wsFdh-0000000CAVk-0zK6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 08:08:55 +0000
-Message-ID: <ba053fa1-9df5-406b-9f92-df0dcc76ff68@linux.dev>
+	Fri, 07 Aug 2026 08:09:15 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1786090121;
+	t=1786090148;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=44gHspEmvf0KR3CCD0fyMRuJn7BHiloWc8UW7doqt4s=;
-	b=Jwr+UX7kAQwiiXG1TAcIvVCf82bkavGLIbLqALxbiRmxwWKMnKvF0SZV8HxvKM3snsPVML
-	NHIQ6RsVThbWqxQ56m94lU7vVuogY+4fUsqFWQQKtG2Lg3e6PkXNMRISzDCaZXZ7hzDPS3
-	5pIcWN0rHxcwuMktbNiZjIbbMlElA4I=
-Date: Fri, 7 Aug 2026 01:08:31 -0700
-MIME-Version: 1.0
-Subject: Re: [PATCH v8 12/22] RISC-V: perf: Modify the counter discovery
- mechanism
-To: Charlie Jenkins <thecharlesjenkins@gmail.com>
-Cc: Jiri Olsa <jolsa@kernel.org>, Paul Walmsley <pjw@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Rob Herring <robh@kernel.org>,
- Anup Patel <anup@brainfault.org>, Namhyung Kim <namhyung@kernel.org>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Ian Rogers <irogers@google.com>,
- Will Deacon <will@kernel.org>, James Clark <james.clark@linaro.org>,
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-perf-users@vger.kernel.org, Conor Dooley <conor@kernel.org>
-References: <20260701-counter_delegation-v8-0-7909f863a645@meta.com>
- <20260701-counter_delegation-v8-12-7909f863a645@meta.com>
- <178453211938.543975.7016109597042850635.b4-review@b4>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=H5fvm4vsVH0OnFXrLGEU+AZpeN2gyJyWt/x56OcEQKs=;
+	b=qzogLCk1/JDoJIRk5Mb61HFrjrwylQnJGFsW60hqQ2LCCmSHmM+MLxmyTSab0bSnC2/AF8
+	X/lf7soQr77FVvyg4KV+MPfgFiRmiSiv7QBanSipg7HWz8CPcoKQ4kbl1Ht3npd8SGU5Hl
+	Pc3FuiuC9LTiP2GUrmXFDLHa4y0f1Eo=
 From: Atish Patra <atish.patra@linux.dev>
-In-Reply-To: <178453211938.543975.7016109597042850635.b4-review@b4>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: [PATCH v9 00/20] Add Counter delegation ISA extension support
+Date: Fri, 07 Aug 2026 01:08:55 -0700
+Message-Id: <20260807-counter_delegation-v9-0-58658104e487@meta.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAJiSdWoC/23Q22rDMAwG4Fcpvp6LJZ+UXfU9xhiOrbSGNSlJF
+ jZK3n1uR0kZvvyF9EnoKiYeM0/idXcVIy95ykNfQvOyE/EU+iPLnEoWqNAoD1bG4aufefxI/Mn
+ HMJd26ZCCxo5iE6Mog5eRu/x9R9/eSz7laR7Gn/uOBW7VPw7BK2W9pr32xgCCBFnE6XQ5jHkZp
+ tzHfRzO4mYs+JizCsDUzlhQKklt8Camliy0FUU/Keirii6KM9SY5BlcshXFbAqq6ksWc7tF29g
+ FItYtVBT3UJxyiqqKKwqSbT1ycjY0hzPPYRP8k4BYFXwRVBuwS9o4MPxPoE3wCqoCFcE3qunI6
+ eCMfRLWdf0FRnigzkECAAA=
+To: Will Deacon <will@kernel.org>, Atish Patra <atish.patra@linux.dev>, 
+ Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Anup Patel <anup@brainfault.org>, Ian Rogers <irogers@google.com>, 
+ Rob Herring <robh@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ James Clark <james.clark@linaro.org>, Namhyung Kim <namhyung@kernel.org>
+Cc: linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ Conor Dooley <conor@kernel.org>, linux-kernel@vger.kernel.org, 
+ linux-perf-users@vger.kernel.org, devicetree@vger.kernel.org
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_010854_456774_24A70190 
-X-CRM114-Status: GOOD (  16.83  )
+X-CRM114-CacheID: sfid-20260807_090913_531621_D3A286B5 
+X-CRM114-Status: GOOD (  30.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,45 +93,220 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This series adds the counter delegation extension support. It is based on
+very early PoC work done by Kevin Xue and mostly rewritten after that.
+The counter delegation ISA extension(Smcdeleg/Ssccfg) actually depends
+on multiple ISA extensions.
 
-On 7/20/26 12:21 AM, Charlie Jenkins wrote:
-> On Wed, 01 Jul 2026 01:47:00 -0700, Atish Patra <atish.patra@linux.dev> wrote:
->> diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
->> index 74d934238821..c20f1e33c65d 100644
->> --- a/drivers/perf/riscv_pmu_sbi.c
->> +++ b/drivers/perf/riscv_pmu_sbi.c
->> @@ -1599,13 +1658,23 @@ static int __init rvpmu_devinit(void)
->> [ ... skip 15 lines ... ]
->> +	 * in S-mode via Supervisor Counter delegation.
->> +	 */
->> +	if (riscv_isa_extension_available(NULL, SSCCFG) &&
->> +	    riscv_isa_extension_available(NULL, SMCDELEG) &&
->> +	    riscv_isa_extension_available(NULL, SSCSRIND))
->> +		static_branch_enable(&riscv_pmu_cdeleg_available);
-> This needs to not only check that smcdeleg is supported in linux, but
-> also that it is supported in the SBI implementation correct? Trying to
-> boot this on OpenSBI before 6bb6b61c27eb ("lib: sbi: Add support for smcsrind and
-> smcdeleg") will fail on an illegal instruction in
-> rvpmu_deleg_find_ctrs() while trying to access the scountinhibit csr in
-> the patch "RISC-V: perf: Implement supervisor counter delegation
-> support". The proper mstateen bits need to be set for this to work
-> without crashing.
+1. S[m|s]csrind : The indirect CSR extension[1] which defines additional
+   5 ([M|S|VS]IREG2-[M|S|VS]IREG6) register to address size limitation of
+   RISC-V CSR address space.
+2. Smstateen: The stateen bit[60] controls the access to the registers
+   indirectly via the above indirect registers.
+3. Smcdeleg/Ssccfg: The counter delegation extensions[2]
 
-Yeah. We can do trap/detect to identify if smcdeleg is actually 
-available but that is bit ugly.
-The firmware should make sure that it doesn't advertises an ISA 
-extension if that is not avaialble
-to S-mode but that model only works for newer firmware.
+The counter delegation extension allows Supervisor mode to program the
+hpmevent and hpmcounters directly without needing the assistance from the
+M-mode via SBI calls. This results in a faster perf profiling and very
+few traps. This extension also introduces a scountinhibit CSR which allows
+to stop/start any counter directly from the S-mode. As the counter
+delegation extension potentially can have more than 100 CSRs, the specification
+leverages the indirect CSR extension to save the precious CSR address range.
 
-if you are running very old firmware with new Qemu/platform, the default 
-ISA extension may have
-smcdeleg while older firmware may not even know about it.
+Due to the dependency of these extensions, the following extensions must be
+enabled in qemu to use the counter delegation feature in S-mode.
 
-In reality, I am hoping chances of that happening are rare as OpenSBI 
-patches have been available
-from a long time and Linux kernel patches are yet to merge. I have not 
-addressed this in v9 as I am
-not sure which is the best worst approach yet :)
+"smstateen=true,sscofpmf=true,ssccfg=true,smcdeleg=true,smcsrind=true,sscsrind=true"
+or Virt machine users can just "max" cpu instead.
 
->
+When we access the counters directly in S-mode, we also need to solve the
+following problems.
+
+1. Event to counter mapping
+2. Event encoding discovery
+
+The RISC-V ISA doesn't define any standard either for event encoding or the
+event to counter mapping rules. Until now, the SBI PMU implementation relies
+on device tree binding[3] to discover the event to counter mapping in RISC-V
+platform in the firmware. The SBI PMU specification[4] defines event encoding
+for standard perf events as well. Thus, the kernel can query the appropriate
+counter for an given event from the firmware.
+
+However, the kernel doesn't need any firmware interaction for hardware
+counters if counter delegation is available in the hardware. Thus, the driver
+needs to discover the above mappings/encodings by itself without any assistance
+from firmware.
+
+Solution to Problem #1:
+This patch series solves the above problem #1 by extending the perf tool in a
+way so that event json file can specify the counter constraints of each event
+and that can be passed to the driver to choose the best counter for a given
+event.
+
+This series introduces a RISC-V specific event field in "CounterIDMask" in
+event_fields that describes a bitmask of counters supported for a specific eventi.
+This is the similar approach for few other existing properties in the event_fields
+which were used by single architecture as well. The counter constraint bitmap is
+passed to the perf driver via newly introduced "counterid_mask" property set in "config2".
+
+The platform vendor have these three ways to encode/use the platform specific
+events.
+
+1. Directly in driver with appropriate constraints (discouraged due to bloating
+of the driver)
+2. Encode in Json with with CounterIDMask field (preferred as it is contained
+within platform specific json file)
+3. Directly pass counterid_mask at while invoking perf
+cpu/event=<code>,counterid_mask=<mask>/
+
+The last two patches show cases these use cases and not intended for merging.
+
+Solution to problem #2:
+
+The event encoding can come from the json or commandline as well.
+
+The Qemu patches are available in upstream now.
+
+The Linux kernel patches can be found here:
+https://github.com/atishp04/linux/tree/b4/counter_delegation_v8
+
+[1] https://github.com/riscv/riscv-indirect-csr-access
+[2] https://github.com/riscv/riscv-smcdeleg-ssccfg
+[3] https://www.kernel.org/doc/Documentation/devicetree/bindings/perf/riscv%2Cpmu.yaml
+[4] https://github.com/riscv-non-isa/riscv-sbi-doc/blob/master/src/ext-pmu.adoc
+[5] https://lore.kernel.org/qemu-devel/20260625-marchid-v2-1-3821c351028b@gmail.com/
+
+To: Paul Walmsley <pjw@kernel.org>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Will Deacon <will@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+To: Atish Patra <atish.patra@linux.dev>
+To: Anup Patel <anup@brainfault.org>
+To: Arnaldo Carvalho de Melo <acme@kernel.org>
+To: Namhyung Kim <namhyung@kernel.org>
+To: Jiri Olsa <jolsa@kernel.org>
+To: Ian Rogers <irogers@google.com>
+To: James Clark <james.clark@linaro.org>
+Cc: linux-riscv@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Cc: Conor Dooley <conor@kernel.org>
+Cc: devicetree@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-perf-users@vger.kernel.org
+
+Signed-off-by: Atish Patra <atishp@meta.com>
+
+Changes in v9:
+- Rebased on top of riscv-next with queued patches. I have still included these patches
+  because riscv-next has to be updated because of the PATCH 5 which needs the helper
+  macros. This series includes the other semnatic fixes pointed out by paul in v8. 
+- Few more renaming/refactoring pointed by Sashiko and other reviewers.
+- Added RB/TB tags.
+-  Fix a panic tearing down the fixed CY/IR counters on Ssccfg hardware
+   without Smcntrpmf (Reported by Yicong Yang)
+- Only log "No default PMU events found" when neither event map is present.
+  (Reported by sashiko-bot)
+- Set sbi_v3_available inside the sbi_probe_extension() block; it could be
+  set on a delegation-only system with no SBI PMU. (Yicong Yang)
+- Reject attr.config2 above bit 31; it is counterid_mask, config2:0-31, and
+  was silently truncated to "no constraint". (sashiko-bot)
+- Drop the test only patches as most of the patches have TB tags now.
+- Link to v8: https://lore.kernel.org/r/20260701-counter_delegation-v8-0-7909f863a645@meta.com
+
+Changes in v8:
+- Fixed few more issues reported by Sashiko. Remaining sashiko reviews are moot.
+- Added support for Qemu ARCH ID 0x42 introduced by the qemu patch[5]
+- Link to v7: https://lore.kernel.org/r/20260622-counter_delegation-v7-0-0ba2fd34614e@meta.com
+
+Changes in v7:
+- Fixed various issues pointed by Sashiko.
+- Rebased on top of v7.1
+- Added a separate patch to fix various memory leak issues in probe error path
+- Link to v6: https://lore.kernel.org/r/20260608-counter_delegation-v6-0-285b72ed65a9@meta.com
+
+Changes in v6:
+- Reverted the file name changes as suggested by Will. Now pmu-sbi.c will continue
+  to support both counter delegation and SBI PMU with different function prefixes.
+- No longer depends up old upstream patch for reusing the Counter property to
+  encode event to counter mapping property. It directly uses additional field in
+  json event fields similar to other architectures.
+- Added few test patches (not intended for upstreaming) to show case different
+  possibilities of providing mapping/event encodings.
+- Fixed review comments and miscellenous minor typos/fixes on v5
+- Rebased on top of v7.1-rc6
+
+Changes in v5:
+- Fixed dt_binding_check errors.
+- Added the ISA extension dependancy for counter delegation extensions.
+- Replaced the boolean variables with static key conditional check required at boot time.
+- Miscellaneous minor code restructuring.
+- Link to v4: https://lore.kernel.org/r/20250205-counter_delegation-v4-0-835cfa88e3b1@rivosinc.com
+
+Changes in v4:
+- Added ISA dependencies as per dt schema instead of description.
+- Fixed few compilation issues due to patch reordering in v3.
+- Link to v3: https://lore.kernel.org/r/20250127-counter_delegation-v3-0-64894d7e16d5@rivosinc.com
+
+Changes in v3:
+- Fixed the dtb binding check failures.
+- Inlcuded the fix reported by Rajnesh Kanwal for guest counter overflow.
+- Rearranged the overflow handling more efficiently for better modularity.
+- Link to v2: https://lore.kernel.org/r/20250114-counter_delegation-v2-0-8ba74cdb851b@rivosinc.com
+
+Changes in v2:
+- Dropped architecture specific overrides for event encoding.
+- Dropped hwprobe bits.
+- Added a vendor specific event encoding table to support vendor specific event
+  encoding and counter mapping.
+- Fixed few bugs and cleanup.
+- Link to v1: https://lore.kernel.org/r/20240217005738.3744121-1-atishp@rivosinc.com
+
+---
+Atish Patra (17):
+      RISC-V: perf: fix resource cleanup on driver probe failure
+      RISC-V: Add Smcsrind and Sscsrind ISA extension definition and parsing
+      dt-bindings: riscv: add Smcsrind and Sscsrind ISA extension descriptions
+      RISC-V: Define indirect CSR access helpers
+      RISC-V: Add Smcntrpmf extension parsing
+      dt-bindings: riscv: add Smcntrpmf ISA extension description
+      RISC-V: Add Ssccfg/Smcdeleg ISA extension definition and parsing
+      dt-bindings: riscv: add Counter delegation ISA extensions description
+      RISC-V: perf: Restructure the SBI PMU code
+      RISC-V: perf: Modify the counter discovery mechanism
+      RISC-V: perf: Add a mechanism to defined legacy event encoding
+      RISC-V: perf: Implement supervisor counter delegation support
+      RISC-V: perf: Use config2/vendor table for event to counter mapping
+      RISC-V: perf: Add legacy event encodings via sysfs
+      RISC-V: perf: Add Qemu virt machine events
+      tools/perf: Support event code for arch standard events
+      tools/perf: Add RISC-V CounterIDMask event field
+
+Charlie Jenkins (1):
+      RISC-V: perf: Skip PMU SBI extension when not implemented
+
+Kaiwen Xue (2):
+      RISC-V: Add Smcsrind and Sscsrind ISA extension CSR definitions
+      RISC-V: Add Ssccfg extension CSR definition
+
+ .../devicetree/bindings/riscv/extensions.yaml      |   63 ++
+ arch/riscv/include/asm/csr.h                       |   49 +
+ arch/riscv/include/asm/csr_indirect.h              |   50 +
+ arch/riscv/include/asm/hwcap.h                     |    7 +
+ arch/riscv/include/asm/vendorid_list.h             |    6 +
+ arch/riscv/kernel/cpufeature.c                     |   27 +
+ drivers/perf/Kconfig                               |   14 +-
+ drivers/perf/riscv_pmu_sbi.c                       | 1155 ++++++++++++++++----
+ include/linux/perf/riscv_pmu.h                     |    5 +
+ .../perf/pmu-events/arch/riscv/arch-standard.json  |   10 +
+ tools/perf/pmu-events/jevents.py                   |   10 +-
+ 11 files changed, 1182 insertions(+), 214 deletions(-)
+---
+base-commit: ff492e321c47df9e87251b44c1003b165142280e
+change-id: 20240715-counter_delegation-628a32f8c9cc
+
+Best regards,
+-- 
+Atish Patra <atishp@meta.com>
+
 
