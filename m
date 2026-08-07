@@ -4,74 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD963C5AC7C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 10:08:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75AEDC5AC7A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 10:12:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pxd2Bwic7PKpnObPnanvqm3imyXmQVIGXfi6xaFwDyk=; b=jWAIh907nyHUGvt1jgmUjt/pBh
-	TQrmI4cqP6aOMxCdOI5UoT45CCjoh/k+prrsrtfNdT12zxFX53NWQCl7Rw8CQX36oQ+Tjo03zwpqn
-	ZoXNErzTFy7kYglMF6UlOOf9xzFQh4GDKVEEs6AQiw0ZZ5jKPrxYi7BtbwtDOE5/WePAv2t36NGAz
-	5sbPLU1Z3yMKZ1lno+di9atav/xFlmuFUXg+UUB9REcMny92LTVIV9qZ2X+VU8nyK9+KpH1OlG55n
-	ZYRr8V6Cs7nwQSkLwzDkvuKO+AeZezTDYGuxg2e9pk3s+8ijBTOLzEjmzHi5QJCYUlX87Qxew9fa+
-	8mP3SC+w==;
+	bh=gRsC4nvT6Z/jvHUPDRb5W5WWvK9c6aIP6vBj3rnYfTc=; b=rhInqDgBw1lY9NPBpVU17MbXT9
+	0bLNdRKH5WfIezNwnyR5dpwMAME2LEbmG4J31e6phitA6VZH9IcsB+GWgs6dVKFxzdSB+XUw0xhul
+	JIpSW5k+k/ZB7YSvKmuHw/euJR8zZyqMzAQrcrDOUhpG4uGZHlfzqQnMLaOMN1YtWrwrhZQfR7tkI
+	Hbt85S/2tQ7kwkZDMUjl6Teli4+nNYTca9h2v12FruHFjpcBGD7JAJkOcwIh3i1u5SVMjK+UmtE4F
+	pmY+HS1Ds7iP2w5j9tf3pzXJ/LcmFJE6S/2Lqpjh8GGf9pBxpcoWJye3Px92U9pfWI3GfiZyuzDh+
+	fuiecB3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsHVF-00000007aVK-0tDk;
-	Fri, 07 Aug 2026 10:08:37 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wsHYV-00000007aqO-2huw;
+	Fri, 07 Aug 2026 10:11:59 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsHVD-00000007aV3-2D7x
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 07 Aug 2026 10:08:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=pxd2Bwic7PKpnObPnanvqm3imyXmQVIGXfi6xaFwDyk=; b=SoPbuoDL//b/TLfrArWwkBtQmx
-	X6eIDKgTfpdWXQdmKf4AXcbF5b0VQ3qmBq+S6MCQZuDg90g678481eEX40K9spHN/8p2NwPXx567U
-	41uF3nCJGL3AI2kz+ZjiaVUG6y6CTuAUWY9t/64MWsQ6BHbFxAAgPEfw/2guUkVzqAy7EQ3Wdtrpp
-	rKhga7piSyObi1ysEuXkCJhtSmYx4WVkrUP1wjBv7aMER4f6h60Pvoa0R/stTjg5so0/e5Lv/9zyt
-	AJhjEmt8xi7m6gNZh2HwJBZDf0RD/0DRxVIr3IsFV67Rd9dYBbjaiaf4ub1U5xtlCXaXKgGjox9/M
-	kVeLPjQw==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wsHV8-0000000CGfh-1Kat;
-	Fri, 07 Aug 2026 10:08:32 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 945EF3004C9; Fri, 07 Aug 2026 12:08:28 +0200 (CEST)
-Date: Fri, 7 Aug 2026 12:08:28 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Puranjay Mohan <puranjay@kernel.org>
-Cc: Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	James Clark <james.clark@linaro.org>,
-	Usama Arif <usama.arif@linux.dev>, Will Deacon <will@kernel.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Ravi Bangoria <ravi.bangoria@amd.com>,
-	Thomas Gleixner <tglx@kernel.org>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>, x86@kernel.org,
-	linux-perf-users@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH v6 2/3] perf/core: Run sched_task() for PMUs with only
- CPU-wide events
-Message-ID: <20260807100828.GT776954@noisy.programming.kicks-ass.net>
-References: <20260806135224.3267890-1-puranjay@kernel.org>
- <20260806135224.3267890-3-puranjay@kernel.org>
+	id 1wsHYS-00000007apw-404z
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 07 Aug 2026 10:11:58 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2ceaf8a1265so46888825ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Aug 2026 03:11:56 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1786097516; cv=none;
+        d=google.com; s=arc-20260327;
+        b=ql2P+Q9l87pEHcNcvZHHyZXD0kBFfkKyaCtmiB66feG6cxITVi7FtSgP0gTSGau3g7
+         /sY2PS9eHv1S1CSXR+kBhMsOro9E4wZ6sb2keV8aMEh0Re6XbHPzNb7xGDAZhdIvUDi3
+         Vp7CM5QD/C/M7AX6hyjK/8wMHOjbsfHbD261HoI5xzZFtX5bulyVNjNVWyEitWTCcD+0
+         ACUoyKDhYLj/djzJcRuUiqkjBTRPL18e7RcNopj/pbHISpr6WYuL1txLqBo/mFZMQvaO
+         JJwnOGvPjfmQHdWqBNWwIheqPXwolVv0KSoigyPaVfXyKj0aP/y4toIEFwlsjQaZP4Z8
+         4zEQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=gRsC4nvT6Z/jvHUPDRb5W5WWvK9c6aIP6vBj3rnYfTc=;
+        fh=siv1/fVR82gCGtMkvL1t5qiLjb/ZgyPhaZT9GIwEToc=;
+        b=ktiWrKnf3s0szIxAPhhaT7mTdMonTzBS7fXNR6GLBMjWLy7AjLnNTCW6yuKYBOj4Fg
+         W7dud7XD+pDKoFydS6+N+XWI+kGbfi97lKDFeY388KDPEExOGtkXwdgGpV680r2O+Iuv
+         uUVnaeSYp9NSxYHQYjuPmVZaxnZIR71d54lpwmamtZJ5gNgIzl/oAMteaqfT3XaLxaV0
+         CmMhLcHtuM+QKbRUpNs+lVYvbbxdiRbRnYMJjHQXawfqh27iHIXxABIG5Lf8QNUsp4my
+         EZMcnKCE93yEaT5it2nzi92clzHLkq98zcFvVKEmkJ4l8plNDYs+EElWzzLX43rZY39d
+         NccQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786097516; x=1786702316; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=gRsC4nvT6Z/jvHUPDRb5W5WWvK9c6aIP6vBj3rnYfTc=;
+        b=RsFAJtMb0jwpTyneuV2Qn3aoJCN7rf2wRCGDCEhGdWFsPyFFj7cU0lqo8d81S/6H2b
+         p9HOiNwsSfKCo4ECNwa1vduL7bowjonm147uj2/nuvE4VN3KEOPAXFJIh2spawv01hXz
+         cByHn2RTDarWhFEQr/c6MRLz4H4UuthsrpHaq01WOfjXHaM2BiBGTUiqWJBHNCfzZqDH
+         6T6i/5/vd07EGB1yR/V2PmKx3dUaYCYOlgnPebg9vdNA3qJE7+Jbgp0Xj87pzbVEmdpP
+         aj4ZO57RYd3qod+KQ+buug+5s0mQ3huq9a/3h8awzecz6oCccyS6mOQZOBHIGGU3VFWr
+         YVqg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786097516; x=1786702316;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=gRsC4nvT6Z/jvHUPDRb5W5WWvK9c6aIP6vBj3rnYfTc=;
+        b=KFy4ynDxk9DN2hFHUXMJcBZWFxH+kp7qkps1JyPRB7QLUPeLUV6O7x/EXCx02TnPLo
+         Xn/7V7nB/5rU6nCz21aMI//WqAkhpnzBhuessTEpNZWb/eXMBg6Iw6g7cQf6XTlIIvPp
+         hITTxsNLuDA9lX7wVvU76t9czryo9GwEQK0Ktm/xca1yK+6euvhw9VL7I9nuXuZ3TMTq
+         qk9Y9lHSZWPSbptWk1J9x1apwmjDpZQUC5ZAm5EEDCubwtauMRDOuJX/EgeS6OwWG2sL
+         +SWDOMc1fKXpiG9Ca4aiyYN1QwPTg+1Z7iA9MTYVfduu78M8A0grvjNue/xuyn0g/jhu
+         zXkA==
+X-Forwarded-Encrypted: i=1; AHgh+Ro+c2nSXJ6XPSpODHe5WO1ke8PW0fqZ55pZTX5MWEnzH6Ixhf6uBaBkmkruHm2YbLVHzq5sG8/+Nh/bygza7O3r@lists.infradead.org
+X-Gm-Message-State: AOJu0YzUvvyreh6kyWRqO1wUFhEsLIyLnmnprk+YaTrGmUM4rbcT+Sa5
+	120SV5+zaqTQ9cWZ9ZT/IswAw8iCaYWLMp3r1uw/ffcqCI54/gGfzr120wHYBQCYIGEA8SByxnJ
+	1PHlU78xVh8theKKeumPk1nRGJhC2WmU=
+X-Gm-Gg: AR+sD10W7D94cQedKdTe8xmzNgH7GbdV2t+dFCl5hKXg1sqkLy10FgkQueAuImph65V
+	2t7v+QekGs/BG9JT+1GW5ZoaS9bk2bNCExmYClC79drfYYbQGnuP6UNSD1WqKYa6PnmZ5qKKXFv
+	YSlQOD+AxYj/DH7yLPAddFCPwpEQxS6H8zAk+Vz18HJJ599l2PCiEpW6oRYiucYWpFkunmcwrgr
+	7non2xEEU4ysyebi23SmsfVDiEfdmWxtNPAwkh5jhi8cTRTyGgVpPZpohaO5JWgxo+T+dv0mSO3
+	mk5AsdS78PRXQy479XqkHsqcgrdYv8LyfVq17ATTawI8o1Yr53wfKs4B3uqeZsDH/llHWNARlYX
+	7NPXccta7CNC1/w6cFaznSYqL6J7XdvgeYzlDtpXtyRoVE3D451sow2U6
+X-Received: by 2002:a17:903:2290:b0:2c0:db23:4c4 with SMTP id
+ d9443c01a7336-2d0ca78d505mr240111405ad.16.1786097516111; Fri, 07 Aug 2026
+ 03:11:56 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260806135224.3267890-3-puranjay@kernel.org>
+References: <20260807093058.42840-1-phucduc.bui@gmail.com> <CAMuHMdWJ3W2JKmxaKaa-A-Zk633cf4UwbESi+F1_h4tX1AhRng@mail.gmail.com>
+In-Reply-To: <CAMuHMdWJ3W2JKmxaKaa-A-Zk633cf4UwbESi+F1_h4tX1AhRng@mail.gmail.com>
+From: Bui Duc Phuc <phucduc.bui@gmail.com>
+Date: Fri, 7 Aug 2026 17:11:44 +0700
+X-Gm-Features: AUfX_mxB2Z6rKGI0C552xtBhSaQUfWGeTqpz5g_xI9L885nyvRhIV34A4nRBpYo
+Message-ID: <CAABR9nF7sAT4C+W_qE8GVKhrtTjdm=DcpJH548RzFaYLuED+3A@mail.gmail.com>
+Subject: Re: [PATCH 1/2] thermal/drivers/rcar_gen3: Handle -ENXIO from
+ optional IRQ lookup
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Markus Mayer <mmayer@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, rafael@kernel.org, 
+	Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, 
+	Lukasz Luba <lukasz.luba@arm.com>, Florian Fainelli <florian.fainelli@broadcom.com>, 
+	niklas.soderlund@ragnatech.se, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Magnus Damm <magnus.damm@gmail.com>, linux-pm@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260807_031156_995840_DD358785 
+X-CRM114-Status: GOOD (  16.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,89 +123,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 06, 2026 at 06:52:22AM -0700, Puranjay Mohan wrote:
-> perf_pmu_sched_task() returns early when cpuctx->task_ctx is set and
-> leaves the work to perf_ctx_sched_task_cb(). That one only walks
-> ctx->pmu_ctx_list, so a PMU whose events are all CPU-wide is never
-> visited and its sched_task() callback does not run. With
-> 
->   perf record -b -e cycles -a -- ls
-> 
-> armv8pmu_sched_task() is skipped on every switch to a task that has a
-> perf event of its own, and BRBE records leak across the task boundary.
-> intel_pmu_lbr_add() calls perf_sched_cb_inc() unconditionally as well,
-> so LBR records leak the same way on x86.
-> 
-> Drop the early return and instead skip the individual CPCs that
-> perf_ctx_sched_task_cb() already handles.
-> 
-> That requires the two to agree on which CPC belongs to which path, and
-> they do not. perf_ctx_sched_task_cb() gates on cpc->sched_cb_usage,
-> which perf_sched_cb_inc() sets per CPU for every branch stack user,
-> while the new gate uses cpc->task_epc, which __link_epc() sets only on
-> the CPU the task context is scheduled in on. A task with an event for
-> that PMU pinned to another CPU has an epc on ctx->pmu_ctx_list while
-> cpc->task_epc is NULL, so both paths would run and sched_task() would be
-> called twice per context switch. On x86 the second
-> __intel_pmu_lbr_restore() finds lbr_stack_state == LBR_NONE and calls
-> intel_pmu_lbr_reset(), throwing away the callstack the first one
-> restored. So gate perf_ctx_sched_task_cb() on cpc->task_epc too.
-> 
-> For the CPCs that perf_pmu_sched_task() now handles, the callback no
-> longer runs inside the perf_ctx_disable() and perf_ctx_enable() pair in
-> perf_event_context_sched_in(). __perf_pmu_sched_task() disables the PMU
-> around the call itself, so the callback still runs with it disabled.
-> 
-> Fixes: bd2756811766 ("perf: Rewrite core context handling")
-> Cc: stable@vger.kernel.org
-> Acked-by: Usama Arif <usama.arif@linux.dev>
-> Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
-> ---
->  kernel/events/core.c | 12 +++++++++---
->  1 file changed, 9 insertions(+), 3 deletions(-)
-> 
-> diff --git a/kernel/events/core.c b/kernel/events/core.c
-> index 9815894b67e77..675dd05935f35 100644
-> --- a/kernel/events/core.c
-> +++ b/kernel/events/core.c
-> @@ -3757,6 +3757,9 @@ static void perf_ctx_sched_task_cb(struct perf_event_context *ctx,
->  	list_for_each_entry(pmu_ctx, &ctx->pmu_ctx_list, pmu_ctx_entry) {
->  		cpc = this_cpc(pmu_ctx->pmu);
->  
-> +		if (cpc->task_epc != pmu_ctx)
-> +			continue;
+Hi Geert,
 
-Why isn't this the inverse condition of the below? That is, we should
-call either this or the other, right?
+Thank you for your feedback.
 
-> +
->  		if (cpc->sched_cb_usage && pmu_ctx->pmu->sched_task)
->  			pmu_ctx->pmu->sched_task(pmu_ctx, task, sched_in);
->  	}
-> @@ -3921,12 +3924,15 @@ static void perf_pmu_sched_task(struct task_struct *prev,
->  	struct perf_cpu_context *cpuctx = this_cpu_ptr(&perf_cpu_context);
->  	struct perf_cpu_pmu_context *cpc;
->  
-> -	/* cpuctx->task_ctx will be handled in perf_event_context_sched_in/out */
-> -	if (prev == next || cpuctx->task_ctx)
-> +	if (prev == next)
->  		return;
->  
-> -	list_for_each_entry(cpc, this_cpu_ptr(&sched_cb_list), sched_cb_entry)
-> +	list_for_each_entry(cpc, this_cpu_ptr(&sched_cb_list), sched_cb_entry) {
-> +		if (cpuctx->task_ctx && cpc->task_epc)
+> >                 irq = platform_get_irq_optional(pdev, i);
+> > -               if (irq < 0)
+> > +               if (irq < 0 && irq != -ENXIO)
+> >                         return irq;
+> >
+>
+> So the code may continue using -ENXIO as an interrupt number (and fail)?
+>
 
-I'm not sure I see the need for the first part of that clause; why
-isn't: 'cpuc->task_epc' sufficient?
+Yes, you are right. We should probably handle it similarly to:
+https://elixir.bootlin.com/linux/v7.2-rc6/source/drivers/thermal/renesas/rcar_thermal.c#L422
+and only assign the IRQ when the return value is positive:
+if (ret > 0)
+   irq = ret;
 
-> +			continue;
-> +
->  		__perf_pmu_sched_task(cpc, sched_in ? next : prev, sched_in);
-> +	}
->  }
->  
->  static void perf_event_switch(struct task_struct *task,
-> -- 
-> 2.53.0-Meta
-> 
+> Why is this change needed at all?
+> The caller of rcar_gen3_thermal_request_irqs() knows how to handle
+> failures, as IRQs are optional.
+>
+
+Regarding the caller, I only found rcar_gen3_thermal_request_irqs()
+being called here:
+https://elixir.bootlin.com/linux/v7.2-rc6/source/drivers/thermal/renesas/rcar_gen3_thermal.c#L530
+It does not appear to handle the error return there, so I don't think
+the caller currently handles these failures explicitly.
+
+Best regards,
+Phuc
 
