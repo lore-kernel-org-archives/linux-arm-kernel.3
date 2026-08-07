@@ -4,58 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8274AC5AC7A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 14:26:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 884FDC2A09B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 14:27:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p8S/id+omyM4vKn2ckYq5dh9Dzt1Bm2W54fj720q0Ts=; b=DNcQoXnd5z3h+19rfw3RkNz7us
-	WdbXpwiAVlUPKSOcezl5nxI2W+HLwsgmyk0kgMJkKdEdRkMas+SYFf+VnzYwgxpqHmVY++dfISlg6
-	Bm9kyyuRc4VuAfjYKQ5Ow1h6tSb5N7EPiZ6DuirDIQ085GTjz2mS9qEzANCFZZxabhggfn0RmJ+My
-	cZ0Bg41oe5U+U9tTUj456O36xzfguOKsE2tomSm1LeBFXr/F3GPCvTjg4yCp6fUJFSA6Ib4IREq5+
-	j5XtQH5NNI+Gs/Yx7iH/UozUO9NrHri/5k3Iw58FWg1bVHd2M4wOR8ohTzw0asFv4l5aH/DnJ6seC
-	OqO9rbbA==;
+	bh=OEoA4nKIHkYl8kyH/j7j2J8sVAbOsoUJbcanFZ4ww1g=; b=jEdm/s1FKExyLSlTuQx8xHD5CV
+	1HhbuFzz6zcGEVu/nQ1Nkz8Z8Lhq1TpvFy9wjvEHfEXxSJ1dbNJLwe8vb4HXVurqHrW3ibVyrm++n
+	5TGRFsKJPRl/WijC5pVJxZU3hl0P2bmC3vD9r5KFZTudMkAKSD2j8JWvQClcmOwGzuhg4DCuufnhW
+	a0ssEhcwCPL6WC/fGFj87LfYuA1lKQDWtgG3v/nr3bSvWKd82tFsLRvss3BSNJiPUkJx2s1u7YHbP
+	5k4PldxcMpcZmsqdvIJEYNrjaf4cc1YNybBgzcPHSQ+JwACZVmi3fACVwndWXUxSUNwsg5TSrlMYI
+	NhYeVyrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsLX2-00000008Gep-0F1C;
-	Fri, 07 Aug 2026 14:26:44 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wsLXc-00000008GlY-1Kbu;
+	Fri, 07 Aug 2026 14:27:20 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsLX0-00000008Geh-2GUc
+	id 1wsLXb-00000008GlG-1607
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 14:26:42 +0000
+	Fri, 07 Aug 2026 14:27:19 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A4D08600D8;
-	Fri,  7 Aug 2026 14:26:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CBF21F000E9;
-	Fri,  7 Aug 2026 14:26:39 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BFB404324E;
+	Fri,  7 Aug 2026 14:27:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D76D61F000E9;
+	Fri,  7 Aug 2026 14:27:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786112801;
-	bh=p8S/id+omyM4vKn2ckYq5dh9Dzt1Bm2W54fj720q0Ts=;
+	s=k20260515; t=1786112838;
+	bh=OEoA4nKIHkYl8kyH/j7j2J8sVAbOsoUJbcanFZ4ww1g=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=cFHIudcQGgXx5j/gJeB/4JuPfhSSlcSmky8ZXosc/dHZxujfTEujrqR3oo/vD4YYa
-	 OWJ7uSJCJU1MfUIlIUWAFoQxWJ1sF4T6iSZUVSibwzKMGlUbR6WEfA+cdh2EB+L3jI
-	 vcxb1OC+Se3aXtSb2d0dovWjfs4Tcnmv72N3kBb6nfzQ5c8JjzskJ9AG7zdzUmbFcV
-	 SuHpAU83REu4UJrgfvfhc6c6edbs4pC9uH7QJK+RGISisE08lhqthcc896s3QeZC3K
-	 046jy3hEk6y4oJ0odOK2c1gTypx/eA6sh5wtu+tU0NksGTXi3NBRS4K7NbE/nh7qog
-	 jyl+C0j/j6bMw==
-Date: Fri, 7 Aug 2026 15:26:36 +0100
+	b=e3We5B66gvdRLITPpjuxhjSm+DQl43QZ8+Y9B+mul5KiZEVoIpz/WQrZSx8q7hOtG
+	 NpmGywzWnlhynkdPWxX9p6gG4/2FX20WypFZ81seu28mECeNh95orMHJbCuR4BFUz3
+	 gpnWkC+HjgSkXIsWTe8KEs+z8SzuWUvZu7pOix6NLx+8I6lzmQ4qKuSice1GlO8e30
+	 o75XGMY27nDCXLo0ZIgJgB9kvO/m8X+8mK2UUqvsaxHSvLkrx71ZV+8YGqP46bHCPx
+	 wEIEqSLslCq8YLqhuDSnk6A8K3G7KULsClOLnk0lxfob4lJQ0SgzMSgDhr29PZitM1
+	 2b9xcGKHGVJ3A==
+Date: Fri, 7 Aug 2026 15:27:14 +0100
 From: Will Deacon <will@kernel.org>
-To: Ben Horgan <ben.horgan@arm.com>
-Cc: james.morse@arm.com, reinette.chatre@intel.com, fenghuay@nvidia.com,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	dave.martin@arm.com, andre.przywara@arm.com,
-	catalin.marinas@arm.com
-Subject: Re: [PATCH v1 0/2] MPAM Fixes for UAF and NPE on unbind
-Message-ID: <anXrHH4ZwoNTLqI-@willie-the-truck>
-References: <20260806144631.2502918-1-ben.horgan@arm.com>
+To: James Clark <james.clark@linaro.org>
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	"Rob Herring (Arm)" <robh@kernel.org>, Leo Yan <leo.yan@arm.com>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>
+Subject: Re: [PATCH] perf: arm_pmuv3: Zero initialize hw_id branch stack field
+Message-ID: <anXrQkKl7DXteMXp@willie-the-truck>
+References: <20260807-james-brbe-init-hw-idx-v1-1-009d1843960a@linaro.org>
+ <a985a304-b399-4e84-99e3-0c6200ae518a@arm.com>
+ <66590828-a571-45eb-8e67-a55bebea1b97@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260806144631.2502918-1-ben.horgan@arm.com>
+In-Reply-To: <66590828-a571-45eb-8e67-a55bebea1b97@linaro.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,22 +74,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 06, 2026 at 03:46:29PM +0100, Ben Horgan wrote:
-> The MPAM driver expects to manage all the MSC in a system. At boot it
-> delays its initialization until it has probed all of them but once
-> running it is unprepared to have the MSC taken away and that can trigger
-> UAF and NPE. Workaround this by ensuring it never relinquishes the MSC.
+On Fri, Aug 07, 2026 at 01:18:59PM +0100, James Clark wrote:
 > 
-> Ben Horgan (2):
->   arm_mpam: Fix a NULL pointer dereference on unbinding after an error
->     interrupt
->   arm_mpam: Disable driver unbind to avoid UAF
 > 
->  drivers/resctrl/mpam_devices.c | 4 ++++
->  1 file changed, 4 insertions(+)
+> On 07/08/2026 11:44, Anshuman Khandual wrote:
+> > On 07/08/26 2:44 PM, James Clark wrote:
+> > > PERF_SAMPLE_BRANCH_HW_INDEX is supported by BRBE so hw_id is passed to
+> > > userspace, but it's never set by the BRBE driver. Zero initialize it as
+> > > it should be according to the docs:
+> > > 
+> > >     * For the architectures whose raw branch records are
+> > >     * already stored in age order, the hw_idx should be 0.
+> > 
+> > The in code documentation while defining perf_branch_stack.
+> > Probably a good idea to specify the same above.
+> > 
+> >   * For the architectures whose raw branch records are
+> >   * already stored in age order, the hw_idx should be 0.
+> >   */
+> > struct perf_branch_stack {
+> > 	u64				nr;
+> > 	u64				hw_idx;
+> > 	struct perf_branch_entry	entries[];
+> > };
+> > 
+> 
+> I found it easily enough. I wouldn't want to put the same comment in two
+> places and risk one of them going stale. And if I take it away from one
+> place and move it to the struct then it's just missing from somewhere else
+> instead. So I think I'd rather leave this one.
 
-Thanks, I've applied these but you got Catalin's email address wrong
-(I've fixed it for this reply) so the thank you email failed to go out.
+Yup, I've queued it as-is.
+
+Cheers,
 
 Will
 
