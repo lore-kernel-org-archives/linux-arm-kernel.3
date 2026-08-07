@@ -4,105 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A769C5AC81
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 05:59:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DE47C5AC7A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 06:00:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3U3bIgaSDCGst802fxBCWhRvVOImxD7B0QSV8KHRG+M=; b=J6ZrlKn2BvuuKO8Z8UnPle5Tcu
-	uYqpkz6y1gDzcfFGEfKZ2X7j98o5PUgu8SMmIqavPGwPXAUWBD65L7r+PO9BCUV/qmN94bWz05PhQ
-	3JNJbjHZwDEAm808zfaDUzgUiZfYiI7yO891IPDUiosh3uELv/JMdmgmGf5m6fd/WO1jXuR9TyvSq
-	lEfKE/iO8o1VSs5y3CIqRgVqoHcIbw+g1rjO0Wes9TB/v1I6vqMcDSttsX7dROMDAOviAIxkvRhoo
-	9Icfkm8tWdCmGrbh9AjOiHNC51aur9FBrdVK27jujcwWe0o6B9K4NXCLTk+0xDYCq+9iM+mlUtPr1
-	8y+vy5Bg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DTjw2XFDO1scXxZ466G8sTIU0IDoXYq5q8rl6tKiZRA=; b=DnuovYYFvqUVb9i0AmenspYEmc
+	j8iDWI5/vXWYam7Q8K3JEMAgnOOx2svDNvZKU0+VumkgyWiF6F+qfuG9QypNbjcOXXAwdAA5Lamd2
+	o2tABcgK8Q6rgKriQ9G8Eqgbz20j00SA86ZKQ6B+StoBhxl1nRr5aY+EXyQR6ez7TrKaNLhPB8a1I
+	U42cV0rfANY9aFfG7uM8cDBHKJPCebey/h5EtAlqyNnjKuTXUr7AFu8wllVJ2Hnjvq2E6TdImr4/p
+	dJfKS9De+zZT/d5R1nIoW8xA/+dfx1mnIJ6PA/P6DNAq+0eD7jlkkcHJmPHW2yfo2qKQ2Jq8nnCNG
+	h3Rd2Wng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsDbg-000000078RR-0oeh;
-	Fri, 07 Aug 2026 05:59:00 +0000
+	id 1wsDdD-000000078cJ-1m7v;
+	Fri, 07 Aug 2026 06:00:35 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsDbd-000000078RI-40sr;
-	Fri, 07 Aug 2026 05:58:58 +0000
+	id 1wsDdC-000000078c3-2bft
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 07 Aug 2026 06:00:34 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C3FCD600B1;
-	Fri,  7 Aug 2026 05:58:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 423EE1F000E9;
-	Fri,  7 Aug 2026 05:58:53 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A217860DB9;
+	Fri,  7 Aug 2026 06:00:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55D481F00A3A;
+	Fri,  7 Aug 2026 06:00:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786082336;
-	bh=3U3bIgaSDCGst802fxBCWhRvVOImxD7B0QSV8KHRG+M=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=heNJJtgxXyVj1g45v4BlgCQNPdIV0GQPzHR1w9ctyQOuOD+qijK2cYO+iXEq9RuGI
-	 3IdotesLXEEZTSpoj6cmJuy7Znv1j/NuDk1+C+V1nZkkgAK3wgEhsvvwMfd+twUAcH
-	 dh7D36lE4OuW0qcMgUCdMSzLbCt1DD74HK1bke8gPWCieJbWFYp4GdTISsYXFNztKp
-	 BNv2ERGS4CoIYD4SVnCTddhZMaqrC2r7VzYL8bP2nFX1L0gGPI4oByFDk4UTLlItnz
-	 +WMPZNZEVNB61IcPl3ZPKQc5wx5Ujf+DAWXuwLv37qLfc/ff0lL2DR3+iDhNPusq53
-	 OSGdxxV4zeqiQ==
-Message-ID: <c28f33bc-bab4-4d64-9e53-007bceb4d321@kernel.org>
-Date: Fri, 7 Aug 2026 07:58:51 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/4] arm64: defconfig: enable Rockchip NPU support
-To: Sebastian Reichel <sebastian.reichel@collabora.com>,
- Heiko Stuebner <heiko@sntech.de>
-Cc: Detlev Casanova <detlev.casanova@collabora.com>,
- Benjamin Gaignard <benjamin.gaignard@collabora.com>,
- Michael Riesch <michael.riesch@collabora.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- kernel@collabora.com
-References: <20260806-rockchip-defconfig-additions-v1-0-6b1d8baa0bf5@collabora.com>
- <20260806-rockchip-defconfig-additions-v1-4-6b1d8baa0bf5@collabora.com>
+	s=k20260515; t=1786082433;
+	bh=DTjw2XFDO1scXxZ466G8sTIU0IDoXYq5q8rl6tKiZRA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=HiDHhnF61cXktC/fU2PqLlG6QeF7DkMz1CQaC5A8ET1AF7LuXGBsKezuCgD9oox4W
+	 y2Sx9iYyY+aoO0IYPhYr/vqAQwo9NevoenkwIhnrkwDneXA9BloNAgMf5K+h/8uemc
+	 W2Qhlf8cFaOH+e9kXpf8T4vhvCbEpRe4dmzOxv13m3vZGu4d+wqdL61GgkcLKNVwzz
+	 nNjoH/8QJ3euP2YWZbFHlPi4I051+2ZKFABewEgpiuDkrv6OJQswkiX9WEXEdzqWtu
+	 tF/SccwVUtceMU5EcA1v92ftFGRqT0SbnGMkeKhyecvI4oLDiTk3J3T100Sh2RvYHY
+	 p/D9wCGLUxPhQ==
+Date: Fri, 7 Aug 2026 08:00:29 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20260806-rockchip-defconfig-additions-v1-4-6b1d8baa0bf5@collabora.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+To: Long Zhao <longzhao@ambarella.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Linus Walleij <linusw@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Jiri Slaby <jirislaby@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-serial@vger.kernel.org, soc@lists.linux.dev
+Subject: Re: [PATCH v2 01/10] dt-bindings: arm: add Ambarella CV75 platforms
+Message-ID: <20260807-free-stork-of-effort-60e41d@quoll>
+References: <20260806-longzhao-upstream-cv75-v2-v2-0-6b09707c5fe9@ambarella.com>
+ <20260806-longzhao-upstream-cv75-v2-v2-1-6b09707c5fe9@ambarella.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260806-longzhao-upstream-cv75-v2-v2-1-6b09707c5fe9@ambarella.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,18 +76,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/08/2026 19:24, Sebastian Reichel wrote:
-> Enable support for the Rockchip NPU, which can be used with upstream
-> mesa on many RK3588 boards, such as the Radxa Rock 5 family or the
-> Orange Pis.
+On Thu, Aug 06, 2026 at 05:34:09PM +0800, Long Zhao wrote:
+> Add the Ambarella SoC board binding and vendor prefix covering
+> the CV75 EVK.
 > 
-> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+> Signed-off-by: Long Zhao <longzhao@ambarella.com>
 > ---
+>  .../devicetree/bindings/arm/ambarella.yaml         | 23 ++++++++++++++++++++++
+>  .../devicetree/bindings/vendor-prefixes.yaml       |  2 ++
+>  2 files changed, 25 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/arm/ambarella.yaml b/Documentation/devicetree/bindings/arm/ambarella.yaml
+> new file mode 100644
+> index 000000000000..347148530f80
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/arm/ambarella.yaml
+> @@ -0,0 +1,23 @@
+> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/arm/ambarella.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Ambarella SoC platforms
+> +
+> +maintainers:
+> +  - Long Zhao <longzhao@ambarella.com>
+> +
+> +properties:
+> +  $nodename:
+> +    const: "/"
+> +
+> +  compatible:
+> +    oneOf:
+> +      - description: Ambarella CV75 EVK board
+> +        items:
+> +          - const: ambarella,cv75-evk
 
-This should be squashed with the previous ones. Do not enable item by
-item. All your three last patches do the same logical thing: enable
-multimedia drivers for Radxa Rock 5 (+ others).
+This should be enum, it will grow with other boards, no?
+
+Anyway,
+
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
 Best regards,
 Krzysztof
+
 
