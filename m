@@ -4,87 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1DD0C5AC7C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 08:32:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15AB9C5AC7A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 08:32:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CjG/L6vRX47pDzFHeJpXAhEEn3GJ7KDceCdHzawl8to=; b=gHy+9IthqeKaXeI9Nf2NVUoi+K
-	7mMOSKZGp/2QhfQuhxSyU2Cw0hi10QLpLbUHLVoJxTLpiRkwY1/JZCd+pBgwK/HS4dRMEFIHAm1od
-	j8pDm+3DZdGHcNYs/cZzhx5OJ4h+IRl+SewBx2nPTL+jQ9qJOycvhgNIxa8GX4rHxZ8P7U3mnuv1X
-	JRenbNaHDTyQ2DD1kWK5dlz+mDR56gJ24c8LUSbgrFZoo4P7ZiveEB1IJ5GohhrcT2qP6wBGKmi8g
-	MRdDQ8m8yDBuQa4ivW+OaN2tEMtmoUm2I7cpGlKedUHGHh/3D64KExIXNpB3itq+lxpgNz847fyeO
-	2sH8zKCw==;
+	bh=G+oLbfnm87lp0uiqGxHSztbOHkrNn69OeQaoJobBjdY=; b=nw7NPnbBG8Oi5yk6nO3+SRCTeH
+	+M5Frwm3F+x+cFbsroeRWXSKL2A3W4OasFAB0tntVl1/DP8hFtblQT1icZUgzbXMEa36mSnUAN8H0
+	k/Fty32Hj943H9EUMwC1jGkPPPeaM874gFICt8QWiXF5rZAfSPaxm3xY5KXooF+pGeeu5h6927civ
+	RPe7TXgoW7XiYWn6XyFA0YgeBR2MMzTa2I2sbcBYxNtdFmuZJo39Lgjq7bcwTvHHtRUVxDjYWV/g4
+	cmwdPfurpaX1lWhvTzO1kT3UqL0My0CvfTzPDjQ/Pawk+4YtfZUthaXeeb/91xa1XHDgg6RvU6Awb
+	gzv0aUgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsFzl-00000007QCO-3YdI;
-	Fri, 07 Aug 2026 08:32:01 +0000
+	id 1wsFzn-00000007QDG-41dh;
+	Fri, 07 Aug 2026 08:32:03 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsFzk-00000007QBs-1pGw
+	id 1wsFzm-00000007QCk-3ngL
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 07 Aug 2026 08:32:00 +0000
+	Fri, 07 Aug 2026 08:32:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:To:From:Sender:Reply-To:Cc:
 	Content-Type:Content-ID:Content-Description;
-	bh=CjG/L6vRX47pDzFHeJpXAhEEn3GJ7KDceCdHzawl8to=; b=Wcq5NiuloAaVG+8xwhnU83wBbI
-	YHywq9kzP++9o/Z7KVZSpjpBZXibmybVcSV+C7UnXnoJGrJK7S0P/8QawwrulpUMVPMaM8PAdRZkk
-	97oGIi4Ax0tCmIzwseKQGvEG6PWX0OthXlqqoLXWwzNvGscUCRFvhasI+w2lnsyPvE9nPdcKG4h35
-	3kowlc+TEDAXCxuAxNG8UOgSd7G4LRYmCpKCcZCKSAUH0l9sVKxXtdUzDDHROX1o0MvXZj8IjtyxR
-	rYC0JCzNKoPXcVbpNPbjoIE6DUAiWtTjOaTEiDXgQLS7+FMEfxDzrv2xOOAH98DUoT7ZHhlSqb1oO
-	p/4jbGtA==;
-Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
+	bh=G+oLbfnm87lp0uiqGxHSztbOHkrNn69OeQaoJobBjdY=; b=fvrdnFd1hQTlW4gX/Aqb4SvFmS
+	vAiENN5i6iBeWW7dV/4jv2CwB+F5kTV+3IbgHgjgDaDcio/KIr6c4PzRhp77iWdMfz/pFn85BcVjs
+	Dl8/qS5j17qNdq1wHm9qKFEPMA4ciRlnvna53TwIkZ2Lc0CXNmk+lekwL8NwiEm3yH4Wz0B3rjfkY
+	TMigJUHuJMHenTKYg4fQZ2q4iE+1qDnDQhcKD+LO7jVguN/FjI4nB+F/73Q4TM8ua7Mcu6+yIOc5X
+	H+6pGHoY8veRC71w3jbCNEkGiWbkYD0PywCFtKCiWOmKNdmRrByNCh36hSmgEvEREb9lYCGunuDpz
+	/8Vz9AuQ==;
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wsFzg-0000000CCRz-2dKx
+	id 1wsFzk-0000000CCSJ-1Bbu
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 08:31:59 +0000
-Received: by mail-pg1-x531.google.com with SMTP id 41be03b00d2f7-ca00f126b7eso2199875a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Aug 2026 01:31:55 -0700 (PDT)
+	Fri, 07 Aug 2026 08:32:01 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-848479c9bd5so2840764b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Aug 2026 01:31:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786091514; x=1786696314; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1786091518; x=1786696318; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=CjG/L6vRX47pDzFHeJpXAhEEn3GJ7KDceCdHzawl8to=;
-        b=ZpYW5a2LzmSwv1K3A2+x2I4rcYF7U3pfWm0PqPiJW04VcGzdDZY1G9+VIcGI8xoBXu
-         vAenx3Vgi2MnNBq+oRy+Jtht1pHBaD0l0+/0WapAb7B04Q4L3tDeymAkN6PlQz6b9MC0
-         DqM6trF/J+n55pCpMUezaUtb7Nt+g1LoKlfqnOGbhYqGH4lnq38Tkve89p5znQoU0n8p
-         RXaDCcD8tpBOD428nE4MPAOZKOGQXKEQQnJKfG3k3zwtenQCjY8ye1GqesRfflPc/JJg
-         G/j/UXh+jZ5bm3xIIAjMYjpiEIrSvKeABO36HB3JxicsfYMQKeXqPBBhmFuB4JV1lZsf
-         5FEQ==
+        bh=G+oLbfnm87lp0uiqGxHSztbOHkrNn69OeQaoJobBjdY=;
+        b=oIVdYcPDfKi4gOXBlmLPu655EbvlMmGJtuBL1yHuDzeBVG25R0I/c7BwtnFXFcKgFV
+         RtxSQvIqok/Hy50Npr90jS/XTPe8b3XU+39t7Ww+9uS1IBuOGnRfbmUlLV836RDcg0gl
+         HbBGqrExu0Qlkkkjn7apabFX4OiDd8h400GNedtARU0cHj5HEXmMfL+/HYdN1yhxHUcu
+         gFsihpRK0mAMaFdhLFbVRYPhQchaVCCPuBq+QDkV7cyNSjuFlveyuwWXZCdkuAm2yMMP
+         JbePBvzcL0m9oLZtUVhLYtptLnfgdhBCWVnDDY2wrjXynWcQkQNSlERVEXgxqmvgW0wF
+         3loQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786091514; x=1786696314;
+        d=1e100.net; s=20251104; t=1786091518; x=1786696318;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to:content-type;
-        bh=CjG/L6vRX47pDzFHeJpXAhEEn3GJ7KDceCdHzawl8to=;
-        b=r8GoPV17CU90/BBb0yRvocn0el8fucm2iWbsXZfhTis9GD4cf32jkvh2+eipKLi3Cl
-         tOhq+5JDXQYO3KYmVshagpUVb+MDjXpi57v5NqMigwGE2v9LwF8aud0bFmAoaxMbng0U
-         mBccV8zVlwdODjq4o3ruoUDBUzuHBt5/CSCBDw+qs2lZaa1xcILDJ1xqKN8D+/t54iXo
-         czb78zfJFiP+NSJWsyYNBmAA3Y6jIizuPvJ7sdwMoKe9TRULE41/EtilgmpPT5n2v+vS
-         sP/4OXwS5BWHB2OVSzeMWzI87qYUYLxOavvoxX39PtOsTRi6WaBlpJYEg8fQ1RAuOwTC
-         dLFg==
-X-Forwarded-Encrypted: i=1; AHgh+RoCJBICMq+GU7ly2aJ7ILlErbeTMfKHNgMppaOUXEG9JlChh0AYM2u3Izf2k1BSkHwHOriUXW+vaKiSE7jnXweS@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz0ZuoZO2MKKqjh9jSXrnciPk9HXXsY2YGvXrUJI4FsJmOKcy64
-	ygu/Hrv3T9NHAmn9AiNJb2Kfalez9pq0L+zTL5qD8+j4lP8x/B4p4yUX
-X-Gm-Gg: AR+sD12Orx0UN+hn0R5tsUBzZYVlyXaRAYk2jgwkKJPvzt2ZzxMkLqPrrXlja/AmR2Y
-	kDV5TCR/O/HeT3iWpVmoFD5hhdrDkKqD3kv0gg68rLGn2GBCbvQ1/sRiueBQCKZzAUbQOEQZBS0
-	N4o1cVdG1GxSOTcQGT/GD6VQuQEdvekGzslJuJs3FNB1lz3GFrcURJOl8NcaRQfDDX3WL2kMpYr
-	oitFd5VvyLQoB9GF3a1d2Xptx0ymYMLK4nNn/KXcJsw6XSNIt7+x5Qo6zbt88qyyiAMl8k+qKMp
-	97I2AM/FN16oTwLRBfeo0+n/VHKlbLU8KdOPx/MhTuKbrbzUVrcH53Dzj/KWYAvVHbMctVFPqV+
-	tk5RsmpDD8LIliUV08+JfZAhNUgvMyEWhOuQuIY6I4XDWjsADGkTJWkPqbgfwPwWKhjcgdFOVop
-	wrl5VvJ6VxmE3zQhxLgXXhSKKrRZ6Vvt9r9yrvnPDOUU2BT/xiIP1iUdSQNP1iX0l75SmNQLXPq
-	+bcnMaxdaK/kUK2Mn8J5zUuXJOosVEG6QVPJ5mD7l9mQ6n/tw==
-X-Received: by 2002:a05:6a00:a1f:b0:847:83bd:6671 with SMTP id d2e1a72fcca58-84f2e04a630mr22800889b3a.19.1786091514166;
-        Fri, 07 Aug 2026 01:31:54 -0700 (PDT)
+        bh=G+oLbfnm87lp0uiqGxHSztbOHkrNn69OeQaoJobBjdY=;
+        b=H58O3t9A6wDaD9VPwnroAvMB7gPNc1u5kH8R63sFv0rAxVfarQpI/g/0mBc5r3Eb/w
+         l40RHP4a1Lskbl6V3+9HASKzzoKzt9kN1H6oMfkuzJtQbNZrer/MSPvklopx6Hi14Gba
+         2DPYUvLjxxiJNIyXIF0JEuHcv0H3/xJR1vG5QElJYSeJLX7YZ7P6n3rFWbW+3K/kMXLm
+         O1hGx4YZQTffTcc9ZsxMMIWBcc02+s23g3Kn5xESTwIvMLsK0aE7iHw62y5OgzDEOj95
+         B3Z6s0vGHqgE3tJb9mt1GLFfX/IcZGlG+FSlcZCKj2kTIJnxKYGBE4WIGPpL8s5NQbXB
+         74rA==
+X-Forwarded-Encrypted: i=1; AHgh+RrozIFK10wr+q3mS1Y3ZaGmfDJ9Ha31IxdConSwhNt5grXDMzDkqR8SD5a5meFaXXDxZW4iBFfsJylRF4dPw5X2@lists.infradead.org
+X-Gm-Message-State: AOJu0YxdBpuDc9mDPYPgAkiNO83hZcNN+o6XyaIiURjcw5vu8FuiLkf1
+	DURBvg2uHMoje3jfKaIVmkhun7VQ8pYIG3rmoQmQmsCdtCUSDKH1d9j9
+X-Gm-Gg: AR+sD10pF3esZP412Ns6KTpaM5QmudtbvK+CL2oMl1Fq2Bid3wXCCZENyOKMLu5GPlK
+	KQ8mPwWqymmQQF5A6YhDkOICkIAWYIR3wPKoHfXwfILDuzutnubBKPPXpb61fZmDypJ9IIg/6fL
+	iqzrD/Kra3wwCxM6b7FTlkQVxOLOrqFZaBhuHGxdTO85PhsU9VOOulCuS84j4UT9rmv50Eop3ZW
+	Bvui5ca3B95TomSDP1HnCRxAaWs9ySLk9KQCmWSDCM9SsCuH3TJi8sLObkE5F3xUhwYVKLnGVGv
+	C57Zp0GWouyhnGqgYb6Fa8tqNPSdj6DfxclepDntS447WsTStzF7UTt/1cb2Op7SpRkb+71l5Ni
+	nttaFY3l8OtcPUJMx7FkSy0TkC5402tHpIIddRbW1ZJxjIn8h1uheUst/mz405w71u0MiGsF5o8
+	mNJX4asjfy0bzhEFFZW1UUIQkqWNcyAj7n3npSzLpKq0ftf2nhtga/dnmZm7aIb3jtABEdfe312
+	eYJJMKN9t/fK128V85FSNA2S+nSV4T7fupZgvdM5bfV+5Q66A==
+X-Received: by 2002:a05:6a00:b806:b0:847:e2c7:59b6 with SMTP id d2e1a72fcca58-84f2e031181mr24296331b3a.11.1786091517957;
+        Fri, 07 Aug 2026 01:31:57 -0700 (PDT)
 Received: from fred-System-Product-Name (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84f5a553071sm627409b3a.43.2026.08.07.01.31.51
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84f5a553071sm627409b3a.43.2026.08.07.01.31.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Aug 2026 01:31:53 -0700 (PDT)
+        Fri, 07 Aug 2026 01:31:57 -0700 (PDT)
 From: Fred Chen <fredchen.openbmc@gmail.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -95,17 +95,17 @@ To: Rob Herring <robh@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-aspeed@lists.ozlabs.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 1/5] ARM: dts: aspeed: santabarbara: Add system monitoring GPIOs
-Date: Fri,  7 Aug 2026 16:34:04 +0800
-Message-ID: <20260807083415.672008-2-fredchen.openbmc@gmail.com>
+Subject: [PATCH v3 2/5] ARM: dts: aspeed: santabarbara: Disable power monitor nodes
+Date: Fri,  7 Aug 2026 16:34:05 +0800
+Message-ID: <20260807083415.672008-3-fredchen.openbmc@gmail.com>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260807083415.672008-1-fredchen.openbmc@gmail.com>
 References: <20260807083415.672008-1-fredchen.openbmc@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_093157_694424_0CF1F87C 
-X-CRM114-Status: GOOD (  11.58  )
+X-CRM114-CacheID: sfid-20260807_093200_438094_621023F6 
+X-CRM114-Status: GOOD (  11.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,180 +120,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add several GPIO expanders on the switch board for NIC, PEX, and cable
-presence monitoring. Due to a design change, ioexp0 (0x20) now
-aggregates interrupts from the downstream expanders (0x21-0x27) onto a
-single sgpiom0 line, reducing the number of sideband interrupt pins
-required.
-
-The new nodes provide:
-- NIC1-4 power good monitoring, reset control, and fault detection
-- Switch PEX power good signals and hardware SKU/Revision IDs
-- Cable presence detection and selection for four SPI flashes
-- System power fault alert via SGPIO and E1S GPIO expander interrupt
+Due to a design change, this power monitor IC now has multiple
+sources, and different vendors' parts require different drivers.
+Disable these nodes so the kernel does not auto-probe a driver, and
+let userspace instantiate the correct driver based on the part
+actually populated on the board.
 
 Signed-off-by: Fred Chen <fredchen.openbmc@gmail.com>
 ---
- .../aspeed-bmc-facebook-santabarbara.dts      | 125 +++++++++++++++++-
- 1 file changed, 124 insertions(+), 1 deletion(-)
+ arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-santabarbara.dts | 4 ++++
+ 1 file changed, 4 insertions(+)
 
 diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-santabarbara.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-santabarbara.dts
-index 0a3e2e241063..2a822e38f091 100644
+index 2a822e38f091..04fa9a5e0d04 100644
 --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-santabarbara.dts
 +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-santabarbara.dts
-@@ -616,6 +616,8 @@ gpio@74 {
- 				reg = <0x74>;
- 				gpio-controller;
- 				#gpio-cells = <2>;
-+				interrupt-parent = <&sgpiom0>;
-+				interrupts = <146 IRQ_TYPE_LEVEL_LOW>;
- 				gpio-line-names =
- 					"P12V_E1S_ADC_ALERT","BUFF0_100M_LOSB_PLD",
- 					"E1S_BP_SKU_ID0","E1S_BP_SKU_ID1",
-@@ -1335,6 +1337,112 @@ eeprom@50 {
- &i2c12 {
- 	status = "okay";
+@@ -585,24 +585,28 @@ power-monitor@40 {
+ 				compatible = "ti,ina230";
+ 				reg = <0x40>;
+ 				shunt-resistor = <2000>;
++				status = "disabled";
+ 			};
  
-+	ioexp0: gpio@20 {
-+		compatible = "nxp,pca9555";
-+		reg = <0x20>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-controller;
-+		#interrupt-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <148 IRQ_TYPE_LEVEL_LOW>;
-+		gpio-line-names =
-+			"IOEXP_21h_INT_N","IOEXP_22h_INT_N",
-+			"IOEXP_23h_INT_N","IOEXP_24h_INT_N",
-+			"IOEXP_25h_INT_N","IOEXP_26h_INT_N",
-+			"IOEXP_27h_INT_N","SWB_PWR_FAULT_N",
-+			"","","","",
-+			"","","","";
-+	};
-+
-+	gpio@21 {
-+		compatible = "nxp,pca9555";
-+		reg = <0x21>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&ioexp0>;
-+		interrupts = <0 IRQ_TYPE_LEVEL_LOW>;
-+		gpio-line-names =
-+			"PDB_PRSNT_J1_N","PDB_PRSNT_J2_N",
-+			"PRSNT_NIC1_N","PRSNT_NIC2_N",
-+			"PRSNT_NIC3_N","PRSNT_NIC4_N",
-+			"","",
-+			"CBL_PRSNT_MCIO_0_N","CBL_PRSNT_MCIO_1_N",
-+			"CBL_PRSNT_MCIO_2_N","CBL_PRSNT_MCIO_3_N",
-+			"","","","";
-+	};
-+
-+	gpio@22 {
-+		compatible = "nxp,pca9555";
-+		reg = <0x22>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&ioexp0>;
-+		interrupts = <1 IRQ_TYPE_LEVEL_LOW>;
-+		gpio-line-names =
-+			"SWB_PWRGD_P3V3_AUX","SWB_PWRGD_P1V8_PEX",
-+			"SWB_PWRGD_P1V8_AUX","SWB_PWRGD_P5V",
-+			"SWB_PWRGD_P1V5_PEX","SWB_PWRGD_P1V2_PEX",
-+			"SWB_PWRGD_P0V895_PEX","SWB_PWRGD_P0V81_PEX_0",
-+			"SWB_PWRGD_P0V81_PEX_1","SWB_PWRGD_P0V81_REFCLK",
-+			"SWB_PWRGD_MODULE","",
-+			"","","","";
-+	};
-+
-+	gpio@24 {
-+		compatible = "nxp,pca9555";
-+		reg = <0x24>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&ioexp0>;
-+		interrupts = <3 IRQ_TYPE_LEVEL_LOW>;
-+		gpio-line-names =
-+			"RST_PERST_NIC1_N","RST_PERST_NIC2_N",
-+			"RST_PERST_NIC3_N","RST_PERST_NIC4_N",
-+			"RST_PERST_MCIO_0_N","RST_PERST_MCIO_1_N",
-+			"RST_PERST_MCIO_2_N","RST_PERST_MCIO_3_N",
-+			"FM_P3V3_NIC1_FAULT_N","FM_P3V3_NIC2_FAULT_N",
-+			"FM_P3V3_NIC3_FAULT_N","FM_P3V3_NIC4_FAULT_N",
-+			"PWRGD_P12V_NIC1","PWRGD_P12V_NIC2",
-+			"PWRGD_P12V_NIC3","PWRGD_P12V_NIC4";
-+	};
-+
-+	gpio@25 {
-+		compatible = "nxp,pca9555";
-+		reg = <0x25>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&ioexp0>;
-+		interrupts = <4 IRQ_TYPE_LEVEL_LOW>;
-+		gpio-line-names =
-+			"NIC1_MAIN_R_PWR_EN","NIC2_MAIN_R_PWR_EN",
-+			"NIC3_MAIN_R_PWR_EN","NIC4_MAIN_R_PWR_EN",
-+			"FM_PLD_NIC1_AUX_PWR_EN","FM_PLD_NIC2_AUX_PWR_EN",
-+			"FM_PLD_NIC3_AUX_PWR_EN","FM_PLD_NIC4_AUX_PWR_EN",
-+			"PWRGD_NIC1","PWRGD_NIC2",
-+			"PWRGD_NIC3","PWRGD_NIC4",
-+			"PWRGD_P3V3_NIC1","PWRGD_P3V3_NIC2",
-+			"PWRGD_P3V3_NIC3","PWRGD_P3V3_NIC4";
-+	};
-+
-+	gpio@26 {
-+		compatible = "nxp,pca9555";
-+		reg = <0x26>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&ioexp0>;
-+		interrupts = <5 IRQ_TYPE_LEVEL_LOW>;
-+		gpio-line-names =
-+			"SWB_SKU_ID_0","SWB_SKU_ID_1",
-+			"SWB_SKU_ID_2","SWB_SKU_ID_3",
-+			"SWB_REV_ID_0","SWB_REV_ID_1",
-+			"SWB_REV_ID_2","",
-+			"RST_PLD_PEX_PERST_N","CPLD_MB_PWR_EN",
-+			"RST_PERST_SWB_R_N","SWB_LEAK_DETECT",
-+			"PEX_SYS_ERR_FPGA","PRSNT_SWB_LEAK_CABLE_N",
-+			"","";
-+	};
-+
- 	gpio@27 {
- 		compatible = "nxp,pca9555";
- 		reg = <0x27>;
-@@ -1349,6 +1457,21 @@ gpio@27 {
- 			"SPI_MUX_SEL","","","";
- 	};
+ 			power-monitor@41 {
+ 				compatible = "ti,ina230";
+ 				reg = <0x41>;
+ 				shunt-resistor = <2000>;
++				status = "disabled";
+ 			};
  
-+	gpio@28 {
-+		compatible = "nxp,pca9555";
-+		reg = <0x28>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		gpio-line-names =
-+			"SCO_UART_MUX_SEL0","SCO_UART_MUX_SEL1",
-+			"SPI_PROG_PL12_SEL","SPI_PROG_PL34_SEL",
-+			"","","","",
-+			"I3C_HUB_3_MUX_SEL_PLD","",
-+			"SPI_PROG_PL12_EN_N","SPI_PROG_PL34_EN_N",
-+			"SCO1_SPI_SEL","SCO2_SPI_SEL",
-+			"SCO3_SPI_SEL","SCO4_SPI_SEL";
-+	};
-+
- 	// SWB FRU
- 	eeprom@52 {
- 		compatible = "atmel,24c64";
-@@ -1776,7 +1899,7 @@ &sgpiom0 {
- 	"MB_SKU_ID_1","PASSWORD_CLEAR",
- 	"MB_SKU_ID_2","",
- 	"MB_SKU_ID_3","",
--	"","BIOS_DEBUG_MODE",
-+	"SYS_PWR_FAULT_ALERT","BIOS_DEBUG_MODE",
- 	/*H0-H3 line 112-119*/
- 	"FM_IOEXP_U538_INT_N","",
- 	"FM_IOEXP_U539_INT_N","FM_MODULE_PWR_EN_N_1B",
+ 			power-monitor@44 {
+ 				compatible = "ti,ina230";
+ 				reg = <0x44>;
+ 				shunt-resistor = <2000>;
++				status = "disabled";
+ 			};
+ 
+ 			power-monitor@45 {
+ 				compatible = "ti,ina230";
+ 				reg = <0x45>;
+ 				shunt-resistor = <2000>;
++				status = "disabled";
+ 			};
+ 		};
+ 
 -- 
 2.52.0
 
