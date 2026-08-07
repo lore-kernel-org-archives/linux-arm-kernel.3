@@ -4,94 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4761EC2A09B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 15:27:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48D91C5AC7A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 15:31:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kRRGQ8YPUxChghesyKo/Ao+VKKmI85UeyDmpYQWLsKY=; b=a8Zx3BUNehN7BPzwgAhwRcJzEF
-	XOy9jM8ltP71z+lbIOBPQmsEPLShx+umuLPoC6okeSIqlnl536StCHNEeseyb9XFaD6pzGzBBoqft
-	ULb/45CPMk4USZUW1uxoOhW7KMJX5KjE/9SAr6cVF1LshdxMVkigJyPXxSNiaD2w+mUMZ28smofy0
-	RjWHElwchdb4XwkbwHJM9OjGWoUKO8lwQxkrk6dI7vD3tqezdz0lh468Ehdoj790Cnz5ljKmx3MFO
-	DsZq4CLusdpYrxaly/WPDuCDbqYiXGxhowI5tmRU5xsMz3ma9xL8/0iaocFeiMBGq0WngPjaddGbW
-	tzbrG5KA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sjuSgcUeDYQSzOzvUe0SB7wYb8MCH/XbF2bJMu2eZlY=; b=vouWlXPLzY2dPxU2Qr+dHalMG7
+	D6txnAZ7MsXTHvv0JvUs2qaSSYqp5YzKBL/u+2HWmFrokJfCd2EqFGPrISzMkzQ+ECmYZE1QkiqHS
+	1VDV4chqTQESs0jyfaJPOnR8Rw5aLzNZC2xq2vjiowiOZuWPKAQaCnt2XomBopvTreUO336k2E96P
+	iKILlDF+eKaX4RXkslB6cF+5c72FgjGxS+PaFIrbWeQpeNR30ElpmHJm+/Os1Ln2gpwH6TacqiFgw
+	iF9ckxvswGLXMBsvaC+ToBR+v58xpq1Z/kTjFDSmKIy1nbWE4OnD+wJpivIB86X5QesqQ/sFL9dug
+	aITY1Haw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsMTy-00000008Kwm-2bNW;
-	Fri, 07 Aug 2026 15:27:38 +0000
-Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
+	id 1wsMXl-00000008LIG-0ZA6;
+	Fri, 07 Aug 2026 15:31:33 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsMTw-00000008KwM-41fI
+	id 1wsMXj-00000008LHs-0bCw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 15:27:38 +0000
-Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-6a17c7c3c6eso10321a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Aug 2026 08:27:36 -0700 (PDT)
+	Fri, 07 Aug 2026 15:31:32 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-47f703a9e5dso1877692f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Aug 2026 08:31:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1786116455; x=1786721255; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=kRRGQ8YPUxChghesyKo/Ao+VKKmI85UeyDmpYQWLsKY=;
-        b=vnvV3V1f0wxjvh3Mbsh5o0e4fORpJ74F22uRGx5sFSd+PspqhmPXOyRBsUacHGsixY
-         MRDEqmZ+kb9obXhREd9unrRvFth6Bbqvh30wZn/Ou9Mr1GO9ETBz2lm6d/7trictKoz7
-         3f/MQ1SiDgbSGmusZD7pPgC/r3e2CNaJ9MUALEuDc9dtuxCF1YXovxRma1488wgaU9K1
-         e7UDzsdmy+TymwYHeHp0rSqOkPuXBFzqCIcnn/EypZgr7WxeZLj3Hoq/THO+QOi5U3wh
-         R42c5/u5hljSKE14TVOJeXn+iZhe+VOPrGMFfk7J2aEbPhB1cgvHS3fFv6yNVMg62nkv
-         oCrw==
+        d=gmail.com; s=20251104; t=1786116689; x=1786721489; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=sjuSgcUeDYQSzOzvUe0SB7wYb8MCH/XbF2bJMu2eZlY=;
+        b=DLPDL9zmqRu/pbunv3poxp1+g6R2jxWOmVSA+kYNEWEfUlKS1daTkV9Dmg8KPmD9fb
+         x/S/FqzxBe6nioPC3HKa48H1lgLDGJV8yl7oyZfC/cITteB+lkgtSyHpbcDXBkdGT0NS
+         wZuxX6rLZQr9L3EaCGie5U1sDvAgzvah0uoV0Zbw8UWp/k1dlwpFY/lYKgUKnrb/G+j6
+         f8Ug3QdvdUTiFClbJy6bPIpMKWJ3CjtMMeZHn4SGOLO7gvUHs7vXgecOHj21APG7z6rj
+         XAeUiA74VPeogD47DkVf019lPcldLo/oYTPZ1/FCEV8oxz7GxZU+O4E4vTsUBLYkejUT
+         JSTA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786116455; x=1786721255;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=kRRGQ8YPUxChghesyKo/Ao+VKKmI85UeyDmpYQWLsKY=;
-        b=Ts8uCY5tk5m0gv06Qes2YTKg9qIHAzZyzeQzIFsXweQlU/wWAkdxkmGSF0DEsMduP4
-         VdLMgh8sytvfQcgeZobXTaJUytaBzG/Kg0Rdn6lIP63h6uAzMTPRtjHqk+9eENuaZw/e
-         iWw0r7B1zH5kNktIzOlvnZ/2cg6Ov7aIg9tGUDklZvEjLvR3CAEkGlxbTgaY/ewyDRzg
-         ZJynkCjrVK0qaVWlL54GHCoTnXkN61wSeo9IfrGQAdHM5isB6EM5KTR7JzISPZKgFtJ2
-         TXmIG85Rn/o0hLADk4/b3HakJ99GAYgbUBE9qjF3vHdfA92UDIVjP0Nqo5oBC2+sgWBD
-         mADQ==
-X-Forwarded-Encrypted: i=1; AHgh+RocwF0QtXajtqXO8Abm+h4nsk/mqsl8Z+LnnCoi3f0/UqQ1NayWGMMl9/dlNzPckukXCy9qrOOP5hyz7kz9dNvd@lists.infradead.org
-X-Gm-Message-State: AOJu0YzBq8y2yIULxOPvqQ90jJ2a6fVW35jBqPvvyReCWYFAXse7sX+L
-	rqKOm1jHbWtdQ4iWigKp9EvB3W/DHi9l31t3s9jqkBp7GqwHcOyx9Vit4kHook3cvw==
-X-Gm-Gg: AR+sD129rXHUHQoWIjmqR80eqjY63DtNWDoPsNYrIYz55Ik919pUDnWqAxhLXPVC+he
-	1/sBZZSdLX2hblNPgXu/x19Lxp5/rVbr2+/wHK+6ANXC8ub2e192qx5vKjTC1+p2LoxchA5nX3g
-	HgVOhcGmk0slAaEUbg4ve1J8hcgswl4CNqwTBVqeHLMr4gDP1kcZeBSU3DE8EnSAOuR/4zZ8bp/
-	j9VcToN6V6S6CnaNachIDncJ2r3aOo4AbO9yMMyhVyqvaBqUbxTjjsbqJdN+Ij6OQH8CNGbVjd4
-	ueA9DCS6fBwP65tnj2VjG3+44SecTwXXDvYzjmMrMUBcjm82tvpSPFRfraTOkv3QSsbQYXUscsv
-	Xv9uXE1+Cj97b2Ge9GiVCg2YvZgspFoDfMRdoddKpqGjHUidlbBPCiUDYKcGkJGffRDudhEFhnQ
-	lCSJSHWyZswGTeyalAoQyhRh2IGP3lZeZN53PdZM71qpojFxE5C47EQZxJQ94rLAjg1nMPjwAmB
-	LvvABFef5c0z02b6rS7VjFNQd7FFg==
-X-Received: by 2002:a05:6402:21cd:b0:69f:d9cd:ec41 with SMTP id 4fb4d7f45d1cf-6a1d9edad2amr102227a12.6.1786116452123;
-        Fri, 07 Aug 2026 08:27:32 -0700 (PDT)
-Received: from google.com (250.192.189.35.bc.googleusercontent.com. [35.189.192.250])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a1e7cab27asm698938a12.8.2026.08.07.08.27.30
+        d=1e100.net; s=20251104; t=1786116689; x=1786721489;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=sjuSgcUeDYQSzOzvUe0SB7wYb8MCH/XbF2bJMu2eZlY=;
+        b=aGtyPl/ErKB9i2lfYA+aS7loegDru78QJOGoe1AX1uLIQCAkhecdJf3R85DcBmaYB4
+         JCwPaR/6NkbZxVx8/XhszFsYHKaw2LLjNwLK8V9SGIZGvBN1ABuWSzyuDE5GwRHJd0b0
+         SLD3uh/u2yy+4E7tExjV2Gr6N8DywJ9MpmXNw9Wl0NWm/kS3wzEC5RMu64MIdEVPZ3Y9
+         rUrLXvJEzLRpzW5nKqIVLtd0MtcGtaA+S7Z8EVlaPyoE48m5ohV7sLCCCcbMe6M9hKa5
+         gSCWgPbBFtqnaY0KhflTbgynEy+Fya72JHI3iP7NFPySkupoNsbMFFx2cJ/H45OaP5PB
+         v1uQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rpmie4Q+0tvhAT0UI/xlq9dxFOG0LYBj0BFlRhuNHAgghQtN25JbmCQXPJlgjV9ip/YCXMEZSMz+yN/DNY8zS5h@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxiy9w4e8PioGRm4iaaWX4NSGB9sWyhXpdZiytd9SCUgtG1rNm0
+	0FMsjYj1LaGRnhhmFqXu0hapX4Q1b18Nk5ubb0VfstgCnZvd5XbR50p8
+X-Gm-Gg: AR+sD13WVxkLr6GtahJLU+1GKetNBijVKsWFXJBVa+emTiB65/D5Uj+BV7K+rbuMPkl
+	OVeYpHoXxFaDhQ4KrVL2np3LAbP86afu+MCf+wSJVbsZ7rIMmqWiOkCJqsvGbJMnJKI8UCEt2gv
+	zsQCWDiZ1yxilgyS2fCwTLs89Mw9GdvCnpaH1AV/4T1Ov4sZB5XJdr9T515Mv5e4lqDfnoHo0q+
+	uuysCp9syfzxNAUkmMoqa79RvH7XkL6xwpo/9D7U4qrucgKydCywff4SmxOhphAXXnBQQAc8DOz
+	1dI+08Azlm2tVfgNBOPnGJNLci8jEtOOYSP1Bxs3+b5RacIKYGBVFznW6dzX8eNmA95TpfTfJlx
+	DvwKMi3udiua5rZq4VkbEoH7plP41Ii+ETYA6+dXQ7DWyeGv/ji+G2myXDEHVyT1eOfiuCIjXUI
+	CSwNls90oJeXMeKyekYS1jI90qItPZ5onCukt2yRAZ7g4Md5cLPEhYudRHLMAGHLCdOwE=
+X-Received: by 2002:a05:6000:982:b0:481:98d:b24 with SMTP id ffacd0b85a97d-481098d0e88mr4142874f8f.19.1786116688655;
+        Fri, 07 Aug 2026 08:31:28 -0700 (PDT)
+Received: from deb05.proceq.com ([213.160.61.66])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-480021e8c5asm7393269f8f.18.2026.08.07.08.31.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Aug 2026 08:27:31 -0700 (PDT)
-Date: Fri, 7 Aug 2026 15:27:23 +0000
-From: Mostafa Saleh <smostafa@google.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, oupton@kernel.org,
-	seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org,
-	vdonnefort@google.com, tabba@google.com, sebastianene@google.com,
-	keirf@google.com
-Subject: Re: [PATCH] KVM: arm64: Fix hvhe and broken CNTVOFF_EL2
-Message-ID: <anX5WyOim2Q7SL3P@google.com>
-References: <20260806150105.4010701-1-smostafa@google.com>
- <86zeyy9pbt.wl-maz@kernel.org>
+        Fri, 07 Aug 2026 08:31:27 -0700 (PDT)
+From: Mehmet Fide <mehmet.fide@gmail.com>
+To: Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Stefan Agner <stefan@agner.ch>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] ARM: dts: vf-colibri: apply the EXT_IO pin group
+Date: Fri,  7 Aug 2026 17:31:27 +0200
+Message-ID: <20260807153127.3087388-1-mehmet.fide@gmail.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <86zeyy9pbt.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_082737_081278_5E25B691 
-X-CRM114-Status: GOOD (  53.01  )
+X-CRM114-CacheID: sfid-20260807_083131_183436_9FF4F4AB 
+X-CRM114-Status: GOOD (  10.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,249 +98,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 07, 2026 at 11:50:46AM +0100, Marc Zyngier wrote:
-> On Thu, 06 Aug 2026 16:01:05 +0100,
-> Mostafa Saleh <smostafa@google.com> wrote:
-> > 
-> > When running on a setup affected with broken CNTVOFF_EL2
-> > (has_broken_cntvoff())
-> > 
-> > Booting with VHE or protected mode(nvhe) (id_aa64mmfr1.vh=0
-> > and arm64_sw.hvhe=0) works fine.
-> > 
-> > However launching a protected VM with protected hvhe mode panics the
-> > guest kernel:
-> > 
-> > [    0.000000] Internal error: Oops - Undefined instruction: 0000000000000000 [#1]  SMP
-> > [    0.000000] Modules linked in:
-> > [    0.000000] CPU: 0 UID: 0 PID: 0 Comm: swapper/0 Not tainted 7.2.0-rc3-g05f75bd71e0e-dirty #29 PREEMPT
-> > [    0.000000] Hardware name: linux,dummy-virt (DT)
-> > [    0.000000] pstate: 000003c5 (nzcv DAIF -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-> > [    0.000000] pc : arch_timer_shutdown_virt+0x4/0x1c
-> > [    0.000000] lr : arch_timer_starting_cpu+0x1c4/0x2d4
-> > [    0.000000] sp : ffffa6bd9a193c00
-> > [    0.000000] x29: ffffa6bd9a193c20 x28: ffffa6bd9a1bcf88 x27: 0000000000000000
-> > [    0.000000] x26: ffff00001be70dd8 x25: ffffa6bd99d85000 x24: ffffa6bd99d85ee4
-> > [    0.000000] x23: ffffa6bd99d85000 x22: ffffa6bd9a1499c0 x21: ffffa6bd9a1ab900
-> > [    0.000000] x20: 00ffffffffffffff x19: ffff00001be8b600 x18: 000000000000028c
-> > [    0.000000] x17: 00000000510f0010 x16: 00000000510f0010 x15: 00000000500f0000
-> > [    0.000000] x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000018
-> > [    0.000000] x11: ffffa6bd9a8ac000 x10: 0000000000f0000f x9 : ffffffffffffffff
-> > [    0.000000] x8 : ffffa6bd98822e18 x7 : 0070752d65746174 x6 : 00111ff76e007261
-> > [    0.000000] x5 : ffffa6bd9ad68078 x4 : 0000000000000000 x3 : ffffa6bd98822a0c
-> > [    0.000000] x2 : 0000000000000073 x1 : 0000000000000001 x0 : ffff00001be8b600
-> > [    0.000000] Call trace:
-> > [    0.000000]  arch_timer_shutdown_virt+0x4/0x1c (P)
-> > [    0.000000]  cpuhp_invoke_callback+0x11c/0x280
-> > [    0.000000]  cpuhp_issue_call+0x1e8/0x224
-> > [    0.000000]  __cpuhp_setup_state_cpuslocked+0x1d8/0x2b8
-> > [    0.000000]  __cpuhp_setup_state+0x50/0x74
-> > [    0.000000]  arch_timer_register+0xc0/0x148
-> > [    0.000000]  arch_timer_of_init+0x148/0x170
-> > [    0.000000]  timer_probe+0x74/0x124
-> > [    0.000000]  time_init+0x18/0x58
-> > [    0.000000]  start_kernel+0x1c0/0x3ac
-> > [    0.000000]  __primary_switched+0x88/0x90
-> > [    0.000000] Code: c80b7d2a 35ffffab 17ffffeb d503245f (d53be328)
-> > 
-> > And for non protected VMs seems to hang or progress really slowly.
-> > 
-> > The workaround avoids setting non-zero CNTVOFF_EL2 and trapping the
-> > virtual counter to emulate the offset.
-> > In the VHE path (timer_set_traps()), traps are only enabled when the
-> > guest actually has a non-zero virtual timer offset.
-> > However, __timer_enable_traps() in hyp/nvhe/timer-sr.c unconditionally
-> > set CNTHCTL_EL1TVT and CNTHCTL_EL1TVCT whenever has_broken_cntvoff()
-> > was true.
-> > 
-> > Which causes 2 issues:
-> > 1) Protected VMs: kvm_handle_pvm_sysreg() does not find "cntv_ctl_el0"
-> > in pvm_sys_reg_descs and injects undefined instruction exceptions.
-> > 
-> > 2) non-protected guests are trapped all the time even with offset of
-> > zero.
-> > 
-> > Fix this by adding a check in __timer_enable_traps() similar to the one in
-> > timer_set_traps()
-> > 
-> > Fixes: 0bc9a9e85fcf ("KVM: arm64: Work around x1e's CNTVOFF_EL2 bogosity")
-> > Signed-off-by: Mostafa Saleh <smostafa@google.com>
-> > ---
-> >  arch/arm64/kvm/hyp/nvhe/timer-sr.c | 3 ++-
-> >  1 file changed, 2 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/arch/arm64/kvm/hyp/nvhe/timer-sr.c b/arch/arm64/kvm/hyp/nvhe/timer-sr.c
-> > index ff176f4ce7de..98b6e37ee8fa 100644
-> > --- a/arch/arm64/kvm/hyp/nvhe/timer-sr.c
-> > +++ b/arch/arm64/kvm/hyp/nvhe/timer-sr.c
-> > @@ -10,6 +10,7 @@
-> >  
-> >  #include <asm/kvm_hyp.h>
-> >  #include <asm/kvm_mmu.h>
-> > +#include <hyp/switch.h>
-> 
-> I'd rather not include this. It drags too many things, and is solely
-> expected to be included from switch.c (both implementations).
-> 
-> You could use the hack below as a prefix to this change.
-> 
+From: Mehmet Fide <mehmet.fide@screeningeagle.com>
 
-I see, I will add your patch as a prefix and respin another version.
+pinctrl_gpio_ext describes the three Colibri EXT_IO pins, but no node
+references it, so the pin controller never applies it and the pads keep
+whatever mux and bias they came up with. It is the only pin group in the
+Vybrid Colibri device trees that is defined and never used.
 
-> >  
-> >  void __kvm_timer_set_cntvoff(u64 cntvoff)
-> >  {
-> > @@ -63,7 +64,7 @@ void __timer_enable_traps(struct kvm_vcpu *vcpu)
-> >  	 * Trap the virtual counter/timer if we have a broken cntvoff
-> >  	 * implementation.
-> >  	 */
-> > -	if (has_broken_cntvoff())
-> > +	if (has_broken_cntvoff() && hyp_timer_get_offset(vcpu_vtimer(vcpu)))
-> >  		set |= CNTHCTL_EL1TVT | CNTHCTL_EL1TVCT;
-> >  
-> >  	sysreg_clear_set(cnthctl_el2, clr, set);
-> 
-> I don't immediately see why a non-protected guest is so slow with
-> hVHE, irrespective of the offset. Even if we go back to the host for
-> the emulation, this should be usable.
-> 
-> Could you describe what actually happens? Do you also see the issue
-> with pure hVHE (without protected)?
+Hog it on the pin controller, which is the usual home for pins no device
+owns, so EXT_IO_0..2 are muxed as GPIO with the drive settings the group
+already spells out.
 
-I haven't checked with pure hvhe, I do not have access to the HW at
-the moment, but I can repro both the pVM panic and non-protected hang
-on Qemu by stubbing “has_broken_cntvoff()” which indicates it’s a
-software issue.
+Signed-off-by: Mehmet Fide <mehmet.fide@screeningeagle.com>
+---
+ arch/arm/boot/dts/nxp/vf/vf-colibri.dtsi | 3 +++
+ 1 file changed, 3 insertions(+)
 
-I looked more into this and I think I get it, which is the same bug
-Sashiko reported here:
+diff --git a/arch/arm/boot/dts/nxp/vf/vf-colibri.dtsi b/arch/arm/boot/dts/nxp/vf/vf-colibri.dtsi
+index 1111111..2222222 100644
+--- a/arch/arm/boot/dts/nxp/vf/vf-colibri.dtsi
++++ b/arch/arm/boot/dts/nxp/vf/vf-colibri.dtsi
+@@ -171,6 +171,9 @@
+ };
 
-The kernel sets the offset when a non-protected VM is started at
-kvm_timer_vcpu_init() based on the current timer value.
-
-When hypervisor emulates the timer it reads in kvm_handle_cntxct() =>
-compute_counter_value() which sets offset of zero (that's a bug)
-and the guest reads the raw counter value.
-
-However, I see the guest using CVAL (likely for tick or events), which
-is handled by the host and not the hypervisor, and the host will use
-the true offset in that case which is not zero, which makes the VM
-events fire way later.
-
-Adding some traces in timer_restore_state() I can confirm the massive
-CVAL diff from the current virtual timer.
-
-I have a fix already for this that fixes the hang without this patch,
-I will send it along the respin shortly.
-
-Thanks,
-Mostafa
-
-
-
-> 
-> Thanks,
-> 
-> 	M.
-> 
-> From a7ec0d7f23d86b028164328f33a7114fa6aad2c3 Mon Sep 17 00:00:00 2001
-> From: Marc Zyngier <maz@kernel.org>
-> Date: Fri, 7 Aug 2026 11:36:48 +0100
-> Subject: [PATCH] KVM: arm64: Make timer_get_offset() work in all contexts
-> 
-> We currently have two implementations of get_timer offset(), one
-> in arm_arch_timer.h, and another one in switch.h.
-> 
-> These two only differ by a pair of kern_hyp_va(), which seems a
-> pretty weak reason to open-code it.
-> 
-> Turn this function into a macro to avoid the include dependency hell
-> on kern_hyp_va(), and make it work correctly in all contexts.
-> 
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> ---
->  arch/arm64/kvm/hyp/include/hyp/switch.h | 15 +----------
->  include/kvm/arm_arch_timer.h            | 34 +++++++++++++++----------
->  2 files changed, 22 insertions(+), 27 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
-> index 4bf624a49591d..2aceda749641c 100644
-> --- a/arch/arm64/kvm/hyp/include/hyp/switch.h
-> +++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-> @@ -706,22 +706,9 @@ static inline bool handle_tx2_tvm(struct kvm_vcpu *vcpu)
->  	return true;
->  }
->  
-> -/* Open-coded version of timer_get_offset() to allow for kern_hyp_va() */
-> -static inline u64 hyp_timer_get_offset(struct arch_timer_context *ctxt)
-> -{
-> -	u64 offset = 0;
-> -
-> -	if (ctxt->offset.vm_offset)
-> -		offset += *kern_hyp_va(ctxt->offset.vm_offset);
-> -	if (ctxt->offset.vcpu_offset)
-> -		offset += *kern_hyp_va(ctxt->offset.vcpu_offset);
-> -
-> -	return offset;
-> -}
-> -
->  static inline u64 compute_counter_value(struct arch_timer_context *ctxt)
->  {
-> -	return arch_timer_read_cntpct_el0() - hyp_timer_get_offset(ctxt);
-> +	return arch_timer_read_cntpct_el0() - timer_get_offset(ctxt);
->  }
->  
->  static bool kvm_handle_cntxct(struct kvm_vcpu *vcpu)
-> diff --git a/include/kvm/arm_arch_timer.h b/include/kvm/arm_arch_timer.h
-> index 15a4f97f81051..bc6f2fdd7ad33 100644
-> --- a/include/kvm/arm_arch_timer.h
-> +++ b/include/kvm/arm_arch_timer.h
-> @@ -162,20 +162,28 @@ static inline bool has_cntpoff(void)
->  	return (has_vhe() && cpus_have_final_cap(ARM64_HAS_ECV_CNTPOFF));
->  }
->  
-> -static inline u64 timer_get_offset(struct arch_timer_context *ctxt)
-> -{
-> -	u64 offset = 0;
-> +#ifdef __KVM_NVHE_HYPERVISOR__
-> +#define KERN_HYP_VA(x)		kern_hyp_va(x)
-> +#else
-> +#define KERN_HYP_VA(x)		x
-> +#endif
->  
-> -	if (!ctxt)
-> -		return 0;
-> -
-> -	if (ctxt->offset.vm_offset)
-> -		offset += *ctxt->offset.vm_offset;
-> -	if (ctxt->offset.vcpu_offset)
-> -		offset += *ctxt->offset.vcpu_offset;
-> -
-> -	return offset;
-> -}
-> +#define timer_get_offset(ctxt)						\
-> +	({								\
-> +		struct arch_timer_context *__ctxt = (ctxt);		\
-> +		u64 off = 0;						\
-> +									\
-> +		if (__ctxt) {						\
-> +			struct arch_timer_offset *ato = &__ctxt->offset;\
-> +									\
-> +			if (ato->vm_offset)				\
-> +				off += *KERN_HYP_VA(ato->vm_offset);	\
-> +			if (ato->vcpu_offset)				\
-> +				off += *KERN_HYP_VA(ato->vcpu_offset);	\
-> +		}							\
-> +									\
-> +		off;							\
-> +	})
->  
->  static inline void timer_set_offset(struct arch_timer_context *ctxt, u64 offset)
->  {
-> -- 
-> 2.47.3
-> 
-> 
-> -- 
-> Without deviation from the norm, progress is not possible.
+ &iomuxc {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_gpio_ext>;
++
+ 	pinctrl_flexcan0: can0grp {
+ 		fsl,pins = <
+ 			VF610_PAD_PTB14__CAN0_RX	0x31F1
 
