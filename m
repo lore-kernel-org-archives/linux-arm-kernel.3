@@ -4,72 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85FBDC5AD05
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 22:53:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BF18C5AD05
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 22:56:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a08ege2A6PubBI8+f0PrNyavH3OH8v6KWoV1np/vCzI=; b=LWAk6CBvOAMxAoQa0pJ08K2lkn
-	b9mq56x9LZEfJYWGUfiWyW1BK+w3P6N7zxEV5C/J0IdVppyPEQZxZe9GbxDwl//Kz+u+OpYBYVU7/
-	G0PNbArBL0XQ8IhuUCwBw+Ae+dPXvDqA1ERNvjIsHBDx/fQV+ZEikN4hpdz+9yeauxj3aObGq5/+Y
-	iizVeCo6DoOywdOJDIVFmM0YkB9xvf26222BbfZ78cjOenxFleN5AOR1+VVUitlxRQJcivD3Fv3ts
-	RnlTiW+XqDUxvnmjiiF2q4Yf9TDBfk5dZ/EPE+vZa+dELeXug2RzPO5vGZQsTEFub//4De6CQ/biN
-	bB2NORJQ==;
+	bh=k2h7TFpNtHGZoQbDMXlxnaziePvR8kZuJ/KZ00xUctY=; b=F3uw6xzGtQOe4wZ/VHRWlwFeaR
+	G4X2mj96XEw/rv3uaLq/a9RnHmcYRk55rrOGGH/SjXqsf4TcPBm/eTTlfPyQuYtgBDO5HP88ZMDbm
+	ddpGn303DI1nZSLD8+n5WQ6OWXC7yafZ2k0RqbGg+e+I3GfWNDahAuG3AdBpxH0KChTdyim1JBgQc
+	324w7EpCab69nWO8CyidvwiLE3ZQhq2FlvMLSHauckFAUTMDR1LVZ9wKRuaJxQHK4KE7mRdT2swwE
+	8KNN7LpMT1W9Ao/Nd5/a2n45fJCVMmkJpw5fmxtwghgHgR2Oth1hvol2M02wKLgGpCiXwI6snHIUB
+	9W03gMAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsTR7-00000008pmw-1FNF;
-	Fri, 07 Aug 2026 22:53:09 +0000
+	id 1wsTU6-00000008pxZ-34r0;
+	Fri, 07 Aug 2026 22:56:14 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsTR5-00000008pmm-07U9;
-	Fri, 07 Aug 2026 22:53:08 +0000
+	id 1wsTU6-00000008pxT-0LrK
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 07 Aug 2026 22:56:14 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5367843DFA;
-	Fri,  7 Aug 2026 22:53:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 061471F000E9;
-	Fri,  7 Aug 2026 22:53:01 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C096E42E38;
+	Fri,  7 Aug 2026 22:56:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B80101F00A3A;
+	Fri,  7 Aug 2026 22:56:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786143186;
-	bh=a08ege2A6PubBI8+f0PrNyavH3OH8v6KWoV1np/vCzI=;
+	s=k20260515; t=1786143373;
+	bh=k2h7TFpNtHGZoQbDMXlxnaziePvR8kZuJ/KZ00xUctY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=VEjeYbm0F0jk6hgaUvD7udZN9KLlRTlcmx6WiHpm78T8ZNvzuDgjhP1HjvQw2pyGf
-	 PbSJ24h9+tiX8tXdbaGCj5Jhw41++NsRISoVaEmhvd6b1GaqfiuP1Nu3o1tHuy//qj
-	 hiJrSNL/Jyc82J76wQCQBESN0X26C0RNcycsUeRbRyyEKWqWHXuNi4sYVEU+aQyx6I
-	 LZqeAGLuSw4mdbB0Ioa+26PULe/cZvpd7puAWSKXph5Ar2ZmZRxgJfk2cNXwisqhQx
-	 Z3U3Fuz/avDeDQnKJt4GxvwqkIBiob59bGfAhndOg9LkkaP6Jasb4iiHQajvbce9ES
-	 iquwEFePYuFJg==
-Date: Fri, 7 Aug 2026 23:52:58 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Cyril Chao <Cyril.Chao@mediatek.com>,
-	Darren Ye <darren.ye@mediatek.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Rosen Penev <rosenp@gmail.com>,
-	bui duc phuc <phucduc.bui@gmail.com>, linux-sound@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v5 4/4] ASoC: airoha: Add AFE and machine driver for
- Airoha AN7581
-Message-ID: <8146f434-1e16-4ebd-80a4-b9c27bfa45af@sirena.org.uk>
-References: <20260807200936.201827-1-ansuelsmth@gmail.com>
- <20260807200936.201827-5-ansuelsmth@gmail.com>
+	b=OzkQm4sIh98Wqq9Rgzi8nNRRs5cOR5UONHibRZ6i/HgWrIQkMs3L4ma4sRMTQsRkr
+	 rYUC3o4jxH+IhxRUpzUXY42thV+sWlmDR95ynufsP+qFFiMVS/N2tRawqnt1eyIKiq
+	 GPlLxNB+iVZHZygXL1bmxO+YJfPjbdsGidN8+TtsErKTB+wQ3ENy/niqQGt8oucBx4
+	 dAy5uN8aJTjrvyyVuNxFg+OS4rMUMzJKbPKaDiWiTz9/HHZM8w8KAzeZ9LkUMHplnP
+	 XEx7ZiRcNYKUkPBDiiPaXAPOFu226wm7iBdPcjMbdso4KnvRnMYJh9VKsMgJx3rESQ
+	 IcZ7lULkttxZw==
+Date: Fri, 7 Aug 2026 15:56:11 -0700
+From: Josh Poimboeuf <jpoimboe@kernel.org>
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: x86@kernel.org, linux-kernel@vger.kernel.org, 
+	live-patching@vger.kernel.org, Joe Lawrence <joe.lawrence@redhat.com>, 
+	Song Liu <song@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	Mark Rutland <mark.rutland@arm.com>, Miroslav Benes <mbenes@suse.cz>, Petr Mladek <pmladek@suse.com>
+Subject: Re: [PATCH v3 10/21] objtool: Ignore jumps to the end of the
+ function for checksum runs
+Message-ID: <rcfhf5sutcqvl4bwhn7neuwv7di7opbkwy754sfgtwmce7mpte@vbtw77bs3khg>
+References: <cover.1778642120.git.jpoimboe@kernel.org>
+ <b3b58101e15e1bb5266e57134f0b65f7d8efdd4b.1778642120.git.jpoimboe@kernel.org>
+ <20260513073617.GH1889694@noisy.programming.kicks-ass.net>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="L/1rhFeghNUEqwsR"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260807200936.201827-5-ansuelsmth@gmail.com>
-X-Cookie: 1 + 1 = 3, for large values of 1.
+In-Reply-To: <20260513073617.GH1889694@noisy.programming.kicks-ass.net>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,78 +74,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, May 13, 2026 at 09:36:17AM +0200, Peter Zijlstra wrote:
+> On Tue, May 12, 2026 at 08:33:44PM -0700, Josh Poimboeuf wrote:
+> > Sometimes Clang arm64 code jumps to the end of the function for UB.
+> > No need to make that an error for checksum runs.
+> 
+> I'm not sure I understand the rationale. If the compiler trips UB, we
+> want to be complaining about that no?
+> 
+> Same as when clang just stops code-gen, also something we commonly see
+> when it hits UB.
 
---L/1rhFeghNUEqwsR
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Right, but I guess the question is, should we always warn about that, or
+should we only warn about it when doing stack validation or ORC or some
+other CFG-traversing thing?
 
-On Fri, Aug 07, 2026 at 10:09:34PM +0200, Christian Marangi wrote:
-> Add support for the Sound system present on Airoha AN7581 SoC. This is
-> based on the mediatek AFE drivers.
+The checksum thing is only used when manually enabled by klp-build
+(never for normal kernel builds), so it would be a weird spot to report
+the Clang "jumping to the end of the function" UB.
 
-> Also add the machine driver to create an actual sound card for the AFE.
+If we care about that for arm64 then the UB check probably belongs in a
+new standalone objtool command that would get used during a regular
+kernel build.
 
-This should be more patches, the machine driver should be a separate
-patch at a minimum.  Possibly PCM and ETDM drivers too.
-
-> +static int an7581_afe_pcm_dev_probe(struct platform_device *pdev)
-> +{
-> +	struct an7581_afe_private *afe_priv;
-> +	struct reset_control *reset;
-> +	struct mtk_base_afe *afe;
-> +	struct device *dev;
-> +	int i, irq_id, ret;
-> +	void *base;
-> +
-> +	afe = devm_kzalloc(&pdev->dev, sizeof(*afe), GFP_KERNEL);
-> +	if (!afe)
-> +		return -ENOMEM;
-
-We allocate afe here with devm_kzalloc() so everything is zero...
-
-> +	afe->irqs = devm_kcalloc(dev, afe->irqs_size, sizeof(*afe->irqs),
-> +				 GFP_KERNEL);
-> +	if (!afe->irqs)
-> +		return -ENOMEM;
-
-...then we allocate an array using a size read from the struct which must
-therefore have zero elements.  We also didn't assign dev, either we
-should assign it and use it consistently or we should drop it and use
-&pdev->dev like the first allocation.
-
-> +	/* register component */
-> +	ret = devm_snd_soc_register_component(&pdev->dev,
-> +					      &mtk_afe_pcm_platform,
-> +					      NULL, 0);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "Cannot register AFE component\n");
-> +
-> +	ret = devm_snd_soc_register_component(afe->dev,
-> +					      &an7581_afe_pcm_dai_component,
-> +					      afe->dai_drivers,
-> +					      afe->num_dai_drivers);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "Cannot register PCM DAI component\n");
-> +
-> +	platform_set_drvdata(pdev, afe);
-
-The component registration might result in a card being instantiated so
-we need the driver data initialized before we try to register.
-
---L/1rhFeghNUEqwsR
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmp2YcoACgkQJNaLcl1U
-h9ARiwf+LpDqvrfwUmAxX0QX50R8ii4KPIXyv5I0qvKJZcQ4j3ofe+outq7w/7zh
-nJsC2gzVvtmzP7LOx3TdiR4pj1w2uRSI9ymg2rKoU05VzD3CEIjNtm/YIqPbd8cR
-T4WQlImD5NQ9K7U0NgP1N+y7uX8r0QMikrRUMiw6k/D8CzaSsmZ6fCL8RQq0ge6O
-oUJqMGcsdRn5x4ppuwy4y8FIn/Z73xEoAHWTQrf6jtLPBM8f++3t66ULaDKhwf+L
-+uflmWRcVPBtXHGwQaqYImTilXTk6wYVmMqj7OBEuLnKiHyYN5bA4Lm53gbqUBE4
-9Utlm+txNJsPR3uhLbGfxdFrZ3+lQw==
-=/wv4
------END PGP SIGNATURE-----
-
---L/1rhFeghNUEqwsR--
+-- 
+Josh
 
