@@ -4,112 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C2F3C5AC7C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 08:17:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB44CC5AC7C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 08:20:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xhHhQhUh884edb2pkrtgwkkFMcH6OBy0eevlqyMXflE=; b=FDgGOFnZarFlloE4JPTo8bowMz
-	+cVG5jzG3V+FnpnbtgI0f++H352hNhMht1BeA5FdjghYG7fcRXTMqzlq3CCjx0f9+75TskKc+xeKX
-	8+Fxro64WsVODPl86DG052LrZW6obUpK2BOfK94zKtruF7w0MKFFm0CtYFCqsuuv4Ehra13UDGJ1o
-	Wd0AlBfgr2/K2VtWB+64kaI0ZrWhPvtJ/5t3VmvfGW079C9yF7QBBW3b4IMTjaGmbgB9D6KRjVImx
-	f+tNnT9CrZ3wTBW2m1izPKeHpxPXa+VOoQY5JAp9txAT+SKHIWpHjKMlN46Dp4RERp2NPt0O0sB6f
-	cVxylVYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Gd0DBh2Yz9bW2/wF4XYjseP/PmyhrTgYWP2JAKOk8ek=; b=Ahn9X0qjfB7Rdu+XXyjavNqQUV
+	p/25jVN0zVHi0CbbrAN/2UTbthoCzn0J4+uqJzvQZKmANAcAkSujuexihWLUSM/VZTQooVPinihCj
+	5RBIExCq4/eu0JoF/B3AUjhczzsUhBU4dT7s9mQMWTR84YUMdxqdU8WVBheVqbsMiCuxKdrK/Ppzc
+	nNCGVbgosn6r6azxFwDcSAn1L4l7/W8Y6yk+eFICiuGmr/YssGxYKJKyNs71ZR74H0Z3LIuWhqghg
+	Bc+Bmq0uKjgzA3mIY6apSglIokfdg2/CzZurZedRMOlnG+GBR5+2uvt4mfR6X+eScfkg1wVEf3YaF
+	s2BL+jNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsFlg-00000007OhQ-0BIF;
-	Fri, 07 Aug 2026 08:17:28 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wsFoy-00000007PEG-2Ned;
+	Fri, 07 Aug 2026 08:20:52 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsFlf-00000007Ogi-0oTn
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 07 Aug 2026 08:17:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=xhHhQhUh884edb2pkrtgwkkFMcH6OBy0eevlqyMXflE=; b=SRW4sR6iCbNXRPRmKqlWQtnLIv
-	rY1yR9aGd8FZILUqadqQhM0cSwP2dAARxlWAeSGdwoidO0vGEBRi3BGKD3CjHw8PnJz01DDFTL/lC
-	c3nhClJ4jaRruMuamcktFS3XW7UZSmfCO8kKitcPTDvx8SI7Yv5RgfoK8fJ1UfV370Oehq+75kbbm
-	5UF8EYURvl13vWYSGQqnArnRMRVD8bgBp58nwfE51e5OguPff+QJDNotR7rocEQu78l0f1jYUMFu8
-	CicptaXaBiwoqiYduw59zqTbQGB24zFmqHF0k+InOwf0uQv8zcGNuuJKm3Oi1C5hwnocENa84wm0I
-	tSX2ALhw==;
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wsFlc-0000000CBdd-1aDV
+	id 1wsFox-00000007PE3-32xQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 08:17:26 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-38d489b6b71so3041940a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Aug 2026 01:17:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786090642; x=1786695442; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=xhHhQhUh884edb2pkrtgwkkFMcH6OBy0eevlqyMXflE=;
-        b=Nm9WSL2paNU/WA65NpsV78iYUSypss0prfrv2lkZhYyqMfM1x63lB1KEnLHLGU28nP
-         jBze16WMNv/ne1R9II41BZbx3aXjuu5Lco3MQAld1QPApjvEg7OqXsRqxtqxkYasJjGC
-         MQ/WRgz2aEPUkYZk7zS+UdEkRZuhQd+zhs1mpf9kpiyIbWMLYiEIU7CrxKdMDhVHZXnO
-         o8ajDQ9EKlYF576NHfkAT2aBg+x32NyQoAVA0UUMr/eFl9wQYEX08Y/4Gjc6QB57QhTS
-         2uVnm9bWNJGdGVVF3ybxfnH22moJRKTyyYaBUSIa1NfqfAYCAWwXFSDVJqOmtRc3wm5F
-         Q78A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786090642; x=1786695442;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=xhHhQhUh884edb2pkrtgwkkFMcH6OBy0eevlqyMXflE=;
-        b=mQfCgv+8mdBBw+Khs6mydRmGKLsDKQ20Jyb52pDRu9mNjoKuZEV91lN0GFjZxQzROW
-         73XL7wVhf0qBgQBnbcndrCy/cAjc+mmIruzsqGfSSqENd9Pi4ffIvvGLxqIoIZMHwIoy
-         24E7xhvz2JlL5oEJsyLEYRGcgkwr/05Vo6vxkeWMnjwAbhqBJwX5ohv2x/ejkl5bWChY
-         PwV0mzBgJINurt1bXBY/GSfj5xP2k6KNpW/XlzJjC9PPtsFKDYGZxuR3QViWRTfNyCei
-         LHlMS6u8PTueCly4ryE4oKygNeE+lmio7knUaXmBA/48xLcR30fye0sa5z8XHd27y8M+
-         UcjA==
-X-Forwarded-Encrypted: i=1; AHgh+Rq9qd7oGaGWylLgDfttuJaF2B9053JQYmffnhd4wcnmCX61734gYmwYdJDtcQY9J4etv9wqhqGnZWwslguE1tCQ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy6BJ4UwzndHvIHZ+vUaYXcrzxk9zpSnRnCWaHMnt14zcfaPsG4
-	9yS+nLNOMGK4zVo8HwqVBUCOXGr4Q/gosammNiu5IrkAA0NPD3YegMFF/H3tRg==
-X-Gm-Gg: AR+sD12gCYudePRmc/rYwadM3x3bYaXHKZPnfEOrRNwB4VkhqjV+Hi3YIiFQon309Pj
-	1G4ZcFM+V1qk16kg7UwBUre+in4V/zqQFZidFR4yJuNxeEWzb0LvHWLLC0S0Sk6nL4izfmKo9+7
-	cRCdfmVLFyeMvuDThVHx4EUGvJajsMRMBDjV/lLSwu6qGSmZz8dTAPd+Yuk4w6XAV/TDON+wpIC
-	07jqTHXQTcehahvHmx7gPlzQrqDAuMpE6cnDBw5w5eh/m/NjRS3k7VaF6y/t5RWqutBvmYpc3kG
-	uj0Iy+npfLxftSiUL6sCL1Mz+YX+NUiRO8M92wZJJsfxkwp5EAcNf42ZII/RlciBuNWGDLaZ/wD
-	Y5R7zu0or9SxXXV6vDCy15ruRPZNZqxAF02NSX5kfvzdZZj/KSXSUOJIzmiw8FJV2H9bcCXCy1w
-	Cq/6IGBLVMIuuPCZQDBvRxFfH+NF9ZWuUNqLld+przmxhFnzcb2j+wtNv7CEW8CqU8irePYoOH0
-	SRB+SxVJNX0HjOoZS9mR6xEmFXsPgoQYnSNxjSrjydpza4UMeqzaGVyV/ImQWmsSTRuSPb3iTQq
-	q29l
-X-Received: by 2002:a17:90b:4e8d:b0:38d:ec31:4840 with SMTP id 98e67ed59e1d1-3903c5932femr22557442a91.13.1786090642107;
-        Fri, 07 Aug 2026 01:17:22 -0700 (PDT)
-Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39085de8ddcsm3913377a91.6.2026.08.07.01.17.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Aug 2026 01:17:21 -0700 (PDT)
-From: phucduc.bui@gmail.com
-To: Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-arm-msm@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-watchdog@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-aspeed@lists.ozlabs.org,
+	Fri, 07 Aug 2026 08:20:51 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id C82DA60AB0;
+	Fri,  7 Aug 2026 08:20:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F9E41F000E9;
+	Fri,  7 Aug 2026 08:20:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786090850;
+	bh=Gd0DBh2Yz9bW2/wF4XYjseP/PmyhrTgYWP2JAKOk8ek=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=DFA3/3G0/2+0d2k9Fts0ddQl3TyfXps4evW+FUzvjgybg7WpUL1s1nkyHo/oEn7WE
+	 LhN+5ghiRPo5oaDZ4mhtDnzBDbE9QkY4ilp5H2mwTLeN5iVlcLIe+HpvGLvzE9ZqsZ
+	 qRzpx4CNMLP7kYV91KGRLI+nmP8+5STgn42k3leoMn0PRTKp2LGsIe332xB35HnqzR
+	 m0UbKaQ37MpSgbpO1RpXMxVazkkrX3s3YCbCCpngzvdBQpvAkYVc/MrozYdJ8fPfYj
+	 81fWw61bwg7epzRY7LZTR+kqRoUJaPIxcILsdzAVnDATBtV3KU5vGEoJjwfGTt5n/K
+	 e5TTaRUJrgn8w==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wsFou-0000000DGX0-0sIR;
+	Fri, 07 Aug 2026 08:20:48 +0000
+Date: Fri, 07 Aug 2026 09:20:47 +0100
+Message-ID: <8633wqbau8.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
 	linux-arm-kernel@lists.infradead.org,
-	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH 4/4] watchdog: aspeed: Propagate errors from optional IRQ lookup
-Date: Fri,  7 Aug 2026 15:16:52 +0700
-Message-ID: <20260807081652.38692-4-phucduc.bui@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260807081652.38692-1-phucduc.bui@gmail.com>
-References: <20260807081652.38692-1-phucduc.bui@gmail.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_091724_576713_C270B901 
-X-CRM114-Status: GOOD (  12.12  )
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] KVM: Never clear KVM_REQ_VM_DEAD from a vCPU's requests
+In-Reply-To: <20260806214618.82180-1-seanjc@google.com>
+References: <20260806214618.82180-1-seanjc@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: seanjc@google.com, oupton@kernel.org, pbonzini@redhat.com, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,34 +88,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: bui duc phuc <phucduc.bui@gmail.com>
+On Thu, 06 Aug 2026 22:46:18 +0100,
+Sean Christopherson <seanjc@google.com> wrote:
+> 
+> Use kvm_test_request() instead of kvm_check_request() when querying
+> KVM_REQ_VM_DEAD, i.e. don't clear KVM_REQ_VM_DEAD, as the entire purpose
+> of KVM_REQ_VM_DEAD is to prevent the vCPU from enterring the guest ever
+> again, even if userspace insists on redoing KVM_RUN.
+> 
+> Ensuring KVM_REQ_VM_DEAD is never cleared will allow relaxing KVM's rule
+> that ioctls can't be invoked on dead VMs, to only disallow ioctls if the
+> VM is bugged, i.e. if KVM hit a KVM_BUG_ON().
+> 
+> Opportunistically add compile-time assertions to guard against clearing
+> KVM_REQ_VM_DEAD through the standard APIs.
+> 
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
 
-platform_get_irq_optional() returns a positive IRQ number on success or
-a negative error code on failure. For an optional IRQ, -ENXIO indicates
-that no IRQ is available, while other errors should be propagated.
+Acked-by: Marc Zyngier <maz@kernel.org>
 
-Propagate errors such as -EPROBE_DEFER and -EINVAL instead of continuing
-probe without the IRQ.
+	M.
 
-Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
----
- drivers/watchdog/aspeed_wdt.c | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/drivers/watchdog/aspeed_wdt.c b/drivers/watchdog/aspeed_wdt.c
-index c9e79851504c..48454ac86074 100644
---- a/drivers/watchdog/aspeed_wdt.c
-+++ b/drivers/watchdog/aspeed_wdt.c
-@@ -429,6 +429,8 @@ static int aspeed_wdt_probe(struct platform_device *pdev)
- 	if (wdt->cfg->irq_mask) {
- 		int irq = platform_get_irq_optional(pdev, 0);
- 
-+		if (irq < 0 && irq != -ENXIO)
-+			return irq;
- 		if (irq > 0) {
- 			ret = devm_request_irq(dev, irq, aspeed_wdt_irq,
- 					       IRQF_SHARED, dev_name(dev),
 -- 
-2.43.0
-
+Without deviation from the norm, progress is not possible.
 
