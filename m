@@ -4,62 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D32BC5AD2B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 22:48:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85FBDC5AD05
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 22:53:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e5d/ApPq9zKbEYsjvmT4dzXT3sPT/1q+7IIhU9CC4Ho=; b=XptDJsbjSl5c+E48GT7QAHafuR
-	TFAFm3D4ia+b91ITov8nZ13imowM2nVruulve7bkwcKu10QUS0Ki0OzS7do8vRn8dkhbwsiLQ+p9r
-	ZeWKFhA4XsNvPIhuYx/pflbO6jcRk6RPxYJoMQWTgQv8YL8SeWgvYoslhVCabGkiC/LlZaUO5u/bm
-	RN4Zkt50q3dqlaC6Agrdf8Iif7jae4Yp/BpMGSoi+YJhd4FRfKMN4ZedhCEuI1vPRRQYPMF9cfZvU
-	bewBDOl6Lh/n44/3Y/7IYEPa9+FsgqM/As3+rDCK7OLXQ4kt02OrNMTYs5+6p3Ng5ozRso23km7r1
-	zdYkdgiA==;
+	bh=a08ege2A6PubBI8+f0PrNyavH3OH8v6KWoV1np/vCzI=; b=LWAk6CBvOAMxAoQa0pJ08K2lkn
+	b9mq56x9LZEfJYWGUfiWyW1BK+w3P6N7zxEV5C/J0IdVppyPEQZxZe9GbxDwl//Kz+u+OpYBYVU7/
+	G0PNbArBL0XQ8IhuUCwBw+Ae+dPXvDqA1ERNvjIsHBDx/fQV+ZEikN4hpdz+9yeauxj3aObGq5/+Y
+	iizVeCo6DoOywdOJDIVFmM0YkB9xvf26222BbfZ78cjOenxFleN5AOR1+VVUitlxRQJcivD3Fv3ts
+	RnlTiW+XqDUxvnmjiiF2q4Yf9TDBfk5dZ/EPE+vZa+dELeXug2RzPO5vGZQsTEFub//4De6CQ/biN
+	bB2NORJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsTMJ-00000008pYe-2wQ7;
-	Fri, 07 Aug 2026 22:48:11 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wsTR7-00000008pmw-1FNF;
+	Fri, 07 Aug 2026 22:53:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsTMI-00000008pYQ-0Srd
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 22:48:10 +0000
+	id 1wsTR5-00000008pmm-07U9;
+	Fri, 07 Aug 2026 22:53:08 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7B30B41213;
-	Fri,  7 Aug 2026 22:48:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 661941F000E9;
-	Fri,  7 Aug 2026 22:48:08 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5367843DFA;
+	Fri,  7 Aug 2026 22:53:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 061471F000E9;
+	Fri,  7 Aug 2026 22:53:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786142889;
-	bh=e5d/ApPq9zKbEYsjvmT4dzXT3sPT/1q+7IIhU9CC4Ho=;
+	s=k20260515; t=1786143186;
+	bh=a08ege2A6PubBI8+f0PrNyavH3OH8v6KWoV1np/vCzI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=hWTRQCy6854hksUwK/VkgIwM3NsNKUB/Y+ZrRFbRlL+nZAWlFl17tJfYFsNP649jO
-	 KY5n1rO7h1Sjc/7LFbBXUo+NPh2IdoTkUg44lV39YEr0RDr2NY1T+TKCVlcb4n9BwR
-	 zzbMNr3uc/VhgGQNiTDz4sU61TpCXcnUShnzTvtI2yxx9OhHiKhe8SVPiKbxWKOto6
-	 HbK83zumiS5UlywAgLiVmAylllQU7gbZNFNeuvBzwEdwEU4iGQ0neNVhmbUZl1eOoA
-	 RqG8MOUEdCRHM0lOvDrQ8oUQfwgnCoayylFD08fCs/anXPWypZKnE1ZxM++VZX1ugH
-	 UdvUchmmtB3Aw==
-Date: Fri, 7 Aug 2026 15:48:06 -0700
-From: Josh Poimboeuf <jpoimboe@kernel.org>
-To: sashiko-bot@kernel.org
-Cc: x86@kernel.org, Mark Rutland <mark.rutland@arm.com>, 
-	live-patching@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Miroslav Benes <mbenes@suse.cz>, Petr Mladek <pmladek@suse.com>, 
-	Will Deacon <will@kernel.org>, Song Liu <song@kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Joe Lawrence <joe.lawrence@redhat.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>
-Subject: Re: [PATCH v3 10/21] objtool: Ignore jumps to the end of the
- function for checksum runs
-Message-ID: <2jmchblm2lryol7crl2n7rv6f5h4ej7hl3cmnixpv7amkuztsn@t4qigaqzvqg6>
-References: <b3b58101e15e1bb5266e57134f0b65f7d8efdd4b.1778642120.git.jpoimboe@kernel.org>
- <20260514223021.1326AC2BCB3@smtp.kernel.org>
+	b=VEjeYbm0F0jk6hgaUvD7udZN9KLlRTlcmx6WiHpm78T8ZNvzuDgjhP1HjvQw2pyGf
+	 PbSJ24h9+tiX8tXdbaGCj5Jhw41++NsRISoVaEmhvd6b1GaqfiuP1Nu3o1tHuy//qj
+	 hiJrSNL/Jyc82J76wQCQBESN0X26C0RNcycsUeRbRyyEKWqWHXuNi4sYVEU+aQyx6I
+	 LZqeAGLuSw4mdbB0Ioa+26PULe/cZvpd7puAWSKXph5Ar2ZmZRxgJfk2cNXwisqhQx
+	 Z3U3Fuz/avDeDQnKJt4GxvwqkIBiob59bGfAhndOg9LkkaP6Jasb4iiHQajvbce9ES
+	 iquwEFePYuFJg==
+Date: Fri, 7 Aug 2026 23:52:58 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Cyril Chao <Cyril.Chao@mediatek.com>,
+	Darren Ye <darren.ye@mediatek.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Rosen Penev <rosenp@gmail.com>,
+	bui duc phuc <phucduc.bui@gmail.com>, linux-sound@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v5 4/4] ASoC: airoha: Add AFE and machine driver for
+ Airoha AN7581
+Message-ID: <8146f434-1e16-4ebd-80a4-b9c27bfa45af@sirena.org.uk>
+References: <20260807200936.201827-1-ansuelsmth@gmail.com>
+ <20260807200936.201827-5-ansuelsmth@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="L/1rhFeghNUEqwsR"
 Content-Disposition: inline
-In-Reply-To: <20260514223021.1326AC2BCB3@smtp.kernel.org>
+In-Reply-To: <20260807200936.201827-5-ansuelsmth@gmail.com>
+X-Cookie: 1 + 1 = 3, for large values of 1.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,65 +84,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 14, 2026 at 10:30:20PM +0000, sashiko-bot@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 1 potential issue(s) to consider:
-> - [Medium] Missing parentheses in the jump destination check causes objtool to silently ignore all missing jump targets when branch validation is disabled, instead of only jumps to the end of the function.
-> --
-> 
-> commit aa068d4053e8b92ff17082c7a023821e72f5d625
-> Author: Josh Poimboeuf <jpoimboe@kernel.org>
-> 
-> objtool: Ignore jumps to the end of the function for checksum runs
-> 
-> Sometimes Clang arm64 code jumps to the end of the function for UB.
-> This commit ignores these jumps to the end of the function for
-> checksum runs to avoid errors.
-> 
-> > diff --git a/tools/objtool/check.c b/tools/objtool/check.c
-> > index 10b18cf9c3608..73451aef68029 100644
-> > --- a/tools/objtool/check.c
-> > +++ b/tools/objtool/check.c
-> 
-> [ ... ]
-> 
-> > @@ -1593,10 +1609,14 @@ static int add_jump_destinations(struct objtool_file *file)
-> >  			/*
-> >  			 * GCOV/KCOV dead code can jump to the end of
-> >  			 * the function/section.
-> > +			 *
-> > +			 * Clang on arm64 also does this sometimes for
-> > +			 * undefined behavior.
-> >  			 */
-> > -			if (file->ignore_unreachables && func &&
-> > -			    dest_sec == insn->sec &&
-> > -			    dest_off == func->offset + func->len)
-> > +			if (!validate_branch_enabled() ||
-> > +			    (file->ignore_unreachables && func &&
-> > +			     dest_sec == insn->sec &&
-> > +			     dest_off == func->offset + func->len))
-> >  				continue;
-> 
-> Does this condition silently ignore all missing jump targets when branch
-> validation is disabled?
-> 
-> Because of the || without proper parenthetical grouping around the first
-> two terms, if !validate_branch_enabled() is true (which it is for
-> --checksum or --noinstr runs), the rest of the condition short-circuits.
-> 
-> This appears to cause objtool to skip the error reporting and silently
-> leave the jump destination as NULL for any unresolvable jump in the binary,
-> instead of only those jumping to the end of the function.
-> 
-> Should the logic be grouped to restrict the exception to the end of the
-> function?
-> 
-> 			if ((!validate_branch_enabled() || file->ignore_unreachables) &&
-> 			    func &&
-> 			    dest_sec == insn->sec &&
-> 			    dest_off == func->offset + func->len)
 
-Yes, we should tighten that up.
+--L/1rhFeghNUEqwsR
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
--- 
-Josh
+On Fri, Aug 07, 2026 at 10:09:34PM +0200, Christian Marangi wrote:
+> Add support for the Sound system present on Airoha AN7581 SoC. This is
+> based on the mediatek AFE drivers.
+
+> Also add the machine driver to create an actual sound card for the AFE.
+
+This should be more patches, the machine driver should be a separate
+patch at a minimum.  Possibly PCM and ETDM drivers too.
+
+> +static int an7581_afe_pcm_dev_probe(struct platform_device *pdev)
+> +{
+> +	struct an7581_afe_private *afe_priv;
+> +	struct reset_control *reset;
+> +	struct mtk_base_afe *afe;
+> +	struct device *dev;
+> +	int i, irq_id, ret;
+> +	void *base;
+> +
+> +	afe = devm_kzalloc(&pdev->dev, sizeof(*afe), GFP_KERNEL);
+> +	if (!afe)
+> +		return -ENOMEM;
+
+We allocate afe here with devm_kzalloc() so everything is zero...
+
+> +	afe->irqs = devm_kcalloc(dev, afe->irqs_size, sizeof(*afe->irqs),
+> +				 GFP_KERNEL);
+> +	if (!afe->irqs)
+> +		return -ENOMEM;
+
+...then we allocate an array using a size read from the struct which must
+therefore have zero elements.  We also didn't assign dev, either we
+should assign it and use it consistently or we should drop it and use
+&pdev->dev like the first allocation.
+
+> +	/* register component */
+> +	ret = devm_snd_soc_register_component(&pdev->dev,
+> +					      &mtk_afe_pcm_platform,
+> +					      NULL, 0);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Cannot register AFE component\n");
+> +
+> +	ret = devm_snd_soc_register_component(afe->dev,
+> +					      &an7581_afe_pcm_dai_component,
+> +					      afe->dai_drivers,
+> +					      afe->num_dai_drivers);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Cannot register PCM DAI component\n");
+> +
+> +	platform_set_drvdata(pdev, afe);
+
+The component registration might result in a card being instantiated so
+we need the driver data initialized before we try to register.
+
+--L/1rhFeghNUEqwsR
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmp2YcoACgkQJNaLcl1U
+h9ARiwf+LpDqvrfwUmAxX0QX50R8ii4KPIXyv5I0qvKJZcQ4j3ofe+outq7w/7zh
+nJsC2gzVvtmzP7LOx3TdiR4pj1w2uRSI9ymg2rKoU05VzD3CEIjNtm/YIqPbd8cR
+T4WQlImD5NQ9K7U0NgP1N+y7uX8r0QMikrRUMiw6k/D8CzaSsmZ6fCL8RQq0ge6O
+oUJqMGcsdRn5x4ppuwy4y8FIn/Z73xEoAHWTQrf6jtLPBM8f++3t66ULaDKhwf+L
++uflmWRcVPBtXHGwQaqYImTilXTk6wYVmMqj7OBEuLnKiHyYN5bA4Lm53gbqUBE4
+9Utlm+txNJsPR3uhLbGfxdFrZ3+lQw==
+=/wv4
+-----END PGP SIGNATURE-----
+
+--L/1rhFeghNUEqwsR--
 
