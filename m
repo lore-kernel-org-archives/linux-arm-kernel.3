@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2804C5AC7C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 07:41:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F7F1C5AC82
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 07:41:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5ZtlYdzWPfbUjT+3726P4tEkOyWdFs4LizgvGG0WnvQ=; b=v2o1itUDumJDbIqvHwHYyzmAc+
-	1soChfX3wKKY0sR3HPp0T5zltn320GrHYWcEiAon7k2FNmQ3f95nESOM54PS9oqxOj9RaTq1u6sZ6
-	xgsFccdS2tAunQk+tg/Rnn7yiQB7+Uw6s9XteZiCrzoDDb2cksykHiaQh324SEVFEGm1509EbFhRb
-	/KoiqqmkSJFkKHG0JWgrhnXQNPqeCsrI8n5FLIXa2pqDVrjuSHA7PtDqc1nU14p6sXvWFwdwrmPe/
-	CRrZtYtKRt3Bk1FQhQd8ljHKUGjDuX8RRfXU5HWf1aX7E5UVDZRy+mXiPltKaBkizlagF4JJrzFmy
-	lumMXKLg==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=37E29zaFhLGOrDb/ZTD96WxUaP6LZSPazQ7ZZ2/0O0I=; b=cO4VuPV9s7QdnkYFf+bYulbtWj
+	1s59fG6q1fYODb5MwznFT16CCJsPyqRE5X+w67QgeNsl/1IqTEnNjNt3vIJzoae7Wg1VsC9ksZ8mM
+	2b3Xy3GJ/tRMUH88L1gmwzTSHeaSfUgLaPc/Cpr9Z+oMPvVJOFIj75h0Z+HD+PBI94ubsTbgju2VL
+	GqXqToz3SI+cdVcUmCcbOyhf0BaswlXh86Oox60y292Mu8WtDiD83lGtQ5a10U8gtLMS1i2KjSHFk
+	7yiVMHl99M0INwaja6Cki+ij2thT6Tbr4QIBB3LuDAmxuAYs2cmlw58rONRCwDLpTGJ6rPq1fbEBT
+	dizOBX0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsFCF-00000007FrN-2Cty;
-	Fri, 07 Aug 2026 07:40:51 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1wsFCJ-00000007FuL-3J9D;
+	Fri, 07 Aug 2026 07:40:55 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsFCC-00000007FqQ-0wlD
+	id 1wsFCG-00000007FrH-1W7q
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 07:40:49 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-495757ccbc1so32351325e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Aug 2026 00:40:47 -0700 (PDT)
+	Fri, 07 Aug 2026 07:40:53 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-472326ca506so1994113f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Aug 2026 00:40:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=osyx-tech.20251104.gappssmtp.com; s=20251104; t=1786088446; x=1786693246; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=5ZtlYdzWPfbUjT+3726P4tEkOyWdFs4LizgvGG0WnvQ=;
-        b=wTbGwHeHQnruHEO/lqyFd4m0K0S6yhq5Sad7APS/kex65VL3fh9PMeVI0RvrUUaNQX
-         iKotN7ocYDKPmjS+yJsXu1nK0ShXJNZpHM4HcBjpvmT9cJw4GNtAugGj7tsdReKwQtKA
-         f3oVAIjTp6ZFmCWgLtA5o0evAxIWf7sSFKVEWTkug7kD5Zs8gBfx7rUptsyGiRLLjDEu
-         K5yM7gW5JO/fOKsjVt8Wxi37k6LfuAEUVkwgOlYAGvkF+Bzpq2UQOS6BaE7SAUQIW93z
-         +nSxJAnCOMAM168/YG3VKFz7jrhbJWQphHXm+0laRIfz54uGF2tzQnGaRLqlnNPcG8jr
-         uixg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786088446; x=1786693246;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+        d=osyx-tech.20251104.gappssmtp.com; s=20251104; t=1786088450; x=1786693250; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=5ZtlYdzWPfbUjT+3726P4tEkOyWdFs4LizgvGG0WnvQ=;
-        b=bIrOSi+31/TTHKmhA/pJAb0Wx0CFGMPk94dcNl3PWf9VXkF4cKO9nBKSs6EW/2aKXC
-         MKubSC4YxtXkVkMHxaK74Ac6vTafMUyhFJj79w4carRe1fELouKVXQkODV70T/D6Kxx5
-         9WDLOzG4VfK/s2WS3DG2UHxxRDBTTUhf5qIla9tr0az9Z5hclLJ3JgchSTgOa/6VcWnc
-         lC19dZdZw6sg1vS2Ilrw7cNNh9KIfi+bkT86Jg4HRMPgt/j7BT0De/edjfA1ZCevFNpz
-         XYcveOQEDAJSXbyFOvAR6IubYfxPn8BU5XuOnvAaTYXI0jHmzstrauNWipDXZk0Ce4zI
-         fDiw==
-X-Forwarded-Encrypted: i=1; AHgh+Rq8vODF2709z3eWL2+eNLIhI1cawDNjJ+PLRnZiWUw0MIrq6QCpKqG3xOPxN9M9sDKV6zcOy5TckGm7Y+HsYxiE@lists.infradead.org
-X-Gm-Message-State: AOJu0YzFm2Pr5VhIowZDl0iSA+xoTK0Bg8mt/ylDHVA5TWiJnJbrdsgk
-	WHUhgtgKD2EfnlTKLXEQPyIxOxRuYAL4l1ZMZ8w0MDptQPXgagI8JqfxT9tHswRdEUFV
-X-Gm-Gg: AR+sD102NKixsU937+Lp0CpdrtRilAyx8Fe/3nYsyxVh0zjyrVe5edVdOae74Fxd7bd
-	PU3RhpIBNcQJMGNk2pRgnzPLEicSrW3EEwmOuoBO/9UVzLJpBLyjh2UK/gh3RkwzfEHa4WQiO6z
-	p7Sdi8crJ/2lvVZo4zhlKLQgtWvB9FBL53mIAcvpCWeACJ2kYOn8lNQxEpolPvn8GnY+tBNZMXA
-	2iXySGkgP81/CnZUu1HZotoCwj4Qer8iOAjJiU4QmRH+drxps1FQqQIguJsp6GrC8+qwxf3foR1
-	IFjNEqpu7aBKZcPtrsLdgohU6UeK5SioBTOyA3lzhUPgVhgUZGCh6MPhoCO7wK0Gz4eIpOXxmcG
-	HdaNJoHbhuWERayMQVPLR8rmgiHqaQNx+wPvE2NO43LC8giyVldLyxUM4N4Gl9qdfrUPqemJaz/
-	cabNn7ARFZ1FqZ0NgOymI25URoyV+sbnxMgEjbAF/OYmulkAN7vMk34wJ4hCyZMm0=
-X-Received: by 2002:a05:600c:1f96:b0:496:c249:dd9a with SMTP id 5b1f17b1804b1-4994e71364fmr248230245e9.3.1786088445905;
-        Fri, 07 Aug 2026 00:40:45 -0700 (PDT)
+        bh=37E29zaFhLGOrDb/ZTD96WxUaP6LZSPazQ7ZZ2/0O0I=;
+        b=vFknm8WSEZif9w1Dm3VYIlZT6zCxy4fFft47/M1DtclyYCIF9Dp0PIhyU23LjKWu3T
+         hVcjWGuNoofx9A1Oze8nipha5cPir0VoZmnIf+XM8J1GF3Ztfbb4/+poli0K+ZOtfSw4
+         q4EcVYn+VgupLac+k5tkId+qGTysJWrGSMzAdyUQthYRxmBtva8t3BxtLftvSAECfHY1
+         sMqNKp5yvVebxk4sMqVr+W5jFTFoh1MqcV8vX0rd015qYQwvqI+l1SG4zcmH/sO+84Gj
+         BifrdT08DiFGeilh2dF9jbRxARa+BImRpMG+9eUR35syxr+ur7fKMdBIF5m/RxnCKF3a
+         al6Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786088450; x=1786693250;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=37E29zaFhLGOrDb/ZTD96WxUaP6LZSPazQ7ZZ2/0O0I=;
+        b=oGCmN4d5OILZzQ3AMyvm8B2uSjDmpbufrNiuuxbkGhIysSGdymDAPbzArEYx/KfFHE
+         3mknh5YSagR6+7tQhsnwcnmPgGSvsr9jflHr71989gSGkey0D7669mzr1uuXlQjU3IyM
+         eMea3XlsfrzuRIMgBRmDk331nxco3QzFtlkTZIWmnmTgvoZLoM6BB3uh4z3b7OBlYCOr
+         IjcviHb/x4TTy3sCUls5Y2UzYW251dMbjLvRaHwOD16nKnWSB9cj4fzIhvBIHDGiOLao
+         yDGIXJAKbY4UtxisrSG+vlayBgpo5uENLbvfTx7ejHANKf3vc93zxmoiN+AruMozBEk8
+         +fSQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rpe5sejOMr5zP3Yv651HZFDZ+Gsxl3Qr73HARGCemi9q7lQ5CF3BodxNOfqH+/sx2lUj0tOHy9ZMJu3lKKIn1qk@lists.infradead.org
+X-Gm-Message-State: AOJu0YwR+hJ5Je66dJABxTuJ+OvXIF/8D9bZyhn4vE325IqKlgewBy0X
+	yG4mzdH5+fVy4kiF48Gm5cDVyxECD4zFcBfc3ZzJmOHhbDSCFdaibTUfDmMm76WPvd07
+X-Gm-Gg: AR+sD13snBcQycyIsK8juARUWFRmB02MeTnsAQLk2Py40wozwZaEcOt1B3QiHpYtHkP
+	22DFoHwRo6DrPdM8GLfK51i+39W7A0iCCb/KUHp88+mfPz67Tqb8tG9DXvH/61fNlElh88IZjGe
+	q5z1HUHkMuQO3C+ANcerI51Pisht/OqjhURW0fEDQ/SmOQjp03AmML6xkSw52Dk96O3IrfavwHf
+	A0d5hnXPh0dZVtQgh52fmwMWgmq+qigbwYfcb5ErEJhca+3DaBw9zd3aXDLJxXwzV+JMmT3SgXO
+	hQNDAsRMLrZ9T1GXYnmrm6RrU8sPj6j8nZ58iBes3t0tq5m2Udv3avx7Ca9t6CoPgPNyB77Rdab
+	j2VUtg7UoJkOHRuy2pQxV4t0hIGAlT0Zdm28yEt2OZXhKV7ALRZDH4NoUT37MJvX4ZTpnuHFY+1
+	sNbJFHN8VctuxtnQiQwtEjWcE33Jm5CrsbiFOqAzwkhiXteNDODqh2jRnYcvB+toc=
+X-Received: by 2002:a5d:6f0c:0:b0:47e:9f16:c0bf with SMTP id ffacd0b85a97d-47fec63e205mr36677851f8f.30.1786088450464;
+        Fri, 07 Aug 2026 00:40:50 -0700 (PDT)
 Received: from jp-linux.Home ([2001:8a0:f59c:a900:2600:fba1:8d1e:1692])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-480021f90f8sm2819904f8f.26.2026.08.07.00.40.43
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-480021f90f8sm2819904f8f.26.2026.08.07.00.40.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Aug 2026 00:40:45 -0700 (PDT)
+        Fri, 07 Aug 2026 00:40:49 -0700 (PDT)
 From: =?UTF-8?q?Jo=C3=A3o=20Peixoto?= <jpeixoto@osyx.tech>
 To: gregkh@linuxfoundation.org,
 	robh@kernel.org,
@@ -92,16 +93,18 @@ Cc: jose@osyx.tech,
 	linux-doc@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-riscv@lists.infradead.org
-Subject: [RFC PATCH v3 0/6] virt: bao: Add Bao hypervisor IPC and I/O dispatcher drivers
-Date: Fri,  7 Aug 2026 08:39:27 +0100
-Message-ID: <cover.1786010512.git.jpeixoto@osyx.tech>
+Subject: [RFC PATCH v3 1/6] dt-bindings: bao: add IPC shared-memory device
+Date: Fri,  7 Aug 2026 08:39:28 +0100
+Message-ID: <7fe7fbabed8d932a9d8d82e64c9c4d76100964c6.1786010512.git.jpeixoto@osyx.tech>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1786010512.git.jpeixoto@osyx.tech>
+References: <cover.1786010512.git.jpeixoto@osyx.tech>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_004048_555657_D9604931 
-X-CRM114-Status: GOOD (  17.56  )
+X-CRM114-CacheID: sfid-20260807_004052_452790_7C42D4B1 
+X-CRM114-Status: GOOD (  17.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,118 +119,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds guest-side drivers for the Bao static-partitioning
-hypervisor: an IPC shared-memory driver and an I/O dispatcher, plus their
-device-tree bindings, UAPI and MAINTAINERS entry.
+Add the device-tree binding for the Bao hypervisor IPC shared-memory
+device, used by a Bao guest to exchange data with a peer guest over a
+shared-memory region.
 
-Bao is a lightweight static-partitioning hypervisor for embedded and
-safety-critical systems.
-- The IPC shared-memory driver lets Bao guests exchange data through a
-  shared-memory region split into a read and a write channel.
-- The I/O dispatcher lets a backend guest service paravirtualised (VirtIO)
-  I/O on behalf of frontend guests.
+Co-developed-by: José Martins <jose@osyx.tech>
+Signed-off-by: José Martins <jose@osyx.tech>
+Co-developed-by: David Cerdeira <davidmcerdeira@osyx.tech>
+Signed-off-by: David Cerdeira <davidmcerdeira@osyx.tech>
+Signed-off-by: João Peixoto <jpeixoto@osyx.tech>
+---
+v3:
+- Describe the read and write channels through reg/reg-names instead of the
+  custom read-channel/write-channel properties; drop those properties and the
+  "id" property; add a vendor "bao,id" for the hypercall channel id; use a
+  generic node name (shmem@...) (Krzysztof Kozlowski).
+- Clarify the "bao" vendor-prefix description.
+- Subject: drop the redundant trailing "binding" (Krzysztof Kozlowski).
+- Add José's and David's Co-developed-by/Signed-off-by.
 
-Sent as RFC: the RISC-V backend uses the SBI experimental extension space
-(see "Open items" below), and the device-tree bindings were reworked in this
-version and would benefit from another look.
-
-## Changes since v2
-- dt-bindings (ipcshmem): describe the two channels through reg/reg-names,
-  drop read-channel/write-channel and the "id" property, use a vendor
-  "bao,id", and use a generic node name (Krzysztof Kozlowski).
-- dt-bindings (io-dispatcher): one node per backend device (single reg +
-  interrupt) instead of one node describing many devices, modelled on the
-  gunyah/Mediatek Genio bindings (Krzysztof Kozlowski).
-- io dispatcher driver: one platform device per device model (/dev/bao-dmX);
-  removed the global DM list, the anonymous-inode fd and the dispatcher
-  indirection ioctl; fixed a leak and probe error-path bugs; initialise
-  virtio_requests_lock and the hypercall context fields.
-- ipcshmem driver: derive the two regions from reg; drop the success print;
-  do the range arithmetic in u64.
-- Kconfig: fix the help-text indentation (Randy Dunlap).
-- style: unwrap the few-char line wraps; the IPC hypercall helper now takes a
-  single argument and fits on one line (Andrew Jones).
-- riscv: use BAO_SBI_EXT_ID consistently, document that it is in the SBI
-  experimental extension space, and drop the redundant ecall input
-  constraints (Andrew Jones).
-- commit messages: rewritten to kernel style; the "consolidate the IPC
-  hypercall ID" patch now explains why and covers the signature change
-  (Greg KH).
-- process: sent as a fresh thread with this changelog, and the mail setup that
-  bounced v1/v2 is fixed (Krzysztof Kozlowski, Greg KH).
-
-## Open items / still under discussion
-- RISC-V uses the experimental SBI extension ID (0x08000ba0). A permanent
-  implementation ID must be registered in the RISC-V SBI spec before RISC-V
-  can be non-experimental; hence RFC.
-- Whether the Remote I/O hypercall must follow SBI chapter-3 register rules
-  (Andrew Jones) — see the reply on patch 4.
-- The "bao,id" property and the "bao" vendor prefix (Krzysztof Kozlowski) —
-  rationale is in the bindings; alternatives welcome.
-
-Link to v2: https://lore.kernel.org/all/20260107162829.416885-1-joaopeixoto@osyx.tech/
-
-João Peixoto (6):
-  dt-bindings: bao: add IPC shared-memory device
-  virt: bao: add IPC shared-memory driver
-  dt-bindings: bao: add I/O dispatcher device
-  virt: bao: add I/O dispatcher driver
-  virt: bao: consolidate the IPC hypercall ID in include/linux/bao.h
-  MAINTAINERS: add Bao hypervisor entry
-
- .../bindings/bao/bao,io-dispatcher.yaml       |  58 +++
- .../devicetree/bindings/bao/bao,ipcshmem.yaml |  59 +++
- .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
- .../userspace-api/ioctl/ioctl-number.rst      |   2 +
- MAINTAINERS                                   |  13 +
- arch/arm/include/asm/bao.h                    |  60 +++
- arch/arm64/include/asm/bao.h                  |  60 +++
- arch/riscv/include/asm/bao.h                  |  66 +++
- drivers/virt/Kconfig                          |   2 +
- drivers/virt/Makefile                         |   2 +
- drivers/virt/bao/Kconfig                      |   5 +
- drivers/virt/bao/Makefile                     |   4 +
- drivers/virt/bao/io-dispatcher/Kconfig        |  16 +
- drivers/virt/bao/io-dispatcher/Makefile       |   4 +
- drivers/virt/bao/io-dispatcher/bao_drv.h      | 349 +++++++++++++++
- drivers/virt/bao/io-dispatcher/dm.c           | 316 ++++++++++++++
- drivers/virt/bao/io-dispatcher/driver.c       |  95 +++++
- drivers/virt/bao/io-dispatcher/intc.c         |  64 +++
- drivers/virt/bao/io-dispatcher/io_client.c    | 401 ++++++++++++++++++
- .../virt/bao/io-dispatcher/io_dispatcher.c    | 181 ++++++++
- drivers/virt/bao/io-dispatcher/ioeventfd.c    | 323 ++++++++++++++
- drivers/virt/bao/io-dispatcher/irqfd.c        | 314 ++++++++++++++
- drivers/virt/bao/ipcshmem/Kconfig             |  10 +
- drivers/virt/bao/ipcshmem/Makefile            |   3 +
- drivers/virt/bao/ipcshmem/ipcshmem.c          | 228 ++++++++++
- include/linux/bao.h                           |  44 ++
- include/uapi/linux/bao.h                      |  96 +++++
- 27 files changed, 2777 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/bao/bao,io-dispatcher.yaml
+ .../devicetree/bindings/bao/bao,ipcshmem.yaml | 59 +++++++++++++++++++
+ .../devicetree/bindings/vendor-prefixes.yaml  |  2 +
+ 2 files changed, 61 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/bao/bao,ipcshmem.yaml
- create mode 100644 arch/arm/include/asm/bao.h
- create mode 100644 arch/arm64/include/asm/bao.h
- create mode 100644 arch/riscv/include/asm/bao.h
- create mode 100644 drivers/virt/bao/Kconfig
- create mode 100644 drivers/virt/bao/Makefile
- create mode 100644 drivers/virt/bao/io-dispatcher/Kconfig
- create mode 100644 drivers/virt/bao/io-dispatcher/Makefile
- create mode 100644 drivers/virt/bao/io-dispatcher/bao_drv.h
- create mode 100644 drivers/virt/bao/io-dispatcher/dm.c
- create mode 100644 drivers/virt/bao/io-dispatcher/driver.c
- create mode 100644 drivers/virt/bao/io-dispatcher/intc.c
- create mode 100644 drivers/virt/bao/io-dispatcher/io_client.c
- create mode 100644 drivers/virt/bao/io-dispatcher/io_dispatcher.c
- create mode 100644 drivers/virt/bao/io-dispatcher/ioeventfd.c
- create mode 100644 drivers/virt/bao/io-dispatcher/irqfd.c
- create mode 100644 drivers/virt/bao/ipcshmem/Kconfig
- create mode 100644 drivers/virt/bao/ipcshmem/Makefile
- create mode 100644 drivers/virt/bao/ipcshmem/ipcshmem.c
- create mode 100644 include/linux/bao.h
- create mode 100644 include/uapi/linux/bao.h
 
-
-base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
+diff --git a/Documentation/devicetree/bindings/bao/bao,ipcshmem.yaml b/Documentation/devicetree/bindings/bao/bao,ipcshmem.yaml
+new file mode 100644
+index 000000000000..60947150d576
+--- /dev/null
++++ b/Documentation/devicetree/bindings/bao/bao,ipcshmem.yaml
+@@ -0,0 +1,59 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/bao/bao,ipcshmem.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Bao Hypervisor IPC Shared Memory Device
++
++maintainers:
++  - João Peixoto <jpeixoto@osyx.tech>
++  - José Martins <jose@osyx.tech>
++  - David Cerdeira <davidmcerdeira@osyx.tech>
++
++description: |
++  Shared-memory device exposed by the Bao hypervisor to a guest so that it
++  can exchange data with a peer guest. The hypervisor provides two
++  contiguous memory regions, one the guest reads from (written by the peer)
++  and one the guest writes to (read by the peer). A write is signalled to
++  the peer through a hypercall identified by bao,id.
++
++properties:
++  compatible:
++    const: bao,ipcshmem
++
++  reg:
++    items:
++      - description: region read by this guest and written by the peer
++      - description: region written by this guest and read by the peer
++
++  reg-names:
++    items:
++      - const: read
++      - const: write
++
++  bao,id:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    description:
++      Hypervisor-assigned identifier of this shared-memory channel. The
++      guest passes it to the Bao hypercall that notifies the peer of a
++      write, so it must match the identifier configured for the channel in
++      the hypervisor.
++
++required:
++  - compatible
++  - reg
++  - reg-names
++  - bao,id
++
++additionalProperties: false
++
++examples:
++  - |
++    shmem@f0000000 {
++        compatible = "bao,ipcshmem";
++        reg = <0xf0000000 0x2000>,
++              <0xf0002000 0x2000>;
++        reg-names = "read", "write";
++        bao,id = <0>;
++    };
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index 396044f368e7..b11b3dd995a5 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -231,6 +231,8 @@ patternProperties:
+     description: Shenzhen AZW Technology Co., Ltd.
+   "^baikal,.*":
+     description: BAIKAL ELECTRONICS, JSC
++  "^bao,.*":
++    description: Bao Project (https://github.com/bao-project)
+   "^bananapi,.*":
+     description: BIPAI KEJI LIMITED
+   "^beacon,.*":
 -- 
 2.43.0
 
