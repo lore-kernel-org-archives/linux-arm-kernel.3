@@ -4,81 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50DE0C5AC7A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 10:51:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E23ACC5AC7C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 10:55:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pd0s9piMGyu/sHPznoK/hZaSez88bzUEjJRw/4axIaQ=; b=s1h+Ft84+ejeIP8sL+npBM29Jg
-	za169Ke1kq5bA2VL1fMfV28jKUdPhh17hVC6ohfZH/l6wM0etGMBJOiRMdXL0L4nSM/c/DP4gNqVk
-	UpnmILjsuSMtpxZBN+IgLjcsbwbddba5OmD3LD9jw+d7a5JYZgppuwg6NAKH4GGAygmT0DQB7nEEr
-	DkdMwTomDBkyM8HSuStDxt7Oosp9m/YIDhEPKWE5gNkegxN83aTbEAubHF0g9dXez9c1onPR+E2UH
-	+xkQs1JRg7Oz4D7ZTHxbRdkyUpXKDUo5+/ZHk1Q0626psLKfadl4pZVM6jmDwbtdpqoheox8eMzVl
-	ipCQwq5Q==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8q9ULwdkDG8kHy0Moqf7BNCLWQcy+jQO/aL/rKEA8ck=; b=CibK9409gMN1jmfVUJwgXxBDKW
+	UvO3t66oJPfdJix3zDN6fJQ3HG+NtdcPWBDtt5bxbSODs4NhOxxk9J4GTuCJfZxm0B8Ph86tARdjZ
+	ahRb8OO4vG6jYuZb9xBi9V1QEqmiGqtts+vfXSZLoJId5iLAi74tRM6IrdPZPRpgY/1PlR7SDCxNa
+	tteZv0qoOfRG2VUmpulmwL8Ohpng6Cf0++I1AiVCLEDFsEbIsD4EAh65P8FN40QUE2Ry7jc3zjVSS
+	n/GtFS+nKXexdgWT5UXe2TVZ6gOXO4DFvl1MTwL6W2GrN9u5Hw+IpBKOFTR4oUV+BDBtSvGlcy+my
+	XE4Aadcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsIA7-00000007kcW-3aaU;
-	Fri, 07 Aug 2026 10:50:51 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsIA6-00000007kcC-1IrX
+	id 1wsIEK-00000007lCy-13g6;
+	Fri, 07 Aug 2026 10:55:12 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wsIEG-00000007lBj-1qho
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 10:50:50 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id AAEA34372A;
-	Fri,  7 Aug 2026 10:50:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F6D51F000E9;
-	Fri,  7 Aug 2026 10:50:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786099849;
-	bh=Pd0s9piMGyu/sHPznoK/hZaSez88bzUEjJRw/4axIaQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=jkWJGB/QyoWY2FJjrUcXY0n2eNt5bbZzzg2lj86rIdB5SjJevNHwXZQEEek+xDuNx
-	 z20KAPd8iMF6t8UpH0NJcd9XMHyoQyMC1Twp8Ae/vny4tVGgwIA4j2/GXR5O2KlpAV
-	 eUgC2sj0NB79wyLiYedfQm4vBgfy8NL2cxa0arjPIZDpgWAStKvpCHX5oW9eSJy9Mi
-	 bUjy7ijVR+2RpJ+CzB0eusTpJivmO7ejm3OquhB5tQV0Tcmlam8+TU6tZ43QCRmUug
-	 1ZgXcCyWjLIHwejjyg1XvurAlUo6qMQvayHF0hZ4i1X6wdgDt3fkmGolHOPMEJY4CI
-	 NcjSbHCm6ADRQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wsIA3-0000000DJp8-1Skx;
-	Fri, 07 Aug 2026 10:50:47 +0000
-Date: Fri, 07 Aug 2026 11:50:46 +0100
-Message-ID: <86zeyy9pbt.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev,
+	Fri, 07 Aug 2026 10:55:10 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 39E3D1A9A;
+	Fri,  7 Aug 2026 03:55:01 -0700 (PDT)
+Received: from e142021.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 919843F9A2;
+	Fri,  7 Aug 2026 03:55:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1786100105; bh=nzDEIT0IHsDQYduY3F1VMVOlzPwwS9lmWton6lQS11s=;
+	h=From:To:Cc:Subject:Date:From;
+	b=cbFS4Tp92l/3uEkgZBPZe15E1sNZsZdeD3RWnQctYLk2BEh+z97600XCbaZx/VvV1
+	 9v9Yc5HhpCMX+/vrV85gnvQp75y9704xS2vOFeKMeTxnLxha8mb8vjQBfArcGTYccA
+	 Sfp5xbBKbwlJCs9Nu726CdHjZ+eB3JkIM/rdhToE=
+From: Andre Przywara <andre.przywara@arm.com>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Ben Horgan <ben.horgan@arm.com>,
+	Reinette Chatre <reinette.chatre@intel.com>,
+	Fenghua Yu <fenghuay@nvidia.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
+	Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
+	Trilok Soni <tsoni@quicinc.com>,
+	Srinivas Ramana <sramana@qti.qualcomm.com>,
+	Niyas Sait <niyas.sait@arm.com>,
+	Lee Trager <lee@trager.us>,
+	Ritwick Sharma <ritwick.sharma@arm.com>,
+	Gavin Shan <gshan@redhat.com>,
+	linux-acpi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	oupton@kernel.org,
-	seiden@linux.ibm.com,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	vdonnefort@google.com,
-	tabba@google.com,
-	sebastianene@google.com,
-	keirf@google.com
-Subject: Re: [PATCH] KVM: arm64: Fix hvhe and broken CNTVOFF_EL2
-In-Reply-To: <20260806150105.4010701-1-smostafa@google.com>
-References: <20260806150105.4010701-1-smostafa@google.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: smostafa@google.com, linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oupton@kernel.org, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, vdonnefort@google.com, tabba@google.com, sebastianene@google.com, keirf@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v9 00/12] arm_mpam: Add MPAM-Fb firmware support
+Date: Fri,  7 Aug 2026 12:54:39 +0200
+Message-ID: <20260807105451.3728284-1-andre.przywara@arm.com>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260807_035508_615884_60F0E013 
+X-CRM114-Status: GOOD (  33.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,230 +86,204 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 06 Aug 2026 16:01:05 +0100,
-Mostafa Saleh <smostafa@google.com> wrote:
->=20
-> When running on a setup affected with broken CNTVOFF_EL2
-> (has_broken_cntvoff())
->=20
-> Booting with VHE or protected mode(nvhe) (id_aa64mmfr1.vh=3D0
-> and arm64_sw.hvhe=3D0) works fine.
->=20
-> However launching a protected VM with protected hvhe mode panics the
-> guest kernel:
->=20
-> [    0.000000] Internal error: Oops - Undefined instruction: 000000000000=
-0000 [#1]  SMP
-> [    0.000000] Modules linked in:
-> [    0.000000] CPU: 0 UID: 0 PID: 0 Comm: swapper/0 Not tainted 7.2.0-rc3=
--g05f75bd71e0e-dirty #29 PREEMPT
-> [    0.000000] Hardware name: linux,dummy-virt (DT)
-> [    0.000000] pstate: 000003c5 (nzcv DAIF -PAN -UAO -TCO -DIT -SSBS BTYP=
-E=3D--)
-> [    0.000000] pc : arch_timer_shutdown_virt+0x4/0x1c
-> [    0.000000] lr : arch_timer_starting_cpu+0x1c4/0x2d4
-> [    0.000000] sp : ffffa6bd9a193c00
-> [    0.000000] x29: ffffa6bd9a193c20 x28: ffffa6bd9a1bcf88 x27: 000000000=
-0000000
-> [    0.000000] x26: ffff00001be70dd8 x25: ffffa6bd99d85000 x24: ffffa6bd9=
-9d85ee4
-> [    0.000000] x23: ffffa6bd99d85000 x22: ffffa6bd9a1499c0 x21: ffffa6bd9=
-a1ab900
-> [    0.000000] x20: 00ffffffffffffff x19: ffff00001be8b600 x18: 000000000=
-000028c
-> [    0.000000] x17: 00000000510f0010 x16: 00000000510f0010 x15: 000000005=
-00f0000
-> [    0.000000] x14: 0000000000000000 x13: 0000000000000000 x12: 000000000=
-0000018
-> [    0.000000] x11: ffffa6bd9a8ac000 x10: 0000000000f0000f x9 : fffffffff=
-fffffff
-> [    0.000000] x8 : ffffa6bd98822e18 x7 : 0070752d65746174 x6 : 00111ff76=
-e007261
-> [    0.000000] x5 : ffffa6bd9ad68078 x4 : 0000000000000000 x3 : ffffa6bd9=
-8822a0c
-> [    0.000000] x2 : 0000000000000073 x1 : 0000000000000001 x0 : ffff00001=
-be8b600
-> [    0.000000] Call trace:
-> [    0.000000]  arch_timer_shutdown_virt+0x4/0x1c (P)
-> [    0.000000]  cpuhp_invoke_callback+0x11c/0x280
-> [    0.000000]  cpuhp_issue_call+0x1e8/0x224
-> [    0.000000]  __cpuhp_setup_state_cpuslocked+0x1d8/0x2b8
-> [    0.000000]  __cpuhp_setup_state+0x50/0x74
-> [    0.000000]  arch_timer_register+0xc0/0x148
-> [    0.000000]  arch_timer_of_init+0x148/0x170
-> [    0.000000]  timer_probe+0x74/0x124
-> [    0.000000]  time_init+0x18/0x58
-> [    0.000000]  start_kernel+0x1c0/0x3ac
-> [    0.000000]  __primary_switched+0x88/0x90
-> [    0.000000] Code: c80b7d2a 35ffffab 17ffffeb d503245f (d53be328)
->=20
-> And for non protected VMs seems to hang or progress really slowly.
->=20
-> The workaround avoids setting non-zero CNTVOFF_EL2 and trapping the
-> virtual counter to emulate the offset.
-> In the VHE path (timer_set_traps()), traps are only enabled when the
-> guest actually has a non-zero virtual timer offset.
-> However, __timer_enable_traps() in hyp/nvhe/timer-sr.c unconditionally
-> set CNTHCTL_EL1TVT and CNTHCTL_EL1TVCT whenever has_broken_cntvoff()
-> was true.
->=20
-> Which causes 2 issues:
-> 1) Protected VMs: kvm_handle_pvm_sysreg() does not find "cntv_ctl_el0"
-> in pvm_sys_reg_descs and injects undefined instruction exceptions.
->=20
-> 2) non-protected guests are trapped all the time even with offset of
-> zero.
->=20
-> Fix this by adding a check in __timer_enable_traps() similar to the one in
-> timer_set_traps()
->=20
-> Fixes: 0bc9a9e85fcf ("KVM: arm64: Work around x1e's CNTVOFF_EL2 bogosity")
-> Signed-off-by: Mostafa Saleh <smostafa@google.com>
-> ---
->  arch/arm64/kvm/hyp/nvhe/timer-sr.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
->=20
-> diff --git a/arch/arm64/kvm/hyp/nvhe/timer-sr.c b/arch/arm64/kvm/hyp/nvhe=
-/timer-sr.c
-> index ff176f4ce7de..98b6e37ee8fa 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/timer-sr.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/timer-sr.c
-> @@ -10,6 +10,7 @@
-> =20
->  #include <asm/kvm_hyp.h>
->  #include <asm/kvm_mmu.h>
-> +#include <hyp/switch.h>
+Hi,
 
-I'd rather not include this. It drags too many things, and is solely
-expected to be included from switch.c (both implementations).
+v9 of the MPAM-Fb code, for firmware based MSC accesses, fixes some bugs
+and is addressing some of Sashiko's comments. Mostly to not leave
+known bugs out in the open, I suspect to continue properly after -rc1.
+The IRQ handling has been revamped (again), but this time hopefully for
+good, as I tested error IRQ injection, in various combinations of edge
+triggered, level triggered, shared and exclusive interrupts, across
+multiple MPAM-Fb and MMIO accessed MSCs, including sabotaging the line
+deactivation on the device (emulation) side, to test the irqchip side
+disabling. v8 failed some tests, but v9 passes now. This lead to a new
+patch adding error propagation to functions dealing with the interrupt
+configuration.
+Find the changelog below. Based on v7.2-rc1.
 
-You could use the hack below as a prefix to this change.
+=======================
+The Arm MPAM specification defines Memory System Components (MSCs),
+which are devices that are programmed through an MMIO register frame. In
+some occasions this turned out to be too limiting: the MSC might be
+located behind a separate bus system (for instance inside an on-board
+controller), it might be mapped secure-only, or in a different processor
+socket without direct MMIO mapping. Also the MMIO access might be too slow
+or it would need to be filtered or otherwise access controlled. Finally
+there might be bugs in the MSC integration, which require a mediating
+firmware to be accessible.
 
-> =20
->  void __kvm_timer_set_cntvoff(u64 cntvoff)
->  {
-> @@ -63,7 +64,7 @@ void __timer_enable_traps(struct kvm_vcpu *vcpu)
->  	 * Trap the virtual counter/timer if we have a broken cntvoff
->  	 * implementation.
->  	 */
-> -	if (has_broken_cntvoff())
-> +	if (has_broken_cntvoff() && hyp_timer_get_offset(vcpu_vtimer(vcpu)))
->  		set |=3D CNTHCTL_EL1TVT | CNTHCTL_EL1TVCT;
-> =20
->  	sysreg_clear_set(cnthctl_el2, clr, set);
+To accommodate all those different use cases, the MPAM-Fb specification
+[1] describes an alternative way to access MSCs. Accesses to an MSC
+would be wrapped in a message and communicated to the system using a
+shared-memory/mailbox system mostly mimicking the Arm SCMI spec.
+For ACPI systems, this would be abstracted through an ACPI PCC channel,
+which provides the shared-memory region and the mailbox trigger. We can
+lean on existing ACPI parsing code to register with these two
+subsystems, but cannot rely on the existing SCMI code in the kernel.
+This means we somewhat need to open code a very simplified SCMI handler,
+which just provides enough functionality for the very basic subset of
+SCMI that the MPAM-Fb spec requires.
 
-I don't immediately see why a non-protected guest is so slow with
-hVHE, irrespective of the offset. Even if we go back to the host for
-the emulation, this should be usable.
+The first eight patches rework all MSC access wrappers to propagate error
+information. Pure MMIO based MSC accesses would never fail, but the
+MPAM-Fb access can go wrong in multiple ways. The patches have been split
+up purely for reviewing reasons, if the number is a problem, we could as
+well squash them. Please note that until the very last patch of this series
+any MSC accesses would always only return 0, it's only the final enablement
+of MPAM-Fb that could possibly introduce errors. Hence all former patches
+can add error handling gradually, those code paths wouldn't be triggered
+before patch 12/12.
+Patch 9/12 solves a nasty problem: At the moment we protect stateful MSC
+register accesses (mon_sel) through a spinlock. Unfortunately the mailbox
+subsystem and the slow nature of the communication through this channel
+forbid MPAM-Fb access in atomic context. So this patch keeps using a
+spinlock for MMIO based accesses, but reverts to a mutex otherwise.
+We just deny taking the lock for MPAM-Fb in atomic context, ideally we
+wouldn't need that (no need to IPI another core when the MSC access does
+not need to be local to one particular core), or we simply deny that part
+of the functionality (access through perf).
+Patch 10/12 adds the code to redirect MSC accesses through the
+PCC shmem/mailbox system.
+Patch 11/12 reworks the error interrupt handler to use a threaded IRQ for
+MPAM-Fb, to be able to do MPAM-Fb MSC accesses inside (which might sleep).
+The final patch 12/12 then adds the code to detect and store the PCC
+channel information from the ACPI tables, and eventually enables
+MPAM-Fb accesses.
 
-Could you describe what actually happens? Do you also see the issue
-with pure hVHE (without protected)?
+This would enable systems where some MSCs are not accessible via MMIO to
+use those components anyway.
 
-Thanks,
+Please have a look and test!
 
-	M.
+Cheers,
+Andre
 
-=46rom a7ec0d7f23d86b028164328f33a7114fa6aad2c3 Mon Sep 17 00:00:00 2001
-From: Marc Zyngier <maz@kernel.org>
-Date: Fri, 7 Aug 2026 11:36:48 +0100
-Subject: [PATCH] KVM: arm64: Make timer_get_offset() work in all contexts
+[1] https://developer.arm.com/documentation/den0144/latest
 
-We currently have two implementations of get_timer offset(), one
-in arm_arch_timer.h, and another one in switch.h.
+Changes in v9:
+- always create a threaded IRQ, but differ handling between PCC and MMIO
+- drop dev ptr setting for shared mailbox client (leave at NULL)
+- propagate errors from IRQ setup functions (incl. mpam_disable_msc_ecr)
+- improve MPAM-Fb error reporting (drop snprintf call)
 
-These two only differ by a pair of kern_hyp_va(), which seems a
-pretty weak reason to open-code it.
+Changes in v8:
+- disable error IRQ on irqchip level when device side fails
+- use MSC dev pointer for dev_err() instead of mailbox one
+- smaller white space and formatting fixes
+- reorder MPAM-Fb definitions
+- rename error translation function to mpam_fb_to_linux_errno()
+- add review and test tags
 
-Turn this function into a macro to avoid the include dependency hell
-on kern_hyp_va(), and make it work correctly in all contexts.
+Changes in v7:
+- add tags
+- add new patch to propagate errors in mpam_reprogram_ris_partid()
+- prevent loop when mpam_diable() tries MSC accesses again
+- register MMIO error IRQ handler without IRQF_ONESHOT
+- re-use existing "err" variable instead of declaring "ret"
+- initialise mon_sel_lock later, to wait for interface decision
+- convert timeout units for nominal latency, between us and ms
+ 
+Changes in v6:
+- keep using hard IRQ handler for MMIO based accesses
+- move shmem buffer size and MPAM-Fb version check into mpam_fb.c
+- drop mutex guard in mpam_fb_send_request(), we use gotos anyway
+- factor out MPAM-Fb protocol error translation
+- add MPAM_FB_ERR_BUSY error code to translation
+- explicitly report also MPAM-Fb protocol error number when disabling MPAM
+- remove unneeded MPAM-Fb details from mpam_internal.h
+- drop leftover mpam_fb_msc_id usage 
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/kvm/hyp/include/hyp/switch.h | 15 +----------
- include/kvm/arm_arch_timer.h            | 34 +++++++++++++++----------
- 2 files changed, 22 insertions(+), 27 deletions(-)
+Changes in v5:
+- do not initialise _high variables early
+- fix whitespace issues
+- add Jonathan's Reviewed-by: tags
+- init only either the spinlock OR the mutex for the mon_sel_lock
+- drop warning about mapped_hwpage_sz for MPAM-Fb in mpam_msc_zero_mbwu_l()
+- change IRQ handler to threaded handler, to allow MPAM-Fb MSC accesses
+- disallow per-CPU IRQs (PPIs) for MPAM-Fb
+- trigger MPAM disabling on MPAM-Fb protocol errors
+- fix MPAM_PROTOCOL_VERSION_CMD name
+- use PCC driver defined symbol for PCC_CHAN_FLAGS_IRQ
+- add comment about usage of PCC's .signature field
+- check for illegal MPAM-Fb command before sending request
+- drop CPU accessibility check for MPAM-Fb based MSC accesses
+- move MPAM-Fb protocol message structs inside build functions
+- add comment about largest message size
+- drop extra msc->mpam_fb_msc_id, in favour using pdev->id
+- use already defined local dev variable instead of &pdev->dev
+- use FIELD_GET() macro for MPAM-Fb protocol check
+- drop devm_mutex_init() for pcc_chan_lock
 
-diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/i=
-nclude/hyp/switch.h
-index 4bf624a49591d..2aceda749641c 100644
---- a/arch/arm64/kvm/hyp/include/hyp/switch.h
-+++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-@@ -706,22 +706,9 @@ static inline bool handle_tx2_tvm(struct kvm_vcpu *vcp=
-u)
- 	return true;
- }
-=20
--/* Open-coded version of timer_get_offset() to allow for kern_hyp_va() */
--static inline u64 hyp_timer_get_offset(struct arch_timer_context *ctxt)
--{
--	u64 offset =3D 0;
--
--	if (ctxt->offset.vm_offset)
--		offset +=3D *kern_hyp_va(ctxt->offset.vm_offset);
--	if (ctxt->offset.vcpu_offset)
--		offset +=3D *kern_hyp_va(ctxt->offset.vcpu_offset);
--
--	return offset;
--}
--
- static inline u64 compute_counter_value(struct arch_timer_context *ctxt)
- {
--	return arch_timer_read_cntpct_el0() - hyp_timer_get_offset(ctxt);
-+	return arch_timer_read_cntpct_el0() - timer_get_offset(ctxt);
- }
-=20
- static bool kvm_handle_cntxct(struct kvm_vcpu *vcpu)
-diff --git a/include/kvm/arm_arch_timer.h b/include/kvm/arm_arch_timer.h
-index 15a4f97f81051..bc6f2fdd7ad33 100644
---- a/include/kvm/arm_arch_timer.h
-+++ b/include/kvm/arm_arch_timer.h
-@@ -162,20 +162,28 @@ static inline bool has_cntpoff(void)
- 	return (has_vhe() && cpus_have_final_cap(ARM64_HAS_ECV_CNTPOFF));
- }
-=20
--static inline u64 timer_get_offset(struct arch_timer_context *ctxt)
--{
--	u64 offset =3D 0;
-+#ifdef __KVM_NVHE_HYPERVISOR__
-+#define KERN_HYP_VA(x)		kern_hyp_va(x)
-+#else
-+#define KERN_HYP_VA(x)		x
-+#endif
-=20
--	if (!ctxt)
--		return 0;
--
--	if (ctxt->offset.vm_offset)
--		offset +=3D *ctxt->offset.vm_offset;
--	if (ctxt->offset.vcpu_offset)
--		offset +=3D *ctxt->offset.vcpu_offset;
--
--	return offset;
--}
-+#define timer_get_offset(ctxt)						\
-+	({								\
-+		struct arch_timer_context *__ctxt =3D (ctxt);		\
-+		u64 off =3D 0;						\
-+									\
-+		if (__ctxt) {						\
-+			struct arch_timer_offset *ato =3D &__ctxt->offset;\
-+									\
-+			if (ato->vm_offset)				\
-+				off +=3D *KERN_HYP_VA(ato->vm_offset);	\
-+			if (ato->vcpu_offset)				\
-+				off +=3D *KERN_HYP_VA(ato->vcpu_offset);	\
-+		}							\
-+									\
-+		off;							\
-+	})
-=20
- static inline void timer_set_offset(struct arch_timer_context *ctxt, u64 o=
-ffset)
- {
---=20
-2.47.3
+Changes in v4:
+- unify error check patterns
+- use scoped_guard(mutex) and ACQUIRE to simplify error handling
+- use struct kref for PCC channel refcount
+- drop unused mailbox rx_callback function
+- increase size of props[] array to hold new msc_id property
+- set mailbox TX timeout based on ACPI MPAM table field
+- use devm_mutex_init() to allow automatic cleanup
+- avoid overwriting error value for arm,not-ready-us property read
+- prune MPAM-Fb protocol token to fit into bitmask inside register
+- check return value for AIDR read
+- use two separate MPAM-Fb protocol payload structs
+- prune header list for mpam_fb.c
+- drop "nrdy handled as an error" change
+- fix message size field in MPAM-Fb protocol shmem area
+- drop message size return from MPAM-Fb message build functions
+- bring back IRQ flag in MPAM-Fb protocol header
+
+Changes in v3:
+- drop inner/outer mon_sel lock patch, replace with simpler version
+- harmonise code patterns in error propagation changes
+- drop mon_sel lock before erroring out in mpam_ris_hw_probe_csu_nrdy()
+- refactor mpam_msc_read_mbwu_l() to return an error
+- drop special NRDY handling in __ris_msmon_read()
+- add IRQ numbers in error interrupt handler to help pinpoint failure
+- refactor MPAM-Fb message generation to accommodate more than read/write
+- check MPAM-Fb protocol version at probe time
+- drop mpam_fb.h header, merge into mpam_internal.h
+- translate MPAM-Fb error code in Linux codes where needed
+- clear IRQ flag bit in MPAM-Fb protocol header
+- drop unneeded endianness conversions when crafting MPAM-Fb message
+- use C struct to model MPAM-Fb message payload
+
+Changes in v2:
+- add patches to add error propagation to MSC access wrappers
+- drop former patch 1/5 (not needed)
+- drop lock in mpam_reprogram_msc(), to avoid double lock
+- add support for multiple MSCs per PCC channel
+- adjust SCMI protocol code to use a PCC subtype 3 channel
+- let PCC code handle the PCC channel negotiation (due to subtype 3)
+- drop SCMI names in shmem offsets, and use existing PCC type 3 struct
+- adjust shmem field offsets to match MPAM-Fb spec, not pure SCMI
+- prevent MPAM-Fb calls inside atomic smp_call_function_any() payload
+- skip all MSC accesses inside the IRQ handler when using MPAM-Fb
+
+Andre Przywara (12):
+  arm_mpam: let low level MSC accessors return an error
+  arm_mpam: propagate MSC access errors for hw_probe functions
+  arm_mpam: propagate MSC access errors for MBWU counters
+  arm_mpam: propagate MSC access errors for msmon helpers
+  arm_mpam: propagate MSC access errors for __ris_msmon_read()
+  arm_mpam: propagate MSC access errors for state saving function
+  arm_mpam: propagate MSC access errors for mpam_reprogram_ris_partid()
+  arm_mpam: propagate MSC access errors for interrupt control
+  arm_mpam: prepare mon_sel locking for MPAM-Fb
+  arm_mpam: add MPAM-Fb MSC firmware access support
+  arm_mpam: change MPAM-Fb error IRQ to use a threaded IRQ handler
+  arm_mpam: detect and enable MPAM-Fb PCC support
+
+ drivers/resctrl/Makefile        |   2 +-
+ drivers/resctrl/mpam_devices.c  | 884 ++++++++++++++++++++++++--------
+ drivers/resctrl/mpam_fb.c       | 252 +++++++++
+ drivers/resctrl/mpam_internal.h |  62 ++-
+ include/linux/arm_mpam.h        |   2 +-
+ 5 files changed, 965 insertions(+), 237 deletions(-)
+ create mode 100644 drivers/resctrl/mpam_fb.c
 
 
---=20
-Without deviation from the norm, progress is not possible.
+base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
+-- 
+2.43.0
+
 
