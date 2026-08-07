@@ -4,111 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDC44C2A09B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 15:25:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B806C2A09B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 15:27:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jFMOfL5Pv5EjomGzOk1gsjAPgr7PAL00YNzc4TmILmM=; b=B7K4Fru7bCDO8bVsCnZWDc38V3
-	itm9zKGVonMstVj2PqEH8XVZIMOKsc2O35kQ80HyCJ8j3byp8LoH9bHeLiBXb8zrmiVTICpxauikE
-	ArmywzBNhk29rP+GUXDG9FSwrqiIlk1kpv4K+FjtDWrC5TRjUfujTkW9HPbbUGq0HGMEpM9fPCgFd
-	hkiHeh/w5P/BA1nc6D5AcGqHjA+lnapay8U3eunFwSU+XybQphwfaQlJ3u9wbSOY1HUQtkmq9EQNp
-	EcPzTpEkK7w8V5Em/79ESMAdCShA0XVzGsKUmk24KKAX039Bv1PrsYISdQr2cug53RdmfDkSMbTs9
-	0Zl9xDLg==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=wgQmbdtHCvFqRoxry1i5eNtqIyEJ55658yXkZlfsF0U=; b=DZGZZtFwUql9Jp
+	vgL3M7cYJLuG7xr8QGff8HaoSHBqAWGnfQPLXMT234Cq0apJ2bwH7ZfiVINLl0ApYYPqfe+1/XSj2
+	Dj85hGs6PIkJ+Sw5qlnaL22VVD35FYcXRrW9Tph1vy4UXAE3YjTtPrHdVvGVRAk135SWtqCMNNVS0
+	2333vng7o2v9L+zhmbaXyfpe3sJKrX2aNLF+POb1p8TIhIt8weWIdi9Xe3hTR+jd8acCec/gXw+/J
+	AdTNd0cxiGHhO03oc/tk9AeJBy+Vr5sH7lW7SnOHrSwWBnpyD1TSloIkOfDs4YnqQHoDO1CyqlCdz
+	bff10qcsjMbQ1PfEBvQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsMRt-00000008Kg4-0TaM;
-	Fri, 07 Aug 2026 15:25:29 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1wsMTV-00000008Kr0-1uyx;
+	Fri, 07 Aug 2026 15:27:09 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsMRq-00000008KfR-0X0a
+	id 1wsMTU-00000008Kqs-1NQI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 15:25:27 +0000
-Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-6a0a4a17f91so5513523a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Aug 2026 08:25:25 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1786116324; cv=none;
-        d=google.com; s=arc-20260327;
-        b=rXV6AO7ip/iS5edcCYH1U9Z/CjYMAliyXBBKL3uRhRYMi5SoVmj4ptgSbyrtB3lI2l
-         VTsPC285k799XYEqao3roJrXkomvNciffXOXKe58y0T8RHM6QFIpnt1mmfg678x6Sh4F
-         qSLDSEo3qkeTQ7fSCkQ6pzZXhXrbBNyjkdc6oPpUonIpGoOazwGvTjSlQN/RZvoA8FT0
-         08DtEkQ8Mbp7yRPFuv/TGcU+PC051Pvfcoay9ugqfTgu+i9UOZyyFfsW07uVx1epJ85c
-         sBbVGDyLfgEtgwrcSiuRHaX0nADsd0WgAFsVT8rMUPB2WRt/3ey9KLThwozNtf52MBt6
-         hY3g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=jFMOfL5Pv5EjomGzOk1gsjAPgr7PAL00YNzc4TmILmM=;
-        fh=sZf7rlTdJQ2Zwk/dzB9f5IZZD/lzbi5FMgUw4e2HNsA=;
-        b=S72q8E8zyLmXKJnOHwS/oLghmo2YurOfr4VcpoJaQU+a4kppGYEp+aPNMC6+QJU1PM
-         cLXOrd94MmL4jBEk9V3gIeL9wYZniCRKKm/CSjfVYiszFyxpkiED+fJGWFjItZGSc/Ta
-         JH7YWFM9ie01nO5IWTX2tW5cGH+2yyoPtfmzFftGKOQ/v58nmcK4xMyMGDdWAar7IvK1
-         jaCPcrsg+CUH2GcHrFhFNV91+VXWGLGRQlvHBN7tY6ztsA3iuD9knc0CXCUHRqwXNAzZ
-         u3pb5+yt+md1NnELhRb6M1rDwSgGGoXqO47Wj/VmXS+vY+NEY8ZH+rxzoU/cRDxFXla6
-         XBqg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1786116324; x=1786721124; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=jFMOfL5Pv5EjomGzOk1gsjAPgr7PAL00YNzc4TmILmM=;
-        b=D97mYpeA9sK+UWtsr5/2MLMmYLcAtjg64PD+ni09iyxqU4U/eF77D60767rhX8Wrtd
-         fOviXVylcK6xmOjoovEY3GPCgmFyD/auAZpNsAF8xQDp4s7xB04nXR+2CBSBp56j2Pkh
-         InjLYnU/95hSGde21HSGP7jex0QyXpS4VsFs66GKavDRQ9+4ZccjnNYGDfIa0II3TqOn
-         YUyO3B/jps4e9Z2xhetQP3d0cU6F1ouWf9WJUgxkf1rAMHVEulmEWWMZtpho2V+XPsln
-         OmUmoqr91tKXBe8avYIL7oP+ie0v8qKk9Qj/bkenjKarg5Qur7jEcaT64Xp0ZnvzEK+u
-         i4Ew==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786116324; x=1786721124;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=jFMOfL5Pv5EjomGzOk1gsjAPgr7PAL00YNzc4TmILmM=;
-        b=JNw9Tzh+NY/RLuv/t9cBnxSrNq8BZdyCL0M0/uafP3gp26Zjo22GWJ8HV6FK14/M4V
-         O3xYdPtvJr2vlPw2Y4RdXrLxoLvXoQn7uKcXW+eAd0TbrHjs/nSPdYhdnbkCeiM79mMK
-         5i5IeJbf0oQYbclSQUt2gaOyOg4o2tC20fGWbQpuTfQ2uWzJwVT9ogACGIYY/cBNPbEo
-         R1+STLB3DAX/MU35GKWW/9U7RtxbyYLYWzwXlHky1aBh/TWmWKVd4nNyQgJ8rEmQbhKr
-         xqT6A0+YDY4a+ZR/8uARdcpaWeZGDjNDR+rCJT1j97V+mhY1oi4CBmjL2V6dltS1zvqx
-         WU+Q==
-X-Forwarded-Encrypted: i=1; AHgh+RolHPrNgpgZhz5PbPvhyhB5n3TRbw547rKdP69HdLNiL3LaOdvK4hBgH+V5FByqHxv+CXxXR6vmVwGQ9Ma+g0oc@lists.infradead.org
-X-Gm-Message-State: AOJu0YxawBDMyrsLr8zCYqb8TuyWD8XEUkVOiCqGNcoOoAjxCYmLfUu4
-	hvDWm3/TVL3i8Bfzg9NAb6m8bhDU8/De3RsKuaoZuVKtOAMCKNIPbVZtZQS2RYd5mLxodqMwIwf
-	Ggw2Vlfb9iY/TiY9mABhntfXRGZ8XjupQOh4tWcaXXg==
-X-Gm-Gg: AR+sD128/qSW+MGlTqOd6N68RaSc9gS8lf7lD27iebx/oz+b8nrPEvE4lANPVR0Rg4k
-	9OQnaI0vpXJ1gDOvSc+QFdtUBhApyV1udhCOL/oEfISb+wxjsY2pMhQgUQT+NKiuUViZf0mHoUr
-	6SZfJQRGr3SnWjkHIxV4QnWsOZ/LeOswJSiyy2dzM8jUr6a6zgiVpXoeCfZt8aaLfrjg2l4Op3Q
-	eHkZQnme/ieklh3zI3yzA0fXye3hsxChwyfLmmSkdMf7Kf5Ltt3jwVPBbKcUeaHnbq06LWoq9HM
-	cE2g2mz0DeRq6lOjVJWHFXZk3yya/ziPec1vIEC3p3tikJjANAwTxbRyuHr6DzyCnN+HjUiSDUt
-	4R/U=
-X-Received: by 2002:a05:6402:1e8e:b0:6a0:8ac4:f055 with SMTP id
- 4fb4d7f45d1cf-6a14f07c8edmr11239086a12.4.1786116324014; Fri, 07 Aug 2026
- 08:25:24 -0700 (PDT)
+	Fri, 07 Aug 2026 15:27:08 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id C2361600C8;
+	Fri,  7 Aug 2026 15:27:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4117B1F00A3A;
+	Fri,  7 Aug 2026 15:27:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786116427;
+	bh=wgQmbdtHCvFqRoxry1i5eNtqIyEJ55658yXkZlfsF0U=;
+	h=Date:From:To:Cc:Subject:In-Reply-To;
+	b=jdJIsFI0Qs6Wn39qAN5JJDiHURWIakvyX4ZSUoNU9gQPOoVlMP0cx5y1oCrn66tZ/
+	 zLNtCtCf5Verm0hPGdraL2Sq4Ox2tKNS3nu3Vk8h3J4PxoZkcNQIGN83HnfkDdpizK
+	 UfdnnrIEhvtyh1k7mUjq9fJT6hOp/SfN6i9uzsq28/fmT7QOXlWJpUr6Un1CTaKdtT
+	 HtDQg9oRmv3YL3Qhd76Xm9xnrC9XZbmVBykeLG6VivnemPoN3xak5yEc55VP8PsxhJ
+	 qeUGkIzBQhS8IkKU5uw/a7lUrU/Se+JhIObBxJ0Sues/ttjDaUFzTDLLvOAmFCA3l9
+	 ucpk0NIwKKouA==
+Date: Fri, 7 Aug 2026 10:27:05 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Semih Baskan <strst.gs@gmail.com>
+Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+	robh@kernel.org, bhelgaas@google.com, rjui@broadcom.com,
+	sbranden@broadcom.com, bcm-kernel-feedback-list@broadcom.com,
+	rafal@milecki.pl, florian.fainelli@broadcom.com, arnd@arndb.de,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, rosenp@gmail.com, rani.hod@gmail.com
+Subject: Re: [PATCH v2] PCI: iproc: Use the EROM outbound window on BCMA
+Message-ID: <20260807152705.GA59586@bhelgaas>
 MIME-Version: 1.0
-References: <20260724-arm-smmu-v3-instcfg-override-v1-0-e7acf4a8a525@linaro.org>
- <amYIuhYenP4-qHyV@willie-the-truck> <0b7c0272-5506-4aee-82b3-76a78f2b39dc@arm.com>
-In-Reply-To: <0b7c0272-5506-4aee-82b3-76a78f2b39dc@arm.com>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Fri, 7 Aug 2026 16:25:11 +0100
-X-Gm-Features: AUfX_mzVQ33goKUmAZD3cnZPYWgLmpoH7Rq86A-Q6fueTvaPphB8yY86QV4o3lA
-Message-ID: <CADrjBPqZFDvyLFpDy1YP9qrMNUCtZYtJhiaDd0iTnmB4ZYO8GQ@mail.gmail.com>
-Subject: Re: [PATCH 0/2] Add arm-smmu-v3 support for instcfg data override feature
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: Will Deacon <will@kernel.org>, "Joerg Roedel (AMD)" <joro@8bytes.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Pranjal Shrivastava <praan@google.com>, Daniel Mentz <danielmentz@google.com>, 
-	Mostafa Saleh <smostafa@google.com>, linux-arm-kernel@lists.infradead.org, 
-	iommu@lists.linux.dev, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, kernel-team@android.com, 
-	tudor.ambarus@linaro.org, andre.draszik@linaro.org, willmcvicker@google.com, 
-	jyescas@google.com
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_082526_201965_4A48B534 
-X-CRM114-Status: GOOD (  29.37  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260807035726.387-1-strst.gs@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,68 +71,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Will & Robin,
+On Fri, Aug 07, 2026 at 06:57:26AM +0300, Semih Baskan wrote:
+> The PCIe outbound window base on Northstar depends on the PCIe Gen2 core
+> revision. Revision 0x01 uses 0x08000000, 0x40000000 and 0x48000000 for
+> controllers 0 to 2, while revision 0x07 (NS-B0) uses 0x08000000,
+> 0x20000000 and 0x28000000. Broadcom's own driver branches on the core
+> revision for exactly this reason.
+> 
+> bcm-ns.dtsi is shared by every Northstar SoC, so it cannot carry a value
+> that is correct on both. Commit 767012397976 ("ARM: dts: BCM5301X:
+> Describe PCIe controllers fully") gave the controllers a ranges property.
+> The commit shipped in v7.1.
+> 
+> With that property present, two things go wrong with this driver:
 
-Thank you both for your review feedback.
+It looks like you're going to present two problems next.  They should
+be bullets so it's obvious what the first is and what the second is,
+e.g.,
 
-On Mon, 27 Jul 2026 at 11:53, Robin Murphy <robin.murphy@arm.com> wrote:
->
-> On 26/07/2026 2:16 pm, Will Deacon wrote:
-> > On Fri, Jul 24, 2026 at 01:39:41PM +0100, Peter Griffin wrote:
-> >> These two patches add support for a new "arm,instdata-override" DT property
-> >> that enables the override of the instruction/data attribute of incoming
-> >> traffic to Data by setting the INSTCFG override bits.
-> >>
-> >> It is intended to be specified when the smmu can't guarantee that these
-> >> attributes are provided correctly from the client device.
-> >
-> > This is going to need an in-tree user and a much more detailed
-> > description of what is being worked around before we consider this for
-> > inclusion.
+  - devm_pci_alloc_host_bridge() parses ...
 
-Regarding an in-tree user, I haven't sent the Device Tree (DT) patch
-yet for Laguna SoC which adds the smmu nodes and this property because
-1) I want to land the initial SoC/board DT first
-2) I want agreement on the DT property name. Currently I used
-"arm,instdata-override" which is what downstream used. However, since
-this is intended to work around silicon errata something like
-"google,lga-instcfg-data-override" might be more appropriate?
+  - When the DT window ...
 
-For Laguna SoC the first in-tree user of this is the amb_smmu smmu
-instance which is used by the Synopsis dwc3 IP. The Laguna dwc3 glue
-driver is already upstream at drivers/usb/dwc3/dwc3-google.c
+(or whatever the second item is, I'm not sure where it starts)
 
-> >
-> > In particular, if a particular client is emitting data reads as
-> > instructions, then a better work around would be to avoid mapping its
-> > domains using IOMMU_NOEXEC. But I can't tell what's going on from the
-> > limited description provided here.
->
-> Unless it's also emitting the privileged bit and thus falling foul of
-> the implicit Unpriv-W -> Priv-XN rule, but then we also have the means
-> to deal with devices which actually do that themselves (hello pl330...),
-> so that would seemingly only leave the case of some innocent piece of
-> AMBA-interfaced IP which doesn't expect to need special attributes, but
-> the system integrator has gone out of their way to tie the AxPROT bits
-> to some wacky value, which I would put in "erratum workaround" territory.
->
+> devm_pci_alloc_host_bridge() parses those ranges and requests them, then
+> this driver adds its own window and requests the whole list a second
+> time, so every controller fails to probe with -EBUSY.
+> 
+> When the DT window is used, it is only correct on core revision 0x07. On
+> revision 0x01 it points at an address the hardware does not decode, and
+> the first MMIO access to a BAR takes an imprecise external abort.
+> 
+> The enumeration ROM reports the correct base for the revision actually
+> present, and bcma already provides it as addr_s[0]. Drop any memory
+> window that came from the device tree and use that instead, requesting
+> only the window this driver owns. This makes the driver correct whether
+> or not the DT describes a window.
+> 
+> When a dropped window does not match what the EROM reports, print a
+> warning naming both. The mismatch means the devicetree describes a
+> window the hardware does not decode, and that should be fixed in the
+> dts rather than ignored silently.
+> 
+> The same commit also added compatible = "brcm,iproc-pcie", so these
+> nodes now match pcie-iproc-platform. With CONFIG_PCIE_IPROC_PLATFORM
+> enabled, which is the default on ARCH_BCM_IPROC, that driver binds them
+> first and this driver's probe fails inside devm_pci_alloc_host_bridge().
+> This patch fixes the configurations where the BCMA driver is the one in
+> use; OpenWrt builds that way, with PCIE_IPROC_PLATFORM disabled. The
+> platform path takes the DT window as-is and has the same wrong address
+> on core revision 0x01, so that side needs a devicetree fix either way.
+> 
+> Tested on an ASUS RT-N18U (BCM47081) and a Linksys EA9200 (BCM4709),
+> both core revision 0x01.
+> 
+> Fixes: 767012397976 ("ARM: dts: BCM5301X: Describe PCIe controllers fully")
+> Tested-by: Rani Hod <rani.hod@gmail.com>
+> Cc: stable@vger.kernel.org # v7.1+
+> Signed-off-by: Semih Baskan <strst.gs@gmail.com>
+> ---
+> v1 -> v2: print a warning for every devicetree memory window that does
+> not match the EROM window. Requested by Arnd Bergmann:
+> https://lore.kernel.org/all/d05ffeca-f289-42dd-b454-5a7c7741c6d5@app.fastmail.com/
+> 
+> v1: https://lore.kernel.org/all/20260727140939.389-1-strst.gs@gmail.com/
+> Applies to v7.2-rc5 and unchanged through v7.2-rc6; the file has no
+> commits in between.
 
-You're correct Robin. It is an erratum workaround for the Laguna SoC
-due to some custom usage of the AxPROT bits which differs from the
-standard ARM SMMU handling for Privileged/Unprivileged and
-Instruction/Data transaction attributes. The effect is all
-transactions appear to the SMMU as "Privileged Instruction" accesses.
-The software workaround in this series enables the SMMU's INSTCFG
-override feature to ignore the incoming value and treat all SMMU
-transactions as "Data".
-
-One small clarification: in the cover letter I incorrectly said this
-was set only for some SMMU IP instances, but that is incorrect. It is
-actually set on *all* arm-smmu-v3 IP instances in the Laguna SoC.
-
-Does the above provide the additional detail you need Will?
-
-Thanks,
-
-Peter
+FWIW, there's no need to rebase for new -rcs.  We always apply PCI
+patches on -rc1 anyway.
 
