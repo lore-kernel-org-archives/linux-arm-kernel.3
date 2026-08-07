@@ -4,72 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87870C5AC7C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 10:15:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AB2AC5AC7C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 10:15:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YIcQIYOb8WRakMR4QF2N+EU56xSs7c72GvKGLdWLtsA=; b=yp7lA/ilXaadsh8I3R4PacniMC
-	QV/c6FjR7y3dTJaTQs5Cv3/YNT33SUU9+nt4Sv3hSplUL42pyPCVBwmSOzql7tLJIwiBxR0sQugfG
-	WL0fdJNkdHyUYBxZiwN9wcXvtOnXYKjU5D95SxuSLvG4kV3huGb9i9rRxQ0xSaoWhaAWpc2/WPRDQ
-	6tNRrG2A/6JT66H9PllmmvIkd4+G/w8AHVMyrT/KeD7ad4QguPQCaxRDxViuOd5zaVdN+nQWLThJK
-	GzEXfi2HFMAJx/w7kTCy8kh6n9VQWkRCd4qjnGdhSdFdEtaesqmqGBUA4ghwRg+gwxyIpgl15a93z
-	nM9+PHyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uDjRXP2df5cgNvzCtbBydFsofHWCi/T7LTXM/Z135R4=; b=D7i3MHINVn1QC/xyrvU9ESs/0v
+	FeaGMF4h1yXGzj9UYsgCgNG9pmMENlhF8yjUIVpnY4fKQoOVyyONzndNi8/5Afr96iDArXT9OI6i/
+	bTcrRXAQWQNd8YgkT87diebVg5ER3n2px4Sjwq0efisBJxX59qBd09oJaaDgxm7ut6u6RV7UvtlKV
+	xePiqkpAtZOpbnxihsQ4U/sCFQcLDS6cjGUDHUfs2iWJvI854Kpd03xEjrsm9EtPxFGXx7QSS0fZM
+	KkUTHS64Mw2DWNk0f1LCEX7esQ2ANmSd3ys7YIMHmVMYlItDY/EEdEJZk0bZ90Jhee0jeQAC9VdRo
+	LQP1MOeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsHbn-00000007cvq-0eo3;
-	Fri, 07 Aug 2026 10:15:23 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1wsHcB-00000007dZ6-2Pmh;
+	Fri, 07 Aug 2026 10:15:47 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsHbZ-00000007cPx-1gUI;
-	Fri, 07 Aug 2026 10:15:16 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 9F3104E41136;
-	Fri,  7 Aug 2026 10:15:07 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 6BDA5603F0;
-	Fri,  7 Aug 2026 10:15:07 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 985E511C3750A;
-	Fri,  7 Aug 2026 12:15:04 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1786097706; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=YIcQIYOb8WRakMR4QF2N+EU56xSs7c72GvKGLdWLtsA=;
-	b=tY32tZdIvdjua0uLucyYbNN+MwaN5GEkXkFNMmCmNbpAGT8WV/deQcLmsH87AKWlk3t+E0
-	Rlvi6Io3aWgUJu//FfltORp/wF1WUM3tiOOJtHJy21ww0xQlGi6I5PtsV1d1Y0GC1hmfFJ
-	NM7qPiS2nghFwIsEhFLjFQ6JYZEUS/aVJw+kFo9fmffm3Iv9ukS+4W34bibVeTTF/8y7iS
-	bmr4iLgVJ4/bvi7mC7qxhB9DThp2kgS1nF9OkYOhFMO+pwMTdeirylrqFXO2KVdIxf3zK0
-	6AGGyo0ooDMhYtSOLhCLc2k2jN77ag0d46fIO/lPaF/tpB2ncf46eEPMlvpXlQ==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-Date: Fri, 07 Aug 2026 12:14:09 +0200
-Subject: [PATCH v2 17/18] mtd: spi-nor: winbond: W25QxxRV-Q/N/M: Add
- missing chips
+	id 1wsHc9-00000007dX0-2pD1
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 07 Aug 2026 10:15:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
+	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=uDjRXP2df5cgNvzCtbBydFsofHWCi/T7LTXM/Z135R4=; b=OjO287UL3bg1LZu+y+JlZt3dRl
+	vSJ5oFukhb6DhaXx6/nroJHtDdIHxdhl+9w8uNOYf3ss0WegYyEeR5YiklgWWOI0fqqo3qT23VQAR
+	lU3bqYfCoOhWqYXM/quTcQVSz5cfn6Gqu9ejxAvb/qeKYgzs+YYlkxu32o8FyaXDQzJfyAfmEzYxl
+	sHY7XAO+6NA7dKmNYtdNqAj+Q/KjfxknomOH5u+1emmkXYy7ao0doZ3wptH3RWYB+30OdeYXRDSHf
+	GWcgXCya0CHFt6szjSxrfeYUv9nDDfjlohARvfgmU9iVDBlAURJP7VdVdrR+pGUHSlH0gHkussG/8
+	aMdoH+XA==;
+Received: from mta1.migadu.com ([37.59.57.117] helo=out-171.mta1.migadu.com)
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wsHbs-0000000CHAM-4AZI
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 07 Aug 2026 10:15:44 +0000
+X-Forwarded-Encrypted: i=1; AHgh+RprbjpXkmZ21tarZEQmQBqguUOqMUm+YqEbU6GN7cVWXtaWC8g370fQvDgMV/+Rea/f6a8D8/6D3zQiB1PYIItt@lists.infradead.org
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1786097723;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=uDjRXP2df5cgNvzCtbBydFsofHWCi/T7LTXM/Z135R4=;
+	b=Hm4vulsd7ChdIKbn5dCVaPSGHk50GejPKWQuM2W8KGGCd96VqPO3U+lmMOl6/aEBXLd4nH
+	BQtfBjo6XWsDfx1cysE2vPj4u53VMDxBDKDNmu8GGF1Jh+vPrGCOPKOycz0nxu7XxjuWtJ
+	EUjtv8UYnS0d/khpzNC0DTox3+BxWu8=
+X-Gm-Message-State: AOJu0YyOtuUwDNsing/vbP+E099SJwy3H8rP8zhuKGfOyExVnCPDA58y
+	WG4mL/2keyRClGqQnr6uJ34Zr0ZGPy+BtbZnn7vJh3JqXMZb+f70sRlA7Ei8eM0OPfUsM7alGVc
+	fwIssNniEf3VOlpk9vLKuQ+8DJtueRQWF050cluuG
+X-Received: by 2002:a05:622a:11c1:b0:51c:ca9:3d15 with SMTP id
+ d75a77b69052e-52d109753d2mr13832331cf.12.1786097697194; Fri, 07 Aug 2026
+ 03:14:57 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260807-winbond-v7-1-spi-nor-rv-addition-v2-17-7797642dfc40@bootlin.com>
-References: <20260807-winbond-v7-1-spi-nor-rv-addition-v2-0-7797642dfc40@bootlin.com>
-In-Reply-To: <20260807-winbond-v7-1-spi-nor-rv-addition-v2-0-7797642dfc40@bootlin.com>
-To: Pratyush Yadav <pratyush@kernel.org>, Michael Walle <mwalle@kernel.org>, 
- Takahiro Kuwano <takahiro.kuwano@infineon.com>, 
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
- Nicolas Ferre <nicolas.ferre@microchip.com>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>
-Cc: Steam Lin <STLin2@winbond.com>, Hsin-Yi Wang <hsinyi@chromium.org>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
- Miquel Raynal <miquel.raynal@bootlin.com>
-X-Mailer: b4 0.14.3
-X-Last-TLS-Session-Version: TLSv1.3
+References: <20260806100256.371164-1-fuad.tabba@linux.dev> <20260806100256.371164-2-fuad.tabba@linux.dev>
+ <6a92d2e40a2195099eed90179efa286295392e39.camel@arm.com>
+In-Reply-To: <6a92d2e40a2195099eed90179efa286295392e39.camel@arm.com>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Fri, 7 Aug 2026 11:14:20 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTyfhn-08ounOrVtGoeEToyAw1MbMMA9_cF67v7vxV0jxw@mail.gmail.com>
+X-Gm-Features: AUfX_mxSqna52-nLNq37ZWdcakZsFwbd8IwPxfJ_Dwi5KCENZZM1xI-WuipMZoY
+Message-ID: <CA+EHjTyfhn-08ounOrVtGoeEToyAw1MbMMA9_cF67v7vxV0jxw@mail.gmail.com>
+Subject: Re: [PATCH v1 1/4] KVM: arm64: Validate the host-provided vgic model
+ in pKVM
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>
+Cc: "maz@kernel.org" <maz@kernel.org>, "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, 
+	"oupton@kernel.org" <oupton@kernel.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, Joey Gouly <Joey.Gouly@arm.com>, 
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>, 
+	"will@kernel.org" <will@kernel.org>, Catalin Marinas <Catalin.Marinas@arm.com>, nd <nd@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_031509_607008_A25B8B4E 
-X-CRM114-Status: GOOD (  10.62  )
+X-CRM114-CacheID: sfid-20260807_111537_005938_5429B6D8 
+X-CRM114-Status: GOOD (  20.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,66 +96,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-I currently do not have access to the following chips:
+Hi Sascha,
 
-- W25Q25RV-Q/N
-- W25Q25RV-M
-- W25Q51RV-M
-- W25Q02RV-Q/N
+On Fri, 7 Aug 2026 at 10:57, Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
+>
+> Hi Fuad,
+> On Thu, 2026-08-06 at 11:02 +0100, Fuad Tabba wrote:
+> > EL2 copies vgic_model from the host's struct kvm unchecked, and the
+> > nVHE
+> > world switch dispatches on it with no cpucap guard. A host writing
+> > KVM_DEV_TYPE_ARM_VGIC_V5 makes EL2 access GICv5 CPU interface
+> > registers,
+> > which are UNDEFINED without FEAT_GCIE and panic the hypervisor on any
+> > GICv3 machine.
+> >
+> > Accept only the models pKVM can run, forcing anything else to 0.
+>
+> Can pKVM run VGIC_V2? See comment below.
 
-Yet, I successfully tested the entire JV family and all other chips from
-the RV family. They all behaved strictly identically, so I propose to
-nevertheless add the missing comments for the sake of clarity and
-completeness, as well as the missing 02JV/RV entry.
+It can't, and I agree the case should go, though not quite for the reason below.
 
-Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
----
- drivers/mtd/spi-nor/winbond.c | 12 +++++++++---
- 1 file changed, 9 insertions(+), 3 deletions(-)
+...
 
-diff --git a/drivers/mtd/spi-nor/winbond.c b/drivers/mtd/spi-nor/winbond.c
-index 5e3924345667..17d889709d53 100644
---- a/drivers/mtd/spi-nor/winbond.c
-+++ b/drivers/mtd/spi-nor/winbond.c
-@@ -258,7 +258,7 @@ static const struct flash_info winbond_nor_parts[] = {
- 		.flags = SPI_NOR_QUAD_PP | SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB | SPI_NOR_HAS_CMP,
- 		.fixups = &w25q128_fixups,
- 	}, {
--		/* W25Q256JV-Q/N */
-+		/* W25Q256JV-Q/N, W25Q25RV-Q/N */
- 		.id = SNOR_ID(0xef, 0x40, 0x19),
- 		.size = SZ_32M,
- 		.no_sfdp_flags = SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ,
-@@ -278,6 +278,12 @@ static const struct flash_info winbond_nor_parts[] = {
- 		.flags = SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB | SPI_NOR_TB_SR_BIT6 |
- 			 SPI_NOR_4BIT_BP | SPI_NOR_HAS_CMP,
- 		.fixups = &w25qxxjv_rv_fixups,
-+	}, {
-+		/* W25Q02RV-Q/N */
-+		.id = SNOR_ID(0xef, 0x40, 0x22),
-+		.flags = SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB | SPI_NOR_TB_SR_BIT6 |
-+			 SPI_NOR_4BIT_BP | SPI_NOR_HAS_CMP,
-+		.fixups = &w25qxxjv_rv_fixups,
- 	}, {
- 		.id = SNOR_ID(0xef, 0x50, 0x12),
- 		.name = "w25q20bw",
-@@ -361,12 +367,12 @@ static const struct flash_info winbond_nor_parts[] = {
- 		.no_sfdp_flags = SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ,
- 		.flags = SPI_NOR_QUAD_PP | SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB | SPI_NOR_HAS_CMP,
- 	}, {
--		/* W25Q256JV-M */
-+		/* W25Q256JV-M, W25Q25RV-M */
- 		.id = SNOR_ID(0xef, 0x70, 0x19),
- 		.flags = SPI_NOR_QUAD_PP | SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB |
- 			 SPI_NOR_TB_SR_BIT6 | SPI_NOR_4BIT_BP | SPI_NOR_HAS_CMP,
- 	}, {
--		/* W25Q512JV-M */
-+		/* W25Q512JV-M, W25Q51RV-M */
- 		.id = SNOR_ID(0xef, 0x70, 0x20),
- 		.flags = SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB | SPI_NOR_TB_SR_BIT6 |
- 			 SPI_NOR_4BIT_BP | SPI_NOR_HAS_CMP,
+> > +     switch (vgic_model) {
+> > +     case KVM_DEV_TYPE_ARM_VGIC_V2:
+>
+> Why are we allowing the v2 case through?
+>
+> In vgic_v3_probe() there is an explicit check that blocks the
+> registration of VGIC_V2 if KVM_MODE_PROTECTED is set, so I don't think
+> that we could reach here with the VGIC_V2 model.
 
--- 
-2.54.0
+I'd rather not rely on that for same reasoning I mentioned for the
+GICv5 handlers [1]. vgic_v3_probe() runs at EL1, and EL2 reads
+vgic_model straight out of the host's struct kvm, so nothing stops a
+malicious host from writing V2 there.
 
+I kept the case here because V2 is inert at EL2. The only readers are
+vgic_is_v5() in the world switch and the != V3 test in
+__vgic_v3_perform_cpuif_access(). But the comment says "what pKVM can
+run", and that is V3 only, and is what those checks are there to
+enforce. So the accurate version is simpler:
+
++    if (vgic_model != KVM_DEV_TYPE_ARM_VGIC_V3)
++        vgic_model = 0;
+
+Will fix in v2. Thanks for the reviews!
+
+Cheers,
+/fuad
+
+[1] https://lore.kernel.org/all/CA+EHjTxiHyuw5EjWLha1OySm3xjRH6rbk41On+5V2+ig1FdCmg@mail.gmail.com/
+
+
+
+> > +     case KVM_DEV_TYPE_ARM_VGIC_V3:
+> > +             break;
+> > +     default:
+> > +             vgic_model = 0;
+> > +     }
+> > +     hyp_vm->kvm.arch.vgic.vgic_model = vgic_model;
+> >
+> >       /* No restrictions for non-protected VMs. */
+> >       if (!kvm_vm_is_protected(kvm)) {
+>
+> Thanks,
+> Sascha
+>
 
