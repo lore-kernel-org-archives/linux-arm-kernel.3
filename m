@@ -4,90 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1A05C5AC7C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 09:45:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 603E4C5AC7A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 09:52:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UAxJcsTBx78VxwObBjDafBX3xIovoIX98Z3YZn8IFUo=; b=0MHLGQ0iRKC2QAYiYoYthQ/oLA
-	Z177FUJHnSfMGGLes99CHy29+RtIFYci3Z63SJUYJt/YN/hA+PbZp+9pJ4yUjF+vdRWJv/VNysB1a
-	nRqgyuvTT/+I+CpUriesHf9rdXVVQKDUbyo9zxEnvAvl/spa4IpvR5lvrf/cm+opeBxBsuExXIMYW
-	AWGSAi4G2e/+kS6xLoHusIBWof2/zZ8Lq63LAEEdgQHhF0aqKPwqU1uJQ7/Y1kFe1W/RKecwvvxtD
-	3oxio5AZzdd2QJaK3WRCcJh9WkwobxiWQm1JFFqOKdhCvxiN4XaxCqyjUVssyWF1a31M3Z90Wvgqp
-	U2/7vDiA==;
+	bh=QYbufw58gsel6FCE1/jEcLG9PAf4/Ixif2gUvboMhY0=; b=XvXBo2Izxr5TyTMPnk3DRGCL4H
+	2j2Uw1GlGL7DzP1H/IikcWALkiP9NQPwyaCB2dQe0NLepmr6z/G9WBGlGA2oqQ0FpUbNFdEGQht3l
+	BzbFUCvwwCw+FWBD+J12YdM+TKGdbhL0jnsB3HrwynXxGQrau/AivV+dQtuDVnylCj6+qybXGGMaa
+	EmibeQT6bV0+MsnE1e1wmLeSeMjcutVBB8WSua4GxezWKXoEw81LqixQ2U8z/iLQrRIokwvlqdjbB
+	GPgTbFlm2smEt0lBRI9W3knAPlhSI5Md1Lhp1XvAW8Qv3bHVeWcHwfxgq4fWhf1Apo6V/rFWXl79P
+	Q1C0WsyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsH8U-00000007XuM-0S3j;
-	Fri, 07 Aug 2026 09:45:06 +0000
-Received: from mail-ua1-f44.google.com ([209.85.222.44])
+	id 1wsHF0-00000007YdB-1wU2;
+	Fri, 07 Aug 2026 09:51:50 +0000
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsH8Q-00000007Xtt-3F1Y
+	id 1wsHEy-00000007Yc4-0n8a
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 09:45:04 +0000
-Received: by mail-ua1-f44.google.com with SMTP id a1e0cc1a2514c-9770e900464so1447685241.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Aug 2026 02:45:02 -0700 (PDT)
+	Fri, 07 Aug 2026 09:51:49 +0000
+Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-6a177b2dc8dso9911a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Aug 2026 02:51:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1786096305; x=1786701105; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=QYbufw58gsel6FCE1/jEcLG9PAf4/Ixif2gUvboMhY0=;
+        b=g6/YUtoPqU/mdGIyxrPrIqLSflE9CuxUq7pfZlx53upNCpG12ZtT4/Xsgl1zKXf+Tb
+         4AHy5nNKFjfI8S5/dzo5568elIUyX/y3ECRXByeXU8D20QLdEqYC8qAuJKZI2crW/ZG1
+         KhlZH74vlXBx5XLELZ7WWrsg0pKs2obU1aWMjwGSSfi/KswOP7ncGFZTNjDVpd5pdMUb
+         L3sHFj7+Ez5C7Hfy+oytbGW3Sqd37w1nV7VoowLs8MWQHndIS9sCZwmJRdJGS/QdfN8Y
+         IiH0iuH9JX8sUQwtTsvyk9iw2Yh+dx7P1q+zUBLSIab8bgaELDcp3w5L7W+y0BtWCHcP
+         E4bQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786095901; x=1786700701;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=UAxJcsTBx78VxwObBjDafBX3xIovoIX98Z3YZn8IFUo=;
-        b=gH3AnFb7TW7v5xchMEYeB6iF67eXL2TUTq2sW3LjpIge2qLwgBqUns53k/EKN7shV6
-         u1Ok7Sm9MZA6FOiuUqKs4FLWwlnQFicGTkw89XOkFaQ+C7T/+j2FJfdGk3m6cgyJXb1S
-         +foop3jAr2p4rybxsX49/8TEps+zLWsAnp06v/28JhKdvB44HaHs3rc10RWRISseyGu7
-         8hVbkMMMIWfDkeTnwuYF0ppfGSePt6rxbiuK3R196Oi7wc2qxIuxWVZ3qbUokqIJ/2DJ
-         v/TVkYi+iayPi2jsWY5/c4vvBpMMZLT5W0oCv0pctjzbGaokD4PNpdocYhYJm6WV2brP
-         uPJg==
-X-Forwarded-Encrypted: i=1; AHgh+RofsJCbEe470Kb576ByWmpUttptKiPVUoHOhILNjoHQu+mKTEmeF2w6vi1iRt2LXW2j0JrsRRogGdKR/O83q0dP@lists.infradead.org
-X-Gm-Message-State: AOJu0YxFdFWs8A8/t+1IGMmhLCkxKsLvhJbSJg3djNkMWt15mSzgpYVM
-	xEU4ndsmYjvGFEvBCeBkYHeM9I4pEvJYQIUqas7c84AsINDjsBsDqJUksoHB8MSI
-X-Gm-Gg: AR+sD13wZ5pmpq77952CbWIbbmob1GUH+zWtlaCS8/OSblVsbrBJwkkh1yYDBxoN8sK
-	lB2wPlslbzOw6mcxQgcu650HRwZY3kX03zT0TsnKIXHzPrQ14DPdRfIyMAwf7D1v900DRac6hGw
-	l3fHSodzEyQo41d+VGlwEtFoIuZP4cWa7IqetKGycQJw+j9CH+5juz94us4GH6t14Hto5guPTgE
-	41KWiZZnW3KAltHZ1FJmANCCa4YkX2VCxzZaBQh6akGzjwuUWm9J6bCpZdl8PmSMPa5L83oF22O
-	OV3+asR5bKGknjlAcEugcRS6kLaWkR7uhoUDvu8db+qMAzCmpDhLGfUhMThyNnbOk0oKcPbDskc
-	w9lZCg/JuqHXgPhE4As6ZMh/vUi98fgF/PkO5w+fMpQ+go+iNcUXWS5VR8T46Yan9k29sufBjKG
-	ZW3BxmmZCqmHwSMomTKLW7yVjSonT5fyVWTtL82NM/WjvqQ3lSw+8xn+j1N+7uitpooTmURhtcC
-	jd2XLuuTc5oguL5oBn5inri8g==
-X-Received: by 2002:a05:6102:41a9:b0:74d:ceb4:5efd with SMTP id ada2fe7eead31-762af96fce7mr1403531137.8.1786095901008;
-        Fri, 07 Aug 2026 02:45:01 -0700 (PDT)
-Received: from mail-vs1-f44.google.com (mail-vs1-f44.google.com. [209.85.217.44])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-764013edfc2sm643325137.11.2026.08.07.02.45.00
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 07 Aug 2026 02:45:00 -0700 (PDT)
-Received: by mail-vs1-f44.google.com with SMTP id ada2fe7eead31-7377dde7bc6so1151979137.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Aug 2026 02:45:00 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+Rq3zj+fQDkLxj86SWDeN5D6wVB8qfVriURAxduUgCzrbUBFt2Ud6xMSFzPKwd/mKonwWJsRD0PgrXTCDBO6FEla@lists.infradead.org
-X-Received: by 2002:a05:6102:568b:b0:634:2450:7998 with SMTP id
- ada2fe7eead31-762aea86b92mr1369250137.4.1786095899940; Fri, 07 Aug 2026
- 02:44:59 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1786096305; x=1786701105;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=QYbufw58gsel6FCE1/jEcLG9PAf4/Ixif2gUvboMhY0=;
+        b=Kr6eS/OYWUWogJTKMiU8PXoa2w9ROwbmsNywtVakpgxIGHUKm57B37jC3J0677DtAC
+         u6/EG5izth8gBd9OltroUp1bZ6IY7WAv7/ctyIHIQHp/bs3iyi4x9r1e4ulLQLSdy0RY
+         UIhvNFZ7QZccsUNtqnvryqM4sJIAy23dmT8b5VsRPI2U6+7inwRD4itLYhIn/rdtLMyr
+         B9Jl60Fu6KocF/zEMwcwqOHZQk2anvPXicR9N2y/rT0R1FLBudfMuIM7v6wUNoHXRZQi
+         30MylkW/Pq0WdeapImE6S4U2LHkIMZ9Q3SVFPTsBu8Tz16YmoQIYm7ku4++2+5GfmwiH
+         gAug==
+X-Forwarded-Encrypted: i=1; AHgh+RrmcbfJLO2BwTosuTumlI5IQgYxoWyajM4IoG2oRX/JYuBggfQB4IebCJPJUigpdsWaELFgfZIT/FQGVwMIwGbH@lists.infradead.org
+X-Gm-Message-State: AOJu0YxV1iICfYEksSjIdGs9Z6/aEB76bpvWi3v374irYsdIa5HRfUMB
+	B2UR1ciDsbMdMZpLf1zxH6hYfwgl68W0YTBLfNtIvqtTBCusc98YvAznKoa3kHWO5g==
+X-Gm-Gg: AR+sD13/SM8/3FtdE6xoB4ezhigl2/38M59HlK0KJchDoyQIbiF9QyeFrR4XN/kOYZ7
+	mIYZEZ/3Pwf1GioW8mMt7P6jL57nWHQPuGsksQPRs3MzKsyNTMf1hCWK0KTrgcSsB6gOZQXczih
+	VZc8+27UJFM5nJCqwwQ5Nwi8PpotUxorjEN+uyUWluNluIlaSuX6DHNGnQC0+yygcblYfv8bQWn
+	RQPwCeE8ntUd4OuZxu4y2THySKrbISPYTxGTM7ZUziNmzJ/QhL6goP6m2eF3HCTIGwuDN8rc3O7
+	UwdTY1CUm/yhb+AbhzKFUm17HssySR5QXcFbooWuQsTL12V7hZ3pRg9mCKCZTY4uUDUtkPtrgff
+	cS+YJAAyB95rcPDMZkwv3a6W3sycrLixVI8YuWpcKRcuQ3YhD1nd59Joqw9SviCYiu9/14dioQ1
+	5vzYWttq+c+N0Jz5+28MO94+uu4pOfwYQkaHjFvOlzdo5WnezTArPnb7GuCAzlpjkIq0gPFOqq6
+	VbAFdCvN/iwcmy2itZom2j5bapLSw==
+X-Received: by 2002:a05:6402:a5c6:20b0:69c:cf5e:a504 with SMTP id 4fb4d7f45d1cf-6a1da7b32camr36697a12.8.1786096304665;
+        Fri, 07 Aug 2026 02:51:44 -0700 (PDT)
+Received: from google.com (250.192.189.35.bc.googleusercontent.com. [35.189.192.250])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c2080a6fa80sm32856466b.22.2026.08.07.02.51.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 07 Aug 2026 02:51:43 -0700 (PDT)
+Date: Fri, 7 Aug 2026 09:51:39 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Marek Szyprowski <m.szyprowski@samsung.com>
+Cc: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-coco@lists.linux.dev, Robin Murphy <robin.murphy@arm.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>, Jason Gunthorpe <jgg@ziepe.ca>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
+Subject: Re: [PATCH v8 00/23] dma-mapping: Track shared DMA state through
+ direct, pool and swiotlb paths
+Message-ID: <anWqq-vjEwwaziaM@google.com>
+References: <20260717180442.110954-1-aneesh.kumar@kernel.org>
+ <CGME20260725070930eucas1p16cbafb514de7a2e7531d0e4ae158acfb@eucas1p1.samsung.com>
+ <yq5azezfeeax.fsf@kernel.org>
+ <85be992d-9567-433e-ae2e-64ae5483964d@samsung.com>
 MIME-Version: 1.0
-References: <20260807093058.42840-1-phucduc.bui@gmail.com>
-In-Reply-To: <20260807093058.42840-1-phucduc.bui@gmail.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 7 Aug 2026 11:44:48 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdWJ3W2JKmxaKaa-A-Zk633cf4UwbESi+F1_h4tX1AhRng@mail.gmail.com>
-X-Gm-Features: AUfX_mxQEzl3jQmvMQf06PTnHIHBcMyX38xj7RfXUAwYPkdJFJKwvIXHn2A4lc8
-Message-ID: <CAMuHMdWJ3W2JKmxaKaa-A-Zk633cf4UwbESi+F1_h4tX1AhRng@mail.gmail.com>
-Subject: Re: [PATCH 1/2] thermal/drivers/rcar_gen3: Handle -ENXIO from
- optional IRQ lookup
-To: phucduc.bui@gmail.com
-Cc: Markus Mayer <mmayer@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, rafael@kernel.org, 
-	Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, 
-	Lukasz Luba <lukasz.luba@arm.com>, Florian Fainelli <florian.fainelli@broadcom.com>, 
-	niklas.soderlund@ragnatech.se, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Magnus Damm <magnus.damm@gmail.com>, linux-pm@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <85be992d-9567-433e-ae2e-64ae5483964d@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_024502_817637_8E90FFCF 
-X-CRM114-Status: GOOD (  24.13  )
+X-CRM114-CacheID: sfid-20260807_025148_248395_14A23203 
+X-CRM114-Status: GOOD (  18.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,47 +125,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Phuc,
+Hi Marek,
 
-On Fri, 7 Aug 2026 at 11:31, <phucduc.bui@gmail.com> wrote:
-> From: bui duc phuc <phucduc.bui@gmail.com>
->
-> platform_get_irq_optional() returns -ENXIO when the optional IRQ is not
-> specified. Treat -ENXIO as a valid absence of an optional IRQ, while
-> propagating other errors.
->
-> Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
+On Fri, Jul 31, 2026 at 09:33:47AM +0200, Marek Szyprowski wrote:
+> On 25.07.2026 09:09, Aneesh Kumar K.V wrote:
+> > "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org> writes:
+> >> This series tracks confidential-computing shared DMA state through the
+> >> dma-direct, dma-pool, and swiotlb paths so that encrypted and decrypted
+> >> DMA buffers are handled consistently.
+> >>
+> >> Today, the direct DMA path mostly relies on force_dma_unencrypted() for
+> >>
+[...]
+> > pKVM topic branch is now available 
+> >
+> > https://lore.kernel.org/all/178467286876.125042.12010461715645610054.b4-ty@kernel.org/
+> >
+> > https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git for-next/coco
+> I've just got back from my holiday's and I see that there is everything ready to give
+> this patchset some tests in linux-next. I hope nothing will break.
+> 
+> I've applied this patchset to dma-mapping-for-next, on top of pKVM topic branch with
 
-Thanks for your patch!
+I was trying to find this tree and it seems the MAINTAINERS file have
+the wrong address:
+DMA MAPPING HELPERS
+M:      Marek Szyprowski <m.szyprowski@samsung.com>
+R:      Robin Murphy <robin.murphy@arm.com>
+L:      iommu@lists.linux.dev
+S:      Supported
+W:      http://git.infradead.org/users/hch/dma-mapping.git
+T:      git git://git.infradead.org/users/hch/dma-mapping.git
 
-> --- a/drivers/thermal/renesas/rcar_gen3_thermal.c
-> +++ b/drivers/thermal/renesas/rcar_gen3_thermal.c
-> @@ -491,7 +491,7 @@ static int rcar_gen3_thermal_request_irqs(struct rcar_gen3_thermal_priv *priv,
->
->         for (i = 0; i < 2; i++) {
->                 irq = platform_get_irq_optional(pdev, i);
-> -               if (irq < 0)
-> +               if (irq < 0 && irq != -ENXIO)
->                         return irq;
->
+I believe the corret one is:
+https://git.kernel.org/pub/scm/linux/kernel/git/mszyprowski/linux.git/
 
-So the code may continue using -ENXIO as an interrupt number (and fail)?
+Thanks,
+Mostafa
 
-Why is this change needed at all?
-The caller of rcar_gen3_thermal_request_irqs() knows how to handle
-failures, as IRQs are optional.
-
->                 irqname = devm_kasprintf(dev, GFP_KERNEL, "%s:ch%d",
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+> patch "[PATCH v8 17/23] dma-direct: make dma_direct_map_phys() honor DMA_ATTR_CC_SHARED"
+> rebased onto latest changes in arch/arm64/mm/init.c.
+> 
+> The remaining items pointed in the review can be fixed incrementally.
+> 
+> Best regards
+> -- 
+> Marek Szyprowski, PhD
+> Samsung R&D Institute Poland
+> 
 
