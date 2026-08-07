@@ -4,58 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61534C5AD05
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 22:00:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61632C5AD05
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 22:14:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Cc:To:Subject:
-	From:MIME-Version:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Quf92lF6C+YF//JgzY89fF9Z54wBSk3iWTnjDRWBm3M=; b=ZzfTw9byUEGfu5XZ7VDrr9mteU
-	1kk5HWPpO/wy2vNdE8QI5ylMgyIyzpyyzgV/SLt6sP3u44Y5XyM31xGkVa4xQNBniYJQ4PXU1AI/t
-	fzT0lefhKjeWu1bznqu/Jhd1kg78Eb1GR+MNUxtS2wigG0RXi0CDyNfrWi2rLhVF7aegtZ0IpjU/X
-	IgW8+N0ZQGCiFqscXGnO3Ceblhf4iwDeNR/2g4lo5TnlsB+vuYgwqUx8Gs741OORbwa2Tq5mQEKLp
-	GUVoPWXkKkDr90kxt8m+FeZpX20z6Utkp1gVQ8Pp8GlL90PezaTy6ZYI9fvOa0ThEITC56KgbL8kT
-	ID1txUpQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fTBBp/gNut3PNIaiIMKAtMdux5qfIbqgE4sHisRqcBA=; b=A2NCPlJf9jrVJI34j8U2/nS7FZ
+	xKljTMdIWj4xLrAp+HFIy1EmCCwc/umDtNOXYAf/GWnWjeFEmQeCHLY2hv+d4FXnQ4bG/SF3PU/lm
+	VoDbeN9qAfiWFKWAeTF3kCJ/BgpGiV9Pj4nTgmkimzApkjh6o9Gx0OeGhw5lnLyMyl7w83Z0oWcv3
+	SufvzvbLenKkge/tnX82VfuM/4caOz0IVwZffivZdOxFJeHA6p+XwHTcvbIQkvN9EUI9b8kmmUjtC
+	X0MW28i2vpAJ9kwWwxQAzZjQNqmRTWNPgfx2jbRBbfWvb9gr1/x7cJkBdHydeEHR6GA36p5MCEYiS
+	/w4q8y4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsSbw-00000008n9M-2hNX;
-	Fri, 07 Aug 2026 22:00:16 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wsSpu-00000008nkr-3B4G;
+	Fri, 07 Aug 2026 22:14:42 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsSbw-00000008n9F-0VMD
+	id 1wsSpt-00000008nke-2I1N
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 22:00:16 +0000
+	Fri, 07 Aug 2026 22:14:41 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 39484600B1;
-	Fri,  7 Aug 2026 22:00:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55FCD1F000E9;
-	Fri,  7 Aug 2026 22:00:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B161643864;
+	Fri,  7 Aug 2026 22:14:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 193981F000E9;
+	Fri,  7 Aug 2026 22:14:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786140014;
-	bh=Quf92lF6C+YF//JgzY89fF9Z54wBSk3iWTnjDRWBm3M=;
-	h=From:Subject:Reply-To:To:Cc:In-Reply-To:References:Date;
-	b=GyYMMaiepK4f/MfevSHCv+CYqEaIQjV+IX7lP77M5foo9CM8BzXbFIm9KASzDfj6G
-	 /gsgcLP47M8UO46PHD+iFGpfteimiN4HsimtrngkNaU4k8NdIQl14SXBxcyOsNqbiN
-	 3gxSDaejEDpJeHMw9zrOmF1UQwts+VL+jBe4u238eigbfkk472tNKV7lWQEe1oVvBF
-	 xobT3XiAPKmCL877riR3r/O/jS/dLa7w9p3N4bftGWVhT+eL3nTsEu70FyA4dovira
-	 0WihFrRNV50O/eAn8dp3nH3/ZWlZ/SiZd8Fc2UJG2ane87yqHWhENG1ZQVZSCuwnvL
-	 dOfiTZZ1lfQFA==
-From: sashiko-bot@kernel.org
-Subject: Re: [PATCH] arm64/module: Fix livepatch BTI exceptions with Clang
- 21+
-To: "Will Deacon" <will@kernel.org>, "Catalin Marinas" <catalin.marinas@arm.com>
-Cc: "Joe Lawrence" <joe.lawrence@redhat.com>, linux-arm-kernel@lists.infradead.org, "Mark
- Rutland" <mark.rutland@arm.com>, linux-kernel@vger.kernel.org, "Miroslav
- Benes" <mbenes@suse.cz>, "Ard Biesheuvel" <ardb@kernel.org>, "Petr Mladek" <pmladek@suse.com>, "Song
- Liu" <song@kernel.org>, live-patching@vger.kernel.org
-In-Reply-To: <ed4fe1f95071897859ec7fbe9176246cbd4962bf.1786138806.git.jpoimboe@kernel.org>
-References: <ed4fe1f95071897859ec7fbe9176246cbd4962bf.1786138806.git.jpoimboe@kernel.org>
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-Date: Fri, 07 Aug 2026 22:00:13 +0000
-Message-Id: <20260807220014.55FCD1F000E9@smtp.kernel.org>
+	s=k20260515; t=1786140880;
+	bh=fTBBp/gNut3PNIaiIMKAtMdux5qfIbqgE4sHisRqcBA=;
+	h=From:To:Cc:Subject:Date;
+	b=Q9HEd20vmC6B7tE6GWWGc/regbVKdRgKtew6QPAE46eqklmJhR8R4TorjdsI/LiDR
+	 0e9cldaGfdL/2laVsmkEoD55us3nn2mhX2H4Ef09Xk+CYH0cwX7F48rO3PyiFNCRg4
+	 uEgmBMbFdgGYS2VaZP22ZSg6yXArJIBjUHoEMZvdO6ZcemWzbcXi0+iw2YP3MTSpWv
+	 QyFic0TGkC6AsPpkKscfhcpg1550TvAV9NqvU85VaNhK0QkneIDpeKmfP7+/cdyPmw
+	 h1qxrYCTgVLM+Wm/zJAvnNqf0kSzFoApUIL/wjmoXiuH6LC60XDxg8mx4fMBld5IsT
+	 RYlqDJfJFmRxA==
+From: Miguel Ojeda <ojeda@kernel.org>
+To: Miguel Ojeda <ojeda@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>
+Cc: Boqun Feng <boqun@kernel.org>,
+	Gary Guo <gary@garyguo.net>,
+	=?UTF-8?q?Bj=C3=B6rn=20Roy=20Baron?= <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>,
+	Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	Tamir Duberstein <tamird@kernel.org>,
+	Alexandre Courbot <acourbot@nvidia.com>,
+	=?UTF-8?q?Onur=20=C3=96zkan?= <work@onurozkan.dev>,
+	rust-for-linux@vger.kernel.org,
+	Drew Fustini <fustini@kernel.org>,
+	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers),
+	soc@lists.linux.dev,
+	WANG Xuerui <kernel@xen0n.name>,
+	loongarch@lists.linux.dev,
+	stable@vger.kernel.org
+Subject: [PATCH] rust: bug: fix `dead_code` warning in `warn_on!`
+Date: Sat,  8 Aug 2026 00:14:29 +0200
+Message-ID: <20260807221429.155946-1-ojeda@kernel.org>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,79 +84,71 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: sashiko-reviews@lists.linux.dev
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for your contribution! Sashiko AI review found 1 potential issue(=
-s) to consider:
+On arm and loongarch64, or under `CONFIG_BUG=n`, the upcoming SRCU
+abstractions from commit
 
-Pre-existing issues:
-- [High] Direct assignment to read-only memory in `module_emit_plt_entry()`=
- and `module_emit_veneer_for_adrp()` causes a Data Abort kernel panic when =
-resolving livepatch delayed relocations, and misses instruction cache flush=
-ing.
+  59cf3a5bda61 ("rust: sync: add SRCU abstraction")
+
+use `warn_on!`, which in turn warns:
+
+    error: constant `WARN_ON_FLAGS` is never used
+       --> rust/kernel/bug.rs:126:19
+        |
+    126 |               const WARN_ON_FLAGS: u32 = $crate::bug::bugflag_taint($crate::bindings::TAINT_WARN);
+        |                     ^^^^^^^^^^^^^
+        |
+       ::: rust/kernel/sync/srcu.rs:106:12
+        |
+    106 |           if crate::warn_on!(
+        |  ____________-
+    107 | |             // SAFETY: By the type invariants, `self` contains a valid and pinned `struct srcu_struct`
+    108 | |             // and `srcu_readers_active()` only checks the active reader count.
+    109 | |             unsafe { bindings::srcu_readers_active(ptr) }
+    110 | |         ) {
+        | |_________- in this macro invocation
+        |
+        = note: `-D dead-code` implied by `-D warnings`
+        = help: to override `-D warnings` add `#[allow(dead_code)]`
+        = note: this error originates in the macro `crate::warn_on` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+The reason is that `warn_flags!` discards both arguments in those cases,
+and so the `const` becomes unused. And since it is a macro, it went
+unnoticed so far.
+
+Thus fix it by simplifying by removing the `const`.
+
+Cc: stable@vger.kernel.org
+Fixes: dff64b072708 ("rust: Add warn_on macro")
+Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
+---
+Either this or adding an underscore.
+
+ rust/kernel/bug.rs | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+
+diff --git a/rust/kernel/bug.rs b/rust/kernel/bug.rs
+index ed943960f851..874adb93cdfe 100644
+--- a/rust/kernel/bug.rs
++++ b/rust/kernel/bug.rs
+@@ -123,9 +123,10 @@ macro_rules! warn_on {
+         const _COND_STR: &str = file!();
+
+         if cond {
+-            const WARN_ON_FLAGS: u32 = $crate::bug::bugflag_taint($crate::bindings::TAINT_WARN);
+-
+-            $crate::warn_flags!(_COND_STR, WARN_ON_FLAGS);
++            $crate::warn_flags!(
++                _COND_STR,
++                $crate::bug::bugflag_taint($crate::bindings::TAINT_WARN)
++            );
+         }
+         cond
+     }};
+
+base-commit: dc01dfb37b34beeefcfe1c3055364d41a4070c7e
 --
-
---- Patch [1]: [PATCH] arm64/module: Fix livepatch BTI exceptions with Clan=
-g 21+ ---
-commit b15500d2c41dfd08d4a46e3f6cffc977c910f40a
-Author: Josh Poimboeuf <jpoimboe@kernel.org>
-
-arm64/module: Fix livepatch BTI exceptions with Clang 21+
-
-This commit fixes a BTI exception during livepatch module loading by using
-RET instead of BR when branching to static functions that lack a BTI landing
-pad. It introduces a check for landing pads and adjusts the branch
-instruction emitted by get_plt_entry().
-
-> diff --git a/arch/arm64/kernel/module-plts.c b/arch/arm64/kernel/module-p=
-lts.c
-> index 7afd370da9f48..4249b477daa8b 100644
-> --- a/arch/arm64/kernel/module-plts.c
-> +++ b/arch/arm64/kernel/module-plts.c
-
-[ ... ]
-
-> @@ -23,14 +26,45 @@ static struct plt_entry __get_adrp_add_pair(u64 dst, =
-u64 pc,
->  	return (struct plt_entry){ cpu_to_le32(adrp), cpu_to_le32(add) };
->  }
-> =20
-> +static bool plt_target_has_landing_pad(u64 dst)
-> +{
-
-[Severity: High]
-This is a pre-existing issue, but does direct assignment to the PLT memory
-region cause a Data Abort when livepatch resolves delayed relocations?
-
-When a target module is loaded after a livepatch is active,
-apply_relocate_add() calls module_emit_plt_entry() on the livepatch module.
-Because the livepatch module is already in a live state, its .plt section
-has been marked read-only via strict_module_rwx().
-
-Looking at module_emit_plt_entry() in arch/arm64/kernel/module-plts.c:
-
-module_emit_plt_entry() {
-    ...
-    plt[i] =3D get_plt_entry(val, &plt[i]);
-    ...
-}
-
-And similarly in module_emit_veneer_for_adrp():
-
-module_emit_veneer_for_adrp() {
-    ...
-    plt[i] =3D __get_adrp_add_pair(val, (u64)&plt[i], rd);
-    plt[i].br =3D cpu_to_le32(br);
-    ...
-}
-
-Since this direct assignment bypasses __text_poke() or aarch64_insn_copy(),
-does it trigger a panic due to writing to read-only memory, and also fail
-to flush the instruction cache for the newly emitted PLT entry?
-
---=20
-Sashiko AI review =C2=B7 https://sashiko.dev/#/patchset/ed4fe1f95071897859e=
-c7fbe9176246cbd4962bf.1786138806.git.jpoimboe@kernel.org?part=3D1
+2.55.0
 
