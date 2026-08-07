@@ -4,72 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3DA6C5AC7A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 19:02:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD803C5AC7A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 19:11:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hWUQhfWN2AxKv1T6fLVv0tpgkaw4ky6B2xJknNGIdKM=; b=P25Nuk66SFEMRiuvfv24ju+5bH
-	WmtYpnwEVdQhPJkovv9IZmSuPtuFFzDC6afiMTDLOQGDFE9JLMOOaLJL30OhwQoLxEs5Mut9qLP4m
-	wNO2/oDHGKtRmWe5aMFisDQFLobYdJg9BcPNxE1wO6tnGVAkdas3eysYdyHgFDCw4jeOqwywBOeaH
-	ybt//3vTK4au0vRRkxj84v2flr/5DUHtG1MIZSLNsfpJNsIOS7+7qIngovTKti1F9HSBE5JU6APNx
-	axnY09+DE57pdoKmPyX6SBEGxKEccJUj+0JAliFib1sbBif29fmK4BpaXTYGhIH/ybixhgRlVNd8W
-	u6LIDG2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cBz6fg0rDTbg6TsmkZXpudUoZ9GA/al6aoiLNPAJcIo=; b=qrnX4FKwPomzBVvIexmklXBT0H
+	1mTOAUITOWL9W8Bps+2NS/SZU9MPTeAxhi6LmdW/uwZltkpMejp8P3aB0OjrES+k3Mptc4GhxXC8I
+	PcoEQKEFFXw0pLc2I7c0xGJTsEv28jaCtIIwEdkk7q4Rj6ZtoAvxLspWQ//Sd0nZnzCHv2oYWjClJ
+	PYtcBZsoIUiC65U569eR+HWTsZSqDjE5fsMhhiHqegAr+rJlJMMdvLMF0a+STR9AKWLtRQ1GqFi+V
+	nwGYa0BwVx3LQiC66Y21TXQyukuewxEXH6kTMML+lOmW19mKlY6DPgkc9w7H7P3GwVXvXtiuV/Mbr
+	VcyUQ0IQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsPpq-00000008dxj-326L;
-	Fri, 07 Aug 2026 19:02:26 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1wsPyR-00000008ebB-398f;
+	Fri, 07 Aug 2026 19:11:19 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsPpo-00000008dwp-0fWS
+	id 1wsPyP-00000008eao-2ERB
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 19:02:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1786129342;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=hWUQhfWN2AxKv1T6fLVv0tpgkaw4ky6B2xJknNGIdKM=;
-	b=aOLssnplqLXdqzoCWKwQZpoC1SKY6OxFnjVEXKCn80rDah7+NZroCFkARjtAvOqZQs9LED
-	0oWe2IUUHUUtHaFACCrSknRtD72xr2+qEz59GozhlEsHcWzcPV9xxSKBBmu8hO/Ob+zj1h
-	BpRh9Bwj+VosIueb5nA6n0/FvDqeYug=
-Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-425-HTO_olXrPkexS8gdYu3NWw-1; Fri,
- 07 Aug 2026 15:02:09 -0400
-X-MC-Unique: HTO_olXrPkexS8gdYu3NWw-1
-X-Mimecast-MFC-AGG-ID: HTO_olXrPkexS8gdYu3NWw_1786129328
-Received: from mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.95])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id B3B5A19560AE;
-	Fri,  7 Aug 2026 19:02:07 +0000 (UTC)
-Received: from [172.20.35.218] (unknown [10.30.44.80])
-	by mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 5B07A426;
-	Fri,  7 Aug 2026 19:02:06 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4pyF?= PASS (MISSED 51 of 56): Test report for for-kernelci
- (7.2.0-rc6, upstream-arm-next, ba5cc80f)
-Date: Fri, 07 Aug 2026 19:02:06 -0000
-To: catalin.marinas@arm.com, will@kernel.org,
- linux-arm-kernel@lists.infradead.org
+	Fri, 07 Aug 2026 19:11:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JjRLk0WN/ECo/YVRqzwIEgB9AYqEfT2cPjrIh3bXUXSPXODxiYu0c0FA1naiXohDPQid7ssvYfjWEcbcCcRekUg66bkPp1jE9WGh309rERuxxanhk4Zo5r70Iz8yOv8Wl50T0FdeEE0I1jiWRBtJPJZ30Fy4IysStR5zCNnhigPNjHX/BQxIzGpv1QGEuVxpeQHGAEXuhjQ/ClOVxkEc2YkSuzOw7ItxwRZUIU1CLHxtUYm7OgnbS8dgKsoZu0FxPiR7HSt0qVW71FpvqdibfV6i6AAep5p00vnEVjjYTmjRV1ZxaUkksM2AbUWnOjD5SJ7jbR7fDTTe1WHF0kWdQA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=cBz6fg0rDTbg6TsmkZXpudUoZ9GA/al6aoiLNPAJcIo=;
+ b=rH0WaNRqmN6D/jF6iYUMI2hKYO1xESVuEq4jdPtvh7UZ12JTFJdDa5uRI924lGIf2Zd1jP6kyoQAD17g0TTutVsN/7cl93hZxTCg9FUVikz3TmOFmkiRm4iVprfav+0jUL0w5yYZQQBUncX8W6PxHY3nm8ZyoGA9Z4aeZkK9J5vBMQjryL1eXGA6ufZdgHtxsgdZwIx/LV6xuQx8GlJa0plsFGXYvWBZWcpoWLdLzpPbMzOvH3AlkD495Rh/Oa5aRHZUlfDOFpIObEY5H31mhWT0+ZnXipaysYXpp10JpjYYlPYtKmFFDvjeMpYVIwmvltPRiOcM5zsFwNYRzQ5GdQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=cBz6fg0rDTbg6TsmkZXpudUoZ9GA/al6aoiLNPAJcIo=;
+ b=muVAjjHrDEC83pF0i9+A+u4dTVpDAi6dLCrYGePeafjGgAr20g08Xm4bJ7frskW7fPvaPYI9UllaG89Qx+2h+49v9t6UGCdFz7lG+4T5BiTCB33FxRxx8HaSCSLRsp8d1sMAQTj9vUlHs49Il4vYUb9Bxz4Jn9ZpPLzbDuCCNig5T/iJhp7HrFYeKOYM7kJ6Y6nn75WIW19wfP7mqQ/5LveEDUWlrv4hKROPPu6iGvVBAYD3DILgCyxbJfMn0W2VkjulBkRwlLP4JynbefC9y/paoMwwPzx5U3WXKfJTyPfq1fjd/JYqpv8fJzyEp/S8G/tPW/fUEosZYejSotKTAA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AS8PR04MB7765.eurprd04.prod.outlook.com (2603:10a6:20b:2ae::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.24; Fri, 7 Aug
+ 2026 19:11:11 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0292.018; Fri, 7 Aug 2026
+ 19:11:10 +0000
+Date: Fri, 7 Aug 2026 14:11:02 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Zhipeng.wang_1@oss.nxp.com
+Cc: Thomas Gleixner <tglx@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Jindong Yue <jindong.yue@nxp.com>, xuegang.liu@nxp.com,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 2/4] irqchip/imx-irqsteer: Dispose of IRQ mappings in
+ remove()
+Message-ID: <anYtxoIxO9tuMUTz@SMW015318>
+References: <20260807072346.1222389-1-Zhipeng.wang_1@oss.nxp.com>
+ <20260807072346.1222389-3-Zhipeng.wang_1@oss.nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260807072346.1222389-3-Zhipeng.wang_1@oss.nxp.com>
+X-ClientProxiedBy: SN6PR2101CA0003.namprd21.prod.outlook.com
+ (2603:10b6:805:106::13) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.6 on 10.30.177.95
-Message-Id: <62722.126080715020900620@us-mta-425.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: mXELCkx7PASMWGGuSjBJGwKyIB57Nn9k1IB2VWure-c_1786129328
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AS8PR04MB7765:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3037bfbe-c8b4-4921-eef6-08def4b7a43a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|23010399003|376014|1800799024|366016|10067099003|4143699003|56012099006|11063799006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: NKutZ273ON4a5Fv94/7Q3RjRfedoUcoapAzUhJvbHWRNdvBr/MQuw0FJFufggXjpN19dkMTsjjYTD8GnGZBncRNDnJEE0VEfRyFRROaECP5aF+hHSSX7qQixFFNctKhULwsWCW/G9WVS7mioGsLChRjnykFe3I7JRuklx0TWjxRDban/9I0FGYPN7+H1Nwyw7gHtu+k7un0nG8r+vC2fXwCtF+m+iHpGK6zOG9Q7hjVPeB/sWeu723hXJ/hn9xvm0qye8Gh99Lz8PQtmwnrLAatPV8UGkljr83jTh0koYE+15OCFvveLPnP3iL/WTf3xNi8SJMWb1PS/OTV0KKWqdUVD/kD9EAyyrhKAuzQdrVHfe4TjIP1OAD12eU4DkBFtj8ENP8Je/Nf38+KFgGGFpTd7pIGcA8FdvE9hW5UKEttFddXJHM8Dgw0p5itIoDBUjiBUXg9t9b+clkWf7aCtmMsjhFH0lXQ4/42CWGGxF1Zp0s8zHgaS//IaZ+Fuj3+HlrfdJtcRB9J8tXEqY+HCudZLpTvnBjPowbKOnxna2DyHMUNalLpJ9p5nzIG/YkBLI/muDaf5EIpm1sfrhBYTPm0MA2EMMrIpNCr5EtPMVUi0lT2IGDRaf11q41rIDuNjJpR6AqbZXp9WsphHmPbUhpNSsIx7vBZy5SpeFY7JFMA=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(376014)(1800799024)(366016)(10067099003)(4143699003)(56012099006)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ewNLm1i4djxMd9sxqFJg6gA5HNUi0DF9nJAE5fhB4trTTCMlamkqh6oBU8/0?=
+ =?us-ascii?Q?i2irubk4fJsmpbcEZequUqea1PNscKq+oep1aym5xNIM70t0Hr3kDgluwkeU?=
+ =?us-ascii?Q?YViSgUI2acSZbwJtenGenetm/CVyj4+UKjaodrG8VDqZPgt3eS/0Uf3VVkvY?=
+ =?us-ascii?Q?LKRKVwn2cReT4jRU0grA5KBFhTs6/tIE63sv9LSdGCWGTE+fgCKeuK/LguPn?=
+ =?us-ascii?Q?eDKu5eohTvW5YyOK2ySDpBJW6Z7DdxrR+6sz2wOjhqF0nFmoocD4BmQNguwL?=
+ =?us-ascii?Q?yyBbp86qzi6nLm0zOmr9cb7DtceDfjOMhsmpYgkZK39z8zpwOwB2ZFjEOYBv?=
+ =?us-ascii?Q?PAyAUwMrCnX0FP09OY74nBZggiAEVq7Jx5J/b/BA1wbUh3G3yqqWUF//GBZo?=
+ =?us-ascii?Q?4yWgDKKP48KKB6S/r/hgq8zt2Z1Syx8RBM9Z9HrCAYrlr5v4+O+HD7rpGmQ0?=
+ =?us-ascii?Q?2oRirLjGgaWNpEY7BP0qaPbb2Gmyhxvg64XdReeqs/LESgm+W+O80m1JzBXo?=
+ =?us-ascii?Q?DYTQBKt6s1OHvKZkZ7GGqkWeKbk2mC1ljAwHkHibLNv3JQaUYGAqIoLK85pj?=
+ =?us-ascii?Q?0ORg5mbhpb8zmLkScU8LKU+FuvAiizUgOMXMI4ucwvPOgkUAsPvU0Uh/qmP9?=
+ =?us-ascii?Q?NPtHs7EmEhbgBcfw1SOJiocjiv04a6IaLMmShvdfWRPqUr1jkVLQuNgtQdV3?=
+ =?us-ascii?Q?uGxwKy+YkAYdGVGSONawUNyx/oHOOFetcTDi5BCmfMfniraJYxC7y7y8VLVw?=
+ =?us-ascii?Q?huaG3GAmruvgPiOQlFZnfx7tq+VQBkbZcU2cHlefDn28zHPfA90ycLJeFhaG?=
+ =?us-ascii?Q?oWNGPp0Yxnu/FIRqX6xQkW6O1wtevFC1Jud0ANVgxnYRlUlV0a7szpLcLZhI?=
+ =?us-ascii?Q?ItPNvbt04M1gP7AqpBhGy7hdtAdsz/nsEOek6ZNklhJhDasVjd+9uCz6s/2U?=
+ =?us-ascii?Q?iJF4/EZ36jfUHsjNzL3jp4SpYYFFIaXtXFLsOhc+lFbbOtKQWgoDA0FGApt8?=
+ =?us-ascii?Q?X/OkMtRt/M+f9hxZTW7jgfYP/mNN4H0Pxu1G8jAw0Q60CyXOxrDtqFSAhlzA?=
+ =?us-ascii?Q?EIPhACCA42VcaXQNfqaQNaJ0ou50FRVVaa1bjZNyQPrOeBWQgKTEtu+SOcbn?=
+ =?us-ascii?Q?zAk4VDowuAR8kTR7muNUtpe66q2n+CdM7obNUsdI0le7CAbcVh5tIPuHHZSs?=
+ =?us-ascii?Q?YKEFSTeo427Q6fWMrqk15XmSV7rNx0Pd6dBt5HsUvdJZ457CwI1Bjin/hbyo?=
+ =?us-ascii?Q?W+dZ3Q6xFG7/w5cXCwjrRASuZlemvjVbU9kEjMdpLEirhDeYy3QefFzJO28Z?=
+ =?us-ascii?Q?kUtFJfi3FrSxgNI90DYbRTVmbstdOPaFd0rifxblIc3DD/50KPJ9IaMO87T/?=
+ =?us-ascii?Q?vSMDmx9cMrVDyXpkXaFhT/AjguoEienoDZFueebTzuHN4NyUS30WmViHYOoS?=
+ =?us-ascii?Q?mM4Fr5EF7Ma09lI9tpE3bMOpM0RZtKWrmIpNbmsrhVlBY5jkP858rNqg6AoG?=
+ =?us-ascii?Q?z9V19RET8VLKua50xbNMuZipmm37T09l09pealH29K0hTObpNeVjtx/wM1at?=
+ =?us-ascii?Q?sx5u8Qez5fnPacaAeN/AO9tzSBFHeRSuqiPyg200KBMrimEfocSJAFlwECjw?=
+ =?us-ascii?Q?0wjsPQE2dAroe5iOuU+N3tolAO3y78ivD1Q07P+XP0JhydcWn18cWYuljMa+?=
+ =?us-ascii?Q?RWIZh47b6tXZIfLTtGfFJRSWI5aO2/MeB/uivE4rZDB+Ri2kwUZrA3/Zoteu?=
+ =?us-ascii?Q?/qGAjb4ILOvbMNNLr/PRiQKLtSiMVE1o3m07oV6h+LzLwWj4Ffic?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3037bfbe-c8b4-4921-eef6-08def4b7a43a
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Aug 2026 19:11:10.8267
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: HdXQA2pmctQCS15ecdU8CytubFXf1uwMlhbg3HzF0qDg+XppJ1CgwVo32lUnfg9PtEwFeZBDaRnWXDGDbVOevFwBXRwRCEUZT7cZlIJ4mTZRWyUAQ4gAxSXk15kLyq82
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7765
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_120224_268155_76B968F2 
-X-CRM114-Status: UNSURE (   6.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260807_121117_581120_567FF62D 
+X-CRM114-Status: GOOD (  22.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,56 +142,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+On Fri, Aug 07, 2026 at 04:23:44PM +0900, Zhipeng.wang_1@oss.nxp.com wrote:
+> From: Zhipeng Wang <zhipeng.wang_1@nxp.com>
+>
+> remove() tears down the chained handlers and the IRQ domain but never
+> disposes of the IRQ mappings it created. The parent mappings from
+> irq_of_parse_and_map() and the child mappings handed out by the domain
+> are leaked, and the child irq_descs are left pointing at the driver's
+> irq_chip past irq_domain_remove().
+>
+> Dispose of the parent mappings alongside the chained handler teardown,
+> and dispose of the child mappings before removing the domain.
+>
+> Fixes: 0136afa08967 ("irqchip: Add driver for imx-irqsteer controller")
+> Signed-off-by: Zhipeng Wang <zhipeng.wang_1@nxp.com>
+> ---
+> Changes in v3:
+>  - Split out of the single v2 patch. In v2 this was folded into the
+>    module-conversion patch; no functional change.
+>
+>  drivers/irqchip/irq-imx-irqsteer.c | 7 ++++++-
+>  1 file changed, 6 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/irqchip/irq-imx-irqsteer.c b/drivers/irqchip/irq-imx-irqsteer.c
+> index a2f0629b22a3..4a2fe8ba97f5 100644
+> --- a/drivers/irqchip/irq-imx-irqsteer.c
+> +++ b/drivers/irqchip/irq-imx-irqsteer.c
+> @@ -277,7 +277,7 @@ static int imx_irqsteer_probe(struct platform_device *pdev)
+>  static void imx_irqsteer_remove(struct platform_device *pdev)
+>  {
+>  	struct irqsteer_data *irqsteer_data = platform_get_drvdata(pdev);
+> -	int i;
+> +	int hwirq, i;
+>
+>  	for (i = 0; i < irqsteer_data->irq_count; i++) {
+>  		if (!irqsteer_data->irq[i])
+> @@ -285,8 +285,13 @@ static void imx_irqsteer_remove(struct platform_device *pdev)
+>
+>  		irq_set_chained_handler_and_data(irqsteer_data->irq[i],
+>  						 NULL, NULL);
+> +		irq_dispose_mapping(irqsteer_data->irq[i]);
+>  	}
+>
+> +	for (hwirq = 0; hwirq < irqsteer_data->reg_num * 32; hwirq++)
+> +		irq_dispose_mapping(irq_find_mapping(irqsteer_data->domain,
+> +						     hwirq));
+> +
 
-    Overall result: PASSED
-             Merge: OK
-           Compile: OK
-              Test: OK
+only call once irq_of_parse_and_map(), why need irq_dispose_mapping() twice?
 
-Tested-by: CKI Project <cki-project@redhat.com>
+Frank
 
-Kernel information:
-    Commit message: Merge branch 'for-next/core' into for-kernelci
-
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2741333507
-
-Tests that were not ran because of internal issues:
-    /distribution/check-install [aarch64]
-    /distribution/command [aarch64]
-    /test/misc/machineinfo [aarch64]
-    Boot test [aarch64]
-    CKI/restraint [aarch64]
-    Hardware - Firmware test suite [aarch64]
-    Reboot test [aarch64]
-    SELinux Custom Module Setup [aarch64]
-    selinux-policy: serge-testsuite [aarch64]
-    Storage - blktests - throtl [aarch64]
-    Storage - blktests - ublk [aarch64]
-    stress: stress-ng - cpu-cache [aarch64]
-    stress: stress-ng - memory [aarch64]
-    xfstests - btrfs [aarch64]
-    xfstests - ext4 [aarch64]
-    xfstests - xfs [aarch64]
-
-
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
-
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
-
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
-
+>  	irq_domain_remove(irqsteer_data->domain);
+>
+>  	clk_disable_unprepare(irqsteer_data->ipg_clk);
+> --
+> 2.34.1
+>
+>
 
