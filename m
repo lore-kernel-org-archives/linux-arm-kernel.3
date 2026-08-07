@@ -4,84 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAD66C5AC7A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 07:22:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E15FBC5AC7A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 07:23:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yfy/kLuYSBUzok4FzwzCtdd1fXn+6YVgQIjQLkSKroQ=; b=XAuCRQXCaP8fYeOW3iWuE4Q8B6
-	BQIXsmBUXl9SpLT+RS+tQoZz/rlmSn0bPBNKM1YUCRGZ43ZbQ1RZdjtjHddwFf+gghu2qS7wjWlEa
-	XIip+IeGg/FhRAEduNXQRn+ZMx8WdNizt0Dsn7Za1Yjb7NkubSoNzkx1ERdu97MPDQEKr/L/xEX9F
-	7pnPXxc03NkvKWA3LTxukZQ6Sal4LYxL66qguNoMh9epiihFPTm5i6AZGmGle4j1dqoNrtAZNeczW
-	VmUoMutwWV+euv3Ftz/dycKb6ENFbR2HOU0UJ+G2Oo9mHUWhRqkx/76Yma9gUOSe26IoO0qd3E5VC
-	JQ66K4cQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AgQPRr6KO6f+5jgx8UafJjTGJrvaC3/Te3NzsCkfesU=; b=r0X1ru7riRipkCK8Nm1GbqDGIL
+	9sxInyGB1nDKf+KTxfA8hfY+XNl/jckcmbx5fTwacHaB1tBJpMRzps+1h0AxN/RWWM14Lo5N5D6Ec
+	PA/9JLdTQPuRO7KWKV+CRVD+E3xcDJ3yu/uCTEmkfFEZmmaAT3brdW7bsBNAM/xH/OjVs9LosJpSH
+	4WW6NsHtXjC5b21Dq5nPR3Ihq8/fVPf3SCQ8c7Mj2GMnBOgI/Dyx1flZPPfiRL5JIkU3KQfrWRp2W
+	hS+9HmKAf2bLMKHtbPvxODTb+RTN5P7fln3kBOS6O1RC8BCAD8vL/CyAICJGem1uJ7oDagiI+FPu8
+	vUO3FfVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsEu5-00000007E0j-29U4;
-	Fri, 07 Aug 2026 07:22:05 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wsEve-00000007E87-3een;
+	Fri, 07 Aug 2026 07:23:42 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsEu4-00000007E0d-3BDs
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 07 Aug 2026 07:22:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=yfy/kLuYSBUzok4FzwzCtdd1fXn+6YVgQIjQLkSKroQ=; b=E8MqSmP/GUYywTtM/KknAVP+0F
-	cqXmTEMECDHQ/pFFxwHtsS2m/BET1rmtSQWsnvGKOyUo8SOgrNWnNnA8FaexD7/0lekifSNFptkF2
-	QAtlCMPOhhrgfZYzOIHyPNws9ZgKL6/TmOCnc/vyUG2vFpN76wEe1CnCbkEjKkcrzkpQu2wQje2/q
-	UrPHwCvhMDCxI0mc0p78qZnc79R+pN6h+j4wTU7xPF/lfcZhR+ZabeSnN0Vk9PDHLWkm3equ4Rsgw
-	ywWQbcBO5Bg4jPF/KentFIiGtSqppCc5E8oyVtLt1VwoNUVbdQ4NKMFt9/ntR41YoBMJk70DBXC0l
-	YNtpTaJA==;
-Received: from [113.46.200.221] (helo=canpmsgout06.his.huawei.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wsEu0-0000000C8fo-0OP2
+	id 1wsEve-00000007E7y-16QQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 07:22:03 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=yfy/kLuYSBUzok4FzwzCtdd1fXn+6YVgQIjQLkSKroQ=;
-	b=Ke0qftcR4CIsMTXa4kh8sdaPvU5fo7TBaTBjvYEUJQxprcV9MtIMeDgPbPimuAalDTUdO2vgm
-	/NRSgq7Uvx0l94NlDR809ZeHNvB4k43FgKX6jtLHBEB0gIxnX0sGXO9jily7/+JjkRKi5ybpPow
-	3AKCtua5TV5uaoTdoQrI4Fw=
-Received: from mail.maildlp.com (unknown [172.19.163.104])
-	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4hGb0L1blSzRhRG;
-	Fri,  7 Aug 2026 15:10:58 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 6E2914058C;
-	Fri,  7 Aug 2026 15:21:30 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 7 Aug 2026 15:21:29 +0800
-Message-ID: <5a3389e5-53b8-4fc5-86b8-87fe689e1b60@huawei.com>
-Date: Fri, 7 Aug 2026 15:21:28 +0800
+	Fri, 07 Aug 2026 07:23:42 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id EA9BA40810;
+	Fri,  7 Aug 2026 07:23:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15EB01F000E9;
+	Fri,  7 Aug 2026 07:23:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786087419;
+	bh=AgQPRr6KO6f+5jgx8UafJjTGJrvaC3/Te3NzsCkfesU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=CLij02BSdOzAHBhHBATYyrVi9hkxsqlYz4VIYJ+tLIwDOusBpIeEQ6nsvCbMmewrW
+	 HzOWWFbkb2ioc+QJoowwcc5Iy/emL5WdxemjWy7NTS9alinUOyAX1FV9XcGtj2+Fm4
+	 uOkegAHxaeY8ov8h3m6b5FkotOYK7ZyLC3bY8umE587jIWR07AkjBrEmbXDhUDnkwF
+	 phevrPP/W5uqtvfeumb61rtIwEX7Ln7z4IHP2tC4EpfiqEJLE4I664YL5lGDCcyCP+
+	 OvX56TuEiitZwE6pduxT7YInlF2VB3wmC8MRxs/FyjKtUjTYq7zjp35U029Rjv6n6f
+	 tU12iXfiDJFqw==
+Date: Fri, 7 Aug 2026 09:23:35 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: =?utf-8?B?R3LDqWdvaXJl?= Layet <gregoire.layet@9elements.com>
+Cc: joel@jms.id.au, andrew@codeconstruct.com.au, lkundrak@v3.sk, 
+	devicetree@vger.kernel.org, gregkh@linuxfoundation.org, jirislaby@kernel.org, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, lee@kernel.org, 
+	andrew@lunn.ch, jacky_chou@aspeedtech.com, yh_chung@aspeedtech.com, 
+	ninad@linux.ibm.com, anirudhsriniv@gmail.com, tan.siewert@9elements.com, 
+	linux-serial@vger.kernel.org, mfd@lists.linux.dev, linux-aspeed@lists.ozlabs.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 1/6] dt-bindings: serial: 8250: aspeed: add ast2600
+ and aspeed,vuart-over-pci
+Message-ID: <20260807-ginger-mushroom-of-reputation-bbb7c8@quoll>
+References: <cover.1785932211.git.gregoire.layet@9elements.com>
+ <52d5bce1cf8ec3ff0b27e7313655cf7ffa2236b5.1785932211.git.gregoire.layet@9elements.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ARM: entry: Convert IRQ handling to generic IRQ entry
-To: Linus Walleij <linusw@kernel.org>
-CC: "Paul E. McKenney" <paulmck@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Russell King <linux@armlinux.org.uk>, Oleg Nesterov <oleg@redhat.com>, Thomas
- Gleixner <tglx@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-References: <20260623-arm-generic-irq-entry-v7-1-v1-1-f25ca7079e3b@kernel.org>
- <c10eb90f-3da5-48c4-9734-1913ea62bd9d@huawei.com>
- <CAD++jL=ZiU4K1h7Xo8-eOGcfLEWjsHTQ9xk843T-VFoOCX7BUQ@mail.gmail.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <CAD++jL=ZiU4K1h7Xo8-eOGcfLEWjsHTQ9xk843T-VFoOCX7BUQ@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- dggpemf500011.china.huawei.com (7.185.36.131)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_082201_917913_F8EDA340 
-X-CRM114-Status: GOOD (  15.36  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <52d5bce1cf8ec3ff0b27e7313655cf7ffa2236b5.1785932211.git.gregoire.layet@9elements.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,41 +76,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Aug 05, 2026 at 02:19:48PM +0200, Gr=C3=A9goire Layet wrote:
+> The ASPEED AST2600 has 2 Virtual UARTs accessible over PCI.
+> The ASPEED AST2600 can be used as a PCI device.
+> 2 Virtual UART can be exposed to the host via this PCI device.
+> These are 8250-compatible register sets and can be used to have UART
+> communication between the PCI BMC and the host.
+>=20
+> This boolean can be set to specify if a VUART is used over PCI. A VUART
+> over PCI needs a syscon phandle. The syscon gives a regmap to the SCU,
+> which is used to set the enable bits of the PCI device.
+> On the aspeed's chips, the clocks phandle already points at the SCU node.
+> But deriving the regmap from the clock provider would misuse the clocks
+> binding. An explicit syscon phandle states the dependency directly.
+>=20
+> Signed-off-by: Gr=C3=A9goire Layet <gregoire.layet@9elements.com>
+> ---
+>  .../devicetree/bindings/serial/8250.yaml      | 42 ++++++++++++++++++-
+>  1 file changed, 40 insertions(+), 2 deletions(-)
 
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-在 2026/8/7 4:42, Linus Walleij 写道:
-> Hi Jinjie,
-> 
-> sorry for slow return to this topic :/
-> 
-> On Sat, Jun 27, 2026 at 4:57 AM Jinjie Ruan <ruanjinjie@huawei.com> wrote:
-> 
->> I have a small suggestion regarding the `interrupts_enabled` logic. If
->> arm32 could also implement `regs_irqs_disabled(regs)` (similar to what
->> arm64 and some other architectures already have), we might be able to
->> unify this across subsystems.
-> 
-> Yes, the patch implements this, hehe :)
-> 
->> Specifically, we could then replace the custom `interrupts_enabled`
->> usage in both the arm64 architecture code and drivers like
->> `drivers/irqchip/irq-gic-v3.c`.
-> 
-> That should already be possible with this patch.
-> 
-> I could also make a patch to replace all uses of interrupts_enabled()
-> with regs_irqs_disabled() as a follow-up to this patch (which introduces
-
-Yes, we can replace all interrupts_enabled() including irq-gic-v3.c and
-then remove the interrupts_enabled() in arch/arm64/include/asm/ptrace.h.
-
-https://lore.kernel.org/all/ZyDu9XHNmxMHBMSI@J2N7QTR9R3.cambridge.arm.com/
-
-> regs_irqs_disabled()) if it gets accepted, I don't know if
-> that's a good idea though, maybe it makes the code harder
-> to read?
-> 
-> Yours,
-> Linus Walleij
+Best regards,
+Krzysztof
 
 
