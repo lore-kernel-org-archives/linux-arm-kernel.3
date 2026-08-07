@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DE47C5AC7A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 06:00:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C25B0C2A09B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 06:01:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DTjw2XFDO1scXxZ466G8sTIU0IDoXYq5q8rl6tKiZRA=; b=DnuovYYFvqUVb9i0AmenspYEmc
-	j8iDWI5/vXWYam7Q8K3JEMAgnOOx2svDNvZKU0+VumkgyWiF6F+qfuG9QypNbjcOXXAwdAA5Lamd2
-	o2tABcgK8Q6rgKriQ9G8Eqgbz20j00SA86ZKQ6B+StoBhxl1nRr5aY+EXyQR6ez7TrKaNLhPB8a1I
-	U42cV0rfANY9aFfG7uM8cDBHKJPCebey/h5EtAlqyNnjKuTXUr7AFu8wllVJ2Hnjvq2E6TdImr4/p
-	dJfKS9De+zZT/d5R1nIoW8xA/+dfx1mnIJ6PA/P6DNAq+0eD7jlkkcHJmPHW2yfo2qKQ2Jq8nnCNG
-	h3Rd2Wng==;
+	bh=mlpEb48WPTayGKdm4eVdxNznK3KImhnyyeVW6wCAWfk=; b=IUQJjzXRpcXlZA5Nlic2KtasdN
+	NvZcZXy6WFfArM15iByi2BfvUelCWM0pcxtC65f4VI+nsRdDqpuHr0GXAE8O57NWY+jVNhIDNhKpK
+	RmyR+5uz1AZv/o+IbQVCPcWMBqE7w/KtzmgrMeM0zJTChzT/v1FMcvZ6SL9FvZJI10hXvnUFn88ss
+	4IjuqFXqIIB8o2SFzZOuFNDtEYZ0Cg7xQ2oyhSgUYg96VbgvTt/DHvzDtq4pJwZPINtEEtIhigI3U
+	Q6Uf0f2uOmSSvcZsdSX5Zos2jg/a+5nCqnsuPzLu00uZGN+jvAXd7EFbR3Lwgj14PU5jsBmEgaetg
+	MlbF/cyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsDdD-000000078cJ-1m7v;
-	Fri, 07 Aug 2026 06:00:35 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wsDeK-000000078jr-2i2t;
+	Fri, 07 Aug 2026 06:01:44 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsDdC-000000078c3-2bft
+	id 1wsDeK-000000078jj-0D30
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 06:00:34 +0000
+	Fri, 07 Aug 2026 06:01:44 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A217860DB9;
-	Fri,  7 Aug 2026 06:00:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55D481F00A3A;
-	Fri,  7 Aug 2026 06:00:32 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0C809404CC;
+	Fri,  7 Aug 2026 06:01:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED2511F000E9;
+	Fri,  7 Aug 2026 06:01:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786082433;
-	bh=DTjw2XFDO1scXxZ466G8sTIU0IDoXYq5q8rl6tKiZRA=;
+	s=k20260515; t=1786082500;
+	bh=mlpEb48WPTayGKdm4eVdxNznK3KImhnyyeVW6wCAWfk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=HiDHhnF61cXktC/fU2PqLlG6QeF7DkMz1CQaC5A8ET1AF7LuXGBsKezuCgD9oox4W
-	 y2Sx9iYyY+aoO0IYPhYr/vqAQwo9NevoenkwIhnrkwDneXA9BloNAgMf5K+h/8uemc
-	 W2Qhlf8cFaOH+e9kXpf8T4vhvCbEpRe4dmzOxv13m3vZGu4d+wqdL61GgkcLKNVwzz
-	 nNjoH/8QJ3euP2YWZbFHlPi4I051+2ZKFABewEgpiuDkrv6OJQswkiX9WEXEdzqWtu
-	 tF/SccwVUtceMU5EcA1v92ftFGRqT0SbnGMkeKhyecvI4oLDiTk3J3T100Sh2RvYHY
-	 p/D9wCGLUxPhQ==
-Date: Fri, 7 Aug 2026 08:00:29 +0200
+	b=T497BqIIxWI3YaUWHpUZRfd69wbja9MhBt6qFUib0UHQQAUTcP+20Ysn2Uj5XZBIF
+	 bZUlgp10L/vfXGa14VhG2Nw+pjMj3IluXbhj5fD4pTCwNkdASrSXBpxTbxXDJArhlQ
+	 WIujQ1EC+Qi3OBKnCB66sUQCoBPyTyPLl9FjxiF6nW55mpNSHUOf2pGQbZ4F9VbmNv
+	 I4qx3NoXA7GjN2ajbRgN0ISOYvQ1hMmA1vCzWrJrTY7U/3ObmbYt0k06sh8xpOAo47
+	 B+YM/pW4NEeXj7ArLsFDOcDuAnosAm/PaxTq1Ajx2DIkJgJnWlWjYbloPI9ayzFstD
+	 CCB76+SIsIYWA==
+Date: Fri, 7 Aug 2026 08:01:36 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Long Zhao <longzhao@ambarella.com>
 Cc: Rob Herring <robh@kernel.org>, 
@@ -54,14 +54,15 @@ Cc: Rob Herring <robh@kernel.org>,
 	Alexandre Belloni <alexandre.belloni@bootlin.com>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org, 
 	linux-serial@vger.kernel.org, soc@lists.linux.dev
-Subject: Re: [PATCH v2 01/10] dt-bindings: arm: add Ambarella CV75 platforms
-Message-ID: <20260807-free-stork-of-effort-60e41d@quoll>
+Subject: Re: [PATCH v2 02/10] dt-bindings: soc: add Ambarella secure
+ scratchpad
+Message-ID: <20260807-raspberry-chowchow-of-endeavor-e57df8@quoll>
 References: <20260806-longzhao-upstream-cv75-v2-v2-0-6b09707c5fe9@ambarella.com>
- <20260806-longzhao-upstream-cv75-v2-v2-1-6b09707c5fe9@ambarella.com>
+ <20260806-longzhao-upstream-cv75-v2-v2-2-6b09707c5fe9@ambarella.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260806-longzhao-upstream-cv75-v2-v2-1-6b09707c5fe9@ambarella.com>
+In-Reply-To: <20260806-longzhao-upstream-cv75-v2-v2-2-6b09707c5fe9@ambarella.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,48 +77,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 06, 2026 at 05:34:09PM +0800, Long Zhao wrote:
-> Add the Ambarella SoC board binding and vendor prefix covering
-> the CV75 EVK.
+On Thu, Aug 06, 2026 at 05:34:10PM +0800, Long Zhao wrote:
+> Document the Ambarella secure scratchpad syscon used by CV75.
 > 
 > Signed-off-by: Long Zhao <longzhao@ambarella.com>
 > ---
->  .../devicetree/bindings/arm/ambarella.yaml         | 23 ++++++++++++++++++++++
->  .../devicetree/bindings/vendor-prefixes.yaml       |  2 ++
->  2 files changed, 25 insertions(+)
+>  .../ambarella/ambarella,cv75-sec-scratchpad.yaml   | 39 ++++++++++++++++++++++
+>  1 file changed, 39 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/arm/ambarella.yaml b/Documentation/devicetree/bindings/arm/ambarella.yaml
+> diff --git a/Documentation/devicetree/bindings/soc/ambarella/ambarella,cv75-sec-scratchpad.yaml b/Documentation/devicetree/bindings/soc/ambarella/ambarella,cv75-sec-scratchpad.yaml
 > new file mode 100644
-> index 000000000000..347148530f80
+> index 000000000000..4bfeca0ac3da
 > --- /dev/null
-> +++ b/Documentation/devicetree/bindings/arm/ambarella.yaml
-> @@ -0,0 +1,23 @@
-> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/arm/ambarella.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Ambarella SoC platforms
-> +
-> +maintainers:
-> +  - Long Zhao <longzhao@ambarella.com>
-> +
-> +properties:
-> +  $nodename:
-> +    const: "/"
-> +
-> +  compatible:
-> +    oneOf:
-> +      - description: Ambarella CV75 EVK board
-> +        items:
-> +          - const: ambarella,cv75-evk
+> +++ b/Documentation/devicetree/bindings/soc/ambarella/ambarella,cv75-sec-scratchpad.yaml
 
-This should be enum, it will grow with other boards, no?
-
-Anyway,
-
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Why do you need separate binding? What is incomplete here that it cannot
+go to syscon.yaml?
 
 Best regards,
 Krzysztof
