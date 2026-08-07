@@ -4,70 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A68FC5AD05
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 22:48:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D32BC5AD2B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 22:48:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gvBLabH+gYeCjXmeaZJWzRhHmO5itOeocUvJaUv2bxI=; b=K5710dUc8kj9dNRCOBogcJE/P2
-	mZOm1gVgWpwn5bwtBjRXcamTCYU8jeyfEq3P3jIYkHklWiJ8C+ibQE1KoPbNZF9wwOwobrtu48Ubg
-	PoAi/c01PCR+x4c6weL92538y+iDmag1XlrhkZtU8f/SlrREtJ5LcVM49VPvZ+9DFuO7L1fkDPUcR
-	b0t3EjZxOS8YR2K20GIEBHRsWm/LNi/76bAlu7/4yBsctYpTGOAqSFTt/KhQMZBsCCJ+F4U37aaSr
-	U1hd93+ervICvuAjorq/bjgl2LOPyyjiGCmxiF5Xoo1P1l6GbezP1vhMmDydBoPSSAbnbmZhDoKfd
-	yvuD2nqg==;
+	bh=e5d/ApPq9zKbEYsjvmT4dzXT3sPT/1q+7IIhU9CC4Ho=; b=XptDJsbjSl5c+E48GT7QAHafuR
+	TFAFm3D4ia+b91ITov8nZ13imowM2nVruulve7bkwcKu10QUS0Ki0OzS7do8vRn8dkhbwsiLQ+p9r
+	ZeWKFhA4XsNvPIhuYx/pflbO6jcRk6RPxYJoMQWTgQv8YL8SeWgvYoslhVCabGkiC/LlZaUO5u/bm
+	RN4Zkt50q3dqlaC6Agrdf8Iif7jae4Yp/BpMGSoi+YJhd4FRfKMN4ZedhCEuI1vPRRQYPMF9cfZvU
+	bewBDOl6Lh/n44/3Y/7IYEPa9+FsgqM/As3+rDCK7OLXQ4kt02OrNMTYs5+6p3Ng5ozRso23km7r1
+	zdYkdgiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsTLw-00000008pVN-2VFI;
-	Fri, 07 Aug 2026 22:47:48 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wsTMJ-00000008pYe-2wQ7;
+	Fri, 07 Aug 2026 22:48:11 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsTLv-00000008pVH-2Wt8
+	id 1wsTMI-00000008pYQ-0Srd
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 22:47:47 +0000
+	Fri, 07 Aug 2026 22:48:10 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B43106001A;
-	Fri,  7 Aug 2026 22:47:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 445701F000E9;
-	Fri,  7 Aug 2026 22:47:46 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7B30B41213;
+	Fri,  7 Aug 2026 22:48:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 661941F000E9;
+	Fri,  7 Aug 2026 22:48:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786142866;
-	bh=gvBLabH+gYeCjXmeaZJWzRhHmO5itOeocUvJaUv2bxI=;
+	s=k20260515; t=1786142889;
+	bh=e5d/ApPq9zKbEYsjvmT4dzXT3sPT/1q+7IIhU9CC4Ho=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=G7n/Obi+qKguJL2eOLzNdgfLdfqf4Z5r6c3RtgIH/ZyzX6gq6OcpfnhKYa2BQseMf
-	 26y5CXyHWj0QoBuMofdXUvZ6YnWPFXGiHeE8aQoRFtSH/vdrHQhxXBl74YvD5W8LTs
-	 sTFZ06J4vMsbS6kZwWhtsSaHeLrOzweQ4SLfb5xsPUbNrKHCUWsh+kdjsHo/3fgt9s
-	 U1QabgrAF5nrwMkRWxt6lJBEAiuXauuzPWozhJUA6usmDuJ4yL4vn/pYLkU3nw8MmC
-	 XMsoNohyJVsdvyJcnHzBG8BpjyFuMBHS0GtY94w5ImpPGDtfA0ffmQyguR0vtw2hoo
-	 vEf+Ka74WBetA==
-Date: Fri, 7 Aug 2026 17:47:45 -0500
-From: Rob Herring <robh@kernel.org>
-To: Peter Griffin <peter.griffin@linaro.org>
-Cc: Robin Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>,
-	"Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Pranjal Shrivastava <praan@google.com>,
-	Daniel Mentz <danielmentz@google.com>,
-	Mostafa Saleh <smostafa@google.com>,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	kernel-team@android.com, tudor.ambarus@linaro.org,
-	andre.draszik@linaro.org, willmcvicker@google.com,
-	jyescas@google.com
-Subject: Re: [PATCH 0/2] Add arm-smmu-v3 support for instcfg data override
- feature
-Message-ID: <20260807224745.GA2180415-robh@kernel.org>
-References: <20260724-arm-smmu-v3-instcfg-override-v1-0-e7acf4a8a525@linaro.org>
- <amYIuhYenP4-qHyV@willie-the-truck>
- <0b7c0272-5506-4aee-82b3-76a78f2b39dc@arm.com>
- <CADrjBPqZFDvyLFpDy1YP9qrMNUCtZYtJhiaDd0iTnmB4ZYO8GQ@mail.gmail.com>
+	b=hWTRQCy6854hksUwK/VkgIwM3NsNKUB/Y+ZrRFbRlL+nZAWlFl17tJfYFsNP649jO
+	 KY5n1rO7h1Sjc/7LFbBXUo+NPh2IdoTkUg44lV39YEr0RDr2NY1T+TKCVlcb4n9BwR
+	 zzbMNr3uc/VhgGQNiTDz4sU61TpCXcnUShnzTvtI2yxx9OhHiKhe8SVPiKbxWKOto6
+	 HbK83zumiS5UlywAgLiVmAylllQU7gbZNFNeuvBzwEdwEU4iGQ0neNVhmbUZl1eOoA
+	 RqG8MOUEdCRHM0lOvDrQ8oUQfwgnCoayylFD08fCs/anXPWypZKnE1ZxM++VZX1ugH
+	 UdvUchmmtB3Aw==
+Date: Fri, 7 Aug 2026 15:48:06 -0700
+From: Josh Poimboeuf <jpoimboe@kernel.org>
+To: sashiko-bot@kernel.org
+Cc: x86@kernel.org, Mark Rutland <mark.rutland@arm.com>, 
+	live-patching@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Miroslav Benes <mbenes@suse.cz>, Petr Mladek <pmladek@suse.com>, 
+	Will Deacon <will@kernel.org>, Song Liu <song@kernel.org>, 
+	Peter Zijlstra <peterz@infradead.org>, Joe Lawrence <joe.lawrence@redhat.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>
+Subject: Re: [PATCH v3 10/21] objtool: Ignore jumps to the end of the
+ function for checksum runs
+Message-ID: <2jmchblm2lryol7crl2n7rv6f5h4ej7hl3cmnixpv7amkuztsn@t4qigaqzvqg6>
+References: <b3b58101e15e1bb5266e57134f0b65f7d8efdd4b.1778642120.git.jpoimboe@kernel.org>
+ <20260514223021.1326AC2BCB3@smtp.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <CADrjBPqZFDvyLFpDy1YP9qrMNUCtZYtJhiaDd0iTnmB4ZYO8GQ@mail.gmail.com>
+In-Reply-To: <20260514223021.1326AC2BCB3@smtp.kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,42 +74,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 07, 2026 at 04:25:11PM +0100, Peter Griffin wrote:
-> Hi Will & Robin,
+On Thu, May 14, 2026 at 10:30:20PM +0000, sashiko-bot@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 1 potential issue(s) to consider:
+> - [Medium] Missing parentheses in the jump destination check causes objtool to silently ignore all missing jump targets when branch validation is disabled, instead of only jumps to the end of the function.
+> --
 > 
-> Thank you both for your review feedback.
+> commit aa068d4053e8b92ff17082c7a023821e72f5d625
+> Author: Josh Poimboeuf <jpoimboe@kernel.org>
 > 
-> On Mon, 27 Jul 2026 at 11:53, Robin Murphy <robin.murphy@arm.com> wrote:
-> >
-> > On 26/07/2026 2:16 pm, Will Deacon wrote:
-> > > On Fri, Jul 24, 2026 at 01:39:41PM +0100, Peter Griffin wrote:
-> > >> These two patches add support for a new "arm,instdata-override" DT property
-> > >> that enables the override of the instruction/data attribute of incoming
-> > >> traffic to Data by setting the INSTCFG override bits.
-> > >>
-> > >> It is intended to be specified when the smmu can't guarantee that these
-> > >> attributes are provided correctly from the client device.
-> > >
-> > > This is going to need an in-tree user and a much more detailed
-> > > description of what is being worked around before we consider this for
-> > > inclusion.
+> objtool: Ignore jumps to the end of the function for checksum runs
 > 
-> Regarding an in-tree user, I haven't sent the Device Tree (DT) patch
-> yet for Laguna SoC which adds the smmu nodes and this property because
-> 1) I want to land the initial SoC/board DT first
-> 2) I want agreement on the DT property name. Currently I used
-> "arm,instdata-override" which is what downstream used. However, since
-> this is intended to work around silicon errata something like
-> "google,lga-instcfg-data-override" might be more appropriate?
+> Sometimes Clang arm64 code jumps to the end of the function for UB.
+> This commit ignores these jumps to the end of the function for
+> checksum runs to avoid errors.
+> 
+> > diff --git a/tools/objtool/check.c b/tools/objtool/check.c
+> > index 10b18cf9c3608..73451aef68029 100644
+> > --- a/tools/objtool/check.c
+> > +++ b/tools/objtool/check.c
+> 
+> [ ... ]
+> 
+> > @@ -1593,10 +1609,14 @@ static int add_jump_destinations(struct objtool_file *file)
+> >  			/*
+> >  			 * GCOV/KCOV dead code can jump to the end of
+> >  			 * the function/section.
+> > +			 *
+> > +			 * Clang on arm64 also does this sometimes for
+> > +			 * undefined behavior.
+> >  			 */
+> > -			if (file->ignore_unreachables && func &&
+> > -			    dest_sec == insn->sec &&
+> > -			    dest_off == func->offset + func->len)
+> > +			if (!validate_branch_enabled() ||
+> > +			    (file->ignore_unreachables && func &&
+> > +			     dest_sec == insn->sec &&
+> > +			     dest_off == func->offset + func->len))
+> >  				continue;
+> 
+> Does this condition silently ignore all missing jump targets when branch
+> validation is disabled?
+> 
+> Because of the || without proper parenthetical grouping around the first
+> two terms, if !validate_branch_enabled() is true (which it is for
+> --checksum or --noinstr runs), the rest of the condition short-circuits.
+> 
+> This appears to cause objtool to skip the error reporting and silently
+> leave the jump destination as NULL for any unresolvable jump in the binary,
+> instead of only those jumping to the end of the function.
+> 
+> Should the logic be grouped to restrict the exception to the end of the
+> function?
+> 
+> 			if ((!validate_branch_enabled() || file->ignore_unreachables) &&
+> 			    func &&
+> 			    dest_sec == insn->sec &&
+> 			    dest_off == func->offset + func->len)
 
-Shrug.
+Yes, we should tighten that up.
 
-Really, this is why we want SoC specific compatibles so work-arounds can 
-be added without DT updates. But we've generally avoided doing that for 
-SMMU for whatever reasons. Just make the property clearly sound like a 
-mistake, not a feature you might want to use. I'd keep the arm prefix 
-just so the next vendor thinks they can't use 'google' and creates the 
-same property with their vendor prefix.
-
-Rob
+-- 
+Josh
 
