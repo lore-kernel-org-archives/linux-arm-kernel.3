@@ -4,107 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B05DC5AC7C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 10:37:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66683C5AC7C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 10:41:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kv5Gw0RyssW0l4PPEmycjQlZWXkmi9/Opd01nGEEwxQ=; b=xRd7s6yex71cRFI2Fp8qqdGDEx
-	vGFV7sO5rbjgE4WdhgBp3fAmr7+xke1V9LNSam7V03vCY6yjPIczAAoDgE1njRlzYHGYU034fSdc9
-	lyvxBnulA2zKVrd+rXZ9dfn0XdSiG+DpZk04hVAkOrQYiKbbDyyC3ditJuI9SiLJohBPl+pcpjDcz
-	aj4zsreJ3ILiNWs+ouEzLQgyFgKrJSxnUONT3ZrAX95DlMvL7vX91hmGcuLgY7U2uotgRWVbSox0v
-	53i+YkUcSe9xod3quoxXlFrqgsf9XM0SuwWDzLG1SLFqLaBcA25icMRAzuDVhicist/zzAZ76uPJy
-	iNkOhvuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=EuxLL5anSxH0ImkGmtlRd/tPm7fjlfNIOn8PqzfUkSE=; b=W0nE/dncB0WCbeVhUDkujHsE0l
+	sEhKSnIHjK2hhdsCKGB2fA1PwtBMmtQoBEmUu09uM5xGfIORqpAghkW6XwpEj9QLtQsgdZb76/O82
+	b11bPY7Spg3YtZyQ3ZjwqbfIT0JgmAGw3bw8dkufHXIAmk+8mOWFzL6ucFRfIvIkq8Js1pUIjwFHw
+	drgN1MwMS4cFnJxZ+7LeuLU0Eo85lWuA0mjD0nbNJCjhlyE/+DDBpffueVeu8lO/fqPJ5dAFeaA3y
+	taoh+XlT8OsXov/zEdrsF02fENNLWiiUd9HYCiOmG/6yLlxz5LHhLEDYo2bRsfG836J7jJYuCLb9W
+	0XFUwrTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsHwf-00000007gYw-1EO1;
-	Fri, 07 Aug 2026 10:36:57 +0000
-Received: from fout-a5-smtp.messagingengine.com ([103.168.172.148])
+	id 1wsI11-00000007hTB-13Kb;
+	Fri, 07 Aug 2026 10:41:27 +0000
+Received: from out-184.mta0.migadu.com ([91.218.175.184])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsHwZ-00000007gWG-2spN
+	id 1wsI0y-00000007hQz-1MSR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 10:36:53 +0000
-Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
-	by mailfout.phl.internal (Postfix) with ESMTP id CE4CDEC0139;
-	Fri,  7 Aug 2026 06:36:47 -0400 (EDT)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-06.internal (MEProxy); Fri, 07 Aug 2026 06:36:47 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ragnatech.se; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1786099007;
-	 x=1786185407; bh=kv5Gw0RyssW0l4PPEmycjQlZWXkmi9/Opd01nGEEwxQ=; b=
-	OOcpDe/t+T6tjrOBLNk2nRrww6MOjJ5bzxqhrh/T11ALQ+jc8Q+n026Z3wwHNxM1
-	JJ6np98IKMWgrsfWw+XDx9iHwNvf4lyZ4hn2zRrqyovCEc4WojZgGwK7lVHOvnCI
-	wRsS1QQvuQl/loEj/LK1sPcAJMwi+x28v1Ox5LMk6qtCRldHxJdA2J740F8wLmPE
-	ZrFdDULdYep6V3wHM42wkD+ygVQp6HxKrrBkF08cgC2IGQB1gxWRdFsaFPuxpJn7
-	JTUniFDd0+YvJBpg9Z/c5tawwWuSVfzo2zf1m1PSIn+ZLaTB7tPvvFvTzXQmfOYJ
-	COiyIOugqfLf8DoN3fyGzw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1786099007; x=
-	1786185407; bh=kv5Gw0RyssW0l4PPEmycjQlZWXkmi9/Opd01nGEEwxQ=; b=C
-	pRsfHIl1DGEjLHCei6Dd8k1QM2hjNsTQln7Bno4sYaIEnIDXjWLLvwdIM5ke/AZO
-	AjLRGbZeJDyq9qbiBqAC9WhX9idVqrTFyLSa2ztIONCdSMDSlgZ9t/l2z3O6ziMZ
-	mW3MasfjOSjYN3Xbc54zVByocBg0V/y8vTSStYeZZ7a5IbBlw21KRE+IX1SRIGWI
-	NFaZMwTEJswuqI/XwVAj0NsvfVcPz0YwStCckQeVRtnaG61FznwKn1lJCq8/z4xH
-	Z2kUi6xOZXHPaQYbHGJduPHfZFdJyLyCRQJi24/B4x8eE9+T8+QQWWL8UmpbMfgo
-	IDYlT1yVxcOzB8ElsBo0w==
-X-ME-Sender: <xms:P7V1ai568EfOt7a-83H6ohJ9I3i3k7_yf9KZSZeemofjjlor31KPBA>
-    <xme:P7V1asXMO2meg7UQfZvozI5dyLKqMFtU1Nmqt480TlRQ9xN0QDLXr3Jjg5MXCv83R
-    7nLZfO8rEG72OaxQnTPLn4_o8iVM9dOW8Tz0U5NCdfWSAGnaUV2qfw5>
-X-ME-Received: <xmr:P7V1ahOe7oQrAJGi3U_KhJt3SFrH2dqJ7wyqhgMPOBGFkzRQ4pPx41s1A9d7baQUKeI3pRBRXmbW0aLr2OI_Cp-0b0UuBaU>
-X-ME-Proxy-Cause: dmFkZTFci/dH1JCbv9AfP7TRe8QxwtPwefa5BCWgd28SMx0En1COK20QOjwoQor74t1EWW
-    gwnGVqCL5CcS7Zumte3pJlJZCxJBIeJPZVwVrDZwe0sDMm+NxFy7v1h6s991Mrw+2wRBXy
-    a9Gu/0+N+OeW3YPUkzWhivgDddkA5XFZzoClYart8KLaecRTt9l9eCUPYrmQI4w9Rc6PqU
-    OHdXT/nxP3tNMNlsaOFmYyNWVBHJhndqR6/uoCIkW8z+F/IRA2t1G1T0eMyyelowla3OC5
-    X7z9/PpfkB9TbbW/Olq+BktktK8FmFeM+2Usbz3WmpL1dGGvMnyLd7GftWE8t7kk53PcbL
-    /gSw8GmujsNceOZQws4jsjTQ4t9rZ7Wq9lJVU4KLGNQsOYkgQ0kT8EqcsbbR1NDvJXffyY
-    rpO6BemIwmZY4HgB4qb9EQm0Spk1cgxRGUSMIiVc/rpZmuIKTewL+Qhtb4J5FTZzYmEuvH
-    BBBe/tCNedffPYKMfC9Y1EmkYIIc5aHarLf6+YkI75sRXMhbj/4bSpN9me+NcqqUmhGWdd
-    BxkXxgUwvugxF5CMW7yhNTNic3eeg1THsvTcvxvvR/MX52ienZ7jZ0WsxfNx5qY4wAmW1U
-    +dbDPNA0bADX2SqlwuZ2iqtPhzW/SK1LIwVxmlqcLxqpgCzW1volA0owotgg
-X-ME-Proxy: <xmx:P7V1argvtIXsd8r-Pq3JhjETKsnxZmZhTMwJHmapF3ywKdr6v5-mEQ>
-    <xmx:P7V1av6r4nhDCoLl1G2QBqMmFfuOxrUDUvmROePkXX8_bPkl0_OKpw>
-    <xmx:P7V1aqfO5KRUbP8S-AKbDI52mwLT32-7hBbiMyf9sZsdfCRREnRQrg>
-    <xmx:P7V1agCPWy9raK0hQbBufAR3RBHTpAg87TxcV7EdY7DdyiX9tvWbCg>
-    <xmx:P7V1ahtue3FFqClKrDJF26gWePhBZhspkMOkY9BNSWtXmob_k40BwWfn>
-Feedback-ID: i80c9496c:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
- 7 Aug 2026 06:36:46 -0400 (EDT)
-Date: Fri, 7 Aug 2026 12:36:45 +0200
-From: Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>
-To: Bui Duc Phuc <phucduc.bui@gmail.com>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
-	Markus Mayer <mmayer@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	rafael@kernel.org, Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>, linux-pm@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 1/2] thermal/drivers/rcar_gen3: Handle -ENXIO from
- optional IRQ lookup
-Message-ID: <20260807103645.GE1316230@ragnatech.se>
-References: <20260807093058.42840-1-phucduc.bui@gmail.com>
- <CAMuHMdWJ3W2JKmxaKaa-A-Zk633cf4UwbESi+F1_h4tX1AhRng@mail.gmail.com>
- <CAABR9nF7sAT4C+W_qE8GVKhrtTjdm=DcpJH548RzFaYLuED+3A@mail.gmail.com>
+	Fri, 07 Aug 2026 10:41:26 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1786099279;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=EuxLL5anSxH0ImkGmtlRd/tPm7fjlfNIOn8PqzfUkSE=;
+	b=hfyUC4DTnMqdKE6bKBikrIsAS8bO140kIo7H8WY4M6xfeOHd/+8S+/y39XXrrCyg69PpQ4
+	NOt/PJKlUyuGSLEv1LHrDS5zTZDzsgn5Lz7CO2JIDuMxLVlpQ4J+ltOq8u+8iUeZbIK1X1
+	4JZdLtzlnabW4+3v0hyUwgHgcbPgR2c=
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Will Deacon <will@kernel.org>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Sebastian Ene <sebastianene@google.com>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 0/4] KVM: arm64: vgic: Fixes for ITS table save and init retry
+Date: Fri,  7 Aug 2026 11:40:58 +0100
+Message-Id: <20260807104102.2410744-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAABR9nF7sAT4C+W_qE8GVKhrtTjdm=DcpJH548RzFaYLuED+3A@mail.gmail.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_033652_174893_BB74B0FB 
-X-CRM114-Status: GOOD (  21.30  )
+X-CRM114-CacheID: sfid-20260807_034124_502659_B28C0927 
+X-CRM114-Status: GOOD (  14.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,45 +73,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-08-07 17:11:44 +0700, Bui Duc Phuc wrote:
-> Hi Geert,
-> 
-> Thank you for your feedback.
-> 
-> > >                 irq = platform_get_irq_optional(pdev, i);
-> > > -               if (irq < 0)
-> > > +               if (irq < 0 && irq != -ENXIO)
-> > >                         return irq;
-> > >
-> >
-> > So the code may continue using -ENXIO as an interrupt number (and fail)?
-> >
-> 
-> Yes, you are right. We should probably handle it similarly to:
-> https://elixir.bootlin.com/linux/v7.2-rc6/source/drivers/thermal/renesas/rcar_thermal.c#L422
-> and only assign the IRQ when the return value is positive:
-> if (ret > 0)
->    irq = ret;
-> 
-> > Why is this change needed at all?
-> > The caller of rcar_gen3_thermal_request_irqs() knows how to handle
-> > failures, as IRQs are optional.
-> >
-> 
-> Regarding the caller, I only found rcar_gen3_thermal_request_irqs()
-> being called here:
-> https://elixir.bootlin.com/linux/v7.2-rc6/source/drivers/thermal/renesas/rcar_gen3_thermal.c#L530
-> It does not appear to handle the error return there, so I don't think
-> the caller currently handles these failures explicitly.
+Hi folks,
 
-Yes it does. If it can't get the optional interrupts the driver does not 
-support setting trip-points in hardware. No?
+Respinning today since I am travelling until the 17th and will be slow to
+reply.
 
-> 
-> Best regards,
-> Phuc
+Changes since v1 [1]:
+  - Patch 3: check the collection ID with vgic_its_check_id() instead of
+    bounding the walk by the table size, so a collection the table cannot
+    address is not saved either. Retitled to match. (sashiko)
+  - New patch 4: skip the ITEs that are saved as invalid when computing an
+    ITE's next-event offset. (Oliver)
 
+Three unrelated vgic fixes, and one follow-up to the first of them.
+
+The first is the one that matters the most. A guest that issues MAPD,
+MAPTI and then MAPC(V=0) leaves an ITE mapped with no collection, and
+the next KVM_DEV_ARM_ITS_SAVE_TABLES from the VMM oopses the host. That
+is three ITS commands and an ordinary migration save, with no race and
+no allocation failure.
+
+The other two are weaker and come after it. The init fix stops the SPI
+array leaking when userspace retries KVM_DEV_ARM_VGIC_CTRL_INIT after a
+failure. The collection table fix stops the save writing past the end of
+the table, and stops it saving a collection the destination will reject.
+
+Patch 4 is not a fix. It makes the restore scan skip the invalid entries
+patch 1 writes instead of stepping through them one at a time.
+
+Patch 1 is unchanged. Oliver also suggested deleting the ITEs when their
+collection goes away, but I do not think it removes the need for the
+check here: vgic_its_free_collection_list() reaches the same state with
+the ITTs intact, and that path is not UNPREDICTABLE.
+
+Patches 1 and 3 are reproduced, each with a selftest that fails on an
+unfixed kernel and passes on a fixed one. Those are not part of this
+series, happy to post them separately if they are worth having.
+
+Based on Linux 7.2-rc6 (075b74841bd00).
+
+Cheers,
+/fuad
+
+[1] https://lore.kernel.org/all/20260805093828.3626610-1-fuad.tabba@linux.dev/
+
+Fuad Tabba (4):
+  KVM: arm64: vgic-its: Don't dereference a NULL collection on ITT save
+  KVM: arm64: vgic: Don't leak the SPI array when init is retried
+  KVM: arm64: vgic-its: Don't save collections the table cannot hold
+  KVM: arm64: vgic-its: Point saved ITEs at the next valid entry
+
+ arch/arm64/kvm/vgic/vgic-init.c |  3 +++
+ arch/arm64/kvm/vgic/vgic-its.c  | 26 +++++++++++++++++++-------
+ 2 files changed, 22 insertions(+), 7 deletions(-)
+
+
+base-commit: 075b74841bd0065a3bda3440873c747938e69b68
 -- 
-Kind Regards,
-Niklas Söderlund
+2.39.5
+
 
