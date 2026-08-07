@@ -4,128 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89455C5AC7A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 18:22:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60180C2A09B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 18:27:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DFiX/7Q48wo6L4d7tIX2yPIwJYCBwS0h6wyv/X0iH4c=; b=eH/zsYh2X4Pr7oaixuOjRxGSfz
-	/Y8c/zLnWpX+bMHzI4KJOuWwGRSD4yPQJD2NUWBRy+Uo+zWRs+ttxRAdzD6gnCa5qS2S2t3KWAfkU
-	cXyd/ii2vnGse4hvi20C8x/6or/K/gVRgP6PkbxBXtScrifuoAc6hX162LMMBuh6cpi6Qc5hmQ92y
-	Pnh4jIF62FybisYxMLQhiPBYeyNa7fffumanartGU8yUDU2Cj2UDCE8VXRiMvZ9ADGxeMN+fZia10
-	/+KDkZRhVC22ZVY1F94/S9IfPE333Fn1JP0Rsv03nqzN9Fuv4EBg3vUY29ByjnJ3dSd+i22lHd7kD
-	WBD2WDOQ==;
+	bh=orOcx+0zIDpiRcc2SkmZHxzgzqfO3PwPkgxvWwLlRMg=; b=D1fnRq/snzC+vw7+Y2HOaLaE9t
+	ejkVeL50b13tSzkn51FKSIERIL5YcaBsIUp4dwhkV9pJcsLF+oMgllj/Nu9kSia6LpUTDys+j6z33
+	gx1gbquGp3eQOrfL+PXUgMyE32nxaq1jqZOnQtMo5SIPI893TOKaU0GT77KGTjDrvS8AaqR45/Ouv
+	MsyxedT/7q5REcw1IJ78igYqJm1P3f0DaJuExNYUSu1WwQjT0IFphhjOWAwPlNAd3Gx8n/w0PqqEQ
+	aZUwMFopybJMgryj1yvLUivR9SQbiG62nyD/xMMVToVbKB2mgZZrFu2ob2pHOWliURaexLkoE4q2b
+	UhX3Dvww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsPCb-00000008b6T-0hC8;
-	Fri, 07 Aug 2026 18:21:53 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wsPHu-00000008bgG-3F2m;
+	Fri, 07 Aug 2026 18:27:22 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsPCZ-00000008b5z-0kgZ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 07 Aug 2026 18:21:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=DFiX/7Q48wo6L4d7tIX2yPIwJYCBwS0h6wyv/X0iH4c=; b=NGMVp6MCG5S1LB6PfJmHYnczct
-	Tt/xp76vN0unwplG4XWl5jwNqqXoXLeikJdrHTUcoCSryOMJDM2GfWj6kw/0tlDB0sndgXR141Qvo
-	GRH7gCFj//55dPYhI2dwZR9if7rbGncK7m33RSlvFm66VtXRLFfgL1P+uqBT4wasoWJWyg2q1WFya
-	hV/wOZOyzr00PXcf3tmcwZFmLhZTABRqYjkJHVfRD/3qMu1ZDCmaiKJFiJ3Hl/TILeeooEdKoc7cm
-	VUo8IJ5uTaNZ+bMFX2TfSm6MZie4Eddtc7CRx/xlQClRpuqw4dtXrfGYvDYV3yKnZhW/it1qqfGQC
-	cWP6mNHA==;
-Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wsPCW-0000000Caj2-0DWZ
+	id 1wsPHs-00000008bfW-17Yh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 18:21:50 +0000
-Received: by mail-qt1-x82e.google.com with SMTP id d75a77b69052e-51c10ed63c0so29421cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Aug 2026 11:21:45 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1786126904; cv=none;
-        d=google.com; s=arc-20260327;
-        b=ET2is3WBwHGrbWreD3CbpGRWD/cyQLqUzOTwZTxs7Kor77yPbPzjQYc/huLMOX+3Kb
-         AoVM9HOT9q+38ITKBmJjXOB/4Bs+rzjzVZ1avPICDCcP95JqZg8MpuIpoLc4xjUq3v44
-         XW1xG0PnunPsi4M9avzOSw7P/VHXW0PFpJ+dnbi5Kr7ujsP3yMlq6stP2Y2ViMwLUup1
-         YqyvidKPsxIWfXTwy5ums4ae23zqF/zwOyXu1k2Ez2hZNpJvbyVVkyhPtHSSBAVVhxwy
-         ius6Qmqi78sR97aJda+PG2MXayN0J86Y3RndZdFshGHIXMTlD3Sx75A/Wh2M5WVLMnxK
-         QocA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=DFiX/7Q48wo6L4d7tIX2yPIwJYCBwS0h6wyv/X0iH4c=;
-        fh=hT8kIQZaAgOkN8kH5DNDBYFmQLjIgN4/GMNZsPtlI8g=;
-        b=l3+CFvMcbDizo/QDoUOD+/zCzlfir+N9axx2jXMPL3xIB3zcuTHICsdVRRfDtzcKjL
-         uB29x9vFeJoqBYiFstdQY8ouzIyIBZTimoeQ0tuZOPEzPHUcIjiGpjaOM0K/w6AnomRl
-         aQypyXk88M4ZMun89NGZNvBCfhJamNTukx3gdMkb8Rl8d+DwpOFbW1Wv9HB6f1o+u3qz
-         IDt2kBC3l0Z6uqmGa5qNnBYSTe+2QsTwNdSmSV+jDaoJimAZspdd8OlaJW/AUHJSnoI7
-         eoNZ4KJYRAHg3Tp+oR7qYZ4AFIgtG7ETNNAogUShXJ1xhMC31B/HAnGepUQNSnm7eoE1
-         3KZQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Fri, 07 Aug 2026 18:27:21 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-47fe2d179e2so2388681f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Aug 2026 11:27:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1786126904; x=1786731704; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=DFiX/7Q48wo6L4d7tIX2yPIwJYCBwS0h6wyv/X0iH4c=;
-        b=hZs8+M1BNYpnj5QeHXKw3rbJo8wMeoxbYfbGVmouThXlX+8JIEY3pF+vQr7b7ZNSJX
-         58HS4KnYYFKSunETf/QGCCDpyX6wWIDC4PALWm4lg9+rE3CsrvHRpB4cEN9SI6os7Hwt
-         Kw7+oiFecChErxrrPLB//8VCiq11tdKghPkcieLA8k3xwKmQYNvEuLLusf6OvV1hgcSc
-         9OlZaMhDX0Bk0V5MsxR2g61IXc91C1k+YtLP3xm1IctapQVRqYveWDj9uiqPcUTJlzRr
-         J3GrhxAa3hWyU0+ZxhlaOUgEUDd4B6dlxuesEm5nYF9KSZppcY8S4tH6Pw/tAxpE0J8z
-         UgwA==
+        d=gmail.com; s=20251104; t=1786127238; x=1786732038; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=orOcx+0zIDpiRcc2SkmZHxzgzqfO3PwPkgxvWwLlRMg=;
+        b=j2nem/bmOrLCEYPGzh5mVqWr7mnpxZxCb1yjLc1v/HBuZIjMMEGytN9MsmSkWBaD2Y
+         5yE3AZJFJK6Pr1JEGcLcg6pX6x/bAre1/BBW4tJwVuRODZ64JZ3gq91j5Uhm+38P3f03
+         y3s5zCZ1aXprmFq2KOxi3DLH3AbPA6aTtj0kZERqkM2v7qMTSPd7JhTkr5DR7kwFsSqQ
+         TONJ9AG218GmF1SbWerp1qBnxU8bZR7enYpd7tpKEbbzCPcMrMuGAznJjEfCsujUa0em
+         xu2e7PB0zhcZu0mIH7IeEel960wPBNsQDmaBNTHxzDaIiJmFDa9o7qdNBG4XefRSqud6
+         V0qw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786126904; x=1786731704;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=DFiX/7Q48wo6L4d7tIX2yPIwJYCBwS0h6wyv/X0iH4c=;
-        b=V6j/th7bx4zVJG1RizeV0icpFEdqmpbsSVYJqQyGR58lI1AaNOUH3c5T85X+cOYkcX
-         FZYBoxRkXt6C4uS2PqqR5yM83S2BueVLhcBIlu5Tkn/9kZsRG3uwWID4Jjtgm+2ea7FS
-         UuffpBUsdk8FfE+oS/bthFFo+nYWDzSbjG1PlofJmPgcwnkOirk92Ko5mCWm+NuL4Tsc
-         tWN9Qpyo+ofIwaeM1SBjbyD/c2VmLTcvSKue8Nd8T4KstNUhW3YYbpFEhdhVr0ifOM9h
-         /D2lJJo0weZLWeg/X7fmdZuzVa2VJBt4JUENAVPjbccwz/Cl9kW0PglHRRm0GGDW4kBz
-         g4PA==
-X-Forwarded-Encrypted: i=1; AHgh+RpFc5MH0ZofziX/WzYLDrMaTVn6Mx89nVYdLOcQeapT59mz7CjSWd+FhOorhgre8sBqxEIR+2Wd3fecDxUjFJJA@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx5ybSCGXBdYdZ7yPG870nvk7AMe535ly/Ucg5N0BJkXYjHDkxc
-	/HQyWl2J/iY1z7RfR4Oqwyx/AqsLqWqn9cIEmOTyqevnp9Ev5+EHtBtpiFGi2F7z7wmvzvKBQuk
-	bdEGXS/ubwWJB5Yjc+99RjzLNAL2FaA2VfCWkWzoX
-X-Gm-Gg: AR+sD10ITMZmNLblzPKbTl5D5D83fxrJp6fzj3ufbrqlk4zoD/3KUdixmD6LVYGIU3W
-	K/8ya0GeoDuM5coAkSsHWCNB9pZwtt3DGks07M4Ey5dl5hbbUCMc867MpoShgDJZdAw4NFa+afq
-	C/K5Lz0WECDIHVjVLKT6K3dggrmLCxmd33SgSSVcPynJF6UHhnMqPtuyfK+t810/GbJtqmr0v8l
-	rKc3vuSalGzO/r1iZuaiDqWq3o5g48BpUM2M+5z+bw7a6+4AML7Vd1cozg69roOesJLEQGpBU73
-	93CFmHFu5Xi1SPtcEzE/oP6yfPS0p4nYbZ7rjqbmaw==
-X-Received: by 2002:a05:622a:1b90:b0:50f:b69a:f4a8 with SMTP id
- d75a77b69052e-52d23e4c482mr1477201cf.7.1786126903631; Fri, 07 Aug 2026
- 11:21:43 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1786127238; x=1786732038;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=orOcx+0zIDpiRcc2SkmZHxzgzqfO3PwPkgxvWwLlRMg=;
+        b=Ug/2vAMzSDMP+6Ya+oB9W2RiBr3EcI3E16rQtTn+yDPVzCCBXCl3kheeVuGBuFuE/x
+         Q8gVyzvZu9pqZ0xAHkxXMHfPrCYXRX0MimIwPVPJnennU094/eFJLHKKSNHCa0YKDgsK
+         6ry87hhUeG1GqU5sq5Yq3AhgYIUazblskOBR5vAknRXa9dceIjgr6XmauVLiyB7WBSMs
+         mfDA7WCjNKNmuAFe2hIztLg8rHpz8pQ3VU4w76qzFtIjpfuwMvUEEVJxH/ddVzSt+Mbv
+         h6Y3ilfXPAGwOZ5TjZ1TDCq28rDONGTsoQFkck1eMDejP/ZPy9p3EhpU8L1vExBFr6wK
+         JgOw==
+X-Forwarded-Encrypted: i=1; AHgh+Rpn/jYvVlruzz7huVo/ZcEM3u65IdcDYWa2RZGXSrTUTsGBQ6DiFSkok1/96isvrGqLAJWJ91aoJqgW9hnhTONT@lists.infradead.org
+X-Gm-Message-State: AOJu0YwbyUbhJY6wQXPcH6hG6F3jvFfu1jWRz6IoI/DfGCWFiZeQaImA
+	SmDoYXL/vYkcGkveyZpJXD8/gMdPZgclozNTPYrmZsFVW+rWk3glywpI
+X-Gm-Gg: AR+sD13vyvH/4HIO5N91DuxPRIFFsmzkh/Mw7KcroKPMcg/zcmed7Z6Xrb9qjYBrRKC
+	mbCCHynwlFa48Js2y+oQg4R3SwTR+ZV9Om0J2Hfxx4rpD2f3R0PRxM9EvtLuZOSayJE1D4bdNN6
+	6UZn+uRTMT2PBj5wp4TNzcZ0fHnBavMGlQ042Ju3s6G5xeaGOhzPBxY1EOYSUFIhb12TYA7Ks9r
+	kaZ8oCc9rEYwFpLDLVHckKIOZWwH2KA+NzdpdVo3YRtoxIZRdoMkv05xdFANg7K2xt6LntMOP6J
+	BoS1UX+MjYs6Erii0YYNMVAJWCk+h8Gd1yRtCoFbWdKmyQqAIxkr0N3ZlCw+6KwckTRMGXl1v66
+	yfr0buLs9cGPOuIVDQQZeaoVJzoXDI5ZowpgSlWW703+uebXuO9ad4BcSoB4HNi6+VhbDBbUSOy
+	R2bZizhxpz0WtrfCyBtKKEh94v5yg/PMx/cBuQz3atyUbioYHIK0071WAurv3eb19RK6OgTzX/9
+	t3ZYqAERwjbRgWZdGl6LQRkoWGuwzBubackwdfGRhQ32Iqz2uYEVinMra0POtDJtUtC/JfDvE/A
+X-Received: by 2002:a05:6000:29d8:b0:47f:95e8:2ebf with SMTP id ffacd0b85a97d-47fec51b693mr28900997f8f.12.1786127237757;
+        Fri, 07 Aug 2026 11:27:17 -0700 (PDT)
+Received: from localhost.localdomain ([176.222.12.34])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-480021e7b3fsm8543886f8f.20.2026.08.07.11.27.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 07 Aug 2026 11:27:17 -0700 (PDT)
+From: Georgi Valkov <gvalkov@gmail.com>
+To: briannorris@chromium.org,
+	andrew@lunn.ch,
+	chunfan.chen@gmail.com
+Cc: francesco@dolcini.it,
+	johannes.berg@intel.com,
+	kees@kernel.org,
+	miriam.rachel.korenblit@intel.com,
+	wenst@chromium.org,
+	rafael.beims@toradex.com,
+	avraham.stern@intel.com,
+	peddolla.reddy@oss.qualcomm.com,
+	error27@gmail.com,
+	s.kerkmann@pengutronix.de,
+	gregory.clement@bootlin.com,
+	sebastian.hesselbarth@gmail.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	stable@vger.kernel.org,
+	gvalkov@gmail.com
+Subject: [PATCH v3 1/2] wifi: mwifiex: ignore ROM regulatory hint on WRT3200ACM/WRT32x
+Date: Fri,  7 Aug 2026 21:21:23 +0300
+Message-ID: <20260807182124.41572-1-gvalkov@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <anWWr80yAcOQaVVS@nxpwireless-Inspiron-14-Plus-7440>
+References: <anWWr80yAcOQaVVS@nxpwireless-Inspiron-14-Plus-7440>
 MIME-Version: 1.0
-References: <20260724-arm-smmu-v3-instcfg-override-v1-0-e7acf4a8a525@linaro.org>
- <amYIuhYenP4-qHyV@willie-the-truck> <0b7c0272-5506-4aee-82b3-76a78f2b39dc@arm.com>
- <CADrjBPqZFDvyLFpDy1YP9qrMNUCtZYtJhiaDd0iTnmB4ZYO8GQ@mail.gmail.com>
-In-Reply-To: <CADrjBPqZFDvyLFpDy1YP9qrMNUCtZYtJhiaDd0iTnmB4ZYO8GQ@mail.gmail.com>
-From: Daniel Mentz <danielmentz@google.com>
-Date: Fri, 7 Aug 2026 11:21:32 -0700
-X-Gm-Features: AUfX_mwDnipayqqhz_vuvH-F5cw1FS42rqk5A6i8RcOd5oIHDgvQ1fDjMyBedVI
-Message-ID: <CAE2F3rAHM2oTVM03ud0SQH2mjVXGU7Ns3gfc_YT4sTomNLjb_w@mail.gmail.com>
-Subject: Re: [PATCH 0/2] Add arm-smmu-v3 support for instcfg data override feature
-To: Peter Griffin <peter.griffin@linaro.org>
-Cc: Robin Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>, 
-	"Joerg Roedel (AMD)" <joro@8bytes.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Pranjal Shrivastava <praan@google.com>, Mostafa Saleh <smostafa@google.com>, 
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	kernel-team@android.com, tudor.ambarus@linaro.org, andre.draszik@linaro.org, 
-	willmcvicker@google.com, jyescas@google.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_192148_579036_8DF11297 
-X-CRM114-Status: GOOD (  34.71  )
+X-CRM114-CacheID: sfid-20260807_112720_321291_8B3EFAF8 
+X-CRM114-Status: GOOD (  17.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,81 +120,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 7, 2026 at 8:25=E2=80=AFAM Peter Griffin <peter.griffin@linaro.=
-org> wrote:
->
-> Hi Will & Robin,
->
-> Thank you both for your review feedback.
->
-> On Mon, 27 Jul 2026 at 11:53, Robin Murphy <robin.murphy@arm.com> wrote:
-> >
-> > On 26/07/2026 2:16 pm, Will Deacon wrote:
-> > > On Fri, Jul 24, 2026 at 01:39:41PM +0100, Peter Griffin wrote:
-> > >> These two patches add support for a new "arm,instdata-override" DT p=
-roperty
-> > >> that enables the override of the instruction/data attribute of incom=
-ing
-> > >> traffic to Data by setting the INSTCFG override bits.
-> > >>
-> > >> It is intended to be specified when the smmu can't guarantee that th=
-ese
-> > >> attributes are provided correctly from the client device.
-> > >
-> > > This is going to need an in-tree user and a much more detailed
-> > > description of what is being worked around before we consider this fo=
-r
-> > > inclusion.
->
-> Regarding an in-tree user, I haven't sent the Device Tree (DT) patch
-> yet for Laguna SoC which adds the smmu nodes and this property because
-> 1) I want to land the initial SoC/board DT first
-> 2) I want agreement on the DT property name. Currently I used
-> "arm,instdata-override" which is what downstream used. However, since
-> this is intended to work around silicon errata something like
-> "google,lga-instcfg-data-override" might be more appropriate?
->
-> For Laguna SoC the first in-tree user of this is the amb_smmu smmu
-> instance which is used by the Synopsis dwc3 IP. The Laguna dwc3 glue
-> driver is already upstream at drivers/usb/dwc3/dwc3-google.c
->
-> > >
-> > > In particular, if a particular client is emitting data reads as
-> > > instructions, then a better work around would be to avoid mapping its
-> > > domains using IOMMU_NOEXEC. But I can't tell what's going on from the
-> > > limited description provided here.
-> >
-> > Unless it's also emitting the privileged bit and thus falling foul of
-> > the implicit Unpriv-W -> Priv-XN rule, but then we also have the means
-> > to deal with devices which actually do that themselves (hello pl330...)=
-,
-> > so that would seemingly only leave the case of some innocent piece of
-> > AMBA-interfaced IP which doesn't expect to need special attributes, but
-> > the system integrator has gone out of their way to tie the AxPROT bits
-> > to some wacky value, which I would put in "erratum workaround" territor=
-y.
-> >
->
-> You're correct Robin. It is an erratum workaround for the Laguna SoC
-> due to some custom usage of the AxPROT bits which differs from the
-> standard ARM SMMU handling for Privileged/Unprivileged and
-> Instruction/Data transaction attributes. The effect is all
-> transactions appear to the SMMU as "Privileged Instruction" accesses.
-> The software workaround in this series enables the SMMU's INSTCFG
-> override feature to ignore the incoming value and treat all SMMU
-> transactions as "Data".
+WRT3200ACM and WRT32x routers always report a fixed US regulatory domain
+from the mwifiex ROM, which conflicts with the platform regulatory
+configuration on units sold outside the US market. For example:
+- phy0 mwlwifi 5 GHz, hard-coded region 98 EU mapped to FR
+- phy1 mwlwifi 2.4 GHz, hard-coded region 98 EU mapped to FR
+- phy2 mwifiex 2.4 and 5 GHz, hard-coded region US
 
-Due to the specific integration of the MMU-700 in this system,
-AxPROT[2] is always 1 on all TBU subordinate interfaces, regardless of
-whether the transaction is an instruction or data transaction.
-Consequently, client devices have no control over AxPROT[2] on the
-input side of SMMU. AxPROT[0] (privileged vs. unprivileged) remains
-unaffected. As Robin suggested, the override is required to avoid
-inadvertently triggering F_PERMISSION faults due to the VMSAv8-64
-requirement that EL0-writable regions are treated as Privileged
-Execute-Never (PXN)
+When the system boots, it detects a conflict between the user selected
+region and the radios, e.g. BG FR US, and applies extreme restrictions,
+preventing use of 5 GHz and DFS channels. This also affects phy0.
 
-Drivers are already avoiding IOMMU_NOEXEC. I prefer handling this via
-the SMMU configuration rather than patching individual client drivers,
-as this is an integration issue, not a client device issue.
+Implement a device-tree flag, which allows affected platforms to ignore
+an incorrect regulatory hint in the ROM, so userspace can set the correct
+platform regulatory domain. The radios in WRT3200ACM/WRT32x are locked to
+the hard-coded configuration for which they are certified, so the only
+impact is that the region conflict is avoided and the 5 GHz radios can
+be used.
+
+The change affects only platforms which explicitly define this flag, and
+helps overcome the incorrect behaviour of proprietary radio firmware.
+
+[1] https://github.com/kaloz/mwlwifi/issues/173#issuecomment-307879699
+[2] https://github.com/openwrt/openwrt/issues/9956
+
+Tested-on: WRT3200ACM, OpenWrt
+Cc: stable@vger.kernel.org
+Signed-off-by: Georgi Valkov <gvalkov@gmail.com>
+---
+Hi Jeff,
+I did not consider the idea suggested by openwrt-ai, because I do not
+understand it and I do not know how to implement it.
+Any help is welcome!
+
+v3:
+I implemented and tested a better approach with no board specific code:
+1. check for a device-tree flag in mwifiex_register_cfg80211in()
+  !of_property_read_bool(of_root, "marvell,ignore-regulatory-hint")
+2. add this flag to the root device tree of each affected board
+Currently this affects only armada-385-linksys-rango.dts,
+because Linux has no dts for venom. OpenWrt will take care of that.
+This approach is more flexible and scalable, because the flag can
+also be used in other drivers, e.g. mwlwifi (not part of Linux).
+
+v2:
+Replace the compatible device names, which are currently only available on
+OpenWrt with board names which are available on both Linux and OpenWrt.
+
+ drivers/net/wireless/marvell/mwifiex/cfg80211.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/drivers/net/wireless/marvell/mwifiex/cfg80211.c b/drivers/net/wireless/marvell/mwifiex/cfg80211.c
+index abc703441c5d..0239b1c9214b 100644
+--- a/drivers/net/wireless/marvell/mwifiex/cfg80211.c
++++ b/drivers/net/wireless/marvell/mwifiex/cfg80211.c
+@@ -4899,7 +4899,14 @@ int mwifiex_register_cfg80211(struct mwifiex_adapter *adapter)
+ 				country_code =
+ 					mwifiex_11d_code_2_region(
+ 						adapter->region_code);
++
++				/* Allow platforms to ignore an incorrect
++				 * regulatory hint from ROM, so userspace
++				 * can set the correct regulatory domain.
++				 */
+ 				if (country_code &&
++				    !of_property_read_bool(of_root,
++							   "marvell,ignore-regulatory-hint") &&
+ 				    regulatory_hint(wiphy, country_code))
+ 					mwifiex_dbg(priv->adapter, ERROR,
+ 						    "regulatory_hint() failed\n");
+-- 
+2.55.0
+
 
