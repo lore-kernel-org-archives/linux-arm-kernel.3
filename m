@@ -4,72 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BFD9C5AC82
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 06:02:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5054C2A09B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 06:03:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=F5wfVPe4pHkiV+3qFX90kAEBpHZcNk0vzhENmzK7Lq8=; b=ruHhdY82ETdiTnBwobARqocBFK
-	zlxPhg2reHmBaBKg51ksbOt2ry7dt7bzb/CRlICLKb6CpSMhnKkzDViBFm0PmJI4nvImPusUL2zlp
-	udqzkrYNVF1IWwEd6oQermxhTzk3jw5sPYHxuWHOyKLvWvc4HD6Szh1wPILRYYjqxc38XmPeD9AJS
-	EQO6Qusu5M/MT59SlU9UL9QbpGqQSu+P+ojgF0eQtM5VvcYCBTzrzhQ42/l2z3eGFpsPYoG1/55Wq
-	qKw90I/M+iZo1zxQ4i95JyWRtgF2P9OmtpBzUJk01bVzqyyQ0sQZ0m5H/uJc3UtaE2gmRhDOipeSi
-	SaGpQM0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jN7NwkzTocd2FlSwa1R0rfmLdiaXf+uOPMz4D3ztXas=; b=LK12hJutETuM0Wkn1lCgnlfdiF
+	1ak4ihJ3TsC6HM8VQy/F1oUqApjrpLS5JN7sYgqwPMJhFb8ijENRunjMRMzPsNLVs/X1ajr4qxtbQ
+	/iBsID+8VhJPvO6QEKdTdXU0QhBKhsu8lge28hZ0XMyd4fxYl/1TlmxQEev9B28tDkn3YYetsr84+
+	Ah6BS3gPgEaZBF2uYbDGCCMJ9E+zRiMPWBwHIvKZ0Ab10iOXtjfsvcXTxwtT5gQz5VKXGJHX7RaT/
+	C4o5TGfz1M18lsb9unGR4khTWa67NpGj+nDGV5+jRSJyyHLUl0qOOlY+CW4iNZVS3bu95Imw4dIMn
+	xVjh1sTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsDer-000000078oy-4C5a;
-	Fri, 07 Aug 2026 06:02:18 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1wsDfS-000000078vd-0UUf;
+	Fri, 07 Aug 2026 06:02:54 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsDeo-000000078nx-1lek
+	id 1wsDfQ-000000078vQ-2GZY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 06:02:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1786082532;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=F5wfVPe4pHkiV+3qFX90kAEBpHZcNk0vzhENmzK7Lq8=;
-	b=OxTNOA0yp2y8k/X9POTxFvGYddYXxzwwYAA7iELsUPvU8eo+J5ON7EDtVavTbQLr1Sf84x
-	lJHhIEAFrOI0k+J+JmKqektmPKuAdyZoq1U991fi8qrvGponOMt4RlSg2TxT1+ydosnXGj
-	pnxIIy/ymMjNLamNrZjKu2ZlTWUZG6E=
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-623-MOAQU8-vMyqKsvd5IbYs8A-1; Fri,
- 07 Aug 2026 02:02:08 -0400
-X-MC-Unique: MOAQU8-vMyqKsvd5IbYs8A-1
-X-Mimecast-MFC-AGG-ID: MOAQU8-vMyqKsvd5IbYs8A_1786082527
-Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id DE02B1800614;
-	Fri,  7 Aug 2026 06:02:06 +0000 (UTC)
-Received: from [172.20.35.218] (unknown [10.30.44.80])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 3CA551956094;
-	Fri,  7 Aug 2026 06:02:05 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4pyF?= PASS (MISSED 51 of 56): Test report for for-kernelci
- (7.2.0-rc6, upstream-arm-next, db788396)
-Date: Fri, 07 Aug 2026 06:02:05 -0000
-To: catalin.marinas@arm.com, will@kernel.org,
- linux-arm-kernel@lists.infradead.org
+	Fri, 07 Aug 2026 06:02:52 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4EA8842EB0;
+	Fri,  7 Aug 2026 06:02:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37CA81F000E9;
+	Fri,  7 Aug 2026 06:02:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786082572;
+	bh=jN7NwkzTocd2FlSwa1R0rfmLdiaXf+uOPMz4D3ztXas=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=llhmIwY66ZzJWc26yOgFnh1pPrPXqMm9fdc3Ke9nrfKtQdf1AxUZq+yrWvCwIHPlm
+	 bdqE28A71H2FJfUW+hc5Sr1E4jX0EcGUpQQwwFR6bcwijvWrm4XBuQlkYR+vdbbRlu
+	 j3XGg0Rb63ZqFeZlhkEOxPhdobk/qFiaE9jx9joYRXvj/hjoVO0l/eYIP5OM0FBJcO
+	 lfpjbZs/KknLLqyf2k3nemuo7cwn8zXER/IZMtxuKLXawAoXfqXIHmNfyuM5ncIFse
+	 j/G0YdbCSsG2Z73luIkRBzI1JOcZV0inZLtH1s1oqeIE9z3ZqaHzi9JLtJowERzJ/3
+	 DQ8YZkwNJMyEA==
+Date: Fri, 7 Aug 2026 08:02:48 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Long Zhao <longzhao@ambarella.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Linus Walleij <linusw@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Jiri Slaby <jirislaby@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-serial@vger.kernel.org, soc@lists.linux.dev
+Subject: Re: [PATCH v2 03/10] dt-bindings: clock: add Ambarella CV75 RCT
+ clock controller
+Message-ID: <20260807-horned-blazing-whippet-c3eb73@quoll>
+References: <20260806-longzhao-upstream-cv75-v2-v2-0-6b09707c5fe9@ambarella.com>
+ <20260806-longzhao-upstream-cv75-v2-v2-3-6b09707c5fe9@ambarella.com>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
-Message-Id: <60634.126080702020800375@us-mta-623.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: egcGXB4w1E7Te_CJSXlMBIU1Pt6MWbRxB1SWntu7Zak_1786082527
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_230214_533730_6F2A1ED7 
-X-CRM114-Status: UNSURE (   6.36  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260806-longzhao-upstream-cv75-v2-v2-3-6b09707c5fe9@ambarella.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,56 +77,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+On Thu, Aug 06, 2026 at 05:34:11PM +0800, Long Zhao wrote:
+> Add the CV75 RCT clock controller binding and clock ID header.
+> 
+> Signed-off-by: Long Zhao <longzhao@ambarella.com>
+> ---
+>  .../bindings/clock/ambarella,cv75-rct.yaml         | 66 ++++++++++++++++++++++
+>  include/dt-bindings/clock/ambarella,cv75-clock.h   | 17 ++++++
+>  2 files changed, 83 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/clock/ambarella,cv75-rct.yaml b/Documentation/devicetree/bindings/clock/ambarella,cv75-rct.yaml
+> new file mode 100644
+> index 000000000000..aa96533bab9b
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/clock/ambarella,cv75-rct.yaml
+> @@ -0,0 +1,66 @@
+> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/clock/ambarella,cv75-rct.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Ambarella CV75 RCT Clock Controller
+> +
+> +maintainers:
+> +  - Long Zhao <longzhao@ambarella.com>
+> +
+> +description: |
+> +  The RCT (Reset and Clock Tree) block on the Ambarella CV75 SoC provides
+> +  PLLs, clock muxes and dividers for on-chip peripherals.
+> +
+> +  The same register region is also exposed as a syscon for other SoC
+> +  blocks (e.g. pin drive-strength), hence the "syscon" compatible.
+> +
+> +  Clock indices are defined in
+> +  include/dt-bindings/clock/ambarella,cv75-clock.h:
+> +
+> +  - CV75_GCLK_UART0: UART0 mux/div clock
+> +  - CV75_GCLK_CORE: Core PLL (gclk_core)
+> +  - CV75_GCLK_AHB: AHB bus clock (core / 2)
+> +  - CV75_GCLK_APB: APB bus clock (core / 4)
+> +
+> +properties:
+> +  $nodename:
+> +    pattern: "^clock-controller@"
 
-    Overall result: PASSED
-             Merge: OK
-           Compile: OK
-              Test: OK
+Drop nodename.
 
-Tested-by: CKI Project <cki-project@redhat.com>
+> +
+> +  compatible:
+> +    items:
+> +      - const: ambarella,cv75-rct
+> +      - const: syscon
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    description: Reference crystal oscillator (typically 24 MHz)
+> +    maxItems: 1
+> +
+> +  clock-names:
+> +    const: osc
+> +
+> +  "#clock-cells":
+> +    const: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - clock-names
+> +  - "#clock-cells"
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    clock-controller@ed080000 {
+> +        compatible = "ambarella,cv75-rct", "syscon";
+> +        reg = <0xed080000 0x1000>;
+> +        clocks = <&osc>;
+> +        clock-names = "osc";
+> +        #clock-cells = <1>;
+> +    };
+> diff --git a/include/dt-bindings/clock/ambarella,cv75-clock.h b/include/dt-bindings/clock/ambarella,cv75-clock.h
+> new file mode 100644
+> index 000000000000..3d3314446e75
+> --- /dev/null
+> +++ b/include/dt-bindings/clock/ambarella,cv75-clock.h
 
-Kernel information:
-    Commit message: Merge branch 'for-next/core' into for-kernelci
+Filenames must be the same.
 
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2738163429
+> @@ -0,0 +1,17 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
+> +/*
+> + * Copyright (C) 2026 Ambarella, Inc.
+> + */
+> +
+> +#ifndef _DT_BINDINGS_CLOCK_AMBARELLA_CV75_CLOCK_H
+> +#define _DT_BINDINGS_CLOCK_AMBARELLA_CV75_CLOCK_H
+> +
+> +/* Boot / bus clocks */
+> +#define CV75_GCLK_UART0		0
+> +#define CV75_GCLK_CORE		1
+> +#define CV75_GCLK_AHB		2
+> +#define CV75_GCLK_APB		3
+> +
+> +#define CV75_CLK_NUM		4
 
-Tests that were not ran because of internal issues:
-    /distribution/check-install [aarch64]
-    /distribution/command [aarch64]
-    /test/misc/machineinfo [aarch64]
-    Boot test [aarch64]
-    CKI/restraint [aarch64]
-    Hardware - Firmware test suite [aarch64]
-    Reboot test [aarch64]
-    SELinux Custom Module Setup [aarch64]
-    selinux-policy: serge-testsuite [aarch64]
-    Storage - blktests - throtl [aarch64]
-    Storage - blktests - ublk [aarch64]
-    stress: stress-ng - cpu-cache [aarch64]
-    stress: stress-ng - memory [aarch64]
-    xfstests - btrfs [aarch64]
-    xfstests - ext4 [aarch64]
-    xfstests - xfs [aarch64]
+Drop, not a binding.
 
-
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
-
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
-
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
-
+> +
+> +#endif
+> 
+> -- 
+> 2.34.1
+> 
 
