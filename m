@@ -4,124 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 082C8C5AC7A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 16:44:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48B3FC2A09B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 16:45:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qr2r0iKiP+EtEWzjqDzp7sPZ847OIHtrEKc/EGjUkI8=; b=RviNeczPTKbfqzthAqmoTXux9t
-	zBA2w3uX8EnNbFPFus/L8LOqjs/FbqE6eUtKVzeaHL74QA4XWOx6RdwR/UQi567cSyOymHF+6HvVu
-	P5CgGOlXtlxJ6VEYpdLaRPB5S7UOrCN0VLwqjZBH4RUSADlAoRXDDawxlOguWg8nmzDcBItSBe+vC
-	fXMydV2nV5BHKp5g+avSUyMPwUqm1+mmlp7Y6E1OzTYpXWJW3veV89NdsKTxdvOT+kBBPQHkJ9P2D
-	iHOlE9bkM3SPArnBExAilKTLGpifPrwhc+5iOM3V040PQqzgVMGZNBANjBXRqT7ZxK3aeukTBw7jj
-	8uweb+HA==;
+	bh=pZqskBmPMRbqfd4JABF4XAccPI8j5P/YcYvdWmJ5r7I=; b=dZDEUmxPAbZMcvbcu7dXPOFBRp
+	R1+RE9uISyIFFtMqVB9Myh9y6oUHaWPcxkrmKgGqaZ9yfHakG2WaD08LpnvAVmdUv+HWYZ+Yq6Ltp
+	zxRxeFX6VNFPANnCZVJOkzhVyK7fdnCjXMRWb1X17WuEsWiUnMlMPraX7HNwdE74DHUrc2VTWamio
+	nEkEtyfxt2upTjj4mcLvqWTcTXzKpyEe6SovHpj4XDlxNAtx+58VqcPmCatfQlXj7j67KlAHCgR/i
+	480XRtDwUgQk7p4ta6XWD+mKU70BClQVlpuWKX4sC6BRxft3sfqHVCQvWG9iW5KLr+RDOVJXII78n
+	dP+odqJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsNgN-00000008Svw-46Ly;
-	Fri, 07 Aug 2026 16:44:31 +0000
-Received: from mail-centralusazon11011050.outbound.protection.outlook.com ([52.101.62.50] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	id 1wsNhS-00000008TNa-0cJh;
+	Fri, 07 Aug 2026 16:45:38 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsNgK-00000008Srd-44lm
+	id 1wsNhQ-00000008TNQ-38KT
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 16:44:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZvIaUw63U8Z/KXnf5RvCvSuTvL1IRQRxC8nRfUsbqoFvyVPxkD5HUJkFEPtbpwpYTUGEjMQopn5XD0aDipaMktEPFfJ7bTjjV0tTojLwAn1sjxDlwN2SJLga7Fgu8XNQTjPx8L50FLJ2/rMN76qAt6fib8UQ+0dKzBnqtZf3/kYJEHoWNBgNAU9gRn+lflAm1Q/kCxalGXygkzCDLAmLAVeVKIEoJzr8AOanpIBpz39juKaCz7qh8iGIzrMYf3RVUwbpi3Vh5kDyppH1b5KwFzeBQ1zWBzY7DVPNXzxDX1F0jX6NKSKXmiJEf1ZLCqpg36rX5IOPOsoQrWsKje7gQA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Qr2r0iKiP+EtEWzjqDzp7sPZ847OIHtrEKc/EGjUkI8=;
- b=WWQluYGzQFx5EOuQjaRGfupG66mMcTtpEbsQLvY2wPFL8y5R6r71SZndw1uaIU1MGnBZm+OBs8gJPKJlxqQwtmvINH7ftzRO58UttjE4LKs4A9d7Jow6n1SQjwoFnQQ8JdJiD8zU8nqYc8Tkyua0bzpMNAqV80LFNyLBVkpJUgae7g3O4/5E7/U02XEaBfjDOiFDtudbVFRVBpPBDBY7jCyYFuCN/L6tT29aDjW7F5yFsNbHc+UoXSlVvGMex3f1I1cdslCnMOEgkdTG/iCmTafgmD0BgHskdKuilzr3ioBqyX3DZ4BBHd9BUMyQJPMGbZ2pwgHpLdiJmtMEVL63dg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=linaro.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Qr2r0iKiP+EtEWzjqDzp7sPZ847OIHtrEKc/EGjUkI8=;
- b=ZGmda1oMBA7ALZUaK0CjtIRaGPIrQIN8jJM8XPG8vsdGxkrD72eXYGIvXUcMBPUpCgzXyL61Z0zmRhUp6gVkby4O4bMon638Ku590ptI5tkFdlJ1gErcjFbpz1UyJ2Fi4Ok/Ps7Zb7D3hmhNQ8/CKJcnxRO+0Z4ws4+R+BQpjAddYaZpO3WFXt4CnkXQbrv09gEXP6JHCXVAMNUbl+ci7TwCpLG1lqGQ3yHKXQJiVv7kvOm1+M16I5KiZcuTTkvkSd+sMavr1PfvfrNylvGEcgMUbCnSzHELP192DS+fJOkCLy5IvBwraKqudsTILkD84ybqyrILEUmG0/R7uGzUmw==
-Received: from BL1PR13CA0178.namprd13.prod.outlook.com (2603:10b6:208:2bd::33)
- by SJ2PR12MB8942.namprd12.prod.outlook.com (2603:10b6:a03:53b::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.17; Fri, 7 Aug
- 2026 16:44:21 +0000
-Received: from MN1PEPF0000F0DE.namprd04.prod.outlook.com
- (2603:10b6:208:2bd:cafe::80) by BL1PR13CA0178.outlook.office365.com
- (2603:10b6:208:2bd::33) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.315.10 via Frontend Transport; Fri, 7
- Aug 2026 16:44:20 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- MN1PEPF0000F0DE.mail.protection.outlook.com (10.167.242.36) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.315.6 via Frontend Transport; Fri, 7 Aug 2026 16:44:20 +0000
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Fri, 7 Aug
- 2026 09:43:56 -0700
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail202.nvidia.com
- (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 7 Aug
- 2026 09:43:55 -0700
-Received: from nvidia.com (10.127.8.12) by mail.nvidia.com (10.129.68.6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Fri, 7 Aug 2026 09:43:53 -0700
-Date: Fri, 7 Aug 2026 09:43:52 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Peter Griffin <peter.griffin@linaro.org>
-CC: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, "Joerg
- Roedel (AMD)" <joro@8bytes.org>, Rob Herring <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Pranjal
- Shrivastava" <praan@google.com>, Daniel Mentz <danielmentz@google.com>,
-	Mostafa Saleh <smostafa@google.com>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <kernel-team@android.com>,
-	<tudor.ambarus@linaro.org>, <andre.draszik@linaro.org>,
-	<willmcvicker@google.com>, <jyescas@google.com>
-Subject: Re: [PATCH 2/2] iommu/arm-smmu-v3: Override for Inst/Data attribute
-Message-ID: <anYLSFi0He6clllr@nvidia.com>
-References: <20260724-arm-smmu-v3-instcfg-override-v1-0-e7acf4a8a525@linaro.org>
- <20260724-arm-smmu-v3-instcfg-override-v1-2-e7acf4a8a525@linaro.org>
- <amOpSPmc36+YXgCQ@nvidia.com>
- <CADrjBPoOctsStZn84vtCymdKen2R9XcM880=wxXSv1tpQ5+vyg@mail.gmail.com>
+	Fri, 07 Aug 2026 16:45:36 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id E5017600B0;
+	Fri,  7 Aug 2026 16:45:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B49671F000E9;
+	Fri,  7 Aug 2026 16:45:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786121135;
+	bh=pZqskBmPMRbqfd4JABF4XAccPI8j5P/YcYvdWmJ5r7I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=IV7kG4vb8BIyQDmdvU+TqD72rD2J7ywbgW0lMSRwx+wygPFbFr0oVvlaChtXTaQ0u
+	 mlhFK4TaA6ftE39/nejr4296WPLUnAhhhMRLFPCRcN4WKrSbgG4wx83MB4T93CYBg0
+	 DncRc6eCS10VCxPoSPXWDV0YCabDWzp+ctLEmbqAOKkVSgN66FIg0ahv5Do/HrvcLD
+	 F2/VGlg228Ogg105vlef+/vL8xniAxrzw0dEYCLhvDwMuT13zmvLD8QAR8UBmd02V+
+	 DDMtL+T4K6ygsn9Bdbn5RhYCqB8d7hKCeGT55b9Yd+bC6pZMZdCfOxo3Fexzkv70WQ
+	 AjdmTLP1KxJUw==
+Date: Fri, 7 Aug 2026 17:45:17 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Steffen Eiden <seiden@linux.ibm.com>, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Fuad Tabba <fuad.tabba@linux.dev>, Hyunwoo Kim <imv4bel@gmail.com>, 
+	Yao Yuan <yaoyuan@linux.alibaba.com>, stable@vger.kernel.org
+Subject: Re: [PATCH v2 1/8] KVM: arm64: Remove VM-wide VNCR mapping counter
+Message-ID: <anXmBQRdORVwl6Rp@lucifer>
+References: <20260806091026.620700-1-maz@kernel.org>
+ <20260806091026.620700-2-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CADrjBPoOctsStZn84vtCymdKen2R9XcM880=wxXSv1tpQ5+vyg@mail.gmail.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MN1PEPF0000F0DE:EE_|SJ2PR12MB8942:EE_
-X-MS-Office365-Filtering-Correlation-Id: c5bf733f-40b8-4ba5-efe1-08def4a32143
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700016|23010399003|376014|7416014|18002099003|11063799006|4143699003|3023799007|22082099003|10067099003|56012099006;
-X-Microsoft-Antispam-Message-Info: c4V9QH9RvYHgxcKzBLXXfv2ANZCRId/kJMvCEXGwmGTSYjOiZgY5lhmGCo7gggH0/ZNw1VhACNnRs8Ad2NsHnINg0j2LfEqpumKFR4CyqC2UBVRFme+Ep2BbLjkVheO8iS4OIblzfT/lG9sxETI7DzxkC5icguiqQC/CtlD3QJKxfta3vK76GXHWZkMVxPO5yo74ZfztCuckURkYgXl5ZciiZ6nkBHBeMEmqSTQxg7KzRM57FtLxPrWNb5SXeznpbu00Hp8qC05VyHT7XgMzM/4sGtqCctjJzdbvabJxqH5y5KKHYDODlD0/+/tJ6+iwBPpd0+U8712taQuyJOUnI0FrXSpprL86q83XPneCsNtoaqmGk+KpCTAUJ1pUKdxRHTC2XT7yT3pOKnTJVE0lsesf1kSWT4NhB4JKk294fzCxy74zyxHRizj64UJs2EW9AA18t0oGWwULUSaBIXnTxR8H9R8GSmNf42c3CiTABEAbYie4N0Bq25+niYBgB8F4Iw8mS352HLzDrD7ZO3ssEyVGn6vG40NIjmh1ZPWTiCvkcaORAGyIx/3ih6QLdrBzKjbw7DNRGjN1Q1b2zfKQ+k4bdWbSoir19ACTnfD1I7UriYx5tHKdypovHiGUzXmEdUhKJXQXozaxIC/SoCSL4qEcAi/EoZ/QGZWkbxKdReBCJuMBFl+2x5BWA9RC6JKwJlp8Yf26cQ1OlNEevCD1PA==
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700016)(23010399003)(376014)(7416014)(18002099003)(11063799006)(4143699003)(3023799007)(22082099003)(10067099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: lfJkgFPuHsKAme8kyNmwvaUuX76tqFYf9jVRQ2uj2ECKkDO9Y2d+Iv2x/SdXAexIQXxvXJf/jlFfRResefWZVLTCjgylWsvUNZcKUp9r8yfvTMT/3s/ScKw+LlsB+rtmH2axNRiiq1hZFTVL6bQMCtgdhmcjay4wwQThfHxYJAlJhi6hf26VRQfVeZxcvYsf0ToKJ9qVvH+YCtzpnD+mvv8lVhFO7EI9aZUhqybru3CcSCW8ekErSvF9/ZsYWg9aFnrRFILvV+YmoPXvLqF+5j6T9ii/e0u2lplV/dPIo+RQJNOJP2Qe+jzmT/m86MfkI5E2TCnKEJgIuy/01mr81yMW+FnktusqGJ4DijDhGxDuwNxG9ztemccrTGcucs5sUEPGCiko+UAu6G5laDR6AREzJsHaWUwX620FkS3+mq8DQEZwcuQSsLqbMPZX5Olk
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Aug 2026 16:44:20.6153
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c5bf733f-40b8-4ba5-efe1-08def4a32143
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: MN1PEPF0000F0DE.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB8942
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_094429_011395_2873D35C 
-X-CRM114-Status: GOOD (  14.39  )
+In-Reply-To: <20260806091026.620700-2-maz@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,44 +73,275 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 07, 2026 at 03:37:37PM +0100, Peter Griffin wrote:
-> Hi Nicolin,
-> 
-> Thank you for your review feedback.
-> 
-> On Fri, 24 Jul 2026 at 19:05, Nicolin Chen <nicolinc@nvidia.com> wrote:
-> >
-> > On Fri, Jul 24, 2026 at 01:39:43PM +0100, Peter Griffin wrote:
-> > > @@ -1206,7 +1207,8 @@ void arm_smmu_get_ste_used(const __le64 *ent, __le64 *used_bits)
-> > >                       cpu_to_le64(STRTAB_STE_1_S1DSS | STRTAB_STE_1_S1CIR |
-> > >                                   STRTAB_STE_1_S1COR | STRTAB_STE_1_S1CSH |
-> > >                                   STRTAB_STE_1_S1STALLD | STRTAB_STE_1_STRW |
-> > > -                                 STRTAB_STE_1_EATS | STRTAB_STE_1_MEV);
-> > > +                                 STRTAB_STE_1_EATS | STRTAB_STE_1_MEV |
-> > > +                                 STRTAB_STE_1_INSTCFG);
-> > >               used_bits[2] |= cpu_to_le64(STRTAB_STE_2_S2VMID);
-> > >
-> > >               /*
-> > > @@ -1222,7 +1224,8 @@ void arm_smmu_get_ste_used(const __le64 *ent, __le64 *used_bits)
-> > >       if (cfg & BIT(1)) {
-> > >               used_bits[1] |=
-> > >                       cpu_to_le64(STRTAB_STE_1_S2FWB | STRTAB_STE_1_EATS |
-> > > -                                 STRTAB_STE_1_SHCFG | STRTAB_STE_1_MEV);
-> > > +                                 STRTAB_STE_1_SHCFG | STRTAB_STE_1_MEV |
-> > > +                                 STRTAB_STE_1_INSTCFG);
-> > >               used_bits[2] |=
-> > >                       cpu_to_le64(STRTAB_STE_2_S2VMID | STRTAB_STE_2_VTCR |
-> > >                                   STRTAB_STE_2_S2AA64 | STRTAB_STE_2_S2ENDI |
-> >
-> > This adds for "stage-1" and "stage-2", while missing "bypass"?
-> 
-> I need to follow up again on this point, but I don't believe currently
-> we require the override for Laguna when it's in bypass.
+Bear with me being verbose here, as this is both nascent review + learning
+:)
 
-This get_ste_used lists all the critical fields that the HW will
-read when operating in the mode per STE.Cfg.
+On Thu, Aug 06, 2026 at 10:10:19AM +0100, Marc Zyngier wrote:
+> The global VNCR mapping counter is used to decide whether an L1
+> provided VNCR page is mapped in L0 on any CPU at the point of
+> dealing with a TLB invalidation. It is incremented when a mapping
+> is made in the fixmap, and decremented when unmapped.
+>
+> As it turns out, this tracking has several flaws:
+>
+> - we are trying to invalidate TLBs, and the mapping is only an
+>   opportunistic consequence of the TLB. Checking this counter to
+>   decide whether a TLB needs to be invalidated may result in missed
+>   invalidations.
 
-Given that GBPA also has INSTCFG, STE.Cfg=Bypass uses it as well.
+Is it largely the self-invalidation mentioned below or are there other cases?
 
-Nicolin
+>
+> - an L1 vcpu invalidating its own TLB (a very likely case) will not
+>   succeed in invalidating the VNCR pseudo TLB because that page is
+>   not mapped in L0 at this stage.
+
+Ahh yes this is pretty compelling then!
+
+>
+> Given that this tracking fails at delivering the minimum guarantees
+> that are required and is only a performance optimisation, remove it
+> completely.
+>
+> Fixes: 4ffa72ad8f37e ("KVM: arm64: nv: Add S1 TLB invalidation primitive for VNCR_EL2")
+> Reviewed-by: Yuan Yao <yaoyuan@linux.alibaba.com>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+
+The change LGTM, it neatly removes the described mechanism which is well
+evidenced.
+
+Comments below that are largely me talking out loud as I learn things :)
+
+Acked-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+
+> Cc: stable@vger.kernel.org
+> ---
+>  arch/arm64/include/asm/kvm_host.h | 3 ---
+>  arch/arm64/kvm/hyp/vhe/switch.c   | 3 +--
+>  arch/arm64/kvm/nested.c           | 3 ---
+>  3 files changed, 1 insertion(+), 8 deletions(-)
+>
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index bae2c4f92ef5c..ac16f96c878d6 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -411,9 +411,6 @@ struct kvm_arch {
+>  	/* Masks for VNCR-backed and general EL2 sysregs */
+>  	struct kvm_sysreg_masks	*sysreg_masks;
+>
+> -	/* Count the number of VNCR_EL2 currently mapped */
+> -	atomic_t vncr_map_count;
+> -
+>  	/*
+>  	 * For an untrusted host VM, 'pkvm.handle' is used to lookup
+>  	 * the associated pKVM instance in the hypervisor.
+> diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
+> index bbe9cebd3d9d5..c09b1d411c584 100644
+> --- a/arch/arm64/kvm/hyp/vhe/switch.c
+> +++ b/arch/arm64/kvm/hyp/vhe/switch.c
+> @@ -427,8 +427,7 @@ static bool kvm_hyp_handle_tlbi_el2(struct kvm_vcpu *vcpu, u64 *exit_code)
+>  	 * If we have to check for any VNCR mapping being invalidated,
+>  	 * go back to the slow path for further processing.
+>  	 */
+> -	if (vcpu_el2_e2h_is_set(vcpu) && vcpu_el2_tge_is_set(vcpu) &&
+> -	    atomic_read(&vcpu->kvm->arch.vncr_map_count))
+> +	if (vcpu_el2_e2h_is_set(vcpu) && vcpu_el2_tge_is_set(vcpu))
+>  		return false;
+
+So this seems to be the crux of it - seems to be 'is there any possibility that
+we will need to check for VNCR mappings being invalidated?'
+
+Checks:
+
+* vcpu_el2_e2h_is_set() - is the guest host kernel (?)'s hcr_el2.e2h
+  enabled? From what I gather hcr_el2.e2h is what allows sysreg_EL1 ->
+  sysreg_EL2 for the host kernel to allow unmodified kernels to run in EL2.
+
+  IOW - is the guest host kernel VHE?
+
+* vcpu_el2_tge_is_set() - Similarly tests for the hcr_el2.tge bit - and this
+  seems to be is 'EL1 -> EL2 redirection on?' - IOW - is this a kernel running
+  in EL2?
+
+Actually I see in is_hyp_ctxt():
+
+	 * We are in a hypervisor context if the vcpu mode is EL2 or
+	 * E2H and TGE bits are set. The latter means we are in the user space
+	 * of the VHE kernel. ARMv8.1 ARM describes this as 'InHost'
+
+So I _think_ the combination of the two is checking to see if you're the L0
+kernel that _could_ send TLBi's that need to be handled?
+
+Previously it seemed the logic was 'if there are no VNCR mappings present then
+we can optimise by short-circuiting the rest of the processing in
+kvm_hyp_handle_sysreg_vhe()'.
+
+It seems that the hardware TLBi has been processed by now so it's actually more
+like - there's still work to be done maintaining the software TLB and that's
+done elsewhere.
+
+As:
+
+static bool kvm_hyp_handle_sysreg_vhe(struct kvm_vcpu *vcpu, u64 *exit_code)
+{
+	if (kvm_hyp_handle_tlbi_el2(vcpu, exit_code)) 	<- return ->true
+		return true;
+
+	if (kvm_hyp_handle_timer(vcpu, exit_code)) 	<- this was a TLBi ->false
+		return true;
+
+	if (kvm_hyp_handle_cpacr_el1(vcpu, exit_code)) 	<- this was a TLBi ->false
+		return true;
+
+	if (kvm_hyp_handle_zcr_el2(vcpu, exit_code))	<- this was a TLBi ->false
+		return true;
+
+	return kvm_hyp_handle_sysreg(vcpu, exit_code);	<- this was a TLBi ->false
+}
+
+And
+
+static const exit_handler_fn hyp_exit_handlers[] = {
+	...
+	[ESR_ELx_EC_SYS64]		= kvm_hyp_handle_sysreg_vhe,
+	...
+};
+
+And:
+
+static inline bool kvm_hyp_handle_exit(struct kvm_vcpu *vcpu, u64 *exit_code,
+				       const exit_handler_fn *handlers)
+{
+	exit_handler_fn fn = handlers[kvm_vcpu_trap_get_class(vcpu)]; <- kvm_hyp_handle_sysreg_vhe()
+	if (fn)
+		return fn(vcpu, exit_code);
+
+	return false;
+}
+
+Annnd:
+
+/*
+ * Return true when we were able to fixup the guest exit and should return to
+ * the guest, false when we should restore the host state and return to the
+ * main run loop.
+ */
+static inline bool __fixup_guest_exit(struct kvm_vcpu *vcpu, u64 *exit_code,
+				      const exit_handler_fn *handlers)
+{
+	...
+	/* Check if there's an exit handler and allow it to handle the exit. */
+	if (kvm_hyp_handle_exit(vcpu, exit_code, handlers))
+		goto guest;
+exit:
+	/* Return to the host kernel and handle the exit */
+	return false;
+	...
+}
+
+Finally in __kvm_vcpu_run_vhe():
+
+	do {
+		/* Jump in the fire! */
+
+(Good track ;)
+
+		exit_code = __guest_enter(vcpu);
+
+		/* And we're baaack! */
+	} while (fixup_guest_exit(vcpu, &exit_code));
+
+(With fixup_guest_exit() ultimately calling __fixup_guest_exit().)
+
+And fixup_guest_exit() will return false, meaning the guest isn't
+re-entered and instead you go back to the full fat slow path:
+
+int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+{
+	...
+		ret = kvm_arm_vcpu_enter_exit(vcpu); <-- does all the above just returned.
+	...
+		ret = handle_exit(vcpu, ret);
+}
+
+Then there's some more stuff in this fuller fat handle_exit() path:
+
+int handle_exit(struct kvm_vcpu *vcpu, int exception_index)
+{
+	...
+	switch (exception_index) {
+	...
+	case ARM_EXCEPTION_TRAP:
+		return handle_trap_exceptions(vcpu);
+	...
+	}
+}
+
+Which then calls kvm_get_exit_handler() which ultimately gets
+handle_tlbi_el2() and calls kvm_handle_s1e2_tlbi() in turn and then
+invalidate_vncr_va():
+
+static void invalidate_vncr_va(struct kvm *kvm,
+			       struct s1e2_tlbi_scope *scope)
+{
+	...
+	kvm_for_each_vncr_tlb(i, vcpu, vt, kvm) {
+		...
+		invalidate_vncr(vt);
+	}
+}
+
+And:
+
+static void invalidate_vncr(struct vncr_tlb *vt)
+{
+	vt->valid = false;
+	if (vt->cpu != -1)
+		clear_fixmap(vncr_fixmap(vt->cpu));
+}
+
+Where you are ultimately clearing the fixmap and setting the
+vncr_tlb->valid to false.
+
+I think this is all vaguely sane :)
+
+>
+>  	__kvm_skip_instr(vcpu);
+> diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+> index dfb96edbdc43c..f3c75954cf36c 100644
+> --- a/arch/arm64/kvm/nested.c
+> +++ b/arch/arm64/kvm/nested.c
+> @@ -48,7 +48,6 @@ void kvm_init_nested(struct kvm *kvm)
+>  {
+>  	kvm->arch.nested_mmus = NULL;
+>  	kvm->arch.nested_mmus_size = 0;
+> -	atomic_set(&kvm->arch.vncr_map_count, 0);
+>  }
+>
+>  static int init_nested_s2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu)
+> @@ -890,7 +889,6 @@ static void this_cpu_reset_vncr_fixmap(struct kvm_vcpu *vcpu)
+>  	clear_fixmap(vncr_fixmap(vcpu->arch.vncr_tlb->cpu));
+>  	vcpu->arch.vncr_tlb->cpu = -1;
+>  	host_data_clear_flag(L1_VNCR_MAPPED);
+> -	atomic_dec(&vcpu->kvm->arch.vncr_map_count);
+>  }
+>
+>  void kvm_vcpu_put_hw_mmu(struct kvm_vcpu *vcpu)
+> @@ -1592,7 +1590,6 @@ static void kvm_map_l1_vncr(struct kvm_vcpu *vcpu)
+>  	if (pgprot_val(prot) != pgprot_val(PAGE_NONE)) {
+>  		__set_fixmap(vncr_fixmap(vt->cpu), vt->hpa, prot);
+>  		host_data_set_flag(L1_VNCR_MAPPED);
+> -		atomic_inc(&vcpu->kvm->arch.vncr_map_count);
+>  	}
+>  }
+
+And it looks like you got all the places that manipulated this :)
+
+>
+> --
+> 2.47.3
+>
+
+--
+Cheers, Lorenzo
 
