@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B688BC5AC80
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 10:41:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1125C5AC7A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 10:41:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3nr/a0dOZRkxfGZoRpT42C6sSO2flc3qcvSm9XbBZls=; b=2ENclFWrkHZTqQ6xKeqMJCczMx
-	dtjfAFTxoFTvlBGTEEjw5yzD1f5XYuZvD7MhzlZYQgdjdkgokLmM8ncn3mWz6Q0bRyJjDlsKdXXfS
-	QWs2k6to/xM+tLU7+sCTtVRGg5rWX/Vmi+Y/g9ZV08f4UARLBzeAKMH0TulMPPZQEaD3JrxHwhvj3
-	XNdSEcqQLVQYvrn8Vak/f0a0eZiC0B9H52PcFO0+d0/xEmZ5xvU6k7yvMnvOMihOCPnV/K05+3W0S
-	hRFgCG5qTR1ykQxQFoP0qn4PMSz+I4bSeb52N4DEJNc6yoHtrD/I2m+BkiEqyy1e9y3fNDcqBKjxw
-	wpH4YqxQ==;
+	bh=XQKyNwSgEBS1FdQPCr0BFf1gJZ2ngUj/l5kLW14oFV0=; b=QQTxsc5xaLrbf1w+diWuzgPRpq
+	lK5Vs1HQoKuu1uP2MbsIwOyU+FyVkgP+FvUxAd0gmM6Jbuw3ZjFwZ3i1NI/wQ9+3esr3Ua3CRw7DF
+	RAqoE2oYyBt8cwUDEgSIiIS79Bbr5zjqBQC2WhYYMV9UX5o4WD52CsIW8otY4FQYjPD9TLN+Se0np
+	tluWAmrnMXKACZMZ1/dGDU1n+RMynkT66CJ1WuOzSaAPkReh7q+xBhkEbS6soaU0Md1d36edbMTOt
+	t4clO0FFhgISlQGvPQPLCgoKPxypvr2FJnafTXg+vKrKFWbmUO6+4pTPhscduDP7CjhrnTV3GiBjY
+	XrwgCYsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsI15-00000007hVd-1pDN;
+	id 1wsI15-00000007hVN-1PUS;
 	Fri, 07 Aug 2026 10:41:31 +0000
-Received: from out-172.mta0.migadu.com ([2001:41d0:1004:224b::ac])
+Received: from out-178.mta0.migadu.com ([91.218.175.178])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsI12-00000007hSL-18Lr
+	id 1wsI0z-00000007hRM-2gmj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 10:41:29 +0000
+	Fri, 07 Aug 2026 10:41:26 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1786099285;
+	t=1786099282;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=3nr/a0dOZRkxfGZoRpT42C6sSO2flc3qcvSm9XbBZls=;
-	b=iauK43LzFFEk438JMee7/pnVbCao2fOGE8Vj+GrWkJP5A0Ql9PLgc5IyAoOuBVwggvJdfA
-	HVK7SqW89K8YcqJ26dFijI5Skizch3Z4iPLVIbhsp+0ddDrZN/lCmQ6/Eiqzujyjlblo/n
-	9SxEuIcr5p0Fpn0X/UMATxCraq0ZnUU=
+	bh=XQKyNwSgEBS1FdQPCr0BFf1gJZ2ngUj/l5kLW14oFV0=;
+	b=Wtq+/WRRi/zWxjokWMWgph4XGTpP8G+/C6SbMsAxCylqKbM1bC3IA/Eeqsia7zfqs2owWV
+	wNilawhsI6w/KNzH57TCNK6r0UjGjMehcMgDmNaFgvx7zFuX/Lz4+KKePzwJ7YkkXn7j6J
+	YoK1Lk+t4XnPRIz6KWtAbely2w+dXhs=
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: Marc Zyngier <maz@kernel.org>,
 	Oliver Upton <oupton@kernel.org>
@@ -51,17 +51,17 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 3/4] KVM: arm64: vgic-its: Don't save collections the table cannot hold
-Date: Fri,  7 Aug 2026 11:41:01 +0100
-Message-Id: <20260807104102.2410744-4-fuad.tabba@linux.dev>
+Subject: [PATCH v2 2/4] KVM: arm64: vgic: Don't leak the SPI array when init is retried
+Date: Fri,  7 Aug 2026 11:41:00 +0100
+Message-Id: <20260807104102.2410744-3-fuad.tabba@linux.dev>
 In-Reply-To: <20260807104102.2410744-1-fuad.tabba@linux.dev>
 References: <20260807104102.2410744-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_034128_483906_6608F078 
-X-CRM114-Status: UNSURE (   9.85  )
+X-CRM114-CacheID: sfid-20260807_034125_814362_95AC5C18 
+X-CRM114-Status: UNSURE (   9.38  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,40 +77,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A guest that disables the ITS and rewrites GITS_BASER with fewer pages,
-VALID still set, keeps every collection it mapped against the larger
-table: KVM stores the new BASER unconditionally and frees the list only
-when VALID is cleared. vgic_its_save_collection_table() then walks the
-whole list, writing up to 448K past the end of the table, and saves
-collection IDs that vgic_its_restore_cte() rejects, so the save succeeds
-and the restore fails with -EINVAL on the destination. The overrun stays
-in guest memory, as vgic_write_guest_lock() validates every gfn.
+Nothing latches a failed vgic_init(), so userspace can retry
+KVM_DEV_ARM_VGIC_CTRL_INIT after a failure past kvm_vgic_dist_init().
+kvm_vgic_setup_default_irq_routing() is the reachable case, running on
+every configuration. Each retry overwrites dist->spis and only the last
+allocation is freed at teardown, leaking up to 960 struct vgic_irq,
+about 90KB, per attempt.
 
-Validate each collection against the current table with
-vgic_its_check_id() and return -EINVAL, as vgic_its_save_device_tables()
-does for devices. Collection IDs are unique and the collection table is
-never indirect, so the check also bounds the walk.
+Return early when the array is already allocated, as
+vgic_allocate_private_irqs_locked() and vgic_v4_init() do.
 
-Fixes: ea1ad53e1e31a ("KVM: arm64: vgic-its: Collection table save/restore")
+Fixes: ad275b8bb1e65 ("KVM: arm/arm64: vgic-new: vgic_init: implement vgic_init")
 Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- arch/arm64/kvm/vgic/vgic-its.c | 3 +++
+ arch/arm64/kvm/vgic/vgic-init.c | 3 +++
  1 file changed, 3 insertions(+)
 
-diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
-index ed281fbf008b9..1589f06e66904 100644
---- a/arch/arm64/kvm/vgic/vgic-its.c
-+++ b/arch/arm64/kvm/vgic/vgic-its.c
-@@ -2540,6 +2540,9 @@ static int vgic_its_save_collection_table(struct vgic_its *its)
- 	max_size = GITS_BASER_NR_PAGES(baser) * SZ_64K;
+diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
+index 907057881b26a..d4cf143f3ae6b 100644
+--- a/arch/arm64/kvm/vgic/vgic-init.c
++++ b/arch/arm64/kvm/vgic/vgic-init.c
+@@ -210,6 +210,9 @@ static int kvm_vgic_dist_init(struct kvm *kvm, unsigned int nr_spis)
+ 	struct kvm_vcpu *vcpu0 = kvm_get_vcpu(kvm, 0);
+ 	int i;
  
- 	list_for_each_entry(collection, &its->collection_list, coll_list) {
-+		if (!vgic_its_check_id(its, baser, collection->collection_id, NULL))
-+			return -EINVAL;
++	if (dist->spis)
++		return 0;
 +
- 		ret = vgic_its_save_cte(its, collection, gpa);
- 		if (ret)
- 			return ret;
+ 	dist->active_spis = (atomic_t)ATOMIC_INIT(0);
+ 	dist->spis = kzalloc_objs(struct vgic_irq, nr_spis, GFP_KERNEL_ACCOUNT);
+ 	if (!dist->spis)
 -- 
 2.39.5
 
