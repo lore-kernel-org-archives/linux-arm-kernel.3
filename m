@@ -4,123 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACB7CC2A09B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 13:33:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B607CC2A09B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 13:33:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v4xz8KrW2i4Tcj8JT0l8kltcTGvUGQ1PQuarbGz/1x8=; b=AZ3T8+A0QBVJGKrof7Veqh6oo/
-	kTvf0Qil4cOa7s2PMTy5hZwSpZ0CnjY9fiyN130k1fUPVUqqoxQXFxZTCkWnIloP8yemb5PYBidfj
-	BNDw+/UFExK0499OfpFgXTbMAuzQIS9HHrzMZscjuybUePjdg2tECshNWZWJP2TiDobqsVGLYoDhI
-	9T0Zg9DCR8r2vjvfWuRarqlIsbPh4IBMhM2cIXsv1svrcSlKxuAUtlHyYIEVUg6frHbMMqtufTKy5
-	//xBKBY/ZCP4Mva4qhQMwghspObUvasBfNX6I8D/gDcG0A3wadwI+QAbeP9IAizrdg6+rzh/e54lk
-	d5BqZarQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+n8Po8atSSkMnPysk0cqVTEi9Ye8QqiCHIVEioALzPE=; b=j5KJ1TqAO6UgF/mn1zpGld4Wc3
+	pQqbEAl7utybBSFtk6xFjm8lnO9mOXWLcm7H0WBvwr+ITc5nIdnJdIjfp4muaxb5ZLklHpWNOh5yz
+	t8P5aOgEnVjGgl5/7IomgpjPNaxlrN3TQYrNjiRvoaN4iEq6pgRb0WkQovGkh0O++lUl2ZGxnFzsx
+	QTcbRerJqSOenV6SFrYQRBJJ86sIQjP5JBjhr4xwRKgsWCeVjVdGMA7gD0etld/TCPuTHgliivvQU
+	RRT0u5ls6Mny3ylnUoa3ydIHzANGa5pQYBvH6//4Bj1dEGkDT4gSWzoXrRthmLsyizK13Pu3whd5D
+	QHfJjyvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsKhA-0000000894t-2RnB;
-	Fri, 07 Aug 2026 13:33:09 +0000
-Received: from mail-australiaeastazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c40d::1] helo=SY8PR01CU002.outbound.protection.outlook.com)
+	id 1wsKhE-0000000896n-0ki2;
+	Fri, 07 Aug 2026 13:33:12 +0000
+Received: from out-184.mta1.migadu.com ([95.215.58.184])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsKh7-0000000892j-1YJh
+	id 1wsKhB-0000000894Q-0KxE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 13:33:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=dW+H3GSRo1IdqGW+NSLWQb9urC8dJ56A+UbdtAwnw2Jusm/4rrN2PzGOaYliEsEuMqfxqtZkwQFdHKtr8CcB4fOMxorktSX6aNDI5Akdwh4SEfDhVD1/kWCUZN5n82gy8VIkhKktIxg0WmUxKau3RelknABOUetQePYaG71cY3HlqpxKIwkOLGp7LVEhd1C84htimsjHzd/Ovm7rkJ/0OffEAAEOomxRkGJ+G+qz7mdJA9EfxJRyE47xFnUIZY/NJ0iHYVwdrYCy0x/Y9AFN3oOb/X8hkMOdAdbKHFvT0XX6wO7y1bshYvgD2kLspH6ttLwx7wn4huDA4kKND2vVpw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=v4xz8KrW2i4Tcj8JT0l8kltcTGvUGQ1PQuarbGz/1x8=;
- b=Kfoywp0N2paqJyUTKQkOVGaVjdupf4g9eZ+wyvTAAv/HvFtNfBxiMR6SYc7wtaG3M+8J1DNYRdM3hXor1otckl0IpTLXkzRxMsH8LW+UrCuu4MlJHGYwqj8uSLwLPhSxhyeizpx46uVXLhq9OgIH3MOYuuINe1Jq7yv+xRWy/7jbwouRFQVgul3x2AqpysDPfNx0l8qO7y9kzX3HiouFhfHqdY9v3rVyAOrx9EPk9NgSpdTDJNuvNoiLoJanAEdr2c/4NSIj/GFmJjZ6ryoZcpo36O4p0YXoTOTjq+fk4O0RZGpKlmb0RFg9cKgeKeuzsBhzHAyqCUDNGg9GBVWlbw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=heitbaum.com; dmarc=pass action=none header.from=heitbaum.com;
- dkim=pass header.d=heitbaum.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=heitbaum.com;
-Received: from SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM (2603:10c6:10:279::22)
- by SY7P282MB3978.AUSP282.PROD.OUTLOOK.COM (2603:10c6:10:1ed::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.24; Fri, 7 Aug
- 2026 13:33:01 +0000
-Received: from SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM
- ([fe80::21b6:91f8:614d:1fdd]) by SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM
- ([fe80::21b6:91f8:614d:1fdd%4]) with mapi id 15.21.0292.022; Fri, 7 Aug 2026
- 13:33:01 +0000
-Date: Fri, 7 Aug 2026 13:32:44 +0000
-From: Rudi Heitbaum <rudi@heitbaum.com>
-To: imx@lists.linux.dev
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	rudi@heitbaum.com
-Subject: [PATCH 5/5] arm64: dts: imx8mq-phanbell: Enable the rt5645 analog
- audio
-Message-ID: <54ab90ba6c05b38c6561e0ea732d487da9443f1e.1786107926.git.rudi@heitbaum.com>
-References: <cover.1786107925.git.rudi@heitbaum.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <cover.1786107925.git.rudi@heitbaum.com>
-X-ClientProxiedBy: MEWPR01CA0054.ausprd01.prod.outlook.com
- (2603:10c6:220:1df::18) To SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM
- (2603:10c6:10:279::22)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SY7P282MB4909:EE_|SY7P282MB3978:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4cb78f01-4432-4956-059c-08def4886709
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|7416014|10067099003|3023799007|56012099006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: tYZsENBAPZiCZ+9yisx0FkUBk58oMfPqMeMDHxIJpCHMKut7gE/kjkrt8s33ieVxRM5qYAy4vC7xlFYePrNRmKruMmVUyoM0Qak05YYCiSTCE8NbrYWOSDEDCL3eV1vafgJTcDmgdf7Fcx6xE4s/k1ejLzrYAOkIn8pBsbg3+cpWqg2IabTGDCImyj1PVeMM/hE7UbmRSARl+l6OGYNHklu5UQabU81FQ+QneATg50D/0lXUAcx2t5kBmJmgNUT6ilO0n4rZQIr/O8VhI3RgBWFfVzpMyh7lir7Qy6ZAWE86Bc8CVLHAdpAuHdXoWn9aYfiTDDRJdrFx78tbT/9FVzzGzOWS1URkR6DlzAhRauLJoKfUyd9mrjSP3LPAKynAIXo2BZWrcw6+C/66OcsxQH3Z977/vkmNBa9A5ZB1u71dseuKL5zTxWj1l5+LZvCFLbhCzfgeBVgvtXowfFK3HRGPeqyM15kaIlR+0b1DSLaKdemgbqxdOJ3UAGSQOLs41rVKsyUCsV5p/Fx/LKFQu6T0x6Wh6b4laH/9dXJjVmfsQwiUFpSjoqxGrluxOq51otXykAbXNt4cbW4qj8RN3rYlcMlUpWpjPGdUVuwwYC0zqGTE6lQTeY6qiYwNep6TGOPSwo+0dqLj/JEuxvlDqcuvpkl+btOgmnhjpVZKZh0=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(7416014)(10067099003)(3023799007)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?nsMVIVj/nHk7zZt+bRtLo4VldJhWEFbAcZaGZwjXkaRBpmIZidGhQFbhKtVH?=
- =?us-ascii?Q?bh12eQlB1YvzqZRWC3+kjm/iKf7Ocb+eAq8snnzQCfUOzB69O/dSuOCqKYuH?=
- =?us-ascii?Q?NhV8drSDEv+YIN7ycbe+UGk8H7ZxdYn2hV7zndopJhnNm8ncOksPa+kwDWEv?=
- =?us-ascii?Q?Nce8Wa12s2lz16iYsdshPph7S+sYandjIM2XyPhoBnUQ0Xk627/y33wtOL88?=
- =?us-ascii?Q?YlARU0Q0okjMFUAgwiIVm8fnXDh2R8d3MADJbjriAHQYLlw3nR2ThlSriR4d?=
- =?us-ascii?Q?Gq36OPBNupadvOWyOxVZ9hoItXodZwh7jTrxQvOpdxmNzWSQeEcV3Lij2R7C?=
- =?us-ascii?Q?ANC06yIxeVnOkGVGldxxHuH3bybVFoTG7hXjB2KQNLSAAvLrz54pXSaw+Swh?=
- =?us-ascii?Q?ODZTs2lnY+dpQaUseIf4JvBCwRbH5VnZcXU1LVBrcgl7pOZeMeZJEr4dwJ/K?=
- =?us-ascii?Q?GUQQ4gK7bMa3J3STWUunH3XxQhKi1ngSkAUcOae6VldDB4DQTekQX4MBIRBE?=
- =?us-ascii?Q?Isr1aVvH6p/E6NPaBfTpyOTzcT7oa3crUXw6a49ui4rL/ls9QSEA3BFZNV+U?=
- =?us-ascii?Q?rYCPbspKUZPDPMRoFibXnB1zBJWXpRa6P/CJHi1gYgAZZocqUuT0nsi1A+oo?=
- =?us-ascii?Q?hHfwgFbcnmAx8r/7oM/4glwlWmMcl53x1jr7kaLSQCnSnzZZoz1yR0/bc/Q3?=
- =?us-ascii?Q?0njxNwxuf15m1d1TOHIadavtPBXUDaKUVBVfPs8lqfMOYGgM6VxKoqywfU9D?=
- =?us-ascii?Q?S/M7PzwSpiE3mHiSv+8jU6dEYBuD18M9F4HTp+vgBm+qZRB3gm6jGwIfi6Cu?=
- =?us-ascii?Q?6Gv0fGLvVAOGNP3OcuKJad7TNxJ0ywQcn49kkC67UzBUX42QEmEsx75r3f0q?=
- =?us-ascii?Q?BojcLWNT29lwQhzxKmzMoJPriWbHTvdyjFDwdsNh76WO06wtgYIn6GdeP7jv?=
- =?us-ascii?Q?Q/1oC8QUfsjCrTUB/NbjvtMOKqj3yETAmbapjASVgxVtZacCscdvlYoha85R?=
- =?us-ascii?Q?6yOS3LVMpoJuiIGqfMuDlC1F5aiOqD3lkm3wl6FOBFFqG2Z4t0PQtnZh5HO+?=
- =?us-ascii?Q?k+pW1ocuUSDYBCoTjhpUDsFcmvnsumN36ln4KPll5LkfDJsnrCJsFu1mhP36?=
- =?us-ascii?Q?+1/0+GN1+0U403rglioHJyCU8hWu09jq6qR0xsZHxtxb385Tz+AlBGm/qHxE?=
- =?us-ascii?Q?cSP2sYi4lnpHrfalHKzeitsa8YHLzpqP8/nD1qeEz8DzeQXo7yW2JW6Wz10o?=
- =?us-ascii?Q?b4f8aBys8Fic3rlJg5XTZGJGecfCdgb6HtcUYIeSUI49Hlth/wpaGmCYrI/m?=
- =?us-ascii?Q?6Opqg+jyhaP5G3HJEDTIegLRPk9CrZU4Tjh/6VKhJ0gVCocCiVEnyhibe+lB?=
- =?us-ascii?Q?DKxzMCSJz5tz6YvMPLJILCIKC4Kh3/FW10JL8C8J8RHqtGkckwvZFpVVku0B?=
- =?us-ascii?Q?UjWjkshu+WMyw7RKaW3NDW93EaoyqM+WAzVzVg5IIUW7aBilAc3M0actPaVL?=
- =?us-ascii?Q?/de0zbGZtHNt/aa2ioPoyX6SyDVaarDjVeUn3Vpba+XVyQwgKpylCLOX7Jk7?=
- =?us-ascii?Q?281mBPwduGRNcheQgrqmOJOVZbR/YDa/Pc+vdglNXxH8jqqKWyNkJWChKnHw?=
- =?us-ascii?Q?cpoEoeRpfyJAA4EBYJXreKrN9QZdBb0E7qnysgK3dWHPJ97/NHS4OKYKut/q?=
- =?us-ascii?Q?PuOHiAD4yC7mEplWbQ9VvEjopXck9c451jveFD6w2Yxf/XnP?=
-X-OriginatorOrg: heitbaum.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4cb78f01-4432-4956-059c-08def4886709
-X-MS-Exchange-CrossTenant-AuthSource: SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Aug 2026 13:33:01.5233
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 35ffebb5-7282-4da6-8519-efab29b0108e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: W2EQ1spcP3FmVipEXfrLNQkVwC2b0cErU6Y2FQoyZBAvZES/zx5pb69UVuJElaNxm5BS3HNeV+DVaTypGqmsGQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SY7P282MB3978
+	Fri, 07 Aug 2026 13:33:11 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
+	s=key1; t=1786109585;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+n8Po8atSSkMnPysk0cqVTEi9Ye8QqiCHIVEioALzPE=;
+	b=b0KVAaI/pv6kp+yfCYn3YYDHWnfZnrLzbBjAc7J0fWB0yU+BGkTD9gBklUKIRPlMGP1UmG
+	iLV/byVAOt2RGu/78okKn+Az+NsAw7d7PZ7PV0xXRPvUgVxPrP2UgTk3Hity2+EvLn60vm
+	K0hzqZEhHP5VaM8bovkIcDxp9lzroZkGHqTMJELbohLhTgjRxCSMl9z5B4HOfgB9YpYaLj
+	LCpObAZHLExhCQeQjcEY9p8H0ulFZYXNCMiLqq9St4/9sjBimMDJsQX18r+07sNxx3WocS
+	vYQBU3HJBxewZHW5DWg7X+V0cIlkORa87DI+z8yBQVn/isxzM6bX5N8Kg4WK4w==
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Fri, 07 Aug 2026 15:32:52 +0200
+Message-Id: <DKIR028TZNJ3.3BGQJYSWX2BMN@cknow-tech.com>
+Cc: <royalnet026@gmail.com>, <alchark@flipper.net>,
+ <chaoyi.chen@rock-chips.com>, <dri-devel@lists.freedesktop.org>,
+ <linux-rockchip@lists.infradead.org>, <iommu@lists.linux.dev>,
+ <linux-pm@vger.kernel.org>, <devicetree@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [RFC PATCH v6 7/9] accel/rocket: add RK3576 NPU (RKNN) support
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <diederik@cknow-tech.com>
+To: "Robin Murphy" <robin.murphy@arm.com>, "Diederik de Haas"
+ <diederik@cknow-tech.com>, "Jiaxing Hu" <gahing@gahingwoo.com>,
+ <tomeu@tomeuvizoso.net>, <heiko@sntech.de>, <robh@kernel.org>,
+ <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <joro@8bytes.org>,
+ <will@kernel.org>, <ulfh@kernel.org>, <p.zabel@pengutronix.de>,
+ <ogabbay@kernel.org>, <zhangqing@rock-chips.com>
+References: <20260806063413.350184-1-gahing@gahingwoo.com>
+ <20260806063413.350184-8-gahing@gahingwoo.com>
+ <DKIKXY8XZVPF.3RFR4ISK6Y4QX@cknow-tech.com>
+ <fb94bd28-fdbf-4f99-a6ff-b5ab18c64345@arm.com>
+In-Reply-To: <fb94bd28-fdbf-4f99-a6ff-b5ab18c64345@arm.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_063305_412014_74B21CD4 
-X-CRM114-Status: GOOD (  17.64  )
+X-CRM114-CacheID: sfid-20260807_063309_462518_AE695FFB 
+X-CRM114-Status: GOOD (  16.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,174 +81,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The board has an rt5645 on i2c3 driving the 3.5 mm headphone jack, its
-microphone and two on-board DMICs, fed by sai2.
+On Fri Aug 7, 2026 at 2:55 PM CEST, Robin Murphy wrote:
+> On 07/08/2026 9:48 am, Diederik de Haas wrote:
+>> On Thu Aug 6, 2026 at 8:34 AM CEST, Jiaxing Hu wrote:
+>>> The RK3576 has two cores of the same RKNN block and a few platform
+>>> differences:
+>>>
+>>>   - the CBUF (convolution buffer) has its own clock domain, so the core
+>>>     needs six clocks rather than four;
+>>>   - the BIU reset moved into the power domain, leaving one reset here;
+>>>   - the NPU spans two power domains, and a device with more than one is
+>>>     skipped by the driver-core single-domain auto-attach, so the list h=
+as
+>>>     to be attached explicitly;
+>>>   - the DPU completion interrupt is armed exactly as on RK3588 but neve=
+r
+>>>     reaches the GIC. The completion is visible in INTERRUPT_RAW_STATUS,
+>>=20
+>> I don't know if it's relevant, so just a data point:
+>> - RK3588 has Cortex A-76 + A-55, which have an External GICv4
+>> - RK3576 has Cortex A-72 + A-53, which have an External GICv3
+>
+> Nope, RK3588 has GIC-600, which is very much v3 still. I guess RK3576=20
+> probably has GIC-500 like RK3399 given the CPUs, but that shouldn't make=
+=20
+> any meaningful difference here.
 
-The vendor kernel drives this codec from a machine driver of its own,
-"google,edgetpu-audio-card", so its devicetree carries no widgets or
-routing and the graph here is rebuilt for simple-audio-card. micbias1 is a
-supply widget, and a supply is the source of a route rather than its sink -
-as rt5645's own { "IN1P", NULL, "LDO2" } has it - so the sink/source pair
-is "Headphone Mic", "micbias1".
+Unsurprisingly, you're (almost) correct :)
+I looked at this document when I wrote that:
+https://www.arm.com/-/media/Arm%20Developer%20Community/PDF/Cortex-A%20R%20=
+M%20datasheets/Arm%20Cortex-A%20Comparison%20Table_v4.pdf
 
-GPIO5_IO4 carries headphone detect. The pad has to be muxed away from its
-reset function, or both hp-detect-gpios and the codec interrupt point at a
-pad that is still SPDIF_RX. Leaving realtek,jd-mode unset selects the mode
-in which the driver takes jack state from hp-detect-gpios.
+But the RK3588 TRM Part 1 Chapter 11 'GIC600' says:
+"The GIC600 supports the GICv3 architecture ..."
+"The version of GIC600 is r1p6-00rel0."
 
-The slot width is pinned at 32 bits. With none set fsl_sai_hw_params()
-takes it from the sample width, so a 24 bit open asks for a bit clock of
-48000 * 2 * 24 = 2.304 MHz; fsl_sai_set_bclk() only accepts even dividers
-and 24.576 MHz / 2.304 MHz is 10.67, so hw_params returns -EINVAL. 32 bit
-slots ask for 3.072 MHz, a ratio of 8, and still carry 16 bit at the same
-clock: rt5645_hw_params() takes the data length from params_width() and
-only writes a BCLK-to-frame ratio for AIF2, so on AIF1 the codec ignores
-the padding bits.
+The RK3576 TRM Part 1 Chapter 13 'Generic Interrupt Controller (GIC)' says:
+"There is a generic interrupt controller (GIC400) in RK3576 which generates
+physical interrupts to Cortex-A53/Cortex-A72."
 
-Declare both audio PLL families. fsl_sai only moves its mclk between the
-8 kHz and 11.025 kHz families if the node names them as pll8k and pll11k,
-which fsl_asoc_reparent_pll_clocks() then selects between by requested
-rate. Without them the mclk is stuck at whatever assigned-clock-rates set
-while 44100 is still on the advertised rate list, so ALSA is offered a rate
-the clock cannot produce, does not resample, and hw_params fails:
-44100 * 2 * 32 = 2.8224 MHz, and 24.576 MHz divided by that is 8.707.
+And RK3399 TRM Part 1 Chapter 11 'Generic Interrupt Controller (GIC)' says:
+"The GIC-500 in RK3399 provides registers for managing interrupt sources,
+interrupt behavior, and interrupt routing to one or more cores."
 
-The cpu dai also needs system-clock-direction-out. Without it
-simple_util_parse_clk() leaves clk_direction at 0, which is
-SND_SOC_CLOCK_IN, and fsl_sai_set_dai_sysclk() opens with
-"if (dir == SND_SOC_CLOCK_IN) return 0". So set_sysclk returns without
-setting the mclk rate and without ever reaching the reparent, silently and
-at every rate.
+Cheers,
+  Diederik
 
-Signed-off-by: Rudi Heitbaum <rudi@heitbaum.com>
----
- .../boot/dts/freescale/imx8mq-phanbell.dts    | 84 +++++++++++++++++++
- 1 file changed, 84 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/freescale/imx8mq-phanbell.dts b/arch/arm64/boot/dts/freescale/imx8mq-phanbell.dts
-index 2d134eefb765..b819e644fa54 100644
---- a/arch/arm64/boot/dts/freescale/imx8mq-phanbell.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mq-phanbell.dts
-@@ -46,6 +46,41 @@ fan: gpio-fan {
- 		pinctrl-0 = <&pinctrl_gpio_fan>;
- 		status = "okay";
- 	};
-+
-+	sound-analog {
-+		compatible = "simple-audio-card";
-+		simple-audio-card,name = "Coral Analog";
-+		simple-audio-card,format = "i2s";
-+		simple-audio-card,bitclock-master = <&sound_analog_cpu>;
-+		simple-audio-card,frame-master = <&sound_analog_cpu>;
-+		simple-audio-card,mclk-fs = <256>;
-+
-+		simple-audio-card,widgets = "Headphone", "Headphone Jack",
-+					    "Microphone", "Headphone Mic",
-+					    "Microphone", "Internal Mic";
-+
-+		simple-audio-card,routing = "Headphone Jack", "HPOL",
-+					    "Headphone Jack", "HPOR",
-+					    "Headphone Mic", "micbias1",
-+					    "DMIC L1", "Internal Mic",
-+					    "DMIC R1", "Internal Mic";
-+
-+		/*
-+		 * 32 bit slots regardless of the sample width. sai2 divides its
-+		 * 24.576 MHz root by an even integer only, so a 24 bit frame at
-+		 * 48 kHz would ask for 2.304 MHz, a ratio of 10.67.
-+		 */
-+		sound_analog_cpu: simple-audio-card,cpu {
-+			sound-dai = <&sai2>;
-+			system-clock-direction-out;
-+			dai-tdm-slot-num = <2>;
-+			dai-tdm-slot-width = <32>;
-+		};
-+
-+		simple-audio-card,codec {
-+			sound-dai = <&rt5645>;
-+		};
-+	};
- };
- 
- &A53_0 {
-@@ -272,6 +307,18 @@ &i2c3 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_i2c3>;
- 	status = "okay";
-+
-+	rt5645: audio-codec@1a {
-+		compatible = "realtek,rt5645";
-+		reg = <0x1a>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_hp_det>;
-+		#sound-dai-cells = <0>;
-+		interrupt-parent = <&gpio5>;
-+		interrupts = <4 IRQ_TYPE_EDGE_BOTH>;
-+		hp-detect-gpios = <&gpio5 4 GPIO_ACTIVE_HIGH>;
-+		realtek,dmic1-data-pin = <2>;
-+	};
- };
- 
- &fec1 {
-@@ -295,6 +342,27 @@ ethphy0: ethernet-phy@0 {
- 	};
- };
- 
-+&sai2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_sai2>;
-+	/*
-+	 * pll8k and pll11k let fsl_sai move the mclk between the two
-+	 * audio PLL families, so 44.1 kHz rates work as well as 48 kHz.
-+	 */
-+	clocks = <&clk IMX8MQ_CLK_SAI2_IPG>,
-+		 <&clk IMX8MQ_CLK_SAI2_ROOT>,
-+		 <&clk IMX8MQ_CLK_DUMMY>, <&clk IMX8MQ_CLK_DUMMY>,
-+		 <&clk IMX8MQ_AUDIO_PLL1_OUT>,
-+		 <&clk IMX8MQ_AUDIO_PLL2_OUT>;
-+	clock-names = "bus", "mclk1", "mclk2", "mclk3",
-+		      "pll8k", "pll11k";
-+	assigned-clocks = <&clk IMX8MQ_CLK_SAI2>;
-+	assigned-clock-parents = <&clk IMX8MQ_AUDIO_PLL1_OUT>;
-+	assigned-clock-rates = <24576000>;
-+	fsl,sai-mclk-direction-output;
-+	status = "okay";
-+};
-+
- &uart1 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_uart1>;
-@@ -383,6 +451,12 @@ MX8MQ_IOMUXC_GPIO1_IO00_ANAMIX_REF_CLK_32K	0x05
- 		>;
- 	};
- 
-+	pinctrl_hp_det: hpdetgrp {
-+		fsl,pins = <
-+			MX8MQ_IOMUXC_SPDIF_RX_GPIO5_IO4			0xd6
-+		>;
-+	};
-+
- 	pinctrl_i2c1: i2c1grp {
- 		fsl,pins = <
- 			MX8MQ_IOMUXC_I2C1_SCL_I2C1_SCL			0x4000007f
-@@ -410,6 +484,16 @@ MX8MQ_IOMUXC_GPIO1_IO03_GPIO1_IO3	0x41
- 		>;
- 	};
- 
-+	pinctrl_sai2: sai2grp {
-+		fsl,pins = <
-+			MX8MQ_IOMUXC_SAI2_MCLK_SAI2_MCLK		0xd6
-+			MX8MQ_IOMUXC_SAI2_TXFS_SAI2_TX_SYNC		0xd6
-+			MX8MQ_IOMUXC_SAI2_TXC_SAI2_TX_BCLK		0xd6
-+			MX8MQ_IOMUXC_SAI2_TXD0_SAI2_TX_DATA0		0xd6
-+			MX8MQ_IOMUXC_SAI2_RXD0_SAI2_RX_DATA0		0xd6
-+		>;
-+	};
-+
- 	pinctrl_uart1: uart1grp {
- 		fsl,pins = <
- 			MX8MQ_IOMUXC_UART1_RXD_UART1_DCE_RX		0x49
--- 
-2.53.0
-
+> If the interrupt never fires at all then possibly the signal depends on=
+=20
+> some additional clock or power domain in order to propagate, or it's=20
+> just described incorrectly; or if other interrupt sources within the=20
+> NPU/IOMMU do still work then maybe there's some additional masking=20
+> control that's been overlooked, or perhaps it it just terminally broken.
+>
+> (And FWIW I'm also inclined to agree with the other comments that=20
+> refactoring existing code to make room for new stuff, then actually=20
+> adding the new stuff, should probably be two separate steps if it's not=
+=20
+> completely trivial)
+>
+> Thanks,
+> Robin.
 
