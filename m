@@ -4,96 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FA9DC5AC67
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 01:13:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28F9DC5AC7A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 01:37:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JhTAK8kd+tCRfVOm3LmowAQ3BoIBHWxZmJ5DLNOQvkM=; b=OsrHGEDvILH4UHhUys/ZJbc+Nv
-	V1omnnSMAhBq7vatgA6lzJ/ymCZO2uzp/qGt3SEyd6/JBzjuxS3I6Fz8wLGDUhnEUOxZqmUbD8Wfa
-	Mu+fzEQWhpBCbt98M3i+YSeJdoV9WoypMUP++jwAI25YfbZwIJQo6f6ncS6ljs6GBDOl58xY3LZjU
-	pKkunpQFSHD89ban92C+btPL4NCX3h/ZRELiWbq+wan0jXsZtUVsLiLWHu+uUxxoYeIRN01oPWoA+
-	nBjfkQHxceydGOLBg3ElH5oZfd7c+pbc1cOAUYcxb36jTWaEfDXWehgRRlIDXQfYkbMwZtor6ZA7A
-	kGY1CHMA==;
+	bh=JGKYpm3NtQnK1t7E2NOgTePh2Nswpahf23hIRl2lOT4=; b=Hm9sKmniQH5Snn0ZmKHeltoOnN
+	5TDWJrnBGHDwEYWObERXaJGWLy4zJgzF2PH4YjT4CRIt+yO2rBxnVaHhY01LKker+dFh0HaaCqR0+
+	8xKpUzPsnnsjVcaDRPvN2Xp65dd9Ufm5bSHgOVraxzdnYDk6q7sU595Gg6Goc17jNSyLvhMLL5+6W
+	K/0f0XciH1h5NsZwJI+iu+TiTcD7Oa4ayb0DKUnQcU6toJfITbFS8jFmcBWOg3E7Oq7z1AzbOgdcr
+	AvVZ+wssdoIYqWsObZVgitDy1lYSzvxnPitbUf6TyWFMukQnP4doKCIcM8VzPzirKSIiODjFuYXXX
+	tlGaAKgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws99J-00000006vJd-31Yn;
-	Fri, 07 Aug 2026 01:13:25 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1ws9WM-00000006wS8-3my1;
+	Fri, 07 Aug 2026 01:37:14 +0000
+Received: from out30-110.freemail.mail.aliyun.com ([115.124.30.110])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws99H-00000006vJD-1UpF
+	id 1ws9WJ-00000006wRl-0DwY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 01:13:24 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4955aa106b1so24899165e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Aug 2026 18:13:22 -0700 (PDT)
+	Fri, 07 Aug 2026 01:37:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786065201; x=1786670001; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=JhTAK8kd+tCRfVOm3LmowAQ3BoIBHWxZmJ5DLNOQvkM=;
-        b=Ia3rYmy9UmPa+FvXgL1nVmHktVhlr18c4KNrcdNvCcHyjMgQH6YqWGVFZgvmtIF92u
-         uEM0kQmbvKL9S9VTXt0VE3i6fwjhQHBk8I/CnZnH2CoufqIdrxrb+ecemIlDY2dL9Iws
-         1NftVxT2VAt3eHcTiE+MMcV/PGheCVqKypKxzVUloBvsuuttFli49mrmjDTtQ7jPa+kL
-         AzJzR7sac2UWFrMVOYqFksw+iRSEZYeRcoQe5kXaoHtgoH0aVCM/sFD/Qbn64/wgwszx
-         K/xWt+EaL+rqd/BP/8BacSzx7H1T80gm6Gawg5aqzBCqFrFdBdK9qGneSKicpEn3It/v
-         MAiQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786065201; x=1786670001;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=JhTAK8kd+tCRfVOm3LmowAQ3BoIBHWxZmJ5DLNOQvkM=;
-        b=fVL4Vg7MpUvbUFKNGq1uqAFY9OihuEXKv1lWqa2wfa2B29zNLfm8gY5LeprYwxJ3B9
-         TfTULC0tFl9NxCOEPAf2ZP0Nh7LL4TvMCYuTSbK1ZOP11gOefEmW0RyKojfbzeyxABhy
-         hNDVLCNAa9G2Wiz9hbjKcInPgEpr5D7YJ55SXAUHRI/s7qEr1gF/6G3+ZZkJbkUI3waw
-         YxTKf/85dwTac0rLayiK8UQ9tUOKmmfqmcDp+O9M6MYAN4263PYe4zk25ixulNto4LiO
-         QVoCWEOPe3hCsVd5ge4dqKvU3xRY5R16YaP5BrESj1O3RHmnlIpoyhaeWib2Qg7e+vNW
-         nI0A==
-X-Forwarded-Encrypted: i=1; AHgh+RrJJALZlhsYV08kjdTjEX9UihlpHNXA3N1A4IcltFX0bzLHZJROFqYgYt3MwSDOLKbLthn4kL5jj5gxxC7HhVX9@lists.infradead.org
-X-Gm-Message-State: AOJu0YxN9THo6c+ijJLiPHKNk9PjsuM3GH9H9MB0t0+NDMCYMjIXmDAv
-	+MlViGCc+5E5InZzbtTVIZz8ASLV0xEyRyZppKFb/+CM4o0T4tRIwzEg
-X-Gm-Gg: AR+sD12iva7MATRcrjBeMFdVVRPxBuHbBU0KTqn/vc3e8J5vUNTO/HNIV00rNM2VmMM
-	w+u2qOrohpc4/VaxXDbVPzMNmbSY3Pn2pjvJLVW59NrwWA4n6vUFsEuYBsegCAhc4IgznlRrxr2
-	OWV//pUOFnrHlFuu12BL1npgGLR9ok/FdHI9in+baN5Klc2XlwY9AkOLqteQIZbJIj2DEw8ytr8
-	5yYigylFB5UqgqhfnyKWGtTn3ncWEzncPe69vQm0wjvfOnovRjNZ5JqkSQQ7qVSeReocoVhIDce
-	zsnYeAhsNExm8/aj1bTC8uIUHoPJ6bcjToLQP0Zd1YOlmOFj4nOiVWbRUaKu69TChjGKWaTkq6n
-	1KhUNPyZ959hG70DEM+MOg7/PV+dmWRMxRnDTKfCb+UMgJ4xs+/UqYip8K3XUyP1s4oi5eVg2jv
-	iSW+jxGC1UMJEv3y/2zIXu2LrAR52vprTGb/Qn7D4DLUUdPkbM74ER3zBky/TJGBSngZ4qvBqV2
-	EtmNJYjU3VBZ9gNVD2CTEeqYd1wGserpZ1kFRkVQrPkGe3CGCFaiYPrdOaKOSI33fV7yKabj/Ie
-	1uLUrMMgGy5/+48cCEaoRoLKnxrnQennzzCsN1SHcmI/m8txEOgg2M+lG4YZHhAAGpHZQcPCrXs
-	Ou6xjDU4=
-X-Received: by 2002:a05:600c:1f96:b0:496:c249:dd9a with SMTP id 5b1f17b1804b1-4994e71364fmr228063365e9.3.1786065200908;
-        Thu, 06 Aug 2026 18:13:20 -0700 (PDT)
-Received: from unknown748F3CBA5068 (dynamic-2a02-3100-adf9-2301-8c14-6be6-a9e6-a2d4.310.pool.telefonica.de. [2a02:3100:adf9:2301:8c14:6be6:a9e6:a2d4])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4995c8bcca6sm13771385e9.4.2026.08.06.18.13.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Aug 2026 18:13:20 -0700 (PDT)
-Date: Fri, 7 Aug 2026 03:13:17 +0200
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Wei-Lin Chang <weilin.chang@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Fuad Tabba <tabba@google.com>, Joey Gouly <joey.gouly@arm.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org, grayhat@foxmail.com
-Subject: Re: [PATCH v3] KVM: arm64: nv: Keep the shadow S2 MMUs at fixed
- addresses
-Message-ID: <anUt9gd8HIwaj9jf@gmail.com>
-References: <20260806192451.10169-1-kmehltretter@gmail.com>
- <d5svhw3jkjnkucohx2ntwhphemgbtfcmjt2zoyyw6svz56zfrh@z2ziydov5ras>
+	d=linux.alibaba.com; s=default;
+	t=1786066629; h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type;
+	bh=JGKYpm3NtQnK1t7E2NOgTePh2Nswpahf23hIRl2lOT4=;
+	b=aQvAQD7RuZ8kb/qmvFB4Llit9Y0WgZIW3pnH8F4AFxKLgch0I2mNWfYskxPIYYuhws6HbKxtwjZ36rbOSdjyVYvbqOB6k2cBIwmKTcN7bZqCcIm2PpZ8yi0N5MLGsKl7JLLstVPop5haFpPUirFfVFm7+JNS3SpqJ7o4x0YNxfM=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R901e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045098064;MF=yaoyuan@linux.alibaba.com;NM=1;PH=DS;RN=16;SR=0;TI=SMTPD_---0X8VGXri_1786066627;
+Received: from localhost(mailfrom:yaoyuan@linux.alibaba.com fp:SMTPD_---0X8VGXri_1786066627 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Fri, 07 Aug 2026 09:37:08 +0800
+Date: Fri, 7 Aug 2026 09:37:06 +0800
+From: Yao Yuan <yaoyuan@linux.alibaba.com>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, maz@kernel.org, oupton@kernel.org, seiden@linux.ibm.com, 
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	catalin.marinas@arm.com, will@kernel.org, vdonnefort@google.com, tabba@google.com, 
+	sebastianene@google.com, keirf@google.com
+Subject: Re: [PATCH] KVM: arm64: Fix hvhe and broken CNTVOFF_EL2
+Message-ID: <gm2w76lflkw67xc4io2ornvfugvijbwotzvwmmefsfcqvrasgp@qkybjxr6lukr>
+References: <20260806150105.4010701-1-smostafa@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <d5svhw3jkjnkucohx2ntwhphemgbtfcmjt2zoyyw6svz56zfrh@z2ziydov5ras>
+In-Reply-To: <20260806150105.4010701-1-smostafa@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_181323_409262_4D91E722 
-X-CRM114-Status: GOOD (  12.92  )
+X-CRM114-CacheID: sfid-20260806_183711_787248_F3DA407E 
+X-CRM114-Status: GOOD (  20.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,38 +68,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 06, 2026 at 10:54:03PM +0100, Wei-Lin Chang wrote:
-> 
-> Hey sorry for nitpicking once more, I actually like v2 more, as this
-> version splits the error handling to two places. Marc's implementation
-> [1] is also good, but that requires a twist in kvm_arch_flush_shadow_all().
-> So I'd personally go with v2 (+my suggestions for it :)), but also fine if
-> others have other opinions.
-> 
-> I also think the comment in kvm_vcpu_init_nested() is worth adjusting
-> slightly, too.
-> 
+On Thu, Aug 06, 2026 at 03:01:05PM +0800, Mostafa Saleh wrote:
+> When running on a setup affected with broken CNTVOFF_EL2
+> (has_broken_cntvoff())
+>
+> Booting with VHE or protected mode(nvhe) (id_aa64mmfr1.vh=0
+> and arm64_sw.hvhe=0) works fine.
+>
+> However launching a protected VM with protected hvhe mode panics the
+> guest kernel:
 
-No worries, thanks for taking another look.
+...
 
-I was following the guidance in include/linux/cleanup.h:
+> And for non protected VMs seems to hang or progress really slowly.
+>
+> The workaround avoids setting non-zero CNTVOFF_EL2 and trapping the
+> virtual counter to emulate the offset.
+> In the VHE path (timer_set_traps()), traps are only enabled when the
+> guest actually has a non-zero virtual timer offset.
+> However, __timer_enable_traps() in hyp/nvhe/timer-sr.c unconditionally
+> set CNTHCTL_EL1TVT and CNTHCTL_EL1TVCT whenever has_broken_cntvoff()
+> was true.
+>
+> Which causes 2 issues:
+> 1) Protected VMs: kvm_handle_pvm_sysreg() does not find "cntv_ctl_el0"
+> in pvm_sys_reg_descs and injects undefined instruction exceptions.
+>
+> 2) non-protected guests are trapped all the time even with offset of
+> zero.
+>
+> Fix this by adding a check in __timer_enable_traps() similar to the one in
+> timer_set_traps()
 
-  the expectation is that usage of "goto" and cleanup helpers is never
-  mixed in the same function.
+Hi Saleh,
 
-But maybe keeping goto is better. I'll wait a bit for others
-to comment.
+May more fix is needed for case that guest real have virtual
+offset, due to no cntv_ctl_el0 handler there. For current
+fix for virtual offset is zero:
 
-For the comment, I propose replacing the current text with:
+Reviewed-by: Yuan Yao <yaoyuan@linux.alibaba.com>
 
-	/*
-	 * If allocating an MMU object fails, keep the VNCR page alive so
-	 * that userspace can retry vCPU initialisation without affecting
-	 * the VM.
-	 */
-
-Is that the adjustment you had in mind?
-
-Thanks,
-Karl
+>
+> Fixes: 0bc9a9e85fcf ("KVM: arm64: Work around x1e's CNTVOFF_EL2 bogosity")
+> Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> ---
+>  arch/arm64/kvm/hyp/nvhe/timer-sr.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+>
+> diff --git a/arch/arm64/kvm/hyp/nvhe/timer-sr.c b/arch/arm64/kvm/hyp/nvhe/timer-sr.c
+> index ff176f4ce7de..98b6e37ee8fa 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/timer-sr.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/timer-sr.c
+> @@ -10,6 +10,7 @@
+>
+>  #include <asm/kvm_hyp.h>
+>  #include <asm/kvm_mmu.h>
+> +#include <hyp/switch.h>
+>
+>  void __kvm_timer_set_cntvoff(u64 cntvoff)
+>  {
+> @@ -63,7 +64,7 @@ void __timer_enable_traps(struct kvm_vcpu *vcpu)
+>  	 * Trap the virtual counter/timer if we have a broken cntvoff
+>  	 * implementation.
+>  	 */
+> -	if (has_broken_cntvoff())
+> +	if (has_broken_cntvoff() && hyp_timer_get_offset(vcpu_vtimer(vcpu)))
+>  		set |= CNTHCTL_EL1TVT | CNTHCTL_EL1TVCT;
+>
+>  	sysreg_clear_set(cnthctl_el2, clr, set);
+> --
+> 2.55.0.654.g21b8a5bc05-goog
+>
 
