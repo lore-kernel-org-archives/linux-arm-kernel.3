@@ -4,86 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48D91C5AC7A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 15:31:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21AF9C2A09B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 15:35:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=sjuSgcUeDYQSzOzvUe0SB7wYb8MCH/XbF2bJMu2eZlY=; b=vouWlXPLzY2dPxU2Qr+dHalMG7
-	D6txnAZ7MsXTHvv0JvUs2qaSSYqp5YzKBL/u+2HWmFrokJfCd2EqFGPrISzMkzQ+ECmYZE1QkiqHS
-	1VDV4chqTQESs0jyfaJPOnR8Rw5aLzNZC2xq2vjiowiOZuWPKAQaCnt2XomBopvTreUO336k2E96P
-	iKILlDF+eKaX4RXkslB6cF+5c72FgjGxS+PaFIrbWeQpeNR30ElpmHJm+/Os1Ln2gpwH6TacqiFgw
-	iF9ckxvswGLXMBsvaC+ToBR+v58xpq1Z/kTjFDSmKIy1nbWE4OnD+wJpivIB86X5QesqQ/sFL9dug
-	aITY1Haw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Az5wp+kAsSbtOjG5rv8pQmucG2yE4e6DGCCgwM57rEM=; b=lBaaj68k4sKutiHkWKpxl5Ee8o
+	+zO3M+2nGe5StcurMrRFWEHvjgaBjNytI/5SQfvj3/WSRfuvik7PlebxzlnKlp+fI39+qdgUs209Z
+	2zQEo4x/AW/y0XD6I4yrG0TzuSanXoBD5UuQp5mvE5Beo3kAVZR85HECIXOdUaPNoU/tqPHtCblwY
+	Brl4aH/gJFt1qswsWPx1KtW0tdsA8YUDx7v2WRwMTS4d1ht6MHQMqNViqlvwFwvVkGsUbNRyzXLR4
+	dU/fZejRrl06D0/RLVnwh2jUayy5bwrW5X70BTVGiJDrBIi4rBTSCfhUMsT9evxFUCAy/ahK7mQEI
+	jAk99ZSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsMXl-00000008LIG-0ZA6;
-	Fri, 07 Aug 2026 15:31:33 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1wsMb7-00000008LdP-2nUB;
+	Fri, 07 Aug 2026 15:35:01 +0000
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsMXj-00000008LHs-0bCw
+	id 1wsMb5-00000008LcI-0Xiv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 15:31:32 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-47f703a9e5dso1877692f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Aug 2026 08:31:30 -0700 (PDT)
+	Fri, 07 Aug 2026 15:35:00 +0000
+Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-69fec8b4638so13950a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Aug 2026 08:34:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786116689; x=1786721489; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=sjuSgcUeDYQSzOzvUe0SB7wYb8MCH/XbF2bJMu2eZlY=;
-        b=DLPDL9zmqRu/pbunv3poxp1+g6R2jxWOmVSA+kYNEWEfUlKS1daTkV9Dmg8KPmD9fb
-         x/S/FqzxBe6nioPC3HKa48H1lgLDGJV8yl7oyZfC/cITteB+lkgtSyHpbcDXBkdGT0NS
-         wZuxX6rLZQr9L3EaCGie5U1sDvAgzvah0uoV0Zbw8UWp/k1dlwpFY/lYKgUKnrb/G+j6
-         f8Ug3QdvdUTiFClbJy6bPIpMKWJ3CjtMMeZHn4SGOLO7gvUHs7vXgecOHj21APG7z6rj
-         XAeUiA74VPeogD47DkVf019lPcldLo/oYTPZ1/FCEV8oxz7GxZU+O4E4vTsUBLYkejUT
-         JSTA==
+        d=google.com; s=20251104; t=1786116897; x=1786721697; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Az5wp+kAsSbtOjG5rv8pQmucG2yE4e6DGCCgwM57rEM=;
+        b=TdOJkVeGooatMLj7z//jd1iEi+kX1xBKJou13KOBgCOlsR8RrXbWMAStcPJZsq81ih
+         aZg+Yfl4FyspcpUcag0P1bM9rGGlOBMob2hvTxwhPt65UxtFb412/lOO12Qex6sOInPn
+         3XTpXberjnTxkXdr+8W95hj7F9dwvC3hCgVDjOb4QbSv2f/JTOHqkzJSZnz2sZ72+ums
+         HM9+Q/evU+ntrBpmzj5hM7Fz+YJuz7LWMovOUKMw6AWAf3vgja3G+dbm13UVzU/QoRZT
+         5TA6mzpfVf0YnyN2xfLQUNBGNI/AN5HT4yewg2Pje51LH0jHyieIrIuh6wGz1B3YpQqr
+         AxbA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786116689; x=1786721489;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=sjuSgcUeDYQSzOzvUe0SB7wYb8MCH/XbF2bJMu2eZlY=;
-        b=aGtyPl/ErKB9i2lfYA+aS7loegDru78QJOGoe1AX1uLIQCAkhecdJf3R85DcBmaYB4
-         JCwPaR/6NkbZxVx8/XhszFsYHKaw2LLjNwLK8V9SGIZGvBN1ABuWSzyuDE5GwRHJd0b0
-         SLD3uh/u2yy+4E7tExjV2Gr6N8DywJ9MpmXNw9Wl0NWm/kS3wzEC5RMu64MIdEVPZ3Y9
-         rUrLXvJEzLRpzW5nKqIVLtd0MtcGtaA+S7Z8EVlaPyoE48m5ohV7sLCCCcbMe6M9hKa5
-         gSCWgPbBFtqnaY0KhflTbgynEy+Fya72JHI3iP7NFPySkupoNsbMFFx2cJ/H45OaP5PB
-         v1uQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rpmie4Q+0tvhAT0UI/xlq9dxFOG0LYBj0BFlRhuNHAgghQtN25JbmCQXPJlgjV9ip/YCXMEZSMz+yN/DNY8zS5h@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxiy9w4e8PioGRm4iaaWX4NSGB9sWyhXpdZiytd9SCUgtG1rNm0
-	0FMsjYj1LaGRnhhmFqXu0hapX4Q1b18Nk5ubb0VfstgCnZvd5XbR50p8
-X-Gm-Gg: AR+sD13WVxkLr6GtahJLU+1GKetNBijVKsWFXJBVa+emTiB65/D5Uj+BV7K+rbuMPkl
-	OVeYpHoXxFaDhQ4KrVL2np3LAbP86afu+MCf+wSJVbsZ7rIMmqWiOkCJqsvGbJMnJKI8UCEt2gv
-	zsQCWDiZ1yxilgyS2fCwTLs89Mw9GdvCnpaH1AV/4T1Ov4sZB5XJdr9T515Mv5e4lqDfnoHo0q+
-	uuysCp9syfzxNAUkmMoqa79RvH7XkL6xwpo/9D7U4qrucgKydCywff4SmxOhphAXXnBQQAc8DOz
-	1dI+08Azlm2tVfgNBOPnGJNLci8jEtOOYSP1Bxs3+b5RacIKYGBVFznW6dzX8eNmA95TpfTfJlx
-	DvwKMi3udiua5rZq4VkbEoH7plP41Ii+ETYA6+dXQ7DWyeGv/ji+G2myXDEHVyT1eOfiuCIjXUI
-	CSwNls90oJeXMeKyekYS1jI90qItPZ5onCukt2yRAZ7g4Md5cLPEhYudRHLMAGHLCdOwE=
-X-Received: by 2002:a05:6000:982:b0:481:98d:b24 with SMTP id ffacd0b85a97d-481098d0e88mr4142874f8f.19.1786116688655;
-        Fri, 07 Aug 2026 08:31:28 -0700 (PDT)
-Received: from deb05.proceq.com ([213.160.61.66])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-480021e8c5asm7393269f8f.18.2026.08.07.08.31.27
+        d=1e100.net; s=20251104; t=1786116897; x=1786721697;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Az5wp+kAsSbtOjG5rv8pQmucG2yE4e6DGCCgwM57rEM=;
+        b=ox+RG89QbALj9WfXsVopB4LC/m9rpzEtMehvhLK2SjeoFQvW2/ODyGrTqz1uiqRfds
+         SS73ABDZqjlvYtod8ZEvhn+8uZYxN11sSJT5zB00Gv0wgSYNpAL4YrjKLk8JzkJApbSj
+         CVafE9RrgWsXVT0nCeNWcNBAB4V9z/M88z0V1xAt1nCYsENzifbzfJnYzGKBu9l+w3Po
+         Rd5o19yaeIIdMlvLLSjaEl3KQcLojIcOgOYI55h8KXQlXcG1m6EX0hSuOIERQByu6Syi
+         JnyZUq2TqMcehg9vcbEIrgqtT/7VC+Wdwd48iuTWJ+drBAIdrllFjza1tPJcWxGjpqyS
+         LFOw==
+X-Forwarded-Encrypted: i=1; AHgh+RpTYSmxdbTyCZGZ4OxK3KKp+DHpabw6RcCJ4svL5z6tPM81YPSVysH8HfD4fZXj1mk58ziBbk0vVJVwmpsDOxBA@lists.infradead.org
+X-Gm-Message-State: AOJu0YwZ2K8mTw6vVS6EwNwcyYjf0rJzWCvN3+GWlJfiVoB0L+DWTYYJ
+	ttnd0Nq/V6gz9bCl6IefpQG15KGTaImJ3j9uGk0JXXAyJqx/dEOwleubi2rRIXnrcw==
+X-Gm-Gg: AR+sD10uuqv8Jj2Ei1kgXxov9pLfDXoLfcB244sD4ZlXdOil2V5MaZJglFX6fS/d7GJ
+	nxlj9EgGqAO/YgdgnyhwvGyWm4BNxXKlIE1cbkxrJ1HJAYgJ3OnW33BAQ1USdk2+uE5FajZJYek
+	8T5WMrIaFnjLhpMXvB53RYjBf0YJNtCyEOcJVeKaKfYOmtP0LxY5J2KJVMyDclCyqeTaFoi4KQD
+	W0N6Lj9/yXx+iTkYsDSdttjOEljCIfChQe14t0QcXLl9UdkO2hn+t2zjBmgmPwSUnCxJc4uvMe4
+	tHFZqUHHoRqUxpeIEZE4OWOilSf/B4Z/HwgZUpB+Za0+ACdY1PrVFwQBHXfYqaVcjdrN7KNYq/p
+	q7Q7wZ5eBPeay+XKdu4A4YAVeqq9J7EhHKNwagtuNqs8wfy9iP0HPuVw8r9oav26KocC3QIv8nK
+	0CJx/vMFhudfB8OR/elsM33X15c5A0vt+TZ4PsRUXUonkUsZO1AU4EW08vtsrodWiQLbg6nJXD8
+	iNZALYkU64GJqat957shGnIlX55fQ==
+X-Received: by 2002:a05:6402:65a:b0:6a1:f088:9486 with SMTP id 4fb4d7f45d1cf-6a1f088972amr16113a12.4.1786116896722;
+        Fri, 07 Aug 2026 08:34:56 -0700 (PDT)
+Received: from google.com (250.192.189.35.bc.googleusercontent.com. [35.189.192.250])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a1e7d48f8dsm708475a12.17.2026.08.07.08.34.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Aug 2026 08:31:27 -0700 (PDT)
-From: Mehmet Fide <mehmet.fide@gmail.com>
-To: Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Stefan Agner <stefan@agner.ch>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] ARM: dts: vf-colibri: apply the EXT_IO pin group
-Date: Fri,  7 Aug 2026 17:31:27 +0200
-Message-ID: <20260807153127.3087388-1-mehmet.fide@gmail.com>
-X-Mailer: git-send-email 2.54.0
+        Fri, 07 Aug 2026 08:34:55 -0700 (PDT)
+Date: Fri, 7 Aug 2026 15:34:47 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Will Deacon <will@kernel.org>,
+	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-coco@lists.linux.dev, Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Marc Zyngier <maz@kernel.org>, Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>, Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
+Subject: Re: [PATCH] arm64: swiotlb: Keep the default size for protected
+ guests
+Message-ID: <anX7F7dnKOtAOIIe@google.com>
+References: <20260717180442.110954-18-aneesh.kumar@kernel.org>
+ <20260807092612.2202005-1-aneesh.kumar@kernel.org>
+ <anXIZSh9lq99VG9X@willie-the-truck>
+ <yq5acxvu2ict.fsf@kernel.org>
+ <anXbJ2O4DWgPxCeg@willie-the-truck>
+ <20260807135810.GA200537@ziepe.ca>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260807135810.GA200537@ziepe.ca>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_083131_183436_9FF4F4AB 
-X-CRM114-Status: GOOD (  10.43  )
+X-CRM114-CacheID: sfid-20260807_083459_187753_1BC0643C 
+X-CRM114-Status: GOOD (  25.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,34 +127,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Mehmet Fide <mehmet.fide@screeningeagle.com>
+On Fri, Aug 07, 2026 at 10:58:10AM -0300, Jason Gunthorpe wrote:
+> On Fri, Aug 07, 2026 at 02:18:31PM +0100, Will Deacon wrote:
+> 
+> > > I was under the impression that there is a possibility of using swiotlb
+> > > instead of restricted-dma-pool with pKVM.
+> > 
+> > Yes, that patch enables swiotlb as a possibility for protected guests
+> > but with your patch we avoid shrinking the swiotlb buffer even when
+> > restricted dma pools are being used and that's a waste of memory.
+> 
+> I also thought we switched pkvm to use CC-like swiotlb as part of the
+> alignment in this rework? Mostafa ?
 
-pinctrl_gpio_ext describes the three Colibri EXT_IO pins, but no node
-references it, so the pin controller never applies it and the pads keep
-whatever mux and bias they came up with. It is the only pin group in the
-Vybrid Colibri device trees that is defined and never used.
+Yes, now protected VMs can use the SWIOTLB for bouncing. However for
+Android (and kvmtool), use restricted DMA. so SWIOTLB is not used.
 
-Hog it on the pin controller, which is the usual home for pins no device
-owns, so EXT_IO_0..2 are muxed as GPIO with the drive settings the group
-already spells out.
+However, I do not think we should over engineer this in the code,
+swiotlb can be set from the cmdline and now through Kconfig also.
 
-Signed-off-by: Mehmet Fide <mehmet.fide@screeningeagle.com>
----
- arch/arm/boot/dts/nxp/vf/vf-colibri.dtsi | 3 +++
- 1 file changed, 3 insertions(+)
+Thanks,
+Mostafa
 
-diff --git a/arch/arm/boot/dts/nxp/vf/vf-colibri.dtsi b/arch/arm/boot/dts/nxp/vf/vf-colibri.dtsi
-index 1111111..2222222 100644
---- a/arch/arm/boot/dts/nxp/vf/vf-colibri.dtsi
-+++ b/arch/arm/boot/dts/nxp/vf/vf-colibri.dtsi
-@@ -171,6 +171,9 @@
- };
-
- &iomuxc {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_gpio_ext>;
-+
- 	pinctrl_flexcan0: can0grp {
- 		fsl,pins = <
- 			VF610_PAD_PTB14__CAN0_RX	0x31F1
+> 
+> > > If that is not the case, then we could change:
+> > > 
+> > > !cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT) &&
+> > > 
+> > > to
+> > > 
+> > > !is_realm_world() &&
+> > 
+> > Perhaps, or you could just pass the swiotlb= option if the defaults don't
+> > work for you. Can you give more details about the slots exhaustion you're
+> > seeing under CCA?
+> 
+> We see badness with swiotlb too, it basically doesn't work out of the
+> box if you have to use it 100% for real devices. It easily runs out
+> of memory.
+> 
+> Auto tuning to higher levels makes sense to me, but I'd rather the
+> core code handled adjusting its size to the estimated need, not arch
+> code.
+> 
+> Jason
 
