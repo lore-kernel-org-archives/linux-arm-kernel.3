@@ -4,82 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8206C5AC7A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 13:03:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B44AC5AC7A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 13:04:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9QqKKM/ejR76i/TkpRfggSdbNj1yOKb4P01vNyYkRUs=; b=FDsTGNRWVhfSo88yBOmXHbGhL/
-	cLM8zmHw8aOLbG3u2MqFu/eccHmkHpqz+HyTNsB/RRw/8VjWJZ1mlhS7ztoOkUzOhkJ5XDQZQS0D3
-	wtY8AdFF1TqW6Mr4wxb3mBEyGRAyvzQVSYxbt/HCQjmcegNZ4gEjOYkRM7JZ0lhBAvCJY6ClvUgn6
-	r3UTbDLeEQeyIfB4alnhK/VXpFYPQvROgXtlbVoe6n5I2s6fS0T54qg9xFsyY/ApCT+V9aBKIjHu1
-	so0mmccBUuoBHk0Z/IF0wHhxwYeImnD5nVKy75x+xh9xSNRBhbtTB9COOOPCCRI28YkCFjPLZ19sb
-	H6uJ344w==;
+	bh=3fFhzIq+MX51w32vSTa4ODaYitxoGagZp/jBOQAA+Dc=; b=YJF4zs9EEhpUchHtMGPWrwnP//
+	vNs+NbQxRHCHCLQa6m7dxhOBJbstDeh6jT3SByEi0x+CEH4l0tVR9lKQsnEEcSBbGU2c/HRRBc/Ph
+	MtcJPMSaA9dv2yoeWZ2Uk+xkwpbtM6t1+JD7ik+T5b3GhZj+aFl0nQPGUc6+qI4hYyvjqs4Ynp4t3
+	1nRQMT8ky94sFJgJgaqu+VzoHq6SZqfGJ/jyQUUu/YUZhQWjNgDMotGthKHw55GCGb7WtM6JdcfhF
+	6MRPfiIz5BkqnJQ8GIyQz28BE/sW7l+UlEbrwlTbJ0fl+lU9Low5yispl++7k033vUQ8QyurARn6A
+	e/3IoodA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsKES-000000083lq-1M9H;
-	Fri, 07 Aug 2026 13:03:28 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wsKFT-000000083v1-23pC;
+	Fri, 07 Aug 2026 13:04:31 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsKER-000000083lg-2uVo
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 13:03:27 +0000
+	id 1wsKFS-000000083ui-2arR;
+	Fri, 07 Aug 2026 13:04:30 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 73C49437C3;
-	Fri,  7 Aug 2026 13:03:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE9CF1F000E9;
-	Fri,  7 Aug 2026 13:03:17 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 39B0140400;
+	Fri,  7 Aug 2026 13:04:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE9EA1F000E9;
+	Fri,  7 Aug 2026 13:04:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786107807;
-	bh=9QqKKM/ejR76i/TkpRfggSdbNj1yOKb4P01vNyYkRUs=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=jZgVfkuoWf2/siK+rKc90sJnAQt9IS3OPxAuRh6EIc5QTd91l788Rnt8tZqkY0eX1
-	 4V1fwC8Xke07dOEvJH4kYYZt+gvugXiKXdGz5s3Jt1/2YTv8XFf+3pPwa5TgRIy87h
-	 tOTUigHIwOO/5rABTOwSnFvBDxhesq9IwfDUw/PwoaE1G3A47ELaIB7XeCacIsSDyy
-	 PyFbqxUIFxAGM/63Xlcz8epDPjAFNlriiXizH5Y2/GDhHud+FPUDHlQJ3ZIrkb6HGm
-	 sOiy7Vzx6vgAVgxctx2iJ5Rbh6hpYJoJ/vzRtPUfqSEI2nVg/CcZrAxJwm0CjWUY4i
-	 tcfKhcQgz+Ztw==
-X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: Will Deacon <will@kernel.org>
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
-	Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>,
-	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
-Subject: Re: [PATCH] arm64: swiotlb: Keep the default size for protected guests
-In-Reply-To: <anXIZSh9lq99VG9X@willie-the-truck>
-References: <20260717180442.110954-18-aneesh.kumar@kernel.org>
- <20260807092612.2202005-1-aneesh.kumar@kernel.org>
- <anXIZSh9lq99VG9X@willie-the-truck>
-Date: Fri, 07 Aug 2026 18:33:14 +0530
-Message-ID: <yq5acxvu2ict.fsf@kernel.org>
+	s=k20260515; t=1786107870;
+	bh=3fFhzIq+MX51w32vSTa4ODaYitxoGagZp/jBOQAA+Dc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=VWcIOhramT7rlH4zrA6e5BFyTjoOlov24iXYDz8kaOJkaDjLfD3eG20QFCXdguwaH
+	 MKCTmUk8n/8lSvg7PpdrXY05CiL97s9VmZ43NGAEoRduTA07WhGAUzWhVDv55zRLhS
+	 NUpkce6/LgMSqrI0rVV2g5h1EqZt7voXks1iBdI0gF2iDZewmgTHhVvqTbdCSPZIql
+	 3DJtcirSnFCw3adO6AodMECcyS38t22JBWXKoP3VbeiOBN9ufewerxS7f5k4Xk9A1Y
+	 tbzLXaQUUDuIcqo/9tvflD3rM6mVjIQSR3IzZNbHgXZMPiz0lsochVt+z/07f9pAjb
+	 NEnzmNIZUAU5g==
+Date: Fri, 7 Aug 2026 15:04:20 +0200
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Vinod Koul <vkoul@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Algea Cao <algea.cao@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>, kernel@collabora.com, 
+	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Thomas =?utf-8?Q?Niederpr=C3=BCm?= <dubito@online.de>, Simon Wright <simon@symple.nz>, 
+	Diederik de Haas <diederik@cknow-tech.com>, Andy Yan <andy.yan@rock-chips.com>
+Subject: Re: [PATCH v5 05/10] phy: rockchip: samsung-hdptx: Handle
+ uncommitted PHY config changes
+Message-ID: <wuoofxrtk3ieb5ukmk4jed3oyeqhyyttdo7fidz7qyingswtki@53vy32pjjqja>
+References: <20260723-hdptx-clk-fixes-v5-0-8e786067865f@collabora.com>
+ <20260723-hdptx-clk-fixes-v5-5-8e786067865f@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260723-hdptx-clk-fixes-v5-5-8e786067865f@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,80 +75,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Will Deacon <will@kernel.org> writes:
+On Thu, Jul 23, 2026 at 10:41:48PM +0300, Cristian Ciocaltea wrote:
+> Any changes to the PHY link rate and/or color depth done via the HDMI
+> PHY configuration API are not immediately programmed into the hardware,
+> but are delayed until the PHY usage count gets incremented from 0 to 1,
+> that is when it is powered on or when the PLL clock exposed through
+> the CCF API is prepared, whichever comes first.
+> 
+> Since the clock might remain in prepared state after subsequent PHY
+> config changes, the programming can also be triggered via
+> clk_ops.set_rate().  However, from the clock consumer perspective (i.e.
+> VOP2 display controller), the (pixel) clock rate doesn't vary with bpc,
+> as that is handled internally by the PHY and reflected in the TDMS
+> character rate only.
+> 
+> As a consequence, changing the bpc while preserving the modeline may
+> lead to out-of-sync issues between CCF and HDMI PHY config state,
+> because the .set_rate() callback is not invoked when clock rate remains
+> constant.  This may also happen when the PHY PLL has been pre-programmed
+> by an external entity, e.g. the bootloader, which is actually a
+> regression introduced by the recent FRL patches.
 
-> On Fri, Aug 07, 2026 at 02:56:12PM +0530, Aneesh Kumar K.V (Arm) wrote:
->> Realm guests and protected KVM guests may require swiotlb for device DMA
->> even when all system RAM is addressable by the DMA zones.
->> 
->> Do not reduce the SWIOTLB buffer to the kmalloc-bouncing size for these
->> guests, as the reduced number of slots can be exhausted during CCA guest
->> operation.
->> 
->> Fixes: 30c5e45ee2c5 ("dma-direct: make dma_direct_map_phys() honor DMA_ATTR_CC_SHARED")
->> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
->> ---
->>  arch/arm64/mm/init.c | 3 ++-
->>  1 file changed, 2 insertions(+), 1 deletion(-)
->> 
->> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
->> index e308a7cabd12..24caaf10e755 100644
->> --- a/arch/arm64/mm/init.c
->> +++ b/arch/arm64/mm/init.c
->> @@ -339,7 +339,8 @@ void __init arch_mm_preinit(void)
->>  {
->>  	unsigned int flags = SWIOTLB_VERBOSE;
->>  
->> -	if (max_pfn <= PFN_DOWN(arm64_dma_phys_limit)) {
->> +	if (!cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT) &&
->> +	    max_pfn <= PFN_DOWN(arm64_dma_phys_limit)) {
->
-> Protected guests under pKVM rely on restricted DMA, so won't this just
-> waste memory for them?
->
+Don't mention 'patches' in description. Once the patch gets merged, it becomes a
+commit. If needed, reference the offending commit(s) directly.
 
-commit 30c5e45ee2c5 ("dma-direct: make dma_direct_map_phys() honor DMA_ATTR_CC_SHARED"),
-which this patch fixes, has
+> 
+> Introduce a pll_config_dirty flag to keep track of uncommitted PHY
+> config changes and use it in clk_ops.determine_rate() to invalidate the
+> current clock rate (as known by CCF) and, consequently, ensure those
+> changes are programmed into hardware via clk_ops.set_rate().
+> 
+> Moreover, proceed with a similar fix in phy_ops.power_on() callback, to
+> handle the scenario where the CCF API is not used due to operating in
+> FRL mode, while the clock is still in a prepared state and thus
+> preventing rk_hdptx_phy_consumer_get() to apply the updated PHY
+> configuration.
+> 
+> Fixes: de5dba833118 ("phy: rockchip: samsung-hdptx: Add HDMI 2.1 FRL support")
+> Fixes: 9d0ec51d7c22 ("phy: rockchip: samsung-hdptx: Add high color depth management")
+> Tested-by: Thomas Niederprüm <dubito@online.de>
+> Tested-by: Simon Wright <simon@symple.nz>
+> Tested-by: Diederik de Haas <diederik@cknow-tech.com>  # NanoPC-T6 LTS
+> Reviewed-by: Andy Yan <andy.yan@rock-chips.com>
+> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 
---- a/arch/arm64/mm/init.c
-+++ b/arch/arm64/mm/init.c
-@@ -339,9 +339,7 @@ void __init arch_mm_preinit(void)
- {
-        unsigned int flags = SWIOTLB_VERBOSE;
- 
--       if (is_realm_world() || is_protected_kvm_guest()) {
--               flags |= SWIOTLB_FORCE;
--       } else if (max_pfn <= PFN_DOWN(arm64_dma_phys_limit)) {
-+       if (max_pfn <= PFN_DOWN(arm64_dma_phys_limit)) {
-                /*
-                 * If no bouncing needed for ZONE_DMA, reduce the swiotlb
-                 * buffer for kmalloc() bouncing to 1MB per 1GB of RAM.
+Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
 
-The is_protected_kvm_guest() part was added by the 
-commit e62decaf98e7 ("arm64/coco: Add pKVM as a CC platform")
+- Mani
 
-@@ -337,7 +339,7 @@ void __init arch_mm_preinit(void)
- {
-        unsigned int flags = SWIOTLB_VERBOSE;
- 
--       if (is_realm_world()) {
-+       if (is_realm_world() || is_protected_kvm_guest()) {
-                flags |= SWIOTLB_FORCE;
-        } else if (max_pfn <= PFN_DOWN(arm64_dma_phys_limit)) {
-                /*
-@@ -412,6 +414,17 @@ void dump_mem_limit(void)
-        }
- }
-
-I was under the impression that there is a possibility of using swiotlb
-instead of restricted-dma-pool with pKVM. If that is not the case, then
-we could change:
-
-!cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT) &&
-
-to
-
-!is_realm_world() &&
-
--aneesh
+-- 
+மணிவண்ணன் சதாசிவம்
 
