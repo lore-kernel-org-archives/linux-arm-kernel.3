@@ -4,96 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FEFCC5AC7A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 13:45:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EDC1C2A09B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 13:53:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DrL6gBCAOxHb0LQHDdbrlJolZxiGNWOy/qwBrxrXEdw=; b=4JFSeZNrVZ+hc5+rxjHOMwm9/8
-	NtkdiiWUFjXQC96jtiozNwz8XbKpnuU5LxoNWWCzTy/zoNfGpUQVqok5ecGJpXUf0h4FcfRv97Dxo
-	LzvSfAHoQrrdavvy0HHKa5UzFejpZ67plmMjSrl6OMP59cWuI/RVlyR9bArAbjc57jvkIc7W4qrXa
-	uK0Y2CBGpyTZHJyARFj0AY6LK1AA5I2Rfhk1MzXR2JXYhF8Nksyh9rnQkNuTB9sDmKdTT+oegJcnq
-	rDu7Rp/S8uvPbEgGMIk574OzqJswOSsCwsi0+jBhCmzg8tACOuecHqYV/ekUOcpjEzjc8jofQfkad
-	wRVaT1jg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8I1/Kcq2wTtdkN6wD1LQv8zLgBo2meOfdflh5fSBbdg=; b=R6TlkQlTTh/a7MHCtjloXENjqT
+	h1WKCJYH03/Q/v4w09uCIbkfbEDn+GgR1g+Tar66Nj69t/XZydj2N7wJAWH8cVedLxUZr8UL9pktJ
+	RuChnbBTxhBviwauGwGFgIJMEJ53UNC4MSrf910BTD2koJMsw71KtdIg2OFi+Qo6gnw9XcsVvhKQj
+	BaLJzKYoreMS3NKSJ2BdllaxQ+21JPgKX2UgJ4PgKEloAfPprMAiCTHOvyHQEbx+d+3mKvO3YbEsd
+	mnDMc4/Kso0/hwb0nwjh8dXi7jQySPRsclNcj8GICr/i1DZm3j/MjlNEWMAS+8/q/Glqs6bmmLacH
+	yKHKAikA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsKtK-00000008AT0-0Swj;
-	Fri, 07 Aug 2026 13:45:42 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1wsL0P-00000008BfT-11nJ;
+	Fri, 07 Aug 2026 13:53:01 +0000
+Received: from mx0a-00823401.pphosted.com ([148.163.148.104])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsKtI-00000008ASY-0gXw
+	id 1wsL0M-00000008BdU-2NJM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 13:45:41 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-47f3b39f2a1so2629812f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Aug 2026 06:45:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1786110338; x=1786715138; darn=lists.infradead.org;
-        h=user-agent:in-reply-to:content-disposition:content-type
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=DrL6gBCAOxHb0LQHDdbrlJolZxiGNWOy/qwBrxrXEdw=;
-        b=jf3JDVUG/ykyVD5D9o0+xCrTHKJzF8fbrL7LB5ou2feTM//Fof74/4nOqMLQKW7r9K
-         4/YalcfstZ5b1AlNuibJ8iFcBpqiFf2szaXG3eGq6e6MNHDUruYU8kJ3gUmlcZGMomGd
-         LgTcET23lPvnTI95GxTar0zkLs8Q1h45hQ2odJV2CXOq8SSDZzXU7jzBZredWDVnmxzO
-         LhpHPhrZi37AqnK8cK1UjchxJrun5Ie0VpS4eRW9YW/+eq7oKGLO0zfni4i+DjFBOae5
-         dSqNPfcIYeX0CMqOnPubIjnYsJiMrXMeLPKi5YNAifgJMn/9aiwsr7ya7YZPgTAZtA3m
-         8I5A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786110338; x=1786715138;
-        h=user-agent:in-reply-to:content-disposition:content-type
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=DrL6gBCAOxHb0LQHDdbrlJolZxiGNWOy/qwBrxrXEdw=;
-        b=VotdK+ta/aXoH39yNIXir/wlhO/Ne5qVr9/3taB5UMYUNcyXW8QTcSqXIOhfaYwHOS
-         LxkHPUa0EzbCTduJhkwjkC84AWSThlQ7KjdapR0VpCHRgEENOH9MWzmlFkUqdU06I1f0
-         nSztVG85hPEqinajZCZ5iRauCcNLAIkIRsiLnRZQN3wVw1GcJb8I4X8SnplHYe+iQYrv
-         +6Tk0l3DFgKIRx/fxHiy5DMgLBh7NJ6k333mBJmbxhvsfRQWtC1+xcndSc5VcrjF6MEr
-         ob2LKx1GjeBg/LQHmE+WCSc7mXmHqiM4Wl4FWJZd1RT2vE0LLJ2HUdm8WQcx27bvBEld
-         wgrQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rq5WM0gfr6aOTb87dAcdDLesgdTGa0kGd9WkjHV5C+4V4F9lQslo0Rs9zRQdkPpt1luMC2bTZQ/Cm9dmXH/O8FB@lists.infradead.org
-X-Gm-Message-State: AOJu0YzOVaFfDkfNrpYPM/zZ45nN0GTEP0zjDBwfKwSSBqwE63SVXdEP
-	3FVaEwnLkcNN0uBaz5OzYUT3N7+kTabO/4yexJ5yix7LJeJ68lDprqkVra6QFjqfoA==
-X-Gm-Gg: AR+sD128Ek25RU/Pj81qkE1+VGFczMykCvHepiT//7EepGd0g4e08XddyX5YvJJFCK3
-	fHEcaBTw+NxK7oa4Sg58p5XLH3oWuTYgIsd/f/lQkcTXQJPank3mkEofp3bNVx8edFSrQwZV6yC
-	TNWkku82m440efCjQbvoFLKB0no5ZNaWPR4o1wPxgO4b7Nj5yjxIX1i/7TONhmZCqqxGUShU+fI
-	UwV0iaYOTgz+CSK27LB4XYgjAYmi4BCLfyal8eOUj948vlsjaihK9x4T2arvW8/iRIE3Pko70es
-	sEFNNu9rA/PhF8kPFVKXw5vZ7e/TuMf9EdAYM50rwX+QJdExXIWNpzN5AiCVRPkNMCNZC6gPX/Z
-	CCAivGskh9OYI87WFMY+Baa/ZHipRBRDEB7l2fvltgZrLYjOj5TqfwIuFryR4THnwHBFfhWIjoU
-	gjaX/9pwVrejBrkJx9TyS5uhEYq+4GSDHSrT0JX60Oamr5igkEOtWb8MtyNdHADLg4Rj+Q7j3h7
-	EWzn4pAcW+DGgeldsqC48/ft3NHRbMmQJRe2wfM1w==
-X-Received: by 2002:a5d:5e86:0:b0:47f:ebe3:ca31 with SMTP id ffacd0b85a97d-47fec62e00bmr38542831f8f.28.1786110332995;
-        Fri, 07 Aug 2026 06:45:32 -0700 (PDT)
-Received: from elver.google.com (24.125.187.35.bc.googleusercontent.com. [35.187.125.24])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-480021e8d50sm5963422f8f.24.2026.08.07.06.45.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Aug 2026 06:45:32 -0700 (PDT)
-Date: Fri, 7 Aug 2026 13:45:28 +0000
-From: Marco Elver <elver@google.com>
-To: Will Deacon <will@kernel.org>
-Subject: Re: [PATCH RFC] arm64: Mark set_preempt_need_resched() access to
- .need_resched
-Message-ID: <anXheKZ7zKNw1oD_@elver.google.com>
-References: <d345dc9f-c61e-4db5-a342-11b0ff3fb846@paulmck-laptop>
- <amyaRXx8zXxOMgTL@J2N7QTR9R3>
- <13df4ff4-8594-4c37-b25f-860248a222cf@paulmck-laptop>
- <4fa802e7-6cfc-4cce-afee-c29b28171ad3@paulmck-laptop>
- <anR28GyRtCpApQYX@willie-the-truck>
- <ca54b283-3349-43d4-9460-32b084709d67@paulmck-laptop>
- <anXKRdA9sUziFda5@willie-the-truck>
- <CANpmjNPCM0NV1EN2pNBf3EBBk8eLjbGGAiZ_+rJkoROJtG3jFQ@mail.gmail.com>
- <anXbTwhaWZCIxxTg@willie-the-truck>
+	Fri, 07 Aug 2026 13:53:00 +0000
+Received: from pps.filterd (m0464638.ppops.net [127.0.0.1])
+	by mx0a-00823401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 677Cg7jE3328354;
+	Fri, 7 Aug 2026 13:52:24 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lenovo.com; h=cc
+	:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=DKIM202306; bh=8I1/Kcq2wTtdkN6wD1LQv8zLgBo2meOfdf
+	lh5fSBbdg=; b=0PESK2S0/Yy0IUoS6zcSOn47+TxAt2zlcIWxmgYPzg+6jNqlOa
+	2Y9rt8/1LjunOeim0bD5/+XqtrAlvtc5gHY/Q+0MYJFuz9u/077dRRDt0cFb6Coa
+	99h/tfqF6oZRtBUfz8kcQ0It2fNglSD/aCTFXy+O7/Etl8OibpKGW8YvWS4HH+XI
+	fQoePfbej9T6TsJgl75ZFEBNRoqu51e+nQGZFigiPn1O1ykQeuuCOS/pxw0PzO9C
+	Ku7oq3d0Bv/2uChSMNGVjIymkTS9+rf3crc8AAk45VhxeQHqC/neUeKp0hLE5hSs
+	V82OoXflh6SdyG33vfczw6IgN8qqNaxPyk5Q==
+Received: from hkglppfpool1.lenovo.com ([103.30.235.218])
+	by mx0a-00823401.pphosted.com (PPS) with ESMTPS id 4fsv8fmuga-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Fri, 07 Aug 2026 13:52:24 +0000 (GMT)
+Received: from shelppfpol2.lenovo.com (unknown [10.122.146.24])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by hkglppfpool1.lenovo.com (Postfix) with ESMTPS id 4hGlvS2ztpz9vWNf;
+	Fri,  7 Aug 2026 13:52:20 +0000 (UTC)
+Received: from SEANWANG1-P5MFL.lenovo.com (SEANWANG1-P5MFL.lenovo.com [10.111.201.157])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by shelppfpol2.lenovo.com (Postfix) with ESMTPS id 4hGlvS3Fr5z1Mmr;
+	Fri,  7 Aug 2026 13:52:20 +0000 (UTC)
+From: seanwang1 <seanwang1@lenovo.com>
+To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        Beata Michalska <beata.michalska@arm.com>,
+        Lifeng Zheng <zhenglifeng1@huawei.com>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Geert Uytterhoeven <geert+renesas@glider.be>,
+        Sumit Gupta <sumitg@nvidia.com>, Yunhui Cui <cuiyunhui@bytedance.com>,
+        seanwang1 <seanwang1@lenovo.com>, Xuewen Yan <xuewen.yan@unisoc.com>
+Subject: [PATCH] arm64: topology: fix arch_cpu_idle_enter()
+Date: Fri,  7 Aug 2026 21:52:16 +0800
+Message-Id: <20260807135216.9919-1-seanwang1@lenovo.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <anXbTwhaWZCIxxTg@willie-the-truck>
-User-Agent: Mutt/2.3.2 (2026-04-26)
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODA3MDEwOSBTYWx0ZWRfXx2g74CcpiFrP
+ pfZELhffJ89w4W3aUUqMVo6Qemxt4FufVvjJ1zVI2joaRO+ZOM8AAhUNl5FizjG5PliWbEruVLi
+ 9OgJeykpQr2Fc/1putJc0Yi9blamlR0=
+X-Authority-Analysis: v=2.4 cv=S4rpBosP c=1 sm=1 tr=0 ts=6a75e318 cx=c_pps
+ a=yIlUyoB/d3ZP/uZUHEUQoQ==:117 a=yIlUyoB/d3ZP/uZUHEUQoQ==:17
+ a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=2RTuljz969oO5usasWGy:22
+ a=QJilI6ASod0cdCKXAsqI:22 a=icsG72s9AAAA:8 a=8k6WQxmsAAAA:8
+ a=U8D9tqgXR_jVW_AM60IA:9 a=T89tl0cgrjxRNoSN2Dv0:22
+X-Proofpoint-GUID: PaXA2szFPI5f0005y_rB74iYVah3VEOh
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODA3MDEwOSBTYWx0ZWRfXzlArA1aEEG3a
+ l422sFIM7Fkh1srdX0HWpXEOfgVGwm7WmJE7SgufDeCXHfutmEVGsOClnHnyHjvYR2Ysd2CWd3n
+ //5zMf8gIIPZsT4M7mecxZvmYnKzDIkVXFkNBA5TFU67ymyb87R95CtsYCN2+K0bZu97z4oL7NX
+ 7gQX0NqptZXMhlmtre7xuekFNaaO6qCcxalouJVsVzh1vpLLN0QaWi/lgcIVbJwgIl1bUB64FDU
+ rVdVws5+g7fgkt+hN83aOtgtzfJhAm7gbktylrsr6Z1jEsps9g61oId5R7drJuGojoR3gxvE0DE
+ ngL1GlzUxbM38zim1bSJKTTHE03RyJLQNqLsaR6DjlDNNap0j6yCiUL49QP3w7719I36PRlbTrb
+ /4WgwaoWizDjC0ANPhfMxFzVovFfv28EZBmmxyNpq0DLv8zggnNHHD/oBfGcSr8CAR3HdIrLcl7
+ Mmw5Ar5+kZXcP7YJ55w==
+X-Proofpoint-ORIG-GUID: PaXA2szFPI5f0005y_rB74iYVah3VEOh
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-07_02,2026-08-06_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 suspectscore=0 adultscore=0 phishscore=0 spamscore=0
+ bulkscore=0 lowpriorityscore=0 impostorscore=0 clxscore=1011 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=-20
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608070109
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_064540_234926_371FE778 
-X-CRM114-Status: GOOD (  21.76  )
+X-CRM114-CacheID: sfid-20260807_065258_609840_798FE1CE 
+X-CRM114-Status: GOOD (  13.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,103 +110,43 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, "Paul E. McKenney" <paulmck@kernel.org>, "Peter Zijlstra \(Intel\)" <peterz@infradead.org>, Catalin Marinas <catalin.marinas@arm.com>, Jinjie Ruan <ruanjinjie@huawei.com>, linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com, linux-arm-kernel@lists.infradead.org, dvyukov@google.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 07, 2026 at 02:19PM +0100, Will Deacon wrote:
-[...]
-> Ok, but then I don't understand how these accesses can race. They appear
-> to be on the same CPU, in the same IPI handler.
+arch_cpu_idle_enter() directly calls amu_scale_freq_tick() to update
+arch_freq_scale when CPU enters idle state. This bypasses the sft_data
+pointer check that topology_clear_scale_freq_source() relies on.
 
-The only way this could happen is with an NMI, but that's not the case
-here? I should have looked at the 2nd stack trace, and it seems to be
-clear that this is a false positive: KCSAN sets up a watchpoint on an
-address that is also accessed by __delay.
+As a result, even after calling topology_clear_scale_freq_source() with
+SCALE_FREQ_SOURCE_ARCH to disable AMU-based frequency scaling, the
+arch_freq_scale value can still be modified by AMU counters when the
+CPU goes idle through the arch_cpu_idle_enter() path.
 
-One problem with disabling KCSAN in this CPU's context is that we'd fail
-to detect data races from nested interrupts.
+Fix by replacing the direct amu_scale_freq_tick() call with
+topology_scale_freq_tick(), which is the generic interface for updating
+frequency scale and properly respects the sft_data pointer state.
 
-So yes, the best way forward is to disable KCSAN in the delay
-implementation. And I recall doing this for x86, which has this:
-
-	[arch/x86/lib/Makefile]
-	...
-
-	# KCSAN uses udelay for introducing watchpoint delay; avoid recursion.
-	KCSAN_SANITIZE_delay.o := n
-
-So let's do this for arm64, too. Sorry for the noise.
-
------- >8 ------
-
-From cfea3a0c12b2e685ce04c28b1bd207f0e4c05a56 Mon Sep 17 00:00:00 2001
-From: Marco Elver <elver@google.com>
-Date: Fri, 7 Aug 2026 13:37:32 +0000
-Subject: [PATCH] arm64: Disable KCSAN instrumentation in delay.o
-
-KCSAN relies on udelay() for injecting delays. To avoid recursively
-triggering a watchpoint, where KCSAN sets up watchpoint on an address
-that is accessed by udelay() in the same thread, disable instrumentation
-in arm64's delay implementation.
-
-Paul found a manifestation of this as follows:
-
-| BUG: KCSAN: data-race in __delay / set_need_resched_current
-|
-| read (marked) to 0xffff000005899b48 of 8 bytes by interrupt on cpu 8:
-|  __delay+0xb0/0x378
-|  __udelay+0x4c/0x60
-|  kcsan_setup_watchpoint+0x3b4/0x820
-|  __tsan_unaligned_write4+0x228/0x26c
-|  set_need_resched_current+0x138/0x1a8
-|  rcu_exp_handler+0x418/0x4a0
-|  __flush_smp_call_function_queue+0x36c/0x4a0
-|  generic_smp_call_function_single_interrupt+0x20/0x30
-|  ipi_handler+0xec/0x558
-|  handle_percpu_devid_irq+0x220/0x2a0
-|  generic_handle_domain_irq+0x84/0xb4
-|  gic_handle_irq+0x64/0x144
-|  call_on_irq_stack+0x30/0x48
-|  do_interrupt_handler+0x80/0xb8
-|  el1_interrupt+0x3c/0x60
-|  el1h_64_irq_handler+0x18/0x24
-|  el1h_64_irq+0x6c/0x70
-|  smp_call_function_single+0x18c/0x25c
-|  sync_rcu_exp_select_node_cpus+0x534/0x8bc
-|  rcu_exp_sel_wait_wake+0x358/0xef4
-|  wait_rcu_exp_gp+0x30/0x44
-|  kthread_worker_fn+0x1b4/0x5dc
-|  kthread+0x1d8/0x204
-|  ret_from_fork+0x10/0x20
-|
-| write to 0xffff000005899b4c of 4 bytes by interrupt on cpu 8:
-|  set_need_resched_current+0x138/0x1a8
-|  [...]
-
-This matches what is already done in arch/x86/lib/Makefile.
-
-Reported-by: "Paul E. McKenney" <paulmck@kernel.org>
-Fixes: dd03762ab608 ("arm64: Enable KCSAN")
-Signed-off-by: Marco Elver <elver@google.com>
+Co-developed-by: Xuewen Yan <xuewen.yan@unisoc.com>
+Signed-off-by: Sean Wang <seanwang1@lenovo.com>
+Signed-off-by: Xuewen Yan <xuewen.yan@unisoc.com>
 ---
- arch/arm64/lib/Makefile | 4 ++++
- 1 file changed, 4 insertions(+)
+ arch/arm64/kernel/topology.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/lib/Makefile b/arch/arm64/lib/Makefile
-index 448c917494f3..b33e1ca4a781 100644
---- a/arch/arm64/lib/Makefile
-+++ b/arch/arm64/lib/Makefile
-@@ -1,4 +1,8 @@
- # SPDX-License-Identifier: GPL-2.0
-+
-+# KCSAN uses udelay for introducing watchpoint delay; avoid recursion.
-+KCSAN_SANITIZE_delay.o := n
-+
- lib-y		:= clear_user.o delay.o copy_from_user.o		\
- 		   copy_to_user.o copy_page.o				\
- 		   clear_page.o csum.o insn.o memchr.o memcpy.o		\
+diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
+index b32f13358fbb..f617ef5c9903 100644
+--- a/arch/arm64/kernel/topology.c
++++ b/arch/arm64/kernel/topology.c
+@@ -176,7 +176,7 @@ void arch_cpu_idle_enter(void)
+ 	/* Kick in AMU update but only if one has not happened already */
+ 	if (housekeeping_cpu(cpu, HK_TYPE_TICK) &&
+ 	    time_is_before_jiffies(per_cpu(cpu_amu_samples.last_scale_update, cpu)))
+-		amu_scale_freq_tick();
++		topology_scale_freq_tick();
+ }
+ 
+ #define AMU_SAMPLE_EXP_MS	20
 -- 
-2.55.0.654.g21b8a5bc05-goog
+2.25.1
 
 
