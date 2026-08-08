@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06BCCC5AD56
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34104C5AD57
 	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 11:31:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,40 +12,40 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VlhlhN6Ao8cxtOBbRD5JaNyRrKmX5FvsiLtDWtyTEJY=; b=LlgCeCgatv2vzh2kHijDhPAQFJ
-	yp1WdlDD0eK3TQ7Pk01GvjHecLjIztzu07GRQMQ0Iv+Zrg0paBJCreVQFvGCpJ8fohTqHEHqy0J5+
-	uIqfp3duZEZIzy9uHtsfJw3G498IugFGrtW5Yl0Kx1yxDXlmNasts3pH3Y8Cr+U7kPZVI8OHvcQFo
-	1s6iVpgd4UOxGf8ZR95FAEqz+KOWeIFZPD8cVHOoueqCq0kJvH0XWZPfqOLimDIT9YVLf9Yi+24mE
-	tp04uVnvEBFZy13Aw0gB4CFyWMdDQsl3x9hmcpcY1nS4Jbj4Xd/43S4WC8mkty3iInp8oapx1Z9kM
-	ueLLoeVg==;
+	bh=necKaEXkGW/LKu0GtILmc4/c8t+1auAJcMEGNwiOxJo=; b=Rt+WCQVhDLIpIQaz1DPeJfDn9D
+	vJRtsCbY7jWPuzgcGpTmH2uPQl6E7t2bKWPUC+Ij+MxS/T38Ni3fJXMUyHyIMEs57URn2l4pugrg5
+	u8oZSPiVWo3sutvnP0f2XeZjq0Sir8wahbdOQa+tLVAkumbkBsY7PYVugMYIcWkdskHsGCwT2aB2g
+	gNUt9B3RMvAMDIJLdH1APQDEYwwr96LSwBptx6hnpTv1wyw0keseBKa9Ym6D9KJuS/qquhbcf2LLh
+	AKsYfCYa+qLwdUky819ezBl0/hvlr/VXTqDtOslH9rxmBu+HVdTPzuD8F2UHugoGWzthTS8UgIY+g
+	atGdGsPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsfH4-00000009Jgd-0NUG;
+	id 1wsfH4-00000009Ji8-2UVp;
 	Sat, 08 Aug 2026 11:31:34 +0000
 Received: from chaosmail.tech ([77.81.229.115])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsfGw-00000009Jd8-3NPB
+	id 1wsfH0-00000009JeZ-1yPx
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Aug 2026 11:31:29 +0000
-Received: by chaosmail.tech (Postfix) id A61F51C87FF;
-	Sat, 08 Aug 2026 11:31:20 +0000 (UTC)
+	Sat, 08 Aug 2026 11:31:32 +0000
+Received: by chaosmail.tech (Postfix) id E31911C8825;
+	Sat, 08 Aug 2026 11:31:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chaosmail.tech;
-	s=mail; t=1786188681;
+	s=mail; t=1786188683;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=VlhlhN6Ao8cxtOBbRD5JaNyRrKmX5FvsiLtDWtyTEJY=;
-	b=vuEJ7cjoXKqNNMWH0FCn/eqYC2vCznEgcBVmnmYIo8tWyBWKQ8cHLnEtfa57MH+psX3Ayi
-	L1N8sXh5aetej1FbvDb9LeomNxNRI/IGT6V0DvYCoo2ipQJo9qmuVY+QnGsnDPUFjghdWV
-	mU3ww4i9V4U4EhZ8rIEqlZzPan5T5mM=
+	bh=necKaEXkGW/LKu0GtILmc4/c8t+1auAJcMEGNwiOxJo=;
+	b=EY2fsMkHfcMkEzjFeLKHP3lWopRzeabbvvI9aZGEooqWSTYzt2WIu5kkaOwY+D28YiB3zN
+	gWMPlMehEDIoap1mwz6lmr3j1YrekRRmQm7RoOs0hHMjVdSR7XvOgR0nQG8l4kTsKMwric
+	FK/w00F30LQNHdeu3UbKJsZIK3VbrjA=
 From: Sasha Finkelstein <k@chaosmail.tech>
-Date: Sat, 08 Aug 2026 13:31:19 +0200
-Subject: [PATCH v5 3/6] spmi: apple: check transaction status
+Date: Sat, 08 Aug 2026 13:31:22 +0200
+Subject: [PATCH v5 6/6] spmi: apple: Add interrupt functionality
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260808-t603x-spmi-v5-3-553c5ac2f137@chaosmail.tech>
+Message-Id: <20260808-t603x-spmi-v5-6-553c5ac2f137@chaosmail.tech>
 References: <20260808-t603x-spmi-v5-0-553c5ac2f137@chaosmail.tech>
 In-Reply-To: <20260808-t603x-spmi-v5-0-553c5ac2f137@chaosmail.tech>
 To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
@@ -55,16 +55,16 @@ To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
 Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
  Sasha Finkelstein <k@chaosmail.tech>, Alba Mendez <me@alba.sh>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1786188678; l=2846;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1786188678; l=11049;
  i=k@chaosmail.tech; s=20241124; h=from:subject:message-id;
- bh=EambuisSIw3s+EavjiZydICr5EUeyWSuYrWkUmgadRo=;
- b=DXG8i3ezPFOl1fR/cw562t4k3z7RnKEsiOi/cX2dwaD7NV19C/A9pCR4nfo7V2POVJb1yIDDH
- GWfh826Q1vSAgEexh4PVty8XiU7Wa3GouRZozfnmapXEukbguWqE7b+
+ bh=jXqJ2afBq/93rE4d69X+HGx0v7FvVT6gkJCl+u/WBTc=;
+ b=GPeJkml8uxzFh7BQtlkoavoEsLwdFhAD/es1dl2n/zFMtlWtu2wBq0Wuerbz2J/RgMM2lbF+8
+ HQCm3B5kz+KDnUIj01cqFQB+TUsHG0bMwas2LdEpBZy5yDTzNHl7Rzo
 X-Developer-Key: i=k@chaosmail.tech; a=ed25519;
  pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260808_043127_320736_1249AD79 
-X-CRM114-Status: GOOD (  11.59  )
+X-CRM114-CacheID: sfid-20260808_043130_680621_59D65CCE 
+X-CRM114-Status: GOOD (  25.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,99 +81,364 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Alba Mendez <me@alba.sh>
 
-Check for parity errors and missing command ACKs.
+Add support for interrupts sent by slave devices and use IRQ for
+RX FIFO if possible, as that IRQ fires as soon as the reply is
+available, which is usually takes a few us instead of the 10ms sleep
+interval for polling.
 
 Signed-off-by: Alba Mendez <me@alba.sh>
 Reviewed-by: Janne Grunau <j@jannau.net>
 Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
 ---
- drivers/spmi/spmi-apple-controller.c | 25 ++++++++++++++++++++-----
- 1 file changed, 20 insertions(+), 5 deletions(-)
+ drivers/spmi/Kconfig                 |   3 +-
+ drivers/spmi/spmi-apple-controller.c | 257 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-
+ 2 files changed, 258 insertions(+), 2 deletions(-)
 
+diff --git a/drivers/spmi/Kconfig b/drivers/spmi/Kconfig
+index a80cf4047b86..7243863a09b4 100644
+--- a/drivers/spmi/Kconfig
++++ b/drivers/spmi/Kconfig
+@@ -13,7 +13,8 @@ if SPMI
+ 
+ config SPMI_APPLE
+ 	tristate "Apple SoC SPMI Controller platform driver"
+-	depends on ARCH_APPLE || COMPILE_TEST
++	select IRQ_DOMAIN_HIERARCHY
++	depends on ARCH_APPLE || (COMPILE_TEST && 64BIT)
+ 	help
+ 	  If you say yes to this option, support will be included for the
+ 	  SPMI controller present on many Apple SoCs, including the
 diff --git a/drivers/spmi/spmi-apple-controller.c b/drivers/spmi/spmi-apple-controller.c
-index 15721cb41d5c..b1c127cf5f44 100644
+index fabccd25aa0d..1e6cc30da196 100644
 --- a/drivers/spmi/spmi-apple-controller.c
 +++ b/drivers/spmi/spmi-apple-controller.c
-@@ -11,6 +11,8 @@
-  *		spmi-pmic-arb.c Copyright (c) 2021, The Linux Foundation.
-  */
+@@ -13,11 +13,17 @@
  
-+#include <linux/bitfield.h>
-+#include <linux/bits.h>
+ #include <linux/bitfield.h>
+ #include <linux/bits.h>
++#include <linux/completion.h>
++#include <linux/interrupt.h>
  #include <linux/io.h>
  #include <linux/iopoll.h>
++#include <linux/irq.h>
++#include <linux/irqchip/chained_irq.h>
++#include <linux/irqdomain.h>
  #include <linux/module.h>
-@@ -23,6 +25,12 @@
+ #include <linux/mutex.h>
+ #include <linux/platform_device.h>
++#include <linux/spinlock.h>
+ #include <linux/spmi.h>
+ 
+ /* SPMI Controller Registers */
+@@ -26,6 +32,13 @@
  #define SPMI_RSP_REG 0x8
  #define SPMI_ACT_REG 0xa4
  
-+/* SPMI_RSP_REG reply word */
-+#define SPMI_REPLY_FRAME_PARITY_STATUS GENMASK(31, 16)
-+#define SPMI_REPLY_ACK BIT(15)
-+#define SPMI_REPLY_SLAVE_ID GENMASK(14, 8)
-+#define SPMI_REPLY_CMD GENMASK(7, 0)
++#define SPMI_IRQ_MASK_BASE 0x20
++#define SPMI_IRQ_ACK_BASE 0x60
++#define SPMI_NUM_PERIPHERAL_IRQS 256
++#define SPMI_NUM_IRQS (SPMI_NUM_PERIPHERAL_IRQS + 32)
 +
- #define SPMI_ACT_FIFO_FLUSH BIT(0)
- #define SPMI_RX_FIFO_EMPTY BIT(24)
++#define SPMI_IRQ_NOTIFY 256
++
+ /* SPMI_RSP_REG reply word */
+ #define SPMI_REPLY_FRAME_PARITY_STATUS GENMASK(31, 16)
+ #define SPMI_REPLY_ACK BIT(15)
+@@ -41,6 +54,12 @@
+ struct apple_spmi {
+ 	void __iomem *regs;
+ 	struct mutex fifo_lock;
++	struct completion fifo_rx;
++	struct irq_domain *irqd;
++	raw_spinlock_t irq_mask_lock;
++	DECLARE_BITMAP(irq_mask_cache, SPMI_NUM_PERIPHERAL_IRQS);
++	int irq;
++	bool notify_irq;
+ 	bool prev_fail;
+ };
  
-@@ -66,7 +74,7 @@ static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
+@@ -48,6 +67,56 @@ struct apple_spmi {
+ 	readl_poll_timeout((spmi)->regs + (reg), (val), (cond), \
+ 			   REG_POLL_INTERVAL_US, REG_POLL_TIMEOUT_US)
+ 
++static void apple_spmi_irq_ack_raw(struct apple_spmi *spmi, u32 irq)
++{
++	u32 __iomem *reg = spmi->regs + SPMI_IRQ_ACK_BASE + (irq / 32) * 4;
++
++	writel(BIT(irq % 32), reg);
++}
++
++static void apple_spmi_irq_mask_raw(struct apple_spmi *spmi, u32 irq)
++{
++	u32 __iomem *reg = spmi->regs + SPMI_IRQ_MASK_BASE + (irq / 32) * 4;
++
++	writel(readl(reg) & ~BIT(irq % 32), reg);
++}
++
++static void apple_spmi_irq_unmask_raw(struct apple_spmi *spmi, u32 irq)
++{
++	u32 __iomem *reg = spmi->regs + SPMI_IRQ_MASK_BASE + (irq / 32) * 4;
++
++	writel(readl(reg) | BIT(irq % 32), reg);
++}
++
++static void apple_spmi_irq_ack(struct irq_data *d)
++{
++	struct apple_spmi *spmi = irq_data_get_irq_chip_data(d);
++
++	apple_spmi_irq_ack_raw(spmi, d->hwirq);
++}
++
++static void apple_spmi_irq_mask(struct irq_data *d)
++{
++	struct apple_spmi *spmi = irq_data_get_irq_chip_data(d);
++	unsigned long flags;
++
++	raw_spin_lock_irqsave(&spmi->irq_mask_lock, flags);
++	apple_spmi_irq_mask_raw(spmi, d->hwirq);
++	clear_bit(d->hwirq, spmi->irq_mask_cache);
++	raw_spin_unlock_irqrestore(&spmi->irq_mask_lock, flags);
++}
++
++static void apple_spmi_irq_unmask(struct irq_data *d)
++{
++	struct apple_spmi *spmi = irq_data_get_irq_chip_data(d);
++	unsigned long flags;
++
++	raw_spin_lock_irqsave(&spmi->irq_mask_lock, flags);
++	set_bit(d->hwirq, spmi->irq_mask_cache);
++	apple_spmi_irq_unmask_raw(spmi, d->hwirq);
++	raw_spin_unlock_irqrestore(&spmi->irq_mask_lock, flags);
++}
++
+ static inline u32 apple_spmi_pack_cmd(u8 opc, u8 sid, u16 param)
  {
- 	struct apple_spmi *spmi = spmi_controller_get_drvdata(ctrl);
- 	u32 spmi_cmd = apple_spmi_pack_cmd(opc, sid, saddr, len);
--	u32 rsp;
-+	u32 reply, rsp;
- 	size_t len_read = 0;
- 	u8 i;
+ 	return opc | sid << 8 | (u32)param << 16 | (1 << 15);
+@@ -60,7 +129,19 @@ static int apple_spmi_wait_rx_not_empty(struct spmi_controller *ctrl)
  	int ret;
-@@ -82,8 +90,7 @@ static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
- 	if (ret)
- 		return ret;
+ 	u32 status;
  
--	/* Discard SPMI reply status */
--	readl(spmi->regs + SPMI_RSP_REG);
-+	reply = readl(spmi->regs + SPMI_RSP_REG);
- 
- 	/* Read SPMI data reply */
- 	while (len_read < len) {
-@@ -106,6 +113,10 @@ static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
- 		spmi->prev_fail = true;
- 	}
- 
-+	if (~FIELD_GET(SPMI_REPLY_FRAME_PARITY_STATUS, reply) & ((1 << len) - 1)) {
-+		dev_err(&ctrl->dev, "some frames failed parity check\n");
-+		return -EIO;
+-	ret = poll_reg(spmi, SPMI_STATUS_REG, status, !(status & SPMI_RX_FIFO_EMPTY));
++	if (spmi->notify_irq) {
++		ret = wait_for_completion_timeout(&spmi->fifo_rx,
++			usecs_to_jiffies(REG_POLL_TIMEOUT_US));
++		if (!ret)
++			ret = -ETIMEDOUT;
++		else if (readl(spmi->regs + SPMI_STATUS_REG) & SPMI_RX_FIFO_EMPTY)
++			ret = -EIO;
++		else
++			ret = 0;
++	} else {
++		ret = poll_reg(spmi, SPMI_STATUS_REG, status, !(status & SPMI_RX_FIFO_EMPTY));
 +	}
- 	return 0;
++
+ 	if (ret) {
+ 		spmi->prev_fail = true;
+ 		dev_err(&ctrl->dev,
+@@ -84,8 +165,10 @@ static int spmi_raw_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid, u16 param,
+ 
+ 	if (spmi->prev_fail) {
+ 		writel(SPMI_ACT_FIFO_FLUSH, spmi->regs + SPMI_ACT_REG);
++		apple_spmi_irq_ack_raw(spmi, SPMI_IRQ_NOTIFY);
+ 		spmi->prev_fail = false;
+ 	}
++	reinit_completion(&spmi->fifo_rx);
+ 
+ 	writel(spmi_cmd, spmi->regs + SPMI_CMD_REG);
+ 
+@@ -188,6 +271,167 @@ static int spmi_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid)
+ 	return -EINVAL;
  }
  
-@@ -114,6 +125,7 @@ static int spmi_write_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
- {
- 	struct apple_spmi *spmi = spmi_controller_get_drvdata(ctrl);
- 	u32 spmi_cmd = apple_spmi_pack_cmd(opc, sid, saddr, len);
-+	u32 reply;
- 	size_t i = 0, j;
- 	int ret;
- 
-@@ -137,14 +149,17 @@ static int spmi_write_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
- 	if (ret)
- 		return ret;
- 
--	/* Discard */
--	readl(spmi->regs + SPMI_RSP_REG);
-+	reply = readl(spmi->regs + SPMI_RSP_REG);
- 
- 	if (!(readl(spmi->regs + SPMI_STATUS_REG) & SPMI_RX_FIFO_EMPTY)) {
- 		dev_warn(&ctrl->dev, "FIFO has extra data\n");
- 		spmi->prev_fail = true;
- 	}
- 
-+	if (!FIELD_GET(SPMI_REPLY_ACK, reply)) {
-+		dev_err(&ctrl->dev, "command not acknowledged\n");
-+		return -EIO;
++static int apple_spmi_irq_set_type(struct irq_data *d, unsigned int type)
++{
++	/* all interrupts have MSI semantics */
++	return type == IRQ_TYPE_EDGE_RISING ? 0 : -EINVAL;
++}
++
++static struct irq_chip apple_spmi_irq_chip = {
++	.name = "apple_spmi",
++	.irq_mask = apple_spmi_irq_mask,
++	.irq_unmask = apple_spmi_irq_unmask,
++	.irq_ack = apple_spmi_irq_ack,
++	.irq_set_type = apple_spmi_irq_set_type,
++	.flags = IRQCHIP_ONESHOT_SAFE,
++};
++
++static int apple_spmi_irq_domain_map(struct irq_domain *irqd,
++					unsigned int irq, irq_hw_number_t hw)
++{
++	irq_domain_set_info(irqd, irq, hw, &apple_spmi_irq_chip, irqd->host_data,
++				handle_edge_irq, NULL, NULL);
++	return 0;
++}
++
++static int apple_spmi_irq_domain_translate(struct irq_domain *irqd,
++					struct irq_fwspec *fwspec,
++					unsigned long *hwirq,
++					unsigned int *type)
++{
++	u32 *args = fwspec->param;
++
++	if (fwspec->param_count != 2)
++		return -EINVAL;
++
++	if (args[0] >= SPMI_NUM_PERIPHERAL_IRQS)
++		return -EINVAL;
++	*hwirq = args[0];
++	*type = args[1] & IRQ_TYPE_SENSE_MASK;
++	return 0;
++}
++
++static int apple_spmi_irq_domain_alloc(struct irq_domain *irqd, unsigned int virq,
++				unsigned int nr_irqs, void *arg)
++{
++	unsigned int type = IRQ_TYPE_NONE;
++	struct irq_fwspec *fwspec = arg;
++	irq_hw_number_t hwirq;
++	int i, ret;
++
++	ret = apple_spmi_irq_domain_translate(irqd, fwspec, &hwirq, &type);
++	if (ret)
++		return ret;
++
++	if (hwirq + nr_irqs > SPMI_NUM_PERIPHERAL_IRQS)
++		return -EINVAL;
++
++	for (i = 0; i < nr_irqs; i++) {
++		ret = apple_spmi_irq_domain_map(irqd, virq + i, hwirq + i);
++		if (ret)
++			return ret;
 +	}
- 	return 0;
- }
++
++	return 0;
++}
++
++static void apple_spmi_irq_domain_free(struct irq_domain *irqd, unsigned int virq,
++				unsigned int nr_irqs)
++{
++	int i;
++
++	for (i = 0; i < nr_irqs; i++) {
++		struct irq_data *d = irq_domain_get_irq_data(irqd, virq + i);
++
++		irq_set_handler(virq + i, NULL);
++		irq_domain_reset_irq_data(d);
++	}
++}
++
++static const struct irq_domain_ops apple_spmi_irq_domain_ops = {
++	.translate	= apple_spmi_irq_domain_translate,
++	.alloc		= apple_spmi_irq_domain_alloc,
++	.free		= apple_spmi_irq_domain_free,
++};
++
++static void apple_spmi_irq_handler(struct irq_desc *desc)
++{
++	struct apple_spmi *spmi = irq_desc_get_handler_data(desc);
++	struct irq_chip *chip = irq_desc_get_chip(desc);
++	bool handled = false;
++	unsigned long val, offset, bit;
++
++	chained_irq_enter(chip, desc);
++	val = readl(spmi->regs + SPMI_IRQ_ACK_BASE + (SPMI_IRQ_NOTIFY / 32) * 4);
++	if (val & BIT(SPMI_IRQ_NOTIFY % 32)) {
++		apple_spmi_irq_ack_raw(spmi, SPMI_IRQ_NOTIFY);
++		complete(&spmi->fifo_rx);
++		handled = true;
++	}
++
++	for (offset = 0; offset < SPMI_NUM_PERIPHERAL_IRQS / 8; offset += sizeof(val)) {
++		val = readq(spmi->regs + SPMI_IRQ_ACK_BASE + offset);
++		/**
++		 * because of other masters in the bus, we're going to get a multitude of
++		 * interrupts we're not interested in. irq_resolve_mapping isn't very
++		 * optimized for the nonexistent path, so instead we mask with (a locally
++		 * cached version of) the IRQ mask
++		 */
++		val &= spmi->irq_mask_cache[offset / sizeof(val)];
++		for_each_set_bit(bit, &val, 64) {
++			generic_handle_domain_irq(spmi->irqd, offset * 8 + bit);
++			handled = true;
++		}
++	}
++	if (!handled)
++		handle_bad_irq(desc);
++	chained_irq_exit(chip, desc);
++}
++
++static void apple_spmi_teardown_irq(void *data)
++{
++	struct apple_spmi *spmi = data;
++
++	for (size_t offset = 0; offset < SPMI_NUM_IRQS / 8; offset += 4)
++		writel(U32_MAX, spmi->regs + SPMI_IRQ_MASK_BASE + offset);
++
++	synchronize_irq(spmi->irq);
++	irq_set_chained_handler_and_data(spmi->irq, NULL, NULL);
++}
++
++static int apple_spmi_init_irq(struct platform_device *pdev,
++			       struct apple_spmi *spmi, int irq)
++{
++	int ret;
++	struct irq_domain_info info = {
++		.fwnode		= pdev->dev.fwnode,
++		.hwirq_max	= ~0U,
++		.ops		= &apple_spmi_irq_domain_ops,
++		.host_data	= spmi,
++	};
++
++	raw_spin_lock_init(&spmi->irq_mask_lock);
++
++	for (size_t offset = 0; offset < SPMI_NUM_IRQS / 8; offset += 4) {
++		writel(0, spmi->regs + SPMI_IRQ_MASK_BASE + offset);
++		writel(U32_MAX, spmi->regs + SPMI_IRQ_ACK_BASE + offset);
++	}
++
++	spmi->irqd = devm_irq_domain_instantiate(&pdev->dev, &info);
++	if (IS_ERR(spmi->irqd))
++		return PTR_ERR(spmi->irqd);
++
++	ret = devm_add_action(&pdev->dev, apple_spmi_teardown_irq, spmi);
++	if (ret)
++		return ret;
++
++	irq_set_chained_handler_and_data(spmi->irq, apple_spmi_irq_handler, spmi);
++	apple_spmi_irq_unmask_raw(spmi, SPMI_IRQ_NOTIFY);
++	spmi->notify_irq = true;
++
++	return 0;
++}
++
+ static int apple_spmi_probe(struct platform_device *pdev)
+ {
+ 	struct apple_spmi *spmi;
+@@ -200,6 +444,8 @@ static int apple_spmi_probe(struct platform_device *pdev)
  
+ 	spmi = spmi_controller_get_drvdata(ctrl);
+ 	mutex_init(&spmi->fifo_lock);
++	init_completion(&spmi->fifo_rx);
++	platform_set_drvdata(pdev, spmi);
+ 
+ 	spmi->regs = devm_platform_ioremap_resource(pdev, 0);
+ 	if (IS_ERR(spmi->regs))
+@@ -211,6 +457,15 @@ static int apple_spmi_probe(struct platform_device *pdev)
+ 	ctrl->write_cmd = spmi_write_cmd;
+ 	ctrl->cmd = spmi_cmd;
+ 
++	spmi->irq = platform_get_irq_optional(pdev, 0);
++	if (spmi->irq < 0 && spmi->irq != -ENXIO)
++		return spmi->irq;
++	if (spmi->irq >= 0) {
++		ret = apple_spmi_init_irq(pdev, spmi, spmi->irq);
++		if (ret)
++			return ret;
++	}
++
+ 	ret = devm_spmi_controller_add(&pdev->dev, ctrl);
+ 	if (ret)
+ 		return dev_err_probe(&pdev->dev, ret,
 
 -- 
 2.55.0
