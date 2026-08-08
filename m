@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28C19C5AD55
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 19:48:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 603B0C5AD44
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 19:48:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4b1o0+cEVYX+UjAo2s2pv8sRX8xG8Y76NemrTHA1R78=; b=isXQsUWJ+aKTpwGaiJ67HzctG9
-	hP0z6wRLhvvo1Z+KfXqpecmmHG9YfJwQezdFgRhPkMkqx1WPkprd2W/w2evCIRvzxwtBxRheq9Uaw
-	QNCOL2hXoLLu4Kne0u0R8BcqbYVKbgmD1to6mcHLJfuU4y95y+sZ7Dz9/ab1RT6sG7fbwA5ieaQfy
-	Se/rhieb8WmhWSnC3oMnmNx+7H8tPG2tMbprikjlFry7j9JebBK3ZCDdFAhu1awL1p8JZU0CTHMua
-	RJgEd43ClcWfPOSKMyD6G7MEGPRdfo0ZNXGmiueNGPjpZRElvlz0JOtzWqQ50JZ3k69nFOXlqH9gq
-	YToUKuiw==;
+	bh=eJUc/lZ2agerNn9vcqL2GeFVY6ObRp54aelO+Fhqb0M=; b=I7kZml7YA5XTb5tU5ZspzH9lgr
+	nbMiB5FS+FV2PFf6wtd6IPwiqI6aCovLj23xVxLlAumbxDJUk8XsdiiuNpD6IGCea8MEwyR+R/EsS
+	C1f6fgYF+H4D38qp202xC6fmvD2pjMkpl1AZd4UPWru1ftooBgfJ7wQ/1EXvnfMu5YjCAgPiiAynk
+	dBBHquTpHyBorO0Q2x+nuMZ2/xpv0uwI/IVi5YMZtH3CfrB9b/WcuSsC+N7M65xGXTf1+z73MJqG7
+	4D2EjXVTJw4wcuXecRs0mITT5l11ESCBdp1p8GRouyy/yrGNqCbU4JXGtK8qjzxloQpJXq5jkY01w
+	Hi2ZEJYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsn1y-00000009fQf-14A4;
-	Sat, 08 Aug 2026 19:48:30 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wsn2B-00000009feZ-0Qxl;
+	Sat, 08 Aug 2026 19:48:43 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsn1u-00000009fOO-0Oyj
+	id 1wsn1z-00000009fTN-3mak
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Aug 2026 19:48:26 +0000
+	Sat, 08 Aug 2026 19:48:31 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7BE5960A72;
-	Sat,  8 Aug 2026 19:48:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 874541F000E9;
-	Sat,  8 Aug 2026 19:48:24 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A181444085;
+	Sat,  8 Aug 2026 19:48:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2AE31F00ACF;
+	Sat,  8 Aug 2026 19:48:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786218505;
-	bh=4b1o0+cEVYX+UjAo2s2pv8sRX8xG8Y76NemrTHA1R78=;
+	s=k20260515; t=1786218511;
+	bh=eJUc/lZ2agerNn9vcqL2GeFVY6ObRp54aelO+Fhqb0M=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=mrD+83AlV0CAHPC7M4XGP+1DQStgoiKT91cSITakBphZapAm/PkKUa1tFTXY2Qm8r
-	 LhYn+hWGLOGwp33Xk0YGZ+wtH2nDdxBGS/3bEVgPO03twfYzvATJ68G3E10oBiDXW4
-	 oJNbs/cVdvXtus4GMxLuC0ybZiL+wSnxqWFeMBa7NHfaGeAu5I3eWU1icH8CQVyYsz
-	 +gJj3kYBxAjbWgzI01TtmQ2BQ0qiv1IYxA/B/QJJFPKXVNHBGmuAyETijtlNv45DwU
-	 UGRGRTsGhCWUqArTLjKHQsAhFhMRztwB3eo+5vvUwv25WQeSUoAZ9XtgPHTt5rZ1AF
-	 en6RZ5FixNfXw==
+	b=jvN8/UACnQ0pgXHD5yjaoAcQ4leK0pKYSHliQxjVXNC6n1z0NuTomcgb71uvth2iu
+	 amwYFYlU+PkgdrHjUgq2iIlcXWDZGyyEsowFGv7Zv0Zn7Jy1APxPTq/L44wpLE9HQv
+	 jsbXL6UcfaWg82jLB/3u3LTv/KANYa/wa9/u/okyxExOILA/aYkHjOepM9Kx3zXOeT
+	 KQCiB8S18XTG2ro2Eit496DzEFOnAeLfTTz+mZr9SAWP358vNru4yFIWYVJ+HJqaF5
+	 OQRDrHhzwR6rCEKA08sysIMotwHFLmzOGGG3c/XLTHtf40Vw0yroGpX0ZTKEfQdh+F
+	 GSlzyyHzqeGAg==
 From: Jakub Kicinski <kuba@kernel.org>
 To: nagadheeraj.rottela@amd.com
 Cc: Jakub Kicinski <kuba@kernel.org>,
@@ -64,12 +64,12 @@ Cc: Jakub Kicinski <kuba@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	git-dev@amd.com
-Subject: Re: [PATCH 07/20] net: xilinx: tsn: add the endpoint TX data path
-Date: Sat,  8 Aug 2026 12:48:24 -0700
-Message-ID: <20260808194824.132828-1-kuba@kernel.org>
+Subject: Re: [PATCH 13/20] net: dsa: xilinx: wire up phylink for the switch ports
+Date: Sat,  8 Aug 2026 12:48:30 -0700
+Message-ID: <20260808194830.133171-1-kuba@kernel.org>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260807104431.157230-8-nagadheeraj.rottela@amd.com>
-References: <20260807104431.157230-8-nagadheeraj.rottela@amd.com>
+In-Reply-To: <20260807104431.157230-14-nagadheeraj.rottela@amd.com>
+References: <20260807104431.157230-14-nagadheeraj.rottela@amd.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -89,330 +89,89 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 This is an AI-generated review of your patch. The human sending this
 email has considered the AI review valid, or at least plausible.
 ---
-net: xilinx: tsn: add the endpoint TX data path
+net: dsa: xilinx: wire up phylink for the switch ports
 
-This adds the TX path for the Xilinx TSN endpoint conduit netdev: the
-logical queue is translated to a physical DMA channel through the map built
-at probe, the frame is mapped and submitted to that channel, and the queue
-is stopped/woken based on the software ring occupancy.  A few questions
-about the new ring accounting and the scatterlist handling below.
+This wires up the MAC-side phylink ops for the three switch ports:
+phylink_get_caps advertises RGMII variants, SGMII and GMII plus MAC_100FD
+and MAC_1000FD on the two external user ports and PHY_INTERFACE_MODE_INTERNAL
+with MAC_1000FD on the CPU port, while mac_link_up/mac_link_down program the
+speed-config field and the TX_EN / RX_EN bits.
 
-> diff --git a/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c b/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c
-> index 207ca3242a12..7615d27f3b36 100644
-> --- a/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c
-> +++ b/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c
+> diff --git a/drivers/net/dsa/xilinx/xilinx_tsn.c b/drivers/net/dsa/xilinx/xilinx_tsn.c
+> index 542b74514ed3..86aba2e8b6e9 100644
+> --- a/drivers/net/dsa/xilinx/xilinx_tsn.c
+> +++ b/drivers/net/dsa/xilinx/xilinx_tsn.c
 
 [ ... ]
 
-> @@ -97,6 +99,7 @@ struct xlnx_tsn_ep_dma_chan {
->   * @ndev: the conduit netdev ("ep")
->   * @dev: backing device
->   * @regs: EP MAC register window
-> + * @tx_lock: protects TX ring head/tail and SKB ring slots
->   * @num_tx_queues: number of TX DMA channels (one per priority)
->   * @num_rx_queues: number of RX DMA channels
->   * @tx_dma_chan_map: logical TX queue index -> physical DMA channel number
-> @@ -110,6 +113,8 @@ struct xlnx_tsn_ep {
->  	struct device *dev;
->  	void __iomem *regs;
->  
-> +	spinlock_t tx_lock;	/* protects TX ring buffers */
-> +
-
-[Severity: Low]
-Does the implementation match this documented protection domain?  The
-kernel-doc says tx_lock protects the "SKB ring slots", but ep_start_xmit()
-drops the lock right after ep_get_desc() and then fills the slot unlocked:
-
-	skbuf_dma = ep_get_desc(xchan, xchan->ring_head & (TX_BD_NUM_DEFAULT - 1));
-	...
-	spin_unlock_bh(&ep->tx_lock);
-
-	sg_init_table(skbuf_dma->sgl, sg_len);
-	ret = skb_to_sgvec(skb, skbuf_dma->sgl, 0, skb->len);
-	...
-	skbuf_dma->skb = skb;
-	skbuf_dma->sg_len = sg_len;
-
-while ep_dma_tx_cb() reads skbuf_dma->skb/sgl/sg_len under the lock.  The
-pre-existing teardown loop in ep_free_dma_chan() also walks chan->ring_tail
-and clears skbuf_dma->skb with no tx_lock held at all.
-
-As far as I can tell there is no race today: ep_parse_tx_queue_config()
-rejects duplicate queue and duplicate channel numbers, so each DMA channel
-is fed by exactly one netdev txq and the slot writes have a single writer
-serialised by __netif_tx_lock, and the drain path only runs after
-netif_tx_disable() plus dmaengine_terminate_sync().
-
-Would it be clearer to narrow the comment to what is actually enforced,
-e.g. "protects TX ring head/tail; slot payloads are serialised by the txq
-xmit lock", or alternatively extend the locked region to cover the slot
-writes?
-
->  	u32 num_tx_queues;
->  	u32 num_rx_queues;
->  	u32 tx_dma_chan_map[TSN_MAX_TX_QUEUE];
-> @@ -268,8 +273,145 @@ static void ep_dma_rx_cb(void *data, const struct dmaengine_result *result)
->  	dma_async_issue_pending(xchan->chan);
+> @@ -324,6 +325,105 @@ static void xlnx_tsn_port_stp_state_set(struct dsa_switch *ds, int port,
+>  	xlnx_tsn_set_port_state(sw, port, hw_state);
 >  }
 >  
-> +static void ep_dma_tx_cb(void *data, const struct dmaengine_result *result)
+> +static void xlnx_tsn_phylink_get_caps(struct dsa_switch *ds, int port,
+> +				      struct phylink_config *config)
 > +{
-> +	struct xlnx_tsn_ep_dma_chan *xchan = data;
-> +	struct skbuf_dma_descriptor *skbuf_dma;
-> +	struct xlnx_tsn_ep *ep = xchan->ep;
-> +	struct netdev_queue *txq;
-> +	struct net_device *ndev;
-> +	struct scatterlist *sgl;
-> +	struct sk_buff *skb;
-> +	int sg_len;
-> +	int len;
-> +
-> +	scoped_guard(spinlock, &ep->tx_lock) {
-> +		skbuf_dma = ep_get_desc(xchan,
-> +					xchan->ring_tail & (TX_BD_NUM_DEFAULT - 1));
-
-[Severity: Low]
-Should the new TX sites use xchan->ring_size instead of the compile-time
-constant?  struct xlnx_tsn_ep_dma_chan documents ring_size as the "number
-of slots in @skb_ring" and ep_free_dma_chan() uses it:
-
-	skbuf_dma = chan->skb_ring[chan->ring_tail & (chan->ring_size - 1)];
-	...
-	for (i = 0; i < chan->ring_size; i++)
-
-but the index masks in ep_dma_tx_cb() and ep_start_xmit(), and all four
-CIRC_SPACE() computations, hardcode TX_BD_NUM_DEFAULT.  They agree today
-only because ep_init_dmaengine() passes TX_BD_NUM_DEFAULT to
-ep_alloc_dma_chan(); if the ring size ever becomes configurable through
-ethtool set_ringparam the producer and consumer would mask against the
-wrong size while the free path masks correctly.
-
-> +		if (!skbuf_dma || !skbuf_dma->skb)
-> +			return;
-> +
-> +		skb = skbuf_dma->skb;
-> +		sgl = skbuf_dma->sgl;
-> +		sg_len = skbuf_dma->sg_len;
-> +
-> +		dma_unmap_sg(xchan->dma_dev, sgl, sg_len, DMA_TO_DEVICE);
-> +
-> +		skbuf_dma->skb = NULL;
-> +		xchan->ring_tail++;
+> +	if (port == XLNX_TSN_CPU_PORT) {
+> +		config->mac_capabilities = MAC_1000FD;
+> +		__set_bit(PHY_INTERFACE_MODE_INTERNAL,
+> +			  config->supported_interfaces);
+> +		return;
 > +	}
 > +
-> +	ndev = skb->dev;
-> +	txq = netdev_get_tx_queue(ndev, skb_get_queue_mapping(skb));
-> +	len = skb->len;
-> +
-> +	if (unlikely(result->result != DMA_TRANS_NOERROR)) {
-> +		DEV_STATS_INC(ndev, tx_errors);
-> +	} else {
-> +		DEV_STATS_INC(ndev, tx_packets);
-> +		DEV_STATS_ADD(ndev, tx_bytes, len);
-> +	}
-> +
-> +	dev_consume_skb_any(skb);
-> +	netif_txq_completed_wake(txq, 1, len,
-> +				 CIRC_SPACE(READ_ONCE(xchan->ring_head),
-> +					    READ_ONCE(xchan->ring_tail),
-> +					    TX_BD_NUM_DEFAULT), 2);
+> +	/* The MAC's speed-config field only encodes 100 / 1000.
+> +	 * Half-duplex and 10 Mbps are not supported.
+> +	 */
+> +	config->mac_capabilities = MAC_100FD | MAC_1000FD;
+> +	phy_interface_set_rgmii(config->supported_interfaces);
+> +	__set_bit(PHY_INTERFACE_MODE_SGMII, config->supported_interfaces);
+> +	__set_bit(PHY_INTERFACE_MODE_GMII, config->supported_interfaces);
 > +}
 
 [Severity: Low]
-Is the READ_ONCE() here paired with anything on the producer side?  This
-read happens after the scoped_guard() block has already released
-ep->tx_lock, while ep_start_xmit() updates the index with a plain
-read-modify-write:
+Should the set of interface modes advertised here match the DT binding
+added earlier in this series?
 
-	spin_lock_bh(&ep->tx_lock);
-	xchan->ring_head++;
+xlnx_tsn_phylink_get_caps() advertises six modes for ports 1 and 2:
+phy_interface_set_rgmii() sets PHY_INTERFACE_MODE_RGMII, RGMII_ID,
+RGMII_RXID and RGMII_TXID, and SGMII and GMII are set explicitly.
 
-That is a marked read against a plain write, which KCSAN would report, and
-the wake decision is taken on a non-atomic snapshot of the (head, tail)
-pair.  If the completion observes a stale head, CIRC_SPACE() over-estimates
-the free space and the queue may be woken with only one slot free, so the
-next ep_start_xmit() takes the "TSN TX ring full" path and returns
-NETDEV_TX_BUSY.
+Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml
+allows a narrower set for the same ports:
 
-Would WRITE_ONCE() on the ring_head update be appropriate here?
+              phy-mode:
+                enum:
+                  - gmii
+                  - rgmii
+                  - rgmii-id
 
-Note the stop/wake handshake itself looks fine: include/net/netdev_queues.h
-documents these macros as single-producer/single-consumer safe and states
-they do not prevent false wake ups when the ring is full, which
-ep_start_xmit() re-checks on entry.
+and the top-level description repeats the narrower claim:
 
->  static netdev_tx_t ep_start_xmit(struct sk_buff *skb, struct net_device *ndev)
->  {
+  It also supports GMII/RGMII interfaces for connection
+  to an external PHY, enabling full-duplex operation at 100 Mb/s and
+  1 Gb/s speeds.
 
-[ ... ]
+If the MACs really can do SGMII and the rgmii-rxid / rgmii-txid delay
+variants, does a board synthesised that way fail dtbs_check because the
+schema rejects the phy-mode value the driver supports?
 
-> +	xchan = ep->tx_chans[phys_chan];
-> +	dma_dev = xchan->chan->device;
-> +
-> +	sg_len = skb_shinfo(skb)->nr_frags + 1;
-> +	txq = netdev_get_tx_queue(ndev, queue);
-> +
+If instead the binding is the accurate description, does this advertise
+interface modes the hardware does not implement?
 
-[ ... ]
+> +static void xlnx_tsn_mac_config(struct phylink_config *config,
+> +				unsigned int mode,
+> +				const struct phylink_link_state *state)
+> +{
+> +	/* Interface mode (RGMII / SGMII / GMII) is fixed at IP synthesis
+> +	 * time. There is no runtime register to program it here.
+> +	 */
+> +}
 
-> +	skbuf_dma = ep_get_desc(xchan, xchan->ring_head & (TX_BD_NUM_DEFAULT - 1));
-> +	if (!skbuf_dma) {
-> +		spin_unlock_bh(&ep->tx_lock);
-> +		goto err_drop_skb;
-> +	}
-> +	spin_unlock_bh(&ep->tx_lock);
-> +
-> +	sg_init_table(skbuf_dma->sgl, sg_len);
-> +	ret = skb_to_sgvec(skb, skbuf_dma->sgl, 0, skb->len);
-> +	if (ret < 0)
-> +		goto err_drop_skb;
-> +
-> +	nents = dma_map_sg(xchan->dma_dev, skbuf_dma->sgl, sg_len, DMA_TO_DEVICE);
-> +	if (!nents)
-> +		goto err_drop_skb;
+Since mac_config is empty and has no error path, phylink would resolve the
+link for any of the advertised modes, so a mismatch would show up as a
+silently dead port rather than a probe or configuration failure. Would it
+make sense to either extend the binding enum or drop the extra
+supported_interfaces bits so the two agree?
 
-[Severity: Medium]
-Can dma_map_sg() walk past the end of skbuf_dma->sgl here?  The return
-value of skb_to_sgvec() is only tested for < 0 and then discarded, and the
-assumed count sg_len = nr_frags + 1 is what gets passed as nents.
-
-skb_to_sgvec() only emits an entry for a non-zero-length region and marks
-the end at sg[nsg - 1]:
-
-net/core/skbuff.c:__skb_to_sgvec() {
-	...
-	if ((copy = end - offset) > 0) {
-	...
-}
-
-net/core/skbuff.c:skb_to_sgvec() {
-	int nsg = __skb_to_sgvec(skb, sg, offset, len, 0);
-	...
-	sg_mark_end(&sg[nsg - 1]);
-	return nsg;
-}
-
-So a zero-length page frag, or skb_headlen() == 0, yields nsg < nr_frags +
-1 while the caller still hands nents = sg_len to dma_map_sg().
-dma_map_sg_attrs() iterates with for_each_sg(sgl, sg, nents, i), and
-sg_next() returns NULL once sg_is_last() is true, so the extra iterations
-dereference NULL inside the DMA core.
-
-The same value is stored in skbuf_dma->sg_len, which the struct documents
-as "number of valid entries in @sgl", and it is later used for the
-dma_unmap_sg() in ep_dma_tx_cb() and on the err_unmap_sg path.
-
-Would using skb_to_sgvec()'s return value as the entry count for
-dma_map_sg(), the prep call and skbuf_dma->sg_len be more robust?  Note
-ndev->features sets NETIF_F_SG, so page frags are passed through as-is and
-only frag_list skbs get linearized.  For what it is worth, the upstream
-axienet dmaengine TX path has the same pattern, which is likely why this
-has not been observed in practice.
-
-> +
-> +	dma_tx_desc = dma_dev->device_prep_slave_sg(xchan->chan, skbuf_dma->sgl,
-> +						    nents, DMA_MEM_TO_DEV,
-> +						    DMA_PREP_INTERRUPT, NULL);
-> +	if (!dma_tx_desc)
-> +		goto err_unmap_sg;
-
-[Severity: Low]
-Any reason to call the ops member directly rather than use
-dmaengine_prep_slave_sg(), which is what ep_rx_submit_desc() in this same
-file does?
-
-	dma_rx_desc = dmaengine_prep_slave_sg(xchan->chan, skbuf_dma->sgl,
-					      1, DMA_DEV_TO_MEM,
-					      DMA_PREP_INTERRUPT);
-
-device_prep_slave_sg is optional: xilinx_dma_probe() installs it only for
-XDMA_TYPE_AXIDMA and XDMA_TYPE_AXIMCDMA, while for CDMA it installs only
-device_prep_dma_memcpy and for VDMA only device_prep_interleaved_dma.  If a
-device tree pointed the endpoint dma-names at a CDMA or VDMA node, the RX
-path would degrade gracefully (the wrapper returns NULL) but this line
-would be a NULL function pointer call in the xmit path.  Switching to the
-wrapper would also make the extra dma_dev local unnecessary.
-
-> +
-> +	skbuf_dma->skb = skb;
-> +	skbuf_dma->sg_len = sg_len;
-> +	dma_tx_desc->callback_param = xchan;
-> +	dma_tx_desc->callback_result = ep_dma_tx_cb;
-> +
-> +	spin_lock_bh(&ep->tx_lock);
-> +	xchan->ring_head++;
-> +	netdev_tx_sent_queue(txq, skb->len);
-> +	netif_txq_maybe_stop(txq,
-> +			     CIRC_SPACE(xchan->ring_head,
-> +					READ_ONCE(xchan->ring_tail),
-> +					TX_BD_NUM_DEFAULT),
-> +			     2, 2);
-> +	spin_unlock_bh(&ep->tx_lock);
-> +
-> +	dmaengine_submit(dma_tx_desc);
-> +	dma_async_issue_pending(xchan->chan);
-
-[Severity: Medium]
-What happens if dmaengine_submit() fails here?  The cookie is discarded
-without a dma_submit_error() check, and the ring slot plus the BQL byte
-charge have already been committed above.
-
-The provider this driver targets can fail the submit:
-
-drivers/dma/xilinx/xilinx_dma.c:xilinx_dma_tx_submit() {
-	if (chan->err) {
-		err = xilinx_dma_chan_reset(chan);
-		if (err < 0)
-			return err;
-	}
-	...
-}
-
-xilinx_dma_reset() returns -ETIMEDOUT on reset timeout, and in that path
-the descriptor is never appended to the pending list, so ep_dma_tx_cb()
-never runs for it.
-
-Because the completion retires strictly by ring_tail:
-
-	skbuf_dma = ep_get_desc(xchan,
-				xchan->ring_tail & (TX_BD_NUM_DEFAULT - 1));
-
-one lost submit leaves a permanent one-slot offset.  After that, every
-completion unmaps the scatterlist and calls dev_consume_skb_any() on a
-frame that may still be in flight in the engine, the buffers the engine
-actually finished stay mapped, and the length handed to
-netif_txq_completed_wake() belongs to a different frame than the one BQL
-was charged for.
-
-The bytes charged for the frame that was never queued also stay outstanding
-in the DQL forever.  Since ep_netdev_ops registers no .ndo_tx_timeout:
-
-	static const struct net_device_ops ep_netdev_ops = {
-		.ndo_open		= ep_open,
-		.ndo_stop		= ep_stop,
-		.ndo_start_xmit		= ep_start_xmit,
-		.ndo_validate_addr	= eth_validate_addr,
-		.ndo_set_mac_address	= eth_mac_addr,
-	};
-
-__netdev_watchdog_up() never arms the watchdog, so a queue left stopped by
-the skewed accounting is never detected or recovered while the interface
-stays up.
-
-Would it make sense to submit first and only advance ring_head and call
-netdev_tx_sent_queue() once dma_submit_error() reports success, and to add
-an .ndo_tx_timeout handler?
-
-> +
-> +	return NETDEV_TX_OK;
-> +
-> +err_unmap_sg:
-> +	dma_unmap_sg(xchan->dma_dev, skbuf_dma->sgl, sg_len, DMA_TO_DEVICE);
-> +err_drop_skb:
->  	dev_kfree_skb(skb);
->  	DEV_STATS_INC(ndev, tx_dropped);
->  	return NETDEV_TX_OK;
-
-[ ... ]
+Both files are still in this state at the end of the series, so this does
+not appear to be resolved by a later patch.
 
