@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81A8DC5AD48
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85989C5AD44
 	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 23:18:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8IJm04E1Jx6VRBFU9vtFpV6hpK6h8wmtKkvHTJRXIIk=; b=WpNDZpgJ0BHfC2QcttfaMBbNdh
-	ZKfMc3ngKIyA40bpnLtu/b0+iuMF7E7pjjoDmBDBjOU2N9dWHNthexWN1H/B+bqusrLV6WgJvKNos
-	HEPpDi462meb/INlqenoKuZ05spxDbsW7CF1Nb5Q0aVwruqlZLI4gsich6zLM/18ih9plkL2SVHwX
-	t/Q1NBRvMcKKkCfFVInQyQw7TzHW0l6jkhWD7+nPtDCKPq54sxnADB1m87b1a1qSO4Zp73k1ZjDB9
-	rktY3+81ILIyEekvQrdxTPmARicEB1lQbw6lwdY6lwnFF6MwAYBQbLmcuxQ1BsahRvkacGGLY354V
-	8lcZ7Q4g==;
+	bh=BARDdhFoahQ9F/MLiUXn4Su4t2tJaLiVM0v0FWkHGjU=; b=KVAWThk0V2dDencc4cUEnmmFNy
+	D3aOIKY0LWJM+YdjZo3sMbrEeLT758RYYMfx3U6gqqwwBWMNPkiQsMmIQI4DTUxI5Ye4CJmTIgfWd
+	JzJHbz7kFhqdVJBOPgzP1x9Bt88+bMtrHzDMbkEjvRsqFcF6ihAQIe6ezWfSRCNMSycTp20UdV5YD
+	gZ7e4us9biZ9Hnod1SLZY5w+zmZ/nRNRMj7kH9HP7TNXrybgB1+FWS/8ngkn7YKNdOgWd7moF52Xs
+	s9RzRae1aDma9IonIoBqOHlxqExpRHDRRTsaPi9TtVeyA42FFgEDxAxV4yO5qU6EjhX72Xx82jZ2s
+	5lCxDRyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsqJI-00000009mAf-462Y;
-	Sat, 08 Aug 2026 23:18:36 +0000
+	id 1wsqJ5-00000009m4e-0dMP;
+	Sat, 08 Aug 2026 23:18:23 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsqJE-00000009m6X-0Aad
+	id 1wsqJ0-00000009m4C-3uEN
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Aug 2026 23:18:32 +0000
+	Sat, 08 Aug 2026 23:18:19 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 737A260254;
-	Sat,  8 Aug 2026 23:18:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A2EF1F00AC4;
-	Sat,  8 Aug 2026 23:18:30 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 968E6600B1;
+	Sat,  8 Aug 2026 23:18:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B76571F00ACF;
+	Sat,  8 Aug 2026 23:18:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786231111;
-	bh=8IJm04E1Jx6VRBFU9vtFpV6hpK6h8wmtKkvHTJRXIIk=;
+	s=k20260515; t=1786231096;
+	bh=BARDdhFoahQ9F/MLiUXn4Su4t2tJaLiVM0v0FWkHGjU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=hYrYrO3GWE5Ne93ezf2fcT3d/FJ+AsiTHKLc9c/ZlMmJUgtqy81RxerzfxRjoJkh7
-	 +lMr6kZw+rwvrRFHt4ICuAbaCRhn1ZRiM4oQI9TAWCvjWWCaAOJExhZ61yp5uQmjhF
-	 EOsNiUBP2c2VTjuZjjk05cQmmuaMK5it/Apa1kuhaQoTga5+4YTTPLNEQ5hqbk0+YU
-	 G+pomKERkMtM8cmI8gShXr4auy1zISphl11+6ztbeIPXyBFQS3Jg5jQjGfUsGRzmjJ
-	 ShU0uS+MS6t/1GCzxLMagrkioywKMpNprvWoUAnwZhZk5Y2zX5zECyLICylXJgeT4F
-	 7BDSBTd7OQV4A==
+	b=dA4CAKDWmEN732KykWiAq94Sk+BCn9L3T1KcjWyeqRnA0qDhLVaP5EUXE4h6pIGxF
+	 Tih0eNcjb+FqL7zo5hGK6y+KrHueKdAACyKp+IV/Cjwlhpr28pIMx4371XdDqOltXN
+	 JJnufDKpBGBqlTjtuvSWSKmjIpGkv0XCCGkGuR7DHi4fZEN6FKyfNB441dtewfZ5nP
+	 1WntBAma9kt/sjLQ7cai/x6c7/Gl0W4XrEYhmSy0Jonsm6qnsxL9P/aT6ADIR43Cxx
+	 CzaqsHFG64QDxOA7lajCxR5CUPJ3NDc5BO5/Xe3BGWmMfn6spQfYZaQAe54JTbn2Er
+	 EtKrpPbUTHjkg==
 From: Josh Poimboeuf <jpoimboe@kernel.org>
 To: x86@kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -58,9 +58,9 @@ Cc: linux-kernel@vger.kernel.org,
 	Herbert Xu <herbert@gondor.apana.org.au>,
 	Miroslav Benes <mbenes@suse.cz>,
 	Petr Mladek <pmladek@suse.com>
-Subject: [PATCH v4 06/22] arm64: vdso: Discard .discard.* sections
-Date: Sat,  8 Aug 2026 16:17:10 -0700
-Message-ID: <e246f9ed3b06724147ca801af3deea5e2cb3b80e.1786230311.git.jpoimboe@kernel.org>
+Subject: [PATCH v4 01/22] objtool/klp: Fix .kcfi_traps special section extraction
+Date: Sat,  8 Aug 2026 16:17:05 -0700
+Message-ID: <8faaead205b219607b6fc2359ae743be824056eb.1786230311.git.jpoimboe@kernel.org>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <cover.1786230311.git.jpoimboe@kernel.org>
 References: <cover.1786230311.git.jpoimboe@kernel.org>
@@ -80,27 +80,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for enabling objtool on arm64, add .discard.* to the
-vDSO's /DISCARD/ section so objtool annotations don't cause orphan
-section warnings or leak into the final vDSO binary.
+create_fake_symbols() creates a symbol per entry for special sections.
+It does so in two steps: first for the sections which have
+ANNOTATE_DATA_SPECIAL annotations, then for the rest, using entsize or
+the reloc count to infer the entry size.  The second step skips the
+sections already handled by the first one by looking for a symbol at
+offset 0.
 
+That heuristic is too fuzzy: with Clang and CONFIG_CFI, it misfires on
+.kcfi_traps because Clang emits a .Ltmp* assembler-local label at the
+start of the section, so no symbols are created and
+clone_special_sections() extracts nothing.  klp-build still reports
+SUCCESS, but the livepatch module has no __kcfi_traps section and the
+traps for the patched functions are lost.
+
+Look for the actual fake symbols created by the first step instead.
+
+Fixes: da4326573ae8d ("objtool/klp: Fix kCFI trap handling")
+Reported-by: Joe Lawrence <joe.lawrence@redhat.com>
+Closes: https://lore.kernel.org/r/akQNqlfFC0T5pcMa@redhat.com
 Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
 ---
- arch/arm64/kernel/vdso/vdso.lds.S | 1 +
- 1 file changed, 1 insertion(+)
+ tools/objtool/include/objtool/elf.h |  1 +
+ tools/objtool/klp-diff.c            | 26 ++++++++++++++++++++++++--
+ 2 files changed, 25 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/kernel/vdso/vdso.lds.S b/arch/arm64/kernel/vdso/vdso.lds.S
-index 52314be291912..d5f96fa17e605 100644
---- a/arch/arm64/kernel/vdso/vdso.lds.S
-+++ b/arch/arm64/kernel/vdso/vdso.lds.S
-@@ -39,6 +39,7 @@ SECTIONS
- 	/DISCARD/	: {
- 		*(.note.GNU-stack .note.gnu.property)
- 		*(.ARM.attributes)
-+		*(.discard.*)
- 	}
- 	.note		: { *(.note.*) }		:text	:note
+diff --git a/tools/objtool/include/objtool/elf.h b/tools/objtool/include/objtool/elf.h
+index d9c44df9cc76a..a82517a76a0f6 100644
+--- a/tools/objtool/include/objtool/elf.h
++++ b/tools/objtool/include/objtool/elf.h
+@@ -97,6 +97,7 @@ struct symbol {
+ 	u8 included	     : 1;
+ 	u8 klp		     : 1;
+ 	u8 dont_correlate    : 1;
++	u8 fake		     : 1;
+ 	struct list_head pv_target;
+ 	struct reloc *relocs;
+ 	struct section *group_sec;
+diff --git a/tools/objtool/klp-diff.c b/tools/objtool/klp-diff.c
+index b6b72ed71bf02..890de34d1fa27 100644
+--- a/tools/objtool/klp-diff.c
++++ b/tools/objtool/klp-diff.c
+@@ -1629,6 +1629,7 @@ static int create_fake_symbol(struct elf *elf, struct section *sec,
+ 			      unsigned long offset, size_t size)
+ {
+ 	char name[SYM_NAME_LEN];
++	struct symbol *sym;
+ 	unsigned int type;
+ 	static int ctr;
+ 	char *c;
+@@ -1645,7 +1646,24 @@ static int create_fake_symbol(struct elf *elf, struct section *sec,
+ 	 *	       while still allowing objdump to disassemble it.
+ 	 */
+ 	type = is_text_sec(sec) ? STT_NOTYPE : STT_OBJECT;
+-	return elf_create_symbol(elf, name, sec, STB_LOCAL, type, offset, size) ? 0 : -1;
++
++	sym = elf_create_symbol(elf, name, sec, STB_LOCAL, type, offset, size);
++	if (!sym)
++		return -1;
++
++	sym->fake = 1;
++	return 0;
++}
++
++static bool has_fake_symbols(struct section *sec)
++{
++	struct symbol *sym;
++
++	sec_for_each_sym(sec, sym)
++		if (sym->fake)
++			return true;
++
++	return false;
+ }
  
+ /*
+@@ -1737,7 +1755,11 @@ static int create_fake_symbols(struct elf *elf)
+ 		unsigned int entry_size;
+ 		unsigned long offset;
+ 
+-		if (!is_special_section(sec) || find_symbol_by_offset(sec, 0))
++		if (!is_special_section(sec))
++			continue;
++
++		/* Skip sections already handled by step 1 above */
++		if (has_fake_symbols(sec))
+ 			continue;
+ 
+ 		if (!sec->rsec) {
 -- 
 2.54.0
 
