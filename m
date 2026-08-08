@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33B5BC5AD4E
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 19:48:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F835C5AD44
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 19:48:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=39gt51/isAO4d8RJ42zRo3vpitwkhl+gNkFO7bVDtdo=; b=DG8RiZaw5OuadmbF14uj6Oj9YH
-	mLVXG+EuzsuIrCZwJLEUbUvnntcu7gGivAKiKJyh2s9P9YkQd+iL0zIUBlYn8xSDX1v031ODSN7Wu
-	620hjaJy/4ObWLmCC8r2VnQ6MwSiYLc3kTYkBHCjFBv1c5VZzRyC6d/sw6gnMBwlB2hG5Wa1Xo1hP
-	P9ZT+Z+1FiarFPmOhMXxXsvPd9ytFUcKz+BdBuB4sB2t7HqxzlChIlLRv2oOWxA4Q/I3MEZQTzWso
-	Dj1BRh6osF83msB/IUgoL0Uu8GkGpgVe1e119ktP/rUUPJnvPULfmfUYuKEDJwm+hpVQydxaczusa
-	0K9ZEH5Q==;
+	bh=CkcUnKoEWvBgRRdFNTHQoXsTzjHIKtGAHBkZ7/leYyc=; b=OFy/X6yIY6SkbCqylALl5MKh3j
+	BE8RRF527yrvXCU2hayA+bpptyWzRfTMCkDxhC0q45yAM1zJ+8eIMmFVAM3U2aPWi6gsw4VMIYt/u
+	gOO/MnH6Qa0Ol0LmGZjPTmEEXjYDdOOdJwJ3GzFnJsgqx7IP2tRaav11JWiiOv9SHGzqNU2QY142C
+	25DeAq/xNsvVnsPzrvDC66oF0N5O1Iqf9TE1CydV2n4a++04XfGjxDJ9eWJLeY14lK5F16Zbq3Z/O
+	KvyBxkW1xc3KwvWTfYiqzl9QCF4VaH4X26w79FZ6lUUqOVx1m3ls8Lj5PBGqaxTadimQh1EHzgY4c
+	J69C8DNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsn1q-00000009fM9-2JcL;
-	Sat, 08 Aug 2026 19:48:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wsn1n-00000009fLP-1w9G;
+	Sat, 08 Aug 2026 19:48:19 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsn1o-00000009fLQ-0gLp
+	id 1wsn1m-00000009fLJ-1vxy
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Aug 2026 19:48:20 +0000
+	Sat, 08 Aug 2026 19:48:18 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0FBD860120;
-	Sat,  8 Aug 2026 19:48:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26C081F00A3A;
-	Sat,  8 Aug 2026 19:48:18 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6570643BAE;
+	Sat,  8 Aug 2026 19:48:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E5661F000E9;
+	Sat,  8 Aug 2026 19:48:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786218498;
-	bh=39gt51/isAO4d8RJ42zRo3vpitwkhl+gNkFO7bVDtdo=;
+	s=k20260515; t=1786218497;
+	bh=CkcUnKoEWvBgRRdFNTHQoXsTzjHIKtGAHBkZ7/leYyc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=VsJYgh24mxEr2VMzMAjW/xrRP3PReaaq+MGQ//C5Fl3TIIV/n6DsOAGdUN/i9eCo9
-	 MhEOKT0pYfcQ79qWVXUxzsZln6vJQFnBCT3HboxZrXuYeUjZJ/HJFHyRXHMz+ObOiq
-	 l1pMOimK1o6dsVFGrFj75dG5fyvT0znnpV6d0rPti69rZbmIkRIhXWyLgvMUItT00w
-	 5Msev3qTKrQ7yDjvstIpZ8qB7gXkwR19sqP4zap9XO0N9XfzDXJvvnO74YoyEsJM8z
-	 RHLkmn9dnbHa9j3e0dU8sdYVq37kE2ono9viGhZd0+0+P8+SC/GjehgEtGACI+p7vr
-	 h0r2wtFFCprQg==
+	b=FIb6eqjcVilsRjU4afSLBaSf2bwJsBUocJhWEA6bnyD69ksb6ZEkulVkib35gt3Qh
+	 vTwicJNV+O4YZeLBFenmhgLtmMS/1vyix42eAC//3DVIfFQdtIcYShH0hJk8zytviV
+	 smp9ofDpjjKhOt2ryIwHq+o6ZghN6lOhm0EkfYKrVSLcJ7aJLfF2htlkQiS5T/1WRW
+	 xxrW+/UDWTloq6ishSoSwr0myBInvbcrnW5O7MrjZzxRcE4Noo+j4q4TQ/GEIoACfl
+	 lY4Sycym9oMX8MuQoefnoQFhFgX8VmN0htvc05ZVEh9ntXsfE/doLQB8MjNr+7jjFY
+	 e1q+axExZX/vA==
 From: Jakub Kicinski <kuba@kernel.org>
 To: nagadheeraj.rottela@amd.com
 Cc: Jakub Kicinski <kuba@kernel.org>,
@@ -64,12 +64,12 @@ Cc: Jakub Kicinski <kuba@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	git-dev@amd.com
-Subject: Re: [PATCH 02/20] net: xilinx: tsn: add TSN endpoint wrapper driver
-Date: Sat,  8 Aug 2026 12:48:17 -0700
-Message-ID: <20260808194817.132469-1-kuba@kernel.org>
+Subject: Re: [PATCH 01/20] dt-bindings: net: add Xilinx TSN Endpoint Ethernet MAC
+Date: Sat,  8 Aug 2026 12:48:15 -0700
+Message-ID: <20260808194815.132344-1-kuba@kernel.org>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260807104431.157230-3-nagadheeraj.rottela@amd.com>
-References: <20260807104431.157230-3-nagadheeraj.rottela@amd.com>
+In-Reply-To: <20260807104431.157230-2-nagadheeraj.rottela@amd.com>
+References: <20260807104431.157230-2-nagadheeraj.rottela@amd.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -89,157 +89,289 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 This is an AI-generated review of your patch. The human sending this
 email has considered the AI review valid, or at least plausible.
 ---
-net: xilinx: tsn: add TSN endpoint wrapper driver
+dt-bindings: net: add Xilinx TSN Endpoint Ethernet MAC
 
-Adds a thin wrapper platform driver for the Xilinx TSN Endpoint Ethernet
-MAC IP node, along with a new Kconfig symbol and Makefile under
-drivers/net/ethernet/xilinx/tsn/. The wrapper enables the six IP-wide
-clocks and then populates the sub-nodes so each can bind to its own driver.
+This adds a new binding for the Xilinx TSN Endpoint Ethernet MAC IP,
+describing a wrapper node that owns the six IP clocks and
+xlnx,num-priorities, plus an endpoint MAC child and a three-port switch
+child.  A MAINTAINERS entry is added for the new file.
 
-A few questions below, all fairly minor.
+A few questions about the schema below.
 
-> diff --git a/drivers/net/ethernet/xilinx/tsn/Kconfig b/drivers/net/ethernet/xilinx/tsn/Kconfig
+> diff --git a/Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml b/Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml
 > new file mode 100644
-> index 000000000000..45af4d3f10e6
+> index 000000000000..00f52b7b623c
 > --- /dev/null
-> +++ b/drivers/net/ethernet/xilinx/tsn/Kconfig
-> @@ -0,0 +1,15 @@
-> +# SPDX-License-Identifier: GPL-2.0-only
-> +#
-> +# Xilinx TSN device configuration
-> +#
-> +
-> +config XILINX_TSN
-> +	tristate "Xilinx TSN Ethernet driver"
-> +	depends on OF && HAS_IOMEM
-
-[Severity: Low]
-Should this depend on OF_ADDRESS rather than OF && HAS_IOMEM?
-
-The only functional statement in tsn_ip_probe() is:
-
-	return devm_of_platform_populate(dev);
-
-and in include/linux/of_platform.h the real implementation is compiled
-only under CONFIG_OF_ADDRESS; otherwise the inline stub is:
-
-	static inline int devm_of_platform_populate(struct device *dev)
-	{
-		return -ENODEV;
-	}
-
-OF && HAS_IOMEM does not imply OF_ADDRESS, per drivers/of/Kconfig:
-
-	config OF_ADDRESS
-		def_bool y
-		depends on !SPARC && (HAS_IOMEM || UML)
-
-sparc selects OF and provides HAS_IOMEM, and NET_VENDOR_XILINX has no
-architecture dependency, so XILINX_TSN is selectable there with
-OF_ADDRESS=n.
-
-In that configuration tsn_ip_probe() still runs devm_kzalloc(),
-devm_clk_bulk_get() and clk_bulk_prepare_enable() for all six clocks and
-registers the disable action, and then returns -ENODEV, so the driver can
-never bind and no sub-node device is created. The clocks are unwound by
-devres, so nothing leaks, but the whole driver is dead code in that
-configuration.
-
-This also stays as is through the end of the series, where the symbol is
-still "depends on OF && HAS_IOMEM" plus "depends on XILINX_DMA", and
-XILINX_DMA only has "depends on HAS_IOMEM".
-
-> +	help
-> +	  This driver supports the AMD/Xilinx Time-Sensitive Networking
-> +	  (TSN) Endpoint Ethernet MAC IP. It provides the wrapper device
-> +	  and the endpoint MAC that connects the IP to the host CPU. The
-> +	  three-port switch is supported by NET_DSA_XILINX_TSN.
-
-[Severity: Low]
-The help text describes "the endpoint MAC that connects the IP to the host
-CPU" and refers the reader to NET_DSA_XILINX_TSN, but at this commit the
-symbol only builds xilinx_tsn_main.o (clock enable plus
-devm_of_platform_populate()) and no NET_DSA_XILINX_TSN symbol exists in the
-tree yet.
-
-Both do appear later in the same series: the end-of-series Makefile has
-
-	xilinx_tsn-y := xilinx_tsn_main.o xilinx_tsn_ep.o
-
-with &xlnx_tsn_ep_driver registered from xilinx_tsn_main.c, and
-NET_DSA_XILINX_TSN is added in drivers/net/dsa/xilinx/Kconfig.
-
-Since the text only appears in prose and not in a select or depends on,
-there is no build effect; would it be worth wording the help text so it
-matches what this commit actually builds, or is the forward reference
-intentional for the series?
-
-> +
-> +	  If unsure, say N.
+> +++ b/Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml
+> @@ -0,0 +1,343 @@
 
 [ ... ]
 
-> diff --git a/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_main.c b/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_main.c
-> new file mode 100644
-> index 000000000000..1ef1b0c2ee6e
-> --- /dev/null
-> +++ b/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_main.c
-> @@ -0,0 +1,105 @@
+> +properties:
+> +  compatible:
+> +    const: xlnx,tsn-endpoint-ethernet-mac-3.0
+> +
+> +  reg:
+> +    maxItems: 1
+
+[Severity: Low]
+Should the wrapper node have a reg at all?  It is listed in the top-level
+required list alongside ranges, and in the example the two describe the
+same window:
+
+    reg = <0x80040000 0x40000>;
+    ranges = <0x0 0x80040000 0x40000>;
+
+Every child window (mac1 0x0+0x14000, ep-mac 0x16000+0xa000, mac2
+0x20000+0x14000, switch 0x38000+0x8000) falls inside the parent's own
+reg.
+
+The commit message says the wrapper only owns the six shared clocks and
+xlnx,num-priorities, and the wrapper driver in this series never maps
+that region:
+
+drivers/net/ethernet/xilinx/tsn/xilinx_tsn_main.c:tsn_ip_probe() {
+    ...
+    ret = devm_clk_bulk_get(dev, TSN_NUM_CLOCKS, w->clks);
+    ...
+    return devm_of_platform_populate(dev);
+}
+
+Would it be cleaner for a bus node that translates its children through
+ranges to either drop reg or describe only a wrapper-private register
+block that no child window overlaps?
+
+> +
+> +  clocks:
+> +    items:
+> +      - description: GTX clock for transmitter logic and RTC
+> +      - description: GTX 90-degree phase shifted clock for RGMII
+> +      - description: Host RX FIFO clock
+> +      - description: Host TX FIFO clock
+> +      - description: Reference clock for IDELAY control
+> +      - description: AXI-Lite register interface clock
+> +
+> +  clock-names:
+> +    items:
+> +      - const: gtx
+> +      - const: gtx90
+> +      - const: host_rxfifo
+> +      - const: host_txfifo
+> +      - const: ref
+> +      - const: s_axi
+
+[Severity: Low]
+Are all six clocks present in every IP configuration?
+
+A fixed items list implies minItems == maxItems == 6, and both clocks and
+clock-names are in the top-level required list, so each DT must supply all
+six phandles.  Two of them are documented as RGMII specific, gtx90 ("GTX
+90-degree phase shifted clock for RGMII") and ref ("Reference clock for
+IDELAY control"), while the switch ports below also allow:
+
+              phy-mode:
+                enum:
+                  - gmii
+                  - rgmii
+                  - rgmii-id
+
+For a GMII-only build with no IDELAY primitives, would a DT author have to
+invent phandles for clocks the IP does not instantiate?  If those two are
+optional in some configurations, could they be made conditional rather
+than unconditionally required?
+
+Note the wrapper driver in this series is consistent with what is written
+here, it requests exactly these six names non-optionally via
+devm_clk_bulk_get(dev, TSN_NUM_CLOCKS, w->clks), so the question is only
+about the hardware.
 
 [ ... ]
 
-> +static int tsn_ip_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct xlnx_tsn_ip *w;
-> +	int ret;
+> +patternProperties:
+> +  "^ep-mac@":
+> +    type: object
+> +    $ref: /schemas/net/ethernet-controller.yaml#
+> +    description:
+> +      Endpoint MAC sub-node. Provides the host-side data path through the
+> +      DMA channels described by its dmas / dma-names.
+> +    properties:
+> +      compatible:
+> +        const: xlnx,tsn-ep-mac
 > +
-> +	w = devm_kzalloc(dev, sizeof(*w), GFP_KERNEL);
-> +	if (!w)
-> +		return -ENOMEM;
+> +      reg:
+> +        maxItems: 1
+
+[ ... ]
+
+> +    required:
+> +      - compatible
+> +      - reg
+> +      - dmas
+> +      - dma-names
+> +      - tx-queues-config
 > +
-> +	for (int i = 0; i < TSN_NUM_CLOCKS; i++)
-> +		w->clks[i].id = tsn_clk_names[i];
-> +
-> +	ret = devm_clk_bulk_get(dev, TSN_NUM_CLOCKS, w->clks);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "failed to get clocks\n");
-> +
-> +	ret = clk_bulk_prepare_enable(TSN_NUM_CLOCKS, w->clks);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "failed to enable clocks\n");
-> +
-> +	ret = devm_add_action_or_reset(dev, tsn_clk_bulk_disable, w);
-> +	if (ret)
-> +		return ret;
-> +
-> +	return devm_of_platform_populate(dev);
-> +}
+> +    unevaluatedProperties: false
 
 [Severity: Low]
-Is there a consumer for xlnx,num-priorities anywhere?
+How is an Endpoint-only instance described here?  The top-level
+description says the IP:
 
-Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml
-lists it in the top-level required block for this same node:
+  "provides low-latency network connectivity in either Endpoint-only or
+   Bridged Endpoint configurations"
 
-	required:
-	  - compatible
-	  - reg
-	  - clocks
-	  - clock-names
-	  - xlnx,num-priorities
-	  - ranges
+and
 
-tsn_ip_probe() is the only driver binding
-"xlnx,tsn-endpoint-ethernet-mac-3.0", and it only fills clks[].id and
-calls devm_clk_bulk_get(), clk_bulk_prepare_enable() and
-devm_of_platform_populate(). Grepping for num-priorities or
-num_priorities at the end of the series finds hits only inside the YAML
-itself plus unrelated fsl-mc and xe files.
+  "It also supports GMII/RGMII interfaces for connection to an external
+   PHY"
 
-So device tree authors must supply the property to pass dt_binding_check
-while nothing reads it. Would it make sense to drop it from required
-until a driver actually uses it?
+The ep-mac node declares no interrupts/interrupt-names, and
+ethernet-controller.yaml contains no interrupt properties either, so with
+unevaluatedProperties: false any interrupt or MDIO child on the endpoint
+MAC is rejected.  All interrupts and both MDIO buses live only on the
+optional switch@ child, whose interrupt-names list is fixed to MAC1/MAC2
+plus one ptp_timer.
+
+An Endpoint-only DT (wrapper plus ep-mac, no switch child) is allowed by
+the top-level required list, but ends up with no interrupt and no MDIO
+description at all, and there is one compatible string with no if/then to
+tell the two configurations apart.
+
+Should ep-mac gain its own interrupts/interrupt-names and a way to reach
+its PHY, or should the description be narrowed to the Bridged Endpoint
+configuration the drivers in this series implement?  Nothing appears
+broken today, the endpoint driver requests no interrupts and drives the
+data path entirely through dmaengine.
+
+> +
+> +  "^switch@":
+> +    type: object
+> +    $ref: /schemas/net/dsa/dsa.yaml#/$defs/ethernet-ports
+
+[ ... ]
+
+> +      mdio-mac1:
+> +        $ref: /schemas/net/mdio.yaml#
+> +        description:
+> +          MDIO bus controller for MAC1. Registers reside inside the mac1
+> +          reg-names window.
+> +        unevaluatedProperties: false
+> +
+> +      mdio-mac2:
+> +        $ref: /schemas/net/mdio.yaml#
+> +        description:
+> +          MDIO bus controller for MAC2. Registers reside inside the mac2
+> +          reg-names window.
+> +        unevaluatedProperties: false
+
+[Severity: Low]
+This isn't a bug, but the child node names contradict the $nodename
+patterns of the generic schemas this binding references.
+
+mdio.yaml documents:
+
+    pattern: '^mdio(-(bus|external))?(@.+|-([0-9]+))?$'
+
+and -mac1 / -mac2 matches none of the allowed suffixes (-bus, -external,
+@<addr>, -<digits>).  Similarly the patternProperties key "^ep-mac@"
+forces names like the example's ep-mac@16000, while
+ethernet-controller.yaml documents:
+
+    pattern: "^ethernet(@.*)?$"
+
+Other in-tree bindings that $ref mdio.yaml for a child use a conforming
+name (qca8k.yaml, realtek.yaml, renesas,rzn1-a5psw.yaml,
+renesas,etheravb.yaml, faraday,ftgmac100.yaml, microchip,lan7800.yaml).
+Would mdio@<offset> (or mdio-0 / mdio-1) and ethernet@<offset> work here
+instead?
+
+Related: the mdio-mac<N> nodes carry no reg, so nothing in DT locates the
+MDIO block inside the parent mac1/mac2 window.  The offset is instead
+hard-coded in the driver added later in this series:
+
+drivers/net/dsa/xilinx/xilinx_tsn.h:
+    #define TSN_MDIO_MC_OFFSET		0x00000500
+
+Could the buses be described as mdio@500 with a reg so the offset comes
+from DT?
+
+> +
+> +      ethernet-ports:
+> +        type: object
+> +        additionalProperties: true
+> +
+> +        properties:
+> +          port@0:
+> +            type: object
+> +            additionalProperties: true
+> +            description:
+> +              CPU port. Wired internally to the ep-mac sibling.
+> +
+> +            properties:
+> +              reg:
+> +                const: 0
+> +
+> +              phy-mode:
+> +                const: internal
+> +
+> +        patternProperties:
+> +          "^port@[1-2]$":
+> +            type: object
+> +            additionalProperties: true
+> +            description:
+> +              External Ethernet port (port@1 is wired to MAC1, port@2 to
+> +              MAC2). Its PHY is reached through the corresponding
+> +              mdio-mac<N> bus.
+> +
+> +            properties:
+> +              phy-mode:
+> +                enum:
+> +                  - gmii
+> +                  - rgmii
+> +                  - rgmii-id
+
+[Severity: Medium]
+Can a valid device tree bypass all of these port constraints?
+
+The switch node uses $ref: /schemas/net/dsa/dsa.yaml#/$defs/ethernet-ports,
+and the referenced schemas accept both container and port spellings:
+
+Documentation/devicetree/bindings/net/ethernet-switch.yaml:
+    patternProperties:
+      '^(ethernet-)?ports$':
+    ...
+        patternProperties:
+          '^(ethernet-)?port@[0-9a-f]+$':
+    ...
+    oneOf:
+      - required:
+          - ports
+      - required:
+          - ethernet-ports
+
+The local constraints are attached only under properties: ethernet-ports:
+and only to the keys port@0 and "^port@[1-2]$", and that container is
+declared additionalProperties: true.
+
+So a DT spelling the container ports { port@0 ... } (the spelling most
+existing DSA device trees use), or spelling the ports
+ethernet-port@0/1/2, passes dt_binding_check while none of the hardware
+rules apply: the CPU port's reg: const: 0 and phy-mode: const: internal,
+the gmii/rgmii/rgmii-id enum on external ports, and the port@1/port@2
+only topology of this three-port IP.  A fourth port or phy-mode =
+"sgmii" then validates cleanly and is only caught at probe:
+
+drivers/net/dsa/xilinx/xilinx_tsn.c:xlnx_tsn_setup() {
+    ...
+    if (!dsa_is_user_port(ds, XLNX_TSN_PORT_MAC1) ||
+        !dsa_is_user_port(ds, XLNX_TSN_PORT_MAC2))
+	    return dev_err_probe(sw->dev, -EINVAL,
+			         "both MAC1 and MAC2 must be enabled as switch ports\n");
+    ...
+}
+
+Would matching both container spellings ('^(ethernet-)?ports$') and both
+port spellings, and dropping additionalProperties: true inside the
+container, close this?
 
 [ ... ]
 
