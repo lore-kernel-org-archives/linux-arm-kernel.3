@@ -4,78 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C741C5AD2C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 08:09:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17684C5AD2C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 08:32:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XtFxe7lTSkyr2Cg+Wnox9DL2CC/sLeXegVl9950TLyA=; b=0J3jxRBO6hXmPJQIDZB3BaruCn
-	aqvshVPQ1ZcP6IUx9CzX2mVaJEbMNtT7yJTB8NhhhF2uxT4kIxIUPSpa2j7SA/4Zp58+F4TwkM+1W
-	2Cg8B2nezMK2Mu4vEGWmhg4u44CfI1WLbNkA/mjdvCVD9ERm1gKxQyQpg2PWrUhU/1ei1egXgBmsx
-	fpfn/Fmyy1IqQoD0UY+F/CIXCpoqQWKneDJK5K7nbcNIqwTPd1D9bZbfd0sHrS6E8wgUlKlC0s6VA
-	bYUETkw1s4vXgP3DE4g+2dDKrZg84K+YmxWZF2B9JG1SrIoyl6HQ255sTTG114c9ILiD0l1E4yOZE
-	Wr5i4QBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=VKPZin59jcLEgsj7vGd6U8AiKKUkanMgykS2/LGEdhs=; b=gSL+OjOkUbrcAzgfls3AamTDWL
+	sBvcgEDNt0I+EpF7BIqOWHCn579ANrLTnU01rvE0l7BNqeiN1xLnXiUYTEHNuJhd2QvJaLc+FHgK5
+	eLNTA0geT1FnjNlLU69CdrEroWJDk1Z5+1bXZkoFkTkUYLTtqU86Z7BzCcZlT4F+dhDYeGHBU5Xb7
+	2WMPMrlQs0aL3M1lSPYZ+GpTbUUb4lVmQqUTRYzBH+TXPuvD6ZS9D/fyy+UHaGR7zgypMExAxajOp
+	3s42GPQVx6NNhR49RDuFWa4ZoDs08fAUaJ4MIGtjM213Qmeck3war0/1TwHZrKl+k30XJLUewnM3L
+	Mm/kQ05g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsc7C-000000099a5-2M0k;
-	Sat, 08 Aug 2026 08:09:10 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wscTE-00000009AeH-2lZD;
+	Sat, 08 Aug 2026 08:31:56 +0000
+Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsc7B-000000099Zx-09bK
+	id 1wscTC-00000009Adu-0R3t
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Aug 2026 08:09:09 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C3816407E1;
-	Sat,  8 Aug 2026 08:09:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4FA11F000E9;
-	Sat,  8 Aug 2026 08:09:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786176547;
-	bh=XtFxe7lTSkyr2Cg+Wnox9DL2CC/sLeXegVl9950TLyA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=TokhsMIsIsjXaK+crrDB0+vAhOAD0Pv519ZF1AofRnBHHlLlww6Pk7Ug8gQnkSVJh
-	 a29OUCpEEDGqDnXn67E/vQ+VSPSIQvvwHEDUWtx52Mmz9/piF3DEVQYAAjSrFXiyJc
-	 NnlLXtuW7ivW4PJ/fm4tJFiioSUY62GA+6XVKXTBgxT2aguMwZuhJIUUJ66XmZDeGl
-	 EpCVgqso62YzhvRxxoLiKaM6dTWXxdyTq+SATnDajxPodNgaimAKyxkntJ4tNI6m5Z
-	 7/cD+wOQM/LwSH6gGtCMFnVoWLe2pmz2enl9EO26WkDoPmz5XBxY19Xp7J7RgGS/rM
-	 6+CYcytLv69Ww==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wsc77-0000000DcX6-1h5a;
-	Sat, 08 Aug 2026 08:09:05 +0000
-Date: Sat, 08 Aug 2026 09:10:29 +0100
-Message-ID: <87ecg9owwa.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Will Deacon <will@kernel.org>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Sebastian Ene <sebastianene@google.com>,
-	kvmarm@lists.linux.dev,
+	Sat, 08 Aug 2026 08:31:55 +0000
+Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-38dc69c74b8so293821a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Aug 2026 01:31:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786177913; x=1786782713; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=VKPZin59jcLEgsj7vGd6U8AiKKUkanMgykS2/LGEdhs=;
+        b=gUPbRr/lQVWFU4Xx2HA+JA70u6purHpZxYa+Di7BW62cjowHAE2SJK8Ypt/xhMa6uN
+         jVjLD6OB+j9FIzHs21YiaikNA6vIyNbzOEQmFgYvJxv2GdnzTXlzSzLwK9KDsMRphjU/
+         hXVUBsVdPFckLb8ZdbGGQVBAgxTgO/AqJ5WZ77rIDC84iDE44/6gjixjnW3BUZqEUbtH
+         OAdV0gSrK63gEfBhy1rWK4wv5xwN1perFFIch5Zayu5zMqw9ieIpMqvC3Wu+DTWrhfkk
+         NDYpkptEEOIXAIibotoFb6ayhDk+AK2AaYfepEbuQ5sYUGSNAgMJCu9IIh/t4xSViWZI
+         ItLA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786177913; x=1786782713;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=VKPZin59jcLEgsj7vGd6U8AiKKUkanMgykS2/LGEdhs=;
+        b=WuTkrLYFIhLa6nqsWn43zWKg+3wjdtcwi5LdRAkAvsKka7UALi8ETnx2k6IMP2bxui
+         ifHIRgIGkN0F1ulACIX+uX5eE2G4IJDsBTnZ9sScVA1wWV2sXkaFPkLgKRDIItRYzAXx
+         56K/NGej4YjfiX9C0Ljg/QoDH+4ySUUJbX/HIyCNVAe1P7DSZpP4NA/rFXkqvEEbqgVe
+         U7L+ZybhTHJc6NpKsbVyeMlyD/RSmLVGriaUKjgtu1EnWjf0iqXFnJdll4SHReeEvCWx
+         1W4uHhSTZbAysgfm3iozwW2kXF0YUGhtgTA9FkurARv5R3+EcdM/GKj2zmXH5c0egcBE
+         rlNw==
+X-Forwarded-Encrypted: i=1; AHgh+RqT9/poH7rVE+CB/rAgYADfOdG+n9mnohDm2aLQMtLIS4G2u91d/lXcq1pp308Ga0syOVIOw6NIOpBed5+brwX4@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzn+beA8wkygZ2MhWfPahNZsYt1H7te3koCo1xP0Hdb1xODBHSS
+	WZVIld4mEpZQs5EJ6qG2SOtNfvTuOIjr/i4P1/p4Fc11E15SSBZu73uu
+X-Gm-Gg: AR+sD13wPHfgWIws0xDlw3ez+n4gAGYVLNfBqLfTVs6gWhTwDQypvLcQRQEal4SMf5U
+	1cPvl9pLk+zWMRYfjCXxzDV7Yg6MBoIOrffhJXHeIZwPEjRgxYAlqZIx561Pr3jJoKFtQsuMQUt
+	DLyFIedVnQFcakpgMyihnt9QC8Y4nucSpdY1/v+PYkeMj/rOIego/drHG50tzZN0N8aHnS5XjER
+	11/767kEueLPcOU0oefYXwzvnBdi/KyUXER8FpH+sUU/Hif8n+5/Frb2uqJi46aHecEFCdMivfi
+	hmhXSepbkGrWh0UbITinrqYeeYhuUD1ac4lobBLVC25vebZy7MyQzvvRyuzlkw1nkq/7lg29mFM
+	hMa2woktaDt3nK5qgtl3xCzBNjbCA3zDPxV036sj/yuQiv9HyzLLzaW+ju62FkNuYCswm4IiW0Z
+	/7WUinvY8ZsSDMXtMQhwxJwtHtW9QXpQP5pjHHskfk+B8=
+X-Received: by 2002:a17:90b:1d4f:b0:38f:7f60:ba35 with SMTP id 98e67ed59e1d1-3903c5381d6mr27967961a91.5.1786177913049;
+        Sat, 08 Aug 2026 01:31:53 -0700 (PDT)
+Received: from lgs.. ([2001:250:5800:1000::f280])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39085de9f6asm7623040a91.7.2026.08.08.01.31.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 08 Aug 2026 01:31:52 -0700 (PDT)
+From: Guangshuo Li <lgs201920130244@gmail.com>
+To: Abel Vesa <abelvesa@kernel.org>,
+	Peng Fan <peng.fan@nxp.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney@redhat.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Dong Aisheng <aisheng.dong@nxp.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	linux-clk@vger.kernel.org,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 3/4] KVM: arm64: vgic-its: Don't save collections the table cannot hold
-In-Reply-To: <20260807104102.2410744-4-fuad.tabba@linux.dev>
-References: <20260807104102.2410744-1-fuad.tabba@linux.dev>
-	<20260807104102.2410744-4-fuad.tabba@linux.dev>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, oupton@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, will@kernel.org, sascha.bischoff@arm.com, sebastianene@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Cc: Guangshuo Li <lgs201920130244@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH] clk: imx: scu: fix autosuspend cleanup on probe failure
+Date: Sat,  8 Aug 2026 16:29:33 +0800
+Message-ID: <20260808082933.2692878-1-lgs201920130244@gmail.com>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260808_013154_145194_1A8921EC 
+X-CRM114-Status: GOOD (  11.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,35 +109,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 07 Aug 2026 11:41:01 +0100,
-Fuad Tabba <fuad.tabba@linux.dev> wrote:
-> 
-> A guest that disables the ITS and rewrites GITS_BASER with fewer pages,
-> VALID still set, keeps every collection it mapped against the larger
-> table: KVM stores the new BASER unconditionally and frees the list only
-> when VALID is cleared.
+imx_clk_scu_probe() calls pm_runtime_use_autosuspend() for non-CPU
+clocks, but its probe failure paths do not call the matching
+pm_runtime_dont_use_autosuspend() before disabling runtime PM.
 
-But isn't that the *real* problem? Shouldn't we instead nuke the
-collections entirely and go through a reload sequence?
+If the autosuspend delay is set to a negative value while autosuspend
+is enabled, the runtime PM core increments usage_count to prevent
+runtime suspend. Without calling pm_runtime_dont_use_autosuspend()
+during cleanup, this reference is not dropped and usage_count remains
+unbalanced.
 
-> vgic_its_save_collection_table() then walks the
-> whole list, writing up to 448K past the end of the table, and saves
-> collection IDs that vgic_its_restore_cte() rejects, so the save succeeds
-> and the restore fails with -EINVAL on the destination. The overrun stays
-> in guest memory, as vgic_write_guest_lock() validates every gfn.
-> 
-> Validate each collection against the current table with
-> vgic_its_check_id() and return -EINVAL, as vgic_its_save_device_tables()
-> does for devices. Collection IDs are unique and the collection table is
-> never indirect, so the check also bounds the walk.
+Add the missing pm_runtime_dont_use_autosuspend() calls to the probe
+failure paths before disabling runtime PM.
 
-I think returning -EINVAL here was a mistake, as it aborts the save
-procedure that userspace should be able to issue reliably, even if
-that means the state is crap. I don't think we should expand that
-behaviour any further.
+This issue was found by manual code inspection.
 
-	M.
+Fixes: 78edeb080330 ("clk: imx: scu: add runtime pm support")
+Cc: stable@vger.kernel.org
+Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
+---
+ drivers/clk/imx/clk-scu.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
+diff --git a/drivers/clk/imx/clk-scu.c b/drivers/clk/imx/clk-scu.c
+index 9b33df9967ec..6d29fcc2306d 100644
+--- a/drivers/clk/imx/clk-scu.c
++++ b/drivers/clk/imx/clk-scu.c
+@@ -542,6 +542,7 @@ static int imx_clk_scu_probe(struct platform_device *pdev)
+ 		ret = pm_runtime_resume_and_get(dev);
+ 		if (ret) {
+ 			pm_genpd_remove_device(dev);
++			pm_runtime_dont_use_autosuspend(dev);
+ 			pm_runtime_disable(dev);
+ 			return ret;
+ 		}
+@@ -550,6 +551,9 @@ static int imx_clk_scu_probe(struct platform_device *pdev)
+ 	hw = __imx_clk_scu(dev, clk->name, clk->parents, clk->num_parents,
+ 			   clk->rsrc, clk->clk_type);
+ 	if (IS_ERR(hw)) {
++		if (!(clk->rsrc == IMX_SC_R_A35 || clk->rsrc == IMX_SC_R_A53 ||
++		      clk->rsrc == IMX_SC_R_A72))
++			pm_runtime_dont_use_autosuspend(dev);
+ 		pm_runtime_disable(dev);
+ 		return PTR_ERR(hw);
+ 	}
 -- 
-Jazz isn't dead. It just smells funny.
+2.43.0
+
 
