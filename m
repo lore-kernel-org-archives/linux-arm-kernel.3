@@ -4,91 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AA6AC5AD2B
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 09:30:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B128BC55174
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 09:39:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gC2ItiHuCYFgaLZeaOk4o80zqG6tRez0H0meLhFxwtI=; b=J7UOG0/eI/vvQ6qcmWzF/1mE7/
-	CY/SCI0PRljt3I/QhLKd5kblZEljFZVjjoUYadEeqyDtoMBHBHMtWaZTdf23tTVAtpowA1fxUxFaf
-	OlXavoB5esTZ8Yh1mytdTm7Fbaz251AJa665FpwnMBKIU6tXn5w0bcwogztcL2aL6o59q8/l99BLX
-	8+bmfg7/y/n5AOoIdQdTwavyo3JhBrF5NHZS1tAby5NA4CjY5YlcksHd0jLOF6RdUvn2LkZLu1UJq
-	3La/Jw0ffmvAye/eZamyCc4B+WPhOaAg+GLYA7GuXpUun6RDGcBUL2vdFYTc0Cmx1IJX4Y3pBe8ju
-	fGQ2+cgw==;
+	bh=RX1DphTMSs3B4MvCbqjOAvkckybgUBneK6EG7I97Aec=; b=Rew5425QUVhARggYhCsCQ61aEM
+	JVRHth5XuD5A6QABXL+gLk0nzRamH+r906RPZdR0xyu5ML5BkauV2AO7KW90JitJMISReZXSLXbUh
+	QCrXy/wTT+iZifkWE4EFAAfcb7uAQF9zGgGiL34sa8wloxfOMQS4jyzFfgDOVGQfPSst/wrOydk1n
+	UJQqtRTM+wHIbquTVJ5/xL5of++OcvGz5A0lsyAwME+jlFcYdY2HTGINYV2m8qNwLosbf1AgLoaN4
+	3C8XTj0mUS8dxQS1DFGY7xXCVF9b4FJrOju+RpB6joRj8ozystvrsUKWg67iU7fxGFan3+XGJX3K0
+	09PkU9AQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsdO1-00000009DfT-0ueU;
-	Sat, 08 Aug 2026 09:30:37 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1wsdW2-00000009EAl-0fmV;
+	Sat, 08 Aug 2026 09:38:54 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsdNz-00000009Deh-0jQV
+	id 1wsdW0-00000009EAH-03lO
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Aug 2026 09:30:36 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2cedda2ce6fso3232715ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Aug 2026 02:30:34 -0700 (PDT)
+	Sat, 08 Aug 2026 09:38:53 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-38e3efab7e0so266647a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Aug 2026 02:38:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786181434; x=1786786234; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1786181931; x=1786786731; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=gC2ItiHuCYFgaLZeaOk4o80zqG6tRez0H0meLhFxwtI=;
-        b=S+TyMf1xisGxQivmb4h/5rqgo2TgwHVomMTksNh48li9ydxSnYa7cY8tfu63ja4Rqu
-         PVqJVfWg1Wq1j7JNFurpmkbzDS+iL6WoJgKDpYpQMCpq7dy4OD+6W36oxam82yIHcP7H
-         57u0YDfA9U4BaAJxWZk74Ww51pspbA89FK9yJxuAyKzsrwqhofTJ/ZuWysm+mCsmRqfm
-         VNiIDkvHswfqXw6ma3J3pAlXwpQM3yZwYzYQ5rA+6QTkR8snHneio26vfPHUYNHKB6mE
-         7YZBt2OZHoWN2MjW2fZXowQnIGN/q18yJvq5f/m8xgOPSyPgviw8juNyYAL7AC9m346l
-         dX1A==
+        bh=RX1DphTMSs3B4MvCbqjOAvkckybgUBneK6EG7I97Aec=;
+        b=lVtfGMegerFn+lgx4NFg7kGa74/TONTrUgpURdStn4Mlvs79pn7rlF8RV9IZZgkFdI
+         As1uP1lDnrmxrBlBN6ZTkJ62iKbxjjikqybvVOCegN+Pv2QpTTa6CTLpyc1hi5jRBswr
+         QTapHa+iIYTvCZE0OCFxEsn3iyyL6IpOdSl0YFyoyz4PLZEFNW5E+w79ywhWuItcXquY
+         v8Ntw15y5fxYjVRq6v4Ov3+T/s2fXWLb4EbY3PH0N3H0Ao4a/04Xh+2ZVK14p4gZ2VJx
+         DjnzAOrtMwf6zZf9UOQ2/A/D7+GMMDrW11issmexcmMKXV3AMcYxOuzMgVf8c+TDSpj3
+         64NQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786181434; x=1786786234;
+        d=1e100.net; s=20251104; t=1786181931; x=1786786731;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=gC2ItiHuCYFgaLZeaOk4o80zqG6tRez0H0meLhFxwtI=;
-        b=OqG6d0ZY4g2x7HJP7BNbG348KNE3l2IerwO4djadqQOGbpWOGciq/O/AeqrUqS5LzB
-         g3rtgHF3byPfCUNj1wZJ+BsgQKo1NCyEGTDrc+ZcsI2e3NXmOz+89eagadG9ndvYsRc9
-         MxGNq/7zc2c06z0k8e6fF0JLJfOFVMBB+5gnY7i6hyypEPMA9NWgL3Ot5yjTCd+brq8u
-         gZg0JByLpDziAv+KKjq9jUn1PisflsN2RFh7Cc38rvf3B2GK8nThpKOwYe2hJydTnKHU
-         RmiIk2gpLm4uQ83n+GeqBH4W7UvStpersoqZ5se7ovfwawmjlV7PkNPzVJ/2bmcnyNVB
-         9Q5w==
-X-Forwarded-Encrypted: i=1; AHgh+Rqs2Oq6hRZykQ/qIsJwKAmgk+kmmiNoMMupfSj9tAuSkdt1P91npzymrtSYWpqFjLiddJFsP82yY13kgAkevpad@lists.infradead.org
-X-Gm-Message-State: AOJu0YxPUJInYIwyK5f6X/TALaoyNiWmQ9HfHWcWvSZugzesIY8zVQ5a
-	1TXlZuOCN4q6lFoHM8YUm+n3v3eLWfrNa4fNNs75uzkvK+3GaXj13oUT
-X-Gm-Gg: AR+sD13LnBN40VA9T6pGeKArV2iJ0vEEfJHj7pCqYOzEDPvZUskyHL0kuC1WfduzCkZ
-	W5Nl8RaV3BXKJcePaMogeCx7kXi8sxOtsXRERA1ShRNOxfnCBtAOSaajA6VnCYWGkkz1cOteFmE
-	pkDEyanOMr/9LiuCgCa6cZ8gaUcwIfi6psc4TFHJ2W7Y2zmC7f+C1f0VpDTt9WF+ObMmxQaNyLu
-	FJ+t7lorLbfO1w91to4tzQJeOS/g1Zm+PS3mniYYeRn9wJWDzZjTgChNG3aGK2j61Qp3kPrhWTm
-	JHbjz1WAEZV2EAsamO4lruXfqDv9XeC/pznSsH3bAhulQDUGpU5YqiThONEJtEh7X3NOYNOjvOj
-	xsdhfjOQT7bziOGhUvESDUXWcUsqfUkC6bwTgI/zA4LBRD+btZhYqH7Ej4+GKoJgSQXWOBOerJJ
-	u6tIzeYFNmQlnsQt7a274zmOz6wT6C9JnBixQpR2rSZpsxWygsQEcGvGU663u9DuLDE7WV
-X-Received: by 2002:a17:903:3201:b0:2d0:401c:2ebb with SMTP id d9443c01a7336-2d0ca7125cemr362470225ad.4.1786181434060;
-        Sat, 08 Aug 2026 02:30:34 -0700 (PDT)
-Received: from lgs.. ([101.76.249.46])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d14ccac0f1sm17098055ad.7.2026.08.08.02.30.30
+        bh=RX1DphTMSs3B4MvCbqjOAvkckybgUBneK6EG7I97Aec=;
+        b=sy0gaN3VilIwJi/2/BxmrHnb68fXeetuw3XoWj32P7w9+x0aeew+K2RqUgK+2na3eP
+         qmjA5OliTtD4sbqjxwgPsxj0xb8+6SgnZD/U+EeOp1dajfG94xts6648cpGnGEZTQUR0
+         kJrlopv4VhCL0Rn7s43yEr9mY6xoK5ge8QHIVZv87fMxdvPG4WW9hv2/t9Z/u/UMChtt
+         6YOKenzMTUxy8VD5TDu5tfWn7h9xP+78MHKCjqcSyRa2YusMMjOcKEQlHh3nhbKHG0/B
+         83um1npzT6MP9pDW2OGOhJiKqSuOvAWcgRAb/qgpCAQA2DVSCe6kMh4AOz+/InwMNbZv
+         +Oxg==
+X-Forwarded-Encrypted: i=1; AHgh+RrUC+R7f/IzSXE4mLhcS4WncUHny9F749nabm9NuaW+mKQcb534AhOttVcOHTOH+b1bRV59GCjv6gfkqbXx6rD1@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy6xtNYUmcFN+phqyOy0saBIkI1yrDjIndIid7I1214JoWUcq7O
+	qTheqX47Ud5vAbI+7xD5fR0FIcQjfAEmCLhTwepDwCkCrW+IpfVil2mK
+X-Gm-Gg: AR+sD11/I6SX9A3eBrABnkIdWU21M3kmBJ5ZLh1b9wv+OwiqtQqXktNdVi3cn5tsxwn
+	mbKAh9km4Z/mZwSJxU6ihlXZZitXkbEMPx4qWA/100oMM5UbCJZeCijs6ykyzSZTld8DpwCXfP0
+	4GRb20WizLbUKx3Ng1KEBZZUPh3Bp98PNyLUBey36WP+5P4DeYbL6+7WvM4WvZv3HVwtVO3kQJC
+	9Hi4voPfu3lcdRIahkokevBg+/85m8Fx9bW5KikSQaDftmffqwwxJpVDTn7TOa++CQ7WVDD85pH
+	5p8AELZMgabfoJ2Ce4LCh1dadx9jjzY0bFl/r1SBgxQlhVzGpbcOGFPgkAfqAgsSzAHpBkbo1La
+	U3f6XJE0/po9/ZlzcSfBCZiNcmr7JW/yux1s/Y4nQNbtkyYhAyAqvObWJL2ZKJPRZ8HzKLpBE59
+	Nv2HOrsAO7bCdbCOtc0/7HYJChR9q0TSg9UHlvbDcBygVqR7sPlp5iXA==
+X-Received: by 2002:a17:90a:ec86:b0:390:b3c5:e2c9 with SMTP id 98e67ed59e1d1-392846fd57fmr1926782a91.17.1786181931093;
+        Sat, 08 Aug 2026 02:38:51 -0700 (PDT)
+Received: from lgs.. ([2001:250:5800:1000::f280])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3925fc6dab4sm5615231a91.3.2026.08.08.02.38.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 08 Aug 2026 02:30:33 -0700 (PDT)
+        Sat, 08 Aug 2026 02:38:50 -0700 (PDT)
 From: Guangshuo Li <lgs201920130244@gmail.com>
-To: Corentin Labbe <clabbe@baylibre.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
+To: Herbert Xu <herbert@gondor.apana.org.au>,
 	"David S. Miller" <davem@davemloft.net>,
-	Heiko Stuebner <heiko@sntech.de>,
-	John Keeping <john@keeping.me.uk>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Thorsten Blum <thorsten.blum@linux.dev>,
+	Kees Cook <kees@kernel.org>,
+	=?UTF-8?q?Maxime=20M=C3=A9r=C3=A9?= <maxime.mere@foss.st.com>,
+	Colin Ian King <colin.i.king@gmail.com>,
+	Guangshuo Li <lgs201920130244@gmail.com>,
+	"lionel.debieve@st.com" <lionel.debieve@st.com>,
 	linux-crypto@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Cc: Guangshuo Li <lgs201920130244@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] crypto: rockchip: fix autosuspend cleanup during teardown
-Date: Sat,  8 Aug 2026 17:30:16 +0800
-Message-ID: <20260808093016.2738659-1-lgs201920130244@gmail.com>
+Cc: stable@vger.kernel.org
+Subject: [PATCH] crypto: stm32/cryp: fix autosuspend cleanup during teardown
+Date: Sat,  8 Aug 2026 17:36:23 +0800
+Message-ID: <20260808093623.2744314-1-lgs201920130244@gmail.com>
 X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260808_023035_394974_DE70B668 
-X-CRM114-Status: GOOD (  13.22  )
+X-CRM114-CacheID: sfid-20260808_023852_053514_C22945B4 
+X-CRM114-Status: GOOD (  11.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,50 +107,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-rk_crypto_pm_init() calls pm_runtime_use_autosuspend(), but the
-autosuspend setting is not undone if pm_runtime_set_suspended() fails
-or when runtime PM is later torn down by rk_crypto_pm_exit().
+stm32_cryp_probe() calls pm_runtime_use_autosuspend(), but neither the
+probe failure path nor stm32_cryp_remove() calls the matching
+pm_runtime_dont_use_autosuspend() before disabling runtime PM.
 
 If the autosuspend delay is set to a negative value while autosuspend
 is enabled, the runtime PM core increments usage_count to prevent
 runtime suspend. Without calling pm_runtime_dont_use_autosuspend()
-during cleanup, this reference is not dropped and usage_count remains
+during teardown, this reference is not dropped and usage_count remains
 unbalanced.
 
-Undo the autosuspend setting when pm_runtime_set_suspended() fails and
-in rk_crypto_pm_exit() before disabling runtime PM.
+Add the missing pm_runtime_dont_use_autosuspend() calls to both the
+probe failure and remove paths before disabling runtime PM.
 
 This issue was found by manual code inspection.
 
-Fixes: a216be3964c1 ("crypto: rockchip - introduce PM")
+Fixes: 65f9aa36ee47 ("crypto: stm32/cryp - Add power management support")
 Cc: stable@vger.kernel.org
 Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
 ---
- drivers/crypto/rockchip/rk3288_crypto.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ drivers/crypto/stm32/stm32-cryp.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/crypto/rockchip/rk3288_crypto.c b/drivers/crypto/rockchip/rk3288_crypto.c
-index b77bdce8e7fc..cfca472f996f 100644
---- a/drivers/crypto/rockchip/rk3288_crypto.c
-+++ b/drivers/crypto/rockchip/rk3288_crypto.c
-@@ -150,14 +150,17 @@ static int rk_crypto_pm_init(struct rk_crypto_info *rkdev)
- 	pm_runtime_set_autosuspend_delay(rkdev->dev, 2000);
+diff --git a/drivers/crypto/stm32/stm32-cryp.c b/drivers/crypto/stm32/stm32-cryp.c
+index b79877099942..74f6e329b1fa 100644
+--- a/drivers/crypto/stm32/stm32-cryp.c
++++ b/drivers/crypto/stm32/stm32-cryp.c
+@@ -2691,6 +2691,7 @@ static int stm32_cryp_probe(struct platform_device *pdev)
+ 		dma_release_channel(cryp->dma_lch_out);
+ err_dma:
+ err_rst:
++	pm_runtime_dont_use_autosuspend(dev);
+ 	pm_runtime_disable(dev);
+ 	pm_runtime_put_noidle(dev);
  
- 	err = pm_runtime_set_suspended(rkdev->dev);
--	if (err)
-+	if (err) {
-+		pm_runtime_dont_use_autosuspend(rkdev->dev);
- 		return err;
-+	}
- 	pm_runtime_enable(rkdev->dev);
- 	return err;
- }
+@@ -2722,6 +2723,7 @@ static void stm32_cryp_remove(struct platform_device *pdev)
+ 	if (cryp->dma_lch_out)
+ 		dma_release_channel(cryp->dma_lch_out);
  
- static void rk_crypto_pm_exit(struct rk_crypto_info *rkdev)
- {
-+	pm_runtime_dont_use_autosuspend(rkdev->dev);
- 	pm_runtime_disable(rkdev->dev);
- }
++	pm_runtime_dont_use_autosuspend(cryp->dev);
+ 	pm_runtime_disable(cryp->dev);
+ 	pm_runtime_put_noidle(cryp->dev);
  
 -- 
 2.43.0
