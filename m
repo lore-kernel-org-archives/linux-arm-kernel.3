@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 439D7C5AD44
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31B7DC5AD48
 	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 23:19:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6ADoXXo4TVe2TzxKvpv7LpzKJ+UodT4wZ8UmCONxN/c=; b=z4jPzO2kuSxnwkL5mI77cI8sov
-	GfqpBYUZkow9ZPAbQFskjpxmObdCNmdbMMnVecQBwbFGE97umScN2pojM5hzpvJrKpakOXa6nAPRC
-	npwJC4citjSotGoGzSJ3pV8ZDMdQhx7BOmvsIP35gNTAa713/HjDkFEB0DffYzSj+yosvC1mG3TST
-	n8YCIO1q5wayTuBO0J6j5n4lcHCIBH3qxzoYpfqRSjCHjAMbFzBeoxbiFJ9+E79LdrzfZm3l18Ozb
-	gj7eG6CayV4hhUuDk5wXLgsINLg7oeZ3svEg2Q6KX4F6RmwfW+OkSlqR182WrwSFVVOB7aQueBx5d
-	J8gIV71A==;
+	bh=11okBX/oyddYUFhNnABa0TgcLV3f69gdODt8HzLMfH4=; b=J80L2Vgg5DcY5e+ktphrKIufjE
+	famyc+zQycPA5cI81mU8DaPdjZxRIxi8t0QYPmuwalsnAEK2kYK99onoPsI6akdW6FcNI/cSB5KLE
+	01zNCb1T7VpuYghcozd2t5Fi0KzqQyn2aai9hAVgW0O+6wdZ/qk9DK+ycjsOAi1wMk1BX3Geh5rWa
+	kJftlTRu1lgjO/2KctKrlKxd3kfBTWOBkLyn2nrvV09NjtuQziyRaM4qFi+nmacOjjDoeyArUHjuP
+	GDW5LoKcEymiGpHnsmjkIL5XdwoWPKUnVM4U0La0y4TEsusTl+9lKdQjb/9rMoKj/+hCmD/IhtR+F
+	wpdD6NFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsqJJ-00000009mBR-17aj;
-	Sat, 08 Aug 2026 23:18:37 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wsqJZ-00000009mTb-1QdI;
+	Sat, 08 Aug 2026 23:18:53 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsqJG-00000009m96-11e0
+	id 1wsqJJ-00000009mBS-1uzU
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Aug 2026 23:18:34 +0000
+	Sat, 08 Aug 2026 23:18:37 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id AE95D60204;
-	Sat,  8 Aug 2026 23:18:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDC281F00A3E;
-	Sat,  8 Aug 2026 23:18:32 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3585C4404B;
+	Sat,  8 Aug 2026 23:18:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 873B11F000E9;
+	Sat,  8 Aug 2026 23:18:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786231113;
-	bh=6ADoXXo4TVe2TzxKvpv7LpzKJ+UodT4wZ8UmCONxN/c=;
+	s=k20260515; t=1786231117;
+	bh=11okBX/oyddYUFhNnABa0TgcLV3f69gdODt8HzLMfH4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=OTjOZiEJ/oVFbHxdRHa9OdqUfCW0ZkH/Pa0qeea/645oCYuH6IWs86G5L5eMfRnbn
-	 f4dd3lsEnmGxZ4vkZcaEJY1/0ca1uA1DMBLLxkaeevsR50rJe+gm8QxcbxTSJKxb+a
-	 C0mPDNYJ1O4i9QfNXp8FgGkCOl7khYqMVF+jGXg8hWXyiCFchPoSG0gXCcJP294tbV
-	 tFqlB3iFLcN0wfsQT32TFenXZUqQtkVTBuSzgtB/ZtIIuASipdos4hIZz/Pv3BecG6
-	 gK4dkCaSoi3M1bjLItXD10lpp46yD3CorxgvvUyEigTKQ26Jgzf+T0fW/TBG36+1ZF
-	 PQqf8qQ8IsZBw==
+	b=orXOKo9qjPR4tUoRyS5GrhezG1fuSJkv0VWZxXK9NjhMCbP/DU0ccXupgX1G8cm24
+	 AShdnfnt9F2eQZVGq6xMXVfMBw1O8wGr9VUq2XozBYzabR66Y1XURLcWIyq61e5Hsp
+	 UOSolX1rPDFgJG/DjdHfIq9zcHORTqMRG27ljFDlBj6msHvV67Puusl9UlhvzyPhcI
+	 okqJ69D9WSbO5mwshpN9zfhvdhGJEO/VF0q2bq+76foiOdehXLkEMP6ovj/5g8rpgW
+	 lXE2QpQHy1lYYy7QtycuIOGMxuDbsZgw/KNeTy0Quh3itRAM7Pnh+Affq0wxR/Eyew
+	 EbODE/gG8+MTA==
 From: Josh Poimboeuf <jpoimboe@kernel.org>
 To: x86@kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -58,9 +58,9 @@ Cc: linux-kernel@vger.kernel.org,
 	Herbert Xu <herbert@gondor.apana.org.au>,
 	Miroslav Benes <mbenes@suse.cz>,
 	Petr Mladek <pmladek@suse.com>
-Subject: [PATCH v4 09/22] crypto: arm64: Move data to .rodata
-Date: Sat,  8 Aug 2026 16:17:13 -0700
-Message-ID: <bf52b36c34e987a3a75c2c1c2d4c8d0f91b75f6c.1786230311.git.jpoimboe@kernel.org>
+Subject: [PATCH v4 14/22] objtool: Reuse string references
+Date: Sat,  8 Aug 2026 16:17:18 -0700
+Message-ID: <e0856be4208a6bed2b22dffe2bf8e010470f49cf.1786230311.git.jpoimboe@kernel.org>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <cover.1786230311.git.jpoimboe@kernel.org>
 References: <cover.1786230311.git.jpoimboe@kernel.org>
@@ -80,81 +80,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Data embedded in .text pollutes i-cache and confuses objtool and other
-tools that try to disassemble it.  Move it to .rodata.
+For duplicate strings, elf_add_string() just blindly adds duplicates.
+
+That can be a problem for arm64 which often uses two consecutive
+instructions (and corresponding relocations) to put an address into a
+register, like:
+
+  d8:   90000001        adrp    x1, 0 <meminfo_proc_show>       d8: R_AARCH64_ADR_PREL_PG_HI21  .rodata.meminfo_proc_show.str1.8
+  dc:   91000021        add     x1, x1, #0x0    dc: R_AARCH64_ADD_ABS_LO12_NC   .rodata.meminfo_proc_show.str1.8
+
+Referencing two different addresses in the ADRP+ADD pair would corrupt
+the memory access.  Avoid that by detecting and reusing duplicates when
+cloning string relocs.
 
 Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
 ---
- lib/crypto/arm64/sha2-armv8.pl | 18 ++++++++++++------
- 1 file changed, 12 insertions(+), 6 deletions(-)
+ tools/objtool/elf.c                 | 29 +++++++++++++++++++++++------
+ tools/objtool/include/objtool/elf.h |  3 ++-
+ tools/objtool/klp-diff.c            |  4 +++-
+ 3 files changed, 28 insertions(+), 8 deletions(-)
 
-diff --git a/lib/crypto/arm64/sha2-armv8.pl b/lib/crypto/arm64/sha2-armv8.pl
-index 35ec9ae99fe16..e0ee2d5367e72 100644
---- a/lib/crypto/arm64/sha2-armv8.pl
-+++ b/lib/crypto/arm64/sha2-armv8.pl
-@@ -207,12 +207,13 @@ $func:
- ___
- $code.=<<___	if ($SZ==4);
- #ifndef	__KERNEL__
-+	adrp	x17,.LOPENSSL_armcap_P
-+	add	x17,x17,:lo12:.LOPENSSL_armcap_P
- # ifdef	__ILP32__
--	ldrsw	x16,.LOPENSSL_armcap_P
-+	ldrsw	x16,[x17]
- # else
--	ldr	x16,.LOPENSSL_armcap_P
-+	ldr	x16,[x17]
- # endif
--	adr	x17,.LOPENSSL_armcap_P
- 	add	x16,x16,x17
- 	ldr	w16,[x16]
- 	tst	w16,#ARMV8_SHA256
-@@ -237,7 +238,8 @@ $code.=<<___;
- 	ldp	$E,$F,[$ctx,#4*$SZ]
- 	add	$num,$inp,$num,lsl#`log(16*$SZ)/log(2)`	// end of input
- 	ldp	$G,$H,[$ctx,#6*$SZ]
--	adr	$Ktbl,.LK$BITS
-+	adrp	$Ktbl,.LK$BITS
-+	add	$Ktbl,$Ktbl,:lo12:.LK$BITS
- 	stp	$ctx,$num,[x29,#96]
+diff --git a/tools/objtool/elf.c b/tools/objtool/elf.c
+index 8bf225d70d918..3bb04d6155a8b 100644
+--- a/tools/objtool/elf.c
++++ b/tools/objtool/elf.c
+@@ -1379,9 +1379,27 @@ struct elf *elf_create_file(GElf_Ehdr *ehdr, const char *name)
+ 	return elf;
+ }
  
- .Loop:
-@@ -286,6 +288,7 @@ $code.=<<___;
- 	ret
- .size	$func,.-$func
+-unsigned int elf_add_string(struct elf *elf, struct section *strtab, const char *str)
++int elf_find_string(struct elf *elf, struct section *strtab, const char *str)
+ {
+-	unsigned int offset;
++	char *d_buf;
++	int i;
++
++	if (!strtab->data)
++		return -1;
++
++	d_buf = strtab->data->d_buf;
++
++	for (i = 0; i < strtab->data->d_size; i += strlen(d_buf + i) + 1) {
++		if (!strcmp(d_buf + i, str))
++			return i;
++	}
++
++	return -1;
++}
++
++int elf_add_string(struct elf *elf, struct section *strtab, const char *str)
++{
++	void *data;
  
-+.pushsection .rodata
- .align	6
- .type	.LK$BITS,%object
- .LK$BITS:
-@@ -365,6 +368,7 @@ $code.=<<___;
- #endif
- .asciz	"SHA$BITS block transform for ARMv8, CRYPTOGAMS by <appro\@openssl.org>"
- .align	2
-+.popsection
- ___
+ 	if (!strtab)
+ 		strtab = find_section_by_name(elf, ".strtab");
+@@ -1395,12 +1413,11 @@ unsigned int elf_add_string(struct elf *elf, struct section *strtab, const char
+ 		return -1;
+ 	}
  
- if ($SZ==4) {
-@@ -385,7 +389,8 @@ sha256_block_armv8:
- 	add		x29,sp,#0
+-	offset = ALIGN(sec_size(strtab), strtab->sh.sh_addralign);
+-
+-	if (!elf_add_data(elf, strtab, str, strlen(str) + 1))
++	data = elf_add_data(elf, strtab, str, strlen(str) + 1);
++	if (!data)
+ 		return -1;
  
- 	ld1.32		{$ABCD,$EFGH},[$ctx]
--	adr		$Ktbl,.LK256
-+	adrp		$Ktbl,.LK256
-+	add		$Ktbl,$Ktbl,:lo12:.LK256
+-	return offset;
++	return data - strtab->data->d_buf;
+ }
  
- .Loop_hw:
- 	ld1		{@MSG[0]-@MSG[3]},[$inp],#64
-@@ -648,7 +653,8 @@ sha256_block_neon:
- 	mov	x29, sp
- 	sub	sp,sp,#16*4
+ void *elf_add_data(struct elf *elf, struct section *sec, const void *data, size_t size)
+diff --git a/tools/objtool/include/objtool/elf.h b/tools/objtool/include/objtool/elf.h
+index 527dd10859de4..5cba96c6392cb 100644
+--- a/tools/objtool/include/objtool/elf.h
++++ b/tools/objtool/include/objtool/elf.h
+@@ -188,7 +188,8 @@ struct symbol *elf_create_section_symbol(struct elf *elf, struct section *sec);
+ void *elf_add_data(struct elf *elf, struct section *sec, const void *data,
+ 		   size_t size);
  
--	adr	$Ktbl,.LK256
-+	adrp	$Ktbl,.LK256
-+	add	$Ktbl,$Ktbl,:lo12:.LK256
- 	add	$num,$inp,$num,lsl#6	// len to point at the end of inp
+-unsigned int elf_add_string(struct elf *elf, struct section *strtab, const char *str);
++int elf_find_string(struct elf *elf, struct section *strtab, const char *str);
++int elf_add_string(struct elf *elf, struct section *strtab, const char *str);
  
- 	ld1.8	{@X[0]},[$inp], #16
+ struct reloc *elf_create_reloc(struct elf *elf, struct section *sec,
+ 			       unsigned long offset, struct symbol *sym,
+diff --git a/tools/objtool/klp-diff.c b/tools/objtool/klp-diff.c
+index 19dcf930a562b..446ea6f9864a1 100644
+--- a/tools/objtool/klp-diff.c
++++ b/tools/objtool/klp-diff.c
+@@ -1543,7 +1543,9 @@ static int clone_reloc(struct elfs *e, struct reloc *patched_reloc,
+ 
+ 		__dbg_clone("\"%s\"", escape_str(str));
+ 
+-		addend = elf_add_string(e->out, out_sym->sec, str);
++		addend = elf_find_string(e->out, out_sym->sec, str);
++		if (addend == -1)
++			addend = elf_add_string(e->out, out_sym->sec, str);
+ 		if (addend == -1)
+ 			return -1;
+ 	}
 -- 
 2.54.0
 
