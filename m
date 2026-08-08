@@ -4,64 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C977CC5AD05
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 23:51:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11034C5AD05
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 00:08:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E68RC5/twtj45/6fLwKWYu9o2XCVT3SNadk/AlttQoU=; b=DaZchdqMuT4IwuMwSE3AO0K2QT
-	oH8tAXwHqCzDSJTUIXs/wxNNpEdWkuFHDIaoWfAspAyacqqnokKjA3XUyKwIiT8lI60f+3Qw/zot7
-	CbcOLrTCX6sa2/HOgnKmcNT6dGOpbC9cAqVzXgDPZOcZAaRpPBS0h8/pzmXXNYWKg1qEmq492dgx2
-	dREVG3qWB+mzp0M5yis22Y8XOdTSGr9K3/CNptt1VRWgNoIuCd1wgB3aSA435GZOOGM1RgjiG9R9m
-	Fymc3vBopY7fGGCSL0eEAEH0N+z3HpM4yueF5VHBHhE8NK5Sn1E9F3XIiwjJ2w46OsBTG7SKM5yAH
-	Crh3WlUQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uxgPgZY649uBFpZuPHL/PO7mmTC5hIC1hhbvXAzNB9w=; b=AnSK3/TGh4HxLhsCXC7AK0lLhD
+	9Y+90zwI2v1OHyONFjOYio5fXve7v7nr5Vgo3epKj60c7SiFwH3BOby0iq36O+LTTUd8UNBAwhYCY
+	Ickh6CiTjhzK/tC8/WrizjhZOuVIvES3OHu94cW4dKgc+qRY5pCGidKDR4VDeCdqcTYnUyS9npT07
+	OqzYAnvr1OeOcLjGs1xYssUK+WViC7Z3WcmTiaVaTQPFqhj30go3BUlf99OBxZuwgY1JXysV86plT
+	Qtm6gcMk6Hy1t3Fwv15ntiWzDxjzMvU2dfZ+0LNROsXOKRMnbp0/gIOCahvFqZ5EzQ9w8UFPSei0i
+	ICmKL0Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsULV-00000008t7L-1MJK;
-	Fri, 07 Aug 2026 23:51:25 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wsUbv-00000008tex-3SpR;
+	Sat, 08 Aug 2026 00:08:23 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsULU-00000008t78-0l7W;
-	Fri, 07 Aug 2026 23:51:24 +0000
+	id 1wsUbt-00000008tep-3llA
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 08 Aug 2026 00:08:21 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B19516001A;
-	Fri,  7 Aug 2026 23:51:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 679961F000E9;
-	Fri,  7 Aug 2026 23:51:20 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 455C041603;
+	Sat,  8 Aug 2026 00:08:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B38A1F000E9;
+	Sat,  8 Aug 2026 00:08:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786146680;
-	bh=E68RC5/twtj45/6fLwKWYu9o2XCVT3SNadk/AlttQoU=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=WUC8caj14GrS2ZXOk5NAHt9JGHTxA7DYCs+67r5KXEzPjr7eG6bG0ki7+C4MPV4P5
-	 v8Ds8ZGmuhbLbWES/MWP3hSKOvjLF/HTlZrDUR2lVNcHwu8v9BzaR1pr89MAfFlUYQ
-	 FNt77GfGoM2JC1I3HXTwew2lawfK14SiGYA7AVyFBeTCVRnyuMgIvFAOYYzm2LsWwg
-	 qybtk/eGi9uE2+v8DjEki0cjn+WEkV1zjmBT2EgbPjJrv9MiBMgYYF5aMKEeej6vbA
-	 4RRV83VopF0lF3G75vHJuq594JY5vkHiu89P5+Ayhw8US/SgNJQ41j5AFGYWAh0k8q
-	 12G4kF19tiLYg==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 1992C380CEF9;
-	Fri,  7 Aug 2026 23:50:40 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	s=k20260515; t=1786147700;
+	bh=uxgPgZY649uBFpZuPHL/PO7mmTC5hIC1hhbvXAzNB9w=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=GzJtKfmmGy/pTC6LyJvs2eEM4qcaiPYAzTZsobH/EDVOAo+c3OavmFkSvDk9u15AH
+	 jz0+GU54Dw/X88CIQaFtf/qjSaxlLBMztlMnOsMDKWZDsoYkL5H7bKxwH7G6yqrp5v
+	 lSY/Yi8ZGZ2NzAvuC5OBVfSL6YNSZe8UEFWxzEU1Fim81B/3AugLysGYm5jULnpHGN
+	 QbR14GmJQBDYaoSdWyOPWkVfHjS+1OfTGAch1jHSqCGhtunw7UKPqevs4s9NsLcuhC
+	 /z3TVGHcfbPsBJkd18yuqeDgmkKiBpu4ZrMQid9C/6MBhetFvDrz/xZ78NXv8HnEUJ
+	 fzDQBBOojmR7w==
+Date: Fri, 7 Aug 2026 17:08:17 -0700
+From: Josh Poimboeuf <jpoimboe@kernel.org>
+To: sashiko-bot@kernel.org
+Cc: x86@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	live-patching@vger.kernel.org, Will Deacon <will@kernel.org>, 
+	Peter Zijlstra <peterz@infradead.org>, linux-kernel@vger.kernel.org, 
+	Catalin Marinas <catalin.marinas@arm.com>, Joe Lawrence <joe.lawrence@redhat.com>, 
+	Song Liu <song@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Petr Mladek <pmladek@suse.com>, Miroslav Benes <mbenes@suse.cz>
+Subject: Re: [PATCH v3 12/21] objtool: Refactor elf_add_data() to use a
+ growable data buffer
+Message-ID: <emf3idmv3xmm7gplpbykmcnnp44fugljawqlh6yi2hz7acewxg@w2yndfif37f4>
+References: <a0fe2363d017a2833e98ae50de797fe55c2796a4.1778642120.git.jpoimboe@kernel.org>
+ <20260514231355.DD8D7C2BCB3@smtp.kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net v2 0/6] net: dsa: mt7530: fix remaining swallowed MDIO
- access errors
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <178614663864.2467553.3447104731237010807.git-patchwork-notify@kernel.org>
-Date: Fri, 07 Aug 2026 23:50:38 +0000
-References: <cover.1785811140.git.daniel@makrotopia.org>
-In-Reply-To: <cover.1785811140.git.daniel@makrotopia.org>
-To: Daniel Golle <daniel@makrotopia.org>
-Cc: chester.a.unal@arinc9.com, andrew@lunn.ch, olteanv@gmail.com,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
- lynxis@fe80.eu, hkallweit1@gmail.com, linux@armlinux.org.uk,
- rmk+kernel@armlinux.org.uk, sean.wang@mediatek.com, Landen.Chao@mediatek.com,
- f.fainelli@gmail.com, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260514231355.DD8D7C2BCB3@smtp.kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,43 +74,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
-
-On Tue, 4 Aug 2026 04:10:17 +0100 you wrote:
-> The original series, "net: dsa: mt7530: fix swallowed MDIO read
-> errors", landed on net as its v1 [1] just before its v2 [2] was sent.
-> This series started from the fixes in that original v2 which its v1
-> had not already carried: the two standalone patches that original v2
-> grew from the Sashiko AI review of its v1 (the mtk-lynxi read check
-> and the regmap IRQ serialization), plus, split into patches of their
-> own, the companion fixes original v2 had folded into the
-> already-applied patches -- the unchecked bus->read() in core_rmw() and
-> the unchecked PHY_IAC command writes in the MT7531 indirect PHY access
-> functions.
+On Thu, May 14, 2026 at 11:13:55PM +0000, sashiko-bot@kernel.org wrote:
+> > -	sec->data->d_buf = calloc(1, size);
+> > -	if (!sec->data->d_buf) {
+> > -		ERROR_GLIBC("calloc");
+> > -		return NULL;
+> > +	size_old = sec->data->d_size;
+> > +	offset = ALIGN(size_old, sec->sh.sh_addralign);
+> > +	size_new = offset + size;
 > 
-> [...]
+> Could this ALIGN calculation overflow if a malformed ELF file provides an
+> extremely large sh_addralign value?
 
-Here is the summary with links:
-  - [net,v2,1/6] net: pcs: mtk-lynxi: check regmap reads in mtk_pcs_lynxi_get_state()
-    https://git.kernel.org/netdev/net-next/c/5cc65c01cdc5
-  - [net,v2,2/6] net: dsa: mt7530: check bus->read() error in core_rmw()
-    https://git.kernel.org/netdev/net-next/c/573d6e3afe3d
-  - [net,v2,3/6] net: dsa: mt7530: error out on failed PHY_IAC command writes
-    https://git.kernel.org/netdev/net-next/c/1c95dcb7e923
-  - [net,v2,4/6] net: dsa: mt7530: check CORE_PLL_GROUP4 access in mt7531_setup()
-    https://git.kernel.org/netdev/net-next/c/1ae63b018d3d
-  - [net,v2,5/6] net: dsa: mt7530: check command register writes in fdb and vlan cmd
-    https://git.kernel.org/netdev/net-next/c/f67b0bae07fe
-  - [net,v2,6/6] net: dsa: mt7530: serialize the regmap IRQ chip like every other user
-    https://git.kernel.org/netdev/net-next/c/dd52b3df25ed
+Doesn't seem realistic...
 
-You are awesome, thank you!
+> > -	if (data)
+> > -		memcpy(sec->data->d_buf, data, size);
+> > +	if (!sec->data_overallocated)
+> > +		alloc_size_old = size_old;
+> > +	else
+> > +		alloc_size_old = max(64UL, roundup_pow_of_two(size_old ? : 1));
+> >  
+> > -	sec->data->d_size = size;
+> > -	sec->data->d_align = sec->sh.sh_addralign;
+> > +	alloc_size_new = max(64UL, roundup_pow_of_two(size_new ? : 1));
+> >  
+> > -	offset = ALIGN(sec_size(sec), sec->sh.sh_addralign);
+> > -	sec->sh.sh_size = offset + size;
+> > +	if (alloc_size_new > alloc_size_old) {
+> > +		void *orig_buf = sec->data->d_buf;
+> > +
+> > +		sec->data->d_buf = calloc(1, alloc_size_new);
+> > +		if (!sec->data->d_buf) {
+> > +			ERROR_GLIBC("calloc");
+> > +			return NULL;
+> > +		}
+> 
+> If calloc fails here, does assigning its result directly to sec->data->d_buf
+> clobber the valid pointer to orig_buf?
+> 
+> It appears orig_buf is never freed on this error path, which might leak the
+> original buffer if it was previously owned by objtool. Would it be safer to
+> keep the original buffer pointer intact on allocation failure?
+
+A memory leak on the error path is fine, it's about to exit anyway.
+
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+Josh
 
