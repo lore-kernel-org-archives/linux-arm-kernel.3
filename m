@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B53C1C5AD56
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 23:19:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 439D7C5AD44
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 23:19:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=86Wu1e1fcjC+Q8R7XTOaEvr/qEDKKmtBvafngqJL0GY=; b=Sg2IDGCxFiP/gaXaBgkyPme46X
-	2NCo6s5JzpXc7V6FcBFd1chqualKC5guJI6vZJbPyNR2Ioe0t86YNhvBZnBa05p48LjDzTlhRsKH2
-	/R3UhApHoTysVvtT31IZZACzMGb3GHeQYy/rdPuFFiQffMpMuEznkOwE970PmuISXW/YyMLbjwrmc
-	53RYGDji8V4OchlbEB0+X1ZL81W9cdlGDeJfsp2gjMo++jpC6Gh848WAuN/jLMVDeoDExgqlJVNYk
-	Rskdtb33geSa9aY7ApY4IVUmBRJOJGs85AKcjN8VbsFnNBNE/p4M4C9OYZFgTXsRWxKxvwiKHI1jj
-	2+q0zS8w==;
+	bh=6ADoXXo4TVe2TzxKvpv7LpzKJ+UodT4wZ8UmCONxN/c=; b=z4jPzO2kuSxnwkL5mI77cI8sov
+	GfqpBYUZkow9ZPAbQFskjpxmObdCNmdbMMnVecQBwbFGE97umScN2pojM5hzpvJrKpakOXa6nAPRC
+	npwJC4citjSotGoGzSJ3pV8ZDMdQhx7BOmvsIP35gNTAa713/HjDkFEB0DffYzSj+yosvC1mG3TST
+	n8YCIO1q5wayTuBO0J6j5n4lcHCIBH3qxzoYpfqRSjCHjAMbFzBeoxbiFJ9+E79LdrzfZm3l18Ozb
+	gj7eG6CayV4hhUuDk5wXLgsINLg7oeZ3svEg2Q6KX4F6RmwfW+OkSlqR182WrwSFVVOB7aQueBx5d
+	J8gIV71A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsqJZ-00000009mUv-3WGx;
-	Sat, 08 Aug 2026 23:18:53 +0000
+	id 1wsqJJ-00000009mBR-17aj;
+	Sat, 08 Aug 2026 23:18:37 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsqJM-00000009mGm-16Wt
+	id 1wsqJG-00000009m96-11e0
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Aug 2026 23:18:40 +0000
+	Sat, 08 Aug 2026 23:18:34 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B0D9A60DB5;
-	Sat,  8 Aug 2026 23:18:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C94161F00ADE;
-	Sat,  8 Aug 2026 23:18:38 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id AE95D60204;
+	Sat,  8 Aug 2026 23:18:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDC281F00A3E;
+	Sat,  8 Aug 2026 23:18:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786231119;
-	bh=86Wu1e1fcjC+Q8R7XTOaEvr/qEDKKmtBvafngqJL0GY=;
+	s=k20260515; t=1786231113;
+	bh=6ADoXXo4TVe2TzxKvpv7LpzKJ+UodT4wZ8UmCONxN/c=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=A6z/ksTtDqX8xK/Pg8CXwXiVstVJiHyhOq+A/N0C9Xf/FjsMOM0cvO323+zp7/9M4
-	 kPZQ/1VUQV++1ZdNOa6TlleV5cGCZ9bfhhMjI/Art7YBB1/INMBdPpqVVmgsvvk9Xp
-	 kF69ORpK31ONF/4wWNWYFxA2u93421BShKk2qf6rK3sn2ZLF9Y57uJr/IODREruh9w
-	 yn5f+eLZYRvOq4/Nye/KvOKkvbFhl1P1P7qFeicOpolMjQMjk4I0pta8L2WnGGbOEd
-	 fev60tWWdcWzGOOlAkzJ4C6hLSisj4awzKqmkTiZGkmWIVTZwXAv4bJB1cP+hS5bLm
-	 2al7Qa9FiS8sg==
+	b=OTjOZiEJ/oVFbHxdRHa9OdqUfCW0ZkH/Pa0qeea/645oCYuH6IWs86G5L5eMfRnbn
+	 f4dd3lsEnmGxZ4vkZcaEJY1/0ca1uA1DMBLLxkaeevsR50rJe+gm8QxcbxTSJKxb+a
+	 C0mPDNYJ1O4i9QfNXp8FgGkCOl7khYqMVF+jGXg8hWXyiCFchPoSG0gXCcJP294tbV
+	 tFqlB3iFLcN0wfsQT32TFenXZUqQtkVTBuSzgtB/ZtIIuASipdos4hIZz/Pv3BecG6
+	 gK4dkCaSoi3M1bjLItXD10lpp46yD3CorxgvvUyEigTKQ26Jgzf+T0fW/TBG36+1ZF
+	 PQqf8qQ8IsZBw==
 From: Josh Poimboeuf <jpoimboe@kernel.org>
 To: x86@kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -58,9 +58,9 @@ Cc: linux-kernel@vger.kernel.org,
 	Herbert Xu <herbert@gondor.apana.org.au>,
 	Miroslav Benes <mbenes@suse.cz>,
 	Petr Mladek <pmladek@suse.com>
-Subject: [PATCH v4 17/22] objtool/klp: Filter arm64 mapping symbols in find_symbol_by_offset()
-Date: Sat,  8 Aug 2026 16:17:21 -0700
-Message-ID: <9b74908379fb4054ff30a7e0960606baec08c555.1786230311.git.jpoimboe@kernel.org>
+Subject: [PATCH v4 09/22] crypto: arm64: Move data to .rodata
+Date: Sat,  8 Aug 2026 16:17:13 -0700
+Message-ID: <bf52b36c34e987a3a75c2c1c2d4c8d0f91b75f6c.1786230311.git.jpoimboe@kernel.org>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <cover.1786230311.git.jpoimboe@kernel.org>
 References: <cover.1786230311.git.jpoimboe@kernel.org>
@@ -80,30 +80,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ARM64 ELF objects contain $d/$x mapping symbols (STT_NOTYPE) at offset 0
-in data/text sections.  These aren't "real" symbols so filter them from
-find_symbol_by_offset(), consistent with the existing section symbol
-filter.
+Data embedded in .text pollutes i-cache and confuses objtool and other
+tools that try to disassemble it.  Move it to .rodata.
 
-Acked-by: Song Liu <song@kernel.org>
 Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
 ---
- tools/objtool/elf.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ lib/crypto/arm64/sha2-armv8.pl | 18 ++++++++++++------
+ 1 file changed, 12 insertions(+), 6 deletions(-)
 
-diff --git a/tools/objtool/elf.c b/tools/objtool/elf.c
-index 180e0a0da00ff..f9d49325dbe0d 100644
---- a/tools/objtool/elf.c
-+++ b/tools/objtool/elf.c
-@@ -160,7 +160,7 @@ struct symbol *find_symbol_by_offset(struct section *sec, unsigned long offset)
- 	struct symbol *sym;
+diff --git a/lib/crypto/arm64/sha2-armv8.pl b/lib/crypto/arm64/sha2-armv8.pl
+index 35ec9ae99fe16..e0ee2d5367e72 100644
+--- a/lib/crypto/arm64/sha2-armv8.pl
++++ b/lib/crypto/arm64/sha2-armv8.pl
+@@ -207,12 +207,13 @@ $func:
+ ___
+ $code.=<<___	if ($SZ==4);
+ #ifndef	__KERNEL__
++	adrp	x17,.LOPENSSL_armcap_P
++	add	x17,x17,:lo12:.LOPENSSL_armcap_P
+ # ifdef	__ILP32__
+-	ldrsw	x16,.LOPENSSL_armcap_P
++	ldrsw	x16,[x17]
+ # else
+-	ldr	x16,.LOPENSSL_armcap_P
++	ldr	x16,[x17]
+ # endif
+-	adr	x17,.LOPENSSL_armcap_P
+ 	add	x16,x16,x17
+ 	ldr	w16,[x16]
+ 	tst	w16,#ARMV8_SHA256
+@@ -237,7 +238,8 @@ $code.=<<___;
+ 	ldp	$E,$F,[$ctx,#4*$SZ]
+ 	add	$num,$inp,$num,lsl#`log(16*$SZ)/log(2)`	// end of input
+ 	ldp	$G,$H,[$ctx,#6*$SZ]
+-	adr	$Ktbl,.LK$BITS
++	adrp	$Ktbl,.LK$BITS
++	add	$Ktbl,$Ktbl,:lo12:.LK$BITS
+ 	stp	$ctx,$num,[x29,#96]
  
- 	__sym_for_each(sym, tree, offset, offset) {
--		if (sym->offset == offset && !is_sec_sym(sym))
-+		if (sym->offset == offset && !is_sec_sym(sym) && !is_mapping_sym(sym))
- 			return sym->alias;
- 	}
+ .Loop:
+@@ -286,6 +288,7 @@ $code.=<<___;
+ 	ret
+ .size	$func,.-$func
  
++.pushsection .rodata
+ .align	6
+ .type	.LK$BITS,%object
+ .LK$BITS:
+@@ -365,6 +368,7 @@ $code.=<<___;
+ #endif
+ .asciz	"SHA$BITS block transform for ARMv8, CRYPTOGAMS by <appro\@openssl.org>"
+ .align	2
++.popsection
+ ___
+ 
+ if ($SZ==4) {
+@@ -385,7 +389,8 @@ sha256_block_armv8:
+ 	add		x29,sp,#0
+ 
+ 	ld1.32		{$ABCD,$EFGH},[$ctx]
+-	adr		$Ktbl,.LK256
++	adrp		$Ktbl,.LK256
++	add		$Ktbl,$Ktbl,:lo12:.LK256
+ 
+ .Loop_hw:
+ 	ld1		{@MSG[0]-@MSG[3]},[$inp],#64
+@@ -648,7 +653,8 @@ sha256_block_neon:
+ 	mov	x29, sp
+ 	sub	sp,sp,#16*4
+ 
+-	adr	$Ktbl,.LK256
++	adrp	$Ktbl,.LK256
++	add	$Ktbl,$Ktbl,:lo12:.LK256
+ 	add	$num,$inp,$num,lsl#6	// len to point at the end of inp
+ 
+ 	ld1.8	{@X[0]},[$inp], #16
 -- 
 2.54.0
 
