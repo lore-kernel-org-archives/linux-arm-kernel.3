@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5726BC5AD05
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 00:41:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ED03C5AD05
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 00:41:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=98aVebFo2ZoGfQEah6KnP9OcE5j2THfDpj4TyKk+wKM=; b=QwCfUP6Lw0yGzAD8TT5ZCyobmr
-	M3kWnRittn8thMR9Qr7u+R5dBZJVmjtw26Qw4tBfMQcqt3VQagVNx4H3gdHLaRFBnxBZgr45uij6D
-	qWx+SmLOp3XP+G8PpCH8o9OskDt7ciDCNBlCzWJfkzSgzPu1YpzRXSjrCMAWH8VfBEZbZ2La0eb41
-	PrMQ8qhwjfWbAjxu/rYWbd+dhHmOcivKm77oMFTKUw275KF5QmxcfC3Y/2AO86PtA26GeU1/P6xBA
-	WJnGfdMnpe2qSoMZ5gMdUGL0/9E8jtPh/DR27/ti4TuvjPxLHCOfH196rOhh1olzrxInubianfAgO
-	L9IsrkIg==;
+	bh=6YL3HWaNN5b5xlcbD6Iu0baOSlDyk7lrzsw42UJpYVQ=; b=j3fbpHhs85xcgbcmjRxdFwhAU+
+	+sy8HQvb1N8y5XNJ7/2hB4QtUIla2/Fuqhg6svDKYVhVoAiGjO9c8tI+DgST5rfOjeFtPEzau0fcO
+	Rd4MGd1T2GFGYywpyPuML8E2UxpheWRKGxaxvaV4ZreEedPw/4A3UD/TcYiClK08ciwWXav/l5abc
+	2GRuH/NjrombQtwW86WlPixIHGiwx354ZueUP9iyDbpIBgs9k+3W1yQ2qHw7ZZqfxDjyl7ofkfZK0
+	+ipjaGj8cs6IDKdYaYNIhq7bKiSHM99QAc2r+qQIboPLk243q3ZN/VKbH3BwbHCKWpA9qLG0W04Sn
+	nucra9oA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsV7j-00000008vQH-38Pf;
-	Sat, 08 Aug 2026 00:41:15 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wsV82-00000008vTF-3be0;
+	Sat, 08 Aug 2026 00:41:34 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsV7i-00000008vPs-0V9N
+	id 1wsV81-00000008vT2-0JcO
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Aug 2026 00:41:14 +0000
+	Sat, 08 Aug 2026 00:41:33 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B34B940B56;
-	Sat,  8 Aug 2026 00:41:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A53AA1F000E9;
-	Sat,  8 Aug 2026 00:41:11 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8310D6001A;
+	Sat,  8 Aug 2026 00:41:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8DAE91F000E9;
+	Sat,  8 Aug 2026 00:41:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786149672;
-	bh=98aVebFo2ZoGfQEah6KnP9OcE5j2THfDpj4TyKk+wKM=;
+	s=k20260515; t=1786149692;
+	bh=6YL3HWaNN5b5xlcbD6Iu0baOSlDyk7lrzsw42UJpYVQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=mGHeSRHPCALXQ2CKGzJk0XT8cIV1NasjJulNs0XvN+XouLKRIAibTVD3t4a2NJDkV
-	 HuRkgSc6LIT/xxrdkhmSLmES1SO2x9w0UkdURNjHVTCbtkwvijiqT3HzCfpOO2DdTw
-	 f+iQl6vtkmKmJMxypHbois9i54yMmN8Y/p28QWJdhruxvFcp5iPgNZQens00qek6Tj
-	 mlgqaEY2QPR5MkilBGgPPbIQ8rKwjrCkOPnXdJcdN9DSCulD342EtyQGLuZj0WhwP9
-	 q8DARi8OzrMXmHfeDLetWjdqV2KADRrubBjZupItcbQEB9yorbT05LU/WjAtft0eKr
-	 ZFU2DKQzbzrvA==
-Date: Fri, 7 Aug 2026 17:41:10 -0700
+	b=K53J4EwgWESmb4+iPlvtXScn1NwwXR6CY25zq1b7E5QgLdz/dD0opuhjJH39GouHr
+	 XVNhK1u3QBJK9ibmFxUFN2rabfvb4xxojyfbsq41XdaDKgVoB+Nesx1h3zyZUVLgaB
+	 1n3CeyuyjHRZ7YsukULcTlLCvRXP/HMA5FDxnhNN+ZyBBaXzMrU1l25o5AI3p5Ty9n
+	 a9vZUGce40/6/tVwfjQN7HlqOdbO8lAZOBb3nnzSWsdjrk/GeECo2qeHeHw+t60gZR
+	 wcR0POjMlY0zTnqFXXBva+wwEKCnUOSekdeWFDCF2ZEc+5bjc/hlyfeebh1lZ9ykIH
+	 xmIJokT0MVUQA==
+Date: Fri, 7 Aug 2026 17:41:30 -0700
 From: Josh Poimboeuf <jpoimboe@kernel.org>
 To: sashiko-bot@kernel.org
-Cc: x86@kernel.org, live-patching@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>, 
-	Song Liu <song@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	Petr Mladek <pmladek@suse.com>, Joe Lawrence <joe.lawrence@redhat.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>, Miroslav Benes <mbenes@suse.cz>, 
-	Catalin Marinas <catalin.marinas@arm.com>
-Subject: Re: [PATCH v3 19/21] objtool/klp: Introduce objtool for arm64
-Message-ID: <7owxhuwmxb2kbaioac5cm3qgqgqezcn6vgz34md47zuvm3ajjj@sgxpuzvuulmm>
-References: <5b66146373b1ff1aba1318fd51867dea2eb882f6.1778642121.git.jpoimboe@kernel.org>
- <20260515020845.CE5B2C2BCB3@smtp.kernel.org>
+Cc: x86@kernel.org, Miroslav Benes <mbenes@suse.cz>, 
+	live-patching@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>, 
+	Will Deacon <will@kernel.org>, Joe Lawrence <joe.lawrence@redhat.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, linux-arm-kernel@lists.infradead.org, 
+	Mark Rutland <mark.rutland@arm.com>, Song Liu <song@kernel.org>, linux-kernel@vger.kernel.org, 
+	Petr Mladek <pmladek@suse.com>
+Subject: Re: [PATCH v3 21/21] klp-build: Add arm64 syscall patching macro
+Message-ID: <rumkp7mj6x4jo3r4x3erzkcwqkssbf5n46fxvrgcan7u4n2fuk@pkleqal5rqgr>
+References: <3bf3cee43039fc4da84e83d0891a92e25f40f00f.1778642121.git.jpoimboe@kernel.org>
+ <20260515024439.AF2B7C2BCB3@smtp.kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260515020845.CE5B2C2BCB3@smtp.kernel.org>
+In-Reply-To: <20260515024439.AF2B7C2BCB3@smtp.kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,66 +73,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 15, 2026 at 02:08:45AM +0000, sashiko-bot@kernel.org wrote:
+On Fri, May 15, 2026 at 02:44:39AM +0000, sashiko-bot@kernel.org wrote:
 > Thank you for your contribution! Sashiko AI review found 1 potential issue(s) to consider:
-> - [Medium] The arm64 instruction decoder misclassifies trap instructions (e.g., `brk #0x800` used for `BUG()`) as `INSN_OTHER` instead of `INSN_BUG`.
+> - [Medium] The arm64 __KLP_SYSCALL_DEFINEx macro omits the ALLOW_ERROR_INJECTION declaration, silently breaking BPF error injection for livepatched syscalls.
 > --
 > 
-> commit dd63f0c03bab6a47f34cfcb310454460653638ed
+> commit b4d1a9ea352f196a7fd3e7198fdade51440d08e5
 > Author: Josh Poimboeuf <jpoimboe@kernel.org>
 > 
-> objtool/klp: Introduce objtool for arm64
+> klp-build: Add arm64 syscall patching macro
 > 
-> This commit adds basic support for arm64 in objtool, initially enabling 
-> only the "objtool klp" subcommands.
+> This commit adds arm64 support for KLP_SYSCALL_DEFINEx(). The commit
+> message states it is mirroring the arm64 __SYSCALL_DEFINEx() pattern from
+> arch/arm64/include/asm/syscall_wrapper.h.
 > 
-> > diff --git a/tools/objtool/arch/arm64/decode.c b/tools/objtool/arch/arm64/decode.c
-> > new file mode 100644
-> > index 0000000000000..47658c76e1af0
-> > --- /dev/null
-> > +++ b/tools/objtool/arch/arm64/decode.c
+> > diff --git a/include/linux/livepatch_helpers.h b/include/linux/livepatch_helpers.h
+> > index 99d68d0773fa8..4b647b83865f9 100644
+> > --- a/include/linux/livepatch_helpers.h
+> > +++ b/include/linux/livepatch_helpers.h
+> > @@ -72,6 +72,25 @@
+> >  	}								\
+> >  	static inline long __klp_do_sys##name(__MAP(x,__SC_DECL,__VA_ARGS__))
+> >  
+> > +#elif defined(CONFIG_ARM64)
+> > +
+> > +#define __KLP_SYSCALL_DEFINEx(x, name, ...)				\
+> > +	static long __se_sys##name(__MAP(x,__SC_LONG,__VA_ARGS__));	\
+> > +	static inline long __klp_do_sys##name(__MAP(x,__SC_DECL,__VA_ARGS__));\
+> > +	asmlinkage long __arm64_sys##name(const struct pt_regs *regs);	\
+> > +	asmlinkage long __arm64_sys##name(const struct pt_regs *regs)	\
+> > +	{								\
+> > +		return __se_sys##name(SC_ARM64_REGS_TO_ARGS(x,__VA_ARGS__));\
+> > +	}								\
 > 
-> [ ... ]
+> Does this macro definition omit the ALLOW_ERROR_INJECTION declaration?
 > 
-> > +int arch_decode_instruction(struct objtool_file *file, const struct section *sec,
-> > +			    unsigned long offset, unsigned int maxlen,
-> > +			    struct instruction *insn)
-> > +{
+> The standard arm64 __SYSCALL_DEFINEx() macro explicitly registers the top-level
+> syscall handler with ALLOW_ERROR_INJECTION() to enable BPF error injection
+> workflows like bpf_override_return(). The x86 implementation correctly
+> preserves this functionality.
 > 
-> [ ... ]
-> 
-> > +	if (ins == 0xd503201f) {
-> > +		/* NOP: static branch */
-> > +		insn->type = INSN_NOP;
-> > +	} else if ((ins & 0xfc000000) == 0x14000000) {
-> 
-> [ ... ]
-> 
-> > +	} else if ((ins & 0x7e000000) == 0x36000000) {
-> > +		/* TBZ/TBNZ: intra-TU sibling call */
-> > +		insn->type = INSN_JUMP_CONDITIONAL;
-> > +		insn->immediate = sign_extend64((ins >> 5) & 0x3fff, 13);
-> > +	} else {
-> > +		insn->type = INSN_OTHER;
-> > +	}
-> 
-> Does this code misclassify trap instructions?
-> 
-> On arm64, BUG() is implemented using the brk instruction (such as brk #0x800).
-> Since the decoder doesn't appear to check for brk, it will fall through to the
-> else block and classify it as INSN_OTHER.
-> 
-> If INSN_BUG is misclassified as a normal instruction, won't this lose dead-end
-> propagation and corrupt objtool's control-flow analysis?
+> Because this macro is missing that declaration, it looks like it might
+> introduce a regression where BPF cannot inject errors into the replacement
+> syscalls in a livepatch module on arm64.
 
-Nope, as the comment above this says:
-
-	/*
-	 * These are the bare minimum needed for static branch detection and
-	 * checksum calculations.
-	 */
-
-For arm64 we don't have any reason to care about INSN_BUG.
+Fixed.
 
 -- 
 Josh
