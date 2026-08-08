@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D2BBC5AD56
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 23:19:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A98F8C5AD4E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 23:19:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ydJP/+WzOb4kIUyHuQZNxhoj1FmudpqW9aVIrC7YUX4=; b=BTQzDtu2MujfqCeH7Bi1FRdOok
-	EKSMO0z9IlaS8HxcllERbQzSl0TmtVCd73MQ69PZXUAoBxe+H7sGQ8pG5vTkXs/UV1MjfZAQVv4lk
-	WJTx9g+XMrT9nGPEwLwZ8zafKgaHA+aFiAgbDCcVOtAtfU1RV9iXeGU3LJ1KCrSUIISYXJQ8o82Ts
-	hY9TsukmFQyY7QVBflSDtC/VnzS9EMXlnhAlIik8OyJ1/qYnyTCHnTAQrguGhr1PSvh4yB5JcUkxq
-	JY0iIa8mq8dlKT7WlTiRwpdSLqySi/GmCD82NhWR02xi/s8KzI7NCx8hPioV4dTDLs8g+oN2+is8r
-	gQJfxXmg==;
+	bh=cv5F15Pf+qaCXWqln8rlxWjdcGBGLL2eqdPm1KQd9iI=; b=JiuIiCoIpxHprjuAA8ND9Uf89S
+	0JS2yn9XRkda7mnuh1hwLzSjiNp0JQXxp2kAcTWAaNeGKb58OGpdjb4/Ewinz5/1kFnUQb01VmXlW
+	PF3J/U1lAPwzCbrik37taIH/f3kRWt8P8GukjqPiFYDi/Sk4AKTxnBPwkIMngzBmS9fjqDG3HJGCG
+	JX5d1OTLT/zYVRUssEuNVNNZ14gDoeGBWZTQKYGAR7k8P5uQyIhWuJBEL3mwT4ksQTzc1Sv6iEYJn
+	XpYIvnCzpQ/8mT/HCwbAsosGeNn397rKAVb0g9SRhGLNB+W7EUQzQBlbPLROddvcwnweGdSBjegAS
+	f7n7E9wQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsqJZ-00000009mUY-2jd2;
-	Sat, 08 Aug 2026 23:18:53 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wsqJa-00000009mWx-32vV;
+	Sat, 08 Aug 2026 23:18:54 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsqJL-00000009mFj-2Bmx
+	id 1wsqJP-00000009mJQ-18Yg
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Aug 2026 23:18:39 +0000
+	Sat, 08 Aug 2026 23:18:44 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E5BDB60A88;
-	Sat,  8 Aug 2026 23:18:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F33921F00A3A;
-	Sat,  8 Aug 2026 23:18:37 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B59F86136F;
+	Sat,  8 Aug 2026 23:18:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D53E91F00ACF;
+	Sat,  8 Aug 2026 23:18:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786231118;
-	bh=ydJP/+WzOb4kIUyHuQZNxhoj1FmudpqW9aVIrC7YUX4=;
+	s=k20260515; t=1786231122;
+	bh=cv5F15Pf+qaCXWqln8rlxWjdcGBGLL2eqdPm1KQd9iI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=jAOhwt+8yck4zA1bbe1gc6yQH7RfnncAZbSDQRPdPrEsJgS5C5otJEvDMziBD1h90
-	 kmnEpmrEY8plfNQiCnyMg9XhZFPy/5krJ+XPl+C/EEcY5OZOVeBvzkoWEbeuZO9l69
-	 gx5bMSmPqpr+H3LBU8VJGzWg6/2cA6bKZkbPyc4Whg5L+dzxJgLjHUbFC2F3+vV3lj
-	 vKXaR8J8FGTQpT0VyjDCwQmV/tE+/b2Hru3rcfy/ZGAOM9oZvn6SxXxN/jF4enyZC4
-	 QVB1iViYTAutZrdQyF+enu02e3y17xgrP2iZQXTqs6LnOu3Ei2pe9uGu4UvBBxQ2sB
-	 Wc2AWfIqFIf/A==
+	b=Y/x0qMtRPMmE+LspRqkDVg22LrWNQ0X6pZ06IMnxqn9ytImbQtHmrN2XSbqRme0Vd
+	 KubFXJWbajU1AKWP4ahphXcE8ZFa50zdbnGynsGb9WIV3h2PeyRAVb6h+Px9AQlTxs
+	 aJjB/0iMfBmVAmHmeR5jGxaFjTYwZo7BF5bIp3kx4brZ6MCtP1xrL4F/lL5FByJ3/U
+	 bH3znu9zPPifY2Wu377Z3D/x46BoYsLnm4WdN/kPfi2cPn7bxDEZw2OCM6lvpd3MzG
+	 evxJ5wkullG+h+29Ek74nzDKRcyBrfI4DeYuPPYcbFsmFzoLvh81mtHVRvsOR+e03c
+	 X78LIGV7nG+fg==
 From: Josh Poimboeuf <jpoimboe@kernel.org>
 To: x86@kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -58,9 +58,9 @@ Cc: linux-kernel@vger.kernel.org,
 	Herbert Xu <herbert@gondor.apana.org.au>,
 	Miroslav Benes <mbenes@suse.cz>,
 	Petr Mladek <pmladek@suse.com>
-Subject: [PATCH v4 16/22] objtool/klp: Add arm64 support for prefix/PFE detection
-Date: Sat,  8 Aug 2026 16:17:20 -0700
-Message-ID: <ea399b0a3a37860ba71013c9ec72a1e8784b5712.1786230311.git.jpoimboe@kernel.org>
+Subject: [PATCH v4 21/22] klp-build: Support cross-compilation
+Date: Sat,  8 Aug 2026 16:17:25 -0700
+Message-ID: <afba3774f6a8a818f899e3d04a22ac55e9cca0e2.1786230311.git.jpoimboe@kernel.org>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <cover.1786230311.git.jpoimboe@kernel.org>
 References: <cover.1786230311.git.jpoimboe@kernel.org>
@@ -80,346 +80,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add arm64 support for detecting prefixed areas before functions (for
-kCFI or ftrace with call ops), and __patchable_function_entries (for
-ftrace with call ops or args).
+Add support for cross-compilation.  The user must export ARCH, and
+either CROSS_COMPILE or LLVM as needed.
 
 Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
 ---
- tools/objtool/arch/x86/include/arch/elf.h |   2 +
- tools/objtool/elf.c                       |  13 ++
- tools/objtool/include/objtool/elf.h       |   2 +
- tools/objtool/klp-diff.c                  | 166 ++++++++++++++++++++--
- 4 files changed, 172 insertions(+), 11 deletions(-)
+ scripts/livepatch/klp-build | 22 +++++++++++++++++++++-
+ 1 file changed, 21 insertions(+), 1 deletion(-)
 
-diff --git a/tools/objtool/arch/x86/include/arch/elf.h b/tools/objtool/arch/x86/include/arch/elf.h
-index 7131f7f51a4e8..5ee0ccda7db18 100644
---- a/tools/objtool/arch/x86/include/arch/elf.h
-+++ b/tools/objtool/arch/x86/include/arch/elf.h
-@@ -10,4 +10,6 @@
- #define R_TEXT32	R_X86_64_PC32
- #define R_TEXT64	R_X86_64_PC32
- 
-+#define ARCH_HAS_PREFIX_SYMBOLS 1
-+
- #endif /* _OBJTOOL_ARCH_ELF */
-diff --git a/tools/objtool/elf.c b/tools/objtool/elf.c
-index 3bb04d6155a8b..180e0a0da00ff 100644
---- a/tools/objtool/elf.c
-+++ b/tools/objtool/elf.c
-@@ -275,6 +275,19 @@ struct symbol *find_func_containing(struct section *sec, unsigned long offset)
- 	return NULL;
+diff --git a/scripts/livepatch/klp-build b/scripts/livepatch/klp-build
+index b311f290b1406..42fb671f1863d 100755
+--- a/scripts/livepatch/klp-build
++++ b/scripts/livepatch/klp-build
+@@ -435,6 +435,25 @@ validate_patches() {
+ 	revert_patches
  }
  
-+struct symbol *find_data_mapping_sym(struct section *sec, unsigned long offset)
-+{
-+	struct rb_root_cached *tree = (struct rb_root_cached *)&sec->symbol_tree;
-+	struct symbol *sym;
++cross_compile_init() {
++	if [[ -v LLVM && -n "$LLVM" ]]; then
++		local prefix=""
++		local suffix=""
 +
-+	__sym_for_each(sym, tree, offset, offset) {
-+		if (sym->offset == offset && is_data_mapping_sym(sym))
-+			return sym;
-+	}
++		if [[ "$LLVM" == */ ]]; then
++			# LLVM=/path/to/bin/
++			prefix="$LLVM"
++		elif [[ "$LLVM" == -* ]]; then
++			# LLVM=-14
++			suffix="$LLVM"
++		fi
 +
-+	return NULL;
++		OBJCOPY="${prefix}llvm-objcopy${suffix}"
++	else
++		OBJCOPY="${CROSS_COMPILE:-}objcopy"
++	fi
 +}
 +
- struct symbol *find_symbol_by_name(const struct elf *elf, const char *name)
- {
- 	struct symbol *sym;
-diff --git a/tools/objtool/include/objtool/elf.h b/tools/objtool/include/objtool/elf.h
-index 796d154d447b6..d33d25d7472a0 100644
---- a/tools/objtool/include/objtool/elf.h
-+++ b/tools/objtool/include/objtool/elf.h
-@@ -131,6 +131,7 @@ struct elf {
- 	struct list_head sections;
- 	struct list_head symbols;
- 	unsigned long num_relocs;
-+	int pfe_offset;
- 
- 	int symbol_bits;
- 	int symbol_name_bits;
-@@ -230,6 +231,7 @@ struct reloc *find_reloc_by_dest(const struct elf *elf, struct section *sec, uns
- struct reloc *find_reloc_by_dest_range(const struct elf *elf, struct section *sec,
- 				     unsigned long offset, unsigned int len);
- struct symbol *find_func_containing(struct section *sec, unsigned long offset);
-+struct symbol *find_data_mapping_sym(struct section *sec, unsigned long offset);
- 
- /*
-  * Try to see if it's a whole archive (vmlinux.o or module).
-diff --git a/tools/objtool/klp-diff.c b/tools/objtool/klp-diff.c
-index 446ea6f9864a1..922de4c8e9e89 100644
---- a/tools/objtool/klp-diff.c
-+++ b/tools/objtool/klp-diff.c
-@@ -20,6 +20,7 @@
- #include <linux/stringify.h>
- #include <linux/string.h>
- #include <linux/jhash.h>
-+#include <linux/kconfig.h>
- 
- #define sizeof_field(TYPE, MEMBER) sizeof((((TYPE *)0)->MEMBER))
- 
-@@ -260,6 +261,98 @@ static int read_sym_checksums(struct elf *elf)
- 	return 0;
+ do_init() {
+ 	# We're not yet smart enough to handle anything other than in-tree
+ 	# builds in pwd.
+@@ -465,6 +484,7 @@ do_init() {
+ 	validate_config
+ 	set_module_name
+ 	set_kernelversion
++	cross_compile_init
  }
  
-+/*
-+ * For non-x86, detect the offset from the function entry point to its
-+ * __patchable_function_entries (PFE) relocation target.  x86 doesn't need this,
-+ * it clones the __cfi/__pfx symbol instead.
-+ *
-+ * offset < 0 (before function entry):
-+ *
-+ *    CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS (arm64)
-+ *
-+ * offset == 0 (at function entry):
-+ *
-+ *    CONFIG_DYNAMIC_FTRACE_WITH_ARGS without BTI (arm64)
-+ *
-+ * offset > 0 (after function entry):
-+ *
-+ *    CONFIG_DYNAMIC_FTRACE_WITH_ARGS with BTI (arm64)
-+ */
-+static int read_pfe_offset(struct elf *elf)
-+{
-+	bool has_pfe = false;
-+	struct section *sec;
-+
-+	if (__is_defined(ARCH_HAS_PREFIX_SYMBOLS))
-+		return 0;
-+
-+	for_each_sec(elf, sec) {
-+		struct reloc *reloc;
-+
-+		if (strcmp(sec->name, "__patchable_function_entries"))
-+			continue;
-+		if (!sec->rsec)
-+			continue;
-+
-+		has_pfe = true;
-+
-+		for_each_reloc(sec->rsec, reloc) {
-+			unsigned long target = reloc->sym->offset + reloc_addend(reloc);
-+			struct symbol *func;
-+
-+			/* arm64 func */
-+			func = find_func_containing(reloc->sym->sec, target);
-+			if (func) {
-+				elf->pfe_offset = target - func->offset;
-+				return 0;
-+			}
-+
-+			/* arm64 CALL_OPS */
-+			func = find_func_by_offset(reloc->sym->sec, target + 8);
-+			if (func) {
-+				elf->pfe_offset = -8;
-+				return 0;
-+			}
-+		}
-+	}
-+
-+	if (has_pfe) {
-+		ERROR("can't find __patchable_function_entries offset");
-+		return -1;
-+	}
-+
-+	return 0;
-+}
-+
-+/*
-+ * Detect the size of the area before a function's entry point.  This prefix
-+ * area is used for CFI type hashes or ftrace call ops.
-+ *
-+ *  $d mapping symbol (arm64):
-+ *
-+ *    CONFIG_CFI
-+ *
-+ *  PFE before function entry, no symbol (arm64):
-+ *
-+ *    CONFIG_DYNAMIC_FTRACE_WITH_CALL_OPS
-+ */
-+static unsigned long func_pfx_size(struct elf *elf, struct symbol *func)
-+{
-+	if (__is_defined(ARCH_HAS_PREFIX_SYMBOLS))
-+		return 0;
-+
-+	/* arm64 kCFI $d data mapping symbol */
-+	if (func->offset >= 4 &&
-+	    find_data_mapping_sym(func->sec, func->offset - 4))
-+		return 4;
-+
-+	/* arm64 CALL_OPS (mutually exclusive with kCFI) */
-+	if (elf->pfe_offset < 0 && func->offset >= -elf->pfe_offset)
-+		return -elf->pfe_offset;
-+
-+	return 0;
-+}
-+
- static struct symbol *first_file_symbol(struct elf *elf)
- {
- 	struct symbol *sym;
-@@ -348,6 +441,9 @@ static bool is_special_section(struct section *sec)
- 		"__ex_table",
- 		"__jump_table",
- 		"__mcount_loc",
-+#ifndef ARCH_HAS_PREFIX_SYMBOLS
-+		"__patchable_function_entries",
-+#endif
+ # Refresh the patch hunk headers, specifically the line numbers and counts.
+@@ -881,7 +901,7 @@ build_patch_module() {
+ 	cp -f "$kmod_file" "$kmod_file.orig"
  
- 		/*
- 		 * Extract .static_call_sites here to inherit non-module
-@@ -918,7 +1014,7 @@ static struct symbol *__clone_symbol(struct elf *elf, struct symbol *patched_sym
- 				     bool data_too)
- {
- 	struct section *out_sec = NULL;
--	unsigned long offset = 0;
-+	unsigned long offset = 0, pfx_size = 0;
- 	struct symbol *out_sym;
+ 	# Work around issue where slight .config change makes corrupt BTF
+-	objcopy --remove-section=.BTF "$kmod_file"
++	"$OBJCOPY" --remove-section=.BTF "$kmod_file"
  
- 	if (data_too && !is_undef_sym(patched_sym)) {
-@@ -950,17 +1046,22 @@ static struct symbol *__clone_symbol(struct elf *elf, struct symbol *patched_sym
- 			void *data = NULL;
- 			size_t size;
- 
-+			/* Clone (non-x86) function prefix area */
-+			pfx_size = is_func_sym(patched_sym) ? func_pfx_size(elf, patched_sym) : 0;
-+
- 			/* bss doesn't have data */
- 			if (patched_sym->sec->data && patched_sym->sec->data->d_buf)
--				data = patched_sym->sec->data->d_buf + patched_sym->offset;
-+				data = patched_sym->sec->data->d_buf + patched_sym->offset - pfx_size;
- 
- 			if (is_sec_sym(patched_sym))
- 				size = sec_size(patched_sym->sec);
- 			else
--				size = patched_sym->len;
-+				size = patched_sym->len + pfx_size;
- 
- 			if (!elf_add_data(elf, out_sec, data, size))
- 				return NULL;
-+
-+			offset += pfx_size;
- 		}
- 	}
- 
-@@ -1235,21 +1336,41 @@ static int convert_reloc_sym_to_secsym(struct elf *elf, struct reloc *reloc)
- 	return 0;
- }
- 
-+/*
-+ * __patchable_function_entries relocs point to the patchable entry NOPs,
-+ * which are at 'pfe_offset' bytes from the function symbol.
-+ *
-+ * Some entries (e.g., removed weak functions, syscall -ENOSYS stubs) don't
-+ * have a corresponding function symbol.  Skip those with a return value of 1.
-+ */
-+static int convert_pfe_reloc(struct elf *elf, struct reloc *reloc)
-+{
-+	struct symbol *func;
-+
-+	func = find_func_by_offset(reloc->sym->sec,
-+				   reloc->sym->offset +
-+				   reloc_addend(reloc) - elf->pfe_offset);
-+	if (!func)
-+		return 1;
-+
-+	reloc->sym = func;
-+	set_reloc_sym(elf, reloc, func->idx);
-+	set_reloc_addend(elf, reloc, elf->pfe_offset);
-+	return 0;
-+}
-+
- /* Return -1 error, 0 success, 1 skip */
- static int convert_reloc_secsym_to_sym(struct elf *elf, struct reloc *reloc)
- {
- 	struct symbol *sym = reloc->sym;
- 	struct section *sec = sym->sec;
- 
-+	if (!strcmp(reloc->sec->name, ".rela__patchable_function_entries"))
-+		return convert_pfe_reloc(elf, reloc);
-+
- 	if (!is_sec_sym(sym))
- 		return 0;
- 
--	/* If the symbol has a dedicated section, it's easy to find */
--	sym = find_symbol_by_offset(sec, 0);
--	if (sym && sym->len == sec_size(sec))
--		goto found_sym;
--
--	/* No dedicated section; find the symbol manually */
- 	sym = find_symbol_containing_inclusive(sec, arch_adjusted_addend(reloc));
- 	if (!sym) {
- 		/*
-@@ -1277,7 +1398,6 @@ static int convert_reloc_secsym_to_sym(struct elf *elf, struct reloc *reloc)
- 		return -1;
- 	}
- 
--found_sym:
- 	reloc->sym = sym;
- 	set_reloc_sym(elf, reloc, sym->idx);
- 	set_reloc_addend(elf, reloc, reloc_addend(reloc) - sym->offset);
-@@ -1925,6 +2045,9 @@ static int validate_special_section_klp_reloc(struct elfs *e, struct symbol *sym
- 
- static int clone_special_section(struct elfs *e, struct section *patched_sec)
- {
-+	bool is_pfe = !strcmp(patched_sec->name, "__patchable_function_entries");
-+	struct section *out_sec = NULL;
-+	struct reloc *patched_reloc;
- 	struct symbol *patched_sym;
- 
- 	/*
-@@ -1932,6 +2055,7 @@ static int clone_special_section(struct elfs *e, struct section *patched_sec)
- 	 * reference included functions.
- 	 */
- 	sec_for_each_sym(patched_sec, patched_sym) {
-+		struct symbol *out_sym;
- 		int ret;
- 
- 		if (!is_object_sym(patched_sym))
-@@ -1946,8 +2070,23 @@ static int clone_special_section(struct elfs *e, struct section *patched_sec)
- 		if (ret > 0)
- 			continue;
- 
--		if (!clone_symbol(e, patched_sym, true))
-+		out_sym = clone_symbol(e, patched_sym, true);
-+		if (!out_sym)
- 			return -1;
-+
-+		if (!is_pfe || (out_sec && out_sec->sh.sh_link))
-+			continue;
-+
-+		/*
-+		 * For reasons, the patched object has multiple PFE sections,
-+		 * but we only need to create one combined section for the
-+		 * output.  Link the single PFE ouput section to a random text
-+		 * section to satisfy the linker for SHF_LINK_ORDER.
-+		 */
-+		out_sec = out_sym->sec;
-+		patched_reloc = find_reloc_by_dest(e->patched, patched_sec,
-+						   patched_sym->offset);
-+		out_sec->sh.sh_link = patched_reloc->sym->clone->sec->idx;
- 	}
- 
- 	return 0;
-@@ -2247,6 +2386,9 @@ int cmd_klp_diff(int argc, const char **argv)
- 	if (read_sym_checksums(e.patched))
- 		return -1;
- 
-+	if (read_pfe_offset(e.patched))
-+		return -1;
-+
- 	if (correlate_symbols(&e))
- 		return -1;
- 
-@@ -2260,6 +2402,8 @@ int cmd_klp_diff(int argc, const char **argv)
- 	if (!e.out)
- 		return -1;
- 
-+	e.out->pfe_offset = e.patched->pfe_offset;
-+
- 	/*
- 	 * Special section fake symbols are needed so that individual special
- 	 * section entries can be extracted by clone_special_sections().
+ 	# Fix (and work around) linker wreckage for klp syms / relocs
+ 	"$OBJTOOL" klp post-link "$kmod_file" || die "objtool klp post-link failed"
 -- 
 2.54.0
 
