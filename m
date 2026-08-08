@@ -4,110 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A680C5AC67
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 14:31:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CD16C55174
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 14:50:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=umhegfornY2q+dliAsJ0qNPWy6KgS5Ezk4jQr8oXmA0=; b=2oefUym7K8D9ueiTM57eTYiOLj
-	CVx0WlZfcOSRO13Z1j4Vs+o1MbjL2tJ+Ac/Rj0G+GIUpngvk9E7L/U7EgfwjaYBEHnWCHjDYVF8eN
-	E852N6Sl+3+N5pkJJVRBF9tNrCEGS/Fm1F9sJW3WB7KPs9Vi/UoEHvZZ7MrqbBh+bBgk+4sLaHWOB
-	WMpqUEj5+eGYuW5zsEqWuI1SZVHns/WHd/u3f0qy7LoHYGks3NpNJZgf3hua7JLbu9vn7BNz0+STv
-	THQbXJiE7j1GeV11rnNf9G9tTp3JedFyAJOy+eZqJUb4MRwgdQHOHfrhQHsX0MPiDdc5LRj0gFBCw
-	ycY18ykw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=eE6eUxpMqHxeuN+lR4AFDf3e/mtKNvxsFBwzQyNzYP8=; b=LW8LV6dYq63MLt
+	8MJE1siaZZ/qm8pCS3YF0U/PDmy4ZQ4dR/EUXZ+d5jD24uvJPqPPsHYY01pVIka1VH/YmvxH8p0EB
+	vHXBIhvdvU2dl9MGnECYpFZGdIgIsQ25F8zt8PNhJUdxvs1DVYSl+PsYxueVaPEkzHPE7SVVYPAbT
+	GF/CNEGjCrRnJU1dE2YsxHFBO818xshd7wetlF0m07v/KtJunjS9XyGmIAyWG3/wCJMp2FhnSjYsC
+	yrW6kXBAiHLSfiOIYgdscynt+GFzDcMCYd1r48gYlJfc+5R/X7KdO/8nmdmqpitOOoHJLw2BfOJK0
+	Zv1mWwTKD7+UXmRiDpRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsi56-00000009SGQ-0ZIt;
-	Sat, 08 Aug 2026 14:31:24 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1wsiNQ-00000009StV-3tyS;
+	Sat, 08 Aug 2026 14:50:20 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsi53-00000009SG3-0fgS
+	id 1wsiNO-00000009Ssu-1Skc
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Aug 2026 14:31:22 +0000
-Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-698b78c05b0so3736a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Aug 2026 07:31:19 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1786199478; cv=none;
-        d=google.com; s=arc-20260327;
-        b=kq38979zFWkLBIr13FhRjDUinXyTzpoP7l00/dWzUcYv6r6SyhHpqDT40fsVlU7+BM
-         mP2KjfWtidwELImpppMCIAPuyc96ixwmRHhPQknBzs14IPBrpKhalRvETsO6O8oRGN1Y
-         57ZiYQAzn6moOYuwxC0EfQa9HcttJrIFSkOXh9rKfOC8ncXLUi3xB91l9p+yytVOMCxM
-         mveM0oh5tAfMeOn44Qu2Fipn8XFfl0zFntkkUtczn2HEmkokccZ2xthcm9v4O92DKgBp
-         WBhymqv01QcofbIl//OBmJ1cfmGCzwl/O1/NtmnG/XJ9/r+GOQ7Mqzj19qDHf3ZT6k7j
-         i5dQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=umhegfornY2q+dliAsJ0qNPWy6KgS5Ezk4jQr8oXmA0=;
-        fh=8WCClFn5c+TlQAK8tNzg2lTrF6SFscu7XjdtC1NqxZY=;
-        b=W2sEUWxdKLcmnBbxLGoQ32P4rgJFFSphNu7hMilQKVOQsFKzxsniRg46G4PNiyVJ6g
-         Dm2L5+Ia0uTQLeNG6BZL2pkSZtqCNuNZYSjXCuNVBu4dPj1Do20g/duDSy855fJUDZ/j
-         22xDjkJVx40ZPVvV6P5ogtArByFszypwzt92ZbHOXT3E9zmCqkKQgug+zq0qOjHOHUIu
-         n6sDw9WWgaaqtTqZHS0QmFC/oS01VLHUua7UpkyJQyDq85NUBPQdlmVGyqmZtzqLgxoM
-         zfhKji+oVFxsV8a+ODLIoU5Ip5sOhjJ0joK/ALRL925Sf705MBhGX6W5ALQanDwPElI1
-         AdrQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Sat, 08 Aug 2026 14:50:19 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 678DbhGr3806874
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 8 Aug 2026 14:50:17 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=eE6eUxpMqHxeuN+lR4AFDf
+	3e/mtKNvxsFBwzQyNzYP8=; b=JePiLFGZdraW98aVdc0KoXxguK/o/qx1+w0GZU
+	xy9zSnMGaqHKhVsJ7/KJEsN8AVGUvZ7HVNQ7mTTckAITDyxMyJ5o4p3ipgZH2FLe
+	RjdkMgKqTID2Xe1MctzuVXVGWRpLAm37HLfSMPrpsuCbUsivVyoDVykFQ+EuidkJ
+	uzKIdUVI1dZ5CldRw5gQsixPL0E/gDDP0ETslx54r17G/eBrCyU8lrNAgqaaV7j5
+	dIQCDxiBD9nZNQy3lBwgyfavIOR6W435pvn0bcMJaYXk2Tf9s/QBx2btQbXVyjPS
+	UsHYzm5kSA31hOI9w9oKV+XBDNZaee8epj7n1SC68uy30+5Q==
+Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fwwr9gwy4-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Aug 2026 14:50:17 +0000 (GMT)
+Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-51c1d30035dso3826781cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Aug 2026 07:50:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1786199478; x=1786804278; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=umhegfornY2q+dliAsJ0qNPWy6KgS5Ezk4jQr8oXmA0=;
-        b=NyBkYv9Wk1CpqbOci4SjPhZsploi6JmSEMIwJnFLXKpQ5fsLq6bzEZJ1cdQIIhQ8/J
-         HJICaOU765SmTwaE1muiz/ZzeZhfzgSO2EQbdISlVFcGttmgwv8bZD6OaxxpSTMTlE8/
-         F9eoon0D39kE1tyMU8GDRVpGqlFXlcRn+IG+ieH3egKI84oTneJ/cAMiM+a5nVQ4Lt8L
-         SD5B1QQXB6IL1nfE7/+FUPmwWW9PRsSwMRR3iPJmGuMUv1YAcTSbOkIfUy39TGz9eo8N
-         nD7fQbqPMoreTy2AjbvgzSzkDFgzCLbSgH5Oqyy6NSMmJLQ9IxkofswcBVXCodzXwUwR
-         xJog==
+        d=oss.qualcomm.com; s=google; t=1786200616; x=1786805416; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=eE6eUxpMqHxeuN+lR4AFDf3e/mtKNvxsFBwzQyNzYP8=;
+        b=IiabJsFYTPynEHsHVpk4PXFRQL/NTOEeSlNrRQ5znrgwIFr1b0OmHH4pm2aji3JZy7
+         GH2UQ4U0w0CUpVEGwQnRGbNsRtRWGTlttS0QAHis4Yovca9loAAjb8mrqeApllUayt9O
+         tMagbAorrXFBzLzejrcqS1IWmSjVsgQQRKcqMLnx32qT4w2Cb/jl4Z7GhmjggLaO4U+e
+         ZsDm+9mxOPElpEdXZtdNkTEygFzJerezBU6xIVqgQAGgkqrEM0DJxyM/RlBsNJeKUdI7
+         MubTFj8JrHVALiRBZ4BwJbaqxGfZAKkBOHI0N1OyDSTqQ6uSpnhAbA6uO/iFxdNf3UZR
+         RV0Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786199478; x=1786804278;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=umhegfornY2q+dliAsJ0qNPWy6KgS5Ezk4jQr8oXmA0=;
-        b=OxGJYOTQk3zoM2jKvS/KgIYID+GB742sHjeGdPskKUa8hAYeLHGqISgwVZt2/ZWqvh
-         GqyHJc/cgD7o8CqH42uIIny6889bMP1d06DagwfkihpG8w/qOBB0B2A1js8Avp4Tmle/
-         MTxS5qVdqGv+3tdDvXHcdO3OEPlcJE/X4FgMzAGytKCp6dYatIo91FrR2NcLkfoqnyUO
-         QYn0cOyIFoQsnhYlyyYoofhHxtuWlxWUnskq8xQ0iaZ/5mW17t/288mMtzOBQBeDNUHK
-         pW4EAtKNtERvGDnDaRDuCeV8sZBKdKHQI9wE20/jIDwzSaxRwbvnMxwaOwHVUxBejH2i
-         kyWw==
-X-Forwarded-Encrypted: i=1; AHgh+RrfQ0uhUeKcexcQPjhCooHAWPV5qbKftNlJCLX/XLRjH7+wIM65m766H/5rmjvBG1HrSrdp3uQ+qulbXpF0JBzl@lists.infradead.org
-X-Gm-Message-State: AOJu0YyJrxGjDr53B8mh7iMnqmL7SxynReAbXNnPm+ziWddkMku/k3b/
-	6tR549p8SYvSrvcBSLOGq5V3JDabahuHj5d/wbfr/NrJhSa5oZvZevw6aXXURUeHfuy6uE1K2sO
-	+x2eRbCo5tiRKEMa4g58lK5VND9Ffsc2kstiiHoYb
-X-Gm-Gg: AR+sD10V09JRoT4m51WwRNw7dI7E0SWV1nfvqDcPy9DKqIHIbv8fcH17eTk+WOdFWe+
-	UorPOwETC8LzVTFKCES3PdFJN625CpWKe6bzuXgN8VMgs3qVhBUxvEfxJyOCzhFsO7VS5Md6OLm
-	l4TaUlI3OpL4eQl96pz5/PWrNszHzmmX6cNXE4r9So4fgBcJU5Qn2MI3uBH9NvCltu4rAddw3Fs
-	1arlQTVn0sYBSy5eal32uKeB+r7F0jR3LICHIqNfz0BpFgVxKRv96WaSoAZjSWBnlBlf/3+oR2C
-	CCVP6Os4GBZDvgRUgOgIjfamo3S8KthQdknNGpxGf/xF9hB9yldGqa60sB7+iDzxE2alk7D9AGY
-	=
-X-Received: by 2002:a05:6402:2c5:b0:697:7f69:48e3 with SMTP id
- 4fb4d7f45d1cf-6a1f4f5d874mr38566a12.10.1786199477331; Sat, 08 Aug 2026
- 07:31:17 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1786200616; x=1786805416;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=eE6eUxpMqHxeuN+lR4AFDf3e/mtKNvxsFBwzQyNzYP8=;
+        b=R+/+oNN3Ebri+rrulsc81vWbqOnxVqiFoGH4lJAfQ89pWRr/JJmsAy5EJwaJYXfpVN
+         XnHiSviUri4XyvBVGgD+oimWqH9oUjiI/jLupvLTy3H2n53Oc2L64p+LVJK2CdHwnHRu
+         H7/lQTQf/wTpr7MfeYZxGhehI3oCEjAxiBGLI8NRsiWid4n681i4eyqh0+c4/f/SBT2I
+         L9/AUyR7d4aXYniocrGEy882FGrt2D32qqTo4BZL9sJq+bgTDY7UOpzr0u8lI3lkdQ3J
+         lZwS4mLTyLfR1j2/EmCIeZlckghyFo6z/XnkIvOwdtnS3lWtTqj81nXXVCWs6jZ4kFyw
+         DhDw==
+X-Forwarded-Encrypted: i=1; AHgh+Rpvp5V92FvDCqRpeuqGxHra0klwFEM8kkO4ifFi9OLBFm3PYJNeBciuQk0umiXeYA0sJh9sYoWLznI5fNw6/Wnw@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJFAC2zZoQIZD2OkxeMuGUeXZm3FlrpLSl1MtG5xGY41pHT+yL
+	AVOMV/2fFoWVB82CspvvOWd4QMzpDmDVWTuegxrA2Djc5Y6Epwzox+ZPWl8RVXipreiAdz6EHyE
+	pObRqMUfu3ICap8xZ1aMDhmCBSIHCjSo6Pt2s6yxGzQyJc/JMtIf5I1oPLgFkaK121ACM52Y7sl
+	TVCQ==
+X-Gm-Gg: AR+sD13c80oq4H7zSzuhugEajjEyqpP2dTOzYp4mtvMttDXSpF+6tXOmrJYblBnBjuv
+	OmFnFvc7K2u25GD052PlPIhw+X4TDyLk/LE+anD07PJwqEUiMepw3Uqb44oYLvtGx1G4/bvjMH9
+	/beq3U9EgEI9+Pq/W4WwwtdoCs71qzeCeqk6IGtr1ZxSTG56Qb327kfBHCFoobWVisrydp2bz8f
+	oNUMELi7SWee5ZOUZ/IP29MlP+sx/VjpykTKSOmmy/HrbKe3SYYE7OmkVUF0o8h6ojmTdp7POUh
+	rDnDHhs4NWzbV479KjuBksQXlMe/MsIYXdo7X0e9mg/CTi9nqwkSjg0tzwI+an6qYzJ0HMAm2jK
+	TI1b46SYLTjtiTVA=
+X-Received: by 2002:a05:622a:148c:b0:51c:52a:8e70 with SMTP id d75a77b69052e-52ce5f8237bmr315119811cf.2.1786200616251;
+        Sat, 08 Aug 2026 07:50:16 -0700 (PDT)
+X-Received: by 2002:a05:622a:148c:b0:51c:52a:8e70 with SMTP id d75a77b69052e-52ce5f8237bmr315119231cf.2.1786200615682;
+        Sat, 08 Aug 2026 07:50:15 -0700 (PDT)
+Received: from localhost ([188.216.77.92])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-480021509a5sm14623982f8f.16.2026.08.08.07.50.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 08 Aug 2026 07:50:14 -0700 (PDT)
+From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Subject: [PATCH net-next v3 0/3] Implement mqprio and ets qdisc offload in
+ stmmac driver
+Date: Sat, 08 Aug 2026 16:49:56 +0200
+Message-Id: <20260808-stmmac-ets-offload-v3-0-b714466142b9@oss.qualcomm.com>
 MIME-Version: 1.0
-References: <20260808085824.732659-1-smostafa@google.com> <20260808085824.732659-4-smostafa@google.com>
-In-Reply-To: <20260808085824.732659-4-smostafa@google.com>
-From: Mostafa Saleh <smostafa@google.com>
-Date: Sat, 8 Aug 2026 15:31:04 +0100
-X-Gm-Features: AUfX_mx7PbbfJVVT5axwb5kWqfzAC8auOtaruvcG6cTNxOokXMk8vC24H5OnKzM
-Message-ID: <CAFgf54pb+5UnYYkbMKe280-ODvbQ=Vhtj8Qk7btR6ZNDwrmzrQ@mail.gmail.com>
-Subject: Re: [PATCH v2 3/3] KVM: arm64: Fix hvhe and broken CNTVOFF_EL2
-To: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Cc: maz@kernel.org, oupton@kernel.org, seiden@linux.ibm.com, 
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	catalin.marinas@arm.com, will@kernel.org, vdonnefort@google.com, 
-	tabba@google.com, sebastianene@google.com, keirf@google.com, 
-	yaoyuan@linux.alibaba.com, Fuad Tabba <fuad.tabba@linux.dev>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/33NTQrDIBAF4KsE152gppjYVe9RujD+NEKMrVpJC
+ bl7xVUXoZuBx+N9s6Gog9URXZoNBZ1ttH4poTs1SE5ieWiwqmREMWV4wGeIyTkhQacI3pjZCwV
+ S8o5Jzo0aCSrDZ9DGrhW9oUUnWPSa0L00k43Jh0/9lknt/8GZAAHTCcwJ44rS8epjbF9vMUvvX
+ FtOVTP9lfpDiQIGLiTrheFUjsOBtO/7FyaHU3MPAQAA
+X-Change-ID: 20260804-stmmac-ets-offload-cc936c99fdb1
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: Daniel Thompson <daniel@riscstar.com>, Alex Elder <elder@riscstar.com>,
+        Davide Caratti <dcaratti@redhat.com>, netdev@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org,
+        Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+X-Mailer: b4 0.14.3
+X-Authority-Analysis: v=2.4 cv=d73FDxjE c=1 sm=1 tr=0 ts=6a774229 cx=c_pps
+ a=WeENfcodrlLV9YRTxbY/uA==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
+ a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=petc-e2FbpDzYRbdd-oA:9 a=QEXdDO2ut3YA:10
+ a=kacYvNCVWA4VmyqE58fU:22
+X-Proofpoint-ORIG-GUID: aQgSwFeVGMtZxOWq7_wtOY1g4td3LExi
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODA4MDEyNyBTYWx0ZWRfX19I4TpoxB+WS
+ sHMWV2aq+2YCWPTtb/qNR+I33esGHvCBL10c8su2c6XQ8dsvJQHCSwCr0N6Z7ShzPWzebogTsuI
+ 807nhCeDQL1OCoGzQoDm0+GAFAbEb3nb0AjrIaeDCTI6h3Lhh9i7FHSMn56Nc9FA5VusGqVlzOF
+ UON9UvTSJHoiRze7oXtS7AKSDCgYiS6zq8kPVNZlGDe9HorCYz41PXpuOZT6R26XVkojEfobPHO
+ xDivJ6xgPmzd3wTz3hjQ/VrKHew/hj4fzhsJpFljxLJBeQ08F9q1NY/ofhcQjtebuU0jkKnCs8E
+ 9FHcMnLsFxP+TkJCw7WHkgSl99yEFGxmCPaqU3Tx3yc0UDGEpsoiv4+1/WnLFuTOUmEhasqYAka
+ RNrByM9tUkBhetbO4ogaqCyoxNdXYPEQspiueF8MZGxcML5EDq6U/KLHHNoCiMLpq/FUJ+ZEalU
+ zFNiNmnJrOfA6n8j9kw==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODA4MDEyNyBTYWx0ZWRfXwAS3TIIQlM+T
+ TLqOt4kP6YxBRk8y/j8+P1KMeyBl7c5sI6vr66YUeFxXKqMI8GNErgKjLyY1Gy3xAbRaD0bHtDz
+ +rsr+ix2czE8D8hxSDdZG41FGJlvfG4=
+X-Proofpoint-GUID: aQgSwFeVGMtZxOWq7_wtOY1g4td3LExi
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-08_05,2026-08-07_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 bulkscore=0 phishscore=0 adultscore=0 malwarescore=0
+ spamscore=0 suspectscore=0 clxscore=1015 impostorscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608080127
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260808_073121_225840_3BACE2FF 
-X-CRM114-Status: GOOD (  25.65  )
+X-CRM114-CacheID: sfid-20260808_075018_458861_8261A24D 
+X-CRM114-Status: GOOD (  12.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,119 +158,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 8, 2026 at 9:58=E2=80=AFAM Mostafa Saleh <smostafa@google.com> =
-wrote:
->
-> When running on a setup affected with broken CNTVOFF_EL2
-> (has_broken_cntvoff())
->
-> Booting with VHE or protected mode(nvhe) (id_aa64mmfr1.vh=3D0
-> and arm64_sw.hvhe=3D0) works fine.
->
-> However launching a protected VM with protected hvhe mode panics the
-> guest kernel:
->
-> [    0.000000] Internal error: Oops - Undefined instruction: 000000000000=
-0000 [#1]  SMP
-> [    0.000000] Modules linked in:
-> [    0.000000] CPU: 0 UID: 0 PID: 0 Comm: swapper/0 Not tainted 7.2.0-rc3=
--g05f75bd71e0e-dirty #29 PREEMPT
-> [    0.000000] Hardware name: linux,dummy-virt (DT)
-> [    0.000000] pstate: 000003c5 (nzcv DAIF -PAN -UAO -TCO -DIT -SSBS BTYP=
-E=3D--)
-> [    0.000000] pc : arch_timer_shutdown_virt+0x4/0x1c
-> [    0.000000] lr : arch_timer_starting_cpu+0x1c4/0x2d4
-> [    0.000000] sp : ffffa6bd9a193c00
-> [    0.000000] x29: ffffa6bd9a193c20 x28: ffffa6bd9a1bcf88 x27: 000000000=
-0000000
-> [    0.000000] x26: ffff00001be70dd8 x25: ffffa6bd99d85000 x24: ffffa6bd9=
-9d85ee4
-> [    0.000000] x23: ffffa6bd99d85000 x22: ffffa6bd9a1499c0 x21: ffffa6bd9=
-a1ab900
-> [    0.000000] x20: 00ffffffffffffff x19: ffff00001be8b600 x18: 000000000=
-000028c
-> [    0.000000] x17: 00000000510f0010 x16: 00000000510f0010 x15: 000000005=
-00f0000
-> [    0.000000] x14: 0000000000000000 x13: 0000000000000000 x12: 000000000=
-0000018
-> [    0.000000] x11: ffffa6bd9a8ac000 x10: 0000000000f0000f x9 : fffffffff=
-fffffff
-> [    0.000000] x8 : ffffa6bd98822e18 x7 : 0070752d65746174 x6 : 00111ff76=
-e007261
-> [    0.000000] x5 : ffffa6bd9ad68078 x4 : 0000000000000000 x3 : ffffa6bd9=
-8822a0c
-> [    0.000000] x2 : 0000000000000073 x1 : 0000000000000001 x0 : ffff00001=
-be8b600
-> [    0.000000] Call trace:
-> [    0.000000]  arch_timer_shutdown_virt+0x4/0x1c (P)
-> [    0.000000]  cpuhp_invoke_callback+0x11c/0x280
-> [    0.000000]  cpuhp_issue_call+0x1e8/0x224
-> [    0.000000]  __cpuhp_setup_state_cpuslocked+0x1d8/0x2b8
-> [    0.000000]  __cpuhp_setup_state+0x50/0x74
-> [    0.000000]  arch_timer_register+0xc0/0x148
-> [    0.000000]  arch_timer_of_init+0x148/0x170
-> [    0.000000]  timer_probe+0x74/0x124
-> [    0.000000]  time_init+0x18/0x58
-> [    0.000000]  start_kernel+0x1c0/0x3ac
-> [    0.000000]  __primary_switched+0x88/0x90
-> [    0.000000] Code: c80b7d2a 35ffffab 17ffffeb d503245f (d53be328)
->
-> The workaround avoids setting non-zero CNTVOFF_EL2 and trapping the
-> virtual counter to emulate the offset.
-> In the VHE path (timer_set_traps()), traps are only enabled when the
-> guest actually has a non-zero virtual timer offset.
-> However, __timer_enable_traps() in hyp/nvhe/timer-sr.c unconditionally
-> set CNTHCTL_EL1TVT and CNTHCTL_EL1TVCT whenever has_broken_cntvoff()
-> was true.
->
-> Which causes 2 issues:
-> 1) Protected VMs: kvm_handle_pvm_sysreg() does not find "cntv_ctl_el0"
-> in pvm_sys_reg_descs and injects undefined instruction exceptions.
->
-> 2) non-protected guests are trapped all the time even with offset of
-> zero.
->
-> Fix this by adding a check in __timer_enable_traps() similar to the one i=
-n
-> timer_set_traps()
->
-> Fixes: 0bc9a9e85fcf ("KVM: arm64: Work around x1e's CNTVOFF_EL2 bogosity"=
-)
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
 
-For some reason, when I used b4 to pull the first version, it added
-Marc's `Signed-off-by` which was not intended.
-Probably it got confused by the patch in the reply.
+---
+Changes in v3:
+- Limit number of tx queues to ETS bands enabling ETS qdisc offload.
+- Do not overwrite previosuly configured qdisc if ETS offloading fails.
+- Check dcb DMA capability before programming the sched registers.
+- Always power-on the device before applying qdisc offload configuration
+- Fix priority applied for SP tx queues.
+- Link to v2: https://lore.kernel.org/r/20260807-stmmac-ets-offload-v2-0-9ac67af92cb8@oss.qualcomm.com
 
-Thanks,
-Mostafa
+Changes in v2:
+- Implement strict priority policy in mqprio qdisc offload
+- Restore to dt configured values destroying the qdisc
+- Do not ets offload if there are any queues in avb mode.
+- Re-apply ETS configuration closing/opening the net_device.
+- Link to v1: https://lore.kernel.org/r/20260804-stmmac-ets-offload-v1-1-f3a09169d22b@oss.qualcomm.com
 
-> Reviewed-by: Yuan Yao <yaoyuan@linux.alibaba.com>
-> Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
-> Tested-by: Fuad Tabba <fuad.tabba@linux.dev>
-> Signed-off-by: Mostafa Saleh <smostafa@google.com>
-> ---
->  arch/arm64/kvm/hyp/nvhe/timer-sr.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/arm64/kvm/hyp/nvhe/timer-sr.c b/arch/arm64/kvm/hyp/nvhe=
-/timer-sr.c
-> index 51b4f5010b66..993065716913 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/timer-sr.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/timer-sr.c
-> @@ -61,9 +61,9 @@ void __timer_enable_traps(struct kvm_vcpu *vcpu)
->
->         /*
->          * Trap the virtual counter/timer if we have a broken cntvoff
-> -        * implementation.
-> +        * implementation and non zero offset as in timer_set_traps()
->          */
-> -       if (has_broken_cntvoff())
-> +       if (has_broken_cntvoff() && timer_get_offset(vcpu_vtimer(vcpu)))
->                 set |=3D CNTHCTL_EL1TVT | CNTHCTL_EL1TVCT;
->
->         sysreg_clear_set(cnthctl_el2, clr, set);
-> --
-> 2.55.0.654.g21b8a5bc05-goog
->
+---
+Lorenzo Bianconi (3):
+      net: stmmac: add tc-ets qdisc offload
+      net: stmmac: add tc-mqprio qdisc offload
+      net: stmmac: hold runtime PM reference in setup_tc
+
+ drivers/net/ethernet/stmicro/stmmac/hwif.h        |   4 +
+ drivers/net/ethernet/stmicro/stmmac/stmmac.h      |  10 ++
+ drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c  |  20 ++-
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c |  86 +++++++++---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c   | 159 +++++++++++++++++++++-
+ 5 files changed, 251 insertions(+), 28 deletions(-)
+---
+base-commit: 8ac4255c1e0c83d2e1559a18b8918673116fc8d6
+change-id: 20260804-stmmac-ets-offload-cc936c99fdb1
+
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+
 
