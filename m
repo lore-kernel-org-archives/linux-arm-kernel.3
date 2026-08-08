@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A9B2C5AD44
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 23:18:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41849C5AD4E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 23:18:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y5jStvRxXhCnYlnJabnKzeT9J7k+pNzNQ0SCW4VdeUI=; b=cQn7CfXlVZhzxrJ85g/M62/oaq
-	OQ9FOV0c8bXbile2qs5szvQHYelBWRkPM7jWmaYSYlPt7dSLpdYqYlTM3yw+xhavOVJ4SovSp7TUG
-	giDj3AXMtG/Q1nKRMU9Svd6P8zzhOD9IwdBO9pifuN44HFX7unsPFxGVKUfodQFBzEgBug5aHDQX0
-	A0Nhq1JAmcTFMoq215TsKagwHaU8T2L112Z+a5FZ7VBYt78UEKYhCworQzxIEs3o+OVtAvx3ODpBR
-	zetAolIp0k1MPhaq4Fs6WMkL+ial0XqkifRfon/C+tvObvHUShpFv90j2tLaYn1RFTzNb8OeUvPYQ
-	7OAz1RJg==;
+	bh=W9b4Bn/jCc6njmblrCdb5kz0LDKIkI3N8b9vqXSBZ44=; b=aRb+jtlVDo2FvkTYzEuESGWV3v
+	EToE+XVYFJeubqrvZJoRtgteWSkBIfka2/+10bD8+nGYWbIDr9+MNZSeY5fZwYw77Jy3qZuvcbvA6
+	sLWeZEXSUGaDQX7dq5KgpEoCauLxI+ibf8x+y9kR2xSnBZkXGi1iIzLPMkyeZCFp7PoItNspijYpz
+	9Wd0/kDMw6nI3W8JMxR2FHarl+V32LyB1XRQCHK7+t4l0cI3b1sWHVSspYG0eY7dP3893lKuRRr98
+	m1hqDE2u6Coi4BGwjaVrdrSffj+t6UlBqYcvqdOuhuP4CKsE079fwjYqQGNCAV0XO5U4gxIac4kXg
+	fy19H4gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsqJ5-00000009m4j-14OU;
-	Sat, 08 Aug 2026 23:18:23 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wsqJD-00000009m6R-2Eal;
+	Sat, 08 Aug 2026 23:18:31 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsqJ1-00000009m4F-1H83
+	id 1wsqJC-00000009m5o-0u4a
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Aug 2026 23:18:19 +0000
+	Sat, 08 Aug 2026 23:18:30 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id BB96360204;
+	by sea.source.kernel.org (Postfix) with ESMTP id B5087415D8;
+	Sat,  8 Aug 2026 23:18:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA6931F00A3A;
 	Sat,  8 Aug 2026 23:18:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3FF811F000E9;
-	Sat,  8 Aug 2026 23:18:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786231098;
-	bh=y5jStvRxXhCnYlnJabnKzeT9J7k+pNzNQ0SCW4VdeUI=;
+	s=k20260515; t=1786231109;
+	bh=W9b4Bn/jCc6njmblrCdb5kz0LDKIkI3N8b9vqXSBZ44=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=XCMIUlLz1Asek+LxJ+kcAPQ6aq74uNQTDC9q7nEcsLt4tESEewgyodt0rxoHbpRaX
-	 FrQ1rIUO/vnDlvHSkB3WkFQNsQT4xiTFwUh5bnF7mllDKg0mlRJaDsHt8akX2JAi+1
-	 XbgnFgT1g6n9lKmWWGFW5+3tgA1o0/N8uW4mjpxcQuDEn4zmLY0RCgV0AfFsPr4/Y1
-	 1g3psKhadx5/uzRuwmotee6vMKfzEBBaPfQsofTjxWP3o3R2tcOoFkMdtgL4H4Wp3C
-	 fg3DfurXXgY5fn95vjXz8FjZ899AtqA48aTQBHwgXRWMndnqxjJ88lr57mvuzTjRdI
-	 PVHSCEx8UURFw==
+	b=TLnA1aXrDS1TAiKjspJeJ5UQ5kn2WXj2kjANeHma49+w4uagHC80MPMREog7bgEX6
+	 5iOreJWSQX5FW++X656Vqxgv4LbLKxBNr1ck+QNclsIZGefnx/2jXSbz74ftM/ZbUK
+	 WheyLyhpCPewVpA/mD60T1QtJfFSTvjBSFLvxBICEDejXHBXP7Dd7NxEurf1wUjvDX
+	 nt3tnpc5lBgAFrPAUxMlR3CpEdNbQriINpeJW2a9j2cOsa0SAkCYxWH4x85GGXGVS0
+	 Emz1G7XBnbhseVEd7iATvLEjFhPcqvT45pvvOr+c9eIec8ZXGZkXSy11/OCAvMH0uR
+	 pQZ1QKNNOM+NA==
 From: Josh Poimboeuf <jpoimboe@kernel.org>
 To: x86@kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -58,9 +58,9 @@ Cc: linux-kernel@vger.kernel.org,
 	Herbert Xu <herbert@gondor.apana.org.au>,
 	Miroslav Benes <mbenes@suse.cz>,
 	Petr Mladek <pmladek@suse.com>
-Subject: [PATCH v4 03/22] arm64: Annotate intra-function calls
-Date: Sat,  8 Aug 2026 16:17:07 -0700
-Message-ID: <df382d501fd19172f11aa910ac3e0d0adfed9e6d.1786230311.git.jpoimboe@kernel.org>
+Subject: [PATCH v4 04/22] arm64: Fix EFI linking with -fdata-sections
+Date: Sat,  8 Aug 2026 16:17:08 -0700
+Message-ID: <7b18edbeb7bb68f3a69b8b0bb7ede12d834ad1d9.1786230311.git.jpoimboe@kernel.org>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <cover.1786230311.git.jpoimboe@kernel.org>
 References: <cover.1786230311.git.jpoimboe@kernel.org>
@@ -80,67 +80,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for enabling objtool on arm64, annotate intra-function
-calls.
+When building with -fdata-sections, the .init.bss section gets split up
+into a bunch of .init.bss.<var> sections.  Make sure they get linked
+into .init.data.
 
 Acked-by: Song Liu <song@kernel.org>
 Reviewed-by: Miroslav Benes <mbenes@suse.cz>
 Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
 ---
- arch/arm64/kernel/entry.S       |  2 ++
- arch/arm64/kernel/proton-pack.c | 12 +++++++-----
- 2 files changed, 9 insertions(+), 5 deletions(-)
+ arch/arm64/kernel/vmlinux.lds.S | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
-index e0db14e9c843a..d4cbdfb23d733 100644
---- a/arch/arm64/kernel/entry.S
-+++ b/arch/arm64/kernel/entry.S
-@@ -10,6 +10,7 @@
- #include <linux/arm-smccc.h>
- #include <linux/init.h>
- #include <linux/linkage.h>
-+#include <linux/annotate.h>
- 
- #include <asm/alternative.h>
- #include <asm/assembler.h>
-@@ -705,6 +706,7 @@ alternative_else_nop_endif
- 	 * entry onto the return stack and using a RET instruction to
- 	 * enter the full-fat kernel vectors.
- 	 */
-+	ANNOTATE_INTRA_FUNCTION_CALL
- 	bl	2f
- 	b	.
- 2:
-diff --git a/arch/arm64/kernel/proton-pack.c b/arch/arm64/kernel/proton-pack.c
-index 7bb6553fec087..3737190ce36ec 100644
---- a/arch/arm64/kernel/proton-pack.c
-+++ b/arch/arm64/kernel/proton-pack.c
-@@ -25,6 +25,7 @@
- #include <linux/prctl.h>
- #include <linux/sched/task_stack.h>
- #include <linux/sysfs.h>
-+#include <linux/annotate.h>
- 
- #include <asm/debug-monitors.h>
- #include <asm/insn.h>
-@@ -246,11 +247,12 @@ static noinstr void qcom_link_stack_sanitisation(void)
- {
- 	u64 tmp;
- 
--	asm volatile("mov	%0, x30		\n"
--		     ".rept	16		\n"
--		     "bl	. + 4		\n"
--		     ".endr			\n"
--		     "mov	x30, %0		\n"
-+	asm volatile("mov	%0, x30			\n"
-+		     ".rept	16			\n"
-+		     ANNOTATE_INTRA_FUNCTION_CALL "	\n"
-+		     "bl	. + 4			\n"
-+		     ".endr				\n"
-+		     "mov	x30, %0			\n"
- 		     : "=&r" (tmp));
- }
- 
+diff --git a/arch/arm64/kernel/vmlinux.lds.S b/arch/arm64/kernel/vmlinux.lds.S
+index af1d720209764..91b700e20badf 100644
+--- a/arch/arm64/kernel/vmlinux.lds.S
++++ b/arch/arm64/kernel/vmlinux.lds.S
+@@ -281,7 +281,7 @@ SECTIONS
+ 		INIT_CALLS
+ 		CON_INITCALL
+ 		INIT_RAM_FS
+-		*(.init.altinstructions .init.bss)	/* from the EFI stub */
++		*(.init.altinstructions .init.bss .init.bss.*)	/* from the EFI stub */
+ 	}
+ 	.exit.data : {
+ 		EXIT_DATA
 -- 
 2.54.0
 
