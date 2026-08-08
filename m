@@ -4,80 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2529FC55174
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 09:05:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48C96C5AD2C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 09:05:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BcQpUXzQNF+2Q+6o8/0P7HWncW1idJum/qJtU1Voeqo=; b=4NvVV4dZYQw809mLFu5rAIPLoM
-	g1pzbr5mPi4ih6Z3tCZ9p9e8lYj2CjJbBRohgnPaXJn9T8ZbW283O5tOk4hy7zELO0WPmzq//znVx
-	ZWMJ9IbAaziMhP4u6Dgqu0m5ezT70LIDlNCSBQOaXB9KTV0R0D3eg4n7MnEzsW3rcJIYkZOTDTDDs
-	0yUfTru+59HjF7z91mVX6wbzjXz4wW4ajwY3AyATTZS5wGkt5X49hmKBZefc395HUtE7JLl7OvbbG
-	tVziyN+J+omfm8L0C8/PbWqPC1luQKoNY85s5u/C8ysS3HbpV9sHud5XCUWC/K94WArU2A8pJyamJ
-	PjYEecSg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2wqvcWoakAHAOfbnCvk5W2K5QMWwrKblDk8o5LDji4A=; b=bGe1huMhBXkYR/i5ypzjl3Bpsg
+	IliABoiTO92vG2GqezjlcjHKfPreZHaPAl59p8CQzTHIn4iU41dekTLFc/+wuWYMD5ZdYWSpXFTLZ
+	ZUAmwo2uLALiELbI9WzqMia15JHCP6ff4xd3OTzX9xpgs8pHpPpX/Nwtxv9hOGLwG1Xdpag31WSxF
+	+yYk5lAIOqVZOjxwE0xb63yA/LvtKC2BRmRPULE2UzOYHAH0etaEI9tIgguwLLoLSj020VGpmpS+f
+	FDgVub4QAUSkgCTsLpJMhjI3p/HCmj0VE+rD0WLNa0HVRZ1c1uTp7IYu3zb4POxBXGd3LFvLZZkSH
+	mG8npLkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsczQ-00000009CNA-3GUP;
-	Sat, 08 Aug 2026 09:05:12 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wsd03-00000009CRV-3pFk;
+	Sat, 08 Aug 2026 09:05:51 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsczP-00000009CMv-2DmO
+	id 1wsd01-00000009CQi-0ttp
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Aug 2026 09:05:11 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3AF636001A;
-	Sat,  8 Aug 2026 09:05:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E52511F000E9;
-	Sat,  8 Aug 2026 09:05:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786179909;
-	bh=BcQpUXzQNF+2Q+6o8/0P7HWncW1idJum/qJtU1Voeqo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=lkTGYsW1dZasSDUaE9oKcDoNEJuYeo3oNBSycdPzNb9GtBwb9fh8lUX1B+hnDKyBN
-	 LDjvFM/0hlJaHuObNzAnGsZnYgQ6Kz5WYQLet5RwUGQ4llz7MS5l7gnsLdv9g8dzaU
-	 yLEh2e704eiOD488zCQUHBvIQG7J5ZnS2VD8qU/P9Jo9yNeCqtWj4xbJKeTE2L5JbP
-	 kMqaNt6gAkTOJ1M8o+gXFvUDS5a3VNavTNH0OSydcHIwS/Uy7/qUkirAk4fmc2oD/H
-	 ky4rJojkbfGyDVqbNNFpY0Zy4KKvn6X3ldnkXiJP6ixcVZG0lBS8544tnLqsLIVnv7
-	 VUrSTq3sj8Jsw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wsczL-0000000Dd90-3XoN;
-	Sat, 08 Aug 2026 09:05:07 +0000
-Date: Sat, 08 Aug 2026 10:06:31 +0100
-Message-ID: <87bjbdouaw.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
+	Sat, 08 Aug 2026 09:05:50 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2cc73e322dbso3475855ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Aug 2026 02:05:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786179948; x=1786784748; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=2wqvcWoakAHAOfbnCvk5W2K5QMWwrKblDk8o5LDji4A=;
+        b=d4eESKJRBrQcSlwHUP5gzIfKhcZsx6K497XtaurzXiYv7q2IeDtWh22wtbpbiofK+0
+         LgbQDj21+HIVRHqi2oaDFsSH4c7ko0I8OZLiLHJv8nLPjUagWsSi2Sn57/pWOmlv4bVY
+         WMJ2YhRwUOI5obi4RXO7wAOj0SrWR7hSyZcOiurHgq768qPQTPjuYp8YWbnPH4tFKamx
+         OAyln6G3HJxICOiOy4Co0FlBBmYEOB6sFTjvAvZO4PVot31QcMhO7WybLe8ilYg6mjU5
+         PVGuvSF1jEqQ+0IkGc7C6I0bYxi5hm4axIsWueyZtfieG3ytjXOwXc2NWURT1w6lHSf1
+         4C1w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786179948; x=1786784748;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=2wqvcWoakAHAOfbnCvk5W2K5QMWwrKblDk8o5LDji4A=;
+        b=VOT8GiPorQG9dIfSDDiFpf5zBIq3hANEUGz21exowZ8tQj1rhUewp0YwPFoGdW325J
+         chpgSe7WnPAjwA4hFYaalW52h6J+amMHIMbMqlLOoS/SlDuKOpZIkVF7ROb9/clbdidU
+         eQlbznPtHeIfg6rRJWMatjbpel1QP+UFsaaOb/UDKdy0NX5CPaW/8gDGspRqbP+nUkjy
+         qmSsZHRwNelWZVYZ7MbxxdExyBj3MJmFQIIwyJmLCJEcpq8KevVKyxdcEj0Td86ZIahc
+         vSxWWeZAxZwDROBzE9w+vUCcl7KdqcG/T90qLC9MhopSNYCMIYGSFgav4GTtFLyal2VW
+         Xijw==
+X-Forwarded-Encrypted: i=1; AHgh+Rp8DfIQN42G5xri0yPMaa/+2Nr69IMTQgrM9TyskpTOSlerW4RB12vkHjZh1ygZUXIMUB3h9W1Ozv5E7W8K7fAF@lists.infradead.org
+X-Gm-Message-State: AOJu0YzqsXzJGs3gjnWSia0mMfdMOIYKP3+bTWnwXK29xXIXTW1HLEYg
+	/ptBpW+lmk/+5EuI2YIqF6FNKy/a12h19jQKmlCvO/mziXJlfF5tFi7s
+X-Gm-Gg: AR+sD12D/5ZT15zRzKkskb3ZHbvbOo5Hm5TJLuerucFAPnJ5J2eL4Ea7IYvAJzSNjXk
+	mtK3xEcrQGGxrRK87NNgb8FWkr+AM56h1Z2pignOLVqEAZD7G5RVl62vHuA1hzF3UXMfX8nTsEO
+	QLOxzbTiMWx61KVpcN3/+xKc29ldsQ7hIjeYeGkt2E1nYXmbS3t5c8Qe06ngdWxrztNGu8navEF
+	nxFlkJQSI77m6Sl6hjCV5pahbhk2WRnorUB4JCPsiceVdlmZBC7uZ2J+vvpD5HCY668+cm/niZg
+	vz0R8ktUavvW0BacGSd+0M2sstrt9I4RpzcUpYgD46AmkwVbHTVUprPmaUIMWCj7BMEs71FYrgI
+	kXyDyEjNoLWvVM0J3N2E1cZxeM9P9U5Qe0dOvoAP31y9b6MfyTKuWiwUlu36uGrhstrGChdbFd3
+	NYVKiEkN/L1p6Wgx/qWSlnmmnxIm7e7N0aOe7y2FGQ+LMBG8BMGzUkxtFU7/riwXx9ALBdY2WBd
+	vqmkA==
+X-Received: by 2002:a05:6a20:43a9:b0:3c3:8651:b302 with SMTP id adf61e73a8af0-3cb85f60443mr34767349637.28.1786179948335;
+        Sat, 08 Aug 2026 02:05:48 -0700 (PDT)
+Received: from SGN-LDSENG.tasernet.com ([2405:4800:5cc3:11a:1ac0:4dff:fe8b:4a69])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-315be86d3fcsm17054754eec.4.2026.08.08.02.05.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 08 Aug 2026 02:05:47 -0700 (PDT)
+From: Cong Nguyen <congnt264@gmail.com>
+To: Hugues Fruchet <hugues.fruchet@foss.st.com>,
+	Alain Volmat <alain.volmat@foss.st.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	linux-media@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Hyunwoo Kim <imv4bel@gmail.com>,
-	Yao Yuan <yaoyuan@linux.alibaba.com>,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v2 2/8] KVM: arm64: Handle negative S1 walk levels in VNCR TLB size evaluation
-In-Reply-To: <anYL8J1ejjujgp-A@lucifer>
-References: <20260806091026.620700-1-maz@kernel.org>
-	<20260806091026.620700-3-maz@kernel.org>
-	<anYL8J1ejjujgp-A@lucifer>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: ljs@kernel.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, fuad.tabba@linux.dev, imv4bel@gmail.com, yaoyuan@linux.alibaba.com, stable@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] media: stm32-dcmi: fix async notifier leak on probe error path
+Date: Sat,  8 Aug 2026 16:05:41 +0700
+Message-Id: <20260808090541.2674255-1-congnt264@gmail.com>
+X-Mailer: git-send-email 2.25.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260808_020549_252099_892C818C 
+X-CRM114-Status: GOOD (  11.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,118 +100,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 07 Aug 2026 18:12:18 +0100,
-"Lorenzo Stoakes (ARM)" <ljs@kernel.org> wrote:
+dcmi_graph_init() registers the V4L2 async notifier with
+v4l2_async_nf_register(). The probe error label err_cleanup is reached
+after dcmi_graph_init() has already succeeded (e.g. when the subsequent
+reset_control_assert()/deassert() fails), but it calls only
+v4l2_async_nf_cleanup() and never v4l2_async_nf_unregister().
 
-[...]
+The notifier therefore remains chained in the global notifier_list while
+the enclosing struct stm32_dcmi is freed, leading to list corruption and
+a use-after-free when the list is next walked.
 
-> So actually if granularity is TLBI_TTL_TG_4K this will return SZ_1G and 0 in the
-> other cases unless I'm getting something wrong here?
->
-> This is really more a 'maybe worth mentioning in the commit log to be pedantic'
-> kind of thing :)
-> 
-> IOW you could luck out before with SZ_1G for TLBI_TTL_TG_4K.
+Unregister the notifier before cleaning it up on the error path, matching
+the teardown already done in dcmi_remove().
 
-Yes, and that's what happens in most cases. But as Huynwoo Kim's
-reports, 16k and 64k lead to something really bad. And even 4k works
-by pure luck, so this is all fsck'd in my book.
+Fixes: d079f94c9046 ("media: platform: Switch to v4l2_async_notifier_add_subdev")
+Cc: stable@vger.kernel.org
+Assisted-by: Claude:claude-opus-4
+Signed-off-by: Cong Nguyen <congnt264@gmail.com>
+---
+ drivers/media/platform/st/stm32/stm32-dcmi.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-> 
-> >
-> > Tidy-up pgshift_level_to_ttl() to handle these negative levels, and
-> > ttl_to_size() to always return SZ_1G when no valid TTL is present.
-> > This allows the removal of open-coded checks for similar situations.
-> 
-> I guess SZ_1G is a reasonable default here?
-
-It is more than a reasonable default. It is the maximum block size
-that can architecturally be mapped in the absence of FEAT_LPA*. In
-this situation, 16k pages imply a 32M max block mapping, and 64k
-implies 512M. 4K pages, by virtue of allowing a level-1 block mapping
-result in a 1G size.
-
-> 
-> >
-> > Note that the check for a negative value not explicitely checking for
-> 
-> NIT: explicitely -> explicitly
-> 
-> > S1_MMU_DISABLED is deliberate, so that actual negative levels introduced
-> > with LVA2 and D128 can take the same path if we ever support them.
-> >
-> > Fixes: 7270cc9157f47 ("KVM: arm64: nv: Handle VNCR_EL2 invalidation from MMU notifiers")
-> > Reported-by: Hyunwoo Kim <imv4bel@gmail.com>
-> > Link: https://lore.kernel.org/r/ameGoxbn2wzBq2kL@v4bel
-> > Signed-off-by: Marc Zyngier <maz@kernel.org>
-> > Cc: stable@vger.kernel.org
-> > ---
-> >  arch/arm64/kvm/nested.c | 26 +++++++++++++++++++-------
-> >  1 file changed, 19 insertions(+), 7 deletions(-)
-> >
-> > diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-> > index f3c75954cf36c..035cda256e2a5 100644
-> > --- a/arch/arm64/kvm/nested.c
-> > +++ b/arch/arm64/kvm/nested.c
-> > @@ -505,7 +505,7 @@ int kvm_walk_nested_s2(struct kvm_vcpu *vcpu, phys_addr_t gipa,
-> >  	return ret;
-> >  }
-> >
-> > -static unsigned int ttl_to_size(u8 ttl)
-> > +static unsigned int __ttl_to_size(u8 ttl)
-> >  {
-> >  	int level = ttl & 3;
-> >  	int gran = (ttl >> 2) & 3;
-> > @@ -561,10 +561,22 @@ static unsigned int ttl_to_size(u8 ttl)
-> >  	return max_size;
-> >  }
-> >
-> > -static u8 pgshift_level_to_ttl(u16 shift, u8 level)
-> > +static unsigned int ttl_to_size(u8 ttl)
-> > +{
-> > +	return __ttl_to_size(ttl) ?: SZ_1G;
-> > +}
-> 
-> Might be worth a comment about the default?
-
-It's the architecture. I'm trying hard not to make KVM a running
-commentary of the ARM ARM ;-).
-
-> 
-> > +
-> > +static u8 pgshift_level_to_ttl(u16 shift, s8 level)
-> >  {
-> >  	u8 ttl;
-> >
-> > +	/*
-> > +	 * If we don't have a proper level, fallback to the maximum
-> > +	 * size.
-> > +	 */
-> > +	if (level < 0)
-> > +		return 0;
-> > +
-> >  	switch(shift) {
-> >  	case 12:
-> >  		ttl = TLBI_TTL_TG_4K;
-> > @@ -675,7 +687,11 @@ unsigned long compute_tlb_inval_range(struct kvm_s2_mmu *mmu, u64 val)
-> >  		ttl = get_guest_mapping_ttl(mmu, addr);
-> >  	}
-> >
-> > -	max_size = ttl_to_size(ttl);
-> > +	/*
-> > +	 * Don't use the default 1GB fallback, as we can adapt to the
-> > +	 * max mapping size we allow at S2.
-> > +	 */
-> 
-> Being a bit pedantic here but I wonder if simply just to say 'Adapt to the max
-> mapping size allowed at S2' as the fallback is inferred?
-
-Sure.
-
-Thanks,
-
-	M.
-
+diff --git a/drivers/media/platform/st/stm32/stm32-dcmi.c b/drivers/media/platform/st/stm32/stm32-dcmi.c
+index e5663fbe6422..eeb0199864dd 100644
+--- a/drivers/media/platform/st/stm32/stm32-dcmi.c
++++ b/drivers/media/platform/st/stm32/stm32-dcmi.c
+@@ -2195,6 +2195,7 @@ static int dcmi_probe(struct platform_device *pdev)
+ 	return 0;
+ 
+ err_cleanup:
++	v4l2_async_nf_unregister(&dcmi->notifier);
+ 	v4l2_async_nf_cleanup(&dcmi->notifier);
+ err_media_entity_cleanup:
+ 	media_entity_cleanup(&dcmi->vdev->entity);
 -- 
-Jazz isn't dead. It just smells funny.
+2.25.1
+
 
