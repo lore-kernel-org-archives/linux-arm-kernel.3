@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CF41C5AD2B
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 09:58:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9E79C55174
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 09:58:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=78pbQXQC7rS+xYT3KOYvmzHciozgKbUx+FycpcHfTyI=; b=zzb8ARzsy3LArsdFo0Gc/RNDmW
-	OpN3B73Jf4ATu4+A7JIYttXsDElE7xnYPv3E65jHe+o92W4l/ezA02C8h0NzQurs1J3GN1Sk1V3yQ
-	MR73tTjFigQbGYCyNRouL2Tr9NL0kUiTvjY1GE3TR4HWekLFOCouw+HV0Vd6mbcJV5qBVVqHsIzd9
-	58506HVO5/D6bTibzqQ0HYwirVQuzxTtm3qc3Mdpl+nZcIiot7BdFfNGLJ+9x2A3wdttGYnYXlUWZ
-	rb7O77qR7Ktn+Nb68wd3ylKNzcm016owt6L0yxV8kbt58BhyjCIZ28pE58EIuwNpCEgA4JFOjjZQJ
-	JD8Oj22Q==;
+	bh=eukZ4Yw0lPupGVKUZsE6QR5EVi6K7EEsCGMJTKxA3Qg=; b=K0B9tGi1Rf2dfvnkORztoucS7o
+	LbgSANXk5Igt9vKaQ8w2brdxG3IdskRMKcea4KKQ8CeIDinze1OM/UhC7nfNfnwi93Ky0DvVSb6BB
+	kFK9756M31uiAJwq8p08tt9586WITgAl4GlPe5WVlo+LiFOmGUW3bbuifBWvwncJOshKQMei5ajRX
+	1cqXKUzbbCW6aW3M8Es+rERnjiGYnvW7kMGN7CErdNfmagY4Y63wuzowBHRIqRX+zTL4FzJpJB+1/
+	sPgLpfIsoPUIleXFZeLD48XJp7W7KZ8NNulkqEh7arz5BxE+AHfHcxuV6R/gjKY9M9bJ0uuDzLikS
+	AJWZQ6Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsdoy-00000009F5E-252M;
-	Sat, 08 Aug 2026 09:58:28 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1wsdp1-00000009F9K-0GBF;
+	Sat, 08 Aug 2026 09:58:31 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsdow-00000009F2A-3Fmo
+	id 1wsdoy-00000009F47-3r71
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Aug 2026 09:58:27 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-47fe45db360so32583f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Aug 2026 02:58:26 -0700 (PDT)
+	Sat, 08 Aug 2026 09:58:30 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-47fe45db360so32589f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Aug 2026 02:58:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786183105; x=1786787905; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1786183107; x=1786787907; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=78pbQXQC7rS+xYT3KOYvmzHciozgKbUx+FycpcHfTyI=;
-        b=EjY29jwdcJPsm8DQEUANsxwIT44Ncvi9tPeT4VX6uQTQxgLWMi4c+u8brEt/aLj0oa
-         RwrfmIi1Ga5zc+8jnPm/AZSWmr5sRSA3ehZrh8fNND9VDhxXUHjZY49L0KD7+t3Lsz5B
-         ShjcdxfefSz0geLzS/fJhqPghQgjjgy4VfyIAgRWJVYiFvsdWS0Np2oJa9zERnXKoE1t
-         3EKKJFYHp1Mc33ANFjm/IMr7useNB8ZPYmez+WmbD91cdrR+tROYgjFVx34AUCs8NLHO
-         ntK8P1C3e8FYUK8CAHai1SFmjsfwnJ/yoorgkLFVY+cjvwQnAAcB2fOXgIoRGt3TxFrt
-         skuw==
+        bh=eukZ4Yw0lPupGVKUZsE6QR5EVi6K7EEsCGMJTKxA3Qg=;
+        b=tBh2zq5w+fz9J1uch4ubzAau0xb04PtWz09xsQev3UicjzORiRJ1F4lSU89Bhh4FrT
+         /eghy2Zk8mjhrMIcPJvqUELVc8GDqOyxR/dtDogmhKVG+0yWKPAhjQcU0SBQmMq8vXah
+         E/7XdemhzC8d/xm8C4VEh4nAy4dWGJF2jU30x7e120yg7cbnk7CkY584W5H44J8Q9PbZ
+         O+5Hy8c9E4HfqNrnDf0pj/MAwOgZYor3rzlmRwSnHyi9qjR7olMCZuSgo+yagNsijyxN
+         Wuhy0Wmun80N25t9TGUmI5Ed61l4NMBhlc8tA0zfmkXrX/9z0oVcO0UqEyTz0NYP3rv1
+         Wq5g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786183105; x=1786787905;
+        d=1e100.net; s=20251104; t=1786183107; x=1786787907;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=78pbQXQC7rS+xYT3KOYvmzHciozgKbUx+FycpcHfTyI=;
-        b=k4Rx9IiEEm+BYZOJNNxeFRBTlTouz8D6WrjqMySy5sBsmf9zVHGLDmhh4KUFaIM1fx
-         NCfbxvNDIqz8GboAWX+nR+9vOt/Q9/2R7ani9T2BskMS/pQOe5SRs7Zl4reWSwqEfFoI
-         9FRdesPEAGjioALxoUWAWBAX/poYwPX+1Om8bJ891ZGRvNBRVWYPC4ngrxfD8uhOH8gf
-         9cwYc0eUDai+I8UkwBrn+XR2f4nJUBnZGUtQ5ptiiFdekrH8tB3uAP02ZSS+OvRL/mWk
-         v1disCFm7RISDkwBn4JFiDUeZ6Tx/jmPR94LjkpFYOQYO/3GooCA1g/Dys6inMm95G8/
-         S0nA==
-X-Forwarded-Encrypted: i=1; AHgh+RrQwN3mFseHtjExqnDnpIIzsac71MdGVbZ4HBlvIx04Ac48O6BhCsYb90IfxZVTLQsbqo4A+ICh6MMt/mHLHee2@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx4xVaePoIuod0LEe+mBLOFrK+6A4IlHCpz+v6KxFNIVmvF0mFs
-	vXg8isMdzeZV6MU0qjS6WCMqA0whApFAS9J/hP7bEOmFwge5GEMz074Q
-X-Gm-Gg: AR+sD13/i/8epagOtOjs4gWSZdjpHG4u6JcAjq0VDJQrivzBRJ0kqJ2sbgmwo0NTbED
-	dkq557KJCRteLtrXQCy5gBPHgDqzA9Mh4AZGPjipYOF3j3Ke9/sMa9uX8PnR/CryNlNSWgcZEGd
-	y5LEg53vm/I2A+ueiniejP6LqT7y2fAIWlqO+hnw/b8Uo6gFKvFVDSHisYGPxGcStXri+U42LGa
-	v71Nl/9O/944a/M9UXN3MjOwe/BAz6cO02WGiUeKUzoSdgzZjRbv+ckYcu/xB1E/jS5RW5Ew6uE
-	/2wUGzLQ80Q0VwPF9miHGwgBUFzCw2eYdnw+9rUnOxNYhbIAiOe7ZyjkdfwFF9CPBrOpl7Sp4rF
-	LY0RihFy8t4EhH/64SQ+jLkSU4qVD5zMkqO0XeFPDT1FVZhA9VXeJ0W2CBZawO6ac00NU7ujxnh
-	mBeuPJAgtkYkTQL5MXAkU5Xa7/H7wCG8glNCGNWZ8HVu+CLVWFJ7YWPcs8qnH4NAQ+4cyqbsqyK
-	fLXwkD9eaVKLBLr5zgA3G87dfncKf6A3tU3GTwsC16taQmFPmlWmX1Z5bxxFj7C7JH2HWfL1XzD
-	M0JI
-X-Received: by 2002:a05:6000:4211:b0:47f:96bc:e370 with SMTP id ffacd0b85a97d-47fec63bb0bmr22186473f8f.4.1786183105168;
-        Sat, 08 Aug 2026 02:58:25 -0700 (PDT)
+        bh=eukZ4Yw0lPupGVKUZsE6QR5EVi6K7EEsCGMJTKxA3Qg=;
+        b=GN5sUtNHaHGODPMTzPEQt+yAR7cNG1Kk2CE/GluiJs5wRJkrqlj5O4CkehDa4lRkqG
+         I34P9KYHri3zXQA1+aCpCzvVhhwvQD5HbKy0mjeCjwdtrUh0kfZPbKVNxw5Ez5Eaw9Kb
+         sr1pbDxSwEDAYGpcjiHn+t0TDgrdS3uMTknbYLEkzdfvs2pRhzl+Mztx7ekHAn9bRinU
+         z/XhsAA9EBY6ZUwjzRfMDyPcUbp9Q5rqtXGJk+wmex3wUcNpIXdxCQge+1TT/x/F4gUR
+         j6sYj/6ZSOc5D4KBk5Ix8ZcNdELl3LOHXH6zYhKwMXNhr401XQQkT744wRHe2gyBOqED
+         UgTA==
+X-Forwarded-Encrypted: i=1; AHgh+RpPeKQQqYd031HUd84Z6pKodLxRimdAgyfSQRsmJR/zbXHHYfp3GJeH3+k7DJrdkSa4TkIzZH4Unn+zI9M71qwQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwuYN2nu2wKmSewpvAbVDdJgzExayTOMhdWPSMT1xRRrdKAGnN1
+	TB1YE2hBTt4qEGaZyRAwFOLPmPbdXrUURvgR0zMvNclZ9RXdDEWdZbXy
+X-Gm-Gg: AR+sD10wMYIPY9aZcEcGe40/sVenZomqwz9dX/E7Jdq8b95FMUd8Z+mrC6zIDpOMuGi
+	Pn6R4xrbyglV4ObcAc0wPo2KYyuE+eiqj4SKFW8DqfwL+GKBPZMeKlgIpquJueA7TJjbMF4fja+
+	FQyQNcbTqJ9Bft27S0DS2sAixxRBBkSKMYiDaKJJrzBpesQMCASVMptBB4U68ZAyXPVto5fmSCG
+	nEhgCVovU1wvm1nUNl4/fZSMBvRte9wxQ+ZGTuRSSp35JbB7oWnDl+98RCPLq+zdnspqDaPBppd
+	w5xJSgumGH2rF3ePQAJgJPzwPIth6cJhkszOmXKoLce9yPrdaoArriSkccKWX3iw3VaXYz47Iz7
+	2MI4yztEY6Uf9rIFlMBRQMnwn8kg85E+iiS8728xwJB7KquAF61JAM47yTZ3xgmakrkOllGrN8u
+	/TDzB6/+g5XCaqfWr4U8iBIaR0A2Nx5aiDF6lJ2C6A6ZG2arKyF814hj/H5s/wb7wOONscwJMR1
+	J7B9S372smW+Z0vCLh/bUsKGKzOiJ2CjIzi9gQDOmQb3FGeCti31YEiJmf9pgc8697xwxW3Hham
+	pkuK4A==
+X-Received: by 2002:a5d:584c:0:b0:47f:959f:d5e with SMTP id ffacd0b85a97d-47fec487b60mr22022705f8f.0.1786183107204;
+        Sat, 08 Aug 2026 02:58:27 -0700 (PDT)
 Received: from OrangePi5-Plus.BB-HOME (20014C4E1B8E20009911270F4BEC2300.dsl.pool.telekom.hu. [2001:4c4e:1b8e:2000:9911:270f:4bec:2300])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-480020be8f3sm13255725f8f.0.2026.08.08.02.58.23
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-480020be8f3sm13255725f8f.0.2026.08.08.02.58.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 08 Aug 2026 02:58:24 -0700 (PDT)
+        Sat, 08 Aug 2026 02:58:26 -0700 (PDT)
 From: Igor Paunovic <royalnet026@gmail.com>
 To: dri-devel@lists.freedesktop.org
 Cc: intel-gfx@lists.freedesktop.org,
@@ -102,17 +102,17 @@ Cc: intel-gfx@lists.freedesktop.org,
 	Imre Deak <imre.deak@intel.com>,
 	Ankit Nautiyal <ankit.k.nautiyal@intel.com>,
 	Igor Paunovic <royalnet026@gmail.com>
-Subject: [PATCH 4/5] drm/bridge: synopsys: dw-dp: Add HDR static metadata support
-Date: Sat,  8 Aug 2026 11:57:23 +0200
-Message-ID: <20260808095749.9428-5-royalnet026@gmail.com>
+Subject: [PATCH 5/5] drm/bridge: synopsys: dw-dp: Add BT.2020 colorimetry support
+Date: Sat,  8 Aug 2026 11:57:24 +0200
+Message-ID: <20260808095749.9428-6-royalnet026@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260808095749.9428-1-royalnet026@gmail.com>
 References: <20260808095749.9428-1-royalnet026@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260808_025826_843040_968F0CDF 
-X-CRM114-Status: GOOD (  22.33  )
+X-CRM114-CacheID: sfid-20260808_025829_007117_1E6A5CD1 
+X-CRM114-Status: GOOD (  23.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,173 +127,200 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Send an HDR Metadata InfoFrame SDP (DP 1.4a, Table 2-100 and
-Table 2-101) when the connector state carries HDR output metadata, and
-attach the HDR_OUTPUT_METADATA property in the Rockchip glue so
-userspace can set it.
+The VSC SDP colorimetry is hardcoded: DEFAULT for RGB output and
+BT709_YCC for YCbCr. HDR compositors render into a BT.2020 container
+and need a way to tell the sink.
 
-The infoframe is built with drm_hdmi_infoframe_set_hdr_metadata() and
-packed with drm_dp_hdr_metadata_infoframe_sdp_pack(), then written
-into a free slot of the SDP register bank with vertical interval
-transmission, so the controller resends it once per frame during the
-vertical blanking period. The SDP is sent at the end of
-dw_dp_video_enable(), next to the existing VSC SDP; the connector
-state is passed down from atomic_enable(), which already looks it up.
+The legacy MSA MISC0 colorimetry bits cannot express BT.2020; DP 1.4a
+requires the VSC SDP revision 5 pixel encoding/colorimetry format
+indication, with MISC1 bit 6 set so the sink takes the format from the
+VSC SDP instead of MISC0. The driver already sets MISC1 bit 6 whenever
+it sends the VSC SDP, so only the trigger and the colorimetry values
+need extending:
 
-The allocated slot is tracked in hdr_sdp_nr and released in
-atomic_disable(), following the VSC SDP pattern exactly:
-atomic_disable() only clears tracked slots, so an untracked slot would
-leak on every enable/disable cycle until dw_dp_send_sdp() runs out of
-free slots and fails with -EBUSY for every SDP, including VSC and
-audio.
+- store conn_state->colorspace in the bridge state during
+  atomic_check(), next to the negotiated format;
+- send the VSC SDP also when the colorspace is BT2020_RGB or
+  BT2020_YCC, not only for YCbCr 4:2:0 output;
+- map BT2020_RGB/BT2020_YCC to DP_COLORIMETRY_BT2020_RGB/
+  DP_COLORIMETRY_BT2020_YCC in the VSC SDP; every other colorspace
+  value keeps today's values. The dynamic range stays VESA for RGB and
+  CTA for YCbCr output.
 
-A metadata change on a live stream (HDR on/off toggle, different
-mastering display data) forces a full modeset: atomic_check() compares
-the old and new connector state with
-drm_connector_atomic_hdr_metadata_equal() and sets
-crtc_state->mode_changed, the same approach as dw-hdmi. The resulting
-disable/enable cycle then drops or (re)sends the SDP.
+Sinks advertise VSC SDP colorimetry support in the DPCD
+(DP_VSC_SDP_EXT_FOR_COLORIMETRY_SUPPORTED). Without it BT.2020 cannot
+be signaled at all, so atomic_check() rejects such a request with
+-EINVAL and userspace's TEST_ONLY probe learns the configuration is
+impossible; i915 instead silently omits the VSC SDP and scans out
+BT.2020 pixels without signaling them. A colorspace change on a live
+stream forces a modeset, so the VSC SDP is regenerated with the new
+colorimetry.
 
-Commits without HDR metadata are unaffected: with a NULL metadata blob
-in both old and new connector state,
-drm_connector_atomic_hdr_metadata_equal() treats them as equal, no
-modeset is forced, and dw_dp_video_enable() skips the SDP. This keeps
-plain SDR commits a no-op even for compositors that write a NULL blob
-on every atomic modeset once the property exists (KWin does).
+On the Rockchip side, create the DP Colorspace property with exactly
+the enum values the driver implements (Default, BT2020_RGB,
+BT2020_YCC). When the colorspace is BT.2020 and the negotiated bus
+format is YCbCr, program s->color_space = V4L2_COLORSPACE_BT2020 so
+the VOP2 uses its BT.2020 R'G'B' to Y'C'bC'r matrix for the CSC. For
+RGB output the pixels leave the VOP2 unconverted and the color space
+stays DEFAULT.
+
+Userspace that leaves the property at "Default" sees no change in
+behavior: the colorimetry mapping, the VSC SDP trigger and the VOP2
+CSC selection all take the previous paths.
 
 Signed-off-by: Igor Paunovic <royalnet026@gmail.com>
 ---
- drivers/gpu/drm/bridge/synopsys/dw-dp.c   | 44 +++++++++++++++++++++--
- drivers/gpu/drm/rockchip/dw_dp-rockchip.c |  2 ++
- 2 files changed, 44 insertions(+), 2 deletions(-)
+ drivers/gpu/drm/bridge/synopsys/dw-dp.c   | 44 +++++++++++++++++++----
+ drivers/gpu/drm/rockchip/dw_dp-rockchip.c | 38 +++++++++++++++++++-
+ 2 files changed, 74 insertions(+), 8 deletions(-)
 
 diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-index df149c52fce0..ca997ea53e66 100644
+index ca997ea53e66..8f0ee9628dcc 100644
 --- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 +++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-@@ -24,6 +24,7 @@
- #include <drm/drm_bridge_connector.h>
- #include <drm/display/drm_dp_helper.h>
- #include <drm/display/drm_hdmi_audio_helper.h>
-+#include <drm/display/drm_hdmi_helper.h>
- #include <drm/drm_edid.h>
- #include <drm/drm_of.h>
- #include <drm/drm_print.h>
-@@ -369,6 +370,7 @@ struct dw_dp {
- 	struct drm_bridge *next_bridge;
- 
- 	int vsc_sdp_nr;
-+	int hdr_sdp_nr;
- 	DECLARE_BITMAP(sdp_reg_bank, SDP_REG_BANK_SIZE);
+@@ -306,6 +306,7 @@ struct dw_dp_bridge_state {
+ 	u8 color_format;
+ 	u8 bpc;
+ 	u8 bpp;
++	enum drm_colorspace colorspace;
  };
  
-@@ -1171,6 +1173,28 @@ static int dw_dp_send_vsc_sdp(struct dw_dp *dp)
- 	return dw_dp_send_sdp(dp, &sdp);
+ struct dw_dp_sdp {
+@@ -1125,6 +1126,12 @@ static void dw_dp_clear_sdp(struct dw_dp *dp, int nr)
+ 		clear_bit(nr, dp->sdp_reg_bank);
  }
  
-+static int dw_dp_send_hdr_metadata_sdp(struct dw_dp *dp,
-+				       const struct drm_connector_state *conn_state)
++static bool dw_dp_colorspace_is_bt2020(enum drm_colorspace colorspace)
 +{
-+	struct hdmi_drm_infoframe frame;
-+	struct dw_dp_sdp sdp = {};
-+	ssize_t len;
-+	int ret;
-+
-+	ret = drm_hdmi_infoframe_set_hdr_metadata(&frame, conn_state);
-+	if (ret)
-+		return ret;
-+
-+	len = drm_dp_hdr_metadata_infoframe_sdp_pack(dp->bridge.dev, &frame,
-+						     &sdp.base, sizeof(sdp.base));
-+	if (len < 0)
-+		return len;
-+
-+	sdp.flags = DW_DP_SDP_VERTICAL_INTERVAL;
-+
-+	return dw_dp_send_sdp(dp, &sdp);
++	return colorspace == DRM_MODE_COLORIMETRY_BT2020_RGB ||
++	       colorspace == DRM_MODE_COLORIMETRY_BT2020_YCC;
 +}
 +
- static int dw_dp_video_set_pixel_mode(struct dw_dp *dp)
+ static int dw_dp_send_vsc_sdp(struct dw_dp *dp)
  {
- 	switch (dp->pixel_mode) {
-@@ -1265,7 +1289,8 @@ static void dw_dp_video_disable(struct dw_dp *dp)
- 			   FIELD_PREP(VIDEO_STREAM_ENABLE, 0));
- }
- 
--static int dw_dp_video_enable(struct dw_dp *dp)
-+static int dw_dp_video_enable(struct dw_dp *dp,
-+			      const struct drm_connector_state *conn_state)
- {
- 	struct dw_dp_link *link = &dp->link;
  	struct dw_dp_bridge_state *state;
-@@ -1440,6 +1465,9 @@ static int dw_dp_video_enable(struct dw_dp *dp)
- 	if (dw_dp_video_need_vsc_sdp(dp))
- 		dp->vsc_sdp_nr = dw_dp_send_vsc_sdp(dp);
- 
-+	if (conn_state->hdr_output_metadata)
-+		dp->hdr_sdp_nr = dw_dp_send_hdr_metadata_sdp(dp, conn_state);
-+
- 	return 0;
- }
- 
-@@ -1597,6 +1625,7 @@ static int dw_dp_bridge_atomic_check(struct drm_bridge *bridge,
- 	struct dw_dp *dp = bridge_to_dp(bridge);
- 	struct dw_dp_bridge_state *state;
- 	const struct dw_dp_output_format *fmt;
-+	struct drm_connector_state *old_conn_state;
- 	struct drm_display_mode *mode;
- 	int min_hbp = 16;
- 	int min_hsync = 9;
-@@ -1616,6 +1645,11 @@ static int dw_dp_bridge_atomic_check(struct drm_bridge *bridge,
- 	state->bpc = fmt->bpc;
- 	state->bpp = fmt->bpp;
- 
-+	old_conn_state = drm_atomic_get_old_connector_state(conn_state->state,
-+							    conn_state->connector);
-+	if (!drm_connector_atomic_hdr_metadata_equal(old_conn_state, conn_state))
-+		crtc_state->mode_changed = true;
-+
- 	if ((adjusted_mode->hsync_start - adjusted_mode->hdisplay) & 0x1) {
- 		adjusted_mode->hsync_start += 1;
- 		dev_warn(dp->dev, "hfp is not 2 pixeel aligned, fixup to aligned hfp\n");
-@@ -2016,7 +2050,7 @@ static void dw_dp_bridge_atomic_enable(struct drm_bridge *bridge,
- 		return;
+@@ -1160,13 +1167,25 @@ static int dw_dp_send_vsc_sdp(struct dw_dp *dp)
+ 		break;
  	}
  
--	ret = dw_dp_video_enable(dp);
-+	ret = dw_dp_video_enable(dp, conn_state);
- 	if (ret < 0) {
- 		dev_err(dp->dev, "failed to enable video: %d\n", ret);
- 		return;
-@@ -2066,6 +2100,11 @@ static void dw_dp_bridge_atomic_disable(struct drm_bridge *bridge,
- 		dp->vsc_sdp_nr = -1;
- 	}
- 
-+	if (dp->hdr_sdp_nr >= 0) {
-+		dw_dp_clear_sdp(dp, dp->hdr_sdp_nr);
-+		dp->hdr_sdp_nr = -1;
+-	if (state->color_format == DRM_OUTPUT_COLOR_FORMAT_RGB444) {
+-		vsc.colorimetry = DP_COLORIMETRY_DEFAULT;
++	switch (state->colorspace) {
++	case DRM_MODE_COLORIMETRY_BT2020_RGB:
++		vsc.colorimetry = DP_COLORIMETRY_BT2020_RGB;
++		break;
++	case DRM_MODE_COLORIMETRY_BT2020_YCC:
++		vsc.colorimetry = DP_COLORIMETRY_BT2020_YCC;
++		break;
++	default:
++		if (state->color_format == DRM_OUTPUT_COLOR_FORMAT_RGB444)
++			vsc.colorimetry = DP_COLORIMETRY_DEFAULT;
++		else
++			vsc.colorimetry = DP_COLORIMETRY_BT709_YCC;
++		break;
 +	}
 +
- 	dw_dp_reset(dp);
- 	pm_runtime_put_autosuspend(dp->dev);
++	if (state->color_format == DRM_OUTPUT_COLOR_FORMAT_RGB444)
+ 		vsc.dynamic_range = DP_DYNAMIC_RANGE_VESA;
+-	} else {
+-		vsc.colorimetry = DP_COLORIMETRY_BT709_YCC;
++	else
+ 		vsc.dynamic_range = DP_DYNAMIC_RANGE_CTA;
+-	}
+ 
+ 	drm_dp_vsc_sdp_pack(&vsc, &sdp.base);
+ 
+@@ -1227,7 +1246,7 @@ static bool dw_dp_video_need_vsc_sdp(struct dw_dp *dp)
+ 	if (state->color_format == DRM_OUTPUT_COLOR_FORMAT_YCBCR420)
+ 		return true;
+ 
+-	return false;
++	return dw_dp_colorspace_is_bt2020(state->colorspace);
  }
-@@ -2668,6 +2707,7 @@ int dw_dp_probe(struct dw_dp *dp)
- 		return ret;
  
- 	dp->vsc_sdp_nr = -1;
-+	dp->hdr_sdp_nr = -1;
- 	dp->audio_interface = DW_DP_AUDIO_UNUSED;
- 	dp->audio_sdp_nr = -1;
+ static int dw_dp_video_set_msa(struct dw_dp *dp,
+@@ -1644,10 +1663,21 @@ static int dw_dp_bridge_atomic_check(struct drm_bridge *bridge,
+ 	state->color_format = fmt->color_format;
+ 	state->bpc = fmt->bpc;
+ 	state->bpp = fmt->bpp;
++	state->colorspace = conn_state->colorspace;
++
++	/*
++	 * BT.2020 cannot be signaled through the legacy MSA MISC0
++	 * colorimetry bits; it requires the VSC SDP colorimetry format
++	 * indication, which the sink must support.
++	 */
++	if (dw_dp_colorspace_is_bt2020(conn_state->colorspace) &&
++	    !dp->link.vsc_sdp_supported)
++		return -EINVAL;
  
+ 	old_conn_state = drm_atomic_get_old_connector_state(conn_state->state,
+ 							    conn_state->connector);
+-	if (!drm_connector_atomic_hdr_metadata_equal(old_conn_state, conn_state))
++	if (!drm_connector_atomic_hdr_metadata_equal(old_conn_state, conn_state) ||
++	    old_conn_state->colorspace != conn_state->colorspace)
+ 		crtc_state->mode_changed = true;
+ 
+ 	if ((adjusted_mode->hsync_start - adjusted_mode->hdisplay) & 0x1) {
 diff --git a/drivers/gpu/drm/rockchip/dw_dp-rockchip.c b/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
-index 4dc29963b5d8..c5bc178c0a50 100644
+index c5bc178c0a50..798d82893f98 100644
 --- a/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
 +++ b/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
-@@ -198,6 +198,8 @@ static int dw_dp_rockchip_bind(struct device *dev, struct device *master, void *
- 		return ret;
- 	}
+@@ -69,6 +69,21 @@ static void dw_dp_rockchip_hpd_sw_cfg(void *data, bool hpd)
+ 		     FIELD_PREP_WM16(ROCKCHIP_VO_GRF_DP_SINK_HPD_CFG, hpd));
+ }
  
-+	drm_connector_attach_hdr_output_metadata_property(connector);
++static bool dw_dp_yuv_bus_format(u32 bus_format)
++{
++	switch (bus_format) {
++	case MEDIA_BUS_FMT_UYYVYY10_0_5X30:
++	case MEDIA_BUS_FMT_UYYVYY8_0_5X24:
++	case MEDIA_BUS_FMT_YUYV10_1X20:
++	case MEDIA_BUS_FMT_YUYV8_1X16:
++	case MEDIA_BUS_FMT_YUV10_1X30:
++	case MEDIA_BUS_FMT_YUV8_1X24:
++		return true;
++	default:
++		return false;
++	}
++}
++
+ static int dw_dp_encoder_atomic_check(struct drm_encoder *encoder,
+ 				      struct drm_crtc_state *crtc_state,
+ 				      struct drm_connector_state *conn_state)
+@@ -102,7 +117,17 @@ static int dw_dp_encoder_atomic_check(struct drm_encoder *encoder,
+ 	s->output_type = DRM_MODE_CONNECTOR_DisplayPort;
+ 	s->bus_format = bus_format;
+ 	s->bus_flags = di->bus_flags;
+-	s->color_space = V4L2_COLORSPACE_DEFAULT;
++
++	/*
++	 * For BT.2020 YCbCr output the VOP2 must use its BT.2020 R'G'B' to
++	 * Y'C'bC'r matrix; BT.2020 RGB is passed through unconverted.
++	 */
++	if ((conn_state->colorspace == DRM_MODE_COLORIMETRY_BT2020_RGB ||
++	     conn_state->colorspace == DRM_MODE_COLORIMETRY_BT2020_YCC) &&
++	    dw_dp_yuv_bus_format(bus_format))
++		s->color_space = V4L2_COLORSPACE_BT2020;
++	else
++		s->color_space = V4L2_COLORSPACE_DEFAULT;
+ 
+ 	return 0;
+ }
+@@ -200,6 +225,17 @@ static int dw_dp_rockchip_bind(struct device *dev, struct device *master, void *
+ 
+ 	drm_connector_attach_hdr_output_metadata_property(connector);
+ 
++	ret = drm_mode_create_dp_colorspace_property(connector,
++						     BIT(DRM_MODE_COLORIMETRY_DEFAULT) |
++						     BIT(DRM_MODE_COLORIMETRY_BT2020_RGB) |
++						     BIT(DRM_MODE_COLORIMETRY_BT2020_YCC));
++	if (ret) {
++		dw_dp_unbind(dp->base);
++		return ret;
++	}
++
++	drm_connector_attach_colorspace_property(connector);
 +
  	return 0;
  }
