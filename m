@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D099C5AD56
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 19:07:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8020CC5AD4E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 19:07:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=rHBcM2dGqvqt2MFcbsRy6YI6l+L1ulkIqSiY17ZJTo4=; b=C4blnFPBIDmj5cwnPP1GcRcdU7
-	sunAB6ivDy5Yc3B+XFs/7BwAmnGnyna0KWOg6k5Pm2TNDclYkpKpOBnyLTLLv6B19cNUA6oOETuZM
-	jK2TWwUjyYCUVl2GM3xPSoiluYOV/PBqfqp/4kgO2Ao2bjFPOr33VaW11l7kKown1+9dl5kaBlQFk
-	CrY58HZ92IO/ZfULi+68RlCZ6B6em4qDU8v1mqkHzqCrRmRlqz7eo72JbqaUrWAWcl6+SR4LelDtG
-	fEmFyP4+Vr9hWeVuxiN9HV/fr6X4qRL4lEvI3z/aChgy19nhBBO3zxdGFSHex4HD4AA+iMrUqZGSb
-	A84xl42w==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=11jUmXz68wfEdDNE9fhPmv5bfr68O+PGyS7D/g2QFYA=; b=3HcJnJFnkrvYAI+i4Of00CfAYj
+	vJSLfUyYUhmmlVYFJv4GREjDgcqjKfG3P2XgzyUZSPuDijWL+Ldv2zjjr4DS5VQ2c2q6J6JADun6i
+	PEPTngGe0ZbNaZ7hgl/HpMhRojzgWGYvzL3Pv/gURziYJVegZSGB8SbwDgXbCqLylc3DNvtDbRpSg
+	PTqEsf2IwhAIc7EnJCV99RfBWVvmJ6ewFXPsNANgQrJQafLbX0tY44e2mceXoqJvdHQp9M9kzZAwp
+	ehWmSpbgcQ6UAYAMKW7zkqyBIVFpJXHHlMSP+vOYuzghKmWcI8Lod+9xQu7BKl0StbiPDhUaGT5G/
+	wXdVDgdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsmNe-00000009bQf-1SZi;
-	Sat, 08 Aug 2026 19:06:50 +0000
+	id 1wsmNl-00000009bT2-2d3k;
+	Sat, 08 Aug 2026 19:06:57 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsmNZ-00000009bPK-3I0z
+	id 1wsmNj-00000009bSQ-0foz
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Aug 2026 19:06:48 +0000
+	Sat, 08 Aug 2026 19:06:56 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 824BD152B;
-	Sat,  8 Aug 2026 12:06:35 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C8F00152B;
+	Sat,  8 Aug 2026 12:06:48 -0700 (PDT)
 Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 69E103F86F;
-	Sat,  8 Aug 2026 12:06:35 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EBA083F86F;
+	Sat,  8 Aug 2026 12:06:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786215999; bh=bIQ+YQI77rjqwjMQITiURoGT+sfM8wjF7o2l8Mqdet0=;
-	h=From:To:Cc:Subject:Date:From;
-	b=KvDGJ7YxYFIQbHo0/a9+TwPkbMMx6bvE8MuEPgWSRnR1ROG7us0FEoiP0fSLp3VQ0
-	 pYKoGXRcklb1Yh1d4HNuWGgQHj922CDeaJvtOscLoEqoJCErjYbYHNkGvASiWGNPLO
-	 s2nYqgNOPFMWdDWqpYh+FLPc6+roI6TftHvXrZms=
+	t=1786216012; bh=J86oq4HgZ6Rt21p1KidkqkfY3rQPtA5QWNc3IWSKwD8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=a1pc9wDavAZszAqquAg9PBu08L8xLS9jcUHftY09THUAk1WdojtDNA19MNvvADu3e
+	 WOtGI/+b8nrNynO2cHk/e5Km9zbTWS45mrDtiU2mJM82FqjHSC8GMwmVL2iyKWPspQ
+	 5Wzy8DrFIIdxHFf/17QVp/we5swXzrPd1eaV2a0o=
 From: Cristian Marussi <cristian.marussi@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -64,15 +64,17 @@ Cc: sudeep.holla@kernel.org,
 	usama.arif@linux.dev,
 	kernel-team@meta.com,
 	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [PATCH v8 00/23] Introduce SCMI Telemetry support
-Date: Sat,  8 Aug 2026 20:05:31 +0100
-Message-ID: <20260808190554.387949-1-cristian.marussi@arm.com>
+Subject: [PATCH v8 03/23] firmware: arm_scmi: Introduce protocol instance notifiers
+Date: Sat,  8 Aug 2026 20:05:34 +0100
+Message-ID: <20260808190554.387949-4-cristian.marussi@arm.com>
 X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260808190554.387949-1-cristian.marussi@arm.com>
+References: <20260808190554.387949-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260808_120645_993244_3EFA6D25 
-X-CRM114-Status: GOOD (  31.21  )
+X-CRM114-CacheID: sfid-20260808_120655_317042_A653D52B 
+X-CRM114-Status: GOOD (  26.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,300 +89,314 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+SCMI Protocol notifications are typically used by SCMI drivers to detect
+and react to particular conditions: this was the assumption and the classic
+usage scenario upon which the SCMI notification framework was built.
 
-[TLDR Summary]
- [V8 highlights]
- - V8 focus was on fixing some of the residual reviews comments
-   both from Sashiko and human reviewer.
- - There are still outstanding review reports, V8 aimed at improve
-   and cleanup as much as possible within a week cycle so as to gather
-   even more review feedback.
+Some protocols like Telemetry, though, could be interested in enabling and
+registering for such notifications: in such a scenario each initialized
+protocol instance could want to register a common protocol notifier.
 
- [V9 TODO (getting merge-able)]
-  - Tackle most/all of the remaining outstanding Sashiko issues
-  - [ABI]: more DOCS and examples
+In order to reuse the existing SCMI Notifications machinery, allow
+protocols themselves to register for their own notifications and provide
+their own notifier callbacks.
 
-The upcoming SCMI v4.0 specification [0] introduces a new SCMI protocol
-dedicated to System Telemetry.
+Each protocol, at the end of its initialization phase, can now provide one
+unique per-protocol-instance notifier block, which will be registered, by
+the core SCMI stack, on the related notification chain: such notifier will
+be automatically removed during the protocol de-initialization phase.
 
-In a nutshell, the SCMI Telemetry protocol allows an agent to discover at
-runtime the set of Telemetry Data Events (DEs) available on a specific
-platform and provides the means to configure the set of DEs that a user is
-interested into, while reading them back using the collection method that
-is deeemed more suitable for the usecase at hand. (...amongst the various
-possible collection methods allowed by SCMI specification)
-
-Without delving into the gory details of the whole SCMI Telemetry protocol
-let's just say that the SCMI platform/server firmware advertises a number
-of Telemetry Data Events, each one identified by a 32bit unique ID, and an
-SCMI agent/client, like Linux, can discover them and read back at will the
-associated data value in a number of ways.
-
-Data collection is mainly intended to happen on demand via shared memory
-areas exposed by the platform firmware, discovered dynamically via SCMI
-Telemetry and accessed by Linux on-demand, but some DE can also be reported
-via SCMI Notifications asynchronous messages or via direct dedicated
-FastChannels (another kind of SCMI memory based access): all of this
-underlying mechanism is anyway hidden to the user since it is mediated by
-the kernel driver which will return the proper data value when queried.
-
-Anyway, the set of well-known architected DE IDs defined by the spec is
-limited to a dozen IDs, which means that the vast majority of DE IDs are
-customizable per-platform: as a consequence, though, the same ID, say
-'0x1234', could represent completely different things on different systems.
-
-Precise definitions and semantic of such custom Data Event IDs are out of
-the scope of the SCMI Telemetry specification and of this implementation:
-they are supposed to be provided using some kind of JSON-like description
-file that will have to be consumed by a userspace tool which would be
-finally in charge of making sense of the set of available DEs.
-
-IOW, in turn, this means that even though the DEs enumerated via SCMI come
-with some sort of topological and qualitative description provided by the
-protocol (like unit of measurements, name, topology info etc), kernel-wise
-we CANNOT be completely sure of "what is what" without being fed-back some
-sort of information about the DEs by the afore mentioned userspace tool.
-
-For these reasons, currently this series does NOT attempt to register any
-of these DEs with any of the usual in-kernel subsystems (like HWMON, IIO,
-PERF etc), simply because we cannot be sure which DE is suitable, or even
-desirable, for a given subsystem. This also means there are NO in-kernel
-users of these Telemetry data events as of now.
-
-So, while we do not exclude, for the future, to feed/register some of the
-discovered DEs to/with some of the above mentioned Kernel subsystems, as
-of now we have ONLY modeled a custom userspace API to make SCMI Telemetry
-available to userspace tools.
-
-With V5 we adopted a pure chardev/IOCTL ABI approach, refining the IOCTL
-based interface already present with the previous FS-based ABI.
-
-INTERFACES
-
-For each discovered SCMI Instance a character device named tlm_<N> is
-created under /dev/scmi/ subtree.
-
-The IOCTL interface described at 'include/uapi/linux/scmi.h' is made
-available to enumerate and configure Telemetry resources: Telemetry data
-can be collected using a few different IOCTls, depending on the required
-granularity.
-
-Alternatively it is possible to obtain a list of the file descriptors
-referencing directly the underlying SCMI Telemetry SHMTI memory areas and
-implement in user space an SCMI Telemetry parser accessing directly the
-SHMTI, while staying in compliance with the SCMI TDCF format.
-
-NOTE THAT from v3 onwards the firmware interface level NOW supports ONLY
-the latest SCMI v4.0 specification [0].
-
-Based on V7.2-rc6, tested on an emulated setup.
-
-This series is available also at [1].
-
-If you still reading...any feedback welcome :P
-
-Thanks,
-Cristian
-
+Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 ---
 v7 --> v8
- - Rebased on v7.2-rc6
- - [SYS/TLM] refatcor batched IOCTLs handling
- - [SYS/TLM] use array_size to check for overflows all over
- - [SYS/TLM] add upper bounds checks for batched IOCTL
- - [ABI] fix wrong strcut in SCMI_TLM_BATCH_READ
- - [ABI] move a few IOCTLs to be _IOW only
- - [TLM] reworked locking around TDCF lines tracking
- - [TLM] add proper barriers to TDE/UUID binding process
- - [TLM] update tde->sid on SCAN_UPDATE too
- - [TLM] check wrap-arounds on shmti_de_offset manipulation
- - [TLM] remove .all_disable telemetry_operation since unused
- - [TLM] add WARN on if a valid SHMTI ID is reported o
-         enabling a FastChannel/DE
- - [TLM] add more safeguards and checks to SHMTI_OVERFLOWS
- - [TLM] fix UUIDs copy and allocation
- - [TLM] fix UUID reference store and cleanup
- - [TLM] add proper msg boundary parsing checks on DE_DESCRIPTION multipart
- - [TLM] add proper cleanup/rollback on groups_init err_path
- - [TLM] update num_des_tstamp ONLY after a DE is successfully initialized
- - [TLM] proper cleanup tde during tde_put (preserving info/mutex bits)
- - [TLM] add membarriers in enumerate resources
- - [TLM] add a check and a warn on SHMTI phys_addr alignment
- - [TLM] use proper FTRACE helpers for variable strings
-v6 --> v7
- - [ABI] IOCTL EVENTS support: GENERATION COUNTER (stlm monitor)
- - [ABI] expose DE tracking: UUID/SHMTI/OFFS
- - [ABI] IOCTL BATCHED DE_CFG
- - [ABI] added per-DE IOCTL BATCH status
- - [ABI] new ABI feats flags
- - [ABI] improved description in Doxygen docs
- - [ABI] added reserved space to grow
- - [STLM] added new ABI feats support (generation, UUIDs, location...)
- - [SYS/TLM] fixed module_init error path
- - [SYS/TLM] fixed interval DISCRETE flags reporting
- - [SYS/TLM] check open FMODE before executing a config change 
- - [SYS/TLM] fixing DEs data cleanup on RESET
- - [SYS/TLM] added _RAW helpers to handle non-MMIO TDCF-like accesses
-   (like Notification payload)
- - [SYS/TLM] added UUID rescan logic at DE enable, when DE/UUID association
- - [TLM] reworked UUID internal handling (endianity) and use uuid_t type
- - [TLM] added generic Telemetry protocol support for events subscription
-   unknown
- - residual sparse fixes
-v5 --> v6
- - rebased on v7.2-rc4
- - fixed a lot of Sashiko complains
- - fixed ABI issues reported by review (Fayssal)
- - added IOCTL TLM_RESET
- - added ABI versioning
- - added compat_ioctl support
- - use a new IOCTL magic name
- - better handling of UUID endianity
- - reworked all bounds checks in UAPI implementation
- - reject oversized SHMTI mmap request
- - refined 'stlm' testing tool to be more interactive and to
-   exercise the full spectrum of IOCTLs ('stlm -h' is your manual
-   for now :P)
- - fully reworked per-protocol notification handling
- - dropped the last bit of human readable data attached to the
-   chardev .read
-v4 --> v5
- - rebased on v7.2-rc1
- - dropped FileSystem based driver
- - introduced a new simple chardev SCMI driver using Telemetry
- - reworked/reviewed the v4 IOCTLs based UAPI
- - UAPI: better struct alignment and comments
- - UAI: Removed flexible array members
- - UAPI: make SCMI Telemetry protocol stack completely independent from
- 	 uapi defs
- - UAPI: new ioctls support to enable RAW mmap direct access to SCMI SHMTI
- 	 areas from userspace
- - added new ABI Documentation
- - added new SCMI core facility to lookup the current SCMI instance ID
-v3 --> v4
- - rebased on v7.1-rc7
- - updatded doc to detail Concurrency model
- - bail out on FW_BUG errors
- - make all_des_enable/all_des_tstamp_enable entry readable
- - refactored access to TDE values
- - refactored common accessors for tlm_priv (FIX WARN on kfree)
- - make all files by default world readable and user writable (if needed)
- - added uid/god/umask mount options (and docs)
- - added generation counter to aid spotting config changes (and docs)
- - added DebugFS configurable support to debug/dump SHMTI areas (and docs)
- - hide FS entries when NOT supported (like des_simple_sample_read)
- - fixed output format of des/<NNN>/value to -> <TS> <VALUE>
- - renamed top-dir by_components to by-components
- - add a .remove method to SCMI System Telemetry Driver
- - use kzalloc_obj
-V2 --> V3
- - rebased on v7.0-rc5
- - ported the firmware interface to SCMI v4.0 BETA
- - split the SCMI protocol layer in a lot of small patches
- - completd filesystem and ABI documentation
- - renamed components subtree to by_components
- - fixed uninitialized var in scmi_telemetry_de_subdir_symlink
- - renamd tstamp_exp to tstamp_rate
- - swap logic in scmi_telemetry_initial_state_lookup
- - use memcpy_from_le32 where required
- - changed a dfew dev_err into Telemetry traces
- - define and use new helper scmi_telemetry_de_unlink
- - simplify a few assignments with ternary ops
- - added a missing __mmust_check on the internal SCMI API
- - reworked and clarified de_data_read returned errno:
- 	ENODATA vs EINVAL vs ENODEV/ENOENT
- - removed some risky/unneeded devres allocations
- - various checkpatch fixes
- - reworked and clarified usage of traces in Telemetry
- - added the missing DT binding for protocol 0x1B
- - split out unrelated change around notification from patch
-   adding support for protocol internal notifier
- - more comments
-
-V1 --> V2
- - rebased on v6.19-rc3
- - harden TDCF shared memory areas accesses by using proper accessors
- - reworked protocol resources lifecycle to allow lazy enumeration
- - using NEW FS mount API
- - reworked FS inode allocation to use a std kmem_cache
- - fixed a few IOCTLs support routine to support lazy enumeration
- - added (RFC) a new FS lazy mount option to support lazily population of
-   some subtrees of the FS (des/ groups/ components/)
- - reworked implementation of components/ alternative FS view to use
-   symlinks instead of hardlinks
- - added a basic simple (RFC) testing tool to exercise UAPI ioctls interface
- - hardened Telmetry protocol and driver to support partial out-of-spec FW
-   lacking some cmds (best effort)
- - reworked probing races handling
- - reviewed behaviour on unmount/unload
- - added support for Boot_ON Telemetry by supporting SCMI Telemetry cmds:
-   + DE_ENABLED_LIST
-   + CONFIG_GET
- - added FS and ABI docs
-
-RFC --> V1
+ - Reworked logic around protocol notifier registration to address
+   possible races as pointed out by Sashiko
+ - Reviewed commit message
+v5 -->v6
+ - move protocol notifier registration out of proto_init
+v2-->v3
+ - split out unrelated changes on event sizing
+v1-->v2
+ - Fixed multiline comment format
 ---
- - moved from SysFS/chardev to a full fledged FS
- - added support for SCMI Telemetry BLK timestamps
+ drivers/firmware/arm_scmi/common.h    | 21 +++++++
+ drivers/firmware/arm_scmi/driver.c    | 89 +++++++++++++++++++++------
+ drivers/firmware/arm_scmi/notify.c    | 34 ++++++++++
+ drivers/firmware/arm_scmi/protocols.h | 10 +++
+ 4 files changed, 135 insertions(+), 19 deletions(-)
 
-[0]: https://developer.arm.com/documentation/den0056/f/?lang=en
-[1]: https://git.kernel.org/pub/scm/linux/kernel/git/cris/linux.git/log/?h=scmi_telemetry_ng_V8
-
-
-Cristian Marussi (23):
-  firmware: arm_scmi: Add new SCMIv4.0 error codes definitions
-  firmware: arm_scmi: Allow registration of unknown-size events/reports
-  firmware: arm_scmi: Introduce protocol instance notifiers
-  dt-bindings: firmware: arm,scmi: Add support for telemetry protocol
-  include: trace: Add Telemetry trace events
-  firmware: arm_scmi: Add basic Telemetry support
-  firmware: arm_scmi: Add support to parse SHMTIs areas
-  firmware: arm_scmi: Add Telemetry configuration operations
-  firmware: arm_scmi: Add Telemetry DataEvent read capabilities
-  firmware: arm_scmi: Add support for Telemetry reset
-  firmware: arm_scmi: Add Telemetry notification support
-  firmware: arm_scmi: Add support for boot-on Telemetry
-  firmware: arm-scmi: Add telemetry generic event support
-  firmware: arm_scmi: Add Telemetry generation counter event
-  firmware: arm_scmi: Add common per-protocol debugfs support
-  firmware: arm_scmi: Add Telemetry debugfs SHMTI dump support
-  firmware: arm_scmi: Add Telemetry debugfs ABI documentation
-  firmware: arm_scmi: Expose per-instance identifier
-  uapi: Add ARM SCMI Telemetry definitions
-  firmware: arm_scmi: Add System Telemetry driver
-  docs: ioctl-number: Add SCMI Ioctls
-  [RFC] Documentation: Add SCMI System Telemetry documentation
-  [RFC] tools/scmi: Add SCMI Telemetry testing tool
-
- Documentation/ABI/testing/debugfs-scmi        |   22 +
- .../bindings/firmware/arm,scmi.yaml           |    8 +
- Documentation/userspace-api/index.rst         |    1 +
- .../userspace-api/ioctl/ioctl-number.rst      |    1 +
- Documentation/userspace-api/stlm.rst          |  148 +
- MAINTAINERS                                   |    1 +
- drivers/firmware/arm_scmi/Kconfig             |   24 +
- drivers/firmware/arm_scmi/Makefile            |    3 +-
- drivers/firmware/arm_scmi/common.h            |   27 +
- drivers/firmware/arm_scmi/driver.c            |  122 +-
- drivers/firmware/arm_scmi/notify.c            |   58 +-
- drivers/firmware/arm_scmi/notify.h            |    8 +-
- drivers/firmware/arm_scmi/protocols.h         |   17 +
- .../firmware/arm_scmi/scmi_system_telemetry.c | 1504 +++++++
- drivers/firmware/arm_scmi/telemetry.c         | 3828 +++++++++++++++++
- include/linux/scmi_protocol.h                 |  259 +-
- include/trace/events/scmi.h                   |   45 +
- include/uapi/linux/scmi.h                     |  528 +++
- tools/testing/scmi/Makefile                   |   25 +
- tools/testing/scmi/stlm.c                     | 1378 ++++++
- 20 files changed, 7978 insertions(+), 29 deletions(-)
- create mode 100644 Documentation/userspace-api/stlm.rst
- create mode 100644 drivers/firmware/arm_scmi/scmi_system_telemetry.c
- create mode 100644 drivers/firmware/arm_scmi/telemetry.c
- create mode 100644 include/uapi/linux/scmi.h
- create mode 100644 tools/testing/scmi/Makefile
- create mode 100644 tools/testing/scmi/stlm.c
-
+diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
+index d9db4a4d17dc..e1220735a991 100644
+--- a/drivers/firmware/arm_scmi/common.h
++++ b/drivers/firmware/arm_scmi/common.h
+@@ -18,6 +18,7 @@
+ #include <linux/list.h>
+ #include <linux/module.h>
+ #include <linux/property.h>
++#include <linux/notifier.h>
+ #include <linux/refcount.h>
+ #include <linux/scmi_protocol.h>
+ #include <linux/spinlock.h>
+@@ -685,8 +686,28 @@ static struct platform_driver __drv = {					       \
+ 	.probe = __tag##_probe,						       \
+ }
+ 
++struct scmi_protocol_notifier {
++	u8 proto_id;
++	u8 evt_id;
++	const u32 *src_id;
++	struct notifier_block *nb;
++	bool registered;
++};
++
+ void scmi_notification_instance_data_set(const struct scmi_handle *handle,
+ 					 void *priv);
+ void *scmi_notification_instance_data_get(const struct scmi_handle *handle);
++
++int scmi_protocol_notifier_register(const struct scmi_handle *handle,
++				    struct scmi_protocol_notifier *pno);
++int scmi_protocol_notifier_unregister(const struct scmi_handle *handle,
++				      struct scmi_protocol_notifier *pno);
++
++static inline bool
++scmi_protocol_notifier_registered(struct scmi_protocol_notifier *pno)
++{
++	return smp_load_acquire(&pno->registered);
++}
++
+ int scmi_inflight_count(const struct scmi_handle *handle);
+ #endif /* _SCMI_COMMON_H */
+diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+index 3e0d975ec94c..3a405db9bb79 100644
+--- a/drivers/firmware/arm_scmi/driver.c
++++ b/drivers/firmware/arm_scmi/driver.c
+@@ -90,6 +90,8 @@ struct scmi_xfers_info {
+  * @gid: A reference for per-protocol devres management.
+  * @users: A refcount to track effective users of this protocol.
+  * @priv: Reference for optional protocol private data.
++ * @pno: A protocol instance notifier descriptor: active only when the
++ *	 included notifier block @nb is non-NULL.
+  * @version: Protocol version supported by the platform as detected at runtime.
+  * @negotiated_version: When the platform supports a newer protocol version,
+  *			the agent will try to negotiate with the platform the
+@@ -109,6 +111,7 @@ struct scmi_protocol_instance {
+ 	void				*gid;
+ 	refcount_t			users;
+ 	void				*priv;
++	struct scmi_protocol_notifier   pno;
+ 	unsigned int			version;
+ 	unsigned int			negotiated_version;
+ 	struct scmi_protocol_handle	ph;
+@@ -1655,6 +1658,24 @@ static void *scmi_get_protocol_priv(const struct scmi_protocol_handle *ph)
+ 	return pi->priv;
+ }
+ 
++static int
++scmi_register_instance_notifier(const struct scmi_protocol_handle *ph, u8 evt_id,
++				const u32 *src_id, struct notifier_block *nb)
++{
++	struct scmi_protocol_instance *pi = ph_to_pi(ph);
++
++	pi->pno.proto_id = pi->proto->id;
++	pi->pno.evt_id = evt_id;
++	pi->pno.src_id = src_id;
++	/*
++	 * Ensure the descriptor fields are visibile when the notifier block is
++	 * made available
++	 */
++	smp_store_release(&pi->pno.nb, nb);
++
++	return 0;
++}
++
+ static const struct scmi_xfer_ops xfer_ops = {
+ 	.xfer_get_init = xfer_get_init,
+ 	.reset_rx_to_maxsz = reset_rx_to_maxsz,
+@@ -2255,6 +2276,7 @@ scmi_alloc_init_protocol_instance(struct scmi_info *info,
+ 	pi->ph.hops = &helpers_ops;
+ 	pi->ph.set_priv = scmi_set_protocol_priv;
+ 	pi->ph.get_priv = scmi_get_protocol_priv;
++	pi->ph.instance_notifier_register = scmi_register_instance_notifier;
+ 	refcount_set(&pi->users, 1);
+ 
+ 	/*
+@@ -2317,24 +2339,34 @@ static struct scmi_protocol_instance * __must_check
+ scmi_get_protocol_instance(const struct scmi_handle *handle, u8 protocol_id)
+ {
+ 	struct scmi_protocol_instance *pi;
++	struct notifier_block *proto_notifier_nb = NULL;
+ 	struct scmi_info *info = handle_to_scmi_info(handle);
+ 
+-	mutex_lock(&info->protocols_mtx);
+-	pi = idr_find(&info->protocols, protocol_id);
++	scoped_guard(mutex, &info->protocols_mtx) {
++		pi = idr_find(&info->protocols, protocol_id);
++		if (pi) {
++			refcount_inc(&pi->users);
++		} else {
++			const struct scmi_protocol *proto;
+ 
+-	if (pi) {
+-		refcount_inc(&pi->users);
+-	} else {
+-		const struct scmi_protocol *proto;
++			/* Fails if protocol not registered on bus */
++			proto = scmi_protocol_get(protocol_id, &info->version);
++			if (!proto)
++				return ERR_PTR(-EPROBE_DEFER);
+ 
+-		/* Fails if protocol not registered on bus */
+-		proto = scmi_protocol_get(protocol_id, &info->version);
+-		if (proto)
+ 			pi = scmi_alloc_init_protocol_instance(info, proto);
+-		else
+-			pi = ERR_PTR(-EPROBE_DEFER);
++			if (IS_ERR(pi))
++				return pi;
++
++			proto_notifier_nb = READ_ONCE(pi->pno.nb);
++		}
++	}
++
++	if (proto_notifier_nb) {
++		if (scmi_protocol_notifier_register(pi->handle, &pi->pno))
++			dev_warn(handle->dev,
++				 "Failed to register protocol notifier\n");
+ 	}
+-	mutex_unlock(&info->protocols_mtx);
+ 
+ 	return pi;
+ }
+@@ -2365,13 +2397,35 @@ int scmi_protocol_acquire(const struct scmi_handle *handle, u8 protocol_id)
+ void scmi_protocol_release(const struct scmi_handle *handle, u8 protocol_id)
+ {
+ 	struct scmi_info *info = handle_to_scmi_info(handle);
++	struct notifier_block *proto_notifier_nb = NULL;
+ 	struct scmi_protocol_instance *pi;
+ 
+-	mutex_lock(&info->protocols_mtx);
+-	pi = idr_find(&info->protocols, protocol_id);
+-	if (WARN_ON(!pi))
+-		goto out;
++	scoped_guard(mutex, &info->protocols_mtx) {
++		pi = idr_find(&info->protocols, protocol_id);
++		if (WARN_ON(!pi))
++			return;
+ 
++		/*
++		 * If a protocol notifier was registered and this is the
++		 * last istance releasing the protocol, mark the notifier
++		 * for un-registration: note that the notifier itself counts
++		 * as one user, as for any other regular notification, so if a
++		 * protocol notifier is registered and there are only 2 users
++		 * active we can derive that this is the last protocol
++		 * instance de-registering.
++		 */
++		if (scmi_protocol_notifier_registered(&pi->pno) &&
++		    refcount_read(&pi->users) == 2)
++			proto_notifier_nb = READ_ONCE(pi->pno.nb);
++	}
++
++	if (proto_notifier_nb) {
++		if (scmi_protocol_notifier_unregister(pi->handle, &pi->pno))
++			dev_err(handle->dev,
++				"Failed to release protocol notifier\n");
++	}
++
++	guard(mutex)(&info->protocols_mtx);
+ 	if (refcount_dec_and_test(&pi->users)) {
+ 		void *gid = pi->gid;
+ 
+@@ -2389,9 +2443,6 @@ void scmi_protocol_release(const struct scmi_handle *handle, u8 protocol_id)
+ 		dev_dbg(handle->dev, "De-Initialized protocol: 0x%X\n",
+ 			protocol_id);
+ 	}
+-
+-out:
+-	mutex_unlock(&info->protocols_mtx);
+ }
+ 
+ void scmi_setup_protocol_implemented(const struct scmi_protocol_handle *ph,
+diff --git a/drivers/firmware/arm_scmi/notify.c b/drivers/firmware/arm_scmi/notify.c
+index 8995dd1b12aa..6687a7c3bfaf 100644
+--- a/drivers/firmware/arm_scmi/notify.c
++++ b/drivers/firmware/arm_scmi/notify.c
+@@ -1420,6 +1420,22 @@ static int scmi_notifier_register(const struct scmi_handle *handle,
+ 	return ret;
+ }
+ 
++int scmi_protocol_notifier_register(const struct scmi_handle *handle,
++				    struct scmi_protocol_notifier *pno)
++{
++	int ret;
++
++	ret = scmi_notifier_register(handle, pno->proto_id, pno->evt_id,
++				     pno->src_id, pno->nb);
++	if (ret)
++		return ret;
++
++	/* Make sure registration is visible */
++	smp_store_release(&pno->registered, true);
++
++	return 0;
++}
++
+ /**
+  * scmi_notifier_unregister()  - Unregister a notifier_block for an event
+  * @handle: The handle identifying the platform instance against which the
+@@ -1477,6 +1493,24 @@ static int scmi_notifier_unregister(const struct scmi_handle *handle,
+ 	return 0;
+ }
+ 
++int scmi_protocol_notifier_unregister(const struct scmi_handle *handle,
++				      struct scmi_protocol_notifier *pno)
++{
++	int ret;
++
++	/* Make sure de-registration is visible BEFORE calling unregister */
++	smp_store_release(&pno->registered, false);
++	ret = scmi_notifier_unregister(handle, pno->proto_id, pno->evt_id,
++				       pno->src_id, pno->nb);
++	if (WARN_ON(ret)) {
++		/* Make sure rollback is visible */
++		smp_store_release(&pno->registered, true);
++		return ret;
++	}
++
++	return 0;
++}
++
+ struct scmi_notifier_devres {
+ 	const struct scmi_handle *handle;
+ 	u8 proto_id;
+diff --git a/drivers/firmware/arm_scmi/protocols.h b/drivers/firmware/arm_scmi/protocols.h
+index 15ad5162e37a..b7f29003a7dc 100644
+--- a/drivers/firmware/arm_scmi/protocols.h
++++ b/drivers/firmware/arm_scmi/protocols.h
+@@ -166,6 +166,13 @@ struct scmi_proto_helpers_ops;
+  *	  can be used by the protocol implementation to generate SCMI messages.
+  * @set_priv: A method to set protocol private data for this instance.
+  * @get_priv: A method to get protocol private data previously set.
++ * @instance_notifier_register: A method to register interest for specific
++ *				notifications from within a protocol
++ *				implementation unit: ONLY one instance notifier
++ *				can be registered per-protocol.
++ *				The related notifier block will be registered
++ *				right after the protocol is initialized and
++ *				automatically removed on protocol release.
+  *
+  * This structure represents a protocol initialized against specific SCMI
+  * instance and it will be used as follows:
+@@ -185,6 +192,9 @@ struct scmi_protocol_handle {
+ 	const struct scmi_proto_helpers_ops *hops;
+ 	int (*set_priv)(const struct scmi_protocol_handle *ph, void *priv);
+ 	void *(*get_priv)(const struct scmi_protocol_handle *ph);
++	int (*instance_notifier_register)(const struct scmi_protocol_handle *ph,
++					  u8 evt_id, const u32 *src_id,
++					  struct notifier_block *nb);
+ };
+ 
+ /**
 -- 
 2.54.0
 
