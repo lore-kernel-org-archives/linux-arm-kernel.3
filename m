@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5746C5AD58
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 23:18:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 930D4C5AD48
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 23:18:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dOZHGJeIbepL3mJdX8opMcoKRte7U11zEhbMcktjANc=; b=QCUZj/rBn7vGAEUscbNaK59slq
-	hdWNoNiGbuPwNdIUU+8EG3Cstr4IBOSc0IhG89wJsqYK7yHM1ZcY4vMjZ3uHLjHF3kJDbYCT+NbH9
-	lPHQijQjwPZL1zkBp/YlhsH/+6CiTQAwo/5KEEnpqkMrYmqYvNcIQlkLf/tOsfOI/U9WoFzMM/s6k
-	ePlHFLbtsdFdUb2Ujbiia0r21GG8XaTCq8eccoNXhoC9FYQIlogfgdfG40onOSx+r4koe92rOoDYr
-	1Q+J9z+uJQGtvkrF+5ju5/dMqwoSrScrHkvjJt2Gps+Y73EjieMflKYG4DOr5vRVu/pdJEf+s90Cy
-	xxyyYInw==;
+	bh=ca1nwuh/ovV7iRlJ1HipcMmil7CeSekJrBHAP1jRLkM=; b=XmOx+nGtxboI9XAMXNrVzsW5pz
+	7bX60ZvAiRa1/FwTxpGXU/9QGVmNYXBC+D/S8bzV9paRMKqDPqLvs30lKCXr5yhYrfE0Nmwlpx4/+
+	jE6/kQOTGxGjSbqlS0P8Jh9r85zhh8JfgbcGa7xx2PIGVLAowp3huKVcEwLs1Fbw2dg8+Dj8Z4pjR
+	qbl9DCsruQNi4N3g1udA50uxhlg3C+1mcZxBLbUhC9hCrKVjUys04f6D82ZNzbZN5HBbD2eMCvzsc
+	z0Ef2mN9Gb2xeKKVdO3ZKVL7ur9kGw2dXlkWR/MLXP6ZonoX6i9UAvIncRKZ+UwXIIm7Mu928mMB6
+	PyZ6fdmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsqJJ-00000009mD4-3Oy9;
+	id 1wsqJJ-00000009mBA-0dvF;
 	Sat, 08 Aug 2026 23:18:37 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsqJH-00000009m9x-47zd
+	id 1wsqJF-00000009m8h-26r8
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Aug 2026 23:18:36 +0000
+	Sat, 08 Aug 2026 23:18:33 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BB3F844015;
-	Sat,  8 Aug 2026 23:18:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 123E51F00AC4;
-	Sat,  8 Aug 2026 23:18:35 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id ED79A60120;
+	Sat,  8 Aug 2026 23:18:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1BFC71F00ADE;
+	Sat,  8 Aug 2026 23:18:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786231115;
-	bh=dOZHGJeIbepL3mJdX8opMcoKRte7U11zEhbMcktjANc=;
+	s=k20260515; t=1786231112;
+	bh=ca1nwuh/ovV7iRlJ1HipcMmil7CeSekJrBHAP1jRLkM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=XUHdYqsO0zpCVOBvNEYBw7FpX5o8Dy0WeFYkKuS735DrtZwrgfuloJny+SPE7ziSs
-	 dKRIdMxd5ERoCxsnt8sITbi+mGuiu5zTG+svBk3PvOiDPFzK4vuuTl08EGyEYr510U
-	 piOi5esgGaDWVz2W4f17zRZU01GHczFJfjh3JRKFgPEvzX8VLWPb59Tpk13TdM60QB
-	 hbw2B2zIHDDLp+Bsx4Dwe/LpaN8SGfjnQGKj7hM5DkRIdC8unk71ktCTCz0r6vV4RG
-	 jR9u8+WHkZDJYw3OsZj6czlhDFNdbY2NZits11RpXk4dgcru7v96nyS3xPn/HbIHnA
-	 gbieQK5GJojOA==
+	b=T8T+/OKR1u9TE8zMCEbQ4TXv1lVbonhiRfkPhEbj9aBh3hZ41aNT296DcWSDQxxxK
+	 99oIJh/K451j+TTrApJzmlCGBBkddDrxpw9L/zoLPMkRZ6cuuDLYcKMTMP2T//ZXfx
+	 rDoXERtMRV9KJuVPqPju07SwjrfbcQnYcfZ8+JFA7CWCAl3cVrhj/Ggp+neiu9mFYe
+	 VfkYbrlLLj7jwmJ+mf6yWW6FpiIbHCZMmfVfmdmtyJTJZLfwngEYTxFrKQDih+6VgT
+	 f6ffS9xmOq/1QoRICXUxnnBTRXyNE6ujppyVlcbU72ztkjGYC0DaajkkICYuuWtQjj
+	 AkjbnfGEnqanw==
 From: Josh Poimboeuf <jpoimboe@kernel.org>
 To: x86@kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -58,9 +58,9 @@ Cc: linux-kernel@vger.kernel.org,
 	Herbert Xu <herbert@gondor.apana.org.au>,
 	Miroslav Benes <mbenes@suse.cz>,
 	Petr Mladek <pmladek@suse.com>
-Subject: [PATCH v4 12/22] objtool: Ignore jumps to the end of the function for checksum runs
-Date: Sat,  8 Aug 2026 16:17:16 -0700
-Message-ID: <13cec0336ae0e9ad4bd605bf34b1236de85d6243.1786230311.git.jpoimboe@kernel.org>
+Subject: [PATCH v4 08/22] arm64: Remove unnecessary empty alternatives
+Date: Sat,  8 Aug 2026 16:17:12 -0700
+Message-ID: <a22bffd0fa5b02511fb6e4c1b68af871f260e691.1786230311.git.jpoimboe@kernel.org>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <cover.1786230311.git.jpoimboe@kernel.org>
 References: <cover.1786230311.git.jpoimboe@kernel.org>
@@ -80,82 +80,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sometimes Clang arm64 code jumps to the end of the function for UB.  No
-need to make that an error for checksum runs, which are only run
-manually by klp-build, and for which caring about UB is out of scope.
+The code in arch/arm64/mm/cache.S creates three empty alternatives, all
+from calling the dcache_by_myline_op_nosync asm macro.  If \op == cvau,
+it creates an empty alternative for ARM64_WORKAROUND_4311569.
 
-Such UBs are still reported for normal validate branch runs (for arches
-which do that).
+Since orig_len == 0, the alternative patching code mostly ignores it,
+though it does do an unnecessary clean_dcache_range_nopatch().  It also
+triggers an objtool error ("empty alternative entry").
+
+Clean it up by moving the .ifnc check outside the alternative emit.
 
 Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
 ---
- tools/objtool/check.c | 38 +++++++++++++++++++++-----------------
- 1 file changed, 21 insertions(+), 17 deletions(-)
+ arch/arm64/include/asm/assembler.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/tools/objtool/check.c b/tools/objtool/check.c
-index b353c7d6cd893..c034676e1b8c7 100644
---- a/tools/objtool/check.c
-+++ b/tools/objtool/check.c
-@@ -38,6 +38,22 @@ struct disas_context *objtool_disas_ctx;
+diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/assembler.h
+index effae53e9739d..6e059efced5bb 100644
+--- a/arch/arm64/include/asm/assembler.h
++++ b/arch/arm64/include/asm/assembler.h
+@@ -404,13 +404,13 @@ alternative_else_nop_endif
+ 	add	\start, \start, \linesz
+ 	cmp	\start, \end
+ 	b.lo	.Ldcache_op\@
+-alternative_if ARM64_WORKAROUND_4311569
+ 	.ifnc	\op, cvau
++alternative_if ARM64_WORKAROUND_4311569
+ 	mov	\start, \tmp
+ 	mov	\tmp, xzr
+ 	cbnz	\start, .Ldcache_op\@
+-	.endif
+ alternative_else_nop_endif
++	.endif
  
- size_t sym_name_max_len;
- 
-+static bool validate_branch_enabled(void)
-+{
-+	return opts.stackval	||
-+	       opts.orc		||
-+	       opts.uaccess;
-+}
-+
-+static bool alts_needed(void)
-+{
-+	return validate_branch_enabled()	||
-+	       opts.noinstr			||
-+	       opts.hack_jump_label		||
-+	       opts.disas			||
-+	       opts.checksum;
-+}
-+
- struct instruction *find_insn(struct objtool_file *file,
- 			      struct section *sec, unsigned long offset)
- {
-@@ -1595,8 +1611,12 @@ static int add_jump_destinations(struct objtool_file *file)
- 			/*
- 			 * GCOV/KCOV dead code can jump to the end of
- 			 * the function/section.
-+			 *
-+			 * Clang on arm64 also does this sometimes for
-+			 * undefined behavior.
- 			 */
--			if (file->ignore_unreachables && func &&
-+			if ((!validate_branch_enabled() || file->ignore_unreachables) &&
-+			    func &&
- 			    dest_sec == insn->sec &&
- 			    dest_off == func->offset + func->len)
- 				continue;
-@@ -2586,22 +2606,6 @@ static void mark_holes(struct objtool_file *file)
- 	}
- }
- 
--static bool validate_branch_enabled(void)
--{
--	return opts.stackval	||
--	       opts.orc		||
--	       opts.uaccess;
--}
--
--static bool alts_needed(void)
--{
--	return validate_branch_enabled()	||
--	       opts.noinstr			||
--	       opts.hack_jump_label		||
--	       opts.disas			||
--	       opts.checksum;
--}
--
- int decode_file(struct objtool_file *file)
- {
- 	arch_initial_func_cfi_state(&initial_func_cfi);
+ 	_cond_uaccess_extable .Ldcache_op\@, \fixup
+ 	.endm
 -- 
 2.54.0
 
