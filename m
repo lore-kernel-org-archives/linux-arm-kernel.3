@@ -4,85 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E7DAC5AD4E
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 20:20:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F40E5C5AD44
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 20:52:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dTyEmAFMXg2QOXmlZRaJiP5I5NyDAILJNF6EwnDocl8=; b=IBaq7cd4nwjN8BK0/8MKfNkHCF
-	WVoUme+uMtqqd1droaH4Kk6WAo7K4jQZbUTQETQCcSyFe5nXZHjzX6uhz0W0LfaHDPxgJZWet/eKr
-	+47+aLhQo4piJW6yt+ILbvG8hDqEVKaSTgHYh+ROYhFQbrtL6ZICfexDQORG27BqqcF5fUxyZKx/1
-	D6jXL/fXberERIoOGwSG7XuRgQSRFzLmSba7zRmcOD96+PpCKkwSXMO5TpSW0ASkAB5dwh1GHvBsE
-	fvQjz5nL57AnVBHrj5wFhjE4MXSv4nEIkUqAQn/c/m2LnJXF96ZUo/aJTd3I+qRYGV7HQ9QPtqpm4
-	AV3j1vxQ==;
+	bh=jW3/wHK6arLrbCF7ZYUm52uQhZiuFpzDxuofDG4/EkY=; b=GP+yEUyTjrpI38VrIEKAmMPaFD
+	RZD5Oc03DAyDk+1BOesi6H4dEWtKSmY8np2wq7aFTVwKExZE10sq2171sHFVwg9oqajZ5o7wQdPK/
+	5nSxceyN0u+jwCTXA2m8ShEMzSw/pt04Q6FnUr8Gr4OBwm9Bdl5qe5yJ/4OPnVGNlvtXveLJaiqA9
+	oQpnPCiCRVhBF//Ze/aGoOnRqsgyK8n19R37s30/5lmAEQOk2X1bp80RxGCXd7tDbIKEJlcQPrIxI
+	K0zTHdKkEf0Pl1PdjObTrvlmQpO0QM9GvNDf4jEH3vl5ltUqHUafzABA2ghftZ/YXgqhoN2AF0QTH
+	Ia3BObBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsnXB-00000009iGx-28z2;
-	Sat, 08 Aug 2026 20:20:45 +0000
-Received: from sender4-op-o11.zoho.com ([136.143.188.11])
+	id 1wso1u-00000009jUK-00t5;
+	Sat, 08 Aug 2026 20:52:30 +0000
+Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsnX8-00000009iGP-3whb;
-	Sat, 08 Aug 2026 20:20:44 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1786220392; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=nQD+fGqxB6UkDIh6ab8llSRtZtAVdtmjXM55X4ftMoqQV0GLZJCSWlhUNX6ngEyMXI7AmhJJLZW2nwP4sJKkYsn4UcOU+zuKgzKUWGr7XypA/uq+lcwUmoKYbV0L4HSjTsGaUZLnOnuFLVydVQQC25s2SDvzFog7AAmsnZ/c38s=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1786220392; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=dTyEmAFMXg2QOXmlZRaJiP5I5NyDAILJNF6EwnDocl8=; 
-	b=CE/G2sMo9Mw9AKCz4lFbfyR9wVUahgjz1b0uCkNXEnB6JByCLVOJp5sQgGViBzusDJJf3I6TDNQjtPOAa7lIWThGkSnhIFgjlaHWW3KFKXlgyeB8PBs+hwQT4Tjx5WhEI9Eb422NQ6N+wft3ZjX0PeoYtFOyNUtuwieIFV2Xa6k=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1786220391;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=dTyEmAFMXg2QOXmlZRaJiP5I5NyDAILJNF6EwnDocl8=;
-	b=cE3SLerBAaQutJ7S37S5guKr19nYqY+YMpqOXCgt069b/O0KhnZYMHocj/VbZ0pi
-	NlT3B4uUFl26JqZKRKL370SK/gjkCYtADtPFm3UpqjShqjaQaaQ3JOx0FwcXzJ9bMkE
-	QvXJ6u/3NNnm7FJ1BpzX96szDMbhcQtXH3NeNAdg=
-Received: by mx.zohomail.com with SMTPS id 1786220389882229.9479842488364;
-	Sat, 8 Aug 2026 13:19:49 -0700 (PDT)
-Received: by venus (Postfix, from userid 1000)
-	id 8F47B180679; Sat, 08 Aug 2026 22:19:42 +0200 (CEST)
-Date: Sat, 8 Aug 2026 22:19:42 +0200
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Igor Paunovic <royalnet026@gmail.com>
-Cc: Sandy Huang <hjc@rock-chips.com>, 
-	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, 
-	Damon Ding <damon.ding@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>, 
-	Alexey Charkov <alchark@flipper.net>, dri-devel@lists.freedesktop.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	kernel@collabora.com, linux-arm-kernel@lists.infradead.org, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH v11 00/21] Synopsys DisplayPort Controller improvements
- for Rockchip platforms
-Message-ID: <aneNCDU12OzG99UX@venus>
-References: <20260806-synopsys-dw-dp-improvements-v11-0-0d508505f383@collabora.com>
- <20260808094138.7205-1-royalnet026@gmail.com>
+	id 1wso1r-00000009jTz-2AsX
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 08 Aug 2026 20:52:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1786222347; x=1817758347;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=udPPUG7YUJ+eyh17qdQwjE9kRRrsNEriEz/GGK9oFgA=;
+  b=an/uot9c22hPborTwM1zNbK2CW7eTNJ5IIO3NV/ABWBXAusJ5ag4165m
+   M40KdwS2TK2SBRZncYaPZe89pf6h27jgtTjeydggc+uwIdNAq/SINWXQk
+   vDp233MM+MzAMSNJczD50GUvqEv7XwkjmBhsC7l5Z/ct1jOKjshYIZG7b
+   KSo8gddjLIAmqUrDBNp+kQT1BIWiQXBbHhohSiNSC0nYA3PZ+m35HrOTt
+   kSvrdxNe1xLzqsgPF2UvfacLkLokJMIyS3WTuP1z5k1q4/8wZSALa3yWS
+   4d9PGJZzZZrDdXLayiA8upgCL6aECdpTwI8xmccTqh2E3qwJefyGaEER6
+   g==;
+X-CSE-ConnectionGUID: aAE0wnq4T1a8sRZ4Qi+xFA==
+X-CSE-MsgGUID: +j+OWAsXT86m2nufGqzv1Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11869"; a="112341519"
+X-IronPort-AV: E=Sophos;i="6.25,212,1779174000"; 
+   d="scan'208";a="112341519"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Aug 2026 13:52:24 -0700
+X-CSE-ConnectionGUID: qcZMscCWQk+11TuVWfxZow==
+X-CSE-MsgGUID: o3UoJiz5RGmlvoWW3BCrhQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,212,1779174000"; 
+   d="scan'208";a="287378575"
+Received: from slindbla-desk.ger.corp.intel.com (HELO localhost) ([10.245.244.2])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Aug 2026 13:52:19 -0700
+Date: Sat, 8 Aug 2026 23:52:16 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Varshini Rajendran <varshini.rajendran@microchip.com>
+Cc: ehristev@kernel.org, jic23@kernel.org, dlechner@baylibre.com,
+	nuno.sa@analog.com, andy@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org,
+	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
+	claudiu.beznea@tuxon.dev, srini@kernel.org,
+	marcelo.schmitt@analog.com, radu.sabau@analog.com,
+	joshua.crofts1@gmail.com, jorge.marques@analog.com,
+	Jonathan.Santos@analog.com, jishnu.prakash@oss.qualcomm.com,
+	antoniu.miclaus@analog.com, duje@dujemihanovic.xyz,
+	mazziesaccount@gmail.com, linux-iio@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 09/17] nvmem: microchip-otpc: nvmem: microchip-otpc:
+ add tag-based packet lookup
+Message-ID: <aneXAPGifAS2PG9G@ashevche-desk.local>
+References: <20260806074024.531259-1-varshini.rajendran@microchip.com>
+ <20260806074024.531259-10-varshini.rajendran@microchip.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="hivxea73q5gk46gz"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260808094138.7205-1-royalnet026@gmail.com>
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-0.2.10.1.5.2/286.208.17
-X-ZohoMailClient: External
+In-Reply-To: <20260806074024.531259-10-varshini.rajendran@microchip.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260808_132043_008370_D7E2D07A 
-X-CRM114-Status: GOOD (  34.04  )
+X-CRM114-CacheID: sfid-20260808_135227_571203_7EAC2C5F 
+X-CRM114-Status: GOOD (  19.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,130 +97,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Aug 06, 2026 at 01:10:16PM +0530, Varshini Rajendran wrote:
+> Add support for accessing OTP packets by their tag which is a FourCC
+> while preserving backward compatibility with the existing ID-based
+> lookup.
+> 
+> The OTP memory layout can vary across devices and may change over time,
+> making the packet ID approach unreliable when the memory map is not
+> known in advance. The packet tag provides a reliable way to identify
+> and access packets without prior knowledge of the OTP memory layout.
+> 
+> Two offset encodings are now supported:
+>   1. Legacy ID-based: offset = OTP_PKT(id) = id * 4
+>      Used in DT as: reg = <OTP_PKT(1) 76>;
+>   2. TAG-based: offset = 4-byte ASCII packet tag (FourCC)
+>      Used in DT as: reg = <0x41435354 0x4c>; (tag "ACST")
+> 
+> The driver resolves offsets matching valid legacy selectors (multiples
+> of 4 within the packet count) through ID lookup, falling back to tag
+> lookup for other valid values. This ensures existing device trees
+> continue to work while enabling new tag-based access. During probe,
+> packet meta data including the tag is read and cached.
+> 
+> The stride of the nvmem memory is set to 1 in order to support tag based
+> offsets, comment in the header file is updated accordingly.
 
---hivxea73q5gk46gz
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v11 00/21] Synopsys DisplayPort Controller improvements
- for Rockchip platforms
-MIME-Version: 1.0
+...
 
-Hi,
+> +static bool mchp_otpc_is_valid_fourcc(u32 tag)
+> +{
+> +	int i;
+> +	u8 c;
+> +
+> +	for (i = 0; i < 4; i++) {
 
-On Sat, Aug 08, 2026 at 11:41:32AM +0200, Igor Paunovic wrote:
-> The Tested-by tag is at the bottom.  Short version: v11 works here on
-> an Orange Pi 5 Plus over USB-C DP AltMode.  It needs your usbdp v13
-> series underneath to probe at all, and above 2560x1440@144 it needs a
-> VOP2 ACLK change that has nothing to do with your patches.
->=20
-> One caveat first, so that the next paragraph is not misread: dp0 is
-> disabled in the mainline RK3588 DTS, so none of this is reachable on
-> an untouched tree.  I enable it with a local board DT patch.
->=20
-> With dp0 enabled but without usbdp v13, dw-dp never finishes probing.
-> It stops at "failed to get follow-up bridge" (dw-dp.c), because
-> mainline phy-rockchip-usbdp has no drm_aux_bridge_register() at all;
-> that call arrives with usbdp v13 patch 16/35 ("phy: rockchip: usbdp:
-> Register DP aux bridge"). The component bind then never completes, so
-> both HDMI outputs stay dark as well - the symptom is much wider than
-> the cause, which cost me a boot to work out.
+	for (unsigned int i = 0; i < sizeof(tag); i++) {
 
-Correct, that's why I mentioned the explicit dependency in earlier
-versions. But without the usbdp series you should not have DP0
-connected to the USBDP in the first place, because the USBDP DT
-binding does not yet have 'ports' described in its binding.
+> +		c = (tag >> (i * 8)) & 0xff;
+> +		if (c < 0x20 || c > 0x7e)
+> +			return false;
+> +	}
+> +
+> +	return true;
+> +}
 
-> Hardware: Samsung Odyssey G70B behind a USB-C to HDMI 2.1 protocol
-> converter.  DPCD extended revision 1.4, the link trains at HBR2 x4,
-> VSC SDP colorimetry is supported.  The converter ships a malformed
-> EDID, so a boot script feeds a corrected one through the debugfs
-> edid_override and kicks fusb302 once; without that the 4K modes are
-> dropped and AUX stays dead.  Both are adapter problems, not driver
-> ones.
->=20
-> What I saw:
->=20
->   - DP-1 comes up connected, the EDID reads through the converter,
->     the link trains, and KWin drives the output.
->   - At the stock VOP2 ACLK rate, modes up to 2560x1440@144 are clean.
->     I left the machine at 2560x1440@143.99 for more than eight hours
->     with no DRM or VOP2 errors.
->   - 3840x2160@120 comes up, but the picture is unusable until the
->     VOP2 ACLK is raised.  With it raised the picture is correct
->     immediately.
->=20
-> That last point is a platform issue rather than a dw-dp one, so I have
-> sent it as its own thread to dri-devel and linux-rockchip with you on
-> Cc: "drm/rockchip: vop2: ACLK_VOP pinned at 500 MHz starves DP 4K120
-> on RK3588".
->=20
-> Two small things I noticed while I was in there:
->=20
-> Kconfig: ROCKCHIP_DW_DP selects nothing, and DRM_DW_DP does not select
-> DRM_BRIDGE_CONNECTOR either, while ROCKCHIP_ANALOGIX_DP,
-> ROCKCHIP_CDN_DP, ROCKCHIP_DW_HDMI_QP, ROCKCHIP_LVDS and ROCKCHIP_RGB
-> all do.  Since dw_dp-rockchip.c calls drm_bridge_connector_init(), a
-> configuration with only ROCKCHIP_DW_DP enabled fails to link.  This
-> predates your series; I am happy to send the one-liner if you agree it
-> is worth fixing.
+-- 
+With Best Regards,
+Andy Shevchenko
 
-Makes sense to handle this independently.
 
-> sound-dai-cells: the dt-bindings patch in this series ("dt-bindings:
-> display: rockchip: dw-dp: Fix sound DAI cells") notes that the
-> mainline rk3588 DTS still sets 0 and will be fixed up separately.  Is
-> that DTS patch already queued somewhere?  I would rather not duplicate
-> it.
-
-You can see it in the Collabora rockchip-devel branch; I did not yet
-send it because it needs the DT binding patch. See the discussion
-with Rob on the binding patch.=20
-
-> DP audio: it does work here, but on my rockchip-devel based daily
-> kernel, which carries the v9 generation of the audio patch - a
-> simple-audio-card with cpu &spdif_tx2 and codec <&dp0 1>, picked up by
-> PipeWire unaided, playing over the same cable as the video.  I have
-> not retested audio on the v11 tree, so the tag below covers video
-> only.
-
-Great (barely anything audio related changed between those versions)
-:)
-
-> Tested on drm-misc-next of 2026-08-07 (dc2f9f7fed1a) with this series,
-> usbdp v13, two local board DT patches (enable DP AltMode on the USB-C
-> connector; pin DCLK_VOP2 to V0PLL), and a one-line local change to
-> clk.c so that I could set clock rates from debugfs.
->=20
-> Thanks for the series.
->=20
-> Tested-by: Igor Paunovic <royalnet026@gmail.com>
-
-Thanks. Hopefully the USB-C DP AltMode work makes it into 7.4 :)
-
-Greetings,
-
--- Sebastian
-
---hivxea73q5gk46gz
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmp3j1sACgkQ2O7X88g7
-+ppntQ/9E94S+hS6IHgfueAiTitlAsEJW+1Wvoxat8JqDtfqDFq1EWK++yaHk9z1
-xSKhCo5CMNXumO5yMRrtHpzNrW4+8aOAefc3e9V5hhoqvaXPpZrkU8AMfFWFm8zE
-DG++XGGua7rwXFPXNbwnQHwreZnMG4ssDQoudECym8raNn9u7/usjw99TzopfLJQ
-bHJf6kE+Su3VHXWVDlOryRAIFj+YyfzPspsBt97fUGOPRZZcfT9eDCkGbQt5Tf5O
-jLvklZlvTXWOQS4PKrt32qApDHr4NYGTkloaM9bQIh/QkAP3lcLZ5U33fBen0ftv
-Ku+KCOswZqdpcs9FbxAhS9ko2kRNrIuAiA7L6h9XActtP2J9StTxG4RMiMtgcbVN
-f9Yd5eL438Dqav1Qym6DmL5IGsLT291+31IYGrt8Wnq3yLMaFHdVJPwZGXdTiLhd
-3ylaEeabjZ2X9CAbZc6jcAvIWyfS5coAC8f1KEn+Kdf4So/He6mW5IR6deOYJ34s
-PcKvNVyYTU6qBEED5tNNwhwO/9/YMBHHGgrfxcASGNroLkTMluQvT6R50lP/GYEi
-oaL4BK8ZtjMlfUa/MexMSD/W3DvpI7P6kZZ0GUBGNxovWV7101Odq+XejVoDNzVs
-kANFNXa6KS6Z7mrPGJDXbb5xm7pRCXQ3c5pohdKEMcOmLWXGJx4=
-=492A
------END PGP SIGNATURE-----
-
---hivxea73q5gk46gz--
 
