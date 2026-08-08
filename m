@@ -4,85 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F40E5C5AD44
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 20:52:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E520C5AD4E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 21:42:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jW3/wHK6arLrbCF7ZYUm52uQhZiuFpzDxuofDG4/EkY=; b=GP+yEUyTjrpI38VrIEKAmMPaFD
-	RZD5Oc03DAyDk+1BOesi6H4dEWtKSmY8np2wq7aFTVwKExZE10sq2171sHFVwg9oqajZ5o7wQdPK/
-	5nSxceyN0u+jwCTXA2m8ShEMzSw/pt04Q6FnUr8Gr4OBwm9Bdl5qe5yJ/4OPnVGNlvtXveLJaiqA9
-	oQpnPCiCRVhBF//Ze/aGoOnRqsgyK8n19R37s30/5lmAEQOk2X1bp80RxGCXd7tDbIKEJlcQPrIxI
-	K0zTHdKkEf0Pl1PdjObTrvlmQpO0QM9GvNDf4jEH3vl5ltUqHUafzABA2ghftZ/YXgqhoN2AF0QTH
-	Ia3BObBg==;
+	bh=sso6Z0vlPVEMY8Q1y/EKi4v8c0Ojp9A39N8E0Om7i0o=; b=SSgxrSmWtd8OwxTDPQWk3CSiuB
+	iX3ClnkKT0yDiS1dS90ANogHM7ZFqTc/j1ZQB/d7qdNFePsJjFMiVtmSr9P2z6X24qAFTLwqy/X1T
+	bpKnvCcXYgLBk7N1QfEqvIfB1pJc2CacDNYc5syT+h54xIaXzZ2DFmSqlpiDjcDjRZb+7L3R2V/i4
+	l8sGBm95g6xggZHihcIEuiBnEGawL5b80tMpwWCBfLn0ZxgaiMv0iMY25rQeqlMTfwSiKqpdzaxUz
+	E82AFcrjMXFCfOQ0l3A3JbnEVWLP/sT9piE+zUOsVm2AwRWQeokWgI6p648FfDa95/Lw4M2ZUNhgI
+	0O/fqy0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wso1u-00000009jUK-00t5;
-	Sat, 08 Aug 2026 20:52:30 +0000
-Received: from mgamail.intel.com ([192.198.163.7])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wso1r-00000009jTz-2AsX
+	id 1wsonf-00000009kYN-2nW5;
+	Sat, 08 Aug 2026 21:41:51 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wsonb-00000009kXw-3YXR
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Aug 2026 20:52:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1786222347; x=1817758347;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=udPPUG7YUJ+eyh17qdQwjE9kRRrsNEriEz/GGK9oFgA=;
-  b=an/uot9c22hPborTwM1zNbK2CW7eTNJ5IIO3NV/ABWBXAusJ5ag4165m
-   M40KdwS2TK2SBRZncYaPZe89pf6h27jgtTjeydggc+uwIdNAq/SINWXQk
-   vDp233MM+MzAMSNJczD50GUvqEv7XwkjmBhsC7l5Z/ct1jOKjshYIZG7b
-   KSo8gddjLIAmqUrDBNp+kQT1BIWiQXBbHhohSiNSC0nYA3PZ+m35HrOTt
-   kSvrdxNe1xLzqsgPF2UvfacLkLokJMIyS3WTuP1z5k1q4/8wZSALa3yWS
-   4d9PGJZzZZrDdXLayiA8upgCL6aECdpTwI8xmccTqh2E3qwJefyGaEER6
-   g==;
-X-CSE-ConnectionGUID: aAE0wnq4T1a8sRZ4Qi+xFA==
-X-CSE-MsgGUID: +j+OWAsXT86m2nufGqzv1Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11869"; a="112341519"
-X-IronPort-AV: E=Sophos;i="6.25,212,1779174000"; 
-   d="scan'208";a="112341519"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Aug 2026 13:52:24 -0700
-X-CSE-ConnectionGUID: qcZMscCWQk+11TuVWfxZow==
-X-CSE-MsgGUID: o3UoJiz5RGmlvoWW3BCrhQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,212,1779174000"; 
-   d="scan'208";a="287378575"
-Received: from slindbla-desk.ger.corp.intel.com (HELO localhost) ([10.245.244.2])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Aug 2026 13:52:19 -0700
-Date: Sat, 8 Aug 2026 23:52:16 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Varshini Rajendran <varshini.rajendran@microchip.com>
-Cc: ehristev@kernel.org, jic23@kernel.org, dlechner@baylibre.com,
-	nuno.sa@analog.com, andy@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org,
-	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
-	claudiu.beznea@tuxon.dev, srini@kernel.org,
-	marcelo.schmitt@analog.com, radu.sabau@analog.com,
-	joshua.crofts1@gmail.com, jorge.marques@analog.com,
-	Jonathan.Santos@analog.com, jishnu.prakash@oss.qualcomm.com,
-	antoniu.miclaus@analog.com, duje@dujemihanovic.xyz,
-	mazziesaccount@gmail.com, linux-iio@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 09/17] nvmem: microchip-otpc: nvmem: microchip-otpc:
- add tag-based packet lookup
-Message-ID: <aneXAPGifAS2PG9G@ashevche-desk.local>
-References: <20260806074024.531259-1-varshini.rajendran@microchip.com>
- <20260806074024.531259-10-varshini.rajendran@microchip.com>
+	Sat, 08 Aug 2026 21:41:50 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B301C152B;
+	Sat,  8 Aug 2026 14:41:39 -0700 (PDT)
+Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B7C103F9A2;
+	Sat,  8 Aug 2026 14:41:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1786225303; bh=I4DdleW8mzxVeMyiB3L8HY8f1W4aXjk83V1EP/T4+I4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=BI9ksKowFBrkK396n5hsWjimnlOOable3MsLV4y3n7S5+1tgNqP6N6WFXFGtDTE32
+	 hEr/u9esRbfm0i0MrHb1lIeDuaaWjUuK/9esr7GvjoQEWbNKWioArCRJofLMM62J3r
+	 8+yBNoBgpQhKZ7WczfW/mYTuBK0b3wymIrkMqDnE=
+Date: Sat, 8 Aug 2026 22:41:31 +0100
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev, 
+	kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: Steffen Eiden <seiden@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Fuad Tabba <fuad.tabba@linux.dev>, 
+	Hyunwoo Kim <imv4bel@gmail.com>, Yao Yuan <yaoyuan@linux.alibaba.com>, ljs@kernel.org, 
+	stable@vger.kernel.org
+Subject: Re: [PATCH v2 4/8] KVM: arm64: Correctly handle end of VA space TLBI
+ invalidation
+Message-ID: <yifz3wn5gk5sr6mapi32trgk5m5kp33bquctsjmkifebnsnndt@fix6u4rthx4g>
+References: <20260806091026.620700-1-maz@kernel.org>
+ <20260806091026.620700-5-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260806074024.531259-10-varshini.rajendran@microchip.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+In-Reply-To: <20260806091026.620700-5-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260808_135227_571203_7EAC2C5F 
-X-CRM114-Status: GOOD (  19.12  )
+X-CRM114-CacheID: sfid-20260808_144148_082137_D97EBF54 
+X-CRM114-Status: GOOD (  24.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,53 +74,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 06, 2026 at 01:10:16PM +0530, Varshini Rajendran wrote:
-> Add support for accessing OTP packets by their tag which is a FourCC
-> while preserving backward compatibility with the existing ID-based
-> lookup.
-> 
-> The OTP memory layout can vary across devices and may change over time,
-> making the packet ID approach unreliable when the memory map is not
-> known in advance. The packet tag provides a reliable way to identify
-> and access packets without prior knowledge of the OTP memory layout.
-> 
-> Two offset encodings are now supported:
->   1. Legacy ID-based: offset = OTP_PKT(id) = id * 4
->      Used in DT as: reg = <OTP_PKT(1) 76>;
->   2. TAG-based: offset = 4-byte ASCII packet tag (FourCC)
->      Used in DT as: reg = <0x41435354 0x4c>; (tag "ACST")
-> 
-> The driver resolves offsets matching valid legacy selectors (multiples
-> of 4 within the packet count) through ID lookup, falling back to tag
-> lookup for other valid values. This ensures existing device trees
-> continue to work while enabling new tag-based access. During probe,
-> packet meta data including the tag is read and cached.
-> 
-> The stride of the nvmem memory is set to 1 in order to support tag based
-> offsets, comment in the header file is updated accordingly.
+Hi Marc,
 
-...
-
-> +static bool mchp_otpc_is_valid_fourcc(u32 tag)
+On Thu, Aug 06, 2026 at 10:10:22AM +0100, Marc Zyngier wrote:
+> Our TLB invalidation by VA code is based on comparing two ranges,
+> one defined by the TLB, and one defined by the TLBI instruction.
+> 
+> Each range is defined by a start and a size. However, the way the
+> comparison is done doesn't account for address rollover, as it
+> compares an address with (base + size). This works nicely until
+> this expression represent the last page/block in the TTBR1 VA space,
+> as the result is a big fat 0. And a failed TLB invalidation.
+> 
+> Rewrite the comparison in a way that is immune to the address
+> rollover (making the end address inclusive instead of exclusive),
+> and move this into a common helper that is used by both VA and IPA
+> invalidations, as suggested by Hyunwoo Kim (although the IPA version
+> didn't suffer from this particular problem, obviously).
+> 
+> Fixes: 4ffa72ad8f37e ("KVM: arm64: nv: Add S1 TLB invalidation primitive for VNCR_EL2")
+> Reviewed-by: Yuan Yao <yaoyuan@linux.alibaba.com>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> Cc: stable@vger.kernel.org
+> ---
+>  arch/arm64/kvm/nested.c | 43 ++++++++++++++++++-----------------------
+>  1 file changed, 19 insertions(+), 24 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+> index 27bc7ee4b3382..8a602d074dbb4 100644
+> --- a/arch/arm64/kvm/nested.c
+> +++ b/arch/arm64/kvm/nested.c
+> @@ -999,6 +999,20 @@ static void invalidate_vncr(struct vncr_tlb *vt)
+>  		clear_fixmap(vncr_fixmap(vt->cpu));
+>  }
+>  
+> +static bool vncr_tlb_intersects(struct vncr_tlb *vt, u64 addr,
+> +				u64 scope_start, u64 scope_size)
 > +{
-> +	int i;
-> +	u8 c;
+> +	u64 tlb_size, tlb_start, tlb_end, scope_end;
 > +
-> +	for (i = 0; i < 4; i++) {
-
-	for (unsigned int i = 0; i < sizeof(tag); i++) {
-
-> +		c = (tag >> (i * 8)) & 0xff;
-> +		if (c < 0x20 || c > 0x7e)
-> +			return false;
-> +	}
+> +	tlb_size = ttl_to_size(pgshift_level_to_ttl(vt->wi.pgshift, vt->wr.level));
 > +
-> +	return true;
+> +	tlb_start = addr & ~(tlb_size - 1);
+> +	tlb_end = tlb_start + tlb_size - 1;
+> +	scope_end = scope_start + scope_size - 1;
+
+I think if scope_end overflows,
+
+> +
+> +	return !(tlb_end < scope_start || tlb_start > scope_end);
+
+tlb_start > scope_end can evaluate to true and we return false even when
+there is overlap near the end of the TTBR1 address space.
+
+Therefore I think we need to saturate scope_end to ULONG_MAX when overflow
+happens. This is also what the architecture does when looking at the
+pseudocode J1.2.3.442 TLBIRange (M.c).
+
+Thanks,
+Wei-Lin Chang
+
 > +}
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+> +
+>  /*
+>   * VNCR TLB invalidation occurs from MMU notifiers or TLBI instructions, and
+>   * either can race against a vcpu not being onlined yet (no pseudo-TLB
+> @@ -1021,19 +1035,9 @@ static void kvm_invalidate_vncr_ipa(struct kvm *kvm, u64 start, u64 end)
+>  	if (!kvm_has_feat(kvm, ID_AA64MMFR4_EL1, NV_frac, NV2_ONLY))
+>  		return;
+>  
+> -	kvm_for_each_vncr_tlb(i, vcpu, vt, kvm) {
+> -		u64 ipa_start, ipa_end, ipa_size;
+> -
+> -		ipa_size = ttl_to_size(pgshift_level_to_ttl(vt->wi.pgshift,
+> -							    vt->wr.level));
+> -		ipa_start = vt->wr.pa & ~(ipa_size - 1);
+> -		ipa_end = ipa_start + ipa_size;
+> -
+> -		if (ipa_end <= start || ipa_start >= end)
+> -			continue;
+> -
+> -		invalidate_vncr(vt);
+> -	}
+> +	kvm_for_each_vncr_tlb(i, vcpu, vt, kvm)
+> +		if (vncr_tlb_intersects(vt, vt->wr.pa, start, end - start))
+> +			invalidate_vncr(vt);
+>  }
+>  
+>  struct s1e2_tlbi_scope {
+> @@ -1059,28 +1063,19 @@ static void invalidate_vncr_va(struct kvm *kvm,
+>  	lockdep_assert_held_write(&kvm->mmu_lock);
+>  
+>  	kvm_for_each_vncr_tlb(i, vcpu, vt, kvm) {
+> -		u64 va_start, va_end, va_size;
+> -
+> -		va_size = ttl_to_size(pgshift_level_to_ttl(vt->wi.pgshift,
+> -							   vt->wr.level));
+> -		va_start = vt->gva & ~(va_size - 1);
+> -		va_end = va_start + va_size;
+> -
+>  		switch (scope->type) {
+>  		case TLBI_ALL:
+>  			break;
+>  
+>  		case TLBI_VA:
+> -			if (va_end <= scope->va ||
+> -			    va_start >= (scope->va + scope->size))
+> +			if (!vncr_tlb_intersects(vt, vt->gva, scope->va, scope->size))
+>  				continue;
+>  			if (vt->wr.nG && vt->wr.asid != scope->asid)
+>  				continue;
+>  			break;
+>  
+>  		case TLBI_VAA:
+> -			if (va_end <= scope->va ||
+> -			    va_start >= (scope->va + scope->size))
+> +			if (!vncr_tlb_intersects(vt, vt->gva, scope->va, scope->size))
+>  				continue;
+>  			break;
+>  
+> -- 
+> 2.47.3
+> 
 
