@@ -4,74 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DA3FC5AD44
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 19:48:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDE03C5AD44
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 20:09:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fe+d7V0Gwd5vaQVPo5oPWMSQHgmJs6bKTDmsscoMXcg=; b=oPp9JaxdO5F5A4W5k17ov1vT7A
-	vsHVk6jAoum4/x4LuT1V9CrfynicP2UF3jqRbHynnOPScYOMeln4pbJ+vv3QkMiRREbwlsHgnm5bs
-	akPOXA32EijSmA3QYNDoP/oAuFcSfnLHgJzeY88GyALcxkA1tWvc2khwS56WyvCE44bUSu59MuBG/
-	OWkSxBIwaLrrJ/7EtXbccehOf8G4nwLiZRZYdc+f586DVWXxvf+bqlvpbX2jEcTNyP/qqXJ/kxdSz
-	IoYdTxEG0reIix92rG2GyDjebEBt/hdtLYDExdlzC4RHd6uem+E1oouYiJ4+NS+VPqsH+t1FNmCam
-	70gLq8iA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q9wS2G9ikcTSrII5ExVfyKoau4nL9ReZyISSD20eurU=; b=zN9lQV8kPMPvtUeuf7vkIro2kS
+	klpOPdWMfNIqq+NOkFiOOIYg4VjFXQQaodLnZ88gmHLJvkTjzob0isH20UQJmVVSSK132OZg3oY3M
+	ExG+vCopvQDaWVr5Nw5yrJoOa2JCwB5qWep5xygP+OYd9SZkew1Jin+KZQNthABL/430MjP5nRtS0
+	zwuDSHeeoCQjNLzmcJFANPTBqsCb7mwbbxRxMl/w7mtLJNz4MqskD3DDfNw0AOhllrNQAVZVaHnOR
+	eJO+Ew/99RGK0PJarXmCVh8kkI6X2Mm8yBFSAljR0qgqr9jF6fq1svLxaaY1slc0o3IVdTRwzWs/F
+	kVocT6+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsn2D-00000009fjL-0gIk;
-	Sat, 08 Aug 2026 19:48:45 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wsnLw-00000009hZs-0dvG;
+	Sat, 08 Aug 2026 20:09:08 +0000
+Received: from sender4-op-o11.zoho.com ([136.143.188.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsn29-00000009fbe-14lv
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Aug 2026 19:48:41 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A623D600B1;
-	Sat,  8 Aug 2026 19:48:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA2E91F000E9;
-	Sat,  8 Aug 2026 19:48:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786218520;
-	bh=fe+d7V0Gwd5vaQVPo5oPWMSQHgmJs6bKTDmsscoMXcg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=AlOxowtTK5VwxuTFU+KpoTVNn/mpb5uLh5YVFbPtpfw0l/qwLDAe+CW5t2pn+Grdi
-	 zL3gBvrO3BNmzpBSNgreEtAu2ApN6TOPzieNyEa7533/iNdpQOrx5DEFZdmBmgqD8Z
-	 jrHn8Ttflp0+Ke8WrbQzuzasZt7W/vwZtnqo3EjbB20pR2Mi2i3eCqcNTdKTYNtYVr
-	 nyS+NzmzA11KbSPFSuH0jK+k3/NJyJEmHVExKzK3qSnp/w54k/Zs7r8NRz6XViUa74
-	 YKO33K6VlRHLyPgInXxHUCcpHm9NLLsk8wR3kqnQb+qxdwEX2nlC1YWTDxEJI2Qanb
-	 DvWAemYbiNH0w==
-From: Jakub Kicinski <kuba@kernel.org>
-To: nagadheeraj.rottela@amd.com
-Cc: Jakub Kicinski <kuba@kernel.org>,
-	srinivas.neeli@amd.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	pabeni@redhat.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	richardcochran@gmail.com,
-	michal.simek@amd.com,
-	andrew@lunn.ch,
-	olteanv@gmail.com,
-	horms@kernel.org,
-	linux@armlinux.org.uk,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	git-dev@amd.com
-Subject: Re: [PATCH 20/20] net: dsa: xilinx: trap link-local control frames to the CPU port
-Date: Sat,  8 Aug 2026 12:48:39 -0700
-Message-ID: <20260808194839.133603-1-kuba@kernel.org>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260807104431.157230-21-nagadheeraj.rottela@amd.com>
-References: <20260807104431.157230-21-nagadheeraj.rottela@amd.com>
+	id 1wsnLt-00000009hZU-1cyg;
+	Sat, 08 Aug 2026 20:09:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1786219728; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=GDlm+rmu9WD9uWZii/tTzpe2SxZZEFwO+PzBiprHnBeZXIDd0Xe43fDC2cU9OxRECS4HnxIxWOqI8ptcCO8RAzWbMzRt2dGwvu3HL0TOCa9E+u8xD19I7O+LljNU58XXEhenTnlFTWEgfcPoPEhAgxGZTh+TnNi+zj+eP1PaQis=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1786219728; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=q9wS2G9ikcTSrII5ExVfyKoau4nL9ReZyISSD20eurU=; 
+	b=SL0WayZtBrWAYcv/R1rHtQgMqgVm0SEl32d+eyfCNUeFywfzT2h/eZdhgcl0U5cWuNjTd2NdFLvtC7/KAvMaR28FrEXJP7RxqY3ifDVCTIUt43fOQ7trwf767C6gbiD8ueZnYU/lkvZ3kmswgjVLAyHJdhs1MJUZ1RS18YikV3c=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1786219728;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=q9wS2G9ikcTSrII5ExVfyKoau4nL9ReZyISSD20eurU=;
+	b=T01cQZS9sCS2YIHeDjOi9yaS0b0w8P88o/F5TZ0PdhftRf4gRFvLdFXkLQW85CvF
+	RgryvWAUFW/HZQT0zpcjqtxkjpMPGPpz58mIiFoycze2uqy7oMy5W5JoNZJKgSsmNd+
+	pxPibjDrxcT5S2Z8I/wXyGhZD+ZIIHggPTHzLVlY=
+Received: by mx.zohomail.com with SMTPS id 178621972499174.23958232166342;
+	Sat, 8 Aug 2026 13:08:44 -0700 (PDT)
+Received: by venus (Postfix, from userid 1000)
+	id BE373180679; Sat, 08 Aug 2026 22:08:40 +0200 (CEST)
+Date: Sat, 8 Aug 2026 22:08:40 +0200
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, 
+	Detlev Casanova <detlev.casanova@collabora.com>, Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
+	Michael Riesch <michael.riesch@collabora.com>, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, kernel@collabora.com
+Subject: Re: [PATCH v3] arm64: defconfig: enable Rockchip Multimedia drivers
+Message-ID: <aneIb96qCkxKkGxi@venus>
+References: <20260808-rockchip-defconfig-additions-v3-1-0ed67877e94d@collabora.com>
+ <5738059.NG923GbCHz@diego>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="tjfwptiibl3r6yux"
+Content-Disposition: inline
+In-Reply-To: <5738059.NG923GbCHz@diego>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-0.2.10.1.5.2/286.208.17
+X-ZohoMailClient: External
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260808_130905_514260_AD02E8E5 
+X-CRM114-Status: GOOD (  32.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,442 +84,186 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is an AI-generated review of your patch. The human sending this
-email has considered the AI review valid, or at least plausible.
----
-net: dsa: xilinx: trap link-local control frames to the CPU port
 
-This adds CAM entries for the two bridge-group destination MACs in active
-use (STP at 01:80:c2:00:00:00 and LLDP at 01:80:c2:00:00:0e) with a port
-list containing only the CPU port and the endpoint management-queue bit
-set. The entries are kept in sync with each wire port's native VID via a
-new shadow list in struct xlnx_tsn.
-
-> diff --git a/drivers/net/dsa/xilinx/xilinx_tsn.c b/drivers/net/dsa/xilinx/xilinx_tsn.c
-> index 7e5cf77cfa66..e35dbcdfcbda 100644
-> --- a/drivers/net/dsa/xilinx/xilinx_tsn.c
-> +++ b/drivers/net/dsa/xilinx/xilinx_tsn.c
-
-[ ... ]
-
-> @@ -694,6 +702,28 @@ static int xlnx_tsn_cam_write(struct xlnx_tsn *sw, const unsigned char *addr,
->  	return xlnx_tsn_cam_wait_done(sw);
->  }
->  
-> +/* IEEE 802.1 bridge-group destination MACs. A bridge must consume
-> + * these locally rather than relay them between ports. Each address
-> + * gets a CAM trap entry pointing to the CPU port only. The CAM
-> + * matches the destination MAC exactly, so only the addresses in
-> + * active use are listed here.
-> + */
-> +static const u8 xlnx_tsn_ctrl_das[][ETH_ALEN] = {
-> +	{ 0x01, 0x80, 0xc2, 0x00, 0x00, 0x00 }, /* STP / RSTP / MSTP */
-> +	{ 0x01, 0x80, 0xc2, 0x00, 0x00, 0x0e }, /* LLDP */
-> +};
-> +
-> +static bool xlnx_tsn_addr_is_ctrl_trap(const unsigned char *addr)
-> +{
-> +	int i;
-> +
-> +	for (i = 0; i < ARRAY_SIZE(xlnx_tsn_ctrl_das); i++)
-> +		if (ether_addr_equal(addr, xlnx_tsn_ctrl_das[i]))
-> +			return true;
-> +
-> +	return false;
-> +}
-> +
->  static void xlnx_tsn_port_fast_age(struct dsa_switch *ds, int port)
->  {
->  	struct xlnx_tsn *sw = ds->priv;
-> @@ -712,6 +742,9 @@ static int xlnx_tsn_port_fdb_add(struct dsa_switch *ds, int port,
->  	u8 portlist;
->  	int ret;
->  
-> +	if (xlnx_tsn_addr_is_ctrl_trap(addr))
-> +		return 0;
-> +
-
-[Severity: Medium]
-Do the three FDB ops now disagree about these two addresses?
-
-xlnx_tsn_port_fdb_add() and xlnx_tsn_port_fdb_del() return 0 without
-touching the CAM, so a request like:
-
-    bridge fdb add 01:80:c2:00:00:00 dev swp1 master static
-
-is accepted by br_fdb_add() (it only rejects the all-zero address),
-notified to the driver through dsa_port_do_fdb_add() ->
-ds->ops->port_fdb_add(), and reported as successfully offloaded although
-nothing was programmed. The corresponding delete likewise returns success
-while the trap entry stays in the CAM, so user space has no way to remove
-it and gets no error.
-
-xlnx_tsn_port_fdb_dump() has no matching filter - it walks the per-MAC
-read-key region and reports every slot with TSN_CAM_FOUND set using
-is_static = false:
-
-    ctrl = sw_ior(sw, TSN_CAM_CTRL_OFFSET);
-    if (!(ctrl & TSN_CAM_FOUND))
-            continue;
-    ...
-    ret = cb(addr, vid, false, data);
-
-If the trap entries land in a wire port's read-key region (the driver
-already relies on that region for its own OP_ADD entries), they would be
-dumped back as dynamic entries learnt on swp1/swp2, which contradicts what
-add and del report.
-
-Would it be better to either apply the same filter in the dump, or make
-add/del return an error for these addresses instead of reporting success?
-
->  	if (!vid)
->  		vid = TSN_SW_DEFAULT_VID;
->  
-
-[ ... ]
-
-> @@ -733,6 +766,9 @@ static int xlnx_tsn_port_fdb_del(struct dsa_switch *ds, int port,
->  	u8 portlist;
->  	int ret;
->  
-> +	if (xlnx_tsn_addr_is_ctrl_trap(addr))
-> +		return 0;
-> +
->  	if (!vid)
->  		vid = TSN_SW_DEFAULT_VID;
->  
-
-[ ... ]
-
-> @@ -936,12 +973,93 @@ static void xlnx_tsn_set_vlan_only_learning(struct xlnx_tsn *sw, bool on)
->  	sw_iow(sw, TSN_SW_ADDR_LEARN_OFFSET, reg);
->  }
->  
-> +/* Install or remove link-local control-frame traps for one VID.
-> + * Each entry points to the CPU port and marks frames as management
-> + * traffic for delivery on the management queue. Caller holds
-> + * indirect_lock.
-> + */
-> +static int xlnx_tsn_set_ctrl_traps(struct xlnx_tsn *sw, u16 vid, bool add)
-> +{
-> +	int i, ret;
-> +
-> +	for (i = 0; i < ARRAY_SIZE(xlnx_tsn_ctrl_das); i++) {
-> +		ret = xlnx_tsn_cam_write(sw, xlnx_tsn_ctrl_das[i], vid,
-> +					 TSN_PORT_BIT(XLNX_TSN_CPU_PORT),
-> +					 true, add);
-
-[Severity: Medium]
-Can this port list also catch the host's own transmitted control frames?
-
-The host bridge sends BPDUs and LLDPDUs with exactly these destination
-MACs. Those frames enter the fabric from the endpoint port and, when
-untagged, are looked up under the CPU port's native VID. While the bridge
-is VLAN-unaware xlnx_tsn_apply_pvid() keeps that at TSN_SW_DEFAULT_VID,
-which is also the trap key installed here, so the frame matches the same
-CAM entry - whose port list contains only TSN_PORT_BIT(XLNX_TSN_CPU_PORT)
-and therefore neither wire port.
-
-Whether the frame still egresses depends on the SA-egress selection
-programmed in xlnx_tsn_setup():
-
-    mgmt = sw_ior(sw, TSN_SW_MGMT_QUEUING_OFFSET);
-    mgmt |= TSN_SW_MGMT_QUEUING_EP_SA_EGRESS;
-    sw_iow(sw, TSN_SW_MGMT_QUEUING_OFFSET, mgmt);
-
-taking precedence over a CAM hit. Is that precedence guaranteed by the IP?
-Nothing in the driver or the register definitions states it. If the CAM
-hit governs instead, the host's own BPDUs and LLDPDUs would be forwarded
-only back to the ingress (CPU) port and dropped, which would disable STP
-transmission entirely. Could this be confirmed against the switch IP
-documentation, or the trap port list adjusted for endpoint ingress?
-
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static bool xlnx_tsn_vid_in(const u16 *vids, int count, u16 vid)
-> +{
-> +	int i;
-> +
-> +	for (i = 0; i < count; i++)
-> +		if (vids[i] == vid)
-> +			return true;
-> +
-> +	return false;
-> +}
-> +
-
-[ ... ]
-
-> +static int xlnx_tsn_sync_ctrl_traps(struct xlnx_tsn *sw)
-> +{
-> +	u16 want[XLNX_TSN_NUM_PORTS - 1], vid;
-> +	struct dsa_port *dp;
-> +	int i, n, ret;
-> +
-> +	n = 0;
-> +	dsa_switch_for_each_user_port(dp, &sw->ds) {
-> +		vid = sw->vlan_aware ? sw->pvid[dp->index] : TSN_SW_DEFAULT_VID;
-> +		if (!xlnx_tsn_vid_in(want, n, vid))
-> +			want[n++] = vid;
-> +	}
-> +
-> +	/* Remove traps at VIDs no longer used as any wire port's native VID. */
-> +	i = 0;
-> +	while (i < sw->ctrl_trap_count) {
-> +		vid = sw->ctrl_trap_vid[i];
-> +		if (xlnx_tsn_vid_in(want, n, vid)) {
-> +			i++;
-> +			continue;
-> +		}
-> +		ret = xlnx_tsn_set_ctrl_traps(sw, vid, false);
-> +		if (ret)
-> +			return ret;
-> +
-> +		sw->ctrl_trap_vid[i] = sw->ctrl_trap_vid[--sw->ctrl_trap_count];
-> +	}
-> +
-> +	/* Add traps at native VIDs not yet installed. */
-> +	for (i = 0; i < n; i++) {
-> +		if (xlnx_tsn_vid_in(sw->ctrl_trap_vid, sw->ctrl_trap_count,
-> +				    want[i]))
-> +			continue;
-> +		ret = xlnx_tsn_set_ctrl_traps(sw, want[i], true);
-> +		if (ret)
-> +			return ret;
-> +
-> +		sw->ctrl_trap_vid[sw->ctrl_trap_count++] = want[i];
-> +	}
-> +
-> +	return 0;
-> +}
-
-[Severity: Medium]
-Can the shadow list get permanently out of step with the CAM here?
-
-xlnx_tsn_set_ctrl_traps() writes two entries and returns on the first
-xlnx_tsn_cam_write() failure without unwinding the one it already
-programmed, but this function treats it as all-or-nothing.
-
-Removal direction: if the STP delete succeeds and the LLDP delete returns
--ETIMEDOUT from xlnx_tsn_cam_wait_ready()/xlnx_tsn_cam_wait_done(), the
-early return happens before:
-
-    sw->ctrl_trap_vid[i] = sw->ctrl_trap_vid[--sw->ctrl_trap_count];
-
-so the VID stays recorded as installed although one of its entries is
-gone. If that VID becomes a wanted native VID again, the removal loop
-keeps it and the add loop skips it, because
-xlnx_tsn_vid_in(sw->ctrl_trap_vid, ...) is true - the deleted STP trap is
-never reinstalled and BPDUs at that VID are relayed to the peer wire port
-again, with no error reported anywhere.
-
-Add direction: if the STP add succeeds and the LLDP add fails, the return
-happens before:
-
-    sw->ctrl_trap_vid[sw->ctrl_trap_count++] = want[i];
-
-so the installed entry is untracked, and xlnx_tsn_remove_ctrl_traps()
-iterates only ctrl_trap_vid[0..ctrl_trap_count), so it can never delete
-it.
-
-Should xlnx_tsn_set_ctrl_traps() roll back the entries it already
-programmed, or should the bookkeeping be updated per entry rather than per
-VID?
-
->  static int xlnx_tsn_port_vlan_filtering(struct dsa_switch *ds, int port,
->  					bool vlan_filtering,
->  					struct netlink_ext_ack *extack)
->  {
->  	struct xlnx_tsn *sw = ds->priv;
->  	struct dsa_port *dp;
-> +	bool old_vlan_aware;
->  	unsigned long bit;
->  	u32 reg, data;
->  	int ret;
-> @@ -967,6 +1085,7 @@ static int xlnx_tsn_port_vlan_filtering(struct dsa_switch *ds, int port,
->  			return ret;
->  	}
->  
-> +	old_vlan_aware = sw->vlan_aware;
->  	sw->vlan_aware = vlan_filtering;
->  
-
-[ ... ]
-
-> @@ -1004,15 +1123,23 @@ static int xlnx_tsn_port_vlan_filtering(struct dsa_switch *ds, int port,
->  		ret = xlnx_tsn_port_state_cycle(sw, dp->index,
->  						TSN_PORT_STATE_BLOCKING);
->  		if (ret)
-> -			return ret;
-> +			goto restore;
->  
->  		ret = xlnx_tsn_port_state_cycle(sw, dp->index,
->  						TSN_PORT_STATE_FLUSH);
->  		if (ret)
-> -			return ret;
-> +			goto restore;
->  	}
->  
-> +	ret = xlnx_tsn_sync_ctrl_traps(sw);
-> +	if (ret)
-> +		goto restore;
-> +
->  	return 0;
-> +
-> +restore:
-> +	sw->vlan_aware = old_vlan_aware;
-> +	return ret;
->  }
-
-[Severity: Medium]
-Does this rollback leave the shadow flag disagreeing with the hardware?
-
-Only sw->vlan_aware is reverted, while every register write already made
-for the new setting stays in place:
-
-  - TSN_VLAN_PORT_LIST_VALID flipped on each VID in sw->cfg_vids
-  - the unicast/multicast CAM-miss policy in TSN_SW_CTRL
-  - the VLAN-only-learning bit via xlnx_tsn_set_vlan_only_learning()
-  - the per-port native VID and untag bits via xlnx_tsn_apply_pvid()
-
-xlnx_tsn_port_state_cycle() can return -EBUSY (previous state-change bit
-still pending) or -ETIMEDOUT (ack timeout), and xlnx_tsn_sync_ctrl_traps()
-can return -ETIMEDOUT from the CAM polling.
-
-When enabling filtering fails that way, the hardware keeps discarding
-unknown unicast/multicast and enforcing VLAN membership while
-sw->vlan_aware is false and DSA and the bridge both believe filtering is
-off, so traffic is dropped with no indication of why.
-
-It also affects later operations: xlnx_tsn_port_vlan_add() takes the
-data &= ~TSN_VLAN_PORT_LIST_VALID branch, xlnx_tsn_apply_pvid() reprograms
-the native VID to TSN_SW_DEFAULT_VID, and xlnx_tsn_sync_ctrl_traps()
-recomputes wanted trap VIDs from the reverted flag:
-
-    vid = sw->vlan_aware ? sw->pvid[dp->index] : TSN_SW_DEFAULT_VID;
-
-so the CAM trap keys can end up permanently mismatched against the native
-VIDs actually programmed. Before this patch the function returned the
-error with the flag matching the writes already made. Would undoing the
-hardware writes too, or dropping the flag revert, be more consistent?
-
-[ ... ]
-
-> @@ -1204,6 +1333,21 @@ static const struct phylink_mac_ops xlnx_tsn_phylink_mac_ops = {
->  	.mac_link_down	= xlnx_tsn_mac_link_down,
->  };
->  
-> +static void xlnx_tsn_remove_ctrl_traps(struct xlnx_tsn *sw)
-> +{
-> +	int i;
-> +
-> +	guard(mutex)(&sw->indirect_lock);
-> +
-> +	for (i = 0; i < sw->ctrl_trap_count; i++)
-> +		if (xlnx_tsn_set_ctrl_traps(sw, sw->ctrl_trap_vid[i], false))
-> +			dev_warn(sw->dev,
-> +				 "failed to remove control trap vid %u\n",
-> +				 sw->ctrl_trap_vid[i]);
-> +
-> +	sw->ctrl_trap_count = 0;
-> +}
-> +
->  static int xlnx_tsn_setup(struct dsa_switch *ds)
->  {
->  	struct dsa_port *cpu_dp = dsa_to_port(ds, XLNX_TSN_CPU_PORT);
-
-[ ... ]
-
-> @@ -1276,9 +1420,19 @@ static int xlnx_tsn_setup(struct dsa_switch *ds)
->  			return ret;
->  	}
->  
-> +	/* Trap link-local control frames (STP, LLDP) to the CPU port.
-> +	 * Without this, a frame arriving on one wire port would be
-> +	 * flooded out the other instead of reaching the host bridge.
-> +	 */
-
-[Severity: Medium]
-Can trapped frames actually reach the host bridge in this tree?
-
-The tag protocol receive hook for this switch drops everything coming from
-the conduit:
-
-net/dsa/tag_xlnx_tsn.c:xlnx_tsn_rcv() {
-	kfree_skb(skb);
-	return NULL;
-}
-
-That is the only rcv path in the tagger, so no frame the switch delivers on
-the CPU port ever reaches a DSA user netdev or the software bridge, and
-this patch adds no management-queue consumer. With the CAM port list set to
-TSN_PORT_BIT(XLNX_TSN_CPU_PORT) only, the observable change today looks
-like 01:80:c2:00:00:00 and 01:80:c2:00:00:0e are dropped rather than
-consumed locally.
-
-The commit message says the switch "then delivers trapped frames on the
-management queue" - is there a receive path for that queue, or does that
-part depend on a follow-up patch?
-
-Separately, this comment says the frame "would be flooded out the other
-instead of reaching the host bridge", while the commit message says a CAM
-miss is "flooded to all ports except the ingress port", which includes the
-CPU port. Could the two descriptions be reconciled?
-
-> +	scoped_guard(mutex, &sw->indirect_lock) {
-> +		ret = xlnx_tsn_sync_ctrl_traps(sw);
-> +		if (ret)
-> +			return ret;
-> +	}
-
-[Severity: Medium]
-Should this error path use the err_traps label added below instead of
-returning directly?
-
-xlnx_tsn_sync_ctrl_traps() installs entries incrementally and records each
-wanted VID as it goes, so a failure on the second VID - or on the second
-destination MAC of the first VID - leaves CAM entries programmed and
-ctrl_trap_count possibly non-zero.
-
-Nothing removes them afterwards: DSA does not call ds->ops->teardown() when
-ds->ops->setup() fails,
-
-net/dsa/dsa.c:dsa_switch_setup() {
-	err = ds->ops->setup(ds);
-	if (err < 0)
-		goto unregister_notifier;
-}
-
-and the shadow state goes away with the failed probe, so a re-probe starts
-with ctrl_trap_count = 0 and never accounts for the stale entries. The
-mutex itself is released correctly by the scoped_guard cleanup; it is only
-the xlnx_tsn_remove_ctrl_traps() call that is skipped.
-
-> +
->  	ret = xlnx_tsn_mdio_register_all(sw);
->  	if (ret)
-> -		return ret;
-> +		goto err_traps;
->  
->  	sw->nb.notifier_call = xlnx_tsn_netdev_event;
->  	ret = register_netdevice_notifier(&sw->nb);
-> @@ -1312,6 +1466,8 @@ static int xlnx_tsn_setup(struct dsa_switch *ds)
->  	unregister_netdevice_notifier(&sw->nb);
->  err_mdio:
->  	xlnx_tsn_mdio_unregister_all(sw);
-> +err_traps:
-> +	xlnx_tsn_remove_ctrl_traps(sw);
->  	return ret;
->  }
-
-[ ... ]
-
-Cross-instance finding from sashiko-gemini (f0bf43e93137481b1a742a87803d2ec1a8a9f5833a1ae7688d64415f986a1ea2):
-[Severity: Medium]
-Mixing goto-based error handling with scoped guard cleanups in the same function.
+--tjfwptiibl3r6yux
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v3] arm64: defconfig: enable Rockchip Multimedia drivers
+MIME-Version: 1.0
+
+Hi,
+
+On Sat, Aug 08, 2026 at 04:06:03PM +0200, Heiko St=FCbner wrote:
+> Am Samstag, 8. August 2026, 02:42:26 Mitteleurop=E4ische Sommerzeit schri=
+eb Sebastian Reichel:
+> > Enable multimedia related drivers used by the Radxa ROCK 5B (used as an
+> > example, the config options are relevant for most Rockchip RK3588 and
+> > RK3576 boards), so that all hardware is supported by the default config.
+> >=20
+> >  * Synopsys MIPI CSI2RX - RK3588 CSI2 Controller
+> >  * RKVDEC - RK3588/RK3576 video decoder for H.264 and H.265
+> >  * Sony IMX415 - Sensor used by the Radxa Cam 4K module
+> >  * Rocket - RK3588 NPU driver
+> >  * Verisilicon IOMMU - IOMMU used by RK3588 AV1 video decoder
+> >  * Innosilicon CSI D-PHY - RK3588 CSI PHY (one of them)
+> >=20
+> > Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+>=20
+> I'm not sure what the actual rule for defconfig changes is.
+>=20
+> In some past thread I remember (hopefully correctly) Krzysztof saying
+> that the arm64 defconfig is not supposed to be a distro-config, so
+> enabling each and every driver was not the goal.
+>=20
+> On the other hand, he did not repeat that in his reply to your v1 ;-) .
+
+I think its worthwhile to have all board related hardware features
+enabled. I've seen too many complains from people that XYZ is not
+working that turned out to be simple config problems. With the
+defconfig supporting the full hardware there is a known working
+config that we can point people towards.
+
+Apart from that KernelCI uses the defconfig for its automated boot
+tests. Having full hardware support helps to ensure the drivers are
+working as intended and do not regress.
+
+Last but not least the enabled options are consistent with other
+platforms. On the video codec side Qualcomm and Mediatek have theirs
+enabled, Hantro is also enabled. On the CSI side the Cadence
+controller, NXP and Renesas are enabled; I also would expect the
+Qualcomm X1E config options once the series from Bryan O'Donoghue
+lands. There's also a bunch of camera sensors enabled, which makes
+sense since CSI would be useless without them. The only new thing
+is the NPU. I argue the main reason for that is that this is a
+relatively new thing.
+
+> We're at -rc7 tomorrow, so it'd be 7.4 material anyway, so enough time
+> to get "complaints" I guess ;-) .
+
+Correct :)
+
+Greetings,
+
+-- Sebastian
+
+>=20
+>=20
+> Heiko
+>=20
+> > ---
+> > Changes in v3:
+> > - Link to v2: https://patch.msgid.link/20260807-rockchip-defconfig-addi=
+tions-v2-1-cbb8eef87be6@collabora.com
+> > - Also add CONFIG_VIDEO_DW_MIPI_CSI2RX=3Dm and update commit message
+> >=20
+> > Changes in v2:
+> > - Link to v1: https://patch.msgid.link/20260806-rockchip-defconfig-addi=
+tions-v1-0-6b1d8baa0bf5@collabora.com
+> > - Squash all patches (Krzysztof Kozlowski)
+> >=20
+> > The Verisilicon IOMMU defconfig change has previously been sent by
+> > Benjamin as part of the IOMMU series, but did not reach upstream:
+> >=20
+> > https://lore.kernel.org/all/20260415072349.44237-6-benjamin.gaignard@co=
+llabora.com/
+> >=20
+> > The Synopsys CSI controller defconfig change has previously been sent
+> > by Michael as part of the driver series, but did not reach upstream:
+> >=20
+> > https://lore.kernel.org/linux-rockchip/20260522-rk3588-vicap-v5-0-d1d1f=
+5265c56@collabora.com/
+> > ---
+> >  arch/arm64/configs/defconfig | 7 +++++++
+> >  1 file changed, 7 insertions(+)
+> >=20
+> > diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+> > index 654a102cb5bc..49f836ba67a5 100644
+> > --- a/arch/arm64/configs/defconfig
+> > +++ b/arch/arm64/configs/defconfig
+> > @@ -915,6 +915,7 @@ CONFIG_SDR_PLATFORM_DRIVERS=3Dy
+> >  CONFIG_V4L_MEM2MEM_DRIVERS=3Dy
+> >  CONFIG_VIDEO_AMPHION_VPU=3Dm
+> >  CONFIG_VIDEO_CADENCE_CSI2RX=3Dm
+> > +CONFIG_VIDEO_DW_MIPI_CSI2RX=3Dm
+> >  CONFIG_VIDEO_WAVE_VPU=3Dm
+> >  CONFIG_VIDEO_E5010_JPEG_ENC=3Dm
+> >  CONFIG_VIDEO_MEDIATEK_JPEG=3Dm
+> > @@ -939,6 +940,7 @@ CONFIG_VIDEO_RENESAS_VSP1=3Dm
+> >  CONFIG_VIDEO_RCAR_DRIF=3Dm
+> >  CONFIG_VIDEO_ROCKCHIP_RGA=3Dm
+> >  CONFIG_VIDEO_ROCKCHIP_CIF=3Dm
+> > +CONFIG_VIDEO_ROCKCHIP_VDEC=3Dm
+> >  CONFIG_VIDEO_SAMSUNG_EXYNOS_GSC=3Dm
+> >  CONFIG_VIDEO_SAMSUNG_S5P_JPEG=3Dm
+> >  CONFIG_VIDEO_SAMSUNG_S5P_MFC=3Dm
+> > @@ -949,6 +951,7 @@ CONFIG_VIDEO_TI_J721E_CSI2RX=3Dm
+> >  CONFIG_VIDEO_HANTRO=3Dm
+> >  CONFIG_VIDEO_IMX219=3Dm
+> >  CONFIG_VIDEO_IMX412=3Dm
+> > +CONFIG_VIDEO_IMX415=3Dm
+> >  CONFIG_VIDEO_OV5640=3Dm
+> >  CONFIG_VIDEO_OV5645=3Dm
+> >  CONFIG_VIDEO_S5KJN1=3Dm
+> > @@ -1063,6 +1066,8 @@ CONFIG_BACKLIGHT_GPIO=3Dm
+> >  CONFIG_LOGO=3Dy
+> >  # CONFIG_LOGO_LINUX_MONO is not set
+> >  # CONFIG_LOGO_LINUX_VGA16 is not set
+> > +CONFIG_DRM_ACCEL=3Dy
+> > +CONFIG_DRM_ACCEL_ROCKET=3Dm
+> >  CONFIG_SOUND=3Dm
+> >  CONFIG_SND=3Dm
+> >  CONFIG_SND_ALOOP=3Dm
+> > @@ -1611,6 +1616,7 @@ CONFIG_ROCKCHIP_IOMMU=3Dy
+> >  CONFIG_TEGRA_IOMMU_SMMU=3Dy
+> >  CONFIG_APPLE_DART=3Dm
+> >  CONFIG_MTK_IOMMU=3Dy
+> > +CONFIG_VSI_IOMMU=3Dm
+> >  CONFIG_REMOTEPROC=3Dy
+> >  CONFIG_IMX_REMOTEPROC=3Dy
+> >  CONFIG_MTK_SCP=3Dm
+> > @@ -1785,6 +1791,7 @@ CONFIG_PHY_RZ_G3E_USB3=3Dm
+> >  CONFIG_PHY_ROCKCHIP_EMMC=3Dy
+> >  CONFIG_PHY_ROCKCHIP_INNO_HDMI=3Dm
+> >  CONFIG_PHY_ROCKCHIP_INNO_USB2=3Dy
+> > +CONFIG_PHY_ROCKCHIP_INNO_CSIDPHY=3Dm
+> >  CONFIG_PHY_ROCKCHIP_INNO_DSIDPHY=3Dm
+> >  CONFIG_PHY_ROCKCHIP_NANENG_COMBO_PHY=3Dm
+> >  CONFIG_PHY_ROCKCHIP_PCIE=3Dm
+> >=20
+> > ---
+> > base-commit: 2d578cd590adc2133aa24496afcd7c3f7f9ba36a
+> > change-id: 20260806-rockchip-defconfig-additions-3ef855c4d32e
+> >=20
+> > Best regards,
+> > -- =20
+> > Sebastian Reichel <sebastian.reichel@collabora.com>
+> >=20
+> >=20
+>=20
+>=20
+>=20
+>=20
+
+--tjfwptiibl3r6yux
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmp3jMEACgkQ2O7X88g7
++ppX9BAAnkHJ0Nem7d+s3nQkqNNCsxE5uRvhV+id7OHMsJaD2CCwpiBf6VeHBnTh
+ajBl8lC723gd9HY/rI42VAQiT666XEZYN3NVdacCqyZQvKjBmgyeBfvjMAyZg2k5
+FK/eDbaXq7HjQUV7s8gjxBNYTQGZD+kRDBcoS+FVN8Ezb8ZxBRNdoRBhULsNoPar
+eBxTKostPjmlgJNngJXuT+GheptvpWAn674jw0dtEODx98YWThgHht3l7NXbIymV
+FvEXqeGWYuQ8A/uBHw99wVQsZ8w+oH7qdaZOryLVrBx3SDZZvDTsCrA2nx9dMDuZ
+f5bL6+zatLtGD1C2iC4yFQbobJRiqjxawKA1yRxTl1OQnPYrJbQ8PTpy6IhA1aU8
+YX1GMD0b276TnEsK0wB4lvP57wUjVkLtTmcgxDEtAEDTZpPsgrkhlBUywQKRlnW3
+9/NuSBMwCrwe9zFvzKVUNI8j9kS37woI04L0oA1iVoUQGrWgY7WK8s/Z0941vtI/
+KjcW0izWM/3vRAluYPSe5/lRLM/n/I830ucrqdEEN7/CPDEQoSaHAbsw4PL1E9/k
+89fEKZ4jlXhnyTeMgZVyZBpcKsA879fpgrcMfLyrqAPmgTgSwgaeuVd/zUUa+kZ7
+g5MJhOE+SDGczHISEjmLB+EEPMFjBDFRjKrvcJ19yezxYvsbiSc=
+=v/rM
+-----END PGP SIGNATURE-----
+
+--tjfwptiibl3r6yux--
 
