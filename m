@@ -4,98 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F3B8C55174
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 08:02:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C741C5AD2C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 08:09:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mLmbCLzuywYLsOVyyYkrBNI0Jw0ZVFv5psG5aDAHyEg=; b=XKuhyjT0qbN8FXPYCiF25VqdpP
-	CIhvbcWltctyHiQszUMNeshvkJsxDaUhIw9iFGVL25VrQ8h5+bUXtXYLH8VG7KvKTB+TPTRtUsZVS
-	ZO/Lf1FxCgfm7rGMkaTqyc3taBYIbrlInTxWZcGstmbdfge0cJCddpOtrRtlHRd8+kKBrmztbtVWK
-	Q4BD42CUiNYkfmF/k2JDUPqYDRKvvlVhgFpPp6l6AuiAlafAIk9cYowNMGUDZC/Hhaswmmatk8IW5
-	h00ckHZ5gbZPLRugzfsvv9CoJnn/JSL6V1bPL2xjXtkLCKvMHFeJr3BPdRa4y+vUemsxxgfwpfBi8
-	clB896IA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XtFxe7lTSkyr2Cg+Wnox9DL2CC/sLeXegVl9950TLyA=; b=0J3jxRBO6hXmPJQIDZB3BaruCn
+	aqvshVPQ1ZcP6IUx9CzX2mVaJEbMNtT7yJTB8NhhhF2uxT4kIxIUPSpa2j7SA/4Zp58+F4TwkM+1W
+	2Cg8B2nezMK2Mu4vEGWmhg4u44CfI1WLbNkA/mjdvCVD9ERm1gKxQyQpg2PWrUhU/1ei1egXgBmsx
+	fpfn/Fmyy1IqQoD0UY+F/CIXCpoqQWKneDJK5K7nbcNIqwTPd1D9bZbfd0sHrS6E8wgUlKlC0s6VA
+	bYUETkw1s4vXgP3DE4g+2dDKrZg84K+YmxWZF2B9JG1SrIoyl6HQ255sTTG114c9ILiD0l1E4yOZE
+	Wr5i4QBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsc0o-000000099Oq-3Mng;
-	Sat, 08 Aug 2026 08:02:34 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1wsc7C-000000099a5-2M0k;
+	Sat, 08 Aug 2026 08:09:10 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsc0m-000000099OV-3YHY
+	id 1wsc7B-000000099Zx-09bK
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Aug 2026 08:02:33 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-39266382df6so313524a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Aug 2026 01:02:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786176152; x=1786780952; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=mLmbCLzuywYLsOVyyYkrBNI0Jw0ZVFv5psG5aDAHyEg=;
-        b=e0ZT8TqDKDTlQ7eCPn+0DCszpx30nMcdFVNMPDBNPA6NnzKoQx1QV2eV6wx8SJZ61C
-         Eyr7FIA1XSyZCvJmlNMeLixk8sDgM0WcnAYinWGWQ3mGTTFKxIzYLMwVaiFQy2GnS4up
-         ysTFR9ap1dll/YgNJJXh73aviJ88O1QGDdpSe5cv1mvP6RekdQI/5dRqX/cA+hi1DGI3
-         R1Ey+uAeGmtzuSTRBTnmKzJGZVg9I1lW/iR7gE6TPFWlgzritA+xoa9wNc3zoAIa+FF+
-         8qL+MrZJm4Pjl05CYoyl/CAfpMDz+fCNmL62M13xTfAxMOX5sVJaUC+UVUSeV+16B0Xq
-         Pn/Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786176152; x=1786780952;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=mLmbCLzuywYLsOVyyYkrBNI0Jw0ZVFv5psG5aDAHyEg=;
-        b=sQ/+zDiR9++KA6vcamwquuxMJ9Y6Qjze0hu975FVc1wRr1CFnVZxvhdaA72Y5CU3Ay
-         zygQwqEBiQcEFV2BkZxs7yMtcDFNjUb780zy/zS2wAP9N1X5tHJw18aXlwmr/QtXqLxl
-         gY9eLRQKAFJac+4UxdKXXokshp7LfRFdVttdlRnQ1pKlIXxRPjf7NM0noSlo9EZXfSKI
-         q3OJancCcR971hcMSVNE91KLMaa5483+vJcOkAuhTPsel8T/7Mjec3h3bfnKOui0Ndgy
-         TFLgWUYvTGiHiH+eT8E2yzbBb+TAIhXnHXZNQQ8BrdmQI0X22BcKvvgvtar4DvMeepUI
-         aXAw==
-X-Forwarded-Encrypted: i=1; AHgh+RqAeJ1Wkd0n3KkPmHiw+D6gijeni9Mse1tBHxaKnwieVxPuSrfcj8bko334h8Tj4t+YSotdQ9s8FIFlYKiIWwEH@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy0AhZPhjxXmC/mb7qmH6k1qFPWLIzIPF0tC0zeUNVNP7q41awG
-	LjSJXJOCbim4sFrS24WSjA53eGX4LQz+PkqOyzgahAj2FnzUI9OviOng
-X-Gm-Gg: AR+sD13c8pIXPVy/pekGcxktOIsxWs/5MFj+cN39AUp+qLC+s14bobRhyRb42gSRAXx
-	nU2ts9VCw1CXOgjHzTpX6fBBAfNPgL7cvF8UlcBBNCQ2j8/rYJEkxTfdUWGvzH4NQl0Icjqv1cK
-	HWekRfT2TOwgB61EEVRUtZUySA69lOyEW9M4SQ1VZ3OYkTu0uks4tROmQdDNOWZo5VQSeuFCuAm
-	U9j9CkUFfCq28VIeVjiJthSI1278TVnCYeUbSL4j+MnFn/GmIl+Yo9AutVxW7N2K3vi9T5D2/hn
-	arjmQqK3BeM5nVFk98igQlOTsORyBB/3cPIGkeevnGiU3eyBRP5KFL2bff69kxsl/EaJtADvwY2
-	mpDOR6HrJnRe+vB8VRWGjxEmkynmCJFoHL6KNydo2gzXCzGbqHdjQNnyemDDc1ILvaIYdkO2Cmo
-	6GrBwaJr5j83Axivy8cZ3vkKmHpXso3S1w8NrkL6wlc3E4YcrkFqTd1u/z5JX7bUNCEikvCZWll
-	CYiLd2Q
-X-Received: by 2002:a17:90b:1d02:b0:37f:fdc8:71b4 with SMTP id 98e67ed59e1d1-3903c599356mr29221904a91.2.1786176151990;
-        Sat, 08 Aug 2026 01:02:31 -0700 (PDT)
-Received: from lgs.. ([101.76.249.46])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39085de8ddcsm7774143a91.6.2026.08.08.01.02.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 08 Aug 2026 01:02:31 -0700 (PDT)
-From: Guangshuo Li <lgs201920130244@gmail.com>
-To: Abel Vesa <abelvesa@kernel.org>,
-	Peng Fan <peng.fan@nxp.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney@redhat.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Dong Aisheng <aisheng.dong@nxp.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	linux-clk@vger.kernel.org,
-	imx@lists.linux.dev,
+	Sat, 08 Aug 2026 08:09:09 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id C3816407E1;
+	Sat,  8 Aug 2026 08:09:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4FA11F000E9;
+	Sat,  8 Aug 2026 08:09:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786176547;
+	bh=XtFxe7lTSkyr2Cg+Wnox9DL2CC/sLeXegVl9950TLyA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=TokhsMIsIsjXaK+crrDB0+vAhOAD0Pv519ZF1AofRnBHHlLlww6Pk7Ug8gQnkSVJh
+	 a29OUCpEEDGqDnXn67E/vQ+VSPSIQvvwHEDUWtx52Mmz9/piF3DEVQYAAjSrFXiyJc
+	 NnlLXtuW7ivW4PJ/fm4tJFiioSUY62GA+6XVKXTBgxT2aguMwZuhJIUUJ66XmZDeGl
+	 EpCVgqso62YzhvRxxoLiKaM6dTWXxdyTq+SATnDajxPodNgaimAKyxkntJ4tNI6m5Z
+	 7/cD+wOQM/LwSH6gGtCMFnVoWLe2pmz2enl9EO26WkDoPmz5XBxY19Xp7J7RgGS/rM
+	 6+CYcytLv69Ww==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wsc77-0000000DcX6-1h5a;
+	Sat, 08 Aug 2026 08:09:05 +0000
+Date: Sat, 08 Aug 2026 09:10:29 +0100
+Message-ID: <87ecg9owwa.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Will Deacon <will@kernel.org>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Sebastian Ene <sebastianene@google.com>,
+	kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Cc: Guangshuo Li <lgs201920130244@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] clk: imx: imx8qxp-lpcg: fix runtime PM cleanup on error path
-Date: Sat,  8 Aug 2026 16:02:15 +0800
-Message-ID: <20260808080215.2669452-1-lgs201920130244@gmail.com>
-X-Mailer: git-send-email 2.43.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260808_010232_885903_2D07CA40 
-X-CRM114-Status: GOOD (  11.14  )
+Subject: Re: [PATCH v2 3/4] KVM: arm64: vgic-its: Don't save collections the table cannot hold
+In-Reply-To: <20260807104102.2410744-4-fuad.tabba@linux.dev>
+References: <20260807104102.2410744-1-fuad.tabba@linux.dev>
+	<20260807104102.2410744-4-fuad.tabba@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, oupton@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, will@kernel.org, sascha.bischoff@arm.com, sebastianene@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,46 +90,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-imx_lpcg_parse_clks_from_dt() takes a runtime PM usage reference with
-pm_runtime_get_noresume() and enables autosuspend with
-pm_runtime_use_autosuspend(). The success path drops the usage
-reference with pm_runtime_put_autosuspend(), but the error path only
-disables runtime PM.
+On Fri, 07 Aug 2026 11:41:01 +0100,
+Fuad Tabba <fuad.tabba@linux.dev> wrote:
+> 
+> A guest that disables the ITS and rewrites GITS_BASER with fewer pages,
+> VALID still set, keeps every collection it mapped against the larger
+> table: KVM stores the new BASER unconditionally and frees the list only
+> when VALID is cleared.
 
-As a result, the reference taken by pm_runtime_get_noresume() remains
-unbalanced on registration failure. The autosuspend setting is also
-left enabled instead of being undone with
-pm_runtime_dont_use_autosuspend().
+But isn't that the *real* problem? Shouldn't we instead nuke the
+collections entirely and go through a reload sequence?
 
-Add pm_runtime_dont_use_autosuspend() to undo the autosuspend setting
-and pm_runtime_put_noidle() to drop the usage reference on the error
-path.
+> vgic_its_save_collection_table() then walks the
+> whole list, writing up to 448K past the end of the table, and saves
+> collection IDs that vgic_its_restore_cte() rejects, so the save succeeds
+> and the restore fails with -EINVAL on the destination. The overrun stays
+> in guest memory, as vgic_write_guest_lock() validates every gfn.
+> 
+> Validate each collection against the current table with
+> vgic_its_check_id() and return -EINVAL, as vgic_its_save_device_tables()
+> does for devices. Collection IDs are unique and the collection table is
+> never indirect, so the check also bounds the walk.
 
-This issue was found by manual code inspection.
+I think returning -EINVAL here was a mistake, as it aborts the save
+procedure that userspace should be able to issue reliably, even if
+that means the state is crap. I don't think we should expand that
+behaviour any further.
 
-Fixes: 18cdbad40c6c ("clk: imx: clk-imx8qxp-lpcg: add runtime pm support")
-Cc: stable@vger.kernel.org
-Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
----
- drivers/clk/imx/clk-imx8qxp-lpcg.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+	M.
 
-diff --git a/drivers/clk/imx/clk-imx8qxp-lpcg.c b/drivers/clk/imx/clk-imx8qxp-lpcg.c
-index 1dae3410ee99..262645bef62d 100644
---- a/drivers/clk/imx/clk-imx8qxp-lpcg.c
-+++ b/drivers/clk/imx/clk-imx8qxp-lpcg.c
-@@ -277,8 +277,9 @@ static int imx_lpcg_parse_clks_from_dt(struct platform_device *pdev,
- 		if (clk_hws[idx])
- 			imx_clk_lpcg_scu_unregister(clk_hws[idx]);
- 	}
--
-+	pm_runtime_dont_use_autosuspend(&pdev->dev);
- 	pm_runtime_disable(&pdev->dev);
-+	pm_runtime_put_noidle(&pdev->dev);
- 
- 	return ret;
- }
 -- 
-2.43.0
-
+Jazz isn't dead. It just smells funny.
 
