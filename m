@@ -4,114 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B823DC5AD4E
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 19:41:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33B5BC5AD4E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 19:48:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WKjEzMmiO0snanv+t+uNfhShpP5xYF0n9oP12NeJ3Ok=; b=vigM/q2vGbdakWvk9lGxydApkN
-	joUIoc6TFaJ5/L30HjcER8fjsF+OjGzBSVbEfcuw0QNZX8fL7NHnAB9pwmnkXwyH1vPdJ+8ligI/5
-	uYn/BQU3jRM1+BcZSchZLaBJaIcKcbX25MIPdL5D9zYeQ6jKgctXp3TFU/zUxgQKu6tCXPAUmVtZQ
-	4YudnRoVHv8NEXUg2WyrBq2Ndq1ybopNV80OTbpgttuh7z6mbP5vt9nb7+4mxBXiYnzmTP1IaGTRu
-	SZVcQwiUFs+lwsKMnVOyy79KQhrv9DmALGsUsq84EGx0f9AVfO1cJZ/mo7Zmc8vNZduccdGtCt5c4
-	YgXsf72g==;
+	bh=39gt51/isAO4d8RJ42zRo3vpitwkhl+gNkFO7bVDtdo=; b=DG8RiZaw5OuadmbF14uj6Oj9YH
+	mLVXG+EuzsuIrCZwJLEUbUvnntcu7gGivAKiKJyh2s9P9YkQd+iL0zIUBlYn8xSDX1v031ODSN7Wu
+	620hjaJy/4ObWLmCC8r2VnQ6MwSiYLc3kTYkBHCjFBv1c5VZzRyC6d/sw6gnMBwlB2hG5Wa1Xo1hP
+	P9ZT+Z+1FiarFPmOhMXxXsvPd9ytFUcKz+BdBuB4sB2t7HqxzlChIlLRv2oOWxA4Q/I3MEZQTzWso
+	Dj1BRh6osF83msB/IUgoL0Uu8GkGpgVe1e119ktP/rUUPJnvPULfmfUYuKEDJwm+hpVQydxaczusa
+	0K9ZEH5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsmup-00000009f6t-39Fb;
-	Sat, 08 Aug 2026 19:41:07 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1wsn1q-00000009fM9-2JcL;
+	Sat, 08 Aug 2026 19:48:22 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsmul-00000009f6Y-4Bog
+	id 1wsn1o-00000009fLQ-0gLp
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Aug 2026 19:41:05 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2cc8311c6ddso437505ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Aug 2026 12:41:03 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1786218063; cv=none;
-        d=google.com; s=arc-20260327;
-        b=WhzjxFl3JY9OHJeytNR/Uvt3tB/w4ILH99ZkEdyc4V/CVjoJTT2RBj9JyWD0+52L23
-         aDTIp+ojLwBg/CI/bCdrHdDps41C04KkgigleL6h4VJrZMxM0Dj4XTvo1Qjk2QU01Zae
-         tzIE8FGN5bqKw2KUOEWto+e85BNCQ3DdTQy+w3/8oPrC9Vs5vU3e669AQT57dC/xmk+V
-         vlnNemtrxLkvdGSa4o95niBgdDukUHnw00hrGGcm8GVBPIz45vCnkHgF+g4q0XxfdcZh
-         z7DMq+EwzxFS05RFwR4cMIfH07yUkQM1+MnyuONaN1+N55JwObLumgBrqYz0DEdwwtY0
-         QUKA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=WKjEzMmiO0snanv+t+uNfhShpP5xYF0n9oP12NeJ3Ok=;
-        fh=GhZnK0qJfhUAnrvSOu8btSdFkhRkkbw0Zx7a8LTtA7A=;
-        b=pz5OSFkUEMvTLGbFdWyb/0oEVJhY7pwj9mlgzgU4tWG7AnjLg1SFi6qwB3WlDYCzYv
-         fx8kKbCFFevgRYHv2aXxSDuIdfs6bQ/HcyZN67Pn/Uoju7TC6KGv3FAp+vlzjDEI0Ic5
-         1olapXfOHJF5n97l6QNQenEGRJP+ur3ILbv0OAQ5SxFCtS68ZoUxdcKvPo1u3OHsRqlZ
-         ilApkVWcqJmCaaVipEKr8GqZ9RmwLmx7BCfG+tNJ97kneLjAQ++Qkv6rw0l9X12GRxEm
-         Qqog3LSKfIKtdcPIaYrosxlJvOSyUZi+8KXgAFtKkm3h2cg1a6DZKNVfwh52+VwVXS1M
-         N4CQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786218063; x=1786822863; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=WKjEzMmiO0snanv+t+uNfhShpP5xYF0n9oP12NeJ3Ok=;
-        b=e/EalPAUpAhAqIOV7t0Ikq1T37G94LaJgBE0hqMfjvO4LBahKuAqPlkgcqVQiWlN7v
-         hZWMcY2fkcbUiek22TMCQfjNuoE+pZ6fnn4EClkTp601NcCvcxXlKHEdKlKKsspcazHF
-         40SeRZc1g4GssxLc+ZHe7h/oxBzLB/+20qIHe2LNUHD+9MjA7lQzwGm+RCDGBwCNj2xV
-         tL+JlbCJhwpp9xgvPLyPuZn+RNbTK+tCIla4YFqpIoIA2LMUuCU0Vm3Lmk/lNSVAiaLu
-         9YRvcty5pI8ShZCZ6LQyXASTWKIoIVcrYiLNwmAxzhFY/s1GdSXU6gNRPjs01y7nFO6e
-         jXCw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786218063; x=1786822863;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=WKjEzMmiO0snanv+t+uNfhShpP5xYF0n9oP12NeJ3Ok=;
-        b=m5OyLZGoQtJJ7Pj0nAonRR+V6NAT2nm63ZiLQZKcnQcMUHRfJiXoadg9uDlTTFx5Y6
-         o0H09e7uDLSs8L7nulQIh4Csyp3tLsFAEP/a32lvXZTNUbS65qDpZRT5oaumDnq59rt0
-         zs3oTF5C9U/2DjFNGluPaTLqt6XNwNlP19lKbfQi/+Y+WUIXnCgdJ3CmvQTnx3y3XJLs
-         jDLX5JjHOrV6Wcqyll50fsC1OeelSRTt0cdbkG1HwW+1VOpk7XL4QlBbO6p0gTUz04Hn
-         oRw3nqjonEsK28T6HUVIKWFHRhbT4L3Sa6xn0asiUkgFlVbOkYKVbaMrtDTb2NhAKk4U
-         mS6Q==
-X-Forwarded-Encrypted: i=1; AHgh+RqcuCLjEN//OyIveJaxxI6VbqAT1qVTY3TG6rPhSyAVGJyYnjgGyFPstMEgvBGrUNszenKoZmk/QG45amo4NHb9@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy0o9PY9CUtHXCeMEm36MyqgL7oFYao7/Y0PUQya5DsrXw5lDbw
-	7HnxccOO9D9uRsCMXrsxQxFIhUoYgVdkJ4UN2wMcPcOBcAO3UYTT0tBMrmt86QpXVr3OxMcQhLe
-	EOBsqex5NM1rHpJA37bLdNCZU95IocYo=
-X-Gm-Gg: AR+sD12m6eR0Iy1n1iztcwWoud8ZfCXS1eKrGAhsB9bhPVILMFI3T0hI3Nei1NLoynb
-	LKOLlJSXyfdLmXkuXSGioO9Kr5IbA3qBb6p9qStPnbnEJ/kXiVcGEeBBnJpxcGvdANlIA8QRcLs
-	CQfSMfmjL8136dxztsaER5BFf4+RoqlQwqInBD1QbEdrpbkddLThtzXSWuCHaTSrm1yrEQGRAKV
-	AV6WtFgPKdArEhiaW8hCwG+nR/hKE8AMwI+Klx5Oug2zw4e5dtASpb3wWDANeEe7Hp2IfwXM6kN
-	rhLtPToexkC6+p/geWjPfz720ileAefVZGhvuOGbygcqPDRbWMFxdGRwP41hnnjqc0KfuTs0af8
-	829zOKgotYixOCnK0lVcSaZ0+v9ZrSgHoOo3Y4Oj4yuC2ijqGaEPCJ/1ufAnu
-X-Received: by 2002:a17:902:ec8a:b0:2c9:ed4a:c3a4 with SMTP id
- d9443c01a7336-2d0ca1658f2mr275615635ad.0.1786218062739; Sat, 08 Aug 2026
- 12:41:02 -0700 (PDT)
+	Sat, 08 Aug 2026 19:48:20 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0FBD860120;
+	Sat,  8 Aug 2026 19:48:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26C081F00A3A;
+	Sat,  8 Aug 2026 19:48:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786218498;
+	bh=39gt51/isAO4d8RJ42zRo3vpitwkhl+gNkFO7bVDtdo=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=VsJYgh24mxEr2VMzMAjW/xrRP3PReaaq+MGQ//C5Fl3TIIV/n6DsOAGdUN/i9eCo9
+	 MhEOKT0pYfcQ79qWVXUxzsZln6vJQFnBCT3HboxZrXuYeUjZJ/HJFHyRXHMz+ObOiq
+	 l1pMOimK1o6dsVFGrFj75dG5fyvT0znnpV6d0rPti69rZbmIkRIhXWyLgvMUItT00w
+	 5Msev3qTKrQ7yDjvstIpZ8qB7gXkwR19sqP4zap9XO0N9XfzDXJvvnO74YoyEsJM8z
+	 RHLkmn9dnbHa9j3e0dU8sdYVq37kE2ono9viGhZd0+0+P8+SC/GjehgEtGACI+p7vr
+	 h0r2wtFFCprQg==
+From: Jakub Kicinski <kuba@kernel.org>
+To: nagadheeraj.rottela@amd.com
+Cc: Jakub Kicinski <kuba@kernel.org>,
+	srinivas.neeli@amd.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	pabeni@redhat.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	richardcochran@gmail.com,
+	michal.simek@amd.com,
+	andrew@lunn.ch,
+	olteanv@gmail.com,
+	horms@kernel.org,
+	linux@armlinux.org.uk,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	git-dev@amd.com
+Subject: Re: [PATCH 02/20] net: xilinx: tsn: add TSN endpoint wrapper driver
+Date: Sat,  8 Aug 2026 12:48:17 -0700
+Message-ID: <20260808194817.132469-1-kuba@kernel.org>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260807104431.157230-3-nagadheeraj.rottela@amd.com>
+References: <20260807104431.157230-3-nagadheeraj.rottela@amd.com>
 MIME-Version: 1.0
-References: <20260807221429.155946-1-ojeda@kernel.org> <20260808.074341.1056015191905819805.tomo@flapping.org>
- <CANiq72n4=fz=JNKY0Jdm8BnLa=RmHB2B7s0bO47YTJ7hygqBZg@mail.gmail.com> <20260808.143013.1251068388254615351.tomo@flapping.org>
-In-Reply-To: <20260808.143013.1251068388254615351.tomo@flapping.org>
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Sat, 8 Aug 2026 21:40:49 +0200
-X-Gm-Features: AUfX_myY729uYjJW5IhCmENfsQg8ijuPS9VLtcEZjSqkZiEXciXEvujLP3Jq8gQ
-Message-ID: <CANiq72m70uWCRFnhs3axdymSTGCirBrYAvKh2BiT0xqW2j_3jg@mail.gmail.com>
-Subject: Re: [PATCH] rust: bug: fix `dead_code` warning in `warn_on!`
-To: FUJITA Tomonori <tomo@flapping.org>
-Cc: ojeda@kernel.org, arnd@arndb.de, krzk@kernel.org, 
-	alexandre.belloni@bootlin.com, linusw@kernel.org, chenhuacai@kernel.org, 
-	boqun@kernel.org, gary@garyguo.net, bjorn3_gh@protonmail.com, 
-	lossin@kernel.org, a.hindborg@kernel.org, aliceryhl@google.com, 
-	tmgross@umich.edu, dakr@kernel.org, daniel.almeida@collabora.com, 
-	tamird@kernel.org, acourbot@nvidia.com, work@onurozkan.dev, 
-	rust-for-linux@vger.kernel.org, fustini@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev, kernel@xen0n.name, 
-	loongarch@lists.linux.dev, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260808_124104_041821_A1DD51AF 
-X-CRM114-Status: GOOD (  12.98  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,30 +86,160 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 8, 2026 at 7:30=E2=80=AFAM FUJITA Tomonori <tomo@flapping.org> =
-wrote:
->
-> Is this the one you saw?
+This is an AI-generated review of your patch. The human sending this
+email has considered the AI review valid, or at least plausible.
+---
+net: xilinx: tsn: add TSN endpoint wrapper driver
 
-Yeah, exactly.
+Adds a thin wrapper platform driver for the Xilinx TSN Endpoint Ethernet
+MAC IP node, along with a new Kconfig symbol and Makefile under
+drivers/net/ethernet/xilinx/tsn/. The wrapper enables the six IP-wide
+clocks and then populates the sub-nodes so each can bind to its own driver.
 
-> I posted a `cfg(testlib)` split for it:
->
-> https://lore.kernel.org/all/20260808022608.1125174-1-tomo@flapping.org/
+A few questions below, all fairly minor.
 
-Thanks! It seems good to me.
+> diff --git a/drivers/net/ethernet/xilinx/tsn/Kconfig b/drivers/net/ethernet/xilinx/tsn/Kconfig
+> new file mode 100644
+> index 000000000000..45af4d3f10e6
+> --- /dev/null
+> +++ b/drivers/net/ethernet/xilinx/tsn/Kconfig
+> @@ -0,0 +1,15 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> +#
+> +# Xilinx TSN device configuration
+> +#
+> +
+> +config XILINX_TSN
+> +	tristate "Xilinx TSN Ethernet driver"
+> +	depends on OF && HAS_IOMEM
 
-> While at it, a question: what is `rusttest` meant to cover when
-> `ARCH=3D` is not the host's?
+[Severity: Low]
+Should this depend on OF_ADDRESS rather than OF && HAS_IOMEM?
 
-`rusttest` is meant to run tests on the host, regardless of the target.
+The only functional statement in tsn_ip_probe() is:
 
-There aren't many tests there nowadays, since most of them moved to
-the actual kernel when we got support for that, but we can still do
-there things like testing proc macros.
+	return devm_of_platform_populate(dev);
 
-We could also use it for more things in the future, perhaps...
+and in include/linux/of_platform.h the real implementation is compiled
+only under CONFIG_OF_ADDRESS; otherwise the inline stub is:
 
-Cheers,
-Miguel
+	static inline int devm_of_platform_populate(struct device *dev)
+	{
+		return -ENODEV;
+	}
+
+OF && HAS_IOMEM does not imply OF_ADDRESS, per drivers/of/Kconfig:
+
+	config OF_ADDRESS
+		def_bool y
+		depends on !SPARC && (HAS_IOMEM || UML)
+
+sparc selects OF and provides HAS_IOMEM, and NET_VENDOR_XILINX has no
+architecture dependency, so XILINX_TSN is selectable there with
+OF_ADDRESS=n.
+
+In that configuration tsn_ip_probe() still runs devm_kzalloc(),
+devm_clk_bulk_get() and clk_bulk_prepare_enable() for all six clocks and
+registers the disable action, and then returns -ENODEV, so the driver can
+never bind and no sub-node device is created. The clocks are unwound by
+devres, so nothing leaks, but the whole driver is dead code in that
+configuration.
+
+This also stays as is through the end of the series, where the symbol is
+still "depends on OF && HAS_IOMEM" plus "depends on XILINX_DMA", and
+XILINX_DMA only has "depends on HAS_IOMEM".
+
+> +	help
+> +	  This driver supports the AMD/Xilinx Time-Sensitive Networking
+> +	  (TSN) Endpoint Ethernet MAC IP. It provides the wrapper device
+> +	  and the endpoint MAC that connects the IP to the host CPU. The
+> +	  three-port switch is supported by NET_DSA_XILINX_TSN.
+
+[Severity: Low]
+The help text describes "the endpoint MAC that connects the IP to the host
+CPU" and refers the reader to NET_DSA_XILINX_TSN, but at this commit the
+symbol only builds xilinx_tsn_main.o (clock enable plus
+devm_of_platform_populate()) and no NET_DSA_XILINX_TSN symbol exists in the
+tree yet.
+
+Both do appear later in the same series: the end-of-series Makefile has
+
+	xilinx_tsn-y := xilinx_tsn_main.o xilinx_tsn_ep.o
+
+with &xlnx_tsn_ep_driver registered from xilinx_tsn_main.c, and
+NET_DSA_XILINX_TSN is added in drivers/net/dsa/xilinx/Kconfig.
+
+Since the text only appears in prose and not in a select or depends on,
+there is no build effect; would it be worth wording the help text so it
+matches what this commit actually builds, or is the forward reference
+intentional for the series?
+
+> +
+> +	  If unsure, say N.
+
+[ ... ]
+
+> diff --git a/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_main.c b/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_main.c
+> new file mode 100644
+> index 000000000000..1ef1b0c2ee6e
+> --- /dev/null
+> +++ b/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_main.c
+> @@ -0,0 +1,105 @@
+
+[ ... ]
+
+> +static int tsn_ip_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct xlnx_tsn_ip *w;
+> +	int ret;
+> +
+> +	w = devm_kzalloc(dev, sizeof(*w), GFP_KERNEL);
+> +	if (!w)
+> +		return -ENOMEM;
+> +
+> +	for (int i = 0; i < TSN_NUM_CLOCKS; i++)
+> +		w->clks[i].id = tsn_clk_names[i];
+> +
+> +	ret = devm_clk_bulk_get(dev, TSN_NUM_CLOCKS, w->clks);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "failed to get clocks\n");
+> +
+> +	ret = clk_bulk_prepare_enable(TSN_NUM_CLOCKS, w->clks);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "failed to enable clocks\n");
+> +
+> +	ret = devm_add_action_or_reset(dev, tsn_clk_bulk_disable, w);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return devm_of_platform_populate(dev);
+> +}
+
+[Severity: Low]
+Is there a consumer for xlnx,num-priorities anywhere?
+
+Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml
+lists it in the top-level required block for this same node:
+
+	required:
+	  - compatible
+	  - reg
+	  - clocks
+	  - clock-names
+	  - xlnx,num-priorities
+	  - ranges
+
+tsn_ip_probe() is the only driver binding
+"xlnx,tsn-endpoint-ethernet-mac-3.0", and it only fills clks[].id and
+calls devm_clk_bulk_get(), clk_bulk_prepare_enable() and
+devm_of_platform_populate(). Grepping for num-priorities or
+num_priorities at the end of the series finds hits only inside the YAML
+itself plus unrelated fsl-mc and xe files.
+
+So device tree authors must supply the property to pass dt_binding_check
+while nothing reads it. Would it make sense to drop it from required
+until a driver actually uses it?
+
+[ ... ]
 
