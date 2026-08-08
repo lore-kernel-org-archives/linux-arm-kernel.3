@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41849C5AD4E
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 23:18:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81A8DC5AD48
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 23:18:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W9b4Bn/jCc6njmblrCdb5kz0LDKIkI3N8b9vqXSBZ44=; b=aRb+jtlVDo2FvkTYzEuESGWV3v
-	EToE+XVYFJeubqrvZJoRtgteWSkBIfka2/+10bD8+nGYWbIDr9+MNZSeY5fZwYw77Jy3qZuvcbvA6
-	sLWeZEXSUGaDQX7dq5KgpEoCauLxI+ibf8x+y9kR2xSnBZkXGi1iIzLPMkyeZCFp7PoItNspijYpz
-	9Wd0/kDMw6nI3W8JMxR2FHarl+V32LyB1XRQCHK7+t4l0cI3b1sWHVSspYG0eY7dP3893lKuRRr98
-	m1hqDE2u6Coi4BGwjaVrdrSffj+t6UlBqYcvqdOuhuP4CKsE079fwjYqQGNCAV0XO5U4gxIac4kXg
-	fy19H4gw==;
+	bh=8IJm04E1Jx6VRBFU9vtFpV6hpK6h8wmtKkvHTJRXIIk=; b=WpNDZpgJ0BHfC2QcttfaMBbNdh
+	ZKfMc3ngKIyA40bpnLtu/b0+iuMF7E7pjjoDmBDBjOU2N9dWHNthexWN1H/B+bqusrLV6WgJvKNos
+	HEPpDi462meb/INlqenoKuZ05spxDbsW7CF1Nb5Q0aVwruqlZLI4gsich6zLM/18ih9plkL2SVHwX
+	t/Q1NBRvMcKKkCfFVInQyQw7TzHW0l6jkhWD7+nPtDCKPq54sxnADB1m87b1a1qSO4Zp73k1ZjDB9
+	rktY3+81ILIyEekvQrdxTPmARicEB1lQbw6lwdY6lwnFF6MwAYBQbLmcuxQ1BsahRvkacGGLY354V
+	8lcZ7Q4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsqJD-00000009m6R-2Eal;
-	Sat, 08 Aug 2026 23:18:31 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wsqJI-00000009mAf-462Y;
+	Sat, 08 Aug 2026 23:18:36 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsqJC-00000009m5o-0u4a
+	id 1wsqJE-00000009m6X-0Aad
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Aug 2026 23:18:30 +0000
+	Sat, 08 Aug 2026 23:18:32 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B5087415D8;
-	Sat,  8 Aug 2026 23:18:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA6931F00A3A;
-	Sat,  8 Aug 2026 23:18:18 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 737A260254;
+	Sat,  8 Aug 2026 23:18:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A2EF1F00AC4;
+	Sat,  8 Aug 2026 23:18:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786231109;
-	bh=W9b4Bn/jCc6njmblrCdb5kz0LDKIkI3N8b9vqXSBZ44=;
+	s=k20260515; t=1786231111;
+	bh=8IJm04E1Jx6VRBFU9vtFpV6hpK6h8wmtKkvHTJRXIIk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=TLnA1aXrDS1TAiKjspJeJ5UQ5kn2WXj2kjANeHma49+w4uagHC80MPMREog7bgEX6
-	 5iOreJWSQX5FW++X656Vqxgv4LbLKxBNr1ck+QNclsIZGefnx/2jXSbz74ftM/ZbUK
-	 WheyLyhpCPewVpA/mD60T1QtJfFSTvjBSFLvxBICEDejXHBXP7Dd7NxEurf1wUjvDX
-	 nt3tnpc5lBgAFrPAUxMlR3CpEdNbQriINpeJW2a9j2cOsa0SAkCYxWH4x85GGXGVS0
-	 Emz1G7XBnbhseVEd7iATvLEjFhPcqvT45pvvOr+c9eIec8ZXGZkXSy11/OCAvMH0uR
-	 pQZ1QKNNOM+NA==
+	b=hYrYrO3GWE5Ne93ezf2fcT3d/FJ+AsiTHKLc9c/ZlMmJUgtqy81RxerzfxRjoJkh7
+	 +lMr6kZw+rwvrRFHt4ICuAbaCRhn1ZRiM4oQI9TAWCvjWWCaAOJExhZ61yp5uQmjhF
+	 EOsNiUBP2c2VTjuZjjk05cQmmuaMK5it/Apa1kuhaQoTga5+4YTTPLNEQ5hqbk0+YU
+	 G+pomKERkMtM8cmI8gShXr4auy1zISphl11+6ztbeIPXyBFQS3Jg5jQjGfUsGRzmjJ
+	 ShU0uS+MS6t/1GCzxLMagrkioywKMpNprvWoUAnwZhZk5Y2zX5zECyLICylXJgeT4F
+	 7BDSBTd7OQV4A==
 From: Josh Poimboeuf <jpoimboe@kernel.org>
 To: x86@kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -58,9 +58,9 @@ Cc: linux-kernel@vger.kernel.org,
 	Herbert Xu <herbert@gondor.apana.org.au>,
 	Miroslav Benes <mbenes@suse.cz>,
 	Petr Mladek <pmladek@suse.com>
-Subject: [PATCH v4 04/22] arm64: Fix EFI linking with -fdata-sections
-Date: Sat,  8 Aug 2026 16:17:08 -0700
-Message-ID: <7b18edbeb7bb68f3a69b8b0bb7ede12d834ad1d9.1786230311.git.jpoimboe@kernel.org>
+Subject: [PATCH v4 06/22] arm64: vdso: Discard .discard.* sections
+Date: Sat,  8 Aug 2026 16:17:10 -0700
+Message-ID: <e246f9ed3b06724147ca801af3deea5e2cb3b80e.1786230311.git.jpoimboe@kernel.org>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <cover.1786230311.git.jpoimboe@kernel.org>
 References: <cover.1786230311.git.jpoimboe@kernel.org>
@@ -80,30 +80,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When building with -fdata-sections, the .init.bss section gets split up
-into a bunch of .init.bss.<var> sections.  Make sure they get linked
-into .init.data.
+In preparation for enabling objtool on arm64, add .discard.* to the
+vDSO's /DISCARD/ section so objtool annotations don't cause orphan
+section warnings or leak into the final vDSO binary.
 
-Acked-by: Song Liu <song@kernel.org>
-Reviewed-by: Miroslav Benes <mbenes@suse.cz>
 Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
 ---
- arch/arm64/kernel/vmlinux.lds.S | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm64/kernel/vdso/vdso.lds.S | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/kernel/vmlinux.lds.S b/arch/arm64/kernel/vmlinux.lds.S
-index af1d720209764..91b700e20badf 100644
---- a/arch/arm64/kernel/vmlinux.lds.S
-+++ b/arch/arm64/kernel/vmlinux.lds.S
-@@ -281,7 +281,7 @@ SECTIONS
- 		INIT_CALLS
- 		CON_INITCALL
- 		INIT_RAM_FS
--		*(.init.altinstructions .init.bss)	/* from the EFI stub */
-+		*(.init.altinstructions .init.bss .init.bss.*)	/* from the EFI stub */
+diff --git a/arch/arm64/kernel/vdso/vdso.lds.S b/arch/arm64/kernel/vdso/vdso.lds.S
+index 52314be291912..d5f96fa17e605 100644
+--- a/arch/arm64/kernel/vdso/vdso.lds.S
++++ b/arch/arm64/kernel/vdso/vdso.lds.S
+@@ -39,6 +39,7 @@ SECTIONS
+ 	/DISCARD/	: {
+ 		*(.note.GNU-stack .note.gnu.property)
+ 		*(.ARM.attributes)
++		*(.discard.*)
  	}
- 	.exit.data : {
- 		EXIT_DATA
+ 	.note		: { *(.note.*) }		:text	:note
+ 
 -- 
 2.54.0
 
