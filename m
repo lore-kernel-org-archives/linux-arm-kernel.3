@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61F8EC5AD44
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 19:07:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F902C5AD4E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 19:07:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qvOahLTVyriT8PCWSJcVaW7SzCAoLhKXpVrBlcAhW8M=; b=z2Iv0Qlyny4+TapB2Kc+QW6Qwd
-	LjbsiT2fpT5u4IZ9H8YTOZolA7Zn2k+RE1DUqXek8ITNPSf4wvb4fGT17Z8iuR+LUsuXeHx2sq7o5
-	BUDqdJuzfs6Y9xs/D4Dk8S/Eo2SaeDZK5NrrzdZSNB4Axj61esznMD8jbtr12haHTV/ihhFPjHBdC
-	J80gmDcQxeqERtMPpVizr4klgOpvGO9PrXTIZX0WWI+reVeIHdHNreOSthjwOzs4ud2X4nrdPHIFp
-	uHy1Fqx7j3SpZDD89OyXCTYb6L0pAPwDW8tGkQHt9fxblrYVjgC+m8kiQrVmr4lZtiI6x29z/Je2p
-	bjuW51kg==;
+	bh=aG0ciAekikvqpv96riqRiShExPJPU7Ltv8HSO4Zij/o=; b=Ca0nz0rbQRbd1ZRvRT/QKSl+CK
+	psAZT93Js8UwGVyfyC/ZjMVKGO684o5etw1quTU9WPXfdgLZlr7ObhKN7FK9xIbiDRIJZxg/USccJ
+	7DGsoIU+KHAydnViQJCUHLEmvjA9c8/r5KoIAf1+W79e/0VIMeqo6TVskHqGK+mDAtUyjID55Zs7T
+	y5ERxuHBIWvEdGSzkMoA6OnJmTqaReqIdXw7I8VCcvO0J4ljrLixWzH7y49111/knmC/DwQfYifzZ
+	gJX1Rr3cZWKtV4lBJ1quNM0r4FMIsLZ178y4UrXds7MVJTo0NqHCBXTQkwsJvv450SoBwjcaLTsLu
+	c2jsbraw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsmOF-00000009brr-3x1b;
-	Sat, 08 Aug 2026 19:07:27 +0000
+	id 1wsmOJ-00000009bv1-0I5t;
+	Sat, 08 Aug 2026 19:07:31 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsmOD-00000009bom-0umv
+	id 1wsmOG-00000009bsh-3AmF
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Aug 2026 19:07:27 +0000
+	Sat, 08 Aug 2026 19:07:30 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E780E152B;
-	Sat,  8 Aug 2026 12:07:19 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 37CFE152B;
+	Sat,  8 Aug 2026 12:07:24 -0700 (PDT)
 Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E934F3F86F;
-	Sat,  8 Aug 2026 12:07:19 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4530F3F86F;
+	Sat,  8 Aug 2026 12:07:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786216043; bh=eEcXcMWx6z6HYRIIHy1+ho9hGa+1sn+7MwXabhJyips=;
+	t=1786216048; bh=YBPy5SpJ1rZvilrCXS7hNEK37sPhZxPXylIIgcG79fA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=sXSacQ849KzuY4y4PnceMDp12+bRG3PIrwTtz/0aJFyDn47dNPlvzF/WWNVmER4Yh
-	 98oMw7JnjnmClA/2RUXYCP81ZN4RDQZPE+cqVng1ahB1SBp+TpvR7vGIQU65ZcNX1H
-	 tcYexKupqJ12R95j9F/Pk0LGEOHAIz+xxJysUphc=
+	b=mR7Cl5Xa09G/uwzhh3YqhXR4aKOmQS8YVnT2DiBTnCCn2oKXNnSB3IwgKKpNhI0k7
+	 RAGgkdHxXf7ijWGhaS1aE72fiYfBm2R6ttCyTwn8fi0DexFG2vseemCsCD3tRdSSii
+	 0m8fSbf2pzFPWD5Cj36jPfXsFQ6L5Vnnl3jxmT4o=
 From: Cristian Marussi <cristian.marussi@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -64,17 +64,17 @@ Cc: sudeep.holla@kernel.org,
 	usama.arif@linux.dev,
 	kernel-team@meta.com,
 	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [PATCH v8 10/23] firmware: arm_scmi: Add support for Telemetry reset
-Date: Sat,  8 Aug 2026 20:05:41 +0100
-Message-ID: <20260808190554.387949-11-cristian.marussi@arm.com>
+Subject: [PATCH v8 11/23] firmware: arm_scmi: Add Telemetry notification support
+Date: Sat,  8 Aug 2026 20:05:42 +0100
+Message-ID: <20260808190554.387949-12-cristian.marussi@arm.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260808190554.387949-1-cristian.marussi@arm.com>
 References: <20260808190554.387949-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260808_120725_350845_369CC3DF 
-X-CRM114-Status: GOOD (  15.78  )
+X-CRM114-CacheID: sfid-20260808_120728_937155_50EB0014 
+X-CRM114-Status: GOOD (  21.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,126 +89,271 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for Telemetry operations needed to request platform to
-reset telemetry current configuration and data events values.
+Add support for notifications to Telemetry protocol and register an
+internal notifier during protocol initialization: any DE value received
+inside a notification payload will be cached for future user consumption.
 
 Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 ---
 v6 --> v7
- - add proper cleanup of sid/offs/uuids and caches on RESET
-v5 --> v6
- - added missing reset of global state
-v3 --> v4
- - reset tracked Telemetry DE state
+ - fix sparse warn on notof payload handling
+v5 -> v6
+ - use protocol instance notifier interface
+ - use new RAW macros to access payload
+ - add proper boundary checks on notification payload
+ - fix mutex scope in msg payld parsing
+ - add notification payload consistency check (Sahiko)
+v3 -> v4
+ - use TDE cache to save DEs received via msg payload
 v2 --> v3
- - split from monolithic Telemetry patch
- - use scmi_telemetry_de_unlink
+ - changed a few dev_err into traces
+ - split from monolithic telemetry protocol patch
+ - use memcpy_from_le32
 ---
- drivers/firmware/arm_scmi/telemetry.c | 63 +++++++++++++++++++++++++++
- include/linux/scmi_protocol.h         |  2 +
- 2 files changed, 65 insertions(+)
+ drivers/firmware/arm_scmi/telemetry.c | 158 +++++++++++++++++++++++---
+ include/linux/scmi_protocol.h         |   9 ++
+ 2 files changed, 154 insertions(+), 13 deletions(-)
 
 diff --git a/drivers/firmware/arm_scmi/telemetry.c b/drivers/firmware/arm_scmi/telemetry.c
-index d459adc967dc..ffb6c8af1387 100644
+index ffb6c8af1387..eb0f77ddf023 100644
 --- a/drivers/firmware/arm_scmi/telemetry.c
 +++ b/drivers/firmware/arm_scmi/telemetry.c
-@@ -2825,6 +2825,68 @@ static int scmi_telemetry_des_sample_get(const struct scmi_protocol_handle *ph,
- 	return ret;
+@@ -529,12 +529,16 @@ struct telemetry_info {
+ 	struct list_head free_des;
+ 	struct list_head fcs_des;
+ 	struct scmi_telemetry_info info;
++	struct notifier_block telemetry_nb;
+ 	atomic_t rinfo_initializing;
+ 	struct completion rinfo_initdone;
+ 	struct scmi_telemetry_res_info *rinfo;
+ 	struct scmi_telemetry_res_info *(*res_get)(struct telemetry_info *ti);
+ };
+ 
++#define telemetry_nb_to_info(x)	\
++	container_of(x, struct telemetry_info, telemetry_nb)
++
+ static struct scmi_telemetry_res_info *
+ __scmi_telemetry_resources_get(struct telemetry_info *ti);
+ 
+@@ -2731,6 +2735,7 @@ scmi_telemetry_msg_payld_process(struct telemetry_info *ti,
+ 
+ 	while (next < num_dwords) {
+ 		struct payload *payld = (struct payload *)&dwords[next];
++		struct scmi_telemetry_de_sample sample = {};
+ 		struct scmi_telemetry_de *de;
+ 		struct telemetry_de *tde;
+ 		unsigned int wlen;
+@@ -2750,23 +2755,28 @@ scmi_telemetry_msg_payld_process(struct telemetry_info *ti,
+ 
+ 		de = xa_load(&ti->xa_des, de_id);
+ 		if (!de || !de->enabled) {
+-			dev_err(ti->ph->dev,
+-				"MSG - Received INVALID DE - ID:%u  enabled:%c\n",
+-				de_id, de ? (de->enabled ? 'Y' : 'N') : 'X');
++			trace_scmi_tlm_access(de_id, de ? "MSG_DE_DISABLED" :
++					      "MSG_DE_UNKNOWN", 0, 0);
+ 			continue;
+ 		}
+ 
+ 		tde = to_tde(de);
+-		guard(mutex)(&tde->mtx);
+-		tde->cached_msg = true;
+-		tde->last_val = LINE_DATA_GET_RAW(&payld->tsl);
+-		/* TODO BLK_TS in notification payloads */
+-		tde->last_ts = HAS_LINE_EXT_RAW(payld->meta) &&
+-			LINE_TS_VALID_RAW(payld->meta) ?
+-			LINE_TSTAMP_GET_RAW(&payld->tsl) : 0;
++		scoped_guard(mutex, &tde->mtx) {
++			tde->cached_msg = true;
++			scmi_telemetry_uuid_link(tde, ti->primary_uuid);
++			tde->last_val = LINE_DATA_GET_RAW(&payld->tsl);
++			tde->last_ts = HAS_LINE_EXT_RAW(meta) &&
++				LINE_TS_VALID_RAW(meta) ?
++				LINE_TSTAMP_GET_RAW(&payld->tsl) : 0;
++			sample.val = tde->last_val;
++			sample.tstamp = tde->last_ts;
++		}
+ 
+-		trace_scmi_tlm_collect(tde->last_ts, tde->de.info->id,
+-				       tde->last_val, "MESSAGE");
++		/* Trace originally read tstamp */
++		trace_scmi_tlm_collect(sample.tstamp, de->info->id, sample.val,
++				       "MESSAGE");
++
++		scmi_telemetry_tde_cache_update(tde, &sample, NULL);
+ 	}
  }
  
-+static void scmi_telemetry_local_resources_reset(struct telemetry_info *ti)
+@@ -2900,6 +2910,107 @@ static const struct scmi_telemetry_proto_ops tlm_proto_ops = {
+ 	.reset = scmi_telemetry_reset,
+ };
+ 
++static bool
++scmi_telemetry_notify_supported(const struct scmi_protocol_handle *ph,
++				u8 evt_id, u32 src_id)
 +{
-+	struct scmi_telemetry_res_info *rinfo;
++	struct telemetry_info *ti = ph->get_priv(ph);
 +
-+	ti->info.enabled = false;
-+	ti->info.notif_enabled = false;
-+	ti->info.current_mode = SCMI_TLM_ONDEMAND;
-+
-+	/* Get rinfo as it is...without triggering an enumeration */
-+	rinfo = __scmi_telemetry_resources_get(ti);
-+	/* Clear all local state...*/
-+	for (int i = 0; i < rinfo->num_des; i++) {
-+		struct telemetry_de *tde = to_tde(rinfo->des[i]);
-+
-+		rinfo->des[i]->enabled = false;
-+		rinfo->des[i]->tstamp_enabled = false;
-+
-+		tde->last_ts = 0;
-+		tde->last_val = 0;
-+		tde->last_magic = 0;
-+		if (!tde->de.fc_support) {
-+			tde->sid = SHMTI_ID_INVALID;
-+			tde->base = NULL;
-+			tde->offset = 0;
-+			tde->eplg = NULL;
-+		}
-+
-+		scmi_telemetry_blkts_unlink(tde);
-+	}
-+	for (int i = 0; i < rinfo->num_groups; i++) {
-+		rinfo->grps[i].enabled = false;
-+		rinfo->grps[i].tstamp_enabled = false;
-+		rinfo->grps[i].current_mode = SCMI_TLM_ONDEMAND;
-+		rinfo->grps[i].active_update_interval = 0;
-+	}
-+
-+	atomic_set(&ti->des_enabled[ENA_STATE], 0);
-+	atomic_set(&ti->des_enabled[ENA_TSTAMP], 0);
++	return ti->info.continuos_update_support;
 +}
 +
-+static int scmi_telemetry_reset(const struct scmi_protocol_handle *ph)
++static int
++scmi_telemetry_set_notify_enabled(const struct scmi_protocol_handle *ph,
++				  u8 evt_id, u32 src_id, bool enable)
 +{
-+	struct scmi_xfer *t;
-+	int ret;
++	return 0;
++}
 +
-+	ret = ph->xops->xfer_get_init(ph, TELEMETRY_RESET, sizeof(u32), 0, &t);
++static void *
++scmi_telemetry_fill_custom_report(const struct scmi_protocol_handle *ph,
++				  u8 evt_id, ktime_t timestamp,
++				  const void *payld, size_t payld_sz,
++				  void *report, u32 *src_id)
++{
++	const struct scmi_telemetry_update_notify_payld *p = payld;
++	struct scmi_telemetry_update_report *r = report;
++
++	/* At least sized as an empty notification */
++	if (payld_sz < sizeof(*p))
++		return NULL;
++
++	r->timestamp = timestamp;
++	r->agent_id = le32_to_cpu(p->agent_id);
++	r->status = le32_to_cpu(p->status);
++	r->num_dwords = le32_to_cpu(p->num_dwords);
++
++	if (r->num_dwords * sizeof(r->dwords[0]) > payld_sz)
++		return NULL;
++
++	/*
++	 * Allocated dwords and report are sized as max_msg_size, so as
++	 * to allow for the maximum payload permitted by the configured
++	 * transport. Overflow is not possible since out-of-size messages
++	 * are dropped at the transport layer.
++	 */
++	if (r->num_dwords)
++		memcpy_from_le32(r->dwords, p->array, r->num_dwords);
++
++	*src_id = 0;
++
++	return r;
++}
++
++static const struct scmi_event tlm_events[] = {
++	{
++		.id = SCMI_EVENT_TELEMETRY_UPDATE,
++		.max_payld_sz = 0,
++		.max_report_sz = 0,
++	},
++};
++
++static const struct scmi_event_ops tlm_event_ops = {
++	.is_notify_supported = scmi_telemetry_notify_supported,
++	.set_notify_enabled = scmi_telemetry_set_notify_enabled,
++	.fill_custom_report = scmi_telemetry_fill_custom_report,
++};
++
++static const struct scmi_protocol_events tlm_protocol_events = {
++	.queue_sz = SCMI_PROTO_QUEUE_SZ,
++	.ops = &tlm_event_ops,
++	.evts = tlm_events,
++	.num_events = ARRAY_SIZE(tlm_events),
++	.num_sources = 1,
++};
++
++static int scmi_telemetry_notifier(struct notifier_block *nb,
++				   unsigned long event, void *data)
++{
++	struct scmi_telemetry_update_report *er = data;
++	struct telemetry_info *ti = telemetry_nb_to_info(nb);
++
++	if (er->status) {
++		trace_scmi_tlm_access(0, "BAD_NOTIF_MSG", 0, 0);
++		return NOTIFY_DONE;
++	}
++
++	trace_scmi_tlm_access(0, "TLM_UPDATE_MSG", 0, 0);
++	/* Lookup the embedded DEs in the notification payload ... */
++	if (er->num_dwords) {
++		size_t payld_bytes = sizeof(er->dwords[0]) * er->num_dwords;
++
++		/* The report payload size was bound checked on rx */
++		scmi_telemetry_msg_payld_process(ti, er->num_dwords, er->dwords,
++						 payld_bytes);
++	}
++
++	/* ...scan the SHMTI/FCs for any other DE updates. */
++	if (ti->streaming_mode)
++		scmi_telemetry_scan_update(ti);
++
++	return NOTIFY_OK;
++}
++
+ /**
+  * scmi_telemetry_resources_alloc  - Resources allocation
+  * @ti: A reference to the telemetry info descriptor for this instance
+@@ -3237,7 +3348,27 @@ static int scmi_telemetry_protocol_init(const struct scmi_protocol_handle *ph)
+ 
+ 	ti->info.base.version = ph->version;
+ 
+-	return ph->set_priv(ph, ti);
++	ret = ph->set_priv(ph, ti);
 +	if (ret)
 +		return ret;
 +
-+	put_unaligned_le32(0, t->tx.buf);
-+	ret = ph->xops->do_xfer(ph, t);
-+	if (!ret) {
-+		struct telemetry_info *ti = ph->get_priv(ph);
-+
-+		scmi_telemetry_local_resources_reset(ti);
++	/*
++	 * Register a notifier anyway straight upon protocol initialization
++	 * since there could be some DEs that are ONLY reported by notifications
++	 * even though the chosen collection method was SHMTI/FCs.
++	 */
++	if (ti->info.continuos_update_support) {
++		ti->telemetry_nb.notifier_call = &scmi_telemetry_notifier;
++		ret = ph->instance_notifier_register(ph, SCMI_EVENT_TELEMETRY_UPDATE,
++						     NULL, &ti->telemetry_nb);
++		if (ret) {
++			dev_err(ph->dev,
++				"Could NOT register Telemetry notifier\n");
++			return ret;
++		}
 +	}
 +
-+	ph->xops->xfer_put(ph, t);
-+
-+	return ret;
-+}
-+
- static const struct scmi_telemetry_proto_ops tlm_proto_ops = {
- 	.info_get = scmi_telemetry_info_get,
- 	.de_lookup = scmi_telemetry_de_lookup,
-@@ -2835,6 +2897,7 @@ static const struct scmi_telemetry_proto_ops tlm_proto_ops = {
- 	.de_data_read = scmi_telemetry_de_data_read,
- 	.des_bulk_read = scmi_telemetry_des_bulk_read,
- 	.des_sample_get = scmi_telemetry_des_sample_get,
-+	.reset = scmi_telemetry_reset,
++	return 0;
+ }
+ 
+ static const struct scmi_protocol scmi_telemetry = {
+@@ -3245,6 +3376,7 @@ static const struct scmi_protocol scmi_telemetry = {
+ 	.owner = THIS_MODULE,
+ 	.instance_init = &scmi_telemetry_protocol_init,
+ 	.ops = &tlm_proto_ops,
++	.events = &tlm_protocol_events,
+ 	.supported_version = SCMI_PROTOCOL_SUPPORTED_VERSION,
  };
  
- /**
 diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
-index 96940d6e80a4..aadabaee6067 100644
+index aadabaee6067..2d571c78613b 100644
 --- a/include/linux/scmi_protocol.h
 +++ b/include/linux/scmi_protocol.h
-@@ -1016,6 +1016,7 @@ struct scmi_telemetry_de_sample {
-  *		    the ones belonging to a specific group when provided.
-  *		    This causes an immediate update platform-side of all the
-  *		    enabled DEs.
-+ * @reset: reset configuration and telemetry data.
-  */
- struct scmi_telemetry_proto_ops {
- 	const struct scmi_telemetry_info __must_check *(*info_get)
-@@ -1043,6 +1044,7 @@ struct scmi_telemetry_proto_ops {
- 	int __must_check (*des_sample_get)(const struct scmi_protocol_handle *ph,
- 					   int grp_id, int *num_samples,
- 					   struct scmi_telemetry_de_sample *samples);
-+	int (*reset)(const struct scmi_protocol_handle *ph);
+@@ -1252,6 +1252,7 @@ enum scmi_notification_events {
+ 	SCMI_EVENT_SYSTEM_POWER_STATE_NOTIFIER = 0x0,
+ 	SCMI_EVENT_POWERCAP_CAP_CHANGED = 0x0,
+ 	SCMI_EVENT_POWERCAP_MEASUREMENTS_CHANGED = 0x1,
++	SCMI_EVENT_TELEMETRY_UPDATE = 0x0,
  };
  
- /**
+ struct scmi_power_state_changed_report {
+@@ -1339,4 +1340,12 @@ struct scmi_powercap_meas_changed_report {
+ 	unsigned int	domain_id;
+ 	unsigned int	power;
+ };
++
++struct scmi_telemetry_update_report {
++	ktime_t		timestamp;
++	unsigned int	agent_id;
++	int		status;
++	unsigned int	num_dwords;
++	unsigned int	dwords[];
++};
+ #endif /* _LINUX_SCMI_PROTOCOL_H */
 -- 
 2.54.0
 
