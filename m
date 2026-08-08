@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF457C5AD44
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 19:07:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 579F0C5AD56
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 19:07:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yk6y9M/bGeFdI+KD3ancRHUMLL3xSUPfuJ/GYbMyt38=; b=3+VD2Lr5XJrDDgjsoosmvRSlzf
-	iAew8YKanQVZt5tRFoFv3tap+ylA1yJ0MgYfTBP+KnUrmBbQS1Lp/koKpXax8LGfMr7vCtUAPmlG8
-	LSaDYP9+HO3BOgiv9GyQMeIzWR6Uc2UpmHmYY8dN1wJN1whtD0t8ppz3x4C8TCmP8TNNfwii3EgRc
-	RI0gdnirtCejtw8MGIvhIEBrQzlGAUr8esjE7N/yAjIl2eFXCVl3n8bwPzEcseerlNMaCBq3UHGOG
-	157UxR9qI3Wp4GTWqejQbT5oPtGF1KEG3zP/cyRY6eGpbHUea1JpvGaPMC2rzlLZ1gP+lpDmh1UP6
-	RMw/7Eew==;
+	bh=mS7Fsq/iJChdO1hpwr/l2Vg7F3ujEn9sQyPNvayGzFE=; b=vebMHMshwyWuo3tnbp1QtIfyaJ
+	lymEliFx4dO+dr3SMwI3Vo+yNJxF0Vw2hcnJ3SJPt+RkNUyI45CHMa/m+jplKXxVFJHbQPNCExHYX
+	pflZgZZBvG4jACXixOV4W4uNxNW/iWFbJYfMvzL8OgyqCxmg+SuiNGVTY0yxIy/9ZrUtMX6J83b+G
+	Uyxv5c9Vf+M4nCk/5JK0UC/AfpYPe/npxg4Vnp5lS4vVQWJ4eGp7OyAkU7aMiIA1C9MHP22Icm5sN
+	vtGgM/OFOtLvFxe5LI/Rq0n9xVsVJ8KQTm/X8knGR8jW3uwJdOwV6YMbQPdoTGOLH8PVdJ6zOAZx4
+	Xs13pqVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsmNe-00000009bQN-16dG;
-	Sat, 08 Aug 2026 19:06:50 +0000
+	id 1wsmNr-00000009bVz-0W7Q;
+	Sat, 08 Aug 2026 19:07:03 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsmNa-00000009bPO-3nml
+	id 1wsmNo-00000009bUk-38b7
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Aug 2026 19:06:48 +0000
+	Sat, 08 Aug 2026 19:07:01 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F0A571570;
-	Sat,  8 Aug 2026 12:06:39 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BAEE11570;
+	Sat,  8 Aug 2026 12:06:53 -0700 (PDT)
 Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D47113F86F;
-	Sat,  8 Aug 2026 12:06:39 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 265DD3F86F;
+	Sat,  8 Aug 2026 12:06:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786216004; bh=bWQb7uwORFSY6GGme2jUY9rEAwIe/vwccDMcGQhyUF4=;
+	t=1786216017; bh=9vZoBgzFE2THNFE8s+a0rg1bPJg4MV54NAwQFcIi1xY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=h7oEPS5kDgzhbBPXWRreki5/5cWSLif7La/RI9Kng2Naxx72w2k9M3xBJuYX2QNn5
-	 CyUApx5t8mjc5hYVwKtLYiZr0+6ENFLmiHUaNjTR8phAw9WupsGAFW/lipczOqUQL2
-	 ryU+lkdZXt3+6jfilhIe5SHMmeoOi7wa91/xBc78=
+	b=j3+q04LkKdAbLOlhL7/yx0dtjYOkLwgPl/oIMe3G353NJBPqZYEf13fmej7kG99MM
+	 BXGnhibvd+3geFro6DnUUHgTGPV0eZ/1CfMAY7NvoqWKb+0u5uhz32yDKo1+ENfS4u
+	 ptbJOqXq2jZ7qnRBu+AfCfWyE03mBDmpjirGgaM4=
 From: Cristian Marussi <cristian.marussi@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -64,18 +64,21 @@ Cc: sudeep.holla@kernel.org,
 	usama.arif@linux.dev,
 	kernel-team@meta.com,
 	Cristian Marussi <cristian.marussi@arm.com>,
-	Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-Subject: [PATCH v8 01/23] firmware: arm_scmi: Add new SCMIv4.0 error codes definitions
-Date: Sat,  8 Aug 2026 20:05:32 +0100
-Message-ID: <20260808190554.387949-2-cristian.marussi@arm.com>
+	"Rob Herring (Arm)" <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org
+Subject: [PATCH v8 04/23] dt-bindings: firmware: arm,scmi: Add support for telemetry protocol
+Date: Sat,  8 Aug 2026 20:05:35 +0100
+Message-ID: <20260808190554.387949-5-cristian.marussi@arm.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260808190554.387949-1-cristian.marussi@arm.com>
 References: <20260808190554.387949-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260808_120646_991846_0FFF81F3 
-X-CRM114-Status: UNSURE (   9.98  )
+X-CRM114-CacheID: sfid-20260808_120700_833797_3C9725C4 
+X-CRM114-Status: UNSURE (   7.30  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -91,40 +94,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SCMIv4.0 introduces a couple of new possible protocol error codes: add
-the needed definitions and mappings to Linux error values.
+Add new SCMI v4.0 Telemetry protocol bindings definitions.
 
-Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 ---
-v4 --> v5
- - map SCMI_ERR_IN_USE to EBUSY as natural
----
- drivers/firmware/arm_scmi/common.h | 4 ++++
- 1 file changed, 4 insertions(+)
+v3 --> v4
+ - changed protocol number to lowercase 1b
+ - fixed misplaced block for protocol 0x1b
 
-diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
-index b9723c105fc1..d9db4a4d17dc 100644
---- a/drivers/firmware/arm_scmi/common.h
-+++ b/drivers/firmware/arm_scmi/common.h
-@@ -46,6 +46,8 @@ enum scmi_error_codes {
- 	SCMI_ERR_GENERIC = -8,	/* Generic Error */
- 	SCMI_ERR_HARDWARE = -9,	/* Hardware Error */
- 	SCMI_ERR_PROTOCOL = -10,/* Protocol Error */
-+	SCMI_ERR_IN_USE = -11,  /* In Use Error */
-+	SCMI_ERR_PARTIAL = -12, /* Partial Error */
- };
+Cc: Rob Herring <robh@kernel.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: devicetree@vger.kernel.org
+---
+ Documentation/devicetree/bindings/firmware/arm,scmi.yaml | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/firmware/arm,scmi.yaml b/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
+index d06cca9273c4..be733f8d60a0 100644
+--- a/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
++++ b/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
+@@ -324,6 +324,14 @@ properties:
+     required:
+       - reg
  
- static const int scmi_linux_errmap[] = {
-@@ -61,6 +63,8 @@ static const int scmi_linux_errmap[] = {
- 	-EIO,			/* SCMI_ERR_GENERIC */
- 	-EREMOTEIO,		/* SCMI_ERR_HARDWARE */
- 	-EPROTO,		/* SCMI_ERR_PROTOCOL */
-+	-EBUSY,			/* SCMI_ERR_IN_USE */
-+	-EINVAL,		/* SCMI_ERR_PARTIAL */
- };
++  protocol@1b:
++    $ref: '#/$defs/protocol-node'
++    unevaluatedProperties: false
++
++    properties:
++      reg:
++        const: 0x1b
++
+ unevaluatedProperties: false
  
- static inline int scmi_to_linux_errno(int errno)
+ $defs:
 -- 
 2.54.0
 
