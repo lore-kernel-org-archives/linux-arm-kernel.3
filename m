@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93E97C5AD4E
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 19:08:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FE41C5AD4E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 19:08:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eAEvK0nsuAdwTuhct7+bZxnrDEI9EsDzKFK6hBUoHwM=; b=2d/VMSZGKQBFn+R6StMFQwEFRD
-	xGnXa7CXm5NrQ08pS6iSxdQlT+oJySdpj0V1lO0SY3aSRsG2XH0zaz/qzxo9QQLcFOVrukGWf0HGP
-	lcmOwChMpJv01pOT5WkpqmBSLnd5QkuW4TXioK21Y9kXLyzHZtWqJq2Cc7D150oaaXTA/YmGW1yAW
-	Ae70JN5PbmNMiJbaqAd421PdJ5Bgf56a10Sn5akw2iC5tO1aOH8/tq2Xjjpf82DULxLDu6g4tp2pb
-	JeH2vJCrY5JANhC021SkFyYA5S4sEHJFRER4+ZekuiXic+cgA4VTlP4vS9+8NfEQflGU6gsqOAKzB
-	qqhm0svw==;
+	bh=aYYRqgeZiApteoWJBXjzzgnLBwKqDetB9NQD5Hts6BU=; b=v0xsQh0o6hANmf3lfveLYaJR/t
+	Dx/kp8xHFlNwpm+m497wh8GUpvno7gF7NVeORCtNSUVOhyJWZ7BHMVg4e4qL9maxn3jgd0M+O19AK
+	LBlLUMTWZ3kTBgJFCADcZgE4czSFz3IWrdg0dgp2yGzH6SybRMGlc+abqG6xh6nbdJI8wfIqM/enC
+	CMRFH9zwfQal04U+dp+epYmj6/3m2hlbwr6Y1KJoVnC6Jr8f5H9KdqWr2x11kt0fylxLXaQrHnuX5
+	itcrBVg/o8eTkF9ZblG69y/2L9i8H+ROeuc5YHLQhGvBm327MNVp91WNVhzxvUeAu0FZ/etfpkbJk
+	gKLtu17A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsmP8-00000009cnA-0W4D;
-	Sat, 08 Aug 2026 19:08:22 +0000
+	id 1wsmPD-00000009crf-14V4;
+	Sat, 08 Aug 2026 19:08:27 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsmOz-00000009cd6-28xb
+	id 1wsmP3-00000009cgj-151P
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Aug 2026 19:08:21 +0000
+	Sat, 08 Aug 2026 19:08:23 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D059C152B;
-	Sat,  8 Aug 2026 12:08:07 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 55BF41570;
+	Sat,  8 Aug 2026 12:08:12 -0700 (PDT)
 Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 96EB33F86F;
-	Sat,  8 Aug 2026 12:08:07 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2DA2A3F86F;
+	Sat,  8 Aug 2026 12:08:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786216091; bh=0ASHp4GelyBBW6AUV8K6qt1iaX/L1O6I0Qak7wuQ8e4=;
+	t=1786216096; bh=KgyzAv1AKC+T5jVIxoIIFo2Oowe2Igerilum0mNQIko=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=E7a47HbOw/FPoCXWgPf876SWOwMHHGGUpTJdqe/rtS7lqNZ1OhbeH6nMBgLgQKsJo
-	 c5fSrQ31noaGDKjAjXXlY+eTDWuYSDPmBTEVeVaz0cfPXHu5ZgKTe31VAuCh6deZSz
-	 GzeBSoEksgvBEh3HRmdBrhxqLMI752N8lQ7FcXtY=
+	b=X5yprEmFtcNkDm3npXrp5rr49NU8gJPOmVm2ozGosTWI21ePR3WyiJmkqxJCCK6sY
+	 sYu8pwOR7swVuYrHaMo8jJ+yuc3sGR4exowW3/M3Uw7zaC4pCcNTKKQcWg2lqSValF
+	 K+MRI8NGSKEydRm2nnKs3W9UP1FBa+X2iF8agX4w=
 From: Cristian Marussi <cristian.marussi@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -66,18 +66,17 @@ Cc: sudeep.holla@kernel.org,
 	Cristian Marussi <cristian.marussi@arm.com>,
 	Jonathan Corbet <corbet@lwn.net>,
 	Shuah Khan <skhan@linuxfoundation.org>
-Subject: [PATCH v8 21/23] docs: ioctl-number: Add SCMI Ioctls
-Date: Sat,  8 Aug 2026 20:05:52 +0100
-Message-ID: <20260808190554.387949-22-cristian.marussi@arm.com>
+Subject: [PATCH v8 22/23] [RFC] Documentation: Add SCMI System Telemetry documentation
+Date: Sat,  8 Aug 2026 20:05:53 +0100
+Message-ID: <20260808190554.387949-23-cristian.marussi@arm.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260808190554.387949-1-cristian.marussi@arm.com>
 References: <20260808190554.387949-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260808_120813_621788_605AA403 
-X-CRM114-Status: UNSURE (   6.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260808_120817_408497_D161EA2A 
+X-CRM114-Status: GOOD (  20.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,28 +91,192 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add SCMI Subsystem IOCTLs numbers
+Document ARM SCMI Telemetry IOCTLs interface.
 
 Cc: Jonathan Corbet <corbet@lwn.net>
 Cc: Shuah Khan <skhan@linuxfoundation.org>
 Cc: linux-doc@vger.kernel.org
 Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 ---
- Documentation/userspace-api/ioctl/ioctl-number.rst | 1 +
- 1 file changed, 1 insertion(+)
+RFC since it still needs more extensive examples
 
-diff --git a/Documentation/userspace-api/ioctl/ioctl-number.rst b/Documentation/userspace-api/ioctl/ioctl-number.rst
-index 3f0ef1e27eb0..de136c5967f4 100644
---- a/Documentation/userspace-api/ioctl/ioctl-number.rst
-+++ b/Documentation/userspace-api/ioctl/ioctl-number.rst
-@@ -399,6 +399,7 @@ Code  Seq#    Include File                                             Comments
- 0xE5  00-3F  linux/fuse.h
- 0xEC  00-01  drivers/platform/chrome/cros_ec_dev.h                     ChromeOS EC driver
- 0xEE  00-09  uapi/linux/pfrut.h                                        Platform Firmware Runtime Update and Telemetry
-+0xF1  00-FF  uapi/linux/scmi.h					       ARM SCMI Subsystem
- 0xF3  00-3F  drivers/usb/misc/sisusbvga/sisusb.h                       sisfb (in development)
-                                                                        <mailto:thomas@winischhofer.net>
- 0xF6  all                                                              LTTng Linux Trace Toolkit Next Generation
+v6 --> v7
+ - removed useless top '..stlm' reference
+ - added new IOCTLs, fixed a few grammatical errors
+v5 --> v6
+ - fixed typos
+---
+ Documentation/userspace-api/index.rst |   1 +
+ Documentation/userspace-api/stlm.rst  | 148 ++++++++++++++++++++++++++
+ 2 files changed, 149 insertions(+)
+ create mode 100644 Documentation/userspace-api/stlm.rst
+
+diff --git a/Documentation/userspace-api/index.rst b/Documentation/userspace-api/index.rst
+index a68b1bea57a8..22daa7ebf78e 100644
+--- a/Documentation/userspace-api/index.rst
++++ b/Documentation/userspace-api/index.rst
+@@ -54,6 +54,7 @@ Devices and I/O
+    dcdbas
+    vduse
+    isapnp
++   stlm
+ 
+ Everything else
+ ===============
+diff --git a/Documentation/userspace-api/stlm.rst b/Documentation/userspace-api/stlm.rst
+new file mode 100644
+index 000000000000..e30b1d1d19bd
+--- /dev/null
++++ b/Documentation/userspace-api/stlm.rst
+@@ -0,0 +1,148 @@
++.. SPDX-License-Identifier: GPL-2.0
++
++=======================================
++STLM - ARM SCMI Telemetry Userspace API
++=======================================
++
++.. contents::
++
++Overview
++========
++
++ARM SCMI is a System and Configuration Management protocol, based on a
++client-server model, that defines a number of messages that allows a
++client/agent like Linux to discover, configure and make use of services
++provided by the server/platform firmware.
++
++SCMI v4.0 [1] introduced support for System Telemetry, through which an
++agent can dynamically enumerate, configure and collect Telemetry Data
++Events (DE) exposed by the platform.
++
++The SCMI System Telemetry driver exposes one or more dedicated devices,
++named as tlm_<N>, grouped under /dev/scmi/, one for each discovered SCMI
++instance.
++
++An IOCTL based interface is defined in order to enumerate, configure and
++read telemetry data, as succinctly described in the following.
++
++For more details on the uAPI, please see include/uapi/linux/scmi.h
++
++Resources Enumeration
++=====================
++
++ - SCMI_TLM_GET_ABI_INFO: Gather ABI versioning detail and basic SCMI
++   Telemetry features like number of resources and supported features.
++
++ - SCMI_TLM_GET_INTRVS: Enumerate available update intervals.
++
++ - SCMI_TLM_GET_DE_INFO: Retrieve DataEvent description.
++
++ - SCMI_TLM_GET_DE_LIST: Retrieve the list of all the existent DataEvent
++   descriptors.
++
++ - SCMI_TLM_GET_GRP_LIST: Gather a list of descriptors for all defined Groups.
++
++ - SCMI_TLM_GET_GRP_INFO: Gather information for a specific Group.
++
++ - SCMI_TLM_GET_GRP_DESC: Gather detailed group composition information for
++   the specified Group.
++
++ - SCMI_TLM_GET_UUID_LIST: Gather a list of descriptors for all the SCMI
++   Telemetry UUIDs defined on this system.
++
++Configuration
++=============
++
++ - SCMI_TLM_GET_CFG / SCMI_TLM_SET_CFG: Get or set the whole instance, or a
++   specific group, configuration.
++
++ - SCMI_TLM_GET_DE_CFG / SCMI_TLM_SET_DE_CFG: Get or set the configuration
++   of a specific DataEvent.
++
++ - SCMI_TLM_GET_ALL_CFG / SCMI_TLM_SET_ALL_CFG: Get or set the cumulative
++   configuration of ALL the DataEvents defined on the platform.
++
++ - SCMI_TLM_RESET: Reset the whole Telemetry configuration server side.
++
++ - SCMI_TLM_EVENT_SUBSCRIBE: Subscribe/unsubscribe to a Telemetry event.
++
++Data Collection
++===============
++
++ - SCMI_TLM_DE_READ: Report the last updated sample for the specified
++   DataEvent.
++
++ - SCMI_TLM_BULK_READ: Report the last samples for all the currently enabled
++   DataEvents.
++
++ - SCMI_TLM_BATCH_READ: Report the last samples for the DataEvents IDs
++   specified within the samples input params.
++
++ - SCMI_TLM_SINGLE_READ: Trigger an immediate platform-side DataEvent
++   update and report the collected samples.
++
++Memory Mapped Raw Access
++------------------------
++
++ - SCMI_TLM_GET_SHMTI_LIST: Gather a list of open file descriptors, one for
++   each SHMTI memory area defined for this instance, that can be used to
++   memory-map such areas in the calling process address space so as to be
++   able to directly access the SCMI Telemetry SHMTI areas shared by the
++   platform firmware, and parse the TDCF format.
++   The SCMI Telemetry TDCF format is defined in the specification at [1].
++
++
++Example
++=======
++
++.. code-block:: c
++
++	int main(int argc, char **argv)
++	{
++		struct scmi_tlm_de_config des_cfg = {};
++		struct scmi_tlm_config cfg = {};
++		struct scmi_tlm_de_sample samples[3] = {};
++		struct scmi_tlm_data_read data = {};
++		int fd, ret;
++
++		fd = open("/dev/scmi/tlm_0", O_RDWR);
++		if (fd < 0)
++			return fd;
++
++		/* Enable ALL Data Events with timestamps*/
++		des_cfg.enable = 1;
++		des_cfg.t_enable = 1;
++		ret = ioctl(fd, SCMI_TLM_SET_ALL_CFG, &des_cfg);
++		if (ret)
++			return ret;
++
++		/* Enable Telemetry as a whole, set a 400ms update interval */
++		cfg.enable = 1;
++		cfg.active.secs = 400;
++		cfg.active.exp = -3;
++
++		ret = ioctl(fd, SCMI_TLM_SET_CFG, &cfg);
++		if (ret)
++			return ret;
++
++		/* Read a selection of DEs */
++		samples[0].id = 0xA001;
++		samples[1].id = 0x0002;
++		samples[2].id = 0x1010;
++		data.num_samples = 3;
++		data.samples = (unsigned long)samples;
++
++		ret = ioctl(fd, SCMI_TLM_BATCH_READ, &data);
++		if (ret)
++			return ret;
++
++		for (int i = 0; i < 3; i++)
++			fprintf(stdout, "%llu: 0x%08X -> %llu\n",
++					samples[i].tstamp, samples[i].id, samples[i].val);
++
++		return 0;
++	}
++
++References
++==========
++[1]: https://developer.arm.com/documentation/den0056/latest/
 -- 
 2.54.0
 
