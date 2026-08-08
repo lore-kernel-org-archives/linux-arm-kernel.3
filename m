@@ -4,70 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED720C5AD2C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 08:44:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DD80C55174
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 08:55:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QV75BRbt2CB92kRO16SraDrNN/ZBOwKcH3HzU3OG5Bg=; b=oIQpbKcslO3887NXkXiKSb32xE
-	i64M1HjQuJDW7YoduRXZ1wx70MKunIdXjLRgif4l+kneFcPoi4EXgDxxcII+feA4GwYxocm4e/iIo
-	CtoHJl7QJDq3woiGW7dwGWEPzx3RKVjQ2LiDP7KNG9OloQPNp1UG43LNkrqapUY7mhlF4McG9dgx8
-	nSic9RzjJqUERoHdYTHrpP/p71WgW0sfV3dVODPREdy80fbJZ38mQtPkuCAv4QEhP4k4vLb7dXcl+
-	Q8/ZBK+lxcCG5S1d7mAfLyO+OZVvXFM3mNkMKE5NkD4W/H/UjLuaTFHRIA3TeKtYKWEjhWjHEQqpy
-	CMhfyJ8g==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZT4P26bPYlF0R//NP7ZRz7hL1o+4G7Qy2zQl64df7OA=; b=ZFufLaUZ5wtIDFSCRHOs6Q+1Xd
+	x3bauFpwAKzMHNmQb3L7sZxPZgmVx0GCKKzq/TUwibC96PDAeaTX23A+HUkXBJ9J10MOgUs5lzl2W
+	1jUzTsb/bhjgaWSP4P5EHeDRqxIXQAxQyrPatAd8tJwEShrcD+IXXpsO0Y5Wt84Km/Q+zXv8P+wxx
+	DjgvYqhQ9KvsW+jRiTLaThORUHEwqU+Uk0D5qMghCwuOhh7vLvESuJ4RSJIx4IUDkUASHQKs34CU7
+	tAQ+G3LqV4Mf5IVHJRmxahTQxfcmdY5tC46ESed+YQYruWnaRWccWkkjyYG68ySjX0jM60eQiZxVW
+	aqL9ZDOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wscfY-00000009B9r-42d4;
-	Sat, 08 Aug 2026 08:44:40 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1wscq5-00000009BTL-3yWl;
+	Sat, 08 Aug 2026 08:55:33 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wscfV-00000009B9R-3Kml;
-	Sat, 08 Aug 2026 08:44:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1786178664; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=O6o7PvYQedvv2uZu/FYjSAGqHs9cr5r7uOP0d4fpnDK2VsirmnAGBTPuxeLwV/ZFlEpHoQc78SMfVXEZy/ZqBbemIwdzgZyfpfIwXdZOlEKZpfBJdiG1/+T2EgxWFU6RSM9HaUMugvisETBLb9nyBx3SJ3DvtJMbNeQPVMno0G0=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1786178664; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=QV75BRbt2CB92kRO16SraDrNN/ZBOwKcH3HzU3OG5Bg=; 
-	b=NYNm/DURxkB+kI6lL5Dms2AGw+H7q3UR/pNsln03WwLt8VzgMxR+CCGI5dltb0nn2ENJEDt8YUx9qDqPf+kZHx0Mp5c+bx0GZmC0nfoII2/s3o69lRlkQV7NceAmMCJoeiQJLT1YgNi5XHR/FmUKhZvUxcjfelpZhCSe3vbfSXI=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=michael.riesch@collabora.com;
-	dmarc=pass header.from=<michael.riesch@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1786178664;
-	s=zohomail; d=collabora.com; i=michael.riesch@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=QV75BRbt2CB92kRO16SraDrNN/ZBOwKcH3HzU3OG5Bg=;
-	b=OLWW+BCEJLD5jvXpKNmbCWfxuGclnyFBgzRXyGve9X6bDVHUSNtU9RO7fFfYqH4r
-	6nU0xa2rASlwA+YvOPiEb1l50c9I2yfYU198wr1IpcYAwtHGfFnb+qF1TNk+zZ/RRlP
-	BoLtN6YeK+0z3R3kDUECkZwKU3pOnnrW22wQJVm0=
-Received: by mx.zohomail.com with SMTPS id 1786178662065837.6873440277666;
-	Sat, 8 Aug 2026 01:44:22 -0700 (PDT)
-Message-ID: <db32b01d-66f5-4ba0-8697-a0bde9e230cf@collabora.com>
-Date: Sat, 8 Aug 2026 10:44:18 +0200
+	id 1wscq3-00000009BSz-48KM
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 08 Aug 2026 08:55:33 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-38dfe7eb825so235816a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Aug 2026 01:55:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786179330; x=1786784130; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=ZT4P26bPYlF0R//NP7ZRz7hL1o+4G7Qy2zQl64df7OA=;
+        b=pZXRTwXikok4mFuXJ41Rqx60e2fOi4JxdOwVW13LzaancQXLGo6YW5m0RE95QFYYDS
+         9NaExm9Aruuxbh6EThxILaUbFCCy714bhJbGfFfrTS1jSZ975QuOpauYzFsaoC6dG3+n
+         8+9pK+b2nWxpUD8IfIhhraariF/xB03+R6q7K5e5nEw/TZj+KtKGjDRlo9d6HhBegIlZ
+         35s/3taZo2SquTf/PvuFpb0ZDNSm6AH5NrKGJkPQ+2vlsVl0lrxozN344SbdLEMe8D7p
+         wGWrypEQxNiXmDNYZuRhR/W6uIPpCxK8tDExMQxZo/tGgQd2kckF2k4TvJrsyB1j+/JC
+         DABA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786179330; x=1786784130;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ZT4P26bPYlF0R//NP7ZRz7hL1o+4G7Qy2zQl64df7OA=;
+        b=bM91Gp+iQwbU4UgRFPLlZxlVTxAyFy6FNRyPcVy15akcbkUJ5i2vqCMIE4NhyxjEQm
+         4Vcbsf1mhXM4FPeC9/EmA/QDRgK564uNthrgjDHH197tjswWOzVO13UnzN15YQY6o+wW
+         AbEugu+f0ntGnZwQ8Daw/SywDHnThLlvHmsNwFUn+AIayg3p/eRZ4wcWW8IxaD0s39Kh
+         lUG9IqhHhEnIWZ3ysIF7RmW+peCSAidUyokFW5f23KthdX72oiZkXspsR++LmEzGBxgu
+         cPVf1fQPzdbk+ALXw5XRVxBDxYL44//L9h61c712DXApKr+Z8lxQJj/npYEhSj4T+FJs
+         9CVg==
+X-Forwarded-Encrypted: i=1; AHgh+RrFR4RvUGBI2eJY2c12q4ZKzmKeJBtWyWUNxZvFq8l/5ZXTwfGfyYreOWBFniJB2Y1ALDs9ItCr2xwLO1C5EDiA@lists.infradead.org
+X-Gm-Message-State: AOJu0Yys39ILZfSEEjNwCFUENULPE0gYFkQOUB+gGfOqFFOYQn49SZGb
+	dxyK2VA+c5C0Gt21SWEpxf5z839mxKlc3LqgZ1BdGah7WcJ7P2WHh0DA
+X-Gm-Gg: AR+sD13QKBPmlgc1xiF0PByIwQtxjSIR2aZloaaY4ddVIGQeE0dXarQfYUupDMVmOpj
+	5i4zggB4yt2wc2KHdk1/E2vG60mUePZs8tlcPHSLh1uNOBfI4ur5aJ7DEsYnx9q/KC2Ikgu//wz
+	IqaoHbFxIPIsbUYY139RbtoLl2sseQqydxRPxQM4cbx3gHgVxmTu8J6eqTlYM+wTL8YEAD6Htjd
+	z7BPVxaOL3NQbhZ7tgb565HWHN+qcGdQrsmuYlXBhAXjp3KlJ3JNOT6ztNC8vqgZnVyCoynK0M6
+	5PoYOAuEuttXSnf4AnqyzbaFLK0qNLU4yD5gjcbI9xib1Hhnj1iavNUVOIjTKUIIBY8WSZNSLad
+	XurjusZZsxPJeSq2DiZ0m4lDZYLl3TCnjsG9jAIZSgch9rL4SaQbuX+j5Q/UDrKqEDiQwH4Yv23
+	16sJujtV8GKoWZc53VNssLg/esTHag7twMUlfbWQzTLZA5F+rEq4dGtipbdfp8d3JMTfmuiLsCn
+	q9PHw==
+X-Received: by 2002:a17:90a:dfd0:b0:38e:5ab7:ce9b with SMTP id 98e67ed59e1d1-3909d928d54mr16011147a91.21.1786179330366;
+        Sat, 08 Aug 2026 01:55:30 -0700 (PDT)
+Received: from SGN-LDSENG.tasernet.com ([2405:4800:5cc3:11a:1ac0:4dff:fe8b:4a69])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-14101b7ad29sm14357727c88.13.2026.08.08.01.55.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 08 Aug 2026 01:55:29 -0700 (PDT)
+From: Cong Nguyen <congnt264@gmail.com>
+To: Alain Volmat <alain.volmat@foss.st.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Hans Verkuil <hverkuil@kernel.org>,
+	linux-media@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] media: stm32: csi: fix async notifier leak and UAF on probe error and remove
+Date: Sat,  8 Aug 2026 15:55:22 +0700
+Message-Id: <20260808085522.2650409-1-congnt264@gmail.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] arm64: defconfig: enable Rockchip Multimedia drivers
-To: Sebastian Reichel <sebastian.reichel@collabora.com>,
- Heiko Stuebner <heiko@sntech.de>
-Cc: Detlev Casanova <detlev.casanova@collabora.com>,
- Benjamin Gaignard <benjamin.gaignard@collabora.com>,
- Krzysztof Kozlowski <krzk@kernel.org>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- kernel@collabora.com
-References: <20260808-rockchip-defconfig-additions-v3-1-0ed67877e94d@collabora.com>
-Content-Language: en-US
-From: Michael Riesch <michael.riesch@collabora.com>
-In-Reply-To: <20260808-rockchip-defconfig-additions-v3-1-0ed67877e94d@collabora.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ZohoMailClient: External
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260808_014437_869689_6EDBC91F 
-X-CRM114-Status: GOOD (  18.74  )
+X-CRM114-CacheID: sfid-20260808_015532_028291_9879465A 
+X-CRM114-Status: GOOD (  11.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,114 +100,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sebastian,
+stm32_csi_parse_dt() registers the V4L2 async notifier with
+v4l2_async_nf_register(). Two teardown paths fail to undo this:
 
-Thanks for the patch!
+  - The probe error label err_cleanup is only reached after
+    stm32_csi_parse_dt() has succeeded (and thus registered the
+    notifier), but it calls only v4l2_async_nf_cleanup(), never
+    v4l2_async_nf_unregister().
 
-On 8/8/26 02:42, Sebastian Reichel wrote:
-> Enable multimedia related drivers used by the Radxa ROCK 5B (used as an
-> example, the config options are relevant for most Rockchip RK3588 and
-> RK3576 boards), so that all hardware is supported by the default config.
-> 
->  * Synopsys MIPI CSI2RX - RK3588 CSI2 Controller
->  * RKVDEC - RK3588/RK3576 video decoder for H.264 and H.265
->  * Sony IMX415 - Sensor used by the Radxa Cam 4K module
->  * Rocket - RK3588 NPU driver
->  * Verisilicon IOMMU - IOMMU used by RK3588 AV1 video decoder
->  * Innosilicon CSI D-PHY - RK3588 CSI PHY (one of them)
-> 
-> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+  - stm32_csi_remove() unregisters the subdev but never unregisters or
+    cleans up the notifier at all.
 
-In particular for the camera/video capture side of it:
+In both cases the notifier stays chained in the global notifier_list
+while the enclosing struct stm32_csi_dev is freed by devres, leading to
+list corruption and a use-after-free when the list is next walked.
 
-Reviewed-by: Michael Riesch <michael.riesch@collabora.com>
+Unregister and clean up the notifier on both paths, matching the
+required v4l2_async_nf_unregister() + v4l2_async_nf_cleanup() teardown.
 
-Best regards,
-Michael
+Fixes: dcb0f4c16be5 ("media: stm32: csi: addition of the STM32 CSI driver")
+Cc: stable@vger.kernel.org
+Assisted-by: Claude:claude-opus-4
+Signed-off-by: Cong Nguyen <congnt264@gmail.com>
+---
+ drivers/media/platform/st/stm32/stm32-csi.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-> ---
-> Changes in v3:
-> - Link to v2: https://patch.msgid.link/20260807-rockchip-defconfig-additions-v2-1-cbb8eef87be6@collabora.com
-> - Also add CONFIG_VIDEO_DW_MIPI_CSI2RX=m and update commit message
-> 
-> Changes in v2:
-> - Link to v1: https://patch.msgid.link/20260806-rockchip-defconfig-additions-v1-0-6b1d8baa0bf5@collabora.com
-> - Squash all patches (Krzysztof Kozlowski)
-> 
-> The Verisilicon IOMMU defconfig change has previously been sent by
-> Benjamin as part of the IOMMU series, but did not reach upstream:
-> 
-> https://lore.kernel.org/all/20260415072349.44237-6-benjamin.gaignard@collabora.com/
-> 
-> The Synopsys CSI controller defconfig change has previously been sent
-> by Michael as part of the driver series, but did not reach upstream:
-> 
-> https://lore.kernel.org/linux-rockchip/20260522-rk3588-vicap-v5-0-d1d1f5265c56@collabora.com/
-> ---
->  arch/arm64/configs/defconfig | 7 +++++++
->  1 file changed, 7 insertions(+)
-> 
-> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-> index 654a102cb5bc..49f836ba67a5 100644
-> --- a/arch/arm64/configs/defconfig
-> +++ b/arch/arm64/configs/defconfig
-> @@ -915,6 +915,7 @@ CONFIG_SDR_PLATFORM_DRIVERS=y
->  CONFIG_V4L_MEM2MEM_DRIVERS=y
->  CONFIG_VIDEO_AMPHION_VPU=m
->  CONFIG_VIDEO_CADENCE_CSI2RX=m
-> +CONFIG_VIDEO_DW_MIPI_CSI2RX=m
->  CONFIG_VIDEO_WAVE_VPU=m
->  CONFIG_VIDEO_E5010_JPEG_ENC=m
->  CONFIG_VIDEO_MEDIATEK_JPEG=m
-> @@ -939,6 +940,7 @@ CONFIG_VIDEO_RENESAS_VSP1=m
->  CONFIG_VIDEO_RCAR_DRIF=m
->  CONFIG_VIDEO_ROCKCHIP_RGA=m
->  CONFIG_VIDEO_ROCKCHIP_CIF=m
-> +CONFIG_VIDEO_ROCKCHIP_VDEC=m
->  CONFIG_VIDEO_SAMSUNG_EXYNOS_GSC=m
->  CONFIG_VIDEO_SAMSUNG_S5P_JPEG=m
->  CONFIG_VIDEO_SAMSUNG_S5P_MFC=m
-> @@ -949,6 +951,7 @@ CONFIG_VIDEO_TI_J721E_CSI2RX=m
->  CONFIG_VIDEO_HANTRO=m
->  CONFIG_VIDEO_IMX219=m
->  CONFIG_VIDEO_IMX412=m
-> +CONFIG_VIDEO_IMX415=m
->  CONFIG_VIDEO_OV5640=m
->  CONFIG_VIDEO_OV5645=m
->  CONFIG_VIDEO_S5KJN1=m
-> @@ -1063,6 +1066,8 @@ CONFIG_BACKLIGHT_GPIO=m
->  CONFIG_LOGO=y
->  # CONFIG_LOGO_LINUX_MONO is not set
->  # CONFIG_LOGO_LINUX_VGA16 is not set
-> +CONFIG_DRM_ACCEL=y
-> +CONFIG_DRM_ACCEL_ROCKET=m
->  CONFIG_SOUND=m
->  CONFIG_SND=m
->  CONFIG_SND_ALOOP=m
-> @@ -1611,6 +1616,7 @@ CONFIG_ROCKCHIP_IOMMU=y
->  CONFIG_TEGRA_IOMMU_SMMU=y
->  CONFIG_APPLE_DART=m
->  CONFIG_MTK_IOMMU=y
-> +CONFIG_VSI_IOMMU=m
->  CONFIG_REMOTEPROC=y
->  CONFIG_IMX_REMOTEPROC=y
->  CONFIG_MTK_SCP=m
-> @@ -1785,6 +1791,7 @@ CONFIG_PHY_RZ_G3E_USB3=m
->  CONFIG_PHY_ROCKCHIP_EMMC=y
->  CONFIG_PHY_ROCKCHIP_INNO_HDMI=m
->  CONFIG_PHY_ROCKCHIP_INNO_USB2=y
-> +CONFIG_PHY_ROCKCHIP_INNO_CSIDPHY=m
->  CONFIG_PHY_ROCKCHIP_INNO_DSIDPHY=m
->  CONFIG_PHY_ROCKCHIP_NANENG_COMBO_PHY=m
->  CONFIG_PHY_ROCKCHIP_PCIE=m
-> 
-> ---
-> base-commit: 2d578cd590adc2133aa24496afcd7c3f7f9ba36a
-> change-id: 20260806-rockchip-defconfig-additions-3ef855c4d32e
-> 
-> Best regards,
-> --  
-> Sebastian Reichel <sebastian.reichel@collabora.com>
-> 
+diff --git a/drivers/media/platform/st/stm32/stm32-csi.c b/drivers/media/platform/st/stm32/stm32-csi.c
+index fd2b6dfbd44c..65800aacf28d 100644
+--- a/drivers/media/platform/st/stm32/stm32-csi.c
++++ b/drivers/media/platform/st/stm32/stm32-csi.c
+@@ -1059,6 +1059,7 @@ static int stm32_csi_probe(struct platform_device *pdev)
+ 	return 0;
+ 
+ err_cleanup:
++	v4l2_async_nf_unregister(&csidev->notifier);
+ 	v4l2_async_nf_cleanup(&csidev->notifier);
+ 	return ret;
+ }
+@@ -1069,6 +1070,9 @@ static void stm32_csi_remove(struct platform_device *pdev)
+ 
+ 	v4l2_async_unregister_subdev(&csidev->sd);
+ 
++	v4l2_async_nf_unregister(&csidev->notifier);
++	v4l2_async_nf_cleanup(&csidev->notifier);
++
+ 	pm_runtime_disable(&pdev->dev);
+ }
+ 
+-- 
+2.25.1
 
 
