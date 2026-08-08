@@ -4,95 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEAABC5AC67
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 12:18:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B1CBC55174
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 12:24:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zCtw9XLhyYld5CLOFuXhhaanDpjQ78I0gCn1Zksv45A=; b=kLgUGz76LM8XcU4FpIG0k35O5r
-	hVvkyUifDins1r/HZe9oktgxtVReAQM6DWeDuIHzd0TVHBZIupyiMa4HzBlXL7rEyyJB3671VluyF
-	bgzpEtcaMXe5AWaiISR4IvX8xPmrTgJ6V6mZUJZ8ow/IRRM7Z8s1zaa5SLIZhjA8IpJsecet+Cqx4
-	gIDZx8BgDLkCHV7+FPC2nRaIEvAqDYBzJptqLOEISsK8nlri89GfDFbC03U3ibMBDfIqj+BnjV1hR
-	uL2+x2KokhmgVFEJDFbDRMbVORf/973qQU9c7V+RecB/wUu3a6FLQPtx3emlS0fnATVq51vR7c/45
-	hnMn7NYw==;
+	bh=5h/jAHWXWXDOWdVoAFfHtjsJVJE0oZMUnASj9to5Sqc=; b=DPw42mIqYm8bWiOxouEeASLPb1
+	G+YLJwVM3QLnPzhrvp99IZMD7GDCslMMWCBHrNBbBB9ZP1JX8yNbYw9jPXgQcm9XlF60UAvxHOV4x
+	5SZqPtG9Rs9d6PBCYRY/2fv4UaXh1E2SnynOGGvwzIFlWwiYouN6RhWHv6X2TOmSng0n0SjTIyprz
+	pS8bEePxgH4yAjI4xmSRaFxgXUrxLN5eAx4U4mKKELcaYFAtZJJ1XldgEOwuW/RYPJxOs7hrOPhWH
+	zX5+PXl9RiJnK8yI5kCe1aAuIKoBg5LUR9zX096QoYvernJFv785wIAypz22j0CJCgTbT/4pyWfHW
+	TFxpeWhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsg07-00000009LQB-2NLK;
-	Sat, 08 Aug 2026 12:18:07 +0000
-Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
+	id 1wsg6X-00000009Ldi-19T5;
+	Sat, 08 Aug 2026 12:24:45 +0000
+Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsg04-00000009LPl-3kdt
+	id 1wsg6U-00000009LdN-3pjm
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Aug 2026 12:18:05 +0000
-Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-ca7bea5e5b3so296239a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Aug 2026 05:18:04 -0700 (PDT)
+	Sat, 08 Aug 2026 12:24:43 +0000
+Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-ca957432c7fso392642a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Aug 2026 05:24:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786191484; x=1786796284; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1786191882; x=1786796682; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=zCtw9XLhyYld5CLOFuXhhaanDpjQ78I0gCn1Zksv45A=;
-        b=kethUHjIoyh06lh8OBShIxUsU+Guaw5vvRDU9J6uz4JKFj5vXBHhcY53EFIdGYqZAG
-         MBGI7Xp/evkbOs5+8pm/pQhG/AJLzQxA3To0J3/MY59+4bl4cfzxJk40+vr4yGmZwKSx
-         RZ4W0BxRwjY2YMD6gcHOLwO5Hgx/7cW1CoCkLUH9iHzhaCbmfymdrU9KzmAXYEJQHiqD
-         Kr+7KkyH626V94JHK4UYaYBHMjlWhsPSQzsmf6UDxO634WZb4Imyd//mkpdzxnFROSwT
-         gfQspCekI41dFLF7ZACPDlEhZvxgPE0rTv+w0EqNFA/XECn8MSO975vlliu7SKu3G1KD
-         eKxA==
+        bh=5h/jAHWXWXDOWdVoAFfHtjsJVJE0oZMUnASj9to5Sqc=;
+        b=U5DGEm2peEvwuX+UxJ7pMYjNgRzujNz7ifngrmxlkqMU6AP2dxfp05WA+uOEBr3NrL
+         bAFI/9Nx1mfaHPNFZKwqZyeIkQusiYu9NnKFODVQbKAbWsfZ3tDxMW2pvK8aPS4PKTxs
+         G0S8S/wH0NW36aPww4G7lg1BsSjA8mmKn6K2sLLStyftbZT12mDEKBx30BQ84VxalBfF
+         iB8cQAhwSLQEPW9vxfchpXabD/XVXyKwUeIv8FCeeWVJslS8kuirKvacuY2Zh53fH37G
+         mA3n0A6zfiZfsnOHiiCTDAY2/UEDQoE2bAkVXND8zBKvZ0mq9XPv8SIXQh+YBgDmTdIN
+         XPRA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786191484; x=1786796284;
+        d=1e100.net; s=20251104; t=1786191882; x=1786796682;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=zCtw9XLhyYld5CLOFuXhhaanDpjQ78I0gCn1Zksv45A=;
-        b=e+Qa1qWeTzePgzl+4lRveQ1qr/3Bvw/AbhMLgguTcAT60eihOTLFW7JGICW2fZN4Jv
-         0HhVVemquwiYdLN3c/6gDBVkHh0Ix6xKNVgLLYFaZ68tstyv9VLscybBjzSCEQYojcL8
-         OQb145eQoVZqkWpiAtx8jysYFRLhIcn9PJF6CaUZsS2gFafHnAs+sKwpt4ztsFxcLNez
-         PmqNoSmDS8at9u9PRAcyO1z5X3GXHyMpJ7hU0zlPfm6acmz2LLGNS8WU2OOm274tAwzK
-         jQIhS5U1NKz1NzN60ZvaoDuIczTEA/RlGLvSGZ+BLWF9j3DIHUfEhR6CwbT4+svVftck
-         7pQw==
-X-Forwarded-Encrypted: i=1; AHgh+RptK0iLNBJI/k0Lf0WhkeZjY0bZDaeJ0yhhWazPhzsRvCIyrFrBIVvWthWKcw+lJqeiKaTwa8Y7tRk5slrxvXPL@lists.infradead.org
-X-Gm-Message-State: AOJu0YwqgpLsop1TAyXa6I86ocXcW5P5OHI7+vfcT0lu/3L0svZCH+U4
-	QeTtCiHEpI62kBw3M76H1/2A1howQnQSZiQkJslN3KgFJiPVEE78Zz3S
-X-Gm-Gg: AR+sD10BD+wrPuDSa6DlNRMcU4+Sa0+gqkYMIWFvxHDaLl/wgV+Y96AIrP7ayJkaJRU
-	uEn8Z6C1aNZp2DeCjRyBeYVlmr//WN+G9zTvJ1gYJ5OS8rToiS9lp0lx04XpViy7VLQhd4D8Fyg
-	cm1y/E+vRBMy28gHMSTt+cIJI+LJYBzLJzcpm0mbMkmH1ERKeaur2ijNFwBfbGNXHFm/cKNZVjX
-	1k0kDTZVa0ah+KVkdP8S85EN6Ct0msELuzN+hFxmojiqkyB93cW0rRZ41lIHmXhbb5c68BTpGd3
-	n3SA2WX2jn8J0ifVqE3JE0MagnlhWclW2lY5VBy4eAWtd0rOPIfkr+Zrpr71zfM6HK0Oq2NBIal
-	T/sI724QZRlTFZdVa4AlF8lPJiOijhjoELaWMGTGE+0JxIvPzgVpAlrk783uw0nmKtPXEIqFE15
-	2TgxDa++u051+lS+FBH69O20X08nOw/HNQpKVOS37Go4aHF+9QOm44KD6umRPT2Ipc70Lj
-X-Received: by 2002:a05:6a20:914b:b0:3c3:bbe6:95b1 with SMTP id adf61e73a8af0-3cb85eef9d6mr29740341637.24.1786191483645;
-        Sat, 08 Aug 2026 05:18:03 -0700 (PDT)
+        bh=5h/jAHWXWXDOWdVoAFfHtjsJVJE0oZMUnASj9to5Sqc=;
+        b=qh3eLJmDSuuDe6RmbCuWdoS0qLAajCl9+r48q1Wr94TM8AZGFSJtGOkyiBtM3VLUDO
+         dOiaZm7JCBDD4hmNvt4CZ8M7XSCscP8tvTTW4hJTaWCNwb4DhzQKZpWF6Y2H5RZKL22o
+         pb6l2KSshv+vNE7BVOzkTyItdTcD+VVJwmC5xV5xqQP05yClLfSi/1S+cZUwwCWffvYL
+         8HkFLHEh6ZYDirkmyQGUCh/8/6klN+epNZRi9shCuVMSsnTabeMLJk0FtI39kfo/gXHQ
+         r8B2uFJN0um7JXz8Nn2Ph9CLPpmuWiM6vbNbOAyt3fHL8LWKbPYzmPLTN4dadvDWr+RJ
+         jcSg==
+X-Forwarded-Encrypted: i=1; AHgh+RqBr+iijWTUIubZsPCowl0aKt0W3xrX4bKkcyAQfQp8BRnOwja2AceWUTJlrnjZG3rJILkVpQ3DKKsYWAiI6w3W@lists.infradead.org
+X-Gm-Message-State: AOJu0YwErtT0K4yiiVYjPWdJ1IkzqYb9N+fVrNoBIJD4sy/LPMZj1tNY
+	y6XQg44/RPGSPpox9/jIVZXAT6FLP3eIVbNZRsyLJv+p5NOd22Lff/9NvyTmqWdGZt8=
+X-Gm-Gg: AR+sD12YNIK+8PPScCR5ePHeTVk4gXkzcSFYTYPjjYarcQcy2Tv/Yyo6/xCvfFpc/N2
+	YCRYK4ZhjtUUDLBBfBWyJgvUFt0gZPRKt0hw1No9IabelOEYA3GIEuvfX0tQu2p4gjok4fKMAnB
+	8FDYWM5PypU/NN62ZTey2h5PyL5PJxiFySHIIECTLCV7W9vzvObxyaD+f1fPy3rgHCm23W6wVIh
+	JH3e508z7mrhYybt2lEmzoZYX9HX39jGdYnarskw9XZzMSjUbjqxyOZpBJiqsVNCLRWI18etE1r
+	YFpqesehxxFMevhHX5EPGbot0edd2hf1GqCZ1Hu97KzZfyP2SxYI+nS4SQSaNRdET+fNmFKWtxz
+	rVO83wgwkQ8AGQoOUd1GaZD19BM+iKnbFhpVKtSJuIyqNlq78AQAAWGwHhMPgJYmHoeopEZEJrT
+	JW4dKnrsjehb7Z5LTXRjskC1TGwuRfaXski+LK8Hzvp+MXWTv7lWDWH6u+6w==
+X-Received: by 2002:a05:6a00:c1ca:10b0:84e:915:d7eb with SMTP id d2e1a72fcca58-84f2e0dbfb7mr27063894b3a.37.1786191881768;
+        Sat, 08 Aug 2026 05:24:41 -0700 (PDT)
 Received: from lgs.. ([101.76.249.46])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cbe8f1b04e9sm1781742a12.12.2026.08.08.05.17.59
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84f5a5528adsm2145040b3a.45.2026.08.08.05.24.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 08 Aug 2026 05:18:03 -0700 (PDT)
+        Sat, 08 Aug 2026 05:24:41 -0700 (PDT)
 From: Guangshuo Li <lgs201920130244@gmail.com>
-To: Inki Dae <inki.dae@samsung.com>,
-	Seung-Woo Kim <sw0312.kim@samsung.com>,
-	Kyungmin Park <kyungmin.park@samsung.com>,
+To: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
 	David Airlie <airlied@gmail.com>,
 	Simona Vetter <simona@ffwll.ch>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Joonyoung Shim <jy0922.shim@samsung.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	=?UTF-8?q?Guido=20G=C3=BCnther?= <agx@sigxcpu.org>,
 	dri-devel@lists.freedesktop.org,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
 	linux-kernel@vger.kernel.org
 Cc: Guangshuo Li <lgs201920130244@gmail.com>,
 	stable@vger.kernel.org
-Subject: [PATCH] drm/exynos: g2d: fix autosuspend cleanup on probe failure
-Date: Sat,  8 Aug 2026 20:17:52 +0800
-Message-ID: <20260808121752.2819486-1-lgs201920130244@gmail.com>
+Subject: [PATCH] drm/imx: dcss: fix autosuspend cleanup during teardown
+Date: Sat,  8 Aug 2026 20:23:54 +0800
+Message-ID: <20260808122354.2825209-1-lgs201920130244@gmail.com>
 X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260808_051804_937724_92B943DB 
-X-CRM114-Status: GOOD (  11.22  )
+X-CRM114-CacheID: sfid-20260808_052442_955398_712EB206 
+X-CRM114-Status: GOOD (  10.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,14 +110,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-g2d_probe() calls pm_runtime_use_autosuspend(), but its failure path
-does not call the matching pm_runtime_dont_use_autosuspend() before
-disabling runtime PM.
+dcss_dev_create() calls pm_runtime_use_autosuspend(), but
+dcss_dev_destroy() does not call the matching
+pm_runtime_dont_use_autosuspend() before disabling runtime PM.
 
 If the autosuspend delay is set to a negative value while autosuspend
 is enabled, the runtime PM core increments usage_count to prevent
 runtime suspend. Without calling pm_runtime_dont_use_autosuspend()
-during cleanup, this reference is not dropped and usage_count remains
+during teardown, this reference is not dropped and usage_count remains
 unbalanced.
 
 The documentation for pm_runtime_use_autosuspend() also notes that it
@@ -122,30 +125,30 @@ is important to undo it with pm_runtime_dont_use_autosuspend() at
 driver exit time, unless runtime PM was initially enabled with
 devm_pm_runtime_enable().
 
-Add the missing pm_runtime_dont_use_autosuspend() call to the probe
-failure path before disabling runtime PM.
+Add the missing pm_runtime_dont_use_autosuspend() call before
+disabling runtime PM during device teardown.
 
 This issue was found by manual code inspection.
 
-Fixes: d7f1642c90ab ("drm/exynos: add G2D driver")
+Fixes: 9021c317b770 ("drm/imx: Add initial support for DCSS on iMX8MQ")
 Cc: stable@vger.kernel.org
 Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
 ---
- drivers/gpu/drm/exynos/exynos_drm_g2d.c | 1 +
+ drivers/gpu/drm/imx/dcss/dcss-dev.c | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/drivers/gpu/drm/exynos/exynos_drm_g2d.c b/drivers/gpu/drm/exynos/exynos_drm_g2d.c
-index e92a4d872c41..98a5679258e2 100644
---- a/drivers/gpu/drm/exynos/exynos_drm_g2d.c
-+++ b/drivers/gpu/drm/exynos/exynos_drm_g2d.c
-@@ -1523,6 +1523,7 @@ static int g2d_probe(struct platform_device *pdev)
- 	return 0;
+diff --git a/drivers/gpu/drm/imx/dcss/dcss-dev.c b/drivers/gpu/drm/imx/dcss/dcss-dev.c
+index 7fd0c4c14205..51398852cdc2 100644
+--- a/drivers/gpu/drm/imx/dcss/dcss-dev.c
++++ b/drivers/gpu/drm/imx/dcss/dcss-dev.c
+@@ -240,6 +240,7 @@ void dcss_dev_destroy(struct dcss_dev *dcss)
  
- err_put_clk:
-+	pm_runtime_dont_use_autosuspend(dev);
- 	pm_runtime_disable(dev);
- err_destroy_workqueue:
- 	destroy_workqueue(g2d->g2d_workq);
+ 	of_node_put(dcss->of_port);
+ 
++	pm_runtime_dont_use_autosuspend(dcss->dev);
+ 	pm_runtime_disable(dcss->dev);
+ 
+ 	dcss_submodules_stop(dcss);
 -- 
 2.43.0
 
