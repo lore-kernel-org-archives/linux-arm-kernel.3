@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11034C5AD05
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 00:08:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24412C5AD2B
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 00:11:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uxgPgZY649uBFpZuPHL/PO7mmTC5hIC1hhbvXAzNB9w=; b=AnSK3/TGh4HxLhsCXC7AK0lLhD
-	9Y+90zwI2v1OHyONFjOYio5fXve7v7nr5Vgo3epKj60c7SiFwH3BOby0iq36O+LTTUd8UNBAwhYCY
-	Ickh6CiTjhzK/tC8/WrizjhZOuVIvES3OHu94cW4dKgc+qRY5pCGidKDR4VDeCdqcTYnUyS9npT07
-	OqzYAnvr1OeOcLjGs1xYssUK+WViC7Z3WcmTiaVaTQPFqhj30go3BUlf99OBxZuwgY1JXysV86plT
-	Qtm6gcMk6Hy1t3Fwv15ntiWzDxjzMvU2dfZ+0LNROsXOKRMnbp0/gIOCahvFqZ5EzQ9w8UFPSei0i
-	ICmKL0Ew==;
+	bh=2LveIhWTPzg6Gu5DfHx0xwV39eUz2DOfyxOY7EwK5aU=; b=VzTuuJJloXWKyjv3vBbYuZ6UmY
+	7PHr7Xxws2OyuC0q5X6ymxuG27mX464djYG/gFlQnkhHIqKI1zXYmeyK0T6fCduPX5ztk9Lu5mbXB
+	SE3tFoRauei2wbgA2yuj41zIF+nF+aMFda9RcQEl8zIjHSG3joi5QLTAlnj9KGJnjpSb68Cyx7YvT
+	UDn6s6astZbT/m7ywTM6rYtILdbg2j6bt2mdaz3mTL71zy+dii+UNH1cfjyPbl5yhEij+/Z7Dr7AW
+	UJwmNNSk2aNNTdNNbd7YNOkL2Ok2CD02iSaKM5LEPLbpZMwivjd3JMJw2HE4KfjHrQQ4j6Ax0jW12
+	O/UmG/ZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsUbv-00000008tex-3SpR;
-	Sat, 08 Aug 2026 00:08:23 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wsUf3-00000008trE-13dG;
+	Sat, 08 Aug 2026 00:11:37 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsUbt-00000008tep-3llA
+	id 1wsUf1-00000008tqk-0C5s
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Aug 2026 00:08:21 +0000
+	Sat, 08 Aug 2026 00:11:35 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 455C041603;
-	Sat,  8 Aug 2026 00:08:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B38A1F000E9;
-	Sat,  8 Aug 2026 00:08:19 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0CE7A6001A;
+	Sat,  8 Aug 2026 00:11:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CCBD61F000E9;
+	Sat,  8 Aug 2026 00:11:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786147700;
-	bh=uxgPgZY649uBFpZuPHL/PO7mmTC5hIC1hhbvXAzNB9w=;
+	s=k20260515; t=1786147893;
+	bh=2LveIhWTPzg6Gu5DfHx0xwV39eUz2DOfyxOY7EwK5aU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=GzJtKfmmGy/pTC6LyJvs2eEM4qcaiPYAzTZsobH/EDVOAo+c3OavmFkSvDk9u15AH
-	 jz0+GU54Dw/X88CIQaFtf/qjSaxlLBMztlMnOsMDKWZDsoYkL5H7bKxwH7G6yqrp5v
-	 lSY/Yi8ZGZ2NzAvuC5OBVfSL6YNSZe8UEFWxzEU1Fim81B/3AugLysGYm5jULnpHGN
-	 QbR14GmJQBDYaoSdWyOPWkVfHjS+1OfTGAch1jHSqCGhtunw7UKPqevs4s9NsLcuhC
-	 /z3TVGHcfbPsBJkd18yuqeDgmkKiBpu4ZrMQid9C/6MBhetFvDrz/xZ78NXv8HnEUJ
-	 fzDQBBOojmR7w==
-Date: Fri, 7 Aug 2026 17:08:17 -0700
+	b=ePwUA1CYnS/FhTDJv4Ir/iMYm3iG4dDABCHqo0TS0h549Hrebs+wRDQiaLQ6KEbpa
+	 QMKPz/Lau6dz8iCakdQIOE0ZszA3u3B8DEYKsdnEJjfmwkAFIIpmiCpaJB0PtwI05j
+	 scu+Yzu3t6kHuqjASVcu3bOM8JrGMtLXOScfdOnybk1BZv+jw1XA0PpeRj4cbJiaRm
+	 07HvE54noBglpCfoCFJej7OVGYwcpLGSDRgBdO2xVhv6N3rBcn+6s086B5LI6DSd0S
+	 HgprRgVodPgtoGFkX4txioOS0oZVxgOsJ6gjbuvV+x5vFXnSxBz/dHAoYEtK9BOBlq
+	 gmNrRYXq8BMSg==
+Date: Fri, 7 Aug 2026 17:11:31 -0700
 From: Josh Poimboeuf <jpoimboe@kernel.org>
-To: sashiko-bot@kernel.org
-Cc: x86@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	live-patching@vger.kernel.org, Will Deacon <will@kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, linux-kernel@vger.kernel.org, 
-	Catalin Marinas <catalin.marinas@arm.com>, Joe Lawrence <joe.lawrence@redhat.com>, 
-	Song Liu <song@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Petr Mladek <pmladek@suse.com>, Miroslav Benes <mbenes@suse.cz>
-Subject: Re: [PATCH v3 12/21] objtool: Refactor elf_add_data() to use a
- growable data buffer
-Message-ID: <emf3idmv3xmm7gplpbykmcnnp44fugljawqlh6yi2hz7acewxg@w2yndfif37f4>
-References: <a0fe2363d017a2833e98ae50de797fe55c2796a4.1778642120.git.jpoimboe@kernel.org>
- <20260514231355.DD8D7C2BCB3@smtp.kernel.org>
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: x86@kernel.org, linux-kernel@vger.kernel.org, 
+	live-patching@vger.kernel.org, Joe Lawrence <joe.lawrence@redhat.com>, 
+	Song Liu <song@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	Mark Rutland <mark.rutland@arm.com>, Miroslav Benes <mbenes@suse.cz>, Petr Mladek <pmladek@suse.com>
+Subject: Re: [PATCH v3 11/21] objtool: Allow empty alternatives
+Message-ID: <ykyqrueqcpoxuondp2hcbjpqnmvshxmlqinlqamsmb626rd7h7@x64cqzsmlqr5>
+References: <cover.1778642120.git.jpoimboe@kernel.org>
+ <3c474673ec5ddc9f27fbf5ddb1fd0f66ef6a779f.1778642120.git.jpoimboe@kernel.org>
+ <20260513073711.GI1889694@noisy.programming.kicks-ass.net>
+ <jbjmteak3slp5jxytozuaxvh34lv5uvqzvq7gv47ch363mc4s3@frpc2izplmhp>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260514231355.DD8D7C2BCB3@smtp.kernel.org>
+In-Reply-To: <jbjmteak3slp5jxytozuaxvh34lv5uvqzvq7gv47ch363mc4s3@frpc2izplmhp>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,51 +74,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 14, 2026 at 11:13:55PM +0000, sashiko-bot@kernel.org wrote:
-> > -	sec->data->d_buf = calloc(1, size);
-> > -	if (!sec->data->d_buf) {
-> > -		ERROR_GLIBC("calloc");
-> > -		return NULL;
-> > +	size_old = sec->data->d_size;
-> > +	offset = ALIGN(size_old, sec->sh.sh_addralign);
-> > +	size_new = offset + size;
+On Fri, Aug 07, 2026 at 04:40:34PM -0700, Josh Poimboeuf wrote:
+> On Wed, May 13, 2026 at 09:37:11AM +0200, Peter Zijlstra wrote:
+> > On Tue, May 12, 2026 at 08:33:45PM -0700, Josh Poimboeuf wrote:
+> > > arm64 can have empty alternatives, which are effectively no-ops.  Ignore
+> > > them.  While at it, fix a memory leak.
+> > 
+> > How does this happen?
 > 
-> Could this ALIGN calculation overflow if a malformed ELF file provides an
-> extremely large sh_addralign value?
-
-Doesn't seem realistic...
-
-> > -	if (data)
-> > -		memcpy(sec->data->d_buf, data, size);
-> > +	if (!sec->data_overallocated)
-> > +		alloc_size_old = size_old;
-> > +	else
-> > +		alloc_size_old = max(64UL, roundup_pow_of_two(size_old ? : 1));
-> >  
-> > -	sec->data->d_size = size;
-> > -	sec->data->d_align = sec->sh.sh_addralign;
-> > +	alloc_size_new = max(64UL, roundup_pow_of_two(size_new ? : 1));
-> >  
-> > -	offset = ALIGN(sec_size(sec), sec->sh.sh_addralign);
-> > -	sec->sh.sh_size = offset + size;
-> > +	if (alloc_size_new > alloc_size_old) {
-> > +		void *orig_buf = sec->data->d_buf;
-> > +
-> > +		sec->data->d_buf = calloc(1, alloc_size_new);
-> > +		if (!sec->data->d_buf) {
-> > +			ERROR_GLIBC("calloc");
-> > +			return NULL;
-> > +		}
+> Yeah, that commit log sucks...
 > 
-> If calloc fails here, does assigning its result directly to sec->data->d_buf
-> clobber the valid pointer to orig_buf?
+> The case I stumbled on was the dcache_by_myline_op_nosync macro:
 > 
-> It appears orig_buf is never freed on this error path, which might leak the
-> original buffer if it was previously owned by objtool. Would it be safer to
-> keep the original buffer pointer intact on allocation failure?
+> alternative_if ARM64_WORKAROUND_4311569
+> 	.ifnc	\op, cvau
+> 	mov	\start, \tmp
+> 	mov	\tmp, xzr
+> 	cbnz	\start, .Ldcache_op\@
+> 	.endif
+> alternative_else_nop_endif
+> 
+> That's actually a bit weird, the .ifnc should probably be outside the
+> alternative_if.  Let me try fixing that instead.
 
-A memory leak on the error path is fine, it's about to exit anyway.
+I'll probably drop the above patch (leaving empty alternatives as a hard
+error) and replace it with this one:
 
--- 
-Josh
+commit 5dd83bdddff38f4df2829b05f876e57215b2e850
+Author: Josh Poimboeuf <jpoimboe@kernel.org>
+Date:   Fri Aug 7 16:41:10 2026 -0700
+
+    arm64: Remove unnecessary empty alternatives
+    
+    The code in arch/arm64/mm/cache.S creates three empty alternatives, all
+    from calling the dcache_by_myline_op_nosync asm macro.  If \op == cvau,
+    it creates an empty alternative for ARM64_WORKAROUND_4311569.
+    
+    Since orig_len == 0, the alternative patching code mostly ignores it,
+    though it does do an unnecessary clean_dcache_range_nopatch().  It also
+    triggers an objtool error ("empty alternative entry").
+    
+    Clean it up by moving the .ifnc check outside the alternative emit.
+    
+    Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
+
+diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/assembler.h
+index effae53e9739d..6e059efced5bb 100644
+--- a/arch/arm64/include/asm/assembler.h
++++ b/arch/arm64/include/asm/assembler.h
+@@ -404,13 +404,13 @@ alternative_else_nop_endif
+ 	add	\start, \start, \linesz
+ 	cmp	\start, \end
+ 	b.lo	.Ldcache_op\@
+-alternative_if ARM64_WORKAROUND_4311569
+ 	.ifnc	\op, cvau
++alternative_if ARM64_WORKAROUND_4311569
+ 	mov	\start, \tmp
+ 	mov	\tmp, xzr
+ 	cbnz	\start, .Ldcache_op\@
+-	.endif
+ alternative_else_nop_endif
++	.endif
+ 
+ 	_cond_uaccess_extable .Ldcache_op\@, \fixup
+ 	.endm
 
