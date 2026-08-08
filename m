@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A541AC5AD59
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 19:48:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DA3FC5AD44
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 19:48:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y0bnodPxz73AF5O0IYrYe8vDqdfSMKjXXHAIJ8OA5Dw=; b=DPGGHm435WvcUfBUz8PF9FjySA
-	uUL8NnEHEAXO37UeWxE3Uz2b2ayqr0kXxliSt+7BzCwvNGczf3jVC0BB0fTIF4Vu0HVG+8JpmgnKR
-	EgeqY/Z8CRHHexcaezJqpPod5yLUoEQvdTfmTMX04fXaFYCdIuiQEfGMgee9yVT9c2TLTOs603RRb
-	o/eyVNaoRv4or4sgigLVwotSL2GT7g1c8RYS/xAuoTPDm/TG/wDb6AUlHPqpzhb2bA/n9bJzv4Qz1
-	tdxMFfK3sBcW+51CGGXPgd3fFN1W1PTKbiSyMtsq9zqeojxBIZ2pX89ztXZMOm+mOqL46vdGDgtha
-	B+r9W34g==;
+	bh=fe+d7V0Gwd5vaQVPo5oPWMSQHgmJs6bKTDmsscoMXcg=; b=oPp9JaxdO5F5A4W5k17ov1vT7A
+	vsHVk6jAoum4/x4LuT1V9CrfynicP2UF3jqRbHynnOPScYOMeln4pbJ+vv3QkMiRREbwlsHgnm5bs
+	akPOXA32EijSmA3QYNDoP/oAuFcSfnLHgJzeY88GyALcxkA1tWvc2khwS56WyvCE44bUSu59MuBG/
+	OWkSxBIwaLrrJ/7EtXbccehOf8G4nwLiZRZYdc+f586DVWXxvf+bqlvpbX2jEcTNyP/qqXJ/kxdSz
+	IoYdTxEG0reIix92rG2GyDjebEBt/hdtLYDExdlzC4RHd6uem+E1oouYiJ4+NS+VPqsH+t1FNmCam
+	70gLq8iA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsn2C-00000009fho-2Yz7;
-	Sat, 08 Aug 2026 19:48:44 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wsn2D-00000009fjL-0gIk;
+	Sat, 08 Aug 2026 19:48:45 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsn26-00000009fYi-0r1T
+	id 1wsn29-00000009fbe-14lv
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Aug 2026 19:48:38 +0000
+	Sat, 08 Aug 2026 19:48:41 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id ED49343E1D;
-	Sat,  8 Aug 2026 19:48:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 246341F00A3E;
-	Sat,  8 Aug 2026 19:48:37 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A623D600B1;
+	Sat,  8 Aug 2026 19:48:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA2E91F000E9;
+	Sat,  8 Aug 2026 19:48:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786218517;
-	bh=Y0bnodPxz73AF5O0IYrYe8vDqdfSMKjXXHAIJ8OA5Dw=;
+	s=k20260515; t=1786218520;
+	bh=fe+d7V0Gwd5vaQVPo5oPWMSQHgmJs6bKTDmsscoMXcg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=RBQGfRa/WkJzDhNJxQaEWk4nUvDhP6W4eBoYbTaUnDSu1K1r1BAXLZqyhfmkMs3GI
-	 JirpRxKTki1eZZG07zTLtSRuHo4xbvvoZA7vejqr9p9wXuAiOuA2dEwUXVyHOSTqPK
-	 9UyLJ2WpQgB27blXy1eSSmCmkW81HtKr8Zo8/M8KPZZHAVmiOaLFatzFGNNHGOFChr
-	 EnHb2zn4ZAlydiMJ8uWuZlrUCxLNmqR1wSjf2BaTkXG0venpdX1X5VqDXiCbddMab5
-	 a8hSQy1rCg+JwkWKt0l5wAOS6GnFsL4UuTLbmVL6nCwGDurU2T18rmE5teeAex5lja
-	 g/uOSeRJNfI7A==
+	b=AlOxowtTK5VwxuTFU+KpoTVNn/mpb5uLh5YVFbPtpfw0l/qwLDAe+CW5t2pn+Grdi
+	 zL3gBvrO3BNmzpBSNgreEtAu2ApN6TOPzieNyEa7533/iNdpQOrx5DEFZdmBmgqD8Z
+	 jrHn8Ttflp0+Ke8WrbQzuzasZt7W/vwZtnqo3EjbB20pR2Mi2i3eCqcNTdKTYNtYVr
+	 nyS+NzmzA11KbSPFSuH0jK+k3/NJyJEmHVExKzK3qSnp/w54k/Zs7r8NRz6XViUa74
+	 YKO33K6VlRHLyPgInXxHUCcpHm9NLLsk8wR3kqnQb+qxdwEX2nlC1YWTDxEJI2Qanb
+	 DvWAemYbiNH0w==
 From: Jakub Kicinski <kuba@kernel.org>
 To: nagadheeraj.rottela@amd.com
 Cc: Jakub Kicinski <kuba@kernel.org>,
@@ -64,12 +64,12 @@ Cc: Jakub Kicinski <kuba@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	git-dev@amd.com
-Subject: Re: [PATCH 18/20] net: dsa: xilinx: offload the bridge FDB to the switch CAM
-Date: Sat,  8 Aug 2026 12:48:36 -0700
-Message-ID: <20260808194836.133516-1-kuba@kernel.org>
+Subject: Re: [PATCH 20/20] net: dsa: xilinx: trap link-local control frames to the CPU port
+Date: Sat,  8 Aug 2026 12:48:39 -0700
+Message-ID: <20260808194839.133603-1-kuba@kernel.org>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260807104431.157230-19-nagadheeraj.rottela@amd.com>
-References: <20260807104431.157230-19-nagadheeraj.rottela@amd.com>
+In-Reply-To: <20260807104431.157230-21-nagadheeraj.rottela@amd.com>
+References: <20260807104431.157230-21-nagadheeraj.rottela@amd.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -89,605 +89,439 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 This is an AI-generated review of your patch. The human sending this
 email has considered the AI review valid, or at least plausible.
 ---
-net: dsa: xilinx: offload the bridge FDB to the switch CAM
+net: dsa: xilinx: trap link-local control frames to the CPU port
 
-This backs the bridge FDB with the switch's stream-destination lookup CAM,
-adding indirect CAM access helpers plus a mutex, the port_fdb_add /
-port_fdb_del / port_fdb_dump / port_fast_age ops, and enabling the hardware
-learning engine on bridge join. A few questions below about the global
-switch settings, locking and the dump path.
+This adds CAM entries for the two bridge-group destination MACs in active
+use (STP at 01:80:c2:00:00:00 and LLDP at 01:80:c2:00:00:0e) with a port
+list containing only the CPU port and the endpoint management-queue bit
+set. The entries are kept in sync with each wire port's native VID via a
+new shadow list in struct xlnx_tsn.
 
 > diff --git a/drivers/net/dsa/xilinx/xilinx_tsn.c b/drivers/net/dsa/xilinx/xilinx_tsn.c
-> index 9a4d4a2fb892..57558b0e2613 100644
+> index 7e5cf77cfa66..e35dbcdfcbda 100644
 > --- a/drivers/net/dsa/xilinx/xilinx_tsn.c
 > +++ b/drivers/net/dsa/xilinx/xilinx_tsn.c
-> @@ -174,6 +174,31 @@ static int xlnx_tsn_set_port_state(struct xlnx_tsn *sw, int port,
->  	return 0;
->  }
->  
-> +static enum tsn_port_state xlnx_tsn_get_port_state(struct xlnx_tsn *sw,
-> +						   int port)
-> +{
-> +	u32 mask, chg_bit, reg;
-> +
-> +	if (xlnx_tsn_port_state_bits(port, &mask, &chg_bit))
-> +		return TSN_PORT_STATE_DISABLED;
-> +
-> +	reg = sw_ior(sw, TSN_PORT_STATE_CTRL_OFFSET);
-> +	return (reg & mask) >> __ffs(mask);
-> +}
-> +
-> +static int xlnx_tsn_port_state_cycle(struct xlnx_tsn *sw, int port,
-> +				     enum tsn_port_state state)
-> +{
-> +	enum tsn_port_state saved = xlnx_tsn_get_port_state(sw, port);
-> +	int err;
-> +
-> +	err = xlnx_tsn_set_port_state(sw, port, state);
-> +	if (err)
-> +		return err;
-> +
-> +	return xlnx_tsn_set_port_state(sw, port, saved);
-> +}
-
-[Severity: Medium]
-If the restore write here fails, what is left programmed in the port's
-field of TSN_PORT_STATE_CTRL?
-
-xlnx_tsn_set_port_state() can fail in three places: the
-xlnx_tsn_switch_status_ready() check, the -EBUSY path when the
-change-commit bit is still set, and the -ETIMEDOUT ack poll. By the time
-the restore leg runs, TSN_PORT_STATE_FLUSH has already been committed, and
-the header comment describes it as "Not an STP state".
-
-The only caller in this patch is xlnx_tsn_port_fast_age(), a void DSA op
-that only dev_err()s, so nothing re-asserts the STP state afterwards while
-DSA and the bridge still consider the port forwarding.
-
-Since xlnx_tsn_get_port_state() returns the raw field with no validation,
-would a later cycle on that port then read back the flush value as "saved"
-and faithfully reprogram that non-STP value?
-
->  
->  static int xlnx_tsn_mdio_wait_ready(struct xlnx_tsn_mac *m)
->  {
->  	u32 val;
-> @@ -495,11 +520,32 @@ static int xlnx_tsn_port_set_mac_address(struct dsa_switch *ds, int port,
->  	return 0;
->  }
->  
-> +/* Enable or disable the hardware address learning engine globally.
-> + * Standalone ports do not learn. Enable when a port joins a bridge,
-> + * disable when the last one leaves. The sub-qualifier bits below are
-> + * inert while learning is disabled. Caller holds indirect_lock.
-> + */
-> +static void xlnx_tsn_set_global_learning(struct xlnx_tsn *sw, bool on)
-> +{
-> +	u32 reg = sw_ior(sw, TSN_SW_ADDR_LEARN_OFFSET);
-> +
-> +	if (on)
-> +		reg &= ~TSN_SW_ADDR_LEARN_DISABLE;
-> +	else
-> +		reg |= TSN_SW_ADDR_LEARN_DISABLE;
-> +	sw_iow(sw, TSN_SW_ADDR_LEARN_OFFSET, reg);
-> +}
-> +
->  static int xlnx_tsn_port_bridge_join(struct dsa_switch *ds, int port,
->  				     struct dsa_bridge bridge,
->  				     bool *tx_fwd_offload,
->  				     struct netlink_ext_ack *extack)
->  {
-> +	struct xlnx_tsn *sw = ds->priv;
-> +
-> +	scoped_guard(mutex, &sw->indirect_lock)
-> +		xlnx_tsn_set_global_learning(sw, true);
-> +
-
-[Severity: High]
-Can this leak frames between a bridged port and a standalone port?
-
-The comment says "Standalone ports do not learn", but
-xlnx_tsn_set_global_learning() clears one switch-wide
-TSN_SW_ADDR_LEARN_DISABLE bit, and there is no per-port qualifier. Source
-MACs seen on a standalone user port are then learnt into the same shared
-CAM, and xlnx_tsn_setup() pins the switch-wide unknown-unicast miss action
-to TSN_SW_CTRL_UCAST_MISS_FLOOD, so a CAM miss is replicated to ports that
-are not bridge members.
-
-DSA leaves standalone user ports at BR_STATE_FORWARDING via
-dsa_port_enable() -> dsa_port_set_state(), so both wire ports are
-forwarding in the fabric.
-
-With swp0 in br0 and swp1 left standalone (or moved to another netns):
-
-  - unicast from the bridge domain misses the CAM and is flooded out swp1
-  - once swp1's neighbour is learnt into the shared CAM, br0 traffic is
-    unicast-forwarded to swp1
-
-xlnx_tsn_port_bridge_leave() below only disables learning once the last
-user port leaves any bridge, so a port that has already left keeps being
-learnt and learning while the other port is bridged, and the entries
-already installed in the CAM stay programmed. Is a port-isolation or
-port-matrix register available to restrict the flood domain to bridge
-members?
-
->  	/* The switch fabric replicates flooded frames per egress port
->  	 * on its own, so the bridge does not need to clone-and-send.
->  	 */
-> @@ -508,6 +554,24 @@ static int xlnx_tsn_port_bridge_join(struct dsa_switch *ds, int port,
->  	return 0;
->  }
->  
-> +static void xlnx_tsn_port_bridge_leave(struct dsa_switch *ds, int port,
-> +				       struct dsa_bridge bridge)
-> +{
-> +	struct xlnx_tsn *sw = ds->priv;
-> +	struct dsa_port *dp;
-> +
-> +	dsa_switch_for_each_user_port(dp, ds) {
-> +		if (dp->index == port)
-> +			continue;
-> +
-> +		if (dp->bridge)
-> +			return;
-> +	}
-> +
-> +	scoped_guard(mutex, &sw->indirect_lock)
-> +		xlnx_tsn_set_global_learning(sw, false);
-> +}
-> +
 
 [ ... ]
 
-> @@ -539,6 +603,217 @@ static void xlnx_tsn_port_stp_state_set(struct dsa_switch *ds, int port,
->  	xlnx_tsn_set_port_state(sw, port, hw_state);
+> @@ -694,6 +702,28 @@ static int xlnx_tsn_cam_write(struct xlnx_tsn *sw, const unsigned char *addr,
+>  	return xlnx_tsn_cam_wait_done(sw);
 >  }
 >  
-> +/* The CAM status enable bit reads 1 when the block is ready to accept the
-> + * next operation.
+> +/* IEEE 802.1 bridge-group destination MACs. A bridge must consume
+> + * these locally rather than relay them between ports. Each address
+> + * gets a CAM trap entry pointing to the CPU port only. The CAM
+> + * matches the destination MAC exactly, so only the addresses in
+> + * active use are listed here.
 > + */
-> +static int xlnx_tsn_cam_wait_ready(struct xlnx_tsn *sw)
-> +{
-> +	u32 reg;
+> +static const u8 xlnx_tsn_ctrl_das[][ETH_ALEN] = {
+> +	{ 0x01, 0x80, 0xc2, 0x00, 0x00, 0x00 }, /* STP / RSTP / MSTP */
+> +	{ 0x01, 0x80, 0xc2, 0x00, 0x00, 0x0e }, /* LLDP */
+> +};
 > +
-> +	return readl_poll_timeout(sw->sw_base + TSN_CAM_STATUS_OFFSET, reg,
-> +				  reg & TSN_CAM_STATUS_READY, TSN_SW_POLL_DELAY_US,
-> +				  TSN_SW_POLL_TIMEOUT_US);
+> +static bool xlnx_tsn_addr_is_ctrl_trap(const unsigned char *addr)
+> +{
+> +	int i;
+> +
+> +	for (i = 0; i < ARRAY_SIZE(xlnx_tsn_ctrl_das); i++)
+> +		if (ether_addr_equal(addr, xlnx_tsn_ctrl_das[i]))
+> +			return true;
+> +
+> +	return false;
 > +}
 > +
-> +/* The CAM control enable bit self-clears when the operation completes. */
-> +static int xlnx_tsn_cam_wait_done(struct xlnx_tsn *sw)
-> +{
-> +	u32 reg;
-> +
-> +	return readl_poll_timeout(sw->sw_base + TSN_CAM_CTRL_OFFSET, reg,
-> +				  !(reg & TSN_CAM_OP_ENABLE),
-> +				  TSN_SW_POLL_DELAY_US, TSN_SW_POLL_TIMEOUT_US);
-> +}
-> +
-
-[ ... ]
-
-> +/* Add (add=true) or delete (add=false) the (MAC, VID) entry carrying the
-> + * given port list. Caller holds indirect_lock.
-> + */
-> +static int xlnx_tsn_cam_write(struct xlnx_tsn *sw, const unsigned char *addr,
-> +			      u16 vid, u8 portlist, bool add)
-> +{
-> +	int ret;
-> +
-> +	ret = xlnx_tsn_cam_wait_ready(sw);
-> +	if (ret)
-> +		return ret;
-> +
-> +	xlnx_tsn_cam_load_key(sw, addr, vid);
-> +	sw_iow(sw, TSN_CAM_TV1_OFFSET, 0);
-> +	sw_iow(sw, TSN_CAM_TV2_OFFSET, 0);
-> +	sw_iow(sw, TSN_CAM_PORT_ACT_OFFSET,
-> +	       FIELD_PREP(TSN_CAM_PORT_LIST, portlist));
-> +	sw_iow(sw, TSN_CAM_CTRL_OFFSET,
-> +	       FIELD_PREP(TSN_CAM_OP_MASK, add ? TSN_CAM_OP_ADD : TSN_CAM_OP_DELETE) |
-> +	       TSN_CAM_OP_ENABLE);
-> +
-> +	return xlnx_tsn_cam_wait_done(sw);
-> +}
-
-[Severity: Medium]
-Is the self-clearing of TSN_CAM_OP_ENABLE enough to conclude that
-TSN_CAM_OP_ADD stored the entry?
-
-The CAM is a finite resource (the read-key address space alone is 4096
-slots), so an add can fail for lack of a free slot. The READ path does
-consult TSN_CAM_FOUND in the same control register, but nothing is checked
-after an ADD.
-
-xlnx_tsn_port_fdb_add() returns this result unchanged, so DSA calls
-dsa_fdb_offload_notify() and the bridge marks the entry offloaded even
-though no hardware entry exists. Does the block expose a full or
-add-failure indication that could be checked here?
-
-> +
-> +static void xlnx_tsn_port_fast_age(struct dsa_switch *ds, int port)
-> +{
-> +	struct xlnx_tsn *sw = ds->priv;
-> +	int err;
-> +
-> +	err = xlnx_tsn_port_state_cycle(sw, port, TSN_PORT_STATE_FLUSH);
-> +	if (err)
-> +		dev_err(sw->dev, "port %d: fast age failed (%d)\n", port, err);
-> +}
-
-[Severity: Medium]
-Should this take sw->indirect_lock?
-
-Writing TSN_PORT_STATE_FLUSH mutates the CAM (per the enum comment it
-"flushes the port's dynamic learnt entries"), yet every other new CAM
-accessor documents "Caller holds indirect_lock" and this one takes no lock.
-
-The two contexts are not otherwise mutually exclusive: .port_fdb_add and
-.port_fdb_del run from dsa_user_switchdev_event_work(), which does not take
-rtnl_lock, while .port_fast_age is reached from rtnl-held paths
-dsa_port_set_state() -> dsa_port_fast_age() and dsa_port_bridge_flags().
-
-CPU0 in xlnx_tsn_port_fdb_add() holds indirect_lock and has finished
-xlnx_tsn_cam_read_portlist() but not yet xlnx_tsn_cam_write(); CPU1 issues
-the flush; CPU0 then writes back a port list computed from pre-flush state,
-resurrecting a flushed entry. The TSN_CAM_STATUS_READY handshake only
-covers the driver's own operations, so an ADD can also be started while the
-hardware flush walk is in progress. The same window applies to the 2048
-slot scan in xlnx_tsn_port_fdb_dump().
-
-> +
-> +static int xlnx_tsn_port_fdb_add(struct dsa_switch *ds, int port,
-> +				 const unsigned char *addr, u16 vid,
-> +				 struct dsa_db db)
-> +{
-> +	struct xlnx_tsn *sw = ds->priv;
-> +	u8 portlist;
-> +	int ret;
-> +
-> +	if (!vid)
-> +		vid = TSN_SW_DEFAULT_VID;
-
-[Severity: Medium]
-Can folding vid 0 onto TSN_SW_DEFAULT_VID make two software FDB entries
-share one hardware entry?
-
-nbp_vlan_init() adds the bridge's default_pvid (1) to every port's VLAN
-group regardless of VLAN filtering, and br_fdb_add() then installs both a
-vid 0 entry and one entry per configured VLAN:
-
-net/bridge/br_fdb.c:br_fdb_add() {
-	...
-	err = __br_fdb_add(ndm, br, p, addr, nlh_flags, 0, nfea_tb, notified, extack);
-	if (err || !vg || !vg->num_vlans)
-		goto out;
-	list_for_each_entry(v, &vg->vlan_list, vlist) {
-	...
-}
-
-So a plain "bridge fdb add <mac> dev swp1 master" reaches the driver twice
-and both calls program key (mac, 1); DSA does not refcount FDB entries for
-user ports. A later "bridge fdb del <mac> dev swp1 master vlan 1" then
-makes xlnx_tsn_port_fdb_del() clear the port bit and issue
-TSN_CAM_OP_DELETE, destroying hardware state that the surviving vid 0
-software entry still needs, while the bridge keeps it flagged offloaded.
-
-The reverse mapping in xlnx_tsn_port_fdb_dump() also reports a genuine
-vid 1 entry as vid 0, which hides the alias from the operator.
-
-> +
-> +	guard(mutex)(&sw->indirect_lock);
-> +	ret = xlnx_tsn_cam_read_portlist(sw, addr, vid, &portlist);
-> +	if (!ret) {
-> +		portlist |= TSN_PORT_BIT(port);
-> +		ret = xlnx_tsn_cam_write(sw, addr, vid, portlist, true);
-> +	}
-> +
-> +	return ret;
-> +}
-
-[Severity: Medium]
-Can this read-modify-write lose an update made by the learning engine?
-
-After xlnx_tsn_port_bridge_join() clears TSN_SW_ADDR_LEARN_DISABLE, the
-fabric writes the same (MAC, VID) entries autonomously, and
-sw->indirect_lock only serialises the software writers:
-
-  xlnx_tsn_cam_read_portlist()   /* snapshot */
-  <hardware learns the same key on the other port, sets its bit>
-  portlist |= TSN_PORT_BIT(port);
-  xlnx_tsn_cam_write()           /* writes back the stale snapshot */
-
-The bit set by hardware is then cleared, so the entry no longer forwards to
-the port where the address is actually reachable. In xlnx_tsn_port_fdb_del()
-the mirror case makes a port list that hardware repopulated after the read
-look empty, so TSN_CAM_OP_DELETE is issued on a live entry.
-
-No lock can order software against the learning engine. Is there an atomic
-set/clear opcode, or could learning be masked around the sequence, or the
-entry re-read and validated after the write?
-
-> +
-> +static int xlnx_tsn_port_fdb_del(struct dsa_switch *ds, int port,
-> +				 const unsigned char *addr, u16 vid,
-> +				 struct dsa_db db)
-> +{
-> +	struct xlnx_tsn *sw = ds->priv;
-> +	u8 portlist;
-> +	int ret;
-> +
-> +	if (!vid)
-> +		vid = TSN_SW_DEFAULT_VID;
-> +
-> +	guard(mutex)(&sw->indirect_lock);
-> +	ret = xlnx_tsn_cam_read_portlist(sw, addr, vid, &portlist);
-> +	if (!ret) {
-> +		if (!portlist)
-> +			return 0;
-> +
-> +		/* Drop the entry once no port references it. Otherwise
-> +		 * rewrite it with the updated port list.
-> +		 */
-> +		portlist &= ~TSN_PORT_BIT(port);
-> +		ret = xlnx_tsn_cam_write(sw, addr, vid, portlist, portlist != 0);
-> +	}
-> +
-> +	return ret;
-> +}
-> +
-> +static int xlnx_tsn_port_fdb_dump(struct dsa_switch *ds, int port,
-> +				  dsa_fdb_dump_cb_t *cb, void *data)
-> +{
-> +	struct xlnx_tsn *sw = ds->priv;
-> +	unsigned char addr[ETH_ALEN];
-> +	u32 base, ctrl, key1, key2;
-> +	int ret = 0;
-> +	u16 vid;
-> +	u32 i;
-> +
-> +	/* Learnt entries live in a per-MAC-port read-key region. The CPU
-> +	 * port has no such region.
-> +	 */
-> +	if (port == XLNX_TSN_CPU_PORT)
-> +		return 0;
-> +
-> +	guard(mutex)(&sw->indirect_lock);
-> +
-> +	if (port == XLNX_TSN_PORT_MAC2)
-> +		base = TSN_CAM_MAC2_READ_KEY_BASE;
-> +	else
-> +		base = 0;
-> +
-> +	/* Learnt entries occupy non-consecutive slots, so scan the whole
-> +	 * region and report each slot marked found.
-> +	 */
-> +	for (i = 0; i < TSN_CAM_READ_KEY_COUNT; i++) {
-> +		ret = xlnx_tsn_cam_wait_ready(sw);
-> +		if (ret)
-> +			return ret;
-> +
-> +		sw_iow(sw, TSN_CAM_CTRL_OFFSET,
-> +		       FIELD_PREP(TSN_CAM_READ_KEY_ADDR, base + i) |
-> +		       FIELD_PREP(TSN_CAM_OP_MASK, TSN_CAM_OP_READ_KEY) |
-> +		       TSN_CAM_OP_ENABLE);
-> +
-> +		ret = xlnx_tsn_cam_wait_done(sw);
-> +		if (ret)
-> +			return ret;
-
-[Severity: Medium]
-How long does this hold rtnl_lock?
-
-PF_BRIDGE / RTM_GETNEIGH is registered without RTNL_FLAG_DUMP_UNLOCKED:
-
-net/core/rtnetlink.c:
-	{.protocol = PF_BRIDGE, .msgtype = RTM_GETNEIGH, .doit = rtnl_fdb_get,
-	 .dumpit = rtnl_fdb_dump},
-
-so rtnl_lock is held across the whole callback, and a netlink dump needs no
-capability. Each of the TSN_CAM_READ_KEY_COUNT (2048) iterations runs two
-sleeping readl_poll_timeout() loops with a 10 us delay and a 5000 us
-timeout, so a healthy pass sleeps at least once per slot and a slow CAM can
-stretch the pass towards seconds. A netlink dump also re-invokes the
-callback per skb, repeating the full hardware scan for each chunk.
-
-Would it be reasonable to cache the scan result, or bound the region
-scanned, so that "bridge fdb show" cannot block the networking
-configuration path for that long?
-
-> +
-> +		ctrl = sw_ior(sw, TSN_CAM_CTRL_OFFSET);
-> +		if (!(ctrl & TSN_CAM_FOUND))
-> +			continue;
-> +
-> +		key1 = sw_ior(sw, TSN_CAM_KEY1_OFFSET);
-> +		key2 = sw_ior(sw, TSN_CAM_KEY2_OFFSET);
-> +		addr[0] = key1 >> 24;
-> +		addr[1] = key1 >> 16;
-> +		addr[2] = key1 >> 8;
-> +		addr[3] = key1;
-> +		addr[4] = key2 >> 8;
-> +		addr[5] = key2;
-> +		vid = FIELD_GET(TSN_CAM_VLAN, key2);
-> +		if (vid == TSN_SW_DEFAULT_VID)
-> +			vid = 0;
-> +
-> +		ret = cb(addr, vid, false, data);
-> +		if (ret)
-> +			return ret;
-> +	}
-> +	return ret;
-> +}
-
-[Severity: Medium]
-Should this filter on the entry's port list?
-
-The only filter in the loop is the TSN_CAM_FOUND test; TSN_CAM_PORT_ACT_OFFSET
-and TSN_CAM_PORT_LIST, the bitmap that xlnx_tsn_port_fdb_add() and
-xlnx_tsn_port_fdb_del() maintain, are never read here.
-
-xlnx_tsn_cam_write() selects a slot purely from the (MAC, VID) key, with no
-port index, so can a slot range encode ownership by port at all? Two
-consequences follow:
-
-  - host entries written through .port_fdb_add for the CPU port (DSA calls
-    it from dsa_switch_host_fdb_add() -> dsa_port_do_fdb_add(cpu_dp), and
-    the driver programs TSN_PORT_BIT(0)) must land inside one of the two
-    windows, and get reported as learnt on that user port
-  - a (MAC, VID) reachable on both ports occupies a single slot, since the
-    read-modify-write logic assumes one entry per key, so it can appear in
-    at most one port's dump and is missing from the other's
-
-The commit message says:
-
-    A (MAC, VID) reachable on several
-    ports then carries a correct multi-port list.
-
-which holds for the port list in hardware, but the dump does not express
-it.
-
-Separately, every entry is passed to cb() with is_static = false, so
-entries installed through .port_fdb_add come back as dynamic
-(net/dsa/user.c maps is_static to ndm_state, NUD_REACHABLE versus
-NUD_NOARP). Since "bridge fdb show" is an unprivileged dump, addresses
-belonging to the other port's domain are also visible there.
-
-> +
->  static void xlnx_tsn_phylink_get_caps(struct dsa_switch *ds, int port,
->  				      struct phylink_config *config)
+>  static void xlnx_tsn_port_fast_age(struct dsa_switch *ds, int port)
 >  {
-> @@ -643,7 +918,7 @@ static int xlnx_tsn_setup(struct dsa_switch *ds)
->  	struct dsa_port *cpu_dp = dsa_to_port(ds, XLNX_TSN_CPU_PORT);
 >  	struct xlnx_tsn *sw = ds->priv;
->  	struct dsa_port *dp;
-> -	u32 mgmt;
-> +	u32 mgmt, reg;
+> @@ -712,6 +742,9 @@ static int xlnx_tsn_port_fdb_add(struct dsa_switch *ds, int port,
+>  	u8 portlist;
 >  	int ret;
 >  
->  	if (!dsa_is_user_port(ds, XLNX_TSN_PORT_MAC1) ||
-> @@ -656,6 +931,22 @@ static int xlnx_tsn_setup(struct dsa_switch *ds)
+> +	if (xlnx_tsn_addr_is_ctrl_trap(addr))
+> +		return 0;
+> +
+
+[Severity: Medium]
+Do the three FDB ops now disagree about these two addresses?
+
+xlnx_tsn_port_fdb_add() and xlnx_tsn_port_fdb_del() return 0 without
+touching the CAM, so a request like:
+
+    bridge fdb add 01:80:c2:00:00:00 dev swp1 master static
+
+is accepted by br_fdb_add() (it only rejects the all-zero address),
+notified to the driver through dsa_port_do_fdb_add() ->
+ds->ops->port_fdb_add(), and reported as successfully offloaded although
+nothing was programmed. The corresponding delete likewise returns success
+while the trap entry stays in the CAM, so user space has no way to remove
+it and gets no error.
+
+xlnx_tsn_port_fdb_dump() has no matching filter - it walks the per-MAC
+read-key region and reports every slot with TSN_CAM_FOUND set using
+is_static = false:
+
+    ctrl = sw_ior(sw, TSN_CAM_CTRL_OFFSET);
+    if (!(ctrl & TSN_CAM_FOUND))
+            continue;
+    ...
+    ret = cb(addr, vid, false, data);
+
+If the trap entries land in a wire port's read-key region (the driver
+already relies on that region for its own OP_ADD entries), they would be
+dumped back as dynamic entries learnt on swp1/swp2, which contradicts what
+add and del report.
+
+Would it be better to either apply the same filter in the dump, or make
+add/del return an error for these addresses instead of reporting success?
+
+>  	if (!vid)
+>  		vid = TSN_SW_DEFAULT_VID;
 >  
->  	sw->conduit = cpu_dp->conduit;
+
+[ ... ]
+
+> @@ -733,6 +766,9 @@ static int xlnx_tsn_port_fdb_del(struct dsa_switch *ds, int port,
+>  	u8 portlist;
+>  	int ret;
 >  
-> +	/* Pre-arm the learning sub-qualifiers for when a port joins a bridge:
-> +	 * learn untagged frames under their ingress native VID, and allow
-> +	 * learning on VIDs with no membership entry while the bridge is
-> +	 * VLAN-unaware. Both bits are inert while global learning is disabled.
+> +	if (xlnx_tsn_addr_is_ctrl_trap(addr))
+> +		return 0;
+> +
+>  	if (!vid)
+>  		vid = TSN_SW_DEFAULT_VID;
+>  
+
+[ ... ]
+
+> @@ -936,12 +973,93 @@ static void xlnx_tsn_set_vlan_only_learning(struct xlnx_tsn *sw, bool on)
+>  	sw_iow(sw, TSN_SW_ADDR_LEARN_OFFSET, reg);
+>  }
+>  
+> +/* Install or remove link-local control-frame traps for one VID.
+> + * Each entry points to the CPU port and marks frames as management
+> + * traffic for delivery on the management queue. Caller holds
+> + * indirect_lock.
+> + */
+> +static int xlnx_tsn_set_ctrl_traps(struct xlnx_tsn *sw, u16 vid, bool add)
+> +{
+> +	int i, ret;
+> +
+> +	for (i = 0; i < ARRAY_SIZE(xlnx_tsn_ctrl_das); i++) {
+> +		ret = xlnx_tsn_cam_write(sw, xlnx_tsn_ctrl_das[i], vid,
+> +					 TSN_PORT_BIT(XLNX_TSN_CPU_PORT),
+> +					 true, add);
+
+[Severity: Medium]
+Can this port list also catch the host's own transmitted control frames?
+
+The host bridge sends BPDUs and LLDPDUs with exactly these destination
+MACs. Those frames enter the fabric from the endpoint port and, when
+untagged, are looked up under the CPU port's native VID. While the bridge
+is VLAN-unaware xlnx_tsn_apply_pvid() keeps that at TSN_SW_DEFAULT_VID,
+which is also the trap key installed here, so the frame matches the same
+CAM entry - whose port list contains only TSN_PORT_BIT(XLNX_TSN_CPU_PORT)
+and therefore neither wire port.
+
+Whether the frame still egresses depends on the SA-egress selection
+programmed in xlnx_tsn_setup():
+
+    mgmt = sw_ior(sw, TSN_SW_MGMT_QUEUING_OFFSET);
+    mgmt |= TSN_SW_MGMT_QUEUING_EP_SA_EGRESS;
+    sw_iow(sw, TSN_SW_MGMT_QUEUING_OFFSET, mgmt);
+
+taking precedence over a CAM hit. Is that precedence guaranteed by the IP?
+Nothing in the driver or the register definitions states it. If the CAM
+hit governs instead, the host's own BPDUs and LLDPDUs would be forwarded
+only back to the ingress (CPU) port and dropped, which would disable STP
+transmission entirely. Could this be confirmed against the switch IP
+documentation, or the trap port list adjusted for endpoint ingress?
+
+> +		if (ret)
+> +			return ret;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static bool xlnx_tsn_vid_in(const u16 *vids, int count, u16 vid)
+> +{
+> +	int i;
+> +
+> +	for (i = 0; i < count; i++)
+> +		if (vids[i] == vid)
+> +			return true;
+> +
+> +	return false;
+> +}
+> +
+
+[ ... ]
+
+> +static int xlnx_tsn_sync_ctrl_traps(struct xlnx_tsn *sw)
+> +{
+> +	u16 want[XLNX_TSN_NUM_PORTS - 1], vid;
+> +	struct dsa_port *dp;
+> +	int i, n, ret;
+> +
+> +	n = 0;
+> +	dsa_switch_for_each_user_port(dp, &sw->ds) {
+> +		vid = sw->vlan_aware ? sw->pvid[dp->index] : TSN_SW_DEFAULT_VID;
+> +		if (!xlnx_tsn_vid_in(want, n, vid))
+> +			want[n++] = vid;
+> +	}
+> +
+> +	/* Remove traps at VIDs no longer used as any wire port's native VID. */
+> +	i = 0;
+> +	while (i < sw->ctrl_trap_count) {
+> +		vid = sw->ctrl_trap_vid[i];
+> +		if (xlnx_tsn_vid_in(want, n, vid)) {
+> +			i++;
+> +			continue;
+> +		}
+> +		ret = xlnx_tsn_set_ctrl_traps(sw, vid, false);
+> +		if (ret)
+> +			return ret;
+> +
+> +		sw->ctrl_trap_vid[i] = sw->ctrl_trap_vid[--sw->ctrl_trap_count];
+> +	}
+> +
+> +	/* Add traps at native VIDs not yet installed. */
+> +	for (i = 0; i < n; i++) {
+> +		if (xlnx_tsn_vid_in(sw->ctrl_trap_vid, sw->ctrl_trap_count,
+> +				    want[i]))
+> +			continue;
+> +		ret = xlnx_tsn_set_ctrl_traps(sw, want[i], true);
+> +		if (ret)
+> +			return ret;
+> +
+> +		sw->ctrl_trap_vid[sw->ctrl_trap_count++] = want[i];
+> +	}
+> +
+> +	return 0;
+> +}
+
+[Severity: Medium]
+Can the shadow list get permanently out of step with the CAM here?
+
+xlnx_tsn_set_ctrl_traps() writes two entries and returns on the first
+xlnx_tsn_cam_write() failure without unwinding the one it already
+programmed, but this function treats it as all-or-nothing.
+
+Removal direction: if the STP delete succeeds and the LLDP delete returns
+-ETIMEDOUT from xlnx_tsn_cam_wait_ready()/xlnx_tsn_cam_wait_done(), the
+early return happens before:
+
+    sw->ctrl_trap_vid[i] = sw->ctrl_trap_vid[--sw->ctrl_trap_count];
+
+so the VID stays recorded as installed although one of its entries is
+gone. If that VID becomes a wanted native VID again, the removal loop
+keeps it and the add loop skips it, because
+xlnx_tsn_vid_in(sw->ctrl_trap_vid, ...) is true - the deleted STP trap is
+never reinstalled and BPDUs at that VID are relayed to the peer wire port
+again, with no error reported anywhere.
+
+Add direction: if the STP add succeeds and the LLDP add fails, the return
+happens before:
+
+    sw->ctrl_trap_vid[sw->ctrl_trap_count++] = want[i];
+
+so the installed entry is untracked, and xlnx_tsn_remove_ctrl_traps()
+iterates only ctrl_trap_vid[0..ctrl_trap_count), so it can never delete
+it.
+
+Should xlnx_tsn_set_ctrl_traps() roll back the entries it already
+programmed, or should the bookkeeping be updated per entry rather than per
+VID?
+
+>  static int xlnx_tsn_port_vlan_filtering(struct dsa_switch *ds, int port,
+>  					bool vlan_filtering,
+>  					struct netlink_ext_ack *extack)
+>  {
+>  	struct xlnx_tsn *sw = ds->priv;
+>  	struct dsa_port *dp;
+> +	bool old_vlan_aware;
+>  	unsigned long bit;
+>  	u32 reg, data;
+>  	int ret;
+> @@ -967,6 +1085,7 @@ static int xlnx_tsn_port_vlan_filtering(struct dsa_switch *ds, int port,
+>  			return ret;
+>  	}
+>  
+> +	old_vlan_aware = sw->vlan_aware;
+>  	sw->vlan_aware = vlan_filtering;
+>  
+
+[ ... ]
+
+> @@ -1004,15 +1123,23 @@ static int xlnx_tsn_port_vlan_filtering(struct dsa_switch *ds, int port,
+>  		ret = xlnx_tsn_port_state_cycle(sw, dp->index,
+>  						TSN_PORT_STATE_BLOCKING);
+>  		if (ret)
+> -			return ret;
+> +			goto restore;
+>  
+>  		ret = xlnx_tsn_port_state_cycle(sw, dp->index,
+>  						TSN_PORT_STATE_FLUSH);
+>  		if (ret)
+> -			return ret;
+> +			goto restore;
+>  	}
+>  
+> +	ret = xlnx_tsn_sync_ctrl_traps(sw);
+> +	if (ret)
+> +		goto restore;
+> +
+>  	return 0;
+> +
+> +restore:
+> +	sw->vlan_aware = old_vlan_aware;
+> +	return ret;
+>  }
+
+[Severity: Medium]
+Does this rollback leave the shadow flag disagreeing with the hardware?
+
+Only sw->vlan_aware is reverted, while every register write already made
+for the new setting stays in place:
+
+  - TSN_VLAN_PORT_LIST_VALID flipped on each VID in sw->cfg_vids
+  - the unicast/multicast CAM-miss policy in TSN_SW_CTRL
+  - the VLAN-only-learning bit via xlnx_tsn_set_vlan_only_learning()
+  - the per-port native VID and untag bits via xlnx_tsn_apply_pvid()
+
+xlnx_tsn_port_state_cycle() can return -EBUSY (previous state-change bit
+still pending) or -ETIMEDOUT (ack timeout), and xlnx_tsn_sync_ctrl_traps()
+can return -ETIMEDOUT from the CAM polling.
+
+When enabling filtering fails that way, the hardware keeps discarding
+unknown unicast/multicast and enforcing VLAN membership while
+sw->vlan_aware is false and DSA and the bridge both believe filtering is
+off, so traffic is dropped with no indication of why.
+
+It also affects later operations: xlnx_tsn_port_vlan_add() takes the
+data &= ~TSN_VLAN_PORT_LIST_VALID branch, xlnx_tsn_apply_pvid() reprograms
+the native VID to TSN_SW_DEFAULT_VID, and xlnx_tsn_sync_ctrl_traps()
+recomputes wanted trap VIDs from the reverted flag:
+
+    vid = sw->vlan_aware ? sw->pvid[dp->index] : TSN_SW_DEFAULT_VID;
+
+so the CAM trap keys can end up permanently mismatched against the native
+VIDs actually programmed. Before this patch the function returned the
+error with the flag matching the writes already made. Would undoing the
+hardware writes too, or dropping the flag revert, be more consistent?
+
+[ ... ]
+
+> @@ -1204,6 +1333,21 @@ static const struct phylink_mac_ops xlnx_tsn_phylink_mac_ops = {
+>  	.mac_link_down	= xlnx_tsn_mac_link_down,
+>  };
+>  
+> +static void xlnx_tsn_remove_ctrl_traps(struct xlnx_tsn *sw)
+> +{
+> +	int i;
+> +
+> +	guard(mutex)(&sw->indirect_lock);
+> +
+> +	for (i = 0; i < sw->ctrl_trap_count; i++)
+> +		if (xlnx_tsn_set_ctrl_traps(sw, sw->ctrl_trap_vid[i], false))
+> +			dev_warn(sw->dev,
+> +				 "failed to remove control trap vid %u\n",
+> +				 sw->ctrl_trap_vid[i]);
+> +
+> +	sw->ctrl_trap_count = 0;
+> +}
+> +
+>  static int xlnx_tsn_setup(struct dsa_switch *ds)
+>  {
+>  	struct dsa_port *cpu_dp = dsa_to_port(ds, XLNX_TSN_CPU_PORT);
+
+[ ... ]
+
+> @@ -1276,9 +1420,19 @@ static int xlnx_tsn_setup(struct dsa_switch *ds)
+>  			return ret;
+>  	}
+>  
+> +	/* Trap link-local control frames (STP, LLDP) to the CPU port.
+> +	 * Without this, a frame arriving on one wire port would be
+> +	 * flooded out the other instead of reaching the host bridge.
 > +	 */
-> +	reg = sw_ior(sw, TSN_SW_ADDR_LEARN_OFFSET);
-> +	reg |= TSN_SW_ADDR_LEARN_DISABLE | TSN_SW_ADDR_LEARN_UNTAGGED_EN |
-> +	       TSN_SW_ADDR_LEARN_NO_VLAN_EN;
-> +	sw_iow(sw, TSN_SW_ADDR_LEARN_OFFSET, reg);
-> +
-> +	/* On a CAM miss flood unknown tagged unicast frames to all ports. */
-> +	reg = sw_ior(sw, TSN_SW_CTRL_OFFSET);
-> +	reg &= ~TSN_SW_CTRL_UCAST_MISS_MASK;
-> +	reg |= FIELD_PREP(TSN_SW_CTRL_UCAST_MISS_MASK, TSN_SW_CTRL_UCAST_MISS_FLOOD);
-> +	sw_iow(sw, TSN_SW_CTRL_OFFSET, reg);
-> +
 
 [Severity: Medium]
-This overrides the hardware reset default for unknown-unicast forwarding
-unconditionally at probe time. TSN_SW_CTRL_UCAST_MISS_MASK is GENMASK(1, 0)
-of the switch-wide Switch Control Register, no per-port flood domain is
-programmed anywhere in the driver, and neither port_bridge_join nor
-port_bridge_leave revisits it, so the policy also applies to frames
-ingressing standalone user ports. The commit message describes the CAM
-offload, the learning engine and the new ops, but not this global
-forwarding change.
+Can trapped frames actually reach the host bridge in this tree?
 
-The peer field TSN_SW_CTRL_MCAST_MISS_MASK and TSN_SW_CTRL_MCAST_MISS_FLOOD
-are added in the same header block but never written here, so unknown
-unicast and unknown multicast end up under different policies, one
-programmed and one left at the reset default. Was the multicast write meant
-to be here too?
+The tag protocol receive hook for this switch drops everything coming from
+the conduit:
 
->  	/* Route CPU-originated bridge-group control frames (STP, LLDP) to
->  	 * the single wire port whose MAC-nibble field matches the frame's
->  	 * source-MAC low nibble, instead of flooding to both.
-> @@ -743,7 +1034,12 @@ static const struct dsa_switch_ops xlnx_tsn_switch_ops = {
->  	.teardown		= xlnx_tsn_teardown,
->  	.port_set_mac_address	= xlnx_tsn_port_set_mac_address,
->  	.port_bridge_join	= xlnx_tsn_port_bridge_join,
-> +	.port_bridge_leave	= xlnx_tsn_port_bridge_leave,
->  	.port_stp_state_set	= xlnx_tsn_port_stp_state_set,
-> +	.port_fdb_add		= xlnx_tsn_port_fdb_add,
-> +	.port_fdb_del		= xlnx_tsn_port_fdb_del,
-> +	.port_fdb_dump		= xlnx_tsn_port_fdb_dump,
-> +	.port_fast_age		= xlnx_tsn_port_fast_age,
-
-[Severity: Medium]
-Since hardware learning is now switched on, should .port_pre_bridge_flags
-and .port_bridge_flags be implemented as well?
-
-That path is the only way the bridge port's BR_LEARNING, BR_FLOOD,
-BR_MCAST_FLOOD and BR_PORT_LOCKED settings reach a driver:
-
-net/dsa/port.c:dsa_port_bridge_flags() {
-	if (!ds->ops->port_bridge_flags)
-		return -EOPNOTSUPP;
-	...
+net/dsa/tag_xlnx_tsn.c:xlnx_tsn_rcv() {
+	kfree_skb(skb);
+	return NULL;
 }
 
-and dsa_port_inherit_brport_flags() swallows -EOPNOTSUPP. So
-"bridge link set dev swpN learning off" is accepted while the CAM learning
-engine enabled in xlnx_tsn_port_bridge_join() keeps installing entries, and
-dsa_port_can_configure_learning() keeps dp->learning at 0 although hardware
-is learning.
+That is the only rcv path in the tagger, so no frame the switch delivers on
+the CPU port ever reaches a DSA user netdev or the software bridge, and
+this patch adds no management-queue consumer. With the CAM port list set to
+TSN_PORT_BIT(XLNX_TSN_CPU_PORT) only, the observable change today looks
+like 01:80:c2:00:00:00 and 01:80:c2:00:00:0e are dropped rather than
+consumed locally.
 
->  	.port_hwtstamp_get	= xlnx_tsn_port_hwtstamp_get,
->  	.port_hwtstamp_set	= xlnx_tsn_port_hwtstamp_set,
->  	.get_ts_info		= xlnx_tsn_get_ts_info,
+The commit message says the switch "then delivers trapped frames on the
+management queue" - is there a receive path for that queue, or does that
+part depend on a follow-up patch?
 
-[ ... ]
+Separately, this comment says the frame "would be flooded out the other
+instead of reaching the host bridge", while the commit message says a CAM
+miss is "flooded to all ports except the ingress port", which includes the
+CPU port. Could the two descriptions be reconciled?
 
-> diff --git a/drivers/net/dsa/xilinx/xilinx_tsn.h b/drivers/net/dsa/xilinx/xilinx_tsn.h
-> index d46150535775..a94f5124a33d 100644
-> --- a/drivers/net/dsa/xilinx/xilinx_tsn.h
-> +++ b/drivers/net/dsa/xilinx/xilinx_tsn.h
-> @@ -63,18 +63,104 @@
-
-[ ... ]
-
->  enum tsn_port_state {
->  	TSN_PORT_STATE_DISABLED = 0,
->  	TSN_PORT_STATE_BLOCKING,
->  	TSN_PORT_STATE_LISTENING,
->  	TSN_PORT_STATE_LEARNING,
->  	TSN_PORT_STATE_FORWARDING,
-> +	/* Not an STP state. Writing it flushes the port's dynamic learnt
-> +	 * entries and leaves static FDB entries in place.
-> +	 */
-> +	TSN_PORT_STATE_FLUSH,
->  };
+> +	scoped_guard(mutex, &sw->indirect_lock) {
+> +		ret = xlnx_tsn_sync_ctrl_traps(sw);
+> +		if (ret)
+> +			return ret;
+> +	}
 
 [Severity: Medium]
-What makes an entry static from the hardware's point of view here?
+Should this error path use the err_traps label added below instead of
+returning directly?
 
-xlnx_tsn_cam_write() writes TSN_CAM_TV1_OFFSET and TSN_CAM_TV2_OFFSET as 0
-and uses the plain TSN_CAM_OP_ADD opcode, i.e. the same record format the
-now-enabled learning engine produces, so nothing distinguishes a
-bridge-programmed entry from a learnt one. Can this comment's guarantee be
-relied on?
+xlnx_tsn_sync_ctrl_traps() installs entries incrementally and records each
+wanted VID as it goes, so a failure on the second VID - or on the second
+destination MAC of the first VID - leaves CAM entries programmed and
+ctrl_trap_count possibly non-zero.
 
-Two consequences follow if it cannot:
+Nothing removes them afterwards: DSA does not call ds->ops->teardown() when
+ds->ops->setup() fails,
 
-  - xlnx_tsn_port_fast_age(), which DSA invokes on FORWARDING/LEARNING to
-    DISABLED/BLOCKING/LISTENING transitions via dsa_port_set_state() ->
-    dsa_port_fast_age(), can purge entries installed through
-    .port_fdb_add
-  - a spoofed source MAC can make the learning engine overwrite a
-    bridge-programmed (MAC, VID) port list with the port the frame arrived
-    on
+net/dsa/dsa.c:dsa_switch_setup() {
+	err = ds->ops->setup(ds);
+	if (err < 0)
+		goto unregister_notifier;
+}
 
-Because xlnx_tsn_port_fdb_dump() reports every entry with is_static =
-false, the bridge cannot observe either the loss or the override, so it
-still believes its entries are offloaded and never reprograms them.
+and the shadow state goes away with the failed probe, so a re-probe starts
+with ctrl_trap_count = 0 and never accounts for the stale entries. The
+mutex itself is released correctly by the scoped_guard cleanup; it is only
+the xlnx_tsn_remove_ctrl_traps() call that is skipped.
+
+> +
+>  	ret = xlnx_tsn_mdio_register_all(sw);
+>  	if (ret)
+> -		return ret;
+> +		goto err_traps;
+>  
+>  	sw->nb.notifier_call = xlnx_tsn_netdev_event;
+>  	ret = register_netdevice_notifier(&sw->nb);
+> @@ -1312,6 +1466,8 @@ static int xlnx_tsn_setup(struct dsa_switch *ds)
+>  	unregister_netdevice_notifier(&sw->nb);
+>  err_mdio:
+>  	xlnx_tsn_mdio_unregister_all(sw);
+> +err_traps:
+> +	xlnx_tsn_remove_ctrl_traps(sw);
+>  	return ret;
+>  }
 
 [ ... ]
 
-Cross-instance finding from sashiko-gemini (96445ad11157158b46d97d25327595ed58d8d6812a15918739e8e9b5f82cb3e3):
+Cross-instance finding from sashiko-gemini (f0bf43e93137481b1a742a87803d2ec1a8a9f5833a1ae7688d64415f986a1ea2):
 [Severity: Medium]
-Moving a static unicast FDB entry causes traffic duplication and information leak due to bitwise-ORing the port list.
+Mixing goto-based error handling with scoped guard cleanups in the same function.
 
