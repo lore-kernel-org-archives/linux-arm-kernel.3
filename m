@@ -4,90 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D73FC55174
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 11:26:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EA60C5AC67
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 11:31:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BtuOINh8YkDKYuvWIfvZnBXqzDMcNfimlyPxz7Xqg8g=; b=NGJjXkR12VtSspqeFzqWIXASd/
-	z9cq1WSaMFhyu3WOWJhOE9okmPwIm3ml5EURfGO45mPkYFQUdZM/6zP4is+HxB5t81hwxP7mOIQTN
-	K8y2AGY0m6tK1scBnPnvj0UdChNt/FooBDeoa4tZ6NJRUpPQiYIhZedOqEfePI2CjfMKnFuyrhZE4
-	v+3TIYbtRKnR8b2ONQPpvzbdPly72mTdafWOzJau32mwiJVdeZ9Sz3wLh2nBlLfln2ORs44vt0ZFZ
-	btAQDLIicp8XgN1gT8ce8Tmnx/iqphTj3vXN1nzNBFHlHPZH//OyjemV8mQzcljMfx8ykFQi8G8xC
-	FAbIVxTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=9I3hfFh13SnHymm3/QwpYoavg1WsqgiOOhVpjuX7Z9U=; b=Sq/EEtFv1FWrFV
+	ZUy9e9TWPNKj4Csi9NfRTDnYX/4z3/BrK+dtNhtdZZYTq+BoXqvAUEe/8mFEmRslV1OkwpzJYktXc
+	g77y+z4D0wsqfxvE9ztiKLTguMRNqXKVfk5/zwLCVuzGV2Zh2bFR1JK9xPYDto2sBW/7rpAHtEcAv
+	EGzTMNqLoQqtyHoG3ujkRgD5IbcriQzdIHeT5Sgsm1XQaoJvfAuURx8Xhz7zUnGYUEdgODQ1Iq0Uo
+	vY+qmPFwCM7riC2QTWy8WY6Mb264ORtCinJV2cLc8oi97KTDWnEYTtuI84aKr/k91xlBIObsVZtAk
+	FN5mLdP+IAMUW8MLY10g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsfBn-00000009JTE-2v7M;
-	Sat, 08 Aug 2026 11:26:07 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1wsfH0-00000009Jet-00HF;
+	Sat, 08 Aug 2026 11:31:30 +0000
+Received: from chaosmail.tech ([77.81.229.115])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsfBk-00000009JSl-226c
+	id 1wsfGw-00000009Jd6-3Ncl
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Aug 2026 11:26:05 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-38511175ad3so369107a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Aug 2026 04:26:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786188363; x=1786793163; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=BtuOINh8YkDKYuvWIfvZnBXqzDMcNfimlyPxz7Xqg8g=;
-        b=U/Tbyu2Df+zD3OuV1Q+NqCtqQDoIgMDrFq9OwkLiDgU8uDShhwPsC5yRq5NTv9oly6
-         PRni56/cAuwUQwlDNGFpuSsQF86sj/hTojEqHkgKOzEzVx26kGSCM1BxLU49xpRlyqxb
-         YCcxpGSa3M8S6i033BkCI2ZnpJsAU+1e3ObjApc/Dp/TIa6NeGaozvvfEpCIPyzedR6K
-         6lsZr3rFzEerrtsk+e1Oyaic/lszZunLc222oFKlzJnlqNDyNQOy6eqguVeBa4VelAXf
-         K7qrCwBzkBdrVgS0xhCX448/aKxtME3sFcfBscaQwLwsvjxS4XAb+JMEna2JgciSmTF0
-         QjHg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786188363; x=1786793163;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=BtuOINh8YkDKYuvWIfvZnBXqzDMcNfimlyPxz7Xqg8g=;
-        b=INbk+T3sEPOq/avCb3mQLupQvuk9DS6vSMUccthrUeOVVjCWScTWkCVLXIrZO2OyPB
-         lHcOKuUepQpEVxADGvxysR6xp8FvX3LMaEK07cjmPEfzXBVxn8b/kQ9yxp1xBBhhZmmo
-         +WPAcduHM9NdAs2pXMicPf3NUWW0Jp1epuFore2wnytgs167UQs3938jMImb197pBOe7
-         lVvmqTPGSiTEZBSuAZy7sW/diNzWj1YBNuVh6/XioTW2nCrUmK6ZKxhKaovw5MYFcKtH
-         T4bROP3DKtf75RnjGSrZe7sv3cfGWswIrw+N2XBvrriJgUaNf3PIi1n4RdGRsXb4/cLB
-         vZog==
-X-Forwarded-Encrypted: i=1; AHgh+RpO8Y22WWzkCy3mUnFkqkZejUPdHHmBT8qso2E4lc3dEHM+nU5gcHAFeyGSw/wRKyqUqnCVh/7UQm11lJSlLQKf@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzldw95FceGnP2bvcnqTgr6uxfcUvqQYNKRusdHTGKvljecbCeF
-	TNJSez7iVJwU3t7dh4J7Jz/s5CAuQKviIWve7GKTVTG6Iv95ifegpxlT
-X-Gm-Gg: AR+sD13W1dFvZiPVe7wgRG2snz3OGiJEKWTKlCKppuByFtp0g0lmy6gPzk34CebPf7X
-	Y/xHIrCPdx61FOe/+d91v2+pmcYO3WAmK6pKTc2TTkxbE+KEsnZokHTWzUA3/x1HF8omm1TFkmF
-	ZHIPqFOyLSXeFO/CBv6Z7K8gV+UH/xp84C+YaGmQY1ov6Ee5mmBbdXKJ1L7GaTkty0y3Gd9O4iM
-	mBxnjEusNHc4E9CsfFhSkiUtDd3X2gO4uyj4rCTw572PTogB24ersEcIR4kRzZ+Xd/xZuvT7ube
-	G6S2Sht56iwWUXPE3rafJzYrNULqHGy8Q/6Olg8spnNO1Qk0MON/sxy+26Kg9LuAANK2McSmEiZ
-	RnOlpP5M99GFGk+mZMvkDM0l8ETGJDWqeJ9GLau6qPrbmWIVwKaQR/2C9aecTYq2P+s4Alpg7sP
-	muo9KuV94PKRcUbbVp4I+jpC33AyhqPNmmzG8gZno8CjSovOl+7ow=
-X-Received: by 2002:a17:90b:1e53:b0:381:a766:efcb with SMTP id 98e67ed59e1d1-3903c54cf2bmr27833795a91.4.1786188363482;
-        Sat, 08 Aug 2026 04:26:03 -0700 (PDT)
-Received: from lgs.. ([101.36.107.181])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39085dbf82csm8235726a91.1.2026.08.08.04.26.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 08 Aug 2026 04:26:03 -0700 (PDT)
-From: Guangshuo Li <lgs201920130244@gmail.com>
-To: Sinan Kaya <okaya@kernel.org>,
-	Vinod Koul <vkoul@kernel.org>,
-	Frank Li <Frank.Li@kernel.org>,
-	Andy Shevchenko <andy.shevchenko@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	dmaengine@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Guangshuo Li <lgs201920130244@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] dmaengine: qcom: hidma: fix autosuspend cleanup during teardown
-Date: Sat,  8 Aug 2026 19:25:51 +0800
-Message-ID: <20260808112551.2786782-1-lgs201920130244@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Sat, 08 Aug 2026 11:31:28 +0000
+Received: by chaosmail.tech (Postfix) id 69DB61C867A;
+	Sat, 08 Aug 2026 11:31:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chaosmail.tech;
+	s=mail; t=1786188679;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=9I3hfFh13SnHymm3/QwpYoavg1WsqgiOOhVpjuX7Z9U=;
+	b=Wo4VXIWfi73ciqOJp4d/2hTvkG7cdUGAWn7TrluUGPgcsCbiERGf0OGcNoTtcZY+iRAvf5
+	Xnux+BN2vOY3AIKr19VEJ+oq/czv8/x2MUWtjm/+mGcwK/ZI6MCyz3Q2bOKubMT0FJ6RZh
+	0kvkkIdCyxW9KUvzEbsMvP5QjmnU32g=
+From: Sasha Finkelstein <k@chaosmail.tech>
+Subject: [PATCH v5 0/6] spmi: apple: Additional commands and interrupt
+ support.
+Date: Sat, 08 Aug 2026 13:31:16 +0200
+Message-Id: <20260808-t603x-spmi-v5-0-553c5ac2f137@chaosmail.tech>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/23OTQ6CMBAF4KuQrq2ZaSk/rryHcVHaqdSoGIpEY
+ 7i7BRdCZPmS972ZNwvUegpsl7xZS70PvrnFoDYJM7W+nYh7GzMTIDLIheJdBvLJw/3qeZ5mEiq
+ HFWhgEdxbcv45jR2O3xwe1ZlMNy6MjdqHrmlf07Uex97qcI8cOKEWpTNWWFns4y9NuGp/2XZka
+ jau92Lui4UX0btUknIIpAq56uXPFyAXXkZvMK8UZLZEjas+nfvl/+nklUZhS53bfz8MwwfTBrW
+ tewEAAA==
+X-Change-ID: 20260725-t603x-spmi-74630bf1b0a0
+To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Neal Gompa <neal@gompa.dev>, Stephen Boyd <sboyd@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ Sasha Finkelstein <k@chaosmail.tech>, Alba Mendez <me@alba.sh>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1786188678; l=1993;
+ i=k@chaosmail.tech; s=20241124; h=from:subject:message-id;
+ bh=ARs3vpOAXHVsZcR36U3pm6o9BwuvT+hTsM//07azxkk=;
+ b=WwdO8zOFYT2HxaGQV6TiYq88V+2uGZYI7BZDM3PmYmnGhTQ9tftL5PFVAXeeZatAE+WI+z9Ge
+ czF6nl7eGG5AFaBkDEBkwi+JO9a9Gn2WZ1Nf5IA+kSnkKRcz6OGoOpt
+X-Developer-Key: i=k@chaosmail.tech; a=ed25519;
+ pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260808_042604_956418_7ACA1DFE 
-X-CRM114-Status: GOOD (  11.16  )
+X-CRM114-CacheID: sfid-20260808_043127_328184_921CF107 
+X-CRM114-Status: UNSURE (   8.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,49 +84,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-hidma_probe() calls pm_runtime_use_autosuspend(), but neither the probe
-failure path nor hidma_remove() calls the matching
-pm_runtime_dont_use_autosuspend() before disabling runtime PM.
+The SPMI bus has grown additional responsibilities in the M3
+generation, making the current driver insufficient. Add M3 comatibles,
+support for slave-sent interrupts, FIFO interrupts, power management
+commands, parity validation, and fix locking.
 
-If the autosuspend delay is set to a negative value while autosuspend
-is enabled, the runtime PM core increments usage_count to prevent
-runtime suspend. Without calling pm_runtime_dont_use_autosuspend()
-during teardown, this reference is not dropped and usage_count remains
-unbalanced.
+To simplify the merge strategy, the device tree entries will be sent
+in a future patch series.
 
-Add the missing pm_runtime_dont_use_autosuspend() calls to both the
-probe failure and remove paths before disabling runtime PM.
-
-This issue was found by manual code inspection.
-
-Fixes: 67a2003e0607 ("dmaengine: add Qualcomm Technologies HIDMA channel driver")
-Cc: stable@vger.kernel.org
-Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
+Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
 ---
- drivers/dma/qcom/hidma.c | 2 ++
- 1 file changed, 2 insertions(+)
+Changes in v5:
+- Style fixes per review
+- Fix fifo flush
+- Link to v4: https://patch.msgid.link/20260805-t603x-spmi-v4-0-c15a12d9a7d1@chaosmail.tech
 
-diff --git a/drivers/dma/qcom/hidma.c b/drivers/dma/qcom/hidma.c
-index c939635be21d..78fd765c81e4 100644
---- a/drivers/dma/qcom/hidma.c
-+++ b/drivers/dma/qcom/hidma.c
-@@ -893,6 +893,7 @@ static int hidma_probe(struct platform_device *pdev)
- 		hidma_free(dmadev);
- bailout:
- 	pm_runtime_put_sync(&pdev->dev);
-+	pm_runtime_dont_use_autosuspend(&pdev->dev);
- 	pm_runtime_disable(&pdev->dev);
- 	return rc;
- }
-@@ -930,6 +931,7 @@ static void hidma_remove(struct platform_device *pdev)
- 
- 	dev_info(&pdev->dev, "HI-DMA engine removed\n");
- 	pm_runtime_put_sync_suspend(&pdev->dev);
-+	pm_runtime_dont_use_autosuspend(&pdev->dev);
- 	pm_runtime_disable(&pdev->dev);
- }
- 
--- 
-2.43.0
+Changes in v4:
+- Re-do error recovery.
+- Fix an address calculation mistake
+- Link to v3: https://patch.msgid.link/20260803-t603x-spmi-v3-0-c17b506d91a1@chaosmail.tech
+
+Changes in v3:
+- Rework interrupt support
+- Address review comments
+- Link to v2: https://patch.msgid.link/20260728-t603x-spmi-v2-0-f43e5f10e583@chaosmail.tech
+
+Changes in v2:
+- Change locking to non-interruptible
+- Reorder irq ack
+- Clarify dt binding
+- Some data type cleanups
+- Link to v1: https://patch.msgid.link/20260725-t603x-spmi-v1-0-e1a29fcd2d38@chaosmail.tech
+
+---
+Alba Mendez (5):
+      spmi: apple: Validate FIFO state
+      spmi: apple: check transaction status
+      spmi: apple: Implement remaining commands
+      spmi: apple: lock around FIFOs
+      spmi: apple: Add interrupt functionality
+
+Sasha Finkelstein (1):
+      dt-bindings: spmi: apple,spmi: Add t603x and t8122
+
+ Documentation/devicetree/bindings/spmi/apple,spmi.yaml |  15 +++++
+ drivers/spmi/Kconfig                                   |   3 +-
+ drivers/spmi/spmi-apple-controller.c                   | 389 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++----------
+ 3 files changed, 375 insertions(+), 32 deletions(-)
+---
+base-commit: 0ce37745d4bfbc493f718169c3974898ffec8ee7
+change-id: 20260725-t603x-spmi-74630bf1b0a0
+
+Best regards,
+--  
+Sasha Finkelstein <k@chaosmail.tech>
 
 
