@@ -4,83 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 318F3C5AD2C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 08:58:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35721C55174
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 08:59:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jwmzaJ2YawJZB/O6hrcBLYDYP6+Ln0uIsTfu/SId0gY=; b=oL3UwzJdaHTOegdPy33Owkqirb
-	PkyCGFmIGvu0MeonW0nnOdelLTOcvSK6Sy/61TpSkPLrQLP2lvCAJZxT8r1wcxevAS10xinm14laD
-	cTskdsw5k4NSvm3et0bDj4V0YM7JxkFzC1ggyv3rSTOPZVm+Kq18VpDA7kynp8Z9jiJ6/zDAiY/99
-	ajuc1Zh+kEsK5NK0HXYiZMERcb2waCcds79bG/hAHWXplAIKG5naqi88avWup9JMrcvsFeet2RPvk
-	u0opsMbVd5dum8uCZWrf855tFWKrqq/Lz45m1MeUVyUx/mtw+gIp5sjup5fJndvMaJ8qi+5DQcsMY
-	FBx2+z3w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=n/y7c/4lG8eevhNAw7vtPbWQQOLv7HTFTCbAr3jVwm4=; b=APzqYeMtpj18sRhVQodzEp9nmQ
+	ERibVISrvofrgqkxU8R3oLRioO1sJhVIM988wMIDBN6JFN9gSt2qnskSMogBD+xp7vF0DEdTXOOM9
+	LWJcQcMwZvBi4HOUKRQsoNjxI2Frx1zMYsuiMuN4k9jo9VFMT5W1+jkyAnxNLyC/qlCHtt1XdUqAw
+	wOhO0S1LGnUwX3EJ2cyN0JXSTEBnaqjbKrwzjfr5MMBkUs4R4f4/BZXf4veUums/d3GPGvZX9rXF0
+	eJRE+Ldtin9pNZZu1aOygobDAt+Q7JLs/YeCePPUCEfb6vdQHCGwm39rNpaqmbpea2r+w8PAoH8yF
+	7rGTb7Kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsct8-00000009Be2-30c2;
-	Sat, 08 Aug 2026 08:58:42 +0000
-Received: from mail-wm1-x347.google.com ([2a00:1450:4864:20::347])
+	id 1wscu0-00000009Bpz-3a2M;
+	Sat, 08 Aug 2026 08:59:36 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsct2-00000009BaM-1uM6
+	id 1wsctz-00000009Bpd-1RGu
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Aug 2026 08:58:37 +0000
-Received: by mail-wm1-x347.google.com with SMTP id 5b1f17b1804b1-492488f8583so2807665e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Aug 2026 01:58:35 -0700 (PDT)
+	Sat, 08 Aug 2026 08:59:36 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2ce7d2adef4so5234915ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Aug 2026 01:59:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1786179514; x=1786784314; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=jwmzaJ2YawJZB/O6hrcBLYDYP6+Ln0uIsTfu/SId0gY=;
-        b=Fna5H7e3UvBKLjSFVrWYzThZ+nb4Omm7YwTnSsJ31XJUlh3zQ5mh5T5qcJXxlaj0ix
-         TelHGgYcDsNWPtwYZg9bUwzXxuaU7GUpJD0FVOFuHcgztt5ZfWp34iPb8kpo+t9QMMyI
-         uiR2MLDaxLNLpwhh7grNgf4ASU0v0PIYT+t4DiQzxUedZDjVFXUEWc65jEsiVngGvJfq
-         V0x+9L720Jr9xvfaLAUwN0zuwioLw1MVXK5XbMO/3aMl7w6wire7ymLoS09l2srdGntg
-         CbLU3Y/gQ5K4FM3btq2xkei8XnntZMPrDFtnHJhiR4DpTQDztQKCfuu6h9qmzlhWJ8z7
-         hbDw==
+        d=gmail.com; s=20251104; t=1786179574; x=1786784374; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=n/y7c/4lG8eevhNAw7vtPbWQQOLv7HTFTCbAr3jVwm4=;
+        b=CStdP+zmimiSAZC8VLmd4Q4Z/Vvx+xRK7sbdKijSzC4NtnTyjp6Mdmx5ckgYJpJFOa
+         t1st8ieR2/Odf8Sf/w7m7Nq+TwyohyMiB4q9XgSclMoVPvNek4yjFzNNn8Z709sJj/S2
+         LMZFJPWRYJWzOQtYgkV7bXxCVwxgbO7/YvXislJhkAuZySBVUkPhVgVyUPlsvyMSh2+d
+         PjgF7tRWnT1w6x6/qAKyLEETiXLxSiHzaSaR6AK3qLP61Cn3gER6LfxAIOuhrHf+YYyD
+         4GiONPxZIknptHs+zyn8QeLJaDcXLFk2/tkKCNlrDPnHqyqZ4LOwid0uOLNMUuMMs082
+         sy2w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786179514; x=1786784314;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20251104; t=1786179574; x=1786784374;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=jwmzaJ2YawJZB/O6hrcBLYDYP6+Ln0uIsTfu/SId0gY=;
-        b=WgIAvfHuZqaagPg4Vqkk3LivsHEpFsN666zSzTqLgnBNECJwC1bKX3xBwW4hZ9CSl1
-         31Vd63ZM0e2wG7gmgBV2oe7wX3ZAJeCSkNw5Uu3lly9W6fEyNwcJxzbZ3fd+NLR/93hQ
-         S88U47iRqSlEbZ4BxkbmMS38JsE//GNAyi0BcsXyM4WAwDD0O8tgwWkzKKEUS0DueiQl
-         cVKpPjlzdatF6E1zq9DI/qKSEvHtW30gqTOtoDgQ4r9QwrICnFWsrFRcUDr0trRNw3aj
-         epxP642D90/3Tr/mggU6lgAEvGzWWUDQamihJNW4nZR7RZhTDpjBFj89pf+hp5oCyJul
-         oNAw==
-X-Forwarded-Encrypted: i=1; AHgh+RpcsWxACsqkDWaScTToLT+m7HgTcPOW1uRmqkYM/oMQ+lHPiFms7cT0q5AoK5LZ1BGTNvpnrR6GvPkGJExRpkC9@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx3k9Xm3KhT1Yz/DfgI8BFdmUEwpKdF00yx7fD7zRkJnKbAwJqT
-	l8LcV6ZsOxExpH6+OcMl3/OiwZaDCoU0uto53Y1axrkb7VIFnf0BBPLnfe2LRuada9MWR+lrMC0
-	u6JmWWjUzOOyWBQ==
-X-Received: from wmdd13.prod.google.com ([2002:a05:600c:a20d:b0:493:b301:e269])
- (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:620e:b0:495:6274:56c2 with SMTP id 5b1f17b1804b1-4994e70a6f5mr464694635e9.2.1786179514030;
- Sat, 08 Aug 2026 01:58:34 -0700 (PDT)
-Date: Sat,  8 Aug 2026 08:58:24 +0000
-In-Reply-To: <20260808085824.732659-1-smostafa@google.com>
-Mime-Version: 1.0
-References: <20260808085824.732659-1-smostafa@google.com>
-X-Mailer: git-send-email 2.55.0.654.g21b8a5bc05-goog
-Message-ID: <20260808085824.732659-4-smostafa@google.com>
-Subject: [PATCH v2 3/3] KVM: arm64: Fix hvhe and broken CNTVOFF_EL2
-From: Mostafa Saleh <smostafa@google.com>
-To: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Cc: maz@kernel.org, oupton@kernel.org, seiden@linux.ibm.com, 
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	catalin.marinas@arm.com, will@kernel.org, vdonnefort@google.com, 
-	tabba@google.com, sebastianene@google.com, keirf@google.com, 
-	yaoyuan@linux.alibaba.com, Mostafa Saleh <smostafa@google.com>, 
-	Fuad Tabba <fuad.tabba@linux.dev>
-Content-Type: text/plain; charset="UTF-8"
+        bh=n/y7c/4lG8eevhNAw7vtPbWQQOLv7HTFTCbAr3jVwm4=;
+        b=PtQmu2oSuX64vB4BZ/xl6i4AOzlFfyZmD6Dpt8Iu5SJKhj3OW2h+4ZVuh+FHyaDGdw
+         Q8wfu2fK0qVYOvKmEFlbaYZiTN2fcJD8teSAlx660XHHbavWkd3lmm4RhOf3ECuRi/MB
+         0C/CzJmwimVKF8HBV37gEoLagKYYO0cOi4MfGkjkB6mUQV7RCFwtZ8W2zewvLl7zzvJL
+         koyOtwBbVN67hEGtZGz8Fa+n4siQJo8jjwmHo5/ZyV2hYhcIak5ju7u0yoNuGQZBAUQm
+         DiRUIMYuvfkKMk16EWET0sUYXnfXUCb0J7AvieHmfdXyL6IyEojO90N+fCyE4K7na8Hu
+         UE3w==
+X-Forwarded-Encrypted: i=1; AHgh+Ro2nqk1GdLDrUwwmfoCjno8mvBXgz1KZAyIOtdqetUgADKNADShqu3tBySxpI/7tk6tbJDrJolZnNPW9qy+8g7/@lists.infradead.org
+X-Gm-Message-State: AOJu0YwL05mnpS4WxctlG4mXJrbuIZktG6jjoPNI9EsSZEIS3s5p9nmH
+	tBXhG2xe/UZrnBlnnDkekTz5JWcXVfWntRv7sCG8PDzvdVPNCGMrkd79
+X-Gm-Gg: AR+sD12qn8A7Z6GBHeI0fQYxy+xSVCg2pIPyqciChm/o3WDpDwaLFRMwJQX6h/i+YrE
+	YM2CFBgltR2Ur+RqOWWkPg3miVkansyKbnCLJ53Q+Vov5v+vW+fyFJQJ7+y4BO+orkgj8jDrE6I
+	aapzMrckMTMwqywVA8MjD3TzrYpgJZLMfTCUMkxcljvtm6WULl9xTsQgsWhRhsCoQlMRr6wq36U
+	RJPC780La6RnkG8LkwO55nDebD4fI3R7UPWIvfATTkcCM43jqr6rTdrrBvvyWCMVAIQse5rgWpS
+	QGK1Tj2sLaktIWd8gvmOSJMEA7EW4KeIWZzFFCqIeibrGI3s+RtsCXLEXY04uqiCSEyBcYNZsMI
+	6F1jGIvD0hMUkeUuu052V2exQZtIorhUfj19uWHzFBhkTSMGIFTrfK93adruaZRPcWTUaK34znv
+	rzekk3k99XQn0d7c4TZhDQISiSf4dbYLhdm2LZpbFhhKM=
+X-Received: by 2002:a17:903:37cd:b0:2ca:d9b3:715e with SMTP id d9443c01a7336-2d294b4b5b1mr126407935ad.9.1786179574331;
+        Sat, 08 Aug 2026 01:59:34 -0700 (PDT)
+Received: from lgs.. ([2001:250:5800:1000::f280])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d16c4a6db2sm17431155ad.64.2026.08.08.01.59.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 08 Aug 2026 01:59:33 -0700 (PDT)
+From: Guangshuo Li <lgs201920130244@gmail.com>
+To: Corentin Labbe <clabbe.montjoie@gmail.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Eric Biggers <ebiggers@kernel.org>,
+	Guangshuo Li <lgs201920130244@gmail.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Maxime Ripard <mripard@kernel.org>,
+	linux-crypto@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Cc: stable@vger.kernel.org
+Subject: [PATCH] crypto: sun4i-ss: fix autosuspend cleanup during teardown
+Date: Sat,  8 Aug 2026 16:53:37 +0800
+Message-ID: <20260808085337.2715506-1-lgs201920130244@gmail.com>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260808_015836_513026_82123BF8 
-X-CRM114-Status: GOOD (  14.50  )
+X-CRM114-CacheID: sfid-20260808_015935_379990_1117CC4A 
+X-CRM114-Status: GOOD (  13.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,92 +107,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When running on a setup affected with broken CNTVOFF_EL2
-(has_broken_cntvoff())
+sun4i_ss_pm_init() calls pm_runtime_use_autosuspend(), but the
+autosuspend setting is not undone if pm_runtime_set_suspended() fails
+or when runtime PM is later torn down by sun4i_ss_pm_exit().
 
-Booting with VHE or protected mode(nvhe) (id_aa64mmfr1.vh=0
-and arm64_sw.hvhe=0) works fine.
+If the autosuspend delay is set to a negative value while autosuspend
+is enabled, the runtime PM core increments usage_count to prevent
+runtime suspend. Without calling pm_runtime_dont_use_autosuspend()
+during cleanup, this reference is not dropped and usage_count remains
+unbalanced.
 
-However launching a protected VM with protected hvhe mode panics the
-guest kernel:
+Undo the autosuspend setting when pm_runtime_set_suspended() fails and
+in sun4i_ss_pm_exit() before disabling runtime PM.
 
-[    0.000000] Internal error: Oops - Undefined instruction: 0000000000000000 [#1]  SMP
-[    0.000000] Modules linked in:
-[    0.000000] CPU: 0 UID: 0 PID: 0 Comm: swapper/0 Not tainted 7.2.0-rc3-g05f75bd71e0e-dirty #29 PREEMPT
-[    0.000000] Hardware name: linux,dummy-virt (DT)
-[    0.000000] pstate: 000003c5 (nzcv DAIF -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-[    0.000000] pc : arch_timer_shutdown_virt+0x4/0x1c
-[    0.000000] lr : arch_timer_starting_cpu+0x1c4/0x2d4
-[    0.000000] sp : ffffa6bd9a193c00
-[    0.000000] x29: ffffa6bd9a193c20 x28: ffffa6bd9a1bcf88 x27: 0000000000000000
-[    0.000000] x26: ffff00001be70dd8 x25: ffffa6bd99d85000 x24: ffffa6bd99d85ee4
-[    0.000000] x23: ffffa6bd99d85000 x22: ffffa6bd9a1499c0 x21: ffffa6bd9a1ab900
-[    0.000000] x20: 00ffffffffffffff x19: ffff00001be8b600 x18: 000000000000028c
-[    0.000000] x17: 00000000510f0010 x16: 00000000510f0010 x15: 00000000500f0000
-[    0.000000] x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000018
-[    0.000000] x11: ffffa6bd9a8ac000 x10: 0000000000f0000f x9 : ffffffffffffffff
-[    0.000000] x8 : ffffa6bd98822e18 x7 : 0070752d65746174 x6 : 00111ff76e007261
-[    0.000000] x5 : ffffa6bd9ad68078 x4 : 0000000000000000 x3 : ffffa6bd98822a0c
-[    0.000000] x2 : 0000000000000073 x1 : 0000000000000001 x0 : ffff00001be8b600
-[    0.000000] Call trace:
-[    0.000000]  arch_timer_shutdown_virt+0x4/0x1c (P)
-[    0.000000]  cpuhp_invoke_callback+0x11c/0x280
-[    0.000000]  cpuhp_issue_call+0x1e8/0x224
-[    0.000000]  __cpuhp_setup_state_cpuslocked+0x1d8/0x2b8
-[    0.000000]  __cpuhp_setup_state+0x50/0x74
-[    0.000000]  arch_timer_register+0xc0/0x148
-[    0.000000]  arch_timer_of_init+0x148/0x170
-[    0.000000]  timer_probe+0x74/0x124
-[    0.000000]  time_init+0x18/0x58
-[    0.000000]  start_kernel+0x1c0/0x3ac
-[    0.000000]  __primary_switched+0x88/0x90
-[    0.000000] Code: c80b7d2a 35ffffab 17ffffeb d503245f (d53be328)
+This issue was found by manual code inspection.
 
-The workaround avoids setting non-zero CNTVOFF_EL2 and trapping the
-virtual counter to emulate the offset.
-In the VHE path (timer_set_traps()), traps are only enabled when the
-guest actually has a non-zero virtual timer offset.
-However, __timer_enable_traps() in hyp/nvhe/timer-sr.c unconditionally
-set CNTHCTL_EL1TVT and CNTHCTL_EL1TVCT whenever has_broken_cntvoff()
-was true.
-
-Which causes 2 issues:
-1) Protected VMs: kvm_handle_pvm_sysreg() does not find "cntv_ctl_el0"
-in pvm_sys_reg_descs and injects undefined instruction exceptions.
-
-2) non-protected guests are trapped all the time even with offset of
-zero.
-
-Fix this by adding a check in __timer_enable_traps() similar to the one in
-timer_set_traps()
-
-Fixes: 0bc9a9e85fcf ("KVM: arm64: Work around x1e's CNTVOFF_EL2 bogosity")
-Signed-off-by: Marc Zyngier <maz@kernel.org>
-Reviewed-by: Yuan Yao <yaoyuan@linux.alibaba.com>
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
-Tested-by: Fuad Tabba <fuad.tabba@linux.dev>
-Signed-off-by: Mostafa Saleh <smostafa@google.com>
+Fixes: 554c42b4efd4 ("crypto: sun4i-ss - enable pm_runtime")
+Cc: stable@vger.kernel.org
+Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
 ---
- arch/arm64/kvm/hyp/nvhe/timer-sr.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/crypto/allwinner/sun4i-ss/sun4i-ss-core.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/timer-sr.c b/arch/arm64/kvm/hyp/nvhe/timer-sr.c
-index 51b4f5010b66..993065716913 100644
---- a/arch/arm64/kvm/hyp/nvhe/timer-sr.c
-+++ b/arch/arm64/kvm/hyp/nvhe/timer-sr.c
-@@ -61,9 +61,9 @@ void __timer_enable_traps(struct kvm_vcpu *vcpu)
+diff --git a/drivers/crypto/allwinner/sun4i-ss/sun4i-ss-core.c b/drivers/crypto/allwinner/sun4i-ss/sun4i-ss-core.c
+index 35ef0930e77f..10c0f05994ed 100644
+--- a/drivers/crypto/allwinner/sun4i-ss/sun4i-ss-core.c
++++ b/drivers/crypto/allwinner/sun4i-ss/sun4i-ss-core.c
+@@ -304,14 +304,17 @@ static int sun4i_ss_pm_init(struct sun4i_ss_ctx *ss)
+ 	pm_runtime_set_autosuspend_delay(ss->dev, 2000);
  
- 	/*
- 	 * Trap the virtual counter/timer if we have a broken cntvoff
--	 * implementation.
-+	 * implementation and non zero offset as in timer_set_traps()
- 	 */
--	if (has_broken_cntvoff())
-+	if (has_broken_cntvoff() && timer_get_offset(vcpu_vtimer(vcpu)))
- 		set |= CNTHCTL_EL1TVT | CNTHCTL_EL1TVCT;
+ 	err = pm_runtime_set_suspended(ss->dev);
+-	if (err)
++	if (err) {
++		pm_runtime_dont_use_autosuspend(ss->dev);
+ 		return err;
++	}
+ 	pm_runtime_enable(ss->dev);
+ 	return err;
+ }
  
- 	sysreg_clear_set(cnthctl_el2, clr, set);
+ static void sun4i_ss_pm_exit(struct sun4i_ss_ctx *ss)
+ {
++	pm_runtime_dont_use_autosuspend(ss->dev);
+ 	pm_runtime_disable(ss->dev);
+ }
+ 
 -- 
-2.55.0.654.g21b8a5bc05-goog
+2.43.0
 
 
