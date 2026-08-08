@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49ED3C5AC67
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 11:05:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91C8DC5AC67
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 11:06:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vd3mCxZmxHBD2Xo74+SQgSYvrRmOoQOdDSC9aBG9aE8=; b=F2H5gosbD8LOTv4DxyZcSE/Hmm
-	5wcHQG8D7NPUdKqn0INmwYPHJnDd26pyST8IEdCv4jUd4mE8vj9y6reXBxqfN8sO1YMz+rOxtLbxy
-	fHcWWOQ+ERNUwRAqP9IWZLAkvO5c2l8UujnayiesKz1W3OLBUcC4tSge3QJN/LJrUu+V7paooKn9x
-	XA0EVGtx8CcNdEs1RDPjiCkVffKbiz3VWdeyeeK7QdwHPXOUCow7sDEfb2cZulbr8tAWAt9XoPq9Z
-	rLrkGf0bhMqUaUBZs6o4PK/IgUtU0N2Ro0Sz4gDxfiwBaBn5l+c+rkl1O1e0xG8LaYUFmorJCEfgH
-	HkatYf3A==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hTWsfLJS/81iyczYbFu23mRRJqJRdNk8TSWy7ODIao4=; b=QZPU1VmLT5gI51fdS5wVA/7Rs7
+	56x6nadEu0p04qYULntMt70iTqtCS5MvlbQaeq8L+QwYC6A0TzC9g1K5AF5kYvz0/p4L4W0hISqJl
+	7A0dgxjvrTt+MY00ltLFHTRGNKFXBr6vPv4exYxzy8k5SICrfyOcRCTHuxwVKm8a6D6YIP216hpbw
+	pN8OQQ/TkoJKW81Q17/Ae41U58y//v7zSGjnhWruZ8qApFrW1zyLmyMZswn/IeWwMSv9/USogQxVw
+	Mtm1fvYmvF7/ByynmyG1Y3V1R51VlmC3Ocn6t4hNbyUJywagVQdJM8LhqI3Bcv4e6W1DqujXPeSCs
+	cc/TwXhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wses1-00000009ISL-1gLR;
-	Sat, 08 Aug 2026 11:05:41 +0000
-Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
+	id 1wsesm-00000009IXe-2Dr5;
+	Sat, 08 Aug 2026 11:06:28 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsery-00000009IS0-2V33
+	id 1wsesk-00000009IX7-0eye
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Aug 2026 11:05:39 +0000
-Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-cbb973e6749so447707a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Aug 2026 04:05:38 -0700 (PDT)
+	Sat, 08 Aug 2026 11:06:27 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-38e08baf860so320075a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Aug 2026 04:06:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786187137; x=1786791937; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=vd3mCxZmxHBD2Xo74+SQgSYvrRmOoQOdDSC9aBG9aE8=;
-        b=B1T2TcVeedm0bgHjAfFfyM/DxS2Mw1KF5/RK1EetZF9FOaRLCVWOg0oQKEIzyxBQ7s
-         VL0E3YAUfazNvOMvOkF8PKC/h6Exd5lQykrc8gy5e9ABEdJFbPA2QoSYPnaad2nh2tiT
-         l7Yogh6XpfzByJv3hNrrN71POIBjdpOsX0PPCPqDPWg8EmnMUdLRbMRmojYQIL/4Da9R
-         tMP/rqJz6NnpQaQpXbkXDFQTnsQWtWWRa3ZHXU1aFXdG7bHdiRariswqO3DDHb3otVvk
-         4hxWHCLj0EWEqCqMxMcP31wniZeTD8chdaW27+y/Tpov50mQEliBYdcjrLDst/+i8Z+0
-         UAWg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786187137; x=1786791937;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1786187185; x=1786791985; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=vd3mCxZmxHBD2Xo74+SQgSYvrRmOoQOdDSC9aBG9aE8=;
-        b=Y16TckJ8X8lKaNsQMt8xaxE4PnMJkyPJFTd7MKBgQHO/T2u6ZMEnpdKEDjA4QhDURH
-         qLy8R2eVZPsvc6UWLdaDXbWUKc60ow1N1jFIwZyDqPVYAPvKLL9E3CHrK7vIpqts9Vy4
-         lItVOSVCKkoLP07JwQXG/BaPP4RW0dLBf4W7nTN5tG4r8a/f6fVFRhPyAEaa0Z8on8eR
-         k90jGzOGiO8itzTxwvWjxtjBuC9UnM8O3Eim5IY5PWKu/Kb13GJq2Oi2a/QJMsRuT9hn
-         IwAueELbPBNaxFXjpCrO/5/kfBcoXr7eW0d088EqlCA8ec2WE4G/c5brK7y0vdB/ce8Q
-         RvTA==
-X-Forwarded-Encrypted: i=1; AHgh+Rq/F4WD4V11AD7OtOdMFwZtVpD96P18QRu+82q/qQSHCycDkJTPq18YYXoDEjQtNjf+WbZNBGUVSGzYlBzvx3Z/@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywtl/9VYHdqfofjQMjRLlKDbjEIP0YAjJP8gpcivfKPp118SBYa
-	Hsm1LSZ+N+sSyBLOEF3FWEBTs3bIHNDS4Kr0ZSUkRSJFSgruhmki/knj
-X-Gm-Gg: AR+sD11mGVx/pUmrCe8kB3VRtEHoG0waNWRmW8twkYxKTMRCglosj8/qH/tLeqQQQ7f
-	b7Z8wCe6Uw2WGlAnps6+Cx43GgxRdck5ubVGzU9Qs5lc9Tq0yKapEmmFfS6yWQbiPC3DTYOl8Gc
-	mFRfltvr5Q8nnZvQq0826dKyTSCflZwSaX2T7BuFWt2HYKDKEGThU01Ex9nFc0EIZ9aYwKW8HBo
-	NW8Tm/eCyYEN59zwAsPKYJpzPfnmK8IsSD52DB2bLYNZCdpvmihOt9BpWockMS61BRNZ8lrcQI/
-	kolaSeWt7h5gbMRMBI68jqiXFm6woNjcPIzfxG82SRMxyiJFRj7VEgIoQfZ4Y9hqYWurarmdR1P
-	mQbWmcWM4G61DtPukxojmG3VChga3lWai8qxLL8hCdH4cTI7B28XYn8OFx85GBeEupUueMf8NyX
-	+pvm2S+Dcw4wac/tBL0ZSi+js/KnYcvxRmvp98W41ihKC2UkZebR4SzYpAxZRqXalGpy2PVjOkh
-	05Ywl8JQ029onoz
-X-Received: by 2002:a05:6a21:6817:b0:3b7:aefe:4367 with SMTP id adf61e73a8af0-3cbc0490091mr12371196637.33.1786187137473;
-        Sat, 08 Aug 2026 04:05:37 -0700 (PDT)
+        bh=hTWsfLJS/81iyczYbFu23mRRJqJRdNk8TSWy7ODIao4=;
+        b=mbnnTH+5Bel5ogW1HGZzw/kS/Ubb8wzekJXPbFWN5VuFvQi1WL/AVD4DAPVZPfxzVB
+         9ZmKKYcQrVgyqbmyeFbwaiY5UKQDR7WyLVSt4E7h4x5wcm4NOCzPB2qa7MJA0ifVAWK8
+         deMiR9C/VL8MFO7mIHhyp9DUNGc0VpKcspHDphwEWbRCtOndi9ANSTkNlwVYfeI1bIuH
+         fjQto/m90QQkpJ5hRNbY+pmVVcDFeXlQqCODczBQS7bBZM/L821D822RYaGl0m3u9a7x
+         +7KrTS+mK7SyJB79kgvk9kdIxcrg7Pyoy5fXEOwcgdiC04eXbRdb2iW/DPAcqvtNgES7
+         dQ+A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786187185; x=1786791985;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=hTWsfLJS/81iyczYbFu23mRRJqJRdNk8TSWy7ODIao4=;
+        b=oSXVABY4gNw2cHqSGn5EPl8WzIj2yQINonDMSxGp7yKlgaj0hSWoR54WApwvFKYwLW
+         4AdSBvor/BEQPqielW5swybEUgAx3U2pJ6RPDHzaaCnIO9ulqvNfj79e1GrO43RTUPvy
+         49+0tb2kURKVvNwyYC2QGaBzPXT8qjoWedyqQz4lNUudu+0AtPQ09Skj8SMlAI0Nr4/b
+         mqp17EyXSPbEnNZZZANExHSdEdixLEsCNy8o/S1JiAf/s5bCUScAVXna7xaNZItiIXME
+         eG58Q0pmKKrPdJ89iYKNJhKqD7SuiDROkNOPSmvwYntU6hsPGlP2k98HR2YDcFdQYd2S
+         NCRA==
+X-Forwarded-Encrypted: i=1; AHgh+Rp7dEKr/CXeduChCgQBsmdlrXc6Bf6GTfXpYhdXrVdSzrCkPtv/sg00Tjv9fheJCT4y9yzn2ktAuVqhIxkUklgy@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy/LmIthMOJddqsvV3JhFHnc36ij9X3DwkaenC/uXqAB1cbRaej
+	xaZLHbWh0FW6UmRl8mqRiT6RihimYYOQpsXjmC8tMhbnlNqsUkt4SvBE
+X-Gm-Gg: AR+sD10tjnJGzPRgFPr0D92/QE7WyELSfI2eTOrGt8GVco8NiiLBhpbVNCMEJPvcO4y
+	sfeQAjhD+SQJSLowIDC/YjQq33/3XYrUykY1waJ9UuAdTvBQgwrrxY1F8d1joMqWrMuHoM2lOas
+	pTllFCM0e/OIeTEnHAjx9Ih8vNH3Sp6PinbmowVYw1r0kqBbpm+cdBXM1v6/0eBtB6w+ACGAJCX
+	y5Itwe+quwxOFeo85zkd37/R7StVz0wsUQYDhd0fPU7h8EVRPJKk/RxyVX4ZTGT0fIHztpSn1Gb
+	ib1CuzYNlu/hjnJDNaZhijxtanvJAtPejvGa8kSeooxDPwHb8tLp5WR2Zu8UzXGXBUtZW03ZrhP
+	n+vTeK/ULdc+eDkqB/F8mWNgohuH3VpVrYoNzJr+mfVws9elAvOhBDe41mGwSKi25WzxUX8W3NZ
+	BEWgS28ieDnOM7m8zXXK8NwDopT/wV4e1q3pVIvjvOfMGQc+YZWocsbDzT3Fw8bb5iiLKEtRIcP
+	TznRg==
+X-Received: by 2002:a17:90b:2dc1:b0:38f:de97:b06 with SMTP id 98e67ed59e1d1-3903c535d79mr33954628a91.5.1786187185202;
+        Sat, 08 Aug 2026 04:06:25 -0700 (PDT)
 Received: from SGN-LDSENG.tasernet.com ([2405:4800:5cc3:11a:1ac0:4dff:fe8b:4a69])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-315bec2ec20sm21643469eec.28.2026.08.08.04.05.33
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-141019b4eabsm15243343c88.6.2026.08.08.04.06.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 08 Aug 2026 04:05:37 -0700 (PDT)
+        Sat, 08 Aug 2026 04:06:24 -0700 (PDT)
 From: Cong Nguyen <congnt264@gmail.com>
 To: Maxime Ripard <mripard@kernel.org>,
 	Mauro Carvalho Chehab <mchehab@kernel.org>,
@@ -80,16 +81,19 @@ Cc: Chen-Yu Tsai <wens@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	Cong Nguyen <congnt264@gmail.com>
-Subject: [PATCH v1 0/3] media: sun4i-csi: fix lifecycle bugs (leak, IRQ, unbind)
-Date: Sat,  8 Aug 2026 18:05:26 +0700
-Message-Id: <cover.1786184456.git.congnt264@gmail.com>
+	Cong Nguyen <congnt264@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH v1 1/3] media: sun4i-csi: fix video device and subdev leak in notify_complete()
+Date: Sat,  8 Aug 2026 18:06:15 +0700
+Message-Id: <7804a3c87beefde14e0358fa2a11e63005525890.1786184456.git.congnt264@gmail.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <cover.1786184456.git.congnt264@gmail.com>
+References: <cover.1786184456.git.congnt264@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260808_040538_676948_88AB1912 
-X-CRM114-Status: GOOD (  14.51  )
+X-CRM114-CacheID: sfid-20260808_040626_197637_2522B6B3 
+X-CRM114-Status: GOOD (  12.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,44 +108,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-While addressing an async-notifier cleanup leak in this driver, I audited
-the surrounding device lifecycle and found three separate pre-existing
-issues, all present since the driver was introduced. They are independent
-of each other; this series groups them because they touch the same driver.
+sun4i_csi_notify_complete() registers the bridge subdev with
+v4l2_device_register_subdev() and the video device with
+sun4i_csi_v4l2_register() (which calls video_register_device()) before it
+creates the media pad links and registers the subdev nodes. If any of the
+later steps fail, the error path only unregistered the media device:
 
-1/3: sun4i_csi_notify_complete() registers the video device and the bridge
-     subdev before creating the media links. On a failure in the later
-     steps it only unregistered the media device, leaving /dev/videoX
-     registered. Since probe then aborts and the devm-managed context
-     (embedding the video_device) is freed, an open() would touch freed
-     memory. Unwind the registrations in reverse order.
+	err_clean_media:
+		media_device_unregister(&csi->mdev);
+		return ret;
 
-2/3: sun4i_csi_stop_streaming() stops the capture engine but never disables
-     the frame-done interrupt or synchronizes with the handler. A late IRQ
-     after the block is runtime-suspended (on release) can access gated
-     registers and crash. Clear CSI_INT_EN_REG and synchronize_irq().
+The already registered video device and bridge subdev were left behind.
+Because this failure propagates back through v4l2_async_nf_register() and
+aborts probe, the driver's devm-managed struct sun4i_csi (which embeds the
+video_device) is freed while /dev/videoX is still registered, so a
+subsequent open() from userspace dereferences freed memory.
 
-3/3: The async notifier ops lack an .unbind callback, so csi->src_subdev is
-     left dangling when the remote sensor is unbound; a later STREAMON
-     dereferences the freed subdev. Add .unbind to unregister the video
-     device and clear the pointer, matching stm32-dcmi/atmel-isi/mcam.
+Unwind the registrations in reverse order on error, mirroring the teardown
+in sun4i_csi_remove(): unregister the video device with
+vb2_video_unregister_device() and the bridge subdev with
+v4l2_device_unregister_subdev(). Also unwind the intermediate v4l2/media
+registration steps so every early return leaves no half-registered state.
 
-All three are marked for stable. Compile-tested (COMPILE_TEST) and
-checkpatch --strict clean. I do not have the hardware, so testing on a
-real A10/A20 CSI setup would be appreciated.
+Fixes: 577bbf23b758 ("media: sunxi: Add A10 CSI driver")
+Cc: stable@vger.kernel.org
+Assisted-by: Claude:claude-opus-4
+Signed-off-by: Cong Nguyen <congnt264@gmail.com>
+---
+ drivers/media/platform/sunxi/sun4i-csi/sun4i_csi.c | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
 
-Cong Nguyen (3):
-  media: sun4i-csi: fix video device and subdev leak in
-    notify_complete()
-  media: sun4i-csi: disable interrupts when stopping streaming
-  media: sun4i-csi: add notifier unbind callback to drop the source
-    subdev
-
- .../platform/sunxi/sun4i-csi/sun4i_csi.c      | 25 +++++++++++++++++--
- .../platform/sunxi/sun4i-csi/sun4i_csi.h      |  1 +
- .../platform/sunxi/sun4i-csi/sun4i_dma.c      | 11 ++++++++
- 3 files changed, 35 insertions(+), 2 deletions(-)
-
+diff --git a/drivers/media/platform/sunxi/sun4i-csi/sun4i_csi.c b/drivers/media/platform/sunxi/sun4i-csi/sun4i_csi.c
+index e53a07b770b7..a8711336a754 100644
+--- a/drivers/media/platform/sunxi/sun4i-csi/sun4i_csi.c
++++ b/drivers/media/platform/sunxi/sun4i-csi/sun4i_csi.c
+@@ -85,11 +85,11 @@ static int sun4i_csi_notify_complete(struct v4l2_async_notifier *notifier)
+ 
+ 	ret = sun4i_csi_v4l2_register(csi);
+ 	if (ret < 0)
+-		return ret;
++		goto err_unregister_subdev;
+ 
+ 	ret = media_device_register(&csi->mdev);
+ 	if (ret)
+-		return ret;
++		goto err_unregister_video;
+ 
+ 	/* Create link from subdev to main device */
+ 	ret = media_create_pad_link(&subdev->entity, CSI_SUBDEV_SOURCE,
+@@ -114,6 +114,10 @@ static int sun4i_csi_notify_complete(struct v4l2_async_notifier *notifier)
+ 
+ err_clean_media:
+ 	media_device_unregister(&csi->mdev);
++err_unregister_video:
++	vb2_video_unregister_device(&csi->vdev);
++err_unregister_subdev:
++	v4l2_device_unregister_subdev(subdev);
+ 
+ 	return ret;
+ }
 -- 
 2.25.1
 
