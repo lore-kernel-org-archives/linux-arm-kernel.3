@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9030C5AD4E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3297C5AD44
 	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 23:18:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s3L2odPB0Cqn2yHa+6ffnlbmn8mWjN2zdGF3gz1mUp8=; b=aiRx2nKS/XEgZJK2mHZHkDAl3U
-	tEFSeFdxS/yRCsvX7VIkKEN2/mwHoM/usrDRKh2ctErKvOyvshw0sBzJ9ZbIefmkqJnddxMNOtmfu
-	DUkcVsqI/GO5JsskRFEXK9PuW5D3DsIK/aQvMJ9vDlaMfuADtzQ8Q5MfW2Qc5vgRuaZ4GOIKEnj8y
-	qPDGLHATQGvJyhTK2UugMl+Oq99lsPVdZAMqhP+cxdO9zyibsuhp+L/7h5NsJesv7EqZe7og5ZUNO
-	Mvw0G+ItSNitChIk5SUuJv1sOCN6eh/9d/57HJy1hvauBswP8RDQEBXBqm19YswdRO5mi0fdjxxWV
-	1RlfSXlg==;
+	bh=q/7ZXZiGZL3y71MydQCQYr/Z0bjpjJ17DIbARhGctuY=; b=HlNbUa8bkR9tNadV1dC5xhzrUE
+	w/A8U6S7lzTPjiTe2KuTdwT8a1r466JrX7xvJarD+JkDPLlVl58g5Yy3MW/WizFq7Sjh8TkUFCT/z
+	6f4hh29ksl9Iyh0Lg1a8vTvGSw83NA6CK8xo/RtH6FQ5XaeADlqCpA6IachUR3SUNvNZyArO3JZWA
+	RpluVe2SojEJekdMtwMLpQJl93d52b0KqrGIsYwxw28mUgVSkAXvUYYNqDvI9IMEmqyl6FLdPUy8y
+	r6xz51rMxOrFvNtDy4uEXjV6Ctg89Snd3ennKjsBU3qii/dwDP7pACr2YFQHDbYZ84yrwiBABpIHi
+	p+F1DMSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsqJZ-00000009mU3-1wVy;
+	id 1wsqJZ-00000009mTE-0e1a;
 	Sat, 08 Aug 2026 23:18:53 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsqJK-00000009mEU-2iup
+	id 1wsqJJ-00000009mAe-0vY9
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Aug 2026 23:18:39 +0000
+	Sat, 08 Aug 2026 23:18:37 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1CE6D60A7C;
-	Sat,  8 Aug 2026 23:18:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43FE91F00ACF;
-	Sat,  8 Aug 2026 23:18:37 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A7C03600DA;
+	Sat,  8 Aug 2026 23:18:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7B861F00ADB;
+	Sat,  8 Aug 2026 23:18:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786231117;
-	bh=s3L2odPB0Cqn2yHa+6ffnlbmn8mWjN2zdGF3gz1mUp8=;
+	s=k20260515; t=1786231116;
+	bh=q/7ZXZiGZL3y71MydQCQYr/Z0bjpjJ17DIbARhGctuY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=oGnyOlq8rd6+X7RV6gIx8WqoV2drtTWpbXix0ITH2u30QDMfHwJZaVyaaebxaF4gc
-	 VyuExwvK8547OKW+Luw0nZYG1FucqQ02IbCizs4oknJJ81p13LQ/1ouS54J+6iVtTY
-	 q13BrccZEQg/cwpMKOz3OLxWoeKqzEw0J89p1NE4p9I6AE9Ct4u9rZqYIPLXCWDIYg
-	 IxB13xYOI9H8gtOEOQ7B9jxQ9WNjOczZ859m8DE3FaitlXrUGszoVHcx+4i2Z5Nmjv
-	 /r4L0v39ZKP/miBxqUu7J1Q4bdjmJkIIMITmo2jXuW1m6BZSrCQcB9AB56DL3k1Hed
-	 ddzkcCg1ObSpQ==
+	b=Iv0xdtvBkQcf23BLNLWiWwmP13Vp89P8TfitdbZSgxGXAulLeguZOHk3YEwIn0Rcs
+	 xKI/ejyJLwvwwb/Nx5m4NJdGiQQqYIbuZyF4MYkqaNk1JXiMCd1unSz1880JiWbOUW
+	 S9nbJHbzcob2LcllovdJLuICjkAokI+J1RKY+glWMvCaY+diW1NYn9rfXyvVNVBIfa
+	 MDouCeAkOeVpjVegX56j7YUBYCZRUPsAvv+D607QhKBihPmVNWqx7TphFBwryBwrOg
+	 ZTv/tsF17GuaLLWOU1wgHkeTA5/X2EspajLm9y1Jv71M3ecboFIBjXDQ3KyC627cq9
+	 hgKm47DvF+3TA==
 From: Josh Poimboeuf <jpoimboe@kernel.org>
 To: x86@kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -58,9 +58,9 @@ Cc: linux-kernel@vger.kernel.org,
 	Herbert Xu <herbert@gondor.apana.org.au>,
 	Miroslav Benes <mbenes@suse.cz>,
 	Petr Mladek <pmladek@suse.com>
-Subject: [PATCH v4 15/22] objtool: Prevent kCFI hashes from being decoded as instructions
-Date: Sat,  8 Aug 2026 16:17:19 -0700
-Message-ID: <11e49187e13d36d4257bc60cd2606e0ff5481dfc.1786230311.git.jpoimboe@kernel.org>
+Subject: [PATCH v4 13/22] objtool: Refactor elf_add_data() to use a growable data buffer
+Date: Sat,  8 Aug 2026 16:17:17 -0700
+Message-ID: <3c65abcb71c23d04470f45862523b0363ee4d709.1786230311.git.jpoimboe@kernel.org>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <cover.1786230311.git.jpoimboe@kernel.org>
 References: <cover.1786230311.git.jpoimboe@kernel.org>
@@ -80,101 +80,237 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On arm64 with CONFIG_CFI=y, Clang places a 4-byte kCFI type hash
-immediately before each address-taken function entry.  Since these
-hashes are in the text section, objtool tries to decode them, leading to
-unpredictable results (e.g., ""unannotated intra-function call").
-
-arm64 toolchains use mapping symbols to annotate boundaries between code
-and data.  Use those to just mark such "instructions" as NOP so objtool
-ignores them.
+Instead of calling elf_newdata() for each new piece of data with its own
+separate buffer, keep it all in the same growable buffer so the
+section's entire data can be accessed if needed.
 
 Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
 ---
- tools/objtool/check.c               | 14 ++++++++++++++
- tools/objtool/include/objtool/elf.h | 23 +++++++++++++++++++++++
- 2 files changed, 37 insertions(+)
+ tools/objtool/elf.c                 | 123 ++++++++++++++--------------
+ tools/objtool/include/objtool/elf.h |  13 ++-
+ 2 files changed, 71 insertions(+), 65 deletions(-)
 
-diff --git a/tools/objtool/check.c b/tools/objtool/check.c
-index c034676e1b8c7..79b9e2b5d96de 100644
---- a/tools/objtool/check.c
-+++ b/tools/objtool/check.c
-@@ -430,6 +430,8 @@ static int decode_instructions(struct objtool_file *file)
+diff --git a/tools/objtool/elf.c b/tools/objtool/elf.c
+index a791f4ea6ec19..8bf225d70d918 100644
+--- a/tools/objtool/elf.c
++++ b/tools/objtool/elf.c
+@@ -1147,9 +1147,6 @@ static int read_relocs(struct elf *elf)
  
- 	for_each_sec(file->elf, sec) {
- 		struct instruction *insns = NULL;
-+		struct symbol *map_sym;
-+		bool is_data = false;
- 		u8 prev_len = 0;
- 		u8 idx = 0;
+ 		rsec->base->rsec = rsec;
  
-@@ -456,6 +458,8 @@ static int decode_instructions(struct objtool_file *file)
- 		if (!strcmp(sec->name, ".init.text") && !opts.module)
- 			sec->init = true;
+-		/* nr_alloc_relocs=0: libelf owns d_buf */
+-		rsec->nr_alloc_relocs = 0;
+-
+ 		rsec->relocs = calloc(sec_num_entries(rsec), sizeof(*reloc));
+ 		if (!rsec->relocs) {
+ 			ERROR_GLIBC("calloc");
+@@ -1408,7 +1405,7 @@ unsigned int elf_add_string(struct elf *elf, struct section *strtab, const char
  
-+		map_sym = list_first_entry(&sec->symbol_list, struct symbol, list);
+ void *elf_add_data(struct elf *elf, struct section *sec, const void *data, size_t size)
+ {
+-	unsigned long offset;
++	unsigned long offset, size_old, size_new, alloc_size_old, alloc_size_new;
+ 	Elf_Scn *s;
+ 
+ 	if (!sec->sh.sh_addralign) {
+@@ -1422,30 +1419,55 @@ void *elf_add_data(struct elf *elf, struct section *sec, const void *data, size_
+ 		return NULL;
+ 	}
+ 
+-	sec->data = elf_newdata(s);
+ 	if (!sec->data) {
+-		ERROR_ELF("elf_newdata");
+-		return NULL;
++		sec->data = elf_newdata(s);
++		if (!sec->data) {
++			ERROR_ELF("elf_newdata");
++			return NULL;
++		}
 +
- 		for (offset = 0; offset < sec_size(sec); offset += insn->len) {
- 			if (!insns || idx == INSN_CHUNK_MAX) {
- 				insns = calloc(INSN_CHUNK_SIZE, sizeof(*insn));
-@@ -480,6 +484,16 @@ static int decode_instructions(struct objtool_file *file)
++		sec->data->d_align = sec->sh.sh_addralign;
+ 	}
  
- 			prev_len = insn->len;
- 
-+			/* Use mapping symbols to skip data in text sections */
-+			sec_for_each_sym_from(sec, map_sym) {
-+				if (map_sym->offset > offset)
-+					break;
-+				if (is_mapping_sym(map_sym))
-+					is_data = is_data_mapping_sym(map_sym);
-+			}
-+			if (is_data)
-+				insn->type = INSN_NOP;
+-	sec->data->d_buf = calloc(1, size);
+-	if (!sec->data->d_buf) {
+-		ERROR_GLIBC("calloc");
+-		return NULL;
++	size_old = sec->data->d_size;
++	offset = ALIGN(size_old, sec->sh.sh_addralign);
++	size_new = offset + size;
 +
- 			/*
- 			 * By default, "ud2" is a dead end unless otherwise
- 			 * annotated, because GCC 7 inserts it for certain
-diff --git a/tools/objtool/include/objtool/elf.h b/tools/objtool/include/objtool/elf.h
-index 5cba96c6392cb..796d154d447b6 100644
---- a/tools/objtool/include/objtool/elf.h
-+++ b/tools/objtool/include/objtool/elf.h
-@@ -296,6 +296,26 @@ static inline bool is_notype_sym(struct symbol *sym)
- 	return sym->type == STT_NOTYPE;
++	if (!sec->data_overallocated)
++		alloc_size_old = size_old;
++	else
++		alloc_size_old = max(64UL, roundup_pow_of_two(size_old ? : 1));
++
++	alloc_size_new = max(64UL, roundup_pow_of_two(size_new ? : 1));
++
++	if (alloc_size_new > alloc_size_old) {
++		void *orig_buf = sec->data->d_buf;
++
++		sec->data->d_buf = calloc(1, alloc_size_new);
++		if (!sec->data->d_buf) {
++			ERROR_GLIBC("calloc");
++			return NULL;
++		}
++
++		if (size_old)
++			memcpy(sec->data->d_buf, orig_buf, size_old);
++
++		if (orig_buf && sec->data_owned)
++			free(orig_buf);
++
++		sec->data_owned = 1;
++		sec->data_overallocated = 1;
+ 	}
+ 
+ 	if (data)
+-		memcpy(sec->data->d_buf, data, size);
+-
+-	sec->data->d_size = size;
+-	sec->data->d_align = sec->sh.sh_addralign;
+-
+-	offset = ALIGN(sec_size(sec), sec->sh.sh_addralign);
+-	sec->sh.sh_size = offset + size;
++		memcpy(sec->data->d_buf + offset, data, size);
++	else
++		memset(sec->data->d_buf + offset, 0, size);
+ 
++	sec->data->d_size = size_new;
++	sec->sh.sh_size = size_new;
+ 	mark_sec_changed(elf, sec, true);
+-
+-	return sec->data->d_buf;
++	return sec->data->d_buf + offset;
  }
  
-+/*
-+ * ARM64 mapping symbols ($d, $x, $a, __pi_$d, etc) which mark transitions
-+ * between code and data.
-+ */
-+static inline bool is_mapping_sym(struct symbol *sym)
-+{
-+	return is_notype_sym(sym) && strchr(sym->name, '$');
-+}
+ struct section *elf_create_section(struct elf *elf, const char *name,
+@@ -1496,6 +1518,8 @@ struct section *elf_create_section(struct elf *elf, const char *name,
+ 			ERROR_GLIBC("calloc");
+ 			return NULL;
+ 		}
 +
-+static inline bool is_data_mapping_sym(struct symbol *sym)
-+{
-+	const char *dollar;
-+
-+	if (!is_mapping_sym(sym))
-+		return false;
-+
-+	dollar = strchr(sym->name, '$');
-+	return dollar && dollar[1] == 'd';
-+}
-+
- static inline bool is_global_sym(struct symbol *sym)
- {
- 	return sym->bind == STB_GLOBAL;
-@@ -508,6 +528,9 @@ static inline void set_sym_next_reloc(struct reloc *reloc, struct reloc *next)
- #define sec_for_each_sym(sec, sym)					\
- 	list_for_each_entry(sym, &sec->symbol_list, list)
++		sec->data_owned = 1;
+ 	}
  
-+#define sec_for_each_sym_from(sec, sym)					\
-+	list_for_each_entry_from(sym, &sec->symbol_list, list)
+ 	if (!gelf_getshdr(s, &sec->sh)) {
+@@ -1546,60 +1570,33 @@ static int elf_alloc_reloc(struct elf *elf, struct section *rsec)
+ 	struct reloc *old_relocs, *old_relocs_end, *new_relocs;
+ 	unsigned int nr_relocs_old = sec_num_entries(rsec);
+ 	unsigned int nr_relocs_new = nr_relocs_old + 1;
+-	unsigned long nr_alloc;
++	unsigned long nr_alloc_old = 0, nr_alloc_new;
+ 	struct symbol *sym;
+ 
+-	if (!rsec->data) {
+-		rsec->data = elf_newdata(elf_getscn(elf->elf, rsec->idx));
+-		if (!rsec->data) {
+-			ERROR_ELF("elf_newdata");
+-			return -1;
+-		}
++	if (!elf_add_data(elf, rsec, NULL, elf_rela_size(elf)))
++		return -1;
+ 
+-		rsec->data->d_align = 1;
+-		rsec->data->d_type = ELF_T_RELA;
+-		rsec->data->d_buf = NULL;
+-	}
++	rsec->data->d_type = ELF_T_RELA;
+ 
+-	rsec->data->d_size = nr_relocs_new * elf_rela_size(elf);
+-	rsec->sh.sh_size   = rsec->data->d_size;
++	if (rsec->relocs_overallocated)
++		nr_alloc_old = max(64UL, roundup_pow_of_two(nr_relocs_old ? : 1));
++	else
++		nr_alloc_old = nr_relocs_old;
+ 
+-	nr_alloc = max(64UL, roundup_pow_of_two(nr_relocs_new));
+-	if (nr_alloc <= rsec->nr_alloc_relocs)
++	nr_alloc_new = max(64UL, roundup_pow_of_two(nr_relocs_new ? : 1));
 +
- #define sec_prev_sym(sym)						\
- 	sym->sec && sym->list.prev != &sym->sec->symbol_list ?		\
- 	list_prev_entry(sym, list) : NULL
++	if (nr_alloc_old == nr_alloc_new)
+ 		return 0;
+ 
+-	if (rsec->data->d_buf && !rsec->nr_alloc_relocs) {
+-		void *orig_buf = rsec->data->d_buf;
+-
+-		/*
+-		 * The original d_buf is owned by libelf so it can't be
+-		 * realloced.
+-		 */
+-		rsec->data->d_buf = malloc(nr_alloc * elf_rela_size(elf));
+-		if (!rsec->data->d_buf) {
+-			ERROR_GLIBC("malloc");
+-			return -1;
+-		}
+-		memcpy(rsec->data->d_buf, orig_buf,
+-		       nr_relocs_old * elf_rela_size(elf));
+-	} else {
+-		rsec->data->d_buf = realloc(rsec->data->d_buf,
+-					    nr_alloc * elf_rela_size(elf));
+-		if (!rsec->data->d_buf) {
+-			ERROR_GLIBC("realloc");
+-			return -1;
+-		}
+-	}
+-
+-	rsec->nr_alloc_relocs = nr_alloc;
+-
+-	old_relocs = rsec->relocs;
+-	new_relocs = calloc(nr_alloc, sizeof(struct reloc));
++	new_relocs = calloc(nr_alloc_new, sizeof(struct reloc));
+ 	if (!new_relocs) {
+ 		ERROR_GLIBC("calloc");
+ 		return -1;
+ 	}
+ 
++	rsec->relocs_overallocated = 1;
++
++	old_relocs = rsec->relocs;
+ 	if (!old_relocs)
+ 		goto done;
+ 
+@@ -1644,6 +1641,7 @@ static int elf_alloc_reloc(struct elf *elf, struct section *rsec)
+ 	}
+ 
+ 	free(old_relocs);
++
+ done:
+ 	rsec->relocs = new_relocs;
+ 	return 0;
+@@ -1673,7 +1671,6 @@ struct section *elf_create_rela_section(struct elf *elf, struct section *sec,
+ 	if (nr_relocs) {
+ 		rsec->data->d_type = ELF_T_RELA;
+ 
+-		rsec->nr_alloc_relocs = nr_relocs;
+ 		rsec->relocs = calloc(nr_relocs, sizeof(struct reloc));
+ 		if (!rsec->relocs) {
+ 			ERROR_GLIBC("calloc");
+diff --git a/tools/objtool/include/objtool/elf.h b/tools/objtool/include/objtool/elf.h
+index a82517a76a0f6..527dd10859de4 100644
+--- a/tools/objtool/include/objtool/elf.h
++++ b/tools/objtool/include/objtool/elf.h
+@@ -58,9 +58,18 @@ struct section {
+ 	Elf_Data *data;
+ 	const char *name;
+ 	int idx;
+-	bool _changed, text, rodata, noinstr, init, truncate;
++	u32 _changed			: 1,
++	    text			: 1,
++	    rodata			: 1,
++	    noinstr			: 1,
++	    init			: 1,
++	    truncate			: 1,
++	    data_owned			: 1,
++	    data_overallocated		: 1,
++	    relocs_overallocated	: 1;
++	    /* 23 bit hole */
++
+ 	struct reloc *relocs;
+-	unsigned long nr_alloc_relocs;
+ 	struct section *twin;
+ };
+ 
 -- 
 2.54.0
 
