@@ -4,92 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9926CC5AC67
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 15:06:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58C27C55174
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 15:28:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=W2ll9eOek77lqJYz2Lwuo/2xHZKLi6mWDDbbpXtd1VU=; b=b5USYydKioPsFpt5UawG7ZN0eM
-	1Gvb1vX69DuZSNdkoBDwy3zOf9/1NThKfSqT/Tx5bkMC5+GGA2Yt9KsvhJV/Hl7w8R4z+UW+kzqqj
-	dAAbyUd5mgh0l/bzwtKE/4N684Ek7oA39Lylqic2ByXPXshpEFwNu27q8YrMbmEamt+i4FP5Etcnn
-	u92EfuwyyoUqllxWuutArAaQGOFDgheWGSz3DaefzWiAaGrPQ0ImTDiS1lQgz9pgXRdq+ffYjy73s
-	mvcQ+kHeRHqwzCJo4Z0wckeo1YNSSUr0Kq47rYzMWXU2ce5Mxo3/dpPOmDRS6SsmudRoRyYtGnf7T
-	P3ws1J0w==;
+	bh=fosxO2aakWlymDAhSXtvCLChemt0o7MdN2FsRA0clTA=; b=1ogLtn/zEdAjP/sJwRhT5RoKHg
+	bwjegp7FGus3yexru7gA1NcLqHMdruJjeV56sXDndtJdk4aw8nRIznMk9thfnlHunYWE2XksWMfF2
+	KGQ9CapULHDszjwr7Ld9zj2N15B1tcmNBMpmVIOK3HxxajqGPOxKIjI9HEfXW25ZI+dsmlv+3/8v9
+	gfkkfvRJQUyGvPNC3ew1df/XtPqOdD7bLz895OR06lQjHO1Pw1VkRhVALxy0IUllBsXju7BxZolrO
+	zEK6DgeGvaRyHxzBp4Bau/X0mTWBv0+sKnGJbW/SiceTmtjNHz2F+VzxJLxGgov4PORHgGaoiQ2Y9
+	kYxYZAxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsid6-00000009TsY-2Eub;
-	Sat, 08 Aug 2026 15:06:32 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1wsiy2-00000009UmJ-1rdy;
+	Sat, 08 Aug 2026 15:28:10 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsid3-00000009Trm-2Tm2
+	id 1wsixl-00000009Ulh-401r
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Aug 2026 15:06:31 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-495757ccbc1so5489415e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Aug 2026 08:06:28 -0700 (PDT)
+	Sat, 08 Aug 2026 15:28:09 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2cc891373e0so5576205ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Aug 2026 08:27:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786201587; x=1786806387; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1786202873; x=1786807673; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=W2ll9eOek77lqJYz2Lwuo/2xHZKLi6mWDDbbpXtd1VU=;
-        b=R/eO6ZNbbZ6B4LeQUNzUJ9vd7A5Vcshp2FCJvNBArriemT9qX8+Rw0xiwLCwsxV5uV
-         JOTvPsJ+E5t/9LnswrpOcMof6BrAFjbWtGA+V/SSI46ncID9LsCBqGp6h17DOr90/4fG
-         CQqaAOGuezxbsU45Le8pXAr8yTQ0LyGI5U0lgRj7G5uyNB0+eFFc0jvxHySsCyU8SYcw
-         aUkwuQm2piM3Z7V2WFC5N7Is2v3Se0SgL7BpbH1u5xoMyyNBgRXXwBTGjeGP2E3LGkuD
-         EncP3FA2dBlOEHOsOPHxZbUB+w0Z7bNF2SA7SdSAa9D1ftHpWxv51rbl/Bo/tWFU+F+L
-         yOaA==
+        bh=fosxO2aakWlymDAhSXtvCLChemt0o7MdN2FsRA0clTA=;
+        b=qCqCR7U0FdMSKtUzp75hGK+7rNBnL2eFZO4Uaj72FNUIpbrrVjJ2RsbQdENcq7rCGh
+         gXMiq7zJ5AdN487OP585oyByt+cfyHDB3top0cFZzCimNNVv9fvr2EZNxQ8Gv6zG0JZ6
+         ZifLj+wah04kIY+Cz2rkY/K6k679uF+FSJeLM9oraN2nzD28TsZQAf103NsLqkEogMig
+         neJ5xmH1xNgd/NEcAjcE1hb39KeMGE4/16HxC4Z/8Wdfw+mze3vLBC3cdjLDil+lckhT
+         laIl8lAGnGkbItOtSvO0W0QAnuBZHZxGpDqQLP5yHSVkKju0tjppMm6FmqOYVkzYhhZO
+         at3Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786201587; x=1786806387;
+        d=1e100.net; s=20251104; t=1786202873; x=1786807673;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=W2ll9eOek77lqJYz2Lwuo/2xHZKLi6mWDDbbpXtd1VU=;
-        b=VzCPVPpFPT9e8UEqot9kdPc4Y7v4mSXLfckPkVkcysSbbs9lh4HaIcuEHVCJhaU1nv
-         tL170mTsSQJE+sOhzKY3fbOIrg95Msvp5eZu/aHBLj57iHk/HMW+Dmzik9varR7lRPw4
-         3dfHZoajssjKx9yzd+aJFp59Y4h9cpKX+Ibc5h8K543SZ05oTbf+FvuoMq8zPVl/Ulzn
-         viMsfbUcnASlqjLgxz3hm8xNNLeQJQe4/1GA6GRrEf0LjbQMw60z1aC9ka0vJIR5gXi1
-         CGhd0Gri7ZG0MWzF2z4NPCJxS4tUNlCELqoZJsECCSShgLO7ZpwnV5wZ4sY5aqvbA+ov
-         LegA==
-X-Forwarded-Encrypted: i=1; AHgh+RozEzm+Us+zmF2MzRPSl+/EUBvba+/MNC5jDNrnGDQnhScsRbFnQtdwLUHVHAfhE8pMPP5dTrCDxJjrlguxQw2b@lists.infradead.org
-X-Gm-Message-State: AOJu0YxR6oLVetcJHudE2ORZVPST5wIEH+P99a4K21Mff/uGjxnKJ9Wo
-	5ucBEfAfEL4yLzkNaYAPhaaI8+/xns6Rxr1dvVVyPE8nWSElPZzDC7tR
-X-Gm-Gg: AR+sD11a1OllJTKg0HD4CkFojvStqCWyCHw13Ym3gl2ve7wNh0WZGZUvYN1u4zJSy4o
-	uif+V/Ky0WrXSnoHU/LXS3tV1XP11PirLQB9/Wt6WojsWfoUGgvcL8l21jZbxwCs1dCJ2jjahTy
-	rw0I3jeJRbz2Y0u2P+Hy+oFpeJfgal/jOPQzArDqvz2fPUOtzaXe0o6wBjkNz2lVAKgVF69eFNY
-	F+Cg/Ftz6FtgUvotsv8SM2Ahmnx6ztb/lQddUnNw7AzGaciqqYvUUNUHCrnCUzXVVkyY5ARAXXL
-	p7U1krCqF3vaSDHSBuq9BMEWiZ7iJ3lA6H16oHpZdVcKbiBUO1zNMRTDTBp6Ga1fVw7Bgaz8Y1Q
-	rrqLkGxFtLI3sE6OVCP394DNST+xqzW4LMKZyp6+Pu0eaGZvMP12+Fq6uUIb5mHYegPFX0Fm0wU
-	qmGj3dDUTNu3B2CBOoaW4pb7WbI5cM6dX10zr6LaVOHRHfCOaUbyC/KnU/NV+3/9hAROrtJOVM7
-	eXvqudkTqKl+ew76a8G0UGIFyDL111cFmjKRccFTaxgfifKlz/v21EFR0GFFItGVBX+jKeoS5Yg
-	ebpcIZ6a5lFpDSIsgtlEmEiJGm8SsuAnaSczjXBzBfWP7w==
-X-Received: by 2002:a05:600c:4594:b0:499:5f7a:7ea2 with SMTP id 5b1f17b1804b1-4995f7a7ec4mr138657645e9.12.1786201587163;
-        Sat, 08 Aug 2026 08:06:27 -0700 (PDT)
-Received: from MacBook-Pro-von-Karl.localdomain (dynamic-077-007-004-134.77.7.pool.telefonica.de. [77.7.4.134])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-480021e7b3fsm17000478f8f.20.2026.08.08.08.06.25
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sat, 08 Aug 2026 08:06:26 -0700 (PDT)
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Ulf Hansson <ulfh@kernel.org>
-Cc: Karl Mehltretter <kmehltretter@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
-	Brian Masney <bmasney@redhat.com>,
-	linux-pm@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
+        bh=fosxO2aakWlymDAhSXtvCLChemt0o7MdN2FsRA0clTA=;
+        b=S7RcrF5nMU88Q1OQDkFZincTZq/WxdupWrhWNiqqOnJO0xH5fSNPvqNGRQW8BEoEpx
+         1D7/3/AERqojZNv5BYwcSLA5XeekS70amrfLfcZNqdlhOhy5N9JXPfoJ04i3VIAHFAiB
+         oX/M7zE0D0sgyXKWsBcYZ54+u2xKf+0Y506ANDjblYCqHJy+TR+1Y5MAXRbouOTEW2Hd
+         8mNt/qT+TqFHhTr4jPRhI2JyvoWZ2mkX4SSyCWiM2qSBt4O3DfgFxTkbM4Vj0S2shHZg
+         gECSW17cS9h8lxmp8hyPjJV0r4nj+7NJWFeKngNCM5p1k4T4d7EaPayckXHzowfOdfU3
+         In0Q==
+X-Forwarded-Encrypted: i=1; AHgh+RqRE+D9vwjB2bdjLZHQXePw21dcgivLUXH/8EcUf9bRKdcL1+A10ONhlabTmGRJDi2vESCSdwPUCHUEiknGcZKr@lists.infradead.org
+X-Gm-Message-State: AOJu0YzRww52C8y5T/P2PUHKqrkuWKBjT9MTbhjd0ZMZM/HHaMYWV5tE
+	3mxe9nwfUiL3YS3YbNYqx4wEtFsJCLAyRzjbrg+uUGjfR0PVneT7DVcM
+X-Gm-Gg: AR+sD10MpG/hyzIJWHD7gVDk2jic7UpqNlDOkvuFsyvNhyVdkp8i7JFgi+xwF70v0B3
+	VSCSpioeaEOtSWSLKFQSWZWM2rXkvpuOizYuo6pYRh5m/8B1LcJPqR1TaI8XYilyTJmlYfdNpNA
+	ZnkqxHZQY3rLFI+B5w5vm9DpcJXUHc/L/U0auWkTbVzrDg3Fu4WTSlpH6L/HyaxVOohTtPpUMgM
+	OrBxiV/9zzWmpCtpbRGHOHkkjPE27XvIL+KX6eKhnY8M4X/03uExnIuUm2nrOL74KbsbB96Crzs
+	2I5eCRdr6Fg3zWlYtc/sr6HEFHBitAj3szjUceGv6pwKIEfNtGcjjG1w1XOnWwGbl0Qd/4wr0Tt
+	s78AIkIzoSLwSO3vimCmjzZIxi66q7IlTdVr+YbPIjgVxuuWRpQhB+Ko7MluWQ6zfRtoygciWmJ
+	zJR4YuLNarxD5WoAZhaYNiKDuIcl9nsCQL+ft16CJ6zifR95XEk5Hlx6ELDnl4YHhdtbUsCg==
+X-Received: by 2002:a17:902:e951:b0:2ca:bf68:2a54 with SMTP id d9443c01a7336-2d0ca96246bmr402478875ad.22.1786202872580;
+        Sat, 08 Aug 2026 08:27:52 -0700 (PDT)
+Received: from lgs.. ([101.76.249.46])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d14d57f8b7sm19558175ad.30.2026.08.08.08.27.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 08 Aug 2026 08:27:52 -0700 (PDT)
+From: Guangshuo Li <lgs201920130244@gmail.com>
+To: Codrin Ciubotariu <codrin.ciubotariu@microchip.com>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Ludovic Desroches <ludovic.desroches@atmel.com>,
+	Wenyou Yang <wenyou.yang@atmel.com>,
+	Wolfram Sang <wsa@kernel.org>,
+	linux-i2c@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] pmdomain: mediatek: mfg: initialize prev_o in mtk_mfg_attach_dev()
-Date: Sat,  8 Aug 2026 17:05:06 +0200
-Message-Id: <20260808150506.78534-1-kmehltretter@gmail.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+Cc: Guangshuo Li <lgs201920130244@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH] i2c: at91: fix autosuspend cleanup during teardown
+Date: Sat,  8 Aug 2026 23:26:54 +0800
+Message-ID: <20260808152654.2943371-1-lgs201920130244@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260808_080629_667578_EF0D7D70 
-X-CRM114-Status: GOOD (  13.24  )
+X-CRM114-CacheID: sfid-20260808_082754_002471_BCF2FF62 
+X-CRM114-Status: GOOD (  12.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,38 +105,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-mtk_mfg_attach_dev() reads prev_o on the first iteration of its loop,
-in "if (prev_o && prev_o->freq == o->freq)", before prev_o is assigned
-at the end of the loop body. On that first iteration, evaluating prev_o
-reads an indeterminate value. If it is non-NULL, the condition
-dereferences a stale or invalid pointer, potentially faulting or
-incorrectly skipping the first OPP.
+at91_twi_probe() calls pm_runtime_use_autosuspend(), but neither the
+probe error path nor at91_twi_remove() calls the matching
+pm_runtime_dont_use_autosuspend() during teardown.
 
-Initialize prev_o to NULL. This matches the intent as well: there is no
-previous OPP to compare against on the first iteration.
+If the autosuspend delay is set to a negative value while autosuspend
+is enabled, the runtime PM core increments usage_count to prevent
+runtime suspend. Without calling pm_runtime_dont_use_autosuspend()
+during teardown, this reference is not dropped.
 
-Found with Clang's -Wconditional-uninitialized.
+The documentation for pm_runtime_use_autosuspend() also notes that it
+is important to undo it with pm_runtime_dont_use_autosuspend() at
+driver exit time, unless runtime PM was initially enabled with
+devm_pm_runtime_enable().
 
-Fixes: f08e7a4e8d6ac ("pmdomain: mediatek: Add support for MFlexGraphics")
-Assisted-by: Claude:claude-fable-5
-Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+Add the missing pm_runtime_dont_use_autosuspend() calls to the probe
+error and driver remove paths.
+
+This issue was found by manual code inspection.
+
+Fixes: d64a818859af ("i2c: at91: add support for runtime PM")
+Cc: stable@vger.kernel.org
+Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
 ---
- drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/i2c/busses/i2c-at91-core.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c b/drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c
-index 53bdab66cf157..9a8a38d98cce7 100644
---- a/drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c
-+++ b/drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c
-@@ -657,7 +657,7 @@ static int mtk_mfg_attach_dev(struct generic_pm_domain *pd, struct device *dev)
- 	struct mtk_mfg *mfg = mtk_mfg_from_genpd(pd);
- 	struct dev_pm_opp_data *so = mfg->stack_opps;
- 	struct dev_pm_opp_data *go = mfg->gpu_opps;
--	struct dev_pm_opp_data *prev_o;
-+	struct dev_pm_opp_data *prev_o = NULL;
- 	struct dev_pm_opp_data *o;
- 	int i, ret;
+diff --git a/drivers/i2c/busses/i2c-at91-core.c b/drivers/i2c/busses/i2c-at91-core.c
+index b64adef778d4..65b389d07d2f 100644
+--- a/drivers/i2c/busses/i2c-at91-core.c
++++ b/drivers/i2c/busses/i2c-at91-core.c
+@@ -253,6 +253,7 @@ static int at91_twi_probe(struct platform_device *pdev)
  
+ 	rc = i2c_add_numbered_adapter(&dev->adapter);
+ 	if (rc) {
++		pm_runtime_dont_use_autosuspend(dev->dev);
+ 		pm_runtime_disable(dev->dev);
+ 		pm_runtime_set_suspended(dev->dev);
+ 
+@@ -270,6 +271,7 @@ static void at91_twi_remove(struct platform_device *pdev)
+ 
+ 	i2c_del_adapter(&dev->adapter);
+ 
++	pm_runtime_dont_use_autosuspend(dev->dev);
+ 	pm_runtime_disable(dev->dev);
+ 	pm_runtime_set_suspended(dev->dev);
+ }
 -- 
-2.53.0
+2.43.0
+
 
