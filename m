@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2C51C55174
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDD11C5AD4E
 	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 11:31:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,40 +12,40 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RoxLjw+FaEv6UBa2auRBgAVGOoEFVhZL0a0SozhjcLw=; b=aClpHlx/dytRrOPWt59UDX4QFQ
-	0z8GaPszGy0AUwjZHpo93WP/SA3LoIPQVKj3T+tMcCDh/Dgi7skfIcd40PhCTp4RFhMHUVkSLWSBC
-	bDAtw+esRbyRM/wbIZxvlrc9y2PaxJ6DNPyWfMP+OBAn3Who2957tlfdne6HGEWwgYwlgvxw3JJrG
-	EckRZztbYACFVRKXcy5F8VqM28O+uPpw1Xo4JimCzZ6IHs95tyGRid/BCn1Ho9DWznxP6+dxS1LZq
-	C8/scK5rKtJOrVCw9yIkOfDtcso/oQ1hW4aaEn/grZWSQv668gXj0EhqXx4iFUGObUgtG4E//Yfs9
-	qtEKYevQ==;
+	bh=4eceDsqSjj99vq4YSGbw8Dy4bNzTm+W6fU1EurOD8rs=; b=AOzGccWIC6S7BDCgaiBd//V7yU
+	Ur8L5LqfKmggumFtlnpdOT+XqRyOQXMrEuEQCoqG1QD8YHaf12VnZC0ilCaUUTUrvCc9U3tmGoptY
+	VElylYJMWjsK9xIN49WXkph+65dl0Fc9xo7obaUdpSdxCq+1omFK+z64zty0FKwm1rkqliIU5Caus
+	cpfSl0EH9pdrBKAkU3YwkIh1ElWCsFMbh8zmMYXtWhFDU1wb61gEa/em1Z/IYmbT9qNS78RmJ39xd
+	pZ3y88WHmVP4XAJfPBOfbj6gNeT9VnCRo/X0CmgJfgRVOuz02a9ZnEPXSAhdvu2vaylRfh6jR2yl6
+	gkd5I8Pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsfH4-00000009JhG-1Mwa;
-	Sat, 08 Aug 2026 11:31:34 +0000
+	id 1wsfGz-00000009Jef-3ovW;
+	Sat, 08 Aug 2026 11:31:29 +0000
 Received: from chaosmail.tech ([77.81.229.115])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsfGw-00000009Jd7-3NLx
+	id 1wsfGw-00000009Jd5-3NCL
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Aug 2026 11:31:30 +0000
-Received: by chaosmail.tech (Postfix) id E055D1C87FD;
+	Sat, 08 Aug 2026 11:31:28 +0000
+Received: by chaosmail.tech (Postfix) id 32F3D1C87E8;
 	Sat, 08 Aug 2026 11:31:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chaosmail.tech;
-	s=mail; t=1786188680;
+	s=mail; t=1786188679;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=RoxLjw+FaEv6UBa2auRBgAVGOoEFVhZL0a0SozhjcLw=;
-	b=dc2bY7Ow8sIT8e7QrPaWqAttZvBsMpIKbG0Cm/zVBRGVZdCurUlsU8JypVy0Tb1tXrNu38
-	6MI81EBzN9SZhv4K2gsTztYBlFG7X2aKix9K5RWhuMwfVzLtK0XcqvpSvu5VbxVbmEmNS+
-	/MzVBqLph2p9QjYOizazUJAqzlXKTgI=
+	bh=4eceDsqSjj99vq4YSGbw8Dy4bNzTm+W6fU1EurOD8rs=;
+	b=Xk1Cv3LIqrJ9ydc4gnZ2XBAAwkQCZ4vaXaaKymQt9p6cOmtPBN8xsxMBaakNlEkyJvFEI/
+	dHBHLmEjw/WHCm/Z+jlFoY6eedZFWeq1isuEot17Z0yXuWbqmlViORckHniocxc040dczk
+	E5UA5z7kzPE6k8bFSL0r07S1WZ2vjR8=
 From: Sasha Finkelstein <k@chaosmail.tech>
-Date: Sat, 08 Aug 2026 13:31:18 +0200
-Subject: [PATCH v5 2/6] spmi: apple: Validate FIFO state
+Date: Sat, 08 Aug 2026 13:31:17 +0200
+Subject: [PATCH v5 1/6] dt-bindings: spmi: apple,spmi: Add t603x and t8122
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260808-t603x-spmi-v5-2-553c5ac2f137@chaosmail.tech>
+Message-Id: <20260808-t603x-spmi-v5-1-553c5ac2f137@chaosmail.tech>
 References: <20260808-t603x-spmi-v5-0-553c5ac2f137@chaosmail.tech>
 In-Reply-To: <20260808-t603x-spmi-v5-0-553c5ac2f137@chaosmail.tech>
 To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
@@ -54,17 +54,18 @@ To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
  Conor Dooley <conor+dt@kernel.org>
 Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- Sasha Finkelstein <k@chaosmail.tech>, Alba Mendez <me@alba.sh>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1786188678; l=3000;
+ Sasha Finkelstein <k@chaosmail.tech>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1786188678; l=1492;
  i=k@chaosmail.tech; s=20241124; h=from:subject:message-id;
- bh=D9GL2Z01e0tzF0XHDaJ4oJIv+24UCKbgdDmyLz2zBJU=;
- b=gIBi3D288zTw0KgFjIe11WdksJAfKx5V+xqDqiyNdNn0X0xJeV+/e0wckrrMjx6ZScv+TYqP9
- 7o9k0oJ3dNmAhFe2TVIXZLbC03onc6LyDbHIXK1ibTnPVrXKBrxgapV
+ bh=XC8UjN7V7OAUYnYp8DhiPaqOWzgm6qjWeGjtme4Eml4=;
+ b=wYf/1MEsoBiXvVJm6FHAGLi/4IV2Ur+kD8PH0v6lMIn7ikl4DGwUpv0em4MSWrFTYgt92JMGf
+ FAb2LVENjCXC3QsJMEAurHDCB9isnULh+HAfzAJrxMHygk9413VX9PV
 X-Developer-Key: i=k@chaosmail.tech; a=ed25519;
  pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260808_043127_333827_7340B433 
-X-CRM114-Status: GOOD (  11.64  )
+X-CRM114-CacheID: sfid-20260808_043127_323552_6357C58D 
+X-CRM114-Status: UNSURE (   8.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,109 +80,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Alba Mendez <me@alba.sh>
+Add t603x and t8122 compatibles, interrupt support, and support for
+SPMI controllers that are not always-on.
 
-Check for data before reading the body of a reply, and check for
-end of data afterwards.
+Keeping the "interrupt-controller" property as optional, as taking the
+j514c as an example, we only need this functionality on 3 out of 10
+SPMI controllers present on this SoC.
 
-Signed-off-by: Alba Mendez <me@alba.sh>
 Reviewed-by: Janne Grunau <j@jannau.net>
 Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
 ---
- drivers/spmi/spmi-apple-controller.c | 30 ++++++++++++++++++++++++++++++
- 1 file changed, 30 insertions(+)
+ Documentation/devicetree/bindings/spmi/apple,spmi.yaml | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
 
-diff --git a/drivers/spmi/spmi-apple-controller.c b/drivers/spmi/spmi-apple-controller.c
-index 376cf682c43e..15721cb41d5c 100644
---- a/drivers/spmi/spmi-apple-controller.c
-+++ b/drivers/spmi/spmi-apple-controller.c
-@@ -21,7 +21,9 @@
- #define SPMI_STATUS_REG 0
- #define SPMI_CMD_REG 0x4
- #define SPMI_RSP_REG 0x8
-+#define SPMI_ACT_REG 0xa4
+diff --git a/Documentation/devicetree/bindings/spmi/apple,spmi.yaml b/Documentation/devicetree/bindings/spmi/apple,spmi.yaml
+index 3e5b14bc8c31..fceed47b2cd1 100644
+--- a/Documentation/devicetree/bindings/spmi/apple,spmi.yaml
++++ b/Documentation/devicetree/bindings/spmi/apple,spmi.yaml
+@@ -20,8 +20,11 @@ properties:
+       - items:
+           - enum:
+               - apple,t6020-spmi
++              - apple,t6030-spmi
++              - apple,t6031-spmi
+               - apple,t8012-spmi
+               - apple,t8015-spmi
++              - apple,t8122-spmi
+           - const: apple,t8103-spmi
+       - items:
+           - enum:
+@@ -34,6 +37,18 @@ properties:
+   reg:
+     maxItems: 1
  
-+#define SPMI_ACT_FIFO_FLUSH BIT(0)
- #define SPMI_RX_FIFO_EMPTY BIT(24)
- 
- #define REG_POLL_INTERVAL_US 10000
-@@ -29,6 +31,7 @@
- 
- struct apple_spmi {
- 	void __iomem *regs;
-+	bool prev_fail;
- };
- 
- #define poll_reg(spmi, reg, val, cond) \
-@@ -49,6 +52,7 @@ static int apple_spmi_wait_rx_not_empty(struct spmi_controller *ctrl)
- 
- 	ret = poll_reg(spmi, SPMI_STATUS_REG, status, !(status & SPMI_RX_FIFO_EMPTY));
- 	if (ret) {
-+		spmi->prev_fail = true;
- 		dev_err(&ctrl->dev,
- 			"failed to wait for RX FIFO not empty\n");
- 		return ret;
-@@ -67,6 +71,11 @@ static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
- 	u8 i;
- 	int ret;
- 
-+	if (spmi->prev_fail) {
-+		writel(SPMI_ACT_FIFO_FLUSH, spmi->regs + SPMI_ACT_REG);
-+		spmi->prev_fail = false;
-+	}
++  interrupts:
++    maxItems: 1
++    description: Optional, operates in polled mode if not present
 +
- 	writel(spmi_cmd, spmi->regs + SPMI_CMD_REG);
- 
- 	ret = apple_spmi_wait_rx_not_empty(ctrl);
-@@ -78,6 +87,12 @@ static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
- 
- 	/* Read SPMI data reply */
- 	while (len_read < len) {
-+		if (readl(spmi->regs + SPMI_STATUS_REG) & SPMI_RX_FIFO_EMPTY) {
-+			spmi->prev_fail = true;
-+			dev_err_ratelimited(&ctrl->dev,
-+					    "FIFO lacks reply data, controller stuck?\n");
-+			return -EIO;
-+		}
- 		rsp = readl(spmi->regs + SPMI_RSP_REG);
- 		i = 0;
- 		while ((len_read < len) && (i < 4)) {
-@@ -86,6 +101,11 @@ static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
- 		}
- 	}
- 
-+	if (!(readl(spmi->regs + SPMI_STATUS_REG) & SPMI_RX_FIFO_EMPTY)) {
-+		dev_warn(&ctrl->dev, "FIFO has extra data\n");
-+		spmi->prev_fail = true;
-+	}
++  interrupt-controller: true
 +
- 	return 0;
- }
- 
-@@ -97,6 +117,11 @@ static int spmi_write_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
- 	size_t i = 0, j;
- 	int ret;
- 
-+	if (spmi->prev_fail) {
-+		writel(SPMI_ACT_FIFO_FLUSH, spmi->regs + SPMI_ACT_REG);
-+		spmi->prev_fail = false;
-+	}
++  "#interrupt-cells":
++    const: 2
 +
- 	writel(spmi_cmd, spmi->regs + SPMI_CMD_REG);
- 
- 	while (i < len) {
-@@ -115,6 +140,11 @@ static int spmi_write_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
- 	/* Discard */
- 	readl(spmi->regs + SPMI_RSP_REG);
- 
-+	if (!(readl(spmi->regs + SPMI_STATUS_REG) & SPMI_RX_FIFO_EMPTY)) {
-+		dev_warn(&ctrl->dev, "FIFO has extra data\n");
-+		spmi->prev_fail = true;
-+	}
++  power-domains:
++    maxItems: 1
 +
- 	return 0;
- }
- 
+ required:
+   - compatible
+   - reg
 
 -- 
 2.55.0
