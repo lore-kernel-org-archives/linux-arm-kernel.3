@@ -4,129 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3906C5AC67
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 10:14:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BCB4C5AC67
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 10:43:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=es+8Kv+YIotAohjSsiZ85UgPuPmS3W1il9OTYJoC8ss=; b=dJpPCQdN2Rc/TfjN7DQH+c7tKG
-	B4O+rAtXGYGy+YVzMDrOwGl2eTqkcHJYggrZXox/EbKD2V0jn6roJgdFQh5vty59um4HPVBVY7mAw
-	vvOu1IU7ucw0WeT4nx0v/A2a+ZSxPXxIA9X6mSoOuRdRTNRWgsjZXoDIPXicUHAoeZ5MHdYYrKFZD
-	mzJzcPfRt8jidBFYiadjU39XtoN7CXpdKdwac4RXEWsIdcZvE8vVih7oW+7dAyLuUjFSUEokw6EaJ
-	8fpBmxHByD52+ew/Mav4QTGdBbld8rq5rlJiyoZD7B9lbyS9yhtGNgsHi8Nn0J8xzJUagXL5jnir/
-	NlWwcYDA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2qu55O0ynnLqL5BTIsWmcyB62JZff9IWE/mdM9/Md6o=; b=KHpO5kmMJmVCn8lkuQdFd96Ngb
+	KoriJdKgU3qMd9BsNvgU4EvOdL88E/mOQiIErDDQ6lFgNejYsEBbVhmgkTZ38/awYh33f93nLNj6V
+	iisSJF3VnIdK7j6ZRDFmBuahHm7EFbEs8mG9ZODniB+0RvHRH/ZXvPO4h+148TH+Z1gUxCfOslVZI
+	HYKeGVeGXuva2lmfMr0Z12aTLyohG+mKG0ZosVDBTFv7QRpwZS0m+Ax66zRMPhuJp69kEOLlGQnee
+	ZiZ8APuJl5aOU1JOmYp0eSNkaEVFojNzXokb3kYE4ViuEjL67kkzurSQJSlfp1rWPUCpsb4j3cQHO
+	SWmU11Qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wse4m-00000009GYI-1Zi4;
-	Sat, 08 Aug 2026 10:14:48 +0000
-Received: from mail-australiaeastazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c40d::1] helo=SY8PR01CU002.outbound.protection.outlook.com)
+	id 1wseWA-00000009HqY-3Zsp;
+	Sat, 08 Aug 2026 10:43:06 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wse4k-00000009GXg-1aDl
+	id 1wseW6-00000009HpA-3G31
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Aug 2026 10:14:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=k/+wBzk9A0lmpNsYvHw56B9jr8OAQdFhTp5ntQOoAqM3jpiCHv3CIT3pyq/XKYFEcc5T0hi8Cicb9mpsvgKN0NNG9HaJZln5HuT+E17hhTD/NtfJ8CpqLClfiGlVDFaA9+zBFMidYVt1nd/YuRGmnKshRVIJLuUQsaOaGSYvEajXda6wdDZEEx4A4PKLt3CcugYwt0hR63U6ZILwuf8LF2B6Ro+/IbuRznCeLnlGIaWW5OhYAsN8yu59OfvVOQK/ghByik5lsvUS99lghR+pE2ATht8gWb+l6i2z41xf7VxDOd5uTtEvswq+Jyoqq5H9mmSwvpHvKbjmJAC37fc8Gg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=es+8Kv+YIotAohjSsiZ85UgPuPmS3W1il9OTYJoC8ss=;
- b=gvGnqfDh9v1MbROfUZvJrEPYee0uBtuU6Q0Yg/OIik229LL1iCIN/lj1VJwCuKkmXwX3RRZuV2Aaqy8qCvl7FvOyn5AmEHpl3x6nWhP8i677q+h5gsTMGQp3G/bdSOltJPss47Yx7kDYIw96/7X0YdDxnB10pBbWMpxl62Upn9kwI3thsTUzQo1o4f/oRqYeVQDPcG+KVN+sNBgTHpTCoP/ulY8dk1j5NzvwE3kaPpNMbw/wclg/OVrvNlKtvXl8dFb+qsL/M1+J6JYt6lvpcY+DqHOwZzUsX+VAsFNYLPRDaHrBQd5k5j/xdBNzeol467nNCAoOuNL1TtWFArAIEA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=heitbaum.com; dmarc=pass action=none header.from=heitbaum.com;
- dkim=pass header.d=heitbaum.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=heitbaum.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=es+8Kv+YIotAohjSsiZ85UgPuPmS3W1il9OTYJoC8ss=;
- b=rCQFZe/beVeimMYfkhY6eyukxvOz215WJp6DhRiDmi4soczxB6kJofm7IEgdtROXZP+0Y1zILmy1PmbHpHQOEecQD8Jb/WwrwenQ/U5VoVH5jb3niTiYF2FETAfv7UNmcns5xm0PmnQ6Z/Whw5zcmKju55knwEEdTT2wHWKvT688Ao7cXLFuUrq8I2RwnSG3HZ+kTdgd8bS/xJhbxXV27bEueUkBLR0b3nAQ7VqFfgllzwlqLtkIQcySsqqaWOpm531VUd3jHzD9WKK06rDX3BgjXQ2NKrPqtYeiy5FO5QiTTHsCm1pySeslDVvsDKrz30BIfjBEdcJorgMf2x7VcA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=heitbaum.com;
-Received: from SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM (2603:10c6:10:279::22)
- by SYBP282MB4053.AUSP282.PROD.OUTLOOK.COM (2603:10c6:10:1a4::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.25; Sat, 8 Aug
- 2026 10:14:41 +0000
-Received: from SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM
- ([fe80::21b6:91f8:614d:1fdd]) by SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM
- ([fe80::21b6:91f8:614d:1fdd%4]) with mapi id 15.21.0292.024; Sat, 8 Aug 2026
- 10:14:41 +0000
-Date: Sat, 8 Aug 2026 10:14:27 +0000
-From: Rudi Heitbaum <rudi@heitbaum.com>
-To: imx@lists.linux.dev
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	rudi@heitbaum.com
-Subject: [PATCH v2 5/5] arm64: dts: imx8mq-phanbell: Enable the rt5645 analog
- audio
-Message-ID: <7b0c26c6741c64291e03f668ce961c47cbcb0772.1786177290.git.rudi@heitbaum.com>
-References: <cover.1786177290.git.rudi@heitbaum.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <cover.1786177290.git.rudi@heitbaum.com>
-X-ClientProxiedBy: ME3PR01CA0045.ausprd01.prod.outlook.com
- (2603:10c6:220:f7::13) To SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM
- (2603:10c6:10:279::22)
+	Sat, 08 Aug 2026 10:43:05 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4994d41ceb9so654275e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Aug 2026 03:43:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786185781; x=1786790581; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=2qu55O0ynnLqL5BTIsWmcyB62JZff9IWE/mdM9/Md6o=;
+        b=Xtf6RFqlrD5vMMtTXmIrkviLcKbsUXYKIbLEclzaez/dcEiLBW59pVlwkIlX2Au5ft
+         ln84WAcCiYSCcswSCzIS7xBnL8Wdj0urzFqvxZII6qRH3wLQj9eWXN2wF2UqzxidUaXn
+         ZZoLlRh9zhyshsYdaQDmf64n5sYtzGCDUNNoW+14HvUy0w8qYgXBHLwQg432ZpdlGGu4
+         5+Y6tRiaQ2aoua0X9pNL43oY7UWJetSh5Z8Yc/dMVEHjb3wAXcIXbap4EQIPXfxlOeXz
+         tSlcpISD2qAUyfkP/OcEPM+ZkUlvn7nRyD2nse46QiV6teGW0poOWuMfXc4TghjYCVuK
+         n7cQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786185781; x=1786790581;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=2qu55O0ynnLqL5BTIsWmcyB62JZff9IWE/mdM9/Md6o=;
+        b=MhyeQZG4x6YRiDR6picQPq8OpyA0jrj1E62+frIkJy20Yd7E/3G3aMh5nj64aL347B
+         jLEWy26bUHT1rP8hELHI0n3hsT3PAr/qk4axgyexQlBaPrnCPhOJwWhq5mExlIEzXWi5
+         FqJwxDnxKznwdDysUVvWhvMJUS9YpOgTDcFRO9mZ7jxVUzxeMboxUE/zRA8P9x23xU8V
+         2ERk1I+0bomdrAiYG8iVNJPFqkqGm6Pcmf6lX/Gs0o0e/xRFhINt+pXWup5L72RZjKhk
+         GBEQe+3i4u4PoQkGkYKC4z/svUYyA0WnyRy+qlyTTokg78Pr5WkLJ5clL979FOceoEIk
+         +rzQ==
+X-Forwarded-Encrypted: i=1; AHgh+Ro5rLMsTd5XDk1swaHRaVGM7sTAq3KI9gSAx097leTV/o8nn75LHJF4KK8zD6eeifzIjeYA+gknwJtI+7r5PX3Q@lists.infradead.org
+X-Gm-Message-State: AOJu0YyNlG7EKmv/UMfTQGuae3LnT7cvegtMgEI5MNC448emHO+uT2Y3
+	tHzs4dH03eyWQKeU5o7ZKqj48zA5hMCk5x3glOzWrX0KkvUmyz3AEsVW
+X-Gm-Gg: AR+sD10mmqoVcI3sQDpRIOUxHlW8WObunOvoQyo2C6lGlJrTVdRkgLZ3t0TSz0+vkB3
+	UhBWIqWXEaHJyF5Hxnw5GpS8kxK8N2WjakofegGygprHztHvi4ql6o33Us4qbLR2y0xyKgOeEQY
+	YO0/et21FbZzi7NVwGjNdoU6wI9BWnEfrn4w8bvokhDwElNXU8s7XmaW68JDavjKECxgZ17eRDH
+	BrVT64YIciWmlbdSSRH4fuLwUYjGy8vj4YS0tm7j6Izhtm4XbJybORJEaW2SK/QqK7YB/c9VolJ
+	ih1EitVo/g1ZFuQWP1LHRL+XGISdwQCiqaIQsAzM+pI+mmPnctpIYxyYBm4ysLEZf8tb1CNNBiG
+	0A72DjAHAIIg0LUPc5dvuaZWsX0g65v2X1y9+l+2IF3eXmmM6Cv6oV2CRwSewk8MsgMvy9Ts+4h
+	wymCa7XwYmHPuz/mLkOuBlAp68556dULp2rHHz/s8xMvVteJ/XkvkJXLM6KyRSoKdm0y1GoZ8c3
+	JtC01YwGm6Mu+SoE/F/zjcUtmnYdkPyUpAMLHLuE4MnFwj7XBDw+lsMd+mdJDyvoTtd8A==
+X-Received: by 2002:a05:600c:3b9e:b0:496:bbce:ef with SMTP id 5b1f17b1804b1-4994e7c3321mr217494125e9.3.1786185780722;
+        Sat, 08 Aug 2026 03:43:00 -0700 (PDT)
+Received: from OrangePi5-Plus.BB-HOME (20014C4E1B8E20009911270F4BEC2300.dsl.pool.telekom.hu. [2001:4c4e:1b8e:2000:9911:270f:4bec:2300])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4800215078asm13324152f8f.12.2026.08.08.03.42.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 08 Aug 2026 03:43:00 -0700 (PDT)
+From: Igor Paunovic <royalnet026@gmail.com>
+To: dri-devel@lists.freedesktop.org,
+	linux-rockchip@lists.infradead.org
+Cc: Igor Paunovic <royalnet026@gmail.com>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Sandy Huang <hjc@rock-chips.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: drm/rockchip: vop2: ACLK_VOP pinned at 500 MHz starves DP 4K120 on RK3588
+Date: Sat,  8 Aug 2026 12:42:29 +0200
+Message-ID: <20260808104240.13776-1-royalnet026@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SY7P282MB4909:EE_|SYBP282MB4053:EE_
-X-MS-Office365-Filtering-Correlation-Id: d5b494f3-0ef0-4ac1-b814-08def535dc4f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|23010399003|18002099003|22082099003|10067099003|56012099006|3023799007;
-X-Microsoft-Antispam-Message-Info: UwEkAwSDu/2KoMQxduqaagGvlg8kLkwnsMCf6vHfgMK+1N76S8F88QN7s134W9a+D/8MYktVepSatdGdxAbsEOLBkhDQnDZBMPBO62sIVqgJOVXzWmj5CjZcGb5vziz9+FqKg3FzI1C74qZf9wqlrvaA1pxbMSEOKSTcJGYnsRR2SuPC1/P6tYr8kilWDdMiUENAmvoQOezRfM2Ve/ycFMd3NcfuhNt8JPSTWdMtX5BB73KMlWITxurRve1Hea9RWOxp46p0bSj/WVyg7HXoZGhnowStJbx2HwJH4a2kMM2S+yBPMqx4DuOx9oYdcTmbuPYjeSsnexQTf9jmZReBbl1FFyz7gbFKJdrVhD5g9G34bKi0YhIBndFSNjTqjIRpYZn1pDkftvs1AV0idaFFUkhsixKEOAjgODTdbRJlLNryHvvC5M5UGP9RGNY+aWe3C8oCUc6/fxBOTbiaEjvdK+yAlt96aG9Nq6GJ9/j5L3eHMSyFljwH4ncFOneob3EJqm24cDEmGan18JMAXDhcpfmrZmAuc9Rhq369x7AkeaYM1ZHNbCKh8DRO3IDSIroUIQa42vfpP0hhq1MRh1zTPwS1oft22GrMWud2bch0E0Ndfu+4idccFuh8E080eM1XzT0JcquXKsODkh9VLFm+5Sh9jHRsQopUThcqn9Ig7zg=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(23010399003)(18002099003)(22082099003)(10067099003)(56012099006)(3023799007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?xZXa67TbxDlE/w643FAtEXnWpiXNmMaJRDthUgf/6taC/X1XI/APGEZLbwsG?=
- =?us-ascii?Q?1nYGsOihf4AbEJRsOm7HbBiWCCK3liP8WwWnkVKOUJJXeQjpgAGVSB3Bxlio?=
- =?us-ascii?Q?k2rKTY9bDveGyXIqUkrKmV2LFbvy0b+XvLltDGoWJGrrvEZgO4W5x6KaWxvY?=
- =?us-ascii?Q?CF/KJYsqheWEjXY84Bxck+5iiq1xlkf6M0dVqonzdRvE9g+1AvTBMDFmCrKh?=
- =?us-ascii?Q?LUyjcSoenwwK/NeT32f71M7n3AqmB9un20jPUY/PNFPVkAusTmxbgvgBxixK?=
- =?us-ascii?Q?U52KRhuwknwSsiELpCN1EszrkAqyq2J/tPKWCKcUZmUqMg/Wvg3T/DtjpkV5?=
- =?us-ascii?Q?wcOBOaXoSx46ws1YYmfSu7fF94qkm2WQtui6qLJWT4wL9Zb7sCb+PLRHUzqK?=
- =?us-ascii?Q?zN7mV1gaLxEAOxrvXBXXRJTuAQ+Iqqx0Rjr8AB5qgCvMXG5MNAslsOB/n/X8?=
- =?us-ascii?Q?3TyBrRKzAjEJph3sA1hemyfIqNdhl9k1DVXoEyChKJIW3a+fN9mnKRpR6RWr?=
- =?us-ascii?Q?/3EHJtQ4swLQeu8ylh1lTTbIRFYEnOxwVpeTtIe+0G9ytk3ekEU+o0+GwQpC?=
- =?us-ascii?Q?dSfEwr0QOVwhnhQnjA3xnyPXRPSq/quzsS/FupuT/A1SA9dIQvPIHSGmMknw?=
- =?us-ascii?Q?jO2Uxd8VCZT9rjwVnPg1mBXS7afnTpozvjU6ujEDlF1AXJraSzNysORZSNwv?=
- =?us-ascii?Q?gDnmKI9zl2MtFVaqHO5vgI6eltCWfb5hcijF7PbD/gBqVt36gEcesV39YBen?=
- =?us-ascii?Q?p2h7JvOSRLcK+R4Lu6dhse4bs13w9UMn3aMFErlFPg+EnHBfdQmaclet+Usp?=
- =?us-ascii?Q?qv2IVqCtKB1j1UMCZt4nn1Dm3dOV7sgVPuPQEV7tu0mmCpU9mUQI4NI2pNhx?=
- =?us-ascii?Q?YRnZw2u12rgJ98zWO8KxWzOe22Dh48pGBvc8DiB8SaLe1U53lDh9JTqOr9wT?=
- =?us-ascii?Q?Eo9FzahVimT7g2x/UU1rtCOVGbbjWiUY9pbbyCIyI3Bsai0UuzCq7LDB1tHw?=
- =?us-ascii?Q?j76OLkGDooIMjhPYLEmeUFvsQ5DGU7ZbUbZ5ipUkfbgQOLtorDzoH5a3g4D3?=
- =?us-ascii?Q?x3Oj4e5u1k0vSus/+500xeVSjTVXNUQ916/lM8Hx2OoAGS9FBEGZOG3GbqEP?=
- =?us-ascii?Q?zKPH/rvQrCg+Wq/cVZTPIu8BLVU6+YzMXNRxeSAiliti47FPPMddlKnEctfF?=
- =?us-ascii?Q?50pBUWPozlG6IVc4CbhQm+pgtDXQGaAnwf3Id9xTOVWX9EbUZnxqbsbM9oxG?=
- =?us-ascii?Q?URyElviZ8Ry2Hk/+cUd9eyvkWbbgLtM2Su+rq+vhSUXPr9CSfs6Cb6EyR6Yv?=
- =?us-ascii?Q?CKU7Bn9j1eG8Nkpc/e9mCWu6eDg1APNn/BQm+VtvGLf+IOC9iBH35lTapoa3?=
- =?us-ascii?Q?LM0FxY+TdC+KJR2KwDuI9FXw7AVT7uY5aCkWARJjqbOvf07op6mdpn/669Yl?=
- =?us-ascii?Q?CagKlXwRue8PxX6HcSW2dyNnRfcEvqESg/ofXrQn3ZaWAqMMiumDuAYozD7n?=
- =?us-ascii?Q?/5L/KgzLSEGzGAQMXZ41FnpfLUIjPisjvNUom0NhPj5sH/g9J9hNxeVLjHWD?=
- =?us-ascii?Q?bxXK9eGAuhWQ8p5TJ4ZbqHSeikqOZsFKAT2y6dXKc5NJQ+r7lwKwPfIxoN3d?=
- =?us-ascii?Q?qMEPle2mgTCbHd6WBxALL104RWVSJd2xuHAEdLiAWAX+wusq4uQa0a6VCs0/?=
- =?us-ascii?Q?nGjdeFgLlXMiXyH3bsvttluVdfHxb2y4m8jZLnop7JhORnAs0y7Medtw2AQ7?=
- =?us-ascii?Q?L6e7yu7f5A=3D=3D?=
-X-OriginatorOrg: heitbaum.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d5b494f3-0ef0-4ac1-b814-08def535dc4f
-X-MS-Exchange-CrossTenant-AuthSource: SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Aug 2026 10:14:41.2201
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 35ffebb5-7282-4da6-8519-efab29b0108e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: aXBapAyC48fc2vzQ/8PvvCB85X1Xf6faZlnBUoQa6alIn+V6FG91uwR+8TZZLwuxaMQQcybi5LmiAJDXf2PEWg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SYBP282MB4053
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260808_031446_620617_286A0F51 
-X-CRM114-Status: GOOD (  18.33  )
+X-CRM114-CacheID: sfid-20260808_034302_839599_212B8473 
+X-CRM114-Status: GOOD (  21.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,200 +106,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The board has an rt5645 on i2c3 driving the 3.5 mm headphone jack, its
-microphone and two on-board DMICs, fed by sai2. The vendor kernel drives it
-from a machine driver of its own, so its devicetree carries no widgets or
-routing and the graph is rebuilt here for simple-audio-card. micbias1 is a
-supply, so it is the source of its route rather than the sink.
+Hello,
 
-GPIO5_IO4 carries headphone detect and has to be muxed away from its reset
-function, or both hp-detect-gpios and the codec interrupt point at a pad
-that is still SPDIF_RX. Leaving realtek,jd-mode unset selects the mode in
-which the driver takes jack state from hp-detect-gpios.
+On RK3588 the VOP2 AXI clock is pinned to 500 MHz by device tree and
+nothing in mainline ever raises it.  For DisplayPort at 3840x2160@120
+that is not enough bandwidth, and the failure is not graceful: the
+video port floods POST_BUF_EMPTY interrupts and the picture is
+corrupted.
 
-Pin the slot width at 32 bits. With none set fsl_sai_hw_params() derives it
-from the sample width, and a 24 bit open then asks for a 2.304 MHz bit
-clock, which is not an even divider of 24.576 MHz, so hw_params returns
--EINVAL. 32 bit slots give a ratio of 8 and still carry 16 and 24 bit data:
-rt5645_hw_params() only writes a BCLK-to-frame ratio for AIF2, so on AIF1
-the codec ignores the padding bits.
+I mentioned this in passing when I sent a Tested-by for the dw-dp v11
+series:
+https://lore.kernel.org/all/20260808094138.7205-1-royalnet026@gmail.com/
 
-Declare both audio PLL families and system-clock-direction-out, which
-44.1 kHz needs. fsl_sai only reparents its mclk between the 8 kHz and
-11.025 kHz families if the node names them pll8k and pll11k, and
-fsl_sai_set_dai_sysclk() returns immediately unless the direction is out.
-Without either, 44100 stays on the advertised rate list while the mclk
-cannot produce it, and hw_params fails.
+The pin is explicit.  In arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+the cru node lists <&cru ACLK_VOP> in assigned-clocks with 500000000 in
+the matching position of assigned-clock-rates.  It is a deliberate
+assignment rather than a boot default, and it is identical in mainline
+and in the Collabora rockchip-devel branch.
 
-AVDD and CPVDD are required by the binding. Both come from ANALOG_1v8,
-which a baseboard DC-DC supplies rather than the PMIC on the SOM, so a
-fixed always-on regulator is the only description available.
+The rate request does propagate.  ACLK_VOP is registered as a gate with
+flags 0 in clk-rk3588.c, but drivers/clk/rockchip/clk.c adds
+CLK_SET_RATE_PARENT for every branch_gate, so a request on aclk_vop
+travels up through aclk_vop_sub_src (a mux carrying the same flag) to
+aclk_vop_root, which is a settable composite.
 
-Route "Headphone Mic" to IN1P, the pin the jack's sleeve reaches. Without
-it only the micbias supply route exists and the microphone input is not
-connected to anything.
+What I measured, on an Orange Pi 5 Plus driving a DP monitor over USB-C
+Alt Mode at 3840x2160@120 (YCbCr 4:2:0, so dclk sits at 594 MHz), on
+drm-misc-next of 2026-08-07 (dc2f9f7fed1a) plus the dw-dp v11 and usbdp
+v13 series.  I built with CLOCK_ALLOW_WRITE_DEBUGFS and changed the
+rate by writing aclk_vop_root's clk_rate in clock debugfs, one level
+up, which has the same effect.  The mode was unchanged across all three
+phases, so dclk stayed at 594 MHz and the AXI rate was the only thing
+that moved:
 
-Signed-off-by: Rudi Heitbaum <rudi@heitbaum.com>
----
-v2:
- - add avdd-supply/cpvdd-supply and the fixed regulator they need; the
-   binding requires them, so dtbs_check failed and the driver fell back to
-   dummy regulators
- - route "Headphone Mic" to IN1P
- - no clocks property on the cpu dai, deliberately. The fallback in
-   simple_util_parse_clk() picks the DAI node's IPG clock and
-   simple_init_dai() sets it as the system clock once at card init, which
-   is meaningless for the SAI but harmless - hw_params replaces it with
-   rate * mclk-fs before any stream starts. Naming a clock instead makes
-   simple_util_hw_params() call clk_set_rate() on it directly, bypassing
-   fsl_sai_set_mclk_rate() and the PLL reparent, and 44.1 kHz then fails
-   in hw_params. Tested both ways.
+  500 MHz:  vop2_isr reported ~594000 suppressed callbacks per 5 s,
+            roughly 119k interrupts per second, all POST_BUF_EMPTY on
+            the DP video port; picture unusable
+  750 MHz:  no POST_BUF_EMPTY logged at all for 42 s, the whole phase;
+            the picture became correct the moment the write landed
+  500 MHz:  ~607000 suppressed callbacks per 5 s; broken again
 
- .../boot/dts/freescale/imx8mq-phanbell.dts    | 95 +++++++++++++++++++
- 1 file changed, 95 insertions(+)
+Both transitions are immediate, and the timestamps line up with the
+phases of my test script.
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mq-phanbell.dts b/arch/arm64/boot/dts/freescale/imx8mq-phanbell.dts
-index 2d134eefb765..af4b9d266451 100644
---- a/arch/arm64/boot/dts/freescale/imx8mq-phanbell.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mq-phanbell.dts
-@@ -37,6 +37,14 @@ reg_usdhc2_vmmc: regulator-usdhc2-vmmc {
- 		enable-active-high;
- 	};
- 
-+	reg_audio_1v8: regulator-audio-1v8 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "BB_1V8";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		regulator-always-on;
-+	};
-+
- 	fan: gpio-fan {
- 		compatible = "gpio-fan";
- 		gpio-fan,speed-map = <0 0>, <8600 1>;
-@@ -46,6 +54,42 @@ fan: gpio-fan {
- 		pinctrl-0 = <&pinctrl_gpio_fan>;
- 		status = "okay";
- 	};
-+
-+	sound-analog {
-+		compatible = "simple-audio-card";
-+		simple-audio-card,name = "Coral Analog";
-+		simple-audio-card,format = "i2s";
-+		simple-audio-card,bitclock-master = <&sound_analog_cpu>;
-+		simple-audio-card,frame-master = <&sound_analog_cpu>;
-+		simple-audio-card,mclk-fs = <256>;
-+
-+		simple-audio-card,widgets = "Headphone", "Headphone Jack",
-+					    "Microphone", "Headphone Mic",
-+					    "Microphone", "Internal Mic";
-+
-+		simple-audio-card,routing = "Headphone Jack", "HPOL",
-+					    "Headphone Jack", "HPOR",
-+					    "Headphone Mic", "micbias1",
-+					    "IN1P", "Headphone Mic",
-+					    "DMIC L1", "Internal Mic",
-+					    "DMIC R1", "Internal Mic";
-+
-+		/*
-+		 * 32 bit slots regardless of the sample width. sai2 divides its
-+		 * 24.576 MHz root by an even integer only, so a 24 bit frame at
-+		 * 48 kHz would ask for 2.304 MHz, a ratio of 10.67.
-+		 */
-+		sound_analog_cpu: simple-audio-card,cpu {
-+			sound-dai = <&sai2>;
-+			system-clock-direction-out;
-+			dai-tdm-slot-num = <2>;
-+			dai-tdm-slot-width = <32>;
-+		};
-+
-+		simple-audio-card,codec {
-+			sound-dai = <&rt5645>;
-+		};
-+	};
- };
- 
- &A53_0 {
-@@ -272,6 +316,20 @@ &i2c3 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_i2c3>;
- 	status = "okay";
-+
-+	rt5645: audio-codec@1a {
-+		compatible = "realtek,rt5645";
-+		reg = <0x1a>;
-+		avdd-supply = <&reg_audio_1v8>;
-+		cpvdd-supply = <&reg_audio_1v8>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_hp_det>;
-+		#sound-dai-cells = <0>;
-+		interrupt-parent = <&gpio5>;
-+		interrupts = <4 IRQ_TYPE_EDGE_BOTH>;
-+		hp-detect-gpios = <&gpio5 4 GPIO_ACTIVE_HIGH>;
-+		realtek,dmic1-data-pin = <2>;
-+	};
- };
- 
- &fec1 {
-@@ -295,6 +353,27 @@ ethphy0: ethernet-phy@0 {
- 	};
- };
- 
-+&sai2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_sai2>;
-+	/*
-+	 * pll8k and pll11k let fsl_sai move the mclk between the two
-+	 * audio PLL families, so 44.1 kHz rates work as well as 48 kHz.
-+	 */
-+	clocks = <&clk IMX8MQ_CLK_SAI2_IPG>,
-+		 <&clk IMX8MQ_CLK_SAI2_ROOT>,
-+		 <&clk IMX8MQ_CLK_DUMMY>, <&clk IMX8MQ_CLK_DUMMY>,
-+		 <&clk IMX8MQ_AUDIO_PLL1_OUT>,
-+		 <&clk IMX8MQ_AUDIO_PLL2_OUT>;
-+	clock-names = "bus", "mclk1", "mclk2", "mclk3",
-+		      "pll8k", "pll11k";
-+	assigned-clocks = <&clk IMX8MQ_CLK_SAI2>;
-+	assigned-clock-parents = <&clk IMX8MQ_AUDIO_PLL1_OUT>;
-+	assigned-clock-rates = <24576000>;
-+	fsl,sai-mclk-direction-output;
-+	status = "okay";
-+};
-+
- &uart1 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_uart1>;
-@@ -383,6 +462,12 @@ MX8MQ_IOMUXC_GPIO1_IO00_ANAMIX_REF_CLK_32K	0x05
- 		>;
- 	};
- 
-+	pinctrl_hp_det: hpdetgrp {
-+		fsl,pins = <
-+			MX8MQ_IOMUXC_SPDIF_RX_GPIO5_IO4			0xd6
-+		>;
-+	};
-+
- 	pinctrl_i2c1: i2c1grp {
- 		fsl,pins = <
- 			MX8MQ_IOMUXC_I2C1_SCL_I2C1_SCL			0x4000007f
-@@ -410,6 +495,16 @@ MX8MQ_IOMUXC_GPIO1_IO03_GPIO1_IO3	0x41
- 		>;
- 	};
- 
-+	pinctrl_sai2: sai2grp {
-+		fsl,pins = <
-+			MX8MQ_IOMUXC_SAI2_MCLK_SAI2_MCLK		0xd6
-+			MX8MQ_IOMUXC_SAI2_TXFS_SAI2_TX_SYNC		0xd6
-+			MX8MQ_IOMUXC_SAI2_TXC_SAI2_TX_BCLK		0xd6
-+			MX8MQ_IOMUXC_SAI2_TXD0_SAI2_TX_DATA0		0xd6
-+			MX8MQ_IOMUXC_SAI2_RXD0_SAI2_RX_DATA0		0xd6
-+		>;
-+	};
-+
- 	pinctrl_uart1: uart1grp {
- 		fsl,pins = <
- 			MX8MQ_IOMUXC_UART1_RXD_UART1_DCE_RX		0x49
--- 
-2.53.0
+Everything I can drive up to 2560x1440@144 (about 586 MHz pixel clock)
+stays clean at 500 MHz; 3840x2160@120 (1188 MHz) does not.  That
+comparison comes from a mode sweep on my rockchip-devel based daily
+kernel rather than from the run above, and my monitor offers nothing in
+between, so I cannot bisect the threshold.
 
+In mainline rockchip_drm_vop2.c there is no clk_set_rate() on the VOP
+aclk at all; the only clk_set_rate() in the file is on vp->dclk.  To
+reproduce: enable dp0 on an RK3588 board - it is disabled in the
+mainline DTS, so this needs a board DT change - drive a DP monitor at
+3840x2160@120, and watch dmesg or the vop interrupt count in
+/proc/interrupts.
+
+The only code I know of that raises the rate is a commit in the
+Collabora rockchip-devel branch, "drm/rockchip: vop2: Scale ACLK rate
+up for RK3588 FRL display modes" by Cristian Ciocaltea.  It defines a
+750 MHz rate and calls clk_set_rate() from vop2_crtc_atomic_enable()
+and _disable(), gated on vcstate->frl_enabled with a refcount over the
+video ports.  I could not find it on lore, but I may well have missed
+it.
+
+If that is the intended shape of the fix, DisplayPort still would not
+benefit: frl_enabled is set only by dw_hdmi_qp-rockchip.c, and neither
+dw-dp.c nor dw_dp-rockchip.c mentions FRL at all, so the condition is
+HDMI specific while the bandwidth problem is not.  It also explains
+what I had been seeing since I enabled dp0 on this board last week:
+4K120 over USB-C only worked while an HDMI output happened to be
+running in FRL mode.
+
+Raising the DT rate to 750 MHz unconditionally would be simpler, but it
+would cost power on boards that never drive such a mode, which is
+presumably the reason for making it dynamic.
+
+Cristian, Heiko - hence my question: should the ACLK rate be derived
+from the bandwidth the enabled video ports actually need, rather than
+from an HDMI-specific link flag?  A per-video-port requirement combined
+with max() across the active ports would cover DP and HDMI under one
+rule and would not need a refcount.
+
+I am happy to prepare a patch along those lines if that is the right
+direction.
+
+Igor Paunovic
 
