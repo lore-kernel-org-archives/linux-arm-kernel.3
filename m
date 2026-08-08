@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D661C5AD56
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 23:18:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E4F1C5AD48
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 23:18:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gV4QRBMjF8SWDxF8bR0dzMkZJ2kMlPEch7VZ8Sz4gRc=; b=ipIn1TR15pJFQ57CK89xWStq26
-	FyEbKNC3bRQ2vsGV7NNPPz1yJSThfsdLyojIzGQ4oVtjlEuuWXkjWJBU+ML3xmUzHcdnsUUZncpVk
-	MorXQX+slV4qJBpM3GHmuCBjFPCowhLY+pYCLEysU13IdLcZgEc7QoUkJf0dslV4CPQLoxlY8x3n6
-	k2O+CzSWHv+CyV+2ChY+7avM4z9r7EagL5TEcRnGuWosbqUTjFqaOoOpjav9fBEwbLUmgHNl2SR/V
-	My/qaO/JMgj0l4DMEub/VSOhzjivMfQj3KGG4/eqYE0P/zHCj8jDdOghaEo7a4xb8COCKvzDkfTAU
-	bpk4cK0w==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LG5x7pYEt93Jfnp3xRtm3lDEif7tHGtyxh7/VUnQcBY=; b=eTC6xEyMvjewgngpiYsN8I72F6
+	iY2KfZUn85wncsgbIztxgXTDFmU/mAoRWwRpViyuNhe72ySq9c8tJGd0jAqj88TA3edgM7kOSadYk
+	T+EQmZ1Lv/fqBMQzExGVNKzRje1jfvVV4Yy+EuQSjJb1G9v/RvSGGr/Z2WNE+8bRc1mBsJA2oZFpQ
+	rs0/+RLokHgfWQKRRCHfU/CdWrV55EIb/ULPu2u58o1PNgFPmxlbXti+bGMxm8tqgbLs314WVZ4Jg
+	Eihey8dW9dXejn45eirgcAWar7JSrZFZTGMkxo8nkS1nLr80E3+U9Sa+K2gpy1hBbDDImL0PMT/Jm
+	ICFn59eQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsqJJ-00000009mC4-1ga2;
-	Sat, 08 Aug 2026 23:18:37 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wsqJ0-00000009m4E-42P5;
+	Sat, 08 Aug 2026 23:18:18 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsqJG-00000009m9b-4BRm
+	id 1wsqIz-00000009m46-1w1q
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Aug 2026 23:18:35 +0000
+	Sat, 08 Aug 2026 23:18:17 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 70D2D60A76;
-	Sat,  8 Aug 2026 23:18:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9873C1F000E9;
-	Sat,  8 Aug 2026 23:18:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B9113415D8;
+	Sat,  8 Aug 2026 23:18:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07F841F000E9;
+	Sat,  8 Aug 2026 23:18:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786231114;
-	bh=gV4QRBMjF8SWDxF8bR0dzMkZJ2kMlPEch7VZ8Sz4gRc=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=nAc5hpwNrSZ1ouVZFjbyGeSZn5j2elY1TzRKCTN/lK5f96kuAgdka1mLYO7o0P2dr
-	 F2Tyh6yMp3RpW5Rve6BNBxG+inmwfLWnd9pJ82afHZiyQj7H/i1vAfI6/XXy1gSQsm
-	 11vErT/6U4BaAJa7kLsX/AvEOY5RtoRBS0le4NTHkeTORomKVhXwQXAiEqfO071GB0
-	 SFoKcl1t/uhfJ43gvH6E1LsVI62QgvE+fTYnGE3gOOqcB4zR+SMCHuzjl6IJxENSSI
-	 lBWghi+LzluP3rd2ay8Gea88ktGKTA9Qql9s7i3VJ+JT+EMCnUThtD08J7qqF2w9+m
-	 owasDHEpY+vrQ==
+	s=k20260515; t=1786231095;
+	bh=LG5x7pYEt93Jfnp3xRtm3lDEif7tHGtyxh7/VUnQcBY=;
+	h=From:To:Cc:Subject:Date;
+	b=TWIBztWaXyiqlEd+EuDVD9lZMGZuy2NZSKjJWWmEOHKtl2vqcgorIxtNVilKnWWX6
+	 tLmFqwaW3XsoAxGSpn+9IdytZEuX71LS9TNR8rfIeqjh1w5clwMiVhk/au7sHw6ZhO
+	 XcQFCKeSkmSpYFqM6W1iAZT1adCkxEYcngc7v9FUEjHh2ujdhDazCSo0gIn1++TQ37
+	 heaDMzEUza7sp575H+21C9kIHUJEDTXWZLEBiu0DSmrwf+FMHN0TKx4YQ6IeP8orK3
+	 4alrinuQLckea9KUwW1ohmhesstftZfwt0x0YDeSiUMiOsVkeE60CyjVaRA2Rvqdcj
+	 7f7U/8qm3WIMw==
 From: Josh Poimboeuf <jpoimboe@kernel.org>
 To: x86@kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -58,12 +58,10 @@ Cc: linux-kernel@vger.kernel.org,
 	Herbert Xu <herbert@gondor.apana.org.au>,
 	Miroslav Benes <mbenes@suse.cz>,
 	Petr Mladek <pmladek@suse.com>
-Subject: [PATCH v4 10/22] objtool: Allow setting --mnop without --mcount
-Date: Sat,  8 Aug 2026 16:17:14 -0700
-Message-ID: <339aa792e9eec6de991f72bb3afc6016ddeb3d79.1786230311.git.jpoimboe@kernel.org>
+Subject: [PATCH v4 00/22] objtool/arm64: Port klp-build to arm64
+Date: Sat,  8 Aug 2026 16:17:04 -0700
+Message-ID: <cover.1786230311.git.jpoimboe@kernel.org>
 X-Mailer: git-send-email 2.54.0
-In-Reply-To: <cover.1786230311.git.jpoimboe@kernel.org>
-References: <cover.1786230311.git.jpoimboe@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -80,31 +78,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Instead of returning an error for --mnop without --mcount, just silently
-ignore it.  This will help simplify kbuild's handling of objtool args.
+Based on tip/objtool/core + the following fixes:
 
-Acked-by: Song Liu <song@kernel.org>
-Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
----
- tools/objtool/builtin-check.c | 5 -----
- 1 file changed, 5 deletions(-)
+- https://lore.kernel.org/cover.1786138493.git.jpoimboe@kernel.org
+- https://lore.kernel.org/ed4fe1f95071897859ec7fbe9176246cbd4962bf.1786138806.git.jpoimboe@kernel.org
+- https://lore.kernel.org/1b5ccfa8095bdb1277f84af1c2c2e2205aca03ae.1785992188.git.jpoimboe@kernel.org
 
-diff --git a/tools/objtool/builtin-check.c b/tools/objtool/builtin-check.c
-index 75b11dc85010e..b89c7dc7983f3 100644
---- a/tools/objtool/builtin-check.c
-+++ b/tools/objtool/builtin-check.c
-@@ -145,11 +145,6 @@ int cmd_parse_options(int argc, const char **argv, const char * const usage[])
- 
- static bool opts_valid(void)
- {
--	if (opts.mnop && !opts.mcount) {
--		ERROR("--mnop requires --mcount");
--		return false;
--	}
--
- 	if (opts.noinstr && !opts.link) {
- 		ERROR("--noinstr requires --link");
- 		return false;
+The full set (including the above fixes) can be found on the following branch:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/jpoimboe/linux.git klp-build-arm64
+
+v4:
+- Replace "objtool: Allow empty alternatives" with "arm64: Remove unnecessary empty alternatives" [Peter]
+- Add "objtool/klp: Fix .kcfi_traps special section extraction" [Joe]
+- Fix vmlinux.o objtool options leaking in from Makefile.lib [Sashiko]
+- Tighten jump-to-end-of-function check [Sashiko]
+- Drop unneeded linux/kconfig.h include [Sashiko]
+- Fix bisectability issue with is_mapping_sym()/is_data_mapping_sym() [Sashiko]
+- Add missing ALLOW_ERROR_INJECTION() to arm64 syscall macro [Sashiko]
+
+v3: https://lore.kernel.org/cover.1778642120.git.jpoimboe@kernel.org
+- Too many changes to list.  Did a lot of testing and fixed a bunch of
+  issues (many of which have already been merged in tip/objtool/core).
+
+v2: https://lore.kernel.org/cover.1773787568.git.jpoimboe@kernel.org
+- patches 1-2 were merged, rebase on tip/master
+- improve commit message for "objtool: Extricate checksum calculation from validate_branch()"
+- add review tags
+
+v1: https://lore.kernel.org/cover.1772681234.git.jpoimboe@kernel.org
+
+Port objtool and the klp-build tooling (for building livepatch modules)
+to arm64.
+
+Note this doesn't bring all the objtool bells and whistles to arm64, nor
+any of the CFG reverse engineering.  This only adds the bare minimum
+needed for 'objtool --checksum'.
+
+And note that objtool still doesn't get enabled at all for normal arm64
+kernel builds, so this doesn't affect any users other than those running
+klp-build directly.
+
+Josh Poimboeuf (22):
+  objtool/klp: Fix .kcfi_traps special section extraction
+  klp-build: Reject patches to init/*.c
+  arm64: Annotate intra-function calls
+  arm64: Fix EFI linking with -fdata-sections
+  arm64: Rename TRAMP_VALIAS -> TRAMP_VALIAS_ASM in asm-offsets
+  arm64: vdso: Discard .discard.* sections
+  arm64: Annotate special section entries
+  arm64: Remove unnecessary empty alternatives
+  crypto: arm64: Move data to .rodata
+  objtool: Allow setting --mnop without --mcount
+  kbuild: Only run objtool if there is at least one command
+  objtool: Ignore jumps to the end of the function for checksum runs
+  objtool: Refactor elf_add_data() to use a growable data buffer
+  objtool: Reuse string references
+  objtool: Prevent kCFI hashes from being decoded as instructions
+  objtool/klp: Add arm64 support for prefix/PFE detection
+  objtool/klp: Filter arm64 mapping symbols in find_symbol_by_offset()
+  objtool/klp: Don't correlate arm64 mapping symbols
+  objtool/klp: Clone inline alternative replacements
+  objtool/klp: Introduce objtool for arm64
+  klp-build: Support cross-compilation
+  klp-build: Add arm64 syscall patching macro
+
+ arch/arm64/Kconfig                            |   2 +
+ arch/arm64/include/asm/alternative-macros.h   |  27 +-
+ arch/arm64/include/asm/asm-bug.h              |   2 +
+ arch/arm64/include/asm/asm-extable.h          |  21 +-
+ arch/arm64/include/asm/assembler.h            |   4 +-
+ arch/arm64/include/asm/jump_label.h           |   2 +
+ arch/arm64/kernel/asm-offsets.c               |   7 +-
+ arch/arm64/kernel/entry.S                     |  10 +-
+ arch/arm64/kernel/proton-pack.c               |  12 +-
+ arch/arm64/kernel/vdso/vdso.lds.S             |   1 +
+ arch/arm64/kernel/vmlinux.lds.S               |   2 +-
+ arch/x86/boot/startup/Makefile                |   2 +-
+ include/linux/annotate.h                      |  14 +-
+ include/linux/livepatch_helpers.h             |  20 ++
+ include/linux/objtool_types.h                 |   1 +
+ lib/crypto/arm64/sha2-armv8.pl                |  18 +-
+ scripts/Makefile.build                        |   4 +-
+ scripts/Makefile.lib                          |  52 ++--
+ scripts/Makefile.vmlinux_o                    |  18 +-
+ scripts/livepatch/klp-build                   |  24 +-
+ tools/include/linux/objtool_types.h           |   1 +
+ tools/objtool/Makefile                        |   4 +
+ tools/objtool/arch/arm64/Build                |   2 +
+ tools/objtool/arch/arm64/decode.c             | 177 ++++++++++++
+ .../arch/arm64/include/arch/cfi_regs.h        |  11 +
+ tools/objtool/arch/arm64/include/arch/elf.h   |  15 ++
+ .../objtool/arch/arm64/include/arch/special.h |  21 ++
+ tools/objtool/arch/arm64/special.c            |  30 +++
+ tools/objtool/arch/x86/include/arch/elf.h     |   2 +
+ tools/objtool/builtin-check.c                 |   5 -
+ tools/objtool/check.c                         |  52 ++--
+ tools/objtool/elf.c                           | 170 +++++++-----
+ tools/objtool/include/objtool/elf.h           |  48 +++-
+ tools/objtool/klp-diff.c                      | 254 ++++++++++++++++--
+ tools/objtool/klp-symid.c                     |   2 +-
+ 35 files changed, 843 insertions(+), 194 deletions(-)
+ create mode 100644 tools/objtool/arch/arm64/Build
+ create mode 100644 tools/objtool/arch/arm64/decode.c
+ create mode 100644 tools/objtool/arch/arm64/include/arch/cfi_regs.h
+ create mode 100644 tools/objtool/arch/arm64/include/arch/elf.h
+ create mode 100644 tools/objtool/arch/arm64/include/arch/special.h
+ create mode 100644 tools/objtool/arch/arm64/special.c
+
 -- 
 2.54.0
 
