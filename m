@@ -4,97 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17684C5AD2C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 08:32:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F20AC55174
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 08:41:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=VKPZin59jcLEgsj7vGd6U8AiKKUkanMgykS2/LGEdhs=; b=gSL+OjOkUbrcAzgfls3AamTDWL
-	sBvcgEDNt0I+EpF7BIqOWHCn579ANrLTnU01rvE0l7BNqeiN1xLnXiUYTEHNuJhd2QvJaLc+FHgK5
-	eLNTA0geT1FnjNlLU69CdrEroWJDk1Z5+1bXZkoFkTkUYLTtqU86Z7BzCcZlT4F+dhDYeGHBU5Xb7
-	2WMPMrlQs0aL3M1lSPYZ+GpTbUUb4lVmQqUTRYzBH+TXPuvD6ZS9D/fyy+UHaGR7zgypMExAxajOp
-	3s42GPQVx6NNhR49RDuFWa4ZoDs08fAUaJ4MIGtjM213Qmeck3war0/1TwHZrKl+k30XJLUewnM3L
-	Mm/kQ05g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oYbHM1vJ7ZgROmF2e4fVFb9BfOOu7HRtmQzEsZWunto=; b=WHSdI8Y9RVXC3KMTqQLcpupaXZ
+	DbWnqWxMPSqn73fxZ4G0dfFpxpEYnj+NlgkZAdPMNHUv4dYv5xDe2H0b8OKAVXWLxQdn3bRTDoWs0
+	Jh3HJAFf+fmskUK55lj+WFubgWFN7Bz83tkyzY7bo8tLZNtugivsV0VnXPUlhQ7Jv3pl9p8NvfWiZ
+	7Q22PAOEncgc+fxryatXclXjkahGrjolEVFC5f3BLSkUy7ETj8oadNOQ0EryCw7BFFEhbYWFXIAFx
+	B3yqFV28zdw8i9H+GRN3UsV7tVncKMdwvMvk8pFhd5GtGoRRKMcvvQuLESz6bi/6qYjrR8ZKTgQKJ
+	GunCmHSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wscTE-00000009AeH-2lZD;
-	Sat, 08 Aug 2026 08:31:56 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1wscci-00000009B1E-2Hqv;
+	Sat, 08 Aug 2026 08:41:44 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wscTC-00000009Adu-0R3t
+	id 1wscch-00000009B17-2eBA
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Aug 2026 08:31:55 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-38dc69c74b8so293821a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Aug 2026 01:31:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786177913; x=1786782713; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=VKPZin59jcLEgsj7vGd6U8AiKKUkanMgykS2/LGEdhs=;
-        b=gUPbRr/lQVWFU4Xx2HA+JA70u6purHpZxYa+Di7BW62cjowHAE2SJK8Ypt/xhMa6uN
-         jVjLD6OB+j9FIzHs21YiaikNA6vIyNbzOEQmFgYvJxv2GdnzTXlzSzLwK9KDsMRphjU/
-         hXVUBsVdPFckLb8ZdbGGQVBAgxTgO/AqJ5WZ77rIDC84iDE44/6gjixjnW3BUZqEUbtH
-         OAdV0gSrK63gEfBhy1rWK4wv5xwN1perFFIch5Zayu5zMqw9ieIpMqvC3Wu+DTWrhfkk
-         NDYpkptEEOIXAIibotoFb6ayhDk+AK2AaYfepEbuQ5sYUGSNAgMJCu9IIh/t4xSViWZI
-         ItLA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786177913; x=1786782713;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=VKPZin59jcLEgsj7vGd6U8AiKKUkanMgykS2/LGEdhs=;
-        b=WuTkrLYFIhLa6nqsWn43zWKg+3wjdtcwi5LdRAkAvsKka7UALi8ETnx2k6IMP2bxui
-         ifHIRgIGkN0F1ulACIX+uX5eE2G4IJDsBTnZ9sScVA1wWV2sXkaFPkLgKRDIItRYzAXx
-         56K/NGej4YjfiX9C0Ljg/QoDH+4ySUUJbX/HIyCNVAe1P7DSZpP4NA/rFXkqvEEbqgVe
-         U7L+ZybhTHJc6NpKsbVyeMlyD/RSmLVGriaUKjgtu1EnWjf0iqXFnJdll4SHReeEvCWx
-         1W4uHhSTZbAysgfm3iozwW2kXF0YUGhtgTA9FkurARv5R3+EcdM/GKj2zmXH5c0egcBE
-         rlNw==
-X-Forwarded-Encrypted: i=1; AHgh+RqT9/poH7rVE+CB/rAgYADfOdG+n9mnohDm2aLQMtLIS4G2u91d/lXcq1pp308Ga0syOVIOw6NIOpBed5+brwX4@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzn+beA8wkygZ2MhWfPahNZsYt1H7te3koCo1xP0Hdb1xODBHSS
-	WZVIld4mEpZQs5EJ6qG2SOtNfvTuOIjr/i4P1/p4Fc11E15SSBZu73uu
-X-Gm-Gg: AR+sD13wPHfgWIws0xDlw3ez+n4gAGYVLNfBqLfTVs6gWhTwDQypvLcQRQEal4SMf5U
-	1cPvl9pLk+zWMRYfjCXxzDV7Yg6MBoIOrffhJXHeIZwPEjRgxYAlqZIx561Pr3jJoKFtQsuMQUt
-	DLyFIedVnQFcakpgMyihnt9QC8Y4nucSpdY1/v+PYkeMj/rOIego/drHG50tzZN0N8aHnS5XjER
-	11/767kEueLPcOU0oefYXwzvnBdi/KyUXER8FpH+sUU/Hif8n+5/Frb2uqJi46aHecEFCdMivfi
-	hmhXSepbkGrWh0UbITinrqYeeYhuUD1ac4lobBLVC25vebZy7MyQzvvRyuzlkw1nkq/7lg29mFM
-	hMa2woktaDt3nK5qgtl3xCzBNjbCA3zDPxV036sj/yuQiv9HyzLLzaW+ju62FkNuYCswm4IiW0Z
-	/7WUinvY8ZsSDMXtMQhwxJwtHtW9QXpQP5pjHHskfk+B8=
-X-Received: by 2002:a17:90b:1d4f:b0:38f:7f60:ba35 with SMTP id 98e67ed59e1d1-3903c5381d6mr27967961a91.5.1786177913049;
-        Sat, 08 Aug 2026 01:31:53 -0700 (PDT)
-Received: from lgs.. ([2001:250:5800:1000::f280])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39085de9f6asm7623040a91.7.2026.08.08.01.31.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 08 Aug 2026 01:31:52 -0700 (PDT)
-From: Guangshuo Li <lgs201920130244@gmail.com>
-To: Abel Vesa <abelvesa@kernel.org>,
-	Peng Fan <peng.fan@nxp.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney@redhat.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Dong Aisheng <aisheng.dong@nxp.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	linux-clk@vger.kernel.org,
-	imx@lists.linux.dev,
+	Sat, 08 Aug 2026 08:41:43 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id C436641453;
+	Sat,  8 Aug 2026 08:41:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 899111F000E9;
+	Sat,  8 Aug 2026 08:41:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786178502;
+	bh=oYbHM1vJ7ZgROmF2e4fVFb9BfOOu7HRtmQzEsZWunto=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=AgrKIWafk6nNePE4pN+KbC1IIY/La+oPxeIqnbIvh29knKD0FFzwxM7mG98fctUjJ
+	 v58GVlLYonD61hoQpRcL6nFccRYUZ5afpCBqKeVmAy/br6WdT2sY14Rd6BtzAkvQfW
+	 QcF6phEZVXfNPecvXzO49Hb0DGP0crcnRundxCGekAqPiXifgIIphaOeEfF+jHcqZo
+	 3IW/C0+/zlX1IncIGcdUK/42PimVyzq0PlLLX95KOyvOV6bEyc8JnaNjqcd9KsRoZk
+	 THL3f6jCNUHEqk8kkb8Ab2KKLbF8kHg9dq46q469ht0knuaphs18mgD9bejzsyTKBV
+	 FgCr4SxqSo7OA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wscce-0000000Dcrl-1Czv;
+	Sat, 08 Aug 2026 08:41:40 +0000
+Date: Sat, 08 Aug 2026 09:43:04 +0100
+Message-ID: <87cxvtovdz.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Guangshuo Li <lgs201920130244@gmail.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Hyunwoo Kim <imv4bel@gmail.com>,
+	Yao Yuan <yaoyuan@linux.alibaba.com>,
 	stable@vger.kernel.org
-Subject: [PATCH] clk: imx: scu: fix autosuspend cleanup on probe failure
-Date: Sat,  8 Aug 2026 16:29:33 +0800
-Message-ID: <20260808082933.2692878-1-lgs201920130244@gmail.com>
-X-Mailer: git-send-email 2.43.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260808_013154_145194_1A8921EC 
-X-CRM114-Status: GOOD (  11.95  )
+Subject: Re: [PATCH v2 1/8] KVM: arm64: Remove VM-wide VNCR mapping counter
+In-Reply-To: <anXmBQRdORVwl6Rp@lucifer>
+References: <20260806091026.620700-1-maz@kernel.org>
+	<20260806091026.620700-2-maz@kernel.org>
+	<anXmBQRdORVwl6Rp@lucifer>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: ljs@kernel.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, fuad.tabba@linux.dev, imv4bel@gmail.com, yaoyuan@linux.alibaba.com, stable@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,51 +92,187 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-imx_clk_scu_probe() calls pm_runtime_use_autosuspend() for non-CPU
-clocks, but its probe failure paths do not call the matching
-pm_runtime_dont_use_autosuspend() before disabling runtime PM.
+On Fri, 07 Aug 2026 17:45:17 +0100,
+"Lorenzo Stoakes (ARM)" <ljs@kernel.org> wrote:
+> 
+> Bear with me being verbose here, as this is both nascent review + learning
+> :)
 
-If the autosuspend delay is set to a negative value while autosuspend
-is enabled, the runtime PM core increments usage_count to prevent
-runtime suspend. Without calling pm_runtime_dont_use_autosuspend()
-during cleanup, this reference is not dropped and usage_count remains
-unbalanced.
+No worries.
 
-Add the missing pm_runtime_dont_use_autosuspend() calls to the probe
-failure paths before disabling runtime PM.
+> 
+> On Thu, Aug 06, 2026 at 10:10:19AM +0100, Marc Zyngier wrote:
+> > The global VNCR mapping counter is used to decide whether an L1
+> > provided VNCR page is mapped in L0 on any CPU at the point of
+> > dealing with a TLB invalidation. It is incremented when a mapping
+> > is made in the fixmap, and decremented when unmapped.
+> >
+> > As it turns out, this tracking has several flaws:
+> >
+> > - we are trying to invalidate TLBs, and the mapping is only an
+> >   opportunistic consequence of the TLB. Checking this counter to
+> >   decide whether a TLB needs to be invalidated may result in missed
+> >   invalidations.
+> 
+> Is it largely the self-invalidation mentioned below or are there other cases?
 
-This issue was found by manual code inspection.
+No. The self-invalidation is only an additional consequence outlining
+that even the most basic requirements cannot be honoured.
 
-Fixes: 78edeb080330 ("clk: imx: scu: add runtime pm support")
-Cc: stable@vger.kernel.org
-Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
----
- drivers/clk/imx/clk-scu.c | 4 ++++
- 1 file changed, 4 insertions(+)
+The thing to realise is that is that we are dealing with two separate
+"objects" when it comes to VNCR:
 
-diff --git a/drivers/clk/imx/clk-scu.c b/drivers/clk/imx/clk-scu.c
-index 9b33df9967ec..6d29fcc2306d 100644
---- a/drivers/clk/imx/clk-scu.c
-+++ b/drivers/clk/imx/clk-scu.c
-@@ -542,6 +542,7 @@ static int imx_clk_scu_probe(struct platform_device *pdev)
- 		ret = pm_runtime_resume_and_get(dev);
- 		if (ret) {
- 			pm_genpd_remove_device(dev);
-+			pm_runtime_dont_use_autosuspend(dev);
- 			pm_runtime_disable(dev);
- 			return ret;
- 		}
-@@ -550,6 +551,9 @@ static int imx_clk_scu_probe(struct platform_device *pdev)
- 	hw = __imx_clk_scu(dev, clk->name, clk->parents, clk->num_parents,
- 			   clk->rsrc, clk->clk_type);
- 	if (IS_ERR(hw)) {
-+		if (!(clk->rsrc == IMX_SC_R_A35 || clk->rsrc == IMX_SC_R_A53 ||
-+		      clk->rsrc == IMX_SC_R_A72))
-+			pm_runtime_dont_use_autosuspend(dev);
- 		pm_runtime_disable(dev);
- 		return PTR_ERR(hw);
- 	}
+- a SW TLB, which represent the guest VA to guest IPA to host PA
+  translations. This is the vncr_tlb structure, populated as we walk
+  the S1/S2 page tables. This structure's lifetime is controlled by
+  TLB invalidations from the guest, MMU notifiers from the host, and
+  natural eviction (there is only one such structure per vcpu).
+
+- a shadow page table that implements the translation at *runtime*, as
+  described by vncr_tlb. This is the per-CPU fixmap mapping. It's
+  lifetime is at most a vcpu_load/vcpu_put cycle, but it can also be
+  torn down by TLBI and notifiers.
+
+vncr_map_count only tracks the latter, not the former. Which means
+that if the mapping is not live on a CPU at the point of TLBI on *any*
+CPU, nothing will happen. That's a blatant violation of the
+architecture, and it could lead to memory corruption in the guest.
+
+The obvious fix is in patch 8, tracking the TLBs rather than the
+mappings.
+
+>
+> >
+> > - an L1 vcpu invalidating its own TLB (a very likely case) will not
+> >   succeed in invalidating the VNCR pseudo TLB because that page is
+> >   not mapped in L0 at this stage.
+> 
+> Ahh yes this is pretty compelling then!
+> 
+> >
+> > Given that this tracking fails at delivering the minimum guarantees
+> > that are required and is only a performance optimisation, remove it
+> > completely.
+> >
+> > Fixes: 4ffa72ad8f37e ("KVM: arm64: nv: Add S1 TLB invalidation primitive for VNCR_EL2")
+> > Reviewed-by: Yuan Yao <yaoyuan@linux.alibaba.com>
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> 
+> The change LGTM, it neatly removes the described mechanism which is well
+> evidenced.
+> 
+> Comments below that are largely me talking out loud as I learn things :)
+> 
+> Acked-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+>
+> > Cc: stable@vger.kernel.org
+> > ---
+> >  arch/arm64/include/asm/kvm_host.h | 3 ---
+> >  arch/arm64/kvm/hyp/vhe/switch.c   | 3 +--
+> >  arch/arm64/kvm/nested.c           | 3 ---
+> >  3 files changed, 1 insertion(+), 8 deletions(-)
+> >
+> > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> > index bae2c4f92ef5c..ac16f96c878d6 100644
+> > --- a/arch/arm64/include/asm/kvm_host.h
+> > +++ b/arch/arm64/include/asm/kvm_host.h
+> > @@ -411,9 +411,6 @@ struct kvm_arch {
+> >  	/* Masks for VNCR-backed and general EL2 sysregs */
+> >  	struct kvm_sysreg_masks	*sysreg_masks;
+> >
+> > -	/* Count the number of VNCR_EL2 currently mapped */
+> > -	atomic_t vncr_map_count;
+> > -
+> >  	/*
+> >  	 * For an untrusted host VM, 'pkvm.handle' is used to lookup
+> >  	 * the associated pKVM instance in the hypervisor.
+> > diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
+> > index bbe9cebd3d9d5..c09b1d411c584 100644
+> > --- a/arch/arm64/kvm/hyp/vhe/switch.c
+> > +++ b/arch/arm64/kvm/hyp/vhe/switch.c
+> > @@ -427,8 +427,7 @@ static bool kvm_hyp_handle_tlbi_el2(struct kvm_vcpu *vcpu, u64 *exit_code)
+> >  	 * If we have to check for any VNCR mapping being invalidated,
+> >  	 * go back to the slow path for further processing.
+> >  	 */
+> > -	if (vcpu_el2_e2h_is_set(vcpu) && vcpu_el2_tge_is_set(vcpu) &&
+> > -	    atomic_read(&vcpu->kvm->arch.vncr_map_count))
+> > +	if (vcpu_el2_e2h_is_set(vcpu) && vcpu_el2_tge_is_set(vcpu))
+> >  		return false;
+> 
+> So this seems to be the crux of it - seems to be 'is there any possibility that
+> we will need to check for VNCR mappings being invalidated?'
+
+Yup. If the guest's state is HCR_EL2.{E2H,TGE}={1,1}, then this is the
+guest hypervisor invalidating TLBs for itself (and not its guest), and
+returning 'false' takes us on the slow path where we'll have to look
+at the individual vcnt_tlb structures to find out if there is any overlap.
+
+> 
+> Checks:
+> 
+> * vcpu_el2_e2h_is_set() - is the guest host kernel (?)'s hcr_el2.e2h
+>   enabled? From what I gather hcr_el2.e2h is what allows sysreg_EL1 ->
+>   sysreg_EL2 for the host kernel to allow unmodified kernels to run in EL2.
+
+Amongst other things, yes. Please see FEAT_VHE in the ARM ARM for a
+description of what HCR_EL2.E2H==1 implies.
+
+>
+>   IOW - is the guest host kernel VHE?
+
+Note that for a KVM guest, if FEAT_VHE is present, the FEAT_E2H0 is
+not implemented, which means that E2H is RES1. As an additional
+restriction, we only expose NV to VHE guests. This greatly simplifies
+the scope of what we need to support, and conveniently hides a bunch
+of architecture defects that cannot be otherwise mitigated.
+
+> 
+> * vcpu_el2_tge_is_set() - Similarly tests for the hcr_el2.tge bit - and this
+>   seems to be is 'EL1 -> EL2 redirection on?' - IOW - is this a kernel running
+>   in EL2?
+
+Not quite. We know for sure this is running at virtual EL2 (we trapped
+with HCR_EL2.NV set, for a start). In the TLBI case, HCR_EL2.TGE
+controls whether the behaviour of a TLBI S1E1* instruction targets the
+host (TGE==1) or the guest (TGE==0).
+
+> 
+> Actually I see in is_hyp_ctxt():
+> 
+> 	 * We are in a hypervisor context if the vcpu mode is EL2 or
+> 	 * E2H and TGE bits are set. The latter means we are in the user space
+> 	 * of the VHE kernel. ARMv8.1 ARM describes this as 'InHost'
+> 
+> So I _think_ the combination of the two is checking to see if you're the L0
+> kernel that _could_ send TLBi's that need to be handled?
+
+The combination of the two bits indicates: is this a VHE hypervisor
+invalidating TLBs for itself. If yes, then we need to check the VNCR
+SW TLBs to complete the job.
+
+> Previously it seemed the logic was 'if there are no VNCR mappings present then
+> we can optimise by short-circuiting the rest of the processing in
+> kvm_hyp_handle_sysreg_vhe()'.
+
+Exactly.
+
+> 
+> It seems that the hardware TLBi has been processed by now so it's actually more
+> like - there's still work to be done maintaining the software TLB and that's
+> done elsewhere.
+
+Yup.
+
+[...]
+
+> I think this is all vaguely sane :)
+
+You have been assimilated.
+
+Thanks for reading thus far!
+
+	M.
+
 -- 
-2.43.0
-
+Jazz isn't dead. It just smells funny.
 
