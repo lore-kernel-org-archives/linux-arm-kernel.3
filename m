@@ -4,60 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14415C5AC67
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 18:35:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3859CC5AD44
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 18:36:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o0KEEUNR8mR+SFoRHY+bhTLUIfk8zA2xvwNVPzSAck4=; b=1ywg/OW/DscQbeLijvGkOeim8j
-	2DCiZuEe/jiOnp2eTzaeM71d9I5JDC2RkYysW9rbopMttVyx0WY5iWNhCgSRoiWkD7xr4GMvsww0u
-	Q6LdKEFNFfkfkbUyn4foG22M2z3hvA7cybLdye1tBfQDJT2lY2FqTeAXmvx6Vzz7HfZUNR3Nk2Aew
-	0HnJVdEcPVj4KWE2A1VTI8F2Q6jxTKIYeQP99gFOkcMOr4v6EBIaA2bJpeKa6uOMvL+FkBC9MuewD
-	46VYZgkE8JySUrkmeIuzszOMwqiFV4ZnVWQLfTeN1VUwQIBAcnOPBEQu9Pqw3W4iaQfck2ZXd6G1X
-	sgWSOl8w==;
+	bh=/SuFUBjQVnne/HL+wqlQZd+V6iBFMzeExDV/fn8/DYw=; b=MkayeY3CiAF7ptJtpeP7KA1Ueq
+	mAxdAw2dBV2SdG7lJCb+0fVI/lxO4VpCG27lLt+OEPPPkp7dIWE9RegqMoQ/lENUajQ/bGuPUBui1
+	PJ2xwvfMDwxJrIDRpavRHyFI0JD5TjAyoDL8XbOkww4XXPdLAWIituo3gSFo/bTTpn+iG0jD2cUAM
+	O8WkEj48jQHXF8Y5R8A+fzL+QkeEvb5TfkgH57/mzXCWBkVYw4qkNslGkdsrbyKj/dQvFBd0vfZpa
+	NN5kbjC9xT7//CF62QACmnn2RQkQJ6pMoIQeHBGhyJe/J2TgWs47XWfVFNZPCsFfBIyPTCsry60AK
+	O5e3HSRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsltZ-00000009aAw-3Gev;
+	id 1wsltZ-00000009aAs-2wR8;
 	Sat, 08 Aug 2026 18:35:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsltY-00000009aAX-38DO
+	id 1wsltY-00000009aAW-26XG
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 08 Aug 2026 18:35:44 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 13CEC43DD4;
-	Sat,  8 Aug 2026 18:35:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF60A1F00ACF;
+	by sea.source.kernel.org (Postfix) with ESMTP id D369B43D3C;
+	Sat,  8 Aug 2026 18:35:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A5951F00A3F;
 	Sat,  8 Aug 2026 18:35:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786214144;
-	bh=o0KEEUNR8mR+SFoRHY+bhTLUIfk8zA2xvwNVPzSAck4=;
+	s=k20260515; t=1786214143;
+	bh=/SuFUBjQVnne/HL+wqlQZd+V6iBFMzeExDV/fn8/DYw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=TfyaECD553j9NYJ1bRDUzz8pFF45SWvvy0rgnsK1WJ6BWiCMcbfj61VREhQ98tXFa
-	 50OPRrqyfG999o+bkAQey13G633Wk+0M78YjKFB02mufDnkBRgY43hV6Eim+YjcM4+
-	 YU5JEAE3rVBvMKJU2HGS7CPe7Z0zDaOAG+YVjYwKxJyeO4hFocVpyigyfK+X4V3TTz
-	 +OOnBeT41eLZd3AH+aR6LVSbbOLZJKxtE0BqGs2J5d7aY82AIIlxtfSfzweNpP0c0X
-	 MafptAdiiXA66NZAXPZiD2NcYF0mv0+jwsITByul0bz09BWpTA1OSvSp0jIAksp60E
-	 kER5OlztGmITw==
+	b=VpRcCBVUNaRKn1WHzyF6KhEFgSfBf09eLND3KW5ZP9WGguqOSFcLIg37rs8qq0ncN
+	 VXeZ6cAxrgD/8aXv9eLEwEO8NUTPp7Gi/F8eNlTHRIv2OZT94/Sfpe7NtQ/OT7mrfg
+	 kg+UYkXHVXKMQ0u9TzwTo2ar6PYjkfio2/dHZdX3eGp7bZi606TK8vJrjS7nRb86mm
+	 x11LyHxVeoo0zho3MQVAVMwkoaqI7kNa/eFcrnd2HVc5+Tv3XJzvNK0fqeOVJwti+h
+	 4rWaMp66GT/EoCFPRBDm5x1D9hF/Ew6v2J8FsYNL7BXJ9UXIN3xikumRgwCrznaM8+
+	 VZSOlSyPvhpwg==
 From: Oliver Upton <oupton@kernel.org>
-To: maz@kernel.org,
-	Qihang <q.h.hack.winter@gmail.com>
-Cc: Oliver Upton <oupton@kernel.org>,
-	catalin.marinas@arm.com,
-	will@kernel.org,
+To: kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v2] KVM: arm64: vgic-v3: take an LPI reference in vgic_v3_save_pending_tables
-Date: Sat,  8 Aug 2026 11:35:40 -0700
-Message-ID: <178621413201.380376.9463585617788229094.b4-ty@kernel.org>
+	Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Hyunwoo Kim <imv4bel@gmail.com>,
+	Yao Yuan <yaoyuan@linux.alibaba.com>,
+	ljs@kernel.org
+Subject: Re: [PATCH v2 0/8] KVM: arm64: VNCR TLB invalidation fixes
+Date: Sat,  8 Aug 2026 11:35:39 -0700
+Message-ID: <178621413203.380376.242769068720524648.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260807025534.34125-1-q.h.hack.winter@gmail.com>
-References: <20260807025534.34125-1-q.h.hack.winter@gmail.com>
+In-Reply-To: <20260806091026.620700-1-maz@kernel.org>
+References: <20260806091026.620700-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -75,22 +79,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 07 Aug 2026 10:55:34 +0800, Qihang wrote:
-> vgic_v3_save_pending_tables() iterates dist->lpi_xa using xa_for_each()
-> and dereferences the returned struct vgic_irq in the loop body without
-> holding a reference on the LPI.
+On Thu, 06 Aug 2026 10:10:18 +0100, Marc Zyngier wrote:
+> Prompted by a patch [0] from Hyunwoo Kim which was addressing a pretty
+> annoying corner case, I spent some time looking at what was wrong in
+> our VNCR TLBI code. And there was a few things to say about it...
 > 
-> The xarray iterator only provides temporary RCU coverage while looking up
-> the current entry. That is not sufficient for this loop body, which reads
-> fields from struct vgic_irq and performs guest memory accesses before the
-> iteration completes.
+> - The TLB tracking to get into the slow path is wrong. It tracks what
+>   is mapped, but not the established TLBs. Kind of annoying.
 > 
 > [...]
 
 Applied to next, thanks!
 
-[1/1] KVM: arm64: vgic-v3: take an LPI reference in vgic_v3_save_pending_tables
-      https://git.kernel.org/kvmarm/kvmarm/c/f5b8f203bfc0
+[1/8] KVM: arm64: Remove VM-wide VNCR mapping counter
+      https://git.kernel.org/kvmarm/kvmarm/c/c55bc773b6e8
+[2/8] KVM: arm64: Handle negative S1 walk levels in VNCR TLB size evaluation
+      https://git.kernel.org/kvmarm/kvmarm/c/8053393680d4
+[3/8] KVM: arm64: Consider SCTLR_EL2.M when mapping the L1 VNCR page
+      https://git.kernel.org/kvmarm/kvmarm/c/8c774604b6ec
+[4/8] KVM: arm64: Correctly handle end of VA space TLBI invalidation
+      https://git.kernel.org/kvmarm/kvmarm/c/34af2c3e31f9
+[5/8] KVM: arm64: Handle VNCR TLB invalidation race with vcpu_put() VNCR unmapping
+      https://git.kernel.org/kvmarm/kvmarm/c/38640bc32be3
+[6/8] KVM: arm64: Sign-extend VA for range-based TLBI invalidation
+      https://git.kernel.org/kvmarm/kvmarm/c/239347008564
+[7/8] KVM: arm64: Make VNCR invalidation participate in MMU invalidation retry
+      https://git.kernel.org/kvmarm/kvmarm/c/2b7324f3a0c1
+[8/8] KVM: arm64: Add VNCR TLB tracking again
+      https://git.kernel.org/kvmarm/kvmarm/c/62e3bb894a6e
 
 --
 Best,
