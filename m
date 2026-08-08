@@ -4,147 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD559C55174
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 12:28:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AD25C5AD48
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 12:39:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GIm0ZC3qNYyoun9K+PkAT8BqnfMTsE/j1nJ65zno83A=; b=SrSqFnXPR4/WEy1X+kTb5+F4QN
-	tyebdgB0YY0iPermoMmLpRv6WUYxJIUKwj80AjafkptGw7/KN6YTZOs+ctnwxp2goxKDezms3haW+
-	QU6iHHqCW3em6lixbeLrrtvEOV+2Vd3UT6RRvcBhpT8U/lywUv8WnoktMXmKrYxyc8NxSdkDAMg8O
-	h1sRHbwKMNOR/bCg4MtvwUFiCf8SqSeWOGPHOW/6xwSh0IwGnAZ1C7ECn4hH5+SGI4aka1ICf6d8p
-	+BfK+3vEsLAqsVuf3C1Da58aTyd5tlBTEH3FHP2io75KX1vg0HkRmQjM9H25OeRPZXEsrY09m4S2N
-	NS6kYNBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/7Z80X9FpgglIlhnFzOdLw8386r1jX4AyfOgEB2R9U4=; b=C9h/Dh/frAhqasUijq0lRnLicQ
+	T6qlZQNBFCDhpqmOI0MWDYCfWNNHgO/664EEi9PznXVXdw9vgdRuCfdlJhwspfvYAAhdhWiEmlsSH
+	b9Lw8cdHVecN8Bgjl1CMUORq1YYQpexbsiFJHvdpG/UzStOR3rY51R0AeQUmS6cMHHoclh5sk401Z
+	zxw9cRKyv/dGG9gQ3vfpLTPIbyiblSDsxl3Ll0U0QOYLH3zTw8Txpw2D+xYJ2DB+ha/N6TvWdJpQP
+	U3z6qW99xypWw+Spy0YY4tgUE8/4JMitVbCqJcgShAZKON6HObg8Ghd899RiVo8Vep+rRSRsuu9eG
+	gI7er3jQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsgAN-00000009LwD-066U;
-	Sat, 08 Aug 2026 12:28:43 +0000
-Received: from mail-eastus2azon11010061.outbound.protection.outlook.com ([52.101.56.61] helo=BN1PR04CU002.outbound.protection.outlook.com)
+	id 1wsgLA-00000009MSE-0FtO;
+	Sat, 08 Aug 2026 12:39:52 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsgAJ-00000009LvU-2MJZ
+	id 1wsgL7-00000009MR9-2X4t
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Aug 2026 12:28:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=RNYZTLajmqrUHn8K6Sx52UC2dWbsC19tfcd7LenYPslwyJVBvB50T8Lv4TCs4mBliWF1HA5X/smYdGjav5Gz7mYmWEuGnPy+jb7psPobF89AP9XCZPmdHv1eiNB8nTFz+M3ZWJ3cC5K1z1qDNmYD+MhtYWPhlRp7TLXYkUH7TIcFIvCeyXaeGKQeWo59dhTg/VJJvoZ13d69xztGWy5/+88XP6UwElV5mIyuLXyN7stsj2SFohKQ3wCPrSwfh/l5q3FVOGtygKfo3ticyqbO55WN4rd6K3eDv42BUiJsI8C1H4XRRePxb5ShWEdSa8M+Kn1mddknEGld7nPNNeQXew==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=GIm0ZC3qNYyoun9K+PkAT8BqnfMTsE/j1nJ65zno83A=;
- b=OoMtFWGT4/3539WFE1PTNqdJMmnA49nHwdjW6DMpG6RsvvAUJchUU53v3V33oedRrIyeCPaLdn9/F0fWs1juEQXaPyFRCSm1tH7L/hIVQCdO8Td0acFDAnKiITwZWTc0KXk1n6sJz4nwWTM3xpd9XnfiDBVgHQUVrxurspjCfFce8MY66L0gFrzmGEz6PUKrv4Ti3XGA/pnbJhcuRylvGoGYIBoH6GIsIFnFKNUVR5w0DLx5RLCysUUWuOHHQQrsgBfZd41zDvY0NryO5LBEO7gOl/CCtk8O89K8X2MBdEZW4Jd7qVsTGPkJhQjROZcInHRt9HPIgUXFImyKZWP25Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=GIm0ZC3qNYyoun9K+PkAT8BqnfMTsE/j1nJ65zno83A=;
- b=fjbDr+r1HNvHJj7U5c04VZLPtZ4oQCLHFaXmgGNfdVbgKyslMdC3XDuXQLLCTeyLGXwe0cqeyuI+48A1OX1Ra424TExZrG4oY6JbzivCaE4kWueuu5fmvmPRHAnkxxC1c/aSWXF1a2uEK4fsC6F67GIwziV6yqKrRJnLS41DAVM=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from SN7PR12MB8147.namprd12.prod.outlook.com (2603:10b6:806:32e::5)
- by DM4PR12MB5937.namprd12.prod.outlook.com (2603:10b6:8:68::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.25; Sat, 8 Aug
- 2026 12:28:32 +0000
-Received: from SN7PR12MB8147.namprd12.prod.outlook.com
- ([fe80::3923:c1a4:778b:56f2]) by SN7PR12MB8147.namprd12.prod.outlook.com
- ([fe80::3923:c1a4:778b:56f2%5]) with mapi id 15.21.0292.018; Sat, 8 Aug 2026
- 12:28:32 +0000
-Message-ID: <cd0c41bf-d9c7-47b4-a5e7-a19994e4df94@amd.com>
-Date: Sat, 8 Aug 2026 17:58:23 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 03/20] net: xilinx: tsn: add endpoint MAC driver skeleton
-To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
- Nagadheeraj Rottela <nagadheeraj.rottela@amd.com>
-Cc: Srinivas Neeli <srinivas.neeli@amd.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Richard Cochran <richardcochran@gmail.com>,
- Michal Simek <michal.simek@amd.com>, Andrew Lunn <andrew@lunn.ch>,
- Vladimir Oltean <olteanv@gmail.com>, Simon Horman <horms@kernel.org>,
- Russell King <linux@armlinux.org.uk>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, git-dev@amd.com
-References: <20260807104431.157230-1-nagadheeraj.rottela@amd.com>
- <20260807104431.157230-4-nagadheeraj.rottela@amd.com>
- <anZG-AucFEZrwjjO@monoceros>
-Content-Language: en-US
-From: "Neeli, Srinivas" <srneeli@amd.com>
-In-Reply-To: <anZG-AucFEZrwjjO@monoceros>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: PN3PR01CA0117.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:c01:96::21) To SN7PR12MB8147.namprd12.prod.outlook.com
- (2603:10b6:806:32e::5)
+	Sat, 08 Aug 2026 12:39:51 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4957952e0f8so454495e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Aug 2026 05:39:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786192788; x=1786797588; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=/7Z80X9FpgglIlhnFzOdLw8386r1jX4AyfOgEB2R9U4=;
+        b=GpieTRhOZAFyuQlUkTeOCvgxSbjAPFKxDZL9J9me90K7WhpaSXsu4EdtkhQtKe1q29
+         zywiyaxU6cKUSlvj3kYJZRd3IpGIIz8nInTOfK9wnAmHKpeBB7CENDkguZqxffnkhFgg
+         XHvaufRi470FRfRaZ14DYIufORelM9DBgt89FgUQvHegibjxw83kpTF6H3j9JBz1UjZW
+         vf6DXzC4+DhPWFEvfqzWYCirZTIvD98S99shrJEi3BwZA9lhmZJv4S7clvIyvj1Edls2
+         7iiMKl6gw+csegORkeJwb2qPrk61smYbwS8Dmd4bAXjwFdlihA9F6nuKgRmgcjXOz3Go
+         LOVw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786192788; x=1786797588;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=/7Z80X9FpgglIlhnFzOdLw8386r1jX4AyfOgEB2R9U4=;
+        b=SsBRz0CrzN6m1Z3IMLLHl+hVEoRCpQPHgKy145mf9H7YgRwz2jaGoyCDrKkhIbUBD+
+         Xr9nv3OCPOjzsBdvo/keSUo4Re6SmiTEkRyZklhlt9jsZx66bBX7j2bU3Ei39lxlfB+d
+         62q7DY75raIUsWO/SaqQbkr7Aq9c+yK6KOAG2p6bikEY29spXhezZZcY087Ndy+n7yFb
+         sykWGfAzoYG/7C00EJR2ovsg7s0oYh2Bzn931P653tb5Sq63rLcMUwtHJFKcnB1SHJxg
+         4shLoxHw1qiivl9UiCOCiHTVnP1TMkp7GYMJIuZtf4rB2w0acOBbcoosInErYT78l9TP
+         UBeg==
+X-Forwarded-Encrypted: i=1; AHgh+RpduQ1rsvIgum37AQ02AGjQQuNgWQUnVSEth1W/ZDeMXppTARoKNFFpSKCWivP8Qep0td+OB4RaUSW6fHS2CWQA@lists.infradead.org
+X-Gm-Message-State: AOJu0YwuKSDqOnB3wvYZiXqwDdBS+hMnAvc6Z9ye/l89sumFy8zVOgeY
+	0L443hHMfKBishI1Z7AfjqfKeXbj4gC2KyKeYsHriQg6plqCqdEk9OPR
+X-Gm-Gg: AR+sD10rM7AfqIg7LPZKz59vp9rHkH8/0nnBe6MFTOeU+1gRxEYjbraLN0GN0DMzIG4
+	u87NWDcZvvwDhmJOEONIVrw5BAsWD6ySFb19U1cbXwUEHQ1hJDCJg0uOV6uhrmlnF0xfShPIFtD
+	UFtFS4XCnhDxYZlwMOJvQ08q6LWViTk9Cd1f9d2AwEw9oW5gH5MDbLlvYJRlxTitIzFZW9wqL9X
+	OPGLqf7VqK+AYljaFkwBywDUM9rB2z7YryMy5PFgJXxP8BR3fea92q2zLYBBCPM6hr0wdy74+DA
+	ITZ0c8G6mUXllsq0AI/h61vOTaz0T+vPdX2bkUQ7EaVInLFHvZuhRLOFIdoxcJOQ1QwZjr66yYH
+	DUSCBbZJiZTd1V+8arj2CiBKMSlmgn0tzRgN9N8gaI8+ymHkCMHu7lEgMjc6Ky/vDKTYeNyFpv3
+	ui2XPaomYpEunUW9smN7T0KFQdq4s0vDV7sTY8LdcA4O0BzG8euzz7TsGcBWQrcVSkT09T3TNhb
+	R77VPhed5ngEQPL0aXbZgTZkYSOAPVsMSg3IuCdeTmUZpurjdhIJuogvWdF4bt9hV3NOA==
+X-Received: by 2002:a05:600c:4ecb:b0:499:59a1:96f7 with SMTP id 5b1f17b1804b1-49959a19770mr126652915e9.1.1786192787600;
+        Sat, 08 Aug 2026 05:39:47 -0700 (PDT)
+Received: from OrangePi5-Plus.BB-HOME (20014C4E1B8E20009911270F4BEC2300.dsl.pool.telekom.hu. [2001:4c4e:1b8e:2000:9911:270f:4bec:2300])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4995ea2e038sm115426525e9.14.2026.08.08.05.39.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 08 Aug 2026 05:39:47 -0700 (PDT)
+From: Igor Paunovic <royalnet026@gmail.com>
+To: Jiaxing Hu <gahing@gahingwoo.com>
+Cc: Igor Paunovic <royalnet026@gmail.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Diederik de Haas <diederik@cknow-tech.com>,
+	Tomeu Vizoso <tomeu@tomeuvizoso.net>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Alexey Charkov <alchark@flipper.net>,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	linux-rockchip@lists.infradead.org,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH v6 7/9] accel/rocket: add RK3576 NPU (RKNN) support
+Date: Sat,  8 Aug 2026 14:39:24 +0200
+Message-ID: <20260808123926.23903-1-royalnet026@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260807211629.1573228-1-gahing@gahingwoo.com>
+References: <20260807211629.1573228-1-gahing@gahingwoo.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN7PR12MB8147:EE_|DM4PR12MB5937:EE_
-X-MS-Office365-Filtering-Correlation-Id: a8e809ff-0b4d-4443-6fbf-08def5488f36
-X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|23010399003|18002099003|22082099003|10067099003|56012099006|11063799006|4143699003;
-X-Microsoft-Antispam-Message-Info: 4h3Oaj6Fz78EjDUROVpjNJ2noqT0Cj9gtcigcx/fQwZWYSdQr5uFShxzplV6iVYwZ5092ygtcMlYewED9TJgwgdY0yDPD+hkjKt56Riws/pvzK2gJgZW15dxpw62zFBCeSbnT5afet8dmjT4/2rK0LkaLQrzrDwXG3w4N147E6PTjw0JGhH79e7u8zJYAzuJZSMhtZCt973lc6iNcd0YNEQ2hRxdHnGZIRObeXcxtQZiOdfXst/YMMoNvu8hjLUvBDJWtOJ6/aLGpi059hTIhR2n+P61bTalA/QMX1HTJJfioIO5mAvAkoSm5H+z/CZGUpqA0epv5d91gVFqr1L3wx7pcGQ/TjIGaV509gspTuocyzTt0GERIOL9B8Le+b9OrrREQanSxipZBA2jsHCZfbCwBUhbzj/RwC+ZFO5twU0CUB6kLFA5WR0atv5lG5h0qWjYQxQl03MnHTDpyxrKtKpsRBuA+Vs8FE/68Ywp9KVewKQHoJnD89NdJQmIw3LzOSSM0nDyFqwAuV1AjV609qxSfIOk2cb4lQ2ACPwRf9DDEbuwsqT8YkusLXaqUmm8DBywk9HZLZ276jv6ulcjRoU30H4dNTnvrk4nM7zDcszdQDZ2x+qr1n+e8yNXg0e8WW0zEXiHLmVhPLqL5YvdgI7yku7O9E2glOlRSAFa/nk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SN7PR12MB8147.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(23010399003)(18002099003)(22082099003)(10067099003)(56012099006)(11063799006)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?S3p3R3pySXpINWtHRjIwOEVWeFVwL0lsOWdaWWN5MmZ0cDMvZjUvL3RoL2xy?=
- =?utf-8?B?WXpLTHVZM2UwMDNHUjBud0pSVlczWmpPd0xyNXVLcWlhT2J0RkVlM0ErWjhk?=
- =?utf-8?B?VFhtVklSVHROQmkzdFo5elJ4emMxdmgzOVYvRTBvL3l2UXhQa1VteWdsTXJh?=
- =?utf-8?B?Yjc4b3g3bEtwV0xtNU1YcFNRS09YU1ZnMGZaMHFJUHRFU201aC9HVGNpNGF4?=
- =?utf-8?B?ZFc4VUZZQ1dINlA4OXRaenk0dnBXK3AvTkVjUFg4VGZQdFNmMmc0VHJFQnVR?=
- =?utf-8?B?c2EzWjZSTWlCeWVmN0s3S2RCS2lRTXJRVkw3NytWUm9RL004biszSHRpYmhi?=
- =?utf-8?B?U29ZVTdUUXhRR2w0c3UxSTM2QmNhM0lpTEFneVcvSW5sQVlSeld5Wkt1SVNQ?=
- =?utf-8?B?ZXdHNVN0RmUxSEVPZkpaaHNHbWNDcEpYSzZoak5TWVJReFdsVmtEUTNCbC9T?=
- =?utf-8?B?WHRjTzRqUjBYb2pwM0RaVUhMWVpCS1V1R1hnNWQ5c0EwaVkyRVd4bG1CN3Vq?=
- =?utf-8?B?UVhOU2pINit5TUJFNGo4TkE1c1BpR092d280OVhjTUNvV0RpWTI5UXZSVGdO?=
- =?utf-8?B?UWNtWGJML1BJUVhwT0pnWTJ1QUpDSmN1blBmdGFOVnpKblBrREtSNVM1Yk9N?=
- =?utf-8?B?ZHN1N0lKUFVyVmhzby9xWFN1T2RrcVpOMElCUmtENDVWWk1rYWpLZGNFeE9O?=
- =?utf-8?B?bndRS2xERStuZ3d5U29TYm5lOXRGdGlKV0ZZUWp5dDh0eC9XZldTbHNQaXVm?=
- =?utf-8?B?NnJCNHVjSkgzb3pqZlRJNjgrZ0FoSGVqOEV4MVNqcjdZTFY3bnphT21YQWhV?=
- =?utf-8?B?U0pPSmdheS83b2l0V1VJQ1VZUVJoR0ZaNHFla1Z1Uk0yOTVPZEdQTEpmSFRj?=
- =?utf-8?B?OUowUVY3c2dRYnA5VHU5OElOTHpodTdXVXZaUDNaRjV3SVZFcXVuaEV3TE9i?=
- =?utf-8?B?ZWVwb091OVEreWhUd0oybDg5S201SEg2T1VBL2ZFa0swRkZvTDV4Q3pGdG53?=
- =?utf-8?B?cFFWZDdxclJJeUE2cncrT3ZMT1lGZ3doUFc5ejNCTWswRmxGUHhjSkQ1eUNU?=
- =?utf-8?B?YkZTZ051RCttWS9nWEFlVFhqYldGcXEvNFRON3lGeU9GbWwxZVZYa2JvTndv?=
- =?utf-8?B?bkJMRzhGcDkvQ2RMeU9vQ3k2QWpCa1pqNTNuNmpzWGR4Wm1xN2pHTVZXcmVr?=
- =?utf-8?B?ZmZVR1lmWDd3SEFsU3l5MXZxc0NtcVFEWlFKck9jbitsMVVtbjJuendDOCtU?=
- =?utf-8?B?K2tzdlRvK0J0bFN3WUtmT2xTcU9CL0NGczVmN0loWlByVlRRWWdUMExOcFFG?=
- =?utf-8?B?d3F0N1NTSU9kS1lyZUpuUU1hK0k2NU9QZ0N4c3JEckVrL0RSWldRc3VkdGxR?=
- =?utf-8?B?RmdiclZNZXJtVVFoWWloZmdvdnhpdkxxZDdKK3h0azhuWHE2eHVvb2wyL3Fz?=
- =?utf-8?B?dmpyT0pFVXV2MTVLRnVoZ0NuNCtoOG1WZTZrdmFyVXVFWUdheW5YTElGdERP?=
- =?utf-8?B?UGhPam9LRXJHOGQxTTRYMnRnb1M1WXNZK2oyaHloWHNPbjNJUCtpdGpDakxx?=
- =?utf-8?B?SDNxck4xNlRQQjlTZzhBS3pPZWNIUGsyUUQ0dndjNmpUSmZrNUxzcS92enVB?=
- =?utf-8?B?eU5lcTZ6Ny90Z2lYRTd2LzlxeFVDUnJ4QjJQeUZtSVVPR1ZkZWZVZ1d4eHZH?=
- =?utf-8?B?ZkRJRlg0TWdSQnpVcGtTM1N1clRhRU5KTkR0aXRmWVkybGJHbE5PVktZM0xV?=
- =?utf-8?B?cGF6aHFSR3RLbFhBaWhhOWJZVnRDbnJCWkRId1lyZWJQMWh4R0wyQ2dncWNU?=
- =?utf-8?B?Rm1BT21pc09IWVRNZm4zWE94REp3L0FxTW96bHdNVGl3OTEyaUZScXkxcmt6?=
- =?utf-8?B?YXRJVTZLYjIrVGhPMGFKM3AxbWVhTngzRCtiOTFJaWQ2ZlhaOXNIUkpCeWdP?=
- =?utf-8?B?MWl5UkNsWU1kbC9XeUFNcDhDR244NUFqZm16UWNSUjVRN1FtUmYrSnE0TFhE?=
- =?utf-8?B?Zy9PQ1E5bDRla3o1ZGlIaFlEcTJpcmRhdDBrd0IvUlV6b2RWUEJ1Y0tmNkFr?=
- =?utf-8?B?bGVRV1F0VnhLOW44aHJra21kTWZXYXNuNWNyYm4xdWdzY3dOZENWWjJYTXBW?=
- =?utf-8?B?c2NzL0hsM3F1Z3M0YmVLQlpHRmdWd0k2SjJYS3gwN2cvaldtQytWaWd3dE56?=
- =?utf-8?B?T3NBYndicE52S1BOYi9rZllMajRGdU5NSTB1UkFmekk1aXN0MHdrZER3TWdt?=
- =?utf-8?B?NGR2SzdaK0NqOTVnMzliR1g2R0VuKzA1cWQrNi9ibjRYMXp0TXdjQUdLTHFj?=
- =?utf-8?Q?npQbwPICWYW0Gml1k5?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a8e809ff-0b4d-4443-6fbf-08def5488f36
-X-MS-Exchange-CrossTenant-AuthSource: SN7PR12MB8147.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Aug 2026 12:28:32.6859
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 9vIFx+zTpnsSMOcXNVQlt28A+Rnh0REId5pflp3u+HiS+TjXn6+pWbLK2nZ6jWtv
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB5937
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260808_052839_630326_1F55239B 
-X-CRM114-Status: GOOD (  16.37  )
+X-CRM114-CacheID: sfid-20260808_053949_659213_570D9D1A 
+X-CRM114-Status: GOOD (  19.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,97 +108,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Jiaxing,
 
-On 8/8/2026 2:30 AM, Uwe Kleine-König wrote:
-> On Fri, Aug 07, 2026 at 04:14:14PM +0530, Nagadheeraj Rottela wrote:
->> From: Srinivas Neeli <srinivas.neeli@amd.com>
->>
->> The TSN Endpoint MAC owns the IP's host-side MCDMA data path and is the
->> netdev physically wired to the CPU. The DSA switch needs this netdev to
->> exist as its conduit.
->>
->> Add a platform driver (compatible "xlnx,tsn-ep-mac") for the endpoint.
->> Register the netdev named "ep", set its MAC address, and provide minimal
->> netdev and ethtool ops. This skeleton handles device bring-up only, with
->> no data path yet. So ndo_open just starts the queues and ndo_start_xmit
->> drops frames.
->>
->> Signed-off-by: Srinivas Neeli <srinivas.neeli@amd.com>
->> Co-developed-by: Nagadheeraj Rottela <nagadheeraj.rottela@amd.com>
->> Signed-off-by: Nagadheeraj Rottela <nagadheeraj.rottela@amd.com>
->> ---
->>   drivers/net/ethernet/xilinx/tsn/Makefile      |   2 +-
->>   drivers/net/ethernet/xilinx/tsn/xilinx_tsn.h  |  15 ++
->>   .../net/ethernet/xilinx/tsn/xilinx_tsn_ep.c   | 152 ++++++++++++++++++
->>   .../net/ethernet/xilinx/tsn/xilinx_tsn_main.c |   3 +
->>   4 files changed, 171 insertions(+), 1 deletion(-)
->>   create mode 100644 drivers/net/ethernet/xilinx/tsn/xilinx_tsn.h
->>   create mode 100644 drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c
->>
->> diff --git a/drivers/net/ethernet/xilinx/tsn/Makefile b/drivers/net/ethernet/xilinx/tsn/Makefile
->> index 6f99226f3dc8..5886828b386f 100644
->> --- a/drivers/net/ethernet/xilinx/tsn/Makefile
->> +++ b/drivers/net/ethernet/xilinx/tsn/Makefile
->> @@ -1,2 +1,2 @@
->>   obj-$(CONFIG_XILINX_TSN) += xilinx_tsn.o
->> -xilinx_tsn-y := xilinx_tsn_main.o
->> +xilinx_tsn-y := xilinx_tsn_main.o xilinx_tsn_ep.o
->> diff --git a/drivers/net/ethernet/xilinx/tsn/xilinx_tsn.h b/drivers/net/ethernet/xilinx/tsn/xilinx_tsn.h
->> new file mode 100644
->> index 000000000000..b0757e22d1fd
->> --- /dev/null
->> +++ b/drivers/net/ethernet/xilinx/tsn/xilinx_tsn.h
->> @@ -0,0 +1,15 @@
->> +/* SPDX-License-Identifier: GPL-2.0 */
->> +/*
->> + * AMD/Xilinx TSN Endpoint Ethernet MAC driver, shared definitions.
->> + *
->> + * Copyright (C) 2026 Advanced Micro Devices, Inc.
->> + */
->> +
->> +#ifndef _XILINX_TSN_H
->> +#define _XILINX_TSN_H
->> +
->> +#include <linux/platform_device.h>
->> +
->> +extern struct platform_driver xlnx_tsn_ep_driver;
->> +
->> +#endif /* _XILINX_TSN_H */
->> diff --git a/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c b/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c
->> new file mode 100644
->> index 000000000000..9b556edf5423
->> --- /dev/null
->> +++ b/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c
->> @@ -0,0 +1,152 @@
->> +// SPDX-License-Identifier: GPL-2.0
->> +/*
->> + * AMD/Xilinx TSN Endpoint MAC driver.
->> + *
->> + * Copyright (C) 2026 Advanced Micro Devices, Inc.
->> + */
->> +
->> +#include <linux/etherdevice.h>
->> +#include <linux/ethtool.h>
->> +#include <linux/if_ether.h>
->> +#include <linux/kernel.h>
->> +#include <linux/mod_devicetable.h>
->> +#include <linux/module.h>
->> +#include <linux/netdevice.h>
->> +#include <linux/of.h>
->> +#include <linux/of_net.h>
->> +#include <linux/platform_device.h>
->> +#include <linux/string.h>
->> +#include <linux/types.h>
-> As for patch #2: Please drop <linux/mod_devicetable.h>.
->
-> Best regards
-> Uwe
+No need to apologise - you found it, and you found it properly.  Diffing
+an ordered trace of every register write against the vendor driver on
+the same board is the right tool for exactly this class of problem, and
+a 12 bit versus 16 bit field in a header derived from another SoC is not
+something a reviewer was going to catch by reading.
 
-Sure,  Will update in V2 series.
+I had gone through v6 with the RK3588 side in mind and had a list of
+comments on the poll path in 7/9.  Most of it goes away with the
+polling, so I will not spend your time on it.
 
-Thanks
+One item outlives it, because it is not part of the poll machinery.  In
+rocket_core_init(), the new multi-power-domain attach returns without
+unwinding rocket_job_init():
 
-Srinivas Neeli
+> +	if (core->soc->multi_power_domain) {
+> +		struct dev_pm_domain_list *pd_list;
+> +
+> +		err = devm_pm_domain_attach_list(dev, NULL, &pd_list);
+> +		if (err < 0)
+> +			return dev_err_probe(dev, err,
+> +					     "failed to attach NPU power domains\n");
+> +	}
 
+The path immediately above it shows what is missing: rocket_job_init()'s
+own failure path puts the iommu_group reference back before returning.
+If the attach fails here, the scheduler, the ordered workqueue and that
+iommu_group reference all stay behind.  Since RK3576 still needs the
+attach in v7, I expect the same shape to survive the rewrite.
+
+Smaller, and it may disappear anyway now that you are splitting 6/9: the
+commit message says nothing changes for RK3588, but struct rocket_core's
+clks[] grows from 4 to 6 there while the two extra names only arrive in
+7/9.  Either a line in the message or moving the growth to the patch
+that uses it.
+
+For v7 on my side: once the poll is gone, the only change my hardware
+executes is the job_lock move, which you are taking out of the series
+anyway.  I am happy to run the series on all three cores here - probe,
+multi-task jobs, all cores in parallel, a forced timeout and reset, and
+runtime-PM cycling checked against a bit-exact oracle - and report what
+I see.  I would rather send you results than a tag that covers less than
+it looks like it does.
+
+Igor
 
