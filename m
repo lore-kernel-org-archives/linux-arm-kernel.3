@@ -4,74 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EC43C5AE49
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 16:07:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CC1EC5B55D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 16:07:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xUHnKBUv58Kqq5PRHzJhB8jsL9UTHk6ZnI77mqbe5zM=; b=yx0Im4+y6xIJtKNbsk9HdXX6JF
-	lD2d/8b2DuXrKq6gFGga0GcCE1jnnf/KBClfgGLMc9oBZG1spazv1CZQB3TStbHLlTWEBdIOxCd/r
-	HtVVbN+llqRK7sobn7wdx7Ab/01BJOhMWtaTN2in9US9BHfbExZRT5qjFpBqWALr0RRfDc3hKkQ/U
-	rBEbbgzHob6sN2ZusQquZU6cZOiIneG8VmXisOVWjqDehpq88wZgYA3nm0nAYjwlACd60Lfsn4hHs
-	2a/GVjhXAnxDlrpKIdOVD8Nm2CoA+wnY5t72bTgb+gEAFrBj/St73q8NDethav8zdn38hW9xUZg0O
-	hsIoZvZw==;
+	bh=2aw9hTPmVRYTxrK4RYL+auuCIDdNPlQ7RBPHnUIWSno=; b=4HTYoCCphOmplZ0hhEzgogtEDU
+	Q4P8oYc2eedm/6ISAOSDj9fEIXnCecIBroIGHCPFPcYgMj2uyNzxVTkimwnR0UIAoPXFMXEJ9i13k
+	Z9Ws1gRT2MrJF/3z0zmnm22vQYA1ebgQAzGcJeGQpUTaUxfY81Z+CX9vehsWX7Yp6y8G6J97K31I7
+	0MSz5/bhK/LOGNAFn/IHSdiCndMv2Kggl8YQi4V+Bvr3dPb3kFtmYwf9fF2zhrtPs1Q0i3Zaavlou
+	hAug0dw78zo7Vt3hSkFMKnKGgFoQ93vX3KIh+C0wzwGXXYgApyS0AAI8bjLersQC6w0WmE9aUVik0
+	GdXGQH8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wt63S-0000000ATKb-13nI;
-	Sun, 09 Aug 2026 16:07:18 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1wt63R-0000000ATJJ-07Y5;
+	Sun, 09 Aug 2026 16:07:17 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wt63N-0000000ATEL-3GB6
+	id 1wt63L-0000000ATBV-2ZL6
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Aug 2026 16:07:15 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4980dc26022so10693695e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Aug 2026 09:07:13 -0700 (PDT)
+	Sun, 09 Aug 2026 16:07:13 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-498028b3d5eso12333115e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Aug 2026 09:07:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786291632; x=1786896432; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1786291630; x=1786896430; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=xUHnKBUv58Kqq5PRHzJhB8jsL9UTHk6ZnI77mqbe5zM=;
-        b=J4T5PCsmRoH+SR5nxx/qRpIBV8js1xqXxbLjggvtjUtkh2rWz46+AeVATN3nkA/kfC
-         bUTNTtVuEnFM9Im6AeidcMpNJ80nRyLWrl2FBMgBcBiiLnlPvkQEF5TD6dj1aydtp5qq
-         kLuLOZ71CM3F4bRK5vdGijBoV/FQYJBODwCJRG0kvHOqGkZLOUsEMF4B02nvZGfwjvY7
-         Fc2Alq6RCbnpyb1hf5so8estFeb6coHmxzOAnmuLQp1w5mZ8paHX+ev0OMz33Wd+0UHP
-         yLT5vxdJdwRLHtNQrK9kFTMDAjKZRriE0TLObigv3fNLF3FUMDW6t7L51m5C1mpMAJuC
-         Cv5g==
+        bh=2aw9hTPmVRYTxrK4RYL+auuCIDdNPlQ7RBPHnUIWSno=;
+        b=Qq2sqb67+4x1tTo56Q+v2VPBn1m9dag5E1FsmIPcJZFYBi++19AiBuypeU1Syv/cCX
+         TsF8HExlOCQB1nQSnqI9gbkvY/+HpL8xXnopo07eYfV/r+OlxMjsDw9pBUm8zKX1GI5N
+         X/EMk0edkcQxkfdhD77brC3x8zVdHnWauaRXDm1Cnp6+rt1CwV8iBSlhtBX9TfDVs2Li
+         6R485TP3eKI8GJAM8lMx7Psa9d8HUzkpYaOxHrl9t/hAz3JUi0yZbDF9a1Z18iA9MQB8
+         MeUR7DPZ4dWrQxiSjwrU4rC0jd35PCS7AM1Wg+zDtkJIk6mmUh9GS/2njX4Ey0KXy4jB
+         xWnQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786291632; x=1786896432;
+        d=1e100.net; s=20251104; t=1786291630; x=1786896430;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=xUHnKBUv58Kqq5PRHzJhB8jsL9UTHk6ZnI77mqbe5zM=;
-        b=Vnm2oOeAET3ngqheQlDF8T7jqJPVAyd2mCVnyaaq1eBNid9OUTIoCxV3ePBO7Rx2tX
-         XiuTmWy1mQTsV3wFzpavsuZN+X7pizRg5hbeYgwPXz4OE3RFdwyq4OclN95wqAHeM58S
-         GmWcym+6m9bSBUDEfE4Ajmomb5vMx9SnVgCQ0klJ6DtreAzQBYILCYDBSmPprZLtl43z
-         eadjIcIfAzH4CUkZLYL8oZCiG4XbwC6nQHbmMoLWbBzvJXoCj7Uzzi8x845zsH8bpA9X
-         hD4yXWYv/Mf3ifrfP8qH1gDoGyL61k30rp/zJdH0Fn5Dl6+7pKMrnyYaKCT1t8LBzjrW
-         qpSw==
-X-Forwarded-Encrypted: i=1; AHgh+RqaWNViPUiuhMb319RIn8Xxg/a5WExUv3q6xzQSmSv176V04iIr+bpM8IADh1YarhhTzEzDLA1z5mpKOOxTB+m1@lists.infradead.org
-X-Gm-Message-State: AOJu0YxxO6/GTjs5nireC2O6yurfzC07J1inWNVDHIdDXZh8oAMYhYV2
-	5NY8AGkEW+MkFCzLEy/n4nLAd66BCpyTcgc6fNgTXU0hg9a8oS9/HQgL
-X-Gm-Gg: AR+sD10f5xJmwCi+NLq0OSMA3rvVhpdPRJkGdrqsJVwA1xDFsHCvkVR9bQe/9eowvye
-	5Ku28aQsEI6VfgNiMkldD/4QhW8lpIDhlY/E/k6Isgsfp12+h4cJoIcf8Oau5gELi3p0OfeRv5f
-	1htQ3tEN2DePlENGMjGPc3bASzAUQANHoWAE8yGpnKG0cdVcRn9Qhlqr9hmLMfH4oDM7YEnPrrh
-	US0XvYxxVHoXppY2nx3LF+Yu+QMsokTMZNkePL6sfn72vCrQ7M911bj8E89+PQzAgSLlmE2/iNJ
-	vI8CvRmNhDtOSetXEECUWktiBzo4MV6E6AeJLTYPVJat2Vg/M9PXe1MdsL4aUt2V0KWEhqe3sn6
-	UdWAFTyyVJ7GqjDik4xr9zGhhHgb03qvp6RnLpn92zH5duFvZXDt6NiDSO3h0YEu/wvgpH9ncxd
-	FfoFRQR6vSc7al1I9DWBM39vw7vvVz3cWTWYRKf908IxsSuH7cx45hSA==
-X-Received: by 2002:a05:600c:1c21:b0:493:e460:1f6 with SMTP id 5b1f17b1804b1-4994e6fe377mr488271375e9.0.1786291632103;
-        Sun, 09 Aug 2026 09:07:12 -0700 (PDT)
+        bh=2aw9hTPmVRYTxrK4RYL+auuCIDdNPlQ7RBPHnUIWSno=;
+        b=Jx2xX1bPV3LNdFp9xFEqW6+AEwVXCAUSZOYjLMXnvhfpIEla16UOP2gpROXSBBYvf1
+         XA86RdWmnOFSsNedE1DygOpidxdKjbAkptywEQplqT7f1qZRkvBSCjSbfjRx7UFZDY2R
+         TecZp78SdMANpvmDCGsZ8AY2GfMoKFOhaq0KCNIXxucEYRFjBxtcSo8OWwqXpt/tWARR
+         dHsfNwkcbI+Sm+VDXoINS+qWgHgDNNQZP87OTfElywGYfBzSK69dSm6fuCDxG1tpTr7B
+         mcRuEJDHJZ7pQd/79te9Fc57xKvGeRGola1hE8PXZmFBjtXnUdiQ9jvysnsNwmtXmlF/
+         Ukxw==
+X-Forwarded-Encrypted: i=1; AHgh+RqKHb71S75ZM2WaDNIP70IW/xbhFG742B8YgdnlkMZPf7XgJeGE9tH4r9MOgXBqzWpRppXdyKmJOHptBc4tRwTw@lists.infradead.org
+X-Gm-Message-State: AOJu0YyFHcEq3xcdEGJdKeYKjzg3x0OQRI5C91AFXbw6Lfi1n84fXLHI
+	fAE6XL1ZBnlqUN5HA9SVHU0v5HLpfulCZomMQmP7XgBL8fkCjrGzrHhWZtAX9+44BJy7aQ==
+X-Gm-Gg: AR+sD138SaA8O3R+3hQgd4zK5WPt8da+VbBiT8FZUYkPnOLwAZBvq3OI+1WGQFxi+6i
+	u5YG4VuWKF2v9FAQKZHqeRdWmgcY7ZLLCUNXoZYgNOELhnOhDpqJXEOew0yE5L74C+YsNtXv41g
+	VPHxbSE5ggDFJA4vllGztIw9rYq/lHeQ3wqMcVEB0NZ+jHgG/bhsAySQHHrfE8oszpcSBhaSSxX
+	0GPARgCrSFt3JCI5e/+D4LVJCh+O4lTAf/x7pcL9HKnd7FgTc6tIXmoUlb/DgHeQp1O9bD9X1au
+	Tkf8VejlmWeiPllRHMe3ToTFbVf6k/a8nSXtDHDLjfikVyh1hM9wv+OX987NNltAKJM99JisjA+
+	78LUZtltroaEl6qvDQ9LI6CI3OAP+LvQkaFygGTYcW/XH4k5ihttKaMG4yWByR2g2dv2nG9CJ97
+	jwPNgq+q8M6je/yuk2tNc0Rp6WuaI7r8IdQSBP+69CKHrpthZGsrubBg==
+X-Received: by 2002:a05:600c:3545:b0:499:52dd:c1f0 with SMTP id 5b1f17b1804b1-49952ddd05amr374922395e9.1.1786291629734;
+        Sun, 09 Aug 2026 09:07:09 -0700 (PDT)
 Received: from luca-vm.. ([81.56.18.151])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4995c7b2b68sm209832495e9.4.2026.08.09.09.07.11
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4995c7b2b68sm209832495e9.4.2026.08.09.09.07.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 09 Aug 2026 09:07:11 -0700 (PDT)
+        Sun, 09 Aug 2026 09:07:09 -0700 (PDT)
 From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
 To: linux-mediatek@lists.infradead.org
 Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
+	Akari Tsuyukusa <akkun11.open@gmail.com>,
 	Wim Van Sebroeck <wim@linux-watchdog.org>,
 	Guenter Roeck <linux@roeck-us.net>,
 	Rob Herring <robh@kernel.org>,
@@ -84,17 +85,17 @@ Cc: Luca Leonardo Scorcia <l.scorcia@gmail.com>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v3 4/8] dt-bindings: watchdog: Add compatible for MediaTek mt8167
-Date: Sun,  9 Aug 2026 18:03:28 +0200
-Message-ID: <20260809160643.33991-5-l.scorcia@gmail.com>
+Subject: [PATCH v3 3/8] arm: dts: mediatek: mt6589: Enable toprgu reset controller
+Date: Sun,  9 Aug 2026 18:03:27 +0200
+Message-ID: <20260809160643.33991-4-l.scorcia@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260809160643.33991-1-l.scorcia@gmail.com>
 References: <20260809160643.33991-1-l.scorcia@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260809_090713_841748_DFAFE2DD 
-X-CRM114-Status: GOOD (  12.33  )
+X-CRM114-CacheID: sfid-20260809_090711_661452_536FEE35 
+X-CRM114-Status: GOOD (  12.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,33 +110,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently mt8167 inherits its watchdog from the included mt8516 dtsi,
-which in turn falls back on mt6589-wdt. However according to the data
-sheet mt8167 has 15 sw resets instead of 12, and the systems to which
-each reset bit corresponds are different from mt6589, so the reset bit
-constants are different too.
+Enable the toprgu reset controller feature for the mt6589 SoC. This
+allows generating reset signals for the 12 subsystems managed by its
+top reset generation unit.
 
-If the number of resets varies between SoCs, the watchdog driver becomes
-incompatible. Update the wdt binding to add a dedicated compatible for
-mt8167.
-
+Signed-off-by: Akari Tsuyukusa <akkun11.open@gmail.com>
 Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
 ---
- Documentation/devicetree/bindings/watchdog/mediatek,mtk-wdt.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm/boot/dts/mediatek/mt6589.dtsi | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/watchdog/mediatek,mtk-wdt.yaml b/Documentation/devicetree/bindings/watchdog/mediatek,mtk-wdt.yaml
-index 953629cb9558..f514be8a5851 100644
---- a/Documentation/devicetree/bindings/watchdog/mediatek,mtk-wdt.yaml
-+++ b/Documentation/devicetree/bindings/watchdog/mediatek,mtk-wdt.yaml
-@@ -26,6 +26,7 @@ properties:
-           - mediatek,mt6795-wdt
-           - mediatek,mt7986-wdt
-           - mediatek,mt7988-wdt
-+          - mediatek,mt8167-wdt
-           - mediatek,mt8183-wdt
-           - mediatek,mt8186-wdt
-           - mediatek,mt8188-wdt
+diff --git a/arch/arm/boot/dts/mediatek/mt6589.dtsi b/arch/arm/boot/dts/mediatek/mt6589.dtsi
+index 46dea445742b..181d1b1ed9b3 100644
+--- a/arch/arm/boot/dts/mediatek/mt6589.dtsi
++++ b/arch/arm/boot/dts/mediatek/mt6589.dtsi
+@@ -7,6 +7,7 @@
+ 
+ #include <dt-bindings/interrupt-controller/irq.h>
+ #include <dt-bindings/interrupt-controller/arm-gic.h>
++#include <dt-bindings/reset/mediatek,mt6589-resets.h>
+ 
+ / {
+ 	#address-cells = <1>;
+@@ -147,6 +148,7 @@ uart3: serial@11009000 {
+ 		wdt: watchdog@10000000 {
+ 			compatible = "mediatek,mt6589-wdt";
+ 			reg = <0x10000000 0x44>;
++			#reset-cells = <1>;
+ 		};
+ 	};
+ };
 -- 
 2.43.0
 
