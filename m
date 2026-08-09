@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23A83C5AD5A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D49FAC5AD4E
 	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 12:16:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,46 +12,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C69P5tR2WggqJvUe7SabrWqXnOfBdknz/qpkXac43/s=; b=nOT+qox3ZSXZ+wJGuODBOVOBAD
-	riSoRulqFDZt7tvc8IkGhlAbq5U44Y1rH41ofM9kJb6W9HFb+WzZFkx+v1uZ3Pa/PyaQEVSp/lISe
-	f5MJviJAGgLRYR/NfzjiHI0t/HGezcTRdFz91ukvH+X9Bpa6LzmazEHz/+MuOI/qXqUdTXCMx6URQ
-	CFN3WmtvmyTvQ6r2LFk9iDFR7gWywbyqEaD8QEdtLVh1Q+B6uDYejDJpU/nGVNqJzUgn7dby7gq6a
-	oBDpDdUp6XCMXWI+mLzp5eye6t8Q5335EdUB20kzZP31lKYEEk06s0LFi53FuuWZ1pGaKY+O/rJku
-	3yyXy8Gw==;
+	bh=fV2vbkre+ZHeo74PSA97MYPO8PtHRy32mEQ+SjYLB/w=; b=AOUr7caeLCBB2wRgFFOyC0TYND
+	Q/HypS3JNM38Ag9WJneWXkDkitTdmrnnxXT15aAtpjaeBygqe8I4YgsOACfDBfXBX3QwPVZ3sWlgc
+	YMY5zJamVrC4++b70+C12JLzNKIJUHL6Dj01jlCaMiQnJ5mGC+60KyUrn+ucb1Ju1HlngGjS8rmpb
+	GPaMV547xA/P53YBriKEFhr2431EL7ocbtg8Ri0HsFBg0NJ2J+Kb1qJQB0yISvD3XGejZ1Sk0y1oc
+	LOyIYIvHjHT17TpsBlqGxQBSziJWHis4yL5bP7y+GSo7gbZiybtpc2BRNHeZkHE+hmqV4bJWnwgfa
+	gna+EPIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wt2Rq-0000000AHMH-1EZD;
+	id 1wt2Rq-0000000AHLh-0MQ5;
 	Sun, 09 Aug 2026 12:16:14 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wt2Ro-0000000AHL5-4AHf
+	id 1wt2Ro-0000000AHL6-3ngS
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Aug 2026 12:16:13 +0000
+	Sun, 09 Aug 2026 12:16:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4E17E43BD4;
+	by sea.source.kernel.org (Postfix) with ESMTP id 4E9F143C01;
 	Sun,  9 Aug 2026 12:16:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 2C11DC2BCFC;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 1E325C2BCFA;
 	Sun,  9 Aug 2026 12:16:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1786277772;
-	bh=NH6TxVvsxwG75iXqtfI7vYJQq5MjARznwzgt/dgex4E=;
+	bh=s0VuUVB5ruw7/XiIUSNF4+H9ehJ1hObbx+QlQJOTfhs=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=UR/gQdOa7V8TG64IpmTk2d/SYouAcmvTBK+GMXwALxN3eKQ0Ljk3mszS2kaDJe/kc
-	 VMATVNfUdMjbm25xxuUR/2Tx24tC3ZV97tt2dl0X//2sahbKG67fDpTPmtt49rGkv4
-	 dyxvF4BS6S2WG0rmd+JeTg0EpwzdKEso3btyw1wC5pzI5cy3itoHRHmL5c44bIOWjP
-	 BFRKKwD0f14CvqcdNqPwaBojJAeZSZhUtsFEfJttmfx3tsB1ZdyVFaibSjpltkt+nP
-	 k5rBFI6UHFKEsQ0mltOzyLU7Bn6ZqTfDLRy2iCh1NRVMKnAMPna/HaovsHSXTsH4CO
-	 K3xbf8t52t55w==
+	b=IuuwaaSIFz1Hg3Kf3NHuxB6IkmIpuY0ZsrCQY4AanfxqUEAMJcYmuRJEAHf9YLzcE
+	 R/Tnov+tbi3SrOpsTLL+HT9NhtfM1tyCBO3nIJT1P5J0gNYZgjAEUaPyWfBRBHKoin
+	 OFyzG2oIup3aZvXo2SdH2os6+e+QIw3IH6yKJcVMpwevoOsBdwONQKS3mInD0eaVZk
+	 M9MW0zT0NTopr4CcuOMF/kKGjwPnnShcaoBUnXSNGQuPp57O+idUUARnwJQqA62ZGo
+	 B2dLtqmKPWr+ASFdcGkC6SdgVqvRhCvBCUVUSDYPI2IEmFnnslIBNsN789JXPRYFjp
+	 5uFoFhqq/rpKw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 15292C5AD6A;
-	Sun,  9 Aug 2026 12:16:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 00461C5AC80;
+	Sun,  9 Aug 2026 12:16:11 +0000 (UTC)
 From: Sven Peter <sven@kernel.org>
-Date: Sun, 09 Aug 2026 14:16:04 +0200
-Subject: [PATCH 3/3] arm64: dts: apple: Add CIO reset controllers
+Date: Sun, 09 Aug 2026 14:16:03 +0200
+Subject: [PATCH 2/3] reset: Add Apple SoC CIO reset driver
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260809-b4-cio-reset-v1-3-4f33777d9b4b@kernel.org>
+Message-Id: <20260809-b4-cio-reset-v1-2-4f33777d9b4b@kernel.org>
 References: <20260809-b4-cio-reset-v1-0-4f33777d9b4b@kernel.org>
 In-Reply-To: <20260809-b4-cio-reset-v1-0-4f33777d9b4b@kernel.org>
 To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
@@ -61,13 +61,13 @@ To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
 Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3435; i=sven@kernel.org;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7782; i=sven@kernel.org;
  h=from:subject:message-id;
- bh=NH6TxVvsxwG75iXqtfI7vYJQq5MjARznwzgt/dgex4E=;
- b=owGbwMvMwCXmIlirolUq95LxtFoSQ1ZFfuf8M/GOXStUPf7xTJV6Xv1L2Gz2hkttvBvPHQnUl
- kr2Pnmqo5SFQYyLQVZMkWX7fnvTJw/fCC7ddOk9zBxWJpAhDFycAjARzpkM/93P+8R8St/2oIRF
- dMK7N96qfXsv6NWf1Hc1b1GUj7vI9pWR4eeFe8zFPYmqt5ecE42PkP12sHxFTVXIKe6enNl3VSe
- osgMA
+ bh=s0VuUVB5ruw7/XiIUSNF4+H9ehJ1hObbx+QlQJOTfhs=;
+ b=owGbwMvMwCXmIlirolUq95LxtFoSQ1ZFfkdY/AmVNMlde1wLd34yLY7ks269ftA06uKJU2eTt
+ S9sknDsKGVhEONikBVTZNm+3970ycM3gks3XXoPM4eVCWQIAxenAEzkQx/DP9vufRkLil96XWfY
+ 2yY6zUwhMLzLQKZQc4HGiXVrOzcu0WP4w6m+v9a6y6Ff/7FiKCPH7x/3j4d+EpAJja8rPT49uTW
+ OFQA=
 X-Developer-Key: i=sven@kernel.org; a=openpgp;
  fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
 X-Endpoint-Received: by B4 Relay for sven@kernel.org/default with
@@ -86,92 +86,253 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the reset controllers used to start the CIO (USB4/Thunderbolt)
-blocks on t8103 and t600x. On t8103 each port comes with a dedicated
-register page represented as a standalone node. On t600x a single
-register shared by all ports of a die is located in the middle of the
-PMGR MMIO region and represented as a sub-node of its syscon.
+Add a driver for the reset of the CIO (USB4/Thunderbolt) blocks on
+Apple Silicon SoCs which has to be deasserted before their
+co-processor can be booted. On t8103 each port comes with a dedicated
+register page while t600x uses a single register with one request bit
+per port shared by all ports of a die inside the PMGR MMIO region.
 
 Signed-off-by: Sven Peter <sven@kernel.org>
 ---
- arch/arm64/boot/dts/apple/t600x-dieX.dtsi | 8 +++++++-
- arch/arm64/boot/dts/apple/t602x-dieX.dtsi | 8 +++++++-
- arch/arm64/boot/dts/apple/t8103.dtsi      | 6 ++++++
- arch/arm64/boot/dts/apple/t8112.dtsi      | 6 ++++++
- 4 files changed, 26 insertions(+), 2 deletions(-)
+ MAINTAINERS                     |   1 +
+ drivers/reset/Kconfig           |  10 +++
+ drivers/reset/Makefile          |   1 +
+ drivers/reset/reset-apple-cio.c | 182 ++++++++++++++++++++++++++++++++++++++++
+ 4 files changed, 194 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/apple/t600x-dieX.dtsi b/arch/arm64/boot/dts/apple/t600x-dieX.dtsi
-index 9676d5127039..5e163d756a7f 100644
---- a/arch/arm64/boot/dts/apple/t600x-dieX.dtsi
-+++ b/arch/arm64/boot/dts/apple/t600x-dieX.dtsi
-@@ -28,7 +28,13 @@ DIE_NODE(pmgr): power-management@28e080000 {
- 		compatible = "apple,t6000-pmgr", "apple,pmgr", "syscon", "simple-mfd";
- 		#address-cells = <1>;
- 		#size-cells = <1>;
--		reg = <0x2 0x8e080000 0 0x4000>;
-+		reg = <0x2 0x8e080000 0 0x1c000>;
-+
-+		DIE_NODE(cio_reset): reset-controller@1a034 {
-+			compatible = "apple,t6000-cio-reset";
-+			reg = <0x1a034 0x4>;
-+			#reset-cells = <1>;
-+		};
- 	};
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 4b78528324c8..5425051c0f99 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -2636,6 +2636,7 @@ F:	drivers/pinctrl/pinctrl-apple-gpio.c
+ F:	drivers/power/reset/macsmc-reboot.c
+ F:	drivers/power/supply/macsmc-power.c
+ F:	drivers/pwm/pwm-apple.c
++F:	drivers/reset/reset-apple-cio.c
+ F:	drivers/rtc/rtc-macsmc.c
+ F:	drivers/soc/apple/*
+ F:	drivers/spi/spi-apple.c
+diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
+index d009eb0849a3..1e83cb5c68ce 100644
+--- a/drivers/reset/Kconfig
++++ b/drivers/reset/Kconfig
+@@ -22,6 +22,16 @@ config RESET_A10SR
+ 	  This option enables support for the external reset functions for
+ 	  peripheral PHYs on the Altera Arria10 System Resource Chip.
  
- 	DIE_NODE(pmgr_east): power-management@28e580000 {
-diff --git a/arch/arm64/boot/dts/apple/t602x-dieX.dtsi b/arch/arm64/boot/dts/apple/t602x-dieX.dtsi
-index ae3d535c5acb..fd4d572a04e7 100644
---- a/arch/arm64/boot/dts/apple/t602x-dieX.dtsi
-+++ b/arch/arm64/boot/dts/apple/t602x-dieX.dtsi
-@@ -27,7 +27,13 @@ DIE_NODE(pmgr): power-management@28e080000 {
- 		compatible = "apple,t6020-pmgr", "apple,t8103-pmgr", "syscon", "simple-mfd";
- 		#address-cells = <1>;
- 		#size-cells = <1>;
--		reg = <0x2 0x8e080000 0 0x8000>;
-+		reg = <0x2 0x8e080000 0 0xc000>;
++config RESET_APPLE_CIO
++	tristate "Apple SoC CIO block reset driver"
++	depends on ARCH_APPLE || COMPILE_TEST
++	select MFD_SYSCON
++	help
++	  This enables the reset driver for the CIO (USB4/Thunderbolt) blocks
++	  found on Apple Silicon SoCs. It is required to start the blocks
++	  before the USB4/Thunderbolt host routers inside them can be brought
++	  up by the thunderbolt driver.
 +
-+		DIE_NODE(cio_reset): reset-controller@a02c {
-+			compatible = "apple,t6020-cio-reset", "apple,t6000-cio-reset";
-+			reg = <0xa02c 0x4>;
-+			#reset-cells = <1>;
-+		};
- 	};
- 
- 	DIE_NODE(pmgr_south): power-management@28e680000 {
-diff --git a/arch/arm64/boot/dts/apple/t8103.dtsi b/arch/arm64/boot/dts/apple/t8103.dtsi
-index da774096b667..83f6f1003424 100644
---- a/arch/arm64/boot/dts/apple/t8103.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8103.dtsi
-@@ -730,6 +730,12 @@ pmgr: power-management@23b700000 {
- 			reg = <0x2 0x3b700000 0 0x14000>;
- 		};
- 
-+		cio_reset: reset-controller@23b784000 {
-+			compatible = "apple,t8103-cio-reset";
-+			reg = <0x2 0x3b784000 0x0 0x8000>;
-+			#reset-cells = <1>;
-+		};
+ config RESET_ASPEED
+ 	tristate "ASPEED Reset Driver"
+ 	depends on ARCH_ASPEED || COMPILE_TEST
+diff --git a/drivers/reset/Makefile b/drivers/reset/Makefile
+index 3e52569bd276..6554649bc139 100644
+--- a/drivers/reset/Makefile
++++ b/drivers/reset/Makefile
+@@ -7,6 +7,7 @@ obj-y += starfive/
+ obj-y += sti/
+ obj-y += tegra/
+ obj-$(CONFIG_RESET_A10SR) += reset-a10sr.o
++obj-$(CONFIG_RESET_APPLE_CIO) += reset-apple-cio.o
+ obj-$(CONFIG_RESET_ASPEED) += reset-aspeed.o
+ obj-$(CONFIG_RESET_ATH79) += reset-ath79.o
+ obj-$(CONFIG_RESET_AXS10X) += reset-axs10x.o
+diff --git a/drivers/reset/reset-apple-cio.c b/drivers/reset/reset-apple-cio.c
+new file mode 100644
+index 000000000000..951340455468
+--- /dev/null
++++ b/drivers/reset/reset-apple-cio.c
+@@ -0,0 +1,182 @@
++// SPDX-License-Identifier: GPL-2.0-only OR MIT
++/*
++ * Apple SoC CIO (USB4/Thunderbolt) block reset driver
++ *
++ * Copyright The Asahi Linux Contributors
++ *
++ * The CIO blocks have a reset inside the power manager (PMGR) that
++ * has to be deasserted before their co-processor can be booted. On
++ * t8103 each port comes with a dedicated register page while t600x
++ * uses a single register shared by all ports of a die inside the PMGR
++ * MMIO region.
++ */
 +
- 		pinctrl_ap: pinctrl@23c100000 {
- 			compatible = "apple,t8103-pinctrl", "apple,pinctrl";
- 			reg = <0x2 0x3c100000 0x0 0x100000>;
-diff --git a/arch/arm64/boot/dts/apple/t8112.dtsi b/arch/arm64/boot/dts/apple/t8112.dtsi
-index 85c47422d4e8..d0637c0384b2 100644
---- a/arch/arm64/boot/dts/apple/t8112.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8112.dtsi
-@@ -737,6 +737,12 @@ pmgr: power-management@23b700000 {
- 			/* child nodes are added in t8103-pmgr.dtsi */
- 		};
- 
-+		cio_reset: reset-controller@23b784000 {
-+			compatible = "apple,t8112-cio-reset", "apple,t8103-cio-reset";
-+			reg = <0x2 0x3b784000 0x0 0x8000>;
-+			#reset-cells = <1>;
-+		};
++#include <linux/bits.h>
++#include <linux/mfd/syscon.h>
++#include <linux/module.h>
++#include <linux/mutex.h>
++#include <linux/of.h>
++#include <linux/platform_device.h>
++#include <linux/regmap.h>
++#include <linux/reset-controller.h>
 +
- 		pinctrl_ap: pinctrl@23c100000 {
- 			compatible = "apple,t8112-pinctrl", "apple,pinctrl";
- 			reg = <0x2 0x3c100000 0x0 0x100000>;
++#define APPLE_CIO_RESET_POLL_US 100
++#define APPLE_CIO_RESET_TIMEOUT_US 100000
++
++#define T8103_CIO_CTRL_STRIDE 0x4000
++#define T8103_CIO_CTRL_INIT_REQ BIT(0)
++#define T8103_CIO_CTRL_INIT_DONE BIT(2)
++
++#define T6000_CIO_CTRL_INIT_REQ(port) BIT(port)
++#define T6000_CIO_CTRL_INIT_BUSY(port) BIT(16 + (port))
++
++struct apple_cio_reset;
++
++struct apple_cio_reset_variant {
++	unsigned int nr_resets;
++	bool pmgr_child;
++	int (*deassert)(struct apple_cio_reset *priv, unsigned long id);
++};
++
++struct apple_cio_reset {
++	struct reset_controller_dev rcdev;
++	const struct apple_cio_reset_variant *variant;
++	struct regmap *regmap;
++	u32 offset;
++	struct mutex lock; /* serializes access to the shared t600x register */
++};
++
++static int t8103_cio_deassert(struct apple_cio_reset *priv, unsigned long id)
++{
++	u32 offset = priv->offset + id * T8103_CIO_CTRL_STRIDE;
++	u32 val;
++	int ret;
++
++	ret = regmap_write(priv->regmap, offset, T8103_CIO_CTRL_INIT_REQ);
++	if (ret)
++		return ret;
++
++	return regmap_read_poll_timeout(priv->regmap, offset, val,
++					val == T8103_CIO_CTRL_INIT_DONE,
++					APPLE_CIO_RESET_POLL_US,
++					APPLE_CIO_RESET_TIMEOUT_US);
++}
++
++static int t6000_cio_deassert(struct apple_cio_reset *priv, unsigned long id)
++{
++	u32 val;
++	int ret;
++
++	guard(mutex)(&priv->lock);
++
++	ret = regmap_write(priv->regmap, priv->offset, T6000_CIO_CTRL_INIT_REQ(id));
++	if (ret)
++		return ret;
++
++	return regmap_read_poll_timeout(priv->regmap, priv->offset, val,
++					!(val & T6000_CIO_CTRL_INIT_BUSY(id)),
++					APPLE_CIO_RESET_POLL_US,
++					APPLE_CIO_RESET_TIMEOUT_US);
++}
++
++static const struct apple_cio_reset_variant apple_t8103_cio_reset = {
++	.nr_resets = 2,
++	.deassert = t8103_cio_deassert,
++};
++
++static const struct apple_cio_reset_variant apple_t6000_cio_reset = {
++	.nr_resets = 4,
++	.pmgr_child = true,
++	.deassert = t6000_cio_deassert,
++};
++
++static int apple_cio_reset_deassert(struct reset_controller_dev *rcdev, unsigned long id)
++{
++	struct apple_cio_reset *priv =
++		container_of(rcdev, struct apple_cio_reset, rcdev);
++
++	return priv->variant->deassert(priv, id);
++}
++
++static const struct reset_control_ops apple_cio_reset_ops = {
++	.deassert = apple_cio_reset_deassert,
++};
++
++static const struct regmap_config apple_cio_reset_regmap_config = {
++	.reg_bits = 32,
++	.reg_stride = 4,
++	.val_bits = 32,
++};
++
++static int apple_cio_reset_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct apple_cio_reset *priv;
++	int ret;
++
++	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
++	if (!priv)
++		return -ENOMEM;
++
++	priv->variant = of_device_get_match_data(dev);
++
++	ret = devm_mutex_init(dev, &priv->lock);
++	if (ret)
++		return ret;
++
++	if (priv->variant->pmgr_child) {
++		priv->regmap = syscon_node_to_regmap(dev->of_node->parent);
++		if (IS_ERR(priv->regmap))
++			return dev_err_probe(dev, PTR_ERR(priv->regmap),
++					     "Failed to get parent regmap");
++
++		ret = of_property_read_u32(dev->of_node, "reg", &priv->offset);
++		if (ret)
++			return dev_err_probe(dev, ret, "Failed to read reg offset");
++	} else {
++		void __iomem *base;
++
++		base = devm_platform_ioremap_resource(pdev, 0);
++		if (IS_ERR(base))
++			return PTR_ERR(base);
++
++		priv->regmap = devm_regmap_init_mmio(dev, base,
++						     &apple_cio_reset_regmap_config);
++		if (IS_ERR(priv->regmap))
++			return dev_err_probe(dev, PTR_ERR(priv->regmap),
++					     "Failed to init MMIO regmap");
++	}
++
++	priv->rcdev.owner = THIS_MODULE;
++	priv->rcdev.ops = &apple_cio_reset_ops;
++	priv->rcdev.of_node = dev->of_node;
++	priv->rcdev.nr_resets = priv->variant->nr_resets;
++
++	return devm_reset_controller_register(dev, &priv->rcdev);
++}
++
++static const struct of_device_id apple_cio_reset_match[] = {
++	{
++		.compatible = "apple,t8103-cio-reset",
++		.data = &apple_t8103_cio_reset,
++	},
++	{
++		.compatible = "apple,t6000-cio-reset",
++		.data = &apple_t6000_cio_reset,
++	},
++	{},
++};
++MODULE_DEVICE_TABLE(of, apple_cio_reset_match);
++
++static struct platform_driver apple_cio_reset_driver = {
++	.driver = {
++		.name = "apple-cio-reset",
++		.of_match_table = apple_cio_reset_match,
++	},
++	.probe = apple_cio_reset_probe,
++};
++module_platform_driver(apple_cio_reset_driver);
++
++MODULE_AUTHOR("Sven Peter <sven@kernel.org>");
++MODULE_DESCRIPTION("Apple SoC CIO block reset driver");
++MODULE_LICENSE("Dual MIT/GPL");
 
 -- 
 2.55.0
