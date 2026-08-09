@@ -4,58 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CA67C5B561
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 20:01:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2E12C5AD7B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 20:01:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3/aJNXd5iDqqUVOKcqvYAIw9gUc8jDzB8J6Vs26BoSk=; b=ngnPpITGkuLpFxKt3PMS7xFoV/
-	5pP6Aqpsau8+cuQ22MIrjfYFXC8nqsf0Vloen7fZqI6LElgnLDukPmGEhPiecdVtgCFG4rPwKeqSG
-	ZqOiZknEAWTxWQcWwFzrPeD8hHBg8vyCRQVSppPmFXAneW/2ZIpKRP5a6tXUarK4p8IoFLqtXGWke
-	pjs6tSyMsGpO1VwaV9jck40qfl7VyAmy4MMEyM6yI4vVAC6xSkxHG+ejAGYDDw2VtDyQ20Rvozz4r
-	YcWn9HQ4yxzjH5/7azIbCDawS1j9QfAaUr6zb8m8LHRbNfZPgWpjyMa6yhpfugdN+LHETiDOfajFM
-	t119yMIA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fQcYfBCZZMtnsgJnUDgQokMrOafV77vdez+yaEZc47s=; b=ebHt8K9geJWEofn4t3cVD2dPPK
+	NhtVo4KIrpM61D6tAEY1YNpzKDpoWA/Cgn/awwwl6jElY1jDbNirzg4d5xBmgemdmTii6iQoWO29y
+	BBQZna6vPby2GMfFjno/82FEBzmcoH7ecFTUjZfMn29MdsLCq7+oZq4RP17hRlPyRBURQbm62z8w5
+	g2blGXqkPtJm5l1JsEDBOGwrqfJKTztSJ4vSYjJsRVlAkonUdDFStCfanGVwBGEsQI5h4zuceN3Bk
+	2e+Z5xMhxIkK8cVuRfu0hdE3ludrzuD6YZeKqb16srZNDLMTBq0aVaPLv0nCfTd3g0n62Y9vdV2wr
+	fCuHF64g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wt9iA-0000000Ad9E-2aEU;
-	Sun, 09 Aug 2026 20:01:34 +0000
-Received: from mout-p-202.mailbox.org ([2001:67c:2050:0:465::202])
+	id 1wt9iI-0000000AdBi-0hMd;
+	Sun, 09 Aug 2026 20:01:42 +0000
+Received: from mout-p-102.mailbox.org ([80.241.56.152])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wt9i6-0000000Ad8T-3bTX
+	id 1wt9iF-0000000AdAL-3C7N
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Aug 2026 20:01:32 +0000
+	Sun, 09 Aug 2026 20:01:41 +0000
 Received: from smtp202.mailbox.org (smtp202.mailbox.org [10.196.197.202])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4hJ80P08sHzMlLw;
-	Sun, 09 Aug 2026 22:01:25 +0200 (CEST)
+	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4hJ80d5L5hzKmD5;
+	Sun, 09 Aug 2026 22:01:37 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1786305685;
+	t=1786305697;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=3/aJNXd5iDqqUVOKcqvYAIw9gUc8jDzB8J6Vs26BoSk=;
-	b=FH6fVflXoiKVMDU3Wd/7cH/DhvOhZ3xvNIC3c98Ag9ZCZ0KZ6ZspUYuGWFnKSYis0jTG+G
-	sRabeijQSMmkWNSfWUDBQdWzUilncHoZ1XIzC7PymXIqr9HRBEkZTf+uSjd0kelbnMC/qV
-	6iyZ3eF9BsDeYGT05o62XxHfUomiT/g1D8AnSmxH1Gw4YK4yYxxpX/61V/mivmKBpMMT1H
-	cJgs1WbdFq0OBKh1M7XfgOQWjYPxzm6ajZQQHBh3F61UrWDaj3rkMfNKbRw/HnN1EigLoN
-	ZqSxP+ldJl7dB0LqfUNG1HKA5HPIcoVynLCVWc3RSwaYoo2xST7rm8IY5RQJ8w==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=fQcYfBCZZMtnsgJnUDgQokMrOafV77vdez+yaEZc47s=;
+	b=Due7pVUuwbYyb6yBWTmUnE8+otUI445vtW0+rrWiAGlMPfWkRudHa4PSOfX2JemJWwCLIU
+	JdDXxyAUjFSFzLsHl7+iWAV2ThGUeWIKTph3Ep2NbIgwWKNDpuM/ph4lRoBbV0jD7XjfQs
+	oaJZ//qSNG/stmXbjXP3TQsojvb0nsb1GDyPttnh+XX+ZdiLb/wMDAMCeZlKxFvzHx4u0a
+	RH9AZRR2XFYIJy+94n0mkzU7kTGOPZXhyOkMkEGxqXzq6qOfaupRhnZEnYTGfAkzxfh6qq
+	mcRtyltLLniMtqNqwgXnhAjaUYUKSjL+oTVIMPCa7Qty7B4HfQQI9YAoqYODpw==
 From: Marek Vasut <marek.vasut+renesas@mailbox.org>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1786305682;
+	t=1786305696;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=3/aJNXd5iDqqUVOKcqvYAIw9gUc8jDzB8J6Vs26BoSk=;
-	b=bLKWRklclBd8qGNWZnRG7ysp/AXyzosTxeEYQUDpwQGXFqkqHgzoDU0NFP4scYRvS6N6Pw
-	J46t/CU9EVktvCKL4aVk0L5s0JdMkOF4tgM9uAXB+pc2Ldk7/GVtf7HExNka2GujRtHM+V
-	kLLtgHk6GrwrDdjsFw818yyouusEdM8OOyCFaFbDAo+rzoJ88sT/Xh62sPcp2bSd2zhyD0
-	K4bbeyiCVwMM6rQpkpT4VnOQ1WDJxhDOGTuJqRIXk3EdQUbDnfOLNBMe9VVwngRGak0iHO
-	kIrQv/eW67QwRNO93C8KuiThyueRddxsuBZ78aRXSSvi2wRZ9sgHkQw5SzEzQA==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=fQcYfBCZZMtnsgJnUDgQokMrOafV77vdez+yaEZc47s=;
+	b=xQHZnjd+lxxQLcsJ2q/6ANQZEP0YayQ1Q7IvCtlwqgzMU2yUzrkFf/itJf+PhGB+YgrxOy
+	Ik1UfWty9jkQD95Kc8uIEbbAjHlkE1GGo40FNpuAgOAjKgt+2OcA3aTB/C2zLrqRBLeCnr
+	HESbIwYTt3xM81e+oPpWfbmFJ6ReRW7JuyUkHj1qWGq5ofXEJF0Z1YWBhaqi1E46qmVX9g
+	8VcS/6SczUznlz28YPSFX2dauSXCAuRoE0kYpsNGiAwxaFLBYeBbEXF1UPFTb/Y0Biv277
+	befwKaFGTeorqfV/5Lzz8PXuGj3Z4pZM3TLtdTMqKovOdswHfbVBBseqNN6bVg==
 To: linux-arm-kernel@lists.infradead.org
 Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
 	Conor Dooley <conor+dt@kernel.org>,
@@ -72,16 +74,18 @@ Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
 	devicetree@vger.kernel.org,
 	dri-devel@lists.freedesktop.org,
 	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH 1/4] dt-bindings: display: panel: Document 10" Raspberry Pi Touch Display 2
-Date: Sun,  9 Aug 2026 21:58:50 +0200
-Message-ID: <20260809200107.842945-1-marek.vasut+renesas@mailbox.org>
+Subject: [PATCH 4/4] drm/panel: ilitek-ili9882t: Add support for Ilitek ILI79600A-based panels
+Date: Sun,  9 Aug 2026 21:58:53 +0200
+Message-ID: <20260809200107.842945-4-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20260809200107.842945-1-marek.vasut+renesas@mailbox.org>
+References: <20260809200107.842945-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-MBO-RS-META: bcdshhh6iepxtnuym8nqaznyoitcnpj4
-X-MBO-RS-ID: e4fbaba2bfd9eafd12a
+X-MBO-RS-ID: 859a69f184f28dd62af
+X-MBO-RS-META: otw4443bc657krtwobbqc3deq98pyiyb
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260809_130131_047246_F0A8C57E 
-X-CRM114-Status: GOOD (  11.59  )
+X-CRM114-CacheID: sfid-20260809_130140_099289_ED3180AA 
+X-CRM114-Status: GOOD (  13.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,8 +100,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document the 10" Raspberry Pi Touch Display 2 MIPI-DSI TFT LCD panel.
-The panel is based on the Ilitek ILI79600A controller.
+The Ilitek ILI79600A display controller is similar to the ILI9882T and can
+be supported within the existing `panel-ilitek-ili9882t.c` driver.
+
+This patch extends the ILI9882T driver to handle ILI79600A-based panels,
+such as the 10" Raspberry Pi Touch Display 2. The ILI79600A uses a similar
+command sequence and initialization flow, with minor differences in power
+supply configuration and timing.
 
 Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 ---
@@ -116,81 +125,272 @@ Cc: devicetree@vger.kernel.org
 Cc: dri-devel@lists.freedesktop.org
 Cc: linux-renesas-soc@vger.kernel.org
 ---
- .../display/panel/ilitek,ili79600a.yaml       | 65 +++++++++++++++++++
- 1 file changed, 65 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/display/panel/ilitek,ili79600a.yaml
+ drivers/gpu/drm/panel/panel-ilitek-ili9882t.c | 231 ++++++++++++++++++
+ 1 file changed, 231 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/display/panel/ilitek,ili79600a.yaml b/Documentation/devicetree/bindings/display/panel/ilitek,ili79600a.yaml
-new file mode 100644
-index 0000000000000..0a3baffef293e
---- /dev/null
-+++ b/Documentation/devicetree/bindings/display/panel/ilitek,ili79600a.yaml
-@@ -0,0 +1,65 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/display/panel/ilitek,ili79600a.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/drivers/gpu/drm/panel/panel-ilitek-ili9882t.c b/drivers/gpu/drm/panel/panel-ilitek-ili9882t.c
+index 24e72ad0d29a1..5581100a1f8a5 100644
+--- a/drivers/gpu/drm/panel/panel-ilitek-ili9882t.c
++++ b/drivers/gpu/drm/panel/panel-ilitek-ili9882t.c
+@@ -133,6 +133,207 @@ static const struct drm_dsc_config tianma_il79900a_dsc = {
+ 	.flatness_min_qp = 3,
+ };
+ 
++static int rpi_10inch_init(struct ili9882t *ili)
++{
++	struct mipi_dsi_multi_context ctx = { .dsi = ili->dsi };
 +
-+title: Ilitek ILI79600A based MIPI-DSI panels
++	mipi_dsi_usleep_range(&ctx, 5000, 5100);
 +
-+maintainers:
-+  - Dave Stevenson <dave.stevenson@raspberrypi.com>
-+  - Marek Vasut <marek.vasut+renesas@mailbox.org>
++	il79900a_switch_page(&ctx, 0x01);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x00, 0x42);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x01, 0x11);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x02, 0x00);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x03, 0x00);
 +
-+allOf:
-+  - $ref: panel-common.yaml#
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x04, 0x01);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x05, 0x11);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x06, 0x00);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x07, 0x00);
 +
-+properties:
-+  compatible:
-+    items:
-+      - enum:
-+          - raspberrypi,dsi-10inch
-+      - const: ilitek,ili79600a
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x08, 0x80);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x09, 0x01);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x0a, 0x71);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x0c, 0x00);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x0e, 0x00);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x0d, 0x00);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x0f, 0x00);
 +
-+  reg:
-+    maxItems: 1
-+    description: DSI virtual channel used by the panel
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x30, 0x07);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x31, 0x07);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x32, 0x07);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x33, 0x07);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x34, 0x07);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x35, 0x01);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x36, 0x00);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x37, 0x28);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x38, 0x29);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x39, 0x11);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x3A, 0x13);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x3B, 0x15);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x3C, 0x17);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x3D, 0x09);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x3E, 0x0D);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x3F, 0x02);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x40, 0x02);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x41, 0x02);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x42, 0x02);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x43, 0x02);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x44, 0x02);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x45, 0x02);
 +
-+  enable-gpios:
-+    maxItems: 1
-+    description: GPIO specifier for the enable pin
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x48, 0x07);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x49, 0x07);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x4A, 0x07);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x4B, 0x07);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x4C, 0x07);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x4D, 0x01);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x4E, 0x00);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x4F, 0x28);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x50, 0x29);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x51, 0x10);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x52, 0x12);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x53, 0x14);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x54, 0x16);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x55, 0x08);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x56, 0x0C);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x57, 0x02);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x58, 0x02);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x59, 0x02);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x5A, 0x02);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x5B, 0x02);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x5C, 0x02);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x5D, 0x02);
 +
-+  avdd-supply:
-+    description: Positive analog voltage supply (AVDD)
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x2C, 0xB0);
 +
-+  avee-supply:
-+    description: Negative analog voltage supply (AVEE)
++	il79900a_switch_page(&ctx, 0x02);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x07, 0x00);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x06, 0xD2);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x53, 0x1F);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x5E, 0x40);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x84, 0x00);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x29, 0x3A);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x2A, 0x3B);
 +
-+  pp1800-supply:
-+    description: 1.8V logic voltage supply
++	il79900a_switch_page(&ctx, 0x03);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x20, 0x01);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x21, 0x3C);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x22, 0xFA);
 +
-+  pp3300-supply:
-+    description: 3.3V logic voltage supply
++	il79900a_switch_page(&ctx, 0x12);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x87, 0x2C);
 +
-+  backlight: true
++	il79900a_switch_page(&ctx, 0x05);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x61, 0x8F);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x6D, 0xBB);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x5A, 0x7C);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x67, 0x7C);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x54, 0x92);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x55, 0x92);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x40, 0xD2);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x46, 0x70);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x30, 0x47);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x7A, 0x89);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0xA4, 0x0B);
 +
-+required:
-+  - compatible
-+  - reg
++	il79900a_switch_page(&ctx, 0x06);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0xC0, 0x80);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0xC1, 0x7);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0xCA, 0x58);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0xCB, 0x2);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0xCE, 0x58);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0xCF, 0x2);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x10, 0x0);
 +
-+additionalProperties: false
++	il79900a_switch_page(&ctx, 0x0b);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x76, 0x55);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x78, 0x68);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x77, 0x0D);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x79, 0x60);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x7A, 0x10);
 +
-+examples:
-+  - |
-+    #include <dt-bindings/gpio/gpio.h>
++	il79900a_switch_page(&ctx, 0x08);
++	mipi_dsi_dcs_write_seq_multi(&ctx,
++				     0xE0, 0x00, 0x1E, 0x3F,
++				     0x68, 0x7D, 0x72, 0x86,
++				     0x89, 0x92, 0x8E, 0xA5,
++				     0xA8, 0xAA, 0xBD, 0xB8,
++				     0xBE, 0xC5, 0xD6, 0xCD,
++				     0xC3, 0xDA, 0xEB, 0xED);
++	mipi_dsi_dcs_write_seq_multi(&ctx,
++				     0xE1, 0x00, 0x1E, 0x3F,
++				     0x68, 0x7D, 0x72, 0x86,
++				     0x89, 0x92, 0x8E, 0xA5,
++				     0xA8, 0xAA, 0xBD, 0xB8,
++				     0xBE, 0xC5, 0xD6, 0xCD,
++				     0xC3, 0xDA, 0xEB, 0xED);
 +
-+    dsi {
-+        #address-cells = <1>;
-+        #size-cells = <0>;
++	il79900a_switch_page(&ctx, 0x14);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x85, 0xCC);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x87, 0x91);
 +
-+        panel@0 {
-+            compatible = "raspberrypi,dsi-10inch", "ilitek,ili79600a";
-+            reg = <0>;
-+            avdd-supply = <&reg_display>;
-+            backlight = <&pwm_bl>;
-+        };
-+    };
++	il79900a_switch_page(&ctx, 0x10);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x11, 0x3);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x12, 0x34);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x10, 0x1);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x13, 0x4);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x14, 0xBB);
++
++	il79900a_switch_page(&ctx, 0x0b);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x94, 0x88);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x95, 0x23);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x96, 0x0B);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x97, 0x0B);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x98, 0xC6);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x99, 0xC6);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0xA6, 0x47);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0xA7, 0x77);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0xA8, 0x5);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0xA9, 0x5);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0xAA, 0xBA);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0xAB, 0xBA);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0xBD, 0x92);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0xBE, 0xE0);
++
++	il79900a_switch_page(&ctx, 0x0e);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x0, 0x80);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x14, 0x3);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x12, 0x0);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x13, 0x4);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x11, 0x1);
++
++	il79900a_switch_page(&ctx, 0x02);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x80, 0x11);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x82, 0x11);
++	il79900a_switch_page(&ctx, 0x12);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x82, 0x2C);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x85, 0x2C);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x87, 0x2C);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x88, 0xEC);
++	il79900a_switch_page(&ctx, 0x10);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x4, 0x1);
++	il79900a_switch_page(&ctx, 0x11);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x0C, 0x80);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x3C, 0x80);
++
++	il79900a_switch_page(&ctx, 0x06);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x0E, 0x0);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x0E, 0x3F);
++	mipi_dsi_dcs_write_seq_multi(&ctx, 0x10, 0x0);
++
++	il79900a_switch_page(&ctx, 0x00);
++	mipi_dsi_dcs_set_tear_on_multi(&ctx, MIPI_DSI_DCS_TEAR_MODE_VBLANK);
++	mipi_dsi_dcs_exit_sleep_mode_multi(&ctx);
++
++	mipi_dsi_msleep(&ctx, 120);
++
++	mipi_dsi_dcs_set_display_on_multi(&ctx);
++
++	mipi_dsi_msleep(&ctx, 20);
++
++	return ctx.accum_err;
++};
++
+ static int starry_ili9882t_init(struct ili9882t *ili)
+ {
+ 	struct mipi_dsi_multi_context ctx = { .dsi = ili->dsi };
+@@ -670,6 +871,19 @@ static int ili9882t_enable(struct drm_panel *panel)
+ 	return 0;
+ }
+ 
++static const struct drm_display_mode rpi_10inch_default_mode = {
++	.clock = 166666,
++	.hdisplay = 1200,
++	.hsync_start = 1200 + 28,
++	.hsync_end = 1200 + 28 + 10,
++	.htotal = 1200 + 28 + 10 + 30,
++	.vdisplay = 1920,
++	.vsync_start = 1920 + 238,
++	.vsync_end = 1920 + 238 + 4,
++	.vtotal = 1920 + 238 + 4 + 28,
++	.type = DRM_MODE_TYPE_DRIVER | DRM_MODE_TYPE_PREFERRED,
++};
++
+ static const struct drm_display_mode starry_ili9882t_default_mode = {
+ 	.clock = 165280,
+ 	.hdisplay = 1200,
+@@ -696,6 +910,20 @@ static const struct drm_display_mode tianma_il79900a_default_mode = {
+ 	.type = DRM_MODE_TYPE_DRIVER | DRM_MODE_TYPE_PREFERRED,
+ };
+ 
++static const struct panel_desc rpi_10inch_desc = {
++	.modes = &rpi_10inch_default_mode,
++	.bpc = 8,
++	.size = {
++		.width_mm = 135,
++		.height_mm = 216,
++	},
++	.lanes = 4,
++	.format = MIPI_DSI_FMT_RGB888,
++	.mode_flags = MIPI_DSI_MODE_VIDEO | MIPI_DSI_MODE_VIDEO_SYNC_PULSE |
++		      MIPI_DSI_MODE_LPM,
++	.init = rpi_10inch_init,
++};
++
+ static const struct panel_desc starry_ili9882t_desc = {
+ 	.modes = &starry_ili9882t_default_mode,
+ 	.bpc = 8,
+@@ -866,6 +1094,9 @@ static void ili9882t_remove(struct mipi_dsi_device *dsi)
+ }
+ 
+ static const struct of_device_id ili9882t_of_match[] = {
++	{ .compatible = "raspberrypi,dsi-10inch",
++	  .data = &rpi_10inch_desc
++	},
+ 	{ .compatible = "starry,ili9882t",
+ 	  .data = &starry_ili9882t_desc
+ 	},
 -- 
 2.53.0
 
