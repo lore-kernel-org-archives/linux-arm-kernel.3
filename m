@@ -4,79 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AD0DC5B560
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 21:29:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E00BC5AD4E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 21:30:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ci73WvOwMBSroflA9ZtwzSLhEsK1+3+fW7eQ6DmillE=; b=xcF9tD0HA6M5wUFg5SUqnqDSHE
-	ESXqrCqhd+hO2BMTVRblodzRf5WgDUH7AbybfVw5v9Ewj2XA3PtO/iYVI6QY46v991WxDuvrVfn+T
-	UU3A106zaKH8A/fWK8YYUL3dNlQC7oaBMrjMRywRT1Erh7rR3wom5YGCSwFK42/cd5gmPlkdIEW+s
-	lTuxJXzlhSfsen5hBhDdl9i0X6j9hrrDI4lxnbusUOyzb79f2IlUCDWQY6vLrCtRvXOCTnDyyxIeH
-	xm1NWKgbYLFGPl9vAoBd3W9gB7pXLFnmqbAkHeph0rBiYN18nOLBjQ+mp+GcE3UEZqdxvxSKkTd7J
-	9tBxz5mA==;
+	bh=cNYQmWR/t+zQADZCU9tCe+GnxduSNSckEGbwvFCqSSs=; b=ZeoAn9we1mB8SnSlpyti7nKwPh
+	8Vr6sPSC9KOxjSRmf+wWjcIrmuJUzY545UU0c0wfSucsltr+uEUc49FoqMztTI0t0sqyO3wukf5Hu
+	nQsUJm8skljoyOUSz5W3T2p97yi0eB8JQOzcOVCJeIm9r6bvCKgP74QTkBsvpKtsf6FW4bz8M5xjG
+	05UE17kKgaqtrQ6kEzXHxC627o8ZLn4oNBxg6WuLxUEDwmUFmmZEX46jvX1eIC3A0GLYQSbuuY6ms
+	BET0i4h4erOpg65Gk12sH/V/pncWqlm5NSdpPFimY0DQTqnI1gRY8dou2ENd/s0JXXZt3jKIHzDQa
+	QWmnBGDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtB5G-0000000AkNP-42pY;
-	Sun, 09 Aug 2026 21:29:30 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1wtB5h-0000000AkrX-0tr4;
+	Sun, 09 Aug 2026 21:29:57 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtB5D-0000000AkIt-23ih
+	id 1wtB5W-0000000Akeq-0kuJ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Aug 2026 21:29:30 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-47ddf7b09e5so1301656f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Aug 2026 14:29:27 -0700 (PDT)
+	Sun, 09 Aug 2026 21:29:56 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4921eed3fa2so8154255e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Aug 2026 14:29:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786310966; x=1786915766; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1786310984; x=1786915784; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=ci73WvOwMBSroflA9ZtwzSLhEsK1+3+fW7eQ6DmillE=;
-        b=M/mdaIf+u0pxg/AY6gBaLSaoZuAIyhNTaU++cNeAfWMr8RQKjATgPCYiqW4fBb5hkF
-         QeZ9OtqHmceYM0LZwD5ca3HKodwDeTdkhTFr85936zG6uO4tegLzfZAyreSwPdsNZOA8
-         B1dT2OlIMehoXl7unPBpW2zLh+6yy+RejVAx36L38I8TZfib17F/AuH6o/rGhkL5k3Ln
-         gXjGtbMpxzURNuNzBn05AH3u7M+b+sazfMXyeJSfFX1c8UpJeXPbendrOwerPJxtS56n
-         NB+9wmFc1lV76HPJyXiqofDGugVCNzthnQUO5FkQiwJ95hx0egYA8rpz9DYS/nNItgj4
-         xQmw==
+        bh=cNYQmWR/t+zQADZCU9tCe+GnxduSNSckEGbwvFCqSSs=;
+        b=OVI+HyJpC/kbQs9sLV/4o9ZOpRztslPhIP6AlByGmC0VrC6NisTX/XVS46ctbvXcIa
+         60dvNV/W+Wt0O78IWvyfK8OTXIXLprrk0301pLirBsmMguBOJhpJ34tlu0IDf+3N4CW/
+         H54jea81+KJdyurxQa8AeMM832HL/dY6mZ7XV5qgTffogG4ZDNnhvFP0YdGuHBG+NGPl
+         mtDbi/B7nSUPnWhdmkrh1tSLCDhn1RBiK6j4hVkySEM+4HhYJ+4acXVqO0lt98LP2M18
+         nAQZcGxjBtQU3aJG8IpHJDL26k+bbszYnrKMhdiqNs/lvu6S7E7kmT7q9smL9WtrRAqk
+         0Czg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786310966; x=1786915766;
+        d=1e100.net; s=20251104; t=1786310984; x=1786915784;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=ci73WvOwMBSroflA9ZtwzSLhEsK1+3+fW7eQ6DmillE=;
-        b=A2fnxSDynCVdbigRTc+47hUOZIKeYxggvmDjgZMm7mDGy74VpD2EHVK58LY/JiXb51
-         SyZGjkVTIQNbP8mITnLdbeP0TJeoVSI+EONHlP7XUUn9HD/f0JpbUQjt7RxZjzQhMb+W
-         Jv7KjUQA75AQc56tkXbxA2XXhAxR7VP7vO/lDutNQhES5A9LviJzJFyG/YFSH0QbflBm
-         Uz6QKSAlJIrTzDQVtnjFpnGtgVY1AhpcEwNsssq+u5jQeA8FCVH771xjvUFnsVDgF9W/
-         7XlXgEfOpoSFa2T+XsqrPJ3ZL3aGR9cvv6GW2M5b3NcXpEQOOmzoaATAEOUgl7LuREcK
-         TdJQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rq+vFQWEWz62us50RKBXDvYcfnyOAo2drIeIAYScU26j47sAVpCM8fESc/6uByLFI8jDdJX4cDeQt7wOish+6qG@lists.infradead.org
-X-Gm-Message-State: AOJu0YxfXXjy62woWrE5QIrH8bQ60Iy31r1VKFP86j0yu0zrlSFosdzm
-	INu8zyVkWEIEq/oawQTGKmtuCzMSjI2riuup0erYNWXGxJctqtAbxwc5
-X-Gm-Gg: AR+sD11TElcx90iq53kpd680b/rizzFPwJVA3JyigNbHwT1ACGvqqfqlkl+D7sGjK5t
-	T1We27ksmGEED7aRg9XBi+wlozsJpcxi+1jwTk7W3f1M3hMF6HfffHGMJD8bDW8fZNwNFqPyfB/
-	AzjYsKP/hjJEALtPc1WDHCpVl6sovvaVaumc7Ov3y8PL01V/BHFJNFjuRZZDJPh2uK7umhfKHON
-	N7y0gdX3ZkoVMwPawLY0ZyHF9nSRrF2jUwOU+iyg6tBwL3oMwhaUoqQQ+t5hNUfeUILQ3GBlN0V
-	Bjhh8gOEV208iK/as8MSmPcjAyaiXQ2hOT0cz6RJIwlTLAUPalljyfabA8eSu/SltELSFrgjbQy
-	FvHNQViHpMWXW/nubCx1UTOFdbJ1xflR5xZLKUmKBUsBH+EjlhRPSqEOBorZA0tBX1oeB4KWH+K
-	CEuOxz1ScSg4TUM7oqC3JeBD1vHqBh8Lp1G5Lx6K3uOw8IplrKenxHTPIlACBAFRFE7F4H/OI=
-X-Received: by 2002:a05:6000:22c9:b0:47f:e7c8:3fe9 with SMTP id ffacd0b85a97d-47ffd15cb0fmr37341572f8f.0.1786310965644;
-        Sun, 09 Aug 2026 14:29:25 -0700 (PDT)
+        bh=cNYQmWR/t+zQADZCU9tCe+GnxduSNSckEGbwvFCqSSs=;
+        b=QXgSC0e1TtjWyeEc+8MHhVHVDOnIc7erXrCWjdnDikdiwcqMc8wMQVi/4G3C2lKTh0
+         4YwH0mXkzhidYAL+9gjxJCxSdzZjgf41i1mvbdnsxpWpeAC1IIIvyZRlBWzrunQNc9w0
+         BUrAL3CeixJKem3nglyUhd+iQnX5VxV66qthKXd5GFdlz5PJu3RaCWTjhA6TYta/3zw8
+         PffBMeJ+8XCCh523y3yAVYAp1vWDa+2peRGHClF1WAwc523wWfiM9RGf2DFf7ZJQSbnr
+         VNG08/XLMEPOYQrpltM7lnibIejwevqOrzVRDGf/SjG3GO1dhlIX4fyUdSBrgLqBTzCL
+         9CyQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rrx+vlSAI0Gx5kd70iJCs3J/2YEoKtL8oLw+va96mosEk/34JFVKOI5ttnPoOWHxRUmLVL0ang/pd3m8uW/efav@lists.infradead.org
+X-Gm-Message-State: AOJu0YxHJ0GHn1I+j1Pdhrgh+3wHdGEV/rKEDbeYQW7T7NsB6I/3uKTP
+	z5ANtBMf6qQFtRvGp1E3v0e60BW5y1foWWJYEA895Oz4DnglFY+f81Wl
+X-Gm-Gg: AR+sD13LTA+WhyTojMuTlNH+TeoAMaopRdm5i5ALXWDYsF2AIXxUsfa1QWm55FOHBTf
+	+1qqR/33VkRhsofJPS2UANg7ee7K0QMf/fh2Vcpxfilmki63NYDAL8xMqCfA5koUFESDHYGVKLr
+	ZnuA4rMZ1Roka2Ohjf5s6MYPmnfVWcOkoMh+JNJLDdjXHvh9KYvrN61YWffs8wrqNbD8PfkQnwB
+	1UquO3NcTkXXUsNZLhsWLFX0g6x1c9DcfsSa8Mp+5l6+XAEagCIyKrw9iqGa6x9tc+DNdbGCIti
+	9Kramp5Iai/ezvcrnDcsbwXmqRJy6meYeLCUS5iLoCx41+9pF5MiajNQTHIoNm2ZnkaeDV7NsqY
+	aLC3QXIvH8BlHzLff6jp4GTIBeZX+DY1YheagGhS9281JWAPEr0yGnNm3Gv6puNpAHG5uEHuqam
+	vVYR3EHZilgGQt8gG9yVYJeimgTZsWGOiacz7WIORoFQ3VXDbGv6pOFTJChGxnjYpD0remmwL5t
+	X+Vr6fCjg==
+X-Received: by 2002:a05:600c:630c:b0:499:4d4a:4990 with SMTP id 5b1f17b1804b1-4994e74566bmr402235205e9.3.1786310984187;
+        Sun, 09 Aug 2026 14:29:44 -0700 (PDT)
 Received: from [192.168.0.2] ([197.250.226.68])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-480021e8c5asm28987451f8f.18.2026.08.09.14.29.21
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-480021e8c5asm28987451f8f.18.2026.08.09.14.29.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 09 Aug 2026 14:29:25 -0700 (PDT)
+        Sun, 09 Aug 2026 14:29:43 -0700 (PDT)
 From: =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
-Date: Mon, 10 Aug 2026 00:28:26 +0300
-Subject: [PATCH v10 07/12] clk: zte: Add zx PLL support infrastructure
+Date: Mon, 10 Aug 2026 00:28:30 +0300
+Subject: [PATCH v10 11/12] reset: zte: Add a zx297520v3 reset driver
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260810-zx29clk-v10-7-63846490712c@gmail.com>
+Message-Id: <20260810-zx29clk-v10-11-63846490712c@gmail.com>
 References: <20260810-zx29clk-v10-0-63846490712c@gmail.com>
 In-Reply-To: <20260810-zx29clk-v10-0-63846490712c@gmail.com>
 To: Michael Turquette <mturquette@baylibre.com>, 
@@ -91,26 +92,26 @@ Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
  linux-phy@lists.infradead.org, mfd@lists.linux.dev, 
  =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=23183;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=13352;
  i=stefandoesinger@gmail.com; h=from:subject:message-id;
- bh=y2OVF9tHGQamAqiJbN37WEWcTIGcF5zew3BBIKsfjmE=;
- b=owEBiQJ2/ZANAwAIAT0TvMhUTxoiAcsmYgBqePEO+1U8Rnep3wi2KbAXxw0LhzcvZPvmYw1WM
- JmK9/m3KZGJAk8EAAEIADkWIQRDFvS2qgVbJ5UyXWw9E7zIVE8aIgUCanjxDhsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDIACgkQPRO8yFRPGiIUpA//fnc9/Ulmce4kzSc3lBvPR+QECO7DY9l
- U/bVwccLmll3N/UhUyEw9jZZI4UyEDw7NpCivcK26fEk+4r3i40PVpJb0ziJrIYgPjvQEJZ77zl
- vliYcXnmon5OvYKeb5RB/kCVM94RmZZVWk11xtVY9vu1IijTM+6UQdwsp9YyPvIwZVj08o7bpBY
- hBcpYrcPZAJAsbv8bX4TDeVkysVjBDessYMHC1papiuryNqHoW0QOHQuEGBlkvoEBd1eWJAst+O
- EH4C8t2PEopmjn4jDrJHGwiF1LUmAoEhuqvkhOrRbTw0qSfF42OlG0Wn/5LeCN/yAQriE2nNry6
- k2MZzfJpSZc+ZqQcRGO0C8REwqMb02RAM3EttI9h2gnpm3iV5HI12rpPowFbV9UbiYcc7fvRXJM
- VgrlMpJefrkhZZ/tIn1607H9VcrHuZEZj2UH3LWQWPZdBeospTqoVgDWHtjD5SjCZE5nbNolXVT
- XtsMgk12ljP57TgKB1oLNRsio7+3ccmbuAzxK7pP1CLduQJZkWFLrkfdwOwXpOnf5HwbXD9ghmQ
- rc6wPm1W4MGi9uAczV8zA2Hsujx15CXZ6JAObC9JejSNEBxkjoS5311TCMf0mepveklNZzvwEg4
- d53hf6F6MvZEEJrF2smh9qe/3OGderYLizFDyC2iPdAEaqlnE1ZY=
+ bh=ZZxckeyA6AJLvKy/8WrFsTFoBp0n9ndwCOBIkhLTkNM=;
+ b=owEBiQJ2/ZANAwAIAT0TvMhUTxoiAcsmYgBqePEP1W2r1xdUvwYzMM7fYUnolSt/rLWDVXYhi
+ qycDbs1D7OJAk8EAAEIADkWIQRDFvS2qgVbJ5UyXWw9E7zIVE8aIgUCanjxDxsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDIACgkQPRO8yFRPGiIcRg//YK+Ha3CYKpi8pksW4QwI4APm20ZAFBC
+ 2VqbKd44vspHQ58RmxcEbDpftj78pNzsuoee0ixjBKWCfRHgS17gtDfugLqDNTRH0YAMi6wBmtd
+ LGTnAnn/jjTREChMj5gtQt3GcZOswqldmoeJLSAsEeqfS/Snwz2NjSSozf/u2kKZtVH+xdboSUh
+ YNNisA+AEtByyaXid1dsksn0xduxE/A8dNeVcgYDAlHZB5OyNphZq8hc28EfMKN7+W9PS/ZC6Ce
+ SRo4aYTYpLeG7tRIRqUmfaNH5YU1nw42g1vZFTlanD317h7HfAY9QkHH7V8upfUTsFWmdXGthrD
+ HNhTPrZQeZ0VyOR+WbRa4iiA1pVAbOI93mLVfxGFkdzHtY4SrglPX+TivcmyAK+vm5RKlcexajo
+ qPVl3mxOzZVxicz9KWUVabvbQjvYMsvyHd3J+P1UaMUrMYgf4YT0TgNXasGolYDSZr4brkB3VYO
+ 0wVc/DM2W6LSGXFIiNHJ7r8KJ4tTVdiUjCjocLZR4/9xjQWR8tTcHDTdaZw93O6DK/MqE05r2bF
+ LsOZam2HyYjzlnPYo/R5Beq3FWsDsVlNSiH72rB4g6Tlzkls9D3xMHPz83HZNxCyk62n83M7VsD
+ ydMU1r8T0t6K3l1nGu63w3OTxDxtDKnPxNVYdZ/N01B1Bw8y4IZc=
 X-Developer-Key: i=stefandoesinger@gmail.com; a=openpgp;
  fpr=4F9C2C8728019633893EBBB98CB81F9A72BBA155
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260809_142928_029795_F52AAF2F 
-X-CRM114-Status: GOOD (  40.91  )
+X-CRM114-CacheID: sfid-20260809_142946_392645_3F53E545 
+X-CRM114-Status: GOOD (  30.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,640 +126,336 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-I am guessing how much of this is reusable among other zx chips or even
-differently named ZTE platforms (if there are any). From reading the old
-zx2967 code, I think the PLL code would be reusable there, maybe with
-platform-specific bitmasks but otherwise the same logic.
+This drives the MFD child devices created by the zte-zx297520v3-crm
+driver.
 
+Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
 Signed-off-by: Stefan Dösinger <stefandoesinger@gmail.com>
-
 ---
 
-Version 9:
-*) Take req->min_rate and req->max_rate into account when looking for
-possible PLL configurations (sashiko). In practice the code will still
-only ever encounter a fixed request to set dpll to 491.52 MHz.
+v10:
+Add ZSP reset in matrixcrm
 
-*) The same code style changes Brian requested on the other clk patches.
+v9:
+Remove HSIC and USB PHY resets, the phy driver will access them through
+the shared regmap directly
+Sort include files alphabetically
+Depend on HAS_IOMEM due to "select MFD_SYSCON" (Sashiko). This has some,
+but not consistent, precedent in the same file
 
-Version 8:
-*) Document the behavior of unlocked PLLs better: They don't pass
-through their reference/parent, but pass through the fixed clock-26m
-oscillator, even if their reference clock is something else.
-*) dpll has working fractionals. Add this in the comment, but there is
-no actual code support for it - the LTE hardware doesn't need it.
+v8: Select MFD_SYSCON for COMPILE_TESTing this driver without the MFD
+parent driver.
 
-As for Sashiko's comments on the .set_rate implementation: In practice
-.set_rate will only ever set one rate, 491.52 MHz for dpll. All other
-PLLs are bootloader configured. Dpll could be handled by writing a magic
-constant into its config.
+v7:
+Add MODULE_DEVICE_TABLE (Philipp)
+Add DDR control and LSP resets
 
-I want to have the rate finding code as documentation, and maybe there
-is more elaborate future use for it (e.g. more flexible underclocking),
-but attempts to handle eventualities like rate searches or misconfigured
-bootloader values would be dead code.
+v6:
+Add a comment wrt checking all bits in .status() (Philipp)
+include cleanup (Philipp, Sashiko)
 
-Version 7:
-*) Always keep unknownpll enabled when prepared so dpll can acquire a
-lock in its prepare() function.
-*) Clean up error reporting a bit (Sashiko)
-
-Version 6:
-*) Use abs_diff to compare target and candidate PLL rate (Sashiko).
-*) Use req->best_parent_rate in zx29_pll_determine_rate. Add a TODO
-comment about the parent rate flexibility.
-
-Version 5: Fix some issues pointed out by Sashiko: NULL dev,
-zx29_pll_recalc_rate error handling, disable PLL again on enable error.
+v5:
+Make top and matrix MFD children instead of aux devices
+Split USB PHY reset into its own reset ID
+Remove USB reset wait code - this will be handled via syscon from a
+future minimal phy-zx29-usb driver
 ---
- drivers/clk/zte/pll-zx.c | 568 ++++++++++++++++++++++++++++++++++++++++++++++-
- 1 file changed, 565 insertions(+), 3 deletions(-)
+ MAINTAINERS                          |   1 +
+ drivers/reset/Kconfig                |  13 ++
+ drivers/reset/Makefile               |   1 +
+ drivers/reset/reset-zte-zx297520v3.c | 237 +++++++++++++++++++++++++++++++++++
+ 4 files changed, 252 insertions(+)
 
-diff --git a/drivers/clk/zte/pll-zx.c b/drivers/clk/zte/pll-zx.c
-index fc76c6524a16..e8d57dd1386f 100644
---- a/drivers/clk/zte/pll-zx.c
-+++ b/drivers/clk/zte/pll-zx.c
-@@ -4,15 +4,577 @@
-  */
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 408bb256d2d4..f1c981979556 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -3911,6 +3911,7 @@ F:	arch/arm/boot/dts/zte/
+ F:	arch/arm/mach-zte/
+ F:	drivers/clk/zte/
+ F:	drivers/mfd/zte-zx297520v3-crm.c
++F:	drivers/reset/reset-zte-zx297520v3.c
+ F:	include/dt-bindings/clock/zte,zx297520v3-clk.h
+ F:	include/dt-bindings/phy/zte,zx297520v3-topcrm.h
+ F:	include/dt-bindings/reset/zte,zx297520v3-reset.h
+diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
+index d009eb0849a3..b92bd0c16517 100644
+--- a/drivers/reset/Kconfig
++++ b/drivers/reset/Kconfig
+@@ -404,6 +404,19 @@ config RESET_UNIPHIER_GLUE
+ 	  on UniPhier SoCs. Say Y if you want to control reset signals
+ 	  provided by the glue layer.
  
- #include <linux/clk-provider.h>
-+#include <linux/clk.h>
-+#include <linux/container_of.h>
- #include <linux/device.h>
++config RESET_ZTE_ZX297520V3
++	tristate "ZTE zx297520v3 Reset Driver"
++	depends on HAS_IOMEM
++	depends on MFD_ZTE_ZX297520V3_CRM || COMPILE_TEST
++	default SOC_ZX297520V3
++	select MFD_SYSCON
++	help
++	  This enables the reset controllers for ZTE zx297520v3 SoCs. The reset
++	  controllers are required for booting this board and are part of the
++	  clock and reset management controllers on this board, so you will also
++	  need MFD_ZTE_ZX297520V3_CRM. Enable this if you are building a kernel
++	  for a ZTE zx297520v3 based board.
++
+ config RESET_ZYNQ
+ 	bool "ZYNQ Reset Driver" if COMPILE_TEST
+ 	default ARCH_ZYNQ
+diff --git a/drivers/reset/Makefile b/drivers/reset/Makefile
+index 3e52569bd276..9a8a48d44dc4 100644
+--- a/drivers/reset/Makefile
++++ b/drivers/reset/Makefile
+@@ -50,5 +50,6 @@ obj-$(CONFIG_RESET_TI_TPS380X) += reset-tps380x.o
+ obj-$(CONFIG_RESET_TN48M_CPLD) += reset-tn48m.o
+ obj-$(CONFIG_RESET_UNIPHIER) += reset-uniphier.o
+ obj-$(CONFIG_RESET_UNIPHIER_GLUE) += reset-uniphier-glue.o
++obj-$(CONFIG_RESET_ZTE_ZX297520V3) += reset-zte-zx297520v3.o
+ obj-$(CONFIG_RESET_ZYNQ) += reset-zynq.o
+ obj-$(CONFIG_RESET_ZYNQMP) += reset-zynqmp.o
+diff --git a/drivers/reset/reset-zte-zx297520v3.c b/drivers/reset/reset-zte-zx297520v3.c
+new file mode 100644
+index 000000000000..48463c553b3f
+--- /dev/null
++++ b/drivers/reset/reset-zte-zx297520v3.c
+@@ -0,0 +1,237 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (C) 2026 Stefan Dösinger
++ */
++#include <dt-bindings/reset/zte,zx297520v3-reset.h>
++
++#include <linux/bits.h>
 +#include <linux/err.h>
- #include <linux/errno.h>
-+#include <linux/math.h>
-+#include <linux/rational.h>
- #include <linux/regmap.h>
++#include <linux/errno.h>
++#include <linux/mfd/syscon.h>
++#include <linux/module.h>
++#include <linux/platform_device.h>
++#include <linux/regmap.h>
++#include <linux/reset-controller.h>
 +#include <linux/types.h>
-+#include <linux/units.h>
- 
- #include "clk-zx.h"
- 
-+/*
-+ * This code has only been tested with zx297520v3 PLLs, but from reading the zx296718 clock code it
-+ * looks like PLL registers are similar. ZTE's sources explain the PLL register contents only in a
-+ * .cmm file (A Lauterbach TRACE32 script) and some unused headers in their U-Boot code dump, which
-+ * may not be accurate. When calculating the frequencies from the default PLL configuration the
-+ * results match the fixed rate clocks from their clock driver.
++
++/* Most devices on the zx297520v3 SoC have one reset bit per clock line. As a rule of thumb, the
++ * lower bit disconnects the device from the bus, similarly to turning off PCLK - registers read 0
++ * or hang indefinitely. Unlike PCLK, this reset may have a lingering effect after deasserting.
++ * E.g. timers will be disabled, but retain their counter value.
 + *
-+ * The 26 MHz and 32 kHz clocks can be easily observed with the timers. The 104 MHz output can be
-+ * observed through the UART. One 122.88 MHz clock can be observed through the TDM device. All
-+ * others can only be indirectly inferred, e.g. by comparing CPU speed or SDIO transfer rate between
-+ * the fixed 26 MHz oscillator and the provided PLL frequency.
++ * The other bit resets the actual device registers.
 + *
-+ * The formula to calculate the clock is ((ref / refdiv) * fbdiv) / postdiv1 / postdiv2. The masks
-+ * are given below. There are a few control flags:
-+ *
-+ * Bit 31: Disables the PLL, but passes clock-26m through unmodified. Whether POSTDIV_OUT_DISABLE
-+ *         still matters is different between PLLs.
-+ * Bit 30: Returns if the PLL is locked
-+ * Bit 29: Not named in ZTE's code, but can be set. There is no obvious impact. Lock times are
-+ *         unchanged, so it doesn't influence or bypass lock detection. It doesn't raise any IRQs or
-+ *         influence GPIOs.
-+ * Bit 27: Given its name it likely disables the Delta-Sigma Modulator, if one exists at all. The
-+ *         boot ROM sets it on every PLL. Unsetting it marginally decreases the time it takes to
-+ *         lock to the reference clock (from ~400 us to ~300 us).
-+ * Bit 24: Bypasses the VCO, but still applies refdiv and postdiv. Doesn't matter if PLL_DISABLE=1.
-+ *
-+ * NB: Some PLLs have an automatic bypass logic that forwards clock-26m (REGARDLESS of reference)
-+ * when they don't have a lock, regardless of reason. This can be triggered by disabling the PLL,
-+ * setting an out-of-spec VCO frequency or disabling the parent. This shouldn't matter in regular
-+ * operation, but caused me some confusion when reverse engineering the clock tree. E.g. clock-26m->
-+ * unknownpll(disabled) -> dpll(enabled) counterintuitively results in a 26 MHz output clock.
++ * For some devices, e.g. GMAC, both reset bits behave in the same way: They disconnect the device
++ * and registers will have their default state after deasserting. For devices that have two reset
++ * bits, both need to be deasserted for the device to function.
 + */
-+
-+#define ZX29_PLL_DISABLE			BIT(31)
-+#define ZX29_PLL_LOCKED				BIT(30)
-+#define ZX29_PLL_LOCK_FILTER			BIT(29)
-+#define ZX29_PLL_DSM_DISABLE			BIT(27)
-+#define ZX29_PLL_PARENT_MASK			GENMASK(26, 25)
-+#define ZX29_PLL_PARENT_SHIFT			25
-+#define ZX29_PLL_BYPASS				BIT(24)
-+#define ZX29_PLL_REFDIV_MASK			GENMASK(23, 18)
-+#define ZX29_PLL_REFDIV_SHIFT			18
-+#define ZX29_PLL_FBDIV_MASK			GENMASK(17, 6)
-+#define ZX29_PLL_FBDIV_SHIFT			6
-+#define ZX29_PLL_POSTDIV1_MASK			GENMASK(5, 3)
-+#define ZX29_PLL_POSTDIV1_SHIFT			3
-+#define ZX29_PLL_POSTDIV2_MASK			GENMASK(2, 0)
-+#define ZX29_PLL_POSTDIV2_SHIFT			0
-+
-+/*
-+ * The second register has a 24 bit fractional value, which only matters when ZX29_PLL_DSM_DISABLE
-+ * is not set, and only seems to matter for dpll. ZTE's firmware does not make use of the fractional
-+ * and it is unimplemented in this driver. Experimental testing confirms that it has an impact on
-+ * dpll.
-+ *
-+ * Bits 27:24 contain more flags:
-+ *
-+ * Bit 27: Setting ZX29_PLL_DACAP slows down the lock time and obviates the speed gained from
-+ *         !DSM_DISABLE. No other effect observed.
-+ *
-+ * Bit 26: ZX29_PLL_4PHASE_OUT_DISABLE is set on some PLLs on boot but not on others. It is set on
-+ *         boot on mpll and upll, but not gpll, dpll or unknownpll. I am not sure what it does
-+ *         either. The SDIO devices break if they are fed from gpll with this flag set, but they
-+ *         work OK if they are fed from mpll without this flag set.
-+ *
-+ * Bit 25: ZX29_PLL_POSTDIV_OUT_DISABLE seems to disable the PLL output entirely. Whether it is
-+ *         bypassed by PLL_DISABLE differs between PLLs. gpll still produces an output clock if
-+ *         PLL_DISABLE = 1 and POSTDIV_DISABLE = 1, but produces no output if PLL_DISABLE = 0 and
-+ *         POSTDIV_DISABLE = 1. The dpll feeder ("unknownpll") at 0x100 produces no output clock if
-+ *         both PLL_DISABLE and POSTDIV_DISABLE are set to 1.
-+ *
-+ * Bit 24: ZX29_PLL_VCO_OUT_DISABLE probably disables the output of the VCO clock without
-+ *         post-VCO-dividers, but the raw VCO output is not a possible parent of any consumer clock,
-+ *         so I could not confirm this. It does not disable the VCO entirely - that's what
-+ *         PLL_DISABLE does.
-+ *
-+ * A spinlock should not be needed. PLLs don't share their registers with anything else and the
-+ * global prepare mutex and enable spinlock should be enough. Beware of conflicts in reg2 between
-+ * POSTDIV_OUT_DISABLE and the fractional value in case you find out how fractional dividers work
-+ * and add support for them.
-+ */
-+#define ZX29_PLL_REG2_OFFSET			4
-+#define ZX29_PLL_DACAP				BIT(27)
-+#define ZX29_PLL_4PHASE_OUT_DISABLE		BIT(26)
-+#define ZX29_PLL_POSTDIV_OUT_DISABLE		BIT(25)
-+#define ZX29_PLL_VCO_OUT_DISABLE		BIT(24)
-+#define ZX29_PLL_FRACT				GENMASK(23, 0)
-+
-+/*
-+ * The VCO's frequency range is limited. The stock settings run the VCO between 960 and 1248 MHz.
-+ * Ad-hoc testing with gpll suggests that at least this PLL remains stable down to about 7 MHz and
-+ * up to 2 GHz and produces a clock that can be used by the SDIO controller. Attempting to run the
-+ * mpll VCO at 624 MHz and setting postdiv1 = postdiv2 = 1 - which should result in the same output
-+ * frequency - or running it at 1872 MHz with an effective post divider of 3 crashes the CPU. Most
-+ * likely the PLLs become unstable outside their core range and the SDIO controller is much more
-+ * forgiving than CPU and DRAM are.
-+ */
-+#define ZX29_PLL_VCO_MAX_FREQ			(1300 * HZ_PER_MHZ)
-+#define ZX29_PLL_VCO_MIN_FREQ			(900 * HZ_PER_MHZ)
-+
-+struct zx29_clk_pll {
-+	struct clk_hw	hw;
-+	struct device	*dev;
-+	struct regmap	*map;
-+	u16		reg;
++struct zte_reset_reg {
++	u32 mask;
++	u16 reg;
 +};
 +
-+static inline struct zx29_clk_pll *to_zx29_clk_pll(struct clk_hw *hw)
++struct zte_reset_data {
++	const struct zte_reset_reg *resets;
++	unsigned int num;
++};
++
++struct zte_reset {
++	struct reset_controller_dev rcdev;
++	struct regmap *map;
++	const struct zte_reset_reg *resets;
++};
++
++static inline struct zte_reset *to_zte_reset(struct reset_controller_dev *rcdev)
 +{
-+	return container_of(hw, struct zx29_clk_pll, hw);
++	return container_of(rcdev, struct zte_reset, rcdev);
 +}
 +
-+static int zx29_pll_is_prepared(struct clk_hw *hw)
++static int zx29_rst_assert(struct reset_controller_dev *rcdev, unsigned long id)
 +{
-+	struct zx29_clk_pll *pll = to_zx29_clk_pll(hw);
++	struct zte_reset *rst = to_zte_reset(rcdev);
++
++	return regmap_clear_bits(rst->map, rst->resets[id].reg, rst->resets[id].mask);
++}
++
++static int zx29_rst_deassert(struct reset_controller_dev *rcdev, unsigned long id)
++{
++	struct zte_reset *rst = to_zte_reset(rcdev);
++
++	return regmap_set_bits(rst->map, rst->resets[id].reg, rst->resets[id].mask);
++}
++
++static int zx29_rst_status(struct reset_controller_dev *rcdev, unsigned long id)
++{
++	struct zte_reset *rst = to_zte_reset(rcdev);
 +	int res;
 +
-+	res = regmap_test_bits(pll->map, pll->reg, ZX29_PLL_DISABLE);
++	/* Devices with two reset bits need both deasserted to work. So only report them as
++	 * deasserted if both bits are set.
++	 *
++	 * assert()/deassert() will always clear/set both. The only reason a device might be in a
++	 * hybrid state is an unexpected handover state from the bootloader.
++	 */
++	res = regmap_test_bits(rst->map, rst->resets[id].reg, rst->resets[id].mask);
 +	if (res < 0)
 +		return res;
 +
 +	return !res;
 +}
 +
-+static int zx29_pll_prepare(struct clk_hw *hw)
-+{
-+	struct zx29_clk_pll *pll = to_zx29_clk_pll(hw);
-+	u32 val = 0;
-+	int res;
-+
-+	res = regmap_clear_bits(pll->map, pll->reg, ZX29_PLL_DISABLE);
-+	if (res < 0)
-+		return res;
-+
-+	/* Lock duration is usually between 300 us and 500 us */
-+	res = regmap_read_poll_timeout(pll->map, pll->reg, val, val & ZX29_PLL_LOCKED, 50, 2000);
-+	if (res) {
-+		regmap_set_bits(pll->map, pll->reg, ZX29_PLL_DISABLE);
-+		dev_err(pll->dev, "%s: PLL prepare failed: %d. Config value 0x%08x\n",
-+			clk_hw_get_name(&pll->hw), res, val);
-+	}
-+	return res;
-+}
-+
-+static void zx29_pll_unprepare(struct clk_hw *hw)
-+{
-+	struct zx29_clk_pll *pll = to_zx29_clk_pll(hw);
-+
-+	regmap_set_bits(pll->map, pll->reg, ZX29_PLL_DISABLE);
-+}
-+
-+static int zx29_pll_is_enabled(struct clk_hw *hw)
-+{
-+	struct zx29_clk_pll *pll = to_zx29_clk_pll(hw);
-+	int res;
-+
-+	res = regmap_test_bits(pll->map, pll->reg + ZX29_PLL_REG2_OFFSET,
-+			       ZX29_PLL_POSTDIV_OUT_DISABLE);
-+	if (res < 0)
-+		return res;
-+
-+	return !res;
-+}
-+
-+static int zx29_pll_enable(struct clk_hw *hw)
-+{
-+	struct zx29_clk_pll *pll = to_zx29_clk_pll(hw);
-+
-+	return regmap_clear_bits(pll->map, pll->reg + ZX29_PLL_REG2_OFFSET,
-+				 ZX29_PLL_POSTDIV_OUT_DISABLE);
-+}
-+
-+static void zx29_pll_disable(struct clk_hw *hw)
-+{
-+	struct zx29_clk_pll *pll = to_zx29_clk_pll(hw);
-+
-+	regmap_set_bits(pll->map, pll->reg + ZX29_PLL_REG2_OFFSET,
-+			ZX29_PLL_POSTDIV_OUT_DISABLE);
-+}
-+
-+static unsigned long zx29_pll_get_rate(const struct zx29_clk_pll *pll, unsigned long parent_rate,
-+				       u32 setting)
-+{
-+	unsigned long refdiv, fbdiv, postdiv1, postdiv2, freq;
-+	const char *name = clk_hw_get_name(&pll->hw);
-+	u64 vco;
-+
-+	refdiv = (setting & ZX29_PLL_REFDIV_MASK) >> ZX29_PLL_REFDIV_SHIFT;
-+	fbdiv = (setting & ZX29_PLL_FBDIV_MASK) >> ZX29_PLL_FBDIV_SHIFT;
-+	postdiv1 = (setting & ZX29_PLL_POSTDIV1_MASK) >> ZX29_PLL_POSTDIV1_SHIFT;
-+	postdiv2 = (setting & ZX29_PLL_POSTDIV2_MASK) >> ZX29_PLL_POSTDIV2_SHIFT;
-+	dev_dbg(pll->dev, "%s: reference clock %lu Hz, PLL setting 0x%08x\n",
-+		name, parent_rate, setting);
-+
-+	if (!refdiv || !postdiv1 || !postdiv2) {
-+		dev_err(pll->dev, "%s: divide by zero (%lu, %lu, %lu)\n", name, refdiv, postdiv1,
-+			postdiv2);
-+		return 0;
-+	}
-+
-+	vco = div_u64((u64)parent_rate * fbdiv, refdiv);
-+	freq = div_u64(div_u64(vco, postdiv1), postdiv2);
-+	dev_dbg(pll->dev, "%s: refdiv %lu fbdiv %lu\n", name, refdiv, fbdiv);
-+	dev_dbg(pll->dev, "%s: postdiv1 %lu postdiv2 %lu\n", name, postdiv1, postdiv2);
-+
-+	dev_dbg(pll->dev, "%s: %lu MHz\n", name, freq / HZ_PER_MHZ);
-+
-+	return freq;
-+}
-+
-+static unsigned long zx29_pll_recalc_rate(struct clk_hw *hw, unsigned long parent_rate)
-+{
-+	struct zx29_clk_pll *pll = to_zx29_clk_pll(hw);
-+	u32 val;
-+	int res;
-+
-+	res = regmap_read(pll->map, pll->reg, &val);
-+	if (res < 0) {
-+		dev_err(pll->dev, "%s: Failed to read PLL settings\n", clk_hw_get_name(&pll->hw));
-+		return 0;
-+	}
-+
-+	return zx29_pll_get_rate(pll, parent_rate, val);
-+}
-+
-+static u32 zx29_pll_calc_values(const struct zx29_clk_pll *pll, unsigned long parent_rate,
-+				unsigned long rate, unsigned long min_rate, unsigned long max_rate)
-+{
-+	const unsigned int postdiv1_max = (1 << hweight32(ZX29_PLL_POSTDIV1_MASK)) - 1;
-+	const unsigned int postdiv2_max = (1 << hweight32(ZX29_PLL_POSTDIV2_MASK)) - 1;
-+	unsigned long fbdiv, refdiv, best_fbdiv = 0, best_refdiv = 0;
-+	u32 postdiv1 = 0, postdiv2 = 0, i, j, setting;
-+	const char *name = clk_hw_get_name(&pll->hw);
-+	long best = LONG_MAX;
-+
-+	/*
-+	 * This code produces the same VCO settings that the boot loader and stock firmware use for
-+	 * the standard frequencies. It has seen only very little manual testing beyond that.
-+	 *
-+	 * The goal is to find a VCO setting that gets us as close as possible to the desired output
-+	 * rate, while being within the VCO's operating limits and achievable with the input value
-+	 * range. It is iterating over possible post-VCO divider values (1-7)*(1-7) to look for
-+	 * valid VCO target frequencies and then looks for refdiv and fbdiv values to achieve the
-+	 * VCO frequency from the reference frequency.
-+	 */
-+	for (j = 1; j <= postdiv2_max; j++) {
-+		for (i = 1; i <= postdiv1_max; i++) {
-+			u64 vco = (u64)rate * i * j;
-+			unsigned long out;
-+
-+			if (vco > ZX29_PLL_VCO_MAX_FREQ || vco < ZX29_PLL_VCO_MIN_FREQ)
-+				continue;
-+
-+			rational_best_approximation(vco, parent_rate,
-+						    (1 << hweight32(ZX29_PLL_FBDIV_MASK)) - 1,
-+						    (1 << hweight32(ZX29_PLL_REFDIV_MASK)) - 1,
-+						    &fbdiv, &refdiv);
-+			setting = fbdiv << ZX29_PLL_FBDIV_SHIFT;
-+			setting |= refdiv << ZX29_PLL_REFDIV_SHIFT;
-+			setting |= i << ZX29_PLL_POSTDIV1_SHIFT;
-+			setting |= j << ZX29_PLL_POSTDIV2_SHIFT;
-+			out = zx29_pll_get_rate(pll, parent_rate, setting);
-+
-+			if (out < min_rate || out > max_rate)
-+				continue;
-+
-+			if (abs_diff(out, rate) > best)
-+				continue;
-+
-+			if (abs_diff(out, rate) < best) {
-+				postdiv1 = i;
-+				postdiv2 = j;
-+				best_fbdiv = fbdiv;
-+				best_refdiv = refdiv;
-+				best = abs_diff(out, rate);
-+
-+				if (!best)
-+					goto search_done;
-+			}
-+		}
-+	}
-+search_done:
-+
-+	if (!postdiv1) {
-+		dev_err(pll->dev, "Did not find a setting for %lu Hz, parent %lu Hz\n",
-+			rate, parent_rate);
-+		return 0;
-+	}
-+
-+	dev_dbg(pll->dev, "%s: parent rate %lu\n", name, parent_rate);
-+	dev_dbg(pll->dev, "%s: found VCO dividers %u and %u\n", name, postdiv1, postdiv2);
-+	dev_dbg(pll->dev, "%s: VCO target rate %lu\n", name, rate * postdiv1 * postdiv2);
-+
-+	dev_dbg(pll->dev, "%s: Got fbdiv = %lu refdiv = %lu\n", name, best_fbdiv, best_refdiv);
-+
-+	setting = best_fbdiv << ZX29_PLL_FBDIV_SHIFT;
-+	setting |= best_refdiv << ZX29_PLL_REFDIV_SHIFT;
-+	setting |= postdiv1 << ZX29_PLL_POSTDIV1_SHIFT;
-+	setting |= postdiv2 << ZX29_PLL_POSTDIV2_SHIFT;
-+	dev_dbg(pll->dev, "%s: Final setting 0x%08x\n", name, setting);
-+
-+	return setting;
-+}
-+
-+static int zx29_pll_determine_rate(struct clk_hw *hw, struct clk_rate_request *req)
-+{
-+	struct zx29_clk_pll *pll = to_zx29_clk_pll(hw);
-+	unsigned long new_rate;
-+	u32 setting;
-+
-+	/*
-+	 * TODO: DPLL can switch between two parents, one of which is another PLL. Take this into
-+	 * account when searching the config space and set req->best_parent_rate.
-+	 *
-+	 * In practice it shouldn't matter though. Dpll is always configured to a fixed frequency
-+	 * and is the only clock with a switchable parent.
-+	 */
-+	if (!req->best_parent_rate) {
-+		dev_err(pll->dev, "Did not expect best_parent_rate=0\n");
-+		return -EINVAL;
-+	}
-+
-+	setting = zx29_pll_calc_values(pll, req->best_parent_rate, req->rate, req->min_rate,
-+				       req->max_rate);
-+	if (!setting)
-+		return -EINVAL;
-+
-+	new_rate = zx29_pll_get_rate(pll, req->best_parent_rate, setting);
-+	if (new_rate != req->rate) {
-+		dev_dbg(pll->dev, "Did not find an exact match. Want %lu, got %lu\n",
-+			req->rate, new_rate);
-+		req->rate = new_rate;
-+	}
-+
-+	return 0;
-+}
-+
-+static int zx29_pll_set_rate(struct clk_hw *hw, unsigned long rate,
-+			     unsigned long parent_rate)
-+{
-+	struct zx29_clk_pll *pll = to_zx29_clk_pll(hw);
-+	u32 setting;
-+
-+	/*
-+	 * TODO: Implement gradual PLL rate change. PLLs can be changed while they are running and
-+	 * downstream hardware is generally fine with that. The exception is DRAM, which reads
-+	 * incorrect values if changed too fast.
-+	 *
-+	 * Changing the mpll rate is potentially useful for over/underclocking. Gating mpll is
-+	 * unrealistic because too many devices depend on it.
-+	 */
-+	setting = zx29_pll_calc_values(pll, parent_rate, rate, rate, rate);
-+	if (!setting)
-+		return -EINVAL;
-+
-+	dev_dbg(pll->dev, "%s: Setting new configuration: 0x%08x\n", clk_hw_get_name(hw), setting);
-+
-+	return regmap_update_bits(pll->map, pll->reg, 0x00ffffff, setting);
-+}
-+
-+static u8 zx29_pll_get_parent(struct clk_hw *hw)
-+{
-+	struct zx29_clk_pll *pll = to_zx29_clk_pll(hw);
-+	u32 val;
-+	int res;
-+
-+	res = regmap_read(pll->map, pll->reg, &val);
-+	if (res < 0)
-+		return 0xff;
-+
-+	val = (val & ZX29_PLL_PARENT_MASK) >> ZX29_PLL_PARENT_SHIFT;
-+	dev_dbg(pll->dev, "%s: Parent 0x%x\n", clk_hw_get_name(hw), val);
-+
-+	return val;
-+}
-+
-+static int zx29_pll_set_parent(struct clk_hw *hw, u8 index)
-+{
-+	struct zx29_clk_pll *pll = to_zx29_clk_pll(hw);
-+	u32 idx_shift = index << ZX29_PLL_PARENT_SHIFT;
-+	int res;
-+	u32 val;
-+
-+	res = regmap_update_bits(pll->map, pll->reg, ZX29_PLL_PARENT_MASK, idx_shift);
-+	if (res < 0)
-+		return res;
-+
-+	res = regmap_read(pll->map, pll->reg, &val);
-+	if (res < 0)
-+		return res;
-+
-+	if ((val & ZX29_PLL_PARENT_MASK) != idx_shift) {
-+		dev_err(pll->dev, "Hardware rejected PLL parent %u\n", index);
-+		return -EINVAL;
-+	}
-+
-+	return 0;
-+}
-+
-+static int zx29_pll_init(struct clk_hw *hw)
-+{
-+	struct zx29_clk_pll *pll = to_zx29_clk_pll(hw);
-+	const char *name = clk_hw_get_name(hw);
-+	int res;
-+	u32 val;
-+
-+	dev_dbg(pll->dev, "%s: initializing\n", name);
-+
-+	/*
-+	 * The fractional value is not yet implemented. It works at least with dpll, but I have
-+	 * never seen it used on actual hardware.
-+	 */
-+	res = regmap_read(pll->map, pll->reg + ZX29_PLL_REG2_OFFSET, &val);
-+	if (res < 0)
-+		return res;
-+
-+	if (val & ZX29_PLL_FRACT) {
-+		dev_warn(pll->dev, "%s: unsupported nonzero fractional value 0x%08lx\n",
-+			 name, val & ZX29_PLL_FRACT);
-+	}
-+
-+	/*
-+	 * Remove the bypass flag so we don't have to bother with it in enable/disable. I have never
-+	 * seen it set by the earlier boot stages anyhow.
-+	 */
-+	res = regmap_clear_bits(pll->map, pll->reg, ZX29_PLL_BYPASS);
-+	if (res < 0)
-+		return res;
-+
-+	res = regmap_test_bits(pll->map, pll->reg, ZX29_PLL_DISABLE);
-+	if (res > 0) {
-+		/*
-+		 * Set ZX29_PLL_POSTDIV_OUT_DISABLE for PLLs that have ZX29_PLL_DISABLE for
-+		 * consistency with .enable and .prepare. This ensures that .prepare doesn't
-+		 * inadvertently enable PLLs without .enable being called.
-+		 */
-+		res = regmap_set_bits(pll->map, pll->reg + ZX29_PLL_REG2_OFFSET,
-+				      ZX29_PLL_POSTDIV_OUT_DISABLE);
-+	}
-+
-+	return res;
-+}
-+
-+static const struct clk_ops zx29_pll_ops = {
-+	.init		= zx29_pll_init,
-+	.is_prepared	= zx29_pll_is_prepared,
-+	.prepare	= zx29_pll_prepare,
-+	.unprepare	= zx29_pll_unprepare,
-+	.is_enabled	= zx29_pll_is_enabled,
-+	.enable		= zx29_pll_enable,
-+	.disable	= zx29_pll_disable,
-+	.recalc_rate	= zx29_pll_recalc_rate,
-+	.determine_rate = zx29_pll_determine_rate,
-+	.get_parent	= zx29_pll_get_parent,
-+	.set_parent	= zx29_pll_set_parent,
-+	.set_rate	= zx29_pll_set_rate,
++static const struct reset_control_ops zx29_rst_ops = {
++	.assert		= zx29_rst_assert,
++	.deassert	= zx29_rst_deassert,
++	.status		= zx29_rst_status,
 +};
 +
-+/*
-+ * A PLL that can be a parent of another PLL needs to produce an output signal when prepared,
-+ * otherwise the downstream PLL's prepare() will fail to acquire a lock.
-+ */
-+static int zx29_pll_nodisable_init(struct clk_hw *hw)
-+{
-+	struct zx29_clk_pll *pll = to_zx29_clk_pll(hw);
-+	const char *name = clk_hw_get_name(hw);
-+	int res;
-+	u32 val;
++static const struct zte_reset_reg zx297520v3_top_resets[] = {
++	/* This bit is set by ZTE's cpko.ko blob, it looks like a reset bit for the LTE DSP
++	 * coprocessor. Clocks for it are in matrixcrm.
++	 */
++	[ZX297520V3_ZSP_CORE_RESET]  = { .reg = 0x13c, .mask = BIT(0)            },
 +
-+	dev_dbg(pll->dev, "%s: initializing, prepare-is-enabled\n", name);
++	[ZX297520V3_UART0_RESET]     = { .reg =  0x78, .mask = BIT(6)  | BIT(7)  },
++	[ZX297520V3_I2C0_RESET]      = { .reg =  0x74, .mask = BIT(8)  | BIT(9)  },
++	/* Only one reset. Bit 5 is settable but does not do anything observable */
++	[ZX297520V3_RTC_RESET]       = { .reg =  0x74, .mask = BIT(4)            },
++	[ZX297520V3_TIMER_T08_RESET] = { .reg =  0x78, .mask = BIT(4)  | BIT(5)  },
++	[ZX297520V3_TIMER_T09_RESET] = { .reg =  0x78, .mask = BIT(2)  | BIT(3)  },
++	/* Only one reset. Bit 0 is settable but does not do anything observable */
++	[ZX297520V3_PMM_RESET]       = { .reg =  0x74, .mask = BIT(1)            },
 +
-+	res = regmap_read(pll->map, pll->reg + ZX29_PLL_REG2_OFFSET, &val);
-+	if (res < 0)
-+		return res;
++	/* I haven't found any clocks for GPIO. It probably wouldn't make much
++	 * sense anyway. Only one reset bit per controller.
++	 */
++	[ZX297520V3_GPIO_RESET]      = { .reg =  0x74, .mask = BIT(3)            },
++	[ZX297520V3_GPIO8_RESET]     = { .reg =  0x74, .mask = BIT(2)            },
 +
-+	if (val & ZX29_PLL_FRACT) {
-+		dev_warn(pll->dev, "%s: unsupported nonzero fractional value 0x%08lx\n",
-+			 name, val & ZX29_PLL_FRACT);
-+	}
++	[ZX297520V3_TIMER_T12_RESET] = { .reg =  0x74, .mask = BIT(6)  | BIT(7)  },
++	[ZX297520V3_TIMER_T13_RESET] = { .reg =  0x7c, .mask = BIT(0)  | BIT(1)  },
++	[ZX297520V3_TIMER_T14_RESET] = { .reg =  0x7c, .mask = BIT(2)  | BIT(3)  },
++	[ZX297520V3_TIMER_T15_RESET] = { .reg =  0x74, .mask = BIT(10) | BIT(11) },
++	[ZX297520V3_TIMER_T16_RESET] = { .reg =  0x7c, .mask = BIT(4)  | BIT(5)  },
++	[ZX297520V3_TIMER_T17_RESET] = { .reg = 0x12c, .mask = BIT(0)  | BIT(1)  },
++	[ZX297520V3_WDT_T18_RESET]   = { .reg =  0x74, .mask = BIT(12) | BIT(13) },
++	[ZX297520V3_USIM1_RESET]     = { .reg =  0x74, .mask = BIT(14) | BIT(15) },
++	[ZX297520V3_AHB_RESET]       = { .reg =  0x70, .mask = BIT(0)  | BIT(1)  },
 +
-+	res = regmap_clear_bits(pll->map, pll->reg, ZX29_PLL_BYPASS);
-+	if (res < 0)
-+		return res;
-+
-+	return regmap_clear_bits(pll->map, pll->reg + ZX29_PLL_REG2_OFFSET,
-+				 ZX29_PLL_POSTDIV_OUT_DISABLE);
-+}
-+
-+static const struct clk_ops zx29_pll_nodisable_ops = {
-+	.init		= zx29_pll_nodisable_init,
-+	.is_prepared	= zx29_pll_is_prepared,
-+	.prepare	= zx29_pll_prepare,
-+	.unprepare	= zx29_pll_unprepare,
-+	.recalc_rate	= zx29_pll_recalc_rate,
-+	.determine_rate = zx29_pll_determine_rate,
-+	.get_parent	= zx29_pll_get_parent,
-+	.set_parent	= zx29_pll_set_parent,
-+	.set_rate	= zx29_pll_set_rate,
++	/* USB reset. 0x84 returns the USB device status (0x1 for HSIC up, 0x2 for USB up, but
++	 * all 3 bits (PCLK, WCLK, PHY) need to be deasserted for the device to report ready.
++	 * Thus polling the status is the responsibility of the USB PHY driver.
++	 */
++	[ZX297520V3_USB_RESET]       = { .reg =  0x80, .mask = BIT(4) | BIT(5)   },
++	[ZX297520V3_HSIC_RESET]      = { .reg =  0x80, .mask = BIT(1) | BIT(2)   },
 +};
 +
- struct clk_hw *zx_clk_register_pll(struct device *dev, struct regmap *regmap,
--				   const struct zx_pll_desc *desc,
--				   struct clk_hw * const *clocks)
-+				   const struct zx_pll_desc *desc, struct clk_hw * const *clocks)
- {
--	return ERR_PTR(-ENODEV);
-+	struct clk_parent_data parents[CLK_ZX_MAX_PARENTS];
-+	struct clk_init_data init = {};
-+	struct zx29_clk_pll *pll;
-+	unsigned int i;
-+	int res;
++static const struct zte_reset_data zx297520v3_topreset_data = {
++	.resets = zx297520v3_top_resets,
++	.num = ARRAY_SIZE(zx297520v3_top_resets),
++};
 +
-+	pll = devm_kzalloc(dev, sizeof(*pll), GFP_KERNEL);
-+	if (!pll)
-+		return ERR_PTR(-ENOMEM);
++static const struct zte_reset_reg zx297520v3_matrix_resets[] = {
++	[ZX297520V3_CPU_RESET]       = { .reg =  0x28, .mask = BIT(1)            },
++	[ZX297520V3_ZSP_BUS_RESET]   = { .reg =  0x3c, .mask = BIT(0)            },
++	[ZX297520V3_DDR_CTRL_RESET]  = { .reg = 0x100, .mask = BIT(10) | BIT(11) },
++	[ZX297520V3_EDCP_RESET]      = { .reg =  0x68, .mask = BIT(0)            },
++	[ZX297520V3_SD0_RESET]       = { .reg =  0x58, .mask = BIT(1)            },
++	[ZX297520V3_SD1_RESET]       = { .reg =  0x58, .mask = BIT(0)            },
++	[ZX297520V3_NAND_RESET]      = { .reg =  0x58, .mask = BIT(4)            },
++	[ZX297520V3_PDCFG_RESET]     = { .reg =  0x94, .mask = BIT(20)           },
++	[ZX297520V3_SSC_RESET]       = { .reg =  0x94, .mask = BIT(24)           },
++	[ZX297520V3_GMAC_RESET]      = { .reg = 0x114, .mask = BIT(0)  | BIT(1)  },
++	[ZX297520V3_VOU_RESET]       = { .reg = 0x16c, .mask = BIT(0)            },
++	[ZX297520V3_LSP_RESET]       = { .reg =  0x80, .mask = BIT(0)            },
++};
 +
-+	if (desc->flags & CLK_ZX_PLL_PREPARE_IS_ENABLE)
-+		init.ops = &zx29_pll_nodisable_ops;
-+	else
-+		init.ops = &zx29_pll_ops;
++static const struct zte_reset_data zx297520v3_matrixreset_data = {
++	.resets = zx297520v3_matrix_resets,
++	.num = ARRAY_SIZE(zx297520v3_matrix_resets),
++};
 +
-+	if (WARN_ON(desc->num_parents > ARRAY_SIZE(parents)))
-+		return ERR_PTR(-EINVAL);
++static const struct zte_reset_reg zx297520v3_lsp_resets[] = {
++	[ZX297520V3_TIMER_L1_RESET]  = { .reg = 0x04,  .mask = BIT(8)  | BIT(9)  },
++	[ZX297520V3_WDT_L2_RESET]    = { .reg = 0x08,  .mask = BIT(8)  | BIT(9)  },
++	[ZX297520V3_WDT_L3_RESET]    = { .reg = 0x0c,  .mask = BIT(8)  | BIT(9)  },
++	[ZX297520V3_PWM_RESET]       = { .reg = 0x10,  .mask = BIT(8)  | BIT(9)  },
++	[ZX297520V3_I2S0_RESET]      = { .reg = 0x14,  .mask = BIT(8)  | BIT(9)  },
++	/* 0x18: Not writeable */
++	[ZX297520V3_I2S1_RESET]      = { .reg = 0x1c,  .mask = BIT(8)  | BIT(9)  },
++	/* 0x20: Not writeable */
++	[ZX297520V3_QSPI_RESET]      = { .reg = 0x24,  .mask = BIT(8)  | BIT(9)  },
++	[ZX297520V3_UART1_RESET]     = { .reg = 0x28,  .mask = BIT(8)  | BIT(9)  },
++	[ZX297520V3_I2C1_RESET]      = { .reg = 0x2c,  .mask = BIT(8)  | BIT(9)  },
++	[ZX297520V3_SPI0_RESET]      = { .reg = 0x30,  .mask = BIT(8)  | BIT(9)  },
++	[ZX297520V3_TIMER_LB_RESET]  = { .reg = 0x34,  .mask = BIT(8)  | BIT(9)  },
++	[ZX297520V3_TIMER_LC_RESET]  = { .reg = 0x38,  .mask = BIT(8)  | BIT(9)  },
++	[ZX297520V3_UART2_RESET]     = { .reg = 0x3c,  .mask = BIT(8)  | BIT(9)  },
++	[ZX297520V3_WDT_LE_RESET]    = { .reg = 0x40,  .mask = BIT(8)  | BIT(9)  },
++	[ZX297520V3_TIMER_LF_RESET]  = { .reg = 0x44,  .mask = BIT(8)  | BIT(9)  },
++	[ZX297520V3_SPI1_RESET]      = { .reg = 0x48,  .mask = BIT(8)  | BIT(9)  },
++	[ZX297520V3_TIMER_L11_RESET] = { .reg = 0x4c,  .mask = BIT(8)  | BIT(9)  },
++	[ZX297520V3_TDM_RESET]       = { .reg = 0x50,  .mask = BIT(8)  | BIT(9)  },
++};
 +
-+	for (i = 0; i < desc->num_parents; ++i)
-+		parents[i] = zx_get_parent(&desc->parents[i], clocks);
++static const struct zte_reset_data zx297520v3_lspreset_data = {
++	.resets = zx297520v3_lsp_resets,
++	.num = ARRAY_SIZE(zx297520v3_lsp_resets),
++};
 +
-+	init.name = desc->name;
-+	init.parent_data = parents;
-+	init.num_parents = desc->num_parents;
++static int reset_zx297520v3_probe(struct platform_device *pdev)
++{
++	const struct platform_device_id *id = platform_get_device_id(pdev);
++	struct device *dev = &pdev->dev;
++	struct device_node *of_node = dev->parent->of_node;
++	const struct zte_reset_data *data;
++	struct zte_reset *rst;
 +
-+	/*
-+	 * Disallow live reparent, but allow rate changes. PLLs can handle gradual changes fine, but
-+	 * large ones cause a temporary incorrect output, which can break downstream devices.
-+	 * See zx29_pll_set_rate for considerations on that.
-+	 */
-+	init.flags = CLK_SET_PARENT_GATE;
-+	pll->hw.init = &init;
-+	pll->dev = dev;
-+	pll->map = regmap;
-+	pll->reg = desc->reg;
++	if (!id)
++		return -ENODEV;
++	data = (const struct zte_reset_data *)id->driver_data;
 +
-+	res = devm_clk_hw_register(dev, &pll->hw);
-+	if (res)
-+		return ERR_PTR(res);
++	rst = devm_kzalloc(dev, sizeof(*rst), GFP_KERNEL);
++	if (!rst)
++		return -ENOMEM;
 +
-+	/*
-+	 * Set the PLL rate only if the bootloader left it disabled. Keep the bootloader setup
-+	 * otherwise.
-+	 */
-+	res = regmap_test_bits(pll->map, pll->reg, ZX29_PLL_DISABLE);
-+	if (res < 0)
-+		return ERR_PTR(res);
++	rst->resets = data->resets;
++	rst->rcdev.owner = THIS_MODULE;
++	rst->rcdev.nr_resets = data->num;
++	rst->rcdev.ops = &zx29_rst_ops;
++	rst->rcdev.of_node = of_node;
++	rst->rcdev.dev = dev;
 +
-+	if (res > 0 && desc->rate) {
-+		dev_dbg(pll->dev, "%s: setting to %lu Hz\n", desc->name, desc->rate);
-+		res = clk_set_rate(pll->hw.clk, desc->rate);
-+		if (res)
-+			return ERR_PTR(dev_err_probe(dev, res, "%s: failed to set rate\n",
-+						     desc->name));
-+	}
++	rst->map = device_node_to_regmap(of_node);
++	if (IS_ERR(rst->map))
++		return dev_err_probe(dev, PTR_ERR(rst->map), "Cannot get parent syscon regmap\n");
 +
-+	return &pll->hw;
- }
++	return devm_reset_controller_register(dev, &rst->rcdev);
++}
++
++static const struct platform_device_id reset_zx297520v3_ids[] = {
++	{
++		.name = "zx297520v3-topreset",
++		.driver_data = (kernel_ulong_t)&zx297520v3_topreset_data,
++	},
++	{
++		.name = "zx297520v3-matrixreset",
++		.driver_data = (kernel_ulong_t)&zx297520v3_matrixreset_data,
++	},
++	{
++		.name = "zx297520v3-lspreset",
++		.driver_data = (kernel_ulong_t)&zx297520v3_lspreset_data,
++	},
++	{ }
++};
++MODULE_DEVICE_TABLE(platform, reset_zx297520v3_ids);
++
++static struct platform_driver reset_zx297520v3 = {
++	.probe = reset_zx297520v3_probe,
++	.driver = {
++		.name = "reset-zx297520v3",
++	},
++	.id_table = reset_zx297520v3_ids,
++};
++module_platform_driver(reset_zx297520v3);
++
++MODULE_AUTHOR("Stefan Dösinger <stefandoesinger@gmail.com>");
++MODULE_DESCRIPTION("ZTE zx297520v3 reset driver");
++MODULE_LICENSE("GPL");
 
 -- 
 2.54.0
