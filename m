@@ -4,76 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94FC6C5AD4E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 08:37:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA012C5AC80
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 08:51:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qLcjkBqulyFiOLl5CR0MIPA/KM1S7vgOicXt2EI6jG4=; b=RgniUtIhnaBLuLZ9wWgW7xeTcN
-	J9HVeNosST1CEcvkmDYLYPHe4tzcS0g+1rS4JY0+18Cixw90JwolHCyZ4fP58fgRyLSR5/WlUu4CX
-	keGooLFj0A0EyOkbtTWyJ5bobkZphMBFkGjfHHI+xI5r99S+YZz2FoJORy+meXiFNpoXQcNI4vjWx
-	fPmHHb581ptXmLkatXqZo4OCa6PIy5ngYKWH2Gmr7oVBTtHjbXJ6QvSqD/hvRs77tyIzyuLZ5McVZ
-	oB8RuVzx4uN/U1wJ86Pne/D35x+IQG7wZjTzXiAmVeL97c0XQwocLnKNfKop19roLsX44mhtnDMfU
-	cn3P59vw==;
+	bh=YlyRsKVhH+LXT8CyaBK8gIYR1x6VG38LxmkLcWoqGkQ=; b=Fcdksax56Gmi/meCbS6rSdlkiS
+	oXCNWXKitm67FtbMIbBP9nbYZMkX7u+PULElnDl2CjMUovXO1DdEVf2K2/abkqK1+9XCmzwJ/1j6N
+	9/rKVV6Ks/0+r3tlc3S6xEBkKIG2sdLP52K4JeuzasVqxN+7tbzaTD/fMho/0Si+xInbkzFfGzdAI
+	k4GGgp+sHLbWvQG0Mhx5PPrP7rILrXSR7b6nVLEVT70pd+wzmqwmeescBWPfNTguM11DWq/iU7YYQ
+	oLGyATz9jIvwLTs6ITTOLquxTpmubKc1hMuu7E+V/QuN19Jj2BEl0Iyde4jg3II0M7IlQ8I2InEiH
+	eTBb8HeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsz1c-0000000A6AI-0bAc;
-	Sun, 09 Aug 2026 08:36:56 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1wszFS-0000000A6nP-07AQ;
+	Sun, 09 Aug 2026 08:51:14 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsz1Y-0000000A69q-0wS9
+	id 1wszFO-0000000A6mh-2oJ7
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Aug 2026 08:36:53 +0000
-Received: from mail01.layka.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 445044311E;
-	Sun, 09 Aug 2026 10:28:52 +0200 (CEST)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id G_LpA_Hfk9A1; Sun,  9 Aug 2026 10:28:51 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1786264131; bh=MTjTVyarpd88D5ZxrVO4ObVIuSjSS0DqMMOdUmEf1DQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=lR7nLBLc4+ybkANIsaBBrWwS/psblrIffutt3uDtVp/jccGSBLReHMfwXe6KQylfp
-	 Nug7tXvyQECxoifu5nO3x88dMowyNv695ca1VN8O9Pg4vLr8murBuXJnFgAPFHma3B
-	 Yp5j+VQzny86fME1jXuJqAtyXnb9KlZligNiStSjQFL8+G/0026UWeXNOrcLwG0hk4
-	 EuQu8mPi8OM5Tp0FXTiAE0BUIFyY7v6/Q6aTrKxIxph7Ic+tZmQ6kLKlSOWqviQuOk
-	 If413ERAOI7aNkS5d/8CO7EpxnV1eF0+2F82nsO3Nh5n7onmBJ9OwftXLWxbWLdXjB
-	 39hXUiRz7PWgw==
-From: Kaustabh Chakraborty <kauschluss@disroot.org>
-Date: Sun, 09 Aug 2026 13:57:43 +0530
-Subject: [PATCH v4 3/3] drm/exynos: remove simplefb nodes before init
+	Sun, 09 Aug 2026 08:51:12 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2d01663d816so6886505ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Aug 2026 01:51:09 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1786265469; cv=none;
+        d=google.com; s=arc-20260327;
+        b=eVXfReN1SYRbVSlHSwF15HLjoMHrzyfP0pPBwYRqpMFSfrzKnowtWLkDsGluAIa+/P
+         B7cY6zmPd7cZ8aOeMq6569JTP9gUGlQg+P11/rJZoXXH85JmtZP0ahlDhc7z96akjiIe
+         fiRfnrW/IN3eLmUjuXxfX0QpX/J5s3s5qB7o5C/wEkIqL0nKU/g+4EJSTSRDEGiBfh8K
+         dghOA45mjuqITZa86uU5FRY0O/a2YS6U4Hn8iDBPIhqQaFxj3RdNmEJfmaoAO2QdcHmq
+         Jq8sNzG7ntyXTGAsN1QpIu3S8qa1tHBNUEja2y3kqBXWh7dUdlaN1lgjbRsSQO8gt2kn
+         ZMwQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=YlyRsKVhH+LXT8CyaBK8gIYR1x6VG38LxmkLcWoqGkQ=;
+        fh=8MErg1hy03hTenDqHnhintxCXn85QvKbTVQbTA6Y53U=;
+        b=AcMhJkjmDkYv5hza2rHCjrOfxL250TdFJNqFdYPaUISTUPdPr6rIqilhsrUeDcLy22
+         TUb0QXAtAHZGDbp+FixGNPV8L5bjkEHw3D6wjM8e2asHDBTmrQCV+IVg0GyY+JhsoJLs
+         QfIWxean2Aw9wZf9Za7ngJO7o7wMCuzEMdwO1pWMGspvUd9iA7bfEsm+wE9ue7krq0O3
+         XysCTEhpw42EgDy4vSrid3Fx0koYL9jEi4xxaN81KHnp4wFVt8dIFPAJNkuCn3J8RNma
+         TMH7MH33BaeFUDe8ttauNvTeZya+NporB3Xq9lKzsWDK10WzAfUHI+tx0GyUWJTbzHzn
+         WQCQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1786265469; x=1786870269; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=YlyRsKVhH+LXT8CyaBK8gIYR1x6VG38LxmkLcWoqGkQ=;
+        b=MwEpyUFEVvXWT2OeRsVBHBn7YsbVE/7fJS1ULXfOq2deFXPXAuxdyuhvWa7Q7drK98
+         On2vk/7A0A4vsadYKa3i8RNplXv7ulkYJ4VZT2Cac0cJpWJ1Ay3Ywka7tJJCAg5NFLTx
+         qvTAf0Gp5OvvKZLMURNAwzMadjoQdwf+iftozxQXGEVvwUSUcJ2tzYPRmKJw4zjmU+6D
+         j0YW+CZtMj1wHE9RPaHkgLY4K2sqfOGuhQ8M91O6Dj2gUbRdoSFeEvTM++Re0DNjzm8K
+         x87I1d8/P2nzAMkKUpy6Pgfu7/WTR9MWwOJ6L8gUjbW4Yq4t3u2wr/3DsKlEKGpQtZO7
+         RBmw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786265469; x=1786870269;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=YlyRsKVhH+LXT8CyaBK8gIYR1x6VG38LxmkLcWoqGkQ=;
+        b=Fq+UoXeUDAcUs8/naQDmloqVUCvKcdHZP2czlRfhS28ojW/WeKWr79GQ1JxDn0oU7a
+         OJXWpQMObcJuDbMI6REn2kmyKVMz9UfhJOb6o+X/3ZJn80rGxnjXcQoD0TjF0Y5r8Dso
+         qwVeVSrh/W525hi58DKXd8WzPSMsL1tzGoOPNDaVAftVmNDxnV9tq/Cwjp7BTCcCjR1n
+         bK1zo6mngCTfPZCbRxNHje9Q7RnjLbX/8dB9Qwi/JG5KKtmEgcettIOKKqblztuHYNTz
+         A//xf/XGir1BzMCkkC7AhtNL0bQ9uL5PhpZnvfrQ0R9cNNjvlc88gpqlEfCpiZi28PcC
+         6iWA==
+X-Forwarded-Encrypted: i=1; AHgh+RqkJ8d7oeGEc2C6CYjXv0j9VrlVHN6YNdgkOeSOw6Y4dqzX0afw1hdc44dTzeYztK4AanDpFwTSiouQ2LTtQsQo@lists.infradead.org
+X-Gm-Message-State: AOJu0YzQwjMOTv8CowgcQVkHad6C+ia9p7+YHtb+RipRu3e7YyXxKPJm
+	JrxZ6K6xqwMNtfdS2aJgRSLyPio4Ko9qDxDYwTFFqwc9Eb3BvDGluKN56rE93b3hi/FCyekKJ+I
+	r6O8UE2t2GNmzg50Q9vgAfBBYOHJLUfWCZl4KcvMT7w==
+X-Gm-Gg: AR+sD11CM3gF6JNFjpGBy0XsqHTDmth3gx9CZK3zW/s+kQcwYC9tlj8FQHKHCOVeqjW
+	Ih+pw+l6FnMbR0bZ8Spn85iyPUeXsrtUmzn7GByk4KWPJH6bAqvRAC49UxL5fjv612qmK7fhkI/
+	khr82TERejErOOv24RnbemiEkEiKfymE/6Hd0Q/746Q1scBEYe0M0JE1QqFdg8GOnKml+rMeN/6
+	XvZIeF5b9G49GxPv6sF/CFo7BuR9E/+zJ0AaazVPg5g7vo+FR13PLdBmC3n+mLWD/nqCG1ZYqxv
+	2PunZ7a/LaswzQ23lPAnUxO++gJZI5NSAXJCtE32feel0YaIejbRvaaC7my2zKCgxg==
+X-Received: by 2002:a17:902:ced1:b0:2d0:cc92:f7a9 with SMTP id
+ d9443c01a7336-2d106a1a2d5mr235383425ad.4.1786265468649; Sun, 09 Aug 2026
+ 01:51:08 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260809-exynos-dsim-fixes-v4-3-ca67c51e61b7@disroot.org>
-References: <20260809-exynos-dsim-fixes-v4-0-ca67c51e61b7@disroot.org>
-In-Reply-To: <20260809-exynos-dsim-fixes-v4-0-ca67c51e61b7@disroot.org>
-To: Inki Dae <inki.dae@samsung.com>, 
- Jagan Teki <jagan@amarulasolutions.com>, 
- Marek Szyprowski <m.szyprowski@samsung.com>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Seung-Woo Kim <sw0312.kim@samsung.com>, 
- Kyungmin Park <kyungmin.park@samsung.com>, 
- Krzysztof Kozlowski <krzk@kernel.org>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- Kaustabh Chakraborty <kauschluss@disroot.org>
+References: <20260717-pwm_meson_convert_to_waveform_api-v1-1-d7dbdae1318d@baylibre.com>
+In-Reply-To: <20260717-pwm_meson_convert_to_waveform_api-v1-1-d7dbdae1318d@baylibre.com>
+From: Alexandre Mergnat <amergnat@baylibre.com>
+Date: Sun, 9 Aug 2026 10:51:08 +0200
+X-Gm-Features: AUfX_my2c4bqArPmLXEH8Wf4hFHso_g_M9EZslmQ8zjyZAwv_lUTpdPXzbw_HXI
+Message-ID: <CAFGrd9qh8bHD5pJuiB-PLfAcYEyuw9ExHEWeAj_JFSp_sm52rQ@mail.gmail.com>
+Subject: Re: [PATCH] pwm: meson: Convert to waveform API
+To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Jerome Brunet <jbrunet@baylibre.com>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-pwm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260809_013652_412939_1891E51F 
-X-CRM114-Status: GOOD (  11.73  )
+X-CRM114-CacheID: sfid-20260809_015110_772619_3F307AC6 
+X-CRM114-Status: GOOD (  48.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,48 +120,671 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The simple-framebuffer uses the framebuffer region initialized by the
-boot loader for display. However, with Linux the DSI and FIMD/DECON
-stack is initialized from scratch.
+Hi, a gentle ping on this patch. It has been around three weeks since
+the submission. Any feedback would be appreciated.
 
-However, both are destined use the same memory region, so both cannot
-co-exist. For a seamless display transition during boot, the framebuffer
-must be destroyed, which releases the memory region, followed by proper
-IP re-initialization. Achieve it using
-aperture_remove_all_conflicting_devices(). This is also implemented in
-other similar systems such as in Qualcomm's msm_kms driver.
+Regards,
+Alexandre
 
-Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
----
- drivers/gpu/drm/exynos/exynos_drm_drv.c | 6 ++++++
- 1 file changed, 6 insertions(+)
-
-diff --git a/drivers/gpu/drm/exynos/exynos_drm_drv.c b/drivers/gpu/drm/exynos/exynos_drm_drv.c
-index 9ee30086879f..e05e520449ed 100644
---- a/drivers/gpu/drm/exynos/exynos_drm_drv.c
-+++ b/drivers/gpu/drm/exynos/exynos_drm_drv.c
-@@ -7,6 +7,7 @@
-  *	Seung-Woo Kim <sw0312.kim@samsung.com>
-  */
- 
-+#include <linux/aperture.h>
- #include <linux/component.h>
- #include <linux/dma-mapping.h>
- #include <linux/platform_device.h>
-@@ -268,6 +269,11 @@ static int exynos_drm_bind(struct device *dev)
- 	list_for_each_entry(encoder, &drm->mode_config.encoder_list, head)
- 		encoder->possible_clones = clone_mask;
- 
-+	/* Remove existing devices which own the framebuffer memory. */
-+	ret = aperture_remove_all_conflicting_devices(exynos_drm_driver.name);
-+	if (ret)
-+		goto err_unbind_all;
-+
- 	/* Try to bind all sub drivers. */
- 	ret = component_bind_all(drm->dev, drm);
- 	if (ret)
-
--- 
-2.54.0
-
+On Fri, Jul 17, 2026 at 9:18=E2=80=AFPM Alexandre Mergnat <amergnat@baylibr=
+e.com> wrote:
+>
+> The PWM subsystem introduced a new waveform abstraction that
+> describes a PWM signal by period length, duty length and duty offset
+> instead of period, duty cycle and polarity. The meson driver still
+> uses the legacy .apply() and .get_state() callbacks and does not
+> implement the waveform callbacks, so consumers cannot use the
+> pwm_*_waveform() helper functions with it.
+>
+> Adopt the new API by implementing .round_waveform_tohw(),
+> .round_waveform_fromhw(), .read_waveform() and .write_waveform()
+> with a private meson_pwm_waveform struct holding the hardware
+> representation. The cached channel state fields (rate, hi, lo,
+> constant, inverted) are removed; counter values are now computed in
+> .round_waveform_tohw() via clk_round_rate() without register writes,
+> then committed in .write_waveform().
+>
+> The hardware invert bit places the duty active phase at the end of the
+> period on revisions that have it. Input clock rates are kept at or
+> below 1 GHz so each counter cycle remains representable in nanoseconds
+> by .round_waveform_fromhw(). Requests for which clk_round_rate() cannot
+> provide such a rate are rejected. Otherwise, period counts above the
+> 16-bit range are clamped, while a zero count is rounded up to one and
+> signalled by .round_waveform_tohw() returning 1.
+>
+> Signed-off-by: Alexandre Mergnat <amergnat@baylibre.com>
+> ---
+> The PWM core gained a new waveform abstraction that lets drivers
+> describe the hardware more directly and gives consumers access to
+> rounding and read-back without touching registers. The meson driver
+> still uses the legacy .apply() and .get_state() callbacks, so
+> consumers of its PWMs cannot benefit from the new pwm_*_waveform()
+> helpers.
+>
+> This series implements the four waveform callbacks and removes the
+> cached channel state that the legacy .apply() path relied on.
+> Settings are now computed without side effects and committed in a
+> separate step, matching the split the waveform API requires.
+>
+> Behavioural changes visible to consumers:
+>
+> - On revisions without the invert bit, a nonzero duty offset is
+>   rounded down to zero. An inverted polarity request through the
+>   legacy path produces the same register settings as the previous
+>   "duty =3D period - duty" emulation, so the generated signal is
+>   unchanged for those consumers.
+>
+> - Disabling a PWM no longer emulates an inactive-high output on
+>   revisions without the invert bit. The PWM API defines the output
+>   of a disabled PWM as undefined (this was already the case for
+>   .apply()), so affected consumers were relying on unspecified
+>   behaviour. Consumers that need an inactive high output should keep
+>   the PWM enabled with inverted polarity and zero duty cycle.
+>
+> - Input clock rates are kept at or below 1 GHz so counter cycles remain
+>   representable in nanoseconds. Requests for which clk_round_rate()
+>   cannot provide such a rate are rejected. Otherwise, period counts
+>   exceeding the 16-bit range are clamped. A zero count is rounded up to
+>   one, signalled by .round_waveform_tohw() returning 1.
+>
+> - Reported period and duty cycle values are rounded up instead of
+>   down, so a returned setting reproduces the same counter values
+>   when applied again. The constant output bit is now derived from
+>   the converted counter values, which also covers cases where the
+>   ns-to-counter conversion yields an empty high or low phase.
+>   clk_set_rate() failures now propagate as write errors instead of
+>   being logged and ignored, and .write_waveform() now also fails if
+>   the input clock rate changed between rounding and writing.
+>
+> Testing
+> =3D=3D=3D=3D=3D=3D=3D
+>
+> Tested on a Libre Computer Le Potato (AML-S905X-CC, Amlogic S905X /
+> GXL SoC) with CONFIG_PWM_DEBUG=3Dy, built in tree. Three PWM nodes were
+> enabled in the board device tree (pwm_ab, pwm_ef, pwm_AO_ab), exposing
+> 6 channels across the EE and AO clock domains.
+>
+> The libpwm tools drive the /dev/pwmchipN character device directly, so
+> the new waveform callbacks are exercised through their own ioctls. All
+> 6 channels went through pwmround for rounding queries (ROUNDWF:
+> standard, too-short and too-long periods, zero and full duty, duty
+> offsets, non-representable values), pwmset for rounded and exact
+> settings (SETROUNDEDWF / SETEXACTWF) with hardware read-back through
+> debugfs (.read_waveform()), and pwmtestperf duty sweeps. pwmtestperf
+> was run in all four direction/polarity combinations at 100 us, 1 ms and
+> 10 ms (72 runs), then with a 1 ns step at a non-tick-aligned period so
+> every duty and duty-offset rounding boundary is crossed (about 24000
+> boundary checks). PWM_DEBUG's rounding and read-back checks stayed
+> silent throughout.
+>
+> ROUNDWF and SETEXACTWF agree as specified: SETEXACTWF applies exactly
+> representable waveforms and returns -EDOM otherwise. 1 ms is exact on
+> the EE chips and rounds to 999990 ns on the AO chip, reflecting
+> each PWM's clock granularity. A 1 ns period request is
+> rounded up to the shortest representable period with zero duty,
+> signalled by .round_waveform_tohw() returning 1. Periods too long for
+> the source clock to represent (349.52 ms on this board) are rejected
+> with -EINVAL when clk_round_rate() cannot provide a low enough rate.
+> GXL has no invert bit (has_polarity =3D false), so nonzero duty offsets
+> are rounded down to zero and the axg/g12/s4 invert paths are not
+> exercisable on this board.
+>
+> The sysfs interface (50%/25%/0%/100% duty, polarity inversion,
+> enable/disable on all 6 channels) was also exercised and reads back
+> consistently, confirming no regression for legacy consumers.
+> ---
+>  drivers/pwm/pwm-meson.c | 372 ++++++++++++++++++++++++++++--------------=
+------
+>  1 file changed, 215 insertions(+), 157 deletions(-)
+>
+> diff --git a/drivers/pwm/pwm-meson.c b/drivers/pwm/pwm-meson.c
+> index 8c6bf3d49753..be17aae0941b 100644
+> --- a/drivers/pwm/pwm-meson.c
+> +++ b/drivers/pwm/pwm-meson.c
+> @@ -6,11 +6,11 @@
+>   * PWM output is achieved by calculating a clock that permits calculatin=
+g
+>   * two periods (low and high). The counter then has to be set to switch =
+after
+>   * N cycles for the first half period.
+> - * Partly the hardware has no "polarity" setting. This driver reverses t=
+he period
+> - * cycles (the low length is inverted with the high length) for
+> - * PWM_POLARITY_INVERSED. This means that .get_state cannot read the pol=
+arity
+> - * from the hardware.
+> - * Setting the duty cycle will disable and re-enable the PWM output.
+> + * Some of the IP block revisions have an invert bit that swaps the high=
+ and
+> + * low parts of the output. This is used to implement waveforms with
+> + * duty_offset_ns + duty_length_ns =3D=3D period_length_ns, i.e. what th=
+e legacy
+> + * API calls inverted polarity. On the other revisions a nonzero duty_of=
+fset_ns
+> + * is rounded down to zero.
+>   * Disabling the PWM stops the output immediately (without waiting for t=
+he
+>   * current period to complete first).
+>   *
+> @@ -35,6 +35,7 @@
+>  #include <linux/io.h>
+>  #include <linux/kernel.h>
+>  #include <linux/math64.h>
+> +#include <linux/minmax.h>
+>  #include <linux/module.h>
+>  #include <linux/of.h>
+>  #include <linux/platform_device.h>
+> @@ -96,12 +97,6 @@ static struct meson_pwm_channel_data {
+>  };
+>
+>  struct meson_pwm_channel {
+> -       unsigned long rate;
+> -       unsigned int hi;
+> -       unsigned int lo;
+> -       bool constant;
+> -       bool inverted;
+> -
+>         struct clk_mux mux;
+>         struct clk_divider div;
+>         struct clk_gate gate;
+> @@ -156,30 +151,44 @@ static void meson_pwm_free(struct pwm_chip *chip, s=
+truct pwm_device *pwm)
+>         clk_disable_unprepare(channel->clk);
+>  }
+>
+> -static int meson_pwm_calc(struct pwm_chip *chip, struct pwm_device *pwm,
+> -                         const struct pwm_state *state)
+> +struct meson_pwm_waveform {
+> +       unsigned long rate;
+> +       u16 hi;
+> +       u16 lo;
+> +       bool enabled;
+> +       bool inverted;
+> +};
+> +
+> +static int meson_pwm_round_waveform_tohw(struct pwm_chip *chip,
+> +                                        struct pwm_device *pwm,
+> +                                        const struct pwm_waveform *wf,
+> +                                        void *_wfhw)
+>  {
+> +       struct meson_pwm_waveform *wfhw =3D _wfhw;
+>         struct meson_pwm *meson =3D to_meson_pwm(chip);
+>         struct meson_pwm_channel *channel =3D &meson->channels[pwm->hwpwm=
+];
+> -       unsigned int cnt, duty_cnt;
+> +       u64 cnt, duty_cnt, freq;
+>         long fin_freq;
+> -       u64 duty, period, freq;
+> +       int ret =3D 0;
+>
+> -       duty =3D state->duty_cycle;
+> -       period =3D state->period;
+> +       if (wf->period_length_ns =3D=3D 0) {
+> +               *wfhw =3D (struct meson_pwm_waveform){
+> +                       .enabled =3D false,
+> +               };
+> +
+> +               return 0;
+> +       }
+>
+>         /*
+> -        * Note this is wrong. The result is an output wave that isn't re=
+ally
+> -        * inverted and so is wrongly identified by .get_state as normal.
+> -        * Fixing this needs some care however as some machines might rel=
+y on
+> -        * this.
+> +        * Get the highest input clock rate that makes the requested peri=
+od
+> +        * representable with the 16 bit wide counters, but at most 1 GHz=
+ so
+> +        * one counter cycle stays at least a nanosecond long, which
+> +        * .round_waveform_fromhw() relies on. clk_round_rate() may round=
+ up
+> +        * past the requested rate, so reject a too-high result below.
+>          */
+> -       if (state->polarity =3D=3D PWM_POLARITY_INVERSED && !meson->data-=
+>has_polarity)
+> -               duty =3D period - duty;
+> -
+> -       freq =3D div64_u64(NSEC_PER_SEC * 0xffffULL, period);
+> -       if (freq > ULONG_MAX)
+> -               freq =3D ULONG_MAX;
+> +       freq =3D div64_u64((u64)NSEC_PER_SEC * FIELD_MAX(PWM_LOW_MASK),
+> +                        wf->period_length_ns);
+> +       freq =3D min_t(u64, freq, NSEC_PER_SEC);
+>
+>         fin_freq =3D clk_round_rate(channel->clk, freq);
+>         if (fin_freq <=3D 0) {
+> @@ -188,180 +197,226 @@ static int meson_pwm_calc(struct pwm_chip *chip, =
+struct pwm_device *pwm,
+>                 return fin_freq ? fin_freq : -EINVAL;
+>         }
+>
+> -       dev_dbg(pwmchip_parent(chip), "fin_freq: %ld Hz\n", fin_freq);
+> -
+> -       cnt =3D mul_u64_u64_div_u64(fin_freq, period, NSEC_PER_SEC);
+> -       if (cnt > 0xffff) {
+> -               dev_err(pwmchip_parent(chip), "unable to get period cnt\n=
+");
+> +       if (fin_freq > NSEC_PER_SEC) {
+> +               dev_err(pwmchip_parent(chip),
+> +                       "source clock frequency %ld too high\n", fin_freq=
+);
+>                 return -EINVAL;
+>         }
+>
+> -       dev_dbg(pwmchip_parent(chip), "period=3D%llu cnt=3D%u\n", period,=
+ cnt);
+> -
+> -       if (duty =3D=3D period) {
+> -               channel->hi =3D cnt;
+> -               channel->lo =3D 0;
+> -               channel->constant =3D true;
+> -       } else if (duty =3D=3D 0) {
+> -               channel->hi =3D 0;
+> -               channel->lo =3D cnt;
+> -               channel->constant =3D true;
+> -       } else {
+> -               duty_cnt =3D mul_u64_u64_div_u64(fin_freq, duty, NSEC_PER=
+_SEC);
+> -
+> -               dev_dbg(pwmchip_parent(chip), "duty=3D%llu duty_cnt=3D%u\=
+n", duty, duty_cnt);
+> +       /*
+> +        * If the requested period is too long to be counted even at the
+> +        * lowest possible input clock rate, implement the longest possib=
+le
+> +        * period instead.
+> +        */
+> +       cnt =3D mul_u64_u64_div_u64(fin_freq, wf->period_length_ns, NSEC_=
+PER_SEC);
+> +       cnt =3D min_t(u64, cnt, FIELD_MAX(PWM_LOW_MASK));
+> +
+> +       if (cnt =3D=3D 0) {
+> +               /*
+> +                * The requested period is shorter than one cycle of the
+> +                * fastest available input clock, implement the minimal
+> +                * period with zero duty cycle (the general calculation b=
+elow
+> +                * yields that as duty_length_ns and duty_offset_ns canno=
+t
+> +                * exceed the requested period) and signal the rounding u=
+p
+> +                * in the return value.
+> +                */
+> +               cnt =3D 1;
+> +               ret =3D 1;
+> +       }
+>
+> -               channel->hi =3D duty_cnt;
+> -               channel->lo =3D cnt - duty_cnt;
+> -               channel->constant =3D false;
+> +       duty_cnt =3D mul_u64_u64_div_u64(fin_freq, wf->duty_length_ns, NS=
+EC_PER_SEC);
+> +       duty_cnt =3D min(duty_cnt, cnt);
+> +
+> +       *wfhw =3D (struct meson_pwm_waveform){
+> +               .rate =3D fin_freq,
+> +               .hi =3D duty_cnt,
+> +               .lo =3D cnt - duty_cnt,
+> +               .enabled =3D true,
+> +       };
+> +
+> +       if (meson->data->has_polarity && duty_cnt) {
+> +               u64 offset_cnt =3D mul_u64_u64_div_u64(fin_freq, wf->duty=
+_offset_ns,
+> +                                                    NSEC_PER_SEC);
+> +
+> +               /*
+> +                * Waveforms with duty_offset_ns + duty_length_ns =3D=3D
+> +                * period_length_ns are implemented by inverting the outp=
+ut:
+> +                * The signal then is low for hi counts (the offset) foll=
+owed
+> +                * by high for lo counts (the duty cycle). Other nonzero
+> +                * duty_offset_ns values are rounded down to 0.
+> +                */
+> +               if (offset_cnt && duty_cnt + offset_cnt >=3D cnt) {
+> +                       swap(wfhw->hi, wfhw->lo);
+> +                       wfhw->inverted =3D true;
+> +               }
+>         }
+>
+> -       channel->rate =3D fin_freq;
+> +       dev_dbg(pwmchip_parent(chip),
+> +               "pwm#%u: %llu/%llu [+%llu] @%lu -> hi: %u, lo: %u, invert=
+ed: %d\n",
+> +               pwm->hwpwm, wf->duty_length_ns, wf->period_length_ns,
+> +               wf->duty_offset_ns, wfhw->rate, wfhw->hi, wfhw->lo,
+> +               wfhw->inverted);
+>
+> -       return 0;
+> +       return ret;
+>  }
+>
+> -static void meson_pwm_enable(struct pwm_chip *chip, struct pwm_device *p=
+wm)
+> +static u64 meson_pwm_cnt_to_ns(unsigned long fin_freq, u32 cnt)
+>  {
+> -       struct meson_pwm *meson =3D to_meson_pwm(chip);
+> -       struct meson_pwm_channel *channel =3D &meson->channels[pwm->hwpwm=
+];
+> -       struct meson_pwm_channel_data *channel_data;
+> -       unsigned long flags;
+> -       u32 value;
+> -       int err;
+> -
+> -       channel_data =3D &meson_pwm_per_channel_data[pwm->hwpwm];
+> -
+> -       err =3D clk_set_rate(channel->clk, channel->rate);
+> -       if (err)
+> -               dev_err(pwmchip_parent(chip), "setting clock rate failed\=
+n");
+> -
+> -       spin_lock_irqsave(&meson->lock, flags);
+> +       return DIV64_U64_ROUND_UP(NSEC_PER_SEC * (u64)cnt, fin_freq);
+> +}
+>
+> -       value =3D FIELD_PREP(PWM_HIGH_MASK, channel->hi) |
+> -               FIELD_PREP(PWM_LOW_MASK, channel->lo);
+> -       writel(value, meson->base + channel_data->reg_offset);
+> +static int meson_pwm_round_waveform_fromhw(struct pwm_chip *chip,
+> +                                          struct pwm_device *pwm,
+> +                                          const void *_wfhw,
+> +                                          struct pwm_waveform *wf)
+> +{
+> +       const struct meson_pwm_waveform *wfhw =3D _wfhw;
+>
+> -       value =3D readl(meson->base + REG_MISC_AB);
+> -       value |=3D channel_data->pwm_en_mask;
+> +       if (!wfhw->enabled || !wfhw->rate) {
+> +               *wf =3D (struct pwm_waveform){
+> +                       .period_length_ns =3D 0,
+> +               };
+>
+> -       if (meson->data->has_constant) {
+> -               value &=3D ~channel_data->const_en_mask;
+> -               if (channel->constant)
+> -                       value |=3D channel_data->const_en_mask;
+> +               return 0;
+>         }
+>
+> -       if (meson->data->has_polarity) {
+> -               value &=3D ~channel_data->inv_en_mask;
+> -               if (channel->inverted)
+> -                       value |=3D channel_data->inv_en_mask;
+> +       /*
+> +        * wfhw->hi and wfhw->lo are u16, so their sum doesn't overflow a=
+nd
+> +        * NSEC_PER_SEC * (hi + lo) fits into the u64 dividend in
+> +        * meson_pwm_cnt_to_ns().
+> +        */
+> +       wf->period_length_ns =3D meson_pwm_cnt_to_ns(wfhw->rate, wfhw->hi=
+ + wfhw->lo);
+> +
+> +       if (wfhw->inverted && wfhw->lo =3D=3D 0) {
+> +               /*
+> +                * The output is constant low. Report a normal constant-l=
+ow
+> +                * waveform instead of duty_offset_ns =3D=3D period_lengt=
+h_ns
+> +                * which wouldn't be a valid waveform description. This
+> +                * setting is only reachable when the hardware was progra=
+mmed
+> +                * by the bootloader as .round_waveform_tohw() never prod=
+uces
+> +                * it.
+> +                */
+> +               wf->duty_length_ns =3D 0;
+> +               wf->duty_offset_ns =3D 0;
+> +       } else if (wfhw->inverted) {
+> +               wf->duty_length_ns =3D meson_pwm_cnt_to_ns(wfhw->rate, wf=
+hw->lo);
+> +               wf->duty_offset_ns =3D meson_pwm_cnt_to_ns(wfhw->rate, wf=
+hw->hi);
+> +       } else {
+> +               wf->duty_length_ns =3D meson_pwm_cnt_to_ns(wfhw->rate, wf=
+hw->hi);
+> +               wf->duty_offset_ns =3D 0;
+>         }
+>
+> -       writel(value, meson->base + REG_MISC_AB);
+> -
+> -       spin_unlock_irqrestore(&meson->lock, flags);
+> +       return 0;
+>  }
+>
+> -static void meson_pwm_disable(struct pwm_chip *chip, struct pwm_device *=
+pwm)
+> +static int meson_pwm_read_waveform(struct pwm_chip *chip,
+> +                                  struct pwm_device *pwm,
+> +                                  void *_wfhw)
+>  {
+> +       struct meson_pwm_waveform *wfhw =3D _wfhw;
+>         struct meson_pwm *meson =3D to_meson_pwm(chip);
+>         struct meson_pwm_channel *channel =3D &meson->channels[pwm->hwpwm=
+];
+>         struct meson_pwm_channel_data *channel_data;
+> -       unsigned long flags;
+> -       u32 value;
+> +       u32 value, pwm_reg;
+>
+>         channel_data =3D &meson_pwm_per_channel_data[pwm->hwpwm];
+>
+> -       spin_lock_irqsave(&meson->lock, flags);
+> -
+>         value =3D readl(meson->base + REG_MISC_AB);
+> -       value &=3D ~channel_data->pwm_en_mask;
+> +       if (!(value & channel_data->pwm_en_mask)) {
+> +               *wfhw =3D (struct meson_pwm_waveform){
+> +                       .enabled =3D false,
+> +               };
+>
+> -       if (meson->data->has_polarity) {
+> -               value &=3D ~channel_data->inv_en_mask;
+> -               if (channel->inverted)
+> -                       value |=3D channel_data->inv_en_mask;
+> +               return 0;
+>         }
+>
+> -       writel(value, meson->base + REG_MISC_AB);
+> +       pwm_reg =3D readl(meson->base + channel_data->reg_offset);
+>
+> -       spin_unlock_irqrestore(&meson->lock, flags);
+> +       *wfhw =3D (struct meson_pwm_waveform){
+> +               .rate =3D clk_get_rate(channel->clk),
+> +               .hi =3D FIELD_GET(PWM_HIGH_MASK, pwm_reg),
+> +               .lo =3D FIELD_GET(PWM_LOW_MASK, pwm_reg),
+> +               .enabled =3D true,
+> +               .inverted =3D meson->data->has_polarity &&
+> +                           (value & channel_data->inv_en_mask),
+> +       };
+> +
+> +       return 0;
+>  }
+>
+> -static int meson_pwm_apply(struct pwm_chip *chip, struct pwm_device *pwm=
+,
+> -                          const struct pwm_state *state)
+> +static int meson_pwm_write_waveform(struct pwm_chip *chip,
+> +                                   struct pwm_device *pwm,
+> +                                   const void *_wfhw)
+>  {
+> +       const struct meson_pwm_waveform *wfhw =3D _wfhw;
+>         struct meson_pwm *meson =3D to_meson_pwm(chip);
+>         struct meson_pwm_channel *channel =3D &meson->channels[pwm->hwpwm=
+];
+> -       int err =3D 0;
+> -
+> -       channel->inverted =3D (state->polarity =3D=3D PWM_POLARITY_INVERS=
+ED);
+> -
+> -       if (!state->enabled) {
+> -               if (channel->inverted && !meson->data->has_polarity) {
+> -                       /*
+> -                        * Some of IP block revisions don't have an "alwa=
+ys high"
+> -                        * setting which we can use for "inverted disable=
+d".
+> -                        * Instead we achieve this by setting mux parent =
+with
+> -                        * highest rate and minimum divider value, result=
+ing
+> -                        * in the shortest possible duration for one "cou=
+nt"
+> -                        * and "period =3D=3D duty_cycle". This results i=
+n a signal
+> -                        * which is LOW for one "count", while being HIGH=
+ for
+> -                        * the rest of the (so the signal is HIGH for sli=
+ghtly
+> -                        * less than 100% of the period, but this is the =
+best
+> -                        * we can achieve).
+> -                        */
+> -                       channel->rate =3D ULONG_MAX;
+> -                       channel->hi =3D ~0;
+> -                       channel->lo =3D 0;
+> -                       channel->constant =3D true;
+> -
+> -                       meson_pwm_enable(chip, pwm);
+> -               } else {
+> -                       meson_pwm_disable(chip, pwm);
+> -               }
+> -       } else {
+> -               err =3D meson_pwm_calc(chip, pwm, state);
+> -               if (err < 0)
+> +       struct meson_pwm_channel_data *channel_data;
+> +       unsigned long flags;
+> +       u32 value;
+> +       int err;
+> +
+> +       channel_data =3D &meson_pwm_per_channel_data[pwm->hwpwm];
+> +
+> +       /*
+> +        * Channel clock operations also modify REG_MISC_AB under meson->=
+lock,
+> +        * including from .request()/.free() outside the pwmchip lock. Se=
+t the
+> +        * rate before taking meson->lock to avoid recursive locking. Ski=
+p
+> +        * clk_set_rate() when unchanged because even a no-op re-evaluate=
+s the
+> +        * mux parent and reparses the device tree.
+> +        */
+> +       if (wfhw->enabled && clk_get_rate(channel->clk) !=3D wfhw->rate) =
+{
+> +               err =3D clk_set_rate(channel->clk, wfhw->rate);
+> +               if (err) {
+> +                       dev_err(pwmchip_parent(chip),
+> +                               "setting clock rate failed: %d\n", err);
+>                         return err;
+> +               }
+>
+> -               meson_pwm_enable(chip, pwm);
+> +               /*
+> +                * The rate computed by .round_waveform_tohw() might not =
+be
+> +                * hit if an input clock changed its rate in between; the
+> +                * counter values only implement the promised waveform at
+> +                * exactly wfhw->rate.
+> +                */
+> +               if (clk_get_rate(channel->clk) !=3D wfhw->rate) {
+> +                       dev_err(pwmchip_parent(chip),
+> +                               "clock rate changed since rounding\n");
+> +                       return -EINVAL;
+> +               }
+>         }
+>
+> -       return 0;
+> -}
+> +       spin_lock_irqsave(&meson->lock, flags);
+>
+> -static u64 meson_pwm_cnt_to_ns(unsigned long fin_freq, u32 cnt)
+> -{
+> -       return fin_freq ? div64_ul(NSEC_PER_SEC * (u64)cnt, fin_freq) : 0=
+;
+> -}
+> +       if (wfhw->enabled) {
+> +               value =3D FIELD_PREP(PWM_HIGH_MASK, wfhw->hi) |
+> +                       FIELD_PREP(PWM_LOW_MASK, wfhw->lo);
+> +               writel(value, meson->base + channel_data->reg_offset);
+>
+> -static int meson_pwm_get_state(struct pwm_chip *chip, struct pwm_device =
+*pwm,
+> -                              struct pwm_state *state)
+> -{
+> -       struct meson_pwm *meson =3D to_meson_pwm(chip);
+> -       struct meson_pwm_channel_data *channel_data;
+> -       unsigned long fin_freq;
+> -       unsigned int hi, lo;
+> -       u32 value;
+> -
+> -       channel_data =3D &meson_pwm_per_channel_data[pwm->hwpwm];
+> -       fin_freq =3D clk_get_rate(meson->channels[pwm->hwpwm].clk);
+> +               value =3D readl(meson->base + REG_MISC_AB);
+> +               value |=3D channel_data->pwm_en_mask;
+>
+> -       value =3D readl(meson->base + REG_MISC_AB);
+> -       state->enabled =3D value & channel_data->pwm_en_mask;
+> +               if (meson->data->has_constant) {
+> +                       value &=3D ~channel_data->const_en_mask;
+> +                       /* The signal is constant when one phase is empty=
+ */
+> +                       if (!wfhw->hi || !wfhw->lo)
+> +                               value |=3D channel_data->const_en_mask;
+> +               }
+>
+> -       if (meson->data->has_polarity && (value & channel_data->inv_en_ma=
+sk))
+> -               state->polarity =3D PWM_POLARITY_INVERSED;
+> -       else
+> -               state->polarity =3D PWM_POLARITY_NORMAL;
+> +               if (meson->data->has_polarity) {
+> +                       value &=3D ~channel_data->inv_en_mask;
+> +                       if (wfhw->inverted)
+> +                               value |=3D channel_data->inv_en_mask;
+> +               }
+>
+> -       value =3D readl(meson->base + channel_data->reg_offset);
+> -       lo =3D FIELD_GET(PWM_LOW_MASK, value);
+> -       hi =3D FIELD_GET(PWM_HIGH_MASK, value);
+> +               writel(value, meson->base + REG_MISC_AB);
+> +       } else {
+> +               value =3D readl(meson->base + REG_MISC_AB);
+> +               value &=3D ~channel_data->pwm_en_mask;
+> +               writel(value, meson->base + REG_MISC_AB);
+> +       }
+>
+> -       state->period =3D meson_pwm_cnt_to_ns(fin_freq, lo + hi);
+> -       state->duty_cycle =3D meson_pwm_cnt_to_ns(fin_freq, hi);
+> +       spin_unlock_irqrestore(&meson->lock, flags);
+>
+>         return 0;
+>  }
+> @@ -369,8 +424,11 @@ static int meson_pwm_get_state(struct pwm_chip *chip=
+, struct pwm_device *pwm,
+>  static const struct pwm_ops meson_pwm_ops =3D {
+>         .request =3D meson_pwm_request,
+>         .free =3D meson_pwm_free,
+> -       .apply =3D meson_pwm_apply,
+> -       .get_state =3D meson_pwm_get_state,
+> +       .sizeof_wfhw =3D sizeof(struct meson_pwm_waveform),
+> +       .round_waveform_tohw =3D meson_pwm_round_waveform_tohw,
+> +       .round_waveform_fromhw =3D meson_pwm_round_waveform_fromhw,
+> +       .read_waveform =3D meson_pwm_read_waveform,
+> +       .write_waveform =3D meson_pwm_write_waveform,
+>  };
+>
+>  static int meson_pwm_init_clocks_meson8b(struct pwm_chip *chip,
+>
+> ---
+> base-commit: 2e0a43a9e6f2e846f370aa63ea274f5403628b79
+> change-id: 20260710-pwm_meson_convert_to_waveform_api-8711b7f8c755
+>
+> Best regards,
+> --
+> Alexandre Mergnat <amergnat@baylibre.com>
+>
 
