@@ -4,85 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA31AC5AC80
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 14:24:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86484C5AC80
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 14:31:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Ti0lq77YCohFOsswk+8chbqQ3hHI0aVo1aBVQ+5rD4g=; b=On/wckKLz5Hq3oCp6fU6dFhVJq
-	B4qa8sVCsIfwO+huRzKPfR+5rqQ8VFGivgBASSu3vDPoybDPBGL/NHZ8+S3PHKts9fQz9nFKDitTa
-	/rNXNgY7wWjyq5slMccSfp5pZ/spMNBKJ3pigOYOMO24J/Jm7uz+hGvhscc6Ijd3DY/aItxVpPPo8
-	fMQJWzZKFu7pfVRMrWwTVINzNawOhGIDBvNGA8jxgk1a/sOsCwDO3vA5N258HuHZZkvwAztYyKqHT
-	Pmikz/JVdTfREkL6ugVCwz1/Au3KZWnGgGXyXesediNb3OuoMwLFrOjvRw0lX87zGcZubvAlp8h2j
-	Q64F6VEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FikuqY3b2pZlaNCLUbHPKWMhWQP0Tun7aZ9UkowPV+8=; b=zQyDjDqLvGoBXPQjK3TcJS0hfS
+	nvd5OgsCWcAjHQdsiZXqClDyO6cuvRcvjjz+bSL5sk8PNubOD51aplLMp9apSaqTZk+kXnS2fbBv/
+	J0AHtqzKQkuN5OZNRIHgRthBiw116hRQ0a2jGkvZ4YMtIuTzmKVwjSjQctKKchdvS3szEH9NuN4Cj
+	/5v8Sl2UHbXPJJErYPFNPDKoEpw3LJqC4RMOqw8FNdvLhOm5NlpGLSNHlHYmfCsazX4EKcEFTtkDK
+	3Zzxco5CRFgnvaoHL373GPqHNjdXzerELodDa73wcv401OMgn66TxpD2wV8uIRvVdS6sluYxW1Po0
+	NChuk+DQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wt4RM-0000000ANki-07om;
-	Sun, 09 Aug 2026 14:23:52 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1wt4YN-0000000AO6S-3NND;
+	Sun, 09 Aug 2026 14:31:07 +0000
+Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wt4RL-0000000ANkY-1Rv3
-	for linux-arm-kernel@bombadil.infradead.org;
-	Sun, 09 Aug 2026 14:23:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
-	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=Ti0lq77YCohFOsswk+8chbqQ3hHI0aVo1aBVQ+5rD4g=; b=boOdieTaDYtXVVMN+7P8DRoa8T
-	ypz4WMK+FuqMIPOi+fRqt8g27n1+Lmy94dY7QPuMipS+eiKn+PCD1bhOPezXZIZWYt8t9xYSikKml
-	lLmLwdebt5AfMCT1jdgySxwRJSRla1LClJRFLAgxBjHzMY7d5IpFwdv5yT+jL6+NG+rf133rXcnWS
-	ab5qQ/u91PqjJGZ2ccFN2sJ7CK7rABhyANi4QdMuVJmNBFOL/I+bnmkh//on9xcK7HmCSiDe02r1v
-	7YJ2VkhpYA5DE18LSe4tCQoLhk5S2aGeehK8mZwgv3C0y0PtDr5GF00TeUtrJ9aBJn45BEwd1msA9
-	Y8Hkjjnw==;
-Received: from smtp-70.smtpout.orange.fr ([80.12.242.70] helo=smtp.smtpout.orange.fr)
-	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wt4RH-0000000972D-1Q0a
+	id 1wt4YK-0000000AO5w-2SRp
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Aug 2026 14:23:49 +0000
-Received: from device-101.home ([10.65.86.57])
-	by smtp.orange.fr with ESMTP
-	id t3ttwTSatstT5t3ttwQhwa; Sun, 09 Aug 2026 15:49:17 +0200
-Received: from device-101.home ([IPv6:2a01:cb10:785:b00:6128:9b8c:c203:905])
-	by smtp.orange.fr with ESMTPSA
-	id t3tnw3cg2k6xLt3towWMXk; Sun, 09 Aug 2026 15:49:16 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
-	s=t20230301; t=1786283356;
-	bh=Ti0lq77YCohFOsswk+8chbqQ3hHI0aVo1aBVQ+5rD4g=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version;
-	b=YC2cf7QGJq+3QVFiUplisQRBrKIdQqwENIlZon9xvxdAtupuci/Eo++/UnyNgETMk
-	 WtnSRImatXz1TyNjUFVkmVZmGPAhZK5mZe/6BfX4iXWsj/q3Lbqo7GnjLKGGOGP6/l
-	 DQBdWOiV8N+UVNzIDgvpiTMzj/Qau1lWDrauMlkq9iMw0oQYp12JetM9J3Mcw0Z9TE
-	 UaZMQrK1Yd258CBFJB7QfhuWmcQAdIeUFUN0AIr0mO25116LNUZv3DvJpCArkMX6y+
-	 61rAaYFD0FdssPss2AOBeK48AH20F5JTWBRq/RlEIoy5VZTukU0Mi5z+rKyW4YPR0y
-	 R63hEvOJ2iLbg==
-X-ME-Helo: device-101.home
-X-ME-Auth: Y2hyaXN0b3BoZS5qYWlsbGV0QHdhbmFkb28uZnI=
-X-ME-Date: Sun, 09 Aug 2026 15:49:16 +0200
-X-ME-IP: 2a01:cb10:785:b00:6128:9b8c:c203:905
-From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-To: Sven Peter <sven@kernel.org>,
-	Janne Grunau <j@jannau.net>,
-	Neal Gompa <neal@gompa.dev>,
-	Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Guenter Roeck <linux@roeck-us.net>
-Cc: linux-kernel@vger.kernel.org,
-	kernel-janitors@vger.kernel.org,
-	Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
-	asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-watchdog@vger.kernel.org
-Subject: [PATCH] watchdog: apple: Constify some structures
-Date: Sun,  9 Aug 2026 15:49:10 +0200
-Message-ID: <99019b7e560c2d9c087be340e68f9cce4db1988e.1786283336.git.christophe.jaillet@wanadoo.fr>
-X-Mailer: git-send-email 2.55.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Sun, 09 Aug 2026 14:31:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ubuntu.com;
+ h=In-Reply-To: References: To: From: Subject: Cc: Message-Id: Date:
+ Content-Type: Content-Transfer-Encoding: Mime-Version; q=dns/txt;
+ s=fe-953a8a3ca9; t=1786285861;
+ bh=FikuqY3b2pZlaNCLUbHPKWMhWQP0Tun7aZ9UkowPV+8=;
+ b=maN5hljmqBA/eWL3Cr9d5vh9X/mZqFD5GqYivB2m/kdpHR27URBfWJNipLQukzq8VRLnlaOoK
+ kqJeK91L7BxUiL/3EzkXG6V1BUwPafQjRVLX01m6FNLuyGikALWMOVR+H7C/mZ7Q5UP3C7kZyjP
+ 18L7rvfgRqCOizdyD/ohrGUqqjDzlumHdsIO/ygBc9TWpVomrNtp3VRjKTzNdtGWwRNSx0nuglF
+ Afe+oODD/juC6YYvWapCJSHKbh0hxywuzD4pL7Acfe4F1eXOM+8gCzKnLWslEfDrMZFy5F34eDv
+ Z1O0G15zRBHC0Hx+0cQKrT7QMmoljyS+2jco9hI99fgA==
+X-Forward-Email-ID: 6a788f1b2fa0fb6ccea01ae2
+X-Forward-Email-Sender: rfc822; jpeisach@ubuntu.com, smtp.forwardemail.net,
+ 149.28.215.223
+X-Forward-Email-Version: 2.13.10
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8; format=Flowed
+Date: Sun, 09 Aug 2026 10:30:49 -0400
+Message-Id: <DKKHHITWR3F4.390HXQFLQR8X5@ubuntu.com>
+Cc: <asahi@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
+ <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 2/3] reset: Add Apple SoC CIO reset driver
+From: "Joshua Peisach" <jpeisach@ubuntu.com>
+To: "Sven Peter" <sven@kernel.org>, "Janne Grunau" <j@jannau.net>, "Neal
+ Gompa" <neal@gompa.dev>, "Rob Herring" <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
+ "Philipp Zabel" <p.zabel@pengutronix.de>
+X-Mailer: aerc 0.21.0
+References: <20260809-b4-cio-reset-v1-0-4f33777d9b4b@kernel.org>
+ <20260809-b4-cio-reset-v1-2-4f33777d9b4b@kernel.org>
+In-Reply-To: <20260809-b4-cio-reset-v1-2-4f33777d9b4b@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260809_152347_552875_D7FC104D 
-X-CRM114-Status: GOOD (  15.57  )
+X-CRM114-CacheID: sfid-20260809_073104_899596_F1E4279B 
+X-CRM114-Status: GOOD (  17.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,54 +79,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-'struct watchdog_ops' and 'struct watchdog_info' are not modified in this
-driver.
+On Sun Aug 9, 2026 at 8:16 AM EDT, Sven Peter wrote:
+> Add a driver for the reset of the CIO (USB4/Thunderbolt) blocks on
+> Apple Silicon SoCs which has to be deasserted before their
+> co-processor can be booted. On t8103 each port comes with a dedicated
+> register page while t600x uses a single register with one request bit
+> per port shared by all ports of a die inside the PMGR MMIO region.
+>
+> Signed-off-by: Sven Peter <sven@kernel.org>
+> ---
+>  MAINTAINERS                     |   1 +
+>  drivers/reset/Kconfig           |  10 +++
+>  drivers/reset/Makefile          |   1 +
+>  drivers/reset/reset-apple-cio.c | 182 ++++++++++++++++++++++++++++++++++=
+++++++
+>  4 files changed, 194 insertions(+)
 
-Constifying these structure moves some data to a read-only section, so
-increases overall security, especially when the structure holds some
-function pointers.
+> +
+> +static int apple_cio_reset_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev =3D &pdev->dev;
+> +	struct apple_cio_reset *priv;
+> +	int ret;
+> +
+> +	priv =3D devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
+> +	if (!priv)
+> +		return -ENOMEM;
+> +
+> +	priv->variant =3D of_device_get_match_data(dev);
 
-On a x86_64, with allmodconfig:
-Before:
-======
-   text	   data	    bss	    dec	    hex	filename
-   7319	   1768	      0	   9087	   237f	drivers/watchdog/apple_wdt.o
+Might be a dumb question, but does priv->variant also need to be
+checked? Because later priv->variant->pmgr_child is and I *think*
+it could return NULL.
 
-After:
-=====
-   text	   data	    bss	    dec	    hex	filename
-   7543	   1544	      0	   9087	   237f	drivers/watchdog/apple_wdt.o
+(Or is this not necessary since in theory the device should only run
+this if detected... so this should never be an issue?)
 
-Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
----
-Compile tested only.
----
- drivers/watchdog/apple_wdt.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/watchdog/apple_wdt.c b/drivers/watchdog/apple_wdt.c
-index 6b9b0f9b05ce..f533953294f6 100644
---- a/drivers/watchdog/apple_wdt.c
-+++ b/drivers/watchdog/apple_wdt.c
-@@ -139,7 +139,7 @@ static int apple_wdt_restart(struct watchdog_device *wdd, unsigned long mode,
- 	return 0;
- }
- 
--static struct watchdog_ops apple_wdt_ops = {
-+static const struct watchdog_ops apple_wdt_ops = {
- 	.owner = THIS_MODULE,
- 	.start = apple_wdt_start,
- 	.stop = apple_wdt_stop,
-@@ -149,7 +149,7 @@ static struct watchdog_ops apple_wdt_ops = {
- 	.restart = apple_wdt_restart,
- };
- 
--static struct watchdog_info apple_wdt_info = {
-+static const struct watchdog_info apple_wdt_info = {
- 	.identity = "Apple SoC Watchdog",
- 	.options = WDIOF_MAGICCLOSE | WDIOF_KEEPALIVEPING | WDIOF_SETTIMEOUT,
- };
--- 
-2.55.0
+> +
+> +	ret =3D devm_mutex_init(dev, &priv->lock);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (priv->variant->pmgr_child) {
+> +		priv->regmap =3D syscon_node_to_regmap(dev->of_node->parent);
+> +		if (IS_ERR(priv->regmap))
+> +			return dev_err_probe(dev, PTR_ERR(priv->regmap),
+> +					     "Failed to get parent regmap");
+> +
+> +		ret =3D of_property_read_u32(dev->of_node, "reg", &priv->offset);
+> +		if (ret)
+> +			return dev_err_probe(dev, ret, "Failed to read reg offset");
+> +	} else {
+> +		void __iomem *base;
+> +
+> +		base =3D devm_platform_ioremap_resource(pdev, 0);
+> +		if (IS_ERR(base))
+> +			return PTR_ERR(base);
+> +
+> +		priv->regmap =3D devm_regmap_init_mmio(dev, base,
+> +						     &apple_cio_reset_regmap_config);
+> +		if (IS_ERR(priv->regmap))
+> +			return dev_err_probe(dev, PTR_ERR(priv->regmap),
+> +					     "Failed to init MMIO regmap");
+> +	}
+> +
+> +	priv->rcdev.owner =3D THIS_MODULE;
+> +	priv->rcdev.ops =3D &apple_cio_reset_ops;
+> +	priv->rcdev.of_node =3D dev->of_node;
+> +	priv->rcdev.nr_resets =3D priv->variant->nr_resets;
+> +
+> +	return devm_reset_controller_register(dev, &priv->rcdev);
+> +}
+> +
+> +static const struct of_device_id apple_cio_reset_match[] =3D {
+> +	{
+> +		.compatible =3D "apple,t8103-cio-reset",
+> +		.data =3D &apple_t8103_cio_reset,
+> +	},
+> +	{
+> +		.compatible =3D "apple,t6000-cio-reset",
+> +		.data =3D &apple_t6000_cio_reset,
+> +	},
+> +	{},
+> +};
+> +MODULE_DEVICE_TABLE(of, apple_cio_reset_match);
+> +
+> +static struct platform_driver apple_cio_reset_driver =3D {
+> +	.driver =3D {
+> +		.name =3D "apple-cio-reset",
+> +		.of_match_table =3D apple_cio_reset_match,
+> +	},
+> +	.probe =3D apple_cio_reset_probe,
+> +};
+> +module_platform_driver(apple_cio_reset_driver);
+> +
+> +MODULE_AUTHOR("Sven Peter <sven@kernel.org>");
+> +MODULE_DESCRIPTION("Apple SoC CIO block reset driver");
+> +MODULE_LICENSE("Dual MIT/GPL");
 
 
