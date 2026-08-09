@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F902C5AD7B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 20:32:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE8BBC5B560
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 20:32:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FLNBnsANrTUMdnBcC9IapvMl8huqE7Ah/L99fobP8RQ=; b=QwH4js6RciszeH+U+9s8dSFs8q
-	FtRtlQdV3eSKKIUW9LjmztKSy41P428OdA56fFjUUbPdXbt6xzsp+rEqT6gqVpyvP28H2pRLCmqqf
-	AbVwSQpt4YHgWCRFOBKzSi9FBbhsk7RhceV5HnHaWxbVsz499uBNYObD8YBfOjugaRglHYPD87x6m
-	Qnd+y8PWf2HE+nmHL2ex9kye0sp8GDFPeVVMmPsuho6hRg44vcH8epGVfI6hdM79ObNqRD/E1LTWw
-	pIHYnVsrwqnZXIrzSkYZ5hzKE4zCR3izEtdVQNaveb18DQs/K9Ty5jyyqM/sD4ANv2l/3RQ7VLyLv
-	iPaVxcVg==;
+	bh=dlxFxuCU78lVU09E4RtDg01ZSBTP1Ohfhu61a6QHxlE=; b=GLlOMCbUSkcYoVVSbBdVALdEmj
+	EV78tokUWYua0NR5yRjIqIeQenMII/UL0uVxdbKoGpqyQ4+ifv7hGQf3cbJAee9MPqbFlocoHc8c+
+	cORQr1hL9iliCWZVwoWoBjMcLiQBe1rDQFjm0xqS2FWdNnBDpmNIN/inrs+/xoEi4rZ0KBMTyI42b
+	B9ajRaQXReb/7cxrP4gOQt6Q+gNLhcFBBjbiK0oTXGLZB6ZVi/3MTGC8O3E6YhRmAdnwhSrqLKXQy
+	ljJWyS8R5jEFwZ1+SOOfJXZS+/mUBi534pILSgnvNeroURIJrjQC/an1nLeQqv4pcIj95egADDuG5
+	smd2QKIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtABY-0000000AgPx-1yvC;
-	Sun, 09 Aug 2026 20:31:56 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1wtABP-0000000Ag9P-1GZi;
+	Sun, 09 Aug 2026 20:31:47 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtABV-0000000AgJO-2njR
+	id 1wtABL-0000000Ag1N-1Opq
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Aug 2026 20:31:55 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-49802c418b5so10920445e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Aug 2026 13:31:53 -0700 (PDT)
+	Sun, 09 Aug 2026 20:31:44 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4954afac04bso13293645e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Aug 2026 13:31:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786307512; x=1786912312; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1786307501; x=1786912301; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=FLNBnsANrTUMdnBcC9IapvMl8huqE7Ah/L99fobP8RQ=;
-        b=rHdS4NJmDT96aAjbk2INQ5WIM3qF50nHBbK0Xbz3vfMyFk2C6Y0o5PU4URijqaBTBd
-         BYbKDFBEl+1QSsufpNSh+VP63zsR87k3PXLUtSF77LWCEGsiIdZqdhV7urWkSQKrF81C
-         1937BzKRMoUod9T/xMvk11q2hAV8blXzGxXWFESux4ZRVmoSBSRoPbxF7TnJUFgCvpHa
-         9xw8Y+TKz8fsT8GqMKGnUeS0Xd8v7X/QkNQvU6vKwqSAc8hx4OxWfM2vmf8ddUgGBWrN
-         2OqBEJc0eKSqmKrAUU8GdBt+euWlQbQz+v+VgQyp6VNmM3csb1T4OxkfgJ5HIDtJm8o+
-         YXZg==
+        bh=dlxFxuCU78lVU09E4RtDg01ZSBTP1Ohfhu61a6QHxlE=;
+        b=LOcQbl4+5qKfV08J26WEzs0unxFn/90524L+h1dnpAgtEWUbS6AmEok8i+/Lcuuz15
+         hMMs0tgdME/gHElISLSF8CrXAPrUF4lwTQApRL5Ck382+lrWtEuQ3EryOaIwF/HXz/oE
+         lBq6QTNUt1pYKyinT4AGnWkWHkFR4tC3IXMJ7rILsQX6Ls9pClas7JDT0Loeu82dk09D
+         v5ZHW3LMJql7or/+ezHSFet8W4lErcwzvVGmUpGRUDdY6AzEwRBHEsIHYePP4NoTHEWH
+         QsJedyXgYSf2rCCWcjCdRpjqildpfrJ5MY9Rf8zEX09/2MpG+eBlXDydxxlhSCNMNafT
+         NeYQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786307512; x=1786912312;
+        d=1e100.net; s=20251104; t=1786307501; x=1786912301;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to:content-type;
-        bh=FLNBnsANrTUMdnBcC9IapvMl8huqE7Ah/L99fobP8RQ=;
-        b=MMXqoi1fkfo9umWioTvrvdKzYliVFaaIUd9dTq+6oBnN/uISIyNn2cstbv7r4ZLZDB
-         J1lvi+xcA8ikVZHpF/ihv4DvhNAce6VOul1sqs9BgxftF9Pha0pPqyJsW9A/czyqNSc6
-         T3v+UrK7ElpH1dBkYkRuohiTptTyt6cDOIpyounvx45cAxQKv3YaqOzChWZmT0OtSXck
-         jzyo1ccV+sJKfvSzKX7oCHmv8hPPpVlORr2EB5kY1lumE0bVC2nvV70HnJaV3FOSR+cs
-         DOL0iKUsf62F2uWExrbF3LsfQe8XQzXMSoETmfowbN3JIY8WRF0RceUilaltlPJfyj8s
-         0W+A==
-X-Forwarded-Encrypted: i=1; AHgh+RqU1fqMQxEFFTGIP6+BiFF0A4qzjVKmiqYTkuUZlL7NFuMyjZN7KrrIycmz7T8RlJ7BwV7iSajx55LfuGXoZz7k@lists.infradead.org
-X-Gm-Message-State: AOJu0YwgnjL1NfFX65N+CJD9GCk6hTB9CPb67AnvGfk7KI7+vn10xXN7
-	ed002us7/B0tTPdXFROyoJ5WbBbr4HnBfd3+440vn8jeMXtOcRTW0A/p
-X-Gm-Gg: AR+sD12DSsZfuMLQFvkRW64RESqNF9TNNHzGNvljO4p95cFQdleP5YDk0nwxF/xzMug
-	lY1m7oGFcuzVk/gfwEaUYG1y6Ed/eDj75MYUseZ3Oqiu4CLGhzvAzv3zHyajrlZwegOa3TNqXEW
-	ikfpdvBsuvz6MJNizYmkFVVn6zFjZELsvbBPewT3ZIbuF9gz9/FgOXRI68X70GEeLUuQWscaTH0
-	NfZNrRrqLC2uHmGyX/vmWt93p1Q6QFStjAgMJzv9L6IrmvudUxyNk9dXvcRv54eUuysoqvWHXsx
-	ieEMmlEVD050qBYEzqfoYWzBcOntb9NFrPZAfDVoxv3Hb3NZFkrc4mtQR7vGqI2Kfcisl1DvGPv
-	D8VPErf/vAxSgjkcIUG42fpmVrnVKRlC5w9xdcMBIod0UBryMazvWu5Bdvv255CwvytwlnWKC6Q
-	lO5MWZrI1QSEmnisguxgY0g1DXs/9KTA+umRlmwMTs0Rfdgl0YP8ZqvWo5Jg4MwNoL/+l83Rv97
-	Wd/ePpYr7JPMZPvivoB8EpqELdYbhIYWZdYJtv34MtgNgSi
-X-Received: by 2002:a05:600c:3153:b0:493:f0f5:f2d7 with SMTP id 5b1f17b1804b1-49961960a21mr194622045e9.7.1786307511947;
-        Sun, 09 Aug 2026 13:31:51 -0700 (PDT)
+        bh=dlxFxuCU78lVU09E4RtDg01ZSBTP1Ohfhu61a6QHxlE=;
+        b=BurBgBKv2nS2y2b46bmc3Fved/McJAS2/+RybuYjgiUn87c/sGwbvEFISNsHnTLxZD
+         xNjxg0aheZtYoenkSj4/u3abGWYIqn9Qat4JFfSXPw36/dO3JRdkHlX3v0Hj149KqzWL
+         d9T5aDnYpv/pAaiev3VMDg7K3kdeN1ENAaJfKe77TwFXVFrnHl9T56NxM8LFFVTXGsCB
+         fKP9bQ1fIRAL25YHQJ/Z+/4zb5+KLQOrsBYtfoQWMu7OO0Oamv4Qk1MnKRtGYb3Ptr2l
+         iQQZZ8XGHpxOUciSdhS3Sn9KyJrrwEHbAeAi+t4lIm+Gqq+XSQkK88hECcHkWZPXt7uX
+         X6Bw==
+X-Forwarded-Encrypted: i=1; AHgh+RqSHkqfWHl0XNWiWX5LXYQRBBp7G01juh6v5/VaSNh04+bYsjjsqonKHgltYjZwehWZntqOHZ8nOGn09lafha4j@lists.infradead.org
+X-Gm-Message-State: AOJu0YymT/YyonhW29WwTaL8AXUgQd7zLuyxJrrDKmoIk7+Y92ddKabC
+	awmx9esVBNaUfHr1twopd20oPfzFDitSAkXA+IlphCji8EbRofZyJKuh
+X-Gm-Gg: AR+sD12Ll/fYkyUXuVSoKUJcMLj/0soAdctuwS4G0zQEq1Pf3vMR1nzwQ3qZNq9LRIz
+	pa1HauxN61qXkFkwng4wEoxpf//dYugQ3pGZefAVDaWnQYLBDZh4aM/bYHz8nWNrjK7HK6JFrCW
+	xxuOvcAIrHltSqHResvjajFqF1C8veQfMfdnN/z8HJbAkm4VZGAf2Fm2Hf+3/AxNy3ohE+oIsR9
+	YYNTjFqXBWXpKDXQ3krARtNEW1DljdVQrWsInsClZhJYXAVph5H61lFWnBLfGG9I7Caks+G8M0A
+	7qCwv2L/RsVgcg9AyyXdKTyB7ziYEhqg93DJfsRBMvPg7o2Or2FpCnRoVDdSMoRIsfRF0EGBI09
+	H5sm9icBKKDCLpgIWuf1w9VNsfWAyo8+uVybH8jb6ZgRYr1n6OexnPjh1FM+YGOqyhDHok0Q4SO
+	N54uQe1CzIMFOdp6E1M+3bQixWAmd0lR2yoCVcsXkWdtOL2T2qQsumjUAlqkMz5N91kdnqMNJ0L
+	I0lOUU738N1Gfm0MXQ4jq/CeyD7xS1m4e83mIGj2NJnRnch
+X-Received: by 2002:a05:600c:1d23:b0:499:51cc:4e57 with SMTP id 5b1f17b1804b1-499617f7699mr188949035e9.0.1786307501400;
+        Sun, 09 Aug 2026 13:31:41 -0700 (PDT)
 Received: from Ansuel-XPS24.localdomain (host-87-20-3-207.retail.telecomitalia.it. [87.20.3.207])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4995e9ea92csm229357065e9.4.2026.08.09.13.31.49
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4995e9ea92csm229357065e9.4.2026.08.09.13.31.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 09 Aug 2026 13:31:51 -0700 (PDT)
+        Sun, 09 Aug 2026 13:31:40 -0700 (PDT)
 From: Christian Marangi <ansuelsmth@gmail.com>
 To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -99,17 +99,17 @@ To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
 	llvm@lists.linux.dev
-Subject: [PATCH net-next v12 10/12] dt-bindings: net: pcs: Document support for Airoha Ethernet PCS
-Date: Sun,  9 Aug 2026 22:31:07 +0200
-Message-ID: <20260809203116.640271-11-ansuelsmth@gmail.com>
+Subject: [PATCH net-next v12 06/12] net: phylink: support late PCS provider attach
+Date: Sun,  9 Aug 2026 22:31:03 +0200
+Message-ID: <20260809203116.640271-7-ansuelsmth@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260809203116.640271-1-ansuelsmth@gmail.com>
 References: <20260809203116.640271-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260809_133153_760348_C2748619 
-X-CRM114-Status: GOOD (  15.64  )
+X-CRM114-CacheID: sfid-20260809_133143_421513_C6B280D4 
+X-CRM114-Status: GOOD (  27.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,287 +124,261 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document support for Airoha Ethernet PCS for AN7581 SoC.
+Add support for late PCS provider attachment to a phylink instance.
+Similar to FWNODE_PCS_PROVIDER_DEL, FWNODE_PCS_PROVIDER_ADD is added to
+address the case where a PCS provider is added after a phylink instance is
+created and started.
 
-Airoha AN7581 SoC expose multiple Physical Coding Sublayer (PCS) for
-the various Serdes port supporting different Media Independent Interface
-(10BASE-R, USXGMII, 2500BASE-X, 1000BASE-X, SGMII).
+The PCS notifier will emit the event FWNODE_PCS_PROVIDER_ADD every time
+a new PCS provider is added.
 
-This follow the new PCS provider with the use of #pcs-cells property.
+If a related PCS is found, then such PCS is added to the phylink
+instance PCS list.
+
+Such PCS is then linked to the phylink instance and the supported
+interfaces of the phylink instance get refreshed.
+
+If we are in a major_config_failed scenario an interface reconfiguration
+is triggered in the next phylink resolve.
+
+In the example scenario where the link was previously torn down due to
+removal of PCS, the link will be established again as the PCS came back
+and is now available to phylink.
 
 Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 ---
- .../bindings/net/pcs/airoha,pcs.yaml          | 261 ++++++++++++++++++
- 1 file changed, 261 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/net/pcs/airoha,pcs.yaml
+ drivers/net/pcs/pcs.c     | 22 +++++++++++
+ drivers/net/phy/phylink.c | 83 +++++++++++++++++++++++++++++++--------
+ include/linux/pcs/pcs.h   | 31 +++++++++++++++
+ 3 files changed, 119 insertions(+), 17 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/net/pcs/airoha,pcs.yaml b/Documentation/devicetree/bindings/net/pcs/airoha,pcs.yaml
-new file mode 100644
-index 000000000000..9c1d116c1b01
---- /dev/null
-+++ b/Documentation/devicetree/bindings/net/pcs/airoha,pcs.yaml
-@@ -0,0 +1,261 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/net/pcs/airoha,pcs.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/drivers/net/pcs/pcs.c b/drivers/net/pcs/pcs.c
+index 52097466ce91..92d346755acc 100644
+--- a/drivers/net/pcs/pcs.c
++++ b/drivers/net/pcs/pcs.c
+@@ -69,6 +69,10 @@ fwnode_pcs_add_provider(struct fwnode_handle *fwnode,
+ 
+ 	mutex_unlock(&fwnode_pcs_mutex);
+ 
++	blocking_notifier_call_chain(&fwnode_pcs_notify_list,
++				     FWNODE_PCS_PROVIDER_ADD,
++				     fwnode);
 +
-+title: Airoha Ethernet PCS and Serdes
+ 	pr_debug("Added pcs provider from %pfwf\n", fwnode);
+ 
+ 	return pp;
+@@ -201,6 +205,24 @@ struct phylink_pcs *fwnode_pcs_get(const struct fwnode_handle *fwnode, unsigned
+ }
+ EXPORT_SYMBOL_GPL(fwnode_pcs_get);
+ 
++struct phylink_pcs *fwnode_pcs_get_from_provider(struct fwnode_pcs_provider *provider,
++						 const struct fwnode_handle *fwnode,
++						 int index)
++{
++	struct fwnode_reference_args pcsspec;
++	struct phylink_pcs *pcs;
++	int ret;
 +
-+maintainers:
-+  - Christian Marangi <ansuelsmth@gmail.com>
++	ret = fwnode_parse_pcsspec(fwnode, index, NULL, &pcsspec);
++	if (ret)
++		return ERR_PTR(ret);
 +
-+description:
-+  Airoha AN7581 SoC expose multiple Physical Coding Sublayer (PCS) for
-+  the various Serdes port supporting different Media Independent Interface
-+  (10BASE-R, USXGMII, 2500BASE-X, 1000BASE-X, SGMII).
++	pcs = __fwnode_pcs_get_from_pcsspec_provider(&pcsspec, provider);
++	fwnode_handle_put(pcsspec.fwnode);
++	return pcs;
++}
++EXPORT_SYMBOL_GPL(fwnode_pcs_get_from_provider);
 +
-+properties:
-+  compatible:
-+    enum:
-+      - airoha,an7581-pcs-eth
-+      - airoha,an7581-pcs-pon
-+      - airoha,an7581-pcs-pcie
-+      - airoha,an7581-pcs-usb
+ bool fwnode_pcs_matches_provider(struct fwnode_pcs_provider *provider,
+ 				 const struct fwnode_handle *fwnode,
+ 				 struct phylink_pcs *pl_pcs)
+diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
+index 1d7223e95474..191c902d4008 100644
+--- a/drivers/net/phy/phylink.c
++++ b/drivers/net/phy/phylink.c
+@@ -1912,6 +1912,27 @@ int phylink_set_fixed_link(struct phylink *pl,
+ }
+ EXPORT_SYMBOL_GPL(phylink_set_fixed_link);
+ 
++static void phylink_add_pcs(struct phylink *pl, struct phylink_pcs *pcs)
++{
++	struct phylink_pcs *tmp;
 +
-+  reg:
-+    minItems: 6
-+    maxItems: 15
++	/*
++	 * Make sure state mutex is locked to protect concurrent
++	 * access to phylink instance PCS list from
++	 * initial fill_available_pcs and late PCS attach
++	 */
++	lockdep_assert_held(&pl->state_mutex);
 +
-+  reg-names:
-+    minItems: 6
-+    maxItems: 15
++	list_for_each_entry(tmp, &pl->pcs_list, list)
++		if (tmp == pcs)
++			return;
 +
-+  airoha,scu:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description: phandle to the SCU node required to configure
-+      the serdes line to the correct interface mode.
++	list_add_tail(&pcs->list, &pl->pcs_list);
 +
-+  phys:
-+    maxItems: 1
++	/* Link PCS to phylink */
++	pcs->phylink = pl;
++}
 +
-+  "#pcs-cells": true
+ static int phylink_fill_available_pcs(struct phylink *pl,
+ 				      struct phylink_config *config)
+ {
+@@ -1943,7 +1964,7 @@ static int phylink_fill_available_pcs(struct phylink *pl,
+ 		if (!pcs)
+ 			continue;
+ 
+-		list_add_tail(&pcs->list, &pl->pcs_list);
++		phylink_add_pcs(pl, pcs);
+ 	}
+ 
+ 	mutex_unlock(&pl->state_mutex);
+@@ -1990,26 +2011,57 @@ static int pcs_provider_notify(struct notifier_block *self,
+ 	struct phylink_pcs *pcs, *tmp;
+ 	bool resolve = false;
+ 
+-	rtnl_lock();
++	/*
++	 * On PCS provider deletion hold rtnl lock as one of
++	 * PCS can be currently in use by the phylink instance
++	 * and ethtool OPs can reference it.
++	 */
++	if (val == FWNODE_PCS_PROVIDER_DEL)
++		rtnl_lock();
+ 
+ 	mutex_lock(&pl->state_mutex);
+ 
+-	/*
+-	 * Loop all the PCS for phylink instance and check if
+-	 * this notification is relevant for some of them.
+-	 */
+-	list_for_each_entry_safe(pcs, tmp, &pl->pcs_list, list) {
+-		if (!fwnode_pcs_matches_provider(pp, pl->fwnode, pcs))
+-			continue;
++	switch (val) {
++	case FWNODE_PCS_PROVIDER_ADD:
++		int count, i;
 +
-+required:
-+  - compatible
-+  - reg
-+  - reg-names
-+  - "#pcs-cells"
++		count = fwnode_phylink_pcs_count(pl->fwnode);
++		for (i = 0; i < count; i++) {
++			pcs = fwnode_pcs_get_from_provider(pp, pl->fwnode, i);
++			if (IS_ERR(pcs))
++				continue;
 +
-+allOf:
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - airoha,an7581-pcs-eth
-+              - airoha,an7581-pcs-pon
++			phylink_add_pcs(pl, pcs);
++			resolve = true;
++		}
 +
-+    then:
-+      properties:
-+        reg:
-+          items:
-+            - description: PCS MAC reg
-+            - description: HSGMII AN reg
-+            - description: HSGMII PCS reg
-+            - description: MULTI SGMII reg
-+            - description: USXGMII reg
-+            - description: HSGMII rate adaption reg
-+            - description: PCS Analog register
-+            - description: PCS PMA (Physical Medium Attachment) register
++		/* Force an interface reconfig if major config fail */
++		if (resolve && pl->major_config_failed)
++			pl->force_major_config = true;
 +
-+        reg-names:
-+          items:
-+            - const: pcs_mac
-+            - const: hsgmii_an
-+            - const: hsgmii_pcs
-+            - const: multi_sgmii
-+            - const: usxgmii
-+            - const: hsgmii_rate_adp
-+            - const: pcs_ana
-+            - const: pcs_pma
++		break;
++	case FWNODE_PCS_PROVIDER_DEL:
++		/*
++		 * Loop all the PCS for phylink instance and check if
++		 * this notification is relevant for some of them.
++		 */
++		list_for_each_entry_safe(pcs, tmp, &pl->pcs_list, list) {
++			if (!fwnode_pcs_matches_provider(pp, pl->fwnode, pcs))
++				continue;
+ 
+-		phylink_del_pcs(pl, pcs);
+-		resolve = true;
++			phylink_del_pcs(pl, pcs);
++			resolve = true;
++		}
++		break;
+ 	}
+ 
+ 	/* Exit early if nothing has changed */
+ 	if (!resolve) {
+ 		mutex_unlock(&pl->state_mutex);
+-		rtnl_unlock();
 +
-+        phys: false
++		if (val == FWNODE_PCS_PROVIDER_DEL)
++			rtnl_unlock();
 +
-+        "#pcs-cells":
-+          const: 0
+ 		return NOTIFY_DONE;
+ 	}
+ 
+@@ -2023,7 +2075,8 @@ static int pcs_provider_notify(struct notifier_block *self,
+ 
+ 	mutex_unlock(&pl->state_mutex);
+ 
+-	rtnl_unlock();
++	if (val == FWNODE_PCS_PROVIDER_DEL)
++		rtnl_unlock();
+ 
+ 	phylink_run_resolve(pl);
+ 
+@@ -2106,10 +2159,6 @@ struct phylink *phylink_create(struct phylink_config *config,
+ 
+ 	mutex_lock(&pl->state_mutex);
+ 
+-	/* Link available PCS to phylink */
+-	list_for_each_entry(pcs, &pl->pcs_list, list)
+-		pcs->phylink = pl;
+-
+ 	phy_interface_copy(pl->supported_interfaces,
+ 			   pl->config->supported_interfaces);
+ 
+diff --git a/include/linux/pcs/pcs.h b/include/linux/pcs/pcs.h
+index 83e0a2ad4b09..00a636c82c65 100644
+--- a/include/linux/pcs/pcs.h
++++ b/include/linux/pcs/pcs.h
+@@ -5,6 +5,7 @@
+ #include <linux/phylink.h>
+ 
+ enum fwnode_pcs_notify_event {
++	FWNODE_PCS_PROVIDER_ADD,
+ 	FWNODE_PCS_PROVIDER_DEL,
+ };
+ 
+@@ -50,6 +51,28 @@ int unregister_fwnode_pcs_notifier(struct notifier_block *nb);
+ struct phylink_pcs *fwnode_pcs_get(const struct fwnode_handle *fwnode,
+ 				   unsigned int index);
+ 
++/**
++ * fwnode_pcs_get_from_provider() - Retrieve a PCS from a specific provider
++ * @provider: PCS provider to use
++ * @fwnode: firmware node
++ * @index: index fwnode PCS handle in firmware node
++ *
++ * Get a PCS from the firmware node at index specifically provided by
++ * passed PCS provider.
++ *
++ * Unlike fwnode_pcs_get(), this function does not search the global list of
++ * PCS providers. The caller must provide the provider responsible for the
++ * referenced PCS.
++ *
++ * Returns: a pointer to the phylink_pcs or a negative error pointer. Can
++ * return -ENODEV if the PCS is not present in global providers list (either
++ * due to driver still needs to be probed or it failed to probe/removed) or
++ * can return -EINVAL if the PCS provider doesn't expose any PCS for the fwnode.
++ */
++struct phylink_pcs *fwnode_pcs_get_from_provider(struct fwnode_pcs_provider *provider,
++						 const struct fwnode_handle *fwnode,
++						 int index);
 +
-+      required:
-+        - airoha,scu
+ /**
+  * fwnode_pcs_matches_provider() - Check whether a PCS belongs to a provider
+  * @provider: PCS provider to check
+@@ -120,6 +143,14 @@ static inline struct phylink_pcs *fwnode_pcs_get(const struct fwnode_handle *fwn
+ 	return ERR_PTR(-ENOENT);
+ }
+ 
++static inline struct phylink_pcs *
++fwnode_pcs_get_from_provider(struct fwnode_pcs_provider *provider,
++			     const struct fwnode_handle *fwnode,
++			     int index)
++{
++	return ERR_PTR(-ENOENT);
++}
 +
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: airoha,an7581-pcs-pcie
-+
-+    then:
-+      properties:
-+        reg:
-+          items:
-+            - description: PCS MAC 0 reg
-+            - description: HSGMII AN 0 reg
-+            - description: HSGMII PCS 0 reg
-+            - description: MULTI SGMII 0 reg
-+            - description: USXGMII 0 reg
-+            - description: HSGMII rate adaption 0 reg
-+            - description: PCS MAC 1 reg
-+            - description: HSGMII AN 1 reg
-+            - description: HSGMII PCS 1 reg
-+            - description: MULTI SGMII 1 reg
-+            - description: USXGMII 1 reg
-+            - description: HSGMII rate adaption 1 reg
-+            - description: PCS Analog register
-+            - description: PCS PMA (Physical Medium Attachment) 0 register
-+            - description: PCS PMA (Physical Medium Attachment) 1 register
-+
-+        reg-names:
-+          items:
-+            - const: pcs_mac0
-+            - const: hsgmii_an0
-+            - const: hsgmii_pcs0
-+            - const: multi_sgmii0
-+            - const: usxgmii0
-+            - const: hsgmii_rate_adp0
-+            - const: pcs_mac1
-+            - const: hsgmii_an1
-+            - const: hsgmii_pcs1
-+            - const: multi_sgmii1
-+            - const: usxgmii1
-+            - const: hsgmii_rate_adp1
-+            - const: pcs_ana
-+            - const: pcs_pma0
-+            - const: pcs_pma1
-+
-+        phys: false
-+
-+        "#pcs-cells":
-+          const: 1
-+
-+      required:
-+        - airoha,scu
-+
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: airoha,an7581-pcs-usb
-+
-+    then:
-+      properties:
-+        reg:
-+          items:
-+            - description: PCS MAC reg
-+            - description: HSGMII AN reg
-+            - description: HSGMII PCS reg
-+            - description: MULTI SGMII reg
-+            - description: HSGMII rate adaption reg
-+            - description: PCS Analog register
-+
-+        reg-names:
-+          items:
-+            - const: pcs_mac
-+            - const: hsgmii_an
-+            - const: hsgmii_pcs
-+            - const: multi_sgmii
-+            - const: hsgmii_rate_adp
-+            - const: pcs_ana
-+
-+        airoha,scu: false
-+
-+        "#pcs-cells":
-+          const: 0
-+
-+      required:
-+        - phys
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/phy/phy.h>
-+
-+    pcs@1fa08000 {
-+      compatible = "airoha,an7581-pcs-pon";
-+      reg = <0x1fa08000 0x1000>,
-+            <0x1fa80000 0x60>,
-+            <0x1fa80a00 0x164>,
-+            <0x1fa84000 0x450>,
-+            <0x1fa85900 0x338>,
-+            <0x1fa86000 0x300>,
-+            <0x1fa8a000 0x1000>,
-+            <0x1fa8b000 0x1000>;
-+      reg-names = "pcs_mac", "hsgmii_an", "hsgmii_pcs",
-+                  "multi_sgmii", "usxgmii",
-+                  "hsgmii_rate_adp", "pcs_ana", "pcs_pma";
-+
-+      airoha,scu = <&scuclk>;
-+      #pcs-cells = <0>;
-+    };
-+
-+    pcs@1fa09000 {
-+      compatible = "airoha,an7581-pcs-eth";
-+      reg = <0x1fa09000 0x1000>,
-+            <0x1fa70000 0x60>,
-+            <0x1fa70a00 0x164>,
-+            <0x1fa74000 0x450>,
-+            <0x1fa75900 0x338>,
-+            <0x1fa76000 0x300>,
-+            <0x1fa7a000 0x1000>,
-+            <0x1fa7b000 0x1000>;
-+      reg-names = "pcs_mac", "hsgmii_an", "hsgmii_pcs",
-+                  "multi_sgmii", "usxgmii",
-+                  "hsgmii_rate_adp", "pcs_ana", "pcs_pma";
-+
-+      airoha,scu = <&scuclk>;
-+      #pcs-cells = <0>;
-+    };
-+
-+    pcs@1fa04000 {
-+      compatible = "airoha,an7581-pcs-pcie";
-+      reg = <0x1fa04000 0x1000>,
-+            <0x1fa50000 0x60>,
-+            <0x1fa50a00 0x164>,
-+            <0x1fa54000 0x450>,
-+            <0x1fa55900 0x338>,
-+            <0x1fa56000 0x300>,
-+            <0x1fa05000 0x1000>,
-+            <0x1fa60000 0x60>,
-+            <0x1fa60a00 0x164>,
-+            <0x1fa64000 0x450>,
-+            <0x1fa65900 0x338>,
-+            <0x1fa66000 0x300>,
-+            <0x1fa5a000 0x1000>,
-+            <0x1fa5b000 0x1000>,
-+            <0x1fa5c000 0x1000>;
-+      reg-names = "pcs_mac0", "hsgmii_an0", "hsgmii_pcs0",
-+                  "multi_sgmii0", "usxgmii0",
-+                  "hsgmii_rate_adp0",
-+                  "pcs_mac1", "hsgmii_an1", "hsgmii_pcs1",
-+                  "multi_sgmii1", "usxgmii1",
-+                  "hsgmii_rate_adp1",
-+                  "pcs_ana", "pcs_pma0", "pcs_pma1";
-+
-+      airoha,scu = <&scuclk>;
-+      #pcs-cells = <1>;
-+    };
-+
-+    pcs@1fa07000 {
-+      compatible = "airoha,an7581-pcs-usb";
-+      reg = <0x1fa07000 0x1000>,
-+            <0x1fa90000 0x60>,
-+            <0x1fa90a00 0x164>,
-+            <0x1fa94000 0x450>,
-+            <0x1fa96000 0x300>,
-+            <0x1fa9a000 0x600>;
-+      reg-names = "pcs_mac", "hsgmii_an", "hsgmii_pcs",
-+                  "multi_sgmii", "hsgmii_rate_adp","pcs_ana";
-+
-+      phys = <&usb0_phy PHY_TYPE_USB3>;
-+
-+      #pcs-cells = <0>;
-+    };
+ static inline bool fwnode_pcs_matches_provider(struct fwnode_pcs_provider *provider,
+ 					       const struct fwnode_handle *fwnode,
+ 					       struct phylink_pcs *pl_pcs)
 -- 
 2.53.0
 
