@@ -4,110 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAB7DC5AD7B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 17:50:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16EC2C5AD4E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 18:06:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XCnEd7tGfLsvqQ9t4dLxlXhkU3vDq79dR6i/bF6oDRI=; b=d/JzoRTqVMHZnm2Z6T0ipJb8GQ
-	dagRaaRMxWlOGIXb5V1dtXHUrGKMfbul1BKE4KeAoeNbL6fv9+iOSAFeFmnLZCo1vYmew7GOpAI0m
-	0KiPhkHvOf7LHvATFS5mHquUjN29S8tk5WZqaPjHY9LE+0hhGD8fa82NXcRaHBqmW5oS9vX4VdLp6
-	eoG1flTfiDltLsxl5Vys9BEGV9M2XryW4bjsMXZyYDVLq2MKStV5HW4H+X26nvWiZuEobkN1W53VL
-	m9WCCz5FcCvi8Ehp0oSe/spP6Xragq1x25OSNpP+cqXZ2KE4bwFS15+fOerlzmCr2oKMZV3Z765kG
-	lBTHRgjA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YhvKoEmbzO9xRY347E/hep7IU+OetLnrtlwgXtGEXas=; b=nq5XFcfHYPqjG2W/EKETjE+73T
+	x7JZ/0C3b3WyPSY/ZgVSgguI30HhaON13K9JZTSwctZJdsVvgSlHILMJADXquw7vRPs3C8pz/Kt1/
+	uLKpI4ru20oUJCm//xQaR/cC43OSMrrOLZK5gxmFo6uHXMOt3yyF+HWE2NtbeZW/BJltmvz6oRwOZ
+	cinMsMJi1I7vjuu0RiXKFGUZkCASaRaeWW8ZyYUFHIASXK87AkixBWg0S93xyOZJlCx4s8qLqo8eH
+	v7kTKxAI4v97Xi8cX+xSiEbhLsNS33bVa9Tems5aQ9fKJxM0KSk7o4sO9okjMuUkmGVYGG0CJDcNd
+	m/xfOFsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wt7eu-0000000AYet-1zhx;
-	Sun, 09 Aug 2026 17:50:04 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1wt7uW-0000000AZE8-43ld;
+	Sun, 09 Aug 2026 18:06:12 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wt7er-0000000AYdA-1lXo
+	id 1wt7uU-0000000AZDn-0dio
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Aug 2026 17:50:03 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-496bb7cdf51so16247855e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Aug 2026 10:50:00 -0700 (PDT)
+	Sun, 09 Aug 2026 18:06:11 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-47f59f25ec4so318488f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Aug 2026 11:06:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786297799; x=1786902599; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:subject:cc:to:from:date:message-id:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=XCnEd7tGfLsvqQ9t4dLxlXhkU3vDq79dR6i/bF6oDRI=;
-        b=T6qmTaYairvXL302MPAXLZ6tU/ijqjPt5odhMQXYq8BOe2JzfHpoyNK2OX913I3rnC
-         +C91v43HIJRQxgZCJ3kwvKKJ8cs7EPTygBYhe9C7J3rpy+rLhKXmUy4iMBb/TKIpFplJ
-         TaBfwNSDf0KLDlcZ/EmM3YSemRGYWphGTLXko0ew9VcLOAa7QTqrJHM4HcpxN11TJbA+
-         vbWEGh1f9tYbK9P6FgWW+bBk8Uc5vCUBPMk+A0UmCx2THYsZstOtPMdQhCnqjJZg6Pgy
-         pcsMec+Zr/TRXbdYG8GIaet9DtBjLf2ETiydMDScYylXcFqpXHvhg/1nXlM0KqCo6m7K
-         UwGA==
+        d=gmail.com; s=20251104; t=1786298768; x=1786903568; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=YhvKoEmbzO9xRY347E/hep7IU+OetLnrtlwgXtGEXas=;
+        b=FC9/XVr8bKN5V1ZgHbAKuuTMc2VUOVSliAOl7zpXMl66vj4CKksoFDszVAzC82vxvW
+         oj79cffzd0bGxEL51+d2CL79oWZIkhOh1u0ndHTRLfjMiR6X4oycSzyGurIIcU3z6dkd
+         xMsxw/8M98kLCirsMacBs9kYO1KtTLemxscxmqOc+ljqOQWYIYUKF1gXaEAwg6xlm/LV
+         8cNHM2NrXKXBeEEHCr9W5EyrP9TBMxCBgkfL64+eE3yuDpeezlzSRa35YE595KRY4cRi
+         xZRJFLhSURMl3Uo23p04aJerRF7/yVu2v8r6iOUmZF1HIWRdWSNj8NuzCrQiTHHYkBu7
+         RI9A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786297799; x=1786902599;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:subject:cc:to:from:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=XCnEd7tGfLsvqQ9t4dLxlXhkU3vDq79dR6i/bF6oDRI=;
-        b=nGXsl+OS1woQjRT2W+AzC1ZQPr8IismH33NecS29xFAU2S0POIMVgLiqzZ6KN2fykn
-         Gm0wQiaujjGwsicMTikMWZch2ATRwQOSARQPbQacCDhqApwd6DsuK76ouSck3935i38n
-         Y974mF/NUPuf3rNugPfZVRt7ODxRajIxRR/x0WnXHIN1++lYDR1dwdY9MhkDUCJeLD9l
-         J5xz3H4r+OyM+v5h36ZgCN6KMXDKb3X+0BbbN2aanr1z+d9lDNF4+XAhDZIkYbFR+XFp
-         fwrIvHPbFB2MZcvLawGElunGn/JQkVo796+PuerWYB/qnWuauPJfCRoUuIW+wrBblBbT
-         ZB+A==
-X-Forwarded-Encrypted: i=1; AHgh+RqbdzbJ6Lvav8nFfWQuWNAGU+4Oeo5P1/UQpT5wsEfxEtTLlWRz9vJGbHH+zzhM2LSc6rahOhZfXbi9GMppTeTU@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx10oa0NM/kk/pPjiNQefETJT60aKB2rGanFQOtQMg9IHjZS6/5
-	t8YcppyNRnbOLbTgjEy4yrCDwMbpkkdYrM2R8s5Ln/+bmrU6qqypeKLI
-X-Gm-Gg: AR+sD13h3EG//cJ+XB/N2gVrlHjgSv9zt+71iHgQNfP5x6juy+FVpUndO79ua1D36QX
-	qkMjWDE731/2+WrySL+4PSg1QRSMJvqyoPYxNkryR0BV7rTAUlOMmDOAb92PqMtpegqxh5XXWE7
-	64TyPNdD0wEhuCZdQVZcwWCUSkiBgcBnP7rj/ChEzohxNaa22KT8PJyOsvunaaQvhYQLsN5df8s
-	5MFInd/rA8wE4i1sbp/KZGj6RL+so5V3kREexYE5d+3/FWrnvjclxDQO0WDpjEJ++caVGnwGF5w
-	joxmXbPtW8qTUufsR4JJXreKc4bc3Kag/9hX8lEUELFyH/quXzXfw7l3NxLG1rPsC5R4Wy9KidG
-	GFrff3e/1hcEOoAES4UFFIg40lKqpnSGyGfg6vlS0ERebSzd//4/nF/yCHcsdQSsrt4KsCNexOm
-	68Yrz3s3Q6XyzkRNKIc6OG+12bnm7ajF64uQn6fy3X1uu/GceGLJtyZc8eBZ8n3XkvjCBnJngMs
-	ht+baMaiCjR6k9C328Tgmfcx84nfjsXWdbyfsKFwps=
-X-Received: by 2002:a05:600c:630c:b0:493:f140:c3fb with SMTP id 5b1f17b1804b1-4994e71c87bmr402295485e9.7.1786297799337;
-        Sun, 09 Aug 2026 10:49:59 -0700 (PDT)
-Received: from Ansuel-XPS. (host-87-20-3-207.retail.telecomitalia.it. [87.20.3.207])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4995421934asm340945865e9.5.2026.08.09.10.49.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 09 Aug 2026 10:49:58 -0700 (PDT)
-Message-ID: <6a78bdc6.89544747.3fcae.b8e0@mx.google.com>
-X-Google-Original-Message-ID: <ani9wg-GiHuUV9ab@Ansuel-XPS.>
-Date: Sun, 9 Aug 2026 19:49:54 +0200
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Simon Horman <horms@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, llvm@lists.linux.dev
-Subject: Re: [PATCH net-next v11 00/12] net: pcs: Introduce support for
- fwnode PCS
-References: <20260807131301.192060-1-ansuelsmth@gmail.com>
- <4c595c15-17d9-4c23-bb44-344c48d36e9a@lunn.ch>
+        d=1e100.net; s=20251104; t=1786298768; x=1786903568;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=YhvKoEmbzO9xRY347E/hep7IU+OetLnrtlwgXtGEXas=;
+        b=DYId2Q2Vy3BL8iCyViOisvE8tc6psUv0gh7aUqfILDuFxX1Vtg/b3GRC1VROnwSdnT
+         FemU3hmDl4EvX/LbxImVRIIXK7Jv1AP2NSBNafXvMLVBwiMTJQBX6n3vRyrHrH1jn8oW
+         MtLdH+Nt+Ia+czA/og20sckJTcjr+aS7vZ2LTYPVn61+vW1lnVuYbXW/T7DDVlvJuWIB
+         RMbs3WYYa300QkOhO8hEXWnLjyTGGnxSIkaGodLB/RSyY4gilCfw4mhb7hJRGHi3yWaf
+         X5S0FjtgggBr3Qy4cY1ayZb08ZZ9g3KhjeTRsd8ZUWiUYtfGaSqQ4UdzuxTFaXPRm1bA
+         ZGtQ==
+X-Forwarded-Encrypted: i=1; AHgh+RoqZ8rXH/KDIu6hLk1DnBZ3KfVc47sIOUpBSPXrqjzy8Z6LuPhK3cZpHKLQY64vTXiy+4SZv+ZR2Pue+8HLNORN@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxf82RPAJe2ByTLknN6yNuOGc27hG3K5pL1aD6V7xD6pcMNbwvo
+	8FFlm5x4Io47Cz3PbFqkQmzLxgzBH4nGOv9vtYi4pKZNn3qguq615ob9B4wDokxj
+X-Gm-Gg: AR+sD10ggYafL7pWUJhuih+hdvalyz7yKIzPeqRfe+omGeIQsIL2EeziWpxzs+HB1ZJ
+	IiG9z+D07rFxXaueA/51nny7L1uay9VRmeAk3F5Oyk+C7wIT9QwdrV7rgGGkY++BcOCyERC4YsR
+	cnui5ahPn1Pmem7nvx1s+FikeR21vHbiexX1lQdgG1mLR1GZJnTkuhA0fOxENo1pD2Jk+mbfHP/
+	1noDQYu1DgbhGeDB9lMYSJZSI/0fRoSTEnyqcK/u/+dP5ayoQTB0yRK8/tJfFlTx/4sgAm/s74/
+	AfBgU1rviviHWGuoTMPRK3B4gIvJIqXfwipi6kVse7Hk37pzdEu9qAN29aCl9LcpG5oWn3OfSA1
+	UojOLiERqj4jc5WLNVUjsNHykOw7m2ISAbaxNRxOku8Rf6Ff/Z8ANLu49dKMMEDv6GjtHzw8EUY
+	vDuw4+kAOpFX//lruFEUHSun1js9QoYLG+VUG2AsOzug9QB6XbwXks0DkbvzQUe0O65h6iPC+yS
+	n6Hn4Two4SDeOvWxZOew/2TYm3O83PJzln4mwlq478ejtzF33At3pRBJDqv55XZmKEi1eJ1rzUQ
+	Cji81pz1jFQUoQUbtOlW8DGWODRoBVJ91PyCB9sqZHtirhysjwUdIdC7V5yPmMkE96qtERefT9A
+	RvVQIOw7sdxuyeHet8bzgqOU=
+X-Received: by 2002:a05:6000:4615:b0:47f:81c4:36b4 with SMTP id ffacd0b85a97d-47ffd91871fmr38818849f8f.14.1786298767462;
+        Sun, 09 Aug 2026 11:06:07 -0700 (PDT)
+Received: from MacBook-Pro-von-Karl.localdomain (dynamic-2a02-3100-ac88-a501-9c5c-9666-3a00-3cdb.310.pool.telefonica.de. [2a02:3100:ac88:a501:9c5c:9666:3a00:3cdb])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-480021e8d50sm25089629f8f.24.2026.08.09.11.06.06
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Sun, 09 Aug 2026 11:06:06 -0700 (PDT)
+From: Karl Mehltretter <kmehltretter@gmail.com>
+To: Russell King <linux@armlinux.org.uk>
+Cc: Karl Mehltretter <kmehltretter@gmail.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] ARM: asid: Do not replace active_asids if already 0
+Date: Sun,  9 Aug 2026 20:06:00 +0200
+Message-Id: <20260809180600.6049-1-kmehltretter@gmail.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <4c595c15-17d9-4c23-bb44-344c48d36e9a@lunn.ch>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260809_105001_521078_2E928F8E 
-X-CRM114-Status: GOOD (  36.33  )
+X-CRM114-CacheID: sfid-20260809_110610_226531_3E42A891 
+X-CRM114-Status: GOOD (  19.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,263 +101,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Aug 09, 2026 at 07:44:55PM +0200, Andrew Lunn wrote:
-> On Fri, Aug 07, 2026 at 03:12:42PM +0200, Christian Marangi wrote:
-> > This series introduce a most awaited feature that is correctly
-> > provide PCS with fwnode without having to use specific export symbol
-> > and additional handling of PCS in phylink.
-> 
-> One of Russells complaints was the phylink has too many bits of code
-> for ideas which did not work out and were replaced by new ways of
-> doing things.
-> 
-> We want .mac_select_pcs to go away, this framework should replace it.
-> Please could you convert one of the exist users of .mac_select_pcs, so
-> we get an idea of what that involved. If that conversion is pretty
-> mechanical, i think we should have a second patchset which converts
-> all the current users, and then remove support for .mac_select_pcs.
-> 
-> Overall i think the direction of this patchset is good.
->
+From: Catalin Marinas <catalin.marinas@arm.com>
 
-Thanks for the initial check.
+Under some uncommon timing conditions, a generation check and
+xchg(active_asids, A1) in check_and_switch_context() on P1 can race with
+an ASID roll-over on P2. If P2 has not seen the update to
+active_asids[P1], it can re-allocate A1 to a new task T2 on P2. P1 ends
+up waiting on the spinlock since the xchg() returned 0 while P2 can go
+through a second ASID roll-over with (T2,A1,G2) active on P2. This
+roll-over copies active_asids[P1] == A1,G1 into reserved_asids[P1] and
+active_asids[P2] == A1,G2 into reserved_asids[P2]. A subsequent
+scheduling of T1 on P1 and T2 on P2 would match reserved_asids and get
+their generation bumped to G3:
 
-Maxime converted one device with this and the patch delta was small... let
-me copy those patch here. (it was referenced in v9)
+P1					P2
+--                                      --
+TTBR0.BADDR = T0
+TTBR0.ASID = A0
+asid_generation = G1
+check_and_switch_context(T1,A1,G1)
+  generation match
+					check_and_switch_context(T2,A0,G0)
+					  new_context()
+					    ASID roll-over
+					    asid_generation = G2
+					    flush_context()
+					      active_asids[P1] = 0
+					      asid_map[A1] = 0
+					      reserved_asids[P1] = A0,G0
+  xchg(active_asids, A1)
+    active_asids[P1] = A1,G1
+    xchg returns 0
+  spin_lock_irqsave()
+					    allocated ASID (T2,A1,G2)
+					    asid_map[A1] = 1
+					  active_asids[P2] = A1,G2
+					...
+					check_and_switch_context(T3,A0,G0)
+					  new_context()
+					    ASID roll-over
+					    asid_generation = G3
+					    flush_context()
+					      active_asids[P1] = 0
+					      asid_map[A1] = 1
+					      reserved_asids[P1] = A1,G1
+					      reserved_asids[P2] = A1,G2
+					    allocated ASID (T3,A2,G3)
+					    asid_map[A2] = 1
+					  active_asids[P2] = A2,G3
+  new_context()
+    check_update_reserved_asid(A1,G1)
+      matches reserved_asid[P1]
+      reserved_asid[P1] = A1,G3
+  updated T1 ASID to (T1,A1,G3)
+					check_and_switch_context(T2,A1,G2)
+					  new_context()
+					    check_update_reserved_asid(A1,G2)
+					      matches reserved_asids[P2]
+					      reserved_asids[P2] = A1,G3
+					  updated T2 ASID to (T2,A1,G3)
 
-I think the most annoying one will be stmmac with the 3 different PCS
-implementation but we already handled that in a upcoming ipq50xx driver
-currently present in OpenWrt mainline.
+At this point, we have two tasks, T1 and T2 both using ASID A1 with the
+latest generation G3. Any of them is allowed to be scheduled on the
+other CPU leading to two different tasks with the same ASID on the same
+CPU.
 
-Maybe if Maxime is O.K. I can include his patch in this series.
+This patch changes the xchg to cmpxchg so that the active_asids is only
+updated if non-zero to avoid a race with an ASID roll-over on a
+different CPU.
 
-From 38ad94b1e62bf3523097983dfb515f59b1634477 Mon Sep 17 00:00:00 2001
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Date: Tue, 21 Jul 2026 13:52:57 +0200
-Subject: [PATCH] net: marvell: mvpp2: Convert to the new PCS API
-
-Following the introduction of the PCS framework, port mvpp2 to the new
-PCS API.
-
-Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Russell King <linux@armlinux.org.uk>
+Cc: Will Deacon <will@kernel.org>
+Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+Tested-by: Karl Mehltretter <kmehltretter@gmail.com>
+Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
 ---
- .../net/ethernet/marvell/mvpp2/mvpp2_main.c   | 161 +++++++++++-------
- 1 file changed, 95 insertions(+), 66 deletions(-)
+This is similar to the arm64 patch [1], with the difference that
+non-relaxed (cmp)xchg is used as in the existing ARM code.
 
-diff --git a/drivers/net/ethernet/marvell/mvpp2/mvpp2_main.c b/drivers/net/ethernet/marvell/mvpp2/mvpp2_main.c
-index ccc24a1301f2..8d9663c7a023 100644
---- a/drivers/net/ethernet/marvell/mvpp2/mvpp2_main.c
-+++ b/drivers/net/ethernet/marvell/mvpp2/mvpp2_main.c
-@@ -6499,21 +6499,6 @@ static void mvpp2_gmac_config(struct mvpp2_port *port, unsigned int mode,
-                writel(ctrl4, port->base + MVPP22_GMAC_CTRL_4_REG);
- }
+This is a resubmission of Catalin Marinas' original 2018 patch. The
+original submission was not merged, and the ARM32 equivalent of the arm64
+ASID rollover fix remains missing.
 
--static struct phylink_pcs *mvpp2_select_pcs(struct phylink_config *config,
--                                           phy_interface_t interface)
--{
--       struct mvpp2_port *port = mvpp2_phylink_to_port(config);
--
--       /* Select the appropriate PCS operations depending on the
--        * configured interface mode. We will only switch to a mode
--        * that the validate() checks have already passed.
--        */
--       if (mvpp2_is_xlg(interface))
--               return &port->pcs_xlg;
--       else
--               return &port->pcs_gmac;
--}
--
- static int mvpp2_mac_prepare(struct phylink_config *config, unsigned int mode,
-                             phy_interface_t interface)
+Changes in v2:
+- Rebased onto v7.2-rc6-429-ga7c7074b58d2.
+- Corrected the function name in the commit message's race diagram:
+  check_update_reserved_asid(), called by new_context().
+- Added my Tested-by and Signed-off-by trailers.
+
+Tested with vexpress_defconfig on QEMU vexpress-a9 using four Cortex-A9
+CPUs and four batches of 320 processes to exercise repeated ASID
+roll-overs.
+
+v1: https://lore.kernel.org/r/20180104180405.37596-1-catalin.marinas@arm.com/
+[1] https://lore.kernel.org/r/20180104111721.33834-1-catalin.marinas@arm.com/
+
+ arch/arm/mm/context.c | 15 ++++++++++++---
+ 1 file changed, 12 insertions(+), 3 deletions(-)
+
+diff --git a/arch/arm/mm/context.c b/arch/arm/mm/context.c
+index 4204ffa2d104..7c4e1e4ba77b 100644
+--- a/arch/arm/mm/context.c
++++ b/arch/arm/mm/context.c
+@@ -238,7 +238,7 @@ void check_and_switch_context(struct mm_struct *mm, struct task_struct *tsk)
  {
-@@ -6786,7 +6771,6 @@ static int mvpp2_mac_enable_tx_lpi(struct phylink_config *config, u32 timer,
- }
-
- static const struct phylink_mac_ops mvpp2_phylink_ops = {
--       .mac_select_pcs = mvpp2_select_pcs,
-        .mac_prepare = mvpp2_mac_prepare,
-        .mac_config = mvpp2_mac_config,
-        .mac_finish = mvpp2_mac_finish,
-@@ -6808,7 +6792,10 @@ static void mvpp2_acpi_start(struct mvpp2_port *port)
-        };
-        struct phylink_pcs *pcs;
-
--       pcs = mvpp2_select_pcs(&port->phylink_config, port->phy_interface);
-+       if (mvpp2_is_xlg(port->phy_interface))
-+               pcs = &port->pcs_xlg;
-+       else
-+               pcs = &port->pcs_gmac;
-
-        mvpp2_mac_prepare(&port->phylink_config, MLO_AN_INBAND,
-                          port->phy_interface);
-@@ -6823,6 +6810,78 @@ static void mvpp2_acpi_start(struct mvpp2_port *port)
-                          SPEED_UNKNOWN, DUPLEX_UNKNOWN, false, false);
- }
-
-+static int mvpp2_port_fill_pcs(struct phylink_config *config,
-+                              struct phylink_pcs **available_pcs,
-+                              unsigned int num_possible_pcs)
-+{
-+       struct mvpp2_port *port = mvpp2_phylink_to_port(config);
+ 	unsigned long flags;
+ 	unsigned int cpu = smp_processor_id();
+-	u64 asid;
++	u64 asid, old_active_asid;
+ 
+ 	check_vmalloc_seq(mm);
+ 
+@@ -250,8 +250,17 @@ void check_and_switch_context(struct mm_struct *mm, struct task_struct *tsk)
+ 	cpu_set_reserved_ttbr0();
+ 
+ 	asid = atomic64_read(&mm->context.id);
+-	if (!((asid ^ atomic64_read(&asid_generation)) >> ASID_BITS)
+-	    && atomic64_xchg(&per_cpu(active_asids, cpu), asid))
 +
-+       available_pcs[0] = &port->pcs_gmac;
-+
-+       if (mvpp2_port_supports_xlg(port)) {
-+               if (num_possible_pcs < 2)
-+                       return -EINVAL;
-+
-+               available_pcs[1] = &port->pcs_xlg;
-+       }
-+
-+       return 0;
-+}
-+
-+static void mvpp2_port_init_pcs_xlg(struct phylink_pcs *pcs, bool has_comphy,
-+                                   phy_interface_t phy_mode)
-+{
-+       if (has_comphy) {
-+               __set_bit(PHY_INTERFACE_MODE_5GBASER,
-+                         pcs->supported_interfaces);
-+               __set_bit(PHY_INTERFACE_MODE_10GBASER,
-+                         pcs->supported_interfaces);
-+               __set_bit(PHY_INTERFACE_MODE_XAUI,
-+                         pcs->supported_interfaces);
-+       } else if (phy_mode == PHY_INTERFACE_MODE_5GBASER) {
-+               __set_bit(PHY_INTERFACE_MODE_5GBASER,
-+                         pcs->supported_interfaces);
-+       } else if (phy_mode == PHY_INTERFACE_MODE_10GBASER) {
-+               __set_bit(PHY_INTERFACE_MODE_10GBASER,
-+                         pcs->supported_interfaces);
-+       } else if (phy_mode == PHY_INTERFACE_MODE_XAUI) {
-+               __set_bit(PHY_INTERFACE_MODE_XAUI,
-+                         pcs->supported_interfaces);
-+       }
-+}
-+
-+static void mvpp2_port_init_pcs_gmac(struct phylink_pcs *pcs, bool has_comphy,
-+                                    phy_interface_t phy_mode)
-+{
-+       if (has_comphy) {
-+               /* If a COMPHY is present, we can support any of the
-+                * serdes modes and switch between them.
-+                */
-+               __set_bit(PHY_INTERFACE_MODE_SGMII,
-+                         pcs->supported_interfaces);
-+               __set_bit(PHY_INTERFACE_MODE_1000BASEX,
-+                         pcs->supported_interfaces);
-+               __set_bit(PHY_INTERFACE_MODE_2500BASEX,
-+                         pcs->supported_interfaces);
-+       } else if (phy_mode == PHY_INTERFACE_MODE_2500BASEX) {
-+               /* No COMPHY, with only 2500BASE-X mode supported */
-+               __set_bit(PHY_INTERFACE_MODE_2500BASEX,
-+                         pcs->supported_interfaces);
-+       } else if (phy_mode == PHY_INTERFACE_MODE_1000BASEX ||
-+                  phy_mode == PHY_INTERFACE_MODE_SGMII) {
-+               /* No COMPHY, we can switch between 1000BASE-X and SGMII
-+                */
-+               __set_bit(PHY_INTERFACE_MODE_1000BASEX,
-+                         pcs->supported_interfaces);
-+               __set_bit(PHY_INTERFACE_MODE_SGMII,
-+                         pcs->supported_interfaces);
-+       }
-+
-+       /* RGMII and MII are still routed through the gmac PCS */
-+       phy_interface_set_rgmii(pcs->supported_interfaces);
-+       __set_bit(PHY_INTERFACE_MODE_MII, pcs->supported_interfaces);
-+}
-+
- /* In order to ensure backward compatibility for ACPI, check if the port
-  * firmware node comprises the necessary description allowing to use phylink.
-  */
-@@ -7082,28 +7141,17 @@ static int mvpp2_port_probe(struct platform_device *pdev,
-                        port->phylink_config.mac_capabilities |=
-                                MAC_SYM_PAUSE | MAC_ASYM_PAUSE;
-
--               if (mvpp2_port_supports_xlg(port)) {
--                       /* If a COMPHY is present, we can support any of
--                        * the serdes modes and switch between them.
--                        */
--                       if (comphy) {
--                               __set_bit(PHY_INTERFACE_MODE_5GBASER,
--                                         port->phylink_config.supported_interfaces);
--                               __set_bit(PHY_INTERFACE_MODE_10GBASER,
--                                         port->phylink_config.supported_interfaces);
--                               __set_bit(PHY_INTERFACE_MODE_XAUI,
--                                         port->phylink_config.supported_interfaces);
--                       } else if (phy_mode == PHY_INTERFACE_MODE_5GBASER) {
--                               __set_bit(PHY_INTERFACE_MODE_5GBASER,
--                                         port->phylink_config.supported_interfaces);
--                       } else if (phy_mode == PHY_INTERFACE_MODE_10GBASER) {
--                               __set_bit(PHY_INTERFACE_MODE_10GBASER,
--                                         port->phylink_config.supported_interfaces);
--                       } else if (phy_mode == PHY_INTERFACE_MODE_XAUI) {
--                               __set_bit(PHY_INTERFACE_MODE_XAUI,
--                                         port->phylink_config.supported_interfaces);
--                       }
-+               if (!mvpp2_port_supports_xlg(port))
-+                       port->phylink_config.num_possible_pcs = 1;
-+               else
-+                       port->phylink_config.num_possible_pcs = 2;
-+
-+               port->phylink_config.fill_available_pcs = mvpp2_port_fill_pcs;
-
-+               mvpp2_port_init_pcs_xlg(&port->pcs_xlg, comphy, phy_mode);
-+               mvpp2_port_init_pcs_gmac(&port->pcs_gmac, comphy, phy_mode);
-+
-+               if (mvpp2_port_supports_xlg(port)) {
-                        if (comphy)
-                                port->phylink_config.mac_capabilities |=
-                                        MAC_10000FD | MAC_5000FD;
-@@ -7115,35 +7163,16 @@ static int mvpp2_port_probe(struct platform_device *pdev,
-                                        MAC_10000FD;
-                }
-
--               if (mvpp2_port_supports_rgmii(port)) {
--                       phy_interface_set_rgmii(port->phylink_config.supported_interfaces);
--                       __set_bit(PHY_INTERFACE_MODE_MII,
--                                 port->phylink_config.supported_interfaces);
--               }
-+               phy_interface_copy(port->phylink_config.pcs_interfaces,
-+                                  port->pcs_gmac.supported_interfaces);
-
--               if (comphy) {
--                       /* If a COMPHY is present, we can support any of the
--                        * serdes modes and switch between them.
--                        */
--                       __set_bit(PHY_INTERFACE_MODE_SGMII,
--                                 port->phylink_config.supported_interfaces);
--                       __set_bit(PHY_INTERFACE_MODE_1000BASEX,
--                                 port->phylink_config.supported_interfaces);
--                       __set_bit(PHY_INTERFACE_MODE_2500BASEX,
--                                 port->phylink_config.supported_interfaces);
--               } else if (phy_mode == PHY_INTERFACE_MODE_2500BASEX) {
--                       /* No COMPHY, with only 2500BASE-X mode supported */
--                       __set_bit(PHY_INTERFACE_MODE_2500BASEX,
--                                 port->phylink_config.supported_interfaces);
--               } else if (phy_mode == PHY_INTERFACE_MODE_1000BASEX ||
--                          phy_mode == PHY_INTERFACE_MODE_SGMII) {
--                       /* No COMPHY, we can switch between 1000BASE-X and SGMII
--                        */
--                       __set_bit(PHY_INTERFACE_MODE_1000BASEX,
--                                 port->phylink_config.supported_interfaces);
--                       __set_bit(PHY_INTERFACE_MODE_SGMII,
--                                 port->phylink_config.supported_interfaces);
--               }
-+               if (mvpp2_port_supports_xlg(port))
-+                       phy_interface_or(port->phylink_config.pcs_interfaces,
-+                                        port->phylink_config.pcs_interfaces,
-+                                        port->pcs_xlg.supported_interfaces);
-+
-+               phy_interface_copy(port->phylink_config.supported_interfaces,
-+                                  port->phylink_config.pcs_interfaces);
-
-                phylink = phylink_create(&port->phylink_config, port_fwnode,
-                                         phy_mode, &mvpp2_phylink_ops);
---
-2.55.0
-
-
-
++	/*
++	 * If our active_asids is zero, we are racing with an ASID roll-over
++	 * on a different CPU, so skip the update (using cmpxchg if non-zero)
++	 * and take the slow path.
++	 */
++	old_active_asid = atomic64_read(&per_cpu(active_asids, cpu));
++	if (old_active_asid &&
++	    !((asid ^ atomic64_read(&asid_generation)) >> ASID_BITS) &&
++	    atomic64_cmpxchg(&per_cpu(active_asids, cpu),
++			     old_active_asid, asid))
+ 		goto switch_mm_fastpath;
+ 
+ 	raw_spin_lock_irqsave(&cpu_asid_lock, flags);
 -- 
-	Ansuel
+2.39.5 (Apple Git-154)
 
