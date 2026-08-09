@@ -4,114 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63B6AC5AD4E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 14:15:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA31AC5AC80
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 14:24:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rlbS8rmt2cYpD1ter3Cf3FlZcyNn+LlDqDW3OC/XsAU=; b=0jzbswSZDAVwl5LJuZRmeaWxyI
-	03JdFcXXQqr6Vx+Kvbq+PZ2jzlulUPTQug0EM0h/54WXXsSho4sN42OWvI5cWnb/sgiCphWrt3DNX
-	Ob0xdvyUQkPxL7HCArV/VhGeBXO5n12xgSpdTbIfWdC+Wz+enY3jCTdcP61YuakPernp89mJ/jGDX
-	wb/RV5cd0DttYL7gj4cqxn8wlZ9IjKbrEWrQgWl/1yo59Jk1QSyPFH7IwNK2QB0/GnzAsOUHl/I1N
-	SM6hNTJWLOxNmi5n3zqS/iAa8rQ/f3H0JDCUOddUW5ewxPJ8SMV40InHjaOwUpYRqBYey8Z+lSMj6
-	LC81mekg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Ti0lq77YCohFOsswk+8chbqQ3hHI0aVo1aBVQ+5rD4g=; b=On/wckKLz5Hq3oCp6fU6dFhVJq
+	B4qa8sVCsIfwO+huRzKPfR+5rqQ8VFGivgBASSu3vDPoybDPBGL/NHZ8+S3PHKts9fQz9nFKDitTa
+	/rNXNgY7wWjyq5slMccSfp5pZ/spMNBKJ3pigOYOMO24J/Jm7uz+hGvhscc6Ijd3DY/aItxVpPPo8
+	fMQJWzZKFu7pfVRMrWwTVINzNawOhGIDBvNGA8jxgk1a/sOsCwDO3vA5N258HuHZZkvwAztYyKqHT
+	Pmikz/JVdTfREkL6ugVCwz1/Au3KZWnGgGXyXesediNb3OuoMwLFrOjvRw0lX87zGcZubvAlp8h2j
+	Q64F6VEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wt4Ie-0000000ANNb-0hTf;
-	Sun, 09 Aug 2026 14:14:52 +0000
-Received: from mail-qt1-x831.google.com ([2607:f8b0:4864:20::831])
+	id 1wt4RM-0000000ANki-07om;
+	Sun, 09 Aug 2026 14:23:52 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wt4Ib-0000000ANMs-1Gys
+	id 1wt4RL-0000000ANkY-1Rv3
+	for linux-arm-kernel@bombadil.infradead.org;
+	Sun, 09 Aug 2026 14:23:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
+	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=Ti0lq77YCohFOsswk+8chbqQ3hHI0aVo1aBVQ+5rD4g=; b=boOdieTaDYtXVVMN+7P8DRoa8T
+	ypz4WMK+FuqMIPOi+fRqt8g27n1+Lmy94dY7QPuMipS+eiKn+PCD1bhOPezXZIZWYt8t9xYSikKml
+	lLmLwdebt5AfMCT1jdgySxwRJSRla1LClJRFLAgxBjHzMY7d5IpFwdv5yT+jL6+NG+rf133rXcnWS
+	ab5qQ/u91PqjJGZ2ccFN2sJ7CK7rABhyANi4QdMuVJmNBFOL/I+bnmkh//on9xcK7HmCSiDe02r1v
+	7YJ2VkhpYA5DE18LSe4tCQoLhk5S2aGeehK8mZwgv3C0y0PtDr5GF00TeUtrJ9aBJn45BEwd1msA9
+	Y8Hkjjnw==;
+Received: from smtp-70.smtpout.orange.fr ([80.12.242.70] helo=smtp.smtpout.orange.fr)
+	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wt4RH-0000000972D-1Q0a
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Aug 2026 14:14:50 +0000
-Received: by mail-qt1-x831.google.com with SMTP id d75a77b69052e-51bfad59921so6495771cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Aug 2026 07:14:48 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1786284888; cv=none;
-        d=google.com; s=arc-20260327;
-        b=dJbqxk6l6afVoghaqiTrT80OWfgaNV5AJeLfx55HjxGIqWtIFOEtsTneDbv+0HZQ2I
-         g0tL7ZjDFKvtEujOsTrHZcIN/A1vE6VCZ97NdxHydjKOJGTlWFvHbvm9bKHrwc8/X5pD
-         8hJb0X1R8xsTPkZJjMgPrup+FX7Er0migLxWecMmjISBYlRPKh7Hmc0RI01BM++pWJUI
-         chGeidP5pUFngCdw9ws83NLxwhmiylS/V/MG3783XwINlo31E1p/CzNLJKj3VESeFRfW
-         4hvvfbeKkpYLWXiWmkKgzypg74s3alLKTjt1o2lyWjw/MfWBCitDktfYIUPc6cpUpfKC
-         KR6w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=rlbS8rmt2cYpD1ter3Cf3FlZcyNn+LlDqDW3OC/XsAU=;
-        fh=nMN3PuoTdkI2tpUvWJg0Q8CRgeAWRzebVahEIJOeAZw=;
-        b=rLxg42pmZUpm7+SzgM4MtngQQPWQ+0x7JgM2b7EslL/sSGRBbnTANKUPjEsQdsW8eB
-         D8I9nYjRk3MUPn3LeGFvnGURUsO7am8kbDwX25kpeitXqNlCnm42lusCueETdVCao26B
-         O5XlJp7LK1Cbr4bCZhF9bWomxWvySsosTPXDL+7htRRrKPn4q0hpNZYaUzzscvzdqXSq
-         GizFJIFH1pCLh8JDiq0xF7+9psrTm1GDIZNMeRswAGHXBp+KAgHM42DzmEL8KXzyIWOh
-         4z2zVPifHvdYQwOemfUqyYYNxN2E80ZW4rz0u+Vacy0xb1ptAhAgR1H0KYIvPZXq9sqT
-         rnmg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786284888; x=1786889688; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=rlbS8rmt2cYpD1ter3Cf3FlZcyNn+LlDqDW3OC/XsAU=;
-        b=kDc4S2c1AdPaPU62FO8MezOpOtgXYmUda/HqRvxGGUuJZGUEBtIZBE+nWJct0TR25E
-         EYhh74zwN6iee1CPxZu+FSIc7Qn3wyFOHLUXRTXwB9ZC/fOulgox4+WgZ2yNe7aQ2gMu
-         1mJ+Zl8p4dUuuDK9oJd+l1lFiJFcWF91wR0M5OWnRcHJ0beOHYRnsSRM8W7cyM97eNkm
-         +FhAn2iMssl98LRC5Cvig3MrJFfMGfBBeAtse/9CJkN6nOYVD7pIZeAKFuhYVAZh3M0s
-         9rVv3xDg+wdbK+PwyANNkoSP1zGuCbYalmODVqpjXy0VVuA3ZlvkVBrj6ZVfYG6TaTDX
-         27Pw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786284888; x=1786889688;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=rlbS8rmt2cYpD1ter3Cf3FlZcyNn+LlDqDW3OC/XsAU=;
-        b=as+f97jkUTcje99VcswXd/Q9pff9kacG6BcrcANfReNiSULq1Tla3kE6cU+5vvN2yk
-         FGDujHOC52zD619ag/B+v6fix6K6+CPDXVKX0gakWxj52LksiY4mcfyZHOUSq+9tRqa6
-         kcFF1GG5frm2qBnXqMDtGYUVXwVQGEepz2d75PTvDgLcj1HT3zEqKYOgkhJFMwNyO1Cs
-         bFLX98YfUTCQbXhaSXPkzbFujJc35e9larWva4YyCsyFxkn88TrFx2l227CP9sprvlgy
-         7eSVYaXUsZ4vD8VD0FT64SGXDT2KswJTry0UcDS/FSYQ3qlgVmxl5OT6/2bCBHUIsclz
-         e8NQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rovz4KJRhb0FJG+TNWJCIkEVpfXSAWuAX7vJdcRILML19zPx442I/66PsFUWX8uYnm9qdKt/jtamnB/DKp2Ggzz@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywdkr1D/z+++ivNHCMoBrbNlp9u0UsEJuWTB4t/7YTO25CN2RRB
-	UOgLY/OXD+WcWOuBgYCgIhQ+ifG8932R3k3V/nULxxTtxlr4dcJMT47bNQaeKdyXLKpjDMY0oNw
-	2TETSz2NuIHUWGipsbikFt0SY1tArAyU=
-X-Gm-Gg: AR+sD10KebAdJkdbjiStAkBkGuoaYw8VZQFtaQB3BE2YXxjjPuC5UAgDgZghH5166Ch
-	RzVc9MQL3YT9D1AFTIemNJsE4bAOCMvL/0xxaZmZ1sVrX3QjhW6bSB6EL3SiJmaUdrkcJxm/0w8
-	3VOT0YzS565r0EZZkRAe85m3sYCDgrskCjxvzuSASBrvBgx4iF6LmBgbujGiFFGANxRjmvNhHQk
-	tPQbfIkEnb9PK9mP9Ub89kJ9iDwX6zi91HNzwLShNy9g3X6d0csnrn4hRCwhWJQg0zbP+RsoMoC
-	ZtMg/Tx/Aiilgx6Oayu1ps/jGu7jJa3nI7s+2Q/Yxg==
-X-Received: by 2002:ac8:5cc8:0:b0:51c:6e:ef23 with SMTP id d75a77b69052e-52ce61b5defmr411182591cf.32.1786284887884;
- Sun, 09 Aug 2026 07:14:47 -0700 (PDT)
+	Sun, 09 Aug 2026 14:23:49 +0000
+Received: from device-101.home ([10.65.86.57])
+	by smtp.orange.fr with ESMTP
+	id t3ttwTSatstT5t3ttwQhwa; Sun, 09 Aug 2026 15:49:17 +0200
+Received: from device-101.home ([IPv6:2a01:cb10:785:b00:6128:9b8c:c203:905])
+	by smtp.orange.fr with ESMTPSA
+	id t3tnw3cg2k6xLt3towWMXk; Sun, 09 Aug 2026 15:49:16 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
+	s=t20230301; t=1786283356;
+	bh=Ti0lq77YCohFOsswk+8chbqQ3hHI0aVo1aBVQ+5rD4g=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version;
+	b=YC2cf7QGJq+3QVFiUplisQRBrKIdQqwENIlZon9xvxdAtupuci/Eo++/UnyNgETMk
+	 WtnSRImatXz1TyNjUFVkmVZmGPAhZK5mZe/6BfX4iXWsj/q3Lbqo7GnjLKGGOGP6/l
+	 DQBdWOiV8N+UVNzIDgvpiTMzj/Qau1lWDrauMlkq9iMw0oQYp12JetM9J3Mcw0Z9TE
+	 UaZMQrK1Yd258CBFJB7QfhuWmcQAdIeUFUN0AIr0mO25116LNUZv3DvJpCArkMX6y+
+	 61rAaYFD0FdssPss2AOBeK48AH20F5JTWBRq/RlEIoy5VZTukU0Mi5z+rKyW4YPR0y
+	 R63hEvOJ2iLbg==
+X-ME-Helo: device-101.home
+X-ME-Auth: Y2hyaXN0b3BoZS5qYWlsbGV0QHdhbmFkb28uZnI=
+X-ME-Date: Sun, 09 Aug 2026 15:49:16 +0200
+X-ME-IP: 2a01:cb10:785:b00:6128:9b8c:c203:905
+From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+To: Sven Peter <sven@kernel.org>,
+	Janne Grunau <j@jannau.net>,
+	Neal Gompa <neal@gompa.dev>,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>
+Cc: linux-kernel@vger.kernel.org,
+	kernel-janitors@vger.kernel.org,
+	Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
+	asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-watchdog@vger.kernel.org
+Subject: [PATCH] watchdog: apple: Constify some structures
+Date: Sun,  9 Aug 2026 15:49:10 +0200
+Message-ID: <99019b7e560c2d9c087be340e68f9cce4db1988e.1786283336.git.christophe.jaillet@wanadoo.fr>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-References: <CAGXv+5HrDw8GWb9zp1AaQU9UW+0FGcr7jOV2jt_zi_2KgfgBqA@mail.gmail.com>
- <20260807152059.GA39821@bhelgaas> <CA+_ehUxQfWRRec4q2ZvC12nYAeV2VGm1xCFrTWeN6sEL+qkXBw@mail.gmail.com>
- <e41835ae-b575-4364-855f-6708b15b4db0@genexis.eu>
-In-Reply-To: <e41835ae-b575-4364-855f-6708b15b4db0@genexis.eu>
-From: "Christian Marangi (Ansuel)" <ansuelsmth@gmail.com>
-Date: Sun, 9 Aug 2026 16:14:36 +0200
-X-Gm-Features: AUfX_mwchdsWKWBSl5_tblgDoEXHgnY_TIC1M0M_ze9LfMJB60Ic6Q5YNmA7c28
-Message-ID: <CA+_ehUy6bAq564+1c6KMV+egnXO8S2GGaLrRq1aDik9gWrrKyg@mail.gmail.com>
-Subject: Re: [PATCH v5 0/2] PCI: mediatek-gen3: Add 2-lanes mode support + clock
-To: Benjamin Larsson <benjamin.larsson@genexis.eu>
-Cc: Bjorn Helgaas <helgaas@kernel.org>, Chen-Yu Tsai <wenst@chromium.org>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Ryder Lee <ryder.lee@mediatek.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Jianjun Wang <jianjun.wang@mediatek.com>, linux-pci@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260809_071449_357805_D74EBF4A 
-X-CRM114-Status: GOOD (  37.01  )
+X-CRM114-CacheID: sfid-20260809_152347_552875_D7FC104D 
+X-CRM114-Status: GOOD (  15.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,80 +97,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il giorno dom 9 ago 2026 alle ore 16:08 Benjamin Larsson
-<benjamin.larsson@genexis.eu> ha scritto:
->
-> On 09/08/2026 14:12, Christian Marangi (Ansuel) wrote:
-> > Il giorno ven 7 ago 2026 alle ore 17:21 Bjorn Helgaas
-> > <helgaas@kernel.org> ha scritto:
-> >>
-> >> On Fri, Aug 07, 2026 at 11:24:09AM +0800, Chen-Yu Tsai wrote:
-> >>> On Fri, Aug 7, 2026 at 12:53=E2=80=AFAM Christian Marangi <ansuelsmth=
-@gmail.com> wrote:
-> >>>> This small series introduce support for 2-lanes mode for Airoha AN75=
-81
-> >>>
-> >>> Just a nitpick, but I would probably name this something else, like
-> >>> "cross-controller lane-bonding mode" or "lane stealing"? PCIe already
-> >>> has 2x lanes as a standard feature, so this naming is a bit confusing=
-.
-> >>> It's not like dual-LVDS display in which LVDS is only a single lane.
-> >>
-> >> I suggested the "2-lane" and "x2" terminology because I assumed the
-> >> result is what the PCIe spec would describe as a "x2 Link" consisting
-> >> of two Lanes.
-> >>
-> >> If that's not the case, maybe "cross-controller lane-bonding mode" or
-> >> "lane stealing" would be more accurate, but I don't know what those
-> >> mean, so if we use them I would also like to know what the result
-> >> looks like in standard PCIe terms.
-> >>
-> >
-> > Mhhh I don't really like the term lane stealing. Also cross-controller
-> > lane-bonding
-> > might be a first. Even if correct it would complicate identification
-> > of the feature
-> > that at the end of the day configures the HW to provide a 2 lanes PCIe.
-> >
-> > Consider that in such mode, the other PCIe controller gets disabled (th=
-is is
-> > handled in DT) so it's effectively enabling the standard PCIe 2x lanes
-> > and apply the HW configuration for it.
-> >
-> >>>> SoC. This is needed for correctly functionality of Eagle WiFi Card
-> >>>> normally attached to this SoC that require a 2-line PCIe card to
-> >>>> correctly work (and give the proper performance)
-> >>>>
-> >>>> The first 2 patch address a limitation of the PCIe implementation
-> >>>> where the PERSTOUT reset were indirectly asserted and deasserted
-> >>>> all at the same time (for all the 3 PCIe card) with PCIe
-> >>>> enable and disable.
-> >>>> The 2 patch address this and introduce correct reset to control
-> >>>> reset line for the relevant PCIe line.
-> >>>>
-> >>>> The last 2 patch add additional logic and support to assert
-> >>>> and deassert the PERSTOUT and also apply the required configuration
-> >>>> for 2-lanes mode.
-> >>>>
-> >>>> 2-lanes mode is implemented in DT by adding the required property
-> >>>> and by defining the "num-lanes" to 2.
-> >
->
-> Hi. Isnt this just pcie bifurcation?
->
-> Logically bifurcation would need to be disabled when using 2 lanes in
-> one slot and enabled when 2 lanes are split between 2 pcie slots.
->
-> But I'm not really sure what value a bifurcation property would add.
-> Isnt the current schema enough?
->
-> The mt7987 will need the same logic as it can also bifurcate one pcie slo=
-t.
->
+'struct watchdog_ops' and 'struct watchdog_info' are not modified in this
+driver.
 
-The documentation is not so kind on these kind of details... and no registe=
-r
-for bifurcation... maybe it's the mux one? But the mux settings comes from
-reverse as in documentation that SCU register is a good 7:0 bits of
-data value...
+Constifying these structure moves some data to a read-only section, so
+increases overall security, especially when the structure holds some
+function pointers.
+
+On a x86_64, with allmodconfig:
+Before:
+======
+   text	   data	    bss	    dec	    hex	filename
+   7319	   1768	      0	   9087	   237f	drivers/watchdog/apple_wdt.o
+
+After:
+=====
+   text	   data	    bss	    dec	    hex	filename
+   7543	   1544	      0	   9087	   237f	drivers/watchdog/apple_wdt.o
+
+Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+---
+Compile tested only.
+---
+ drivers/watchdog/apple_wdt.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/watchdog/apple_wdt.c b/drivers/watchdog/apple_wdt.c
+index 6b9b0f9b05ce..f533953294f6 100644
+--- a/drivers/watchdog/apple_wdt.c
++++ b/drivers/watchdog/apple_wdt.c
+@@ -139,7 +139,7 @@ static int apple_wdt_restart(struct watchdog_device *wdd, unsigned long mode,
+ 	return 0;
+ }
+ 
+-static struct watchdog_ops apple_wdt_ops = {
++static const struct watchdog_ops apple_wdt_ops = {
+ 	.owner = THIS_MODULE,
+ 	.start = apple_wdt_start,
+ 	.stop = apple_wdt_stop,
+@@ -149,7 +149,7 @@ static struct watchdog_ops apple_wdt_ops = {
+ 	.restart = apple_wdt_restart,
+ };
+ 
+-static struct watchdog_info apple_wdt_info = {
++static const struct watchdog_info apple_wdt_info = {
+ 	.identity = "Apple SoC Watchdog",
+ 	.options = WDIOF_MAGICCLOSE | WDIOF_KEEPALIVEPING | WDIOF_SETTIMEOUT,
+ };
+-- 
+2.55.0
+
 
