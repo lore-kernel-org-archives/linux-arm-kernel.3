@@ -4,169 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7967C5AD4E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 20:28:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29534C5AD7B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 20:31:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EneIel0hi3yzdvnGmC8ZhH7vqzouCuDEqESnqQYsM3k=; b=nGxCVNnP9Tk1iQL1ZEXqqeOUAd
-	UsDSH325j3WYqW4sIaW0jQ+wTi/n3y6IrVCatKkKIZSiG1+F7MAtFJs0DrgcAp/QdMRpZNp/6Q3c/
-	8wkAnQ3lF4UagndmSNGty5K0yhhspPb3zWX3HE//OsCt/p4dZ96OrgtlnCaqbeXHFToB74rg1E34u
-	qj43BUhnaAGkJo0CvPY256I0Ku4c58JFGavepa84N2isI3wbFPMGo4xKmC1jalepnSclrKpE9ZxpX
-	SSmZYPXe3t/9ixd09WQmXthHAzdUpg1LH9MDvPEc0F6b42IW/kEAdE8Wkjl8NufjyJHaTWCm0XPb8
-	GhWQe26w==;
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Af+CF281ELfoiaoQ5val9Ld1FKgrVQXaw8VRxtxStzc=; b=1plrQrr/WW/+dlMF2sO9mKIODa
+	8+R/pIarRXbObLhrflnb2MJqCK1xZAB0yxtZg3DsknLzUkRVk9g6yeo2fd6PVIjfkQvh1YjgWR9FN
+	XFi+HMjKNG0EsenruenbMhtZFr1Xdb1jCz0B89/6kRVVft+yKx8hkBMjBXkhGsbEoVe2Zqw6RHmhe
+	XmJw6Q2NoGURdwIvWHNod3V6KKhY1zq4F80QG5BIHfh7zMAf2PAsuHODKdeZbTIGQgp6Of+dRf/jW
+	isqES8FuqTB+JKXS/lAOtk1Ge+1xbDTP3aup7YEc6TZdqcD3bBSET9a0p7qbXoc7Kvu9ZceYUN16y
+	MX0XNVNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtA7c-0000000AfZy-3ayk;
-	Sun, 09 Aug 2026 20:27:52 +0000
-Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
+	id 1wtAB9-0000000AfoQ-2OkM;
+	Sun, 09 Aug 2026 20:31:31 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtA7a-0000000AfZb-3Xuq
+	id 1wtAB5-0000000AfmX-4795
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Aug 2026 20:27:52 +0000
-Received: from pps.filterd (m0380145.ppops.net [127.0.0.1])
-	by m0380145.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 679I9wpP647437;
-	Sun, 9 Aug 2026 15:27:17 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=EneIel0hi3yzdvnGmC8ZhH7vqzouCuDEqESnqQYsM
-	3k=; b=UWJdPdwiYrXE/B9RCx+S2p7AMOLahWKhuy35dEBWxFkVntX9+ZiaXMg71
-	CISCDr2PuDYAyUPm2cVBXx/mGwjdWogvYr/Nu0EhOvqH8Evdw/8ooIH0Z45TlQZb
-	8rXIr7rfGXeq3QivIpIW2cWSVxr2XFPd3uosTvh2qTAWjaMfeyTHIbXTFQTilSij
-	MRy3OZ1Y1ZyfxL+30fp6hSf528BJ9tRB+XKi1Pgf+md7Pt1k79p0SLGqJSulU8um
-	jhEk1hAXR1rBcv7oUfHQ4ifqs7onPkC+cuwEwzocP1j47ifRvb/XUg3lIHUUIo1W
-	704LJaSL5s++I23WuOH0LUHmlQyFQ==
-Received: from bl2pr02cu003.outbound.protection.outlook.com (mail-eastusazon11011061.outbound.protection.outlook.com [52.101.52.61])
-	by m0380145.ppops.net (PPS) with ESMTPS id 4fxnfna6d0-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Sun, 09 Aug 2026 15:27:16 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=L2rOgbS9NDrFx9tSntjyRcGWJMMQpp0OqSAgM5PP3RWyl6Sff94slyw/kVj9ZOeR8oqc4J2twFQmZ5/VpO73FRFLxsbCsRbLWGhkyI3IX8aZ4ote2oIwDklkpWyA3UwUxtTOEi3sS9caQye3odQC470njclycHV5IjiCWPm1CmdfbuNSX4fD2WeWvZgJKh/s7oYaADqE5m6m2T8qFKdeyrgBYr5ctpgMcYsXar/mnti1VkSd6Ivk1M+wjNAt7QVfmJZs/9zJOHwko7S2BT0hj2aI6XX1Uo3ZNKqg7Q1NG67VnI5ZEwExG03AY16LdvgcoH2zmfWMZ6O/g3+CGLlfmw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=EneIel0hi3yzdvnGmC8ZhH7vqzouCuDEqESnqQYsM3k=;
- b=VJAQJ3+iUfDdhxJ4dsXJDm31NqoPmsT+37MJxmfhQJR9sT5zUVZ0BnuNMPI8uNtEwDP1sUWurRV52FWuIbcjELRgb4ibpC2bYKrvWVtuzjFpcWgN5+PD5GwOeWU1oqSpMnnquhOkIffgYOxqFpoB+Bssif6pPTleP/dLyIE3hHGQLT82xATISzLMO1tzSvproAP1VLf0atJgi+L7LoproA0qY9v6BWhSpTJp1294mjCa7m3mkTnj5pX9vbIOh4Oqn5na4o3ge2j0KUvp8azhs2SGW6f0W2VbkC47gKP5EnbiKWpGzOMEFRfkX9APOh1VLAsMpWo2iXjuYnGVKRaCpQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.194) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=EneIel0hi3yzdvnGmC8ZhH7vqzouCuDEqESnqQYsM3k=;
- b=rM2VHEaRZERR6ltPdRL0SwXFvHwRvTj5zwwmaUjAy39LoxaUyBjSh3BwEfP3IULRsC8mRbcCFSLa106aHhPV1TjYtj8QoG6IpjSeRErA+q2+HrdgmcW+fYG6F8BnufMfRVBLdxXQQ7VlCiVg+YOsHnHVXK1QOBk5NO/Ejx5dFuU=
-Received: from SA1PR04CA0003.namprd04.prod.outlook.com (2603:10b6:806:2ce::7)
- by BN0PR10MB5112.namprd10.prod.outlook.com (2603:10b6:408:12c::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.21; Sun, 9 Aug
- 2026 20:27:14 +0000
-Received: from SA2PEPF00003F66.namprd04.prod.outlook.com
- (2603:10b6:806:2ce:cafe::43) by SA1PR04CA0003.outlook.office365.com
- (2603:10b6:806:2ce::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.292.25 via Frontend Transport; Sun, 9
- Aug 2026 20:27:14 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
-Received: from lewvzet200.ext.ti.com (198.47.23.194) by
- SA2PEPF00003F66.mail.protection.outlook.com (10.167.248.41) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.315.6 via Frontend Transport; Sun, 9 Aug 2026 20:27:14 +0000
-Received: from DLEE215.ent.ti.com (157.170.170.118) by lewvzet200.ext.ti.com
- (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Sun, 9 Aug
- 2026 15:27:14 -0500
-Received: from DLEE210.ent.ti.com (157.170.170.112) by DLEE215.ent.ti.com
- (157.170.170.118) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Sun, 9 Aug
- 2026 15:27:13 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE210.ent.ti.com
- (157.170.170.112) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Sun, 9 Aug 2026 15:27:13 -0500
-Received: from [172.24.231.164] (chintan-thinkstation-p360-tower.dhcp.ti.com [172.24.231.164])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 679KR8ih1720399;
-	Sun, 9 Aug 2026 15:27:09 -0500
-Message-ID: <45dec3bc-eee9-4014-b519-d1cd78c3440b@ti.com>
-Date: Mon, 10 Aug 2026 01:57:08 +0530
+	Sun, 09 Aug 2026 20:31:29 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-496bb7cdf51so17372505e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Aug 2026 13:31:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786307486; x=1786912286; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Af+CF281ELfoiaoQ5val9Ld1FKgrVQXaw8VRxtxStzc=;
+        b=Hc7HL9+oxKAXYmOEjCsO4SHIcLwJxDUeANE5M1w19q2OrJbQbJqSaVi0TEOFy2K7XX
+         lON5qTy54Z+hg0EPoPnijWt5lgoZ425QQxAQYWgIw+lX6iN90/UwUvIeA81n2GxOicsj
+         HFIMkTIBaYJ4AQg/UOpxD9kl5RBaihk2GScrCunFpTV/b6hkJPfuG4hpw2Wnohl0Ya0R
+         Mu5K9tNCECM8ARP6dJLEd6qmcyHorkc16XuQgu5TGqQ+rmxNV7/B7zWlrQcrXFnFdrAO
+         w+R6k/vtRxq1BxfQzVJSGJ2++n7XaXncncYKT/ZliXbyf6SHaqMAiq0Y3fnWtIwI+DQF
+         780A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786307486; x=1786912286;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=Af+CF281ELfoiaoQ5val9Ld1FKgrVQXaw8VRxtxStzc=;
+        b=hN9l0M0Ma5s6wCw1ruOSNDez0szuMOdyRX3TyhrFGAl38AIJQ39qXEMFdwQQxu3do/
+         sFRIiXKmS+qWF/fF3TnY9WG2SVaKvy1n88N9Tx0XwT9xkh+6+cuVImLZYlR3/hoHnqjt
+         +Ugpm41R5nKTKbeaR1oOD9HBPVKx/RtEQ2ravnG8C4NKj4lqlFvROoTKqEB3N/R5JpmE
+         nvjbh6vo1B2qUU1Ka76IP8qVi0Z1mNg48zAdMmXGjqLQXh4FDpxbFyYZATMaIPajIOEx
+         dcPJLGVtCeWebO6PE0Qx2mfohm+wcm7qwRMImvFyNy91fMWqVlt7ksXqYEEeZrUyuSnf
+         j3kg==
+X-Forwarded-Encrypted: i=1; AHgh+RohwIPhy4m+f6RIcxJxUUWTxmbkyeu6nAoGhFKVRYIfPxx9IJnz05UVlcfmKGU5KZJ6vsrIMVAGLJGvhCm4IjqM@lists.infradead.org
+X-Gm-Message-State: AOJu0YzR+byu5/FsKZdojJRX/tCFu3w/PrTz7MB6fIXB2ETwM9/UlvOJ
+	afwZVjrPJLIBAC5o5nF6JOGZ8cKdCnvJ/US+dyI80gdQbJPlpAqwqxT+
+X-Gm-Gg: AR+sD11Va+qJkZsE7HpXBb6fn3TMi93q6m915qz/i7ea0FLsbkeeggP4+caKqHx+a0A
+	lBpHtYo10Xly78ysRWVh2BArkFnh4TgD2+lwoqQU4TitgWVwH6FZhOED8vgSW6twUdyYKKb7n3B
+	XTsNxb7RgO3OMBOScMmNZSMOVHgIKrIDai5F+ETE7t4WOtRkqEI2aYbQdzqR32bgQZDVy7f/raT
+	O9PrecNDpMu8/91h8v744Lv47opsxwGaS7bRWIH2rEdj9JUcsCpwKAR+bf6Nd54B7KaZqLcCMX4
+	gQyfaENzymzdRwmt2ekxgxJYpv6RHK8Cdq7Jz2tlwmX7W5jxr/bq45bZCBsK2Ai+CjMYnAu1N7r
+	rWVi9CpUbplMeXa6uB3I750wdG84wPuqiV6sHCkLGL2PA+kJiniTnZ9tQwk367bqDvq5IjpXw+g
+	cJxY589YjF4Rolg4PkcpYyJlQ+eZ4MJutMQpruRndKb4JffKZldCyeFCL0PQFpzsf3dz6+GCNqs
+	lLsXLgsY8hVHv+7JaWAhXdO9aQW/5xH/rEgg//IsoHe7t+/BS3csokkTxw=
+X-Received: by 2002:a05:600c:4455:b0:499:50ec:a3fd with SMTP id 5b1f17b1804b1-49950eca404mr452310185e9.19.1786307485654;
+        Sun, 09 Aug 2026 13:31:25 -0700 (PDT)
+Received: from Ansuel-XPS24.localdomain (host-87-20-3-207.retail.telecomitalia.it. [87.20.3.207])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4995e9ea92csm229357065e9.4.2026.08.09.13.31.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 09 Aug 2026 13:31:25 -0700 (PDT)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Simon Horman <horms@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Christian Marangi <ansuelsmth@gmail.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	llvm@lists.linux.dev
+Subject: [PATCH net-next v12 00/12] net: pcs: Introduce support for fwnode PCS
+Date: Sun,  9 Aug 2026 22:30:57 +0200
+Message-ID: <20260809203116.640271-1-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] net: ethernet: ti: am65-cpsw-nuss: Fix port_id
- extraction from SRC TAG
-To: Siddharth Vadapalli <s-vadapalli@ti.com>, <andrew+netdev@lunn.ch>,
-        <davem@davemloft.net>, <edumazet@google.com>, <kuba@kernel.org>,
-        <pabeni@redhat.com>, <horms@kernel.org>, <vadim.fedorenko@linux.dev>,
-        <v-singh1@ti.com>, <nm@ti.com>, <daniel.zahka@gmail.com>,
-        <nora.schiffer@ew.tq-group.com>, <oss@vassilevski.com>,
-        <grygorii.strashko@ti.com>
-CC: <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>
-References: <20260807111738.2055900-1-s-vadapalli@ti.com>
-Content-Language: en-US
-From: Chintan Vankar <c-vankar@ti.com>
-In-Reply-To: <20260807111738.2055900-1-s-vadapalli@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA2PEPF00003F66:EE_|BN0PR10MB5112:EE_
-X-MS-Office365-Filtering-Correlation-Id: 13435390-5a31-4058-6cb8-08def654995a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|36860700016|23010399003|82310400026|22082099003|10067099003|18002099003|56012099006|921020;
-X-Microsoft-Antispam-Message-Info: vdWr1eQ3g+m3oOBOd2Rd9vnEJACclP1yQUy0uk9o3v4R5OP56stIPH/K4RDqxtk2WxOtRL4WcWff1ZCjHSQjmjMQOHfo0d5JkcuQasd0juLzfWbNqJK+9LfwuLW+nxyOx8SOYXs7KG4yRxtpqwKyrWN/sJ6cnyf+uWnyrP8oXD2tcBz0OlFOpOo78Va2y2fVEAkYM6kY4GPreqMzHmB8P7yTalWB/34YX5pOsHtmYhqLX+MqMhHXTXmzjgDBR1CYFzRL7R98CutNWfSdARpfrHZW7xwiWwLRCAegqHAb6V7Ho5uCbTjNcP0k35kBbFlkj7TXqn07t61sDI1sWs+zE0rorng62L391yW18w/Ppk9woiZVDapgb3+0RE7TsjeC4PVZQ9snb94Nb7XAhY9PFfswBnje769Fp6uUmdRQzmKVM5It6UnKbtWCMtOLX7cuBlcBaEhY7lozRaIrIQdAtXWoeVlIZO/WPIYuX3L8URn4UtA0bufZspzZa32Uc3UjEqTReLi35CjqQLimrPdayNuHLGOWZQgQyDA6ySnZuQi4L7Qe656zowtjaUxDetLGxd+kqUEDMGS47Xq9eXqAm53+TjRlE6tUWJ0dw4A0XVcDINxgde56Cswj4Ar+pxZ625WF5XoEOBSVG13jsx8wkO9VQSkmYRDAlFmm9z3MqeRMwbkYfrO63ybfUetRejet1gBI9pYqLMCutWmuLNnNVFBAV1SgMDss4xqjOxp+PBZH6h7A5+1DbjS70XXLD4zZ
-X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(36860700016)(23010399003)(82310400026)(22082099003)(10067099003)(18002099003)(56012099006)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: Pi70H7cwGvAMmUku+1+VjWq5Bz7yz4Rg6l4ZRxkrdajz558gsj8H2bAhFUeuVzBYah9OrhxtHcR0iz45JNBUkDXYWXSmg1kfJUWnj/QkIFC4OYQ1Mf8l+R5Hr6EzwBbJxxXQ4gmb5KDlEL9ACDprtPVLEFEJc+QSy9F8D9VahtXZ/z5hdPZOHWhAKzgHUDkp+/lPdodLrDxoS+NRCmMRBOZ3laNlZMuYnv53bVufefq0BSDnpqbCdYhOBN5xLtK9H/l/Q/X2HBke0xVbnaFSxYn/m6c5iLF8NsKuaU6f8P1YvNJLvbLLSSL2U3/NeP4nSaJ+gnXYVVgJyew3mPzQbb4otKdICIqPMn/7ncL9zMOku7goCKeTFcyNCtsRN3lc0vEb5DFyTpTCFKQFR2sWFGaKrqjiban0qu9IvVC6gy/AmOo1lVyoTYSBs1aMZ4bz
-X-Exchange-RoutingPolicyChecked: cBs+kX2TH99Ikvu8PK8z417qgELYMQJD9HuBU1m35thR3ZpbVasEce8r6mLr9lpjR62rYic8j+gf0ex5Y0yIdEQbK65vbjs8IyuioHZQUdWEPkgKbBZ6OCXvLqGaiaJ8xUWIXfOPrXbs/t6H2wLhDCVY4xYC8lPPJJlEtjkWcecEhUo6l43YjuzHwTs+W0y9uZrRwq7jb0rU+oOdFGGBmlDbpAnWYY+u0dSn4ptIj6FjwxRtMADHTsDoKlvY682WMYcKn/4fS1fos4yjtTdQZRfkF/A7zAUoLrdc9fECBmg2DBXSIzUcqoQ2qfQUl8s10VJFDN2aBGqTRyNjX2wQ2g==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Aug 2026 20:27:14.3053
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 13435390-5a31-4058-6cb8-08def654995a
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00003F66.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN0PR10MB5112
-X-Proofpoint-GUID: LPdAjXMDYTmMINhi8Ms9zjLgHYEdT8hU
-X-Authority-Analysis: v=2.4 cv=QeRWeMbv c=1 sm=1 tr=0 ts=6a78e2a4 cx=c_pps
- a=2g0TT6LSTZPcbpz8VOOaeA==:117 a=WotqVVQAdb04rnGuttW3Kw==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10
- a=s63m1ICgrNkA:10 a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=Z8NIEmU8O1QQgoT56wFK:22 a=gO1vWkAQAl3rybz1DQOp:22 a=sozttTNsAAAA:8
- a=VwQbUJbxAAAA:8 a=uaIRmOerGBg_cDUUTbIA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-ORIG-GUID: LPdAjXMDYTmMINhi8Ms9zjLgHYEdT8hU
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODA5MDE4NSBTYWx0ZWRfXwNw1faMrsOT0
- BJlw8xN2kHEKCPaUl63ZEK2KE9Oe7xnVBq1ToOK4/lqTwVioSNBcpAGXvt8uFaydCtg4lYaUM1J
- FuIS3M+nXE7WjBPqNaD/TFRDxVq1TtZnuhKMLcieKUz03WZapul7G4z9V+tRJbWr5Y7G4dIX/vF
- bk1CnEnS1GAn0QWFyIXjbl9EriuCraldlkp31M6SRqbNRncaR0FxyxWgdTeWGAF8x8wACxtOhLp
- dqSnUyZya9b0gl1KNGMnov2eqYDwyz/HJ/eOhikWtpV7h5DtESEhzZShIaeaPfNMhnTa4G49ibo
- /cKzgOE3EdPw/LPvzfgXo/MGyKlgZXxPbrqDLPT1UNgRzsDUcS8QHfVNxn5y0mZLw5JE1IlXdQ6
- Qx8WxuQF83p8Vj+xh3NOjG4jzmolpVcOPRSbVRL8R6m5fVgxw+SmnpO9IOs3YGmgwFeDA0YDod3
- gIMP0Pp6niA7Xj88BzA==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODA5MDE4NSBTYWx0ZWRfX3629jfbx+Xr3
- wj3ZjfvkvARCEGLjioa7E/Ld7np41Zo9/+HdrUW8lNKyx0S1EspOWSQofrwYO/0XSXb+twhXkDd
- N/yclHZvRj21cRkMmnH4vSTCFwOoIfE=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-09_06,2026-08-07_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 priorityscore=1501 suspectscore=0 adultscore=0 lowpriorityscore=0
- bulkscore=0 malwarescore=0 impostorscore=0 clxscore=1011 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608090185
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260809_132751_029856_68049378 
-X-CRM114-Status: GOOD (  23.87  )
+X-CRM114-CacheID: sfid-20260809_133128_086947_2C58EC21 
+X-CRM114-Status: GOOD (  35.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,62 +121,265 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This series introduce a most awaited feature that is correctly
+provide PCS with fwnode without having to use specific export symbol
+and additional handling of PCS in phylink.
 
+At times there were 2 different implementation (this and the one
+from Sean) but Sean agreed that this can be picked and used in favor
+of his implementation as long as his case with race condition is
+correctly handled.
 
-On 07/08/26 16:47, Siddharth Vadapalli wrote:
-> On the packet reception path, the ID of the MAC Port on which the packet
-> was received, is embedded in the RX DMA Descriptor's metadata. The ID is
-> extracted using the helper function cppi5_desc_get_tags_ids() which fills
-> in the 16-bit Source Tag into the 'port_id' variable. However, it is only
-> the lower 8-bits of the 16-bit Source Tag that represent the MAC Port ID,
-> while the upper 8-bits are Hardware-Reserved and carry an arbitrary value.
-> With the existing logic, sporadic kernel crash is observed due to the
-> subsequent driver code accessing out-of-bound memory because of an invalid
-> port_id.
-> 
-> Hence, fix the port_id extraction logic to use only the lower 8-bits of the
-> Source Tag as the MAC Port ID.
-> 
-> Fixes: 93a76530316a ("net: ethernet: ti: introduce am65x/j721e gigabit eth subsystem driver")
-> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
-> ---
-> 
-> Hello,
-> 
-> This patch is based on commit
-> f9a2394a2348 Merge tag 'mm-hotfixes-stable-2026-08-06-18-44' of git://git.kernel.org/pub/scm/linux/kernel/git/akpm/mm
-> of Mainline Linux.
-> 
-> I have observed it in practice that the RESERVED field contains non-zero
-> value (such as 0xFF on one instance) causing port_id to be set to an
-> invalid value (such as 0xFF01 in that instance) resulting in the subsequent
-> driver code accessing out-of-bound / incorrect memory and corrupting it and
-> causing a kernel crash. To summarize, this patch is fixing a real issue and
-> not a hypothetical one.
-> 
-> Regards,
-> Siddharth.
-> 
->   drivers/net/ethernet/ti/am65-cpsw-nuss.c | 2 ++
->   1 file changed, 2 insertions(+)
-> 
-> diff --git a/drivers/net/ethernet/ti/am65-cpsw-nuss.c b/drivers/net/ethernet/ti/am65-cpsw-nuss.c
-> index 434a31080855..6330540979d7 100644
-> --- a/drivers/net/ethernet/ti/am65-cpsw-nuss.c
-> +++ b/drivers/net/ethernet/ti/am65-cpsw-nuss.c
-> @@ -1310,6 +1310,8 @@ static int am65_cpsw_nuss_rx_packets(struct am65_cpsw_rx_flow *flow,
->   	k3_udma_glue_rx_cppi5_to_dma_addr(rx_chn->rx_chn, &buf_dma);
->   	pkt_len = cppi5_hdesc_get_pktlen(desc_rx);
->   	cppi5_desc_get_tags_ids(&desc_rx->hdr, &port_id, NULL);
-> +	/* Port ID is contained in the lower 8-bits of the 16-bit Source Tag */
-> +	port_id &= 0xFF;
->   	dev_dbg(dev, "%s rx port_id:%d\n", __func__, port_id);
->   	port = am65_common_get_port(common, port_id);
->   	ndev = port->ndev;
+---
+First the PCS fwnode:
 
+The concept is to implement a producer-consumer API similar to other
+subsystem like clock or PHY.
 
-Reviewed-by: Chintan Vankar <c-vankar@ti.com>
+That seems to be the best solution to the problem as PCS driver needs
+to be detached from phylink and implement a simple way to provide a
+PCS while maintaining support for probe defer or driver removal.
 
-Regards,
-Chintan.
+To keep the implementation simple, the PCS driver devs needs some
+collaboration to correctly implement this. This is O.K. as helper
+to correctly implement this are provided hence it's really a matter
+of following a pattern to correct follow removal of a PCS driver.
+
+A PCS provider have to implement and call fwnode_pcs_add_provider() in
+probe function and define an xlate function to define how the PCS
+should be provided based on the requested interface and phandle spec
+defined in fwnode (based on the #pcs-cells)
+
+fwnode_pcs_get() is provided to provide a specific PCS declared in
+fwnode at index.
+
+A simple xlate function is provided for simple single PCS
+implementation, fwnode_pcs_simple_xlate.
+
+A PCS provider on driver removal must call fwnode_pcs_del_provider()
+to delete itself as a provider.
+
+---
+Second PCS handling in phylink:
+
+We have the PCS problem for the only reason that in initial
+implementation, we permitted way too much flexibility to MAC driver
+and things started to deviate. At times we couldn't think SoC
+would start to put PCS outside the MAC hence it was OK to assume
+they would live in the same driver. With the introduction of
+10g in more consumer devices, we are observing a rapid growth
+of this pattern with multiple PCS external to MAC.
+
+To put a stop on this, the only solution is to give back to phylink
+control on PCS handling and enforce more robust supported interface
+definition from both MAC and PCS side.
+
+It's suggested to read patch 0003 of this series for more info, here
+a brief explaination of the idea:
+
+This series introduce handling of PCS in phylink and try to deprecate
+.mac_select_pcs.
+
+Phylink now might contain a linked list of available PCS and
+those will be used for PCS selection on phylink_major_config.
+
+MAC driver needs to define pcs_interfaces mask in phylink_config
+for every interface that needs a dedicated PCS.
+
+These PCS needs to be provided to phylink at phylink_create time
+by setting the .fill_available_pcs and .num_possible_pcs in phylink_config.
+Helpers to parse PCS from fwnode are provided
+fwnode_phylink_pcs_count() that will return the count of PCS entries
+described in the firmware node and fwnode_phylink_pcs_parse() that will
+fill a preallocated array of PCS pointer with the actual available PCS
+(ignoring the one that still needs to be probed).
+
+phylink_create() will fill the internal PCS list with the passed
+array of PCS. phylink_major_config and other user of .mac_select_pcs
+are adapted to make use of this new PCS list.
+
+The supported interface value is also moved internally to phylink
+struct. This is to handle late removal and addition of PCS.
+(the bonus effect to this is giving phylink a clear idea of what
+is actually supported by the MAC and his constraint with PCS)
+
+The supported interface mask in phylink is done by OR the
+supported_interfaces in phylink_config with every PCS in PCS list.
+
+PCS removal is supported by forcing a mac_config, refresh the
+supported interfaces and run a phy_resolve().
+
+PCS late addition is supported by introducing a global notifier
+for PCS provider. If a phylink have the pcs_interfaces mask not
+zero, it's registered to this notifier.
+
+PCS provider will emit a global PCS add event to signal any
+interface that a new PCS might be available.
+
+The function will then check if the PCS is related to the MAC
+fwnode and add it accordingly.
+
+A user for this new implementation is provided as an Airoha PCS
+driver. This was also tested downstream with the IPQ95xx QCOM SoC
+and with the help of Daniel also on the various Mediatek MT7988
+SoC with both SFP cage implementation and DSA attached.
+
+Lots of tests were done with driver unbind/bind and with interface
+up/down also by adding print to make sure major_config_fail gets
+correctly triggered and reset once the PCS comes back.
+
+The dedicated commits have longer description on the implementation
+so it's suggested to also check there for additional info.
+
+It's worth to mention that OpenWrt is currently using this on
+Mediatek SoC and QCOM ipq807x/ipq60xx/ipq50xx and Airoha are
+already ported in staging tree for testing.
+
+---
+
+Changes v12:
+- Fix kdoc for function
+- Rework PCS provider add and delete to be provider driven (instead of
+  relaying on scan of fwnode every time) (this also handle
+  multi PCS scenario)
+- Even further rework state mutex locking for concurrent pcs list
+- Restore MAC supported_interfaces validation in phylink_create()
+  wrongly dropped.
+- Use get/put for fwnode reference
+- Fix possible unment depndency for FWNODE_PCS
+- Fix almost impossible problem for PCS calibration
+- Hold rtnl with PCS deletion
+Changes v11:
+- Rework PCS release to notifier way (fix race as pointed out by bot)
+- Add Ack from Lorenzo for Airoha Ethernet driver
+- Introduce devm variant for pcs_provider_add
+- Better support firmware node reference for PCS late attach
+- Better protect list iteration with state mutex
+- Minor fixup to airoha pcs driver (flow control fixup)
+- Rebase on top of net-next
+Changes v10:
+- Minor code cleanup and fixes as suggested by bot
+- Drop devlink patch
+- Add reviewed by tag
+- Configure old_link_state on PCS release
+- Unlink PCS on error in phylink_create()
+- Use list_add_tail
+- Fix typo in Airoha PCS driver
+- Update phylink migration guide
+- Better handle late PCS attach (idempotent function and
+  add unser state_mutex)
+- Use dedicated lock in Airoha ethernet driver
+Changes v9:
+- Rebase on top of net-next/main
+- Drop early verification of supported_interface
+  (it can also be provided by get_capabilites MAC OP)
+Changes v8:
+- Back to RFC (net-next closed)
+- Address additional bug reported by Sashiko bot
+  - Better handle priv interface for Airoha PCS driver
+  - Better handle locking for modifying the PCS list in
+    phylink code
+  - Improve fwnode_phylink_pcs_parse() parsing on -ENOENT
+  - Better handle error condition in phylink_create()
+  - Turn down the link when current PCS is released
+- Fix compilation warning caused by copy paste error
+Changes v7:
+- Address all the bug from the Sashiko bot
+- Rename .num_available_pcs to .num_possible_pcs
+- Link PCS in phylink_create()
+- Correctly unregister the notifier on phylink_destroy()
+- Introduce fwnode_phylink_pcs_count()
+- Better handle locking in phylink for PCS handling
+- Better handle unavailable PCS at phylink_create() time
+- Improve Documentation file
+- Other minor fixes to address suggestion from bot
+- Rebase on top of net-next
+Changes v6:
+- Rebase on top of net-next
+- Add Documentation files
+- Add fw_devlink patch
+- Fix some comments typo
+- Rework the airoha_eth.c implementation with new multi serdes code
+- Extend PCS code with PCIe and USB support
+- Align schema to new property
+Changes v5:
+- Rebase on top of net-next
+- Use the new force_major_config
+- Reword some comments and commit description
+- Return -ENODEV instead of -EPROBE_DEFER to perevent race condition
+- Drop phy_interface_copy patch (Russell pushed an equivalent version)
+Changes v4:
+- Move patch 0002 phy_interface_copy to 0002 (fix bisectability
+  problem)
+- Address review from Lorenzo for Airoha ethernet driver
+- Fix kdoc error with missing Return (actually missing : before Return)
+- Fix UNMET dependency reported error for CONFIG_FWNODE_PCS
+- Revert to pcs.c instead of core.c (due to name conflict with other kmod)
+- Fix clang compilation error for Airoha PCS driver
+- Add missing inline function to pcs.h function
+Changes v3:
+- Out of RFC
+- Fix various spelling mistake
+- Drop circular dependency patch
+- Complete Airoha Ethernet phylink integration
+- Introduce .pcs_link_down PCS OP
+Changes v2:
+- Switch to fwnode
+- Implement PCS provider notifier
+- Better split changes
+- Move supported_interfaces to phylink
+- Add circular dependency patch
+- Rework handling with indirect addition/removal and
+  trigger of phylink_resolve()
+
+Christian Marangi (12):
+  net: phylink: keep and use MAC supported_interfaces in phylink struct
+  net: phylink: introduce internal phylink PCS handling
+  net: pcs: implement Firmware node support for PCS driver
+  net: phylink: save phylink instance fwnode on phylink_create
+  net: phylink: support PCS provider release
+  net: phylink: support late PCS provider attach
+  net: Document PCS subsystem
+  MAINTAINERS: add myself as PCS subsystem maintainer
+  net: phylink: add .pcs_link_down PCS OP
+  dt-bindings: net: pcs: Document support for Airoha Ethernet PCS
+  net: pcs: airoha: add PCS driver for Airoha AN7581 SoC
+  net: airoha: add phylink support
+
+ .../bindings/net/pcs/airoha,pcs.yaml          |  261 ++
+ Documentation/networking/index.rst            |    1 +
+ Documentation/networking/pcs.rst              |  234 ++
+ Documentation/networking/sfp-phylink.rst      |   35 +-
+ MAINTAINERS                                   |    9 +
+ drivers/net/ethernet/airoha/Kconfig           |    2 +
+ drivers/net/ethernet/airoha/airoha_eth.c      |  190 +-
+ drivers/net/ethernet/airoha/airoha_eth.h      |    5 +
+ drivers/net/ethernet/airoha/airoha_regs.h     |   12 +
+ drivers/net/pcs/Kconfig                       |    8 +
+ drivers/net/pcs/Makefile                      |    3 +
+ drivers/net/pcs/airoha/Kconfig                |   12 +
+ drivers/net/pcs/airoha/Makefile               |    7 +
+ drivers/net/pcs/airoha/pcs-airoha-common.c    | 1303 ++++++++++
+ drivers/net/pcs/airoha/pcs-airoha.h           | 1311 ++++++++++
+ drivers/net/pcs/airoha/pcs-an7581.c           | 2100 +++++++++++++++++
+ drivers/net/pcs/pcs.c                         |  314 +++
+ drivers/net/phy/phylink.c                     |  397 +++-
+ include/linux/pcs/pcs-provider.h              |   70 +
+ include/linux/pcs/pcs.h                       |  174 ++
+ include/linux/phylink.h                       |   28 +
+ 21 files changed, 6421 insertions(+), 55 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/pcs/airoha,pcs.yaml
+ create mode 100644 Documentation/networking/pcs.rst
+ create mode 100644 drivers/net/pcs/airoha/Kconfig
+ create mode 100644 drivers/net/pcs/airoha/Makefile
+ create mode 100644 drivers/net/pcs/airoha/pcs-airoha-common.c
+ create mode 100644 drivers/net/pcs/airoha/pcs-airoha.h
+ create mode 100644 drivers/net/pcs/airoha/pcs-an7581.c
+ create mode 100644 drivers/net/pcs/pcs.c
+ create mode 100644 include/linux/pcs/pcs-provider.h
+ create mode 100644 include/linux/pcs/pcs.h
+
+-- 
+2.53.0
+
 
