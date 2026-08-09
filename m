@@ -4,68 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB234C5AD48
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Aug 2026 23:19:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 247A4C5AC67
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 00:51:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hySmyd731HI49avcL3mGbdogr26/7EmNX03BPEob+mA=; b=iB44TGhYywxWW34FTFQCVieUr3
-	E9YcPrA9lA68dUh8ErrPk8zAwJ/i1Ml1dToTY0Ix1jqjiOYisU4MVdKutqWGVWqv10wTx5SoAUAzi
-	342//4KdlCA3281rFrf+P2Db2tffT4iCj2eoG6SAg8eW34ytBb7/H+jJ0JFMq60R+aV+wQcsriMhM
-	tZ06O7LCNsZjmDvQHWLTjWCgGpd6PDuX2/26lVmeGIzahyQ7GRf7+oLgle/e0sg+SVBmKpHtuIQc7
-	aiupzJkjwi1pOgD0ANwA5hKgJerTHnR7W++YH/0lpE0UHxNRsuGN7/ajSxKDLUPM/uPGSavk2rrOx
-	Jhmwhsiw==;
+	Content-Type:Mime-Version:References:In-Reply-To:From:Subject:Cc:To:
+	Message-Id:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xCkSTHTpye1HwdVm99z+AnyQrg5wWGU9aIxGyfSTlQk=; b=BoVfmQEGOnxbxMJcbMUMJBaZ74
+	QxcN8fxGTt/T9rXBHx1cLIMPhTXvMgiEjFsWWsc6/EBNHALmQvDs1TjIss0pqfG9ofCSYl/Dwbp+x
+	/GEZPc+0cztCYb/lzMIYEwuI7t5sfKu+WncAilV0/c2HyHggW7DJuXqGR4z7grSutXFQMKtDfXHph
+	iwmx3Ma1d1LUu+IKCi7HetrjqS1ZJqvIMRv8J3+N+wItRldyXXVPKuCJuo2MCmwEZSo4wbx1FaY6o
+	xqUIrZOJiAnOrfNEWiAyo4m0JLmF/6D8Pz297ZuWRwozlyriYjQXD70NES0m6QIsnN54brDMNMFuo
+	ap3YIOsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsqJa-00000009mVm-0P9q;
-	Sat, 08 Aug 2026 23:18:54 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wsrke-00000009qqU-1Ydr;
+	Sun, 09 Aug 2026 00:50:56 +0000
+Received: from flow-b3-smtp.messagingengine.com ([202.12.124.138])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsqJN-00000009mHj-04qN
+	id 1wsrkb-00000009qq4-2cWo
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Aug 2026 23:18:41 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7686460A9E;
-	Sat,  8 Aug 2026 23:18:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98D731F00A3F;
-	Sat,  8 Aug 2026 23:18:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786231120;
-	bh=hySmyd731HI49avcL3mGbdogr26/7EmNX03BPEob+mA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=RT1iFVvGtNC2gfYcDpnLWRYJLfm5w7eX6mO4qrzXUAdm86P6zRE8FFRXT19V3JtGR
-	 +VfH3Nk5Q+Q1URgGUrDDZfbE6zKOqIQGpnQHY1f5is8ymGHtdZ97PBso9YxLHoEJwC
-	 yXv8N/H//e1dwgQp4GV741X/jt2uWPjbPsxAGewR2i6BrQBCyoss2LjIfRql4dEfE5
-	 PgAJZOxOHwvDzZyPfFQA4qMe58nUTDW67rsfZEhkXCNYCKda3VgQ6Sztu2Xm4hUNGD
-	 eePgLajX4W1sqMfi/ZG3OkaaKeEMtG17p7caU4j8GyTh+UMRhM1jmeCY0Zgi2AfEwm
-	 myIaTm+M+i2EA==
-From: Josh Poimboeuf <jpoimboe@kernel.org>
-To: x86@kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	live-patching@vger.kernel.org,
-	Peter Zijlstra <peterz@infradead.org>,
-	Joe Lawrence <joe.lawrence@redhat.com>,
-	Song Liu <song@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nicolas Schier <nsc@kernel.org>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Miroslav Benes <mbenes@suse.cz>,
-	Petr Mladek <pmladek@suse.com>
-Subject: [PATCH v4 18/22] objtool/klp: Don't correlate arm64 mapping symbols
-Date: Sat,  8 Aug 2026 16:17:22 -0700
-Message-ID: <6f447024ac8b79a1a6f1b8eb1c5eb1b51017af79.1786230311.git.jpoimboe@kernel.org>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <cover.1786230311.git.jpoimboe@kernel.org>
-References: <cover.1786230311.git.jpoimboe@kernel.org>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Sun, 09 Aug 2026 00:50:55 +0000
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailflow.stl.internal (Postfix) with ESMTP id A53A813003E8;
+	Sat,  8 Aug 2026 20:50:49 -0400 (EDT)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-01.internal (MEProxy); Sat, 08 Aug 2026 20:50:50 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=flapping.org; h=
+	cc:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1786236649;
+	 x=1786240249; bh=xCkSTHTpye1HwdVm99z+AnyQrg5wWGU9aIxGyfSTlQk=; b=
+	NU29sH9ZsRImhMnP8aT4p1yQuwbjPQGMO/KabwgRq2yYxQ/ry+1Z1Vn+aKswp0jA
+	72ClGAM+RK0CQbBBeNZoFnugrY5/elsoMjjCUxL3pA5zBDlm6jLWNbqUBYL41f67
+	qgDYhH/yx+ZZwLI3zLz4969SjC3Hkzs7OCF7+t7vBCb7HqeZjNkk229mhr6p/lmY
+	ofVWspjaKMqFx4U7KFt0wkexc8lm5XJzdfsl9ynow10v4Z14sNyO3MeFVTcyLQA1
+	WjDOG7H51LRjuwr8d4UA8IhwusSfUQ1QEcwc/NJhpbWu+E0RBf6I/XzedDPtAnCR
+	ZukGehUwfRxEDr4N10drrw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1786236649; x=
+	1786240249; bh=xCkSTHTpye1HwdVm99z+AnyQrg5wWGU9aIxGyfSTlQk=; b=c
+	P0PZJUq0RL8Rlvcc1fesfcEMhNL6Ow9lK6nfrSGwEflLRYBFoLkzE1Yr5WMGJPYw
+	6Ls8irExU3Ub5sFTx5NcKRAH5xucWJFNRRvkhBduzCdqecm6LWGDrXtoGpRlheXG
+	UFpcHlztpRcjsaONfnp3vPT+8vfMpXaAfrIR19+vZMdYnDXfubUU4eupOvjcIaV4
+	R95/pGjewQ23PSePQl443aNXWIfsQ3xYKTpj+NGD3gg7BeA8hkv88pef8q7vCOHc
+	uIJqmRnetmYNvbFXUd9WY00og5FNwR45IRYTuMkmtVxMmUD0Ji1P5QW5iU0wfdhs
+	WDeCMFaGEthDDbIKAxoWQ==
+X-ME-Sender: <xms:6c53arGSkqmk3IqBNnnQ2VKcHffefbAAip61EJHMKqdmHgKe49MqKA>
+    <xme:6c53ahqtvY3uC-Hfvkr5IP-xm6o0Pileb7gQNwccdKBZKzJzhBjqdpIQ4cylfo457
+    xtuy5QOh6rmIIzNQtjutLHENNBv18XYy4-EnU7K8TUJ0q73feH64Os>
+X-ME-Received: <xmr:6c53alJ5ES3-_J3P-YGMPLo--aGyaHVuglFfyg0kYfADERmZrUU2geEkMC3ojc-Ixuau59UkdNyymLQWD8k7HpOO>
+X-ME-Proxy-Cause: dmFkZTEWyeKTFTOJEnerKErAGQhxs6jY8ZIIz/VM/JukQDWudLXGVHslkG7D0P1qYkOnvC
+    p/N/lf6zobEs4R09BmnLvcyKb6KEUV8BUTXqUMer/pYJTS3yxadkjhC7zWSmUyqan7H6wr
+    iOv96fl5zT6jrqOPwMso0ETzEouIFpNVaqEmeJP6dRigdDAu+IZwRJj3PRqh95KibXDSbH
+    Of4jjPRZQoMGfXL2I60hA+xQxKCbr/Il0tBfaPmtJlZB/9gh2yaivzrZ+UEJhRUq2avrt/
+    6MNUfnrwFjZeD8nPUgpooCWsWDJWaeXgePQ7pwjcD8pNyMNO3hgiId+X/6f2GyobvqrChX
+    NgkPoQKFCUKOdPrSSKZZaMsWyrbXtBaD570Fno2K/4e5Nb5VitmSOsXELC6wzq1o+MMDWY
+    BDRwN8HUmt9AECIMyFVNpR973AKW7u6uPbtbGxU+dTKN1KX7lX/ZxmF9ahMCplvW2k9Dce
+    3Wj2yJqgmIm4lxeGRLk8czefQ+PqJVNwKyd2c5DDek8AwYdsaBtjBXoESSJCZL126CgnZw
+    rh13jAEcLls9u8D5VHKwcbJvvTqbDM+mo/Yit0Ddsv8oXXiRSOEjzRdCiYx27+csmM/vgK
+    hVPN/Z9TSjlgnoTExldLSqYJPnlu92K0CYW1f/ZUOTAU2VW0QljkT4ZNSYpg
+X-ME-Proxy: <xmx:6c53aiyzFxtDYEEDIAstGaAJXGXzDY_IQtzrTj8ejlUY2ird5uDvow>
+    <xmx:6c53asZ7ksw7NU9kx_h8FiWRleYvZnx3smz_-wtFzjvcNQJrn2sdMg>
+    <xmx:6c53au7uETwpLa9d-ku27TH1Z02VJoAkMJxEJcp0Z_5NIXILFSfXrw>
+    <xmx:6c53atClWOEO2nw6sx0n4TuPtVeL-p1G5s-AlrhTW5lZwR2IMp7Zlg>
+    <xmx:6c53agQEeP9Ahk4NyUtA6jCafbY03DdegnZvbcQlkorROei3L2sIXvzX>
+Feedback-ID: i51fe4b43:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sat,
+ 8 Aug 2026 20:50:43 -0400 (EDT)
+Date: Sun, 09 Aug 2026 09:50:41 +0900 (JST)
+Message-Id: <20260809.095041.602618436881623934.tomo@flapping.org>
+To: miguel.ojeda.sandonis@gmail.com
+Cc: tomo@flapping.org, ojeda@kernel.org, arnd@arndb.de, krzk@kernel.org,
+ alexandre.belloni@bootlin.com, linusw@kernel.org, chenhuacai@kernel.org,
+ boqun@kernel.org, gary@garyguo.net, bjorn3_gh@protonmail.com,
+ lossin@kernel.org, a.hindborg@kernel.org, aliceryhl@google.com,
+ tmgross@umich.edu, dakr@kernel.org, daniel.almeida@collabora.com,
+ tamird@kernel.org, acourbot@nvidia.com, work@onurozkan.dev,
+ rust-for-linux@vger.kernel.org, fustini@kernel.org,
+ linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev,
+ kernel@xen0n.name, loongarch@lists.linux.dev, stable@vger.kernel.org
+Subject: Re: [PATCH] rust: bug: fix `dead_code` warning in `warn_on!`
+From: FUJITA Tomonori <tomo@flapping.org>
+In-Reply-To: <CANiq72m70uWCRFnhs3axdymSTGCirBrYAvKh2BiT0xqW2j_3jg@mail.gmail.com>
+References: <CANiq72n4=fz=JNKY0Jdm8BnLa=RmHB2B7s0bO47YTJ7hygqBZg@mail.gmail.com>
+	<20260808.143013.1251068388254615351.tomo@flapping.org>
+	<CANiq72m70uWCRFnhs3axdymSTGCirBrYAvKh2BiT0xqW2j_3jg@mail.gmail.com>
+Mime-Version: 1.0
+Content-Type: Text/Plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260808_175053_988591_73C6A6C6 
+X-CRM114-Status: UNSURE (   8.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,30 +117,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ARM64 ELF files contain mapping symbols ($d, $x, $a, etc.) which mark
-transitions between code and data.  There are thousands of them per
-object file, all sharing the same few names.
+On Sat, 8 Aug 2026 21:40:49 +0200
+Miguel Ojeda <miguel.ojeda.sandonis@gmail.com> wrote:
 
-They aren't "real" symbols so there's no need to correlate them.
+>> I posted a `cfg(testlib)` split for it:
+>>
+>> https://lore.kernel.org/all/20260808022608.1125174-1-tomo@flapping.org/
+> 
+> Thanks! It seems good to me.
 
-Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
----
- tools/objtool/klp-diff.c | 1 +
- 1 file changed, 1 insertion(+)
+Thanks!
 
-diff --git a/tools/objtool/klp-diff.c b/tools/objtool/klp-diff.c
-index 922de4c8e9e89..d76d2f5b5acbf 100644
---- a/tools/objtool/klp-diff.c
-+++ b/tools/objtool/klp-diff.c
-@@ -547,6 +547,7 @@ static bool dont_correlate(struct symbol *sym)
- 	       is_prefix_func(sym) ||
- 	       is_uncorrelated_static_local(sym) ||
- 	       is_local_label(sym) ||
-+	       is_mapping_sym(sym) ||
- 	       is_string_sec(sym->sec) ||
- 	       is_anonymous_rodata(sym) ||
- 	       is_initcall_sym(sym) ||
--- 
-2.54.0
+>> While at it, a question: what is `rusttest` meant to cover when
+>> `ARCH=` is not the host's?
+> 
+> `rusttest` is meant to run tests on the host, regardless of the target.
+
+Then `jump_label.rs` needs the same treatment?
+
+`arch_static_branch!` embeds the generated arch asm too. It is not a
+problem today only because, like `warn_on!` until now, it has no user
+inside the `kernel` crate itself.
 
 
