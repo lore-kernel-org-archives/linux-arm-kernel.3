@@ -4,112 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F6CBC5AD4E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 17:17:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B05E2C5AD7B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 17:26:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rU7Duwnzym7o6H9C40VXv2V+HHIGH6Z448XVA54zyEg=; b=XvtmuzEBpcqvpEMHbP1B9KvcL1
-	cl+7wB8f5eTemACgHq5yJBLtlHoQnMXVojEVwHDIQ16ox+nKWWUt6Tx6EFajmTvCB2rxL/b+6iwRM
-	luclkfJduCcMM55O5rTDbc/+M9HOEnofSSlzCrNqasl9nHFagOkiXfooU1rC5BIoJRUYvNURPHPY+
-	pdsJqJE1LOg7Fm05kgGl3TS6W5mC8nU03wtY2eytUN+Iy163QAmrg0Y35ZUsJAQypx43cR6TgN+d2
-	0rWOL5QA3JbhFNrLKYUV9IqgjTQqQscdolKgqaw9tdbDOq5+fefon15om6bB422jsi68wRDBsrTM0
-	XV9Ddfbg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ry9fk0XG9JYbqeFPh0yNld54SQt3A83a8vQYvm01BjY=; b=xcC3wB9U939VB5hjf6MPnhGD+U
+	i3hRhywvnI9/z/Nn8d474rrmgjnrB+IQ28XBn4tyAhHktkDvggII/OVMqwFo2Fc/zplERLaeNzh0R
+	SNJRtE6ZReJJqAwHEXmpS+VXQ3Txg1MIkK/gYfCPtXykELTZW7wvDUz+V8in2A1GApCiJ8jGXEUTb
+	ZKIhFJ9hS3/AtzRrVHdgOscC8w5sZOjuxMgi4oVinaOlyRHHoiI80sZc8JCAow7/fAubBCX1DoFZh
+	FUDCcdga2CKbfZBhwvaoyf+AwPkZCiSHNPSkiKS0c8bGSdQtE5Hge9WbNEBJPInt+whDF7f1Pe8Li
+	B2eOmY4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wt78m-0000000AXCH-2KuJ;
-	Sun, 09 Aug 2026 17:16:52 +0000
-Received: from mail-qv1-xf31.google.com ([2607:f8b0:4864:20::f31])
+	id 1wt7Hp-0000000AXYX-1lKS;
+	Sun, 09 Aug 2026 17:26:13 +0000
+Received: from [156.67.10.101] (helo=vps0.lunn.ch)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wt78j-0000000AXBV-23kE
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Aug 2026 17:16:50 +0000
-Received: by mail-qv1-xf31.google.com with SMTP id 6a1803df08f44-8efcef23d21so8311846d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Aug 2026 10:16:48 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1786295808; cv=none;
-        d=google.com; s=arc-20260327;
-        b=MmeHchjEPNCNDDs0myk+XQLoYE19SW8YDcPBB7MIuqwjxG3l7P6fTjB4DhaovO6g/L
-         pEDUdITyAiabS+SxrSYnkcftQIovqj5fr8MEstRd4i/zfUOxehizd+UE6qGtCJZBYIb7
-         tEGLMmckLPIvGFe2fN+GwBCalpyIG5exrB6iW4X+7pA+N9qM1aZwG1AwFuqwG3m8XmId
-         8DWTvt45FwblLGa59fJ/CTbpLxyA/s8lceyL1MAZ711DT7066e3TWcRmVRlIjMtyHWV2
-         Hcmk5TUkqhcMA+xV49pYUIDLdEBnkiBXDg80Qy1MdP5qVbf6/Dggrh0cFDtED/FNuwbu
-         9iDQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=rU7Duwnzym7o6H9C40VXv2V+HHIGH6Z448XVA54zyEg=;
-        fh=AzOIrAoTBfNjshHLYC4cJlhQ5vj9UuFc6L1t4ck8mKQ=;
-        b=Prb0B6qarYJyvLwupqWEdSLXIdkkq3C5BTuJyW/akg3XvKeUkIZNQ+DNIxBCWzEHeE
-         A6U8BiCiqtVt2P11Mr4vVRtfK2yJNtKMncnrNuTK16azmfcNwDCfeRcUxDcJCWgxCA0M
-         84p8aezUWh/NMPHYDuwN0EbeaYSEYsmL4B0HFez5rliA1ubye6SbVIQIeBy6uD+LdtbS
-         c0RLd/OnYyCaqGudorlEfsSHaWWZUe7bf/FxY9kDUAg6kNhCa/AgJXhzxQYumgr8L8vq
-         Z0FXKOWIfPzG06y7Xjn07xkF6GK5Zg3u3993UzbuWd8unxcOcT/F9QTL5q7InHq4r67r
-         Pqpg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786295808; x=1786900608; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=rU7Duwnzym7o6H9C40VXv2V+HHIGH6Z448XVA54zyEg=;
-        b=Jc+0xSZ/nvbS/c/Ffny+BesxqnlclrfZ7gD3cJn8ajWz4Bpwld9pcOkFDpmOUO93Ri
-         Zz6ObrWBY5h4JcbcwmcR55wIr5hedTwGaLINZgvDCpmjxZDoyisLIseBL5veUl9jp5k4
-         SU8pQVTfm8aVVODLY71fKTzc5U/rYH5xhWIhej1IK9zuOG82rVH280UlsVx69j+fbNce
-         PEEJAcBj8C3km+Zaf2kyAKTd2Amdi+Kg3sQ+goFEjLYdCGRuhXipYVCrwGW5FkFGHIRV
-         dJjjlfFZNGNEx6KRxKctLsIdPdF4hmtoHfCTr7jv/gqP3gspFhHCFiucf+WToHfzUrDm
-         r2HQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786295808; x=1786900608;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=rU7Duwnzym7o6H9C40VXv2V+HHIGH6Z448XVA54zyEg=;
-        b=YswRFQ1BieqRNEjCoeu2PVb9oQyl8vQr3S1CpFHR6WDVJOBU4/56RTPGsLB3EOOnW+
-         Op3rFKK5NcBvQ7YT0G02PA1gG3E0/L5LPOjVkVAfeMZ59iqFTFxSVI4F6icZU58VAPt8
-         8HMXngKgjsF97ZAxiLbVpeOR64f0fSxpUjRoXm+eJ+z/JPW/xglrWw8rJFnVx4Q1RNXt
-         E6MwVbPPZ+Pw+InXLyGL4LguaDKGYUhOyFzoUpfsiQ0uhrnM30oofY1xWu3Uxno5RdvK
-         OQ0B6xS7yUkGvnnCrXMAZTXP1pAoWMCibSTQeUFVxgTuwTMseucRrKG8+EFdm3JXEkeg
-         ZFhg==
-X-Forwarded-Encrypted: i=1; AHgh+RoNPF4HA+NL15PZYilB5EGmyT+mUgdCfc6OZ1Tu4eDlKReDqhZLDC5GeF3aXaRct8Ecfqvj3CLYE6k0o6soC1Wd@lists.infradead.org
-X-Gm-Message-State: AOJu0YwUnjrnA0Mw1rVrZvhVtdS25fzTjhTbuJv6k6nfnDYTkfsxw1RM
-	j4ju0KJu3kYlRa2Pi9P41Deb+1UHdSDL+t7qzJiHV/U5NYMN1V2FcWnK3xJW704YEvhvD+08KlZ
-	PBLlbsHSAVlpu4i4slKwxmtqb0jbQ15o=
-X-Gm-Gg: AR+sD12K2ZyMC5OaqY7cZlrzFGnVf/LlyIBHCuqqGklxW9h+0cwhhNYR+SDlKWHj5dq
-	oE3F7DzupLFSH/Hvg/MJlRTEaI9nMeV8v20BnaSUTRtp4zUjb3+9hMuBrsVnqYy8MOdAklLCo13
-	3L6Qk1bcyK/DMO95oWwdIjs+UIasZIQhIzE0e/BU6NXXT2cZjqGcRmUi1QrfPKl5qG63R0/7hDo
-	gQFQUF2kH64IOUf1OpVpmy4DSTtXVLQVqwUqRQwICveBHcFNTgzQgq0JLQ43QyUpfZGzkfnQUuk
-	DewmNPQvOVknJWk4AGbTeBjfaVWsefH1C/z+J3sFrV0tdaQmxM4E/eFF2o//LOA=
-X-Received: by 2002:ad4:5945:0:b0:8ea:fb8c:2e0a with SMTP id
- 6a1803df08f44-908813800camr422497886d6.28.1786295807862; Sun, 09 Aug 2026
- 10:16:47 -0700 (PDT)
+	id 1wt7Hn-0000000AXXx-0BOW;
+	Sun, 09 Aug 2026 17:26:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=ry9fk0XG9JYbqeFPh0yNld54SQt3A83a8vQYvm01BjY=; b=voAcElwKJGsW/1k0o6ZQjOjwA9
+	AMbOZ2HQBU3A0RvorYkukinZR6ZouFHHTdmG8KGPGhEEN3r8qJQRl96TthwUiGUgzBjetNnHIY2Au
+	HW3Wn2WZC8EXW2fv/AJLKQKJ50eoNV6mMfIgg/0JmkTa5VPk4PhweO3gtL6NeEHGxVfc=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1wt7HW-00Gpot-Ip; Sun, 09 Aug 2026 19:25:54 +0200
+Date: Sun, 9 Aug 2026 19:25:54 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Simon Horman <horms@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, llvm@lists.linux.dev
+Subject: Re: [PATCH net-next v11 02/12] net: phylink: introduce internal
+ phylink PCS handling
+Message-ID: <72c39d88-f901-48e0-ac3d-c7aca6e98dd5@lunn.ch>
+References: <20260807131301.192060-1-ansuelsmth@gmail.com>
+ <20260807131301.192060-3-ansuelsmth@gmail.com>
 MIME-Version: 1.0
-References: <20260809160643.33991-1-l.scorcia@gmail.com> <20260809160643.33991-4-l.scorcia@gmail.com>
- <aniv5B4jz07mI70D@buffalo-ssd> <CAORyz2KJMY6OvFQEB2GU0P7CkxothuXOCXgCcRvtiUhhPaK1ig@mail.gmail.com>
-In-Reply-To: <CAORyz2KJMY6OvFQEB2GU0P7CkxothuXOCXgCcRvtiUhhPaK1ig@mail.gmail.com>
-From: Akari Tsuyukusa <akkun11.open@gmail.com>
-Date: Mon, 10 Aug 2026 02:16:36 +0900
-X-Gm-Features: AUfX_mwSw9EQyRpwAxS44Dmd7O80H1Xy4wdfZq_kCKddFw7XIYHyFdFWMPL0V3c
-Message-ID: <CAKr_iV5oi5VbnXZD-7b4XCaUuimavqYNBDO=2oM39JvYwzkwmg@mail.gmail.com>
-Subject: Re: [PATCH v3 3/8] arm: dts: mediatek: mt6589: Enable toprgu reset controller
-To: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-Cc: linux-mediatek@lists.infradead.org, 
-	Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, linux-watchdog@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260807131301.192060-3-ansuelsmth@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260809_101649_563787_3EC9254A 
-X-CRM114-Status: GOOD (  19.90  )
+X-CRM114-CacheID: sfid-20260809_102611_085239_1BDCC358 
+X-CRM114-Status: GOOD (  11.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,44 +87,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Luca,
+> +++ b/drivers/net/phy/phylink.c
+> @@ -60,6 +60,9 @@ struct phylink {
+>  	/* The link configuration settings */
+>  	struct phylink_link_state link_config;
+>  
+> +	/* List of available PCS */
+> +	struct list_head pcs_list;
+> +
+>  	/* What interface are supported by the current link.
+>  	 * Can change on removal or addition of new PCS.
+>  	 */
+> @@ -154,6 +157,8 @@ static const phy_interface_t phylink_sfp_interface_preference[] = {
+>  
+>  static DECLARE_PHY_INTERFACE_MASK(phylink_sfp_interfaces);
+>  
+> +static void phylink_run_resolve(struct phylink *pl);
 
-On Mon, Aug 10, 2026 at 2:08=E2=80=AFAM Luca Leonardo Scorcia
-<l.scorcia@gmail.com> wrote:
->
-> I apologize for the mistake - if a new revision will be necessary I'll
-> correct it with the Acked-by tag.
-> Thank you!
->
-> Il giorno dom 9 ago 2026 alle ore 19:04 Akari Tsuyukusa
-> <akkun11.open@gmail.com> ha scritto:
-> >
-> > On Sun, Aug 09, 2026 at 06:03:27PM +0200, Luca Leonardo Scorcia wrote:
-> > > Enable the toprgu reset controller feature for the mt6589 SoC. This
-> > > allows generating reset signals for the 12 subsystems managed by its
-> > > top reset generation unit.
-> > >
-> > > Signed-off-by: Akari Tsuyukusa <akkun11.open@gmail.com>
-> > > Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-> > > ---
-> > >  arch/arm/boot/dts/mediatek/mt6589.dtsi | 2 ++
-> > >  1 file changed, 2 insertions(+)
-> >
-> > I provided "Acked-by", not "Signed-off-by"...
-> > https://lore.kernel.org/linux-mediatek/amEBgRmQktZ44jc1@buffalo-ssd/
-> >
-> > PS: I am also fine with this patch carrying my Signed-off-by.
-> > Signed-off-by: Akari Tsuyukusa <akkun11.open@gmail.com>
+forward definitions are not liked. Please add a patch which moves it
+earlier.
 
-Sorry, I made a mistake in my previous email.
-The Acked-by I mentioned was for patch 1 of the series, not this patch.
-I did not provide an Acked-by for this patch.
-
-The Signed-off-by was not what I originally provided, but I am fine
-with keeping it for this patch.
-
-Sorry for the confusion.
-
-Best Regards,
-Akari
+	Andrew
 
