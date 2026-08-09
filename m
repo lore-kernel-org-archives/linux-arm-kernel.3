@@ -4,145 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75C2FC5AD4E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 19:09:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72DA3C5AD4E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 20:01:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6vZGi+iuh+YDljvOzn1g8dcCjbMnjc8Erlh5ur5ioA8=; b=UUZFTW+s4S9NkANr5MBExct/lJ
-	dSRO8ANttFdSihcCLV2T7QS/Hxp5BHIglEBwQhaTHs3d1OWCvyBzh791locZaidAp2YBTB/+TDZv5
-	VLw44RxHGwMZaL95fNZPy3UzSstXndEjQncl285w/QD106FtnrDX+yi3w/+Ptv5Cu2m0lucGe7c/k
-	zRCfREIkkjl5merhSONkWzDzwgiVz8xmt0GDcemgkevT4HxDG3EOKcLAaA4YAhHc+bRTUK8FgYHCU
-	0Eba0QImhVnqhYA2i7LiEZnlG8JBVNyZy66pNzgfSlHztLH5GPWl+8cfyvc6hC7PPa7zV++YMsA3f
-	ba9pOujQ==;
+	bh=XVP4E3N5OOYT+HqQ/+FFQYq0rub4J6LXRpa+4ZAiLSE=; b=N013NbKteGWdD0gsCCM6ECyE+V
+	yqv36FN8DMJj/MBBz9ISUD098YJVWl5SN0MWEaB3dptRdxlSk8sa7b/nJPz3G3TTvAY3g4B0+zf94
+	kRuBWbYLSVV7SanGr6wKP2TKwy7qpmVRB8HM2X3JsphTto46w9E7uRw3W6e/FweubOjb65bo49I/G
+	zazpPfcJoJMy5fN72YCzeNYnGWq1y38PvqQVUfo2xjg4AvW8vjZ3pz5Wb5xhK2ShBdfD8OTgJXjzz
+	sJUfirjKF56WEg8jnkYJ3QOZfYtcLT7nV+j2AoJAl00HLzR8WN+5AJTIpjlTpPJcsjvozLgZ4xMOS
+	CTGvjNLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wt8tQ-0000000AbkX-3n7E;
-	Sun, 09 Aug 2026 19:09:08 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1wt9iA-0000000Ad9I-2zfG;
+	Sun, 09 Aug 2026 20:01:34 +0000
+Received: from mout-p-103.mailbox.org ([80.241.56.161])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wt8tO-0000000Abjc-1Rhf
+	id 1wt9i7-0000000Ad8W-39v1
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Aug 2026 19:09:07 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2ce87c7e3bbso13089125ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Aug 2026 12:09:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786302545; x=1786907345; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=6vZGi+iuh+YDljvOzn1g8dcCjbMnjc8Erlh5ur5ioA8=;
-        b=BFhuGD3e7CHaq3LYQBJm+ZeoIGdXAF4YPdh1vXP1791oOlMNYBSihAX8LqEAxcKprX
-         WexF9fP1+7ReHe/ys6yIPjX5B1S8bAf0yO632ExdSv2IdrO1iSsojaULDdf3yFw/LtSJ
-         nq1epIPBY9bDkwBa32b4qRL4rox5fshSTECJOu0sm2udvrfs5PXrWsdStg3lHMkUlPek
-         ZfngC/f3aq79xwZgpuee6ah1IhIucYJ7aja88fWqAYAUuLASfjWVJIGm+Fks1FZRE+83
-         2H7wQxNYtLkcpRV1fRLBueZNVCvdpHA3+qd4uMMAsECH3iSIjhdjUH6Y3L447LWhxUGN
-         PThw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786302545; x=1786907345;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=6vZGi+iuh+YDljvOzn1g8dcCjbMnjc8Erlh5ur5ioA8=;
-        b=nd36KB44RvsTyadVv0Ib1hc2Jg3qzKrem9IA7jRxrE2hezYPJ1O9SV5W4fHdWscwfs
-         T/Kidtabx83HCrsB042WEHhFRgFuv83RBrzxpBbE4NsWypXoHcmQV6oMCizCfZbnWLXE
-         p9vUU4HjWlrxbtOAnCFjucaj71w0faoDWRLvcZTWw4UzMx+sT4L5iEzscxIbvA/k+oyt
-         lOnR8o7GQOcEu24XnYH1BR/0SvK6GKg3DaT6hyJj/5asUbVGqXlp/t+zxKVSLI94xAao
-         jHc+jesYEhFGYt5J50aVVoJZLTVQFqE81sbB7JQ1o6ozeAQdn/hmPVpsxWyqB6eulYP+
-         rsOw==
-X-Forwarded-Encrypted: i=1; AHgh+RrgaiKn9nRBoq8Eir2jlxTR61GJoSXvhPz/tcyfWV+il0Tx80UIRVlWuyKTySOjvx0p5omCaSpumvyFr0w+LWSi@lists.infradead.org
-X-Gm-Message-State: AOJu0YybPj3ufJCftPEY11gJXdfeYli26K2cvR3bE8msX9gAl6yIa+er
-	S6p5pFESprg2vRnSqshWldsilPF1j2f+g9syxJbbh6qnnQsNjcHCbHUm
-X-Gm-Gg: AR+sD10SRhrwHKdqHhEQBFjdwjQ8KqEiMGBoOs6aIkQ3Svq2yqYqEHln80cOMNh2tBA
-	6BZ0caapD5XYJPFKcbhbfjXyFK8kX2ig6AWv/HVECLkNIf5911SILHK5QJMlM9Vd+Djm2+k/fut
-	eCy4c+AJgYrDg/2lfL88HeQLsy8qX43jACMNWGr9UE6F7OcbNvYnJxMbEcSgwDLAVGyA9X+p+5j
-	lFizyrFz2VFyyFDxsiw2k5M217TyzuKlm3HhvB6H46zuDRJPSj+28BOXR5TRxZxXzuIOzqS6lpT
-	ZX0sSRfE2ZuOxmR/hEx9PM7PVXUfku7jZNhhjzC6+psP0jlkI/bjkBQkTbP47ap5obFs8I6NIDf
-	eD4TJcpoE/snewWujm/lol9UsH1W7dGko9iflN2JsrCgg6u6M6Rkvo2LbJxa3Tkt/c+j2KVn37m
-	wSNhQHs/W07NXhJD8IrsS9icA/02Dh8F7M5+Fo/lI99zvraEqypZ+3kaJB+L9XwLXdK6G6qXKBO
-	JfoqC8dShKSHIuxq/qsT5XnXfZeek26tD+ACg==
-X-Received: by 2002:a17:902:da87:b0:2cf:4c0f:5129 with SMTP id d9443c01a7336-2d0caa03fcfmr385767855ad.17.1786302545136;
-        Sun, 09 Aug 2026 12:09:05 -0700 (PDT)
-Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-315bec5aac2sm36971156eec.30.2026.08.09.12.09.03
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 09 Aug 2026 12:09:04 -0700 (PDT)
-Message-ID: <ff780a8d-c164-49df-b68d-203966a16442@roeck-us.net>
-Date: Sun, 9 Aug 2026 12:09:02 -0700
+	Sun, 09 Aug 2026 20:01:32 +0000
+Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4hJ80T18K7zKncP;
+	Sun, 09 Aug 2026 22:01:29 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1786305689;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=XVP4E3N5OOYT+HqQ/+FFQYq0rub4J6LXRpa+4ZAiLSE=;
+	b=S7mqP3b6mXnbCHN4yv3cTeclN9cbzjioy3V5TPTgT7bGWiPj8SnRlJc7ln3FG4+vcQ66gE
+	kEvUe2184uCHrxiI+CeMfHfj14eenWD/8FWVVEi6uCFEUvpjkvnfv2nfOGzEIh+pRklRdc
+	ApU8a5EovVfKgovuuDXw377Zdjdzqn8iuhXx6CD2fhY1edP6RXmHXxjMikVd9bWn9Ff2vz
+	fofbYiojLKqPp5SAemzVAIzduMc2OXu9sacRrV9OWWLd3577RPApHEHlrkOwl0Vlp6K/84
+	H3BMPQAtjG6YZQz5m+DN4GDJEID68xga7v83pV+PU/msCkLlxrRG5qWUGGLAKg==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=LBFCIaGQ;
+	spf=pass (outgoing_mbo_mout: domain of marek.vasut+renesas@mailbox.org designates 2001:67c:2050:b231:465::202 as permitted sender) smtp.mailfrom=marek.vasut+renesas@mailbox.org
+From: Marek Vasut <marek.vasut+renesas@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1786305687;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=XVP4E3N5OOYT+HqQ/+FFQYq0rub4J6LXRpa+4ZAiLSE=;
+	b=LBFCIaGQ7jYSVY71W/HVWdSrxK9bmPk+N9CSSryB4V6+rangU6YWNZDmZAFvIxc82q0oT0
+	5+ZIPPwS/j1/x9miZoFWddMBQBFAoRjWGdPDQemw4ShwOs2SPzR+g1NR2i1RTQ1N0+qClL
+	ZT4BsC2+FUeG+dz5HA9pyM3Qg47k5Mvp+0EaNAKqqRB1MKmHlFrS2lf3Tq0myStcHgWUbT
+	3jt7qxjvSCGhah08mvMkl1frf+rVlsslVMAtEM2oE0eby3OvaRkgSQbs7asvsRtKALNkg5
+	Kc4tF+TwjU23FrkTMymrgGzuFp4AE4z1mEIJ8geah8wU2sOPSBxncMhx5D/+dQ==
+To: linux-arm-kernel@lists.infradead.org
+Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	David Airlie <airlied@gmail.com>,
+	Jessica Zhang <jesszhan0024@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Simona Vetter <simona@ffwll.ch>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: [PATCH 2/4] drm/panel: ilitek-ili9882t: Make enable GPIO optional
+Date: Sun,  9 Aug 2026 21:58:51 +0200
+Message-ID: <20260809200107.842945-2-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20260809200107.842945-1-marek.vasut+renesas@mailbox.org>
+References: <20260809200107.842945-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/8] arm: dts: mediatek: mt6589: Enable toprgu reset
- controller
-To: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-Cc: Akari Tsuyukusa <akkun11.open@gmail.com>,
- linux-mediatek@lists.infradead.org, Wim Van Sebroeck
- <wim@linux-watchdog.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, linux-watchdog@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260809160643.33991-1-l.scorcia@gmail.com>
- <20260809160643.33991-4-l.scorcia@gmail.com> <aniv5B4jz07mI70D@buffalo-ssd>
- <0e4dfe8b-af67-4dcf-92fc-cd564d7c3744@roeck-us.net>
- <CAORyz2+op80Tj1Ax1PD8wN9fAT5QfAev+vEPBgihvM0O-tWXPA@mail.gmail.com>
-Content-Language: en-US
-From: Guenter Roeck <linux@roeck-us.net>
-Autocrypt: addr=linux@roeck-us.net; keydata=
- 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
- np3900V20aS7eD9K8GTU0TGC1pyz6IVJwIE=
-In-Reply-To: <CAORyz2+op80Tj1Ax1PD8wN9fAT5QfAev+vEPBgihvM0O-tWXPA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-MBO-RS-META: r4niqxu4in13ypauckkbmqpiuapagc7c
+X-MBO-RS-ID: 23bb4397981dbe2c482
+X-Rspamd-Queue-Id: 4hJ80T18K7zKncP
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260809_120906_397848_5CC1BAE3 
-X-CRM114-Status: GOOD (  11.19  )
+X-CRM114-CacheID: sfid-20260809_130131_941368_C38BB1D7 
+X-CRM114-Status: GOOD (  11.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,29 +104,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/9/26 11:55, Luca Leonardo Scorcia wrote:
-> Hi,
-> I added his Signed-off tag as he provided basically this same patch in
-> a separate series [1] slightly before this submission and I wanted to
-> acknowledge his work. As far as I understand, this attribution is
-> within the guidelines.
-> 
+The enable GPIO may not be accessible on the panel, make it optional.
+This is the case on 10" Raspberry Pi Touch Display 2.
 
- From Documentation/process/submitting-patches.rst:
+Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+---
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>
+Cc: David Airlie <airlied@gmail.com>
+Cc: Jessica Zhang <jesszhan0024@gmail.com>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
+Cc: Maxime Ripard <mripard@kernel.org>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>
+Cc: Rob Herring <robh@kernel.org>
+Cc: Simona Vetter <simona@ffwll.ch>
+Cc: Thomas Zimmermann <tzimmermann@suse.de>
+Cc: devicetree@vger.kernel.org
+Cc: dri-devel@lists.freedesktop.org
+Cc: linux-renesas-soc@vger.kernel.org
+---
+ drivers/gpu/drm/panel/panel-ilitek-ili9882t.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-   Any further SoBs (Signed-off-by:'s) following the author's SoB are from
-   people handling and transporting the patch, but were not involved in its
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   development. SoB chains should reflect the **real** route a patch took
-   ^^^^^^^^^^^
-   as it was propagated to the maintainers and ultimately to Linus, with
-   the first SoB entry signalling primary authorship of a single author.
-
-I won't apply this patch anyway, so it is for others to decide if
-"this attribution is within the guidelines". I stand by earlier
-statement.
-
-Thanks,
-Guenter
+diff --git a/drivers/gpu/drm/panel/panel-ilitek-ili9882t.c b/drivers/gpu/drm/panel/panel-ilitek-ili9882t.c
+index 6d07fe901357e..219d048cb883f 100644
+--- a/drivers/gpu/drm/panel/panel-ilitek-ili9882t.c
++++ b/drivers/gpu/drm/panel/panel-ilitek-ili9882t.c
+@@ -787,7 +787,7 @@ static int ili9882t_add(struct ili9882t *ili)
+ 	if (IS_ERR(ili->pp1800))
+ 		return PTR_ERR(ili->pp1800);
+ 
+-	ili->enable_gpio = devm_gpiod_get(dev, "enable", GPIOD_OUT_LOW);
++	ili->enable_gpio = devm_gpiod_get_optional(dev, "enable", GPIOD_OUT_LOW);
+ 	if (IS_ERR(ili->enable_gpio)) {
+ 		dev_err(dev, "cannot get enable-gpios %ld\n",
+ 			PTR_ERR(ili->enable_gpio));
+-- 
+2.53.0
 
 
