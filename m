@@ -4,111 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD843C5AC80
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 11:48:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 762FBC5AD4E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 12:12:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cko3zHK3AZ44CP9iv+bawq/dcdWlNtCNj2kBh7j6SUc=; b=m5S+0PfESXeGDztWOC4XRp/BUc
-	hIr13kxr2Rl74KT7UWFa8JP2k6h0T6sUW1kQKkPs6z64JtNZHBaGLJfbrp3skXyeJA1vxV/h6N1ts
-	hrU7QK3YfIxRQG1jlxNS8lClzU1BMLwG2nKsA6EtUYuNNC5SNhhJ8BYZhTyOv3jWkITKari/uqTTQ
-	gVbZVJLu5Z2WZiQLClTd4neE1mD/U9LzIJrZ/4APu1/kFXhD9/AbxYU8F+4r9y3/NV3STscgOZlYe
-	hmuRdAYqkA9Zv/52/bzBMwndrro1bYuShPM5JYVs3504uZ3mCW/PfbhKI3zMWdvTxhKTeqsupzudI
-	/kaDeO0A==;
+	bh=1F/+cfZIAkAn2MH5HWhnU43a68MUjIzWX0xwmyWQRGo=; b=G0STDOGrwCOXON4jYyo8sldxWG
+	hW+s6h9wpsTbNMW+qjWqMnJOOT197ElzhbpsfLKeSPYalKdGtycx/G4gxOUI/M208dSJ1PQhH1fb9
+	yDlYvdqynPl+Vh4TdeSNi1txztb/9VXMcjE15YdlRVoDWv/Iy4/5uQgZnUU3XzCNCg1wk97/4DhHb
+	uR7wat6SaJnU0/bwBCZVhhWlxTp5HPmK/4yjHp5C7phcLZki6GSTNN5YolHPdhCdWkylEKkolfC8q
+	Z+nTf7sn1whDLVlIqRAQjQGFyhmPQfATMVJ3D04Jp0RrrgmmiuSSf0Ya3O28ojX+QfPLQ3ucG4EHU
+	BqNGyDxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wt21D-0000000AG8X-1RwB;
-	Sun, 09 Aug 2026 11:48:43 +0000
-Received: from m101-out-mua-6.websupport.se ([109.235.175.106])
+	id 1wt2OE-0000000AGzQ-2p7K;
+	Sun, 09 Aug 2026 12:12:30 +0000
+Received: from mail-qv1-xf2f.google.com ([2607:f8b0:4864:20::f2f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wt21A-0000000AG4T-2jkV
+	id 1wt2OC-0000000AGyb-42Cu
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Aug 2026 11:48:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=palvencia.se;
-	s=mail; t=1786275984;
-	bh=Cko3zHK3AZ44CP9iv+bawq/dcdWlNtCNj2kBh7j6SUc=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=jtEcCMM8dze1O2lHaItcxTfsrT3zJ50rtcdIQPjgCHN0yx10+VdlMvSuZayxbOTUq
-	 bFebBddWlbbVp6MERktEFtiU6L2muwqRqLEa0feAg5mWdxlq3ovorobf6/SJqAjvsw
-	 h4ZFP3blh8gHCV6+CM2jcRj5xvLUqgK12KZ4/7upyXtpWaorMMlN0fKjWdrws+2seL
-	 pwl+pOJrbZKcOBoVrpF0ri5o1U6CjO2J3LB0ecnTorxJCywxho3BtsX9g71rmIDOYk
-	 aON7B4BljLnfPWGXe3W/xJs/VG34WS1yZDnm4Ubv6WxJxBxVhWjAXzBvmu8sSRZMY9
-	 naxwCBxkD9R/g==
-Received: from m101-u6-ing.websupport.se (unknown [10.30.6.2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	by m101-out-mua-6.websupport.se (Postfix) with ESMTPS id 4hHx1D4s79z1pGK;
-	Sun,  9 Aug 2026 13:46:24 +0200 (CEST)
-X-Authenticated-Sender: per@palvencia.se
-Authentication-Results: m101-u6-ing.websupport.se;
-	auth=pass smtp.auth=per@palvencia.se smtp.mailfrom=per@palvencia.se
-Received: from rpi (unknown [193.180.91.180])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: per@palvencia.se)
-	by m101-u6-ing.websupport.se (Postfix) with ESMTPSA id 4hHx182yG3z39Jw;
-	Sun,  9 Aug 2026 13:46:20 +0200 (CEST)
-Date: Sun, 9 Aug 2026 13:46:07 +0200
-From: Per Larsson <per@palvencia.se>
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
- <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec
- <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Heiner
- Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, Liu
- Changjie <liucj1228@outlook.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-sunxi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 6/6] arm64: dts: allwinner: a523: x96qpro+: enable
- Ethernet support
-Message-ID: <20260809134607.65d66069@rpi>
-In-Reply-To: <20260803101452.2993721-7-andre.przywara@arm.com>
-References: <20260803101452.2993721-1-andre.przywara@arm.com>
-	<20260803101452.2993721-7-andre.przywara@arm.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	Sun, 09 Aug 2026 12:12:30 +0000
+Received: by mail-qv1-xf2f.google.com with SMTP id 6a1803df08f44-8f0e5e36912so5234936d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Aug 2026 05:12:28 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1786277547; cv=none;
+        d=google.com; s=arc-20260327;
+        b=aQtz1DI++2x9bg4pgnE+WNrL31Yk5VOhb2hk83wO3OADi2DaZdW0NeZsbh4kx4wi1+
+         OLs7y7hOTnOJ5TRZiC8CmQ8vBnSEhisJOIjlfF84vFkOLMcZa7jCY8hGwU+/RfScZE9q
+         1C1jQWzoCrcT8g/T4mBUhoHR85zmPZ7ZfJTv9ap3/GgbJKbYOjdBHejfac4HpabszFJe
+         bfWec67/zlcb1G8F0j0S5PWRlygN+wuWl+0eD7UBrLj3wUWqdlVyH1dzL/K2KN+DWRjv
+         Phna/5hIXX/AgVeY5gIwe66cg9kCsQEIDhzVCfSIDlXT1dSr+5IrXs2Y2x0VhN72n20/
+         RbRg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=1F/+cfZIAkAn2MH5HWhnU43a68MUjIzWX0xwmyWQRGo=;
+        fh=7tpVTIakn6CHqBWo9gaNkv33mgCTTAH8Yfdox4y85wc=;
+        b=emMDGtJLUoJrHOzLI4uZTzZX+De4l63e6NezC3xW/CQcE6mcnlK7ZZCyLA6uy5nn6p
+         UnQ2mPnUiTmKnWX/upYjWldrJ6lxU7/SQt1LfxRRCGLBDhc5ay+wn/C6usvR2dDaFlQs
+         pBlQBtl2UM6BUYExS8XvsnROTtHNVhebRwGYuJawDxg1cYWiLkESVxdYDUdR5N9iL9k1
+         hf6Exbg/LceaZW8yiqORWnlhsvSwruz+ut6VR1zV71FLXWnHwu6k5RJRfdbDR0pz1HkY
+         00emhbcuDEEJOPXUQoOxNUWhETkLtwzVy0DtulEwxaVEAwGZFew4dYPE3pQxohppyFzN
+         EtSQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786277547; x=1786882347; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=1F/+cfZIAkAn2MH5HWhnU43a68MUjIzWX0xwmyWQRGo=;
+        b=kZ6dL5byDCyupt+QwW+dmtNoTrZNHj9ABpVX/x7M7aTsSuo6ryDMknKpFiqzOFr9A9
+         3Y1wCoRIwMN04BpYO+SS56KCcty2SE07AWPq+wiEKOeSf3udRuayt5fIUSIvUOGOILXn
+         WbE7C/Bli6p1mvLBlUSa7OSMsjyWzpelyGYO53HnLD9nHyh3xSgbavKZFFn+aQYnqTbR
+         xEv7bGuAMfYp/HI1LyzCmW0QjN2g5dmV1FObb0e7nRVzXJsRQjBKQLaKYNSUZZrthL7T
+         Y0LVYu8szMBaD+7ibA+KBV4wm6UdYS5nLVVFsUBHmk5L9hNi0fdmQ1WQBXQ5s/lFyXuH
+         gjdA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786277547; x=1786882347;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=1F/+cfZIAkAn2MH5HWhnU43a68MUjIzWX0xwmyWQRGo=;
+        b=RCiDmARdrw3CGBZU8AB8FgY1E10YD0klDuiEtHzXo502EWYLu8d6/nOLE2mZmuD+hc
+         sK6uNR+Yj76DaeLn2ptdDBaN06osMsjOs6KK641zey/2096AUA+fMrEchRX3t3oaRoSo
+         szKVCrRZ6ShrmZAnpIhXFz8GMLvJSSLei9rjiv76ZnZfNyc6QC4re1XE4VE+F4/RMID+
+         dyKI+MleWAO5hNI4l42pI9VanYahrY/oK7Kuth97TktbR/ldDHedqtrYE09ek8H9PoMw
+         DNhZOho2f84ENOh9bOgR9jWDgWeK+gaIJ/r1ASg9Vvul/UpYKfJA4VCTaYg1wT4z50Uu
+         pzkQ==
+X-Forwarded-Encrypted: i=1; AHgh+RoadfF+z9R6GesdlhIQ0kBnfklfN6myTVKXM5x7Zb07e2r7H1zmN5gsm3cI7mkAUeX+Dm5uKbupRo3HDSMmRd2s@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy3UW4r5GjLXizTBX21MWOEJkFB+UKZoeMEqsSG9aD1IqonRA8R
+	VjKAuTXGrO7CRxXkfZqIXu3p0MjXmxPe2Jsn8kAfgQI6WdCucQU760evupSozb6iXTMbKt56PSp
+	34lYUjhvNnwUSFeYWJIh/qXGOSivKT+Y=
+X-Gm-Gg: AR+sD12wgt46VDGwaci21UNFM6QczmgH5ltFPCOqPLbubKQf5krpgofAxHfHCDAblIu
+	qpSNCfnCb6KYYTK6PzWF6ZLL1FNLk2I9PVs28WxGpMsrK8Q/xwPhawQ4y2SIJZiA+4QuU8eyW+s
+	KzndEvg4QJ96Apo223RTLpAWp6ongU5w4nhBuS5rA+pCfL1B0SJan6pdeqrYS9uQoLM2YHoePCC
+	QriHIQzZTEzivwoNEioLLU5Zlz4i3hslA77k6KylL3AEWWl0KLbsDNZJs0FwfCvSH4ilHYLPHnA
+	y9vZMqpTDumB0wINGjoeSbylgcd3Wz2xxNDPDplYww==
+X-Received: by 2002:a05:6214:5346:b0:8ed:1887:426e with SMTP id
+ 6a1803df08f44-9088126d7cemr445146386d6.24.1786277547104; Sun, 09 Aug 2026
+ 05:12:27 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Rspamd-Action: no action
-X-Out-Spamd-Result: default: False [1.90 / 1000.00];
-	SUSPICIOUS_RECIPS(1.50)[];
-	MID_RHS_NOT_FQDN(0.50)[];
-	MIME_GOOD(-0.10)[text/plain];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com,outlook.com];
-	TAGGED_RCPT(0.00)[netdev,dt];
-	RCVD_COUNT_ZERO(0.00)[0];
-	ARC_NA(0.00)[];
-	TO_DN_SOME(0.00)[];
-	ASN(0.00)[asn:35790, ipnet:193.180.91.0/24, country:SE];
-	RCPT_COUNT_TWELVE(0.00)[19];
-	BAYES_HAM(0.00)[50.10%];
-	HAS_X_AS(0.00)[];
-	ALIAS_RESOLVED(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	FROM_EQ_ENVFROM(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	LOCAL_OUTBOUND(0.00)[];
-	FREEMAIL_CC(0.00)[lunn.ch,davemloft.net,google.com,kernel.org,redhat.com,gmail.com,sholland.org,armlinux.org.uk,outlook.com,vger.kernel.org,lists.linux.dev,lists.infradead.org]
-X-Out-Rspamd-Queue-Id: 4hHx182yG3z39Jw
-X-Out-Rspamd-Server: m101-rspamd-out-5
-X-purgate-type: clean
-X-purgate-Ad: Categorized by eleven eXpurgate (R) https://www.eleven.de
-X-purgate: This mail is considered clean (visit https://www.eleven.de for further information)
-X-purgate: clean
-X-purgate-size: 613
-X-purgate-ID: 155908::1786275984-BC6051C6-6F571976/0/0
+References: <CAGXv+5HrDw8GWb9zp1AaQU9UW+0FGcr7jOV2jt_zi_2KgfgBqA@mail.gmail.com>
+ <20260807152059.GA39821@bhelgaas>
+In-Reply-To: <20260807152059.GA39821@bhelgaas>
+From: "Christian Marangi (Ansuel)" <ansuelsmth@gmail.com>
+Date: Sun, 9 Aug 2026 14:12:12 +0200
+X-Gm-Features: AUfX_myzAmsvVlb0T_3tOngECWxC2UoI-Iw4nvKe7r1djj_0kecpEPp7cncj8nM
+Message-ID: <CA+_ehUxQfWRRec4q2ZvC12nYAeV2VGm1xCFrTWeN6sEL+qkXBw@mail.gmail.com>
+Subject: Re: [PATCH v5 0/2] PCI: mediatek-gen3: Add 2-lanes mode support + clock
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Chen-Yu Tsai <wenst@chromium.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	=?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Ryder Lee <ryder.lee@mediatek.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Jianjun Wang <jianjun.wang@mediatek.com>, linux-pci@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260809_044840_882994_C6CD1D10 
-X-CRM114-Status: UNSURE (   8.29  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260809_051229_014065_AC5E8710 
+X-CRM114-Status: GOOD (  31.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,29 +126,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon,  3 Aug 2026 12:14:52 +0200
-Andre Przywara <andre.przywara@arm.com> wrote:
+Il giorno ven 7 ago 2026 alle ore 17:21 Bjorn Helgaas
+<helgaas@kernel.org> ha scritto:
+>
+> On Fri, Aug 07, 2026 at 11:24:09AM +0800, Chen-Yu Tsai wrote:
+> > On Fri, Aug 7, 2026 at 12:53=E2=80=AFAM Christian Marangi <ansuelsmth@g=
+mail.com> wrote:
+> > > This small series introduce support for 2-lanes mode for Airoha AN758=
+1
+> >
+> > Just a nitpick, but I would probably name this something else, like
+> > "cross-controller lane-bonding mode" or "lane stealing"? PCIe already
+> > has 2x lanes as a standard feature, so this naming is a bit confusing.
+> > It's not like dual-LVDS display in which LVDS is only a single lane.
+>
+> I suggested the "2-lane" and "x2" terminology because I assumed the
+> result is what the PCIe spec would describe as a "x2 Link" consisting
+> of two Lanes.
+>
+> If that's not the case, maybe "cross-controller lane-bonding mode" or
+> "lane stealing" would be more accurate, but I don't know what those
+> mean, so if we use them I would also like to know what the result
+> looks like in standard PCIe terms.
+>
 
->  
-> +&mdio1 {
-> +	ext_rgmii_phy: ethernet-phy@1 {
-> +		compatible = "ethernet-phy-id7b74.4411";
-> +		reg = <1>;
-> +		clocks = <&ccu CLK_EMAC1_25M>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&ephy_25m_pin>;
+Mhhh I don't really like the term lane stealing. Also cross-controller
+lane-bonding
+might be a first. Even if correct it would complicate identification
+of the feature
+that at the end of the day configures the HW to provide a 2 lanes PCIe.
 
-This should be &ephy1_25m_pin, right?
+Consider that in such mode, the other PCIe controller gets disabled (this i=
+s
+handled in DT) so it's effectively enabling the standard PCIe 2x lanes
+and apply the HW configuration for it.
 
-> +		reset-gpios = <&pio 9 16 GPIO_ACTIVE_LOW>;
-> +		reset-assert-us = <10000>;
-> +		reset-deassert-us = <150000>;
-> +	};
-> +};
-> +
->  &mmc0 {
->  	vmmc-supply = <&reg_vcc3v3>;
->  	cd-gpios = <&pio 5 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; /*
-> PF6 */
-
+> > > SoC. This is needed for correctly functionality of Eagle WiFi Card
+> > > normally attached to this SoC that require a 2-line PCIe card to
+> > > correctly work (and give the proper performance)
+> > >
+> > > The first 2 patch address a limitation of the PCIe implementation
+> > > where the PERSTOUT reset were indirectly asserted and deasserted
+> > > all at the same time (for all the 3 PCIe card) with PCIe
+> > > enable and disable.
+> > > The 2 patch address this and introduce correct reset to control
+> > > reset line for the relevant PCIe line.
+> > >
+> > > The last 2 patch add additional logic and support to assert
+> > > and deassert the PERSTOUT and also apply the required configuration
+> > > for 2-lanes mode.
+> > >
+> > > 2-lanes mode is implemented in DT by adding the required property
+> > > and by defining the "num-lanes" to 2.
 
