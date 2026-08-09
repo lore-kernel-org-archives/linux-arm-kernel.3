@@ -4,98 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A5BDC5AD4E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 18:12:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B75FC5AD4E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 18:14:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WoCA45LQ4z+3BUUhv5YOm84o93I32Yjtpc3HcvkQ194=; b=KdYvZYiD4F1RGH9NBxNBnTkK5l
-	ICca0K7wmnzkncWHJYhBexYACyWTewMzB2zlxkq61OuQZu1zynS3DXM92/6fz/8ZKEwuLlfFSekZN
-	zAt3w31DWJJXUsRF5LmhY0nndaijoulSU7kHO6rBSNiauhoGjRnxt6aN8jeCj9PjKIAmignfegTns
-	bIoPiAniEfvMFNEXGuKVyb4GSBsDeQP6+GTb3lBiEjruzT4f4j2QXiRmMft2uw80qBZnKuyH23zZK
-	pca0Pjf4Zoz/Xd46dYvSiFPcpOMsX0X7/tfxTuBW/f/IPlAcmrp6e5PXl7N6wDRIDoSLr13TKx1+c
-	pe/jtaZA==;
+	bh=biTFnHYssGz2lOpfbiM0gbuJjSJ8jehqLOBv/83u8vw=; b=ipezUIBvXFlcCE7YWJlmiXQapK
+	HJux1hRC7lk3CQXxeqqm8TeY76j2Hme1cdKJBHpUSzkOcAxXntNDta63PQSlEhx2U0YmU5QIbBWDE
+	daf/bgCwLFq1/7gRjCB8Lxr3kAfaicn7ZNI2hZjNzfRl6zA2Z2oK8tz9tOG3u4MqhTWhPlF3BpYKd
+	MJedp1am3OIyAJwz0rci/G0P5WduYTg1IehITaM7mlKECA+sBUMLhgNBztWNLmD/a7gXBRAoPcv19
+	eRGwRWSR1qFyKe58ClwN7fBkY1L73vjSvurpMJvclPEVg8Nla1QOz4GdU/befwzx4rNGfnj6ED9GC
+	Mgs15oHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wt809-0000000AZRf-2Eek;
-	Sun, 09 Aug 2026 18:12:01 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1wt81u-0000000AZdw-3Cjp;
+	Sun, 09 Aug 2026 18:13:50 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wt806-0000000AZR1-1kZZ
+	id 1wt81u-0000000AZdg-19XF
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Aug 2026 18:11:59 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-476a130c138so1110754f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Aug 2026 11:11:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786299116; x=1786903916; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=WoCA45LQ4z+3BUUhv5YOm84o93I32Yjtpc3HcvkQ194=;
-        b=QdgXcNrjg7Bc1SI+OSqRfchAWZA4DW4E2vMObTDQXhetS103Jv9XtuZ4dfI+w1Bl2u
-         8aDtjLy7b/oQpE0zoQRGM7H0tQyqjT3wIwVKmAe9017bqdLbxuS1h/8Kf44G3vtJwusZ
-         NILEjjbMUts3yjYbUP2On3Epih2Ph+reo1juBLFYZJq+Zn6MacBfzba9mlaOHAJ0nZ6P
-         YZ2GLNlrWZAuMHESAUurSJKbMLZMnYdyneyLEYwi/PjklUV0MeGPFoINBIUy/6IPYZiF
-         UYWcCuPFIbJG6PWtg2uUe4zMWCcdhxlA5ln12YgILh3sAiN8dO7Zi0CER8cwjCIa8w3G
-         1ICg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786299116; x=1786903916;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=WoCA45LQ4z+3BUUhv5YOm84o93I32Yjtpc3HcvkQ194=;
-        b=PBdn8YiPmdnvsnMUJ0frEOKrtrtEiP17AoMeIRIq0SWlbUwqkaGg90YjBv9i7C+QYS
-         nVEkDdTZTvteYt9r3OIElnhOhzSVXQJWcvuiT26waB/kWO4C3Cp2kpxfEsgyf+/UEalh
-         LNfnhUn+/HrWl7ffMbbGHDIowDMmyfp+Jxt2AdWAS8P9X3yLK3NZ/5vbcIPQj15DKE8Q
-         vRCfGGgcGBm29U2ccTi2mypaHtYsxVWdson9s+sJxZhA+5A48tMn4SrWkfBTyn1yTYOp
-         W3JlynDp6n+/C8BvY3XqEhys60e7Ml7dddJTxSoiDUPC7EhHwd/TJZt+BdcsnDcGnB1L
-         1bSg==
-X-Forwarded-Encrypted: i=1; AHgh+Rq6/CA7ao2xy8XDDzoSNWUdCUat0vlvLEg/sAz8tQZsHJmf0m5GbyZeJYE0/CVk1dT7u3q+hBeBwCiudqxi6Gol@lists.infradead.org
-X-Gm-Message-State: AOJu0YxENF2WIL5AKYXLuIkntKmOoU8AyiAhqoJ+g35aorczJOj0+hE7
-	UjqE7LikAizt2z6woNpO4SHnqDBVP6xc6SLW32pvwe+xU57YsuCbt+Gru9zGxxoS
-X-Gm-Gg: AR+sD10DMubauoboBNey1D/+lBGBOLbk0QDZOvuK4xb98lp0RDu6FaqOqM+jg1v6MpJ
-	ALHasDRX9sb9Gd//LdwCujU0xInLSuWHLVJtKDJoSoMESHHSI17Hz1osboOG0amuLITiKnTZAaI
-	epGzz5S9b1dHHP0jMAB57zPFahFgOFc5ugX2jZPIdQm/pVDfcCzQBX7ddxgUyFAXBJ4eNqMb5CN
-	cJgn6OzCqsKig79+0IXJ57CLFCfVgkSyTxc4Uyd6RZJ9xKISQlfnDHg9wu1FvrSf0t5AATyEkpo
-	MMpiFqmO0826jWsglbKuuJe5mqB1JW7vbUxWJzWKouGqM+Ug/SFqNsEcDJ4HkrSc2mQ8VJvWMg/
-	W5U2BF0buQ0jJmJD0cYn40SYCbutJ3si/hoqE1tPTbgUe8bJSztL6zGjpq62MsJMJVDTmghNjht
-	oyExIdeONWL5xqVEGF3iqs/0CbrKbe9e8vDEt4SA7gbFJA2lXxYGcdycYeJFS01IQKpuDiEtRqI
-	6vY8fwOa8h064jvWQaHZrhZzsZQ1SLSU0MvY1RKVVxkI6zbkdPL9BSVb9StGYspEzAFgaKdTI+/
-	Q1IMR683Pji6fQlyQq+pH3KUVZjcCINYafQEHuslKsgqkgSS0S2Xn4mX3uRvqJtiuvOaFCE9rR2
-	XeA==
-X-Received: by 2002:a05:6000:22c9:b0:47f:e7c8:3fe9 with SMTP id ffacd0b85a97d-47ffd15cb0fmr36249046f8f.0.1786299116224;
-        Sun, 09 Aug 2026 11:11:56 -0700 (PDT)
-Received: from MBP-von-Karl.localdomain (dynamic-2a02-3100-ac88-a501-9c5c-9666-3a00-3cdb.310.pool.telefonica.de. [2a02:3100:ac88:a501:9c5c:9666:3a00:3cdb])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-480020be8f3sm24111242f8f.0.2026.08.09.11.11.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 09 Aug 2026 11:11:55 -0700 (PDT)
-Date: Sun, 9 Aug 2026 20:11:54 +0200
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oupton@kernel.org>, Fuad Tabba <tabba@google.com>, 
-	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Sun, 09 Aug 2026 18:13:50 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id B1A6F600AB;
+	Sun,  9 Aug 2026 18:13:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65E8D1F000E9;
+	Sun,  9 Aug 2026 18:13:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786299228;
+	bh=biTFnHYssGz2lOpfbiM0gbuJjSJ8jehqLOBv/83u8vw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=kjNLuZi2b1RsQVaRFK1bSD6X7nIkB4Dli17pb/LGlSEBvF3T/sDZOGFsretR42kSV
+	 wfMKL5jUnxzLGVbNoVkofQHLAFK10I8QOAc1PA+U4i4Jy55JdB1UncbJsnGcAho9jH
+	 EloTpMI54D3UMfCNpm41l+YYurA97l04T/UPRICR9fQzCqMeR/8QcAVY+plmjFToVA
+	 4cCb4cTe0X5Of+sSkA7cDQmcCZM/aIgmWAhI4E+K8vDBu3xKxU2ZZe6Y7TOtxrGnA6
+	 HaPhet94swK2y7INulQrC9b+P7Q15l5+x6EkiNNz9vxUi9cADr+JPKxA1rwOWLser1
+	 XV5otCA4iUpOQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wt81p-0000000DsoJ-33u9;
+	Sun, 09 Aug 2026 18:13:45 +0000
+Date: Sun, 09 Aug 2026 19:13:45 +0100
+Message-ID: <86wltz9n6u.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Wei-Lin Chang <weilin.chang@arm.com>
+Cc: kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Hyunwoo Kim <imv4bel@gmail.com>,
+	Yao Yuan <yaoyuan@linux.alibaba.com>,
+	ljs@kernel.org,
 	stable@vger.kernel.org
-Subject: Re: [PATCH 1/2] KVM: arm64: nv: Allocate the shadow S2 MMUs
- individually
-Message-ID: <anizGXThM-haqQXU@gmail.com>
-References: <20260803224405.41468-1-kmehltretter@gmail.com>
- <86mrv2arf2.wl-maz@kernel.org>
- <anYNTW2e3HalTqTk@gmail.com>
- <878q6fplpd.wl-maz@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <878q6fplpd.wl-maz@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260809_111158_599667_CC93F491 
-X-CRM114-Status: GOOD (  14.86  )
+Subject: Re: [PATCH v2 4/8] KVM: arm64: Correctly handle end of VA space TLBI invalidation
+In-Reply-To: <yifz3wn5gk5sr6mapi32trgk5m5kp33bquctsjmkifebnsnndt@fix6u4rthx4g>
+References: <20260806091026.620700-1-maz@kernel.org>
+	<20260806091026.620700-5-maz@kernel.org>
+	<yifz3wn5gk5sr6mapi32trgk5m5kp33bquctsjmkifebnsnndt@fix6u4rthx4g>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: weilin.chang@arm.com, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, fuad.tabba@linux.dev, imv4bel@gmail.com, yaoyuan@linux.alibaba.com, ljs@kernel.org, stable@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,37 +93,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Aug 09, 2026 at 12:39:10PM +0100, Marc Zyngier wrote:
-> My current patch is as follows, and so far, I haven't seen much that I
-> like better.
+On Sat, 08 Aug 2026 22:41:31 +0100,
+Wei-Lin Chang <weilin.chang@arm.com> wrote:
 > 
+> Hi Marc,
+> 
+> On Thu, Aug 06, 2026 at 10:10:22AM +0100, Marc Zyngier wrote:
+> > Our TLB invalidation by VA code is based on comparing two ranges,
+> > one defined by the TLB, and one defined by the TLBI instruction.
+> > 
+> > Each range is defined by a start and a size. However, the way the
+> > comparison is done doesn't account for address rollover, as it
+> > compares an address with (base + size). This works nicely until
+> > this expression represent the last page/block in the TTBR1 VA space,
+> > as the result is a big fat 0. And a failed TLB invalidation.
+> > 
+> > Rewrite the comparison in a way that is immune to the address
+> > rollover (making the end address inclusive instead of exclusive),
+> > and move this into a common helper that is used by both VA and IPA
+> > invalidations, as suggested by Hyunwoo Kim (although the IPA version
+> > didn't suffer from this particular problem, obviously).
+> > 
+> > Fixes: 4ffa72ad8f37e ("KVM: arm64: nv: Add S1 TLB invalidation primitive for VNCR_EL2")
+> > Reviewed-by: Yuan Yao <yaoyuan@linux.alibaba.com>
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > Cc: stable@vger.kernel.org
+> > ---
+> >  arch/arm64/kvm/nested.c | 43 ++++++++++++++++++-----------------------
+> >  1 file changed, 19 insertions(+), 24 deletions(-)
+> > 
+> > diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+> > index 27bc7ee4b3382..8a602d074dbb4 100644
+> > --- a/arch/arm64/kvm/nested.c
+> > +++ b/arch/arm64/kvm/nested.c
+> > @@ -999,6 +999,20 @@ static void invalidate_vncr(struct vncr_tlb *vt)
+> >  		clear_fixmap(vncr_fixmap(vt->cpu));
+> >  }
+> >  
+> > +static bool vncr_tlb_intersects(struct vncr_tlb *vt, u64 addr,
+> > +				u64 scope_start, u64 scope_size)
+> > +{
+> > +	u64 tlb_size, tlb_start, tlb_end, scope_end;
+> > +
+> > +	tlb_size = ttl_to_size(pgshift_level_to_ttl(vt->wi.pgshift, vt->wr.level));
+> > +
+> > +	tlb_start = addr & ~(tlb_size - 1);
+> > +	tlb_end = tlb_start + tlb_size - 1;
+> > +	scope_end = scope_start + scope_size - 1;
+> 
+> I think if scope_end overflows,
+> 
+> > +
+> > +	return !(tlb_end < scope_start || tlb_start > scope_end);
+> 
+> tlb_start > scope_end can evaluate to true and we return false even when
+> there is overlap near the end of the TTBR1 address space.
 
-Hi Marc,
+I assume that you are implicitly talking about TLB Range Invalidation,
+right? Because we otherwise align base on size, making overflows
+impossible with this patch.
 
-Thanks for your revised patch.
-I think one correctness issue is in there. 
+> Therefore I think we need to saturate scope_end to ULONG_MAX when overflow
+> happens. This is also what the architecture does when looking at the
+> pseudocode J1.2.3.442 TLBIRange (M.c).
 
-> +		for (i = 0; !ret && i < S2_MMU_PER_VCPU; i++)
-> +			ret = init_nested_s2_mmu(kvm, &tmp[i]);
+That's one possible implementation, because the pseudocode is dealing
+with start/end directly, but that's not how our scope works (it deals
+with start and size).
 
-> +		if (ret) {
-> +			while (--i >= 0)
-> +				kvm_free_stage2_pgd(&tmp[i]);
+For that we need to cap the *size*, similarly to what is done in
+handle_ripas2e1is() (see patch #6). Something like the hack below.
 
-The increment expression of the for loop still runs after an error.
+	M.
 
-I reproduced this with failslab. If init_nested_s2_mmu() fails while
-allocating pgt, before mmu->arch is assigned, the for loop still
-increments i. Thus while (--i >= 0) passes the failed entry to
-kvm_free_stage2_pgd(). The resulting log is:
+diff --git a/arch/arm64/include/asm/kvm_nested.h b/arch/arm64/include/asm/kvm_nested.h
+index 21d0f4cbe07f1..5b8edb2e8a87d 100644
+--- a/arch/arm64/include/asm/kvm_nested.h
++++ b/arch/arm64/include/asm/kvm_nested.h
+@@ -305,6 +305,12 @@ static inline u64 decode_range_tlbi(u64 val, u64 *range, u16 *asid)
+ 	num	= FIELD_GET(GENMASK(43, 39), val);
+ 	*range	= __TLBI_RANGE_PAGES(num, scale) << shift;
+ 
++	/* Cap the range to the correct half of the address space */
++	if (!(base & BIT(48)))
++		*range = min(*range, (BIT(48) - base));
++	else
++		*range = min(*range, ~base + 1);
++
+ 	return base;
+ }
+ 
 
-Unable to handle kernel paging request at virtual address fffffffffffff650
-Internal error: Oops: 0000000096000046 [#1] SMP
-Call trace:
-  _raw_write_lock
-  kvm_free_stage2_pgd
-  kvm_vcpu_init_nested
-
-Thanks,
-Karl
+-- 
+Without deviation from the norm, progress is not possible.
 
