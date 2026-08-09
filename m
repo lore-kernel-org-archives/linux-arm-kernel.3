@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C0F0C5AD7B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 17:35:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EBAFC5AD7B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 17:45:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FMzsNibpkbclybef2IiC1pkGWDkaFZm31qCdxzMS/OY=; b=MYCdH5YJc6t5QJBmoTgSp2asMd
-	r+EJfHK2Cc9tB5RWsE3xYthA5bWwJKD30i6LUxS2J0jr1QoyW2ydfxaAMLhlztFcr+Yl4JAvFeahM
-	3oWdPsX9mVEArYUS6VLYGcpxH3YhSuXbdeBlWKldgQGIpl5fpi0R2gkXvEIVmG2m9E8iAjxyAVufH
-	IZoNrV3ABIPvSxgAwcMgnS27Q2TOCtZ/wc0iqtFlZ/5XRKJb4zQwvBLYk6t0sWPK/cm457rGkwTsq
-	4ZEJ/U7yIxN8gl1xBQ6StrMB6jf8HpiJRAT9M+PYHPQ31MnuwO7phtrZvKpyt6B1tnCBJPhQ8QhNG
-	q8Wvk+QA==;
+	bh=eg7DRK6dMUJej+ht+LW9yIFJ4JaBecaPx8FR8PWTaeA=; b=p7oFOVFryqcaqT0LsHP+RdsCRG
+	cx8qi/48Si7PEwfMQDEaFme0p+pZjMvC77bFPZ3NtaQZ+HW0jxo5+aCeRBzzzo6xp1uRMiW6HzJ/Z
+	oSNKqfrN77RmNFSdUQ5b1+FOrjDBQ7B500vFiRreQNqV2j8XDINHWgNUhK47GzzSvKhwaSEWKPTkA
+	n4wU+xn1KrzeHr5Hc8Vlf5tj0bMGJ6eQ69+ulw90+/eCPoMk4HQ1Lnse6Hskp6Dv4SBemwK0vztXY
+	ZjJ4vUxm50k4hMMMcZJyN8SqVHm9U1HSeo3qDCBEm91zd/p/l9+PI/6o6eSpRTX5UG/qDKSQG09+e
+	85lSS0Zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wt7Qm-0000000AXvh-2Vzx;
-	Sun, 09 Aug 2026 17:35:28 +0000
+	id 1wt7aA-0000000AYNF-31G1;
+	Sun, 09 Aug 2026 17:45:10 +0000
 Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wt7Qk-0000000AXvJ-16Nr;
-	Sun, 09 Aug 2026 17:35:27 +0000
+	id 1wt7a8-0000000AYMo-1dxA;
+	Sun, 09 Aug 2026 17:45:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
 	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
 	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=FMzsNibpkbclybef2IiC1pkGWDkaFZm31qCdxzMS/OY=; b=e17QXMv5usqgSTF6AttFhTz4d8
-	1yCkfpV+MuoLt8Fjrb8fDyWwbdXorx21EOpwYDH87hnZwDfb2+1hq+AdWBF5xKyl4iendvsJr4r24
-	sgXdpnCpkpbuoFpH1NXfvpGaYZ6pppRDfs/aUw4bewQo7iCt9VVErf2O70igG+ojgzWQ=;
+	bh=eg7DRK6dMUJej+ht+LW9yIFJ4JaBecaPx8FR8PWTaeA=; b=C3nZo2n62+uKCCnCUZs/k/kw1Q
+	/sKvWP5860UuBFknFOYWHzw0S8560ib2H1PAO/rV+/icA9W6bfCBdg+GBsdBvZ7/qUUr1//nnO5D3
+	XJJXKG4aCO4sAfaMjs+jZR/v9dvTUDAoXvevblCehV4mZjObRmrKqIn1YQyKrxZNnJlc=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1wt7QX-00Gpvc-S0; Sun, 09 Aug 2026 19:35:13 +0200
-Date: Sun, 9 Aug 2026 19:35:13 +0200
+	id 1wt7Zv-00Gq0k-SA; Sun, 09 Aug 2026 19:44:55 +0200
+Date: Sun, 9 Aug 2026 19:44:55 +0200
 From: Andrew Lunn <andrew@lunn.ch>
 To: Christian Marangi <ansuelsmth@gmail.com>
 Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
@@ -61,18 +61,17 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org, llvm@lists.linux.dev
-Subject: Re: [PATCH net-next v11 06/12] net: phylink: support late PCS
- provider attach
-Message-ID: <de79d628-e149-42bd-a21b-90db2e70a7cb@lunn.ch>
+Subject: Re: [PATCH net-next v11 00/12] net: pcs: Introduce support for
+ fwnode PCS
+Message-ID: <4c595c15-17d9-4c23-bb44-344c48d36e9a@lunn.ch>
 References: <20260807131301.192060-1-ansuelsmth@gmail.com>
- <20260807131301.192060-7-ansuelsmth@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260807131301.192060-7-ansuelsmth@gmail.com>
+In-Reply-To: <20260807131301.192060-1-ansuelsmth@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260809_103526_306484_0C06F9C0 
-X-CRM114-Status: GOOD (  14.83  )
+X-CRM114-CacheID: sfid-20260809_104508_449002_7170DD91 
+X-CRM114-Status: GOOD (  10.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,31 +86,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 07, 2026 at 03:12:48PM +0200, Christian Marangi wrote:
-> Add support for late PCS provider attachment to a phylink instance.
-> Similar to FWNODE_PCS_PROVIDER_DEL, FWNODE_PCS_PROVIDER_ADD is added to
-> address the case where a PCS provider is added after a phylink instance is
-> created and started.
-> 
-> The PCS notifier will emit the event FWNODE_PCS_PROVIDER_ADD every time
-> a new PCS provider is added.
-> 
-> If a related PCS is found, then such PCS is added to the phylink
-> instance PCS list.
-> 
-> Then we link the PCS to the phylink instance and we refresh the supported
-> interfaces of the phylink instance.
-> 
-> Finally we check if we are in a major_config_failed scenario and trigger
-> an interface reconfiguration in the next phylink resolve.
-> 
-> In the example scenario where the link was previously torn down due to
-> removal of PCS, the link will be established again as the PCS came back
-> and is now available to phylink.
-> 
-> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+On Fri, Aug 07, 2026 at 03:12:42PM +0200, Christian Marangi wrote:
+> This series introduce a most awaited feature that is correctly
+> provide PCS with fwnode without having to use specific export symbol
+> and additional handling of PCS in phylink.
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+One of Russells complaints was the phylink has too many bits of code
+for ideas which did not work out and were replaced by new ways of
+doing things.
 
-    Andrew
+We want .mac_select_pcs to go away, this framework should replace it.
+Please could you convert one of the exist users of .mac_select_pcs, so
+we get an idea of what that involved. If that conversion is pretty
+mechanical, i think we should have a second patchset which converts
+all the current users, and then remove support for .mac_select_pcs.
+
+Overall i think the direction of this patchset is good.
+
+   Andrew
 
