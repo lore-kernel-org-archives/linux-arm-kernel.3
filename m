@@ -4,72 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D654C5AD4E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 06:43:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EBA3C5AC80
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 07:19:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kGEvv5VOGC8r3PKDG7xQO840y+HV5GeN1/sU4+NvaHk=; b=UrcqAdUy1k93zWbEozs9ySUw0M
-	1OxSkfW0tBDZZF4pA/V2fgx7B/aqqDo8G91WFFOC/9kTu7WKUDQSUIS/3ypAqGkY5GsWsEV99exxs
-	HPGIP2IpBDOSDLz2Mv+cUm7IWKXOo0ziqx3z9p/Jf9J0IzclwPXEYfHXTKHKDgWIhVKsmG4CzprF2
-	/PdUx7uyvTJ5e+ekOJHwV5/zCmB4MmE5MJ8bftITMFhuL/dn+ux27dvG7CJS51gN9pXQwhkrse7rK
-	GZNArYGGXKpBVMgdNqjRz3D9n0X4INnQeLh6sMhfg1SRCrkHzG9BgtwOmksBhvVcWUKaUafG0UtPQ
-	SbcaFmVg==;
+	bh=hodYejE10JFk4D7Yi4a8k5tJenr5IyrIF6Fo4WY6/RI=; b=F+UjaR06raiAtyRaR4FvIAOsbP
+	AtXajZQrmSawqOAJR7k9KdWDcXyY5bkjge1RE7IEdftbFPiD2GYt1Agt5j7TGIMDHw+uIQDYdzHcN
+	cjQPRR+T+zVT7WVD1UByz2IGaRKyzctZDmvvgHj6uxFvntKOBMKqXze7Z2DY5voui3MSw1fp9iHb9
+	puiYHqriZ0egKXXnZcbpjxH+/FnUY/9M3/lIKJ5rlmpxJ1UyhRr7v2vlVLAQrr3soK7xWxkXJcqO+
+	yXipEHz0IaWdrx0ha0v174RAki9uihYU/is5WHr2dGilKTv8diEeHi1fg5w1P5a5b0WBVDTE+WdNu
+	U0yj6IVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsxFM-0000000A2lj-1Djd;
-	Sun, 09 Aug 2026 06:43:00 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsxFJ-0000000A2lM-4BgT
+	id 1wsxoZ-0000000A3u6-0N31;
+	Sun, 09 Aug 2026 07:19:23 +0000
+Received: from layka.disroot.org ([178.21.23.139])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wsxoT-0000000A3tk-35mn
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Aug 2026 06:42:59 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DEFD6152B;
-	Sat,  8 Aug 2026 23:42:47 -0700 (PDT)
-Received: from [10.57.41.8] (unknown [10.57.41.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 909D83F9A2;
-	Sat,  8 Aug 2026 23:42:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786257771; bh=R6yBmyxuR+V780x3naz0o++V38Ykhmc588fXz/oxl8I=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=IXjLH+zFuDRuSANWFWGuHCpS6ALdYgLhbhvVMnuCqMwBhwBPmXa/0cD4MrUh3IKIC
-	 7Mjsp2FKa01EHb/WVQMyqw3gA19/c3hvrFrgMoljCyJ4nYIVr6cfs8GKinuHdvc2Cr
-	 v+3hmtoka+4W+HdTJiae9BKJJ1W4iarPT0cc7iV0=
-Message-ID: <c6c7debd-42e3-41ac-87ca-96ba543f6c84@arm.com>
-Date: Sun, 9 Aug 2026 07:42:46 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v16 06/45] firmware: arm_rmm: Ensure the RMM has GPT
- entries for memory
-Content-Language: en-GB
-To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
- <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
- Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
- Lorenzo Pieralisi <lpieralisi@kernel.org>
-References: <20260803134403.80630-1-steven.price@arm.com>
- <20260803134403.80630-7-steven.price@arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20260803134403.80630-7-steven.price@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+	Sun, 09 Aug 2026 07:19:21 +0000
+Received: from mail01.layka.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 09FC142C48;
+	Sun, 09 Aug 2026 09:19:12 +0200 (CEST)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id Z7krVjHtXELU; Sun,  9 Aug 2026 09:19:11 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1786259951; bh=ikalTkv5Ibx6UZVhDzEkB2X3qHV5gdGfm5vXWpBzMJM=;
+	h=Date:Cc:Subject:From:To:References:In-Reply-To;
+	b=HaVpSR0eV4lwJI3Zo1GkAKJhw9U43pdq8FdUwseBaQzOltKIsfqBStvT8SPjiLrEH
+	 OH6v26uZYqUSWVzp1x4DZ8NH7EYYvbhFSlV4oez66uDn5TZY7GRE6ZRDMcip9rd80d
+	 BOPXp4YVPvfHLMdtWTcdd7Df04txGyiFtWSFX7O/PcOKfkjyXy6Amx47OCzs1PIcSb
+	 GNskEFhkSM3zcG2cQL6kSYRS4xzFw5dtT239nxsOoUKhwfgyYFV57oQYdW8FZpn7mv
+	 Dp6DNbO4Bo0pRp5uEHumbM7n8Mno/LRqvWji5jiRNLg7nhBPw3S6McvNeZj00YpBF0
+	 THqpME1Ne7Ncw==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Sun, 09 Aug 2026 12:48:59 +0530
+Message-Id: <DKK8AVOYIJSO.20W3VALHO9LVU@disroot.org>
+Cc: "Jagan Teki" <jagan@amarulasolutions.com>, "Marek Szyprowski"
+ <m.szyprowski@samsung.com>, "Andrzej Hajda" <andrzej.hajda@intel.com>,
+ "Neil Armstrong" <neil.armstrong@linaro.org>, "Robert Foss"
+ <rfoss@kernel.org>, "Laurent Pinchart" <Laurent.pinchart@ideasonboard.com>,
+ "Jonas Karlman" <jonas@kwiboo.se>, "Jernej Skrabec"
+ <jernej.skrabec@gmail.com>, "Luca Ceresoli" <luca.ceresoli@bootlin.com>,
+ "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard"
+ <mripard@kernel.org>, "Thomas Zimmermann" <tzimmermann@suse.de>, "David
+ Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Seung-Woo
+ Kim" <sw0312.kim@samsung.com>, "Kyungmin Park" <kyungmin.park@samsung.com>,
+ "Krzysztof Kozlowski" <krzk@kernel.org>, "Peter Griffin"
+ <peter.griffin@linaro.org>, "Alim Akhtar" <alim.akhtar@samsung.com>,
+ <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>
+Subject: Re: [PATCH v3 2/3] drm/bridge: samsung-dsim: use DSIM interrupt to
+ wait for PLL stability
+From: "Kaustabh Chakraborty" <kauschluss@disroot.org>
+To: "Inki Dae" <daeinki@gmail.com>, "Kaustabh Chakraborty"
+ <kauschluss@disroot.org>
+References: <20260723-exynos-dsim-fixes-v3-0-0c31ae1dbecc@disroot.org>
+ <20260723-exynos-dsim-fixes-v3-2-0c31ae1dbecc@disroot.org>
+ <CAAQKjZMP+iQAZUGG0LtbXJWivOjVXCLB=uaqmYkenvmNK=S_vQ@mail.gmail.com>
+In-Reply-To: <CAAQKjZMP+iQAZUGG0LtbXJWivOjVXCLB=uaqmYkenvmNK=S_vQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260808_234258_135256_C7D8C4C2 
-X-CRM114-Status: GOOD (  30.16  )
+X-CRM114-CacheID: sfid-20260809_001918_344091_0BED46CF 
+X-CRM114-Status: GOOD (  22.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,126 +88,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/08/2026 14:43, Steven Price wrote:
-> The RMM maintains the state of all the granules in the system to make
-> sure that the host is abiding by the rules. This state can be maintained
-> at different granularity, per page (TRACKING_FINE) or per region
-> (TRACKING_COARSE). The region size depends on the underlying
-> "RMI_GRANULE_SIZE". For a "coarse" region all pages in the region must
-> be of the same state, this implies we need to have "fine" tracking for
-> DRAM, so that we can delegate individual pages.
-> 
-> For now we only support a statically carved out memory for tracking
-> granules for the "fine" regions. This can be extended in the future to
-> allow modifying the tracking granularity and remove the need for a
-> static allocation.
-> 
-> Similarly, the firmware may create L0 GPT entries describing the total
-> address space. But if we change the "PAS" (Physical Address Space) of a
-> granule then the firmware may need to create L1 tables to track the PAS
-> at a finer granularity.
+On 2026-08-02 15:56 +09:00, Inki Dae wrote:
+> HI,
+>
+> 2026=EB=85=84 7=EC=9B=94 23=EC=9D=BC (=EB=AA=A9) =EC=98=A4=EC=A0=84 4:04,=
+ Kaustabh Chakraborty <kauschluss@disroot.org>=EB=8B=98=EC=9D=B4 =EC=9E=91=
+=EC=84=B1:
+>>
+>> Stabilizing PLL needs to be waited for. This is done using a loop,
+>> checking the PLL_STABLE bit in the status register.
+>>
+>> DSIM fires an interrupt when the PLL is stabilized. Rely on this
+>> functionality for stabilization wait, getting rid of the implicit loop.
+>>
+>> This has been tested on a Galaxy J6 (Exynos 7870). Unfortunately, since
+>> testing on all supported devices is less feasible, introduce a stop-gap
+>> measure where the timeout has a gracious lower bound of 100
+>> microseconds. This will (hopefully) prevent regressions due to timeout
+>> on other devices.
+>>
+>> Suggested-by: Inki Dae <inki.dae@samsung.com>
+>> Link: https://lore.kernel.org/r/CAAQKjZMLMbwDVZRb5+Xb_5yz3AEP4uuzFJMuuZy=
+9NFDu13VU5w@mail.gmail.com
+>> Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
+>> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+>> ---
+>>  drivers/gpu/drm/bridge/samsung-dsim.c | 41 +++++++++++++++++++++++-----=
+-------
+>>  include/drm/bridge/samsung-dsim.h     |  1 +
+>>  2 files changed, 28 insertions(+), 14 deletions(-)
+>>
+>> diff --git a/drivers/gpu/drm/bridge/samsung-dsim.c b/drivers/gpu/drm/bri=
+dge/samsung-dsim.c
+>> index da753ff6eed4..866cff205e71 100644
+>> --- a/drivers/gpu/drm/bridge/samsung-dsim.c
+>> +++ b/drivers/gpu/drm/bridge/samsung-dsim.c
 
-This sounds a bit incomplete to me. We could add:
+...
 
-"Again, this series do not support creation of L1 GPT tables yet. Thus 
-make sure that the firmware has L1 GPTs covering the DRAM region."
+>>
+>> -       timeout =3D 3000;
+>> -       do {
+>> -               if (timeout-- =3D=3D 0) {
+>> -                       dev_err(dsi->dev, "PLL failed to stabilize\n");
+>> -                       return 0;
+>> -               }
+>> -               if (driver_data->has_legacy_status_reg)
+>> -                       reg =3D samsung_dsim_read(dsi, DSIM_STATUS_REG);
+>> -               else
+>> -                       reg =3D samsung_dsim_read(dsi, DSIM_LINK_STATUS_=
+REG);
+>> -       } while ((reg & BIT(driver_data->pll_stable_bit)) =3D=3D 0);
+>> +       if (wait_for_completion_timeout(&dsi->pll_stabilized,
+>> +                                       usecs_to_jiffies(timeout))) {
+>> +               dev_err(dsi->dev, "PLL failed to stabilize\n");
+>> +               return 0;
+>> +       }
+>
+> This is the main problem: the condition is inverted.
+>
+> wait_for_completion_timeout() returns 0 on timeout, and the number of
+> remaining jiffies (> 0) on completion. As written, this reports an
+> error and returns 0 exactly when the PLL *did* stabilize, and silently
+> succeeds when it timed out.
+>
+> Since samsung_dsim_set_pll() returning 0 makes its caller
+> samsung_dsim_enable_clock() bail out with -EFAULT, the display would
+> fail to come up entirely the moment a PLL_STABLE interrupt actually
+> arrives.
+>
+>     if (!wait_for_completion_timeout(&dsi->pll_stabilized,
+>                                    usecs_to_jiffies(timeout))) {
+>
+> The reason this still passed testing is the second issue below: the
+> PLL_STABLE interrupt never fires in the first place. The two bugs are
+> masking each other.
 
+Unfortunately, fixing these my hardware does not issue the PLL_STABLE
+interrupt for the first panel reset during boot. For subsequent ones it
+does issue the same.
 
-> 
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> ---
-> Changes since v15:
->   * Skip firmware-reserved NOMAP memory in rmi_init_metadata()
->   * Handle negative error codes from wrappers.
-> Changes since v14:
->   * Move the implementation into drivers/firmware/arm_rmm.
-> Changes since v13:
->   * Moved out of KVM
-> ---
->   drivers/firmware/arm_rmm/rmi.c | 101 +++++++++++++++++++++++++++++++++
->   include/linux/arm-rmi-cmds.h   |   2 +
->   2 files changed, 103 insertions(+)
-> 
-> diff --git a/drivers/firmware/arm_rmm/rmi.c b/drivers/firmware/arm_rmm/rmi.c
-> index 51ea661cecf9..bce3304bbc1a 100644
-> --- a/drivers/firmware/arm_rmm/rmi.c
-> +++ b/drivers/firmware/arm_rmm/rmi.c
-> @@ -12,6 +12,8 @@
->   #include <asm/memory.h>
->   #include <asm/pgtable-hwdef.h>
->   
-> +static bool arm64_rmi_is_available;
-> +
->   /* Currently only the first 2 registers are used by Linux */
->   #define RMI_FEAT_REG_COUNT	2
->   static __ro_after_init unsigned long rmi_feat_reg_cache[RMI_FEAT_REG_COUNT];
-> @@ -647,6 +649,98 @@ static int rmi_configure(void)
->   	return ret;
->   }
->   
-> +/*
-> + * Make sure the area is tracked by RMM at FINE granularity.
-> + * We do not support changing the tracking yet.
-> + */
-> +static int rmi_verify_memory_tracking(phys_addr_t start, phys_addr_t end)
-> +{
-> +	while (start < end) {
-> +		unsigned long ret, category, state, next;
-> +
-> +		ret = rmi_granule_tracking_get(start, end, &category, &state, &next);
-> +		if (ret != RMI_SUCCESS ||
-> +		    state != RMI_TRACKING_FINE ||
-> +		    category != RMI_MEM_CATEGORY_CONVENTIONAL) {
-> +			/* TODO: Set granule tracking in this case */
-> +			pr_err("Granule tracking for region isn't fine/conventional: %llx\n",
-> +			       start);
-> +			return -ENODEV;
-> +		}
-> +		start = next;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int rmi_create_gpts(phys_addr_t start, phys_addr_t end)
-> +{
-> +	struct rmi_sro_state *sro;
-> +	unsigned long l0gpt_sz;
-> +
-> +	sro = kmalloc_obj(*sro, GFP_KERNEL);
-> +	if (!sro)
-> +		return -ENOMEM;
-> +
-> +	l0gpt_sz = 1UL << (30 + FIELD_GET(RMI_FEATURE_REGISTER_1_L0GPTSZ,
-> +					  rmi_feat_reg(1)));
-> +	start = ALIGN_DOWN(start, l0gpt_sz);
-> +	end = ALIGN(end, l0gpt_sz);
-> +
-> +	while (start < end) {
-> +		long ret = rmi_gpt_l1_create(start, sro, GFP_KERNEL);
-> +
-> +		/*
-> +		 * Make sure the L1 GPT tables are created for the region.
-> +		 * RMI_ERROR_GPT indicates the L1 table already exists.
-> +		 */
+One lazy solution is to try to peek at the PLL stable bit after the
+timeout and continue execution if it indicates that PLL is stable. In
+that case we should be able to validate it with a fallback.
 
-minor nit: The comment could be moved down closer to the check.
-
-> +		if (ret < 0) {
-> +			kfree(sro);
-> +			return ret;
-> +		}
-> +
-> +		if (ret != RMI_SUCCESS && RMI_RETURN_STATUS(ret) != RMI_ERROR_GPT) {
-> +			pr_err("GPT Level1 table missing for %llx\n", start);
-> +			kfree(sro);
-> +			return -ENOMEM;
-> +		}
-> +		start += l0gpt_sz;
-> +	}
-> +
-
-Rest looks good to me
-
-Suzuki
+I should also remember to drop the Reviewed-by: tag from this patch.
 
