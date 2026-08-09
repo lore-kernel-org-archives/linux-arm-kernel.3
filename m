@@ -4,81 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F7F9C5AD7B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 21:29:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAE5AC5AD4E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 21:29:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=acDm8bRgR8KPzf+K9bAQdb9mwDVo0dBEIic+0zlczzA=; b=l1T1D8929vooBwa0c1m9ZqQgeR
-	MI5p0Hmy1OdZuW3plApXBujMOf1OeS61coO0+n6S/1/USgDCVcXsLgoaa7uNeVNq2JZuKsAwtTHdz
-	yp6N1rkpJ6Ne25JVeMD3d8GKaf0ig1vATTH1Z0b04URhpfJafbglw4r+bhCJDZSwMiC4C8NvSlhzz
-	wBtAcQ/jUzxqe93y5nN6dMjHyDa/qiWawSbl6+zq+611QKqmmnLQC5w+tZHiBoGUl39w6+xgRF5qQ
-	IrxGNGnToz9+/mv4vxjO3Citmtq9EkZVtuWl/5oS5wHqoBT8sd5Nq0WeJ1BvXVyvG1wfHJgs46ABF
-	sRvnCadA==;
+	bh=5SWP9jg8cNKwUNUFEJGTORk88ANCnzD7PTJF8nRu8aw=; b=mW6A0CbWsoLVsSyyU6HmEHAAF0
+	tjQP8CeEEXjvRHVAHOM+wZuZscK4n7MHQyN2KWzcrY9p7uj6f95jWqLBCFdN4emBF/5mAUvkzabvH
+	Ju5C5RDVwvMKZ3jVphqFRaOKTttFjkzKlKC1UcrHtE3mj8CEAB00gU/ilUZizQSeNbxiAwrPMo0zT
+	+nwYRwJIO5VM1EmQGRxDP7oCXsi2pzvhLcyw373DlMOFxBAxYX4JNSjKpPlv9dDZEyYaCYHLYXgT1
+	bSn36TB/xsDyBJd79R9Bh00X7kctHCMN/GYuHmFyvnfz8WzBuEfac6/TZCOHMdZQ8qPjhyU3S3YVO
+	yBXMPLWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtB4s-0000000Ak10-2d3q;
-	Sun, 09 Aug 2026 21:29:06 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1wtB51-0000000Ak8D-0ufn;
+	Sun, 09 Aug 2026 21:29:15 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtB4p-0000000Ajyl-3uz8
+	id 1wtB4y-0000000Ak4p-3XVF
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Aug 2026 21:29:05 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-480001972b8so411118f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Aug 2026 14:29:03 -0700 (PDT)
+	Sun, 09 Aug 2026 21:29:13 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-47f3b39f2a1so1040426f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Aug 2026 14:29:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786310942; x=1786915742; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1786310951; x=1786915751; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=acDm8bRgR8KPzf+K9bAQdb9mwDVo0dBEIic+0zlczzA=;
-        b=fID/++Qw8+qaUUKslCnqHYZzvxFldcOjg7sHX+ZCD1bmIlwBhA9Wy6SNfsx2EQOVGW
-         XI0o07+KETunWRlcnOp6y9cz2ovwSkvBLsa5z01/hXNytrdFzDNZkdNj/YJ0MI6u6AnO
-         89MWmkVCUnnpfGfovuAGmyAPTP2W4EQ/CY9jc9ZHrwbbdkgqcWl1aN1xFtt+WPQpytaW
-         ejHr4yo97wYvPAXTL/oGFyiyQNJvtwmlj+lpIkTDx9hwa1+TsU5vESENrzRZDN1AZhlD
-         mJyfuwtukOY01Wq2JIxuoPjKnMxbCrnY8FPZYhqeECDd0mewF3WG32tvi4UeTQhm78NY
-         gWvw==
+        bh=5SWP9jg8cNKwUNUFEJGTORk88ANCnzD7PTJF8nRu8aw=;
+        b=P8gxuzn0Ycf3nByiVqJ4wAk1+mF4nKuHDGBkF6vXToBtBZAk7Zda2kkTUD+e7DPVCu
+         bVfRTJzzSBxAIuxjDtnOJs233O4t8aRKzT6Tp+xDfcWUa1pqjye9tLyzuOnuDi+hcTbu
+         ha2XH2YoUS/8gFZmXRByVlOX/V1Kp3TpdoW5Mva+P/FCkcDRCFTDbUBJL1pux+mpBWdd
+         1c2RJmlMrRgkd3nSj11/w7ER1DPUd/zlc8vEAUje0YIRwmUtKtt1O8cF2mRTsKp8+rIE
+         VfV80WGbNxocrSfiIWWdNMNVLHoyhLV+3qQmr3uJlHQdl6r4hazOqJfknA5fTU65XevI
+         9+rA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786310942; x=1786915742;
+        d=1e100.net; s=20251104; t=1786310951; x=1786915751;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=acDm8bRgR8KPzf+K9bAQdb9mwDVo0dBEIic+0zlczzA=;
-        b=jz4/GsmZUSyUqFyG7Yeq4IVttNDMsehOf7yex81xhLDFEtApw9fOfRTaaMJFCO7ucQ
-         gkJSd6b3SKZpGz9tRKCwxCBf48nJuh4h3lUunIewM0oYZyqqTG+zGnVB9lp4PPWGWzOd
-         OjizHHKGnr/IJHdKrQhUhNQpLKQpIxzfys1GJxcAGovbQYCSNKrcGuCmjNNCIeCEOFiS
-         kDL7/YahA1S/wR14XpMcKfZoTnEPayrBmqfR83WrpHekmLidhqfrIgdDjiGuqXtuwlxS
-         jbpV6sFGW1tUswqIW8uXKP0bvWEsDch507wfT2ESf0UhOSqVFKAABNkqFckYuF++sL2T
-         tdCQ==
-X-Forwarded-Encrypted: i=1; AHgh+RrP7i6FBUIqKPMxyeMZjnEjmVO4YBR0YfkO45f2kRZffRPKEMnWmQ/zPl+3I/KDjrwKKVHdmXIL4DVni/Lr51EN@lists.infradead.org
-X-Gm-Message-State: AOJu0YzW8eR0URJptBZTT01bBf6T2+5lGoLeCgPLRl/9EMP2B3YLG5jG
-	vus0/6PwPk4AU66aRgtVrxM+RtcbpWb2ymd2E6Ws24e0sc5ASlundivt
-X-Gm-Gg: AR+sD12RZPUKfoo7DoOoPHqhMQgbarY7veuTQWN5HfFCzKBvKVu3hFw74jn1Nao0sZK
-	SWTsuQ9FpgS2KfX8F6EBZKAmcUltUtK1WHhoUMTYbmYlGOPscv1SCMFKYCN1tRhFfuVop2HLVVE
-	sgUuNsEjsZWpMdHVWoODOoEgVqtkRiucUKQC/2hBKk7U7x6s1WD1cqYevdR8PR5ZvlmIsT+bwn6
-	KlCiIpL5T07pqwRB3QhiGNtxe4Br0HwOjLVHFBoO+oGcuBpqF8+b5lexRYvqb8IYC3MqgJAJ2mh
-	+AOyhqW3Fl1MJf0mZBaQx/yVsTOtPcDJ+b4IMlagEc0i4RzuQb0AVSNT7nAak7LDlKa8bTL8Xu+
-	qH8N9TV1RGgt3g/+y61DmQp5RbJUeWS3f17T9uMgQ6c8IZt+ufPzPeacTC2Qep47szJK1m+li/u
-	T04vxR4TJMK7BB+mwdzkUx+uLeUHB56coG+AX8lS9xl+XiFZB2hJet98ygUuDad6morZOSx9Tb+
-	VusGo6BIQ==
-X-Received: by 2002:a05:6000:29db:b0:47f:e797:41c8 with SMTP id ffacd0b85a97d-47fec4e8f84mr44755800f8f.4.1786310941931;
-        Sun, 09 Aug 2026 14:29:01 -0700 (PDT)
+        bh=5SWP9jg8cNKwUNUFEJGTORk88ANCnzD7PTJF8nRu8aw=;
+        b=MeP2FkKHf7oQ5oE1Odk1OpwkGbCweNDODLt2WmZX0WMyfrr0Af1jg1eJVx7M0P2Yvv
+         fjtRWxq0yFw+XGfuPTgQkG4PzXSMeF8uq4cKT72SFhtIpVZRZjeBKNsEWRanVF/hCaMH
+         wbOsvmgWbu9K5YZ1IGgBHASzmHpGHXhCWglICZcM9qgGaIphBTQFoG7/su41ZuxtAt7K
+         Pd2gqJ2GA+EHvI2l9aH+ROB2YKihuyNrfn/emy16dhjM73tQs5KeecVU0vg8w67p2btZ
+         YqnIvEOgLtegP6xmnkwfp34HDB7cUB1IUtb7UBU0128Rih0/Fv6iI3w0NZv6kShwORPQ
+         CggA==
+X-Forwarded-Encrypted: i=1; AHgh+RqveMmNSthQ9wGUnBr5Y1B/PRycaeEF29xTnubY+6sc+lEMTVVL6TBrCtcFdNmhaTqRj3AtPToCUwVMsbhFoxi5@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw6N0MMJ/vRBOSMGXfIMtEeQtGj5zmQppTwDFPmlGXyAja2oIE9
+	ps8vYA0BBa/Zszevg7KaooXbEOmRSjKc3HLyAyRNujeOKkuS7ee3dzYW
+X-Gm-Gg: AR+sD13wZYS9w0zEIThaWDypn73UBO+/SsBtrHczz5dVtB+r8GLPTA+aMWu36kQcVTB
+	8b41lVl5y/Jff8bDuC5vBJMggIXrlAe5ZSjE0jPiIcr7+5sVrXV0Vwmsf1nOrEJyKFWshAfb0at
+	u9gUSe8hCJ32amn6plE6sRQhFuseHcl/BZmM+neI6PFe2VDO3bs295/QI1yOVXbCx5N0or7pghB
+	N6qnlHi2cTcGWNYIKq8SA/dmLRbYvB6IEepz38fkxccJuMcYMea37oaiNHct5NKm8WX9vIlbIZ9
+	hKYjgLVY9yZuA2Pnz5ifSbfCnythQTzgQaSMF5l7kVV6l7v0dv6ArQm4Y1m6zboMIhdsBWEsQpC
+	M1tQz54lOHpRR+a/z1/PvXEdxH8QeyazMdUWVFrTjaKyfS0jIKf3GaEWMumaRUyUUa8Jcg/cRzT
+	6iRgTVImjix+8nsgsO0tIo+pXmn9Lgm+2gk+H9yjo1gOCtClFZNRbpxoFryF3SKNTrOzTZHKA=
+X-Received: by 2002:a05:6000:2dc3:b0:47f:9568:ebf0 with SMTP id ffacd0b85a97d-48130eee945mr19522868f8f.23.1786310950928;
+        Sun, 09 Aug 2026 14:29:10 -0700 (PDT)
 Received: from [192.168.0.2] ([197.250.226.68])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-480021e8c5asm28987451f8f.18.2026.08.09.14.28.56
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-480021e8c5asm28987451f8f.18.2026.08.09.14.29.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 09 Aug 2026 14:29:00 -0700 (PDT)
+        Sun, 09 Aug 2026 14:29:10 -0700 (PDT)
 From: =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
-Date: Mon, 10 Aug 2026 00:28:21 +0300
-Subject: [PATCH v10 02/12] dt-bindings: clk: zte: Add zx297520v3 matrix
- clock and reset controller
+Date: Mon, 10 Aug 2026 00:28:23 +0300
+Subject: [PATCH v10 04/12] mfd: zx297520v3: Add a clock and reset MFD
+ driver
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260810-zx29clk-v10-2-63846490712c@gmail.com>
+Message-Id: <20260810-zx29clk-v10-4-63846490712c@gmail.com>
 References: <20260810-zx29clk-v10-0-63846490712c@gmail.com>
 In-Reply-To: <20260810-zx29clk-v10-0-63846490712c@gmail.com>
 To: Michael Turquette <mturquette@baylibre.com>, 
@@ -91,29 +90,28 @@ To: Michael Turquette <mturquette@baylibre.com>,
 Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-phy@lists.infradead.org, mfd@lists.linux.dev, 
- =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+ =?utf-8?q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=10841;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=8179;
  i=stefandoesinger@gmail.com; h=from:subject:message-id;
- bh=DM1hAVZYJq9k76Uu7Eujy1xt8tFcNCoVKCiI84UGQmc=;
- b=owEBiQJ2/ZANAwAIAT0TvMhUTxoiAcsmYgBqePEOhPutG4kT66u/yfdhDES/DBEjHA5myfnF2
- oQ2l0b9SPOJAk8EAAEIADkWIQRDFvS2qgVbJ5UyXWw9E7zIVE8aIgUCanjxDhsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDIACgkQPRO8yFRPGiJqiQ//UY9pqvw2o6FnDFej6lpUzRFuyLLXD2/
- rcMiPRGIRx5yLtMEICY+MvUIPIH4+NkhL6VK87defohMDyzkodiRZtAQUVjnvrbgwHXvbDUf+OA
- zWCOkzq9TA8VRYinP6WtCQ5qAyxFiR6XSU379EwduNQoMkmTCD8JNIcxk/E/a0O7O/QCknhWoPc
- iRIfRlJhXr/qr7ArYVl8Pa4qg9DsMJCY3ryDMTn4HIrvWijwOWj2xzylOeH975Y7Av1Uc3U81so
- GU85wboPI/DuTCDQbcQnvvPfc67PrdbHeKONhX+0iSCzJVESXufP5mOrNrluls7OYqvyJQCnAkl
- pPZL3QnWqTBEwylCCIZgxzIOnqC0IwAdScadYhkKUGidFSCvjfTyDWYrX5DgQievhK1dsFXah5n
- LB1RFLa4gDUotwMe0LkdjwgEUxDNUiXgxKXzq+8lmZ1IqOHfamKysXOTWDKKJJcicv/C2anNcFA
- G2qQ6PyPbm4v4rXdJiFpZuTxiqAOaGyBZvwC2UPiNnnJOO08iGM0zoIqbOJOVjknXYkVl/hD/R5
- /J3ISgeexzcVqJCgstkFwNUF5OXtV+duB3EIJg2pw5KrWfx1fwex72S/cUeYhx5nUtJ+TQQiCMA
- Jm8jp/5qkJQkCoaSi2VVTKY5VFYuq5DRHZ+28vmnUjw1wNE5rK14=
+ bh=F48ZbgB2cKzAh96uUjTxHIRf1tzu97bISy6rmvv3yOo=;
+ b=owEBiQJ2/ZANAwAIAT0TvMhUTxoiAcsmYgBqePEONRbId+nxoMPZNNnnFYnFQ0H8HlKQzAlwr
+ hCSScFStMiJAk8EAAEIADkWIQRDFvS2qgVbJ5UyXWw9E7zIVE8aIgUCanjxDhsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDIACgkQPRO8yFRPGiKGSg//eHe937MRV8YX/9PdzDsPMUyiFxPbF6U
+ YqzDtX10u/eIdP1QpX3mxCV8ehKCWkdtXSNHPlL09aVrDERc3lUhdA4H2vgWu0Ef49cwsE0KUbM
+ cC9pjjQ3YGwPE62tpuLoC/P3FOaNm52i0UVXBnmEFc8YYPRrrDnjZTBa9wny/X4WXGTxiqf6Pl9
+ zVpxvovQJ0Q/tZeeh3Df4HUr100heVltNz8638gzwJCOUjeeLZFFlnvkedTQ/tpNTFyBO3P/cWB
+ GdTHuRfR2Y4ZdKqCtZrSMqupewpNAzy8PiRhOYSQf7Nl3BC9N0Xyn8c1iMNZWlFDyIQL8/Ko8TD
+ NMU7U/ubwpsWMWCs24csHwV6FyutpFR+kV/uYwivyFaJXthaNgEXbZNNDXXNiQSKVL2elfnRQlu
+ tQEd5giNftGyQPyLJhMDaUwmHSu0jkj4RC+ai4kYoZKELFmdO9YHSkQWRTjvzQ+V2uB/froTSJM
+ 8xUTADjpuLWOnJpQsXUYBm9R7upvDG23yFrkQsPjADMczkHrOJ8SnS/fVDaY0YKAh5pO0M+Xrr+
+ +e2ir+KnkziEddpFXP98h3irJ0HBgpiX2R/QCiESTostrYfVqSx/20s08guw6eD92ejh58L72rV
+ 637OBaTxbCZkT0l/fhCWYimoLxeE0aMb6dHmApO19JYVmUpZpqc8=
 X-Developer-Key: i=stefandoesinger@gmail.com; a=openpgp;
  fpr=4F9C2C8728019633893EBBB98CB81F9A72BBA155
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260809_142904_030509_1D878407 
-X-CRM114-Status: GOOD (  30.79  )
+X-CRM114-CacheID: sfid-20260809_142912_924546_34D97C85 
+X-CRM114-Status: GOOD (  35.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,293 +126,246 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This controller contains clocks and resets for high speed devices on the
-zx297520v3 board and hardware spinlocks that I expect will be necessary
-to communicate correctly with the LTE DSP firmware blob.
+This driver registers child devices for the zx297520v3 clock and reset
+controllers. The clk-zx297520v3 and reset-zte-zx297520v3 submitted in
+the next patches will drive the respective functionalities.
 
-I don't know much about the hwlocks yet other than that they exist, so
-there is no header yet adding meaning to their indices. Presumably that
-meaning doesn't exist in hardware and is de facto defined by ZTE's
-firmware blobs running on the rprocs.
-
-The zte-zx297520v3-crm driver will instantiate separate MFD children for
-clocks and resets, which are handled by separate clock and reset
-drivers.
-
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Signed-off-by: Stefan Dösinger <stefandoesinger@gmail.com>
+
 ---
 
-v9->v10:
-Add ZSP PCLK and ZSP bus reset. I don't know the exact difference
-between the ZSP reset in topcrm+0x13c and the one in matrixcrm+0x3c.
-Core state vs axi connection is my best guess. Both need to be
-deasserted for the ZSP to work.
+What I am still unsure about: How much sense does it make to have this
+module-capable and able to unbind: In practice, the board doesn't work
+without this driver and its clock and reset children.
 
-Fix order of clock-cells in example code.
+Changes v9:
+Deassert the LSP reset and enable the LSP pclk here. In practice the
+boot rom needs to do that because it prints to an LSP-connected UART and
+reads the boot policy from the LSP connected flash chip.
 
-v8->v9:
-*) The SDIO controllers and GMAC depend on topcrm's ahb clock for
-register access / dma operation. Add the input to the binding.
+In doing so, I migrated the match data to an enum as mfd.md suggests.
 
-v7->v8:
-*) Start clock indices at 0
-*) Fix indentation
+Changes v8:
+*) Remove .of_compatible from PHY mfd child
 
-*) Add a prose note about discovered registers that allow writing
-CNTVAL. I am not exposing them in any way because for now I see no need
-to use this functionality. It is possible that the counter resets to 0
-during standby, which means someone needs to fix it up using those
-registers.
+*) Move to drivers/mfd (Sashiko)
 
-Nevertheless, no syscon yet for these reasons: I have no idea how CNTVAL
-behaves during standby. It might be just fine. Standby very likely needs
-firmware handling running on the Cortex M0, which can restore CNTVAL if
-necessary. If Linux needs to do it, it can probably be done by the clock
-or MFD parent driver. Given what I've learned so far I'd rather add
-syscon later than put it in place without a clear user.
+For me either soc/zte or mfd/ is fine. Note though that this MFD parent
+is very specific to the zx297520v3 SoC. I don't expect this to be reused
+anywhere else. There are two more MFD-ish devices in there: soc_sys at
+0x140000, which I plan to handle in the same driver, and an i2c PMIC,
+which would get its own host driver.
 
-Details of how to manipulate CNTVAL will be in the matrix clk driver.
+*) Use PLATFORM_DEVID_AUTO (Sashiko). NONE was intentional as I only
+ever expect one instance, but I don't see any harm in doing the standard
+thing and use AUTO
 
-*) A non-change in the binding text, but worth mentioning: Register
-0x118 contains gates that gate off matrix-synthesized PLL fixed
-dividers. They reinforce the understanding of the top->matrix interface
-and the adequacy of the bindings.
+*) On the suggestion not to put the link to mfd_cells[] into match data:
+I see that it is spelled out in Sashiko's mfd.md, written by Lee Jones,
+the MFD maintainer. I would appreciate some education on the rationale
+behind it: Putting a pointer into the void *data is a common pattern in
+the kernel. I don't understand in which situation this can possibly
+break?
 
-v6->v7:
+Both structs are static const in the same compilation unit. data is a
+const void *, not a uintptr_t or kernel_ulong_t, so it seems passing a
+pointer is the intended use. What am I missing?
 
-*) Moved it back to clock/
+Changes v7:
+Add phy MFD child
 
-*) Remove syscon compatible again. I looked into remaining unknown
-registers and I am convinced that there is no odd misc register left
-that can't be exposed as a proper subsystem provider.
+Changes v6: Make the ZTE SoC driver section depend on HAS_IOMEM
+(Sashiko). The entire MFD section, which contains MFD_CORE, depends on
+HAS_IOMEM even with COMPILE_TEST.
 
-The controls in 0x100 that ZTE's DRAM reading code exercises are auto
-clock gating controls and the actual mailbox is in a different
-controller.
+Add a NULL ptr check for of_device_get_match_data (Sashiko). While not
+uniform, rave-sp, rohm-bd9576, atc260x, da9052-i2c protect against
+incorrect manual attachment that way.
 
-Unknown registers in 0x120-0x12c are a frequency voting mechanism for
-the AXI bus clock. The driver will participate in that voting rather
-than set the frequency via 0x0. If need be it could be exposed
-as #interconnect-cells, but it won't necessitate "syscon".
+Add lspclk here as well in an attempt to satisfy both Conor Dooley, who
+asks for MFD for top and matrix, and Philipp Zabel, who prefers aux but
+at least wants the reset driver limited to one driver type.
 
-*) Reduce the number of input clocks to match register controls in
-topclk's input control that affect matrix and LSP.
+Changes v5: Use MFD instead of Aux bus for top and matrix crm because of
+extra functionality: Reboot in top, hwlock in Matrix.
 
-*) Add DDR mux and gates. Not to change them, but to make sure CCF knows
-about which PLL is feeding the sysmem memory
-
-Changes
-v5->v6:
-Add syscon compatible - Conor suggested this after v4 and I forgot it in v5.
-
-v4->v5:
-Move binding to soc/zte
-Remove topclk from the example
-Add #hwlock-cells for hw spinlock registers
-Add more clocks I stumbled into: sram0 and another LTE related device
-
-v3->v4:
-Split matrixclk into its own controller again because syscon/regmap
-deals poorly with device nodes that have more than one memory region. As
-a consequence I am passing all PLL outputs generated on Topclk down to
-Matrixclk.
+LSP clocks stay with the aux bus and are thus not handled in this
+driver. The clk driver will bind directly to the lspcrm node.
 ---
- .../bindings/clock/zte,zx297520v3-matrixcrm.yaml   | 98 ++++++++++++++++++++++
- MAINTAINERS                                        |  1 +
- include/dt-bindings/clock/zte,zx297520v3-clk.h     | 42 ++++++++++
- include/dt-bindings/reset/zte,zx297520v3-reset.h   | 13 +++
- 4 files changed, 154 insertions(+)
+ MAINTAINERS                      |   1 +
+ drivers/mfd/Kconfig              |  13 +++++
+ drivers/mfd/Makefile             |   2 +
+ drivers/mfd/zte-zx297520v3-crm.c | 117 +++++++++++++++++++++++++++++++++++++++
+ 4 files changed, 133 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/clock/zte,zx297520v3-matrixcrm.yaml b/Documentation/devicetree/bindings/clock/zte,zx297520v3-matrixcrm.yaml
-new file mode 100644
-index 000000000000..5e9506db7365
---- /dev/null
-+++ b/Documentation/devicetree/bindings/clock/zte,zx297520v3-matrixcrm.yaml
-@@ -0,0 +1,98 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/clock/zte,zx297520v3-matrixcrm.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: ZTE zx297520v3 SoC matrix clock and reset controller
-+
-+maintainers:
-+  - Stefan Dösinger <stefandoesinger@gmail.com>
-+
-+description: |
-+  This controller contains clock and reset controls for high speed devices on
-+  the zx297520v3 board: The CPU, RAM, SDIO and Ethernet clocks and resets are
-+  found here. This controller requires PLL-generated clocks from Topcrm as well
-+  as the fixed 26 MHz and 32 kHz oscillators found on this board.
-+
-+  This controller also contains hardware mutex registers for synchronization
-+  with different processors on this board.
-+
-+  An additional curiosity are registers that allow setting (but not reading) the
-+  ARM architected timer's CNTVAL. This is not exposed in the binding because
-+  there shouldn't be a need to access it.
-+
-+  All available clocks are defined as preprocessor macros in the
-+  "include/dt-bindings/clock/zte,zx297520v3-clk.h" header. Resets are defined in
-+  the "include/dt-bindings/reset/zte,zx297520v3-reset.h" header.
-+
-+properties:
-+  compatible:
-+    const: zte,zx297520v3-matrixcrm
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    items:
-+      - description: 26 MHz external oscillator
-+      - description: 32 kHz external oscillator
-+      - description: AHB clock from topcrm
-+      - description: Main PLL output from topcrm (usually 624 MHz)
-+      - description: Main PLL subdivision factor 5
-+      - description: Dpll output from topcrm (usually 491.52 MHz)
-+      - description: Gpll output from topcrm (usually 200 MHz)
-+      - description: Gpll subdivision factor 2
-+      - description: osc26m work clock from topcrm
-+
-+  clock-names:
-+    items:
-+      - const: osc26m
-+      - const: osc32k
-+      - const: ahb
-+      - const: mpll
-+      - const: mpll-d5
-+      - const: dpll
-+      - const: gpll
-+      - const: gpll-d2
-+      - const: wclk-osc26m
-+
-+  "#clock-cells":
-+    const: 1
-+
-+  "#hwlock-cells":
-+    const: 1
-+
-+  "#reset-cells":
-+    const: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - "#clock-cells"
-+  - "#hwlock-cells"
-+  - "#reset-cells"
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/zte,zx297520v3-clk.h>
-+    #include <dt-bindings/reset/zte,zx297520v3-reset.h>
-+
-+    clock-controller@1306000 {
-+        compatible = "zte,zx297520v3-matrixcrm";
-+        reg = <0x01306000 0x400>;
-+        #clock-cells = <1>;
-+        clocks = <&osc26m>, <&osc32k>, <&topcrm ZX297520V3_AHB_PCLK>,
-+                 <&topcrm ZX297520V3_MPLL>, <&topcrm ZX297520V3_MPLL_D5>,
-+                 <&topcrm ZX297520V3_DPLL>, <&topcrm ZX297520V3_GPLL>,
-+                 <&topcrm ZX297520V3_GPLL_D2>,
-+                 <&topcrm ZX297520V3_GATED_OSC26M>;
-+        clock-names = "osc26m", "osc32k", "ahb", "mpll", "mpll-d5", "dpll",
-+                      "gpll", "gpll-d2", "wclk-osc26m";
-+        #hwlock-cells = <1>;
-+        #reset-cells = <1>;
-+    };
 diff --git a/MAINTAINERS b/MAINTAINERS
-index d8be58f32901..4b852dbcde74 100644
+index 61dbe959acf5..d50c03fd5a76 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -3904,6 +3904,7 @@ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
- S:	Odd fixes
- F:	Documentation/arch/arm/zte/
- F:	Documentation/devicetree/bindings/arm/zte.yaml
-+F:	Documentation/devicetree/bindings/clock/zte,zx297520v3-matrixcrm.yaml
+@@ -3909,6 +3909,7 @@ F:	Documentation/devicetree/bindings/clock/zte,zx297520v3-matrixcrm.yaml
  F:	Documentation/devicetree/bindings/clock/zte,zx297520v3-topcrm.yaml
  F:	arch/arm/boot/dts/zte/
  F:	arch/arm/mach-zte/
-diff --git a/include/dt-bindings/clock/zte,zx297520v3-clk.h b/include/dt-bindings/clock/zte,zx297520v3-clk.h
-index 3aed94ccc26f..a5e5d5f17c87 100644
---- a/include/dt-bindings/clock/zte,zx297520v3-clk.h
-+++ b/include/dt-bindings/clock/zte,zx297520v3-clk.h
-@@ -63,4 +63,46 @@
- #define ZX297520V3_HSIC_WCLK			54
- #define ZX297520V3_HSIC_PCLK			55
++F:	drivers/mfd/zte-zx297520v3-crm.c
+ F:	include/dt-bindings/clock/zte,zx297520v3-clk.h
+ F:	include/dt-bindings/phy/zte,zx297520v3-topcrm.h
+ F:	include/dt-bindings/reset/zte,zx297520v3-reset.h
+diff --git a/drivers/mfd/Kconfig b/drivers/mfd/Kconfig
+index e4fd4572472f..08138713dfc0 100644
+--- a/drivers/mfd/Kconfig
++++ b/drivers/mfd/Kconfig
+@@ -2578,5 +2578,18 @@ config MFD_MAX7360
+ 	  additional drivers must be enabled in order to use the functionality
+ 	  of the device.
  
-+#define ZX297520V3_SYS_TIMER_WCLK		0
-+#define ZX297520V3_CPU_WCLK			1
-+#define ZX297520V3_CPU_PCLK			2
-+#define ZX297520V3_ZSP_WCLK			3
-+#define ZX297520V3_ZSP_PCLK			4
-+#define ZX297520V3_DDR_CTRL_PCLK		5
-+#define ZX297520V3_DDR_CTRL_WCLK		6
-+#define ZX297520V3_EDCP_WCLK			7
-+#define ZX297520V3_EDCP_PCLK			8
-+#define ZX297520V3_SD0_WCLK			9
-+#define ZX297520V3_SD0_PCLK			10
-+#define ZX297520V3_SD0_CDET			11
-+#define ZX297520V3_SD1_WCLK			12
-+#define ZX297520V3_SD1_PCLK			13
-+#define ZX297520V3_SD1_CDET			14
-+#define ZX297520V3_NAND_WCLK			15
-+#define ZX297520V3_NAND_PCLK			16
-+#define ZX297520V3_DMA_PCLK			17
-+#define ZX297520V3_MBOX_PCLK			18
-+#define ZX297520V3_PDCFG_WCLK			19
-+#define ZX297520V3_PDCFG_PCLK			20
-+#define ZX297520V3_SSC_WCLK			21
-+#define ZX297520V3_SSC_PCLK			22
-+#define ZX297520V3_AXI_WCLK			23
-+#define ZX297520V3_GMAC_WCLK			24
-+#define ZX297520V3_GMAC_PCLK			25
-+#define ZX297520V3_GMAC_AHB			26
-+#define ZX297520V3_VOU_WCLK			27
-+#define ZX297520V3_VOU_PCLK			28
-+#define ZX297520V3_LSP_MPLL_D5_WCLK		29
-+#define ZX297520V3_LSP_MPLL_D4_WCLK		30
-+#define ZX297520V3_LSP_MPLL_D6_WCLK		31
-+#define ZX297520V3_LSP_MPLL_D8_WCLK		32
-+#define ZX297520V3_LSP_MPLL_D12_WCLK		33
-+#define ZX297520V3_LSP_OSC26M_WCLK		34
-+#define ZX297520V3_LSP_OSC32K_WCLK		35
-+#define ZX297520V3_LSP_PCLK			36
-+#define ZX297520V3_LSP_TDM_WCLK			37
-+#define ZX297520V3_LSP_DPLL_D4_WCLK		38
-+#define ZX297520V3_SRAM0_PCLK			39
-+#define ZX297520V3_GSM_CFG_PCLK			40
++config MFD_ZTE_ZX297520V3_CRM
++	tristate "ZTE zx297520v3 Clock and Reset Manager"
++	depends on ARCH_ZTE || COMPILE_TEST
++	select MFD_CORE
++	select REGMAP_MMIO
++	default SOC_ZX297520V3
++	help
++	  Say yes here to enable the driver for the ZTE zx297520v3 clock and
++	  reset manager MFD driver. This driver provides the host device for
++	  the clock and reset drivers and is required to boot the SoC. You
++	  will also need to enable CLK_ZTE_ZX297520V3 and RESET_ZTE_ZX297520V3
++	  to build the actual clock and reset child drivers.
 +
- #endif /* __DT_BINDINGS_CLOCK_ZX297520V3_H */
-diff --git a/include/dt-bindings/reset/zte,zx297520v3-reset.h b/include/dt-bindings/reset/zte,zx297520v3-reset.h
-index 4a0eaec0e981..54e5b24f859a 100644
---- a/include/dt-bindings/reset/zte,zx297520v3-reset.h
-+++ b/include/dt-bindings/reset/zte,zx297520v3-reset.h
-@@ -27,4 +27,17 @@
- #define ZX297520V3_USB_RESET			18
- #define ZX297520V3_HSIC_RESET			19
+ endmenu
+ endif
+diff --git a/drivers/mfd/Makefile b/drivers/mfd/Makefile
+index 72d3944b0ad8..ab0cba2042a2 100644
+--- a/drivers/mfd/Makefile
++++ b/drivers/mfd/Makefile
+@@ -304,3 +304,5 @@ obj-$(CONFIG_MFD_RSMU_SPI)	+= rsmu_spi.o rsmu_core.o
+ obj-$(CONFIG_MFD_UPBOARD_FPGA)	+= upboard-fpga.o
  
-+#define ZX297520V3_CPU_RESET			0
-+#define ZX297520V3_ZSP_BUS_RESET		1
-+#define ZX297520V3_DDR_CTRL_RESET		2
-+#define ZX297520V3_EDCP_RESET			3
-+#define ZX297520V3_SD0_RESET			4
-+#define ZX297520V3_SD1_RESET			5
-+#define ZX297520V3_NAND_RESET			6
-+#define ZX297520V3_PDCFG_RESET			7
-+#define ZX297520V3_SSC_RESET			8
-+#define ZX297520V3_GMAC_RESET			9
-+#define ZX297520V3_VOU_RESET			10
-+#define ZX297520V3_LSP_RESET			11
+ obj-$(CONFIG_MFD_LOONGSON_SE)	+= loongson-se.o
 +
- #endif /* __DT_BINDINGS_RESET_ZX297520V3_H */
++obj-$(CONFIG_MFD_ZTE_ZX297520V3_CRM)	+= zte-zx297520v3-crm.o
+diff --git a/drivers/mfd/zte-zx297520v3-crm.c b/drivers/mfd/zte-zx297520v3-crm.c
+new file mode 100644
+index 000000000000..550ce4ad7ec5
+--- /dev/null
++++ b/drivers/mfd/zte-zx297520v3-crm.c
+@@ -0,0 +1,117 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (C) 2026 Stefan Dösinger
++ */
++
++#include <linux/clk.h>
++#include <linux/err.h>
++#include <linux/errno.h>
++#include <linux/mfd/core.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/platform_device.h>
++#include <linux/reset.h>
++
++enum zx297520v3_parent_type {
++	ZX297520V3_INVALID = 0,
++	ZX297520V3_TOPCRM,
++	ZX297520V3_MATRIXCRM,
++	ZX297520V3_LSPCRM,
++};
++
++static const struct mfd_cell zx297520v3_topcrm_cells[] = {
++	{
++		.name = "zx297520v3-topclk",
++	},
++	{
++		.name = "zx297520v3-topreset",
++	},
++	{
++		.name = "reboot",
++		.of_compatible = "syscon-reboot",
++	},
++	{
++		.name = "zx297520v3-usb-phy",
++	},
++};
++
++static const struct mfd_cell zx297520v3_matrixcrm_cells[] = {
++	{
++		.name = "zx297520v3-matrixclk",
++	},
++	{
++		.name = "zx297520v3-matrixreset",
++	},
++	/* A set of hwlock controllers is found here as well, but no driver is implemented yet */
++};
++
++static const struct mfd_cell zx297520v3_lspcrm_cells[] = {
++	{
++		.name = "zx297520v3-lspclk",
++	},
++	{
++		.name = "zx297520v3-lspreset",
++	},
++};
++
++static int zx297520v3_crm_probe(struct platform_device *pdev)
++{
++	enum zx297520v3_parent_type type;
++	struct device *dev = &pdev->dev;
++	const struct mfd_cell *cells;
++	struct reset_control *rst;
++	unsigned int num_cells;
++	struct clk *pclk;
++
++	type = (enum zx297520v3_parent_type)(kernel_ulong_t)of_device_get_match_data(dev);
++	switch (type) {
++	case ZX297520V3_TOPCRM:
++		cells = zx297520v3_topcrm_cells;
++		num_cells = ARRAY_SIZE(zx297520v3_topcrm_cells);
++		break;
++
++	case ZX297520V3_MATRIXCRM:
++		cells = zx297520v3_matrixcrm_cells;
++		num_cells = ARRAY_SIZE(zx297520v3_matrixcrm_cells);
++		break;
++
++	case ZX297520V3_LSPCRM:
++		cells = zx297520v3_lspcrm_cells;
++		num_cells = ARRAY_SIZE(zx297520v3_lspcrm_cells);
++
++		pclk = devm_clk_get_enabled(dev, "pclk");
++		if (IS_ERR(pclk))
++			return dev_err_probe(dev, PTR_ERR(pclk), "Could not get pclk\n");
++
++		rst = devm_reset_control_get_exclusive_deasserted(dev, NULL);
++		if (IS_ERR(rst))
++			return dev_err_probe(dev, PTR_ERR(rst), "Could not get reset\n");
++		break;
++
++	default:
++		return -ENODEV;
++	}
++
++	return devm_mfd_add_devices(dev, PLATFORM_DEVID_AUTO, cells, num_cells, NULL, 0, NULL);
++}
++
++static const struct of_device_id of_match_zx297520v3_crm[] = {
++	{ .compatible = "zte,zx297520v3-topcrm", .data = (void *)ZX297520V3_TOPCRM },
++	{ .compatible = "zte,zx297520v3-matrixcrm", .data = (void *)ZX297520V3_MATRIXCRM },
++	{ .compatible = "zte,zx297520v3-lspcrm", .data = (void *)ZX297520V3_LSPCRM },
++	{ }
++};
++MODULE_DEVICE_TABLE(of, of_match_zx297520v3_crm);
++
++static struct platform_driver zx297520v3_crm = {
++	.probe = zx297520v3_crm_probe,
++	.driver = {
++		.name = "zx297520v3-crm",
++		.of_match_table = of_match_zx297520v3_crm,
++	},
++};
++module_platform_driver(zx297520v3_crm);
++
++MODULE_AUTHOR("Stefan Dösinger <stefandoesinger@gmail.com>");
++MODULE_DESCRIPTION("ZTE zx297520v3 CRM MFD host driver");
++MODULE_LICENSE("GPL");
 
 -- 
 2.54.0
