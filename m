@@ -4,95 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BA85C5AD7B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 17:05:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05CD4C5AD4E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 17:08:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P5JSOKGksaNKZfiKDtilTqpOi+B/vfPCWiy9wgHLU6A=; b=Wfc31CyOkWo7xZTmvQU7uiK1B3
-	8CWCGNfc8MN9ZpBytlPQZf7OC0TQIJkPspKisVB2cbZoU7R6cOyyIDo+Yhhwb05TycDlXexLBN/jd
-	iiK/zLcLQzicy30q6/Gso9IbyBA2tYjebADkODicVmU7lJDI5f2Tk80QaLU0IWTOKr5bccKiNKYyE
-	ZWh2sHW3RymeNSYkHuvQJ6KrXovS2FgrC4Q1q1o2WpwTiaes8hzbOMcP6Z7LbrFNVtQd5P7ys02Ag
-	lvV5z3euV0DO33IVA4uhhbp0tQk7zF1t0ad6osXKzXaPgBXXqpDZ2UFj5nRvdE/IzkZXyQnN5b7EU
-	9CYq1yTg==;
+	bh=8l7N5DEp4BhX7FXyEm1h5RGW0uDs9b178Mc0RCItNl4=; b=vI11W+sUov6kQ8JIL+z5iJKHD2
+	Mw1biMDyaMYIFTlfH18ultLJO5pE6kRb6dfmBmB9n55iPqY5G1Hf/dKuYai2Ac7ii1rL5CpbXY2q3
+	8pVOyVaPaaS0+UCyVwfJxEOdHcJ2gEDJswO4JuxKmsdcanorVjZn01SGaTSnUdIKktoRTKegE82Qp
+	eCKkquHu0qov33To/mIE1QujDVzPjZTmdSamK2Nh5K7HQ2wacsDEdY8i6x6eyrguBP0C7uKPFmzOW
+	AHRpUvsqj0rlK1vmnSrEobOIhvAh8GeKHSQMD3xYcMdO9u7e9MKehLnFIfVREccJbIEwCgYZmkw7Z
+	gJdxWA1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wt6xH-0000000AWQE-3qpi;
-	Sun, 09 Aug 2026 17:04:59 +0000
-Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
+	id 1wt70V-0000000AWeM-2AJ4;
+	Sun, 09 Aug 2026 17:08:19 +0000
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wt6xF-0000000AWPV-1Vgi
+	id 1wt70S-0000000AWdZ-3P3i
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Aug 2026 17:04:58 +0000
-Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-cbb8b54fcf8so767105a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Aug 2026 10:04:56 -0700 (PDT)
+	Sun, 09 Aug 2026 17:08:18 +0000
+Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-6a051b737d8so964726a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Aug 2026 10:08:16 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1786295294; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Gt5YmRUqPVNl3yAc9710/ljdLNMFYi5EvlHYH5YGKumBCYm8F3ZUDGXjGveQHLAin9
+         LhFRgGa7+iVJM+Vd4UEJriGkN01J6uze7/ofGRsN2X7TegaXw1t86+ZuFFQ+4Qk1dNvp
+         kvI8NaXUEUt+fnGxDQeUiMR5fkt7WY9zUWwcZAGSsMSLK+WdU4RRNpQnLqYNB30zhv+i
+         o7S7AdW2OBVb+99GbYy7TVnvb1t02agHCtLk852YXsvMc+uAVKXzpWtQqzfogGNKEWlF
+         ZYFrpwIRq5ljQRdHxxZvYgkMHryOONCKYVGeIBcab0ztwImwFOKdBw4+AevlvWcf4G3v
+         5Mfw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=8l7N5DEp4BhX7FXyEm1h5RGW0uDs9b178Mc0RCItNl4=;
+        fh=I372Cs1rUSbEieNTWz0a07B9gqIhNkQ+uEYpnzsL5IE=;
+        b=ODrl1C8ngq3c7LJzZX3eL+Fv+SRFslBnX4AvmvLnzBR+EbATEQXNsoElxHgc//+Lwh
+         fgaycW6vZpBrRT92qvWbwUPzKbfDV5kZAD7XEUS3VJ/Pv3gSsSZ05VkPNX6VMSD6r1Na
+         llQzILJL9ktBmT70CtMlKn22A8cYTb4MiCK38GEKcbL5NfHERGAO6484jHYsDmL6ptSZ
+         fiYM0LxF750avuoPWzR78++ofGpE56G4vjcqoqw6/aUhIO4z8Iu2/sPHcIcAPdAhjjUb
+         eLyeq0QbtYV/d/niBdE5S+q9rKN1Vy/45eVeaFjoO+cIB7KtO4G7TmRhQwmqiRVjQ5Zi
+         /1pA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786295096; x=1786899896; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=P5JSOKGksaNKZfiKDtilTqpOi+B/vfPCWiy9wgHLU6A=;
-        b=XAJNYFTZAuSmOTT0MPL6sZDVXw3qTSmejt6eEWhTdPZSP7cPaor3O3rESGN5olELWA
-         4uhWaQboisfoekpi/0HDLiIghf/x9Cf9v64lEAFsI6/R3DAXPm8ICpVk6QuPDGAw5lv/
-         250bobYc3ZidZl7QUpc2xcoTusFoO2yd6EqFjuybjcN6wlE/1xxHe3GWc5qO5A66V5JO
-         uWkUaIzZavFrEwxw3PT4p94gtJT92IQ9j3hHqpGVoBvfhlDMS5r3HLXiGSFTzdwCbiCV
-         3KhQuTLQ5Rf0HZtipL/atbMC+3fFGpYqSe8o2aF9RdgG0tzS6Noj6l6T1JL+TjbSMkz+
-         7SVA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786295096; x=1786899896;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=gmail.com; s=20251104; t=1786295294; x=1786900094; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=P5JSOKGksaNKZfiKDtilTqpOi+B/vfPCWiy9wgHLU6A=;
-        b=kSz3YSPWHoJ/IyrfFLQ7NfrZS1+Qgy7diE7JYgTDlP5TK1Vgsbi0skI5Ppji1Y6LON
-         TSzr+Z0QyzpimgL/tuJBfZWCe03eFEaUXEXi0XXICsS1BZ6KJ0sKo4IeFX71oiVAZudN
-         RQoGAx5x1t1gYYquoJhiWKvoG9Ctwz4UZOSIml2q2Pc1A29nmBx6y994UFxiBgI439lA
-         aGUVEQ0tB4gnD/wgEmzm5riQTJ5wvXw5i16evyztG4J+A12urPWEDZiy1NQ/Xbk/AarT
-         q2bZrF19fHjZl4w7qKV4FKesyR1hX+S59/FqS7JcoLZb5U1zq1P6Xpl+0azGSqNHb/L/
-         oXnQ==
-X-Forwarded-Encrypted: i=1; AHgh+RomNcJ+s4WhgncdgdoHr0GKHrLvtniZBkELjCRsXyqYbfFOGo/lLvjsBhy9dgvqLgauNwNoJKyn4FTncJ0O0MMc@lists.infradead.org
-X-Gm-Message-State: AOJu0YyHSkeZ4Ne6UJXPFNcs8suweiYfp5YPBdy0CJu+nfQwG+zloiSe
-	5WTf03WjOg54++HHATXIqOnTct7joTamk3cC8PX8b/WSx/4upGmvlvDK
-X-Gm-Gg: AR+sD11g0/W8e4dPzF0njtfk6xj9pewDC6DG8w3NzdyxfJX/FBmp0sTgrm+gtS61iiK
-	ofXgxRd65H+4SmrgMCSbxiCBO124mqCfvT7GAjcnyzxgW7XoTgrol80YnVYQ5Eu2VwGBW1uzR5O
-	6nlvs3u932g/QJz5pbFHmVwIz5TagBEmE6ffW3xBEm/LJsoeXo0Z0u4+knIgVe3uxVtpGOBcVaK
-	fc3UDR2MT7GKej5SGcoBXUE1hv9pOcJpFoRvx8OmWejfAMg61flJ0kdhzY4vq7RzUL1IjV1SuW8
-	rctVG16ulIn6KQnsWftSDXcWJlnIuNI/p+iIwx+Y/3hlfBjOQyntxzloHTyKuppj7yr7mnt7L8i
-	NnCdlAQwNFhKMw/t2CmRvOTvkogZDVEm4GPGjUFl+QmQq2g3swuSYN1lsV2lZL6/Oj4nS7U+r+7
-	r48JsbAfmyJhwWI4b3FIjhgTUBZ+pV50XrwxTWiwRc6jXQ227wPQHZfKWJCS4IU/D7ULv6pthV8
-	k6+wbuctuGngogrqeUBX2HGcnO8Z3l+
-X-Received: by 2002:a05:6a20:4321:b0:3c3:b57b:6291 with SMTP id adf61e73a8af0-3cb85e6689fmr39981875637.18.1786295095808;
-        Sun, 09 Aug 2026 10:04:55 -0700 (PDT)
-Received: from buffalo-ssd (M014013071096.v4.enabler.ne.jp. [14.13.71.96])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cbe8f1af985sm2824978a12.11.2026.08.09.10.04.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 09 Aug 2026 10:04:54 -0700 (PDT)
-Date: Mon, 10 Aug 2026 02:04:50 +0900
-From: Akari Tsuyukusa <akkun11.open@gmail.com>
-To: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+        bh=8l7N5DEp4BhX7FXyEm1h5RGW0uDs9b178Mc0RCItNl4=;
+        b=kv0iVtakt3giXNd2jWnYyu3DkGnIM+gbd0mIsjAumdhJFYevQNKRZQ3ZjwqgHcu7oi
+         ARfo1omPCYeIHwwbp5F+bnpcNME5kQLbx2sDEAHHIUChm/dVoqrcOEyxj8PSdDnQHNtV
+         SOZNZxvzCTmVLa2ja3t5iihybHBo0anWQTqQNaRvQzhfKfcUnMYgZX+NbREJzgRIMyJw
+         uTs5Jt2/UEv3xpkgTfUjFcuTQnJ3UFlH3qXRfKcqQpWL36f6wI3pw3XG8MiXw/M31JvA
+         7n6kARkNdcJGtj9mZ2RhK39SwGJJlNArsqDNHg7m5Btq6dNDFHg1pZpd0JtgYBmGQzdr
+         TWFg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786295294; x=1786900094;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=8l7N5DEp4BhX7FXyEm1h5RGW0uDs9b178Mc0RCItNl4=;
+        b=IekoAjqnzEHGHG9CkAtSz9rV49wR/1f9PHG1JCELnbKJxH+q4NzQorC5kTJYI/Xhdd
+         FhHn3wB1fYrgjaU0xkZ+LVrWscfkQQWJeoAzeLTlZhR0uVebjeunaOeznSlL1M+8cNbo
+         yjPYzU2/7wWyXJDarrKhTkZabPKCcc11+5KK8fycfCUqgh/dJzGnMCVoWMITKKd0QZX8
+         9n8rz4bjCSbrwOndc2o0zdQ0eLshBB2Xw8yXn9EmVtqFGFMnyhzxEmBtPwoX+cVBMglp
+         N7mNq+P6mGc/iWOgL4Ci+1XxesmpQVBHTEE3OGkE3dHNQJFAwg+KIaS4sByeeP+An61w
+         rt4w==
+X-Forwarded-Encrypted: i=1; AHgh+RqaGk4/uhcuDs6/aXkEMZeYr7nV07S7BJ/ridpyYwqKB+eFcjQZbhyJODgelYlnp2JHigMau105DKqPse8+1h7N@lists.infradead.org
+X-Gm-Message-State: AOJu0YxubQPOvCTUxsbVQY8O1q59s66iMjjgAsaws6FA5sYn6Fw26/so
+	FnAIlJQXwfojiPgKv9Uf+DUc+zz/CoTC4UGoyO81dWDhm4Ars4fx/j3C2D+lpO4Zku1r0Jgd7pf
+	9FPufslb/aipkTkMZ3NOt4WEiToyUWMA=
+X-Gm-Gg: AR+sD12Lw4GCcCo9T0UaaRShe3nu0U7FPVeTonA6LTRIFekQEbpcCGj2olPY5D2WNzn
+	UBhDUq4+jfgxsyO/kdgBwLJdF+m1vx3eAwPsKTpVIlifCzR9m5JTUwWXOYU0LeGJ4PDwa3eXXJC
+	AUYj1KvBE4AFV3/vD/0/MBlR4NWl6vHA74RdQxdZxrJcUXZYsTqg/lWqtWOr3KdS1aRJsrZfe6H
+	/CfCLo2pGYXn/mbiy0fxETBIf6rO4UON0M1+b9Oa74PexBjgN1nGTD9r1B4MBLlrBubIYKLoykT
+	dvChrwP82K8QFlyNzE49/09pN0HfLrHEoxCKffo4/G4RHU4d0aisUumcBnow8pQlfEoCTUQsoeE
+	=
+X-Received: by 2002:a05:6402:52cc:b0:69f:cb2f:7a9f with SMTP id
+ 4fb4d7f45d1cf-6a1f24a6398mr5908345a12.0.1786295294390; Sun, 09 Aug 2026
+ 10:08:14 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260809160643.33991-1-l.scorcia@gmail.com> <20260809160643.33991-4-l.scorcia@gmail.com>
+ <aniv5B4jz07mI70D@buffalo-ssd>
+In-Reply-To: <aniv5B4jz07mI70D@buffalo-ssd>
+From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+Date: Sun, 9 Aug 2026 19:08:02 +0200
+X-Gm-Features: AUfX_myTNLmmUZQ4XLSt8EOVRxvsoxIzUMQsNPl9nlvxlnEuIvs9heC-YuaZVok
+Message-ID: <CAORyz2KJMY6OvFQEB2GU0P7CkxothuXOCXgCcRvtiUhhPaK1ig@mail.gmail.com>
+Subject: Re: [PATCH v3 3/8] arm: dts: mediatek: mt6589: Enable toprgu reset controller
+To: Akari Tsuyukusa <akkun11.open@gmail.com>
 Cc: linux-mediatek@lists.infradead.org, 
 	Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-watchdog@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 3/8] arm: dts: mediatek: mt6589: Enable toprgu reset
- controller
-Message-ID: <aniv5B4jz07mI70D@buffalo-ssd>
-References: <20260809160643.33991-1-l.scorcia@gmail.com>
- <20260809160643.33991-4-l.scorcia@gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260809160643.33991-4-l.scorcia@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260809_100457_401694_0EAA7A55 
-X-CRM114-Status: GOOD (  12.00  )
+X-CRM114-CacheID: sfid-20260809_100816_892031_DE26D1A4 
+X-CRM114-Status: GOOD (  16.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,23 +123,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Aug 09, 2026 at 06:03:27PM +0200, Luca Leonardo Scorcia wrote:
-> Enable the toprgu reset controller feature for the mt6589 SoC. This
-> allows generating reset signals for the 12 subsystems managed by its
-> top reset generation unit.
-> 
+I apologize for the mistake - if a new revision will be necessary I'll
+correct it with the Acked-by tag.
+Thank you!
+
+Il giorno dom 9 ago 2026 alle ore 19:04 Akari Tsuyukusa
+<akkun11.open@gmail.com> ha scritto:
+>
+> On Sun, Aug 09, 2026 at 06:03:27PM +0200, Luca Leonardo Scorcia wrote:
+> > Enable the toprgu reset controller feature for the mt6589 SoC. This
+> > allows generating reset signals for the 12 subsystems managed by its
+> > top reset generation unit.
+> >
+> > Signed-off-by: Akari Tsuyukusa <akkun11.open@gmail.com>
+> > Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+> > ---
+> >  arch/arm/boot/dts/mediatek/mt6589.dtsi | 2 ++
+> >  1 file changed, 2 insertions(+)
+>
+> I provided "Acked-by", not "Signed-off-by"...
+> https://lore.kernel.org/linux-mediatek/amEBgRmQktZ44jc1@buffalo-ssd/
+>
+> PS: I am also fine with this patch carrying my Signed-off-by.
 > Signed-off-by: Akari Tsuyukusa <akkun11.open@gmail.com>
-> Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-> ---
->  arch/arm/boot/dts/mediatek/mt6589.dtsi | 2 ++
->  1 file changed, 2 insertions(+)
+>
+> Best Regards,
+> Akari
 
-I provided "Acked-by", not "Signed-off-by"...
-https://lore.kernel.org/linux-mediatek/amEBgRmQktZ44jc1@buffalo-ssd/
 
-PS: I am also fine with this patch carrying my Signed-off-by.
-Signed-off-by: Akari Tsuyukusa <akkun11.open@gmail.com>
 
-Best Regards,
-Akari
+-- 
+Luca Leonardo Scorcia
+l.scorcia@gmail.com
 
