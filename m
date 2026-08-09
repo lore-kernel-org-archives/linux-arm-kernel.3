@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE01CC5AC80
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 12:16:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23A83C5AD5A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 12:16:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SuogDxBruivXZuehAaKTBT+P0hkPYUa+sE4lrBZsrTM=; b=yLimNC0LwkteFH+aVem8so7b04
-	FMBxZ5esPMDORnrRhBoak3p/CDmdY17wN4sCTfmGSjW+5Ov4qiqzfVVDQIZ8TFI8H8a388X2A0QiO
-	XGDSHl6yNXSDB6GEOcNhbV1FrCWxd+7VgfEiDOUK091i36PZ41ObRM0Twpl2dYpo0X4SJ1M7JrQLr
-	fNxPBlKA7FXM539FTrxxKglBiUixvQfICWwMbBuOpJKdh/oo6FAId2CvkshsAHYNy2eK1QZO2qOLI
-	iE2No1UP5buD2ghUoOd5eSYeQlL7ji697HQ4KpGrV5PxyBxIla+bwZGmEA9KcWfoMVloXvhOUIgj1
-	RuZtSS9g==;
+	bh=C69P5tR2WggqJvUe7SabrWqXnOfBdknz/qpkXac43/s=; b=nOT+qox3ZSXZ+wJGuODBOVOBAD
+	riSoRulqFDZt7tvc8IkGhlAbq5U44Y1rH41ofM9kJb6W9HFb+WzZFkx+v1uZ3Pa/PyaQEVSp/lISe
+	f5MJviJAGgLRYR/NfzjiHI0t/HGezcTRdFz91ukvH+X9Bpa6LzmazEHz/+MuOI/qXqUdTXCMx6URQ
+	CFN3WmtvmyTvQ6r2LFk9iDFR7gWywbyqEaD8QEdtLVh1Q+B6uDYejDJpU/nGVNqJzUgn7dby7gq6a
+	oBDpDdUp6XCMXWI+mLzp5eye6t8Q5335EdUB20kzZP31lKYEEk06s0LFi53FuuWZ1pGaKY+O/rJku
+	3yyXy8Gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wt2Rq-0000000AHLz-0pF4;
+	id 1wt2Rq-0000000AHMH-1EZD;
 	Sun, 09 Aug 2026 12:16:14 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wt2Ro-0000000AHL4-4AHn
+	id 1wt2Ro-0000000AHL5-4AHf
 	for linux-arm-kernel@lists.infradead.org;
 	Sun, 09 Aug 2026 12:16:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3552343B72;
+	by sea.source.kernel.org (Postfix) with ESMTP id 4E17E43BD4;
 	Sun,  9 Aug 2026 12:16:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 0BC77C2BCF5;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 2C11DC2BCFC;
 	Sun,  9 Aug 2026 12:16:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1786277772;
-	bh=GS0706aWd/X1ewhqfLjE66a5N9etk1CxR3PFk3+EnSU=;
+	bh=NH6TxVvsxwG75iXqtfI7vYJQq5MjARznwzgt/dgex4E=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=AvY8pJqh3v3kNHJdkubYRALiohycjtLJcod5jiU9oqnA/tIn5ebcBjh2aPjEK6jrb
-	 XDm7IaNRSJnWH1i6YpteEZ1GvDEs2ZG3zEpqyl+lX9tvEQRMXoLILGM/I3HARSIiIV
-	 39aPBIyxwtmNufh3xHV75gWBeUiOAL7vN5h5/E3/mLqmYEceWiW4620bmSZDMDQZiG
-	 zfqJ/PHocq4+CyE0QMsd8s2w7pbSdRzxL/6n7eOeTpnlqCflgy7Gn6v3O12P9454sl
-	 crYtw3BsozSluxL5/KB+SUHFlCSzTdQ0j0J8ozhoqAQh93diKKMS/eJcjyfCx+g/OJ
-	 v2qqRJygyi3TA==
+	b=UR/gQdOa7V8TG64IpmTk2d/SYouAcmvTBK+GMXwALxN3eKQ0Ljk3mszS2kaDJe/kc
+	 VMATVNfUdMjbm25xxuUR/2Tx24tC3ZV97tt2dl0X//2sahbKG67fDpTPmtt49rGkv4
+	 dyxvF4BS6S2WG0rmd+JeTg0EpwzdKEso3btyw1wC5pzI5cy3itoHRHmL5c44bIOWjP
+	 BFRKKwD0f14CvqcdNqPwaBojJAeZSZhUtsFEfJttmfx3tsB1ZdyVFaibSjpltkt+nP
+	 k5rBFI6UHFKEsQ0mltOzyLU7Bn6ZqTfDLRy2iCh1NRVMKnAMPna/HaovsHSXTsH4CO
+	 K3xbf8t52t55w==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DDF27C5AD4E;
-	Sun,  9 Aug 2026 12:16:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 15292C5AD6A;
+	Sun,  9 Aug 2026 12:16:12 +0000 (UTC)
 From: Sven Peter <sven@kernel.org>
-Date: Sun, 09 Aug 2026 14:16:02 +0200
-Subject: [PATCH 1/3] dt-bindings: reset: Add Apple SoC CIO reset
+Date: Sun, 09 Aug 2026 14:16:04 +0200
+Subject: [PATCH 3/3] arm64: dts: apple: Add CIO reset controllers
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260809-b4-cio-reset-v1-1-4f33777d9b4b@kernel.org>
+Message-Id: <20260809-b4-cio-reset-v1-3-4f33777d9b4b@kernel.org>
 References: <20260809-b4-cio-reset-v1-0-4f33777d9b4b@kernel.org>
 In-Reply-To: <20260809-b4-cio-reset-v1-0-4f33777d9b4b@kernel.org>
 To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
@@ -61,13 +61,13 @@ To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
 Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4500; i=sven@kernel.org;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3435; i=sven@kernel.org;
  h=from:subject:message-id;
- bh=GS0706aWd/X1ewhqfLjE66a5N9etk1CxR3PFk3+EnSU=;
- b=owGbwMvMwCXmIlirolUq95LxtFoSQ1ZFfnvIvV2XKu9/dQityzjywVMjbFLbU1t2sTz2zcu/C
- vu3PDvbUcrCIMbFICumyLJ9v73pk4dvBJduuvQeZg4rE8gQBi5OAZhI+zKGf2bbsph/HAnbsvRP
- dYCOQNzN/F2x9Wx91cbr5L6pGP5/rMDwV2Ry7KQTYomhSU9zG2PiGVsCi99bMp98+DZf0PzbZpU
- nnAA=
+ bh=NH6TxVvsxwG75iXqtfI7vYJQq5MjARznwzgt/dgex4E=;
+ b=owGbwMvMwCXmIlirolUq95LxtFoSQ1ZFfuf8M/GOXStUPf7xTJV6Xv1L2Gz2hkttvBvPHQnUl
+ kr2Pnmqo5SFQYyLQVZMkWX7fnvTJw/fCC7ddOk9zBxWJpAhDFycAjARzpkM/93P+8R8St/2oIRF
+ dMK7N96qfXsv6NWf1Hc1b1GUj7vI9pWR4eeFe8zFPYmqt5ecE42PkP12sHxFTVXIKe6enNl3VSe
+ osgMA
 X-Developer-Key: i=sven@kernel.org; a=openpgp;
  fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
 X-Endpoint-Received: by B4 Relay for sven@kernel.org/default with
@@ -86,129 +86,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The CIO (USB4/Thunderbolt) blocks on Apple Silicon SoCs have a reset
-inside the power manager that has to be deasserted before their
-co-processor can be booted. On t8103 each port comes with a dedicated
-register page, represented as a standalone node. On t600x a single
+Add the reset controllers used to start the CIO (USB4/Thunderbolt)
+blocks on t8103 and t600x. On t8103 each port comes with a dedicated
+register page represented as a standalone node. On t600x a single
 register shared by all ports of a die is located in the middle of the
-PMGR MMIO region instead, represented as a sub-node of the PMGR syscon.
+PMGR MMIO region and represented as a sub-node of its syscon.
 
 Signed-off-by: Sven Peter <sven@kernel.org>
 ---
- .../devicetree/bindings/arm/apple/apple,pmgr.yaml  |  6 ++
- .../bindings/reset/apple,t8103-cio-reset.yaml      | 74 ++++++++++++++++++++++
- MAINTAINERS                                        |  1 +
- 3 files changed, 81 insertions(+)
+ arch/arm64/boot/dts/apple/t600x-dieX.dtsi | 8 +++++++-
+ arch/arm64/boot/dts/apple/t602x-dieX.dtsi | 8 +++++++-
+ arch/arm64/boot/dts/apple/t8103.dtsi      | 6 ++++++
+ arch/arm64/boot/dts/apple/t8112.dtsi      | 6 ++++++
+ 4 files changed, 26 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/arm/apple/apple,pmgr.yaml b/Documentation/devicetree/bindings/arm/apple/apple,pmgr.yaml
-index c67b67ba065a..2cdecc2c2cea 100644
---- a/Documentation/devicetree/bindings/arm/apple/apple,pmgr.yaml
-+++ b/Documentation/devicetree/bindings/arm/apple/apple,pmgr.yaml
-@@ -59,6 +59,12 @@ patternProperties:
-     type: object
-     $ref: /schemas/power/apple,pmgr-pwrstate.yaml#
+diff --git a/arch/arm64/boot/dts/apple/t600x-dieX.dtsi b/arch/arm64/boot/dts/apple/t600x-dieX.dtsi
+index 9676d5127039..5e163d756a7f 100644
+--- a/arch/arm64/boot/dts/apple/t600x-dieX.dtsi
++++ b/arch/arm64/boot/dts/apple/t600x-dieX.dtsi
+@@ -28,7 +28,13 @@ DIE_NODE(pmgr): power-management@28e080000 {
+ 		compatible = "apple,t6000-pmgr", "apple,pmgr", "syscon", "simple-mfd";
+ 		#address-cells = <1>;
+ 		#size-cells = <1>;
+-		reg = <0x2 0x8e080000 0 0x4000>;
++		reg = <0x2 0x8e080000 0 0x1c000>;
++
++		DIE_NODE(cio_reset): reset-controller@1a034 {
++			compatible = "apple,t6000-cio-reset";
++			reg = <0x1a034 0x4>;
++			#reset-cells = <1>;
++		};
+ 	};
  
-+  "reset-controller@[0-9a-f]+$":
-+    description:
-+      Reset controller for the CIO (USB4/Thunderbolt) blocks
-+    type: object
-+    $ref: /schemas/reset/apple,t8103-cio-reset.yaml#
+ 	DIE_NODE(pmgr_east): power-management@28e580000 {
+diff --git a/arch/arm64/boot/dts/apple/t602x-dieX.dtsi b/arch/arm64/boot/dts/apple/t602x-dieX.dtsi
+index ae3d535c5acb..fd4d572a04e7 100644
+--- a/arch/arm64/boot/dts/apple/t602x-dieX.dtsi
++++ b/arch/arm64/boot/dts/apple/t602x-dieX.dtsi
+@@ -27,7 +27,13 @@ DIE_NODE(pmgr): power-management@28e080000 {
+ 		compatible = "apple,t6020-pmgr", "apple,t8103-pmgr", "syscon", "simple-mfd";
+ 		#address-cells = <1>;
+ 		#size-cells = <1>;
+-		reg = <0x2 0x8e080000 0 0x8000>;
++		reg = <0x2 0x8e080000 0 0xc000>;
 +
- required:
-   - compatible
-   - reg
-diff --git a/Documentation/devicetree/bindings/reset/apple,t8103-cio-reset.yaml b/Documentation/devicetree/bindings/reset/apple,t8103-cio-reset.yaml
-new file mode 100644
-index 000000000000..5f5be0636b36
---- /dev/null
-+++ b/Documentation/devicetree/bindings/reset/apple,t8103-cio-reset.yaml
-@@ -0,0 +1,74 @@
-+# SPDX-License-Identifier: GPL-2.0 OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/reset/apple,t8103-cio-reset.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
++		DIE_NODE(cio_reset): reset-controller@a02c {
++			compatible = "apple,t6020-cio-reset", "apple,t6000-cio-reset";
++			reg = <0xa02c 0x4>;
++			#reset-cells = <1>;
++		};
+ 	};
+ 
+ 	DIE_NODE(pmgr_south): power-management@28e680000 {
+diff --git a/arch/arm64/boot/dts/apple/t8103.dtsi b/arch/arm64/boot/dts/apple/t8103.dtsi
+index da774096b667..83f6f1003424 100644
+--- a/arch/arm64/boot/dts/apple/t8103.dtsi
++++ b/arch/arm64/boot/dts/apple/t8103.dtsi
+@@ -730,6 +730,12 @@ pmgr: power-management@23b700000 {
+ 			reg = <0x2 0x3b700000 0 0x14000>;
+ 		};
+ 
++		cio_reset: reset-controller@23b784000 {
++			compatible = "apple,t8103-cio-reset";
++			reg = <0x2 0x3b784000 0x0 0x8000>;
++			#reset-cells = <1>;
++		};
 +
-+title: Apple SoC CIO (USB4/Thunderbolt) block reset controller
+ 		pinctrl_ap: pinctrl@23c100000 {
+ 			compatible = "apple,t8103-pinctrl", "apple,pinctrl";
+ 			reg = <0x2 0x3c100000 0x0 0x100000>;
+diff --git a/arch/arm64/boot/dts/apple/t8112.dtsi b/arch/arm64/boot/dts/apple/t8112.dtsi
+index 85c47422d4e8..d0637c0384b2 100644
+--- a/arch/arm64/boot/dts/apple/t8112.dtsi
++++ b/arch/arm64/boot/dts/apple/t8112.dtsi
+@@ -737,6 +737,12 @@ pmgr: power-management@23b700000 {
+ 			/* child nodes are added in t8103-pmgr.dtsi */
+ 		};
+ 
++		cio_reset: reset-controller@23b784000 {
++			compatible = "apple,t8112-cio-reset", "apple,t8103-cio-reset";
++			reg = <0x2 0x3b784000 0x0 0x8000>;
++			#reset-cells = <1>;
++		};
 +
-+maintainers:
-+  - Sven Peter <sven@kernel.org>
-+
-+description: |
-+  The CIO (Converged I/O) blocks on Apple Silicon SoCs have a reset
-+  inside the power manager (PMGR) that has to be deasserted before
-+  their co-processor can be booted. On t8103 each port comes with a
-+  dedicated register page, represented as a standalone node. On t600x a
-+  single register shared by all ports of a die with one request bit per
-+  port is used instead. Since this register is located in the middle of
-+  the PMGR MMIO region it is represented as a sub-node of the PMGR
-+  syscon with reg used as an offset into it.
-+
-+  In both cases the reset id is the CIO port index on the die.
-+
-+properties:
-+  compatible:
-+    oneOf:
-+      - enum:
-+          - apple,t8103-cio-reset
-+          - apple,t6000-cio-reset
-+      - items:
-+          - const: apple,t8112-cio-reset
-+          - const: apple,t8103-cio-reset
-+      - items:
-+          - const: apple,t6020-cio-reset
-+          - const: apple,t6000-cio-reset
-+
-+  reg:
-+    maxItems: 1
-+
-+  '#reset-cells':
-+    const: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - '#reset-cells'
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    soc {
-+        #address-cells = <2>;
-+        #size-cells = <2>;
-+
-+        reset-controller@23b784000 {
-+            compatible = "apple,t8103-cio-reset";
-+            reg = <0x2 0x3b784000 0x0 0x8000>;
-+            #reset-cells = <1>;
-+        };
-+    };
-+  - |
-+    power-management@28e080000 {
-+        compatible = "apple,t6000-pmgr", "apple,pmgr", "syscon", "simple-mfd";
-+        reg = <0x8e080000 0x1c000>;
-+        #address-cells = <1>;
-+        #size-cells = <1>;
-+
-+        reset-controller@1a034 {
-+            compatible = "apple,t6000-cio-reset";
-+            reg = <0x1a034 0x4>;
-+            #reset-cells = <1>;
-+        };
-+    };
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 15011f5752a9..4b78528324c8 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -2606,6 +2606,7 @@ F:	Documentation/devicetree/bindings/pinctrl/apple,pinctrl.yaml
- F:	Documentation/devicetree/bindings/power/apple*
- F:	Documentation/devicetree/bindings/power/reset/apple,smc-reboot.yaml
- F:	Documentation/devicetree/bindings/pwm/apple,s5l-fpwm.yaml
-+F:	Documentation/devicetree/bindings/reset/apple,t8103-cio-reset.yaml
- F:	Documentation/devicetree/bindings/rtc/apple,smc-rtc.yaml
- F:	Documentation/devicetree/bindings/spi/apple,spi.yaml
- F:	Documentation/devicetree/bindings/spmi/apple,spmi.yaml
+ 		pinctrl_ap: pinctrl@23c100000 {
+ 			compatible = "apple,t8112-pinctrl", "apple,pinctrl";
+ 			reg = <0x2 0x3c100000 0x0 0x100000>;
 
 -- 
 2.55.0
