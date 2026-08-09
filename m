@@ -4,95 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFA14C5AD4E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 15:11:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D40B6C5AC80
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 15:20:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0xMkbVk8Vq9ADk/FsQY03JHzIZEPQoL7wUy/e23YhPc=; b=u648QazhnPejAz+1dUUMveeO14
-	3hK65B8lBAU0sQLkxPRuYPkaAJBXumNRrtu8x/v45TIZpvzzjMt1lCKPSKBnduOgC2BlFgPHYvW8I
-	bp5xQdeVUzbQGunqKbdP+jOqnn7c7H3glSbsdcHVAoYpx98ZATlj9/KsNKXv3Ap0SjAL+idS9+aPX
-	kgsDOgNCHvzPlE/zPC4Fa4hB91gXHcFgLsQi0qsISL+FQF4Kc6TRJtAC9bQwxecfoLIzSMizs5e/S
-	FnSFwJ+wxHsWVy7QjPE4JQLzcWxSmXBIXwMp4D/95M73CidGcqghFw8Mh9HtgMuRTBg0z6IQMhXAd
-	K/iN+mmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ARwVcPLvnx7EkBM0oPgr55fHOYd6QKrvM3EwPl17m8k=; b=y10v8/9FhXEFqQkeSuBhdVj/HH
+	JwIdxA+0bKinMON+VUGbA7aTYyCpB77E6kG8E0s/esyvqDqxj/MU7bbSBGNvAz3pjbQbZzlnQZVI6
+	67vFIR21dZCgHwAbCQV1C+4ROcyJL1XfeZRq8hP2NOIx9iDxQUB+SKKVqPu0wiQfOiIfBi05oChLj
+	Hnf7eobmnCqJWuJO0EWAI34ZD+styVyun/FSfcjaipFhSOxnas/O3qdMQrX85mYmihZt+aTDbx/5/
+	YaUCDWdyEyUEKxM+cG+UWboqJg0+BCor5VXP47WCUf8JIisamq/GLmFuph+yNCv2JGbErZm5kHdc0
+	3oySITlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wt565-0000000AQOG-1uxj;
-	Sun, 09 Aug 2026 15:05:57 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1wt5Jp-0000000ARQY-478S;
+	Sun, 09 Aug 2026 15:20:10 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wt560-0000000AQNW-3Exx
+	id 1wt5Jn-0000000ARQK-3g9b
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Aug 2026 15:05:55 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-8487214ad2bso1460023b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Aug 2026 08:05:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786287951; x=1786892751; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:sender:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=0xMkbVk8Vq9ADk/FsQY03JHzIZEPQoL7wUy/e23YhPc=;
-        b=q87gZuGiqN1iED0i1eqP8sQgquXjnw15rF8lbk5WClUQlNP4JY0mJJJvEJ6AGEwU9Z
-         TbFK1OXYBuu9hFeC4rYBCN3J+UEGP2VycoztIxsVU5anEEwqS9E9sELVj8VRZ/zVkPaD
-         JTdKHehGEERXz7Dq9djLOwKHUmvdKsJK7A/zZTX/0NaODf8KWuBfHr+d6yU1gAkNxysr
-         7QfSXpfLagEFRCw3qPFICepsysPBT2zl2yP1bJZxKNvEBa26Hl4W5e62BtUurdj2/jov
-         tNlHwmND7UjA9CRUuwVswc32M1scH5v4K2Ubpoj3GhzhWDohHwG85mwn/eNMJQ1XHXa5
-         5Xdg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786287951; x=1786892751;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:sender:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=0xMkbVk8Vq9ADk/FsQY03JHzIZEPQoL7wUy/e23YhPc=;
-        b=j8OOr5LUYqNhL2u8kb2WvPxEVIMw/KDRhUQ4pCXEKWTUiV+Ky/O5KYqRpHAZ96nUiC
-         Ex+VnzyKIaQerUygX0rrQHK09O01+Hlzv4BMTecT9fcxqHvx7zQGDOvK5cle+z7Z5ZsA
-         U1rH3rolF9jh+aBFyA54+SyC3sqHaeFtLiZzDbDRFp7s5Z2DjHXXzVEhQp718XvKOCGq
-         JLKHjHte4qTt3EAkPf7FiaVDB0gLIaINq1IWmy+wZ/cf26yOm1mt4zBaVujAfjRZmn/9
-         IGROvVijR5PKfOUuVHntG5XkWVtBRWdeFN2hR0Fo0xZkY0bmz7PzJVRi5A+yL4HxVngS
-         0YPg==
-X-Forwarded-Encrypted: i=1; AHgh+RptDIXqJIZWRC/PtbM8MWbbYOqpfIgt/lRSfWYjFXBtHbGNzQ/B/+PbOu1t1t6bcP8rHuE011zLqnAp2UPFhyvr@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx6ksNwu39GMpZdN8KBab7ALVChpKnufqc1/ZZDV4gvVHsNwCx/
-	DWPEJTYfZ7ud6KE8cO63puAGoTxYgJMbXNrbVh10x/8/nLJxPg1/gXrx
-X-Gm-Gg: AR+sD13DpeGPXhg5oTXbdJAB7K1xrhVinAipmSoCxCNHT2eMlEsf4qvCPltEjZmH2TO
-	Qt7Ds5/AkFos5czhZg/sZWVjwmr3Y7vi7BfyJvS8VqC7lDX8h3EadkFOL+PjJKIvIcTR7PUPjbF
-	JJL6Bom7U/9fThyOFSDTRjRviAAgCeG/IGwZm5+CVTTA+X/SQFjiXN1vEUCvGKtfcMJwsVn0NyO
-	xmfhk8MP8uLHzLC2UuH66ssD5z3a+56zIABGxuDrO/37pDnPvPZxnQ2ln7L6QKxAbhaOG9a078y
-	zTCa6RFpfL22pZd6RfwOCeTNokZxxxIvjxxt9gxTIl93QPn4/ZtB5up3kyEkOnYP+YTVPQEX9/d
-	mXqFxfUDl+tjfkcFExpKgVrNn6C2bA+DMWQDCvXgZbV47LTYS7p3eCdRyAxYWgS0CeParhqC5ho
-	x1PjNaAZKujYkw4K8zEDjFBZ1fZjv/e4dpB3iWqe/tkWedbxzmgUpkUwajgwgvC0ALKc+eNrkvN
-	g==
-X-Received: by 2002:a05:6a20:9f09:b0:3b4:8f57:3205 with SMTP id adf61e73a8af0-3cbc04eb981mr20974725637.36.1786287951463;
-        Sun, 09 Aug 2026 08:05:51 -0700 (PDT)
-Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-315beb88413sm54797483eec.18.2026.08.09.08.05.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 09 Aug 2026 08:05:50 -0700 (PDT)
-Date: Sun, 9 Aug 2026 08:05:50 -0700
-From: Guenter Roeck <linux@roeck-us.net>
-To: phucduc.bui@gmail.com
-Cc: Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-arm-msm@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	linux-watchdog@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-aspeed@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 4/4] watchdog: aspeed: Propagate errors from optional IRQ
- lookup
-Message-ID: <1f26fc28-da13-4ca3-990f-676b53d23630@roeck-us.net>
-References: <20260807081652.38692-1-phucduc.bui@gmail.com>
- <20260807081652.38692-4-phucduc.bui@gmail.com>
+	Sun, 09 Aug 2026 15:20:07 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id E5E6A60008;
+	Sun,  9 Aug 2026 15:20:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1CF1E1F000E9;
+	Sun,  9 Aug 2026 15:20:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786288806;
+	bh=ARwVcPLvnx7EkBM0oPgr55fHOYd6QKrvM3EwPl17m8k=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=T5+PUNx1uB/QZ7ynQ1OX2My7q3Mg/COzWAg/qjZitiPRL4X48qX5QoB+r3v9On6KQ
+	 ryv5GhMQf0PwrX6i0Zv38z9DHFbHo3i4AjCn52JYnzfdLnMIKfrMZfsQmK42Veefuj
+	 bDiRNrUWylkAS11Af6u1eYsRLSEVfvP9kcMiS0C+Ho1nHP/gY+CaHBYMoJUPm72jxA
+	 N3ox/ksDvb8C4g+2Zeq8tHya2rOw0vQvzdhGPM/ybnV7nNRulePqLfw2+2EA6hjvzI
+	 yvCf685ZDeIftkztcUUZmg+Zt1iYMRsQ+pRM8DFm8XH4ibLSGa0akYRTaWvyuBygpu
+	 o9rOC9C5W+niA==
+Message-ID: <7a170485-b349-4502-adb1-3ce6217bc435@kernel.org>
+Date: Sun, 9 Aug 2026 17:20:01 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260807081652.38692-4-phucduc.bui@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260809_080552_817463_8F90EEF3 
-X-CRM114-Status: GOOD (  19.86  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] reset: Add Apple SoC CIO reset driver
+To: Joshua Peisach <jpeisach@ubuntu.com>
+Cc: asahi@lists.linux.dev, Philipp Zabel <p.zabel@pengutronix.de>,
+ Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, Neal Gompa <neal@gompa.dev>,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Janne Grunau <j@jannau.net>, Krzysztof Kozlowski <krzk+dt@kernel.org>
+References: <20260809-b4-cio-reset-v1-0-4f33777d9b4b@kernel.org>
+ <20260809-b4-cio-reset-v1-2-4f33777d9b4b@kernel.org>
+ <DKKHHITWR3F4.390HXQFLQR8X5@ubuntu.com>
+Content-Language: en-US
+From: Sven Peter <sven@kernel.org>
+In-Reply-To: <DKKHHITWR3F4.390HXQFLQR8X5@ubuntu.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,38 +75,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 07, 2026 at 03:16:52PM +0700, phucduc.bui@gmail.com wrote:
-> From: bui duc phuc <phucduc.bui@gmail.com>
+On 09.08.26 16:30, Joshua Peisach wrote:
+> On Sun Aug 9, 2026 at 8:16 AM EDT, Sven Peter wrote:
+>> Add a driver for the reset of the CIO (USB4/Thunderbolt) blocks on
+>> Apple Silicon SoCs which has to be deasserted before their
+>> co-processor can be booted. On t8103 each port comes with a dedicated
+>> register page while t600x uses a single register with one request bit
+>> per port shared by all ports of a die inside the PMGR MMIO region.
+>>
+>> Signed-off-by: Sven Peter <sven@kernel.org>
+>> ---
+>>  MAINTAINERS                     |   1 +
+>>  drivers/reset/Kconfig           |  10 +++
+>>  drivers/reset/Makefile          |   1 +
+>>  drivers/reset/reset-apple-cio.c | 182 +++++++++++++++++++++++++++++++ 
+>> +++++++++
+>>  4 files changed, 194 insertions(+)
 > 
-> platform_get_irq_optional() returns a positive IRQ number on success or
-> a negative error code on failure. For an optional IRQ, -ENXIO indicates
-> that no IRQ is available, while other errors should be propagated.
+>> +
+>> +static int apple_cio_reset_probe(struct platform_device *pdev)
+>> +{
+>> +    struct device *dev = &pdev->dev;
+>> +    struct apple_cio_reset *priv;
+>> +    int ret;
+>> +
+>> +    priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
+>> +    if (!priv)
+>> +        return -ENOMEM;
+>> +
+>> +    priv->variant = of_device_get_match_data(dev);
 > 
-> Propagate errors such as -EPROBE_DEFER and -EINVAL instead of continuing
-> probe without the IRQ.
+> Might be a dumb question, but does priv->variant also need to be
+> checked? Because later priv->variant->pmgr_child is and I *think*
+> it could return NULL.
 > 
-> Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
-> ---
->  drivers/watchdog/aspeed_wdt.c | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/drivers/watchdog/aspeed_wdt.c b/drivers/watchdog/aspeed_wdt.c
-> index c9e79851504c..48454ac86074 100644
-> --- a/drivers/watchdog/aspeed_wdt.c
-> +++ b/drivers/watchdog/aspeed_wdt.c
-> @@ -429,6 +429,8 @@ static int aspeed_wdt_probe(struct platform_device *pdev)
->  	if (wdt->cfg->irq_mask) {
->  		int irq = platform_get_irq_optional(pdev, 0);
->  
-> +		if (irq < 0 && irq != -ENXIO)
-> +			return irq;
->  		if (irq > 0) {
+> (Or is this not necessary since in theory the device should only run
+> this if detected... so this should never be an issue?)
 
-This if () is no longer needed.
+You might be able to get this driver to probe without a device tree node 
+by manually forcing it with sysfs but well... play stupid games, win 
+stupid prizes.
+Adding the check is just two lines and doesn't hurt though.
 
-Thanks,
-Guenter
 
->  			ret = devm_request_irq(dev, irq, aspeed_wdt_irq,
->  					       IRQF_SHARED, dev_name(dev),
+
+Best,
+
+
+Sven
+
+
 
