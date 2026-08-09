@@ -4,111 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05CD4C5AD4E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 17:08:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B445C5AD7B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 17:13:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8l7N5DEp4BhX7FXyEm1h5RGW0uDs9b178Mc0RCItNl4=; b=vI11W+sUov6kQ8JIL+z5iJKHD2
-	Mw1biMDyaMYIFTlfH18ultLJO5pE6kRb6dfmBmB9n55iPqY5G1Hf/dKuYai2Ac7ii1rL5CpbXY2q3
-	8pVOyVaPaaS0+UCyVwfJxEOdHcJ2gEDJswO4JuxKmsdcanorVjZn01SGaTSnUdIKktoRTKegE82Qp
-	eCKkquHu0qov33To/mIE1QujDVzPjZTmdSamK2Nh5K7HQ2wacsDEdY8i6x6eyrguBP0C7uKPFmzOW
-	AHRpUvsqj0rlK1vmnSrEobOIhvAh8GeKHSQMD3xYcMdO9u7e9MKehLnFIfVREccJbIEwCgYZmkw7Z
-	gJdxWA1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:Cc:To:From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sdkVaGxQ9WXK8ISzY26/7j0yy/WLWXIs5Q/P9RAMv4U=; b=WHyxxTeJ8fLe/DpZCfT+66Y0KJ
+	gbszJl1ocX1O5YotGszQDIsnf0IC3GY23cpPjA8xWyOsnFOY0OFjwrst3j+U+3ytctm6LODTh3HRI
+	vN1bT6lwaR8G+/Wa54A+g+xiO0cZQLAQVyJBI0IkDOva6kRagfjIy1XzXCeJ4f0RKh80mN2fkcLKT
+	MsBIjRAISPByAsUBPiSVkCY4fobqINXQx4bxH2jX57s18YsaWnLk+/I+vAfp8oqFUK7tpR+VR5BSx
+	zW8UKjsadguoA36dVONFJzSCFdd0RI8GLY7qvt7Svp8TElL9zW635E4J/t8fVi9vGjdASxYzp/G9h
+	aKPbl+yQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wt70V-0000000AWeM-2AJ4;
-	Sun, 09 Aug 2026 17:08:19 +0000
-Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
+	id 1wt75Y-0000000AWzX-0Igy;
+	Sun, 09 Aug 2026 17:13:32 +0000
+Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wt70S-0000000AWdZ-3P3i
+	id 1wt75V-0000000AWz3-2tCm
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Aug 2026 17:08:18 +0000
-Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-6a051b737d8so964726a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Aug 2026 10:08:16 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1786295294; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Gt5YmRUqPVNl3yAc9710/ljdLNMFYi5EvlHYH5YGKumBCYm8F3ZUDGXjGveQHLAin9
-         LhFRgGa7+iVJM+Vd4UEJriGkN01J6uze7/ofGRsN2X7TegaXw1t86+ZuFFQ+4Qk1dNvp
-         kvI8NaXUEUt+fnGxDQeUiMR5fkt7WY9zUWwcZAGSsMSLK+WdU4RRNpQnLqYNB30zhv+i
-         o7S7AdW2OBVb+99GbYy7TVnvb1t02agHCtLk852YXsvMc+uAVKXzpWtQqzfogGNKEWlF
-         ZYFrpwIRq5ljQRdHxxZvYgkMHryOONCKYVGeIBcab0ztwImwFOKdBw4+AevlvWcf4G3v
-         5Mfw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=8l7N5DEp4BhX7FXyEm1h5RGW0uDs9b178Mc0RCItNl4=;
-        fh=I372Cs1rUSbEieNTWz0a07B9gqIhNkQ+uEYpnzsL5IE=;
-        b=ODrl1C8ngq3c7LJzZX3eL+Fv+SRFslBnX4AvmvLnzBR+EbATEQXNsoElxHgc//+Lwh
-         fgaycW6vZpBrRT92qvWbwUPzKbfDV5kZAD7XEUS3VJ/Pv3gSsSZ05VkPNX6VMSD6r1Na
-         llQzILJL9ktBmT70CtMlKn22A8cYTb4MiCK38GEKcbL5NfHERGAO6484jHYsDmL6ptSZ
-         fiYM0LxF750avuoPWzR78++ofGpE56G4vjcqoqw6/aUhIO4z8Iu2/sPHcIcAPdAhjjUb
-         eLyeq0QbtYV/d/niBdE5S+q9rKN1Vy/45eVeaFjoO+cIB7KtO4G7TmRhQwmqiRVjQ5Zi
-         /1pA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786295294; x=1786900094; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=8l7N5DEp4BhX7FXyEm1h5RGW0uDs9b178Mc0RCItNl4=;
-        b=kv0iVtakt3giXNd2jWnYyu3DkGnIM+gbd0mIsjAumdhJFYevQNKRZQ3ZjwqgHcu7oi
-         ARfo1omPCYeIHwwbp5F+bnpcNME5kQLbx2sDEAHHIUChm/dVoqrcOEyxj8PSdDnQHNtV
-         SOZNZxvzCTmVLa2ja3t5iihybHBo0anWQTqQNaRvQzhfKfcUnMYgZX+NbREJzgRIMyJw
-         uTs5Jt2/UEv3xpkgTfUjFcuTQnJ3UFlH3qXRfKcqQpWL36f6wI3pw3XG8MiXw/M31JvA
-         7n6kARkNdcJGtj9mZ2RhK39SwGJJlNArsqDNHg7m5Btq6dNDFHg1pZpd0JtgYBmGQzdr
-         TWFg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786295294; x=1786900094;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=8l7N5DEp4BhX7FXyEm1h5RGW0uDs9b178Mc0RCItNl4=;
-        b=IekoAjqnzEHGHG9CkAtSz9rV49wR/1f9PHG1JCELnbKJxH+q4NzQorC5kTJYI/Xhdd
-         FhHn3wB1fYrgjaU0xkZ+LVrWscfkQQWJeoAzeLTlZhR0uVebjeunaOeznSlL1M+8cNbo
-         yjPYzU2/7wWyXJDarrKhTkZabPKCcc11+5KK8fycfCUqgh/dJzGnMCVoWMITKKd0QZX8
-         9n8rz4bjCSbrwOndc2o0zdQ0eLshBB2Xw8yXn9EmVtqFGFMnyhzxEmBtPwoX+cVBMglp
-         N7mNq+P6mGc/iWOgL4Ci+1XxesmpQVBHTEE3OGkE3dHNQJFAwg+KIaS4sByeeP+An61w
-         rt4w==
-X-Forwarded-Encrypted: i=1; AHgh+RqaGk4/uhcuDs6/aXkEMZeYr7nV07S7BJ/ridpyYwqKB+eFcjQZbhyJODgelYlnp2JHigMau105DKqPse8+1h7N@lists.infradead.org
-X-Gm-Message-State: AOJu0YxubQPOvCTUxsbVQY8O1q59s66iMjjgAsaws6FA5sYn6Fw26/so
-	FnAIlJQXwfojiPgKv9Uf+DUc+zz/CoTC4UGoyO81dWDhm4Ars4fx/j3C2D+lpO4Zku1r0Jgd7pf
-	9FPufslb/aipkTkMZ3NOt4WEiToyUWMA=
-X-Gm-Gg: AR+sD12Lw4GCcCo9T0UaaRShe3nu0U7FPVeTonA6LTRIFekQEbpcCGj2olPY5D2WNzn
-	UBhDUq4+jfgxsyO/kdgBwLJdF+m1vx3eAwPsKTpVIlifCzR9m5JTUwWXOYU0LeGJ4PDwa3eXXJC
-	AUYj1KvBE4AFV3/vD/0/MBlR4NWl6vHA74RdQxdZxrJcUXZYsTqg/lWqtWOr3KdS1aRJsrZfe6H
-	/CfCLo2pGYXn/mbiy0fxETBIf6rO4UON0M1+b9Oa74PexBjgN1nGTD9r1B4MBLlrBubIYKLoykT
-	dvChrwP82K8QFlyNzE49/09pN0HfLrHEoxCKffo4/G4RHU4d0aisUumcBnow8pQlfEoCTUQsoeE
-	=
-X-Received: by 2002:a05:6402:52cc:b0:69f:cb2f:7a9f with SMTP id
- 4fb4d7f45d1cf-6a1f24a6398mr5908345a12.0.1786295294390; Sun, 09 Aug 2026
- 10:08:14 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260809160643.33991-1-l.scorcia@gmail.com> <20260809160643.33991-4-l.scorcia@gmail.com>
- <aniv5B4jz07mI70D@buffalo-ssd>
-In-Reply-To: <aniv5B4jz07mI70D@buffalo-ssd>
-From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-Date: Sun, 9 Aug 2026 19:08:02 +0200
-X-Gm-Features: AUfX_myTNLmmUZQ4XLSt8EOVRxvsoxIzUMQsNPl9nlvxlnEuIvs9heC-YuaZVok
-Message-ID: <CAORyz2KJMY6OvFQEB2GU0P7CkxothuXOCXgCcRvtiUhhPaK1ig@mail.gmail.com>
-Subject: Re: [PATCH v3 3/8] arm: dts: mediatek: mt6589: Enable toprgu reset controller
-To: Akari Tsuyukusa <akkun11.open@gmail.com>
-Cc: linux-mediatek@lists.infradead.org, 
-	Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, linux-watchdog@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+	Sun, 09 Aug 2026 17:13:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ubuntu.com;
+ h=In-Reply-To: References: Subject: Cc: To: From: Message-Id: Date:
+ Content-Type: Content-Transfer-Encoding: Mime-Version; q=dns/txt;
+ s=fe-953a8a3ca9; t=1786295608;
+ bh=sdkVaGxQ9WXK8ISzY26/7j0yy/WLWXIs5Q/P9RAMv4U=;
+ b=ny5z0xwXITBGAIGrWi1n18JPR9+SDeWGrr6Of43/oewh6ZJ5Ry0dNKw1Qll5bz783s8seSgj+
+ msHYQz3PZktSQey3zZJUXa9MyvdKrSGCDZWrNI0gy8WxWLh8hpfrIhjxlwuBX5J2AHkliAKJBkH
+ VqCu477AMtuiFAJAmrmRhX8aKGdl4FQlQbNGUhtHVB9NXkGVyT1dCDAqi1i2t79FLUxNmL27Oju
+ PpX6HE2SQYFjVsEbtEMLDsp2QP56sz9yyfqOsumBCMO/IvyXq+n/TIMhGHlsPNbPLsvJuVN+Oy6
+ l6R9kZJldHgnhBCSNUK7zUa/ShXavqMbTYTJt1DL+46g==
+X-Forward-Email-ID: 6a78b531430e5f5f6cba74ac
+X-Forward-Email-Sender: rfc822; jpeisach@ubuntu.com, smtp.forwardemail.net,
+ 149.28.215.223
+X-Forward-Email-Version: 2.13.10
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8; format=Flowed
+Date: Sun, 09 Aug 2026 13:13:18 -0400
+Message-Id: <DKKKXXEMIO2G.LN1EYSEBL8CD@ubuntu.com>
+From: "Joshua Peisach" <jpeisach@ubuntu.com>
+To: "Sven Peter" <sven@kernel.org>, "Joshua Peisach" <jpeisach@ubuntu.com>
+Cc: <asahi@lists.linux.dev>, "Philipp Zabel" <p.zabel@pengutronix.de>, "Rob
+ Herring" <robh@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, "Neal Gompa" <neal@gompa.dev>,
+ <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "Janne
+ Grunau" <j@jannau.net>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>
+Subject: Re: [PATCH 2/3] reset: Add Apple SoC CIO reset driver
+X-Mailer: aerc 0.21.0
+References: <20260809-b4-cio-reset-v1-0-4f33777d9b4b@kernel.org>
+ <20260809-b4-cio-reset-v1-2-4f33777d9b4b@kernel.org>
+ <DKKHHITWR3F4.390HXQFLQR8X5@ubuntu.com>
+ <7a170485-b349-4502-adb1-3ce6217bc435@kernel.org>
+In-Reply-To: <7a170485-b349-4502-adb1-3ce6217bc435@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260809_100816_892031_DE26D1A4 
-X-CRM114-Status: GOOD (  16.10  )
+X-CRM114-CacheID: sfid-20260809_101330_174155_B66AC0C1 
+X-CRM114-Status: GOOD (  10.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,36 +81,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-I apologize for the mistake - if a new revision will be necessary I'll
-correct it with the Acked-by tag.
-Thank you!
-
-Il giorno dom 9 ago 2026 alle ore 19:04 Akari Tsuyukusa
-<akkun11.open@gmail.com> ha scritto:
+On Sun Aug 9, 2026 at 11:20 AM EDT, Sven Peter wrote:
+> On 09.08.26 16:30, Joshua Peisach wrote:
+>> On Sun Aug 9, 2026 at 8:16 AM EDT, Sven Peter wrote:
+>>> Add a driver for the reset of the CIO (USB4/Thunderbolt) blocks on
+>>> Apple Silicon SoCs which has to be deasserted before their
+>>> co-processor can be booted. On t8103 each port comes with a dedicated
+>>> register page while t600x uses a single register with one request bit
+>>> per port shared by all ports of a die inside the PMGR MMIO region.
+>>>
+>>> Signed-off-by: Sven Peter <sven@kernel.org>
+>>> ---
+>>> =C2=A0MAINTAINERS=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=
+=C2=A0 1 +
+>>> =C2=A0drivers/reset/Kconfig=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 |=C2=A0 10 +++
+>>> =C2=A0drivers/reset/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0 |=C2=A0=C2=A0 1 +
+>>> =C2=A0drivers/reset/reset-apple-cio.c | 182 +++++++++++++++++++++++++++=
+++++=20
+>>> +++++++++
+>>> =C2=A04 files changed, 194 insertions(+)
+>>=20
+>>> +
+>>> +static int apple_cio_reset_probe(struct platform_device *pdev)
+>>> +{
+>>> +=C2=A0=C2=A0=C2=A0 struct device *dev =3D &pdev->dev;
+>>> +=C2=A0=C2=A0=C2=A0 struct apple_cio_reset *priv;
+>>> +=C2=A0=C2=A0=C2=A0 int ret;
+>>> +
+>>> +=C2=A0=C2=A0=C2=A0 priv =3D devm_kzalloc(dev, sizeof(*priv), GFP_KERNE=
+L);
+>>> +=C2=A0=C2=A0=C2=A0 if (!priv)
+>>> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 return -ENOMEM;
+>>> +
+>>> +=C2=A0=C2=A0=C2=A0 priv->variant =3D of_device_get_match_data(dev);
+>>=20
+>> Might be a dumb question, but does priv->variant also need to be
+>> checked? Because later priv->variant->pmgr_child is and I *think*
+>> it could return NULL.
+>>=20
+>> (Or is this not necessary since in theory the device should only run
+>> this if detected... so this should never be an issue?)
 >
-> On Sun, Aug 09, 2026 at 06:03:27PM +0200, Luca Leonardo Scorcia wrote:
-> > Enable the toprgu reset controller feature for the mt6589 SoC. This
-> > allows generating reset signals for the 12 subsystems managed by its
-> > top reset generation unit.
-> >
-> > Signed-off-by: Akari Tsuyukusa <akkun11.open@gmail.com>
-> > Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-> > ---
-> >  arch/arm/boot/dts/mediatek/mt6589.dtsi | 2 ++
-> >  1 file changed, 2 insertions(+)
->
-> I provided "Acked-by", not "Signed-off-by"...
-> https://lore.kernel.org/linux-mediatek/amEBgRmQktZ44jc1@buffalo-ssd/
->
-> PS: I am also fine with this patch carrying my Signed-off-by.
-> Signed-off-by: Akari Tsuyukusa <akkun11.open@gmail.com>
->
-> Best Regards,
-> Akari
+> You might be able to get this driver to probe without a device tree node=
+=20
+> by manually forcing it with sysfs but well... play stupid games, win=20
+> stupid prizes.
+> Adding the check is just two lines and doesn't hurt though.
 
-
-
--- 
-Luca Leonardo Scorcia
-l.scorcia@gmail.com
+Meh, not worth the extra lines of instruction. FAFO for the curious.
 
