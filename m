@@ -4,104 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 247A4C5AC67
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 00:51:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5018BC5AD2C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 03:01:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:References:In-Reply-To:From:Subject:Cc:To:
-	Message-Id:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xCkSTHTpye1HwdVm99z+AnyQrg5wWGU9aIxGyfSTlQk=; b=BoVfmQEGOnxbxMJcbMUMJBaZ74
-	QxcN8fxGTt/T9rXBHx1cLIMPhTXvMgiEjFsWWsc6/EBNHALmQvDs1TjIss0pqfG9ofCSYl/Dwbp+x
-	/GEZPc+0cztCYb/lzMIYEwuI7t5sfKu+WncAilV0/c2HyHggW7DJuXqGR4z7grSutXFQMKtDfXHph
-	iwmx3Ma1d1LUu+IKCi7HetrjqS1ZJqvIMRv8J3+N+wItRldyXXVPKuCJuo2MCmwEZSo4wbx1FaY6o
-	xqUIrZOJiAnOrfNEWiAyo4m0JLmF/6D8Pz297ZuWRwozlyriYjQXD70NES0m6QIsnN54brDMNMFuo
-	ap3YIOsQ==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QssombK2y2bxkLpbfBWs6fhMLQY5cUQH/zTynZfaBI4=; b=MoQzhwhQ8yxqrZWaTrFQjZet39
+	VNm+sW7/0S/NJxuFSQISTQbTNUv7I0oN5nDB6mAJiTCdhOiE4yIe8fnttzu1hIC9OmIBzOLo/fuUg
+	fJVRmdgktyHa6/b3Z83A8kNPclGzW0ZMcjgiXAy6hqyd20j4dBLUubDc8LJ/aTe6EaklNKkzUAuFp
+	go02WC3UdHNFYFi8pyiIWF7nferGJ67fYkEkp0cAS+15ed7uP0oLOw7sUp9LNt/ytZEm4QmL6rgu1
+	oltDaXV72di/ENXH3Odon8hfdANAAnGy3Dvh+PZ6j3jBESM6ynqf7Y5qrf4ScwoYI/HIg3S227s1s
+	Ycv8M7zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsrke-00000009qqU-1Ydr;
-	Sun, 09 Aug 2026 00:50:56 +0000
-Received: from flow-b3-smtp.messagingengine.com ([202.12.124.138])
+	id 1wstn0-00000009w3P-0LJA;
+	Sun, 09 Aug 2026 03:01:30 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsrkb-00000009qq4-2cWo
+	id 1wstmv-00000009w2u-2xFH
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Aug 2026 00:50:55 +0000
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailflow.stl.internal (Postfix) with ESMTP id A53A813003E8;
-	Sat,  8 Aug 2026 20:50:49 -0400 (EDT)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-01.internal (MEProxy); Sat, 08 Aug 2026 20:50:50 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=flapping.org; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1786236649;
-	 x=1786240249; bh=xCkSTHTpye1HwdVm99z+AnyQrg5wWGU9aIxGyfSTlQk=; b=
-	NU29sH9ZsRImhMnP8aT4p1yQuwbjPQGMO/KabwgRq2yYxQ/ry+1Z1Vn+aKswp0jA
-	72ClGAM+RK0CQbBBeNZoFnugrY5/elsoMjjCUxL3pA5zBDlm6jLWNbqUBYL41f67
-	qgDYhH/yx+ZZwLI3zLz4969SjC3Hkzs7OCF7+t7vBCb7HqeZjNkk229mhr6p/lmY
-	ofVWspjaKMqFx4U7KFt0wkexc8lm5XJzdfsl9ynow10v4Z14sNyO3MeFVTcyLQA1
-	WjDOG7H51LRjuwr8d4UA8IhwusSfUQ1QEcwc/NJhpbWu+E0RBf6I/XzedDPtAnCR
-	ZukGehUwfRxEDr4N10drrw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1786236649; x=
-	1786240249; bh=xCkSTHTpye1HwdVm99z+AnyQrg5wWGU9aIxGyfSTlQk=; b=c
-	P0PZJUq0RL8Rlvcc1fesfcEMhNL6Ow9lK6nfrSGwEflLRYBFoLkzE1Yr5WMGJPYw
-	6Ls8irExU3Ub5sFTx5NcKRAH5xucWJFNRRvkhBduzCdqecm6LWGDrXtoGpRlheXG
-	UFpcHlztpRcjsaONfnp3vPT+8vfMpXaAfrIR19+vZMdYnDXfubUU4eupOvjcIaV4
-	R95/pGjewQ23PSePQl443aNXWIfsQ3xYKTpj+NGD3gg7BeA8hkv88pef8q7vCOHc
-	uIJqmRnetmYNvbFXUd9WY00og5FNwR45IRYTuMkmtVxMmUD0Ji1P5QW5iU0wfdhs
-	WDeCMFaGEthDDbIKAxoWQ==
-X-ME-Sender: <xms:6c53arGSkqmk3IqBNnnQ2VKcHffefbAAip61EJHMKqdmHgKe49MqKA>
-    <xme:6c53ahqtvY3uC-Hfvkr5IP-xm6o0Pileb7gQNwccdKBZKzJzhBjqdpIQ4cylfo457
-    xtuy5QOh6rmIIzNQtjutLHENNBv18XYy4-EnU7K8TUJ0q73feH64Os>
-X-ME-Received: <xmr:6c53alJ5ES3-_J3P-YGMPLo--aGyaHVuglFfyg0kYfADERmZrUU2geEkMC3ojc-Ixuau59UkdNyymLQWD8k7HpOO>
-X-ME-Proxy-Cause: dmFkZTEWyeKTFTOJEnerKErAGQhxs6jY8ZIIz/VM/JukQDWudLXGVHslkG7D0P1qYkOnvC
-    p/N/lf6zobEs4R09BmnLvcyKb6KEUV8BUTXqUMer/pYJTS3yxadkjhC7zWSmUyqan7H6wr
-    iOv96fl5zT6jrqOPwMso0ETzEouIFpNVaqEmeJP6dRigdDAu+IZwRJj3PRqh95KibXDSbH
-    Of4jjPRZQoMGfXL2I60hA+xQxKCbr/Il0tBfaPmtJlZB/9gh2yaivzrZ+UEJhRUq2avrt/
-    6MNUfnrwFjZeD8nPUgpooCWsWDJWaeXgePQ7pwjcD8pNyMNO3hgiId+X/6f2GyobvqrChX
-    NgkPoQKFCUKOdPrSSKZZaMsWyrbXtBaD570Fno2K/4e5Nb5VitmSOsXELC6wzq1o+MMDWY
-    BDRwN8HUmt9AECIMyFVNpR973AKW7u6uPbtbGxU+dTKN1KX7lX/ZxmF9ahMCplvW2k9Dce
-    3Wj2yJqgmIm4lxeGRLk8czefQ+PqJVNwKyd2c5DDek8AwYdsaBtjBXoESSJCZL126CgnZw
-    rh13jAEcLls9u8D5VHKwcbJvvTqbDM+mo/Yit0Ddsv8oXXiRSOEjzRdCiYx27+csmM/vgK
-    hVPN/Z9TSjlgnoTExldLSqYJPnlu92K0CYW1f/ZUOTAU2VW0QljkT4ZNSYpg
-X-ME-Proxy: <xmx:6c53aiyzFxtDYEEDIAstGaAJXGXzDY_IQtzrTj8ejlUY2ird5uDvow>
-    <xmx:6c53asZ7ksw7NU9kx_h8FiWRleYvZnx3smz_-wtFzjvcNQJrn2sdMg>
-    <xmx:6c53au7uETwpLa9d-ku27TH1Z02VJoAkMJxEJcp0Z_5NIXILFSfXrw>
-    <xmx:6c53atClWOEO2nw6sx0n4TuPtVeL-p1G5s-AlrhTW5lZwR2IMp7Zlg>
-    <xmx:6c53agQEeP9Ahk4NyUtA6jCafbY03DdegnZvbcQlkorROei3L2sIXvzX>
-Feedback-ID: i51fe4b43:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sat,
- 8 Aug 2026 20:50:43 -0400 (EDT)
-Date: Sun, 09 Aug 2026 09:50:41 +0900 (JST)
-Message-Id: <20260809.095041.602618436881623934.tomo@flapping.org>
-To: miguel.ojeda.sandonis@gmail.com
-Cc: tomo@flapping.org, ojeda@kernel.org, arnd@arndb.de, krzk@kernel.org,
- alexandre.belloni@bootlin.com, linusw@kernel.org, chenhuacai@kernel.org,
- boqun@kernel.org, gary@garyguo.net, bjorn3_gh@protonmail.com,
- lossin@kernel.org, a.hindborg@kernel.org, aliceryhl@google.com,
- tmgross@umich.edu, dakr@kernel.org, daniel.almeida@collabora.com,
- tamird@kernel.org, acourbot@nvidia.com, work@onurozkan.dev,
- rust-for-linux@vger.kernel.org, fustini@kernel.org,
- linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev,
- kernel@xen0n.name, loongarch@lists.linux.dev, stable@vger.kernel.org
-Subject: Re: [PATCH] rust: bug: fix `dead_code` warning in `warn_on!`
-From: FUJITA Tomonori <tomo@flapping.org>
-In-Reply-To: <CANiq72m70uWCRFnhs3axdymSTGCirBrYAvKh2BiT0xqW2j_3jg@mail.gmail.com>
+	Sun, 09 Aug 2026 03:01:27 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2ccdce28edeso879715ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Aug 2026 20:01:25 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1786244483; cv=none;
+        d=google.com; s=arc-20260327;
+        b=jGl6rBKKb5myf8C61z5n3Tx57yJXYTqxKbN7WcRRxqnzeQPEsnDddtyqGicRtZqhnS
+         9CiydplwC4sp/2CtmmnAga8jMmsKBVEZR1hsFh+CGanMMATjP+xGkT0UMWvCFHPbOMTe
+         a66kRL/KKRC3o4FHBwjPSYnR1j1TbjfjMXbxusD4yTrAcZZk4/4SFfg5AtZglyFiHp3d
+         BGGi+kJ7XxFiWvHisbglJhRWnax5YFI5/k2/EevDBW+zmHHWIz/nLAxJfkAr4T/qziz3
+         a0LZgO42fBshhelu8DBIq2TV7/n6AHlSCCs0faqfQF8aGSGtmUAegZJO2xX0AT3onJoK
+         TbUA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=QssombK2y2bxkLpbfBWs6fhMLQY5cUQH/zTynZfaBI4=;
+        fh=OFbcgG1Jo9G7cqqcsKZyKied1nZJ4tnSQiImKaeoYe0=;
+        b=NWtPZlk8eA14yMlFyPOcje9m/Fr7ibBkn51ZH8IElfJnBpDScyBf1fkpoWOfUvkIb+
+         PrtVAjCfjJOX/kzA5AEvnmj7Bl6IUxrqXMGlAFaIHIRfKIt+mqM+DcdJ4PbSwj6k91kx
+         0al8cmSZJCiRTdKVCtskhE4PVNWNJodXO3Dpa/GhhIw7E6/8bZd8SFJG+kPpURD/Y1Vp
+         0cIV0/ijjkoykzTIKIkbmgZE7YbgJJF+NOCVLIQLA8Yhi4efb0ohBL87e6Qs9d84EXjs
+         1TNTrk+MSU7dtQ5kbKAlPOgJt2JnFNKpGu1c/xT5Zhtbrcv3AJ+AQ/10QruEMNVyOYsA
+         ZB+A==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786244483; x=1786849283; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=QssombK2y2bxkLpbfBWs6fhMLQY5cUQH/zTynZfaBI4=;
+        b=cDOvGDqSJ2Y9yH6KWyBg25C4ZcpmQcHY+YQTcKCyz9O1gIl7l/AakQm23rZy/G2j1v
+         8ZIEf/8VtGqlE9e+F/1LgRqpsNrQdi2PmVbCGV0lhmjDXFmio1XBn4bzMwAta293yxIU
+         x/LAWWLzN0yNt957W2ATxf+eGr54qX1lq0XIM8sHhbLpj9FTvqZAf2zv0r1h/Xg6f0R9
+         5D0MkbHoj8Tq7yz+n3IebjrfaNfD0sKn2I+Ox8QiODHyLISrp4mlfp0xnOUwx0nbw2HY
+         Mh8PginQ84iMRm2XF1qQeDyN8twpHxjcnEB2aUJX1QJnlfDP02QiPDKoOionoW2R5+OL
+         0PVw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786244483; x=1786849283;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=QssombK2y2bxkLpbfBWs6fhMLQY5cUQH/zTynZfaBI4=;
+        b=tZbHAOcgCSHh6gRBJgSXNtnNZWJ4qYkqoMcpHq9mXysAhv3dJvccHn6RBBDLY5xgym
+         A/WrAYrrQ6CsYnOIRr4ZlI18NeZEMdxMa9PDxp9ySgQ1r8X610Wa50chjJdqd7qseV1Y
+         gjvLRav7Y9HWkmFuGBslMmKWVZ+GvwVMV38QaIZ7SpqM/m4s0MJK0lMjM7KWQKMv1MHx
+         ziVa8So4wqgdsqZfLI0OGAeQjExrz5B0SKP4+PeHjc6qzAZYZce2GzlnKlIS0Ra9n7kc
+         i9P/K5thGvv6dZQvi+VN7k3U3GBZD0haUssofMuq/LXMkXC2Csjkt2wa8oHNgh8+ykxu
+         BRbQ==
+X-Forwarded-Encrypted: i=1; AHgh+RoRiiVbLssRpCJxsEwS+mrmOqxQ6ppqgIHAsU9ic/+7EBKBBLNmWlxtqWqlbk32ZM5P2eabHXCPwqIFzTr89XlS@lists.infradead.org
+X-Gm-Message-State: AOJu0YxP8noJ8yW/vzopprpymd8N6JEC2Ve/po6lDtF1yd/XDeRVaqhW
+	pAEO3J4Z51fB9AJ2IxWl6XvYGMnJr7uDm/vnCZ/PBliNDjPkok/MoqbYVr6kP6Ypt/0CLh1mrmr
+	uMAJi3kC99NZckcuAQCh/+lNMRVlI+Ng=
+X-Gm-Gg: AR+sD10QmGg/5UVOjvoG1lzmNKH+gTlCh7ftZobUYhq+3/Rr0OM2BHfRHAXtyquXcah
+	7uTRk40fZ6GbuzKBPeqj+VqDSx3oyQM8x//tHSPMvOWGgdoU84GTPKCEPBOWQ00eQ/5fCEOn531
+	jm+sISL3+syJn9mbpxwSooDoEsaTicljsiqo98Uhyqne3fgeTknx6n+Os3q6r+J9qF4NgZ1ro4g
+	DB6G3pU3r14jibIwuXOln/aVzmXKNNuKnt4Ue0TLJNUbsgnkzwqT4s4R5UTAhn1lDL/gEDPnrdw
+	gQ5D1a/19vGyfD0ngcrT70SswY/abPN+kyT7/KAvj0QbZWBUecGkZ4Z9tor2ldBlELYh9HclTjX
+	ZcVUwVVdxJWTBHRPqUmGTYPttQbsWWvhwSH6JYHP7DBgS8xJZ/kxxbRmBId6i
+X-Received: by 2002:a17:903:17cd:b0:2cf:ca85:57e2 with SMTP id
+ d9443c01a7336-2d0ca7b0285mr257513645ad.1.1786244483476; Sat, 08 Aug 2026
+ 20:01:23 -0700 (PDT)
+MIME-Version: 1.0
 References: <CANiq72n4=fz=JNKY0Jdm8BnLa=RmHB2B7s0bO47YTJ7hygqBZg@mail.gmail.com>
-	<20260808.143013.1251068388254615351.tomo@flapping.org>
-	<CANiq72m70uWCRFnhs3axdymSTGCirBrYAvKh2BiT0xqW2j_3jg@mail.gmail.com>
-Mime-Version: 1.0
-Content-Type: Text/Plain; charset=us-ascii
-Content-Transfer-Encoding: 7bit
+ <20260808.143013.1251068388254615351.tomo@flapping.org> <CANiq72m70uWCRFnhs3axdymSTGCirBrYAvKh2BiT0xqW2j_3jg@mail.gmail.com>
+ <20260809.095041.602618436881623934.tomo@flapping.org>
+In-Reply-To: <20260809.095041.602618436881623934.tomo@flapping.org>
+From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Date: Sun, 9 Aug 2026 05:01:09 +0200
+X-Gm-Features: AUfX_mxOkJgVjfpd9Xjn2_lEgaaMyCa2CI5K0zvJDPjtb_T8ut0EX3_Stxulh1A
+Message-ID: <CANiq72nxE05HEyNmxGj2gYHaYL95eQQVF9SAuhDdHX0RDW1i2w@mail.gmail.com>
+Subject: Re: [PATCH] rust: bug: fix `dead_code` warning in `warn_on!`
+To: FUJITA Tomonori <tomo@flapping.org>
+Cc: ojeda@kernel.org, arnd@arndb.de, krzk@kernel.org, 
+	alexandre.belloni@bootlin.com, linusw@kernel.org, chenhuacai@kernel.org, 
+	boqun@kernel.org, gary@garyguo.net, bjorn3_gh@protonmail.com, 
+	lossin@kernel.org, a.hindborg@kernel.org, aliceryhl@google.com, 
+	tmgross@umich.edu, dakr@kernel.org, daniel.almeida@collabora.com, 
+	tamird@kernel.org, acourbot@nvidia.com, work@onurozkan.dev, 
+	rust-for-linux@vger.kernel.org, fustini@kernel.org, 
+	linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev, kernel@xen0n.name, 
+	loongarch@lists.linux.dev, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260808_175053_988591_73C6A6C6 
-X-CRM114-Status: UNSURE (   8.77  )
+X-CRM114-CacheID: sfid-20260808_200125_778565_D7D7EB8C 
+X-CRM114-Status: UNSURE (   9.55  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -117,26 +128,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 8 Aug 2026 21:40:49 +0200
-Miguel Ojeda <miguel.ojeda.sandonis@gmail.com> wrote:
+On Sun, Aug 9, 2026 at 2:50=E2=80=AFAM FUJITA Tomonori <tomo@flapping.org> =
+wrote:
+>
+> Then `jump_label.rs` needs the same treatment?
+>
+> `arch_static_branch!` embeds the generated arch asm too. It is not a
+> problem today only because, like `warn_on!` until now, it has no user
+> inside the `kernel` crate itself.
 
->> I posted a `cfg(testlib)` split for it:
->>
->> https://lore.kernel.org/all/20260808022608.1125174-1-tomo@flapping.org/
-> 
-> Thanks! It seems good to me.
+Yeah, I think we should do it to avoid surprises later.
 
-Thanks!
+Good eyes!
 
->> While at it, a question: what is `rusttest` meant to cover when
->> `ARCH=` is not the host's?
-> 
-> `rusttest` is meant to run tests on the host, regardless of the target.
-
-Then `jump_label.rs` needs the same treatment?
-
-`arch_static_branch!` embeds the generated arch asm too. It is not a
-problem today only because, like `warn_on!` until now, it has no user
-inside the `kernel` crate itself.
-
+Cheers,
+Miguel
 
