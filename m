@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF0ECC5AC80
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 08:57:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 648D9C5AD4E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Aug 2026 08:57:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fxxkzZ4yEhQf7opIsCfnBNmnUUhOHrkOhB3UxKquZO8=; b=pmOP2c60FS33e6pUI7YZJfkr2+
-	xorWSApK80iQtvGllzxdLKh0q5XG5H7KU8CHljozyozbwuNwsMrR9XrexR2C3O77VrMRNzcpujWqP
-	dNV32bhNmIoAmBUXdv0RMD3qx6+rPOrVlp2BskhxMvzvSrvoMTH7S25B9oka844e9FzDmRgmkx2Su
-	C3zpqKX2Pp6yLVs2ZJd1xSKn/40kOPVR05S/2dCkw2/ngSLkHoY4hFB3FkqeRJcv19CptJyUh2HKD
-	bALsQiuv/MSx7+eyzX/i/It6DPaAAQcSKhvnL6y1WtZdB3OAxSRhxabo7HCEq6j9GBUhOXXJQvmlC
-	Y/JBEC6w==;
+	bh=MrPKsqRSlVLnUqN5zpE0BPlVZ3YBXGn54sA8Dd/HNKE=; b=ymPLpG6UE7nzDkjdyi7eR8bY+h
+	Hsmb0Qj8tHKRPzgJc0N4jVN8XFHZtbBbC9RVcKomiOc5+cEcXfsm0S/YNiQ6FkYrCkvgUjnkReiSy
+	rVkhtb6GYmpmdxBqIaT0m1ErfhsnEvcPFjZOWokNsbimFvUVh2rHKQ9/JN/BUayTsGHlN5g90oWpW
+	PxDsod0eXaYciZrvsvLW9XEodqYmBNvxrq7i3hfM98lSBi2gomGZdkygwQULKm8yGpCnts7zYmRDR
+	UUSOKj4P3y2Qcjs8IpwTBbW65Ik8zyzhR54I1mGQ4OmhytyaeyY6S278LxEgDu3TC1WEDhoTBfGeD
+	wFJ8pZZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wszKs-0000000A78s-3sZL;
-	Sun, 09 Aug 2026 08:56:50 +0000
+	id 1wszL2-0000000A7C7-0ELw;
+	Sun, 09 Aug 2026 08:57:00 +0000
 Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wszKq-0000000A77s-1Ihf
+	id 1wszKz-0000000A7B7-3C5i
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Aug 2026 08:56:49 +0000
+	Sun, 09 Aug 2026 08:56:59 +0000
 Received: from mail01.layka.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 8351242C2F;
-	Sun, 09 Aug 2026 10:56:40 +0200 (CEST)
+	by disroot.org (Postfix) with ESMTP id 17E8942C2F;
+	Sun, 09 Aug 2026 10:56:56 +0200 (CEST)
 X-Virus-Scanned: SPAM Filter at disroot.org
 Received: from layka.disroot.org ([127.0.0.1])
  by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id 5a2gwA-ajPo8; Sun,  9 Aug 2026 10:56:39 +0200 (CEST)
+ id Gwja3od2zCai; Sun,  9 Aug 2026 10:56:54 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1786265799; bh=KkCb88jpb3D1kBUtynsLp4Zj81VOJWY1vhwCs7mKWUQ=;
+	t=1786265814; bh=9TT9CJ5yyDMdNry/NTuAsIsN0De4CnxEpXPpkHY+ljg=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=jPnHcDwsXkaZQQylVP4a2dD9xTWzBDA24HuB3SXecErTuRnvVHajXSaL6yCJvwXhz
-	 f0F7bnmz+CT5yMRoA/phNg9wCIMgDjznuPzCYRDxpq5w6CyBb2Mj+2HYG0Wf/4OqkG
-	 xDQP7FqnW0UEll1YNyUS1KXH7xWHdH9cmckEuQHd3yfKOOdbuGr+b3NSeNpARTQz86
-	 V3RoFtBakIm+U/cR9d9IJiKu3KApGfytKsiGvIFPxhyto3U8SGLDfB3ZDerXgX9U6U
-	 49ZW04bkX8pW03Fb2H56RxCwjZY/6a+Ddr8zkctBL92z9OWzGaYJQ7ruIdlXnyd/R6
-	 euhzGV3dvRqfw==
+	b=kDFeZX6vTSw30ZBG9nMDzQBdiRqKAAr/2JKkLV5nfOM5+CGB+SxEzZJUdAKhgYLQ0
+	 MzTO4GMzXiu8Uv5MKe6yXxd8B0C63o/CA4SabAZaHHp199XSjLzICoC1eOAWshItmV
+	 LyAE3MYH2tGQGBjsImpdui9fNmzjyjom9EdIOPs/j0rA4H5sRFXrf5/SK8EzEH7yjZ
+	 CQ0gpmiYFiQOoTtqjvE5Gz6xieR/9Nd9oQ22A1lT4EwSjpsr73pnzuPXtQnQ8XzqhW
+	 /0r1ipUMeJUnTqxxELABcRMZZAKy8z+8aLEqGRm7k1h4GK/tjNFFWOFP/tB3mnjwe5
+	 yielQATbI/HrQ==
 From: Kaustabh Chakraborty <kauschluss@disroot.org>
-Date: Sun, 09 Aug 2026 14:25:59 +0530
-Subject: [PATCH v5 1/3] drm/bridge: samsung-dsim: enable MFLUSH_VS for
- Exynos 7870 DSIM
+Date: Sun, 09 Aug 2026 14:26:00 +0530
+Subject: [PATCH v5 2/3] drm/bridge: samsung-dsim: use DSIM interrupt to
+ wait for PLL stability
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260809-exynos-dsim-fixes-v5-1-6e63dc6c238f@disroot.org>
+Message-Id: <20260809-exynos-dsim-fixes-v5-2-6e63dc6c238f@disroot.org>
 References: <20260809-exynos-dsim-fixes-v5-0-6e63dc6c238f@disroot.org>
 In-Reply-To: <20260809-exynos-dsim-fixes-v5-0-6e63dc6c238f@disroot.org>
 To: Inki Dae <inki.dae@samsung.com>, 
@@ -71,10 +71,10 @@ To: Inki Dae <inki.dae@samsung.com>,
  Alim Akhtar <alim.akhtar@samsung.com>
 Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- Kaustabh Chakraborty <kauschluss@disroot.org>, stable@vger.kernel.org
+ Kaustabh Chakraborty <kauschluss@disroot.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260809_015648_485359_9DA48DBF 
-X-CRM114-Status: GOOD (  10.35  )
+X-CRM114-CacheID: sfid-20260809_015658_082559_D880BE72 
+X-CRM114-Status: GOOD (  21.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,42 +89,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit a36c533ad3e1 ("drm/bridge: samsung-dsim: Always flush display
-FIFO on vsync pulse") intends to enable FIFO flushing at v-sync pulse by
-not setting the active-low MFLUSH_VS bit.
+Stabilizing PLL needs to be waited for. This is done using a loop,
+checking the PLL_STABLE bit in the status register.
 
-However, in Exynos 7870 DSIM, the MFLUSH_VS bit is active-high. There is
-no publicly available documentation to the best of my knowledge, but
-downstream kernel code [1] supports this claim. Enable the bit for
-Exynos 7870.
+DSIM fires an interrupt when the PLL is stabilized. Rely on this
+functionality for stabilization wait, getting rid of the implicit loop.
 
-Fixes: a36c533ad3e1 ("drm/bridge: samsung-dsim: Always flush display FIFO on vsync pulse")
-Cc: stable@vger.kernel.org # v6.17 and later
-Link: https://github.com/samsungexynos7870/android_kernel_samsung_exynos7870/blob/a3762bb1761ae/drivers/video/fbdev/exynos/decon_7870/dsim_reg_7870.c#L699 [1]
-Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
+To utilize this, explicitly unmask PLL_STABLE and SW_RST_RELEASE right
+after reset, and wait for reset before setting up clock.
+
+This has been tested on a Galaxy J6 (Exynos 7870). Unfortunately, since
+testing on all supported devices is less feasible, introduce a stop-gap
+measure where the timeout has a gracious lower bound of 100
+microseconds. This will (hopefully) prevent regressions due to timeout
+on other devices.
+
+Suggested-by: Inki Dae <inki.dae@samsung.com>
+Link: https://lore.kernel.org/r/CAAQKjZMLMbwDVZRb5+Xb_5yz3AEP4uuzFJMuuZy9NFDu13VU5w@mail.gmail.com
 Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
 ---
- drivers/gpu/drm/bridge/samsung-dsim.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+ drivers/gpu/drm/bridge/samsung-dsim.c | 49 +++++++++++++++++++++++++----------
+ include/drm/bridge/samsung-dsim.h     |  1 +
+ 2 files changed, 37 insertions(+), 13 deletions(-)
 
 diff --git a/drivers/gpu/drm/bridge/samsung-dsim.c b/drivers/gpu/drm/bridge/samsung-dsim.c
-index 25ab475309e8..fc42acc6b9ef 100644
+index fc42acc6b9ef..9f58c7b1be53 100644
 --- a/drivers/gpu/drm/bridge/samsung-dsim.c
 +++ b/drivers/gpu/drm/bridge/samsung-dsim.c
-@@ -1089,6 +1089,13 @@ static int samsung_dsim_init_link(struct samsung_dsim *dsi)
- 			reg |= DSIM_HBP_DISABLE_MODE;
- 		if (dsi->mode_flags & MIPI_DSI_MODE_VIDEO_NO_HSA)
- 			reg |= DSIM_HSA_DISABLE_MODE;
+@@ -17,6 +17,7 @@
+ #include <linux/export.h>
+ #include <linux/irq.h>
+ #include <linux/media-bus-format.h>
++#include <linux/minmax.h>
+ #include <linux/of.h>
+ #include <linux/phy/phy.h>
+ #include <linux/platform_device.h>
+@@ -722,9 +723,14 @@ static void samsung_dsim_wait_for_reset(struct samsung_dsim *dsi)
+ static void samsung_dsim_reset(struct samsung_dsim *dsi)
+ {
+ 	u32 reset_val = dsi->driver_data->reg_values[RESET_TYPE];
++	u32 status;
+ 
+ 	reinit_completion(&dsi->completed);
+ 	samsung_dsim_write(dsi, DSIM_SWRST_REG, reset_val);
 +
-+		/*
-+		 * For some hardware types, DSIM_MFLUSH_VS bit needs to be
-+		 * enabled as its active-high.
-+		 */
-+		if (dsi->plat_data->hw_type == DSIM_TYPE_EXYNOS7870)
-+			reg |= DSIM_MFLUSH_VS;
++	status = samsung_dsim_read(dsi, DSIM_INTMSK_REG);
++	status &= ~(DSIM_INT_PLL_STABLE | DSIM_INT_SW_RST_RELEASE);
++	samsung_dsim_write(dsi, DSIM_INTMSK_REG, status);
+ }
+ 
+ static unsigned long samsung_dsim_pll_find_pms(struct samsung_dsim *dsi,
+@@ -787,8 +793,7 @@ static unsigned long samsung_dsim_set_pll(struct samsung_dsim *dsi,
+ 					  unsigned long freq)
+ {
+ 	const struct samsung_dsim_driver_data *driver_data = dsi->driver_data;
+-	unsigned long fin, fout;
+-	int timeout;
++	unsigned long fin, fout, timeout_us, bus_clk_mhz;
+ 	u8 p, s;
+ 	u16 m;
+ 	u32 reg;
+@@ -849,19 +854,33 @@ static unsigned long samsung_dsim_set_pll(struct samsung_dsim *dsi,
+ 	if (dsi->swap_dn_dp_data)
+ 		reg |= DSIM_PLL_DPDNSWAP_DAT;
+ 
++	/*
++	 * The PLL_TIMER value is the product of the timeout delay and the APB
++	 * bus clock rate. Calculate the timeout delay on-the-fly here.
++	 * It is assumed that the bus clock is the first clock in the provided
++	 * bulk clock data.
++	 */
++	timeout_us = 100;
++	bus_clk_mhz = clk_get_rate(dsi->driver_data->clk_data[0].clk) / HZ_PER_MHZ;
++	if (bus_clk_mhz)
++		timeout_us = max(driver_data->reg_values[PLL_TIMER] / bus_clk_mhz,
++				 timeout_us);
++
++	reinit_completion(&dsi->pll_stabilized);
+ 	samsung_dsim_write(dsi, DSIM_PLLCTRL_REG, reg);
+ 
+-	timeout = 3000;
+-	do {
+-		if (timeout-- == 0) {
+-			dev_err(dsi->dev, "PLL failed to stabilize\n");
+-			return 0;
+-		}
++	if (!wait_for_completion_timeout(&dsi->pll_stabilized,
++					 usecs_to_jiffies(timeout_us))) {
+ 		if (driver_data->has_legacy_status_reg)
+ 			reg = samsung_dsim_read(dsi, DSIM_STATUS_REG);
+ 		else
+ 			reg = samsung_dsim_read(dsi, DSIM_LINK_STATUS_REG);
+-	} while ((reg & BIT(driver_data->pll_stable_bit)) == 0);
++
++		if (!(reg & BIT(driver_data->pll_stable_bit))) {
++			dev_err(dsi->dev, "PLL failed to stabilize\n");
++			return 0;
++		}
++	}
+ 
+ 	dsi->hs_clock = fout;
+ 
+@@ -1586,7 +1605,8 @@ static irqreturn_t samsung_dsim_irq(int irq, void *dev_id)
+ 	samsung_dsim_write(dsi, DSIM_INTSRC_REG, status);
+ 
+ 	if (status & DSIM_INT_SW_RST_RELEASE) {
+-		unsigned long mask = ~(DSIM_INT_RX_DONE |
++		unsigned long mask = ~(DSIM_INT_PLL_STABLE |
++				       DSIM_INT_RX_DONE |
+ 				       DSIM_INT_SFR_FIFO_EMPTY |
+ 				       DSIM_INT_SFR_HDR_FIFO_EMPTY |
+ 				       DSIM_INT_RX_ECC_ERR |
+@@ -1596,8 +1616,10 @@ static irqreturn_t samsung_dsim_irq(int irq, void *dev_id)
+ 		return IRQ_HANDLED;
  	}
  
- 	if (dsi->mode_flags & MIPI_DSI_MODE_NO_EOT_PACKET)
+-	if (!(status & (DSIM_INT_RX_DONE | DSIM_INT_SFR_FIFO_EMPTY |
+-			DSIM_INT_PLL_STABLE)))
++	if (status & DSIM_INT_PLL_STABLE)
++		complete(&dsi->pll_stabilized);
++
++	if (!(status & (DSIM_INT_RX_DONE | DSIM_INT_SFR_FIFO_EMPTY)))
+ 		return IRQ_HANDLED;
+ 
+ 	if (samsung_dsim_transfer_finish(dsi))
+@@ -1635,9 +1657,9 @@ static int samsung_dsim_init(struct samsung_dsim *dsi)
+ 	if (driver_data->reg_values[RESET_TYPE] == DSIM_FUNCRST)
+ 		samsung_dsim_enable_lane(dsi, BIT(dsi->lanes) - 1);
+ 
+-	samsung_dsim_enable_clock(dsi);
+ 	if (driver_data->wait_for_reset)
+ 		samsung_dsim_wait_for_reset(dsi);
++	samsung_dsim_enable_clock(dsi);
+ 	samsung_dsim_set_phy_ctrl(dsi);
+ 	samsung_dsim_init_link(dsi);
+ 
+@@ -2148,6 +2170,7 @@ int samsung_dsim_probe(struct platform_device *pdev)
+ 		return PTR_ERR(dsi);
+ 
+ 	init_completion(&dsi->completed);
++	init_completion(&dsi->pll_stabilized);
+ 	spin_lock_init(&dsi->transfer_lock);
+ 	INIT_LIST_HEAD(&dsi->transfer_list);
+ 
+diff --git a/include/drm/bridge/samsung-dsim.h b/include/drm/bridge/samsung-dsim.h
+index 03005e474704..e3433da21ad0 100644
+--- a/include/drm/bridge/samsung-dsim.h
++++ b/include/drm/bridge/samsung-dsim.h
+@@ -123,6 +123,7 @@ struct samsung_dsim {
+ 	int state;
+ 	struct drm_property *brightness;
+ 	struct completion completed;
++	struct completion pll_stabilized;
+ 
+ 	spinlock_t transfer_lock; /* protects transfer_list */
+ 	struct list_head transfer_list;
 
 -- 
 2.54.0
