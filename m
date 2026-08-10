@@ -4,115 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2D42C5AE5D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 10:55:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAB96C5AE5D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 10:56:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=whp17tHwzK4LQg7Nc9ShOMIrpcTZjYnNPpwNE+2pyaw=; b=bqzVYmlUsK6ZB022NMUHc40lcU
-	hwMIeyZ8DWN7HTShl0D3OnPNF8EgFsr9psb8unCrHmhWJHa7mms4AKJo+aIsVp2CztjcclIhcMipZ
-	CJ3U2pjhXgkJyD+2DKHkAbVdGb1BuEd/4wbQsRxTGvHpwPH07ZrNZZ+OQ/LRi7WKdIlUnagk2nqrw
-	9ljQYIZJCoSjQbKMEEyYle/e0Q061Om7IeR1pfpfbYv+RpumEsYdgvkc8ahVZsR3PkC46ftXashh+
-	lkrtUQinis0lnPDHilMw6tai3UWNNvKdkuDKfNkBCLTYhV67A8TXict9HiPS44oojVXaDwkSIS0Ab
-	agCEZ48g==;
+	bh=OJ24BqAEJPwzbl6qff074FZZsCu3Ipow58eas1iNjro=; b=WaQB5IjkpVRWePCfVxrtteBfGq
+	3GvrWIEagLQarTwlx1YpFgXteUPRru+/unljF0Z8R90i5OhpFAJgXXyRO+8CcDgA4Ob8SCo0Y5Gzb
+	XTKbw5YlSG34+CP6CIeZrdJKsy4Lev8iP886ItY6A1AlJBWNpZZzF/Dm813fhAe7fV9UdjZl4kPI6
+	AIWOL5PKQs4LCtDGJXy8f2iRok2lnwgcamJw25wGsnHV0KCHhICA737HUn2rM4QdXMlUgIYJtuWYU
+	awe7/jKPC1+iQtpdQaRJLvSpVGjsabhtfmgWLSlHoBoK0cG0su0OHgTNAu6x1xmPB1WV/iTXF/1Me
+	lr3U0A4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtNfV-0000000BYXX-26qD;
-	Mon, 10 Aug 2026 10:55:45 +0000
-Received: from mail-qv1-xf2f.google.com ([2607:f8b0:4864:20::f2f])
+	id 1wtNfY-0000000BYbB-3xWV;
+	Mon, 10 Aug 2026 10:55:50 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtNfS-0000000BYWT-2zWP
+	id 1wtNfV-0000000BYXR-1Pyf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 10:55:43 +0000
-Received: by mail-qv1-xf2f.google.com with SMTP id 6a1803df08f44-908934450cdso15005876d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 03:55:42 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1786359341; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Y/1ZHcT8cwzjWBtRGORBxs6oZEetYsnW4R1yyCG7eQ1qsXJ0B32lfGTnJmpfGscwgq
-         GhcFIs6RhB8Ns/au5wOaQeDjTZ21LUUgfpNMpPxwdY/OzfP7WT8SpHow+XCvIqZoDcai
-         k52/4/Ng/nB3c+HpAjnFMN3utuNoJI+mXAZrVd6PhH/bYZqErPty6f0LUMZEjZ2tc0Yv
-         Zir0uAIp1Wa6djzZovfmg9QNVZxpwXcbF3h4pPXTsDOetBTZyD7NCc2MgjwzRaysC8u3
-         K1/DE0vqSknpnuIJrWL5NUas5SSv79qSMUD5TBCR8NInFP7BaNER64vm9gJKpaB5whBi
-         S1cw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=whp17tHwzK4LQg7Nc9ShOMIrpcTZjYnNPpwNE+2pyaw=;
-        fh=npMGHfgk/5YwWSNE4MDVZO1yrZCmUKC5rTuW2g/m0FI=;
-        b=HBSq8HurFHSzEJkx9emzfWxiUWM38BIE4wNFyN41pTx467qBzse7aF3wiRGoL/j8xO
-         MAX09bpUv3lF6WsEDvP5XaCxKku4uhnixmmiEpo00RdgXLF/cSoCR1e0HGB0DTLdxXx0
-         19NSSxsCIj8BDCanJUFSTbNWKKUNRZFP+TVLpivlp5+w/NKpp9WWDplDPsaLKeOXEx1N
-         lmaCLXNLdaCnBFxfqbWDpkQZGctnngxj/gnJiVl8/GX+P8mX6LMdnIW44/vrx6SmESFP
-         rFdvWzAU5DR0DHRjhHtlxI5UhivDyqyBAm+8HdqUj3GqjEtzmxCyEgjlt5/YDgAaqu4I
-         7rtQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Mon, 10 Aug 2026 10:55:46 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67A9SDKW1119428
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 10:55:44 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	OJ24BqAEJPwzbl6qff074FZZsCu3Ipow58eas1iNjro=; b=AgdRiiberGOg55TN
+	bPt69zq6B8zegVZPLUoLLcCMzJ11uypxFljHA/ObNfcKDg12Duhm7J9DINSktu2W
+	QoQIRENx/PSgRcfz3+pxdTRVYEcR+uS9FmAFaTcbrV12TIqTL9UoiZRst8CvpPXV
+	bxT+MvmHJZ/voLcXoVboAxLUV9mL1ybQPKC4mW2l/DBC5W25ht++Z7dRhC7xxHgn
+	Ao+t1DEZ5k7G8o8Vc6TE5Z4PZSVU63bF+U9WoR500KWpbVWFEKe03muGCEg9jhgt
+	Kq3nNrkrBV7ufy08V4RDFUnxi9wZU/KokRbLiP1HqNrjrSRmU7SiF8W6itZamYun
+	xJcfsw==
+Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com [209.85.219.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fy8v6s501-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 10:55:44 +0000 (GMT)
+Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-907c59bd73bso32507916d6.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 03:55:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786359341; x=1786964141; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+        d=oss.qualcomm.com; s=google; t=1786359343; x=1786964143; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=whp17tHwzK4LQg7Nc9ShOMIrpcTZjYnNPpwNE+2pyaw=;
-        b=rpLS4fBibT0BuvJ3hAZe+wXqZ4ucta2o5kEd9qKyhuh74GYmmXH9JnWqvLm46fnRK6
-         zsdCTWiQ982jXY66UL3X+1TglXJfo22hVvvCCMCK1MHmIMPGcpOdHlAjtRch61qjMrGP
-         i8GakG/f0sDJ2d0QIkIr0kXl6BWHyqMcbhlc0sHyo3UoSRQimoDkaimhwHXyiy0ZX6Dm
-         vFrgY0T5LhfASy1a6H+6s82624CvbF/mD4W08XIa7l1omoEznjUu7vIE7a0GihvQg30d
-         vwVEIa8g31o8g//bcOgGwZSdx3PM5Dn5fKDndwjGEKvWmEfBcCscuMX/SIfHvVlz1Rqq
-         FLEQ==
+        bh=OJ24BqAEJPwzbl6qff074FZZsCu3Ipow58eas1iNjro=;
+        b=KE1PEaTX5q2lgasfqTHqNuthTQWgt6ik23jn1SlrRY/r8YWwpeLAOpyvBKS5AjeqBo
+         UbcvL1oO//DRXeSRjDxQYuhT6rJ45QPZutO0+GCR1qGS8WQCtP3ONiA+N5kRP6nlHQog
+         JA0MDj8l7yTCw4a7hXRpHPShsXKdDo2OLc++fcLzG2TgEmOUkQfB+VIkOlOCjKBKNn3b
+         wEk8+117wn6pwc15DYjvjSuH9Um8HKWgGImxbebl2mToDEw/Ddo+4kokROX4bfAizbBU
+         wMxqqolJgck9oPSNCAnO1qfMraR4BnxsF64S8H9vg9tJ7xM4VAvjOZGEvk6Y3SBviMQW
+         tm9w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786359341; x=1786964141;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
+        d=1e100.net; s=20251104; t=1786359343; x=1786964143;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=whp17tHwzK4LQg7Nc9ShOMIrpcTZjYnNPpwNE+2pyaw=;
-        b=oBtJ9XiWvSvHFqi+U4TGnf8VwIm/jk7X6twZVH6sSg3DJxnoZc6JjDuOAdau7V2hSn
-         R4SID8wWawBeMfrJlqUKYg8Fe1zHUXFpdyK1KKGzjwr3EMXTGgKqBBRtDNMjlIV63YBD
-         ak+lSOg8+WVW9GUqCgGLSNsl4VtCkGJH8grSrZaAyTtFj8uxo7iyba+W7bYAMMsTi14C
-         cO35O6Ua+vdR8LpYl0rYkpjghq4IWhSvLBx4XyUs10HGts8XcLV82c1UbZ3KEY6GiPmu
-         fnbHdXpV52yVfXgo5iz4/O0iUxH+3mlZ5ZcK7fGnDF54Uj4h9S6fkP6qKtrNd0yioevo
-         bZZg==
-X-Forwarded-Encrypted: i=1; AHgh+Rqn0NCyxObBXNlcdD5TvfUjRzMXMtVRBqWQajyYuBoJ1V+PxPBWHcBWT8qKoGI7pFA1yyhktiIpHqJPNP/3aG0b@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx10Hjyle0TbwPUVOtKMTyVyzrao7bMaEaETil+PnYtUA/K0vyl
-	8vIKkN4HwPnL+GPkwyp2rGXwqk0AMYutmviN+Upvjq61oZmF4aedG+ePTCiwp7vylj7mTV7KTnR
-	oC1o7n5RDggA4e1mcRQuvYJyNmOY4BNA=
-X-Gm-Gg: AR+sD11jDSQ6Yuw3EZQZMzX0AO6hVXhkTA3goxGxWmZzs8SGlUSmjT1eRPn9kldfxD2
-	frELX3MqqYArApOCJmoOhUX/cPWd3jg0Y3eeN5NR29FGSpKRASEBIkKogcQRNyqAFW8OU32XJsr
-	eajtXuyLPgKXLTi8JxAMWP24MP+bNdVZr5idA4PvoDvQ/lQiwwF2by7eIOwr5z452u59u1TE9xW
-	U1HJiAT7TfrP4CA3Oov55uI19/WYAYMk1A0jl5LFiuQuvhyd6bR29+fkjbPkj+MNPm6r7fTL210
-	k1KzoSRPrmKgYnYvriUHwAyX/jvQwoz7VDpRt54ONg==
-X-Received: by 2002:a05:6214:2684:b0:908:9fd5:ed42 with SMTP id
- 6a1803df08f44-90a34707604mr228548096d6.28.1786359341307; Mon, 10 Aug 2026
- 03:55:41 -0700 (PDT)
+        bh=OJ24BqAEJPwzbl6qff074FZZsCu3Ipow58eas1iNjro=;
+        b=o/F5eFCrxaRgEScmCHL840ptdm7La88hINJU48PUBKfD9WIAp2h0dvqfB5pW1wWUUN
+         fq71ZOPX0dcszHvzXUOlItGXWG3Pc8dio6oD0Iisdoe06ggTwMKoEoB/Fc/8RQ8XdDHY
+         5HFRlcAhJ/kVt+H9Vsh/A0pSiC8K2jLED6n6B1Xe5IjJIgCP9Whf/M4+8TGrTN9hvGzo
+         sfbZBHAVvocbVopN7RqYmUJFIvo2riHyj2mdcPuO4ZNmvfu0+jf4kXfp2BCb0FZvzjCj
+         kgfyHodRYR+Kq38I4fqJejm2sMWMAg9NSb7mF7WgS77goFaQkJ3vAO6woekFr4I00BL0
+         m/bA==
+X-Forwarded-Encrypted: i=1; AHgh+Rq+E36aD3SyePgGVVEpmLT0FD6hTNcEDyelhpdFF4oAQGYZQmwG01Mll9pmD5jnKg2UBC9S2yHIod5Om2KBREOC@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywpbv0EwoqJsG2brmP9ZZxbj5szPcqK6AiuDwp3GDouhud8xMsZ
+	jkrVLmI+qKIh2QQnpsbzdObtswYTshg54nQNvobBmdn/+P4VXnFgM/5k+JO82hFEAhJln/cDkQN
+	Erc27TEfm6I+tNyXLRLuFW+SIORJMumXRJvR1iq9d4TQ4mn98Pj363rBP99CUG3TqdIyclQlQ+q
+	In8Q==
+X-Gm-Gg: AR+sD13lbMyvKC7DJWnS4BPdyOzhcVheJllLhKHvv3av0Yj/flwZeIhos00n35VLg3s
+	ttUFV9R+/wB/Wyw0P4RJgDtmV8Lly95TALaWONzhxPUXb1hHPqOVf398UHNfzOecVF7RiwhvWcn
+	T8Ivi2FWglf9ls2iv9DTOJYAz2azjbOEblShLfffNJUudG5SKWfvOuhPVBic8m/EH2qkyV9pF4T
+	62VrEOuSBrmaPm2/bBohUeEEPbmXcb+//lph/Nyczc+o5B+CSmGY2d6d265fOrbylo2rzYzN60j
+	t8FFPbKaNiZhxZkQtUVYYhRvC/uAW4VFt5g9k3hZw7H4f5ykTXwb/+DWpcSqtB1nmRIe1buxE4f
+	G/w344HBI59a/NLG9L19Mzhy6GAw+
+X-Received: by 2002:a05:622a:17c4:b0:51c:1fa1:80da with SMTP id d75a77b69052e-52d0b298380mr320953831cf.40.1786359343493;
+        Mon, 10 Aug 2026 03:55:43 -0700 (PDT)
+X-Received: by 2002:a05:622a:17c4:b0:51c:1fa1:80da with SMTP id d75a77b69052e-52d0b298380mr320953581cf.40.1786359343166;
+        Mon, 10 Aug 2026 03:55:43 -0700 (PDT)
+Received: from brgl-qcom.home ([2a01:cb1d:dc:7e00:dfa2:33ac:2282:82ef])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4995bdbe02esm196322575e9.1.2026.08.10.03.55.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 10 Aug 2026 03:55:42 -0700 (PDT)
+From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+To: Keerthy <j-keerthy@ti.com>, Linus Walleij <linusw@kernel.org>,
+        Bartosz Golaszewski <brgl@kernel.org>,
+        Matthias Brugger <matthias.bgg@gmail.com>,
+        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+        Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+        Pengutronix Kernel Team <kernel@pengutronix.de>,
+        Fabio Estevam <festevam@gmail.com>,
+        Grygorii Strashko <grygorii.strashko@ti.com>,
+        Santosh Shilimkar <ssantosh@kernel.org>,
+        Kevin Hilman <khilman@kernel.org>,
+        Robert Jarzmik <robert.jarzmik@free.fr>,
+        Manivannan Sadhasivam <mani@kernel.org>,
+        Andy Shevchenko <andy@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Thierry Reding <thierry.reding@kernel.org>,
+        Jonathan Hunter <jonathanh@nvidia.com>,
+        Maulik Shah <maulik.shah@oss.qualcomm.com>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+        linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org,
+        linux-mediatek@lists.infradead.org, imx@lists.linux.dev,
+        linux-omap@vger.kernel.org, linux-unisoc@lists.infradead.org,
+        linux-stm32@st-md-mailman.stormreply.com, linux-tegra@vger.kernel.org
+Subject: Re: [PATCH] gpio: Use IRQ trigger mask helpers
+Date: Mon, 10 Aug 2026 12:55:39 +0200
+Message-ID: <178635933666.24478.15558797954868182509.b4-ty@oss.qualcomm.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260802-b4b4-irq-trigger-mask-gpio-v1-1-948973636c84@oss.qualcomm.com>
+References: <20260802-b4b4-irq-trigger-mask-gpio-v1-1-948973636c84@oss.qualcomm.com>
 MIME-Version: 1.0
-References: <CAGXv+5HrDw8GWb9zp1AaQU9UW+0FGcr7jOV2jt_zi_2KgfgBqA@mail.gmail.com>
- <20260807152059.GA39821@bhelgaas> <CAGXv+5GNvV0yfX2v7E9HxvFpm0xwhGMQLjec=_xV_6YipXFcbw@mail.gmail.com>
-In-Reply-To: <CAGXv+5GNvV0yfX2v7E9HxvFpm0xwhGMQLjec=_xV_6YipXFcbw@mail.gmail.com>
-From: "Christian Marangi (Ansuel)" <ansuelsmth@gmail.com>
-Date: Mon, 10 Aug 2026 12:55:28 +0200
-X-Gm-Features: AUfX_mybRPX8_wU1Vtkqf_AyjNZAKV0N0JAhtDmUF1bKQ7p9IPinpVnjULwvpq0
-Message-ID: <CA+_ehUxa6U+0FEFuptJXQZ0kwbthYjshZftx32CmwkisAyo=+A@mail.gmail.com>
-Subject: Re: [PATCH v5 0/2] PCI: mediatek-gen3: Add 2-lanes mode support + clock
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Bjorn Helgaas <helgaas@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	=?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Ryder Lee <ryder.lee@mediatek.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Jianjun Wang <jianjun.wang@mediatek.com>, linux-pci@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	Benjamin Larsson <benjamin.larsson@genexis.eu>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODEwMDA5NSBTYWx0ZWRfX2WY2ITmj9hKH
+ McdlEkTrHgYc72dev/Fd52QrPtZIxaDBLqBaCoU+lFtK4J6zWu/NlbEXNtUPFPjrRvL9upcHNw2
+ CYDy7e13pj1DeqJ2W1lOeya2/7s3U6s=
+X-Authority-Analysis: v=2.4 cv=PvijqQM3 c=1 sm=1 tr=0 ts=6a79ae30 cx=c_pps
+ a=7E5Bxpl4vBhpaufnMqZlrw==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22 a=VwQbUJbxAAAA:8
+ a=EUspDBNiAAAA:8 a=qRw7KHR_QVJorHy5iXwA:9 a=QEXdDO2ut3YA:10
+ a=pJ04lnu7RYOZP9TFuWaZ:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODEwMDA5NSBTYWx0ZWRfX9gQ/CWkpVTAQ
+ +eX8FJzhYg4XU7Ocfwk0mmuLYqLuEb6HvGGf6IulmQrX31hHVJrOY/rnR6W0pJd57YVccxjq6jJ
+ k3+i+lCJcuwmRWU4HYREDkZbczupISqzyn+90nhdPpDVa0TnLdO9DSiZqVa2hggNNolcZOFlUx/
+ zfSvfjH3pz3fQnGCmuDTB0cnjQ/5l+QQWQtDT6sm3nY393gCEaU+4+nJ3IIkyh+2Pp3JhooRUzv
+ 1Cbo2RpcdKzqGeH7vekHLyw7tZrdmbxmte1DL/ro2fcGGK3Y8AEbaK+v66BHAVcNp/9lsNpAksy
+ wnfa1NsBUhZA9VU1NUhdWsR7Rc27Fs0wbgmUzW8iUsrsjqkcPHJhkPBddi7FJ3iqGNvoShgpSV8
+ 1lGKDKWpFKGt9w5uqUgs+lyF0JptcU9JFBAtAz2WG9WAK9Zotx5TiOBR15eS0tsH4a4qra+Qrl0
+ X5pKp/nfS/dNhjXtH6w==
+X-Proofpoint-GUID: 27v6muDXJRCjYtVrRf8GL2A9oLwTqtNr
+X-Proofpoint-ORIG-GUID: 27v6muDXJRCjYtVrRf8GL2A9oLwTqtNr
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-10_02,2026-08-07_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 impostorscore=0 suspectscore=0 spamscore=0 clxscore=1015
+ phishscore=0 adultscore=0 priorityscore=1501 lowpriorityscore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608100095
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_035542_777692_C2840E96 
-X-CRM114-Status: GOOD (  42.74  )
+X-CRM114-CacheID: sfid-20260810_035545_485799_435FB924 
+X-CRM114-Status: GOOD (  10.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,126 +168,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il giorno lun 10 ago 2026 alle ore 12:33 Chen-Yu Tsai
-<wenst@chromium.org> ha scritto:
->
-> On Fri, Aug 7, 2026 at 11:21=E2=80=AFPM Bjorn Helgaas <helgaas@kernel.org=
-> wrote:
-> >
-> > On Fri, Aug 07, 2026 at 11:24:09AM +0800, Chen-Yu Tsai wrote:
-> > > On Fri, Aug 7, 2026 at 12:53=E2=80=AFAM Christian Marangi <ansuelsmth=
-@gmail.com> wrote:
-> > > > This small series introduce support for 2-lanes mode for Airoha AN7=
-581
-> > >
-> > > Just a nitpick, but I would probably name this something else, like
-> > > "cross-controller lane-bonding mode" or "lane stealing"? PCIe already
-> > > has 2x lanes as a standard feature, so this naming is a bit confusing=
-.
-> > > It's not like dual-LVDS display in which LVDS is only a single lane.
-> >
-> > I suggested the "2-lane" and "x2" terminology because I assumed the
-> > result is what the PCIe spec would describe as a "x2 Link" consisting
-> > of two Lanes.
-> >
-> > If that's not the case, maybe "cross-controller lane-bonding mode" or
-> > "lane stealing" would be more accurate, but I don't know what those
-> > mean, so if we use them I would also like to know what the result
-> > looks like in standard PCIe terms.
->
-> Benjamin pointed out later in the thread that it is just bifurcation.
->
 
-Yes but as me, you, Benjamin and Bjorn people who weren't there with the HW
-team at times the SoC was created, and given how the internal documentation
-these are just assumption and observation... Everyone can be correct and wr=
-ong.
+On Sun, 02 Aug 2026 19:40:35 +0530, Maulik Shah wrote:
+> Use IRQ_TYPE_LEVEL_MASK and IRQ_TYPE_EDGE_BOTH instead of open-coded
+> trigger type combinations in irqchip callbacks.
+> 
+> No functional change intended.
+> 
+> 
 
-> I would assume "PCIe bifurcation" is a standard term, so maybe we could
-> call this "Support un-bifurcated 2-lane operation"?
->
+Applied, thanks!
 
-And how coming from PCIe bifurcation to un-bifurcated 2-lane operation keep=
-s
-the standard meaning?
+[1/1] gpio: Use IRQ trigger mask helpers
+      https://git.kernel.org/brgl/c/338c551bcd62ff4f97ff02359baf9d6f7f1f9fda
 
-This terms is equally custom as the previous "cross-controller
-lane-bonding mode"
-and "lane stealing"
-
-I want to be honest... I'm not following why we are trying in every
-way possible to find
-a standard meaning for an highly integrated PCIe controller for a vendor So=
-C.
-It's not like there are devices shipped with PCIe slot where you can
-insert whatever
-card you want. (there is only a single RFB board but that is really to
-debug stuff and
-develop)
-
-The SoC is designed to have WiFi cards attached and only a subset of them.
-And some of them require 2 lanes mode to work with this special configurati=
-on.
-
-Even the DT bindings are not that specific to the details... at the
-end of the day
-everything is modelled as simple as "num-lanes =3D <2>;"
-
-And that is effectively what the HW gets configured to. If then a
-robbery is done
-internally to the HW to get the second lane with probably some criminal act=
- and
-some murder then those are just details. But unless we have a correct polic=
-e
-report on that (Documentation) we can't assume someone got shot in the
-process.
-(sorry for the joke around the stealing thing)
-
-> On the implementation side, having to reach into the second PCIe controll=
-er
-> is a bit messy :(
->
-
-I can assure you vendor hide all kind of bad stuff behind single register..=
-.
-It's just Airoha that loves to expose godzillion registers and configure
-everything clearly... Something that most of the time is better than hiding
-everything behind ATF with SCM commands (or even configure stuff
-in bootloader from HW strap)
-
-A bonding solution where 2 controllers are configured and then bonded might
-also be problematic as for 2 lanes mode the configuration needs to be done
-in the same time segment. (and that would introduce lots of complexity in
-both DT and driver for the sake of just having an additional reset and
-an additional reg)
-
-Aside from these 2 point... I'm open to any kind of naming and change
-but it seems sad to me to delay this feature for these details that would
-only affect the commit description and nothing else... This is currently ne=
-eded
-for Eagle WiFi card to correctly works... With the current code it works bu=
-t
-sometimes it doesn't as the reset and configuration phase is not well defin=
-ed.
-This series fix exactly that to have stable functionality (tested on OpenWr=
-t
-from at least half a year)
-
-> > > > SoC. This is needed for correctly functionality of Eagle WiFi Card
-> > > > normally attached to this SoC that require a 2-line PCIe card to
-> > > > correctly work (and give the proper performance)
-> > > >
-> > > > The first 2 patch address a limitation of the PCIe implementation
-> > > > where the PERSTOUT reset were indirectly asserted and deasserted
-> > > > all at the same time (for all the 3 PCIe card) with PCIe
-> > > > enable and disable.
-> > > > The 2 patch address this and introduce correct reset to control
-> > > > reset line for the relevant PCIe line.
-> > > >
-> > > > The last 2 patch add additional logic and support to assert
-> > > > and deassert the PERSTOUT and also apply the required configuration
-> > > > for 2-lanes mode.
-> > > >
-> > > > 2-lanes mode is implemented in DT by adding the required property
-> > > > and by defining the "num-lanes" to 2.
+Best regards,
+-- 
+Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
