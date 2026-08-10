@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F622C5AC82
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 12:17:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07962C5AE5D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 12:17:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ycaA4zP669aUiie8zKyoviwsLCosDdRQ+6HaaafWNQs=; b=EpycVpmqDRFbeRJc2PHZPCzIAu
-	wNgSFslJEQXRbKOGwvxzi/MlxBQO8NuOHHt9gN/XbI2W/CBZaOXwg1RmKGWHCXipHissOKN5oD/KQ
-	iXrBEsQALSUCHxy7LKvjOjJLa+yZtxhuwbV+2+KE0iFMkztlr/iGlR8fg96qDU9ILcz5K2GPQpFtG
-	pJ+Rslfy5WeJ4eSmSyCVkhqc+XfxBVJj2uZIRt+gmOvTuNdiZmLm8fSOtWRYB92oPowQaZ0lInR1y
-	xUKDhPw7QDqhgJ4cuGXs8jhl28p5/QOGoNCGkInFhyNoytN/4FksbxDXj1ImbihEr5B5qsid3TPSj
-	UWmv7YXg==;
+	bh=kn221FDOcVW/vtJXVqj4m4sWcXwUTAwENBaWLbgbIbw=; b=CSeWowS3S1aJVwO4F3rHQNAro3
+	rBYupu8lkZvKl7pRMDPhuQl3xGqbNu/dTTUO6TuWZZy1/LkNHvjYFiX+PmMSFpmi20RUNjW4Vy6j+
+	1Hr6ps1KAktUG5E58my3D+mNPeseka3jxiETafx/3MTvv1iGfKLLfya2pUAUqeczcLcEWEAYxwTfr
+	FB2HfltCHOuYOipO7LyvBPo0FQtGY7w4FlFw+Fxrv/vmgl4szcMXTqmdD5Yq2RR7V66v8lhRqEIuV
+	NSVe/jRsmnIp+goFin7C1BTXkZpe5EcYjYd82Mf/OFRQCjYeJDgaXi4qPnQ9fzdzrU4m2ZYo85HCF
+	0NK4sVBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtOw5-0000000BkJz-3DdL;
-	Mon, 10 Aug 2026 12:16:57 +0000
+	id 1wtOw6-0000000BkMj-3KOy;
+	Mon, 10 Aug 2026 12:16:58 +0000
 Received: from mail.zlab.su ([109.73.193.145])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtOvn-0000000Bjgm-0S1c;
-	Mon, 10 Aug 2026 12:16:40 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A4944C0519;
-	Mon, 10 Aug 2026 15:16:34 +0300 (MSK)
+	id 1wtOvp-0000000Bjl7-0x1r;
+	Mon, 10 Aug 2026 12:16:48 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 820D4C0514;
+	Mon, 10 Aug 2026 15:16:37 +0300 (MSK)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zlab.su; s=dkim;
-	t=1786364196; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1786364198; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=ycaA4zP669aUiie8zKyoviwsLCosDdRQ+6HaaafWNQs=;
-	b=QoQQGobmRzM3gxEeKdVkx2BgbCm09kZqHISI75T8RbTj4qaJ3BY6BF5BZKwsEg36M9na7D
-	SvTi9kaRdRhu5km1rWvfGMezx7UOeENFCSxyiox/L+6HkzGKtkviPS+fDRwJvlplMQhrbW
-	2H280posq3dZNoh2sl3a+zgh+rMsGQI0bgQPpSexjjKgiW1Lzc903n+j0IqcSewXKoN8Ld
-	lHVl3XqwzS1oYW2oUjXjyohuZlxRUZNbcwd0ClvEmTUhN2ZFTxTfVfxTgZj98X30WPlNLl
-	yLp01qdmZiR6CdWnbw9MQvvR1sLr2VTvts41TNVhKiOqk9FhWu31WNPhXNdv6Q==
+	bh=kn221FDOcVW/vtJXVqj4m4sWcXwUTAwENBaWLbgbIbw=;
+	b=a7PyVENFaH2HN71sVwO4XD1+ej1znLtCwGJIJojakVvCll3nvzOQzFGw5XPyzUocE1G7xS
+	Vsa3FywK6Nfc4Ojh++/FUkWzRnwRKY4ttmOsSaG3DL+ngJkBJLLDXrRXh5kl8pBo1H8uhn
+	5NsTevWZACBzA5RuT+8KxWA39nqTiClOdJDeTpd7qG+3nhZlBHHBMewjWq+l+5xNXO52IH
+	EqT+AedNJO+ouxeVF01tIBSwyW+f6yCmx6auSqkjz2ZFTc2op7zoFIXjrkq+nlrlyJ+ccs
+	NW4xVQ9sV3kP8BO3bQ0+A82cz8aU6HGCkG9cFc8ondVy/seoAQ+qbSi+EZhCqQ==
 From: Vladislav Leonov <vlad@zlab.su>
 To: linux-rockchip@lists.infradead.org
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -48,12 +48,10 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	Conor Dooley <conor+dt@kernel.org>,
 	Heiko Stuebner <heiko@sntech.de>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
-	linux-pwm@vger.kernel.org
-Subject: [PATCH 24/25] dt-bindings: pwm: rockchip: Add RV1106 compatible
-Date: Mon, 10 Aug 2026 15:11:15 +0300
-Message-ID: <20260810121121.210040-25-vlad@zlab.su>
+	Rob Herring <robh@kernel.org>
+Subject: [PATCH 25/25] ARM: dts: rockchip: Add PWM nodes for RV1106
+Date: Mon, 10 Aug 2026 15:11:16 +0300
+Message-ID: <20260810121121.210040-26-vlad@zlab.su>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260810121121.210040-1-vlad@zlab.su>
 References: <20260810121121.210040-1-vlad@zlab.su>
@@ -61,8 +59,9 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_051639_351406_6114E2F7 
-X-CRM114-Status: GOOD (  10.61  )
+X-CRM114-CacheID: sfid-20260810_051643_291010_82FF7B09 
+X-CRM114-Status: UNSURE (   9.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,44 +76,200 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the compatible for the PWM of the RV1106 which is compatible
-with RK3328 vatiant.
-
-RV1106 PWM channels also wire up an interrupt line each, with the
-channel that supports capture mode using a second one for that.
-Add "interrupts" to the schema to describe this.
+Add the 12 PWM controller nodes (pwm0-pwm11) for RV1106, along with
+their aliases.
 
 Signed-off-by: Vladislav Leonov <vlad@zlab.su>
+
 ---
 
- Documentation/devicetree/bindings/pwm/pwm-rockchip.yaml | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ arch/arm/boot/dts/rockchip/rv1106.dtsi | 159 +++++++++++++++++++++++++
+ 1 file changed, 159 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/pwm/pwm-rockchip.yaml b/Documentation/devicetree/bindings/pwm/pwm-rockchip.yaml
-index c8cdfb723336..8fa75cabf025 100644
---- a/Documentation/devicetree/bindings/pwm/pwm-rockchip.yaml
-+++ b/Documentation/devicetree/bindings/pwm/pwm-rockchip.yaml
-@@ -34,12 +34,20 @@ properties:
-               - rockchip,rk3562-pwm
-               - rockchip,rk3568-pwm
-               - rockchip,rk3588-pwm
-+              - rockchip,rv1106-pwm
-               - rockchip,rv1126-pwm
-           - const: rockchip,rk3328-pwm
+diff --git a/arch/arm/boot/dts/rockchip/rv1106.dtsi b/arch/arm/boot/dts/rockchip/rv1106.dtsi
+index 12e87d25c72b..d7959158f8a0 100644
+--- a/arch/arm/boot/dts/rockchip/rv1106.dtsi
++++ b/arch/arm/boot/dts/rockchip/rv1106.dtsi
+@@ -30,6 +30,18 @@ aliases {
+ 		i2c2 = &i2c2;
+ 		i2c3 = &i2c3;
+ 		i2c4 = &i2c4;
++		pwm0 = &pwm0;
++		pwm1 = &pwm1;
++		pwm2 = &pwm2;
++		pwm3 = &pwm3;
++		pwm4 = &pwm4;
++		pwm5 = &pwm5;
++		pwm6 = &pwm6;
++		pwm7 = &pwm7;
++		pwm8 = &pwm8;
++		pwm9 = &pwm9;
++		pwm10 = &pwm10;
++		pwm11 = &pwm11;
+ 		spi0 = &spi0;
+ 		spi1 = &spi1;
+ 	};
+@@ -189,6 +201,104 @@ i2c1: i2c@ff320000 {
+ 			status = "disabled";
+ 		};
  
-   reg:
-     maxItems: 1
- 
-+  interrupts:
-+    minItems: 1
-+    maxItems: 2
-+    description:
-+      Some PWM channels (e.g. on rockchip,rv1106-pwm) additionally
-+      support capture mode and use a second interrupt for that.
++		pwm0: pwm@ff350000 {
++			compatible = "rockchip,rv1106-pwm", "rockchip,rk3328-pwm";
++			reg = <0xff350000 0x10>;
++			interrupts = <GIC_SPI 31 IRQ_TYPE_LEVEL_HIGH>;
++			#pwm-cells = <3>;
++			pinctrl-names = "default";
++			pinctrl-0 = <&pwm0m0_pins>;
++			clocks = <&cru CLK_PWM0_PERI>, <&cru PCLK_PWM0_PERI>;
++			clock-names = "pwm", "pclk";
++			status = "disabled";
++		};
 +
-   clocks:
-     minItems: 1
-     maxItems: 2
++		pwm1: pwm@ff350010 {
++			compatible = "rockchip,rv1106-pwm", "rockchip,rk3328-pwm";
++			reg = <0xff350010 0x10>;
++			interrupts = <GIC_SPI 31 IRQ_TYPE_LEVEL_HIGH>;
++			#pwm-cells = <3>;
++			pinctrl-names = "default";
++			pinctrl-0 = <&pwm1m0_pins>;
++			clocks = <&cru CLK_PWM0_PERI>, <&cru PCLK_PWM0_PERI>;
++			clock-names = "pwm", "pclk";
++			status = "disabled";
++		};
++
++		pwm2: pwm@ff350020 {
++			compatible = "rockchip,rv1106-pwm", "rockchip,rk3328-pwm";
++			reg = <0xff350020 0x10>;
++			interrupts = <GIC_SPI 31 IRQ_TYPE_LEVEL_HIGH>;
++			#pwm-cells = <3>;
++			pinctrl-names = "default";
++			pinctrl-0 = <&pwm2m0_pins>;
++			clocks = <&cru CLK_PWM0_PERI>, <&cru PCLK_PWM0_PERI>;
++			clock-names = "pwm", "pclk";
++			status = "disabled";
++		};
++
++		pwm3: pwm@ff350030 {
++			compatible = "rockchip,rv1106-pwm", "rockchip,rk3328-pwm";
++			reg = <0xff350030 0x10>;
++			interrupts = <GIC_SPI 31 IRQ_TYPE_LEVEL_HIGH>,
++					<GIC_SPI 32 IRQ_TYPE_LEVEL_HIGH>;
++			#pwm-cells = <3>;
++			pinctrl-names = "default";
++			pinctrl-0 = <&pwm3m0_pins>;
++			clocks = <&cru CLK_PWM0_PERI>, <&cru PCLK_PWM0_PERI>;
++			clock-names = "pwm", "pclk";
++			status = "disabled";
++		};
++
++		pwm4: pwm@ff360000 {
++			compatible = "rockchip,rv1106-pwm", "rockchip,rk3328-pwm";
++			reg = <0xff360000 0x10>;
++			interrupts = <GIC_SPI 33 IRQ_TYPE_LEVEL_HIGH>;
++			#pwm-cells = <3>;
++			pinctrl-names = "default";
++			pinctrl-0 = <&pwm4m0_pins>;
++			clocks = <&cru CLK_PWM1_PERI>, <&cru PCLK_PWM1_PERI>;
++			clock-names = "pwm", "pclk";
++			status = "disabled";
++		};
++
++		pwm5: pwm@ff360010 {
++			compatible = "rockchip,rv1106-pwm", "rockchip,rk3328-pwm";
++			reg = <0xff360010 0x10>;
++			interrupts = <GIC_SPI 33 IRQ_TYPE_LEVEL_HIGH>;
++			#pwm-cells = <3>;
++			pinctrl-names = "default";
++			pinctrl-0 = <&pwm5m0_pins>;
++			clocks = <&cru CLK_PWM1_PERI>, <&cru PCLK_PWM1_PERI>;
++			clock-names = "pwm", "pclk";
++			status = "disabled";
++		};
++
++		pwm6: pwm@ff360020 {
++			compatible = "rockchip,rv1106-pwm", "rockchip,rk3328-pwm";
++			reg = <0xff360020 0x10>;
++			interrupts = <GIC_SPI 33 IRQ_TYPE_LEVEL_HIGH>;
++			#pwm-cells = <3>;
++			pinctrl-names = "default";
++			pinctrl-0 = <&pwm6m0_pins>;
++			clocks = <&cru CLK_PWM1_PERI>, <&cru PCLK_PWM1_PERI>;
++			clock-names = "pwm", "pclk";
++			status = "disabled";
++		};
++
++		pwm7: pwm@ff360030 {
++			compatible = "rockchip,rv1106-pwm", "rockchip,rk3328-pwm";
++			reg = <0xff360030 0x10>;
++			interrupts = <GIC_SPI 33 IRQ_TYPE_LEVEL_HIGH>,
++					<GIC_SPI 34 IRQ_TYPE_LEVEL_HIGH>;
++			#pwm-cells = <3>;
++			pinctrl-names = "default";
++			pinctrl-0 = <&pwm7m0_pins>;
++			clocks = <&cru CLK_PWM1_PERI>, <&cru PCLK_PWM1_PERI>;
++			clock-names = "pwm", "pclk";
++			status = "disabled";
++		};
++
+ 		gpio0_ioc: syscon@ff388000 {
+ 			compatible = "rockchip,rv1106-gpio0-ioc", "syscon";
+ 			reg = <0xff388000 0x8000>;
+@@ -304,6 +414,55 @@ i2c4: i2c@ff470000 {
+ 			status = "disabled";
+ 		};
+ 
++		pwm8: pwm@ff490000 {
++			compatible = "rockchip,rv1106-pwm", "rockchip,rk3328-pwm";
++			reg = <0xff490000 0x10>;
++			interrupts = <GIC_SPI 35 IRQ_TYPE_LEVEL_HIGH>;
++			#pwm-cells = <3>;
++			pinctrl-names = "default";
++			pinctrl-0 = <&pwm8m0_pins>;
++			clocks = <&cru CLK_PWM2_PERI>, <&cru PCLK_PWM2_PERI>;
++			clock-names = "pwm", "pclk";
++			status = "disabled";
++		};
++
++		pwm9: pwm@ff490010 {
++			compatible = "rockchip,rv1106-pwm", "rockchip,rk3328-pwm";
++			reg = <0xff490010 0x10>;
++			interrupts = <GIC_SPI 35 IRQ_TYPE_LEVEL_HIGH>;
++			#pwm-cells = <3>;
++			pinctrl-names = "default";
++			pinctrl-0 = <&pwm9m0_pins>;
++			clocks = <&cru CLK_PWM2_PERI>, <&cru PCLK_PWM2_PERI>;
++			clock-names = "pwm", "pclk";
++			status = "disabled";
++		};
++
++		pwm10: pwm@ff490020 {
++			compatible = "rockchip,rv1106-pwm", "rockchip,rk3328-pwm";
++			reg = <0xff490020 0x10>;
++			interrupts = <GIC_SPI 35 IRQ_TYPE_LEVEL_HIGH>;
++			#pwm-cells = <3>;
++			pinctrl-names = "default";
++			pinctrl-0 = <&pwm10m0_pins>;
++			clocks = <&cru CLK_PWM2_PERI>, <&cru PCLK_PWM2_PERI>;
++			clock-names = "pwm", "pclk";
++			status = "disabled";
++		};
++
++		pwm11: pwm@ff490030 {
++			compatible = "rockchip,rv1106-pwm", "rockchip,rk3328-pwm";
++			reg = <0xff490030 0x10>;
++			interrupts = <GIC_SPI 35 IRQ_TYPE_LEVEL_HIGH>,
++					<GIC_SPI 36 IRQ_TYPE_LEVEL_HIGH>;
++			#pwm-cells = <3>;
++			pinctrl-names = "default";
++			pinctrl-0 = <&pwm11m0_pins>;
++			clocks = <&cru CLK_PWM2_PERI>, <&cru PCLK_PWM2_PERI>;
++			clock-names = "pwm", "pclk";
++			status = "disabled";
++		};
++
+ 		uart0: serial@ff4a0000 {
+ 			compatible = "rockchip,rv1106-uart", "snps,dw-apb-uart";
+ 			reg = <0xff4a0000 0x100>;
 -- 
 2.47.3
 
