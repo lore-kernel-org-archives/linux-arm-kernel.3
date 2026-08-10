@@ -4,78 +4,163 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E77EAC5AC82
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 12:10:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 530A9C5AD55
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 12:15:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k9CqXMCtxRRSfGwR7q5ggK1awKID4anf3jF8AM4h5ZU=; b=evOia26H4wVr8o83SXq7ulJJ50
-	IPpnj1slNAsyI8DEK8JYfp4AZ911ZYmNmTZRuWV6+y5YE5iFxKH9f7Egh1OnRJRe1+XO/FvsWQZbz
-	hJZdyDM3wElKptaNUm/zcv+IRQUGfWSDRf8tcIALcuZcbrzthjUm2fnPV40XjhhRy3KiRoJET8wOq
-	DOIgpXxftRb46uqWyCaSxz1GNWpGqk7gls1MVYXf5i20KG6bs5NrtuEWN0+JSvc3yI6zsOCYNMysy
-	0OBtvMdSxcCyhG0ISxmDS9+k0L8nchJtu2D0Y+yziM93BeMYm8nrbU+hEO/YWmf7ELd+L0fk+dRza
-	uaDoT5Bw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rzzTnOow1588vY0w3WrjxIZagfvz/5Kcz8Lwm9GDLpM=; b=2iXvnktiIEGGKf1sZj/hiAWJsy
+	tR3egb5O+AIvl6v/+PlWtY2Zp/MThSaBA69kRYdfGCmauwYButoJqjhXUAi3DHiApYtV7Q5cuv7Od
+	iVs5AqgzrMj9LU/hZzDT5/H3e5Jd7cog4aCe6ooZEXzCGF8/emgaPsKv3h7h2paxBSbgz5SajE7Z2
+	2XCJxpcq0WjIw5FsZ6z8J3er1uvTtMl0LSzelBAoe70U8UMZMoXrfbphqItK/HK73cV4koBnm2k0p
+	5U47Ogr9159vXi9AOHuc53MD+81IxVzK9AnJq30hRsLT/CH7+U40hJxo0VkMAsuP+kUh+Nu+1fY/V
+	TcjBkeCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtOpb-0000000BhDL-46gs;
-	Mon, 10 Aug 2026 12:10:15 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wtOu1-0000000Bi8v-2GVI;
+	Mon, 10 Aug 2026 12:14:49 +0000
+Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtOpX-0000000Bh7S-1LH7;
-	Mon, 10 Aug 2026 12:10:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7E5A360A5B;
-	Mon, 10 Aug 2026 12:10:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 25991C2BD00;
-	Mon, 10 Aug 2026 12:10:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1786363810;
-	bh=kcqNfpUxfu1NNTQjkDDRNBxWxwAEahtCOBNpT8BAOt0=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=B58LNWcso7oxsHbyNCe2AhndvnttUZ7QQuybMx/U6+2snoJGSDGrWgZJgWMKlv3WL
-	 o2JF++zORsfJEMkXpcQbyPL3Ofe/EjnxeHvcu844EsC2cyRhVEMvAIVmHHsHoI2UWx
-	 +z7Yb4gRy4yVVELG0cpKt1OZCmxwUilRlRJTU7JxGsUeDYeQ7YtLMwqbVWdcNCUe4N
-	 JVuC5mA7HKYC5CRIeM+YBGCEexVwBUStoEQwH8XEvP5k9cTmS3C/Il47tQUs1KyGkq
-	 BSAzF/mIbz1OehPj8ECLoYRTmbNKgwZ/LLRUJQa93vW6gedqWA/KRHoaVmWTydY3Is
-	 etJOJXYpmzZyA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 10FA0C5AD7B;
-	Mon, 10 Aug 2026 12:10:10 +0000 (UTC)
-From: Jason Yang via B4 Relay <devnull+jason98166.gmail.com@kernel.org>
-Date: Mon, 10 Aug 2026 20:10:12 +0800
-Subject: [PATCH v3 4/5] phy: rockchip-samsung-dcphy: model TX and RX as
- separate PHYs
+	id 1wtOtu-0000000Bi8O-3cCw
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Aug 2026 12:14:44 +0000
+Received: from pps.filterd (m0380145.ppops.net [127.0.0.1])
+	by m0380145.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 67ABF62m2677499;
+	Mon, 10 Aug 2026 07:14:30 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=proofpoint-05-2026; bh=rzzTnOow1588v
+	Y0w3WrjxIZagfvz/5Kcz8Lwm9GDLpM=; b=iAnKqR3Qd5gzKXOo8M6TrkqDm0NPR
+	Vis0pQgqkeD/FLnOULBXTmy4gZgT6j8GH1175JkxoMNzKg2y/r/GXEkOYYDyVkoJ
+	gvGKQBT5n2WKood6kfy158NgSqdHtndUtN/KX2zT0pyMg6vrnQbwUYEm1KXxtXXD
+	Ezm0RXgROavvuf4Ha8OhmcNAbwcTYL+3Wo2AgqnI7tsdVkIIhyaoQwFAkjVkCUEq
+	tRxRYo966T+J6SpSnnQIWhyr04/h7mwh2K87Kg+hzPdA71tKoK3s87ltWPI/D67a
+	cgT3PLSxYT3R4M5PM+ZCl4bSGUF//sDcEsLcnaguNXBX+z/K4v/KRP/Gw==
+Received: from ch5pr02cu005.outbound.protection.outlook.com (mail-northcentralusazon11012016.outbound.protection.outlook.com [40.107.200.16])
+	by m0380145.ppops.net (PPS) with ESMTPS id 4fydkwr9ng-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Mon, 10 Aug 2026 07:14:30 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MtU37zOiVBVkPG+lxnShftl26mlJsP/TQc5BaierUgX62t8BmjflK7YPqdV+DDOkVF7WzSUJndnCO7YraWFgRGgq8sc4Tz3JTNbXBm8o7eNLiD8hEE0cZKXY+aOv629E+oqVWvnWDNJ/0WA4MNUofCDMeDLRkwOggv8UAZA51oMEQ6W1ZQ9i+Ul79ygJgKoa7dXEOn2G6kAmrhbH1dYwx+tu0NBOsceQPoDL/yI5Qy/yDFcXrshvpTu76HTGFcmHLn64ynRalx6z3opCjNaCRcDRYBGcB4cv6Mk3h7E9IIpHSMJ2cz6Oj/TXqvzFpoTo3Jjl52lnE0G6er687+vEHQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=rzzTnOow1588vY0w3WrjxIZagfvz/5Kcz8Lwm9GDLpM=;
+ b=Ulxu5+keN5VsXP4MjtO1IVvmDpUAVuOvdUBSi9VfVSAlE6IN+WO/x9PDuhRegwtRG7Z4i8+T9jb63+ou4NgS+I1iD9tqzIXmi8AWoXwaRS5xnzo+krRPXDt/tYsWjV03AWeUnpp+au0Y6PVpqG73IxxJqe/enplPmPPK+sNp0AAQj6T3nti1OEM2+U4eOIPZrHwVWCAxBKVPlW+oL8I1vJc91XP8q0owN0k1lOaat68qwA6Ra1BuPur639blu1YfKsR7BfTwGLi90N2C0Ljt+pYBWJ6TUm/XfYOJmt0dal/oppNbdV6XJiOdOncgBEd3L+1KFb4LjxYfLG9CNEh15w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=rzzTnOow1588vY0w3WrjxIZagfvz/5Kcz8Lwm9GDLpM=;
+ b=lJJoA0q9dOZX5xqI3xwHURPaXserj4CRzMfk2XgW3WiuBs9Eu/94rJcGLV1/x7EvA7FHyTDhraXk2O46VeLwWtXbgdIh+DNXrG3Z19oHr6oMzVX3STI+8O7Dp9N2ZbEE+lBNEQIzP4LI80Vt36wPG+fUxyek/S7mjCg4hByguu4=
+Received: from BN0PR04CA0093.namprd04.prod.outlook.com (2603:10b6:408:ec::8)
+ by MN0PR10MB6006.namprd10.prod.outlook.com (2603:10b6:208:3ca::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.25; Mon, 10 Aug
+ 2026 12:14:27 +0000
+Received: from BN2PEPF000044AA.namprd04.prod.outlook.com
+ (2603:10b6:408:ec:cafe::35) by BN0PR04CA0093.outlook.office365.com
+ (2603:10b6:408:ec::8) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.292.25 via Frontend Transport; Mon,
+ 10 Aug 2026 12:14:27 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ BN2PEPF000044AA.mail.protection.outlook.com (10.167.243.105) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.315.6 via Frontend Transport; Mon, 10 Aug 2026 12:14:26 +0000
+Received: from DFLE204.ent.ti.com (10.64.6.62) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Mon, 10 Aug
+ 2026 07:14:05 -0500
+Received: from DFLE209.ent.ti.com (10.64.6.67) by DFLE204.ent.ti.com
+ (10.64.6.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Mon, 10 Aug
+ 2026 07:14:04 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE209.ent.ti.com
+ (10.64.6.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Mon, 10 Aug 2026 07:14:04 -0500
+Received: from a0507033-hp.dhcp.ti.com (a0507033-hp.dhcp.ti.com [10.24.68.129])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 67ACE0Nm3132127;
+	Mon, 10 Aug 2026 07:14:01 -0500
+From: Aksh Garg <a-garg7@ti.com>
+To: <krzysztof.kozlowski@oss.qualcomm.com>, <andersson@kernel.org>,
+        <geert@linux-m68k.org>, <dmitry.baryshkov@oss.qualcomm.com>,
+        <arnd@arndb.de>, <ebiggers@kernel.org>, <luca.weiss@fairphone.com>,
+        <michal.simek@amd.com>, <sven@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>
+CC: <linux-kernel@vger.kernel.org>, <s-vadapalli@ti.com>, <danishanwar@ti.com>,
+        <a-garg7@ti.com>
+Subject: [PATCH v4] arm64: defconfig: Enable J721E and Keystone PCIe drivers for TI SoCs
+Date: Mon, 10 Aug 2026 17:43:59 +0530
+Message-ID: <20260810121359.134936-1-a-garg7@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260810-dcphy-rx-v1-v3-4-a2d25c29adfc@gmail.com>
-References: <20260810-dcphy-rx-v1-v3-0-a2d25c29adfc@gmail.com>
-In-Reply-To: <20260810-dcphy-rx-v1-v3-0-a2d25c29adfc@gmail.com>
-To: Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Guochun Huang <hero.huang@rock-chips.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: Michael Riesch <michael.riesch@collabora.com>, 
- Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
- linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Jason Yang <jason98166@gmail.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1786363808; l=13919;
- i=jason98166@gmail.com; s=20260721; h=from:subject:message-id;
- bh=aD/WXWvU1ReVxV85EUeLFEd6/rd2JzbuaAKFgp46rz0=;
- b=AcsWfFOgd6rB9Q5OzxQD+wki6SvcCAnJtoROKZCsGza2DNFcyylrrbm3Aw9vyCztWQsqo6zfa
- +SRqrwIW8leAXggj2bz30UFtFFbK/+MEWUgvThgLmnnKQtcwKktQsgy
-X-Developer-Key: i=jason98166@gmail.com; a=ed25519;
- pk=xQmD001Q/ooHl39PxyQtusbUQmgbOsSfpFryRVWZ/k4=
-X-Endpoint-Received: by B4 Relay for jason98166@gmail.com/20260721 with
- auth_id=887
-X-Original-From: Jason Yang <jason98166@gmail.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN2PEPF000044AA:EE_|MN0PR10MB6006:EE_
+X-MS-Office365-Filtering-Correlation-Id: ed10d47c-7eb8-4a09-905a-08def6d8ec40
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|376014|7416014|1800799024|82310400026|13003099007|921020|10067099003|56012099006|18002099003;
+X-Microsoft-Antispam-Message-Info: vhuBw5TNn9a+EvdXS17Ngv18dZfLaQxXQdjYAb//TxrhVwXI7zp9fG7hSbGSammCZG9ey12AVd47YHhRAowd9QZpklmDexLVoBfRSddFpCS0QGOYwY+csdw3S/nwfz61b2pYigoCinjxAipBeCK43qbQRO2eVoHk7kHpWgAbaGEs7wNe68y/BQYc+m7T5x9k9gNN+rMLSpqYqZmP4PDodjuS+pVuLrZ0oPDDTLggzy1MDPU3s4hY/jIP+1UC/aUX+0lWgCnhdxuMCb92Sa+FjzwKmvbzxo9lliNWsOggzEf7hHt0ibm3MeT1eokBkLU5VToXoQ3K6uTEh2gGdpLCagZM8V/Mrgqdq1DKrNdJtD7H74ew0cXSNLO10Cnq5mQRYCErkL+X8kwa+FECD4bop/K8IJbUydBZGWX20JP7azsYRLObpqcyAlOnwrUFvh6K7QQ6bhY0klxLWE+L2Zej67cduA+hhCBSOcWLtXXLst424xE/c716keErH8hp1GJn3yhelOT6+rDnhNgp8Xrahh12FK4zFtsI2Gr7G5j0WZAJWE2OyuKOYmB1eLhfxD/6HrlsWmlR6F7sbCaA6cHRWn3Vgv66wb3ABTy4+I/j/oxwj1fW49ywAssqA/w2c65BjfgPi/64IEYnUq01+ZOjJCF3xcB4kVbQ0hdBqY/Jn/2oARcxvlycV6ZjNw7RZleLJhxyQQvyDZo/Joo5/Q+OVt6ShbjDJZXA6ybSEi4ykUugba8zx1e8EK3O5f6RN+V5
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(376014)(7416014)(1800799024)(82310400026)(13003099007)(921020)(10067099003)(56012099006)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: PhJ4pNNxxrkRRSw1/r8kXR12gQ2PQsAoQRC/2R1+RPm6+Q1VcRtD4HaO2tS8eY1YZumrGTG/D+0TPxxVTcmey9VK/Gbnxw4fUhPQgcK0dOx1f4UDhTER89sYgoqecSTOoqmW0h1aPR1LSD9HYvJctkjldDo0LoOmpPli7M3na6zO4qloBk3s4Nb9J7g65gt50MY2fJXnKmKKoejuVDF2k/zMO4e5X8Q8C5NPj1H/Wy5dXJ+YBAdAyN6zWh/rzuxxSv2uoAd4AkGdAQewE621XOcdzZ76U6EQJTL45qCx/PKWlIhAfEK7zpRV6AHCiwI/kSh1uEl7ecQUwEoW+u7+F5BYSWiD9JhmoLFgOJjgRBjAt5ckaBMpQfiYH+ZzY1zBDbe5gw1/NTC6n607+Z2e/FgN+oRaA7kQOBpQyS9C3HXMGnk9lI+KvAEfSTfihCdf
+X-Exchange-RoutingPolicyChecked: hcD1V5+AVf7VC68P7bSNF7SFIdlF2NC8EyeCq1yQUbZhWL71YnuRCxWqSaCnp4cJYLoeXV5+be/E4uAIahJWgRTcoAAZa/D+QVKgd8CvWfdabyhwYZ6cySHf35zaUTHXgAr3qswcjfckKFENNsvKlkyivPRKYLkqOyPmqvZBaJfmkokHZ08FWDSd/5lZHQHUP4Jo3ugFhzXEkxeNM+FxXY+tNk9Mopk2/UXeniAfgxZKEQtqKHuA4rNB5m2gfL6Qzr4OUrWkfwNknEXXiZZGDWa0or09PkJ7drae8pMs782/YLJByPKDEeuxFNhgIqQXQs0tKYMwEWGVpBVBtSBLUw==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Aug 2026 12:14:26.9040
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: ed10d47c-7eb8-4a09-905a-08def6d8ec40
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF000044AA.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR10MB6006
+X-Proofpoint-GUID: -IlsKwa7rTWh-eY6GJuWe0G31xJyqN4i
+X-Proofpoint-ORIG-GUID: -IlsKwa7rTWh-eY6GJuWe0G31xJyqN4i
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODEwMDEwNSBTYWx0ZWRfXzMgQ5aig7hvj
+ XBRdC5AOhJ78wlLlHEWZTmh0DufhBr0afxhG5jpilP2aa7rABotUBB7b1iaqvAsT0ulDbXl8Bx/
+ SLOy8Val78v6VV1sCK3LC8Md+ZbvPtHxx7bECLDAtu2GN8Yy4DqH7u+qRkrjLI+0vEF7N/P/8zz
+ g+BmrrvXI204ZJviwwJbygIPSa//udmoFrJCr+W0KZGE7hGU6sNBgbJzESDCPeBEOayWvD+xj2v
+ qDY8wBYCQOex97C5mhB8zpmSwaH3yyFExWIRhn6dZybYWz1JSyJwAIa6D97NLycoomTAb4Qt4Kh
+ 15tCWUbIkh/hf2/8SzxYSGQ17C3mj8NAqEYMKl6DF9XYMtAJSVLO9jIoPyjjRE7ksD1ETPahtYt
+ xIjIBHaYShJOl88H9ZWrih8Vy2LlsMzXiXpTnCqVBnAQJT36ezVHvLpZeEi7fyCBjbIZihJPRld
+ WhnkwIYqEk5Wpd29ZNg==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODEwMDEwNSBTYWx0ZWRfX1TZ+NS9ZVoUN
+ H/zI75+RgP0IYNkKubIDihj+ChC9FJCc05FINNUbJIZ7B05+bsaYuc82B7u3UnEXLRQAgAaIAb9
+ U8dJEH8xhpDxogQa0w3Rlkt6N4xo5/w=
+X-Authority-Analysis: v=2.4 cv=F8FnsKhN c=1 sm=1 tr=0 ts=6a79c0a6 cx=c_pps
+ a=2LRq3VT+JIpsXvqoN2bfxg==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=Sv0fKeRqtYgA:10 a=V5UXEbMT0ywA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22 a=gO1vWkAQAl3rybz1DQOp:22
+ a=VwQbUJbxAAAA:8 a=sozttTNsAAAA:8 a=EUspDBNiAAAA:8 a=oFLf-t_w0HqYTUmQs-gA:9
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-10_02,2026-08-07_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 malwarescore=0 lowpriorityscore=0 suspectscore=0
+ priorityscore=1501 phishscore=0 clxscore=1011 spamscore=0 bulkscore=0
+ impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2608100105
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260810_051443_044717_974680AB 
+X-CRM114-Status: GOOD (  10.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,410 +172,60 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: jason98166@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jason Yang <jason98166@gmail.com>
+Enable the J721E PCIe endpoint driver used by TI's J721E, J7200, J721S2,
+J722S, J742S2, J784S4, AM64, AM68, and AM69 SoCs.
 
-The DC-PHY drives a MIPI DSI transmitter and a MIPI CSI receiver, and
-on RK3588 both can be wired up at the same time. The PHY core
-reference-counts power_on() per struct phy, so a single struct phy
-cannot bring the two up independently.
+Enable the Keystone PCIe driver for host and endpoint mode used by TI's
+AM65 SoC.
 
-Register one struct phy for each and move the per-PHY state (PHY type
-and lane count) into a new struct samsung_mipi_phy. of_xlate() maps
-the single cell onto the two PHYs: PHY_TYPE_DSI selects the
-transmitter and PHY_TYPE_CSI the receiver, while PHY_TYPE_DPHY and
-PHY_TYPE_CPHY keep selecting the transmitter so existing device trees
-keep working. Values outside those four are now rejected there instead
-of failing later in power_on(); no in-tree devicetree uses any other
-value.
-
-The two PHYs share the common block (BIAS, and the PLL that only the
-transmitter drives - RK3588 TRM section 22.2) and the block-level APB
-reset. That reset has to be assumed to reset a running peer's PLL,
-timing and lane configuration as well, so it must not be pulsed while
-the peer is up. Guard it with a use count taken and dropped inside the
-power helpers, and program the shared BIAS references on the same
-transition away from zero: a count rather than a one-shot flag, so
-that once every user is gone the next bring-up gets the reset and the
-BIAS programming again. There is nothing to write on release itself -
-the BIAS registers hold only static analog settings, with no enable
-bit (section 22.4.3). A PHY that powers on while its peer is already
-up therefore no longer gets the block-level reset; its bring-up
-sequence programs the configuration it uses.
-
-Folding the BIAS programming into that helper also moves it ahead of
-the per-PHY reset assert, where the TRM's worked example puts it after
-(section 22.6.4.1). That is safe: neither M_RESETN nor S_RESETN covers
-the BIAS registers (section 22.6.1.2), and the values written are
-those registers' reset defaults (section 22.4.2).
-
-The receiver stays rejected in configure(), power_on() and power_off()
-until the receiver bring-up is added in the next change.
-
-Signed-off-by: Jason Yang <jason98166@gmail.com>
-Assisted-by: Claude:claude-fable-5
+Signed-off-by: Aksh Garg <a-garg7@ti.com>
+Reviewed-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 ---
- drivers/phy/rockchip/phy-rockchip-samsung-dcphy.c | 188 ++++++++++++++++++----
- 1 file changed, 155 insertions(+), 33 deletions(-)
 
-diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-dcphy.c b/drivers/phy/rockchip/phy-rockchip-samsung-dcphy.c
-index 99ca0e1cc574..09dbcf438f99 100644
---- a/drivers/phy/rockchip/phy-rockchip-samsung-dcphy.c
-+++ b/drivers/phy/rockchip/phy-rockchip-samsung-dcphy.c
-@@ -11,8 +11,10 @@
- #include <linux/hw_bitfield.h>
- #include <linux/init.h>
- #include <linux/kernel.h>
-+#include <linux/lockdep.h>
- #include <linux/mfd/syscon.h>
- #include <linux/module.h>
-+#include <linux/mutex.h>
- #include <linux/of.h>
- #include <linux/phy/phy.h>
- #include <linux/platform_device.h>
-@@ -280,6 +282,24 @@ struct samsung_mipi_dcphy_plat_data {
- 	u32 dphy_tx_max_lane_kbps;
- };
- 
-+struct samsung_mipi_dcphy;
-+
-+/* Index of the two PHYs the block exposes. */
-+enum {
-+	SAMSUNG_MIPI_TX,
-+	SAMSUNG_MIPI_RX,
-+	SAMSUNG_MIPI_PHY_MAX,
-+};
-+
-+struct samsung_mipi_phy {
-+	struct phy *phy;
-+	struct samsung_mipi_dcphy *parent;
-+	u8 id;
-+	/* Electrical layer (PHY_TYPE_DPHY/CPHY), not the DT cell value. */
-+	u8 type;
-+	unsigned int lanes;
-+};
-+
- struct samsung_mipi_dcphy {
- 	struct device *dev;
- 	struct clk *ref_clk;
-@@ -290,9 +310,14 @@ struct samsung_mipi_dcphy {
- 	struct reset_control *s_phy_rst;
- 	struct reset_control *apb_rst;
- 	struct reset_control *grf_apb_rst;
--	unsigned int lanes;
--	struct phy *phy;
--	u8 type;
-+	struct samsung_mipi_phy phys[SAMSUNG_MIPI_PHY_MAX];
-+	/* Serialises the two PHYs' access to the shared common block. */
-+	struct mutex lock;
-+	/*
-+	 * Number of powered-on PHYs using the common block (APB reset
-+	 * and BIAS references).  Written under the lock above.
-+	 */
-+	unsigned int common_users;
- 
- 	const struct samsung_mipi_dcphy_plat_data *pdata;
- 	struct {
-@@ -973,8 +998,25 @@ struct samsung_mipi_dphy_timing samsung_mipi_dphy_timing_table[] = {
- 	{  80,  2,   0,  0, 28,  5,  0, 22,  2,  0,  5},
- };
- 
--static void samsung_mipi_dcphy_bias_block_enable(struct samsung_mipi_dcphy *samsung)
-+/*
-+ * The APB reset is block-level and has to be assumed to return the whole
-+ * register file to the defaults of TRM section 22.4.2, which would leave
-+ * a running peer PHY unconfigured - so it may only run while neither PHY
-+ * is powered.  The pairing of get and put relies on the phy core calling
-+ * power_on/power_off only on the 0<->1 transitions of each phy's own
-+ * power_count.
-+ */
-+static void samsung_mipi_dcphy_common_get(struct samsung_mipi_dcphy *samsung)
- {
-+	lockdep_assert_held(&samsung->lock);
-+
-+	if (samsung->common_users++)
-+		return;
-+
-+	reset_control_assert(samsung->apb_rst);
-+	udelay(1);
-+	reset_control_deassert(samsung->apb_rst);
-+
- 	regmap_write(samsung->regmap, BIAS_CON0, I_DEV_DIV_6 | I_RES_100_2UA);
- 	regmap_write(samsung->regmap, BIAS_CON1, I_VBG_SEL_820MV | I_BGR_VREF_820MV |
- 						 I_LADDER_1_00V);
-@@ -984,18 +1026,34 @@ static void samsung_mipi_dcphy_bias_block_enable(struct samsung_mipi_dcphy *sams
- 	/* default output voltage select:
- 	 * dphy: 400mv
- 	 * cphy: 530mv
-+	 * C-PHY is not supported yet, so the D-PHY value serves both PHYs.
- 	 */
- 	regmap_update_bits(samsung->regmap, BIAS_CON4,
- 			   I_MUX_SEL_MASK, I_MUX_400MV);
- }
- 
-+/*
-+ * Nothing to undo on the way down: the BIAS registers hold only static
-+ * analog settings - current and voltage references, the bandgap chopper
-+ * divider and the D-PHY/C-PHY level select - with no enable bit.
-+ */
-+static void samsung_mipi_dcphy_common_put(struct samsung_mipi_dcphy *samsung)
-+{
-+	lockdep_assert_held(&samsung->lock);
-+
-+	if (WARN_ON(!samsung->common_users))
-+		return;
-+
-+	samsung->common_users--;
-+}
-+
- static void samsung_mipi_dphy_lane_enable(struct samsung_mipi_dcphy *samsung)
- {
- 	regmap_write(samsung->regmap, DPHY_MC_GNR_CON1, T_PHY_READY(0x2000));
- 	regmap_update_bits(samsung->regmap, DPHY_MC_GNR_CON0,
- 			   PHY_ENABLE, PHY_ENABLE);
- 
--	switch (samsung->lanes) {
-+	switch (samsung->phys[SAMSUNG_MIPI_TX].lanes) {
- 	case 4:
- 		regmap_write(samsung->regmap, DPHY_MD3_GNR_CON1,
- 			     T_PHY_READY(0x2000));
-@@ -1026,7 +1084,7 @@ static void samsung_mipi_dphy_lane_enable(struct samsung_mipi_dcphy *samsung)
- 
- static void samsung_mipi_dphy_lane_disable(struct samsung_mipi_dcphy *samsung)
- {
--	switch (samsung->lanes) {
-+	switch (samsung->phys[SAMSUNG_MIPI_TX].lanes) {
- 	case 4:
- 		regmap_update_bits(samsung->regmap, DPHY_MD3_GNR_CON0,
- 				   PHY_ENABLE, 0);
-@@ -1336,15 +1394,16 @@ static int samsung_mipi_dphy_tx_power_on(struct samsung_mipi_dcphy *samsung)
- {
- 	int ret;
- 
-+	samsung_mipi_dcphy_common_get(samsung);
-+
- 	reset_control_assert(samsung->m_phy_rst);
- 
--	samsung_mipi_dcphy_bias_block_enable(samsung);
- 	samsung_mipi_dcphy_pll_configure(samsung);
- 	samsung_mipi_dphy_clk_lane_timing_init(samsung);
- 	samsung_mipi_dphy_data_lane_timing_init(samsung);
- 	ret = samsung_mipi_dcphy_pll_enable(samsung);
- 	if (ret < 0)
--		return ret;
-+		goto err_put;
- 
- 	samsung_mipi_dphy_lane_enable(samsung);
- 
-@@ -1356,6 +1415,11 @@ static int samsung_mipi_dphy_tx_power_on(struct samsung_mipi_dcphy *samsung)
- 	usleep_range(100, 110);
- 
- 	return 0;
-+
-+err_put:
-+	samsung_mipi_dcphy_common_put(samsung);
-+
-+	return ret;
- }
- 
- static int samsung_mipi_dphy_tx_power_off(struct samsung_mipi_dcphy *samsung)
-@@ -1363,33 +1427,49 @@ static int samsung_mipi_dphy_tx_power_off(struct samsung_mipi_dcphy *samsung)
- 	samsung_mipi_dphy_lane_disable(samsung);
- 	samsung_mipi_dcphy_pll_disable(samsung);
- 
-+	samsung_mipi_dcphy_common_put(samsung);
-+
- 	return 0;
- }
- 
- static int samsung_mipi_dcphy_power_on(struct phy *phy)
- {
--	struct samsung_mipi_dcphy *samsung = phy_get_drvdata(phy);
--
--	reset_control_assert(samsung->apb_rst);
--	udelay(1);
--	reset_control_deassert(samsung->apb_rst);
-+	struct samsung_mipi_phy *samsung_phy = phy_get_drvdata(phy);
-+	struct samsung_mipi_dcphy *samsung = samsung_phy->parent;
-+	int ret;
- 
- 	/* CPHY part to be implemented later */
--	if (samsung->type != PHY_TYPE_DPHY)
-+	if (samsung_phy->type != PHY_TYPE_DPHY)
- 		return -EOPNOTSUPP;
- 
--	return samsung_mipi_dphy_tx_power_on(samsung);
-+	mutex_lock(&samsung->lock);
-+	if (samsung_phy->id == SAMSUNG_MIPI_RX)
-+		ret = -EOPNOTSUPP;
-+	else
-+		ret = samsung_mipi_dphy_tx_power_on(samsung);
-+	mutex_unlock(&samsung->lock);
-+
-+	return ret;
- }
- 
- static int samsung_mipi_dcphy_power_off(struct phy *phy)
- {
--	struct samsung_mipi_dcphy *samsung = phy_get_drvdata(phy);
-+	struct samsung_mipi_phy *samsung_phy = phy_get_drvdata(phy);
-+	struct samsung_mipi_dcphy *samsung = samsung_phy->parent;
-+	int ret;
- 
- 	/* CPHY part to be implemented later */
--	if (samsung->type != PHY_TYPE_DPHY)
-+	if (samsung_phy->type != PHY_TYPE_DPHY)
- 		return -EOPNOTSUPP;
- 
--	return samsung_mipi_dphy_tx_power_off(samsung);
-+	mutex_lock(&samsung->lock);
-+	if (samsung_phy->id == SAMSUNG_MIPI_RX)
-+		ret = -EOPNOTSUPP;
-+	else
-+		ret = samsung_mipi_dphy_tx_power_off(samsung);
-+	mutex_unlock(&samsung->lock);
-+
-+	return ret;
- }
- 
- static int
-@@ -1482,10 +1562,15 @@ samsung_mipi_dcphy_pll_calc_rate(struct samsung_mipi_dcphy *samsung,
- static int samsung_mipi_dcphy_configure(struct phy *phy,
- 					union phy_configure_opts *opts)
- {
--	struct samsung_mipi_dcphy *samsung = phy_get_drvdata(phy);
-+	struct samsung_mipi_phy *samsung_phy = phy_get_drvdata(phy);
-+	struct samsung_mipi_dcphy *samsung = samsung_phy->parent;
- 	unsigned long long target_rate = opts->mipi_dphy.hs_clk_rate;
- 
--	samsung->lanes = opts->mipi_dphy.lanes > 4 ? 4 : opts->mipi_dphy.lanes;
-+	/* The receiver is brought up in a later change. */
-+	if (samsung_phy->id == SAMSUNG_MIPI_RX)
-+		return -EOPNOTSUPP;
-+
-+	samsung_phy->lanes = opts->mipi_dphy.lanes > 4 ? 4 : opts->mipi_dphy.lanes;
- 
- 	samsung_mipi_dcphy_pll_calc_rate(samsung, target_rate);
- 	opts->mipi_dphy.hs_clk_rate = samsung->pll.rate;
-@@ -1495,16 +1580,16 @@ static int samsung_mipi_dcphy_configure(struct phy *phy,
- 
- static int samsung_mipi_dcphy_init(struct phy *phy)
- {
--	struct samsung_mipi_dcphy *samsung = phy_get_drvdata(phy);
-+	struct samsung_mipi_phy *samsung_phy = phy_get_drvdata(phy);
- 
--	return pm_runtime_resume_and_get(samsung->dev);
-+	return pm_runtime_resume_and_get(samsung_phy->parent->dev);
- }
- 
- static int samsung_mipi_dcphy_exit(struct phy *phy)
- {
--	struct samsung_mipi_dcphy *samsung = phy_get_drvdata(phy);
-+	struct samsung_mipi_phy *samsung_phy = phy_get_drvdata(phy);
- 
--	pm_runtime_put(samsung->dev);
-+	pm_runtime_put(samsung_phy->parent->dev);
- 
- 	return 0;
- }
-@@ -1530,19 +1615,43 @@ static struct phy *samsung_mipi_dcphy_xlate(struct device *dev,
- 					    const struct of_phandle_args *args)
- {
- 	struct samsung_mipi_dcphy *samsung = dev_get_drvdata(dev);
-+	struct samsung_mipi_phy *samsung_phy;
-+	u8 id = SAMSUNG_MIPI_TX;
-+	u8 type;
- 
- 	if (args->args_count != 1) {
- 		dev_err(dev, "invalid number of arguments\n");
- 		return ERR_PTR(-EINVAL);
- 	}
- 
--	if (samsung->type != PHY_NONE && samsung->type != args->args[0])
--		dev_warn(dev, "phy type select %d overwriting type %d\n",
--			 args->args[0], samsung->type);
-+	switch (args->args[0]) {
-+	case PHY_TYPE_CSI:
-+		id = SAMSUNG_MIPI_RX;
-+		fallthrough;
-+	case PHY_TYPE_DSI:
-+		/*
-+		 * Both protocols run over D-PHY here; C-PHY is selected
-+		 * with PHY_TYPE_CPHY and is not supported yet.
-+		 */
-+		type = PHY_TYPE_DPHY;
-+		break;
-+	case PHY_TYPE_DPHY:
-+	case PHY_TYPE_CPHY:
-+		/* Electrical-layer selectors for the transmitter. */
-+		type = args->args[0];
-+		break;
-+	default:
-+		dev_err(dev, "invalid phy type %u\n", args->args[0]);
-+		return ERR_PTR(-EINVAL);
-+	}
- 
--	samsung->type = args->args[0];
-+	samsung_phy = &samsung->phys[id];
-+	if (samsung_phy->type != PHY_NONE && samsung_phy->type != type)
-+		dev_warn(dev, "phy type select %u overwriting type %u\n",
-+			 type, samsung_phy->type);
-+	samsung_phy->type = type;
- 
--	return samsung->phy;
-+	return samsung_phy->phy;
- }
- 
- static int samsung_mipi_dcphy_probe(struct platform_device *pdev)
-@@ -1553,6 +1662,7 @@ static int samsung_mipi_dcphy_probe(struct platform_device *pdev)
- 	struct phy_provider *phy_provider;
- 	struct resource *res;
- 	void __iomem *regs;
-+	unsigned int i;
- 	int ret;
- 
- 	samsung = devm_kzalloc(dev, sizeof(*samsung), GFP_KERNEL);
-@@ -1563,6 +1673,10 @@ static int samsung_mipi_dcphy_probe(struct platform_device *pdev)
- 	samsung->pdata = device_get_match_data(dev);
- 	platform_set_drvdata(pdev, samsung);
- 
-+	ret = devm_mutex_init(dev, &samsung->lock);
-+	if (ret)
-+		return ret;
-+
- 	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
- 	regs = devm_ioremap_resource(dev, res);
- 	if (IS_ERR(regs))
-@@ -1607,11 +1721,19 @@ static int samsung_mipi_dcphy_probe(struct platform_device *pdev)
- 		return dev_err_probe(dev, PTR_ERR(samsung->grf_apb_rst),
- 				     "Failed to get system grf_apb_rst control\n");
- 
--	samsung->phy = devm_phy_create(dev, NULL, &samsung_mipi_dcphy_ops);
--	if (IS_ERR(samsung->phy))
--		return dev_err_probe(dev, PTR_ERR(samsung->phy), "Failed to create MIPI DC-PHY\n");
-+	for (i = 0; i < ARRAY_SIZE(samsung->phys); i++) {
-+		struct phy *phy = devm_phy_create(dev, NULL,
-+						  &samsung_mipi_dcphy_ops);
-+
-+		if (IS_ERR(phy))
-+			return dev_err_probe(dev, PTR_ERR(phy),
-+					     "Failed to create MIPI DC-PHY\n");
- 
--	phy_set_drvdata(samsung->phy, samsung);
-+		samsung->phys[i].phy = phy;
-+		samsung->phys[i].parent = samsung;
-+		samsung->phys[i].id = i;
-+		phy_set_drvdata(phy, &samsung->phys[i]);
-+	}
- 
- 	ret = devm_pm_runtime_enable(dev);
- 	if (ret)
+Changes from v3 to v4:
+- Rebased on 7.2-rc7.
 
+Changes from v2 to v3:
+- Rebased on 7.1-rc1.
+
+Changes from v1 to v2:
+- Squashed the individial patches [1] and [2].
+
+v3: https://lore.kernel.org/all/20260427044404.222396-1-a-garg7@ti.com/
+v2: https://lore.kernel.org/all/20260317063902.262392-1-a-garg7@ti.com/
+[1] - https://lore.kernel.org/all/20260223104609.876613-1-a-garg7@ti.com/
+[2] - https://lore.kernel.org/all/20260223104650.876632-1-a-garg7@ti.com/
+
+
+ arch/arm64/configs/defconfig | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index 654a102cb5bc..ee3e97b2cb91 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -222,6 +222,8 @@ CONFIG_PCIE_BRCMSTB=m
+ CONFIG_PCI_HOST_THUNDER_PEM=y
+ CONFIG_PCI_HOST_THUNDER_ECAM=y
+ CONFIG_PCI_HOST_GENERIC=y
++CONFIG_PCI_KEYSTONE_HOST=m
++CONFIG_PCI_KEYSTONE_EP=m
+ CONFIG_PCIE_MEDIATEK_GEN3=m
+ CONFIG_PCI_TEGRA=y
+ CONFIG_PCIE_RCAR_HOST=y
+@@ -235,6 +237,7 @@ CONFIG_PCIE_XILINX_NWL=y
+ CONFIG_PCIE_XILINX_CPM=y
+ CONFIG_PCI_SKY1_HOST=m
+ CONFIG_PCI_J721E_HOST=m
++CONFIG_PCI_J721E_EP=m
+ CONFIG_PCI_IMX6_HOST=y
+ CONFIG_PCI_LAYERSCAPE=y
+ CONFIG_PCI_HISI=y
 -- 
-2.43.0
-
+2.34.1
 
 
