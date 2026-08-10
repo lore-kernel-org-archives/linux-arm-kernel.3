@@ -4,91 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91F1EC5AC82
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 05:19:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8652DC5AC82
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 05:23:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=bI9faRZSTIszr47oobd68OEMax5S7fpjoTSXLtSJlgU=; b=SAOQgwKqj2y9YtCq2+NPf2KMHr
-	3EVO50oL5T/9aHhOp17Mdzom6NCIBEDa0SJACagNfkdlru5hktV4xgsWmcA327wqm2Qhy4HlolmRm
-	2vLUSiOhFsLLSx8l5++ZnjzGTbUasGl+dTFeEZHLMCcbk/fUZKENwWzDTUZfAfMksQXl9hNzlrd02
-	OzPNHs1S/Za/uJS/rU7wzNXMRe7Sryq7okCodPbvkfg4n6g9W/l+2vse6qordiMysvfo4u5kdOko0
-	p6F+o7L/mUK2uxRTgBjntWhNYLKNnFuS71nh1dc/p1dAgivwwXFS+Jw/zEdDuyB9Pk2kgqgm61lVc
-	s0COWucw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:Cc:From:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rdgatJqXq09iZfF8MwWC7oqz/aY6pcVLm3L68LKTsVg=; b=n5r0EdiXt48RISdJTg5ClpgPqH
+	L32Pc1/eMiru8JW4HL1AmbyEqCrMmiIN8RfSycFI00mwDHVyYniTNp3C60db8GeO80wDlqsmZQNwi
+	qxW0u06qpuev1S6TSuXPBYCvozYlpffVfl1S+PVMO+0kchqRHo9coJod5PtlGrOTT0Uud/bQe2uFl
+	fSVofH/e7vApgNBGQVaZGH30t493WBIFQ4UaSGjaa++STcuy1UBIkrtDAJz1CI578dG4p7nPhs0JV
+	2KRY5OZR0uzy1DOpWsbMMCIc0YLZOT+93AM1aJFlehUgY+eUVAYaeU9c+jgoY/yNDkoBHON9pkg/i
+	EJ/eICOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtIPy-0000000B2V4-0XCE;
-	Mon, 10 Aug 2026 05:19:22 +0000
-Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
+	id 1wtITv-0000000B2kA-2dzB;
+	Mon, 10 Aug 2026 05:23:27 +0000
+Received: from vinatta.cz ([2a03:3b40:fe:428::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtIPw-0000000B2Uj-1R6Q
+	id 1wtITr-0000000B2j5-23r6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 05:19:21 +0000
-Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-cbe827e3cb4so1483253a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Aug 2026 22:19:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786339159; x=1786943959; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=bI9faRZSTIszr47oobd68OEMax5S7fpjoTSXLtSJlgU=;
-        b=dE77lTi7FFZf4aFt3i5tPNw56kKbjOCbbBP2rBzl3/kMarNR+++AIu8EP88SMDJMXC
-         HiQdYDB0jRKk7QJ92gzPtt3DYtOD/Iwlz6fDwr49Y03Rc2gYljCVK31rdge0gl+L6xE3
-         oQwFYhsh9oPHxYYrbwS+hJVTwOQONHs8fqO+XBTCfOmUhF9Dq3GsUOrNxMqdcyatPmyu
-         SWIznrVuKRq1CNW5jY2+MGzfqaEHe5hQl0mPB+6t9H2NYsXFxU/70AILx5xlXhOxrePb
-         e5ErmPmuBWwYqnmwCA+BD4cq3JPQCTOnBIVWa6+7/uVVNwQpfraCHpAVpQhZWcuNoBMt
-         aKTg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786339159; x=1786943959;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=bI9faRZSTIszr47oobd68OEMax5S7fpjoTSXLtSJlgU=;
-        b=bsBgzoBREJT26V4Iu6dkyVH0OTfdXNdo3oHn1aAnoojQjHRPfGe3WOSv3TNFCywM9r
-         kq9e7Ax+dZ8GGIofp3P80SIsI7McnDEzXR/LQLxmI7nE9nKUFxS7sZHPH5wt9pHNE3Gs
-         2x9LfI7bPiL4T+6CHvxcdfR/rYqhoeqFT+hFkFMbv6vw8RmPqqmYm+Hzc6trgUfitdMk
-         d2dm/s9y+Zb9XlhYOA1Jf30Lv0QKikTHKM3Mf+s8AOgwAxH48nbH/lVAhIGi5fcE3Aej
-         p/tMaLhWEjnDcG94uKHQGX6YRFvMdM1B/ccCSOSzkNXhji+/SUEseL94vxiO+rB1gv0r
-         Kz9Q==
-X-Forwarded-Encrypted: i=1; AHgh+RqSK7s3U+MT42fa3dHs7ljftnss/wCZT5f6QKkUbd3swxr16Bhg2f/T9i9Lr/rvTuoFoMb20lhkk2I+R8NfO1wJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YzpOS9NuGJIVvZv0XZfs6ird3U7+4Sf2Hx0QbWDI3zn8B1C23sy
-	cmscFOEt9bo7IixjfqtZeOHkTNBP2wmDVcFh5dFl9Fo9h4RLopsS41d3
-X-Gm-Gg: AR+sD104vpoUA1OKx0ZQNXFoz5c5MqKSqLxFCbPwVVGrFblodYW4Pn3pBoAkJomK1Zo
-	2mhOqbFUuBNsSAiVrbolAG6EtmilOSryAVnoOoIXAkIP03YjTfqIV5IyNnmGTlaHqkfo36ne5Md
-	4uClOiOn6NYN/rk+25zAkkPJoOME4E+NCCuEV37lfKpi9igsmxD2C0Wbt51fTbHTJJxuS2IDM/X
-	9WcMa4GaZIQkdGrFWA8HTg4mpd4LXXYZqGTmT/zrlyMq0mgs9fK0Mm0/i1m0QVF2Cwp9P6NqhUt
-	U2JjTVcBXojJUcBb1gZPF99+ZAcKjxycAggm3UfCknm1DW87SXyD8OfAJbvaVD047jjirppm1V6
-	k2qHPpUkdej5CWEzBrA0yTMB+0yeME95IKE0Og/YCnpzqsWRKjvjY1R/UQ7dV1qDVv91zJkDxuU
-	8UjFtf3hx20V/nCv28JZieEW4ZG08am0+yJAl5Yfx1JA3oxn1DpiIF71CDC8exJzX7jlOFJSqME
-	Hn6uezyzWjx9HMMPOAvsCy0YKTVx9TDTLGY3cZXUWS7RkHvYDowCl1zxHMvt1po3TBhuriFAcie
-	J0q3
-X-Received: by 2002:a05:6a00:14ca:b0:845:3fea:96c with SMTP id d2e1a72fcca58-84f2e017155mr42784063b3a.21.1786339159406;
-        Sun, 09 Aug 2026 22:19:19 -0700 (PDT)
-Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84f5a51f429sm3175508b3a.34.2026.08.09.22.19.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 09 Aug 2026 22:19:19 -0700 (PDT)
-From: phucduc.bui@gmail.com
-To: Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: linux-remoteproc@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH] remoteproc: stm32_rproc: Propagate errors from optional IRQ lookup
-Date: Mon, 10 Aug 2026 12:19:07 +0700
-Message-ID: <20260810051907.27136-1-phucduc.bui@gmail.com>
-X-Mailer: git-send-email 2.43.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Mon, 10 Aug 2026 05:23:25 +0000
+DKIM-Signature: a=rsa-sha256; bh=rdgatJqXq09iZfF8MwWC7oqz/aY6pcVLm3L68LKTsVg=;
+ c=relaxed/relaxed; d=vinatta.cz;
+ h=Subject:Subject:Sender:To:To:Cc:Cc:From:From:Date:Date:MIME-Version:MIME-Version:Content-Type:Content-Type:Content-Transfer-Encoding:Content-Transfer-Encoding:Reply-To:In-Reply-To:In-Reply-To:Message-Id:Message-Id:References:References:Autocrypt:Openpgp;
+ i=@vinatta.cz; s=default; t=1786339366; v=1; x=1786771366;
+ b=oGxaFSkb04TgaZtwxVkxckf1o7rYI9s9/g6I7Of/SalSoGIexeWIuZlUoEHf73s0Nz8+hSCO
+ 2mOt9PDjshw9LrKOukPYyHWII+Uck9dHlxrom4H64jN1o5BFdzzPoa9+IFdmpBoKBQDBVl16dQs
+ hC35Gafs18KqAAzWU46laRUuSsP4DfzpJLci/N+VWs3zQRlDEPttvBsDAEekZmzC1nzttaILjwY
+ yZau2lTDM6Ymsd74zl4KX0Y06mN6FNZrSkv1WFxAl0CftJlHdo4eL5z7SAml85Z/PAHHrPlxTBn
+ GrKqIEVA05Te3hkgHF92CN9f233BrkQuCP+yRINYgmKHA==
+Received: by vinatta.cz (envelope-sender <karel@vinatta.cz>) with ESMTPS id
+ 15759296; Mon, 10 Aug 2026 07:22:46 +0200
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Mon, 10 Aug 2026 07:22:34 +0200
+Message-Id: <DKL0GAHVZF2H.1PCBLWAT453SS@matfyz.cz>
+To: "Johannes Berg" <johannes@sipsolutions.net>
+From: "Karel Balej" <balejk@matfyz.cz>
+Cc: "Brian Norris" <briannorris@chromium.org>, "Francesco Dolcini"
+ <francesco@dolcini.it>, "Rob Herring" <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
+ =?utf-8?q?Duje_Mihanovi=C4=87?= <duje@dujemihanovic.xyz>, "Andrew Lunn"
+ <andrew@lunn.ch>, "Gregory Clement" <gregory.clement@bootlin.com>,
+ "Sebastian Hesselbarth" <sebastian.hesselbarth@gmail.com>, "Ulf Hansson"
+ <ulf.hansson@linaro.org>, "Frank Li" <Frank.Li@nxp.com>,
+ <linux-wireless@vger.kernel.org>, <devicetree@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-mmc@vger.kernel.org>, <~postmarketos/upstreaming@lists.sr.ht>,
+ <phone-devel@vger.kernel.org>, "Jeff Chen" <jeff.chen_1@nxp.com>, "Peng
+ Fan" <peng.fan@nxp.com>, <david@ixit.cz>
+Subject: Re: [DONOTAPPLY RFC PATCH v2 0/4] WiFi support for
+ samsung,coreprimevelte
+References: <20251026182602.26464-1-balejk@matfyz.cz>
+ <DEJL1ATTQMVE.120JV9YW59I27@matfyz.cz>
+ <aSnWYS2g5slVFaSk@gaggiata.pivistrello.it>
+ <DI5L100Q1RKO.1A68EJIPWYSRC@matfyz.cz>
+ <DIKSVZCAQES1.35I4QY11LBVNV@matfyz.cz>
+In-Reply-To: <DIKSVZCAQES1.35I4QY11LBVNV@matfyz.cz>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260809_221920_385560_D7E59BA7 
-X-CRM114-Status: GOOD (  13.11  )
+X-CRM114-CacheID: sfid-20260809_222324_003754_2D135E0A 
+X-CRM114-Status: GOOD (  13.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,35 +82,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: bui duc phuc <phucduc.bui@gmail.com>
+Johannes,
 
-platform_get_irq_optional() returns a positive IRQ number on success or
-a negative error code on failure. For an optional IRQ, -ENXIO indicates
-that no IRQ is available, while other errors should be propagated.
+Karel Balej, 2026-05-17T10:14:58+02:00:
+> Karel Balej, 2026-04-29T12:55:23+02:00:
+>> what are the options here now? Would it be possible to make an
+>> exception and accept the patches without the firmware being in
+>> linux-firmware? This is an old device with no mainstream audience so I
+>> expect everyone who will want to use it will be able to supply the
+>> firmware themselves and it would be great to not have to keep the
+>> patches in a fork, especially when trying to build on top of them
+>> further (such as to fix the driver-firmware incompatibilities discussed
+>> in one of the patches of this series).
+>
+> would you please let us know whether there is any chance an exception
+> could be made for this chip regarding the firmware or whether there is
+> any other way to upstream the support?
 
-Instead of only checking for -EPROBE_DEFER, propagate all error codes
-returned by platform_get_irq_optional() other than -ENXIO, so that
-failures are properly reported to the caller.
+I still haven't heard from you, could you please have a look and let us
+know if there is any way forward?
 
-Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
----
- drivers/remoteproc/stm32_rproc.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+The support for the chip has been out of tree for over two and a half
+years now.
 
-diff --git a/drivers/remoteproc/stm32_rproc.c b/drivers/remoteproc/stm32_rproc.c
-index 632614013dc6..9301e1dab830 100644
---- a/drivers/remoteproc/stm32_rproc.c
-+++ b/drivers/remoteproc/stm32_rproc.c
-@@ -705,7 +705,7 @@ static int stm32_rproc_parse_dt(struct platform_device *pdev,
- 	int err, irq;
- 
- 	irq = platform_get_irq_optional(pdev, 0);
--	if (irq == -EPROBE_DEFER)
-+	if (irq < 0 && irq != -ENXIO)
- 		return irq;
- 
- 	if (irq > 0) {
--- 
-2.43.0
-
+Thank you,
+Karel
 
