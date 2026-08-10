@@ -4,59 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF31BC5B56C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E67CDC5B56D
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 15:22:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KySKQVJbTVFCjquaD1QfNxoZOMU3k8fn8F4dYzO+Ow4=; b=lI8WfXUNYU8WGmRco8IRvBvYVi
-	WiQVVffUxWbDOm4Bwjexvy4LGroC1RgonwQ7ah4aQ/zOM8rb9W4mSBhiv0mMhR6tlu/Q62QTHcK3x
-	K3wqnHx6fbyZRZsXykYbNW+h5peQeHz3MraMAgMLY0JsWaIX4C7vhlVofQEeOpVEryCahVq8pPW3m
-	4vy5/97tusyy0iC57j/o63+TQv48t0wnLZ/gZaN6NUoxV5KGhxPwNBwP43ONPNSmNnxKN6N7oPefh
-	DC7xmdbfrisaVkS1DD4sm1SZe4U7TdDcUV9LiiQNqnmgPnEigWAhOHs8rrXOXcA2JLNedKukk3lVh
-	clOzOfXQ==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tqQ+/C2Nf/R5X/h8jTphdMa7JUBsg/8htj/8+2s9jy4=; b=irfTIi36g5vg3qXc8q5gNxgNga
+	FQmmsLW0XU4OX7yGYpQkFLG1efCvOCarxztC/3H9AgJ1coojVubtn3QBoGRoC1W7L5WyUjaCppTnw
+	ZQBIp/R2mle29dUJ7ROPKCjInE2CWlYS1x3/3+Q5zZ+IfaG3ckrzrtx1tMFJSr6ox8woUZfpS3PHt
+	74qsIjaDJPL6z+pjO9n635Jo2hQhrSfxn9lEX7kDa0g9mdd7ltLYKSkA7xTqjhEZ/prZZ1fu6wiKX
+	XLqa+iYIPG2suDxmf+1ciQ2HZx/zKrU6bSS69k03G6+86xjcoJilSKsjCh4nf85Pjs3/uig3ExGFE
+	WfOZDlIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtRp2-0000000CCyH-2xga;
+	id 1wtRp2-0000000CCyZ-3KVf;
 	Mon, 10 Aug 2026 15:21:52 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtRp1-0000000CCxx-45Ex
+	id 1wtRp2-0000000CCy3-1jnE
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 10 Aug 2026 15:21:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B948441499;
-	Mon, 10 Aug 2026 15:21:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 8CC6AC19425;
+	by sea.source.kernel.org (Postfix) with ESMTP id 0243443D7D;
+	Mon, 10 Aug 2026 15:21:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id CC122C2BCFB;
 	Mon, 10 Aug 2026 15:21:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1786375311;
-	bh=iYMWF/J+YvooBs3s5WRm/I45yY/IbX0QrmbEUfp4nac=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=JPKtGAjnot0uaddai73bDTuB+12IuI1ptW29E+Vhml1jGDbJWBGWSRtPEHrkkQu/o
-	 LXpb5TXUIWFU7zYaN4jJam112pMA3Ag+TZuJkCCjmuCKkWqdQK4ZsTvsKtylSEtdl/
-	 7xZsePz+ZTHjy2khFLy3+vEKg6XfT+G7eLPy2LtBhnGg4RE0UOCd7FqQoNuqO/exiK
-	 qmzA1hY7eBUPGapez9PDOwcIOc+NP2SPm0+y9QcCr8JL17xHS903W/bUVctdmV7zvf
-	 MfuOUef0KyZ1TvxNq8PwlpM4ncBwpGf6mcYqDiFAZ/vz0ZcfZOjHxyV0shsq6KW0zy
-	 Nuua5iD1yAWZw==
+	bh=d1LCFApjrg3KCzaxP4aBqzgOIhF8puVZKiakRo4/ptc=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=epNtm7iz3LkgJFyCyjx0se0l8LUi0iNZ2LibxxP1+K0Cspn9WaOgLmbDkGLSKDQZF
+	 x98iBPRmLsW8nRLmVO+ptdkJdNriTutXbozyDPP48YYmggw0aZ6PzUTpHeV1MxVxZk
+	 hGN0zi3Yl8wmDUN+Se4aQcXbN03ieNkcgR7orpVnT4znDPYy1NFGoVl8cUT2XNZAnD
+	 cxynjWQxnUAAoocnB989O/wtkeKAIabiYmdQLCl/9eqTLAD7s2xDQVAQj3aw1cqGDJ
+	 QrRsQVLA5f558bQlSnK4fRYXdLQqoBkm+5Fxn99rgPtHoCLgDzzdwXOj79YmiJMi+9
+	 w+hBPvghbGfrQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 75291C5B56A;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id B41EAC5B56D;
 	Mon, 10 Aug 2026 15:21:51 +0000 (UTC)
 From: David Heidelberg via B4 Relay <devnull+david.ixit.cz@kernel.org>
-Subject: [PATCH v5 0/3] Input: support for STM FTS5
-Date: Mon, 10 Aug 2026 17:21:39 +0200
-Message-Id: <20260810-stmfts5-v5-0-0c737d929976@ixit.cz>
+Date: Mon, 10 Aug 2026 17:21:42 +0200
+Subject: [PATCH v5 3/3] arm64: dts: qcom: sdm845-google: Add STM FTS
+ touchscreen support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/13MSw6CMBSF4a2Qjq1pb1/gyH0YB/QlHQiGEoIS9
- m7BxKLD097vn1F0fXARnYoZ9W4MMXRtGuJQINPU7c3hYNNGQEASoBzH4e6HKLDmilHqtVUMULp
- +9M6HaStdrmk3IQ5d/9zCI11fPw1G6LcxUkwwgOGi1FVtZHkOUxiO5oXWwgg7RUVWkJQi2pTMu
- UpU9FexrDhhWbGkhK2VLI23QP4U36sqK56U5N7J9KWsFlkty/IGitIdUz4BAAA=
-X-Change-ID: 20260214-stmfts5-b47311fbd732
+Message-Id: <20260810-stmfts5-v5-3-0c737d929976@ixit.cz>
+References: <20260810-stmfts5-v5-0-0c737d929976@ixit.cz>
+In-Reply-To: <20260810-stmfts5-v5-0-0c737d929976@ixit.cz>
 To: Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
  Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
  Alexandre Torgue <alexandre.torgue@foss.st.com>, 
@@ -73,21 +71,21 @@ Cc: Petr Hodina <petr.hodina@protonmail.com>, linux-input@vger.kernel.org,
  Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, 
  Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3611; i=david@ixit.cz;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2317; i=david@ixit.cz;
  h=from:subject:message-id;
- bh=iYMWF/J+YvooBs3s5WRm/I45yY/IbX0QrmbEUfp4nac=;
- b=owEBbQKS/ZANAwAIAWACP8TTSSByAcsmYgBqeeyNn0JVtxp4V6UivWU56+kfUvLGZXX0LdUJ1
- oUZrgfKzC6JAjMEAAEIAB0WIQTXegnP7twrvVOnBHRgAj/E00kgcgUCannsjQAKCRBgAj/E00kg
- chjjEACs+WX8zHWsSWUJn3XSYLpe9ViXMTQJS1UzHOStQU3Z0HVKy2f1Wcljt435qihhY24NC09
- +adKMr3R953WfqiauCqs3o4QERWo6JagGXgwkcSRcpuuslDMW5BlUahygEdyO0D+leerbtVI/io
- SCgN9jyG1Dvo39KXzNj9aec6ODAy4ZnPdsHL171/4DN5vk42cesLSVmvfLCAhogDpROp4J/w6QJ
- c8ljH56wjIQAROPjikliyjRxXjJui4QkoREu6fbc9WORQWgaKjwoaQnUmgPUV1saYfIB7OudD3I
- eEtjJMNko9Mzch+ofnA2UslIx9HwVIpAzVnm0MaNyOKfRudxlUpu0KO/oihC/3j5x+uCIDzCoP6
- igtfc2jMYN3yZgOAkOxRJslp/HVHBddS1Iqot2jO2G0XfnACaf5XyBzEVzcYUFJM+RPCtx7yVth
- irx/tYyI9sScIOTK41ZK33WfdEPab4RWS3ucw2F7pB9TdSEqPXiiGfU47PDBLyHbn3SoNO3y57X
- 8c0ZljpconkjFWvFUG2M1PHU+2kLQf8ySvN71EdVmP7WabjUslF4wSf1LJop2JKwVfihh72norh
- 3Cz5BGbkBOnj6Sw4apz9D3t2cG7DBynS7Sq7OATGmS0IrPPHpZDgHzwF8R9b1piZAq6fWlla5k6
- k5eI9vs3dBHk1ug==
+ bh=d6YK9/d3irC15CmqRTIkg+K9fEKI6TWqUJRSUAdOn6Q=;
+ b=owEBbQKS/ZANAwAIAWACP8TTSSByAcsmYgBqeeyNsdiADDYBlWx/cvqY0/5sRpxPIa7fit5dT
+ IjmHoCYePmJAjMEAAEIAB0WIQTXegnP7twrvVOnBHRgAj/E00kgcgUCannsjQAKCRBgAj/E00kg
+ cpWVD/9E+vEBGkXkM8+Icj5A+8/3CIY0oIa5AxZPuPiDkjbj+hHLFMQPNEuE707RuXuftQIMnYJ
+ +JzV5rSNWMWkqQMMNXEJHB/EBDLuMc8nOucjFNnU9ejWWAObJhSx25qXeWHeJQLclGEtvun/GOR
+ qBB56PLN2lEVluuXHzATSHyIcHpJWpJMCMyLlJdefNZ7PXwA6U38LEBdQ/mkdwqMqn42NK4whmn
+ Tq8IksgVenoFfwvq9Z3txKYfKqp3qHFFG7MXFzEZextTw8t/ljL8CBNekk4R92NaEXKqmDuMvXD
+ uvstkdstxIWOj/SOlwdTopmiuZSFJuEz3i9vS8NRiiTYrbwEEvKG6RdfesxyrjgNul+kKxRxM4G
+ k2ho3VI6mhGPT6V/Yi7YAAU0NXnnsA52ZEhquJeA8C7hIVMTG6rLJ+m4jq04yGElAYUIUo+Zvo2
+ 4hjFoicVbeX/5TOHAsSRkeruabsGgG7+lO5ONFDomQmO2vXvTS+TcYGZ3RuhuBPWqct1yfklZo2
+ tH35Bl31NoHvUpp7o5Oc+57DfjnZQbOhkUG4XBbFEQF0sYihvagogeIrLCCLIvfjwkjtPxwTkAS
+ A0QMJc6zsIknEh3lSuDdTctwdS7uP2wU4GJPUngDtWxIPiQ/TH01P/ocmmLgApjNbzbQUC9HSju
+ ZqCPrRV6CM+3BdQ==
 X-Developer-Key: i=david@ixit.cz; a=openpgp;
  fpr=D77A09CFEEDC2BBD53A7047460023FC4D3492072
 X-Endpoint-Received: by B4 Relay for david@ixit.cz/default with auth_id=355
@@ -107,87 +105,86 @@ Reply-To: david@ixit.cz
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Used on various phones. Minimal viable driver.
+From: Petr Hodina <petr.hodina@protonmail.com>
 
-Includes device-tree enabling touchscreen on Pixel 3.
+Basic touchscreen connected to second i2c bus.
 
-What is missing:
- - switching between AP and SLPI mode (to be able to wake up phone by touch)
- - firmware loading
- - anything above basic touch
-
+Signed-off-by: Petr Hodina <petr.hodina@protonmail.com>
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Co-developed-by: David Heidelberg <david@ixit.cz>
 Signed-off-by: David Heidelberg <david@ixit.cz>
 ---
-Changes in v5:
-- 3.3V is analog, 1.8V is digital supply. Fix that.
-- Name the error variables "err" (Dmitry)
-- Use scoped_guard() for ->running, and only set it once the scan
-  mode has actually been enabled. (Dmitry)
-- Use i2c_master_send() instead of open-coding a single-message
-  i2c_transfer(). (Dmitry)
-- Drivers may report coordinates outside the declared min/max, so
-  remove the clamping. (Dmitry)
-- BTN_TOUCH and INPUT_PROP_DIRECT are already set up by
-  input_mt_init_slots(..., INPUT_MT_DIRECT). (Dmitry)
-- Let the input core track contacts: drop the touch_id/stylus_id
-  bitmaps and the hand-rolled BTN_TOUCH reporting, and sync the frame
-  once per interrupt with input_mt_sync_frame() instead of calling
-  input_sync() per contact event. The controller pushes contacts one
-  by one into the event FIFO and only resends the ones that changed,
-  so INPUT_MT_DROP_UNUSED is wrong here and is dropped as well. (Dmitry)
-- Restore the FTS4 interrupts accidentally dropped by introduction of
-  FTS5.
-- mode-switch-gpios isn't required with stmfts5. Some designs, such as
-  Xiaomi Mi 8, has no such GPIO connected and is limited to AP mode.
-- Nit: updated example to use interrupts-extended.
-- Nit: (maximum x/y coordinate reported + 1), corrected example.
-- Link to v4: https://lore.kernel.org/r/20260409-stmfts5-v4-0-64fe62027db5@ixit.cz
+ arch/arm64/boot/dts/qcom/sdm845-google-blueline.dts | 19 ++++++++++++++++++-
+ arch/arm64/boot/dts/qcom/sdm845-google-common.dtsi  |  2 +-
+ 2 files changed, 19 insertions(+), 2 deletions(-)
 
-Changes in v4:
-- Wrap everything below enabling the supplies into stmfts_configure()
-  to avoid bunch of gotos to power off on error (Dmitry T.)
-- Finished chip specific ops and removed is_fts5. (Dmitry T.)
-- Link to v3: https://lore.kernel.org/r/20260403-stmfts5-v3-0-5da768cfd201@ixit.cz
+diff --git a/arch/arm64/boot/dts/qcom/sdm845-google-blueline.dts b/arch/arm64/boot/dts/qcom/sdm845-google-blueline.dts
+index fa89be500fb85..51c835dca43f1 100644
+--- a/arch/arm64/boot/dts/qcom/sdm845-google-blueline.dts
++++ b/arch/arm64/boot/dts/qcom/sdm845-google-blueline.dts
+@@ -21,17 +21,34 @@ &framebuffer0 {
+ 	stride = <(1080 * 4)>;
+ };
+ 
+ &i2c2 {
+ 	clock-frequency = <1000000>;
+ 
+ 	status = "okay";
+ 
+-	/* ST,FTS @ 49 */
++	touchscreen@49 {
++		compatible = "st,stmfts5";
++		reg = <0x49>;
++
++		pinctrl-0 = <&touchscreen_irq_n>, <&touchscreen_reset>;
++		pinctrl-names = "default";
++
++		interrupts-extended = <&tlmm 125 IRQ_TYPE_LEVEL_LOW>;
++
++		mode-switch-gpios = <&tlmm 136 GPIO_ACTIVE_HIGH>;
++		reset-gpios = <&tlmm 99 GPIO_ACTIVE_LOW>;
++
++		avdd-supply = <&vreg_l19a_3p3>;
++		vdd-supply = <&vreg_l14a_1p8>;
++
++		touchscreen-size-x = <1080>;
++		touchscreen-size-y = <2160>;
++	};
+ };
+ 
+ &mdss_dsi0 {
+ 	vdda-supply = <&vdda_mipi_dsi0_1p2>;
+ 
+ 	status = "okay";
+ 
+ 	panel@0 {
+diff --git a/arch/arm64/boot/dts/qcom/sdm845-google-common.dtsi b/arch/arm64/boot/dts/qcom/sdm845-google-common.dtsi
+index 9368fd6b87515..bd3b5d7b7396e 100644
+--- a/arch/arm64/boot/dts/qcom/sdm845-google-common.dtsi
++++ b/arch/arm64/boot/dts/qcom/sdm845-google-common.dtsi
+@@ -492,17 +492,17 @@ nfc_enable_default: nfc-enable-default-state {
+ 
+ 	touchscreen_reset: ts-reset-state {
+ 		pins = "gpio99";
+ 		function = "gpio";
+ 		drive-strength = <8>;
+ 		bias-pull-up;
+ 	};
+ 
+-	touchscreen_pins: ts-pins-gpio-state {
++	touchscreen_irq_n: ts-irq-n-gpio-state {
+ 		pins = "gpio125";
+ 		function = "gpio";
+ 		drive-strength = <2>;
+ 		bias-disable;
+ 	};
+ 
+ 	touchscreen_i2c_pins: qup-i2c2-gpio-state {
+ 		pins = "gpio27", "gpio28";
 
-Changes in v3:
-- s/touchscreen_pins/touchscreen_irq_n. (Konrad)
-- Use interrupts-extended. (Konrad)
-- Fixed rebase conflict against 8665ceb926ec ("Input: stmfts - use guard notation when acquiring mutex")
-- Rename switch-gpios to mode-switch-gpios.
-- Do not define properties in if:then: branches. (Krzysztof)
-- Link to v2: https://lore.kernel.org/r/20260315-stmfts5-v2-0-70bc83ee9591@ixit.cz
-
-Changes in v2:
-- Fix typo in the binding s/switch-gpio/switch-gpios/.
-- Deduplacate allOf. (Rob yamllint)
-- Add missing S-off-by. (Dmitry B.)
-- Dropped irq-gpios as it's not needed. (Konrad)
-- Correct x and y touchscreen area size. (Konrad)
-- Correct reset introduction commit description. (Krzysztof)
-- Partially implemented chip specific ops. (Dmitry T.)
-- Separeted license naming cleanup into separate commit (Dmitry T.)
-- Link to v1: https://lore.kernel.org/r/20260301-stmfts5-v1-0-22c458b9ac68@ixit.cz
-
----
-David Heidelberg (2):
-      dt-bindings: input: touchscreen: st,stmfts: Introduce STM FTS5
-      Input: stmfts - support FTS5
-
-Petr Hodina (1):
-      arm64: dts: qcom: sdm845-google: Add STM FTS touchscreen support
-
- .../bindings/input/touchscreen/st,stmfts.yaml      |  29 +-
- .../arm64/boot/dts/qcom/sdm845-google-blueline.dts |  19 +-
- arch/arm64/boot/dts/qcom/sdm845-google-common.dtsi |   2 +-
- drivers/input/touchscreen/stmfts.c                 | 430 +++++++++++++++++++--
- 4 files changed, 436 insertions(+), 44 deletions(-)
----
-base-commit: 95d6a9ccef99117115e41e9adb271243bd5e985b
-change-id: 20260214-stmfts5-b47311fbd732
-
-Best regards,
---  
-David Heidelberg <david@ixit.cz>
+-- 
+2.55.0
 
 
 
