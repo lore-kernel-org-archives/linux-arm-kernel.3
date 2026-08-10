@@ -4,61 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8522EC5AC82
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 11:05:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6270FC5AE5D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 11:11:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gI5k/9cl/ieyg839FRaHqV6Z6OMpnh4gRsszIL3A9lg=; b=EFzM8YCf4gDpSWMvCI3jZI+R9l
-	yMYJceavFU1zI7p1I9HIkORC6Vkro0wHQ7J1wwvtZ9zVseajiT94kd7ySeXBsYLOPQQYS6gVI6ehY
-	7BRMfRDwGFabaHQnX0bHO4Pq9CTTF6aPD/UTvAycGjWevkNploFI+OoMHCXnx2rs+tClv5szqVGOk
-	SL+/M4X7Gvee74XAbABH0x+I0hwDxOTtOGGGH+dEXPZ1wj8kW7oMkKNhPfcjEnOm9OvfTO4O+gE5Q
-	36Zs6MlI+SMTx33KHPcrN2hjenDPNi9Shu4IlXHTI3fht/naLKpYWC25tZ9DwpEfn/IqXXDOlVL/f
-	Qfe+bdeg==;
+	bh=ap/0Eif1ss/s6pztBg+BQ7lp/w4/Bkhbu4Pgj8K/mIg=; b=Vyy4UZBxHxl3e3PoWxgp8OXv88
+	1UBDEFdg+R1XwjCKs8sQ32z+zOtgv6gn4HBqin+R4rMDmCGQpU3wPXymD9zHdQnPlSwuv84EkzVOf
+	vuBDEcvHJZAIRD95PHjUAaWZKsYQrbeUCup71fnDMmNF50xjRPpe9VPE0LJnTMC6rUBDJYwlQIzw+
+	xBi3SEZw/KaDxNKBlNOppSSyGivNKr7XyS2pR93jG3Mt2BRiEqtzfVL1Wn5DlagrdyHUB1lluqcvw
+	psismCNzuevSWXd2mDn7BQNKsDLYpMuQ5WiHDnd7u3DiOvtC3xEqrLNbUuPTQpIsLPVqiydlw44lX
+	Y56YGmhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtNoI-0000000BZJR-2xi1;
-	Mon, 10 Aug 2026 11:04:50 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wtNuB-0000000BZf2-2HyG;
+	Mon, 10 Aug 2026 11:10:55 +0000
+Received: from linkmauve.fr ([82.65.109.163])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtNoH-0000000BZJK-3QqX
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 11:04:49 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7583040BB9;
-	Mon, 10 Aug 2026 11:04:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B61451F000E9;
-	Mon, 10 Aug 2026 11:04:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786359889;
-	bh=gI5k/9cl/ieyg839FRaHqV6Z6OMpnh4gRsszIL3A9lg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=agFE+wD2ubNxyH2+bC30Mu/nvDhuGf1lGI3fxZ/VlwVou3BrvUsWA7v4mCYflP98/
-	 kPVS4JMrHfPPPmEX+4ZYWdGl6/7jYRoOzQl7CpCbMw+Ko/cjrW18eK4AfiaTfuYmNL
-	 65R4p7p/Y+hIA09oKr0+sPh7RFa1OVE0RSj7jJkMWPHqr8lwZsFrAQGfYtbdBtZvfU
-	 gqYDKcPsYDSQDYwsGhMaesZH+JL6sfSehZ5GqLGzxnsJjWltMPL0ab8Q10pn8NHHQX
-	 /8oEijyKs2b1HC0gt1WHvozn3osKhAYEHhjTrLDv/RaIuBXyscRynMFasSMqQ/Flhs
-	 OGmn1HDOvO3Vw==
-Date: Mon, 10 Aug 2026 12:04:44 +0100
-From: Will Deacon <will@kernel.org>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: gus bourg <gus@bourg.net>, Catalin Marinas <catalin.marinas@arm.com>,
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
-	linux-efi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH] arm64/efi: Do not call EFI runtime services preemptibly
- under SW PAN
-Message-ID: <anmwTDnFR2cgxkqR@willie-the-truck>
-References: <20260806000144.3388823-1-gus@bourg.net>
- <anXMug2_-vZl_pZ7@willie-the-truck>
- <30c5499e-8041-4e39-933b-c5220d53be77@app.fastmail.com>
+	id 1wtNu7-0000000BZeU-1OBW;
+	Mon, 10 Aug 2026 11:10:53 +0000
+Received: by linkmauve.fr (Postfix, from userid 1000)
+	id 19C8370AFA9E; Mon, 10 Aug 2026 13:10:47 +0200 (CEST)
+Date: Mon, 10 Aug 2026 13:10:47 +0200
+From: Link Mauve <linkmauve@linkmauve.fr>
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: Link Mauve <linkmauve@linkmauve.fr>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
+	Neal Gompa <neal@gompa.dev>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Vladimir Zapolskiy <vz@mleia.com>,
+	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Kalyani Akula <kalyani.akula@amd.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>,
+	Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	Tamir Duberstein <tamird@kernel.org>,
+	Alexandre Courbot <acourbot@nvidia.com>,
+	Onur =?iso-8859-1?Q?=D6zkan?= <work@onurozkan.dev>,
+	Johan Hovold <johan@kernel.org>,
+	Ronald Claveau <linux-kernel-dev@aliel.fr>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
+	asahi@lists.linux.dev, imx@lists.linux.dev,
+	linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	rust-for-linux@vger.kernel.org
+Subject: Re: [PATCH v4 0/3] nvmem: migrate to const void * in reg_write
+Message-ID: <anmxt26wZdQK4FP3@desktop>
+References: <20260726131724.15299-1-linkmauve@linkmauve.fr>
+ <anl9ZRM0REenBK8t@ashevche-desk.local>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <30c5499e-8041-4e39-933b-c5220d53be77@app.fastmail.com>
+In-Reply-To: <anl9ZRM0REenBK8t@ashevche-desk.local>
+Jabber-ID: linkmauve@linkmauve.fr
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260810_041051_545456_9EAE6F83 
+X-CRM114-Status: GOOD (  18.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,80 +97,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 07, 2026 at 04:56:00PM +0300, Ard Biesheuvel wrote:
+On Mon, Aug 10, 2026 at 10:27:33AM +0300, Andy Shevchenko wrote:
+> On Sun, Jul 26, 2026 at 03:17:18PM +0200, Link Mauve wrote:
+> > This callback used to take a mutable void * for no reason, which causes
+> > the compiler to be unaware that the val buffer should never be modified
+> > by the callback.
+> > 
+> > This was found while drafting the nvmem-provider Rust abstraction.
+> > 
+> > Thanks to the guidance of Andy Shevchenko, this now introduces a new
+> > callback and deprecates the existing one, with the goal of renaming the
+> > new one into the old one once no user remains in the kernel.
+> 
+> LGTM now, FWIW,
+> Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
+> 
+> But I think you also need to provide a road map of finishing this job (the best
+> is to provide a continuation in some of yours public Git trees to point out).
+
+Also note that I sent a v5 a few days ago but you reviewed v4, although
+there are very few changes[1].
+
+> 
+> -- 
+> With Best Regards,
+> Andy Shevchenko
 > 
 > 
-> On Fri, 7 Aug 2026, at 15:16, Will Deacon wrote:
-> > On Wed, Aug 05, 2026 at 05:01:44PM -0700, gus bourg wrote:
-> >> From: Gus Bourg <gus@bourg.net>
-> >> 
-> >> When PAN is emulated by switching TTBR0_EL1, arch_efi_call_virt_setup()
-> >> installs the EFI mm into TTBR0_EL1 via uaccess_ttbr0_enable(), and only a
-> >> return from exception ever puts it back: check_and_switch_context() skips
-> >> the register write by design ("Defer TTBR0_EL1 setting for user threads to
-> >> uaccess_enable() when emulating PAN"), and __switch_to() does not touch it
-> >> either. switch_mm() updates only thread_info->ttbr0.
-> >> 
-> >> Since commit a5baf582f4c0 ("arm64/efi: Call EFI runtime services without
-> >> disabling preemption") the runtime call is preemptible, so the EFI worker
-> >> can now be scheduled out inside that window. An involuntary preemption is
-> >> harmless, because __swpan_entry_el1()/__swpan_exit_el1() save and restore
-> >> the state around the exception. A voluntary reschedule is not: it performs
-> >> no return from exception, so the worker resumes with another task's
-> >> TTBR0_EL1 - or reserved_pg_dir - and the next efi_mm access takes a level 0
-> >> translation fault.
-> >> 
-> >> There is such a preemption point in arch_efi_call_virt_setup() itself,
-> >> immediately after the TTBR0 install: __efi_fpsimd_begin() ->
-> >> kernel_neon_begin() -> put_cpu_fpsimd_context() -> local_bh_enable() ->
-> >> preempt_check_resched().
-> >
-> > Hmm, can we move the ttbr0 toggling until after __efi_fpsimd_begin() so
-> > that this preemption point doesn't interfere?
-> >
-> 
-> Either that, or tweak the logic so that the switch is done eagerly in
-> this particular case (untested):
-> 
-> --- a/arch/arm64/mm/context.c
-> +++ b/arch/arm64/mm/context.c
-> @@ -266,7 +266,7 @@
->          * Defer TTBR0_EL1 setting for user threads to uaccess_enable() when
->          * emulating PAN.
->          */
-> -       if (!system_uses_ttbr0_pan())
-> +       if (!system_uses_ttbr0_pan() || mm_is_efi(mm))
->                 cpu_switch_mm(mm->pgd, mm);
->  }
 
-I think I'd prefer to avoid special-casing this, if we can. I was just
-thinking of the diff below.
+[1] https://lore.kernel.org/lkml/20260804135940.2378737-1-linkmauve@linkmauve.fr/T/
 
-Will
-
---->8
-
-diff --git a/arch/arm64/kernel/efi.c b/arch/arm64/kernel/efi.c
-index 30cd7f804398..0ec90fd1754e 100644
---- a/arch/arm64/kernel/efi.c
-+++ b/arch/arm64/kernel/efi.c
-@@ -184,6 +184,8 @@ void arch_efi_call_virt_setup(void)
-                efi_virtmap_load();
-        }
- 
-+       __efi_fpsimd_begin();
-+
-        /*
-         * Enable access to the valid TTBR0_EL1 and invoke the errata
-         * workaround directly since there is no return from exception when
-@@ -191,8 +193,6 @@ void arch_efi_call_virt_setup(void)
-         */
-        uaccess_ttbr0_enable();
-        post_ttbr_update_workaround();
--
--       __efi_fpsimd_begin();
- }
- 
- void arch_efi_call_virt_teardown(void)
-
+-- 
+Link Mauve
 
