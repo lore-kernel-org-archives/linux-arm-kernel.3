@@ -4,64 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23518C5AD55
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 12:26:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2D56C5AD55
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 12:32:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+SGImHe1Sw1NGnkTVFXM+So9uxRP3NcboX61zAirfxc=; b=BmR1ajD+L2kgIE37CHiYz7bfyg
-	hmN9GRrkBtAAkRxpE0LV6GGG3Lrj3bHdMEs+cl51aZZo9RasNtE4iQRT19PUIiAO+g12X4DmUmcGw
-	pRJbJ4P5eLI5eAhbuIjOLqIFbzSu4mJn9NBc47UV5b4Z5eyiiLFLH6TBDnA3u5AXBbQ9enGF1q7d9
-	YnmZHdZ5oLJo7rkoRicFBRauaOpDkEL37X871mPMQGHQEaPB/8G8o/4CeG9HB/ChScROKbi4BIQek
-	5qWaUBjcQxrYFKS6MKl6s6vle/rl9VLgrr8xIigGpLYBG2qIJulwnpPDPZN3vjdeY3palIjKdfj3Q
-	jUOJJnIg==;
+	bh=x3yNCiQ2xZIUlAriiD3kuROtqejdF4LbO3lrN5CP0pM=; b=0G6Akos53SseRALPBQThUorpZ+
+	4q+zSuK4hW6NwaPxq+WIC/2+N7D58wNN9hIXIwxhlkjkKwF96GL6zZZsR7qKPsBStC0LnNy/F8OaL
+	PzfLB4ue97W4SfPO0a7YlUlH+zUFKtbk+CGToGfOp4axibMypYajJkszqUNFbYiwi4f1fBT51f4a8
+	EbjaUgZ6wAq8nodSewFwVIAERs+3HKaJjUem6YAOZ+Kulde6/Qaqq85PhtIUsGfTCLDf2lwRX9qcW
+	Xb0HOW2yAYyv5amreri/HRlPAqTPLdBYLxi1EIxdT/TAcjWXCo8WtanNJ5rYnePovvbhVvDJhRSer
+	JmGOffAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtP4g-0000000Blxj-2Igq;
-	Mon, 10 Aug 2026 12:25:50 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wtPAp-0000000BmV9-1Rhk;
+	Mon, 10 Aug 2026 12:32:11 +0000
+Received: from mail-vk1-f172.google.com ([209.85.221.172])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtP4e-0000000BlxS-1jip;
-	Mon, 10 Aug 2026 12:25:48 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id AFC72600DA;
-	Mon, 10 Aug 2026 12:25:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 098A51F000E9;
-	Mon, 10 Aug 2026 12:25:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786364747;
-	bh=+SGImHe1Sw1NGnkTVFXM+So9uxRP3NcboX61zAirfxc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=K/u+uhRxvNI6p2boOssYbjp+/nH43F8F8t0UIF5iGR9wL06ro1o/QV6i7cwzLYWXb
-	 Pi3soYXJryou8hrDzvLHYNMkcj7rzLuTXlQ9JoT0oiJHo8wkqI98GpirYZNhd7s5Cx
-	 Ht/Ep9cU3vEKIKHISvP09W6hHJ/09y6wJ/KP8NIVn6ZPi5DzgFKagDMTua+reTpiH0
-	 0BEmtUY2u3X4DBboIB5bk3zdXYno58L8E+BeXVdvSfOX91zzJuxsts1RXCdcMJWWM9
-	 gmCiHKtALyOKNNo7eKzC6nS72vSUef8QwbJCfUvL62NveUVvG684HweT4AEO690+3V
-	 ZxmGHmg0LCDyA==
-Date: Mon, 10 Aug 2026 13:25:42 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Vladislav Leonov <vlad@zlab.su>
-Cc: linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	Simon Glass <sjg@chromium.org>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>, linux-spi@vger.kernel.org
-Subject: Re: [PATCH 17/25] dt-bindings: spi: rockchip: Add RV1106 compatible
-Message-ID: <6c480623-9195-42de-9a13-fa97c6fb4253@sirena.org.uk>
-References: <20260810121121.210040-1-vlad@zlab.su>
- <20260810121121.210040-18-vlad@zlab.su>
+	id 1wtPAm-0000000BmUd-39FI
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Aug 2026 12:32:10 +0000
+Received: by mail-vk1-f172.google.com with SMTP id 71dfb90a1353d-5c3fabe908eso501640e0c.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 05:32:07 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786365127; x=1786969927;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=x3yNCiQ2xZIUlAriiD3kuROtqejdF4LbO3lrN5CP0pM=;
+        b=Np05so2J4sobiUnsXQ8+g/Nu3xsPhjygM4/U870hVKI/pwcG/oV0oZVTXrtOv7fxF2
+         uHpfKXigzaxBh9ofeJYzXMaBConANZGRsnZPEPJ2LEuipzNbMIwGmfw+TDBWKHbFCFfO
+         lwWq6oD2aosHtqg1LvG6xyUMnG/Az90mT5EAXat3v4BFRJK4vREgkB2NZ22UH9LMiCca
+         iVt0vRl4tfdwT3ocEo7Jd31Dxn0ZxaDJOa64j9yG/zmosOP00j9a52XuZJEvZ698mMdo
+         MaEn7SamjGAJHtrGfkqrfTGSV2n9Fzg2KBcVXPkBPwOMFKx4ck7TeFTqFV9GI6Jq4ohK
+         Hnvg==
+X-Gm-Message-State: AOJu0Yy6M/Kg64GRqWKopBe/vKrqiDexRgtl076Xsp7FXQrjsMdlJSiQ
+	RmQ268wC2pbs8naGKCFFrcgtGjwNaLLNNIKvxTFB9FxeR7/sthLEJJQQMVaYl4iQ
+X-Gm-Gg: AR+sD12Ia77f6dDNY52SwJ9FC+DhJ/2VZcffQ9o9WSaD3IW6qEF0zBZfAQ//5yiK0P2
+	6lQx8IWkwYnq9oIe07TOBlPp5rcK4uozjoQW16fRE5E9BuMesX6xhsdy7zCtzFFqIx5Al7eedml
+	Vnrcrc8NXgGGfdkMIMuHElFbHShtaGXBQZpYbn5AubJYOiNB3ZJLhy44Ovjtjst7pzz9P+6JFJa
+	pc6NHXtbOhVr2aPw+tuEpiA2PQfq6w0+W9HXeOdrWNaNiTwiiO+CZGB+TXnEQdpe1TYTjezthUH
+	wF67pXQk9MrS4WrmYg7FGNUTCbK8wt2w4HmCDLCDGHAV291248n+4aDQ3/7ZvCcdCjShaw4NXK+
+	P2tnCHG0rV5pYlLF2mwgtcNIhGDLjSqmD6akD7hJFyTrQd+kP3J48QoVvs0AI0Ufb+/7Ex9+csp
+	CThfla+92RRMsHFCCUlkzlWfaFMzLJKdeh3K8L6pToJpmbaclUTYUA7FU/cwi5xbquhdLGRRVeb
+	FnAWpeHXBVmZfuLnIp46ym9jOK1pGIh1oJL4Q==
+X-Received: by 2002:a05:6122:d2a:b0:5c2:d98e:3975 with SMTP id 71dfb90a1353d-5c3d90facbfmr5306237e0c.5.1786365126755;
+        Mon, 10 Aug 2026 05:32:06 -0700 (PDT)
+Received: from mail-vs1-f50.google.com (mail-vs1-f50.google.com. [209.85.217.50])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5c40b1a8007sm4276494e0c.11.2026.08.10.05.32.06
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 10 Aug 2026 05:32:06 -0700 (PDT)
+Received: by mail-vs1-f50.google.com with SMTP id ada2fe7eead31-7389cff36bdso187271137.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 05:32:06 -0700 (PDT)
+X-Received: by 2002:a05:6102:2926:b0:747:4d96:dbb5 with SMTP id
+ ada2fe7eead31-760e8b29c2amr8941171137.12.1786365126138; Mon, 10 Aug 2026
+ 05:32:06 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="3a58eJ5RGHjnM4Jx"
-Content-Disposition: inline
-In-Reply-To: <20260810121121.210040-18-vlad@zlab.su>
-X-Cookie: Polymer physicists are into chains.
+References: <20260705125324.13519-1-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20260705125324.13519-1-marek.vasut+renesas@mailbox.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Mon, 10 Aug 2026 14:31:54 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdVtt6tNDRo3J1VRwx3Upsa2UWGkK9qqGXr7232AyY864g@mail.gmail.com>
+X-Gm-Features: AUfX_my8_Kr3bd6yUN_SBO3fPdh69-mPfxOjVFEEVS03N_MOz4fZs0mAtI_-CGI
+Message-ID: <CAMuHMdVtt6tNDRo3J1VRwx3Upsa2UWGkK9qqGXr7232AyY864g@mail.gmail.com>
+Subject: Re: [PATCH] arm64: dts: renesas: sparrow-hawk: Always enable edge
+ connector I2C busses
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+	Yuya Hamamachi <yuya.hamamachi.sx@renesas.com>, Conor Dooley <conor+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260810_053208_791044_EC0FAE07 
+X-CRM114-Status: GOOD (  18.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,36 +96,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sun, 5 Jul 2026 at 14:53, Marek Vasut
+<marek.vasut+renesas@mailbox.org> wrote:
+> The interfaces on the edge connector of Retronix R-Car V4H Sparrow Hawk
+> board may be controlled from userspace using matching userspace tooling
+> that includes e.g. i2c-tools. Enable the edge connector I2C busses I2C3
+> and I2C4 to allow userspace applications to use those busses and access
+> peripherals attached to those busses.
+>
+> Co-developed-by: Yuya Hamamachi <yuya.hamamachi.sx@renesas.com>
+> Signed-off-by: Yuya Hamamachi <yuya.hamamachi.sx@renesas.com>
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 
---3a58eJ5RGHjnM4Jx
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+i.e. will queue in renesas-devel for v7.4.
 
-On Mon, Aug 10, 2026 at 03:11:08PM +0300, Vladislav Leonov wrote:
-> The RV1106 SPI controller is compatible with the one found on RK3066,
-> so add the "rockchip,rv1106-spi" compatible to the list of variants
-> that fall back to "rockchip,rk3066-spi".
+Gr{oetje,eeting}s,
 
-Please submit patches using subject lines reflecting the style for the
-subsystem, this makes it easier for people to identify relevant patches.
-Look at what existing commits in the area you're changing are doing and
-make sure your subject lines visually resemble what they're doing.
-There's no need to resubmit to fix this alone.
+                        Geert
 
---3a58eJ5RGHjnM4Jx
-Content-Type: application/pgp-signature; name="signature.asc"
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmp5w0UACgkQJNaLcl1U
-h9C3iAf+NyRB4/H6HfbMVMgbmtfWJwDWkx4+mQlRg/QJJsB16UQDVfnStvgWXjeZ
-/r8fT4ETbJdneMjvNxT2SjWrRzgrMbFs64lV6V30hUEhYBA16MTyZcR9rEpDuBcC
-a74jE2a6oFU7P2sMbK78pizMBvXPcBA1W28Q1W+VP3MEW1t5YqJZQobyxLKTzBWe
-nEgj28jHHaugDRkNmvlOVAONvkLbdAhwVJc5sN/TzcDkiWRw0zeMlY35Ymotj4YW
-oNIdLGYK/NiY3BbwEmNb041SPj+g08kmUu5DMWoIq2idRgDB1ndPIOZZekYjffF3
-VQty06MYLBilknfvEaAmvHCGV5dU5A==
-=2zwJ
------END PGP SIGNATURE-----
-
---3a58eJ5RGHjnM4Jx--
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
