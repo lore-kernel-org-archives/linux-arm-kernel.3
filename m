@@ -4,80 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D02DC5AE49
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 13:36:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44B20C5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 13:37:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nNoH/sMk/2phjmPlNsvvv4dT3rRnokFTlPJkTxXpUOY=; b=QYLddLsFOF4inef0v52e9YgdmT
-	d6ne/IK+yfWN1Me7bu7e71x1S8J4tT5iljPGLFPZnzrZq6kUQorAxm4ust1frXzKHvJaxh23nTOts
-	ntmmbG0q0q4qRoK50qH2VZp+yw7YPTs5S4A9Nu5XZLWEBlFyrixOZMJKa6B+F7qPudcwXm9mubxEp
-	+PM5uw1YGdDqX34x1bNVdne5ExIqR5yYxU+uRiEVG2GcIHH22KZjkItVzk7E/gadM6BI8yCkFrWzk
-	M49M/SJcmDDGPCvPRdGbzpPj9QLtlwyVwJkrX6MtPhsacE1TqyWyBXaOElivUQ6eJKzP3lVNpwXsK
-	yrSC03jg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hlrl3xze0yBKa+qAzlqk+6GMfYLXuGnJHmFyd3u5Lmc=; b=kKyCMhm11vezRpCzmv3H+JUxn8
+	bgVmJ3jb161BCX6FsXGsMvFfzffvMAUQk97fYtiUa14E913/nObGUfUKcAKiSsKJy35m+V78R81xB
+	SZt0G9mdYR9BobRWWijqQt5DC4wWrXaFYp849k2cfJsWyQfsmbSsVagW/q2RyRXyHz2XmgcmvZHcO
+	cUZTx52KnPm1hAzYrp67DnNCYh0btVYPXuIggRSwrlLKwWtugYxA8TkEvxYC1eIKhuwWUg4d+xcIs
+	j5JRM9AGyWEFLTslThwuGJJaBvmwFIV4wtGTj61EcomAhHqD09IPujv+AFdstfBdcr6DeO4Isz48W
+	1yjVvZkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtQAf-0000000BufS-0VsN;
-	Mon, 10 Aug 2026 13:36:05 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtQAT-0000000BucB-02GT
+	id 1wtQAx-0000000Buia-19h5;
+	Mon, 10 Aug 2026 13:36:23 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wtQAp-0000000Bugt-3FdG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 13:35:59 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C3B6C1477;
-	Mon, 10 Aug 2026 06:35:45 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B55813F632;
-	Mon, 10 Aug 2026 06:35:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786368949; bh=991HfjnG6QbqkXDaoqknVpf0eV83dcGtzfTkULWDnW8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fzZ91UK57kTdR2Ef94w96o0QEjTTIdkLtR5TrjLYYUymDnuoep0zcxLwSPCZqBq2v
-	 /WhhmO/bx1xbKgv53Kzk6Wio2s2PHD6HdMQ0O+39vsRa0XTg5jqHFctPtBJYMzwnix
-	 jbqKDeH739XPRiYNzgMx3dVujXp0ygb21wLMQ3gQ=
-Date: Mon, 10 Aug 2026 14:35:38 +0100
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Fayssal Benmlih <Fayssal.Benmlih@arm.com>
-Cc: Cristian Marussi <Cristian.Marussi@arm.com>,
-	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
-	"d-gole@ti.com" <d-gole@ti.com>,
-	"david@kernel.org" <david@kernel.org>,
-	Elif Topuz <Elif.Topuz@arm.com>,
-	"etienne.carriere@st.com" <etienne.carriere@st.com>,
-	"f.fainelli@gmail.com" <f.fainelli@gmail.com>,
-	"james.quinlan@broadcom.com" <james.quinlan@broadcom.com>,
-	"jic23@kernel.org" <jic23@kernel.org>,
-	"kas@kernel.org" <kas@kernel.org>,
-	"kernel-team@meta.com" <kernel-team@meta.com>,
-	"leitao@kernel.org" <leitao@kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	Lukasz Luba <Lukasz.Luba@arm.com>,
-	"michal.simek@amd.com" <michal.simek@amd.com>,
-	"peng.fan@oss.nxp.com" <peng.fan@oss.nxp.com>,
-	Philip Radford <Philip.Radford@arm.com>,
-	"puranjay@kernel.org" <puranjay@kernel.org>,
-	Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-	"sudeep.holla@kernel.org" <sudeep.holla@kernel.org>,
-	"usama.arif@linux.dev" <usama.arif@linux.dev>,
-	"vincent.guittot@linaro.org" <vincent.guittot@linaro.org>
-Subject: Re: [PATCH v7 03/23] firmware: arm_scmi: Introduce protocol instance
- notifiers
-Message-ID: <annTqkEfL2hqcKFw@pluto>
-References: <20260802145618.1952804-4-cristian.marussi@arm.com>
- <B5F86BAB-83E2-4C54-BEC9-7714C865CB7D@contoso.com>
+	Mon, 10 Aug 2026 13:36:20 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 31B8960052;
+	Mon, 10 Aug 2026 13:35:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7E831F00A3A;
+	Mon, 10 Aug 2026 13:35:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786368944;
+	bh=hlrl3xze0yBKa+qAzlqk+6GMfYLXuGnJHmFyd3u5Lmc=;
+	h=From:To:Cc:Subject:Date;
+	b=gtgfW6K07wfpikyLhTN0/8c62690UmSrq9xyaCeGCIVIOu/0QV4UVko/rqe1wxWgX
+	 8lLV4Z/1ZYljrZDs+r/MO28J/8XJiJscpnCMlo9byWhCCOa/rJwbRLHKoozCl9EOeh
+	 tzakhVlSC1ViGcN+Y5RtxoB5CNyMrfL5mOi//joqmO9oMbs5VuOpsAm3lg+HOMh90z
+	 mP2czSSbOuD+52OzEMkJxkcyTgMH49wJWwtzZHixS1Xfw/eyWtNlyN9Ay6r4iuf7iP
+	 9juW6iAAo0H6OZNpSosCDZUE8JMMQhEhmrLp0z9Ss5HOjC6cdpptMa3BE5QVTnJfb/
+	 AWBdx+OUpU/vQ==
+From: Puranjay Mohan <puranjay@kernel.org>
+To: Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>
+Cc: Puranjay Mohan <puranjay@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	James Clark <james.clark@linaro.org>,
+	Usama Arif <usama.arif@linux.dev>,
+	Will Deacon <will@kernel.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Ravi Bangoria <ravi.bangoria@amd.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	x86@kernel.org,
+	linux-perf-users@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	bpf@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v7 0/3] perf/core: sched_task() dispatch and branch entry fixes
+Date: Mon, 10 Aug 2026 06:35:33 -0700
+Message-ID: <20260810133540.1947118-1-puranjay@kernel.org>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <B5F86BAB-83E2-4C54-BEC9-7714C865CB7D@contoso.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_063553_147554_345EBC3C 
-X-CRM114-Status: GOOD (  18.44  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,82 +87,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 03, 2026 at 11:52:05PM +0100, Fayssal Benmlih wrote:
-> Hi Cristian,
-> 
+These three fixes were found while adding BRBE support for
+bpf_get_branch_snapshot() on arm64 and were carried in that series until
+v6 [1]. They do not depend on it, so they go on their own; the version
+number continues from that series to avoid two numbering schemes for the
+same patches.
 
-Hi,
+Patch 1 stops __perf_pmu_sched_task() passing a NULL pmu_ctx to
+pmu->sched_task(). armv8pmu_sched_task() is the only implementation that
+dereferences the argument, so the oops needs BRBE.
 
-> A couple of notifier lifetime issues inline.
-> 
-> > 	scoped_guard(mutex, &info->protocols_mtx) {
-> > 		pi = idr_find(&info->protocols, protocol_id);
-> > 		if (WARN_ON(!pi))
-> > 			return;
-> >
-> > 		proto_notifier_nb = pi->pno.nb;
-> > 		/* Ensure NULL is visible */
-> > 		smp_store_mb(pi->pno.nb, NULL);
-> > 	}
-> >
-> > 	if (proto_notifier_nb) {
-> > 		int ret;
-> >
-> > 		ret = scmi_protocol_notifier_unregister(pi->handle,
-> > 							&pi->pno);
-> > 		if (ret)
-> > 			dev_err(handle->dev,
-> > 				"Failed to release protocol notifier\n");
-> > 	}
-> >
-> > 	guard(mutex)(&info->protocols_mtx);
-> > 	if (refcount_dec_and_test(&pi->users)) {
-> 
-> The notifier is cleared and unregistered before decrementing the protocol
-> users refcount. If the protocol instance has multiple users, the first
-> user that releases it removes the protocol implementation's notifier even
-> though the instance remains active for the remaining users.
-> 
+Patch 2 makes perf_pmu_sched_task() visit PMUs whose events are all
+CPU-wide. They are skipped today on every switch to a task that has a
+perf context but no event on that PMU, so branch records leak across the
+task boundary with perf record -b -a. intel_pmu_lbr_add() calls
+perf_sched_cb_inc() unconditionally, so x86 LBR is affected the same way.
 
-> Should notifier removal happen only when the final protocol reference is
-> released?
-> 
+Patch 3 has each caller fill struct perf_branch_entry in one assignment
+rather than clearing the bitfields first, and drops
+perf_clear_branch_entry_bitfields(). The helper had drifted from the
+struct: new_type and priv were never cleared, and arm_pmuv3.c allocates
+the per-CPU branch stack with kmalloc().
 
-Yes, but it is not so easy to do given the current notification handlers
-design (that I did :P) since notifier were not supposed to be used from
-within a protocol, till Telemetry...so the attempt is to fit (cleanly)
-this new use-case into the existing SCMI Notification framework..since
-99% of the related handling is the same....I have reviewed this logic
-in V8, improved I think, but still Sashiko has some complaints...
+Tested on a 128 CPU arm64 machine with BRBE. A WARN_ON_ONCE() at the gate
+patch 2 adds to perf_ctx_sched_task_cb() fires within seconds of running
+perf record -b -a alongside a task-bound event pinned to a different CPU.
+Also built for x86, which patch 3 touches.
 
-> The ordering may need to be reworked so the final-reference decision and
-> clearing of pno are made under protocols_mtx, while the potentially
-> blocking notifier unregister operation is performed without freeing the
-> protocol instance underneath it.
-> 
+Changes in v7:
+- Patch 1: pass &cpc->epc unconditionally. cpc->task_epc is NULL there
+  both before and after patch 2, so the conditional was dead.
+- Patch 2: gate perf_pmu_sched_task() on cpc->task_epc alone. It is
+  never set without a task context scheduled in, so the cpuctx->task_ctx
+  test was redundant and the two gates are now inverses.
+- Patch 3: fill the entry at each site instead of renaming the helper,
+  as suggested by Peter.
+- Dropped the v6 review tags, all three patches changed.
 
-Cannot be done holding the mutex with the current design...
+Changes in v6:
+- Split the sched_task() fix into patches 1 and 2; the NULL dereference
+  and the missed dispatch are separate bugs with different reachability.
+- Gate perf_ctx_sched_task_cb() on cpc->task_epc. v5 removed the early
+  return in perf_pmu_sched_task() without it, so both paths ran for a
+  task whose event for that PMU is pinned to another CPU. Caught by the
+  WARN_ON_ONCE() described above.
+- Tag patches 1 and 2 for stable.
+- Send separately from the BRBE series, rebased onto tip perf/core.
 
-> > 	if (proto_notifier_nb) {
-> > 		int ret;
-> >
-> > 		ret = scmi_protocol_notifier_register(pi->handle, &pi->pno);
-> > 		if (ret)
-> > 			dev_warn(handle->dev,
-> > 				 "Failed to register protocol notifier\n");
-> > 	}
-> 
-> If registration fails, pi->pno.nb remains populated. Future acquisitions
-> of the existing protocol instance do not retry registration, while release
-> later attempts to unregister the notifier even though registration never
-> succeeded.
-> 
-> Please either clear the stored notifier on registration failure or track
-> registration state separately and provide a defined retry/error path.
-> 
-Reviewed all of this in V8.
+[1] https://lore.kernel.org/all/20260616155716.2631508-1-puranjay@kernel.org/
+v6: https://lore.kernel.org/bpf/20260806135224.3267890-1-puranjay@kernel.org/
 
-Thanks,
-Cristian
-> 
+Puranjay Mohan (3):
+  perf/core: Fix NULL pmu_ctx passed to pmu->sched_task()
+  perf/core: Run sched_task() for PMUs with only CPU-wide events
+  perf/core: Fill branch entries with a single assignment
+
+ arch/x86/events/amd/brs.c   |  9 +++--
+ arch/x86/events/amd/lbr.c   | 16 ++++-----
+ arch/x86/events/intel/lbr.c | 65 ++++++++++++++++++++-----------------
+ drivers/perf/arm_brbe.c     |  2 +-
+ include/linux/perf_event.h  | 17 ----------
+ kernel/events/core.c        | 15 ++++++---
+ 6 files changed, 58 insertions(+), 66 deletions(-)
+
+-- 
+2.53.0-Meta
+
 
