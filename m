@@ -4,84 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89DACC5AD55
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 14:45:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CD44C5AD55
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 14:45:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c/J6pjqX1tkN7ol9r0yPzfB+nnpzebdTRaebsQQSoZo=; b=ePpsmPuyuiDBuhgTlyyWPT5izI
-	XKqRV3rvrrro5dT8LU8EJz3mJECcwxGiTVdy/bjjxqpaVSnz9opJoHJCqCdmZQNQIz5nWKVW1ZKBA
-	k7HU1kFR5AFbxRpGqu5wTojRear8PW+xymYFLCfkyQZwfjVcCG2RS1e8nfcy5NJo2oNBEieDCGRhU
-	sFVh+gDYwL8OoyvBM3WA5vmUI18+pxHFmduNVxmrHzY5wiepQI+O5mV16JNMQErkni/SgvfUDthJi
-	HLo7FGF1l3WWnCcnUwLYJPqwofAz4xy9KfNXTzB2Ctht7JSOGOUrlyU/M8Xf4scvQ4jhJ5GZQuTvM
-	4ytCj2CQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=no/QO/FW9qZaaMzd7JASTS50cUanEwOFqSyY/MASFzY=; b=kztR/1eGUx5RGL
+	cmsqj8IGwT3IPBIvGvsOu/NG/aMFysFwd4UI7Nhpqh7oxQHRy+9GtWKbVOD3Rbkk2HpiFLrBJ4y7i
+	69yO520g6ZxWwN+CUbR48sFwtJgzTk/AC6/VtMMEXW1aDo1/aViPMKAWYKuXbj+y0t2P4+O12cbjW
+	qXHS+G58ujLvWIgMPl2jJ8RLhFEdbNVo5vBm7HD+pcYWQmFpCWu3HUr9BCosw7MYwq4XsKnmNgRTE
+	ddgeKHzqlRFgD1G2DYlDarTkfQ7HfkmgcpwjiJrtaHfEQ8eKgrgKp9tbNV5xyFFcnBM8FST9S96rk
+	BZ9pmQFNaSkt9ny5ICHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtRFb-0000000C3Pl-3ws4;
-	Mon, 10 Aug 2026 14:45:15 +0000
-Received: from mail-vk1-f169.google.com ([209.85.221.169])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtRFZ-0000000C3NV-1FtH
+	id 1wtRFl-0000000C3aO-18iT;
+	Mon, 10 Aug 2026 14:45:25 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wtRFh-0000000C3Sa-1XgO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 14:45:14 +0000
-Received: by mail-vk1-f169.google.com with SMTP id 71dfb90a1353d-5bfb3347ce0so546550e0c.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 07:45:12 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786373112; x=1786977912;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=c/J6pjqX1tkN7ol9r0yPzfB+nnpzebdTRaebsQQSoZo=;
-        b=HxC/H7qpt9+dsMhG88tifXdZmMF6PySwar7hXq9mkRsr4HKrymuFac7hLtOcFM2Zn2
-         DtAjnHdGEnwKio9kwiIJSGNmbKnutEdmvTiX+z/eQe0bxQPmgjNfTqvrVWIqtI+TdDdc
-         nKQte9nCuxJtuX24MA9bo0hjrAffd/MCVQz3bcV+yIAfyuDZ7mhxB8SAv/oDk5jel8rg
-         JzZP4LPGaOaU8Lg53ukWOO0OKH0FrmjK3WSByrQuRoKB328vcHbiMguU2qxlgRmLaQLl
-         t0WgopwafTBSyV40qSjPiMIsCqWOiwDvc3lY4jrHun4r4Rn6+WTh/sqqtDVqKtoQRnQb
-         A30Q==
-X-Gm-Message-State: AOJu0YwAEu98e+9WFQn4Jax9PZy51BAa4NT1rZFh4z49RysrIKC0eVjV
-	9t+P/vZek4Buv5A4DF437SV8yRCwLSkwVPzQZuGWnvasE45kgVQa0HYArCanecvq
-X-Gm-Gg: AR+sD10xh7aRCHXXepy7ysBygbmBxHH50oUZarGeJTB0cm8IuMPgkCrmERI/uuHYj9k
-	gVrSn+/NzEmVX/OJYITJBM4BLj+ZKxqnhCzbLfmbH0T1qWMwZ3Xa99vcYKdE9Apvn92YfjvIvfg
-	Oo8Rrm1WrkI6tFhMs/Sh8m1a69uVZpfggmR9Php1b+3eOpBAP1HKHz+hUr+7YY8P8l1kXu8FM1c
-	k/Qg1bmdHmUqVBmStCgs8xjfl+fNNxFkmxU1iRXoit3yGyU5hqVlFUX/1Va+BuIU/CcODRSi9OG
-	KqRuAc8oembVWVRLFMAU5cAuXP1HdXwnppGOyHNxXGaopAaCBKeOqq+6Q5lHAGAK4AZBEcqupDa
-	aWWCh0uF3oxg9yxGpca2lTelZd86ZMVMLndrucnq+a7/q4n1ab/9+6hGLMYOl9ubVSC3M2qpUf7
-	hyP4kxFCxgt+8v0SEzS7Iw1ByhAK2Y2y8VsWrc0tFw5chw+KWinEX5r6A97DOoh/p5e8YwntKgF
-	gjUxCR5cXCDhsPFl6r0TxY4bV4OXA==
-X-Received: by 2002:a05:6102:b0b:b0:74c:9177:35bc with SMTP id ada2fe7eead31-760e62c93d8mr9393669137.2.1786373112089;
-        Mon, 10 Aug 2026 07:45:12 -0700 (PDT)
-Received: from mail-vk1-f173.google.com (mail-vk1-f173.google.com. [209.85.221.173])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-979ffbdd8besm2803335241.2.2026.08.10.07.45.11
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 10 Aug 2026 07:45:11 -0700 (PDT)
-Received: by mail-vk1-f173.google.com with SMTP id 71dfb90a1353d-5c2c0df0b45so598761e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 07:45:11 -0700 (PDT)
-X-Received: by 2002:a05:6102:3e03:b0:738:1fcb:f276 with SMTP id
- ada2fe7eead31-760e62c939emr10465315137.1.1786373111117; Mon, 10 Aug 2026
- 07:45:11 -0700 (PDT)
+	Mon, 10 Aug 2026 14:45:23 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C8B8A14BF;
+	Mon, 10 Aug 2026 07:45:14 -0700 (PDT)
+Received: from e132581.arm.com (unknown [10.2.196.114])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B1DA73F86F;
+	Mon, 10 Aug 2026 07:45:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1786373118; bh=lR9RsWa9YwMGSZLK9zGUNTtHx75HhVKXKnB25jcbvgE=;
+	h=From:Subject:Date:To:Cc:From;
+	b=AxoTYWzlqZ9uJ75aYFaVtYy/LyFM2LLrAz7GLETJWL8pLcew1mk1Krc7Va32Nu3Vc
+	 TUldT2lGrYc/GCzjeh2wvhR+MwR3loipooBFeh6sp/f2o6vSoVXpA6AVqiQhbClkek
+	 kXcQpYi1T6JoUmggV36KjkLdtvqR81o4uFXdlM2w=
+From: Leo Yan <leo.yan@arm.com>
+Subject: [PATCH 0/2] perf/arm: Prefer large AUX mappings for CoreSight and
+ SPE
+Date: Mon, 10 Aug 2026 15:44:40 +0100
+Message-Id: <20260810-perf_aux_trace_large_granule-v1-0-03306c9339e3@arm.com>
 MIME-Version: 1.0
-References: <20260714130515.11262-1-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20260714130515.11262-1-marek.vasut+renesas@mailbox.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 10 Aug 2026 16:45:00 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdWvPtnH0WUjp1+jTn=K9=RCydq8_O2Ri+FfedcanRWV8g@mail.gmail.com>
-X-Gm-Features: AUfX_myZKLorDtb3K9UCtKfuAHnzr1O6LnLSBddvAzpsfFWqwMDXcCTUWFrA9oc
-Message-ID: <CAMuHMdWvPtnH0WUjp1+jTn=K9=RCydq8_O2Ri+FfedcanRWV8g@mail.gmail.com>
-Subject: Re: [PATCH 1/2] arm64: dts: renesas: cat875: Specify ethernet PHY
- reset timings
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
-	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIANjjeWoC/33NywqDMBCF4Vcps25KYlslXfU9ioRJnGjAGxMVi
+ /juTYVuu/zP4jsbROJAER6nDZiWEMPQp1DnE7gG+5pEqFJDJrNcFqoQI7E3OK9mYnRkWuSaTM3
+ Yzy2JSturdE7d7B0hESOTD+vBv8rUTYjTwO/jbVHf9Qfr//CihBTe5V5n3ha51U/k7uKGDsp93
+ z97TzZ3xgAAAA==
+X-Change-ID: 20260717-perf_aux_trace_large_granule-d9b30cc14b5a
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Will Deacon <will@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+ Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>, 
+ Anshuman Khandual <anshuman.khandual@arm.com>, 
+ Mark Rutland <mark.rutland@arm.com>, Tamas Petz <tamas.petz@arm.com>, 
+ Tamas Zsoldos <tamas.zsoldos@arm.com>, 
+ Michiel van Tol <michiel.vantol@arm.com>, Dev Jain <dev.jain@arm.com>, 
+ David Hildenbrand <david@kernel.org>, Yabin Cui <yabinc@google.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
+ Leo Yan <leo.yan@arm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1786373116; l=5308;
+ i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
+ bh=lR9RsWa9YwMGSZLK9zGUNTtHx75HhVKXKnB25jcbvgE=;
+ b=KJpm1mhSgiId0zE1EwYPY8OlCcnVxqUYKBM4Qm7YQcSWrEUKPrbzGm8Ub/iZ5Ui/lO/3LmjFM
+ PF+YeIGIt4nDQCgcQfeBdhkPXfcnpiKQ8hXLAeWIrgL3ash+XJduUjp
+X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
+ pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_074513_350785_12530DFE 
-X-CRM114-Status: GOOD (  18.08  )
+X-CRM114-CacheID: sfid-20260810_074521_493823_C30C930D 
+X-CRM114-Status: GOOD (  13.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,30 +88,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 14 Jul 2026 at 15:05, Marek Vasut
-<marek.vasut+renesas@mailbox.org> wrote:
-> The RTL8211E reference manual [1] page 38 chapter 7.16. PHY Reset
-> (Hardware Reset) states that the PHYRSTB pin must be asserted low
-> for at least 10ms (Tgap in Figure 10) and the system must wait at
-> minimum 30ms (for internal circuits settle time) before accessing
-> the PHY registers. Use 15ms and 35ms respectively to provide some
-> additional margin.
->
-> [1] https://files.pine64.org/doc/datasheet/pine64/rtl8211e%28g%29-vb%28vl%29-cg_datasheet_1.6.pdf
->
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Since the commit:
 
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-i.e. will queue in renesas-devel for v7.4.
+ 18049c8cff9 ("perf/aux: Allocate non-contiguous AUX pages by default")
 
-Gr{oetje,eeting}s,
+it changed the AUX buffer allocator to allocate AUX pages page-by-page
+(order=0) unless a PMU explicitly asks for contiguous allocations via
+the capability flag PERF_PMU_CAP_AUX_PREFER_LARGE. The goal was to make
+AUX allocation more memory-friendly by default, because not all PMUs
+require physically contiguous AUX pages and large contiguous allocations
+can contribute to fragmentation on long-running systems.
 
-                        Geert
+However, Arm SPE and CoreSight/TRBE rely on page-table translation when
+writing trace data to memory. With page-by-page AUX allocation, a large
+AUX buffer is mapped with many small mappings. This increases TLB
+pressure, in practice this can increase trace-buffer latency due to
+table translation walks (TTW) and contribute to trace discontinuities.
 
+This series restores large AUX allocation for Arm CoreSight and SPE by
+setting PERF_PMU_CAP_AUX_PREFER_LARGE.
+
+This is intended to work together with the mm large-mapping series [1].
+That series allows vmap() to map physically contiguous pages with
+larger granules. With this series, perf first tries larger-order AUX
+allocations, and the vmap() code can then create larger mappings for the
+contiguous chunks.
+
+The fragmentation concern from commit 18049c8cff9c should not block this
+opt-in. PERF_PMU_CAP_AUX_PREFER_LARGE is a preference, not a hard
+requirement. The AUX allocator already falls back to smaller orders when
+a high-order allocation fails. So this series gives Arm trace PMUs the
+performance benefit when large chunks are available.
+
+The comparison below uses a baseline that already includes the mm
+large-mapping series [1]. "Baseline" means that the mm series is applied
+but this Arm PMU series is not. "Large AUX" means the same kernel plus
+this series. Some configurations to mitigate noise during test:
+
+  1) The tests were run with CPU10 isolated with the kernel parameter
+     "isolcpus=10".
+  2) CPU10 was used as the traced CPU, the PMU counter CPU, and the
+     workload CPU. The perf control tasks were pinned to CPU2 so that
+     they did not add extra work on CPU10.
+  3) Each test was run for 10 iterations, and the tables report the
+     average counter values across those runs.
+
+The results show that using larger AUX mappings reduces the TLB pressure.
+This is mainly visible in the refill events: CoreSight/TRBE shows a
+large drop in l2d_tlb_refill and a smaller reduction in l1d_tlb_refill,
+while SPE also reduces l2d_tlb_refill. The dtlb_walk event also drops in
+both tests, which shows fewer data TLB walks after the AUX buffer can be
+mapped with larger granules.
+
+ETM sparse branch delay (cs_etm, AUX 1GB)
+
+  taskset -c 2 perf stat -C 10 -e cycles:u,instructions:u,dtlb_walk:u,l1d_tlb:u,l1d_tlb_refill:u,l2d_tlb_refill:u \
+    -- taskset -c 2 perf record -C 10 -m ,1G -e cs_etm// \
+    -- taskset -c 10 ./sparse_branch_delay.elf
+
+ |                | Baseline  | Large map |            |         |
+ | Metric         | Avg.      | Avg.      | Delta      | Change  |
+ |----------------+-----------+-----------+------------+---------|
+ | dtlb_walk      |      72.8 |      63.9 |       -8.9 | -12.23% |
+ | l1d_tlb        |   7,434.4 |   1,982.2 |   -5,452.2 | -73.34% |
+ | l1d_tlb_refill |     163.7 |     148.2 |      -15.5 |  -9.47% |
+ | l2d_tlb_refill | 161,884.9 |     513.1 | -161,371.8 | -99.68% |
+
+SPE dd memory copy (arm_spe, AUX 512MB)
+
+  taskset -c 2 perf stat -C 10 -e cycles:u,instructions:u,dtlb_walk:u,l1d_tlb:u,l1d_tlb_refill:u,l2d_tlb_refill:u \
+    -- taskset -c 2 perf record -C 10 -m ,512M -e arm_spe_0/ts_enable=1,pa_enable=1,period=64,min_latency=0/ \
+    -- taskset -c 10 dd if=/dev/zero of=/dev/shm/dd_mem_test bs=1M count=1024 status=progress
+
+ |                | Baseline  | Large map |            |         |
+ | Metric         | Avg.      | Avg.      | Delta      | Change  |
+ |----------------+-----------+-----------+------------+---------|
+ | dtlb_walk      |   1,760.2 |   1,387.9 |     -372.3 | -21.15% |
+ | l1d_tlb        | 257,312.4 | 251,460.9 |   -5,851.5 |  -2.27% |
+ | l1d_tlb_refill |  15,921.9 |  15,933.6 |       11.7 |  +0.07% |
+ | l2d_tlb_refill |   4,285.0 |   2,796.5 |   -1,488.5 | -34.74% |
+
+Note that after setting PREFER_LARGE for CoreSight and SPE, the existing
+AUX trace drivers either prefer large pages or, in the case of Intel
+BTS/PT, use the stronger AUX_NO_SG constraint. We can refactor this
+later by either dropping PREFER_LARGE entirely or reversing the flag if
+a driver needs discrete pages. For now, keep PREFER_LARGE to preserve
+flexibility in the allocation policy.
+
+[1] https://lore.kernel.org/linux-mm/20260715120813.3609949-1-jiangwen6@xiaomi.com/
+
+Signed-off-by: Leo Yan <leo.yan@arm.com>
+---
+Dev Jain (1):
+      coresight: perf: Prefer large AUX mappings
+
+Leo Yan (1):
+      perf: arm_spe: Prefer large AUX mappings
+
+ drivers/hwtracing/coresight/coresight-etm-perf.c | 3 ++-
+ drivers/perf/arm_spe_pmu.c                       | 3 ++-
+ 2 files changed, 4 insertions(+), 2 deletions(-)
+---
+base-commit: db2ddb87143519e20a95aa36c60b36107b736a58
+change-id: 20260717-perf_aux_trace_large_granule-d9b30cc14b5a
+
+Best regards,
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+Leo Yan <leo.yan@arm.com>
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
