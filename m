@@ -4,139 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D44B6C5AD4E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 06:32:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 936AAC5AC82
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 06:49:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wSS8AMze12K8iYUpSLQ8N+VPReKhCV7W3aisDuH/XNE=; b=knTQqChBZZO8b1gHpCw66dWiIt
-	6P9ee/tO2Ri4qV2sdexvTtZ3VipKjKmw3jG5zMsZvZ4U4NiXuFfxeZvNrIAI4LSE9gsESNO8pdvmH
-	AfIpgyybPE7i8v2Ke2qf7rjIznrqo5Wn+ZvSEcN1uyG5FpdsfB0CqnLmXRV3n1NAtHQIkpoWYgkbS
-	ufxewmM07la7GDMDzIDDaXUj9Wx7d5lud1ffbzJtkOvrCBLJrCXU9zGerFA+bdNlbNgAcnnBHVHB1
-	nd0pKKwnNSYvMDo+bvOMwl6v0DrPjjsFw1hJhGtiKFXQZW5KMSj6WNECUUikToB4br9G5km4PXABW
-	Dw9kRsBQ==;
+	bh=NJqDg4ZzbSRGiuJ0YRjEt1ouOh80YyNLLBfkuJ2C66A=; b=UsriUovwt+PxhWO6PMzBRryhoi
+	Agns5fobFKehGmeZy+tEC7wOcERtNvs+ofVVsqRdtK/dC8PmDAl4qIZ1Yj+miO0l08r3Imn/cZNI6
+	wq6IorpmTqBsAp9pTrlPs7dJ1srQHvE0KdDovvIggHueI1i5zgyFkWZU/AIpydns0UdTdlOU7ZlC+
+	MgBPOkrsag4GYA9ArX/X1fB0fevD3K0aKND5wNYT41uB631vnvu9CeWlFRC5S16NaFsazqzJOYmec
+	pBcHGfCQqe6xAMsO5g7i/4Vmf6nLV2qMSOVfZpo746mjGacScPTe85XlHsKPh1j73N9ZkxWoMgBmV
+	icGqz32g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtJYS-0000000B6Hd-3U9R;
-	Mon, 10 Aug 2026 06:32:12 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wtJp7-0000000B9Af-0hkg;
+	Mon, 10 Aug 2026 06:49:25 +0000
+Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtJYR-0000000B6HP-2OXe;
-	Mon, 10 Aug 2026 06:32:11 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 51FEF403F8;
-	Mon, 10 Aug 2026 06:32:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F9411F000E9;
-	Mon, 10 Aug 2026 06:31:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786343531;
-	bh=wSS8AMze12K8iYUpSLQ8N+VPReKhCV7W3aisDuH/XNE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=mkLuhHX79ou9XHJbxTJ98kdoT8fDDdVnRuroQdgmSosn/5uc2X/qwWSTmFdiu8xsB
-	 26M/ABbjiyWFJRBA6WZxbjRIvNIEcuaiPve1bpOhgD9v6G/8CisfTGFn5lqBHcV6vN
-	 nZt+bCbxIf1oRidhGmXvruzw7GV8V2JH78zx3ZNWpXRD12zmpOhk4PabMKVzUt2PoA
-	 GpaUqrqiNFsWawQq91RNST7ukaBdoYx16z/HeHWPyKjE0qq+cE9PgI3qQM77NFU4Ih
-	 q+EwKPMz7oU4Srpl18wlJoJguSaSN1qnc6iKPE/LZuOnX5PqW0v8IpB/+79MuffqA1
-	 HV8jCCmKv93wQ==
-Message-ID: <8d924236-5a1f-4cd6-a7a6-d12b1bed5615@kernel.org>
-Date: Mon, 10 Aug 2026 08:31:56 +0200
+	id 1wtJp5-0000000B9AK-1W8I
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Aug 2026 06:49:24 +0000
+Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-c15d3cd51b2so147840866b.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Aug 2026 23:49:22 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1786344561; cv=none;
+        d=google.com; s=arc-20260327;
+        b=OSmKr7ZEGJ1/4Zbp3AK/y5w4GwsYbHr7x65L2gJrOisdcjLwOHgfjtZ3oOvrAndQq7
+         vHVEf7+3wxrFEbz870ODNSJAqKGBnjTnz3e7pf1MWC3fB1SyxRe5V01F1Tkbl8iQcJMy
+         YYoKkwnBsTSbKeA0fTcIptR5yYQJlrEWOOYT6TAuOB3NyQ3z5yMhbJLTnfSEE8N/QJVV
+         kQ6wlNUlWgJcFnkUjiRgqiOlOeGMYf9/w0cCjnMqHO+dwz1Flx77YdGDD9yR1SqVLomI
+         EnJP7VkOVm3NWszNTvcvlP6ffsq4QU0v3Lmerv0hKKgChBRTTtXJQphT+xMGLmUldgYx
+         k6hQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=NJqDg4ZzbSRGiuJ0YRjEt1ouOh80YyNLLBfkuJ2C66A=;
+        fh=/hqp/vx7AS5kN66LbSRb3oU1eFp47k6a+09lWna9Bgc=;
+        b=G/+B18wX52Qr9rm7+KsTi4uJOqRpzK1p2Dl/4PPO2+V5Jtl8ih/bw4hNTM8hRjvBIf
+         ro+eWXZqx0pH3laZqFyNWgyMM9XD9RHJ350JFMIoOuAbspGmbU1JETVW/gycEhI7m0VQ
+         F6qoEgN9/nHKxueaEW3fLrov6IntnzACZKU3v3sZfGuXy5PVdEMGjvgeIBQ5Cf7D6g/9
+         w+UVJ9fksKpEpBK6B3o0u+kzl/UU+2NmO6cD9aHxYXr+OKv2zXB8A/Vgoyid3egAOqZG
+         /gWFwbLe3JIwos0eUuAAoLsEhAmmUN8E88Dc1ZlL9JsYsEzZr5CZO7VFHc+wQhzUeEYi
+         UQ+w==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786344561; x=1786949361; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=NJqDg4ZzbSRGiuJ0YRjEt1ouOh80YyNLLBfkuJ2C66A=;
+        b=qSrarEHwotWoZ/p+Ft4jbVO7FKbJ/rvdCBSJ6Tr4DxldkCZR3HuJ1kjZnJd492WTvr
+         dk+ICVgHRh2oZxqVIMLm3a6pEW6XlFix0AaqS4AW6BJVA+fPriWxqGk8JW/TAkFq9Dzl
+         SAbEo84oe5TgiPPGomtmcafHku7yaEh52Mm6hEngk3Z5Tvz4WHVUMMol28RRKGJ0XKC/
+         Y19UnP5vTSTf2t+kBvw6sWCv3QYCbaAdnZJThXRQENGO9XfpNCHEaEz1FzXSf1UGyv+Y
+         SE4/W2bxt7uQ9jBLx0rEf1+IjPn0pMeNV0OMViWdPgH/JnRP1anQi4ZKSxzgGAtRiKsh
+         iSgQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786344561; x=1786949361;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=NJqDg4ZzbSRGiuJ0YRjEt1ouOh80YyNLLBfkuJ2C66A=;
+        b=N9gAVIJ8OabHet/MD04umh3ZM/Be/4QKkxJzkzG9IdAE0MQ+T3xT+6baWpgP3QF9LO
+         5+CMJEgNzkm7ZpUmw/xEMYwKmeFiUs8Lqg3uaH88rsHSTtVkq05Qj/G/sGyTL/2cw9HL
+         kTcTR2gXTWO2Dd5sBdX5q+etHMsuoloyOvcZmf6W5oBxjqoAUD/hOa9/laY8SLFONYRo
+         /CHGKUcxAeI+KyamGo7n9Rot2NueoFVZ7X5mI4gmZ44zEdylaf3Lqt3kT4Djt8RlZI5e
+         yi5hqwpw1pTQ5SUruwkEw8R5A8ecKn5ncmGDavmetF5FYHc+Oc0KJ4qJQafroUMXrz8G
+         lOow==
+X-Forwarded-Encrypted: i=1; AHgh+RptR0JAzON4W0SUnbLVKrtSts2dnJfUx0LESjlBNwCq1sGhD7k55+Hvn0xdRTKpuxIRPNHRWw0smKv5sJrVMqis@lists.infradead.org
+X-Gm-Message-State: AOJu0YyjNiG+q800x/hKPyom/TfokKoFmklJJN8ZyH/Szwb9QwEd4Swo
+	xfD0/mRnCMggMWr3YSQ4OwtV43QFoJGsYLnKiRcgSKkkTldUY63CFvg8cTJENvg3Bb0ll3nPzKK
+	j73I4WXhfSmo5nC/4uwz+BNtsXeiDmnc=
+X-Gm-Gg: AR+sD10VX9rGH5UznpMjL/SkXnS2NbELmwIOZLxxqvB9VJtlHHpKpw1dDvds1v7N/xd
+	yLzQtPhWB5H4rpxrADVDgXckJf/8xnVdgvbVRbJYhdvl7WgqxLdir57NX1UGiGG1afVAyDEm5qB
+	rrgU6HXNWpS5hZmm9fQiwkJfwyi+g+nAjiKOgKzudiDt+yw7FlaaYFg/2JdpIx9mAhidseoWZS0
+	lYixuxCeMJ6dNLGJF4Qb9TObt+XoX1/lLZZiwfLbY8KHlE5dHU5u7AYGrRnAKsJc9xDigux4f5V
+	70FWCJbPhP2CY9g6LEv12qihmuEFIuqceAuU+EVoQQS3Iu6ILr2ns488432hABSUxKMGKj1NQBu
+	c+6ZEooeRjpKzzHmrADsyV7vF+G9PqM+rMWPtJC0WmdTsCwQdcLyULp2pZ8USyaheViXR0c+RJY
+	/U4/UXB7DtR176mymKXudCQQGQBxbbKdPY+3TDxyscrgc=
+X-Received: by 2002:a17:906:5a99:b0:c1f:c7f0:b433 with SMTP id
+ a640c23a62f3a-c208729e00cmr656355666b.9.1786344560617; Sun, 09 Aug 2026
+ 23:49:20 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 08/14] dt-bindings: media: mediatek: vcodec: add
- decoder dt-bindings for mt8196
-To: =?UTF-8?B?S3lyaWUgV3UgKOWQtOaZlyk=?= <Kyrie.Wu@mediatek.com>
-Cc: "fshao@chromium.org" <fshao@chromium.org>,
- =?UTF-8?B?WXVuZmVpIERvbmcgKOiRo+S6kemjnik=?= <Yunfei.Dong@mediatek.com>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "fanwu01@zju.edu.cn" <fanwu01@zju.edu.cn>,
- "jacopo.mondi@ideasonboard.com" <jacopo.mondi@ideasonboard.com>,
- "haoxiang_li2024@163.com" <haoxiang_li2024@163.com>,
- "rongqianfeng@vivo.com" <rongqianfeng@vivo.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- =?UTF-8?B?QW5kcmV3LUNUIENoZW4gKOmZs+aZuui/qik=?=
- <Andrew-CT.Chen@mediatek.com>,
- "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
- "ribalda@chromium.org" <ribalda@chromium.org>,
- "wenst@chromium.org" <wenst@chromium.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "kees@kernel.org" <kees@kernel.org>,
- "benjamin.gaignard@collabora.com" <benjamin.gaignard@collabora.com>,
- =?UTF-8?B?SXJ1aSBXYW5nICjnjovnkZ4p?= <Irui.Wang@mediatek.com>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- =?UTF-8?B?VGlmZmFueSBMaW4gKOael+aFp+ePiik=?= <tiffany.lin@mediatek.com>,
- "sakari.ailus@linux.intel.com" <sakari.ailus@linux.intel.com>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- "tfiga@chromium.org" <tfiga@chromium.org>,
- "mchehab@kernel.org" <mchehab@kernel.org>,
- "sebastian.fricke@collabora.com" <sebastian.fricke@collabora.com>,
- "robh@kernel.org" <robh@kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "nicolas.dufresne@collabora.com" <nicolas.dufresne@collabora.com>,
- "laurent.pinchart+renesas@ideasonboard.com"
- <laurent.pinchart+renesas@ideasonboard.com>,
- "hverkuil+cisco@kernel.org" <hverkuil+cisco@kernel.org>
-References: <20260720012056.1026551-1-kyrie.wu@mediatek.com>
- <20260720012056.1026551-9-kyrie.wu@mediatek.com>
- <20260720-gregarious-satisfied-shrew-f71cba@quoll>
- <f499f2c3-f31d-4c2c-84fb-d1d9d95fc868@kernel.org>
- <a9123dce5ae7ef184f5640b12e3e9427084ec542.camel@mediatek.com>
- <8558035b-d825-4e56-bfd2-551cff51f73f@kernel.org>
- <2b567b39434d7d125dcdca75e198a1442e4c2f22.camel@mediatek.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <2b567b39434d7d125dcdca75e198a1442e4c2f22.camel@mediatek.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20260810053142.27938-1-phucduc.bui@gmail.com> <20260810053142.27938-5-phucduc.bui@gmail.com>
+In-Reply-To: <20260810053142.27938-5-phucduc.bui@gmail.com>
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Mon, 10 Aug 2026 09:48:43 +0300
+X-Gm-Features: AUfX_myvkt26qnEuHXO5Xk6ubitJ7QWhE9cAvuIMlCWxlqjxJGXs1q6Q8rN1zc4
+Message-ID: <CAHp75VcGqgtUxYcrT+JdqFYX-4oKSfGQKRHd9DoaMW3f1FaR1A@mail.gmail.com>
+Subject: Re: [PATCH 5/5] pinctrl: bcm: iproc-gpio: Propagate errors from
+ optional IRQ lookup
+To: phucduc.bui@gmail.com
+Cc: Linus Walleij <linusw@kernel.org>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+	Mika Westerberg <mika.westerberg@linux.intel.com>, Andy Shevchenko <andy@kernel.org>, robh@kernel.org, 
+	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260809_234923_464945_8931EAEC 
+X-CRM114-Status: GOOD (  15.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,89 +124,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/08/2026 05:09, Kyrie Wu (吴晗) wrote:
-> On Mon, 2026-07-20 at 12:19 +0200, Krzysztof Kozlowski wrote:
->> On 20/07/2026 08:26, Kyrie Wu (吴晗) wrote:
->>> On Mon, 2026-07-20 at 07:49 +0200, Krzysztof Kozlowski wrote:
->>>> On 20/07/2026 07:46, Krzysztof Kozlowski wrote:
->>>>> On Mon, Jul 20, 2026 at 09:20:50AM +0800, Kyrie Wu wrote:
->>>>>> Add the MT8196 compatible string to the MediaTek vcodec
->>>>>> subdev
->>>>>> decoder binding.
->>>>>>
->>>>>> Compared to previous ICs, the MT8196 supports a 10-bit
->>>>>> decoder
->>>>>> and has a decoding capability of 4K@120fps. It also supports
->>>>>> 36-bit DRAM IOVA address and Video Power Control to optimize
->>>>>> bandwidth and voltage usage.
->>>>>
->>>>> Please wrap commit message according to Linux coding style /
->>>>> submission
->>>>> process (neither too early nor over the limit):
->>>>> https://urldefense.com/v3/__https://elixir.bootlin.com/linux/v6.4-rc1/source/Documentation/process/submitting-patches.rst*L597__;Iw!!CTRNKA9wMg0ARbw!gDjbq0EZNkhLTzuJM_w5PopnDFej1mG4qnkRFgyoiU7Dvhm7tj3MeG5eZYNGA0L0G_61j-cmdIxORA$
->>>>>  
->>>>>
->>>>>>
->>>>>> Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
->>>>>> Acked-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
->>>>>> ---
->>>>>>  .../bindings/media/mediatek,vcodec-subdev-
->>>>>> decoder.yaml          
->>>>>>> 1 +
->>>>>>  1 file changed, 1 insertion(+)
->>>>>
->>>>> Acked-by: Krzysztof Kozlowski
->>>>> <krzysztof.kozlowski@oss.qualcomm.com>
->>>>
->>>> Actually no. I checked previous comments and you received
->>>> feedback
->>>> which
->>>> you basically ignored, so explain why this model has flexible
->>>> number
->>>> of
->>>> clocks
->>>>
->>>> Best regards,
->>>> Krzysztof
->>>
->>> Dear Krzysztof,
->>>
->>> As mentioned in the previous version of the communication, the
->>> information regarding clk was incorrect, and I have corrected it in
->>> this version. 
->>>
->>> Thank you for your attention and reminder.
->>
->> Read my message carefully instead of responding whatever necessary to
->> make me go away.
->>
->> NAK
->>
->> Where did you explain that device has flexible number of clocks?
->>
->> Best regards,
->> Krzysztof
-> 
-> Hi Krzysztof,
-> 
-> You are right, my previous reply was not sufficient. Sorry about that.
-> 
-> MT8196 has a fixed set of clock inputs: 9 clocks for the decoder
-> hardware
-> and 3 clocks for the VCP interface. By "flexible number of clocks",
-> I meant that clock control can be split between the kernel driver
-> and VCP firmware. This is a software implementation detail,
-> not a hardware or DT binding property. My wording was incorrect.
-> 
-> The binding should not imply that the number of clocks is flexible.
-> I have updated the commit message to clarify this.
+On Mon, Aug 10, 2026 at 8:32=E2=80=AFAM <phucduc.bui@gmail.com> wrote:
+>
+> From: bui duc phuc <phucduc.bui@gmail.com>
+>
+> platform_get_irq_optional() returns a positive IRQ number on success or
+> a negative error code on failure. For an optional IRQ, -ENXIO indicates
+> that no optional IRQ is available, while other errors should be propagate=
+d.
+>
+> Propagate all error codes returned by platform_get_irq_optional() other
+> than -ENXIO.
 
-SW detail so not relevant to the bindings? Then my NAK stays.
+...
 
-Drop my tag and fix the patch. If you do not intend to fix the patch - I
-really could not get from above whether you agree with previous feedback
-or not - then this should not be applied.
+>         /* optional GPIO interrupt support */
+>         irq =3D platform_get_irq_optional(pdev, 0);
+> +       if (irq < 0 && irq !=3D -ENXIO)
+> +               return irq;
 
-Best regards,
-Krzysztof
+Here and everywhere else in the similar contributions you made all
+over the kernel:
+
+>         if (irq > 0) {
+>                 struct gpio_irq_chip *girq;
+
+Use the 'else' branch instead of the above.
+
+} else if (irq !=3D -ENXIO) {
+  return irq;
+
+But before doing that, check carefully if this is really what we want
+to have and how it will affect the driver behaviour in such a case.
+
+--=20
+With Best Regards,
+Andy Shevchenko
 
