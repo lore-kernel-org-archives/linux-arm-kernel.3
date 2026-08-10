@@ -4,77 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CB6AC5B567
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 18:36:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F50AC5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 18:36:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J+7Qf4C+BCkphTM5Iv8Y9G8botn3Z1MPiWmfqLgbhk8=; b=scoWU11DifEMpRfw+RfOBYREbl
-	db4Dda6MufV+vmjisSyQaCzeHqjPO9jiThXYQsAVXvOL2ZgnoBl6uDoD0yAVCRRcpH6oqvSb7aP73
-	caYhMvpiKiQBVk2cKxxNM8AuCbJnhnC+mRnMYsv/+zxvEEsPC9NsARGQ54EcByeyzvQh7ilMKU6AD
-	Lba5n1rPtR2q1hAaH8FrHUS6g0JhYHhz3Mh1HVXMExb3bjaJsIVmm7tO3Gzp93hTw46Luf0hc8VtL
-	HmhEm1/uIIfhsjKNr7lb+knIvkXO2essa5gnLpEutKx+eqddQ3hTUtEiER5RFljHwCWKMmJZwFEeK
-	AgN0vW1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tnho4rrrB5eB1gkI1817NuCvPB/07wS2vcTVe6IMdjg=; b=BFSmfPJkIRWZaVKyMR+Tc+Om4+
+	R2dICBBW1ntvhEtHENasBaQMsU9qgWiI3t06LHm9p4EeSkc7PJ9z8YsnqLemRqxv5VltZvWaiINtk
+	tVNC8Mb6U/K90i8U6y/bv/VnZRAA3cMnAVc+cl5RbrR+FUD2hYmEDUUAXOTSjv5m97JtBCGrHPMNN
+	M4ojPeiAUN4BgSscI2JGO/TT8QmTnU1yjJH4IvAgXd6JqQteD82BE4Mw+7BIvTHsFSXQ93v+E+yCb
+	avuzLAtRXiysd+ZMQnEXS5etHjlSYShQ5WvNwCBiiRlmrvJ1pRZnbrhw5zgC5LywzIvrElBGZJhUM
+	pHbMpbcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtUqm-0000000CdxO-1MN4;
-	Mon, 10 Aug 2026 18:35:52 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wtUqW-0000000Cdsb-0ZF3;
+	Mon, 10 Aug 2026 18:35:36 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtUql-0000000Cdwv-1Fjn;
-	Mon, 10 Aug 2026 18:35:51 +0000
+	id 1wtUqU-0000000CdsK-3bD9;
+	Mon, 10 Aug 2026 18:35:34 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CF1A84323D;
-	Mon, 10 Aug 2026 18:35:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02FA21F000E9;
-	Mon, 10 Aug 2026 18:35:48 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E355D600C8;
+	Mon, 10 Aug 2026 18:35:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 757FF1F000E9;
+	Mon, 10 Aug 2026 18:35:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786386950;
-	bh=J+7Qf4C+BCkphTM5Iv8Y9G8botn3Z1MPiWmfqLgbhk8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=HlzpUbYzcJ3KMfPEvXyW3Fdt/nE5/mxqLTwgQd16JMs1HWaHaTGufcH6czd6tgMZ3
-	 q5k786zQ4Zphisf702b1r/G+BCt2fll3h81IcQ/S7RBIcdpBCzVhVl3q9xYVFRN2Vz
-	 0GGN5j1vEs1t6jvao2VddGT+ws7pP6d+v2bHKphI1pn1tTPDEqyUsOX+KFYWVffcO0
-	 KcPlP0Kgse5B/lTHtocl0cfyMJ+M/6J6ri+2vdoc/Av1RK3s5Sjfya7g2NycTE7g9y
-	 gW0gdlCAV7+3XC0Z/bokVCVPUn6q4uJA4xXHDEl8ujcjS5IbLCpjdH5z2Aa43Yh0wB
-	 d1O782y0QFKdw==
-Date: Mon, 10 Aug 2026 11:35:48 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Vladislav Leonov <vlad@zlab.su>
-Cc: linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, Simon Glass <sjg@chromium.org>,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Andi Shyti <andi.shyti@kernel.org>, Andrew
- Lunn <andrew+netdev@lunn.ch>, Aurelien Jarno <aurelien@aurel32.net>, Brian
- Masney <bmasney@redhat.com>, Conor Dooley <conor+dt@kernel.org>, Daniel
- Golle <daniel@makrotopia.org>, "David S. Miller" <davem@davemloft.net>,
- David Wu <david.wu@rock-chips.com>, Eric Dumazet <edumazet@google.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Heiko Stuebner
- <heiko@sntech.de>, Herbert Xu <herbert@gondor.apana.org.au>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Mark Brown <broonie@kernel.org>, Maxime
- Chevallier <maxime.chevallier@bootlin.com>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Michael Turquette <mturquette@baylibre.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Nicolas Frattaroli
- <nicolas.frattaroli@collabora.com>, Olivia Mackall <olivia@selenic.com>,
- Paolo Abeni <pabeni@redhat.com>, Philipp Zabel <p.zabel@pengutronix.de>,
- Rob Herring <robh@kernel.org>, Stephen Boyd <sboyd@kernel.org>, Uwe
- =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <ukleinek@kernel.org>, Vinod Koul
- <vkoul@kernel.org>, linux-crypto@vger.kernel.org,
- linux-i2c@vger.kernel.org, linux-phy@lists.infradead.org,
- linux-pwm@vger.kernel.org, linux-spi@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com, linux-usb@vger.kernel.org,
- netdev@vger.kernel.org
-Subject: Re: [PATCH 00/25] ARM: rockchip: Add peripheral support for RV1106
-Message-ID: <20260810113548.7fd24d56@kernel.org>
-In-Reply-To: <20260810121121.210040-1-vlad@zlab.su>
-References: <20260810121121.210040-1-vlad@zlab.su>
+	s=k20260515; t=1786386933;
+	bh=tnho4rrrB5eB1gkI1817NuCvPB/07wS2vcTVe6IMdjg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=aYmWygaBYAucXKZxr787sYh3qGARvpJY86Je5DMJbNxZnDYa7l4yTzD28oj2EN7My
+	 o16ZB4rA22AlKYA1iX9FaZmrfdsNTTCRTV/WPlPJ+6NU/tSdl9trogupy27ac8akVw
+	 W1jOqDlWA8sH77vJPHLrtw6E86dVQl2szMWzkz/N+Pn21+3nd0BYPRu0vrADgp1aZR
+	 mXeB39csRtttxUctgTLpcq4/b+87TcJ/JiL/l+vE1aoILzVQeZ/fJMzc9+zpd+N2bC
+	 1U/Rz+ddRw9ycDmW3gcRoKL/nZYv4fIDIb3qawaUhEkTHEwMD8kW9Lya/1AXaY6amD
+	 XXQqwkfHzAXJw==
+Date: Mon, 10 Aug 2026 13:35:32 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Manikandan Muralidharan <manikandan.m@microchip.com>
+Cc: conor+dt@kernel.org, mwalle@kernel.org, richardcochran@gmail.com,
+	richard@nod.at, linux-mtd@lists.infradead.org, pratyush@kernel.org,
+	nicolas.ferre@microchip.com, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+	takahiro.kuwano@infineon.com, miquel.raynal@bootlin.com,
+	alexandre.belloni@bootlin.com, claudiu.beznea@tuxon.dev,
+	linusw@kernel.org, vigneshr@ti.com, srini@kernel.org,
+	linux-arm-kernel@lists.infradead.org, michael@walle.cc,
+	krzk+dt@kernel.org, linux@armlinux.org.uk, arnd@arndb.de
+Subject: Re: [PATCH v6 2/7] dt-bindings: nvmem: layouts: add Microchip/SST
+ SFDP EUI layout
+Message-ID: <178638693216.2623305.17648873474456731679.robh@kernel.org>
+References: <20260729043026.1811147-1-manikandan.m@microchip.com>
+ <20260729043026.1811147-3-manikandan.m@microchip.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260729043026.1811147-3-manikandan.m@microchip.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,12 +76,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 10 Aug 2026 15:10:51 +0300 Vladislav Leonov wrote:
-> Basic support for the Rockchip RV1106/RV1103 SoCs currently under review.
-> This series builds on top of that and enables the peripherals needed to
-> bring up a board beyond a serial console:
 
-Don't expect maintainers to dig out patches for their subsystems
-from a big series. This is not how upstream development works.
-Repost 4+5 as a separate series to networking..
+On Wed, 29 Jul 2026 10:00:21 +0530, Manikandan Muralidharan wrote:
+> Add a binding for the NVMEM layout that exposes the factory-programmed
+> EUI-48 identifier from the Microchip/SST vendor-specific SFDP parameter
+> table (e.g. SST26VF064BEUI) as a "mac-address" NVMEM cell, and reference
+> it from nvmem-layout.yaml.
+> 
+> Reviewed-by: Linus Walleij <linusw@kernel.org>
+> Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
+> ---
+>  .../layouts/microchip,sst26vf-sfdp-eui.yaml   | 60 +++++++++++++++++++
+>  .../bindings/nvmem/layouts/nvmem-layout.yaml  |  1 +
+>  2 files changed, 61 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/nvmem/layouts/microchip,sst26vf-sfdp-eui.yaml
+> 
+
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+
 
