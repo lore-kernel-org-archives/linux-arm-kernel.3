@@ -4,91 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB711C5AC82
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 09:00:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 155FBC5AC82
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 09:07:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gLM+88DQ2i/J3Bwb9j42ezWkrXDRCi3DdZoAC9BW6t4=; b=Ug9IuZ/5gOGNQ+ucAeK2bH/Uij
-	s+Rv9SYNokWeHVu483b8JIpLo5qBqZBd7Kp6BbqeFkvvFqDx0KxyzKlg+XePUd0ng+bBUksDebjHg
-	UP5P/jNiEsW73qZtSzZEW7CY89WV3o/N9TAfpGaplt1Fs7M0GgdjNIGTahdspZeNqCwJZ4OwQtPwo
-	pwH7Z+68cPzFRXOIaJM2EB4Gyn6B9OcMRVSMIZ3tmi+nglcQ8uumAXRzLTt0W1eLSKSAIChQyck7j
-	Lj3KqChQdPXEBzRRSsebmqFtGv9lS8HFzn43rXIyZ6/+NVnhNXsmB2uBqJYxjIGR+FYMjiaxamhij
-	GBBlx6gg==;
+	bh=ySuGWbXUDGRFaGMKt5Y7z0dskEZPyGt9AbN/dMvXf1U=; b=vFlZ2/lwJf/5uLT2RaQ0O1XF5s
+	1iZA7FM1ENZuMYXbVQT891EtdN83itB5JAXIEE7TSIG/vi4jtA6tfwIGxOZXENnIqPsmc/wW3n/FT
+	1pCKUzBciet3cEye5tCvJFNgNS6C9GDCkQTTsamKq+qYDx1wGMmBYSOTOJRwsF68x7vXO2dwr31po
+	LeeuaQgvKhjCzkfqmrBhIVa2hB5gGAyZgwCHj7p6Wwg4kXoyqKS9sekEVoQAgDeYmNI2G7AgN/d+q
+	0TIlmhxypPQ9zc4yW7AXt+NENgD8YrctnXhJ0eaPhkZnk/8lu5kSE5ATe1s/BluC/Mi1U+d6Z/bhr
+	N8O2scvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtLs4-0000000BM2X-2Aqm;
-	Mon, 10 Aug 2026 09:00:36 +0000
-Received: from mgamail.intel.com ([198.175.65.13])
+	id 1wtLyw-0000000BMZi-1OPs;
+	Mon, 10 Aug 2026 09:07:42 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtLs2-0000000BM1y-0gDa;
-	Mon, 10 Aug 2026 09:00:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1786352435; x=1817888435;
-  h=from:to:cc:subject:in-reply-to:references:date:
-   message-id:mime-version:content-transfer-encoding;
-  bh=aBla1GdjrZzE2U81Np1weJRn78Yirl09PISBrS8Wfjk=;
-  b=BiwnG/0KGahCm8BPxHm+C1Zqlb658fhtp9/nk3XeiopgeYFnfLQmMwKi
-   urut6Q6QZMgW42NKtP2PW3v9xc6IpajqFjMZLj/Pjibhi1pXBSHOuyhw9
-   B7IZorjsZKQ8nE1OuRxHf7Q44IrahiWx2qJoAc8/W5vcs6PA2whwsfTcu
-   9yJaOAeIfIxAOlh4Mxe8Uw40hOakJX1Yw3wNSYNJRBiH7p1IVkLdM5DMM
-   8g9vv7HoQGa5evVJOrVq45hA7UsuMa1hDvk4roYfXCRZxrhuvL/gk86Xl
-   DfqX6uy0Gdx7ai38EYpNdKBO/tX53HlftvowehYKhIOS3tvDbLaZyoeVW
-   A==;
-X-CSE-ConnectionGUID: KW+NVEd7SOSG9HR4MDNTHQ==
-X-CSE-MsgGUID: Z8TL9CybQ+CHZPYupGW6SA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11870"; a="98011377"
-X-IronPort-AV: E=Sophos;i="6.25,215,1779174000"; 
-   d="scan'208";a="98011377"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Aug 2026 02:00:33 -0700
-X-CSE-ConnectionGUID: 1eooUKPrQXSqNF6iyA5v6Q==
-X-CSE-MsgGUID: Ot0FgtJ9SUanv3Sz08oEaw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,215,1779174000"; 
-   d="scan'208";a="259125323"
-Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.244.103])
-  by fmviesa010-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Aug 2026 02:00:22 -0700
-From: Jani Nikula <jani.nikula@linux.intel.com>
-To: Igor Paunovic <royalnet026@gmail.com>, dri-devel@lists.freedesktop.org
-Cc: intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Sebastian Reichel
- <sebastian.reichel@collabora.com>, Cristian Ciocaltea
- <cristian.ciocaltea@collabora.com>, Andrzej Hajda
- <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>,
- Robert Foss <rfoss@kernel.org>, Laurent Pinchart
- <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>,
- Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli
- <luca.ceresoli@bootlin.com>, Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Dmitry Baryshkov
- <dmitry.baryshkov@oss.qualcomm.com>, Sandy Huang <hjc@rock-chips.com>,
- Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan
- <andy.yan@rock-chips.com>,
- Rodrigo Vivi <rodrigo.vivi@intel.com>, Ville =?utf-8?B?U3lyasOkbMOk?=
- <ville.syrjala@linux.intel.com>, Imre Deak <imre.deak@intel.com>, Ankit
- Nautiyal <ankit.k.nautiyal@intel.com>, Igor Paunovic
- <royalnet026@gmail.com>
-Subject: Re: [PATCH 1/5] drm/dp: Add drm_dp_hdr_metadata_infoframe_sdp_pack()
-In-Reply-To: <20260808095749.9428-2-royalnet026@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park,
- 6 krs Bertel Jungin Aukio 5, 02600 Espoo, Finland
-References: <20260808095749.9428-1-royalnet026@gmail.com>
- <20260808095749.9428-2-royalnet026@gmail.com>
-Date: Mon, 10 Aug 2026 12:00:20 +0300
-Message-ID: <d128b937ee3ca1987d2bd543f92cbabab84ea440@intel.com>
+	id 1wtLyr-0000000BMYg-1R7u
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Aug 2026 09:07:41 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260810090730euoutp02f7b9709c04b553a5c0d5fadac9823431~KZnQV0R580704107041euoutp02R;
+	Mon, 10 Aug 2026 09:07:30 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260810090730euoutp02f7b9709c04b553a5c0d5fadac9823431~KZnQV0R580704107041euoutp02R
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1786352851;
+	bh=ySuGWbXUDGRFaGMKt5Y7z0dskEZPyGt9AbN/dMvXf1U=;
+	h=Date:From:Subject:To:Cc:In-Reply-To:References:From;
+	b=HPsvRX7C15j1heJymtevQXoi/AnN/UmZgnpt+LPxF3VYvuPtRJ3PYpNdLnmaXR0Ag
+	 59kf/XM9EHs3O50nSy+7hCuFxp4Q55Xi5/hdzAIdCWJOo8JxnrbbHOV1ClSd71HV0d
+	 r4jlBz+O8JAs/tO9cz+lHcFefZSDAVIP9ORDDg9o=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20260810090730eucas1p23ceee7c50d9b5f62e163a92c91aa20de~KZnPjUrlt0040900409eucas1p2L;
+	Mon, 10 Aug 2026 09:07:30 +0000 (GMT)
+Received: from [106.120.50.46] (unknown [106.120.50.46]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20260810090727eusmtip10eb84a9d5031d28278c93306c2caa136~KZnNUvdOP2715827158eusmtip1g;
+	Mon, 10 Aug 2026 09:07:27 +0000 (GMT)
+Message-ID: <8a988f86-e497-4e9b-92db-c9b454467df5@samsung.com>
+Date: Mon, 10 Aug 2026 11:07:26 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Betterbird (Windows)
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+Subject: Re: [PATCH v3 06/11] mm/cma: Allow dynamically creating CMA areas
+To: Thierry Reding <thierry.reding@kernel.org>
+Cc: "David Hildenbrand (Arm)" <david@kernel.org>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Jonathan Hunter <jonathanh@nvidia.com>, Mikko
+	Perttunen <mperttunen@nvidia.com>, Yury Norov <yury.norov@gmail.com>, Rasmus
+	Villemoes <linux@rasmusvillemoes.dk>, Russell King <linux@armlinux.org.uk>,
+	Alexander Gordeev <agordeev@linux.ibm.com>, Gerald Schaefer
+	<gerald.schaefer@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>, Vasily
+	Gorbik <gor@linux.ibm.com>, Christian Borntraeger
+	<borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, Andrew
+	Morton <akpm@linux-foundation.org>, Lorenzo Stoakes <ljs@kernel.org>, "Liam
+ R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, Mike
+	Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, Michal
+	Hocko <mhocko@suse.com>, Robin Murphy <robin.murphy@arm.com>, Sumit Semwal
+	<sumit.semwal@linaro.org>, Benjamin Gaignard
+	<benjamin.gaignard@collabora.com>, Brian Starkey <Brian.Starkey@arm.com>,
+	John Stultz <jstultz@google.com>, "T.J. Mercier" <tjmercier@google.com>,
+	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, Steven Rostedt
+	<rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>, Mathieu
+	Desnoyers <mathieu.desnoyers@efficios.com>, Catalin Marinas
+	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+	devicetree@vger.kernel.org, linux-tegra@vger.kernel.org,
+	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-mm@kvack.org, iommu@lists.linux.dev,
+	linaro-mm-sig@lists.linaro.org, linux-trace-kernel@vger.kernel.org
+Content-Language: en-US
+In-Reply-To: <anSuYvj1JU5K8xUO@orome>
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20260810090730eucas1p23ceee7c50d9b5f62e163a92c91aa20de
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20260701160902eucas1p1214af933ba0f54b85630a3a4e5a4689c
+X-EPHeader: CA
+X-CMS-RootMailID: 20260701160902eucas1p1214af933ba0f54b85630a3a4e5a4689c
+References: <20260701-tegra-vpr-v3-0-d80f7b871bb4@nvidia.com>
+	<CGME20260701160902eucas1p1214af933ba0f54b85630a3a4e5a4689c@eucas1p1.samsung.com>
+	<20260701-tegra-vpr-v3-6-d80f7b871bb4@nvidia.com>
+	<3f47aeab-33b1-4966-a5ce-5d6d5261e0e2@samsung.com>
+	<e212caac-6c30-448a-9e10-32fff8b842f6@kernel.org>
+	<83e5e74d-7106-4e14-9d10-56438372f6a3@samsung.com> <ak_E4UxfnFJywJa7@orome>
+	<1eec88e6-1ea8-4525-bb17-e41444d715dc@samsung.com> <anSuYvj1JU5K8xUO@orome>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_020034_302613_309BB198 
-X-CRM114-Status: GOOD (  26.81  )
+X-CRM114-CacheID: sfid-20260810_020738_019167_DFB1FBE1 
+X-CRM114-Status: GOOD (  34.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,281 +111,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 08 Aug 2026, Igor Paunovic <royalnet026@gmail.com> wrote:
-> i915 packs HDR static metadata into an HDR Metadata InfoFrame SDP
-> (DP 1.4a spec, Table 2-100 and Table 2-101) with a driver-private
-> helper, intel_dp_hdr_metadata_infoframe_sdp_pack(). Nothing in it is
-> i915 specific: it converts a generic struct hdmi_drm_infoframe into a
-> generic struct dp_sdp.
+On 06.08.2026 18:09, Thierry Reding wrote:
+> On Thu, Jul 16, 2026 at 12:43:56PM +0200, Marek Szyprowski wrote:
+>> On 09.07.2026 17:59, Thierry Reding wrote:
+>>> On Thu, Jul 09, 2026 at 07:56:45AM +0200, Marek Szyprowski wrote:
+>>>> On 08.07.2026 10:35, David Hildenbrand (Arm) wrote:
+>>>>> On 7/7/26 12:02, Marek Szyprowski wrote:
+>>>>>> On 01.07.2026 18:08, Thierry Reding wrote:
+>>>>>>> From: Thierry Reding <treding@nvidia.com>
+>>>>>>>
+>>>>>>> There is no technical reason why there should be a limited number of CMA
+>>>>>>> regions, so extract some code into helpers and use them to create extra
+>>>>>>> functions (cma_create() and cma_free()) that allow creating and freeing,
+>>>>>>> respectively, CMA regions dynamically at runtime.
+>>>>>> Well, the technical reason for not creating cma regions dynamically at
+>>>>>> runtime is that on some architectures (like 32bit ARM) the early fixup
+>>>>>> for the region is needed to make it functional for DMA.
+>>>>> Can you point me at the code that does that? Thanks!
+>>>> Check dma_contiguous_early_fixup() and dma_contiguous_remap() in 
+>>>> arch/arm/mm/dma-mapping.c. Those functions ensures that the CPU mappings for
+>>>> the CMA reserved region in linear map are remapped with 4k pages instead
+>>>> of the 1M sections, so later, it will be possible to alter the mappings and
+>>>> change them to coherent when needed (altering 1M sections is not possible,
+>>>> because each process has it's own level-1 array even for the kernel linear
+>>>> mapping).
+>>>>
+>>>>
+>>>>
+>>>> However, in the use case in this patchset the reserved region is only shared
+>>>> with buddy allocator by using the CMA infrastructure, not registered to the
+>>>> regular DMA-mapping API, so it would work fine. I'm not convinced that this
+>>>> is the right API to use for this though.
+>>> Are you saying you're not convinced that CMA is the right API to use for
+>>> this? Or something else?
+>> I read this again and indeed CMA seems to be right solution. I only wonder
+>> why do You want to create the CMA areas dynamically? Imho it would work if
+>> You just create large enough CMA area on boot, what would automatically
+>> share the memory with buddy allocator and then allocate dynamic VPR regions
+>> with cma_alloc(), potentially unmapping or marking the allocated region as
+>> reserved in linear kernel mapping to avoid any potential speculative access
+>> to the protected memory.
+> Hi Marek,
 >
-> Move it to drm_dp_helper.c as drm_dp_hdr_metadata_infoframe_sdp_pack(),
-> next to drm_dp_vsc_sdp_pack(), and convert i915 to the new helper. The
-> Synopsys DesignWare DisplayPort bridge driver (dw-dp) needs to send the
-> same SDP to support HDR and should not have to duplicate the packing
-> code.
+> sorry for missing your reply earlier.
 >
-> The helper takes a struct drm_device pointer in place of the i915
-> display pointer for its two debug messages, and an i915-specific
-> comment about GEN11+ GMP register sizes is dropped. No functional
-> change.
+> The reason why we want to create the CMA areas dynamically is because we
+> want to split the secure memory into multiple areas. And the size and
+> number of these areas may need to vary, so I didn't want to have to rely
+> on rebuilding kernels with different numbers of maximum CMA areas
+> depending on the chunk size that we choose.
 >
-> Signed-off-by: Igor Paunovic <royalnet026@gmail.com>
-
-'git show --color-moved' says it's fine. ;)
-
-Acked-by: Jani Nikula <jani.nikula@intel.com>
-
-for merging via drm-misc.
-
-> ---
->  drivers/gpu/drm/display/drm_dp_helper.c | 88 +++++++++++++++++++++++++
->  drivers/gpu/drm/i915/display/intel_dp.c | 84 +----------------------
->  include/drm/display/drm_dp_helper.h     |  4 ++
->  3 files changed, 95 insertions(+), 81 deletions(-)
+> The reason why we need to split up the protected memory into multiple
+> CMA areas is that allocation patterns can create holes within a CMA
+> area. For the VPR memory, however, we must ensure that there aren't any
+> holes within the protected region because it is specified using a single
+> base address and a size. So there is one contiguous region that can be
+> marked protected.
 >
-> diff --git a/drivers/gpu/drm/display/drm_dp_helper.c b/drivers/gpu/drm/di=
-splay/drm_dp_helper.c
-> index 9c31e14cc413..7b3b079403c4 100644
-> --- a/drivers/gpu/drm/display/drm_dp_helper.c
-> +++ b/drivers/gpu/drm/display/drm_dp_helper.c
-> @@ -25,6 +25,7 @@
->  #include <linux/dynamic_debug.h>
->  #include <linux/errno.h>
->  #include <linux/export.h>
-> +#include <linux/hdmi.h>
->  #include <linux/i2c.h>
->  #include <linux/init.h>
->  #include <linux/iopoll.h>
-> @@ -3672,6 +3673,93 @@ ssize_t drm_dp_vsc_sdp_pack(const struct drm_dp_vs=
-c_sdp *vsc,
->  }
->  EXPORT_SYMBOL(drm_dp_vsc_sdp_pack);
->=20=20
-> +/**
-> + * drm_dp_hdr_metadata_infoframe_sdp_pack() - pack HDR Metadata InfoFram=
-e SDP
-> + * @dev: DRM device
-> + * @drm_infoframe: HDMI DRM infoframe carrying the HDR static metadata
-> + * @sdp: valid handle to the generic dp_sdp which will be packed
-> + * @size: valid size of the passed sdp handle
-> + *
-> + * Pack a CTA-861 Dynamic Range and Mastering infoframe into an HDR
-> + * Metadata InfoFrame SDP, as defined in DP 1.4a spec, Table 2-100 and
-> + * Table 2-101.
-> + *
-> + * Returns: length of sdp on success and error code on failure
-> + */
-> +ssize_t drm_dp_hdr_metadata_infoframe_sdp_pack(struct drm_device *dev,
-> +					       const struct hdmi_drm_infoframe *drm_infoframe,
-> +					       struct dp_sdp *sdp,
-> +					       size_t size)
-> +{
-> +	size_t length =3D sizeof(struct dp_sdp);
-> +	const int infoframe_size =3D HDMI_INFOFRAME_HEADER_SIZE + HDMI_DRM_INFO=
-FRAME_SIZE;
-> +	unsigned char buf[HDMI_INFOFRAME_HEADER_SIZE + HDMI_DRM_INFOFRAME_SIZE];
-> +	ssize_t len;
-> +
-> +	if (size < length)
-> +		return -ENOSPC;
-> +
-> +	memset(sdp, 0, size);
-> +
-> +	len =3D hdmi_drm_infoframe_pack_only(drm_infoframe, buf, sizeof(buf));
-> +	if (len < 0) {
-> +		drm_dbg_kms(dev,
-> +			    "buffer size is smaller than hdr metadata infoframe\n");
-> +		return -ENOSPC;
-> +	}
-> +
-> +	if (len !=3D infoframe_size) {
-> +		drm_dbg_kms(dev, "wrong static hdr metadata size\n");
-> +		return -ENOSPC;
-> +	}
-> +
-> +	/*
-> +	 * Set up the infoframe sdp packet for HDR static metadata.
-> +	 * Prepare VSC Header for SU as per DP 1.4a spec,
-> +	 * Table 2-100 and Table 2-101
-> +	 */
-> +
-> +	/* Secondary-Data Packet ID, 00h for non-Audio INFOFRAME */
-> +	sdp->sdp_header.HB0 =3D 0;
-> +	/*
-> +	 * Packet Type 80h + Non-audio INFOFRAME Type value
-> +	 * HDMI_INFOFRAME_TYPE_DRM: 0x87
-> +	 * - 80h + Non-audio INFOFRAME Type value
-> +	 * - InfoFrame Type: 0x07
-> +	 *    [CTA-861-G Table-42 Dynamic Range and Mastering InfoFrame]
-> +	 */
-> +	sdp->sdp_header.HB1 =3D drm_infoframe->type;
-> +	/*
-> +	 * Least Significant Eight Bits of (Data Byte Count =E2=80=93 1)
-> +	 * infoframe_size - 1
-> +	 */
-> +	sdp->sdp_header.HB2 =3D 0x1D;
-> +	/* INFOFRAME SDP Version Number */
-> +	sdp->sdp_header.HB3 =3D (0x13 << 2);
-> +	/* CTA Header Byte 2 (INFOFRAME Version Number) */
-> +	sdp->db[0] =3D drm_infoframe->version;
-> +	/* CTA Header Byte 3 (Length of INFOFRAME): HDMI_DRM_INFOFRAME_SIZE */
-> +	sdp->db[1] =3D drm_infoframe->length;
-> +	/*
-> +	 * Copy HDMI_DRM_INFOFRAME_SIZE size from a buffer after
-> +	 * HDMI_INFOFRAME_HEADER_SIZE
-> +	 */
-> +	BUILD_BUG_ON(sizeof(sdp->db) < HDMI_DRM_INFOFRAME_SIZE + 2);
-> +	memcpy(&sdp->db[2], &buf[HDMI_INFOFRAME_HEADER_SIZE],
-> +	       HDMI_DRM_INFOFRAME_SIZE);
-> +
-> +	/*
-> +	 * Size of DP infoframe sdp packet for HDR static metadata consists of
-> +	 * - DP SDP Header(struct dp_sdp_header): 4 bytes
-> +	 * - Two Data Blocks: 2 bytes
-> +	 *    CTA Header Byte2 (INFOFRAME Version Number)
-> +	 *    CTA Header Byte3 (Length of INFOFRAME)
-> +	 * - HDMI_DRM_INFOFRAME_SIZE: 26 bytes
-> +	 */
-> +	return sizeof(struct dp_sdp_header) + 2 + HDMI_DRM_INFOFRAME_SIZE;
-> +}
-> +EXPORT_SYMBOL(drm_dp_hdr_metadata_infoframe_sdp_pack);
-> +
->  /**
->   * drm_dp_get_pcon_max_frl_bw() - maximum frl supported by PCON
->   * @dpcd: DisplayPort configuration data
-> diff --git a/drivers/gpu/drm/i915/display/intel_dp.c b/drivers/gpu/drm/i9=
-15/display/intel_dp.c
-> index 6e3fa6662cbe..093a3b7961f7 100644
-> --- a/drivers/gpu/drm/i915/display/intel_dp.c
-> +++ b/drivers/gpu/drm/i915/display/intel_dp.c
-> @@ -5157,84 +5157,6 @@ static ssize_t intel_dp_as_sdp_pack(const struct d=
-rm_dp_as_sdp *as_sdp,
->  	return length;
->  }
->=20=20
-> -static ssize_t
-> -intel_dp_hdr_metadata_infoframe_sdp_pack(struct intel_display *display,
-> -					 const struct hdmi_drm_infoframe *drm_infoframe,
-> -					 struct dp_sdp *sdp,
-> -					 size_t size)
-> -{
-> -	size_t length =3D sizeof(struct dp_sdp);
-> -	const int infoframe_size =3D HDMI_INFOFRAME_HEADER_SIZE + HDMI_DRM_INFO=
-FRAME_SIZE;
-> -	unsigned char buf[HDMI_INFOFRAME_HEADER_SIZE + HDMI_DRM_INFOFRAME_SIZE];
-> -	ssize_t len;
-> -
-> -	if (size < length)
-> -		return -ENOSPC;
-> -
-> -	memset(sdp, 0, size);
-> -
-> -	len =3D hdmi_drm_infoframe_pack_only(drm_infoframe, buf, sizeof(buf));
-> -	if (len < 0) {
-> -		drm_dbg_kms(display->drm,
-> -			    "buffer size is smaller than hdr metadata infoframe\n");
-> -		return -ENOSPC;
-> -	}
-> -
-> -	if (len !=3D infoframe_size) {
-> -		drm_dbg_kms(display->drm, "wrong static hdr metadata size\n");
-> -		return -ENOSPC;
-> -	}
-> -
-> -	/*
-> -	 * Set up the infoframe sdp packet for HDR static metadata.
-> -	 * Prepare VSC Header for SU as per DP 1.4a spec,
-> -	 * Table 2-100 and Table 2-101
-> -	 */
-> -
-> -	/* Secondary-Data Packet ID, 00h for non-Audio INFOFRAME */
-> -	sdp->sdp_header.HB0 =3D 0;
-> -	/*
-> -	 * Packet Type 80h + Non-audio INFOFRAME Type value
-> -	 * HDMI_INFOFRAME_TYPE_DRM: 0x87
-> -	 * - 80h + Non-audio INFOFRAME Type value
-> -	 * - InfoFrame Type: 0x07
-> -	 *    [CTA-861-G Table-42 Dynamic Range and Mastering InfoFrame]
-> -	 */
-> -	sdp->sdp_header.HB1 =3D drm_infoframe->type;
-> -	/*
-> -	 * Least Significant Eight Bits of (Data Byte Count =E2=80=93 1)
-> -	 * infoframe_size - 1
-> -	 */
-> -	sdp->sdp_header.HB2 =3D 0x1D;
-> -	/* INFOFRAME SDP Version Number */
-> -	sdp->sdp_header.HB3 =3D (0x13 << 2);
-> -	/* CTA Header Byte 2 (INFOFRAME Version Number) */
-> -	sdp->db[0] =3D drm_infoframe->version;
-> -	/* CTA Header Byte 3 (Length of INFOFRAME): HDMI_DRM_INFOFRAME_SIZE */
-> -	sdp->db[1] =3D drm_infoframe->length;
-> -	/*
-> -	 * Copy HDMI_DRM_INFOFRAME_SIZE size from a buffer after
-> -	 * HDMI_INFOFRAME_HEADER_SIZE
-> -	 */
-> -	BUILD_BUG_ON(sizeof(sdp->db) < HDMI_DRM_INFOFRAME_SIZE + 2);
-> -	memcpy(&sdp->db[2], &buf[HDMI_INFOFRAME_HEADER_SIZE],
-> -	       HDMI_DRM_INFOFRAME_SIZE);
-> -
-> -	/*
-> -	 * Size of DP infoframe sdp packet for HDR static metadata consists of
-> -	 * - DP SDP Header(struct dp_sdp_header): 4 bytes
-> -	 * - Two Data Blocks: 2 bytes
-> -	 *    CTA Header Byte2 (INFOFRAME Version Number)
-> -	 *    CTA Header Byte3 (Length of INFOFRAME)
-> -	 * - HDMI_DRM_INFOFRAME_SIZE: 26 bytes
-> -	 *
-> -	 * Prior to GEN11's GMP register size is identical to DP HDR static met=
-adata
-> -	 * infoframe size. But GEN11+ has larger than that size, write_infoframe
-> -	 * will pad rest of the size.
-> -	 */
-> -	return sizeof(struct dp_sdp_header) + 2 + HDMI_DRM_INFOFRAME_SIZE;
-> -}
-> -
->  static void intel_write_dp_sdp(struct intel_encoder *encoder,
->  			       const struct intel_crtc_state *crtc_state,
->  			       unsigned int type)
-> @@ -5253,9 +5175,9 @@ static void intel_write_dp_sdp(struct intel_encoder=
- *encoder,
->  		len =3D drm_dp_vsc_sdp_pack(&crtc_state->infoframes.vsc, &sdp);
->  		break;
->  	case HDMI_PACKET_TYPE_GAMUT_METADATA:
-> -		len =3D intel_dp_hdr_metadata_infoframe_sdp_pack(display,
-> -							       &crtc_state->infoframes.drm.drm,
-> -							       &sdp, sizeof(sdp));
-> +		len =3D drm_dp_hdr_metadata_infoframe_sdp_pack(display->drm,
-> +							     &crtc_state->infoframes.drm.drm,
-> +							     &sdp, sizeof(sdp));
->  		break;
->  	case DP_SDP_ADAPTIVE_SYNC:
->  		len =3D intel_dp_as_sdp_pack(&crtc_state->infoframes.as_sdp, &sdp,
-> diff --git a/include/drm/display/drm_dp_helper.h b/include/drm/display/dr=
-m_dp_helper.h
-> index ab16c1be3900..c158628f0d38 100644
-> --- a/include/drm/display/drm_dp_helper.h
-> +++ b/include/drm/display/drm_dp_helper.h
-> @@ -32,6 +32,7 @@
->  struct drm_device;
->  struct drm_dp_aux;
->  struct drm_panel;
-> +struct hdmi_drm_infoframe;
->=20=20
->  bool drm_dp_channel_eq_ok(const u8 link_status[DP_LINK_STATUS_SIZE],
->  			  int lane_count);
-> @@ -1029,6 +1030,9 @@ int drm_dp_bw_channel_coding_efficiency(bool is_uhb=
-r);
->  int drm_dp_max_dprx_data_rate(int max_link_rate, int max_lanes);
->=20=20
->  ssize_t drm_dp_vsc_sdp_pack(const struct drm_dp_vsc_sdp *vsc, struct dp_=
-sdp *sdp);
-> +ssize_t drm_dp_hdr_metadata_infoframe_sdp_pack(struct drm_device *dev,
-> +					       const struct hdmi_drm_infoframe *drm_infoframe,
-> +					       struct dp_sdp *sdp, size_t size);
->  int drm_dp_link_symbol_cycles(int lane_count, int pixels, int dsc_slice_=
-count,
->  			      int bpp_x16, int symbol_size, bool is_mst);
+> If we were to use a single CMA area, we could get holes within an area
+> that is marked protected and once the pages are returned to the buddy
+> allocator with cma_release(), something else could be attempting to
+> access it and cause an error because it is still protected.
+>
+> The only way to make sure we get a single, resizable and contiguous
+> region is by using multiple CMA areas and allocating the entire area
+> once our allocations need to expand into that new area. So we're not in
+> fact using much of the CMA infrastructure and actually need to duplicate
+> some of it. We primarily need it for the page migration and reclaim
+> functionality.
 
---=20
-Jani Nikula, Intel
+This still looks over-engineered. I understand that in case of a single CMA
+
+area using cma_alloc() is not enough for Your use-case, but You already
+
+pointed that You need to have custom method of managing which part of memory
+
+is assigned to secure world, so wouldn't it be much simpler just to add
+
+cma_alloc_exact_range() -like function and keep using a single, boot-time
+
+defined CMA area? Then in instead of creating and deleting CMA areas
+
+dynamically, You just 'allocate' respective ranges from the single CMA area
+
+and manage them on You own (like in current patchset).
+
+>> In both cases You will probably won't need the DMA-mapping API on top of
+>> it, although it might be even possible to partially use with by
+>> registering custom dma_ops for the devices using the protected region
+>> (assuming that it would support only DMA_ATTR_NO_KERNEL_MAPPING
+>> allocations).
+> Yeah, I don't think we want the DMA API on top at all. The allocator has
+> special needs, like clustered allocations to minimize fragmentation and
+> keeping as few chunks activated as possible. We also want to avoid
+> resize operations because they can be quite heavy depending on system
+> load.
+
+That's okay.
+
+Best regards
+-- 
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
+
 
