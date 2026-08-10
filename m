@@ -4,135 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D6F4C5AD55
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 20:57:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D92AC5AD7B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 21:12:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M2b0s5sV+UlmrYlU5mF5+QdMgIVz6hWvd8/C7SfZBcE=; b=y/055Pbb5La8ad+lIgk56QQlG+
-	0FO7oqLwjRn5gSF35BsFknaXupCSh1axEEYx3m22yYtVCSESkYVmDuKPkShROZmLTeqHXbfDcrAaL
-	TvDYYvNNomZS35FBI4NvMym4wViZJdoY+1Q2u01HagTOxDVrh1ghb+/9mcg2sRMlxrvW7Vo+Mta1b
-	uiKFSqJ2v9nHuNzL036pEJ3t5REdZhv0Iue3LAs50b7tHN6mUyOfjHtWEwTTW+PO0pYWqQ90US2Xx
-	YfycWjpej4D+oSzq2v9f+UJUI2L/AtOEmLBXfHLnD9avKrZkNQuBcRf9/a/ukWd4uYDnZ+kSyaaPo
-	EletiKYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4oSfONn5Yz63lyUzLtV+gfMtS9ynEzwvoGCshYVSCu4=; b=EfGiNhZ3KvTMW6qfI7EhkRk8AD
+	s6q6i08K7DmxGIKufYDls1a4dmkTaCmZEKZRDFLXws9oj+TK8hqbQYkr2akP6geccIgT0uY79pIu2
+	kdrlDujKTVOfks0ZWl2PWgNuUb5O7yKn8kbIyt0n2WooQnkE2gmqHLca/g2e7DN6SdJ5YUw2Fh80S
+	+UG5JRmBd42kjzkLVTHA8Fo2nmisrhh7GFSNaAkqK2+NBElfqDc0DFjxwirA8Ba46+N90VF40hZRe
+	gYsJuU1u8yZz+fwDdA6olE+ifeS+PJy1hOAqyhdhZwH1txBYRe0gdoFQ5+l5LSuKOshxWXswDSDNK
+	CDzFqQFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtX3g-0000000CsJL-2Uzp;
-	Mon, 10 Aug 2026 20:57:20 +0000
-Received: from mo4-p02-ob.smtp.rzone.de ([81.169.146.170])
+	id 1wtXIB-0000000CsyN-0pza;
+	Mon, 10 Aug 2026 21:12:19 +0000
+Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtX3d-0000000CsId-0ZZl
+	id 1wtXI6-0000000CsxS-0bF6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 20:57:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1786395414; cv=none;
-    d=strato.com; s=strato-dkim-0002;
-    b=t2BQl9Z8KeurTNXDux1Cx0A8Bjn5K0igXQw7bigsJM3q6Fu18PGX6fQ8shpduQ2qp9
-    kojVa+x45LQPfZEA7f21vmALVD24IAPFWurY/6pZjrRMtWvkYIWYRxp6gKPf+fLOGsSl
-    kVsyrHPDywUYKyqNnyR9GXUPh19Yz1q6Gqukf+lmS9AnuahB/U1XVVZKSS0hLRmaqCkE
-    0N9c9YRybc2rxxFMk31QEfKmbi869/LgVytFIpDjRQnEkDQaa6uBwwiQom/I2JaRLoEo
-    HKsxaYV0a401CR32Zo4qSYOLi1oTrRJyJBpWn4BiGW6G0SOuZGtogL9eW4MayGFUM5NT
-    LR7g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1786395414;
-    s=strato-dkim-0002; d=strato.com;
-    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
-    From:Subject:Sender;
-    bh=M2b0s5sV+UlmrYlU5mF5+QdMgIVz6hWvd8/C7SfZBcE=;
-    b=Dwyj4QBN67/T9pzAOzwI1/AJhjzygobZHUmTcKODeVjNNEWKSV73ese/v4lua+h54C
-    IoGUXYfXo1dcUm6YCznSLE5tI2CwV5ca4KM+zS4VK4uVDykY+/5TW/lSMxDCkmTFd329
-    aHnbS5D6ENGua0gnvcq6s96Tp3XMeRV4H2ichflsdisgRE01IPVSdqL79XlpTDEAXg12
-    efmtlwOw9200KHv86Zp3TLhuxI8zUdS8mnTPzmwM1Sec0g8zCfBsTIZ3vG7RmmcHcxvK
-    tPTphRF5vVjbqPstelrDB1lv/Csoj//SX/yYxh/qQf23AX4v4YY7pFx7k5BuQfC3DPzy
-    7OXQ==
-ARC-Authentication-Results: i=1; strato.com;
-    arc=none;
-    dkim=none
-X-RZG-CLASS-ID: mo02
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1786395414;
-    s=strato-dkim-0002; d=goldelico.com;
-    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
-    From:Subject:Sender;
-    bh=M2b0s5sV+UlmrYlU5mF5+QdMgIVz6hWvd8/C7SfZBcE=;
-    b=PsP/bxV0DkARdQeMAEKbfJPJg42HksHI8mlHtlKGDLalnkZ7cIXtbWwJ8LdE7DB99M
-    IIfb2bPHCNo1n8eCFg3PDJO55f0wEdVCy4Hlj8e9VrqLUhmh+LPpel1ZHgOBjIfR2WXF
-    5DV01vxRyuEGon6/1hhSINkJRmXOOTeKgrhyjj5VVzKXcz4fRAUawT+xQLdsxJxX+1K9
-    qHY3mrD4msgpzTNz6d8JL36TJcOrnyYROQ2y6rtb6lYNmnmlSe7AtpWh31Og8Do3WDBX
-    pMTRi48cpor8XLotO1HUL59BLznYwONrDYakOLuV9NNlZRVJDj1yyMUzFkSLgHvFK6G0
-    OJIg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1786395414;
-    s=strato-dkim-0003; d=goldelico.com;
-    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
-    From:Subject:Sender;
-    bh=M2b0s5sV+UlmrYlU5mF5+QdMgIVz6hWvd8/C7SfZBcE=;
-    b=ol9sAKuaZNHWsPcZa7fLcth6fUGMED5C+eqhENktvwwMT/CtFPT0K86CugHMLpZSaJ
-    zfejHdUcnNxS2MSRKNAQ==
-X-RZG-AUTH: ":JGIXVUS7cutRB/49FwqZ7WcJeFKiMhflhwDubTJ9qVpwcQVkPW4I1HrTipoGmsiNZ9v/oGyp26o/Wi+pVFrZX1Db5b3z"
-Received: from smtpclient.apple
-    by smtp.strato.de (RZmta 55.5.6 AUTH)
-    with ESMTPSA id Q58eac27AKuqiaO
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (curve X9_62_prime256v1 with 256 ECDH bits, eq. 3072 bits RSA))
-	(Client did not present a certificate);
-    Mon, 10 Aug 2026 22:56:52 +0200 (CEST)
-Content-Type: text/plain;
-	charset=us-ascii
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.700.81.1.8\))
-Subject: Re: [Letux-kernel] [PATCH 15/16] backlight: remove pandora_bl
-From: "H. Nikolaus Schaller" <hns@goldelico.com>
-In-Reply-To: <20260810223413.01af9a6d@kemnade.info>
-Date: Mon, 10 Aug 2026 22:56:41 +0200
-Cc: linux-fbdev@vger.kernel.org,
- Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
- Liam Girdwood <lgirdwood@gmail.com>,
- Tony Lindgren <tony@atomide.com>,
- dri-devel@lists.freedesktop.org,
- Niranjan H Y <niranjan.hy@ti.com>,
- Sen Wang <sen@ti.com>,
- Rob Herring <robh@kernel.org>,
- Aaro Koskinen <aaro.koskinen@iki.fi>,
- Kevin Hilman <khilman@baylibre.com>,
- Helge Deller <deller@gmx.de>,
- Lee Jones <lee@kernel.org>,
- Russell King <linux@armlinux.org.uk>,
- linux-omap@vger.kernel.org,
- Daniel Thompson <danielt@kernel.org>,
- Grazvydas Ignotas <notasas@gmail.com>,
- devicetree@vger.kernel.org,
- Conor Dooley <conor+dt@kernel.org>,
- Charles Keepax <ckeepax@opensource.cirrus.com>,
- Arnd Bergmann <arnd@arndb.de>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- mfd@lists.linux.dev,
- linux-sound@vger.kernel.org,
- Richard Fitzgerald <rf@opensource.cirrus.com>,
- Mark Brown <broonie@kernel.org>,
- Jaroslav Kysela <perex@perex.cz>,
- Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>,
- linux-arm-kernel@lists.infradead.org,
- Roger Quadros <rogerq@kernel.org>,
- Jingoo Han <jingoohan1@gmail.com>,
- Takashi Iwai <tiwai@suse.com>,
- linux-kernel@vger.kernel.org,
- kernel@pyra-handheld.com,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Jarkko Nikula <jarkko.nikula@bitmer.com>,
- Ethan Nelson-Moore <enelsonmoore@gmail.com>
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <38ED9D73-7BF3-4005-8E1C-4F7125906A20@goldelico.com>
-References: <cover.1783749722.git.hns@goldelico.com>
- <f897f695c0e1e128d7ebb41be8dfdce4d634f552.1783749722.git.hns@goldelico.com>
- <anmpiADsvzW39DNx@aspen.lan>
- <DA9588C6-0238-4713-B1A1-CB2123F02028@goldelico.com>
- <20260810143914.64d29a5c@kemnade.info>
- <2C9844A3-3C4C-48E6-863D-BF8328CEE540@goldelico.com>
- <92FE1162-8C61-4186-B073-6AB4B2BDA640@goldelico.com>
- <20260810223413.01af9a6d@kemnade.info>
-To: Discussions about the Letux Kernel <letux-kernel@openphoenux.org>
-X-Mailer: Apple Mail (2.3826.700.81.1.8)
+	Mon, 10 Aug 2026 21:12:17 +0000
+Received: from francesco-nb (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
+	by mail11.truemail.it (Postfix) with ESMTPA id 6FA341F8D1;
+	Mon, 10 Aug 2026 23:12:10 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1786396331;
+	bh=4oSfONn5Yz63lyUzLtV+gfMtS9ynEzwvoGCshYVSCu4=; h=From:To:Subject;
+	b=XWTnSgQBHutL2fKLqJf4aoRhkbR7qWiLGZcae4flULuRgn7Tb2aM5hav9mSUzoGMU
+	 ur+BfXUM/0J4oYdc1GRs2qSoVMPymIeTZ5toEAc21RekgM4zhNRRR7/uOC6hjYqu3q
+	 72IXMHiR5hqiDLOghTTwNzGbiwY2Hcyi2zZda7RWS2vA75r3FRiBi7MY18UtAqE7j+
+	 ld5sGLfTehy8Q7Eq18+tc8jCdRw0HvThS/I611mRCR+vaZPuxMIEQcH9AtxnX59u4t
+	 2+dnSc9VXLRFqg0Sd3GPt5u2tKSPrbXmvA+ZACLkKpDVJanaGlD6+HotDsa208IQKC
+	 OLBZwUxNuPlSQ==
+Date: Mon, 10 Aug 2026 23:12:09 +0200
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Leonardo Costa <leoreis.costa@gmail.com>
+Cc: hongxing.zhu@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org,
+	kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org,
+	bhelgaas@google.com, Frank.Li@nxp.com, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, festevam@gmail.com,
+	regressions@lists.linux.dev, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org, leonardo.costa@toradex.com,
+	francesco@dolcini.it
+Subject: Re: [REGRESSION] mainline/master: PCI link creation fails on Apalis
+ iMX6
+Message-ID: <20260810211209.GB4821@francesco-nb>
+References: <bl7i3obu2clzsgeoct2a4mtfhv6typcjdqmgneropf3hpgwve6@n2m5uhlduw57>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <bl7i3obu2clzsgeoct2a4mtfhv6typcjdqmgneropf3hpgwve6@n2m5uhlduw57>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_135717_593151_71321054 
-X-CRM114-Status: GOOD (  25.82  )
+X-CRM114-CacheID: sfid-20260810_141216_043485_934A1BF9 
+X-CRM114-Status: UNSURE (   8.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,78 +76,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello all,
 
 
-> Am 10.08.2026 um 22:34 schrieb Andreas Kemnade <andreas@kemnade.info>:
->=20
-> On Mon, 10 Aug 2026 20:30:13 +0200
-> "H. Nikolaus Schaller" <hns@goldelico.com> wrote:
->=20
->>>=20
->>> Yes that is what I mean. It needs to be ported somewhere. If it can =
-be ported to
->>> some compatible =3D "pwm_bl_for_tps61161" or what fits best it will =
-be fine. Or it
->>> could be in some compatible =3D "pandora_bl" driver.
->>>=20
->>> Has to be worked out when the development machines are not blocked =
-by 3 or 4 other
->>> projects already running in parallel :) =20
->>=20
->> Nevertheless I did a quick look into the pandora_bl driver structure.
->>=20
->> Here are my findings:
->> - the code fragment is part of pandora_backlight_update_status()
->> - priv->old_state remembers if brighness was set to 0 or not
->> - so this code triggers on any change from bright =3D 0 to bright > 0
->> - the pandora_bl driver is the only one to use TWL_MODULE_PWM besides =
-twl-pwm
->>=20
->> So the most natural way of transplanting this appears to me:
->> - add this logic to the twl-pwm driver
->=20
-> That chip could be connected to any pwm driver, so
-> it does not make sense to have that in a pwm driver.
+On Mon, Aug 10, 2026 at 02:54:45PM -0300, Leonardo Costa wrote:
+> We are seeing a regression on Apalis iMX6 where connected PCI device
+> links fail to come up at initialization, as shown below. The issue is
+> not on the devices' physical connection, as they worked properly on v7.1
+> and are working on other stable kernel versions.
 
-Well, the chip does not need a driver, at all - at least in PWM case.
-The missing piece is just about doing proper startup into PWM mode.
+just to make this more clear.
 
-> So it belongs into a backlight driver.
+610fa91d9863 ("PCI: imx6: Assert PERST# before enabling regulators")
+introduced a regression that prevented the boot. because of that we were
+not able to run any of our test in our CI/CD
 
-Interesting how contrary requirements can be judged :) Especially
-for such simple things that apparently even work without any driver.
+commit 7678e81498e2 ("PCI: imx6: Fix i.MX6Q/DL boot hang caused by improper PHY power sequencing")
+fixes the boot issue, but now PCIe is not longer working
 
-> And since it shared so much
-> code with the pwm_bl, it could be extended.
 
-But how do you give the chip driver access to twl4030 registers?
-Or make it universal so that it works on any PWM generator? Any ideas?
+Francesco
 
-> The compatible should have pwm in the name to be able to also add
-> a w1 driver later.
-
-Ok, that is an argument to be considered.
-
-But: for multi-protocol chips (think of SPI and I2C) there are
-usually two drivers (or glue code for a core driver) for each
-protocol. So we can have one driver when connected to PWM and
-another being an EasyScale (which is not the standard one-wire
-protocol) driver.
-
-BTW: I am still not convinced that the chip needs an EasyScale
-client driver at all. The protocol is similar to an UART with
-fixed bit format. So this rather needs a generic host driver. Not a
-client driver. Something like baclkight levels -> easy-scale.
-Then you can connect any compatible chip.
-
-But even in this case the hardware connection requires you to
-patch or piggy-back that into the twl4030 pwm driver because that
-is the connection given by the Pandora hardware.
-
-So why not generating the simple startup sequence in the PWM driver?
-KISS...
-
-BR,
-Nikolaus
 
 
