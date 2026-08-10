@@ -4,58 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 144BEC5AD55
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 11:43:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D35FC5AC82
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 11:46:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Eiem7LBuQlQ7cxSVIkkWqhfHRGZ0GHrsJpkwoKlf1L8=; b=YHdUduzDmHBdqJPp5wx0v3A9sO
-	IMxiJXerQp/rU4zwqUlg3ea+3MsYIDy8FXs4FJSfXjdJVHJJ5pLzU5oXo5ASIdgBED5gidYard+KJ
-	51gLn9ZB8g155jGFOjPj8utDFg+lHqPRORQBJ01jdpMacu091cxQsJSATxiYZXKjDHZPmWxdcGeLn
-	M7wo2ynPq2dnmkNHjofie4QjHsE9tcxqdHoWMubB63Vq/OjYUPdXGxXQMHghTeNXY03kkKZqZgnZ5
-	dK+GHaEflJtNGz33dug40tXAQ1gOp06oTyyi7w6HVwjYnx82cAojYOdtmMVFyn+lT8UdbpMQnrZCa
-	inlITs0Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pk1ECRw2Yyocn/6K3wE85Ur7O62uYCnJHZBJkQdAbyI=; b=OSaQSF4K9UBqNr7iJAINI0izGW
+	IYQsc5IVa2IgpI5UjngEyjuINyxRCW4FTN5+3v+QcrtiCJjfKl3a38FWBjpQyzNYGiNQZ29Ai+8gP
+	DXqVNiXA9xzfMduq5UBw3VHmZASG4c5JUjXe7UlVUJfwLw5OA55Qaw3L9GV/sVu8HPZE4YAbw8J/r
+	RAIwSPCdgXbiZOttZPfe9DwM4En/9HkW+SbWjk+5HSefgHs8JhxElh/YE+T8hm9iOMkKuQtPxdnII
+	H4Uj78+FWzJpA4R4s9pDDPiMbbZ48PyHLwuBF803KnYO/PpB1fnbmbxcqAlMXo929YjAotTXH7XPu
+	HrBtOtiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtOPY-0000000Bea3-0qPo;
-	Mon, 10 Aug 2026 11:43:20 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wtOSo-0000000Bf0I-2UYn;
+	Mon, 10 Aug 2026 11:46:42 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtOPW-0000000BeZg-052z
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 11:43:18 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A336040C51;
-	Mon, 10 Aug 2026 11:43:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D07D1F000E9;
-	Mon, 10 Aug 2026 11:43:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786362197;
-	bh=Eiem7LBuQlQ7cxSVIkkWqhfHRGZ0GHrsJpkwoKlf1L8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=eZp6majYjI/aUrK+Nqma3GbUetgI4bpxlVWLt9Fkm/FJVvy56+I5h18+CZrVGPhdB
-	 DESfIM9Kx2ff4dMsCqa0N3l1++lnqGMKlZ7pW0ySFR34nJ3dUnPdSlnIpXuUJvFsYw
-	 vzMXXr9rRAsxpA+Sn1cNCRSPlfLWraJvbMx2D7Xy2glAOEzn7EZnM5SWjTpRE++D10
-	 F3DhKQCUCGpfdVioGcaJt9/kM20iI4xdKMG3kJK9uacn8k9+31oOzBX+oDv4QawevO
-	 8XPLWPyiAg7OX4L9JGs8F2QMONOClF6dpE0LvsSOLSayWJ58NmanShQKCccH2F3CoL
-	 6b3ORM9MW8GEg==
-Date: Mon, 10 Aug 2026 12:43:11 +0100
-From: Will Deacon <will@kernel.org>
-To: Breno Leitao <leitao@debian.org>
-Subject: Re: [PATCH RFC] arm64: entry: PSTATE_I_SET is leaking on pseudo NMI
- mode
-Message-ID: <anm5T9FazACqOWXF@willie-the-truck>
-References: <20260807-arm64_fix-v1-1-d069ccf9d71b@debian.org>
- <anXkO8YpoadRzm07@J2N7QTR9R3>
- <anXqMsJ14r3BAbMG@gmail.com>
- <anYHjvJ1_4dDjuzw@gmail.com>
+	id 1wtOSm-0000000Beyu-0fiR;
+	Mon, 10 Aug 2026 11:46:41 +0000
+From: Gregor Herburger <gregor.herburger@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1786362397;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=pk1ECRw2Yyocn/6K3wE85Ur7O62uYCnJHZBJkQdAbyI=;
+	b=4DsGh//QE48BwOAa+ppUSo5lqNTMrto9evYOUAHs9nmD8qyYyQr/VzGfU56M5JZjGNndzF
+	ewWPeXaJOmIKc+/QX4Q+K73Tjue92pWEVvCKgc+gAXAbVEHx03H0LhURp1NrARezRFcnPq
+	lHvICBI18KUCv9FXq3S/3gmpIXMow3EJer7iFRWyWOeqskPwaCR6XisuOIq1UgOgwYCuv5
+	yyuHl9+uLrXwcl746M6C+viPbILXRbkWwkc97IbF9eCZ8Zn5+0SoYWhqk3+GtTcm0WsVu+
+	EIe+A7IQiqUzezNkI6TxR1wdgk8QzZab800ec/gTxkdh4a0QpCXdLfscyWC3XQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1786362397;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=pk1ECRw2Yyocn/6K3wE85Ur7O62uYCnJHZBJkQdAbyI=;
+	b=ojujx0/R5TlGrwh5PY5OZonLNhSv61XCpge0Fd1ahlyeXbr6ugNhUZqv72dXnM6TE4PFWb
+	2kNAb0B1BYVngxBg==
+Date: Mon, 10 Aug 2026 13:46:33 +0200
+Subject: [PATCH v4 1/2] dt-bindings: arm: bcm2835: Add 2712-d0 Stepping
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <anYHjvJ1_4dDjuzw@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260810-bcm2712-d-stepping-compatible-v4-1-73f74479539c@linutronix.de>
+References: <20260810-bcm2712-d-stepping-compatible-v4-0-73f74479539c@linutronix.de>
+In-Reply-To: <20260810-bcm2712-d-stepping-compatible-v4-0-73f74479539c@linutronix.de>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
+ Eric Anholt <eric@anholt.net>, Stefan Wahren <wahrenst@gmx.net>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>
+Cc: devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Gregor Herburger <gregor.herburger@linutronix.de>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1786362397; l=1074;
+ i=gregor.herburger@linutronix.de; s=20260226; h=from:subject:message-id;
+ bh=OY8lc8Vz8pu7sRcvxbNmJANYtvunkxTE4JtLFk346G0=;
+ b=dUI5DcroJ9xnueLOGMGFrLNGsm+UmtIfhuGRsVDNJwWf9LsK8eQdpE9R9Ql0L63Hb9zTmhlh0
+ iUE60sK4BAKAiglwM3n2Z8rWXX6okPN3BU8PCGYGxIU2Itxweqp6fkY
+X-Developer-Key: i=gregor.herburger@linutronix.de; a=ed25519;
+ pk=u72Lv7+/lS5CC1hmSrb17lv/6CK7HBh4Lvz77PHA5LM=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260810_044640_343279_F458A846 
+X-CRM114-Status: UNSURE (   7.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,45 +88,39 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Vladimir Murzin <vladimir.murzin@arm.com>, rmikey@meta.com, "Peter Zijlstra \(Intel\)" <peterz@infradead.org>, Catalin Marinas <catalin.marinas@arm.com>, Jinjie Ruan <ruanjinjie@huawei.com>, kernel-team@meta.com, linux-kernel@vger.kernel.org, bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 07, 2026 at 09:29:12AM -0700, Breno Leitao wrote:
-> On Fri, Aug 07, 2026 at 07:58:21AM -0700, Breno Leitao wrote:
-> > Meanwhile, I will try to ftrace the writes to PMR and regs->pmr to get
-> > a better grasp of the states machine we are in (probably on Monday).
-> 
-> It seems LLM found a very easy to reproduce this:
-> 
-> 	bash-5.1# dmesg
-> 
-> 	bash-5.1#  cd /sys/kernel/tracing
-> 	echo 'r:pmr vfs_read bad=+0($retval):u64' >> kprobe_events
-> 	echo 1 > events/kprobes/pmr/enable
+The bcm2712 SoC, found on the Raspberry Pi 5, is available in a d
+Stepping and in a c Stepping. The two steppings are not compatible.
 
-Nice, that triggers straightforwardly in QEMU for me. The diff below
-(which implements my suggestion from [1]) seems to fix the issue, but
-it would be good to hear feedback from one of the Arm folks.
+Introduce a new SoC compatible string together with a new board
+compatible string.
 
-Will
+Signed-off-by: Gregor Herburger <gregor.herburger@linutronix.de>
+---
+ Documentation/devicetree/bindings/arm/bcm/bcm2835.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-[1] https://lore.kernel.org/all/anXgWRmcjwPKG7N5@willie-the-truck/
+diff --git a/Documentation/devicetree/bindings/arm/bcm/bcm2835.yaml b/Documentation/devicetree/bindings/arm/bcm/bcm2835.yaml
+index 2729a542c4f35..7ad6583f7fae0 100644
+--- a/Documentation/devicetree/bindings/arm/bcm/bcm2835.yaml
++++ b/Documentation/devicetree/bindings/arm/bcm/bcm2835.yaml
+@@ -29,6 +29,12 @@ properties:
+               - raspberrypi,5-model-b
+           - const: brcm,bcm2712
+ 
++      - description: BCM2712-d0 stepping based Boards
++        items:
++          - enum:
++              - raspberrypi,5-model-b-d0
++          - const: brcm,bcm2712-d0
++
+       - description: BCM2835 based Boards
+         items:
+           - enum:
 
---->8
-
-diff --git a/arch/arm64/include/asm/daifflags.h b/arch/arm64/include/asm/daifflags.h
-index 795b35128467..691ee5f86dbe 100644
---- a/arch/arm64/include/asm/daifflags.h
-+++ b/arch/arm64/include/asm/daifflags.h
-@@ -132,7 +132,7 @@ static __always_inline void local_daif_inherit(struct pt_regs *regs)
-                trace_hardirqs_on();
-
-        if (system_uses_irq_prio_masking())
--               gic_write_pmr(regs->pmr);
-+               gic_write_pmr(regs->pmr & ~GIC_PRIO_PSR_I_SET);
-
-        /*
-         * We can't use local_daif_restore(regs->pstate) here as
+-- 
+2.47.3
 
 
