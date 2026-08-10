@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F6FBC5B56A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 16:47:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1137EC5AD7B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 16:47:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BJm1Z9xZ0d8T/x30s5rEX7Wpd/wxL/yzuR113JZ+N2k=; b=MpbMy6Ki0vFCn/9KHICacopCoO
-	Zz1+W2BiIV3Fjl3m0G0zlGhKyodhN/hourCmvjDMcd3lhjnDqHawjb8BaDYTURfOLR7hwDRtvgyVj
-	WMn9iOyB/WtJpcsLMsDnzhKdCitICILb1JlX7y3Ly00I5UtWkgnbHLnpPsmyp7k1Ix25Z5XKbIPSW
-	7DEN5UNjf+QtSKJF+tODZ96z6yoOQJccdCj4rHFOdkd3XjDAVZTnOm2ioAAoxjaZLT8GqWLqeijJc
-	wWtaAnBxWoqfQC0wSKhJC/osEztZQukeiqmTZxIeQ/J4zm26PKI16iC58RLaPnTK2zvAD1pjmUJxw
-	EpRdMaew==;
+	bh=sEvl1i/8v8mimTmquA8RacZ4H8SQz2jDVrPg8tx+M6I=; b=Ug0hsDroaGWWOEIKntwGvliYxJ
+	aYPJtxsGlR11EjFB5TTe49KXfPyMF94t49yDV3gscXNyzlztCUlWgRyyHZf8RsWDYFY5Tst2/CGIc
+	FFptlvqvO/pY6xKe45/6YreW59/PjQxd25sbmpkzsjHR1J1hGSC43KxoSdtyuvaCv9nOww/u8l0WW
+	sVHk4kxuom36d3OwXMeFDT5ONfrRj320B7gciN8oFR+c5SGh090BFyrZCZMsre5TBfH8STvgNhfsi
+	Q+2EOs+vxir/wWkpHK5nfSKJPBE0mc9AGDycEEecUDDFvlqUKiKzki1DYqFzNzXkVADnT3C8xEJuH
+	ZGq90h9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtT9O-0000000CRHu-2L8Y;
-	Mon, 10 Aug 2026 16:46:58 +0000
+	id 1wtT9U-0000000CRLd-3bhz;
+	Mon, 10 Aug 2026 16:47:05 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtT9M-0000000CRHD-0F9Q
+	id 1wtT9S-0000000CRKs-44Je
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 16:46:57 +0000
+	Mon, 10 Aug 2026 16:47:03 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CD4654343E;
-	Mon, 10 Aug 2026 16:46:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C8BD1F00A3D;
-	Mon, 10 Aug 2026 16:46:55 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B5F3143CBA;
+	Mon, 10 Aug 2026 16:47:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 640A41F00A3D;
+	Mon, 10 Aug 2026 16:47:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786380415;
-	bh=BJm1Z9xZ0d8T/x30s5rEX7Wpd/wxL/yzuR113JZ+N2k=;
+	s=k20260515; t=1786380422;
+	bh=sEvl1i/8v8mimTmquA8RacZ4H8SQz2jDVrPg8tx+M6I=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=UVBZJ4LBmAqMcuNy4QTwNkP9Hd82xX+auqNQuNoTeezY1tYQ6cfYnTUmI+Mq9wduN
-	 ULOi3Gb6t0hTHlZduxRAdRJXwzAwAxiVDb4UzbzqzmU8FO9vD74lyTmK1iBcMhj0wB
-	 p0aGX91KeSBMcGaS5PD8+Dq1cZmGdhvGqZUbZkF8eiL5Oz6O9whHrDsk9vZ5wkupMM
-	 pl3Ug3FH+DhuWbHCDKfRIpIzkgbBN4oQKlyhf3fy58BFaj8FkY7r0vflR725lzkUdj
-	 ja2d9QNXhC3KKLwZW1NNNtIfhQ2mUM/rTQPYMXDED8pQl62jMqmU4glbL8ivd/Lubr
-	 u7FTv1WcGzxYw==
+	b=TniOiPePfVaZodNOV9iJWd6S3f3NHKO8b4eIsiodgDfRSxvCE30G4S02fyqCaN1OG
+	 VxJAY7nOSmg2EqVtc6s0ZnxyEOG1bdntN8RmJYQKS0btMkrBbWbN8QbiHr/gDCUAk7
+	 OUjeZNLgB/zuhjJy6YYRGUC4uWdhGEtNo/WDTQJUXSU05gJRzEwQyoRXi7UH8fzmEa
+	 8xmsTT0qlthnpTg8FZGWMsHE4sQuOM1z6WCspx0Z+l1yu4ljc97nAy7NvJXJ4r1MOH
+	 GADo7DAQ30kYCIlH2jWISpwU1TdDlXWIFXpvaQPij4p1gsKQtMnw0OPZCTVOLUbKR+
+	 YRQZfaaNzs5BA==
 From: Puranjay Mohan <puranjay@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
@@ -78,9 +78,9 @@ Cc: Puranjay Mohan <puranjay@kernel.org>,
 	linux-kselftest@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	kernel-team@meta.com
-Subject: [PATCH v6 1/3] arm64: Add raw variants of local_daif_save() and local_daif_restore()
-Date: Mon, 10 Aug 2026 09:46:18 -0700
-Message-ID: <20260810164622.1829843-2-puranjay@kernel.org>
+Subject: [PATCH v6 3/3] selftests/bpf: Adjust entry thresholds for ARM64 BRBE
+Date: Mon, 10 Aug 2026 09:46:20 -0700
+Message-ID: <20260810164622.1829843-4-puranjay@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260810164622.1829843-1-puranjay@kernel.org>
 References: <20260810164622.1829843-1-puranjay@kernel.org>
@@ -100,141 +100,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-local_daif_save() unconditionally calls trace_hardirqs_off(), and
-local_daif_restore() the matching trace_hardirqs_on(). A caller already
-in a hardirqs-off context, or one that must not run tracing code between
-masking exceptions and its next step, has no way to opt out.
+The test bounds how many branch entries are spent reaching the snapshot
+helper. The limit of 10 was calibrated on x86, which spends about 7.
 
-cpu_suspend() is one such caller and already carries a comment asking for
-this. Sampling the BRBE branch record buffer is another: the tracing
-calls generate branches that evict the records about to be read.
+arm64 spends up to 14: eight in the BPF trampoline, which makes
+out-of-line calls and branches more than x86 does, and the rest in
+masking exceptions before the branch buffer can be paused.
 
-Split the tracing out into raw_local_daif_save() and
-raw_local_daif_restore(), and convert cpu_suspend() to the raw save with
-a lockdep_assert_irqs_disabled() for the precondition it now relies on.
-Its restore stays traced, to re-arm the irqsoff tracer for the resume
-path. The PMR unmasking cpu_suspend() needs is in raw_local_daif_mask(),
-so it is unaffected.
+Raise the limit to 18 on arm64, leaving room for compiler and
+configuration variation.
+
+The skip threshold has to move with it. BRBE implements 8, 16, 32 or 64
+records, so on a 16 record buffer the existing 'total_entries < 16'
+check does not skip, but 14 wasted entries leave only 2 for the hit test
+and it fails instead. Derive the minimum from the two limits it depends
+on, so the arms cannot drift apart.
+
+This leaves 8 and 16 record implementations skipped, since the required
+hit count is absolute and does not scale with the buffer.
 
 Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
 ---
- arch/arm64/include/asm/daifflags.h | 41 +++++++++++++++++++++++++-----
- arch/arm64/kernel/suspend.c        |  7 ++---
- 2 files changed, 36 insertions(+), 12 deletions(-)
+ .../bpf/prog_tests/get_branch_snapshot.c      | 28 ++++++++++++-------
+ 1 file changed, 18 insertions(+), 10 deletions(-)
 
-diff --git a/arch/arm64/include/asm/daifflags.h b/arch/arm64/include/asm/daifflags.h
-index 795b351284673..c3adba0985bda 100644
---- a/arch/arm64/include/asm/daifflags.h
-+++ b/arch/arm64/include/asm/daifflags.h
-@@ -18,8 +18,7 @@
- #define DAIF_MASK		(PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT)
+diff --git a/tools/testing/selftests/bpf/prog_tests/get_branch_snapshot.c b/tools/testing/selftests/bpf/prog_tests/get_branch_snapshot.c
+index 0394a1156d99d..e06ae6798dbec 100644
+--- a/tools/testing/selftests/bpf/prog_tests/get_branch_snapshot.c
++++ b/tools/testing/selftests/bpf/prog_tests/get_branch_snapshot.c
+@@ -108,21 +108,29 @@ void serial_test_get_branch_snapshot(void)
  
+ 	trigger_module_test_read(100);
  
--/* mask/save/unmask/restore all exceptions, including interrupts. */
--static __always_inline void local_daif_mask(void)
-+static __always_inline void raw_local_daif_mask(void)
- {
- 	WARN_ON(system_has_prio_mask_debugging() &&
- 		(read_sysreg_s(SYS_ICC_PMR_EL1) == (GIC_PRIO_IRQOFF |
-@@ -34,6 +33,12 @@ static __always_inline void local_daif_mask(void)
- 	/* Don't really care for a dsb here, we don't intend to enable IRQs */
- 	if (system_uses_irq_prio_masking())
- 		gic_write_pmr(GIC_PRIO_IRQON | GIC_PRIO_PSR_I_SET);
-+}
+-	if (skel->bss->total_entries < 16) {
++	/* Reaching the snapshot helper costs a few entries: about 7 on x86_64
++	 * and about 14 on arm64, whose BPF trampoline branches more. Bound it
++	 * so that a regression shows up here.
++	 *
++	 * Derive the buffer minimum from the two limits it depends on, so the
++	 * arms cannot drift apart.
++	 */
++#if defined(__aarch64__)
++#define WASTED_ENTRIES_MAX	18
++#else
++#define WASTED_ENTRIES_MAX	10
++#endif
++#define TEST1_HITS_MIN		7
++#define TOTAL_ENTRIES_MIN	(WASTED_ENTRIES_MAX - 1 + TEST1_HITS_MIN)
 +
-+/* mask/save/unmask/restore all exceptions, including interrupts. */
-+static __always_inline void local_daif_mask(void)
-+{
-+	raw_local_daif_mask();
++	if (skel->bss->total_entries < TOTAL_ENTRIES_MIN) {
+ 		/* too few entries for the hit/waste test */
+ 		test__skip();
+ 		goto cleanup;
+ 	}
  
- 	trace_hardirqs_off();
- }
-@@ -53,18 +58,29 @@ static __always_inline unsigned long local_daif_save_flags(void)
- 	return flags;
- }
+-	ASSERT_GT(skel->bss->test1_hits, 6, "find_looptest_in_lbr");
+-
+-	/* Given we stop LBR in software, we will waste a few entries.
+-	 * But we should try to waste as few as possible entries. We are at
+-	 * about 7 on x86_64 systems.
+-	 * Add a check for < 10 so that we get heads-up when something
+-	 * changes and wastes too many entries.
+-	 */
+-	ASSERT_LT(skel->bss->wasted_entries, 10, "check_wasted_entries");
++	ASSERT_GT(skel->bss->test1_hits, TEST1_HITS_MIN - 1, "find_looptest_in_lbr");
++	ASSERT_LT(skel->bss->wasted_entries, WASTED_ENTRIES_MAX, "check_wasted_entries");
  
--static __always_inline unsigned long local_daif_save(void)
-+static __always_inline unsigned long raw_local_daif_save(void)
- {
- 	unsigned long flags;
- 
- 	flags = local_daif_save_flags();
- 
--	local_daif_mask();
-+	raw_local_daif_mask();
- 
- 	return flags;
- }
- 
--static __always_inline void local_daif_restore(unsigned long flags)
-+static __always_inline unsigned long local_daif_save(void)
-+{
-+	unsigned long flags;
-+
-+	flags = raw_local_daif_save();
-+
-+	trace_hardirqs_off();
-+
-+	return flags;
-+}
-+
-+static __always_inline void __local_daif_restore(unsigned long flags, bool trace)
- {
- 	bool irq_disabled = flags & PSR_I_BIT;
- 
-@@ -72,7 +88,8 @@ static __always_inline void local_daif_restore(unsigned long flags)
- 		(read_sysreg(daif) & (PSR_I_BIT | PSR_F_BIT)) != (PSR_I_BIT | PSR_F_BIT));
- 
- 	if (!irq_disabled) {
--		trace_hardirqs_on();
-+		if (trace)
-+			trace_hardirqs_on();
- 
- 		if (system_uses_irq_prio_masking()) {
- 			gic_write_pmr(GIC_PRIO_IRQON);
-@@ -116,10 +133,20 @@ static __always_inline void local_daif_restore(unsigned long flags)
- 
- 	write_sysreg(flags, daif);
- 
--	if (irq_disabled)
-+	if (irq_disabled && trace)
- 		trace_hardirqs_off();
- }
- 
-+static __always_inline void local_daif_restore(unsigned long flags)
-+{
-+	__local_daif_restore(flags, true);
-+}
-+
-+static __always_inline void raw_local_daif_restore(unsigned long flags)
-+{
-+	__local_daif_restore(flags, false);
-+}
-+
- /*
-  * Called by synchronous exception handlers to restore the DAIF bits that were
-  * modified by taking an exception.
-diff --git a/arch/arm64/kernel/suspend.c b/arch/arm64/kernel/suspend.c
-index c41724a40b756..461948ad15ec8 100644
---- a/arch/arm64/kernel/suspend.c
-+++ b/arch/arm64/kernel/suspend.c
-@@ -117,14 +117,11 @@ int cpu_suspend(unsigned long arg, int (*fn)(unsigned long))
- 	 * updates to mdscr register (saved and restored along with
- 	 * general purpose registers) from kernel debuggers.
- 	 *
--	 * Strictly speaking the trace_hardirqs_off() here is superfluous,
--	 * hardirqs should be firmly off by now. This really ought to use
--	 * something like raw_local_daif_save().
--	 *
- 	 * This also unmasks interrupts in PMR in order to reliably
- 	 * resume if we're using pseudo-NMIs.
- 	 */
--	flags = local_daif_save();
-+	lockdep_assert_irqs_disabled();
-+	flags = raw_local_daif_save();
- 
- 	/*
- 	 * Function graph tracer state gets inconsistent when the kernel
+ cleanup:
+ 	get_branch_snapshot__destroy(skel);
 -- 
 2.53.0-Meta
 
