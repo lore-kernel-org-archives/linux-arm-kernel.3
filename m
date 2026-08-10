@@ -4,64 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE86EC5AC82
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 11:39:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 144BEC5AD55
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 11:43:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P0u6lGUiQZ9xDiMEWf+IKqlqkyWhF01/3VtVUUrckZ8=; b=Sbd45oEBEegH0hgqdBEPWAgfa3
-	JT1r4nkcs7JyxOMEkqFtf6MSrCmRIipGtk0slMAkW6cosVikfU7NR1kJcb8frumMUEMHXKDF3ZUsT
-	ktFbzS5zMCD2XDhEhxe+UzVPRF5b8LRgHt9Y5nkABzKheTx9AYeUAbGDuBNuhzT9pXABapXIRGzvs
-	6vC5c6QtHRKaGuCK9gPPdkCOpdO7K85xF2zWDFqNEMDj9Nj6MZA50fRFSZbOx8lL1foobbFNm5tD4
-	E7WrhWdtvo67GpUbECYaXjWsYBHc0wCZigr0l0kBtJ/G2DcRByfNM3hh01uhREq7kyrv6fN5R9Zza
-	jGQF3i7Q==;
+	bh=Eiem7LBuQlQ7cxSVIkkWqhfHRGZ0GHrsJpkwoKlf1L8=; b=YHdUduzDmHBdqJPp5wx0v3A9sO
+	IMxiJXerQp/rU4zwqUlg3ea+3MsYIDy8FXs4FJSfXjdJVHJJ5pLzU5oXo5ASIdgBED5gidYard+KJ
+	51gLn9ZB8g155jGFOjPj8utDFg+lHqPRORQBJ01jdpMacu091cxQsJSATxiYZXKjDHZPmWxdcGeLn
+	M7wo2ynPq2dnmkNHjofie4QjHsE9tcxqdHoWMubB63Vq/OjYUPdXGxXQMHghTeNXY03kkKZqZgnZ5
+	dK+GHaEflJtNGz33dug40tXAQ1gOp06oTyyi7w6HVwjYnx82cAojYOdtmMVFyn+lT8UdbpMQnrZCa
+	inlITs0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtOLe-0000000Be5N-32RD;
-	Mon, 10 Aug 2026 11:39:18 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wtOPY-0000000Bea3-0qPo;
+	Mon, 10 Aug 2026 11:43:20 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtOLd-0000000Be56-0ewV
+	id 1wtOPW-0000000BeZg-052z
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 11:39:17 +0000
+	Mon, 10 Aug 2026 11:43:18 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B3BB94143B;
-	Mon, 10 Aug 2026 11:39:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 397A11F000E9;
-	Mon, 10 Aug 2026 11:39:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1786361956;
-	bh=P0u6lGUiQZ9xDiMEWf+IKqlqkyWhF01/3VtVUUrckZ8=;
+	by sea.source.kernel.org (Postfix) with ESMTP id A336040C51;
+	Mon, 10 Aug 2026 11:43:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D07D1F000E9;
+	Mon, 10 Aug 2026 11:43:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786362197;
+	bh=Eiem7LBuQlQ7cxSVIkkWqhfHRGZ0GHrsJpkwoKlf1L8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=0n5GSYMjKpmNPLb015C0thOzWGSPPkoWGGuoIt2+ELcLaSMQGIaMyoOZDKUw+hkvU
-	 M+zxwrMLMEusBAVJds31c3BcDFwQ8BC80O+P0nZ62caf6QGVSTDf51Qj8Ak37y0tt0
-	 SUElGnBIwcGv63s6L7SLa3uxesIEVZGFEngp5IuY=
-Date: Mon, 10 Aug 2026 13:37:44 +0200
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: seanwang1 <seanwang1@lenovo.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Sudeep Holla <sudeep.holla@kernel.org>, rafael@kernel.org,
-	Danilo Krummrich <dakr@kernel.org>,
-	Lifeng Zheng <zhenglifeng1@huawei.com>,
-	Beata Michalska <beata.michalska@arm.com>,
-	Xuewen Yan <xuewen.yan@unisoc.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Sumit Gupta <sumitg@nvidia.com>,
-	Yunhui Cui <cuiyunhui@bytedance.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	driver-core@lists.linux.dev
-Subject: Re: [PATCH v2] arm64: topology: add source check in
- arch_cpu_idle_enter()
-Message-ID: <2026081025-rummage-rifling-982e@gregkh>
-References: <20260810102006.9986-1-seanwang1@lenovo.com>
+	b=eZp6majYjI/aUrK+Nqma3GbUetgI4bpxlVWLt9Fkm/FJVvy56+I5h18+CZrVGPhdB
+	 DESfIM9Kx2ff4dMsCqa0N3l1++lnqGMKlZ7pW0ySFR34nJ3dUnPdSlnIpXuUJvFsYw
+	 vzMXXr9rRAsxpA+Sn1cNCRSPlfLWraJvbMx2D7Xy2glAOEzn7EZnM5SWjTpRE++D10
+	 F3DhKQCUCGpfdVioGcaJt9/kM20iI4xdKMG3kJK9uacn8k9+31oOzBX+oDv4QawevO
+	 8XPLWPyiAg7OX4L9JGs8F2QMONOClF6dpE0LvsSOLSayWJ58NmanShQKCccH2F3CoL
+	 6b3ORM9MW8GEg==
+Date: Mon, 10 Aug 2026 12:43:11 +0100
+From: Will Deacon <will@kernel.org>
+To: Breno Leitao <leitao@debian.org>
+Subject: Re: [PATCH RFC] arm64: entry: PSTATE_I_SET is leaking on pseudo NMI
+ mode
+Message-ID: <anm5T9FazACqOWXF@willie-the-truck>
+References: <20260807-arm64_fix-v1-1-d069ccf9d71b@debian.org>
+ <anXkO8YpoadRzm07@J2N7QTR9R3>
+ <anXqMsJ14r3BAbMG@gmail.com>
+ <anYHjvJ1_4dDjuzw@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260810102006.9986-1-seanwang1@lenovo.com>
+In-Reply-To: <anYHjvJ1_4dDjuzw@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,33 +67,45 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, Vladimir Murzin <vladimir.murzin@arm.com>, rmikey@meta.com, "Peter Zijlstra \(Intel\)" <peterz@infradead.org>, Catalin Marinas <catalin.marinas@arm.com>, Jinjie Ruan <ruanjinjie@huawei.com>, kernel-team@meta.com, linux-kernel@vger.kernel.org, bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 10, 2026 at 06:20:06PM +0800, seanwang1 wrote:
-> arch_cpu_idle_enter() directly calls amu_scale_freq_tick() to update
-> arch_freq_scale when a CPU enters idle. This bypasses the sft_data
-> pointer check that topology_clear_scale_freq_source() relies on.
+On Fri, Aug 07, 2026 at 09:29:12AM -0700, Breno Leitao wrote:
+> On Fri, Aug 07, 2026 at 07:58:21AM -0700, Breno Leitao wrote:
+> > Meanwhile, I will try to ftrace the writes to PMR and regs->pmr to get
+> > a better grasp of the states machine we are in (probably on Monday).
 > 
-> As a result, even after calling topology_clear_scale_freq_source()
-> with SCALE_FREQ_SOURCE_ARCH to disable AMU-based frequency scaling,
-> the arch_freq_scale value can still be modified by AMU counters when
-> the CPU goes idle through the arch_cpu_idle_enter() path.
+> It seems LLM found a very easy to reproduce this:
 > 
-> Add topology_scale_freq_source() helper to check whether a specific
-> frequency scaling source is currently registered for a CPU. Use it
-> in arch_cpu_idle_enter() to verify that AMU is the active source
-> before calling amu_scale_freq_tick().
+> 	bash-5.1# dmesg
 > 
-> This ensures that topology_clear_scale_freq_source() properly
-> disables AMU updates in both the tick path (already handled by
-> topology_scale_freq_tick()) and the idle path.
-> 
-> Co-developed-by: Xuewen Yan <xuewen.yan@unisoc.com>
-> Signed-off-by: Sean Wang <seanwang1@lenovo.com>
-> Signed-off-by: Xuewen Yan <xuewen.yan@unisoc.com>
-> ---
+> 	bash-5.1#  cd /sys/kernel/tracing
+> 	echo 'r:pmr vfs_read bad=+0($retval):u64' >> kprobe_events
+> 	echo 1 > events/kprobes/pmr/enable
 
-The From: line does not match your signed-off-by name :(
+Nice, that triggers straightforwardly in QEMU for me. The diff below
+(which implements my suggestion from [1]) seems to fix the issue, but
+it would be good to hear feedback from one of the Arm folks.
+
+Will
+
+[1] https://lore.kernel.org/all/anXgWRmcjwPKG7N5@willie-the-truck/
+
+--->8
+
+diff --git a/arch/arm64/include/asm/daifflags.h b/arch/arm64/include/asm/daifflags.h
+index 795b35128467..691ee5f86dbe 100644
+--- a/arch/arm64/include/asm/daifflags.h
++++ b/arch/arm64/include/asm/daifflags.h
+@@ -132,7 +132,7 @@ static __always_inline void local_daif_inherit(struct pt_regs *regs)
+                trace_hardirqs_on();
+
+        if (system_uses_irq_prio_masking())
+-               gic_write_pmr(regs->pmr);
++               gic_write_pmr(regs->pmr & ~GIC_PRIO_PSR_I_SET);
+
+        /*
+         * We can't use local_daif_restore(regs->pstate) here as
 
 
