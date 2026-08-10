@@ -4,69 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D99A3C5AD7B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 17:17:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0C8BC5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 17:23:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y8EYsSQinOPLpZR/JfHY5JWlijLWh7GmxY4KXuh35rg=; b=K9XxJrpMBJAXQGStfkTCyMr7FW
-	d5P5V2Q+h8tojzj8JKhmcnSyJkZRp1bTs+XFcRCUHJYrNAfUo2TeP1HmRl8dVmg4mLDYPcYVTKM+U
-	epuXXJnp7mRfcSp+rHP55WnlhK1TDwOZ1faPKgJ/kwYMj2UK8sOJCN8rEaoUGAncoxc/gY00guJkE
-	bdJ4FjkenvYxK0XxiajxnfVPTAk72GizL+JQFU6xE7LoXYABcOXNSJOiq8XREiV+3TtG8O53VN8bs
-	6KQWBzoa1+2JByEjPwCVbXhWRcvIzQbuT7eReaQu+f0eKY4ab72orL/81yB3gMdCO7YBEm5g5rGNc
-	pZygsMbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=scdHE3f1gT3tI1szOZtkMdShahjFVVqLG8G2E2kb/84=; b=Q+9793i6sruewY6q2F0RLhL5+H
+	1Q5JxuzrgjMT/rceG5WuBrqH/d6Oovwila5iNAgkKDEumrr9quAsy0Q+7/Mt9l3YLt4B3cIRQ6fvS
+	/mrj0VjSQrN9Zx4blTH9vv2qbdDXYfmNp6UQVomWI47yHy85u9SGCtxOJPSii0lY3T7hIwGXl/UiO
+	AOz5m26zV5DnsgRW8wQIhWSzg+trX6VfsrCKeyQFmRJ6+UmN3RyR3jbDo+57HuqC9a7i7bhMM/xv1
+	L7ftc5N4AYcgcfg/cKV+ZYJl/izGQiL1USK7IGaTZBsY1ehIPZ/qAFGEZz+YRcL7WCIVdYWLsmtgk
+	Tn6nHh+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtTcY-0000000CUig-1HGd;
-	Mon, 10 Aug 2026 17:17:06 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtTcV-0000000CUhs-1QXr
+	id 1wtTiI-0000000CVUv-0Ph1;
+	Mon, 10 Aug 2026 17:23:02 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wtTiF-0000000CVUR-06eb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 17:17:04 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BDDD814BF;
-	Mon, 10 Aug 2026 10:16:56 -0700 (PDT)
-Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2F4B23F632;
-	Mon, 10 Aug 2026 10:16:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786382220; bh=0bVvXIx8KWhgK4X84+7K0kxtx1IFrC/NFT7STqVMwiw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=c+BrrfAC17BNePDSGhiLYFazAIUh6R4smxAykXhY/36GHerYa79otAGaIdIK0J1px
-	 HuzgIbWscOUsd3c1sHy3XFZ3HBcRFeltPkH5Y3gDJFBZbYtECIBLutHbkK8z1/XH4J
-	 LtpKlGnWrUGXJ4+hfzeENIJoz5bCp4dIRVgVor2A=
-Message-ID: <77edba4a-b6b0-4b50-9328-7c177a0af283@arm.com>
-Date: Mon, 10 Aug 2026 18:16:56 +0100
+	Mon, 10 Aug 2026 17:23:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1786382576;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=scdHE3f1gT3tI1szOZtkMdShahjFVVqLG8G2E2kb/84=;
+	b=E2n3Qe8wIJQhZS27N99nOIEwobd5OHY5DVhvFUZFSdC+VdkLquJYCeEvDGJ9WSjUvBTXof
+	2avMiPJGX4igGevSorI/TB2Vfol3eNNW630mtxUdljvD6O3PXHbxW0cgttYoJCpcFYvslI
+	vs1GIcwhVGymKX1ks40LlbJw66uOWO8=
+Received: from mail-yw1-f199.google.com (mail-yw1-f199.google.com
+ [209.85.128.199]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-629-3F11EZU8ML2FC6K6JhazNQ-1; Mon, 10 Aug 2026 13:22:54 -0400
+X-MC-Unique: 3F11EZU8ML2FC6K6JhazNQ-1
+X-Mimecast-MFC-AGG-ID: 3F11EZU8ML2FC6K6JhazNQ_1786382574
+Received: by mail-yw1-f199.google.com with SMTP id 00721157ae682-81aea53d559so51762747b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 10:22:54 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786382574; x=1786987374;
+        h=user-agent:in-reply-to:content-disposition:content-type
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=scdHE3f1gT3tI1szOZtkMdShahjFVVqLG8G2E2kb/84=;
+        b=pXXdPHJ04qQTR3eKBtseM4qFOO6PQZ9pAvaoT7qd1dfbnbFvRGN/fWQdgVpHn9MdbL
+         U2rm1RyufMveXxrTlx1w34limgSD/YbKM1LMFahF32lNQ0IqzPkcGE3hwkS+QMamZicd
+         UpzrP/lzu/7/4GFH9KfKd2tFOtqtrNmjK1x4cdb3cbaUK3n62X3rthQpzjS2ZfgNBg/H
+         l3/bS0qprbNWj1hPoaUbMgOFp1c/SUXsZOq4160kKxys0bIUBbFY4CxXqbGmFJThQUGy
+         cq1n/Nam2cTTJUouwQHLCcr/ydd2F7DihWr2XOBdG8UOF+N4JSV3CkUD6JlwOblcInl1
+         eZBw==
+X-Forwarded-Encrypted: i=1; AHgh+Rp7xL5tBETiNm5dWTOeKe7bpmAU9dzDENEF/2z+lXrAeVcPz6Q1xMzTAdrSxXJPy+5KDpYLbEPz4prHCgmR4VcU@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxo0dixghGAj74oY+LbaZp7Y9BNEhcN1PwSQbnOAqTHNx/+tk7Y
+	BFUlbesTZIzms22dQ/I+4ki/UEtVCvyMiNsoaLkFbJ7VFwwHAHMh2/t8sa7+g4jDY8w6mdos2zv
+	vfYJhj+MHKQU4qdJmMP+Lslid3X+6mLnKIiW6fBqJe8md3PW7CGksxfGkK6OKVQ5K0YvSSZnoeA
+	ZB
+X-Gm-Gg: AR+sD12qKD80YSiz9UEA9nC647fyma6Eo2Fl+qtERr5dUZoBt8lYRGmK4cjE9GBC5RT
+	Wor4LsfUfvBdm1XyNf+Qjxscf4BExbo564DrfJg/j1UHj1nrizbBK4gIpAc48qnL1O4Mjb1/l1x
+	ZLpi1yjQOeA5bU7EYQlcnaGUTt4XoIa8aZNSG5eHyVstOvDMvA6lI+rm/1fKuj6tZk+VW2b1UOc
+	npQQXEnowyZFU7fpbPtWTS/Z7Poy4jczni9UUNlTo48poXsyqhdRtURzk/q23wTyUXN2jfprxM3
+	r5ZZJ74RiZp3CwPjthtvKkmQxBoi10Hlzc7OH7d925n05uH1K7yiWhKZmLATTHwgfX6n4W82bAp
+	BsJex1NBJx3EjIOYMAJKxyUdXelywk70XPy4=
+X-Received: by 2002:a05:690c:f06:b0:80d:c2cc:f673 with SMTP id 00721157ae682-82d2a8c4531mr20804007b3.20.1786382573961;
+        Mon, 10 Aug 2026 10:22:53 -0700 (PDT)
+X-Received: by 2002:a05:690c:f06:b0:80d:c2cc:f673 with SMTP id 00721157ae682-82d2a8c4531mr20803727b3.20.1786382573576;
+        Mon, 10 Aug 2026 10:22:53 -0700 (PDT)
+Received: from redhat.com (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-823f577c580sm60710857b3.27.2026.08.10.10.22.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 10 Aug 2026 10:22:52 -0700 (PDT)
+Date: Mon, 10 Aug 2026 13:22:49 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Guangshuo Li <lgs201920130244@gmail.com>
+Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Dong Aisheng <aisheng.dong@nxp.com>,
+	Shawn Guo <shawnguo@kernel.org>, linux-clk@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] clk: imx: imx8qxp-lpcg: fix runtime PM cleanup on error
+ path
+Message-ID: <anoI6eX9OzI0bsFy@redhat.com>
+References: <20260808080215.2669452-1-lgs201920130244@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] Add arm-smmu-v3 support for instcfg data override
- feature
-To: Will Deacon <will@kernel.org>, Peter Griffin <peter.griffin@linaro.org>
-Cc: "Joerg Roedel (AMD)" <joro@8bytes.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Pranjal Shrivastava <praan@google.com>,
- Daniel Mentz <danielmentz@google.com>, Mostafa Saleh <smostafa@google.com>,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- kernel-team@android.com, tudor.ambarus@linaro.org, andre.draszik@linaro.org,
- willmcvicker@google.com, jyescas@google.com
-References: <20260724-arm-smmu-v3-instcfg-override-v1-0-e7acf4a8a525@linaro.org>
- <amYIuhYenP4-qHyV@willie-the-truck>
- <0b7c0272-5506-4aee-82b3-76a78f2b39dc@arm.com>
- <CADrjBPqZFDvyLFpDy1YP9qrMNUCtZYtJhiaDd0iTnmB4ZYO8GQ@mail.gmail.com>
- <anmvW1LkypAGW6Sc@willie-the-truck>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <anmvW1LkypAGW6Sc@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+In-Reply-To: <20260808080215.2669452-1-lgs201920130244@gmail.com>
+User-Agent: Mutt/2.4.0 (2026-06-19)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: yKrbY_xtrubAGaJiGSmsmKXOJQhnb007kEubGoJ2IDg_1786382574
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_101703_462636_7AEEB408 
-X-CRM114-Status: GOOD (  29.40  )
+X-CRM114-CacheID: sfid-20260810_102259_132286_DD69842E 
+X-CRM114-Status: GOOD (  21.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,93 +118,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/08/2026 12:00 pm, Will Deacon wrote:
-> On Fri, Aug 07, 2026 at 04:25:11PM +0100, Peter Griffin wrote:
->> On Mon, 27 Jul 2026 at 11:53, Robin Murphy <robin.murphy@arm.com> wrote:
->>>
->>> On 26/07/2026 2:16 pm, Will Deacon wrote:
->>>> On Fri, Jul 24, 2026 at 01:39:41PM +0100, Peter Griffin wrote:
->>>>> These two patches add support for a new "arm,instdata-override" DT property
->>>>> that enables the override of the instruction/data attribute of incoming
->>>>> traffic to Data by setting the INSTCFG override bits.
->>>>>
->>>>> It is intended to be specified when the smmu can't guarantee that these
->>>>> attributes are provided correctly from the client device.
->>>>
->>>> This is going to need an in-tree user and a much more detailed
->>>> description of what is being worked around before we consider this for
->>>> inclusion.
->>
->> Regarding an in-tree user, I haven't sent the Device Tree (DT) patch
->> yet for Laguna SoC which adds the smmu nodes and this property because
->> 1) I want to land the initial SoC/board DT first
->> 2) I want agreement on the DT property name. Currently I used
->> "arm,instdata-override" which is what downstream used. However, since
->> this is intended to work around silicon errata something like
->> "google,lga-instcfg-data-override" might be more appropriate?
->>
->> For Laguna SoC the first in-tree user of this is the amb_smmu smmu
->> instance which is used by the Synopsis dwc3 IP. The Laguna dwc3 glue
->> driver is already upstream at drivers/usb/dwc3/dwc3-google.c
->>
->>>>
->>>> In particular, if a particular client is emitting data reads as
->>>> instructions, then a better work around would be to avoid mapping its
->>>> domains using IOMMU_NOEXEC. But I can't tell what's going on from the
->>>> limited description provided here.
->>>
->>> Unless it's also emitting the privileged bit and thus falling foul of
->>> the implicit Unpriv-W -> Priv-XN rule, but then we also have the means
->>> to deal with devices which actually do that themselves (hello pl330...),
->>> so that would seemingly only leave the case of some innocent piece of
->>> AMBA-interfaced IP which doesn't expect to need special attributes, but
->>> the system integrator has gone out of their way to tie the AxPROT bits
->>> to some wacky value, which I would put in "erratum workaround" territory.
->>>
->>
->> You're correct Robin. It is an erratum workaround for the Laguna SoC
->> due to some custom usage of the AxPROT bits which differs from the
->> standard ARM SMMU handling for Privileged/Unprivileged and
->> Instruction/Data transaction attributes. The effect is all
->> transactions appear to the SMMU as "Privileged Instruction" accesses.
+On Sat, Aug 08, 2026 at 04:02:15PM +0800, Guangshuo Li wrote:
+> imx_lpcg_parse_clks_from_dt() takes a runtime PM usage reference with
+> pm_runtime_get_noresume() and enables autosuspend with
+> pm_runtime_use_autosuspend(). The success path drops the usage
+> reference with pm_runtime_put_autosuspend(), but the error path only
+> disables runtime PM.
 > 
-> Ah, so this sounds like what Robin was worried about.
+> As a result, the reference taken by pm_runtime_get_noresume() remains
+> unbalanced on registration failure. The autosuspend setting is also
+> left enabled instead of being undone with
+> pm_runtime_dont_use_autosuspend().
 > 
->> The software workaround in this series enables the SMMU's INSTCFG
->> override feature to ignore the incoming value and treat all SMMU
->> transactions as "Data".
->>
->> One small clarification: in the cover letter I incorrectly said this
->> was set only for some SMMU IP instances, but that is incorrect. It is
->> actually set on *all* arm-smmu-v3 IP instances in the Laguna SoC.
->>
->> Does the above provide the additional detail you need Will?
+> Add pm_runtime_dont_use_autosuspend() to undo the autosuspend setting
+> and pm_runtime_put_noidle() to drop the usage reference on the error
+> path.
 > 
-> So it sounds like using the instcfg override on this hardware still breaks
-> IOMMU_PRIV and IOMMU_NOEXEC:
+> This issue was found by manual code inspection.
 > 
->    1. If you don't pass IOMMU_PRIV, you still get privileged transactions
+> Fixes: 18cdbad40c6c ("clk: imx: clk-imx8qxp-lpcg: add runtime pm support")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
+> ---
+>  drivers/clk/imx/clk-imx8qxp-lpcg.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/clk/imx/clk-imx8qxp-lpcg.c b/drivers/clk/imx/clk-imx8qxp-lpcg.c
+> index 1dae3410ee99..262645bef62d 100644
+> --- a/drivers/clk/imx/clk-imx8qxp-lpcg.c
+> +++ b/drivers/clk/imx/clk-imx8qxp-lpcg.c
+> @@ -277,8 +277,9 @@ static int imx_lpcg_parse_clks_from_dt(struct platform_device *pdev,
+>  		if (clk_hws[idx])
+>  			imx_clk_lpcg_scu_unregister(clk_hws[idx]);
+>  	}
+> -
 
-However this is inherently true of VMSA stage 1 anyway - I admit I had 
-to double-check, but we don't have any user-only permissions (other than 
-perhaps execute as implied by explicit or implicit PXN). IOMMU_PRIV can 
-only _remove_ unprivileged access.
+Don't remove the newline. With that fixed:
 
->    2. If you don't pass IOMMU_NOEXEC, you do not get execute permission
+Reviewed-by: Brian Masney <bmasney@redhat.com>
+
+
+> +	pm_runtime_dont_use_autosuspend(&pdev->dev);
+>  	pm_runtime_disable(&pdev->dev);
+> +	pm_runtime_put_noidle(&pdev->dev);
+>  
+>  	return ret;
+>  }
+> -- 
+> 2.43.0
 > 
-> Is that correct?
-> 
-> Perhaps it would be better to override PRIVCFG to force unprivileged,
-> then reject IOMMU_PRIV and ignore IOMMU_NOEXEC?
 
- From what Daniel said, it sounds like the privileged attribute is still 
-the doing of the device itself rather than the integration issue in this 
-case, so while nobbling PRIVCFG might also achieve the end result of 
-making IOMMU_READ | IOMMU_WRITE pages mostly not fault on reads, it 
-seems less appropriate as a workaround. Particularly since IOMMU_PRIV is 
-exposed via a general DMA API attribute, while IOMMU_NOEXEC is only 
-accessible to dedicated IOMMU API/io-pgtable users.
-
-Thanks,
-Robin.
 
