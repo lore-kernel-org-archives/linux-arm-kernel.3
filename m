@@ -4,69 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28A03C5AD7B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 18:03:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06C60C5B567
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 18:06:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6uocWMUyq10tTXQPMowB6SxGjrMyb7a+x9LfRaICKnM=; b=qJaJh88MGCwaxNz1tXNJydDmFo
-	od+mDVuaUk/yBwb045Fd/uYsD3xXW9/Fk44GO5PhkaPMTl5s8X5+swmyuH2qQ6epVmQkpWpsJMjmu
-	jXoI67sk5woyaTpRfb0xAqnUwvux06x3DfNrGKpdRknj+iZcxQ2Q5XH4BuMfCEIUlYXzlLgk8akXM
-	YmN9Z8BQMfglppNnwS0/6D1m/4EQwiIYMvYRvkFfuCOljNinQlCBp1lrZYgm7wOB2cilCXTRF3Zb1
-	opLMdwDelb3NpeXul+5jQvLhEVgn+mpZHTMFsGuGZPyMCdiHf6ukxsp2wgkjp40wW1XVr33FjXXz0
-	MKkl+UUw==;
+	bh=avBm9URCfPqZ4vZAPXDRabV58SJB3xWsg3mr1M4l4nI=; b=Tk0zo0zMAzYmW7RMoh8SalKP6k
+	wLK8EDZBtUq9yRQUtCGTlyeQ12uwPg4rOPBT0QcCHz7TgtQXek5eZQJPyndk5p/R/LBS6Uiru33L9
+	eu5l8wCMd+uc0rRUZx29ldFuQKd1esP0pe8HX2epzDBtkcikNYFca9PsJ+44OsJtEIy1ymBqjpcDB
+	9vD01CuqQKbDDFDwDG/hVU9mj+hvgxtE8JdnPr4hK2qlbO7FITtTEXIogIdhz0p0wsCHhohMqv21G
+	qyR6dB2x+nhoh7kEit2NMXFmz+2gP+FwYnx4OrNRFTe64iaBi1xAwmMOZkbfiaNCJ1OPgEgxYT7pv
+	AKLyXZDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtULS-0000000Ca7P-3y3q;
-	Mon, 10 Aug 2026 18:03:30 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtULQ-0000000Ca6I-17e6
+	id 1wtUOB-0000000CaRj-3Jds;
+	Mon, 10 Aug 2026 18:06:19 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wtUO5-0000000CaNR-2IXU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 18:03:29 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2326A14BF;
-	Mon, 10 Aug 2026 11:03:21 -0700 (PDT)
-Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 569D43F86F;
-	Mon, 10 Aug 2026 11:03:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786385005; bh=iqkN+MCW+ZeceZp70Va10kFXV0Ae5WHVvuwaPIe0BHo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=uV1lkrJpi27dsmHgqVdZoC6YQCyQqxSaQ4yha6qZ7KhlAJxrIDRQ7I0y21VRFW17J
-	 RBEcQdiTYv/CD02/lNqrWcMPmlupTvriCJENfZLQutIB80r7ao1/vEYQqcRn9psAX2
-	 3XCJGvAL0qtR7C89llo/aN1FRO+uKq9uZRsjOnZU=
-Message-ID: <530dbb40-e7e2-4121-a5eb-5f16152fd11b@arm.com>
-Date: Mon, 10 Aug 2026 19:03:20 +0100
+	Mon, 10 Aug 2026 18:06:15 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 359267CA;
+	Mon, 10 Aug 2026 20:04:53 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1786385093;
+	bh=G8H9Dl1uK5ID4BHhxZYuXgHaGIHDSo8WXQAFFX/Job4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=bWpHhFi9IW6tX+2d6jrozjEpeuALY4v6CTcnoxv4SvW2lv8W+Cvd7gBKSVGClnv6S
+	 CkSMZeeQRjfKyFBHil9NjnRxOIDdBPSk6S+UJcTRmYwg7Bbc9CevPYzY8Nzf/xKu20
+	 xMT/o7MOkBmT/mAzF4qigI0+V0jFpSET2v8XQlGU=
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: devicetree@vger.kernel.org,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
+	Sakari Ailus <sakari.ailus@iki.fi>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	linux-samsung-soc@vger.kernel.org
+Subject: [PATCH v3 1/7] ARM: dts: samsung: exynos4210-i9100: Replace clock-frequency in camera sensor node
+Date: Mon, 10 Aug 2026 21:05:58 +0300
+Message-ID: <20260810180604.3034255-2-laurent.pinchart@ideasonboard.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260810180604.3034255-1-laurent.pinchart@ideasonboard.com>
+References: <20260810180604.3034255-1-laurent.pinchart@ideasonboard.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] Add arm-smmu-v3 support for instcfg data override
- feature
-To: Rob Herring <robh@kernel.org>, Peter Griffin <peter.griffin@linaro.org>
-Cc: Will Deacon <will@kernel.org>, "Joerg Roedel (AMD)" <joro@8bytes.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Pranjal Shrivastava <praan@google.com>,
- Daniel Mentz <danielmentz@google.com>, Mostafa Saleh <smostafa@google.com>,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- kernel-team@android.com, tudor.ambarus@linaro.org, andre.draszik@linaro.org,
- willmcvicker@google.com, jyescas@google.com
-References: <20260724-arm-smmu-v3-instcfg-override-v1-0-e7acf4a8a525@linaro.org>
- <amYIuhYenP4-qHyV@willie-the-truck>
- <0b7c0272-5506-4aee-82b3-76a78f2b39dc@arm.com>
- <CADrjBPqZFDvyLFpDy1YP9qrMNUCtZYtJhiaDd0iTnmB4ZYO8GQ@mail.gmail.com>
- <20260807224745.GA2180415-robh@kernel.org>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20260807224745.GA2180415-robh@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_110328_511493_5662904A 
-X-CRM114-Status: GOOD (  22.14  )
+X-CRM114-CacheID: sfid-20260810_110613_728757_3A4F4A7F 
+X-CRM114-Status: UNSURE (   9.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,59 +74,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/08/2026 11:47 pm, Rob Herring wrote:
-> On Fri, Aug 07, 2026 at 04:25:11PM +0100, Peter Griffin wrote:
->> Hi Will & Robin,
->>
->> Thank you both for your review feedback.
->>
->> On Mon, 27 Jul 2026 at 11:53, Robin Murphy <robin.murphy@arm.com> wrote:
->>>
->>> On 26/07/2026 2:16 pm, Will Deacon wrote:
->>>> On Fri, Jul 24, 2026 at 01:39:41PM +0100, Peter Griffin wrote:
->>>>> These two patches add support for a new "arm,instdata-override" DT property
->>>>> that enables the override of the instruction/data attribute of incoming
->>>>> traffic to Data by setting the INSTCFG override bits.
->>>>>
->>>>> It is intended to be specified when the smmu can't guarantee that these
->>>>> attributes are provided correctly from the client device.
->>>>
->>>> This is going to need an in-tree user and a much more detailed
->>>> description of what is being worked around before we consider this for
->>>> inclusion.
->>
->> Regarding an in-tree user, I haven't sent the Device Tree (DT) patch
->> yet for Laguna SoC which adds the smmu nodes and this property because
->> 1) I want to land the initial SoC/board DT first
->> 2) I want agreement on the DT property name. Currently I used
->> "arm,instdata-override" which is what downstream used. However, since
->> this is intended to work around silicon errata something like
->> "google,lga-instcfg-data-override" might be more appropriate?
-> 
-> Shrug.
-> 
-> Really, this is why we want SoC specific compatibles so work-arounds can
-> be added without DT updates. But we've generally avoided doing that for
-> SMMU for whatever reasons. Just make the property clearly sound like a
-> mistake, not a feature you might want to use. I'd keep the arm prefix
-> just so the next vendor thinks they can't use 'google' and creates the
-> same property with their vendor prefix.
+The clock-frequency for camera sensors has been deprecated in favour of
+the assigned-clocks and assigned-clock-rates properties. Replace it in
+the device tree.
 
-I dunno, I'd be inclined to keep it more vendor/SoC-specific and tied to 
-the problem more than one (of potentially several) specific workaround - 
-if we did ever want to support using the INSTCFG/PRIVCFG/MEMCFG 
-overrides per their full architectural intent, they are per-StreamID 
-controls so as such would really want to be encoded in an additional 
-#iommu-cell (or at worst maybe a property on the client device node).
+Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+---
+ arch/arm/boot/dts/samsung/exynos4210-i9100.dts | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-Frankly for a workaround condition to just blanket-apply to every SMMU 
-instance in a particular SoC, I'm honestly thinking that just whacking 
-an of_machine_is_compatible() in the driver isn't necessarily the worst 
-idea either - after all we do already have the ACPI equivalent of that 
-for some of the HiSilicon stuff, it's just hidden in the IORT code (and 
-OK it's used for the SMMU PMUs rather than the actual SMMU devices 
-themselves, but still...)
+diff --git a/arch/arm/boot/dts/samsung/exynos4210-i9100.dts b/arch/arm/boot/dts/samsung/exynos4210-i9100.dts
+index 8a635bee59fa..067a3264edf3 100644
+--- a/arch/arm/boot/dts/samsung/exynos4210-i9100.dts
++++ b/arch/arm/boot/dts/samsung/exynos4210-i9100.dts
+@@ -169,11 +169,14 @@ image-sensor@2d {
+ 			vdda-supply = <&cam_io_en_reg>;
+ 			vddreg-supply = <&vt_core_15v_reg>;
+ 			vddio-supply = <&vtcam_reg>;
++
+ 			clocks = <&camera 0>;
+ 			clock-names = "mclk";
++			assigned-clocks = <&camera 0>;
++			assigned-clock-rates = <24000000>;
++
+ 			stbyn-gpios = <&gpl2 0 GPIO_ACTIVE_LOW>;
+ 			rstn-gpios = <&gpl2 1 GPIO_ACTIVE_LOW>;
+-			clock-frequency = <24000000>;
+ 
+ 			port {
+ 				s5k5bafx_ep: endpoint {
+-- 
+Regards,
 
-Thanks,
-Robin.
+Laurent Pinchart
+
 
