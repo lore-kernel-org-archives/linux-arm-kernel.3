@@ -4,64 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C927C5B567
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 19:08:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EB17C5B569
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 19:08:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i3Bh3NJf3rCOPgWQ5f4HdFK7uWZYvnbQa0t/yxL+Gns=; b=FJNQ2Z0oL8sgJA3MMyqM7z/ovD
-	INOUSvLNksa/+aJH7AYHG7AAyYKWlvnpP6OSouOKXapqBGui0Y1ix/7B2C4nlUJdZ3+oltvMVB734
-	WBLqfhhBmjkxUrC6b1IFSSWrpkSxeHOutZrkeLPp7t7K5DGqvEhBIVLymm1Bu7bL3y/S69gGmmk2q
-	bjLNs5/lBFU3iEQ3d7+ESXH3RUMQ8BvzKAkwbSpkkLnT4DJFtxbP+fExUhMNIpUF57rFYjC1tErmJ
-	6WZcoGpaLij7h/4AU82l4IoALF6B+wUDE5FYhRJHkZC0fth2ZKfu1koi1NgApBJKaznQRSHK1O8w+
-	kGgtk0EQ==;
+	bh=goZhmv+K3J6ketFp2viecP1qDi21FVgaJkpYf1GR+r4=; b=j5q2jRfKLHl/TIbZD2ey+s8bWf
+	+zDx+TBBluZOf8TY2yQY98FvOJATHHHNyWHvVh8YAd5Ta7WCeCK7/O6+bkIiPehl16kl+XPNjCbQ9
+	oUUg18/2LeINPcQj7GA0kx5QUvaZ9AjiwgnFJ11xaPq2CdIA9I4eyONsXxJBq/kMiYUHwZ1KTup9+
+	JaYLTuyib3uy32SU09e2DJnbxUESfMr5PXUpNtUsPOm9h+V4//Wd0uF0rlGR/6igNt9GiyI3g8XNy
+	6TFGZyY4JcmOb27bgQE3NzpYr4KNdjc44lYfwlnLRGPiBfKAGNmrBipHWeL6RZgKRJ+pNpm4u0wUh
+	REP7XQBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtVLz-0000000Ci1N-3CsQ;
-	Mon, 10 Aug 2026 19:08:07 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1wtVM3-0000000Ci2P-3a8v;
+	Mon, 10 Aug 2026 19:08:11 +0000
+Received: from mail-westeuropeazon11013026.outbound.protection.outlook.com ([52.101.72.26] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtVLx-0000000Ci0S-2v1W
+	id 1wtVLz-0000000Ci0g-02lU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 19:08:07 +0000
-Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 301CFBB;
-	Mon, 10 Aug 2026 21:06:48 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1786388808;
-	bh=YCD8HcEbS+FxeNcV5DFf41UK3cMSUjhcxM/ZFXnWEHI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ItX0Fu+QMKOQQW0pRKRRp8VdpUUM8PNxp9yxk5cc1dbCOV2KAgXMleEkoH+6lSjHt
-	 eLWMlNNQ/69P0MUJwr0R4me0BjUh5hWZRaOgynvODjnF8Pud9w9cYSUauYElN+Rfoz
-	 FnmEIZJYAdbFUcDgEOkUoZV9GgQuSE6fO0vdujKg=
-Date: Mon, 10 Aug 2026 22:08:00 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
-	Sakari Ailus <sakari.ailus@iki.fi>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev
-Subject: Re: [PATCH v3 6/7] ARM: dts: nxp: imx6qdl-pico: Replace
- clock-frequency in camera sensor node
-Message-ID: <20260810190800.GA3046075@killaraus.ideasonboard.com>
-References: <20260810180604.3034255-1-laurent.pinchart@ideasonboard.com>
- <20260810180604.3034255-7-laurent.pinchart@ideasonboard.com>
- <anoerXCIlB8tTgiC@SMW015318>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+	Mon, 10 Aug 2026 19:08:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=T9EOZs98DaKEyNU7hsix9GZrDAvgDjjppFhvy2DQphOwSLvtLIzltxK+CADuNts871fMN06YmIk5b+/iRF1vF12SM79RjQcw12As6nw9y9kCqnrnGniVeBH3HgKa2LoGLd5Avoo1pCosjSpj6K1OpwlPuFIN74yuFO2DndOniWaKRjfOOOZlP+mGmTwDupuoQc7v3yWdsrk5hArn8I6kr+kYf+RKm7P4amw3cTZ6dlY39NkYppN9F+Fd5Hx6+0pwQrSGHjyrSuhHnZE4jfmNDDogkFkVAzHl9hsCFhkIYSpCTpNoEZqAq3Pi+pISnqCvbJcmkaVLTQqfyZ/Il2EdNw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=goZhmv+K3J6ketFp2viecP1qDi21FVgaJkpYf1GR+r4=;
+ b=Oy+pEwp11orqTKuFt1tKa8eKOYQYbBaCg/ObqYF7qeeGZMYo2r4NwScVEoKnwagoVBDUjFTpInDKzh1yvlKXKTnsT6JGiuHA29+YC1EsYKgSNdwOv6EJWMCZ+sjdjLl54ynkkiF7Hhv0V/pyAOt8w6jQgKzeWVKYdHEJbZHpyBJG6tlPIFFfbkOK9tCQ+gFo+Pg5ywRoSM5nyX1Z9twC/hvwHphlGM6beOetCctqDOAv+HAU10C3yCKR92N6AAJ989KkM4HT2bksZnunDZi63D3bgXP06EWQDeIvey9Bp/FZCkJfc81bc8upHYVj+rqE+y8+0btwsXJ3znxZEod8Ew==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=goZhmv+K3J6ketFp2viecP1qDi21FVgaJkpYf1GR+r4=;
+ b=Ybc1VYQwx7J2VNxmrIrv88bb5M3FpqTjS3xbPdkNawOP54SCdEWt5Vp82T1ym+w0riqyOxAnBwFjhdnNgHDeU6AdeIRqMVa0fXzzr0qNgnHhjwRyWinxi+K2LmZm1H6EJTxJ8RHKIXr7tQudvLZ+UoNYNNsxhuzAUYxoOUVSRRP8bITuQ1EU+BVjhDqsTVUYPTupxIcXaIAR8sfRLV27abeVtTvaGhbxv/XtE3+ydGWVBG3M/umkQ76fOiJfF13p/vybvnTBggMvG9NBZ65NxK1JkG88bB46GQEzpwqUNnDdChYhH9gJspKhvS55KZ6F1XKgIlA6Q7jjiF3d4Nwhpw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AS4PR04MB9508.eurprd04.prod.outlook.com (2603:10a6:20b:4cb::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.25; Mon, 10 Aug
+ 2026 19:08:01 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0292.024; Mon, 10 Aug 2026
+ 19:08:00 +0000
+Date: Mon, 10 Aug 2026 14:07:47 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: shengjiu.wang@oss.nxp.com, lgirdwood@gmail.com, broonie@kernel.org,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de,
+	festevam@gmail.com, shawnguo@kernel.org,
+	linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, shengjiu.wang@gmail.com,
+	Xiubo.Lee@gmail.com, nicoleotsuka@gmail.com, perex@perex.cz,
+	tiwai@suse.com, linuxppc-dev@lists.ozlabs.org,
+	Shengjiu Wang <shengjiu.wang@nxp.com>
+Subject: Re: [PATCH v3 1/5] ASoC: dt-bindings: fsl,imx-asrc: update port
+ binding to support multiple paths
+Message-ID: <anohg7YCylTQ47pk@SMW015318>
+References: <20260804100218.49587-1-shengjiu.wang@oss.nxp.com>
+ <20260804100218.49587-2-shengjiu.wang@oss.nxp.com>
+ <anH5i7y3JkB1moee@SMW015318>
+ <20260810-magic-olive-gecko-5e8a36@quoll>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <anoerXCIlB8tTgiC@SMW015318>
+In-Reply-To: <20260810-magic-olive-gecko-5e8a36@quoll>
+X-ClientProxiedBy: PH0PR07CA0013.namprd07.prod.outlook.com
+ (2603:10b6:510:5::18) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AS4PR04MB9508:EE_
+X-MS-Office365-Filtering-Correlation-Id: fb190196-97f0-4ef5-a520-08def712b23d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|7416014|376014|1800799024|19092799006|22082099003|18002099003|4143699003|10067099003|56012099006|11063799006|6133799003|3023799007;
+X-Microsoft-Antispam-Message-Info: 6pSWrkKlcGpuPShYiZX64cJ8TCcyplS/heQxaMA6FSFNzbGC1sN7ywtGCtn0Yp2pp00Y3vmR8VvnIk3BV/lwXxDT6CmX5P/NcG11bGroSmt5VMCCfpMcA6eFBuQ4gufzcquMb7vjeV20sIjlZgYTtQRVEtMmhhalDr900l4qjdo3Whz8i7s0gGLEmB48iLhP5yX/SqMLhCJgIoXokbnVKgELT1Is8e/BHCab6HhUZcxgehcE38WM+jq/mZGQRy5Tmd6pJTrAzNs88AQiBrzC2x0FWWw12XUKxhdIdQ5CVU3HwHtD9birMWUqfUcpwIlqZar67JT+nso55dDkuFzvqPZ481dP7GY/1dycA4NzK1DGxqza+XgCTIogMmnPEqbLseDL0TmiCkdsltEriMcBzposDwJP0812kXMQk2xHl5/jGoMJib0w9h5YKw5KxVWmKLU3nLVgPWxXdEo2G4VNSB3UQJsqzFWrhLMHZ4zAe0HsOFnL0d8LiJ37PwR17Oxt+E9/BXAo7s4MhfUcOw62/yNolotN1dVF9Ikm9oA2F0eww7MDOMVEK+JAfco72+53dXmBCxL/mauDrDQXJAVEH6FdbgIx79UZFut8mDBw3C9mMGH5fWBnlG1LBsw/nJD44qpdhEAPcTpzSExn5kLVyfWRiclW4j9fmfpkH/OaEZw=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(7416014)(376014)(1800799024)(19092799006)(22082099003)(18002099003)(4143699003)(10067099003)(56012099006)(11063799006)(6133799003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?7vi3Nqi4+hg4Ahxln46TXMAvfiT3OqwsRiI/601n7qITqKFb6iAz3meCOdt0?=
+ =?us-ascii?Q?8Kv60zynLd3sNlvStvXGU81oRsBTaEdIXS9wMQURDcLJjQfswrKfnOtQM+RL?=
+ =?us-ascii?Q?PzF28kXffe5LH7XMyTeVwaejn4zKWgYy14hdHeK6pe8WXMQ7RFHy61/MMkzK?=
+ =?us-ascii?Q?gvS5i1JO8UAl5/KgV3hhqtO/dvxURNZjuC/PC2JMuNAjA6zWJencn1fp+5rz?=
+ =?us-ascii?Q?znImpefqMB8p3xPsE5KLmKUWRsPMyVWurqBTt7MKyi1dUl5uS1YdO9LJz1h/?=
+ =?us-ascii?Q?vr+1E26N0azzutIJV5V5t9fAy9l36u2cdjbybjzevjTo34bmjDdemJsAvITt?=
+ =?us-ascii?Q?Z6pMwEOgqJcF8sMoXsqRmU0rxRE6CegRnVAbtdFD0T/pxfP3lesZrqV5GKw7?=
+ =?us-ascii?Q?FnHTfcD8/ZXQAZRh8FLmhc+ypEV//KXQ8cWGr0sFG2MtoTiQ+/XMWh4ZhSPO?=
+ =?us-ascii?Q?6DzdsbcI9MGi6px/k1Hgk0jssPWPbN2rSDAnvh5kPoYAbNoz8tkt027JVfKw?=
+ =?us-ascii?Q?SpddKXe/JBkrFv9JlMZ9TERkgnytAXkVzkOWM/vlpw/EhRzydr/yAA24H5AT?=
+ =?us-ascii?Q?eL0DrTd/EiPal1c9/hM4lhF2QbKMAx30wVOYw7vbW2FfpPG6USDX41vTvjZg?=
+ =?us-ascii?Q?JHATHw5agzUx1Xo2eFqrrYa/CEYIiUrmKeI56x94Tt/eDNR/SYmUcay9EtMy?=
+ =?us-ascii?Q?EbDC5wNxSuK2nQwEsJgfN/6dn3FiajW3iz9+YTYSt1rJTP2TppTopu5a0QMm?=
+ =?us-ascii?Q?qau04tNrULneZFndsCwaA/V2cuSZVgmcl6J3SDd+1sUnKXa6Lp1rBkqFtmzm?=
+ =?us-ascii?Q?qATkryYn9qRrxrfzPKWirqyDU+t5CYBljX4hAOtQ28yb2+iYz7An05pFpRpS?=
+ =?us-ascii?Q?P1Sapz04j7zv/bL8zME6iieIh6iG2jAlNzMVwDCAgDNQ5p6QVyx4hsR+v5Zz?=
+ =?us-ascii?Q?ud42z6WpyWvqQvLaNmAlIBgYRNFX5dvFeg7Vuzh8vXJrlPLBfuljSfUKtxxS?=
+ =?us-ascii?Q?C6odCfTu11W5sXfKmNGpgcOEhWxSY4VLEOA1gZQkBfcl649PLJg86L61fCX9?=
+ =?us-ascii?Q?ejgGEO8iASvms7AkQ8BZaKZHFE018nAj5LWtCvsqLfPcfrmSbPKRvY7pSMoc?=
+ =?us-ascii?Q?+gp6U34Zipw7tiRHITp2vnniOK6aW13BidpV78XcfpIxtfYVbp4fWtvvrP1M?=
+ =?us-ascii?Q?CAFVrvF7xz1XFkWqvLyqNdWAGT/dSbAf32VRgkULf6GT3bOdHTWamsdMl8nX?=
+ =?us-ascii?Q?zKhYjxABLQYg74FPSIkrIusHStvtkk7+HkkDUmrFmDs1PbEqRlMPeb6SQUOl?=
+ =?us-ascii?Q?bY7400K3VZzGIeyAi4nOxNtekZBsJZ9eeL3d7YsXvT2u0KFAwsExkWBzt93L?=
+ =?us-ascii?Q?Haghi+tPSAlzowS7jADlavmD+YAHoZDyxMey4omRvHzYe+fb3AWeetH7l6HM?=
+ =?us-ascii?Q?xM0ECTBjy8QxxoXh22t53n285tz46Cc1hBBke5FhrCDcCVjoMWwp8dE3LUeX?=
+ =?us-ascii?Q?BLFMlOENE4pJ4AXusNMjRdiAoWtCxBdaL1ezqW0vVXtdI002AHILhvPa8UTy?=
+ =?us-ascii?Q?NpZHGNrWCSjOHxCnGpdSCSx/OKULFZTqhLUybE2+9gqSiFMD6RT6FUX9RGJu?=
+ =?us-ascii?Q?ZYwozg0DkxuCaXqg+j673AyMoSENUvmzvGeBvW7MQ3hfOGW9QFqE1YXj1ooT?=
+ =?us-ascii?Q?FsK/pjBn2FTXvQ6djpqqv6QmTekv/XWxH0MKfro3WkMT3CBs5uGvBPhWsyFS?=
+ =?us-ascii?Q?oZQTaE8Oa1Dp2BTIyAIBo14P4Vm57wBvVi6pN7LZXgWlETSnfTd+?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fb190196-97f0-4ef5-a520-08def712b23d
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Aug 2026 19:08:00.8383
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: fsGhF9wXmt4Ec8iOSYaqOj9P9yYSlXTb09K/7SdTfEwwg5y8e/Aq/Yzq9Bz7W6/bMrBOHLpLUeHLDf8Z7e6xX/JJzFWGST+vaOQyMPn5k+kuycjYG6Q6CVbLS3vhYOVF
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR04MB9508
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_120805_902690_17F7C7AB 
-X-CRM114-Status: GOOD (  17.09  )
+X-CRM114-CacheID: sfid-20260810_120807_069920_3CE21E2F 
+X-CRM114-Status: GOOD (  21.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,51 +147,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 10, 2026 at 01:55:41PM -0500, Frank Li wrote:
-> On Mon, Aug 10, 2026 at 09:06:03PM +0300, Laurent Pinchart wrote:
-> > The clock-frequency for camera sensors has been deprecated in favour of
-> > the assigned-clocks and assigned-clock-rates properties. Replace it in
-> > the device tree.
-> 
-> Remove "clock-frequency" may break back compatiblity.
-> 
-> A similar case
-> https://lore.kernel.org/imx/20d37ab7-308e-4f07-96dc-7ae011af76d0@kernel.org/
-> https://lore.kernel.org/imx/20260404-thoughtful-placid-boobook-da26da@quoll/
-> 
-> Need provide judgement in commit message about impact of break ABI.
-
-What ABI breakage ? The latest kernel supports the updated bindings
-(merged in commit aa1826696a55 ("dt-bindings: media: Deprecate
-clock-frequency property for camera sensors") in v6.18).
-
-> > Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> > ---
-> > Changes since v1:
+On Mon, Aug 10, 2026 at 09:12:20AM +0200, Krzysztof Kozlowski wrote:
+> On Tue, Aug 04, 2026 at 09:39:07AM -0500, Frank Li wrote:
+> > On Tue, Aug 04, 2026 at 06:02:14PM +0800, shengjiu.wang@oss.nxp.com wrote:
+> > > From: Shengjiu Wang <shengjiu.wang@nxp.com>
+> > >
+> > > The i.MX ASRC hardware supports up to three conversion pairs (A, B, C).
+> > > The existing binding exposed only a single generic audio-graph port,
+> > > which cannot represent independent conversion paths when multiple pairs
+> > > are in use simultaneously.
+> > >
+> > > Add a ports container that enumerates up to three sub-ports, each
+> > > representing an independent conversion path:
+> > >   port@0 -- conversion path 0
+> > >   port@1 -- conversion path 1
+> > >   port@2 -- conversion path 2
+> > >
+> > > Each sub-port references audio-graph-port.yaml as before. Hardware pairs
+> > > are allocated dynamically at stream open time; each active stream
+> > > direction (playback or capture) on a port consumes one hardware pair.
+> > >
+> > > For backwards compatibility, keep the old single port property but mark
+> > > it deprecated. A schema constraint (not: required: [port, ports]) ensures
+> > > that both forms cannot be used at the same time. The binding example is
+> > > updated to show the preferred ports form.
+> > >
+> > > No existing upstream DTS file for fsl,imx-asrc uses the previously
+> > > documented single 'port' node, so this change does not break any
+> > > in-tree device tree.
 > >
-> > - Drop added blank line
-> > ---
-> >  arch/arm/boot/dts/nxp/imx/imx6qdl-pico.dtsi | 4 +++-
-> >  1 file changed, 3 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-pico.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-pico.dtsi
-> > index ca4cb986efbc..0cc05d084f9b 100644
-> > --- a/arch/arm/boot/dts/nxp/imx/imx6qdl-pico.dtsi
-> > +++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-pico.dtsi
-> > @@ -233,7 +233,9 @@ camera@3c {
-> >  		pinctrl-0 = <&pinctrl_ov5645>;
-> >  		reg = <0x3c>;
-> >  		clocks = <&clks IMX6QDL_CLK_CKO2>;
-> > -		clock-frequency = <24000000>;
-> > +		assigned-clocks = <&clks IMX6QDL_CLK_CKO2>;
-> > +		assigned-clock-rates = <24000000>;
-> > +
-> >  		vdddo-supply = <&reg_1p8v>;
-> >  		vdda-supply = <&reg_2p8v>;
-> >  		vddd-supply = <&reg_1p5v>;
+> > if no existing upstream DTS file use it, you can direct replace with ports
+>
+> And what about all other users of this binding?
 
--- 
-Regards,
+Kernel is that only known user. Uboot don't use this part.
 
-Laurent Pinchart
+Frank
+
+>
+> Best regards,
+> Krzysztof
+>
 
