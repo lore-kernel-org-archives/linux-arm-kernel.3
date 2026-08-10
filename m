@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F362C5AC82
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4112EC5B56B
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 12:16:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,31 +12,31 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j1MZTVd373in/IMAt/QC2whUgnWuRGxEI5v6pl6Py28=; b=GJWDD3Air97TSRyAn65WW42/SG
-	PabteUmzcrcy32NRCgl3BuJD3B3DMGtXeWHPS5swkeIPQ1gtYCYRuooMT03YSG8dljWlXUEzGNZDg
-	p7AJ/kZVixy4dKvJ2xQbcrxzF+dxiQUaOf7v4ZbG+/DzFOflVMSTO6fVjm+gL7YDHoTULK+FSf946
-	vyOObOxj0nt9WbJVwAhdAEG5QMpTbesxoCG8dLV8+FqFXS7pwkojlxXxH5veUDGwJ6rO2f+PsCaxX
-	REo16IfXSflq4ORiD48XXHIPoW1v6YUt24b5JzL9U+45VvxcqpzQJ9ohWyojpWgWg7vutF19PVJ2g
-	Y4nZCyMw==;
+	bh=cDtG0QjaIvwPANkpMnYor9ZJCrij1s8L69sJNuEhQRw=; b=SVVlw/OTkC+iPAd8BkZDIcE+yi
+	ulFEn2Js40JN0dxSPB2L0LXUSWKaquWG1sdfJEbEbnvD5Fesq+DserHOTDd4XEfnk//DhIqu5xupG
+	7cdLqzm+KNHweLYI6GZIO8Y3c5E6PZZXb0NZNjbhA0FAmomLkZ/LT/GE+aDWx3sVVStfr2uOJhba2
+	2TlM3mvid5PlQNwtdoBncUO+CqcVpf7o1GOvwzKKp6gEFYz6U7+h+SldiKV5XIXLr2OoGdP/EqLoL
+	6rz1Nm0r5O/RPoFqTwjYsySN6Foxh6GcHWWWu6iV3/dpjzNW4wMDQNiNx2A9JH1ksbcMJhANjt1wq
+	Qy7e/4Ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtOvP-0000000Biz8-1xPs;
-	Mon, 10 Aug 2026 12:16:15 +0000
+	id 1wtOvK-0000000Bio5-1ReH;
+	Mon, 10 Aug 2026 12:16:10 +0000
 Received: from mail.zlab.su ([109.73.193.145])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtOvC-0000000Bige-0XBx;
-	Mon, 10 Aug 2026 12:16:11 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 74A56BFAEB;
-	Mon, 10 Aug 2026 15:15:57 +0300 (MSK)
+	id 1wtOv6-0000000BiYR-30tC;
+	Mon, 10 Aug 2026 12:15:58 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5A5D2C0519;
+	Mon, 10 Aug 2026 15:15:52 +0300 (MSK)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zlab.su; s=dkim;
-	t=1786364159; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1786364154; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=j1MZTVd373in/IMAt/QC2whUgnWuRGxEI5v6pl6Py28=;
-	b=nxvNEE11H9zqz15OnmCrMYQYJVUrhuPfJ5WkRponEciyDxEGANuP/9yOFyEFfIWBkA5H+Y
-	rhyiOhKu9RCPNXrgS+nlqgxfPzuRwmquKr0w7KjBpVK+osankuAWfKo5PuQUmOa+P4nK0m
-	w9apiw8iaV4D+HMO9JwYh2L5bwDoEOaO0NaKsSOiygJdqzdeI70fuaTWFuwLcyfkPZTf0w
-	8y3KLG8li42QO64gtlqg0m6k9LWGaxibGnllWZA4a2v2u5rin77joC4pgN7pUz64Np+jjO
-	US+kLFL4fZ8GKVC/842mXTb2z5Liz5pCxe4uDh5PADrikeImrigtcXAGCQs0eg==
+	bh=cDtG0QjaIvwPANkpMnYor9ZJCrij1s8L69sJNuEhQRw=;
+	b=nnuhJ48/kMqZtnMtY0k5ZMoQmuIJec10u3anCmK4xdzZX4yufAnkC1zsUpbZe9T/xGMzQ3
+	5IHfQYI1O+whLQNflzFD9CLBonOzqQPwK7p0BA8EezpQeaKjHWyKJQBm3kqBKQ49F/GH+x
+	3ddMnyDyUeS7l7aSCR1mKDNIb7/b0zr1+Erka+leg12BkR+0SEfWqR1rfd7xZQ3k9V7KXC
+	ao+D0T7DuKOlrurGy9KcYevfpIzzx+RObgZrNnlvRvCM7wk5p9SOdU5/aXCjeJ1w94CWyD
+	fMtWao7pPtZ/pUs7oHcEY/fCiDa9gbF1LH8iXKOOwUrNmFs3W/jmBHvEgqPm4g==
 From: Vladislav Leonov <vlad@zlab.su>
 To: linux-rockchip@lists.infradead.org
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -46,14 +46,15 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Vladislav Leonov <vlad@zlab.su>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Heiko Stuebner <heiko@sntech.de>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
 	Rob Herring <robh@kernel.org>,
-	linux-usb@vger.kernel.org
-Subject: [PATCH 09/25] dt-bindings: usb: rockchip,dwc3: add RV1106 SoC support
-Date: Mon, 10 Aug 2026 15:11:00 +0300
-Message-ID: <20260810121121.210040-10-vlad@zlab.su>
+	Vinod Koul <vkoul@kernel.org>,
+	linux-phy@lists.infradead.org
+Subject: [PATCH 07/25] dt-bindings: phy: rockchip,inno-usb2phy: Add RV1106 compatible
+Date: Mon, 10 Aug 2026 15:10:58 +0300
+Message-ID: <20260810121121.210040-8-vlad@zlab.su>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260810121121.210040-1-vlad@zlab.su>
 References: <20260810121121.210040-1-vlad@zlab.su>
@@ -61,8 +62,9 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_051609_472873_094F64F8 
-X-CRM114-Status: GOOD (  11.45  )
+X-CRM114-CacheID: sfid-20260810_051557_123804_A5C3DABE 
+X-CRM114-Status: UNSURE (   9.07  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,112 +79,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document the DWC3 USB controller found on the Rockchip RV1106 SoC.
+The RV1106 has a single USB2 PHY with only an OTG port. Its OTG port
+also exposes a "disconnect" interrupt in addition to the existing
+otg-bvalid/otg-id/linestate, needed for reliable HS device unplug
+detection, so allow up to 4 interrupts for that variant.
 
-The RV1106 has a USB2-only (high-speed) OTG controller. Unlike the
-other supported SoCs it has no dedicated suspend clock: it only needs
-the 24 MHz reference clock, the AXI bus clock and the UTMI clock.
-
-Since the top-level clock-names list enforces a fixed order with
-"suspend_clk" as the second entry, relax the second and third entries
-to enums so that the RV1106 clock set (ref_clk, bus_clk, utmi) can be
-expressed, and add a per-SoC clause constraining RV1106 to exactly
-these three clocks. The relaxation is required rather than cosmetic:
-every other compatible's own clause already agrees with the shared
-tuple position-by-position, but RV1106 genuinely reorders it (bus_clk
-before utmi, no suspend_clk), and allOf branches are ANDed, so without
-loosening the shared entries the two clauses would be unsatisfiable
-together.
+Add the "rockchip,rv1106-usb2phy" compatible and require
+"rockchip,usbgrf" for it, matching the other Rockchip PHYs that need
+GRF access.
 
 Signed-off-by: Vladislav Leonov <vlad@zlab.su>
 ---
 
- .../bindings/usb/rockchip,dwc3.yaml           | 35 ++++++++++++++++---
- 1 file changed, 30 insertions(+), 5 deletions(-)
+ .../devicetree/bindings/phy/rockchip,inno-usb2phy.yaml   | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/usb/rockchip,dwc3.yaml b/Documentation/devicetree/bindings/usb/rockchip,dwc3.yaml
-index 0554dbc4b854..86e00f251bdb 100644
---- a/Documentation/devicetree/bindings/usb/rockchip,dwc3.yaml
-+++ b/Documentation/devicetree/bindings/usb/rockchip,dwc3.yaml
-@@ -31,6 +31,7 @@ select:
-           - rockchip,rk3568-dwc3
-           - rockchip,rk3576-dwc3
-           - rockchip,rk3588-dwc3
-+          - rockchip,rv1106-dwc3
-   required:
-     - compatible
- 
-@@ -44,6 +45,7 @@ properties:
-           - rockchip,rk3568-dwc3
-           - rockchip,rk3576-dwc3
-           - rockchip,rk3588-dwc3
-+          - rockchip,rv1106-dwc3
-       - const: snps,dwc3
+diff --git a/Documentation/devicetree/bindings/phy/rockchip,inno-usb2phy.yaml b/Documentation/devicetree/bindings/phy/rockchip,inno-usb2phy.yaml
+index f50fc69fbbe4..4bc418376b18 100644
+--- a/Documentation/devicetree/bindings/phy/rockchip,inno-usb2phy.yaml
++++ b/Documentation/devicetree/bindings/phy/rockchip,inno-usb2phy.yaml
+@@ -25,6 +25,7 @@ properties:
+       - rockchip,rk3568-usb2phy
+       - rockchip,rk3576-usb2phy
+       - rockchip,rk3588-usb2phy
++      - rockchip,rv1106-usb2phy
+       - rockchip,rv1108-usb2phy
  
    reg:
-@@ -58,10 +60,11 @@ properties:
-       - description:
-           Controller reference clock, must to be 24 MHz
-       - description:
--          Controller suspend clock, must to be 24 MHz or 32 KHz
-+          Controller suspend clock (must to be 24 MHz or 32 KHz) or
-+          Master/Core clock
-       - description:
-           Master/Core clock, must to be >= 62.5 MHz for SS
--          operation and >= 30MHz for HS operation
-+          operation and >= 30MHz for HS operation, or UTMI clock
-       - description:
-           Controller grf clock OR UTMI clock
-       - description:
-@@ -71,8 +74,12 @@ properties:
-     minItems: 3
-     items:
-       - const: ref_clk
--      - const: suspend_clk
--      - const: bus_clk
-+      - enum:
-+          - suspend_clk
-+          - bus_clk
-+      - enum:
-+          - bus_clk
-+          - utmi
-       - enum:
-           - grf_clk
-           - utmi
-@@ -145,7 +152,10 @@ allOf:
-         clocks:
-           maxItems: 3
-         clock-names:
--          maxItems: 3
-+          items:
-+            - const: ref_clk
-+            - const: suspend_clk
-+            - const: bus_clk
-   - if:
-       properties:
-         compatible:
-@@ -161,6 +171,21 @@ allOf:
-             - const: bus_clk
-             - const: utmi
-             - const: pipe
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: rockchip,rv1106-dwc3
-+    then:
-+      properties:
-+        clocks:
-+          minItems: 3
-+          maxItems: 3
-+        clock-names:
-+          items:
-+            - const: ref_clk
-+            - const: bus_clk
-+            - const: utmi
+@@ -121,7 +122,7 @@ properties:
  
- examples:
-   - |
+       interrupts:
+         minItems: 1
+-        maxItems: 3
++        maxItems: 4
+ 
+       interrupt-names:
+         oneOf:
+@@ -131,6 +132,11 @@ properties:
+               - const: otg-bvalid
+               - const: otg-id
+               - const: linestate
++          - items:
++              - const: otg-bvalid
++              - const: otg-id
++              - const: linestate
++              - const: disconnect
+ 
+       phy-supply:
+         description:
+@@ -160,6 +166,7 @@ allOf:
+             enum:
+               - rockchip,rk3528-usb2phy
+               - rockchip,rk3568-usb2phy
++              - rockchip,rv1106-usb2phy
+               - rockchip,rv1108-usb2phy
+     then:
+       required:
 -- 
 2.47.3
 
