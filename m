@@ -4,89 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE562C5B567
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 17:55:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B403C5AD7B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 17:58:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Q4Fe/KOMaxyN3MKU9219/iuMnmc5Z0NpUYJStevNPkg=; b=tlkrLhXizM1/NxW1ezRlwYjEzs
-	Y7QQtdotbKDwP3ZHfjFl7f/RexJzVLEirMiH4EgyiTL0XODu03HKRoaXNSQBwREG+FDXOj4R8hY5i
-	vIOF3HdgOQZJ9ivjKhLJEyfhQsKiG7B9JeyD4LtqqSyl7tPEbSxWmt5cSthqiVyXj3xSb9EKr2AmU
-	JwRg/cKwzyzXWZO2kUPi/Om78/URAvMO4GTa9GRaaPYwyCMIINgCzZPCvIvJ1yEGBs4GNYaMesm6z
-	htLXriKFJPpL1Zn/eybA645bdSnRFd8wvY1k/NvhUZ9QPoGDRQUo21g1KmWFf2z++r9BldfFtlNLK
-	txt0ncmQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/afb+A2CtRjf+Ws9HWmqYtGf9M28gh7tqPMJRjtszRI=; b=kHN89cJkUS3ynthNwJPUuXSbnG
+	a1zy+RyBVDYjvnlsD0RolYzuaycYcZYdrhM9iwG9AcCavXfQLFhX351btQqJBSzov/IptF87r2yCf
+	7U5WFOyF3oZXxq1z3hXlXD32+F4rm0GQjfEbcVZSDea41MLCuxdsCV+XC6awdj6CLVE+f68Mw8ukb
+	V4vlnEXv5wmEwasWEY7ajsNkPfGLVRAvOdFK88k4rKlv+svQA8oAoru227WrTrNBtIEebw1MVIsZr
+	qqdAqcIcXiv61gAhehXI6CYtZ1oFzJE9fY57obTdhbThzk2iZjgQWsqYldfYDV4EwYtZ0V8X/mJHH
+	Hk4sqHng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtUDB-0000000CZc9-2j5o;
-	Mon, 10 Aug 2026 17:54:57 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1wtUG2-0000000CZrG-0mo7;
+	Mon, 10 Aug 2026 17:57:54 +0000
+Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtUD8-0000000CZbq-0j55
+	id 1wtUFy-0000000CZqj-2Isg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 17:54:55 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-38de840f2f0so1543877a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 10:54:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786384493; x=1786989293; darn=lists.infradead.org;
-        h=content-disposition:content-type:mime-version:message-id:subject:cc
-         :to:from:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Q4Fe/KOMaxyN3MKU9219/iuMnmc5Z0NpUYJStevNPkg=;
-        b=qNG1oZzTgJRW4dERdsC6vJQbWPnUvCLss4I2NxSdQvroDJKqIhnUyoCz/N+0SJRYfA
-         FJ3QzqfEzxuuxTCSFYvo78Pz2mJmZevuL0ChrCM4U4Qd7THT7tdc9DqoL0Rr6WLVxnML
-         KQuzN1L9ZCFvJgiUxEcRlaxbRMS1amhTm9dSuNkwK3QOMzJKigV1nR7wzHCfgG2AGExv
-         p0ZLsI1m8F0h/rSn2ViKzrma0HZDnPkmcU+HUnl1X3r/anrum6SkEZ5dn7ya9juGMOPw
-         oFhggWt8MCO1/tQO8kCTnfkQlfb3Zw4EuZcyRVcV0OJ+f6kjj1rTZryZ+tHgm2kyKaWw
-         m13A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786384493; x=1786989293;
-        h=content-disposition:content-type:mime-version:message-id:subject:cc
-         :to:from:date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Q4Fe/KOMaxyN3MKU9219/iuMnmc5Z0NpUYJStevNPkg=;
-        b=XRsxHbKHn+vJ8glf/QF5zDm/FKfFmUV+EuufWWEbUSzeRK2JgbdY1+z0DTWoPIit4M
-         kXgXVkh6PQ1ZypCyzYSFYfzOJMiNX+L4MXeH7wX4JZLXUiVAn8KBTTZL+j7Swtc76UUY
-         tERfYgIvdl8l185OexTfLfV3pDB7wOSdRIX2fn9Z9CxM1eNfH6qrM+a3tA+yGq2QB0Eu
-         hxKylr4lZ5afZFYzFyo3YUZ0h+/UR+1Fc7eq+EK6sWZgZhL+A3KTmX0CUsoC3GdVUm4M
-         gJ+KRJfpvgnPPmcWirm6dpJDrIoIUxvQfQQWdB46di3MtxkQSK1lctjH84aDcxL9UMu9
-         sWNw==
-X-Forwarded-Encrypted: i=1; AHgh+RpJa6+G5vMxb7RehHqprZ+kCDakXSMAoAROAcLLsYX03b/K6PCrmqjRHKBLuUCzFWHGIZrOXQgr1WrTECRCKVye@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz5um/z3bg8dExz8Ym3HszL7N1Y3vmfBLoSGX0ujiwBj4TqmSXu
-	ToFRVXcJAdf6Kl/ad477KnpX+T3q3x4sZ3pWzz9ZUC9J4agQUZiPLtyj
-X-Gm-Gg: AR+sD12kpZKjoLjSf8sM/Zj/t5Z9TwdSpDAhIZ7p2DWnbEgzl8bo2einusC90UcOaRz
-	2v2rnK+73i7m4GEtaI74cr6xEevjeFU7hKW8BwYHLtOepzUhWV0GxcV+8xI5mkXLQRQwC1U5h32
-	fg6WmHmZMspsWDgbb5NWKEG2P1KjbwAqBHc7bap103w5sw+5XeEEWbnR6hC7SqIOWT7sZ445XTg
-	uKDzRYv50zGRllA2uBjyYv8ui7RCfzK/2eriBSsXczqb8pMzhx+syyJUJT3tnk46HnwVoBq3d4u
-	4nIUFKU3bT15AVuA1zoXAFci1G+r3WIoMfqciSfrwwqLM0jDbe3mZrhQ9fkKzKUv71d6oc80DRO
-	C6xAhRuAUlZBOIB4uAvPZ13TfX353PL1EXWg8EdoG353xTlkQobsxDXPg7ZtYEjvPJ1pWSisD1b
-	i/udR7Ldz7T2mRIe5V2+sr2IT4J4lNFgfxNOGgdoflB5QMGVBHk5lPSiKPrPmt0gtrQdQ=
-X-Received: by 2002:a17:90b:5444:b0:381:1f51:1ff0 with SMTP id 98e67ed59e1d1-392821fc107mr21840689a91.2.1786384492786;
-        Mon, 10 Aug 2026 10:54:52 -0700 (PDT)
-Received: from leonardoc-nb ([67.159.246.222])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-392d53b873asm421004a91.17.2026.08.10.10.54.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Aug 2026 10:54:52 -0700 (PDT)
-Date: Mon, 10 Aug 2026 14:54:45 -0300
-From: Leonardo Costa <leoreis.costa@gmail.com>
-To: hongxing.zhu@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org, 
-	kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org, bhelgaas@google.com, 
-	Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de, 
-	festevam@gmail.com
-Cc: regressions@lists.linux.dev, linux-pci@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	leonardo.costa@toradex.com, francesco@dolcini.it
-Subject: [REGRESSION] mainline/master: PCI link creation fails on Apalis iMX6
-Message-ID: <bl7i3obu2clzsgeoct2a4mtfhv6typcjdqmgneropf3hpgwve6@n2m5uhlduw57>
+	Mon, 10 Aug 2026 17:57:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=O9ufiosEMkxGaU/N4+j4GS4aRM1UBHA20uo38KBbAdyLYckyROwNIItqw/jzugxw6s0ApWxd0tDGF7eekSiW9EYmqwt1oukoaefvJVh7gyC36riYKVZOX921MWmjhQ5m1OX22bEqajVJOHpH+XLsKmmtkBSlOtAjUoSre5m7FpK78pnioFHC40ANjfO1L9lmA8KUxC/6H36W0CpseyLEOQBQOrXbfryZoXppNENM0+HttOwfS1fSsa6wBTFFd9yVrsS1Y6mxfSi+oKaLMCrhXGsjGb3aimiS60Yni3epqSc+2teHRIyLnKD4cVbecZsU6+HeBNfkpx6u8DNGtwTfUw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/afb+A2CtRjf+Ws9HWmqYtGf9M28gh7tqPMJRjtszRI=;
+ b=yxwAMhq0vgWm3GnO+D8ZGjtIxwWelC7lurxm9C5MBZJc0M0hRdB94tDiHI6RWmjc8Q4t8EafLh/ZOOxLcAPXfm/Vm3EV1UwMK9AZZ8V3dq35whMSmnvKY6xaNIaeAxnvqmfJrjtGbJ6ttJjMb3eQNCPW5nRUCZvz/+yRF6VNQH/Vy32uJZ30F3uQvWz0irEm22TIi9xj8wmX30oNUJ6V6Ivu4gkkT9CHKXCmxoDRlSUKHYC2zT+sD8a/XCexrekOQUxRb12aCjy6Z8f8g3xKeFeicnzXU428yepJxcevPNVVOhUFpq9RlKzpMDdi3N13tEDPMxAx8dognHP8Efa1UQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/afb+A2CtRjf+Ws9HWmqYtGf9M28gh7tqPMJRjtszRI=;
+ b=P786aoyrEC3py8bmgg+YL3DbImpmeRWrX1hORPcvCtElfAoBE9DXeJez7nENvmot41ZXTF0I4gRaSt8ucT4lIcVE7Jqp60LQYCM0xmn23tjd19DLIvFeNn8mB6J+ftSJGKCuHCRuxAsRxAmYnXa7Bf58ey67CHX0VIJLhm97D7M=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from DS0PR12MB9060.namprd12.prod.outlook.com (2603:10b6:8:c4::12) by
+ DM6PR12MB4234.namprd12.prod.outlook.com (2603:10b6:5:213::18) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.292.25; Mon, 10 Aug 2026 17:57:44 +0000
+Received: from DS0PR12MB9060.namprd12.prod.outlook.com
+ ([fe80::e096:864d:d60a:c83f]) by DS0PR12MB9060.namprd12.prod.outlook.com
+ ([fe80::e096:864d:d60a:c83f%4]) with mapi id 15.21.0292.024; Mon, 10 Aug 2026
+ 17:57:44 +0000
+Message-ID: <c87bd58e-2c23-467e-8ae2-8398052ee8d5@amd.com>
+Date: Mon, 10 Aug 2026 23:27:37 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] iio: adc: xilinx-xadc: free IRQ before cancelling the
+ unmask worker on unbind
+To: Fan Wu <fanwu01@zju.edu.cn>, jic23@kernel.org
+Cc: dlechner@baylibre.com, nuno.sa@analog.com, michal.simek@amd.com,
+ conall.ogriofa@amd.com, bgolaszewski@baylibre.com,
+ DileepKumar.Nagavarapu@amd.com, linux-iio@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+References: <20260803080343.467906-1-fanwu01@zju.edu.cn>
+Content-Language: en-US
+From: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
+In-Reply-To: <20260803080343.467906-1-fanwu01@zju.edu.cn>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: PN4P287CA0038.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:c01:271::8) To DS0PR12MB9060.namprd12.prod.outlook.com
+ (2603:10b6:8:c4::12)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR12MB9060:EE_|DM6PR12MB4234:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6c53c685-17e4-4b0c-8a49-08def708e131
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|376014|366016|56012099006|11063799006|10067099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: Fsu1b/jmXi99ZrkU9tb7Lc5UARRxY5LxaTgf6USLwjMDgzLgntWCfoceljtNzgAMY96Jxdqc3JxMfM3KozrdiCgWe2qN6ZiETdnd9/cBzz1QJAga1fbZifTzFxa1IRKX03/avC4M7nybAFkt+VcUGqTYW17kL0bLILRjI/OCaoqB2vAl+0IESLGL6IVQ6/Et0dxt4xEG/E21wRgPAWKWQc3cC9Q7gjH+rMh5gvrpx7j2Z9Utr0Gb6Zid3zU1fJly9ut4lsIAx7salmAKhA2/8fztxV8/BeWbScohHA0WtzuXlUtuIZH3h8SsEp8rNOooLr5UWihY2RCG81o4YfbPUVybBJ4V4+6wWoSyH7qiH0JgBnKcuEUKhHq6VyqxfQp7WOGE6fC/tx5bVar1UI5buqbcveSOI38hKk/gFcARpL1lROxgxnFpUiLdt3Ot/zrNICdV06MkAjWM9l7eVBZgMjeiQCRUYMtsHg0QMVhVdZM74OBrOM6hlv8Bv6PBaaESccVdh1Nit7DTQCSK2McJ8I+GP+kG3ohohRJRTpqR0B5cMAjtdh/MaMhleZ0H6EmM/kSjZ9+DyJCsKBaH/wa044517IWWXgFMq+DQGp0Sca5H7PoH6qDk619NuwmfBXv5LLWqaRQo3cRM6vVwAfSNgYmC34cwB1ZB0Yzr3KPn0JY=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB9060.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(376014)(366016)(56012099006)(11063799006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NWhhNlNwUmlnS1ZBSnBPZEo4R0ZhL0dJeVg2SVpwalVFZW1vRUZxYWU1bjBv?=
+ =?utf-8?B?ak9ITTIvY1R2NGNEZ1JKZjJOOGQzdXZicGFxRWdFNkM1YXRqbWhOTFRNc3dN?=
+ =?utf-8?B?TlNKZ1d5dktQMDNXS3NoTkRRTnFlREZ1WEhhMkJidWFiQkt4Yk55MnNPS3cz?=
+ =?utf-8?B?ZGVqRTN4SHNmMkhKR1ZhNjVXcVdoMWJGdWJJSkptdUU2NWtiTkR2UzMvZ2x2?=
+ =?utf-8?B?RWxKMkMwUUFTNHQvVlcybXBuWDlGZ2ZvRGFmNk9ITURYaWxqdGdWMFdSTkht?=
+ =?utf-8?B?OTVLT0ticktZblNXZ1dqa0p1Q3gwT1IzcU84MjQ5NXltQmQvZUwydHl6SnVL?=
+ =?utf-8?B?RmI2eHFtc04vcHNHWG43dnRQM29ZQ1o2dUtjNzh3QTdjci9hQ1EvNEJzN2o3?=
+ =?utf-8?B?VE1BZDUzMjE5T3ZHUTV6ZFczOWlKWWhlbm04MnJYYVRmVzNMQStxdWk0Vng4?=
+ =?utf-8?B?T3F4VTZBUHZEazFkWFA1RDBnbkpQNzM4RC9UK2V2cjI2cVF5RHpIMktKL1ll?=
+ =?utf-8?B?aC8rRUgvdTQvRlpaeTJmN2ZNUC9PZE9ZZkxqcHdIWHN6d25rTDdNbFRHNTlR?=
+ =?utf-8?B?dmVXamNNNm5KZFZ2RVRGdWl5bjVmQ1V3Y3RrMHUveXJjZTlTWHBZb01pZnJV?=
+ =?utf-8?B?dFRRNUdML3YwN2dxVjhEUC93ajBUZW1BcERSRW9zc3ludHQxTUpvZ2p6NGgv?=
+ =?utf-8?B?QjlFdDM0cnBYekxpcUNhdEVvV0tudE5oU0IrRjliR1gwZm12MlFrYmxkdWcx?=
+ =?utf-8?B?RUdjcndWaExTNm9CM2tHb0FjS09CbHc0NWRaSXJ2aGVhR1RHdWpzb05vR0p3?=
+ =?utf-8?B?N0hTcEJDR0grcGNrTUIwZG0rY1ppZnNMbjF3K0dUTVlHd1Y0UG9LNWlaNGJE?=
+ =?utf-8?B?Rm9hSHlYWWZVbkU0Nk9GM0tkWGpMOStOaFY4dFBHd3N6VDdyUVdGMFRXUERa?=
+ =?utf-8?B?ckE1WUxrMXZXWDVTT09SNDE4R1ZnaEdkNzcwcFExM21xMkttb01wM2NvNDFH?=
+ =?utf-8?B?dmdZVEZrZ05BVFJQZU9aa01jY05hcHZnTFBrZDQ2ZUtLWXo2UUZoWHg3dFY4?=
+ =?utf-8?B?dkRFTG9qaVJUeE5CUkNmRytFbTdPdEQ3WlV1NXpZdDhpcFZmUUVJZ0FwZ1N1?=
+ =?utf-8?B?ZEwwMUhJcTJKUkxBbGZXOFE4dlowOG10bGVRQzFhZHJEOW9iZzBwL3lLS0lZ?=
+ =?utf-8?B?TmtkYlg0OTFNWC9YVHdOMXZqdDhPdER1REtVTkJoM0xOTFJiaDVlci85YjFZ?=
+ =?utf-8?B?TFFMNmY5Y1pzT2dBQ1krQU5seldGSDQrR29seUJWRWk0RkFwTk5oQkRycmh2?=
+ =?utf-8?B?TFVhMURua1lIV3lMNENxcHlkWTFoWjhDVVFhN0IzcVplL2I1bVcxQi80TUJp?=
+ =?utf-8?B?bmd3Y0hWMVpDTk9sY1I5K2FyaURKQWFJTHhXcitrT1NWYWNkMEhsSzN0WCtM?=
+ =?utf-8?B?blI2b3VmNFlZRVMyR1pEWUZ2aFRuUzRHWVBudTJKK2tMNzJkSzJjR0ppVE50?=
+ =?utf-8?B?MFZYTURWUXQrWUw0LzVaMXF3bXZ1U1g0NTF3RDRMS2hkQW5MNGlleE9aSXh4?=
+ =?utf-8?B?dlJFb0hJdE5EV0FxNVlCalU5d1M1U1hmTFVrUmgwS3dnejB6U2VNUDQ0MXlS?=
+ =?utf-8?B?aHdMSlN4aVcxUG1qK1FsUCtVblJsL3dYZWxHdVAydUwyMWVHclR6NUExMzBP?=
+ =?utf-8?B?dW9WWFU5Zi9rRTZaaGtVNVltSVF5akFXQVhGekwyREQ5L0Z3WEtGY3lYN3pi?=
+ =?utf-8?B?VnlXTTBzdDA3WmJtN2pjcGlGWlFGajV1emRGL2xrWnF1R2RpRGJXSjhIQmFn?=
+ =?utf-8?B?bE9XWElHZmtzUXhaU2crR2pnL09PSFQxSjlMUkZSeWFRbk1RL2Y0UDJ1enZQ?=
+ =?utf-8?B?eUpia014ekNQVTV3OXJLb2lCdUxWVUd5emNyaFpLMithNDVIM3dWUzFiZW1a?=
+ =?utf-8?B?eVNjUVozUGdRcFgrRkphNFd2Q3lGVWFrdFpNMlFLaHA4UzIwRlptS3J2Y0wx?=
+ =?utf-8?B?d0wrSFpxd21EMWV2REV5ZnNFbmgxVDlTZGJlWW9SNTFsekcrS3BVRHlpdUhp?=
+ =?utf-8?B?TGpWM240QUYvNndGRXE5S3pCZjRlUThGclppb2J6cnUwRGdtMFVGN2RZcE05?=
+ =?utf-8?B?Rms3SzBjdW5FZ2tQbWpwZUtEZ21GbE0zWkpsN0VGUkdvelZUSjRoN1AvUkJi?=
+ =?utf-8?B?aitCNGVaUFhuVngrVDA4SlBqWThvc213UWdSUmxhcU40aFZSK01qZmQ4d1Vj?=
+ =?utf-8?B?MHF2dGt2NFoybGxmYWp4cFZaa1BEOExVeGkxTlNzVG4zQ0RUdGpxYjJnblND?=
+ =?utf-8?B?bEVDckxQTGl2YXlFK1dQUUNyZGZuZHg1M2NnbFVhOHpudUNQWWlrUT09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6c53c685-17e4-4b0c-8a49-08def708e131
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB9060.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Aug 2026 17:57:44.4760
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: I8Sv3NUxKX8scO+cK92MS7pkh3Iprd+I2N2X5l0ekNIhVl9R/+iwRCyClu+3qP4opTyZuIRxTyUzBREmuqLEHA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4234
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_105454_218206_69F38889 
-X-CRM114-Status: UNSURE (   7.28  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260810_105750_592223_6218ED1C 
+X-CRM114-Status: GOOD (  21.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,31 +148,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
 
-We are seeing a regression on Apalis iMX6 where connected PCI device
-links fail to come up at initialization, as shown below. The issue is
-not on the devices' physical connection, as they worked properly on v7.1
-and are working on other stable kernel versions.
 
-    [    0.154243] imx6q-pcie 1ffc000.pcie: host bridge /soc/pcie@1ffc000 ranges:
-    [    0.154400] imx6q-pcie 1ffc000.pcie:       IO 0x0001f80000..0x0001f8ffff -> 0x0000000000
-    [    0.154439] imx6q-pcie 1ffc000.pcie:      MEM 0x0001000000..0x0001efffff -> 0x0001000000
-    [    0.154553] imx6q-pcie 1ffc000.pcie: config reg[1] 0x01f00000 == cpu 0x01f00000
-    [    0.356072] imx6q-pcie 1ffc000.pcie: iATU: unroll F, 4 ob, 4 ib, align 64K, limit 4G
-    [    0.356181] imx6q-pcie 1ffc000.pcie: Link: Only Gen1 is enabled
-    [    1.364757] imx6q-pcie 1ffc000.pcie: Link failed to come up. LTSSM: POLL_CONFIG
-    [    1.365056] imx6q-pcie 1ffc000.pcie: probe with driver imx6q-pcie failed with error -110
+On 8/3/2026 1:33 PM, Fan Wu wrote:
+> The ZYNQ XADC alarm IRQ handler queues zynq_unmask_work via
+> schedule_delayed_work(); that work is cleared by a devm callback.
+> Register the devm callback before devm_request_irq() so the devres LIFO
+> teardown frees the IRQ first, ensuring the handler can no longer queue
+> work by the time the workqueue is cleared. Otherwise the handler could
+> re-arm the work and run it after the xadc structure has been freed.
+> 
+> This issue was found by an in-house static analysis tool.
+> 
+> Fixes: 2a9685d1a3b7 ("iio: adc: xilinx: use more devres helpers and remove remove()")
+> Cc: stable@vger.kernel.org
+> Assisted-by: Codex:gpt-5.6
+> Reviewed-by: David Lechner <dlechner@baylibre.com>
+> Signed-off-by: Fan Wu <fanwu01@zju.edu.cn>
 
-Complete logs: https://paste.debian.net/hidden/f08cdf68
+Reviewed-by: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
 
-This may have been caused by commit [1], which was introduced to solve
-an issue where the Apalis iMX6 module wasn't booting, and this second
-regression went unnoticed since then.
+Regards
+Sai Krishna
 
-Is it possible for all PCI changes to be reverted back to how they were
-in v7.1 before the next release?
 
-[1] 7678e81498e2 ("PCI: imx6: Fix i.MX6Q/DL boot hang caused by improper PHY power sequencing")
-Link: https://lore.kernel.org/all/20260629143439.361560-1-leoreis.costa@gmail.com/
+> ---
+> 
+> Changes in v2: shorten the commit message and replace the multi-line code
+> comment with a one-line note, per review feedback from Jonathan Cameron.
+> The devm registration reorder (the fix) is unchanged; David Lechner's
+> Reviewed-by was obtained on v1.
+> 
+>   drivers/iio/adc/xilinx-xadc-core.c | 9 +++++----
+>   1 file changed, 5 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/iio/adc/xilinx-xadc-core.c b/drivers/iio/adc/xilinx-xadc-core.c
+> --- a/drivers/iio/adc/xilinx-xadc-core.c
+> +++ b/drivers/iio/adc/xilinx-xadc-core.c
+> @@ -1395,13 +1395,14 @@ static int xadc_probe(struct platform_device *pdev)
+>   	}
+> 
+>   	if (irq > 0) {
+> -		ret = devm_request_irq(dev, irq, xadc->ops->interrupt_handler,
+> -				       0, dev_name(dev), indio_dev);
+> +		/* Clear out any work queued by the interrupt */
+> +		ret = devm_add_action_or_reset(dev, xadc_cancel_delayed_work,
+> +					       &xadc->zynq_unmask_work);
+>   		if (ret)
+>   			return ret;
+> 
+> -		ret = devm_add_action_or_reset(dev, xadc_cancel_delayed_work,
+> -					       &xadc->zynq_unmask_work);
+> +		ret = devm_request_irq(dev, irq, xadc->ops->interrupt_handler,
+> +				       0, dev_name(dev), indio_dev);
+>   		if (ret)
+>   			return ret;
+>   	}
+> --
+> 2.43.0
+
 
