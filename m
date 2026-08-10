@@ -4,69 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89F8FC5AD7B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 21:35:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2837AC5AD55
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 21:45:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ryp3/PB4vcj0KtZaTMI5+VyehhpTjHATZ/hJV75Vuiw=; b=rou1Jwr/Uw2pSdiymfkseZU9Hp
-	M3uIeRZy2UuwYgK6CeWHU5HijHiTBWA4phwz6ZwcL72+OTmHCVQrzJXqhZE6giJR8Of0unDunwqFx
-	7bf8Ip/ik+Qw+t6s7xrgLjvEZH//qUgWn+zJ9fJp9Z8evsqsmABTzYeDj3bivXRzjLgDYP7MmA4Ov
-	4/uOAH5ew5cIvwIIdcHIUqd8t7oxWlxB7cBD1bCzWgGyo4wli+CyZ8ZYDLBUK6dxRz8WlzhwolTqX
-	9alZw/N2dxsGZ3pZFWpv3vKFF43TKQIdCdfrfptiT8JQ++k2axYg64fbhNH5dQeka952j12Tq1xwY
-	Yx84/lSw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pSLX2IDqe7yl3XepKZ+XHIBeLbcqJK72m7NSKChRaMs=; b=JTVqjvkClpA8MqEeqrGp2/5wdT
+	ABsNKWnXPH/Q0awLrLsLfjptzCy0RxijSwj2UZ6KD49jh/NDI32HaL1ugByylffP8pZ/5ZA9/ECeL
+	wG0gtU4uIzRlFM3zvKTqTtwiMgxyeH2Jfhrim/YR7Jt9+j0NjoiMSMamX75DHVoKcn7n+DiQtVKg8
+	ESPv80e6/i1a9lo/VQA0QWTeXSLvFTGp5hymZqqn8QRnoG2LJ+tBA7UyHE0KndjVzgfc9wXprw9oD
+	ndSVR1j26LEPjRCwK0WVyHORwFaiP+KCuF8ZsSxQax/qjcimjx3rorlAf06qM3hi8qBwdNLDPeD7Y
+	L4tRfiJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtXeX-0000000Cv0M-1BMA;
-	Mon, 10 Aug 2026 21:35:25 +0000
-Received: from mx.nabladev.com ([178.251.229.89])
+	id 1wtXnn-0000000CvPI-0dq3;
+	Mon, 10 Aug 2026 21:45:01 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtXeR-0000000CuyL-11tG
+	id 1wtXnj-0000000CvOt-0YOn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 21:35:20 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id AC97611B8AC;
-	Mon, 10 Aug 2026 23:35:12 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1786397713; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=ryp3/PB4vcj0KtZaTMI5+VyehhpTjHATZ/hJV75Vuiw=;
-	b=YjGLapGB2AS4LGMSUTz3zNmU2ssjHIl9NOGVg6sqBmnrJYqqHUzdI/jTk3X4siHV0LmJBQ
-	efz2VR1VcxIByepeXnnOubhja6DV4vXUxyULTpMB77zH5WeZEWKwn9vBsBipnvBQUsPLPM
-	FOsyZnMGat+uXDyDk1+ry0CuU4gXS64KdsOnoQtaSET2haGU5+kbBncPFu4KOHzeLarIwN
-	8aBoBUWYXnXXAU7f1rUbx/ANAW0tm/heb6oPYdp+aQBGTaraw0wwtQmG5Z2opjIWQmO9b6
-	3fW5rTyYCMcf+pcZ4oLLpRQNJBGqJpamhDRzri7eIBQ0ZdvohAhCnPH0fMoQ2Q==
-From: Marek Vasut <marex@nabladev.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Marek Vasut <marex@nabladev.com>,
+	Mon, 10 Aug 2026 21:44:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QrnTyOcQYn9mIJAxxnoSd508uMdsNWWZbKtzLE4OwuGzaa4snxzytXDB1bDIoRYcoIf3wYIQr5lHUqzB8HygZZAYkvNQgz+3iwbTPjqJN0EyYYdnbRI42BKVsOd30kh1GNtVbLV/VcQnv2oIFzFWCcwfRwwKVZUTg11XtYj3MJXNIavBTS7Kg4qJcbSQHJAZ+Cv+hLBhG6q0xg7nbnjohvFRq/6dAVUxlw2YQpL01T7VZ+4qatzBkLFmhoSQaa8aocH1A+w252LMNGPjPcyqeM6JUdKgZpn1lzc7BJy7xiiz2i7NB3xtI0LxUw0xENUBWtLXiCLU3n4VMV5bj1DYrQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=pSLX2IDqe7yl3XepKZ+XHIBeLbcqJK72m7NSKChRaMs=;
+ b=Rhk4mZ6Xst52LRLDKjAhf5OP+rRItD3lL9isYw/CotP4xkZrt8ueMx/0fjcdjIIDLMk+jSWMh6vBNFwjSwzH4Hw3GMqVAO8kLWhVW1LtXcHjWAWlg6KIy6Vq4W4OdjgaufcpK4dx9OBDJmPmle+BXzt7L7fiiAh6LFsZUAImasVj0GluQEMxBRHJSJELVCuv59LrZXHbm9+W4h2qUNQoh4C6tpUPa4YRZ+Gy0ERRolYtTyCJpPlj9NPadGwJfU+UTYQUqXlENLwCpAcsigXmhDWYMOZvhE+PNXMJPdFF6ON3KwgaOzS7vJWeAU7nV0XL/lB2v+lrKLyY4u8Quw/Ovg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=pSLX2IDqe7yl3XepKZ+XHIBeLbcqJK72m7NSKChRaMs=;
+ b=xCGxZOYhFwg17B7zFttQ+c7UgGeptkgh8AIPf5fZ/rDAQUKA5Kgm33bcTEql3n1XG569w1nahaXTMzO4NB17eDcByaxJNlWlNr1esjLtBZL/xgpLQoImuD6VgjIaaB23pb2c8dTIiyicNCC2lQr7VA14vb+I6ryDtf4RYP8ovGHgJEFHRal3jGs3UdpqAHlCGieW0NMor6Ekw0XdjQvTvSpfc+vOBP8KnYEBdaip3HDQYShWETBPNtMSlmG7ro9b1TaN3FdQJg2Uz2Dk84hMWx6RmT6Wwjk3yvXhSl6B3/4Dq/8KqzVFTpyeLzNV3lDiClFwY00+a0gnZjXWH50Rxg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by GV1PR04MB11485.eurprd04.prod.outlook.com (2603:10a6:150:283::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.25; Mon, 10 Aug
+ 2026 21:44:49 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0292.024; Mon, 10 Aug 2026
+ 21:44:48 +0000
+Date: Mon, 10 Aug 2026 16:44:36 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Marek Vasut <marex@nabladev.com>
+Cc: linux-arm-kernel@lists.infradead.org,
 	Bartosz Golaszewski <brgl@kernel.org>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Fedor Ross <fedor.ross@ifm.com>,
+	Fabio Estevam <festevam@gmail.com>, Fedor Ross <fedor.ross@ifm.com>,
 	Frank Li <Frank.Li@nxp.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Linus Walleij <linus.walleij@linaro.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/2] arm64: dts: imx8mn: Expand EEPROM description on ifm VHIP4 EvalBoard
-Date: Mon, 10 Aug 2026 23:34:39 +0200
-Message-ID: <20260810213456.1268831-2-marex@nabladev.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260810213456.1268831-1-marex@nabladev.com>
+	Mark Rutland <mark.rutland@arm.com>, Rob Herring <robh@kernel.org>,
+	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] arm64: Select HAVE_SHARED_GPIOS for ARCH_MXC
+Message-ID: <anpGRPJwQbt6UMZx@SMW015318>
 References: <20260810213456.1268831-1-marex@nabladev.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260810213456.1268831-1-marex@nabladev.com>
+X-ClientProxiedBy: PH5P222CA0006.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:510:34b::6) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GV1PR04MB11485:EE_
+X-MS-Office365-Filtering-Correlation-Id: a0a247cd-39f5-40a3-5acd-08def72899d4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|376014|7416014|1800799024|19092799006|18002099003|22082099003|10067099003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: QUEnCWHCbxnBW7zckEi+hSWuD4ULRdXe1Uzt/rd+KhqqvGXu9PFhBTq9d7aMtlWqqRQ0AFYBcgmY+Gio81FJf1l4BzIrVM1UNPUaWGPO+U09aQQwmsecT4+J/mF9eOHncJBMQ5fiFu3mNsF6DnEgt1pSQHRcsIvm0sJsuHq75+YJscy9RxBoXk//GuE9vspPDSOP8w9MYGc0G8QZKjozLpuE7cqlzKa3xA17F0CpBqepnWuTQ+SsGLTeiATOZQEIsazvfnUGl1XzF4mclAd2eb0VGeQLlPB92cKwxNNFOW5yrpC9402AjRIFELiatBnGp8J2kiaNn9GjGhLI7qlaoEhYIglqAwN3YtcjvHXXFH8oZia+BlXzNoBOSrlI91rA8xF89mLJdCXVB+fd4+oAUYo2eFvzwZOe0B7eULZcPj18OGipnhv6/oCkHAKNWJm2RvEIRBa1mCM/Cdz45Su9pKdvThQdMOb2BeoSsii0Ki7z2cnVe3Zz8EVopQTg+/LyN0CzqnDYrE/7EueqZWZpSfcd5PwVLYywkRc5KXsO26z225xWn5QocJ37w+hhYdyRTYrTQlHcZu7NNrIzZfNTnOOzxzzgmjLOFCofVoi4Q4F3tmYRXRBOS/h44++ITvHOpN/oCpdVe9+G+REI8RA8w3870mXt/25nCNkMJKrHDWY=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(376014)(7416014)(1800799024)(19092799006)(18002099003)(22082099003)(10067099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?AEd2/rHS4rmOLJ+HOZik50NJSI2t01xCiMUi+X07A+Zsw26OD5qUPqvWv8Bn?=
+ =?us-ascii?Q?G3okSpg6B6qeMGzt4hrW7rhNT9F4KHbb210OXTp2khUQIdwuQJdaKT6eRyOV?=
+ =?us-ascii?Q?Zc5d0V7quZC7FGlPVoRYY6QknVvznhrNecHyv6fj688WLuDpy5/SazS3B6GH?=
+ =?us-ascii?Q?QNwMNKqR6hqf+kU8iJskGkxAsSpFuaTlHFPiAX+kJ+ES9wsVe5VrMAg2DhPv?=
+ =?us-ascii?Q?7Nue3r3RsL2KMHuYtUYP/xlDGigJRMxLoT41lfQc0lZI+TO5vexk87zvAx37?=
+ =?us-ascii?Q?VvnOjbRnKBMx0BNF71b0GgO10bANBKNZ/sMOe+azLbILW7TS9xteiaj2ky3l?=
+ =?us-ascii?Q?4yYrI7g9UJJ9x0LVBI2tABSUtaPhnm7W9DhEBpZKFhSi7w6ZmsigDj27D9Sp?=
+ =?us-ascii?Q?Lm+0h8cXu4HW/Q1oDeBfipBNMHqKrsJmSi3//rPUwX1OAP3IgjESSQaQZobC?=
+ =?us-ascii?Q?6Gwt96gjnvZdXEgKBpK6plhLEJtG+t6ksbThGf+SXqB+jOoBi6UpVG4m4cWm?=
+ =?us-ascii?Q?eK9cwkUpLU5/4LOHtbkZbXSEkc0A3181PC/P8TUTvT03sNLwPBqbLOmoioc/?=
+ =?us-ascii?Q?Cd/uOPzTpDWbMRvYWLXMkgh6sS1/h0hulmdI0IVVGiGWc9TOa5kWP8CVdplc?=
+ =?us-ascii?Q?b3Ms8wIe5OOJYa1b8F33fw5hO/xdjPtbV7o2mjra6ZKB3ONbB5ZgaT+IKVEv?=
+ =?us-ascii?Q?6QnpsXXWwMOzSUrmfL8CxUqMI3LWDkSYXdqUQH/5bovz+hT8JIlCPHQsmVP7?=
+ =?us-ascii?Q?1I7MLIe5sMznnsrePzN6FzsuiezMWjK3FsY4CZ/pPk3YaNTUgUkkIG+PTViM?=
+ =?us-ascii?Q?RLp2rfO/AWLnd4z84OWo1Y9ozzIIlZxSMhJijMnRAR69QPWKb48wR3GpLwxb?=
+ =?us-ascii?Q?/TkXxIWNfegHqJBxalaXtbFRejK2Tf3MGZgGUjZ6C+87Y1IacMXQk6sZiwD4?=
+ =?us-ascii?Q?hjg+yAmNNuS7qRJHVUxynzs6iQKXzEBOnKD86qwn1aYH35h91ZeWBdpSQkF0?=
+ =?us-ascii?Q?3d31YgJGya0pdZszUiWDjKXADjYmEc71cEQ9pPbSPask//lVl7l6y916X4Xd?=
+ =?us-ascii?Q?rdWV7XUeSbcpa5PRVwrfo0ivKVQmEcuXK11F1vrOV3ssYFdFJ31bSUQVscqO?=
+ =?us-ascii?Q?qg91FIiLsY9sRnB1aaui2qczW/FzK5Vm+J4LyACo+uAi9FiNNuemb1KOtrud?=
+ =?us-ascii?Q?Oc06lOeXQXgbwyv4ICRetaO+wPI1bLDqZ3h6WWSnfp6ft6CGeyGIaJi7SNCW?=
+ =?us-ascii?Q?iYKHQJKbyQLK6qac897ClU8k4QUOv1d+MWwBkZUvwvdnYODJiF90riBZ/6wx?=
+ =?us-ascii?Q?LavCG0TwJpHSml6i1TXE4cpKxrpIYpP5spHWY0Z2RS6iFjSwlm2M+43+0ynt?=
+ =?us-ascii?Q?vQ2IX9K4rB99BXtluktvZpvF4x94GaMjFp01fKuwem1Tzm12LrbDyzqlN3kW?=
+ =?us-ascii?Q?s6zsTPT+v0c+z+QNSt7stlbVEzqieTIfs+Lqj5nd01lqbG6eZsQ3bLwhxuK+?=
+ =?us-ascii?Q?87cxD1YwFcOxBrt05QI7BIjWuvo++2IzHkhGD3XtDjGV1EkKueeBnCN+TFG9?=
+ =?us-ascii?Q?gKfqBKjsfWNW6N8l/Ly09e7IZkI2GikqxYkzrdcsTzb7b4tjFhLdoVQvFf9t?=
+ =?us-ascii?Q?m/x0TLjXM0Px57m8WCJeBCW3/U/9mQ5lHZdhUFfn5YNhodnndqHk+E/4AKaU?=
+ =?us-ascii?Q?bPiMrVlMRLsSxfLInoVL6ozzcF6xw+XFv98IS7vAyzHzR9WvgAAqrunQyzy1?=
+ =?us-ascii?Q?yEs7rKhihNQZ2oKdrnI7nY8+U/RsoHGZaI35Er/6/+5PKcvVrHem?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a0a247cd-39f5-40a3-5acd-08def72899d4
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Aug 2026 21:44:48.7840
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: h8RBjaxRic4Wdu4fb901eg1rjg8vis+KK+9RipwIbf95Vl+rXrUVJ0W8QpnlFLlHtbNEuZx/UbHsP6nw7pf14TlvFZbD7r2UrPSNwImrxEZrXT4XK9uvTIQWpK0H7c9p
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB11485
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_143519_590068_36A826FC 
-X-CRM114-Status: GOOD (  12.47  )
+X-CRM114-CacheID: sfid-20260810_144456_444147_7F55D4A7 
+X-CRM114-Status: GOOD (  16.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,144 +144,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Describe the EEPROM write protect GPIOs and labels on VHIP4 EvalBoard.
+On Mon, Aug 10, 2026 at 11:34:38PM +0200, Marek Vasut wrote:
+> Some NXP i.MX platforms use shared GPIOs. Enable support for them by
+> selecting the Kconfig switch provided by GPIOLIB.
+>
+> Signed-off-by: Marek Vasut <marex@nabladev.com>
+> ---
 
-Signed-off-by: Marek Vasut <marex@nabladev.com>
----
-Cc: Bartosz Golaszewski <brgl@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: Fabio Estevam <festevam@gmail.com>
-Cc: Fedor Ross <fedor.ross@ifm.com>
-Cc: Frank Li <Frank.Li@nxp.com>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Linus Walleij <linus.walleij@linaro.org>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: Rob Herring <robh@kernel.org>
-Cc: Will Deacon <will@kernel.org>
-Cc: devicetree@vger.kernel.org
-Cc: imx@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
----
- .../imx8mn-vhip4-evalboard-common.dtsi        |  3 +-
- .../freescale/imx8mn-vhip4-evalboard-v1.dts   |  8 ++++++
- .../freescale/imx8mn-vhip4-evalboard-v2.dts   | 28 ++++++++++++++++---
- 3 files changed, 34 insertions(+), 5 deletions(-)
+Haibo have similar patch
+https://lore.kernel.org/imx/20260730-can-share-silent-v1-2-63fd603f943d@nxp.com/
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mn-vhip4-evalboard-common.dtsi b/arch/arm64/boot/dts/freescale/imx8mn-vhip4-evalboard-common.dtsi
-index aaf9761703aaf..73b1ed2632a39 100644
---- a/arch/arm64/boot/dts/freescale/imx8mn-vhip4-evalboard-common.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mn-vhip4-evalboard-common.dtsi
-@@ -142,8 +142,9 @@ &i2c1 {
- 	pinctrl-0 = <&pinctrl_i2c1>;
- 	pinctrl-1 = <&pinctrl_i2c1_gpio>;
- 
--	eeprom@51 {
-+	cfg_eeprom: eeprom@51 {
- 		compatible = "atmel,24c128";
-+		label = "ifm-deviceinfo";
- 		reg = <0x51>;
- 	};
- 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mn-vhip4-evalboard-v1.dts b/arch/arm64/boot/dts/freescale/imx8mn-vhip4-evalboard-v1.dts
-index a8f7c226a61f8..98dd241a9d5ce 100644
---- a/arch/arm64/boot/dts/freescale/imx8mn-vhip4-evalboard-v1.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mn-vhip4-evalboard-v1.dts
-@@ -13,6 +13,11 @@ / {
- 		     "ifm,imx8mn-vhip4", "fsl,imx8mn";
- };
- 
-+&cfg_eeprom {
-+	/* Shared with logging EEPROM on v1 hardware */
-+	wp-gpios = <&gpio5 20 GPIO_ACTIVE_HIGH>;
-+};
-+
- &ifm_led {
- 	pinctrl-1 = <&pinctrl_gpio_led_v1>;
- 
-@@ -90,7 +95,10 @@ temperature-sensor@48 {
- 
- 	eeprom@50 {
- 		compatible = "atmel,24c128";
-+		label = "ifm-logging";
- 		reg = <0x50>;
-+		/* Shared with configuration EEPROM on v1 hardware */
-+		wp-gpios = <&gpio5 20 GPIO_ACTIVE_HIGH>;
- 	};
- };
- 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mn-vhip4-evalboard-v2.dts b/arch/arm64/boot/dts/freescale/imx8mn-vhip4-evalboard-v2.dts
-index 43fd4d0041ef3..04fa43b12d2b5 100644
---- a/arch/arm64/boot/dts/freescale/imx8mn-vhip4-evalboard-v2.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mn-vhip4-evalboard-v2.dts
-@@ -20,6 +20,12 @@ multi-led {
- 	};
- };
- 
-+&cfg_eeprom {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_cfgeeprom>;
-+	wp-gpios = <&gpio2 11 GPIO_ACTIVE_HIGH>;
-+};
-+
- &ifm_led {
- 	pinctrl-1 = <&pinctrl_gpio_led_v2>;
- 
-@@ -87,7 +93,11 @@ temperature-sensor@48 {
- 
- 	eeprom@54 {
- 		compatible = "atmel,24c128";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_logeeprom>;
-+		label = "ifm-logging";
- 		reg = <0x54>;
-+		wp-gpios = <&gpio5 3 GPIO_ACTIVE_HIGH>;
- 	};
- };
- 
-@@ -103,6 +113,13 @@ &ifm_pmic {
- };
- 
- &iomuxc {
-+	pinctrl_cfgeeprom: cfgeeprom-grp {
-+		fsl,pins = <
-+			/* CFG_EEPROM_WP */
-+			MX8MN_IOMUXC_SD1_STROBE_GPIO2_IO11		0x140
-+		>;
-+	};
-+
- 	pinctrl_ecspi1_cs: ecspi1-cs-grp {
- 		fsl,pins = <
- 			/* KS8794 nCS */
-@@ -143,12 +160,8 @@ pinctrl_i2c1_gpio: i2c1-gpio-grp {
- 		fsl,pins = <
- 			MX8MN_IOMUXC_SD1_DATA4_GPIO2_IO6		0x56
- 			MX8MN_IOMUXC_SD1_DATA5_GPIO2_IO7		0xd6
--			/* CFG_EEPROM_WP */
--			MX8MN_IOMUXC_SD1_STROBE_GPIO2_IO11		0x140
- 			/* RTC_nIRQ */
- 			MX8MN_IOMUXC_SPDIF_EXT_CLK_GPIO5_IO5		0x116
--			/* LOG_EE_WP */
--			MX8MN_IOMUXC_SPDIF_TX_GPIO5_IO3			0x140
- 		>;
- 	};
- 
-@@ -166,6 +179,13 @@ MX8MN_IOMUXC_I2C3_SDA_GPIO5_IO19		0xd6
- 		>;
- 	};
- 
-+	pinctrl_logeeprom: logeeprom-grp {
-+		fsl,pins = <
-+			/* LOG_EE_WP */
-+			MX8MN_IOMUXC_SPDIF_TX_GPIO5_IO3			0x140
-+		>;
-+	};
-+
- 	pinctrl_mcp2518: mcp2518-grp {
- 		fsl,pins = <
- 			/* CAN0_CLKO */
--- 
-2.53.0
+But I hope the SoC maintainer provide review/ack-by tags
 
+Frank
+
+> Cc: Bartosz Golaszewski <brgl@kernel.org>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Conor Dooley <conor+dt@kernel.org>
+> Cc: Fabio Estevam <festevam@gmail.com>
+> Cc: Fedor Ross <fedor.ross@ifm.com>
+> Cc: Frank Li <Frank.Li@nxp.com>
+> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> Cc: Linus Walleij <linus.walleij@linaro.org>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: devicetree@vger.kernel.org
+> Cc: imx@lists.linux.dev
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> ---
+>  arch/arm64/Kconfig.platforms | 1 +
+>  1 file changed, 1 insertion(+)
+>
+> diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
+> index d2acfac730037..bc279b864d3cb 100644
+> --- a/arch/arm64/Kconfig.platforms
+> +++ b/arch/arm64/Kconfig.platforms
+> @@ -275,6 +275,7 @@ config ARCH_MXC
+>  	bool "NXP i.MX SoC family"
+>  	select ARM64_ERRATUM_843419
+>  	select ARM64_ERRATUM_845719 if COMPAT
+> +	select HAVE_SHARED_GPIOS
+>  	select IMX_GPCV2
+>  	select IMX_GPCV2_PM_DOMAINS
+>  	select PM
+> --
+> 2.53.0
+>
+>
 
