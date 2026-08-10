@@ -4,83 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF46EC5AD55
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 14:20:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63168C5AD55
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 14:21:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+EdnkOjvq7HGz0vsFhTeBvomTLbOigrIz1VJsvzEruM=; b=0dzK6uaS0GfCDLiU+/csi8hR2q
-	tikz8lM2gJDE7u/9I6sfB5tB+Sh8C7VCicrtzAa8TT0urtPkdZDq3Mw7i0j6nanzrR8ROFH9XQ0B5
-	U4T9SMCTbFgXgeBwzJ9Mtb12aYiIi5c3ZdcGOxWbJ9cyqMnrNLk12liPnCHY9dAn/yoIXx584Ahqf
-	//TZqrL/IdhhyEkX1ipUwAM5GWlqvYfrczpKIKl33dd2HVlnkaBcpn5bWEH4vbPzQtl81pQOL7JnI
-	xuwnxq53L2+/W7foxzWsJ0By2vYs62D5duXvz75ese982eqE/nE2BD+2q8veQn3loVZLFE4NzpAkk
-	rLhTZOuw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hSq7OZ0xeIWTiSwoTzu6Q+tT3niFPej9d4P2mwNfxe8=; b=gfONII66K1XDPgaFBMiP4wOwtH
+	Mbpn44/XE9WCsssBgv9M/FB0YUPuii7GQXhXKh3YLBdkPFg5nlmi7dfqeOTYs1z87SwGvu9MUmgRy
+	lwHgPtros9ZwhwoD6TfzEMMpRftS8f84GRX3Pzm/vcqDoBJCp5Psus0d9XTeJ6SE7pXQWG6AQo53I
+	gOruEth3/pbYEJ4Q5oyxB8agjDBNJt+1LJyEh7a/sHBKqXLUy0xQ3TtZ2HV+Vz1Lq4eDlkxVSHGK+
+	MLTtPGbTb2iZolFd/G4vHGqc9JFWL2XxjsHOG33AhlDeo1X0i10Rp6x01xq+ekz7ZtOvnDeFqGaZQ
+	X0nLsyFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtQrJ-0000000ByuS-3K4Y;
-	Mon, 10 Aug 2026 14:20:09 +0000
-Received: from mail-vk1-f169.google.com ([209.85.221.169])
+	id 1wtQs4-0000000Bz8T-14hl;
+	Mon, 10 Aug 2026 14:20:56 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtQrG-0000000BytV-3pZ7
+	id 1wtQs0-0000000Bz4k-3f6H
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 14:20:08 +0000
-Received: by mail-vk1-f169.google.com with SMTP id 71dfb90a1353d-5bfc5b77c02so1506146e0c.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 07:20:06 -0700 (PDT)
+	Mon, 10 Aug 2026 14:20:54 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-495590dde14so24370095e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 07:20:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786371651; x=1786976451; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=hSq7OZ0xeIWTiSwoTzu6Q+tT3niFPej9d4P2mwNfxe8=;
+        b=Rfv7Gqs1hn/Op4qS+ChpID9gS6oT6D5r4LLoaV7R1zAd8dQiOxF0ICWao4LOWYoDAG
+         sSNn8Q/pejPjyxB2Un12X7RLgDPCFNq+kp5vxba1W4VMZWYgUtORa6b7xYHzDlM0Vua7
+         2iulXUaRmjfgnCm98p6RlGmpfNg+pOyGEjZxK08G2acMq2Sw4V5suNch9zk4rnuk9sHX
+         mIV3grwjBFUzvq/TvEWrVvW3R0Ijs1eSgjsM6nU01TXM5KwPQRrPZvCWRbPVhjfI0E77
+         CHKzFtgAjgCriEXVeF/y+11yBDcETgKtod0yeOwltNP3n/hjt8WQ10cWKgtGGmV7t/EU
+         ZZpQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786371605; x=1786976405;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=+EdnkOjvq7HGz0vsFhTeBvomTLbOigrIz1VJsvzEruM=;
-        b=M4EbqKWa3pMsDD44ikRYWDBb6PMzVu8Se3nuWmVNiNqbsxqwxIULTwA2xzYG1kXKU3
-         xy/+CiXAmb+keQ3ypV3In98ohyFAw2LB2VNfqtcZN36OWQI02aZZ7RQmwzeWq9x1zQpp
-         +zEpYFP0Yx5RPPrtqEupV3NVgDnO7kgUHzh435m/xFd0KK13cyM4c0wcwJTsLBGB4h/W
-         tetL6xlCcRGogGolls4qPwAbat6/9F32kF+RZmREcV2ly9FvsxFLypMqnyVDp+yiSqkZ
-         7JGl07PIQgm0ckAU9rN2x1af0qEHsUHelmsuXLwEp2QjGoxECB6Dlhz28Fx4gw9Oe7LN
-         9hfg==
-X-Gm-Message-State: AOJu0YzJ4DVgZEngry/mXLbm76dMb5+UfsK6rb9PsOeeoEWWeCqmK/Cy
-	u9HoA0pDDd0m5t+LniWD93OWYM+liWDTMq+cdFXq/FE9nFXMUB2pWwjo5FmUVRpF
-X-Gm-Gg: AR+sD12IwivDbQBylxal4UUFamiP0uyPLc2JnMcPZJo/HuHm77GaIPHaeGA1+BJC2qy
-	e7lDSD1Sq+1Rt1WIU8e2OOXlGVLcVAseLDYfVXzDkU7VreRhi/Ci7z170imfVpWa5bDNifA8JPA
-	VCcunyI5XMBPrBGNYr4z7av4mG2D8WRk4OXLKCVWJeQeCVF4Jm0ns4G0RuEFTI45i7tg3drlmIT
-	HSKgC6BlB4LL8W51z4jVKEba5oCWE19RrZ4tb1yZfa3LdPqey51IS3tpE9xeAnPhn7+7aHU8tvJ
-	GRrdv53ldHGdNNv2+V2dTtRULWN7/82qpf46rHng72BAbPie0W3cxcqpO7sFMlmzH3nAsb5o3hT
-	EuvZCcFgrHUe3VqJ12IwrEnMY2f65PXhAbpZTXCr0DGrzX4AHOC8G1TDHVp8G0PNbbo8LI/9YUX
-	6etICcXz0o3T6zF4NDHsVEfwsAHwYrGoQxz5iif2yVm7Bvo3tiYlw7wVZtknl/lAJHrBBTjq+Iz
-	iZvq+zzoaP/Yv4LV04LVXU4wQ==
-X-Received: by 2002:a05:6122:32c7:b0:5bf:9bfa:53a0 with SMTP id 71dfb90a1353d-5c4418e4a2fmr327369e0c.1.1786371605629;
-        Mon, 10 Aug 2026 07:20:05 -0700 (PDT)
-Received: from mail-ua1-f53.google.com (mail-ua1-f53.google.com. [209.85.222.53])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5c40b1a8007sm4495377e0c.11.2026.08.10.07.20.04
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 10 Aug 2026 07:20:05 -0700 (PDT)
-Received: by mail-ua1-f53.google.com with SMTP id a1e0cc1a2514c-973b676e5f5so1074765241.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 07:20:04 -0700 (PDT)
-X-Received: by 2002:a05:6102:2ad2:b0:744:a3fd:410a with SMTP id
- ada2fe7eead31-768e8940762mr560960137.14.1786371603877; Mon, 10 Aug 2026
- 07:20:03 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1786371651; x=1786976451;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=hSq7OZ0xeIWTiSwoTzu6Q+tT3niFPej9d4P2mwNfxe8=;
+        b=aUanYa3gBCNJZS76tGisy9Wwc0NH+fLSj1q0Rkc4TZquSsPabKQdsVcHl0taTBEKR+
+         EZpK9YA8ZLHkwksxeBtb3g4EVjots8Lchpl4HCczQa+TR44ZikeYL9sAys25DP1YvdFx
+         lrVnnJKhMChmeRbgHplinmSVIDAzP+PpSAGp1D1v6zBr8lIGWW1ljLbsDP3hH6RrPlSn
+         ppSWMWkw5Wt3gmMj+3Gibl/Nxn7A+tQfxxv+KfHfH8nx3eVk4Al4Z7rU1l5k/Drp7BU1
+         gFfR0EiWGUuUal+fY8hme1Al7qZrbpCuyt7k5wbyuxCrZ8eCbTj1nbD2pJ9arBJmwOrI
+         /37Q==
+X-Forwarded-Encrypted: i=1; AHgh+RqJNzn9OvSQ2IOjnq3VUqrxPaBhjGehRAJqgZGwYTfZ3dn/kT/SRoU+dnC0kXhM/KoxO9c0rrrvNKT8YEB6UK8u@lists.infradead.org
+X-Gm-Message-State: AOJu0YzVrnFigdLcttktsfergIt9PANdXFmcFi3lkbjNOauHlCN0vZnC
+	JWfdarO97qcpg473CoxHC5QTNELmNvXK+Du4sdRTZbFwiYR/1IS/n3FW
+X-Gm-Gg: AR+sD10L63teAKSqLvb815xDswE5wTRb3nZsGwAmSQo0Tc5LKshTN+FUBlnpqJEDQAf
+	YASqfj4k0e8tEBsm30fLeQIV7L5aKLlNQ7F5FylS19xvmaRXZMp6tlPDXXtNeNohbGNFW6hJaxW
+	aK+/8SFBMx4wE7mOYLa4GNHjfyuQZAKIIRN5BbJxL/xe6MGMYauPYwhyuDQ2y3XtmIAbui8VyWi
+	LTZCSPKoc/YSASEpR8IYUfqCLIUECnnqhiCaU40Zpz6jgVVjYEaVUKzFTNv7WDloGqm+Y0omXeW
+	EMW07+QA1e/BSSjnzFzyblmYzleITuTxFnwav06UoFeccomLvm9TgWpIfPhL0SLhtsdFd+T03hx
+	cR0MmnJrNzE19tGK7/MHWMjqgpVxlJgYZ5gTub5f2TnGoZm4JNXsNa9NSG5FOGsapPcTPeIw4VZ
+	nA7qSXmEUwSQlZvW4aGKU7anLJtXhpXRAFi7ZcOc7yi36F01wL16h4JG6xgD+BTKCzw04=
+X-Received: by 2002:a05:600c:4ed3:b0:493:e983:806e with SMTP id 5b1f17b1804b1-4994e72f795mr589286845e9.3.1786371650925;
+        Mon, 10 Aug 2026 07:20:50 -0700 (PDT)
+Received: from deb05.proceq.com ([213.160.61.66])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4995919df87sm354413055e9.6.2026.08.10.07.20.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 10 Aug 2026 07:20:50 -0700 (PDT)
+From: Mehmet Fide <mehmet.fide@gmail.com>
+To: Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Stefan Agner <stefan@agner.ch>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Francesco Dolcini <francesco@dolcini.it>,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 2/4] ARM: dts: vf-colibri: name the SODIMM gpio lines
+Date: Mon, 10 Aug 2026 16:20:45 +0200
+Message-ID: <20260810142047.2811230-3-mehmet.fide@gmail.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260810142047.2811230-1-mehmet.fide@gmail.com>
+References: <20260810140053.2793495-1-mehmet.fide@gmail.com>
+ <20260810142047.2811230-1-mehmet.fide@gmail.com>
 MIME-Version: 1.0
-References: <20260714130325.11080-1-marek.vasut+renesas@mailbox.org> <20260714130325.11080-2-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20260714130325.11080-2-marek.vasut+renesas@mailbox.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 10 Aug 2026 16:19:52 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdX1soMQwibF8kr+K=aStvzRoouDyAms45U_WQtWojdDjg@mail.gmail.com>
-X-Gm-Features: AUfX_mzmyaFcfAhDqolFSfcUlHhBbVcrn1RxopOMapmQqRAQ7qu_SOQmReL3jC0
-Message-ID: <CAMuHMdX1soMQwibF8kr+K=aStvzRoouDyAms45U_WQtWojdDjg@mail.gmail.com>
-Subject: Re: [PATCH 2/2] arm: dts: renesas: armadillo800eva: Specify ethernet
- PHY reset timings
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_072006_949946_EAED8BD9 
-X-CRM114-Status: GOOD (  20.68  )
+X-CRM114-CacheID: sfid-20260810_072052_931568_9F1BAA2D 
+X-CRM114-Status: GOOD (  11.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,38 +107,185 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 14 Jul 2026 at 15:03, Marek Vasut
-<marek.vasut+renesas@mailbox.org> wrote:
-> The LAN8710Ai reference manual [1] DS00002164C page 61 FIGURE 5-3:
-> POWER-ON NRST & CONFIGURATION STRAP TIMING does not indicate how
-> long should the system wait after deassertion of the PHY reset and
-> before start of communication with the PHY via MDIO. Opt for 300 us
-> which should cover every timing option, including the 16 us delay
-> required for MDIO to switch to 25 MHz listed in Note: in Chapter
-> 3.8.5 RESETS.
->
-> The LAN8710Ai reference manual [1] DS00002164C page 61 TABLE 5-8:
-> POWER-ON NRST & CONFIGURATION STRAP TIMING VALUES row tSR Stable
-> supply voltages to reset high is at minimum 10 ms. Set DT property
-> reset-assert-us to 25ms because the LAN8710Ai RM does not explicitly
-> spell out how long the reset has to be asserted, but this at least
-> covers the worst case scenario.
->
-> [1] https://ww1.microchip.com/downloads/aemDocuments/documents/UNG/ProductDocuments/DataSheets/LAN8710A-LAN8710Ai-Data-Sheet-DS00002164.pdf
->
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+From: Mehmet Fide <mehmet.fide@screeningeagle.com>
 
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-i.e. will queue in renesas-devel for v7.4.
+The Colibri modules expose most of their GPIOs on numbered SODIMM pins,
+and the i.MX ones already carry those numbers as gpio-line-names, so the
+gpiod tools print SODIMM_43 rather than a bank and an offset. Do the same
+for the Vybrid modules.
 
-Gr{oetje,eeting}s,
+The 99 names come from the pinout table of the Colibri VFxx datasheet
+(Toradex 101355). Verified on a Colibri VF50, where gpioinfo now names
+every pin the datasheet lists.
 
-                        Geert
+Signed-off-by: Mehmet Fide <mehmet.fide@screeningeagle.com>
+---
+ arch/arm/boot/dts/nxp/vf/vf-colibri.dtsi | 144 +++++++++++++++++++++++
+ 1 file changed, 144 insertions(+)
 
+diff --git a/arch/arm/boot/dts/nxp/vf/vf-colibri.dtsi b/arch/arm/boot/dts/nxp/vf/vf-colibri.dtsi
+index 74afc7b..04b5d53 100644
+--- a/arch/arm/boot/dts/nxp/vf/vf-colibri.dtsi
++++ b/arch/arm/boot/dts/nxp/vf/vf-colibri.dtsi
+@@ -170,6 +170,120 @@
+ 	status = "okay";
+ };
+ 
++&gpio0 {
++	gpio-line-names = "",
++			  "",
++			  "SODIMM_89",
++			  "",
++			  "",
++			  "SODIMM_102",
++			  "SODIMM_18",
++			  "SODIMM_134",
++			  "SODIMM_16",
++			  "SODIMM_14",
++			  "SODIMM_23",
++			  "",
++			  "",
++			  "",
++			  "SODIMM_47",
++			  "SODIMM_190",
++			  "SODIMM_192",
++			  "SODIMM_49",
++			  "SODIMM_51",
++			  "SODIMM_53",
++			  "SODIMM_37",
++			  "SODIMM_29",
++			  "",
++			  "SODIMM_30",
++			  "SODIMM_20",
++			  "SODIMM_24",
++			  "SODIMM_21",
++			  "SODIMM_19",
++			  "SODIMM_94",
++			  "SODIMM_81",
++			  "SODIMM_28";
++};
++
++&gpio1 {
++	gpio-line-names = "SODIMM_35",
++			  "SODIMM_33",
++			  "SODIMM_27",
++			  "SODIMM_25",
++			  "SODIMM_196",
++			  "SODIMM_194",
++			  "SODIMM_63",
++			  "SODIMM_55",
++			  "SODIMM_65",
++			  "SODIMM_45",
++			  "SODIMM_43",
++			  "SODIMM_73",
++			  "SODIMM_77",
++			  "SODIMM_71",
++			  "SODIMM_98",
++			  "SODIMM_101",
++			  "SODIMM_103",
++			  "SODIMM_79",
++			  "SODIMM_97",
++			  "",
++			  "",
++			  "SODIMM_85",
++			  "",
++			  "",
++			  "",
++			  "",
++			  "",
++			  "",
++			  "",
++			  "",
++			  "",
++			  "SODIMM_106";
++};
++
++&gpio3 {
++	gpio-line-names = "SODIMM_105",
++			  "",
++			  "SODIMM_93",
++			  "",
++			  "",
++			  "",
++			  "",
++			  "SODIMM_95",
++			  "SODIMM_22",
++			  "SODIMM_68",
++			  "SODIMM_82",
++			  "SODIMM_56",
++			  "SODIMM_131",
++			  "SODIMM_44",
++			  "SODIMM_144",
++			  "SODIMM_146",
++			  "SODIMM_52",
++			  "SODIMM_54",
++			  "SODIMM_66",
++			  "SODIMM_64",
++			  "SODIMM_57",
++			  "SODIMM_61",
++			  "SODIMM_140",
++			  "SODIMM_142",
++			  "SODIMM_80",
++			  "SODIMM_46",
++			  "SODIMM_62",
++			  "SODIMM_48",
++			  "SODIMM_74",
++			  "SODIMM_50",
++			  "SODIMM_136",
++			  "SODIMM_138";
++};
++
++&gpio4 {
++	gpio-line-names = "SODIMM_76",
++			  "SODIMM_70",
++			  "SODIMM_60",
++			  "SODIMM_58",
++			  "SODIMM_78",
++			  "SODIMM_72",
++			  "SODIMM_96";
++};
++
+ &gpio2 {
+ 	/*
+ 	 * EXT_IO_0..2 belong to no device, so hog the pin group here rather
+@@ -177,6 +291,36 @@
+ 	 */
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_gpio_ext>;
++
++	gpio-line-names = "SODIMM_69",
++			  "SODIMM_99",
++			  "SODIMM_104",
++			  "SODIMM_107",
++			  "SODIMM_127",
++			  "SODIMM_184",
++			  "SODIMM_186",
++			  "",
++			  "",
++			  "",
++			  "",
++			  "",
++			  "",
++			  "",
++			  "",
++			  "SODIMM_38",
++			  "SODIMM_36",
++			  "SODIMM_34",
++			  "SODIMM_32",
++			  "SODIMM_129",
++			  "SODIMM_86",
++			  "SODIMM_90",
++			  "SODIMM_92",
++			  "SODIMM_88",
++			  "SODIMM_133",
++			  "SODIMM_135",
++			  "SODIMM_188",
++			  "SODIMM_75",
++			  "SODIMM_100";
+ };
+ 
+ &iomuxc {
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+2.54.0
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
