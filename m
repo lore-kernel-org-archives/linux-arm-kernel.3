@@ -4,136 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36625C5B56A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 13:06:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38A25C5AD55
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 13:08:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Biy+o7BkqehCNm5vy/si+mNx3FzYGWTLJkGVpGa4MME=; b=23fZtT47G9tYPqp3hQzn6u/6En
-	IdIi2GaQRiVuOoZIzb0OVySIFCiDyOG0UXsRpOVC5Xto6T9JivVn4Evk6D0fQwjVL184Q7SForNNs
-	EvVFbueeYoyA/6HG2INjIiR26WFaweIyfhJuik43G0gWdB5Hf/KWyrigghjNwYJzpj73Q2Z0jQp7+
-	2wvHlsyr8yJcwgBdtzs0CgZiu7bZDOoxPD7ua+HwTJXKfmFPGgM1xIR75CEDbMM0VFljMeuE3/z8L
-	chLiCZ4OhO3zA8ARbaWlIhjU1WdV8k0JgGtAEIAbwWJ+oLkIMmWZkCwqB7/nCHw6ADYaohH0cg9w4
-	atszjQ6g==;
+	bh=pTDI6EKrZhHzu91ABEa/3hYoH7aGPcaJaVd/MJRw0Ok=; b=JawhAsSLywjVF8pXqXz+EU2zxQ
+	Qt19iWLBTMusGeKhA98tpxzDwV58wGznViAT/zL9Os0ulI7jJIp+AQGRRoeY9suM4EB3liZivc/Al
+	lZ3Qt+ZD2K9GScGsLGm/NbIV/AcJWvDLRs01sctYuwYGJth95tUrwShyMOlfeZ2UbYenXnxQ7oL8g
+	e+tZ38gXUtxFJYmRF2g2bvWLcH8ONRaKBIRxZz9Zim/lJCyjUBjT7rIdUROR0rYmivxvo7umyS8wk
+	YVPK4JU9GP7v9qyK1v7i1BMiSPSWLougjRmFTt7dSE39AVe42uw8j2eoyG8ekLdNmtcZdKbSvqWiR
+	VZAURuWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtPi7-0000000BrQ5-320G;
-	Mon, 10 Aug 2026 13:06:35 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1wtPjs-0000000BrdO-0CPg;
+	Mon, 10 Aug 2026 13:08:24 +0000
+Received: from mail-qt1-x831.google.com ([2607:f8b0:4864:20::831])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtPi5-0000000BrPX-0EDb
+	id 1wtPjp-0000000Brcb-0nVd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 13:06:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yfpRPKDybdNgtUMyxSCmI4Qa0POEBNRmQY1KUO2vIJKRV2S9VMmXJ9RPQBsxUvf9wQT8v8DcKWTPaGQgzEkfvDOSWVVBQaU4/LDV40oB9u2uY0pB8YTawZ6JcxxDpJAEtkiYlv2czycVdvUKqrR35NXCeeSz+9lWF9FeSp+VvQAnSHiXWya6MXqbh0LEzSkrUpnThGCGtdafiqM2spliAvFnsSHur6dOe9pXI6ZE9/m+kfamQAoGWnbRPHM2Ez0PyFruzmxqCxb6HcW2Z2p98DuwrWp7+a3EpkiTQTL5p7WJoHrB3waDQH4bPfLmbermR3Z8/aOSZdJhVrQIZsSeGA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Biy+o7BkqehCNm5vy/si+mNx3FzYGWTLJkGVpGa4MME=;
- b=bdhsLxqJdSDuoKUoL4WBYBLthCwWNx5tsRFBQq7ofiF2zClCGJse00egRihZ06p/CG5exY0Tuh8MIZXOQpVviEVRNcfeXMRyn1BeyuURy+XaXAFnByIdv+qv5pqYiDxApxo3nz7yHQst7ZI9V6vNVNqWdoG8SVAp9ZLNjRS2y4VXt1Epj3Xjzig7gnmoRYa7g7uOjLr0QwDUN/z2BY5s5l+nnFYao/jEXXgYjV0kmP2IE0wVcHodKO7WNDvkplskHj4huU1HDCNFAgazgQy57Zj0P+n0rXZeUPOTFo2gzYk7EF5bF1Y7069DaLUE0zEYVZ7R/GLO84dfFc5KoOlTtQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=phytec.de; dmarc=pass action=none header.from=phytec.de;
- dkim=pass header.d=phytec.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Biy+o7BkqehCNm5vy/si+mNx3FzYGWTLJkGVpGa4MME=;
- b=cXWtKDbtKHfO52WWcpRJCG+hsKr55cpvLVt8+EyY4s5CcT9jSmiZXZX6O2fGWKWlz148kHsiKqZUdruOH9qBlvgq2sg2pXKWIp5sbb0bkj9gbPk4OOjbDZQZSzjAJ6uAjZbGQUjVoFyCE16fLuMwHrjECDBVHiJfv0i6QRh0cfBk4J6oo4VZ3TQr5TbdJ2g7fqI46Nf4wIugu1V/gbcFjCAPtYgjQq743J2Lj5VoGm+Ow6OtkrCa5MOKEhvnjt9YufIRA0CxGLGv3EysIRhldyFsZ0K2d+2uuMxIJygFyiqv5V26WN6+ILaX24aqCozKA4CVFbp3YHubgORCCT6Y+w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=phytec.de;
-Received: from AS4P195MB1456.EURP195.PROD.OUTLOOK.COM (2603:10a6:20b:4b3::21)
- by AS8P195MB1977.EURP195.PROD.OUTLOOK.COM (2603:10a6:20b:573::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.25; Mon, 10 Aug
- 2026 13:06:24 +0000
-Received: from AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
- ([fe80::295f:9a59:b66a:621a]) by AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
- ([fe80::295f:9a59:b66a:621a%5]) with mapi id 15.21.0292.024; Mon, 10 Aug 2026
- 13:06:23 +0000
-Message-ID: <008985f8-5931-4976-b614-55b2cab50a94@phytec.de>
-Date: Mon, 10 Aug 2026 16:06:21 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] arm64: dts: ti: Add support for the phyCORE-AM62Px
-To: John Ma <jma@phytec.com>, nm@ti.com, vigneshr@ti.com, kristo@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, upstream@lists.phytec.de
-References: <20260805172658.3892154-1-jma@phytec.com>
- <20260805172658.3892154-2-jma@phytec.com>
-From: Wadim Egorov <w.egorov@phytec.de>
-Content-Language: en-US
-In-Reply-To: <20260805172658.3892154-2-jma@phytec.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MR1P264CA0029.FRAP264.PROD.OUTLOOK.COM
- (2603:10a6:501:2f::16) To AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
- (2603:10a6:20b:4b3::21)
+	Mon, 10 Aug 2026 13:08:22 +0000
+Received: by mail-qt1-x831.google.com with SMTP id d75a77b69052e-51bfe810293so7476571cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 06:08:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1786367299; x=1786972099; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=pTDI6EKrZhHzu91ABEa/3hYoH7aGPcaJaVd/MJRw0Ok=;
+        b=ZrcVNJxv4JgmaHtpaF9LXRRtfZqjeQoir+keqedo+u+HXvJ+nuoKe0yZcYNS9JlSlr
+         RSJscb6BMlt0gN7uJypUX5GPF0pMjCY4/J+ZZJssTG/1GfBWQG4yh/XiCsFut1MY8mMC
+         VWjlgUciEWdFiiHxY6Gr5xgv+CbEEUnGSAxqCD9WiNMFIUWNFsLf26Wl+u5gSkLzMtZT
+         H1JOb6DULefQA9Wmtv8uFgKzcchT+ElA/HCvURhqFHjEVFgR2pGzEIvzf928axtvs8SR
+         40tfO7ebGVlLDyMXwqYiDTKuEdW5L+xC+tOlKmFt/HRkUBecM+cdITnoDq+gsUHoFPP7
+         g+1g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786367299; x=1786972099;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=pTDI6EKrZhHzu91ABEa/3hYoH7aGPcaJaVd/MJRw0Ok=;
+        b=dWbX0uDYtO4grIs2yvqOxLBoNJIVPdKl9l37HMNKdGws916mZ7HWDv/ThjXGubmUZ1
+         8H7ANEvWFWL3+KNVWeyaavggM7m50XzvOqCjmgj8Q5Qcd8pkS+9dMyxA2f1GY07aTlWK
+         tOs08blTymnLBQE6Zij56/8pkYPuWI6BpsjFFmCOVPjdbeNJGhd8qhyUwIeSc7IzrubR
+         NkzafVwIeq5EdlTk7e/uwZHPHxh0HeMDVMhNRl6afRNuY5cE4DVGCL4ADIa9au8sX2d+
+         P7sDKlfNl/PL5UEogpMdsATiqStrO74TujLv35okRiJtrlnhm6wpz7XFMV/JaR/IiS+8
+         LaxA==
+X-Forwarded-Encrypted: i=1; AHgh+RoLzCHB3zavp0NS7YGrBuPakOhWfZOots1z+tKS7bhPSzNLB5TR2OP33/RQKdXBBgSO/jlJzy6auq2RmNS6BXCL@lists.infradead.org
+X-Gm-Message-State: AOJu0YxN/m+FLSZdahyCy08bHaDsWPJsFYQjvTVQ19fGF7Wseb5pn9OY
+	Aoo/AyW9XJtNEDZt4qmN2Y+TGZNFViTCVz7fVWcjilj/wwiCL96nEsQ7GrDjDcSBX0o=
+X-Gm-Gg: AR+sD12c6/ZTAZnETkjixDNM/EUqucd+fWsYL0KGoTH266S7FQTKWklwdpe/7+uova3
+	+qTISvdZ9RzwgCsEzHQ1ZNuNDpTk7cHkWNXIUNg+5vGCbhBSJeKgKAn492c2NMEXc+bT82ixeAN
+	QDp0HlCoJYpAmkys7OzUyieT29nADyNgrcyCtM3bQAoMA627888HwG2KOctSO6pxPoBkK0IjKCh
+	G27JM13NdUzqXEmTNrKqhG07fH+C2uX/QHF9UJhDnwxDEpeupud3CnNlbomtK9rDukVONpeaBwh
+	kFIS3IpKo8TWzJbZVLY7zbZEHu7C5CBSEf4AwkedJD1sKL9rX3mQvHYctlfnpQEOa7BYyCikhbp
+	/QYA1KVZHYxMtep+uw8FhY1xYY2Gtt9Ptyvvl5zYOS/6zjHpQDMRob2Le6SHRoIPINdl3VZJZl4
+	p1ZLQh4GGtYR/uuFVXzCHl5G5Rb2LCV+lMKA6SAA==
+X-Received: by 2002:ac8:574f:0:b0:51b:fcb4:7576 with SMTP id d75a77b69052e-52d20961711mr224570371cf.15.1786367299519;
+        Mon, 10 Aug 2026 06:08:19 -0700 (PDT)
+Received: from ziepe.ca ([142.166.156.215])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-52d163c1aefsm70838551cf.12.2026.08.10.06.08.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 10 Aug 2026 06:08:18 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1wtPjm-000000022LS-0EaO;
+	Mon, 10 Aug 2026 10:08:18 -0300
+Date: Mon, 10 Aug 2026 10:08:18 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Will Deacon <will@kernel.org>
+Cc: Marek Szyprowski <m.szyprowski@samsung.com>,
+	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
+	Mostafa Saleh <smostafa@google.com>, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-coco@lists.linux.dev, Robin Murphy <robin.murphy@arm.com>,
+	Marc Zyngier <maz@kernel.org>, Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>, Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
+Subject: Re: [PATCH] arm64: swiotlb: Keep the default size for protected
+ guests
+Message-ID: <20260810130818.GN200537@ziepe.ca>
+References: <anX7F7dnKOtAOIIe@google.com>
+ <20260807164734.GE200537@ziepe.ca>
+ <anYgXSR4VAi3TpOj@google.com>
+ <CGME20260807182023eucas1p1f653436207b2b00338e99ea1d8f847df@eucas1p1.samsung.com>
+ <20260807182017.GH200537@ziepe.ca>
+ <7d22482f-d5fd-4cf4-9d32-6a54e02f2fbb@samsung.com>
+ <yq5av79iiard.fsf@kernel.org>
+ <anml6lLRERm1Iv-_@willie-the-truck>
+ <28442500-1d53-4776-bae5-459c3ffc1cc6@samsung.com>
+ <anm6K2umtx4iKnyZ@willie-the-truck>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS4P195MB1456:EE_|AS8P195MB1977:EE_
-X-MS-Office365-Filtering-Correlation-Id: 73c4018f-8796-43b6-9af1-08def6e02dd8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|23010399003|366016|6133799003|56012099006|10067099003|4143699003|11063799006|3023799007|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: sI1kU/g19fWNUftyKRRXfT39BJoPwmXNdYtZnP77nGMfryJVzWgikKLWq6BLA/qtl1gbGu+lrYaaLjYtKZwIG65rvXp0+A1lEU2TXXw+vXQ3f2672qpaHk3P3f0O4mUHgnvHDgwdYoIJcOq0qoS/dK9Q8ok+pXBFRpgeIGkxkBn4hHQZqnlZy93PJsgb64h8yfgV6JtS4M66kjlzYq9sUosQ0SKKrB0O6T4rAQbeyTlj4JNIcmrAqlFRxNXdQxR14+izzniZwik1/Qp+aS43IGDITGqwX+MYqkxEJDx+6CxrZmTPvSmUkZcSoE+5tENBbtO/YJ8BovzzbGTZBNlwo1BLi72Mf9CdNOjy44ksuYglRjYcRcZTYYDvVObJW3WyxwOfbhOiS2tY/h1fGMnYunN6ITsLwAYQbn2ADS03bmb+meVM08YYRp7snZRpO+QUNsaypKeTuG3GEb0QO/SQ2w0zGdtUtcVS/kHj2xZoytuuEC2fWLWnA0s4gjxf/5Wa+is0MBzTqmTQqzJ9+BZno01f5NNI7BsAgjtofl5Ga4lAR2hZu8WWqRL8CVb8B1JvI+Y8nS7xE4nTyn+CnBqUxynOgDoHjNkegajM7uKdg2GZ81X5OKPUR4gpged3cO2BmKGnYf9wYPHSeclXkljOJ9iOUvpvMvwi2SLvnG8l7BE=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4P195MB1456.EURP195.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(23010399003)(366016)(6133799003)(56012099006)(10067099003)(4143699003)(11063799006)(3023799007)(22082099003)(18002099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NU5Oa3k0QXZGNWxSOHJsWTFiZzV5UDk1ZVcvemZwYzFreWNuc3NSendoMmZI?=
- =?utf-8?B?OEx6S3NUMCtaVUxpTVhDRmJTZmlFenJZQ2g3RWM0YkFvV3FmdVUyUHdnQzVs?=
- =?utf-8?B?cjkvY3oydjZ6ckcrSWRPRG9iYm5kbjlwbm40dWNiRnFyTGZzbWVXZTlzUEdN?=
- =?utf-8?B?M1pOb3hNdysyNEhURzludytXSnFkWVB5N21OQnJqaktBdUpYa3dPaDJSSnc0?=
- =?utf-8?B?cUxKNEwxVVJ0R2JEVXBLbG5DaDRsT3NxVFBrbTFUT01zNlNHTEZhb0x6MjJr?=
- =?utf-8?B?U3cyUmRsOC9YVVBPejAyYkl0aHR2K3hYd2FqR1I4bzIybTliMm9IcTBnZEY4?=
- =?utf-8?B?SzQyM0U2MkdmZjF1SDExeFZwWGM3YVZHa1R3eFFXQTlvRzhYSHl6cUVjbG9M?=
- =?utf-8?B?Mm1UV0hpd2RtV0FqelhONW9SWUJodXhURTE0MkxIdUwxeEZKdUk1cGR5bWtB?=
- =?utf-8?B?dDJYT1VvVnN1NnZrOWZmT3N0M2lHRzZNRERCL0FHUTJTd2RFUkMxOFYrYU02?=
- =?utf-8?B?cFRiMjZIQ0VnVEw1bUplWDVHd3Nxclprc1JFSFJYNld5NmNpbGZyL2NxRHJ3?=
- =?utf-8?B?YjgyaE0wS0taWlQyVVlMMzNmdFNRclcxZDZ4RjQxV0lLQ1M4VEgzcXJHRVAw?=
- =?utf-8?B?Qk95dTFmZTNxUFpFMHRhU2xMM1RUS1AyRStFMUIxQisxZytDVjlLVm0ybzB4?=
- =?utf-8?B?WlJxY0pVQU1GWXVKZ2ZLNEd5OEdpUDJmT21RaUlpdEZRdEVMeFV1amRsS2cy?=
- =?utf-8?B?MWZrT0pjUXNTS3JLcTdWQ1R4cjRDYy9LZTd4ajRsT3JaUGdJMmNFSDVRSTFu?=
- =?utf-8?B?dmdJUERNZTVLNk4zNGxJMW4zMWp3WXMvWWZJTHczN3V6UEo4WnpzVmtENVV2?=
- =?utf-8?B?RHpmeFRrMllyb1R5Y2VvOGR3ZXVCb2VkMTRsRzlYUVdrYjd5bGZ2bFd2YjJt?=
- =?utf-8?B?ZFhwbmd3VTh4L2YzUVpzWC9leHozNDZ5SUU3cE5Db1hGUXhzcXAzYTdIeEpY?=
- =?utf-8?B?MW9BTisvWWZaL2pMNkRsTlhDd3IvaFBVdlhkZmFlMFhtZ0ZGc3Q5S3lFNXJs?=
- =?utf-8?B?NzBFZU9VZVdGbmhPK2Rwb0trZEFRREZ6N2VJVW5PdWJHdUNjNjczQmR2UEln?=
- =?utf-8?B?eW55SExLdlZ5NmdoUEFPNVJva0RudnZnOWVJb21MNUxESW9MbjduQlhKdG5O?=
- =?utf-8?B?UktiSHZaaUpjazhsczBtUE0vaDZiQy90b3BBM1dPT01PK0EvZHNCRlc5ZHp5?=
- =?utf-8?B?TStHQ1JZVURtMzZVNzdZMG1kZzF2VkNMeFdCOHQyVGQzVXlWNU85dWswQ21I?=
- =?utf-8?B?WWd4eFRvZGxTZkFlOEpIQlNhZnFNT1pPU1ZDV2pRcGdQR3RodFJKWVhhT0Mx?=
- =?utf-8?B?Y1A3Q0FnSDR6RGNsS2pnMmJZUjhTeFNCb3F4MUNjMjBwZ0M1QXltbTNJMnBX?=
- =?utf-8?B?RE9kU2FHenVmelA1c0VuNUh6VHpVQ3dmMUIxRS9pWVRRT3YwYThCMVduRDB0?=
- =?utf-8?B?QUxJWmtwQVJCVTlHM1o5MG5BU1BpQTBKNUdNZDlaVFNhTnhjdXBPaG53UUVt?=
- =?utf-8?B?N0ZlRzZmTm82aHJqV1BONlFyZDBzdmpteVVsM0tYYzk4S0NRelIvcVJFbENG?=
- =?utf-8?B?a0M4MWhObjBncVZYSW9sTXZPcFN3RjNsRHowRDA5c2hEQUxoM2JVYU9Gazdj?=
- =?utf-8?B?dGxkTUgzS1UwQ3cwL0tkY29xempKcnRJNjFCRnAxRDU2YWNCWlNPZHZsaC9n?=
- =?utf-8?B?K2RXNHZ6VitKVkZxZlNnK1lxRzJXN0cyS1JYODdaRjZrdS9kNDlETFF4aVZG?=
- =?utf-8?B?V1hGRCszS0UwbXJJL3ZCaXZlOHRabVNhTXA0VTl1cXFLbnRqTHljcXhmYXMz?=
- =?utf-8?B?eXBYaEdtY0xDa0ZJTy9mWmRqMkJDSWZEQnJUYmcxY1ZPVWdaY000R3hjWUhR?=
- =?utf-8?B?NDJYdW1IbjlRdkN0WjdWbmdsQ3puTU5vR21UajQwazExZTROK0hBc21vL2hW?=
- =?utf-8?B?d3ozN0h5TTVRVGh4N3A0OXBtQUdNRTE3MGo0SStCZGFkb2ZaS3crN0lTMXpn?=
- =?utf-8?B?U3RYTnRiRUkzdzVCS0tvOWdmSk9CRE56d2pwbGhqdmxLcmlGekpQeGVIMXRC?=
- =?utf-8?B?K2RHKzFhU2V5U1hFaFFvRTVHZGtFVDVGSFMrTDFKMDhBaU5naVZLcFQyOUdD?=
- =?utf-8?B?SVVLTHAxTU1Ocm1RTmp6QmFieHI4cVVXMDA1NG9reUxGOGhKQ3ZjcGUrQVFB?=
- =?utf-8?B?Z3pYTFhUVksra28wOWZ2b2xFeHU3a3RGNzhDbTRRYUZNVVcyUXlCNGJmTklq?=
- =?utf-8?B?MjVuZmdQeTVJMkNGaW1ibVIwMDNMam9ySmF1RURrTmJpNDYzNDJ2Zz09?=
-X-OriginatorOrg: phytec.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 73c4018f-8796-43b6-9af1-08def6e02dd8
-X-MS-Exchange-CrossTenant-AuthSource: AS4P195MB1456.EURP195.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Aug 2026 13:06:23.7298
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 5FlhET129A6uvUBfKwBEPz3hp8yB3Zw6cZgEtXJCReooPBR7ADZpUhJlfN/sdsqAVYEaE9NB3/glg4UrbKLqIw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8P195MB1977
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <anm6K2umtx4iKnyZ@willie-the-truck>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_060633_301423_D6C814B9 
-X-CRM114-Status: GOOD (  20.46  )
+X-CRM114-CacheID: sfid-20260810_060821_304461_4BF4CC81 
+X-CRM114-Status: GOOD (  29.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,333 +135,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi John,
+On Mon, Aug 10, 2026 at 12:46:51PM +0100, Will Deacon wrote:
+> On Mon, Aug 10, 2026 at 01:37:11PM +0200, Marek Szyprowski wrote:
+> > On 10.08.2026 12:20, Will Deacon wrote:
+> > > On Mon, Aug 10, 2026 at 02:59:42PM +0530, Aneesh Kumar K.V wrote:
+> > >> Marek Szyprowski <m.szyprowski@samsung.com> writes:
+> > >>
+> > >>> On 07.08.2026 20:20, Jason Gunthorpe wrote:
+> > >>>> On Fri, Aug 07, 2026 at 06:13:49PM +0000, Mostafa Saleh wrote:
+> > >>>>> But the whole thing is best effort anyway, the kernel picks
+> > >>>>> IO_TLB_DEFAULT_SIZE which does not depend on the system topology or
+> > >>>>> how many devices or how much DMA they do.
+> > >>>>> SWIOTLB memory is wasted if unused so we should be careful around
+> > >>>>> that as it would be the other way around and users would have to
+> > >>>>> decrease it manually.
+> > >>>> Yeah, it is why the arch code shouldn't really be sizing it directly,
+> > >>>> it should be done in common code and, yes, we are probably going to
+> > >>>> have to do something alot smarter to have the common code better
+> > >>>> auto-tune this for the CC case..
+> > >>> What about the $subject patch? I assume that it is still needed to
+> > >>>
+> > >>> restore the behavior that was altered by the "[PATCH v8 00/23]
+> > >>>
+> > >>> dma-mapping: Track shared DMA state through direct, pool and swiotlb
+> > >>>
+> > >>> paths?" patchset?
+> > >>>
+> > >> I would request that we pick this patch to fix the regression described
+> > >> in https://lore.kernel.org/all/yq5azeyxyfol.fsf@kernel.org/.
+> > > I really don't think we need it. CCA hardware isn't exactly widespread
+> > > and the KVM host side patches don't appear close to being merged.
+> > 
+> > Does this mean that the branch for-next/coco [1] won't go to v7.3-rc1?
 
-On 8/5/26 8:26 PM, John Ma wrote:
-> Add support for the PHYTEC phyCORE-AM62Px SoM [1] and the
-> corresponding phyBOARD-Lynx carrier board [2]. The phyCORE-AM62Px SoM
-> uses the TI AM62Px SoC and can come with different sizes and models of
-> DDR, eMMC, and SPI NOR Flash.
-> 
-> Supported features:
->   * Audio playback and recording
->   * CAN
->   * Debug UART
->   * eMMC
->   * Ethernet
->   * GPIO buttons
->   * Heartbeat LED
->   * I2C EEPROM
->   * I2C RTC
->   * Micro SD card
->   * SPI NOR flash
->   * SPI Accelerometer
->   * USB
-> 
-> [1] https://www.phytec.com/product/phycore-am62px/
-> [2] https://www.phytec.com/product/phyboard-am62px-development-kit/
-> 
-> Test results:
-> https://gist.github.com/jma-phytec/fd7911a834e39b3fac0104690668882e
-> 
-> Signed-off-by: John Ma <jma@phytec.com>
-> ---
-> v2:
->   - added bootph-all in cpsw3g_phy1 node
->   - fixed ti,fifo-depth property deprecated issue
->   - update ospi vcc-supply label from SoM
->   - added bootph-all in wkup_i2c0 node
->   - sorted nodes in alphabetical order
->   - sorted vendor property
->   - removed unsed leds from phyboard lynx dts
->   - added chosen/stdout-path
->   - update usb0_connector node with proper name
->   - fixed missing space
->   - removed unused pinmux
->   - removed bootph-all from rgmii2 pinmux
->   - added interrupt-names for adxl345 node
->   - sorted status property in main_uart1
-> 
->  arch/arm64/boot/dts/ti/Makefile               |   1 +
->  .../boot/dts/ti/k3-am62p-phycore-som.dtsi     | 340 ++++++++++++
->  .../boot/dts/ti/k3-am62p5-phyboard-lynx.dts   | 522 ++++++++++++++++++
->  3 files changed, 863 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/ti/k3-am62p-phycore-som.dtsi
->  create mode 100644 arch/arm64/boot/dts/ti/k3-am62p5-phyboard-lynx.dts
-> 
-> diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
-> index 371f9a043fe5..b223681cdfbf 100644
-> --- a/arch/arm64/boot/dts/ti/Makefile
-> +++ b/arch/arm64/boot/dts/ti/Makefile
-> @@ -76,6 +76,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-am62d2-evm.dtb
->  dtb-$(CONFIG_ARCH_K3) += k3-am62l3-evm.dtb
->  
->  # Boards with AM62Px SoC
-> +dtb-$(CONFIG_ARCH_K3) += k3-am62p5-phyboard-lynx.dtb
->  dtb-$(CONFIG_ARCH_K3) += k3-am62p5-sk.dtb
->  dtb-$(CONFIG_ARCH_K3) += k3-am62p5-var-som-symphony.dtb
->  dtb-$(CONFIG_ARCH_K3) += k3-am62p5-verdin-nonwifi-dahlia.dtb
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62p-phycore-som.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-phycore-som.dtsi
-> new file mode 100644
-> index 000000000000..4f273f3dc2ad
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/ti/k3-am62p-phycore-som.dtsi
-> @@ -0,0 +1,340 @@
-> +// SPDX-License-Identifier: GPL-2.0-only OR MIT
-> +/*
-> + * Copyright (C) 2026 PHYTEC America LLC
-> + * Author: John Ma <jma@phytec.com>
-> + *
-> + */
-> +
-> +#include <dt-bindings/gpio/gpio.h>
-> +#include <dt-bindings/leds/common.h>
-> +#include <dt-bindings/net/ti-dp83867.h>
-> +
-> +/ {
-> +	model = "PHYTEC phyCORE-AM62P5";
-> +	compatible = "phytec,am62p-phycore-som", "ti,am62p5";
-> +
-> +	aliases {
-> +		ethernet0 = &cpsw_port1;
-> +		gpio0 = &main_gpio0;
-> +		gpio1 = &main_gpio1;
-> +		i2c0 = &wkup_i2c0;
-> +		mmc0 = &sdhci0;
-> +		rtc0 = &i2c_som_rtc;
-> +		rtc1 = &wkup_rtc0;
-> +		spi0 = &ospi0;
-> +	};
-> +
-> +	memory@80000000 {
-> +		/* 2G RAM */
-> +		reg = <0x00000000 0x80000000 0x00000000 0x80000000>;
-> +		device_type = "memory";
-> +		bootph-all;
-> +	};
-> +
-> +	reserved_memory: reserved-memory {
-> +		#address-cells = <2>;
-> +		#size-cells = <2>;
-> +		ranges;
-> +
-> +		wkup_r5fss0_core0_dma_memory_region: memory@9c800000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x9c800000 0x00 0x100000>;
-> +			no-map;
-> +		};
-> +
-> +		wkup_r5fss0_core0_memory_region: memory@9c900000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x9c900000 0x00 0x1e00000>;
-> +			no-map;
-> +		};
-> +
-> +		secure_tfa_ddr: tfa@9e780000 {
-> +			reg = <0x00 0x9e780000 0x00 0x80000>;
-> +			no-map;
-> +		};
-> +
-> +		secure_ddr: optee@9e800000 {
-> +			reg = <0x00 0x9e800000 0x00 0x01800000>; /* for OP-TEE */
-> +			no-map;
-> +		};
-> +	};
-> +
-> +	vcc_5v0_som: regulator-vcc-5v0-som {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "VCC_5V0_SOM";
-> +		regulator-min-microvolt = <5000000>;
-> +		regulator-max-microvolt = <5000000>;
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +	};
-> +
-> +	leds {
-> +		compatible = "gpio-leds";
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&leds_pins_default>;
-> +
-> +		led-0 {
-> +			color = <LED_COLOR_ID_GREEN>;
-> +			gpios = <&main_gpio0 13 GPIO_ACTIVE_HIGH>;
-> +			linux,default-trigger = "heartbeat";
-> +			function = LED_FUNCTION_HEARTBEAT;
-> +		};
-> +	};
-> +
-> +	opp-table {
-> +		/* Requires VDD_CORE at 0v85 */
-> +		opp-1400000000 {
-> +			opp-hz = /bits/ 64 <1400000000>;
-> +			opp-supported-hw = <0x01 0x0004>;
-> +			clock-latency-ns = <6000000>;
-> +		};
-> +	};
-> +};
-> +
-> +&main_pmx0 {
-> +	leds_pins_default: leds-default-pins {
-> +		pinctrl-single,pins = <
-> +			AM62PX_IOPAD(0x0034, PIN_OUTPUT, 7) /* (L22) OSPI0_CSn2.GPIO0_13 */
-> +		>;
-> +	};
-> +
-> +	main_mdio0_pins_default: main-mdio0-default-pins {
-> +		pinctrl-single,pins = <
-> +			AM62PX_IOPAD(0x0160, PIN_OUTPUT_PULLUP, 0) /* (F17) MDIO0_MDC */
-> +			AM62PX_IOPAD(0x015c, PIN_INPUT_PULLUP, 0) /* (F16) MDIO0_MDIO */
-> +		>;
-> +		bootph-all;
-> +	};
-> +
-> +	main_rgmii1_pins_default: main-rgmii1-default-pins {
-> +		pinctrl-single,pins = <
-> +			AM62PX_IOPAD(0x014c, PIN_INPUT, 0) /* (B15) RGMII1_RD0 */
-> +			AM62PX_IOPAD(0x0150, PIN_INPUT, 0) /* (B16) RGMII1_RD1 */
-> +			AM62PX_IOPAD(0x0154, PIN_INPUT, 0) /* (A14) RGMII1_RD2 */
-> +			AM62PX_IOPAD(0x0158, PIN_INPUT, 0) /* (B14) RGMII1_RD3 */
-> +			AM62PX_IOPAD(0x0148, PIN_INPUT, 0) /* (A16) RGMII1_RXC */
-> +			AM62PX_IOPAD(0x0144, PIN_INPUT, 0) /* (A15) RGMII1_RX_CTL */
-> +			AM62PX_IOPAD(0x0134, PIN_INPUT, 0) /* (A18) RGMII1_TD0 */
-> +			AM62PX_IOPAD(0x0138, PIN_INPUT, 0) /* (C17) RGMII1_TD1 */
-> +			AM62PX_IOPAD(0x013c, PIN_INPUT, 0) /* (A17) RGMII1_TD2 */
-> +			AM62PX_IOPAD(0x0140, PIN_INPUT, 0) /* (C16) RGMII1_TD3 */
-> +			AM62PX_IOPAD(0x0130, PIN_INPUT, 0) /* (B17) RGMII1_TXC */
-> +			AM62PX_IOPAD(0x012c, PIN_INPUT, 0) /* (B18) RGMII1_TX_CTL */
-> +		>;
-> +		bootph-all;
-> +	};
-> +
-> +	ospi0_pins_default: ospi0-default-pins {
-> +		pinctrl-single,pins = <
-> +			AM62PX_IOPAD(0x0000, PIN_OUTPUT, 0) /* (P23) OSPI0_CLK */
-> +			AM62PX_IOPAD(0x002c, PIN_OUTPUT, 0) /* (M25) OSPI0_CSn0 */
-> +			AM62PX_IOPAD(0x000c, PIN_INPUT, 0) /* (L25) OSPI0_D0 */
-> +			AM62PX_IOPAD(0x0010, PIN_INPUT, 0) /* (N24) OSPI0_D1 */
-> +			AM62PX_IOPAD(0x0014, PIN_INPUT, 0) /* (N25) OSPI0_D2 */
-> +			AM62PX_IOPAD(0x0018, PIN_INPUT, 0) /* (M24) OSPI0_D3 */
-> +			AM62PX_IOPAD(0x001c, PIN_INPUT, 0) /* (N21) OSPI0_D4 */
-> +			AM62PX_IOPAD(0x0020, PIN_INPUT, 0) /* (N22) OSPI0_D5 */
-> +			AM62PX_IOPAD(0x0024, PIN_INPUT, 0) /* (P21) OSPI0_D6 */
-> +			AM62PX_IOPAD(0x0028, PIN_INPUT, 0) /* (N20) OSPI0_D7 */
-> +			AM62PX_IOPAD(0x0008, PIN_INPUT, 0) /* (P22) OSPI0_DQS */
-> +		>;
-> +		bootph-all;
-> +	};
-> +
-> +	pmic_irq_pins_default: pmic-irq-default-pins {
-> +	       pinctrl-single,pins = <
-^ I think you use spaces here instead of tabs
+Let's not make progress on guest support contingent on KVM CCA host
+side patches please. I expect the CSPs will have VM instance types
+available based on CCA within quarters, and Linux as a Guest should
+work in those environments regardless of what KVM is doing. I don't
+really expect full KVM support for years, frankly, the patchset is
+massive. Even Intel and AMD don't have full KVM support yet.
 
-> +			AM62PX_IOPAD(0x01f4, PIN_INPUT, 7) /* (C23) EXTINTn.GPIO1_31 */
+People already have CCA capable HW, are already testing this stuff and
+the closer upstream can get to being workable as a guest without a
+mountain of OOT patches the better.
 
-Use the dedicated EXTINTn, mux 0 here.
+I agree the thing is not ideal, but it was merged to ARM like this a
+long time ago, this patch is just fixing a small oopsie (was it a
+merge conflict?) to put it back. I don't the objection.
 
-> +	       >;
-
-and here as well.
-
-> +	};
-> +};
-> +
-> +&mcu_pmx0 {
-> +	wkup_i2c0_pins_default: wkup-i2c0-default-pins {
-> +		pinctrl-single,pins = <
-> +			AM62PX_MCU_IOPAD(0x04c, PIN_INPUT_PULLUP, 0) /* (A13) WKUP_I2C0_SCL */
-> +			AM62PX_MCU_IOPAD(0x050, PIN_INPUT_PULLUP, 0) /* (C11) WKUP_I2C0_SDA */
-> +		>;
-> +		bootph-all;
-> +	};
-> +};
-> +
-> +&cpsw3g {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&main_rgmii1_pins_default>;
-> +	bootph-all;
-> +	status = "okay";
-> +};
-> +
-> +&cpsw3g_mdio {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&main_mdio0_pins_default>;
-> +	status = "okay";
-> +
-> +	cpsw3g_phy1: ethernet-phy@1 {
-> +		reg = <1>;
-> +		bootph-all;
-> +		tx-fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
-> +		ti,min-output-impedance;
-> +		ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
-> +	};
-> +};
-> +
-> +&cpsw_port1 {
-> +	phy-mode = "rgmii-id";
-> +	phy-handle = <&cpsw3g_phy1>;
-> +	bootph-all;
-> +	status = "okay";
-> +};
-> +
-> +&fss {
-> +	bootph-all;
-> +};
-> +
-> +&ospi0 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&ospi0_pins_default>;
-> +	status = "okay";
-> +
-> +	serial_flash: flash@0 {
-> +		compatible = "jedec,spi-nor";
-> +		reg = <0x0>;
-> +		spi-tx-bus-width = <8>;
-> +		spi-rx-bus-width = <8>;
-> +		spi-max-frequency = <25000000>;
-> +		vcc-supply = <&vdd_1v8_som>;
-> +		cdns,tshsl-ns = <60>;
-> +		cdns,tsd2d-ns = <60>;
-> +		cdns,tchsh-ns = <60>;
-> +		cdns,tslch-ns = <60>;
-> +		cdns,read-delay = <0>;
-> +		bootph-all;
-> +	};
-> +};
-> +
-> +&sdhci0 {
-> +	non-removable;
-> +	bootph-all;
-> +	ti,driver-strength-ohm = <50>;
-> +	status = "okay";
-> +};
-> +
-> +&wkup_i2c0 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&wkup_i2c0_pins_default>;
-> +	clock-frequency = <400000>;
-> +	bootph-all;
-> +	status = "okay";
-> +
-> +	pmic@30 {
-> +		compatible = "ti,tps65219";
-> +		reg = <0x30>;
-> +		buck1-supply = <&vcc_5v0_som>;
-> +		buck2-supply = <&vcc_5v0_som>;
-> +		buck3-supply = <&vcc_5v0_som>;
-> +		ldo1-supply = <&vdd_3v3_som>;
-> +		ldo2-supply = <&vdd_1v8_som>;
-> +		ldo3-supply = <&vdd_3v3_som>;
-> +		ldo4-supply = <&vdd_3v3_som>;
-> +
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&pmic_irq_pins_default>;
-> +		interrupt-parent = <&main_gpio1>;
-> +		interrupts = <31 IRQ_TYPE_EDGE_FALLING>;
-
-Update here accordingly to use GIC_SPI. With that changed,
-
-Reviewed-by: Wadim Egorov <w.egorov@phytec.de>
-
-Regards,
-Wadim
+Jason
 
