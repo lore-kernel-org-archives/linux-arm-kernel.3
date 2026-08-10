@@ -4,87 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FC22C5AD55
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 13:15:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD862C5AD55
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 13:19:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X4USx5lpd5xGkWozOwTXqXRz443jHgZxzpuvUiugvFI=; b=ZDytrwh3DX2BpySUtKaUkV3nTA
-	k5IF+FINu+KxhrEfYQoOdb1Pq83vcoNTT1Q2sXDaUPwxF9z3a/3ljFxXsPUVWFvChKA/ZzWVSH97M
-	YHPM7B7ArGnOc5tg0FzCQAU4L+QsMSJ28nimyqwOm6ju+USe9+snTOJGRP+GUZnZzxeGU2pNMGSED
-	fKxsBYxlxMyac6luCZywLY27BnIro9B19NaTaPP4Ra+PaU55Jp2XGv5ex16Ofq/XZ6NwgbGLbkVrF
-	h/VhcOeWAx6duxiBpFRadhRMydArtZuRb4IEtz2fFX7EtbeYVENgr8Jb5QYZqdveyXszrlfdyf86z
-	uDQjRbUQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1K5nMdBJ3F0LWFyBOgVo9wQEt2vYV/K/0BEbypgk2Ok=; b=tnGO/1vsYQhPDvzp470Bpg6z6k
+	h8jhmAPKzIoBZWHPG+zIiVnjlBfqp7UMuwVEkOge3BB/tkId+uf0Y2QMGZwuNbosY+LALsEN8DG3i
+	M9+r+gzZ6PGQvVMubzM8ng5eK7eGvnue3w84215X7rVQtxJbGfwirFIHo92sD0z+1IcYzKXv8b/Pq
+	PRhs1asxTHWEBxJEO50M5IniTtiFEZv2k8G6rKje6omAV84OlNa5HvsAS7Y3VtDeGyzmHkmKtQutb
+	3mGMqTNwuanGK18pMjq6dajUI3gnsSdz77OTD3413J+I3CfXOBWfA1d3TecZAd8bg8HpbPBTtrDoN
+	TSDz8Cjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtPqk-0000000BstV-28nq;
-	Mon, 10 Aug 2026 13:15:30 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtPqi-0000000Bst9-0dtG
+	id 1wtPuc-0000000BtMp-1HzI;
+	Mon, 10 Aug 2026 13:19:30 +0000
+Received: from mta-65-228.siemens.flowmailer.net ([185.136.65.228])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wtPuY-0000000BtMA-1wEY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 13:15:29 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7D6411477;
-	Mon, 10 Aug 2026 06:15:20 -0700 (PDT)
-Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C7D193F632;
-	Mon, 10 Aug 2026 06:15:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786367724; bh=08CNSczzlMqJLfhVP4oR0gP5UnNIku1FbqhnKdMgNJM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=UIG0VKRVpcnQsntb8X+MUw+Rl1RmKSYUuGIobrr6tKs0/KwrfxLsM0TWwGDOfumFm
-	 6LNootm9c7LoakxRkMKnwDln+V6lL05lHro61O8CO3txcH2RBRl/GFDkKz44saVCkc
-	 dgt/4K30gMdQMt+9zq0K3hFK4pldKbqC/7ig2Aqk=
-Message-ID: <850675b8-1858-4314-85cf-b174daf8693e@arm.com>
-Date: Mon, 10 Aug 2026 14:15:18 +0100
+	Mon, 10 Aug 2026 13:19:29 +0000
+Received: by mta-65-228.siemens.flowmailer.net with ESMTPSA id 202608101319180f0d3663790002077a
+        for <linux-arm-kernel@lists.infradead.org>;
+        Mon, 10 Aug 2026 15:19:19 +0200
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; s=fm2;
+ d=siemens.com; i=florian.bezdeka@siemens.com;
+ h=Date:From:Subject:To:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:Cc;
+ bh=1K5nMdBJ3F0LWFyBOgVo9wQEt2vYV/K/0BEbypgk2Ok=;
+ b=ASZFePPVed4fX53qu+qLG0Qkkyld7u75e9Sq5Nw9EsL5g0+b5XKPA/u4Mh1HLbbztmNwtk
+ 3VfmwbH+NMGhrGeOSDHeP9BQPPJRD0QoSGYErRhvfsHqSpIQZj3c50sWyAVgvLkCOVSWwutr
+ j70BZA4It/i7ea7A8+Q4gK6p5KAZq/mc8P/GSbQkVTVLWH3GyoJTk9SaFhiIUW3BKxZ8PTw3
+ QtYdwV6+lemXt0lVV1t7Yb+EaddtdF23Sqp3twbHT/PyxQ0gGNuUmG/eAC0S1Ob6hy1yQDls
+ 01AnM1JW3qbej+dVYoSgxxSRu9cRx0cOv0zjt+v/L7FyUYWMDr5BNhzA==;
+From: Florian Bezdeka <florian.bezdeka@siemens.com>
+Date: Mon, 10 Aug 2026 15:19:17 +0200
+Subject: [PATCH net-next v2] net: stmmac: intel: Add missing
+ pci_free_irq_vectors() calls
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: swiotlb: Keep the default size for protected
- guests
-To: Michael Kelley <mhklinux@outlook.com>,
- "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, Jason Gunthorpe
- <jgg@ziepe.ca>, Will Deacon <will@kernel.org>,
- Mostafa Saleh <smostafa@google.com>
-Cc: "iommu@lists.linux.dev" <iommu@lists.linux.dev>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-coco@lists.linux.dev" <linux-coco@lists.linux.dev>,
- Marek Szyprowski <m.szyprowski@samsung.com>, Marc Zyngier <maz@kernel.org>,
- Steven Price <steven.price@arm.com>,
- Suzuki K Poulose <Suzuki.Poulose@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Jiri Pirko <jiri@resnulli.us>,
- Petr Tesarik <ptesarik@suse.com>, Alexey Kardashevskiy <aik@amd.com>,
- Dan Williams <dan.j.williams@intel.com>, Xu Yilun
- <yilun.xu@linux.intel.com>,
- "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
- "linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- Christophe Leroy <chleroy@kernel.org>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>, "x86@kernel.org" <x86@kernel.org>
-References: <20260717180442.110954-18-aneesh.kumar@kernel.org>
- <20260807092612.2202005-1-aneesh.kumar@kernel.org>
- <anXIZSh9lq99VG9X@willie-the-truck> <yq5acxvu2ict.fsf@kernel.org>
- <anXbJ2O4DWgPxCeg@willie-the-truck> <20260807135810.GA200537@ziepe.ca>
- <yq5awlu1yfn0.fsf@kernel.org>
- <SN6PR02MB4157484EFDE3315744021D5BD4DE2@SN6PR02MB4157.namprd02.prod.outlook.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <SN6PR02MB4157484EFDE3315744021D5BD4DE2@SN6PR02MB4157.namprd02.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20260810-flo-net-stmmac-default-affinity-core-v2-1-d2105780b8ca@siemens.com>
+X-B4-Tracking: v=1; b=H4sIANTPeWoC/42OQQ6CMBBFr2Jm7RhaS42uvIdhUcpUJoHWtIVAC
+ He3cgKX///kvb9BosiU4HHaINLMiYMvQZ5PYHvj34TclQyykroS4o5uCOgpY8rjaCx25Mw0ZDT
+ Osee8og2R0NbKGVU70tcOCqo1ibCNxtu+wPw0DKX8RHK8HO4X/JCelgxNWXpOOcT1ODWLYz/8U
+ lT/+WeBFSq6aS2kUorEMzGN5NPFhhGafd+/Ep+10PkAAAA=
+X-Change-ID: 20260119-flo-net-stmmac-default-affinity-core-c54fa45fe63d
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Ong Boon Leong <boon.leong.ong@intel.com>, 
+ Voon Weifeng <weifeng.voon@intel.com>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Florian Bezdeka <florian.bezdeka@siemens.com>
+X-Flowmailer-Platform: Siemens
+Feedback-ID: 519:519-68982:519-21489:flowmailer
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_061528_288194_C56A2722 
-X-CRM114-Status: GOOD (  22.26  )
+X-CRM114-CacheID: sfid-20260810_061928_015272_09F4BC7A 
+X-CRM114-Status: GOOD (  12.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,69 +81,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/08/2026 6:00 am, Michael Kelley wrote:
-> From: Aneesh Kumar K.V <aneesh.kumar@kernel.org> Sent: Friday, August 7, 2026 11:01 AM
->>
->> Jason Gunthorpe <jgg@ziepe.ca> writes:
->>
->>> On Fri, Aug 07, 2026 at 02:18:31PM +0100, Will Deacon wrote:
->>>
->>>>> I was under the impression that there is a possibility of using swiotlb
->>>>> instead of restricted-dma-pool with pKVM.
->>>>
->>>> Yes, that patch enables swiotlb as a possibility for protected guests
->>>> but with your patch we avoid shrinking the swiotlb buffer even when
->>>> restricted dma pools are being used and that's a waste of memory.
->>>
->>> I also thought we switched pkvm to use CC-like swiotlb as part of the
->>> alignment in this rework? Mostafa ?
->>>
->>>>> If that is not the case, then we could change:
->>>>>
->>>>> !cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT) &&
->>>>>
->>>>> to
->>>>>
->>>>> !is_realm_world() &&
->>>>
->>>> Perhaps, or you could just pass the swiotlb= option if the defaults don't
->>>> work for you. Can you give more details about the slots exhaustion you're
->>>> seeing under CCA?
->>>
->>> We see badness with swiotlb too, it basically doesn't work out of the
->>> box if you have to use it 100% for real devices. It easily runs out
->>> of memory.
->>>
->>> Auto tuning to higher levels makes sense to me, but I'd rather the
->>> core code handled adjusting its size to the estimated need, not arch
->>> code.
->>
->> Agreed
-> 
-> Nobody has mentioned it on this thread, but arch code under x86 has
-> a heuristic for sizing the swiotlb for SEV-SNP and TDX. The heuristic is 6%
-> of guest memory, with a max of 1 GiB. See mem_encrypt_setup_arch().
-> The heuristic originally went into the 5.11 kernel nearly 6 years ago for
-> the original SEV support and hasn't changed since. See commit
-> e998879d4fb79, which doesn't give much of an explanation. I don't
-> think this is necessarily a good heuristic -- it tends to waste a lot of
-> memory, but there are also a few cases where it isn't enough memory.
-> After a few years of experience with SEV and TDX, nobody seems to
-> have tried to come up with something better, so maybe it's not all that
-> bad.
-> 
-> No doubt the heuristic should move into common code so CCA, SEV,
-> and TDX all use the same one.
+The IRQ vectors allocated in stmmac_config_multi_msi() or
+stmmac_config_single_msi() where never explicitly cleaned up. As
+pcim_enable_device() is used, all sorts of other functions are switched
+to managed mode. The missing cleanup here isn't actually missing, it's
+buried in the depths of PCI code.
 
-Indeed that would probably make sense as a future refactoring, as I 
-would assume the general expectations of CoCo environments should be 
-largely independent from the specific technology of either "Co" :)
+But: There are some ongoing activities to remove that cleanup magic.
+See the linked discussions below.
 
-However, note that currently the arch checks are effectively serving 
-opposite purposes - x86 is specifically *increasing* the default SWIOTLB 
-size for SEV/TDX, while the arm64 check (and RISC-V copy), is about 
-*reducing* the default size if we think we (mostly) don't need it.
+This patch prepares the dwmac-intel code for the removal.
 
-Thanks,
-Robin.
+Link: https://lore.kernel.org/netdev/27fec7d0ed633218a7787be3edce63c3038c63e2.camel@mailbox.org/
+Link: https://lore.kernel.org/netdev/7e024db2557a4d5822a0dd409ae678d10d815d9c.camel@mailbox.org/
+Signed-off-by: Florian Bezdeka <florian.bezdeka@siemens.com>
+---
+Hi all,
+
+This are some fallouts of a quick stmmac "review", while trying to
+understand some issues that we have around the IRQ spreading implemented
+by stmmac.
+
+The root cause turned out to be something more generic, so not limited
+to stmmac. I will try to prepare a discussion starting point later. This
+is more a RT specific problem, so I have to bring in more people.
+---
+Changes in v2:
+- Patch 1: Rework patch description as suggested by Russell
+- Patch 2: Drop, will be handled separately
+- Link to v1: https://lore.kernel.org/r/20260210-flo-net-stmmac-default-affinity-core-v1-0-4e76612444e1@siemens.com
+---
+ drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
+index 4d207f41a43b3eac64b6ae269765590107f1b30b..f5f9fa67ecd77f6b8a9b5ad5b39f338c4ba49a5f 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
+@@ -1348,6 +1348,7 @@ static int intel_eth_pci_probe(struct pci_dev *pdev,
+ err_alloc_irq:
+ 	clk_disable_unprepare(plat->stmmac_clk);
+ 	clk_unregister_fixed_rate(plat->stmmac_clk);
++	pci_free_irq_vectors(pdev);
+ 	return ret;
+ }
+ 
+@@ -1367,6 +1368,7 @@ static void intel_eth_pci_remove(struct pci_dev *pdev)
+ 
+ 	clk_disable_unprepare(priv->plat->stmmac_clk);
+ 	clk_unregister_fixed_rate(priv->plat->stmmac_clk);
++	pci_free_irq_vectors(pdev);
+ }
+ 
+ #define PCI_DEVICE_ID_INTEL_QUARK		0x0937
+
+---
+base-commit: aa2e13ae8d3cbe2c15ef4f7e971b2de0832794aa
+change-id: 20260119-flo-net-stmmac-default-affinity-core-c54fa45fe63d
+
+Best regards,
+-- 
+Florian Bezdeka <florian.bezdeka@siemens.com>
+
 
