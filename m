@@ -4,106 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 596FFC5AD55
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 14:16:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A67CC5AD55
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 14:18:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=idlTE0WqykxV7+rArRYymwOTK1srgqcOSOKZC0b2F24=; b=2vN5JyN6F0ZQt9g1BbKSn2wN9b
-	DH2emG00DfcVZopZXn7QwrhIZiit1f7bib/0pTQVgS/5FLnvLbK/RgyL1yFaWyN5uG5yfYPFLi5Lp
-	Ti1hyasJo95MbQjLLDwYci1kqbljyzfdMCqm3+Y9bGxdPJUg5s1ueiKCQIuGRtydbQVtGOOB1pAn1
-	OyQUuvDXavDcsmSN84Rg5u6a3Pwrr7VQrr9pnxW3aMtayf5ex2QkxCJRuLySuBAPkLCPe7mi0KEaV
-	WPc6U27EO9RiU3lq1h1eT0slZn0dTAhnMdPSNOwjiQjMyMcwS2e18o+mDzvtm8Mgq7k2Tv31it9mS
-	Z56xxQkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1L09Bu90sWOED7EHcOWRMcKzybTdUrOAe8Ob7jEJ4Bg=; b=HKrso+TKNZxDETkj3DuXm+Qwi0
+	NXirLSKASUN5HV2TDmdxHYwoJMEwZXnysLat7iBbsuQmZ7Hcgl6SQMpKe88uLIu6U76PYVZf7Xc2Z
+	k5i3TwYuLKHdZdiKQn3i4/5uGz0g0fMYN9RxF70iLCKFPsO30EDT0erZAGFu6Uac6rhgZeHpo8LpM
+	cmXss/ayhKduj+fHJSCR1c07Va5P4dDDUiKGCBpAw8520XRA6gQJI0Zkz56BKbvuVpNocSpaq20ZO
+	frVrvEcfsnYEcPVLPd5jPw5ueD2VF3xf7XcVTb2ct0sBremJxP2+y3l6mDbfPRlbf6E7/rZgqklVo
+	TJRTG4bQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtQnM-0000000ByC4-321J;
-	Mon, 10 Aug 2026 14:16:06 +0000
-Received: from mail-qv1-xf2f.google.com ([2607:f8b0:4864:20::f2f])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtQnE-0000000ByBJ-04VZ
+	id 1wtQpV-0000000ByYd-4526;
+	Mon, 10 Aug 2026 14:18:17 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wtQpO-0000000ByWu-3h1y
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 14:16:03 +0000
-Received: by mail-qv1-xf2f.google.com with SMTP id 6a1803df08f44-8f1e274ccb9so8964656d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 07:15:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1786371354; x=1786976154; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=idlTE0WqykxV7+rArRYymwOTK1srgqcOSOKZC0b2F24=;
-        b=c+VsL/kOg7sDtJyD8CG2uv7HviGw7UF7r+uq2apbQElQGHLGIKIbBCRrXlocv3glxA
-         e3n8BDh8SRxDSvBFybwyRkqnp8plCD7QBv2rFiLcbZvWsD+0QlZOiG5E6XLx2ISoqzIy
-         dEFlAUtqgmx5/5UmNnFkNRTN0hxlK9nKEpU6kHg7i8Hfw2y7o5L+kYStAnmtnNxCoPFW
-         /5CShyDpetFh12WeoIPcbrPuLNqF++HP0KHZXlW2IrIeRgDKviw6hC4kncqZ97ZUTjFi
-         Fp5FepsbSIiy7cgbLn+hxgwQlwstpKpFjP86h9u5WjPYCkxv9fOibl1lUczlGgBMmWS9
-         bzBw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786371354; x=1786976154;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=idlTE0WqykxV7+rArRYymwOTK1srgqcOSOKZC0b2F24=;
-        b=Ia614d1A40QG0vu3qBu4Zp5Jy4VS6abzSmK5Hyb2GtDHtypXIm6miNlBhe9htzcqXB
-         p47lHODqKewxRX9xOwi0HBTbjNxYgLUMQl/xHdHkR5E4X3l5gvBddsPBBPDwPbJ5/R58
-         mzn3E8S/bMGHZsKDMQMItIw9C+nl16+z3njUS70JK6Dco+OdN7tUCQ4b+xxwA08Juskh
-         X+2nVRAFNUKDA3wEsMO8hmMsr4MzC+YqwEXKRhnTna5ZIP6eIe8hzVUyReZhOdG4yVg0
-         DVZVizK0LD4uftSIPDWBrwVjxXPsI+6JWsnjt2bKcy74CEvL/qlrv3oFB7oAJIQE2mHH
-         aINQ==
-X-Forwarded-Encrypted: i=1; AHgh+RpwHQ2jE8cbiujiqUSK/aKwQVMf556flCSY5+s+lScp2RHk/Z63p/7/p+njX4RkvgpWYJgG8wKj+3GrsqEF6eC9@lists.infradead.org
-X-Gm-Message-State: AOJu0YyMOMyd67ZmT0+qp81Q40zGIDSoA1vAEzvjQUxzgA2+FbVPQNlr
-	BCwTfwwnZJ96NrkZG0i9YFKCcVRUPJrQ5uE6pGi+HoQiKZc2hHA4HGB9hafAG7v2PLQ=
-X-Gm-Gg: AR+sD13P5BtL5g6K5VIrVzBaK9yUM0nkrXa4VIh8yKjWdcd+2JzvcXl9uyJfEnOJe2f
-	bsYUvhVgZDcuq2sclh9yzcDB+kIjyv8fQKZ0M9E7zBPpW83oZcs5hVouHFbXvyJKAE/o07zF0SB
-	v42E6gjog20C2KMISBa/PlSSFXQyJiSQ9oDwzdEHR0NHte4or3h6stCtavYcQhQ/AsOQe7Rk3NK
-	37DMrYJz4RYsNuE67jKXpt+fcmVrNkH+6hVRb2nV9JK9EN4+Wh2pPIUu/KX/2w+RuzyhIsLVizn
-	uS3+kcwu3eARnjA95VL8KmeDKfFKLxB/vwc8rZwmjDmhsvCwCgQlHDC3aGTonMoDBB4J67KwRoc
-	w65Yz676mb+cJBEk0Yxjl2Rvxtu89rAr24A8v5raVSTFIle9xRr04mHpy2HsYVYpgrQ+5gHuck8
-	okFaEJriILZbuJMN/FJ4+ivA7cfN+fl3Jn12RTWA==
-X-Received: by 2002:a05:6214:21a8:b0:8f1:1081:a950 with SMTP id 6a1803df08f44-90a346a77b5mr228055386d6.22.1786371354367;
-        Mon, 10 Aug 2026 07:15:54 -0700 (PDT)
-Received: from ziepe.ca ([142.166.156.215])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-908a92ff8c6sm72821986d6.28.2026.08.10.07.15.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Aug 2026 07:15:53 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1wtQnB-000000023Ze-0BaD;
-	Mon, 10 Aug 2026 11:15:53 -0300
-Date: Mon, 10 Aug 2026 11:15:53 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Peter Griffin <peter.griffin@linaro.org>
-Cc: Nicolin Chen <nicolinc@nvidia.com>, Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	"Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Pranjal Shrivastava <praan@google.com>,
-	Daniel Mentz <danielmentz@google.com>,
-	Mostafa Saleh <smostafa@google.com>,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	kernel-team@android.com, tudor.ambarus@linaro.org,
-	andre.draszik@linaro.org, willmcvicker@google.com,
-	jyescas@google.com
-Subject: Re: [PATCH 2/2] iommu/arm-smmu-v3: Override for Inst/Data attribute
-Message-ID: <20260810141553.GP200537@ziepe.ca>
-References: <20260724-arm-smmu-v3-instcfg-override-v1-0-e7acf4a8a525@linaro.org>
- <20260724-arm-smmu-v3-instcfg-override-v1-2-e7acf4a8a525@linaro.org>
- <amOpSPmc36+YXgCQ@nvidia.com>
- <CADrjBPoOctsStZn84vtCymdKen2R9XcM880=wxXSv1tpQ5+vyg@mail.gmail.com>
+	Mon, 10 Aug 2026 14:18:16 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 740071516;
+	Mon, 10 Aug 2026 07:18:05 -0700 (PDT)
+Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 266163F86F;
+	Mon, 10 Aug 2026 07:18:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1786371489; bh=9IZsYULiK1AGwxTWlN7Ujyjc0tW5fdqucDUHcjUe8vM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=NoEqCvjse7Mrq4aOnrWgAYUVbUD+P6fgX9iChFnY1gjZ5NOopP7tM++y+YQsIJOQe
+	 zL208fDHqvlgnN0I7fyFFWMxgH9JNWDKqLLnsKcgPuSc/GPjAtockiGu16g+N2xXhi
+	 ITkmeOFAd3RzdKnSwAvP8g7QlEZ16KLsURRsNdsg=
+Message-ID: <21813ccf-96e5-4a7e-a3b3-aaaec7e0d23c@arm.com>
+Date: Mon, 10 Aug 2026 15:18:03 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CADrjBPoOctsStZn84vtCymdKen2R9XcM880=wxXSv1tpQ5+vyg@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 12/23] dma: swiotlb: pass mapping attributes by
+ reference
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Mostafa Saleh <smostafa@google.com>,
+ "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, iommu@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-coco@lists.linux.dev, Marek Szyprowski <m.szyprowski@samsung.com>,
+ Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+ Steven Price <steven.price@arm.com>,
+ Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Jiri Pirko <jiri@resnulli.us>,
+ Petr Tesarik <ptesarik@suse.com>, Alexey Kardashevskiy <aik@amd.com>,
+ Dan Williams <dan.j.williams@intel.com>, Xu Yilun
+ <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
+ linux-s390@vger.kernel.org, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
+ Michael Kelley <mhklinux@outlook.com>
+References: <ami_mpd_1pF4Tmdu@google.com> <yq5a5x1ygo7z.fsf@kernel.org>
+ <amnRB98ZZIysHuM3@google.com> <yq5acxw6dl1d.fsf@kernel.org>
+ <20260804142032.GC27883@nvidia.com> <anL9-OrDGqYQAWNV@google.com>
+ <20260805123023.GO27883@nvidia.com>
+ <0ce2249d-3a64-4889-b455-0e8fddcc7282@arm.com>
+ <20260807115500.GA158689@nvidia.com>
+ <aefab683-598c-4cca-b5a0-c9081ccf9e1c@arm.com>
+ <20260807170104.GB158689@nvidia.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20260807170104.GB158689@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_071556_066354_DC55467D 
-X-CRM114-Status: GOOD (  13.37  )
+X-CRM114-CacheID: sfid-20260810_071813_730509_D144C18A 
+X-CRM114-Status: GOOD (  36.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,27 +96,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 07, 2026 at 03:37:37PM +0100, Peter Griffin wrote:
-
-> > > @@ -1222,7 +1224,8 @@ void arm_smmu_get_ste_used(const __le64 *ent, __le64 *used_bits)
-> > >       if (cfg & BIT(1)) {
-> > >               used_bits[1] |=
-> > >                       cpu_to_le64(STRTAB_STE_1_S2FWB | STRTAB_STE_1_EATS |
-> > > -                                 STRTAB_STE_1_SHCFG | STRTAB_STE_1_MEV);
-> > > +                                 STRTAB_STE_1_SHCFG | STRTAB_STE_1_MEV |
-> > > +                                 STRTAB_STE_1_INSTCFG);
-> > >               used_bits[2] |=
-> > >                       cpu_to_le64(STRTAB_STE_2_S2VMID | STRTAB_STE_2_VTCR |
-> > >                                   STRTAB_STE_2_S2AA64 | STRTAB_STE_2_S2ENDI |
-> >
-> > This adds for "stage-1" and "stage-2", while missing "bypass"?
+On 07/08/2026 6:01 pm, Jason Gunthorpe wrote:
+> On Fri, Aug 07, 2026 at 04:54:35PM +0100, Robin Murphy wrote:
 > 
-> I need to follow up again on this point, but I don't believe currently
-> we require the override for Laguna when it's in bypass.
+>>> We will need to teach GIC to understand if/when the device uses a T=0
+>>> translation for MSI and then use a shared physical address for the ITS
+>>> IOVA instead of getting an IOVA translation from the iommu. The
+>>> hypervisor will setup the S2 for the T=0 SMMU translation to be
+>>> identity with all shared memory and the ITS page will be shared
+>>> memory.
+>>
+>> IIRC, for MSI or unlocked MSI-X it should look and work pretty much exactly
+>> like regular VFIO, as everything can be mediated by the VMM and host kernel.
+> 
+> Right
+> 
+>>> Presumably in future we will have HW to handle a T=1 ITS page access
+>>> and some way to negotiate with devices if they should use a T=1 path
+>>> for MSI or not.
+>>
+>> Locked MSI-X would be a pain right now as we cannot intercept the Realm
+>> programming the MSI-X cap with a doorbell address and EventID value decided
+>> by the ITS driver in the Realm guest, so we'd somehow have to sniff those
+>> values out of the VMM's vITS emulation then try to configure an equivalent
+>> NS LPI to match, or have a hook in the ITS driver that knows when it's in a
+>> Realm and do some RSI handshake to proxy-allocate NS MSI vectors on the host
+>> and pass the real values back into the Realm.
+> 
+> Yes, we'd need to move to a model where the guest programs MSI
+> directly and we learn the configuration required to emulate through
+> the vGIC, not through MSI trapping. This broadly is the "righter" way
+> to do interrupt routing but it will be hard to get there, if ever.
+> 
+>> I'm still hoping we (both CCA and possibly Linux in general) can get away
+>> with just refusing to support Locked MSI-X without GICv5, as once we have
+>> proper Realm MSIs with direct injection then all the problems go away (or at
+>> least become much smaller RMM problems that remain invisible to the host -
+>> the one "big" problem being that the RMM has to begrudgingly implement an
+>> entire GIC driver since it now has its own whole GIC to look after).
+> 
+> Yeah, I'm fine with this, if GICv5 can allow direct MSI-X programming
+> then great.
+> 
+> Devices are going to need some way to negotiate if MSI-X is locked, and
+> if MSI is T=1 or not, I don't know if PCI has something for that
+> already..
+> 
+>>> There won't be a vSMMU attached to the T=0 instance at all, it is just
+>>> wired to be bypass.
+>>
+>> If that's all anyone will ever want then it does allow some degree of
+>> hackery like mirroring the whole of Realm S2 in an equivalent NS IOMMUFD
+>> domain, then forcing IOMMU_DOMAIN_IDENTITY for unaccepted devices within the
+>> guest. However I was under the impression that folks want to make meaningful
+>> use of devices while still in their untrusted pre-acceptance state (but
+>> maybe still switch them later), so it seems almost inevitable that
+>> eventually someone says "actually, we would like S1 vSMMU for untrusted
+>> scatter-gather as well..."
+> 
+> So far almost all VMs today don't use vIOMMU at all, the ones that do
+> are using it for things like PASID (or interrupt remapping on x86),
+> not for translation. The cases where a vIOMMU is deliberately needed
+> for translation seem to be mostly around SVA and PASID which isn't
+> going to meaningfully work out of the box on a T=0 device.
+> 
+> My prediction is this is fine.
+> 
+> At least it is sufficiently hard to make two parallel vSMMU's
+> controlling the same PCI device, and to make the ITS routing also
+> somehow work right, that it isn't worth doing at this point when there
+> is so much other more basic stuff to get done.
 
-Oh? Why not?
+Cool. So in fact that puts us in an interesting position for now where 
+non-CoCo "untrusted" (i.e. external) devices should have IOMMU 
+translation forced on by default, while CoCo "unaccepted" devices (i.e. 
+those which do have a mechanism to transition into a T=1 or equivalent 
+state) should *not* try to use an associated IOMMU, on the assumption 
+that it may only work for T=1 traffic. All the more reason to sort these 
+abstractions out so we can make the right distinctions clearly :)
 
-Is the issue the IOPTEs are set to no-exec or something like that?
+(And while untrusted vIOMMUs for purely-untrusted devices in CoCo 
+environments would be pretty straightforward as well, I guess we might 
+need some sort of acceptance status for trusted vIOMMU devices 
+themselves? Hmm...)
 
-Jason
+Cheers,
+Robin.
+
+> I imagine the ACPI might someday gain a description of the T=0 vSMMU
+> in a way that is invisible to todays Linux and a future Linux could
+> understand how to juggle the two iommu drivers for the same struct
+> device, somehow.
+> 
+> Regards,
+> Jason
+
 
