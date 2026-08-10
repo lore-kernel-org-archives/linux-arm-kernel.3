@@ -4,72 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D66B1C5AD7B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 16:56:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DFB1C5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 16:58:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BWPkusVLENAArrc+B6J/z1uCewfn9djaIMTUNSKz/qg=; b=3p076Fce0Vwg5tRBNE7nyNsX7H
-	tbBRNJCPsIp0vBDTG9r7kNd+3md2AV4dk/PxgPQT9wFnEHL8wN4HpiELayHffjf1YhLHrWHChlgYd
-	pPVhto78Yvpab3jCFcR2Rku8TsQQuH843zQIVY+NkHC17w1KyHZfAiwN4V9NTYPidtEF+N7h255h0
-	jM7P+NR50aJ4fnOcel2ZmDxoOFdTbFVeckIaTeuW58FEMEG/MRdhKS8YeL0u/W5Gr1AE/Ai7Oeh2Y
-	kVBdUAj/ZEeexv2cI4XtwHHP58mA+ikxKpi+RZtWGhTyYZp8tXUrPV1yF9uFMmM0+7qH7m6LfhT8e
-	s3+3kPpg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bqWkBZoqV5d3SCzruzXctRX6H/RUp4KHXqqDF3xrpPg=; b=i+NxexiXd0/a96ZsrSMrAlCp6p
+	++xXiUjbmvdiBlDvwOOP3lpnQT71c+QST7QBtEHNf7D6KmLK4g1Fha5KqqEzvUoaPj9qs0w4Fdp6n
+	E/pBpdz07PPMaS1m2V7Q0mSgdREPvop/c8ljt1iaukYnzudc4pqBwMYfBhcMRGRq23pVtG15MK9QF
+	ciWmrR5ekkCKgFqaX3GTm50vg0oilBCLDwcNeuv8vLcbOm6fddZ/vQrX3KRKEskNNi09nOP6wXcQ0
+	INzNNjg+tRAx96Ey8c3ErPXwjyawM7e3Y950gAdVID3G77+rnvg1j/ulKeWUTeN9s+3rC6hvuESwX
+	l1t4OoOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtTIs-0000000CSI1-2hRX;
-	Mon, 10 Aug 2026 16:56:46 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wtTKZ-0000000CSVv-3Ton;
+	Mon, 10 Aug 2026 16:58:31 +0000
+Received: from mgamail.intel.com ([198.175.65.10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtTIr-0000000CSHm-1wzg
+	id 1wtTKX-0000000CSVH-0R83
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 16:56:45 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E379240391;
-	Mon, 10 Aug 2026 16:56:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 966D21F000E9;
-	Mon, 10 Aug 2026 16:56:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786381004;
-	bh=BWPkusVLENAArrc+B6J/z1uCewfn9djaIMTUNSKz/qg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=HWS7g+vUPZ7eqc0C6di91ihuRonCUGeSB3zlT8bkHNhaniPRzZBGshWJ9yRXngdVo
-	 hQe9gJSLCjV6BuvEPawqC533bAKbg7HJpcvv6OIBstXJPyFkIazCmFoG+XxOj3UMcG
-	 v6fDY+cHfPP7qwZzk+2JEFkn2U/AD0MT/TpmWgUPdBluWLnRdHdkPoiaOWeWItV9Bq
-	 +1NVQkQUInlPlSoJFDFrL0vBE2qTBtH1HuGBLw23hc5J8+8/BywafrEVM/K8VM7Cbm
-	 CYwallFc+lzldg+nlhOF0oMOaP/kuBySqRLKthlkKjQMTQNXNqadt2R8tckeqnceAb
-	 /T0VUJz6do0JQ==
-From: Simon Horman <horms@kernel.org>
-To: s-vadapalli@ti.com
-Cc: Simon Horman <horms@kernel.org>,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	c-vankar@ti.com,
-	vadim.fedorenko@linux.dev,
-	v-singh1@ti.com,
-	nm@ti.com,
-	daniel.zahka@gmail.com,
-	nora.schiffer@ew.tq-group.com,
-	oss@vassilevski.com,
-	grygorii.strashko@ti.com,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	Mon, 10 Aug 2026 16:58:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1786381110; x=1817917110;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=EdmODO+K8FY1/Ukkl4ewZeDwc8sjwFVCQZUjor0bOQU=;
+  b=FXZR3S4i13xbqqiTyqrYOQ1+JZLkufTVVSch1lOl7NywOZUJ8xff8PXK
+   w7l1cQYVo/dFX3rdCIpXJ0nONJ2RS8RfZlH9pThNXj9k34RbUy0Z0hYrm
+   HAlTdNKVX0O1vs5aVKwfhu+El73Y6fB68AlM+fMiDncggFXyONway/HdC
+   WeRBhbW97S1HsHr5aIGV/0DIHp0Viv7vj/NQ2XMM5VWnLeBMxiVtSjzNl
+   +TapVqv8suucC7k297uLRvPqnSyPWvr51BUmAphHG89HbrTE/eTNvNLul
+   KMw9E9a7R67Qpm3JVt5JtqpBs+3H+3jhdkb19JZcKt2n82L/CxXIcwSuF
+   w==;
+X-CSE-ConnectionGUID: ShjCsiUuR5+3S/OxoxB0tg==
+X-CSE-MsgGUID: hzFHJTj/RGKJ5LUP3UiKkw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11871"; a="104294095"
+X-IronPort-AV: E=Sophos;i="6.25,216,1779174000"; 
+   d="scan'208";a="104294095"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Aug 2026 09:58:26 -0700
+X-CSE-ConnectionGUID: V8VOidKtSz+yDdfOwNZuGw==
+X-CSE-MsgGUID: 9+1VXaZXSC21N3EzgfuuGg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,216,1779174000"; 
+   d="scan'208";a="301324218"
+Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.244.99])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Aug 2026 09:58:22 -0700
+Date: Mon, 10 Aug 2026 19:58:19 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Kaustabh Chakraborty <kauschluss@disroot.org>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>, linux-iio@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	srk@ti.com
-Subject: Re: [PATCH net] net: ethernet: ti: am65-cpsw-nuss: Fix port_id extraction from SRC TAG
-Date: Mon, 10 Aug 2026 17:56:29 +0100
-Message-ID: <20260810165629.788002-1-horms@kernel.org>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260807111738.2055900-1-s-vadapalli@ti.com>
-References: <20260807111738.2055900-1-s-vadapalli@ti.com>
+	linux-samsung-soc@vger.kernel.org
+Subject: Re: [PATCH v4 2/3] iio: proximity: add driver for Sharp GP2AP070S
+ proximity sensor
+Message-ID: <anoDKzl84lO58GbQ@ashevche-desk.local>
+References: <20260807-gp2ap070s-v4-0-74f6a67b6272@disroot.org>
+ <20260807-gp2ap070s-v4-2-74f6a67b6272@disroot.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260807-gp2ap070s-v4-2-74f6a67b6272@disroot.org>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260810_095829_220240_C05AD0BB 
+X-CRM114-Status: GOOD (  23.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,94 +96,219 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is an AI-generated review of your patch. The human sending this
-email has considered the AI review valid, or at least plausible.
-Full review at: https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260807111738.2055900-1-s-vadapalli@ti.com?part=1
----
---- Patch [1]: [PATCH net] net: ethernet: ti: am65-cpsw-nuss: Fix port_id extraction from SRC TAG ---
-commit b0ed959d350c90d8b49f6f81eba7461fbc86dcf4
-Author: Siddharth Vadapalli <s-vadapalli@ti.com>
+On Fri, Aug 07, 2026 at 01:18:42AM +0530, Kaustabh Chakraborty wrote:
+> The GP2AP070S is a proximity sensor designed and manufactured by Sharp
+> Corporation. This sensor is used in mobile devices, including, but not
+> limited to - the Samsung Galaxy J6.
+> 
+> The driver has been adopted from Samsung's downstream kernel
+> implementation [1]. Due to the lack of public documentation about the
+> schematics of this device. The downstream driver acts as the secondary
+> source of information. Driver clarity has also been improved with the
+> help of the GP2AP* drivers in iio/light.
 
-net: ethernet: ti: am65-cpsw-nuss: Fix port_id extraction from SRC TAG
+...
 
-The RX path extracts the ingress MAC port ID from the CPPI5 descriptor's
-16-bit Source Tag. Only the lower 8 bits carry the port ID, so the patch
-masks the value with 0xFF before it is used as an index into
-common->ports[].
+> +#include <linux/array_size.h>
+> +#include <linux/bitfield.h>
 
-> diff --git a/drivers/net/ethernet/ti/am65-cpsw-nuss.c b/drivers/net/ethernet/ti/am65-cpsw-nuss.c
-> index 434a31080855..6330540979d7 100644
-> --- a/drivers/net/ethernet/ti/am65-cpsw-nuss.c
-> +++ b/drivers/net/ethernet/ti/am65-cpsw-nuss.c
-> @@ -1310,6 +1310,8 @@ static int am65_cpsw_nuss_rx_packets(struct am65_cpsw_rx_flow *flow,
->  	k3_udma_glue_rx_cppi5_to_dma_addr(rx_chn->rx_chn, &buf_dma);
->  	pkt_len = cppi5_hdesc_get_pktlen(desc_rx);
->  	cppi5_desc_get_tags_ids(&desc_rx->hdr, &port_id, NULL);
-> +	/* Port ID is contained in the lower 8-bits of the 16-bit Source Tag */
-> +	port_id &= 0xFF;
->  	dev_dbg(dev, "%s rx port_id:%d\n", __func__, port_id);
->  	port = am65_common_get_port(common, port_id);
->  	ndev = port->ndev;
++ bits.h // BIT() et alia
 
-[Severity: High]
-[Finding: main-1-0]
-[Sources: opus-5]
+> +#include <linux/delay.h>
 
-The missing range check on port_id is pre-existing and not introduced by
-this patch, but since the change is specifically about avoiding the
-out-of-bounds access, would it be worth validating the value instead of
-relying only on the mask?
++ dev_printk.h
++ device/devres.h
 
-After the mask, port_id is still an unvalidated hardware-supplied value in
-the range 0..255, and am65_common_get_port() does raw pointer arithmetic
-with no bounds check:
+> +#include <linux/err.h>
+> +#include <linux/i2c.h>
+> +#include <linux/interrupt.h>
+> +#include <linux/module.h>
+> +#include <linux/mutex.h>
+> +#include <linux/regmap.h>
+> +#include <linux/regulator/consumer.h>
 
-drivers/net/ethernet/ti/am65-cpsw-nuss.h:
-    #define am65_common_get_port(common, id) (&(common)->ports[(id) - 1])
++ sysfs.h // sysfs_emit()
 
-common->ports is a devm_kcalloc() array of exactly common->port_num
-entries (1..AM65_CPSW_MAX_PORTS, checked in am65_cpsw_nuss_probe()), which
-is typically 1 or 2 on shipping parts. So port_id == 0 gives ports[-1] and
-any port_id above common->port_num reads past the end of the allocation.
-The resulting pointer is dereferenced right away in
-am65_cpsw_nuss_rx_packets():
+> +#include <linux/types.h>
+> +#include <linux/units.h>
 
-    port = am65_common_get_port(common, port_id);
-    ndev = port->ndev;
-    ...
-    if (port->xdp_prog) {
++ asm/byteorder.h // le16_to_cpu()
 
-and ndev then flows into am65_cpsw_build_skb(), netdev_priv(),
-netif_dormant() and ndev->stats.*. Can a stray low byte still produce the
-same class of crash the commit message describes?
+> +#include <linux/iio/events.h>
+> +#include <linux/iio/iio.h>
 
-The driver already enforces the required index domain for this accessor on
-the device tree path in am65_cpsw_nuss_init_slave_ports():
+> +#include <linux/iio/types.h>
 
-    if (!port_id || port_id > common->port_num) {
-        dev_err(dev, "%pOF has invalid port_id %u %s\n",
-            port_np, port_id, port_np->name);
-        ret = -EINVAL;
-        goto of_node_put;
-    }
+I believe there is an agreement that iio.h implies types.h in iio/.
 
-    port = am65_common_get_port(common, port_id);
+...
 
-Would the same !port_id || port_id > common->port_num test in the RX path,
-dropping the packet and requeueing the page (bumping rx_errors, perhaps
-with a WARN_ON_ONCE), be a more robust fix than the mask alone?
+> +#define GP2AP070S_REG_PS_THD_LO_LE16	0x88
+> +#define GP2AP070S_REG_PS_THD_HI_LE16	0x8a
+> +#define GP2AP070S_REG_D0_LE16		0x90
 
-There is a second case even when the index is in range: ports disabled in
-the device tree never get an ndev allocated, and every other iteration site
-guards for that, for example in am65_cpsw_nuss_set_offload_fwd_mark():
+All those _LE16 do not add any value, we see that from the use of them.
 
-    if (!port->ndev)
-        continue;
+> +#define GP2AP070S_REG_MAX		(GP2AP070S_REG_D0_LE16 + 1)
 
-The RX path uses port->ndev unconditionally, so an in-range port_id
-belonging to a disabled port would hand a NULL net_device to
-am65_cpsw_build_skb() and netdev_priv(). Should that case be rejected too?
+...
 
-As a small nit, would a named mask defined alongside the other CPPI5/AM65
-definitions read better here than the bare 0xFF literal?
+> +struct gp2ap070s_drvdata {
+> +	struct regmap *regmap;
+> +	struct mutex mutex;
+
+Lock should have a comment explaining the data it protects.
+
+> +	u32 near_level;
+> +};
+
+...
+
+> +static const struct regmap_config gp2ap070s_regmap_config = {
+> +	.reg_bits = 8,
+> +	.val_bits = 8,
+> +	.volatile_reg = gp2ap070s_regmap_volatile,
+> +	.max_register = GP2AP070S_REG_MAX,
+> +	.cache_type = REGCACHE_FLAT,
+
+Oh, registers are from 0x80 to 0x91, why FLAT and not MAPLE?
+
+> +};
+
+...
+
+> +static int gp2ap070s_iio_read_raw(struct iio_dev *indio_dev,
+> +				  struct iio_chan_spec const *chan, int *val,
+> +				  int *val2, long mask)
+
+Split logically here and everywhere else.
+
+static int gp2ap070s_iio_read_raw(struct iio_dev *indio_dev,
+				  struct iio_chan_spec const *chan,
+				  int *val, int *val2, long mask)
+
+...
+
+> +static int gp2ap070s_iio_read_event_value(struct iio_dev *indio_dev,
+> +					  const struct iio_chan_spec *chan,
+> +					  enum iio_event_type type,
+> +					  enum iio_event_direction dir,
+> +					  enum iio_event_info info, int *val,
+> +					  int *val2)
+
+Ditto.
+
+> +{
+> +	struct gp2ap070s_drvdata *drvdata = iio_priv(indio_dev);
+> +	__le16 value;
+> +	int ret;
+> +
+> +	if (type != IIO_EV_TYPE_THRESH || info != IIO_EV_INFO_VALUE)
+> +		return -EINVAL;
+> +
+> +	guard(mutex)(&drvdata->mutex);
+> +
+> +	switch (dir) {
+> +	case IIO_EV_DIR_RISING:
+> +		ret = regmap_bulk_read(drvdata->regmap,
+> +				       GP2AP070S_REG_PS_THD_HI_LE16, &value,
+> +				       sizeof(value));
+
+Ditto.
+
+(With above comment about LE16 this will become
+
+		ret = regmap_bulk_read(drvdata->regmap, GP2AP070S_REG_PS_THD_HI,
+				       &value, sizeof(value));
+
+which is one line shorter.)
+
+> +		if (ret)
+> +			return ret;
+> +
+> +		*val = le16_to_cpu(value);
+> +		return IIO_VAL_INT;
+> +	case IIO_EV_DIR_FALLING:
+> +		ret = regmap_bulk_read(drvdata->regmap,
+> +				       GP2AP070S_REG_PS_THD_LO_LE16, &value,
+> +				       sizeof(value));
+
+Ditto.
+
+> +		if (ret)
+> +			return ret;
+> +
+> +		*val = le16_to_cpu(value);
+> +		return IIO_VAL_INT;
+> +	default:
+> +		return -EINVAL;
+> +	}
+> +}
+
+> +static int gp2ap070s_iio_write_event_value(struct iio_dev *indio_dev,
+> +					   const struct iio_chan_spec *chan,
+> +					   enum iio_event_type type,
+> +					   enum iio_event_direction dir,
+> +					   enum iio_event_info info, int val,
+> +					   int val2)
+
+Same as per above function.
+
+...
+
+> +		/* Ensure hi_threshold > lo_threshold */
+> +		threshold_other = le16_to_cpu(value);
+> +		if (threshold_other <= val)
+> +			return -EINVAL;
+> +
+> +		value = cpu_to_le16(val);
+> +		ret = regmap_bulk_write(drvdata->regmap,
+> +					GP2AP070S_REG_PS_THD_LO_LE16, &value,
+> +					sizeof(value));
+> +		if (ret)
+> +			return ret;
+> +
+> +		return 0;
+
+		return regmap_bulk_write(...);
+
+...
+
+> +	ret = regmap_write_bits(drvdata->regmap, GP2AP070S_REG_PS2,
+> +				GP2AP070S_PS2_IOUT | GP2AP070S_PS2_SUM32,
+> +				FIELD_PREP_CONST(GP2AP070S_PS2_IOUT,
+> +						 GP2AP070S_PS2_IOUT_89mA) |
+
+> +				GP2AP070S_PS2_SUM32);
+
+What's the point to have dup constant to be ORed?
+
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Failed to set current output\n");
+
+...
+
+> +	fsleep(10 * (MICRO / MILLI));
+
+What's is this multiplier for? I think you wanted USEC_PER_MSEC from time.h.
+Also add a comment with the reference to the datasheet (or other means) of why
+this value has been chosen.
+
+...
+
+> +	if (device_property_present(dev, "proximity-near-level")) {
+> +		ret = device_property_read_u32(dev, "proximity-near-level",
+> +					       &drvdata->near_level);
+> +		if (ret)
+> +			return dev_err_probe(dev, ret,
+> +					     "Failed to get value for proximity-near-level\n");
+> +	}
+
+Any default to be applied?
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
