@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43AE9C5AD7B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 16:26:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A547C5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 16:31:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SUi8TvaGZ/ONLDR20xtbgTj2PSwgrawqHUmwvPH281Y=; b=UqaAW9m3+69MFPmnkqYeZq1Jtz
-	5LUsOOXNq+1RYStYIiDipNKSJrtn6kO964eixJkz0bg0lMLw9xxT2dKK8q4+b77+UuMh+ZThEoBQ5
-	WHiBW/xTDclRHaBX6V3ofKLKvpyaL3l8AwgdmFvKVM0q4+BLZRQh1ol9HG2pJEz0b9mG5EzdwvSkf
-	sgljbcwJUbXsbKLKBRB5Iy2UViJNv/c5FlHV/mtRvdUYPkdT0hekqsjlUUMe7up++3Ra73Np9DsD7
-	8U+mgoDyFQTWUtiDsSeEYsu74DZ/+Ufpy4Xa6IwdGPgDv4xRK2D/naOasySK4Kty9hoa90DT6xW1E
-	e2IT1Huw==;
+	bh=a03sD61gz0cND8RfVQQZFPA4HhLVyS/O1QRWlfEqk4Y=; b=HC7/nD3AN7hpD209Zl6BSadGLz
+	1P9kkhWB6loHIUCdq8nA0TXRlJAdPjMvsbmR2IY0WrBATmMRZNI5xkuIeA8P98QTeUdkQZ7uQGL5L
+	dMrSuqixPXYPTUuQXy+M2VCTMijo1Jjneo13JbVt3efaegmUNVmRGw/fAIuk53oEP7fyGJCiF4BBk
+	Uw3CRmFgIB0RLVAU5FqYaS4/D1PxhrRSTimUwBiEQ28Rz1evfpIlbG7w4mZqnBxrpuYXZxzWvR6ex
+	XaP/r3AzFHuv2nEyp2lF4FrtHTyaZBR54p9hDUZ9YN/E4rCxA2Hg+cCVHX1apOEu4sDhRaLYSI+xS
+	0Fxytg0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtSpX-0000000CNuu-3h4P;
-	Mon, 10 Aug 2026 16:26:27 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wtSue-0000000COuF-1f1v;
+	Mon, 10 Aug 2026 16:31:44 +0000
+Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtSpW-0000000CNuR-2thB;
-	Mon, 10 Aug 2026 16:26:26 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2595A60052;
-	Mon, 10 Aug 2026 16:26:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CE791F00A3A;
-	Mon, 10 Aug 2026 16:26:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786379185;
-	bh=SUi8TvaGZ/ONLDR20xtbgTj2PSwgrawqHUmwvPH281Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=iZLUvplyIcNz5VE9d3kCC55idVkZrcMUkNQMbp9OGxSTxJfNYZ4yr2JOIOsKLJAn8
-	 OObjougUbmk/38Tg1bYoCpjH+ub9h5QwXhL5o/8zljucHR+7DSNhua66AetPZHytcQ
-	 3y2CRfYBQvSNkeuKQbvgCx8L6hlt9D3WV679tfLe6BvPHzmCHXlH9U99BxReF/HGin
-	 TL4hR+2U4zuEU+faiR9plq7xmFoQFSgBVHxVjTPoHNr+pLGwQl794ToVshVql7ZgUD
-	 g+L0acQ0yPs3jYsKAs1idJ115olPzn+IoDNqdAlrajYd2g8cEdKKUpyT9Dcts4aZoC
-	 Zur8II8DGV73g==
-Date: Mon, 10 Aug 2026 18:26:15 +0200
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Bartosz Golaszewski <brgl@kernel.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	Daniel Scally <djrscally@gmail.com>, Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Danilo Krummrich <dakr@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Wei Deng <wei.deng@oss.qualcomm.com>, linux-acpi@vger.kernel.org, 
-	driver-core@lists.linux.dev, linux-pm@vger.kernel.org, linux-usb@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-mediatek@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Alan Stern <stern@rowland.harvard.edu>
-Subject: Re: [PATCH v7 13/16] power: sequencing: pcie-m2: Add usb and sdio
- targets for E-key connector
-Message-ID: <hxidwwqeooyo4fwjc6rmbsfv35b2af7flub23qcpwin6bqj5ff@h46sqvwc6k6i>
-References: <20260724084328.3943997-1-wenst@chromium.org>
- <20260724084328.3943997-14-wenst@chromium.org>
+	id 1wtSub-0000000COtm-11ej
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Aug 2026 16:31:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
+	s=smtpauto.stravinsky; h=X-Debian-User:In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=a03sD61gz0cND8RfVQQZFPA4HhLVyS/O1QRWlfEqk4Y=; b=dulaZwJdQfNI0osM59GwS+YM8i
+	yddMKsbeiM12zrLLmi7ZM6UnTGiusvWfC6MQtrfuxGG0Do/rRp/Qd8zuogGqspMPW2a+E+PlWCk2F
+	RG1VDotZQt/scKoOpZhDi6gVOdVIteyjfzVG/pWqOoXOUNws8Ngi7wQM45mGDgoBtMLyR9oqeE7y4
+	vVampryx4GCWrckOtDK9HKApl9hFUZGQNp3Q50UD9DVeIG/JpHLY810TC6HgffVUU/WllolPGda/d
+	90Y9A+HZA7WAB2yQJj3BA6MAn+iPOgGFwQvH/+r0I6BCJVuH3Xq4lK5dZqYeH6344adoH6pDBFFkn
+	fj1NSL+w==;
+Received: from authenticated-user
+	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.96)
+	(envelope-from <leitao@debian.org>)
+	id 1wtSuQ-002uot-29;
+	Mon, 10 Aug 2026 16:31:30 +0000
+Date: Mon, 10 Aug 2026 09:31:25 -0700
+From: Breno Leitao <leitao@debian.org>
+To: Christophe Roullier <christophe.roullier@foss.st.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Russell King <rmk+kernel@armlinux.org.uk>, Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+	Vladimir Oltean <vladimir.oltean@nxp.com>, netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [net-next,PATCH 1/1] net: stmmac: Fix manage error case during
+ stmmac_dvr_probe
+Message-ID: <ann8fwpUBYhr6aAf@gmail.com>
+References: <20260810150749.458682-1-christophe.roullier@foss.st.com>
+ <20260810150749.458682-2-christophe.roullier@foss.st.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260724084328.3943997-14-wenst@chromium.org>
+In-Reply-To: <20260810150749.458682-2-christophe.roullier@foss.st.com>
+X-Debian-User: leitao
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260810_093141_286093_C5C92FA3 
+X-CRM114-Status: GOOD (  13.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,30 +80,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 24, 2026 at 04:43:22PM +0800, Chen-Yu Tsai wrote:
-> The M.2 E-key connector allows either PCIe or SDIO for WiFi and USB or
-> UART for BT. Currently the driver only supports PCIe and UART.
+On Mon, Aug 10, 2026 at 05:07:49PM +0200, Christophe Roullier wrote:
+> In case of error during stmmac_mdio_register, pm_runtime is not
+> cleaning before exit probe.
 > 
-> Add power sequencing targets for SDIO and USB. To avoid adding a
-> complicated dependency tree, rename the existing power sequencing units
-> "pcie" and "uart" to "wifi" and "bt". The existing target names are left
-> untouched. The new "sdio" and "usb" targets just point to the renamed
-> "wifi" and "bt" units.
+> Signed-off-by: Christophe Roullier <christophe.roullier@foss.st.com>
+> Fixes: 5ec55823438e ("net: stmmac: add clocks management for gmac driver")
+> Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 2 ++
+>  1 file changed, 2 insertions(+)
 > 
-> The "unit" names are internal to the power sequencing framework, and
-> should be confined to a single provider. The names are only
-> informational. Dependencies are tracked with pointers to other units.
-> 
-> The "target" names are the strings that the consumer uses to acquire a
-> descriptor with. As these remain the same, existing users will continue
-> to work.
-> 
-> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index b2b7d0242dd3c..37d06fc6dba47 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -8080,6 +8080,8 @@ static int __stmmac_dvr_probe(struct device *device,
+>  error_pcs_setup:
+>  	stmmac_mdio_unregister(ndev);
+>  error_mdio_register:
+> +	pm_runtime_put_sync(device);
+> +	pm_runtime_disable(device);
 
-Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-
-- Mani
-
--- 
-மணிவண்ணன் சதாசிவம்
+Confirmed that pm_runtime_get_noresume() and pm_runtime_enabled() are
+called  before stmmac_mdio_register()
 
