@@ -4,133 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C81EC5AE49
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 12:56:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7547AC5AD7B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 12:56:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PILt6OaGNnIbHzHM/pJ8xIZ86s+Ed+8Bp9CxzQWxkvs=; b=wegd6bog8jaM337h2IrE6dqB0v
-	+816p+PTTkGeSvDA2265MP/HAEtnHdnAuCZTjaQeweY25dBCs8sB4/d1JAw0Jkb0rfg8PpJDRuiN8
-	SSYRx+h8y8Fmwk+JRg6qJiJyFUqKmxtXXvEHxLUc+QGZschv5iyg0yu8jsaCyJ9gWdChrK2+fy2aV
-	IYQi3luVmdqmlIovM8WL3qzxl2TEqtAdG5TjNzf4s4+gyk5+G8uPGLLE1HbgNM7zsJoBvMUoZ3ElG
-	CrvO/RPr0zp2c0rP6yZ3lEjgk/4oO8YuGHl/yFTX2blvoJZtZA/VZzLvpvu/mMw9nxPEJ7erSWFLO
-	8XATxZ9A==;
+	bh=ErmtvoIKr0Gb0FRAMPkh6e1WzT73SKy9RPSlt22Nzk8=; b=3T882TpD3EbiZ7orSf0UmkFLdw
+	Lef7EeKhpOfASDkYPIGnu8lO+YeRn1t69bLICJFeuVEhvYXHShb063leHN0o50I1dhMkZmtzKEMjs
+	xEuGL8Npu0teq8zkkBeR+CazRKoLmD4rHcnrxet56h63Vb7jH5dqIyjDiKClV5XMrvPIFXW4scw61
+	uJCi2n53BOwvjpGJl00zXEJ+M5gFhDV522c/ZI9j9MOyLJd5Z1bnhRvgNtJAN+c5dO68HCmlARByn
+	UmgvVJjbrB7mdFziL02uOVpmNava5V5k4E8JxXlDB1Fme3/M1zatmdPoRrFOHh3j2ha+WDTFlSa9F
+	DhrYRn6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtPYK-0000000BqAe-2wH6;
-	Mon, 10 Aug 2026 12:56:28 +0000
-Received: from mail-northeuropeazon11010063.outbound.protection.outlook.com ([52.101.84.63] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1wtPYO-0000000BqCP-3ilP;
+	Mon, 10 Aug 2026 12:56:33 +0000
+Received: from mail-westeuropeazon11011015.outbound.protection.outlook.com ([52.101.70.15] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtPYI-0000000Bq8d-0ki8
+	id 1wtPYJ-0000000Bq9A-10ll
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 12:56:27 +0000
+	Mon, 10 Aug 2026 12:56:28 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=iV+v26rJRo5KmJv6u9xDlhr2wMggS8JsspKnhSbXSGLdJRKAGekNsMTGdOGuXNjwMu47bpb7CKTdYVkhb/RjCHNWHxEUA53YF72EeMqfKbQ3PUflizTN0k96pZ2QQLy7n/A+AC+jG0WCERQKtExV8Uu/0Kkamf1RzQPuBkI6f3q4UFfUYrS4HMVqICRkjuR6se6JFaRr1jZsVT16lL5yTK+ejc/heg8M3Gr6JorV1Jhjra2lBKlvi6LVYQ/GJxUEvgVCFB0fZ3NI6ctJ4rjuMb7pNPTk9D5uoGSO03uD029TZSFnk66d3s/X4cuzE23nsRaDwckuOKrfNUs+DBfI4A==
+ b=o2M54i+3kQmr2bywZit/G6vqU5DaOJnDk/qOXphzW+ftUWY5n5mFYx7nTFDorOUA/j1d82Cgi6XOgnBDV5rIjX9FoeFIiwJNBS6rmDJnt0v/N4rlVw+pdBZDW4xga53HCRwQscE54K0SYCRk3L4/HqsJwJroiqem+Nr+p8eLOb+OiNt5OJG3Fmm6cqAq3WBdroKkEcRkglyKf2JtbF4BXFIuxhjq12dADX5/FsHOyOGerRmAOSEFAbH3XmhPipkc1twXHPXV9FVhCQWzZr1RMEhn5uqcWQjaV9YwFqVISKAdArrEal0VzC6Vpy2K4Vw3iSCbifZPgciA/G0YVcIcNg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=PILt6OaGNnIbHzHM/pJ8xIZ86s+Ed+8Bp9CxzQWxkvs=;
- b=XylldmLEhNrCi/v374euXe49T2cjFtOzg5I6BT8oLy75C2XUaxUK4jddP8R+2QvK4Rd2Lp53GYYZV+g1fBRTXyXmRu94YIyVv+VuIowmL+MP8UlF25pl2Vu0/Pm8IpW9QO+ES8Yrok6XWDEepbRp1808H+7RP6qneWCZ94gq9/9rY1LSvOGgBtiHg5xUIyJmGIh/tuStn2r6SLjXgjiSs7tTOfKMFqjtqf3HG5AKXo/gTzs4S3BVUh/ToH8R+n29hdyzp/JCQSCuCMTI6QloiM7P8IxmiFVCyjxBUzm2TvNvagTdKUFSQ1spR6UhJBbjITitYO1II+aiVRl7EE4dwQ==
+ bh=ErmtvoIKr0Gb0FRAMPkh6e1WzT73SKy9RPSlt22Nzk8=;
+ b=HrE2NI2pIsbpaex4BQDNwXAjM0bDaUfuE9F+I557NzdiHU6cH9A/ufOcCdNgYKekrkvkr5B4xZ3KbbKKvKu6ua0L0VFomKxr5p8zTIk8FLj/y7LA4yUm2Fd5QXHW5rVzshScTesD+86p16gJR/oetgzOMT/mpXbBhD/Nu258tV7nsaJEPgXELJLIMU8oC83WPT88J0LwCGtgsudsV2ofbfrNsF7j6B2ladKuJnKXIpZgecwUUGY8N6fU7qI97RHk//PUqLcyP15J6OFhQ1sH0KVCSpZcYoAYDvlmrlA74VKUOgQl6ZXGMFAYcoXzxF39VF6HBIMChf6vwfLf0M+C7A==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=PILt6OaGNnIbHzHM/pJ8xIZ86s+Ed+8Bp9CxzQWxkvs=;
- b=DDHNi951rRU6DHTIfqaxndt+rKOEpo/ZpY3oL7f02I3tU1xCTCyRImplMAx68HfHgE2HhiGO+oUIyFpKZhO7LXV4Tgmcav7F/df0AaN5+YXCNgcH5O1WOT5EfraAXK4QIpPbLQzVTPzUnOOlB7wzhyvOZkvWW9TZQKFLRY7Jm3Eav/r4XyrJ7YnK+kXCCU7t9HhmTQXm9VvHliK5iy/wYvg96LCIKjasrtU7SlUxA9wPyvgMue3qDfiM2JZLrOuj+BQvpq5mjCGpw3TgToSX8GT8AY5u8FxwhK0+ZCzs4Ymf6I497VtdlwlcfwOCPqhqN3ql6GLB/dJ20TL+hfxq+Q==
+ bh=ErmtvoIKr0Gb0FRAMPkh6e1WzT73SKy9RPSlt22Nzk8=;
+ b=Ddz5CYjWZNh/GWTz0IoEw3JNezYUZMxP6ilvSjf7+a0j8l89l/yndr6METHRvyEz0lBoXH8x8blVM9EuMgyBRhUUypMCSv7fwvK4fupwREm9MjiLGMCLE3I4VyyWCPRFYE6ynYPYP8D4WaUq6+W1flLSDclWEx91tZWeJ5qLjTZPC0CjXUZ3fth5a2aDfX7C5ynsIDXOmE9UcxCX/qeBDTKkNIk2HyJuvL/hlb3CCOaTjiNpJ+mz+xZbGMnntRJ5nHyp7Ehe54voDUY0VvZQTCUUjnRuWUTD1dq/U5IwJ75MBLuhmr/B9N0gNGuBs5RO/J614fULgo/qb6lzNRc9Yw==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nxp.com;
 Received: from AM0PR04MB6900.eurprd04.prod.outlook.com (2603:10a6:208:17d::10)
- by VI2PR04MB10572.eurprd04.prod.outlook.com (2603:10a6:800:27c::6) with
+ by DBAPR04MB7205.eurprd04.prod.outlook.com (2603:10a6:10:1b3::8) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.25; Mon, 10 Aug
- 2026 12:56:18 +0000
+ 2026 12:56:22 +0000
 Received: from AM0PR04MB6900.eurprd04.prod.outlook.com
  ([fe80::7fda:8431:ca1b:b023]) by AM0PR04MB6900.eurprd04.prod.outlook.com
  ([fe80::7fda:8431:ca1b:b023%4]) with mapi id 15.21.0292.024; Mon, 10 Aug 2026
- 12:56:18 +0000
+ 12:56:22 +0000
 From: Vladimir Oltean <vladimir.oltean@nxp.com>
 To: linux-usb@vger.kernel.org
 Cc: imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-tegra@vger.kernel.org,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Peter Chen <peter.chen@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Xu Yang <xu.yang_2@nxp.com>
-Subject: [PATCH v9 1/3] usb: add missing headers transitively included by <linux/phy/phy.h>
-Date: Mon, 10 Aug 2026 15:56:12 +0300
-Message-Id: <20260810125614.441667-2-vladimir.oltean@nxp.com>
+	JC Kuo <jckuo@nvidia.com>,
+	Johan Hovold <johan+linaro@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Mathias Nyman <mathias.nyman@intel.com>,
+	Thierry Reding <thierry.reding@gmail.com>
+Subject: [PATCH v9 3/3] usb: gadget: tegra-xudc: avoid direct dereference of phy->dev.of_node
+Date: Mon, 10 Aug 2026 15:56:14 +0300
+Message-Id: <20260810125614.441667-4-vladimir.oltean@nxp.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260810125614.441667-1-vladimir.oltean@nxp.com>
 References: <20260810125614.441667-1-vladimir.oltean@nxp.com>
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: FR4P281CA0043.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:c7::17) To AM0PR04MB6900.eurprd04.prod.outlook.com
+X-ClientProxiedBy: FR4P281CA0044.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:c7::8) To AM0PR04MB6900.eurprd04.prod.outlook.com
  (2603:10a6:208:17d::10)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM0PR04MB6900:EE_|VI2PR04MB10572:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4a2f3582-0f30-4261-ce1d-08def6dec513
+X-MS-TrafficTypeDiagnostic: AM0PR04MB6900:EE_|DBAPR04MB7205:EE_
+X-MS-Office365-Filtering-Correlation-Id: dd1f93d2-96e5-4ef7-c536-08def6dec760
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|376014|7416014|23010399003|18002099003|22082099003|10067099003|56012099006|11063799006|6133799003;
-X-Microsoft-Antispam-Message-Info: UzB4P1hAmXecqYi3ehB1f4EoAvfkn1mO0Qp0YiEJheeFNF1LVQM2lhiiZZHJ3r8fCV2f0aQWQSqvWIeMggyc+TGEc+U3OiB/hRsc+U2NLA8p0F0WgtoxWWTO+ztQ5SC7pUzGjL7Y1dObsn/RoeuNBWAk7nj8ABk3Z8bDAdA5udLDyhKmfSwOfSpuZFXoQl2UZNKGXKrsFuxkFVOI4+xjlVNMWjwuZkriUGrmH6JtYZgp1n+pqZWEkpaKutq9ltbwrgPv5rVHsZLtL+i9oraLh7euVqBUr4tl0VH6GavxT7+SQZGqo3xPEj585NOuGSVVja02t01qYIUz00zhctwTBll+qlISegpC0tl7BK4IObd2mfLivCu7DwMXSgG/9idTFscIqnt37sHmUe9wCNPYK7GsulxHzNvoGHkMGD5wKiPuCvllzy5+XHmJPbQw5xyENWIp+A9X7s/kWZviirpgWj3EHmFXRIScHvOwTspRgQVjnI2QLL9Ft39k66E11TXWaZurAczrYKuEWhiX/BFHyj+8Y+n608GosJvT8y4GA1dEp+0yDLxbUtdyEdy9ZI7k9EV6IN5smuo0zGQBHDOnpEqe2QvwOQNKCzEOiMzCTyYX6v5pr5btuhofrquBmbbr4zp78kBsMKB8KW1PymgUaRGKm94alPQOuKmcKnCTkoQ=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB6900.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(376014)(7416014)(23010399003)(18002099003)(22082099003)(10067099003)(56012099006)(11063799006)(6133799003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|376014|7416014|23010399003|22082099003|18002099003|10067099003|56012099006|11063799006|3023799007;
+X-Microsoft-Antispam-Message-Info: umBZDihbgLdI4DVZchTLme6hX4nL0i95SCdAxd9LckmuzQglEheAqKCh8qNQ04CMyYqZIaShcvRi8BC0QjMeAC31ktArgwZ5DmbvfckUOfjAK4zIbOK8eQgD0irvnO/Yc1cZZJ00Mk6TYtjjWUrOO2IB1KwTSr0NCD2n70M7ufQvd9/qrZh3BoY6d3VnpHEW+lFUYk+YVlSCXupfwXwTnBp+8aT+pLxgTKGaniNAxdr1rXLni7gGBsg3K4w65pkkIHWRFWwDcz//Nre7nndgCeqXI/bz+jvztxer+zWxW/SXXLO2ws0KuWjPA+h2kldHJjH1p2wx1Uk9DPSrvhGDG31vQEItVEecAvBgdaZOVEiJM3x8+N+ntY5lCSrM4g6ETN8c3DPJvfREL0ufipNTLkvM2tq3aKNw3+QQada3LFWEj9w5H4oQaShFj64LdSF8D56U2r1sIDYsRebgnjuVDIU0FVscwRTf7QynlTZonoyXbeXyG4fWUX5N16JgKUk3yqnhefRlO9vEYNTRQJobaruBwh2ii0i3cXILcoHJ66VnVS8/C8bPlKcyAtshKHJwDOP7gh8VSZMq9Jh4JgIgQ75QZrFQtIwDVyrs2TPobLfNsQiu94aiE1yGn1tMqtqZpsy7Ht6NF0VniR27ps6/bhyEZWUoisMakK4yh9imAjA=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB6900.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(376014)(7416014)(23010399003)(22082099003)(18002099003)(10067099003)(56012099006)(11063799006)(3023799007);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?K23eJBcjApobkOpbyc4s5ZFp4EVljQcgJzbWi5U6E8DS445E1KUO89s73Q8y?=
- =?us-ascii?Q?6niHXeCMbZNH+f6d4sj7ZWrKchfNh9qeEpkE/Z76lW3dwp9VdSUHeGi52j87?=
- =?us-ascii?Q?XHGKsLHNrjt4VlsS/1OV08dbmxaekvxRjzEUT0aoLrlc1SdkckDrNTbKjwNG?=
- =?us-ascii?Q?XEcYEyDBJJ7S+uY9ABH5ZC321RB2v/Vi+6Jf2AnY0WVb8BlPprM0dgtmkyg0?=
- =?us-ascii?Q?ny8uPaw5MgVdo/jibdu/jnxwg+qVo1bD/K9s1Lfx5yIaLDuoX7wmVPjUHNvB?=
- =?us-ascii?Q?iNHN68Zvn/bTA1gMzu425loBwgLx+ADCL95m+yzh/2QdUy55io0eDF+SHD19?=
- =?us-ascii?Q?dGdtXfRIyOJWJPrNBGwTGsN5fMe42diNyS5BmC4vgfWOacfVBCmK6NDd5nyN?=
- =?us-ascii?Q?EzqbS/rPP6G0IhZl9t8is1CwVv/YvFd/Rq5gLbVOt1lomwF55WqhJvRdcCPY?=
- =?us-ascii?Q?tu/1BXxL38Dz0iVF0cKeY7DeuOxStRGUbrCNSVUK3DlgC1mXBhPYcPNnclVX?=
- =?us-ascii?Q?FPjvM1bLed02RqA0G77pFfndgBgvdaOPB0SNb6oDrOwNtQZo9Sh5x4dC+qiG?=
- =?us-ascii?Q?IVmCbsD415V6VCEOK18g0cnKBO++46ojl4TqM8iz8cyK+ceYJ2pvY9yJ7MbC?=
- =?us-ascii?Q?InqtOwfsyItFAoFKO/4TH53mYf4xg79NboxLANyXYqByGyLhBv9KAsOIAgg/?=
- =?us-ascii?Q?YEUJPM72rpSUEFeLB1Gjaa1P/FLaz9H4NU9DezdmLmjbmxKV5lX2KgWTBpr0?=
- =?us-ascii?Q?6CNGz7fu/1PVBnPT7p3XO0gELbkCIWpI+4gKELJbqAt6N9cqeMzL6DdggJr8?=
- =?us-ascii?Q?sZLX/yypF3tWcKdFMBly8FMh0OAWj0rpRKyUHKRiOMXBx2mtHGyNqncNS7se?=
- =?us-ascii?Q?iu2KB6qQNYkYkN+NmwgdFk4TGX1Gf8IN9fWJHUuxc3QbdWDRBAchWdMwjiVd?=
- =?us-ascii?Q?4AvmOshS4JXcsFFhaul+/PaGxTWlrfmjra3Xy2hKOBGLPbbFpOwPYksnM5jA?=
- =?us-ascii?Q?bptS5WJNI9FRZJ1a4hkHAlT8anyzGxx11KMh9aPYuZhRMRTvuGZFVYbz8SLq?=
- =?us-ascii?Q?HQjUb1sZ0rgGeca8+adKjyB4I/XK/WvtjMauF7xiAcLYHWviAcmEVrVxb9Tw?=
- =?us-ascii?Q?GDdgGs1VBO0K8X18AzHppORvMJKibWwLHKG3Nb86KyBILiLs/H1PaZlp5tXt?=
- =?us-ascii?Q?xD/yM9b/wP5R4SzlyMzH7ZelIfmlY+GYyOI/f/kpg1++ysIpNpf5qWI2E3U4?=
- =?us-ascii?Q?SEqJ6HeqEH88H2cHGwoQ6UFF9CYCo4O+mlLIRbyrb2Bxoj9kyTrC0ICatfFR?=
- =?us-ascii?Q?aDm3UBpUuatjUwyTl7s+y3KJnyQGv/MIeYFMvl+fD52y/4Pz5PP12qbJBAAD?=
- =?us-ascii?Q?v9MNYhG7VSIHLCwFOm83DOFOzqho5BpSwccbW9G/I3nkQ/6nhphEPfIlLncL?=
- =?us-ascii?Q?CE/9zqx6Tp+oF4Nmk753BxiXfqRsG26LrlH9kYCfMGD7tyYOPYEdIKn/VDRP?=
- =?us-ascii?Q?O8TM0bYJAhribkyuIIk0NxWs0ja7ZIwUvX9K1eDMMoCUmPhCIrHJNk9hOeR4?=
- =?us-ascii?Q?2UUappPiNSkgi6vWQ/DcSGxv0U/FKym2MJ9vhIoIN3gj7HAfQWhx4a/3N2cW?=
- =?us-ascii?Q?uBEHJZ6Ehez99nshjda0HiJtb8NX85GVrzA0i8kclVD5O1H9PC7SWmPxbNg0?=
- =?us-ascii?Q?Go+MNEBTeXwaDawoXNdBVwZeSAJ6HFFFJAmmKsu1uXeBzYL2eI68ZpdKKTjD?=
- =?us-ascii?Q?seMHkZwavQ=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?JQ9X498LuSlLnS7oWtuOjyPA9s5wmekhAW/FMHrjknYPylkVvS24UDmI8Gs/?=
+ =?us-ascii?Q?6k3d0FZIS3CDi/hmzZdHFY0FV5h19woY7Fokk09ELCF8o4jIGZY/NuS/OQPZ?=
+ =?us-ascii?Q?+aOmvGIbqtnip+zIRWgiqQKtEH94l9/t/mzQkbjp6j7WCjk+D1rZN/5z/p+W?=
+ =?us-ascii?Q?KBDBFty/WScxjJ2RB3Bpdke8wW0EbYspxgOttpBuWRI0HgzruoOYL1RiRCyy?=
+ =?us-ascii?Q?1bP/pDPtuO+IHOEUZEbBWReIhX5RhyKtam/J+WX7AStESW6XMd4YbQvK/XqD?=
+ =?us-ascii?Q?7d4fK77BZNcu8oAKMF10uL44SQMO1fhL6nv43low0/mdLHvR+D5wZ24uqM36?=
+ =?us-ascii?Q?gkGGua2zXAbnQT6LtC5SJBKgnv7PXQaM4gHa7fgcYYB/exQUrPKBrBBuH/Dl?=
+ =?us-ascii?Q?+Bv4Z+c3ReldOwIiGiPBFEJMRMAPyVzeDAjL+Ypq7dtp01GVzXEdbRkOo15h?=
+ =?us-ascii?Q?+q2ZBfbVy9ryo3Ot6g+wnhgXU8aHWrMWhXGHT1xpywkwjbf2aUFN0PT49G/q?=
+ =?us-ascii?Q?gUNDUHXnSsfyeDKA5Y0tJQ/cvwZnVVxo260kwqtgN/IFrPwB4GUW5goL855M?=
+ =?us-ascii?Q?NmwnTM892m4G7X0DlIc+kLb7R0rs3EyFG0gfNWLi8mRk8DL8jQCnACyg9jCC?=
+ =?us-ascii?Q?GSHd1lg5Pj9jEFjdJx8BMd9Rt5/wYT0wENWaX3dx7PngKmfwFbLy4jOYqlTW?=
+ =?us-ascii?Q?/86uct/z74XXQrTL/Fj5/ZjUOMu9jyi6U3xZYiXOBs1sE/sz5+D+7/8M2LFy?=
+ =?us-ascii?Q?EJB2XrJ2IA7eYRGFXTKx5+WeADjy+K9vI4Zg6qIJo1ESsc3BlHi00F2daaKy?=
+ =?us-ascii?Q?KeTgBNwMCS2whObHuTQ1qB5ySz1IPA1YmcZTvoEORtAN0jVfysCp3OqxWKmD?=
+ =?us-ascii?Q?LR33dvmpNf28jSNe3SylYR8/NXvx21rm8yFIswF35Rtevn0jNRscAnX31+GG?=
+ =?us-ascii?Q?/roSo4wKzjHXr5utQZxgMdfeiDQRapqFeALc117VK6qEo3/v9D5u3Pz2hdJG?=
+ =?us-ascii?Q?s3P+ogsdk3Q9e+U/Zjsc3p7VlAY1kd2adhO4uJw84Hm9HE8OVmWdf9GfJugE?=
+ =?us-ascii?Q?sMKZq7kgUW7zG7wiINl8/WnRCCctrbXb3/6wTR3Z2mPO2ZpsC3RoOyXO1nKO?=
+ =?us-ascii?Q?S3kk4W/F05jjwNrSoC+86LKOpprQD2+52KExMygUlKq8S7FJF3z1RIx4x+NL?=
+ =?us-ascii?Q?KG9mfAOgyjB9zlApn8fNRnezKRFyl9iBx6VWmASovZvVmKGL3e7neIAZ0kyS?=
+ =?us-ascii?Q?91EyPuhIA1qnbTtJASOyTtvCcmOkk4BP0jEXuAPHaV+6hOFb5mbVQvG2mGOB?=
+ =?us-ascii?Q?/6fRNrsz/PYCYAY39qcoNOXB9PWYDnepW7ifUxbwaKImQFHJy/7l05o94BZX?=
+ =?us-ascii?Q?GCT8VhnDsFWbtCwLUOL1AykK3A1p+gTFESZgm1EPQRfFtR6r0VnpFAuIHkrb?=
+ =?us-ascii?Q?fJaeQFo62YU0OsZwRJSYYVvl8EaiqCoxmM1AQBESFuuuJCWt+2EZvnwXu58W?=
+ =?us-ascii?Q?cR1IJfJxPSlwXsp6ES7SoiQHdT4nhpLrLsm6Glh1ES6CoIITQIAe7dK4tG2m?=
+ =?us-ascii?Q?Mu+ElsnuYMgMn3NsCgIQPCq9q7E3qQTfYP+creWsN1o6hrlppOgtutWtER5Z?=
+ =?us-ascii?Q?aYBIVN0FebSNnJH1y6aEcr9mpBWTUVjIl8rpcSU1B0ssqsO/pajAm5W3Y1VB?=
+ =?us-ascii?Q?9pMDT3+taM8kpyqr8faVPzr0YLMjTcpiTBsJV0QIdG3mrr2RJehhBAuTXzwS?=
+ =?us-ascii?Q?kahNWFCzEw=3D=3D?=
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4a2f3582-0f30-4261-ce1d-08def6dec513
+X-MS-Exchange-CrossTenant-Network-Message-Id: dd1f93d2-96e5-4ef7-c536-08def6dec760
 X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB6900.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Aug 2026 12:56:18.3818
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Aug 2026 12:56:22.2335
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 6kG2JWjYlW12EBOPfT+S680JlDJzqwiIYmKIfN87jm/G4CueOc+g+Ex5xoVUOGDZy+ZOmOe9OfnLPMR9rfs9Wg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10572
+X-MS-Exchange-CrossTenant-UserPrincipalName: y0Ig2NlDpont/dj2zdUDI0Yru0V8+EVWyEuCvT4lDOfyDEpDtkdBWTCwRmLHTPf1T6TGg9qVonugHpKb9bFwoQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR04MB7205
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_055626_264695_A95ADC69 
-X-CRM114-Status: GOOD (  14.37  )
+X-CRM114-CacheID: sfid-20260810_055627_485949_E309D466 
+X-CRM114-Status: GOOD (  22.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,122 +143,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The chipidea ci_hdrc_imx driver uses regulator consumer API like
-regulator_enable() but does not include <linux/regulator/consumer.h>.
+In a somewhat similar situation as the Tegra USB host controller driver,
+the Tegra XUDC driver for USB gadget mode needs to get to a struct
+usb_phy that sits behind the same OF node as the Generic PHY. It does
+that directly, which will no longer be possible. The PHY provider is
+also the xusb padctl driver.
 
-The core USB HCD driver calls invalidate_kernel_vmap_range() and
-flush_kernel_vmap_range(), but does not include <linux/highmem.h>.
+The rework here is also to implement a parallel OF node lookup path
+based on the "phys" phandle and the #phy-cells of the padctl provider.
 
-The DWC3 gadget driver calls:
-- device_property_present()
-- device_property_count_u8()
-- device_property_read_u8_array()
-but does not include <linux/property.h>
-
-Similarly, dwc3-imx uses device_property_read_bool() without including
-<linux/property.h>.
-
-The dwc3-generic-plat driver uses of_device_get_match_data() but does
-not include <linux/of.h>.
-
-In all these cases, the necessary includes were still provided somehow,
-directly or indirectly, through <linux/phy/phy.h>. I found the following
-command to be quite helpful in figuring out the include chain:
-
-$ make KCFLAGS="-H" drivers/usb/dwc3/dwc3-imx.o
-
-Since <linux/phy/phy.h> wants to drop the unnecessary includes, fill in
-the required headers to avoid any breakage.
+Some further notes:
+- create a local "usbphy" variable to hold the devm_usb_get_phy_by_node()
+  output. This makes the error checks more obvious (avoids keeping an
+  error-encoded pointer in xudc->usbphy[i] even temporarily).
+- the "if (IS_ERR(utmi_phy)) .. else if (utmi_phy) .. else if (!utmi_phy)"
+  pattern can be simplified, considering that neither the IS_ERR() nor
+  the NULL case continue execution in the current block. Therefore, we
+  can move the case where the "utmi_phy" is a valid pointer outside the
+  "if" checks, and this reduces the code indentation level.
 
 Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
-Acked-by: Thinh Nguyen <Thinh.Nguyen@synopsys.com> # dwc3
-Acked-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 ---
-Cc: Peter Chen <peter.chen@kernel.org>
 Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Frank Li <Frank.Li@nxp.com>
-Cc: Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
-Cc: Fabio Estevam <festevam@gmail.com>
-Cc: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-Cc: Xu Yang <xu.yang_2@nxp.com>
+Cc: JC Kuo <jckuo@nvidia.com>
+Cc: Johan Hovold <johan+linaro@kernel.org>
+Cc: Jonathan Hunter <jonathanh@nvidia.com>
+Cc: Mathias Nyman <mathias.nyman@intel.com>
+Cc: Thierry Reding <thierry.reding@gmail.com>
 
-v7->v9: none
-v6->v7:
-- add drivers/usb/dwc3/dwc3-imx.c to the list of patched files
-- collect tag from Greg, keeping it despite the new addition because the
-  change is minor and in the same spirit as the rest
-(https://lore.kernel.org/linux-phy/2026033028-squint-yield-4c23@gregkh/)
-v2->v6: none
-v1->v2: collect tag
+v8->v9: none
+v7->v8:
+- remove duplicated variable "err" which shadows existing one
+- stop execution on of_property_match_string() and
+  of_parse_phandle_with_args() errors, instead of silently continuing
+v5->v7: none
+v4->v5: patch is new
 ---
- drivers/usb/chipidea/ci_hdrc_imx.c   | 1 +
- drivers/usb/core/hcd.c               | 1 +
- drivers/usb/dwc3/dwc3-generic-plat.c | 1 +
- drivers/usb/dwc3/dwc3-imx.c          | 1 +
- drivers/usb/dwc3/gadget.c            | 1 +
- 5 files changed, 5 insertions(+)
+ drivers/usb/gadget/udc/tegra-xudc.c | 43 +++++++++++++++++++++--------
+ 1 file changed, 32 insertions(+), 11 deletions(-)
 
-diff --git a/drivers/usb/chipidea/ci_hdrc_imx.c b/drivers/usb/chipidea/ci_hdrc_imx.c
-index 282314eea7fc..1509b8ec630c 100644
---- a/drivers/usb/chipidea/ci_hdrc_imx.c
-+++ b/drivers/usb/chipidea/ci_hdrc_imx.c
-@@ -17,6 +17,7 @@
- #include <linux/clk.h>
- #include <linux/pinctrl/consumer.h>
- #include <linux/pm_qos.h>
-+#include <linux/regulator/consumer.h>
+diff --git a/drivers/usb/gadget/udc/tegra-xudc.c b/drivers/usb/gadget/udc/tegra-xudc.c
+index e9d33be02866..f93e0a5651ab 100644
+--- a/drivers/usb/gadget/udc/tegra-xudc.c
++++ b/drivers/usb/gadget/udc/tegra-xudc.c
+@@ -3494,6 +3494,7 @@ static void tegra_xudc_device_params_init(struct tegra_xudc *xudc)
  
- #include "ci.h"
- #include "ci_hdrc_imx.h"
-diff --git a/drivers/usb/core/hcd.c b/drivers/usb/core/hcd.c
-index 8e8a5f59b319..f7def9b116e0 100644
---- a/drivers/usb/core/hcd.c
-+++ b/drivers/usb/core/hcd.c
-@@ -10,6 +10,7 @@
-  */
+ static int tegra_xudc_phy_get(struct tegra_xudc *xudc)
+ {
++	struct device_node *np = dev_of_node(xudc->dev);
+ 	int err = 0, usb3_companion_port;
+ 	unsigned int i, j;
  
- #include <linux/bcd.h>
-+#include <linux/highmem.h>
- #include <linux/module.h>
- #include <linux/version.h>
- #include <linux/kernel.h>
-diff --git a/drivers/usb/dwc3/dwc3-generic-plat.c b/drivers/usb/dwc3/dwc3-generic-plat.c
-index ca69ac0eb07c..2f2ae6f4704f 100644
---- a/drivers/usb/dwc3/dwc3-generic-plat.c
-+++ b/drivers/usb/dwc3/dwc3-generic-plat.c
-@@ -8,6 +8,7 @@
-  */
+@@ -3515,7 +3516,10 @@ static int tegra_xudc_phy_get(struct tegra_xudc *xudc)
+ 	xudc->vbus_nb.notifier_call = tegra_xudc_vbus_notify;
  
- #include <linux/clk.h>
-+#include <linux/of.h>
- #include <linux/platform_device.h>
- #include <linux/reset.h>
- #include <linux/regmap.h>
-diff --git a/drivers/usb/dwc3/dwc3-imx.c b/drivers/usb/dwc3/dwc3-imx.c
-index 973a486b544d..6e122674edaf 100644
---- a/drivers/usb/dwc3/dwc3-imx.c
-+++ b/drivers/usb/dwc3/dwc3-imx.c
-@@ -13,6 +13,7 @@
- #include <linux/of_platform.h>
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
-+#include <linux/property.h>
+ 	for (i = 0; i < xudc->soc->num_phys; i++) {
++		struct of_phandle_args args;
+ 		char phy_name[] = "usb.-.";
++		struct usb_phy *usbphy;
++		int index;
  
- #include "core.h"
- #include "glue.h"
-diff --git a/drivers/usb/dwc3/gadget.c b/drivers/usb/dwc3/gadget.c
-index fa0f16ffafef..e70c17d50db8 100644
---- a/drivers/usb/dwc3/gadget.c
-+++ b/drivers/usb/dwc3/gadget.c
-@@ -10,6 +10,7 @@
+ 		/* Get USB2 phy */
+ 		snprintf(phy_name, sizeof(phy_name), "usb2-%d", i);
+@@ -3525,22 +3529,39 @@ static int tegra_xudc_phy_get(struct tegra_xudc *xudc)
+ 			dev_err_probe(xudc->dev, err,
+ 				"failed to get PHY for phy-name usb2-%d\n", i);
+ 			goto clean_up;
+-		} else if (xudc->utmi_phy[i]) {
+-			/* Get usb-phy, if utmi phy is available */
+-			xudc->usbphy[i] = devm_usb_get_phy_by_node(xudc->dev,
+-						xudc->utmi_phy[i]->dev.of_node,
+-						NULL);
+-			if (IS_ERR(xudc->usbphy[i])) {
+-				err = PTR_ERR(xudc->usbphy[i]);
+-				dev_err_probe(xudc->dev, err,
+-					      "failed to get usbphy-%d\n", i);
+-				goto clean_up;
+-			}
+ 		} else if (!xudc->utmi_phy[i]) {
+ 			/* if utmi phy is not available, ignore USB3 phy get */
+ 			continue;
+ 		}
  
- #include <linux/kernel.h>
- #include <linux/delay.h>
-+#include <linux/property.h>
- #include <linux/slab.h>
- #include <linux/spinlock.h>
- #include <linux/platform_device.h>
++		index = of_property_match_string(np, "phy-names", phy_name);
++		if (index < 0) {
++			dev_err(xudc->dev,
++				"no \"phy-names\" entry for \"%s\": %pe\n",
++				phy_name, ERR_PTR(index));
++			goto clean_up;
++		}
++
++		err = of_parse_phandle_with_args(np, "phys", "#phy-cells",
++						 index, &args);
++		if (err) {
++			dev_err(xudc->dev,
++				"failed to follow \"%s\" reference\n: %pe\n",
++				phy_name, ERR_PTR(err));
++			goto clean_up;
++		}
++
++		/* Get usb-phy, if utmi phy is available */
++		usbphy = devm_usb_get_phy_by_node(xudc->dev, args.np, NULL);
++		of_node_put(args.np);
++		if (IS_ERR(usbphy)) {
++			err = PTR_ERR(usbphy);
++			dev_err_probe(xudc->dev, err,
++				      "failed to get usbphy-%d\n", i);
++			goto clean_up;
++		}
++		xudc->usbphy[i] = usbphy;
++
+ 		/* Get USB3 phy */
+ 		usb3_companion_port = tegra_xusb_padctl_get_usb3_companion(xudc->padctl, i);
+ 		if (usb3_companion_port < 0)
 -- 
 2.34.1
 
