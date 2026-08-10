@@ -4,70 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8652DC5AC82
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 05:23:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 004A6C5AD4E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 05:32:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Subject:Cc:From:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rdgatJqXq09iZfF8MwWC7oqz/aY6pcVLm3L68LKTsVg=; b=n5r0EdiXt48RISdJTg5ClpgPqH
-	L32Pc1/eMiru8JW4HL1AmbyEqCrMmiIN8RfSycFI00mwDHVyYniTNp3C60db8GeO80wDlqsmZQNwi
-	qxW0u06qpuev1S6TSuXPBYCvozYlpffVfl1S+PVMO+0kchqRHo9coJod5PtlGrOTT0Uud/bQe2uFl
-	fSVofH/e7vApgNBGQVaZGH30t493WBIFQ4UaSGjaa++STcuy1UBIkrtDAJz1CI578dG4p7nPhs0JV
-	2KRY5OZR0uzy1DOpWsbMMCIc0YLZOT+93AM1aJFlehUgY+eUVAYaeU9c+jgoY/yNDkoBHON9pkg/i
-	EJ/eICOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0Kli8pbDASdp0VjuYAnhnppe070gvFnPXsKo7o33PTM=; b=c0lXMyDWYvVltDK+SxsnIOllIq
+	yTBaPJuA3pXUu3w/+hHDF7F3JpOKNrM12KcURlDsTxSn/Btc8ySJxGkJQmRixbOy4Xy6dHzypM0nU
+	xm7RiMjSbuTkmivuXPTBJ+/pGJphuicUVgTawIB8j1WRQftgRm+IF4e2/Loqt9DBipIjN//a8OJcK
+	1/4BKk2WkC0wN5gMuB3d/4M4yncMEkCjbzHPJ4agEMbyoKYk2HIyRqC1EDgT8+uCNn+DeaZgcOzPe
+	knYupbOnVFVv5OMgpillgSXxi0iXFyrQabYQVRtpoNjgJvWV2Lg6O6TXnDnSqyxMdHK8736A81bd4
+	0kjGJOgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtITv-0000000B2kA-2dzB;
-	Mon, 10 Aug 2026 05:23:27 +0000
-Received: from vinatta.cz ([2a03:3b40:fe:428::1])
+	id 1wtIcI-0000000B33N-1l8H;
+	Mon, 10 Aug 2026 05:32:06 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtITr-0000000B2j5-23r6
+	id 1wtIcF-0000000B32s-0wcK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 05:23:25 +0000
-DKIM-Signature: a=rsa-sha256; bh=rdgatJqXq09iZfF8MwWC7oqz/aY6pcVLm3L68LKTsVg=;
- c=relaxed/relaxed; d=vinatta.cz;
- h=Subject:Subject:Sender:To:To:Cc:Cc:From:From:Date:Date:MIME-Version:MIME-Version:Content-Type:Content-Type:Content-Transfer-Encoding:Content-Transfer-Encoding:Reply-To:In-Reply-To:In-Reply-To:Message-Id:Message-Id:References:References:Autocrypt:Openpgp;
- i=@vinatta.cz; s=default; t=1786339366; v=1; x=1786771366;
- b=oGxaFSkb04TgaZtwxVkxckf1o7rYI9s9/g6I7Of/SalSoGIexeWIuZlUoEHf73s0Nz8+hSCO
- 2mOt9PDjshw9LrKOukPYyHWII+Uck9dHlxrom4H64jN1o5BFdzzPoa9+IFdmpBoKBQDBVl16dQs
- hC35Gafs18KqAAzWU46laRUuSsP4DfzpJLci/N+VWs3zQRlDEPttvBsDAEekZmzC1nzttaILjwY
- yZau2lTDM6Ymsd74zl4KX0Y06mN6FNZrSkv1WFxAl0CftJlHdo4eL5z7SAml85Z/PAHHrPlxTBn
- GrKqIEVA05Te3hkgHF92CN9f233BrkQuCP+yRINYgmKHA==
-Received: by vinatta.cz (envelope-sender <karel@vinatta.cz>) with ESMTPS id
- 15759296; Mon, 10 Aug 2026 07:22:46 +0200
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 10 Aug 2026 07:22:34 +0200
-Message-Id: <DKL0GAHVZF2H.1PCBLWAT453SS@matfyz.cz>
-To: "Johannes Berg" <johannes@sipsolutions.net>
-From: "Karel Balej" <balejk@matfyz.cz>
-Cc: "Brian Norris" <briannorris@chromium.org>, "Francesco Dolcini"
- <francesco@dolcini.it>, "Rob Herring" <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
- =?utf-8?q?Duje_Mihanovi=C4=87?= <duje@dujemihanovic.xyz>, "Andrew Lunn"
- <andrew@lunn.ch>, "Gregory Clement" <gregory.clement@bootlin.com>,
- "Sebastian Hesselbarth" <sebastian.hesselbarth@gmail.com>, "Ulf Hansson"
- <ulf.hansson@linaro.org>, "Frank Li" <Frank.Li@nxp.com>,
- <linux-wireless@vger.kernel.org>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-mmc@vger.kernel.org>, <~postmarketos/upstreaming@lists.sr.ht>,
- <phone-devel@vger.kernel.org>, "Jeff Chen" <jeff.chen_1@nxp.com>, "Peng
- Fan" <peng.fan@nxp.com>, <david@ixit.cz>
-Subject: Re: [DONOTAPPLY RFC PATCH v2 0/4] WiFi support for
- samsung,coreprimevelte
-References: <20251026182602.26464-1-balejk@matfyz.cz>
- <DEJL1ATTQMVE.120JV9YW59I27@matfyz.cz>
- <aSnWYS2g5slVFaSk@gaggiata.pivistrello.it>
- <DI5L100Q1RKO.1A68EJIPWYSRC@matfyz.cz>
- <DIKSVZCAQES1.35I4QY11LBVNV@matfyz.cz>
-In-Reply-To: <DIKSVZCAQES1.35I4QY11LBVNV@matfyz.cz>
+	Mon, 10 Aug 2026 05:32:04 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-8485ef63b68so2059046b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Aug 2026 22:32:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786339922; x=1786944722; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=0Kli8pbDASdp0VjuYAnhnppe070gvFnPXsKo7o33PTM=;
+        b=eeIhqw0jEn7CM5EFgvxJXMdvcjXf4wwdD2ZkqhCHVlBioOf/eLN7Sdt4eLxWBvrJld
+         BmBLSPU2O4o0SIEGHMzXKFUk3TrVRykgSGGvdWMAXKHMZu4BLJKu401dm4DYNXud1YyI
+         PbYe5FOpoZRtDM8jnJEhcK8ZtQHRkYkGlhYkDp6HYyKSRrO4YaEuyR5jIC9sJ5j3wHB0
+         5IXRNAQ5hsdc/IMpf2kFSxJNUUYFkQV8fB0ciVS99qgjKWEbRNUPIW5bWqWkQ44ItB0x
+         MJanjN40UpMQwVe4v4crJV9NhFq78s4e2xUkv1CpFfgWSBI3U82rfhJwHCFWs3QXLbYk
+         0F3A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786339922; x=1786944722;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=0Kli8pbDASdp0VjuYAnhnppe070gvFnPXsKo7o33PTM=;
+        b=h+yoA2YVWZHwKliZ5EEv1fQlfYHMfQL+OiAWGpJ93XLo7JI/0h750SR3520ht1O4T9
+         eh3y79WUtqJDzAh9pTNdu5Gtl/6OR7wfgOS2lZFlOmiVVhe4odG5K0+5zgW3aNh25hsY
+         bs8ZDnVkr9ycktiS2OXGPR+SVh4E+i2lbbUx3rfQz+HPYklfTQdKWccjS+/D8vdU1vUN
+         1eR4WgW/cGf3x9q00SPujYqzU+wTDWjnv3Yrwg7ALHFE0Rz4xgLFb/3X0gKvljWKKrpS
+         PYql3P8kamcUBu67bwCxSiOhGPuZts/ESJ/u8oLNzbUoU3dx9gsIUrmBcdIvihDdYZj5
+         AbOQ==
+X-Forwarded-Encrypted: i=1; AHgh+RpZ8Uy2hTEfIYWCB23Li8LXkcDkkoU7Q/aAMCqs9pKWxLlyqWmpb99oxYY7ysfOKvOSMoU7JlhGgX5BdKP2XkpJ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzb5zwCtpV4nN5wVBpnVbCvla3yUpYyBiBblw5BDOoDGejbXFf1
+	wbH67Zmc9Ctewqo+897JTupQwNP4ojbPI34V45IIrDIIwe3ucQfh+Ftx
+X-Gm-Gg: AR+sD13ckdxQU2X2Iw4jJ8SkoKfnPIqv0AEVe2QYtQ3/yPeE8xFdzzOaPnBYO5QFDmY
+	tgO7F403CcoVCkriSqtDZFtWWY8QQZMVDp6gOLpvQKStrtXL+Bdr9mY0xNHYeJTqQ0u9PByhsJ3
+	xj3632c67WBrckrPzVba6ztBufbptOwCmOiphmjlZ5lhwkgWJSgqXPNpcacal1AQPEjynUkHVI9
+	XnMVNhOvJfUH0ppe4ARLySZuErrflyY5JtMNULbc6lV2/Ct1o+WWzKSugmITQgtsu4UkoDHUuzF
+	z75PaHgHvbZSMijwQ6pSEN3COO8CXOzxhRrz/+b7GF/U2zKJqeyQR8spMQeKB/ZuuJVtH9J5Ck9
+	NxU6ojgYBQ7DktSAV2OXD1TzxYxCtwzxoksWsb2THfCudAS3fSandYzh4VvVqaxUnWa86Rxtg97
+	rc8BRQVxd6xG6ISYV/DjfZY4oEIJ/RRWD6Fn6WbZuNGM0BEDIV1zA2YxODMGlQ6Z/Z7wxn+9DFf
+	tsrMjjAqmM6ofnCxJr7AMU1zWIGtlPy/gZURT8ttT5CpLesKTBfFNAMCqV1TNaWnvt+7milgdET
+	d9O+
+X-Received: by 2002:a05:6a00:2d0c:b0:84e:2382:f4f0 with SMTP id d2e1a72fcca58-84f2dfc8ed4mr42587816b3a.4.1786339922023;
+        Sun, 09 Aug 2026 22:32:02 -0700 (PDT)
+Received: from phuc-desktop.. ([183.91.15.56])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84f5a3cadf2sm3243298b3a.22.2026.08.09.22.31.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 09 Aug 2026 22:32:01 -0700 (PDT)
+From: phucduc.bui@gmail.com
+To: Linus Walleij <linusw@kernel.org>,
+	Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+Cc: Mika Westerberg <mika.westerberg@linux.intel.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	robh@kernel.org,
+	linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	bui duc phuc <phucduc.bui@gmail.com>
+Subject: [PATCH 1/5] pinctrl: ocelot: Propagate errors from optional IRQ lookup
+Date: Mon, 10 Aug 2026 12:31:38 +0700
+Message-ID: <20260810053142.27938-1-phucduc.bui@gmail.com>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260809_222324_003754_2D135E0A 
-X-CRM114-Status: GOOD (  13.76  )
+X-CRM114-CacheID: sfid-20260809_223203_288913_12CAC791 
+X-CRM114-Status: GOOD (  11.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,29 +105,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Johannes,
+From: bui duc phuc <phucduc.bui@gmail.com>
 
-Karel Balej, 2026-05-17T10:14:58+02:00:
-> Karel Balej, 2026-04-29T12:55:23+02:00:
->> what are the options here now? Would it be possible to make an
->> exception and accept the patches without the firmware being in
->> linux-firmware? This is an old device with no mainstream audience so I
->> expect everyone who will want to use it will be able to supply the
->> firmware themselves and it would be great to not have to keep the
->> patches in a fork, especially when trying to build on top of them
->> further (such as to fix the driver-firmware incompatibilities discussed
->> in one of the patches of this series).
->
-> would you please let us know whether there is any chance an exception
-> could be made for this chip regarding the firmware or whether there is
-> any other way to upstream the support?
+platform_get_irq_optional() returns a positive IRQ number on success or
+a negative error code on failure. For an optional IRQ, -ENXIO indicates
+that no optional IRQ is available, while other errors should be propagated.
 
-I still haven't heard from you, could you please have a look and let us
-know if there is any way forward?
+Propagate all error codes returned by platform_get_irq_optional() other
+than -ENXIO.
 
-The support for the chip has been out of tree for over two and a half
-years now.
+Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
+---
+ drivers/pinctrl/pinctrl-ocelot.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Thank you,
-Karel
+diff --git a/drivers/pinctrl/pinctrl-ocelot.c b/drivers/pinctrl/pinctrl-ocelot.c
+index 0fe0527863b8..02824da6bcdf 100644
+--- a/drivers/pinctrl/pinctrl-ocelot.c
++++ b/drivers/pinctrl/pinctrl-ocelot.c
+@@ -2369,6 +2369,8 @@ static int ocelot_gpiochip_register(struct platform_device *pdev,
+ 	gc->label = "ocelot-gpio";
+ 
+ 	irq = platform_get_irq_optional(pdev, 0);
++	if (irq < 0 && irq != -ENXIO)
++		return irq;
+ 	if (irq > 0) {
+ 		girq = &gc->irq;
+ 		gpio_irq_chip_set_chip(girq, &ocelot_irqchip);
+-- 
+2.43.0
+
 
