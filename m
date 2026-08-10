@@ -4,104 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C53A3C5AD7B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 21:33:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 048E1C5AD7B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 21:35:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V5a6xJPr5Q3rMuS2Aj7IIL+OhqTMjYbY/9k8n2tsOG4=; b=DRrjfK3lWS7DtRvXNEnpG6X3W7
-	OztoWIz2S5btaQ6OlfK8U1Ag6lIk9u4Sgzo9pRuu5R5W9VFvqZnCe2iqVEmVjg6Q/eBUiezJNsAMz
-	8D5PCCVUcpNh20VFskByvRdkLzzTnA/OHSpQP229ZLXH7mwb7DMuLZn2NDXURTThNLojObsFC/PLf
-	GumUoZpv/b8nBzh4CGkReXjIyLDhzwTasbHLRsp/o3M3gr+8K07hqK6WlqOpaF0HXRso69YUXjANJ
-	Ki6g609y6XDV1y1Fdv7mCp4KcW3bXW01awH7UywrU/Aqpx0tOIDk4KGvs6l6u9S9pFfNXLy9dfttV
-	bqcBeypg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Hwj3nUg1FBP5shh7DqZ3NtUOXglAZAadgRkvkF0DEMI=; b=DsvRoigwUFD8HyVWZnQfRI4Pwb
+	mqety8W0BXVonsVEsmtbSSiNBThAeKs8ODnRZ0s96HbfmBePGjEdeJLB3XAa2qr4CZOxeqcak1JxL
+	ow39001AWb+rlMTtctzmdPF3soqqBMt4PuLvKF3LY5N0Vt3rIX6m+2mj9GAcKjnA9gkzZ7tG0/dF6
+	M78NeXVWvVOBN47HjiahpyllRa3FrtwAqmdQ4zaNMmd/dGLhQ0Q3z3rSIYWKNQZhlYNYcbuwWIpLS
+	PvSQd5gNKw0kfW/7fgNbFPq2oCkW+PciIivI8MoFhkBarKtnZe/m65ghzYXSeS3PkVVMn7Fq0LqP9
+	i6T8Zafw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtXcC-0000000CudC-354Y;
-	Mon, 10 Aug 2026 21:33:00 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1wtXeT-0000000CuzK-0W4e;
+	Mon, 10 Aug 2026 21:35:21 +0000
+Received: from mx.nabladev.com ([178.251.229.89])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtXcA-0000000Cubt-1Y4s
+	id 1wtXeP-0000000Cuxu-43dY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 21:32:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1786397577;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=V5a6xJPr5Q3rMuS2Aj7IIL+OhqTMjYbY/9k8n2tsOG4=;
-	b=BPFQchfsAn6968le/xLNeMPgECzIqr7kONUSGFKNMZj/K0LQvzMNFqSkZu4zkUOm9a8zr4
-	YeVPMg7EvAdv3ahP9pGmH5g985cbCH9qSeKqcywQBMKxfCTrZ26kA2QgMUoP62dQ9k3ZYj
-	HCdSpZWPge32iLA0JJTLIasmTIWfsOA=
-Received: from mail-yw1-f198.google.com (mail-yw1-f198.google.com
- [209.85.128.198]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-583-eKwIF1l7OjyVvzUN8ltoCQ-1; Mon, 10 Aug 2026 17:32:55 -0400
-X-MC-Unique: eKwIF1l7OjyVvzUN8ltoCQ-1
-X-Mimecast-MFC-AGG-ID: eKwIF1l7OjyVvzUN8ltoCQ_1786397575
-Received: by mail-yw1-f198.google.com with SMTP id 00721157ae682-7f5b54da461so32648197b3.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 14:32:55 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786397575; x=1787002375;
-        h=user-agent:in-reply-to:content-disposition:content-type
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=V5a6xJPr5Q3rMuS2Aj7IIL+OhqTMjYbY/9k8n2tsOG4=;
-        b=HwyjalqWSDlFHVKUMzZ+/1j7oDAogjpCt/WyCRdD1a/HN0BIN5KqOv0F0KGKv1VGqh
-         6z3zFDTrb2s3VoHeZoJq+PYsMqdAe+p4RL+YFADW+/TKPIyktKjONAvFeqkIm+2C8cTN
-         ChTf1PjWNz/owc2Wgm+i5V8PeqpNkLn0WoiA8gXnakwZpm5NG7EXy18WGJyGZQU7oKDc
-         yDh8/qKVzeX1D8dNwE+Mp7eEpTtTXDK45l6LYHyfbr2ajTkHdnM8hwFVMOmu6WCuU21o
-         SEWiHrjbCGj1GEtSKQBfk+mN3ewQfvwR388kIWWywXqe6P6cBGGYj1rb0JDmpEpLl3Nu
-         0j1w==
-X-Forwarded-Encrypted: i=1; AHgh+Rpzoi3K/YMxIT4O1fpoav6PWtGU+4vaQQtYScoqdDkV2NAXZGF132NBMqLug0SkUcsHZfSMbX6jqamBfYGr8Dnq@lists.infradead.org
-X-Gm-Message-State: AOJu0YxrxVWO1xmcXeSQOkttIeIkVn4tFfsFX/3by8k4lZPGAUhu7e6v
-	9loNCz2i+Tq1WlbSFCiwaUhqpmH/ROv29B8EBkaQPi6N/kEltlx93jxbfmtNAAXNf84+7TBrFgn
-	srERRRvnZwQ9s8J8vUcYbN7NHkS1LmiM0oPcZs5Rl2blFCsMIjy8JF89vbU1zVZfvuutOnRJQjO
-	OB
-X-Gm-Gg: AR+sD13ww+JMjpWVQViWBdT+PRfqnfTPtlojx7bl4CeYa518oDX84c1cUssaLbLKNzz
-	MWQJCQ6EkkcTJ21lVevbyI93zehlYiFQtrUQm41RTkprC9Jg8C8qiYjOdBTCy9tK2c79cph5p5Y
-	cp4Cigs0vDqumtoHQP8Nz5LO28n6I+MBDkOPp4wTXYlGkUtoHNUL+1vPR1AGq/qwiqwLKPbWB19
-	VG5ERp/GPMl4DkuYfkasKit8O5CwRY9BSJz/Kwkm8rFO+tkc2Gywn2Vgq0n57LXqQzM8D59qwwq
-	h7FK02GVUu4gzey50l0L35StvVVKwAFJVRcFdpDU/0J9Y7sFvxa+++1cZ1EwHouuQnxJGd4FFZw
-	TElS15yO/lXufk0T0m6ZS6XQdrop4fKxw9gc=
-X-Received: by 2002:a05:690c:7286:b0:81e:6a10:f90f with SMTP id 00721157ae682-8225ba2bd2fmr193701477b3.17.1786397575341;
-        Mon, 10 Aug 2026 14:32:55 -0700 (PDT)
-X-Received: by 2002:a05:690c:7286:b0:81e:6a10:f90f with SMTP id 00721157ae682-8225ba2bd2fmr193700877b3.17.1786397574844;
-        Mon, 10 Aug 2026 14:32:54 -0700 (PDT)
-Received: from redhat.com (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-823f079a0b0sm63450967b3.12.2026.08.10.14.32.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Aug 2026 14:32:53 -0700 (PDT)
-Date: Mon, 10 Aug 2026 17:32:50 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: Yu-Chun Lin <eleanor.lin@realtek.com>
-Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, p.zabel@pengutronix.de,
-	cylee12@realtek.com, jyanchou@realtek.com, afaerber@suse.com,
-	devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-realtek-soc@lists.infradead.org, james.tai@realtek.com,
-	cy.huang@realtek.com, stanley_chang@realtek.com
-Subject: Re: [PATCH v12 10/11] clk: realtek: Add RTD1625-ISO clock controller
- driver
-Message-ID: <anpDgt6ZlkFE1ONH@redhat.com>
-References: <20260804163807.1285869-1-eleanor.lin@realtek.com>
- <20260804163807.1285869-11-eleanor.lin@realtek.com>
+	Mon, 10 Aug 2026 21:35:19 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 96D48118B78;
+	Mon, 10 Aug 2026 23:35:05 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
+	s=dkim; t=1786397708; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=Hwj3nUg1FBP5shh7DqZ3NtUOXglAZAadgRkvkF0DEMI=;
+	b=DUDyNCEtSxV9XNpmuwXO4GCErT0GIbCgNyGsEnqjj2wBDaoJJc+tcaYWTblRr9yqI1UUtM
+	E5b32/9f83zobT+y4RdaXNfHvv/gwMvS3RUrED9PkX2PNfG/bzLq5/H0JYOFqUYYMCl9Hw
+	f7Adbk75G0irnV4xuQVGbgSR7Wdv/UUlUrij3S3FPpjfe13ZMbnwO2rIL0NrsKWS3nygWX
+	ty0dnadhaskeTXGO/vmToO4vCoQliuzb7Z9iNl+0aVtf27ZR4vrP1xXDLl0HvlSi3hz6A1
+	aJOBuPSzlxZLhXZDWy7aehy1GTA7gClIgbwC3y4h0AVNOmd666chygcBJANJVQ==
+From: Marek Vasut <marex@nabladev.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Marek Vasut <marex@nabladev.com>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Fedor Ross <fedor.ross@ifm.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Rob Herring <robh@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 1/2] arm64: Select HAVE_SHARED_GPIOS for ARCH_MXC
+Date: Mon, 10 Aug 2026 23:34:38 +0200
+Message-ID: <20260810213456.1268831-1-marex@nabladev.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-In-Reply-To: <20260804163807.1285869-11-eleanor.lin@realtek.com>
-User-Agent: Mutt/2.4.0 (2026-06-19)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: e8jNFccPdvMhQtdB7vSS7a2CchvsL6vnC6ZVYWklddE_1786397575
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_143258_479271_2C884875 
-X-CRM114-Status: GOOD (  13.40  )
+X-CRM114-CacheID: sfid-20260810_143518_230016_6A14F695 
+X-CRM114-Status: UNSURE (   8.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,22 +79,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 05, 2026 at 12:38:06AM +0800, Yu-Chun Lin wrote:
-> From: Cheng-Yu Lee <cylee12@realtek.com>
-> 
-> Add support for the ISO (Isolation) domain clock controller on the Realtek
-> RTD1625 SoC. This controller manages clocks in the always-on power domain,
-> ensuring essential services remain functional even when the main system
-> power is gated.
-> 
-> Because the reset controller shares the same register space with this ISO
-> clock controller, this driver also acts as the parent device and registers
-> the reset controller as an auxiliary device on the auxiliary bus.
-> 
-> Signed-off-by: Cheng-Yu Lee <cylee12@realtek.com>
-> Co-developed-by: Yu-Chun Lin <eleanor.lin@realtek.com>
-> Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+Some NXP i.MX platforms use shared GPIOs. Enable support for them by
+selecting the Kconfig switch provided by GPIOLIB.
 
-Reviewed-by: Brian Masney <bmasney@redhat.com>
+Signed-off-by: Marek Vasut <marex@nabladev.com>
+---
+Cc: Bartosz Golaszewski <brgl@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Fabio Estevam <festevam@gmail.com>
+Cc: Fedor Ross <fedor.ross@ifm.com>
+Cc: Frank Li <Frank.Li@nxp.com>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Linus Walleij <linus.walleij@linaro.org>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: Rob Herring <robh@kernel.org>
+Cc: Will Deacon <will@kernel.org>
+Cc: devicetree@vger.kernel.org
+Cc: imx@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+---
+ arch/arm64/Kconfig.platforms | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
+index d2acfac730037..bc279b864d3cb 100644
+--- a/arch/arm64/Kconfig.platforms
++++ b/arch/arm64/Kconfig.platforms
+@@ -275,6 +275,7 @@ config ARCH_MXC
+ 	bool "NXP i.MX SoC family"
+ 	select ARM64_ERRATUM_843419
+ 	select ARM64_ERRATUM_845719 if COMPAT
++	select HAVE_SHARED_GPIOS
+ 	select IMX_GPCV2
+ 	select IMX_GPCV2_PM_DOMAINS
+ 	select PM
+-- 
+2.53.0
 
 
