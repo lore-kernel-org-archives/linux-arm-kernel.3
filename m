@@ -4,84 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2082C5AD7B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 17:48:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF1BAC5B567
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 17:48:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KJHBxuvXyX/Ou+ZCPLPoJAhWUmuoxbSOhKjv5XUkImE=; b=uOXDpR9xZHCJzaKNad3dt6HC3T
-	HpJMpO9Sn9nFiwLZxEb8P7VEG8lDZ2ZSlrq/y+Gko3eBH+oMyaytIbYpaJhLyONYy+2wU4pSMrsdp
-	ZRuIqCVjOFFL1M08N/2UzzOTfjXxl4W/WCqffBoYWdAKz5j/8mmkCqcFxsvgiPoUkj+hZ6Bt14YdV
-	MtBfTWGqnD+aNQZMKPARBuja0plUPXcyhFpHPnPs+Hqba4wHTD3wxKXdRaWaUCrLpSLsq1ZyzIvEm
-	eadiPTFXtZacArHoFmoR/zfCchoBgyuoWb/8lSxCuZlzbUHtJRMHBvzsK0hBpofWfpGxx85I2WGbQ
-	xvgC475g==;
+	bh=Xy+a/OeoTRaZmYUfNaW0nmPFcUyvrvxy0xwXKh681tU=; b=G9d9LIYuyFxoknw60+PRKk5GlD
+	Gml+ApfGeD0MOGfl7EWoJK0Q0tiOW/vJxWvabmE330Myk+PKQtx3iuWCrqY0BVbuyck40crronuhs
+	CR2weqzS6ReAzDEkdr7v5qgla+o5DcKW4B3xzdOwemxNxzF5jGaH71ijCt8k94zVRVN0s3tLGOuJ3
+	C1wA7O1mcCvjfLeZdxRyiYZMzZHYhheftLn7S/kzQdEakpgfVji+rD13A7A3X017ZE60ZcNmGazzd
+	rkuYRxxsJwVVEl7PM0yk/eTBy2Fw+Af2YpH9EkJiJmiat1A4ZzEaAJMR67Stkji1DwJS5BP1jLgu6
+	6gcrR9nA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtU6k-0000000CYrQ-23Gf;
-	Mon, 10 Aug 2026 17:48:18 +0000
-Received: from mail-northcentralusazon11010055.outbound.protection.outlook.com ([52.101.193.55] helo=CH1PR05CU001.outbound.protection.outlook.com)
+	id 1wtU6p-0000000CYwY-2x3Y;
+	Mon, 10 Aug 2026 17:48:23 +0000
+Received: from mail-westcentralusazon11010068.outbound.protection.outlook.com ([40.93.198.68] helo=CY7PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtU6f-0000000CYot-3xXV
+	id 1wtU6n-0000000CYta-0DfN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 17:48:16 +0000
+	Mon, 10 Aug 2026 17:48:22 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=RSwvlH4ImBHgDzolp2dF6eeqoLAhNgUoJi3lnR/BPJTF/o31ahjhlsSKE6mL03RlgibC1N4o4neWMgOyKx4LOuI7fTPVEgzVdXoNvT8hF1gXF5FATh+puHL7ece3z+T54j78fiGYmxvA2Pd8rfTWkBgvAtR9DCa7OuqYMCL+tbk9T4pbJakwqDdYtD7UmdTWDyfpEAJWUqvI7HjAB7wUDIGphfN1vL/woBG8xZTpj/MTscHhR1Tj64Mj32iffRJBnpDgwscG+d4e6fTc9YZ7l3/TvtHyKSvHTCLNiYg8wfX+9N1rf/drL20U7waSnTrYn56TygR73zK8Xfaiu/alxw==
+ b=wfUJmesOQKbl7zlm8OqaJoBBGaJ5h5gplQwZOPiK2aodb1pO56vP+5nMVn8BSVVmV5GqapEeyc8IXnOgE/yRFoSfokk/7PRfhkf2XGrV4dmwA7H2nYBhV9Rs5KOI2MajRx0rhFEOJgpMHEmsmIwzS2ZEUwjktpmBzfq1YHPFIkEmyTJxkJUJtuwOXuGAR/70PbJQ+2Ekc9D5r9gw+hvN1ne0/1eqyWbQHjnPAUFM5ngxJGXIlcARQElimNc75uZa+aI3H4PERbhf10QDiaHGmRJ7dRCsckVmGNiTW6EXEEgBWb8sC72MqiIfdclqrY/jhuJQHU8VYvPgFrWRBe1BtA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KJHBxuvXyX/Ou+ZCPLPoJAhWUmuoxbSOhKjv5XUkImE=;
- b=cCT26ryxHFaUYo+mOfU9BNxn3rpK4MdtSr6X9O9RryixF1vsEWk8nrVquw6g6x+2OermsniiJfxbGZPKMyIC0THyIggLcAZZ2kOf50BGhWzZZCduw3oy4fzCP2NrWkaozKK1oWipBIBTE7wnf0C+vOYGTPUTfhjgOtimHj34/du9TdL1zA9ljUTzaBadyqA8G4cNdmibO8gS7tORSwYj7zX3cqOUNCS9+ExOk037BFTobJ8jEvsLLx9s0uOZEfmt66Azj7iHyV34XTAVzahWb3Gb/+pn/YiUTTbgUeGyu9SeSbaNeVplvHOub2v3VvujTJ5urZgg+/gJIANlN10PQg==
+ bh=Xy+a/OeoTRaZmYUfNaW0nmPFcUyvrvxy0xwXKh681tU=;
+ b=SHV7mBX5tjIRlb867OXfUwtDYGYSui47MH8KbZCyN1OyQC4dYP6VbqgvUe/SDfWaG56saarrxM9HqbNjx1+ZSfgO57KsXvu3sDbAlwVJjNR9ASfzriNVOZdXxQCV+zqwWaTRWWhyVgEMs9p6+QAQVvyjRfnp21uFuruZV1IkDZT0XeZCd/nZUvvaR9OSqPd5f482kBFysRP/I2S04aJI2GJfk13POeEsa1Ab5CS+Eq9CS5/FSyytMqQbsq/w73gUARHbjWoKlBrGHQ3am2Hsdriq4vrshK+U1t/9X5dWez4+ZXNt5Y0kAo9nkxttT/McsaCsPgi67WtZ1UWji7LDaw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=synopsys.com smtp.mailfrom=amd.com;
  dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
  header.from=amd.com; dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KJHBxuvXyX/Ou+ZCPLPoJAhWUmuoxbSOhKjv5XUkImE=;
- b=SNIRX3gAlT0YPBK7U6ScOY4UfLo3kEI60IGGp2RGzyXPWeRFT0e5XhPEGL/02uj1X1RU2PV7IP+0KX/WNzsPUU8D2TxlYw5pExyhtNtPmUMyOa6eyh2Y8AFEdE61es3EPVOAXFrt2Vp7LzLNiLkp4/tFKbo+FYpeyWkSkzNadR0=
-Received: from CH0P223CA0006.NAMP223.PROD.OUTLOOK.COM (2603:10b6:610:116::24)
- by SN7PR12MB6983.namprd12.prod.outlook.com (2603:10b6:806:261::20) with
+ bh=Xy+a/OeoTRaZmYUfNaW0nmPFcUyvrvxy0xwXKh681tU=;
+ b=IUK9yVBCygVCLipBdrjd4XrdbXD8uDqzqNKvz9Wl8+xNiRO8G5BK6PVCRzuFRc3I1jyGjtsdmxFRozgq8QfP6Nr0+2eRMOZXTR3BzNKvjqYB022pM2mjS2Cn639cTjQlgIHFJql1ysYwcZjsFpEmC1jUtZCw3icKN7ydjaNjxk4=
+Received: from MW4PR04CA0369.namprd04.prod.outlook.com (2603:10b6:303:81::14)
+ by MN2PR12MB4488.namprd12.prod.outlook.com (2603:10b6:208:24e::19) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.25; Mon, 10 Aug
- 2026 17:47:59 +0000
-Received: from CH2PEPF000000A0.namprd02.prod.outlook.com
- (2603:10b6:610:116:cafe::41) by CH0P223CA0006.outlook.office365.com
- (2603:10b6:610:116::24) with Microsoft SMTP Server (version=TLS1_3,
+ 2026 17:48:05 +0000
+Received: from CO1PEPF00012E81.namprd03.prod.outlook.com
+ (2603:10b6:303:81:cafe::3e) by MW4PR04CA0369.outlook.office365.com
+ (2603:10b6:303:81::14) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.292.25 via Frontend Transport; Mon,
- 10 Aug 2026 17:47:59 +0000
+ 10 Aug 2026 17:48:05 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
  smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
 Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
  165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- CH2PEPF000000A0.mail.protection.outlook.com (10.167.244.26) with Microsoft
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ CO1PEPF00012E81.mail.protection.outlook.com (10.167.249.56) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.315.6 via Frontend Transport; Mon, 10 Aug 2026 17:47:59 +0000
-Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ 15.21.315.6 via Frontend Transport; Mon, 10 Aug 2026 17:48:04 +0000
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 10 Aug
- 2026 12:47:59 -0500
-Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb10.amd.com
- (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 10 Aug
- 2026 12:47:58 -0500
+ 2026 12:48:01 -0500
 Received: from xhdradheys41.xilinx.com (10.180.168.240) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.45 via Frontend
- Transport; Mon, 10 Aug 2026 12:47:56 -0500
+ Transport; Mon, 10 Aug 2026 12:47:58 -0500
 From: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
 To: <Thinh.Nguyen@synopsys.com>, <gregkh@linuxfoundation.org>,
 	<michal.simek@amd.com>, <p.zabel@pengutronix.de>
 CC: <linux-usb@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>, <git@amd.com>, Radhey Shyam Pandey
 	<radhey.shyam.pandey@amd.com>
-Subject: [PATCH 4/5] usb: dwc3: xilinx: re-assert resets on ZynqMP init error paths
-Date: Mon, 10 Aug 2026 23:17:12 +0530
-Message-ID: <20260810174713.2325292-5-radhey.shyam.pandey@amd.com>
+Subject: [PATCH 5/5] usb: dwc3: xilinx: unwind ZynqMP platform init on probe failure and remove
+Date: Mon, 10 Aug 2026 23:17:13 +0530
+Message-ID: <20260810174713.2325292-6-radhey.shyam.pandey@amd.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260810174713.2325292-1-radhey.shyam.pandey@amd.com>
 References: <20260810174713.2325292-1-radhey.shyam.pandey@amd.com>
@@ -90,28 +86,28 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PEPF000000A0:EE_|SN7PR12MB6983:EE_
-X-MS-Office365-Filtering-Correlation-Id: 36f2f27d-2dd7-487d-1688-08def70784c5
+X-MS-TrafficTypeDiagnostic: CO1PEPF00012E81:EE_|MN2PR12MB4488:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2917e050-9b85-447b-47d9-08def70787e8
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|23010399003|82310400026|36860700016|11063799006|56012099006|10067099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: 1NtcVcNiR/lL0JfwiLS6EbmG6TjEMl5AYZPWTJgOvHh28Us+ZHvdrTvacSVTX0b8Cg3gv6UqkzGp/Ar6C44/aitpU1w4DMsli2jHj54/FKltHK2+xu8rU3zRkuzKLmpQWyKlGi2IYbkD4Kckv/rSFO7GwhnujkH2aWuTtpc5AYDpga4V6cCb7SXGGI5lS/AdTkoIUuH6DpEKc2Rc0YxXS/XPziAHVYPLN+V/AnkxyTomO1gCdwiJoY5nOqguOofe3d055IG4/wg7vkCk0NBsEk8aYWLdKUPOcf8KTC2pEA6cWJocjqr0x3WmfUTwNbXvYZz98HbbXPdmcNCwHIHUI0mMXR4SpbSXdFGK6jKh69Zy7+7ViLb2voqcRF+T9SsZUcpC5gqHIyB+f9aBnBbMGwC9Nx8x3qnCQysKfO3grp2l2UJP7C/0rY+lrChWCww0C2/Flz5NmjFFI/e33dEDL65hXs+9fHVnFPaWCWwrSdiby8lprmZNCmm23WmB0HYOYFPg8gRhQCPDMqloaSaqY9aXj+FgRGLw5hyIa8uAgWeCYFdv4y1kizYEIooi5KWSGOdmaGL+jMHrPLt6hNnwlQflB59tGeCFYxdCBJm1dY2MAGG3q1kK2f7G8Ogmf4f1NPofNdA8/jDTzLkQ59C76aVTwKaCcA2kro10fQjvlueEpW4dGczi890qegNFUt52ntNnCcNsVqTToy2wbqRTOg==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(1800799024)(23010399003)(82310400026)(36860700016)(11063799006)(56012099006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|23010399003|82310400026|376014|10067099003|11063799006|56012099006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: kvxfngbMbFuUHKRJwDwo+iO1vncIURnhWGkN/hx47MKKGXvCtO/cszVsIGPw8tgKoEezEh9y8fShxVjLQT3El0hd1KPO1iaFxxtKK7gQLHjhORP/QPbk6lyh4PZneUqwP2Coof6kk3Ow3YxipXUajolB7Wyk1ZTaSLT726ssKYfsaiJjnui5TQMd0jNShkA0dM0gpbZHPp5lR8yGd4duEynrZPiDziHULIA1TtN3aPlQGeY+B0vnJ3aYkpB15cW3OzvWs/DlDusmNwc+9Y/mPDA+xj+sJGzAIYlIcHi6W8xFR3pw+cU472+WUftB1wXVCtoDASaKoHAQnwMDmhn6WoZgkLy3yDeFl48Yz0fvgpVVYSit/WUR2DsBuWmXV4j8mzl8N1hVZ+nxKeBSwQ9L2Ruz4hmRcIYxNQZV1H61Kgm79f+q+/sjHcn5oFpz00eOpnRhJsYUmRj9V4hFLLfAkHZ7YHxV5IvlrFL20Saqi2kLzA6tS9WtWb9sO5Io12yHk3wPfJ80qnhMWFZLj/Vob0mvBz3igEdqYBJnFwaefM7i8R1oVlH4ve4XHqc4EbNrTj5ujvBcEXWtFYqi9/ocL835iWCjjH6bMhwoJkkOMP3KKt1opMYCYFuJxuv23qUMTv2cP5xqKqbcJE294cq9DOvndNWA5CkG1/Djsfa9Pucww+8d4OmPhhbDckquoRMVSTNyhA3OsQ1W8vN7DL8zGw==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(23010399003)(82310400026)(376014)(10067099003)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: XfmITssEu+KqdyKNtUkqJDxIkDpt3ShJnEm12BJNYnqBA8K6hgwyx/mF1lzLLdQP1KNxzbNjwJIX1nYw/2DQFa+z98szr0+L14x7Q8/Ka/9TbKUBdBXWls9WpohehHWfeNi5t4oOvOc6xn/HpQ6WkLszVuIAEhN0wdUFppvZIEzHMNofXGTlw4zAcwV4I+rPvNqVSaDbL8nOzK0QH7krR9D7lt37YS8EmoUTpO0Brn36qf94umljOPlXmGt0aPnzNdRT0QbaN+sGEza5TAiOr7Ocwalzj/PkAPhetirJDGr4+TXporHLIeeGgtgG6iBkimnToowH0TX37wyXD1GTezE+AooIZLAaxMTxzo16Mk6HwQRPvWB/JDe1lBQysDBFG5mipbVOokwFg3nAHAx/pnM83ct77q7Jnz6nI5gIzdpmXU9gCAeqCRT3jvAH0i73
+X-MS-Exchange-AntiSpam-MessageData-0: KzSWiiuSK999RhtGdNrSXmlUKcocUJzy9+e1u2ZBFhxeDznnVwyvt1WQzt7QkNLrOEiZ0pylfrRDKe6Gx6ylAUozzjdA8yUR71bTKKwNQHNFEIsCBZrpQkvLbzaBq9JiPoQNrlIDEaAnLIypx3EqeIyXKTql2lBrecLuRDSUnOfvs+4969vL7l+xnUMPIcBQeqWFO5yrherwlmThzaVMR/njlfbX/XT8SuRLXZnKJnDes35OC3+/mIste7dW7dzlsMWYyt6JeZY54uwuASPfRnRnDz/mbXAT8Xv3e3s8Q9pcDRvruzoi0GRhrjD/EgNXPzW0iiiPajyJe84M6XIWxLi1cYfS9GnPPL2K7Tig81FVgzgIyvJ5NO1E9JhFqOPtpkTIHAoHeumEpvpWWpln32qQQeYYhOAyFCBgc2n9UWJQzR8QS1sfEUUNHDQROIOU
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Aug 2026 17:47:59.6925
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Aug 2026 17:48:04.9066
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 36f2f27d-2dd7-487d-1688-08def70784c5
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2917e050-9b85-447b-47d9-08def70787e8
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF000000A0.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF00012E81.namprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB6983
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4488
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_104813_990858_A5E8CFA3 
-X-CRM114-Status: GOOD (  15.25  )
+X-CRM114-CacheID: sfid-20260810_104821_097359_26785AD5 
+X-CRM114-Status: GOOD (  14.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,156 +122,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If reset deassert or PHY setup fails partway through
-dwc3_xlnx_init_zynqmp(), re-assert any resets that were already
-released before unwinding the PHY. Use fall-through error labels so
-unwind matches how far init progressed, for both USB2 and USB3 paths.
-
-Save the ZynqMP reset handles in driver private data so later probe
-teardown can re-assert released resets.
+Add dwc3_xlnx_exit_zynqmp() and wire it as the ZynqMP platform exit
+callback. If probe steps fail after a successful plat->init(), call
+plat->exit() to re-assert released resets and unwind the PHY before
+disabling clocks. Call the same callback from remove() and shutdown.
 
 Fixes: 84770f028fab ("usb: dwc3: Add driver for Xilinx platforms")
 Signed-off-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
 ---
- drivers/usb/dwc3/dwc3-xilinx.c | 49 +++++++++++++++++++++-------------
- 1 file changed, 30 insertions(+), 19 deletions(-)
+ drivers/usb/dwc3/dwc3-xilinx.c | 26 +++++++++++++++++++++++---
+ 1 file changed, 23 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/usb/dwc3/dwc3-xilinx.c b/drivers/usb/dwc3/dwc3-xilinx.c
-index 894f5f5e8b7a..38613553937e 100644
+index 38613553937e..0d2232741d46 100644
 --- a/drivers/usb/dwc3/dwc3-xilinx.c
 +++ b/drivers/usb/dwc3/dwc3-xilinx.c
-@@ -56,6 +56,10 @@ struct dwc3_xlnx {
- 	void __iomem			*regs;
- 	const struct dwc3_xlnx_platdata	*plat;
- 	struct phy			*usb3_phy;
-+	struct reset_control		*usb_crst;
-+	struct reset_control		*usb_hibrst;
-+	struct reset_control		*usb_apbrst;
-+	bool				usb_resets_released;
- };
+@@ -121,6 +121,20 @@ static int dwc3_xlnx_init_versal(struct dwc3_xlnx *priv_data)
+ 	return 0;
+ }
  
- static void dwc3_xlnx_mask_phy_rst(struct dwc3_xlnx *priv_data, bool mask)
-@@ -120,7 +124,6 @@ static int dwc3_xlnx_init_versal(struct dwc3_xlnx *priv_data)
++static void dwc3_xlnx_exit_zynqmp(struct dwc3_xlnx *priv_data)
++{
++	phy_power_off(priv_data->usb3_phy);
++
++	if (priv_data->usb_resets_released) {
++		reset_control_assert(priv_data->usb_hibrst);
++		reset_control_assert(priv_data->usb_crst);
++		reset_control_assert(priv_data->usb_apbrst);
++		priv_data->usb_resets_released = false;
++	}
++
++	phy_exit(priv_data->usb3_phy);
++}
++
  static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *priv_data)
  {
  	struct device		*dev = priv_data->dev;
--	struct reset_control	*crst, *hibrst, *apbrst;
- 	struct gpio_desc	*reset_gpio;
- 	int			ret = 0;
+@@ -257,6 +271,7 @@ static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *priv_data)
  
-@@ -132,25 +135,25 @@ static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *priv_data)
- 		goto err;
- 	}
+ static const struct dwc3_xlnx_platdata zynqmp_platdata = {
+ 	.init = dwc3_xlnx_init_zynqmp,
++	.exit = dwc3_xlnx_exit_zynqmp,
+ };
  
--	crst = devm_reset_control_get_exclusive(dev, "usb_crst");
--	if (IS_ERR(crst)) {
--		ret = PTR_ERR(crst);
-+	priv_data->usb_crst = devm_reset_control_get_exclusive(dev, "usb_crst");
-+	if (IS_ERR(priv_data->usb_crst)) {
-+		ret = PTR_ERR(priv_data->usb_crst);
- 		dev_err_probe(dev, ret,
- 			      "failed to get core reset signal\n");
- 		goto err;
- 	}
+ static const struct dwc3_xlnx_platdata versal_platdata = {
+@@ -346,11 +361,11 @@ static int dwc3_xlnx_probe(struct platform_device *pdev)
  
--	hibrst = devm_reset_control_get_exclusive(dev, "usb_hibrst");
--	if (IS_ERR(hibrst)) {
--		ret = PTR_ERR(hibrst);
-+	priv_data->usb_hibrst = devm_reset_control_get_exclusive(dev, "usb_hibrst");
-+	if (IS_ERR(priv_data->usb_hibrst)) {
-+		ret = PTR_ERR(priv_data->usb_hibrst);
- 		dev_err_probe(dev, ret,
- 			      "failed to get hibernation reset signal\n");
- 		goto err;
- 	}
+ 	ret = dwc3_set_swnode(dev);
+ 	if (ret)
+-		goto err_clk_put;
++		goto err_pltfm_exit;
  
--	apbrst = devm_reset_control_get_exclusive(dev, "usb_apbrst");
--	if (IS_ERR(apbrst)) {
--		ret = PTR_ERR(apbrst);
-+	priv_data->usb_apbrst = devm_reset_control_get_exclusive(dev, "usb_apbrst");
-+	if (IS_ERR(priv_data->usb_apbrst)) {
-+		ret = PTR_ERR(priv_data->usb_apbrst);
- 		dev_err_probe(dev, ret,
- 			      "failed to get APB reset signal\n");
- 		goto err;
-@@ -164,19 +167,19 @@ static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *priv_data)
- 	 * absent.
- 	 */
- 	if (priv_data->usb3_phy) {
--		ret = reset_control_assert(crst);
-+		ret = reset_control_assert(priv_data->usb_crst);
- 		if (ret < 0) {
- 			dev_err(dev, "Failed to assert core reset\n");
- 			goto err;
- 		}
+ 	ret = of_platform_populate(np, NULL, NULL, dev);
+ 	if (ret)
+-		goto err_clk_put;
++		goto err_pltfm_exit;
  
--		ret = reset_control_assert(hibrst);
-+		ret = reset_control_assert(priv_data->usb_hibrst);
- 		if (ret < 0) {
- 			dev_err(dev, "Failed to assert hibernation reset\n");
- 			goto err;
- 		}
+ 	pm_runtime_set_active(dev);
+ 	ret = devm_pm_runtime_enable(dev);
+@@ -367,7 +382,9 @@ static int dwc3_xlnx_probe(struct platform_device *pdev)
+ err_pm_set_suspended:
+ 	of_platform_depopulate(dev);
+ 	pm_runtime_set_suspended(dev);
+-
++err_pltfm_exit:
++	if (priv_data->plat->exit)
++		priv_data->plat->exit(priv_data);
+ err_clk_put:
+ 	clk_bulk_disable_unprepare(priv_data->num_clocks, priv_data->clks);
  
--		ret = reset_control_assert(apbrst);
-+		ret = reset_control_assert(priv_data->usb_apbrst);
- 		if (ret < 0) {
- 			dev_err(dev, "Failed to assert APB reset\n");
- 			goto err;
-@@ -187,7 +190,7 @@ static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *priv_data)
- 	if (ret < 0)
- 		goto err;
+@@ -381,6 +398,9 @@ static void dwc3_xlnx_remove(struct platform_device *pdev)
  
--	ret = reset_control_deassert(apbrst);
-+	ret = reset_control_deassert(priv_data->usb_apbrst);
- 	if (ret < 0) {
- 		dev_err(dev, "Failed to release APB reset\n");
- 		goto err_phy_exit;
-@@ -203,21 +206,21 @@ static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *priv_data)
- 		writel(PIPE_CLK_DESELECT, priv_data->regs + XLNX_USB_FPD_PIPE_CLK);
- 	}
+ 	of_platform_depopulate(dev);
  
--	ret = reset_control_deassert(crst);
-+	ret = reset_control_deassert(priv_data->usb_crst);
- 	if (ret < 0) {
- 		dev_err(dev, "Failed to release core reset\n");
--		goto err_phy_exit;
-+		goto err_apbrst_assert;
- 	}
- 
--	ret = reset_control_deassert(hibrst);
-+	ret = reset_control_deassert(priv_data->usb_hibrst);
- 	if (ret < 0) {
- 		dev_err(dev, "Failed to release hibernation reset\n");
--		goto err_phy_exit;
-+		goto err_crst_assert;
- 	}
- 
- 	ret = phy_power_on(priv_data->usb3_phy);
- 	if (ret < 0)
--		goto err_phy_exit;
-+		goto err_hibrst_assert;
- 
- 	/* ulpi reset via gpio-modepin or gpio-framework driver */
- 	reset_gpio = devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_HIGH);
-@@ -234,10 +237,18 @@ static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *priv_data)
- 
- 	dwc3_xlnx_set_coherency(priv_data, XLNX_USB_TRAFFIC_ROUTE_CONFIG);
- 
-+	priv_data->usb_resets_released = true;
++	if (priv_data->plat->exit)
++		priv_data->plat->exit(priv_data);
 +
- 	return 0;
+ 	clk_bulk_disable_unprepare(priv_data->num_clocks, priv_data->clks);
+ 	priv_data->num_clocks = 0;
  
- err_phy_power_off:
- 	phy_power_off(priv_data->usb3_phy);
-+err_hibrst_assert:
-+	reset_control_assert(priv_data->usb_hibrst);
-+err_crst_assert:
-+	reset_control_assert(priv_data->usb_crst);
-+err_apbrst_assert:
-+	reset_control_assert(priv_data->usb_apbrst);
- err_phy_exit:
- 	phy_exit(priv_data->usb3_phy);
- err:
 -- 
 2.43.0
 
