@@ -4,69 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DC11C5AC82
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 12:15:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A9FBC5B569
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 12:15:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eyipMtgB4ZyCJEZ0e7KmuMxjF6Di1Z8fq9/5bVP2+K4=; b=IAgN2BH7BJGGx4bK3IzOys2lcv
-	PHz5JEd9yLwUo9+IOcr0hZd2I8ecajxpx7cvTF2yeuq3g3O7bLEM1mGfGUOdPGWUoBr2ae5x214Hg
-	Erf813+ZH7tmaCE3l1+D8DMvoudexLo6ocbp/YrjIFzhfYYztYuKHUf9701Zov5fZqisIfaJQzPwu
-	kijU44YL9eZbMcnJolwbA8b6qJTEXffb7DzOzHOMfOJwgG5rGXQY+AVoU92bXaP2HxHBJRQtgyAtE
-	6bMrjdPgnt9zjjk8+WuXpsay7tYmV+tSp/nPauCnmScrgaMBXM8sOkK5etnbmijEYW3gCRD3Hbdao
-	GmaETXJQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FEboMO/dpKdx6T83eWgMRJEjA2wYI7OkmJwek6C81zo=; b=tWtvpSdItHczR4ineTCv3qlse8
+	Z9+pGRlp8WYlEtrey8yc5DGe6y6uKyQDwDK8HgoetjmlzlSezFXsTsSH99emtwLVJeAqrc7LnUraT
+	4d8Qxq6qXvxBM6sCVWgcZSLZVjrvQROWoJLXX0LkGJmFQ3ra5f1ccNgH5IjzBVX9K8WTn6hiVzTDp
+	I9ojckI9Q0N3jlShzdOq4OELep1mxf9fzOJCjgrcwDwTngQE5ihI1OpiqRbcyWB9OMx6UeSNXkoyz
+	s/promWWtfe6OSk85CcJK0IWzg8XN4Pru9QmA3DXKtq4KbLYJY04cQqS89KjPZiTO0xCb6AY0omD5
+	DzriEbjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtOul-0000000BiFQ-3atU;
-	Mon, 10 Aug 2026 12:15:35 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wtOur-0000000BiI9-45RE;
+	Mon, 10 Aug 2026 12:15:41 +0000
+Received: from mail.zlab.su ([109.73.193.145])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtOuk-0000000BiF3-2TFB
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 12:15:34 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 904B760052;
-	Mon, 10 Aug 2026 12:15:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49BA21F000E9;
-	Mon, 10 Aug 2026 12:15:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786364133;
-	bh=eyipMtgB4ZyCJEZ0e7KmuMxjF6Di1Z8fq9/5bVP2+K4=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=Un/FAx7j6a8Tv4Qu69dqE6Obb/zXK2tm191FllFfVmceQt6S/WwdjwVYTLuEGeyvi
-	 qSIHVn40c2QF8K25OCs30fALn3cHCfP5u0AUfugA275ApwRLHQCariclHrM2XtXNL+
-	 Nn+dPPC5Io2XmFZQaFIpJ6CLbiGNHY/W4ORQ9UbfJ5Llf3SHzD6wdyOrqlO2mTgiO5
-	 ++yombrOSzh6N0slpNLX5YU3ajjNhP22F0K74fWXLYQNMMcMbudOpTNsZXgpqjbZHg
-	 TjAUpAe/RjHNAq/RrB5jRNhSiTSojaGD3OxRff8oJkIV65JUJPM6jMOprBXnp4OHv+
-	 +AT1utjlBqA2Q==
-X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Greg KH <gregkh@linuxfoundation.org>,
-	Jeremy Linton <jeremy.linton@arm.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Andre Przywara <andre.przywara@arm.com>
-Subject: Re: [PATCH v9 4/7] arm64: realm: Move Realm memory encryption ops
- to RSI code
-In-Reply-To: <baa99d81-7979-4654-a030-a550ba57bb58@arm.com>
-References: <20260805063255.1638614-1-aneesh.kumar@kernel.org>
- <20260805063255.1638614-5-aneesh.kumar@kernel.org>
- <baa99d81-7979-4654-a030-a550ba57bb58@arm.com>
-Date: Mon, 10 Aug 2026 17:45:24 +0530
-Message-ID: <yq5apkzqi337.fsf@kernel.org>
+	id 1wtOup-0000000BiG8-1wt0;
+	Mon, 10 Aug 2026 12:15:40 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C4480BFA89;
+	Mon, 10 Aug 2026 15:15:35 +0300 (MSK)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zlab.su; s=dkim;
+	t=1786364137; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=FEboMO/dpKdx6T83eWgMRJEjA2wYI7OkmJwek6C81zo=;
+	b=kmNyjS6ZWTxxxo0nLbhz9xd1F0Rds6HSjPiauQfAswFOBySIeyvXPHjKZ+Zepqj9EhJZwV
+	brj39BsyjiXhOMGAeDBoqSWFcWSzjgm81z0sf/vkNw62iJgfN3bE2KFfl5vPEENhHLzC7Q
+	msIxQ3mgyM+ujpwzIaqHdSDOISkkU3Cj/WJBfznSgw9JhV3FRK7+CF0jVqUzy3ru5AW/7X
+	j5BAJSddbfJoexyaB88YC4DdT2mvEQemGiF8uqrDKWlXFztHjxm0BlSdJX0ihT5G04SBOT
+	WPQ8T5luWIFS0VvZkT2A7kGYdTx2AXgXiC9p5CXilRV7zFOz8SIlsNXitha+Pg==
+From: Vladislav Leonov <vlad@zlab.su>
+To: linux-rockchip@lists.infradead.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	Simon Glass <sjg@chromium.org>,
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Vladislav Leonov <vlad@zlab.su>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>
+Subject: [PATCH 01/25] dt-bindings: reset: Add RV1106 CRU reset definitions
+Date: Mon, 10 Aug 2026 15:10:52 +0300
+Message-ID: <20260810121121.210040-2-vlad@zlab.su>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260810121121.210040-1-vlad@zlab.su>
+References: <20260810121121.210040-1-vlad@zlab.su>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260810_051539_857811_9BF1E995 
+X-CRM114-Status: GOOD (  11.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,84 +76,329 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Suzuki K Poulose <suzuki.poulose@arm.com> writes:
+Add the reset ID definitions for the Rockchip RV1106 clock and
+reset unit (CRU), to be used by the reset controller driver and
+device tree nodes.
 
-> On 05/08/2026 07:32, Aneesh Kumar K.V (Arm) wrote:
->> Realm memory encryption callbacks are CCA-specific. Keep the Realm callback
->> registration with the RSI initialization code instead of pageattr.c, which
->> only needs to provide the low-level page-attribute transition helper.
->> 
->> Export __set_memory_enc_dec() within arm64 so the RSI code can wrap it with
->> the Realm-specific encrypt/decrypt callbacks and warning policy.
->> 
->> No functional changes in this patch.
->> 
->> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
->> ---
->>   arch/arm64/include/asm/mem_encrypt.h |  3 +--
->>   arch/arm64/mm/pageattr.c             | 38 +---------------------------
->>   drivers/firmware/arm_rmm/rsi.c       | 34 +++++++++++++++++++++++++
->>   3 files changed, 36 insertions(+), 39 deletions(-)
->> 
->> diff --git a/arch/arm64/include/asm/mem_encrypt.h b/arch/arm64/include/asm/mem_encrypt.h
->> index f03b9d7b83b4..ef8b8463e52b 100644
->> --- a/arch/arm64/include/asm/mem_encrypt.h
->> +++ b/arch/arm64/include/asm/mem_encrypt.h
->> @@ -16,8 +16,7 @@ int arm64_mem_crypt_ops_register(const struct arm64_mem_crypt_ops *ops);
->>   
->>   int set_memory_encrypted(unsigned long addr, int numpages);
->>   int set_memory_decrypted(unsigned long addr, int numpages);
->> -
->> -int realm_register_memory_enc_ops(void);
->> +int __set_memory_enc_dec(unsigned long addr, int numpages, bool encrypt);
->>   
->>   static inline bool force_dma_unencrypted(struct device *dev)
->>   {
->> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
->> index bbe98ac9ad8c..14b2a3801f40 100644
->> --- a/arch/arm64/mm/pageattr.c
->> +++ b/arch/arm64/mm/pageattr.c
->> @@ -275,9 +275,7 @@ int set_direct_map_default_noflush(struct page *page)
->>   				 PAGE_SIZE, set_mask, clear_mask);
->>   }
->>   
->> -static int __set_memory_enc_dec(unsigned long addr,
->> -				int numpages,
->> -				bool encrypt)
->> +int __set_memory_enc_dec(unsigned long addr, int numpages, bool encrypt)
->>   {
->>   	unsigned long set_prot = 0, clear_prot = 0;
->>   	phys_addr_t start, end;
->> @@ -321,40 +319,6 @@ static int __set_memory_enc_dec(unsigned long addr,
->>   				      __pgprot(PTE_PRESENT_INVALID));
->>   }
->
-> This calls "rsi_set_memory_range_protected/shared(). Should we add call 
-> backs for those too in the arm64_mem_crypt_ops and take those away too ?
->
-> something like :
->
-> 	pre_enc_dec_phys_range(start, end, bool encrypt) ?
->
-> and implement that in firmware/arm_rmm/rsi.c ?
->
+Signed-off-by: Vladislav Leonov <vlad@zlab.su>
+---
 
-__set_memory_enc_dec() is a helper that is only used for realms. We do
-have a check:
+ .../dt-bindings/reset/rockchip,rv1106-cru.h   | 305 ++++++++++++++++++
+ 1 file changed, 305 insertions(+)
+ create mode 100644 include/dt-bindings/reset/rockchip,rv1106-cru.h
 
-if (!is_realm_world())
-	return 0;
+diff --git a/include/dt-bindings/reset/rockchip,rv1106-cru.h b/include/dt-bindings/reset/rockchip,rv1106-cru.h
+new file mode 100644
+index 000000000000..d2567ccda94e
+--- /dev/null
++++ b/include/dt-bindings/reset/rockchip,rv1106-cru.h
+@@ -0,0 +1,305 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
++/*
++ * Copyright (c) 2022 Rockchip Electronics Co. Ltd.
++ * Author: Elaine Zhang <zhangqing@rock-chips.com>
++ */
++
++#ifndef _DT_BINDINGS_RESET_ROCKCHIP_RV1106_H
++#define _DT_BINDINGS_RESET_ROCKCHIP_RV1106_H
++
++/* ==========================list all of reset fields id=========================== */
++
++/* PMU-->SOFTRST_CON00 */
++#define SRST_P_I2C1		0
++#define SRST_I2C1		1
++#define SRST_H_PMU_BIU		2
++#define SRST_P_PMU_BIU		3
++#define SRST_H_PMU_SRAM		4
++#define SRST_PMU_MCU		5
++#define SRST_PMU_MCU_PWRUP	6
++#define SRST_PMU_MCU_CPU	7
++#define SRST_T_PMU_MCU_CPU	8
++
++/* PMU-->SOFTRST_CON01 */
++#define SRST_P_PMU_GPIO0	9
++#define SRST_PMU_GPIO0		10
++#define SRST_PVTM_PMU		11
++#define SRST_P_PVTM_PMU		12
++#define SRST_DDR_FAIL_SAFE	13
++
++/* PMU-->SOFTRST_CON02 */
++#define SRST_P_PMU_HP_TIMER	14
++#define SRST_PMU_HP_TIMER	15
++#define SRST_PMU_32K_HP_TIMER	16
++#define SRST_P_PMU_IOC		17
++#define SRST_P_PMU_CRU		18
++#define SRST_P_PMU_GRF		19
++#define SRST_P_PMU_SGRF		20
++#define SRST_P_PMU_SGRF_REMAP	21
++#define SRST_P_PMU_WDT		22
++#define SRST_T_PMU_WDT		23
++#define SRST_P_PMU_MAILBOX	24
++
++/* TOP-->SOFTRST_CON02 */
++#define SRST_REF_PVTPLL_0	25
++#define SRST_REF_PVTPLL_1	26
++#define SRST_P_CRU		27
++#define SRST_P_CRU_BIU		28
++
++/* PERI-->SOFTRST_CON00 */
++#define SRST_P_PERI_BIU		29
++#define SRST_A_PERI_BIU		30
++#define SRST_H_PERI_BIU		31
++#define SRST_H_BOOTROM		32
++#define SRST_P_TIMER		33
++#define SRST_TIMER0		34
++#define SRST_TIMER1		35
++#define SRST_TIMER2		36
++#define SRST_TIMER3		37
++#define SRST_TIMER4		38
++#define SRST_TIMER5		39
++#define SRST_P_STIMER		40
++
++/* PERI-->SOFTRST_CON01 */
++#define SRST_STIMER0		41
++#define SRST_STIMER1		42
++#define SRST_P_WDT_NS		43
++#define SRST_T_WDT_NS		44
++#define SRST_P_WDT_S		45
++#define SRST_T_WDT_S		46
++#define SRST_P_I2C0		47
++#define SRST_I2C0		48
++#define SRST_P_I2C2		49
++#define SRST_I2C2		50
++#define SRST_P_I2C3		51
++#define SRST_I2C3		52
++#define SRST_P_I2C4		53
++#define SRST_I2C4		54
++
++/* PERI-->SOFTRST_CON02 */
++#define SRST_P_GPIO4		55
++#define SRST_GPIO4		56
++#define SRST_P_PERI_IOC		57
++#define SRST_P_UART2		58
++#define SRST_S_UART2		59
++#define SRST_P_UART3		60
++#define SRST_S_UART3		61
++#define SRST_P_UART4		62
++#define SRST_S_UART4		63
++#define SRST_P_UART5		64
++
++/* PERI-->SOFTRST_CON03 */
++#define SRST_S_UART5		65
++#define SRST_P_SARADC		66
++#define SRST_SARADC		67
++#define SRST_SARADC_PHY		68
++#define SRST_P_SPI1		69
++#define SRST_SPI1		70
++#define SRST_H_TRNG_NS		71
++#define SRST_H_TRNG_S		72
++#define SRST_CORE_CRYPTO	73
++#define SRST_PKA_CRYPTO		74
++#define SRST_A_CRYPTO		75
++#define SRST_H_CRYPTO		76
++#define SRST_P_PWM1_PERI	77
++
++/* PERI-->SOFTRST_CON04 */
++#define SRST_PWM1_PERI		78
++#define SRST_P_PWM2_PERI	79
++#define SRST_PWM2_PERI		80
++#define SRST_P_PERI_GRF		81
++#define SRST_P_PERI_CRU		82
++#define SRST_A_USBOTG		83
++#define SRST_A_BUS_BIU		84
++#define SRST_H_EMMC		85
++#define SRST_H_SFC		86
++
++/* PERI-->SOFTRST_CON05 */
++#define SRST_S_SFC		87
++#define SRST_P_USBPHY		88
++#define SRST_USBPHY_POR		89
++#define SRST_USBPHY_OTG		90
++#define SRST_A_DMAC		91
++#define SRST_A_DECOM		92
++#define SRST_P_DECOM		93
++#define SRST_D_DECOM		94
++#define SRST_P_PERI_SGRF	95
++#define SRST_H_SAI		96
++#define SRST_M_SAI		97
++#define SRST_M_I2S0_8CH_TX	98
++
++/* PERI-->SOFTRST_CON06 */
++#define SRST_H_I2S0		99
++#define SRST_M_DSM		100
++#define SRST_P_DSM		101
++#define SRST_P_ACODEC		102
++#define SRST_M_I2S0_8CH_RX	103
++#define SRST_P_DFT2APB		104
++#define SRST_H_IVE		105
++#define SRST_A_IVE		106
++#define SRST_P_UART0		107
++#define SRST_S_UART0		108
++#define SRST_P_UART1		109
++
++/* PERI-->SOFTRST_CON07 */
++#define SRST_S_UART1		110
++#define SRST_P_PWM0_PERI	111
++#define SRST_PWM0_PERI		112
++
++/* VI-->SOFTRST_CON00 */
++#define SRST_H_VI_BIU		113
++#define SRST_A_VI_BIU		114
++#define SRST_P_VI_BIU		115
++#define SRST_CORE_ISP3P2	116
++#define SRST_D_VICAP		117
++#define SRST_P_VICAP		118
++#define SRST_A_VICAP		119
++#define SRST_H_VICAP		120
++#define SRST_VICAP_I0		121
++#define SRST_VICAP_I1		122
++
++/* VI-->SOFTRST_CON01 */
++#define SRST_VICAP_RX0		123
++#define SRST_VICAP_RX1		124
++#define SRST_VICAP_ISP0		125
++#define SRST_P_CSIHOST0		126
++#define SRST_P_CSIHOST1		127
++#define SRST_H_SDMMC		128
++#define SRST_SDMMC_DETN_FLT	129
++#define SRST_P_MIPICSIPHY	130
++#define SRST_P_GPIO3		131
++
++/* VI-->SOFTRST_CON02 */
++#define SRST_GPIO3		132
++#define SRST_P_VI_IOC		133
++#define SRST_P_VI_GRF		134
++#define SRST_P_VI_SGRF		135
++#define SRST_P_VI_CRU		136
++#define SRST_P_VI_RTC_TEST	137
++#define SRST_P_VI_RTC_NIU	138
++
++/* NPU-->SOFTRST_CON00 */
++#define SRST_H_NPU_BIU		139
++#define SRST_A_NPU_BIU		140
++#define SRST_P_NPU_BIU		141
++#define SRST_P_NPU_CRU		142
++#define SRST_P_NPU_SGRF		143
++#define SRST_P_NPU_GRF		144
++#define SRST_H_RKNN		145
++#define SRST_A_RKNN		146
++
++/* CORE-->SOFTRST_CON00 */
++#define SRST_NCOREPORESET	147
++#define SRST_NCORESET		148
++#define SRST_NDBGRESET		149
++#define SRST_NL2RESET		150
++#define SRST_A_M_CORE_BIU	151
++#define SRST_P_DBG		152
++#define SRST_POT_DBG		153
++#define SRST_NT_DBG		154
++#define SRST_P_CORE_GRF		155
++#define SRST_H_CPU_BIU		156
++#define SRST_P_CPU_BIU		157
++#define SRST_PVTM_CORE		158
++#define SRST_P_PVTM_CORE	159
++
++/* CORE-->SOFTRST_CON01 */
++#define SRST_REF_PVTPLL_CORE	160
++#define SRST_CORE_MCU		161
++#define SRST_CORE_MCU_PWRUP	162
++#define SRST_CORE_MCU_CPU	163
++#define SRST_T_CORE_MCU_CPU	164
++#define SRST_MCU_BIU		165
++#define SRST_P_MAILBOX		166
++#define SRST_P_INTMUX		167
++#define SRST_P_CORE_CRU		168
++#define SRST_P_CORE_SGRF	169
++#define SRST_H_CACHE		170
++
++/* VEPU-->SOFTRST_CON00 */
++#define SRST_H_VEPU_BIU		171
++#define SRST_A_VEPU_BIU		172
++#define SRST_A_VEPU_COM_BIU	173
++#define SRST_P_VEPU_BIU		174
++#define SRST_H_VEPU		175
++#define SRST_A_VEPU		176
++#define SRST_CORE_VEPU		177
++#define SRST_H_VEPU_PP		178
++#define SRST_A_VEPU_PP		179
++#define SRST_CORE_VEPU_DVBM	180
++#define SRST_P_VICAP_VEPU	181
++#define SRST_P_GPIO1		182
++
++/* VEPU-->SOFTRST_CON01 */
++#define SRST_GPIO1		183
++#define SRST_P_VEPU_IOC		184
++#define SRST_P_SPI0		185
++#define SRST_SPI0		186
++#define SRST_P_VEPU_CRU		187
++#define SRST_P_VEPU_SGRF	188
++#define SRST_P_VEPU_GRF		189
++#define SRST_UART_DETN_FLT	190
++
++/* VO-->SOFTRST_CON00 */
++#define SRST_A_VO_BIU		191
++#define SRST_H_VO_BIU		192
++#define SRST_H_RGA2E		193
++#define SRST_A_RGA2E		194
++#define SRST_CORE_RGA2E		195
++#define SRST_P_VO_GRF		196
++#define SRST_A_VOP_BIU		197
++#define SRST_H_VOP		198
++#define SRST_D_VOP		199
++#define SRST_A_VOP		200
++
++/* VO-->SOFTRST_CON01 */
++#define SRST_P_MAC_BIU		201
++#define SRST_A_MAC_BIU		202
++#define SRST_A_MAC		203
++#define SRST_P_VO_SGRF		204
++#define SRST_P_VO_CRU		205
++#define SRST_H_SDIO		206
++
++/* VO-->SOFTRST_CON02 */
++#define SRST_P_TSADC		207
++#define SRST_TSADC		208
++#define SRST_P_OTPC_NS		209
++#define SRST_SBPI_OTPC_NS	210
++#define SRST_USER_OTPC_NS	211
++#define SRST_P_OTPC_S		212
++#define SRST_SBPI_OTPC_S	213
++#define SRST_USER_OTPC_S	214
++#define SRST_OTPC_ARB		215
++#define SRST_MACPHY		216
++#define SRST_P_OTP_MASK		217
++#define SRST_PMC_OTP		218
++
++/* VO-->SOFTRST_CON03 */
++#define SRST_P_GPIO2		219
++#define SRST_GPIO2		220
++#define SRST_P_VO_IOC		221
++
++/* DDR-->SOFTRST_CON00 */
++#define SRST_P_DDR_BIU		222
++#define SRST_P_DDRC		223
++#define SRST_P_DDRMON		224
++#define SRST_TIMER_DDRMON	225
++#define SRST_P_DFICTRL		226
++#define SRST_A_SYS_SHRM		227
++#define SRST_A_SHRM_NIU		228
++#define SRST_P_DDR_GRF		229
++
++/* DDR-->SOFTRST_CON01 */
++#define SRST_P_DDR_CRU		230
++#define SRST_P_DDR_HWLP		231
++#define SRST_P_DDRPHY		232
++
++/* SUBDDR-->SOFTRST_CON00 */
++#define SRST_MSCH_BIU		233
++#define SRST_A_DDRC		234
++#define SRST_CORE_DDRC		235
++#define SRST_DDRMON		236
++#define SRST_DFICTRL		237
++#define SRST_DDR_PHY		238
++
++#endif
+-- 
+2.47.3
 
-(We should probably change the return value to -EINVAL.)
-
-The only reason it is in arch/arm64/mm/pageattr.c is that it calls
-__change_memory_common(). That function is more of an internal helper
-for the page table update routines. I wasn't sure whether we want to
-expose this API which can also be used for updating linear map
-attributes.
-
-Currently, we restrict such updates to vmap mappings, with the only
-exception being the Realm use case through __set_memory_enc_dec().
-
--aneesh
 
