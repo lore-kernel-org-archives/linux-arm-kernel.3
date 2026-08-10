@@ -4,89 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9B97C5AE49
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 14:47:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3601C5AE49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 14:50:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E1/4QFqdV698fTwsjnx4Knwlcb+sMgn8eD0jO+RRChk=; b=yLVAwAmAJbex3bez8ZdGylrcDs
-	ITOScveZl+w4u7aj26uotHbNGZuWf0s/D9G8U5c7EIMJh9/v3qOe7z1RKSlkn/QlG7srtDZAsx0xb
-	PDz7F330yYsmDhkjXlfyE5meHdYR4Hj7o4SCEWa9mPG6jLNNmgjRxk7Gbe/3cFTbM5cnfT3lMbhhL
-	iM4+ZCPWkPQtedoaumNYziwXXt41f8ZOwdy5bGcsY7lpTTpErPQAoKthx8MRXp9lBjwofYSeIbykm
-	wY/dtTmjgQ6ajok09HQX19IFfh5L6KRQFyFr8JnqoRZGdqtFsP5rUamAx0TLtXm9g7d8Qfs//87GK
-	2mpa0TUQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ra+x8g2XAWLyJWRe5zrrmXKRJmSC3nXxb+mYin0CMKk=; b=F0E5XSvwHFZDxX
+	kJrkgLsCkYIIogQrlF1+FHZYMBPECQeI4GoN90sgV9daDbyW6v5F9n5uv9LN+S3ltOiCuoGq2gMvx
+	leDZrsxLMrp0lyKPhgG4eXgGxIeae6yKotgWa2PiaAEtRUOUXUmrrgYTJYUiivEZ4C1lomc9oX2S5
+	FF0JRdkYM+1vATRKNzRmz/hR4cyp5l1MRhhwRghBWBlakN7sINIPuUF+dLyyufbLS3p3T/4cNmRhN
+	RfniENfJ3VjdtW5k5ouyLQnFRJPGm7Oc1sv5XD6NsTUXd0RKgCnXy5Ep1PAZeADzH/HYXOktFV1sx
+	bXYtuY2w/gG9uaMwbu+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtRHN-0000000C4gf-0NmG;
-	Mon, 10 Aug 2026 14:47:05 +0000
-Received: from esa2.hc1455-7.c3s2.iphmx.com ([207.54.90.48])
+	id 1wtRKA-0000000C5OV-45o7;
+	Mon, 10 Aug 2026 14:49:58 +0000
+Received: from mail-centralusazon11020083.outbound.protection.outlook.com ([52.101.61.83] helo=DM1PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtRHL-0000000C4fv-0hY7
+	id 1wtRK6-0000000C5Lz-1dKz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 14:47:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1786373227; x=1817909227;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=99XkH2IMF7D6nyHbHISy+8bb2LKxW8tAVwIQzhTqFok=;
-  b=GuPSJ7lhZN8WfwZkLoqY2buGEDZh1I1dnLs5aSmH9YI0Lj3v5+VNVnFA
-   kAzsuIsMMSMnnvR2CYTNY+AyG4KE3sd2UJ7ki9NRZdETbsRWfxOjIOZXn
-   X2/MyCqdtVlpJpHmUQznBDx7SacFb7auveQhcquGzmCuMTWZFsUrLVHA7
-   8b05OPtoxcvN1TO0toEfd22nWS/BkefayRoD5FOgKMJt6cLP766HV3Hrr
-   ea+6GRGU0UGwMrMG0tIpDYNXHYOXc9DgsWLbY91gAqQMYsgdek45Xsoze
-   qXL4do2lPRfdxH/jJEmVTI2h/oyKi23RhN8B/tctt3u/H78sUctXVpPEA
-   A==;
-X-CSE-ConnectionGUID: NgOdpG8KQwq9u9i1CfgLqA==
-X-CSE-MsgGUID: ePCuH5v0QhWymeA+gzD6DA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11870"; a="250455916"
-X-IronPort-AV: E=Sophos;i="6.25,215,1779116400"; 
-   d="scan'208";a="250455916"
-Received: from gmgwnl01.global.fujitsu.com ([52.143.17.124])
-  by esa2.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Aug 2026 23:47:04 +0900
-Received: from az2nlsmgm4.fujitsu.com (unknown [10.150.26.204])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by gmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id 3E2A31C000AB
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 14:47:00 +0000 (UTC)
-Received: from az2uksmom2.o.css.fujitsu.com (unknown [10.151.22.203])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2nlsmgm4.fujitsu.com (Postfix) with ESMTPS id E96AA1025E81
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 14:46:59 +0000 (UTC)
-Received: from FCCLS0092175.localdomain (unknown [10.9.24.243])
-	by az2uksmom2.o.css.fujitsu.com (Postfix) with SMTP id 503D314000B0;
-	Mon, 10 Aug 2026 14:46:52 +0000 (UTC)
-Date: Mon, 10 Aug 2026 23:46:50 +0900
-From: Kohei Enju <enju.kohei@fujitsu.com>
-To: Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
-	Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, 
-	James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, 
-	Alexandru Elisei <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>, 
-	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev, 
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>, Gavin Shan <gshan@redhat.com>, 
-	Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun <alpergun@google.com>, 
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>, 
-	Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com, Lorenzo Pieralisi <lpieralisi@kernel.org>
-Subject: Re: [PATCH v16 30/45] KVM: arm64: CCA: Handle realm vCPU load
-Message-ID: <annfY97FFA8ZuoHE@FCCLS0092175.localdomain>
-References: <20260803134403.80630-1-steven.price@arm.com>
- <20260803134403.80630-31-steven.price@arm.com>
+	Mon, 10 Aug 2026 14:49:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CqJEfKFLCCauxssqM9t36ywgVhoU1em0BAPf7UyLpxU8xypo3yiniJK4wToXWknS6ZjABcjIKACHv5jUc+CnDz4dEx2dZM0b2gIRsQ5g6Vr5BGZpaDMdppA931PWul7HaYHYqD29CT8aqeEpzaIh+jjjquIrfqfQ7N0skBZaIAIme3N0haKo9j/AkI4xDXnSdH0st6ciYaHn49aylXubRM+DQNAF0SL1ypbzVl5NO21PeWdlu4fSO9fjCXY9jdeOI5jVu+FbG4deyOSEO/ReU6nHzHD3T8wVvVPgK8I1H5CpbpJSzJcTrDaYhTBy4zIJA3uPIZCQ+KLLV535w3OTYA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ra+x8g2XAWLyJWRe5zrrmXKRJmSC3nXxb+mYin0CMKk=;
+ b=kUrdN4LN59IUhwa+Ys/RZZDyliBWuFFwxd9gvoss1rgXu4+CgZmbfAIt3z4fuu1dh/7pkFgT4zPqCoZhfNiQU89ZfZjH2LEQuAeVrtee7epYQsMdojI/ftEIx0Qwbc3JAjKQulEaep8siLvmEq3hO9sKCUzmQPglETDly/gepdZgencAxHAaEydYCxsQU+xF6/GIIMyQpYErWbUNVBHQaJ+o1ff5+DavNaxZXGzPmQ2P/AlYiaJ/25VbMmOqJw+erDX9NJTI3Cd80P7DvKi859lsikQ9jA6Jspg+d6zcN5P6ZsC++zCtqVEJ9fpHV7wqko9orOUxXP1fYEmVsJPTJg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 64.62.143.114) smtp.rcpttodomain=analog.com smtp.mailfrom=axiado.com;
+ dmarc=none action=none header.from=axiado.com; dkim=none (message not
+ signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ra+x8g2XAWLyJWRe5zrrmXKRJmSC3nXxb+mYin0CMKk=;
+ b=TuN8FqF47AgGNEbU2wgBw3QaHxOahNwgh+7I1dwQFuLk15UgbYGBi9TMXmNpnnu4aVvCNP+U3/FmwllNYtYjT6cSVRaK6l6LHh53cBEUDMoSmHwcyvXPYt51xA2ix1T1+NnccwE2uEGnb0LoLaGNla6EEJS8DGdgmmQwTaENbsBgmYzxzNgrURlC0uU3ble/PVjvmo4wlxhqx4lPyhPAq1+OJNdbTp72YzOnGKdIfwjbDad+9xfLWaoU5iSTzLt5UcGaIse+TEYLC/gNeblF0TvUy9U4wKAAgbtjFxcRwVSsHfu5vQynnq/UMHkjf8fUrP5v7IRWn2ZeMPMbNS80lg==
+Received: from BN9PR03CA0383.namprd03.prod.outlook.com (2603:10b6:408:f7::28)
+ by PH0PR18MB4543.namprd18.prod.outlook.com (2603:10b6:510:ac::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.25; Mon, 10 Aug
+ 2026 14:49:45 +0000
+Received: from BN3PEPF0000B073.namprd04.prod.outlook.com
+ (2603:10b6:408:f7:cafe::a7) by BN9PR03CA0383.outlook.office365.com
+ (2603:10b6:408:f7::28) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.292.25 via Frontend Transport; Mon,
+ 10 Aug 2026 14:49:45 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 64.62.143.114)
+ smtp.mailfrom=axiado.com; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=axiado.com;
+Received-SPF: Fail (protection.outlook.com: domain of axiado.com does not
+ designate 64.62.143.114 as permitted sender) receiver=protection.outlook.com;
+ client-ip=64.62.143.114; helo=smtp.corp.axiado.com;
+Received: from smtp.corp.axiado.com (64.62.143.114) by
+ BN3PEPF0000B073.mail.protection.outlook.com (10.167.243.118) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.315.6
+ via Frontend Transport; Mon, 10 Aug 2026 14:49:45 +0000
+Received: from axz-uw1-build-vm02.corp.axiado.com (unknown [10.14.1.22])
+	by smtp.corp.axiado.com (Postfix) with ESMTP id 7148B4186B53;
+	Mon, 10 Aug 2026 07:49:44 -0700 (PDT)
+From: Petar Stepanovic <pstepanovic@axiado.com>
+Subject: [PATCH v5 0/2] iio: adc: Add Axiado SARADC driver
+Date: Mon, 10 Aug 2026 07:49:34 -0700
+Message-Id: <20260810-axiado-ax3000-ax3005-saradc-v5-0-bb0df3ecedaa@axiado.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260803134403.80630-31-steven.price@arm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAP7keWoC/33QwWrDMAwG4FcpPtfFkiM76WnvMXYQlrP6sKbYI
+ 3SUvPvUdtCVQtBB/EJ8Al1My7XkZvabi6l5Lq1MRw203Zh04ONntkU0G3QYHLne8rmwTNq8c+7
+ eyDauLMkCAWchQRI2KpxqHsv5pr9/aD6U9j3Vn9uxGa7TPxfX3Rmss74jERpDcD2/3bd3afoyV
+ 3jGBxYA1jFUbACfBskxhS69YP4fhriOecUyxaTFOUR6wboHFiGsY51iPeg7Ig+CcXzClmX5Bfc
+ n62WuAQAA
+X-Change-ID: 20260508-axiado-ax3000-ax3005-saradc-151aed5d25da
+To: Akhila Kavi <akavi@axiado.com>, 
+ Prasad Bolisetty <pbolisetty@axiado.com>, 
+ Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>, 
+ =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
+ Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>
+Cc: linux-iio@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Petar Stepanovic <pstepanovic@axiado.com>, 
+ Conor Dooley <conor.dooley@microchip.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1786373384; l=5896;
+ i=pstepanovic@axiado.com; s=20250916; h=from:subject:message-id;
+ bh=ICEZBY2F5WupUD0XR4kwf3+DE4bOxC+0v/cJWLbm8Zk=;
+ b=nKKgg1H0o6TUCL2xQrPZt+eQnlxs1pt7OswiH0DjLC9wFqDOPP1Dwfm2D5Pzwuz5Rtm8z0GE9
+ 4asLySxoCy8Bj8CF3mcz6qPq1npUGOV4a+xdxZLS1ccLyI5tjxyQqWU
+X-Developer-Key: i=pstepanovic@axiado.com; a=ed25519;
+ pk=70f1UJOGT9U11ZK6o+ENXtv0I5wBE3e+Y9YWODzRsdI=
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN3PEPF0000B073:EE_|PH0PR18MB4543:EE_
+X-MS-Office365-Filtering-Correlation-Id: af77d620-b7b8-4036-9c05-08def6ee9e69
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|82310400026|36860700016|23010399003|18002099003|56012099006|3023799007|13003099007|6133799003|10067099003|921020;
+X-Microsoft-Antispam-Message-Info: YqglGWTlJ1NM+sYOGKhZxiI7TqYdKRFlUgjrRClKeLj5R9RyPovAqmDCFuEi8f5WRv2tYtUMrVn17SOv3gOOzjcVdYMlWXszmlB9pmizCvd8tbytDpT6bKf6yGgddBbW7GOxJoPAxmC+tVbJN4wpHLkZLz91a+c5z/nP0Q1na7YcwgoJQyCjUMprkrRlOfjtnEvXpyxoP88hA82mZMLUFdnZgtVe90sV2y34M+Lth6UsTjS1qG+KP9xZB0sPOp/FP+y5Y8C1UW0wTQ25Ogiut+zyoB+5/lwAIel1QR2s7YMZ30CgBHs2Ix6I9vZbZd5Ei07B2EazIC0AqaSN+ZoPuwlUiUgxRhXf0MYX9Nu6i+C1rKlrr9w7P7tEFzDYxZ0S/ldP6RVwhmkrFNoOXhe7ybO7AcVyY34mFQIAIMfvudY5BF5fpbB7sKXoBsn0tDMlABzNl+0796O3JUD6NmzVMTv9lsSb5x8ZR/QKtBiCr6J8JPs5O6DQdAz0iT1IBO6uREFSKQgB2Gaglj+vVafOoR14J/BqD8XTQubUZs8lZ1zOUHlIlMnZWe3dPj2aqT9exJWGgdp+LU9jVndljeQhR0zYqeEvu/xBmsV2WN4EK5KMRzY8ntxBLL0YX4imjFBr1moo+MTm6czUxU0bEvfx/rsEJG9H45tunHDs6Gxi+WUwOrEwwNqeFN8T+nt9QBLGvCUQuFTsgH1DdrTo4zEBIg==
+X-Forefront-Antispam-Report: CIP:64.62.143.114;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtp.corp.axiado.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(82310400026)(36860700016)(23010399003)(18002099003)(56012099006)(3023799007)(13003099007)(6133799003)(10067099003)(921020);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: NeLAYL5z3OlQ7ijen58M+PuphGYh9Egi/C7zTlz8uUTwQa7nWVQDRJ7yt9fuJUZK2OMuJ9Bij1ZsDgZCtzxVYW6UyGUSkmK31Gi0HBPJaS40RyivFKYN6lfa4MLEdF03gTC2DYXHimNRN4cQpBi6TcKU8FemG/M8JAj2efZ1EER5hV4nWUj91DJLuyd2B7+h8Cn7vCmsXpCM8NNbMtyaykWp7+1pCFb5HgnFtpFPx6TQgNdf0ygiyZkMu1H9iNJf1IqUC324RMNt54vsy7063ClGHmyI9J8yQ8cxMqzK0p9jwNQQC5VzSUEob1VHRf7fOc3mp4mHOWYTHG+YU7P7Gyk/e+ewq6EEAHDxcQC+oRRe48LKlE6+iSbP/Hly5dkxuMGSJQgL6+VED8pyhmmKG8jURayOXC60Ch1oDtKBgJMC3Jut3vfJ8ECsfd/9iYh/
+X-OriginatorOrg: axiado.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Aug 2026 14:49:45.1793
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: af77d620-b7b8-4036-9c05-08def6ee9e69
+X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=ff2db17c-4338-408e-9036-2dee8e3e17d7;Ip=[64.62.143.114];Helo=[smtp.corp.axiado.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B073.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR18MB4543
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_074703_510791_EA40BEFF 
-X-CRM114-Status: GOOD (  23.93  )
+X-CRM114-CacheID: sfid-20260810_074954_443061_027F4E0A 
+X-CRM114-Status: GOOD (  18.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,145 +136,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/03 14:43, Steven Price wrote:
-> When loading a realm VCPU much of the work is handled by the RMM so only
-> some of the actions are required. Rearrange kvm_arch_vcpu_load()
-> slightly so we can bail out early for a realm guest.
+This series adds support for the SAR ADC controller found on Axiado
+AX3000 and AX3005 SoCs.
 
-Hi Steven,
+A new driver is needed because this SAR ADC controller is a SoC-specific
+hardware block used on Axiado SoCs. It has its own register layout,
+channel enable handling, conversion control, and data readout sequence,
+and it does not match any existing upstream IIO ADC driver.
 
-I found that Realm guests can execute WFI/WFE instructions without
-causing a REC exit, ignoring KVM's WFx trap policy.
+AX3000 provides sixteen input channels, while AX3005 provides eight
+input channels. The driver uses SoC match data to select the number of
+available channels for each compatible.
 
-I'd suggest translating HCR_EL2.TWE/TWI into the corresponding
-run->enter.flags to honor the policy. Below is the patch I tested.
+The driver supports single-shot voltage reads through the IIO subsystem
+and uses the reference voltage regulator for scale calculation.
 
-----
-From 8637cd6f818a3c56d8b898a72874e9485eb94e59 Mon Sep 17 00:00:00 2001
-From: Kohei Enju <enju.kohei@fujitsu.com>
-Date: Mon, 10 Aug 2026 22:54:27 +0900
-Subject: [PATCH] KVM: arm64: CCA: Honor WFx trap policy for Realm vCPUs
+The datasheet is not publicly available. Public high-level product
+information is available at:
 
-Propagate KVM's WFx trap policy to the RMM by translating
-HCR_EL2.TWE/TWI into REC_ENTER TRAP_WFE/WFI flags before entering a REC.
+  https://axiado.com/products/#AX3080
 
-Without this, guests can execute WFE/WFI instructions without causing a
-REC exit, ignoring KVM's common trap policy. Configure the REC_ENTER
-flags to honor the policy.
+The register definitions and programming sequence used by this driver
+are based on Axiado internal SoC documentation.
 
-Signed-off-by: Kohei Enju <enju.kohei@fujitsu.com>
+Signed-off-by: Petar Stepanovic <pstepanovic@axiado.com>
 ---
- arch/arm64/include/asm/kvm_rmi.h |  2 ++
- arch/arm64/kvm/arm.c             |  3 +++
- arch/arm64/kvm/rmi.c             | 14 ++++++++++++++
- 3 files changed, 19 insertions(+)
+Changes in v5:
+- Added explicit little-endian regmap value formatting.
+- Reworked register field definitions to use FIELD_PREP() at the point
+  where register values are constructed.
+- Removed the MANUAL_CTRL helper macro and build the channel selection
+  value directly with FIELD_PREP().
+- Made stopping a manual conversion best-effort so a failure there does
+  not override the conversion result.
+- Removed the redundant power-down write before enabling the ADC.
+- Keep only the cached clock rate in the driver data and use the clock
+  pointer locally during probe.
+- Pass the regmap directly to the managed disable action.
+- Updated header includes following IWYU recommendations and dropped the
+  explicit mod_devicetable.h include.
+- Applied minor coding-style and module metadata cleanups.
+- Link to v4: https://lore.kernel.org/r/20260716-axiado-ax3000-ax3005-saradc-v4-0-810527a9d27f@axiado.com
 
-diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
-index 2789879b6701..b858c6b4db6a 100644
---- a/arch/arm64/include/asm/kvm_rmi.h
-+++ b/arch/arm64/include/asm/kvm_rmi.h
-@@ -109,6 +109,8 @@ void kvm_destroy_realm(struct kvm *kvm);
- int kvm_realm_teardown_stage2(struct kvm *kvm);
- void kvm_destroy_rec(struct kvm_vcpu *vcpu);
- 
-+void kvm_rec_set_wfx_traps(struct kvm_vcpu *vcpu);
-+
- int kvm_rec_enter(struct kvm_vcpu *vcpu);
- int kvm_rec_exit(struct kvm_vcpu *vcpu, int rec_run_status);
- int kvm_rec_handle_request(struct kvm_vcpu *vcpu);
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 7edc572dd8ab..0cba333b4fd2 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -770,6 +770,9 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
- 	else
- 		vcpu->arch.hcr_el2 |= HCR_TWI;
- 
-+	if (vcpu_is_rec(vcpu))
-+		kvm_rec_set_wfx_traps(vcpu);
-+
- 	vcpu_set_pauth_traps(vcpu);
- 
- 	if (is_protected_kvm_enabled()) {
-diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
-index c242dfc2c7a6..c472f3d03234 100644
---- a/arch/arm64/kvm/rmi.c
-+++ b/arch/arm64/kvm/rmi.c
-@@ -1302,6 +1302,20 @@ static void noinstr load_realm_timer_state(struct kvm_vcpu *vcpu)
- 	write_sysreg_el0(rec_exit->cntp_ctl, SYS_CNTP_CTL);
- }
- 
-+void kvm_rec_set_wfx_traps(struct kvm_vcpu *vcpu)
-+{
-+	struct realm_rec *rec = &vcpu->arch.rec;
-+
-+	rec->run->enter.flags &=
-+		~(REC_ENTER_FLAG_TRAP_WFE | REC_ENTER_FLAG_TRAP_WFI);
-+
-+	if (vcpu->arch.hcr_el2 & HCR_TWE)
-+		rec->run->enter.flags |= REC_ENTER_FLAG_TRAP_WFE;
-+
-+	if (vcpu->arch.hcr_el2 & HCR_TWI)
-+		rec->run->enter.flags |= REC_ENTER_FLAG_TRAP_WFI;
-+}
-+
- int noinstr kvm_rec_enter(struct kvm_vcpu *vcpu)
- {
- 	struct realm_rec *rec = &vcpu->arch.rec;
--- 
-2.43.0
+Changes in v4:
+- Converted direct MMIO register access from readl()/writel() to the regmap API.
+- Added REGMAP_MMIO as a Kconfig selection.
+- Added error handling for regmap read and write operations.
+- Ensured manual conversion is stopped even if reading the conversion result fails.
+- Fixed the regulator error path to return the actual error code instead of the
+  uninitialized reference voltage.
+- Simplified the channel macro by generating datasheet_name from the
+- channel index.
+- Changed the channel array to use one channel entry per line.
+- Link to v3: https://lore.kernel.org/r/20260622-axiado-ax3000-ax3005-saradc-v3-0-e57c7c7ae675@axiado.com
 
-> 
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> ---
->  arch/arm64/kvm/arm.c | 19 ++++++++++++-------
->  1 file changed, 12 insertions(+), 7 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index f1b26b263bf0..96e536d2dda8 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -707,7 +707,7 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
->  	struct kvm_s2_mmu *mmu;
->  	int *last_ran;
->  
-> -	if (is_protected_kvm_enabled())
-> +	if (is_protected_kvm_enabled() || kvm_is_realm(vcpu->kvm))
->  		goto nommu;
->  
->  	if (vcpu_has_nv(vcpu))
-> @@ -751,12 +751,6 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
->  	kvm_vgic_load(vcpu);
->  	kvm_vcpu_load_debug(vcpu);
->  	kvm_vcpu_load_fgt(vcpu);
-> -	if (has_vhe())
-> -		kvm_vcpu_load_vhe(vcpu);
-> -	kvm_arch_vcpu_load_fp(vcpu);
-> -	kvm_vcpu_pmu_restore_guest(vcpu);
-> -	if (kvm_arm_is_pvtime_enabled(&vcpu->arch))
-> -		kvm_make_request(KVM_REQ_RECORD_STEAL, vcpu);
->  
->  	if (kvm_vcpu_should_clear_twe(vcpu))
->  		vcpu->arch.hcr_el2 &= ~HCR_TWE;
-> @@ -778,6 +772,17 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
->  			     &vcpu->arch.vgic_cpu.vgic_v3);
->  	}
->  
-> +	/* No additional state needs to be loaded on Realmed VMs */
-> +	if (vcpu_is_rec(vcpu))
-> +		return;
-> +
-> +	if (has_vhe())
-> +		kvm_vcpu_load_vhe(vcpu);
-> +	kvm_arch_vcpu_load_fp(vcpu);
-> +	kvm_vcpu_pmu_restore_guest(vcpu);
-> +	if (kvm_arm_is_pvtime_enabled(&vcpu->arch))
-> +		kvm_make_request(KVM_REQ_RECORD_STEAL, vcpu);
-> +
->  	if (!cpumask_test_cpu(cpu, vcpu->kvm->arch.supported_cpus))
->  		vcpu_set_on_unsupported_cpu(vcpu);
->  
-> -- 
-> 2.43.0
-> 
+Changes in v3:
+- Fixed vref regulator error handling.
+- Added linux/units.h and used MICRO / MILLI in scale calculation.
+- Reordered struct axiado_saradc members to improve the structure
+  layout.
+- Fixed indentation/alignment of multi-line FIELD_PREP(), GENMASK(), and
+  writel() expressions.
+- Removed the blank line before module_platform_driver().
+- Link to v2: https://lore.kernel.org/r/20260611-axiado-ax3000-ax3005-saradc-v2-0-913c9de7c64c@axiado.com
+
+Changes in v2:
+- Fixed the devicetree example node name to use the generic ADC node name.
+- Removed the explicit `depends on OF` from Kconfig.
+- Cleaned up and reordered header includes.
+- Added missing includes for `bits.h`, `clk.h`, `cleanup.h`, and `err.h`.
+- Removed unused `linux/kernel.h` include.
+- Renamed register offset macros to use the `_REG` suffix.
+- Renamed register bitfield macros to include the register name prefix.
+- Added separate macros for `GLOBAL_CTRL` and `MANUAL_CTRL` register
+  fields and values.
+- Replaced `iowrite32()` / `ioread32()` with `writel()` / `readl()`.
+- Moved ADC conversion locking into `axiado_saradc_conversion()` using
+  `guard(mutex)`.
+- Replaced `usleep_range()` with `fsleep()`.
+- Renamed `vref_uv` to `vref_uV`.
+- Added SoC-specific device names in `axiado_saradc_soc_data`.
+- Used the fixed SoC-specific name for `indio_dev->name`.
+- Removed unused buffered scan configuration from IIO channels.
+- Added a managed cleanup action to disable the SARADC hardware on driver
+  unbind or probe failure.
+- Switched to a local `struct device *dev` helper in probe.
+- Used `devm_mutex_init()` for mutex initialization.
+- Simplified error handling by using `dev_err_probe()`.
+- Updated probe variable declarations to follow reverse Christmas tree
+  order.
+- Fixed the `of_device_id` terminator style.
+- Replaced `KBUILD_MODNAME` with a fixed driver name string.
+- Link to v1: https://lore.kernel.org/r/20260528-axiado-ax3000-ax3005-saradc-v1-0-345dd5f6608a@axiado.com
+
+To: Petar Stepanovic <pstepanovic@axiado.com>
+To: Akhila Kavi <akavi@axiado.com>
+To: Prasad Bolisetty <pbolisetty@axiado.com>
+To: Jonathan Cameron <jic23@kernel.org>
+To: David Lechner <dlechner@baylibre.com>
+To: Nuno Sá <nuno.sa@analog.com>
+To: Andy Shevchenko <andy@kernel.org>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Harshit Shah <hshah@axiado.com>
+Cc: linux-iio@vger.kernel.org
+Cc: devicetree@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+
+---
+Petar Stepanovic (2):
+      dt-bindings: iio: adc: add Axiado AX3000/AX3005 SARADC
+      iio: adc: add Axiado SARADC driver
+
+ .../bindings/iio/adc/axiado,ax3000-saradc.yaml     |  63 +++++
+ MAINTAINERS                                        |   9 +
+ drivers/iio/adc/Kconfig                            |  11 +
+ drivers/iio/adc/Makefile                           |   1 +
+ drivers/iio/adc/axiado_saradc.c                    | 278 +++++++++++++++++++++
+ 5 files changed, 362 insertions(+)
+---
+base-commit: 51f0c0b8545b23963afd5d43a8f56ee05bfa54da
+change-id: 20260508-axiado-ax3000-ax3005-saradc-151aed5d25da
+
+Best regards,
+--  
+Petar Stepanovic <pstepanovic@axiado.com>
+
 
