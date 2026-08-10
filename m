@@ -4,120 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 177C2C5AD7B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 18:48:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BB33C5AD7B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 18:52:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/h1pNasFi/92T6RUAvXDvHq7QawRH4lT9AOvszwUiP4=; b=iXu5WMPr5X6r1REOlAP/CLnFxV
-	q5xhNEUEotc14kSywLzVuQpubg/RmrId1A5vWEQ6ruzkrv3E18pnvAbncpw1jYDZyDIYBVdf454GH
-	rhwt5GlUKLpPTHkpUv7PVPxgw1rS7omXEY0o5Vke80ro8/Y9jI3fPzGJRS7i43g+PNFRlcqhxqca1
-	pUfMUA6o4w3FxwZ0UO1Uld8Pd2jmaPReDVcxm0wCFb0CQKRSOAVakR/okbLKCBGCt5o/8xTu07z+s
-	jUhHCuBEpNMWMiGD6gW8JYs5B9D9ElxopKhv/E1uLbsqD6n4ykG/B8+0t/BE6wS9GmfKNbWn2Bkd2
-	0x5JTulA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l3aQ3yKkswTs7S/iYzRYJHZ1Z5dQCtJeegu/4/CsFd8=; b=2zSYgyRyDX3W0CcEsZ8hDANOn8
+	TS2rJ3M2omDmy/GW5Ocb15fFc7fDxja5YuT4jR5zF4EHVjmc1M+1dDeCh+h6pGpgk7pyd4SuX7kBM
+	eETDEs2MpjHdoq0PRQ5lpzxF5sjuA3lVwQIDlrPZPpwiNdn/+5Z5g7bht4ZYA/YB1BkKHFGiZDKAC
+	wNQJXYjnsICXkSaD8DBqt/4H8jjBSBC/eOmWNaptbQ0fNakSntL6nN3zr9eOM0i12ULa4WWwHTsLB
+	sauD1Ad6DXzljjy9y1NxK5IYywEuYNcBMOBgRp1iLpJh3gre+46UfsIYR413QStfmeWK38EMQQxIM
+	Qw2kggQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtV2W-0000000Cf9l-28Ii;
-	Mon, 10 Aug 2026 18:48:00 +0000
-Received: from mail-pj2-x09.google.com ([2607:f8b0:4864:39::9])
+	id 1wtV6W-0000000Cft7-12CS;
+	Mon, 10 Aug 2026 18:52:08 +0000
+Received: from mail-pz2-x00.google.com ([2607:f8b0:4864:3b::])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtV2U-0000000Cf8D-0JDn
+	id 1wtV6U-0000000Cfsj-21my
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 18:47:59 +0000
-Received: by mail-pj2-x09.google.com with SMTP id 98e67ed59e1d1-38ed4d37526so1408031a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 11:47:57 -0700 (PDT)
+	Mon, 10 Aug 2026 18:52:07 +0000
+Received: by mail-pz2-x00.google.com with SMTP id 41be03b00d2f7-c96739a46acso1137531a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 11:52:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786387677; x=1786992477; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=/h1pNasFi/92T6RUAvXDvHq7QawRH4lT9AOvszwUiP4=;
-        b=n2Sd2D2BKo517GwaDAY3PqgN9QsAeFu8JMCQKRjWY6g7ih3/ZcRMxqWglzvXgHIYjA
-         EM9nLErz23mO6D/mc2hL27rgxJIe9a3W54NIv5QhZqjRYPXljILMA5WYNyG4ASNoHxu4
-         IPI28tv1rpCDKHOmIEAv5JNkAvbRy4hD4hGNvMWpNjOKuoprOdH6gZ+0ZIKgsaSiqJJR
-         /V/DHwhFhgvhLafbodQsE9CNn34DYKHDGlUD04ZHVHSGxhJ9aAaqrjwbxg5M7TkZqj6a
-         U4r8g1cVCM9VR33wcnLii2xvVQRlHnVGI81ueydR9QQi5gP1eNcNcIVJ9KGBapPABEOR
-         9Reg==
+        d=gmail.com; s=20251104; t=1786387926; x=1786992726; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=l3aQ3yKkswTs7S/iYzRYJHZ1Z5dQCtJeegu/4/CsFd8=;
+        b=AkAYAmB8JRD3wUTgTgt7TepupfhPV9dPqgt/Qes06tB5P9Cu1K4+RA39PdUBH55F6B
+         q1cZm3mh5KqGt4XX052S8HQGNU2gq+h05Ygp/YuDb5Uu66sbUhYGmA+uYvgyDK/t9RyC
+         Lzz8IXQvt9MCEHdhnZU1GwBfZOhnHShjB0NjoSc4mpzJGVLGqHW0l34eZ3GNMHCf5KWV
+         +W8QzFGqoiF3dlIblV3HboYu1P9gsA94OmpJqNF6G95eCTP8WVfZqKuwtCmffMXi0Q47
+         nIZLJiR3OWHocZJsz3+c55WYoym2qYlJcOC81P8p46p/vl2mDwAXU9i1og73yUjaSli9
+         lu6A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786387677; x=1786992477;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=/h1pNasFi/92T6RUAvXDvHq7QawRH4lT9AOvszwUiP4=;
-        b=oNSp0ZiqVwVoXPJRk8wAfKkOZFkhpmDxHGxFqVjEmghBMTwLf/ruTHTi4KHUVu/e0R
-         q5fNH3U5lO39vPraZmCY0GlTDKQaJneHUixfVjH5MRR5l7GsIfKgVEa1EAxVj4uyEYqT
-         g7M9U5CDskRF06LVg91CrjjinSXT675JjXHSDNWoHsJqTwfRT9Mb4P8pa0QVjTeGa9sm
-         4thE65QRph3XaUJxjbz83iLzezjGpMpOyvzf5lUpvFgFIJbkGf6LD7+DAXJcw4oryf+v
-         nSnJkarIuilS7+xwgr1xM5/LWXumyFMDozOeMiZ2H3KP2ZrdVl9ev735SdVPMmSJA6rs
-         rmyw==
-X-Forwarded-Encrypted: i=1; AHgh+Ro/1ebPD16sgBu/RKZNDkcKOZkP3FDQcUD5T+Pt9uJI96suO088m1VlE5qQgc/AR17WdjB9nPR4FA1mfQk+U1VQ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyeo0yjSLnXetoBWJ8tCVrTMZP8TmChXWc/0YR4sGd+1eg8/dop
-	2D3mCawOjIQw8us9StJL09mWcxN4eZHnsjwvPBTCph0kgWA9AIZqiNLh
-X-Gm-Gg: AR+sD13PEZnKOuPHjN62ng6KgF58iZwfEXkWfDJEEr3tiwPaIe8IaFZ4vXu5IuLqU79
-	Ng0DYWpxLd2DNYwbZ4fUI/Sgcxcmu/GSMmmXmPUwZyKWsLTkbWffIdGrW05geJNSl4XO6LTrBLs
-	xUHBMDY+g6Oha2pRiQ7p5hxDBZ87m6vU7rZJpbY6GdqLxaxA6S+lUjutaSesK4/rALnoyYHuP9E
-	MMXD3/NBk/bfagIhc73jUiF37Nh3x1TaV28ABlGMsrlp4H0L69PNQ2LAA9mPMy3ainmmGwdJzYC
-	FAoLpq+gTW061Z2wM0fHYGqxmcOLHsJhkVxjyxc+o75Sg6MO0cahCKCkGLIOoCGyS5tAzIH3uyp
-	0dVE+2d24YQ1KXRm7u20d3OtSezCMTai7b2rw8fXUSszsGvq607YBLdlIbi40oN2PuxLHi8en45
-	ZqjP5Nu9/CZN1EPvfeZpPA54hXczsok4NtxifbLZw0ud1+czI1Ex/3mQ==
-X-Received: by 2002:a05:6a20:918c:b0:3c3:89cf:f3a with SMTP id adf61e73a8af0-3cbce6cb365mr23635499637.5.1786387677292;
-        Mon, 10 Aug 2026 11:47:57 -0700 (PDT)
-Received: from localhost ([2a03:2880:2ff:58::])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cbe8f38882fsm4517610a12.31.2026.08.10.11.47.56
+        d=1e100.net; s=20251104; t=1786387926; x=1786992726;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=l3aQ3yKkswTs7S/iYzRYJHZ1Z5dQCtJeegu/4/CsFd8=;
+        b=ZU0EJWXJhBHdGDWmFTS3Uud6Y/Hts+Q49enO4Qj09qnCg3O/uNcjj9tfcCfLur/v78
+         6UM+RucBjbWKlJ8e7NzdHP3joRCdPyOuoErQ0FvsKSYWGuJ43xDe7Usk5w4vZPfC3VD7
+         /1eFPi0YF9hAKdFbYCcyHYC8oDAl/RYbWQbCNnEJ6s/Gp25DGvT4b6H3ba/3Rk+UFvv9
+         qGaBYp3s3o2mg63thGeYTeYN7NJAybqeQbXtpH4vnUZ5x3dzH4puRv0Vbrv9JxqvLVMO
+         63uPIwjhgdALPSDhMIPSgDpty8jDBS5GD0eQfKdwqumgP1SLu1cThfSv6afHmjE4HD86
+         mhSw==
+X-Forwarded-Encrypted: i=1; AHgh+RoTGZBbtiQwCwtC/8sS3UKUs+1q91YaDdmpAMWNHw5hW+3AQZbQ3k8FmdStilMoYeEELMn8YDz3mcuIC9A/hNzp@lists.infradead.org
+X-Gm-Message-State: AOJu0Yydxixt/1mOM7+Mlj31TTNP5DMdtbeJOzqwigJps/y1FxJFwoqy
+	lSB+DC6jo6X0fnVI37PzDkY0OGj/9OiBm+FIHv1vr0n9WDEjU3F7BxDX
+X-Gm-Gg: AR+sD11tkqShNY01I1T8vQMeqkZNBjslFu0nOo/gPCi3agAErbC9TZXra1VNK4xwtC8
+	EnTj219NLOsBL+9FpB5af/i66cbVkBtTM3/IuCBnjTWXh+rbbPSXl8Yvk39nIgwAffihzQDTZ7f
+	netEeocp3yKwqC7tR4OGes8kt10KLx6B8LSlVM4rL3gP55kPXEaU2GBVwRnsGL0AbZU1YsVQaD4
+	FNyPl8qFwTgYwQmK6sELwlui4m8XXkmcN7j5yNADKdtoHPkazeEfL6Zhm6pvSrp/qH/MOUsYCEB
+	vZkS/yUnEqUFDwv/Hv1KTDRypzhUv/7mtvDbqRdENLqxClQRc9oLA9Clqe196tWDQtwFLRhQxqG
+	YdNYrMK6Q9aVuHTHQ8QsVuo3m9cCD0vAIeRy/BV/R/EA/KWacbb20vA8kpogyCaiRa+ejJtKTpt
+	Q7J8HEx+GvoUpqH5pKEjNX+nyYUrlvL/5y5nMt8wCYvuhBe6p39oMSYg==
+X-Received: by 2002:a05:6a00:12ca:b0:84e:2722:5d9e with SMTP id d2e1a72fcca58-84f9c8da5a1mr3553132b3a.1.1786387925682;
+        Mon, 10 Aug 2026 11:52:05 -0700 (PDT)
+Received: from localhost ([2a03:2880:2ff:52::])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84f5a58e6c4sm4386298b3a.59.2026.08.10.11.52.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Aug 2026 11:47:56 -0700 (PDT)
+        Mon, 10 Aug 2026 11:52:05 -0700 (PDT)
+Date: Mon, 10 Aug 2026 11:52:01 -0700
 From: Stanislav Fomichev <sdf.kernel@gmail.com>
-X-Google-Original-From: Stanislav Fomichev <sdf@fomichev.me>
 To: netdev@vger.kernel.org
-Cc: davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	anthony.l.nguyen@intel.com,
-	przemyslaw.kitszel@intel.com,
-	andrew+netdev@lunn.ch,
-	saeedm@nvidia.com,
-	tariqt@nvidia.com,
-	mbloch@nvidia.com,
-	maxime.chevallier@bootlin.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	aleksander.lobakin@intel.com,
-	horms@kernel.org,
-	magnus.karlsson@intel.com,
-	maciej.fijalkowski@intel.com,
-	sdf@fomichev.me,
-	ast@kernel.org,
-	daniel@iogearbox.net,
-	hawk@kernel.org,
-	john.fastabend@gmail.com,
-	alice.kernel@fastmail.im,
-	dtatulea@nvidia.com,
-	witu@nvidia.com,
-	martin.lau@kernel.org,
-	yoong.siang.song@intel.com,
-	rohan.g.thomas@intel.com,
-	intel-wired-lan@lists.osuosl.org,
-	linux-kernel@vger.kernel.org,
-	linux-rdma@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	bpf@vger.kernel.org,
+Cc: davem@davemloft.net, edumazet@google.com, kuba@kernel.org, 
+	pabeni@redhat.com, anthony.l.nguyen@intel.com, przemyslaw.kitszel@intel.com, 
+	andrew+netdev@lunn.ch, saeedm@nvidia.com, tariqt@nvidia.com, mbloch@nvidia.com, 
+	maxime.chevallier@bootlin.com, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, 
+	aleksander.lobakin@intel.com, horms@kernel.org, magnus.karlsson@intel.com, 
+	maciej.fijalkowski@intel.com, sdf@fomichev.me, ast@kernel.org, daniel@iogearbox.net, 
+	hawk@kernel.org, john.fastabend@gmail.com, alice.kernel@fastmail.im, 
+	dtatulea@nvidia.com, witu@nvidia.com, martin.lau@kernel.org, 
+	yoong.siang.song@intel.com, rohan.g.thomas@intel.com, intel-wired-lan@lists.osuosl.org, 
+	linux-kernel@vger.kernel.org, linux-rdma@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org, 
 	leon@kernel.org
-Subject: [PATCH net-next 3/3] net: stmmac: skip queueMaxSDU check for AF_XDP
-Date: Mon, 10 Aug 2026 11:47:53 -0700
-Message-ID: <20260810184753.135756-4-sdf@fomichev.me>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260810184753.135756-1-sdf@fomichev.me>
+Subject: Re: [PATCH net-next 0/3] xsk: pre-existing AF_XDP TX metadata fixes
+ from Sashiko
+Message-ID: <anodof8GsDZHZb-S@devvm7509.cco0.facebook.com>
 References: <20260810184753.135756-1-sdf@fomichev.me>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260810184753.135756-1-sdf@fomichev.me>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_114758_110995_2F60756F 
-X-CRM114-Status: GOOD (  11.14  )
+X-CRM114-CacheID: sfid-20260810_115206_563923_5143265A 
+X-CRM114-Status: UNSURE (   7.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,39 +111,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit c5c3e1bfc9e0 ("net: stmmac: Offload queueMaxSDU from tc-taprio")
-was inspired by commit 92a0dcb8427d ("igc: offload queue max SDU from
-tc-taprio"), but the igc change does not apply the check to AF_XDP.
+On 08/10, Stanislav Fomichev wrote:
+> A few fixes to address pre-existing issues from Sashiko review.
+> 
+> Stanislav Fomichev (3):
+>   xsk: align TX metadata layout across ABIs
+>   xsk: honor XDP_TX_METADATA in zero-copy path
+>   net: stmmac: skip queueMaxSDU check for AF_XDP
 
-xsk_tx_peek_desc() reserves a completion entry. Continuing without
-queuing or completing the descriptor leaves the AF_XDP rings imbalanced,
-so remove the check from the zero-copy path.
+Ooops, this should've been targeted to net tree. Will resend in a few
+days in case there is any review feedback.
 
-Fixes: c5c3e1bfc9e0 ("net: stmmac: Offload queueMaxSDU from tc-taprio")
-Signed-off-by: Stanislav Fomichev <sdf@fomichev.me>
 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 7 -------
- 1 file changed, 7 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index efa35cfecc4f..6e9d4cb336ee 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -2714,13 +2714,6 @@ static bool stmmac_xdp_xmit_zc(struct stmmac_priv *priv, u32 queue, u32 budget)
- 		if (!xsk_tx_peek_desc(pool, &xdp_desc))
- 			break;
- 
--		if (priv->est && priv->est->enable &&
--		    priv->est->max_sdu[queue] &&
--		    xdp_desc.len > priv->est->max_sdu[queue]) {
--			priv->xstats.max_sdu_txq_drop[queue]++;
--			continue;
--		}
--
- 		tx_desc = stmmac_get_tx_desc(priv, tx_q, entry);
- 		dma_addr = xsk_buff_raw_get_dma(pool, xdp_desc.addr);
- 		meta = xsk_buff_get_metadata(pool, xdp_desc.addr,
--- 
-2.53.0-Meta
-
+pw-bot: cr
 
