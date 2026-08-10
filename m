@@ -4,72 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4495C5AC82
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 11:19:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9F3AC5AD55
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 11:19:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=LDnTUkrh6OVBnHI+PdScQLYsi9xVJCaX4SXJUY886NQ=; b=jCqkxmCHjrLr6+kjTc2iAGHBXM
-	XKKVIOzQV8usu0mezdRAnsNogp1l8mJGzg9p8PZGqYg+GT6TYjtFoQICBIa10Hv8DOZv5MiEmHOjJ
-	pgZGRfAdXNQPkUCHrPuJtTVEiOArDsptP2p5HFiOcsaXUrF8ZkZhy3uBKaOSySGvKZkQCxESJGTIm
-	O/9tsivQFLvhDr6NY2vGNUoQnGFIQcdQim1rm3HAS1kJCPjr3RickxiHFWRRkFZ47RC9pR2GKlS0i
-	xQ6nh4PBzpqnB8mEoI4aQ4WSGK9TvP7cN+4NelC+UnFUa6RgLInn3gCdZKDyPwU2PXbgLWKtVO3Wi
-	YrIGFlGQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jbur70RJgLEFDEhR3vA+p5Aod61I3uq30QWhp7Vm+/c=; b=mxuw+oebaziQRzlTXGINo/v1tW
+	AxjY9dSxZlF+fYu9+kuXr7c0+gR0fMsWMdHYduTZfvHSa8vlXvItklcdv/MBEz0SFhDrJaRoENhoZ
+	t4kTOR8pwKasU3VTTCIqHJPRE8TwJJpouIO45EnyRWekLkUfSt1bp5SzBW9uf/HcyF1zqi8Y02GYs
+	n7wrsLzgazeEfimCDGj0eadGkIXQXQQ1oyjuoztJUGBUwhKTXqB86LZ6VMK0wh0XBtZXC4hmHFFnu
+	XmE2oY27wDp7befq4dhQEqCdSYNiD3s6eSPG/L3prnQj+/+mKsjV5hIjG2D0ZzEb3eyXBf2V2Ql7w
+	JincwHLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtO2B-0000000BaMZ-2SdV;
-	Mon, 10 Aug 2026 11:19:11 +0000
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	id 1wtO2I-0000000BaOT-2rkk;
+	Mon, 10 Aug 2026 11:19:18 +0000
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtO29-0000000BaLr-2vfl
+	id 1wtO2G-0000000BaNi-18tr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 11:19:10 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-382ef647e20so1749181a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 04:19:09 -0700 (PDT)
+	Mon, 10 Aug 2026 11:19:18 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-38ea87caafeso1125668a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 04:19:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786360748; x=1786965548; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=LDnTUkrh6OVBnHI+PdScQLYsi9xVJCaX4SXJUY886NQ=;
-        b=Fsvyj1+eVbCkqIBuIoBYkTwvCqXGtUdnDlv3C/W+sQKcScZTihEnzahoLZGfUreYh7
-         UMWyG6m1Oh6gdh6ENlgkGe6kDU0coN7wbbbIcbNShzkut+i8CCmm4berBkOLCITe7W/r
-         nWcHxWIbG1WFJzU62BXJ1ki+8VtZNp1opyHGkwsAzRnOXYZZ9hVixGrH2LKmdIZztpBz
-         e47Ti7Z9c6oEx6n9zUxWah9CnipHEWSja4hzSvCeUN4uotTv1GKtszJiF2tH38AkzOmW
-         PhYZeUh2DifimQFpqtdTbYUm3KfNWUlyeiTGn+V1yj0YWtroLSFb6GdU4WqC7O3ZxFx9
-         Yqrg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786360748; x=1786965548;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1786360755; x=1786965555; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=LDnTUkrh6OVBnHI+PdScQLYsi9xVJCaX4SXJUY886NQ=;
-        b=K5OP3hw4GgW3rB0HuQ2CJCikYJuNLikkddzuCePcdiTgscp2u/6hR7QN6OAZr+RJcm
-         0mIgGmfDGDulf+i1xR4FzF2IupRtjjt/Jzg6VMzWN/H8qnepxZ7ufN32CnFMc/qRog9l
-         ycyhlCtxdACVMWQ9miwGV7Tc3DCl3L03nJmKDBnOsdYj+WADmdNogZXjqLsL+WSrG+oi
-         1DesY9EVURxhhYqKpel6LHWahDLIAoPo079Z41jlzD6W+vMV2joanLxpRY3FE4cJ7K4L
-         y6imX/LfkhRkvpoc9zQTaoB3979MbJCYeRoha2iW1u5Gv0/UZvHOnRh/nKlc8wGXuDaL
-         SK2A==
-X-Forwarded-Encrypted: i=1; AHgh+RpnlZ6PN/wlQweGK3PQ5TTjUkwOaq+w7/dyegzxz7R9w+F6Ev/vThjJEn55mcYORS297IPlaKCQNTc1pDQpI0kA@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz/Hsuk8t+C9PIqe2q6VJ8d883F/tfeHmO3AmdhxMWUwYeCnwum
-	VyF+GZ7yYY1tkxKGrU99+tCT2REnGGdWt8BI0RgEwfgJFYN4IYyn4MsQ
-X-Gm-Gg: AR+sD11sbA3p8ZOJPJ6Ts+8EGW+lmGytEH85O8YYiHyyMRzbwfCKx5lRsoOOtniSeeQ
-	QFvONfQEk8YK0LXWhhkN5RMe+P8UWwgz/MXbsOeWnDCQqFKiO7DymfFkJHN4NlZnplRanj+xJlr
-	hzmROu7sQ3cX50JGjSPJW9mA5Fr7UdlX/FcFX7MJFxI2YCCVL8jD5Rod3ydi4itS+67CDIgj9wn
-	5OFvtzpaVMOeMmJyDZPDLzNCvU01pT1p7SgGJMELhjJJP68mW9S4L9E+epDYTk66rrK3LzfYlV6
-	XAISo9Q5huc1iaQacfeq5kwxkYMJ+aTnVcA+mHz9PimMzP/zArmERKbJ6MHs9kCwxBAFmbk6WYv
-	ta23XHMtBSfalDjXAasCM/abEjoGE1imqUq8otHAdGga/AvcyD9tpLD7iAwm99Y2KdNJ5rnU7Lx
-	Muh5y0fh8VEIQk7HCbtjZhFUQMeuif1h6D5UTP8rmnqtCAg/OwEL2aYOqs4WJGys2rC54zLM8XB
-	W5N36RLNVnicT6lZ9t7o7G4OFSn8pi0UpWTqWkIh7UHBT14yN9BJQJav6PNeC5X/VJdSLTYKpTW
-	Co/U
-X-Received: by 2002:a17:90a:e705:b0:381:9028:5945 with SMTP id 98e67ed59e1d1-392cca1f44dmr579534a91.14.1786360748511;
-        Mon, 10 Aug 2026 04:19:08 -0700 (PDT)
+        bh=jbur70RJgLEFDEhR3vA+p5Aod61I3uq30QWhp7Vm+/c=;
+        b=bGeVhsaA94aoqHU0BT9E5jFqYKTmWDeglC0W1X4ahJZQox+XcK8qEVki8im4aXxrxt
+         MrVTB3cdTozHJOhcbDbxh6GkfIo+2PdmTQ/FLrVh32zSvpeDkKsbvG0SmaHlxbsmIcZA
+         HgIrNNrZwDWCZq0fPA7Xgad+enoqPqNc/9h4RPXh2EFLA95BrDZ5jBO4eilxEw0G3RIL
+         ZGPaQCefXswwkFf9psCS2IkIAsRd4X+tMQfiiutKMVopGUnEGO28T5njok+6hkVxdVFS
+         aK0c2/2nM6tPqCMPj/ZYmWXO1hrWXOtrpV9IWj3zPeQAUdC77WIeGCqZv5TN/iZX3Y1r
+         IDYQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786360755; x=1786965555;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=jbur70RJgLEFDEhR3vA+p5Aod61I3uq30QWhp7Vm+/c=;
+        b=AoO5KLVo5ewuk/ZILUS/DyhWddQSs/Z8PJ7bgpb6BxLCGGwxrq9xxtDT5CDD5nffoS
+         ZTaPof8KIzFZVsD/EeRpfciB3K1O5ee8uCxxZBAwKw1jUrzxL8L9sbr6Y45gLBIUPePA
+         43pgbMb38MGTl49d+V8ByLcDQL3PKmXDyb2IBsGoxzIraaVcES/GwxzhQ2GPYyOQZUBJ
+         KG0rHwehzEm9N/kJoIyG3xMzrpCpdsYZgEtM+fLXAl+nbBbnbUcQwoXmRkU1LpAKWEJY
+         324m/bbplmYRKZNdZ0Z8B+5Kouv0/NJyRJHSGBSBP6+GnJ7cgwbwWlriSlZDhv2SOB9v
+         ItVQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rqz8DwfwlRzHoRz4s6HrLClk0kTLLvUZ/qPcwMtTG2663NZzZZG10H1WwpZXRZWCjEQgMEVkJKZhD6yG4L+91mL@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx1KRkpFFMFiMwwOgWDBQch3PeIlT2P5/pN8Q0mVDJVIzItVOTy
+	DJdLGkOAvVwjPimPO8j0K39jT/IoF1m295RCkn05oU2C+V/nF103BSHl
+X-Gm-Gg: AR+sD12BWZ72F1n11v4zzue1iyyC3z2ib2FGbzjYL7B0kzuo8gXi6woL4OcR68F6XTb
+	FldkNP5mLMsv4yuvJel09+of7NRmqzCyyTYGwT6wXEEmrS8S4ci07kKe+HWfUSB6nRJ4YQhEVB5
+	fmzoDzkORCzcPWF6Q7GVAkz5wkvJBTOQMWALilh8ROjn4tJDCuawBeiHfHN0s2uZOFYPUqLVOLr
+	gJGwC34oJ1xMq25NWn+U5OFD1WBkByDyDIpOEYhY6MSdAFHiacQCnc7ALDz7hnteGUaFYno8Fhe
+	cMusFMSC5FrmZROohowoE7XXXErmTEy5eoVYeU+2Jts9Q9UcX2QsN4HE47Ng2N5uERvM7qByG1/
+	Y3LREIiskj9DFLLR/n2EBHAdLko//xuXFcmU1lKoV9APu7eT+Q4/w6quJV0BNcfDGpl9Z2GCDI7
+	CDqmlfm7KNRGYxKlAT0DacWJupvMH0xksL6yR9OsKzZzZwbZ0JbHzNIY6oMJNSvQd3fhkxzZh4Z
+	+fFy3v/nlF1dn8O1LLuPrd8JVaV/xQkEVqgfVN2rPWCvclpwjWdQr3QB5Mms/ZHxera31HzAZEu
+	m258s7QqH/auKVY=
+X-Received: by 2002:a17:90b:4b91:b0:38d:ddc2:7ccb with SMTP id 98e67ed59e1d1-3909d7a4839mr25823292a91.1.1786360755337;
+        Mon, 10 Aug 2026 04:19:15 -0700 (PDT)
 Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39085c393d5sm14798046a91.0.2026.08.10.04.19.04
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39085c393d5sm14798046a91.0.2026.08.10.04.19.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Aug 2026 04:19:08 -0700 (PDT)
+        Mon, 10 Aug 2026 04:19:15 -0700 (PDT)
 From: phucduc.bui@gmail.com
 To: Markus Mayer <mmayer@broadcom.com>,
 	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
@@ -86,15 +87,17 @@ Cc: linux-pm@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH v2 1/2] thermal/drivers/rcar_gen3: Handle -ENXIO from optional IRQ lookup
-Date: Mon, 10 Aug 2026 18:18:40 +0700
-Message-ID: <20260810111841.77898-1-phucduc.bui@gmail.com>
+Subject: [PATCH v2 2/2] thermal/drivers/brcmstb_thermal: Propagate errors from optional IRQ lookup
+Date: Mon, 10 Aug 2026 18:18:41 +0700
+Message-ID: <20260810111841.77898-2-phucduc.bui@gmail.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260810111841.77898-1-phucduc.bui@gmail.com>
+References: <20260810111841.77898-1-phucduc.bui@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_041909_765564_053E3E54 
-X-CRM114-Status: GOOD (  14.44  )
+X-CRM114-CacheID: sfid-20260810_041916_977123_DA0480A0 
+X-CRM114-Status: GOOD (  14.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,44 +114,33 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: bui duc phuc <phucduc.bui@gmail.com>
 
-rcar_gen3_thermal_request_irqs() may return -ENXIO when no optional
-IRQ is available. The caller currently treats all negative return values
-the same way, disabling hardware trip-point support and continuing probe.
+platform_get_irq_optional() returns a positive IRQ number on success or
+a negative error code on failure. For an optional IRQ, -ENXIO indicates
+that no IRQ is available, while other errors should be propagated.
 
-Distinguish -ENXIO from other errors so that the existing behavior is
-preserved when the optional IRQ is absent, while errors such as
--EPROBE_DEFER, -EINVAL, and other failures are propagated to the
-caller.
+Propagate errors such as -EPROBE_DEFER and -EINVAL instead of continuing
+probe without the IRQ.
 
 Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
 ---
+ drivers/thermal/broadcom/brcmstb_thermal.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-Link v1 : 
-https://lore.kernel.org/all/20260807093058.42840-1-phucduc.bui@gmail.com/
-Changes in v2: 
- - Update the commit message.
- - Move error handling to the caller.
-
- drivers/thermal/renesas/rcar_gen3_thermal.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/thermal/renesas/rcar_gen3_thermal.c b/drivers/thermal/renesas/rcar_gen3_thermal.c
-index 94804816e9e1..04a57ff724f4 100644
---- a/drivers/thermal/renesas/rcar_gen3_thermal.c
-+++ b/drivers/thermal/renesas/rcar_gen3_thermal.c
-@@ -527,8 +527,11 @@ static int rcar_gen3_thermal_probe(struct platform_device *pdev)
- 	priv->info = of_device_get_match_data(dev);
- 	platform_set_drvdata(pdev, priv);
+diff --git a/drivers/thermal/broadcom/brcmstb_thermal.c b/drivers/thermal/broadcom/brcmstb_thermal.c
+index a9ffa596f7c0..477d078ce326 100644
+--- a/drivers/thermal/broadcom/brcmstb_thermal.c
++++ b/drivers/thermal/broadcom/brcmstb_thermal.c
+@@ -350,7 +350,9 @@ static int brcmstb_thermal_probe(struct platform_device *pdev)
+ 	priv->thermal = thermal;
  
--	if (rcar_gen3_thermal_request_irqs(priv, pdev))
-+	ret = rcar_gen3_thermal_request_irqs(priv, pdev);
-+	if (ret == -ENXIO)
- 		priv->ops.set_trips = NULL;
-+	else if (ret)
-+		return ret;
- 
- 	pm_runtime_enable(dev);
- 	pm_runtime_get_sync(dev);
+ 	irq = platform_get_irq_optional(pdev, 0);
+-	if (irq >= 0) {
++	if (irq < 0 && irq != -ENXIO)
++		return irq;
++	if (irq > 0) {
+ 		ret = devm_request_threaded_irq(&pdev->dev, irq, NULL,
+ 						brcmstb_tmon_irq_thread,
+ 						IRQF_ONESHOT,
 -- 
 2.43.0
 
