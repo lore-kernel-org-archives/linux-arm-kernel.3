@@ -4,133 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3C46C5AE5D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 10:46:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63D55C5AC82
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 10:47:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/+Lj5ZmB2Wj4J0ALCVryLcGBe7uwKxdF0BoFyEVf5Lw=; b=y+/pZ+QDuUkhusIp7IHtorjL55
-	NlJqcW2jNLb2R5zxNrvk59VlclyvIl5Dnw9CWmW9LIiHmWNQFeh9L2NYyKW0Xf6qZ5U/mHpqoJGAu
-	rT3bmwAJNI7r4sGeA1YkojV+6DNNukkjRhehaqnFnAGj+LteOVcebvMOdepYq1+9vSouVeud3OkYv
-	731zN1TP+/2o4iwq4L5LHyZgPnuRR48MlMUpOQzqEHYk7oh4rTBHEfTglU1ncCO6u3qTI4aJ+33Qu
-	243aPJyMViL9rBvwoFLHnXTXwRFsYxq250/e4JDwbyPNsZYXXsoo5vilYV5c+VKkad1EdVpWSFVGi
-	7cTG/5HQ==;
+	bh=i1d8j3w63MewxTuNMV7zC0RSGykhvhg+gqyCJyLiHoA=; b=iy/q6KwNs+KM0JCMBRcZIVFal3
+	G+pMaJS/so1TzeSHTwVAOLM3UFnghm6fbCx7pxksXz4NJhVV73uKIa9qHy2IkYutVXgpqInXju2wf
+	F/ax/cqxb9HJKsE8BENXd1fcbI6RozHqw/83KGhkRIj8niqWEDgp0hy5wMxOdpns5OUTTYB/yXZLH
+	dfCuCH2II4u729l+naIMdCuwVLuZOgEzu5a3yzx15llY4lq9Di1Z8hFxFjwRGRGJYIP+lLxYAiZsQ
+	ctWmyBMm5rotYHhxT4zIbPThW2W3HzzDoQd0/q2OJKn4wIdr2p38Ye3ci2c8S2/r0/c1MyYq5B+w3
+	Fnwp8g6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtNWI-0000000BXI7-1LQ0;
-	Mon, 10 Aug 2026 10:46:14 +0000
-Received: from mo4-p02-ob.smtp.rzone.de ([85.215.255.80])
+	id 1wtNXZ-0000000BXSY-3lGZ;
+	Mon, 10 Aug 2026 10:47:33 +0000
+Received: from flow-b5-smtp.messagingengine.com ([202.12.124.140])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtNWF-0000000BXHR-22sH
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 10:46:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1786358730; cv=none;
-    d=strato.com; s=strato-dkim-0002;
-    b=r95vgetHZxNU5/Q91bpahGuvUzNS6S2TBIeGd/QD0yKLV9sWOswllTVMy5nC/xI3Q3
-    mzdOBafYfZKVUKizWCKYIVofrhglfSiMinenGSq59RRATfCpnsEZ7iwpreKyO+CiKYqx
-    dxj2wpd2KTfklVzDwOeC9iOSezWzDxHy11ogy0eqAI7e1rJZ8kTZr4IyvYOGry3isGLa
-    NZ8N2KI6c5ZfaLEOO5MtA0C8a2/GRCpqTlLQk7oXaPBpkMq70+wSc4O/9n41DwwD51iV
-    PnmKY0WZtTDO3BsAu6IapkPO+4VsHJABSFgsxUSaCJ1euEO1W/MtpsFMgynQyMKeiFsA
-    XOGw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1786358730;
-    s=strato-dkim-0002; d=strato.com;
-    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
-    From:Subject:Sender;
-    bh=/+Lj5ZmB2Wj4J0ALCVryLcGBe7uwKxdF0BoFyEVf5Lw=;
-    b=cZANkWRCwYlNVeyjB6NB4O0XANCgXcxaXuXBrybQg3WdB5qI4AIES4njNz55YNvgez
-    ACgdGH3frpp11kDyAc/6G0vsP8E55Q8GAllXV6cE6mLtp/heESnOVFRw/QOlB/XyQI4g
-    FWAC3lH7ZCkOPby3mnn6tzjcEjyqVp/O1IZsvhLUkve+m+Rc1EXva2eC7DSiDZCZDG3v
-    jt1J2T9v62EDkhjTjlDEpevh1fWRnK1gzIdJPhnqZlCkaTTY0JSsAy6QKwCz12/8lRts
-    R4sZz5WS3KwwIIkYSH2BQxH+pO5yxyhbrJNLkPlmwEDXaBQdyqfycVXsHlH4BjaY0ivX
-    XQoQ==
-ARC-Authentication-Results: i=1; strato.com;
-    arc=none;
-    dkim=none
-X-RZG-CLASS-ID: mo02
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1786358730;
-    s=strato-dkim-0002; d=goldelico.com;
-    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
-    From:Subject:Sender;
-    bh=/+Lj5ZmB2Wj4J0ALCVryLcGBe7uwKxdF0BoFyEVf5Lw=;
-    b=k0vB1a3XGQa/vwzXHC/q+UZUBFPNUJqaHKDb1/QhVR06t596gAA2wEhFYOAjF8eH6r
-    ceyWM4RenhaakWurc8GGAmIj0CzrCmAK3dMM8+ZVeJvAonbDhh9zlwI8e3I+dJp3pOOF
-    NhQh0j5Xo5VW8t+LwtSdBR1LaPN2h3cyoJBZuz2DAajhfOIgWDdAvEsYfdtRjzjCY1Z+
-    bIhRAX5J3Ld+TGk7B+sUMH6QDjtkRmVOp5b5LmLBWeLjKcNfFgNLFafC4yyjZasjlhPo
-    Gh1JPRryhLmgpa3Na6SMI8BeccvKKYW0ttR3Z8PpWg8cgCtwXlx1KlAZ25APIdZ0JqSK
-    Wdzg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1786358730;
-    s=strato-dkim-0003; d=goldelico.com;
-    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
-    From:Subject:Sender;
-    bh=/+Lj5ZmB2Wj4J0ALCVryLcGBe7uwKxdF0BoFyEVf5Lw=;
-    b=u0XFv4Ji86X9gdHTYnWTfT1UnxYTAcLRqIwilIA9yK+Y/G0MHETjxnZElNPmRYKujj
-    rQ4V4cAiyXvtdwQTN2Aw==
-X-RZG-AUTH: ":JGIXVUS7cutRB/49FwqZ7WcJeFKiMhflhwDubTJ9qVpwcQVkPW4I1HrTipoGmsiNZ9v/oGyp26o/Wi+pVFrZX1Db5b3z"
-Received: from smtpclient.apple
-    by smtp.strato.de (RZmta 55.5.6 AUTH)
-    with ESMTPSA id Q58eac27AAjRgVw
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (curve X9_62_prime256v1 with 256 ECDH bits, eq. 3072 bits RSA))
-	(Client did not present a certificate);
-    Mon, 10 Aug 2026 12:45:27 +0200 (CEST)
-Content-Type: text/plain;
-	charset=us-ascii
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.700.81.1.8\))
-Subject: Re: [PATCH 15/16] backlight: remove pandora_bl
-From: "H. Nikolaus Schaller" <hns@goldelico.com>
-In-Reply-To: <anmpiADsvzW39DNx@aspen.lan>
-Date: Mon, 10 Aug 2026 12:45:16 +0200
-Cc: Grond <grond66@riseup.net>,
- Stefan Leichter <sle85276@gmx.de>,
- Grazvydas Ignotas <notasas@gmail.com>,
- Tony Lindgren <tony@atomide.com>,
- Ethan Nelson-Moore <enelsonmoore@gmail.com>,
- Jarkko Nikula <jarkko.nikula@bitmer.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Andreas Kemnade <andreas@kemnade.info>,
- Lee Jones <lee@kernel.org>,
- Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>,
- Aaro Koskinen <aaro.koskinen@iki.fi>,
- Kevin Hilman <khilman@baylibre.com>,
- Roger Quadros <rogerq@kernel.org>,
- Russell King <linux@armlinux.org.uk>,
- Jingoo Han <jingoohan1@gmail.com>,
- Helge Deller <deller@gmx.de>,
- Jaroslav Kysela <perex@perex.cz>,
- Takashi Iwai <tiwai@suse.com>,
- Sen Wang <sen@ti.com>,
- Richard Fitzgerald <rf@opensource.cirrus.com>,
- Arnd Bergmann <arnd@arndb.de>,
- Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>,
- Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
- Charles Keepax <ckeepax@opensource.cirrus.com>,
- Niranjan H Y <niranjan.hy@ti.com>,
- letux-kernel@openphoenux.org,
- devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org,
- linux-sound@vger.kernel.org,
- linux-omap@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- dri-devel@lists.freedesktop.org,
- linux-fbdev@vger.kernel.org,
- kernel@pyra-handheld.com,
- mfd@lists.linux.dev
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <DA9588C6-0238-4713-B1A1-CB2123F02028@goldelico.com>
-References: <cover.1783749722.git.hns@goldelico.com>
- <f897f695c0e1e128d7ebb41be8dfdce4d634f552.1783749722.git.hns@goldelico.com>
- <anmpiADsvzW39DNx@aspen.lan>
-To: Daniel Thompson <danielt@kernel.org>
-X-Mailer: Apple Mail (2.3826.700.81.1.8)
+	id 1wtNXX-0000000BXRR-1Twb;
+	Mon, 10 Aug 2026 10:47:32 +0000
+Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
+	by mailflow.stl.internal (Postfix) with ESMTP id DC75D130024E;
+	Mon, 10 Aug 2026 06:47:27 -0400 (EDT)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-06.internal (MEProxy); Mon, 10 Aug 2026 06:47:28 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
+	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
+	:from:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=fm1; t=1786358847; x=
+	1786362447; bh=i1d8j3w63MewxTuNMV7zC0RSGykhvhg+gqyCJyLiHoA=; b=0
+	Iirk1w7cDQxW8fGCM0zH2tLN9MREJS+iQ4rYA97Hc3EJioyxRdto9VNjKGOX7UDS
+	53hk1i9BlfAeANcKM2WQd813Z9U4Z6IZ3t4OeeJXFPREQkNjA44vb4ZB3750XLUx
+	5uVghWnf/6AR8MeccqTviR4ioJFqEiglwsdEFr5BVJhEjZ9Ox8wtztSqWCavNfet
+	uiKKsBE3Tw4uiPhVy9kfuUJyYjkUJvyLID3/1DDQMt2tXuZJpb3VK7l8NwzlyojU
+	nUPfd5RY8IykCOPzhEj038m48AZcW5+idNccobN33JiLbfSjKFqvlTxUer5Hi+4B
+	hYtDQkgKGDEsqkfe9buxw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
+	:x-me-sender:x-sasl-enc; s=fm3; t=1786358847; x=1786362447; bh=i
+	1d8j3w63MewxTuNMV7zC0RSGykhvhg+gqyCJyLiHoA=; b=M8gyTEwGBlQuQ7ul2
+	eFBFRMtOqMP5tOm8nWgmEEn09AehUU6SfJjgvGQuKcG6vvI4C9SMAYDGeJ18qe6K
+	pHR+moyrn7Ti+SedHje0Cd8r+C3TMn+8Jy9a6c3aioRb6JpQKybuRwVpHFeWWB/t
+	eY3QhdGhRoCXKnbMms6aEgPJBlPGpDktT+mHZ4kZO3xAj0qLqF9PmEQBKEx94V0S
+	t6ZyRXxjHkYW/TyC9GM+r4HDJ2fLiCN8NXfdBm5L0cN5KXvf/LnQmDe9j5RF6JR5
+	V2zjOGlqqhPR17juGUvgFgd3rzajgrm0YK8KjL7I7dxkmom/CuSGqcDOGfPnt9WM
+	ud60g==
+X-ME-Sender: <xms:Pqx5auEHQ0UiPoXqqAPmwBxiG-lnDqPSHt9yhpLRAb0ERMlauVfp0w>
+    <xme:Pqx5alv_dGrnXkM5GRzkUa6HWq2baHDRxG9V5ZGZf4Ww8_oGZ8MC1W6Jhmn8m7TMb
+    uX9QlmYqOssT6ptyx_DYcQZz_ntPhYgfGR5OU93lLgKLk_KEBBtUBw>
+X-ME-Received: <xmr:Pqx5akadEEBoM6rb8ZsNJYL9o0jVN3rbAd_ARDsvREjjdm1RLWPqARuh91zUiRwCkuG_JhBzkQ>
+X-ME-Proxy-Cause: dmFkZTE5Nfr2TDzQINlxmlOGJApALjQbyPsZet3r/DZJh5EHasV90KzDNM73V+IHteFMkf
+    /hzbqKWMBrt3JwlLyQuPJh1r5R7tWcyA12rMW7uK5cMLKXrl2rLCwHN1T0pb/9Y0RV1LFy
+    NJD57/bMVQSD7eCINQ81fbqfUZjghmqvfPsfz0uuPS40S7lZ699MAmD/BGuo6Vj3j+Hifq
+    dj/YtJEP2JIIcBJ2mtjpaDlOdHHiuhEUWQ9co/u/LwJWr3rI1NcToTxI2FEWlZxkbzXzwW
+    7j63BaHAKJapGxxwTEwb4xnX+uBLErgXDYZjbV8A1D0VbRIqZnFLDL012ubqW2TRBmhjkW
+    Cdz1HGRIsmDibrraVMrxcpy9maSQwwAFTsrjN9iBbhz0S/5XtwprurAEpbGTdXMCp3M77I
+    EEvRYPwjHtsOGXGYE9g1XHFQLBqpdAwpLXnzge0b4ie3+HJ52FwkFiG1v6n8z+Wd/dwd1x
+    Pjveda+Q/H0FTI3JPBDw1caj18oc1Rmmj3XtjvRh3if6rmqJAMa+Uod22zgNTw+pr2FyMv
+    6mWyLsfibe5M5plfrf9Wk6tKeXa0yuD/ivPo+3Xr0YTx/c11d3RSoGL5geXb7HJaVzx0Fh
+    PLaj4Tae1V0sXLB9N0ayWVV7t5SD6uYM3ojafcUND99+X+R5Rj2qUYph/F7g
+X-ME-Proxy: <xmx:Pqx5al56VUqygWg-uXQLw5pYLPHI8aoiPk8EZSi7Qvza0YNLnzUojg>
+    <xmx:Pqx5as-Y510AqP9FMhm4RXXqvZEKKOGU_ezQ8rfyOLbSVaYbhDGMsg>
+    <xmx:Pqx5ahZWZH1AzsMBPn-tyznhk6KDxD4ztTZvnIIbSpnpPCR9R7Y6qA>
+    <xmx:Pqx5al5ORnMk1K5FpYd96XoK5_K--kdNkEi-I26VaDDpNOlFS28lAg>
+    <xmx:P6x5aoATVsDps-ZgZEUF25V2_BvSS86ZKJx67oT84H6lc4m66LTcXIjV>
+Feedback-ID: i7a5e4b5f:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
+ 10 Aug 2026 06:47:21 -0400 (EDT)
+From: Jiaxing Hu <gahing@gahingwoo.com>
+To: chaoyi.chen@rock-chips.com,
+	royalnet026@gmail.com,
+	heiko@sntech.de,
+	tomeu@tomeuvizoso.net,
+	robin.murphy@arm.com,
+	diederik@cknow-tech.com
+Cc: alchark@flipper.net,
+	linux-rockchip@lists.infradead.org,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Jiaxing Hu <gahing@gahingwoo.com>
+Subject: Re: [RFC PATCH v6 7/9] accel/rocket: add RK3576 NPU (RKNN) support
+Date: Mon, 10 Aug 2026 22:47:18 +1200
+Message-ID: <20260810104718.1214191-1-gahing@gahingwoo.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <4f300b78-d96d-4d98-8819-dc292b0c9b97@rock-chips.com>
+References: <20260806063413.350184-1-gahing@gahingwoo.com> <20260806063413.350184-8-gahing@gahingwoo.com> <20260807211629.1573228-1-gahing@gahingwoo.com> <4f300b78-d96d-4d98-8819-dc292b0c9b97@rock-chips.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_034611_783436_57E315D7 
-X-CRM114-Status: GOOD (  13.08  )
+X-CRM114-CacheID: sfid-20260810_034731_703849_672C7A88 
+X-CRM114-Status: GOOD (  10.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,30 +115,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Daniel,
+Hi Chaoyi,
 
-> Am 10.08.2026 um 12:35 schrieb Daniel Thompson <danielt@kernel.org>:
->=20
-> On Sat, Jul 11, 2026 at 08:02:02AM +0200, H. Nikolaus Schaller wrote:
->> Retire the platform specific pandora backlight driver since
->> it can now be replaced by twl_pm and device tree.
->>=20
->> Signed-off-by: H. Nikolaus Schaller <hns@goldelico.com>
->=20
-> Yay!
->=20
-> Reviewed-by: Daniel Thompson (RISCstar) <danielt@kernel.org>
+Thank you, that settles it, and no apology needed for not reading the
+series.
 
-Well, there were some good comments by Sahiko to the prerequisites of =
-this patch,
-because it has one speciality the PWM BL driver does not handle (avoid
-interpretation of PWM signals as W1 protocol).
+> For RK3576:
+>
+> - BIT[15:0] task_number
+> - BIT[16] task_pp_en
+> - BIT[17] task_count_clear
+> - BIT[18] task_last_layer_clear
 
-I haven't found time to work on this, so we can't remove this yet.
+That matches the register trace bit for bit, and it is worth more than
+the trace, because the trace could only say which word the vendor writes
+and not what the bits in it are.
 
-In the end it may either remain a pandora_bl driver (converted to DT)
-or become a patch for something else.
+BIT[18] is new to me. I was setting it because the vendor's word had it
+set and clearing it was not something I wanted to try blind. Now it can
+be named rather than shipped as 0x7 << 16:
 
-BR,
-Nikolaus=
+  #define PC_TASK_CON_TASK_NUMBER		GENMASK(15, 0)
+  #define PC_TASK_CON_TASK_PP_EN		BIT(16)
+  #define PC_TASK_CON_TASK_COUNT_CLEAR		BIT(17)
+  #define PC_TASK_CON_TASK_LAST_LAYER_CLEAR	BIT(18)
+
+with the RK3588 positions kept beside them, since the two differ only in
+the width of the first field and that is exactly what made v1 through v6
+wrong.
+
+One question, if you have a moment. Is task_last_layer_clear meant to be
+set on every submit, or only on the task that ends a layer? Setting it
+unconditionally works on RK3576 here, but working and being right are
+not the same thing, and I would rather not encode a guess in a driver
+other people will copy from.
+
+Thanks again,
+Jiaxing
 
