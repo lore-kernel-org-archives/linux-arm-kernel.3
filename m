@@ -4,74 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29DD7C5AE5D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 11:14:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4495C5AC82
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 11:19:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r4nGvXPsWJuwyBMIlf3XtK/H52w5DG4jgy1kwvSaw5g=; b=ac3Tfhb+ttIqaUFwwlZwRnhw6+
-	Aqb+LYAuvx5JkGf63Kzf0wZwidBqaPlqKBc8c8b8UVCfkrR0imaN+I3wq0uamHtqO58K4pk/nkANR
-	lmahsXt+f0cFEVxKTxeWvXTU9AQ++fX4XVX+4UgTzhXJYIluDav4QfDXm6kPDxU+zuMkzpp1VTJOJ
-	47k56PSTT9+5PPeVAN9lLbAfPDrQY999CF3GGD+lnGJ3lUcCti/fWKso9JdIfzrUPKQgNn+8TaPHc
-	5kNf0UmyBMvS/uQWAZayhB+PqMKWSkFIberNlmpjncMbQNRACkqb2ZQ6Ah8rtvRm4+wnVHNXGPeCA
-	TUYd4kfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LDnTUkrh6OVBnHI+PdScQLYsi9xVJCaX4SXJUY886NQ=; b=jCqkxmCHjrLr6+kjTc2iAGHBXM
+	XKKVIOzQV8usu0mezdRAnsNogp1l8mJGzg9p8PZGqYg+GT6TYjtFoQICBIa10Hv8DOZv5MiEmHOjJ
+	pgZGRfAdXNQPkUCHrPuJtTVEiOArDsptP2p5HFiOcsaXUrF8ZkZhy3uBKaOSySGvKZkQCxESJGTIm
+	O/9tsivQFLvhDr6NY2vGNUoQnGFIQcdQim1rm3HAS1kJCPjr3RickxiHFWRRkFZ47RC9pR2GKlS0i
+	xQ6nh4PBzpqnB8mEoI4aQ4WSGK9TvP7cN+4NelC+UnFUa6RgLInn3gCdZKDyPwU2PXbgLWKtVO3Wi
+	YrIGFlGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtNxJ-0000000BZss-0R6P;
-	Mon, 10 Aug 2026 11:14:09 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1wtO2B-0000000BaMZ-2SdV;
+	Mon, 10 Aug 2026 11:19:11 +0000
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtNxG-0000000BZsJ-10Er;
-	Mon, 10 Aug 2026 11:14:07 +0000
-Date: Mon, 10 Aug 2026 13:13:57 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1786360440;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=r4nGvXPsWJuwyBMIlf3XtK/H52w5DG4jgy1kwvSaw5g=;
-	b=sBoJIbFHEDak6cyv8L6XEGtm5J6FbBrRbDYLM71gW0uy8R4+lHAe2NZN3TAB+Jme/1k045
-	3nNVfPqOcg6JHLmx9gEqUoWlIpJ8499kozHpf13rjGiZVjqYF4neK0oDvsLWnuAXJlF7q0
-	ic9YNDle9sWL5iVn8kWe74nMTXyKJAJNPVf1zHj9r+gTrqPE/agiTi0GdAVkpIl8NXos5l
-	wU2dqEXFN5NB8Sw25dJEU4qaPiJeaIgJlcwiS9CZ4IH8kiRoXrWJH5qLzD8xjf48BeL1Gu
-	KZg4GLuPCyCzbmrfF+69to9yRJ2Ns3bvbh0fHr5kPy6iuRuZ33rrpZA1YwdZzg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1786360440;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=r4nGvXPsWJuwyBMIlf3XtK/H52w5DG4jgy1kwvSaw5g=;
-	b=8M9UZhHJ8PpbLcPxMvofNRwhipNdROgHHMFzMv5I+mwIh++jg1nLW0g/b7h7WTT0wQlfaJ
-	Aj9xL8mQ6okS+WDQ==
-From: Gregor Herburger <gregor.herburger@linutronix.de>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Stefan Wahren <wahrenst@gmx.net>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Peter Robinson <pbrobinson@gmail.com>
-Subject: Re: [PATCH v3 2/2] arm64: dts: broadcom: bcm2712-d-rpi-5-b: add
- compatible
-Message-ID: <urrsc6dippljgmlochdnetolkhqqj25bbyosgcrw5hy6jpbpao@cgf332hhgdjv>
-References: <20260804-bcm2712-d-stepping-compatible-v3-0-1860094486eb@linutronix.de>
- <20260804-bcm2712-d-stepping-compatible-v3-2-1860094486eb@linutronix.de>
- <6ed9b2e5-b700-477a-8f6f-cb48c597a111@gmx.net>
- <vv6ufnanks27moditlav2ebaub6m5te5tag3m6qv5l65cm25iw@i7m54od3wz4k>
- <ddcb0d9a-2dd4-4808-84db-caf6ea64b48e@gmx.net>
- <pwdgjsfwdnkce4lkkda2hlopajuwuit6jkx2wztoeu4jzzv5ay@yoo4ofvwgrnu>
- <20260810-mustard-sloth-of-enterprise-84b68d@quoll>
+	id 1wtO29-0000000BaLr-2vfl
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Aug 2026 11:19:10 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-382ef647e20so1749181a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 04:19:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786360748; x=1786965548; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=LDnTUkrh6OVBnHI+PdScQLYsi9xVJCaX4SXJUY886NQ=;
+        b=Fsvyj1+eVbCkqIBuIoBYkTwvCqXGtUdnDlv3C/W+sQKcScZTihEnzahoLZGfUreYh7
+         UMWyG6m1Oh6gdh6ENlgkGe6kDU0coN7wbbbIcbNShzkut+i8CCmm4berBkOLCITe7W/r
+         nWcHxWIbG1WFJzU62BXJ1ki+8VtZNp1opyHGkwsAzRnOXYZZ9hVixGrH2LKmdIZztpBz
+         e47Ti7Z9c6oEx6n9zUxWah9CnipHEWSja4hzSvCeUN4uotTv1GKtszJiF2tH38AkzOmW
+         PhYZeUh2DifimQFpqtdTbYUm3KfNWUlyeiTGn+V1yj0YWtroLSFb6GdU4WqC7O3ZxFx9
+         Yqrg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786360748; x=1786965548;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=LDnTUkrh6OVBnHI+PdScQLYsi9xVJCaX4SXJUY886NQ=;
+        b=K5OP3hw4GgW3rB0HuQ2CJCikYJuNLikkddzuCePcdiTgscp2u/6hR7QN6OAZr+RJcm
+         0mIgGmfDGDulf+i1xR4FzF2IupRtjjt/Jzg6VMzWN/H8qnepxZ7ufN32CnFMc/qRog9l
+         ycyhlCtxdACVMWQ9miwGV7Tc3DCl3L03nJmKDBnOsdYj+WADmdNogZXjqLsL+WSrG+oi
+         1DesY9EVURxhhYqKpel6LHWahDLIAoPo079Z41jlzD6W+vMV2joanLxpRY3FE4cJ7K4L
+         y6imX/LfkhRkvpoc9zQTaoB3979MbJCYeRoha2iW1u5Gv0/UZvHOnRh/nKlc8wGXuDaL
+         SK2A==
+X-Forwarded-Encrypted: i=1; AHgh+RpnlZ6PN/wlQweGK3PQ5TTjUkwOaq+w7/dyegzxz7R9w+F6Ev/vThjJEn55mcYORS297IPlaKCQNTc1pDQpI0kA@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz/Hsuk8t+C9PIqe2q6VJ8d883F/tfeHmO3AmdhxMWUwYeCnwum
+	VyF+GZ7yYY1tkxKGrU99+tCT2REnGGdWt8BI0RgEwfgJFYN4IYyn4MsQ
+X-Gm-Gg: AR+sD11sbA3p8ZOJPJ6Ts+8EGW+lmGytEH85O8YYiHyyMRzbwfCKx5lRsoOOtniSeeQ
+	QFvONfQEk8YK0LXWhhkN5RMe+P8UWwgz/MXbsOeWnDCQqFKiO7DymfFkJHN4NlZnplRanj+xJlr
+	hzmROu7sQ3cX50JGjSPJW9mA5Fr7UdlX/FcFX7MJFxI2YCCVL8jD5Rod3ydi4itS+67CDIgj9wn
+	5OFvtzpaVMOeMmJyDZPDLzNCvU01pT1p7SgGJMELhjJJP68mW9S4L9E+epDYTk66rrK3LzfYlV6
+	XAISo9Q5huc1iaQacfeq5kwxkYMJ+aTnVcA+mHz9PimMzP/zArmERKbJ6MHs9kCwxBAFmbk6WYv
+	ta23XHMtBSfalDjXAasCM/abEjoGE1imqUq8otHAdGga/AvcyD9tpLD7iAwm99Y2KdNJ5rnU7Lx
+	Muh5y0fh8VEIQk7HCbtjZhFUQMeuif1h6D5UTP8rmnqtCAg/OwEL2aYOqs4WJGys2rC54zLM8XB
+	W5N36RLNVnicT6lZ9t7o7G4OFSn8pi0UpWTqWkIh7UHBT14yN9BJQJav6PNeC5X/VJdSLTYKpTW
+	Co/U
+X-Received: by 2002:a17:90a:e705:b0:381:9028:5945 with SMTP id 98e67ed59e1d1-392cca1f44dmr579534a91.14.1786360748511;
+        Mon, 10 Aug 2026 04:19:08 -0700 (PDT)
+Received: from phuc-desktop.. ([183.91.15.56])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39085c393d5sm14798046a91.0.2026.08.10.04.19.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 10 Aug 2026 04:19:08 -0700 (PDT)
+From: phucduc.bui@gmail.com
+To: Markus Mayer <mmayer@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	rafael@kernel.org,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Zhang Rui <rui.zhang@intel.com>,
+	Lukasz Luba <lukasz.luba@arm.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	niklas.soderlund@ragnatech.se,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>
+Cc: linux-pm@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	bui duc phuc <phucduc.bui@gmail.com>
+Subject: [PATCH v2 1/2] thermal/drivers/rcar_gen3: Handle -ENXIO from optional IRQ lookup
+Date: Mon, 10 Aug 2026 18:18:40 +0700
+Message-ID: <20260810111841.77898-1-phucduc.bui@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260810-mustard-sloth-of-enterprise-84b68d@quoll>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_041406_421004_F86AE964 
-X-CRM114-Status: GOOD (  33.05  )
+X-CRM114-CacheID: sfid-20260810_041909_765564_053E3E54 
+X-CRM114-Status: GOOD (  14.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,75 +109,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 10, 2026 at 09:19:35AM +0200, Krzysztof Kozlowski wrote:
-> On Wed, Aug 05, 2026 at 02:52:44PM +0200, Gregor Herburger wrote:
-> > Hi Stefan,
-> > On Wed, Aug 05, 2026 at 01:55:50PM +0200, Stefan Wahren wrote:
-> > > Hi Gregor,
-> > > 
-> > > drop Eric and add Peter.
-> > > 
-> > > Am 05.08.26 um 09:27 schrieb Gregor Herburger:
-> > > > On Tue, Aug 04, 2026 at 04:57:09PM +0200, Stefan Wahren wrote:
-> > > > > Hi Gregor,
-> > > > > 
-> > > > > sorry for my late reply.
-> > > > > 
-> > > > > Am 04.08.26 um 15:13 schrieb Gregor Herburger:
-> > > > > > The bcm2712 found on the Raspberry Pi 5 is available in the d Stepping
-> > > > > > and in a c Stepping. There are two separate dts files. The
-> > > > > > bcm2712-rpi-5-b.dts for the c Stepping and the bcm2712-d-rpi-5-b.dts for
-> > > > > > the d Stepping. The d stepping does not set its own compatible/model
-> > > > > > string but uses "raspberrypi,5-model-b".
-> > > > > In case the SoC and not the board has a D stepping, why do just change the
-> > > > > board compatible without the SoC compatible like "brcm,bcm2712-d0"?
-> > > > You mean changing both compatible strings? Like this:
-> > > > 	compatible = "raspberrypi,5-model-b-d0", "brcm,bcm2712-d0";
-> > > I just want to mention that your explanation doesn't match to your changes.
-> > > The first compatible represent the whole board (RPi 5) and the second one
-> > > represent only the SoC (BCM2712). Since the SoC is different according your
-> > > explanation, i would expect the SoC compatible needs to be changed. And in
-> > > case the SoC changes, also the board won't be compatible anymore, correct?
-> > Yes the SoC differs in these two versions and the board is maybe the same (but
-> 
-> Different SoC means different SoC-compatible. If the soc is soldered to
-> the board, then it also means board is different. Otherwise how can it
-> be the same board if it comes with different elements?
-That makes perfect sense. Thanks for the explanation. I will add a board
-compatible and a SoC compatible.
-> 
-> Of course boards can share schematics and everything except some
-> component so you could have common compatible.
-> 
-> 1. Rpi 5b d0
-> 2. Rpi 5b
-> 3. bcm2712-d0
-> 
+From: bui duc phuc <phucduc.bui@gmail.com>
 
-But I don't think that should be done here. As you explained in the previous
-iteration [0] we shouldn't add a non-compatible fallback.
+rcar_gen3_thermal_request_irqs() may return -ENXIO when no optional
+IRQ is available. The caller currently treats all negative return values
+the same way, disabling hardware trip-point support and continuing probe.
 
-> > not compatible). Compatible strings should go from most specific to most general
-> > [0]. If we would have the same first string for both steppings it wouldn't be
-> > distinguishable. So at least the first string must be unique.
-> > 
-> > E.g systemd-boot only matches the first compatible string [1].
-> 
-> 
-> If systemd-boot is not following established for 10 years DT practices
-> that systemd-boot's fault, not something to be fixed in DT.
+Distinguish -ENXIO from other errors so that the existing behavior is
+preserved when the optional IRQ is absent, while errors such as
+-EPROBE_DEFER, -EINVAL, and other failures are propagated to the
+caller.
 
-I don't think systemd-boot isn't following these practices. I just wanted to
-explain what was the problem for me, and why I wanted to solve it.
-> 
-> But anyway I did not hear anyone adding/using wrong or fake compatibles
-> to satisfy systemd-boot for other hardware.
-> 
-> Best regards,
-> Krzysztof
-> 
-Best regards,
-Gregor
+Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
+---
 
-[0] https://lore.kernel.org/all/20260804-unbeatable-fluffy-galago-bfe282@quoll/
+Link v1 : 
+https://lore.kernel.org/all/20260807093058.42840-1-phucduc.bui@gmail.com/
+Changes in v2: 
+ - Update the commit message.
+ - Move error handling to the caller.
+
+ drivers/thermal/renesas/rcar_gen3_thermal.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/thermal/renesas/rcar_gen3_thermal.c b/drivers/thermal/renesas/rcar_gen3_thermal.c
+index 94804816e9e1..04a57ff724f4 100644
+--- a/drivers/thermal/renesas/rcar_gen3_thermal.c
++++ b/drivers/thermal/renesas/rcar_gen3_thermal.c
+@@ -527,8 +527,11 @@ static int rcar_gen3_thermal_probe(struct platform_device *pdev)
+ 	priv->info = of_device_get_match_data(dev);
+ 	platform_set_drvdata(pdev, priv);
+ 
+-	if (rcar_gen3_thermal_request_irqs(priv, pdev))
++	ret = rcar_gen3_thermal_request_irqs(priv, pdev);
++	if (ret == -ENXIO)
+ 		priv->ops.set_trips = NULL;
++	else if (ret)
++		return ret;
+ 
+ 	pm_runtime_enable(dev);
+ 	pm_runtime_get_sync(dev);
+-- 
+2.43.0
+
 
