@@ -4,97 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE08DC5AD55
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 23:05:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61745C5AD55
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 23:30:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SgRrZ9Syd42HBAGwa14VS7M9xbVwRyd/vuhJqBFFn7w=; b=bJY2CaqFw2AuG89DOnfN+mqLWt
-	ur4td8U+TuCW7MRu/jTvMJBxaAfo5z5kkuQNzdEADvZjD9V8dwHLmbQr61wZTOkIu50un6pUeRXsP
-	MqAKUcVMxDJyxCRgbkiksfV5z+4Rt5p3dxtzCsDkrvpRyF5wXvEiP7Vrbj8IKqbwcCdchxNk5Ime5
-	jMStNcnxE4YkE+UfPKZiuSDe1anItn6hfH6Kl5fodDUj0bRWKLhpaX7sYnxgdz3kpYW5fj0BO5gpO
-	7MGcxBYKxNXuzHhljxRfCYFQUvADjstyLtU7UedK0q+Lqoej8Jfr1vd4NDZaqp9S4gKxpBMBvJP7F
-	rxrGiJHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=+7hEmmS6m6/bDdPV7mlKcb6oV8gt+eTtfDb/u506UOc=; b=Y7W8chZGBOAGNzjzfRXT61gdWv
+	T9l1jrrsegYg83aCb7E/a2emXh7n1uMz/WGQqjz+cVMAjbu8adqB6Xax4FTBhF5Lt7vQ4hNEaNBTK
+	a3wL4M+oVN0e3RzwFTUowAxXy5kA39TJwmVQ0Mq2N42RzIov63ii9F2+k+T0otW/t9rzJFTn0CNSu
+	aieKuuq02Qi4YA7NGIY8QwmAnUj9zaM1MgnsvTf11/vtcWTOVcy151Kmj4Gdma7DXHeTvsokIHbei
+	9gx+ftSaAkA6lJ/jJWLEiSAolPWwghPGBTxEDqJr9uAqmwbYsj2T/LVJnAOl7ZGPE63fMYshx3AMT
+	qYUnJ5ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtZ3N-0000000D0KO-0ybx;
-	Mon, 10 Aug 2026 23:05:09 +0000
-Received: from mail-ot1-x333.google.com ([2607:f8b0:4864:20::333])
+	id 1wtZS9-0000000D2Gm-0aUW;
+	Mon, 10 Aug 2026 23:30:45 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtZ3I-0000000D0GT-3yK6
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 23:05:07 +0000
-Received: by mail-ot1-x333.google.com with SMTP id 46e09a7af769-7e9f1f24cbcso362493a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 16:05:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786403104; x=1787007904; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=SgRrZ9Syd42HBAGwa14VS7M9xbVwRyd/vuhJqBFFn7w=;
-        b=LRRf7l1W5laoGEUGzSjZzeE7sbjufKNKjtp7q7VE3fXyxdfqcWQinGbqdoWS5PCy2d
-         0aBH4rzW3KoS7Rfxy3tWDA45ipzqe/lmTHvKeV2KeHUX1xxqs7TF9wg7acsodSflEPyE
-         XB7b+tz/xNJRFMXd0R2jUdv8Rxczp/uv4Utjun30q6UMXKKclcwNU0hjDFCOidtJ0Rlw
-         3+/9pG2DnGx3wUhNbdkgstVrQ+T6IllDKjNmEFMN7BFsbOHNNHf2kBj5UI9cxkLDNp0I
-         l3ebs02nx63yqpqeFcCjEOO9GO+HonI4QWFKM2FZiIDPqF35TbRfzp79hgndtGtC4sTu
-         4qJA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786403104; x=1787007904;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=SgRrZ9Syd42HBAGwa14VS7M9xbVwRyd/vuhJqBFFn7w=;
-        b=kwa7yVSlgBGTZYRjiRQQyNfqhEmfcNbKiZRutSUDENd7H5jS++raiGMHQa7lLYDqd+
-         q/oWXBv7dWil24Qq0K9Du3lb8DcChD91quU3+QLfYObf8ogZp/kXU1gkMuCSWN8NXVX8
-         +OsueHUF/DZaR/pCnw9eIf8eo+2/0MaOrTAFDZ1fI4JJUsNVeG8fXSJQ4ypMNN3Vv3DY
-         oHg2lq81XTHku/a254nSSfRCYyndunnlGO1HJMwqeJp4mYA/Th//SAkaLhtcMATmMqLF
-         3L7t9jc/Jm6Y85fAJ7+piOHDg6V8CXo/8sgh3VQYUfQi5MTNytmO1QttJSQ9MCj9k2wp
-         +sng==
-X-Forwarded-Encrypted: i=1; AHgh+RryQ6gwETvE2pDIYLnhCPFulEmsxL4VNFSQOfDxgfgzMvqX+ZgPe0TrPulR7IXv147cE6aoCZQXKrkip3JZcBmp@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx1k9k4VDLHFBoEJ/wTVMBv1LgMqmOdyJD1ylEeNkboSuzim0Fe
-	nIW4kGXgK7ulQj5V9c/rq7ku1zQTTdq/VrrAugTdZr2HcLw6rJX5ZF4U
-X-Gm-Gg: AR+sD12C9tl07iyB57Rb1gtto0EZG0Lb8B4P5sY0X9SZ4HNfnwMPHK4ai8cCuM87vwx
-	SS4iP7NC5/yRERr6Fms6Dj04m0jE9EqFqrrPicj0Fn6mI6bC4ecPQmhQjgsej2TpMtc8/XkNVD+
-	gkUEB6iIfGg5CwBGaBTQC0yiYjOqc8OWxFWXmCwYyRLugQWzCgXtoRb/fQC0G5+92kTgu0h0r5e
-	5LB9d6HlnrZ376qn7J2bwFbIlbCy9UVvnKBgGtajtaYlPw0Mmx3Qfu78WcfkBtt3W49eVR2EBKo
-	/3whu87dfS6+/phGvd1BYgscIwTlYrql3sQDnekBfpauugANlsbCkUFvqODRaMKQRtLcJyW8nKZ
-	kB5Jl1lau8VWCSz+xPaVel94zH8v0WakZrbyCSzpMlR9OmoqJ8aBdTYXT5GnpzPTmy6/Zscrd2L
-	QBZwmYICdd8tZtldgaK1SLbD5wv112ZHJh9yjG4zDnbXpZ7oUKZOm8qqTNC5zKoVmZyBJ5xXLf1
-	1uaEbjsJmnXXbTKcA2G2E8iTEnDLUxbQrp9bBKpHBdHXwKl6W9/ILtqJyArQpSK85+Lypp1VB6K
-	NU82bFb5GxBa/FUdC8tqnhgUOvAKwm9bDISrzM2r7vYoOYbzXWVg3AS9VqL1aRuqtWiWYIfdWKB
-	ypG6JNO63CLGahrMWvEeYFEnBrDg=
-X-Received: by 2002:a05:6830:ed2:b0:7e9:f6b7:7752 with SMTP id 46e09a7af769-7f3a12ff443mr383041a34.12.1786403103828;
-        Mon, 10 Aug 2026 16:05:03 -0700 (PDT)
-Received: from [127.0.1.1] (184-96-154-59.hlrn.qwest.net. [184.96.154.59])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7f35b5a7616sm8921584a34.8.2026.08.10.16.05.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Aug 2026 16:05:03 -0700 (PDT)
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Mon, 10 Aug 2026 17:04:50 -0600
-Subject: [PATCH 2/3] mtd: rawnand: sunxi: support randomized OOB formats
+	id 1wtZS7-0000000D2GY-0zWg;
+	Mon, 10 Aug 2026 23:30:43 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id A9A0843586;
+	Mon, 10 Aug 2026 23:30:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52A801F000E9;
+	Mon, 10 Aug 2026 23:30:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786404641;
+	bh=+7hEmmS6m6/bDdPV7mlKcb6oV8gt+eTtfDb/u506UOc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To;
+	b=VCng2b2iAaxGhTPcjiE8WLaFwvWHEnmcem+pvA/e46P2IQMJqbX1xJkcySP6UlV+B
+	 G04Yk0Wv4tIzFB/PwbKipKH/mLJ3HgmvqNIkd4UpzxytzdkOHVNIWF+MdlAgcU0Bu9
+	 7KJm9hp4XX//C77docNO8HF2UyeCr/9PDZmybdZVaUX7Tw2cuvGCsf3S4n1a+jIDzW
+	 kvpCJyLY3I6QIu7PjU3Ai76Yy2CXWYNCPaRz4zZuqKb4IxJFpy/Jun8X1sYp8B3vRM
+	 u3UdFVkgdDTS7BxNVaxzvAxJoPmmOArS1yuzeiJsqXipK6YnPaYIJi2UP/Brene7WW
+	 qQwNX7LvkeyRw==
+Date: Mon, 10 Aug 2026 18:30:40 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Han / =?utf-8?B?7ZWc7IOB7JqwU2FuZ3dvbw==?= <sangwoo.han@nearthlab.com>
+Cc: jim2101024@gmail.com, florian.fainelli@broadcom.com,
+	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+	bhelgaas@google.com, bcm-kernel-feedback-list@broadcom.com,
+	robh@kernel.org, linux-pci@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@kernel.org>
+Subject: Re: [PATCH] PCI: brcmstb: Reserve only the MSI vectors that are
+ handed out
+Message-ID: <20260810233040.GA511779@bhelgaas>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260810-submit-sunxi-nand-vendor-oob-layout-v1-v1-2-463853a14ad9@gmail.com>
-References: <20260810-submit-sunxi-nand-vendor-oob-layout-v1-v1-0-463853a14ad9@gmail.com>
-In-Reply-To: <20260810-submit-sunxi-nand-vendor-oob-layout-v1-v1-0-463853a14ad9@gmail.com>
-To: Miquel Raynal <miquel.raynal@bootlin.com>, 
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>
-Cc: linux-mtd@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- linux-kernel@vger.kernel.org, James Hilliard <james.hilliard1@gmail.com>
-X-Mailer: b4 0.15.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_160504_987681_F36BDDBE 
-X-CRM114-Status: GOOD (  20.47  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260804125057.GA1834533@bhelgaas>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,95 +73,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The controller randomizer covers the bad block marker along with the
-rest of the OOB data. The driver currently compensates the marker bytes
-before writes and after reads so that they remain plain on flash.
+On Tue, Aug 04, 2026 at 07:50:57AM -0500, Bjorn Helgaas wrote:
+> [+cc Marc, author of 4615fbc3788d ("genirq/irqdomain: Don't try to
+> free an interrupt that has no mapping"), Thomas; beginning of thread
+> about multiple MSI vector alloc/free:
+> https://lore.kernel.org/all/20260730072215.2090974-1-sangwoo.han@nearthlab.com]
+> 
+> On Tue, Aug 04, 2026 at 08:31:23PM +0900, Han / 한상우Sangwoo wrote:
+> > > Several other PCI controller drivers have similar code.
+> > 
+> > I agree - eleven of them look like they can have the same problem.
+> > 
+> > > I think we should fix them all at once (or explain why they don't need
+> > > similar fixes).  Might be worth a little helper so they all work the
+> > > same way (e.g., some use order_base_2(), others use get_count_order(),
+> > > which seems like a pointless difference).
+> > 
+> > I am working on a related fix for drivers/irqchip/irq-bcm2712-mip.c,
+> 
+> Similar pattern there, but it uses ilog2(), which differs from
+> order_base_2() and get_count_order() in more cases.
+> 
+> > which I can test here.  I would rather not send changes to drivers I
+> > cannot test, though, so I am leaving the eleven to whoever has the boards.
+> > What I looked at is in the appendix, in case it is useful to them.
+> > 
+> > Two things seem more useful from where I am sitting.
+> > 
+> >  - The failure is silent.  Appendix A describes the symptom, so that
+> >    anyone who hits it later can find this thread.
+> > 
+> >  - The contract is not written down.  It changed in 4615fbc3788d, where
+> >    irq_domain_free_irqs_hierarchy() started freeing one vector at a time.
+> > 
+> > order_base_2() and get_count_order() give the same answer for any
+> > nr_irqs >= 1, so consolidating those two is just cleanup.  Where a shared
+> > helper should live I am not sure either.
+> 
+> I don't know either, but I hate fixing an issue in one place and
+> leaving the same issue unfixed nearby.
 
-Allwinner NAND firmware instead stores the marker through the
-randomizer. Media using that format appears to contain bad blocks unless
-the randomizer is enabled while reading the marker.
+Just to be clear here, I'm going to defer this until we can fix
+everything in drivers/pci at once.  If we can add a fix early in the
+cycle, e.g., soon after -rc1, people with other controllers can help
+test it.
 
-Honor the allwinner,randomized-oob property by unconditionally enabling
-page scrambling and leaving the marker in the randomizer data stream.
-Keep the existing plain marker behavior when the property is absent.
-This changes marker handling on all supported controllers; the H6/H616
-protected user-data placement is handled separately.
+If we only fix one driver, the pattern will continue as people copy
+and paste the bug into new drivers.
 
-Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
----
- drivers/mtd/nand/raw/sunxi_nand.c | 15 +++++++++++++--
- 1 file changed, 13 insertions(+), 2 deletions(-)
+So that's why I haven't pulled the pci/controller/brcmstb branch
+(which contains this patch) into pci/next.
 
-diff --git a/drivers/mtd/nand/raw/sunxi_nand.c b/drivers/mtd/nand/raw/sunxi_nand.c
-index 45ccbce91551..92b26371a6d1 100644
---- a/drivers/mtd/nand/raw/sunxi_nand.c
-+++ b/drivers/mtd/nand/raw/sunxi_nand.c
-@@ -264,6 +264,7 @@ struct sunxi_nfc_timings {
-  * @clk_rate: clk_rate required for this NAND chip
-  * @timing_cfg: TIMING_CFG register value for this NAND chip
-  * @timing_ctl: TIMING_CTL register value for this NAND chip
-+ * @randomized_oob: use the randomized normal-page OOB format
-  * @nsels: number of CS lines required by the NAND chip
-  * @sels: array of CS lines descriptions
-  * @user_data_bytes: array of user data lengths for all ECC steps
-@@ -276,6 +277,7 @@ struct sunxi_nand_chip {
- 	u32 timing_cfg;
- 	u32 timing_ctl;
- 	u8 *user_data_bytes;
-+	bool randomized_oob;
- 	int nsels;
- 	struct sunxi_nand_chip_sel sels[] __counted_by(nsels);
- };
-@@ -945,7 +947,8 @@ static void sunxi_nfc_hw_ecc_get_prot_oob_bytes(struct nand_chip *nand, u8 *oob,
- 	}
- 
- 	/* De-randomize the Bad Block Marker. */
--	if (bbm && (nand->options & NAND_NEED_SCRAMBLING))
-+	if (bbm && (nand->options & NAND_NEED_SCRAMBLING) &&
-+	    !sunxi_nand->randomized_oob)
- 		sunxi_nfc_randomize_bbm(nand, page, oob);
- }
- 
-@@ -1006,7 +1009,8 @@ static void sunxi_nfc_hw_ecc_set_prot_oob_bytes(struct nand_chip *nand,
- 	u8 *user_data = NULL;
- 
- 	/* Randomize the Bad Block Marker. */
--	if (bbm && (nand->options & NAND_NEED_SCRAMBLING)) {
-+	if (bbm && (nand->options & NAND_NEED_SCRAMBLING) &&
-+	    !sunxi_nand->randomized_oob) {
- 		user_data = kmalloc(user_data_sz, GFP_KERNEL);
- 		memcpy(user_data, oob, user_data_sz);
- 		sunxi_nfc_randomize_bbm(nand, page, user_data);
-@@ -2219,6 +2223,7 @@ static int sunxi_nand_hw_ecc_ctrl_init(struct nand_chip *nand,
- 
- static int sunxi_nand_attach_chip(struct nand_chip *nand)
- {
-+	struct sunxi_nand_chip *sunxi_nand = to_sunxi_nand(nand);
- 	const struct nand_ecc_props *requirements =
- 		nanddev_get_ecc_requirements(&nand->base);
- 	struct nand_ecc_ctrl *ecc = &nand->ecc;
-@@ -2228,6 +2233,9 @@ static int sunxi_nand_attach_chip(struct nand_chip *nand)
- 	if (nand->bbt_options & NAND_BBT_USE_FLASH)
- 		nand->bbt_options |= NAND_BBT_NO_OOB;
- 
-+	if (sunxi_nand->randomized_oob)
-+		nand->options |= NAND_NEED_SCRAMBLING;
-+
- 	if (nand->options & NAND_NEED_SCRAMBLING)
- 		nand->options |= NAND_NO_SUBPAGE_WRITE;
- 
-@@ -2457,6 +2465,9 @@ static int sunxi_nand_chip_init(struct device *dev, struct sunxi_nfc *nfc,
- 	if (!sunxi_nand)
- 		return -ENOMEM;
- 
-+	sunxi_nand->randomized_oob =
-+		of_property_read_bool(np, "allwinner,randomized-oob");
-+
- 	sunxi_nand->nsels = nsels;
- 
- 	for (i = 0; i < nsels; i++) {
-
--- 
-2.53.0
-
+> > Appendix A - the symptom
+> > ========================
+> > 
+> > A PCIe device whose driver is unbound and rebound a few times, or whose
+> > module is reloaded, ends up with fewer MSI vectors than it asked for.  It
+> > does not recover until reboot.
+> > 
+> > Two things have to be true for it to happen: the device uses multi-MSI,
+> > and the vector count it asks for is not a power of two.  Devices that ask
+> > for a power of two are unaffected, and so is anything on MSI-X.
+> > 
+> > I have only seen the reduced-vector case.  A driver that insists on the
+> > full count would fail to probe instead, but I have not seen that happen.
+> > 
+> > 
+> > Appendix B - how I sorted the drivers
+> > =====================================
+> > 
+> > I went through drivers/pci/controller/ while working out what my own fix
+> > had to do, so this is that rather than a full audit.  Twenty of the
+> > drivers own an MSI hwirq pool.  I asked three things about each:
+> > 
+> >  - does .alloc reserve a rounded-up block, or a single slot
+> >  - does the core hand .free one vector at a time
+> >  - can nr_irqs > 1 reach the driver at all
+> > 
+> > Eleven answer yes to all three:
+> > 
+> >   dwc/pcie-designware-host.c   pci-aardvark.c        pcie-apple.c
+> >   pcie-aspeed.c                pcie-iproc-msi.c      pcie-mediatek-gen3.c
+> >   pcie-rcar-host.c             pcie-rzg3s-host.c     pcie-xilinx-dma-pl.c
+> >   pcie-xilinx-nwl.c            pci-hyperv.c
+> > 
+> > The other nine:
+> > 
+> >  - five reserve a single slot, so nothing rounds up:
+> >    mobiveil/pcie-mobiveil-host.c, pci-xgene-msi.c, pcie-altera-msi.c,
+> >    pcie-mediatek.c, plda/pcie-plda-host.c
+> > 
+> >  - vmd.c keeps a per-vector refcount instead of a bitmap
+> > 
+> >  - pci-tegra.c and pcie-xilinx.c reserve a rounded-up block, but neither
+> >    lists MSI_FLAG_MULTI_PCI_MSI in msi_parent_ops.supported_flags
+> > 
+> >  - pcie-brcmstb.c is the one you applied
 
