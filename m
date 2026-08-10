@@ -4,119 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B917DC5AD4E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 08:58:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB711C5AC82
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 09:00:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5x1S+R49QzSM/GlwjdF+5kxxI3HBqHCTqF+/XifmD/o=; b=kn9tRd5iHPYGHWuwsVFBG6ciuz
-	JJjpduDAvVSj3qYzu61ob6mPW0imXiT8X65zkvsKjgP8PM40fqNufID5w6oHTQmptVuMWnmVaaBbg
-	IZHqQGqmKG5iAoNaxq68SuVkd2nIecW3Pm9VejBI3B4v/Xa3DqSMUu799/PI04Tlr86M53IOvtUA7
-	GI9J5MNz3VR5o4j8q8QCSfyGZUe3pgj4BSZ/w7FK9iOLC2/7ZKjUozzm3ovkAej5JT9TocbQIEHAn
-	1LbOrRUzcxi9kS9/IycIOoSEvqetaB6SJbEwIoZAkuRTS9u68nt3GTqhBHkjbeDa8HEh9H2KI4DiW
-	J/dR0jfg==;
+	bh=gLM+88DQ2i/J3Bwb9j42ezWkrXDRCi3DdZoAC9BW6t4=; b=Ug9IuZ/5gOGNQ+ucAeK2bH/Uij
+	s+Rv9SYNokWeHVu483b8JIpLo5qBqZBd7Kp6BbqeFkvvFqDx0KxyzKlg+XePUd0ng+bBUksDebjHg
+	UP5P/jNiEsW73qZtSzZEW7CY89WV3o/N9TAfpGaplt1Fs7M0GgdjNIGTahdspZeNqCwJZ4OwQtPwo
+	pwH7Z+68cPzFRXOIaJM2EB4Gyn6B9OcMRVSMIZ3tmi+nglcQ8uumAXRzLTt0W1eLSKSAIChQyck7j
+	Lj3KqChQdPXEBzRRSsebmqFtGv9lS8HFzn43rXIyZ6/+NVnhNXsmB2uBqJYxjIGR+FYMjiaxamhij
+	GBBlx6gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtLpj-0000000BLm2-0Hsy;
-	Mon, 10 Aug 2026 08:58:11 +0000
-Received: from mail-westeuropeazon11011046.outbound.protection.outlook.com ([52.101.70.46] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1wtLs4-0000000BM2X-2Aqm;
+	Mon, 10 Aug 2026 09:00:36 +0000
+Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtLpg-0000000BLkv-3LkU
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 08:58:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FI6sYEOx15EtYvfqVaZ20KxZNd0gNQ01lBMJ8TTvaUVi3jK/8YilGUXkEvrPFcFAVemhobCuD11JVEs0uDEaMlk2ymxzyHAhjaKLMvgZUdVH3nin8yjvOgZzZKan4qnu3cdeWtd57fYQUz1MA5OpN/w9/5EVlgg5JHAEfwv8oueN/JpBqXE3Ekj9CrcwjDIoC4GtxjS8rPtSmLYS0hJF6eaR670t4DIkj3HQgcQZao2gG7zu04B4QcZE4uMKpmfNXMnlynOYGooHtBFMVsDt7oQ91jx764chqxYEETlPAWQbPcEQxl7eYurI8C0uRkRZbEYVztmGLpREsoF3cmnHhQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5x1S+R49QzSM/GlwjdF+5kxxI3HBqHCTqF+/XifmD/o=;
- b=aoIrVO6UrQJ+ufZCcOY+v1r8lNspVYKl+Ut8BrGAVwUL23sc+gS0qgfHhDD+fLZuZWMClJHyRIumIfvjAnkEl8GghDVOYSuEA58L4iUWdVdQNw1h0t5Q8wDWl145sXI5DVG953lSdLplT6cnBsgg2eMS1370DwJ6insTyQ9i2G/3mz12OYRfeflnwTq6WeGIuBi7sCwggZkLsVQ68fz7HvICsjaH+KZAeBYns2haCDRQpoX9EymW6PqsNxLONLXVqRc61mG12xM8JLyPqyyD8v02Julw18Zk2F94I11b9pFFgLXd1q+08bZmnRFJYEICRTuZ1bCFG3yjGUxzQPvbRA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5x1S+R49QzSM/GlwjdF+5kxxI3HBqHCTqF+/XifmD/o=;
- b=kc1xjYMJ1mT5+MkWc70FxrvG7WbiUlqsqsc3DJo0EX5Jx5zoLfUaok5Lg+1dEpP8nWBYUPvwf7XK8cY5xOJmY1WERLdsRXlRzWK353rsQOh6tO/AYj+wCEROo3mWn3FZb+OvJHjuCa1tW/rtkIsHoZYjXC/sdMIBUDzz+mhgtEoTEZGGWUoUvmnUIICW/dt5E7E5/CFxr43dINK7USa2TUYMhYS6m8ATURCXMsc6PJnigJLoK1dNFzL7Q8vwJohh5j/jrfRneLPcXIIm5BkmNApAZ3NTn50vsvWf2W4HQUlw7VJB5MjAzhJ4RAVNn01oSVh83aTC9m2Oj7uKERd8Ww==
-Received: from DUZPR01CA0215.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:4b4::9) by GVXPR10MB8438.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:150:1da::15) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.25; Mon, 10 Aug
- 2026 08:58:01 +0000
-Received: from DB1PEPF000509E8.eurprd03.prod.outlook.com
- (2603:10a6:10:4b4:cafe::8b) by DUZPR01CA0215.outlook.office365.com
- (2603:10a6:10:4b4::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.292.25 via Frontend Transport; Mon,
- 10 Aug 2026 08:58:01 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- DB1PEPF000509E8.mail.protection.outlook.com (10.167.242.58) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.292.8 via Frontend Transport; Mon, 10 Aug 2026 08:58:01 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Mon, 10 Aug
- 2026 11:03:29 +0200
-Received: from [10.48.86.79] (10.48.86.79) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Mon, 10 Aug
- 2026 10:57:59 +0200
-Message-ID: <d98136de-5d37-46f1-9b4a-2e9e9ba1361a@foss.st.com>
-Date: Mon, 10 Aug 2026 10:57:59 +0200
+	id 1wtLs2-0000000BM1y-0gDa;
+	Mon, 10 Aug 2026 09:00:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1786352435; x=1817888435;
+  h=from:to:cc:subject:in-reply-to:references:date:
+   message-id:mime-version:content-transfer-encoding;
+  bh=aBla1GdjrZzE2U81Np1weJRn78Yirl09PISBrS8Wfjk=;
+  b=BiwnG/0KGahCm8BPxHm+C1Zqlb658fhtp9/nk3XeiopgeYFnfLQmMwKi
+   urut6Q6QZMgW42NKtP2PW3v9xc6IpajqFjMZLj/Pjibhi1pXBSHOuyhw9
+   B7IZorjsZKQ8nE1OuRxHf7Q44IrahiWx2qJoAc8/W5vcs6PA2whwsfTcu
+   9yJaOAeIfIxAOlh4Mxe8Uw40hOakJX1Yw3wNSYNJRBiH7p1IVkLdM5DMM
+   8g9vv7HoQGa5evVJOrVq45hA7UsuMa1hDvk4roYfXCRZxrhuvL/gk86Xl
+   DfqX6uy0Gdx7ai38EYpNdKBO/tX53HlftvowehYKhIOS3tvDbLaZyoeVW
+   A==;
+X-CSE-ConnectionGUID: KW+NVEd7SOSG9HR4MDNTHQ==
+X-CSE-MsgGUID: Z8TL9CybQ+CHZPYupGW6SA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11870"; a="98011377"
+X-IronPort-AV: E=Sophos;i="6.25,215,1779174000"; 
+   d="scan'208";a="98011377"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Aug 2026 02:00:33 -0700
+X-CSE-ConnectionGUID: 1eooUKPrQXSqNF6iyA5v6Q==
+X-CSE-MsgGUID: Ot0FgtJ9SUanv3Sz08oEaw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,215,1779174000"; 
+   d="scan'208";a="259125323"
+Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.244.103])
+  by fmviesa010-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Aug 2026 02:00:22 -0700
+From: Jani Nikula <jani.nikula@linux.intel.com>
+To: Igor Paunovic <royalnet026@gmail.com>, dri-devel@lists.freedesktop.org
+Cc: intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Sebastian Reichel
+ <sebastian.reichel@collabora.com>, Cristian Ciocaltea
+ <cristian.ciocaltea@collabora.com>, Andrzej Hajda
+ <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Robert Foss <rfoss@kernel.org>, Laurent Pinchart
+ <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli
+ <luca.ceresoli@bootlin.com>, Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Dmitry Baryshkov
+ <dmitry.baryshkov@oss.qualcomm.com>, Sandy Huang <hjc@rock-chips.com>,
+ Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan
+ <andy.yan@rock-chips.com>,
+ Rodrigo Vivi <rodrigo.vivi@intel.com>, Ville =?utf-8?B?U3lyasOkbMOk?=
+ <ville.syrjala@linux.intel.com>, Imre Deak <imre.deak@intel.com>, Ankit
+ Nautiyal <ankit.k.nautiyal@intel.com>, Igor Paunovic
+ <royalnet026@gmail.com>
+Subject: Re: [PATCH 1/5] drm/dp: Add drm_dp_hdr_metadata_infoframe_sdp_pack()
+In-Reply-To: <20260808095749.9428-2-royalnet026@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park,
+ 6 krs Bertel Jungin Aukio 5, 02600 Espoo, Finland
+References: <20260808095749.9428-1-royalnet026@gmail.com>
+ <20260808095749.9428-2-royalnet026@gmail.com>
+Date: Mon, 10 Aug 2026 12:00:20 +0300
+Message-ID: <d128b937ee3ca1987d2bd543f92cbabab84ea440@intel.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/6] ARM: dts: stm32: enabling of SPI DMA/MDMA chaining on
- stm32mp13/mp15
-To: Alain Volmat <alain.volmat@foss.st.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>
-CC: <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<clegoffic@baylibre.com>, =?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?=
-	<clement.legoffic@foss.st.com>, Valentin Caron <valentin.caron@foss.st.com>
-References: <20260722-spi_arm_stm32_dt-v1-0-6ef611523232@foss.st.com>
-Content-Language: en-US
-From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
-In-Reply-To: <20260722-spi_arm_stm32_dt-v1-0-6ef611523232@foss.st.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.48.86.79]
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB1PEPF000509E8:EE_|GVXPR10MB8438:EE_
-X-MS-Office365-Filtering-Correlation-Id: d3e7c220-3ecb-4315-7d02-08def6bd7b79
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|1800799024|376014|23010399003|10067099003|11063799006|56012099006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: SgAJ1tMBrOI0dJAp5VYvV+a9vJcdFMIFJsg9nHdYeedcTnVKJh7WIbT48lZJun4pEyr/P0le4c6tyJw/mTYsh6tCXYMIKRjEymhWbNy6HZTjuf5idp+3I3UjjxpbLeD2qisT3X84yE3eL/cSsVWUIrT8aeX4+XJA21F90mDspuzvWVeUzTWPMsdaxzPW9Rt3VAAbqmkK7rOSLxxgnA0rEAuUCrEuzBvIUODBbenX7lsjwQIvQT6eB8aRJXwQx9jBGk48B4acRWHI9hlHvPJU+UqT1Gopf9+8/8qRfj+Jdvj3PQuR0PAz9xedt0LNrU0opTA05fV3ata6XsgmHeQzlXo/7fN8HDVTgmwzHS5Ui3C4TR/waG+ej2PafrteST/ZHwec/VneFr2O9OIfXNpTTn9H8qGk6ecAzJ2jDqyDRuqZyV3GGW83ZP+dg73X+0ChBZsfnzS2z/9peXxHFtw7vT/RHgJhREy9K2SlRlP6J8F2KztQpKZ8LkJW+lJrY/dixzLd/kOqWa2OL3L62oWjpNaiXGcAGT9t/sAnntzIFrPVGsQQEErQwbosk7fEmp6U074rah/RvNRDb825fxcV94oKzMwGCcBwKjS3OsAOAJDwuOVhpruQaR5MmsiIeFKBM8OKXM1CseI+YCpZXaEbjkQocCkAPtUOiTqdvP5pcJIBZXNAnwpFcL/Kxv30LxkwxjhZhG+VPj0Bq2NGWElcHw==
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(1800799024)(376014)(23010399003)(10067099003)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: JiEWFB7vTu8ef2v9kAIZv1T/hzI3Gb4ypJpZjdjn8AARdYenqk3emLCXAiwWnWMMVHJPxR476Oo60ZgGignSIkww2k5E6DLAnduF5msfk0CjBZoFPzl0jaOh22XKZnY7e0qrUrdPj0pFDJVJGKJWDyLluWEHVgm+/eZOX0GUiM2jv+Ru/o7Jj7iY8cyEyeH4IqHTI4GH5a2DbKVYD42zMQa2rKfLYH3tSGJPL8whe/VxxqgrYHn4DAlSp1I1c8xZnUD2LjQwYriaW7Tea9D0gXB/LLO5VX8+MAZen0BVbGYWloLPiWyqLHEi4AcTwYMrnuV8HMBLRF3vecscr2jaDwILVbOByOPSaHUre+mbGGoFWVixxgKbPrPxizA+Aj+LW6aQb0uL/nnj4REJCRVQJAyMdzL+pAUVy40guL1A/ANYUzZItQdXYIwd4J9DsvTE
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Aug 2026 08:58:01.2839
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: d3e7c220-3ecb-4315-7d02-08def6bd7b79
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509E8.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR10MB8438
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_015808_845249_04686B1B 
-X-CRM114-Status: GOOD (  10.50  )
+X-CRM114-CacheID: sfid-20260810_020034_302613_309BB198 
+X-CRM114-Status: GOOD (  26.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,43 +103,281 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi alain
+On Sat, 08 Aug 2026, Igor Paunovic <royalnet026@gmail.com> wrote:
+> i915 packs HDR static metadata into an HDR Metadata InfoFrame SDP
+> (DP 1.4a spec, Table 2-100 and Table 2-101) with a driver-private
+> helper, intel_dp_hdr_metadata_infoframe_sdp_pack(). Nothing in it is
+> i915 specific: it converts a generic struct hdmi_drm_infoframe into a
+> generic struct dp_sdp.
+>
+> Move it to drm_dp_helper.c as drm_dp_hdr_metadata_infoframe_sdp_pack(),
+> next to drm_dp_vsc_sdp_pack(), and convert i915 to the new helper. The
+> Synopsys DesignWare DisplayPort bridge driver (dw-dp) needs to send the
+> same SDP to support HDR and should not have to duplicate the packing
+> code.
+>
+> The helper takes a struct drm_device pointer in place of the i915
+> display pointer for its two debug messages, and an i915-specific
+> comment about GEN11+ GMP register sizes is dropped. No functional
+> change.
+>
+> Signed-off-by: Igor Paunovic <royalnet026@gmail.com>
 
-On 7/22/26 11:16, Alain Volmat wrote:
-> This series provides updates in the stm32mp15xx and stm32mp13xx
-> device-tree nodes in order to enable the STM32 SPI DMA/MDMA chaining.
-> 
-> Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
+'git show --color-moved' says it's fine. ;)
+
+Acked-by: Jani Nikula <jani.nikula@intel.com>
+
+for merging via drm-misc.
+
 > ---
-> Alain Volmat (2):
->        ARM: dts: stm32: Use DMA FIFO mode for all spi in stm32mp151
->        ARM: dts: stm32: Add disabled spi4 and spi5 in stm32mp15xx-dkx
-> 
-> Clément Le Goffic (3):
->        ARM: dts: stm32: add sram[123] nodes on stm32mp131
->        ARM: dts: stm32: add sram pool to spi4 for DMA-MDMA chaining on MP15 DK
->        ARM: dts: stm32: add sram pool to spi5 for DMA-MDMA chaining on MP13 DK
-> 
-> Valentin Caron (1):
->        ARM: dts: stm32: add pins for spi4 and spi5 in stm32mp15-pinctrl
-> 
->   arch/arm/boot/dts/st/stm32mp131.dtsi        | 24 ++++++++++++++++++++
->   arch/arm/boot/dts/st/stm32mp135f-dk.dts     | 12 ++++++++++
->   arch/arm/boot/dts/st/stm32mp15-pinctrl.dtsi | 34 +++++++++++++++++++++++++++++
->   arch/arm/boot/dts/st/stm32mp151.dtsi        | 20 ++++++++---------
->   arch/arm/boot/dts/st/stm32mp15xx-dkx.dtsi   | 26 ++++++++++++++++++++++
->   5 files changed, 106 insertions(+), 10 deletions(-)
-> ---
-> base-commit: fba4a31a7f3b6b29b01c83180f83e7ed4c398738
-> change-id: 20260721-spi_arm_stm32_dt-c650d8a3d462
-> 
-> Best regards,
-> --
-> Alain Volmat <alain.volmat@foss.st.com>
-> 
+>  drivers/gpu/drm/display/drm_dp_helper.c | 88 +++++++++++++++++++++++++
+>  drivers/gpu/drm/i915/display/intel_dp.c | 84 +----------------------
+>  include/drm/display/drm_dp_helper.h     |  4 ++
+>  3 files changed, 95 insertions(+), 81 deletions(-)
+>
+> diff --git a/drivers/gpu/drm/display/drm_dp_helper.c b/drivers/gpu/drm/di=
+splay/drm_dp_helper.c
+> index 9c31e14cc413..7b3b079403c4 100644
+> --- a/drivers/gpu/drm/display/drm_dp_helper.c
+> +++ b/drivers/gpu/drm/display/drm_dp_helper.c
+> @@ -25,6 +25,7 @@
+>  #include <linux/dynamic_debug.h>
+>  #include <linux/errno.h>
+>  #include <linux/export.h>
+> +#include <linux/hdmi.h>
+>  #include <linux/i2c.h>
+>  #include <linux/init.h>
+>  #include <linux/iopoll.h>
+> @@ -3672,6 +3673,93 @@ ssize_t drm_dp_vsc_sdp_pack(const struct drm_dp_vs=
+c_sdp *vsc,
+>  }
+>  EXPORT_SYMBOL(drm_dp_vsc_sdp_pack);
+>=20=20
+> +/**
+> + * drm_dp_hdr_metadata_infoframe_sdp_pack() - pack HDR Metadata InfoFram=
+e SDP
+> + * @dev: DRM device
+> + * @drm_infoframe: HDMI DRM infoframe carrying the HDR static metadata
+> + * @sdp: valid handle to the generic dp_sdp which will be packed
+> + * @size: valid size of the passed sdp handle
+> + *
+> + * Pack a CTA-861 Dynamic Range and Mastering infoframe into an HDR
+> + * Metadata InfoFrame SDP, as defined in DP 1.4a spec, Table 2-100 and
+> + * Table 2-101.
+> + *
+> + * Returns: length of sdp on success and error code on failure
+> + */
+> +ssize_t drm_dp_hdr_metadata_infoframe_sdp_pack(struct drm_device *dev,
+> +					       const struct hdmi_drm_infoframe *drm_infoframe,
+> +					       struct dp_sdp *sdp,
+> +					       size_t size)
+> +{
+> +	size_t length =3D sizeof(struct dp_sdp);
+> +	const int infoframe_size =3D HDMI_INFOFRAME_HEADER_SIZE + HDMI_DRM_INFO=
+FRAME_SIZE;
+> +	unsigned char buf[HDMI_INFOFRAME_HEADER_SIZE + HDMI_DRM_INFOFRAME_SIZE];
+> +	ssize_t len;
+> +
+> +	if (size < length)
+> +		return -ENOSPC;
+> +
+> +	memset(sdp, 0, size);
+> +
+> +	len =3D hdmi_drm_infoframe_pack_only(drm_infoframe, buf, sizeof(buf));
+> +	if (len < 0) {
+> +		drm_dbg_kms(dev,
+> +			    "buffer size is smaller than hdr metadata infoframe\n");
+> +		return -ENOSPC;
+> +	}
+> +
+> +	if (len !=3D infoframe_size) {
+> +		drm_dbg_kms(dev, "wrong static hdr metadata size\n");
+> +		return -ENOSPC;
+> +	}
+> +
+> +	/*
+> +	 * Set up the infoframe sdp packet for HDR static metadata.
+> +	 * Prepare VSC Header for SU as per DP 1.4a spec,
+> +	 * Table 2-100 and Table 2-101
+> +	 */
+> +
+> +	/* Secondary-Data Packet ID, 00h for non-Audio INFOFRAME */
+> +	sdp->sdp_header.HB0 =3D 0;
+> +	/*
+> +	 * Packet Type 80h + Non-audio INFOFRAME Type value
+> +	 * HDMI_INFOFRAME_TYPE_DRM: 0x87
+> +	 * - 80h + Non-audio INFOFRAME Type value
+> +	 * - InfoFrame Type: 0x07
+> +	 *    [CTA-861-G Table-42 Dynamic Range and Mastering InfoFrame]
+> +	 */
+> +	sdp->sdp_header.HB1 =3D drm_infoframe->type;
+> +	/*
+> +	 * Least Significant Eight Bits of (Data Byte Count =E2=80=93 1)
+> +	 * infoframe_size - 1
+> +	 */
+> +	sdp->sdp_header.HB2 =3D 0x1D;
+> +	/* INFOFRAME SDP Version Number */
+> +	sdp->sdp_header.HB3 =3D (0x13 << 2);
+> +	/* CTA Header Byte 2 (INFOFRAME Version Number) */
+> +	sdp->db[0] =3D drm_infoframe->version;
+> +	/* CTA Header Byte 3 (Length of INFOFRAME): HDMI_DRM_INFOFRAME_SIZE */
+> +	sdp->db[1] =3D drm_infoframe->length;
+> +	/*
+> +	 * Copy HDMI_DRM_INFOFRAME_SIZE size from a buffer after
+> +	 * HDMI_INFOFRAME_HEADER_SIZE
+> +	 */
+> +	BUILD_BUG_ON(sizeof(sdp->db) < HDMI_DRM_INFOFRAME_SIZE + 2);
+> +	memcpy(&sdp->db[2], &buf[HDMI_INFOFRAME_HEADER_SIZE],
+> +	       HDMI_DRM_INFOFRAME_SIZE);
+> +
+> +	/*
+> +	 * Size of DP infoframe sdp packet for HDR static metadata consists of
+> +	 * - DP SDP Header(struct dp_sdp_header): 4 bytes
+> +	 * - Two Data Blocks: 2 bytes
+> +	 *    CTA Header Byte2 (INFOFRAME Version Number)
+> +	 *    CTA Header Byte3 (Length of INFOFRAME)
+> +	 * - HDMI_DRM_INFOFRAME_SIZE: 26 bytes
+> +	 */
+> +	return sizeof(struct dp_sdp_header) + 2 + HDMI_DRM_INFOFRAME_SIZE;
+> +}
+> +EXPORT_SYMBOL(drm_dp_hdr_metadata_infoframe_sdp_pack);
+> +
+>  /**
+>   * drm_dp_get_pcon_max_frl_bw() - maximum frl supported by PCON
+>   * @dpcd: DisplayPort configuration data
+> diff --git a/drivers/gpu/drm/i915/display/intel_dp.c b/drivers/gpu/drm/i9=
+15/display/intel_dp.c
+> index 6e3fa6662cbe..093a3b7961f7 100644
+> --- a/drivers/gpu/drm/i915/display/intel_dp.c
+> +++ b/drivers/gpu/drm/i915/display/intel_dp.c
+> @@ -5157,84 +5157,6 @@ static ssize_t intel_dp_as_sdp_pack(const struct d=
+rm_dp_as_sdp *as_sdp,
+>  	return length;
+>  }
+>=20=20
+> -static ssize_t
+> -intel_dp_hdr_metadata_infoframe_sdp_pack(struct intel_display *display,
+> -					 const struct hdmi_drm_infoframe *drm_infoframe,
+> -					 struct dp_sdp *sdp,
+> -					 size_t size)
+> -{
+> -	size_t length =3D sizeof(struct dp_sdp);
+> -	const int infoframe_size =3D HDMI_INFOFRAME_HEADER_SIZE + HDMI_DRM_INFO=
+FRAME_SIZE;
+> -	unsigned char buf[HDMI_INFOFRAME_HEADER_SIZE + HDMI_DRM_INFOFRAME_SIZE];
+> -	ssize_t len;
+> -
+> -	if (size < length)
+> -		return -ENOSPC;
+> -
+> -	memset(sdp, 0, size);
+> -
+> -	len =3D hdmi_drm_infoframe_pack_only(drm_infoframe, buf, sizeof(buf));
+> -	if (len < 0) {
+> -		drm_dbg_kms(display->drm,
+> -			    "buffer size is smaller than hdr metadata infoframe\n");
+> -		return -ENOSPC;
+> -	}
+> -
+> -	if (len !=3D infoframe_size) {
+> -		drm_dbg_kms(display->drm, "wrong static hdr metadata size\n");
+> -		return -ENOSPC;
+> -	}
+> -
+> -	/*
+> -	 * Set up the infoframe sdp packet for HDR static metadata.
+> -	 * Prepare VSC Header for SU as per DP 1.4a spec,
+> -	 * Table 2-100 and Table 2-101
+> -	 */
+> -
+> -	/* Secondary-Data Packet ID, 00h for non-Audio INFOFRAME */
+> -	sdp->sdp_header.HB0 =3D 0;
+> -	/*
+> -	 * Packet Type 80h + Non-audio INFOFRAME Type value
+> -	 * HDMI_INFOFRAME_TYPE_DRM: 0x87
+> -	 * - 80h + Non-audio INFOFRAME Type value
+> -	 * - InfoFrame Type: 0x07
+> -	 *    [CTA-861-G Table-42 Dynamic Range and Mastering InfoFrame]
+> -	 */
+> -	sdp->sdp_header.HB1 =3D drm_infoframe->type;
+> -	/*
+> -	 * Least Significant Eight Bits of (Data Byte Count =E2=80=93 1)
+> -	 * infoframe_size - 1
+> -	 */
+> -	sdp->sdp_header.HB2 =3D 0x1D;
+> -	/* INFOFRAME SDP Version Number */
+> -	sdp->sdp_header.HB3 =3D (0x13 << 2);
+> -	/* CTA Header Byte 2 (INFOFRAME Version Number) */
+> -	sdp->db[0] =3D drm_infoframe->version;
+> -	/* CTA Header Byte 3 (Length of INFOFRAME): HDMI_DRM_INFOFRAME_SIZE */
+> -	sdp->db[1] =3D drm_infoframe->length;
+> -	/*
+> -	 * Copy HDMI_DRM_INFOFRAME_SIZE size from a buffer after
+> -	 * HDMI_INFOFRAME_HEADER_SIZE
+> -	 */
+> -	BUILD_BUG_ON(sizeof(sdp->db) < HDMI_DRM_INFOFRAME_SIZE + 2);
+> -	memcpy(&sdp->db[2], &buf[HDMI_INFOFRAME_HEADER_SIZE],
+> -	       HDMI_DRM_INFOFRAME_SIZE);
+> -
+> -	/*
+> -	 * Size of DP infoframe sdp packet for HDR static metadata consists of
+> -	 * - DP SDP Header(struct dp_sdp_header): 4 bytes
+> -	 * - Two Data Blocks: 2 bytes
+> -	 *    CTA Header Byte2 (INFOFRAME Version Number)
+> -	 *    CTA Header Byte3 (Length of INFOFRAME)
+> -	 * - HDMI_DRM_INFOFRAME_SIZE: 26 bytes
+> -	 *
+> -	 * Prior to GEN11's GMP register size is identical to DP HDR static met=
+adata
+> -	 * infoframe size. But GEN11+ has larger than that size, write_infoframe
+> -	 * will pad rest of the size.
+> -	 */
+> -	return sizeof(struct dp_sdp_header) + 2 + HDMI_DRM_INFOFRAME_SIZE;
+> -}
+> -
+>  static void intel_write_dp_sdp(struct intel_encoder *encoder,
+>  			       const struct intel_crtc_state *crtc_state,
+>  			       unsigned int type)
+> @@ -5253,9 +5175,9 @@ static void intel_write_dp_sdp(struct intel_encoder=
+ *encoder,
+>  		len =3D drm_dp_vsc_sdp_pack(&crtc_state->infoframes.vsc, &sdp);
+>  		break;
+>  	case HDMI_PACKET_TYPE_GAMUT_METADATA:
+> -		len =3D intel_dp_hdr_metadata_infoframe_sdp_pack(display,
+> -							       &crtc_state->infoframes.drm.drm,
+> -							       &sdp, sizeof(sdp));
+> +		len =3D drm_dp_hdr_metadata_infoframe_sdp_pack(display->drm,
+> +							     &crtc_state->infoframes.drm.drm,
+> +							     &sdp, sizeof(sdp));
+>  		break;
+>  	case DP_SDP_ADAPTIVE_SYNC:
+>  		len =3D intel_dp_as_sdp_pack(&crtc_state->infoframes.as_sdp, &sdp,
+> diff --git a/include/drm/display/drm_dp_helper.h b/include/drm/display/dr=
+m_dp_helper.h
+> index ab16c1be3900..c158628f0d38 100644
+> --- a/include/drm/display/drm_dp_helper.h
+> +++ b/include/drm/display/drm_dp_helper.h
+> @@ -32,6 +32,7 @@
+>  struct drm_device;
+>  struct drm_dp_aux;
+>  struct drm_panel;
+> +struct hdmi_drm_infoframe;
+>=20=20
+>  bool drm_dp_channel_eq_ok(const u8 link_status[DP_LINK_STATUS_SIZE],
+>  			  int lane_count);
+> @@ -1029,6 +1030,9 @@ int drm_dp_bw_channel_coding_efficiency(bool is_uhb=
+r);
+>  int drm_dp_max_dprx_data_rate(int max_link_rate, int max_lanes);
+>=20=20
+>  ssize_t drm_dp_vsc_sdp_pack(const struct drm_dp_vsc_sdp *vsc, struct dp_=
+sdp *sdp);
+> +ssize_t drm_dp_hdr_metadata_infoframe_sdp_pack(struct drm_device *dev,
+> +					       const struct hdmi_drm_infoframe *drm_infoframe,
+> +					       struct dp_sdp *sdp, size_t size);
+>  int drm_dp_link_symbol_cycles(int lane_count, int pixels, int dsc_slice_=
+count,
+>  			      int bpp_x16, int symbol_size, bool is_mst);
 
-Series applied on stm32-next.
-
-Regards
-Alex
+--=20
+Jani Nikula, Intel
 
