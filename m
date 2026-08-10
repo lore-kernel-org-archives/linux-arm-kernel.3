@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F441C5AD55
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 11:23:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82496C5AE5D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 11:24:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q1QcRNGnFv7QdIPyvShu/38BHGcBZoEeg9hc2zMEp78=; b=Ytt20p8Fh45QRMO8PsKilQrjK9
-	gIiV3BQYWGx17O3eOAaBBN7wW7NXBX/11j94MPLedXKww5K6C5INXhBJuPgGMYMm93Nv+vpnIrQb/
-	iO6oDM7+XyyFtFlIwAGFM3fozsaTiXd+SkE0WZkqR9rmEkmCaksKa99A4gneaAEGX9ewWVEFAVPXr
-	BbEyMZDh8dr8gEj/J4GWbfMFpGOxHZElFBvNEmS5koQHVWhPOuuUFWTqJnw5cb1AMdAtNVBeKvvLM
-	CTBW29ZQqZXjE0ELQPP30vZ2WkhO5CJmRtQzL2M7g5o0dBWP524ohhcwuFvFGEC6HBE63b2xVq1XW
-	OAkfHBCg==;
+	bh=qURRVh30PZ1hbqQaJhIS3KvQybwIYtzdqRU+uddShPk=; b=afm+WF0bcvb0HOkoRmoSEbUrBr
+	vXBrxsq4uEot72FuSdoV/TN7bOh3dW9HnHu7QWap7QoKH/kP8HFf5dJll/9E8p8obI5hWhIN2QDHH
+	J5kvPtqs56P1A/mLPOar0WZ+w9/s24iVbRRaHuAlD940iuXW58j3OOFHhqkt26MqLvKorR7rQagmo
+	otrqi3w6DOa8S55LqrrXZJvRB99Z7Z4DEjNRviLPEMi7K83RCbYI60aVYgBia9nsmFRFTKofkhGfW
+	qV8PiPw27tQQP2lZei1s+C5yGuPVWLCDYIASslI1oMwjLDmU0LsaifBGwjS4sW96qhoT6jGUJob00
+	odqUuSnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtO6c-0000000BbE6-1dqy;
-	Mon, 10 Aug 2026 11:23:46 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1wtO6e-0000000BbGh-36u0;
+	Mon, 10 Aug 2026 11:23:48 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtO6X-0000000BbB7-3apl
+	id 1wtO6c-0000000BbDm-0ORk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 11:23:45 +0000
+	Mon, 10 Aug 2026 11:23:48 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1786361022; x=1817897022;
+  t=1786361026; x=1817897026;
   h=from:date:subject:mime-version:content-transfer-encoding:
    message-id:references:in-reply-to:to:cc;
-  bh=Nb4mdXaHJMZNrjDyYT5myhGF7dKDRlGfcen4+EL+mB4=;
-  b=ihfRT1fo2TVOu61yJT6GkDhg0MB/ZmfGoVRlYekRi79rznb8h3ig+8Gc
-   lNWYWIglnOoxBdxbKvzn9AlGyviLd0XPT2xy7MQg+oEKKkCYGiw6RF1FI
-   m9V0P+2NbhDvTPX5I3rGslxazkUzGAlSjKeYEjUwb3BAXd7yOLBIokc5T
-   0uqvmCYnZOaVuHx3/ftGEqfFkabSWTsv/kP3NtcgffPVTcVRHeayAt2//
-   lx7ucqUiJMJXHR3z4gcSVyN/9xMrnoMCwP7sJSgbdOgOQlIEO/txbNWDt
-   R8dT1YbNXb7xzF/TyI7Bh/fErr0v3jy5FgYFWzPITrZ3FGm2YC/drjEGP
-   A==;
-X-CSE-ConnectionGUID: HVuSDFkuS2muVFor/OqiNA==
-X-CSE-MsgGUID: B8VIR86PSpiLbdFE4RTcYQ==
+  bh=tnGnSRL3kq6mjAe2/sXm4FbX/koqdR9HVicliIrsFQ8=;
+  b=FLSP9vMTKkHSSqhfa2ulTej/YYIeG8JgGAdsnz3tpeyJKeloN79CnGyP
+   WOwjBd+4uX9m4Sls03BD5iDFVy6/krhKVusRBu/oxYnOgxjk8eS4zpVkW
+   e8BqWFaKCkTytb8eIlh9+wIPJACclXc6neSmaWko6RZC6zcS25xVpI+oZ
+   Yo8wM9/QFZRLY8oI27uYQiwnJPsCKrbVJ1TLKoNNNgMmt0+PC4GHNkqo6
+   o3PyRwOitnmK5dgc8zzpoHxjt36Nw7+uPBXy9x9sL4f3Bfq6GjDIQfLxf
+   VpVju4Cc5jcp/5BIS+NHqdrMsy+DJVMBWJhpyoeXaCCXmYfBtago77V5X
+   w==;
+X-CSE-ConnectionGUID: cq5t2VEMTsaKgNRn4LFmfw==
+X-CSE-MsgGUID: vUYD8L6rQnet9Qm580P5qA==
 X-IronPort-AV: E=Sophos;i="6.25,215,1779174000"; 
-   d="scan'208";a="61894154"
+   d="scan'208";a="62209117"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Aug 2026 04:23:41 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.87.151) by
- chn-vm-ex2.mchp-main.com (10.10.87.31) with Microsoft SMTP Server
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 10 Aug 2026 04:23:45 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.45; Mon, 10 Aug 2026 04:23:40 -0700
+ 15.1.2507.58; Mon, 10 Aug 2026 04:23:44 -0700
 Received: from [127.0.0.1] (10.10.85.11) by chn-vm-ex04.mchp-main.com
  (10.10.85.152) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Mon, 10 Aug 2026 04:23:37 -0700
+ Transport; Mon, 10 Aug 2026 04:23:41 -0700
 From: =?utf-8?q?Jens_Emil_Schulz_=C3=98stergaard?=
 	<jensemil.schulzostergaard@microchip.com>
-Date: Mon, 10 Aug 2026 13:20:49 +0200
-Subject: [PATCH net-next v2 4/9] net: microchip: vcap: expose helpers in
- vcap api and update debugfs
+Date: Mon, 10 Aug 2026 13:20:50 +0200
+Subject: [PATCH net-next v2 5/9] net: sparx5: add l3 routing registers
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-ID: <20260810-sparx5_l3_routing-v2-4-59e68cc8c8ca@microchip.com>
+Message-ID: <20260810-sparx5_l3_routing-v2-5-59e68cc8c8ca@microchip.com>
 References: <20260810-sparx5_l3_routing-v2-0-59e68cc8c8ca@microchip.com>
 In-Reply-To: <20260810-sparx5_l3_routing-v2-0-59e68cc8c8ca@microchip.com>
 To: Horatiu Vultur <horatiu.vultur@microchip.com>,
@@ -78,8 +77,8 @@ CC: <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<jensemil.schulzostergaard@microchip.com>
 X-Mailer: b4 0.15-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_042341_930876_04BC5714 
-X-CRM114-Status: GOOD (  18.67  )
+X-CRM114-CacheID: sfid-20260810_042346_375698_4BD8C494 
+X-CRM114-Status: GOOD (  11.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,167 +93,1017 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add new helpers to the vcap client api, in preparation for L3 routing
-functionality:
-
- - vcap_val_add_rule(): wraps vcap_val_rule() + vcap_add_rule().
- - vcap_rule_mod_action_bit(): modify a bit-typed action on an existing
-   rule.
-
-Rename VCAP_CID_PREROUTING to VCAP_CID_PREROUTING_L0 and add
-VCAP_USER_L3, both needed by the upcoming LPM VCAP user.
-
-Extend the debugfs display to handle the new IP4_XIP and IP6_XIP key
-fields.
-
-Fix a latent undefined-behaviour bug in the debugfs action-field
-printer. The old mask expression (1 << width) - 1 is UB when width is
-32. The bug is unreachable before this series, since no existing field
-in any client hits this, but the LPM VCAP introduces VCAP_AF_MAC_LSB
-which is 32 bit wide.
+Add autogenerated register macros for L3 routing on lan969x and sparx5.
 
 Reviewed-by: Daniel Machon <daniel.machon@microchip.com>
 Reviewed-by: Steen Hegelund <Steen.Hegelund@microchip.com>
 Signed-off-by: Jens Emil Schulz Østergaard <jensemil.schulzostergaard@microchip.com>
 ---
-Changes in v2:
-- Zero-initialise the client actionfield data in
-  vcap_rule_mod_action_bit() to avoid copying uninitialised stack bytes.
----
- drivers/net/ethernet/microchip/vcap/vcap_api.c     | 25 ++++++++++++++++++++++
- drivers/net/ethernet/microchip/vcap/vcap_api.h     |  4 +++-
- .../net/ethernet/microchip/vcap/vcap_api_client.h  |  6 ++++++
- .../net/ethernet/microchip/vcap/vcap_api_debugfs.c | 13 ++++++++---
- 4 files changed, 44 insertions(+), 4 deletions(-)
+ .../microchip/sparx5/lan969x/lan969x_regs.c        |  20 +-
+ .../ethernet/microchip/sparx5/sparx5_main_regs.h   | 691 ++++++++++++++++++++-
+ .../net/ethernet/microchip/sparx5/sparx5_regs.c    |  20 +-
+ .../net/ethernet/microchip/sparx5/sparx5_regs.h    |  20 +-
+ 4 files changed, 739 insertions(+), 12 deletions(-)
 
-diff --git a/drivers/net/ethernet/microchip/vcap/vcap_api.c b/drivers/net/ethernet/microchip/vcap/vcap_api.c
-index 6e1ee15b82b7..1ad2c44da8bd 100644
---- a/drivers/net/ethernet/microchip/vcap/vcap_api.c
-+++ b/drivers/net/ethernet/microchip/vcap/vcap_api.c
-@@ -2389,6 +2389,19 @@ int vcap_add_rule(struct vcap_rule *rule)
- }
- EXPORT_SYMBOL_GPL(vcap_add_rule);
+diff --git a/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_regs.c b/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_regs.c
+index 3fc2c006ba12..00fd03f87bdd 100644
+--- a/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_regs.c
++++ b/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_regs.c
+@@ -1,11 +1,11 @@
+ // SPDX-License-Identifier: GPL-2.0+
+ /* Microchip lan969x Switch driver
+  *
+- * Copyright (c) 2024 Microchip Technology Inc.
++ * Copyright (c) 2026 Microchip Technology Inc.
+  */
  
-+/* Validate and add rule to a VCAP instance */
-+int vcap_val_add_rule(struct vcap_rule *rule, u16 l3_proto)
-+{
-+	int err;
+-/* This file is autogenerated by cml-utils 2024-09-30 11:48:29 +0200.
+- * Commit ID: 9d07b8d19363f3cd3590ddb3f7a2e2768e16524b
++/* This file is autogenerated by cml-utils 2026-02-16 21:50:29 +0100.
++ * Commit ID: 09d52195beeeb9682063ef0bd6eec50eebc137e2
+  */
+ 
+ #include "lan969x.h"
+@@ -77,12 +77,16 @@ const unsigned int lan969x_gaddr[GADDR_LAST] = {
+ 	[GA_ANA_CL_COMMON] = 87040,
+ 	[GA_ANA_L2_COMMON] = 561928,
+ 	[GA_ANA_L3_COMMON] = 370752,
++	[GA_ANA_L3_VMID] = 360448,
++	[GA_ANA_L3_ARP_PTR_REMAP] = 370944,
++	[GA_ANA_L3_ARP] = 294912,
+ 	[GA_ANA_L3_VLAN_ARP_L3MC_STICKY] = 368580,
+ 	[GA_ASM_CFG] = 18304,
+ 	[GA_ASM_PFC_TIMER_CFG] = 15568,
+ 	[GA_ASM_LBK_WM_CFG] = 15596,
+ 	[GA_ASM_LBK_MISC_CFG] = 15608,
+ 	[GA_ASM_RAM_CTRL] = 15684,
++	[GA_EACL_COMMON] = 37408,
+ 	[GA_EACL_ES2_KEY_SELECT_PROFILE] = 36864,
+ 	[GA_EACL_CNT_TBL] = 30720,
+ 	[GA_EACL_POL_CFG] = 38400,
+@@ -103,6 +107,7 @@ const unsigned int lan969x_gaddr[GADDR_LAST] = {
+ 	[GA_QSYS_RAM_CTRL] = 2204,
+ 	[GA_REW_COMMON] = 98304,
+ 	[GA_REW_PORT] = 49152,
++	[GA_REW_VMID] = 96768,
+ 	[GA_REW_VOE_PORT_LM_CNT] = 90112,
+ 	[GA_REW_RAM_CTRL] = 93992,
+ 	[GA_VOP_RAM_CTRL] = 16368,
+@@ -124,6 +129,8 @@ const unsigned int lan969x_gcnt[GCNT_LAST] = {
+ 	[GC_ANA_L2_ISDX_LIMIT] = 256,
+ 	[GC_ANA_L2_ISDX] = 1024,
+ 	[GC_ANA_L3_VLAN] = 4608,
++	[GC_ANA_L3_VMID] = 127,
++	[GC_ANA_L3_ARP] = 1024,
+ 	[GC_ASM_DEV_STATISTICS] = 30,
+ 	[GC_EACL_ES2_KEY_SELECT_PROFILE] = 68,
+ 	[GC_EACL_CNT_TBL] = 512,
+@@ -134,6 +141,7 @@ const unsigned int lan969x_gcnt[GCNT_LAST] = {
+ 	[GC_PTP_PTP_PINS] = 8,
+ 	[GC_PTP_PHASE_DETECTOR_CTRL] = 8,
+ 	[GC_REW_PORT] = 35,
++	[GC_REW_VMID] = 127,
+ 	[GC_REW_VOE_PORT_LM_CNT] = 240,
+ };
+ 
+@@ -191,7 +199,12 @@ const unsigned int lan969x_fsize[FSIZE_LAST] = {
+ 	[FW_ANA_L2_AUTO_LRN_CFG_AUTO_LRN_ENA] = 30,
+ 	[FW_ANA_L2_DLB_CFG_DLB_IDX] = 9,
+ 	[FW_ANA_L2_TSN_CFG_TSN_SFID] = 8,
++	[FW_ANA_L3_L3_UC_ENA_L3_UC_ENA] = 30,
++	[FW_ANA_L3_SIP_SECURE_ENA1_SIP_CMP_ENA1] = 3,
++	[FW_ANA_L3_DIP_SECURE_ENA_DIP_CMP_ENA] = 30,
++	[FW_ANA_L3_VMID_CFG_VMID] = 7,
+ 	[FW_ANA_L3_VLAN_MASK_CFG_VLAN_PORT_MASK] = 30,
++	[FW_ANA_L3_ARP_CFG_0_ARP_VMID] = 7,
+ 	[FW_FDMA_CH_CFG_CH_DCB_DB_CNT] = 2,
+ 	[FW_GCB_HW_SGPIO_TO_SD_MAP_CFG_SGPIO_TO_SD_SEL] = 7,
+ 	[FW_HSCH_SE_CFG_SE_DWRR_CNT] = 5,
+@@ -217,6 +230,7 @@ const unsigned int lan969x_fsize[FSIZE_LAST] = {
+ 	[FW_QSYS_ATOP_ATOP] = 11,
+ 	[FW_QSYS_ATOP_TOT_CFG_ATOP_TOT] = 11,
+ 	[FW_REW_RTAG_ETAG_CTRL_IPE_TBL] = 6,
++	[FW_REW_RLEG_CTRL_DECAP_IRLEG] = 7,
+ 	[FW_XQS_STAT_CFG_STAT_VIEW] = 10,
+ 	[FW_XQS_QLIMIT_SHR_TOP_CFG_QLIMIT_SHR_TOP] = 14,
+ 	[FW_XQS_QLIMIT_SHR_ATOP_CFG_QLIMIT_SHR_ATOP] = 14,
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main_regs.h b/drivers/net/ethernet/microchip/sparx5/sparx5_main_regs.h
+index d34467513648..6cf8c191a460 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_main_regs.h
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main_regs.h
+@@ -1,11 +1,11 @@
+ /* SPDX-License-Identifier: GPL-2.0+
+  * Microchip Sparx5 Switch driver
+  *
+- * Copyright (c) 2024 Microchip Technology Inc.
++ * Copyright (c) 2026 Microchip Technology Inc.
+  */
+ 
+-/* This file is autogenerated by cml-utils 2024-10-04 10:40:40 +0200.
+- * Commit ID: 9d07b8d19363f3cd3590ddb3f7a2e2768e16524b
++/* This file is autogenerated by cml-utils 2026-02-16 21:50:30 +0100.
++ * Commit ID: 09d52195beeeb9682063ef0bd6eec50eebc137e2
+  */
+ 
+ #ifndef _SPARX5_MAIN_REGS_H_
+@@ -711,6 +711,124 @@ extern const struct sparx5_regs *regs;
+ #define ANA_ACL_SWAP_IP_CTRL_IP_SWAP_IP4_TTL_ENA_GET(x)\
+ 	FIELD_GET(ANA_ACL_SWAP_IP_CTRL_IP_SWAP_IP4_TTL_ENA, x)
+ 
++/* ANA_ACL:COMMON:VCAP_S2_MISC_CTRL */
++#define ANA_ACL_VCAP_S2_MISC_CTRL                                              \
++	__REG(TARGET_ANA_ACL, 0, 1, regs->gaddr[GA_ANA_ACL_COMMON], 0, 1, 592, \
++	      416, 0, 1, 4)
 +
-+	err = vcap_val_rule(rule, l3_proto);
-+	if (err)
-+		return err;
++#define ANA_ACL_VCAP_S2_MISC_CTRL_MAPPED_PORT_ENA GENMASK(27, 24)
++#define ANA_ACL_VCAP_S2_MISC_CTRL_MAPPED_PORT_ENA_SET(x)\
++	FIELD_PREP(ANA_ACL_VCAP_S2_MISC_CTRL_MAPPED_PORT_ENA, x)
++#define ANA_ACL_VCAP_S2_MISC_CTRL_MAPPED_PORT_ENA_GET(x)\
++	FIELD_GET(ANA_ACL_VCAP_S2_MISC_CTRL_MAPPED_PORT_ENA, x)
 +
-+	return vcap_add_rule(rule);
-+}
-+EXPORT_SYMBOL_GPL(vcap_val_add_rule);
++#define ANA_ACL_VCAP_S2_MISC_CTRL_AFFIX_OVERLOAD_ENA GENMASK(23, 20)
++#define ANA_ACL_VCAP_S2_MISC_CTRL_AFFIX_OVERLOAD_ENA_SET(x)\
++	FIELD_PREP(ANA_ACL_VCAP_S2_MISC_CTRL_AFFIX_OVERLOAD_ENA, x)
++#define ANA_ACL_VCAP_S2_MISC_CTRL_AFFIX_OVERLOAD_ENA_GET(x)\
++	FIELD_GET(ANA_ACL_VCAP_S2_MISC_CTRL_AFFIX_OVERLOAD_ENA, x)
 +
- /* Allocate a new rule with the provided arguments */
- struct vcap_rule *vcap_alloc_rule(struct vcap_control *vctrl,
- 				  struct net_device *ndev, int vcap_chain_id,
-@@ -3560,6 +3573,18 @@ int vcap_rule_mod_action_u32(struct vcap_rule *rule,
- }
- EXPORT_SYMBOL_GPL(vcap_rule_mod_action_u32);
- 
-+/* Modify a bit action with value in the rule */
-+int vcap_rule_mod_action_bit(struct vcap_rule *rule,
-+			     enum vcap_action_field action,
-+			     enum vcap_bit val)
-+{
-+	struct vcap_client_actionfield_data data = {};
++#define ANA_ACL_VCAP_S2_MISC_CTRL_ISDX_OVERLOAD_ENA GENMASK(19, 16)
++#define ANA_ACL_VCAP_S2_MISC_CTRL_ISDX_OVERLOAD_ENA_SET(x)\
++	FIELD_PREP(ANA_ACL_VCAP_S2_MISC_CTRL_ISDX_OVERLOAD_ENA, x)
++#define ANA_ACL_VCAP_S2_MISC_CTRL_ISDX_OVERLOAD_ENA_GET(x)\
++	FIELD_GET(ANA_ACL_VCAP_S2_MISC_CTRL_ISDX_OVERLOAD_ENA, x)
 +
-+	vcap_rule_set_action_bitsize(&data.u1, val);
-+	return vcap_rule_mod_action(rule, action, VCAP_FIELD_BIT, &data);
-+}
-+EXPORT_SYMBOL_GPL(vcap_rule_mod_action_bit);
++#define ANA_ACL_VCAP_S2_MISC_CTRL_PAG_FORCE_VID_ENA GENMASK(15, 12)
++#define ANA_ACL_VCAP_S2_MISC_CTRL_PAG_FORCE_VID_ENA_SET(x)\
++	FIELD_PREP(ANA_ACL_VCAP_S2_MISC_CTRL_PAG_FORCE_VID_ENA, x)
++#define ANA_ACL_VCAP_S2_MISC_CTRL_PAG_FORCE_VID_ENA_GET(x)\
++	FIELD_GET(ANA_ACL_VCAP_S2_MISC_CTRL_PAG_FORCE_VID_ENA, x)
 +
- /* Drop keys in a keylist and any keys that are not supported by the keyset */
- int vcap_filter_rule_keys(struct vcap_rule *rule,
- 			  enum vcap_key_field keylist[], int length,
-diff --git a/drivers/net/ethernet/microchip/vcap/vcap_api.h b/drivers/net/ethernet/microchip/vcap/vcap_api.h
-index 05b4b02e59ef..011d1cb7b594 100644
---- a/drivers/net/ethernet/microchip/vcap/vcap_api.h
-+++ b/drivers/net/ethernet/microchip/vcap/vcap_api.h
-@@ -22,7 +22,7 @@
- #define VCAP_CID_INGRESS_L5          1500000 /* Ingress Stage 1 Lookup 5 */
++#define ANA_ACL_VCAP_S2_MISC_CTRL_VLAN_PIPELINE_ACT_ENA BIT(11)
++#define ANA_ACL_VCAP_S2_MISC_CTRL_VLAN_PIPELINE_ACT_ENA_SET(x)\
++	FIELD_PREP(ANA_ACL_VCAP_S2_MISC_CTRL_VLAN_PIPELINE_ACT_ENA, x)
++#define ANA_ACL_VCAP_S2_MISC_CTRL_VLAN_PIPELINE_ACT_ENA_GET(x)\
++	FIELD_GET(ANA_ACL_VCAP_S2_MISC_CTRL_VLAN_PIPELINE_ACT_ENA, x)
++
++#define ANA_ACL_VCAP_S2_MISC_CTRL_ACL_RT_IGR_RLEG_STAT_MODE BIT(10)
++#define ANA_ACL_VCAP_S2_MISC_CTRL_ACL_RT_IGR_RLEG_STAT_MODE_SET(x)\
++	FIELD_PREP(ANA_ACL_VCAP_S2_MISC_CTRL_ACL_RT_IGR_RLEG_STAT_MODE, x)
++#define ANA_ACL_VCAP_S2_MISC_CTRL_ACL_RT_IGR_RLEG_STAT_MODE_GET(x)\
++	FIELD_GET(ANA_ACL_VCAP_S2_MISC_CTRL_ACL_RT_IGR_RLEG_STAT_MODE, x)
++
++#define ANA_ACL_VCAP_S2_MISC_CTRL_ACL_RT_EGR_RLEG_STAT_MODE BIT(9)
++#define ANA_ACL_VCAP_S2_MISC_CTRL_ACL_RT_EGR_RLEG_STAT_MODE_SET(x)\
++	FIELD_PREP(ANA_ACL_VCAP_S2_MISC_CTRL_ACL_RT_EGR_RLEG_STAT_MODE, x)
++#define ANA_ACL_VCAP_S2_MISC_CTRL_ACL_RT_EGR_RLEG_STAT_MODE_GET(x)\
++	FIELD_GET(ANA_ACL_VCAP_S2_MISC_CTRL_ACL_RT_EGR_RLEG_STAT_MODE, x)
++
++#define ANA_ACL_VCAP_S2_MISC_CTRL_ACL_RT_FORCE_ES0_VID_ENA BIT(8)
++#define ANA_ACL_VCAP_S2_MISC_CTRL_ACL_RT_FORCE_ES0_VID_ENA_SET(x)\
++	FIELD_PREP(ANA_ACL_VCAP_S2_MISC_CTRL_ACL_RT_FORCE_ES0_VID_ENA, x)
++#define ANA_ACL_VCAP_S2_MISC_CTRL_ACL_RT_FORCE_ES0_VID_ENA_GET(x)\
++	FIELD_GET(ANA_ACL_VCAP_S2_MISC_CTRL_ACL_RT_FORCE_ES0_VID_ENA, x)
++
++#define ANA_ACL_VCAP_S2_MISC_CTRL_ACL_RT_UPDATE_CL_VID_ENA BIT(7)
++#define ANA_ACL_VCAP_S2_MISC_CTRL_ACL_RT_UPDATE_CL_VID_ENA_SET(x)\
++	FIELD_PREP(ANA_ACL_VCAP_S2_MISC_CTRL_ACL_RT_UPDATE_CL_VID_ENA, x)
++#define ANA_ACL_VCAP_S2_MISC_CTRL_ACL_RT_UPDATE_CL_VID_ENA_GET(x)\
++	FIELD_GET(ANA_ACL_VCAP_S2_MISC_CTRL_ACL_RT_UPDATE_CL_VID_ENA, x)
++
++#define ANA_ACL_VCAP_S2_MISC_CTRL_ACL_RT_SEL     GENMASK(6, 5)
++#define ANA_ACL_VCAP_S2_MISC_CTRL_ACL_RT_SEL_SET(x)\
++	FIELD_PREP(ANA_ACL_VCAP_S2_MISC_CTRL_ACL_RT_SEL, x)
++#define ANA_ACL_VCAP_S2_MISC_CTRL_ACL_RT_SEL_GET(x)\
++	FIELD_GET(ANA_ACL_VCAP_S2_MISC_CTRL_ACL_RT_SEL, x)
++
++#define ANA_ACL_VCAP_S2_MISC_CTRL_LBK_IGR_MASK_SEL3_ENA BIT(4)
++#define ANA_ACL_VCAP_S2_MISC_CTRL_LBK_IGR_MASK_SEL3_ENA_SET(x)\
++	FIELD_PREP(ANA_ACL_VCAP_S2_MISC_CTRL_LBK_IGR_MASK_SEL3_ENA, x)
++#define ANA_ACL_VCAP_S2_MISC_CTRL_LBK_IGR_MASK_SEL3_ENA_GET(x)\
++	FIELD_GET(ANA_ACL_VCAP_S2_MISC_CTRL_LBK_IGR_MASK_SEL3_ENA, x)
++
++#define ANA_ACL_VCAP_S2_MISC_CTRL_MASQ_IGR_MASK_ENA BIT(3)
++#define ANA_ACL_VCAP_S2_MISC_CTRL_MASQ_IGR_MASK_ENA_SET(x)\
++	FIELD_PREP(ANA_ACL_VCAP_S2_MISC_CTRL_MASQ_IGR_MASK_ENA, x)
++#define ANA_ACL_VCAP_S2_MISC_CTRL_MASQ_IGR_MASK_ENA_GET(x)\
++	FIELD_GET(ANA_ACL_VCAP_S2_MISC_CTRL_MASQ_IGR_MASK_ENA, x)
++
++#define ANA_ACL_VCAP_S2_MISC_CTRL_FP_VS2_IGR_MASK_ENA BIT(2)
++#define ANA_ACL_VCAP_S2_MISC_CTRL_FP_VS2_IGR_MASK_ENA_SET(x)\
++	FIELD_PREP(ANA_ACL_VCAP_S2_MISC_CTRL_FP_VS2_IGR_MASK_ENA, x)
++#define ANA_ACL_VCAP_S2_MISC_CTRL_FP_VS2_IGR_MASK_ENA_GET(x)\
++	FIELD_GET(ANA_ACL_VCAP_S2_MISC_CTRL_FP_VS2_IGR_MASK_ENA, x)
++
++#define ANA_ACL_VCAP_S2_MISC_CTRL_VD_IGR_MASK_ENA BIT(1)
++#define ANA_ACL_VCAP_S2_MISC_CTRL_VD_IGR_MASK_ENA_SET(x)\
++	FIELD_PREP(ANA_ACL_VCAP_S2_MISC_CTRL_VD_IGR_MASK_ENA, x)
++#define ANA_ACL_VCAP_S2_MISC_CTRL_VD_IGR_MASK_ENA_GET(x)\
++	FIELD_GET(ANA_ACL_VCAP_S2_MISC_CTRL_VD_IGR_MASK_ENA, x)
++
++#define ANA_ACL_VCAP_S2_MISC_CTRL_CPU_IGR_MASK_ENA BIT(0)
++#define ANA_ACL_VCAP_S2_MISC_CTRL_CPU_IGR_MASK_ENA_SET(x)\
++	FIELD_PREP(ANA_ACL_VCAP_S2_MISC_CTRL_CPU_IGR_MASK_ENA, x)
++#define ANA_ACL_VCAP_S2_MISC_CTRL_CPU_IGR_MASK_ENA_GET(x)\
++	FIELD_GET(ANA_ACL_VCAP_S2_MISC_CTRL_CPU_IGR_MASK_ENA, x)
++
++/* ANA_ACL:COMMON:VCAP_S2_MISC_CTRL2 */
++#define ANA_ACL_VCAP_S2_MISC_CTRL2                                             \
++	__REG(TARGET_ANA_ACL, 0, 1, regs->gaddr[GA_ANA_ACL_COMMON], 0, 1, 592, \
++	      420, 0, 1, 4)
++
++#define ANA_ACL_VCAP_S2_MISC_CTRL2_TWAMP_PIPELINE_PT GENMASK(12, 8)
++#define ANA_ACL_VCAP_S2_MISC_CTRL2_TWAMP_PIPELINE_PT_SET(x)\
++	FIELD_PREP(ANA_ACL_VCAP_S2_MISC_CTRL2_TWAMP_PIPELINE_PT, x)
++#define ANA_ACL_VCAP_S2_MISC_CTRL2_TWAMP_PIPELINE_PT_GET(x)\
++	FIELD_GET(ANA_ACL_VCAP_S2_MISC_CTRL2_TWAMP_PIPELINE_PT, x)
++
++#define ANA_ACL_VCAP_S2_MISC_CTRL2_EGR_ACTION_ENA GENMASK(7, 4)
++#define ANA_ACL_VCAP_S2_MISC_CTRL2_EGR_ACTION_ENA_SET(x)\
++	FIELD_PREP(ANA_ACL_VCAP_S2_MISC_CTRL2_EGR_ACTION_ENA, x)
++#define ANA_ACL_VCAP_S2_MISC_CTRL2_EGR_ACTION_ENA_GET(x)\
++	FIELD_GET(ANA_ACL_VCAP_S2_MISC_CTRL2_EGR_ACTION_ENA, x)
++
++#define ANA_ACL_VCAP_S2_MISC_CTRL2_EGR_KEY_ENA   GENMASK(3, 0)
++#define ANA_ACL_VCAP_S2_MISC_CTRL2_EGR_KEY_ENA_SET(x)\
++	FIELD_PREP(ANA_ACL_VCAP_S2_MISC_CTRL2_EGR_KEY_ENA, x)
++#define ANA_ACL_VCAP_S2_MISC_CTRL2_EGR_KEY_ENA_GET(x)\
++	FIELD_GET(ANA_ACL_VCAP_S2_MISC_CTRL2_EGR_KEY_ENA, x)
++
+ /* ANA_ACL:COMMON:VCAP_S2_RLEG_STAT */
+ #define ANA_ACL_VCAP_S2_RLEG_STAT(r)                                           \
+ 	__REG(TARGET_ANA_ACL, 0, 1, regs->gaddr[GA_ANA_ACL_COMMON], 0, 1, 592, \
+@@ -1812,6 +1930,338 @@ extern const struct sparx5_regs *regs;
+ #define ANA_L3_VLAN_CTRL_VLAN_ENA_GET(x)\
+ 	FIELD_GET(ANA_L3_VLAN_CTRL_VLAN_ENA, x)
  
- #define VCAP_CID_PREROUTING_IPV6     3000000 /* Prerouting Stage */
--#define VCAP_CID_PREROUTING          6000000 /* Prerouting Stage */
-+#define VCAP_CID_PREROUTING_L0       6000000 /* Prerouting Stage Lookup 0 */
++/* ANA_L3:COMMON:L3_UC_ENA */
++#define ANA_L3_L3_UC_ENA                                                       \
++	__REG(TARGET_ANA_L3, 0, 1, regs->gaddr[GA_ANA_L3_COMMON], 0, 1, 184, 8,\
++	      0, 1, 4)
++
++/* SPARX5 ONLY */
++/* ANA_L3:COMMON:L3_UC_ENA1 */
++#define ANA_L3_L3_UC_ENA1                                                      \
++	__REG(TARGET_ANA_L3, 0, 1, regs->gaddr[GA_ANA_L3_COMMON], 0, 1, 184,   \
++	      12, 0, 1, 4)
++
++/* SPARX5 ONLY */
++/* ANA_L3:COMMON:L3_UC_ENA2 */
++#define ANA_L3_L3_UC_ENA2                                                      \
++	__REG(TARGET_ANA_L3, 0, 1, regs->gaddr[GA_ANA_L3_COMMON], 0, 1, 184,   \
++	      16, 0, 1, 4)
++
++#define ANA_L3_L3_UC_ENA2_L3_UC_ENA2             BIT(0)
++#define ANA_L3_L3_UC_ENA2_L3_UC_ENA2_SET(x)\
++	FIELD_PREP(ANA_L3_L3_UC_ENA2_L3_UC_ENA2, x)
++#define ANA_L3_L3_UC_ENA2_L3_UC_ENA2_GET(x)\
++	FIELD_GET(ANA_L3_L3_UC_ENA2_L3_UC_ENA2, x)
++
++/* ANA_L3:COMMON:ROUTING_CFG */
++#define ANA_L3_ROUTING_CFG                                                     \
++	__REG(TARGET_ANA_L3, 0, 1, regs->gaddr[GA_ANA_L3_COMMON], 0, 1, 184,   \
++	      104, 0, 1, 4)
++
++#define ANA_L3_ROUTING_CFG_L3_ENA_MODE           BIT(30)
++#define ANA_L3_ROUTING_CFG_L3_ENA_MODE_SET(x)\
++	FIELD_PREP(ANA_L3_ROUTING_CFG_L3_ENA_MODE, x)
++#define ANA_L3_ROUTING_CFG_L3_ENA_MODE_GET(x)\
++	FIELD_GET(ANA_L3_ROUTING_CFG_L3_ENA_MODE, x)
++
++#define ANA_L3_ROUTING_CFG_IP6_MC_DIP_FWD_ENA    BIT(29)
++#define ANA_L3_ROUTING_CFG_IP6_MC_DIP_FWD_ENA_SET(x)\
++	FIELD_PREP(ANA_L3_ROUTING_CFG_IP6_MC_DIP_FWD_ENA, x)
++#define ANA_L3_ROUTING_CFG_IP6_MC_DIP_FWD_ENA_GET(x)\
++	FIELD_GET(ANA_L3_ROUTING_CFG_IP6_MC_DIP_FWD_ENA, x)
++
++#define ANA_L3_ROUTING_CFG_IP4_MC_DIP_FWD_ENA    BIT(28)
++#define ANA_L3_ROUTING_CFG_IP4_MC_DIP_FWD_ENA_SET(x)\
++	FIELD_PREP(ANA_L3_ROUTING_CFG_IP4_MC_DIP_FWD_ENA, x)
++#define ANA_L3_ROUTING_CFG_IP4_MC_DIP_FWD_ENA_GET(x)\
++	FIELD_GET(ANA_L3_ROUTING_CFG_IP4_MC_DIP_FWD_ENA, x)
++
++#define ANA_L3_ROUTING_CFG_RT_SMAC_UPDATE_ENA    BIT(27)
++#define ANA_L3_ROUTING_CFG_RT_SMAC_UPDATE_ENA_SET(x)\
++	FIELD_PREP(ANA_L3_ROUTING_CFG_RT_SMAC_UPDATE_ENA, x)
++#define ANA_L3_ROUTING_CFG_RT_SMAC_UPDATE_ENA_GET(x)\
++	FIELD_GET(ANA_L3_ROUTING_CFG_RT_SMAC_UPDATE_ENA, x)
++
++#define ANA_L3_ROUTING_CFG_RLEG_NONIP_UC_REDIR_MODE GENMASK(26, 25)
++#define ANA_L3_ROUTING_CFG_RLEG_NONIP_UC_REDIR_MODE_SET(x)\
++	FIELD_PREP(ANA_L3_ROUTING_CFG_RLEG_NONIP_UC_REDIR_MODE, x)
++#define ANA_L3_ROUTING_CFG_RLEG_NONIP_UC_REDIR_MODE_GET(x)\
++	FIELD_GET(ANA_L3_ROUTING_CFG_RLEG_NONIP_UC_REDIR_MODE, x)
++
++#define ANA_L3_ROUTING_CFG_IP6_LEN_REDIR         BIT(22)
++#define ANA_L3_ROUTING_CFG_IP6_LEN_REDIR_SET(x)\
++	FIELD_PREP(ANA_L3_ROUTING_CFG_IP6_LEN_REDIR, x)
++#define ANA_L3_ROUTING_CFG_IP6_LEN_REDIR_GET(x)\
++	FIELD_GET(ANA_L3_ROUTING_CFG_IP6_LEN_REDIR, x)
++
++#define ANA_L3_ROUTING_CFG_IP4_LEN_REDIR         BIT(21)
++#define ANA_L3_ROUTING_CFG_IP4_LEN_REDIR_SET(x)\
++	FIELD_PREP(ANA_L3_ROUTING_CFG_IP4_LEN_REDIR, x)
++#define ANA_L3_ROUTING_CFG_IP4_LEN_REDIR_GET(x)\
++	FIELD_GET(ANA_L3_ROUTING_CFG_IP4_LEN_REDIR, x)
++
++#define ANA_L3_ROUTING_CFG_IP6_L2_BC_COPY_ENA    BIT(20)
++#define ANA_L3_ROUTING_CFG_IP6_L2_BC_COPY_ENA_SET(x)\
++	FIELD_PREP(ANA_L3_ROUTING_CFG_IP6_L2_BC_COPY_ENA, x)
++#define ANA_L3_ROUTING_CFG_IP6_L2_BC_COPY_ENA_GET(x)\
++	FIELD_GET(ANA_L3_ROUTING_CFG_IP6_L2_BC_COPY_ENA, x)
++
++#define ANA_L3_ROUTING_CFG_IP4_L2_BC_COPY_ENA    BIT(19)
++#define ANA_L3_ROUTING_CFG_IP4_L2_BC_COPY_ENA_SET(x)\
++	FIELD_PREP(ANA_L3_ROUTING_CFG_IP4_L2_BC_COPY_ENA, x)
++#define ANA_L3_ROUTING_CFG_IP4_L2_BC_COPY_ENA_GET(x)\
++	FIELD_GET(ANA_L3_ROUTING_CFG_IP4_L2_BC_COPY_ENA, x)
++
++#define ANA_L3_ROUTING_CFG_RLEG_IP6_SIP_RPF_REDIR_ENA BIT(18)
++#define ANA_L3_ROUTING_CFG_RLEG_IP6_SIP_RPF_REDIR_ENA_SET(x)\
++	FIELD_PREP(ANA_L3_ROUTING_CFG_RLEG_IP6_SIP_RPF_REDIR_ENA, x)
++#define ANA_L3_ROUTING_CFG_RLEG_IP6_SIP_RPF_REDIR_ENA_GET(x)\
++	FIELD_GET(ANA_L3_ROUTING_CFG_RLEG_IP6_SIP_RPF_REDIR_ENA, x)
++
++#define ANA_L3_ROUTING_CFG_RLEG_IP4_SIP_RPF_REDIR_ENA BIT(17)
++#define ANA_L3_ROUTING_CFG_RLEG_IP4_SIP_RPF_REDIR_ENA_SET(x)\
++	FIELD_PREP(ANA_L3_ROUTING_CFG_RLEG_IP4_SIP_RPF_REDIR_ENA, x)
++#define ANA_L3_ROUTING_CFG_RLEG_IP4_SIP_RPF_REDIR_ENA_GET(x)\
++	FIELD_GET(ANA_L3_ROUTING_CFG_RLEG_IP4_SIP_RPF_REDIR_ENA, x)
++
++#define ANA_L3_ROUTING_CFG_IP6_DIP_ADDR_VIOLATION_REDIR_ENA GENMASK(16, 15)
++#define ANA_L3_ROUTING_CFG_IP6_DIP_ADDR_VIOLATION_REDIR_ENA_SET(x)\
++	FIELD_PREP(ANA_L3_ROUTING_CFG_IP6_DIP_ADDR_VIOLATION_REDIR_ENA, x)
++#define ANA_L3_ROUTING_CFG_IP6_DIP_ADDR_VIOLATION_REDIR_ENA_GET(x)\
++	FIELD_GET(ANA_L3_ROUTING_CFG_IP6_DIP_ADDR_VIOLATION_REDIR_ENA, x)
++
++#define ANA_L3_ROUTING_CFG_IP4_DIP_ADDR_VIOLATION_REDIR_ENA GENMASK(13, 11)
++#define ANA_L3_ROUTING_CFG_IP4_DIP_ADDR_VIOLATION_REDIR_ENA_SET(x)\
++	FIELD_PREP(ANA_L3_ROUTING_CFG_IP4_DIP_ADDR_VIOLATION_REDIR_ENA, x)
++#define ANA_L3_ROUTING_CFG_IP4_DIP_ADDR_VIOLATION_REDIR_ENA_GET(x)\
++	FIELD_GET(ANA_L3_ROUTING_CFG_IP4_DIP_ADDR_VIOLATION_REDIR_ENA, x)
++
++#define ANA_L3_ROUTING_CFG_IP6_SIP_ADDR_VIOLATION_REDIR_ENA GENMASK(10, 8)
++#define ANA_L3_ROUTING_CFG_IP6_SIP_ADDR_VIOLATION_REDIR_ENA_SET(x)\
++	FIELD_PREP(ANA_L3_ROUTING_CFG_IP6_SIP_ADDR_VIOLATION_REDIR_ENA, x)
++#define ANA_L3_ROUTING_CFG_IP6_SIP_ADDR_VIOLATION_REDIR_ENA_GET(x)\
++	FIELD_GET(ANA_L3_ROUTING_CFG_IP6_SIP_ADDR_VIOLATION_REDIR_ENA, x)
++
++#define ANA_L3_ROUTING_CFG_IP4_SIP_ADDR_VIOLATION_REDIR_ENA GENMASK(7, 5)
++#define ANA_L3_ROUTING_CFG_IP4_SIP_ADDR_VIOLATION_REDIR_ENA_SET(x)\
++	FIELD_PREP(ANA_L3_ROUTING_CFG_IP4_SIP_ADDR_VIOLATION_REDIR_ENA, x)
++#define ANA_L3_ROUTING_CFG_IP4_SIP_ADDR_VIOLATION_REDIR_ENA_GET(x)\
++	FIELD_GET(ANA_L3_ROUTING_CFG_IP4_SIP_ADDR_VIOLATION_REDIR_ENA, x)
++
++#define ANA_L3_ROUTING_CFG_CPU_RLEG_IP_HDR_FAIL_REDIR_ENA BIT(4)
++#define ANA_L3_ROUTING_CFG_CPU_RLEG_IP_HDR_FAIL_REDIR_ENA_SET(x)\
++	FIELD_PREP(ANA_L3_ROUTING_CFG_CPU_RLEG_IP_HDR_FAIL_REDIR_ENA, x)
++#define ANA_L3_ROUTING_CFG_CPU_RLEG_IP_HDR_FAIL_REDIR_ENA_GET(x)\
++	FIELD_GET(ANA_L3_ROUTING_CFG_CPU_RLEG_IP_HDR_FAIL_REDIR_ENA, x)
++
++#define ANA_L3_ROUTING_CFG_CPU_IP6_HOPBYHOP_REDIR_ENA BIT(3)
++#define ANA_L3_ROUTING_CFG_CPU_IP6_HOPBYHOP_REDIR_ENA_SET(x)\
++	FIELD_PREP(ANA_L3_ROUTING_CFG_CPU_IP6_HOPBYHOP_REDIR_ENA, x)
++#define ANA_L3_ROUTING_CFG_CPU_IP6_HOPBYHOP_REDIR_ENA_GET(x)\
++	FIELD_GET(ANA_L3_ROUTING_CFG_CPU_IP6_HOPBYHOP_REDIR_ENA, x)
++
++#define ANA_L3_ROUTING_CFG_CPU_IP4_OPTIONS_REDIR_ENA BIT(2)
++#define ANA_L3_ROUTING_CFG_CPU_IP4_OPTIONS_REDIR_ENA_SET(x)\
++	FIELD_PREP(ANA_L3_ROUTING_CFG_CPU_IP4_OPTIONS_REDIR_ENA, x)
++#define ANA_L3_ROUTING_CFG_CPU_IP4_OPTIONS_REDIR_ENA_GET(x)\
++	FIELD_GET(ANA_L3_ROUTING_CFG_CPU_IP4_OPTIONS_REDIR_ENA, x)
++
++#define ANA_L3_ROUTING_CFG_IP6_HC_REDIR_ENA      BIT(1)
++#define ANA_L3_ROUTING_CFG_IP6_HC_REDIR_ENA_SET(x)\
++	FIELD_PREP(ANA_L3_ROUTING_CFG_IP6_HC_REDIR_ENA, x)
++#define ANA_L3_ROUTING_CFG_IP6_HC_REDIR_ENA_GET(x)\
++	FIELD_GET(ANA_L3_ROUTING_CFG_IP6_HC_REDIR_ENA, x)
++
++#define ANA_L3_ROUTING_CFG_IP4_TTL_REDIR_ENA     BIT(0)
++#define ANA_L3_ROUTING_CFG_IP4_TTL_REDIR_ENA_SET(x)\
++	FIELD_PREP(ANA_L3_ROUTING_CFG_IP4_TTL_REDIR_ENA, x)
++#define ANA_L3_ROUTING_CFG_IP4_TTL_REDIR_ENA_GET(x)\
++	FIELD_GET(ANA_L3_ROUTING_CFG_IP4_TTL_REDIR_ENA, x)
++
++/* ANA_L3:COMMON:ROUTING_CFG2 */
++#define ANA_L3_ROUTING_CFG2                                                    \
++	__REG(TARGET_ANA_L3, 0, 1, regs->gaddr[GA_ANA_L3_COMMON], 0, 1, 184,   \
++	      108, 0, 1, 4)
++
++#define ANA_L3_ROUTING_CFG2_IP6_SIP_LOOKUP_ENA   BIT(4)
++#define ANA_L3_ROUTING_CFG2_IP6_SIP_LOOKUP_ENA_SET(x)\
++	FIELD_PREP(ANA_L3_ROUTING_CFG2_IP6_SIP_LOOKUP_ENA, x)
++#define ANA_L3_ROUTING_CFG2_IP6_SIP_LOOKUP_ENA_GET(x)\
++	FIELD_GET(ANA_L3_ROUTING_CFG2_IP6_SIP_LOOKUP_ENA, x)
++
++#define ANA_L3_ROUTING_CFG2_IP4_SIP_LOOKUP_ENA   BIT(3)
++#define ANA_L3_ROUTING_CFG2_IP4_SIP_LOOKUP_ENA_SET(x)\
++	FIELD_PREP(ANA_L3_ROUTING_CFG2_IP4_SIP_LOOKUP_ENA, x)
++#define ANA_L3_ROUTING_CFG2_IP4_SIP_LOOKUP_ENA_GET(x)\
++	FIELD_GET(ANA_L3_ROUTING_CFG2_IP4_SIP_LOOKUP_ENA, x)
++
++#define ANA_L3_ROUTING_CFG2_SIP_IP6PFX_ENA       BIT(1)
++#define ANA_L3_ROUTING_CFG2_SIP_IP6PFX_ENA_SET(x)\
++	FIELD_PREP(ANA_L3_ROUTING_CFG2_SIP_IP6PFX_ENA, x)
++#define ANA_L3_ROUTING_CFG2_SIP_IP6PFX_ENA_GET(x)\
++	FIELD_GET(ANA_L3_ROUTING_CFG2_SIP_IP6PFX_ENA, x)
++
++#define ANA_L3_ROUTING_CFG2_DIP_IP6PFX_ENA       BIT(0)
++#define ANA_L3_ROUTING_CFG2_DIP_IP6PFX_ENA_SET(x)\
++	FIELD_PREP(ANA_L3_ROUTING_CFG2_DIP_IP6PFX_ENA, x)
++#define ANA_L3_ROUTING_CFG2_DIP_IP6PFX_ENA_GET(x)\
++	FIELD_GET(ANA_L3_ROUTING_CFG2_DIP_IP6PFX_ENA, x)
++
++#define ANA_L3_ROUTING_CFG2_IP4_DECAP_REDIR_ENA  BIT(2)
++#define ANA_L3_ROUTING_CFG2_IP4_DECAP_REDIR_ENA_SET(x)\
++	FIELD_PREP(ANA_L3_ROUTING_CFG2_IP4_DECAP_REDIR_ENA, x)
++#define ANA_L3_ROUTING_CFG2_IP4_DECAP_REDIR_ENA_GET(x)\
++	FIELD_GET(ANA_L3_ROUTING_CFG2_IP4_DECAP_REDIR_ENA, x)
++
++/* ANA_L3:COMMON:RLEG_CFG_0 */
++#define ANA_L3_RLEG_CFG_0                                                      \
++	__REG(TARGET_ANA_L3, 0, 1, regs->gaddr[GA_ANA_L3_COMMON], 0, 1, 184,   \
++	      112, 0, 1, 4)
++
++#define ANA_L3_RLEG_CFG_0_RLEG_MAC_LSB           GENMASK(31, 8)
++#define ANA_L3_RLEG_CFG_0_RLEG_MAC_LSB_SET(x)\
++	FIELD_PREP(ANA_L3_RLEG_CFG_0_RLEG_MAC_LSB, x)
++#define ANA_L3_RLEG_CFG_0_RLEG_MAC_LSB_GET(x)\
++	FIELD_GET(ANA_L3_RLEG_CFG_0_RLEG_MAC_LSB, x)
++
++/* ANA_L3:COMMON:RLEG_CFG_1 */
++#define ANA_L3_RLEG_CFG_1                                                      \
++	__REG(TARGET_ANA_L3, 0, 1, regs->gaddr[GA_ANA_L3_COMMON], 0, 1, 184,   \
++	      116, 0, 1, 4)
++
++#define ANA_L3_RLEG_CFG_1_RLEG_MAC_TYPE_SEL      GENMASK(25, 24)
++#define ANA_L3_RLEG_CFG_1_RLEG_MAC_TYPE_SEL_SET(x)\
++	FIELD_PREP(ANA_L3_RLEG_CFG_1_RLEG_MAC_TYPE_SEL, x)
++#define ANA_L3_RLEG_CFG_1_RLEG_MAC_TYPE_SEL_GET(x)\
++	FIELD_GET(ANA_L3_RLEG_CFG_1_RLEG_MAC_TYPE_SEL, x)
++
++#define ANA_L3_RLEG_CFG_1_RLEG_MAC_MSB           GENMASK(23, 0)
++#define ANA_L3_RLEG_CFG_1_RLEG_MAC_MSB_SET(x)\
++	FIELD_PREP(ANA_L3_RLEG_CFG_1_RLEG_MAC_MSB, x)
++#define ANA_L3_RLEG_CFG_1_RLEG_MAC_MSB_GET(x)\
++	FIELD_GET(ANA_L3_RLEG_CFG_1_RLEG_MAC_MSB, x)
++
++/* ANA_L3:COMMON:CPU_QU_CFG */
++#define ANA_L3_CPU_QU_CFG                                                      \
++	__REG(TARGET_ANA_L3, 0, 1, regs->gaddr[GA_ANA_L3_COMMON], 0, 1, 184,   \
++	      120, 0, 1, 4)
++
++#define ANA_L3_CPU_QU_CFG_CPU_RLEG_QU            GENMASK(30, 28)
++#define ANA_L3_CPU_QU_CFG_CPU_RLEG_QU_SET(x)\
++	FIELD_PREP(ANA_L3_CPU_QU_CFG_CPU_RLEG_QU, x)
++#define ANA_L3_CPU_QU_CFG_CPU_RLEG_QU_GET(x)\
++	FIELD_GET(ANA_L3_CPU_QU_CFG_CPU_RLEG_QU, x)
++
++#define ANA_L3_CPU_QU_CFG_CPU_RLEG_IP_OPT_QU     GENMASK(26, 24)
++#define ANA_L3_CPU_QU_CFG_CPU_RLEG_IP_OPT_QU_SET(x)\
++	FIELD_PREP(ANA_L3_CPU_QU_CFG_CPU_RLEG_IP_OPT_QU, x)
++#define ANA_L3_CPU_QU_CFG_CPU_RLEG_IP_OPT_QU_GET(x)\
++	FIELD_GET(ANA_L3_CPU_QU_CFG_CPU_RLEG_IP_OPT_QU, x)
++
++#define ANA_L3_CPU_QU_CFG_CPU_RLEG_IP_HDR_FAIL_QU GENMASK(22, 20)
++#define ANA_L3_CPU_QU_CFG_CPU_RLEG_IP_HDR_FAIL_QU_SET(x)\
++	FIELD_PREP(ANA_L3_CPU_QU_CFG_CPU_RLEG_IP_HDR_FAIL_QU, x)
++#define ANA_L3_CPU_QU_CFG_CPU_RLEG_IP_HDR_FAIL_QU_GET(x)\
++	FIELD_GET(ANA_L3_CPU_QU_CFG_CPU_RLEG_IP_HDR_FAIL_QU, x)
++
++#define ANA_L3_CPU_QU_CFG_CPU_SIP_RPF_QU         GENMASK(18, 16)
++#define ANA_L3_CPU_QU_CFG_CPU_SIP_RPF_QU_SET(x)\
++	FIELD_PREP(ANA_L3_CPU_QU_CFG_CPU_SIP_RPF_QU, x)
++#define ANA_L3_CPU_QU_CFG_CPU_SIP_RPF_QU_GET(x)\
++	FIELD_GET(ANA_L3_CPU_QU_CFG_CPU_SIP_RPF_QU, x)
++
++#define ANA_L3_CPU_QU_CFG_CPU_IP_LEN_QU          GENMASK(14, 12)
++#define ANA_L3_CPU_QU_CFG_CPU_IP_LEN_QU_SET(x)\
++	FIELD_PREP(ANA_L3_CPU_QU_CFG_CPU_IP_LEN_QU, x)
++#define ANA_L3_CPU_QU_CFG_CPU_IP_LEN_QU_GET(x)\
++	FIELD_GET(ANA_L3_CPU_QU_CFG_CPU_IP_LEN_QU, x)
++
++#define ANA_L3_CPU_QU_CFG_CPU_MC_FAIL_QU         GENMASK(10, 8)
++#define ANA_L3_CPU_QU_CFG_CPU_MC_FAIL_QU_SET(x)\
++	FIELD_PREP(ANA_L3_CPU_QU_CFG_CPU_MC_FAIL_QU, x)
++#define ANA_L3_CPU_QU_CFG_CPU_MC_FAIL_QU_GET(x)\
++	FIELD_GET(ANA_L3_CPU_QU_CFG_CPU_MC_FAIL_QU, x)
++
++#define ANA_L3_CPU_QU_CFG_CPU_UC_FAIL_QU         GENMASK(6, 4)
++#define ANA_L3_CPU_QU_CFG_CPU_UC_FAIL_QU_SET(x)\
++	FIELD_PREP(ANA_L3_CPU_QU_CFG_CPU_UC_FAIL_QU, x)
++#define ANA_L3_CPU_QU_CFG_CPU_UC_FAIL_QU_GET(x)\
++	FIELD_GET(ANA_L3_CPU_QU_CFG_CPU_UC_FAIL_QU, x)
++
++#define ANA_L3_CPU_QU_CFG_CPU_IP_TTL_FAIL_QU     GENMASK(2, 0)
++#define ANA_L3_CPU_QU_CFG_CPU_IP_TTL_FAIL_QU_SET(x)\
++	FIELD_PREP(ANA_L3_CPU_QU_CFG_CPU_IP_TTL_FAIL_QU, x)
++#define ANA_L3_CPU_QU_CFG_CPU_IP_TTL_FAIL_QU_GET(x)\
++	FIELD_GET(ANA_L3_CPU_QU_CFG_CPU_IP_TTL_FAIL_QU, x)
++
++/* ANA_L3:COMMON:CPU_QU_CFG2 */
++#define ANA_L3_CPU_QU_CFG2                                                     \
++	__REG(TARGET_ANA_L3, 0, 1, regs->gaddr[GA_ANA_L3_COMMON], 0, 1, 184,   \
++	      124, 0, 1, 4)
++
++#define ANA_L3_CPU_QU_CFG2_CPU_IP_DECAP_QU       GENMASK(2, 0)
++#define ANA_L3_CPU_QU_CFG2_CPU_IP_DECAP_QU_SET(x)\
++	FIELD_PREP(ANA_L3_CPU_QU_CFG2_CPU_IP_DECAP_QU, x)
++#define ANA_L3_CPU_QU_CFG2_CPU_IP_DECAP_QU_GET(x)\
++	FIELD_GET(ANA_L3_CPU_QU_CFG2_CPU_IP_DECAP_QU, x)
++
++/* ANA_L3:COMMON:SIP_SECURE_ENA */
++#define ANA_L3_SIP_SECURE_ENA                                                  \
++	__REG(TARGET_ANA_L3, 0, 1, regs->gaddr[GA_ANA_L3_COMMON], 0, 1, 184,   \
++	      144, 0, 1, 4)
++
++/* ANA_L3:COMMON:SIP_SECURE_ENA1 */
++#define ANA_L3_SIP_SECURE_ENA1                                                 \
++	__REG(TARGET_ANA_L3, 0, 1, regs->gaddr[GA_ANA_L3_COMMON], 0, 1, 184,   \
++	      148, 0, 1, 4)
++
++/* SPARX5 ONLY */
++/* ANA_L3:COMMON:SIP_SECURE_ENA2 */
++#define ANA_L3_SIP_SECURE_ENA2                                                 \
++	__REG(TARGET_ANA_L3, 0, 1, regs->gaddr[GA_ANA_L3_COMMON], 0, 1, 184,   \
++	      152, 0, 1, 4)
++
++#define ANA_L3_SIP_SECURE_ENA2_SIP_CMP_ENA2      GENMASK(5, 0)
++#define ANA_L3_SIP_SECURE_ENA2_SIP_CMP_ENA2_SET(x)\
++	FIELD_PREP(ANA_L3_SIP_SECURE_ENA2_SIP_CMP_ENA2, x)
++#define ANA_L3_SIP_SECURE_ENA2_SIP_CMP_ENA2_GET(x)\
++	FIELD_GET(ANA_L3_SIP_SECURE_ENA2_SIP_CMP_ENA2, x)
++
++/* ANA_L3:COMMON:DIP_SECURE_ENA */
++#define ANA_L3_DIP_SECURE_ENA                                                  \
++	__REG(TARGET_ANA_L3, 0, 1, regs->gaddr[GA_ANA_L3_COMMON], 0, 1, 184,   \
++	      156, 0, 1, 4)
++
++/* SPARX5 ONLY */
++/* ANA_L3:COMMON:DIP_SECURE_ENA1 */
++#define ANA_L3_DIP_SECURE_ENA1                                                 \
++	__REG(TARGET_ANA_L3, 0, 1, regs->gaddr[GA_ANA_L3_COMMON], 0, 1, 184,   \
++	      160, 0, 1, 4)
++
++/* SPARX5 ONLY */
++/* ANA_L3:COMMON:DIP_SECURE_ENA2 */
++#define ANA_L3_DIP_SECURE_ENA2                                                 \
++	__REG(TARGET_ANA_L3, 0, 1, regs->gaddr[GA_ANA_L3_COMMON], 0, 1, 184,   \
++	      164, 0, 1, 4)
++
++#define ANA_L3_DIP_SECURE_ENA2_DIP_CMP_ENA2      BIT(0)
++#define ANA_L3_DIP_SECURE_ENA2_DIP_CMP_ENA2_SET(x)\
++	FIELD_PREP(ANA_L3_DIP_SECURE_ENA2_DIP_CMP_ENA2, x)
++#define ANA_L3_DIP_SECURE_ENA2_DIP_CMP_ENA2_GET(x)\
++	FIELD_GET(ANA_L3_DIP_SECURE_ENA2_DIP_CMP_ENA2, x)
++
++/* ANA_L3:VLAN:VMID_CFG */
++#define ANA_L3_VMID_CFG(g)                                                     \
++	__REG(TARGET_ANA_L3, 0, 1, 0, g, regs->gcnt[GC_ANA_L3_VLAN], 64, 0, 0, \
++	      1, 4)
++
++#define ANA_L3_VMID_CFG_VMID\
++	GENMASK(regs->fsize[FW_ANA_L3_VMID_CFG_VMID] + 0 - 1, 0)
++#define ANA_L3_VMID_CFG_VMID_SET(x)\
++	spx5_field_prep(ANA_L3_VMID_CFG_VMID, x)
++#define ANA_L3_VMID_CFG_VMID_GET(x)\
++	spx5_field_get(ANA_L3_VMID_CFG_VMID, x)
++
+ /* ANA_L3:VLAN:VLAN_CFG */
+ #define ANA_L3_VLAN_CFG(g)                                                     \
+ 	__REG(TARGET_ANA_L3, 0, 1, 0, g, regs->gcnt[GC_ANA_L3_VLAN], 64, 8, 0, \
+@@ -1871,6 +2321,13 @@ extern const struct sparx5_regs *regs;
+ #define ANA_L3_VLAN_CFG_VLAN_MIRROR_ENA_GET(x)\
+ 	FIELD_GET(ANA_L3_VLAN_CFG_VLAN_MIRROR_ENA, x)
  
- #define VCAP_CID_INGRESS_STAGE2_L0   8000000 /* Ingress Stage 2 Lookup 0 */
- #define VCAP_CID_INGRESS_STAGE2_L1   8100000 /* Ingress Stage 2 Lookup 1 */
-@@ -41,7 +41,9 @@ enum vcap_user {
- 	VCAP_USER_MRP,
- 	VCAP_USER_CFM,
- 	VCAP_USER_VLAN,
-+	VCAP_USER_L3,
- 	VCAP_USER_QOS,
-+	/* permanent enabled users above here */
- 	VCAP_USER_VCAP_UTIL,
- 	VCAP_USER_TC,
- 	VCAP_USER_TC_EXTRA,
-diff --git a/drivers/net/ethernet/microchip/vcap/vcap_api_client.h b/drivers/net/ethernet/microchip/vcap/vcap_api_client.h
-index cdf79e17ca54..3f17e1e76b7d 100644
---- a/drivers/net/ethernet/microchip/vcap/vcap_api_client.h
-+++ b/drivers/net/ethernet/microchip/vcap/vcap_api_client.h
-@@ -167,6 +167,8 @@ void vcap_free_rule(struct vcap_rule *rule);
- int vcap_val_rule(struct vcap_rule *rule, u16 l3_proto);
- /* Add rule to a VCAP instance */
- int vcap_add_rule(struct vcap_rule *rule);
-+/* Validate and add rule to a VCAP instance */
-+int vcap_val_add_rule(struct vcap_rule *rule, u16 l3_proto);
- /* Delete rule in a VCAP instance */
- int vcap_del_rule(struct vcap_control *vctrl, struct net_device *ndev, u32 id);
- /* Make a full copy of an existing rule with a new rule id */
-@@ -266,6 +268,10 @@ int vcap_rule_mod_key_u32(struct vcap_rule *rule, enum vcap_key_field key,
- int vcap_rule_mod_action_u32(struct vcap_rule *rule,
- 			     enum vcap_action_field action,
- 			     u32 value);
-+/* Modify a bit action with value in the rule */
-+int vcap_rule_mod_action_bit(struct vcap_rule *rule,
-+			     enum vcap_action_field action,
-+			     enum vcap_bit val);
++/* LAN969X ONLY */
++#define ANA_L3_VLAN_CFG_VLAN_PGID_CPU_DIS        BIT(31)
++#define ANA_L3_VLAN_CFG_VLAN_PGID_CPU_DIS_SET(x)\
++	FIELD_PREP(ANA_L3_VLAN_CFG_VLAN_PGID_CPU_DIS, x)
++#define ANA_L3_VLAN_CFG_VLAN_PGID_CPU_DIS_GET(x)\
++	FIELD_GET(ANA_L3_VLAN_CFG_VLAN_PGID_CPU_DIS, x)
++
+ /* ANA_L3:VLAN:VLAN_MASK_CFG */
+ #define ANA_L3_VLAN_MASK_CFG(g)                                                \
+ 	__REG(TARGET_ANA_L3, 0, 1, 0, g, regs->gcnt[GC_ANA_L3_VLAN], 64, 16, 0,\
+@@ -1894,6 +2351,154 @@ extern const struct sparx5_regs *regs;
+ #define ANA_L3_VLAN_MASK_CFG2_VLAN_PORT_MASK2_GET(x)\
+ 	FIELD_GET(ANA_L3_VLAN_MASK_CFG2_VLAN_PORT_MASK2, x)
  
- /* Get a 32 bit key field value and mask from the rule */
- int vcap_rule_get_key_u32(struct vcap_rule *rule, enum vcap_key_field key,
-diff --git a/drivers/net/ethernet/microchip/vcap/vcap_api_debugfs.c b/drivers/net/ethernet/microchip/vcap/vcap_api_debugfs.c
-index e0c65c7ab23e..36150822ce15 100644
---- a/drivers/net/ethernet/microchip/vcap/vcap_api_debugfs.c
-+++ b/drivers/net/ethernet/microchip/vcap/vcap_api_debugfs.c
-@@ -40,7 +40,8 @@ static void vcap_debugfs_show_rule_keyfield(struct vcap_control *vctrl,
- 		value = (u8 *)(&data->u32.value);
- 		mask = (u8 *)(&data->u32.mask);
++/* ANA_L3:VMID:RLEG_CTRL */
++#define ANA_L3_RLEG_CTRL(g)                                                    \
++	__REG(TARGET_ANA_L3, 0, 1, regs->gaddr[GA_ANA_L3_VMID], g,             \
++	      regs->gcnt[GC_ANA_L3_VMID], 64, 0, 0, 1, 4)
++
++#define ANA_L3_RLEG_CTRL_RLEG_EVID               GENMASK(31, 19)
++#define ANA_L3_RLEG_CTRL_RLEG_EVID_SET(x)\
++	FIELD_PREP(ANA_L3_RLEG_CTRL_RLEG_EVID, x)
++#define ANA_L3_RLEG_CTRL_RLEG_EVID_GET(x)\
++	FIELD_GET(ANA_L3_RLEG_CTRL_RLEG_EVID, x)
++
++#define ANA_L3_RLEG_CTRL_RLEG_IP6_STAT_IP_ONLY_ENA BIT(18)
++#define ANA_L3_RLEG_CTRL_RLEG_IP6_STAT_IP_ONLY_ENA_SET(x)\
++	FIELD_PREP(ANA_L3_RLEG_CTRL_RLEG_IP6_STAT_IP_ONLY_ENA, x)
++#define ANA_L3_RLEG_CTRL_RLEG_IP6_STAT_IP_ONLY_ENA_GET(x)\
++	FIELD_GET(ANA_L3_RLEG_CTRL_RLEG_IP6_STAT_IP_ONLY_ENA, x)
++
++#define ANA_L3_RLEG_CTRL_RLEG_IP4_STAT_IP_ONLY_ENA BIT(17)
++#define ANA_L3_RLEG_CTRL_RLEG_IP4_STAT_IP_ONLY_ENA_SET(x)\
++	FIELD_PREP(ANA_L3_RLEG_CTRL_RLEG_IP4_STAT_IP_ONLY_ENA, x)
++#define ANA_L3_RLEG_CTRL_RLEG_IP4_STAT_IP_ONLY_ENA_GET(x)\
++	FIELD_GET(ANA_L3_RLEG_CTRL_RLEG_IP4_STAT_IP_ONLY_ENA, x)
++
++#define ANA_L3_RLEG_CTRL_RLEG_IP6_SIP_RPF_MODE   GENMASK(15, 14)
++#define ANA_L3_RLEG_CTRL_RLEG_IP6_SIP_RPF_MODE_SET(x)\
++	FIELD_PREP(ANA_L3_RLEG_CTRL_RLEG_IP6_SIP_RPF_MODE, x)
++#define ANA_L3_RLEG_CTRL_RLEG_IP6_SIP_RPF_MODE_GET(x)\
++	FIELD_GET(ANA_L3_RLEG_CTRL_RLEG_IP6_SIP_RPF_MODE, x)
++
++#define ANA_L3_RLEG_CTRL_RLEG_IP4_SIP_RPF_MODE   GENMASK(13, 12)
++#define ANA_L3_RLEG_CTRL_RLEG_IP4_SIP_RPF_MODE_SET(x)\
++	FIELD_PREP(ANA_L3_RLEG_CTRL_RLEG_IP4_SIP_RPF_MODE, x)
++#define ANA_L3_RLEG_CTRL_RLEG_IP4_SIP_RPF_MODE_GET(x)\
++	FIELD_GET(ANA_L3_RLEG_CTRL_RLEG_IP4_SIP_RPF_MODE, x)
++
++#define ANA_L3_RLEG_CTRL_RLEG_IP6_TTL_DECR_DIS   BIT(9)
++#define ANA_L3_RLEG_CTRL_RLEG_IP6_TTL_DECR_DIS_SET(x)\
++	FIELD_PREP(ANA_L3_RLEG_CTRL_RLEG_IP6_TTL_DECR_DIS, x)
++#define ANA_L3_RLEG_CTRL_RLEG_IP6_TTL_DECR_DIS_GET(x)\
++	FIELD_GET(ANA_L3_RLEG_CTRL_RLEG_IP6_TTL_DECR_DIS, x)
++
++#define ANA_L3_RLEG_CTRL_RLEG_IP4_TTL_DECR_DIS   BIT(8)
++#define ANA_L3_RLEG_CTRL_RLEG_IP4_TTL_DECR_DIS_SET(x)\
++	FIELD_PREP(ANA_L3_RLEG_CTRL_RLEG_IP4_TTL_DECR_DIS, x)
++#define ANA_L3_RLEG_CTRL_RLEG_IP4_TTL_DECR_DIS_GET(x)\
++	FIELD_GET(ANA_L3_RLEG_CTRL_RLEG_IP4_TTL_DECR_DIS, x)
++
++#define ANA_L3_RLEG_CTRL_RLEG_IP6_UC_ENA         BIT(7)
++#define ANA_L3_RLEG_CTRL_RLEG_IP6_UC_ENA_SET(x)\
++	FIELD_PREP(ANA_L3_RLEG_CTRL_RLEG_IP6_UC_ENA, x)
++#define ANA_L3_RLEG_CTRL_RLEG_IP6_UC_ENA_GET(x)\
++	FIELD_GET(ANA_L3_RLEG_CTRL_RLEG_IP6_UC_ENA, x)
++
++#define ANA_L3_RLEG_CTRL_RLEG_IP4_UC_ENA         BIT(6)
++#define ANA_L3_RLEG_CTRL_RLEG_IP4_UC_ENA_SET(x)\
++	FIELD_PREP(ANA_L3_RLEG_CTRL_RLEG_IP4_UC_ENA, x)
++#define ANA_L3_RLEG_CTRL_RLEG_IP4_UC_ENA_GET(x)\
++	FIELD_GET(ANA_L3_RLEG_CTRL_RLEG_IP4_UC_ENA, x)
++
++#define ANA_L3_RLEG_CTRL_RLEG_IP6_MC_ENA         BIT(5)
++#define ANA_L3_RLEG_CTRL_RLEG_IP6_MC_ENA_SET(x)\
++	FIELD_PREP(ANA_L3_RLEG_CTRL_RLEG_IP6_MC_ENA, x)
++#define ANA_L3_RLEG_CTRL_RLEG_IP6_MC_ENA_GET(x)\
++	FIELD_GET(ANA_L3_RLEG_CTRL_RLEG_IP6_MC_ENA, x)
++
++#define ANA_L3_RLEG_CTRL_RLEG_IP4_MC_ENA         BIT(4)
++#define ANA_L3_RLEG_CTRL_RLEG_IP4_MC_ENA_SET(x)\
++	FIELD_PREP(ANA_L3_RLEG_CTRL_RLEG_IP4_MC_ENA, x)
++#define ANA_L3_RLEG_CTRL_RLEG_IP4_MC_ENA_GET(x)\
++	FIELD_GET(ANA_L3_RLEG_CTRL_RLEG_IP4_MC_ENA, x)
++
++#define ANA_L3_RLEG_CTRL_RLEG_IP6_ICMP_REDIR_ENA BIT(3)
++#define ANA_L3_RLEG_CTRL_RLEG_IP6_ICMP_REDIR_ENA_SET(x)\
++	FIELD_PREP(ANA_L3_RLEG_CTRL_RLEG_IP6_ICMP_REDIR_ENA, x)
++#define ANA_L3_RLEG_CTRL_RLEG_IP6_ICMP_REDIR_ENA_GET(x)\
++	FIELD_GET(ANA_L3_RLEG_CTRL_RLEG_IP6_ICMP_REDIR_ENA, x)
++
++#define ANA_L3_RLEG_CTRL_RLEG_IP4_ICMP_REDIR_ENA BIT(2)
++#define ANA_L3_RLEG_CTRL_RLEG_IP4_ICMP_REDIR_ENA_SET(x)\
++	FIELD_PREP(ANA_L3_RLEG_CTRL_RLEG_IP4_ICMP_REDIR_ENA, x)
++#define ANA_L3_RLEG_CTRL_RLEG_IP4_ICMP_REDIR_ENA_GET(x)\
++	FIELD_GET(ANA_L3_RLEG_CTRL_RLEG_IP4_ICMP_REDIR_ENA, x)
++
++#define ANA_L3_RLEG_CTRL_RLEG_IP6_VRID_ENA       BIT(1)
++#define ANA_L3_RLEG_CTRL_RLEG_IP6_VRID_ENA_SET(x)\
++	FIELD_PREP(ANA_L3_RLEG_CTRL_RLEG_IP6_VRID_ENA, x)
++#define ANA_L3_RLEG_CTRL_RLEG_IP6_VRID_ENA_GET(x)\
++	FIELD_GET(ANA_L3_RLEG_CTRL_RLEG_IP6_VRID_ENA, x)
++
++#define ANA_L3_RLEG_CTRL_RLEG_IP4_VRID_ENA       BIT(0)
++#define ANA_L3_RLEG_CTRL_RLEG_IP4_VRID_ENA_SET(x)\
++	FIELD_PREP(ANA_L3_RLEG_CTRL_RLEG_IP4_VRID_ENA, x)
++#define ANA_L3_RLEG_CTRL_RLEG_IP4_VRID_ENA_GET(x)\
++	FIELD_GET(ANA_L3_RLEG_CTRL_RLEG_IP4_VRID_ENA, x)
++
++/* ANA_L3:ARP:ARP_CFG_0 */
++#define ANA_L3_ARP_CFG_0(g)                                                    \
++	__REG(TARGET_ANA_L3, 0, 1, regs->gaddr[GA_ANA_L3_ARP], g,              \
++	      regs->gcnt[GC_ANA_L3_ARP], 32, 0, 0, 1, 4)
++
++#define ANA_L3_ARP_CFG_0_MAC_MSB                 GENMASK(31, 16)
++#define ANA_L3_ARP_CFG_0_MAC_MSB_SET(x)\
++	FIELD_PREP(ANA_L3_ARP_CFG_0_MAC_MSB, x)
++#define ANA_L3_ARP_CFG_0_MAC_MSB_GET(x)\
++	FIELD_GET(ANA_L3_ARP_CFG_0_MAC_MSB, x)
++
++#define ANA_L3_ARP_CFG_0_ARP_VMID\
++	GENMASK(regs->fsize[FW_ANA_L3_ARP_CFG_0_ARP_VMID] + 7 - 1, 7)
++#define ANA_L3_ARP_CFG_0_ARP_VMID_SET(x)\
++	spx5_field_prep(ANA_L3_ARP_CFG_0_ARP_VMID, x)
++#define ANA_L3_ARP_CFG_0_ARP_VMID_GET(x)\
++	spx5_field_get(ANA_L3_ARP_CFG_0_ARP_VMID, x)
++
++#define ANA_L3_ARP_CFG_0_ZERO_DMAC_CPU_QU        GENMASK(6, 4)
++#define ANA_L3_ARP_CFG_0_ZERO_DMAC_CPU_QU_SET(x)\
++	FIELD_PREP(ANA_L3_ARP_CFG_0_ZERO_DMAC_CPU_QU, x)
++#define ANA_L3_ARP_CFG_0_ZERO_DMAC_CPU_QU_GET(x)\
++	FIELD_GET(ANA_L3_ARP_CFG_0_ZERO_DMAC_CPU_QU, x)
++
++#define ANA_L3_ARP_CFG_0_SIP_RPF_ENA             BIT(3)
++#define ANA_L3_ARP_CFG_0_SIP_RPF_ENA_SET(x)\
++	FIELD_PREP(ANA_L3_ARP_CFG_0_SIP_RPF_ENA, x)
++#define ANA_L3_ARP_CFG_0_SIP_RPF_ENA_GET(x)\
++	FIELD_GET(ANA_L3_ARP_CFG_0_SIP_RPF_ENA, x)
++
++#define ANA_L3_ARP_CFG_0_SECUR_MATCH_VMID_ENA    BIT(2)
++#define ANA_L3_ARP_CFG_0_SECUR_MATCH_VMID_ENA_SET(x)\
++	FIELD_PREP(ANA_L3_ARP_CFG_0_SECUR_MATCH_VMID_ENA, x)
++#define ANA_L3_ARP_CFG_0_SECUR_MATCH_VMID_ENA_GET(x)\
++	FIELD_GET(ANA_L3_ARP_CFG_0_SECUR_MATCH_VMID_ENA, x)
++
++#define ANA_L3_ARP_CFG_0_SECUR_MATCH_MAC_ENA     BIT(1)
++#define ANA_L3_ARP_CFG_0_SECUR_MATCH_MAC_ENA_SET(x)\
++	FIELD_PREP(ANA_L3_ARP_CFG_0_SECUR_MATCH_MAC_ENA, x)
++#define ANA_L3_ARP_CFG_0_SECUR_MATCH_MAC_ENA_GET(x)\
++	FIELD_GET(ANA_L3_ARP_CFG_0_SECUR_MATCH_MAC_ENA, x)
++
++#define ANA_L3_ARP_CFG_0_ARP_ENA                 BIT(0)
++#define ANA_L3_ARP_CFG_0_ARP_ENA_SET(x)\
++	FIELD_PREP(ANA_L3_ARP_CFG_0_ARP_ENA, x)
++#define ANA_L3_ARP_CFG_0_ARP_ENA_GET(x)\
++	FIELD_GET(ANA_L3_ARP_CFG_0_ARP_ENA, x)
++
++/* ANA_L3:ARP:ARP_CFG_1 */
++#define ANA_L3_ARP_CFG_1(g)                                                    \
++	__REG(TARGET_ANA_L3, 0, 1, regs->gaddr[GA_ANA_L3_ARP], g,              \
++	      regs->gcnt[GC_ANA_L3_ARP], 32, 4, 0, 1, 4)
++
+ /* ASM:DEV_STATISTICS:RX_IN_BYTES_CNT */
+ #define ASM_RX_IN_BYTES_CNT(g)                                                 \
+ 	__REG(TARGET_ASM, 0, 1, 0, g, regs->gcnt[GC_ASM_DEV_STATISTICS], 512,  \
+@@ -4515,6 +5120,34 @@ extern const struct sparx5_regs *regs;
+ #define DSM_TAXI_CAL_CFG_CAL_PGM_SEL_GET(x)\
+ 	FIELD_GET(DSM_TAXI_CAL_CFG_CAL_PGM_SEL, x)
  
--		if (key == VCAP_KF_L3_IP4_SIP || key == VCAP_KF_L3_IP4_DIP) {
-+		if (key == VCAP_KF_L3_IP4_SIP || key == VCAP_KF_L3_IP4_DIP ||
-+		    key == VCAP_KF_IP4_XIP) {
- 			out->prf(out->dst, "%pI4h/%pI4h", &data->u32.value,
- 				 &data->u32.mask);
- 		} else if (key == VCAP_KF_ETYPE ||
-@@ -88,7 +89,8 @@ static void vcap_debugfs_show_rule_keyfield(struct vcap_control *vctrl,
- 	case VCAP_FIELD_U128:
- 		value = data->u128.value;
- 		mask = data->u128.mask;
--		if (key == VCAP_KF_L3_IP6_SIP || key == VCAP_KF_L3_IP6_DIP) {
-+		if (key == VCAP_KF_L3_IP6_SIP || key == VCAP_KF_L3_IP6_DIP ||
-+		    key == VCAP_KF_IP6_XIP) {
- 			u8 nvalue[16], nmask[16];
++/* EACL:COMMON:RLEG_CFG_0 */
++#define EACL_RLEG_CFG_0                                                        \
++	__REG(TARGET_EACL, 0, 1, regs->gaddr[GA_EACL_COMMON], 0, 1, 216, 64, 0,\
++	      1, 4)
++
++#define EACL_RLEG_CFG_0_RLEG_MAC_LSB             GENMASK(23, 0)
++#define EACL_RLEG_CFG_0_RLEG_MAC_LSB_SET(x)\
++	FIELD_PREP(EACL_RLEG_CFG_0_RLEG_MAC_LSB, x)
++#define EACL_RLEG_CFG_0_RLEG_MAC_LSB_GET(x)\
++	FIELD_GET(EACL_RLEG_CFG_0_RLEG_MAC_LSB, x)
++
++/* EACL:COMMON:RLEG_CFG_1 */
++#define EACL_RLEG_CFG_1                                                        \
++	__REG(TARGET_EACL, 0, 1, regs->gaddr[GA_EACL_COMMON], 0, 1, 216, 68, 0,\
++	      1, 4)
++
++#define EACL_RLEG_CFG_1_RLEG_MAC_TYPE_SEL        GENMASK(25, 24)
++#define EACL_RLEG_CFG_1_RLEG_MAC_TYPE_SEL_SET(x)\
++	FIELD_PREP(EACL_RLEG_CFG_1_RLEG_MAC_TYPE_SEL, x)
++#define EACL_RLEG_CFG_1_RLEG_MAC_TYPE_SEL_GET(x)\
++	FIELD_GET(EACL_RLEG_CFG_1_RLEG_MAC_TYPE_SEL, x)
++
++#define EACL_RLEG_CFG_1_RLEG_MAC_MSB             GENMASK(23, 0)
++#define EACL_RLEG_CFG_1_RLEG_MAC_MSB_SET(x)\
++	FIELD_PREP(EACL_RLEG_CFG_1_RLEG_MAC_MSB, x)
++#define EACL_RLEG_CFG_1_RLEG_MAC_MSB_GET(x)\
++	FIELD_GET(EACL_RLEG_CFG_1_RLEG_MAC_MSB, x)
++
+ /* EACL:ES2_KEY_SELECT_PROFILE:VCAP_ES2_KEY_SEL */
+ #define EACL_VCAP_ES2_KEY_SEL(g, r)                                            \
+ 	__REG(TARGET_EACL, 0, 1, regs->gaddr[GA_EACL_ES2_KEY_SELECT_PROFILE],  \
+@@ -7353,6 +7986,34 @@ extern const struct sparx5_regs *regs;
+ #define REW_ES0_CTRL_ES0_LU_ENA_GET(x)\
+ 	FIELD_GET(REW_ES0_CTRL_ES0_LU_ENA, x)
  
- 			vcap_netbytes_copy(nvalue, data->u128.value,
-@@ -133,7 +135,12 @@ vcap_debugfs_show_rule_actionfield(struct vcap_control *vctrl,
- 		out->prf(out->dst, "%d", value[0]);
- 		break;
- 	case VCAP_FIELD_U32:
--		fmsk = (1 << actionfield[action].width) - 1;
-+		if (action == VCAP_AF_MAC_LSB || action == VCAP_AF_MAC_MSB) {
-+			hex = true;
-+			break;
-+		}
-+		fmsk = actionfield[action].width ?
-+		       GENMASK(actionfield[action].width - 1, 0) : 0;
- 		val = *(u32 *)value;
- 		out->prf(out->dst, "%u", val & fmsk);
- 		break;
++/* REW:COMMON:RLEG_CFG_0 */
++#define REW_RLEG_CFG_0                                                         \
++	__REG(TARGET_REW, 0, 1, regs->gaddr[GA_REW_COMMON], 0, 1, 1232, 1156,  \
++	      0, 1, 4)
++
++#define REW_RLEG_CFG_0_RLEG_MAC_LSB              GENMASK(23, 0)
++#define REW_RLEG_CFG_0_RLEG_MAC_LSB_SET(x)\
++	FIELD_PREP(REW_RLEG_CFG_0_RLEG_MAC_LSB, x)
++#define REW_RLEG_CFG_0_RLEG_MAC_LSB_GET(x)\
++	FIELD_GET(REW_RLEG_CFG_0_RLEG_MAC_LSB, x)
++
++/* REW:COMMON:RLEG_CFG_1 */
++#define REW_RLEG_CFG_1                                                         \
++	__REG(TARGET_REW, 0, 1, regs->gaddr[GA_REW_COMMON], 0, 1, 1232, 1160,  \
++	      0, 1, 4)
++
++#define REW_RLEG_CFG_1_RLEG_MAC_TYPE_SEL         GENMASK(25, 24)
++#define REW_RLEG_CFG_1_RLEG_MAC_TYPE_SEL_SET(x)\
++	FIELD_PREP(REW_RLEG_CFG_1_RLEG_MAC_TYPE_SEL, x)
++#define REW_RLEG_CFG_1_RLEG_MAC_TYPE_SEL_GET(x)\
++	FIELD_GET(REW_RLEG_CFG_1_RLEG_MAC_TYPE_SEL, x)
++
++#define REW_RLEG_CFG_1_RLEG_MAC_MSB              GENMASK(23, 0)
++#define REW_RLEG_CFG_1_RLEG_MAC_MSB_SET(x)\
++	FIELD_PREP(REW_RLEG_CFG_1_RLEG_MAC_MSB, x)
++#define REW_RLEG_CFG_1_RLEG_MAC_MSB_GET(x)\
++	FIELD_GET(REW_RLEG_CFG_1_RLEG_MAC_MSB, x)
++
+ /* REW:PORT:PORT_VLAN_CFG */
+ #define REW_PORT_VLAN_CFG(g)                                                   \
+ 	__REG(TARGET_REW, 0, 1, regs->gaddr[GA_REW_PORT], g,                   \
+@@ -7579,6 +8240,30 @@ extern const struct sparx5_regs *regs;
+ #define REW_PTP_GEN_STAMP_FMT_RT_FMT_GET(x)\
+ 	FIELD_GET(REW_PTP_GEN_STAMP_FMT_RT_FMT, x)
+ 
++/* REW:VMID:RLEG_CTRL */
++#define REW_RLEG_CTRL(g)                                                       \
++	__REG(TARGET_REW, 0, 1, regs->gaddr[GA_REW_VMID], g,                   \
++	      regs->gcnt[GC_REW_VMID], 4, 0, 0, 1, 4)
++
++#define REW_RLEG_CTRL_DECAP_IRLEG\
++	GENMASK(regs->fsize[FW_REW_RLEG_CTRL_DECAP_IRLEG] + 13 - 1, 13)
++#define REW_RLEG_CTRL_DECAP_IRLEG_SET(x)\
++	spx5_field_prep(REW_RLEG_CTRL_DECAP_IRLEG, x)
++#define REW_RLEG_CTRL_DECAP_IRLEG_GET(x)\
++	spx5_field_get(REW_RLEG_CTRL_DECAP_IRLEG, x)
++
++#define REW_RLEG_CTRL_RLEG_VSTAX2_WAS_TAGGED     BIT(12)
++#define REW_RLEG_CTRL_RLEG_VSTAX2_WAS_TAGGED_SET(x)\
++	FIELD_PREP(REW_RLEG_CTRL_RLEG_VSTAX2_WAS_TAGGED, x)
++#define REW_RLEG_CTRL_RLEG_VSTAX2_WAS_TAGGED_GET(x)\
++	FIELD_GET(REW_RLEG_CTRL_RLEG_VSTAX2_WAS_TAGGED, x)
++
++#define REW_RLEG_CTRL_RLEG_EVID                  GENMASK(11, 0)
++#define REW_RLEG_CTRL_RLEG_EVID_SET(x)\
++	FIELD_PREP(REW_RLEG_CTRL_RLEG_EVID, x)
++#define REW_RLEG_CTRL_RLEG_EVID_GET(x)\
++	FIELD_GET(REW_RLEG_CTRL_RLEG_EVID, x)
++
+ /* REW:RAM_CTRL:RAM_INIT */
+ #define REW_RAM_INIT                                                           \
+ 	__REG(TARGET_REW, 0, 1, regs->gaddr[GA_REW_RAM_CTRL], 0, 1, 4, 0, 0, 1,\
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_regs.c b/drivers/net/ethernet/microchip/sparx5/sparx5_regs.c
+index 3863f954bd83..36e772cfdb6d 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_regs.c
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_regs.c
+@@ -1,11 +1,11 @@
+ // SPDX-License-Identifier: GPL-2.0+
+ /* Microchip Sparx5 Switch driver
+  *
+- * Copyright (c) 2024 Microchip Technology Inc.
++ * Copyright (c) 2026 Microchip Technology Inc.
+  */
+ 
+-/* This file is autogenerated by cml-utils 2024-09-30 11:48:29 +0200.
+- * Commit ID: 9d07b8d19363f3cd3590ddb3f7a2e2768e16524b
++/* This file is autogenerated by cml-utils 2026-02-16 21:50:29 +0100.
++ * Commit ID: 09d52195beeeb9682063ef0bd6eec50eebc137e2
+  */
+ 
+ #include "sparx5_regs.h"
+@@ -77,12 +77,16 @@ const unsigned int sparx5_gaddr[GADDR_LAST] = {
+ 	[GA_ANA_CL_COMMON] = 166912,
+ 	[GA_ANA_L2_COMMON] = 566024,
+ 	[GA_ANA_L3_COMMON] = 493632,
++	[GA_ANA_L3_VMID] = 458752,
++	[GA_ANA_L3_ARP_PTR_REMAP] = 493824,
++	[GA_ANA_L3_ARP] = 327680,
+ 	[GA_ANA_L3_VLAN_ARP_L3MC_STICKY] = 491460,
+ 	[GA_ASM_CFG] = 33280,
+ 	[GA_ASM_PFC_TIMER_CFG] = 34716,
+ 	[GA_ASM_LBK_WM_CFG] = 34744,
+ 	[GA_ASM_LBK_MISC_CFG] = 34756,
+ 	[GA_ASM_RAM_CTRL] = 34832,
++	[GA_EACL_COMMON] = 118480,
+ 	[GA_EACL_ES2_KEY_SELECT_PROFILE] = 149504,
+ 	[GA_EACL_CNT_TBL] = 122880,
+ 	[GA_EACL_POL_CFG] = 150608,
+@@ -103,6 +107,7 @@ const unsigned int sparx5_gaddr[GADDR_LAST] = {
+ 	[GA_QSYS_RAM_CTRL] = 2344,
+ 	[GA_REW_COMMON] = 387264,
+ 	[GA_REW_PORT] = 360448,
++	[GA_REW_VMID] = 389120,
+ 	[GA_REW_VOE_PORT_LM_CNT] = 393216,
+ 	[GA_REW_RAM_CTRL] = 378696,
+ 	[GA_VOP_RAM_CTRL] = 279176,
+@@ -124,6 +129,8 @@ const unsigned int sparx5_gcnt[GCNT_LAST] = {
+ 	[GC_ANA_L2_ISDX_LIMIT] = 1536,
+ 	[GC_ANA_L2_ISDX] = 4096,
+ 	[GC_ANA_L3_VLAN] = 5120,
++	[GC_ANA_L3_VMID] = 511,
++	[GC_ANA_L3_ARP] = 2048,
+ 	[GC_ASM_DEV_STATISTICS] = 65,
+ 	[GC_EACL_ES2_KEY_SELECT_PROFILE] = 138,
+ 	[GC_EACL_CNT_TBL] = 2048,
+@@ -134,6 +141,7 @@ const unsigned int sparx5_gcnt[GCNT_LAST] = {
+ 	[GC_PTP_PTP_PINS] = 5,
+ 	[GC_PTP_PHASE_DETECTOR_CTRL] = 5,
+ 	[GC_REW_PORT] = 70,
++	[GC_REW_VMID] = 511,
+ 	[GC_REW_VOE_PORT_LM_CNT] = 520,
+ };
+ 
+@@ -191,7 +199,12 @@ const unsigned int sparx5_fsize[FSIZE_LAST] = {
+ 	[FW_ANA_L2_AUTO_LRN_CFG_AUTO_LRN_ENA] = 32,
+ 	[FW_ANA_L2_DLB_CFG_DLB_IDX] = 13,
+ 	[FW_ANA_L2_TSN_CFG_TSN_SFID] = 10,
++	[FW_ANA_L3_L3_UC_ENA_L3_UC_ENA] = 32,
++	[FW_ANA_L3_SIP_SECURE_ENA1_SIP_CMP_ENA1] = 32,
++	[FW_ANA_L3_DIP_SECURE_ENA_DIP_CMP_ENA] = 32,
++	[FW_ANA_L3_VMID_CFG_VMID] = 9,
+ 	[FW_ANA_L3_VLAN_MASK_CFG_VLAN_PORT_MASK] = 32,
++	[FW_ANA_L3_ARP_CFG_0_ARP_VMID] = 9,
+ 	[FW_FDMA_CH_CFG_CH_DCB_DB_CNT] = 4,
+ 	[FW_GCB_HW_SGPIO_TO_SD_MAP_CFG_SGPIO_TO_SD_SEL] = 9,
+ 	[FW_HSCH_SE_CFG_SE_DWRR_CNT] = 7,
+@@ -217,6 +230,7 @@ const unsigned int sparx5_fsize[FSIZE_LAST] = {
+ 	[FW_QSYS_ATOP_ATOP] = 12,
+ 	[FW_QSYS_ATOP_TOT_CFG_ATOP_TOT] = 12,
+ 	[FW_REW_RTAG_ETAG_CTRL_IPE_TBL] = 7,
++	[FW_REW_RLEG_CTRL_DECAP_IRLEG] = 9,
+ 	[FW_XQS_STAT_CFG_STAT_VIEW] = 13,
+ 	[FW_XQS_QLIMIT_SHR_TOP_CFG_QLIMIT_SHR_TOP] = 15,
+ 	[FW_XQS_QLIMIT_SHR_ATOP_CFG_QLIMIT_SHR_ATOP] = 15,
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_regs.h b/drivers/net/ethernet/microchip/sparx5/sparx5_regs.h
+index 585589a31e90..45b13da98af7 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_regs.h
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_regs.h
+@@ -1,11 +1,11 @@
+ /* SPDX-License-Identifier: GPL-2.0+ */
+ /* Microchip Sparx5 Switch driver
+  *
+- * Copyright (c) 2024 Microchip Technology Inc.
++ * Copyright (c) 2026 Microchip Technology Inc.
+  */
+ 
+-/* This file is autogenerated by cml-utils 2024-09-30 11:48:29 +0200.
+- * Commit ID: 9d07b8d19363f3cd3590ddb3f7a2e2768e16524b
++/* This file is autogenerated by cml-utils 2026-02-16 21:50:30 +0100.
++ * Commit ID: 09d52195beeeb9682063ef0bd6eec50eebc137e2
+  */
+ 
+ #ifndef _SPARX5_REGS_H_
+@@ -86,12 +86,16 @@ enum sparx5_gaddr_enum {
+ 	GA_ANA_CL_COMMON,
+ 	GA_ANA_L2_COMMON,
+ 	GA_ANA_L3_COMMON,
++	GA_ANA_L3_VMID,
++	GA_ANA_L3_ARP_PTR_REMAP,
++	GA_ANA_L3_ARP,
+ 	GA_ANA_L3_VLAN_ARP_L3MC_STICKY,
+ 	GA_ASM_CFG,
+ 	GA_ASM_PFC_TIMER_CFG,
+ 	GA_ASM_LBK_WM_CFG,
+ 	GA_ASM_LBK_MISC_CFG,
+ 	GA_ASM_RAM_CTRL,
++	GA_EACL_COMMON,
+ 	GA_EACL_ES2_KEY_SELECT_PROFILE,
+ 	GA_EACL_CNT_TBL,
+ 	GA_EACL_POL_CFG,
+@@ -112,6 +116,7 @@ enum sparx5_gaddr_enum {
+ 	GA_QSYS_RAM_CTRL,
+ 	GA_REW_COMMON,
+ 	GA_REW_PORT,
++	GA_REW_VMID,
+ 	GA_REW_VOE_PORT_LM_CNT,
+ 	GA_REW_RAM_CTRL,
+ 	GA_VOP_RAM_CTRL,
+@@ -134,6 +139,8 @@ enum sparx5_gcnt_enum {
+ 	GC_ANA_L2_ISDX_LIMIT,
+ 	GC_ANA_L2_ISDX,
+ 	GC_ANA_L3_VLAN,
++	GC_ANA_L3_VMID,
++	GC_ANA_L3_ARP,
+ 	GC_ASM_DEV_STATISTICS,
+ 	GC_EACL_ES2_KEY_SELECT_PROFILE,
+ 	GC_EACL_CNT_TBL,
+@@ -144,6 +151,7 @@ enum sparx5_gcnt_enum {
+ 	GC_PTP_PTP_PINS,
+ 	GC_PTP_PHASE_DETECTOR_CTRL,
+ 	GC_REW_PORT,
++	GC_REW_VMID,
+ 	GC_REW_VOE_PORT_LM_CNT,
+ 	GCNT_LAST,
+ };
+@@ -204,7 +212,12 @@ enum sparx5_fsize_enum {
+ 	FW_ANA_L2_AUTO_LRN_CFG_AUTO_LRN_ENA,
+ 	FW_ANA_L2_DLB_CFG_DLB_IDX,
+ 	FW_ANA_L2_TSN_CFG_TSN_SFID,
++	FW_ANA_L3_L3_UC_ENA_L3_UC_ENA,
++	FW_ANA_L3_SIP_SECURE_ENA1_SIP_CMP_ENA1,
++	FW_ANA_L3_DIP_SECURE_ENA_DIP_CMP_ENA,
++	FW_ANA_L3_VMID_CFG_VMID,
+ 	FW_ANA_L3_VLAN_MASK_CFG_VLAN_PORT_MASK,
++	FW_ANA_L3_ARP_CFG_0_ARP_VMID,
+ 	FW_FDMA_CH_CFG_CH_DCB_DB_CNT,
+ 	FW_GCB_HW_SGPIO_TO_SD_MAP_CFG_SGPIO_TO_SD_SEL,
+ 	FW_HSCH_SE_CFG_SE_DWRR_CNT,
+@@ -230,6 +243,7 @@ enum sparx5_fsize_enum {
+ 	FW_QSYS_ATOP_ATOP,
+ 	FW_QSYS_ATOP_TOT_CFG_ATOP_TOT,
+ 	FW_REW_RTAG_ETAG_CTRL_IPE_TBL,
++	FW_REW_RLEG_CTRL_DECAP_IRLEG,
+ 	FW_XQS_STAT_CFG_STAT_VIEW,
+ 	FW_XQS_QLIMIT_SHR_TOP_CFG_QLIMIT_SHR_TOP,
+ 	FW_XQS_QLIMIT_SHR_ATOP_CFG_QLIMIT_SHR_ATOP,
 
 -- 
 2.52.0
