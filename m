@@ -4,96 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56594C5AD4E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 00:56:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9813C5AD4E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 01:01:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+bCXqXiVHaA5FZ3XKQFV9NmmEszADDHeGAjplPg15vc=; b=DUsXU7VA6f7l8x1IIIRjM5Aheh
-	HULaUPHCbvCV5N0KKBIQ06Qzw9n0uMx5CI0xxg2j7MLp2pxKWpYnQOTpoN+1a3sNdxNX1CCyu/khT
-	7dO5elLK6bT1CRHDhwC2HbFHWgcLKv8Dqho3GrMrUjPZyJv4VJivDC3Gx6IAodphggExtxCW5DACK
-	Ts3fVpLVWiKjwiNP8zE2Y2iOvzvwf9+y2j9cRGs44/eEPf4PN0V6AMUlrll6wQN0DRiaFHnEgWvnc
-	vFQPc0rUbpOuOH3MJQS0Oadj1iOOxiViWwhwoaHnPp7epZBrCw/GbqkonZdvKgRE333eD72RVzWFN
-	rSd0eZ8w==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nvY2S0ruvz4Gpd906zH7KkcmbltCPtFW7Apk0Tv19GY=; b=wAqlEarjt1jv4/b8wPgYlibEvV
+	2zhzvIqFUIR+cMejBI5owDLVPAb6Ce8Yn7IRzOyyF3CmR7oMzxCEVA8gMkkS2HZDsGyuZgn9ESGke
+	vzhFuF1NKAb36dJKI4LNlb7ko0NXIftxo9skweNxbp/xaYxqGQF5REfxjxm/R3CJbJ7dFXDhlKQcE
+	ZZULFLjxMnsrdbL9GCEnZLSqsBVBKNClswn79clZRehaTOp09Gt2VU+PZd6/olsDCkclL4A1/L2eG
+	OGcgvXJdMpeHgqWqFu6NqgQtW++MfS0DzaJvmn5KQWixV9LolbPRvMdyU/iTKGm7TuvjtAiTrQme9
+	BtC2Cddg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtEJY-0000000ArlB-4BmQ;
-	Mon, 10 Aug 2026 00:56:29 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1wtENt-0000000Aruv-1pfR;
+	Mon, 10 Aug 2026 01:00:57 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtEJW-0000000Arkq-1WSe
+	id 1wtENp-0000000AruQ-1tSd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 00:56:27 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4994c49f588so12067775e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Aug 2026 17:56:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786323384; x=1786928184; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=+bCXqXiVHaA5FZ3XKQFV9NmmEszADDHeGAjplPg15vc=;
-        b=UNGBm+PNa9bUBESxYZa37CQcQ7Zyx7/qi4niqkvVO2yjbrdQfUAGdlGetSvktAopbJ
-         21MaF13vEDz1w/aSyETkqk97S0WEBoqlx6Ln/TWQyDYgBv0uOh4s0k7hPOse3IzL7t+X
-         +YS2lQcDEjCgjzGN8MdeqZhzGci/pqYT/hWbSpLhfl6LTFJH0zrJxiNuNcOKVBHVUhRb
-         AtS5JZ48mW3On5YduqGeoe+KmzYwQMKg9hxxBedeOSGQcI8BS2nJ0TWiCGTPsl5Y1BBM
-         WdGngmRNJJLTkLXHxmWKxmv///APVOM9MCrA3CxDFS4dWR1T3tx2nc+fjQ4lMWnCkrmU
-         vTvQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786323384; x=1786928184;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=+bCXqXiVHaA5FZ3XKQFV9NmmEszADDHeGAjplPg15vc=;
-        b=cB3r7Uw6Z5AE+vf3ixVRwNUm03L+t8uPSBUpHMDbA1t+XFVLel8D7cqjNCUch4u9cS
-         6U/k7/1XRLuYYeq/I2XTVlio7FWBhzdr64cSE/NmKGrLRtTlT00jS7KrpOzb9RUGIFFH
-         B9D5OTrAnqRp62YWvW0wuhs5TeH/+TqlAXw27QgZue+ttulGcKAt0D6kvMi91XQJDp5a
-         f+/q2MuhNoV3XBqQqFVitOrd5v5YP+i1Vb/MnXmxaTXb8iaKinZuc2Qij1dmwdMy/oBe
-         V50+mNzGCAbuuoJBPXoBDlEaGGPrAzfWE2H6jRP4ImybbmnwhG+uW7zTiOvVokPw1v9o
-         aCrA==
-X-Forwarded-Encrypted: i=1; AHgh+Rp978heXvd8cc2qka2mJ4aY6ozl19SKEBRrvKatDqt1R0k9LHBupmZooE1mt1EXbNXt5FlKtoi5+vM9eVvYyimn@lists.infradead.org
-X-Gm-Message-State: AOJu0YwAZFH16OvvxJdC8JpsyddGyJHDXX22+rKX6izzDf/6+k9FFTHf
-	fKDbU0DKIoV09dgacH6/n1xZTrDB8ZM66ebywH9TPGQ5QGFzqGKQFv65
-X-Gm-Gg: AR+sD11aGD+EzZJFq+YejFPUqzTVkC4BnkXeT5h0nQD3L+ljHDmh/W7rT4AXYbq+J5A
-	/tqSbvuB0XCeXqJQath+CLHnOhz1x6LD99tD+OamPzwsqCTeMbTONxv/CVs3omQCaC4FoDTxE2o
-	OnrBANyTbBIQQz9ts+JquchrBb3HdRwbLmr/FQvhzMmUZEwn1CXHLfQptnuKXLbnQ+nd+pDf98l
-	FT5AEPM7YjT/XvOYtGDidgy9nPiUKwsxARdU12B3U5q5OP4DdZ/ltfSvNx7de4JP5x+CrHQwdq3
-	lLsnozge/lESJcULyCTER+x5yEx/mVlXaJT15q2fwB/fIPITagAcXTH0BBJ1Tymebr6Bm6eXFSC
-	FSp3vC0Gb7oU99oNAgjOm9hpH4NVnUFVNrZYuCs4srBSCLponO7HqxY6GEHTR8plrWgkeILGsdS
-	pCkLO6JG63b4r6F+WvxH7VoOC+OSbXIVhgX+6TOHt9xYlSJCVclkx9+Q8rafFN4qfEgzJgecdSW
-	Ni6mzE7dWIgZVyIcpKSfIph/XvDQQVZc7bzF1HXA3XLWqhvkRnkfRghoEfg7UwPvSyng/DIVZ3d
-	VD6fFYukELmxpIrk/9FMNwv4EmVmMNVe7/fcPMpdkbTJxTEaMleUtqvcqswb9lVcUvyV
-X-Received: by 2002:a05:600c:c87:b0:493:f783:c46a with SMTP id 5b1f17b1804b1-49962472d69mr139626325e9.6.1786323384059;
-        Sun, 09 Aug 2026 17:56:24 -0700 (PDT)
-Received: from localhost.localdomain (dynamic-2a02-3100-ac88-a501-9c5c-9666-3a00-3cdb.310.pool.telefonica.de. [2a02:3100:ac88:a501:9c5c:9666:3a00:3cdb])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4995422016fsm302405405e9.8.2026.08.09.17.56.22
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sun, 09 Aug 2026 17:56:22 -0700 (PDT)
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	kvmarm@lists.linux.dev
-Cc: Karl Mehltretter <kmehltretter@gmail.com>,
-	Fuad Tabba <tabba@google.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] KVM: arm64: Fix AArch32 DBGBXVR<n> handling
-Date: Mon, 10 Aug 2026 02:56:16 +0200
-Message-Id: <20260810005616.13227-1-kmehltretter@gmail.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+	Mon, 10 Aug 2026 01:00:55 +0000
+X-UUID: ea58cce4945611f1aa26b74ffac11d73-20260810
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.12,REQID:f71462ab-abc3-4110-b015-ca616d577845,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:e7bac3a,CLOUDID:6fd1508fc49c735f6f7edf5eb54f382b,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|865|898,TC:nil,Content:0
+	|15|52,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,O
+	SI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: ea58cce4945611f1aa26b74ffac11d73-20260810
+X-User: xiaopei01@kylinos.cn
+Received: from [10.42.12.251] [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <xiaopei01@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_128_GCM_SHA256 128/128)
+	with ESMTP id 944241646; Mon, 10 Aug 2026 09:00:44 +0800
+Message-ID: <14a274fe-b414-4360-bc88-757a04a020e5@kylinos.cn>
+Date: Mon, 10 Aug 2026 09:00:41 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] mmc: atmel-mci: Fix use-after-free in atmci_remove due to
+ race condition
+To: Aubin Constans <aubin.constans@microchip.com>, ulfh@kernel.org,
+ nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
+ claudiu.beznea@tuxon.dev, linux-mmc@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <4389d5deff90b2b860bd07f17668270fda36bd26.1785750407.git.xiaopei01@kylinos.cn>
+ <e4960897-fe77-41c2-95c6-56038b7c9ba2@microchip.com>
+From: Pei Xiao <xiaopei01@kylinos.cn>
+In-Reply-To: <e4960897-fe77-41c2-95c6-56038b7c9ba2@microchip.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260809_175626_441715_7F002D57 
-X-CRM114-Status: UNSURE (   9.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260809_180053_815660_3E885B78 
+X-CRM114-Status: GOOD (  20.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,40 +79,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The consolidation of the breakpoint and watchpoint register accessors
-switched DBGBXVR<n> from trap_bvr() to trap_dbg_wb_reg(). The latter
-selects backing storage with demux_wb_reg(), which only handles Op2 values
-4 through 7. Since DBGBXVR<n> uses Op2 1, an AArch32 guest access hits
-KVM_BUG_ON() and marks the VM dead.
 
-DBGBXVR<n> aliases DBGBVR<n>_EL1[63:32], and its AA32(HI) descriptor
-already selects the upper half. Map Op2 1 to dbg_bvr[] alongside Op2 4,
-restoring the pre-regression behavior.
 
-Fixes: 3ce9f3357e9e ("KVM: arm64: Fold DBGxVR/DBGxCR accessors into common set")
-Assisted-by: Claude:claude-opus-5
-Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
----
-Tested on a Raspberry Pi 400 with a minimal AArch32 guest. The unpatched
-kernel WARNed in demux_wb_reg() and returned -EIO from KVM_RUN. The
-patched kernel completed the access without a warning.
+在 2026/8/8 01:23, Aubin Constans 写道:
+> On 03/08/2026 11:48, Pei Xiao wrote:
+> 
+>> In atmci_probe, &host->bh_work is bound with atmci_work_func, and>
+> atmci_interrupt, atmci_timeout_timer and atmci_dma_complete can all
+>> queue this work on system_bh_wq.
+>>
+>> If we remove the module, atmci_remove makes cleanup and the memory
+>> allocated for host with devm_kzalloc() is released after the remove
+>> callback returns, while the work mentioned above may still be pending
+>> or running. The sequence of operations that may lead to a UAF bug is
+>> as follows:
+> 
+> Thank you for having spotted the issue, and sent this fix.
+>  >
+>> CPU0                                      CPU1
+>>
+>>                                            | atmci_interrupt
+>>                                            | queue_work(system_bh_wq,
+>>                                            |            &host->bh_work)
+>> atmci_remove                              |
+>> atmci_cleanup_slot(...)                   |
+>> atmci_writel(host, ATMCI_IDR, ~0UL)       |
+>> timer_delete_sync(&host->timer)           |
+>> dma_release_channel(host->dma.chan)       |
+>> free_irq(platform_get_irq(pdev, 0), host) |
+>>                                            | atmci_work_func
+>>                                            | // use host
+>> // devm resources released after          |
+>> // remove returns, host is freed          |
+>>                                            | // use host (use-after-free)
+>>
+>> Fix it by canceling the work after all the sources that can schedule
+>> it (IRQ handler, timeout timer and DMA completion callback) have been
+>> stopped, and before proceeding with the remaining cleanup in
+>> atmci_remove.
+> 
+> For completeness, PDC completion could be added to the above list of
+> sources,
+> even though it is a subroutine of the IRQ handler.
+Yes.I used an IRQ handler instead here.
+> PDC and DMA are exclusive.
 
- arch/arm64/kvm/sys_regs.c | 1 +
- 1 file changed, 1 insertion(+)
+> 
+> Mentioning on which board or MPU the patch was tested would also be a
+> welcome
+> addition.
+Sorry, I don't have hardware testing here; I found this issue through
+static analysis.
 
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 5d5c579d4579..2862df188155 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -889,6 +889,7 @@ static u64 *demux_wb_reg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *rd)
- 	struct kvm_guest_debug_arch *dbg = &vcpu->arch.vcpu_debug_state;
- 
- 	switch (rd->Op2) {
-+	case 0b001:
- 	case 0b100:
- 		return &dbg->dbg_bvr[rd->CRm];
- 	case 0b101:
--- 
-2.39.5 (Apple Git-154)
+Thanks!
+Pei.
+> 
+>>
+>> Fixes: 7d2be0749a59 ("atmel-mci: Driver for Atmel on-chip MMC
+>> controllers")
+>> Assisted-by: Codex:deepseek-v4-flash
+>> Signed-off-by: Pei Xiao <xiaopei01@kylinos.cn>
+>> ---
+>>   drivers/mmc/host/atmel-mci.c | 2 ++
+>>   1 file changed, 2 insertions(+)
+>>
+>> diff --git a/drivers/mmc/host/atmel-mci.c b/drivers/mmc/host/atmel-mci.c
+>> index 3b4928f5b9b2..8f4df250a77a 100644
+>> --- a/drivers/mmc/host/atmel-mci.c
+>> +++ b/drivers/mmc/host/atmel-mci.c
+>> @@ -2610,6 +2610,8 @@ static void atmci_remove(struct platform_device
+>> *pdev)
+>>
+>>          free_irq(platform_get_irq(pdev, 0), host);
+>>
+>> +       cancel_work_sync(&host->bh_work);
+>> +
+>>          clk_disable_unprepare(host->mck);
+>>
+>>          pm_runtime_disable(dev);
+>> -- 
+>> 2.25.1
+>>
 
 
