@@ -4,84 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DFB1C5B56A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 16:58:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A799FC5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 17:00:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bqWkBZoqV5d3SCzruzXctRX6H/RUp4KHXqqDF3xrpPg=; b=i+NxexiXd0/a96ZsrSMrAlCp6p
-	++xXiUjbmvdiBlDvwOOP3lpnQT71c+QST7QBtEHNf7D6KmLK4g1Fha5KqqEzvUoaPj9qs0w4Fdp6n
-	E/pBpdz07PPMaS1m2V7Q0mSgdREPvop/c8ljt1iaukYnzudc4pqBwMYfBhcMRGRq23pVtG15MK9QF
-	ciWmrR5ekkCKgFqaX3GTm50vg0oilBCLDwcNeuv8vLcbOm6fddZ/vQrX3KRKEskNNi09nOP6wXcQ0
-	INzNNjg+tRAx96Ey8c3ErPXwjyawM7e3Y950gAdVID3G77+rnvg1j/ulKeWUTeN9s+3rC6hvuESwX
-	l1t4OoOA==;
+	bh=uq1HWShj2dy+FswgkhnvBcCXG0s9+cNcUvUbFzImDtw=; b=KFL01qoB7C4FYnFE0ZFL0//xUY
+	xlmZf4F1mmW4gJT1E13F3jKZ084nO1RAJ/n7McZvs5DARbFKRkctXh/sekNdfjoW1jGRYl/ttJzRh
+	GuTk8HRbCIhz6QqM8QOwjmQm/f8TBqZYw0i1eDeAUckwSygB5cttHuAT/JBKtV7Zzb2Z9G8QRUtaE
+	jCgegWVVpXWvUXylyW9/wN1i1/SwCV6hs1hyT5mas4K8u94Qxyee6wj5MFNUseTX0tyBAj0cLP9XG
+	GoQ4Uy6tkaR8wxJyQYq3EGYmEVG9yomXR6fk1MbfhA+/Lg/8/tLbO6jSKIHsGWNJ7GZh93sEErWcC
+	YRHogEQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtTKZ-0000000CSVv-3Ton;
-	Mon, 10 Aug 2026 16:58:31 +0000
-Received: from mgamail.intel.com ([198.175.65.10])
+	id 1wtTM5-0000000CSis-0oTn;
+	Mon, 10 Aug 2026 17:00:05 +0000
+Received: from mail-norwayeastazon11013050.outbound.protection.outlook.com ([40.107.159.50] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtTKX-0000000CSVH-0R83
+	id 1wtTM3-0000000CShw-0MJx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 16:58:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1786381110; x=1817917110;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=EdmODO+K8FY1/Ukkl4ewZeDwc8sjwFVCQZUjor0bOQU=;
-  b=FXZR3S4i13xbqqiTyqrYOQ1+JZLkufTVVSch1lOl7NywOZUJ8xff8PXK
-   w7l1cQYVo/dFX3rdCIpXJ0nONJ2RS8RfZlH9pThNXj9k34RbUy0Z0hYrm
-   HAlTdNKVX0O1vs5aVKwfhu+El73Y6fB68AlM+fMiDncggFXyONway/HdC
-   WeRBhbW97S1HsHr5aIGV/0DIHp0Viv7vj/NQ2XMM5VWnLeBMxiVtSjzNl
-   +TapVqv8suucC7k297uLRvPqnSyPWvr51BUmAphHG89HbrTE/eTNvNLul
-   KMw9E9a7R67Qpm3JVt5JtqpBs+3H+3jhdkb19JZcKt2n82L/CxXIcwSuF
-   w==;
-X-CSE-ConnectionGUID: ShjCsiUuR5+3S/OxoxB0tg==
-X-CSE-MsgGUID: hzFHJTj/RGKJ5LUP3UiKkw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11871"; a="104294095"
-X-IronPort-AV: E=Sophos;i="6.25,216,1779174000"; 
-   d="scan'208";a="104294095"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Aug 2026 09:58:26 -0700
-X-CSE-ConnectionGUID: V8VOidKtSz+yDdfOwNZuGw==
-X-CSE-MsgGUID: 9+1VXaZXSC21N3EzgfuuGg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,216,1779174000"; 
-   d="scan'208";a="301324218"
-Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.244.99])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Aug 2026 09:58:22 -0700
-Date: Mon, 10 Aug 2026 19:58:19 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Kaustabh Chakraborty <kauschluss@disroot.org>
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+	Mon, 10 Aug 2026 17:00:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=NyiInBaU/0LbFLvK86Uh2s8dfyJUCAPC/tOR3+R6+Qal2Tt5h38NiKnILk4hCu4ZnVqeLKaI+5Sa8hiQkPlRfuiCFstd2CmbM5BjQQlkjUSEIF06e7o7bg+lafxPWR1vRzmBPiSAzNnsxe7KySUby+esrBnroS8LPtq+nmxOMzqS5+QF9pCOlGupIQb8x0GEchMIuztnQSvZzdPfyhhPk0k3b7Su03Fy309vQMbys4Ge+opsQRVKMYDJzpXPuXUq3Jrqc/Y8SHqwKkQCzzon+xfYiIcQBRBYN3Dek9rkyFpJyHYGyeM0Vl/mQfJH9xTSOSlnDA4C+Pzi/nNpp5SO9w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=uq1HWShj2dy+FswgkhnvBcCXG0s9+cNcUvUbFzImDtw=;
+ b=nOyw7tS1vEEDa1p/vXis/jsYHnKrT0bnqoRPaSdh0gk+cuu1xmelI9uD8ZROW+4X8AI2HXHDLNqdsAXrHNaJuVZVIxAnDCXQx7avAEMdR18j9qL0ZL36/Mm4ybXRq80/PFWSWSEqahMb4HnxXsTmCqsRIX+yI9+ClAOSyhmrzXMFJjID+yRyMUim3fsxl2P2cr2Qg2No3v9mN1Bnu3U6965x8h48/H0039eIrzCJqlEXIMOvhMCeL8l6majVcBd0fJTP/IFqUmCKkE3oFxFY0QXHxpTud+XTx3chc4NQ28b/+oVhbSmLzCKRfVbj0IptjU2tKIWTYyKw4VshNWHQgA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=uq1HWShj2dy+FswgkhnvBcCXG0s9+cNcUvUbFzImDtw=;
+ b=QUiLiQm16V94OjgAXvLaOtCYwH5yAwfxNA1le/dMLW7x6XYdny9YA1TMYeDOtsAdL7i3eNK65O/m+HEJoSD/bHOLgDffeeFPzj++bnNBTgnpWY5lRsewnDLCpxivvt4dE/qovCdVxPg0UDCPLjzzPMBMURA4M8Sx6OwHO4UGQ//shPS5WMMMbOH2eM5s8H7P/z4yNri96pAVgT7R9t1PzBWMSEhJAsIXXc4+rse8Sl1df8vvDkPpqKnnrkcsDIwrrlYcSR9qR/eN6r4rdSqiGtT/BZsSZt97SALXsrajZUD52OxgUKP7XNbX2J3SeNmHfGxq52yKwqWeMp7bvypteg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by DU0PR04MB9297.eurprd04.prod.outlook.com (2603:10a6:10:354::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.25; Mon, 10 Aug
+ 2026 16:59:46 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0292.024; Mon, 10 Aug 2026
+ 16:59:46 +0000
+Date: Mon, 10 Aug 2026 11:59:36 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>, linux-iio@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org
-Subject: Re: [PATCH v4 2/3] iio: proximity: add driver for Sharp GP2AP070S
- proximity sensor
-Message-ID: <anoDKzl84lO58GbQ@ashevche-desk.local>
-References: <20260807-gp2ap070s-v4-0-74f6a67b6272@disroot.org>
- <20260807-gp2ap070s-v4-2-74f6a67b6272@disroot.org>
-MIME-Version: 1.0
+	Sascha Hauer <s.hauer@pengutronix.de>, Frank Li <frank.li@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	"Daniel Baluta (OSS)" <daniel.baluta@oss.nxp.com>,
+	Francesco Dolcini <francesco@dolcini.it>,
+	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v3 1/4] dt-bindings: remoteproc: imx_rproc: document
+ optional "memory-region-names"
+Message-ID: <anoDeJ3OCPzWA4k0@SMW015318>
+References: <20260730163412.1145-1-laurentiumihalcea111@gmail.com>
+ <20260730163412.1145-2-laurentiumihalcea111@gmail.com>
+ <amuUbkDM60eFzvJo@lizhi-Precision-Tower-5810>
+ <MRWPR04MB123301AA9F074FA2976AC36C288D52@MRWPR04MB12330.eurprd04.prod.outlook.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260807-gp2ap070s-v4-2-74f6a67b6272@disroot.org>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+In-Reply-To: <MRWPR04MB123301AA9F074FA2976AC36C288D52@MRWPR04MB12330.eurprd04.prod.outlook.com>
+X-ClientProxiedBy: SA9PR13CA0120.namprd13.prod.outlook.com
+ (2603:10b6:806:24::35) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DU0PR04MB9297:EE_
+X-MS-Office365-Filtering-Correlation-Id: de9027c2-a464-4a0b-9e0c-08def700c7eb
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|376014|7416014|23010399003|18002099003|22082099003|10067099003|56012099006|4143699003|11063799006;
+X-Microsoft-Antispam-Message-Info: 0+iotYzC7HFCWpLmb28xju0iXgc3eZ2qDhztq2bGVI3a6mNaQ4q6mXmYQGae2YGaUr7vt6/CUeHaw92zF7J1eIrZBjAqnj1ckSsgC8GFTQ7fydo7vNql2FjuAY2+zVQuakrVay8jzdnS2V9Jha6CC4SUZ3AYgce+auBKotpOnRF4r8mNC/785x2udFkGPVoqFQxystMUOWPacflBO1NyxkCmqZTD0RqM9GFXTE24rH2TKsyRr7QUJfIIdohcLeOp6pU9H97VumKbrylMjjaT2K2bApzcLDijzlNb7uMgAAaN/pIny706+JWdI39O8jfOoauGx1VU87lc8mK9qdEfdI76WhezpFmZH1EDmxHQmJAU2IAoJV8sMokSENQLBu1T+aOiq3OTvShcs03aTHiUcpIkHwgLaDep3I1/Acaf9OHHJrAnsXWeDwEoGSRAB4L+BIhMqNfMOeC3iWiI2XDrXm3M2ZLu3WUk30NFHgm2TrLPJVINGpiex31o188pEVVVQ3WE+7WLgQiMuFJ+eQwZACUkSaZ247cAnK2/gRpuSEyuH8gJS2715Hy8Rftsm5/R264RAL7ZLhHmCSPCmfBM9xbRwC/uPTmcgEH8vdlSFA44ySFltTplHnchlwM2lyxLlkHZ19RCiOJxhAVV0fwUcWNO8w+hAHlMlN/aZ6UrTsc=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(376014)(7416014)(23010399003)(18002099003)(22082099003)(10067099003)(56012099006)(4143699003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?qh8tJQlJpR8DKQZHIOv4PVHGkzcDKYDs9lP/C5WggU9VwxgWkrsr2gPtIoJg?=
+ =?us-ascii?Q?eMeZLjrIcilM2BUsAWWKQximmhjhyzxG/7q7NKmP6lm9LcDEQ6xTOTWd+334?=
+ =?us-ascii?Q?wg37Hl/QQFzr8Q9IQKgW22EWGX5hQRByeRfj9yQkTAoJzWrlbVNj+feXrVj9?=
+ =?us-ascii?Q?Xs8bFeXCaAZ7TB5tJ64P/L9Nv9QZqmVBxmwjpfpzdOkoVN4tXyMf3M2MHzlZ?=
+ =?us-ascii?Q?1wBjOcdrrFpTkSjOSBeaxwGSJF63gzbNIrx9DrjjovPLzClhChTCdmzRrXq3?=
+ =?us-ascii?Q?WK23sYLeBTKH9NTW7Vtwp3uyZ4NHbNujMP0C86QAW84I57rOOa5PnGh5EzWG?=
+ =?us-ascii?Q?KZiPa8lrKcerrnWVBwV7BTglCMCHdQ6I+QWuc8kGl1Ny5tFZHwQUCB1jBC/R?=
+ =?us-ascii?Q?+MJROL8ucuqOmk5Q8gSJOZ8fPyq/fASy6Kr2uYWmq3r8ypH9fGFpRNzYhA6T?=
+ =?us-ascii?Q?qzL4gofM+OKfO+8vrrHuoAgQyv02zVe/BLMzGnR6irAl1j2HQvtIElEmVPFo?=
+ =?us-ascii?Q?35jkm/VKo3iJwJJq7U57QScaDoHWWdCnu7Klus64akY/c5xybIiuCLShpX1d?=
+ =?us-ascii?Q?qFls5ZYewdKMfBjwPVfKzcBR7fKjM/puFmHgxz2u+PbwBJUIRULJnu/ZWMeI?=
+ =?us-ascii?Q?p87TwOcOSfKtLjMGbNQPhYF8cfYln9uCv8kLp5/5X24pnN70F7tlayx2OZuh?=
+ =?us-ascii?Q?FQWXrrJ9px/7k+6x5jYdPMCzKFpRHMeFDuMEcVaC8u5QZ5ln3nuLteinBOpQ?=
+ =?us-ascii?Q?72IdefDQLPCrnrxyxHW64HxJKwa2uGhmYMsLVV83hhQQuqTmPEL+2mRKqW2p?=
+ =?us-ascii?Q?W0cUWWJY2lFpSOyqI65Sf54GpoeOhnpY/+IbLgZaaJr6bZRAPealQjyWsbmu?=
+ =?us-ascii?Q?3/JLeqvHlWyL+ChoNspC6B5RmEr17XFD4PxhWFHuy/MwrCSUCtIHXkSB7353?=
+ =?us-ascii?Q?LJKbPHuuR9Qnf/4VoOedWUp0kLQ5VkfjMG6H3RFrfhCb3FauPZIBbU3su7OA?=
+ =?us-ascii?Q?QMyvKvWn8EK2Eko5VpkIDC8DPnc+MUhwYw05Z/eAl9ZTb+32eYEzdXIcYfMF?=
+ =?us-ascii?Q?uwYt8LTrSMxeVORrjJS/Qey6xad2lJ4jJ03/Kzng4ZXN0vdmsfXhIEbyo7it?=
+ =?us-ascii?Q?qshs0pexJDe84HnRRI83rOhYVpFYpdjABY/Rh0Fld7g7NfqekR0Pv6WDvRG3?=
+ =?us-ascii?Q?K1ReRXwMD1iYQBzHqnvWRWpmDpUO+cH6vWfWjKTLMFgMYZnWMZAn0vxPPqCE?=
+ =?us-ascii?Q?MoDQj9sJvCrKcQoUJq+zYJ9oKoIcTGxkfYO9UqVecJWzEDXoBL5HY++YO9jy?=
+ =?us-ascii?Q?TIktQ017SfSjaGz6SC/J9Kdiooi0KrDU179FK+NiQIEwYUj2FEZg5h67LrkX?=
+ =?us-ascii?Q?m1BnEluJjF78ZLsYXQZOIvazIRwoZ4QCSv3E9l3FXwr9OUGFau2bg51zKhzs?=
+ =?us-ascii?Q?G0UF2G2w8pzjcG6kV2PRoHeiNsF3q/0MW5w3Ay8Wmr+qxOSN4jA+3Uf8mLcu?=
+ =?us-ascii?Q?lnSHdcEvQIBnP6KQStLXeIeZJeqT6l9CaVJqSxlp4YxNJUAudSy2ArozUwmN?=
+ =?us-ascii?Q?foneD0VWhjwHlEzC+pXJhAwK7NMUpxmQMsnz7BEtVm+mJkQBluXojxHIiH1p?=
+ =?us-ascii?Q?7WX8mMzY4x6aVtiQa8jzPppcBAVFJsZdlPXrRgkqVfnsbSVVOjjWkUCg9amj?=
+ =?us-ascii?Q?9B5fqRixgK9Q8FVzIhF99lmo8fy258S74XUQHCjWGnnU6ojlkEHTjFEGl0wR?=
+ =?us-ascii?Q?b0gORjcJi5TEEmf/kmu9g3o/t0nHBz35BIybhf76qVRul/IPTd1w?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: de9027c2-a464-4a0b-9e0c-08def700c7eb
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Aug 2026 16:59:46.2520
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Ugn+Vu0b+WIXFFRIuF+baehE6ObUuw+50n6vSsboKW9JN38zKdzjud+63M5jwPUh/gw9/YWVmRRZwjo/oOYOinncfnJt8CcEpLYAMb9RJkjEvyPFx2FBC7pAxF5emZtq
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR04MB9297
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_095829_220240_C05AD0BB 
-X-CRM114-Status: GOOD (  23.86  )
+X-CRM114-CacheID: sfid-20260810_100003_134497_1E5B057B 
+X-CRM114-Status: GOOD (  28.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,219 +152,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 07, 2026 at 01:18:42AM +0530, Kaustabh Chakraborty wrote:
-> The GP2AP070S is a proximity sensor designed and manufactured by Sharp
-> Corporation. This sensor is used in mobile devices, including, but not
-> limited to - the Samsung Galaxy J6.
-> 
-> The driver has been adopted from Samsung's downstream kernel
-> implementation [1]. Due to the lack of public documentation about the
-> schematics of this device. The downstream driver acts as the secondary
-> source of information. Driver clarity has also been improved with the
-> help of the GP2AP* drivers in iio/light.
+On Mon, Aug 03, 2026 at 09:03:58AM +0000, Peng Fan (OSS) wrote:
+> > Subject: Re: [PATCH v3 1/4] dt-bindings: remoteproc: imx_rproc:
+> > document optional "memory-region-names"
+> >
+> > On Thu, Jul 30, 2026 at 09:34:09AM -0700, Laurentiu Mihalcea wrote:
+> > > From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+> > >
+> > > The carveout region names are derived based on the DT node names.
+> > > Because of this, the DT node names are ABI, which is not supposed to
+> > happen.
+> > >
+> > > Fix this by documenting an additional, optional property:
+> > > "memory-region-names". This way, the software will have a way to
+> > build
+> > > the carveout region names without relying on the DT node names.
+> >
+> > "After update all existing DT tree, this will be required.
+> >
+> > >
+> > > Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+> > > ---
+> >
+> > Additional information to help understand why it is important.
+> >
+> > 1. at thread wrong use vdevbuffer insteand vdev0buffer as node name
+> > https://lore.kernel.org/imx/20260705202439.3F5771F000E9@smtp.k
+> > ernel.org/
+> > 2. similar case happen at
+> > https://lore.kernel.org/imx/20260715071741.79CA81F000E9@smtp.k
+> > ernel.org/
+> >
+> > Suppose these problem should be detected by dt binding check instead
+> > of sashkio ai.
+> >
+> >
+> > >  .../devicetree/bindings/remoteproc/fsl,imx-rproc.yaml         | 4 ++++
+> > >  1 file changed, 4 insertions(+)
+> > >
+> > > diff --git
+> > > a/Documentation/devicetree/bindings/remoteproc/fsl,imx-
+> > rproc.yaml
+> > > b/Documentation/devicetree/bindings/remoteproc/fsl,imx-
+> > rproc.yaml
+> > > index c18f71b64889..8e3e6676a95e 100644
+> > > --- a/Documentation/devicetree/bindings/remoteproc/fsl,imx-
+> > rproc.yaml
+> > > +++ b/Documentation/devicetree/bindings/remoteproc/fsl,imx-
+> > rproc.yaml
+> > > @@ -62,6 +62,10 @@ properties:
+> > >      minItems: 1
+> > >      maxItems: 32
+> > >
+> > > +  memory-region-names:
+> > > +    minItems: 1
+> > > +    maxItems: 32
+> > > +
+> >
+> > Need restrict names
+> >
+> >   memory-region-names:
+> >     description:
+> >       Names for the memory-region phandles. Each entry must be one of
+> > the
+> >       following recognized names. "vdev0buffer" is the shared buffer for
+> >       virtio device 0, handled automatically by the rproc virtio framework.
+> >       "vdev<n>ring<n>" (e.g. "vdev0vring0", "vdev0vring1") are the virtio
+> >       vring buffers for device N, also managed by the virtio framework.
+> >       "rsc-table" is the resource table region used to share the resource
+> >       table between Linux and the remote processor when it is pre-
+> > loaded in
+> >       memory. All other entries are treated as generic carveout regions
+> > that
+> >       are mapped and made available to the remote processor.
+> >     minItems: 1
+> >     maxItems: 32
+> >     items:
+> >       anyOf:
+> >         - const: rsc-table
+> >         - pattern: "^vdev[0-9]+buffer$"
+> >         - pattern: "^vdev[0-9]+vring[0-9]+$"
+>
+> There might be other entries such as m4_reserved or m7_reserved
 
-...
+You can add
+	- pattern: "^m(4|7)_reserved"
 
-> +#include <linux/array_size.h>
-> +#include <linux/bitfield.h>
+Frank
 
-+ bits.h // BIT() et alia
-
-> +#include <linux/delay.h>
-
-+ dev_printk.h
-+ device/devres.h
-
-> +#include <linux/err.h>
-> +#include <linux/i2c.h>
-> +#include <linux/interrupt.h>
-> +#include <linux/module.h>
-> +#include <linux/mutex.h>
-> +#include <linux/regmap.h>
-> +#include <linux/regulator/consumer.h>
-
-+ sysfs.h // sysfs_emit()
-
-> +#include <linux/types.h>
-> +#include <linux/units.h>
-
-+ asm/byteorder.h // le16_to_cpu()
-
-> +#include <linux/iio/events.h>
-> +#include <linux/iio/iio.h>
-
-> +#include <linux/iio/types.h>
-
-I believe there is an agreement that iio.h implies types.h in iio/.
-
-...
-
-> +#define GP2AP070S_REG_PS_THD_LO_LE16	0x88
-> +#define GP2AP070S_REG_PS_THD_HI_LE16	0x8a
-> +#define GP2AP070S_REG_D0_LE16		0x90
-
-All those _LE16 do not add any value, we see that from the use of them.
-
-> +#define GP2AP070S_REG_MAX		(GP2AP070S_REG_D0_LE16 + 1)
-
-...
-
-> +struct gp2ap070s_drvdata {
-> +	struct regmap *regmap;
-> +	struct mutex mutex;
-
-Lock should have a comment explaining the data it protects.
-
-> +	u32 near_level;
-> +};
-
-...
-
-> +static const struct regmap_config gp2ap070s_regmap_config = {
-> +	.reg_bits = 8,
-> +	.val_bits = 8,
-> +	.volatile_reg = gp2ap070s_regmap_volatile,
-> +	.max_register = GP2AP070S_REG_MAX,
-> +	.cache_type = REGCACHE_FLAT,
-
-Oh, registers are from 0x80 to 0x91, why FLAT and not MAPLE?
-
-> +};
-
-...
-
-> +static int gp2ap070s_iio_read_raw(struct iio_dev *indio_dev,
-> +				  struct iio_chan_spec const *chan, int *val,
-> +				  int *val2, long mask)
-
-Split logically here and everywhere else.
-
-static int gp2ap070s_iio_read_raw(struct iio_dev *indio_dev,
-				  struct iio_chan_spec const *chan,
-				  int *val, int *val2, long mask)
-
-...
-
-> +static int gp2ap070s_iio_read_event_value(struct iio_dev *indio_dev,
-> +					  const struct iio_chan_spec *chan,
-> +					  enum iio_event_type type,
-> +					  enum iio_event_direction dir,
-> +					  enum iio_event_info info, int *val,
-> +					  int *val2)
-
-Ditto.
-
-> +{
-> +	struct gp2ap070s_drvdata *drvdata = iio_priv(indio_dev);
-> +	__le16 value;
-> +	int ret;
-> +
-> +	if (type != IIO_EV_TYPE_THRESH || info != IIO_EV_INFO_VALUE)
-> +		return -EINVAL;
-> +
-> +	guard(mutex)(&drvdata->mutex);
-> +
-> +	switch (dir) {
-> +	case IIO_EV_DIR_RISING:
-> +		ret = regmap_bulk_read(drvdata->regmap,
-> +				       GP2AP070S_REG_PS_THD_HI_LE16, &value,
-> +				       sizeof(value));
-
-Ditto.
-
-(With above comment about LE16 this will become
-
-		ret = regmap_bulk_read(drvdata->regmap, GP2AP070S_REG_PS_THD_HI,
-				       &value, sizeof(value));
-
-which is one line shorter.)
-
-> +		if (ret)
-> +			return ret;
-> +
-> +		*val = le16_to_cpu(value);
-> +		return IIO_VAL_INT;
-> +	case IIO_EV_DIR_FALLING:
-> +		ret = regmap_bulk_read(drvdata->regmap,
-> +				       GP2AP070S_REG_PS_THD_LO_LE16, &value,
-> +				       sizeof(value));
-
-Ditto.
-
-> +		if (ret)
-> +			return ret;
-> +
-> +		*val = le16_to_cpu(value);
-> +		return IIO_VAL_INT;
-> +	default:
-> +		return -EINVAL;
-> +	}
-> +}
-
-> +static int gp2ap070s_iio_write_event_value(struct iio_dev *indio_dev,
-> +					   const struct iio_chan_spec *chan,
-> +					   enum iio_event_type type,
-> +					   enum iio_event_direction dir,
-> +					   enum iio_event_info info, int val,
-> +					   int val2)
-
-Same as per above function.
-
-...
-
-> +		/* Ensure hi_threshold > lo_threshold */
-> +		threshold_other = le16_to_cpu(value);
-> +		if (threshold_other <= val)
-> +			return -EINVAL;
-> +
-> +		value = cpu_to_le16(val);
-> +		ret = regmap_bulk_write(drvdata->regmap,
-> +					GP2AP070S_REG_PS_THD_LO_LE16, &value,
-> +					sizeof(value));
-> +		if (ret)
-> +			return ret;
-> +
-> +		return 0;
-
-		return regmap_bulk_write(...);
-
-...
-
-> +	ret = regmap_write_bits(drvdata->regmap, GP2AP070S_REG_PS2,
-> +				GP2AP070S_PS2_IOUT | GP2AP070S_PS2_SUM32,
-> +				FIELD_PREP_CONST(GP2AP070S_PS2_IOUT,
-> +						 GP2AP070S_PS2_IOUT_89mA) |
-
-> +				GP2AP070S_PS2_SUM32);
-
-What's the point to have dup constant to be ORed?
-
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "Failed to set current output\n");
-
-...
-
-> +	fsleep(10 * (MICRO / MILLI));
-
-What's is this multiplier for? I think you wanted USEC_PER_MSEC from time.h.
-Also add a comment with the reference to the datasheet (or other means) of why
-this value has been chosen.
-
-...
-
-> +	if (device_property_present(dev, "proximity-near-level")) {
-> +		ret = device_property_read_u32(dev, "proximity-near-level",
-> +					       &drvdata->near_level);
-> +		if (ret)
-> +			return dev_err_probe(dev, ret,
-> +					     "Failed to get value for proximity-near-level\n");
-> +	}
-
-Any default to be applied?
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+>
+> Regards
+> Peng.
+>
+> >
+> > Frank
+> >
+> > >    power-domains:
+> > >      minItems: 2
+> > >      maxItems: 8
+> > > --
+> > > 2.53.0
+> > >
 
