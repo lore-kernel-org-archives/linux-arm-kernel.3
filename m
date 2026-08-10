@@ -4,155 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6AB2C5AD55
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 16:06:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68FF8C5AD55
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 16:12:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mPujkJTOGc0TWj04uUMCHTdnNQgumaeuC61sBKnEmUw=; b=jnN4IeFmpGX2MsiSgVBFLjU77J
-	2uCIWoOAr477IQRrSNciUl4NpN7yYxxDygqHRQlnaeX9FiTHBvfl0F1XM4DHQBz71J0zBm/S/JG2U
-	+GWTQyo0mFjxEsW+hvhufEIXBsUcT4uKG2J1vsglcuZ6//q7zs3IrTsdlGXNxwQu0jFuDIByiC+jz
-	dJEsaCYQr9i6ufUgD4TjPaeWo7QYedcmDWJaoDqUjYkl3qu4bwF2j9mLqvrJhcROWeR7N6MzKfLry
-	+u6pfjv28W7G6+jbG8FfTqvbfuayLmju1u4LkdpB8quUMhou1/sW2ucZZ9qMhfKxjylwBJ7oR2TMl
-	1dlkqY/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hxkZK5uovHSaks35B19n87r7874YO6EyPDjqLVU7ek8=; b=FPBmk799VDaob0QY+eeieEwFBo
+	7xpO3vtSN1yVAr0Nsycq+A37X1nUgZ2wY4HAP88BvYeREMD5IpppKf3Na+d+OG7QxUpG0eHhRNlwa
+	ip37THyq71+qV6ffMNkJADijvNOaBAb1t4yNrX745oTVHY2/wzI00jHDGeo2kdWzof6oCanZZn1gO
+	s4gt8gIt6zX+u4qLeVhyoPMaFzUjV71GgN7ad+5qUNDrBUy0PTIk1jXxH2s3UC7UeusB/BY6yvuor
+	AZ8H/K9oWBgke9Jr/K5ZM80XfiDdYkTp6ngGL9zXwv+wjg4ns9+SOAzeqHrTF+uskYGuKewnuLHwu
+	FVBIQIog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtSVo-0000000CLPb-04mP;
-	Mon, 10 Aug 2026 16:06:04 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wtScA-0000000CMHW-3QYy;
+	Mon, 10 Aug 2026 16:12:38 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtSVk-0000000CLNi-0zrv
+	id 1wtSc9-0000000CMHA-0YjI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 16:06:02 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67AFWGFO2090636
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 16:05:59 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=mPujkJTOGc0TWj04uUMCHTdn
-	NQgumaeuC61sBKnEmUw=; b=i1NhVVUeZGJGLT8al0W51NbX1Ojh2Qui6aK1blgY
-	nf5Hemwv+rLSF9HlTgPlTtzK17bJBtvOcfZZ0YPauxCuPGO/jMG4NuAY9ZoLs/mM
-	zIkZqDbeYAdlR9w6vN75ApPo9EXklL9N5vmqwz6aPd0JGo9m6rzQ/rj3q0/+3cf5
-	RQU+WXKePt8GryifKZjNFwxXOlAJY+M0vEx6HUq1EFiv//d4uBmNLKbjnBwQuL98
-	zE0lxPhVZNKaLiCEOoJy4ewYYTX/ebf+d9c4mCKHzeJQBhWd3mGKVDEG7omg8vck
-	U1C7RLiN8fMswq5+ZS+gMtEh1NbzTIEtAitvXNjzAeaAMw==
-Received: from mail-vk1-f199.google.com (mail-vk1-f199.google.com [209.85.221.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fybh59tjs-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 16:05:59 +0000 (GMT)
-Received: by mail-vk1-f199.google.com with SMTP id 71dfb90a1353d-5bf90475eb9so312754e0c.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 09:05:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1786377958; x=1786982758; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=mPujkJTOGc0TWj04uUMCHTdnNQgumaeuC61sBKnEmUw=;
-        b=LZO8H7sIYduLUovgayI3uN8wmKZFVBWadcAuQ0rY5yt5nnrjoKur4mtVOGRpvZV+s9
-         xbSBLPA0BQLquHW08NyWBDV0l+HyHSlc/HBvfsxYLBKr85CNQW3tUhaymNW49vjDAnVU
-         TSqZPB5qQUmefKMHNrgIckKfx9EEhDlp6MStpG2+WcQODse8p9m/nPS7VAv0zhT5wuKO
-         sBqAnPW148BhwaTLkBZAcSnMaVdwclPhrX4dg/7PWYWsjM+lBawTaiavL+1Xogq8mr+i
-         HnwIW63WPZQc5YhW4W37YSn/BBUiYvESNAJ5bKvE1xi5GjVJ0KFg8/Syo1Pa4FyNCzj/
-         vN/Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786377958; x=1786982758;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=mPujkJTOGc0TWj04uUMCHTdnNQgumaeuC61sBKnEmUw=;
-        b=KJf+9tGF4LAePWr51SwTo8Tasv7AYmResS0RtBdCdxTsLSk6RvCFa8/iAta1ooD1Nt
-         fsXwwqmeHGmy9OrQFyHe2aWu1XXAqfb0d8Sasx1yuuUgYaEyOt/ybyqie2+ckWmTyjHf
-         1IpljGx517qB0YaCIx077ihU1hP/5iE2FXqUH1S5bdUo8Dh+BUnaOzBvqUdswY88snUs
-         ANdQVfq6s/r2Ml6OIEUTtRaMQsWbfMjxj8IetLf885oLdFMArFR6I2+fo64T4Q/Xr3Me
-         RI5OLGXjCfZc4esAuYY8HiB9vU3mN0Jc1YYsXFVJwNL9ve03joTLxXHMoLnScgPrl57s
-         1lcQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rqwww/JYpe6SENDdE29DZrGwT8JPDtGMghMPhu4oQf3Rin5efBMr1/CtsB0OVtSIBab7l48QteQ8B+B2IgS45pt@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz/sEm0kdna5SmUMXj3ZH8JwYVl66lvA8gx46BBQa/6eyn4UKKl
-	4cBxULpuyYKN2taT692wY/MuIrZ6sAyi7yBF0Zsb4yNTA1rnjaRGr/oBUUnhGjPGN/VAf+tuKFU
-	a5b9LZbPAj20GYLx1TyPsrZE+BrqUYiXk6nO05rQOLQqgsVrGiBJMqLgXfSFC+BVw3ksMupyYm4
-	KfuQ==
-X-Gm-Gg: AR+sD12IyDr4UhxabQmAXD8EjeEgspX3UwIsKwjmIhIqeUng9owOYmX7RvUGeUgpYZZ
-	Axtvfd8+vHtJdU+duwAinUczGCoy8lZlYM8ivmFJUjraB46rbMk+5OQ11kBRpCP7X4GO7yBSZEm
-	UZVWElnlQUDeQiWJYbRDsUL2q0EjcFNz1cxwCNk8y6iYD2JK1x5r7pD4X8rWfQ5tzs1Sb8k0Iu1
-	MVISC2749Lc6zvo+LMDd++HPjTAYIvFFW3yh2pcXErjKXoqtoVSYsDFMsCJ6EN8uJ7TMe6RrkYr
-	ORHb5VYdz3WdLZve+9R0iLLAE5w7F4ruO65C8/xaCZxnEuTnoTXwi40qF+dHEkiacS7pBfde+oD
-	b3mIUFH6uYUH+W8T8z/f54DmQ4pdTM7kxRpS3R3JUUnVHH8ZL6ga8OemiuYK/gOatEIR04iHZNt
-	YOOdDo6ycNI9nwjg==
-X-Received: by 2002:a05:6102:4b07:b0:760:418c:8a9f with SMTP id ada2fe7eead31-768e8c52790mr739656137.13.1786377958191;
-        Mon, 10 Aug 2026 09:05:58 -0700 (PDT)
-X-Received: by 2002:a05:6102:4b07:b0:760:418c:8a9f with SMTP id ada2fe7eead31-768e8c52790mr739648137.13.1786377957798;
-        Mon, 10 Aug 2026 09:05:57 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5b304fd1c38sm2066473e87.12.2026.08.10.09.05.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Aug 2026 09:05:56 -0700 (PDT)
-Date: Mon, 10 Aug 2026 19:05:54 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Vladimir Oltean <vladimir.oltean@nxp.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org,
-        linux-rockchip@lists.infradead.org,
-        linux-arm-kernel@lists.infradead.org,
-        Andrzej Hajda <andrzej.hajda@intel.com>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Robert Foss <rfoss@kernel.org>,
-        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-        Jonas Karlman <jonas@kwiboo.se>,
-        Jernej Skrabec <jernej.skrabec@gmail.com>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Inki Dae <inki.dae@samsung.com>,
-        Jagan Teki <jagan@amarulasolutions.com>,
-        Marek Szyprowski <m.szyprowski@samsung.com>,
-        Rob Clark <robin.clark@oss.qualcomm.com>,
-        Dmitry Baryshkov <lumag@kernel.org>
-Subject: Re: [PATCH v9 1/2] drm: add <linux/pm_runtime.h> where missing
-Message-ID: <gfhkrmgrdmqf2zmfdoqnmc3a7ifcwxdyoiqptg65nigdwvmwvv@4pt57y73ucrb>
-References: <20260810131314.452865-1-vladimir.oltean@nxp.com>
- <20260810131314.452865-2-vladimir.oltean@nxp.com>
+	Mon, 10 Aug 2026 16:12:37 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9007643BE6;
+	Mon, 10 Aug 2026 16:12:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65AAA1F000E9;
+	Mon, 10 Aug 2026 16:12:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786378356;
+	bh=hxkZK5uovHSaks35B19n87r7874YO6EyPDjqLVU7ek8=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject;
+	b=l1hfZ3PZ2Rgpuz8IpsACieNOodt1y4GhMTTsWov1o5TAZZ/BWqOfq/hFiENsDYgCe
+	 UMW72fMIldvaDJjtgoSmxySouRE7YIPIlYxM0z5sEeuE5i+S82v0v7E6mzfYZ+1Ig2
+	 6V0jrGxB2IA3EnHECLsF7reUjp5TAz3nAP5S0eaohdFD4cafqOvdzP+viiE8G3eljl
+	 71J3Phnn77rX8EKztl6XeTjcwkn2B27E2XfAaJVTj2kOVpoBH2hCXZVrDFPskiwDtk
+	 CVsaQQiN2JHzmHy3T2QcbYeAkjdRqqJJDXgOgBlmSJqhnvFqpdGH/u8p1aKUfjWZX0
+	 zeGLsdD782JIQ==
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfauth.ams.internal (Postfix) with ESMTP id DEF9B198003A;
+	Mon, 10 Aug 2026 12:12:33 -0400 (EDT)
+Received: from ams-imap-11 ([10.64.2.31])
+  by ams-compute-02.internal (MEProxy); Mon, 10 Aug 2026 12:12:33 -0400
+X-ME-Sender: <xms:bvh5ascrJuEjDDFWeCjABdVF6AyhQhlBRcsZpfgOKRXp8zQcwZUjoA>
+    <xme:bvh5apBBmPHe0unnfckuNs1knL3uJRIbFAlDyfpUVhPuXhYrqFIa_E97Sc2DM_gdN
+    qpDLG3RNCZN0A0FStQ-AI7RkFpFxIYt75rtNo7Gk2Q4kSeeF58_2l_u>
+X-ME-Proxy-Cause: dmFkZTF+vtQORsguZ5R1UE6FOE8VwY2+nU6JVUE2bXe1AmP9bhS32q1eGCRH1/ax0V2OjV
+    F8rzhKkV3ljWtTafIU2X6f3MstkkZ5wGFc4GC2BG7sDPP2l9U35EQS4MVF12wLLVKvyIBQ
+    6lFYtzWyQKfpLH8KFaULfOQFiySQV1PgAaWX64gSK4HKM3H/KsKAq35A45AS/V8J9NXOcJ
+    6WA8SZSzPvEU/P5gX+nQqumc2TwLTSXBG8SM0289wXBuioe9inBVO7qe6cb1MCvgVWLD/I
+    v1i+9ZopGFq9fJe0R6WufFJepZYaoCYdp0Z99CjIJR8e6UeqXgMJL6lY1Ku+YQWzc18LbV
+    QKFQNZvFZui1kgXmoj9uABqzZEi2B8Y0J/9lg9L6yPdA+aos1UDFiJGDVj+XNj0JocTavB
+    vHtD+XNFY0cv9opiBlQS2ZnpSZAZn/tDXYn2tmAFAltJpMVYVa9r9NPX6NDVGn7kcWD2bO
+    AsQzU8umWSetYiz117nkPeXmSRjeNKm5ra1qV7S8iZjQV3e46rWCqgvSppmQT5oFclp9ZX
+    u1ukGnO9ySJj++iS68e1UDCG0BXVG0KM3MmlaIWzKZRBE4Yc5jnb3C0vxoxPt9AJ6D0Aas
+    PmmJ3pIgYP6j5uZECM1vlQ3w38cZZy4FNuBTFuBRADM6EChPbN1rO8XFrojw
+X-ME-Proxy: <xmx:cfh5ajvTqzrJZ8OAOpYrJ9Y2hkIVMLYit2LbQY4K69TaPrS4ausoTA>
+    <xmx:cfh5ag1yNIBnS4Gjtsw3zEQidxd1E8dTfYS6TuCp5UGXIH3fsKgBUQ>
+    <xmx:cfh5arPOg2EwAk34Askj7INV6JWZAXSO04BorJr8XQnJfQUyjLAtcw>
+    <xmx:cfh5agXpDD_I8mGsmNKIUlbo0obvRnkMFEffZDNJPI2KyWeQa_ni3Q>
+    <xmx:cfh5agZVPEWBPpGoP4v3uFEdv8u8HMIeqvJ7bd65MmD-0jG9TBZ3lLkx>
+Feedback-ID: ice86485a:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id B4FECF8006E; Mon, 10 Aug 2026 12:12:30 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260810131314.452865-2-vladimir.oltean@nxp.com>
-X-Authority-Analysis: v=2.4 cv=O4YJeh9W c=1 sm=1 tr=0 ts=6a79f6e7 cx=c_pps
- a=+D9SDfe9YZWTjADjLiQY5g==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22 a=8AirrxEcAAAA:8
- a=QyXUC8HyAAAA:8 a=KKAkSRfTAAAA:8 a=VwQbUJbxAAAA:8 a=P1BnusSwAAAA:8
- a=pGLkceISAAAA:8 a=hD80L64hAAAA:8 a=iP-xVBlJAAAA:8 a=EUspDBNiAAAA:8
- a=xt7DZbCNmi909WKh4bIA:9 a=CjuIK1q_8ugA:10 a=vmgOmaN-Xu0dpDh8OwbV:22
- a=ST-jHhOKWsTCqRlWije3:22 a=cvBusfyB2V15izCimMoJ:22 a=D0XLA9XvdZm18NrgonBM:22
- a=lHLH-nfn2y1bM_0xSXwp:22
-X-Proofpoint-ORIG-GUID: GqdlTgkiXRKv8XRAZlovhPNxWMWCkUoW
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODEwMDEzOCBTYWx0ZWRfX0bXd14FL0CXh
- LX1r4xcRthtyCNfsLS+f5iBzryl/78Mxv8Mhpyx65AluPUo11HNWqYwgSn1k6IMhCkDVbVwNl9Z
- E4utvVF9SNPWoAEKIsHbIrdaqBJxRxM=
-X-Proofpoint-GUID: GqdlTgkiXRKv8XRAZlovhPNxWMWCkUoW
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODEwMDEzOCBTYWx0ZWRfX+fme4SVT03ni
- 8gkZoMtWz9HbAsR1itnE6i9qLXBWXjpWwlJt8Aeo9mhjHoH9xnA1W5WrT28Qsx9VZvQIGeacqM2
- RXFgh+A44UKoWySRIEM3EHWa6uPOcG4eikp3lnJkEplkzR873u+8WtzWIN7IibxgFEjKkQjCZSX
- JYAprx+WYBv9/o+VVffCkbxKTWbBA46Yse683YJMWUqMeGKutxNlcGXfRK9j/csPRMdmAGYMEOY
- Ux55v+NfGTGym3bIzWi8LGivWrIlUgbAe+XHMMv6DTx9DM+0gdpBLI/ben0/7+g3p0v1qReJGE/
- I4O03QXY25J7LxlcGZ4UBdYGdT249uy6xlyskp6XC+pZ9B/OW7iy0rMfFSZobMXFZbO7yWNfIqd
- Slr3/vfat+q6TaZs/WSlZ2aWXcfdxk+5x2GscNeqSQ2nIocj7t8vwSjorEIyap6g+On41EBi6R4
- niPqIKjFNJjigeTIJag==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-10_03,2026-08-10_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 priorityscore=1501 adultscore=0 clxscore=1015 malwarescore=0
- phishscore=0 bulkscore=0 lowpriorityscore=0 suspectscore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608100138
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_090600_279302_1A59436D 
-X-CRM114-Status: GOOD (  18.26  )
+Date: Mon, 10 Aug 2026 18:12:10 +0200
+From: "Ard Biesheuvel" <ardb@kernel.org>
+To: "Josh Poimboeuf" <jpoimboe@kernel.org>, "Will Deacon" <will@kernel.org>
+Cc: "Catalin Marinas" <catalin.marinas@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, live-patching@vger.kernel.org,
+ "Song Liu" <song@kernel.org>, "Miroslav Benes" <mbenes@suse.cz>,
+ "Petr Mladek" <pmladek@suse.com>, "Joe Lawrence" <joe.lawrence@redhat.com>,
+ "Mark Rutland" <mark.rutland@arm.com>, "Mark Brown" <broonie@kernel.org>,
+ "Kees Cook" <kees@kernel.org>, "Nick Desaulniers" <ndesaulniers@google.com>
+Message-Id: <08d6c5cd-9924-4359-9181-a03718161528@app.fastmail.com>
+In-Reply-To: <e5q2mvqtf6iw4lco55uny5ffhppw6vlflxguhc4gg5nm3zdvmo@zs6rw7iov5qc>
+References: <ed4fe1f95071897859ec7fbe9176246cbd4962bf.1786138806.git.jpoimboe@kernel.org>
+ <anmobvJXiBQqWn6S@willie-the-truck>
+ <e5q2mvqtf6iw4lco55uny5ffhppw6vlflxguhc4gg5nm3zdvmo@zs6rw7iov5qc>
+Subject: Re: [PATCH] arm64/module: Fix livepatch BTI exceptions with Clang 21+
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,48 +101,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 10, 2026 at 04:13:13PM +0300, Vladimir Oltean wrote:
-> Multiple DRM bridge drivers use runtime PM operations without
-> including the proper header, instead relying on transitive inclusion
-> by <linux/phy/phy.h>.
-> 
-> The PHY subsystem wants to get rid of headers it provides for no reason,
-> so modify these drivers to include what they need directly.
-> 
-> Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
-> ---
-> Cc: Andrzej Hajda <andrzej.hajda@intel.com>
-> Cc: Neil Armstrong <neil.armstrong@linaro.org>
-> Cc: Robert Foss <rfoss@kernel.org>
-> Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>
-> Cc: Jonas Karlman <jonas@kwiboo.se>
-> Cc: Jernej Skrabec <jernej.skrabec@gmail.com>
-> Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
-> Cc: Maxime Ripard <mripard@kernel.org>
-> Cc: Thomas Zimmermann <tzimmermann@suse.de>
-> Cc: David Airlie <airlied@gmail.com>
-> Cc: Simona Vetter <simona@ffwll.ch>
-> Cc: Inki Dae <inki.dae@samsung.com>
-> Cc: Jagan Teki <jagan@amarulasolutions.com>
-> Cc: Marek Szyprowski <m.szyprowski@samsung.com>
-> Cc: Rob Clark <robin.clark@oss.qualcomm.com>
-> Cc: Dmitry Baryshkov <lumag@kernel.org>
-> 
-> v1->v9: none
-> ---
->  drivers/gpu/drm/bridge/analogix/analogix_dp_core.c  | 1 +
->  drivers/gpu/drm/bridge/cadence/cdns-mhdp8546-core.c | 1 +
->  drivers/gpu/drm/bridge/nwl-dsi.c                    | 1 +
->  drivers/gpu/drm/bridge/samsung-dsim.c               | 1 +
->  drivers/gpu/drm/msm/dp/dp_aux.c                     | 1 +
->  drivers/gpu/drm/rockchip/cdn-dp-core.c              | 1 +
->  6 files changed, 6 insertions(+)
-> 
 
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+(cc Kees, Nick)
+
+On Mon, 10 Aug 2026, at 17:48, Josh Poimboeuf wrote:
+> On Mon, Aug 10, 2026 at 11:31:10AM +0100, Will Deacon wrote:
+>> On Fri, Aug 07, 2026 at 02:46:11PM -0700, Josh Poimboeuf wrote:
+>> > The following BTI exception was seen when loading a livepatch module:
+>> > 
+>> >   Internal error: Oops - BTI: 0000000036000001 [#1]  SMP
+>> >   pstate: 634004c9 (nZCv daIF +PAN -UAO +TCO +DIT -SSBS BTYPE=jc)
+>> >   pc : kill_orphaned_pgrp+0x0/0x150
+>> >   lr : do_exit+0x498/0xaf0 [livepatch_combined]
+>> > 
+>> > The problem is that the patch module's do_exit() is branching to a
+>> > static function in vmlinux using a module PLT veneer (indirect branch),
+>> > but the target function doesn't have a BTI landing pad.
+>> > 
+>> > Clang 21+ omits the landing pad for static functions which can only be
+>> > reached by a direct branch.  That's fine for ordinary modules which only
+>> > branch to global exported functions.  But livepatch modules use klp
+>> > relocations to reference arbitrary kernel symbols, and with
+>> > CONFIG_RANDOMIZE_MODULE_REGION_FULL the module is far enough from the
+>> > kernel that every R_AARCH64_CALL26 needs a PLT.
+>> > 
+>> > RET is exempt from BTI checking, so use it instead of BR when the target
+>> > has no landing pad, similar to what ftrace and BPF do.
+>> 
+>> Hmm, doesn't that somewhat undermine the purpose of using BTI in the
+>> kernel? Now we're going to create PLTs that can branch to arbitrary
+>> addresses.
+>
+> Yes, but just to clarify:
+>
+> - Only with livepatch modules loaded (and we can add an
+>   is_livepatch_module() check).
+>
+> - Only a small minority of livepatch klp relocations need it.
+>
+> - There are already other instances of "ret <reg>" in the kernel in
+>   ftrace, BPF, and kvm.
+>
+>> > This was found by testing with klp-build and Clang 21, but the issue is
+>> > not specific to klp-build.  It's inherent to any livepatch module use of
+>> > klp relocations.
+>> > 
+>> > Previous tests with Clang 20 did not show this problem, as older Clang
+>> > unconditionally emits "bti c" for every C function.
+>> 
+>> Is there an option to restore that behaviour if CONFIG_LIVEPATCH=y?
+>> Otherwise, I think I'd be more inclined to add yet-another dependency
+>> to CONFIG_ARM64_BTI_KERNEL so it's disabled if LIVEPATCH is selected.
+>
+> Hm, looking deeper, is BTI just fundamentally broken now, independent of
+> livepatch?
+>
+> config ARM64_BTI_KERNEL
+> 	...
+> 	# https://gcc.gnu.org/bugzilla/show_bug.cgi?id=106671
+> 	depends on !CC_IS_GCC
+> 	...
+>
+> AFAICT, the reason for the "depends on !CC_IS_GCC" is that GCC was
+> already doing the exact same thing Clang is now doing: namely, omitting
+> BTI for static functions that don't have a pointer taken to them.
+>
+> So Clang 21+ now has the original GCC edge case: an .init.text direct
+> branching to a .text function which happens to be allocated >= 128MB
+> away and which doesn't have BTI.
+>
+> In which case I think to properly support BTI going forward we would
+> need two "veneers"?  Either that or remove BTI kernel support
+> altogether.
+>
+
+Yeah, it seems we did not argue our case convincingly: their assumption
+that veneers/PLTs can be placed within -/+ 128M of their target does not
+hold for us. But I don't think it holds for .text sections larger than
+128M either, so I'm not convinced their reasoning is sound even for the
+general case.
+
+I suppose we could special-case the PLT logic to use direct branches
+where possible, which would probably catch most of these (assuming
+.text and .init.text tend to end up close to each other also for KLP
+modules)
+
+For the remaining cases, we'd indeed need a second veneer at the callee
+end (i.e., inside .text in this case) that is emitted when resolving a
+cross-section indirect call to a function that lacks the BTI landing
+pad. But that would be its sole purpose, so I don't think we should go
+down this route. Instead, the 'address taken' check should include 'called
+directly from a different section'. Emitting veneers to work around a
+compiler optimization is just plain silly.
+
+I'll try and poke people on the Clang side of things to revisit this.
+I guess that leaves kernel BTI broken for the foreseeable future but so
+be it.
 
 
--- 
-With best wishes
-Dmitry
 
