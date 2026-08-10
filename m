@@ -4,83 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AED1BC5AD55
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 14:08:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74A55C5AE49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 14:13:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5T0tIxCazFUzhelj0MAY5NMATYeMv+XqD2FQpR1ITqA=; b=cHFKmOVjIbuXvZeRpUFQtZQQPQ
-	CmO+1s3Q2Q/s1U07U5jZ859t49lH0ZDU717Q0WyGtVQDSUx9wPXms0WvMvYOEhxXLbv70pyOKG94b
-	F6xq41PKJEnGbmUxYn/1nG+vHH4FUyLMtFnWfLXUEt9+j/FXboEsaXGSUY95fA41D6UE3dtWSnyeH
-	ed0OrZnoKdnF0Qq5y8Li+gJkXoU5+vHvK8KarAYrE5Xpvj16FI13XdF9leNhesQ5vkQH7jRhCONnE
-	4R1DQN6w5wj1gra2d/AKpda2mB4Bkqg5jiFi671C76U/6G36qL2WXUy3AneF1nVfDw9FSWeYAtzBG
-	cB1yCELQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ddIlhF6vGPyoom57B4/DSYjoWyRRk8Fh5bwezxUOqlc=; b=UFj0czm3WN5YhqOoNK9uDVNzkb
+	qt0u752br551WUQqGmJuZevhXg0bUmW2QblRiyiqdJfoVyIgdbZH1iVrBhafk4uBAX2Uhk22BLiLC
+	0sUXe1/PnPTkq9ZiIjQgX6OYlN6FvwMk16RuGUEjB4h7v0v4/N8jIzHCGv6fTjFDlAyL/x64o622/
+	NBS+RS0v9O3uTzo/58sXAY1bli21oizigheNTwNq1eRjycoLignaCGqC3WSIxWQDNNfAiHQ2QxIkQ
+	F1VPguLKxtazJwBRthyQpean2+J0iVOdoTzbMPU1Z2iohNeig1ZsYdJaPb3Kn1/vQVQgoWtM5WSll
+	zkB16ijA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtQg3-0000000BxWA-2Nls;
-	Mon, 10 Aug 2026 14:08:31 +0000
+	id 1wtQkx-0000000BxwA-1BZc;
+	Mon, 10 Aug 2026 14:13:35 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtQfz-0000000BxV9-1Yfb
+	id 1wtQku-0000000Bxvg-0qIx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 14:08:30 +0000
+	Mon, 10 Aug 2026 14:13:33 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4A7941516;
-	Mon, 10 Aug 2026 07:08:22 -0700 (PDT)
-Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CA3DB3F86F;
-	Mon, 10 Aug 2026 07:08:21 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 71E781516;
+	Mon, 10 Aug 2026 07:13:26 -0700 (PDT)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E145D3F86F;
+	Mon, 10 Aug 2026 07:13:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786370906; bh=WIG5gWxWn/Ev2rkfLIG3WmO0JyDYfhFXREH1iOSeZTw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ZXStNpjXVYvpxTBkP3rWmmwVPR479gsTPUbyBMBR8VKOLTsj4ratjHRO92RiDGFax
-	 IG5dbWhAWx0ncg0zwRBfNQKPrft0K+c13K0wFbEYz8ngMLcySRRYMCHpujbZ48aqGf
-	 1iA6qXJ9C3VW4Jm34gws0KQ9bPcSOJKgwmrVFNto=
-Message-ID: <3cccd2d2-b59c-47ec-8a87-f504a5427576@arm.com>
-Date: Mon, 10 Aug 2026 15:08:19 +0100
+	t=1786371210; bh=zYnXF4fid7nru4L+UN6cx73+9ENOxlbLHCYi9e/TLbk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=c4OaKYOdMrP2zYlAL+9Ck9ytNUdfa4vN23e1uvO8+zr+aIIaVGbiPz8omcY23SsKm
+	 69UbHQH7fCfBzAQRXN6684AqVtZFko90HF3FUO0+1yumxbokV6x6NFEDB3De+636G0
+	 L1fRQ8tn65V06Wdi/ESvTdQtsPnqOd4UbC6BfEog=
+Date: Mon, 10 Aug 2026 15:13:22 +0100
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Fayssal Benmlih <Fayssal.Benmlih@arm.com>
+Cc: Cristian Marussi <Cristian.Marussi@arm.com>,
+	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
+	"d-gole@ti.com" <d-gole@ti.com>,
+	"david@kernel.org" <david@kernel.org>,
+	Elif Topuz <Elif.Topuz@arm.com>,
+	"etienne.carriere@st.com" <etienne.carriere@st.com>,
+	"f.fainelli@gmail.com" <f.fainelli@gmail.com>,
+	"james.quinlan@broadcom.com" <james.quinlan@broadcom.com>,
+	"jic23@kernel.org" <jic23@kernel.org>,
+	"kas@kernel.org" <kas@kernel.org>,
+	"kernel-team@meta.com" <kernel-team@meta.com>,
+	"leitao@kernel.org" <leitao@kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	Lukasz Luba <Lukasz.Luba@arm.com>,
+	"michal.simek@amd.com" <michal.simek@amd.com>,
+	"peng.fan@oss.nxp.com" <peng.fan@oss.nxp.com>,
+	Philip Radford <Philip.Radford@arm.com>,
+	"puranjay@kernel.org" <puranjay@kernel.org>,
+	Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
+	"sudeep.holla@kernel.org" <sudeep.holla@kernel.org>,
+	"usama.arif@linux.dev" <usama.arif@linux.dev>,
+	"vincent.guittot@linaro.org" <vincent.guittot@linaro.org>
+Subject: Re: [PATCH v7 08/23] firmware: arm_scmi: Add Telemetry configuration
+ operations
+Message-ID: <anncgnjIKCzuBKLL@pluto>
+References: <20260802145618.1952804-9-cristian.marussi@arm.com>
+ <1E14B66B-A2A3-4FF7-8178-D27433A316B1@contoso.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: swiotlb: Keep the default size for protected
- guests
-To: Jason Gunthorpe <jgg@ziepe.ca>, Will Deacon <will@kernel.org>,
- "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
- Marek Szyprowski <m.szyprowski@samsung.com>
-Cc: Mostafa Saleh <smostafa@google.com>, iommu@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-coco@lists.linux.dev, Marc Zyngier <maz@kernel.org>,
- Steven Price <steven.price@arm.com>,
- Suzuki K Poulose <Suzuki.Poulose@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Jiri Pirko <jiri@resnulli.us>,
- Petr Tesarik <ptesarik@suse.com>, Alexey Kardashevskiy <aik@amd.com>,
- Dan Williams <dan.j.williams@intel.com>, Xu Yilun
- <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
- linux-s390@vger.kernel.org, Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- Christophe Leroy <chleroy@kernel.org>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
-References: <anX7F7dnKOtAOIIe@google.com> <20260807164734.GE200537@ziepe.ca>
- <anYgXSR4VAi3TpOj@google.com>
- <CGME20260807182023eucas1p1f653436207b2b00338e99ea1d8f847df@eucas1p1.samsung.com>
- <20260807182017.GH200537@ziepe.ca>
- <7d22482f-d5fd-4cf4-9d32-6a54e02f2fbb@samsung.com>
- <yq5av79iiard.fsf@kernel.org> <anml6lLRERm1Iv-_@willie-the-truck>
- <28442500-1d53-4776-bae5-459c3ffc1cc6@samsung.com>
- <anm6K2umtx4iKnyZ@willie-the-truck> <20260810130818.GN200537@ziepe.ca>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20260810130818.GN200537@ziepe.ca>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <1E14B66B-A2A3-4FF7-8178-D27433A316B1@contoso.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_070827_488931_2C3740BC 
-X-CRM114-Status: GOOD (  26.45  )
+X-CRM114-CacheID: sfid-20260810_071332_354683_6B21AACA 
+X-CRM114-Status: GOOD (  15.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,74 +92,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/08/2026 2:08 pm, Jason Gunthorpe wrote:
-> On Mon, Aug 10, 2026 at 12:46:51PM +0100, Will Deacon wrote:
->> On Mon, Aug 10, 2026 at 01:37:11PM +0200, Marek Szyprowski wrote:
->>> On 10.08.2026 12:20, Will Deacon wrote:
->>>> On Mon, Aug 10, 2026 at 02:59:42PM +0530, Aneesh Kumar K.V wrote:
->>>>> Marek Szyprowski <m.szyprowski@samsung.com> writes:
->>>>>
->>>>>> On 07.08.2026 20:20, Jason Gunthorpe wrote:
->>>>>>> On Fri, Aug 07, 2026 at 06:13:49PM +0000, Mostafa Saleh wrote:
->>>>>>>> But the whole thing is best effort anyway, the kernel picks
->>>>>>>> IO_TLB_DEFAULT_SIZE which does not depend on the system topology or
->>>>>>>> how many devices or how much DMA they do.
->>>>>>>> SWIOTLB memory is wasted if unused so we should be careful around
->>>>>>>> that as it would be the other way around and users would have to
->>>>>>>> decrease it manually.
->>>>>>> Yeah, it is why the arch code shouldn't really be sizing it directly,
->>>>>>> it should be done in common code and, yes, we are probably going to
->>>>>>> have to do something alot smarter to have the common code better
->>>>>>> auto-tune this for the CC case..
->>>>>> What about the $subject patch? I assume that it is still needed to
->>>>>>
->>>>>> restore the behavior that was altered by the "[PATCH v8 00/23]
->>>>>>
->>>>>> dma-mapping: Track shared DMA state through direct, pool and swiotlb
->>>>>>
->>>>>> paths?" patchset?
->>>>>>
->>>>> I would request that we pick this patch to fix the regression described
->>>>> in https://lore.kernel.org/all/yq5azeyxyfol.fsf@kernel.org/.
->>>> I really don't think we need it. CCA hardware isn't exactly widespread
->>>> and the KVM host side patches don't appear close to being merged.
->>>
->>> Does this mean that the branch for-next/coco [1] won't go to v7.3-rc1?
+On Mon, Aug 03, 2026 at 11:54:30PM +0100, Fayssal Benmlih wrote:
+> Hi Cristian,
 > 
-> Let's not make progress on guest support contingent on KVM CCA host
-> side patches please. I expect the CSPs will have VM instance types
-> available based on CCA within quarters, and Linux as a Guest should
-> work in those environments regardless of what KVM is doing. I don't
-> really expect full KVM support for years, frankly, the patchset is
-> massive. Even Intel and AMD don't have full KVM support yet.
+
+Hi,
+
+> I found two configuration issues inline.
 > 
-> People already have CCA capable HW, are already testing this stuff and
-> the closer upstream can get to being workable as a guest without a
-> mountain of OOT patches the better.
+> > 	if (!is_group) {
+> > 		active_update_interval =
+> > 			&ti->info.active_update_interval;
+> > 		current_mode = &ti->info.current_mode;
+> > 	} else {
+> > 		struct scmi_telemetry_res_info *rinfo;
+> >
+> > 		rinfo = ti->res_get(ti);
+> > 		active_update_interval =
+> > 			&rinfo->grps[res_id].active_update_interval;
+> > 		current_mode = &rinfo->grps[res_id].current_mode;
+> > 	}
+> > [...]
+> > 	if (!ret) {
+> > 		ti->info.enabled = tlm_enable;
+> > 		*current_mode = next_mode;
+> > 		ti->info.notif_enabled =
+> > 			*current_mode == SCMI_TLM_NOTIFICATION;
+> > 		if (update_interval_ms)
+> > 			*active_update_interval =
+> > 				le32_to_cpu(interval);
+> > 	}
 > 
-> I agree the thing is not ideal, but it was merged to ARM like this a
-> long time ago, this patch is just fixing a small oopsie (was it a
-> merge conflict?) to put it back. I don't the objection.
+> For a group operation, active_update_interval and current_mode point to the
+> group, but enabled and notif_enabled are still written into the global
+> ti->info state.
+> 
+> Disabling one group can therefore make the driver believe the entire
+> Telemetry instance is disabled, causing reads for unrelated DEs to return
+> no data. A group's collection mode can similarly overwrite the global
+> notification state.
+> 
+> Please select group-versus-instance cached state consistently for every
+> field updated here.
+> 
 
-Yup, it seems pretty clearly like a straightforward bug in this series 
-(or maybe even just the merge resolution), where it should have just 
-removed the use of SWIOTLB_FORCE, but changing the if/else structure 
-inadvertently upset the whole flow in a way that it shouldn't have.
+Yes indeed...fixed in v8.
 
-For a fix patch it might be clearer to restore the "(is_realm_world() || 
-is_protected_kvm_guest())" condition exactly as before, then save any 
-further refactoring for the next round of new development. And if there 
-is a concern that skipping the resizing wastes memory for pKVM, then 
-surely that falls on e62decaf98e7 ("arm64/coco: Add pKVM as a CC 
-platform") which intentionally added that logic.
+> > 			de_offs = le32_to_cpu(resp->shmti_de_offset);
+> >
+> > 			shmti = &ti->shmti[sid];
+> > 			payld = shmti->base;
+> > 			/* Check boundary first... */
+> > 			if (de_offs + LINE_LENGTH_BYTES(payld) >=
+> > 			    shmti->info.len)
+> > 				return -EPROTO;
+> 
+> The addition can wrap, and the payload must end before the TDCF epilogue,
+> not merely before the end of the entire SHMTI allocation.
+> 
+> Please use checked addition and verify the complete line against the
+> payload boundary, such as len - TDCF_EPLG_SZ. The same boundary rule
+> should be used for an explicitly returned block-timestamp offset.
+> 
 
-I do concur that there's not necessarily a mad panic to get this into 
-Marek's 7.3 pull, as folks trying to use linux-next or bleeding-edge 
-mainline for CCA work (or indeed anything) should know the risks, but it 
-should at least be one for the 7.3-rc fixes cycle. Aneesh, FYI generally 
-once things are queued, please just send follow-up fixes as their own 
-thing rather than replies, for maximum clarity.
+To be further reworked in v9.
 
 Thanks,
-Robin.
+Cristian
+
 
