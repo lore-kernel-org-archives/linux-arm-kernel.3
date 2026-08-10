@@ -4,92 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 343B5C5AE49
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 14:50:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBD97C5AE49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 14:52:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LDUVqF9bGKPqsW39iH6LzgBQf6STHLl+9ztnXalCrFc=; b=qDOTPMHtCxdy7HLKcgK6Ds0Ful
-	96iGEfWNR0ayEkLtXkInjE6RbuB8bZtxWS2zkLv0ByeOj7ghjJ2jAVINe15ETandOUzr9B11BUTL3
-	wXNPsTd2EKU9eelrFhZHaKUQ/XaiT/F2cU0YMAZriPwRZM2Y4ZS8SY8ZLKcM4yhqUEDUHyCOxMKcI
-	ZKtb36gsoOdYkq0jyDMBhY46tbBjVksJg/u18dp8BWyLQTeGaNG+VDI3Xae3FR04n3U5egpUoB9b2
-	cetv7ovFI5LutSJbq55oWFsFIL0cBEUkDemqEz1jUb5bUr6Waa92FvG8i9HDlY0MyPomGcX+mqc7I
-	KDI0IEUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=zxqhJG+46XP4U4QelHuaFoOC2P3agnUHF42PXfBS3WI=; b=El8d+cMr7TSV6A
+	1Zv0vNdxpWtAbwSUicQMmq7Vv6JnT9BSko2CtxCR4MRJQaCXs0v/kDHb65aipOy6YlnHi6aZBSirU
+	zDVIjK8q4otZ0y5/WTB8browi4uLc0y/95EfvgI+nw6Xh2eJ7CFGVOy1m5k5cMWlXvkoz9r4/tRoJ
+	GJxArSpdgWnnfCw1+Q/oyuZEaBVxrCCtkKBhEdlTnV29Luly+/iKBR8iM70rxw6WjjtJ24HlV413r
+	ANXvc9z77nRKeYW0F1TVil80YQXFb/UlUVlJJbvPfJsdJkFNIklx1348yBqZ9/uajdUx6NHy6b5ri
+	hkVEcqxiV9UVHSK3MCDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtRKm-0000000C5kc-30qI;
-	Mon, 10 Aug 2026 14:50:36 +0000
-Received: from mail-ua1-f50.google.com ([209.85.222.50])
+	id 1wtRM2-0000000C6Gl-2IN8;
+	Mon, 10 Aug 2026 14:51:54 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtRKj-0000000C5i8-28bM
+	id 1wtRM0-0000000C6FT-03Vh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 14:50:35 +0000
-Received: by mail-ua1-f50.google.com with SMTP id a1e0cc1a2514c-9674d727c0aso3014646241.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 07:50:32 -0700 (PDT)
+	Mon, 10 Aug 2026 14:51:53 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67ACj4xx1343128
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 14:51:51 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=zxqhJG+46XP4U4QelHuaFo
+	OC2P3agnUHF42PXfBS3WI=; b=XpAMESP9n908IPHu947b12Bsdz2BREv7xJjkq1
+	M3rZwDXCp+FBLV6Rm2JhQit7XzeMRbZZXKBnaUclwygxoW05+JAvYfXfNx91QFfH
+	vkyIp+V9uTqlbwYvsxxuW/Ix5pKVIEWE7qiH7mYbdDswT38uLhE2mV2e+aJAzZ6y
+	DttSM2tMJFt88pLUsq9da1UE+m5ryWqDgejk7jQbAMEuhJZYCU6bT1ymKexbq+xg
+	SAFmlcdSPjPys1GXycjAkLH49vgJJmWq8KSg/iaSVHaBpxWZhUGT+JvzAKnnasNR
+	OkHHKU+IzF6EE5Jhf74bitMEAJA3NIV/GCxgr2CaPTDUe16w==
+Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com [209.85.219.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fy8v5a1ee-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 14:51:51 +0000 (GMT)
+Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-9087f2fe592so8708336d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 07:51:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1786373510; x=1786978310; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=zxqhJG+46XP4U4QelHuaFoOC2P3agnUHF42PXfBS3WI=;
+        b=U1Afk4067zgu0FpOwUa63Bq1Dms9Gg+zo9zxjuf6tORPgKlBaWn4uYN7O6Wy863agI
+         2BHYj49qMK99lxCH6Ajxoul6olilegTsT35eOOkrfk4bh6OL+bnNrBKzb4+cYmOV9hRV
+         FB0e/E8FYZO54xNEA8VSaUs3xZX9jVua8D94nLiGrNmIqunhZwzmCeVtJRjphBmcJ3RZ
+         ZICuIxjar2AcFC5rFS+/EQiRAw1bfUtqIbgvyiRnM7U3gBqSn0UTyLJPHZVsX9QRSQq1
+         5/RgvBIDVXs+xzO6vMybtmVgWGrPAl8ZQBEbWp1d8Saj4/Xw7HtxmjTIq8Xe80UCGawq
+         zeWA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786373432; x=1786978232;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=LDUVqF9bGKPqsW39iH6LzgBQf6STHLl+9ztnXalCrFc=;
-        b=CaLCbp6B8ubaiFDa0bAxUlX7Jcdhv14jsaSFnhffn4lD/+w6U+VTzhM6vVN+AdwtJa
-         3IlQOfGOr0npPeRNo/6aJ9OUr7E3b+hI9xIZtrtYfErZfd2bA3cQoMnQQfQP2Wj4sJ7t
-         K8HSmkUiV4UX7LMdLHc0Z4XOJJKfJZGZ9UxkUOMBXf2bh+wiOEPKLC2QteBRNv5wYgDw
-         QOoQVf/n69zHlIr1Mo6KnpZetBk8CPkYgfs4eaETGclwI/6FMeBdwNiVvuUfCSPYe4fp
-         LDoG5N6s76XkWvpDn5gC5mKRUUGBQb4E9mmgtarkib9/NgmnbOqOCRKU+25yw9qWzVlx
-         GYGA==
-X-Forwarded-Encrypted: i=1; AHgh+RqO4sdIytqDvucSmDyYvv2FYXalEMiqAyVU7bd3JiQYKnnQi5OHaUCvfFh2VRUTpZaa41036ybAGHBgWUAjiV2V@lists.infradead.org
-X-Gm-Message-State: AOJu0YzIC2ToBiugQ6GbtgcYONF2XUT7QPmMT3PF5VwEF0vVJn45qnKY
-	UIKG2YKHcwGi6pLjnt8WoQettP/lq6afQXU/S1XIKVSwGc5s11FSs3bHP+MLtVdG
-X-Gm-Gg: AR+sD129+r/TrJMHKvnYyoPCXLWtQe+xe6YPfMxE6XTm8frr+6IV1y392oMoNvbWpUc
-	X+MpFS2xL8dSaBXwWSWPwkr4aZUxnvQaL0nrlFUL3ttTAGC0SgJU/NG+U/tqAIWnxA7a7a7G+93
-	66aayHbuM4GZz0o7hCDFSg21GOcncv9VBERZMWqu49pORF2jWMQLuMsYHq6DeUnjbS5NnnmQbO/
-	/EHMWszyGoegjd7Rf3Phq/1KoIu2Lzn2rRqnqp+eOt1djTty8n1933FWKlLXAAt3Mfzghn/LTPE
-	pcT5/zRJCY1Wx6E2ejrF63kUcLyh8PlLk3zy2ncFaJ7f8elbkxF/jMVmOkVl+xvpKM/vdZXXxxi
-	y+gHKm9fF6YpNd0mx8qSwnqb5M4Vk7IpybA2fg4rxivBFU69ZUCPBtaItiqAqtz3iedAg+/dWQ8
-	SBNpPrM6ZO4ejhej0uTK45flsHw0QI7h/oe+w4hipiVctTvlM73j9dZ+rK2kSVefKt7BY7N3zPV
-	Yb+C96En9bySgcgGuyebaKXpA==
-X-Received: by 2002:a05:6102:3907:b0:613:3fff:febc with SMTP id ada2fe7eead31-7652028524amr2275430137.2.1786373431949;
-        Mon, 10 Aug 2026 07:50:31 -0700 (PDT)
-Received: from mail-ua1-f45.google.com (mail-ua1-f45.google.com. [209.85.222.45])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-763fb6a7164sm4846337137.0.2026.08.10.07.50.31
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 10 Aug 2026 07:50:31 -0700 (PDT)
-Received: by mail-ua1-f45.google.com with SMTP id a1e0cc1a2514c-977ba4d3b49so1516162241.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 07:50:31 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+Rpkyu/qgBkfDYaCVPx8vCR+mhqsvjoSHLFhA4O3lOblWXhel2FtDT0GzMQdGOhrimhRVewGZBd276RenqMwkyUZ@lists.infradead.org
-X-Received: by 2002:a05:6102:2082:b0:74d:5456:b6fb with SMTP id
- ada2fe7eead31-7652241d10cmr1596982137.16.1786373431244; Mon, 10 Aug 2026
- 07:50:31 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1786373510; x=1786978310;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=zxqhJG+46XP4U4QelHuaFoOC2P3agnUHF42PXfBS3WI=;
+        b=juXiaUj7VABqSGWXBYkG6mZabeqq3ykT0Fgstiofvs8cglMWFuLVIV59W8j9hjBAt2
+         7eVR5/phVErWY2e0Ia2GFOdlhaf3nb985NgYGn0p8BtqGhPRShU9vXBCbrZH7hBnKwuW
+         vYd1PbvPlTpsWR/izG7LKxCbXGycU7KRoyHYWr8zQMLdXFhHOivNF9dVsSNgh4P7nHGJ
+         heA+J8wE/tzqAUBnlv/zB8t1ekedVUE2FByi2kCVhqB/vIQJj5SdgHf7tUJIRGwEohuU
+         cOqBLzo38MVpYXu+SXSX1wgHdFzCBqIGTLKcZYxwg34011Woyf9YazJDarwkXdpFHxLb
+         iCCw==
+X-Forwarded-Encrypted: i=1; AHgh+RpKrbZPV8Qm4FA49Ekwhui+YKrf4G2T8ERwSswqj2WJycazWaDB9zUa+2D+DQTeUJQcuZEEiZWXmjptdLQnZVpK@lists.infradead.org
+X-Gm-Message-State: AOJu0YydBqbN3XlH7H7l/3ftPvlzKG2gyhTwUaaG2SyA87tY7FGUHxRa
+	c7URvYRQSXHEB2VI+QnCnXxboZSJ4t9SOEgnpYqTIi6hcol20CpAscT3829u7EOZGBUJ6lXkuTv
+	oTCwwOEGMwlmolC83FReAt/bVnU0ekPHCVNM7MEtMUgJNy74dS4UEfhTnUaln93IWzVQGCRGsjV
+	TahA==
+X-Gm-Gg: AR+sD13GuJB/YseJQrg3QmfpX0QR9zTBaaARe7iCTwdcnSEchV4HruYS0xwrxkB3B3y
+	BjuniWLX8tpKSkL6bHsQvgry6YkiFPcq9EOK7gdPI+HKO3+x2vz05pO0OBcdOBV74hTqn/6ARoL
+	rXOE2cVhxM1jpgUIU1htIUBPoR2guGc+Wxx+ZVTpwZHHXl35wqVKi4Y4VFrKnyTVSzfbctdkknn
+	htOm+HkjjLd/ph2hG0oYVYYPoZ30ozk3pfKyAtzf2RWj1Cv/n3p5W35ewzSMcl6gpYCkNZKRGLg
+	bcLgPhACQiQ/IqSKm5mv2uVkVDzb8hzMNVBepadNxVojceBZr3WKmg3oocMhWtgaUhuud8eThrI
+	wWJPhGCyKP+50Uw0qd7J6rdQapcOtw3gP+8TiiJLEyD8zdEFwG0IRukdLcpWdX6WbVKFTHFP0zb
+	YPsYatr8njdd2xZw==
+X-Received: by 2002:ac8:5907:0:b0:51a:8f3a:13b9 with SMTP id d75a77b69052e-52d20960822mr231815951cf.16.1786373510462;
+        Mon, 10 Aug 2026 07:51:50 -0700 (PDT)
+X-Received: by 2002:ac8:5907:0:b0:51a:8f3a:13b9 with SMTP id d75a77b69052e-52d20960822mr231815361cf.16.1786373509999;
+        Mon, 10 Aug 2026 07:51:49 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-39fddd6a796sm22489661fa.36.2026.08.10.07.51.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 10 Aug 2026 07:51:48 -0700 (PDT)
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Subject: [PATCH 0/4] drm/imx: fix TVE / HDMI coexistence
+Date: Mon, 10 Aug 2026 17:51:45 +0300
+Message-Id: <20260810-imx53-fix-hdmi-v1-0-fff9b1b17f25@oss.qualcomm.com>
 MIME-Version: 1.0
-References: <cover.1785941595.git.geert+renesas@glider.be> <CAPx+jO87d7H92KSR7R7ObR05sM2JcHBCo+YuUf_1gE-KwhR7CQ@mail.gmail.com>
-In-Reply-To: <CAPx+jO87d7H92KSR7R7ObR05sM2JcHBCo+YuUf_1gE-KwhR7CQ@mail.gmail.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 10 Aug 2026 16:50:19 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdW78wFHKP8n2P_MEVASO3MFHCjXkEWSFXfE3-mCjkhsgA@mail.gmail.com>
-X-Gm-Features: AUfX_mzSDh0l0A6CyrHddRhefJg-h_HSruJEAkSrbmndCIqd_rMaLktXcM1WovQ
-Message-ID: <CAMuHMdW78wFHKP8n2P_MEVASO3MFHCjXkEWSFXfE3-mCjkhsgA@mail.gmail.com>
-Subject: Re: [PATCH v3 0/6] R-Car X5H CPG/MDLC support
-To: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, Ulf Hansson <ulfh@kernel.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Wolfram Sang <wsa+renesas@sang-engineering.com>, 
-	Marek Vasut <marek.vasut+renesas@mailbox.org>, 
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, devicetree@vger.kernel.org, 
-	linux-clk@vger.kernel.org, linux-pm@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAIHleWoC/yXMyw5AMBCF4VeRWZukraC8iligg5G4pEWaiHdXL
+ L+cnP8CR5bJQRldYOlkx+sSIOMIurFZBkI2waCEyoSWAnn2aYI9exzNzCgSqQqTFzrLNYTTZil
+ sX7Cqf7ujnajb3wrc9wN7Z1CJcgAAAA==
+X-Change-ID: 20260810-imx53-fix-hdmi-03129d798678
+To: Philipp Zabel <p.zabel@pengutronix.de>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+        Pengutronix Kernel Team <kernel@pengutronix.de>,
+        Fabio Estevam <festevam@gmail.com>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1181;
+ i=dmitry.baryshkov@oss.qualcomm.com; h=from:subject:message-id;
+ bh=n0QwEGmm9QPFYqEaWEPfuhWwBfoE4E6XocGYB82nrkY=;
+ b=owEBbQGS/pANAwAKAYs8ij4CKSjVAcsmYgBqeeWD0drxB6zJyouBN6QZVzN8RjwVSKS4JXKly
+ Mt49RWAqPCJATMEAAEKAB0WIQRMcISVXLJjVvC4lX+LPIo+Aiko1QUCannlgwAKCRCLPIo+Aiko
+ 1Y9jB/43j39n7WjjoMAQDWUq589TaOBcT8q1aNzDUtM3ol5l786d/QI0TGEFznYALxKC97mF56N
+ Kug2nJmXQf/kJM90Hp/mhuIZHbvRTFtQGm7t2TspzdZ+9+CUVQVEw2D/Avr6u24qwjgkp+Iegky
+ 7c5+9hXHjOC9vMYPo3Z3v47TZCKp9g7eD8AxFloZlpaFVg5BDLKI3zaUTj/zYTHkytQVTWLM034
+ RMtR31LoM8xSE4MA7+lhJT9Omo8cDnfNb28GJePn/vECpbvX7Gcr1We0e8q0+ixsQO+UEI6iOZY
+ huAzUDgnPWuQzxRI/HFK0w+1nPR+QA0fNkmtRF9B+edPkoJP
+X-Developer-Key: i=dmitry.baryshkov@oss.qualcomm.com; a=openpgp;
+ fpr=8F88381DD5C873E4AE487DA5199BF1243632046A
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODEwMDEyOCBTYWx0ZWRfX5QNukBoITzjb
+ sWk5RMv3lJrNmf7Ym7yt9s/TlvcL2nFMgQa0XtHYtw26id+Y2yllmBSyqQ84sr/ZkOtWZ/tG0+n
+ RYBTNBEo5v1lm1OBtlKvhhW5tFapDJg=
+X-Authority-Analysis: v=2.4 cv=J6qaKgnS c=1 sm=1 tr=0 ts=6a79e587 cx=c_pps
+ a=oc9J++0uMp73DTRD5QyR2A==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22 a=EUspDBNiAAAA:8
+ a=qhRTTLL9oDwathZehP0A:9 a=QEXdDO2ut3YA:10 a=iYH6xdkBrDN1Jqds4HTS:22
+X-Proofpoint-GUID: GHBPkxtAm97s6-hyb94sBeDjNOwwohif
+X-Proofpoint-ORIG-GUID: GHBPkxtAm97s6-hyb94sBeDjNOwwohif
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODEwMDEyOCBTYWx0ZWRfX9EPaL8TQ1lc+
+ v1DMRlwmPfPNzxodTH2BqiWQHlMja6/BFnAPJ4i6SucmUcf2FmhYTJCRoA0HEbNSyeCuUTOXcct
+ i+Mav5L1q0upCEx1sefhs1Je0GqnGkWAjePeE+Gb2V5RrqGX2kdmwzh3mjN0TW/HB2/KWqUqmvP
+ EvfJic+sZToAIOsBIo91sfvaiVVNyu31xyQ4vhKe/eetCDRMgStZy4QOYsl7FPsUQdX8r0GGE7r
+ GzYbmH3ScIHaqEAUyzQbcy8Kz6PyNuuMjeYI8k77EyKR5qtfJOFWvQDD0nrwTgs09yomY56ey0w
+ I58QIwbT+IR4pzT2sezQ3B/WkTxg8ytuJ2+7NVsmEjhFjOBeyRzNn49PUFf4rJ+M9DmNDA6tS3c
+ HdzB64cKhqpwomt54ZZNZV7HSNtspg4kkYTjf7jIs3fxOOWCoC4spI/bvhxcXagKBNvlsfk29Zx
+ cpC4aGZW0THMvvlTAkQ==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-10_03,2026-08-07_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 phishscore=0 spamscore=0 lowpriorityscore=0 priorityscore=1501
+ impostorscore=0 clxscore=1015 adultscore=0 bulkscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608100128
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_075033_590655_FB63C73A 
-X-CRM114-Status: GOOD (  43.52  )
+X-CRM114-CacheID: sfid-20260810_075152_058998_C3A44114 
+X-CRM114-Status: GOOD (  11.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,89 +167,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ulf,
+Testing MCIMXHDMICARD on IMX53 QSRB platform revealed that the HDMI
+output is broken. The TVE output (even unconnected) forces the PLL4
+frequency, breaking the frequency selected for the HDMI output. Fix
+those issue, making TVE stop grabbing the PLL4 frequency (by correctly
+reporting if it is unconnected).
 
-On Mon, 10 Aug 2026 at 16:18, Ulf Hansson <ulf.hansson@oss.qualcomm.com> wr=
-ote:
-> On Wed, Aug 5, 2026 at 5:21=E2=80=AFPM Geert Uytterhoeven
-> <geert+renesas@glider.be> wrote:
-> > This patch series adds minimal support for the Renesas R-Car X5H Clock
-> > Pulse Generator (CPG) and Module Controller (MDLC), to aim for replacin=
-g
-> > the dummy clocks in r8a78000.dtsi with proper hardware description.
-> > These two components are closely related, in the sense that they are
-> > both supposed to be accessed through the ARM System Control and
-> > Management Interface (SCMI) on the Ironhide development board.
-> >
-> > This series consists of three parts:
-> >   1. Patches 1-2 add DT bindings and DT binding definitions,
-> >   2. Patches 3-4 add minimal CPG and MDLC drivers,
-> >   3. Patches 5-6 update the DTS.
-> > Note that this series depends on v7.2-rc2, due to the use of
-> > <linux/device-id/of.h>.
-> >
-> > Changes compared to v2[1]:
-> >   - Add Acked-by, Reviewed-by,
-> >   - Add fixed-rate clocks to kerneldoc of r8a78000_cpg_priv.map,
-> >   - Use devm_clk_hw_register_fixed_rate(), drop unregister_fixed_clks()=
-,
-> >   - Drop fill_clk_map(), as it is not really needed until SCMI remappin=
-g
-> >     support is added later,
-> >   - Replace <linux/mod_devicetable.h> by more specific
-> >     <linux/device-id/of.h> in v7.2-rc2,
-> >   - Add a comment to document only always-on domains are supported,
-> >   - Consistently use /* sentinel */ for zero sentinels,
-> >   - Drop trailing commas from sentinels,
-> >   - Sort MDLC nodes (alphabetically, by label).
-> >
-> > Major changes compared to v1[2] (more detail in the individual patches)=
-:
-> >   - Add default support not using SCMI,
-> >   - Drop everything related to SCMI.
-> >
-> > Note that this series does not use or rely on SCMI in any way.
-> > SCMI remapping support will be added in a subsequent series (old versio=
-n
-> > at [3]).
-> > Full hardware support without using SCMI could be added, too, if anyone
-> > would care about that use case.
-> >
-> > For testing, I have pushed this series plus additional work (including
-> > a rebased and updated version of [3]) to [4].
-> >
-> > While I know it is getting late in the cycle, this work (especially the
-> > DT bindings) are a dependency for about any R-Car X5H progress, so it
-> > would be good to have it included in v7.3.
-> > Hence I plan to queue the clock patches (1, 3) in renesas-clk for v7.3
-> > (Stephen still hasn't merged my earlier PR for v7.3 anyway).
-> > Ulf: It would be great if you could take the pmdomain patches (2, 4).
->
-> Patch 2 applied for next, but I left patch4 for now as it didn't apply
+While we are at it, fix two plane-related issues, which are now reported
+by DRM.
 
-Thank you!
+Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+---
+Dmitry Baryshkov (4):
+      drm/imx: ipuv3-plane: do not advertise separate alpha formats on DC planes
+      drm/imx: ipuv3-plane: add the pixel blend mode property
+      drm/imx: imx-tve: probe DDC before claiming the connector is connected
+      gpu: ipu-v3: di: report an unattainable pixel clock
 
-> cleanly (drivers/soc/renesas/Kconfig had a conflict), thanks!
+ drivers/gpu/drm/imx/ipuv3/imx-tve.c     |  1 +
+ drivers/gpu/drm/imx/ipuv3/ipuv3-plane.c | 49 +++++++++++++++++++++++++--------
+ drivers/gpu/ipu-v3/ipu-di.c             | 16 +++++++++++
+ 3 files changed, 55 insertions(+), 11 deletions(-)
+---
+base-commit: 6b8c8af514d739d0335f5579b585e02babe8a727
+change-id: 20260810-imx53-fix-hdmi-03129d798678
 
-I guess your tree still has the duplicate "default ARCH_RENESAS"?
-Patch 4 just adds a single line there, and the conflict should be easy
-to fix.
+Best regards,
+--  
+With best wishes
+Dmitry
 
-If you want to send me a new patch, please let me know.
-
-Thanks again!
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
-.org
-
-In personal conversations with technical people, I call myself a hacker. Bu=
-t
-when I'm talking to journalists I just say "programmer" or something like t=
-hat.
-                                -- Linus Torvalds
 
