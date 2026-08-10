@@ -4,135 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A9FFC5AE49
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 13:24:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 572A3C5AE49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 13:25:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UVLS94Nu/msDhoAOREJ/lL1zoSphEtNktL21sATk4oE=; b=1eoL9OFCCAurp51dbQTTTGpeK+
-	JZ8Vq+FhEE9XYpEFmK/qrYFh8eHXBh6zZkYWOYnfekfIW1jY4i+SAiKXU5Jjf1ShbHezTeAZa/FSm
-	B8sf3fFow4V4XS1GBqwFksrLYmRcEpDukCrNDHkC5+pbdez9c61j/3JpvFLrS0zX0ICQRdChXxiXd
-	cPNKye+OdqV+jokf8E27SrYQ8oaGOVxoV3GY0Nz9SVOr5HjrBvgjqwkrsFzmR7ZDAXzIolZdIG8Oa
-	V74EmsqMwn8FqCDf/hDqatxY69ElFlJVLCruFHE57BFttE/lEbnffM9D9G6WWaKvEpYyfpvtElkCD
-	zoItyZ0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Subject:Cc:From:To:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6PSuPUTHGPXQfzteFQevhU5gdjP8B172N7g782zoe6Y=; b=FRh1FUf6RbN1fVc1nPrcNn9pdt
+	6nqZJ/UR3skCpVf9++l478fr1NHUUHL/npgdx3s+lTUWh7bwhTpA0wBSyjqzc60AUcXJQBnxrme/G
+	+WDP+5CdeYRGqONLEu3csjI5wIb+GygkLO8mjhwHV5SQbEWop4ZFERmeBz62x4f9ETWddUqOa7upC
+	/v3uPu0WbcZrzdTwicFe8Ngxa+aYubqdxVbJhKI90ENfA+CoRGYZ+77PKSyfZTFsrcpxb2bRuedbW
+	SfMgKIyDUcI8RvQ8xqUz5BKsgz2RY+M5kn5TymIn5IEkWUmexDHqk7BSVElGsml0+5doaVFxcZYEj
+	BJrtTgNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtPyx-0000000BtlR-0MlW;
-	Mon, 10 Aug 2026 13:24:01 +0000
-Received: from mo4-p02-ob.smtp.rzone.de ([85.215.255.80])
+	id 1wtPzv-0000000BttP-3K9m;
+	Mon, 10 Aug 2026 13:24:59 +0000
+Received: from mail-24430.protonmail.ch ([109.224.244.30])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtPyt-0000000Btl4-48H7
+	id 1wtPzs-0000000Btrm-23vB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 13:23:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1786368204; cv=none;
-    d=strato.com; s=strato-dkim-0002;
-    b=oZwvfMJaGTBBjkBPR3xlmWs35zo06s0Dr8YQKH8QljmQ9uAQdJb0dY4ii2Po47oqP8
-    067G+NpNbtO6GzHie7kkZdJTYt6Sd/NqrS/d1kcJEpNgrGkAkZ8SIwtvWeBKmS5k9Fac
-    vXkiKYUJC6PYF/p4Pr6dw8zr2scRUYMyKsl8UHdgG4Ib47RrdCxnMfsi9AyxIyyZy37Y
-    PPOcJHoF24PexYjubN31MwQUiqAh4gI3eb2/fC/OwHW2ATBlmHcxoT/jNBezdwGCEOa8
-    rJcBzx3XdhhgBSzEwK56xxGuGT3NJWjcI0NlYpdmHNrHCap6ovCeOLaxVM4LstkqLLyD
-    Jr4Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1786368204;
-    s=strato-dkim-0002; d=strato.com;
-    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
-    From:Subject:Sender;
-    bh=UVLS94Nu/msDhoAOREJ/lL1zoSphEtNktL21sATk4oE=;
-    b=C+1GfriRL03PaVpEB/BoflZAnOd1yR2ZtLYd5i6MPiLflpvEskSs3khOWLyKqzxH/j
-    o2QKHBwtRaQKj6ThIeRV8BD0v3Qj6ZUYjFKsyERDoXujHTKyJrFUiKNZGT0s4WYueo4+
-    wP/MVZu0RTQW2af+92csK9Or6YeqTXyWrRPZtM3SsYsAdcT3x3f0Y2VmFWlegE73pJ5q
-    X2QeBYDtap1kxHY5EaWbcfPhZGX73KBDLOO3DeBFEHbmLihuSnJHfI+pG4b/2W7MRbU7
-    k/A0WKcFkqDzvTL04qHhwJvalDaSv5DG28OCW8zt6KvjYDNtZ4H86NoUasppqu5z8ZvL
-    Cauw==
-ARC-Authentication-Results: i=1; strato.com;
-    arc=none;
-    dkim=none
-X-RZG-CLASS-ID: mo02
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1786368204;
-    s=strato-dkim-0002; d=goldelico.com;
-    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
-    From:Subject:Sender;
-    bh=UVLS94Nu/msDhoAOREJ/lL1zoSphEtNktL21sATk4oE=;
-    b=kcm8+Fr2dZean0JggFaM7FX7eCQ0l72pYub+jaEsPSUSWMe5O3ysbVty9J/EXJPTjz
-    P3QnSXXXzPz91KM1By7JeVtoVQNQpopVNNfjMIZbYX/MCCauNFwRSIcaZmEdlx/wh9Qm
-    k08PgQNTXbHTQuYQglOPk7Me9jnJJ6E2H8DfMaZ/lmqBFLQdLaBOUbbmQuwjjueQdIBa
-    KBeKcD4QTIZp3HGCkhIynZd7/lGowSgsPZuEPHgHAOSTfb5mOfjIxI+wNQzFRIbkQn9V
-    PK1vLEnuTXXYtSkK0NQ+W+uEATtNy4pdSGza6qp8Ao+U63HGKfaId3RvGDZeWVKQOgkI
-    yTPA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1786368204;
-    s=strato-dkim-0003; d=goldelico.com;
-    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
-    From:Subject:Sender;
-    bh=UVLS94Nu/msDhoAOREJ/lL1zoSphEtNktL21sATk4oE=;
-    b=pxqtwYZ9vplpgSt/sU0OClyffqzbWrotFPpsUMsIZ9OtbvV0CemIGBSKQDjB4znVj4
-    LlouQyDfsJrsM2TlRSDg==
-X-RZG-AUTH: ":JGIXVUS7cutRB/49FwqZ7WcJeFKiMhflhwDubTJ9qVpwcQVkPW4I1HrTipoGmsiNZ9v/oGyp26o/Wi+pVFrZX1Db5b3z"
-Received: from smtpclient.apple
-    by smtp.strato.de (RZmta 55.5.6 AUTH)
-    with ESMTPSA id Q58eac27ADNMhHH
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (curve X9_62_prime256v1 with 256 ECDH bits, eq. 3072 bits RSA))
-	(Client did not present a certificate);
-    Mon, 10 Aug 2026 15:23:22 +0200 (CEST)
-Content-Type: text/plain;
-	charset=us-ascii
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.700.81.1.8\))
-Subject: Re: [PATCH 15/16] backlight: remove pandora_bl
-From: "H. Nikolaus Schaller" <hns@goldelico.com>
-In-Reply-To: <20260810143914.64d29a5c@kemnade.info>
-Date: Mon, 10 Aug 2026 15:23:12 +0200
-Cc: Daniel Thompson <danielt@kernel.org>,
- Grond <grond66@riseup.net>,
- Stefan Leichter <sle85276@gmx.de>,
- Grazvydas Ignotas <notasas@gmail.com>,
- Tony Lindgren <tony@atomide.com>,
- Ethan Nelson-Moore <enelsonmoore@gmail.com>,
- Jarkko Nikula <jarkko.nikula@bitmer.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Lee Jones <lee@kernel.org>,
- Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>,
- Aaro Koskinen <aaro.koskinen@iki.fi>,
- Kevin Hilman <khilman@baylibre.com>,
- Roger Quadros <rogerq@kernel.org>,
- Russell King <linux@armlinux.org.uk>,
- Jingoo Han <jingoohan1@gmail.com>,
- Helge Deller <deller@gmx.de>,
- Jaroslav Kysela <perex@perex.cz>,
- Takashi Iwai <tiwai@suse.com>,
- Sen Wang <sen@ti.com>,
- Richard Fitzgerald <rf@opensource.cirrus.com>,
- Arnd Bergmann <arnd@arndb.de>,
- Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>,
- Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
- Charles Keepax <ckeepax@opensource.cirrus.com>,
- Niranjan H Y <niranjan.hy@ti.com>,
- letux-kernel@openphoenux.org,
- devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org,
- linux-sound@vger.kernel.org,
- linux-omap@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- dri-devel@lists.freedesktop.org,
- linux-fbdev@vger.kernel.org,
- kernel@pyra-handheld.com,
- mfd@lists.linux.dev
+	Mon, 10 Aug 2026 13:24:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
+	s=protonmail3; t=1786368292; x=1786627492;
+	bh=6PSuPUTHGPXQfzteFQevhU5gdjP8B172N7g782zoe6Y=;
+	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
+	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=I2mUCM0Y2ozyG2X/+qN3njozMvjHwaKdPibwM6txaCtOs15tuQFbIFRumox2Xicx7
+	 4PnfwAD4WRO1smUKQ22kQXy9IieZaDfT6GuAKXrJ7XPipMxjmOd6EJwLYkjDcbBpxc
+	 es0yBVL8ujJ5R677sUPXqyVGaJ/kEyf0mLTgyxHUGgsnMm5t+R9UfB0i9GfdteU6EA
+	 HohoQZY0ywso9cIBIbAJtRAOf+6r4MmcMv+RtXSbmaWlOdGGUOS2+mWR+Z9EqPSIDa
+	 tta0s2zDIyWTzTCL2GrtMQY+DV1CAI/vHxTBlhFjjJ+OORYUsTv7aJgOhOb9I2rAen
+	 1ct4BYkvCcnsA==
+Date: Mon, 10 Aug 2026 13:24:46 +0000
+To: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>, Ryder Lee <ryder.lee@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+From: Ryan Leung <untilscour@protonmail.com>
+Cc: linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, Ryan Leung <untilscour@protonmail.com>
+Subject: [PATCH v3] wifi: mt76: mt7996: add thermal zone device registration
+Message-ID: <20260810-mt7996-thermal-zone-v3-1-ae9d7cd6cde1@protonmail.com>
+Feedback-ID: 184418679:user:proton
+X-Pm-Message-ID: 57331f0c9e096ac1b2b5ea7fa04362caebdb9600
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
-Message-Id: <2C9844A3-3C4C-48E6-863D-BF8328CEE540@goldelico.com>
-References: <cover.1783749722.git.hns@goldelico.com>
- <f897f695c0e1e128d7ebb41be8dfdce4d634f552.1783749722.git.hns@goldelico.com>
- <anmpiADsvzW39DNx@aspen.lan>
- <DA9588C6-0238-4713-B1A1-CB2123F02028@goldelico.com>
- <20260810143914.64d29a5c@kemnade.info>
-To: Andreas Kemnade <andreas@kemnade.info>
-X-Mailer: Apple Mail (2.3826.700.81.1.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_062356_278346_CB367094 
-X-CRM114-Status: GOOD (  22.69  )
+X-CRM114-CacheID: sfid-20260810_062456_678292_4CCF6437 
+X-CRM114-Status: GOOD (  12.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,80 +66,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Register the mt7996 phy as a thermal zone sensor using
+devm_thermal_of_zone_register() so that device tree thermal-zones
+nodes can reference the Wi-Fi chip as a temperature source. This
+allows the kernel thermal governor to control external cooling
+devices such as PWM fans based on Wi-Fi chip temperature.
 
+Registration is non-fatal: -ENODEV is returned when no
+thermal-sensors DT property references this device, which is the
+expected case on platforms without a thermal zone configured.
 
-> Am 10.08.2026 um 14:39 schrieb Andreas Kemnade <andreas@kemnade.info>:
->=20
-> On Mon, 10 Aug 2026 12:45:16 +0200
-> "H. Nikolaus Schaller" <hns@goldelico.com> wrote:
->=20
->> Hi Daniel,
->>=20
->>> Am 10.08.2026 um 12:35 schrieb Daniel Thompson <danielt@kernel.org>:
->>>=20
->>> On Sat, Jul 11, 2026 at 08:02:02AM +0200, H. Nikolaus Schaller =
-wrote: =20
->>>> Retire the platform specific pandora backlight driver since
->>>> it can now be replaced by twl_pm and device tree.
->>>>=20
->>>> Signed-off-by: H. Nikolaus Schaller <hns@goldelico.com> =20
->>>=20
->>> Yay!
->>>=20
->>> Reviewed-by: Daniel Thompson (RISCstar) <danielt@kernel.org> =20
->>=20
->> Well, there were some good comments by Sahiko to the prerequisites of =
-this patch,
->> because it has one speciality the PWM BL driver does not handle =
-(avoid
->> interpretation of PWM signals as W1 protocol).
->>=20
->> I haven't found time to work on this, so we can't remove this yet.
->>=20
->> In the end it may either remain a pandora_bl driver (converted to DT)
->> or become a patch for something else.
->>=20
-> But then it is a TPS61161 on top of PWM, not a pandora driver.
-> And then there might be just a quirk for that chip in the pwm_bl using
-> triggered by a compatible. I guess the quirk is this:
->=20
->=20
-> if (priv->old_state =3D=3D PANDORABL_WAS_OFF) {
-> - /*
-> - * set PWM duty cycle to max. TPS61161 seems to use this
-> - * to calibrate it's PWM sensitivity when it starts.
-> - */
-> - twl_i2c_write_u8(TWL_MODULE_PWM, MAX_VALUE, TWL_PWM0_OFF);
-> -
-> - /* first enable clock, then PWM0 out */
-> - twl_i2c_read_u8(TWL4030_MODULE_INTBR, &r, TWL_INTBR_GPBR1);
-> - r &=3D ~PWM0_ENABLE;
-> - r |=3D PWM0_CLK_ENABLE;
-> - twl_i2c_write_u8(TWL4030_MODULE_INTBR, r, TWL_INTBR_GPBR1);
-> - r |=3D PWM0_ENABLE;
-> - twl_i2c_write_u8(TWL4030_MODULE_INTBR, r, TWL_INTBR_GPBR1);
-> -
-> - /*
-> - * TI made it very easy to enable digital control, so easy that
-> - * it often triggers unintentionally and disabes PWM control,
-> - * so wait until 1 wire mode detection window ends.
-> - */
-> - usleep_range(2000, 10000);
-> - }
->=20
+Unregister the thermal zone together with the existing cooling
+device when the phy is torn down, and on the hwmon registration
+failure path in the same init routine, so neither is left registered
+against a phy that is about to be freed.
 
-Yes that is what I mean. It needs to be ported somewhere. If it can be =
-ported to
-some compatible =3D "pwm_bl_for_tps61161" or what fits best it will be =
-fine. Or it
-could be in some compatible =3D "pandora_bl" driver.
+Signed-off-by: Ryan Leung <untilscour@protonmail.com>
+---
+Changes in v3:
+- Unwind cdev/tzone registration in mt7996_thermal_init() on hwmon registra=
+tion failure.
+- Link to v2: https://patch.msgid.link/20260810-mt7996-thermal-zone-v2-1-56=
+3dfbbf9175@protonmail.com
 
-Has to be worked out when the development machines are not blocked by 3 =
-or 4 other
-projects already running in parallel :)
+Changes in v2:
+- Take phy->dev->mt76.mutex around mt7996_mcu_get_temperature()
+- Unregister phy->tzone explicitly in mt7996_unregister_thermal() before th=
+e phy is freed
+- Link to v1: https://patch.msgid.link/20260722-mt7996-thermal-zone-v1-1-88=
+896e6e9985@protonmail.com
+---
+ drivers/net/wireless/mediatek/mt76/mt7996/init.c   | 37 ++++++++++++++++++=
++++-
+ drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h |  1 +
+ 2 files changed, 37 insertions(+), 1 deletion(-)
 
-BR,
-Nikolaus
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/init.c b/drivers/net=
+/wireless/mediatek/mt76/mt7996/init.c
+index fb635a092584..525bb771f78a 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/init.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/init.c
+@@ -234,11 +234,33 @@ static const struct thermal_cooling_device_ops mt7996=
+_thermal_ops =3D {
+ =09.set_cur_state =3D mt7996_thermal_set_cur_throttle_state,
+ };
+=20
++static int mt7996_thermal_get_temp(struct thermal_zone_device *tz, int *te=
+mp)
++{
++=09struct mt7996_phy *phy =3D thermal_zone_device_priv(tz);
++=09int val;
++
++=09mutex_lock(&phy->dev->mt76.mutex);
++=09val =3D mt7996_mcu_get_temperature(phy);
++=09mutex_unlock(&phy->dev->mt76.mutex);
++=09if (val < 0)
++=09=09return val;
++
++=09*temp =3D val * 1000;
++=09return 0;
++}
++
++static const struct thermal_zone_device_ops mt7996_tz_ops =3D {
++=09.get_temp =3D mt7996_thermal_get_temp,
++};
++
+ static void mt7996_unregister_thermal(struct mt7996_phy *phy)
+ {
+ =09struct wiphy *wiphy =3D phy->mt76->hw->wiphy;
+ =09char name[sizeof("cooling_deviceXXX")];
+=20
++=09if (phy->tzone)
++=09=09devm_thermal_of_zone_unregister(phy->dev->mt76.dev, phy->tzone);
++
+ =09if (!phy->cdev)
+ =09=09return;
+=20
+@@ -275,14 +297,27 @@ static int mt7996_thermal_init(struct mt7996_phy *phy=
+)
+ =09phy->throttle_temp[MT7996_CRIT_TEMP_IDX] =3D MT7996_CRIT_TEMP;
+ =09phy->throttle_temp[MT7996_MAX_TEMP_IDX] =3D MT7996_MAX_TEMP;
+=20
++=09phy->tzone =3D devm_thermal_of_zone_register(phy->dev->mt76.dev,
++=09=09=09=09=09=09   phy->mt76->band_idx, phy,
++=09=09=09=09=09=09   &mt7996_tz_ops);
++=09if (IS_ERR(phy->tzone)) {
++=09=09if (PTR_ERR(phy->tzone) !=3D -ENODEV)
++=09=09=09dev_warn(phy->dev->mt76.dev,
++=09=09=09=09 "failed to register thermal zone %d: %ld\n",
++=09=09=09=09 phy->mt76->band_idx, PTR_ERR(phy->tzone));
++=09=09phy->tzone =3D NULL;
++=09}
++
+ =09if (!IS_REACHABLE(CONFIG_HWMON))
+ =09=09return 0;
+=20
+ =09hwmon =3D devm_hwmon_device_register_with_groups(&wiphy->dev, name, phy=
+,
+ =09=09=09=09=09=09       mt7996_hwmon_groups);
+=20
+-=09if (IS_ERR(hwmon))
++=09if (IS_ERR(hwmon)) {
++=09=09mt7996_unregister_thermal(phy);
+ =09=09return PTR_ERR(hwmon);
++=09}
+=20
+ =09return 0;
+ }
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h b/drivers/n=
+et/wireless/mediatek/mt76/mt7996/mt7996.h
+index 2a0cdb56f822..39fa25a562e5 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
+@@ -372,6 +372,7 @@ struct mt7996_phy {
+=20
+ =09struct ieee80211_sband_iftype_data iftype[NUM_NL80211_BANDS][NUM_NL8021=
+1_IFTYPES];
+=20
++=09struct thermal_zone_device *tzone;
+ =09struct thermal_cooling_device *cdev;
+ =09u8 cdev_state;
+ =09u8 throttle_state;
+
+---
+base-commit: ca800a9302764c445de0da0e84d2252400a770ee
+change-id: 20260722-mt7996-thermal-zone-a1de7cb1d728
+
+Best regards,
+-- =20
+Ryan Leung <untilscour@protonmail.com>
 
 
 
