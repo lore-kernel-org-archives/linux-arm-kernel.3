@@ -4,118 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D93DBC5AC82
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 09:14:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AE4DC5AC82
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 09:23:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XM8gbORMZrnwiBvVL6Mz7ODJvLr7RZVQOMVOLKvY6zk=; b=IIO1T4b6GKPdX+nOLPdTRiQ863
-	1mkpPYaNMni2YAY4jejJnpZM091Vh4GwCQOljiEPrICakuI1L4AOZ7o1tB/W9l8YvCXnzvLlvWjNA
-	f2z9IwjV3d2GMDcZp92+MIdxtsru4hyrM3rrqsebAIcW0SSukJUEeZdpj1IA5Vlo3aIlEYuA8jnZM
-	AO14l8Rl/CbmbewyLaRyXqLvTm8IGaPTQtMxqCTOh7ntnwd23JnAAvO+A6OsTRBo4aJahz3+u9zmj
-	JwnS+iPqtt05Iu/NcBTIEBm/gTr+1r4rP7T9wR/z7QO/PK/hr3L/Kr430JlcnsPeMxgLaa9iLRdeC
-	d7XY8pPw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=H+Pd7gzYvWcuRMdfZQyzumi66vIiFyICFv4uiNpdGrM=; b=pTNQt/Ps5P+X6U
+	muy2uNKuJd7c0D+yf+kXtAS7iuv9ccunm6/GegH3HT6851zJ6P2cg3Co9WCPmDJXM+1Kkg5yR1QJp
+	12kYzYOL/FvsuBKTpIsi/jW6nFcrseFABbSbEFE5I5WidxUw2rzjyCFOqdYllDKq22DK+9wYCWFEa
+	3NWbHiRot4/93Mwv9+BAQnoV75o6i93d89YZqgEjcjiwVdozPGq4jKuXevVpfTJ8YFF/EkJkFWfjA
+	VsaP1gWUIS/JdgsTr4Iyt80Wu27vYB8hUPjNohGsTbUfnTiEJTonBU0jpxwCm91Aai7iaSNUSJw8p
+	Rkvf5i4habfkekaaQK0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtM4y-0000000BNHh-38J6;
-	Mon, 10 Aug 2026 09:13:56 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1wtMEA-0000000BO8u-2Ent;
+	Mon, 10 Aug 2026 09:23:26 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtM4w-0000000BNGd-0mCS
+	id 1wtME8-0000000BO8E-2Jf0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 09:13:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=h74DKY75wTdzCltA02X+eaflZ+P2i+dxKAFQlxaqkMtbMTPfgZrATEMEHQreOVfo+ozhKFeKK8Nlz7fhm//32VgszZPCNPK4SWV3oproLmIU5qUfeUuxDBbBp46tDJ5oNMUygaoqC+PThuO7REaq0uoBtqw3CEYZRM6470/ZRTKeuYmMAgGSuRuWC4xKmpyDQei+dVU8/eXyAzXh/a4wZ0SZgmvgSsNyCcZWuDPuIlP8FWnP2qWlZRBpEA069En5asqt7EwQh2B3KEUxlaafJyCQvRdneld7KmnXgCJmLx6OBxJ61QdwqTSL2bHnnuXjdBSsEBoh1zPZ/HylYP7pjg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XM8gbORMZrnwiBvVL6Mz7ODJvLr7RZVQOMVOLKvY6zk=;
- b=jHWH573o737wHH1W0c1jqARfevcCctzj1/yU4o1Q7f2X0VQFypCQhzFdLyml5Yhn91K+VXkDVSZTqnc0CdBFXfb9excuPWfSolDYFeW11RQfu7CoKDNIVkIm2nq3ZDWToyxyNkLPCQPHKXaMAcUY8Me1Ze6o6ly55qQu7Ou2315Bino3fXzgyEkd1udpVnuf0abA7UlnZA1JQclUoXBWNbmRG98YiO6Rk7D6RQxEJL5qurU/PN7jamQ7mOMmRviCSj9tl6L3liXAB16JWiKeeVeb69bX8h36336d8CZkBr8/FvrHDOktQY2pTixMrXCLrZUQhNq/+i8TjBXmO2Pyww==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XM8gbORMZrnwiBvVL6Mz7ODJvLr7RZVQOMVOLKvY6zk=;
- b=FVWrFwBjR0/JEUGmAzplyRm+gdSFPXRVy7y6fIntlSpOP691jMqBaEMpXmzeryQsndmjvpLq1OEFV23D7jaDHHGjSd1TXvsqVFvRy50oY3M5v/x55vMhleCuM79+GmIhB8ULDR6uaiVxpVNuOMWBFWvZldVeo+XBgnfXZN/jlJqsns9ZjBxhZOkphwoT8ay1xxWG3RXye5urm6fbBXjQ1fAELSH6eFsRmc1bjlHCrgjoZQNmPVccbY+mM7E0k7t1r+3kdwwenLCIwz5TxQ301pljW+SJsatSSTt3s6Wgle+LIng6pDYvvj3scwPRa0pJpkKkM3bRStNHUcNUJJ+dWA==
-Received: from AM8P191CA0015.EURP191.PROD.OUTLOOK.COM (2603:10a6:20b:21a::20)
- by AM7PR10MB3720.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:13e::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.24; Mon, 10 Aug
- 2026 09:13:46 +0000
-Received: from AMS0EPF0000019A.eurprd05.prod.outlook.com
- (2603:10a6:20b:21a::4) by AM8P191CA0015.outlook.office365.com
- (2603:10a6:20b:21a::20) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.292.25 via Frontend Transport; Mon,
- 10 Aug 2026 09:13:46 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- AMS0EPF0000019A.mail.protection.outlook.com (10.167.16.246) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.315.6 via Frontend Transport; Mon, 10 Aug 2026 09:13:46 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Mon, 10 Aug
- 2026 11:18:40 +0200
-Received: from [10.48.86.79] (10.48.86.79) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Mon, 10 Aug
- 2026 11:13:45 +0200
-Message-ID: <46dd10d1-a877-4d92-94e5-2ecdb7006ad4@foss.st.com>
-Date: Mon, 10 Aug 2026 11:13:44 +0200
+	Mon, 10 Aug 2026 09:23:24 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 458C043D22
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 09:23:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29EDA1F00ACF
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 09:23:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786353803;
+	bh=H+Pd7gzYvWcuRMdfZQyzumi66vIiFyICFv4uiNpdGrM=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
+	b=fpPxxjIfHHUhO8hA/zHg1A1bDypQJAMf9/v982lf9TLkQjU7BOIXjpiZG5ubVFask
+	 YB05vgdg8CzcYwLxRUCPDj51wEaaxGNIMaOIklH7TkLT00IQp8W9y6xzcWWarq5ojG
+	 EeB2zj9ZwTkO3YklwO2fmjI/9H8maknTGU3SBfEiI09ooh5j7d9zO4l8IZaBnYpdG/
+	 6AJXvonKi4P9m6Ikj4ecFXmByNZv4pXZik+4Tjo++r+Ogt2cbLrWr/ToU+4YE5cZQ0
+	 vpFRHf8dRGWDF1naUKjnvRjNHPliOyrgSeLfl9UKK7GBH4SkVJqcQm7lvRFc3q90ij
+	 bHmT/f0wHS+EA==
+Received: by mail-lj1-f170.google.com with SMTP id 38308e7fff4ca-39faaf1efd3so8805661fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 02:23:23 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RqGbVp0F3sBZBzQUuIq7qqaWduIxfhDtwp8XT7tNGqd6nIHLt7GZUwFtWLsf0g8Yd1VVxguql2GA08SeQMscpuQ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy9TAT3DXHUyRvDILiJ2xjGDkm4iE5KnsKfIr72Gw6s146zPefG
+	JUixZ4yfimabqN7OdDq6NoPosWN2pGirvwCA8tKvOVOcfT2/cQC/Y/j9atFP01lhMlYuhl7FEo5
+	4xJ9J6Z5oQkzYBFSjws486z4Kkc3vZCc=
+X-Received: by 2002:a05:651c:a103:20b0:39c:6ea4:f0a1 with SMTP id
+ 38308e7fff4ca-39fdf52c7e1mr14697041fa.26.1786353801578; Mon, 10 Aug 2026
+ 02:23:21 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/1] arm64: dts: st: Add I/O sync to eth1 pinctrl in
- stm32mp25-pinctrl.dtsi
-To: Christophe Roullier <christophe.roullier@foss.st.com>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>
-CC: <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20260804114019.201949-1-christophe.roullier@foss.st.com>
- <20260804114019.201949-2-christophe.roullier@foss.st.com>
-Content-Language: en-US
-From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
-In-Reply-To: <20260804114019.201949-2-christophe.roullier@foss.st.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.86.79]
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AMS0EPF0000019A:EE_|AM7PR10MB3720:EE_
-X-MS-Office365-Filtering-Correlation-Id: 365cee48-8428-4956-2eac-08def6bfae8f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|376014|23010399003|36860700016|18002099003|22082099003|11063799006|56012099006|10067099003|4143699003;
-X-Microsoft-Antispam-Message-Info: e8kHuXulC6bfgQUUjRM8wFf3szm2pnLKqMrF2Ln2KX5O0XA/OpwWhcLuKmH/qJtNXYeoPfrPWvitfkuocS/juos9PJv2Swg4Pjff5Y71A4W2hUffn1R0p/lmFiD0meZRXIKN6vXInZTjkmxGySgaRhLwBa8A8l2e/I5VN+JMO6is5euTYoZUi8swRWOFM5f56flSPLtbsXeRWUfr6oqHj4BTWOGXwIuwXXfDVI+7+7D2+P5iZYJHMK7htJtSa497iwxN+7LSlKGT3WqTbc2qK7nQV1Yf2Rkx3d4wr8TJyvccKT54z8KnN5cxy+XRuhO7UC3fulLzEOH037kIKp+FGoBiTp09V8nzZLMX5eWz1mwV39ohy6Atv3s+i6DhOFKpMXUWfeBzzP98gpTOaOeeD712PY4r9y9+XIvdZ/NEWr/Iz2i6pSTMmIYPNlVUF/fn9J/zABPOsW8CCCyvaaiRBxBlYvtUslLBNilgTQwZ3sB5IRZ+vpBeoxE85dhFqM98mzyqf+K7UE9o2MXPVAgZjoSncIdc0/SSaGGmgL3w+9T/10b9lDRc+kPrlhCc7e54H9ws1VOKHFk8DW+s60ADrquJXwV74CdqJB//Txyg0PBoqv7b6F0nYrkTs0sTMi4fUli4oD+TrN63d7xoJM4jFKlyRrysm4e+UcS+FSE2CHhErC5lyk4FIY45njZj9r4Ef1DmE718nvlFPuq1ZO7f7g==
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(376014)(23010399003)(36860700016)(18002099003)(22082099003)(11063799006)(56012099006)(10067099003)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: GnDcIEgOyymXXV4y2oVT76C3t9grDL06rnkAPmiqtmJ2HiuHFjmbu9Bvzt4Egif34Ix87wDMST7dLiXl1yqRrEeGzzjDYOrJAw1NCpaheBLyDGUhugrxxEAfSeIP7lI9S1uVJ5O40uK0gwpT7loFmWQSfr8V1vUaxwYsdS4i8gXLkK7QYcTnki3nZGOvN2A26YTFdD1ctZHYnw+hGWy6r4qiY4QmjC8y1cB6srf5VQeegZ8Rk27xaNR5cEE1wRGhrn4cDOkK18MPD8nEv6P61PMgmY9rEQoMxVLS79p1ZJmQapMBQuWpGnMcU2m87t3Fa2CWkr1dGtsvAbslkn3WuFMxKmK+dTDeIakblj+VRpGQlBMDN4PzdO9JjZJdaimeAATPvap9Zy8sWlbOfBOHxviwTn7An7JR42DTAuGWS3LwpwfJwIhZKjw1k3deqjky
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Aug 2026 09:13:46.0057
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 365cee48-8428-4956-2eac-08def6bfae8f
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF0000019A.eurprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR10MB3720
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_021354_335498_46016CD8 
-X-CRM114-Status: GOOD (  13.31  )
+References: <20260721065413.2306137-1-wenst@chromium.org> <20260721065413.2306137-12-wenst@chromium.org>
+ <38397324-56b0-41e9-960f-152a16ce8b12@gmail.com> <7855a0c3-29ac-4842-8e07-352fcb535a63@gmail.com>
+In-Reply-To: <7855a0c3-29ac-4842-8e07-352fcb535a63@gmail.com>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Mon, 10 Aug 2026 17:23:09 +0800
+X-Gmail-Original-Message-ID: <CAGb2v66GkGcWqYGps3vRk55NcUfV8AS3io4LcRRAunvDP492JQ@mail.gmail.com>
+X-Gm-Features: AUfX_mysoxlkJEUQJ5Yf2_OF5ZLWAw7NKOoCLgdNhCiwn0C9Cq3aA06OlGMS7Go
+Message-ID: <CAGb2v66GkGcWqYGps3vRk55NcUfV8AS3io4LcRRAunvDP492JQ@mail.gmail.com>
+Subject: Re: [PATCH v6 11/16] dt-bindings: usb: mediatek,mtk-xhci: Switch to
+ ports for USB connections
+To: Konrad Dybcio <konradybcio@gmail.com>
+Cc: Chen-Yu Tsai <wenst@chromium.org>, Bartosz Golaszewski <brgl@kernel.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Daniel Scally <djrscally@gmail.com>, 
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+	Sakari Ailus <sakari.ailus@linux.intel.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Danilo Krummrich <dakr@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-acpi@vger.kernel.org, 
+	driver-core@lists.linux.dev, linux-pm@vger.kernel.org, 
+	linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Manivannan Sadhasivam <mani@kernel.org>, 
+	Alan Stern <stern@rowland.harvard.edu>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,50 +92,100 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Christophe
+(Resending in plain text ...)
 
-On 8/4/26 13:40, Christophe Roullier wrote:
-> On board stm32mp235f-dk, stm32mp257f-dk the propagation
-> delay between eth1 and the external PHY requires a compensation to
-> guarantee that no packet get lost in all the working conditions.
-> 
-> Add I/O synchronization properties in pinctrl on all the RGMII
-> data pins, activating re-sampling on both edges of the clock.
-> 
-> Co-developed-by: Antonio Borneo <antonio.borneo@foss.st.com>
-> Signed-off-by: Antonio Borneo <antonio.borneo@foss.st.com>
-> Signed-off-by: Christophe Roullier <christophe.roullier@foss.st.com>
-> ---
->   arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi | 2 ++
->   1 file changed, 2 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi b/arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi
-> index 456ece7f8ebc..4fcfc4528c5e 100644
-> --- a/arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi
-> +++ b/arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi
-> @@ -95,6 +95,7 @@ pins1 {
->   			bias-disable;
->   			drive-push-pull;
->   			slew-rate = <3>;
-> +			st,io-sync = "data on both edges";
->   		};
->   		pins2 {
->   			pinmux = <STM32_PINMUX('H', 9, AF10)>, /* ETH_RGMII_CLK125 */
-> @@ -112,6 +113,7 @@ pins3 {
->   				 <STM32_PINMUX('H', 13, AF10)>, /* ETH_RGMII_RXD3 */
->   				 <STM32_PINMUX('A', 11, AF10)>; /* ETH_RGMII_RX_CTL */
->   			bias-disable;
-> +			st,io-sync = "data on both edges";
->   		};
->   		pins4 {
->   			pinmux = <STM32_PINMUX('A', 14, AF10)>; /* ETH_RGMII_RX_CLK */
+On Fri, Jul 31, 2026 at 10:34=E2=80=AFPM Konrad Dybcio <konradybcio@gmail.c=
+om> wrote:
+>
+> On 7/31/26 4:33 PM, Konrad Dybcio wrote:
+> > On 7/21/26 8:54 AM, Chen-Yu Tsai wrote:
+> >> This reverts commit 454a1e3cd36c113341d7b71e8e691c6e47ab4a8a.
+> >>
+> >> MediaTek's XHCI implementation supports both USB 2.0 High Speed (HS)
+> >> and USB 3.x Super Speed (SS). The block can also be synthesized with
+> >> either HS-only capability or HS+SS capability. The SSUSB controller
+> >> handles the device or gadget mode. Saying that SSUSB handles the HS
+> >> portion is wrong.
+> >
+> > [...]
+> >
+> >> +  ports:
+> >> +    $ref: /schemas/graph.yaml#/properties/ports
+> >> +
+> >> +    properties:
+> >> +      port@1:
+> >> +        $ref: /schemas/graph.yaml#/properties/port
+> >> +        description: Super Speed (SS) data bus if SS-capable;
+> >> +          otherwise High Speed (HS) data bus.
+> >> +
+> >> +      port@2:
+> >> +        $ref: /schemas/graph.yaml#/properties/port
+> >> +        description: High Speed (HS) data bus if controller is SS-cap=
+able.
+> >
+> > FWIW this is opposite vs what the (most common) DWC3 schema defines:
+>
+> (s/opposite/different to)
 
-Patch applied on stm32-next.
+My version for mtk-xhci is modeled against what the hardware actually
+reports, and thus what the kernel maps things to.
 
-regards
-Alex
+Yes it's different from what DWC3 uses, but then I'm not sure if folks
+actually verified that the kernel maps the ports or onboard devices
+correctly. The kernel doesn't actually check if the USB IDs one gives
+in the device tree nodes matches or not. It only matches against the
+port number. Put in another way, binding the device node to the USB
+device is an afterthought.
 
+I did a quick test on my Orange Pi 5 Plus, which is an RK3588 with a
+GL3523 USB 2.0+3.0 hub connected to one of the DWC3 XHCIs. It seems
+that port 1 is USB 2.0 and port 2 is USB 3.0. The ordering matches
+the dwc3 binding, but the port number is off by 1. In hardware, USB
+downstream ports are numbered starting at 1.
+
+So yeah, we have problems.
+
+> >
+> >
+> > (also true for mediatek,mtu3 and renesas,usb3-peri)
+> >
+> > -- Documentation/devicetree/bindings/usb/snps,dwc3-common.yaml
+> >   ports:
+> >     $ref: /schemas/graph.yaml#/properties/ports
+> >     description:
+> >       Those ports should be used with any connector to the data bus of =
+this
+> >       controller using the OF graph bindings specified if the "usb-role=
+-switch"
+> >       property is used.
+> >
+> >     properties:
+> >       port@0:
+> >         $ref: /schemas/graph.yaml#/properties/port
+> >         description: High Speed (HS) data bus.
+> >
+> >       port@1:
+> >         $ref: /schemas/graph.yaml#/properties/port
+> >         description: Super Speed (SS) data bus.
+
+I feel like this numbering was only implemented for the gadget case, not
+the host case. And it certainly doesn't match what one would put in for
+onboard devices such as hubs. Ideally the numbering should be the same,
+because it is a hardware property.
+
+Any ideas for reconciling this? Mapping a device node to a USB host port
+or downstream device is buried in the USB core. For example,
+usb_of_get_device_node() and usb_of_get_connect_type() just take the USB
+downstream port number (1-based).
+
+OOTH dwc3 seems to just want _any_ graph connection to find an extcon
+provider. The mtu3 driver doesn't even have any OF graph related calls.
+
+
+Thanks
+ChenYu
 
