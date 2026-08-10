@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FBCBC5AD55
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 20:52:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BA5EC5AD7B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 20:52:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=F+Z3Z41i2230eM8nS3P2AbkqVw20LCmhhumI+/3iSQM=; b=r6jlCA1ZqtN+o3cHPLG/T4Yfbq
-	OF3LRxW6PqxQyOW+5b3aue4gR3KUAr74OmYv/UbP5s+sVWXFD5Xi5dROUZOMdb9NfzhzgkxAuML4i
-	401I/zg1UWN4T+LFueTS8THMD8MLLa+I57xmHkLsdZywIpfebBnohzlCPSoj1CHTkFYKlioaD+dLl
-	b+ze83pQhDvRiHZIVMEqNLACT0iwr7I4hSxch1fKnqA16d0zfvXCI3qpRlL53zywUSVsRCRt2P6bL
-	LK0el0jp9A2ayPwC0mssP7EGB61MwTegvy+1pLYf1pF8i1FJyPHslU5aYahnb2/SIVSp6aLUOiEIw
-	Oy/6B+BA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wAURjkdi44907XKdFLCS9etlj6y9bPWwNa4bKAcKXYo=; b=pLdHWHp1rttN6qeA6VL2IG0988
+	nlZxBQrs9Q4ppvveRgGHT3O/2TWQKlS+gugQFMlcjhw8F7R/Q2bHSqQMZSXztuSeKF4gfDkdX2PXD
+	WgPixs3i14lWBPBfeJGIdJvPNH/ZgZ9PiU0/UZ0hK3oE8oEduqIBQrll52O96ULQFp3aIjkGrWeKC
+	8P1RJRtD38mkHyDSeoIpWxk9R+rBlKCr9T8L9o6AYyQf/2vCYJk4+xWIXcd72fKcpjzkeXC0oWz7p
+	yhTtAXuEFgYaD4j8DbSRbKi0247ASXI98vCp+4Y7P446wxp1FK0e3bTww5UKn4shoSr8TbBBVDHia
+	6ovOJ9pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtWyQ-0000000CqvN-0Z0P;
-	Mon, 10 Aug 2026 20:51:54 +0000
+	id 1wtWyT-0000000CqwY-1VUi;
+	Mon, 10 Aug 2026 20:51:57 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtWyN-0000000Cquh-0rYg
+	id 1wtWyO-0000000Cqux-06hb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 20:51:52 +0000
+	Mon, 10 Aug 2026 20:51:53 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 32BFB14BF;
-	Mon, 10 Aug 2026 13:51:45 -0700 (PDT)
-Received: from workstation-e142269.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 417C23F673;
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 655151516;
 	Mon, 10 Aug 2026 13:51:47 -0700 (PDT)
+Received: from workstation-e142269.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 71D013F673;
+	Mon, 10 Aug 2026 13:51:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786395109; bh=I7jEk16c+g3+9u6Ivi+NOWCvGoomkASU82C6An8XdmQ=;
-	h=From:To:Cc:Subject:Date:From;
-	b=sLw21ujFa2uKPc3vyt5cm22jneCLIc0C+T8hHGRCDYC+CXfpmLPt6/yxzLbr5Kvf5
-	 oQqGeCfAiRO1sYohbVvm96uPYM80QHHJiSGyAvcLeR2VkBwrIlws1PTpPgryR49GQr
-	 SpBoDRTv4MjsYAHkzlTy1krpMifaNi2p+3xF9/Aw=
+	t=1786395111; bh=C0zHuUit0QjMQm3WjT5g8a9NFp/o3ACfm47H8bW7/Mc=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=QD2mj78WiGj/48zY4GzWuaWWCWaV92sp0DCEPhZF28BxAEJYhCyQ+KSpfbpQ10Irg
+	 JLINt+a/QbOQwSqL06eh8CEK8rwBOj+b/bypHuQTKzdCvhT3NL7qJ5BLi0Mojh4NCp
+	 qYxeYcYlg8wFekgRHjG/bXNaU8Co4CmAQGlP546I=
 From: Wei-Lin Chang <weilin.chang@arm.com>
 To: linux-arm-kernel@lists.infradead.org,
 	kvmarm@lists.linux.dev,
@@ -55,15 +55,17 @@ Cc: Marc Zyngier <maz@kernel.org>,
 	Lorenzo Stoakes <ljs@kernel.org>,
 	Itaru Kitayama <itaru.kitayama@fujitsu.com>,
 	Wei-Lin Chang <weilin.chang@arm.com>
-Subject: [PATCH v5 0/6] KVM: arm64: nv: Implement nested stage-2 reverse map (new data structure)
-Date: Mon, 10 Aug 2026 21:50:32 +0100
-Message-ID: <20260810205038.118843-1-weilin.chang@arm.com>
+Subject: [PATCH v5 1/6] KVM: arm64: Use a variable for the canonical IPA in kvm_s2_fault_map()
+Date: Mon, 10 Aug 2026 21:50:33 +0100
+Message-ID: <20260810205038.118843-2-weilin.chang@arm.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260810205038.118843-1-weilin.chang@arm.com>
+References: <20260810205038.118843-1-weilin.chang@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_135151_403296_9B96D929 
-X-CRM114-Status: GOOD (  17.55  )
+X-CRM114-CacheID: sfid-20260810_135152_822473_16568E16 
+X-CRM114-Status: GOOD (  13.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,137 +80,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Create a variable to store the canonical IPA, instead of calculating it
+when needed. This will be useful when we need to use the canonical IPA
+for guest stage-2 tracking later.
 
-This is v5 of optimizing the shadow s2 mmu unmapping during MMU
-notifiers.
+Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+---
+ arch/arm64/kvm/mmu.c | 11 ++++++-----
+ 1 file changed, 6 insertions(+), 5 deletions(-)
 
-This time, a major overhaul is done to the implementation. After
-receiving some suggestions from Marc, I have identified that using the
-interval tree to store the guest stage-2 mappings solves many problems
-compared to using the maple tree.
-
-Interval Tree vs Maple Tree
-===========================
-
-First of all, interval trees are capable of storing overlapping ranges,
-which is helpful when the L1 hypervisor maps something like:
-
-nested IPA [x, x+4K) -> canonical IPA [a, a+4K)
-nested IPA [y, y+2M) -> canonical IPA [a, a+2M)
-
-No problems with storing that in the interval tree with different nodes.
-We can avoid the maple tree UNKNOWN_IPA mechanism as a compromise.
-
-Second, ideally we would want to save the canonical IPA <-> nested IPA
-mapping in both directions to allow MMU notifier unmap speed up, and
-stale shadow mapping removals. If we use the maple tree, we'll have to
-have 2 separate trees, and make sure they store the same mappings, which
-isn't simple given the first point.
-
-On the other hand, by using this pattern:
-
-/* Record of a guest stage-2 mapping. */
-struct kvm_guest_s2_mapping {
-       struct interval_tree_node canonical; // CIPA range of the mapping
-       struct interval_tree_node nested;    // NIPA range of the mapping
-       struct kvm_s2_mmu *nested_mmu;       // mmu of the NIPA space
-};
-
-and equip each mmu with an interval tree storing mapping records
-corresponding to the IPA space it represents, we can insert the
-respective nodes into the canonical IPA tree, and the corresponding
-nested IPA tree. This makes it trivial to find the range of the other
-IPA space from a range in one IPA space.
-
-Diagram to help understanding:
-
-struct kvm_guest_s2_mapping mapping1, mapping2;
-
-    ---------------------> mapping2.canonical
-    |                      mapping1.canonical
-    |                          ^   (both stored in canonical mmu's tree)
-    |                          |
---*****-----------------------*****----------- CIPA
-   \\\\\                      |||||                  mapping1.nested_mmu
-    \\\\\                     \\\\\                            |
-     \\\\\                     \\\\\                           v
-------\\\\\---------------------*****--------- NIPA #1 (nested mmu #1)
-       \\\\\                      |
-        \\\\\                     -> mapping1.nested
-         \\\\\                       (stored in nested mmu #1's tree)
-          \\\\\
------------*****------------------------------ NIPA #2 (nested mmu #2)
-             |                                                 ^
-             -> mapping2.nested                                |
-                (stored in nested mmu #2's tree)   mapping2.nested_mmu
-
-Third, maple tree does its own memory allocation. In the KVM stage-2
-fault path we only find out what the mapping ranges are after taking the
-KVM MMU lock, and the maple tree has to know the range and entry to be
-stored to preallocate, therefore in our case the maple tree is forced to
-only use GFP_NOWAIT, which isn't the best. With the interval tree the
-user does the memory management, and we can just allocate before taking
-the locks.
-
-Locking
-=======
-
-The guest_s2_tracking_lock serializes accesses to the tracking interval
-trees. It is taken after the mmu_lock. However in reality it is only
-taken after we take the read mmu_lock in the stage-2 fault path, as
-other accesses have the write mmu_lock already. This saves us some
-manual lock/unlocks.
-
-vCPU Stage-2 Fault Scalability Reduction
-========================================
-
-KVM/arm64 is able to handle stage-2 faults from multiple vCPUs in
-parallel, thanks to the engineering done to the s2 pgtable code. However
-to safely insert mappings into the interval trees we have to serialize
-using the guest_s2_tracking_lock. We trade some performance in stage-2
-fault for faster MMU notifier unmaps, and keeping the unaffected shadow
-mappings.
-
-Memory Usage
-============
-
-Each interval tree node is 48 bytes, and a kvm_guest_s2_mapping is 104
-bytes, residing in 128-byte slab objects. Each shadow stage-2 fault
-requires one kvm_guest_s2_mapping instance. This is 32MB for a fully 4KB
-mapped 1GB region, and 64KB for a 2MB mapped 1GB region.
-
-Series Structure
-================
-
-Patch 1:   Preparatory refactoring.
-Patch 2:   Introduce data structures for guest stage-2 tracking.
-Patch 3-4: Guest stage-2 tracking addition and removal
-Patch 5:   Avoid full unmap during MMU notifier unmap using the tracked
-           guest stage-2 mapping information.
-Patch 6:   Minor clean up.
-
-As this is a complete rework, I will omit the change log this time.
-Series is based on v7.2-rc5.
-
-Thanks!
-
-Link to v4: https://lore.kernel.org/kvmarm/20260714115926.2044757-1-weilin.chang@arm.com/
-
-Wei-Lin Chang (6):
-  KVM: arm64: Use a variable for the canonical IPA in kvm_s2_fault_map()
-  KVM: arm64: nv: Introduce guest stage-2 tracking structures
-  KVM: arm64: nv: Track guest stage-2 mapping creation
-  KVM: arm64: nv: Track guest stage-2 mapping removal
-  KVM: arm64: nv: Avoid full shadow stage-2 unmap
-  KVM: arm64: Refactor kvm_unmap_gfn_range() with common variables
-
- arch/arm64/include/asm/kvm_host.h   |  20 ++++++
- arch/arm64/include/asm/kvm_nested.h |   7 ++
- arch/arm64/kvm/mmu.c                | 105 ++++++++++++++++++++++++----
- arch/arm64/kvm/nested.c             |  95 +++++++++++++++++++++++++
- 4 files changed, 215 insertions(+), 12 deletions(-)
-
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 6c941aaa10c6..336dd8f7e8ab 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -2021,6 +2021,7 @@ static int kvm_s2_fault_map(const struct kvm_s2_fault_desc *s2fd,
+ 	enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_SHARED;
+ 	bool writable = prot & KVM_PGTABLE_PROT_W;
+ 	struct kvm *kvm = s2fd->vcpu->kvm;
++	phys_addr_t canonical_ipa;
+ 	struct kvm_pgtable *pgt;
+ 	long perm_fault_granule;
+ 	long mapping_size;
+@@ -2039,6 +2040,7 @@ static int kvm_s2_fault_map(const struct kvm_s2_fault_desc *s2fd,
+ 	mapping_size = s2vi->vma_pagesize;
+ 	pfn = s2vi->pfn;
+ 	gfn = s2vi->gfn;
++	canonical_ipa = gfn_to_gpa(get_canonical_gfn(s2fd, s2vi));
+ 
+ 	/*
+ 	 * If we are not forced to use page mapping, check if we are
+@@ -2057,6 +2059,7 @@ static int kvm_s2_fault_map(const struct kvm_s2_fault_desc *s2fd,
+ 				goto out_unlock;
+ 			}
+ 		}
++		canonical_ipa = ALIGN_DOWN(canonical_ipa, mapping_size);
+ 	}
+ 
+ 	if (!perm_fault_granule && !s2vi->map_non_cacheable && kvm_has_mte(kvm))
+@@ -2090,11 +2093,9 @@ static int kvm_s2_fault_map(const struct kvm_s2_fault_desc *s2fd,
+ 	 * making sure we adjust the canonical IPA if the mapping size has
+ 	 * been updated (via a THP upgrade, for example).
+ 	 */
+-	if (writable && !ret) {
+-		phys_addr_t ipa = gfn_to_gpa(get_canonical_gfn(s2fd, s2vi));
+-		ipa &= ~(mapping_size - 1);
+-		mark_page_dirty_in_slot(kvm, s2fd->memslot, gpa_to_gfn(ipa));
+-	}
++	if (writable && !ret)
++		mark_page_dirty_in_slot(kvm, s2fd->memslot,
++					gpa_to_gfn(canonical_ipa));
+ 
+ 	if (ret != -EAGAIN)
+ 		return ret;
 -- 
 2.43.0
 
