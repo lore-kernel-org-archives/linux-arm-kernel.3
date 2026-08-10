@@ -4,76 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFF06C5AC82
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 11:02:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8522EC5AC82
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 11:05:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zWqf1vVjsfl5T5NrU7zVBgxUvSIIjPpujeU7alcsNMQ=; b=406PoUFE8rqkpAe2yug/Nsusf6
-	73agU0NQpaXijyhAoyBIgc05PqfvggWy01UWOaSdtv3agiNqJ6ebEewD539zHRRNjc7OUwHTlVqzO
-	WJT9qMrwWZbbkAtn1uy0iPQCeF4EXiJrClQUzg8ZBx1zPfprnsb/uBOWE+JjzmvNmPftdwJ+LXTUC
-	kOgc2OxLKGkuAiXQ2H9+tTH/zsYwXLgX7ySuzYPdsJdBTTpFMPrWw6Q4UL1dCrsk0BeyuUP5TBp4d
-	9zBaJRTw3/pr1FYaCuFgs9vwG2eQDLC+3C2eCrOq3037RmrhTiHBF2IpdXf5NNAzGqRIMl9QUM/XM
-	jhq7Ev1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gI5k/9cl/ieyg839FRaHqV6Z6OMpnh4gRsszIL3A9lg=; b=EFzM8YCf4gDpSWMvCI3jZI+R9l
+	yMYJceavFU1zI7p1I9HIkORC6Vkro0wHQ7J1wwvtZ9zVseajiT94kd7ySeXBsYLOPQQYS6gVI6ehY
+	7BRMfRDwGFabaHQnX0bHO4Pq9CTTF6aPD/UTvAycGjWevkNploFI+OoMHCXnx2rs+tClv5szqVGOk
+	SL+/M4X7Gvee74XAbABH0x+I0hwDxOTtOGGGH+dEXPZ1wj8kW7oMkKNhPfcjEnOm9OvfTO4O+gE5Q
+	36Zs6MlI+SMTx33KHPcrN2hjenDPNi9Shu4IlXHTI3fht/naLKpYWC25tZ9DwpEfn/IqXXDOlVL/f
+	Qfe+bdeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtNla-0000000BZ7U-1M18;
-	Mon, 10 Aug 2026 11:02:02 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtNlY-0000000BZ6Y-300L
+	id 1wtNoI-0000000BZJR-2xi1;
+	Mon, 10 Aug 2026 11:04:50 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wtNoH-0000000BZJK-3QqX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 11:02:01 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EC08E14BF;
-	Mon, 10 Aug 2026 04:01:53 -0700 (PDT)
-Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EA9B23F86F;
-	Mon, 10 Aug 2026 04:01:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786359717; bh=vUNnKVfB+3L6VsdiLiCzxUci1XeBrS3H1Ncf+Aa3ecs=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=tcQdUkOvYTrdj9nWQ6EY6l6o76pruAXEnD8pEPXBcsaCodeqal3uHgeTRyeSuxhpe
-	 MkmxcnH7UunJhfEAAuxly7dWH08Gok46ncz0DJBgEw1eWu+CvLHbh6tYMk06WqyGDG
-	 Hp+TpEpojvTiP4DYY9lSl1rxOfUm+rrIRumZ2g5M=
-From: Leonardo Bras <leo.bras@arm.com>
-To: Tian Zheng <zhengtian10@huawei.com>
-Cc: Leonardo Bras <leo.bras@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	maz@kernel.org,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	yuzenghui@huawei.com,
-	wangzhou1@hisilicon.com,
-	yangjinqian1@huawei.com,
-	caijian11@h-partners.com,
-	liuyonglong@huawei.com,
-	yezhenyu2@huawei.com,
-	yubihong@huawei.com,
-	linuxarm@huawei.com,
-	joey.gouly@arm.com,
-	kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	seiden@linux.ibm.com,
-	suzuki.poulose@arm.com
-Subject: Re: [PATCH v4 3/6] KVM: arm64: Add auto DBM support for hardware dirty tracking
-Date: Mon, 10 Aug 2026 12:01:49 +0100
-Message-ID: <anmvnclRTPS6an8e@LeoBrasDK>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <3808f469-5403-4f2e-85f0-8c6ca13068bd@huawei.com>
-References: <96516762-f004-4c2a-a9c6-6fbad49ad6ae@huawei.com> <amoZY8uGLf1PEpjK@LeoBrasDK> <8e36e2c8-587f-4228-ab13-d6783927a281@huawei.com> <45d76d0d-48e9-46a6-b1f9-691f840eba46@huawei.com> <anBrvILpcSFhW7Wg@LeoBrasDK> <95f1ebd4-be04-4684-be68-388f752a1379@huawei.com> <anDCno9HdVI5UAls@LeoBrasDK> <2070002d-94aa-4a5b-8df1-e8e0f0fd265c@huawei.com> <anHIa5PDnF7r9EA4@LeoBrasDK> <3808f469-5403-4f2e-85f0-8c6ca13068bd@huawei.com>
+	Mon, 10 Aug 2026 11:04:49 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7583040BB9;
+	Mon, 10 Aug 2026 11:04:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B61451F000E9;
+	Mon, 10 Aug 2026 11:04:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786359889;
+	bh=gI5k/9cl/ieyg839FRaHqV6Z6OMpnh4gRsszIL3A9lg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=agFE+wD2ubNxyH2+bC30Mu/nvDhuGf1lGI3fxZ/VlwVou3BrvUsWA7v4mCYflP98/
+	 kPVS4JMrHfPPPmEX+4ZYWdGl6/7jYRoOzQl7CpCbMw+Ko/cjrW18eK4AfiaTfuYmNL
+	 65R4p7p/Y+hIA09oKr0+sPh7RFa1OVE0RSj7jJkMWPHqr8lwZsFrAQGfYtbdBtZvfU
+	 gqYDKcPsYDSQDYwsGhMaesZH+JL6sfSehZ5GqLGzxnsJjWltMPL0ab8Q10pn8NHHQX
+	 /8oEijyKs2b1HC0gt1WHvozn3osKhAYEHhjTrLDv/RaIuBXyscRynMFasSMqQ/Flhs
+	 OGmn1HDOvO3Vw==
+Date: Mon, 10 Aug 2026 12:04:44 +0100
+From: Will Deacon <will@kernel.org>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: gus bourg <gus@bourg.net>, Catalin Marinas <catalin.marinas@arm.com>,
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+	linux-efi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] arm64/efi: Do not call EFI runtime services preemptibly
+ under SW PAN
+Message-ID: <anmwTDnFR2cgxkqR@willie-the-truck>
+References: <20260806000144.3388823-1-gus@bourg.net>
+ <anXMug2_-vZl_pZ7@willie-the-truck>
+ <30c5499e-8041-4e39-933b-c5220d53be77@app.fastmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_040200_835107_32B158EC 
-X-CRM114-Status: GOOD (  72.19  )
+In-Reply-To: <30c5499e-8041-4e39-933b-c5220d53be77@app.fastmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,272 +73,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 05, 2026 at 11:41:51AM +0800, Tian Zheng wrote:
+On Fri, Aug 07, 2026 at 04:56:00PM +0300, Ard Biesheuvel wrote:
 > 
 > 
-> On 8/4/2026 7:10 PM, Leonardo Bras wrote:
-> > On Tue, Aug 04, 2026 at 12:54:16PM +0800, Tian Zheng wrote:
-> > > 
-> > > 
-> > > On 8/4/2026 12:32 AM, Leonardo Bras wrote:
-> > > > On Mon, Aug 03, 2026 at 09:57:46PM +0800, Tian Zheng wrote:
-> > > > > 
-> > > > > 
-> > > > > On 8/3/2026 6:21 PM, Leonardo Bras wrote:
-> > > > > > On Mon, Aug 03, 2026 at 12:04:24PM +0800, Tian Zheng wrote:
-> > > > > > > 
-> > > > > > > 
-> > > > > > > On 8/3/2026 9:33 AM, Tian Zheng wrote:
-> > > > > > > > > > > > > > 09, 2026 at 06:40:23PM +0800, Tian Zheng wrote:
-> > > > > > > > > > > > > > > -    if (prot & KVM_PGTABLE_PROT_W)
-> > > > > > > > > > > > > > > +    if (prot & KVM_PGTABLE_PROT_W) {
-> > > > > > > > > > > > > > >                set |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
-> > > > > > > > > > > > > > > 
-> > > > > > > > > > > > > > > +        /*
-> > > > > > > > > > > > > > > +         * No DEVICE filter needed here:
-> > > > > > > > > > > > > > > relax_perms is only called
-> > > > > > > > > > > > > > > +         * on FSC_PERM faults. Device pages
-> > > > > > > > > > > > > > > always get full RW from
-> > > > > > > > > > > > > > > +         * initial mapping and are never write-protected during
-> > > > > > > > > > > > > > > +         * migration, so they never trigger a permission fault.
-> > > > > > > > > > > > > > > +         */
-> > > > > > > > > > > > > > > +        if (pgt->flags & KVM_PGTABLE_S2_DBM)
-> > > > > > > > > > > > > > > +            set |= KVM_PTE_LEAF_ATTR_HI_S2_DBM;
-> > > > > > > > > > > > > > > +    } else {
-> > > > > > > > > > > > > > > +        /*
-> > > > > > > > > > > > > > > +         * Clear DBM on W→RO downgrade to prevent hardware from
-> > > > > > > > > > > > > > > +         * silently upgrading RO+DBM back to W+dirty, which would
-> > > > > > > > > > > > > > > +         * bypass KVM's write tracking and cause data corruption.
-> > > > > > > > > > > > > > > +         */
-> > > > > > > > > > > > > > > +        clr |= KVM_PTE_LEAF_ATTR_HI_S2_DBM;
-> > > > > > > > > > > > > > > +    }
-> > > > > > > > > > > > > > > +
-> > > > > > > > > > > > > > This block makes it pretty evident that the DBM bit really *is* the
-> > > > > > > > > > > > > > write permission bit. I'd much rather we
-> > > > > > > > > > > > > > introduce the concept of dirty
-> > > > > > > > > > > > > > state to the page table library and migrate the abstract write
-> > > > > > > > > > > > > > permission to the DBM field, even if we don't have FEAT_HAFDBS.
-> > > > > > > > > > > > > > 
-> > > > > > > > > > > > 
-> > > > > > > > > > > > Ohh, that's an amazing idea!
-> > > > > > > > > > > 
-> > > > > > > > > > > Thinking about that again...
-> > > > > > > > > > > If we adopt the encoding with DBM being the write-permission
-> > > > > > > > > > > bit, and all
-> > > > > > > > > > > PTEs have it since the start, how can we have lazy-splitting happening?
-> > > > > > > > > > > 
-> > > > > > > > > > > Only way I think of is removing both DBM and S2_S2AP_W bit
-> > > > > > > > > > > from writable
-> > > > > > > > > > > PTEs during dirty-track enable, and re-adding them during
-> > > > > > > > > > > the first write
-> > > > > > > > > > > fault. If we don't remove the DBM bit, systems with HDBSS
-> > > > > > > > > > > would just dirty
-> > > > > > > > > > > it by hardware, without causing a fault.
-> > > > > > > > > > > 
-> > > > > > > > > > > DBM=0 would need to happen only in the first write-protect (only on
-> > > > > > > > > > > lazy-splitting). All other write-protecting would just clean
-> > > > > > > > > > > the S2_S2AP_W
-> > > > > > > > > > > bit, as everything is already split.
-> > > > > > > > > > > 
-> > > > > > > > > > > Is that what was intended?
-> > > > > > > > > > > 
-> > > > > > > > > > > Thanks!
-> > > > > > > > > > > Leo
-> > > > > > > > > > > 
-> > > > > > > > > > Hi Leo,
-> > > > > > > > > > 
-> > > > > > > > > > I think the cleanest way to handle this is to simply avoid setting DBM
-> > > > > > > > > > on block mappings. If we only set DBM on page-level PTEs, then block
-> > > > > > > > > > mappings will naturally stay DBM=0 and trigger a write fault on first
-> > > > > > > > > > access — exactly what we need for lazy splitting.
-> > > > > > > > > > 
-> > > > > > > > > > When the fault occurs, the block gets split into page-level PTEs, and at
-> > > > > > > > > > that point we can set DBM=1 on the resulting leaf entries. This way:
-> > > > > > > > > > 
-> > > > > > > > > > 1. Lazy split works naturally (fault -> split -> set DBM=1)
-> > > > > > > > > > 
-> > > > > > > > > > 2. No need to clear DBM globally at dirty-track enable
-> > > > > > > > > > 
-> > > > > > > > > > 3. No special handling for block mappings
-> > > > > > > > > > 
-> > > > > > > > > > So I think global DBM is still viable — we just need to filter out block
-> > > > > > > > > > mappings when setting the DBM bit. That way the lazy split path
-> > > > > > > > > > is preserved
-> > > > > > > > > > without extra complexity.
-> > > > > > > > > 
-> > > > > > > > > Hi Tian,
-> > > > > > > > > 
-> > > > > > > > > Humm, but would not that be contrary to what Oliver suggested:
-> > > > > > > > > changing the
-> > > > > > > > > encoding from the PTE for all entries?
-> > > > > > > > > 
-> > > > > > > > > (Like, if the PTE is writable, it has to have DBM set)
-> > > > > > > > > 
-> > > > > > > > > IIUC what you said, on first faulting of the page in the VM:
-> > > > > > > > > - If the entry is a page (level-3 leaf) and writable, add DBM
-> > > > > > > > > - If it's a block entry (leaf but not a level-3), don't add DBM
-> > > > > > > > > 
-> > > > > > > > > So after we enable dirty-logging:
-> > > > > > > > > - a level-3 entry would not fault, using HDBSS, and
-> > > > > > > > > - a block entry would fault, do the splitting, and add DBM to level-3
-> > > > > > > > >       entries during the split.
-> > > > > > > > > 
-> > > > > > > > > If I got that correct, that would be clean indeed.
-> > > > > > > > > 
-> > > > > > > > > But then we would have a different encoding for block entries and page
-> > > > > > > > > entries. In page entries, DBM could be used to say if the page is
-> > > > > > > > > writable,
-> > > > > > > > > but on block entries one would have to look at the 'dirty-bit'.
-> > > > > > > > > 
-> > > > > > > > > Would that be ok?
-> > > > > > > > > 
-> > > > > > > > > Thanks!
-> > > > > > > > > Leo
-> > > > > > > > > 
-> > > > > > > > Hi Leo,
-> > > > > > > > 
-> > > > > > > > My initial concern was that clearing all DBM bits at the start of
-> > > > > > > > migration would be too expensive, so I thought distinguishing between
-> > > > > > > > level-3 entries and block entries would be better.
-> > > > > > > > 
-> > > > > > 
-> > > > > > I think we expect it to be expensive, but since we already clean the
-> > > > > > dirty-bit (ro/rw) bit, we can have both happening in the same write :)
-> > > > > > 
-> > > > > > (since we only mark the DBM bit when we fault the memory on lazy-splitting,
-> > > > > > we are expecting to have the same amount of writes to pagetable as we have
-> > > > > > before HDBSS, both on faulting and 1st iteration cleaning)
-> > > > > > 
-> > > > > Hi, Leo
-> > > > > 
-> > > > > Actually, I have thought about this approach too, but if we clear DBM in
-> > > > > kvm_pgtable_stage2_wrprotect(), then during the first round of
-> > > > > migration, we will fault and release RO -> W, and then add DBM.
-> > > > 
-> > > > Yeah, that's only for lazy-splitting, though.
-> > > > 
-> > > > > 
-> > > > > But next time, when we migrate the dirty pages in round two, we will run
-> > > > > kvm_pgtable_stage2_wrprotect() again, which will clear DBM again. And
-> > > > > finally, HDBSS will be useless during migration.
-> > > > 
-> > > > Right, on lazy splitting, we have to clean the DBM bit on the
-> > > > write-protect only if it's a block entry (hugepage).
-> > > > 
-> > > > Once it faults for the first time, it will lazy-split, and we don't need to
-> > > > clean the DBM bit.
-> > > > 
-> > > > > 
-> > > > > > 
-> > > > > > > > However, I ran a quick test on a 400GB VM (4 vCPUs), and the overhead
-> > > > > > > > turned out to be around 30ns — which I think is acceptable.
-> > > > > > > 
-> > > > > > > Just a quick correction — I misstated the unit in my previous email. The
-> > > > > > > overhead for clearing DBM on the 400GB VM (4 vCPUs) was around 32 µs, not 30
-> > > > > > > ns.
-> > > > > > > 
-> > > > > > 
-> > > > > > Oh, that seems more likely :)
-> > > > > > 
-> > > > > > Question: is tha above amount of memory initially in Level-1 blocks,
-> > > > > > level-2 blocks or level-3 pages? (aka: were you using explicit/transparent
-> > > > > > hugepages?)
-> > > > > > 
-> > > > > 
-> > > > > I'm using transparent hugepages. However, if we were to use level-3 stage-2
-> > > > > pages with -mem-prealloc enabled in QEMU, I believe the time cost would be
-> > > > > extremely high — potentially out of our control.
-> > > > > 
-> > > > 
-> > > > Yeah, that's the issue.
-> > > > For this not to explode like this, we need to mark as RO only when the
-> > > > entries are blocks AND we are doing lazy splitting.
-> > > > 
-> > > > We have:
-> > > > Mode	DBM	Dirty bit
-> > > > RO	0	X
-> > > > WC	1	0
-> > > > WD	1	1
-> > > > 
-> > > > On write-protect:
-> > > > - Lazy splitting + block entry (hugepage, level 2-) -> RO
-> > > > - Otherwise					    -> WC
-> > > > 
-> > > > On first fault, the block entry will be lazy-splitten, and we can set DBM=1
-> > > > in every new page.
-> > > > 
-> > > > That way we guarantee that we are not faulting level-3 pages unecessarily,
-> > > > nor need to go through the whole tree setting DBM=1 or DBM=0 on level-3
-> > > > pages.
-> > > > 
-> > > > How does that sound?
-> > > > 
-> > > > Thanks!
-> > > > Leo
-> > > > 
-> > 
-> > > 
-> > > Hi Leo,
-> > > 
-> > > I've also been thinking about this approach: clear
-> > > KVM_PTE_LEAF_ATTR_HI_S2_DBM when kvm_pgtable_stage2_wrprotect() calls
-> > > stage2_update_leaf_attrs(). And we can check whether a page is a block
-> > > page during the page walk, right?
-> > 
-> > Hi Tian,
-> > That was what I was thinking :)
-> > 
-> > > 
-> > > So we can check the page level in the walker callback
-> > > stage2_attr_walker(), filter there, clear DBM for block pages and
-> > > preserve DBM on level-3 pages. Something like this:
-> > > 
-> > > ```
-> > > pte &= ~data->attr_clr;      // wrprotect: clears S2AP_W only
-> > > pte |= data->attr_set;
-> > > if (ctx->level < KVM_PGTABLE_LAST_LEVEL)
-> > 
-> > Only on lazy splitting, right?
-> > 
-> > Or maybe we get the DBM bit on during eager splitting...
+> On Fri, 7 Aug 2026, at 15:16, Will Deacon wrote:
+> > On Wed, Aug 05, 2026 at 05:01:44PM -0700, gus bourg wrote:
+> >> From: Gus Bourg <gus@bourg.net>
+> >> 
+> >> When PAN is emulated by switching TTBR0_EL1, arch_efi_call_virt_setup()
+> >> installs the EFI mm into TTBR0_EL1 via uaccess_ttbr0_enable(), and only a
+> >> return from exception ever puts it back: check_and_switch_context() skips
+> >> the register write by design ("Defer TTBR0_EL1 setting for user threads to
+> >> uaccess_enable() when emulating PAN"), and __switch_to() does not touch it
+> >> either. switch_mm() updates only thread_info->ttbr0.
+> >> 
+> >> Since commit a5baf582f4c0 ("arm64/efi: Call EFI runtime services without
+> >> disabling preemption") the runtime call is preemptible, so the EFI worker
+> >> can now be scheduled out inside that window. An involuntary preemption is
+> >> harmless, because __swpan_entry_el1()/__swpan_exit_el1() save and restore
+> >> the state around the exception. A voluntary reschedule is not: it performs
+> >> no return from exception, so the worker resumes with another task's
+> >> TTBR0_EL1 - or reserved_pg_dir - and the next efi_mm access takes a level 0
+> >> translation fault.
+> >> 
+> >> There is such a preemption point in arch_efi_call_virt_setup() itself,
+> >> immediately after the TTBR0 install: __efi_fpsimd_begin() ->
+> >> kernel_neon_begin() -> put_cpu_fpsimd_context() -> local_bh_enable() ->
+> >> preempt_check_resched().
+> >
+> > Hmm, can we move the ttbr0 toggling until after __efi_fpsimd_begin() so
+> > that this preemption point doesn't interfere?
+> >
 > 
-> Hi, Leo
+> Either that, or tweak the logic so that the switch is done eagerly in
+> this particular case (untested):
 > 
-> No, it works for both. Whether eager or lazy split, wrprotect always runs
-> before split, so the block DBM is cleared first.
+> --- a/arch/arm64/mm/context.c
+> +++ b/arch/arm64/mm/context.c
+> @@ -266,7 +266,7 @@
+>          * Defer TTBR0_EL1 setting for user threads to uaccess_enable() when
+>          * emulating PAN.
+>          */
+> -       if (!system_uses_ttbr0_pan())
+> +       if (!system_uses_ttbr0_pan() || mm_is_efi(mm))
+>                 cpu_switch_mm(mm->pgd, mm);
+>  }
 
-Hi Tian,
+I think I'd prefer to avoid special-casing this, if we can. I was just
+thinking of the diff below.
 
-On eager splitting, why should we ever strip DBM?
+Will
 
-Eager splitting means we won't have to fault to do the splitting, so we can 
-have HAFDBS/HDBSS handle every fault, including the first one that we use 
-for lazy-splitting.
+--->8
 
-> 
-> For eager split: wrprotect clears W (W=1->W=0) and strips DBM from the
-> block. Then the block is split into level-3 pages, but since W=0 and DBM
-> depends on W, DBM stays 0. DBM is only set back to 1 during the first write
-> fault (relax_perms: W=0->W=1, which also sets DBM=1).
-
-I suggest that, on splitting, set all writable level-3 pages with DBM=1.
-If lazy-splitting, that will happen naturally on the first fault's split.
-If eager-splitting that will happen during the split as well. 
-
-So total solution looks like:
-- Dirty-logging on, walk the memslot pagetable
-  - On block: mark as read-only
-  - On page: mark as writable-clean
-- On splitting: Mark writable block's new pages as writable-clean
-- On fault: after the split, mark the faulting page as writable-dirty
-
-This should take care of everything, including lazy/eager splitting 
-differences, as well as set the groundwork for HDBSS to work properly.
-
-What do you think?
-
-Thanks!
-Leo
-
+diff --git a/arch/arm64/kernel/efi.c b/arch/arm64/kernel/efi.c
+index 30cd7f804398..0ec90fd1754e 100644
+--- a/arch/arm64/kernel/efi.c
++++ b/arch/arm64/kernel/efi.c
+@@ -184,6 +184,8 @@ void arch_efi_call_virt_setup(void)
+                efi_virtmap_load();
+        }
+ 
++       __efi_fpsimd_begin();
++
+        /*
+         * Enable access to the valid TTBR0_EL1 and invoke the errata
+         * workaround directly since there is no return from exception when
+@@ -191,8 +193,6 @@ void arch_efi_call_virt_setup(void)
+         */
+        uaccess_ttbr0_enable();
+        post_ttbr_update_workaround();
+-
+-       __efi_fpsimd_begin();
+ }
+ 
+ void arch_efi_call_virt_teardown(void)
 
 
