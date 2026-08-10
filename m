@@ -4,114 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76A74C5AD7B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 12:40:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7C35C5AD7B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 12:42:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HzTjFhFkoXBLwd3NrSqY+4yLtTn3dkc2guIu8OqfuBY=; b=ySkCc/suyBxQjf00FpdM9mP0+5
-	Q4q3uH0aYxqSCPo7JPdubBfCt5C6Fd9lXtHg78a/ZVQKRdmuKsynigw8rPQ5eJeAZrNcm1heOSswZ
-	dqqTO/GulgM04x3JvdaAcliEp296UU/7WtxnYDMZItFMgm0DVmALqnX2Ty8JPYMH8I7WS+RCJdRbe
-	d8STerR8sVfhmjNhFcKgvJ+bMs44wBf6lilXOr7bYkBNtQE9hvonQ1Iww6QhchRznlre9EWkgNm/a
-	mj6PsMl9fhC7Cq+lalJQyHSZ5zHDE/71pj18WtkvwllgZURNSCIPtzMBP8WEDWbno6n1FE+AQXuF+
-	92+uRANA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=d0gzdpj9zCfLl7pNf9nIx7V+XCOEuLZKa97f7OFeyLc=; b=QlW+uC48Vq7ygf
+	TdUJYI63YBOffBCGLFSSz+R/jtMG5giu5iXh/DwpUdEuEzD+pu/Wx+Npy+CplMrqCTyOoK+iMNddi
+	fWjoRWuIRyOr/jVMONSg/ZOjtoNJZBQYi8ldC6/SjY2XcDcVjUw1DzJArnnpWZfCbwTfQdSUp1rtW
+	E6Qid16H+mFQfxhiIxUGLg8wy/Q4NwHA9160vI88CEcIdl+DRPiiGIbTVJBQjqitqMdaz0atNM8PH
+	snxlcCfUiSpNszuIRptcU3Ho0Z4xi8yXKcqDOPSNRWGtSuWVEJNvtBX7JaNoCNpff/O0WL9GN/9Xg
+	eFHzF8wTc3Z0u++7ioLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtPIY-0000000BnFB-4196;
-	Mon, 10 Aug 2026 12:40:10 +0000
-Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtPIV-0000000BnDY-0aHH
+	id 1wtPKj-0000000BneM-3qUJ;
+	Mon, 10 Aug 2026 12:42:25 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wtPKg-0000000Bndg-2M5l
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 12:40:08 +0000
-Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-69f4acf7047so267109a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 05:40:06 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1786365605; cv=none;
-        d=google.com; s=arc-20260327;
-        b=mbrujiy5Ud34QXgF8DeDFiO0YUcVPAQXSpgI2uuDDQ3RVnJkAiXDbPLtkzGBI82P2U
-         HdMk5JnNF8lLBXx79edpXLiuHezK9+sn6IXXFFm/IITQpN/fT3t7Vq7MqnRX78le/ytx
-         HYHhioR6KNhMJ3lfrPUxvAuLBSN9wtQOQqwGNJCc+HCnRMWyDbzs25Un+H8ZfTDz6ool
-         Ruq6z/Pd/XKPEmCxCER9hcTA2AcGLOXt0DNR4Fenmxp0763uFXjkST1eSIcbCAklhugX
-         UFSqxI0L2tSYI1GiDPxQOtRusil5/bLFuoGOWIxI36IUCwEAUPyYUhn7B2bnS4serjiF
-         5Xeg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=HzTjFhFkoXBLwd3NrSqY+4yLtTn3dkc2guIu8OqfuBY=;
-        fh=kDdd7onj+ZA1a32Ant1yXV0w3bD5N5XG2uEleH8BYZM=;
-        b=oznwJ/wTYCCXoJy0VzErjBrWWuS3MW7wXVCH5Fvz0mUBeCApwVmfYPUHw5428M4Zyb
-         n2RIdPTI8E0xxHuERXFtQh4jVAf/19Cktcb+d9fZMc24R23AbEdN9m8b92sB2RKH5oXv
-         yZfeG5oVjCDyMdKKtvHi3PdSP8jZSkkO7JGio3YPpnw1HW3FOaXl98I9LwUtjoQxv++e
-         h8xv0Wyvp8wl7b8srtrWlPnV1HhLDg4bUGBB7wZPIvO+F+bXqPzm0IIJspOV0RvjNd8+
-         6ayOBP60Q6u/dxGNrfpFFONODGPsxFjd+ukV8xywqvKvueNst/9XCnwPqA/XlSAwUenf
-         H08w==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786365605; x=1786970405; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=HzTjFhFkoXBLwd3NrSqY+4yLtTn3dkc2guIu8OqfuBY=;
-        b=PR5nFMryVpJbDZV8Drw+9LWFh0nMklw469A+ju5qtocKcjhJlj7vGxFArI6Fw4R/d6
-         FQH2Lyx5GO+iLjT2r6rLLw1LB3kQfgqOBDSZhK4gVfBCXoXgdEfFJJ+eNshUOeIMRaeP
-         nIMTz92CyzDy7JQPfEc9A8A1/t71+yyJL+GAl50ZYfe8eSYifi3S61+yIQDdf3LrWKJk
-         C1/9cQXhYTRCdlXGph/oC7SLIhsbx+oDpi/Xeou9utf+96jJCwHwgG9SeAYy1B10WtOA
-         08fGbYN8Yqfh83w3Nu8w3TWPcv0VFy7iK35exa2gQp8PqxviMb9+Pe5Lk+/blcLLH9Qf
-         KIfw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786365605; x=1786970405;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=HzTjFhFkoXBLwd3NrSqY+4yLtTn3dkc2guIu8OqfuBY=;
-        b=tGlUWyka6lOR5YZ77TvV8qqqTK/ozc3bhbfLtTz45ms7DTOPuaQD2AaQ/kHXyOXBzJ
-         rYKEXJPnerceqq2FUoD6sBSfD32RZl9ikQiFwMTKlGnuXwItiqnKXeNqpDU+7VNJ/eES
-         LhCMR2OpNNRvxP76BLI7fDuEsLydSxhxtJEmhCbHzD0JZq7MMkE8s0JupTth9dPIwSVw
-         W8s1q8iOLpbS9FoVWjbIx74hZgVGoLPoMoah8kmqkZ9CHEtFHEYrTYCD/2ge/nAEQtOe
-         hkEazvFN7AHURFHG05/3LS1S3lR9xjx/z1FHEA2dKAyZGhEsekyn+AZzvrMLgaAx5yd4
-         HaGQ==
-X-Forwarded-Encrypted: i=1; AHgh+RpkVb2tMmdHi8//OVH0iURc8/uXI46VBkRnxeeDuGWX0fd+Gc5LGqSLtpg46EqW5cPg6SLpOzEDRllXjLu6JvEh@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywk1YkTxFSj43xB5Au2zcqI87VNrv5N5POSOGehQWaGJLTJUjeX
-	R0F2yeMYkWwoCXkPHz0FeNvd4cNmz9ZcjmIrpwY3m0tnr6rnNiE4s6iy4iClwJhoObkM8k/7tri
-	BQkOhKVywU3QS5d4RQO5B/2nmrbDZa4U=
-X-Gm-Gg: AR+sD13ZUJOYb3CFTSgGdw2QGNSInZidDdhTDgg2u6mTkvkkXBUq9sLBph1bUZcR9//
-	ew9I2XvkOKQlHBkNM3yFL9Go2aAxAbO09gbsBDxkBwdYM7Q5sNKrICW24/9WE9cmdlGhoiCzqEU
-	POj9PV7SAjUw8NDka5rVoOBOj4JHX/kr3HWhQIoYwxH9Yl3VYDsNJtdT88IihEHnGOnBCrOyD9u
-	/Z1qU40IjXuBpOHf+27rjFXvPIHpuWYSSft0mN8wZrP1/yA4dxPmGUfYnPBHP2nd70B83rp2rWd
-	kyY7rZTanijKw0+un4zrwjuLmdUszuQeA0FcpXuPaeLhwcfNQLNxoZ+5FuQEkPgr1FlpgoqquIh
-	Fow==
-X-Received: by 2002:a05:6402:2351:b0:6a1:fd14:8829 with SMTP id
- 4fb4d7f45d1cf-6a1fd1489dfmr3529309a12.4.1786365602791; Mon, 10 Aug 2026
- 05:40:02 -0700 (PDT)
+	Mon, 10 Aug 2026 12:42:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5BC49143D;
+	Mon, 10 Aug 2026 05:42:15 -0700 (PDT)
+Received: from [10.1.34.163] (e121487-lin.cambridge.arm.com [10.1.34.163])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0530A3F86F;
+	Mon, 10 Aug 2026 05:42:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1786365739; bh=LfJqW5tpDOzFHBapUGs2MDgPQl1V/FtAeE1FZNBfIGU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ISeTa5nrufIkRolP9n8jeKaqRxnpZylF8jHYbBhn9QKqpGQyxayN7079KPL3QFBRR
+	 xv1T7sUzVLOIFjhKo6WhKLN2GUa5xsnPf9wUjM3ovXtRgKKuKTLhYgt7jog1pTQ58U
+	 mcH06Navhqr5PvcnAXX0PdEy+2K8oFCODp/aj2Ks=
+Message-ID: <2a97f777-d33a-4b3d-8c8c-6f6894f04c29@arm.com>
+Date: Mon, 10 Aug 2026 13:42:15 +0100
 MIME-Version: 1.0
-References: <20260726-dcphy-rx-v1-v2-0-cf9cc34a412a@gmail.com>
- <20260726-dcphy-rx-v1-v2-3-cf9cc34a412a@gmail.com> <7e55b8bc-d11d-4b25-99ee-d5d181be158f@collabora.com>
- <CAPwA33Jnp6N7a=2tcrgEzFxXRpbxEO25ktrRDiea--9Uy5upNQ@mail.gmail.com> <00d6ee9d-0ef1-41d4-8cd7-affb320b84f4@collabora.com>
-In-Reply-To: <00d6ee9d-0ef1-41d4-8cd7-affb320b84f4@collabora.com>
-From: =?UTF-8?B?5qWK5pm65oiQ?= <jason98166@gmail.com>
-Date: Mon, 10 Aug 2026 20:39:50 +0800
-X-Gm-Features: AUfX_mwg7RyitAzo5nWhArTwTiYbA1EMZOXHMkTdNy0X60zc4wq-eQxbT6UdjPw
-Message-ID: <CAPwA33KHoH6AM7HLMQSBMwy2-TS2A_J=QyLwcg-S=t2yQ+_78w@mail.gmail.com>
-Subject: Re: [PATCH v2 3/4] phy: rockchip-samsung-dcphy: model TX and RX as
- separate PHYs
-To: Michael Riesch <michael.riesch@collabora.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Guochun Huang <hero.huang@rock-chips.com>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, linux-phy@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC] arm64: entry: PSTATE_I_SET is leaking on pseudo NMI
+ mode
+To: Will Deacon <will@kernel.org>, Breno Leitao <leitao@debian.org>
+References: <20260807-arm64_fix-v1-1-d069ccf9d71b@debian.org>
+ <anXkO8YpoadRzm07@J2N7QTR9R3> <anXqMsJ14r3BAbMG@gmail.com>
+ <anYHjvJ1_4dDjuzw@gmail.com> <anm5T9FazACqOWXF@willie-the-truck>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <anm5T9FazACqOWXF@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_054007_199055_83C28A00 
-X-CRM114-Status: UNSURE (   7.18  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260810_054222_767804_22DEDAEB 
+X-CRM114-Status: GOOD (  20.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,25 +68,68 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, rmikey@meta.com, "Peter Zijlstra \(Intel\)" <peterz@infradead.org>, Catalin Marinas <catalin.marinas@arm.com>, Jinjie Ruan <ruanjinjie@huawei.com>, kernel-team@meta.com, linux-kernel@vger.kernel.org, bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Michael Riesch <michael.riesch@collabora.com>=E6=96=BC 2026=E5=B9=B48=E6=9C=
-=888=E6=97=A5=E9=80=B1=E5=85=AD=EF=BC=8C07:00=E5=AF=AB=E9=81=93=EF=BC=9A
-> [...]
-> OK, makes sense. Looking forward to v3!
+Hi Will,
 
-Thanks for confirming the shared block and for chasing the GRF
-question with Rockchip - much appreciated.
+On 8/10/26 12:43, Will Deacon wrote:
+> On Fri, Aug 07, 2026 at 09:29:12AM -0700, Breno Leitao wrote:
+>> On Fri, Aug 07, 2026 at 07:58:21AM -0700, Breno Leitao wrote:
+>>> Meanwhile, I will try to ftrace the writes to PMR and regs->pmr to get
+>>> a better grasp of the states machine we are in (probably on Monday).
+>> It seems LLM found a very easy to reproduce this:
+>>
+>> 	bash-5.1# dmesg
+>>
+>> 	bash-5.1#  cd /sys/kernel/tracing
+>> 	echo 'r:pmr vfs_read bad=+0($retval):u64' >> kprobe_events
+>> 	echo 1 > events/kprobes/pmr/enable
+> Nice, that triggers straightforwardly in QEMU for me. The diff below
+> (which implements my suggestion from [1]) seems to fix the issue, but
+> it would be good to hear feedback from one of the Arm folks.
+> 
+> Will
+> 
+> [1] https://lore.kernel.org/all/anXgWRmcjwPKG7N5@willie-the-truck/
+> 
+> --->8
+> 
+> diff --git a/arch/arm64/include/asm/daifflags.h b/arch/arm64/include/asm/daifflags.h
+> index 795b35128467..691ee5f86dbe 100644
+> --- a/arch/arm64/include/asm/daifflags.h
+> +++ b/arch/arm64/include/asm/daifflags.h
+> @@ -132,7 +132,7 @@ static __always_inline void local_daif_inherit(struct pt_regs *regs)
+>                 trace_hardirqs_on();
+> 
+>         if (system_uses_irq_prio_masking())
+> -               gic_write_pmr(regs->pmr);
+> +               gic_write_pmr(regs->pmr & ~GIC_PRIO_PSR_I_SET);
+> 
+>         /*
+>          * We can't use local_daif_restore(regs->pstate) here as
+> 
 
-v3 is out:
-https://lore.kernel.org/r/20260810-dcphy-rx-v1-v3-0-a2d25c29adfc@gmail.com
+I have no strong opinion on the change, but I struggle to see how it
+fits into the big picture.
 
-The shared-block handling follows your suggestion - one struct phy
-per PHY with a use-counted common block; the changelog there covers
-the details, including why the helpers ended up as get()/put() and
-why the GRF mode selects stay untouched for now.
+Specifically, I have difficulty explaining this change in isolation.
+Everywhere else, we try to keep DAIF.I and GIC_PRIO_PSR_I_SET in sync,
+so it is not clear why we should allow them to go out of sync when
+inheriting the exception state from the previous context.
 
-Thanks,
-Jason
+At the same time, IIUC, the only reason we call local_irq_disable()
+(which also causes the states to become unsynchronized) in
+arm64_exit_to_kernel_mode() is for preemption path. So avoiding
+local_irq_disable() (and preemption) when we interrupted a
+non-preemptible context seems easier to follow.
+
+Alternatively, using local_daif_restore(DAIF_PROCCTX_NOIRQ) directly,
+if we believe it is OK to downgrade the inherited context, would
+achieve the same effect as local_irq_disable() while keeping DAIF and
+PMR in sync.
+
+Cheers
+Vladimir
 
