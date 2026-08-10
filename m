@@ -4,123 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38A25C5AD55
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 13:08:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20E45C5AD55
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 13:11:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pTDI6EKrZhHzu91ABEa/3hYoH7aGPcaJaVd/MJRw0Ok=; b=JawhAsSLywjVF8pXqXz+EU2zxQ
-	Qt19iWLBTMusGeKhA98tpxzDwV58wGznViAT/zL9Os0ulI7jJIp+AQGRRoeY9suM4EB3liZivc/Al
-	lZ3Qt+ZD2K9GScGsLGm/NbIV/AcJWvDLRs01sctYuwYGJth95tUrwShyMOlfeZ2UbYenXnxQ7oL8g
-	e+tZ38gXUtxFJYmRF2g2bvWLcH8ONRaKBIRxZz9Zim/lJCyjUBjT7rIdUROR0rYmivxvo7umyS8wk
-	YVPK4JU9GP7v9qyK1v7i1BMiSPSWLougjRmFTt7dSE39AVe42uw8j2eoyG8ekLdNmtcZdKbSvqWiR
-	VZAURuWA==;
+	bh=fztU8m3MhYy8ptCoILS5OqZgo/t0IA++3B4AcS4zWN0=; b=kdYOjYrBfrfVjmN5abuM5t4osY
+	SI/fYMq1aypw2Nl7fdPwwQqRHw2euqQek4VLoFTYrPg6eVkFX3gDRauFakYrUnMJWOuv5DbRqlqo0
+	279zMR4iKWJqr6EKCjET5rEaSr7HQWk+VdwY0MuG85S9cKdsClUJB6Ph1Rm65eE3eB1fKqz30CUnS
+	hE8ZqIXXjThbXub91fLMVmR7VEm17QargI8EbwI6aBAD4mh6rJXWxnrLMXhCxGsjiMmLQ/DoHJ7oM
+	BGxUv8uiYJOPABZMS31rrn7kkYFbSCgOFCPHwxFDKmcODLuJAus3JMmPl53zv/42UDJQu2faeJ3FQ
+	gh4fFZyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtPjs-0000000BrdO-0CPg;
-	Mon, 10 Aug 2026 13:08:24 +0000
-Received: from mail-qt1-x831.google.com ([2607:f8b0:4864:20::831])
+	id 1wtPmG-0000000BrtK-1oiF;
+	Mon, 10 Aug 2026 13:10:52 +0000
+Received: from mail-northeuropeazon11010008.outbound.protection.outlook.com ([52.101.84.8] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtPjp-0000000Brcb-0nVd
+	id 1wtPmD-0000000BrsF-2BUa
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 13:08:22 +0000
-Received: by mail-qt1-x831.google.com with SMTP id d75a77b69052e-51bfe810293so7476571cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 06:08:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1786367299; x=1786972099; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=pTDI6EKrZhHzu91ABEa/3hYoH7aGPcaJaVd/MJRw0Ok=;
-        b=ZrcVNJxv4JgmaHtpaF9LXRRtfZqjeQoir+keqedo+u+HXvJ+nuoKe0yZcYNS9JlSlr
-         RSJscb6BMlt0gN7uJypUX5GPF0pMjCY4/J+ZZJssTG/1GfBWQG4yh/XiCsFut1MY8mMC
-         VWjlgUciEWdFiiHxY6Gr5xgv+CbEEUnGSAxqCD9WiNMFIUWNFsLf26Wl+u5gSkLzMtZT
-         H1JOb6DULefQA9Wmtv8uFgKzcchT+ElA/HCvURhqFHjEVFgR2pGzEIvzf928axtvs8SR
-         40tfO7ebGVlLDyMXwqYiDTKuEdW5L+xC+tOlKmFt/HRkUBecM+cdITnoDq+gsUHoFPP7
-         g+1g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786367299; x=1786972099;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=pTDI6EKrZhHzu91ABEa/3hYoH7aGPcaJaVd/MJRw0Ok=;
-        b=dWbX0uDYtO4grIs2yvqOxLBoNJIVPdKl9l37HMNKdGws916mZ7HWDv/ThjXGubmUZ1
-         8H7ANEvWFWL3+KNVWeyaavggM7m50XzvOqCjmgj8Q5Qcd8pkS+9dMyxA2f1GY07aTlWK
-         tOs08blTymnLBQE6Zij56/8pkYPuWI6BpsjFFmCOVPjdbeNJGhd8qhyUwIeSc7IzrubR
-         NkzafVwIeq5EdlTk7e/uwZHPHxh0HeMDVMhNRl6afRNuY5cE4DVGCL4ADIa9au8sX2d+
-         P7sDKlfNl/PL5UEogpMdsATiqStrO74TujLv35okRiJtrlnhm6wpz7XFMV/JaR/IiS+8
-         LaxA==
-X-Forwarded-Encrypted: i=1; AHgh+RoLzCHB3zavp0NS7YGrBuPakOhWfZOots1z+tKS7bhPSzNLB5TR2OP33/RQKdXBBgSO/jlJzy6auq2RmNS6BXCL@lists.infradead.org
-X-Gm-Message-State: AOJu0YxN/m+FLSZdahyCy08bHaDsWPJsFYQjvTVQ19fGF7Wseb5pn9OY
-	Aoo/AyW9XJtNEDZt4qmN2Y+TGZNFViTCVz7fVWcjilj/wwiCL96nEsQ7GrDjDcSBX0o=
-X-Gm-Gg: AR+sD12c6/ZTAZnETkjixDNM/EUqucd+fWsYL0KGoTH266S7FQTKWklwdpe/7+uova3
-	+qTISvdZ9RzwgCsEzHQ1ZNuNDpTk7cHkWNXIUNg+5vGCbhBSJeKgKAn492c2NMEXc+bT82ixeAN
-	QDp0HlCoJYpAmkys7OzUyieT29nADyNgrcyCtM3bQAoMA627888HwG2KOctSO6pxPoBkK0IjKCh
-	G27JM13NdUzqXEmTNrKqhG07fH+C2uX/QHF9UJhDnwxDEpeupud3CnNlbomtK9rDukVONpeaBwh
-	kFIS3IpKo8TWzJbZVLY7zbZEHu7C5CBSEf4AwkedJD1sKL9rX3mQvHYctlfnpQEOa7BYyCikhbp
-	/QYA1KVZHYxMtep+uw8FhY1xYY2Gtt9Ptyvvl5zYOS/6zjHpQDMRob2Le6SHRoIPINdl3VZJZl4
-	p1ZLQh4GGtYR/uuFVXzCHl5G5Rb2LCV+lMKA6SAA==
-X-Received: by 2002:ac8:574f:0:b0:51b:fcb4:7576 with SMTP id d75a77b69052e-52d20961711mr224570371cf.15.1786367299519;
-        Mon, 10 Aug 2026 06:08:19 -0700 (PDT)
-Received: from ziepe.ca ([142.166.156.215])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-52d163c1aefsm70838551cf.12.2026.08.10.06.08.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Aug 2026 06:08:18 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1wtPjm-000000022LS-0EaO;
-	Mon, 10 Aug 2026 10:08:18 -0300
-Date: Mon, 10 Aug 2026 10:08:18 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Will Deacon <will@kernel.org>
-Cc: Marek Szyprowski <m.szyprowski@samsung.com>,
-	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
-	Mostafa Saleh <smostafa@google.com>, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-coco@lists.linux.dev, Robin Murphy <robin.murphy@arm.com>,
-	Marc Zyngier <maz@kernel.org>, Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>, Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
-Subject: Re: [PATCH] arm64: swiotlb: Keep the default size for protected
- guests
-Message-ID: <20260810130818.GN200537@ziepe.ca>
-References: <anX7F7dnKOtAOIIe@google.com>
- <20260807164734.GE200537@ziepe.ca>
- <anYgXSR4VAi3TpOj@google.com>
- <CGME20260807182023eucas1p1f653436207b2b00338e99ea1d8f847df@eucas1p1.samsung.com>
- <20260807182017.GH200537@ziepe.ca>
- <7d22482f-d5fd-4cf4-9d32-6a54e02f2fbb@samsung.com>
- <yq5av79iiard.fsf@kernel.org>
- <anml6lLRERm1Iv-_@willie-the-truck>
- <28442500-1d53-4776-bae5-459c3ffc1cc6@samsung.com>
- <anm6K2umtx4iKnyZ@willie-the-truck>
+	Mon, 10 Aug 2026 13:10:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yeilD4qhEwJkU2yxiYfz3qMLCLGImIgXTS0Rfw3yngs0CTy5NKFyeLWenNynb9A3Vv9ntVwWCngzWOrf+ufDMeQkyDc4kbtdFLiAWGDrkEMqEVVx7bY9AlvWjwJpI1GvcidOvEAIZU7xmoF2mqytvosJP4jP1NIxKO8jta8Oumx2amg9ZJfqZdlRvL1hjErGS4aiMoBl69A08g/VnB9Lur2uXM8+1nyILwQoJ3Uo6+DKxdewB3p0r+wX/EWOlwdSTHyFWGJ//e1/ZqwgbgpfCJjYoSvVmvhyTRmWmXfYr59yDAWzALBF9eGe6/sbptD5hoZhiWxm1bji4+hdozh1oQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=fztU8m3MhYy8ptCoILS5OqZgo/t0IA++3B4AcS4zWN0=;
+ b=SIg9fDYBPtOmGbnzPCD+avLBHZ/qUsvRqsLt/plm8i/RzpHGpRipefSIq1ceoJOe8hPP5IyrcKe4PUIvcCbmLheibxuZKprpfxsvfz286jK5w1MgY2PS5Wvrf5Sn6Zk0BYyw0WeNoBkUBNMFVmIVwuH0+AfTqhW4Q+kNEIgDWGa25tPwNlo0+pQXlH7/kHc1wU3CIfQUuuJ6PQk98IGyPP3nphFK9H+YIxIUwUvh6gvTNJEk0zGbQUYcLcbTtAvMrhQe1hpOeTSS9e1Qyri9ZtMuLj8sKZA7is2c1pXJU4+8AP+kjoqhcHd37PG2112XwlAAQ3YK3G28fAJbK2IUKQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.60) smtp.rcpttodomain=lunn.ch smtp.mailfrom=foss.st.com; dmarc=fail
+ (p=none sp=none pct=100) action=none header.from=foss.st.com; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=fztU8m3MhYy8ptCoILS5OqZgo/t0IA++3B4AcS4zWN0=;
+ b=P4ZGzk2PTQV1vnc0FXNK12cczLhY/KPkd+9gMU+A3iavN5EGRQsrKQapw1EIDYqvs0ZhuD+h7kcfpc2nMXTwVnqQ+eb8Zjf3x1HejwHVvAaz4jgf/177AD9JsIkw0DxajaljvSYCUubR6gq2kJfrReLUzbVeI+PP7GGJBeq/anShl3uWAGhNz41EEVq37oLXrXYTWYYgodSM4zWxWb+ZdELjhIrxec3XDPpMO9BYx4sMA/96aoHdxzGwpxtzNE3cJ78FGgiQSjEJaLxt5EUMUuqc3FxFwynqNHatgwLP+Uj7BnWZsuGwRh/Rd+jSBAF/SBkHmdUguuvNdLz6z33Jow==
+Received: from AS9PR05CA0093.eurprd05.prod.outlook.com (2603:10a6:20b:498::18)
+ by AS5PR10MB8269.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:67e::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.25; Mon, 10 Aug
+ 2026 13:10:42 +0000
+Received: from AM2PEPF0001C716.eurprd05.prod.outlook.com
+ (2603:10a6:20b:498:cafe::79) by AS9PR05CA0093.outlook.office365.com
+ (2603:10a6:20b:498::18) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.292.25 via Frontend Transport; Mon,
+ 10 Aug 2026 13:10:42 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.60; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.60) by
+ AM2PEPF0001C716.mail.protection.outlook.com (10.167.16.186) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.315.6 via Frontend Transport; Mon, 10 Aug 2026 13:10:42 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
+ (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Mon, 10 Aug
+ 2026 15:15:36 +0200
+Received: from localhost (10.48.87.235) by STKDAG1NODE2.st.com (10.75.128.133)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Mon, 10 Aug
+ 2026 15:10:41 +0200
+From: Christophe Roullier <christophe.roullier@foss.st.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Russell King <rmk+kernel@armlinux.org.uk>, <linusw@kernel.org>,
+	<antonio.borneo@foss.st.com>, Maxime Chevallier
+	<maxime.chevallier@bootlin.com>, Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Christophe Roullier <christophe.roullier@foss.st.com>
+CC: <netdev@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH 1/3] arm64: dts: st: add 3v3 regulator to ethernet on stm32mp235f-dk
+Date: Mon, 10 Aug 2026 15:10:30 +0200
+Message-ID: <20260810131032.455435-2-christophe.roullier@foss.st.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260810131032.455435-1-christophe.roullier@foss.st.com>
+References: <20260810131032.455435-1-christophe.roullier@foss.st.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <anm6K2umtx4iKnyZ@willie-the-truck>
+Content-Type: text/plain
+X-Originating-IP: [10.48.87.235]
+X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM2PEPF0001C716:EE_|AS5PR10MB8269:EE_
+X-MS-Office365-Filtering-Correlation-Id: 71e7ccb7-1ebf-4682-60ca-08def6e0c846
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|23010399003|82310400026|36860700016|921020|56012099006|10067099003|11063799006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: YwkPw26VLv9z2XTH1VgkP9o2gFkDAIOAROuWEFG9cUFMggxwEwiA0FypSx/0+Sbvu9/Ggal5RM+r/L3qkU/z+4Xub7L5LFCIZlOQP4UWoAN/ESScERrHQljab8h5sPBOtyY/rxZstBzyGg+BVoyuTZSFh3sB4R/7plU1TQOt9D1zBAZNly/I5z/kR+4vYmJnaAYzkoilhzN9pSfqzrKKvq9alR1lWeYjLxzCKmbh0dZsumL03CuNI/ORzzmFcSD1bU8JeHay3Oy4UKhgBRJ/oPXSxM8Jj+mTTryxFia79eW4xsIXOk8FtDNND7osoxdGY70t4r71ntsRz1v4ApX0ZsiU0CHsFJTHg7qj4KhMfEBOU7E41w8R48+E/Ch1j5h0DX8b2N4j9KscDq2gmN4zvg3gjUg0QOMZ7mZV9dpyfVzQtuaFGhHHxr0QVUQD6sUrAMS1xYMYMDghY/djpS2L3ZeGzJsKsDIDQ8ly66yKgIKwiuYulkD7wO/hx18fvRxiRh0I4doCXoNhAYqgKnp09M3BeY4HkqSyB7amURbuvjsZg8aM84JnPuaIKsfXCyT/0GI3luKGq2gTkDS4e1HtzpeGcSG4o4+QOWHquWnpkHT7MdxvlDWTR7JaYN0JNIaP+yeSq1+YwJgoD43Jow9vpqUhDqy5bvHzVosKipphr/tQRjZ0pfidy/EQZupsswwmMQKzQ5bcrg0F1inJ+pZuvRipnZLZtwUnMQjMCIqiJeD1XSjj40v008wzXvtachFo
+X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(23010399003)(82310400026)(36860700016)(921020)(56012099006)(10067099003)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: hqAiCk3HgliolMbU98KfBliMRC3RX6tqeFGI/PEHPdDkkbTkL60TrHVzTNqdcqThcLUmPQmNFU3lbL7i3akBLu7C5XOJHMkkWJwqLvpnYC7mSZ3FxFQRTVCBkw87pyuPaE2lxzCSk4wpJnysV2FyY7PBYBVSyCeQn7b83oEll87PoDKdDxhGqq5J1PG4wt1kXuF2dqFE4AVPzbWPJ38pecDNP8VW+g9Rkbw9q7/xJ/13JW/ZWq3BfMwYc8gMo/iJXzICT+kpGc+6rVJ03hwPNnLxZgfCQ0hquVy9X9kEijyp+MdOblm+N4XpmdwlLO+CUWclu6RZoN9u3GrFuDwocVRyPcXnywdhP59cTBUA9Xyz48+3GEK5I4ljht5Ff1RsgimSXJIIwtogeeEQhVIjQjti7TT2EPVTFIV8jHBeuJ+5PsytVrIiY1RTPbxrgvik
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Aug 2026 13:10:42.5284
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 71e7ccb7-1ebf-4682-60ca-08def6e0c846
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: AM2PEPF0001C716.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR10MB8269
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_060821_304461_4BF4CC81 
-X-CRM114-Status: GOOD (  29.08  )
+X-CRM114-CacheID: sfid-20260810_061049_875712_228DB2A7 
+X-CRM114-Status: UNSURE (   8.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,53 +133,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 10, 2026 at 12:46:51PM +0100, Will Deacon wrote:
-> On Mon, Aug 10, 2026 at 01:37:11PM +0200, Marek Szyprowski wrote:
-> > On 10.08.2026 12:20, Will Deacon wrote:
-> > > On Mon, Aug 10, 2026 at 02:59:42PM +0530, Aneesh Kumar K.V wrote:
-> > >> Marek Szyprowski <m.szyprowski@samsung.com> writes:
-> > >>
-> > >>> On 07.08.2026 20:20, Jason Gunthorpe wrote:
-> > >>>> On Fri, Aug 07, 2026 at 06:13:49PM +0000, Mostafa Saleh wrote:
-> > >>>>> But the whole thing is best effort anyway, the kernel picks
-> > >>>>> IO_TLB_DEFAULT_SIZE which does not depend on the system topology or
-> > >>>>> how many devices or how much DMA they do.
-> > >>>>> SWIOTLB memory is wasted if unused so we should be careful around
-> > >>>>> that as it would be the other way around and users would have to
-> > >>>>> decrease it manually.
-> > >>>> Yeah, it is why the arch code shouldn't really be sizing it directly,
-> > >>>> it should be done in common code and, yes, we are probably going to
-> > >>>> have to do something alot smarter to have the common code better
-> > >>>> auto-tune this for the CC case..
-> > >>> What about the $subject patch? I assume that it is still needed to
-> > >>>
-> > >>> restore the behavior that was altered by the "[PATCH v8 00/23]
-> > >>>
-> > >>> dma-mapping: Track shared DMA state through direct, pool and swiotlb
-> > >>>
-> > >>> paths?" patchset?
-> > >>>
-> > >> I would request that we pick this patch to fix the regression described
-> > >> in https://lore.kernel.org/all/yq5azeyxyfol.fsf@kernel.org/.
-> > > I really don't think we need it. CCA hardware isn't exactly widespread
-> > > and the KVM host side patches don't appear close to being merged.
-> > 
-> > Does this mean that the branch for-next/coco [1] won't go to v7.3-rc1?
+The Ethernet PHY is supplied by 3v3 PMIC regulator, add it to Ethernet
+node.
 
-Let's not make progress on guest support contingent on KVM CCA host
-side patches please. I expect the CSPs will have VM instance types
-available based on CCA within quarters, and Linux as a Guest should
-work in those environments regardless of what KVM is doing. I don't
-really expect full KVM support for years, frankly, the patchset is
-massive. Even Intel and AMD don't have full KVM support yet.
+Signed-off-by: Christophe Roullier <christophe.roullier@foss.st.com>
+---
+ arch/arm64/boot/dts/st/stm32mp235f-dk.dts | 1 +
+ 1 file changed, 1 insertion(+)
 
-People already have CCA capable HW, are already testing this stuff and
-the closer upstream can get to being workable as a guest without a
-mountain of OOT patches the better.
+diff --git a/arch/arm64/boot/dts/st/stm32mp235f-dk.dts b/arch/arm64/boot/dts/st/stm32mp235f-dk.dts
+index dd4efbe5a46e..fb49cd2da2c6 100644
+--- a/arch/arm64/boot/dts/st/stm32mp235f-dk.dts
++++ b/arch/arm64/boot/dts/st/stm32mp235f-dk.dts
+@@ -137,6 +137,7 @@ &ethernet1 {
+ 	pinctrl-names = "default", "sleep";
+ 	phy-handle = <&phy1_eth1>;
+ 	phy-mode = "rgmii-id";
++	phy-supply = <&scmi_v3v3>;
+ 	status = "okay";
+ 
+ 	mdio {
+-- 
+2.43.0
 
-I agree the thing is not ideal, but it was merged to ARM like this a
-long time ago, this patch is just fixing a small oopsie (was it a
-merge conflict?) to put it back. I don't the objection.
-
-Jason
 
