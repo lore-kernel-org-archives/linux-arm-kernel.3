@@ -4,80 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74A55C5AE49
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 14:13:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EFE8C5AE49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 14:15:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ddIlhF6vGPyoom57B4/DSYjoWyRRk8Fh5bwezxUOqlc=; b=UFj0czm3WN5YhqOoNK9uDVNzkb
-	qt0u752br551WUQqGmJuZevhXg0bUmW2QblRiyiqdJfoVyIgdbZH1iVrBhafk4uBAX2Uhk22BLiLC
-	0sUXe1/PnPTkq9ZiIjQgX6OYlN6FvwMk16RuGUEjB4h7v0v4/N8jIzHCGv6fTjFDlAyL/x64o622/
-	NBS+RS0v9O3uTzo/58sXAY1bli21oizigheNTwNq1eRjycoLignaCGqC3WSIxWQDNNfAiHQ2QxIkQ
-	F1VPguLKxtazJwBRthyQpean2+J0iVOdoTzbMPU1Z2iohNeig1ZsYdJaPb3Kn1/vQVQgoWtM5WSll
-	zkB16ijA==;
+	bh=Cqbq7ocjp5qLqhn6ub1Jz2ULUPz57xxAkQlmliZcS0c=; b=e3luweWBTxwKfQLI4NWx+4aKqC
+	ob0gwTdDXt/vTlV4Sduo9HaHzZzPSVQTaaVr3Nk+4JayKqLGOXzYTwza51vrA1AeJ5934jTXpM9sz
+	/aJHvsriZjjQqmznksN9gqPxKgjgp8FbsIS+WVqWnrncJ2K40Wn0rpf5povs5Cpz2WbNd61AyRDLs
+	FH3DgXAhorLb8V5KEXP3b4T2RHQEF4ZGR4SsbV0gl05l6oPCsKBvauBmnCoUpjnCPkgYB4AlyDiny
+	EkbI/UeGmLuDPMcCxbpY2fhniNfr/wpi46gmXX76oTtE0a4vXDJClWGlbuJZZ8xZqFgyoedOIoeN5
+	iJQLMe4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtQkx-0000000BxwA-1BZc;
-	Mon, 10 Aug 2026 14:13:35 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtQku-0000000Bxvg-0qIx
+	id 1wtQmJ-0000000By5P-2O7g;
+	Mon, 10 Aug 2026 14:14:59 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wtQmI-0000000By54-3RO9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 14:13:33 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 71E781516;
-	Mon, 10 Aug 2026 07:13:26 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E145D3F86F;
-	Mon, 10 Aug 2026 07:13:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786371210; bh=zYnXF4fid7nru4L+UN6cx73+9ENOxlbLHCYi9e/TLbk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=c4OaKYOdMrP2zYlAL+9Ck9ytNUdfa4vN23e1uvO8+zr+aIIaVGbiPz8omcY23SsKm
-	 69UbHQH7fCfBzAQRXN6684AqVtZFko90HF3FUO0+1yumxbokV6x6NFEDB3De+636G0
-	 L1fRQ8tn65V06Wdi/ESvTdQtsPnqOd4UbC6BfEog=
-Date: Mon, 10 Aug 2026 15:13:22 +0100
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Fayssal Benmlih <Fayssal.Benmlih@arm.com>
-Cc: Cristian Marussi <Cristian.Marussi@arm.com>,
-	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
-	"d-gole@ti.com" <d-gole@ti.com>,
-	"david@kernel.org" <david@kernel.org>,
-	Elif Topuz <Elif.Topuz@arm.com>,
-	"etienne.carriere@st.com" <etienne.carriere@st.com>,
-	"f.fainelli@gmail.com" <f.fainelli@gmail.com>,
-	"james.quinlan@broadcom.com" <james.quinlan@broadcom.com>,
-	"jic23@kernel.org" <jic23@kernel.org>,
-	"kas@kernel.org" <kas@kernel.org>,
-	"kernel-team@meta.com" <kernel-team@meta.com>,
-	"leitao@kernel.org" <leitao@kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	Lukasz Luba <Lukasz.Luba@arm.com>,
-	"michal.simek@amd.com" <michal.simek@amd.com>,
-	"peng.fan@oss.nxp.com" <peng.fan@oss.nxp.com>,
-	Philip Radford <Philip.Radford@arm.com>,
-	"puranjay@kernel.org" <puranjay@kernel.org>,
-	Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-	"sudeep.holla@kernel.org" <sudeep.holla@kernel.org>,
-	"usama.arif@linux.dev" <usama.arif@linux.dev>,
-	"vincent.guittot@linaro.org" <vincent.guittot@linaro.org>
-Subject: Re: [PATCH v7 08/23] firmware: arm_scmi: Add Telemetry configuration
- operations
-Message-ID: <anncgnjIKCzuBKLL@pluto>
-References: <20260802145618.1952804-9-cristian.marussi@arm.com>
- <1E14B66B-A2A3-4FF7-8178-D27433A316B1@contoso.com>
+	Mon, 10 Aug 2026 14:14:58 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 39CF360052;
+	Mon, 10 Aug 2026 14:14:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E94C1F000E9;
+	Mon, 10 Aug 2026 14:14:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786371296;
+	bh=Cqbq7ocjp5qLqhn6ub1Jz2ULUPz57xxAkQlmliZcS0c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=FBkTu6+85usDU52Dha/5DQXVxWOENVS7yKDU9Ofdw3/oCPIg8ZLLUDSMcKrnVSP9L
+	 f3c2cikYrYuD545fo9Hujadnw/NDojGZoRhVIg9Jw3Posb1ONG7re4pg3rkKq4FDSi
+	 +veUdAwky9ShQkN2t7ZmYRCR2su1bedXoyHeAfhfydhcQAYdnKuNH0K4+OncmDgbXR
+	 c0VrUqERtZN0kZ8GV6c/ch6F0MNItNaGkFJrLo0roy86L4K6/lG4uLnvSgbdwglunP
+	 MNHEtAN3z1+wuwpt11fYQGr3o9Sd77LRs1gJTjf1yjJVk7tzduLbddd70pQP+LLyoY
+	 mmQse+6xWKhIg==
+Date: Mon, 10 Aug 2026 15:14:47 +0100
+From: Will Deacon <will@kernel.org>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Marek Szyprowski <m.szyprowski@samsung.com>,
+	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
+	Mostafa Saleh <smostafa@google.com>, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-coco@lists.linux.dev, Robin Murphy <robin.murphy@arm.com>,
+	Marc Zyngier <maz@kernel.org>, Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>, Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
+Subject: Re: [PATCH] arm64: swiotlb: Keep the default size for protected
+ guests
+Message-ID: <annc1ynWUsWQc4JM@willie-the-truck>
+References: <20260807164734.GE200537@ziepe.ca>
+ <anYgXSR4VAi3TpOj@google.com>
+ <CGME20260807182023eucas1p1f653436207b2b00338e99ea1d8f847df@eucas1p1.samsung.com>
+ <20260807182017.GH200537@ziepe.ca>
+ <7d22482f-d5fd-4cf4-9d32-6a54e02f2fbb@samsung.com>
+ <yq5av79iiard.fsf@kernel.org>
+ <anml6lLRERm1Iv-_@willie-the-truck>
+ <28442500-1d53-4776-bae5-459c3ffc1cc6@samsung.com>
+ <anm6K2umtx4iKnyZ@willie-the-truck>
+ <20260810130818.GN200537@ziepe.ca>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <1E14B66B-A2A3-4FF7-8178-D27433A316B1@contoso.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_071332_354683_6B21AACA 
-X-CRM114-Status: GOOD (  15.75  )
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260810130818.GN200537@ziepe.ca>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,72 +100,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 03, 2026 at 11:54:30PM +0100, Fayssal Benmlih wrote:
-> Hi Cristian,
+On Mon, Aug 10, 2026 at 10:08:18AM -0300, Jason Gunthorpe wrote:
+> On Mon, Aug 10, 2026 at 12:46:51PM +0100, Will Deacon wrote:
+> > On Mon, Aug 10, 2026 at 01:37:11PM +0200, Marek Szyprowski wrote:
+> > > On 10.08.2026 12:20, Will Deacon wrote:
+> > > > On Mon, Aug 10, 2026 at 02:59:42PM +0530, Aneesh Kumar K.V wrote:
+> > > >> Marek Szyprowski <m.szyprowski@samsung.com> writes:
+> > > >>
+> > > >>> On 07.08.2026 20:20, Jason Gunthorpe wrote:
+> > > >>>> On Fri, Aug 07, 2026 at 06:13:49PM +0000, Mostafa Saleh wrote:
+> > > >>>>> But the whole thing is best effort anyway, the kernel picks
+> > > >>>>> IO_TLB_DEFAULT_SIZE which does not depend on the system topology or
+> > > >>>>> how many devices or how much DMA they do.
+> > > >>>>> SWIOTLB memory is wasted if unused so we should be careful around
+> > > >>>>> that as it would be the other way around and users would have to
+> > > >>>>> decrease it manually.
+> > > >>>> Yeah, it is why the arch code shouldn't really be sizing it directly,
+> > > >>>> it should be done in common code and, yes, we are probably going to
+> > > >>>> have to do something alot smarter to have the common code better
+> > > >>>> auto-tune this for the CC case..
+> > > >>> What about the $subject patch? I assume that it is still needed to
+> > > >>>
+> > > >>> restore the behavior that was altered by the "[PATCH v8 00/23]
+> > > >>>
+> > > >>> dma-mapping: Track shared DMA state through direct, pool and swiotlb
+> > > >>>
+> > > >>> paths?" patchset?
+> > > >>>
+> > > >> I would request that we pick this patch to fix the regression described
+> > > >> in https://lore.kernel.org/all/yq5azeyxyfol.fsf@kernel.org/.
+> > > > I really don't think we need it. CCA hardware isn't exactly widespread
+> > > > and the KVM host side patches don't appear close to being merged.
+> > > 
+> > > Does this mean that the branch for-next/coco [1] won't go to v7.3-rc1?
 > 
+> Let's not make progress on guest support contingent on KVM CCA host
+> side patches please. I expect the CSPs will have VM instance types
+> available based on CCA within quarters, and Linux as a Guest should
+> work in those environments regardless of what KVM is doing. I don't
+> really expect full KVM support for years, frankly, the patchset is
+> massive. Even Intel and AMD don't have full KVM support yet.
 
-Hi,
+To be clear: the only part I'm pushing back on is the realm-specific hack
+to size the SWIOTLB area in arch/arm64/. Even with that hack applied, I
+don't believe a one-size-fits-all value is going to work for everybody,
+so it was really great to see that special-case removed in:
 
-> I found two configuration issues inline.
-> 
-> > 	if (!is_group) {
-> > 		active_update_interval =
-> > 			&ti->info.active_update_interval;
-> > 		current_mode = &ti->info.current_mode;
-> > 	} else {
-> > 		struct scmi_telemetry_res_info *rinfo;
-> >
-> > 		rinfo = ti->res_get(ti);
-> > 		active_update_interval =
-> > 			&rinfo->grps[res_id].active_update_interval;
-> > 		current_mode = &rinfo->grps[res_id].current_mode;
-> > 	}
-> > [...]
-> > 	if (!ret) {
-> > 		ti->info.enabled = tlm_enable;
-> > 		*current_mode = next_mode;
-> > 		ti->info.notif_enabled =
-> > 			*current_mode == SCMI_TLM_NOTIFICATION;
-> > 		if (update_interval_ms)
-> > 			*active_update_interval =
-> > 				le32_to_cpu(interval);
-> > 	}
-> 
-> For a group operation, active_update_interval and current_mode point to the
-> group, but enabled and notif_enabled are still written into the global
-> ti->info state.
-> 
-> Disabling one group can therefore make the driver believe the entire
-> Telemetry instance is disabled, causing reads for unrelated DEs to return
-> no data. A group's collection mode can similarly overwrite the global
-> notification state.
-> 
-> Please select group-versus-instance cached state consistently for every
-> field updated here.
-> 
+https://lore.kernel.org/all/20260717180442.110954-18-aneesh.kumar@kernel.org/
 
-Yes indeed...fixed in v8.
+but now, because it regresses some test configuration, the proposal was
+to penalise protected VMs too (bearing in mind that the patch above
+hasn't yet landed upstream):
 
-> > 			de_offs = le32_to_cpu(resp->shmti_de_offset);
-> >
-> > 			shmti = &ti->shmti[sid];
-> > 			payld = shmti->base;
-> > 			/* Check boundary first... */
-> > 			if (de_offs + LINE_LENGTH_BYTES(payld) >=
-> > 			    shmti->info.len)
-> > 				return -EPROTO;
-> 
-> The addition can wrap, and the payload must end before the TDCF epilogue,
-> not merely before the end of the entire SHMTI allocation.
-> 
-> Please use checked addition and verify the complete line against the
-> payload boundary, such as len - TDCF_EPLG_SZ. The same boundary rule
-> should be used for an explicitly returned block-timestamp offset.
-> 
+https://lore.kernel.org/all/20260807092612.2202005-1-aneesh.kumar@kernel.org/
 
-To be further reworked in v9.
+with the alternative being to reintroduce the original hack that we
+just removed!
 
-Thanks,
-Cristian
+https://lore.kernel.org/all/yq5acxvu2ict.fsf@kernel.org/
 
+I'm saying: merge the patches as they are, without reintroducing this
+horrible bodge in the architecture code to drive a heuristic that most
+people seem to agree should be handled more robustly elsewhere.
+
+> People already have CCA capable HW, are already testing this stuff and
+> the closer upstream can get to being workable as a guest without a
+> mountain of OOT patches the better.
+
+This specific part is about a single line of code, to control something
+which is already configurable in Kconfig and on the cmdline. It's not
+a mountain of out-of-tree patches.
+
+> I agree the thing is not ideal, but it was merged to ARM like this a
+> long time ago, this patch is just fixing a small oopsie (was it a
+> merge conflict?) to put it back. I don't the objection.
+
+My main objection is that I have very little confidence in people trying
+to fix this properly if we take the realm-specific bodge in the arch
+code. With all the CCA patches floating about already, why would they?
+
+Will
 
