@@ -4,73 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91C4DC5AC82
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 06:52:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D6F1C5AC82
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 06:52:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8eGCU7QsDbQICJdJbOzdpd9Veffbk4TEd4ih/oR0Bp4=; b=JOSrMudFp4+YGGx1qgvhUF/AEO
-	+lQ2F9qZuNwSKKt7xC3KNSDN2hwwrvAtxKzyGgwin3OtHESuCiKJt+K/NURVxaICUjSwIu6H5zpHf
-	MVosVPG4lU+yt5S+oEs3xCcXj30wecTTuUlfUPnnMlnPk6dcoI1gWDpZitTef7tL/TjHUPI1dkfu0
-	7CvpfpzsEonKbrI2YlveycV8BVKmS9UyQWUz5S8Qn5Q0BaJ3xviiOGg+zubLh5her6r6MfSlb8n/O
-	aRFkbsA2sM3Ihy+6zwU0RHK5B6UtZcHbwnDoxn/P4ma5bvwzd+3mN3pPTCfiTaraIwXHjD/y95SDY
-	MfXaWkdw==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OqEuJEoPbKvmQ82yf9uvBWxpPYFbSngty6vt/ZB4aZ4=; b=WBYGyNlTP6vU80icygiT2MJad1
+	B69FJt/WJFJ3xJUO1ZIw/KhLmykAxaRVmiSraJcBhZ3pV+UhGmZqLe51gQ87cv1lcrsizcWcfTJY5
+	quizTmpIP7Nmnah75xBxOctIluFQHTcgxGZUOwfJLoTVNfzkWLyZWMCdviXhRZ7FMLIFDM0Gi7/E+
+	JwtYt6bZAw+U/gQxNAplcXjoEbZS9xp1il/VMi0M7/HOqxARAdezMepHcMhjUSM0AQ6JOj6tjhlDY
+	RhN8V5XRWk4NgPSQILJcD8vZjvCB9HeYJ8cFZQu1J2LkjvmSw4O5MefKGUsSYtXv5hvMkqFxgq8BC
+	FGlM17rA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtJs4-0000000B9Sw-0LWU;
-	Mon, 10 Aug 2026 06:52:28 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1wtJsF-0000000B9Vc-12X8;
+	Mon, 10 Aug 2026 06:52:39 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtJs1-0000000B9Sa-2ADZ
+	id 1wtJsC-0000000B9Ur-2nbt
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 06:52:26 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4921eed3fa2so10199805e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Aug 2026 23:52:25 -0700 (PDT)
+	Mon, 10 Aug 2026 06:52:37 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-498028b3d5eso17307365e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Aug 2026 23:52:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786344744; x=1786949544; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=8eGCU7QsDbQICJdJbOzdpd9Veffbk4TEd4ih/oR0Bp4=;
-        b=rPiX2m2p4kP382YEt7j3Pl4KzU9H79l9GzK63CswwA2/bwtUNsNb9Y68LxOcViZJi0
-         puwdnTIXQlrNuzgZrG8mcOx+KGUf8zIijeonWvaY9eYchNkp2A5y3oaOhArOgVCHirAx
-         SEzAsjT7k7RXFfchAD1clnp/H454fF43VnrCeP5xKuW0Y+RGDCSLb18C4TmBKcI6/+Y2
-         W7Wau+4XYImdKmwVvA6CnFhQUQMQlTeh3OOh2INDDkhvtxSXgby+aMzMlpP00trg+T53
-         BHEcyZXYpuUX7OG3kU/aS0nDDgeksI3ZuGRqNX14uWHWxb+JccTQNjBG1U37wNSe5mJN
-         dK/g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786344744; x=1786949544;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1786344755; x=1786949555; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=8eGCU7QsDbQICJdJbOzdpd9Veffbk4TEd4ih/oR0Bp4=;
-        b=AH9Jc+yt3BlNB2rW3x0avx3Rh9wbBXxJG7zesScuJkqxGRLn6u7kQb47B49yiC3Fvb
-         dTEqnZgW+N+uqE6oSoNViKiSu7LvMi5Qjsfr8cgYQHoWrPiH3iU4B/ZcuerAgz4UkOpC
-         T8A9ESl2Z0wpRxnNAKvhDozWqw9hd0jZ2WFu5HLmnqGoe35Y039aD/AwzODEILLDUyHj
-         Ba8YN+5W7E9S5c1yNZ2WjLCLmxKQT7/9+LcRK4t1e0UuAuSBc7twiUdM2AMAr55DsimW
-         htmNJhPM2kJzZmDSt/XAKds2N511bICcFgEhxiKxAm60srQYyIg9/AO2WBteuWBo6ptV
-         TEnA==
-X-Forwarded-Encrypted: i=1; AHgh+RrGg8ZjjAUX8ZajCjD7L5v5lEfbkz9TwzpaRqV7/FOF5TNbbEWTgC3wMLmjap0CS6uzMLLtFn5/eQQU2RBD9RuB@lists.infradead.org
-X-Gm-Message-State: AOJu0YxE+cWKl3Af3/1MJhAnEOgiZtp9hPpoJYoO6bFgstmTOU8qNtyb
-	gMf3Z/1ZYm9ECjhEPq1grUVoPFfJfdx8V517ZnwVGKYS11kNLJfmg0MF
-X-Gm-Gg: AR+sD13ZCWDLftMydcdE71su5oSH9AWHFqO76W4KoPY+Q3l0lyiIuDjFWc7b4hvXoDr
-	dhKcM/ZjhWnT17YOSPMGmiZJWsEb2WJ6KH2ZVL/tDG4qjAdKAA5BaIgkNVTByVRv7lrbfhuSXq7
-	a4UK2JLWJwi6TykSvh4IUfFY9Mv/nKWQQdIltzRB+PBLjsjt6bUS6ONz3P7l1w2H0qkN1NpXmoR
-	I4KySUQEsaKHCyrEQvzZ7/8kV5PSpa3Yb7zoyWnyodVv2+PVcHAzQ3myvZAvyrXHzimc1UKhErh
-	rJy826gEDAtA051j9mkNajto4IjWkS+oSfP1SW4ymktAODcSztsXDGMQ9OTTJAbAdSx3frmSlWW
-	a+nbsI/QSp+QMwZY5399YeBep8qLg5Fnbez/Gq0SkMUApRc7YKbRm6IL0/nKHToYziyyv3Uoacl
-	4uGZM+ZjHkKuTbwevJHyAvhSfzFyIglSrpPTOSyNIExmzDVaHkQjhIm5U+kk0MDWXYIll350tTD
-	pDlPbPX4xExjCRrGORLiyeGZs6iPPogJXv2OZGc9isV2iX6BhC8nFQS1C9UEOg9xGa6m6AHCG5Z
-	GUTia4QH4OuSsvs6nbKPZyj3xelmuTKALjjyCtIEg49Z+fLWip0isChYlkb89CK2eGmbdxSylN+
-	wfg==
-X-Received: by 2002:a05:600c:4595:b0:498:952:e276 with SMTP id 5b1f17b1804b1-4994e79e377mr389497355e9.8.1786344743398;
-        Sun, 09 Aug 2026 23:52:23 -0700 (PDT)
+        bh=OqEuJEoPbKvmQ82yf9uvBWxpPYFbSngty6vt/ZB4aZ4=;
+        b=Srx7+rLxOxXXEB9tnYfYruDOAtjL2LVL2W7XtExNy98yDqSHym+mHUUD6mpau43i6n
+         tfcfA2xRegUizSPU2LEhDtkuVOGjIgdL2gRjIa36I+G+on1+u3TDV5hELyukPctLSVDD
+         iZoMN5Ai1dDZZepznb6t/PyZTWRTleqdcJoQlPrjOZrUVGpXAAlY77qEu2kCYufLwAGj
+         DN+e704g6Jyvk+FPTO6nUP3uyXxAJxUvFS8TOp5vmU9mD5gPhKmHna2mnPHXRJIwkfyY
+         mhtYafyx6m6yIkWt1avdqHt0lhypxqGii5TCfapiWDwxbDJky63fuZG+QfzRKQ8F7Cft
+         P0YA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786344755; x=1786949555;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=OqEuJEoPbKvmQ82yf9uvBWxpPYFbSngty6vt/ZB4aZ4=;
+        b=V8A6YPYOWguXm1j0nl750dwLT5nfzT6spib0H2O4nTB9xf1jjaafXw8PhdCt9x/Vds
+         NnFAqPmfp79RvosyNDUyLVqv+h/U4j0iZdZQmaOe9PkvS2WWqAMPGkGedqjz+4lGEISs
+         ku6UjJ91Uepg2KqNyCMB+L1xut1pDO7dRcOAoLXisQhYEhk7ounQV37Y9rDSIC297yG/
+         74xJRgg4kN07OBv4MxqwGbKf2NBM1ZHVhpYN+qiiMO/FRHmTRjOUaP9kci8FUyirXlEb
+         7DobseIJBSqZfy7tz994H+Gy9wfXj4pvSM3r94aqLhiZlCQqqMmXM7fxmgs3oEDMfmyB
+         drWg==
+X-Forwarded-Encrypted: i=1; AHgh+RpOM8eyhumt/pgAmM+T30DiANipnD5fualPrY5SN9tm+aiZwuNLU83FlRpIPUlTfFW8j38LnA9J9iig42l+UjnK@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJLDYAyn/yy9nUOv1ybW8e0qB4W+xlSJeJEinKfTQAfoXMf7yG
+	u0Zs2dHgcDNgXww0+e0OCsy+piSxpcNQwW/19qqmSs6v4KlC46wGKGM8
+X-Gm-Gg: AR+sD11lM9X/O4+1+xX9oxUmdfSKGNsLc54qMcf5DqcCf9TYPp7y9jqDlUT6v26H+me
+	6osOiDANsXDMKAx8EfuS6SQfHI14yNJveklM6hQ4hJxlU+0mF3j0TCrrQjOEvpb4WUPfM6t6NyN
+	WH4J9DyhoWljQCi94KgIOM0HN1zlWbKaK4gSNZxCabz1tN56Poy7bxt/l9h7rJh6Cc8Mxqh+weq
+	Mey0Vcljz5npG2nVZ09tawhr2Dn0kgp55Nm33cIep6nTNpGqy0RkFucZT+KwPTjgpS8oF6kt6vy
+	N8JvdSOvlwF2SHo5BcOu9XPxO8RImTe8orsPY6Zvj3Cmt8Ho3CZBcWELk3PaLKWasZfy9iGdwTa
+	WvBfkF0xhLz+q/kxB27XyfkJkMc2/5Leq9mBo9ZYgRpqdNJvI6gk+O+PUcUJY5VC8G/OOcD8dPZ
+	xGoaqNif2dSkcsKKWagmjmC7J1TnM4/wkC20Vsr8/Ep4Cj3Uks42eVYTRZ6QXhpgzr+prFQarQN
+	UVYPPCMod19LTo5zU93IfgVL5Xx7VOYzOJBqJvBYy0/i8osUYvuIY2xaQs2q8vMI+908YWicdRN
+	setA88RZhYQOhXp52EzugSmSzrud222/6BWYVUf6QzpNDZUga+LJL5zirvUtnyNHrS93dPrlDiw
+	WBA==
+X-Received: by 2002:a05:600c:c4a3:b0:496:c1f3:e8f8 with SMTP id 5b1f17b1804b1-4994e71eaf3mr490380035e9.7.1786344754823;
+        Sun, 09 Aug 2026 23:52:34 -0700 (PDT)
 Received: from MBP-von-Karl.localdomain (dynamic-2a02-3100-a1e8-7401-78b1-a175-5d13-e92e.310.pool.telefonica.de. [2a02:3100:a1e8:7401:78b1:a175:5d13:e92e])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4995420c68fsm358800705e9.1.2026.08.09.23.52.21
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4995420c68fsm358800705e9.1.2026.08.09.23.52.33
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sun, 09 Aug 2026 23:52:22 -0700 (PDT)
+        Sun, 09 Aug 2026 23:52:34 -0700 (PDT)
 From: Karl Mehltretter <kmehltretter@gmail.com>
 To: Marc Zyngier <maz@kernel.org>,
 	Oliver Upton <oupton@kernel.org>,
@@ -90,16 +91,17 @@ Cc: Karl Mehltretter <kmehltretter@gmail.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-kselftest@vger.kernel.org
-Subject: [RFC PATCH 0/2] KVM: arm64: fix VGICv3 redistributor rollback
-Date: Mon, 10 Aug 2026 08:52:15 +0200
-Message-Id: <cover.1786344511.git.kmehltretter@gmail.com>
+Subject: [RFC PATCH 1/2] KVM: arm64: vgic-v3: Roll back failed redistributor region setup
+Date: Mon, 10 Aug 2026 08:52:16 +0200
+Message-Id: <4e00fc25aa61ec52e6ef033a53588ce3f5550982.1786344511.git.kmehltretter@gmail.com>
 X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+In-Reply-To: <cover.1786344511.git.kmehltretter@gmail.com>
+References: <cover.1786344511.git.kmehltretter@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260809_235225_568933_E5D3CCF6 
-X-CRM114-Status: UNSURE (   7.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260809_235236_734342_DB0543E8 
+X-CRM114-Status: GOOD (  16.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,36 +116,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A failed REDIST_REGION update can unregister redistributor iodevs
-belonging to earlier regions without clearing their cached base
-addresses. A corrected retry then succeeds without restoring the missing
-iodevs.
+A later REDIST_REGION attribute can be inserted successfully and then
+fail while registering redistributor iodevs. For example, a region that
+overlaps the distributor is caught by vgic_v3_check_base() when the first
+unassigned vCPU is processed.
 
-Limit rollback to vCPUs assigned to the newly added region. Extend
-vgic_init to access an earlier redistributor after a failed update and
-retry.
+The existing rollback unregisters all previously registered
+redistributor iodevs. It leaves their rd_iodev.base_addr values set, so a
+corrected retry skips re-registering those stale vCPUs and succeeds with
+holes in the MMIO bus.
 
-Commits 8542a8f95a67, 59112e9c390b, and 0d92e4a7ffd5 progressively fixed
-cleanup after a failed region update. Preserving earlier regions follows
-that model.
+A failure from kvm_io_bus_register_dev() can leave another hole. The
+failing vCPU already has its base address and region assigned, but the
+old i < c rollback does not include it.
 
-Built with GCC 15.2.0 and tested under QEMU 10.2.1 TCG with
--machine virt,virtualization=on,gic-version=3 and -cpu max. Both runs
-reached the VGICv3 tests. The patched kernel passed; the same selftest
-against the unpatched base failed with:
+Preserve devices assigned by earlier successful setters. On failure,
+unregister only vCPUs associated with the newly inserted region, clear
+their cached base addresses, and free that region. This also includes the
+current vCPU when iodev registration itself fails.
 
-  Unexpected MMIO exit at 0x8050008
+Fixes: c011f4ea106b ("KVM: arm/arm64: Check vcpu redist base before registering an iodev")
+Assisted-by: Codex:gpt-5.6-sol
+Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+---
+ arch/arm64/kvm/vgic/vgic-mmio-v3.c | 42 ++++++++++++++++++------------
+ 1 file changed, 26 insertions(+), 16 deletions(-)
 
-Karl Mehltretter (2):
-  KVM: arm64: vgic-v3: Roll back failed redistributor region setup
-  KVM: arm64: selftests: Test VGICv3 redistributor region retry
-
- arch/arm64/kvm/vgic/vgic-mmio-v3.c            |  42 ++++---
- tools/testing/selftests/kvm/arm64/vgic_init.c | 115 +++++++++++++-----
- 2 files changed, 112 insertions(+), 45 deletions(-)
-
-
-base-commit: b9b3e33b70b71e516930117e21de3ad2a7723747
+diff --git a/arch/arm64/kvm/vgic/vgic-mmio-v3.c b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+index 5913a20d83019..832a7fe65984c 100644
+--- a/arch/arm64/kvm/vgic/vgic-mmio-v3.c
++++ b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+@@ -841,6 +841,31 @@ void vgic_unregister_redist_iodev(struct kvm_vcpu *vcpu)
+ 	kvm_io_bus_unregister_dev(vcpu->kvm, KVM_MMIO_BUS, &rd_dev->dev);
+ }
+ 
++static void vgic_v3_rollback_redist_region(struct kvm *kvm, u32 index)
++{
++	struct vgic_redist_region *rdreg;
++	struct kvm_vcpu *vcpu;
++	unsigned long c;
++
++	lockdep_assert_held(&kvm->slots_lock);
++
++	rdreg = vgic_v3_rdist_region_from_index(kvm, index);
++
++	kvm_for_each_vcpu(c, vcpu, kvm) {
++		if (vcpu->arch.vgic_cpu.rdreg == rdreg)
++			vgic_unregister_redist_iodev(vcpu);
++	}
++
++	guard(mutex)(&kvm->arch.config_lock);
++
++	kvm_for_each_vcpu(c, vcpu, kvm) {
++		if (vcpu->arch.vgic_cpu.rdreg == rdreg)
++			vcpu->arch.vgic_cpu.rd_iodev.base_addr = VGIC_ADDR_UNDEF;
++	}
++
++	vgic_v3_free_redist_region(kvm, rdreg);
++}
++
+ static int vgic_register_all_redist_iodevs(struct kvm *kvm)
+ {
+ 	struct kvm_vcpu *vcpu;
+@@ -855,16 +880,6 @@ static int vgic_register_all_redist_iodevs(struct kvm *kvm)
+ 			break;
+ 	}
+ 
+-	if (ret) {
+-		/* The current c failed, so iterate over the previous ones. */
+-		int i;
+-
+-		for (i = 0; i < c; i++) {
+-			vcpu = kvm_get_vcpu(kvm, i);
+-			vgic_unregister_redist_iodev(vcpu);
+-		}
+-	}
+-
+ 	return ret;
+ }
+ 
+@@ -984,12 +999,7 @@ int vgic_v3_set_redist_base(struct kvm *kvm, u32 index, u64 addr, u32 count)
+ 	 */
+ 	ret = vgic_register_all_redist_iodevs(kvm);
+ 	if (ret) {
+-		struct vgic_redist_region *rdreg;
+-
+-		mutex_lock(&kvm->arch.config_lock);
+-		rdreg = vgic_v3_rdist_region_from_index(kvm, index);
+-		vgic_v3_free_redist_region(kvm, rdreg);
+-		mutex_unlock(&kvm->arch.config_lock);
++		vgic_v3_rollback_redist_region(kvm, index);
+ 		return ret;
+ 	}
+ 
 -- 
 2.53.0
+
 
