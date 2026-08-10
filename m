@@ -4,99 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61D6EC5AD55
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 14:45:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9B97C5AE49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 14:47:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c/J6pjqX1tkN7ol9r0yPzfB+nnpzebdTRaebsQQSoZo=; b=ZzBK0EKM1YPW8mr6nn+w9Lh12E
-	kG3KHrCs9DNODIohaX9TugAvhHS81IFKAeoEzgHZrABPlZq/K7A05HiqAtFWA+Bx6df6vpc97GrFu
-	VsEM2zoq9gcDMme+TYjUBvo4ixIWhW8qYJFVgQNbhXk6xBfJFLb0DsPMmyQv3EUO8aCbPkNtiRegD
-	MuFaHDEvjNrj8lYaCb9mLBsy/9n28aZ0D/1jR9nDhrpb6IW5PzL5yZbxRBugS4v7vCw6DyyMb5d8m
-	gibzXf7tA/Ct/IvQidnKvUfgqgHMpWSbup0b5Q3aVIDV//DvtKgHeZ7snPjbn4kQgeyarkZHl4Mi8
-	dihG3QQw==;
+	bh=E1/4QFqdV698fTwsjnx4Knwlcb+sMgn8eD0jO+RRChk=; b=yLVAwAmAJbex3bez8ZdGylrcDs
+	ITOScveZl+w4u7aj26uotHbNGZuWf0s/D9G8U5c7EIMJh9/v3qOe7z1RKSlkn/QlG7srtDZAsx0xb
+	PDz7F330yYsmDhkjXlfyE5meHdYR4Hj7o4SCEWa9mPG6jLNNmgjRxk7Gbe/3cFTbM5cnfT3lMbhhL
+	iM4+ZCPWkPQtedoaumNYziwXXt41f8ZOwdy5bGcsY7lpTTpErPQAoKthx8MRXp9lBjwofYSeIbykm
+	wY/dtTmjgQ6ajok09HQX19IFfh5L6KRQFyFr8JnqoRZGdqtFsP5rUamAx0TLtXm9g7d8Qfs//87GK
+	2mpa0TUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtRG2-0000000C3uQ-3GsC;
-	Mon, 10 Aug 2026 14:45:42 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wtRHN-0000000C4gf-0NmG;
+	Mon, 10 Aug 2026 14:47:05 +0000
+Received: from esa2.hc1455-7.c3s2.iphmx.com ([207.54.90.48])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtRG1-0000000C3t6-3Qqb
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 10 Aug 2026 14:45:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
-	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=c/J6pjqX1tkN7ol9r0yPzfB+nnpzebdTRaebsQQSoZo=; b=jqXgyp7mVnAMEtRdRv4BOTeU7R
-	Jn7nQzDMD8Ta1SKwDpNylanjCrCqTc3jlc4BY+O6ILjamKc/swqdImw9C/PTFLOr35Uj3RuiNX9Qh
-	huhAZxHEqRJHUeA0EyaH4UeX1trAJ6ZvldLL3kzs2zjBhCQ2csaWSE0vGPBTiBQgZmWHX29oQ9aS2
-	pm3SNVWtfsYyVDAYdbm94dNiBFwFqGqoJJVzpghhVFKMH6XP0hrSVEY5qprHhOqbWxnPJqP6qbEw+
-	/VmVMY76xP9b6m+HJIKS04+y4OPK7JazzEwLD3tr0HS53t4hICsfB2wUs5jtKJfR4kzMHrjZlVjQ1
-	8D4tQHFg==;
-Received: from mail-vk1-f180.google.com ([209.85.221.180])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wtRFy-0000000DtTQ-3MYN
+	id 1wtRHL-0000000C4fv-0hY7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 14:45:40 +0000
-Received: by mail-vk1-f180.google.com with SMTP id 71dfb90a1353d-5bf959b820cso1289225e0c.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 07:45:37 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786373136; x=1786977936;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=c/J6pjqX1tkN7ol9r0yPzfB+nnpzebdTRaebsQQSoZo=;
-        b=Qd5KrHEvdSlGW1P2kaxZiHCC1corw46ca54nF/puEkx50qcwiOGcA0n2arL6oOlQPK
-         LGH17NpuVijA+AYK6u+0tKUSC9o3q3m8YB0/eMeNdEX6D/f5jor8Bep8f4HgKU8MoQmJ
-         k+UacqmoFhPPoJ0xQ3iLVqxRhuq5UKbakcsVUXtJOx3ms/rfnUHHdACOJx6KTmwB9BKY
-         3yOwWyKS6umccTz+3lNpK8EMsT1encG4GxmiwLuQYwJ5rrj2QoI1OTPDooCXTU1+VTu0
-         ztOfrBKC6zvUSKPUBlTqNPI4Xt5kOEAt1RSG9x02r2iDqlb+4IcP9umCZHxaLt74+E9r
-         BQTg==
-X-Gm-Message-State: AOJu0YxRs0O8aoS+6mlKFxunKPQW55HFH25oMAt4B9xmbSprqRCkoTjP
-	OYpht0VjugaVYVTYSj5A0MdqeWePdpFle8qi/D/fJvygQPdRhJgGlHMnmbbzpBLz
-X-Gm-Gg: AR+sD106nh7KVfB/8dwPubbPoGOrhDAWmPeDUV+GDpnw6dpoGvoSF+USKoc9lW/jiWP
-	CI3ESuACR/gTXNhVbWsQSZFZTNEGjZCvDDTuw2mJ8zMvtQkFXpLxHUYCQ3xOgPiLfyBaMwMEILL
-	EJUoi858IvCPPT4JNOXQWuTLjUG7/tbhZvNDX0W9tKX45JKb8sW4JecmsmW68xLcmKsbiSc4Bub
-	RM2HCqWSkIWAGxko10d5pq0LbyBbb+gGiQAmcn5Sx28cGq7RqZSwIqdWYJXU6RIG+16Lf4AU0QU
-	P7icu72ONk+nwKSrslAjsUNSVYJG0vwB5HeysTX7lvg9LfZQdFIGa6Nqp6DLNBSnv9i70NbYOMb
-	uinKo1pSQWber2l5lz66gPUTP6INSGYTwYU9K1K4a2eQlWEC0glR8kwjXjpzN+UBVdueDIYu2jh
-	qs9KWUmB2rANoqaE43/Z+zSMQczygCWyRY9S2PkqS719qkZBSt8QFMO8LIXwFy4/8uHf0Scx1gd
-	kj4SmS5e2+ZW1jqSnjwREaS+g==
-X-Received: by 2002:a05:6102:2c08:b0:75f:e517:ec95 with SMTP id ada2fe7eead31-764e648bbb6mr5770092137.8.1786373136368;
-        Mon, 10 Aug 2026 07:45:36 -0700 (PDT)
-Received: from mail-ua1-f43.google.com (mail-ua1-f43.google.com. [209.85.222.43])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-76400dfe036sm4700305137.8.2026.08.10.07.45.35
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 10 Aug 2026 07:45:36 -0700 (PDT)
-Received: by mail-ua1-f43.google.com with SMTP id a1e0cc1a2514c-969524c1a63so1314036241.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 07:45:35 -0700 (PDT)
-X-Received: by 2002:a05:6102:1490:b0:650:94b2:b209 with SMTP id
- ada2fe7eead31-764e5a4e354mr5957977137.4.1786373135792; Mon, 10 Aug 2026
- 07:45:35 -0700 (PDT)
+	Mon, 10 Aug 2026 14:47:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1786373227; x=1817909227;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=99XkH2IMF7D6nyHbHISy+8bb2LKxW8tAVwIQzhTqFok=;
+  b=GuPSJ7lhZN8WfwZkLoqY2buGEDZh1I1dnLs5aSmH9YI0Lj3v5+VNVnFA
+   kAzsuIsMMSMnnvR2CYTNY+AyG4KE3sd2UJ7ki9NRZdETbsRWfxOjIOZXn
+   X2/MyCqdtVlpJpHmUQznBDx7SacFb7auveQhcquGzmCuMTWZFsUrLVHA7
+   8b05OPtoxcvN1TO0toEfd22nWS/BkefayRoD5FOgKMJt6cLP766HV3Hrr
+   ea+6GRGU0UGwMrMG0tIpDYNXHYOXc9DgsWLbY91gAqQMYsgdek45Xsoze
+   qXL4do2lPRfdxH/jJEmVTI2h/oyKi23RhN8B/tctt3u/H78sUctXVpPEA
+   A==;
+X-CSE-ConnectionGUID: NgOdpG8KQwq9u9i1CfgLqA==
+X-CSE-MsgGUID: ePCuH5v0QhWymeA+gzD6DA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11870"; a="250455916"
+X-IronPort-AV: E=Sophos;i="6.25,215,1779116400"; 
+   d="scan'208";a="250455916"
+Received: from gmgwnl01.global.fujitsu.com ([52.143.17.124])
+  by esa2.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Aug 2026 23:47:04 +0900
+Received: from az2nlsmgm4.fujitsu.com (unknown [10.150.26.204])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by gmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id 3E2A31C000AB
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 14:47:00 +0000 (UTC)
+Received: from az2uksmom2.o.css.fujitsu.com (unknown [10.151.22.203])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2nlsmgm4.fujitsu.com (Postfix) with ESMTPS id E96AA1025E81
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 14:46:59 +0000 (UTC)
+Received: from FCCLS0092175.localdomain (unknown [10.9.24.243])
+	by az2uksmom2.o.css.fujitsu.com (Postfix) with SMTP id 503D314000B0;
+	Mon, 10 Aug 2026 14:46:52 +0000 (UTC)
+Date: Mon, 10 Aug 2026 23:46:50 +0900
+From: Kohei Enju <enju.kohei@fujitsu.com>
+To: Steven Price <steven.price@arm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
+	Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, 
+	James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, 
+	Alexandru Elisei <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>, 
+	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev, 
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>, Gavin Shan <gshan@redhat.com>, 
+	Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun <alpergun@google.com>, 
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>, 
+	Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com, Lorenzo Pieralisi <lpieralisi@kernel.org>
+Subject: Re: [PATCH v16 30/45] KVM: arm64: CCA: Handle realm vCPU load
+Message-ID: <annfY97FFA8ZuoHE@FCCLS0092175.localdomain>
+References: <20260803134403.80630-1-steven.price@arm.com>
+ <20260803134403.80630-31-steven.price@arm.com>
 MIME-Version: 1.0
-References: <20260714130515.11262-1-marek.vasut+renesas@mailbox.org> <20260714130515.11262-2-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20260714130515.11262-2-marek.vasut+renesas@mailbox.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 10 Aug 2026 16:45:23 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdVZcy_kA-R=bjdDJQmPp--=NMuyaJB7NV-+uZ=zyFZ30Q@mail.gmail.com>
-X-Gm-Features: AUfX_mzpflf907Mv9hDTB-ODXObAaiTjsgKM8flRS-o-ZchQdmzFsvncjRXxvD0
-Message-ID: <CAMuHMdVZcy_kA-R=bjdDJQmPp--=NMuyaJB7NV-+uZ=zyFZ30Q@mail.gmail.com>
-Subject: Re: [PATCH 2/2] arm64: dts: renesas: hihope-rzg2-ex: Specify ethernet
- PHY reset timings
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
-	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260803134403.80630-31-steven.price@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_154538_866438_69880CA4 
-X-CRM114-Status: GOOD (  17.63  )
+X-CRM114-CacheID: sfid-20260810_074703_510791_EA40BEFF 
+X-CRM114-Status: GOOD (  23.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,30 +101,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 14 Jul 2026 at 15:05, Marek Vasut
-<marek.vasut+renesas@mailbox.org> wrote:
-> The RTL8211E reference manual [1] page 38 chapter 7.16. PHY Reset
-> (Hardware Reset) states that the PHYRSTB pin must be asserted low
-> for at least 10ms (Tgap in Figure 10) and the system must wait at
-> minimum 30ms (for internal circuits settle time) before accessing
-> the PHY registers. Use 15ms and 35ms respectively to provide some
-> additional margin.
->
-> [1] https://files.pine64.org/doc/datasheet/pine64/rtl8211e%28g%29-vb%28vl%29-cg_datasheet_1.6.pdf
->
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+On 08/03 14:43, Steven Price wrote:
+> When loading a realm VCPU much of the work is handled by the RMM so only
+> some of the actions are required. Rearrange kvm_arch_vcpu_load()
+> slightly so we can bail out early for a realm guest.
 
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-i.e. will queue in renesas-devel for v7.4.
+Hi Steven,
 
-Gr{oetje,eeting}s,
+I found that Realm guests can execute WFI/WFE instructions without
+causing a REC exit, ignoring KVM's WFx trap policy.
 
-                        Geert
+I'd suggest translating HCR_EL2.TWE/TWI into the corresponding
+run->enter.flags to honor the policy. Below is the patch I tested.
 
+----
+From 8637cd6f818a3c56d8b898a72874e9485eb94e59 Mon Sep 17 00:00:00 2001
+From: Kohei Enju <enju.kohei@fujitsu.com>
+Date: Mon, 10 Aug 2026 22:54:27 +0900
+Subject: [PATCH] KVM: arm64: CCA: Honor WFx trap policy for Realm vCPUs
+
+Propagate KVM's WFx trap policy to the RMM by translating
+HCR_EL2.TWE/TWI into REC_ENTER TRAP_WFE/WFI flags before entering a REC.
+
+Without this, guests can execute WFE/WFI instructions without causing a
+REC exit, ignoring KVM's common trap policy. Configure the REC_ENTER
+flags to honor the policy.
+
+Signed-off-by: Kohei Enju <enju.kohei@fujitsu.com>
+---
+ arch/arm64/include/asm/kvm_rmi.h |  2 ++
+ arch/arm64/kvm/arm.c             |  3 +++
+ arch/arm64/kvm/rmi.c             | 14 ++++++++++++++
+ 3 files changed, 19 insertions(+)
+
+diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
+index 2789879b6701..b858c6b4db6a 100644
+--- a/arch/arm64/include/asm/kvm_rmi.h
++++ b/arch/arm64/include/asm/kvm_rmi.h
+@@ -109,6 +109,8 @@ void kvm_destroy_realm(struct kvm *kvm);
+ int kvm_realm_teardown_stage2(struct kvm *kvm);
+ void kvm_destroy_rec(struct kvm_vcpu *vcpu);
+ 
++void kvm_rec_set_wfx_traps(struct kvm_vcpu *vcpu);
++
+ int kvm_rec_enter(struct kvm_vcpu *vcpu);
+ int kvm_rec_exit(struct kvm_vcpu *vcpu, int rec_run_status);
+ int kvm_rec_handle_request(struct kvm_vcpu *vcpu);
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 7edc572dd8ab..0cba333b4fd2 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -770,6 +770,9 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
+ 	else
+ 		vcpu->arch.hcr_el2 |= HCR_TWI;
+ 
++	if (vcpu_is_rec(vcpu))
++		kvm_rec_set_wfx_traps(vcpu);
++
+ 	vcpu_set_pauth_traps(vcpu);
+ 
+ 	if (is_protected_kvm_enabled()) {
+diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
+index c242dfc2c7a6..c472f3d03234 100644
+--- a/arch/arm64/kvm/rmi.c
++++ b/arch/arm64/kvm/rmi.c
+@@ -1302,6 +1302,20 @@ static void noinstr load_realm_timer_state(struct kvm_vcpu *vcpu)
+ 	write_sysreg_el0(rec_exit->cntp_ctl, SYS_CNTP_CTL);
+ }
+ 
++void kvm_rec_set_wfx_traps(struct kvm_vcpu *vcpu)
++{
++	struct realm_rec *rec = &vcpu->arch.rec;
++
++	rec->run->enter.flags &=
++		~(REC_ENTER_FLAG_TRAP_WFE | REC_ENTER_FLAG_TRAP_WFI);
++
++	if (vcpu->arch.hcr_el2 & HCR_TWE)
++		rec->run->enter.flags |= REC_ENTER_FLAG_TRAP_WFE;
++
++	if (vcpu->arch.hcr_el2 & HCR_TWI)
++		rec->run->enter.flags |= REC_ENTER_FLAG_TRAP_WFI;
++}
++
+ int noinstr kvm_rec_enter(struct kvm_vcpu *vcpu)
+ {
+ 	struct realm_rec *rec = &vcpu->arch.rec;
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+2.43.0
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+> 
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> ---
+>  arch/arm64/kvm/arm.c | 19 ++++++++++++-------
+>  1 file changed, 12 insertions(+), 7 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index f1b26b263bf0..96e536d2dda8 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -707,7 +707,7 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
+>  	struct kvm_s2_mmu *mmu;
+>  	int *last_ran;
+>  
+> -	if (is_protected_kvm_enabled())
+> +	if (is_protected_kvm_enabled() || kvm_is_realm(vcpu->kvm))
+>  		goto nommu;
+>  
+>  	if (vcpu_has_nv(vcpu))
+> @@ -751,12 +751,6 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
+>  	kvm_vgic_load(vcpu);
+>  	kvm_vcpu_load_debug(vcpu);
+>  	kvm_vcpu_load_fgt(vcpu);
+> -	if (has_vhe())
+> -		kvm_vcpu_load_vhe(vcpu);
+> -	kvm_arch_vcpu_load_fp(vcpu);
+> -	kvm_vcpu_pmu_restore_guest(vcpu);
+> -	if (kvm_arm_is_pvtime_enabled(&vcpu->arch))
+> -		kvm_make_request(KVM_REQ_RECORD_STEAL, vcpu);
+>  
+>  	if (kvm_vcpu_should_clear_twe(vcpu))
+>  		vcpu->arch.hcr_el2 &= ~HCR_TWE;
+> @@ -778,6 +772,17 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
+>  			     &vcpu->arch.vgic_cpu.vgic_v3);
+>  	}
+>  
+> +	/* No additional state needs to be loaded on Realmed VMs */
+> +	if (vcpu_is_rec(vcpu))
+> +		return;
+> +
+> +	if (has_vhe())
+> +		kvm_vcpu_load_vhe(vcpu);
+> +	kvm_arch_vcpu_load_fp(vcpu);
+> +	kvm_vcpu_pmu_restore_guest(vcpu);
+> +	if (kvm_arm_is_pvtime_enabled(&vcpu->arch))
+> +		kvm_make_request(KVM_REQ_RECORD_STEAL, vcpu);
+> +
+>  	if (!cpumask_test_cpu(cpu, vcpu->kvm->arch.supported_cpus))
+>  		vcpu_set_on_unsupported_cpu(vcpu);
+>  
+> -- 
+> 2.43.0
+> 
 
