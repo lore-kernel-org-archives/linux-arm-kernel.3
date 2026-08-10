@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70D9DC5AC82
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 11:23:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F441C5AD55
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 11:23:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1V7TTYAkXiaPJ4xpU/7MyjZA/jWYvtjjggemihj2hfY=; b=CWlpaZH+wwtN7fdOQdEbu6CBcZ
-	c2H67QK6DmAoZTIcttRRJP+yIUGUxmPbrREZGiscsA2LQYI8uh6ZNsWVBJVghopPK/nhozavXzujV
-	mYxTD/JcqupRZMEaPly4OGddwKbF2cJW1TZu4mrhA5cLR4M8hxgzBu43Lbl1L+BkQkQ59rI434zsV
-	0vnBmR4SlFUteO7S/kCYvtyI6W0X8Vf9ajwFTA8gZWjR9ixPgWnJ2G3m6AfjLRUzredWJxZKFwqgM
-	yWYLdkxgG6ngkg2o0WDPhloaIyvvXr4Cd1+Vw77vG5Z7fBqss3JlCP78kXlI8d6CHizkkXP0e6SCY
-	lBvfDXfw==;
+	bh=q1QcRNGnFv7QdIPyvShu/38BHGcBZoEeg9hc2zMEp78=; b=Ytt20p8Fh45QRMO8PsKilQrjK9
+	gIiV3BQYWGx17O3eOAaBBN7wW7NXBX/11j94MPLedXKww5K6C5INXhBJuPgGMYMm93Nv+vpnIrQb/
+	iO6oDM7+XyyFtFlIwAGFM3fozsaTiXd+SkE0WZkqR9rmEkmCaksKa99A4gneaAEGX9ewWVEFAVPXr
+	BbEyMZDh8dr8gEj/J4GWbfMFpGOxHZElFBvNEmS5koQHVWhPOuuUFWTqJnw5cb1AMdAtNVBeKvvLM
+	CTBW29ZQqZXjE0ELQPP30vZ2WkhO5CJmRtQzL2M7g5o0dBWP524ohhcwuFvFGEC6HBE63b2xVq1XW
+	OAkfHBCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtO6a-0000000BbCO-1EPg;
-	Mon, 10 Aug 2026 11:23:44 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1wtO6c-0000000BbE6-1dqy;
+	Mon, 10 Aug 2026 11:23:46 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtO6U-0000000Bb51-1e7E
+	id 1wtO6X-0000000BbB7-3apl
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 11:23:39 +0000
+	Mon, 10 Aug 2026 11:23:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1786361018; x=1817897018;
+  t=1786361022; x=1817897022;
   h=from:date:subject:mime-version:content-transfer-encoding:
    message-id:references:in-reply-to:to:cc;
-  bh=UEBKhPLj4vaZS8jmT4jd1oXm76SCoBbS2+XegK3wRw0=;
-  b=D9xMlBrtKuLYe9LSV1hg8h4iwvuwwQLeZpDxn68tTnPVwsDf4LxX7gWx
-   bgw3TaRInnHxdFjOYIo9G2Gm/yvEFe48SN0HCCypO35y/VfH8Pb541qqL
-   x6JnF55DRANT4KiBV21ZMldhIrkBHUFhZfxUHRq/nQnBrfvK1V0eLs/5D
-   wqmesAoz6BPiQi2s9ANZQ90cqTrvL9+elYWbm39UZrsSHlH0mAylgVQWw
-   CGXX7OsAVqBE4oowyFzTLEh6U2IdO2I8bxA8//HKbK3y9QHNs03MPVpcx
-   47+Y7TK5LbGd5Pv4CuQ0JI9084N1rkXDu+bmdXIrBOThMFF9GoTA/D/R5
-   Q==;
-X-CSE-ConnectionGUID: +ulS59dURhKHkZc36is/1A==
-X-CSE-MsgGUID: 7FC7tIixQv2VrPkWLKi7Pw==
+  bh=Nb4mdXaHJMZNrjDyYT5myhGF7dKDRlGfcen4+EL+mB4=;
+  b=ihfRT1fo2TVOu61yJT6GkDhg0MB/ZmfGoVRlYekRi79rznb8h3ig+8Gc
+   lNWYWIglnOoxBdxbKvzn9AlGyviLd0XPT2xy7MQg+oEKKkCYGiw6RF1FI
+   m9V0P+2NbhDvTPX5I3rGslxazkUzGAlSjKeYEjUwb3BAXd7yOLBIokc5T
+   0uqvmCYnZOaVuHx3/ftGEqfFkabSWTsv/kP3NtcgffPVTcVRHeayAt2//
+   lx7ucqUiJMJXHR3z4gcSVyN/9xMrnoMCwP7sJSgbdOgOQlIEO/txbNWDt
+   R8dT1YbNXb7xzF/TyI7Bh/fErr0v3jy5FgYFWzPITrZ3FGm2YC/drjEGP
+   A==;
+X-CSE-ConnectionGUID: HVuSDFkuS2muVFor/OqiNA==
+X-CSE-MsgGUID: B8VIR86PSpiLbdFE4RTcYQ==
 X-IronPort-AV: E=Sophos;i="6.25,215,1779174000"; 
-   d="scan'208";a="62209111"
+   d="scan'208";a="61894154"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 10 Aug 2026 04:23:38 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Aug 2026 04:23:41 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.87.151) by
+ chn-vm-ex2.mchp-main.com (10.10.87.31) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Mon, 10 Aug 2026 04:23:37 -0700
+ 15.2.2562.45; Mon, 10 Aug 2026 04:23:40 -0700
 Received: from [127.0.0.1] (10.10.85.11) by chn-vm-ex04.mchp-main.com
  (10.10.85.152) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Mon, 10 Aug 2026 04:23:34 -0700
+ Transport; Mon, 10 Aug 2026 04:23:37 -0700
 From: =?utf-8?q?Jens_Emil_Schulz_=C3=98stergaard?=
 	<jensemil.schulzostergaard@microchip.com>
-Date: Mon, 10 Aug 2026 13:20:48 +0200
-Subject: [PATCH net-next v2 3/9] net: microchip: vcap: make vcap actionset
- decoding type_id aware
+Date: Mon, 10 Aug 2026 13:20:49 +0200
+Subject: [PATCH net-next v2 4/9] net: microchip: vcap: expose helpers in
+ vcap api and update debugfs
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-ID: <20260810-sparx5_l3_routing-v2-3-59e68cc8c8ca@microchip.com>
+Message-ID: <20260810-sparx5_l3_routing-v2-4-59e68cc8c8ca@microchip.com>
 References: <20260810-sparx5_l3_routing-v2-0-59e68cc8c8ca@microchip.com>
 In-Reply-To: <20260810-sparx5_l3_routing-v2-0-59e68cc8c8ca@microchip.com>
 To: Horatiu Vultur <horatiu.vultur@microchip.com>,
@@ -78,8 +78,8 @@ CC: <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<jensemil.schulzostergaard@microchip.com>
 X-Mailer: b4 0.15-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_042338_515737_992C979E 
-X-CRM114-Status: GOOD (  13.27  )
+X-CRM114-CacheID: sfid-20260810_042341_930876_04BC5714 
+X-CRM114-Status: GOOD (  18.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,68 +94,167 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When reading a rule back from hardware, decoding has to identify which
-actionset the rule was written as. The existing logic was only aware of
-the actionset subword length, which cannot distinguish actionsets that
-share a subword length but differ in their type_id field. The LPM VCAP
-added in a following patch introduces this case: ARP_PTR, L3MC_PTR and
-ARP_ENTRY all occupy one subword and differ only by type_id.
+Add new helpers to the vcap client api, in preparation for L3 routing
+functionality:
 
-A helper is introduced to extract the type_id bits directly from
-stream[0]. This is valid by construction: the VCAP model places the
-type_id field (when present) immediately after the typegroup bits in
-the first subword.
+ - vcap_val_add_rule(): wraps vcap_val_rule() + vcap_add_rule().
+ - vcap_rule_mod_action_bit(): modify a bit-typed action on an existing
+   rule.
+
+Rename VCAP_CID_PREROUTING to VCAP_CID_PREROUTING_L0 and add
+VCAP_USER_L3, both needed by the upcoming LPM VCAP user.
+
+Extend the debugfs display to handle the new IP4_XIP and IP6_XIP key
+fields.
+
+Fix a latent undefined-behaviour bug in the debugfs action-field
+printer. The old mask expression (1 << width) - 1 is UB when width is
+32. The bug is unreachable before this series, since no existing field
+in any client hits this, but the LPM VCAP introduces VCAP_AF_MAC_LSB
+which is 32 bit wide.
 
 Reviewed-by: Daniel Machon <daniel.machon@microchip.com>
 Reviewed-by: Steen Hegelund <Steen.Hegelund@microchip.com>
 Signed-off-by: Jens Emil Schulz Østergaard <jensemil.schulzostergaard@microchip.com>
 ---
- drivers/net/ethernet/microchip/vcap/vcap_api.c | 16 ++++++++++++++--
- 1 file changed, 14 insertions(+), 2 deletions(-)
+Changes in v2:
+- Zero-initialise the client actionfield data in
+  vcap_rule_mod_action_bit() to avoid copying uninitialised stack bytes.
+---
+ drivers/net/ethernet/microchip/vcap/vcap_api.c     | 25 ++++++++++++++++++++++
+ drivers/net/ethernet/microchip/vcap/vcap_api.h     |  4 +++-
+ .../net/ethernet/microchip/vcap/vcap_api_client.h  |  6 ++++++
+ .../net/ethernet/microchip/vcap/vcap_api_debugfs.c | 13 ++++++++---
+ 4 files changed, 44 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/net/ethernet/microchip/vcap/vcap_api.c b/drivers/net/ethernet/microchip/vcap/vcap_api.c
-index 75c2ca54fddd..6e1ee15b82b7 100644
+index 6e1ee15b82b7..1ad2c44da8bd 100644
 --- a/drivers/net/ethernet/microchip/vcap/vcap_api.c
 +++ b/drivers/net/ethernet/microchip/vcap/vcap_api.c
-@@ -216,6 +216,13 @@ static void vcap_decode_field(u32 *stream, struct vcap_stream_iter *itr,
- 	}
+@@ -2389,6 +2389,19 @@ int vcap_add_rule(struct vcap_rule *rule)
  }
+ EXPORT_SYMBOL_GPL(vcap_add_rule);
  
-+/* The type_id field is always right after the typegroup bits, if it exists */
-+static u8 vcap_find_stream_type_id(u32 *stream, u16 tg_width,
-+				   u16 typefld_width)
++/* Validate and add rule to a VCAP instance */
++int vcap_val_add_rule(struct vcap_rule *rule, u16 l3_proto)
 +{
-+	return (stream[0] >> tg_width) & GENMASK(typefld_width - 1, 0);
++	int err;
++
++	err = vcap_val_rule(rule, l3_proto);
++	if (err)
++		return err;
++
++	return vcap_add_rule(rule);
 +}
++EXPORT_SYMBOL_GPL(vcap_val_add_rule);
 +
- /* Verify that the type id in the stream matches the type id of the keyset */
- static bool vcap_verify_keystream_keyset(struct vcap_control *vctrl,
- 					 enum vcap_type vt,
-@@ -1341,8 +1348,10 @@ vcap_verify_actionstream_actionset(struct vcap_control *vctrl,
- 				   enum vcap_actionfield_set actionset)
- {
- 	const struct vcap_typegroup *tgt;
-+	const struct vcap_field *typefld;
- 	const struct vcap_field *fields;
- 	const struct vcap_set *info;
-+	u8 value = 0;
- 
- 	if (vcap_actionfield_count(vctrl, vt, actionset) == 0)
- 		return false;
-@@ -1365,8 +1374,11 @@ vcap_verify_actionstream_actionset(struct vcap_control *vctrl,
- 	if (!fields)
- 		return false;
- 
--	/* Later this will be expanded with a check of the type id */
--	return true;
-+	typefld = &fields[VCAP_AF_TYPE];
-+	value = vcap_find_stream_type_id(actionstream,
-+					 tgt->width, typefld->width);
-+
-+	return value == info->type_id;
+ /* Allocate a new rule with the provided arguments */
+ struct vcap_rule *vcap_alloc_rule(struct vcap_control *vctrl,
+ 				  struct net_device *ndev, int vcap_chain_id,
+@@ -3560,6 +3573,18 @@ int vcap_rule_mod_action_u32(struct vcap_rule *rule,
  }
+ EXPORT_SYMBOL_GPL(vcap_rule_mod_action_u32);
  
- /* Find the subword width of the action typegroup that matches the stream data
++/* Modify a bit action with value in the rule */
++int vcap_rule_mod_action_bit(struct vcap_rule *rule,
++			     enum vcap_action_field action,
++			     enum vcap_bit val)
++{
++	struct vcap_client_actionfield_data data = {};
++
++	vcap_rule_set_action_bitsize(&data.u1, val);
++	return vcap_rule_mod_action(rule, action, VCAP_FIELD_BIT, &data);
++}
++EXPORT_SYMBOL_GPL(vcap_rule_mod_action_bit);
++
+ /* Drop keys in a keylist and any keys that are not supported by the keyset */
+ int vcap_filter_rule_keys(struct vcap_rule *rule,
+ 			  enum vcap_key_field keylist[], int length,
+diff --git a/drivers/net/ethernet/microchip/vcap/vcap_api.h b/drivers/net/ethernet/microchip/vcap/vcap_api.h
+index 05b4b02e59ef..011d1cb7b594 100644
+--- a/drivers/net/ethernet/microchip/vcap/vcap_api.h
++++ b/drivers/net/ethernet/microchip/vcap/vcap_api.h
+@@ -22,7 +22,7 @@
+ #define VCAP_CID_INGRESS_L5          1500000 /* Ingress Stage 1 Lookup 5 */
+ 
+ #define VCAP_CID_PREROUTING_IPV6     3000000 /* Prerouting Stage */
+-#define VCAP_CID_PREROUTING          6000000 /* Prerouting Stage */
++#define VCAP_CID_PREROUTING_L0       6000000 /* Prerouting Stage Lookup 0 */
+ 
+ #define VCAP_CID_INGRESS_STAGE2_L0   8000000 /* Ingress Stage 2 Lookup 0 */
+ #define VCAP_CID_INGRESS_STAGE2_L1   8100000 /* Ingress Stage 2 Lookup 1 */
+@@ -41,7 +41,9 @@ enum vcap_user {
+ 	VCAP_USER_MRP,
+ 	VCAP_USER_CFM,
+ 	VCAP_USER_VLAN,
++	VCAP_USER_L3,
+ 	VCAP_USER_QOS,
++	/* permanent enabled users above here */
+ 	VCAP_USER_VCAP_UTIL,
+ 	VCAP_USER_TC,
+ 	VCAP_USER_TC_EXTRA,
+diff --git a/drivers/net/ethernet/microchip/vcap/vcap_api_client.h b/drivers/net/ethernet/microchip/vcap/vcap_api_client.h
+index cdf79e17ca54..3f17e1e76b7d 100644
+--- a/drivers/net/ethernet/microchip/vcap/vcap_api_client.h
++++ b/drivers/net/ethernet/microchip/vcap/vcap_api_client.h
+@@ -167,6 +167,8 @@ void vcap_free_rule(struct vcap_rule *rule);
+ int vcap_val_rule(struct vcap_rule *rule, u16 l3_proto);
+ /* Add rule to a VCAP instance */
+ int vcap_add_rule(struct vcap_rule *rule);
++/* Validate and add rule to a VCAP instance */
++int vcap_val_add_rule(struct vcap_rule *rule, u16 l3_proto);
+ /* Delete rule in a VCAP instance */
+ int vcap_del_rule(struct vcap_control *vctrl, struct net_device *ndev, u32 id);
+ /* Make a full copy of an existing rule with a new rule id */
+@@ -266,6 +268,10 @@ int vcap_rule_mod_key_u32(struct vcap_rule *rule, enum vcap_key_field key,
+ int vcap_rule_mod_action_u32(struct vcap_rule *rule,
+ 			     enum vcap_action_field action,
+ 			     u32 value);
++/* Modify a bit action with value in the rule */
++int vcap_rule_mod_action_bit(struct vcap_rule *rule,
++			     enum vcap_action_field action,
++			     enum vcap_bit val);
+ 
+ /* Get a 32 bit key field value and mask from the rule */
+ int vcap_rule_get_key_u32(struct vcap_rule *rule, enum vcap_key_field key,
+diff --git a/drivers/net/ethernet/microchip/vcap/vcap_api_debugfs.c b/drivers/net/ethernet/microchip/vcap/vcap_api_debugfs.c
+index e0c65c7ab23e..36150822ce15 100644
+--- a/drivers/net/ethernet/microchip/vcap/vcap_api_debugfs.c
++++ b/drivers/net/ethernet/microchip/vcap/vcap_api_debugfs.c
+@@ -40,7 +40,8 @@ static void vcap_debugfs_show_rule_keyfield(struct vcap_control *vctrl,
+ 		value = (u8 *)(&data->u32.value);
+ 		mask = (u8 *)(&data->u32.mask);
+ 
+-		if (key == VCAP_KF_L3_IP4_SIP || key == VCAP_KF_L3_IP4_DIP) {
++		if (key == VCAP_KF_L3_IP4_SIP || key == VCAP_KF_L3_IP4_DIP ||
++		    key == VCAP_KF_IP4_XIP) {
+ 			out->prf(out->dst, "%pI4h/%pI4h", &data->u32.value,
+ 				 &data->u32.mask);
+ 		} else if (key == VCAP_KF_ETYPE ||
+@@ -88,7 +89,8 @@ static void vcap_debugfs_show_rule_keyfield(struct vcap_control *vctrl,
+ 	case VCAP_FIELD_U128:
+ 		value = data->u128.value;
+ 		mask = data->u128.mask;
+-		if (key == VCAP_KF_L3_IP6_SIP || key == VCAP_KF_L3_IP6_DIP) {
++		if (key == VCAP_KF_L3_IP6_SIP || key == VCAP_KF_L3_IP6_DIP ||
++		    key == VCAP_KF_IP6_XIP) {
+ 			u8 nvalue[16], nmask[16];
+ 
+ 			vcap_netbytes_copy(nvalue, data->u128.value,
+@@ -133,7 +135,12 @@ vcap_debugfs_show_rule_actionfield(struct vcap_control *vctrl,
+ 		out->prf(out->dst, "%d", value[0]);
+ 		break;
+ 	case VCAP_FIELD_U32:
+-		fmsk = (1 << actionfield[action].width) - 1;
++		if (action == VCAP_AF_MAC_LSB || action == VCAP_AF_MAC_MSB) {
++			hex = true;
++			break;
++		}
++		fmsk = actionfield[action].width ?
++		       GENMASK(actionfield[action].width - 1, 0) : 0;
+ 		val = *(u32 *)value;
+ 		out->prf(out->dst, "%u", val & fmsk);
+ 		break;
 
 -- 
 2.52.0
