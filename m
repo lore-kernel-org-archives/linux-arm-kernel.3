@@ -4,98 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F329C5B567
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 18:30:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19F56C5B567
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 18:31:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cixrKiaGYKoE51uWaNmYqYzgYbXZIR4e3E/JR6pSpcI=; b=mC4zvbUE1vHhvx5SfQeYV4idQV
-	rTGDgpsbN9Wi7J4DGZ06FIRtyr7qj9Xsy0++Q5iwroKMz3GtxJZn/HeYm+fvqiaKLJbkgVJxWVXkK
-	45OC342WOrT0kHT47LpTKkU7E0NQ9V0UEc6ApnkQpM8kKre8W/ViX7Vv6vPOPWjtjX+8BblDo8yzh
-	MPlF0d2WvoJHe3gvITGFIcbLQxu99eWzjwenMPOZszC0VznRhSIQQcKGg1GU2PLVdkagBH0lnjk/N
-	YJQ62VlRoS2qdA2V0CDr8Ws0TYC6BP52Rtk3HkNHSz0SdHcVdgMhIz5uqyAp99kRW06do1cEgHWB0
-	UdVfalNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Y0lggjtUq7t4FnGr3h+/8GK5Aapn1d7YcvCZUb9d1Uc=; b=NDWeNX34AT9kDsFuZ3FKcu1NoA
+	kSmrojAGY4zI1YP+qhRpOoI+epfW+qG5V0Vxy7ylqEW/0OU1IoHrP9t/PvEQ2mQPH8+1sCSerSX6L
+	iKFo5dtUoXCDMiiGcpthwbi1ncM2ehXdhoB/ry9a/p1z7hzo6lki8O2oeLKWH7Cj/zqD/FCP0u7mo
+	yCdZg1UBlFWvB09GPp+LqgSrIHFosUy0iGJ9+GdM37Sac2sliIndFDu1YQbEN3xRI6fYOAw8oN4+6
+	YH5T6o0qg0j1C7lXNWu8gtbvq5kOzPscyNjGJZo0yD+v1U+xXGtfu0eGGX3bCkc70l6YxDXOYZT2q
+	Oh63ywMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtUlL-0000000CdTk-1hkH;
-	Mon, 10 Aug 2026 18:30:15 +0000
-Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
+	id 1wtUm2-0000000Cdab-2ldd;
+	Mon, 10 Aug 2026 18:30:58 +0000
+Received: from mo4-p02-ob.smtp.rzone.de ([85.215.255.82])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtUlI-0000000CdTM-2lXx
+	id 1wtUlw-0000000CdZw-3Jxx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 18:30:14 +0000
-Received: by mail-pg1-x531.google.com with SMTP id 41be03b00d2f7-c9cf07d2df6so1708687a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 11:30:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1786386611; x=1786991411; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=cixrKiaGYKoE51uWaNmYqYzgYbXZIR4e3E/JR6pSpcI=;
-        b=fyark2NqpzUCyZMJ1j8Xd5SWGYn+R3/Ys6HLTk/nPAAbmi5HvTJGPxtUTzH3QJBbjH
-         CVbmvbHyesuSVhBgjH12sP9JArMNNyrQeRhcja3IVHRsWnUFVwyfcgyY2bPCNifadh2q
-         PHgrkrOcwbEHvTsT4XifMIKvWon+xVzD9AWsU=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786386611; x=1786991411;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=cixrKiaGYKoE51uWaNmYqYzgYbXZIR4e3E/JR6pSpcI=;
-        b=TjBMz8ZutNzgGrVKjqEcZGGQO4Orh/arBWURn87QaUXgkgYjDbxhRcNHIMeOLrg1eg
-         Nmu4kX2+uvxlCDiyyQQ1XIfp+S8+xVhZxgWzNaHHALI4G8i5cWDEHmm30XVGPfYoLTly
-         t98Y7vAsB2f6ILW0UkG3WGdu0cKQQ/rPtH2DHP/Eq+FsZsZPcGaHkm02WNizSilbk3am
-         uPFIHs4k5HOEEKlUktblZPaLOevRZzsHBqsKRs76lJcCnmWM4dvvT+SROyKjkTJnjwS+
-         HwQCuaaTrc2XTbQQ4qmNw7r3byoBorc7t3woAkxzaBzTFxAFzic1UhDX+wxltCtUJ3Tu
-         /0FQ==
-X-Forwarded-Encrypted: i=1; AHgh+RqZ0a6O25RKgIeQs02nw5ljh+a7EUkgfeOAdmNHXZTEohZJkDp9+9YbaXHcLo3AgtFJGgFM8AHtvlkWK/3cuKxY@lists.infradead.org
-X-Gm-Message-State: AOJu0YyMVmrcW4zSQCErci19wLh2hqd6MURb3GKsJC+wkjhexTZLOwnc
-	kSZ8fkh3YBhsuWNw6yml4H/8EcLCfnK90avasmYJJSJU2fz4Zl6gNPOXpkmuJ67N8w==
-X-Gm-Gg: AR+sD10vLPQ10u5iI57SY68FL60BXDIuNDSAV1phYC/WtEN/LMXNpEyWxncEMxJU3+M
-	EJV2OKpNPmJaEspUSa4c0THDnM4ykapSeTUPFwF9TyiD32TVOaq/Hjkpd8fGds4KTGsglXDVkBE
-	rIo6dLVlDF6Nk/AqWjQY+N0CTZTfhyhVmRX28oXwpOWE3XUSYQ1zYXRffsNhYMvkt79jPxC2j+p
-	y/+HwTKFvFWuuEdfhq/Ad9ZjklIBtdgJFhrsNjsS8dlEPp7WLGcaJ4WEH/+wSMrUTykT1Cz8LLX
-	214orChslhtozEFWphiknxCKzHoeNWrO4bUYAV3PxR2CxxCVRn1jw9eWHjzg7/TuzbT/zcdMPvD
-	Dj6Iyfo1ouSYdZW+kaTCC2UCc+FmonG6OaWzefJcKPbv4V6644EzyUcbIc+WHv7RdUDGjTcWqEv
-	PQxglTTIVomifZvjMX4WeeXGJAkRvF8QEvU0D/se4RpTBONzyIt3cvSD+RVWhHGMMfgSqTo7L1W
-	c3qpASHp10lMFT/Id2CoZhkxvw=
-X-Received: by 2002:a05:6a21:6e92:b0:3c6:61c6:8970 with SMTP id adf61e73a8af0-3cb85df2778mr59898448637.14.1786386611035;
-        Mon, 10 Aug 2026 11:30:11 -0700 (PDT)
-Received: from localhost ([2a00:79e0:2e7c:8:5c18:61df:6569:108b])
-        by smtp.gmail.com with UTF8SMTPSA id a92af1059eb24-14101b7ad29sm36583642c88.13.2026.08.10.11.30.09
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 10 Aug 2026 11:30:10 -0700 (PDT)
-Date: Mon, 10 Aug 2026 11:30:07 -0700
-From: Brian Norris <briannorris@chromium.org>
-To: George Valkov <gvalkov@gmail.com>
-Cc: Johannes Berg <johannes@sipsolutions.net>, sashiko-bot@kernel.org,
-	andrew@lunn.ch, chunfan.chen@gmail.com, francesco@dolcini.it,
-	kees@kernel.org, miriam.rachel.korenblit@intel.com,
-	wenst@chromium.org, rafael.beims@toradex.com,
-	avraham.stern@intel.com, peddolla.reddy@oss.qualcomm.com,
-	error27@gmail.com, s.kerkmann@pengutronix.de,
-	gregory.clement@bootlin.com, sebastian.hesselbarth@gmail.com,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH v3 1/2] wifi: mwifiex: ignore ROM regulatory hint on
- WRT3200ACM/WRT32x
-Message-ID: <anoYr9H4KojJv-aZ@google.com>
-References: <anWWr80yAcOQaVVS@nxpwireless-Inspiron-14-Plus-7440>
- <20260807182124.41572-1-gvalkov@gmail.com>
- <9cf8e6ee9c4c655e685708bc5660429074b18326.camel@sipsolutions.net>
- <CADOrJmbhdWhqRj_TSKYEgb_TrbJUpkQeYTGDb_93WSDdeaJPpQ@mail.gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CADOrJmbhdWhqRj_TSKYEgb_TrbJUpkQeYTGDb_93WSDdeaJPpQ@mail.gmail.com>
+	Mon, 10 Aug 2026 18:30:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1786386626; cv=none;
+    d=strato.com; s=strato-dkim-0002;
+    b=mz82WlIZan4fdradr0G0GV3tyuUfiq4KtXMHRclOx5h0EVDg/01VH3IXOSMdBKq0Nz
+    RpA2X6GcOkMpsV1v1b2PtMoe1oID9L4A28OzKnTkCaM8b8im7d/V7bG0bMa9WAhMdMcE
+    MWuULX81LacRG2Ro1KCA3TsNPHiRfdYwllSQPVRrgrovLJGw4OwVZF/Ps8CW1uKgaWGL
+    4Z9tMoINerl59ecIOopZlH2yS7wibGsEem3VRKaRlxq7RMfncpMqYM0TysUUcNyHaC3e
+    WYdkO9bs9z1YA5XiTusw4BwJLKjAY1BRWJVk6ysU3GM3gUHW+i+D7EgXOybYJ8pVKg/R
+    iCPw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1786386626;
+    s=strato-dkim-0002; d=strato.com;
+    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
+    From:Subject:Sender;
+    bh=Y0lggjtUq7t4FnGr3h+/8GK5Aapn1d7YcvCZUb9d1Uc=;
+    b=BdNoX7e1nAB5IzdQHcDbAB/bVxkFYnYZPy2aXCmx7pyjhGMj/Vhmoje+EmZmFkecrz
+    le3csCEPySzasspnAyAExXrFw7WKX9zfAFHm+CDuy87JN9xRoNjYUOGSzclHKL04+XcM
+    1tVcABBIoW2vRl0CCs0fBIkyJ6FlghaOgboTL/htO1ER2dZEpyRxKHXb+3lX9ht6ocOJ
+    REYZKmzeoT/m/N+DiGZv5W1JibEDPMzB0CVBcqzuxFOHWViLBQZ3+RWOkHnjm7t4yLpJ
+    Jw3fdXqOU/qXnDSXW3qDYk4KcMfwD/nZdPDxq6tWwz/mHvJfiR+74tt7bs7JTQIwBRJ/
+    DRaA==
+ARC-Authentication-Results: i=1; strato.com;
+    arc=none;
+    dkim=none
+X-RZG-CLASS-ID: mo02
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1786386626;
+    s=strato-dkim-0002; d=goldelico.com;
+    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
+    From:Subject:Sender;
+    bh=Y0lggjtUq7t4FnGr3h+/8GK5Aapn1d7YcvCZUb9d1Uc=;
+    b=ljQniUtzrPH2m+M6l4jZSMuX3O3WCuc1I+Sflkhg2jefmDsFT2nV3M/ziNtjNlhZmX
+    jYY4ZIVVXURLDIuLDbsEU07ahP6eDA0Jw+AriHYveH3AGK4tyN1UVFhy37+Ep67gTtsS
+    ZnNLw5Pw7prMoJDHCc/Y8SEsiw4H4C1bE6NngaNLkN5VHq3hoN4qpZmqc2kpESB0t/lh
+    tQWTMN0GUu1F8OMtWpzp8HsZkaGZ4xMHp254c0XM6mtuCxaTWjgkg6qGrnDdDC4GhU6r
+    aPgkjOT32puRm7n+XWHTqng9V9ae3jXi05R1lXZlIOfcUZWLCMYbLh46sPOx6MsDtRA1
+    OXdA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1786386626;
+    s=strato-dkim-0003; d=goldelico.com;
+    h=To:References:Message-Id:Cc:Date:In-Reply-To:From:Subject:Cc:Date:
+    From:Subject:Sender;
+    bh=Y0lggjtUq7t4FnGr3h+/8GK5Aapn1d7YcvCZUb9d1Uc=;
+    b=dMb3aEkL+xg1cxalBAaM/8Z1E2miIaNANpAVl9947lRoZbqdOKy8hsYWLsSfEjREKF
+    jZP6rL2OFErxCAB+VkBA==
+X-RZG-AUTH: ":JGIXVUS7cutRB/49FwqZ7WcJeFKiMhflhwDubTJ9qVpwcQVkPW4I1HrTipoGmsiNZ9v/oGyp26o/Wi+pVFrZX1Db5b3z"
+Received: from smtpclient.apple
+    by smtp.strato.de (RZmta 55.5.6 AUTH)
+    with ESMTPSA id Q58eac27AIUNiJm
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (curve X9_62_prime256v1 with 256 ECDH bits, eq. 3072 bits RSA))
+	(Client did not present a certificate);
+    Mon, 10 Aug 2026 20:30:23 +0200 (CEST)
+Content-Type: text/plain;
+	charset=us-ascii
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.700.81.1.8\))
+Subject: Re: [PATCH 15/16] backlight: remove pandora_bl
+From: "H. Nikolaus Schaller" <hns@goldelico.com>
+In-Reply-To: <2C9844A3-3C4C-48E6-863D-BF8328CEE540@goldelico.com>
+Date: Mon, 10 Aug 2026 20:30:13 +0200
+Cc: Daniel Thompson <danielt@kernel.org>,
+ Grond <grond66@riseup.net>,
+ Stefan Leichter <sle85276@gmx.de>,
+ Grazvydas Ignotas <notasas@gmail.com>,
+ Tony Lindgren <tony@atomide.com>,
+ Ethan Nelson-Moore <enelsonmoore@gmail.com>,
+ Jarkko Nikula <jarkko.nikula@bitmer.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Lee Jones <lee@kernel.org>,
+ Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Liam Girdwood <lgirdwood@gmail.com>,
+ Mark Brown <broonie@kernel.org>,
+ Aaro Koskinen <aaro.koskinen@iki.fi>,
+ Kevin Hilman <khilman@baylibre.com>,
+ Roger Quadros <rogerq@kernel.org>,
+ Russell King <linux@armlinux.org.uk>,
+ Jingoo Han <jingoohan1@gmail.com>,
+ Helge Deller <deller@gmx.de>,
+ Jaroslav Kysela <perex@perex.cz>,
+ Takashi Iwai <tiwai@suse.com>,
+ Sen Wang <sen@ti.com>,
+ Richard Fitzgerald <rf@opensource.cirrus.com>,
+ Arnd Bergmann <arnd@arndb.de>,
+ Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>,
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+ Charles Keepax <ckeepax@opensource.cirrus.com>,
+ Niranjan H Y <niranjan.hy@ti.com>,
+ letux-kernel@openphoenux.org,
+ devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org,
+ linux-sound@vger.kernel.org,
+ linux-omap@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ dri-devel@lists.freedesktop.org,
+ linux-fbdev@vger.kernel.org,
+ kernel@pyra-handheld.com,
+ mfd@lists.linux.dev
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <92FE1162-8C61-4186-B073-6AB4B2BDA640@goldelico.com>
+References: <cover.1783749722.git.hns@goldelico.com>
+ <f897f695c0e1e128d7ebb41be8dfdce4d634f552.1783749722.git.hns@goldelico.com>
+ <anmpiADsvzW39DNx@aspen.lan>
+ <DA9588C6-0238-4713-B1A1-CB2123F02028@goldelico.com>
+ <20260810143914.64d29a5c@kemnade.info>
+ <2C9844A3-3C4C-48E6-863D-BF8328CEE540@goldelico.com>
+To: Andreas Kemnade <andreas@kemnade.info>
+X-Mailer: Apple Mail (2.3826.700.81.1.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_113012_739799_AD545A92 
-X-CRM114-Status: GOOD (  39.94  )
+X-CRM114-CacheID: sfid-20260810_113053_100753_46868F9F 
+X-CRM114-Status: GOOD (  29.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,112 +148,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 07, 2026 at 10:49:40PM +0300, George Valkov wrote:
-> Hello Johannes, and thank you for your quick reply!
-> 
-> > You're supposed to always update bindings first, no?
-> To me the logical order is to implement the feature in the driver and
-> then enable it in each board which needs it. For Linux just WRT3200ACM.
-> A separate patch for WRT32x should be sent to OpenWrt.
-> 
-> Please let me know if I should reverse the order.
 
-Johannes is asking about the binding documentation (.txt or .yaml), not
-the .c (driver) or .dts/.dtsi files. You haven't included
-"marvell,ignore-regulatory-hint" in any valid binding document, so it's
-not a valid property to use in this driver.
 
-See Documentation/devicetree/bindings/net/wireless/marvell,sd8787.yaml
-for the correct binding file relevant to this driver.
+> Am 10.08.2026 um 15:23 schrieb H. Nikolaus Schaller =
+<hns@goldelico.com>:
+>=20
+>=20
+>=20
+>> Am 10.08.2026 um 14:39 schrieb Andreas Kemnade =
+<andreas@kemnade.info>:
+>>=20
+>> On Mon, 10 Aug 2026 12:45:16 +0200
+>> "H. Nikolaus Schaller" <hns@goldelico.com> wrote:
+>>=20
+>>> Hi Daniel,
+>>>=20
+>>>> Am 10.08.2026 um 12:35 schrieb Daniel Thompson =
+<danielt@kernel.org>:
+>>>>=20
+>>>> On Sat, Jul 11, 2026 at 08:02:02AM +0200, H. Nikolaus Schaller =
+wrote: =20
+>>>>> Retire the platform specific pandora backlight driver since
+>>>>> it can now be replaced by twl_pm and device tree.
+>>>>>=20
+>>>>> Signed-off-by: H. Nikolaus Schaller <hns@goldelico.com> =20
+>>>>=20
+>>>> Yay!
+>>>>=20
+>>>> Reviewed-by: Daniel Thompson (RISCstar) <danielt@kernel.org> =20
+>>>=20
+>>> Well, there were some good comments by Sahiko to the prerequisites =
+of this patch,
+>>> because it has one speciality the PWM BL driver does not handle =
+(avoid
+>>> interpretation of PWM signals as W1 protocol).
 
-> Hello Sashiko AI,
-> Yes, I intentionally implemented the flag as a root node.
-> This way the new device-tree property can be reused for the
-> other radios, which use mwlwifi, and also require this fix.
-> 
-> It would be inefficient and impractical to define a separate
-> device-tree property for each radio, where it is actually the
-> board that is affected, so it should be a per-board setting.
+Here is the report: =
+https://sashiko.dev/#/patchset/cover.1783749722.git.hns@goldelico.com?part=
+=3D15
 
-I'm not sure what you're saying here. Device Tree Blobs are inherently a
-per-board object. The question here is simply where within the Device
-Tree we want to add a property.
+>>>=20
+>>> I haven't found time to work on this, so we can't remove this yet.
+>>>=20
+>>> In the end it may either remain a pandora_bl driver (converted to =
+DT)
+>>> or become a patch for something else.
+>>>=20
+>> But then it is a TPS61161 on top of PWM, not a pandora driver.
+>> And then there might be just a quirk for that chip in the pwm_bl =
+using
+>> triggered by a compatible. I guess the quirk is this:
+>>=20
+>>=20
+>> if (priv->old_state =3D=3D PANDORABL_WAS_OFF) {
+>> - /*
+>> - * set PWM duty cycle to max. TPS61161 seems to use this
+>> - * to calibrate it's PWM sensitivity when it starts.
+>> - */
+>> - twl_i2c_write_u8(TWL_MODULE_PWM, MAX_VALUE, TWL_PWM0_OFF);
+>> -
+>> - /* first enable clock, then PWM0 out */
+>> - twl_i2c_read_u8(TWL4030_MODULE_INTBR, &r, TWL_INTBR_GPBR1);
+>> - r &=3D ~PWM0_ENABLE;
+>> - r |=3D PWM0_CLK_ENABLE;
+>> - twl_i2c_write_u8(TWL4030_MODULE_INTBR, r, TWL_INTBR_GPBR1);
+>> - r |=3D PWM0_ENABLE;
+>> - twl_i2c_write_u8(TWL4030_MODULE_INTBR, r, TWL_INTBR_GPBR1);
+>> -
+>> - /*
+>> - * TI made it very easy to enable digital control, so easy that
+>> - * it often triggers unintentionally and disabes PWM control,
+>> - * so wait until 1 wire mode detection window ends.
+>> - */
+>> - usleep_range(2000, 10000);
+>> - }
+>>=20
 
-I believe that you're describing problems with the radio, and so you
-should add DT properties to the node for the radio(s) in question, not
-the root node.
+Exactly. The Sashiko comment to this section was:
 
-> Also my attempts to use per device nodes or the parent always
-> return false so they are not usable.
+When switching to the generic pwm-backlight driver, how is the TPS61161
+initialized into PWM mode? Because the TPS61161 shares its EN pin for =
+both 1-wire
+EasyScale digital control and PWM control, the removed pandora_bl driver =
+included this
+hardware workaround to force a 100% PWM duty cycle and sleep for 2-10ms =
+at
+startup. Without this initialization pulse, could the TPS61161 =
+misinterpret the initial
+PWM signal as a 1-wire EasyScale command and disable PWM control, =
+preventing
+the backlight from turning on properly?
 
-That seems like something you need to figure out. Just because you found
-it difficult doesn't mean we should accept the wrong approach.
+Well, I didn't see this but it would be on the safe side to have it.
 
-IIUC, you're using a PCIe-based WiFi card, and that's enabled in
-arch/arm/boot/dts/marvell/armada-385-linksys.dtsi:
+>=20
+> Yes that is what I mean. It needs to be ported somewhere. If it can be =
+ported to
+> some compatible =3D "pwm_bl_for_tps61161" or what fits best it will be =
+fine. Or it
+> could be in some compatible =3D "pandora_bl" driver.
+>=20
+> Has to be worked out when the development machines are not blocked by =
+3 or 4 other
+> projects already running in parallel :)
 
-&pcie1 {
-        /* Marvell 88W8864, 5GHz-only */
-        status = "okay";
-};
+Nevertheless I did a quick look into the pandora_bl driver structure.
 
-&pcie2 {
-        /* Marvell 88W8864, 2GHz-only */
-        status = "okay";
-};
+Here are my findings:
+- the code fragment is part of pandora_backlight_update_status()
+- priv->old_state remembers if brighness was set to 0 or not
+- so this code triggers on any change from bright =3D 0 to bright > 0
+- the pandora_bl driver is the only one to use TWL_MODULE_PWM besides =
+twl-pwm
 
-I think those are the "port" nodes, and there currently is no node that
-actually represents the PCIe endpoint device (i.e., your wifi cards).
-You need to add those as children, like:
+So the most natural way of transplanting this appears to me:
+- add this logic to the twl-pwm driver
+- add a propery to escribe this special need (e.g. "disable-easyscale")
+- use this to triger the extra code in case this flag is set
+- and if the pwm duty cycle changes from permanently off to real PWM
+- this should obviously go into twl_pwm_config() to detect through =
+duty_ns
+- alternativey it might be possible to handle everything in =
+twl4030_pwm_enable
 
-&pcie1 {
-...
-	wifi@0 {
-		compatible = "pciXXXX,YYYY"; /* figure out the appropriate IDs here */
-		marvell,ignore-regulatory-hint;
-		...
-	};
-};
-...
+Suggestions welcome.
 
-> I do not understand the part about dependence on CONFIG_OF.
-> of_property_read_bool() returns false when the flag is not
-> defined. This preserves the original behaviour as if it is
-> set to false, so the feature is disabled.
-> External radios which do not implement support for this flag
-> are not affected.
+BR,
+Nikolaus
 
-I think if you stop using 'of_root', you'll dodge this problem. And you
-should not be looking at of_root.
-
-> v2 of this PR used of_machine_is_compatible, but there was an
-> objection that this adds platform code to the driver.
-> 
-> How can I add binding documentation and where?
-
-Documentation/devicetree/bindings/net/wireless/marvell,sd8787.yaml. See
-the other hints above too.
-
-Side question: did you consider Jeff's suggestion from v2, to try the
-'reg_alpha2' module param? It might already do what you need, and it
-only requires you configure your OpenWrt builds properly, I think.
-
-Brian
-
-> On Fri, 7 Aug 2026 at 21:39, Johannes Berg <johannes@sipsolutions.net> wrote:
-> >
-> > On Fri, 2026-08-07 at 21:21 +0300, Georgi Valkov wrote:
-> > >
-> > > +                             /* Allow platforms to ignore an incorrect
-> > > +                              * regulatory hint from ROM, so userspace
-> > > +                              * can set the correct regulatory domain.
-> > > +                              */
-> > >                               if (country_code &&
-> > > +                                 !of_property_read_bool(of_root,
-> > > +                                                        "marvell,ignore-regulatory-hint") &&
-> > >                                   regulatory_hint(wiphy, country_code))
-> >
-> > You're supposed to always update bindings first, no?
-> >
-> > johannes
 
