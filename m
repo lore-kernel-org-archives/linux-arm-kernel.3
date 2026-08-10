@@ -4,59 +4,165 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51728C5AD55
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 12:53:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5FB0C5AD7B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 12:54:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ggSi8bPf1JKq8vN9txCDt8QvIFF25PaT6AGNa8esBnE=; b=M8eO7M7c7y6nmITH927rWpLPpj
-	2KYzkERLuvtRj/nVxu6m7ef5i7bvncBvuqTQOZfws794Fxs7NgMxC0J0RAJ6Ah+vuS2dfMI8g7nr8
-	1OGlwaemH45LtOTeTlSGWzY+1GZsQzZ0cC53Ri7kpG5n9N0iO+rUZZtlL9ZYCjAVWGaqOUCJG1+WR
-	8N6u9d2HmiOr2OjHpi62U3ol3+NJxNiKmDW0Kk1myBbnc1h9qD4nTm5zOAdIdKYfBYSPyMCqXGBum
-	j9g2eflif3JLifFmx2dpwOS0sF/INXlINHZbBkles5jnkE1njutdSmvH40gnes3uN5ZMsUQaV9h0Y
-	DuIiSF7w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date
+	:From:Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Subject:
+	Cc:To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eLQ9adDM59xgoBHe83NIf2g2wQqJmreB3EHGLbfIln8=; b=fi8gQiN2vDs6MJkpmE4TWm9imH
+	HHL2f9ndjBHMiUk2D1Tei7GhweCwa7AUdulzKooiloltBQwVvgww+xHvqYvPeEu+r3a3l2nzdS6jk
+	2mIf5tlsesyvIESGQexTph1q361Uttx9CujpkOl8WsryrleJBc0JaYFmdxYHqOya9JGT30MxheqIx
+	hrwefRt748esMNqtoBw+hCVleQQ7WzQYNYE8Ls7+tSuTArtn85Av8U873oa6DttxwJitKsdEqyccQ
+	Movrxw1J37a7GzCto1wNPn4E5kNQ5hGC2G+DeGU33S8A2VoXCAZV9ZoVz+DFbaIs7UXyp8zyQWBh1
+	ZunLYrhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtPVh-0000000Bpon-0X6p;
-	Mon, 10 Aug 2026 12:53:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wtPWC-0000000BpuD-1No0;
+	Mon, 10 Aug 2026 12:54:16 +0000
+Received: from mail-westusazolkn19012061.outbound.protection.outlook.com ([52.103.2.61] helo=SJ2PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtPVg-0000000BpoU-2frp
+	id 1wtPWA-0000000BptB-0ZyV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 12:53:44 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E9CF640A64;
-	Mon, 10 Aug 2026 12:53:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5EB111F000E9;
-	Mon, 10 Aug 2026 12:53:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786366423;
-	bh=ggSi8bPf1JKq8vN9txCDt8QvIFF25PaT6AGNa8esBnE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=a8EDdQUV5kH2eVQOz/UDiKLq3A01r7kF6tY0KN3IsSVG3Bh0/YFzj0vkxo+gkISTL
-	 MYyei/B2kjuXK64Z1yLObejYiVM77jdFEYT+S8Uw456UrXABuD2VQqwJaDzM94ivE+
-	 iHdckeLYoftrE34Yg8eflT/VbmqcDM5oFeMQBzVZawkW1THwPqcQ2cFQvHiV7YFGdh
-	 CPLoNSoTieIQQRGeW4RBmD63vHBlPqT5fft2bbjvBWBLkdJPaHUdZGlbMbcUhAJk1a
-	 IjSAgc7JUG2mhpGgPCCas34MLatyJxfWRJ7hXB6REhiG1wgBEySDoFvaBbLgecYwxm
-	 KBVCjqdPUEmBw==
-Date: Mon, 10 Aug 2026 13:53:38 +0100
-From: Will Deacon <will@kernel.org>
-To: Aman Priyadarshi <amanp@apple.com>
-Subject: Re: [PATCH] arm64: archrandom: avoid trapping ID register read in
- __cpu_has_rng()
-Message-ID: <annJ0oDB2HObQC5j@willie-the-truck>
-References: <20260720140615.99343-1-amanp@apple.com>
- <amy0dVzgY-uPTTtU@google.com>
- <97FF53B9-993A-4E73-9C6B-0DA514AD0778@apple.com>
- <anH9kVWFN_dqA0c1@willie-the-truck>
- <2EEBC3D5-55E8-4E89-A0D3-E2816038BEC2@apple.com>
+	Mon, 10 Aug 2026 12:54:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MzVu1UpJYysHwaPIB0lBvORscq4M8IA8gvxVJbUgpwDTR4EVnk83h+Zb/2jfsrF/AExYi4JbAtMMviP6rRI3yeX1lgdoAfWNsSg4+Qu4lqIlFCCf0B+kzUFBV88bL2rWItTcW5F2yuOLuYaVDkyixYQ/TDSRn0sgoDf9qUlXf3QzPpMi9RXxnmEug6LiCDfTfRCgKBxTbNeAcOFLmrGVD6C53rMrvQFpFSB5x5ARfdK1dd5fAErxRPb/ir/Pq+Qsvg8a8ve3MLDVSKCPX9BHLIprJBWJgm1XEOviZMYOEg83y4mT1WTf+MLrFYYuVPII+Mv0l1iJjK4HBdSJnj6ivA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=eLQ9adDM59xgoBHe83NIf2g2wQqJmreB3EHGLbfIln8=;
+ b=uzaMkJtlqSTROsrcvWJ7T9JdHmOecQMpUjM4uEY8uDppD4sC6Iy8SnjUoGG0bsK/ihRfzLZnMxRu5gxFMPnmGd8v3sFw3yINVfPzaGjA2xMuowdMCS5CtSRXcj3GwweTbUy5EGPWo1WDuaul4TpRI6TXkf7X4odvVUzONVLqmp6U9Hz5jbBVVFYKST2+MgHEgncL9DFwAcoU9XK+1qOpsMIhVf4lwODE2FQYDSHqbkUJfiOMPaWvydEhHirOJUQ65L2dhb/tVqOqykzJIlNrBBgO/Qvq70x9x5+/wfYn4s77M+JIIiw7Kxhq0C4nTJp1edxwXFa76EWnPagZwtzfkw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=eLQ9adDM59xgoBHe83NIf2g2wQqJmreB3EHGLbfIln8=;
+ b=mZG59U/+CPTEd8AQDOa+SZa4eKhrzwggvONzj0Mdxl6nAkvlPUJjvu3YIBDBm3LME0g1+BRlPk2wBYD6XARWoRgouIbXU1UckPazZxEmAmPYCtHlKP29K4rr3dawMZXhb6t/FjZHn/zoC81zuA8IUO+hql/tVsPC4W3QO2WVM8rLrJaevwjgERkPsr+tcQM4fc3Aipa7i31G+mFHUYcoD4UPsOP5VM6yDk7o3K/wzzNEwWNnQGdlTvxF7tOVebvzHzRZBuevwVlENV4ZZZLamwuc3bIqI21OZhd4uPBimpVWDg1g6o3gm9vubpViRx1fuEn5ULahc7Ee1OV1gWIUPw==
+Received: from MN0PR19MB6091.namprd19.prod.outlook.com (2603:10b6:208:382::21)
+ by PH7PR19MB6109.namprd19.prod.outlook.com (2603:10b6:510:1dc::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.25; Mon, 10 Aug
+ 2026 12:54:07 +0000
+Received: from MN0PR19MB6091.namprd19.prod.outlook.com
+ ([fe80::af9a:4cc3:facf:9374]) by MN0PR19MB6091.namprd19.prod.outlook.com
+ ([fe80::af9a:4cc3:facf:9374%5]) with mapi id 15.21.0292.024; Mon, 10 Aug 2026
+ 12:54:06 +0000
+To: Alexandre TORGUE <alexandre.torgue@foss.st.com>,
+ Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>,
+ Brian Masney <bmasney@redhat.com>,
+ Lee Jones <lee@kernel.org>,
+ Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+ Antonio Borneo <antonio.borneo@foss.st.com>,
+ Linus Walleij <linusw@kernel.org>,
+ Russell King <linux@armlinux.org.uk>,
+ Jonathan Corbet <corbet@lwn.net>,
+ Shuah Khan <skhan@linuxfoundation.org>
+Cc: devicetree@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org,
+ linux-clk@vger.kernel.org,
+ mfd@lists.linux.dev,
+ linux-gpio@vger.kernel.org,
+ linux-doc@vger.kernel.org
+Subject: Re: [PATCH RESEND 0/9] ARM: stm32: add STM32H7R7 and ART-Pi2 support
+In-Reply-To: <6c926423-777e-475a-9e28-222d3fb5798e@foss.st.com>
+References: <MN0PR19MB60912FA1E75E4E55B2E27D34ACCD2@MN0PR19MB6091.namprd19.prod.outlook.com>
+ <6c926423-777e-475a-9e28-222d3fb5798e@foss.st.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+From: Liu Changjie <liucj1228@outlook.com>
+Date: Mon, 10 Aug 2026 20:54:29 +0800
+Message-ID: <MN0PR19MB6091BDFE3DBD8AD6DDC3F77DACDE2@MN0PR19MB6091.namprd19.prod.outlook.com>
+X-ClientProxiedBy: TPYP295CA0056.TWNP295.PROD.OUTLOOK.COM (2603:1096:7d0:8::7)
+ To MN0PR19MB6091.namprd19.prod.outlook.com (2603:10b6:208:382::21)
+X-Microsoft-Original-Message-ID: <178636646929.268083.8176274173003069719@outlook.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <2EEBC3D5-55E8-4E89-A0D3-E2816038BEC2@apple.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN0PR19MB6091:EE_|PH7PR19MB6109:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3b8c9cfa-2f84-42d5-4f83-08def6de764d
+X-MS-Exchange-SLBlob-MailProps: znQPCv1HvwUXBahuwteIkQeW30lJPuxOqkWTFX5UGk/2pyNZnU53xV6d54l6wUaXAO3pwQigW1uhQ38aY5HhTPh0ar4doz76rmA1u/D5bhQ90U5+2p0MbZdr34hgDayH+jcvTIzkjzgg6bEM0A/0v+0V2rufgyvx+908JlM8kA5epqd+iXG7cWzYaLAUx+Z1Rf9eU0yoRSP2qlo3S0CHVGez94TiQXGBFyfgQabUm7PqyQpumcw7qk4/KqvHMZNXGKHQdVOPlWOGwfrvePWDaRmW5C/O79KTLsuPPjAqX1J6fD/zgqv9BAFk8E7iG2zV6AtmlXVdelcTSX4gDyQAQZHycbN9uqlTbqwEaHBTG51KnuDRgRxQRNP3htSqQO2UP/Epmq3tTMycNnhbRu/RoHrzETITLkMKbXSRY6un7ONyVL8J9YDtbjTnUl8koGMotKZMof0c1mnw2J37fKMW7yfJpUlKP8Uj5p2AKn3jR/Yyz0y765eJ319JTvlUQ5r6Nsh+eKHEJUNTd70XEfTYuEHKwKumKVWVL8YVEqp0C0DVGrADYRcPdnfJ/eU6yk/lqoWCzA8LAUjZ0tzbRtknb/zBYuNxPV6rPHtH09Aq3GG9dl9VYrTU04JEsAzB/v9myA7XqsuYT4XXPTOavRzvOyNTA/LCpvw7fw0RaxTVtm/8t+bANYGBX+R4DzvV1Kh7PAgaDIvj8yAMOk/Mb5CQGCeBUqOgcfBvVqa3+/FBHo/gYwZ+Gzm8SW+vECpeaDPmV+NPEf8FItU=
+X-Microsoft-Antispam: BCL:0;ARA:14566002|24021099003|37011999003|6090799003|51005399006|15080799012|23021999003|5072599009|25010399006|19110799012|8060799015|3412199025|4302099013|26104999009|440099028|40105399003|10035399007|2607281247196008|1602099012;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?SFhXeHVQVk9NeVRIZlVtUHY3MnVKZ3hvYjFsV3pUV0VZeU55MlAvaEJYMWRP?=
+ =?utf-8?B?TFltMUFKck5CSlJkcE1LZ3RCNjZ6L2VKSEZ6NEFXVWs0TnNIalNJNG5rUlZI?=
+ =?utf-8?B?STRTbUwvMDVaNmExVkpBL253Y0V0WEowQ0tqcE5ZaWRXTkFUbW8rL3Bld2RM?=
+ =?utf-8?B?dXdKekRHa3FQd2Z3N3NUaHVOY1lDQlQ0d0dPY2RDUVJva0FMQ3dKREhWbkVa?=
+ =?utf-8?B?WEZGMHpZT0wra2VTLzFKZjJ1dzhTeGxlaGxjS24wUmpOZGpWdGtyMkVieG5h?=
+ =?utf-8?B?L0t1bWVDSXNQcDAvb1dmbHRPMzVWZmcreEg3QjN3UVpJYnBweFhySExJcWdt?=
+ =?utf-8?B?Q2RFVVpkSUdYRE1GcmdEWmtadFZEbmNBeE9IZG92cnFVU21wTkZDOFpMSm0r?=
+ =?utf-8?B?TnlFOWp1dDJEdmFVbEpNNk5TSThQNjJPcnNYbFh5NUdpRUVhQS9QVVhjSUhw?=
+ =?utf-8?B?NlBHTklQaVpjU05YY3JBOHppOTZXYXZIeUtkaXFQUENEYm9UZ0lOWnJlbXM5?=
+ =?utf-8?B?U0g4MHdaUXFpRmtmNlZkV0txbFpHc2l3cVhHYlFNS0RzTXJ2bG0xcFR0QjEx?=
+ =?utf-8?B?clZ6eTZJeEh5eXdCbkdKSS9yTjFaK3N6Z0VPa1BhekpORkhRT3creU5ZckdM?=
+ =?utf-8?B?N3p6TG5iRFM3NlVsTmtNQlZaamdwSlc2OGxvYVcyUVRyVzhXM1VTQjI0ZjhZ?=
+ =?utf-8?B?a1BOOGxhdUJtWWROZFMwMG11YzlOSzRPenlKbUlIb3dERGQ2ak1WbnRvRWc0?=
+ =?utf-8?B?WW01N1JWd3I0dCsyZElNZjdjZjNoRGZjUndRRWRrZlArYVdsNHFDMGNUM0xQ?=
+ =?utf-8?B?TkIrMHZ1N01qc25MSnRnL2w1R0w3RTF1bzFZWE1RQjZiMHVsRHgzZ1B1UG9r?=
+ =?utf-8?B?aUZXQldwYVlZZDlGN080SXkrYkp6cHErRUhzSFZBbElEcFBQVVB5ZzExUzR5?=
+ =?utf-8?B?My9hcS9VMlgrT1lJRS8zeEJhbE83NVR0YTNFVFhnM2U3TnAydW55UzNBTkhz?=
+ =?utf-8?B?ZVNBVHZub3hyQjBTdk03VHYweklJV1A2eWIxblFKRGY2bGdiNzV4VVJoVEF5?=
+ =?utf-8?B?T1R0YWw0cFFrRE9kKy9ZSlNFeWRFY3ZVK2NhV2tNSTV0VXRNS3NNODhaU1A4?=
+ =?utf-8?B?VTIyUndhbkpPZHBTdGVUbTRITkpVcGJVckNiZWZBY2wzZmpTZThjKytPS1NB?=
+ =?utf-8?B?T3QyaC92NjBuaCtGS2ZBRk9YL2IxYjFMUmNzVWhWTkVPRk9xMXFZZmRwQ0Fs?=
+ =?utf-8?B?dEFJMGdsVnE5ekE3TlkvZHdveExhVytrbnhOc1RkSFMrNjJ5WnMwS2N6T211?=
+ =?utf-8?B?OVRGNHhPMU9wc25lZDJsd2RhM2pjWWxmeW8zUy80MnJEbG9WMmk0QS9nVzFI?=
+ =?utf-8?Q?p6AOoIpCjQOgdQuvdGg/NZ0vaRElYpDg=3D?=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?R29XUm1HUGdDVCtmU3c5ZU9IRE1kanZhTGRsZ1R5TkFUSlhML0NGcEg4SFlM?=
+ =?utf-8?B?VDNRdGg3NW9kcTJrRUlPSnpBVmhYSXB2Rll3UFVuRUFKWDdXTTZmUXQwZTA3?=
+ =?utf-8?B?bnBXK3RMTHYzaGdZTWduWVNGMGZFL0VvVzFJU21DSjBUS1hxb3pDZGliTnBD?=
+ =?utf-8?B?U29jWWhicUhLWmpFdEZkMkxzNzNtZWxrcTNWSWxvbks3bjJENnFNR3NmcldZ?=
+ =?utf-8?B?aHgybEVwbHJEbkxONHEwclkrb2lCSVJFNG5wSUNTaml5Vi9UQWNhQ25MVTN3?=
+ =?utf-8?B?eFp3ZXU0bytUUWJocE1aZ2lCamdmTDFpb05pRXozNHI1K0dNOGcvZCt1OEFy?=
+ =?utf-8?B?SnhOSGtNc2N3QVlGRXdtOXhBL2ZLU1VvczMxU21JbWVhaENkeFg5endPTXds?=
+ =?utf-8?B?SHljVmhuVkFod2JNaXFQNHpVK1VIK2lVU0VkME5RNWI2a2ZRZXkyQSt2Y0tW?=
+ =?utf-8?B?SXE3aGh6R1VUdTQ2TkZiUG5Hc3c0eXBHT2NJdklVSXd4UHQ3Z3ZwVFRjSGlO?=
+ =?utf-8?B?QnpJYno1YXZQemtZTytRRC9UU3NkK3dFdmZaQXVaOGpHbXo3ZUFpOFRkaXFO?=
+ =?utf-8?B?c09WMUJnSytrSDJHOStXVTJQQ0hkQS9ibEdHeG43VFJINlpra3NOT1ozbmdH?=
+ =?utf-8?B?a05QNnY4UUdodnIvL3JnallkVzZSNStBR3dHVVZNUi9hc01ydzdTSlVvaTYv?=
+ =?utf-8?B?blBrSGZDSy9hUjVueWxwaTREZHRheFhkZWUyRlo3Vm9iVlIvb05TYnJjZDIw?=
+ =?utf-8?B?VnlxQ3dsdTljU0s4eldaREx2eHpPalhBNmJFdElHVE82SXFqT09lT2RiZWhI?=
+ =?utf-8?B?dEtQR0VySzZLRG1kdTI2eTNmcUIyTzNpOXFpVmV2OUtlRi9yb3dDc1k3NGtG?=
+ =?utf-8?B?TTNYUmdYUXlCSlNIclBXQTJxdTBVVTNCaVNjWTlQcjV4amhEZlpZYi9ZNWV2?=
+ =?utf-8?B?T1dPZk9OanB5MnYyQ3NxRFJKTHFZNDBZZFFIcWlyMVhGVnNBS1ZZRy9Zanp5?=
+ =?utf-8?B?Uit6Yk04Uy9IQzJua3hZYTBpK3pDMFFySGZ0bGxYYXBmR280bWVtWTltNHQ5?=
+ =?utf-8?B?MjRmTHNFRnhxQVI0TUJ4ZSt2a3MrcG1URFFJVGJaUlRWaWpIZnV2MGVmeVNE?=
+ =?utf-8?B?YUozZk8zaGlwRkcrSGNsUEQwZDUxbVJ6ZWpaVkNOdmFKMHNiZk9JUldFOVE0?=
+ =?utf-8?B?ZVdBUGcydmdyc2YwZ2F6N1I2Kyt2OE1Xbi9zUCthbmlTSGNPOWR5WERoblNh?=
+ =?utf-8?B?ck1sQU9kR3pCQVB4dEppUWJXYUo0MlhnUzN0REZ6aldWanFuK051K1JJdE1O?=
+ =?utf-8?B?TUt1d2U1c01VeWZVeG92eHcxT25zeWNyQ2ZiR3JqOEQ3ejZ6QUJlWHdoWEo5?=
+ =?utf-8?B?OXk1VlR3a1FWREYyUnc5bG4yeG1aSVQyMDRwWGdsSmVndFNiUm9YMGtIWjBt?=
+ =?utf-8?B?TXhGbVdPenhEdWZkZHUwNmpUY3d6SnZTNEk1NjNYK25NZmFEMW8rYlFzVk9N?=
+ =?utf-8?B?QUc0ckRrMUlXd1dqcnRhK0J2Y2lBVkh6SXVmMGk4MWhOYnNlYzlaT1VPMHNa?=
+ =?utf-8?B?UTZPRmttbmZORUZxRGpVRTNQb3dKbkNtNmdjSmswMFRZL1JmTHd1aVkvZDVu?=
+ =?utf-8?B?b1hzWHBsSnRvSElYZXJpUDhYWm1kOTM2VnlJSUhlWE1uMlFMa0FvMlpKRi9s?=
+ =?utf-8?B?Vm9kZy80NnRUb2hvTXFsVDF0Z0FMbEZyNG0yS09oSk8yTjFSbjJZUW5td3Ew?=
+ =?utf-8?B?WmdXRDRnd0pSWmxQVVYyRWlWQmZMaGNIN09sWkNkMUJOZCt3UjRkMWlVQnYv?=
+ =?utf-8?B?UXdtQWJBUlEyTVRkV0xERm5UQllCWVd1UEZtTm8zdE5zNEYvYWpBVzJ6a1BG?=
+ =?utf-8?B?REo1ZERpdnY0MmkxbGlzN0tzN3lTaEVkYTJwN01IZVhSRHc9PQ==?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3b8c9cfa-2f84-42d5-4f83-08def6de764d
+X-MS-Exchange-CrossTenant-AuthSource: MN0PR19MB6091.namprd19.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Aug 2026 12:54:06.8840
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR19MB6109
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260810_055414_189819_004203B5 
+X-CRM114-Status: UNSURE (   6.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,165 +174,25 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Jason@zx2c4.com, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 04, 2026 at 04:50:35PM +0100, Aman Priyadarshi wrote:
-> > On 4 Aug 2026, at 15:56, Will Deacon <will@kernel.org> wrote:
-> > On Fri, Jul 31, 2026 at 06:26:44PM +0100, Aman Priyadarshi wrote:
-> >>> On 31 Jul 2026, at 15:43, Will Deacon <will@kernel.org> wrote:
-> >>> On Mon, Jul 20, 2026 at 03:06:15PM +0100, Aman Priyadarshi wrote:
-> >>>> diff --git a/arch/arm64/include/asm/archrandom.h b/arch/arm64/include/asm/archrandom.h
-> >>>> index 8babfbe31f95..8067e9a35641 100644
-> >>>> --- a/arch/arm64/include/asm/archrandom.h
-> >>>> +++ b/arch/arm64/include/asm/archrandom.h
-> >>>> @@ -61,8 +61,22 @@ static inline bool __arm64_rndrrs(unsigned long *v)
-> >>>> 
-> >>>> static __always_inline bool __cpu_has_rng(void)
-> >>>> {
-> >>>> - if (unlikely(!system_capabilities_finalized() && !preemptible()))
-> >>>> - return this_cpu_has_cap(ARM64_HAS_RNG);
-> >>>> + if (unlikely(!system_capabilities_finalized() && !preemptible())) {
-> >>>> + /*
-> >>>> + * Until the ARM64_HAS_RNG alternative is patched we can't use
-> >>>> + * the static-branch form, so consult the feature register
-> >>>> + * directly. Don't use this_cpu_has_cap() here: it reads
-> >>>> + * ID_AA64ISAR0_EL1 from hardware on every call, under
-> >>>> + * virtualization each ID register read traps to the hypervisor
-> >>>> + * (HCR_EL2.TID3) -- producing a storm of vmexits during boot.
-> >>>> + * The sanitised value is cached in memory.
-> >>>> + */
-> >>>> + u64 isar0 = read_sanitised_ftr_reg(SYS_ID_AA64ISAR0_EL1);
-> >>>> +
-> >>>> + return cpuid_feature_extract_unsigned_field(isar0,
-> >>>> + ID_AA64ISAR0_EL1_RNDR_SHIFT) >=
-> >>>> + ID_AA64ISAR0_EL1_RNDR_IMP;
-> >>>> + }
-> >>> 
-> >>> You can probably rewrite this a little more cleanly along the lines of
-> >>> the (not even compile-tested) diff below. I was about to do that, but
-> >>> then I got a bit confused by the whole thing. The preemptible() check is
-> >>> presumably not needed if we're accessing the in-memory feature registers
-> >>> rather than the per-CPU id registers, but then how do you handle races
-> >>> with concurrent updates to the "safe value" made by CPUs concurrently
-> >>> coming online?
-> >> 
-> >> I kept preemptible() check for this exact reason: the updates made by CPUs
-> >> concurrently coming online will always take the downgrade path (a secondary
-> >> CPU can clear RNDR, never set it), and therefore by taking the non-preemptible
-> >> branch I can guarantee that the pinned CPU supports the said feature.
-> >> I agree, this assumes that a secondary CPU folds its own ID registers into sys_val
-> >> before it can ever be a randomness consumer, but looking at the code that seems
-> >> the case, please feel free to correct me.
-> >> Besides, in my opinion, it's hard to argue correctness of this code without
-> >> preemptible() check.
-> > 
-> > My point is that this change introduces a data race on 'reg->sys_val' for
-> > the ID_AA64ISAR0_EL1 entry in the arm64_ftr_regs array.
-> 
-> Agreed, you're right. My reasoning was that existing read_sanitised_ftr_reg() callers
-> already race with sys_val updates during hotplug CPU bringup, so this wasn't a
-> new problem. But I agree it's not much of a defence.
+Hi Alex,
 
-I think system_capabilities_finalized() is supposed to handle that race:
+Thanks for pointing me to Arnd's deprecation series. I understand the
+decision not to accept new Cortex-v7M board support, and I will not send
+another revision.
 
-  * If the capabilities are not finalised, you shouldn't query the sanitised
-    feature registers and they will be updated by CPUs coming online.
+I had already sent v2 on August 9 before seeing your reply. Please
+consider v2, and the series as a whole, withdrawn from upstream review.
 
-  * If the capabailities are finalised, you can query the sanitised feature
-    registers and CPUs coming online must be compatible with them.
+I have archived the hardware-tested patch set and boot tooling for
+downstream users here:
 
-That's not to say we're bug-free here, though. The hw_breakpoint code
-queries the sanitised view of SYS_ID_AA64DFR0_EL1 before it should and
-you're trying to add another caller in the random code.
+https://github.com/HosakaSu/artpi2-linux
 
-> It looks like an easy fix, though: mark the reader and the writer. What do you think
-> of the patch below? I'm happy to post it as a separate patch ahead of this fix once
-> you confirm it works for you.
+Thanks to you and everyone who took the time to review the series.
 
-I don't think we should try to make this thread safe. It would be much
-better if this_cpu_has_cap() could query the saved id registers in
-this_cpu_ptr(&cpu_data) instead of reading the id registers again.
-
-Something along the lines of the untested and incomplete diff below...
-
-Will
-
---->8
-
-diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
-index a57870fa96db..b72e9e22ca79 100644
---- a/arch/arm64/include/asm/cpufeature.h
-+++ b/arch/arm64/include/asm/cpufeature.h
-@@ -641,7 +641,6 @@ void __init setup_user_features(void);
- void check_local_cpu_capabilities(void);
- 
- u64 read_sanitised_ftr_reg(u32 id);
--u64 __read_sysreg_by_encoding(u32 sys_id);
- 
- static inline bool cpu_supports_mixed_endian_el0(void)
- {
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 9a22df0c5120..6462863fb78b 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -1533,11 +1533,7 @@ EXPORT_SYMBOL_GPL(read_sanitised_ftr_reg);
- #define read_sysreg_case(r)    \
-        case r:         val = read_sysreg_s(r); break;
- 
--/*
-- * __read_sysreg_by_encoding() - Used by a STARTING cpu before cpuinfo is populated.
-- * Read the system register on the current CPU
-- */
--u64 __read_sysreg_by_encoding(u32 sys_id)
-+static u64 __read_sysreg_by_encoding(struct cpuinfo_arm64 *info, u32 sys_id)
- {
-        struct arm64_ftr_reg *regp;
-        u64 val;
-@@ -1578,7 +1574,9 @@ u64 __read_sysreg_by_encoding(u32 sys_id)
-        read_sysreg_case(SYS_ID_AA64MMFR2_EL1);
-        read_sysreg_case(SYS_ID_AA64MMFR3_EL1);
-        read_sysreg_case(SYS_ID_AA64MMFR4_EL1);
--       read_sysreg_case(SYS_ID_AA64ISAR0_EL1);
-+       case SYS_ID_AA64ISAR0_EL1:
-+               val = info->reg_id_aa64isar0;
-+               break;
-        read_sysreg_case(SYS_ID_AA64ISAR1_EL1);
-        read_sysreg_case(SYS_ID_AA64ISAR2_EL1);
-        read_sysreg_case(SYS_ID_AA64ISAR3_EL1);
-@@ -1639,11 +1637,19 @@ feature_matches(u64 reg, const struct arm64_cpu_capabilities *entry)
- static u64
- read_scoped_sysreg(const struct arm64_cpu_capabilities *entry, int scope)
- {
--       WARN_ON(scope == SCOPE_LOCAL_CPU && preemptible());
--       if (scope == SCOPE_SYSTEM)
-+       switch (scope) {
-+       case SCOPE_SYSTEM:
-                return read_sanitised_ftr_reg(entry->sys_reg);
--       else
--               return __read_sysreg_by_encoding(entry->sys_reg);
-+       case SCOPE_LOCAL_CPU:
-+               WARN_ON(preemptible());
-+               fallthrough;
-+       case SCOPE_BOOT_CPU:
-+               return __read_sysreg_by_encoding(this_cpu_ptr(&cpu_data),
-+                                                entry->sys_reg);
-+       default:
-+               BUG();
-+               return 0;
-+       }
- }
- 
- static bool
-@@ -2232,7 +2238,7 @@ static bool has_address_auth_cpucap(const struct arm64_cpu_capabilities *entry,
-        if (scope & SCOPE_BOOT_CPU)
-                return boot_val >= entry->min_field_value;
-        /* Now check for the secondary CPUs with SCOPE_LOCAL_CPU scope */
--       sec_val = cpuid_feature_extract_field(__read_sysreg_by_encoding(entry->sys_reg),
-+       sec_val = cpuid_feature_extract_field(read_scoped_sysreg(entry, SCOPE_LOCAL_CPU),
-                                              entry->field_pos, entry->sign);
-        return (sec_val >= entry->min_field_value) && (sec_val == boot_val);
- }
-
+Regards,
+Liu Changjie
 
