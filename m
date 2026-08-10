@@ -4,63 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C36AC5AC82
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 09:23:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A25CC5AC82
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 09:30:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
-	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
-	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IdvPpAswqw4/3CBhh1oPtwObG87J59MBx/ZFjS/sjZ4=; b=WhKQfXg1l1RKV7xbYF/slT9MUz
-	wn7aLygDYqf6uCylHRyjVU7jQu+PhzsileivMGm9jmsY7LuZtUOkAjm3L5fGYIKb1MZfP1sR0QmAn
-	BFLVTfK8dvNcz106b3ypXn0PzjHHjY/lMDLG87vygQ8e9H4/jKSqAtsjYzFnNuEzzK/OUYvq0BbMU
-	4kBBkyqmbB+OLT8Ruhm+gdTaqEZfX83+o7hamK0MRAyRHONP3jP2KwfkrH3l0EjPvxoV+3vsfMHGF
-	9uCbh3Zl2PmPaOcoB5jRxMZQWSkNmy2QxnEeuaTv5sTpnWr1sH7bm2JPMncdEBKGmjrsxTdf8tyJr
-	juU6GN0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ePzJdMR5XS4l0T+U+JwL7EAJw0TvLA27eLAbg0PvUSg=; b=ODDFPZnY5yMsF4rU1Yq+cwqQNO
+	ZHu50rn3CPcvHGb0/X6zd7WR4J2sFupxRecei9mcPIzGAoCq2V6658KaA+D/9/2Nf1hp9rYt69N/m
+	spwZfvszBpEvFHrF2hdT+ZZJ5ODZShlbgqTWfb6Kf+fpw/HAlthzHN3VbCA0+y6ph+SA+PwCB5mQO
+	zafRo/U6RLerqPInRO8Ai6nOEq3oHQVQkPauX8VP6d0p7fbhhvgNSNVihcPJEn+i4f/06unBqf47U
+	SJkAosYyILtPPvm61tadnjALYEhZ1BKJoWT/fWkGgBGXu0uKnNdx+GI2YmeFb/lPeDtwyoJlnZ5Ei
+	5PiUoYzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtMEU-0000000BOEs-32PO;
-	Mon, 10 Aug 2026 09:23:46 +0000
+	id 1wtMKS-0000000BOsR-1RXN;
+	Mon, 10 Aug 2026 09:29:56 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtMES-0000000BOEI-3I1o
+	id 1wtMKR-0000000BOsI-28rS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 09:23:44 +0000
+	Mon, 10 Aug 2026 09:29:55 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E42E860052;
-	Mon, 10 Aug 2026 09:23:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 285BC1F000E9;
-	Mon, 10 Aug 2026 09:23:43 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id AEF1160052;
+	Mon, 10 Aug 2026 09:29:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61A721F00A3F;
+	Mon, 10 Aug 2026 09:29:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786353823;
-	bh=IdvPpAswqw4/3CBhh1oPtwObG87J59MBx/ZFjS/sjZ4=;
-	h=Date:From:To:Subject:In-Reply-To:References:Cc;
-	b=IVZbQw1uWdTUO6bW6TK+IUk/hHy1q2s7kOEkTjNWa4XzEJ7N5L4oBWdsOJBOG/BQL
-	 uFQWH/vvS0l9j8DYBrYYi13Khavxk/4QTZvquJX9eYmDZakA2UetFCL9yTymPoTHMg
-	 pkoJ3tfo3//cjHiBwPDSATQ2ddyXX3e7Xs0lMcMVCGTwd02Zxv3VmPBI3yZJcnFgN6
-	 0Ebbc+U5q5CbiL6bjBK1yjoh9Z9T/zo/X0nGcWqIcltxTUB7tvvdyjyLgHOKj0hUTC
-	 xKr5Sk1GL+VAu+kZpKMgFKX8fWatXNVtEaKFUfSyP2zjo4ZJKxhGrzLa7GwRWe0dXr
-	 oYXfb6zHaqdZg==
-Message-ID: <4ffd340eee7fbcaafdb93f203a319416@kernel.org>
-Date: Mon, 10 Aug 2026 09:23:41 +0000
-From: "Maxime Ripard" <mripard@kernel.org>
-To: "Nicolas Frattaroli" <nicolas.frattaroli@collabora.com>
-Subject: Re: [PATCH v9 2/5] drm/scdc-helper: Add scdc_status debugfs entry
-In-Reply-To: <20260724-scdc-link-health-v9-2-bdda406d016d@collabora.com>
-References: <20260724-scdc-link-health-v9-2-bdda406d016d@collabora.com>
-Cc: dri-devel@lists.freedesktop.org, kernel@collabora.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-sunxi@lists.linux.dev, "Andrzej
- Hajda" <andrzej.hajda@intel.com>, "Chen-Yu Tsai" <wens@kernel.org>, "Daniel
- Stone" <daniel@fooishbar.org>, "Dave Stevenson" <dave.stevenson@raspberrypi.com>, "David
- Airlie" <airlied@gmail.com>, "Hans Verkuil" <hverkuil+cisco@kernel.org>, "Jani
- Nikula" <jani.nikula@linux.intel.com>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Jonas
- Karlman" <jonas@kwiboo.se>, "Laurent Pinchart" <Laurent.pinchart@ideasonboard.com>, "Luca
- Ceresoli" <luca.ceresoli@bootlin.com>, "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime
- Ripard" <mripard@kernel.org>, =?utf-8?b?TWHDrXJhIENhbmFs?= <mcanal@igalia.com>, "Neil
- Armstrong" <neil.armstrong@linaro.org>, "Raspberry Pi Kernel Maintenance" <kernel-list@raspberrypi.com>, "Robert
- Foss" <rfoss@kernel.org>, "Samuel Holland" <samuel@sholland.org>, "Simona
- Vetter" <simona@ffwll.ch>, "Thomas Zimmermann" <tzimmermann@suse.de>
-Content-Transfer-Encoding: 7bit
+	s=k20260515; t=1786354194;
+	bh=ePzJdMR5XS4l0T+U+JwL7EAJw0TvLA27eLAbg0PvUSg=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=EOZ5btVK5wc2PRm7y+pa82bf3EF9Q2evs44jC9f7gpN6kM6uHUCiuwM/CQt4buzLp
+	 DvHbec2P6GdoqL8LuZU/Gp2huwKC6TNH1usgp+1qSI0OPhXP+jlNLEvRYgs4rrvLZj
+	 l6SC7NOcbBVPs0B/jDmCJ5lndL9VLQZant1O86GzzUwTAgB31/rfQ4jUTM6GwATKT2
+	 v3632dOTCea49nhxBk+pLY5vDnGLk1o+g/UNwr4OcDX9GQH6d3QaJY1fkwdush9HYo
+	 vxAF5lClYDTXMP/FeWosYTJwRJDLhO850dR/2D38G+l2Vjw3KjfDR12j3puAsWRWj5
+	 EzAp8I7p17uYA==
+X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Marek Szyprowski <m.szyprowski@samsung.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Mostafa Saleh <smostafa@google.com>
+Cc: Will Deacon <will@kernel.org>, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
+	Robin Murphy <robin.murphy@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>,
+	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
+Subject: Re: [PATCH] arm64: swiotlb: Keep the default size for protected guests
+In-Reply-To: <7d22482f-d5fd-4cf4-9d32-6a54e02f2fbb@samsung.com>
+References: <20260717180442.110954-18-aneesh.kumar@kernel.org>
+ <20260807092612.2202005-1-aneesh.kumar@kernel.org>
+ <anXIZSh9lq99VG9X@willie-the-truck> <yq5acxvu2ict.fsf@kernel.org>
+ <anXbJ2O4DWgPxCeg@willie-the-truck> <20260807135810.GA200537@ziepe.ca>
+ <anX7F7dnKOtAOIIe@google.com> <20260807164734.GE200537@ziepe.ca>
+ <anYgXSR4VAi3TpOj@google.com>
+ <CGME20260807182023eucas1p1f653436207b2b00338e99ea1d8f847df@eucas1p1.samsung.com>
+ <20260807182017.GH200537@ziepe.ca>
+ <7d22482f-d5fd-4cf4-9d32-6a54e02f2fbb@samsung.com>
+Date: Mon, 10 Aug 2026 14:59:42 +0530
+Message-ID: <yq5av79iiard.fsf@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,17 +100,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 24 Jul 2026 16:22:37 +0200, Nicolas Frattaroli wrote:
-> SCDC provides status information on the current display link. At the
-> very least, it may be useful to expose this info through debugfs.
-> 
-> Add a debugfs entry for it under the connector, which displays a few
-> more details parsed out of the SCDC registers. A new
-> 
-> [ ... ]
+Marek Szyprowski <m.szyprowski@samsung.com> writes:
 
-Acked-by: Maxime Ripard <mripard@kernel.org>
+> On 07.08.2026 20:20, Jason Gunthorpe wrote:
+>> On Fri, Aug 07, 2026 at 06:13:49PM +0000, Mostafa Saleh wrote:
+>>> But the whole thing is best effort anyway, the kernel picks
+>>> IO_TLB_DEFAULT_SIZE which does not depend on the system topology or
+>>> how many devices or how much DMA they do.
+>>> SWIOTLB memory is wasted if unused so we should be careful around
+>>> that as it would be the other way around and users would have to
+>>> decrease it manually.
+>> Yeah, it is why the arch code shouldn't really be sizing it directly,
+>> it should be done in common code and, yes, we are probably going to
+>> have to do something alot smarter to have the common code better
+>> auto-tune this for the CC case..
+>
+> What about the $subject patch? I assume that it is still needed to
+>
+> restore the behavior that was altered by the "[PATCH v8 00/23]
+>
+> dma-mapping: Track shared DMA state through direct, pool and swiotlb
+>
+> paths?" patchset?
+>
 
-Thanks!
-Maxime
+I would request that we pick this patch to fix the regression described
+in https://lore.kernel.org/all/yq5azeyxyfol.fsf@kernel.org/.
+
+We can then work separately on improving the default swiotlb pool size
+in generic code based on other metrics. I consider this patch
+independent of that work.
+
+Even with such an improvement, this patch would still be applicable: a
+condition that resizes the swiotlb pool based on arm64_dma_phys_limit
+should not apply when guest memory encryption is in use, because the
+purpose of the swiotlb pool is different in that configuration.
+
+-aneesh
 
