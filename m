@@ -4,84 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2D56C5AD55
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 12:32:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1970FC5AD7B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 12:40:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x3yNCiQ2xZIUlAriiD3kuROtqejdF4LbO3lrN5CP0pM=; b=0G6Akos53SseRALPBQThUorpZ+
-	4q+zSuK4hW6NwaPxq+WIC/2+N7D58wNN9hIXIwxhlkjkKwF96GL6zZZsR7qKPsBStC0LnNy/F8OaL
-	PzfLB4ue97W4SfPO0a7YlUlH+zUFKtbk+CGToGfOp4axibMypYajJkszqUNFbYiwi4f1fBT51f4a8
-	EbjaUgZ6wAq8nodSewFwVIAERs+3HKaJjUem6YAOZ+Kulde6/Qaqq85PhtIUsGfTCLDf2lwRX9qcW
-	Xb0HOW2yAYyv5amreri/HRlPAqTPLdBYLxi1EIxdT/TAcjWXCo8WtanNJ5rYnePovvbhVvDJhRSer
-	JmGOffAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RY/1wmCxCIFM0LLRBnTLXmBpxbfVg0FeVcj6W7X9LH0=; b=cRMFcaPvb+FM+Pichag2W+fTx3
+	oJVFoad8w2lkOD2dCeqew26KKLcDLTqPgF5HnADesVl4usZEJ1GSotNz/MSrPxD5d60EnzUJktUV5
+	mUO+fzVH/R0gWNJ3HN4lTqgOEwH2FJJJ+AAXqj0/5ffPvW5+KrP5JV+pUnIuBeoyLVsAzSor9sB+F
+	s13AlfvZXKlJDDgktG4KJI2Al/Kq9IlZ+Ybs3k4IHMRhWreW9pVrG1ifZUOiQFL7MvFChOHRe8FL2
+	BWCPJR9UsoDm3PHnh7q6FAOn+1ygEMO99nL2Xvuk1VzxHwJKtpFQw1poacZS31P0auXXsSUf+E5DG
+	JfNAlsAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtPAp-0000000BmV9-1Rhk;
-	Mon, 10 Aug 2026 12:32:11 +0000
-Received: from mail-vk1-f172.google.com ([209.85.221.172])
+	id 1wtPIP-0000000BnCe-0t9M;
+	Mon, 10 Aug 2026 12:40:01 +0000
+Received: from mail.andi.de1.cc ([2a02:c205:3004:2154::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtPAm-0000000BmUd-39FI
+	id 1wtPIM-0000000BnBb-3DnN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 12:32:10 +0000
-Received: by mail-vk1-f172.google.com with SMTP id 71dfb90a1353d-5c3fabe908eso501640e0c.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 05:32:07 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786365127; x=1786969927;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=x3yNCiQ2xZIUlAriiD3kuROtqejdF4LbO3lrN5CP0pM=;
-        b=Np05so2J4sobiUnsXQ8+g/Nu3xsPhjygM4/U870hVKI/pwcG/oV0oZVTXrtOv7fxF2
-         uHpfKXigzaxBh9ofeJYzXMaBConANZGRsnZPEPJ2LEuipzNbMIwGmfw+TDBWKHbFCFfO
-         lwWq6oD2aosHtqg1LvG6xyUMnG/Az90mT5EAXat3v4BFRJK4vREgkB2NZ22UH9LMiCca
-         iVt0vRl4tfdwT3ocEo7Jd31Dxn0ZxaDJOa64j9yG/zmosOP00j9a52XuZJEvZ698mMdo
-         MaEn7SamjGAJHtrGfkqrfTGSV2n9Fzg2KBcVXPkBPwOMFKx4ck7TeFTqFV9GI6Jq4ohK
-         Hnvg==
-X-Gm-Message-State: AOJu0Yy6M/Kg64GRqWKopBe/vKrqiDexRgtl076Xsp7FXQrjsMdlJSiQ
-	RmQ268wC2pbs8naGKCFFrcgtGjwNaLLNNIKvxTFB9FxeR7/sthLEJJQQMVaYl4iQ
-X-Gm-Gg: AR+sD12Ia77f6dDNY52SwJ9FC+DhJ/2VZcffQ9o9WSaD3IW6qEF0zBZfAQ//5yiK0P2
-	6lQx8IWkwYnq9oIe07TOBlPp5rcK4uozjoQW16fRE5E9BuMesX6xhsdy7zCtzFFqIx5Al7eedml
-	Vnrcrc8NXgGGfdkMIMuHElFbHShtaGXBQZpYbn5AubJYOiNB3ZJLhy44Ovjtjst7pzz9P+6JFJa
-	pc6NHXtbOhVr2aPw+tuEpiA2PQfq6w0+W9HXeOdrWNaNiTwiiO+CZGB+TXnEQdpe1TYTjezthUH
-	wF67pXQk9MrS4WrmYg7FGNUTCbK8wt2w4HmCDLCDGHAV291248n+4aDQ3/7ZvCcdCjShaw4NXK+
-	P2tnCHG0rV5pYlLF2mwgtcNIhGDLjSqmD6akD7hJFyTrQd+kP3J48QoVvs0AI0Ufb+/7Ex9+csp
-	CThfla+92RRMsHFCCUlkzlWfaFMzLJKdeh3K8L6pToJpmbaclUTYUA7FU/cwi5xbquhdLGRRVeb
-	FnAWpeHXBVmZfuLnIp46ym9jOK1pGIh1oJL4Q==
-X-Received: by 2002:a05:6122:d2a:b0:5c2:d98e:3975 with SMTP id 71dfb90a1353d-5c3d90facbfmr5306237e0c.5.1786365126755;
-        Mon, 10 Aug 2026 05:32:06 -0700 (PDT)
-Received: from mail-vs1-f50.google.com (mail-vs1-f50.google.com. [209.85.217.50])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5c40b1a8007sm4276494e0c.11.2026.08.10.05.32.06
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 10 Aug 2026 05:32:06 -0700 (PDT)
-Received: by mail-vs1-f50.google.com with SMTP id ada2fe7eead31-7389cff36bdso187271137.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 05:32:06 -0700 (PDT)
-X-Received: by 2002:a05:6102:2926:b0:747:4d96:dbb5 with SMTP id
- ada2fe7eead31-760e8b29c2amr8941171137.12.1786365126138; Mon, 10 Aug 2026
- 05:32:06 -0700 (PDT)
+	Mon, 10 Aug 2026 12:40:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=kemnade.info; s=20220719; h=References:In-Reply-To:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description;
+	bh=RY/1wmCxCIFM0LLRBnTLXmBpxbfVg0FeVcj6W7X9LH0=; t=1786365598; x=1787575198; 
+	b=oKON9zdEELo0idVgL9T+qEj5guhnnNKOUD1VrTGnZRgv1qie2NJEDe1VOCV+SeR1Ni6yPfMVYwy
+	igabfFpWN4ep8s2FGt+ew8+jj9LTGjnJsrmByvp1/6ctZctGVcUcdMXiQHJObPxouSGVwGOnFtaui
+	0MqoyNouxYig6v58ze+5RmcGD1xOMrRKoMICYbRpJKuIwUhK2QEjhEmZvnXJ5sMocAEADmE+n6zRq
+	Gn9rhD0wEOZk/My7lqJXvSuAGq0eecsj0N6X1gyKrEYd3fyXkYzQ0M/W71o482xJm5dMLbNX3ylGR
+	PY+3R8PpAuA19E+VrDXaW0SezIirfGqWgUwA==;
+Date: Mon, 10 Aug 2026 14:39:14 +0200
+From: Andreas Kemnade <andreas@kemnade.info>
+To: "H. Nikolaus Schaller" <hns@goldelico.com>
+Cc: Daniel Thompson <danielt@kernel.org>, Grond <grond66@riseup.net>, Stefan
+ Leichter <sle85276@gmx.de>, Grazvydas Ignotas <notasas@gmail.com>, Tony
+ Lindgren <tony@atomide.com>, Ethan Nelson-Moore <enelsonmoore@gmail.com>,
+ Jarkko Nikula <jarkko.nikula@bitmer.com>, Sascha Hauer
+ <s.hauer@pengutronix.de>, Lee Jones <lee@kernel.org>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown
+ <broonie@kernel.org>, Aaro Koskinen <aaro.koskinen@iki.fi>, Kevin Hilman
+ <khilman@baylibre.com>, Roger Quadros <rogerq@kernel.org>, Russell King
+ <linux@armlinux.org.uk>, Jingoo Han <jingoohan1@gmail.com>, Helge Deller
+ <deller@gmx.de>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai
+ <tiwai@suse.com>, Sen Wang <sen@ti.com>, Richard Fitzgerald
+ <rf@opensource.cirrus.com>, Arnd Bergmann <arnd@arndb.de>, Srinivas
+ Kandagatla <srinivas.kandagatla@oss.qualcomm.com>, Kuninori Morimoto
+ <kuninori.morimoto.gx@renesas.com>, Charles Keepax
+ <ckeepax@opensource.cirrus.com>, Niranjan H Y <niranjan.hy@ti.com>,
+ letux-kernel@openphoenux.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org,
+ linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ dri-devel@lists.freedesktop.org, linux-fbdev@vger.kernel.org,
+ kernel@pyra-handheld.com, mfd@lists.linux.dev
+Subject: Re: [PATCH 15/16] backlight: remove pandora_bl
+Message-ID: <20260810143914.64d29a5c@kemnade.info>
+In-Reply-To: <DA9588C6-0238-4713-B1A1-CB2123F02028@goldelico.com>
+References: <cover.1783749722.git.hns@goldelico.com>
+	<f897f695c0e1e128d7ebb41be8dfdce4d634f552.1783749722.git.hns@goldelico.com>
+	<anmpiADsvzW39DNx@aspen.lan>
+	<DA9588C6-0238-4713-B1A1-CB2123F02028@goldelico.com>
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; aarch64-unknown-linux-gnu)
 MIME-Version: 1.0
-References: <20260705125324.13519-1-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20260705125324.13519-1-marek.vasut+renesas@mailbox.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 10 Aug 2026 14:31:54 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdVtt6tNDRo3J1VRwx3Upsa2UWGkK9qqGXr7232AyY864g@mail.gmail.com>
-X-Gm-Features: AUfX_my8_Kr3bd6yUN_SBO3fPdh69-mPfxOjVFEEVS03N_MOz4fZs0mAtI_-CGI
-Message-ID: <CAMuHMdVtt6tNDRo3J1VRwx3Upsa2UWGkK9qqGXr7232AyY864g@mail.gmail.com>
-Subject: Re: [PATCH] arm64: dts: renesas: sparrow-hawk: Always enable edge
- connector I2C busses
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
-	Yuya Hamamachi <yuya.hamamachi.sx@renesas.com>, Conor Dooley <conor+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_053208_791044_EC0FAE07 
-X-CRM114-Status: GOOD (  18.75  )
+X-CRM114-CacheID: sfid-20260810_053958_850234_0150E084 
+X-CRM114-Status: GOOD (  21.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,29 +88,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 5 Jul 2026 at 14:53, Marek Vasut
-<marek.vasut+renesas@mailbox.org> wrote:
-> The interfaces on the edge connector of Retronix R-Car V4H Sparrow Hawk
-> board may be controlled from userspace using matching userspace tooling
-> that includes e.g. i2c-tools. Enable the edge connector I2C busses I2C3
-> and I2C4 to allow userspace applications to use those busses and access
-> peripherals attached to those busses.
->
-> Co-developed-by: Yuya Hamamachi <yuya.hamamachi.sx@renesas.com>
-> Signed-off-by: Yuya Hamamachi <yuya.hamamachi.sx@renesas.com>
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+On Mon, 10 Aug 2026 12:45:16 +0200
+"H. Nikolaus Schaller" <hns@goldelico.com> wrote:
 
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-i.e. will queue in renesas-devel for v7.4.
+> Hi Daniel,
+> 
+> > Am 10.08.2026 um 12:35 schrieb Daniel Thompson <danielt@kernel.org>:
+> > 
+> > On Sat, Jul 11, 2026 at 08:02:02AM +0200, H. Nikolaus Schaller wrote:  
+> >> Retire the platform specific pandora backlight driver since
+> >> it can now be replaced by twl_pm and device tree.
+> >> 
+> >> Signed-off-by: H. Nikolaus Schaller <hns@goldelico.com>  
+> > 
+> > Yay!
+> > 
+> > Reviewed-by: Daniel Thompson (RISCstar) <danielt@kernel.org>  
+> 
+> Well, there were some good comments by Sahiko to the prerequisites of this patch,
+> because it has one speciality the PWM BL driver does not handle (avoid
+> interpretation of PWM signals as W1 protocol).
+> 
+> I haven't found time to work on this, so we can't remove this yet.
+> 
+> In the end it may either remain a pandora_bl driver (converted to DT)
+> or become a patch for something else.
+> 
+But then it is a TPS61161 on top of PWM, not a pandora driver.
+And then there might be just a quirk for that chip in the pwm_bl using
+triggered by a compatible. I guess the quirk is this:
 
-Gr{oetje,eeting}s,
 
-                        Geert
+if (priv->old_state == PANDORABL_WAS_OFF) {
+-		/*
+-		 * set PWM duty cycle to max. TPS61161 seems to use this
+-		 * to calibrate it's PWM sensitivity when it starts.
+-		 */
+-		twl_i2c_write_u8(TWL_MODULE_PWM, MAX_VALUE, TWL_PWM0_OFF);
+-
+-		/* first enable clock, then PWM0 out */
+-		twl_i2c_read_u8(TWL4030_MODULE_INTBR, &r, TWL_INTBR_GPBR1);
+-		r &= ~PWM0_ENABLE;
+-		r |= PWM0_CLK_ENABLE;
+-		twl_i2c_write_u8(TWL4030_MODULE_INTBR, r, TWL_INTBR_GPBR1);
+-		r |= PWM0_ENABLE;
+-		twl_i2c_write_u8(TWL4030_MODULE_INTBR, r, TWL_INTBR_GPBR1);
+-
+-		/*
+-		 * TI made it very easy to enable digital control, so easy that
+-		 * it often triggers unintentionally and disabes PWM control,
+-		 * so wait until 1 wire mode detection window ends.
+-		 */
+-		usleep_range(2000, 10000);
+-	}
 
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Regards,
+Andreas
 
