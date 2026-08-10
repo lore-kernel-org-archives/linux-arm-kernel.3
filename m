@@ -4,111 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0623AC5AC82
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 07:06:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 333E8C5AD4E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 07:09:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8Vyr/Jv7jK4HllQmorQFVSN5kvsKl7FtMVXtkglpHtc=; b=uqLqNFyMFhpUOTOcm0kxfPGdPj
-	m2p86otIS3XoG2sILYCguH1YPwsSlBOspFF8Eie5muSLTm9cH/qwhuPv53UXygRg9zJEBgH+Fq1pD
-	8CG2jAWb2hYJL6SdnVQ3ivVEKlvS8tsZpA+eFQSbGBVed5saHDUOdW8oCNz4wAAEcbD40OHd+q8oe
-	hi4+PbK1encig08DLMJwKbOEEL4atzWXHhMruKlYIuzm4lFFyWzVv5mhMEKHzk0rqhO0T4gmG0Ud6
-	Bu90sDLAYMIGRd2fS4YZZ2WdsC90qWN84KublO6DJ/5xtFolViDnufOwoEsGKNuH+TJ8qEBaIpTAV
-	YKTamHlg==;
+	bh=c2EOGS8DYmqZJF/Z5+8kYQQuEQuYPxby8DsQEXtUYIU=; b=sfMjx6rxIvCgkkzioROznHfu6v
+	2sWWfujQ9JyIAYXw5ai9okP0JgVXNkrXQbfsQO4iBGoynysxPzBJecc7All/zzfs2ku9iIH43snwf
+	4TJi1XrTHVCELiW7yOTEVkxq3aGLtcOZBcIGbkEYkBcYluLn+5d8cMJvk/Xm5P0X4fVAJbUurmtAj
+	p/aRnLAT+iDGqhU1ulIrzrj4RWkSfFV/U8tFx/pdvtxfsHscqqLVuReLPpKmVuHdqIKj0k33WusYi
+	2zqfL1ISwWDfxha7Wrfk3obTNAcv+H+C0+S2HSdf+FXCnb1WBRk7TJNuC/vebm1KozJwAxY7qlgz4
+	WLx9ZB/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtK5s-0000000BAcw-1KWz;
-	Mon, 10 Aug 2026 07:06:44 +0000
-Received: from mail-lj1-x22b.google.com ([2a00:1450:4864:20::22b])
+	id 1wtK88-0000000BApA-3qS8;
+	Mon, 10 Aug 2026 07:09:04 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtK5q-0000000BAcZ-06v3
+	id 1wtK87-0000000BAp3-2MWA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 07:06:43 +0000
-Received: by mail-lj1-x22b.google.com with SMTP id 38308e7fff4ca-39faa67fab8so9628641fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 00:06:41 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1786345600; cv=none;
-        d=google.com; s=arc-20260327;
-        b=BAEnbl1ag+DnkNAhrnPMe5jUY8PhKNzp6j9nq6Nzzta0dbfoE0Sxb92FzSqrBn+wjZ
-         CZteSNleLSMcXMM9sYodKHZ3o7KetqCi/PNjG6LHsPVO3IsAa/rUYQs5Y1WVBOV7bpze
-         j6hqQubRH4tdOojvOG4C+ZHOWuTN7hlID+MCS3AOo4M0jMeIzyaFPRj3bQ6t0FWuGgKs
-         ipwlezJKiiX8Avja0WnGGJSpDiANn1wjXTTJkoHSVVn9bwFogmymFPZ5M9hSWb80V1OB
-         Gp6ZDwULHzZv7Tuwu34m/gojK8cL5YQWBXPNgoRtm/kxWbjy/JeTInejpnh0sz9MPbs2
-         ohRw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=8Vyr/Jv7jK4HllQmorQFVSN5kvsKl7FtMVXtkglpHtc=;
-        fh=I35gX20MEZYrGpEC/X+jx6Vx01dvEuYHBYMJSIvQlxc=;
-        b=d+BcYJJrmjDNc9dHKGf6NC9TMVIEzyVZffgCcH1xCDaFIBHEtV5r3o2Xx7ADahGUxI
-         W+icWegTISgfwLbsWEVC9L8DzjjCd60bkea99+OjlcvijPdIC1AvKIUQms0aPd+mSTJU
-         qjXL9IINIByZ3q2HsgKCE77KTprWCCOX6MR8ZcI/Tg9uQQYBkok0qLq9y/OZYTX8qcMg
-         iE39co00qWUYHr746ZQ377uKj0o99K2RTmB1wBYNKDM55qdemAli6sKTwRfpbE9qJqoX
-         AppxlcTd7nkffjO5YfR0sm2jIOQ9NtPS60d/GoIXK1aqmxXsHLteG814o61421dPoC1i
-         ngZg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786345600; x=1786950400; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=8Vyr/Jv7jK4HllQmorQFVSN5kvsKl7FtMVXtkglpHtc=;
-        b=BD4241M0v6vSPof4GsbSn1ECXVE6ca+jsl2XfBySdoFEpcsukqYHBvN+DLSVgOPbCk
-         zPuajrZgtSyEHZaUQ15piAjNuFj2t1gZnHLUTZEYw86X/kX7rfkp1rAjtGN4ka5a94zI
-         u8tg+1S3qzq2DfZyc387BMeW4/+4eGGBOQ5ps18FmRUnBRAsLRSbuQg/iW/8HVj/kSk8
-         s4yrlzLCBwse/8wJhQOl6TFB9+3V9E8mX2kHUg8H6tUIePbjq22nJQE0OYc/nPAYEa0S
-         8gwH51gd+Uaay2klGpMB+NDyyAOS/HWM7IV3FwNPl1DII8fbjQQIH2Eo9atqIV86QdMR
-         E7kQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786345600; x=1786950400;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=8Vyr/Jv7jK4HllQmorQFVSN5kvsKl7FtMVXtkglpHtc=;
-        b=cVt4xAuu9/ADy8RivvuOtOSl0y/tCjpWFk2q4w0WmlefmG573EZMGZHW9tgMvQYnhX
-         d0ChFACWUSyZMvlXW1xQwLEPuq5levBBi4KP5PPqa8ewfr0I5vhTWyQTVVHP9SUZ08JC
-         Io1HZI2GoGaTnrgs6nrss+ISZJOM3Ryf4kU5sL98Ycu2gXRIS7jM6ruYTaMfqwLyoj5V
-         iylg5PyaAAJiTXkJ/8aMJhuddI+Sl2i6H8x/7/vZZv4Tvt88dqeJEB9zb9RqJR0GQwxj
-         dThr7gXvifrWe1R+bzJRCOjxbHCucBtGA7nhfB25ToFoxkQGUpPfiLyAcrIoXgv2ugjZ
-         1JFQ==
-X-Forwarded-Encrypted: i=1; AHgh+RpZLcKfhR/WjeTccaefYQbxRawJJBOnTnv2nE6v8vK+9B+Nf92TStn4GNH7mpqh7hqHAn1jvNGW0Z14OjkrghPU@lists.infradead.org
-X-Gm-Message-State: AOJu0YyQX136T7DGo9rR+PQggPvBti8w5Uzx1DorE/VP0T6rLCdH7Q0r
-	TlvMtLbUnIdNQ3B1XP8MeRbGpTjZBnJ/rzjqTTCANfjhBqDI1cfQW33115i7ws7UYGr61IGiBqv
-	MmBUT/U2nF46c0RTo8neLUp+tyOYC7Gk=
-X-Gm-Gg: AR+sD13iX+3rakW9gyMd4Q30RDspRob9TXXbBDGxLljIsFG0Foab8xdrd7ouf8EZ79g
-	wqkWKCbQR4rPOTVHPk/Io683rOJIgTbd9X5vbTWX+0Tvhm8BmoMilVb9tSu6vlXhO4+KgwHenWE
-	ab6wN6BCN2f3QNf67g/WYnI1Ek+0Q+55HLQDg25Cxbrics1FAVqxMZ6FwJgvJ/Fpu1OC1dONsZS
-	m2L2VoqlUkJWGcWHEkyGmRSw57aM+OEJV4gNlUnGMaO6qk4R/NZxR40UPrRyu697GQiWO/tg1rK
-	zEIyZgGSXLbYjHz0LvJENNw3mrooBmv+wUCa8w72c5gjJ+HA8Xovv9Xcv2/ScrBNtfWV5xMwTRM
-	Q6Fwh8NThVC4x5vkrg0X8m45hfkUczQB8JFIpIEEVGyBz5R8vOGh9t7ZSc/A4QCuXz2Xrll9nFz
-	mT93I+2z4XcfWjv/n6XQqRneBGf1f+km2+8B/qa2BT2Q==
-X-Received: by 2002:a05:651c:515:b0:39c:628c:15ec with SMTP id
- 38308e7fff4ca-39fbb20370cmr42017491fa.23.1786345599591; Mon, 10 Aug 2026
- 00:06:39 -0700 (PDT)
+	Mon, 10 Aug 2026 07:09:03 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 29C1B43719;
+	Mon, 10 Aug 2026 07:09:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8399B1F000E9;
+	Mon, 10 Aug 2026 07:08:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786345742;
+	bh=c2EOGS8DYmqZJF/Z5+8kYQQuEQuYPxby8DsQEXtUYIU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=hk3ZuOtrQSR7utnupgQRC/ImuPCZsaAf4ygcX68Y5ip4N8TALf9HQWu/McLXoRPIw
+	 T86GlZXPwPCz9+FaZ7UH+D5AnRZk3j7Doz7l81X7Kt4sqS981tlk+TggJ6H8FFp6KO
+	 wT7o1QIrJEcQdrczwZBJP44LjKb+5rqxHLrTgR9bpS272+pMSZ+iILiTzIEwK4Dmak
+	 AwUbzpB51DNXrCVn0Q3QsEwXuhLUcW1coWYE697Kunha7TRRZqB82lFoIEU7QEnDe8
+	 dgb/KfZoehFquov+abe9fz/Mh5oEr0J7qxd0y3o2Da0ljuQ7n6JDvrduB6C5gnK0ij
+	 efTEaeeoUlQvg==
+Message-ID: <0b2f43f2-5c89-481a-9472-999331aa3b3c@kernel.org>
+Date: Mon, 10 Aug 2026 09:08:54 +0200
 MIME-Version: 1.0
-References: <20260810053142.27938-1-phucduc.bui@gmail.com>
-In-Reply-To: <20260810053142.27938-1-phucduc.bui@gmail.com>
-From: Andy Shevchenko <andy.shevchenko@gmail.com>
-Date: Mon, 10 Aug 2026 10:06:02 +0300
-X-Gm-Features: AUfX_mwwgXVwFIJAHgeFASTJpkj6tyq5vvwg3fFo1Zsxr234OStIioODHNuDBEA
-Message-ID: <CAHp75Vfj9XdGY=E1-nDXhwu182b1ikoruzj2dGSp_H6kOo0SDA@mail.gmail.com>
-Subject: Re: [PATCH 1/5] pinctrl: ocelot: Propagate errors from optional IRQ lookup
-To: phucduc.bui@gmail.com
-Cc: Linus Walleij <linusw@kernel.org>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
-	Mika Westerberg <mika.westerberg@linux.intel.com>, Andy Shevchenko <andy@kernel.org>, robh@kernel.org, 
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_000642_107617_A6985AB6 
-X-CRM114-Status: GOOD (  11.02  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] dt-bindings: media: add axiado,ax3000-video
+To: Tzu-Hao Wei <twei@axiado.com>
+Cc: Shubhangini G <shubhangini@axiado.com>,
+ Prasad Bolisetty <pbolisetty@axiado.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Karthikeyan Mitran <kmitran@axiado.com>,
+ linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ openbmc@lists.ozlabs.org
+References: <20260730-ax3000-display-driver-v1-0-4fbd4d0c85d3@axiado.com>
+ <20260730-ax3000-display-driver-v1-1-4fbd4d0c85d3@axiado.com>
+ <ed8ca066-bb8b-4476-be96-37a2b6e022ab@kernel.org>
+ <a8383bd7-802b-41b0-897b-812b4a8fca33@axiado.com>
+ <9f689436-04c6-48d6-8342-7fac998f3910@kernel.org>
+ <b585130e-710a-434d-bf06-cc06f9bffc33@axiado.com>
+ <20260804-healthy-versatile-barnacle-b58db9@quoll>
+ <5d2a80ed-6c74-4ad7-8d18-c05e38bd8208@axiado.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <5d2a80ed-6c74-4ad7-8d18-c05e38bd8208@axiado.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,20 +126,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 10, 2026 at 8:32=E2=80=AFAM <phucduc.bui@gmail.com> wrote:
->
-> platform_get_irq_optional() returns a positive IRQ number on success or
-> a negative error code on failure. For an optional IRQ, -ENXIO indicates
-> that no optional IRQ is available, while other errors should be propagate=
-d.
->
-> Propagate all error codes returned by platform_get_irq_optional() other
-> than -ENXIO.
+On 06/08/2026 10:20, Tzu-Hao Wei wrote:
+> On 8/4/2026 3:55 PM, Krzysztof Kozlowski wrote:
+>> CAUTION: This email originated from outside of the organization. Do not click links or open attachments unless you recognize the sender and know the content is safe.
+>>
+>>
+>> On Tue, Aug 04, 2026 at 07:31:25AM +0800, Tzu-Hao Wei wrote:
+>>>>> There is no local register interface for this driver to program: frame
+>>>>> delivery is controlled entirely by the host-side display engine and
+>>>>> the PCIe endpoint mapping that feeds the shared region, both external
+>>>>> to this driver. A software polling timer schedules a workqueue item at
+>>>>> the configured framerate, which copies frames from the WC-mapped
+>>>>> shared region into vmalloc-backed vb2 buffers. Running the copy in a
+>>>>> work item rather than directly in the timer callback keeps potentially
+>>>>> multi-megabyte memcpy and per-pixel conversion work out of softirq
+>>>>> context.
+>>>>
+>>>> Then this is not a separate device. You just described a Linux driver.
+>>>>
+>>>> I still wait for answers of my question above. You described getting
+>>>> buffers only.
+>>>>
+>>>
+>>> Thank you for the continued review.
+>>>
+>>> To correctly represent this in device tree without describing a
+>>> software driver as a hardware device, would moving the schema into
+>>> /reserved-memory be the preferred approach for v2?
+>>>
+>>> Specifically, we are considering moving it to:
+>>> Documentation/devicetree/bindings/reserved-memory/axiado,ax3000-video-mem.yaml
+>>
+>> I would rather suggest this should be part of the device handling the
+>> host side of the device. Or is there none?
+>>
+>> Again, how do you configure the frame parameters or start capturing the
+>> data?
+>>
+> 
+> Thank you for the review.
+> 
+> Regarding frame parameters and capture:
+> 1. Frame parameters: The remote host writes the active resolution and
+>     format into the control mailbox (the second memory region).
+> 2. Starting capture: There is no hardware "start" register. The remote
+>     host continuously writes frames into the VRAM asynchronously. Our
+>     driver simply starts reading from the VRAM in software when requested.
+> 
+> We did consider making this a child node of the PCIe Endpoint. However,
+> that does not fit our architecture because this memory acts as a shared
+> VRAM across multiple subsystems.
 
-Same comments. It may or may not be okay to have such a change. The
-less disruptive one is to check only for a deferred probe.
+Just because you decided to split drivers into multiple subsystems does
+not warrant designing bindings one or another way. IOW, number of your
+drivers does not matter here.
 
---=20
-With Best Regards,
-Andy Shevchenko
+Trivial answer to your problem is to combine the drivers so you have one
+place of allocation which you pass to sub drivers.
+
+Having this static in DTB is quite a limitation and constraint.
+
+
+
+> 
+> Currently, we are preparing two other drivers for upstream: PCIe EP and
+> DRM/HDMI. In our primary use case, a remote host writes frames via PCIe
+> directly into this VRAM. Our DRM driver concurrently reads this same
+> VRAM to drive a physical monitor, while this V4L2 driver captures the
+> frames for userspace (e.g., obmc-ikvm).
+> 
+> Because this memory is shared simultaneously by PCIe hardware,
+> the DRM, and V4L2, no single software driver can simply allocate it
+> dynamically. So, I think it should be defined at the system level as a
+> shared reserved-memory region.
+> 
+> Given this hardware topology, do you have a recommended devicetree
+> pattern for representing this shared VRAM? We are open to your
+> suggestions on the best way to model this upstream.
+
+How does the host receive the address/size of this memory (from host
+side)? How does it know where to write the frames?
+
+Best regards,
+Krzysztof
 
