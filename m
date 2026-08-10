@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEC73C5AC82
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 06:25:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A78FBC5AD4E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 06:25:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wEmwjKRPxWjvxM9agZBy10ArpaTDJu1wZiUuC9YJp84=; b=f0MtJaAwRsWiZXeZ8v5eEYL0NF
-	RdgeTUNJh7VNXhDDFkDfOk0MNnSw1v3A5AhyDurjr0URC/YmbV5WJKIwaLYmglsxa/6DhHckXZ9Pb
-	Xvv595iyVSuzjgbN6b5md8XeAy/xo7cbWrphEyXq+a5oQgtM4NFHb9wic6JnQbXqoO2U+sRGQT5da
-	bu52zoaTlbb9xsCqgsbgmcjUdUCYiMPhIRVJL6+PhbL9MWegQ328OnqyJ6u0Mr/hsBxt4Vyad7rnx
-	w3cRL4Nu9c5Ie9qi2Z+8oX83ypfrrHswkGDIAGF7iNdzxsjrbmyGV/6VwW5yDI/k7JBsKkDrVI9C0
-	E8aRUeNg==;
+	bh=l6svQF5GPAZfouFfjRsxMRw5S+3HKyD/RZ/OlzpdStc=; b=sZwO+Q1+oucrg0CjLaec3dU3Iw
+	0donbPv9YeMhu1IPqCDF265VK7rB2/o78RgkJS35nBP+eP6kM2jKOyP1ZeJ0OVmq52hZrH6M8+M3Y
+	p5bnQRL4j+NNpMB4HSxtP8weNlDSMhcMuPQjlhyYVIaVjTBwLvM4e3+ZmRjllAXSQdVph9vdm44ZV
+	m6mZ015DRqpFqA30EptXPRO3mPYcuMIcFFYURERYmEA9Xx3KfxSUR0iORjLNS3NimuWw4KC1Tr7/7
+	LEsrHeQPh3GQusrqWWD9vabIvNB56u23MkR5wWjl5AHc1hQBhYceDY+ULn2F19rfQGYUk0YMZrqq3
+	/hsbBx+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtJS9-0000000B5Nv-1MPp;
-	Mon, 10 Aug 2026 06:25:41 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1wtJSD-0000000B5Q9-2eLx;
+	Mon, 10 Aug 2026 06:25:45 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtJS7-0000000B5N1-1NhF
+	id 1wtJSB-0000000B5Ow-1xdN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 06:25:40 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2cf452def93so30779155ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Aug 2026 23:25:39 -0700 (PDT)
+	Mon, 10 Aug 2026 06:25:44 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2cca0c5799eso13999135ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Aug 2026 23:25:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786343138; x=1786947938; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1786343142; x=1786947942; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=wEmwjKRPxWjvxM9agZBy10ArpaTDJu1wZiUuC9YJp84=;
-        b=XEv8bicZipENMfu/66VjNWtywTJyOLZ5orf4YunIpKMfpb0wbS3Mti3FoOjHMVtbMt
-         0XFVfMGI9jnjVs7l89tnwc+oC1ZDSeaNYcd5cUyxAU03QkLmTyk9CvmwBldWcpvXhn8b
-         0IEs6KepI45PSBS/yRVaBHQBJVeYyXhzK83j4L9MAnTgY+WF6YArx3qvT8xKdFjcUEnI
-         ZZml3TEqCCZ9EX5HH/TEA2L/fcv0rREH9HpKEf5ozxjiYJplAk5ZBPQWQ62G1NcdGV8b
-         MZrsB9dGq85LQkSFx75vQUxDykFEfeEAILdmqU1U48/GfIevVnfZriBC427jsGL/u7DP
-         4qnA==
+        bh=l6svQF5GPAZfouFfjRsxMRw5S+3HKyD/RZ/OlzpdStc=;
+        b=YVHgiOBjq0+opcYHjgGPYXU6/ZSKxK+78CVBSew1eyJBTMbgkLuYVoDpJaAtm/0cK7
+         nO027OipxDH0vRSDAQXLDC4/b2af27/5PfSpVLp7tZVRWng9ZWU4hjUYeQOuhqmlpcGj
+         gy1qQVJg40EGHuo/CJpvuoOeC3sleuUjEpCCbf3/y5myk8mnZD1mRO6EN/EYPEKWzCkg
+         OmCMJ/Lamcu4hy6Cyuuy/4Pobl0RNTfEJToloD/VSuzTnykHIECz3jDkXd8v2jBQl/6v
+         RN5PljG3JAzilD/lr6SZC0Oe89JNnNCjSdjtqdBshiR5KKCukMvZUSXh4hs/bwl25t4l
+         Cezg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786343138; x=1786947938;
+        d=1e100.net; s=20251104; t=1786343142; x=1786947942;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=wEmwjKRPxWjvxM9agZBy10ArpaTDJu1wZiUuC9YJp84=;
-        b=p1oapaIXjyCdZNHgvi5uQvEGsSpynGxzNhNv4UjUz84HL03CLfMH8iq1DYESAZ/W6j
-         cPZkQK0dZ3C/NhAAStfolxNPmv96Gk1tMrWx/imKjYGiDzs9lIHxolgUEjy2znc6vG0u
-         Z+RteTpl7fKYq4nBMEANu71wK7U+SAJ8zFrKgaxbEoUYO3Jdm0wPG1x9vWkpVmkAwli/
-         eAGqut0U8EmqgsLFI2j9mnfS8V3YaJv4OXsvL+y6zMkjv1Gfodb8ZKJEx5+LxIo4A1mK
-         FtXRnaJ8UG1ZzlimlH1/Hm7VPermCyErZNipPEmQGcU+rgjRoUzq2kkCKppRnKR+iIrH
-         rvFw==
-X-Forwarded-Encrypted: i=1; AHgh+RqkHqOFlIW6W2CL96gtgdbUF/jMapRFbtyJrT93xrIUiiM6iMH5HECFQU1Ozx0F5ObiyBrbTzRCHVLfXaNVMOAB@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/286BAujoERJJMXji3XRUgH5IivPo1xi2Z5R2qhXSADZ1ksqV
-	dhZEaCircfRQ87t6Wd1GcyKyc1FrkberdIm02OwOQMiPBuFYbGtTffQa
-X-Gm-Gg: AR+sD11u5Upbg/cghPq6m7ICYk9XsRUO+4G0BPvkwU6yXLfUqiBKo4ZTrDD9GAT3R9D
-	IzeAdD3eF7c5n7C98og5ZyWrvDdylHQ+hGzDN2Pknm9yWxa0Uta8w9qEgkFM3IFt6J2wIt/qET2
-	8w/Ax14P8HDoy2fbZ1nBHjwgu083K5sFLnWSrrngJWMDtdaFtU4UMw60Givw4yBFUAH3QSO+73Q
-	IE9EbEBEo/MNZjj7tElUaynqzOAAXcsxfzDEpue3N5m9P7jL0/WfUm8sqAqFmtXrfTAbX8XEDVl
-	dnctTknqUZk6cgkOOj/nf/ZX87bmdbgDnt9HlhLlKGqRoXtRefZ2CdMfJ3rGbxqlWOambAKcN/X
-	aWARYwQLQ2+syqjmjnDffPzCr1Q3tGA1BjD5D5ZNjoVOv1RajmQmkNNxI6Qt+vaJFRnK8rFTM7M
-	9oqEn0iCk5we8bBxZeyZQRf/gtSusJAGqNCyzVPODBPNVQR0TS5zIe6DE9Lh6lbH3q4grZY1+Aa
-	BpGFZiczjtPQLs2
-X-Received: by 2002:a17:903:37cc:b0:2cc:ac15:ff4c with SMTP id d9443c01a7336-2d2b2e1b741mr165459175ad.8.1786343138312;
-        Sun, 09 Aug 2026 23:25:38 -0700 (PDT)
+        bh=l6svQF5GPAZfouFfjRsxMRw5S+3HKyD/RZ/OlzpdStc=;
+        b=WpwquJlxtBzTlM6+zua7i93E4bWJdSDBGXXfXNCPEP7U1F4OsejPbyECrHvE4dsWc3
+         +eJFGazgiywoQ47VRD/7BkC8edI+yy6PeHlGdVpAq3hzQssmCSBSM2jhGnBncmGWMWcR
+         mDEUD+moYyt8X9Imf5imOtmamy9U1Aeyy2cPhEQq2UYCbhcofzboVpNJwkIZuwKw5Qxg
+         J7TO5UI7yibEtpyhlrxoj80Yi9cMYyQ8XFpAvqXA6hD0yqQZbtDbg6dgQSqzMTQKQ/H2
+         2SQq9D7ah0/HT6TbsMGhKXWpujbAs5SXaRZCRpGnzhKDc2vQZm7w1DcjFIw/rCdLtuj5
+         FEYQ==
+X-Forwarded-Encrypted: i=1; AHgh+RrEccyW1G0+wZhV+5QLxVP5gAejJCEjgtHiS8dh4/0hqz8mLCI7qpEXIg3NJvIAdcr9WJaPh4usxBnXr1bLKDYr@lists.infradead.org
+X-Gm-Message-State: AOJu0YzYtl1NYEEpwCjetjCHMEyhAZuI0A32Uj8rvU7DO2PvhZsasq+Q
+	w01y/vnmSaOKsKct2+MJm1xx2dYY0ZrJNM25rXzyQdYiWJX6Ft0i071a
+X-Gm-Gg: AR+sD13Qjuk9jbskAHm8EZyfAbHzWK9rFqCCDEWNkpiLHiJ6eeP69POF17P0+KYzdZR
+	lQWdGpI95NDL0x/6QjP9GOOvh+Y/NNMGfcZplXJPBkA2unYxiositDojiMasSDaabmE95SD+pMN
+	g2zLYhHfubSrky8ywaU6TIpcYCTlzX2j5rcRAHAHMS9Z7AXtf1YkIdGAMF5Xk7Y8zwH/z8haTWY
+	puP+PRcOcb63DUd5wrpw/tiJ0CiFgJaXSNe51qNNOKzKQK+U8A8YuyVgRcBBAypld0QmSujyK91
+	gZ3qmEWgQ9rjFn9QMteb8XyAaKunJOxqVJuSzqgpd+5Lr0JVGBOGkiGuB06tu61AywFHjww1JD3
+	Y1kLoajbp7vGNXJ4nA4ANvPPHnekSbM9qna2sfd5v+1pSJGEIMc6IASOWPSzTFn/SgMjrC3HLBV
+	RDPZSV5QHPyQKDvhjMi4CQuodaZPI25fJOqb6TvZaVxV85KfLVavZwvLcIu1DribnYbyjC+GmNi
+	yanmQ==
+X-Received: by 2002:a05:6a20:d43:b0:3c3:b5db:cd93 with SMTP id adf61e73a8af0-3cbce7999e3mr19834403637.13.1786343142488;
+        Sun, 09 Aug 2026 23:25:42 -0700 (PDT)
 Received: from SGN-LDSENG.tasernet.com ([2405:4800:5cc3:11a:1ac0:4dff:fe8b:4a69])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-315beb8844fsm40642912eec.16.2026.08.09.23.25.34
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-315beb8844fsm40642912eec.16.2026.08.09.23.25.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 09 Aug 2026 23:25:37 -0700 (PDT)
+        Sun, 09 Aug 2026 23:25:42 -0700 (PDT)
 From: Cong Nguyen <congnt264@gmail.com>
 To: Maxime Ripard <mripard@kernel.org>,
 	Mauro Carvalho Chehab <mchehab@kernel.org>
@@ -81,9 +81,9 @@ Cc: Chen-Yu Tsai <wens@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 2/3] media: sun4i-csi: disable interrupts when stopping streaming
-Date: Mon, 10 Aug 2026 13:25:20 +0700
-Message-Id: <20260810062521.1709379-3-congnt264@gmail.com>
+Subject: [PATCH v2 3/3] media: sun4i-csi: add notifier unbind callback to drop the source subdev
+Date: Mon, 10 Aug 2026 13:25:21 +0700
+Message-Id: <20260810062521.1709379-4-congnt264@gmail.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20260810062521.1709379-1-congnt264@gmail.com>
 References: <cover.1786184456.git.congnt264@gmail.com>
@@ -91,8 +91,8 @@ References: <cover.1786184456.git.congnt264@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260809_232539_383184_3D40CA86 
-X-CRM114-Status: GOOD (  19.09  )
+X-CRM114-CacheID: sfid-20260809_232543_513602_1F7B9AF1 
+X-CRM114-Status: GOOD (  14.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,102 +107,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-sun4i_csi_start_streaming() enables the frame-done interrupt in
-CSI_INT_EN_REG, but sun4i_csi_stop_streaming() only stops the capture
-engine (CSI_CPT_CTRL_REG) via sun4i_csi_capture_stop(). It never disables
-the interrupt source nor synchronizes with the handler.
+sun4i_csi_notify_ops only implements .bound and .complete. The .bound
+callback caches the remote sensor's subdevice in csi->src_subdev. When
+that subdevice goes away (e.g. its module is unloaded), the V4L2 async
+core frees it, but without an .unbind callback the driver keeps the
+stale pointer.
 
-Capture stops at the end of the current frame, so a frame-done interrupt
-can still fire shortly after stop_streaming() returns. If userspace then
-closes the device, sun4i_csi_release() calls pm_runtime_put() and the CSI
-block is powered down (clocks gated, reset asserted). A delayed interrupt
-handler would then read/write CSI registers on the gated block, which can
-hang or crash the system.
+A subsequent VIDIOC_STREAMON reaches sun4i_csi_start_streaming(), which
+calls v4l2_subdev_call(csi->src_subdev, video, s_stream, 1) on the freed
+subdev, resulting in a use-after-free.
 
-Add a helper that clears CSI_INT_EN_REG, reads it back to flush the posted
-write, and calls synchronize_irq(), so no handler can run past that point.
-Call it from stop_streaming() before returning the active buffers and
-freeing the scratch buffer.
-
-The start_streaming() error path (err_disable_device) has the same
-problem: the frame-done interrupt is enabled and capture is started
-before the s_stream call that can fail, so a handler can run while the
-error path frees the scratch buffer and returns the queued buffers.
-Apply the same teardown there. Store the IRQ number in struct sun4i_csi
-so it is available in both paths.
+Add an .unbind callback that clears csi->src_subdev. The pointer is only
+dereferenced by v4l2_subdev_call() (NULL-guarded, returns -ENODEV, so
+streaming fails cleanly) and by sun4i_csi_notify_complete() (which only
+runs while a subdev is bound), so clearing it is sufficient to prevent
+the use-after-free.
 
 Fixes: 577bbf23b758 ("media: sunxi: Add A10 CSI driver")
 Cc: stable@vger.kernel.org
 Assisted-by: Claude:claude-opus-4
 Signed-off-by: Cong Nguyen <congnt264@gmail.com>
 ---
- .../platform/sunxi/sun4i-csi/sun4i_csi.h      |  1 +
- .../platform/sunxi/sun4i-csi/sun4i_dma.c      | 20 +++++++++++++++++++
- 2 files changed, 21 insertions(+)
+ .../media/platform/sunxi/sun4i-csi/sun4i_csi.c  | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
 
-diff --git a/drivers/media/platform/sunxi/sun4i-csi/sun4i_csi.h b/drivers/media/platform/sunxi/sun4i-csi/sun4i_csi.h
-index 4e0c2df45d4d..51173faea871 100644
---- a/drivers/media/platform/sunxi/sun4i-csi/sun4i_csi.h
-+++ b/drivers/media/platform/sunxi/sun4i-csi/sun4i_csi.h
-@@ -112,6 +112,7 @@ struct sun4i_csi {
- 	const struct sun4i_csi_traits	*traits;
- 
- 	void __iomem			*regs;
-+	int				irq;
- 	struct clk			*bus_clk;
- 	struct clk			*isp_clk;
- 	struct clk			*ram_clk;
-diff --git a/drivers/media/platform/sunxi/sun4i-csi/sun4i_dma.c b/drivers/media/platform/sunxi/sun4i-csi/sun4i_dma.c
-index e911c7f7acc5..fd83dbd1a3ff 100644
---- a/drivers/media/platform/sunxi/sun4i-csi/sun4i_dma.c
-+++ b/drivers/media/platform/sunxi/sun4i-csi/sun4i_dma.c
-@@ -43,6 +43,23 @@ static void sun4i_csi_capture_stop(struct sun4i_csi *csi)
- 	writel(0, csi->regs + CSI_CPT_CTRL_REG);
+diff --git a/drivers/media/platform/sunxi/sun4i-csi/sun4i_csi.c b/drivers/media/platform/sunxi/sun4i-csi/sun4i_csi.c
+index a8711336a754..f19508f2c7ed 100644
+--- a/drivers/media/platform/sunxi/sun4i-csi/sun4i_csi.c
++++ b/drivers/media/platform/sunxi/sun4i-csi/sun4i_csi.c
+@@ -122,8 +122,25 @@ static int sun4i_csi_notify_complete(struct v4l2_async_notifier *notifier)
+ 	return ret;
  }
  
-+static void sun4i_csi_disable_irq(struct sun4i_csi *csi)
++static void sun4i_csi_notify_unbind(struct v4l2_async_notifier *notifier,
++				    struct v4l2_subdev *subdev,
++				    struct v4l2_async_connection *asd)
 +{
++	struct sun4i_csi *csi = container_of(notifier, struct sun4i_csi,
++					     notifier);
++
 +	/*
-+	 * Disable the frame done interrupt and wait for the handler to
-+	 * finish. A frame may complete right as capture is stopped, so an
-+	 * interrupt can still be pending here; without this the handler could
-+	 * run after the device is powered down (pm_runtime_put() on release)
-+	 * and access registers on a gated block.
-+	 *
-+	 * Read the register back to flush the posted write so the disable has
-+	 * reached the device before synchronize_irq() waits for the handler.
++	 * The remote subdev is being freed. Drop our cached pointer so that a
++	 * subsequent sun4i_csi_start_streaming() does not issue a
++	 * v4l2_subdev_call() on the now dangling source subdev. The call is
++	 * NULL-guarded and returns -ENODEV, so streaming fails cleanly.
 +	 */
-+	writel(0, csi->regs + CSI_INT_EN_REG);
-+	readl(csi->regs + CSI_INT_EN_REG);
-+	synchronize_irq(csi->irq);
++	csi->src_subdev = NULL;
 +}
 +
- static int sun4i_csi_queue_setup(struct vb2_queue *vq,
- 				 unsigned int *nbuffers,
- 				 unsigned int *nplanes,
-@@ -328,6 +345,7 @@ static int sun4i_csi_start_streaming(struct vb2_queue *vq, unsigned int count)
- 
- err_disable_device:
- 	sun4i_csi_capture_stop(csi);
-+	sun4i_csi_disable_irq(csi);
- 
- err_disable_pipeline:
- 	video_device_pipeline_stop(&csi->vdev);
-@@ -353,6 +371,7 @@ static void sun4i_csi_stop_streaming(struct vb2_queue *vq)
- 
- 	v4l2_subdev_call(csi->src_subdev, video, s_stream, 0);
- 	sun4i_csi_capture_stop(csi);
-+	sun4i_csi_disable_irq(csi);
- 
- 	/* Release all active buffers */
- 	spin_lock_irqsave(&csi->qlock, flags);
-@@ -438,6 +457,7 @@ int sun4i_csi_dma_register(struct sun4i_csi *csi, int irq)
- 		dev_err(csi->dev, "Couldn't register our interrupt\n");
- 		goto err_unregister_device;
- 	}
-+	csi->irq = irq;
- 
- 	return 0;
+ static const struct v4l2_async_notifier_operations sun4i_csi_notify_ops = {
+ 	.bound		= sun4i_csi_notify_bound,
++	.unbind		= sun4i_csi_notify_unbind,
+ 	.complete	= sun4i_csi_notify_complete,
+ };
  
 -- 
 2.25.1
