@@ -4,100 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9F3AC5AD55
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 11:19:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37EA4C5AC82
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 11:23:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jbur70RJgLEFDEhR3vA+p5Aod61I3uq30QWhp7Vm+/c=; b=mxuw+oebaziQRzlTXGINo/v1tW
-	AxjY9dSxZlF+fYu9+kuXr7c0+gR0fMsWMdHYduTZfvHSa8vlXvItklcdv/MBEz0SFhDrJaRoENhoZ
-	t4kTOR8pwKasU3VTTCIqHJPRE8TwJJpouIO45EnyRWekLkUfSt1bp5SzBW9uf/HcyF1zqi8Y02GYs
-	n7wrsLzgazeEfimCDGj0eadGkIXQXQQ1oyjuoztJUGBUwhKTXqB86LZ6VMK0wh0XBtZXC4hmHFFnu
-	XmE2oY27wDp7befq4dhQEqCdSYNiD3s6eSPG/L3prnQj+/+mKsjV5hIjG2D0ZzEb3eyXBf2V2Ql7w
-	JincwHLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=O7ABpbwcg1Coyn6LKRlK8loM5sYlwClzgo7hN0mkrUU=; b=PJ5ZyQYUAYuAft
+	BcLJWeu0skC92donVPYIXSGVn2P/w+gtkJk/bpdxReYLxglZI83tU+JHr/1y8/IIrSJBiqrtAok/s
+	e7rY6+sQtILSm9V8xExcU8lU8AbYaKHUQW5G2t1dAZv5NzDxhELxaSUkoz7JXcFaf8itQkG9cb5jR
+	FLFuD6zRQDXEQqOQXLxC3hiF4mHuuHkMV5r07HrqAt4EzBlde/fQCIBTsRzIfybwOs/rL465cW6o1
+	2Rdf4PJNVQHwd5AbFVSDdGgnDzY0rzGxUWlIZwj9pQtrZIaqaMWdJ/zv4ov7AVaSzFyrED3K3M4gj
+	qTQi9cDvJc2IuJ9to68w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtO2I-0000000BaOT-2rkk;
-	Mon, 10 Aug 2026 11:19:18 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1wtO6R-0000000Bb6C-2lbp;
+	Mon, 10 Aug 2026 11:23:35 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtO2G-0000000BaNi-18tr
+	id 1wtO6N-0000000Bb4v-24iy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 11:19:18 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-38ea87caafeso1125668a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 04:19:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786360755; x=1786965555; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=jbur70RJgLEFDEhR3vA+p5Aod61I3uq30QWhp7Vm+/c=;
-        b=bGeVhsaA94aoqHU0BT9E5jFqYKTmWDeglC0W1X4ahJZQox+XcK8qEVki8im4aXxrxt
-         MrVTB3cdTozHJOhcbDbxh6GkfIo+2PdmTQ/FLrVh32zSvpeDkKsbvG0SmaHlxbsmIcZA
-         HgIrNNrZwDWCZq0fPA7Xgad+enoqPqNc/9h4RPXh2EFLA95BrDZ5jBO4eilxEw0G3RIL
-         ZGPaQCefXswwkFf9psCS2IkIAsRd4X+tMQfiiutKMVopGUnEGO28T5njok+6hkVxdVFS
-         aK0c2/2nM6tPqCMPj/ZYmWXO1hrWXOtrpV9IWj3zPeQAUdC77WIeGCqZv5TN/iZX3Y1r
-         IDYQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786360755; x=1786965555;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=jbur70RJgLEFDEhR3vA+p5Aod61I3uq30QWhp7Vm+/c=;
-        b=AoO5KLVo5ewuk/ZILUS/DyhWddQSs/Z8PJ7bgpb6BxLCGGwxrq9xxtDT5CDD5nffoS
-         ZTaPof8KIzFZVsD/EeRpfciB3K1O5ee8uCxxZBAwKw1jUrzxL8L9sbr6Y45gLBIUPePA
-         43pgbMb38MGTl49d+V8ByLcDQL3PKmXDyb2IBsGoxzIraaVcES/GwxzhQ2GPYyOQZUBJ
-         KG0rHwehzEm9N/kJoIyG3xMzrpCpdsYZgEtM+fLXAl+nbBbnbUcQwoXmRkU1LpAKWEJY
-         324m/bbplmYRKZNdZ0Z8B+5Kouv0/NJyRJHSGBSBP6+GnJ7cgwbwWlriSlZDhv2SOB9v
-         ItVQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rqz8DwfwlRzHoRz4s6HrLClk0kTLLvUZ/qPcwMtTG2663NZzZZG10H1WwpZXRZWCjEQgMEVkJKZhD6yG4L+91mL@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx1KRkpFFMFiMwwOgWDBQch3PeIlT2P5/pN8Q0mVDJVIzItVOTy
-	DJdLGkOAvVwjPimPO8j0K39jT/IoF1m295RCkn05oU2C+V/nF103BSHl
-X-Gm-Gg: AR+sD12BWZ72F1n11v4zzue1iyyC3z2ib2FGbzjYL7B0kzuo8gXi6woL4OcR68F6XTb
-	FldkNP5mLMsv4yuvJel09+of7NRmqzCyyTYGwT6wXEEmrS8S4ci07kKe+HWfUSB6nRJ4YQhEVB5
-	fmzoDzkORCzcPWF6Q7GVAkz5wkvJBTOQMWALilh8ROjn4tJDCuawBeiHfHN0s2uZOFYPUqLVOLr
-	gJGwC34oJ1xMq25NWn+U5OFD1WBkByDyDIpOEYhY6MSdAFHiacQCnc7ALDz7hnteGUaFYno8Fhe
-	cMusFMSC5FrmZROohowoE7XXXErmTEy5eoVYeU+2Jts9Q9UcX2QsN4HE47Ng2N5uERvM7qByG1/
-	Y3LREIiskj9DFLLR/n2EBHAdLko//xuXFcmU1lKoV9APu7eT+Q4/w6quJV0BNcfDGpl9Z2GCDI7
-	CDqmlfm7KNRGYxKlAT0DacWJupvMH0xksL6yR9OsKzZzZwbZ0JbHzNIY6oMJNSvQd3fhkxzZh4Z
-	+fFy3v/nlF1dn8O1LLuPrd8JVaV/xQkEVqgfVN2rPWCvclpwjWdQr3QB5Mms/ZHxera31HzAZEu
-	m258s7QqH/auKVY=
-X-Received: by 2002:a17:90b:4b91:b0:38d:ddc2:7ccb with SMTP id 98e67ed59e1d1-3909d7a4839mr25823292a91.1.1786360755337;
-        Mon, 10 Aug 2026 04:19:15 -0700 (PDT)
-Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39085c393d5sm14798046a91.0.2026.08.10.04.19.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Aug 2026 04:19:15 -0700 (PDT)
-From: phucduc.bui@gmail.com
-To: Markus Mayer <mmayer@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	rafael@kernel.org,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Zhang Rui <rui.zhang@intel.com>,
-	Lukasz Luba <lukasz.luba@arm.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	niklas.soderlund@ragnatech.se,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>
-Cc: linux-pm@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH v2 2/2] thermal/drivers/brcmstb_thermal: Propagate errors from optional IRQ lookup
-Date: Mon, 10 Aug 2026 18:18:41 +0700
-Message-ID: <20260810111841.77898-2-phucduc.bui@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260810111841.77898-1-phucduc.bui@gmail.com>
-References: <20260810111841.77898-1-phucduc.bui@gmail.com>
+	Mon, 10 Aug 2026 11:23:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1786361011; x=1817897011;
+  h=from:subject:date:message-id:mime-version:
+   content-transfer-encoding:to:cc;
+  bh=AjAr5gjAkQ1Yp4bxsaEgjcFfiPlkVc5weZHWpMGWB5s=;
+  b=LwZksfjnd0XSR2Lm8CneygKm1UcyN2iEj40yo4z6GXdKhFGZD/w2BXMj
+   ph+jhYoD4M6FVl/qEy1cgCsvbBAYKzz0gpdpPAsF71EZ8geMRXkCPdMrv
+   cOe8m1L9dayqVAGyj/JJ3CTyjlLN1xQnl24+RZn7/YmtUkh28Zjh/8XZ2
+   Up6iBcLnfmXUU3BXct2XgIlh9FIlRFrbUQesElmpOiPj29i7/IT9aH3ZP
+   awHftv3CXYcAI87RHA8lBn2kMb1S9lLpzSt0xo8wwXjYGJwo1JkUdhP/w
+   0TluCnh02ElstWxt2PXrRn/8H1GJ3tMMh4f5StzdLmPfK9xh3vfdUVXoM
+   w==;
+X-CSE-ConnectionGUID: ZtIVA3FtSgartEHIy3eibg==
+X-CSE-MsgGUID: tKBHExnvT4qjsvu4DAk5aw==
+X-IronPort-AV: E=Sophos;i="6.25,215,1779174000"; 
+   d="scan'208";a="293272590"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Aug 2026 04:23:28 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.87.151) by
+ chn-vm-ex4.mchp-main.com (10.10.87.33) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.45; Mon, 10 Aug 2026 04:23:26 -0700
+Received: from [127.0.0.1] (10.10.85.11) by chn-vm-ex04.mchp-main.com
+ (10.10.85.152) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
+ Transport; Mon, 10 Aug 2026 04:23:23 -0700
+From: =?utf-8?q?Jens_Emil_Schulz_=C3=98stergaard?=
+	<jensemil.schulzostergaard@microchip.com>
+Subject: [PATCH net-next v2 0/9] net: sparx5: add L3 unicast routing
+ offload
+Date: Mon, 10 Aug 2026 13:20:45 +0200
+Message-ID: <20260810-sparx5_l3_routing-v2-0-59e68cc8c8ca@microchip.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAA20eWoC/22NQQqDMBBFryKzbkoSNdSuvEcRkTjqQE1kkopFv
+ HtD1l0+Hv/9EwIyYYBncQLjToG8S6BvBdhlcDMKGhODltpIraQI28BH3b/Lnv0nkptFY3RVP7A
+ ay3GAtNsYJzpy8wUOo3B4ROiSWShEz998tqvsc9co/ae7KyHFZEurpDJyqpp2JcveLrTdrV+hu
+ 67rByxTUh3AAAAA
+To: Horatiu Vultur <horatiu.vultur@microchip.com>,
+	<UNGLinuxDriver@microchip.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David
+ S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, "Jakub
+ Kicinski" <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Daniel Machon
+	<daniel.machon@microchip.com>, Steen Hegelund <Steen.Hegelund@microchip.com>,
+	Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Robert Marko <robert.marko@sartura.hr>
+CC: <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-hardening@vger.kernel.org>,
+	=?utf-8?q?Jens_Emil_Schulz_=C3=98stergaard?=
+	<jensemil.schulzostergaard@microchip.com>
+X-Mailer: b4 0.15-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_041916_977123_DA0480A0 
-X-CRM114-Status: GOOD (  14.54  )
+X-CRM114-CacheID: sfid-20260810_042332_543108_D148C22B 
+X-CRM114-Status: GOOD (  15.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,36 +96,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: bui duc phuc <phucduc.bui@gmail.com>
+Add L3 unicast route offloading for IPv4 and IPv6 on Sparx5 and
+LAN969x. This enables hardware-accelerated l3 routing between VLAN
+upper interfaces on a bridge, with ECMP support.
 
-platform_get_irq_optional() returns a positive IRQ number on success or
-a negative error code on failure. For an optional IRQ, -ENXIO indicates
-that no IRQ is available, while other errors should be propagated.
+This series covers the core unicast data path: FIB offload, nexthop
+groups, ARP/NDP neighbour resolution, and router leg management.
 
-Propagate errors such as -EPROBE_DEFER and -EINVAL instead of continuing
-probe without the IRQ.
+Routes are programmed into the hardware LPM (Longest Prefix Match)
+VCAP, with nexthops resolved through the hardware ARP table for ECMP
+or inline VCAP actions for single nexthops.
 
-Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
+The LPM VCAP also requires type_id-aware rule decoding, since it has
+actionsets of identical length that differ only in their type_id
+field.
+
+Patch 1 fixes a latent bug in the VCAP rule-move algorithm that
+becomes reachable once the LPM VCAP is added, since LPM is the first
+VCAP to use rules of coprime size (2 and 3).
+
+Patches 2-4 are the remaining preparatory commits for the shared VCAP
+API. They add the LPM VCAP keysets and actionsets to the autogenerated
+model for lan969x and sparx5, update the action-side rule decoder to
+differentiate actionsets by type_id, and expose two helpers
+(vcap_val_add_rule() and vcap_rule_mod_action_bit()) used by the LPM
+driver.
+
+Patch 5 adds autogenerated register macros for the L3 routing blocks
+on sparx5 and lan969x.
+
+Patch 6 adds the LPM VCAP implementation for sparx5 and lan969x.
+
+Patches 7-9 add L3 unicast routing to sparx5 and lan969x. The router
+code is split into three patches:
+
+Patch 7 (infrastructure + legs): Router leg lifecycle tied to VLAN
+uppers on a bridge, address event handling, base MAC tracking,
+blackhole leg for blackhole routes, and the hardware enable sequence.
+
+Patch 8 (FIB + nexthop + neighbour CRUD): This is a large patch.
+Splitting it further is difficult because the neighbour and nexthop CRUD
+is shared between the leg-teardown path and the neighbour-event path: leg
+teardown flushes the legs neighbours and refreshes their dependent
+nexthops, and the NETEVENT_NEIGH_UPDATE handler in patch 9 drives the
+same helpers.
+
+Patch 9 (neighbour events): Registers the netevent notifier for
+NETEVENT_NEIGH_UPDATE used in ARP/NDP resolution, wiring up the final
+piece.
+
+The Super VCAP shared-register race reported on v1 is fixed separately by
+commit d7a8d500d7e4 ("net: microchip: vcap: fix races on the shared Super
+VCAP block"), which is now in net-next.
+
+Signed-off-by: Jens Emil Schulz Østergaard <jensemil.schulzostergaard@microchip.com>
 ---
- drivers/thermal/broadcom/brcmstb_thermal.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+Changes in v2:
+- Reworked neighbour lifetime: anchor neighbours to the router leg
+  instead of the most-specific covering FIB entry (matching
+  mlxsw/prestera). Fixes a neighbour-entry leak (memory + VMID + host
+  VCAP rule + netdev reference) and lets the software LPM be removed
+  entirely.
+- Fixed a heap overflow in the fib6 nexthop prune path.
+- Fixed a leak on the router_init() error path.
+- Hardening: netns filtering and offload-ownership checks on the global
+  notifiers, and a NETDEV_UNREGISTER leg-teardown backstop.
+- Fixed do_div() misuse on a 32-bit value. Added the missing RCU
+  annotation on in_dev->ifa_list.
+- Zero-initialise the actionfield data in vcap_rule_mod_action_bit().
+- Updated the sparx5_router.c header comment to describe the
+  leg-anchored model.
+- Link to v1: https://lore.kernel.org/r/20260612-sparx5_l3_routing-v1-0-fc3c10160f49@microchip.com
 
-diff --git a/drivers/thermal/broadcom/brcmstb_thermal.c b/drivers/thermal/broadcom/brcmstb_thermal.c
-index a9ffa596f7c0..477d078ce326 100644
---- a/drivers/thermal/broadcom/brcmstb_thermal.c
-+++ b/drivers/thermal/broadcom/brcmstb_thermal.c
-@@ -350,7 +350,9 @@ static int brcmstb_thermal_probe(struct platform_device *pdev)
- 	priv->thermal = thermal;
- 
- 	irq = platform_get_irq_optional(pdev, 0);
--	if (irq >= 0) {
-+	if (irq < 0 && irq != -ENXIO)
-+		return irq;
-+	if (irq > 0) {
- 		ret = devm_request_threaded_irq(&pdev->dev, irq, NULL,
- 						brcmstb_tmon_irq_thread,
- 						IRQF_ONESHOT,
+---
+Jens Emil Schulz Østergaard (9):
+      net: microchip: vcap: fix rule move for rules of coprime size
+      net: microchip: vcap: add lpm vcap to autogen vcap api
+      net: microchip: vcap: make vcap actionset decoding type_id aware
+      net: microchip: vcap: expose helpers in vcap api and update debugfs
+      net: sparx5: add l3 routing registers
+      net: sparx5: vcap: add lpm vcap implementation
+      net: sparx5: add L3 router infrastructure and leg management
+      net: sparx5: add L3 FIB, nexthop and neighbour entry management
+      net: sparx5: add neighbour event handling for L3 routing
+
+ drivers/net/ethernet/microchip/sparx5/Makefile     |    2 +-
+ .../ethernet/microchip/sparx5/lan969x/lan969x.c    |    2 +
+ .../microchip/sparx5/lan969x/lan969x_regs.c        |   20 +-
+ .../microchip/sparx5/lan969x/lan969x_vcap_ag_api.c |  373 ++-
+ .../microchip/sparx5/lan969x/lan969x_vcap_impl.c   |   12 +
+ .../net/ethernet/microchip/sparx5/sparx5_main.c    |   13 +-
+ .../net/ethernet/microchip/sparx5/sparx5_main.h    |   44 +
+ .../ethernet/microchip/sparx5/sparx5_main_regs.h   |  691 ++++-
+ .../net/ethernet/microchip/sparx5/sparx5_regs.c    |   20 +-
+ .../net/ethernet/microchip/sparx5/sparx5_regs.h    |   20 +-
+ .../net/ethernet/microchip/sparx5/sparx5_router.c  | 3021 ++++++++++++++++++++
+ .../ethernet/microchip/sparx5/sparx5_vcap_ag_api.c |  373 ++-
+ .../ethernet/microchip/sparx5/sparx5_vcap_ag_api.h |    6 +-
+ .../ethernet/microchip/sparx5/sparx5_vcap_impl.c   |  159 +-
+ .../ethernet/microchip/sparx5/sparx5_vcap_impl.h   |    5 +
+ drivers/net/ethernet/microchip/vcap/vcap_ag_api.h  |   94 +-
+ drivers/net/ethernet/microchip/vcap/vcap_api.c     |  219 +-
+ drivers/net/ethernet/microchip/vcap/vcap_api.h     |    4 +-
+ .../net/ethernet/microchip/vcap/vcap_api_client.h  |    6 +
+ .../net/ethernet/microchip/vcap/vcap_api_debugfs.c |   13 +-
+ .../net/ethernet/microchip/vcap/vcap_api_kunit.c   |   81 +-
+ .../net/ethernet/microchip/vcap/vcap_model_kunit.c |    6 +-
+ 22 files changed, 5047 insertions(+), 137 deletions(-)
+---
+base-commit: 001b5d347d8ba39b2dccaefcc57967b18caec8fe
+change-id: 20260210-sparx5_l3_routing-962458e4d3da
+
+Best regards,
 -- 
-2.43.0
+Jens Emil Schulz Østergaard <jensemil.schulzostergaard@microchip.com>
 
 
