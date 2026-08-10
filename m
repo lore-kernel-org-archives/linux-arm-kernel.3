@@ -4,57 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE719C5AD4E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 10:03:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E0BFC5AD4E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 10:04:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=CLlPCIqt0bxLPYhArLNHyn0dKNCw0iRzV2BlY1fQWIY=; b=daiQzG+ys0zwQtsk36IX6Hy6uK
-	N0j35wSndJ6PskxcO0HRS1z1fwEbkj5ftyPaGURMOPOuFnlWTPDgoorsOg8czOVRL+xO+wvfGUmI7
-	laH/gh7ajoI3+q8L6j/FfWaP0ZuuiJoB6yOBRqFUPyTYqKp+7VhIyHXVkzD+DEVlk0H2ROhiBQfP/
-	2ZxpeCftGUAYJdlb0Zwh4aCHoK37EJEpAB48fwIt/B2PX8+EBN1adXkl0yLge4g3i7m9WenWYSDxL
-	WQBwvMyzKhxk3Ib3GB4q76rFSIrTK2J5AM+yQ9RjtVKWz7rfCQrG+x9E/+alhfbU+9Iuw/dRTvqXV
-	TDD6z11A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=g5GLzpPNlCyFEfvs0AAKTQA3L414pmxH7w5k5xUYgpU=; b=VJCYLVMa0msYQ9tvMYe3flpecY
+	y2+J5xpdKop3y4NEicg0LFwQf9RY5Vh/385hI06cK+SI50/lSFNq96ZKVmQULfdVT0hUljLgJSod0
+	T55MBjZt6BzCTcSxkbS8Ik8x0RJXmKuWrwdpSrUR9M7jJCgn9wupUprVGdcUSew+87s47/RxP+Vcg
+	+0uFx+s99q+ArDb38CkNvPqBlGsh2uhMaMrTaZYQpJS4g711NW+HgaOsjsVFLDEwM/3Oa/0YY5c0p
+	zKyJyDA3UzOwWn3vpn4s38mdqGhJ3ZnFQgIoQiiF7SM0IMQNgIEKJO0y+XhHE08PI+PMY8BrogTFJ
+	Bd/5dQ1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtMqt-0000000BSBE-1I9g;
-	Mon, 10 Aug 2026 10:03:27 +0000
-Received: from mail-m155101.qiye.163.com ([101.71.155.101])
+	id 1wtMrI-0000000BSId-2UIN;
+	Mon, 10 Aug 2026 10:03:52 +0000
+Received: from linkmauve.fr ([82.65.109.163])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtMqo-0000000BS9q-2uPD;
-	Mon, 10 Aug 2026 10:03:25 +0000
-Received: from Vostro-3710.. (unknown [14.220.232.127])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 4968750ad;
-	Mon, 10 Aug 2026 18:03:07 +0800 (GMT+08:00)
-From: Chukun Pan <amadeus@jmu.edu.cn>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Rob Herring <robh@kernel.org>,
-	Chukun Pan <amadeus@jmu.edu.cn>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	id 1wtMrF-0000000BSGn-2qKc;
+	Mon, 10 Aug 2026 10:03:51 +0000
+Received: by linkmauve.fr (Postfix, from userid 1000)
+	id 0C2B470AF95E; Mon, 10 Aug 2026 12:03:45 +0200 (CEST)
+Date: Mon, 10 Aug 2026 12:03:45 +0200
+From: Link Mauve <linkmauve@linkmauve.fr>
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: Link Mauve <linkmauve@linkmauve.fr>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
+	Neal Gompa <neal@gompa.dev>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Vladimir Zapolskiy <vz@mleia.com>,
+	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Kalyani Akula <kalyani.akula@amd.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>,
+	Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	Tamir Duberstein <tamird@kernel.org>,
+	Alexandre Courbot <acourbot@nvidia.com>,
+	Onur =?iso-8859-1?Q?=D6zkan?= <work@onurozkan.dev>,
+	Johan Hovold <johan@kernel.org>,
+	Ronald Claveau <linux-kernel-dev@aliel.fr>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: [PATCH 1/1] arm64: dts: rockchip: enable NPU on Radxa E52C
-Date: Mon, 10 Aug 2026 18:00:00 +0800
-Message-Id: <20260810100000.2643814-1-amadeus@jmu.edu.cn>
-X-Mailer: git-send-email 2.34.1
+	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
+	asahi@lists.linux.dev, imx@lists.linux.dev,
+	linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	rust-for-linux@vger.kernel.org
+Subject: Re: [PATCH v4 0/3] nvmem: migrate to const void * in reg_write
+Message-ID: <anmiAfteOQzPXRqX@desktop>
+References: <20260726131724.15299-1-linkmauve@linkmauve.fr>
+ <anl9ZRM0REenBK8t@ashevche-desk.local>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9feb203fea03a2kunmb045b936d508a
-X-HM-MType: 10
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDGUJCVh4aTB5PH0JOS05IQ1YeHw
-	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlKT1VJSUtVSUhJVUpJTFlXWRYaDxIVHRRZQVlPS0hVSktISk
-	5MTlVKS0tVSkJLS1kG
+In-Reply-To: <anl9ZRM0REenBK8t@ashevche-desk.local>
+Jabber-ID: linkmauve@linkmauve.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_030322_926851_E418E431 
-X-CRM114-Status: UNSURE (   6.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260810_030349_870905_76ADD548 
+X-CRM114-Status: GOOD (  18.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,67 +98,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Like the RK3588, the RK3582 has NPUs. Enable the NPU cores and their
-MMUs, and connect the regulators.
+On Mon, Aug 10, 2026 at 10:27:33AM +0300, Andy Shevchenko wrote:
+> On Sun, Jul 26, 2026 at 03:17:18PM +0200, Link Mauve wrote:
+> > This callback used to take a mutable void * for no reason, which causes
+> > the compiler to be unaware that the val buffer should never be modified
+> > by the callback.
+> > 
+> > This was found while drafting the nvmem-provider Rust abstraction.
+> > 
+> > Thanks to the guidance of Andy Shevchenko, this now introduces a new
+> > callback and deprecates the existing one, with the goal of renaming the
+> > new one into the old one once no user remains in the kernel.
+> 
+> LGTM now, FWIW,
+> Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
+> 
+> But I think you also need to provide a road map of finishing this job (the best
+> is to provide a continuation in some of yours public Git trees to point out).
 
-Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
----
- .../boot/dts/rockchip/rk3582-radxa-e52c.dts   | 34 +++++++++++++++++++
- 1 file changed, 34 insertions(+)
+I’ve just pushed these changes here, as usual just build-tested:
+https://github.com/linkmauve/linux/commits/nvmem-v6
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3582-radxa-e52c.dts b/arch/arm64/boot/dts/rockchip/rk3582-radxa-e52c.dts
-index 854c118418eb..dd29a3ea7031 100644
---- a/arch/arm64/boot/dts/rockchip/rk3582-radxa-e52c.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3582-radxa-e52c.dts
-@@ -300,6 +300,10 @@ &pcie2x1l2 {
- 	status = "okay";
- };
- 
-+&pd_npu {
-+	domain-supply = <&vdd_npu_s0>;
-+};
-+
- &pinctrl {
- 	keys {
- 		pwm15_ir_m1: pwm15-ir-m1 {
-@@ -354,6 +358,36 @@ &pwm14 {
- 	status = "okay";
- };
- 
-+&rknn_core_0 {
-+	npu-supply = <&vdd_npu_s0>;
-+	sram-supply = <&vdd_npu_s0>;
-+	status = "okay";
-+};
-+
-+&rknn_core_1 {
-+	npu-supply = <&vdd_npu_s0>;
-+	sram-supply = <&vdd_npu_s0>;
-+	status = "okay";
-+};
-+
-+&rknn_core_2 {
-+	npu-supply = <&vdd_npu_s0>;
-+	sram-supply = <&vdd_npu_s0>;
-+	status = "okay";
-+};
-+
-+&rknn_mmu_0 {
-+	status = "okay";
-+};
-+
-+&rknn_mmu_1 {
-+	status = "okay";
-+};
-+
-+&rknn_mmu_2 {
-+	status = "okay";
-+};
-+
- &saradc {
- 	vref-supply = <&vcca_1v8_s0>;
- 	status = "okay";
+I was planning on working on those after the 7.3 merge window if this
+series indeed goes into 7.3, but I was never worried this would be hard
+to do, it’s a pretty mechanical change.
+
+> 
+> -- 
+> With Best Regards,
+> Andy Shevchenko
+> 
+> 
+
 -- 
-2.34.1
-
+Link Mauve
 
