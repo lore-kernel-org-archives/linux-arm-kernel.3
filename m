@@ -4,96 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3990DC5AD4E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 05:32:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 047A3C5AC82
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 05:48:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nqCy83cYqtfb3bIbmbQFkKP649F3cDpniFvDlQX5M8w=; b=MJ1/m3FHxqW71EzMuzAg52tzBS
-	8lEONeKvyKz6i4TeP6ZLlCoj92o0S26wKOjiPYMHVNhdD6p51OeoOktLfblc6ds6fzamDx8sSMAAh
-	k1yX2VnlqgEIGfRhn6AoKkjqqlKS2t0fOlSdDP+t9vlMIbsgjYu0Vvd5/mxdo83L2wnS5tOdOLT/V
-	YSFc/G7c7hXmoJflTWmQQTiU1siRQGgtTwde4Yj+0Ry73DRnZb65ymmkGAzmERxSLf/aumbdGzqG2
-	pmQKfknp2D3RlKAx7QZ12uSkJJpMrQE+7NuHIWZF5fHnJYD3cH8QEImHZVotjpxpjVy3mkVAc+KlT
-	FAAWDK9Q==;
+	bh=e12Vml8kySCL2YtJfN+x2fzhchm8Vnhyh0hOFJAhkzU=; b=xDwgFaGxbnjTZ1/12tdLcl7sVR
+	Jjt14458BxmrcRYeZr1BXXlNHLrMhDJoqG4eHSRMYYXXcBD0U/wWHOfRgdAd0+KYcHRpQ1EinXgcP
+	/ArjS4Mu5Z3IXv/V54+rSnpkZSkITrBRY7cVuXpgnY6sTnCSj+xLIrfU7oQvUNW701w2BYnqVP8uF
+	KqRHyT0zskwKi3hvWdCKII+nm7aDEF/5JnN+DZKsF+VLzIDqGE4+ZwrVLbuSXY8dingFOwIAm9Fht
+	Y+2fdzxfEi3k5oXmCmwGXQXgPGxuPgUiuAqDPTddd4R1MzJQAi1DmzII4paxNcD3kRfUz1w/WfJXO
+	DQJSxFMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtIcZ-0000000B3B6-3nJ0;
-	Mon, 10 Aug 2026 05:32:23 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1wtIrh-0000000B40x-1Q7q;
+	Mon, 10 Aug 2026 05:48:01 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtIcX-0000000B39S-1AV5
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 05:32:22 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-84e27035206so85327b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Aug 2026 22:32:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786339940; x=1786944740; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=nqCy83cYqtfb3bIbmbQFkKP649F3cDpniFvDlQX5M8w=;
-        b=a9pcs/xgW1U92rDQPLHyXrBtt6Ga7f3YcncgrEsmdr3uGdw3J6OgAqBq2gwLlLrvXP
-         5Ig7D4DQEDe/LfDL9sU0sy2/s3D9Qh2U7HWn/wg937fWPFCNDouMbCmi7pilprh7s4/b
-         qOA3M94OJtz239DlCDzIOXCKo7OO3i109a2vvMDGucAXN4kPWNpmO2CQgGkgfGFT+JVF
-         wvNnzaZ6B0J3O5VbAKfrknOwVeTni31XrPNmAz8TqOtfDWM/SqulxaL+21+GhD7ZRYIs
-         GNeZZjvLEu30ZIZ9KLWFtwzt0feYnUFdhIzXxZ5d+jLMI5uFyclWfm9e5dJpKjKV8p34
-         /ELA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786339940; x=1786944740;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=nqCy83cYqtfb3bIbmbQFkKP649F3cDpniFvDlQX5M8w=;
-        b=Z80hb4R4oXQ06PFD/zLJOuwIVcZk1/zR3T512o5zGTO6Ra9QGo6HLKAOygBN/9kzq+
-         y6aITYJ9iCw+iHg7noqmXbW18sPp6VyQ5gNWHuOQzCdnbXhX/A+dvlIXDpkx/jM6RhVq
-         PCzIbZ41w0MoFyYHcS/+fNFH8ClmJdkmjD0sRkW0hj7f4IpAscvvA+fCPrDDyBR7PgxY
-         2JFmQ8F7DrbCrAhNgWuGNs9+AZYEWsswwoG9zXwwQ5Imuiy7atsQUDONSwzUBVHqk5qi
-         bihwifjvg4kO9LeoiOnzMXbwJlEdJKoQueeTyTlkECMExbYcQPrZxVk8oMz1G3ETvZde
-         iqmA==
-X-Forwarded-Encrypted: i=1; AHgh+RpZO4AHDU3xm9NLnnlSfY577q+K7dbxza6dH+LJ2bRGqx8BoC3xyQOywv0zptjdphiozEzOu1+OQYH0P5L7Ix1s@lists.infradead.org
-X-Gm-Message-State: AOJu0YzyVtbVFVQS4H9Jewb8lMgPiA5br8R3VS/SLq12K30BsaRlS6i4
-	oocjsXWdcfIsfkSmMAkUq9KvjMrLFpEMK4fM5zoLTii4fi1dCSHcWykU
-X-Gm-Gg: AR+sD10Z2h5PW802pKZEvaqmnGWiysUBZEoZnAOKvOhQTp23GL3ylH9Cj5cAVWeseH0
-	FOMA+gtKlvP7pABkYm/HDYBwRTtrqpqR9SCB6JxJc1KFM8qSbW3TRCDhudK4A4bKLqxRSudXLRu
-	CmVfyz8N5+prG8jHTVVCUdCVA5e1+EBMd2DkFjExnwRFCqBF1MSiw+r3F8mn5785YyRrL/MRjS3
-	8qzc1HpenaI2ljjTtEGyjLJiEoUcNycZDP6SWybGVeOpWUwNpHOzyIPRxqszxlZM3LB7DY7Tr+y
-	zcsJBHM33+sVa/+iU+KFa9wl6ojJyMqwd60mHUzZuQ136ALhFeC89T65JRRTgsPJ4Ud/f4fcaHF
-	MvXY9mFnjkV/ElnQanhY3eLp7rZpUjFI5yxrk8q5neTDpmDod0usbGn2sdWeDRR7sIv3z5w5Nvl
-	ULNY/wB0FKGUviaaU7vdfWOtzC/k0fCv/NkKu8TZSWt1yEZoQu331qcYR1yK8xY2jaAIZGgTNC2
-	fL4w7XhvabwfchqoiuEbOoxwK024+RBj220MhCrUGS81sLVer45POzeowchAr0tfoZvlE8zLl15
-	fl8o
-X-Received: by 2002:a05:6a00:a116:b0:846:bc60:5bf7 with SMTP id d2e1a72fcca58-84f2dfcf7f5mr44878306b3a.6.1786339940416;
-        Sun, 09 Aug 2026 22:32:20 -0700 (PDT)
-Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84f5a3cadf2sm3243298b3a.22.2026.08.09.22.32.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 09 Aug 2026 22:32:20 -0700 (PDT)
-From: phucduc.bui@gmail.com
-To: Linus Walleij <linusw@kernel.org>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-Cc: Mika Westerberg <mika.westerberg@linux.intel.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	robh@kernel.org,
-	linux-gpio@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH 5/5] pinctrl: bcm: iproc-gpio: Propagate errors from optional IRQ lookup
-Date: Mon, 10 Aug 2026 12:31:42 +0700
-Message-ID: <20260810053142.27938-5-phucduc.bui@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260810053142.27938-1-phucduc.bui@gmail.com>
-References: <20260810053142.27938-1-phucduc.bui@gmail.com>
+	id 1wtIrf-0000000B40n-1dfw;
+	Mon, 10 Aug 2026 05:47:59 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7F98D60052;
+	Mon, 10 Aug 2026 05:47:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 183E61F000E9;
+	Mon, 10 Aug 2026 05:47:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786340878;
+	bh=e12Vml8kySCL2YtJfN+x2fzhchm8Vnhyh0hOFJAhkzU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=WVIVsZo346XIwjlaw/M5hRU2DuX8wfE1uXs8bltqgGaowq5Vz/bSFr4wVfsYOcwia
+	 lMto+kwX9rrILApNvDQ5MOUwSgzZdeB61XTOaXxNJSmgZTk1NOuHoXCu2CZcuT8oaH
+	 JqI+wnR77R3BILdMnPS3b6LyT1yOQglrnk9MU1npykurH2i7ISOgUJWVCTxaYR+dph
+	 7gR9F7OHd+7vPhPThPUzgs74f1xeHrDnZzFu/jX0skKQAgEDKuV0A1ezgh7a0S2QVT
+	 hKZ5WP+NFUlMELj/sy6+xCbG4wnZD5sLIq2wWqdOktgGpQNLSRG0XZyFiuDqtG3UoE
+	 dASOCsYLFWuMw==
+Message-ID: <63bbce33-9427-4585-a1bb-dc4af05e981f@kernel.org>
+Date: Mon, 10 Aug 2026 07:47:52 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] arm64: defconfig: enable Rockchip Multimedia drivers
+To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>
+Cc: Detlev Casanova <detlev.casanova@collabora.com>,
+ Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+ Michael Riesch <michael.riesch@collabora.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ kernel@collabora.com
+References: <20260808-rockchip-defconfig-additions-v3-1-0ed67877e94d@collabora.com>
+ <5738059.NG923GbCHz@diego>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <5738059.NG923GbCHz@diego>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260809_223221_323597_21F4AD9E 
-X-CRM114-Status: GOOD (  12.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,34 +117,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: bui duc phuc <phucduc.bui@gmail.com>
+On 08/08/2026 16:06, Heiko Stübner wrote:
+> Am Samstag, 8. August 2026, 02:42:26 Mitteleuropäische Sommerzeit schrieb Sebastian Reichel:
+>> Enable multimedia related drivers used by the Radxa ROCK 5B (used as an
+>> example, the config options are relevant for most Rockchip RK3588 and
+>> RK3576 boards), so that all hardware is supported by the default config.
+>>
+>>  * Synopsys MIPI CSI2RX - RK3588 CSI2 Controller
+>>  * RKVDEC - RK3588/RK3576 video decoder for H.264 and H.265
+>>  * Sony IMX415 - Sensor used by the Radxa Cam 4K module
+>>  * Rocket - RK3588 NPU driver
+>>  * Verisilicon IOMMU - IOMMU used by RK3588 AV1 video decoder
+>>  * Innosilicon CSI D-PHY - RK3588 CSI PHY (one of them)
+>>
+>> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+> 
+> I'm not sure what the actual rule for defconfig changes is.
+> 
+> In some past thread I remember (hopefully correctly) Krzysztof saying
+> that the arm64 defconfig is not supposed to be a distro-config, so
+> enabling each and every driver was not the goal.
+> 
+> On the other hand, he did not repeat that in his reply to your v1 ;-) .
+> 
+> We're at -rc7 tomorrow, so it'd be 7.4 material anyway, so enough time
+> to get "complaints" I guess ;-) .
 
-platform_get_irq_optional() returns a positive IRQ number on success or
-a negative error code on failure. For an optional IRQ, -ENXIO indicates
-that no optional IRQ is available, while other errors should be propagated.
+I believe defconfig is still mostly for us and the patch fits this
+purpose - you need these to fully use mentioned upstream hardware.
 
-Propagate all error codes returned by platform_get_irq_optional() other
-than -ENXIO.
+I learnt that few distros (I think Fedora) use defconfig directly
+instead of customizing it like Ubuntu does, so anyway maybe we should
+enable everything for given hardware.
 
-Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
----
- drivers/pinctrl/bcm/pinctrl-iproc-gpio.c | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/drivers/pinctrl/bcm/pinctrl-iproc-gpio.c b/drivers/pinctrl/bcm/pinctrl-iproc-gpio.c
-index e20f7dc79d43..025476e251c2 100644
---- a/drivers/pinctrl/bcm/pinctrl-iproc-gpio.c
-+++ b/drivers/pinctrl/bcm/pinctrl-iproc-gpio.c
-@@ -873,6 +873,8 @@ static int iproc_gpio_probe(struct platform_device *pdev)
- 
- 	/* optional GPIO interrupt support */
- 	irq = platform_get_irq_optional(pdev, 0);
-+	if (irq < 0 && irq != -ENXIO)
-+		return irq;
- 	if (irq > 0) {
- 		struct gpio_irq_chip *girq;
- 
--- 
-2.43.0
-
+Best regards,
+Krzysztof
 
