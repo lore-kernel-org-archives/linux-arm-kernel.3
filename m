@@ -4,105 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 047A3C5AC82
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 05:48:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B113C5AD4E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 06:21:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e12Vml8kySCL2YtJfN+x2fzhchm8Vnhyh0hOFJAhkzU=; b=xDwgFaGxbnjTZ1/12tdLcl7sVR
-	Jjt14458BxmrcRYeZr1BXXlNHLrMhDJoqG4eHSRMYYXXcBD0U/wWHOfRgdAd0+KYcHRpQ1EinXgcP
-	/ArjS4Mu5Z3IXv/V54+rSnpkZSkITrBRY7cVuXpgnY6sTnCSj+xLIrfU7oQvUNW701w2BYnqVP8uF
-	KqRHyT0zskwKi3hvWdCKII+nm7aDEF/5JnN+DZKsF+VLzIDqGE4+ZwrVLbuSXY8dingFOwIAm9Fht
-	Y+2fdzxfEi3k5oXmCmwGXQXgPGxuPgUiuAqDPTddd4R1MzJQAi1DmzII4paxNcD3kRfUz1w/WfJXO
-	DQJSxFMQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=TIcYkXIenvNkMTJ1YuV3o4EGTcYhnPA+PcvQgIsAFFM=; b=nR+17rxw410RZKZgASKMv60Kxd
+	BgEhV3pm0LoYMF+YmwR/7OwjjOATbmnyRyHZF1+klMeik7uFanxa7fT7NArekPZKDkaaiMtTYancb
+	0cnfveL+r9RS73aD/yVID22WHzhDvPvnyww2EGnKtIqAT54A70rhyW/xnHEa6SvCRNX6/QvPn3ztH
+	9UNtEKM0lDnjYBAXPuMVAU2zIIcKbL2+HtcLcbAsvNmJ3XMGwXBh8mfk9/RH7KewMNpReaNlfPDU4
+	1jb1QZpghXzvFH1tDVnUjAYGQBat0RZJZmIp3//pOMmtR4d0fxyvFW906t+g9xVxCOC/jNkbauYx9
+	C50zeWaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtIrh-0000000B40x-1Q7q;
-	Mon, 10 Aug 2026 05:48:01 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wtJO3-0000000B54T-1fDy;
+	Mon, 10 Aug 2026 06:21:27 +0000
+Received: from mx.nabladev.com ([178.251.229.89])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtIrf-0000000B40n-1dfw;
-	Mon, 10 Aug 2026 05:47:59 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7F98D60052;
-	Mon, 10 Aug 2026 05:47:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 183E61F000E9;
-	Mon, 10 Aug 2026 05:47:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786340878;
-	bh=e12Vml8kySCL2YtJfN+x2fzhchm8Vnhyh0hOFJAhkzU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=WVIVsZo346XIwjlaw/M5hRU2DuX8wfE1uXs8bltqgGaowq5Vz/bSFr4wVfsYOcwia
-	 lMto+kwX9rrILApNvDQ5MOUwSgzZdeB61XTOaXxNJSmgZTk1NOuHoXCu2CZcuT8oaH
-	 JqI+wnR77R3BILdMnPS3b6LyT1yOQglrnk9MU1npykurH2i7ISOgUJWVCTxaYR+dph
-	 7gR9F7OHd+7vPhPThPUzgs74f1xeHrDnZzFu/jX0skKQAgEDKuV0A1ezgh7a0S2QVT
-	 hKZ5WP+NFUlMELj/sy6+xCbG4wnZD5sLIq2wWqdOktgGpQNLSRG0XZyFiuDqtG3UoE
-	 dASOCsYLFWuMw==
-Message-ID: <63bbce33-9427-4585-a1bb-dc4af05e981f@kernel.org>
-Date: Mon, 10 Aug 2026 07:47:52 +0200
+	id 1wtJO0-0000000B544-1i0k
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Aug 2026 06:21:25 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9E3FD11B494;
+	Mon, 10 Aug 2026 08:21:10 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
+	s=dkim; t=1786342873; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=TIcYkXIenvNkMTJ1YuV3o4EGTcYhnPA+PcvQgIsAFFM=;
+	b=DoJCGJulsBPRy6JS3ixEUSVrFe8PLIcqz0AV9dMgE0c2ta4xuNd52VcgEO2m8+7XMdoW0D
+	f4IVkh1MvMHVPOGdQ/o5fG6WEKJoSWuaLCvdTMdKmx1qY2gLFdf9jAA9m07w+CArEtGTrS
+	WsWz6W05WTQLgBjDBmiUeaeYaRXPAp5MX9orAwZfVCC70PKljktxTFy/lmbcRCJmgYNZhL
+	qS0bEIX9FP/v6G93p9ZXHJn5v0Qlinw5bmZe2aJr2OC0pgGna2j10vankCQk81wv47lr9I
+	k0KgiLUCaCNPYzhxzar6YpzXqnjcSto23ZUig1PPM1Igu+1pHX5p8zDfb7+yhg==
+From: Heiko Schocher <hs@nabladev.com>
+To: linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-fpga@vger.kernel.org,
+	Heiko Schocher <hs@nabladev.com>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Linus Walleij <linusw@kernel.org>,
+	Michal Simek <michal.simek@amd.com>,
+	Moritz Fischer <mdf@kernel.org>,
+	Tom Rix <trix@redhat.com>,
+	Xu Yilun <yilun.xu@intel.com>,
+	linux-gpio@vger.kernel.org
+Subject: [PATCH v4] driver: fpga: xilinx-selectmap: add csi and rdwr support
+Date: Mon, 10 Aug 2026 08:20:51 +0200
+Message-ID: <20260810062105.299808-1-hs@nabladev.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] arm64: defconfig: enable Rockchip Multimedia drivers
-To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
- Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: Detlev Casanova <detlev.casanova@collabora.com>,
- Benjamin Gaignard <benjamin.gaignard@collabora.com>,
- Michael Riesch <michael.riesch@collabora.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- kernel@collabora.com
-References: <20260808-rockchip-defconfig-additions-v3-1-0ed67877e94d@collabora.com>
- <5738059.NG923GbCHz@diego>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <5738059.NG923GbCHz@diego>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260809_232124_820007_3C68C408 
+X-CRM114-Status: GOOD (  23.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,39 +73,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/08/2026 16:06, Heiko Stübner wrote:
-> Am Samstag, 8. August 2026, 02:42:26 Mitteleuropäische Sommerzeit schrieb Sebastian Reichel:
->> Enable multimedia related drivers used by the Radxa ROCK 5B (used as an
->> example, the config options are relevant for most Rockchip RK3588 and
->> RK3576 boards), so that all hardware is supported by the default config.
->>
->>  * Synopsys MIPI CSI2RX - RK3588 CSI2 Controller
->>  * RKVDEC - RK3588/RK3576 video decoder for H.264 and H.265
->>  * Sony IMX415 - Sensor used by the Radxa Cam 4K module
->>  * Rocket - RK3588 NPU driver
->>  * Verisilicon IOMMU - IOMMU used by RK3588 AV1 video decoder
->>  * Innosilicon CSI D-PHY - RK3588 CSI PHY (one of them)
->>
->> Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-> 
-> I'm not sure what the actual rule for defconfig changes is.
-> 
-> In some past thread I remember (hopefully correctly) Krzysztof saying
-> that the arm64 defconfig is not supposed to be a distro-config, so
-> enabling each and every driver was not the goal.
-> 
-> On the other hand, he did not repeat that in his reply to your v1 ;-) .
-> 
-> We're at -rc7 tomorrow, so it'd be 7.4 material anyway, so enough time
-> to get "complaints" I guess ;-) .
+The current driver requests the optional CSI_B and RDWR_B GPIOs but
+only configures their initial output state and never changes them
+afterwards. As a result, CSI_B and RDWR_B remain inactive or active
+throughout the configuration process.
 
-I believe defconfig is still mostly for us and the patch fits this
-purpose - you need these to fully use mentioned upstream hardware.
+This may work on systems with a single FPGA where these signals do not
+need to be controlled by software, or where the signals are configured
+to their active state. But this does not not support systems with
+multiple FPGAs sharing a SelectMAP interface.
 
-I learnt that few distros (I think Fedora) use defconfig directly
-instead of customizing it like Ubuntu does, so anyway maybe we should
-enable everything for given hardware.
+On systems with multiple FPGAs sharing the same SelectMAP data bus,
+the driver must deassert this signals in probe, and actively control
+them during configuration.
 
-Best regards,
-Krzysztof
+CSI_B (Chip Select, active low) selects the target FPGA. It is asserted
+before configuration data is transferred and deasserted afterwards so
+that only the intended device responds to bus transactions.
+
+RDWR_B (Read/Write, active low) controls the transfer direction on the
+SelectMAP interface. A low level selects write cycles, while a high
+level selects read cycles. During FPGA configuration the driver drives
+RDWR_B low before transferring the bitstream and restores it to its
+reading (high state) afterwards.
+
+With that info from the datasheet the driver is now changed to:
+
+- deassert the CSI_B and RDWR_B pin on probe and store the
+  optional GPIO descriptors in private driver data.
+
+- toggle both signals around the configuration data transfer
+
+This allows multiple FPGAs to safely share a single SelectMAP interface.
+
+Signed-off-by: Heiko Schocher <hs@nabladev.com>
+---
+
+Changes in v4:
+- add comments from Xu Yulin
+  replace wrong gpiod_set_raw_value() with gpiod_set_value()
+  deassert CSI_B and RDWR_B in probe as in patch version 2
+  rework commit message (correct the description what current
+  driver do on probe), why this is not a problem with one
+  FPGA, and why it needs a change if you have N FPGAs
+  sharing the same selectmap Interface (clk and data pins).
+
+Changes in v3:
+- use 0 (deasserted state) and 1 (asserted state) in gpio_set_value()
+  as commented from Micahl
+- rewrite commit message as requested from Xu Yilun
+  - describe what rdwr_b and csi_b do, and why this change is needed
+    for more than one FPGA.
+- add comment before asserting the signals, why they are asserted
+  in this order.
+
+Changes in v2:
+- add comments from Michal
+  - skip check if gpio descriptor variables csi_b/rdwr_b are valid,
+    as validate_desc() checks this in gpiod_set_value() call.
+  - initialize the gpio variables csi_b/rdwr_b immediately with
+    the return value from devm_gpiod_get_optional(), so we can
+    drop local gpio variable at all
+
+ drivers/fpga/xilinx-selectmap.c | 36 ++++++++++++++++++++++++---------
+ 1 file changed, 27 insertions(+), 9 deletions(-)
+
+diff --git a/drivers/fpga/xilinx-selectmap.c b/drivers/fpga/xilinx-selectmap.c
+index d0cbb5fdfe3a..e9b1d15ca054 100644
+--- a/drivers/fpga/xilinx-selectmap.c
++++ b/drivers/fpga/xilinx-selectmap.c
+@@ -19,6 +19,8 @@
+ struct xilinx_selectmap_conf {
+ 	struct xilinx_fpga_core core;
+ 	void __iomem *base;
++	struct gpio_desc *csi_b;
++	struct gpio_desc *rdwr_b;
+ };
+ 
+ #define to_xilinx_selectmap_conf(obj) \
+@@ -30,16 +32,30 @@ static int xilinx_selectmap_write(struct xilinx_fpga_core *core,
+ 	struct xilinx_selectmap_conf *conf = to_xilinx_selectmap_conf(core);
+ 	size_t i;
+ 
++	/*
++	 * Assert CSI_B and select write mode.
++	 *
++	 * UG570 states in note 4 in Figure "Continuous x8 SelectMAP Data
++	 * Loading", RDWR_B should be asserted before CSI_B to avoid
++	 * causing an ABORT on the next CCLK.
++	 *
++	 * To be sure, set first RDWR_B pin before activate CSI_B
++	 */
++	gpiod_set_value(conf->rdwr_b, 1);
++	gpiod_set_value(conf->csi_b, 1);
++
+ 	for (i = 0; i < count; ++i)
+ 		writeb(buf[i], conf->base);
+ 
++	gpiod_set_value(conf->csi_b, 0);
++	gpiod_set_value(conf->rdwr_b, 0);
++
+ 	return 0;
+ }
+ 
+ static int xilinx_selectmap_probe(struct platform_device *pdev)
+ {
+ 	struct xilinx_selectmap_conf *conf;
+-	struct gpio_desc *gpio;
+ 	void __iomem *base;
+ 
+ 	conf = devm_kzalloc(&pdev->dev, sizeof(*conf), GFP_KERNEL);
+@@ -55,16 +71,18 @@ static int xilinx_selectmap_probe(struct platform_device *pdev)
+ 				     "ioremap error\n");
+ 	conf->base = base;
+ 
+-	/* CSI_B is active low */
+-	gpio = devm_gpiod_get_optional(&pdev->dev, "csi", GPIOD_OUT_HIGH);
+-	if (IS_ERR(gpio))
+-		return dev_err_probe(&pdev->dev, PTR_ERR(gpio),
++	/* CSI_B is active low, deassert signal */
++	conf->csi_b = devm_gpiod_get_optional(&pdev->dev, "csi",
++					      GPIOD_OUT_LOW);
++	if (IS_ERR(conf->csi_b))
++		return dev_err_probe(&pdev->dev, PTR_ERR(conf->csi_b),
+ 				     "Failed to get CSI_B gpio\n");
+ 
+-	/* RDWR_B is active low */
+-	gpio = devm_gpiod_get_optional(&pdev->dev, "rdwr", GPIOD_OUT_HIGH);
+-	if (IS_ERR(gpio))
+-		return dev_err_probe(&pdev->dev, PTR_ERR(gpio),
++	/* RDWR_B is active low, deassert signal */
++	conf->rdwr_b = devm_gpiod_get_optional(&pdev->dev, "rdwr",
++					       GPIOD_OUT_LOW);
++	if (IS_ERR(conf->rdwr_b))
++		return dev_err_probe(&pdev->dev, PTR_ERR(conf->rdwr_b),
+ 				     "Failed to get RDWR_B gpio\n");
+ 
+ 	return xilinx_core_probe(&conf->core);
+---
+base-commit: db2ddb87143519e20a95aa36c60b36107b736a58
+
+-- 
+2.55.0
+
 
