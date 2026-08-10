@@ -4,107 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05F7FC5B567
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 19:14:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2499DC5B567
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 19:25:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ztYcNdQlffuTx6km2o72/tflbKDf0gQ5fGiTpALKrhM=; b=ab6jpqhKFQumXZnFNoYTUwwUgy
-	+prvyxgW5KptIkBFa0dg+RkWeJvjPV7fleVDEfBe7Fu/2l1Qtwf5TO9AG3yZLxtvOwEZIDKaEBsjP
-	BY6QdMRdfUZbtLAb0MvmU+N+SddEmFQcCwN+m75Cu/NUpsTyUSi+D+g7Hz6LwrSOkcFct8OS9NK97
-	zOODYXytXPa2tn+sl+fQCHSky42jjowwS5njgiM94voJT8+Ns914eKQKHOD/AJDoig7GrjnqvX1A5
-	bu+0AHJqjqcH49xdt7Km5bzXrmuD5PRiJLqJyxRHugHi29ZuGgsw2Sd0Ps5/Dl4+42yD0LNCpJVTq
-	tpcyIMAw==;
+	bh=IQ2L78A2GNCCRyd4ldlaJspP0cXCLRR0sgA6ivpfO+o=; b=CoAwkaa9nVI9A5/OzRuCWuO3Ua
+	KfQ89V1ol/y2TQZYHmM8dpTHrUyzdnO0SSkVxAnbvbUZ/vyLkjxboeqMzEtUGo+hk4CtIFVIp/aKo
+	K3Ag2ZNVLya895WJj6n4wvw+qSOetgrUSfcF6bDf0xdUSolDcdlmWTK56rOImqvnpsEGcDyV2f0Rj
+	rhucX6GYIGG7wH77fm3LEia7bF9fXwfPhicSzYHLEw8QivqP902mOmngfwZ6CwKL9fOPJ+H/Tp/YB
+	kYGuOydVDTN7ivg9LQrVXskPvVv8bVHSRJVWMr9ZS+fGCOZ4mDbO2mZJwwYqY0Z1+Xp0uEd6xueLl
+	N07PHThQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtVRo-0000000CisH-32Qo;
-	Mon, 10 Aug 2026 19:14:08 +0000
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	id 1wtVce-0000000Cjxc-0HMB;
+	Mon, 10 Aug 2026 19:25:20 +0000
+Received: from mail-northeuropeazon11011005.outbound.protection.outlook.com ([52.101.65.5] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtVRk-0000000CirQ-3BqN
+	id 1wtVcb-0000000Cjx2-2CgD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 19:14:06 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-39266382df6so2439988a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 12:14:04 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1786389243; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Epb86kua+1BYQJk0IKrDYJdkVTQwoCQ1sn2u+5rNwOB6woZCuiPcf+MPxso0gIeK0n
-         fN8DyiFIw1ppL3PHzW94BWqfxptMsISLpaWFGTEfZsvOM4cejaU8gOOfQux4UlKHoxiW
-         yWZ3/mjTl85JKZJGTOtzsW8winc4PxwfeCWm8bsmA/wkMHnQ6WzL/aV1/EJmrP+l0QTB
-         i7obby7LsX7scUW5F+qbBoJYBYI2RnAb7Ut478BQ1hkTLMFr2bDCPh8MmNmQwyr6tKN/
-         aj+cvKQD7EJKj/OHfHzlnXhd/ysyAOfsKcP1hs4iv4b6JECK7h7icaRgjuiQJOimLNTr
-         gsLg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=ztYcNdQlffuTx6km2o72/tflbKDf0gQ5fGiTpALKrhM=;
-        fh=eDrTrxrd005/ovVBNymhJRG8iWYlFMuzy8Zqv17GVAw=;
-        b=AoQsNwW9suAdl0n1wJKnogNpRY37peWFWsTgwbpCsgL1eGiqKRFl1xFTGA8dNkZlZo
-         u+q8CTTBBWlFwxiy5WjXidU0g9DAekknVpxgMjOpaLYctP3lj9UeE18O8EBfYMoHQqQn
-         EbjcCqIUf8+FTlKBCVpKULqnIDnPrenmg3uYbL2VjEfxaa4SZXyAIYuRphU8+3kKeHXH
-         jkIL3V6iy+dBuqookYCLNHORY5uxCr1Ui8DwtwlJ3o8V6hNipI+t6Txnj2bADTEO+P48
-         til3lnR23L6XAF/DqbR5VDwu3B+cXuNAfKmYtXwDCfmnx1TohrvHY6dWOupXVKU7atNy
-         4P4w==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786389243; x=1786994043; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ztYcNdQlffuTx6km2o72/tflbKDf0gQ5fGiTpALKrhM=;
-        b=ZnMhm80+83svGh4Q3dGf2s7BBDG19xGgIiay97+xxStiiMmZURCOu9XvdYH4+WjJNt
-         iTGr8SJgxr5fdeKLD+J+NTgrW1Zbk6z1ijdR5GbuLeY58BWX+cEKQtbDonolTCU3STbH
-         H6d0sBGV/7VNNEvFdioqCmsPcQJ5mTWvsX65bNwUq+pTKpSYpZMgO+5Mo28A5abI0E3i
-         BN3Q80dT4hTQZKnuYEO8F+dxj0yC0tK8M3oWZwebzdWv2sf4jaVAQUWia27P7QlSrNgB
-         /UNINFakgnCeTrB7Ppt1aELxW6StTAiNqeiT/YG4ICbdqtoi6DoxfiiBw47arcYGuWxV
-         6sxg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786389243; x=1786994043;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=ztYcNdQlffuTx6km2o72/tflbKDf0gQ5fGiTpALKrhM=;
-        b=PkX6MX1pM+lgMLerlLwyUO02Fakza1WG3JDs3GnZ9hk9JTslUrs3BMub+/9e072yba
-         0AD27/ZRFM+Ux2GJu/EAKYyBedQFMvTMoJOPh+urKoD5Z6Nr4S5/jZFZ5GVNBp+Zxg4r
-         wGxcOvFScrvftqY8xU3pkMRtqoe9ThNZZYt8Z8pxvtrZP8aDAmtM7scV1J9yw1086LbJ
-         FJ/MmmEig3EQ+TKzzGRySXx1gu3AHwwWbJWmoB5Q0XLQZScBaDsW1Jo0HMXEAA4ZDoEp
-         IRFle44GAvJWeQ0KLNBaTCzeHM1EeYFUj5B4Grr6tMRuqqHN4s+MtGQ8BhdpGJIc3afn
-         h4cA==
-X-Forwarded-Encrypted: i=1; AHgh+Rr9h8fUz7kHHCR9DeMQ9l3Uzg6n04O71Di57+TQ0Z6JDaXIsOsB/RmYnpg2cvUfnou9Aun0rLuC4z/y6YX+iVe4@lists.infradead.org
-X-Gm-Message-State: AOJu0YyeO6AP682N3bjZ9AudPefecYh/LBmM4HqdfU9Og6PsKgHHjuZd
-	Jy0yhYknH00dTdR5g2QTXaLd/ulC0Uf5qmfjzunJKYPJY4doXtjPYoAsMtzhvTkp1S14lvxOtEu
-	MHcMcEQK1PtHRj2K3bLMmCKy/aFOqhNI=
-X-Gm-Gg: AR+sD12wrmVHdsLSPsUNGTclDnu78gYEF4AkCbZbibpcygX+Z72kZNAW/5ebx1D9Vj9
-	7McdW4H/mkcfhbua7sCuKM49plJOfu5lRggBpNf+fZcw7l81nxSjxf8MTN4dkjdxF9FBR4wb6DH
-	NkyWVp+uXOBiQaab/eYczk5S/8nulMcA9ovYKi5boixJ0P+acNXS5cNMY34gch+Src6CMQMc9Xf
-	UwIxydx+M+6MdI/eJEU86I3uDfMFRriYHAbbxPYnMCQxlF0MBmEhOks8+1e0iOlY8qb3JsNwYpc
-	I3CErQd0EwhROrTgpXC6FCDoB80IyOg7nABNEtep29H/i1icKwB0Pho9d+eeK2jhyrmiQpibAky
-	wQfDZ475nwMmMbqmU7XqsWCYUfdBSiFTrNECM625muGekG7LHvMP4FswyxEeUzs6V+8sq
-X-Received: by 2002:a17:90b:4d84:b0:38e:6bd7:fbbf with SMTP id
- 98e67ed59e1d1-3903c697453mr40345740a91.20.1786389243366; Mon, 10 Aug 2026
- 12:14:03 -0700 (PDT)
+	Mon, 10 Aug 2026 19:25:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=G1tJHYI68c0BYxaxjmf7JGXJmoNJ3LXn23yjjAzijSk45o6XL7GGCO/OH8U4InqsbRAweCIUvXRQBL53elLU8jNt5bQ0z54vzpNOaJL2ciR45oZUu+JZV96AwlFYang5qfN3Fv6Wno3xr6r/iOFx8srMEx1UxnhJmP79vDMW+lrKJRsE8qvweQGEI4EpA1HXelqzOPaSns8KTkICMC9ZLG82WfmfKJdbaGez1G4aY+1uDUjMQn2YkJqoh+ctiMUL7wOzKukYO/ZeBQS43hlgkkgxGf7guiBxcPku6FBZ8+KhkjeHH6FtSK13Np9705sf2WMRbxwzgqs50eBP6rOF8Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=IQ2L78A2GNCCRyd4ldlaJspP0cXCLRR0sgA6ivpfO+o=;
+ b=W2JjTLLWxhZJuCOfKzbot0nWiePIbZXudH4htQMVa7sMQo+TmevyXyVJh6EQ/JjMNu4Dl8+IJMoptAL24yI7yfZYCyh2tYWD6vXpTcqC10HakwkiT1w2txtT/4pQ33wgppZn57NtGZ7548vA7onOW6KayLmJuABSNKo+mgefyyCmQPEdNDtHvId7sc2xIGWdEtNiaUq3m/RceWuaOQbbxGix4Urv3wtqex6BD31hiZ6nMfRIp0tOEilB4kpK3b9o/n2/7adsMp0VwAXEngwEV+q9KelcNwqiDD8AyoFrznjbXA2/obOCb9PtUUvKeZ4zG/DAPfUSgGN3sMSICJ3+Yg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=IQ2L78A2GNCCRyd4ldlaJspP0cXCLRR0sgA6ivpfO+o=;
+ b=qSCr/IdMv6erxYwpCfrLe5lPulnh3V1/pxcypF1U7aBSHWjnzuOXFsUNL2lDZ0L3RZPbuG+d8b1FCEVexAknTsI2vymKV6XTC3JsMd6vmxcU4P21YxD72CN73aN5dxH5fveYvh2rFNWDx5GRIMd7aO27FOPH3bwcJwcIQxPeiUEL72gCyjTJjfQeWaGyRwV0OYfOgPe9vIfoKMDPrliofDvW0DbtPuGCjbNqP5sueQHRJ2lvJiR6KnbdVrBaTTQWV5oWUh6RoAdmUYmOnizia6X+UxxRBzG9/H5lUAtp60sNqs2LUYGb/WUCsOuI4RzIb/GgfEK3M/Dh/TbRcvVN1g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by PAXPR04MB9397.eurprd04.prod.outlook.com (2603:10a6:102:2b5::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.25; Mon, 10 Aug
+ 2026 19:25:12 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0292.024; Mon, 10 Aug 2026
+ 19:25:11 +0000
+Date: Mon, 10 Aug 2026 14:25:01 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Rudi Heitbaum <rudi@heitbaum.com>
+Cc: imx@lists.linux.dev, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 4/5] arm64: dts: imx8mq-phanbell: Mux the 32 kHz
+ reference clock pad
+Message-ID: <anoljVLmPNDYaHxn@SMW015318>
+References: <cover.1786177290.git.rudi@heitbaum.com>
+ <53e03c00c4c03c2f73d8012a602fca6031a52dfe.1786177290.git.rudi@heitbaum.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <53e03c00c4c03c2f73d8012a602fca6031a52dfe.1786177290.git.rudi@heitbaum.com>
+X-ClientProxiedBy: PH7PR03CA0028.namprd03.prod.outlook.com
+ (2603:10b6:510:339::18) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-References: <20260728-nanopi-m6-v5-0-cbc1eb0d8d56@gmail.com>
-In-Reply-To: <20260728-nanopi-m6-v5-0-cbc1eb0d8d56@gmail.com>
-From: Joachim Eastwood <joachim.eastwood@gmail.com>
-Date: Mon, 10 Aug 2026 21:13:51 +0200
-X-Gm-Features: AUfX_mxzTrvRm81zDcfC1V6GLy0ckjTy6s3zsVjpnKMTBTT21-X5wzX34Jts7oc
-Message-ID: <CAPSPb=s9ZxjrHPn3Xfe24kS=_29G0mX8xkxdWGj2Rkd83zwnpw@mail.gmail.com>
-Subject: Re: [PATCH v5 00/12] arm64: dts: rockchip: Add NanoPi M6 board
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	diederik@cknow-tech.com, jonas@kwiboo.se, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PAXPR04MB9397:EE_
+X-MS-Office365-Filtering-Correlation-Id: ddfcd4da-99d8-4995-107e-08def71518cc
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|23010399003|7416014|376014|1800799024|366016|6133799003|10067099003|4143699003|56012099006|5023799004|11063799006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: HkCjJp3yzSLjomosr/F++jPHeSxl7++da8mhyPlZZP0WSsfgLpz7ft0DCzHhLFuJxTyOSfefvp6CsnaXy/Vdp0mK+haGqoYN5CZBaSPC2tjnbBskLCn5KQ/0am/l9ru5mZkYiy63lthGVThvCVgvoJRtPKDFAhILykFyy42a86AaXF9k2jMiRHkICug/Gxtvxa4qQk8V9v9BFaX214QFjpUojo8moAOtaMO59Xps6HfLhao9Ph5bVWYQC3rhs1A8c/twZprY9B8CkUNtTH5r5ODeyU9YWdZ8S9iYoyGrf/TmovuUOThnFD8rVBqBE1hRytl0vUzFJ7cBpTkQomjlGbAbo777SBVDAQ0Nz0/zYp0sTOoqNxYs41fjEjeWot3XRgKMl9XwhqUP35tYvcTJ/rG5ZPykIlipDYKF+49jJsYoLUug94F+eaXaDYPYDU+1aiYZXvctFEhhen2fTzohr5TL2MUnqFZXxbSR1/exyJwkGlgPTJIHpvbSP3X/kuCW+KpByXSgmQDtV0babDKG06m5ryjkwvn7FeNaR2C0AdIGOkwW2e4/5N2MU7XQfk1GjAvLNgjPABkwct9aZH6kswm3XZAj/iAz7QbjR3pMnXuTzmUDPyPmSt2hrJAOrI1uSOPnkeHWeAqSJzf7QWSEdxgYv2mPpggtKm3fVTKdIV4=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(7416014)(376014)(1800799024)(366016)(6133799003)(10067099003)(4143699003)(56012099006)(5023799004)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ra8UiqlMboJtwW7iHGUvz5xTBOWJ8WjYfo62tG114gIi255cpqNxTLSJiHcK?=
+ =?us-ascii?Q?v+/gOj/O4uwLvRYiGMOehDigT8iSrXCrcCAKpqR5a0phlL8022q8gXqjhGH1?=
+ =?us-ascii?Q?AsPuZruIDTEU9fKoVg3PRhkB+HSBLRMj9/D+sq48tk1q3gOgTW5wMb3VFIbZ?=
+ =?us-ascii?Q?nJXe2BEFMhgHyjlxH7ZUS/pZn8oW+TbdApQelH3q+RhNCZHEjYVVcb446mSw?=
+ =?us-ascii?Q?vCzwc5m8v/dX9TGNFBNxsu54lSXmumMCz3m3iKi3+jnbUVsheD6pCbB+QpoZ?=
+ =?us-ascii?Q?2xOcYtrLygpYD2HNpYHpFnnbnj2Ddb4MKZQlkCr5R08PeXCWnr9TVcKreaQ/?=
+ =?us-ascii?Q?OL67DYG9/pELletPRAKsmpfIjH/N9bWqio8jYpKjAGD+dW5YhJAuZwot8NO+?=
+ =?us-ascii?Q?tX6WwAmo5BI+amGNnWRS+8k2Il9AwGOOy8/2wyOEwAf9KP0wp5UuT6oiZXHs?=
+ =?us-ascii?Q?jpvxjezG8lGgJOT42tBygz8gp2W92Cmo1VZHLQgyb16ZQI8FDNHck0n/AyXK?=
+ =?us-ascii?Q?mlUmCClrwBJr1yHfGglpf9oDi/m/s4Ikzqwu5QJEd03+f5jcnQFRIlfB3mvE?=
+ =?us-ascii?Q?b8l/T0/vWg7aBhi0u8rbf4VLRHV+YuEWkbPlQE7DzwOorkNVle76kGn+atiq?=
+ =?us-ascii?Q?yI9MWYN104hTanQZaULzMA07u2QltUUkdgZIL8GY5oUS77ChGaeoFfURAY4K?=
+ =?us-ascii?Q?k9nFKLrnZPoqornelSMHCwwqL6R4dLdQC76cLH146Z+NZFX5z8lFee3oAVLR?=
+ =?us-ascii?Q?axDlJkL86wcr1xub2jfhJmnmB22c0ilJVcgRPXPnmTcgt9nJ+M1NhvAAPlAE?=
+ =?us-ascii?Q?N1zBV4piqxLJkjdT9Ch0AAQnaWSHf/SrNjBRfe8wavW/s6Po/ltYDmUFjFft?=
+ =?us-ascii?Q?mCVIQRoqf8ub1E9hz7rKUV+SqfCXgXcytMKyV52fXXC8yI2ZIRnyEfPsXIpj?=
+ =?us-ascii?Q?d06WXyHc4Bs4aWC6snC4MOrrH96L7QyL46Ry8hW6HkdNfmWHGwg5FQbZNaiT?=
+ =?us-ascii?Q?5XkA9venw5ZRkg2rGf0XKC8OQ7uor435aFXB78qLAMn28KO4BTW6dVyNMMhM?=
+ =?us-ascii?Q?YL376afvZljDCXUVodVPNrjXfphwdGK4lIMA3LTQFX7SlkAYnEb3OYl16Vos?=
+ =?us-ascii?Q?30mL63hSTITVrU3zubXre2949jxpRsuS/QzzKtCpYmkRUL7VblZh9OPvE3Zk?=
+ =?us-ascii?Q?9+Xs3XH83EHtT7yc6LDeAK+hvOAC+a+eQMz4Hv6Zv1pvjUMpCw1Yq7iCxJRa?=
+ =?us-ascii?Q?DA5rynkACBeoEF1w6YEd+wIggFimTDmyJTqnADKYhFdTA0WlS/TbfW5adY4O?=
+ =?us-ascii?Q?Z0foFAR0K7r7d/FXV6QA4wlMs3m3Vd9KSLCC83PNaYrGHVG8ABfXyBPGLaiX?=
+ =?us-ascii?Q?0e1qt4UeBBXoIP/VQboSrdJPqyH7ywuiFOFAKLW7ZQUKNcOv8KtULnPlWW51?=
+ =?us-ascii?Q?82hhSZ+TOMM1vGkhap9IY1mOQxoFDSMGEscEf5ns2R7vjvE/EFYgCJowEjbF?=
+ =?us-ascii?Q?/0xU2qwm4mysWagOuuWOlRL2CYCqzi7waS8cFFe+TtNFqylEb9lI2pJ8F9Db?=
+ =?us-ascii?Q?6J2wVn2pyRk8XtDBwx2oqKEiv9axi1XqELA2+nC4MTS47ufm7INv0Hu/CqNd?=
+ =?us-ascii?Q?zjbua2tW/KNRKaFwSR/4w3nY24+OJCgA25UTwLGDrGfRkiU4btBPNLbANcYC?=
+ =?us-ascii?Q?9zt/O4PPwnvH3LBgFAq5vpzdiWvTK+S2yDQ+MZehnd5VdJswqwk7XDOIn3MW?=
+ =?us-ascii?Q?U4/dqVoG3OMQoabnbXKitxeO1AFgaaYTmF7H77WvLeYSYwkt4/z8?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ddfcd4da-99d8-4995-107e-08def71518cc
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Aug 2026 19:25:11.8417
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: lghVInoogU2WtfvPmTUYD5WyQ6Vm3qqJANcJte6klY2ngIqTFGDsKhhw4rB1hVRoahaHpvg5PzbhgCv3ll0XUNVSICFmZtAwt56zb5BhiLe1h5lqm+8+yUYBnmHInf8Y
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9397
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_121404_827164_E9C8E458 
-X-CRM114-Status: GOOD (  30.78  )
+X-CRM114-CacheID: sfid-20260810_122517_568611_C4FD1F17 
+X-CRM114-Status: GOOD (  17.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,104 +142,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Heiko,
+On Sat, Aug 08, 2026 at 10:13:51AM +0000, Rudi Heitbaum wrote:
+> Mux GPIO1_IO00 as the ANAMIX 32.768 kHz reference input rather than leave
+> it in its GPIO reset function. Nothing claims the pad as a consumer, so it
+> goes in a hog group.
+>
+> The vendor devicetree hogs ten further pins alongside it, none of which has
+> a consumer anywhere in the tree. Those only set pad configuration on pins
+> the kernel does not otherwise touch, so they are left out.
 
-I guess this missed the merge window for 7.3.
-Do you want me to send a new version once 7.3-rc1 is out or will you
-pick up this version?
+Needn't this paragraph. The first paragraph should be enough
 
-There is one very simple conflict in
-arch/arm64/boot/dts/rockchip/Makefile with the LubanCat4 support
-commit.
+Frank
 
-
-best regards,
-Joachim Eastwood
-
-On Tue, 28 Jul 2026 at 14:02, Joachim Eastwood via B4 Relay
-<devnull+joachim.eastwood.gmail.com@kernel.org> wrote:
 >
-> This patch series add support for the NanoPi M6. This board is very
-> similar to the NanoPi R6C and R6S boards which are already supported.
->
-> Main differences:
-> * M.2 M-key slot with PCIe (Also present on R6C)
-> * M.2 E-key slot with PCIe and USB (from hub)
-> * 1 additional USB 2.0 port from an on-board USB hub
-> * RT5616 audio CODEC
->
-> Patch 1 documents the NanoPi M6 board compatibility string
-> Patch 2 to 10 are fixes and additions to the nanopi-r6 base DT
-> Patch 11 extracts the common NanoPi 6 series bits from nanopi-r6 into
-> nanopi.dtsi
-> The final patch adds support for NanoPi M6. Support for M6 has been
-> split into two files; one dtsi and one dts file. This makes it easier
-> to add support to the new M6V2 board at a later stage.
->
-> All changes have been verified using the schematics for M6, R6C and R6S.
-> Only M6 have been boot and runtime tested. Testers for R6x are welcome.
->
-> Note that Sashiko may complain that u2phy0_otg is a dangling phandle in
-> patch 11. This will never happen in practice so it's safe to ignore.
->
-> Signed-off-by: Joachim Eastwood <joachim.eastwood@gmail.com>
+> Signed-off-by: Rudi Heitbaum <rudi@heitbaum.com>
 > ---
-> Changes in v5:
-> - Switch from simple-audio-card to audio-graph-card as Sashiko
->   complains, rightfully, that the bindings are a mismash of both.
-> - Add pull-up on sd cd pin. Noticed by Diederik.
-> - Link to v4: https://patch.msgid.link/20260717-nanopi-m6-v4-0-b31391a72e41@gmail.com
+>  arch/arm64/boot/dts/freescale/imx8mq-phanbell.dts | 9 +++++++++
+>  1 file changed, 9 insertions(+)
 >
-> Changes in v4:
-> - Remove boot-on reintroduction on vdd_npu_s0 in nanopi.dtsi during
->   refactor screw-up. Thanks to Sashiko for catching that.
-> - Fix minor typo in "add gmac1 add phy-supply" commit message
-> - Use schematic net names on PCIe reset lines. As suggested by Diederik.
-> - Link to v3: https://patch.msgid.link/20260713-nanopi-m6-v3-0-227567ffc5dc@gmail.com
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mq-phanbell.dts b/arch/arm64/boot/dts/freescale/imx8mq-phanbell.dts
+> index 58f7276eb557..2d134eefb765 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mq-phanbell.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx8mq-phanbell.dts
+> @@ -348,6 +348,9 @@ &wdog1 {
+>  };
 >
-> Changes in v3:
-> - Reorder patches so the DT fixes/additions are applied to
->   nanopi-r6.dtsi as suggested by Jonas Karlman
-> - Add comment to gmac to rgmii-rxid phy-mode to explain usage
-> - Addition of pinctrl to sd and pcie are now marked as fixes
-> - Remove both always-on and boot-on from NPU regulator
-> - Link to v2: https://patch.msgid.link/20260711-nanopi-m6-v2-0-422675a65402@gmail.com
+>  &iomuxc {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_hog>;
+> +
+>  	pinctrl_fec1: fec1grp {
+>  		fsl,pins = <
+>  			MX8MQ_IOMUXC_ENET_MDC_ENET1_MDC			0x3
+> @@ -374,6 +377,12 @@ MX8MQ_IOMUXC_NAND_CLE_GPIO3_IO5			0x16
+>  		>;
+>  	};
 >
-> Changes in v2:
-> - Organize DT such that adding support to NanoPi M6V2 later is easier
-> - Use correct clk id for I2C mclk out as suggested by Diederik.
-> - Add a couple of acks from Krzysztof Kozlowski.
-> - Link to v1: https://patch.msgid.link/20260703-nanopi-m6-v1-0-8344a1559519@gmail.com
->
-> ---
-> Joachim Eastwood (12):
->       dt-bindings: arm: rockchip: add FriendlyElec NanoPi M6
->       arm64: dts: rockchip: rk3588s-nanopi-r6: fix missing sdmmc cd pinctrl
->       arm64: dts: rockchip: rk3588s-nanopi-r6: fix missing pcie rst pinctrl
->       arm64: dts: rockchip: rk3588s-nanopi-r6: remove pull up on rtc int pin
->       arm64: dts: rockchip: rk3588s-nanopi-r6: pcie2x1l2: add clkreq
->       arm64: dts: rockchip: rk3588s-nanopi-r6: remove always-on and boot-on from vdd_npu_s0 reg
->       arm64: dts: rockchip: rk3588s-nanopi-r6: remove useless vcc_3v3_pcie20
->       arm64: dts: rockchip: rk3588s-nanopi-r6: add gmac1 phy-supply
->       arm64: dts: rockchip: rk3588s-nanopi-r6: remove bogus vcc5v0_usb regulator
->       arm64: dts: rockchip: rk3588s-nanopi-r6: add comment about gmac phy-mode
->       arm64: dts: rockchip: rk3588s-nanopi-r6: refactor to support M6 boards
->       arm64: dts: rockchip: add support for NanoPi M6 board
->
->  .../devicetree/bindings/arm/rockchip.yaml          |   3 +-
->  arch/arm64/boot/dts/rockchip/Makefile              |   1 +
->  .../arm64/boot/dts/rockchip/rk3588s-nanopi-m6.dtsi | 142 ++++
->  .../boot/dts/rockchip/rk3588s-nanopi-m6v1.dts      |  57 ++
->  .../arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi | 792 +-------------------
->  arch/arm64/boot/dts/rockchip/rk3588s-nanopi.dtsi   | 797 +++++++++++++++++++++
->  6 files changed, 1000 insertions(+), 792 deletions(-)
-> ---
-> base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
-> change-id: 20260701-nanopi-m6-ffeef7252fd7
->
-> Best regards,
+> +	pinctrl_hog: hoggrp {
+> +		fsl,pins = <
+> +			MX8MQ_IOMUXC_GPIO1_IO00_ANAMIX_REF_CLK_32K	0x05
+> +		>;
+> +	};
+> +
+>  	pinctrl_i2c1: i2c1grp {
+>  		fsl,pins = <
+>  			MX8MQ_IOMUXC_I2C1_SCL_I2C1_SCL			0x4000007f
 > --
-> Joachim Eastwood <joachim.eastwood@gmail.com>
+> 2.53.0
 >
 >
 
