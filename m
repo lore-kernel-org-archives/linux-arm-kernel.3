@@ -4,76 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1970FC5AD7B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 12:40:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76A74C5AD7B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 12:40:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RY/1wmCxCIFM0LLRBnTLXmBpxbfVg0FeVcj6W7X9LH0=; b=cRMFcaPvb+FM+Pichag2W+fTx3
-	oJVFoad8w2lkOD2dCeqew26KKLcDLTqPgF5HnADesVl4usZEJ1GSotNz/MSrPxD5d60EnzUJktUV5
-	mUO+fzVH/R0gWNJ3HN4lTqgOEwH2FJJJ+AAXqj0/5ffPvW5+KrP5JV+pUnIuBeoyLVsAzSor9sB+F
-	s13AlfvZXKlJDDgktG4KJI2Al/Kq9IlZ+Ybs3k4IHMRhWreW9pVrG1ifZUOiQFL7MvFChOHRe8FL2
-	BWCPJR9UsoDm3PHnh7q6FAOn+1ygEMO99nL2Xvuk1VzxHwJKtpFQw1poacZS31P0auXXsSUf+E5DG
-	JfNAlsAQ==;
+	bh=HzTjFhFkoXBLwd3NrSqY+4yLtTn3dkc2guIu8OqfuBY=; b=ySkCc/suyBxQjf00FpdM9mP0+5
+	Q4q3uH0aYxqSCPo7JPdubBfCt5C6Fd9lXtHg78a/ZVQKRdmuKsynigw8rPQ5eJeAZrNcm1heOSswZ
+	dqqTO/GulgM04x3JvdaAcliEp296UU/7WtxnYDMZItFMgm0DVmALqnX2Ty8JPYMH8I7WS+RCJdRbe
+	d8STerR8sVfhmjNhFcKgvJ+bMs44wBf6lilXOr7bYkBNtQE9hvonQ1Iww6QhchRznlre9EWkgNm/a
+	mj6PsMl9fhC7Cq+lalJQyHSZ5zHDE/71pj18WtkvwllgZURNSCIPtzMBP8WEDWbno6n1FE+AQXuF+
+	92+uRANA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtPIP-0000000BnCe-0t9M;
-	Mon, 10 Aug 2026 12:40:01 +0000
-Received: from mail.andi.de1.cc ([2a02:c205:3004:2154::1])
+	id 1wtPIY-0000000BnFB-4196;
+	Mon, 10 Aug 2026 12:40:10 +0000
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtPIM-0000000BnBb-3DnN
+	id 1wtPIV-0000000BnDY-0aHH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 12:40:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=kemnade.info; s=20220719; h=References:In-Reply-To:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description;
-	bh=RY/1wmCxCIFM0LLRBnTLXmBpxbfVg0FeVcj6W7X9LH0=; t=1786365598; x=1787575198; 
-	b=oKON9zdEELo0idVgL9T+qEj5guhnnNKOUD1VrTGnZRgv1qie2NJEDe1VOCV+SeR1Ni6yPfMVYwy
-	igabfFpWN4ep8s2FGt+ew8+jj9LTGjnJsrmByvp1/6ctZctGVcUcdMXiQHJObPxouSGVwGOnFtaui
-	0MqoyNouxYig6v58ze+5RmcGD1xOMrRKoMICYbRpJKuIwUhK2QEjhEmZvnXJ5sMocAEADmE+n6zRq
-	Gn9rhD0wEOZk/My7lqJXvSuAGq0eecsj0N6X1gyKrEYd3fyXkYzQ0M/W71o482xJm5dMLbNX3ylGR
-	PY+3R8PpAuA19E+VrDXaW0SezIirfGqWgUwA==;
-Date: Mon, 10 Aug 2026 14:39:14 +0200
-From: Andreas Kemnade <andreas@kemnade.info>
-To: "H. Nikolaus Schaller" <hns@goldelico.com>
-Cc: Daniel Thompson <danielt@kernel.org>, Grond <grond66@riseup.net>, Stefan
- Leichter <sle85276@gmx.de>, Grazvydas Ignotas <notasas@gmail.com>, Tony
- Lindgren <tony@atomide.com>, Ethan Nelson-Moore <enelsonmoore@gmail.com>,
- Jarkko Nikula <jarkko.nikula@bitmer.com>, Sascha Hauer
- <s.hauer@pengutronix.de>, Lee Jones <lee@kernel.org>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown
- <broonie@kernel.org>, Aaro Koskinen <aaro.koskinen@iki.fi>, Kevin Hilman
- <khilman@baylibre.com>, Roger Quadros <rogerq@kernel.org>, Russell King
- <linux@armlinux.org.uk>, Jingoo Han <jingoohan1@gmail.com>, Helge Deller
- <deller@gmx.de>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai
- <tiwai@suse.com>, Sen Wang <sen@ti.com>, Richard Fitzgerald
- <rf@opensource.cirrus.com>, Arnd Bergmann <arnd@arndb.de>, Srinivas
- Kandagatla <srinivas.kandagatla@oss.qualcomm.com>, Kuninori Morimoto
- <kuninori.morimoto.gx@renesas.com>, Charles Keepax
- <ckeepax@opensource.cirrus.com>, Niranjan H Y <niranjan.hy@ti.com>,
- letux-kernel@openphoenux.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org,
- linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- dri-devel@lists.freedesktop.org, linux-fbdev@vger.kernel.org,
- kernel@pyra-handheld.com, mfd@lists.linux.dev
-Subject: Re: [PATCH 15/16] backlight: remove pandora_bl
-Message-ID: <20260810143914.64d29a5c@kemnade.info>
-In-Reply-To: <DA9588C6-0238-4713-B1A1-CB2123F02028@goldelico.com>
-References: <cover.1783749722.git.hns@goldelico.com>
-	<f897f695c0e1e128d7ebb41be8dfdce4d634f552.1783749722.git.hns@goldelico.com>
-	<anmpiADsvzW39DNx@aspen.lan>
-	<DA9588C6-0238-4713-B1A1-CB2123F02028@goldelico.com>
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; aarch64-unknown-linux-gnu)
+	Mon, 10 Aug 2026 12:40:08 +0000
+Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-69f4acf7047so267109a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 05:40:06 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1786365605; cv=none;
+        d=google.com; s=arc-20260327;
+        b=mbrujiy5Ud34QXgF8DeDFiO0YUcVPAQXSpgI2uuDDQ3RVnJkAiXDbPLtkzGBI82P2U
+         HdMk5JnNF8lLBXx79edpXLiuHezK9+sn6IXXFFm/IITQpN/fT3t7Vq7MqnRX78le/ytx
+         HYHhioR6KNhMJ3lfrPUxvAuLBSN9wtQOQqwGNJCc+HCnRMWyDbzs25Un+H8ZfTDz6ool
+         Ruq6z/Pd/XKPEmCxCER9hcTA2AcGLOXt0DNR4Fenmxp0763uFXjkST1eSIcbCAklhugX
+         UFSqxI0L2tSYI1GiDPxQOtRusil5/bLFuoGOWIxI36IUCwEAUPyYUhn7B2bnS4serjiF
+         5Xeg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=HzTjFhFkoXBLwd3NrSqY+4yLtTn3dkc2guIu8OqfuBY=;
+        fh=kDdd7onj+ZA1a32Ant1yXV0w3bD5N5XG2uEleH8BYZM=;
+        b=oznwJ/wTYCCXoJy0VzErjBrWWuS3MW7wXVCH5Fvz0mUBeCApwVmfYPUHw5428M4Zyb
+         n2RIdPTI8E0xxHuERXFtQh4jVAf/19Cktcb+d9fZMc24R23AbEdN9m8b92sB2RKH5oXv
+         yZfeG5oVjCDyMdKKtvHi3PdSP8jZSkkO7JGio3YPpnw1HW3FOaXl98I9LwUtjoQxv++e
+         h8xv0Wyvp8wl7b8srtrWlPnV1HhLDg4bUGBB7wZPIvO+F+bXqPzm0IIJspOV0RvjNd8+
+         6ayOBP60Q6u/dxGNrfpFFONODGPsxFjd+ukV8xywqvKvueNst/9XCnwPqA/XlSAwUenf
+         H08w==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786365605; x=1786970405; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=HzTjFhFkoXBLwd3NrSqY+4yLtTn3dkc2guIu8OqfuBY=;
+        b=PR5nFMryVpJbDZV8Drw+9LWFh0nMklw469A+ju5qtocKcjhJlj7vGxFArI6Fw4R/d6
+         FQH2Lyx5GO+iLjT2r6rLLw1LB3kQfgqOBDSZhK4gVfBCXoXgdEfFJJ+eNshUOeIMRaeP
+         nIMTz92CyzDy7JQPfEc9A8A1/t71+yyJL+GAl50ZYfe8eSYifi3S61+yIQDdf3LrWKJk
+         C1/9cQXhYTRCdlXGph/oC7SLIhsbx+oDpi/Xeou9utf+96jJCwHwgG9SeAYy1B10WtOA
+         08fGbYN8Yqfh83w3Nu8w3TWPcv0VFy7iK35exa2gQp8PqxviMb9+Pe5Lk+/blcLLH9Qf
+         KIfw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786365605; x=1786970405;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=HzTjFhFkoXBLwd3NrSqY+4yLtTn3dkc2guIu8OqfuBY=;
+        b=tGlUWyka6lOR5YZ77TvV8qqqTK/ozc3bhbfLtTz45ms7DTOPuaQD2AaQ/kHXyOXBzJ
+         rYKEXJPnerceqq2FUoD6sBSfD32RZl9ikQiFwMTKlGnuXwItiqnKXeNqpDU+7VNJ/eES
+         LhCMR2OpNNRvxP76BLI7fDuEsLydSxhxtJEmhCbHzD0JZq7MMkE8s0JupTth9dPIwSVw
+         W8s1q8iOLpbS9FoVWjbIx74hZgVGoLPoMoah8kmqkZ9CHEtFHEYrTYCD/2ge/nAEQtOe
+         hkEazvFN7AHURFHG05/3LS1S3lR9xjx/z1FHEA2dKAyZGhEsekyn+AZzvrMLgaAx5yd4
+         HaGQ==
+X-Forwarded-Encrypted: i=1; AHgh+RpkVb2tMmdHi8//OVH0iURc8/uXI46VBkRnxeeDuGWX0fd+Gc5LGqSLtpg46EqW5cPg6SLpOzEDRllXjLu6JvEh@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywk1YkTxFSj43xB5Au2zcqI87VNrv5N5POSOGehQWaGJLTJUjeX
+	R0F2yeMYkWwoCXkPHz0FeNvd4cNmz9ZcjmIrpwY3m0tnr6rnNiE4s6iy4iClwJhoObkM8k/7tri
+	BQkOhKVywU3QS5d4RQO5B/2nmrbDZa4U=
+X-Gm-Gg: AR+sD13ZUJOYb3CFTSgGdw2QGNSInZidDdhTDgg2u6mTkvkkXBUq9sLBph1bUZcR9//
+	ew9I2XvkOKQlHBkNM3yFL9Go2aAxAbO09gbsBDxkBwdYM7Q5sNKrICW24/9WE9cmdlGhoiCzqEU
+	POj9PV7SAjUw8NDka5rVoOBOj4JHX/kr3HWhQIoYwxH9Yl3VYDsNJtdT88IihEHnGOnBCrOyD9u
+	/Z1qU40IjXuBpOHf+27rjFXvPIHpuWYSSft0mN8wZrP1/yA4dxPmGUfYnPBHP2nd70B83rp2rWd
+	kyY7rZTanijKw0+un4zrwjuLmdUszuQeA0FcpXuPaeLhwcfNQLNxoZ+5FuQEkPgr1FlpgoqquIh
+	Fow==
+X-Received: by 2002:a05:6402:2351:b0:6a1:fd14:8829 with SMTP id
+ 4fb4d7f45d1cf-6a1fd1489dfmr3529309a12.4.1786365602791; Mon, 10 Aug 2026
+ 05:40:02 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+References: <20260726-dcphy-rx-v1-v2-0-cf9cc34a412a@gmail.com>
+ <20260726-dcphy-rx-v1-v2-3-cf9cc34a412a@gmail.com> <7e55b8bc-d11d-4b25-99ee-d5d181be158f@collabora.com>
+ <CAPwA33Jnp6N7a=2tcrgEzFxXRpbxEO25ktrRDiea--9Uy5upNQ@mail.gmail.com> <00d6ee9d-0ef1-41d4-8cd7-affb320b84f4@collabora.com>
+In-Reply-To: <00d6ee9d-0ef1-41d4-8cd7-affb320b84f4@collabora.com>
+From: =?UTF-8?B?5qWK5pm65oiQ?= <jason98166@gmail.com>
+Date: Mon, 10 Aug 2026 20:39:50 +0800
+X-Gm-Features: AUfX_mwg7RyitAzo5nWhArTwTiYbA1EMZOXHMkTdNy0X60zc4wq-eQxbT6UdjPw
+Message-ID: <CAPwA33KHoH6AM7HLMQSBMwy2-TS2A_J=QyLwcg-S=t2yQ+_78w@mail.gmail.com>
+Subject: Re: [PATCH v2 3/4] phy: rockchip-samsung-dcphy: model TX and RX as
+ separate PHYs
+To: Michael Riesch <michael.riesch@collabora.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Guochun Huang <hero.huang@rock-chips.com>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-phy@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_053958_850234_0150E084 
-X-CRM114-Status: GOOD (  21.42  )
+X-CRM114-CacheID: sfid-20260810_054007_199055_83C28A00 
+X-CRM114-Status: UNSURE (   7.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,60 +126,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 10 Aug 2026 12:45:16 +0200
-"H. Nikolaus Schaller" <hns@goldelico.com> wrote:
+Michael Riesch <michael.riesch@collabora.com>=E6=96=BC 2026=E5=B9=B48=E6=9C=
+=888=E6=97=A5=E9=80=B1=E5=85=AD=EF=BC=8C07:00=E5=AF=AB=E9=81=93=EF=BC=9A
+> [...]
+> OK, makes sense. Looking forward to v3!
 
-> Hi Daniel,
-> 
-> > Am 10.08.2026 um 12:35 schrieb Daniel Thompson <danielt@kernel.org>:
-> > 
-> > On Sat, Jul 11, 2026 at 08:02:02AM +0200, H. Nikolaus Schaller wrote:  
-> >> Retire the platform specific pandora backlight driver since
-> >> it can now be replaced by twl_pm and device tree.
-> >> 
-> >> Signed-off-by: H. Nikolaus Schaller <hns@goldelico.com>  
-> > 
-> > Yay!
-> > 
-> > Reviewed-by: Daniel Thompson (RISCstar) <danielt@kernel.org>  
-> 
-> Well, there were some good comments by Sahiko to the prerequisites of this patch,
-> because it has one speciality the PWM BL driver does not handle (avoid
-> interpretation of PWM signals as W1 protocol).
-> 
-> I haven't found time to work on this, so we can't remove this yet.
-> 
-> In the end it may either remain a pandora_bl driver (converted to DT)
-> or become a patch for something else.
-> 
-But then it is a TPS61161 on top of PWM, not a pandora driver.
-And then there might be just a quirk for that chip in the pwm_bl using
-triggered by a compatible. I guess the quirk is this:
+Thanks for confirming the shared block and for chasing the GRF
+question with Rockchip - much appreciated.
 
+v3 is out:
+https://lore.kernel.org/r/20260810-dcphy-rx-v1-v3-0-a2d25c29adfc@gmail.com
 
-if (priv->old_state == PANDORABL_WAS_OFF) {
--		/*
--		 * set PWM duty cycle to max. TPS61161 seems to use this
--		 * to calibrate it's PWM sensitivity when it starts.
--		 */
--		twl_i2c_write_u8(TWL_MODULE_PWM, MAX_VALUE, TWL_PWM0_OFF);
--
--		/* first enable clock, then PWM0 out */
--		twl_i2c_read_u8(TWL4030_MODULE_INTBR, &r, TWL_INTBR_GPBR1);
--		r &= ~PWM0_ENABLE;
--		r |= PWM0_CLK_ENABLE;
--		twl_i2c_write_u8(TWL4030_MODULE_INTBR, r, TWL_INTBR_GPBR1);
--		r |= PWM0_ENABLE;
--		twl_i2c_write_u8(TWL4030_MODULE_INTBR, r, TWL_INTBR_GPBR1);
--
--		/*
--		 * TI made it very easy to enable digital control, so easy that
--		 * it often triggers unintentionally and disabes PWM control,
--		 * so wait until 1 wire mode detection window ends.
--		 */
--		usleep_range(2000, 10000);
--	}
+The shared-block handling follows your suggestion - one struct phy
+per PHY with a use-counted common block; the changelog there covers
+the details, including why the helpers ended up as get()/put() and
+why the GRF mode selects stay untouched for now.
 
-Regards,
-Andreas
+Thanks,
+Jason
 
