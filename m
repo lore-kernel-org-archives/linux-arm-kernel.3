@@ -4,99 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35F08C5AD55
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 14:24:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3289AC5AE49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 14:26:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5ax2GIMqI2oJHn6HgwhTWHhHEkIAyr6Rp1OTrqHHWbE=; b=QvuEDji8SUVp5AOsLz4RHPhJqy
-	HmbnzEAJhzKkTXWdpYuW7+4Z5kalXn1X12t/aEHHY2OvbCqhtjB9tuJrdtIf647TANUHaf0JXY2Hx
-	rl4gKWxMCmoNFDyg6z3bnWbAMTp5A1Z2J4AJchgIAzno5OUBEl7DAXpzr1lek0l03DpV5TOMQhm2l
-	DIiBPIakoorNYQ+Ro7fXwvaylIPhTwYjGH1MbNoDcKXVxTIGlylgDXjpR4KCWuW27yMz5Zh0cAbAB
-	YYzX7AqKcXgD8HK1Wg+WXhnQVoefxCouNE6nbrxonNhb9mtlV7GLcnLlA1ZiWN6588AT9IzUW6CGm
-	q33RfHgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wO+cXkZt+topJfy8NdQFR79mWwPl4kfgdmUuuL3DDzA=; b=QH6KO66re5KC4WZVL4uTj5PvfT
+	Mt+otOtb1zHTJouWBPPfTviyeYr7XzzmRMEtZUJPlXYUv45UitmKnOLbGfWMZzJDKrKFdvS3s6UL3
+	llBZfbMTfS1wfz9jJCNiPW73wsZzhy4gfTJVh2yy9upMDi8uzcKB0N172EAOwDQACNzKz2LbFCU1U
+	3SV2G8AMFS1kTn/dWtgviYx7R8MFmA1isRfVvidXEViqg7NzKo0EMoadEHiapHO3MIoSjs6mKPS2E
+	hU9/NaQajOYD7s26mdS9xtP+PjN6TdQUnyu87pOv55cXhzUVHBWl943YjO0OSA/SDWdCaXK9lE136
+	FoOrcJAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtQve-0000000C089-3TGd;
-	Mon, 10 Aug 2026 14:24:38 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1wtQx3-0000000C0Nm-0Fp2;
+	Mon, 10 Aug 2026 14:26:05 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtQvb-0000000C07E-2wep
+	id 1wtQx1-0000000C0N9-0O8U
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 14:24:36 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2cfff5f88dbso29962905ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 07:24:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786371875; x=1786976675; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:sender:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=5ax2GIMqI2oJHn6HgwhTWHhHEkIAyr6Rp1OTrqHHWbE=;
-        b=huUKxKx30/IBIMHizw+FVPg4M6+TqXHqiKexrYBVBMqgwlDlB2dMPUCdDlkG1o6tBx
-         B/cEh7t7+I0a781uSAHEcA2MA4x0Orw6jxFYGnrIIw9ZqeT1T1u3Ekw3kI2tLrySwVkn
-         gnuhgAl9uuF3wTuga3Hw9MxwehVGGxpi1lMadzbQNIU+ynmS7n+mSlqmXWc5iKhUxfIk
-         1lLdofUlFKvRedd9462qFjc1Rs1ve2zgqhtwcvWDLFJt5jXu5cOXxYcWkap6t+5LyopU
-         nwRnejJ6HYngOdmigFjIRJfDVlazF/4J0KF5Ijal6Qf6w3WkMYwpEWQLZx9/daXmathf
-         5i7A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786371875; x=1786976675;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:sender:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=5ax2GIMqI2oJHn6HgwhTWHhHEkIAyr6Rp1OTrqHHWbE=;
-        b=l/IIlZYifJcozygLIJbo4yKnbliiPk7+nuCo2ICiPr/WCQEZJjWWy0N9t0S5lpcRfI
-         spjg7QjnNn8bTpnMkTPBRkYXiNyQPWyUZCdVHjDJ0uo3lalaw3VFhHxeLo/+WFjn+NMb
-         ccUmSHmQzfbardFXYgmXG6qCVaLbUbuMFJhCSnDPm7qbCwBKlWmYWFUCubYDMT3Wc8NP
-         bWSuBu93oV019N9KVye6gJvOqvRhMbnwxT5vTCgcPNHeGQGaRF/0mqQZLZ+mvsWnTg4p
-         v/PSRf9C9Z6SII3f3Ga2pxq/3oSRqaftRWLSSvWu9sFI2gUImCR9fwWJYoNErX0ndQA/
-         VK+Q==
-X-Forwarded-Encrypted: i=1; AHgh+Rq3Mxwb9pQ827MuzUTrk6ntKefaJ5oL6Bz69ZvCFnR8rnA93yLeqyR9lf5SmFJhj5HBkMfGaHMjpGOuW9MFn4HF@lists.infradead.org
-X-Gm-Message-State: AOJu0YxLfWr8YqZYc6v17Gt+oFVUFqKT91gJnQFhXR7WBWiSOEe28Zs0
-	nvAqcRN+V8Mk+0Qw8gOT8dHAnLYSDfpZztYyPYO42LYfDLDkVyPPJx6o
-X-Gm-Gg: AR+sD12F1PvuLHexdtKbGSfoXGP8ZgohqjaQALzsUNaDhTfrSdg809vXTKQwja+cXLL
-	KuMjEuBWFbNRj4acgDQLya0IvuqTtKRJa+NxkBOwXdAcp/MxcA6l4GYFV3o1s0F4ZwyaYwImpuc
-	8wQaXpivXR7+LyN00Z4TocX06GEy/IN5y/KZfx/RAf5Fe/0VZvKQNk3c+CExKt2EWcYwwzDyH/E
-	Q8xCSHR3uBlq1K6/VnQA8rBwgrbTAKqTfj7YwHqxX1V8qEqTMMoeUUV5LkS1MkRMUtphGhvtlSG
-	RTM3Dy87B7KxbJzpSk3+pE+5rNgKyf7D3M3ZqyFVRtIEz//SUFXcwvw/2BU7l0ZmK+lco0Xy90s
-	EmmuwjMvCO6zr0OMy7rt6HgKYGMlwnGr5Ej8F2c1SuPUv6y4NeXbsFM75sP57nDUH2NLx8KKxl+
-	gIOVvPQEqFEUbmsrC0/pv3cMjDUbX8UOsnAxU+h3GnWChdrVAPpGJcu8gNWyE0P4BwBLdmwxaUW
-	A==
-X-Received: by 2002:a05:6a21:7308:b0:3c3:a1e6:a626 with SMTP id adf61e73a8af0-3cc1a3f1658mr2809036637.32.1786371874643;
-        Mon, 10 Aug 2026 07:24:34 -0700 (PDT)
-Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-315be86d3d1sm46551457eec.2.2026.08.10.07.24.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Aug 2026 07:24:33 -0700 (PDT)
-Date: Mon, 10 Aug 2026 07:24:32 -0700
-From: Guenter Roeck <linux@roeck-us.net>
-To: Bui Duc Phuc <phucduc.bui@gmail.com>
-Cc: Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-arm-msm@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	linux-watchdog@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-aspeed@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 4/4] watchdog: aspeed: Propagate errors from optional IRQ
- lookup
-Message-ID: <01283c69-d5ca-42b0-a75d-6ebb07fee46a@roeck-us.net>
-References: <20260807081652.38692-1-phucduc.bui@gmail.com>
- <20260807081652.38692-4-phucduc.bui@gmail.com>
- <1f26fc28-da13-4ca3-990f-676b53d23630@roeck-us.net>
- <CAABR9nFy=GD4afdDxzsbp31Sq=smGVFf+HvqsrJKh_FjqdUrJA@mail.gmail.com>
- <3a9b7b85-e6f8-429a-91df-f674479dee58@roeck-us.net>
- <CAABR9nFcitFyS_xZUkreHWp822iVsoEg6ONFwU9JwPaBqm2MTQ@mail.gmail.com>
+	Mon, 10 Aug 2026 14:26:04 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 3FA151A153E;
+	Mon, 10 Aug 2026 14:26:00 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 113176033B;
+	Mon, 10 Aug 2026 14:26:00 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3546011C4A8B9;
+	Mon, 10 Aug 2026 16:25:52 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1786371955; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=wO+cXkZt+topJfy8NdQFR79mWwPl4kfgdmUuuL3DDzA=;
+	b=0Hv6b62vBOPQbozjljwug2VfT0fSg943Beu1OT2NhDbVVnhDhIkUY9PBI2m6S5t6cOg/pa
+	WH97Ch6PZaAtdOwW5bS0xdGxazCL9apKC63/y3MysUwKJbyI6PhST+lF2db45YAyP3oubg
+	pVDuwQzW4czhB8640hKUOmTL4lqckHMefpnSCoCOGi53qz4vgXi2LtQae2gxFlp5xj+6fC
+	s07S9J0QepWqPDA1tSQs7N/LOq+6DSUEMPVAjwhmfWfQn9BdYcBt+DgUayegJa2isuFS+d
+	KTGErDZ/axKgn1aLlixEADItLpzNVpiDNrlxr9o5uumfcDKvzdYi6tI+0l7ncw==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Richard Weinberger <richard@nod.at>, 
+ Vignesh Raghavendra <vigneshr@ti.com>, Chen-Yu Tsai <wens@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Richard Genoud <richard.genoud@bootlin.com>, 
+ James Hilliard <james.hilliard1@gmail.com>
+Cc: linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ stable@vger.kernel.org
+In-Reply-To: <20260807-submit-sunxi-nand-h6-h616-timings-v3-0-91287b543f41@gmail.com>
+References: <20260807-submit-sunxi-nand-h6-h616-timings-v3-0-91287b543f41@gmail.com>
+Subject: Re: [PATCH v3 0/3] mtd: rawnand: sunxi: fix H6/H616 controller
+ timings
+Message-Id: <178637195198.1098769.15933415840493831349.b4-ty@bootlin.com>
+Date: Mon, 10 Aug 2026 16:25:51 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAABR9nFcitFyS_xZUkreHWp822iVsoEg6ONFwU9JwPaBqm2MTQ@mail.gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.14.3
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_072435_748536_718619D3 
-X-CRM114-Status: GOOD (  20.80  )
+X-CRM114-CacheID: sfid-20260810_072603_270414_63CB73B3 
+X-CRM114-Status: UNSURE (   8.10  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,32 +83,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 10, 2026 at 04:45:07PM +0700, Bui Duc Phuc wrote:
-> Hi Guenter,
+On Fri, 07 Aug 2026 09:38:58 -0600, James Hilliard wrote:
+> The sunxi NAND timing solver currently applies the original A10 NDFC
+> timing characteristics to every supported controller. The H6/H616 NDFC
+> uses two internal cycles for several setup and hold intervals and has
+> different delay-field encodings, so the resulting clock and timing
+> register values do not match the hardware.
 > 
+> Prepare for per-controller timing data in two behaviorally focused
+> patches, then add and select the H616 characteristics in the final fix.
+> Legacy controllers retain their existing setup-cycle behavior and delay
+> encodings.
 > 
-> Thank you for your feedback.
-> 
-> > >>> +                     return irq;
-> > >>>                if (irq > 0) {
-> > >>
-> > >> This if () is no longer needed.
-> > >>
-> > >
-> > > If we remove the if (irq > 0) check, irq can be -ENXIO and would be
-> > > passed to devm_request_irq().
-> > > I see that the irq argument of devm_request_irq() is an unsigned int.
-> > > Would it be safe to pass -ENXIO to it in this case?
-> > >
-> > No, sorry, I was wrong.
-> >
-> 
-> So this means there are no issues with this patch.
-> Patches 2 and 3 have already been applied by you.
-> I will temporarily resend only patch 1:
-> " watchdog: qcom: Propagate errors from optional IRQ lookup "
-> 
-Correct. Note that gmail may swallow this reply, claiming that it is spam.
+> [...]
 
-Guenter
+Applied to nand/next, thanks!
+
+[1/3] mtd: rawnand: sunxi: group controller delay tables
+      commit: 9f2e033754c6c023150f184b4e72bbcc5d6eea13
+[2/3] mtd: rawnand: sunxi: describe tADL and tWHR delays
+      commit: 147f2a5743f8864bfc265654b1856af11c8c0031
+[3/3] mtd: rawnand: sunxi: fix H6/H616 controller timings
+      commit: 15a3cbce32994141252bb4ecfe3ff3a5d22d0b4f
+
+Patche(s) should be available on mtd/linux.git and will be
+part of the next PR (provided that no robot complains by then).
+
+Kind regards,
+Miquèl
+
 
