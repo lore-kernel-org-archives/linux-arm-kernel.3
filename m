@@ -4,142 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54296C5AD55
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 15:08:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2A23C5AE49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 15:09:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q4stL18ENl4kyyi2YttVLKcerQObHDaOXVMZuzixTDQ=; b=QZf3Vs/dazO/PnxhXD+978kWDc
-	16cZTeBw97mjLVzZHd6eNmd78JS7UHEsT+aLGHL1E64JnE8ZmJhd73j9s2dgbQsm+oozu9zEaNI8W
-	E1VpTfDlocnJhaEuIyO3TGDs480yydu0nZXKi487lgc6IITQosUvzrIxRVh2mO2LnF5t2sdfJ0yan
-	ZiLGysEQNEgq5eZqSEb6SpeHgJQa6Mls9XPolh95jYd4Te/UCVbSneOYZjW2UwImAW6mO7EyKDZGt
-	GQUGoipZZ1/Z4ioFq+3sC3aNASATeNra4GQknO7/1DZ7YI6oXmSworGbtyu12mVWZg/PIjt1Ijqqk
-	IGP7EKvg==;
+	bh=uTMkqBJQt9s46QcMVTug+4LBbYOBeafH6lRM81xpMnI=; b=d1LCEqrRf9M5YGQ3hwzmurXWJc
+	JD+2i3wHuiZygGC4iO986BmSmm/0fd3cQ2vVl7lnZe6nJbtz9jVBLHH0M+0sj13XElh4jnh0WIxQa
+	PnTAxjsdTiv4JU5cEb0QhA1gxxHkKuhTIWY70D/HIC1+bLZRFWQb4ce2PT4D5YwDfXvMkvMZ7f7Cg
+	YBsYVTmw2L8ij7Dh31AeruE3fPzlOuOxH1IKoB4FSw8fTN63M/tUSAhMzeaQEfXyoWYF1ImjG4d2p
+	HAp+S6njIfsATT2Us6HKmixtHHbX3Jwzxsu3Q0MbXOytyOFbv6cKFKgwYkorxhoe1B3U43y8LZpKq
+	IpS4tCQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtRZ0-0000000C8uj-3bhS;
-	Mon, 10 Aug 2026 15:05:19 +0000
-Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
+	id 1wtRcc-0000000C9MX-3toq;
+	Mon, 10 Aug 2026 15:09:02 +0000
+Received: from mail-eastus2azon11011057.outbound.protection.outlook.com ([52.101.57.57] helo=BN8PR05CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtRYx-0000000C8uL-3HaB
+	id 1wtRcY-0000000C9Jl-0qQl
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 15:05:17 +0000
+	Mon, 10 Aug 2026 15:09:01 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=eltKtNvMpLaRSAWfpvRAIFDnVYxxtpPAq3xp3tg81huLKwdiLvGcGksppPKRciDxouL1vqbxsEX58WWdYsTsSpCPvgO9Fwv7MX59NiBqAvxjl68EMtx7iv+A+dVPZfeobyGAznNrIHdek/n1yqiLVcj5jjNzp6U3fbP0bcc9v1XyUxwK18wjL/p/NXv/Y8dWSIlEPtUGBbB4eiSRqyszyz0UlwC0MptZUVwSZauY5HRQkyefeYRFmlTZkm2y40Aj3B/EFrdA355HRKDWBJqFDEcS2CAevyiEoXKk6qV2rzZx1INrDfbr0023VQYYEKBiZwXfSmzqU3+AJamZd0yWKQ==
+ b=AfI3wjvlQUinxUOQE9tqyCv3m0YWl5KC008NguLNEYcwl6RL8s+LPsmr25n6PdANHd7m8SvwHAFMLbKpPi7FvUoqcBcr/TU+FsbHkicwTijQFagFv1NsJBP6PYkvLo5YcR3AkcYSM7CeSXZYPDIA3xh/RiJG21fSRKZ4Ab6MJDMG7k69x4rRYQH/Oi7aACyF+u8qYJTRH7p50rl7g/4Mh88oI3vGwC0RR+A0q7lM4S8XbmZzwBR0Fle6KafqCYGvXiPIF3ozVX+S8mWWFyfHErItR5rW4OXSOtra3JxbAua+u9/uP2WMJWk3ed9dGymlEzCIo6oRieRewqQot96PJQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Q4stL18ENl4kyyi2YttVLKcerQObHDaOXVMZuzixTDQ=;
- b=QzsfYClKm4sE6Me4Scaxaqf6aUuADQex8idLn5dLIDeRfa0kbZ90lNN9WfA/sv8hTg07I/CpRrYe2kopevzP+oPXqAGX84X+9OKYD4P/PUPkEdpfzyOWTQQqM/kWum10q8JPP1kzaLZLIUS3LkZnMreJnLgObkfbPgQM9Zxy/T4Iw7aEeUPRDsgV4cdagScLcssVtGjqdDdwQYFDyvP8YDAxL39FbmZVWf3J8szmdIW9oVVexos8lMguKEeA6nmL2t6TH4pvC0+KrOwGHJ7SbhUkZdN3OLEOc2JYXfgSS36vrMXAN2lH5RjFmILvCdsMF79PbUEstea3HR7fpykkHA==
+ bh=uTMkqBJQt9s46QcMVTug+4LBbYOBeafH6lRM81xpMnI=;
+ b=BJwbjvOcVaVjwegHI5ZaQ2q9DnVfBKPRHwRWdzvuDv4I6mIlwctTxHCLDWIfXnWhmE/r32tDsGKIDgn2zqaFh3tNhCGSKB/Uq29tDksTwss9xdjLdefIqH5FH8tkVMNoYpc5OelU51P0itv3MO3p73dW1bqf1ykpEVbV+/LZopzOKRrFOI23oocDnMMbsAXcdVigrchf8mVBA4bQg6tyBqLxpBYtquCRzpfwqvzoIKW1kiSOtNIcuENOMJl0XnS1Yy3e/gfuhoGUb/OEiDf5KUoV0bLxFW986xweTCpX591hGyJ5wtNcKwa4IOMBgSU4lwJGbaLa6zolot5ie7AbMw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
  dkim=pass header.d=nvidia.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Q4stL18ENl4kyyi2YttVLKcerQObHDaOXVMZuzixTDQ=;
- b=kUroVlijmTlswgY0i6BVZJIdfI+SeXWeMWT/Ojt/JYUaDm4CvpH8rf2fjoOxUiBgE3dc+QJ/hipVrN4msepyK6L7Ze/DGGKyuGWEhlHDHNP1NGYdrZtoSdFGeMksGQxEJZYCu43KIpiDIEsMm2o+RNB+69gUWR5s1GVKrXhqHuxp8WMT3dInnk8jtnIfgiYSEUEpeRjVz6Bh62aq9f5fvVQzqp1uSC/zUdlPUKDMxhUNp8UylB8JFAlfHZLJ0mh8YC5MUy9w68xa5hB6QFYkYaDXnNaptQ8EDglAM5cCnlKsimMEP4ztrfh7WjraO+ZYwcK/glFsJ35aDOIraJz4iw==
+ bh=uTMkqBJQt9s46QcMVTug+4LBbYOBeafH6lRM81xpMnI=;
+ b=UYuO1NStcjXud8hOvCqBoJJIt6EhVl5A/eKycas6Cue2i+4ie6u2PB8OzztwCMeAoepzVrlu4eF2PyRC3hD+P7KCnrqDHuRy+oineIzr3DBi8TBFNAapIJYgvn2nFY8MP8LQGUPuy3G6Y2UA9vnEqgKL1fczd/JEib9fAbOc/iWllFvAsRTa6KDRdkY5j383LB1HAlGzJVhghv6i3hFB3rQmF0GKidmcCetZF6PqlZSOd5+rROR5jue3cv4RdrRqYTQNqvBckK6k5207CqvTrJfv5c02qk8LCuc652IeuBJ9jjH1YXHZe2i+IeNHHAvQMBDOs8wScH3QIM+1h5yQ8g==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from BN9PR12MB5179.namprd12.prod.outlook.com (2603:10b6:408:11c::18)
- by SJ1PR12MB6124.namprd12.prod.outlook.com (2603:10b6:a03:459::15) with
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by IA0PR12MB8350.namprd12.prod.outlook.com (2603:10b6:208:40d::14) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.25; Mon, 10 Aug
- 2026 15:04:58 +0000
-Received: from BN9PR12MB5179.namprd12.prod.outlook.com
- ([fe80::cf08:f59b:d016:c95f]) by BN9PR12MB5179.namprd12.prod.outlook.com
- ([fe80::cf08:f59b:d016:c95f%4]) with mapi id 15.21.0292.024; Mon, 10 Aug 2026
- 15:04:57 +0000
-Message-ID: <02e5d090-ec8e-4f73-a298-3439e2a9ba37@nvidia.com>
-Date: Mon, 10 Aug 2026 20:34:48 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: topology: add source check in
- arch_cpu_idle_enter()
-To: seanwang1 <seanwang1@lenovo.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Sudeep Holla <sudeep.holla@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, rafael@kernel.org,
- Danilo Krummrich <dakr@kernel.org>
-Cc: Lifeng Zheng <zhenglifeng1@huawei.com>,
- Beata Michalska <beata.michalska@arm.com>, Xuewen Yan
- <xuewen.yan@unisoc.com>, Geert Uytterhoeven <geert+renesas@glider.be>,
- Yunhui Cui <cuiyunhui@bytedance.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, driver-core@lists.linux.dev
-References: <20260810102006.9986-1-seanwang1@lenovo.com>
-Content-Language: en-US
-From: Sumit Gupta <sumitg@nvidia.com>
-In-Reply-To: <20260810102006.9986-1-seanwang1@lenovo.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: PN5P287CA0027.INDP287.PROD.OUTLOOK.COM
- (2603:1096:c01:263::14) To BN9PR12MB5179.namprd12.prod.outlook.com
- (2603:10b6:408:11c::18)
+ 2026 15:08:34 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0292.024; Mon, 10 Aug 2026
+ 15:08:34 +0000
+Date: Mon, 10 Aug 2026 12:08:32 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Robin Murphy <robin.murphy@arm.com>, Ankit Agrawal <ankita@nvidia.com>,
+	Jiri Pirko <jiri@nvidia.com>, Leon Romanovsky <leon@kernel.org>
+Cc: Mostafa Saleh <smostafa@google.com>,
+	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-coco@lists.linux.dev,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>, Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
+	Michael Kelley <mhklinux@outlook.com>
+Subject: Re: [PATCH v8 12/23] dma: swiotlb: pass mapping attributes by
+ reference
+Message-ID: <20260810150832.GB291736@nvidia.com>
+References: <amnRB98ZZIysHuM3@google.com>
+ <yq5acxw6dl1d.fsf@kernel.org>
+ <20260804142032.GC27883@nvidia.com>
+ <anL9-OrDGqYQAWNV@google.com>
+ <20260805123023.GO27883@nvidia.com>
+ <0ce2249d-3a64-4889-b455-0e8fddcc7282@arm.com>
+ <20260807115500.GA158689@nvidia.com>
+ <aefab683-598c-4cca-b5a0-c9081ccf9e1c@arm.com>
+ <20260807170104.GB158689@nvidia.com>
+ <21813ccf-96e5-4a7e-a3b3-aaaec7e0d23c@arm.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <21813ccf-96e5-4a7e-a3b3-aaaec7e0d23c@arm.com>
+X-ClientProxiedBy: BN9P220CA0022.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:408:13e::27) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN9PR12MB5179:EE_|SJ1PR12MB6124:EE_
-X-MS-Office365-Filtering-Correlation-Id: a04335b6-92d7-4b67-5b21-08def6f0be1a
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|IA0PR12MB8350:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7b3c3074-2f7d-4508-1307-08def6f13f4c
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|23010399003|366016|1800799024|22082099003|18002099003|11063799006|56012099006|10067099003;
-X-Microsoft-Antispam-Message-Info: HKg2K/FnbK9V5mYIeKOX6b3DWHitH7eheWdEd7Yg1nNe5YJyUm1Gc43S9zocr/dNDwdBKfElMtdrdolzlPgDLCocoOLaIIYWQiLCdOajxWgE8pSHIcUaRFW0pFBqH08WseKDN0N22Yeap7CsRYEDe1avtr/OV/pEO7xMfmEvMeEF1Nrhk8fI/KOlI1Ofl98GNelsxbmv0hu1gGlHJXLEV0nCaVBdLipu33tMRp9s4yZ+xkn/7yO35uqUHG8gQ7OhlQVqVnIq0z3/L35PQOzFzzSe/cjF9zFxxfnIQowNhcDGXOotlaPvdGrhuZRpsUCvcUD3z5JUdfa5EmRgZabA5R8fDSx+L5PieckAsFAbV7Xfvy3vYPuUXmScPXQ+9k5Zil7POjtbhIOIzQWUUttflwFigRcDQHQpFAjqN0XFk8BJIXZ9tTATMmOy009TmJDJ+daXzdITIFT3g00kZwgGHsIew5ETnHrFYQVQuexmC2zUvQGY6Avb42RYl5U5FRDZYoP7LdzbVfgkEqNFX5AI00VjZKf6ZWo+YzStXchzhRDEQGIvddXsji9Wo6qp06GU97YnJukAy5xYQ4/Hqqpv0YZTpXorBxlYzDmO2OLI5xy3QpnwXO3WNUsWX/F2gDPT3lcuhIu9sg52sUO7elhkhrZeVt6SLECYLNQmt0WQBX0=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN9PR12MB5179.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(23010399003)(366016)(1800799024)(22082099003)(18002099003)(11063799006)(56012099006)(10067099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|1800799024|376014|7416014|6133799003|56012099006|11063799006|5023799004|10067099003|4143699003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 5NWOmwa5QDOPJPrYa6vESgXutAFxpZRya7cEKG1lPk0hflaERSlnk7fSMhR+UERDchL1bu/Bd3AtrzJUUcWskJ0h6nwW6AzUD2kwog84NbUeTybj26Tl39azRW6fnAwFIIopPbEEAjGEFmQq1jG8/viWhIHospqVSeDcNCo8kFgbFUAlgkNF2arQs5rQEjVT/Xbrx7HbITjN5qFrlEi/99XyAc05lnL+NFO2SfJINBHpK/jsDkfX6Dl0oCXjM3NYWFCzV1WfP+oTKBdG5oIxPSyXp7J65CWtfuGM5JBTP2MONqY7eIM+DeNIIBgP+orvN/Vwbv+G2CwLsnzdJmtI8GA57hiB0ymwbM1rKNws3yxviklrhbV43rZ2qkinP4gjvc7Nnj0mIn09P+VC5Tn8mkP+OmMbSjfdljZXZT0M1E0UPVRP1fkCNDwDXbgNpYPoppXjDD7F9ELAF7BAFopyRjbViJg7XWZfzkI04zUIsnaEiySkMSq9aX0HjEbQ73Ijz3JPGMPYTaaQ5Ig5LMRNMpcotkkwwHPvkOxNziOAZW+CvklzxwHRPA7xAhYRPRpRAA3S9ouIHNtTWoyrOho1Je4DmmvtYSPgNyPuZAAj0M/xM1YnCFfeCXjMvpR0w9QX24bgiTvvsRpsB1BLCB0/UNwMoiCMF53OhporU/5+E3U=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(376014)(7416014)(6133799003)(56012099006)(11063799006)(5023799004)(10067099003)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dCtxWkt4NjlwNWNoQjZMNnRSL3ZEbTg4RE9yOUNmK3NhN2Vvc3NpZU9CVVRB?=
- =?utf-8?B?UWYwcGVSd05HRzlJbFBtRjhOaC9nbjUwNDdQMlY4TFpVQ1VaYmhrQWQ0NTho?=
- =?utf-8?B?dWpOYy9aaEJXT3RHaGRxNmpEWWFLazAzcDgzRG5xU0xES2lFclBNeEUvWVRu?=
- =?utf-8?B?UWJ2bzNoekVGMUhCaTR3aHhuU3FRY2R1T0E2MnVRZExpMmwvYXNsT0ptTGZm?=
- =?utf-8?B?OWp1bjZrQUVobDBsdkhudVM3UHdhcjVTcTl5ZXhlYmkrRlRuRDJKVXhOV2lU?=
- =?utf-8?B?UXNoNkhqSE8vUlZaeTRSVGFnZERSVGpCM3RHbFFrSzBYaG1KMkNMU20zQXU5?=
- =?utf-8?B?cHN4M1BibEJoY2JVYklRSzkzYUp6anRGVjZjbzBQbk95VjBobVpFbEhhc0hK?=
- =?utf-8?B?c2UzR0N3LzByTlhPL3ZBb2N3TkNLbk9OeFNWajJxVVZySGgrVG9IM3hHTTFB?=
- =?utf-8?B?RTBMRHFEcERzMHBZcERrTGM3ekpoaUl1WTlzeDdPYUlabU82VmxhUlpVY201?=
- =?utf-8?B?WXpLa0xRckovb1VGL2ZJY0kweDVrbk1ibFpHdEhJNVRLQTlCbWpYS2JaS1lt?=
- =?utf-8?B?a0tDV2RYZWJ5anhoQnpWVVF0Wkc1QkpaY0FRbTRXVVphZ2xzYWJZTEtHMkF3?=
- =?utf-8?B?OWkyTENvanY3TitKaFNzSUVGVGU3L3BCcGtBUWpFMnRqVmdIbFhzY1ZueDRD?=
- =?utf-8?B?K3YyclBwY3dCTWQ1RXVoY2trWHR6bVdjNVd1SmhwMzRkaGRQaDltTEdYcEo4?=
- =?utf-8?B?WXlDNXVGSDF2K2RJelJLdkhubmxGN3dXMWtwbS9XZ1U3OHZIbmR4K2RGQnFX?=
- =?utf-8?B?YTl1NGFNaWtrWFV6YVFVejQza0k3emppNEVtSkpNRkxrVkxYOG1jZTFGRXo4?=
- =?utf-8?B?RzlBcko5TXdSNDZ3bHBadTl1d0V5UUYwU2tyeS82dUZ4NG9RU3R1cXlYMGRV?=
- =?utf-8?B?aDZjbXVnZXlRaXYyTXhnMjJGZzdHbjJiSlNOdzVpSnpXT3JvM2YvYzUwWU9M?=
- =?utf-8?B?OXltQWx4U1dyRFNpU3NVYlpqVGFVTkk3MUZhZCt3VjVoSDlhOWxPV0c3VS9R?=
- =?utf-8?B?aXI2YVl3aDgrQmtxSGsvNTBuWmptZmZWSXFmay91ZFltTDhKN1M3YVZDcGYz?=
- =?utf-8?B?Z0ViK3ZEbW9vVVBITHpVNWJVcm5FcXo2MzJGd29Dd2p5MER2cEJieUxHM2Yv?=
- =?utf-8?B?K1hMQmRhYzdQWXdWM1l1U2UzTzMreGx3TE5CaVp1V3VUNExLZndlU28wZ2Jk?=
- =?utf-8?B?Zkhqck4zdXYrRjJ6YytyS2dDdS9UcFFsN1pFVnVORi9jeVVscVdCWGlDckM2?=
- =?utf-8?B?UGZ1a3RwdHBpVEtvdVd2eFdPMkxYbGpsQTdCV0pDNnZja2lyVE01bW9qWXBH?=
- =?utf-8?B?cUNCY2twV3gvWDVYV3E1M0NwOUpUb2VVS05OSDE1WHJXcVNaNDEyb3A0QWds?=
- =?utf-8?B?Q3F1WjdDMVcwN2lIQlRiWmIzcFllWnRxSUlPUEx0YS9wUHducUtzT0RCQWdU?=
- =?utf-8?B?MzRRaDU3RkRZWGM2N0FNSGs1V2tnWWVNTXlvREdOMlA1bXpEY2VTQzBqRjVk?=
- =?utf-8?B?OXNldWdyRWV3aTVNQkhvdjh2QzJaOWMrL1BFOGhLeG5IV2JBMVkvWE1lQUF4?=
- =?utf-8?B?QXo3K3FsSnRrYTcwcXU4eXcwRHNLbUJ0OTZPaTBscFozbFBNaW9ZVWtLR1lr?=
- =?utf-8?B?cG80VUR2MlorNWp2L3pkdjJEU0dLTEJWcDhUUy9WTzc2QkhHeUxrMDJuVXBE?=
- =?utf-8?B?eTMyOVU5UjJYcVQ1TjdFZUxJUWZpZTFialpEUUkrdFl2ZG5EVE5yQWJscVBj?=
- =?utf-8?B?bmdMTDFoOUtpaXp0SDdQaHNlTHhJekVCTkxFcUFpc2RDS0lTR1g0ZTFuV0tn?=
- =?utf-8?B?SUlHRVFld1hIT3EyQkcwMmIxbDZqVG1EYWpEemFlTFhmSnBYdUlhb3psVml0?=
- =?utf-8?B?dFduTm1sTGdCbHhCTXlLbVRyc2NqejBYWVp0U08xMTdGN2dFYjZYbkZIaEhx?=
- =?utf-8?B?Vm9nMjBaaHZZODlMM2k4MmVvV1RydzBJWDgwUGM5SkdpeDB1bVlvTzVDQ0Q2?=
- =?utf-8?B?c0kzYzdqOGNqREQ5UGlHZHNuOEVCY3NIZ0FXT2Z1RXprblpzNW44WDBZQnJB?=
- =?utf-8?B?ZlRMVWVXNU1ZMVRHa05oaUpQWVpnSVk1VGdMTDI4eVY0azBVOEhvd3Fkd3FQ?=
- =?utf-8?B?cWV2T3VWeUJPRnpXeFk5cTYxOSt5OW1ZZ1RSWmJkMXJUbnFCZXU5UFZlNE9Z?=
- =?utf-8?B?Q3dhQjU0bHFLOE5tRDlGcFIxbUlVUGgwS0hPOGZHQVNXUndNTkVITjY5V0xY?=
- =?utf-8?Q?Lta5+n/c4xLoZelNUW?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?9VFo97/UYiJYpqCbzj9rqTc0NiIxjvY5KdVegHINZg9MEOD2aulwaP9MXvJg?=
+ =?us-ascii?Q?URWeBCXGJR+qFlB3zNX6NuHEJQ34nZ+z9ZfAhABWutRjXGpZlT02AcKMmrVo?=
+ =?us-ascii?Q?86FDeIzhQxw0JGCJ/fVPjEKeXbmFEaS90J9AzS470df5/8ya+/Qc/5mVXuGO?=
+ =?us-ascii?Q?fZXdfzBFzySbhu07nEOgS6nks9PrWSULRqxo9BU3LxZEiS1tM/bg77XgsMyI?=
+ =?us-ascii?Q?R1XPxCD0zw8/HsyRaOXtT84GP0JKCm9sMPju54WNGHbElZEfIaJBcyfW6LHP?=
+ =?us-ascii?Q?dat2xCyRYBIjPaHRL8RT2fwq0fCJX7elTavZj9fSoxGp5IdpqlFethESHYF7?=
+ =?us-ascii?Q?TqKqeAxvKC0MJbPeTIAQ+elFJLXZWyBsCz76/B/9FkuMVRoL3tMUx+TfKuhI?=
+ =?us-ascii?Q?5JFNU9LQ/frWNzTuzO6lgSjLYwxxkCZ47s0dk0otDSrsPsZPDzJWvlbwL7L5?=
+ =?us-ascii?Q?tKuaG3PR/3D+fSD0KnjzIOWOyt+6hranGdiHNDnpDSpak4ybofD+3DP6b7RR?=
+ =?us-ascii?Q?yDgrRSHCAelChC0llLU5xKWzYbAUtXUoELfiHraH2Vwr94rdzsRzS2DRkAmt?=
+ =?us-ascii?Q?EuKoT3antS6LWcSN1wV0gBriQWjQ3deKgFTCtdpzk1ciWvp/Y2TmWY1ubsJT?=
+ =?us-ascii?Q?bARz+98SRwNAd7Tfpfu3Mgb5+s6I2e15OsEvaPLwkFCrO3vcUc/p+U9OwuYG?=
+ =?us-ascii?Q?jWUSsfU5rpzExwDLm04RGN/xtWxLVxNfeHc0nQ+MxgqOdJ0aTeidBM6lxyGC?=
+ =?us-ascii?Q?Xz6kqK6j/0inCkqJtjjsKdd6d7mttf98eD6weP91OWc+gZqRXuJNnmsEkx2q?=
+ =?us-ascii?Q?zOs+L3FE+Zovi3OfCdEbsjoWrF1qy2EXKJEIuI7JE+rs+Sva9gFmCWV6R9Wa?=
+ =?us-ascii?Q?isxmmY059ELL7Y6QEBQnyPGkS4u07p0S44zY5KuTAXayhwJ9V/eYSvVIJg41?=
+ =?us-ascii?Q?62y2jUrosXoDrkO0FU/BWofN3c2nr2LgSOT/F3V9Ve6ZHZhHtfIiIChbzafv?=
+ =?us-ascii?Q?S8tW6D1Yjd0vGR73TN/JLvK4eLzgzBEi+KpQto4GzbVi8/AGBMWmlE9n/z+c?=
+ =?us-ascii?Q?xLEuIeYozZgDb9pdc/LIHrjat8NKx4//kGyy1QJyYou0LfsnvUrfrSxZitlp?=
+ =?us-ascii?Q?KHTgpM3g9A0rpmntSsLHkqx0HyzghS7j5A60nOQxKJJdKdkkBzR4VqitVCPK?=
+ =?us-ascii?Q?AV7YQJmQtGdiRtsEx0MMzmDPaqChEPx30x2M099zSdIsC5XJJJUZKLvXw7ZC?=
+ =?us-ascii?Q?O4r98mYfaVofngrLe7LKXgCmqnFvdsvn2TJVhV0PUEl9wRRpxst3PLk2Dyxu?=
+ =?us-ascii?Q?lM+CcdC0uJ9LI7Uvd/Be5QWxgofOvgnoVH8/oIj9stRVDn65KbiDaaGCjiZB?=
+ =?us-ascii?Q?cuwFGd2yKDZv3DcDWCRTYEirNSFvZJuZKPQJwv7tEE1cWQw+gqzbwtHx/MDR?=
+ =?us-ascii?Q?jV7DZMgrjWmDeY67LiDzeynR8xZve0ZxJpzv6UakyrUoT51ffgV2XYsU99g3?=
+ =?us-ascii?Q?OeaVk3+2SmEyWckkLmQKYo06cc9nid2Rj2+xBMhsTL/GXE9VP637fy2KBGBA?=
+ =?us-ascii?Q?DR3ekuY0x/wBbwmWphPu/34qukpeP312klC2xEkQbbN49TSxFq3rL04Y7FVW?=
+ =?us-ascii?Q?aP42+rdC77cQvd8WWu1jR3moavFShb22rExa+B91N4ep/anb0SLfFwAt+mhm?=
+ =?us-ascii?Q?+MM8hcUDzLLveGRxdF82HSg9oHPtoOtueGQKzVZsDEhYS6Ia?=
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a04335b6-92d7-4b67-5b21-08def6f0be1a
-X-MS-Exchange-CrossTenant-AuthSource: BN9PR12MB5179.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7b3c3074-2f7d-4508-1307-08def6f13f4c
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Aug 2026 15:04:57.8409
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Aug 2026 15:08:34.5640
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 01DxtTN9RIfai/FNxyCw9KuV3Zmg648th1ZsNgFdfxczMs7xLuVL+3eEIPiUqZDA/1HhsBt8VVAboqI6wTF0yw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ1PR12MB6124
+X-MS-Exchange-CrossTenant-UserPrincipalName: uplBCrKUARnmSvgLConuNQ66qy7fkGGmqFR5LglvCiJ9j7Jl1r59Ee5MrbX5lqq6
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB8350
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_080515_864608_6CF257DE 
-X-CRM114-Status: GOOD (  24.25  )
+X-CRM114-CacheID: sfid-20260810_080858_241460_63EF2007 
+X-CRM114-Status: GOOD (  19.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,93 +168,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Aug 10, 2026 at 03:18:03PM +0100, Robin Murphy wrote:
 
-On 10/08/26 15:50, seanwang1 wrote:
-> External email: Use caution opening links or attachments
->
->
-> arch_cpu_idle_enter() directly calls amu_scale_freq_tick() to update
-> arch_freq_scale when a CPU enters idle. This bypasses the sft_data
-> pointer check that topology_clear_scale_freq_source() relies on.
->
-> As a result, even after calling topology_clear_scale_freq_source()
-> with SCALE_FREQ_SOURCE_ARCH to disable AMU-based frequency scaling,
-> the arch_freq_scale value can still be modified by AMU counters when
-> the CPU goes idle through the arch_cpu_idle_enter() path.
->
-> Add topology_scale_freq_source() helper to check whether a specific
-> frequency scaling source is currently registered for a CPU. Use it
-> in arch_cpu_idle_enter() to verify that AMU is the active source
-> before calling amu_scale_freq_tick().
->
-> This ensures that topology_clear_scale_freq_source() properly
-> disables AMU updates in both the tick path (already handled by
-> topology_scale_freq_tick()) and the idle path.
->
-> Co-developed-by: Xuewen Yan <xuewen.yan@unisoc.com>
-> Signed-off-by: Sean Wang <seanwang1@lenovo.com>
-> Signed-off-by: Xuewen Yan <xuewen.yan@unisoc.com>
-> ---
->   arch/arm64/kernel/topology.c  |  3 +++
->   drivers/base/arch_topology.c  | 14 ++++++++++++++
->   include/linux/arch_topology.h |  1 +
->   3 files changed, 18 insertions(+)
->
-> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
-> index b32f13358fbb..cae5da68d5ec 100644
-> --- a/arch/arm64/kernel/topology.c
-> +++ b/arch/arm64/kernel/topology.c
-> @@ -173,6 +173,9 @@ void arch_cpu_idle_enter(void)
->          if (!amu_fie_cpu_supported(cpu))
->                  return;
->
-> +       if (!topology_scale_freq_source(SCALE_FREQ_SOURCE_ARCH, cpu))
-> +               return;
-> +
->          /* Kick in AMU update but only if one has not happened already */
->          if (housekeeping_cpu(cpu, HK_TYPE_TICK) &&
->              time_is_before_jiffies(per_cpu(cpu_amu_samples.last_scale_update, cpu)))
+> Cool. So in fact that puts us in an interesting position for now where
+> non-CoCo "untrusted" (i.e. external) devices should have IOMMU translation
+> forced on by default, while CoCo "unaccepted" devices (i.e. those which do
+> have a mechanism to transition into a T=1 or equivalent state) should *not*
+> try to use an associated IOMMU, on the assumption that it may only work for
+> T=1 traffic. All the more reason to sort these abstractions out so we can
+> make the right distinctions clearly :)
 
-How about moving it into the condition below, so we only take the RCU
-read side when an update is due rather than on every idle entry?
+I think the guest flow works out fairly logically:
 
-     if (housekeeping_cpu(cpu, HK_TYPE_TICK) &&
-time_is_before_jiffies(per_cpu(cpu_amu_samples.last_scale_update, cpu)) &&
-         topology_scale_freq_source(SCALE_FREQ_SOURCE_ARCH, cpu))
-         amu_scale_freq_tick();
+1) At boot the IOMMU core always setups blocking translation. No more
+   auto-attaching paging or identity domains at probe time [optional,
+   but default on for CC guest]
+   * This means devices that can have their DMA disabled do
+   * Additionally T=1 capable devices have their T=1 DMA blocked by
+     the CC platform itself. eg RMM is to leave the T=1 STE set to
+     blocking at VM boot until commanded otherwise.
 
-> diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
-> index 8c5e47c28d9a..dfc2574a5588 100644
-> --- a/drivers/base/arch_topology.c
-> +++ b/drivers/base/arch_topology.c
-> @@ -127,6 +127,20 @@ void topology_clear_scale_freq_source(enum scale_freq_source source,
->   }
->   EXPORT_SYMBOL_GPL(topology_clear_scale_freq_source);
->
-> +bool topology_scale_freq_source(enum scale_freq_source source, unsigned int cpu)
+   Aside from CC this also goes hand in hand with DRTM support in the
+   kernel where we do want to carry over the DMA access block from the
+   secure launch until the system, ideally via userspace policy, has
+   approved the device.
 
-%s/topology_scale_freq_source/topology_is_scale_freq_source/ ?
+2) Before probing a driver we synchronize the TDISP state, IOMMU
+   and configure the DMA API:
+    a. If no iommu, then DMA API is in physical
+    b. If both device and IOMMU same-T then DMA API follows IOMMU configuration:
+         - DMA API is physical if IOMMU configuration is identity
+         - DMA API is dma-iomu if paging
+         - IOMMU sets the proper domain for the DMA API, removes the
+           blocking
+    c. If device and iommu have different T state then assume no iommu
+       and DMA API is physical
+2b) For T=1 capable devices this is the moment we tell the CC platform
+    to permit DMA
 
+3) The DMA API configuration follows per-device flags:
+    - Using IOMMU: Use dma-iommu not physical
+    - Using T=0/1: Replaces 'force dma unencrypted'. Ie T=0 uses
+      swiotlb to get CC shared memory.
+    - adversarial: Replaces pdev->trusted/etc. Causes IOMMU and
+      SWIOTLB to bounce buffer partial pages.
+      Causes iommu to prefer paging not identity.
 
-> +{
-> +       struct scale_freq_data *sfd;
-> +       bool ret;
-> +
-> +       rcu_read_lock_sched();
-> +       sfd = rcu_dereference_sched(*per_cpu_ptr(&sft_data, cpu));
-> +       ret = (sfd && sfd->source == source);
-> +       rcu_read_unlock_sched();
-> +
-> +       return ret;
-> +}
-> +EXPORT_SYMBOL_GPL(topology_scale_freq_source);
-> +
+4) After removing a driver we restore the IOMMU back to blocking. The
+   CC platform is told to block DMA again, if it can.
 
-Do we need to export it?
+If we ever do decide to support dual iommu then #2 would be the point
+we swap the iommu control between the T=0/1 iommu.
 
-Thanks,
-Sumit
-....
+> (And while untrusted vIOMMUs for purely-untrusted devices in CoCo
+> environments would be pretty straightforward as well, I guess we might need
+> some sort of acceptance status for trusted vIOMMU devices themselves?
+> Hmm...)
 
+That should fall into the overall plan for device acceptance. We want
+the kernel to have a small policy of devices it would accept prior to
+the initrd. Untrusted versions of iommu (and others) should not auto
+probe.
 
+The initrd can then decide if it wants to probe the untrusted
+iommu. Probably it does not right now since we haven't done any
+security analysis on the SMMUv3 being operated by a hostile
+hypervisor. ARM should be OK here, a modular SMMUv3 will achieve this
+trivially. x86 will have a harder time.
+
+Userspace will run its acceptance flow and figure out what drivers to
+bind. Along the way userspace will record what it is accepting in a
+measurement log.
+
+So, lots of little steps along the path. I imagine various series
+something like:
+
+- Basic version of #1 and #2 to generally defer opening DMA till
+  probe
+- TSM APIs to support setting T=1 and doing the evidence suff
+- T=1 flag for devices supported by IOMMU and DMA API, replacing force
+  dma unencrypted
+- Userspace driven policy control over device binding
+- General trust level concept, including an "adversarial" trust level
+  which will trigger various auto configuration and mitigations
+- tsm_mr improvmements
+- adversarial T=1 devices, eg SWIOTLB still bounce buffers but has to
+  support a private pool
+
+Regards,
+Jason
 
