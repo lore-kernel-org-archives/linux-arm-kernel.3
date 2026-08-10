@@ -4,89 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94BF9C5AD4E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 08:03:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6CACC5AC82
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 08:16:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1cuC0lOh0Lckca47to1/3++g3IvJVT68iM2ptamoarU=; b=x4MOEZ54IZXq0wBnWIjrlQgaCu
-	o6hw+ob8RpMc2oFQspsmQQJ5kMdvBGpfeyZ+DLoj4nf9pL5Rl/2iuYa4JE9X8sD5qOeJmr5C9mfBU
-	kHIgOtYE/mU0cyC0k1YYfWA0KbBF31FBgAzg7PAkyCkIXVIP0VPY6tdEVozdv+y79yu3GxyCtmIR3
-	7CyPJGmZGkGZIpqZeB7hZvycNtCerK20PJ9orsraKRed/MTydVM66OZghhwIcgJidS+76oZ/xd0EB
-	imdJrsZgZLFKZkudnzyU4U62NGCG9KGcSzOSHq/ydo2PnWMR7Bilt/0T1D9xVRWYs4BUzSCLmuNKb
-	lxf450zA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2nhsk2WWeHDNJ+XMiGdZb5TyQ06YBWOLC73dTU9p22M=; b=D+hOxGjPILLwcF+dmlvuF44e0b
+	HUnPXn8b9SdBc7pfjVbcZFAafX5SAlDi9BUv6XNWJo8AsxDPwCpD9y9UfrBf3h2ViYubb2MwDQUqz
+	/VPVIhrGSYxMdVGMXrEgbCPXEGm7UuzP1Vjntyn0HzHEQUo23L/Pt7KmR4wJd7sgQbeaq4YqhUw4K
+	lMh+KD4/zIr9qLON144q8j7HqJ/5g1a9ZGf8QNX4Upst7Exh0rGwFRQS5pZ1uf2c98MoD3Xn5be4z
+	x9N6AWHSFS8H00eq7bOJiCsVtcJ9yh9vMS4ELJe4dQ9/87tTI6YjqyBsY/lvKc2RFX4J9vvObohK0
+	aWXPCcOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtKyj-0000000BEit-0FjV;
-	Mon, 10 Aug 2026 08:03:25 +0000
-Received: from esa3.hc1455-7.c3s2.iphmx.com ([207.54.90.49])
+	id 1wtLAs-0000000BFwX-2sEW;
+	Mon, 10 Aug 2026 08:15:58 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtKyf-0000000BEhr-0r2l
+	id 1wtLAp-0000000BFvt-26zY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 08:03:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1786349002; x=1817885002;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=gTCgRTRbO71RhS/662ipRYrMCfFYH4BSpUcquX2qvVg=;
-  b=idrCyWjfPXWtFitk2frsEH0czgbN650UZ0+scUbyT0s1VygmhtSzurCP
-   3A+jraIG2ngUvyHU5JhlWKl6KUEbQnBd+yNj3zDLL8LIvigEm+JcAFMfM
-   K1P86pkXyQIaJyuuyEMuL11IfLdQubtkp/IeM+f5GwgqG8s8NDnB9PL4u
-   Bf9oYY2BB3dg4ALOvWcan3R8TbR5qcZVcUW4NsOG228bkzgfO7QAcHjYd
-   2ALv7HnRaAQoUzICEnaCRjQM/bR11bwwVu7/Vs0iABz7TPVeyjJtwU63o
-   NBwqyqGTS650C/gYWZzkV1ymbuh+KSSvu1dIv5VPuOWoSICLGtsfig6mE
-   A==;
-X-CSE-ConnectionGUID: EWF0M70/TBe/QGfQQ/WSsQ==
-X-CSE-MsgGUID: E8i8RbzaSle3yoeMBTyniA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11870"; a="250334002"
-X-IronPort-AV: E=Sophos;i="6.25,215,1779116400"; 
-   d="scan'208";a="250334002"
-Received: from gmgwuk01.global.fujitsu.com ([172.187.114.235])
-  by esa3.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Aug 2026 17:03:19 +0900
-Received: from az2uksmgm3.o.css.fujitsu.com (unknown [10.151.22.200])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by gmgwuk01.global.fujitsu.com (Postfix) with ESMTPS id 96758C01ACA
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 08:03:18 +0000 (UTC)
-Received: from az2nlsmom4.fujitsu.com (unknown [10.150.26.201])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2uksmgm3.o.css.fujitsu.com (Postfix) with ESMTPS id 423EAC17092
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 08:03:18 +0000 (UTC)
-Received: from FCCLS0092175.localdomain (unknown [10.8.69.80])
-	by az2nlsmom4.fujitsu.com (Postfix) with SMTP id 3776520000EC;
-	Mon, 10 Aug 2026 08:03:09 +0000 (UTC)
-Date: Mon, 10 Aug 2026 17:03:02 +0900
-From: Kohei Enju <enju.kohei@fujitsu.com>
-To: Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
-	Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, 
-	James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, 
-	Alexandru Elisei <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>, 
-	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev, 
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>, Gavin Shan <gshan@redhat.com>, 
-	Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun <alpergun@google.com>, 
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>, 
-	Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com, Lorenzo Pieralisi <lpieralisi@kernel.org>
-Subject: Re: [PATCH v16 21/45] KVM: arm64: CCA: Handle realm enter/exit
-Message-ID: <anl7EwU9jSig-uQs@FCCLS0092175.localdomain>
-References: <20260803134403.80630-1-steven.price@arm.com>
- <20260803134403.80630-22-steven.price@arm.com>
+	Mon, 10 Aug 2026 08:15:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=phZkWQEcsoIDCJr6qvCI2fMmDHmN/nKOxnGshJDuQ1R8Dric3g2ystFYh71YOEaRfAgVqoDzY0Tyi6XiSa3WjocgHypEQx425/taEZa5FqJez7JYM0MjZplARX6451bSPyQwWI+dvAYPvPir7rTYrZDc96vmlFHARLmw9eJABgVBBDYh+I89CqfbfwgdqmzXbyXvIUy/KgOG+umxDhmYZLd+w105nRHwWQQRAZpZdCt3G16WWuvv9OgKtjV0oorBemXZgpkYpfVcrlOiK+esv2bHgraKiBy0xL2jOGuipQPLRvuYWahhHxHQOJCYyTfWxba4jlYg3arBP9XckBuFBA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2nhsk2WWeHDNJ+XMiGdZb5TyQ06YBWOLC73dTU9p22M=;
+ b=W9W8GjpvYEN2onTyfa00/cRhDCCAAqoQTnxeGuVgWHxIUCbgPOPQsXa52fU4obDIh3qgsGAiuM/5pLgBgXNk0r0YJl+5q7jxcTwkqjLwF9rUqDVTkPPR71N7bykg97zwoArXgH646+AlNQu24/83gIlU34KziTNxl4TnVpBizAsBPtjFTvt2WJ/FGFP6tZQm5oa72WyXO0+EnUl0VV1BP08Cia41Z1o+RV866mAcGtTMgC4r5Bel9BzB1RsukQEgYsq9DGvMYyUybbs1aZBKws8NNReTm4xLzfGk80rlGKDEF3nZwOW6279H+zStim2w2DNiFTZKPqcWbjSy35qQKQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=amarulasolutions.com
+ smtp.mailfrom=foss.st.com; dmarc=fail (p=none sp=none pct=100) action=none
+ header.from=foss.st.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2nhsk2WWeHDNJ+XMiGdZb5TyQ06YBWOLC73dTU9p22M=;
+ b=S9tAfsIgh7pr/1lRQLVgu3RrKPAsL1l+afTYiVNgq+JJkMU7a07H/MqsIWRfmSIoijDe5phcD2VJwPpyy2WXG2UXloMctGiyYTxTDNRVh/YXcTFNZCE85EED9InjKbo+sEZLwh2eqHkFSoGCKzIo7VTDJto3IlQ81GKxmbXWHT1BcIr2Z0QlmQuTIBdfruaqD5mTcbHV4oa0WbUwN3pkYmtg7atVNMtAxyE9uhwRG99tsnC+zHk0sqqvDxaV8eGRGx0NHtbrTUQE5x0BDvBuQE0RkOR5hMaIJVSyAT3kk3BLCgnci9kA17OeeMYmF/8NFhM4WooKDs/Lw9tJJ9nuSQ==
+Received: from AM8P251CA0015.EURP251.PROD.OUTLOOK.COM (2603:10a6:20b:21b::20)
+ by DU0PR10MB8021.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:407::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.25; Mon, 10 Aug
+ 2026 08:15:44 +0000
+Received: from AM1PEPF000252E1.eurprd07.prod.outlook.com
+ (2603:10a6:20b:21b:cafe::75) by AM8P251CA0015.outlook.office365.com
+ (2603:10a6:20b:21b::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.292.25 via Frontend Transport; Mon,
+ 10 Aug 2026 08:15:44 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ AM1PEPF000252E1.mail.protection.outlook.com (10.167.16.59) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.315.6 via Frontend Transport; Mon, 10 Aug 2026 08:15:44 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Mon, 10 Aug
+ 2026 10:21:12 +0200
+Received: from [10.48.86.79] (10.48.86.79) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Mon, 10 Aug
+ 2026 10:15:42 +0200
+Message-ID: <3db80a7a-e09d-40eb-b8ab-4110a5ac1f09@foss.st.com>
+Date: Mon, 10 Aug 2026 10:15:42 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260803134403.80630-22-steven.price@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RESEND PATCH v7 15/16] arm64: dts: st: support Engicam
+ MicroGEA-STM32MP257-RMM board
+To: Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	<linux-kernel@vger.kernel.org>
+CC: <michael@amarulasolutions.com>, <francesco.utel@engicam.com>,
+	<domenico.acri@engicam.com>, <linux-amarula@amarulasolutions.com>, "Conor
+ Dooley" <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Rob Herring <robh@kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-stm32@st-md-mailman.stormreply.com>
+References: <20260715062201.3599458-1-dario.binacchi@amarulasolutions.com>
+ <20260715062201.3599458-16-dario.binacchi@amarulasolutions.com>
+Content-Language: en-US
+From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
+In-Reply-To: <20260715062201.3599458-16-dario.binacchi@amarulasolutions.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.86.79]
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM1PEPF000252E1:EE_|DU0PR10MB8021:EE_
+X-MS-Office365-Filtering-Correlation-Id: 489f9c04-d219-442e-f43c-08def6b7932d
+X-LD-Processed: 75e027c9-20d5-47d5-b82f-77d7cd041e8f,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|376014|7416014|23010399003|36860700016|18002099003|22082099003|10067099003|56012099006|11063799006|4143699003;
+X-Microsoft-Antispam-Message-Info: gGXyRrkw/FtxxChBYEsi+NGM0SmwcT+8WoI9pjc23JK/UHm92rN+RYxZBUYZWN+SfEdReV8Gaa0h/CS1mSx5l0HaRLZEXGd4c/cLV1jz0XjIQufMmsF8PauYjMCZucvx6PBNZYpHj6bwW4Roq3ui+b6rr7vhw+c8bFx+xPJnmTYNJQc5EBnlNj6T4AfLv8RroYZSyrBOYvR4rTjdrtt0uxO8VtBxQvRrhPj8TkO8d3BgCKL6NiJipqvr8jwrE7e8zeQGW2RG/gjlspTadCtFBpTMuD5O14xYUncGdx28OryEEO6RBMMp6YG+BO9vUW+GyS2Lka7AhbvhcM1GNtTAfjDvLJw5f8Mi/j5lUYGfhIKczCygJZKUOgj5kmVLF31aG2gJ0otXn42q1CjkoX2kAeKXSyJDvCe6CihUFb0bAVskOWc0JtQW8U8JO1DQYkx2enRGi01g66yhlCI2OPTDVrTa9L/BpnY+eMUiXoolaO/euHAkQxgK3P6uxAeuD34Vpn2kM1qk08jZ1ndl7tzbeP3VUdlBWxpL0fRxE1FRRF+dlrYMLhnFc2xP9vLFonEfqJWGC9uZ7vmtgGX6U+ZNeFIYEcnLTizRh33Cd1A1Z+gJXt+DF9+F/tzA9FEqRR7s9seLFU/oKwTdD20oSf8ubJOTJNvCS9EZ+B8rZyTOJurnrkRCNTT577aw42fMgcRMa2VjHqljG0oaQFEN3S/muA==
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(376014)(7416014)(23010399003)(36860700016)(18002099003)(22082099003)(10067099003)(56012099006)(11063799006)(4143699003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: MCkckUixWUA1puZphAZSjX5DUTVDqswJ84yN7elX0Jv97hHXjUvUph348ccv5zsctRAawrEgc3xZmj8IbLnTUK0RD4DaKFXxm3S7PA9KkmvhDjAwqUN//AFzrqlO3crXEWmGvdcXkjn/A/An5B1iLW/JyHf2L/taYDIZBN0u1Gc29fIaj314CKu3hwsm3epekJA+hbFrqI4NXLt+H8AhFLmhxZV1CrgMPyk+NdSTw5XZV2e3rPcd8noa6FXHfZFK7PYjvoY9QcbRE//5Z/Zi1KIEWzTPBAM5ylI5tmvTZmG/fhAE7qanWsv6BbiexQKdgczSfRRdeBKrNo+9fsCYosn0D9fwLlyANV4UMeVRJ6rtP1Rch3tiW2yv+6Z41PQs6JbENltu036FvmOudixGzi/cqolq2iAH+a/nMye7gLVZNafkPcewImdajRzTXVF2
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Aug 2026 08:15:44.0962
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 489f9c04-d219-442e-f43c-08def6b7932d
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: AM1PEPF000252E1.eurprd07.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR10MB8021
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_010322_558152_55934CF8 
-X-CRM114-Status: GOOD (  17.59  )
+X-CRM114-CacheID: sfid-20260810_011555_799946_AF2DE0C8 
+X-CRM114-Status: GOOD (  10.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,117 +134,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/03 14:43, Steven Price wrote:
-> Entering a realm is done using a SMC call to the RMM. On exit the
-> exit-codes need to be handled slightly differently to the normal KVM
-> path so define our own functions for realm enter/exit and hook them
-> in if the guest is a realm guest.
+Hi Dario
 
-Hi Steven,
+On 7/15/26 08:20, Dario Binacchi wrote:
+> Support for Engicam MicroGEA-STM32MP257-RMM board with:
+> 
+>   - 8 GB eMMC Flash
+>   - 2 GB LPDDR4 DRAM
+>   - CAN
+>   - LEDs
+>   - LCD panel with touchscreen
+>   - Micro SD card connector
+>   - Audio codec
+>   - Buzzer
+> 
+> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+> 
+> ---
+> 
+> (no changes since v5)
+> 
+> Changes in v5:
+> - Fix touchscreen resolution to 480x854
+> - Fix SPI1 CS0 polarity to GPIO_ACTIVE_LOW
+> 
+> Changes in v2:
+> - Drop the clocks property from the sai1 node in stm32mp257-engicam-microgea-rmm.dts
+>    to avoid overriding the peripheral bus clock reference defined in the base
+>    SoC device tree. Suggested by Sashiko.
+> - Reference the existing labeled nodes directly at the root level using
+>    &sai1a and &sai1b in stm32mp257-engicam-microgea-rmm.dts instead of
+>    redefining the entire node structure and redeclaring the labels. Suggested by Sashiko.
+> - Drop the #clock-cells property from sai1a and remove the reference to sai1a from
+>    the clocks array in sai1b, relying strictly on the st,sync property to handle
+>    internal synchronization.
+> 
+>   arch/arm64/boot/dts/st/Makefile               |   1 +
+>   .../st/stm32mp257-engicam-microgea-rmm.dts    | 319 ++++++++++++++++++
 
-I found that when the host kernel is booting with pseudo-NMI enabled
-(irqchip.gicv3_pseudo_nmi=1), Realm VMs fail boot successfully and the
-watchdog reports RCU stalls and soft lockups.
-
-After some investigations, I confirmed that arch_timer interrupts
-are not being delivered to some CPUs. This appears to be because PMR is
-000000c0 (GICV3_PRIO_IRQ), as shown below:
-
-  [  248.769692] pmr: 000000c0
-
-For normal VMs, KVM opens PMR before entering the guest, because having
-IRQs masked via PMR when entering the guest means the GIC will not
-signal the CPU of interrupts of lower priority, and in the worst case
-a guest exit may never occur.
-(See __kvm_vcpu_run in arch/arm64/kvm/hyp/vhe/switch.c)
-
-[  248.756980] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
-[  248.758649] rcu:     3-...0: (113 ticks this GP) idle=d2ec/1/0x4000000000000000 softirq=1631/1633 fqs=297
-[  248.759413] rcu:     4-...0: (7 ticks this GP) idle=b77c/1/0x4000000000000000 softirq=1589/1589 fqs=297
-[  248.760101] rcu:     (detected by 7, t=6003 jiffies, g=4553, q=86 ncpus=8)
-[  248.760731] Sending NMI from CPU 7 to CPUs 3:
-[  248.766814] NMI backtrace for cpu 3
-[  248.768285] CPU: 3 UID: 0 PID: 387 Comm: kvm-vcpu-0 Not tainted 7.2.0-rc2-00267-g7326f0114689 #238 PREEMPT(lazy)
-[  248.768681] Hardware name: QEMU QEMU Virtual Machine, BIOS unknown 02/02/2022
-[  248.768936] pstate: 61402009 (nZCv daif +PAN -UAO -TCO +DIT -SSBS BTYPE=--)
-[  248.769021] pc : kvm_rec_enter+0xa0/0xb8
-[  248.769585] lr : kvm_rec_enter+0x24/0xb8
-[  248.769655] sp : ffff800084943830
-[  248.769692] pmr: 000000c0
-[  248.769757] x29: ffff800084943830 x28: ffff0000079c6c00 x27: 0000000000000000
-[  248.770441] x26: 0000000000000000 x25: 0000000000000000 x24: 0000000000000000
-[  248.770536] x23: 0000000080000000 x22: 0000000000000001 x21: 0000000049d99000
-[  248.770590] x20: 0000000049d9a000 x19: ffff00000e018000 x18: 0000000000000000
-[  248.770647] x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
-[  248.770756] x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
-[  248.770863] x11: 0000000000000000 x10: 0000000000000000 x9 : ffff8000812ab1bc
-[  248.771018] x8 : 0000000000000000 x7 : 0000000000000020 x6 : 0000000000000080
-[  248.771123] x5 : 0000000000000004 x4 : 0000000000000040 x3 : 0000000000000000
-[  248.771172] x2 : 0000000000000000 x1 : 0000000000000000 x0 : 0000000000000000
-[  248.771385] Call trace:
-[  248.771612]  kvm_rec_enter+0xa0/0xb8 (P)
-[  248.771757]  kvm_arm_vcpu_enter_exit+0x8c/0x218
-[  248.771796]  kvm_arch_vcpu_ioctl_run+0x274/0x890
-[  248.771843]  kvm_vcpu_ioctl+0x180/0xb50
-[  248.771883]  __arm64_sys_ioctl+0xb4/0x118
-[  248.771920]  invoke_syscall.constprop.0+0xb8/0x120
-[  248.771954]  do_el0_svc+0x48/0xc8
-[  248.771982]  el0_svc+0x48/0x280
-[  248.772012]  el0t_64_sync_handler+0xa0/0xe8
-[  248.772041]  el0t_64_sync+0x1ac/0x1b0
-[...]
-
-> [...]
-> +int noinstr kvm_rec_enter(struct kvm_vcpu *vcpu)
-> +{
-> +	struct realm_rec *rec = &vcpu->arch.rec;
-> +	int ret;
-> +
-> +	ret = rmi_rec_enter(rec->rec_phys, rec->run_phys);
-> +	if (!ret)
-> +		load_realm_timer_state(vcpu);
-> +
-> +	return ret;
-> +}
-
-In my testing environment, adding local_daif_mask/restore() in line with
-__kvm_vcpu_run() fixes the issue, and Realm VMs successfully boot
-without RCU stalls or soft lockups.
-
-However, I'm not sure if we can safely call local_daif_mask/restore()
-here, bacause they call trace_hardirqs_off/on(), which presumably cannot
-be called from noinstr context.
-
-For reference, the VHE hyp path seems to call local_daif_mask/restore()
-from noinstr context, but I'm not sure why this is considered safe:
-  noinstr kvm_arm_vcpu_enter_exit()
-    kvm_call_hyp_ret(__kvm_vcpu_run, vcpu) <- normal function call for VHE
-      local_daif_mask()
-        trace_hardirqs_off()
-      local_daif_restore()
-        trace_hardirqs_off/on()
-
-The following change works in my test environment.
-Any thoughts on the issue and the proposed fix?
-
-diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
-index c242dfc2c7a6..dd7cb2d7db88 100644
---- a/arch/arm64/kvm/rmi.c
-+++ b/arch/arm64/kvm/rmi.c
-@@ -1307,7 +1307,13 @@ int noinstr kvm_rec_enter(struct kvm_vcpu *vcpu)
-        struct realm_rec *rec = &vcpu->arch.rec;
-        int ret;
-
-+       local_daif_mask();
-+       pmr_sync();
-+
-        ret = rmi_rec_enter(rec->rec_phys, rec->run_phys);
-+
-+       local_daif_restore(DAIF_PROCCTX_NOIRQ);
-+
-        if (!ret)
-                load_realm_timer_state(vcpu);
-
-Thanks,
-Kohei
+Series is ok, I just have a question regarding board name. Why you don't add the "d" soc information inside the board name as it is done for others STM32 boards ?
 
