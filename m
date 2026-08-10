@@ -4,144 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC0C1C5AD55
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 12:43:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E09C5C5AD7B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 12:45:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-Id:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wuk0mfD52jXS1Cz7cM9gPx5BJJ4Zj+YQ5QxY2V57xZQ=; b=AX4rDH1/1KW9lLMHA45I1uHI/J
-	yYdBE5vloUkzM1swQvIjG8SEGtFgwo/nMOODuuTE4fL6zpWuQpla/aGqzvb5iUubEyKea58g8ogri
-	PcVGSG91MhYU2QLQmrlcX5XL6S61mcfIhIJT14b/rX7fKtn3LlNJ0IyCXj9mEaAdgwTrzFrG3i6B2
-	EF+NtGn/aVTo87199JwCRW8qClJ1txfvV/ec30uH6ax2rMUEOVxkOjsvpk9c2JmJogz67V6UWgrBz
-	nTyxS9B3HryKWOht9ad1877wixFRCWTetOqaTHtK4gDo4vFi9BvK+6hVPsG/1Fbmn8liBrLgnuNBr
-	Err4JUBQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=RqJkZU7NaXl+U7FK5NGU95QDJ/WwisA1feCPvABBOc8=; b=d7RN4wDarg17gF
+	lKKeJuQYZpD5RQSxz/jO2vIjd0bykDtAsjPf4Lig6j3F6UGUVjgqRJo0THP/OGrSJRDf9Qa5vrszX
+	JL3h7OiHujebJNYJXagkqA0osqDsDrbh9p0Ayzz9nU4UWSCCXE7N1zZ0xJha7j2SC+ppePLFOZu1U
+	tZ06CIOCTZ9PcFrNIc8YWlQ28dI5SstiZFZYMCoopczdo2glFWj69/ovtcvtMUYNnsDC/UWNOSVOu
+	2NVB7biMk0bRM25zFEVFJGHxzz3pI/oyt+wuYuHbFU5TaSld0D5S2Ya+BDIuvhLy4KnrduaroIKW6
+	Tgzt4yz/94MZENRzLMGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtPM1-0000000Bnx4-0HwA;
-	Mon, 10 Aug 2026 12:43:45 +0000
-Received: from mail-westeuropeazon11013009.outbound.protection.outlook.com ([52.101.72.9] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1wtPNM-0000000Bomt-3VLG;
+	Mon, 10 Aug 2026 12:45:08 +0000
+Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtPLv-0000000BnlL-3mnI;
-	Mon, 10 Aug 2026 12:43:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=P+tl+9JzyOz7d3zYwrI7WRGHdCKD2nHP20qZn+VAw2rkZaG30sHLsCIJirt8353wUTXtNqyRO4KY/Q09WVTYIRDqfDG2/xE3HPjEIAmP1X1H8C/nqFt8MCe6B7yVixa8eXT353hFehuLG04FyLdrchb9RNR23GxSGn/k+YWO4K8geISUhdGBj0y8coABEUW58x/vv733DR/maoBltrWGkGK9zdUPav7ZWSt6c46KOEjsMtDVIJ75GxIMitaBCCnocSf3M3Yy3+pEGWBpkvJbfhWAa9/9+E7LBEwLSx1bvlDIkDD1HBPRqqX+OdvvFcONkr3vmXfwFERAZjcrcmkbEg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wuk0mfD52jXS1Cz7cM9gPx5BJJ4Zj+YQ5QxY2V57xZQ=;
- b=EpeXzl1p7a0U/cTAT6DtEzu+5kCXXoL9lD3tay1sbLM2XtfBCo9BE64eYZRSF4lhMr0n9Nx0hSc5AM3xOskljTLn/HjThwjLSk7PTXWq+TSwDdiL5xuPCXN9/30qV1nOMA/FFRfBQLV0MhrvzpQjra+E2mZpPoPfdNGYnH5EQtRF8zMKzmJtIdsG38vwvACtjZeVIVZ5i/+HL+MDzQmisFIYRKp++labyx9lNwW137KMS1mi78dCwVko+9xC1OROn8qNVW89AuCsqW18tWgxFXAD1XS2uACfFY30sB1ixzH2V0HElIDJDruVkAftXKJkoxVPrfS6OmlhDHUAJKJy/w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wuk0mfD52jXS1Cz7cM9gPx5BJJ4Zj+YQ5QxY2V57xZQ=;
- b=jjJ6bW0vUkX5MpxennrFFnF5t/1HgUp6kuwbAnk/3+Vq/w/BCjiegEBkUI3wDNYNyVOIEaglxDQHjDC9ZVxXxEbVscOx8ftuI+oubw2lLFX29SdZcCPfTUXGgzMHLJ8LFfZE6zKmwC/L53jC+8wc1f6IQqL+GugFn11xQZpNz84SMh9kjT/O11X8oVtm2w+gHK4LWskcPjOkmS/H+Z9578gV4jGqgaEcVQT5InWML0bvZTejqo43ON873iELB6IoljhmXTEGu3aDkFp49jFnnzwFcVRNIn3ro1S5zu/4zuNYZ8vQ9BISI36k52Vc4Md15umuFrNYZ2PyOmkaz2aHag==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM0PR04MB6900.eurprd04.prod.outlook.com (2603:10a6:208:17d::10)
- by VI1PR04MB6861.eurprd04.prod.outlook.com (2603:10a6:803:13c::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.25; Mon, 10 Aug
- 2026 12:43:30 +0000
-Received: from AM0PR04MB6900.eurprd04.prod.outlook.com
- ([fe80::7fda:8431:ca1b:b023]) by AM0PR04MB6900.eurprd04.prod.outlook.com
- ([fe80::7fda:8431:ca1b:b023%4]) with mapi id 15.21.0292.024; Mon, 10 Aug 2026
- 12:43:30 +0000
-From: Vladimir Oltean <vladimir.oltean@nxp.com>
-To: linux-pci@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	linux-omap@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	linux-tegra@vger.kernel.org,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Siddharth Vadapalli <s-vadapalli@ti.com>
-Subject: [PATCH v9 3/3] PCI: Remove device links to PHY
-Date: Mon, 10 Aug 2026 15:43:15 +0300
-Message-Id: <20260810124315.433448-4-vladimir.oltean@nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260810124315.433448-1-vladimir.oltean@nxp.com>
-References: <20260810124315.433448-1-vladimir.oltean@nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: FR2P281CA0088.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:9b::13) To AM0PR04MB6900.eurprd04.prod.outlook.com
- (2603:10a6:208:17d::10)
+	id 1wtPNJ-0000000Bojj-0G2b
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Aug 2026 12:45:07 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=RqJkZU7NaXl+U7FK5NGU95QDJ/WwisA1feCPvABBOc8=;
+	b=J7QUo6iKuODH/rHgatCwi3i7F81+lizMxx50XqcCLQtrWmGXs5jMoAT+ZRehXvGaIqUK2xrGl
+	IgQzlsX6DqoXikzeZDFJ5ebhdlzbikrHzciEt31YYDZI7I7+VV2stpeem6fKhFaW6+HA4PHu8aC
+	IHSn39VeIUW5+Zd4RT0tYNU=
+Received: from mail.maildlp.com (unknown [172.19.162.197])
+	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4hJZ2X0cwFzcb3P;
+	Mon, 10 Aug 2026 20:34:44 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id D9B0D4057D;
+	Mon, 10 Aug 2026 20:44:47 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Mon, 10 Aug 2026 20:44:46 +0800
+Message-ID: <7b16d183-86d5-481e-b212-977ad0598ac7@huawei.com>
+Date: Mon, 10 Aug 2026 20:44:45 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM0PR04MB6900:EE_|VI1PR04MB6861:EE_
-X-MS-Office365-Filtering-Correlation-Id: 96619bf6-757d-4798-915c-08def6dcfb96
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|23010399003|366016|19092799006|56012099006|10067099003|11063799006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: icsor8+uPeiW/AYL9HpqOmmDJ63fl274sPAVbE8+SrQzCglYSAeXsBR5zCsBfPN/H8X89olKnooCJRZpqUMl6Mmb6FK/xiPi00dSfIK/HY2FWVoffOcT4p2KKocPSaNMS/k8vZmpOfs62yLysmd+CnZfeGYzcFqZKvjHAgHuMhHm496ecrFsLldW6F1hd4eAiqNZrZBDm5uuOJv0CXHr74UiHxI8eskr88l/mcefNXPHLCcor4dCXyKz/ABo2qfCwna0fmR/VFyo94cN5XDBOIuMTQcIKBYI02kc0EEY0knNHjwLemfsiMsTgaP4A5Roh53PpDVJaBRv3pLGV74td7efgGA4nIghs++eywKdLfoZ98iUKpNAnnf9+FFtmqytTcV4cdEff0Do1393xDkdhBeUG6Ju+F34Ipv2e0q5XCtmzdOpOGPT+DmVt/Rex3Y1ymNeoL2YWZ8kQ9g+jouftP853o0wv1cm5Ny1o60tYwhL6dPZoXK59YV5DoD7qbnx8aP/xIEFvPqa1XaO+KVcBSlu07tz/lV6UbKuzqclk5sFXvBkTU7izH1XYD2KWlJ7Kfh+uIUQxSvQyS69WKbBIWzYh6tMyHSiOrPtl74ka53zcZDyx0r7LT6LrFdrw2vnf+2wT5w/f5KRMS56UhMJzBE//XFwzX5od63A2MYxB8s=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB6900.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(23010399003)(366016)(19092799006)(56012099006)(10067099003)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?LzZJODFRcFBvcDM5Q0o4VVF6YVdhMVlWenhaRXBDT1dWcFhBcDEvb2FEbDF1?=
- =?utf-8?B?Qjc4eWdPM01BdkgxTTRtcm9kT2hIbkhKem1YUnNZdHNweVBpQkpvdEJCVThW?=
- =?utf-8?B?TWo4VWFlemJDUUs1YksvVnlTeFVESTdhMjNyWVVQWEJaNno3RlB0dzZTbTBG?=
- =?utf-8?B?Ly9hZnp0MjNpdGI3dkdRMUduZmUvc3d4bTY5Z1RBQVpSL1RqQk1GditKdjAr?=
- =?utf-8?B?RzR1ZGF5aUlDNkQxRGNoNUROMm5IRlYvOUNGVkNhcnNXVHlvT0JTQXF1RDNO?=
- =?utf-8?B?Zmp2SXJyYjhmN1lPOVcxTU1WZzhyMlN3MXBHNHFnU3dvOTRRVG9mREl0dUJa?=
- =?utf-8?B?aUNhelhyMVhTVWw1UXFJUnVZWDlCRnMzL21zNDZzV3ZsNENxRFdyUnRNZG9N?=
- =?utf-8?B?cjREY2x2eUR5clZlSnh2SHdCVnRTM1duVkhYOFlUMGdYK0tZYkJrZi9sMER3?=
- =?utf-8?B?aG5aK3BzUzZKcExqWVdCWGs0WVVoVEhzZFFpbTZvWUFIeENDZjNmUExQSC9H?=
- =?utf-8?B?bHJRSXBxSXd2SGZ2OGtXVEJpV2lBcWZESXJvWG82QTJPVWhnOTZJRlRSZHNs?=
- =?utf-8?B?Qm9MU3h6T0xzTnlEQ1ZiQ25ocHpZUjQrQ0dIald5Z2NDc1pWR3ZxY0h1YWhz?=
- =?utf-8?B?dFRqUjlvaXdRWndkYVdUTXhrU0dERzJmeW1mNFpCODNZVkYrN1lwbWlScEl6?=
- =?utf-8?B?amRGTHVLSFZSV2JhQWlCMklHZWlSdEhzcW40eFJrS3lDOEE4ZzErcEdEV3hD?=
- =?utf-8?B?ODA5UTlDZDgyMk40WUZoMllvOFlRNkdJUWpmL0FiUGpITFNYYXUrbEZJS1Ra?=
- =?utf-8?B?QWtsT2FHMTFWQ25BWVovZjc3cDdISzJqTUNHNnljaFcyc1Jhbkw2OWFVTVYv?=
- =?utf-8?B?VHJPTldYM0F2WlFzRzdqVXVrRGxpV3lYVisvUDFaaDZ0N3FjQnFPNVJKdEpW?=
- =?utf-8?B?akJHOXE5K2F3UnJLak5JYUIrd0lkTGlXNHppRWRma2hIOTNJSjd1eDJGa3JE?=
- =?utf-8?B?YmV6eXMzNk9qbGRJM2hFTUFGSW9VQi9haEcrUjlIZGxsdU1wQlRNbU1VM24x?=
- =?utf-8?B?RG5Kd1hmcDRTMVZqeVF4UG5YY2g2dmM2d3ZlNFdDZjN1S2xDOFR0QUExaUFX?=
- =?utf-8?B?OG9xaUkydEw1R3RHTVdOMUt3ZEVSaXJBN2JYZU0xclU2cFpoNVpnL3BZaFcy?=
- =?utf-8?B?OUZ2a1lkWjZjdVBuMlRZYldxZEdWZEJBeDZXSk5YRi9JTDRLOU9iK0p1SEs1?=
- =?utf-8?B?K3BEbkF2VTZmRkpEd214ODR1K1UyakdYaUIxSjRMWTdmQnEzMXduTHZBZ2lm?=
- =?utf-8?B?eEdmT2g2OEV6dEU3L2J6ZGxQNU1jR2lzYXd3NGtvajkrOUpHNmJ5N0w3RGhR?=
- =?utf-8?B?Zkd3ZVBjN3lNbVZJV2ZKQUtBUnBxeTBMT0F0a0RwSzdTVmlMV0tYRnRiSlBD?=
- =?utf-8?B?cnh1U2dVOUFSVXFIbXI2Q01KL1Z6VitnVWdaS3RrSkpYaVZ3NktWR3d5Qkps?=
- =?utf-8?B?enh6UC92SGpraGZxVDZ0Q2hOb1RiR2cwZ2hLSjUreG95b3dxNDBYUFR2Wklz?=
- =?utf-8?B?bW9MVm5IVFppNGF6OHpXZXpSL0FJS0xZV2dUS2Q1RDUrU0wwMCtuVGVnQTFa?=
- =?utf-8?B?QnRiSTlNOU9lcEFkU3RMejErVlZNV0d1UGszOGdGK2VSUUJNbFJOM3Z6Z25S?=
- =?utf-8?B?MEdYZVRXQWRGQVdsVkFuekFTd29BN3d4RWhtU3hCZ2pHemFsZjdxTzRsNlpy?=
- =?utf-8?B?YndWVnhsZ2J6bmRROUVxNC9Wck1GTjE3ckovZnIzeitJclA5aWkwS3hldnZL?=
- =?utf-8?B?MXp0aXg4OUF1dXJCV0tMVWpHUitTM2tNQ2xoTWJzU1NJVWtnUzk5NDJsei9i?=
- =?utf-8?B?amxLMDhGUkpBS0VhWEZVMWVmbTZSbVdEK2p3ZThPQ2NQNkZIU0hvSHVITnRu?=
- =?utf-8?B?SzFic3pMekVYaW1BK09JZ053WDNpUjRla3gvWm8zblkvcVc1L3RhYm5ycm52?=
- =?utf-8?B?OFRHNFJrKzdPYjZWejZqS09uSG1NREoybW5VekpRT3V0NnErb2VFSERQUFpv?=
- =?utf-8?B?aUc0MlRTdFB6M0RQT3VVVVhld0pzSWZZVlBKaUJUcDIzbExlaUhzR0p1ejZJ?=
- =?utf-8?B?YkZhNmhVWVY1NGZ5aURQMkJneXdSTHpSdFFHVTZIT1d6RDlFQVJOMVdWV0lQ?=
- =?utf-8?B?cVQ0NDMzSVFSbmFYQmxIS1dBdks0RXUrdFZrZnF5WDdNMDhQQkRqVHkybExS?=
- =?utf-8?B?OVdxQWJTSjlVRjZCRjhqMWRHQ091dDhSZlU3SFNqajBwYnNpaUNqeXBjRlhM?=
- =?utf-8?B?MlFCQnRUTm8zSjg2RWVyeFdUOHN6SkFwTVM0OG9aVGkxaTE4ZEJQdz09?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 96619bf6-757d-4798-915c-08def6dcfb96
-X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB6900.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Aug 2026 12:43:30.8161
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ScSUc1kVhg03FaScWJh+U+Age6dMzR5s7rCqkVS6FkqLTZWwQ2qd2EpxH019+dcOCcw/EwzVfC3IhbXooQI5oA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB6861
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC] arm64: entry: PSTATE_I_SET is leaking on pseudo NMI
+ mode
+To: Vladimir Murzin <vladimir.murzin@arm.com>, Mark Rutland
+	<mark.rutland@arm.com>, Breno Leitao <leitao@debian.org>
+References: <20260807-arm64_fix-v1-1-d069ccf9d71b@debian.org>
+ <anXkO8YpoadRzm07@J2N7QTR9R3> <0c47125b-6a5e-41c9-b31c-d78643cbe6bd@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <0c47125b-6a5e-41c9-b31c-d78643cbe6bd@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_054339_964494_3A3BA41F 
-X-CRM114-Status: GOOD (  18.06  )
+X-CRM114-CacheID: sfid-20260810_054505_762923_7B49AB5E 
+X-CRM114-Status: GOOD (  43.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,306 +75,251 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: rmikey@meta.com, "Peter Zijlstra \(Intel\)" <peterz@infradead.org>, Catalin Marinas <catalin.marinas@arm.com>, kernel-team@meta.com, linux-kernel@vger.kernel.org, bpf@vger.kernel.org, Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is practically a full revert of commit
-7a4db656a635 ("PCI: dra7xx: Create functional dependency between PCIe and PHY")
-and a partial revert of the device link pieces from commits
-dfb80534692d ("PCI: cadence: Add generic PHY support to host and EP drivers")
-49229238ab47 ("PCI: keystone: Cleanup PHY handling")
 
-The trouble with these commits is that they dereference fields inside
-struct phy from a consumer driver, which will become no longer possible.
 
-Since commit 987351e1ea77 ("phy: core: Add consumer device link
-support") from 2019, the PHY core also adds a device link to order PHY
-provider and consumer suspend/resume operations. All reverted commits
-are from 2017-2018, and what they do should actually be redundant now.
+在 2026/8/7 22:49, Vladimir Murzin 写道:
+> On 8/7/26 14:57, Mark Rutland wrote:
+>> Hi Breno,
+>>
+>> On Fri, Aug 07, 2026 at 04:45:31AM -0700, Breno Leitao wrote:
+>>> Running retsnoop on a kernel with GIC priority masking and
+>>> CONFIG_ARM64_DEBUG_PRIORITY_MASKING=y trips the ICC_PMR_EL1 sanity check
+>>> in __pmr_local_irq_disable():
+>>>
+>>>      WARNING: ./arch/arm64/include/asm/irqflags.h:63 at arm64_exit_to_kernel_mode+0xb8/0xc0, CPU#40: retsnoop/31805
+>>>      CPU: 40 UID: 0 PID: 31805 Comm: retsnoop Not tainted 7.2.0-rc6-next-20260805 #7 PREEMPTLAZY
+>>>      pstate: 234013c9 (nzCv DAIF +PAN -UAO +TCO +DIT +SSBS BTYPE=--)
+>>>      pc : arm64_exit_to_kernel_mode (arch/arm64/kernel/entry-common.c:63)
+>>>      lr : el1_abort (arch/arm64/kernel/entry-common.c:323)
+>>>      pmr: 000000f0
+>>>      Call trace:
+>>> D)    arm64_exit_to_kernel_mode (arch/arm64/kernel/entry-common.c:63) (P)
+>>>       el1_abort (arch/arm64/kernel/entry-common.c:323)
+>>>       el1h_64_sync_handler (arch/arm64/kernel/entry-common.c:449)
+>>> C)    el1h_64_sync (arch/arm64/kernel/entry.S:589)
+>>>       copy_from_kernel_nofault (mm/maccess.c:52) (P)
+>>>       bpf_probe_read_kernel (kernel/trace/bpf_trace.c:268)
+>>>       bpf_prog_db21a1730c2407e5_calib_exit+0xf0/0x160
+>>>       trace_call_bpf (kernel/trace/bpf_trace.c:147)
+>>>       kretprobe_perf_func (kernel/trace/trace_kprobe.c:1750)
+>>>       kretprobe_dispatcher (kernel/trace/trace_kprobe.c:1875)
+>>>       __kretprobe_trampoline_handler (kernel/kprobes.c:2116)
+>>>       kretprobe_brk_handler (arch/arm64/kernel/probes/kprobes.c:422)
+>>>       call_el1_break_hook (arch/arm64/kernel/debug-monitors.c:244)
+>>>       do_el1_brk64 (arch/arm64/kernel/debug-monitors.c:266)
+>>> B)    el1_brk64 (arch/arm64/kernel/entry-common.c:427)
+>>>       el1h_64_sync_handler (arch/arm64/kernel/entry-common.c:481)
+>>>       el1h_64_sync (arch/arm64/kernel/entry.S:589)
+>>>       invoke_syscall (arch/arm64/kernel/syscall.c:49) (P)
+>>>       do_el0_svc (arch/arm64/kernel/syscall.c:140)
+>>>       el0_svc (arch/arm64/kernel/entry-common.c:736)
+>>>       el0t_64_sync_handler (arch/arm64/kernel/entry-common.c:755)
+>>> A)    el0t_64_sync (arch/arm64/kernel/entry.S:594)
+>>>
+>>> This is my understand of the current situation:
+>>>
+>>> A) A task enters the kernel via a syscall.
+>>> 	* PSTATE_I_SET becomes set on the live PMR
+>>> 	* regs->PMR doesn't have PSR_I_SET set
+>> At this point, regs->pmr will be the value of PMR when we were executing
+>> in userspace, which should be the value of regs->pmr the last time we
+>> returned to userspace. That should be GIC_PRIO_IRQON, as configured by
+>> start_thread_common().
+>>
+>> The entry asm will set PMR to 'GIC_PRIO_IRQON | GIC_PRIO_PSR_I_SET', but
+>> that should be reset to GIC_PRIO_IRQON when el0_svc() calls
+>> local_daif_restore(DAIF_PROCCTX).
+>>
+>> Within invoke_syscall(), we should have DAIF==0 and PMR==GIC_PRIO_IRQON.
+>>
+>>> B) A BRK fires at EL1 and that is what leaves the live PMR
+>>>    with PSR_I_SET.
+>>> 	* At this stage PSTATE_I_SET is set on both on PMR and regs->PMR
+>> The value in the regs->pmr should be GIC_PRIO_IRQON, without
+>> GIC_PRIO_PSR_I_SET.
+>>
+>> As we don't unmask anything during BRK handling, the live PMR should
+>> contain 'GIC_PRIO_IRQON | GIC_PRIO_PSR_I_SET'.
+>>
+>>> C) A nested synchronous exception happens (Not sure why -- BPF related)
+>>> 	* Now both the live PMR and regs->pmr have PSR_I_SET.
+>> The presence of 'el1_abort()' in the trace suggests that BPF tried to
+>> access memory which faulted. That looks to be a result of
+>> bpf_probe_read_kernel() and copy_from_kernel_nofault().
+>>
+>> Regardless of BPF, we can probably trigger a synchronous exception with
+>> a WARN() or similar, so we will need to handle synchronous exceptions
+>> from the same contexts.
+>>
+>> In general, probing kernel VAs is fraught with danger even with a fault
+>> handler, and IMO copy_from_kernel_nofault() is a dangerous and poorly
+>> conceived interface. For example, if you're probing an arbitrary kernel
+>> VA, you have no idea whether you're about to poke MMIO and crash the
+>> system.
+>>
+>> It would be interesting to know what the BPF program is doing, in case
+>> it could crash the kernel in other ways we can't prevent here.
+>>
+>>> D) On the way out, local_irq_disable() → __pmr_local_irq_disable() warns.
+>>>    It detects that PMR is different than GIC_PRIO_IRQON and GIC_PRIO_IRQOFF,
+>>>    given live PMR and regs->PMR have PSTATE_I_SET ORed.
+>> Only the live value of PMR is important here, and the value of regs->pmr
+>> is immaterial.
+>>
+>> The warning is here to capture the fact that if
+>> __pmr_local_irq_disable() were to set PMR to GIC_PRIO_IRQOFF, it would
+>> effectively discard GIC_PRIO_PSR_I_SET and change the masked priority,
+>> which has a bunch of secondary impacts for things like idle.
+>>
+> 
+> That matches my understanding of call trace
+> 
+> Call stack                    |live DAIF:PMR  | regs DAIF:PMR
+> --------------------------------------------------------------
+> <exception>
+> el0_svc                       | DAIF:IRQ_ON+I | daif:IRQ_ON
+>  - local_daif_restore         | daif:IRQ_ON   |
+> <exception>            
+> el1_brk                       | DAIF:IRQ_ON+I | daif:IRQ_ON
+> <exception>            
+> el1_abort                     | DAIF:IRQ_ON+I | DAIF:IRQ_ON+I
+>  - local_daif_inherit         | DAIF_IRQ_ON+I |
+>  - arm64_exit_to_kernel_mode  |               |
+>    - local_irq_disable        |               |
+> 
+> where:
+> - DAIF is DAIF_MASK
+> - daif is DAIF_PROCCTX
+> - IRQ_ON is GIC_PRIO_IRQON
+> - I is GIC_PRIO_PSR_I_SET
 
-Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
-Acked-by: Bjorn Helgaas <bhelgaas@google.com>
-Reviewed-by: Manivannan Sadhasivam <mani@kernel.org>
----
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: "Krzysztof Wilczyński" <kwilczynski@kernel.org>
-Cc: Manivannan Sadhasivam <mani@kernel.org>
-Cc: Rob Herring <robh@kernel.org>
-Cc: Bjorn Helgaas <bhelgaas@google.com>
-Cc: Vignesh Raghavendra <vigneshr@ti.com>
-Cc: Siddharth Vadapalli <s-vadapalli@ti.com>
+It's the same as what I understand.
 
-v8->v9: none
-v7->v8: only context change - "return 0" became "return ret" for
-        cdns_plat_pcie_probe()
-v6->v7: none
-v5->v6: collect tag from Manivannan Sadhasivam
-v3->v5: none
-v2->v3:
-- remove dangling set but unused phy_count local variable in
-  cdns_plat_pcie_probe()
-v1->v2:
-- fully remove struct device link **link from struct cdns_pcie and from
-  cdns_plat_pcie_probe() error path
-- collect tag from Bjorn Helgaas
-- adjust commit title
----
- .../controller/cadence/pcie-cadence-plat.c    |  4 ---
- drivers/pci/controller/cadence/pcie-cadence.c | 16 +---------
- drivers/pci/controller/cadence/pcie-cadence.h |  2 --
- drivers/pci/controller/dwc/pci-dra7xx.c       | 16 ----------
- drivers/pci/controller/dwc/pci-keystone.c     | 31 +++----------------
- 5 files changed, 5 insertions(+), 64 deletions(-)
+> 
+> 
+>> We'll need to work through those impacts; we might be able to relax the
+>> check.
+>>
+>>> How to fix it? I don't know very well.
+>> The complete fix (which Ada and Vladimir have both been working on) is
+>> to get rid of GIC_PRIO_PSR_I_SET entirely, which requires structural
+>> changes in a few places/
+>>
+>> I don't think we'd realised there was an extant bug of this shape, so
+>> we'll need to consider what we can do to fix this in a backportable way.
+>>
+>>> I am not certain that we want to have PSTATE_I_SET ever be sent to
+>>> regs->pstate. Do we ever need PSTATE_I_SET in regs->pstate?
+>> I'm not sure what you mean here. PSTATE_I_SET doesn't exist, and I'm not
+>> sure whether you're asking about the PSTATE.DAIF bits saved in
+>> regs->pstate, or the PMR value in regs->pmr.
+>>
+>> Regardless of pseudo-NMI, is is essential that regs->pstate holds a
+>> complete snapshot of SPSR, including the I bit.
+>>
+>> With pseudo-NMI, it is essential that the full PMR value (including
+>> GIC_PRIO_PSR_I_SET) is saved into regs->pmr.
+>>
+>> However, as above, AFAICT only the live value matters here.
+>>
+>>> In the current patch, I found that disabling IRQ in case it is disabled,
+>>> would solve the warning, but, this seems more a hack than a proper fix,
+>>> perhaps.
+>>>
+>>> Fixes: ae654112eac0 ("arm64: entry: Use split preemption logic")
+>>> Signed-off-by: Breno Leitao <leitao@debian.org>
+>>> ---
+>>>  arch/arm64/kernel/entry-common.c | 8 +++++++-
+>>>  1 file changed, 7 insertions(+), 1 deletion(-)
+>>>
+>>> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
+>>> index ceb4eb11232a6..fcce9ccd37108 100644
+>>> --- a/arch/arm64/kernel/entry-common.c
+>>> +++ b/arch/arm64/kernel/entry-common.c
+>>> @@ -55,7 +55,13 @@ static noinstr irqentry_state_t arm64_enter_from_kernel_mode(struct pt_regs *reg
+>>>  static void noinstr arm64_exit_to_kernel_mode(struct pt_regs *regs,
+>>>  					      irqentry_state_t state)
+>>>  {
+>>> -	local_irq_disable();
+>>> +	/*
+>>> +	 * Only irqentry_exit_to_kernel_mode_preempt() needs interrupts masked,
+>>> +	 * and it returns early when regs had them disabled. Skipping the
+>>> +	 * disable avoids clobbering a PMR the irqflags API does not expect.
+>>> +	 */
+>>> +	if (!regs_irqs_disabled(regs))
+>>> +		local_irq_disable();
+>>>  	irqentry_exit_to_kernel_mode_preempt(regs, state);
+>> I think that might happen to work as a bodge, but I don't think this is
+>> a proper fix, and we'll need a clearer explanation of what's going on.
+>>
+> 
+> Agreed on the need for a clearer explanation.
+> 
+> Perhaps local_irq_disable() isn't the right API here, and we should
+> use local_daif_restore(DAIF_PROCCTX_NOIRQ) instead?
 
-diff --git a/drivers/pci/controller/cadence/pcie-cadence-plat.c b/drivers/pci/controller/cadence/pcie-cadence-plat.c
-index 8aed8b4c3e11..13edc6be21f5 100644
---- a/drivers/pci/controller/cadence/pcie-cadence-plat.c
-+++ b/drivers/pci/controller/cadence/pcie-cadence-plat.c
-@@ -41,7 +41,6 @@ static int cdns_plat_pcie_probe(struct platform_device *pdev)
- 	struct pci_host_bridge *bridge;
- 	struct cdns_pcie_ep *ep;
- 	struct cdns_pcie_rc *rc;
--	int phy_count;
- 	bool is_rc;
- 	int ret;
- 
-@@ -122,9 +121,6 @@ static int cdns_plat_pcie_probe(struct platform_device *pdev)
- 	pm_runtime_put_sync(dev);
- 	pm_runtime_disable(dev);
- 	cdns_pcie_disable_phy(cdns_plat_pcie->pcie);
--	phy_count = cdns_plat_pcie->pcie->phy_count;
--	while (phy_count--)
--		device_link_del(cdns_plat_pcie->pcie->link[phy_count]);
- 
- 	return ret;
- }
-diff --git a/drivers/pci/controller/cadence/pcie-cadence.c b/drivers/pci/controller/cadence/pcie-cadence.c
-index a1eada56edba..0ac980249941 100644
---- a/drivers/pci/controller/cadence/pcie-cadence.c
-+++ b/drivers/pci/controller/cadence/pcie-cadence.c
-@@ -222,7 +222,6 @@ int cdns_pcie_init_phy(struct device *dev, struct cdns_pcie *pcie)
- 	struct device_node *np = dev->of_node;
- 	int phy_count;
- 	struct phy **phy;
--	struct device_link **link;
- 	int i;
- 	int ret;
- 	const char *name;
-@@ -238,10 +237,6 @@ int cdns_pcie_init_phy(struct device *dev, struct cdns_pcie *pcie)
- 	if (!phy)
- 		return -ENOMEM;
- 
--	link = devm_kcalloc(dev, phy_count, sizeof(*link), GFP_KERNEL);
--	if (!link)
--		return -ENOMEM;
--
- 	for (i = 0; i < phy_count; i++) {
- 		of_property_read_string_index(np, "phy-names", i, &name);
- 		phy[i] = devm_phy_get(dev, name);
-@@ -249,17 +244,10 @@ int cdns_pcie_init_phy(struct device *dev, struct cdns_pcie *pcie)
- 			ret = PTR_ERR(phy[i]);
- 			goto err_phy;
- 		}
--		link[i] = device_link_add(dev, &phy[i]->dev, DL_FLAG_STATELESS);
--		if (!link[i]) {
--			devm_phy_put(dev, phy[i]);
--			ret = -EINVAL;
--			goto err_phy;
--		}
- 	}
- 
- 	pcie->phy_count = phy_count;
- 	pcie->phy = phy;
--	pcie->link = link;
- 
- 	ret =  cdns_pcie_enable_phy(pcie);
- 	if (ret)
-@@ -268,10 +256,8 @@ int cdns_pcie_init_phy(struct device *dev, struct cdns_pcie *pcie)
- 	return 0;
- 
- err_phy:
--	while (--i >= 0) {
--		device_link_del(link[i]);
-+	while (--i >= 0)
- 		devm_phy_put(dev, phy[i]);
--	}
- 
- 	return ret;
- }
-diff --git a/drivers/pci/controller/cadence/pcie-cadence.h b/drivers/pci/controller/cadence/pcie-cadence.h
-index b4d51adefea5..4a96e1869e53 100644
---- a/drivers/pci/controller/cadence/pcie-cadence.h
-+++ b/drivers/pci/controller/cadence/pcie-cadence.h
-@@ -260,7 +260,6 @@ struct cdns_plat_pcie_of_data {
-  * @is_hpa: indicates if the architecture is HPA
-  * @phy_count: number of supported PHY devices
-  * @phy: list of pointers to specific PHY control blocks
-- * @link: list of pointers to corresponding device link representations
-  * @ops: Platform-specific ops to control various inputs from Cadence PCIe
-  *       wrapper
-  * @cdns_pcie_reg_offsets: Register bank offsets for different SoC
-@@ -276,7 +275,6 @@ struct cdns_pcie {
- 	bool				     is_hpa;
- 	int			             phy_count;
- 	struct phy		             **phy;
--	struct device_link	             **link;
- 	const  struct cdns_pcie_ops          *ops;
- 	const  struct cdns_plat_pcie_of_data *cdns_pcie_reg_offsets;
- 	int				     max_link_speed;
-diff --git a/drivers/pci/controller/dwc/pci-dra7xx.c b/drivers/pci/controller/dwc/pci-dra7xx.c
-index 3fc889944f02..bf6c5b86bb27 100644
---- a/drivers/pci/controller/dwc/pci-dra7xx.c
-+++ b/drivers/pci/controller/dwc/pci-dra7xx.c
-@@ -9,7 +9,6 @@
- 
- #include <linux/clk.h>
- #include <linux/delay.h>
--#include <linux/device.h>
- #include <linux/err.h>
- #include <linux/interrupt.h>
- #include <linux/irq.h>
-@@ -678,7 +677,6 @@ static int dra7xx_pcie_probe(struct platform_device *pdev)
- 	int i;
- 	int phy_count;
- 	struct phy **phy;
--	struct device_link **link;
- 	void __iomem *base;
- 	struct dw_pcie *pci;
- 	struct dra7xx_pcie *dra7xx;
-@@ -726,10 +724,6 @@ static int dra7xx_pcie_probe(struct platform_device *pdev)
- 	if (!phy)
- 		return -ENOMEM;
- 
--	link = devm_kcalloc(dev, phy_count, sizeof(*link), GFP_KERNEL);
--	if (!link)
--		return -ENOMEM;
--
- 	dra7xx->clk = devm_clk_get_optional(dev, NULL);
- 	if (IS_ERR(dra7xx->clk))
- 		return dev_err_probe(dev, PTR_ERR(dra7xx->clk),
-@@ -744,12 +738,6 @@ static int dra7xx_pcie_probe(struct platform_device *pdev)
- 		phy[i] = devm_phy_get(dev, name);
- 		if (IS_ERR(phy[i]))
- 			return PTR_ERR(phy[i]);
--
--		link[i] = device_link_add(dev, &phy[i]->dev, DL_FLAG_STATELESS);
--		if (!link[i]) {
--			ret = -EINVAL;
--			goto err_link;
--		}
- 	}
- 
- 	dra7xx->base = base;
-@@ -851,10 +839,6 @@ static int dra7xx_pcie_probe(struct platform_device *pdev)
- 	pm_runtime_disable(dev);
- 	dra7xx_pcie_disable_phy(dra7xx);
- 
--err_link:
--	while (--i >= 0)
--		device_link_del(link[i]);
--
- 	return ret;
- }
- 
-diff --git a/drivers/pci/controller/dwc/pci-keystone.c b/drivers/pci/controller/dwc/pci-keystone.c
-index e9b012a5ea9a..8085c4f61403 100644
---- a/drivers/pci/controller/dwc/pci-keystone.c
-+++ b/drivers/pci/controller/dwc/pci-keystone.c
-@@ -130,7 +130,6 @@ struct keystone_pcie {
- 	int			num_lanes;
- 	u32			num_viewport;
- 	struct phy		**phy;
--	struct device_link	**link;
- 	struct			device_node *msi_intc_np;
- 	struct irq_domain	*intx_irq_domain;
- 	struct device_node	*np;
-@@ -1130,7 +1129,6 @@ static int ks_pcie_probe(struct platform_device *pdev)
- 	enum dw_pcie_device_mode mode;
- 	struct dw_pcie *pci;
- 	struct keystone_pcie *ks_pcie;
--	struct device_link **link;
- 	struct gpio_desc *gpiod;
- 	struct resource *res;
- 	void __iomem *base;
-@@ -1201,31 +1199,17 @@ static int ks_pcie_probe(struct platform_device *pdev)
- 	if (!phy)
- 		return -ENOMEM;
- 
--	link = devm_kcalloc(dev, num_lanes, sizeof(*link), GFP_KERNEL);
--	if (!link)
--		return -ENOMEM;
--
- 	for (i = 0; i < num_lanes; i++) {
- 		snprintf(name, sizeof(name), "pcie-phy%d", i);
- 		phy[i] = devm_phy_optional_get(dev, name);
- 		if (IS_ERR(phy[i])) {
- 			ret = PTR_ERR(phy[i]);
--			goto err_link;
--		}
--
--		if (!phy[i])
--			continue;
--
--		link[i] = device_link_add(dev, &phy[i]->dev, DL_FLAG_STATELESS);
--		if (!link[i]) {
--			ret = -EINVAL;
--			goto err_link;
-+			goto err;
- 		}
- 	}
- 
- 	ks_pcie->np = np;
- 	ks_pcie->pci = pci;
--	ks_pcie->link = link;
- 	ks_pcie->num_lanes = num_lanes;
- 	ks_pcie->phy = phy;
- 
-@@ -1235,7 +1219,7 @@ static int ks_pcie_probe(struct platform_device *pdev)
- 		ret = PTR_ERR(gpiod);
- 		if (ret != -EPROBE_DEFER)
- 			dev_err(dev, "Failed to get reset GPIO\n");
--		goto err_link;
-+		goto err;
- 	}
- 
- 	/* Obtain references to the PHYs */
-@@ -1250,7 +1234,7 @@ static int ks_pcie_probe(struct platform_device *pdev)
- 
- 	if (ret) {
- 		dev_err(dev, "failed to enable phy\n");
--		goto err_link;
-+		goto err;
- 	}
- 
- 	platform_set_drvdata(pdev, ks_pcie);
-@@ -1337,25 +1321,18 @@ static int ks_pcie_probe(struct platform_device *pdev)
- 	pm_runtime_disable(dev);
- 	ks_pcie_disable_phy(ks_pcie);
- 
--err_link:
--	while (--i >= 0 && link[i])
--		device_link_del(link[i]);
--
-+err:
- 	return ret;
- }
- 
- static void ks_pcie_remove(struct platform_device *pdev)
- {
- 	struct keystone_pcie *ks_pcie = platform_get_drvdata(pdev);
--	struct device_link **link = ks_pcie->link;
--	int num_lanes = ks_pcie->num_lanes;
- 	struct device *dev = &pdev->dev;
- 
- 	pm_runtime_put(dev);
- 	pm_runtime_disable(dev);
- 	ks_pcie_disable_phy(ks_pcie);
--	while (num_lanes--)
--		device_link_del(link[num_lanes]);
- }
- 
- static struct platform_driver ks_pcie_driver = {
--- 
-2.34.1
+The local_irq_disable() here is pair with the local_irq_enable() in
+preempt_schedule_irq(). So I think it is not correct to replace them
+separately.
+
+The pseudo NMI does not consider how to do local_irq_disable() /enable()
+when the interrupt is masked by the DAIF.I bit as I reported before.
+
+7544 asmlinkage __visible void __sched preempt_schedule_irq(void)
+ 7545 {
+ 7546 >-------enum ctx_state prev_state;
+ 7547
+ 7548 >-------/* Catch callers which need to be fixed */
+ 7549 >-------BUG_ON(preempt_count() || !irqs_disabled());
+ 7550
+ 7551 >-------prev_state = exception_enter();
+ 7552
+ 7553 >-------do {
+ 7554 >------->-------preempt_disable();
+ 7555 >------->-------local_irq_enable();
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ 7556 >------->-------__schedule(SM_PREEMPT);
+ 7557 >------->-------local_irq_disable();
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ 7558 >------->-------sched_preempt_enable_no_resched();
+ 7559 >-------} while (need_resched());
+ 7560
+ 7561 >-------exception_exit(prev_state);
+ 7562 }
+
+https://lore.kernel.org/all/alTYgMwLaG5sk-P4@J2N7QTR9R3.cambridge.arm.com/T/#m0b7b781a10c06c46296ec8a35be4be1c4ca343a0
+
+> 
+> Looking ahead, making an early decision on whether to preempt based on
+> regs_irqs_disabled() seems like a reasonable approach. That's what
+> I've done in [1] (though keep in mind that I forgot to update
+> el0_irq).
+> 
+> [1] https://lore.kernel.org/linux-arm-kernel/20260727163453.7969-10-vladimir.murzin@arm.com/
+> 
+> Cheers
+> Vladimir
+> 
+>> Mark.
+>>
+>>>  	local_daif_mask();
+>>>  	mte_check_tfsr_exit();
+>>>
+>>> ---
+>>> base-commit: ea2bff00da89d7767d677bb68470130ba96f4928
+>>> change-id: 20260807-arm64_fix-47cad8fb6323
+>>>
+>>> Best regards,
+>>> --  
+>>> Breno Leitao <leitao@debian.org>
+>>>
+> 
+> 
 
 
