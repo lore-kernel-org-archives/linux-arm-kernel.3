@@ -4,96 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0796DC5B56C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 15:16:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31E26C5AD7B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 15:16:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dgVJwXvcJv0mCJ+zUydvXpycUSH5AziVU+3Po3uKbgg=; b=cKdSRv4iMx4OV3O/TKS2aJbknZ
-	P4Hk7xg6GPMHrjNronaKH1ppZo/irHAEPP6683vMxCMYl2Z51enTw0QFUPlEqIfo2M1GHzvjZEkiY
-	jrI5E2oPQtdfQgswY9bMJqAMMVX5w0eEeqobDK+vcxHrhZrpl1oNtpPgLOD0OzeZZ8MelRreKyoU2
-	LIkCmgWbXkk32YP8pCxm96+xMLVlnOvQzZ3jLR3OLuvb10wUxgLBM174+KkhfBBYKgG+QCeh292Pw
-	3WpuDIs9IpJwTMiJJvhkUqanl/Oq7mvd2/uDU4JoMFYiG/yvPDIxk8nARGMiPdW8oqVjZMXvvyFNZ
-	BmL+5+aQ==;
+	bh=atzeCy6ttKPPo8s/AG3bXIJB9XI2KEfeuRrOX8mK3VQ=; b=k4EYmCpzZc5ZgHZ7rmt7pOoWZ4
+	jP3o89Ova+hbZrs6FM3yGRUHrNb/1fEmUunx5/Wz9rEnYthJfDeec8PH3bLaUP8u8/qDxeWQCXCKa
+	8+kyNZhZFja/Hm1PQFVGBy2QGEvCtHdPQo0JwQarWoUumRm5KwP0nmDXAB+yRiIBTcT6sq5cH5jF6
+	DUEDo74JVBn3LalYbdbse2tCST7NOWnBzRFP/C/A7bvaWMPiGF2Tha7SrgoLhaf9X8FMpkYqPV4Ze
+	JMV/WPt5gxAYj5wozCy9wSYSBHSNSrmfck1u8ytQIaM6DOvKi14ymp1NjX0IPfKgWjXAnvaS8kYCf
+	Q6IvyHdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtRjv-0000000CBu3-0SeP;
-	Mon, 10 Aug 2026 15:16:35 +0000
+	id 1wtRk3-0000000CC1A-3Ai7;
+	Mon, 10 Aug 2026 15:16:43 +0000
 Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtRjk-0000000CBma-1u2s
+	id 1wtRjn-0000000CBoe-0Cgn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 15:16:34 +0000
-Received: from pps.filterd (m0380145.ppops.net [127.0.0.1])
-	by m0380145.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 67AEUdj13075889;
-	Mon, 10 Aug 2026 10:16:20 -0500
+	Mon, 10 Aug 2026 15:16:38 +0000
+Received: from pps.filterd (m0384305.ppops.net [127.0.0.1])
+	by m0384305.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 67AEUfgM3620535;
+	Mon, 10 Aug 2026 10:16:25 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=
 	content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=dgVJwXvcJv0mCJ+zUydvXpycUSH5AziVU+3Po3uKb
-	gg=; b=bwr3eLD6NgcKYYkeSAkxV6Yd1YqzH1b7KT2RHGpvJj3e5RYjNPQbcVj3H
-	RjTzBE6etS7cJkBMpfW6R3apfM7dYU5hsiWVez/KPQq1sr4SKFHnIU5BKi8GmXyF
-	A4Pep7MY+YKMp7VVSsdXF4YcHoa+klotPt6hUItIA4GGNuO0L0AvcVCUj5WE8MEs
-	moIdNkjJmGjOGpbUZjYme9pTl+czIXZLn4hfn2BmHdzh1vty+3V9XcttFr2BZ3op
-	EY42b4QPcz3yGbnPED9g4HIF1fgRgebcFNphNTFGaCNrpywB8v5x7d9Azq/JE5pO
-	JtDAxWK7KwvLDCaaUHw8hD7lrH9Cg==
-Received: from sj2pr03cu001.outbound.protection.outlook.com (mail-westusazon11012038.outbound.protection.outlook.com [52.101.43.38])
-	by m0380145.ppops.net (PPS) with ESMTPS id 4fydkwsj9u-1
+	proofpoint-05-2026; bh=atzeCy6ttKPPo8s/AG3bXIJB9XI2KEfeuRrOX8mK3
+	VQ=; b=hMKNAQJzGFPnEiq8PpGtU9SEblTIY8Rs/ynUDpscUAAlzObmBnkwniMX3
+	sUKv5q4MZy1eBgeL5ZvBrfzBQogxoszv7O3a1z4YFqSNRVMV6f5kCzi2G5Ysi+I4
+	LTuvAyN783Y3v4AsbolGWQ79+6qjx7WfGeo1/CT/Tk1WS4/7WQSV4fZ/ojoft6mJ
+	Oy+Bm3UuPdKpE7W0s6inBPgU9Hb6TNuf6qc/Gfrn7EUHtcwmeRCNGwj+ezdntHtQ
+	2GODzslIjfeHCls2+p1kxJkA855MwWeXherCao2kX7JZJI3IRB0X3UYbHvIcWcS9
+	cVBrvvfLh3SCFszRv7SRKzLPE1qVA==
+Received: from sj2pr03cu001.outbound.protection.outlook.com (mail-westusazon11012013.outbound.protection.outlook.com [52.101.43.13])
+	by m0384305.ppops.net (PPS) with ESMTPS id 4fydt79haj-1
 	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Mon, 10 Aug 2026 10:16:19 -0500 (CDT)
+	Mon, 10 Aug 2026 10:16:24 -0500 (CDT)
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZkJs09DO/jojkJe9i+DTtc9/fFkeENNheXjLZ9AGhP5CnA4BWXUnP8Ucwb4aZfaUuoDrVWeU38/EA9mvXBEtkOIvphyerU15+xwyAN0GnmuPpiN9CRxKO/zzPusoHyJOlxdlaG6bSpdYy3LHkwncTsFLt2VwS0u2Xc75o7QyH4hkXhzaea8VLknRwGKTuLkj94PHZzqDSHJ2MjdvtDq8qihfweVRqx87DWMpK9FAIrVT5Cj2L7GhXyZQqjJSoyr44p7eAiFs032pxYfdJm95/DLs1WVdChpYmw75CVJat2kmIUR2owzREPGS2dMnWETsQvKEXTviskt7AUS5IhuYeQ==
+ b=y2V9ZtCS8dEHZgaVxTTJ0hdTTiHx1XZZq/4JtLZ5kW/ys0M3qk4KR/4/Pz8K88t1BMdZOmnJ3DifeTBX56xqjyumq33bn8I09HSd3qtNJfYsUIyAVeWsQ1GvITfsnID/hMybY46sCzhg+Z7tnbraTNJSs5Htgx6gQy33+XUOb7QnDtQ5YP4OAqVwZR4/qPh2lGE1q8a9ZZJkrB47+xSJlo5fCmJtLTk4Dg+nDdPLQJsmwJu8oRui9QLk7RCVwzGYD1zJHmC2RN8rtDlWLQEQyjY2qyOvKEA+1+/Kg1gzQyneIH71v3UNV6MDvMym0AgD6uhn54Rknel5iR5FF4kf4Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dgVJwXvcJv0mCJ+zUydvXpycUSH5AziVU+3Po3uKbgg=;
- b=jl62PY4Pwl4P9yKcZxDOmenVxKPWuRC+K4TD99J6VXXg3rbYIzE9Ge1DVUdMf2i8gZWdBZBPe/+lt78dBAxLCAMqevg7hTR2320PNnQx5nE8N8o1GmfNtL/lTbP30+eSenhIaCoLE4EdJ8EO3o9+TFRQhnAvFwhfQCuYFSh0pishLFjonnQwKUHNqmtWSPQIB9PFEFTTA0TbuzkiyE43k5q7CYBo8P6CtsHELllMqzeeJ9/FeGzciTXxkAs5odXEhqQ+NyiEOPVphLxzR9rha7ayTNZLy/1U6q9S2yHjjrs8ICyuib3f8qHWgVjXARRg3FywW9IfyLdiqOO4TGOBUg==
+ bh=atzeCy6ttKPPo8s/AG3bXIJB9XI2KEfeuRrOX8mK3VQ=;
+ b=etsxHigvtdvXu5QXjGCEHIEOf0OKPVxQOhv3/oqduMblJIAcNKIa6zxp9Q0AMYV2HD/5rKRNeZlOBRKZT+gH3vpvRI/vYctWiOo5+LazLu0hl2A2D9VYsy+1KVrcBCA7hcjCMaiipKVU2sNfzd4g9CEqLVgUaSjMQN01WN/YLHWVsZaqsyaYuJunBROAvQ/ajMC0eeRzqRpgkftUnUib1jotqtiaaQdsEHjlWha3NPUGtv5TDg0y8L3t+pVlEj7l4aQF7kF0tFRrd3xISPOONxErbpHhBJ8u9C0tzejDy7yyLgW1J47SCyMroSELA95H37jkhFiC1ZGEOgoMHskdKA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
+ 198.47.21.194) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
  dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dgVJwXvcJv0mCJ+zUydvXpycUSH5AziVU+3Po3uKbgg=;
- b=FynlZLljEeXATxc5EiJWkOofjSUNdNnz2n5uWf/8gI6S9jml4c1P3n131B76wa52Xts0kbQoldGwVus+QQ/uwnvQgUVA/kzWCwScTEkFd8xy6mgFhTiATl44yuj/N8UjMSwEOeNsPLDZlR9CylnFoFVoci8OyUIQH9/GEpv5flA=
-Received: from BY5PR04CA0013.namprd04.prod.outlook.com (2603:10b6:a03:1d0::23)
- by CY8PR10MB6635.namprd10.prod.outlook.com (2603:10b6:930:55::12) with
+ bh=atzeCy6ttKPPo8s/AG3bXIJB9XI2KEfeuRrOX8mK3VQ=;
+ b=WngMfrxo9eEljXWe7rPs5v9bEYiKHzUj/HoC/Ph4OyPPMk5oc+C/2QTDpi/FErpVAmPXzz3lCzIWaklCTDwTd6PUgtY1sugT07XfhWzbTeocswAl2xPQT01k7tfgWwxrjoMwK4JQbsIi8b2R2sOvj/RkBGD5wZ88TLtmxICZyP4=
+Received: from PH8PR20CA0016.namprd20.prod.outlook.com (2603:10b6:510:23c::20)
+ by MN2PR10MB4351.namprd10.prod.outlook.com (2603:10b6:208:1d7::23) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.25; Mon, 10 Aug
- 2026 15:16:08 +0000
-Received: from CO1PEPF00012E7D.namprd03.prod.outlook.com
- (2603:10b6:a03:1d0:cafe::5a) by BY5PR04CA0013.outlook.office365.com
- (2603:10b6:a03:1d0::23) with Microsoft SMTP Server (version=TLS1_3,
+ 2026 15:16:22 +0000
+Received: from SA2PEPF000015CA.namprd03.prod.outlook.com
+ (2603:10b6:510:23c:cafe::67) by PH8PR20CA0016.outlook.office365.com
+ (2603:10b6:510:23c::20) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.292.25 via Frontend Transport; Mon,
- 10 Aug 2026 15:16:07 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
+ 10 Aug 2026 15:16:22 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
  smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
  action=none header.from=ti.com;
 Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- CO1PEPF00012E7D.mail.protection.outlook.com (10.167.249.52) with Microsoft
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ SA2PEPF000015CA.mail.protection.outlook.com (10.167.241.200) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.315.6 via Frontend Transport; Mon, 10 Aug 2026 15:16:06 +0000
-Received: from DFLE202.ent.ti.com (10.64.6.60) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
+ 15.21.315.6 via Frontend Transport; Mon, 10 Aug 2026 15:16:21 +0000
+Received: from DFLE212.ent.ti.com (10.64.6.70) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Mon, 10 Aug
- 2026 10:15:53 -0500
-Received: from DFLE204.ent.ti.com (10.64.6.62) by DFLE202.ent.ti.com
- (10.64.6.60) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 10:15:57 -0500
+Received: from DFLE207.ent.ti.com (10.64.6.65) by DFLE212.ent.ti.com
+ (10.64.6.70) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Mon, 10 Aug
- 2026 10:15:52 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE204.ent.ti.com
- (10.64.6.62) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 10:15:57 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE207.ent.ti.com
+ (10.64.6.65) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Mon, 10 Aug 2026 10:15:52 -0500
+ Transport; Mon, 10 Aug 2026 10:15:57 -0500
 Received: from uda0498651.dhcp.ti.com (uda0498651.dhcp.ti.com [10.24.51.254])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 67AFERWD2648613;
-	Mon, 10 Aug 2026 10:15:48 -0500
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 67AFERWE2648613;
+	Mon, 10 Aug 2026 10:15:53 -0500
 From: Sai Sree Kartheek Adivi <s-adivi@ti.com>
 To: <peter.ujfalusi@gmail.com>, <vigneshr@ti.com>, <vkoul@kernel.org>,
         <Frank.Li@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
@@ -102,9 +102,9 @@ To: <peter.ujfalusi@gmail.com>, <vigneshr@ti.com>, <vkoul@kernel.org>,
         <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
         <linux-arm-kernel@lists.infradead.org>, <r-sharma3@ti.com>,
         <gehariprasath@ti.com>
-Subject: [PATCH v8 18/19] dmaengine: ti: k3-udma-v2: Update glue layer to support PKTDMA V2
-Date: Mon, 10 Aug 2026 20:44:12 +0530
-Message-ID: <20260810151423.1948224-19-s-adivi@ti.com>
+Subject: [PATCH v8 19/19] dmaengine: ti: k3-udma: Validate resource ID and fix logging in reservation
+Date: Mon, 10 Aug 2026 20:44:13 +0530
+Message-ID: <20260810151423.1948224-20-s-adivi@ti.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260810151423.1948224-1-s-adivi@ti.com>
 References: <20260810151423.1948224-1-s-adivi@ti.com>
@@ -114,56 +114,55 @@ Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF00012E7D:EE_|CY8PR10MB6635:EE_
-X-MS-Office365-Filtering-Correlation-Id: 616cf7a4-5e0a-4de2-746e-08def6f24d0e
+X-MS-TrafficTypeDiagnostic: SA2PEPF000015CA:EE_|MN2PR10MB4351:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0fa6c26c-40b0-432e-46e7-08def6f255aa
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|7416014|1800799024|82310400026|23010399003|22082099003|18002099003|921020|10067099003|56012099006|6133799003|3023799007;
-X-Microsoft-Antispam-Message-Info: h91b/O2vreYUNqwp+15kPXuqbU68rs6qaEUtzc3Mk4pWer1qopXHAAnZ8kuvMu9Kc299+wqGchZOcYZ7yaL8ojlr9/Ljy3TfkLl7eL6lKm/t/1FaQlNIDCafSlRyfWU3Whuc1/PpOIEg9vk2dJHurjl02VflRCOpMLbqywXTnephzyCbUZ/Jf7TCQtDV/CiPD5+RF6Q9UpPYXgSjmzQOqK5RMXdWWjeS19/MwfJF5a+CoWOrQo4Ti6VmTvdyyqchXJcYoYykBADW4KWTSm/a32RgufkcoUbTkl5SW4UKqE1jqwqVgbgGXOYuHgxq/Lf3/r8PLBncXyRSfIMHoMaETHGYGR8g9g5nTJd/BitZgfh20MrkdgQIv/evwtIKXQLAcbPM7ZLSbhX+moqWmkx12jByzeqk7dFf0g4rxqfA+Mw/UA+tYYipEmsCkQRvO3a0QENDeOFMdeM2H/fMzSEpe33u7B98BSsIBNEwBG324csFL3a8MUTQ5iAvqKh21rtWodqAkGfxVU9XknQ2jaNbejdZnTGuVEQLcncF5AfSW/FEeIx9HddRJHcxmdiHLl8Lce/N1pa4VC5hJZVlRhgFA+r6/VozzwqN2pQ1tjt9OfKchbrl2CPJwRSoPdW0GJ1jKeM3y80GpO0T0+zhHoBX/BiY0OlpwAv67wVIb6ZJpeGd+rEnBh1nmeIQIuW6RCmh
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700016)(376014)(7416014)(1800799024)(82310400026)(23010399003)(22082099003)(18002099003)(921020)(10067099003)(56012099006)(6133799003)(3023799007);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|23010399003|82310400026|36860700016|921020|22082099003|18002099003|56012099006|10067099003;
+X-Microsoft-Antispam-Message-Info: CTwSQzPVXIeQrMkxEwyEoAGhymTOziD4Y5sX7/ajOeoPA0OWykXoxnbGx867vLx9xSqseAqQ9QwSCNw26k9HrOGLDYRPMlA2JFDyAqlQt7EkYAUmwLpPKyfLeKnhXSeHJ5uiuzSe0ER2CqYqDd+TJxXq4OxMU9zZ3FwFHL4haH3hXYJydc7tF5TObUtNohzC9O+ld3JKiWp5s7c5TtTtG6geCCMl2vDFHYTvXg1362beWepc04x6e0Se/3yiF22UtzQeJyeJ44s0leZqx5md5Dzf0BejygPCYyTnO4yZOTPSPMGoW0B662Oo6Q6MCN4wn2oEZEGPFy3cCBKxqGZ3AovBl0GL8GGNrZhehU37M1GxBitTXfGbU0r10gjrxdSEyLYg//iC0GwrAD6z7uvTz18OInu6SBp7EIEGvZUYBANofocGKQ8ShBb7hThGETeJbTN2sYpqZH2x7eGCDXqJH8CWnq6Bzu3/Vq/Kj6Wkww+AYcGOPSkRydO+worN97VwQtCVe+Bl0WQ/cpuy8gnWNbOPJ+jVTH+dlovT/xZLzF5FalMS6zVJsdAqfNIFAleAN8u/g9pFosiRHr920r8xmIPGAG/jBmOOUJ42qYHL5iNw+wnD3GNSn5TILkH+nfOComwv97N6wexuM2ZWUyGARWd4M0M8vJvxhGXsHCMdzGIJE1y3PAyvaazg/8byXQqr7hopOjSn57wqL71+X7Xn0p3vnhcwP+2YoNCMymyL8pPVrM2GPtfD60/l3XiMiMoN
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(23010399003)(82310400026)(36860700016)(921020)(22082099003)(18002099003)(56012099006)(10067099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 5LacvCgHGBEiLEIFMEb45A4f7mBNwsGv8czYh+QY3Dnx5uR2kPA2mOxL18npbU1WvTu0awKEjH2hfsoYEPYjbyd9mhUX8EMhD2JQYKKv4fOsTcKOpfEU2wAqj63TTwYqFhKAvv98oGt8HiJftL2/YwI8MabHqWts45pYZeTmiRHS0hI8AernrGFGzMgGB1cl8j1tRbnviX0ZR20NinDmJWwXqzto+n5WByfZcNUfDx1gG0QOPQvWIS/uYj+T7wfmSHagQUkE2gze3yKNNicJ4aBPTRx9P6+Qca5ILLr/bqgB5X/2WVgQmJ3YfWQXigDeLpPC5FEcciVYUoMOSmbz6Z+TUvCfi0cPts8ovbag9OzViDsdkb9t7uixQ+NtaJU3M5v87aVcyuf9shy1iFgXD3TYsHObwfLaN9NsC+6R10XyGMfBcIlTPr6KCfmCoout
-X-Exchange-RoutingPolicyChecked: cQIoCxsraEiV2CVcrTjeLbPwFQ1aoyCZ1pRxaFvO+Dr/aS4jLdqTFWVk09D7QC4HNDm+hV4b2zPxafypP+y3LVXQ17jh8cXvvGhhEKkfT/8sS9X+py96SysPNRNUSyITJ6a/Rz5E9jDYSqPCwR06JW+EB1DD6DcJ1oAb7EI1Xks+fmvb8hwuTEA7NbQQuNYf3BN39pj2FK1B6J5gTt/0z0ZaCDniy1UAkXsG/dUbLFErHae+C1BQ7XfqWxchMbde5rpEtAiLgS9MSXbe3/v2Pcn/anCXKKt/9u3KpCRcVIU1HoHnJkrfEDVXCz37zbKVa93gyUpdPKa5T93uiRQXrg==
+X-MS-Exchange-AntiSpam-MessageData-0: sSw0w7wSBm5B6PF2xcAh4cx0HqQ90Q4/ljtPYbQ/CIWU8ofx+DOWdWIk7oCADTCBAEZHfkGCIrJzcYNvR7XmfeQPeM4JvWg7JxEakNJU+KOyvJTb3kiFhQtZzcmsZTiyPENTW+AGKbdAOVkOU/YixaV87z16b1Xfh6ufKHjeBtOEGkZSJSq82AegGcgPjIPErmrpVDOJjerzgxF35HBbwWGG9YQrX5uq1ZggyyGplW1PHm/qzoVihx1+SQ86LYiO9FiPY6CV+YIh8gmQU39mtmPLJaHWhVO8JvhQFjLFSEmLw6aKJKl/Q6+eheuKhVoZphLxtQGk7is2TeFUik00nzhe0C5jQ863d6L+YNmTlJ1mCRjz3JGmSwfH2V63CjCVJ29vQxYBHZ8ZA3MyhTxjPZj5ogXNk7JNgMd2hyiw7WPkfT89u2h1VZjtJxa5QClp
+X-Exchange-RoutingPolicyChecked: NJL26boSp2SUNaQKqFBwDke68Q9w+bCvO7mNV6rHcMI3zgugCC6nyp2Ifldwbgpdj9kfSmWiAs7yzCKoGU7msmjnn0ZVyAPLg+7nRO2BZMGutfJS+wms6LUrkQzi6mwDO/b7kndApK+b81TAAUjIiNh45MQs5fFrFNP33wki/naNCDMCuery/mV8+GWOBqggN47a5u0xXXNcbX6EqA41lZMsrwgqBCH799N9Ls+hmpCbo1aed4U2xlb6OfBEPjIesD/I7qyownmcXm6f6DmHSX9B29oB4AvpDp9+sObFyruDw6+jM08SzUIB36+DOCZUYiFvMYdZ1S8rWvvOmRpoXA==
 X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Aug 2026 15:16:06.7158
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Aug 2026 15:16:21.2182
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 616cf7a4-5e0a-4de2-746e-08def6f24d0e
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0fa6c26c-40b0-432e-46e7-08def6f255aa
 X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF00012E7D.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF000015CA.namprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR10MB6635
-X-Proofpoint-GUID: AQ8yg691oYkcLu-FnxiKkxaS1_Tpw0Qr
-X-Proofpoint-ORIG-GUID: AQ8yg691oYkcLu-FnxiKkxaS1_Tpw0Qr
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODEwMDEzMSBTYWx0ZWRfX6jDNqMPUDqI9
- eCKMi85MF6m2+YXYHr0zGiJ0j8DDSgRPMaunzMHcLQEYJuUb+6S2xdpOk1OAFevX6BFxHoVy6ZR
- CKLkZWnIQg1CqufKsL/pO7KMINf65pSnHHdUsaNsFWTc92ZBa0lddKs4aNomuv8/f8X+EbcSZ17
- WMk8DkIs2daD/W0sV3rx/K8Bf7ZY0WQmvs0oloLUzl4I1KDbenHfLXkuRNYzWO9Gb/WtDjU0Ifs
- KfA+RhpiDWCGwaWVfLzOVrJ0cAd0tIuBC2gMR1mtFcmT7CtdcDbSgEp1uczqAS2XKakiGvZqyFq
- fPw81bm5Cq7RDpJ5s6FEE406mBUC+ZBhF7gzrQyQn6lpHPV0Cp1ye4PIjEuK0Mop+JV+iMD+wlB
- VXwiufNpHsPrytR7rDdl0w3GL2v+4YTs8O+4IaivSAzidiJDQAhAhJjG9f9OdtxyGbf1wlv42q3
- BSMYm3tbhYkHCF1MLYw==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODEwMDEzMSBTYWx0ZWRfX3ZeNKLrm1l2s
- F9Qg6Oz+ytFV9bI8YUpY0sTw3y8/uoBplf9/jEGEyprb+FpUGPApC5lTCyJShfZywpk5ptX0ZoQ
- DIy+zJdvD4+XyCr9VPALyrDoAPrcePM=
-X-Authority-Analysis: v=2.4 cv=F8FnsKhN c=1 sm=1 tr=0 ts=6a79eb43 cx=c_pps
- a=MTA8SzjkfSP6DqtUeP+PaQ==:117 a=tJyPKKxUohctrY4NYmUjkA==:17
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR10MB4351
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODEwMDEzMSBTYWx0ZWRfX87Z0IHx4TXpw
+ z2H4f9ecsvDovmnboYckaOMEol5jcPenLaSw6WwC6tD1bzfvaSsyfO85MYNS2SSCC1JMxP4qr4s
+ MeSlJH+Km4vPg8ihdbYXdHS8BJ/fOv5HcorcRCpDxoDEbsDG6KeG5JzG2aMPXWJTMd6zFBqU0bm
+ U9x5RGzCoylVr9rUA86L3aGbJnbnQIrfd9W3cD+QGhRPyowtXgxpbjnMyLsaqGaHE5PtWkqCc4k
+ xliBB0TFDMJndzrzBhvdfa0+a/ZG3BODpS+osxBmYbivdITknu8If7MJiVSM2j8iFzebGyNxPO9
+ 80TvhonLc2yExyRl/WBBsWnoNpvOwU5HNRXypnPJQL8HXJ9aY16XH03xxUe10AksXs4KyvDaHUY
+ OZDinD99ULFJv5SQX14yLRWMfsiy1NMUcaHE8kyZWxOYm3s1HIez/wqh6F6fkBhfObxqgyAYqAC
+ oVdrFA3f61YKnWiMOrg==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODEwMDEzMSBTYWx0ZWRfX2715e5Jn6qGI
+ gkQzqisLLuc+PiaYzfWfcMl77vfHo0WPm4VGpbWCwUeQ+wwpkqTNUFcNdhYgZbgKi7gyu+Yi4zF
+ F708EVxlTlATJWpiMXL+K4bgTmyFquU=
+X-Proofpoint-GUID: O4n0KBZ8Yirb3zNi5JwQqOJcLVxqnEom
+X-Proofpoint-ORIG-GUID: O4n0KBZ8Yirb3zNi5JwQqOJcLVxqnEom
+X-Authority-Analysis: v=2.4 cv=F85nsKhN c=1 sm=1 tr=0 ts=6a79eb48 cx=c_pps
+ a=Whz0XdwTh4CxRjET/SubaQ==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
  a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=Sv0fKeRqtYgA:10 a=V5UXEbMT0ywA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22 a=gO1vWkAQAl3rybz1DQOp:22
- a=sozttTNsAAAA:8 a=4Ig8warNfptl5lTuD7MA:9
+ a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22 a=taLDd7a_hP9WKsMzeGRc:22
+ a=sozttTNsAAAA:8 a=awo6gdX1Wv1SqJAOH5YA:9
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-08-10_03,2026-08-07_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 malwarescore=0 lowpriorityscore=0 suspectscore=0
- priorityscore=1501 phishscore=0 clxscore=1015 spamscore=0 bulkscore=0
- impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2608100131
+ phishscore=0 lowpriorityscore=0 suspectscore=0 spamscore=0 adultscore=0
+ impostorscore=0 bulkscore=0 malwarescore=0 clxscore=1015 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608100131
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_081624_512742_58C08F91 
-X-CRM114-Status: GOOD (  17.93  )
+X-CRM114-CacheID: sfid-20260810_081627_116814_A0083346 
+X-CRM114-Status: GOOD (  15.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,403 +177,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update glue layer to support PKTDMA V2 for non DMAengine users.
+The `__udma_reserve_##res` macro currently lacks a bounds check for
+the provided `id`. If a caller passes an ID exceeding the resource
+count (`ud->res##_cnt`), `test_bit()` performs an out-of-bounds
+memory access on the bitmap.
 
-The updates include
-- Handling absence of TISCI
-- Direct IRQs
-- Autopair: Lack of PSIL pair.
+Additionally, the macro returns `-ENOENT` when a resource is already
+in use, which is semantically incorrect. The logging logic is also
+broken, printing the literal "res##<id>" instead of the resource
+name.
+
+Update the macro to:
+1. Validate `id` against `ud->res##_cnt` and return `-EINVAL` if out
+   of bounds.
+2. Return `-EBUSY` instead of `-ENOENT` when a resource is already
+   reserved, correctly reflecting the resource state.
+3. Use the stringification operator `#res` to correctly print the
+   resource name (e.g., "tchan") in error messages.
 
 Signed-off-by: Sai Sree Kartheek Adivi <s-adivi@ti.com>
 ---
- drivers/dma/ti/Kconfig           |   2 +-
- drivers/dma/ti/k3-udma-glue.c    | 182 ++++++++++++++++++++++++-------
- drivers/dma/ti/k3-udma-private.c |  15 +++
- drivers/dma/ti/k3-udma.h         |  10 ++
- 4 files changed, 168 insertions(+), 41 deletions(-)
+ drivers/dma/ti/k3-udma-common.c | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/dma/ti/Kconfig b/drivers/dma/ti/Kconfig
-index 40713bd1e8e9b..ada2ea8aca4b0 100644
---- a/drivers/dma/ti/Kconfig
-+++ b/drivers/dma/ti/Kconfig
-@@ -68,7 +68,7 @@ config TI_K3_UDMA_COMMON
- config TI_K3_UDMA_GLUE_LAYER
- 	tristate "Texas Instruments UDMA Glue layer for non DMAengine users"
- 	depends on ARCH_K3 || COMPILE_TEST
--	depends on TI_K3_UDMA
-+	depends on TI_K3_UDMA || TI_K3_UDMA_V2
- 	help
- 	  Say y here to support the K3 NAVSS DMA glue interface
- 	  If unsure, say N.
-diff --git a/drivers/dma/ti/k3-udma-glue.c b/drivers/dma/ti/k3-udma-glue.c
-index bec4deb480e60..9b9921e904bc2 100644
---- a/drivers/dma/ti/k3-udma-glue.c
-+++ b/drivers/dma/ti/k3-udma-glue.c
-@@ -12,6 +12,7 @@
- #include <linux/dma-mapping.h>
- #include <linux/io.h>
- #include <linux/init.h>
-+#include <linux/iopoll.h>
- #include <linux/of.h>
- #include <linux/platform_device.h>
- #include <linux/soc/ti/k3-ringacc.h>
-@@ -267,6 +268,19 @@ static int k3_udma_glue_cfg_tx_chn(struct k3_udma_glue_tx_channel *tx_chn)
- 	const struct udma_tisci_rm *tisci_rm = tx_chn->common.tisci_rm;
- 	struct ti_sci_msg_rm_udmap_tx_ch_cfg req;
- 
-+	if (!tisci_rm->tisci) {
-+		u32 val = 0;
-+
-+		if (tx_chn->tx_filt_einfo)
-+			val |= UDMA_CHAN_CFG_FILT_EINFO;
-+		if (tx_chn->tx_filt_pswords)
-+			val |= UDMA_CHAN_CFG_FILT_PSWORDS;
-+
-+		xudma_tchanrt_write(tx_chn->udma_tchanx, UDMA_CHAN_RT_CFG_REG, val);
-+
-+		return 0;
-+	}
-+
- 	memset(&req, 0, sizeof(req));
- 
- 	req.valid_params = TI_SCI_MSG_VALUE_RM_UDMAP_CH_PAUSE_ON_ERR_VALID |
-@@ -525,21 +539,38 @@ int k3_udma_glue_enable_tx_chn(struct k3_udma_glue_tx_channel *tx_chn)
- {
- 	int ret;
- 
--	ret = xudma_navss_psil_pair(tx_chn->common.udmax,
--				    tx_chn->common.src_thread,
--				    tx_chn->common.dst_thread);
--	if (ret) {
--		dev_err(tx_chn->common.dev, "PSI-L request err %d\n", ret);
--		return ret;
--	}
-+	if (tx_chn->common.udmax->match_data->version == K3_UDMA_V1) {
-+		ret = xudma_navss_psil_pair(tx_chn->common.udmax,
-+					    tx_chn->common.src_thread,
-+					    tx_chn->common.dst_thread);
-+		if (ret) {
-+			dev_err(tx_chn->common.dev, "PSI-L request err %d\n", ret);
-+			return ret;
-+		}
- 
--	tx_chn->psil_paired = true;
-+		tx_chn->psil_paired = true;
- 
--	xudma_tchanrt_write(tx_chn->udma_tchanx, UDMA_CHAN_RT_PEER_RT_EN_REG,
--			    UDMA_PEER_RT_EN_ENABLE);
-+		xudma_tchanrt_write(tx_chn->udma_tchanx, UDMA_CHAN_RT_PEER_RT_EN_REG,
-+				    UDMA_PEER_RT_EN_ENABLE);
- 
--	xudma_tchanrt_write(tx_chn->udma_tchanx, UDMA_CHAN_RT_CTL_REG,
--			    UDMA_CHAN_RT_CTL_EN);
-+		xudma_tchanrt_write(tx_chn->udma_tchanx, UDMA_CHAN_RT_CTL_REG,
-+				    UDMA_CHAN_RT_CTL_EN);
-+	} else {
-+		u32 val;
-+
-+		xudma_tchanrt_write(tx_chn->udma_tchanx, UDMA_CHAN_RT_CTL_REG,
-+				    UDMA_CHAN_RT_CTL_AUTOPAIR | UDMA_CHAN_RT_CTL_EN);
-+
-+		ret = read_poll_timeout(xudma_tchanrt_read, val,
-+					val & (UDMA_CHAN_RT_CTL_PAIR_COMPLETE |
-+					       UDMA_CHAN_RT_CTL_PAIR_TIMEOUT),
-+					100, 500, false,
-+					tx_chn->udma_tchanx, UDMA_CHAN_RT_CTL_REG);
-+		if (ret || (val & UDMA_CHAN_RT_CTL_PAIR_TIMEOUT)) {
-+			dev_err(tx_chn->common.dev, "TX channel autopair timeout\n");
-+			return -ETIMEDOUT;
-+		}
-+	}
- 
- 	k3_udma_glue_dump_tx_rt_chn(tx_chn, "txchn en");
- 	return 0;
-@@ -573,8 +604,16 @@ void k3_udma_glue_tdown_tx_chn(struct k3_udma_glue_tx_channel *tx_chn,
- 
- 	k3_udma_glue_dump_tx_rt_chn(tx_chn, "txchn tdown1");
- 
--	xudma_tchanrt_write(tx_chn->udma_tchanx, UDMA_CHAN_RT_CTL_REG,
--			    UDMA_CHAN_RT_CTL_EN | UDMA_CHAN_RT_CTL_TDOWN);
-+	if (tx_chn->common.udmax->match_data->version == K3_UDMA_V1) {
-+		xudma_tchanrt_write(tx_chn->udma_tchanx, UDMA_CHAN_RT_CTL_REG,
-+				    UDMA_CHAN_RT_CTL_EN | UDMA_CHAN_RT_CTL_TDOWN);
-+	} else {
-+		val = xudma_tchanrt_read(tx_chn->udma_tchanx, UDMA_CHAN_RT_CTL_REG);
-+		xudma_tchanrt_write(tx_chn->udma_tchanx, UDMA_CHAN_RT_CTL_REG,
-+				    val | UDMA_CHAN_RT_CTL_TDOWN);
-+		xudma_tchanrt_write(tx_chn->udma_tchanx, UDMA_CHAN_RT_PEER_REG(8),
-+				    UDMA_CHAN_RT_PEER_REG8_FLUSH);
-+	}
- 
- 	val = xudma_tchanrt_read(tx_chn->udma_tchanx, UDMA_CHAN_RT_CTL_REG);
- 
-@@ -589,10 +628,12 @@ void k3_udma_glue_tdown_tx_chn(struct k3_udma_glue_tx_channel *tx_chn,
- 		i++;
- 	}
- 
--	val = xudma_tchanrt_read(tx_chn->udma_tchanx,
--				 UDMA_CHAN_RT_PEER_RT_EN_REG);
--	if (sync && (val & UDMA_PEER_RT_EN_ENABLE))
--		dev_err(tx_chn->common.dev, "TX tdown peer not stopped\n");
-+	if (tx_chn->common.udmax->match_data->version == K3_UDMA_V1) {
-+		val = xudma_tchanrt_read(tx_chn->udma_tchanx,
-+					 UDMA_CHAN_RT_PEER_RT_EN_REG);
-+		if (sync && (val & UDMA_PEER_RT_EN_ENABLE))
-+			dev_err(tx_chn->common.dev, "TX tdown peer not stopped\n");
-+	}
- 	k3_udma_glue_dump_tx_rt_chn(tx_chn, "txchn tdown2");
- }
- EXPORT_SYMBOL_GPL(k3_udma_glue_tdown_tx_chn);
-@@ -705,7 +746,6 @@ static int k3_udma_glue_cfg_rx_chn(struct k3_udma_glue_rx_channel *rx_chn)
- 			   TI_SCI_MSG_VALUE_RM_UDMAP_CH_CHAN_TYPE_VALID |
- 			   TI_SCI_MSG_VALUE_RM_UDMAP_CH_ATYPE_VALID;
- 
--	req.nav_id = tisci_rm->tisci_dev_id;
- 	req.index = rx_chn->udma_rchan_id;
- 	req.rx_fetch_size = rx_chn->common.hdesc_size >> 2;
- 	/*
-@@ -725,11 +765,24 @@ static int k3_udma_glue_cfg_rx_chn(struct k3_udma_glue_rx_channel *rx_chn)
- 	req.rx_chan_type = TI_SCI_RM_UDMAP_CHAN_TYPE_PKT_PBRR;
- 	req.rx_atype = rx_chn->common.atype_asel;
- 
-+	if (!tisci_rm->tisci) {
-+		u32 val = 0;
-+
-+		if (rx_chn->common.epib)
-+			val |= UDMA_CHAN_CFG_FILT_EINFO;
-+		if (rx_chn->common.psdata_size)
-+			val |= UDMA_CHAN_CFG_FILT_PSWORDS;
-+
-+		xudma_rchanrt_write(rx_chn->udma_rchanx, UDMA_CHAN_RT_CFG_REG, val);
-+
-+		return 0;
-+	}
-+
-+	req.nav_id = tisci_rm->tisci_dev_id;
- 	ret = tisci_rm->tisci_udmap_ops->rx_ch_cfg(tisci_rm->tisci, &req);
- 	if (ret)
- 		dev_err(rx_chn->common.dev, "rchan%d cfg failed %d\n",
--			rx_chn->udma_rchan_id, ret);
--
-+				rx_chn->udma_rchan_id, ret);
- 	return ret;
- }
- 
-@@ -778,8 +831,11 @@ static int k3_udma_glue_cfg_rx_flow(struct k3_udma_glue_rx_channel *rx_chn,
- 	}
- 
- 	if (xudma_is_pktdma(rx_chn->common.udmax)) {
--		rx_ringfdq_id = flow->udma_rflow_id +
-+		if (tisci_rm->tisci)
-+			rx_ringfdq_id = flow->udma_rflow_id +
- 				xudma_get_rflow_ring_offset(rx_chn->common.udmax);
-+		else
-+			rx_ringfdq_id = flow->udma_rflow_id;
- 		rx_ring_id = 0;
- 	} else {
- 		rx_ring_id = flow_cfg->ring_rxq_id;
-@@ -826,6 +882,19 @@ static int k3_udma_glue_cfg_rx_flow(struct k3_udma_glue_rx_channel *rx_chn,
- 		rx_ringfdq_id = k3_ringacc_get_ring_id(flow->ringrxfdq);
- 	}
- 
-+	if (!tisci_rm->tisci) {
-+		u32 val = 0;
-+
-+		if (rx_chn->common.epib)
-+			val |= UDMA_FLOWRT_RFA_RX_EINFO_PRESENT;
-+		if (rx_chn->common.psdata_size)
-+			val |= UDMA_FLOWRT_RFA_RX_PSINFO_PRESENT;
-+
-+		xudma_rflowrt_write(flow->udma_rflow, UDMA_RX_FLOWRT_RFA, val);
-+		rx_chn->flows_ready++;
-+		return 0;
-+	}
-+
- 	memset(&req, 0, sizeof(req));
- 
- 	req.valid_params =
-@@ -1330,6 +1399,9 @@ int k3_udma_glue_rx_flow_enable(struct k3_udma_glue_rx_channel *rx_chn,
- 	if (!rx_chn->remote)
- 		return -EINVAL;
- 
-+	if (!tisci_rm->tisci)
-+		return 0;
-+
- 	rx_ring_id = k3_ringacc_get_ring_id(flow->ringrx);
- 	rx_ringfdq_id = k3_ringacc_get_ring_id(flow->ringrxfdq);
- 
-@@ -1371,6 +1443,9 @@ int k3_udma_glue_rx_flow_disable(struct k3_udma_glue_rx_channel *rx_chn,
- 	if (!rx_chn->remote)
- 		return -EINVAL;
- 
-+	if (!tisci_rm->tisci)
-+		return 0;
-+
- 	memset(&req, 0, sizeof(req));
- 	req.valid_params =
- 			TI_SCI_MSG_VALUE_RM_UDMAP_FLOW_DEST_QNUM_VALID |
-@@ -1406,21 +1481,38 @@ int k3_udma_glue_enable_rx_chn(struct k3_udma_glue_rx_channel *rx_chn)
- 	if (rx_chn->flows_ready < rx_chn->flow_num)
- 		return -EINVAL;
- 
--	ret = xudma_navss_psil_pair(rx_chn->common.udmax,
--				    rx_chn->common.src_thread,
--				    rx_chn->common.dst_thread);
--	if (ret) {
--		dev_err(rx_chn->common.dev, "PSI-L request err %d\n", ret);
--		return ret;
--	}
-+	if (rx_chn->common.udmax->match_data->version == K3_UDMA_V1) {
-+		ret = xudma_navss_psil_pair(rx_chn->common.udmax,
-+					    rx_chn->common.src_thread,
-+					    rx_chn->common.dst_thread);
-+		if (ret) {
-+			dev_err(rx_chn->common.dev, "PSI-L request err %d\n", ret);
-+			return ret;
-+		}
- 
--	rx_chn->psil_paired = true;
-+		rx_chn->psil_paired = true;
- 
--	xudma_rchanrt_write(rx_chn->udma_rchanx, UDMA_CHAN_RT_CTL_REG,
--			    UDMA_CHAN_RT_CTL_EN);
-+		xudma_rchanrt_write(rx_chn->udma_rchanx, UDMA_CHAN_RT_CTL_REG,
-+				    UDMA_CHAN_RT_CTL_EN);
- 
--	xudma_rchanrt_write(rx_chn->udma_rchanx, UDMA_CHAN_RT_PEER_RT_EN_REG,
--			    UDMA_PEER_RT_EN_ENABLE);
-+		xudma_rchanrt_write(rx_chn->udma_rchanx, UDMA_CHAN_RT_PEER_RT_EN_REG,
-+				    UDMA_PEER_RT_EN_ENABLE);
-+	} else {
-+		u32 val;
-+
-+		xudma_rchanrt_write(rx_chn->udma_rchanx, UDMA_CHAN_RT_CTL_REG,
-+				    UDMA_CHAN_RT_CTL_AUTOPAIR | UDMA_CHAN_RT_CTL_EN);
-+
-+		ret = read_poll_timeout(xudma_rchanrt_read, val,
-+					val & (UDMA_CHAN_RT_CTL_PAIR_COMPLETE |
-+					       UDMA_CHAN_RT_CTL_PAIR_TIMEOUT),
-+					100, 500, false,
-+					rx_chn->udma_rchanx, UDMA_CHAN_RT_CTL_REG);
-+		if (ret || (val & UDMA_CHAN_RT_CTL_PAIR_TIMEOUT)) {
-+			dev_err(rx_chn->common.dev, "RX channel autopair timeout\n");
-+			return -ETIMEDOUT;
-+		}
-+	}
- 
- 	k3_udma_glue_dump_rx_rt_chn(rx_chn, "rxrt en");
- 	return 0;
-@@ -1457,8 +1549,16 @@ void k3_udma_glue_tdown_rx_chn(struct k3_udma_glue_rx_channel *rx_chn,
- 
- 	k3_udma_glue_dump_rx_rt_chn(rx_chn, "rxrt tdown1");
- 
--	xudma_rchanrt_write(rx_chn->udma_rchanx, UDMA_CHAN_RT_PEER_RT_EN_REG,
--			    UDMA_PEER_RT_EN_ENABLE | UDMA_PEER_RT_EN_TEARDOWN);
-+	if (rx_chn->common.udmax->match_data->version == K3_UDMA_V1) {
-+		xudma_rchanrt_write(rx_chn->udma_rchanx, UDMA_CHAN_RT_PEER_RT_EN_REG,
-+				    UDMA_PEER_RT_EN_ENABLE | UDMA_PEER_RT_EN_TEARDOWN);
-+	} else {
-+		xudma_rchanrt_write(rx_chn->udma_rchanx, UDMA_CHAN_RT_PEER_REG(8),
-+				    UDMA_CHAN_RT_PEER_REG8_FLUSH);
-+		val = xudma_rchanrt_read(rx_chn->udma_rchanx, UDMA_CHAN_RT_CTL_REG);
-+		xudma_rchanrt_write(rx_chn->udma_rchanx, UDMA_CHAN_RT_CTL_REG,
-+				    val | UDMA_CHAN_RT_CTL_TDOWN);
-+	}
- 
- 	val = xudma_rchanrt_read(rx_chn->udma_rchanx, UDMA_CHAN_RT_CTL_REG);
- 
-@@ -1473,10 +1573,12 @@ void k3_udma_glue_tdown_rx_chn(struct k3_udma_glue_rx_channel *rx_chn,
- 		i++;
- 	}
- 
--	val = xudma_rchanrt_read(rx_chn->udma_rchanx,
--				 UDMA_CHAN_RT_PEER_RT_EN_REG);
--	if (sync && (val & UDMA_PEER_RT_EN_ENABLE))
--		dev_err(rx_chn->common.dev, "TX tdown peer not stopped\n");
-+	if (rx_chn->common.udmax->match_data->version == K3_UDMA_V1) {
-+		val = xudma_rchanrt_read(rx_chn->udma_rchanx,
-+					 UDMA_CHAN_RT_PEER_RT_EN_REG);
-+		if (sync && (val & UDMA_PEER_RT_EN_ENABLE))
-+			dev_err(rx_chn->common.dev, "TX tdown peer not stopped\n");
-+	}
- 	k3_udma_glue_dump_rx_rt_chn(rx_chn, "rxrt tdown2");
- }
- EXPORT_SYMBOL_GPL(k3_udma_glue_tdown_rx_chn);
-diff --git a/drivers/dma/ti/k3-udma-private.c b/drivers/dma/ti/k3-udma-private.c
-index 92d44ef9593d1..d6d99f60519a1 100644
---- a/drivers/dma/ti/k3-udma-private.c
-+++ b/drivers/dma/ti/k3-udma-private.c
-@@ -3,6 +3,10 @@
-  *  Copyright (C) 2019 Texas Instruments Incorporated - http://www.ti.com
-  *  Author: Peter Ujfalusi <peter.ujfalusi@ti.com>
-  */
-+#include <linux/irq.h>
-+#include <linux/irqchip.h>
-+#include <linux/irqdomain.h>
-+#include <linux/interrupt.h>
- #include <linux/of.h>
- #include <linux/of_platform.h>
- 
-@@ -165,6 +169,7 @@ void xudma_##res##rt_write(struct udma_##res *p, int reg, u32 val)	\
- EXPORT_SYMBOL(xudma_##res##rt_write)
- XUDMA_RT_IO_FUNCTIONS(tchan);
- XUDMA_RT_IO_FUNCTIONS(rchan);
-+XUDMA_RT_IO_FUNCTIONS(rflow);
- 
- int xudma_is_pktdma(struct udma_dev *ud)
- {
-@@ -174,6 +179,11 @@ EXPORT_SYMBOL(xudma_is_pktdma);
- 
- int xudma_pktdma_tflow_get_irq(struct udma_dev *ud, int udma_tflow_id)
- {
-+	if (ud->match_data->version == K3_UDMA_V1) {
-+		const struct udma_oes_offsets *oes = &ud->soc_data->oes;
-+
-+		return msi_get_virq(ud->dev, udma_tflow_id + oes->pktdma_tchan_flow);
-+	}
- 	struct platform_device *pdev = to_platform_device(ud->dev);
- 	char irq_name[10];
- 
-@@ -184,6 +194,11 @@ EXPORT_SYMBOL(xudma_pktdma_tflow_get_irq);
- 
- int xudma_pktdma_rflow_get_irq(struct udma_dev *ud, int udma_rflow_id)
- {
-+	if (ud->match_data->version == K3_UDMA_V1) {
-+		const struct udma_oes_offsets *oes = &ud->soc_data->oes;
-+
-+		return msi_get_virq(ud->dev, udma_rflow_id + oes->pktdma_rchan_flow);
-+	}
- 	struct platform_device *pdev = to_platform_device(ud->dev);
- 	char irq_name[10];
- 
-diff --git a/drivers/dma/ti/k3-udma.h b/drivers/dma/ti/k3-udma.h
-index 2a9686f7a09bc..aa7425380dbef 100644
---- a/drivers/dma/ti/k3-udma.h
-+++ b/drivers/dma/ti/k3-udma.h
-@@ -85,6 +85,14 @@
- #define UDMA_CHAN_RT_CTL_PAIR_COMPLETE BIT(16)
- #define UDMA_CHAN_RT_CTL_ERROR		BIT(0)
- 
-+/* UDMA_CHAN_CFG_REG */
-+#define UDMA_CHAN_CFG_FILT_EINFO	BIT(30)
-+#define UDMA_CHAN_CFG_FILT_PSWORDS	BIT(29)
-+
-+/* UDMA_RX_FLOWRT_RFA */
-+#define UDMA_FLOWRT_RFA_RX_EINFO_PRESENT	BIT(30)
-+#define UDMA_FLOWRT_RFA_RX_PSINFO_PRESENT	BIT(29)
-+
- /* UDMA_CHAN_RT_PDMA_STATE_REG */
- #define UDMA_CHAN_RT_PDMA_STATE_IN_EVT		BIT(31)
- #define UDMA_CHAN_RT_PDMA_STATE_TDOWN		BIT(30)
-@@ -747,6 +755,8 @@ u32 xudma_rchanrt_read(struct udma_rchan *rchan, int reg);
- void xudma_rchanrt_write(struct udma_rchan *rchan, int reg, u32 val);
- bool xudma_rflow_is_gp(struct udma_dev *ud, int id);
- int xudma_get_rflow_ring_offset(struct udma_dev *ud);
-+u32 xudma_rflowrt_read(struct udma_rflow *rflow, int reg);
-+void xudma_rflowrt_write(struct udma_rflow *rflow, int reg, u32 val);
- 
- int xudma_is_pktdma(struct udma_dev *ud);
- 
+diff --git a/drivers/dma/ti/k3-udma-common.c b/drivers/dma/ti/k3-udma-common.c
+index d5d7158a37f8f..381e1a30c0be7 100644
+--- a/drivers/dma/ti/k3-udma-common.c
++++ b/drivers/dma/ti/k3-udma-common.c
+@@ -2016,9 +2016,14 @@ struct udma_##res *__udma_reserve_##res(struct udma_dev *ud,	\
+ 					       int id)			\
+ {									\
+ 	if (id >= 0) {							\
++		if (id >= ud->res##_cnt) {				\
++			dev_err(ud->dev,				\
++				#res " id %d is out of bounds.\n", id);	\
++			return ERR_PTR(-EINVAL);			\
++		}							\
+ 		if (test_bit(id, ud->res##_map)) {			\
+-			dev_err(ud->dev, "res##%d is in use\n", id);	\
+-			return ERR_PTR(-ENOENT);			\
++			dev_err(ud->dev, #res "%d is in use\n", id);	\
++			return ERR_PTR(-EBUSY);			\
+ 		}							\
+ 	} else {							\
+ 		int start;						\
 -- 
 2.54.0
 
