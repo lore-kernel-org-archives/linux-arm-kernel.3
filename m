@@ -4,83 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46547C5AD55
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 14:04:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18FDFC5AD55
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 14:05:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Em+BQBracOSXwokRIimW6WdMSO/3+8vopQcKAyQpy+Y=; b=u0M8ZlHvtSyMA8asEkOZ8Efa+e
-	6lczrPxRFFKJRubSP5J3+XuykiYU/Oa800DY5mBxN3/Wh1wbn2O+UZnOWfUjPYIKq8UNw8WUsVy8p
-	glBtv60YRAVgxu7ptkbFtYcbYDJgy7Kd/21+pTJQJYJgvh/vwuXiK7j6lqTTRoJmeBq5OIxPWE1lF
-	4I4mcAwtWvUFE5c0lLgUTw5BHGi6GbhzdPSdbz0GqjeXWFFjmM7WOMs1qGqpJXyGQ6x+sTYCQr4PO
-	wG+kpXOibAfZacAAE+nLunMpXI2prXMUWlPyj7GMC+iy1rBVCRonixZzWXiGeeP4V9IcZhg8LU5yh
-	5XqVCjjA==;
+	bh=1SGboSOswdFr4oKFb8b41BIGPchcd0X0BYweRE28Gn4=; b=n28zNzX7Y01btue9JnhT/o7NM1
+	XRHSa6c744hr8gcKE0h5Q5FER87T8cF6avpsZBD3pnBI3nZN6Fo0HMKjPjXG78Ej7e6qr1ef9lVlD
+	L/hZ+AZkS64tsi8yv4evFrVyjHiQz6SP84kzo36maJWPV2zSqDzBiAC0NtWZHdFWpnYWrFbeBPq5W
+	YflAL97FP1KGNkDHY4rSuRMTuhwiaQUafnZ7RvoOGZK+J8jnssyU+vfNuXgKcK+zwDYJkODfKtxcn
+	0kojaQ3cLNCbiHzll0Zsfgtb3RRdp7kYGXN3e145WYgDMjRlS27I5qmuwpwgcSvVjK8001YAtFUjh
+	g/7TYbkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtQbZ-0000000BwsZ-0c3q;
-	Mon, 10 Aug 2026 14:03:53 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wtQdI-0000000Bx5T-1UXi;
+	Mon, 10 Aug 2026 14:05:40 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtQbX-0000000BwsH-3HyH
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 14:03:51 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CAE5240BC0;
-	Mon, 10 Aug 2026 14:03:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB20F1F000E9;
-	Mon, 10 Aug 2026 14:03:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786370627;
-	bh=Em+BQBracOSXwokRIimW6WdMSO/3+8vopQcKAyQpy+Y=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=SWQRkjKPpy6Z7XWCAcAQi4AW/srTp0eWQMuAibTB4MPtBtgKWR4V3WXbolzXHvHHY
-	 QtzWvJ8JO7R1vg2lzPAN8biSEP+74sl7wOqPCccf47NCJfqwDbsfv0dB/56OBNe5vX
-	 eu1ja8fMK5ScNpW/ARrrLswNrpJcvolKzVq2UHmXZmtiiCI3HmoyLh5v5aArKDYdbA
-	 Tqvp5deUdQLGmhcizGzCp3y5laEpx9ydGOkrgzcE1L/NPbbZXJR7PfygMJUlTcXO1O
-	 kg6k/ut045DscaciSP6kwFJYwm8vVSQln4AKTXDHZ9ulo4a4NZL5mkJUT/L4UJ1Zw9
-	 QRYfhYK5cOEOg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wtQbR-0000000E8L5-19oa;
-	Mon, 10 Aug 2026 14:03:45 +0000
-Date: Mon, 10 Aug 2026 15:03:44 +0100
-Message-ID: <86tsp2139b.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Karl Mehltretter <kmehltretter@gmail.com>
-Cc: Oliver Upton <oupton@kernel.org>,
-	kvmarm@lists.linux.dev,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Eric Auger <eric.auger@redhat.com>,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [RFC PATCH 1/2] KVM: arm64: vgic-v3: Roll back failed redistributor region setup
-In-Reply-To: <4e00fc25aa61ec52e6ef033a53588ce3f5550982.1786344511.git.kmehltretter@gmail.com>
-References: <cover.1786344511.git.kmehltretter@gmail.com>
-	<4e00fc25aa61ec52e6ef033a53588ce3f5550982.1786344511.git.kmehltretter@gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kmehltretter@gmail.com, oupton@kernel.org, kvmarm@lists.linux.dev, fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, pbonzini@redhat.com, shuah@kernel.org, eric.auger@redhat.com, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1wtQdF-0000000Bx4r-3xn9;
+	Mon, 10 Aug 2026 14:05:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1786370732;
+	bh=3is/7Qz5EMpjjXNHjtJS3LzE2Ultwl4Sfu9h9ip4T0s=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=oiVuW0lT5Of6lm7Z/ZOFbtbkfKJmtmRybLKH5/+JTRZfY5YBjhdCC9fnKBmrSNgp4
+	 /3ttdMNe6ljisIWCM1OWoCOGD+nI1gX64un1PPBrBugd5fWvs3vvPG6yBHzvjAw/0o
+	 he8YPYGU8V6GFNV+EPtpOOulef/iSA8jqy4Y0Afzq+GrSaTyy5dicu1A50bgfdTuOx
+	 pc5xGk35pkbWwdsS89406fqCHac7m/G/1FEEBsPSEXQ2H+jTWttF5sq1g/ihh6/5VI
+	 U0mVpbI4q9HzJETpBZo4WT2hJzndItkoD12pg4Xz3po41ffeKtoPqD/g8k2l1g5ft7
+	 qOJeJ8inm9AoA==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6874D17E080A;
+	Mon, 10 Aug 2026 16:05:30 +0200 (CEST)
+Message-ID: <3cfca6fd11f39c6ce161d5a2e7fb650b2e9289ec.camel@collabora.com>
+Subject: Re: [PATCH] media: rkvdec: fix v4l2-compliance failure
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Tharit Tangkijwanichakul <tharitt97@gmail.com>, Detlev Casanova	
+ <detlev.casanova@collabora.com>, Ezequiel Garcia
+ <ezequiel@vanguardiasur.com.ar>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner
+ <heiko@sntech.de>,  Hans Verkuil <hverkuil+cisco@kernel.org>,
+ linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-kernel-mentees@lists.linux.dev, skhan@linuxfoundation.org, 
+	me@brighamcampbell.com, jkoolstra@xs4all.nl
+Date: Mon, 10 Aug 2026 10:05:29 -0400
+In-Reply-To: <20260730153603.5721-1-tharitt97@gmail.com>
+References: <20260730153603.5721-1-tharitt97@gmail.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-TzX0jms5qUDK0lg++uvs"
+User-Agent: Evolution 3.60.2 (3.60.2-1.fc44) 
+MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260810_070538_139430_1172F9D9 
+X-CRM114-Status: GOOD (  19.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,165 +93,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 10 Aug 2026 07:52:16 +0100,
-Karl Mehltretter <kmehltretter@gmail.com> wrote:
 
-I'm sorry, but I find it difficult understand what you are trying to
-explain here:
+--=-TzX0jms5qUDK0lg++uvs
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-> A later REDIST_REGION attribute can be inserted successfully and then
+Hi,
 
-Later than what?
-
-> fail while registering redistributor iodevs. For example, a region that
-> overlaps the distributor is caught by vgic_v3_check_base() when the first
-> unassigned vCPU is processed.
->
-> The existing rollback unregisters all previously registered
-> redistributor iodevs. It leaves their rd_iodev.base_addr values set, so a
-> corrected retry skips re-registering those stale vCPUs and succeeds with
-> holes in the MMIO bus.
-
-Holes in the MMIO space are the norm. The IPA space can multi-TB
-large, and there is no reason why it'd cover everything (where would
-you place the RAM otherwise?).
-
-Is the problem here that you are left with vcpus that seem to have
-been matched to an RD (base_addr being set), but that really are left
-unconnected?
-
-> 
-> A failure from kvm_io_bus_register_dev() can leave another hole. The
-
-MMIO hole? Coverage hole?
-
-> failing vCPU already has its base address and region assigned, but the
-> old i < c rollback does not include it.
-
-What is "it"?
-
-> 
-> Preserve devices assigned by earlier successful setters. On failure,
-> unregister only vCPUs associated with the newly inserted region, clear
-> their cached base addresses, and free that region. This also includes the
-> current vCPU when iodev registration itself fails.
-
-What I don't see here is an argument explaining that doing this
-doesn't change the guest-visible assignment of RDs, which would be a
-regression.
-
-> 
-> Fixes: c011f4ea106b ("KVM: arm/arm64: Check vcpu redist base before registering an iodev")
-> Assisted-by: Codex:gpt-5.6-sol
-> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+Le jeudi 30 juillet 2026 =C3=A0 15:36 +0000, Tharit Tangkijwanichakul a =C3=
+=A9crit=C2=A0:
+> rkvdec fails v4l2-compliance in two tests related to
+> V4L2_CID_STATELESS_HEVC_SPS. The Control ioctls test reads the control
+> with GET_EXT_CTRLS and writes the same value back; TRY_EXT_CTRLS then
+> returns -EINVAL because the VDPU38x rkvdec_hevc_validate_sps() rejects
+> sps->chroma_format_idc =3D=3D 0, which is the value returned when the
+> control has no default.
+>=20
+> =C2=A0=C2=A0=C2=A0 v4l2-compliance 1.33.0-5491, 64 bits, 64-bit time_t
+> =C2=A0=C2=A0=C2=A0 v4l2-compliance SHA: b32589c51481 2026-07-16 08:51:38
+> =C2=A0=C2=A0=C2=A0 Control ioctls:
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 fail: v4l2-test-controls.cpp(9=
+42):
+> 	try_ext_ctrls returned an error (22)
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 test VIDIOC_G/S/TRY_EXT_CTRLS: FAIL
+> =C2=A0=C2=A0=C2=A0 Buffer ioctls:
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 fail: v4l2-test-buffers.cpp(31=
+02): node->streamon(q.g_type())
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 fail: v4l2-test-buffers.cpp(31=
+57): testBlockingDQBuf(node, m2m_q)
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 test blocking wait: FAIL
+>=20
+> Provide a control default via p_def with chroma_format_idc =3D 1 (4:2:0),
+> which is the only value the VDPU38x SPS validation accepts.
+> This fixes both the Control ioctls and the Buffer ioctls failures.
+>=20
+> Tested on Radxa Rock 5B (RK3588).
+>=20
+> Fixes: c9a59dc2acc7 ("media: rkvdec: Add HEVC support for the VDPU381 var=
+iant")
+> Signed-off-by: Tharit Tangkijwanichakul <tharitt97@gmail.com>
 > ---
->  arch/arm64/kvm/vgic/vgic-mmio-v3.c | 42 ++++++++++++++++++------------
->  1 file changed, 26 insertions(+), 16 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/vgic/vgic-mmio-v3.c b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
-> index 5913a20d83019..832a7fe65984c 100644
-> --- a/arch/arm64/kvm/vgic/vgic-mmio-v3.c
-> +++ b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
-> @@ -841,6 +841,31 @@ void vgic_unregister_redist_iodev(struct kvm_vcpu *vcpu)
->  	kvm_io_bus_unregister_dev(vcpu->kvm, KVM_MMIO_BUS, &rd_dev->dev);
->  }
->  
-> +static void vgic_v3_rollback_redist_region(struct kvm *kvm, u32 index)
-> +{
-> +	struct vgic_redist_region *rdreg;
-> +	struct kvm_vcpu *vcpu;
-> +	unsigned long c;
+> =C2=A0drivers/media/platform/rockchip/rkvdec/rkvdec.c | 5 +++++
+> =C2=A01 file changed, 5 insertions(+)
+>=20
+> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/me=
+dia/platform/rockchip/rkvdec/rkvdec.c
+> index 1d1e9bfef8e9..37603f049788 100644
+> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> @@ -236,6 +236,10 @@ static const struct rkvdec_ctrls rkvdec_hevc_ctrls =
+=3D {
+> =C2=A0	.num_ctrls =3D ARRAY_SIZE(rkvdec_hevc_ctrl_descs),
+> =C2=A0};
+> =C2=A0
+> +static struct v4l2_ctrl_hevc_sps vdpu38x_hevc_sps_default =3D {
+> +	.chroma_format_idc =3D 1,
+> +};
 > +
-> +	lockdep_assert_held(&kvm->slots_lock);
-> +
-> +	rdreg = vgic_v3_rdist_region_from_index(kvm, index);
-> +
-> +	kvm_for_each_vcpu(c, vcpu, kvm) {
-> +		if (vcpu->arch.vgic_cpu.rdreg == rdreg)
-> +			vgic_unregister_redist_iodev(vcpu);
-> +	}
-> +
-> +	guard(mutex)(&kvm->arch.config_lock);
-> +
-> +	kvm_for_each_vcpu(c, vcpu, kvm) {
-> +		if (vcpu->arch.vgic_cpu.rdreg == rdreg)
-> +			vcpu->arch.vgic_cpu.rd_iodev.base_addr = VGIC_ADDR_UNDEF;
-> +	}
-> +
-> +	vgic_v3_free_redist_region(kvm, rdreg);
-> +}
-> +
->  static int vgic_register_all_redist_iodevs(struct kvm *kvm)
->  {
->  	struct kvm_vcpu *vcpu;
-> @@ -855,16 +880,6 @@ static int vgic_register_all_redist_iodevs(struct kvm *kvm)
->  			break;
->  	}
->  
-> -	if (ret) {
-> -		/* The current c failed, so iterate over the previous ones. */
-> -		int i;
-> -
-> -		for (i = 0; i < c; i++) {
-> -			vcpu = kvm_get_vcpu(kvm, i);
-> -			vgic_unregister_redist_iodev(vcpu);
-> -		}
-> -	}
-> -
->  	return ret;
->  }
->  
-> @@ -984,12 +999,7 @@ int vgic_v3_set_redist_base(struct kvm *kvm, u32 index, u64 addr, u32 count)
->  	 */
->  	ret = vgic_register_all_redist_iodevs(kvm);
->  	if (ret) {
-> -		struct vgic_redist_region *rdreg;
-> -
-> -		mutex_lock(&kvm->arch.config_lock);
-> -		rdreg = vgic_v3_rdist_region_from_index(kvm, index);
-> -		vgic_v3_free_redist_region(kvm, rdreg);
-> -		mutex_unlock(&kvm->arch.config_lock);
-> +		vgic_v3_rollback_redist_region(kvm, index);
->  		return ret;
->  	}
->  
+> =C2=A0static const struct rkvdec_ctrl_desc vdpu38x_hevc_ctrl_descs[] =3D =
+{
+> =C2=A0	{
+> =C2=A0		.cfg.id =3D V4L2_CID_STATELESS_HEVC_DECODE_PARAMS,
+> @@ -243,6 +247,7 @@ static const struct rkvdec_ctrl_desc vdpu38x_hevc_ctr=
+l_descs[] =3D {
+> =C2=A0	{
+> =C2=A0		.cfg.id =3D V4L2_CID_STATELESS_HEVC_SPS,
+> =C2=A0		.cfg.ops =3D &rkvdec_ctrl_ops,
+> +		.cfg.p_def.p_hevc_sps =3D &vdpu38x_hevc_sps_default,
 
-Based on what I understand of your earlier description, why isn't this
-as simple as this untested hack:
+Thanks for your patch. Have you considered setting this default in v4l2-com=
+mon
+instead ? Monochrome is rarely supported of implemented in codecs, so setti=
+ng
+the global default to 4:2:0 seems like it would be valid for all drivers.
 
-diff --git a/arch/arm64/kvm/vgic/vgic-mmio-v3.c b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
-index 5913a20d83019..804fcc69cbd48 100644
---- a/arch/arm64/kvm/vgic/vgic-mmio-v3.c
-+++ b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
-@@ -859,7 +859,7 @@ static int vgic_register_all_redist_iodevs(struct kvm *kvm)
- 		/* The current c failed, so iterate over the previous ones. */
- 		int i;
- 
--		for (i = 0; i < c; i++) {
-+		for (i = 0; i <= c; i++) {
- 			vcpu = kvm_get_vcpu(kvm, i);
- 			vgic_unregister_redist_iodev(vcpu);
- 		}
-@@ -960,8 +960,10 @@ void vgic_v3_free_redist_region(struct kvm *kvm, struct vgic_redist_region *rdre
- 
- 	/* Garbage collect the region */
- 	kvm_for_each_vcpu(c, vcpu, kvm) {
--		if (vcpu->arch.vgic_cpu.rdreg == rdreg)
-+		if (vcpu->arch.vgic_cpu.rdreg == rdreg) {
- 			vcpu->arch.vgic_cpu.rdreg = NULL;
-+			vcpu->arch.vgic_cpu.rd_iodev.base_addr = VGIC_ADDR_UNDEF;
-+		}
- 	}
- 
- 	list_del(&rdreg->list);
+Nicolas
 
-I don't mind the cleaning up, but not as part of fixing the issue,
-which has to be as small as possible (think of the backports).
+> =C2=A0	},
+> =C2=A0	{
+> =C2=A0		.cfg.id =3D V4L2_CID_STATELESS_HEVC_PPS,
 
-Thanks,
+--=-TzX0jms5qUDK0lg++uvs
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
 
-	M.
+-----BEGIN PGP SIGNATURE-----
 
--- 
-Without deviation from the norm, progress is not possible.
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCannaqQAKCRDZQZRRKWBy
+9G57AP92mrNZWgsDBwsQ2XuKqcBeRf0Gxt9wn6CCa0p8jJZaggEAtrJ7HoEDXOBa
+hQUTaEu7DxXMJvm07IaizMrkf6mhqgw=
+=XESv
+-----END PGP SIGNATURE-----
+
+--=-TzX0jms5qUDK0lg++uvs--
 
