@@ -4,70 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 739F9C5B567
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 19:41:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABBBBC5AD55
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 19:42:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aQkbAL8gDFRxpXIIle+bm2wnXM0lq6rIv0I7IeHxRts=; b=HJtBtoNVUY+N1HXZXR32pTulYz
-	K9xU3T+wnVspG97Aaaf06tKaPPqXIW/CZAZAe0YjkFnpAUUwrIfNRKv7a6CmfZN3XZV6q9y/KPht6
-	TRVvlbdM6VzuFjO5+84/h+46vT+s/uFFPGyn9eztd/kG0Xi+52shPCyGJqLRG/0Ycn7aLJgu+bM+c
-	x3C90Num3k4Gop0B5UeiLz2NMqH1VAUimBN5Jvsub9y8QDmIa/pig0+SjO7tGlj+61QUbWFmkTrYq
-	UMdT/CFWV8RJymP/nERyyQbLR0Uqn6JfcwLl+uy8eeBaugvohUZCzPJh0idYlqM6h75s4f5no2UrR
-	57s4GVfg==;
+	bh=a/RorDak4AbNVbw/fWC8eA91U4vFHIR3vGa//TAL5kU=; b=gy8SIpajQmnjMvxX6mX8xYkmw9
+	VVZShpAckbZeS6ckKuuObYpY+fYlQQKPKKXSa/LSSIAvjv1wktDajgilgevClIHL5Tsq/Xh/S0iDF
+	mlmPbY9ADBO9InCLOw56x6X3+6bPRAIaS2pbvyslIS2NzORlo3aKvyWzWwg8pgKS63qlKCgP87LN0
+	DwlNF91eJG4lYhnFvMwwRqI5As8UABvBwQtnPzBZpBW3NVsUc2vRjWTLO3zxNc97235D07Jasoehf
+	SODZfZZHUroU/Yb+WKIBPsOGGdwaIfS4TcJJadjw9l+z02SoaNs3SQT5yNGnfWvTwPgCUDKKmEA5H
+	8JM0rjgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtVrn-0000000CllN-1xdm;
-	Mon, 10 Aug 2026 19:40:59 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wtVt9-0000000Clxf-2gbV;
+	Mon, 10 Aug 2026 19:42:23 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtVrm-0000000CllF-24yw
+	id 1wtVt6-0000000ClxY-0ZIH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 19:40:58 +0000
+	Mon, 10 Aug 2026 19:42:20 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 173844140A;
-	Mon, 10 Aug 2026 19:40:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EAF201F000E9;
-	Mon, 10 Aug 2026 19:40:56 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C17E544046
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 19:42:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A912E1F01559
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 19:42:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786390858;
-	bh=aQkbAL8gDFRxpXIIle+bm2wnXM0lq6rIv0I7IeHxRts=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=LOoKrRiYuDgUfvBRlZ4LwZbOfjNQeTCquT58/+SCiWtzUlO7Pm0sAMjtC0i4Chvey
-	 rDhUlVnfXNhfG3oJaRFwr7DOiXl0bJlyyzVAasYb2FdUuRTSLii0fH3dTI8TOF3t0Q
-	 9XqNyxp2KIbMwjtCZ4s9+hvDj0bVXGV5qQ+Hpy/NbPPcW7tZvOGnitOs+YNQ8s95QF
-	 d0nMri9FbdSbVw6Ggqc5RbQ6qKIDDtLJTRFk/BxYqgjhHnniaBNvruhP9SDD2h4USF
-	 8F2RiDbWegBBBDZoS6TPkmVDavKW9k8CZhHRrqXL4Ei2Xi1vUeyPAd9Y++rIcFA0kL
-	 cUqINYnzLeVqw==
-Date: Mon, 10 Aug 2026 12:40:56 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Stanislav Fomichev <sdf.kernel@gmail.com>
-Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@google.com,
- pabeni@redhat.com, anthony.l.nguyen@intel.com,
- przemyslaw.kitszel@intel.com, andrew+netdev@lunn.ch, saeedm@nvidia.com,
- tariqt@nvidia.com, mbloch@nvidia.com, maxime.chevallier@bootlin.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- aleksander.lobakin@intel.com, horms@kernel.org, magnus.karlsson@intel.com,
- maciej.fijalkowski@intel.com, sdf@fomichev.me, ast@kernel.org,
- daniel@iogearbox.net, hawk@kernel.org, john.fastabend@gmail.com,
- alice.kernel@fastmail.im, dtatulea@nvidia.com, witu@nvidia.com,
- martin.lau@kernel.org, yoong.siang.song@intel.com,
- rohan.g.thomas@intel.com, intel-wired-lan@lists.osuosl.org,
- linux-kernel@vger.kernel.org, linux-rdma@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org, leon@kernel.org
-Subject: Re: [PATCH net-next 0/3] xsk: pre-existing AF_XDP TX metadata fixes
- from Sashiko
-Message-ID: <20260810124056.469fc9a4@kernel.org>
-In-Reply-To: <anodof8GsDZHZb-S@devvm7509.cco0.facebook.com>
-References: <20260810184753.135756-1-sdf@fomichev.me>
-	<anodof8GsDZHZb-S@devvm7509.cco0.facebook.com>
+	s=k20260515; t=1786390939;
+	bh=a/RorDak4AbNVbw/fWC8eA91U4vFHIR3vGa//TAL5kU=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=kSLGM9fvZI2I6QdHwXN0GjtPaULcvCw9vClBJvqivQxrdMkxYyJaRVbE3dw9Eg0pk
+	 gV9irYScyYu3xK17ROFreMHuX9kjNrCsAI7rTWmkA8bsJv37uaRG/Q1i91vBEsdUgF
+	 YeOFxPs7saOgvEvi4Zeb+YNk8YhPmK+vMCPBiRYFNUkY4TLRLuxOq4Dc0hZFhhI8e3
+	 tKJkrH7B5676yvOgh5CfKkNSh1T1uN2TG66MEnlhrdm/SUiD7x87+TLkC78ihLb5y4
+	 UiFCyMjEmhKX9kMCNnOdxIEpJLkERQOkYray6+KOiu7troydDHQ8l4Mmgk5yO3hUFK
+	 CuDJ7XTxoQmKQ==
+Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-5aebd52488cso2360666e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 12:42:19 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Rp9nzjjt4sXPrZOOoie7fjAgsRJ2aWiDGS/iYQhcy/bkhO7C+cFeWEUsqAJe1Qwcr50jwgaPdj7/BmIN9EjAjuk@lists.infradead.org
+X-Gm-Message-State: AOJu0YxN2jF9q/GlES6W9L8tzCds66z+KykwOyar0mE8NATgYGDtWDQB
+	ghYwHHq6KXyoOg3Kb1Lfu0YuC6J5PqCTGXAgTKNONjJ3r1YVOSEnA1utS8qWzarKX37E45Iouxd
+	az2BA+Kai8sXcP+iwzDU8aCuIMohgDRw=
+X-Received: by 2002:a05:6512:61a5:b0:5ae:ba8e:2ef2 with SMTP id
+ 2adb3069b0e04-5b3181d3181mr686062e87.51.1786390938286; Mon, 10 Aug 2026
+ 12:42:18 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+References: <20260806-longzhao-upstream-cv75-v2-v2-0-6b09707c5fe9@ambarella.com>
+ <20260806-longzhao-upstream-cv75-v2-v2-7-6b09707c5fe9@ambarella.com>
+ <CAD++jLk0LoOJk=TXin42AL3_z_7eVVkvMnYr1S8090C6A_B+dQ@mail.gmail.com> <DS0PR19MB7925690FD29D578D8AC5D10EDADE2@DS0PR19MB7925.namprd19.prod.outlook.com>
+In-Reply-To: <DS0PR19MB7925690FD29D578D8AC5D10EDADE2@DS0PR19MB7925.namprd19.prod.outlook.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Mon, 10 Aug 2026 21:42:05 +0200
+X-Gmail-Original-Message-ID: <CAD++jLkUPU0eujvWc5Hn1tEu4n451LvkuGGT=j6OfirJENpRgg@mail.gmail.com>
+X-Gm-Features: AUfX_mzNR-BpdsCoy7KeBCm5BOABzsx_ocJuW04mgEWpmksgWM6rzG04G-gloAk
+Message-ID: <CAD++jLkUPU0eujvWc5Hn1tEu4n451LvkuGGT=j6OfirJENpRgg@mail.gmail.com>
+Subject: Re: Re: [PATCH v2 07/10] pinctrl: ambarella: add Ambarella pin controller
+To: Long Zhao <longzhao@ambarella.com>
+Cc: Bartosz Golaszewski <brgl@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>, 
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>, 
+	"linux-serial@vger.kernel.org" <linux-serial@vger.kernel.org>, "soc@lists.linux.dev" <soc@lists.linux.dev>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,13 +91,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 10 Aug 2026 11:52:01 -0700 Stanislav Fomichev wrote:
-> On 08/10, Stanislav Fomichev wrote:
-> > A few fixes to address pre-existing issues from Sashiko review.
-> > 
-> Ooops, this should've been targeted to net tree. Will resend in a few
-> days in case there is any review feedback.
+On Mon, Aug 10, 2026 at 6:02=E2=80=AFAM Long Zhao <longzhao@ambarella.com> =
+wrote:
 
-Please make sure you look at the Clashiko review before you repost.
-Looks like it got kicked off already so let's not waste it.
+> Thanks for the review. I will rework this to reuse the PL061 driver with
+> per-variant register offsets, and evaluate modeling each GPIO bank as a
+> separate DT entity. The duplicated GPIO implementation will be removed.
+
+Thanks Long, I think it will be easier if you break out the pin control
+bindings and driver from the patch series and work on it separately,
+the same with the serial driver at least.
+
+I understand this can be hard to test on the hardware, I usually
+put a few patches "underneath" the b4 cover letter, and then the
+b4 send-email will only send the cover letter and the patches
+on top.
+
+Yours,
+Linus Walleij
 
