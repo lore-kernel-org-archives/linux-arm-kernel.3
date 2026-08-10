@@ -4,93 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F76FC5AD4E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 09:42:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FF0BC5AC82
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 09:45:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YRvZvvHIVpj4XP+Xsbw9vpzce7EuvuetlAXvbhkPlhE=; b=iyN2xNX7O2QI5DemBkCP4t1xH+
-	F5ogMYO+UtclrOiM/a4gCt1v1NAUHFLFlVzOtFWqFdJ1qfuf2i69zsrh+EB1v0uOMy9Z9WMKM5zJd
-	a5GHSPnvMcwSfHDdXdFKkPxqD6j14uHfHWZBsnT12tcMGCnnXZm+AvUIsiy7kIvy213r2EFbmibOZ
-	oEfYpTHIeZFs68DFYfE7RxlPaT0m7bEfuq3d/ok5kYucvgk3hgIyp7ZLsy3ynKGVbtaJ0TvuOK2Ci
-	ID3LZTSqHvj4CAhLac+4fCVPRmtiC1a2Y39ZZtyvjZzVoIUEtkHwMv5jJFSeoUBL2j4y91SICxXyR
-	J6RDqlTg==;
+	bh=lEhjsMWG90vKMNIv0q/NvqRJMIZC5Z2HAc5jYXUw3Vo=; b=Hxkk10VZEEaBxnSEIyMwOBGdD5
+	6Joy5DHd/oerY3NxBtah+zCa5UbdPqHXYWa8hycGNKdaqwBGcAX/Ltkb1LgpcToLnIkvhdBFerryh
+	vk0oihsZu8/i/UM95DbNR2zScm3gC2vOag5Qw9eBK2OgBLiVzJiqtLvvgtyGA8lj1aAQZ3gZNCn5j
+	HguH8S8EpVmjvy4L85eQdHB3dTZ8MpLbOhuocBezodomkU0Xl7k6pdgJUdKs3JUhdULL7gB+dLN8E
+	tP9CQn+Q+s5yEamgviXNkftx4cGPpx0PIQ0lPF4cGA+jhkp9SuI6/lE+7bF6kEPk6DB1iULgUMo0h
+	4c1rmrBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtMWA-0000000BQKu-1Ryl;
-	Mon, 10 Aug 2026 09:42:02 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wtMZN-0000000BQfY-3wup;
+	Mon, 10 Aug 2026 09:45:21 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtMW9-0000000BQKn-3jgk
+	id 1wtMZL-0000000BQep-1zR2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 09:42:01 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6BA3541310;
-	Mon, 10 Aug 2026 09:42:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44CB81F000E9;
-	Mon, 10 Aug 2026 09:42:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786354921;
-	bh=YRvZvvHIVpj4XP+Xsbw9vpzce7EuvuetlAXvbhkPlhE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=lSVpwzjmSuwmAGnmejzEHRj/Qb/ufx9XmA+X48gJ9k9URKIk1fNF0kvhsHA856m9H
-	 gR8O3bXZrso2oTm7UMQ9SWgkZ5YvCF9BesZYdBlupKe0qX16HnXDItJEjQ/mYpBhcK
-	 h7JTBYXdguDPWaNVRzwXyEkzk9p9TtlMQIxn3OaZzKlVud5+QFAmQJkwPC4rXIOOlO
-	 ULjLZ6/q6Dn1NsVinRhzZjiT9cceLzc5YB7YU+RXxPpr2aDEiN0OqdgF9KoLG/1l24
-	 Fsx2VdnAbbEvcG20EMziFhk8HLbdDuSLsnTx745AAiB8CpbH5GkQtFc3yZBg1UEZ+o
-	 BM9Km83rcOMJQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wtMW6-0000000E2IC-3tVB;
-	Mon, 10 Aug 2026 09:41:59 +0000
-Date: Mon, 10 Aug 2026 10:41:51 +0100
-Message-ID: <86wlty1fds.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Kohei Enju <enju.kohei@fujitsu.com>
-Cc: Steven Price <steven.price@arm.com>,
-	kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>,
-	WeiLin.Chang@arm.com,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>
-Subject: Re: [PATCH v16 44/45] KVM: arm64: CCA: Require ICH_HCR_EL2.TDIR for realms
-In-Reply-To: <anlZCIauOq4Lvv0I@FCCLS0092175.localdomain>
-References: <20260803134403.80630-1-steven.price@arm.com>
-	<20260803134403.80630-45-steven.price@arm.com>
-	<anlZCIauOq4Lvv0I@FCCLS0092175.localdomain>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: enju.kohei@fujitsu.com, steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com, WeiLin.Chang@arm.com, lpieralisi@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Mon, 10 Aug 2026 09:45:20 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-38deea72eebso1587473a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 02:45:19 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1786355118; cv=none;
+        d=google.com; s=arc-20260327;
+        b=DDFDsz/o8ukWdl6qFLUHik1Ykd1hysd/3zxPnkRSoJruzv+vCCAtlSbWpBu1P7CDvo
+         LIpqudW/8tr8ypDzsb65fkd4huEZtCymwX7/FCRSvqsxUAUgAEctPkMx1hYJ+siD69XO
+         0PZ0wzn+iERB4Hap4kAkAsYpvZk3+JtQS1EikDMZvqKek9SHcnGeU8hFP+4jMJBBylRV
+         SwNd34FyQQM+kXu/E322irUuATjNjjsRWCMxWDq7NCpSrBai/30rxJaUg9ODt5vVUGfq
+         cjar+Sa85uGfAemWIsEUGAmvwnmv6AqegH4XS6WBXfFuHEiu0qJtFtjxFNFVaObJ4MpJ
+         FzoA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=lEhjsMWG90vKMNIv0q/NvqRJMIZC5Z2HAc5jYXUw3Vo=;
+        fh=1nH4/Fk9AbdLDCiCbqNQW52hcJrdqdb5rxCPqg9SRg0=;
+        b=iCY8elGE+nxHqFfghpPVrDMHpO17ZpccbD626EsMXV0Y03BTEzUOpxc81/yys8Gth7
+         tk9eUJnf0jCdfx9ZsuqYdfK7v5B78UWBMNEXkZfZPf/iDPrg9HioWj++yAlqATK1kDUL
+         tROP+UnSJaaVvHDs1M9obMwySM6QsfbicmLPbLW1zgQ/QtEIzIlclAZFJebd9cg8KXvE
+         Gb3JUFO69icA4old6h2JFgKNxiY+167TlL3RI9Ppb60vRptNG2ZuEF3m9OKotjYz5zRR
+         NpBI/MHFvuodJp/sfDGEb/AmXmKIK/0I92tgm54TgjEzpP82lSzA+SXb0rU1G3RQLLgC
+         KSoA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786355118; x=1786959918; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=lEhjsMWG90vKMNIv0q/NvqRJMIZC5Z2HAc5jYXUw3Vo=;
+        b=p97jRWjCrO0CvpoP7fUZoTypY5tVMEy4cPCmq8bXxdkhmUBHbk9ceitVpvd1Nd0AIx
+         2cZWgWevwCLUyCdNDRQsLkFP/eWX9/V2Iwgrnkrlo2vmTASIC0rsjMG9Gtv2um6GQ2hD
+         mljF3aq6qki1EkU230+GIUuqnxppnjYi1aBlJVIv/E2vrIRTNtS58qG0Q9kDevgaMInb
+         p87aSOXvQ9Aqe6M8xBe5VBLtU/3asFB/hwLOjF/uQtC7z1GWr+m53yWHZ/hyUbFTJ6Ld
+         Oxr++Ex93E79lPw1GQ2dwhb/1kWm41JpgdqZzcH8mKezPu5dZ59G8YF85AQ0euKcjsme
+         W/JQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786355118; x=1786959918;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=lEhjsMWG90vKMNIv0q/NvqRJMIZC5Z2HAc5jYXUw3Vo=;
+        b=eTz9UY25eucHWLGH7Ni7S4hIRCNRuED0qlevecTUAHuUW/gNmdjy6jx3fEc84KgGly
+         lpSutBI4ksxhXxOzMw2hFlJ7Wao+ZDCqa3vfpOXTeK42Cmi1sYMKzK0QV3Tliv7t1XMp
+         TeN6RR8i8E/AMMf28NpKwJ5gPUqKEDNV3JvR0EkOfFR0Ws7k15Y+UaS4hWgoinDHeH9o
+         55ioip2bJU+gnbS16w94Et5riySw5+w0M3h4zwTlWXTZjF2HPEHvI1BwjucVLyqiMV8J
+         OrbD94aumtJ2mCyGyE2XXvshsoZmzKu8l4GXh6ROVNfGdrjegfhTQw7l6Ik1e+8sFx0e
+         Ig4A==
+X-Forwarded-Encrypted: i=1; AHgh+RrNhzVi/VJ4s4gJD1dnd1ZEUQvjZCCuzEEygx5v/eUzwT1t6jGyB26ytJTxaX6JaADkq5dxJLmuoR2rV7e7A8gd@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyp5x0FsUqoc3GpzOTpUZJPi34Nn9D2mNahzv1ShxENgYblyazk
+	5iOx4ppRJqRnhNX864BsrhwXc8E32wz3Cn04wd5sZBGV6YxtNtkRlGj4D6LIatv8JNXTQPihg0d
+	GW3T+SPE9Gn3CeIzPNPLiPaghK3hsTGk=
+X-Gm-Gg: AR+sD13y4VBo880FbRJjhmuxJ+RSc8LXFLKqnvxlpcNnKUHA/L/u1vF/2rF9KRrkrPe
+	PmqS4s9YUqqfn8M8R0+qexFD1t4cRMdIjwoN/LbkrpQD+mD5vlL7dk+0Wl0EjgeulrwnL5nff5F
+	xZubuW4drapmlbhfieu2LIYWW+pVqiqf0V+Oq35FWlceBclRTmyELgjtg68rO5f/sZnustlZWMA
+	URFv67N3JtaRFAeHHrYAAiRUMt/EzjvpsFpnoW0dHA90YX9x+SX1oXfzbymeBcoZ4UnQkp0Rn1P
+	eC8w2iZ49ESMFAGEYvn7++pg1C2QqzCfi9jLtWX0jgKFhjR3/I8St8p2OpoO0IUa69eTbj7nOE1
+	kCaV/ZB0ddK9OAfC1bTqxy54tcL0dFuwcNMiy1v6pRoBudm15W4uixcaT
+X-Received: by 2002:a05:6a20:4309:b0:3c4:48da:8102 with SMTP id
+ adf61e73a8af0-3cbce930129mr18884836637.29.1786355118398; Mon, 10 Aug 2026
+ 02:45:18 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260807081652.38692-1-phucduc.bui@gmail.com> <20260807081652.38692-4-phucduc.bui@gmail.com>
+ <1f26fc28-da13-4ca3-990f-676b53d23630@roeck-us.net> <CAABR9nFy=GD4afdDxzsbp31Sq=smGVFf+HvqsrJKh_FjqdUrJA@mail.gmail.com>
+ <3a9b7b85-e6f8-429a-91df-f674479dee58@roeck-us.net>
+In-Reply-To: <3a9b7b85-e6f8-429a-91df-f674479dee58@roeck-us.net>
+From: Bui Duc Phuc <phucduc.bui@gmail.com>
+Date: Mon, 10 Aug 2026 16:45:07 +0700
+X-Gm-Features: AUfX_mzy3FMnWBW1ZRsEZF6RiTcGKaOh9JEcD_RNAR4jnG-Nka5rge-6f-tSjWo
+Message-ID: <CAABR9nFcitFyS_xZUkreHWp822iVsoEg6ONFwU9JwPaBqm2MTQ@mail.gmail.com>
+Subject: Re: [PATCH 4/4] watchdog: aspeed: Propagate errors from optional IRQ lookup
+To: Guenter Roeck <linux@roeck-us.net>
+Cc: Wim Van Sebroeck <wim@linux-watchdog.org>, Joel Stanley <joel@jms.id.au>, 
+	Andrew Jeffery <andrew@codeconstruct.com.au>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-arm-msm@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-watchdog@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-aspeed@lists.ozlabs.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260810_024519_520215_F40A240D 
+X-CRM114-Status: GOOD (  16.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,92 +122,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 10 Aug 2026 05:58:10 +0100,
-Kohei Enju <enju.kohei@fujitsu.com> wrote:
-> 
-> On 08/03 14:44, Steven Price wrote:
-> > KVM advertises realm support when the RMM is available, and allows
-> > userspace to create a VM with KVM_VM_TYPE_ARM_REALM on that basis.
-> > 
-> > On CPUs that lack ICH_HCR_EL2.TDIR, KVM uses ICH_HCR_EL2.TC for
-> > normal guests so that ICC_DIR_EL1 is still trapped via the common GICv3
-> > CPU interface trap. Realms cannot rely on the normal hyp-side trap
-> > handling for that fallback, so advertising RMI support on such systems
-> > lets userspace create a realm that cannot safely run.
-> > 
-> > Require the finalized ARM64_HAS_ICH_HCR_EL2_TDIR capability when
-> > reporting KVM_CAP_ARM_RMI and when accepting KVM_VM_TYPE_ARM_REALM.
-> > This leaves normal VM creation unchanged on systems that need the TC
-> > workaround.
-> 
-> Hi Steven,
-> 
-> Thanks for your work on upstreaming CCA.
-> 
-> In the v15 discussion [0], you asked whether the system I was testing was a
-> "hacked up test system" or closer to "production hardware", and I said I would
-> share more when the time came. I can now say that this is not a hacked-up test
-> system. At Fujitsu, we have real hardware (FUJITSU-MONAKA) which implements CCA
-> (FEAT_RME) but does not implement FEAT_GICv3_TDIR. The hardware details are as
-> follows:
-> 
->   - GICv4.2 compliant implementation
->   - Supports FEAT_GICv3, FEAT_GICv3p1, FEAT_GICv4, FEAT_GICv4p1, and FEAT_GICv3_NMI
->   - Does not support FEAT_GICv3_LEGACY (deprecated)
->   - Does not support FEAT_GICv3_TDIR (ICH_VTR_EL2.TDS == 0)
-> 
-> For reference, compared with Arm Neoverse V3, the virtual GIC configuration is
-> largely equivalent. The only missing non-deprecated architectural feature is
-> FEAT_GICv3_TDIR.
+Hi Guenter,
 
-A *very* significant difference. Given the cost of trapping between
-R-EL1 and NS-EL2, something as simple as accesses to ICV_PMR_EL1
-result in an extremely expensive trap.
 
-> 
-> The issue I see is that the CCA KVM code currently does not support a
-> configuration (non-TDIR/common-trap) that normal KVM already supports. For
-> normal guests, KVM handles systems without TDIR by using ICH_HCR_EL2.TC and the
-> existing GICv3 CPU interface emulation path. However, Realm guests currently
-> fail because the CCA path bypasses that existing emulation path, as Marc also
-> pointed out in [1].
+Thank you for your feedback.
 
-Plugging CCA in the emulation code will solve the *functional* aspect.
-The performance aspect is still there, unfortunately, and there isn't
-much KVM can do about that.
+> >>> +                     return irq;
+> >>>                if (irq > 0) {
+> >>
+> >> This if () is no longer needed.
+> >>
+> >
+> > If we remove the if (irq > 0) check, irq can be -ENXIO and would be
+> > passed to devm_request_irq().
+> > I see that the irq argument of devm_request_irq() is an unsigned int.
+> > Would it be safe to pass -ENXIO to it in this case?
+> >
+> No, sorry, I was wrong.
+>
 
-> 
-> Also, this is not limited to systems that actually lack TDIR. The same failure
-> can be reproduced on a TDIR-capable system by booting with:
->   kvm-arm.vgic_v3_common_trap=1
+So this means there are no issues with this patch.
+Patches 2 and 3 have already been applied by you.
+I will temporarily resend only patch 1:
+" watchdog: qcom: Propagate errors from optional IRQ lookup "
 
-This is a *debug* option for broken hardware. ThunderX, for
-example. You really are in good company when this bit is set.
-
-> 
-> So it seems that the current CCA KVM implementation does not yet cover a
-> configuration that normal KVM already supports today, rather than this being a
-> limitation of the RMM specification or the underlying hardware.
-> 
-> I've included a patch below which reuses the existing GICv3 early emulation
-> path for Realm sysreg exits. This patch does not add any new vGIC emulation
-> code, and leaves the existing vGIC emulation code unchanged. So I believe this
-> is in line with Marc's request in [1]. With this patch, Realm guests can run
-> when the common CPU interface trap path is enabled.
-> 
-> I tested the exact patch both on our real silicon and on QEMU, and
-> confirmed that all Realm-related tests in kvm-unit-tests-cca passed.
-
-KUTs are unfortunately not something that people run in production. I
-wonder why...
-
-Please run a Linux guest compiled with CONFIG_ARM64_PSEUDO_NMI=y and
-irqchip.gicv3_pseudo_nmi=1 on the command line. Run any significant
-workload (hackbench, for example), and report the overhead. This will
-give you the expected impact introduced by the lack of TDIR.
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+Best regards,
+Phuc
 
