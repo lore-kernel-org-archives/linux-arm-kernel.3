@@ -4,63 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 914ABC5AD55
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 11:36:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40B88C5AC82
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 11:37:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WRKK4z+x45IWP0hIqC6+DM+wz3tna9hF8aQoj6Ri1T4=; b=xPGxvKPhyOJcxJAyCRjSxNQUpe
-	TmL8PHbgMKHVjqioPh29khmho+/01w1zWf59a857kb3+32qaq13GdhVcHdBDzUlb8ELvZbpSg51j5
-	3IneQ+eD3FbiKxP5xObdtw8c3Hgc9M8etGl+msGn3dzBMCEwX8brNbMDh1YXdYIB2/wceh4Aij1MM
-	cjewdenGdmjTp6jJoYqSd/njUMhiqFvX89EKpjITF0KCp6RlViZbiMgK2DxnY1QNdpOtVonuhHXcW
-	m2yVQV9VAscp8ubRPD6arUiNMpnW7Uq2rxv8tda1wWZ0r6cGnTiFn2itwfuPMgBsSFVHiMh+my62f
-	LwHZVziQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kV5ZYrj5wE4GOEKRMF/gxoB7LU5gFTUJHkhmU9HyjMA=; b=cdPdvQ7VP4sjCLGEvA9dVgDSCs
+	pkgpMSU6E6fxOs95FboSA2Lym01LAd9/AWllT1ADKasFvZSOWnrn0cGpLvQj5hLB7dt2EfJyx97YQ
+	IaE6yC+HvVCRkYgxsQz0ZPLn/cUYcmjDrJ5koxnVJ3PVWTdV/txtLWp/HcyMHRMYlWi89ef+KsiSe
+	Iu+tviBdbhOzYhS/VjxPUGJWrzWQXYZPCJvG5QHCMyBlRcRh4S0qHWz49Y26uNRQhi1Dhtdgx3a5r
+	RN/zsEiN969Vz3V6ggoHN32AMxEpJ0IyWEvC5XNCGxJer9eOypuLQ1RrrxmYBJO4T2VMzDpM0cBic
+	hlITXITA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtOIr-0000000Bdfs-3oA0;
-	Mon, 10 Aug 2026 11:36:25 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wtOJm-0000000Bdno-0mMJ;
+	Mon, 10 Aug 2026 11:37:22 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtOIq-0000000Bdfk-2Oec
+	id 1wtOJi-0000000Bdlm-3oSG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 11:36:24 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B84C6601DE;
-	Mon, 10 Aug 2026 11:36:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E89E11F000E9;
-	Mon, 10 Aug 2026 11:36:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786361783;
-	bh=WRKK4z+x45IWP0hIqC6+DM+wz3tna9hF8aQoj6Ri1T4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Aa5izIM6VIgu27KQmRZnjVjU4Wg85NXtu3BKTMGn1dYtChL9YDyhSfUjZjKeWBF1+
-	 4Sq+870GQ8kPGYWO29hkeQdI1jDgCSQ24lnop9enazZKIac7ASeCt+0tcWI4jfWHjm
-	 y31WfhEvi5d9mxVkR2nX17Q9DJt27o9IidC4Vc3qCr2xCYoLT9D84vpPU73WO8VgYu
-	 gMTWggE0hKNnTA/TXrGO13c5y8FOtgEVaoZAX4W9ZMXbDlgHO2GCIQdxkoZpIv/uUz
-	 Pa+1jx0q/2R6SjBL4pH/VQqg66KcDBw+bpF8cW2pwr/LsiF2MQ49+lvE6zqkh0kvnt
-	 h8R9c1rHnVBRg==
-Date: Mon, 10 Aug 2026 13:36:18 +0200
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-Cc: "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>, nd <nd@arm.com>,
-	"maz@kernel.org" <maz@kernel.org>,
-	"oupton@kernel.org" <oupton@kernel.org>,
-	Joey Gouly <Joey.Gouly@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>
-Subject: Re: [PATCH 2/5] irqchip/gic-v5: Clear per-CPU IRS data on teardown
-Message-ID: <anm3snqnGHcqUogW@red-moon>
-References: <20260810102652.758719-1-sascha.bischoff@arm.com>
- <20260810102652.758719-3-sascha.bischoff@arm.com>
+	Mon, 10 Aug 2026 11:37:21 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260810113713euoutp016f3f4b77a2df3bfdc305d031c6984c9a~Kbp97gzYA2148921489euoutp01h;
+	Mon, 10 Aug 2026 11:37:13 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260810113713euoutp016f3f4b77a2df3bfdc305d031c6984c9a~Kbp97gzYA2148921489euoutp01h
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1786361833;
+	bh=kV5ZYrj5wE4GOEKRMF/gxoB7LU5gFTUJHkhmU9HyjMA=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=kN3DxXhiV6A32AfRhNBQCO8Y9H3rbjoYrVAP4Y+RwnGiaH2R4moCILniw2BNmc07i
+	 qVDB2xKU0IDVgY36eMntlSkuzEBYinOGgCSE0qA/VEzpbfJWamjWYMHLWeJVGM2Q6c
+	 TT41noYxnIJu2mycFyI4SXwKJL3jDjmL5dWuupLA=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20260810113713eucas1p1b0aa58555e68eca16ad8962462d5afdd~Kbp9wCQhp2359123591eucas1p1b;
+	Mon, 10 Aug 2026 11:37:13 +0000 (GMT)
+Received: from [106.120.50.46] (unknown [106.120.50.46]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20260810113711eusmtip2ac80bb2608e56255c84c347422994fd6~Kbp8OmsY60892908929eusmtip2X;
+	Mon, 10 Aug 2026 11:37:11 +0000 (GMT)
+Message-ID: <28442500-1d53-4776-bae5-459c3ffc1cc6@samsung.com>
+Date: Mon, 10 Aug 2026 13:37:11 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260810102652.758719-3-sascha.bischoff@arm.com>
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH] arm64: swiotlb: Keep the default size for protected
+ guests
+To: Will Deacon <will@kernel.org>, "Aneesh Kumar K.V"
+	<aneesh.kumar@kernel.org>
+Cc: Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>,
+	iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev, Robin Murphy
+	<robin.murphy@arm.com>, Marc Zyngier <maz@kernel.org>, Steven Price
+	<steven.price@arm.com>, Suzuki K Poulose <Suzuki.Poulose@arm.com>, Catalin
+	Marinas <catalin.marinas@arm.com>, Jiri Pirko <jiri@resnulli.us>, Petr
+	Tesarik <ptesarik@suse.com>, Alexey Kardashevskiy <aik@amd.com>, Dan
+	Williams <dan.j.williams@intel.com>, Xu Yilun <yilun.xu@linux.intel.com>,
+	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org, Madhavan
+	Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>, Gerald Schaefer
+	<gerald.schaefer@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>, Vasily
+	Gorbik <gor@linux.ibm.com>, Christian Borntraeger
+	<borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>,
+	x86@kernel.org
+Content-Language: en-US
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <anml6lLRERm1Iv-_@willie-the-truck>
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20260810113713eucas1p1b0aa58555e68eca16ad8962462d5afdd
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20260807182023eucas1p1f653436207b2b00338e99ea1d8f847df
+X-EPHeader: CA
+X-CMS-RootMailID: 20260807182023eucas1p1f653436207b2b00338e99ea1d8f847df
+References: <yq5acxvu2ict.fsf@kernel.org>
+	<anXbJ2O4DWgPxCeg@willie-the-truck> <20260807135810.GA200537@ziepe.ca>
+	<anX7F7dnKOtAOIIe@google.com> <20260807164734.GE200537@ziepe.ca>
+	<anYgXSR4VAi3TpOj@google.com>
+	<CGME20260807182023eucas1p1f653436207b2b00338e99ea1d8f847df@eucas1p1.samsung.com>
+	<20260807182017.GH200537@ziepe.ca>
+	<7d22482f-d5fd-4cf4-9d32-6a54e02f2fbb@samsung.com>
+	<yq5av79iiard.fsf@kernel.org> <anml6lLRERm1Iv-_@willie-the-truck>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260810_043719_541357_1B0A51CF 
+X-CRM114-Status: GOOD (  19.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,84 +105,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 10, 2026 at 10:28:07AM +0000, Sascha Bischoff wrote:
-> IRS affinity setup publishes an IRS pointer and IAFFID state in the
-> per-CPU data before the remaining IRS initialization can fail. The
-> error path then frees the IRS data without clearing that published
-> state, leaving CPUs associated with freed memory.
-> 
-> On initialization failure and normal IRS teardown, clear the per-CPU
-> IRS association by removing the stale pointer to irs_data. Also clear
-> the per-CPU IAFFID state for any CPUs that were tied to the IRS before
-> it was freed.
-> 
-> Fixes: 5cb1b6dab2de ("irqchip/gic-v5: Add GICv5 IRS/SPI support")
-> Fixes: 35866efa52fe ("irqchip/gic-v5: Add ACPI IRS probing")
-> Link: https://sashiko.dev/#/patchset/20260724104819.1296803-1-sascha.bischoff@arm.com?part=2
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> ---
->  drivers/irqchip/irq-gic-v5-irs.c | 16 ++++++++++++++++
->  1 file changed, 16 insertions(+)
+On 10.08.2026 12:20, Will Deacon wrote:
+> On Mon, Aug 10, 2026 at 02:59:42PM +0530, Aneesh Kumar K.V wrote:
+>> Marek Szyprowski <m.szyprowski@samsung.com> writes:
+>>
+>>> On 07.08.2026 20:20, Jason Gunthorpe wrote:
+>>>> On Fri, Aug 07, 2026 at 06:13:49PM +0000, Mostafa Saleh wrote:
+>>>>> But the whole thing is best effort anyway, the kernel picks
+>>>>> IO_TLB_DEFAULT_SIZE which does not depend on the system topology or
+>>>>> how many devices or how much DMA they do.
+>>>>> SWIOTLB memory is wasted if unused so we should be careful around
+>>>>> that as it would be the other way around and users would have to
+>>>>> decrease it manually.
+>>>> Yeah, it is why the arch code shouldn't really be sizing it directly,
+>>>> it should be done in common code and, yes, we are probably going to
+>>>> have to do something alot smarter to have the common code better
+>>>> auto-tune this for the CC case..
+>>> What about the $subject patch? I assume that it is still needed to
+>>>
+>>> restore the behavior that was altered by the "[PATCH v8 00/23]
+>>>
+>>> dma-mapping: Track shared DMA state through direct, pool and swiotlb
+>>>
+>>> paths?" patchset?
+>>>
+>> I would request that we pick this patch to fix the regression described
+>> in https://lore.kernel.org/all/yq5azeyxyfol.fsf@kernel.org/.
+> I really don't think we need it. CCA hardware isn't exactly widespread
+> and the KVM host side patches don't appear close to being merged.
 
-Thank you Sascha, a minor comment below otherwise:
+Does this mean that the branch for-next/coco [1] won't go to v7.3-rc1?
 
-Reviewed-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+I've used it as a base for the mentioned DMA-mapping patchset.
 
-> diff --git a/drivers/irqchip/irq-gic-v5-irs.c b/drivers/irqchip/irq-gic-v5-irs.c
-> index f3fce0b1e25d9..67940ea9e39b7 100644
-> --- a/drivers/irqchip/irq-gic-v5-irs.c
-> +++ b/drivers/irqchip/irq-gic-v5-irs.c
-> @@ -651,6 +651,19 @@ static int __init gicv5_irs_of_init_affinity(struct device_node *node,
->  	return ret;
->  }
->  
-> +static void __init gicv5_irs_clear_affinity(struct gicv5_irs_chip_data *irs_data)
-> +{
-> +	int cpu;
-> +
-> +	for_each_possible_cpu(cpu) {
-> +		if (per_cpu(per_cpu_irs_data, cpu) == irs_data) {
-> +			per_cpu(cpu_iaffid, cpu).iaffid = 0;
 
-As long we set valid to false this is not necessarily needed, 0 is a valid
-value.
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git/log/?h=for-next/coco
 
-Thanks,
-Lorenzo
 
-> +			per_cpu(cpu_iaffid, cpu).valid = false;
-> +			per_cpu(per_cpu_irs_data, cpu) = NULL;
-> +		}
-> +	}
-> +}
-> +
->  static void irs_setup_pri_bits(u32 idr1)
->  {
->  	switch (FIELD_GET(GICV5_IRS_IDR1_PRIORITY_BITS, idr1)) {
-> @@ -773,6 +786,7 @@ static int __init gicv5_irs_of_init(struct device_node *node)
->  	return ret;
->  
->  out_iomem:
-> +	gicv5_irs_clear_affinity(irs_data);
->  	iounmap(irs_base);
->  out_err:
->  	kfree(irs_data);
-> @@ -787,6 +801,7 @@ void __init gicv5_irs_remove(void)
->  	gicv5_deinit_lpis();
->  
->  	list_for_each_entry_safe(irs_data, tmp_data, &irs_nodes, entry) {
-> +		gicv5_irs_clear_affinity(irs_data);
->  		iounmap(irs_data->irs_base);
->  		list_del(&irs_data->entry);
->  		kfree(irs_data);
-> @@ -951,6 +966,7 @@ static int __init gic_acpi_parse_madt_irs(union acpi_subtable_headers *header,
->  	return 0;
->  
->  out_map:
-> +	gicv5_irs_clear_affinity(irs_data);
->  	iounmap(irs_base);
->  out_release:
->  	release_mem_region(r->start, resource_size(r));
-> -- 
-> 2.34.1
+> We have time to fix this properly, rather than papering over it in the
+> arch code.
+>
+> Please consider this a NAK from the arm64 side on this patch.
+
+Best regards
+-- 
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
+
 
