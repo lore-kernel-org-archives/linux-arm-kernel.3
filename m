@@ -4,79 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A49F2C5AD55
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 20:35:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FBCBC5AD55
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 20:52:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5fkRRQESuJogTJbUlw1TtnlKX+cyZWiGY0fHfzIT9Xw=; b=p1bC13eKlBb/l+0QmmDo22H7zF
-	scsdcMzicHLIunGwWTTagMWx+GpPLQ8bf6o8gUSPfaNPMjlqtpqBZuMKGBe/xgMSiFaAVJjJcFJjj
-	kJxg2BQz7IXQr3eOLcP504VHVc25kM3GG2Eqp9NL43ZH0/4DJpkl5CLbK+Zmqdrda1PBVi4q8fFx9
-	pCsG2o/H+hpffx2TDBvFcFl25zAq+wlHG3purIWycUlxe81cPjCwr3JNeRG2zqBF/gmo0aYLf6Zvi
-	zoyQWS+rX/1EYNpKcmckjrkKCvU/LwqPfXFWp18EfLpAM1JG9e+tjjp8WB41pae3GAG0+wvx63Ul5
-	Y03HI0Cw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=F+Z3Z41i2230eM8nS3P2AbkqVw20LCmhhumI+/3iSQM=; b=r6jlCA1ZqtN+o3cHPLG/T4Yfbq
+	OF3LRxW6PqxQyOW+5b3aue4gR3KUAr74OmYv/UbP5s+sVWXFD5Xi5dROUZOMdb9NfzhzgkxAuML4i
+	401I/zg1UWN4T+LFueTS8THMD8MLLa+I57xmHkLsdZywIpfebBnohzlCPSoj1CHTkFYKlioaD+dLl
+	b+ze83pQhDvRiHZIVMEqNLACT0iwr7I4hSxch1fKnqA16d0zfvXCI3qpRlL53zywUSVsRCRt2P6bL
+	LK0el0jp9A2ayPwC0mssP7EGB61MwTegvy+1pLYf1pF8i1FJyPHslU5aYahnb2/SIVSp6aLUOiEIw
+	Oy/6B+BA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtWhu-0000000CqIH-3pGz;
-	Mon, 10 Aug 2026 20:34:50 +0000
-Received: from mail.andi.de1.cc ([2a02:c205:3004:2154::1])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtWhs-0000000CqHw-3fWx
+	id 1wtWyQ-0000000CqvN-0Z0P;
+	Mon, 10 Aug 2026 20:51:54 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wtWyN-0000000Cquh-0rYg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 20:34:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=kemnade.info; s=20220719; h=References:In-Reply-To:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description;
-	bh=5fkRRQESuJogTJbUlw1TtnlKX+cyZWiGY0fHfzIT9Xw=; t=1786394088; x=1787603688; 
-	b=dPldqICuN9PL/26ZE6jDyxPMn0dFNkGDV292XxKH9gQV+MVM+BO7BxVBnyg2BBYEvxsOCiv+st6
-	GAvjgW8okc3s9sUr3SxJAxf/TH6e61RFNFS818CXfDIFWqM00SZvZhgCTc2OR2grAKgZr3PJ4Yt3t
-	wXlm1onGhvBYFaPdzTds7ITPIl5lbqCCt3JexrvmwB9EJPSrtBPwuNOpp4Pq3djXe05gcV6YRGKkY
-	qEvZNqw+dDHZmPVTw1N+QbgHlTjGuHgVlJimb3HjXKB7MWrLN38FmUFHi6dVoJDcJECFpUeFc3Exs
-	XfLYE6Nni6jRcrQK5kGFex81uAm/CdKkLFrg==;
-Date: Mon, 10 Aug 2026 22:34:13 +0200
-From: Andreas Kemnade <andreas@kemnade.info>
-To: "H. Nikolaus Schaller" <hns@goldelico.com>
-Cc: Daniel Thompson <danielt@kernel.org>, Grond <grond66@riseup.net>, Stefan
- Leichter <sle85276@gmx.de>, Grazvydas Ignotas <notasas@gmail.com>, Tony
- Lindgren <tony@atomide.com>, Ethan Nelson-Moore <enelsonmoore@gmail.com>,
- Jarkko Nikula <jarkko.nikula@bitmer.com>, Sascha Hauer
- <s.hauer@pengutronix.de>, Lee Jones <lee@kernel.org>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown
- <broonie@kernel.org>, Aaro Koskinen <aaro.koskinen@iki.fi>, Kevin Hilman
- <khilman@baylibre.com>, Roger Quadros <rogerq@kernel.org>, Russell King
- <linux@armlinux.org.uk>, Jingoo Han <jingoohan1@gmail.com>, Helge Deller
- <deller@gmx.de>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai
- <tiwai@suse.com>, Sen Wang <sen@ti.com>, Richard Fitzgerald
- <rf@opensource.cirrus.com>, Arnd Bergmann <arnd@arndb.de>, Srinivas
- Kandagatla <srinivas.kandagatla@oss.qualcomm.com>, Kuninori Morimoto
- <kuninori.morimoto.gx@renesas.com>, Charles Keepax
- <ckeepax@opensource.cirrus.com>, Niranjan H Y <niranjan.hy@ti.com>,
- letux-kernel@openphoenux.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org,
- linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- dri-devel@lists.freedesktop.org, linux-fbdev@vger.kernel.org,
- kernel@pyra-handheld.com, mfd@lists.linux.dev
-Subject: Re: [PATCH 15/16] backlight: remove pandora_bl
-Message-ID: <20260810223413.01af9a6d@kemnade.info>
-In-Reply-To: <92FE1162-8C61-4186-B073-6AB4B2BDA640@goldelico.com>
-References: <cover.1783749722.git.hns@goldelico.com>
-	<f897f695c0e1e128d7ebb41be8dfdce4d634f552.1783749722.git.hns@goldelico.com>
-	<anmpiADsvzW39DNx@aspen.lan>
-	<DA9588C6-0238-4713-B1A1-CB2123F02028@goldelico.com>
-	<20260810143914.64d29a5c@kemnade.info>
-	<2C9844A3-3C4C-48E6-863D-BF8328CEE540@goldelico.com>
-	<92FE1162-8C61-4186-B073-6AB4B2BDA640@goldelico.com>
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; aarch64-unknown-linux-gnu)
+	Mon, 10 Aug 2026 20:51:52 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 32BFB14BF;
+	Mon, 10 Aug 2026 13:51:45 -0700 (PDT)
+Received: from workstation-e142269.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 417C23F673;
+	Mon, 10 Aug 2026 13:51:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1786395109; bh=I7jEk16c+g3+9u6Ivi+NOWCvGoomkASU82C6An8XdmQ=;
+	h=From:To:Cc:Subject:Date:From;
+	b=sLw21ujFa2uKPc3vyt5cm22jneCLIc0C+T8hHGRCDYC+CXfpmLPt6/yxzLbr5Kvf5
+	 oQqGeCfAiRO1sYohbVvm96uPYM80QHHJiSGyAvcLeR2VkBwrIlws1PTpPgryR49GQr
+	 SpBoDRTv4MjsYAHkzlTy1krpMifaNi2p+3xF9/Aw=
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Cc: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	Itaru Kitayama <itaru.kitayama@fujitsu.com>,
+	Wei-Lin Chang <weilin.chang@arm.com>
+Subject: [PATCH v5 0/6] KVM: arm64: nv: Implement nested stage-2 reverse map (new data structure)
+Date: Mon, 10 Aug 2026 21:50:32 +0100
+Message-ID: <20260810205038.118843-1-weilin.chang@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_133448_931230_0D0C7251 
-X-CRM114-Status: GOOD (  22.29  )
+X-CRM114-CacheID: sfid-20260810_135151_403296_9B96D929 
+X-CRM114-Status: GOOD (  17.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,36 +78,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 10 Aug 2026 20:30:13 +0200
-"H. Nikolaus Schaller" <hns@goldelico.com> wrote:
+Hi,
 
-> > 
-> > Yes that is what I mean. It needs to be ported somewhere. If it can be ported to
-> > some compatible = "pwm_bl_for_tps61161" or what fits best it will be fine. Or it
-> > could be in some compatible = "pandora_bl" driver.
-> > 
-> > Has to be worked out when the development machines are not blocked by 3 or 4 other
-> > projects already running in parallel :)  
-> 
-> Nevertheless I did a quick look into the pandora_bl driver structure.
-> 
-> Here are my findings:
-> - the code fragment is part of pandora_backlight_update_status()
-> - priv->old_state remembers if brighness was set to 0 or not
-> - so this code triggers on any change from bright = 0 to bright > 0
-> - the pandora_bl driver is the only one to use TWL_MODULE_PWM besides twl-pwm
-> 
-> So the most natural way of transplanting this appears to me:
-> - add this logic to the twl-pwm driver
+This is v5 of optimizing the shadow s2 mmu unmapping during MMU
+notifiers.
 
-That chip could be connected to any pwm driver, so
-it does not make sense to have that in a pwm driver.
+This time, a major overhaul is done to the implementation. After
+receiving some suggestions from Marc, I have identified that using the
+interval tree to store the guest stage-2 mappings solves many problems
+compared to using the maple tree.
 
-So it belongs into a backlight driver. And since it shared so much
-code with the pwm_bl, it could be extended.
-The compatible should have pwm in the name to be able to also add
-a w1 driver later.
+Interval Tree vs Maple Tree
+===========================
 
-Regards,
-Andreas
+First of all, interval trees are capable of storing overlapping ranges,
+which is helpful when the L1 hypervisor maps something like:
+
+nested IPA [x, x+4K) -> canonical IPA [a, a+4K)
+nested IPA [y, y+2M) -> canonical IPA [a, a+2M)
+
+No problems with storing that in the interval tree with different nodes.
+We can avoid the maple tree UNKNOWN_IPA mechanism as a compromise.
+
+Second, ideally we would want to save the canonical IPA <-> nested IPA
+mapping in both directions to allow MMU notifier unmap speed up, and
+stale shadow mapping removals. If we use the maple tree, we'll have to
+have 2 separate trees, and make sure they store the same mappings, which
+isn't simple given the first point.
+
+On the other hand, by using this pattern:
+
+/* Record of a guest stage-2 mapping. */
+struct kvm_guest_s2_mapping {
+       struct interval_tree_node canonical; // CIPA range of the mapping
+       struct interval_tree_node nested;    // NIPA range of the mapping
+       struct kvm_s2_mmu *nested_mmu;       // mmu of the NIPA space
+};
+
+and equip each mmu with an interval tree storing mapping records
+corresponding to the IPA space it represents, we can insert the
+respective nodes into the canonical IPA tree, and the corresponding
+nested IPA tree. This makes it trivial to find the range of the other
+IPA space from a range in one IPA space.
+
+Diagram to help understanding:
+
+struct kvm_guest_s2_mapping mapping1, mapping2;
+
+    ---------------------> mapping2.canonical
+    |                      mapping1.canonical
+    |                          ^   (both stored in canonical mmu's tree)
+    |                          |
+--*****-----------------------*****----------- CIPA
+   \\\\\                      |||||                  mapping1.nested_mmu
+    \\\\\                     \\\\\                            |
+     \\\\\                     \\\\\                           v
+------\\\\\---------------------*****--------- NIPA #1 (nested mmu #1)
+       \\\\\                      |
+        \\\\\                     -> mapping1.nested
+         \\\\\                       (stored in nested mmu #1's tree)
+          \\\\\
+-----------*****------------------------------ NIPA #2 (nested mmu #2)
+             |                                                 ^
+             -> mapping2.nested                                |
+                (stored in nested mmu #2's tree)   mapping2.nested_mmu
+
+Third, maple tree does its own memory allocation. In the KVM stage-2
+fault path we only find out what the mapping ranges are after taking the
+KVM MMU lock, and the maple tree has to know the range and entry to be
+stored to preallocate, therefore in our case the maple tree is forced to
+only use GFP_NOWAIT, which isn't the best. With the interval tree the
+user does the memory management, and we can just allocate before taking
+the locks.
+
+Locking
+=======
+
+The guest_s2_tracking_lock serializes accesses to the tracking interval
+trees. It is taken after the mmu_lock. However in reality it is only
+taken after we take the read mmu_lock in the stage-2 fault path, as
+other accesses have the write mmu_lock already. This saves us some
+manual lock/unlocks.
+
+vCPU Stage-2 Fault Scalability Reduction
+========================================
+
+KVM/arm64 is able to handle stage-2 faults from multiple vCPUs in
+parallel, thanks to the engineering done to the s2 pgtable code. However
+to safely insert mappings into the interval trees we have to serialize
+using the guest_s2_tracking_lock. We trade some performance in stage-2
+fault for faster MMU notifier unmaps, and keeping the unaffected shadow
+mappings.
+
+Memory Usage
+============
+
+Each interval tree node is 48 bytes, and a kvm_guest_s2_mapping is 104
+bytes, residing in 128-byte slab objects. Each shadow stage-2 fault
+requires one kvm_guest_s2_mapping instance. This is 32MB for a fully 4KB
+mapped 1GB region, and 64KB for a 2MB mapped 1GB region.
+
+Series Structure
+================
+
+Patch 1:   Preparatory refactoring.
+Patch 2:   Introduce data structures for guest stage-2 tracking.
+Patch 3-4: Guest stage-2 tracking addition and removal
+Patch 5:   Avoid full unmap during MMU notifier unmap using the tracked
+           guest stage-2 mapping information.
+Patch 6:   Minor clean up.
+
+As this is a complete rework, I will omit the change log this time.
+Series is based on v7.2-rc5.
+
+Thanks!
+
+Link to v4: https://lore.kernel.org/kvmarm/20260714115926.2044757-1-weilin.chang@arm.com/
+
+Wei-Lin Chang (6):
+  KVM: arm64: Use a variable for the canonical IPA in kvm_s2_fault_map()
+  KVM: arm64: nv: Introduce guest stage-2 tracking structures
+  KVM: arm64: nv: Track guest stage-2 mapping creation
+  KVM: arm64: nv: Track guest stage-2 mapping removal
+  KVM: arm64: nv: Avoid full shadow stage-2 unmap
+  KVM: arm64: Refactor kvm_unmap_gfn_range() with common variables
+
+ arch/arm64/include/asm/kvm_host.h   |  20 ++++++
+ arch/arm64/include/asm/kvm_nested.h |   7 ++
+ arch/arm64/kvm/mmu.c                | 105 ++++++++++++++++++++++++----
+ arch/arm64/kvm/nested.c             |  95 +++++++++++++++++++++++++
+ 4 files changed, 215 insertions(+), 12 deletions(-)
+
+-- 
+2.43.0
+
 
