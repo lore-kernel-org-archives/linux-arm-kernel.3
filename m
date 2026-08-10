@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E09C5C5AD7B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 12:45:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 552D3C5AD7B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 12:52:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
 	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RqJkZU7NaXl+U7FK5NGU95QDJ/WwisA1feCPvABBOc8=; b=d7RN4wDarg17gF
-	lKKeJuQYZpD5RQSxz/jO2vIjd0bykDtAsjPf4Lig6j3F6UGUVjgqRJo0THP/OGrSJRDf9Qa5vrszX
-	JL3h7OiHujebJNYJXagkqA0osqDsDrbh9p0Ayzz9nU4UWSCCXE7N1zZ0xJha7j2SC+ppePLFOZu1U
-	tZ06CIOCTZ9PcFrNIc8YWlQ28dI5SstiZFZYMCoopczdo2glFWj69/ovtcvtMUYNnsDC/UWNOSVOu
-	2NVB7biMk0bRM25zFEVFJGHxzz3pI/oyt+wuYuHbFU5TaSld0D5S2Ya+BDIuvhLy4KnrduaroIKW6
-	Tgzt4yz/94MZENRzLMGA==;
+	List-Owner; bh=n43/aKJ8eBUxUBD79l6UcJWpeqmmhi7C6KTZf2OBbS8=; b=lfaEPbsCl+hTmg
+	+aHXAQRM/WD0wYuB/DJ/p5QlSyEiMMMX86SJ0r5dIwXEECd6IM/WrMJoieTQSiwQWBjs/0cLmvokx
+	DThVNnbxwscyGOCLqFAG5D0wPgrJ+Fbn+UQnAf4BMpk3VSVLph9KYl6ySbHCmdgZY5gHZgKyyGxUN
+	NyDtZYkgHUgB3ZPXoAODMQ6dvBJoE8lkb1WQrRvh/tdV53K6I0kGDJ3dPM+cTqmWkb1yaJoqTHAny
+	+NCyRXzWVR2a/2XCEhIJ+UOkSahXVSL5JPUvmVwgCjJ20HklimJb5Y/Fw8sotLNyKWDE//kW4zgZg
+	bmGAXYf3+1MyuB0lxlMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtPNM-0000000Bomt-3VLG;
-	Mon, 10 Aug 2026 12:45:08 +0000
-Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
+	id 1wtPTv-0000000Bpei-3kVP;
+	Mon, 10 Aug 2026 12:51:55 +0000
+Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtPNJ-0000000Bojj-0G2b
+	id 1wtPTo-0000000Bpdv-3N7T
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 12:45:07 +0000
+	Mon, 10 Aug 2026 12:51:53 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=RqJkZU7NaXl+U7FK5NGU95QDJ/WwisA1feCPvABBOc8=;
-	b=J7QUo6iKuODH/rHgatCwi3i7F81+lizMxx50XqcCLQtrWmGXs5jMoAT+ZRehXvGaIqUK2xrGl
-	IgQzlsX6DqoXikzeZDFJ5ebhdlzbikrHzciEt31YYDZI7I7+VV2stpeem6fKhFaW6+HA4PHu8aC
-	IHSn39VeIUW5+Zd4RT0tYNU=
-Received: from mail.maildlp.com (unknown [172.19.162.197])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4hJZ2X0cwFzcb3P;
-	Mon, 10 Aug 2026 20:34:44 +0800 (CST)
+	bh=n43/aKJ8eBUxUBD79l6UcJWpeqmmhi7C6KTZf2OBbS8=;
+	b=RdObbmdFVKOHTKxX52sYHajGprEIe7f7G201ZRemSi9eiJFBr4OCR9QsXnshR/NBpmdDAAXFJ
+	m1z7QSOat5nN9rf1iD9RBNqUThFd8TgKUkLigbuWCbQ8/0lHvFq0l5J1hfD5ngLjAXfLaVa3WnB
+	V+iOsFZkRHF1hGrBpELsVU8=
+Received: from mail.maildlp.com (unknown [172.19.162.140])
+	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4hJZ9l6vrhzpT0F;
+	Mon, 10 Aug 2026 20:40:59 +0800 (CST)
 Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id D9B0D4057D;
-	Mon, 10 Aug 2026 20:44:47 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 4D96B2025F;
+	Mon, 10 Aug 2026 20:51:40 +0800 (CST)
 Received: from [10.67.109.254] (10.67.109.254) by
  dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 10 Aug 2026 20:44:46 +0800
-Message-ID: <7b16d183-86d5-481e-b212-977ad0598ac7@huawei.com>
-Date: Mon, 10 Aug 2026 20:44:45 +0800
+ 15.2.1544.11; Mon, 10 Aug 2026 20:51:39 +0800
+Message-ID: <61786f30-5827-4785-ae68-febbdf0de900@huawei.com>
+Date: Mon, 10 Aug 2026 20:51:38 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH RFC] arm64: entry: PSTATE_I_SET is leaking on pseudo NMI
  mode
-To: Vladimir Murzin <vladimir.murzin@arm.com>, Mark Rutland
-	<mark.rutland@arm.com>, Breno Leitao <leitao@debian.org>
+To: Will Deacon <will@kernel.org>, Breno Leitao <leitao@debian.org>
 References: <20260807-arm64_fix-v1-1-d069ccf9d71b@debian.org>
- <anXkO8YpoadRzm07@J2N7QTR9R3> <0c47125b-6a5e-41c9-b31c-d78643cbe6bd@arm.com>
+ <anXkO8YpoadRzm07@J2N7QTR9R3> <anXqMsJ14r3BAbMG@gmail.com>
+ <anYHjvJ1_4dDjuzw@gmail.com> <anm5T9FazACqOWXF@willie-the-truck>
 From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <0c47125b-6a5e-41c9-b31c-d78643cbe6bd@arm.com>
+In-Reply-To: <anm5T9FazACqOWXF@willie-the-truck>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
 X-Originating-IP: [10.67.109.254]
 X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
  dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_054505_762923_7B49AB5E 
-X-CRM114-Status: GOOD (  43.11  )
+X-CRM114-CacheID: sfid-20260810_055149_633123_E001AB14 
+X-CRM114-Status: GOOD (  15.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,251 +75,54 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: rmikey@meta.com, "Peter Zijlstra \(Intel\)" <peterz@infradead.org>, Catalin Marinas <catalin.marinas@arm.com>, kernel-team@meta.com, linux-kernel@vger.kernel.org, bpf@vger.kernel.org, Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org
+Cc: Mark Rutland <mark.rutland@arm.com>, Vladimir Murzin <vladimir.murzin@arm.com>, rmikey@meta.com, "Peter Zijlstra \(Intel\)" <peterz@infradead.org>, Catalin Marinas <catalin.marinas@arm.com>, kernel-team@meta.com, linux-kernel@vger.kernel.org, bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
 
-在 2026/8/7 22:49, Vladimir Murzin 写道:
-> On 8/7/26 14:57, Mark Rutland wrote:
->> Hi Breno,
+在 2026/8/10 19:43, Will Deacon 写道:
+> On Fri, Aug 07, 2026 at 09:29:12AM -0700, Breno Leitao wrote:
+>> On Fri, Aug 07, 2026 at 07:58:21AM -0700, Breno Leitao wrote:
+>>> Meanwhile, I will try to ftrace the writes to PMR and regs->pmr to get
+>>> a better grasp of the states machine we are in (probably on Monday).
 >>
->> On Fri, Aug 07, 2026 at 04:45:31AM -0700, Breno Leitao wrote:
->>> Running retsnoop on a kernel with GIC priority masking and
->>> CONFIG_ARM64_DEBUG_PRIORITY_MASKING=y trips the ICC_PMR_EL1 sanity check
->>> in __pmr_local_irq_disable():
->>>
->>>      WARNING: ./arch/arm64/include/asm/irqflags.h:63 at arm64_exit_to_kernel_mode+0xb8/0xc0, CPU#40: retsnoop/31805
->>>      CPU: 40 UID: 0 PID: 31805 Comm: retsnoop Not tainted 7.2.0-rc6-next-20260805 #7 PREEMPTLAZY
->>>      pstate: 234013c9 (nzCv DAIF +PAN -UAO +TCO +DIT +SSBS BTYPE=--)
->>>      pc : arm64_exit_to_kernel_mode (arch/arm64/kernel/entry-common.c:63)
->>>      lr : el1_abort (arch/arm64/kernel/entry-common.c:323)
->>>      pmr: 000000f0
->>>      Call trace:
->>> D)    arm64_exit_to_kernel_mode (arch/arm64/kernel/entry-common.c:63) (P)
->>>       el1_abort (arch/arm64/kernel/entry-common.c:323)
->>>       el1h_64_sync_handler (arch/arm64/kernel/entry-common.c:449)
->>> C)    el1h_64_sync (arch/arm64/kernel/entry.S:589)
->>>       copy_from_kernel_nofault (mm/maccess.c:52) (P)
->>>       bpf_probe_read_kernel (kernel/trace/bpf_trace.c:268)
->>>       bpf_prog_db21a1730c2407e5_calib_exit+0xf0/0x160
->>>       trace_call_bpf (kernel/trace/bpf_trace.c:147)
->>>       kretprobe_perf_func (kernel/trace/trace_kprobe.c:1750)
->>>       kretprobe_dispatcher (kernel/trace/trace_kprobe.c:1875)
->>>       __kretprobe_trampoline_handler (kernel/kprobes.c:2116)
->>>       kretprobe_brk_handler (arch/arm64/kernel/probes/kprobes.c:422)
->>>       call_el1_break_hook (arch/arm64/kernel/debug-monitors.c:244)
->>>       do_el1_brk64 (arch/arm64/kernel/debug-monitors.c:266)
->>> B)    el1_brk64 (arch/arm64/kernel/entry-common.c:427)
->>>       el1h_64_sync_handler (arch/arm64/kernel/entry-common.c:481)
->>>       el1h_64_sync (arch/arm64/kernel/entry.S:589)
->>>       invoke_syscall (arch/arm64/kernel/syscall.c:49) (P)
->>>       do_el0_svc (arch/arm64/kernel/syscall.c:140)
->>>       el0_svc (arch/arm64/kernel/entry-common.c:736)
->>>       el0t_64_sync_handler (arch/arm64/kernel/entry-common.c:755)
->>> A)    el0t_64_sync (arch/arm64/kernel/entry.S:594)
->>>
->>> This is my understand of the current situation:
->>>
->>> A) A task enters the kernel via a syscall.
->>> 	* PSTATE_I_SET becomes set on the live PMR
->>> 	* regs->PMR doesn't have PSR_I_SET set
->> At this point, regs->pmr will be the value of PMR when we were executing
->> in userspace, which should be the value of regs->pmr the last time we
->> returned to userspace. That should be GIC_PRIO_IRQON, as configured by
->> start_thread_common().
+>> It seems LLM found a very easy to reproduce this:
 >>
->> The entry asm will set PMR to 'GIC_PRIO_IRQON | GIC_PRIO_PSR_I_SET', but
->> that should be reset to GIC_PRIO_IRQON when el0_svc() calls
->> local_daif_restore(DAIF_PROCCTX).
+>> 	bash-5.1# dmesg
 >>
->> Within invoke_syscall(), we should have DAIF==0 and PMR==GIC_PRIO_IRQON.
->>
->>> B) A BRK fires at EL1 and that is what leaves the live PMR
->>>    with PSR_I_SET.
->>> 	* At this stage PSTATE_I_SET is set on both on PMR and regs->PMR
->> The value in the regs->pmr should be GIC_PRIO_IRQON, without
->> GIC_PRIO_PSR_I_SET.
->>
->> As we don't unmask anything during BRK handling, the live PMR should
->> contain 'GIC_PRIO_IRQON | GIC_PRIO_PSR_I_SET'.
->>
->>> C) A nested synchronous exception happens (Not sure why -- BPF related)
->>> 	* Now both the live PMR and regs->pmr have PSR_I_SET.
->> The presence of 'el1_abort()' in the trace suggests that BPF tried to
->> access memory which faulted. That looks to be a result of
->> bpf_probe_read_kernel() and copy_from_kernel_nofault().
->>
->> Regardless of BPF, we can probably trigger a synchronous exception with
->> a WARN() or similar, so we will need to handle synchronous exceptions
->> from the same contexts.
->>
->> In general, probing kernel VAs is fraught with danger even with a fault
->> handler, and IMO copy_from_kernel_nofault() is a dangerous and poorly
->> conceived interface. For example, if you're probing an arbitrary kernel
->> VA, you have no idea whether you're about to poke MMIO and crash the
->> system.
->>
->> It would be interesting to know what the BPF program is doing, in case
->> it could crash the kernel in other ways we can't prevent here.
->>
->>> D) On the way out, local_irq_disable() → __pmr_local_irq_disable() warns.
->>>    It detects that PMR is different than GIC_PRIO_IRQON and GIC_PRIO_IRQOFF,
->>>    given live PMR and regs->PMR have PSTATE_I_SET ORed.
->> Only the live value of PMR is important here, and the value of regs->pmr
->> is immaterial.
->>
->> The warning is here to capture the fact that if
->> __pmr_local_irq_disable() were to set PMR to GIC_PRIO_IRQOFF, it would
->> effectively discard GIC_PRIO_PSR_I_SET and change the masked priority,
->> which has a bunch of secondary impacts for things like idle.
->>
+>> 	bash-5.1#  cd /sys/kernel/tracing
+>> 	echo 'r:pmr vfs_read bad=+0($retval):u64' >> kprobe_events
+>> 	echo 1 > events/kprobes/pmr/enable
 > 
-> That matches my understanding of call trace
+> Nice, that triggers straightforwardly in QEMU for me. The diff below
+> (which implements my suggestion from [1]) seems to fix the issue, but
+> it would be good to hear feedback from one of the Arm folks.
 > 
-> Call stack                    |live DAIF:PMR  | regs DAIF:PMR
-> --------------------------------------------------------------
-> <exception>
-> el0_svc                       | DAIF:IRQ_ON+I | daif:IRQ_ON
->  - local_daif_restore         | daif:IRQ_ON   |
-> <exception>            
-> el1_brk                       | DAIF:IRQ_ON+I | daif:IRQ_ON
-> <exception>            
-> el1_abort                     | DAIF:IRQ_ON+I | DAIF:IRQ_ON+I
->  - local_daif_inherit         | DAIF_IRQ_ON+I |
->  - arm64_exit_to_kernel_mode  |               |
->    - local_irq_disable        |               |
+> Will
 > 
-> where:
-> - DAIF is DAIF_MASK
-> - daif is DAIF_PROCCTX
-> - IRQ_ON is GIC_PRIO_IRQON
-> - I is GIC_PRIO_PSR_I_SET
+> [1] https://lore.kernel.org/all/anXgWRmcjwPKG7N5@willie-the-truck/
+> 
+> --->8
+> 
+> diff --git a/arch/arm64/include/asm/daifflags.h b/arch/arm64/include/asm/daifflags.h
+> index 795b35128467..691ee5f86dbe 100644
+> --- a/arch/arm64/include/asm/daifflags.h
+> +++ b/arch/arm64/include/asm/daifflags.h
+> @@ -132,7 +132,7 @@ static __always_inline void local_daif_inherit(struct pt_regs *regs)
+>                 trace_hardirqs_on();
+> 
+>         if (system_uses_irq_prio_masking())
+> -               gic_write_pmr(regs->pmr);
+> +               gic_write_pmr(regs->pmr & ~GIC_PRIO_PSR_I_SET);
 
-It's the same as what I understand.
+If the DAIF.I is restored below and the GIC_PRIO_PSR_I_SET in the pmr is
+cleared here, it seems to introduce inconsistency with current Pseudo
+NMI code.
 
 > 
-> 
->> We'll need to work through those impacts; we might be able to relax the
->> check.
->>
->>> How to fix it? I don't know very well.
->> The complete fix (which Ada and Vladimir have both been working on) is
->> to get rid of GIC_PRIO_PSR_I_SET entirely, which requires structural
->> changes in a few places/
->>
->> I don't think we'd realised there was an extant bug of this shape, so
->> we'll need to consider what we can do to fix this in a backportable way.
->>
->>> I am not certain that we want to have PSTATE_I_SET ever be sent to
->>> regs->pstate. Do we ever need PSTATE_I_SET in regs->pstate?
->> I'm not sure what you mean here. PSTATE_I_SET doesn't exist, and I'm not
->> sure whether you're asking about the PSTATE.DAIF bits saved in
->> regs->pstate, or the PMR value in regs->pmr.
->>
->> Regardless of pseudo-NMI, is is essential that regs->pstate holds a
->> complete snapshot of SPSR, including the I bit.
->>
->> With pseudo-NMI, it is essential that the full PMR value (including
->> GIC_PRIO_PSR_I_SET) is saved into regs->pmr.
->>
->> However, as above, AFAICT only the live value matters here.
->>
->>> In the current patch, I found that disabling IRQ in case it is disabled,
->>> would solve the warning, but, this seems more a hack than a proper fix,
->>> perhaps.
->>>
->>> Fixes: ae654112eac0 ("arm64: entry: Use split preemption logic")
->>> Signed-off-by: Breno Leitao <leitao@debian.org>
->>> ---
->>>  arch/arm64/kernel/entry-common.c | 8 +++++++-
->>>  1 file changed, 7 insertions(+), 1 deletion(-)
->>>
->>> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
->>> index ceb4eb11232a6..fcce9ccd37108 100644
->>> --- a/arch/arm64/kernel/entry-common.c
->>> +++ b/arch/arm64/kernel/entry-common.c
->>> @@ -55,7 +55,13 @@ static noinstr irqentry_state_t arm64_enter_from_kernel_mode(struct pt_regs *reg
->>>  static void noinstr arm64_exit_to_kernel_mode(struct pt_regs *regs,
->>>  					      irqentry_state_t state)
->>>  {
->>> -	local_irq_disable();
->>> +	/*
->>> +	 * Only irqentry_exit_to_kernel_mode_preempt() needs interrupts masked,
->>> +	 * and it returns early when regs had them disabled. Skipping the
->>> +	 * disable avoids clobbering a PMR the irqflags API does not expect.
->>> +	 */
->>> +	if (!regs_irqs_disabled(regs))
->>> +		local_irq_disable();
->>>  	irqentry_exit_to_kernel_mode_preempt(regs, state);
->> I think that might happen to work as a bodge, but I don't think this is
->> a proper fix, and we'll need a clearer explanation of what's going on.
->>
-> 
-> Agreed on the need for a clearer explanation.
-> 
-> Perhaps local_irq_disable() isn't the right API here, and we should
-> use local_daif_restore(DAIF_PROCCTX_NOIRQ) instead?
-
-The local_irq_disable() here is pair with the local_irq_enable() in
-preempt_schedule_irq(). So I think it is not correct to replace them
-separately.
-
-The pseudo NMI does not consider how to do local_irq_disable() /enable()
-when the interrupt is masked by the DAIF.I bit as I reported before.
-
-7544 asmlinkage __visible void __sched preempt_schedule_irq(void)
- 7545 {
- 7546 >-------enum ctx_state prev_state;
- 7547
- 7548 >-------/* Catch callers which need to be fixed */
- 7549 >-------BUG_ON(preempt_count() || !irqs_disabled());
- 7550
- 7551 >-------prev_state = exception_enter();
- 7552
- 7553 >-------do {
- 7554 >------->-------preempt_disable();
- 7555 >------->-------local_irq_enable();
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
- 7556 >------->-------__schedule(SM_PREEMPT);
- 7557 >------->-------local_irq_disable();
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
- 7558 >------->-------sched_preempt_enable_no_resched();
- 7559 >-------} while (need_resched());
- 7560
- 7561 >-------exception_exit(prev_state);
- 7562 }
-
-https://lore.kernel.org/all/alTYgMwLaG5sk-P4@J2N7QTR9R3.cambridge.arm.com/T/#m0b7b781a10c06c46296ec8a35be4be1c4ca343a0
-
-> 
-> Looking ahead, making an early decision on whether to preempt based on
-> regs_irqs_disabled() seems like a reasonable approach. That's what
-> I've done in [1] (though keep in mind that I forgot to update
-> el0_irq).
-> 
-> [1] https://lore.kernel.org/linux-arm-kernel/20260727163453.7969-10-vladimir.murzin@arm.com/
-> 
-> Cheers
-> Vladimir
-> 
->> Mark.
->>
->>>  	local_daif_mask();
->>>  	mte_check_tfsr_exit();
->>>
->>> ---
->>> base-commit: ea2bff00da89d7767d677bb68470130ba96f4928
->>> change-id: 20260807-arm64_fix-47cad8fb6323
->>>
->>> Best regards,
->>> --  
->>> Breno Leitao <leitao@debian.org>
->>>
-> 
+>         /*
+>          * We can't use local_daif_restore(regs->pstate) here as
 > 
 
 
