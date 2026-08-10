@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 882B8C5B567
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 18:13:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E113DC5B567
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Aug 2026 18:13:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E0fKTNpooBtTNW6bieTS4Sn1ltwivMMtcmL45dsUlns=; b=tmcUea9AFP+RW+5mGVYYIEf9FZ
-	s5BWvENGnIhjwlehQwMnuLBV7UE1ixWPPmFgnmjw6ezXIxK5zN2oU1ed0DpSIvWolVgQcludluCn+
-	gHxoMzPULp1yLJO3L6m8wE/JthnTpVwdwZgmuBjJl1J13bc1PpRnEDkOcZFYZiJL2kvNiwwrj1Hxt
-	nlKv4xxVpLbUvRMi6DGZcOn9DCJKF7l6BsQYI0myL6yM77GKgD0F0eSbTuUIhb5EROf5UH16JGilh
-	SiYr63lPND1Qy5hlYJcxw6AKjvdgnSIh1//lVP1GuaNy46mJwcEmZDD37UBxCUlqzHIoxfGsPG/m8
-	Ry6DvhQA==;
+	bh=+O3RP4khGolVisKEaJPPZ/5KR4V4I9tZWSXBQpVzFB0=; b=iQmavb63CEtl/98HnOrPysQL8x
+	YwF4JjtnRz+XvWkeAYdEgM5z+VNg9R/iJigJos1pY0NXbMNEiIseGpyvKXZOvPKE7oF1aCoBP79ZJ
+	GO3S3gpqdkfqp5oB9D3Z5ZWfyqgNlZk8o+wjRh/O90q7/K4ZF9AWhtvpWkvdLmXE7f9a7GOw9G946
+	33Yu8ewrcEuWviFb+OKciAdVXUWXZyV0XZk3/x2bs8vdMSfpx1/580mi1bhijdyfYbSQWp1xmdELh
+	+OiM9iXOHVrPVGABZOYhZW2BziUVQi/x6qZIyAncjltT0cbxkZY1wXIKVJy+maUx+grOT1HlLkH/3
+	BKKlZjZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtUUU-0000000CbtJ-19F5;
-	Mon, 10 Aug 2026 18:12:50 +0000
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	id 1wtUUZ-0000000CbwR-1XMe;
+	Mon, 10 Aug 2026 18:12:55 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtUUP-0000000Cbr9-2gJ6
+	id 1wtUUW-0000000Cbup-3ntC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Aug 2026 18:12:49 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-38dfe7eb825so1849114a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 11:12:45 -0700 (PDT)
+	Mon, 10 Aug 2026 18:12:53 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-38fdeaed181so2804844a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 11:12:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786385565; x=1786990365; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1786385572; x=1786990372; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=E0fKTNpooBtTNW6bieTS4Sn1ltwivMMtcmL45dsUlns=;
-        b=bBtwudWLgRyCvDufoSZrm9794mPUuIxmTGHHUhgbi6dAqQ79h6fK7vDUnSLB3IB1ua
-         AlpxhlZTxB+BksPop6hc0t07+/Xq6Z3K68vv0QcLkqinVzsd432xRPZPZlbo2idsYMqi
-         LeooyHfwa5tIG+9/5afUCH2lJz9cvPRfHgKdigeGAHfwWk8dPr83cYOXRmALIgAa/Qqd
-         D7hriI0r3pjZinfdybqE5qcRHGdKUY2pBtn8mqlieaCvu2f2/BGgU3SdwdJ2uGLuCck4
-         nw4z91wedpYqXLny76Wn2eBZHqfQRxMu9dHn4OiCZmgcxt7JnYqH0Sni48fAoBhIPsjR
-         bLXg==
+        bh=+O3RP4khGolVisKEaJPPZ/5KR4V4I9tZWSXBQpVzFB0=;
+        b=qCopcWm649/nr+DTZBrl4el1HMS6/dLTS6DAlHjmbIBNRVXQ5foUuZoTXAn5/GzXy8
+         R+VAKAjaGfrxRZeNmokv6JS130bBzXrjMGO98R9ybYmp6zZDIgD4nLZwhtAiCzH2MATS
+         +i/1/v0leDNev2kWhGr/S7KfUMGBqdQoxS3QUf1/nftyMqLDyl2vvH3BVPax//svMZ6b
+         CmmioThFgeidVigDN6U36DVzcF9+7jta/ScuU7rmUM6hQX+v0zXEYrdNUSTKKpG5ng2M
+         4dUffB33pO/1Hsd1Mx4jhYTI8uaoFsC9zQf1FAEHwE7D7A1/mm++iLl3JTWca7Cr8cl2
+         sepw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786385565; x=1786990365;
+        d=1e100.net; s=20251104; t=1786385572; x=1786990372;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=E0fKTNpooBtTNW6bieTS4Sn1ltwivMMtcmL45dsUlns=;
-        b=DwkrpsJjJyHWDelnxwnKMTACO/P2KRwM2YiRk50LZB9YAtOK6Lv9OVTuI4ykzOgJxH
-         md/TAo2LbHfISyWM3zTOdxH9gMzkkgmUTgCisaPBGL/Gtw3gtesjzv+jcAHzCz9Rnmo1
-         6RhL/k0gyVSzzFE+3/PGI3e6VB6cUEOaI0a4C7/wxkI3xPbZoycfg2ZFaFSVz78stYqO
-         q9L/KAn5pTXsOPH613kyxcQ9YVkd1veuLVUY1iX9rIG6LTv1aY+c6YRIyy3YuulpfyoV
-         KSQEIXfxKSpxCam7r3FCtLiC5j6MT1qWWtKS+kuIpRxr7Cshr9wwR8NT7BrULnX0w0ix
-         L0ZQ==
-X-Forwarded-Encrypted: i=1; AHgh+RpsuvfMSmGOcQFbehRe06Iayoj1sLuqqOEmrMBO1+CV1uxGps0BYx2RpGrmo5TrF7VW9yOfhXMNtVgTwMbAtSY0@lists.infradead.org
-X-Gm-Message-State: AOJu0YzblFG9DI9YtGPTFNArdopMnn85aCwjO/K7AteFXKauy/GMSBcX
-	b2pVBO52QpEeBEp+uNgdoFwKeOTpldkZMi+itkJqZ1MTOtnoB8a5X9VB
-X-Gm-Gg: AR+sD10VW94cLC2Q9wkExW47THbvEav6eg30klovd8mkTlMByqkmBxFktvqEIf+D4Fk
-	PwyK+kuVGw1YZZZL1on/3+hmRuHv7YAxjTZR+bXEWsunEBAagbY1YEm7Cgb2QRSukJ6je7FHRil
-	TmIcsC9k0vRWERZ3hjlGk77oh2W9fYlsJvuLlKUzE2GnEz32T6uW7GYlih7UknGpZH2Kmt5/Hs5
-	fnokwWCDIEFrRDTSAmLBojI6L+S4sL7p9CLcuR5fz7ca9itt3qdVFWXq9C9t4GwB5XHVFrsonuT
-	6NHoe1qdHKB2PpIcA9DZPznyTLuKwleu/IFrvAHSe1+9U68HUus60jxTWuNGn5JhsnZbr1Jq2xY
-	Nyy4zYMNWuf4rdeX5wrPgni1h3uDiBINZreAefKopQ8HPO7LxpAalW/rm6mcWmV2bHc5Wqi4lsE
-	YQBLM7q8DcyeFkfurThaLwXXBv6Vc/lnaXaerOrZfJR8T7U7o/73yuIiu6Y33QiYSrOMzb8lF0d
-	w==
-X-Received: by 2002:a17:90a:d444:b0:38f:240d:b857 with SMTP id 98e67ed59e1d1-3909d79f918mr32734942a91.2.1786385564472;
-        Mon, 10 Aug 2026 11:12:44 -0700 (PDT)
+        bh=+O3RP4khGolVisKEaJPPZ/5KR4V4I9tZWSXBQpVzFB0=;
+        b=OynncOoarOXac6mcnf1LMImhfcjW0bZzUfDcWxfH5w5YaDgJk6piWPCCED+ZHnND3C
+         u15DGBZfgsF78ns3Xncz12pVlnrfGZ3dOBrpXSksXBeU2GKdj8K6y3Gkm4PbIwWqGd4Y
+         D/hYfFcz5k8KNBTi1Ns+J15Mh4g31SKrZja9ZwNSPT6FwPW1mJgbu6lHSXYMd55S154J
+         kmjG7cZGMCDfRsxy3ZSq700WcLhIwtkTzrFsV8raeUvJnXsZbVc5F37N0ZD2BNILF/6a
+         3k/UMSENE6K1+co+rQfD9iTIwyYE4K3QaKQjlSsWzLKXHrfWRwfbEPHIT90bIl26jF1W
+         Wx7g==
+X-Forwarded-Encrypted: i=1; AHgh+RrOGLNBMmh2OyNxQh5EZoSf9SoHBIG/Xmq9VRfOJiq4tzxPzNfsSfaVq7ovMlicHj0fAC3T7nZ+O1BZY7bNqv65@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx3YZ4GK/r6HVTPx3o+951eItGxdOAxeXsjQuA38OJidyfJt2Uk
+	J7CFsDZeG5prafVvCcVNLi4SNIW/lR8BIdOQNmekEVo8N6UMjl8Z9iIt
+X-Gm-Gg: AR+sD13c84jlmMcQ8D/SMlYz+Hc3dXHL3Yk5eczZh3n6KcPDi2wktUS0GzceOF8tlWC
+	sIJ3FNIwLL3cuZgSXoQ1OtegLREIPNCj3RnM/STKRdpNue97RdOf+ISJebuKDCgz9L6ie7Ntfeb
+	Yb/EIJsapkQUMRAcLHv/XJCwKgyfPDePv+scw30oaxkxjMCHkarX5aT0Isf2aJEeKV2Lz2ah/aS
+	rTuwhbkq0BbhNtfMwOgjaW5Rp/Makq0zbCtPsqts6CiGyg4VoaKsDQnpW81Skd6j2qzHf1twfDV
+	rGGdUf9Wvq8ehDzaq901tJuv+rrRMuhAEXxXoj4WygKsYLjLoklIuJlN05CVrTYTIxXKYweq1KQ
+	KZg5gmEMVaqM6SrmEcwWAmKFJM1oFLRtyaRgP7jcJ/jXAkc6SF3n9mK2wgtpmi6O2LR/f403cKg
+	tBGYVSm7DgQF5oXMEUm7CcARNlMYKF7+SZA57lDeCwadpObsfDJi56a6PS+SHeXvblWC+WgaUv8
+	Q==
+X-Received: by 2002:a17:90b:4990:b0:38e:4114:d8c7 with SMTP id 98e67ed59e1d1-392cc6da1e6mr3394837a91.0.1786385571937;
+        Mon, 10 Aug 2026 11:12:51 -0700 (PDT)
 Received: from cryptic.lan ([2001:569:7fa9:fa00:b1a9:6513:83c6:1d23])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-392d53b873asm472795a91.17.2026.08.10.11.12.43
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-392d53b873asm472795a91.17.2026.08.10.11.12.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Aug 2026 11:12:43 -0700 (PDT)
+        Mon, 10 Aug 2026 11:12:51 -0700 (PDT)
 From: Allen Pais <allen.lkml@gmail.com>
 To: Vinod Koul <vkoul@kernel.org>,
 	Frank Li <Frank.Li@kernel.org>
@@ -78,20 +78,21 @@ Cc: Allen Pais <allen.lkml@gmail.com>,
 	linux-kernel@vger.kernel.org,
 	Arnd Bergmann <arnd@arndb.de>,
 	Kees Cook <kees@kernel.org>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
 	Michal Simek <michal.simek@amd.com>,
+	Abin Joseph <abin.joseph@amd.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v3 20/34] dmaengine: xilinx-dpdma: kill vchan BH on remove
-Date: Mon, 10 Aug 2026 11:09:21 -0700
-Message-ID: <7185ee59e7bc0451f9ebb19178d3f76edee65658.1786384169.git.allen.lkml@gmail.com>
+Subject: [PATCH v3 21/34] dmaengine: zynqmp-dma: switch completion tasklet to dmaengine BH
+Date: Mon, 10 Aug 2026 11:09:22 -0700
+Message-ID: <56dce14420ecdf8665c0e03b5f3a42004d33eadd.1786384169.git.allen.lkml@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1786384168.git.allen.lkml@gmail.com>
 References: <cover.1785183549.git.allen.lkml@gmail.com> <cover.1786384168.git.allen.lkml@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_111248_074513_32C944E1 
-X-CRM114-Status: GOOD (  10.25  )
+X-CRM114-CacheID: sfid-20260810_111252_947141_302EFA38 
+X-CRM114-Status: GOOD (  14.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,27 +107,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-virt-dma now dispatches completion callbacks through per-channel BH
-work. Cancel that work when removing a channel, while retaining the
-driver's separate error-handling tasklet.
+Replace the per-channel tasklet with the shared dmaengine BH helper.
+The handler continues to run in softirq context while dmaengine owns
+the common scheduling and teardown mechanism.
 
 Signed-off-by: Allen Pais <allen.lkml@gmail.com>
 ---
- drivers/dma/xilinx/xilinx_dpdma.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/dma/xilinx/zynqmp_dma.c | 19 +++++++++----------
+ 1 file changed, 9 insertions(+), 10 deletions(-)
 
-diff --git a/drivers/dma/xilinx/xilinx_dpdma.c b/drivers/dma/xilinx/xilinx_dpdma.c
-index d9a3542c4531..7e147ea11368 100644
---- a/drivers/dma/xilinx/xilinx_dpdma.c
-+++ b/drivers/dma/xilinx/xilinx_dpdma.c
-@@ -1685,6 +1685,7 @@ static void xilinx_dpdma_chan_remove(struct xilinx_dpdma_chan *chan)
- 		return;
+diff --git a/drivers/dma/xilinx/zynqmp_dma.c b/drivers/dma/xilinx/zynqmp_dma.c
+index f6a812e49ddc..e396a35f0e0d 100644
+--- a/drivers/dma/xilinx/zynqmp_dma.c
++++ b/drivers/dma/xilinx/zynqmp_dma.c
+@@ -207,7 +207,6 @@ struct zynqmp_dma_desc_sw {
+  * @dev: The dma device
+  * @irq: Channel IRQ
+  * @is_dmacoherent: Tells whether dma operations are coherent or not
+- * @tasklet: Cleanup work after irq
+  * @idle : Channel status;
+  * @desc_size: Size of the low level descriptor
+  * @err: Channel has errors
+@@ -232,7 +231,6 @@ struct zynqmp_dma_chan {
+ 	struct device *dev;
+ 	int irq;
+ 	bool is_dmacoherent;
+-	struct tasklet_struct tasklet;
+ 	bool idle;
+ 	size_t desc_size;
+ 	bool err;
+@@ -735,7 +733,7 @@ static irqreturn_t zynqmp_dma_irq_handler(int irq, void *data)
  
- 	tasklet_kill(&chan->err_task);
-+	dmaengine_kill_bh(&chan->vchan.chan);
- 	list_del(&chan->vchan.chan.device_node);
+ 	writel(isr, chan->regs + ZYNQMP_DMA_ISR);
+ 	if (status & ZYNQMP_DMA_INT_DONE) {
+-		tasklet_schedule(&chan->tasklet);
++		dmaengine_schedule_bh(&chan->common);
+ 		ret = IRQ_HANDLED;
+ 	}
+ 
+@@ -744,7 +742,7 @@ static irqreturn_t zynqmp_dma_irq_handler(int irq, void *data)
+ 
+ 	if (status & ZYNQMP_DMA_INT_ERR) {
+ 		chan->err = true;
+-		tasklet_schedule(&chan->tasklet);
++		dmaengine_schedule_bh(&chan->common);
+ 		dev_err(chan->dev, "Channel %p has errors\n", chan);
+ 		ret = IRQ_HANDLED;
+ 	}
+@@ -760,11 +758,12 @@ static irqreturn_t zynqmp_dma_irq_handler(int irq, void *data)
+ 
+ /**
+  * zynqmp_dma_do_tasklet - Schedule completion tasklet
+- * @t: Pointer to the ZynqMP DMA channel structure
++ * @c: Pointer to the ZynqMP DMA channel structure
+  */
+-static void zynqmp_dma_do_tasklet(struct tasklet_struct *t)
++static void zynqmp_dma_do_tasklet(struct dma_chan *c)
+ {
+-	struct zynqmp_dma_chan *chan = from_tasklet(chan, t, tasklet);
++	struct zynqmp_dma_chan *chan = container_of(c,
++			struct zynqmp_dma_chan, common);
+ 	u32 count;
+ 	unsigned long irqflags;
+ 
+@@ -815,7 +814,7 @@ static void zynqmp_dma_synchronize(struct dma_chan *dchan)
+ {
+ 	struct zynqmp_dma_chan *chan = to_chan(dchan);
+ 
+-	tasklet_kill(&chan->tasklet);
++	dmaengine_kill_bh(&chan->common);
  }
  
+ /**
+@@ -887,7 +886,7 @@ static void zynqmp_dma_chan_remove(struct zynqmp_dma_chan *chan)
+ 
+ 	if (chan->irq)
+ 		devm_free_irq(chan->zdev->dev, chan->irq, chan);
+-	tasklet_kill(&chan->tasklet);
++	dmaengine_kill_bh(&chan->common);
+ 	list_del(&chan->common.device_node);
+ }
+ 
+@@ -937,7 +936,7 @@ static int zynqmp_dma_chan_probe(struct zynqmp_dma_device *zdev,
+ 
+ 	chan->is_dmacoherent =  of_property_read_bool(node, "dma-coherent");
+ 	zdev->chan = chan;
+-	tasklet_setup(&chan->tasklet, zynqmp_dma_do_tasklet);
++	dmaengine_init_bh(&chan->common, zynqmp_dma_do_tasklet);
+ 	spin_lock_init(&chan->lock);
+ 	INIT_LIST_HEAD(&chan->active_list);
+ 	INIT_LIST_HEAD(&chan->pending_list);
 -- 
 2.43.0
 
