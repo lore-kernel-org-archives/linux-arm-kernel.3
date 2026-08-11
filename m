@@ -4,78 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8821FC5CFCF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 16:04:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4954C5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 16:06:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R9faxvCSlME9QEKQ1ahFv9nOyOfV75qVRHVIQ5bM1Z4=; b=Y7ofBfavymVhl0CXRAPvaC3psp
-	qJ2i+bvkB10BW53PIazgtFAVniKgVvtNqZPuZ1nYQEWZNTfCZ6isADNlc5xTy1kSHqTBtH88OGTNQ
-	5oVDLget+lfsLpULj4uxZaCirjnWWCkqHAUiwUQ8+hNGS/FQw3adgQJ8zaCDAf88nhtLdAgvSvybH
-	hjHWlUK/O7L/IEYC7VZUasHutXZZhD0S63TkMW6TYbEpky9BubVG1hFGSHmg7yuZlViVigqzUzQw+
-	gFQACfPNuhu0CCfGH63c3nGEftEBxYdPyCJ8jGZsr7qhhq2u2eCoblI9jpXG9E+khWtGO1OOgSg+n
-	83IzBviw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bsFrD+8bsJ8zTcQSeMYM7e3hb54WciAWCpQseABIlqk=; b=KgEYZ7k/Ao/CCwoUVoOW5WGXGL
+	qPGpuhAwlXMufDAOIckoatskqCohMyKW1UKI4nuzmhK8wwyfMs6Q5WG8sXXPiLr+/UL888vN9Fjos
+	k5aNi0iExZOqdzTc3CTT1kRChJBH7V+N8eBKy3Dvc5n3iB0baHKMTE8iCvSyRyLF/xfV0ZtnWFnTu
+	rdrwzAQOZwHhWHukJi9VSv9w/UYXfaKhAx1Pf1i/HkxfyTPAPPHcbHUQ+gxn32bpqgqhXktbEF76V
+	k26L0QCFWIwHczoALWgibeK5gC5SWI4KnCWyvY2v5hDM5uZk9csg8zRplNBn/CMREPERUWN828OJE
+	LhDypvmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtoxt-0000000EQak-358y;
-	Tue, 11 Aug 2026 16:04:33 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1wtp01-0000000EQwG-0mG7;
+	Tue, 11 Aug 2026 16:06:45 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtoxl-0000000EQVZ-2gWs;
-	Tue, 11 Aug 2026 16:04:27 +0000
-From: Gregor Herburger <gregor.herburger@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1786464261;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=R9faxvCSlME9QEKQ1ahFv9nOyOfV75qVRHVIQ5bM1Z4=;
-	b=MBrra3QUZrU58LZoX5t4IoQLaBZK3ou9BMTZh+j41a5K+LH+uHp3Wbm9FPcrj/z0q+yQyl
-	VnFecThJ0O5DpKJSnppHqhVsAqZhtsfVq6HxjW8VikvktCzFd8RLOBzgapMX0XgpMR0I+Q
-	EauOMhhP5v78jGs9JZ0PZfbWP8OQPZdXwEXA7wZXa9UI813Nr/7xzcGLBkSB9I7J54Ui0T
-	M5dtAtIr6r170uhJ6lZTOmoFyIPLMsNmBTH3y6MWj/y7JFRyP/2VfoGhJpRbf4HGjww7N+
-	T0f1sVxhUkXFLmNrp/TJz/YMc5mRIm9xHjmdP2u7w4FC/ygzyTNGn3EFfm5FJA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1786464261;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=R9faxvCSlME9QEKQ1ahFv9nOyOfV75qVRHVIQ5bM1Z4=;
-	b=ukVRVAyt2Jhrq4oa6FSMGsLU04GXBqmCQS4BFQNqKUm30KJ7r8YkNDcVv98ceWuxSAgPga
-	yVUyF/AsfyOIDwBA==
-Date: Tue, 11 Aug 2026 18:04:16 +0200
-Subject: [PATCH 2/2] arm64: dts: broadcom: bcm2712-rpi-5-b: add spi0
- interface
+	id 1wtp00-0000000EQvn-2Jgs;
+	Tue, 11 Aug 2026 16:06:44 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id B6235600AD;
+	Tue, 11 Aug 2026 16:06:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00B111F000E9;
+	Tue, 11 Aug 2026 16:06:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786464403;
+	bh=bsFrD+8bsJ8zTcQSeMYM7e3hb54WciAWCpQseABIlqk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=TYwtWdMZ8Ao51ww1bhZblT18MUr7qDxkwcAcEbYPHbrC9TY069ydowFfdIi4cZ0Lv
+	 ERS1UVOj9x3CsUP3r4umtrc1DF47emrHnID7XpG/ci5cVHd5IDDaSRmEJpHiVJDSyH
+	 vUuQDBfUIX6WfjufpcE/0Gn8Bd0HaeK2cgvDMkxjyp3uK3tiT+Pw/tdqKkOJ9jtUNl
+	 fwhqizf9b6nF61KCY8HGWkMJ7SKUjqwc2i2Os0BSGcDJ2jrNIWtKrwprSH2lDz7DSg
+	 OzuRy9uqldfzfdgP9fiG6WWT7yuDL31/Ms1hpXehzZVDaIa8uIG5WJj4YWY5LAqds6
+	 qlHnUwAcPLFqQ==
+Date: Tue, 11 Aug 2026 17:06:33 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>
+Cc: Jakub Kicinski <kuba@kernel.org>, Vladislav Leonov <vlad@zlab.su>,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	Simon Glass <sjg@chromium.org>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Aurelien Jarno <aurelien@aurel32.net>,
+	Brian Masney <bmasney@redhat.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Daniel Golle <daniel@makrotopia.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	David Wu <david.wu@rock-chips.com>,
+	Eric Dumazet <edumazet@google.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+	Olivia Mackall <olivia@selenic.com>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+	Vinod Koul <vkoul@kernel.org>, linux-crypto@vger.kernel.org,
+	linux-i2c@vger.kernel.org, linux-phy@lists.infradead.org,
+	linux-pwm@vger.kernel.org, linux-spi@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com, linux-usb@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: Re: [PATCH 00/25] ARM: rockchip: Add peripheral support for RV1106
+Message-ID: <5842f89b-ef11-41fd-a5c6-f07d4110b65a@sirena.org.uk>
+References: <20260810121121.210040-1-vlad@zlab.su>
+ <20260810113548.7fd24d56@kernel.org>
+ <anq1ouUnKA02Eauj@monoceros>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260811-bcm2712-spi-v1-2-4c1708d354bb@linutronix.de>
-References: <20260811-bcm2712-spi-v1-0-4c1708d354bb@linutronix.de>
-In-Reply-To: <20260811-bcm2712-spi-v1-0-4c1708d354bb@linutronix.de>
-To: Andrea della Porta <andrea.porta@suse.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- Gregor Herburger <gregor.herburger@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1786464260; l=1343;
- i=gregor.herburger@linutronix.de; s=20260226; h=from:subject:message-id;
- bh=Bz5VIkoQKpnIVRzFlQBbxMRZX9jrt37vpkpuL+tVX6c=;
- b=Kq2vLt/BC4nMMMCMU+G9SBH7lCVFa9vJgvXyBYNbH+/wAZ8poGKw+rKmZajb97vlLs9xU+ayo
- vWb1W0JZmyrD6A3WoC4CnoAu53p3purxTnchEcGqYwfsGlto0TCISiZ
-X-Developer-Key: i=gregor.herburger@linutronix.de; a=ed25519;
- pk=u72Lv7+/lS5CC1hmSrb17lv/6CK7HBh4Lvz77PHA5LM=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_090425_831241_AB3CFFD3 
-X-CRM114-Status: UNSURE (   8.17  )
-X-CRM114-Notice: Please train this message.
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="0rdiv1roUnHM6tDX"
+Content-Disposition: inline
+In-Reply-To: <anq1ouUnKA02Eauj@monoceros>
+X-Cookie: Now, let's SEND OUT for QUICHE!!
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,51 +102,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Raspberry Pi 5 routes the spi0 of the rp1 chip to the pin header.
-Add the rp1_spi0 node and its pinctrl node to the devicetree to enable
-the spi interface.
 
-Signed-off-by: Gregor Herburger <gregor.herburger@linutronix.de>
----
- arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+--0rdiv1roUnHM6tDX
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-index 0fc57e72632ed..81aec81c5ce12 100644
---- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-+++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
-@@ -69,6 +69,14 @@ usb_vbus_default_state: usb-vbus-default-state {
- 		groups = "vbus1";
- 	};
- 
-+	rp1_spi0_default_state: rp1-spi0-default-state {
-+		function = "spi0";
-+		groups = "spi0";
-+		bias-disable;
-+		drive-strength = <12>;
-+		slew-rate = <1>;
-+	};
-+
- 	rp1_i2c4_default_state: rp1-i2c4-default-state {
- 		function = "i2c4";
- 		groups = "i2c4_2";
-@@ -94,6 +102,14 @@ &rp1_i2c6 {
- 	pinctrl-names = "default";
- };
- 
-+&rp1_spi0 {
-+	pinctrl-0 = <&rp1_spi0_default_state>;
-+	pinctrl-names = "default";
-+
-+	num-cs = <2>;
-+	cs-gpios = <&rp1_gpio 8 GPIO_ACTIVE_LOW &rp1_gpio 7 GPIO_ACTIVE_LOW>;
-+};
-+
- &rp1_usb0 {
- 	pinctrl-0 = <&usb_vbus_default_state>;
- 	pinctrl-names = "default";
+On Tue, Aug 11, 2026 at 07:43:16AM +0200, Uwe Kleine-K=F6nig wrote:
+> On Mon, Aug 10, 2026 at 11:35:48AM -0700, Jakub Kicinski wrote:
 
--- 
-2.47.3
+> > Don't expect maintainers to dig out patches for their subsystems
+> > from a big series. This is not how upstream development works.
 
+> I see this from time to time and I personally think it's fine to have
+> these patches together. Also the only the patch that affects my
+> subsystem was Cc:d to me which is how I like it (but I think opinions
+> differ on that one, too).
+
+Any cross tree thing is just always going to be more effort, at a
+minimum you need to figure out if there are actually any dependencies or
+if it's just a lot of tangentially related stuff bundled together.  Plus
+the larger CC lists and whatever.
+
+> `b4 am -P _` is great!
+
+OTOH b4 won't ingest serieses unless it can commit them to git and I
+have *no* idea what the base is supposed to be here, it's not my tree,
+Linus' tree or -next.
+
+Please resend the spi bits as a separate series.
+
+--0rdiv1roUnHM6tDX
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmp7SIgACgkQJNaLcl1U
+h9CgzAf+Mfyz8kncpmkuFsip4V/KEWeY/74EiaopCxYZu9ER12XWRS+3hpvAP06t
+FzE4FyJ4b5uGDeBclT3D4mSAIoI1xT63Br7sqmOlocnv85dq3wqcimH5FwpoisgP
+5o7v5A2Bw9BkYeZW7XsKzJ2raxgqYKgQcbvIffN77mT78KVu2yBG3hkiD+PvJWLA
+Kv2uKKzxmBely9BaCFeZ7M/N5D6vGZMhGDL+seRSttR6Xn+3sA1AAi3RKObAWLya
+ZorJCLDgynNI5VEU2Jkv+oT3n0y9sdMToX9eDXrAI3JP8Vt4xncCBw2lhPerORRx
+ULbQrEoR959v7lubt5ZIQdwdztM4uw==
+=gZCM
+-----END PGP SIGNATURE-----
+
+--0rdiv1roUnHM6tDX--
 
