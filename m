@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F249DC5B56A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 23:31:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDF5DC5AC67
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 23:40:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mm10wdMdh/+6h4HJAKRKNt7oV5Saby0KSm+rAiNPAjE=; b=rBQQwUtYVpbZLx77LQSKPQSRA2
-	IXItKh2f7qATivDEog+kZZAp7nHagpP7Q1a/Q/H5x/1U5gaFQ1SMEVvSPDl/sEEuwqFBkQsqGx31x
-	TQFkMfqJ/Bzgy1MRefGi8K21GXDODCGGlx4v16sxRGAL7HqyjLApq+VVkBfpgTZdeoo81WJFuFxGy
-	rTgHT+a7cBwzcwjZKludCi5KOXe6H7c9MgA+2X5UgnTzhYMOE2U6I3FQiWMw6hNTmqSIx3sVZ+XWm
-	ejq8ria8PfIqhkoGZfGV6pA/BG6KDzhWoWSX21O6RMOaMDMmLhssaMMtEJKK6rNE7Qg36FQiJHubo
-	EQjpcEPg==;
+	bh=oQFksCzI9ITgXg079LIF1ia95IZFV+xgemlTOZzX8Po=; b=2Bb42uODUfJngtlZOG7Gg/SVmt
+	F72F3IO3P2EZGNuquoHdsE80DjR+vzVe1RrdQwXnqTf+71n1dei1ra/Pb/odUQKy7BhMBA6sgecw1
+	aok02ufl0LsVHNCfMXpUYTskgAK4AtDB9SNWMLrqxViWp0jX+1kCme5Q7R5IrjlUNCvZAbCS75qQ9
+	3i8IcdBWmIdGQtSYb8JbgxUUu8xjg6YZOA94ash48IX6W5vAUOEZAFxgILOELbxDZpBPZKXGggdng
+	8Vd0OkRebQPf9SitlRp84Jf9nFnRBv0YH7r8uPb76FQfDgin+ONW0XrdGJqrHxQZJ/pWg1hirBDqT
+	ydHre2mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtvvt-0000000F5cw-1swz;
-	Tue, 11 Aug 2026 23:30:57 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wtw5A-0000000F60X-1dm5;
+	Tue, 11 Aug 2026 23:40:32 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtvvs-0000000F5cf-2T4a
+	id 1wtw59-0000000F60F-1zLF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 23:30:56 +0000
+	Tue, 11 Aug 2026 23:40:31 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 38A7643B7B
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 23:30:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 101B21F0155B
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 23:30:56 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id CB5B643596
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 23:40:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE8291F00A3F
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 23:40:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786491056;
-	bh=mm10wdMdh/+6h4HJAKRKNt7oV5Saby0KSm+rAiNPAjE=;
+	s=k20260515; t=1786491630;
+	bh=oQFksCzI9ITgXg079LIF1ia95IZFV+xgemlTOZzX8Po=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=Jn4DDQ7hhCxJoo3tK++tbWVHNK4wNMPUDcEgrnwWDH0FghP3+gBVVBulNPQKR+CYj
-	 eAR1nshAeb4/sx77Ra18u/bKHedPdVM/xjg0bN4kTHebwtcdu2dQbmmQp2LUYTiZcw
-	 9f/lpxCI8TakDgy8+6xntXNt06bB2wnmnaP4P7yYixSSkUm7wFinit5typM08w9qK6
-	 YCCktIHNLD2AVnwK9aIRPuP0P8f7QY0VdDrKGRvuuyv4+G/XxbXiozkhT+xlWcAA+j
-	 OAh093MUjByxOCdTA39rCipxgeSYkoe4OYR1qkjSnw9Wdfkh3pnG1C4d+gHQydn5IK
-	 rgR29a2Ib3cDw==
-Received: by mail-qv1-f51.google.com with SMTP id 6a1803df08f44-9061a795d76so4169036d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 16:30:56 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RqZji6W324Oe4IYIlK14RAQphZepVMFX1NHdFBAnoZsuul9pG3YUOd8LspzEdmtIEBidrCQJvIeTelWY7Fd01dq@lists.infradead.org
-X-Gm-Message-State: AOJu0YynjVSicRdQ33U0ulJB/wV/EnmgKQkqY6PKFeTfu8wQqLKRGVYc
-	09kAcBkruM9TRq/BctiHpFyKt5q7zelL2fSgFbCZu/S0ETWrq5l7ihdehkFRmy4ZPFNP7pvcu6m
-	xw1eCOArIUgebzLuP6Xa7z49ioUYKXlE=
-X-Received: by 2002:a05:6214:492:b0:8f0:a849:f392 with SMTP id
- 6a1803df08f44-90a6ff45bdcmr7684206d6.14.1786491055243; Tue, 11 Aug 2026
- 16:30:55 -0700 (PDT)
+	b=kYQ6PBbg4Wye2kBWqrUrJ0lFgIoR3UdrHYZI6b+78DkQHgNZ2YFYoaSe9rZnP+hBs
+	 60r3jRYuz+a6wpCs8DXCWJb1ZmHI3CeymXhy3mMVMnpuXOxeG/oEmN+0ZYH8Aj4aal
+	 Wj7v+loliIJ7G4Yx/HXWAXcPgOg/ANTl7Hs+igOl+eMwOQ0+c1a8WF7LSj4ZxqdLMn
+	 LKKTJO4iSdKhrVbxJQbxhOYGHd5FpgFD+UdK3FTFqtkVagIHQkXi4sf6w/eap6Jlns
+	 YDMfpjYPOny1/sfSRFGdaFy7pzgi9kheGWB8+7iih0FO2h6PCU/ME2367xdvtpjoAq
+	 Ml9nPl7iRm+TQ==
+Received: by mail-qk1-f176.google.com with SMTP id af79cd13be357-92e65e18969so34454285a.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 16:40:30 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RqId0qJs4qRxDrmtHgjaEvWOZGwXyb2r3RqqMFatEPdCswYAGgFJDDlc7PgeN3oOP5gTgYgN2SfzykyEUGSNcsh@lists.infradead.org
+X-Gm-Message-State: AOJu0YzFBg1vz0TNRhskf8KqVS2iFtqQ+zlJwoeODCHunWvDJJNUMv2e
+	3kGsKQXr75W84trVpFU3CiAzUx6FjgI+8oQ2dUdtv+UAs+rf1kuhbuYuWG2jiJA4C3WO6sxfJpc
+	GLIL8xBvA7DMYp4Hfq+GoFJz5nfvMnks=
+X-Received: by 2002:a05:620a:21cc:b0:92e:551d:f1a3 with SMTP id
+ af79cd13be357-936adcdcb43mr310015385a.8.1786491629947; Tue, 11 Aug 2026
+ 16:40:29 -0700 (PDT)
 MIME-Version: 1.0
-References: <cover.1786230311.git.jpoimboe@kernel.org> <e246f9ed3b06724147ca801af3deea5e2cb3b80e.1786230311.git.jpoimboe@kernel.org>
-In-Reply-To: <e246f9ed3b06724147ca801af3deea5e2cb3b80e.1786230311.git.jpoimboe@kernel.org>
+References: <cover.1786230311.git.jpoimboe@kernel.org> <8adf966b340ea38ef1df845c7af0c794df3a7bce.1786230311.git.jpoimboe@kernel.org>
+In-Reply-To: <8adf966b340ea38ef1df845c7af0c794df3a7bce.1786230311.git.jpoimboe@kernel.org>
 From: Song Liu <song@kernel.org>
-Date: Tue, 11 Aug 2026 16:30:43 -0700
-X-Gmail-Original-Message-ID: <CAPhsuW62H8-wCzh0fKN0Cakv5Av-A2=bKg1f7BkS3WYs+H7fLQ@mail.gmail.com>
-X-Gm-Features: AUfX_mwAp1sFG-jsaJmeqTRSEzzIwn1foHFPe56LR-NW_OH8s91tXk8W6El9i-Y
-Message-ID: <CAPhsuW62H8-wCzh0fKN0Cakv5Av-A2=bKg1f7BkS3WYs+H7fLQ@mail.gmail.com>
-Subject: Re: [PATCH v4 06/22] arm64: vdso: Discard .discard.* sections
+Date: Tue, 11 Aug 2026 16:40:16 -0700
+X-Gmail-Original-Message-ID: <CAPhsuW4PRaUoJY-AV7A=Zj8trhUgNN-QGnN9JViDPMeNNuRvJw@mail.gmail.com>
+X-Gm-Features: AUfX_mzfV5u94ssaoc1DwPzAKH0PnNP7yL6H3gKwaQ0xQ736PSRCu5sRlHc87ts
+Message-ID: <CAPhsuW4PRaUoJY-AV7A=Zj8trhUgNN-QGnN9JViDPMeNNuRvJw@mail.gmail.com>
+Subject: Re: [PATCH v4 11/22] kbuild: Only run objtool if there is at least
+ one command
 To: Josh Poimboeuf <jpoimboe@kernel.org>
 Cc: x86@kernel.org, linux-kernel@vger.kernel.org, 
 	live-patching@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>, 
@@ -87,10 +88,14 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On Sat, Aug 8, 2026 at 4:18=E2=80=AFPM Josh Poimboeuf <jpoimboe@kernel.org>=
  wrote:
 >
-> In preparation for enabling objtool on arm64, add .discard.* to the
-> vDSO's /DISCARD/ section so objtool annotations don't cause orphan
-> section warnings or leak into the final vDSO binary.
+> Split the objtool args into commands and options, such that if no
+> commands have been enabled, objtool doesn't run.
 >
+> This is in preparation for enabling objtool and klp-build for arm64.
+>
+> Reviewed-by: Nathan Chancellor <nathan@kernel.org>
+> Reviewed-by: Nicolas Schier <nsc@kernel.org>
+> Tested-by: Nathan Chancellor <nathan@kernel.org>
 > Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
 
 Acked-by: Song Liu <song@kernel.org>
