@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74993C5B570
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 06:57:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADCFBC5B569
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 07:03:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Vxnxyq4EBot5fuhq3s4GNJt0r7zAtznqxRDQwegelng=; b=DBdaeXHI8eN3CjUWudQIAQ7HhD
-	1yyJQ05NFYl0tbpe1ea3e2c1B/pm6vhm7P75YJcOObXhYhznda+44h/plIY+7RfkzsffOyvYVGr3P
-	qAAUbzMCIGi/194ZqnaNqdv7/+4MpcnTjca8UpIz0VR1vWxdriOmwrlqO+TjAPlSATo4Mj/CY4ERF
-	DV8ugBVx2VUpf0rjMViR7bsDN9z076cp9dT0Av+WCFPNm6Jhmxb9j327qjDOnRGLezs7RaBbJr0aT
-	5BQZ/wVopVicH/b/vX0PgSaEPuvngOFhqw9EIIvKkGp77FLGQrx59VCFSxtl3r469NbFfVicaH/ZA
-	iG6Y/TuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wx53Ap3mrvChep95/lU+75w+ogUAiLoztEeouw6F2LQ=; b=JQq0XrlW1+8kbbohqYU/v4+oI1
+	Tk9jcBeIcjjbzP4oeUsRUl8QVLLMwpIah21IkFaYgumJa3HkAuBs8aMvW3j78DTNsaWg3fN7TOYf+
+	5LrRmp9wldUuCTrrKp7abSqWckdxdufNgI5GFyFNusVwKk3/v4cAmY/VjjdXcnqupwzSkDCD1+oLW
+	/oa2kkT3iVTV9U9/mEKdf9BRClPlhK8w89JSv7f1JJBO+XIU67A/8Dm5oH0Kj2FW33EeyByHHPPc3
+	6NCzXtXr2ZTUjsCqte0TAhEQz/V0HIfy++I1rV+SYSqvlFpEdd26cqrsCB2CvK5V43zTBnR2D/MNl
+	uKD8Mclg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtgQ0-0000000DT4q-3Pi9;
-	Tue, 11 Aug 2026 06:57:00 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1wtgWF-0000000DTkl-2hcv;
+	Tue, 11 Aug 2026 07:03:27 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtgPw-0000000DT3g-1tj4
+	id 1wtgWF-0000000DTkf-0EUb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 06:56:59 +0000
-X-UUID: d39dc9f4955111f1aa26b74ffac11d73-20260811
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:29bfe68e-fcfe-420c-9344-c20a17e34ee6,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:e7bac3a,CLOUDID:d47660827bff5ee2b9483309721501eb,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:102|850|865|898,TC:nil,Content:0|15|50,E
-	DM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA
-	:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: d39dc9f4955111f1aa26b74ffac11d73-20260811
-X-User: gonglinkai@kylinos.cn
-Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <gonglinkai@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 284839150; Tue, 11 Aug 2026 14:56:50 +0800
-From: Linkai Gong <gonglinkai@kylinos.cn>
-To: Arnd Bergmann <arnd@arndb.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Michal Simek <michal.simek@amd.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Linkai Gong <gonglinkai@kylinos.cn>
-Subject: [PATCH] char: xilinx_hwicap: check device_create() return value
-Date: Tue, 11 Aug 2026 14:56:44 +0800
-Message-Id: <20260811065644.379601-1-gonglinkai@kylinos.cn>
-X-Mailer: git-send-email 2.25.1
+	Tue, 11 Aug 2026 07:03:27 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id A656641775;
+	Tue, 11 Aug 2026 07:03:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C93ED1F00A3A;
+	Tue, 11 Aug 2026 07:03:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786431806;
+	bh=wx53Ap3mrvChep95/lU+75w+ogUAiLoztEeouw6F2LQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=QXj7YKtJ1ISP/nOGFp1MkHFIYyMUMD8gVgJnzdfT6sRYsTZ+MrwZun590xJA/je/W
+	 oV9DukkOEYE+l8++aPoZ0pdZxVSYX+RdU+JxTOjUtEND7bfsMqTGLSLaNaoRwmL2HI
+	 WobQNpyywlXbsGTUFAjVbUzTyRsJ4WSWbySu7ds6XHEp+oxNaZtTvNSJrKtHeVYIYF
+	 ZkTbfbrefFzn/45riO0XmmXTow4+HYV9jbaEraODjtVgc8Ep711eE6M33d5ydoqHBA
+	 vLlyepjS7FRbAddd7UKWQKOvpUo9H/w9gq9AuNbxlVrMnaBx7FwPFbUn4ex8sIkss4
+	 +f/nTygUtAkpA==
+Date: Tue, 11 Aug 2026 09:03:23 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: David Heidelberg <david@ixit.cz>
+Cc: Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Henrik Rydberg <rydberg@bitmath.org>, 
+	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Petr Hodina <petr.hodina@protonmail.com>, linux-input@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+	phone-devel@vger.kernel.org
+Subject: Re: [PATCH v5 1/3] dt-bindings: input: touchscreen: st,stmfts:
+ Introduce STM FTS5
+Message-ID: <20260811-inescapable-indigo-pig-0a5c3f@quoll>
+References: <20260810-stmfts5-v5-0-0c737d929976@ixit.cz>
+ <20260810-stmfts5-v5-1-0c737d929976@ixit.cz>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_235656_833422_B46141DB 
-X-CRM114-Status: GOOD (  11.75  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260810-stmfts5-v5-1-0c737d929976@ixit.cz>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,43 +77,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-device_create() can fail, but the driver ignored the return value and
-still reported probe success. That leaves a registered char device
-without its /dev node.
+On Mon, Aug 10, 2026 at 05:21:40PM +0200, David Heidelberg wrote:
+>          touchscreen@49 {
+>              compatible = "st,stmfts";
+>              reg = <0x49>;
+> -            interrupt-parent = <&gpa1>;
+> -            interrupts = <1 IRQ_TYPE_LEVEL_LOW>;
+> -            touchscreen-size-x = <1599>;
+> -            touchscreen-size-y = <2559>;
+> +            interrupts-extended = <&gpa1 1 IRQ_TYPE_LEVEL_LOW>;
+> +            touchscreen-size-x = <1600>;
+> +            touchscreen-size-y = <2560>;
 
-Check the return value, report the error, and delete the cdev on
-failure.
+This is not explained in the commit msg.
 
-Fixes: ef141a0bb0dc ("[POWERPC] Xilinx: hwicap driver")
-Signed-off-by: Linkai Gong <gonglinkai@kylinos.cn>
----
- drivers/char/xilinx_hwicap/xilinx_hwicap.c | 10 +++++++++-
- 1 file changed, 9 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/char/xilinx_hwicap/xilinx_hwicap.c b/drivers/char/xilinx_hwicap/xilinx_hwicap.c
-index 34a345dc5e72..338588b7bf08 100644
---- a/drivers/char/xilinx_hwicap/xilinx_hwicap.c
-+++ b/drivers/char/xilinx_hwicap/xilinx_hwicap.c
-@@ -660,9 +660,17 @@ static int hwicap_setup(struct platform_device *pdev, int id,
- 		goto failed;
- 	}
- 
--	device_create(&icap_class, dev, devt, NULL, "%s%d", DRIVER_NAME, id);
-+	retval = PTR_ERR_OR_ZERO(device_create(&icap_class, dev, devt, NULL,
-+					       "%s%d", DRIVER_NAME, id));
-+	if (retval) {
-+		dev_err(dev, "device_create() failed: %d\n", retval);
-+		goto failed_cdev;
-+	}
-+
- 	return 0;		/* success */
- 
-+ failed_cdev:
-+	cdev_del(&drvdata->cdev);
-  failed:
- 	mutex_lock(&icap_sem);
- 	probed_devices[id] = 0;
--- 
-2.25.1
-
+>              touch-key-connected;
+>              avdd-supply = <&ldo30_reg>;
+>              vdd-supply = <&ldo31_reg>;
+>              ledvdd-supply = <&ldo33_reg>;
+>          };
+>      };
+> 
+> -- 
+> 2.55.0
+> 
 
