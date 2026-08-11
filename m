@@ -4,63 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB20BC5CFCF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 10:00:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6433FC5AC67
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 10:03:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gb9mM62YNa3M980jvsV0Wc3c2VWrJY0STu0zD6FpqT8=; b=B8EtmV45yG6c6Ch07CTE+m7tkA
-	44p1r3fbyiBBhqbqGJPzAGFoCVjHxGuwJrRZWzCzRV5J/Ak3CSxWhp51aB5oIPg8AdinaGbmn4tS6
-	Xe6LVAyxxC6lUZW4gNCe/ogDcgeQflTzr6N3FRjND+cnlZMR+KxWriEO4y0CQk+3PJthS0t6bSWBy
-	kwhWF63DOMYh+vjuzpJhLRZhav8VhgCiz4jj2q8l5fFNRzPddabpSpEsYmwwLVNR51/eVY8yY+VEX
-	y5ZFP+P3JJz3srk5EnrhTQBZbiI9uHOdLOMmBr1pbPMKbKACruUhW+/ElUvQNCu+JlAhdTb6ITIa8
-	ME9E2R7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3LKTW4Q8RE5r050/7Dy6J8DZH0W0Onq+4vKec7r0Eu0=; b=hBlLGTiH82cjoimNLqWKoc5M9c
+	jXlDf/4k4IEEV0d6ckbIoqDD9XgkhGSxJ1Rdb3leevSSVQVwq+euMh20OVsvqUO8pM20NU0yFJJAc
+	wVpb5t0K9DEXi9IUYRxa3sA3fFTVRgxPXbNA0yVKBI1oaAE3RVhyJLlNTZ28e1wpkZx3j++Z1/0+Z
+	EMj9tn5RMbbe4lh9cmiwELo/fgMatvaUbeWyMKPL9Me73+peJvtg8lr7zz4r9bz4RdYT/q6KbwH+g
+	Xw9kqrCYZt/6sfavubjFK0pVyEmanButOsgNBZL7ircBuX5dloJ+TTDW1/30NZyOH/foJw797Rgr+
+	d7Wu/b8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtjHJ-0000000DnVa-2qSt;
-	Tue, 11 Aug 2026 10:00:13 +0000
-Received: from out-183.mta0.migadu.com ([2001:41d0:1004:224b::b7])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtjHF-0000000DnTj-4053
+	id 1wtjKF-0000000Dnv3-0bkV;
+	Tue, 11 Aug 2026 10:03:15 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wtjKB-0000000DnuF-1hPw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 10:00:12 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
-	s=key1; t=1786442401;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Gb9mM62YNa3M980jvsV0Wc3c2VWrJY0STu0zD6FpqT8=;
-	b=jVuhIJGPr2KT8VjXH4U3yJK1pu3vLLHRt1BQIVy9d9kQqYhLDZmifAp2f4x4PFL3WTQ2Np
-	Jx76bQc4wLFA8wQ4ZaMnvmo8sP5mZIgVw8X2/46QiG2MOFxX0ftzoLwhI2JX84/NSEvMui
-	8sZ83raoI40xnIlE3DQQLNSSaVoUg172Qi+fgmNv4nbUM3lIH5P5SAvtay0HJVwIzB9NCx
-	5NpqSWL9WBs8aNy2WEzzSTdMDW52wLEni4OKKL2wRJI+480JDArORR28B9b9Fle0mZ4RBj
-	3cK7qBDVH8WCs43qJu+YThfxjOz8xlkBiCh8sehzJazHWk/xhghUhcG6+jAS2Q==
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 11 Aug 2026 11:59:33 +0200
-Message-Id: <DKM0YWWP935E.3K38J0LJL6AEE@cknow-tech.com>
-Cc: "Heiko Stuebner" <heiko@sntech.de>, "Rob Herring" <robh@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>, "Krzysztof Kozlowski"
- <krzk+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- <devicetree@vger.kernel.org>, "Jonas Karlman" <jonas@kwiboo.xyz>, "Joachim
- Eastwood" <joachim.eastwood@gmail.com>
-Subject: Re: [PATCH 1/1] arm64: dts: rockchip: enable NPU on Radxa E52C
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <diederik@cknow-tech.com>
-To: "Jimmy Hon" <honyuenkwun@gmail.com>, "Chukun Pan" <amadeus@jmu.edu.cn>
-References: <20260810100000.2643814-1-amadeus@jmu.edu.cn>
- <CALWfF7K2t4nt05a4TugBjOQkaQK=M=+wDSeG26B33znyMMzhAQ@mail.gmail.com>
-In-Reply-To: <CALWfF7K2t4nt05a4TugBjOQkaQK=M=+wDSeG26B33znyMMzhAQ@mail.gmail.com>
-X-Migadu-Flow: FLOW_OUT
+	Tue, 11 Aug 2026 10:03:13 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AFC9014BF;
+	Tue, 11 Aug 2026 03:03:03 -0700 (PDT)
+Received: from arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 651363F86F;
+	Tue, 11 Aug 2026 03:03:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1786442587; bh=kYPhLWKxR3+5jaSK8JPDXB+JKQ0jVQZ+rr8T0uNd6ak=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=G7ZbLBmzr2DWSirU7DLFNV/N2RKZb+F9Rz2obnyV/Zp7k0JBTIqmiM4dRAwbz+fDk
+	 QWl8tZ1bAkow8brr4gY8owcEu7m2l0HnaNUYkmW0P2GDwOhWm2gAgcRqT15o2GUi9t
+	 w0oQVv5RGBJeCdMzUTbX/giAbnDq/yjNbX+Ox5Qw=
+Date: Tue, 11 Aug 2026 12:02:55 +0200
+From: Beata Michalska <beata.michalska@arm.com>
+To: Sean Wang <seanwang1@lenovo.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, rafael@kernel.org,
+	Danilo Krummrich <dakr@kernel.org>,
+	Lifeng Zheng <zhenglifeng1@huawei.com>,
+	Xuewen Yan <xuewen.yan@unisoc.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Sumit Gupta <sumitg@nvidia.com>,
+	Yunhui Cui <cuiyunhui@bytedance.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	driver-core@lists.linux.dev
+Subject: Re: [PATCH v3] arm64: topology: add source check in
+ arch_cpu_idle_enter()
+Message-ID: <anrzT-ez3b7uYaCt@arm.com>
+References: <20260811072830.10028-1-seanwang1@lenovo.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260811072830.10028-1-seanwang1@lenovo.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_030010_522322_F49F0205 
-X-CRM114-Status: GOOD (  13.72  )
+X-CRM114-CacheID: sfid-20260811_030311_518365_4381DBB1 
+X-CRM114-Status: GOOD (  31.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,46 +79,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue Aug 11, 2026 at 6:39 AM CEST, Jimmy Hon wrote:
-> On Mon, Aug 10, 2026 at 6:20=E2=80=AFAM Chukun Pan <amadeus@jmu.edu.cn> w=
-rote:
->>
->> Like the RK3588, the RK3582 has NPUs. Enable the NPU cores and their
->> MMUs, and connect the regulators.
->>
->> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
->> ---
->>  .../boot/dts/rockchip/rk3582-radxa-e52c.dts   | 34 +++++++++++++++++++
->>  1 file changed, 34 insertions(+)
->>
->> diff --git a/arch/arm64/boot/dts/rockchip/rk3582-radxa-e52c.dts b/arch/a=
-rm64/boot/dts/rockchip/rk3582-radxa-e52c.dts
->> index 854c118418eb..dd29a3ea7031 100644
->> --- a/arch/arm64/boot/dts/rockchip/rk3582-radxa-e52c.dts
->> +++ b/arch/arm64/boot/dts/rockchip/rk3582-radxa-e52c.dts
->> @@ -300,6 +300,10 @@ &pcie2x1l2 {
->>         status =3D "okay";
->>  };
->>
->> +&pd_npu {
->> +       domain-supply =3D <&vdd_npu_s0>;
->> +};
-> Now that the power domain has control of the regulator. The regulator
-> should have regulator-always-on removed, so it can be powered down.
+On Tue, Aug 11, 2026 at 03:28:30PM +0800, Sean Wang wrote:
+> arch_cpu_idle_enter() directly calls amu_scale_freq_tick() to update
+> arch_freq_scale when a CPU enters idle. This bypasses the sft_data
+> pointer check that topology_clear_scale_freq_source() relies on.
+> 
+> As a result, even after calling topology_clear_scale_freq_source()
+> with SCALE_FREQ_SOURCE_ARCH to disable AMU-based frequency scaling,
+> the arch_freq_scale value can still be modified by AMU counters when
+> the CPU goes idle through the arch_cpu_idle_enter() path.
+> 
+> Add topology_is_scale_freq_source() helper to check whether a specific
+> frequency scaling source is currently registered for a CPU. Use it
+> in arch_cpu_idle_enter() to verify that AMU is the active source
+> before calling amu_scale_freq_tick().
+> 
+> This ensures that topology_clear_scale_freq_source() properly
+> disables AMU updates in both the tick path (already handled by
+> topology_scale_freq_tick()) and the idle path.
+> 
+> Co-developed-by: Xuewen Yan <xuewen.yan@unisoc.com>
+> Signed-off-by: Xuewen Yan <xuewen.yan@unisoc.com>
+> Signed-off-by: Sean Wang <seanwang1@lenovo.com>
+> ---
+>  arch/arm64/kernel/topology.c  |  3 ++-
+>  drivers/base/arch_topology.c  | 13 +++++++++++++
+>  include/linux/arch_topology.h |  1 +
+>  3 files changed, 16 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
+> index b32f13358fbb..1dbd8f4c3178 100644
+> --- a/arch/arm64/kernel/topology.c
+> +++ b/arch/arm64/kernel/topology.c
+> @@ -175,7 +175,8 @@ void arch_cpu_idle_enter(void)
+>  
+>  	/* Kick in AMU update but only if one has not happened already */
+>  	if (housekeeping_cpu(cpu, HK_TYPE_TICK) &&
+> -	    time_is_before_jiffies(per_cpu(cpu_amu_samples.last_scale_update, cpu)))
+> +	    time_is_before_jiffies(per_cpu(cpu_amu_samples.last_scale_update, cpu)) &&
+> +	    topology_is_scale_freq_source(SCALE_FREQ_SOURCE_ARCH, cpu))
+>  		amu_scale_freq_tick();
+I'm not entirely convinced you gained a lot by that.
+It's one additional check per each enter_idle for case where AMUs are the
+source vs 2 additional check when it is not.
+Will try to figure out smth less 'invasive'.
 
-Next to that, quoting a question that was raised earlier here:
-https://lore.kernel.org/all/b9a5beb6-b701-430c-b667-44780736dd89@kwiboo.xyz=
-/
+Aside: I should have probably asked that earlier, but I am not sure I do fully
+understand the case we are trying to fix here.
+The topology_set_scale_freq_source prefers arch source to others. So if the AMUs
+were chosen to server as the source for the freq scale - I do not see why the
+sfd would be changed. That would require calling sequence clear-set to get a
+different source in place. I do understand the issue itself, though how did we
+end up there in the first place ?
 
-"Why is boot-on kept?, NPU is likely not needed until OS has started.
-
-With PD domain-supply the regulator should be enabled automatically, or
-is there some other issue that requires boot firmware to enable this
-regulator before OS is started?"
-
-I do realize quite a few other boards have it too, but maybe they
-shouldn't have it/them either?
-
-Cheers,
-  Diederik
+---
+BR
+Beata
+>  }
+>  
+> diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
+> index 8c5e47c28d9a..6049e77bbe1d 100644
+> --- a/drivers/base/arch_topology.c
+> +++ b/drivers/base/arch_topology.c
+> @@ -127,6 +127,19 @@ void topology_clear_scale_freq_source(enum scale_freq_source source,
+>  }
+>  EXPORT_SYMBOL_GPL(topology_clear_scale_freq_source);
+>  
+> +bool topology_is_scale_freq_source(enum scale_freq_source source, unsigned int cpu)
+> +{
+> +	struct scale_freq_data *sfd;
+> +	bool ret;
+> +
+> +	rcu_read_lock_sched();
+> +	sfd = rcu_dereference_sched(*per_cpu_ptr(&sft_data, cpu));
+> +	ret = (sfd && sfd->source == source);
+> +	rcu_read_unlock_sched();
+> +
+> +	return ret;
+> +}
+> +
+>  void topology_scale_freq_tick(void)
+>  {
+>  	struct scale_freq_data *sfd = rcu_dereference_sched(*this_cpu_ptr(&sft_data));
+> diff --git a/include/linux/arch_topology.h b/include/linux/arch_topology.h
+> index ebd7f8935f96..fb7c1fe74808 100644
+> --- a/include/linux/arch_topology.h
+> +++ b/include/linux/arch_topology.h
+> @@ -48,6 +48,7 @@ struct scale_freq_data {
+>  void topology_scale_freq_tick(void);
+>  void topology_set_scale_freq_source(struct scale_freq_data *data, const struct cpumask *cpus);
+>  void topology_clear_scale_freq_source(enum scale_freq_source source, const struct cpumask *cpus);
+> +bool topology_is_scale_freq_source(enum scale_freq_source source, unsigned int cpu);
+>  
+>  DECLARE_PER_CPU(unsigned long, hw_pressure);
+>  
+> -- 
+> 2.25.1
+> 
 
