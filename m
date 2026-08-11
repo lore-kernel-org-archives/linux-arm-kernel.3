@@ -4,94 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 457B6C5B56A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 12:09:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 091A2C5AC67
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 12:17:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uoVTJmbd8yKwYcWWlgS08ZgHIJGke3bvkQlHT1fmSY4=; b=URHC4LI995+W3coMhdoftlKQw4
-	rvYiiv6sx8xXuUtF+DvkOZJds89vQN8wLUZsE0UBn3+P1eqcBB0RmCLAM4hlF+GcLvOkWzh71Uecg
-	eRbjsFAY/SEXH/rr1hMtIl3kwTuTNCcegJkA+odWYKnpmobdQIqHOEsSM6FM2TwzJru1oWDPSq4f6
-	NRUWs10a383PUxvIF06mXCDvrzJPy3K7LDpAAwVyu4j4NVHDzL+hrxSEi1f11QBlS1QTGqpBs6IoP
-	DJrhnWpRNgQCRJ4VGd/bRp10mQsdBSn0t7UgQrT/bLIkhCjfH62u6Cv4FB6aMh4c2bTbfcWcJm/pb
-	mrJOe1Fw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+g0yyxU25w21pcLuXRAHww3PrvUBtCpd+aa0SHubV3M=; b=v5P3SzWLugo7SThVPlfnASmbSb
+	TzEug+kSsPOSIjI04vWaF04+F/d2eCi6sSOsHgFzI/93HlSnCAzoH8ZxFJyhRscBHuJIh/Z4D7fHZ
+	kMmMItEMlsubiXEhJdcWyg3jiwc7RmTnQzv3jqMglVyXOJfRH0e6gDKL1zTKI0zQl5BFs9WkOQxLO
+	JuJoIDez1D7Mzw9QsK7vuQNhy16fOup0NCxVYw9S2TW2XZdMGhQU3J1IvNg7bgOWjGH+a+ED3S8bH
+	VfAekxVdUu7TLEpA4h8d9ZUvJefAQx7zXrsp9iwmqErHy/u0aP0bugZ42gcmOh5i4IMTKcdyE6OwN
+	JDD3qS4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtlIh-0000000Dz3G-0ECL;
-	Tue, 11 Aug 2026 12:09:47 +0000
-Received: from mail-ua1-f54.google.com ([209.85.222.54])
+	id 1wtlQQ-0000000DzmZ-3QmG;
+	Tue, 11 Aug 2026 12:17:46 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtlIe-0000000Dz2C-2hyg
+	id 1wtlQO-0000000Dzm3-0gyw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 12:09:45 +0000
-Received: by mail-ua1-f54.google.com with SMTP id a1e0cc1a2514c-9773c6ea885so652606241.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 05:09:44 -0700 (PDT)
+	Tue, 11 Aug 2026 12:17:45 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-6a17c7c3c6eso8445a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 05:17:40 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1786450659; cv=none;
+        d=google.com; s=arc-20260327;
+        b=egdOZrwI8/0ZgQsNJK/3qRr5ZIv+B1fNI61lOYToQx/sVE+A+4cdIRgdU3h+VH8j3w
+         VzlckPsNDC0phQhN/V5zCHtkgSktGsKppKramzYDkN8OOObW1mz6h2RDkWH9zd/d5uTG
+         EAsyGa526ywl3aj+RaW+YKCFsqMqUgTZlNDZ31Td1JzvpjGpDSr0z+eB3hnxj68W/O7m
+         VUZ9YKEAr8KUuVODdpUc7ugCYL6+HNk3LkFAAVa97YsBRSeCKjsvyV6lpPxtnUtnZhQt
+         TW8O5yVPhXHxZGN6WIem8yPPhpvV+Xm6/M2drj8GkIvAnTWQW3SNEQ8zT3NPzca2GVnr
+         62yA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=+g0yyxU25w21pcLuXRAHww3PrvUBtCpd+aa0SHubV3M=;
+        fh=Y6FwbSls4LGDOhd89/gVpwkPdsDlHUUA/bkFG2mXHgw=;
+        b=g0uLXhIhMvd8BiMQQAcSUfYC25UgEORm1CZ6LSGM/Fp7qTVX3/jYvi0ArXnA5YosgT
+         1wBQfii15C+sUMWaVc9dASeyxh0NfWDAqwr+eeAs7U2eXdIL9+2JPEOasvXFQh/MRdlL
+         C655wfFKDQTE68cMX/YiBcTqdaEPge435G/Eb51GIU/RatwwPavUBE1c52U1u8JfkXWS
+         nr+rRgrRkdhkcLLmPR2aoEZ/mOFuFv1+Q0dFygisyFgP2xb48PG37f21nhL922bcwZbs
+         GAKTZod0G/fTY8BYvNDRBeUiURU9XojN92vXRzwTmDaktYQb5WHWNgILg+0DGCy36Enn
+         Wq4w==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1786450659; x=1787055459; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=+g0yyxU25w21pcLuXRAHww3PrvUBtCpd+aa0SHubV3M=;
+        b=hthQzHvftYgEihH49DGwVkCUJN4C2qV/NRV8CNzrZMpfiuQIQ2oCZ0+hfxmzi1l/iI
+         yLpEIIGZSJRd8E49ZxIdMuaT9UNUQTc2yvHoljW+A52RlVzVQG36qcV4UMIgwIpXJXHu
+         vnUjnSPyXkdW3ef2I3YUI9pVLyk6ht5AyaybeL4Ypxpte9LxbdDa53gt8vpIMNTsNpdp
+         h+a4o44EDyZ8Lk0XPV0zx4IozkfiZLO8fPz60e1q6wEd1a65l79+UslAlF3FN/ouOOYL
+         /Uu64jBtQ9la4b06j24EBXiCaWFNiHmUnxJfEaVJ/toFLzAW3UF8ZBuGOXQ8CmrCdkbC
+         JyoA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786450183; x=1787054983;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=uoVTJmbd8yKwYcWWlgS08ZgHIJGke3bvkQlHT1fmSY4=;
-        b=i69QVIuvNRL3j58vg/BaHmOzgIT+8Q1EEQakRWFCNgxr82nzn3ogiv3+U+zqaitVhU
-         WCEIJjbldbCRoQmJPoJyE7bDM8Of0aZpu6WCBQPLuNEgLnA59eCSOIMgYymNLrbQe4PY
-         zBqAptz7yz68AP5Mefp0oGq/7QvACyMEf/DsCwIhe1Cm/Cy1UxS5rCqhxh5PhZ+JzwOU
-         4DXn1T8tACg2fJa1hJZxKd5CReBYK0vZ41tgj2CPwViF8EFyYLnH9gBF4dR3l8+ZUU4a
-         gsvlbxBL4jkQqnpEIPZvs+jkY4o9vmvA59HR/gt0dtv6LxE1ewIJZpsYSQL36QpUZ7r3
-         DYeg==
-X-Forwarded-Encrypted: i=1; AHgh+RrnggWgxr/RvAYS8AS0nmaehxQQXSStX60Jym14T7TG28KE6ZDFsy7yPC2GfQ90POoYiEGRDTIR+Hr2bByP6Bkd@lists.infradead.org
-X-Gm-Message-State: AOJu0YwWK+nDEfjBj1dkn0vYFzyivwXh9lqLMtGKJsOchP0Z9q5WaTsp
-	50E7OQe4OXhfJs2Rhd5lOREfBgL1ZNHzr16/dr89/6QEJYHrDpSTupdF3YFB+Ik0
-X-Gm-Gg: AR+sD129n/0ZHDHRnXgNz3FdwV+evO/1h/chc1FKL9wQR3V9SmcxXWfhjm2fQ+bw2xu
-	a0Eaa/Uyu4OjeSMPg8yux/6xbpKPmhsadOBXTnCWUxRvqxhtewhTtWkxfyA1Yn/NjOWO3gunqO9
-	Cz/S9jdD7MDJ6UE1l/YUlhnYyK9RR9vuv+FkIvEZeoUI1ldKLUPaN7brjo/qDRCgNr2xTvLd3io
-	b6I89G2LakbOPyDZP6xO0+ATkne9u1j+eEYTSLul1Yxv7pS0xUFjjFqff8gEki9auawVOGEvUzP
-	4kJuPr+91Uijltoq3pmZ9OzAD+dSYFH1B46ZJzI4sHtn/Eg0ocrknLZfY7NOSzVcmKkqqz+4upy
-	g8wXRqDKd0f9j/M53ebIdk5aNd2GkYEBCB/+rxHHNp9c6vJTTPNEGqUOqe6RYeg/FV5OiDUoowH
-	ZkbCKfawohqJtgPBUNntQZiIc7U8jO04M2nbFq8qu51afgUaYdFh1KILtmg9LD3kpPRs1r1A/jY
-	oukvaCJvDQsIrYIdInGXtn+E8ZAvx0fMADf
-X-Received: by 2002:a05:6102:fa0:b0:740:2d81:c2a2 with SMTP id ada2fe7eead31-76b573bc4d4mr646608137.10.1786450183268;
-        Tue, 11 Aug 2026 05:09:43 -0700 (PDT)
-Received: from mail-vs1-f43.google.com (mail-vs1-f43.google.com. [209.85.217.43])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-76b632912dasm390945137.5.2026.08.11.05.09.35
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 11 Aug 2026 05:09:37 -0700 (PDT)
-Received: by mail-vs1-f43.google.com with SMTP id ada2fe7eead31-745659c70ccso555914137.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 05:09:35 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+Ro4dH5qoxeSadFRoVOTnlolj9YyyAIi2Gd/RaW5FFiZeRFQHcLYxvU8DQb0exlgVdQmuWN7+iefnDPNvl5onBON@lists.infradead.org
-X-Received: by 2002:a05:6102:15a3:b0:738:cdc6:f59a with SMTP id
- ada2fe7eead31-76b573b9e9amr650405137.9.1786450174738; Tue, 11 Aug 2026
- 05:09:34 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1786450659; x=1787055459;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=+g0yyxU25w21pcLuXRAHww3PrvUBtCpd+aa0SHubV3M=;
+        b=C/3Zr4NLp+4/7havjVF8gGlwNEUNAnq+LxTTrCPcsTQk7INZlDGza3HfYaWzefkefD
+         1axXKm4wxov8teZYFOg9DZQitJQZfA9ug7DfWABUpPhpocVzbjYaxf4/Q7umVxdAFGk0
+         j0H2UQo3+8od9wjtPfUyYg3JbemFL44XWUMgB2l+6QZZPOpJuxcLn5Suh81Ix/kN+eCW
+         pgP1mjbG0rkCLWxobxS2rDkXO1vkT+tINm4OMMB3/YyCst+gS7+rVF17IejfUm/6F2/W
+         S5eNsLzUpuwXGITIwEKkBbfKJrINEMzMOyuUNAplLQ9j+eK/EF1bOk+1vlBqABpVcl7S
+         hJWw==
+X-Forwarded-Encrypted: i=1; AHgh+RoFEBiXAP/dEpzE24b0qsAjaF6irHxrOIHUsQkm/TmHBISm63EIW2q8AaIZqTCeZjrCK49BsVb7+NZLOaqLPWdY@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzz9LW/JPixH268sdEKO3yMxGtpC6hSFllkelSgx6NVw3wUe4se
+	6xC8RYH9yKq3Kc2jIL+AjARi5PGyVcCO9x+b5bHmTDTkKv+oy8QjT09iLpxFjDzQRix5dSrlS0u
+	B6qji+gfXwJVRJg/QjJHalm6nxTTm49o8hwEt3s8U
+X-Gm-Gg: AR+sD10oQLOQZ8cfHYGUsGdsGTnP26iFPGHpswpSHca4yE0g1R3/pqjhNJKsTPOEAXK
+	xvttZyz+v4YeZFNlvxJKK2XIaoIHsaxIVoe+/NLS5FzBThsb2v6IHV1E06pwHrmUmh3HNwsb/10
+	+2X1AD3byYefosW8Kn0ynUWNvX+ab8gEEA2SD0xgvmH3xYlYxuz8qHgofSicM2JBadeVHWDbE+x
+	VeJPsX9ofBnYU1AJjJHwdi15nFvDwTTyfiZlRhWnkq2Pz2sAL0ZfnkgAxv3ONApYScGf/bYBdCJ
+	t3OIeWZ1A9R4bbyp7MytrrMGa3WJZvdXodSJgfTVLfjlikK/TL2txGfHbQg/cHsDbpIw7ODOZ1k
+	=
+X-Received: by 2002:a05:6402:1843:b0:67b:7d05:60b8 with SMTP id
+ 4fb4d7f45d1cf-6a3697f7d29mr8059a12.10.1786450658392; Tue, 11 Aug 2026
+ 05:17:38 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260724-clk-provider-simple-clean-v2-0-56f306156d25@baylibre.com>
- <20260724-clk-provider-simple-clean-v2-3-56f306156d25@baylibre.com>
-In-Reply-To: <20260724-clk-provider-simple-clean-v2-3-56f306156d25@baylibre.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 11 Aug 2026 14:09:23 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdW15QrpUhbra1Jg1_8rQWf8CE5TQiE5SUAsqvz5YmEwpQ@mail.gmail.com>
-X-Gm-Features: AUfX_mxAADqzKHeccKVpUAgUM-G2gOwUTpW15Dago95Bl-ey6AOZpFlGkzHgs7Y
-Message-ID: <CAMuHMdW15QrpUhbra1Jg1_8rQWf8CE5TQiE5SUAsqvz5YmEwpQ@mail.gmail.com>
-Subject: Re: [PATCH v2 3/7] clk: renesas: clean-up simple provider misuse of
- the consumer API
-To: Jerome Brunet <jbrunet@baylibre.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Gregory Clement <gregory.clement@bootlin.com>, 
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Brian Masney <bmasney@redhat.com>, Bjorn Andersson <andersson@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Prashant Gaikwad <pgaikwad@nvidia.com>, 
-	Thierry Reding <thierry.reding@kernel.org>, Jonathan Hunter <jonathanh@nvidia.com>, 
-	Tero Kristo <kristo@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, linux-tegra@vger.kernel.org, 
-	linux-omap@vger.kernel.org
+References: <20260808085824.732659-1-smostafa@google.com> <178621460524.381735.15023846552532101058.b4-ty@kernel.org>
+In-Reply-To: <178621460524.381735.15023846552532101058.b4-ty@kernel.org>
+From: Mostafa Saleh <smostafa@google.com>
+Date: Tue, 11 Aug 2026 13:17:25 +0100
+X-Gm-Features: AUfX_mylL7mka5X7s4oaoqXqkvT0gVqweb7ayJRqhutnUStI5GPh-r5yrwruQqA
+Message-ID: <CAFgf54qY8c9wO_RHQZpVSKUCTOgr+WWKCxetjb6BGf-G=5OTSA@mail.gmail.com>
+Subject: Re: [PATCH v2 0/3] KVM: arm64: Fixes for timers and pKVM
+To: Oliver Upton <oupton@kernel.org>
+Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, maz@kernel.org, seiden@linux.ibm.com, 
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	catalin.marinas@arm.com, will@kernel.org, vdonnefort@google.com, 
+	tabba@google.com, sebastianene@google.com, keirf@google.com, 
+	yaoyuan@linux.alibaba.com
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_050944_681005_7214B8DF 
-X-CRM114-Status: GOOD (  17.67  )
+X-CRM114-CacheID: sfid-20260811_051744_221427_D74C21C2 
+X-CRM114-Status: GOOD (  17.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,27 +122,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 24 Jul 2026 at 11:04, Jerome Brunet <jbrunet@baylibre.com> wrote:
-> Clock provider should not be using the consumer interface.
-> In other words, a provider should not be dealing with struct clk.
+On Sat, Aug 8, 2026 at 7:44=E2=80=AFPM Oliver Upton <oupton@kernel.org> wro=
+te:
 >
-> This change targets occurrences for which the provider uses the
-> consumer interface and corresponding clk_hw interface exist.
+> On Sat, 08 Aug 2026 08:58:21 +0000, Mostafa Saleh wrote:
+> > What started as a  small patch ended up as a 3 patch series thanks
+> > to Sashiko.
+> >
+> > First patch from Marc to consolidate the offset calculation,
+> > follow up patches fix issues with non-protected VM and timer
+> > offset and protected VM running with broken CNTVOFF_EL2.
+> >
+> > [...]
 >
-> Reviewed-by: Brian Masney <bmasney@redhat.com>
-> Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+> Dropped the unintended SOB in patch 3 you mentioned.
+>
+> Applied to next, thanks!
+>
+> [1/3] KVM: arm64: Make timer_get_offset() work in all contexts
+>       https://git.kernel.org/kvmarm/kvmarm/c/2858600ecd01
+> [2/3] KVM: arm64: Fix timer offsets for non-protected VMs
+>       https://git.kernel.org/kvmarm/kvmarm/c/47d3eef780e3
+> [3/3] KVM: arm64: Fix hvhe and broken CNTVOFF_EL2
+>       https://git.kernel.org/kvmarm/kvmarm/c/2e813a6e8ebe
+>
 
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-i.e. will queue in renesas-clk for v7.4.
+Thanks Oliver! I believe there is one more bug. I'm not sure where the
+bug is or if it relates to the broken timers.
+Before those patches I could not boot a protected VM because of the
+panic, now after booting protected VMs, I sometimes get a system
+reset.
+I confirmed that cntvoff_el2 does not get written to non-zero, I also
+removed the sysreg write completely (rely on xzr value at init) so my
+guess is that the HW might be allergic to more than just non-zero
+values in cntvoff_el2.
+I do not have issues with non-protected VMs anymore.
 
-Gr{oetje,eeting}s,
+Thanks,
+Mostafa
 
-                        Geert
 
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+
+> --
+> Best,
+> Oliver
 
