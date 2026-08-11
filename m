@@ -4,92 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A254C5AC67
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 10:10:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5297C5CFCF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 10:17:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=yi2AQubmBld0thtX/fIlK+IyfhDWkAZ51GVpdWF8ty4=; b=rLFjQACOrzbwVf4kzuF8SdYYF3
-	d7w6EJNqEru5sIXbILeV9wrgnknFBo9t+YmflpFBO7uvD63ky4VEYEF3dtbIcw6QnHbqODTq85fLV
-	oRvj7L4PVam0zzCCoLf3LdFNkYzLP8pTGqzy2H0Nm+GnIdjoIBItp5V5Gm4A2rOhoL+dLmbly+A0w
-	UF+u0FZm1KVY0RYT5I3wjnq3yZsWcl4uDg+6n0xg1QhrmWEgzqChgpb2/i9CfPAv4VY6NYQeWLOGM
-	ADP0wY39cFlqi3iYNVszOZIFER1gCKs09kFce0YLLy23J6sgESTlkUVXo6rvJ3oytFmUF1Ds/KDxK
-	u+UB150g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cgveFXz0aPZb86sTyapTaqRebr2jiJ1fiLR3Fd+pKjw=; b=X5iWueEq1syAyoBpKpUW7lw8Q2
+	i0CoFk22Vf61pG+wVckipfHhnzSyOHdfRzGJq5JiQQQOBl0TGOW4OAIXHtgohNH6ZWyg9Gx5sTVs1
+	zLRZz6n86V8k62fUGEI0FzFAU6lmpy+ErvDzDfeTu6HlFmJfuSgNqh5yTt+mNnnHyDZtEEjUuFDwv
+	A3cCRxrzZBLxVikEr+PYrlBhn1iDj3p4WQFTK4Nn00UkBzZ0OY/X8NwBGyrMVq+cL4CK9DWL1zw1s
+	TIWEydESjvJut58R1m66aSXz5q32vwk08lNjVsDc3ZBn5iDqmszj9dM54R8LSRFQBTt47FmutFGeb
+	GpdqaqFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtjQw-0000000Doha-0m3F;
-	Tue, 11 Aug 2026 10:10:10 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtjQt-0000000Doh0-2x0Z
+	id 1wtjYK-0000000Dpih-26H7;
+	Tue, 11 Aug 2026 10:17:48 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wtjYH-0000000DpiD-3rUY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 10:10:08 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2ce87c7e3bbso7906495ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 03:10:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786443007; x=1787047807; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=yi2AQubmBld0thtX/fIlK+IyfhDWkAZ51GVpdWF8ty4=;
-        b=cAmC5L5PWi6FRhTpzLcoe+dMJ+fJW/avzotkvn89IA4FFChvZFAxSgqNuLbFBRwZRX
-         9tIpRir2YNFCBR2VqX5NcJmn80mzjEXyQPZSFw7UYWeSlPnasteVeP7edmccW712C850
-         DpGwcg85/3/Qgl/+2rvMkmMFS5hzKnFWhx72q/2JoxZRQPJ+A2znaRf6iu/NYEe6s59A
-         hq1eizVdRRIxFv8M23eknVF/gZR4nVeaNboageBdOzcrWitK1ZshMG5/n+gM5G/dtldh
-         6SpRgfzT7utqPovZm76kJfQThad5ffwg9CsSGIaO4ltXKmF9oZBwBAbUFfC9q16rryqu
-         E9BQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786443007; x=1787047807;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=yi2AQubmBld0thtX/fIlK+IyfhDWkAZ51GVpdWF8ty4=;
-        b=SYShEwS5UpPX4XjbFaq5RuDzrlBTKsS7fUuczjZUw8PRzoZ2VWc7HoTnNV9rX1nvfC
-         5ffxFJK2LH99uatHxWQfwf0HPxsaFM8R0z1K1pc/X6shYYQWtCH2jWYvgdor0ePge1ov
-         thvW2TBI63HanHejxqOHLEnD9FLAwGCEKdzMV3oJyypYTijfokB20mshMYEb/noRk+ff
-         kknbMiHSDauavlDg+vEsc0yCjXwTwXuS3AHRYEZ/1Q3Tnng2ZxtrZfshSFz4R7nDw1UI
-         FUYeF0tUC/sKtXCNinc/G3H4dYddkmoJWaB3iMPwaNvn+HNyhzBPXVwU841q0UWt+yyN
-         jfdg==
-X-Gm-Message-State: AOJu0YwNcEvhHabgIoZ6Gy4+TOfZvAKDL+5/fjbQdN+dVOQS1wARcOAh
-	IRpO0WYAAURef8LSaNz16dJG0ggujBiiH5l1Gy528y5Zoj3c5dmBCtE1
-X-Gm-Gg: AR+sD10AtvkjRRvy6LcNOagggFIP5hb8phGYjBlV/XULOh6Ou2sQ8f/Gz3zx+9AOuko
-	Ea7PGf1P0gPQ6Gy5ea5Hre8eyuiWiy2NvHKnUWYAlUgZvvccokq9cGBi331/bAX26huYEqOM/BY
-	rLvaruZNd21SQG/cXqihY/G9IvIe/zK97g6suN007/UZSZz7ab+w1il4rm12VrPgHusGHQSdLh9
-	MMPTcAkuE5C5KmNbSOODk6JNN+6zqj+tFlxMBLEpWmT789rEF2tJWKM14O8ne+vQlunqzh357Y/
-	tOPWw2nAlP5VeN9ouYyB6zCrLZmIAoombjG8TtR2NMfNMW63joPl9/tUFCRr5/GOanZfruRaVvI
-	OwuicdH2VEJ8dsryY4dqAWYyidXVgqP6Suj/k4CLtTo6KeJ9c8ovC3r8LFDg3XprHSXHbEQLI+U
-	WcewsgPKg0wHQPukJepDX9Zk1LHk5ZGkJve6mfzRygoxfmj2/s7pu4za1ZGObpayiCVTWztHDur
-	OWQF4KnbEQuTv9VMdIRVfV4AOw6YCwzKPKxSJuOvispKhf3awpk+uNtDvNRSDq8DCP85ODaU/t3
-	ciqR
-X-Received: by 2002:a17:903:4688:b0:2cf:4339:aaa with SMTP id d9443c01a7336-2d317925cbfmr22741185ad.12.1786443006674;
-        Tue, 11 Aug 2026 03:10:06 -0700 (PDT)
-Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d315f4819dsm5189625ad.37.2026.08.11.03.10.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 11 Aug 2026 03:10:06 -0700 (PDT)
-From: phucduc.bui@gmail.com
-To: Daniel Mack <daniel@zonque.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [RFC PATCH] ASoC: pxa: Use devm_clk_get_optional() for extclk clock
-Date: Tue, 11 Aug 2026 17:09:49 +0700
-Message-ID: <20260811100949.61142-1-phucduc.bui@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Tue, 11 Aug 2026 10:17:47 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C8B1D14BF;
+	Tue, 11 Aug 2026 03:17:40 -0700 (PDT)
+Received: from localhost (unknown [10.2.196.114])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 573883F86F;
+	Tue, 11 Aug 2026 03:17:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1786443464; bh=ZE7nm7ffD93BfMT8HVYKCGTJj/+7QxUldSFCAd+HgnY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=GfDmzwVp6hox1IdOhr4CkTgrII9BC/aPtQ+CsaNYGnwMUuTn2WmZFcM8dT9zU5apC
+	 VJ4nZ0tn1xd/tYEk+msKedPgBfBoKTFFPf94b+45LR+aZd5IemiOBPqcaHUrOdmUVn
+	 rV0BJ0lhyNLymFjbsKMoALJn3c9gAK95MLqJNC8M=
+Date: Tue, 11 Aug 2026 11:17:42 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: James Clark <james.clark@linaro.org>
+Cc: Will Deacon <will@kernel.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Mike Leach <mike.leach@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Tamas Petz <tamas.petz@arm.com>,
+	Tamas Zsoldos <tamas.zsoldos@arm.com>,
+	Michiel van Tol <michiel.vantol@arm.com>,
+	Dev Jain <dev.jain@arm.com>, David Hildenbrand <david@kernel.org>,
+	Yabin Cui <yabinc@google.com>, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org
+Subject: Re: [PATCH 2/2] perf: arm_spe: Prefer large AUX mappings
+Message-ID: <20260811101742.GE15499@e132581.arm.com>
+References: <20260810-perf_aux_trace_large_granule-v1-0-03306c9339e3@arm.com>
+ <20260810-perf_aux_trace_large_granule-v1-2-03306c9339e3@arm.com>
+ <annp-BdTviQoH6vy@willie-the-truck>
+ <20260810174159.GC15499@e132581.arm.com>
+ <8c8f6c2a-8fc2-4181-87fa-e64101dfce6f@linaro.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <8c8f6c2a-8fc2-4181-87fa-e64101dfce6f@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_031007_777227_0EB2905C 
-X-CRM114-Status: GOOD (  15.30  )
+X-CRM114-CacheID: sfid-20260811_031746_003882_B689EE73 
+X-CRM114-Status: GOOD (  19.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,47 +83,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: bui duc phuc <phucduc.bui@gmail.com>
+On Tue, Aug 11, 2026 at 10:02:44AM +0100, James Clark wrote:
 
-The Device Tree binding defines the extclk clock as an optional
-property, but the driver currently uses devm_clk_get() and manually
-handles the absence of the clock.
+[...]
 
-Use devm_clk_get_optional() to match the binding and simplify the
-optional clock handling. This also propagates errors other than the
-absence of the optional clock, including -EPROBE_DEFER.
+> > The question is how "allocating contiguous AUX pages unnecessarily
+> > exacerbates memory fragmentation." The relevant information I could find
+> > is [1]:
+> > 
+> >   "On Android, we collect ETM data periodically on internal user devices
+> >    for AutoFDO optimization (for both userspace libraries and the
+> >    kernel). Allocating a large chunk of contiguous AUX pages (4M for each
+> >    CPU) periodically is almost unbearable. The kernel may need to kill
+> >    many processes to fulfill the request. It affects user experience even
+> >    after using PMU."
+> > 
+> 
+> This sounds like it could be an attribute to perf_event_open. We can do
+> PREFER_LARGE by default for performance and fewer discontinuities, but on
+> Android or small systems users can enable an option to revert back to single
+> pages.
+> 
+> Or can this bit be determined at allocation time: "The kernel may need to
+> kill many processes to fulfill the request"? If this memory pressure exists
+> on allocation then do it one way, if not do it the other way.
 
-This changes the existing behavior for errors other than
--EPROBE_DEFER. RFC to discuss whether these errors should cause probe
-to fail rather than being treated as an unavailable optional clock.
+Be careful with "The kernel may need to kill many processes ...".
 
-Fixes: 90eb6b59d311 ("ASoC: pxa-ssp: add support for an external clock in devicetree")
-Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
----
- sound/soc/pxa/pxa-ssp.c | 7 ++-----
- 1 file changed, 2 insertions(+), 5 deletions(-)
+The AUX allocator uses:
 
-diff --git a/sound/soc/pxa/pxa-ssp.c b/sound/soc/pxa/pxa-ssp.c
-index f8054c1c59fa..3a0abcb0bfbd 100644
---- a/sound/soc/pxa/pxa-ssp.c
-+++ b/sound/soc/pxa/pxa-ssp.c
-@@ -769,13 +769,10 @@ static int pxa_ssp_probe(struct snd_soc_dai *dai)
- 			goto err_priv;
- 		}
- 
--		priv->extclk = devm_clk_get(dev, "extclk");
-+		priv->extclk = devm_clk_get_optional(dev, "extclk");
- 		if (IS_ERR(priv->extclk)) {
- 			ret = PTR_ERR(priv->extclk);
--			if (ret == -EPROBE_DEFER)
--				goto err_priv;
--
--			priv->extclk = NULL;
-+			goto err_priv;
- 		}
- 	} else {
- 		priv->ssp = pxa_ssp_request(dai->id + 1, "SoC audio");
--- 
-2.43.0
+  #define PERF_AUX_GFP    (GFP_KERNEL | __GFP_ZERO | __GFP_NOWARN | __GFP_NORETRY) 
 
+Documentation/core-api/memory-allocation.rst says that __GFP_NORETRY
+causes the allocator to "fail early rather than cause disruptive
+reclaim" and that "the OOM killer is not invoked".
+
+Therefore, it is unlikely to me that AUX allocation itself would cause
+the kernel OOM killer to kill processes in order to satisfy the request.
+
+I am a bit suspect the original observation was related to Android's
+lmkd [1], where allocating the AUX buffers increased overall memory
+pressure and indirectly caused processes to be killed. If so, I think it
+is important to understand what actually triggered those kills.
+
+Thanks,
+Leo
+
+[1] https://source.android.com/docs/core/perf/lmkd?hl=en&utm_source=chatgpt.com
 
