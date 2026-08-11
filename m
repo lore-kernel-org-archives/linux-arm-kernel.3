@@ -4,75 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 327E0C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 15:42:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D1A4C5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 15:44:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S8oJSUuk7JJQu3+NU37IHhP1ZiUl6l3cGNRnaEM5rSc=; b=SZ3mmmvalwZd8sanQFEbNrClCH
-	huxELnsC87GlZg7kL8visDOqWsEKu9nj4+6Hf9JLG3yDwnpOxTIxDXZcK89S3NLsG5FyM2funmdYs
-	QRRlqN+I2INBYQOmN/2cGQVJVZbi9dS+OUbx50iSW8akg2D96j5dT8Ju/v5Wg0mVTRKYIPeubtPdw
-	OymQsvuW0BvucVRb8wJt5aNQZ4RWV5ej2UJRpNODHO0iFYiOzt0c4UvGfxdj+V9C5Oewj1kZOwBy5
-	Qk+cgcmdJ/yBDR5xRpAtTLHGDRiYridMzwSBm7NkHgJGY2S7KAavc6MaNo6SidSR6iYR/NbGXU+wS
-	QTxwUUkQ==;
+	bh=elSPNXzdKmLiSzaBsIbjtlxTtbtBm9V1qIvc6L3Olnk=; b=iiMFoJxh8QXSleB2coRRVhtsnK
+	hNcrDDbowROPaQ/z1mYxNayJ8j298sR+4sgb6XPI57HjHpC8ZZHvWIlNLRXDicryRzL5qB0AVocpJ
+	flmveXEoRW1zADA9LI6HiiU3qIasuNA1JDsQMQozvhZuPa7QI1DVHj/34IFJwU6mO9PXVU73aOq8n
+	UuQeJbOFgAjJ6UmWsh0mE7XwI91Q6JZlHaRqh2YunCSuEscl4BgchVkWk1abj5q4lVCdZ2odpHUMg
+	AeEDTzbyUL7ac4o/awm8f5G303tuYTgvJLQn/ENLu91FSw7SC6rXDljlDFrSbBW6+fkHFOlV4nQRN
+	F2XXF7vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtocf-0000000EMUg-2ShJ;
-	Tue, 11 Aug 2026 15:42:37 +0000
+	id 1wtodu-0000000EMjt-3Zvn;
+	Tue, 11 Aug 2026 15:43:54 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtocd-0000000EMU5-2yx2
+	id 1wtods-0000000EMjK-2HPG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 15:42:36 +0000
+	Tue, 11 Aug 2026 15:43:53 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 26D1D1516;
-	Tue, 11 Aug 2026 08:42:30 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B9EAB1516;
+	Tue, 11 Aug 2026 08:43:46 -0700 (PDT)
 Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 238EC3F632;
-	Tue, 11 Aug 2026 08:42:31 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 096D23F632;
+	Tue, 11 Aug 2026 08:43:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786462954; bh=N3qnRTjJztvg5epuOANhnoAI4KJvsaIW+sRapJAXN0U=;
+	t=1786463030; bh=hQLSjCwZk9nOSIrJE2YUoZMmluijQPyTacbicC/GIzg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=am/mA1sK5zKjfitH7cRbZ87H8alzpMUQI8+jwTsN4PE48jXctVfydgElUScpeO1vs
-	 IA80CRzE5RJn8gXG/Utun8MLlkKfIN7KX/969mbtdhU6KQffIXWp+B1Imv4mGyOkfF
-	 8epE3AiaUl1z/9uja+Du7UQunHcap01bytZVtlU4=
-Date: Tue, 11 Aug 2026 16:42:28 +0100
+	b=tACVSB9haxx+b5z5esFq1GdMDSp73EAaLWClW5d/yi9uQLUdt9xeDY4nnDhmtPnen
+	 uUTqogDxL2FL1EtY3wdTkQ1cAeYnH0b1Yt9vpRphjoNKPL06DiEnxTbG0GYEqGdscc
+	 K5F3mV4QK7ftIcrVGstaMk6l+ktUqPBcUQBvvnwM=
+Date: Tue, 11 Aug 2026 16:43:46 +0100
 From: Catalin Marinas <catalin.marinas@arm.com>
-To: Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>
-Subject: Re: [PATCH v16 29/45] KVM: arm64: CCA: Support runtime faulting of
- memory
-Message-ID: <antC5JOxDPs7i876@arm.com>
-References: <20260803134403.80630-1-steven.price@arm.com>
- <20260803134403.80630-30-steven.price@arm.com>
+To: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Arnd Bergmann <arnd@arndb.de>, Ard Biesheuvel <ardb@kernel.org>,
+	Eric Biggers <ebiggers@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Marc Zyngier <maz@kernel.org>
+Subject: Re: [PATCH 00/12] arm64: Remove unused big-endian support
+Message-ID: <antDMvjBM1s7jfxe@arm.com>
+References: <20260811140132.22778-1-will@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260803134403.80630-30-steven.price@arm.com>
+In-Reply-To: <20260811140132.22778-1-will@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_084235_838544_44A906B7 
-X-CRM114-Status: GOOD (  20.35  )
+X-CRM114-CacheID: sfid-20260811_084352_618104_2D53A563 
+X-CRM114-Status: GOOD (  10.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,78 +74,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 03, 2026 at 02:43:45PM +0100, Steven Price wrote:
-> At runtime if the realm guest accesses memory which hasn't yet been
-> mapped then KVM needs to either populate the region or fault the guest.
+On Tue, Aug 11, 2026 at 03:01:19PM +0100, Will Deacon wrote:
+> Hi folks,
 > 
-> For memory in the lower (protected) region of IPA a fresh page is
-> provided to the RMM which will zero the contents. For memory in the
-> upper (shared) region of IPA, the memory from the memslot is mapped
-> into the realm VM non secure.
+> Big-endian support on arm64 (CONFIG_CPU_BIG_ENDIAN) has depended on
+> BROKEN since 1cf89b6bf660 ("arm64: Kconfig: Make CPU_BIG_ENDIAN depend
+> on BROKEN") and has already seen some clean-up patches removing some of
+> the unused support code (e.g. 5276ea17a23c ("lib/crc: arm64: Assume a
+> little-endian kernel")).
+> 
+> Finish the job, and remove the remaining big-endian support code from
+> arm64. Note that the SETEND emulation for 32-bit tasks remains and so
+> some of the mixed-endian EL0 helpers are retained.
 
-Is this still true with in-place guestmem conversion?
-
-> @@ -1693,7 +1709,14 @@ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
->  	kvm_fault_lock(kvm);
->  	if (mmu_invalidate_retry(kvm, mmu_seq)) {
->  		ret = -EAGAIN;
-> -		goto out_unlock;
-> +		goto out_release_page;
-> +	}
-> +
-> +	if (kvm_is_realm(kvm)) {
-> +		prot &= ~KVM_PGTABLE_PROT_X;
-> +		ret = realm_map_ipa(kvm, s2fd->fault_ipa, pfn,
-> +				    PAGE_SIZE, prot, memcache);
-> +		goto out_release_page;
->  	}
-
-[...]
-
-> +int realm_map_ipa(struct kvm *kvm, phys_addr_t ipa,
-> +		  kvm_pfn_t pfn, unsigned long map_size,
-> +		  enum kvm_pgtable_prot prot,
-> +		  struct kvm_mmu_memory_cache *memcache)
-> +{
-> +	struct realm *realm = &kvm->arch.realm;
-> +
-> +	ipa = ALIGN_DOWN(ipa, map_size);
-> +	if (!kvm_realm_is_private_address(realm, ipa)) {
-> +		return realm_map_non_secure(kvm, ipa, pfn, map_size, prot,
-> +					    memcache);
-> +	}
-> +
-> +	/* It's impossible to map protected pages read-only. */
-> +	if (WARN_ON(!(prot & KVM_PGTABLE_PROT_W)))
-> +		return -EFAULT;
-> +	return realm_map_protected(kvm, ipa, pfn, map_size, memcache);
-> +}
-
-I was trying to understand (with the help of some LLMs) to understand
-whether we can end up on the do_gpf() path as a result of VMM actions.
-The above kvm_realm_is_private_address() only checks for the IPA but
-does not check against guestmem if the page is truly private. I probably
-miss something but the scenario would be something like:
-
-1. VMM creates the gmem region with GUEST_MEMFD_FLAG_MMAP |
-   GUEST_MEMFD_FLAG_INIT_SHARED, mmap()able and GUP-pinnable
-
-2. VMM starts an O_DIRECT write() from that mapping; the block layer
-   FOLL_PINs the shared folio
-
-3. VMM runs a vCPU so the realm touches the protected-IPA alias of the
-   same gfn. gmem_abort() delegates the pinned, still-shared page to
-   the RMM
-
-4. The in-flight I/O then reads the now-Realm page from the kernel
-   linear map. That access takes a GPF at EL1, so do_gpf() ->
-   die_kernel_fault()
-
-x86, IIUC, also checks kvm_gmem_is_private(). They also have
-kvm_arch_gmem_make_private() triggered on the kvm_gmem_get_pfn() path
-but I got lost in the call sites, not sure whether that's strictly
-needed if we check both private IPA and kvm_gmem_is_private().
-
--- 
-Catalin
+Acked-by: Catalin Marinas <catalin.marinas@arm.com>
 
