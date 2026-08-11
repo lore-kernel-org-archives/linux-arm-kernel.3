@@ -4,107 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBA0CC5B56A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 17:45:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A28AC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 17:47:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wIsnnmjwLbAOrXB5Ycbgn7qG66QGI3o9vwN2stAqMGA=; b=ek9qe9q0tyYio4Olz4PWUx9FIG
-	SNs1Bs2Ho1jZC8vrvC9bmCE041Bdty93G/NzeNCUJj246CpHrhlAqxes1lnaS32Spsoh8twHgZ9vv
-	qrs7UWFaqXxkrppz8GVc7IkwaE/JrsFPCEAH6RH6kgrltRPNIhUYe3TMFhEgPa9rY2CuVr0lGBaDG
-	F+3f9WEnRznEh6ZSoB67o+5NLRmdI0aRE0in/JJrJN+6EpGaBsBv9RsNFrgYQLW5qhOiZYwK0SZ9L
-	cPvMU1vX5EfJZBK7C17N81bP/ubXs7PddpByRj8mh5zYJT7lvDCQYumYfyUJ9ylApGl4g3IAhc6RK
-	ggwpx8kA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4yboTqBTEw4PTYk2V34YoGud7Bf+74tlEH/ZnUiQtFM=; b=Zxgz0f+Ze+0yBIjHb5cx79R5wW
+	tK81rdwahwEdHGpy4TZWZX+XwuUsx0/fust/jQDz9msXOe8dtHGLV9UBa8aqwpjFAS1dAjSBBT94d
+	R53d3r6IsiTXHKOvE6i19LKp+zGXNgNOyGnEsU/1+yeTLf4oKiaBjHiqSTn+70/pybDdmzgZhcF27
+	89ipD1/Rm6ymtI+b3VIOacWf7okmSVvyABJmWIIsMfrT27xfzyb8bqf6jCirP32FosRupnnOSykAm
+	dnVFoO6iq4RRnXa+2V3qJ+1lmwp1tnHeWSpYDOXOfwRrQqO0iIYYSZ2m03n0ZF7wvnmJn78nfKCo/
+	drrlcrRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtqXa-0000000EgX5-3L87;
-	Tue, 11 Aug 2026 17:45:30 +0000
-Received: from mail-oo1-xc2f.google.com ([2607:f8b0:4864:20::c2f])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtqXY-0000000EgW7-3g2b
+	id 1wtqZC-0000000Egji-4Bts;
+	Tue, 11 Aug 2026 17:47:11 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wtqZ9-0000000Egir-2cHl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 17:45:30 +0000
-Received: by mail-oo1-xc2f.google.com with SMTP id 006d021491bc7-6ae8445b7b6so85055eaf.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 10:45:26 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1786470326; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Y1IdmEMhxKsvTykFkbGQeypEkzf1d/d8RonmS3hGZ3hhifSM2OA62E+nD/yDEWD0e+
-         +Ymh4YiGZTlA2zNqcXuUzkRgTwi+H+MmJ4vZq5q5UUmv6fy/yHdImcaVnHMK1u5w/Myd
-         fbaJ1dNxqK0phA2r+V6w26ml5xetLBX2+KofzXrbUGO3Vtm3alrf4zCG/EfBJCi1wAyV
-         BLNVYKExtxZd7p1yXg+Rn1wY6kLsS/qOx9cmKNJRQxv8ZcDUD/MqLXSkjV6HK3P+OXPe
-         PNm6a4iXSwz+m7sbduoHTheXuDYkd2mIRKHbJeOikWoGZVpWzIliVcNrCDbvNIS0fIaA
-         /3MA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=wIsnnmjwLbAOrXB5Ycbgn7qG66QGI3o9vwN2stAqMGA=;
-        fh=zqQp5gmUEx5sNbNVb47OB663l2VaPZTCBGRYtK55UrU=;
-        b=S66OiiIvCJ296Rke6o9UKuTHIIMMo9RCvHK2HMvGGeRzYLv4wbSPan254dUxeo0C7a
-         6xOlcHOJ8a5ICy7GyMnqV6BYALumOzG2pWRYoEgfxQEkVyyy88u3TZQsBgiBc0VGv+JE
-         6LCHKBRBtkkEY/2HQd+dUNdxI2rGufDL5LQJ/orvzl4Rfm6O+vxB3dIYoGCJiqlcz+ym
-         jx3ZN2F04bnD4frSs/cl8RoJcmmKvbfOPPmBk6unv5Vsu5K3BjlWPzUfsk/SwGPZwiir
-         LC4QsUDdTLEV/nv/jQacRDoZy0EvQ1FFBsULpuzS+BVBH+9fgSf8iTjuAPiYCvnk9pM7
-         I1IA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786470326; x=1787075126; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=wIsnnmjwLbAOrXB5Ycbgn7qG66QGI3o9vwN2stAqMGA=;
-        b=fIg4385MaQabtp5KAkC7Lxkv/lLTPBddNom6F6u1Sw+QkKRfLdbe+k6inqclhSDAsV
-         7uPYZSlbrX80FeZVhckBS/p1fAiPL22gq2o9f98MUwZbZ5lWA/cY0mQ0u/x15rgqYgOz
-         zms/701x5voRKRPdmzsPHtuRpszK94PObZfavjLctA2uEB2uUU3cA4I+r4ds8rTVJzQf
-         wyfWCbCsb7eOZhZYlmBS3CRce6gA3stTBiyCP1A7H0utSA0mrWMjVJLcD5MSdo1Okyln
-         22GZIgUZyHfz8vMDysUQgiGh8eaYZpoR0QiVxSsbAmiDfSI8hrvBaiMd6YHnkzZ6CHKn
-         vGVA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786470326; x=1787075126;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=wIsnnmjwLbAOrXB5Ycbgn7qG66QGI3o9vwN2stAqMGA=;
-        b=RKTlIxneiW0McNl1Q2mhOM9bU+ML6+viI4zXphZ+9l9T5CJxvfg4Fr5KkPAT7YVWSE
-         nGConWfMmT3wNAKPS1yaDMWt/X6qqNr68ZPBuLuM35kcN2oFuplIADF+WWI7sxN27FO/
-         iAzuhxHVZZwJVA6GPUFOPdye9AhJDfcBPQzaiPGu6eO+1nrEtHBNqUCZYJbm5zGfBFhV
-         3wQaf2wyGGm4yoE32FdwFt48PHblLf8rPM518sPkE2/NTWeGrPZZ+Mg/waQ+aDaBpCj1
-         bFe15/faUE758pk6Fhz8rkfPUDIdUuk0CHrduLxsidnad+FHl1ig3fl1ph33sWHmSW8y
-         dngw==
-X-Forwarded-Encrypted: i=1; AHgh+RplCiulZasyHtX6Hi5nUUwFkj8lGQsDpAHO6kmZU0ZBggJuu51uudIILeTZUOYNM5rIpBbGb0GqadOYbbc2mviL@lists.infradead.org
-X-Gm-Message-State: AOJu0YzfhSwJ9Q6KGSoWIcDjSmfvOe1C05Or64zdpynoppSrd6xNReN6
-	d9/9Tm3tCxiixFCZT16HdGUWM7pyiedLqw0LmWO3qIlD2P6lcXRSz9BwEi2lBpRqoSwGgxlQtTF
-	xrzZ4LlaiKOA2K+bQztgFrRH0j95bdqE=
-X-Gm-Gg: AR+sD115x8iSC4MV7IBwpJePikLfK0ydW9fUtjt+f+szmGKp14FzrVD9y6pcC4HlQoi
-	4Xbd+chEsA4ku2b1oFEC58mQimfMoRFXqlVRJdtvV9zoVzcqFLunvnx+iXD4TmO/V2it228OchA
-	F9ysGM6zO2q/yYsjC/YWpK4YBrkRKXA7fF4SliZolGHIo2vrtNxXrcUmW1dCb8d0seVeFde3pNp
-	PKJk63kznFVBV8bTHW9b37HhoGOJBjI7lfwECHE8kQe/O0EaJjHvhKKrQ8UTHDlZBv04PTScUgD
-	AXdd4qIO1OvUunX3n5mDTtAqOtvmm2+NhxBvAD7pvFBoZl5afq88WHUO
-X-Received: by 2002:a05:6820:2915:b0:6aa:f585:aabb with SMTP id
- 006d021491bc7-6b0a2f2947dmr3199144eaf.1.1786470325983; Tue, 11 Aug 2026
- 10:45:25 -0700 (PDT)
+	Tue, 11 Aug 2026 17:47:09 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 78E341682;
+	Tue, 11 Aug 2026 10:47:01 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 191733F632;
+	Tue, 11 Aug 2026 10:47:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1786470425; bh=wihEomTEe3RT0befzU8t+WIMF9QfFXeERIOn9Sq6LKA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=AgwMZgsk23GeYnZ0ies2PnlAYgpICmsVx7Mcec5MGeql68KV0lha3k+1zMnSeW4QU
+	 tFOwOF0fNSBF7FS9NaljYL4VeEBFSJhF2Rm3xUBAF2njt5NmUFlBzqcTC6C0UnjoOm
+	 /Vo1e1XI+xtdMoLjAmdk/jPPkO68ZTIZ36fAH+ls=
+Date: Tue, 11 Aug 2026 18:47:01 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Leo Yan <leo.yan@arm.com>
+Cc: Yeoreum Yun <yeoreum.yun@arm.com>, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	suzuki.poulose@arm.com, mike.leach@arm.com, james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com, jie.gan@oss.qualcomm.com
+Subject: Re: [PATCH v9 11/13] coresight: etm4x: remove s_ex_level from config
+Message-ID: <antgFf6xYZxLHDuo@e129823.arm.com>
+References: <20260725113645.57519-1-yeoreum.yun@arm.com>
+ <20260725113645.57519-12-yeoreum.yun@arm.com>
+ <20260811172517.GI15499@e132581.arm.com>
 MIME-Version: 1.0
-References: <20260724084215.51749-1-kr494167@gmail.com>
-In-Reply-To: <20260724084215.51749-1-kr494167@gmail.com>
-From: Jassi Brar <jassisinghbrar@gmail.com>
-Date: Tue, 11 Aug 2026 10:45:14 -0700
-X-Gm-Features: AUfX_mxjW_xlo4otJiqTZs1_ynm1tNCuj1j7YfZjC_HUP0fsogXvChIvFlxFLmw
-Message-ID: <CABb+yY0CGK82b=rjwkhuc9doBaLrMcw__ru8yX2cmL+3yyBYZg@mail.gmail.com>
-Subject: Re: [PATCH] mailbox: cix: validate channel parameters early and
- convert to dev_err_probe
-To: kr494167@gmail.com
-Cc: gary.yang@cixtech.com, fugang.duan@cixtech.com, 
-	cix-kernel-upstream@cixtech.com, peter.chen@cixtech.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260811172517.GI15499@e132581.arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_104528_921696_DA2C8D8E 
-X-CRM114-Status: GOOD (  10.32  )
+X-CRM114-CacheID: sfid-20260811_104707_849434_0E184F65 
+X-CRM114-Status: GOOD (  13.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,23 +73,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 24, 2026 at 1:42=E2=80=AFAM <kr494167@gmail.com> wrote:
->
-> From: Surendra Singh Chouhan <kr494167@gmail.com>
->
-> cix_mbox_startup() checked fast channel index constraints (index < 0 ||
-> index > CIX_MBOX_FAST_IDX) inside the channel switch block after
-> calling request_irq(). If validation failed, it triggered a free_irq()
-> cleanup path. Validating channel parameters prior to request_irq()
-> avoids unnecessary IRQ registration/teardown churn.
->
-> In addition, cix_mbox_probe() logged property errors referencing
-> "cix,mbox_dir" (with an underscore) instead of the actual DT property
-> name "cix,mbox-dir". Convert cix_mbox_probe() error paths to use
-> dev_err_probe() and fix the DT property string spelling.
->
-These should be two patches.
+On Tue, Aug 11, 2026 at 06:25:17PM +0100, Leo Yan wrote:
+> On Sat, Jul 25, 2026 at 12:36:43PM +0100, Yeoreum Yun wrote:
+> 
+> [...]
+> 
+> > -static u64 etm4_get_access_type(struct etmv4_config *config)
+> > +static u64 etm4_get_access_type(struct etmv4_config *config,
+> > +				const struct etmv4_caps *caps)
+> >  {
+> 
+> Is it possible to retrieve drvdata from config? Something like:
+> 
+>   drvdata = etm4_get_drvdata_from_config(config);
+> 
+> If this is feasible, we wouldn't need to modify so many functions to
+> add the *caps argument.
 
-Thanks
-Jassi
+It's feasible, however, I feel it doesn’t seem semantically appropriate.
+Since, the etmv4_config is a configuration and TBH, it could be not
+embedded in to etmv4_drvdata.
+
+Though the usages where the chnaged fucntion, the config're all embeded.
+However, If we introduce the etm4_get_drvdata_from_config(),
+We need to check the drvdata pointer is valid since it passes the config
+not embeded and this would be more strange.
+
+So, I think it seems better to the caps arguments.
+
+-- 
+Sincerely,
+Yeoreum Yun
 
