@@ -4,93 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78D09C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 16:16:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 814F9C5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 16:17:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rL+1cscBL7DruRZtVhJ1GMBcU3y4ACC4gyo40QpBBnY=; b=El3tBhYj3udlw1MJQ8rbtSekR0
-	5XCpnwTVMVZaJbepjqsgo3AVfUkp5pgHW48DkMwnHTBbGo3B2T3gLP9xQ71MmaUOa4t1WaP8fiwEq
-	dqh+rzAOlH/2AdAy6exejahWb724YgHK8LlofhLeJYQ1h2DM314SmTRK4XPPC651xXKLOiBIgVoZV
-	tuiUS04rTZFUg4sTzi96Q0ZlPqeOIVBHx+3PPpKqzdTnBPUmL0sHLa+IlBymwlCrJgAJOpnRefvkV
-	nBz+hAm8HBqRJCTa5LP1DeKTMluI/yTG8FNwxlcl6k2py1Ut94Yjw0KHxLHHLt1doa0bIFxhkJMVj
-	yF4XrjFA==;
+	bh=uS1uPWeUp0gwSJl4xgsxYxdmclbK2mcyeca4b5tZX4g=; b=MGA3QG2Yq708Nz8TXBhtPHMOvj
+	4BUmsQPu5kNE6u7+ZE4OQBffuctEt2d2onPbcZoy8KrKtCGAoRRfyhdfEKkDUKGw4uy/D+mzAbGJA
+	Y1LzCEvUlsyKWCQqHphBsae5jaQ5Ol0aXO2aM0UblzFzMoUDm6H9xtGJaZhRt08PHvDwXJeIajE2L
+	oAUkMSSH5jJVQu4TPORoNmh7ynAJe4ZnAXmDxYVjP0J5QHpMoKi7ictRp7tGJnSioqQ+dhYrMA8pa
+	NPsc+i7dQDmw1DgLjcKndtJp6VNLYQgk2BV87U7UW2VUfMkHdLh3rkkBeqJ0K20Q8Kbu73xsxdzm4
+	gY5SSUhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtp9W-0000000ESuA-0Bfw;
-	Tue, 11 Aug 2026 16:16:34 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	id 1wtpAN-0000000ET3a-1bHA;
+	Tue, 11 Aug 2026 16:17:27 +0000
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtp9T-0000000ESt4-0Ymc
+	id 1wtpAL-0000000ET2j-0B1Q
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 16:16:32 +0000
-Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-5aebd52488cso2063e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 09:16:30 -0700 (PDT)
+	Tue, 11 Aug 2026 16:17:26 +0000
+Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-c16794450aeso137272666b.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 09:17:24 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1786465043; cv=none;
+        d=google.com; s=arc-20260327;
+        b=HtN74Aq6HSjrWElRGr3RVwRHZtyQmd+SQOdn1Um2NvPxi1VG79CisrJ9r+9JClQQ33
+         CPTwMoZYIatgE5v8pmU4TUgkvWkZyOqXlJhcZFfVUMhlPs0L9gTX6DhRjnJM2A2apXkc
+         6BagsSTvCU66/jB6BmKkU2vsAHAFkKRXFZG6qNWB0R45v+f16gKAGq0DgIcpvpa/D0h4
+         aUCzEMUqYN0ie6s7Npm5VpZI7YB5mWb2cp5OJsgnbi49Kb3fHIVG59nRpkhhjwMj1S2p
+         Pyf+p9Zy3xNUUSVYwXwsflomPSp0y/MEo5vengRk5UOMoquokS6s0Wg7Y0G12q/6Y+pv
+         h3Hw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=uS1uPWeUp0gwSJl4xgsxYxdmclbK2mcyeca4b5tZX4g=;
+        fh=TzN6eFp4/OOH9roJGDwvVNzJ8XjlKMXWwRCInYq2xUM=;
+        b=VjfxNrYTeLleOJjmCs7SQLfV/cHkR0PwBLrtFo1Iw3F9AHUjMJ//V4au/Gv4Fz2Owq
+         M/o9Q+l6N/yprfR8YxccUODtziGkr0ZgCFx41FJ6dLgno+Ul0i1WkQ+qtU5UyTqb2pPs
+         MhXZjTA4loKA2PNUrIWKgqGmu9g+C78q8j1XcxERwjCqFZCQLjPlffqX/8w7akK4GbDN
+         d2VpGZMEKPXTiKwtegxRblY9D6QkwNGF4F5Td4gicvxg82yZZfwUIGMezxrhiJlGhe1U
+         0KB+y4ttcpfApbUblBxYmOI2qf5Aa4BCy1ctpay6DUcB0c9e/k7ytljC1dMRbwKqsd8s
+         R5cA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786464988; x=1787069788; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=rL+1cscBL7DruRZtVhJ1GMBcU3y4ACC4gyo40QpBBnY=;
-        b=elGZ7axkbTEizaM4xCJ/GTH0pUj9qge+lPUd6t4U3y0UsmiS4Wg5CrUangEoemM84k
-         d2G4KYqVwYgQZL+kEr8UEN7A3fncAznIjyN31pEfdzPwCXo62YTW3uCr4j+CmmPzHmeq
-         S24fC40KtqDcmdpQTuWQoC9lUiR+sQA1On2Po1Ux6gty0aaV3sHIUFmwTRZeugyyody2
-         1N33nKqbYc7PmzpRxwrNHx6qYxhr6V+yRjD8TKFGK6NrmHnGO3YORCaASAV4ube2WvxH
-         r/UAlgVoUWrKnytXy3yUS31MEj2oyOheql7esUFnsjRbUPTRxkBg3Y8Aeu+basL05s2W
-         V0ew==
+        d=google.com; s=20251104; t=1786465043; x=1787069843; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=uS1uPWeUp0gwSJl4xgsxYxdmclbK2mcyeca4b5tZX4g=;
+        b=pKf/eXPxqrTIIRIbxSq/8Rhgym1csWsHTyBW1/P4VIG2QRcEIYgoMLLetrJpwaeKya
+         d8girLm8oLPLr3Sb3pIRkIwZjJw6ALgibr/kCiM1goytjsDEF00oyoT+cxT3tnDnb34x
+         s/+5Bx9cRRm0T0mMXp/eTyJMIienoBoJIM2F4M5i4MQ2kCegiZ3MDspFseqKZ46p0YXf
+         cICIlZpiuZJOvFl08trOTVL5eo1ezl8z+f+OLHNtI7cQqCTQMZtIIN5gwOtlBv4v2+VT
+         rKt1dH7Te9Kr5VFnWLNhvk+jISmH05ywzp5KkIgLfintmrkzZPTyv/y3gi/XdHiG2IxX
+         lRbA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786464988; x=1787069788;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=rL+1cscBL7DruRZtVhJ1GMBcU3y4ACC4gyo40QpBBnY=;
-        b=L7d3a7bqmrMsBd05/omEpytoikh7xlBRh0kUuqMDh3Muni8bolXARLaAUk4YCTlIrU
-         XpezRlf0bCHJ3XLh11R7X7ROP1IcncZw++EZL9rDSJtEiIEAMEdoDMnoi8mICB9EqsS4
-         X302fsuY97XSQ543OHU24DNEMR1HcMs9Fq0CdpKKnrQHvHlkDrrEeSTTPStB3DiIuPWC
-         zo9UgI8Igg+/pjJJd4qLYpC0gyxf13EHpzWea25ZhZ0FPHCVKih47/9dXb1sTyLiQoWQ
-         LAYqHrKHzFe42Fy1pdoTaLb7dWYUiFGrQeYgOua6uy6OslsruDEIE6SStoyRbyRdckRF
-         mmoQ==
-X-Forwarded-Encrypted: i=1; AHgh+RpDX6sCEjsefSjvqWcTysCZvGJwJNIW20OQaD3EQLrj8+Il9ELENwBPOrq6pGF9pLXMx/OgTf35rpFfM+8tCVfw@lists.infradead.org
-X-Gm-Message-State: AOJu0YwC42dWPue7J32+PutkwjqShcgkECvTyrS5llt+J7bpyoGMwo+6
-	sp9PJ6zpEjA4HvyIQj6E5DmmqShOnDR/aN8K/FPrkVyhWv85LkY7IYM=
-X-Gm-Gg: AR+sD13AcB/iKmy+hNXTY4OBQTVWiWU1Uoo1wUZ4KOBH4f61B4RLN0INLMtteq6pzYy
-	WjUycM/4NZD4T/X5+fessZ0AMB9GaOKyhd1QqF1GqpyZXuJ5YT3j5KALplAtS3OwMrTDDgbjNji
-	TFcZXbqaqhb1iqCkyiY7K4CnbITbKBvSLIUlGGaBTR7XIX67kDbuWi+c78tQPq8mYwLOSV3SJKx
-	qLioq1RJuS16YoQtqj6IMcfxYiaiRmDKT1WGhljLi+OOvlO2AH3xNz87LZfg94FgwV2jm8uU6pf
-	OPxWWqCNcL33zqJKr2ilKZRJTFvFG1DVPg6W4bTxmgrb42g9eCd4FZoUjNbSmv27cr7kbeYPcXX
-	7hGUNck1k2nWsKzdMwBlPEX2MyEa3uwoTQyuRE7VOU5p3Af/bbb57dO1269kzu8LWbEO2bLbDvK
-	4tNtOfufrTrCx+mWsOnxWxoALMeAl3DcCSOwyDefcfc9/wDLA8tq0=
-X-Received: by 2002:a05:6512:3e28:b0:5b0:1f06:f204 with SMTP id 2adb3069b0e04-5b448649364mr752550e87.34.1786464987550;
-        Tue, 11 Aug 2026 09:16:27 -0700 (PDT)
-Received: from fedora ([46.8.219.5])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5b4486cacbbsm377769e87.31.2026.08.11.09.16.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 11 Aug 2026 09:16:27 -0700 (PDT)
-From: Vitaliy Sochnev <sochnev.v.74@gmail.com>
-To: pabeni@redhat.com,
-	lorenzo@kernel.org
-Cc: andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH net] net: airoha: npu: load the firmware without the sysfs fallback
-Date: Tue, 11 Aug 2026 19:16:13 +0100
-Message-ID: <20260811181613.19199-1-sochnev.v.74@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260811110253.181862-1-pabeni@redhat.com>
-References: <20260811110253.181862-1-pabeni@redhat.com>
+        d=1e100.net; s=20251104; t=1786465043; x=1787069843;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=uS1uPWeUp0gwSJl4xgsxYxdmclbK2mcyeca4b5tZX4g=;
+        b=PBzU5peRWLAamlo2tbS8p/zuCWOQOOnTj+F8u71M+lJJKSZFr1rj63wJrTU7C/9tCg
+         o8lsFQIYjD9K4YdGBKabU4wDCBMQV5QkjIQSHWOFHdroaus7cdLWNcez2C5SaEKB5999
+         nMNbEjJ+1+Q8r+R3Y/mRZUEgFAPLJdqFHXfud0bRzn5Vc44eRadAMaoAmkAg13IiS2ue
+         G8y/FwuyzqlUZL9JQQPC0jFp4dsKu6yy8hp+ZpwFg4Lh7GS5xEFghNW1LkX/PKg3K4tU
+         FE5UAOWXN9Yj4KZqh7LOTtQb2rim8KeYlFYOeWql9/yRBy9mjtzTcKPup3i5p01ctRTp
+         G/TA==
+X-Forwarded-Encrypted: i=1; AHgh+Roc15hwdt7m0NnVbhnFcMHHx5BWWNhbSh9v+jBosmN5yjsW0B9a66nU/HA1FPkvzvh+i+ZxRLO0APEZaEmmpRjb@lists.infradead.org
+X-Gm-Message-State: AOJu0YxYaKIjsIs7+OuOP6V9f00vchejZK0o58hqc9zA8o7juNM2O8MC
+	TdeCW49D46Vflnuwn8TNlCTm7NcraDaX7Gi92XrK2BmUfr2Rig920NLu+TOgFk6Joq2yVlf28j9
+	EyGxUZ8nIgnFYPYUmCwi4jabR9v58US4EnD7meOUR
+X-Gm-Gg: AR+sD136t4iW0Hi2EvKKZwqMra8FfYhhie/+rOrvUfKw0FabfO3fNUBoO7ERjYl5x6O
+	98M7gxBc8BP8ULu7hwH+ef2R7EJ0sR5osBERA/KbqEroff7GATx5RAPyRVRrW8Z8YyuSewB8T1O
+	P+dFP67oETjXXYoJBNb8TbZha5cPEllnUU8psz6mdRjEX9t2rzXRy/eFNtJAB9vM03eHxKdWlgj
+	+wXjnKySh/fFTG4L7o6vrz41NH7n26fs9+tK6Jq2y4N8rlXl9pq99ugDc1hIkMCxVLYqAzWoqNI
+	kt5AAtLW40AU+iUIv2UcFHFOw4w28CiEDR3hxdkEylb6oPXkTsb18jSNss2UkEHqpwETlmpj5F5
+	o5HGeev+foVNcBZaBLGLIAZ6FFNhCQMWZ/paMGp+y9Ew4zq/SKnar6RQz
+X-Received: by 2002:a17:907:9281:b0:c16:5f28:4575 with SMTP id
+ a640c23a62f3a-c20ecc7e587mr83999566b.31.1786465042229; Tue, 11 Aug 2026
+ 09:17:22 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <ed4fe1f95071897859ec7fbe9176246cbd4962bf.1786138806.git.jpoimboe@kernel.org>
+ <anmobvJXiBQqWn6S@willie-the-truck> <e5q2mvqtf6iw4lco55uny5ffhppw6vlflxguhc4gg5nm3zdvmo@zs6rw7iov5qc>
+ <08d6c5cd-9924-4359-9181-a03718161528@app.fastmail.com> <kp4rvh4vxo65gipgqz4i4dnw2ueylmus4yys6xfrbngp5nefzn@4a4ekjlzqlph>
+ <CAKwvOdmSVjY0TmOTc6WMmDHcLbn=tOV3R3zH_TO4zXZiYEsaBw@mail.gmail.com>
+ <anrvDIWMNGIa4WPK@willie-the-truck> <4986ac98-d6da-474a-b218-b6468b68cb9f@app.fastmail.com>
+ <16e3ed42-1b1f-4ddc-9d8c-5e12ee7dbe3c@app.fastmail.com>
+In-Reply-To: <16e3ed42-1b1f-4ddc-9d8c-5e12ee7dbe3c@app.fastmail.com>
+From: Nick Desaulniers <ndesaulniers@google.com>
+Date: Tue, 11 Aug 2026 09:17:09 -0700
+X-Gm-Features: AUfX_myrZCwdGci7ik12sPfl_MO6F_0C3mcZPp-3E0jT-vc4rIXwgDm2Mzga6bE
+Message-ID: <CAKwvOdkVxt-90Z_Af8s63RKCY-202r_0_bgF+8-g7iKn6XM_Sg@mail.gmail.com>
+Subject: Re: [PATCH] arm64/module: Fix livepatch BTI exceptions with Clang 21+
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Will Deacon <will@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, live-patching@vger.kernel.org, 
+	Song Liu <song@kernel.org>, Miroslav Benes <mbenes@suse.cz>, Petr Mladek <pmladek@suse.com>, 
+	Joe Lawrence <joe.lawrence@redhat.com>, Mark Rutland <mark.rutland@arm.com>, 
+	Mark Brown <broonie@kernel.org>, Kees Cook <kees@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_091631_191182_A58C7527 
-X-CRM114-Status: GOOD (  14.00  )
+X-CRM114-CacheID: sfid-20260811_091725_098036_17B2FD9F 
+X-CRM114-Status: GOOD (  16.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,41 +127,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Both findings look right, thanks - v2 addresses them in the code rather
-than only in the changelog.
+On Tue, Aug 11, 2026 at 6:18=E2=80=AFAM Ard Biesheuvel <ardb@kernel.org> wr=
+ote:
+>
+>
+> On Tue, 11 Aug 2026, at 14:02, Ard Biesheuvel wrote:
+> > On Tue, 11 Aug 2026, at 11:44, Will Deacon wrote:
+> >> On Mon, Aug 10, 2026 at 09:41:35AM -0700, Nick Desaulniers wrote:
+> >
+> >>> Sure, but let's replace this with a link to a bug report in llvm's
+> >>> issue tracker?
+> >>
+> >> Yes, please! I can apply the patch once we have the bug number.
+> >>
+> >
+> > I can look into that.
+>
+> https://github.com/llvm/llvm-project/issues/215547
 
-main-1-0, the lost warning: confirmed. request_firmware_direct() sets
-FW_OPT_NO_WARN, and the driver did not compensate. airoha_npu_load_firmware()
-returned the code silently and airoha_npu_probe() reported a generic
-"failed to run npu firmware" through dev_err_probe(), which at
--EPROBE_DEFER only stores the string as the deferred-probe reason. So the
-file name reached neither the log nor the "deferred probe pending" line.
+Thanks.
 
-This is not hypothetical: I hit it myself building an AN7583 image that
-shipped the en7581 firmware set but not an7583_npu_rv32.bin. The pending
-message named nothing, and it cost me a rebuild to work out what was
-missing.
+https://gcc.gnu.org/bugzilla/show_bug.cgi?id=3D106671 was closed as
+invalid pointing to the same commit in llvm. What's going on here?
+Where's the corresponding feature request for GCC?
 
-Since the regression would be introduced by this patch, and the patch
-carries Cc: stable, I did not want to leave it to a follow-up that stable
-might not pick up. v2 reports the failure from airoha_npu_load_firmware()
-through dev_err_probe() with the file name, so it lands in the deferred
-probe reason and the timeout line names it. The generic report in
-airoha_npu_probe() goes, since it would overwrite that reason; of the
-paths it covered, devm_ioremap_resource() reports itself and the
-malformed firmware-name property now does too.
-
-main-1-1, the usermode helper: also correct, and my wording was too
-narrow. "the patch does not disable it, it only keeps the driver from
-falling into it" holds for the mechanism in general but not for this
-driver's requests, which lose the helper route entirely, including where
-it is the only one. v2 states that as a deliberate trade-off: the -ENOENT
-to -EPROBE_DEFER mapping was written to wait for a filesystem, and the
-sysfs helper interface has had no in-tree consumer since udev dropped
-firmware loading.
-
-v2 shortly, as a separate thread.
-
+At the least, I could imagine there being a `-fno-omit-bti-pads` or
+whatever for the kernel to opt into this behavior.
+--=20
 Thanks,
-Vitaliy
+~Nick Desaulniers
 
