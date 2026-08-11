@@ -4,58 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27FAEC5DF63
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 16:32:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C9B3C5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 16:33:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bKX9RgsFiP1r7FApfoPALLGgJl9OMxZlavqohIlPsAc=; b=QX05oyUek5Hke26MIK8uN62jmH
-	+XJd5lDdT34s4V2Q2FfFMlYfGMeRbQTxguLxdjxJNRBuxbq2ERYTM46WcNly7jB4fg/v3TPd73CYK
-	eDyybGpRLbvWMHx7jCRqInm9hxK4oSpYdixPAcWZzptZHfO9K+Ug6RQr7iK4ibU0ZWZHC7TRIEQ8M
-	d0rw79JrGfRXDNz85N3LZbdWt/A1172xNFlCh3KFRdkSt1s3Bl1myhoWvnQxmmY4VBRzff9A6/k3N
-	5Wa4X7qatN24vIPJSTe5+FRDv7eT/QT9mJvX1pANWrUvw99cAsk0eJMySzhu1j2r+A918zvpQI3bk
-	vpjVKyQg==;
+	bh=H+JrBIR9KJqjw0g48ia2wGzfZuaFqi6veSrCx7lomV8=; b=xFINZzoIbI67Tt7wg4ULlxLMsi
+	eSbwRajx36sJLjlK6Q+eqNMRRqFV0uASm7d6NdEW2z8vvwqgo1O86P5xmEdVpDm4OTGZh4TetAAT/
+	oHEq3ENbYje917ZqxpSJ3v4+MkLr1M963C8+BKoTix0HL8NlLs9CIN2nqf3Xup04u6njUtuCEUvF8
+	0yM/lQA3/rkMBM/rL43U3TD5Q0Qj4O2pgFKc8w52pc9l+uUk0VjLRvQ0OY8yOBKBIhTJ9kqeRYKTY
+	6NQLcWfVMe3RJg5cyAVqf7EM/KS6tHOh8XOYnNEBCXmz8DVjnmV2YuLOM6jN3Om9een4BKBeVMS27
+	RWQFNoWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtpOP-0000000EVah-3y92;
-	Tue, 11 Aug 2026 16:31:57 +0000
+	id 1wtpQ1-0000000EVlu-1Anb;
+	Tue, 11 Aug 2026 16:33:37 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtpOO-0000000EVaX-2W0y
+	id 1wtpQ0-0000000EVln-1lZI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 16:31:56 +0000
+	Tue, 11 Aug 2026 16:33:36 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 46EC04401B;
-	Tue, 11 Aug 2026 16:31:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AFEDF1F00A3D;
-	Tue, 11 Aug 2026 16:31:54 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E16E140570;
+	Tue, 11 Aug 2026 16:33:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BBC41F000E9;
+	Tue, 11 Aug 2026 16:33:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786465916;
-	bh=bKX9RgsFiP1r7FApfoPALLGgJl9OMxZlavqohIlPsAc=;
+	s=k20260515; t=1786466015;
+	bh=H+JrBIR9KJqjw0g48ia2wGzfZuaFqi6veSrCx7lomV8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=h+flfhO4kYLTodQvAdAvjsxFMapmlLBH+q2EncdGl/XDF0OhaaZbOVFaesOAys1ge
-	 aX2qFssi6oUgUpQavsTbKNaHdudDjbn1dF9K3RB9i9QzIsigOXj0uepgPbhwkCMYRU
-	 eYj5sePqrFfE3B3bacvOWt07qHsPBtVfKrUeibEokZ/UBuqwE24Hdi1YG5xwcYF8eO
-	 8Kw8fH/Yr16/pH1Szn1LjbiC1FfbCt+txlVL6Fh7p1CUKcuiztJkt699jSaIvWnrD+
-	 VibcGSD5ahjgiu3CvKmXWJ5OmwAuGC2OrqpDT7xVrzwIjJzNJLoyiR9uDFvZrIRmac
-	 sXkEiZ2JZ+n5A==
-Date: Tue, 11 Aug 2026 18:31:52 +0200
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-Cc: "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	nd <nd@arm.com>, "maz@kernel.org" <maz@kernel.org>
-Subject: Re: [PATCH v2 2/2] irqchip/gic-v5: Synchronize CPU interface disable
-Message-ID: <antOeLXBm2yqVjZx@red-moon>
-References: <20260811152630.942023-1-sascha.bischoff@arm.com>
- <20260811152630.942023-3-sascha.bischoff@arm.com>
+	b=U6k1oUjuC6Xyi7Er3dCewRwyPCO5nn0YXn5ra/BgLckfBD0rMBsSM7QvSfh1V+Vsj
+	 L3wY5mPQ7I5LKM8gJfj7WnJYpKdGJcLX0VmkmSrba3ftAhpsvc4ZOdgwkVjABoHaxs
+	 DHttgTTv0tNRatmX1XLZtPiFGDcC3JzvL719Xdh2f7kgRMdHsdaIlu5z1ZxLxpgQpG
+	 f/oJtgI6UwfXfzxhifnVSk7VIDIEGDSsRjDmNDNiZsrn5t1AWMtZBatky7rpYdO2tR
+	 A1J554ADS5ABThdwwSvfEafVA7+9QIszgEOEu3aQKP8DqQTv/U98A5wRNzOvkYGjuF
+	 R18QbJImBImKQ==
+Date: Tue, 11 Aug 2026 11:33:34 -0500
+From: Rob Herring <robh@kernel.org>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Saravana Kannan <saravanak@kernel.org>,
+	Ulf Hansson <ulfh@kernel.org>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-pm@vger.kernel.org,
+	linux-clk@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 05/10] dt-bindings: clock: renesas,r8a78000-cpg: Add
+ firmware property
+Message-ID: <20260811163334.GA2354701-robh@kernel.org>
+References: <cover.1783505329.git.geert+renesas@glider.be>
+ <49726acff0fee1c3606e83c4f242ef6aad25b4b8.1783505329.git.geert+renesas@glider.be>
+ <20260710-adventurous-burgundy-chimera-b2fff9@quoll>
+ <CAMuHMdV=ckONBbTYELPJU8YWoNzdu3PJ95VR8cz+f_7dUeiPUw@mail.gmail.com>
+ <20260716214924.GA1477674-robh@kernel.org>
+ <CAMuHMdU0ss6wUEdjC+OYa3iQS439aJ8b_d9M2ws7Ayn4_kOyMQ@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260811152630.942023-3-sascha.bischoff@arm.com>
+In-Reply-To: <CAMuHMdU0ss6wUEdjC+OYa3iQS439aJ8b_d9M2ws7Ayn4_kOyMQ@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,38 +95,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 11, 2026 at 03:27:31PM +0000, Sascha Bischoff wrote:
-> The write disabling the GICv5 CPU interface is only guaranteed to take
-> effect after a context synchronization event. Without one, execution can
-> return from gicv5_cpu_disable_interrupts() while an interrupt is still
-> able to be taken.
+On Mon, Aug 03, 2026 at 02:01:18PM +0200, Geert Uytterhoeven wrote:
+> Hi Rob,
 > 
-> Add an ISB after the ICC_CR0_EL1 write to ensure interrupts are
-> disabled before the function returns. No corresponding ISB is added
-> when enabling the interface, as interrupt delivery is asynchronous and
-> there is no obvious benefit to waiting for it.
+> On Thu, 16 Jul 2026 at 23:49, Rob Herring <robh@kernel.org> wrote:
+> > On Fri, Jul 10, 2026 at 01:02:39PM +0200, Geert Uytterhoeven wrote:
+> > > On Fri, 10 Jul 2026 at 12:21, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+> > > > On Wed, Jul 08, 2026 at 12:16:23PM +0200, Geert Uytterhoeven wrote:
+> > > > > Add a firmware property, for systems where SCMI must be used instead of
+> > > > > direct hardware access.
+> > > > >
+> > > > > Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> > > > > ---
+> > > > > v2:
+> > > > >   - Spin off from "dt-bindings: clock: Document Renesas R-Car X5H Clock
+> > > > >     Pulse Generator".
+> > > > > ---
+> > > > >  .../devicetree/bindings/clock/renesas,r8a78000-cpg.yaml    | 7 +++++++
+> > > > >  1 file changed, 7 insertions(+)
+> > > > >
+> > > > > diff --git a/Documentation/devicetree/bindings/clock/renesas,r8a78000-cpg.yaml b/Documentation/devicetree/bindings/clock/renesas,r8a78000-cpg.yaml
+> > > > > index 4e23bba334382346..fc499e7cf52e4f0c 100644
+> > > > > --- a/Documentation/devicetree/bindings/clock/renesas,r8a78000-cpg.yaml
+> > > > > +++ b/Documentation/devicetree/bindings/clock/renesas,r8a78000-cpg.yaml
+> > > > > @@ -35,6 +35,12 @@ properties:
+> > > > >        <dt-bindings/clock/renesas,r8a78000-cpg.h>.
+> > > > >      const: 1
+> > > > >
+> > > > > +  firmware:
+> > > >
+> > > > RPi is doing similar, but I have doubts. It looks way too close to
+> > > > generic "syscon" which is disallowed.
+> > > >
+> > > > I think this should be vendor+purpose specific, e.g.:
+> > > > "renesas,scmi-transport" or "renesas,scmi-firmware"
+> >
+> > If you can tell me the resource that a 'firmware' provider provides then
+> > it is fine, but you can't.
 > 
-> Fixes: 7ec80fb3f025 ("irqchip/gic-v5: Add GICv5 PPI support")
-> Link: https://sashiko.dev/#/patchset/20260724104819.1296803-1-sascha.bischoff@arm.com?part=6
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> ---
->  drivers/irqchip/irq-gic-v5.c | 1 +
->  1 file changed, 1 insertion(+)
+> It provides a firmware API, which is not available until the firmware
+> provider is initialized.
 
-Reviewed-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+I don't know what "a firmware API" is. What does it provide? I know what 
+a clock, GPIO, reset, interrupt, etc. provider is.
 
-> diff --git a/drivers/irqchip/irq-gic-v5.c b/drivers/irqchip/irq-gic-v5.c
-> index e9d1795235a66..6a99c541b559b 100644
-> --- a/drivers/irqchip/irq-gic-v5.c
-> +++ b/drivers/irqchip/irq-gic-v5.c
-> @@ -983,6 +983,7 @@ static void gicv5_cpu_disable_interrupts(void)
->  
->  	cr0 = FIELD_PREP(ICC_CR0_EL1_EN, 0);
->  	write_sysreg_s(cr0, SYS_ICC_CR0_EL1);
-> +	isb();
->  }
->  
->  static void gicv5_cpu_enable_interrupts(void)
-> -- 
-> 2.34.1
+Rob
 
