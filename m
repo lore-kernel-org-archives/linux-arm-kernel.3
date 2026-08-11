@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD5FDC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 14:01:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CB3CC5AC67
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 14:01:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QAN0l7yaydmlw2Fkf5Tw2odDTeok7Wk3+KXsmI6pBNc=; b=uNbjMMjLm45UpoLo3qtMJWHhWC
-	MZYlTDMYYcpCLbC2ZrBbguoh+LB7G0OzF7KAHaB8LplbWVdmM/hxvlBbC5ueM4rPQ1jw+Oao6oHGR
-	KyNgp8GCmqubNAeSV1g9I98GyNdRYXR/dA6VW+PxhE/jxpBZR+ljkZvy2hKmLe2VR+U5yh/Ubcx4p
-	vH18NDgEWK9AcQLq7y9G3AC7BV7DP69ThTli7xQoxkZ/uQ4p/e3ObqAgQ+czb+5qCG+6vPc9fjMul
-	yE3TSZKZtspcuF4oVxYiE4OQ7JyoFcoSsqcdh/HLUvvcmEwncgTtAiYG2AC35owEDbAm1C6vLjR8w
-	+VsotWLQ==;
+	bh=5ERaMPsjwHcuWRT7KK06+ij6/U9aQH1xxiJrGBBvL1s=; b=UVWnj+yyLRXwbsxbgsmEChJNrO
+	kf5N1dNUqk+DTgHhfPZcBcgFyG/LP/4EjslKOhO+8oXve6tsp7IaEulQVn1HufJZ25w2RbjTjbYpy
+	WP2itYBNPNzZHj8NkDBBT4N4OqiT3JLcJdXiCDYzvjY0cSTgOtes3EBpyiOZgqpYqmXYnRViPvIRM
+	Usg6SLxEZ7Z/SmKdTxc4XjCX/AiLUExXJGdK9GyhPpSoayYi4db8cUZI/3zJS1HosK/Z8c70/1l6e
+	qsli7mPPbBEOvSeAd0uX/7xiRb+g9Z68laqgoGvCYMFfBWLAPTizRee938tqkSNBaeZb34lKJtzhI
+	Ln83pIiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtn36-0000000E9M4-1a09;
-	Tue, 11 Aug 2026 14:01:48 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wtn33-0000000E9LK-197J;
+	Tue, 11 Aug 2026 14:01:45 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtn34-0000000E9Le-3GXk
+	id 1wtn31-0000000E9KR-1sMX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 14:01:46 +0000
+	Tue, 11 Aug 2026 14:01:43 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0FB9C600BB;
-	Tue, 11 Aug 2026 14:01:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 600DE1F00A3E;
-	Tue, 11 Aug 2026 14:01:43 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EB93541FB0;
+	Tue, 11 Aug 2026 14:01:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73DBC1F00A3A;
+	Tue, 11 Aug 2026 14:01:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786456905;
-	bh=QAN0l7yaydmlw2Fkf5Tw2odDTeok7Wk3+KXsmI6pBNc=;
+	s=k20260515; t=1786456902;
+	bh=5ERaMPsjwHcuWRT7KK06+ij6/U9aQH1xxiJrGBBvL1s=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=ZTZG9dqNeXmloyamvDBCjoTZjYp+h4HLwHk3qphnHwHXV7i23kF8ZbQT6BOvovJ7J
-	 Zx1DPOnrTuPmbKCGfMYhu4d+VwRrNmmgIHBo37EgVeC+J+05O6InEmetwXNFpKCecy
-	 eN6LmOn6BXFzqst6QRJahAbi91lV7MFLWvK7YDHREmt16h8ara+G4lXkelTFpsfDGc
-	 usXatHN9zi1NrgdogqlxadKEdkBN9wjMq1W8zNLeUCUMkSOfi8rDxmA3WzE+ctIeeM
-	 zHl4da3iOFP++E9ie1luQcF99eKsN4bBuWHbTPFAL5jjU/bmOVjxsAdHZWyrvnNgGZ
-	 Gi70FiyNezPhQ==
+	b=dnVQBEwSU7ZSnl+Gz3XvYWXW5SbVRLAUDeykXKtv44rNTMDSTQcBpndecLT63MIJV
+	 ETtcIGZzDcfAstoCc1M26RCjsuPFYzBC0xqU4pV0BL4u4P87i+YkIrLyDVHzimqAOi
+	 5R9ETWWMCR56SPA33S2K0AfuNZHzRQLj2ExAaWAAnXVdiEMwjVDFiMROdgGX2jf3bP
+	 +hqZKIh4AJBrt6ugDJ6KqP6G67uhwtdzTM2hkvlG/1Nhxmc/fUbmgrLDQgptC6X2II
+	 iFclhEQASMDmf7ip4Kj31TGG1q1Sa5NdLGJah3FplAU3m8Pc7QfgchSzg7mvbxusod
+	 M1fI+VcliCFbw==
 From: Will Deacon <will@kernel.org>
 To: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org,
@@ -55,9 +55,9 @@ Cc: linux-kernel@vger.kernel.org,
 	Oliver Upton <oupton@kernel.org>,
 	Herbert Xu <herbert@gondor.apana.org.au>,
 	Marc Zyngier <maz@kernel.org>
-Subject: [PATCH 02/12] arm64: bpf: Remove big-endian support from the JIT compiler
-Date: Tue, 11 Aug 2026 15:01:21 +0100
-Message-ID: <20260811140132.22778-3-will@kernel.org>
+Subject: [PATCH 01/12] selftests/arm64: Remove big-endian support
+Date: Tue, 11 Aug 2026 15:01:20 +0100
+Message-ID: <20260811140132.22778-2-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260811140132.22778-1-will@kernel.org>
 References: <20260811140132.22778-1-will@kernel.org>
@@ -77,48 +77,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Big-endian support on arm64 depends on BROKEN. In preparation for
-removing the dead code altogether, remove the big-endian-specific
-support from the arm64 BPF JIT backend.
+Big-endian support on arm64 depends on BROKEN, so the arm64 selftests do
+not need to worry about testing this configuration any more.
+
+Remove the 128-bit byte-swapping helper from the fp-ptrace test and the
+big-endian definition of RSEQ_SIG_DATA from the rseq test.
 
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- arch/arm64/net/bpf_jit_comp.c | 11 -----------
- 1 file changed, 11 deletions(-)
+ tools/testing/selftests/arm64/fp/fp-ptrace.c | 19 +------------------
+ tools/testing/selftests/rseq/rseq-arm64.h    |  5 -----
+ 2 files changed, 1 insertion(+), 23 deletions(-)
 
-diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
-index b0075ece4a6e..044216c4acf6 100644
---- a/arch/arm64/net/bpf_jit_comp.c
-+++ b/arch/arm64/net/bpf_jit_comp.c
-@@ -1377,13 +1377,8 @@ static int build_insn(const struct bpf_verifier_env *env, const struct bpf_insn
- 	case BPF_ALU | BPF_END | BPF_FROM_LE:
- 	case BPF_ALU | BPF_END | BPF_FROM_BE:
- 	case BPF_ALU64 | BPF_END | BPF_FROM_LE:
+diff --git a/tools/testing/selftests/arm64/fp/fp-ptrace.c b/tools/testing/selftests/arm64/fp/fp-ptrace.c
+index 22c584b78be5..77d630444996 100644
+--- a/tools/testing/selftests/arm64/fp/fp-ptrace.c
++++ b/tools/testing/selftests/arm64/fp/fp-ptrace.c
+@@ -112,23 +112,6 @@ static void handle_alarm(int sig, siginfo_t *info, void *context)
+ 	got_alarm = true;
+ }
+ 
 -#ifdef CONFIG_CPU_BIG_ENDIAN
--		if (BPF_CLASS(code) == BPF_ALU && BPF_SRC(code) == BPF_FROM_BE)
--			goto emit_bswap_uxt;
--#else /* !CONFIG_CPU_BIG_ENDIAN */
- 		if (BPF_CLASS(code) == BPF_ALU && BPF_SRC(code) == BPF_FROM_LE)
- 			goto emit_bswap_uxt;
--#endif
- 		switch (imm) {
- 		case 16:
- 			emit(A64_REV16(is64, dst, dst), ctx);
-@@ -2478,15 +2473,9 @@ static void clear_garbage(struct jit_ctx *ctx, int reg, int effective_bytes)
- {
- 	if (effective_bytes) {
- 		int garbage_bits = 64 - 8 * effective_bytes;
--#ifdef CONFIG_CPU_BIG_ENDIAN
--		/* garbage bits are at the right end */
--		emit(A64_LSR(1, reg, reg, garbage_bits), ctx);
--		emit(A64_LSL(1, reg, reg, garbage_bits), ctx);
+-static __uint128_t arm64_cpu_to_le128(__uint128_t x)
+-{
+-	u64 a = swab64(x);
+-	u64 b = swab64(x >> 64);
+-
+-	return ((__uint128_t)a << 64) | b;
+-}
 -#else
- 		/* garbage bits are at the left end */
- 		emit(A64_LSL(1, reg, reg, garbage_bits), ctx);
- 		emit(A64_LSR(1, reg, reg, garbage_bits), ctx);
+-static __uint128_t arm64_cpu_to_le128(__uint128_t x)
+-{
+-	return x;
+-}
 -#endif
+-
+-#define arm64_le128_to_cpu(x) arm64_cpu_to_le128(x)
+-
+ static bool sve_supported(void)
+ {
+ 	return getauxval(AT_HWCAP) & HWCAP_SVE;
+@@ -897,7 +880,7 @@ static void fpsimd_to_sve(__uint128_t *v, char *z, int vl)
+ 
+ 	for (i = 0; i < __SVE_NUM_ZREGS; i++) {
+ 		p = (__uint128_t *)&z[__SVE_ZREG_OFFSET(vq, i)];
+-		*p = arm64_cpu_to_le128(v[i]);
++		*p = v[i];
  	}
  }
+ 
+diff --git a/tools/testing/selftests/rseq/rseq-arm64.h b/tools/testing/selftests/rseq/rseq-arm64.h
+index 21e1626a7235..f9fecf941bf2 100644
+--- a/tools/testing/selftests/rseq/rseq-arm64.h
++++ b/tools/testing/selftests/rseq/rseq-arm64.h
+@@ -12,12 +12,7 @@
+  * matches code endianness.
+  */
+ #define RSEQ_SIG_CODE	0xd428bc00	/* BRK #0x45E0.  */
+-
+-#ifdef __AARCH64EB__
+-#define RSEQ_SIG_DATA	0x00bc28d4	/* BRK #0x45E0.  */
+-#else
+ #define RSEQ_SIG_DATA	RSEQ_SIG_CODE
+-#endif
+ 
+ #define RSEQ_SIG	RSEQ_SIG_DATA
  
 -- 
 2.55.0.679.g6767b8d81c-goog
