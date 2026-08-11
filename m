@@ -4,116 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F4036C5AC67
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 13:43:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B21FC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 13:43:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dzCg+9gjTeQCSQnJV7nXw1uw5Ycp+ZYb0dfAyNCr8Zw=; b=d6UByBsdg3MGx4biSnJ+YBxatq
-	rx5z9P7aNVj4tWiZahzZdoPFv9YwwNVa0Nk6LYaOOVfDacbsn2SGUqdAyJc+rbNbgvR1g4p5u5Mqo
-	zdmFKnMK150St8MVsRd0CBqMdH243RgZgi73SfkKcI+UGLE1O+yMMoUxtHLhvjHUpz7n1LDcKiPml
-	zfzZMMXOB/8SW1bMXGz5KO7TpX8zcnCew23uWW32oESqGIUoD2l37Itd1PN9AcN247c2K0HcnUmCS
-	vsr/tWi/BFPhjaARZUz6sjPnj554WJ5BxSfpLTnc5KSIuEgVJJXE4AigZ5O67AaF3WPgAfw5WadaS
-	jaVmk+aA==;
+	bh=oGL2ON+fY7rc/DLjrgmdVLzgpG4X0fa0OqzQfBqPl78=; b=hCBdVYhX05OLXSXvXF5SjbsGNq
+	iwW4sDQxecdfyFa9a0wdkXMAk86tHWeIj9I9zibWWfl5nJ1jFsPbDPDDzXf1GGQ3z3P3S+GP7mdjC
+	xNkH8ILg98x2RS9+jmZRWsovGixZPuwrnPahhGhsS2tLCsVs2EHjC6TFkq72MdHUOiiekUgHXLy/x
+	mGxXd81KRHZkqM8vwRgCZ0JP4D58z8kkmwZFd9wGYf+RX+WUdZb0t1+mTCvWjtBF2qJb0WdJs09N7
+	43k1b3UK+dWnAa20wPqzoLYXVpgpUst92iq3TTzsQ+xv++ZUkxUnvzLZ/fTQ/kabHfqLsoFkGWwr5
+	Fs9LkbtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtmkj-0000000E7YS-1RCy;
-	Tue, 11 Aug 2026 13:42:49 +0000
-Received: from mout01.posteo.de ([185.67.36.65])
+	id 1wtmkv-0000000E7an-1riD;
+	Tue, 11 Aug 2026 13:43:01 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtmkg-0000000E7Xl-3ZFX
+	id 1wtmkt-0000000E7aP-3dRL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 13:42:48 +0000
-Received: from submission (posteo.de [185.67.36.169]) 
-	by mout01.posteo.de (Postfix) with ESMTPS id 2D116240034
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 15:42:38 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.de;
-	s=1984.8680eb; t=1786455758;
-	bh=dzCg+9gjTeQCSQnJV7nXw1uw5Ycp+ZYb0dfAyNCr8Zw=;
-	h=Message-ID:Subject:From:To:Cc:Date:Autocrypt:Content-Type:
-	 MIME-Version:OpenPGP:From;
-	b=dovHz0PYtsiFBVMqx3bwf0qpFaKez/xdSmBFMj5DMd5B+W82SpjIX3tPlYqrSXXTL
-	 LgTDyWQrOtNAYW4xZlVG3N+ET1Ah2hBSAkPN9cI2nNIKsxVlMQhxdWb1jUaKNKW4Vu
-	 vTs0cq3dUQTmh4zb9Q7PB5rJudpSQZuVHj4y5OT7Ru2vUvY3xaFiBTinjZERIroB53
-	 gogHRnZ7eTh8LinVWixKRR4GQPBj5YsLy/wfxRUgtL/HaaOcVua5cisHJTIdFgIrAD
-	 sNfvw3tE4UjvkZMrbouch3t0mppmesc7efBab08FEVmK8PFw/wRfUxxgwWzmion3hh
-	 krmRNN+9ufK+g==
-Received: from customer (localhost [127.0.0.1])
-	by submission (posteo.de) with ESMTPSA id 4hKCVK3f0zz6tvx;
-	Tue, 11 Aug 2026 15:42:33 +0200 (CEST)
-Message-ID: <2b293ec3ff83348657a64ed551a3c8533fc1d336.camel@posteo.de>
-Subject: Re: [PATCH v3 1/5] dt-bindings: rtc: Add pinctrl for S35390A
-From: Markus Probst <markus.probst@posteo.de>
-To: Linus Walleij <linusw@kernel.org>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, Rob Herring
-	 <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	 <conor+dt@kernel.org>, Uwe =?ISO-8859-1?Q?Kleine-K=F6nig?=
-	 <uwe@kleine-koenig.org>, Andrew Lunn <andrew@lunn.ch>, Gregory Clement
-	 <gregory.clement@bootlin.com>, Sebastian Hesselbarth
-	 <sebastian.hesselbarth@gmail.com>, Michael Langer
-	 <michael.brainbug.langer@googlemail.com>, Andrew Morton
-	 <akpm@linux-foundation.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-rtc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org
-Date: Tue, 11 Aug 2026 13:42:35 +0000
-In-Reply-To: <CAD++jLmbp5v5oy9oas3q=nDEvdvmPZpX71eHwEUgSKkn4bfCkQ@mail.gmail.com>
-References: <20260805-rtc_s35390a_int1-v3-0-e836faba3e25@posteo.de>
-	 <20260805-rtc_s35390a_int1-v3-1-e836faba3e25@posteo.de>
-	 <CAD++jLmbp5v5oy9oas3q=nDEvdvmPZpX71eHwEUgSKkn4bfCkQ@mail.gmail.com>
-Autocrypt: addr=markus.probst@posteo.de; prefer-encrypt=mutual;
- keydata=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
- jfGillcaQOqFZ3WwVqyzG1BUfTow==
-Content-Type: multipart/signed; micalg="pgp-sha256";
-	protocol="application/pgp-signature"; boundary="=-QW3gka1UqdUF6X6NqTlC"
+	Tue, 11 Aug 2026 13:42:59 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5CD6F43D72
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 13:42:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40C2B1F00A3F
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 13:42:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786455779;
+	bh=oGL2ON+fY7rc/DLjrgmdVLzgpG4X0fa0OqzQfBqPl78=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc;
+	b=BpB9+IN2EktpZlwbaW/abyZTkq3FyAM1VgonyxsDOF6/vWRs3SHfwfjNAt8bK2Ta/
+	 IMqyeeJkKJw79rmkLM24A6nq+dpmQVF6hBzb9uqB3sXItxVseBCc7syz6av+nlFi+y
+	 +RNQnHhjD9yPsFEFMaJtwDCqS3uJ24sBLX+u8oX70nZ16PuWElWsqnqZj1nuXqL/tT
+	 fLIrV0nivVzPGe1affq32ALi59n4ep3U5sNuhd2vdFQCALX0yWMCfB9n17/eOWNCRV
+	 6xt8AT41D1+LZ86/COb6h/Ou9kn7E36EscZdprREsX9YQSEJ0uTjAG1B5+QVA3wExf
+	 vf6cXn4X7iq6g==
+Received: by mail-lj1-f181.google.com with SMTP id 38308e7fff4ca-39f91ba1ef7so18758601fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 06:42:59 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RqBThIFec0BhtEHaNHQisIaS6PdytUqGcPE4dYiQY/tMe5H/cm2DRQWRo32HiiQXC6AWBzXGvfDFMMuvZtKJFFv@lists.infradead.org
+X-Gm-Message-State: AOJu0YyYQ5Tebfz2DmlB9NDSxAbbxKvY7rL5qV9+JgdfulNaccO69TkX
+	zPoEJeG4GlUhCJI+y7qvzYcJbn48ORJv4z110EX0zQ3mZFN3l5f3XYUf2f5IuyxsZxg0tmhA4/m
+	d2f6r3+Jxd7zJbCwwKhRL5rWS2HXDL8VaWNRP5psLRA==
+X-Received: by 2002:ac2:4c4a:0:b0:5b2:b004:ab9d with SMTP id
+ 2adb3069b0e04-5b448633cccmr554909e87.34.1786455777968; Tue, 11 Aug 2026
+ 06:42:57 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Tue, 11 Aug 2026 08:42:55 -0500
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Tue, 11 Aug 2026 08:42:55 -0500
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <20260801171242.GA3567@quark>
 MIME-Version: 1.0
-OpenPGP: url=https://posteo.de/keys/markus.probst@posteo.de.asc; preference=encrypt
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_064247_199900_2F143D71 
-X-CRM114-Status: GOOD (  14.32  )
+References: <20260731050838.158825-1-ebiggers@kernel.org> <a28c2903-0976-4559-b870-4de5553ba9ab@kernel.org>
+ <3ba57269-3305-4d80-b3f2-aa82fa59b59d@gmail.com> <b9b655a9-c683-4c4e-ba0d-f98577dd2912@kernel.org>
+ <20260801162900.GA2021@quark> <e7aeec9b-11aa-4635-bde9-fb8c7ca38260@kernel.org>
+ <20260801171242.GA3567@quark>
+Date: Tue, 11 Aug 2026 08:42:55 -0500
+X-Gmail-Original-Message-ID: <CAMRc=McL5QQRk8C8zzkHm+FUj-SAVi5PLJr2pXo8eNpaxXuALg@mail.gmail.com>
+X-Gm-Features: AUfX_mxPZ9dCN1jSvjbQwqq_cAREJeltmA9cJmtfDea-v8VxD3gCP4H0x5h0r80
+Message-ID: <CAMRc=McL5QQRk8C8zzkHm+FUj-SAVi5PLJr2pXo8eNpaxXuALg@mail.gmail.com>
+Subject: Re: [PATCH] crypto: qce - Replace with stub driver
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: Demi Marie Obenour <demiobenour@gmail.com>, linux-crypto@vger.kernel.org, 
+	Herbert Xu <herbert@gondor.apana.org.au>, linux-arm-msm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Bartosz Golaszewski <brgl@kernel.org>, Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>, 
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Krzysztof Kozlowski <krzk@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,59 +90,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sat, 1 Aug 2026 19:12:42 +0200, Eric Biggers <ebiggers@kernel.org> said:
 
---=-QW3gka1UqdUF6X6NqTlC
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+> Well, that again brings us back to the core issue which is the actual
+> current functionality of the driver, which is to register crypto_ahash,
+> crypto_skcipher, and crypto_aead algorithms with the crypto API.
+>
+> It isn't useful functionality, but rather just a footgun that allows
+> users to misconfigure their systems, an issue I've seen happen multiple
+> times.  CPU-based implementations of *every one* of those algorithms
+> already exist.  On a typical SoC that has this hardware, the CPU-based
+> implementations are ~50x faster as shown in tests.  Pending patches make
+> the difference even greater at ~100x.  And the CPU-based implementations
+> actually use significantly less CPU time, as well.  There seems to be no
+> path forward for significantly fixing this issue, either.
+>
 
-On Fri, 2026-08-07 at 19:23 +0200, Linus Walleij wrote:
-> On Wed, Aug 5, 2026 at 9:32=E2=80=AFPM Markus Probst <markus.probst@poste=
-o.de> wrote:
->=20
-> > Synology NAS devices use the output pin for interrupt signal 1 to wake =
-up
-> > the system.
-> >=20
-> > Move devicetree bindings for sii,s35390a into its own file.
-> > Add necessary properties to configure the individual pins via pinctrl,
-> > which allows the interrupt signal 1 to be used for wakeup alarm.
-> >=20
-> > Signed-off-by: Markus Probst <markus.probst@posteo.de>
->=20
-> This is a bit unexpected but I really like how this looks
-> and how it is using pin control!
-Thanks!
+You've repeated your point about performance several times. Nobody ever said
+you're wrong. Performance is not the only reason for choosing one provider over
+another.
 
-To give credit, the use of pin control was Alexandre his idea.
+> An alternative we could consider is dropping the cra_priority further,
+> to further decrease the chance that these algorithms are used.  But I
+> feel it's hard to justify why they're there at all, if the rationale for
+> keeping them is "we made sure that no one can actually use them, so they
+> can't be causing problems anymore"...
+>
 
-- Markus Probst
+No, the rationale has never been this. FWIW it can be that it's used for
+testing of the crypto module on a supported platform and that is already
+enough of a reason to keep it upstream.
 
+As I've said before: we don't just drop maintained drivers from linux.
 
->=20
-> Yours,
-> Linus Walleij
+Herbert: it's been a while, would you mind chiming in and deciding one way
+or the other, as Greg seems to have deferred to your judgement?
 
---=-QW3gka1UqdUF6X6NqTlC
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-
------BEGIN PGP SIGNATURE-----
-
-iQJPBAABCAA5FiEEgnQYxPSsWOdyMMRzNHYf+OetQ9IFAmp7JrkbFIAAAAAABAAO
-bWFudTIsMi41KzEuMTIsMiwyAAoJEDR2H/jnrUPStjQQAJWXeNaXaQVNvejgSBMg
-tvTp2Udl6C+FEODA4dfsNjhm16qkEzN0QBirIL86nifakQW3nergAjyuVfMvJw+0
-2sQvyvsW98NW7qEDZnL2Eehxjwbab8rop3EOCnkGusLwzBZEItVwpuX8G9UDZToO
-skG35NSKZ8vX7IUl04vdms+dP5ou28UseGm7CTR3y1PIaHcFwEEfUhQ1P8bZQJ7x
-broWwqA+qptOFUSfTv3xdi/XzO8PvIs0CR/eCsBI6rn8uuhhX1gvY55tH6uBb9W0
-NJPf+kLxgeLu2stTjGUN9+vFi8DBpX1/rj1ES6sKgd8P3MXCg15gXBZ9oYA3nNQj
-JhFuy2mc3qDqFVzTwcpQghvj2o+zomWbYOLFf0lSpv305UFb2pXXVsQNNr8YUglu
-21I4PRKMTIoskBqKuYyMf76CBaXmgWiP0138t2fo+BYhFkm2ivyyyaYMcDx9OGm7
-D/0aWJau2Em3UwXnFLc3vhgkFfgffaS7NWsQUyxGHovlRzcrZ+gSLDexRhk5mqGL
-kkQonf/4tUL4QgqriEb8qx8ey9ozpfhV/ts3cfYUdUCY/rev/8+iYfZMCIuV75VU
-Zm6Ucsawg/Wj0z5Ebt0F9n8UTZvacVZLuca/pA/lFhtA3WtRE24Inf51BW0HuNd6
-qrwJcxEd7O4+sMcBZXw19b1p
-=1cIM
------END PGP SIGNATURE-----
-
---=-QW3gka1UqdUF6X6NqTlC--
+Thanks,
+Bartosz
 
