@@ -4,95 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9BB0C5AC67
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 19:27:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6512C5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 19:30:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8CJ6QNSqhWJGSffyTY/ffGanQulWe1yCj+00GIgVmXg=; b=tJyVdxMfNGhzWVzVF/Ct1Jysu7
-	t8NAVj3UX5MzuvSCP6l1kf7GTbJg0Dgt9/IrCelB/5uq6thgaJsgeNgOrUVlkpv4W8KO26axf9TQL
-	H5FsMGtXip/7661SFbhI1hA6YyXFaIlR66v9rhjLiI1X2vR2eW86Ve6oJyYdCqhYfT/n/K14q9g25
-	9NpfXldInQZ+SENA/DKDjf3tD8Y1NlMFL0f7jFwfSvv7X0EOzCONsBcotl6BpajmumgY5BEFIPyyY
-	dzW+TcSqYo3HeL9scqhXhSJyRO0E49BOXpfmnnK5nJWbtBppOHAhJmN6mgXN36OH6BbIVSOxYEcNN
-	0w6sWz0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OsAxR/wBCb92UrIdfygCWWHNE8eP3Fi9GSwHviDiZ2o=; b=TfPoLgxnE8qakO/DkXXDjnUbEQ
+	oAV0iccqgbYtcDJiqinfaXTHUsMptFEEfkwvVBi5L2uN0zP0l54GouGB1PH7U+ulxu3eIQKcfqnCq
+	Ks48K4sI1F2q5MsLYs9DMAf0rZLAmxoZiNg6cv34nShAnG+Zqj6i/TqeaTAbm2hxyECPo5LXoyqWx
+	DhqfRniYbbEHk5W/XDomeNj7/hKW5II9CXRVSlkxAP8aG6cEcrqZusfZEPaQaroP7N5hHGlpAW5E1
+	CBj3e6x9+nfBQT0QHVUgulJtuDUE445KdaX0+uu5kuLbWO/7QUg5dAbM+4YJpaDhj97Rb0ktUY7gm
+	jFAR7+iA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wts80-0000000Epva-0UnN;
-	Tue, 11 Aug 2026 19:27:12 +0000
-Received: from mail-qt1-x82f.google.com ([2607:f8b0:4864:20::82f])
+	id 1wtsBM-0000000EqEC-23mr;
+	Tue, 11 Aug 2026 19:30:40 +0000
+Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wts7x-0000000Epuw-1L5p
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 19:27:10 +0000
-Received: by mail-qt1-x82f.google.com with SMTP id d75a77b69052e-51c08df8513so2363411cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 12:27:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20251104.gappssmtp.com; s=20251104; t=1786476428; x=1787081228; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=8CJ6QNSqhWJGSffyTY/ffGanQulWe1yCj+00GIgVmXg=;
-        b=Rk8t4frC/TRVzLTlh+Nlc7qr3S1LT+jE/OxJ3YT0TC8eEQHJ5aoFParAGliOm2+N7C
-         bgrtgrHjLpS+pCjPYlRr+u3QLJvrrHsoXd/HL9HvKWqd+0zIHXC5cmzgu+JAXFRJM+ZS
-         3Z6Pmw6ricJugmdOB/8lld9dpx57U5fyorFJ3BOvFxmF7GyEh+DdF9i7nMwskAdueOIg
-         CvvhOkVWxJiV+rzhe7Cfk/8FTXHTx3Eg28SK1XNiXdfT6KcX8ZvPhDIqWY5vG9KE7S5j
-         a6Fnx5GR7qsPtIbZv8wzMGVAcgZZRG047vQ/Rms2h6Qc2ew4LcIk1FsGlyc/i3Dg92X8
-         Of7g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786476428; x=1787081228;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=8CJ6QNSqhWJGSffyTY/ffGanQulWe1yCj+00GIgVmXg=;
-        b=WorSGJmchw7wNPXIyVplWdkQ9Zpt3jWVWyL2I8ava5X2f8WihXKVQntRlYYc9ku/sB
-         H9w4bREEkO2tCC7jSoyhXg2P/8o7jT4SLih5wdbmgtBlGk6eVaialjYn8UiTOZqGGGVm
-         MH4/mPGE6cIcT+4CjdIKi6I8ZimTtbJcVoBLeJi3TBcGCAfMulJ60L/uwQc24ZlhZCJh
-         cXOHd+m0QbUJu1aTlKp/AUUwIPU/dtdds9ujlkPlI5oulsddFQgNxzOYTNqESTSxU2+m
-         QAcUkytmu6l+aou4eHgKiuwFniwIJgOipaHaeUBsK8qSdRLELhirBuj/ZOixGh8gGgHH
-         XvUA==
-X-Forwarded-Encrypted: i=1; AHgh+Ro6xwA2BhSkF7YrGw5+oODVjnJPbWbHejiylTTzb/aXKJ1GH/HHKOs+R5AmWZkERh1OB4PbdvAt5GFr75J/q1Y4@lists.infradead.org
-X-Gm-Message-State: AOJu0YycIIZmYoyAXWIW1O+AIR5WMATewtytxlCIKo5Cuwh0d72l6hAS
-	2QtyaGUDjewX6H6BiYWM2goVEReOLOYAFXvF2B/U5YiemaRLxmK0vwKKc9YHBUxAtD1GxgDdt0I
-	lhVjkJfE=
-X-Gm-Gg: AR+sD10mN23E0kHqWn7A8a116nhVnZtXN/aG/LkJbM8XQUbQQ6jvyg9E2p81jWjpN94
-	BZiLyCQT3elsg3Mrq1IS7l+H6jp9BHoKADE7W2+kBg3pvJT2Rkq7oUcKV53G9TKYvX8vdx8te7q
-	CTyWBkOw82rV/HxjCAP8JEENdMB7yW0+w3YJ/wwNBJJc7WgbtyKQTTJehF0O0Zx3QVXp+L7btGN
-	YShkvOMYW47dZSFqYtHEXXW1OWcuSqYmnqjzZ+whodOfFPyYaOZukOe4kgvfyiyEWey9I0VJ20d
-	6HdN3ZIiy9Y5rd3/DS5SSJsAcwLIavpg/7Hv3wbqAj0RUuS1sTDK8utTPsMUd7qeqlH4pIeXwkh
-	qCNlbWaqaRR4alT5gwjp2yl6VXA3ug4PqVblJkXv3eIlcLnYcpGHYJFiQEgnjMVizVrL+ZjoZ0L
-	WurFqIcDlNESfzLgqPjLe06uEEwonRvaG5gcUR7ClZbTnnlivfiChESslnWHk2U941nXGIKLRFK
-	ZY=
-X-Received: by 2002:a05:622a:5592:b0:51c:22c5:daf4 with SMTP id d75a77b69052e-52d58614af4mr54547001cf.28.1786476427825;
-        Tue, 11 Aug 2026 12:27:07 -0700 (PDT)
-Received: from zippy.localdomain ([73.62.185.64])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-52d61a399c8sm3228451cf.0.2026.08.11.12.27.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 11 Aug 2026 12:27:07 -0700 (PDT)
-From: Alex Elder <elder@riscstar.com>
-To: maxime.chevallier@bootlin.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com
-Cc: mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	linux-stm32@st-md-mailman.stormreply.com,
-	netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Sashiko <sashiko-bot@kernel.org>
-Subject: [PATCH] net: stmmac: use dma_addr_t for DMA addresses
-Date: Tue, 11 Aug 2026 14:27:02 -0500
-Message-ID: <20260811192703.1765416-1-elder@riscstar.com>
-X-Mailer: git-send-email 2.53.0
+	id 1wtsBK-0000000EqDW-0Gty;
+	Tue, 11 Aug 2026 19:30:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=pwNcpRC0uw8lWfJWpF2+YEJn6+rl5kac/zWY2Abp+jK4yRJwQHM+05ELeLnIdxzl756a8WzADducLQ+qMxpmHivZxPNghOCtDypQIB3rIj0RofZCGNwE2CaZX85pwzAP03heiy6vKfB0lm4vQ8SaJPZdU4bUmwZ/4fuDewwFnejvh5HkxxwNhlKzf7B1K2udYL506645i4TPNP3E7zeO7yPeabBhAEPNTCDTG3xN2GiK/PsY+QHIBBj0iYrhmFIiCY8c7sT7mi3wa5Qc9NAAR2WL6r9/+HNeVfyAA7y+9mjhHRueF5MbKRAbsJ2ZXcIcCrbfs973EK99aikTk9EQPw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=OsAxR/wBCb92UrIdfygCWWHNE8eP3Fi9GSwHviDiZ2o=;
+ b=LSWCznSDrpuwM1aQuJIQmBvrDPTMjo8ekC25zPdBIIHCODCx7T0VpVaknRvlR29pWG6rSiHr3pH6w9NbdoPuH/JBC8owkSQiCV8MVjTC9+usgjlbepLqLeEM957rQIb0SPNQFL5U59MBYgIKWfmyFah82Sc+DevjVDrwVAgUHznwL8Qm3px4lbOxXf40NNj2lrabW7cueoAjvtnrPgx50xK8kdSrAVWb/OGFlpn5Rqwr1/0bM4+beNiPTzAThc8JADBGoZ63draFBHr6dTW4sPs4ZEMfcTf2Q7Rxr3DEr6p8Uy3jyUoZ7cFHvj6ZA6V5t7l7hn1pZvTUYFXTP9rO0A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=OsAxR/wBCb92UrIdfygCWWHNE8eP3Fi9GSwHviDiZ2o=;
+ b=pENBEZZjmQzI9PFooQDdHD466OTOYv9P4R+BcOkWbQBuscB0buSonYE8c9b6YCLm0Etm2DVbO+QCi6/4E3pY4fe3Pt4MIdZuXE8qKMiGERk5WUpQsYMID7ErH1VnAwviMpkN0puzO4ZKuVM/nO47b3qT0MoZx2LYybCInFiDa7vG1hjYq54FsixV3dX98QDj76i1Fx3A2WdlEtV7XIB9DR/I2NKuyGs+VKsq+kjZ3qUwewLuhi391+qTWviZwb9XTczKFuehyyo6Vj29YXqPq3iDDz7Guipq2ZiFIhIQJn/aSCSZ4UC72GZOCbprHgb4lZ183iyiHFySxLVk7B7UNg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by IA5PR12MB999277.namprd12.prod.outlook.com (2603:10b6:208:608::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.25; Tue, 11 Aug
+ 2026 19:30:32 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0315.011; Tue, 11 Aug 2026
+ 19:30:32 +0000
+Date: Tue, 11 Aug 2026 16:30:31 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: tarunsahu@google.com
+Cc: Pasha Tatashin <pasha.tatashin@soleen.com>,
+	Pratyush Yadav <pratyush@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>, will@kernel.org,
+	changyuanl@google.com, Alexander Graf <graf@amazon.com>,
+	mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org,
+	kexec@lists.infradead.org
+Subject: Re: QNS: ARM64: Cache coherency while doing Kexec for KHO
+Message-ID: <20260811193031.GA638489@nvidia.com>
+References: <9huzldaczcr4.fsf@tarunix.c.googlers.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <9huzldaczcr4.fsf@tarunix.c.googlers.com>
+X-ClientProxiedBy: YT4P288CA0006.CANP288.PROD.OUTLOOK.COM
+ (2603:10b6:b01:d4::12) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|IA5PR12MB999277:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2136d4b9-056f-4ac2-fdfd-08def7df0243
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|376014|366016|7416014|56012099006|11063799006|10067099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: LDoedUxvYqBp+xQIGZw2kDgkufPZAWTEbeHvS8LMLkPBhHx/n699/Dy5myvx9KKn64h6/lMWw37R8YUEH/vAeB8fBu/A0LJdWy6+2L1VYqRaPNUUSvMMMu9vyClA5IChZcbAc3yXFyvRifu9wHSFmgOvQGVB7XuUiJSC6qPWIIebgR8NdKXEpum3N/eM1tYzL09D9h/RoPX5t4JdKEXxHLLFmvZVSle3JQArAg3mNJD1Jp8iV3SGQzpbHxe15At7cvQr9psZCXTq4IWyCHLtLA55bCxd4f+kNDtiDsgRFHDkhntvx30IWN3cEIsZNPhuvvwniOQUY8kXuSwzAZOOkyIM2a+9uN3mxlFKE6N0hWobsM4w+eB1yxA2O6j4KrkLkcD/d0f3L0i1Nat8XJrv8XNG17fyXEXrXr42Hd6LobjjQzVJGIdkEolNydm5gXfiiMJ+1GsCGwYI1X5AYOJxjZbOjg/CkUEH6JbE2KWTekVvZXxYOXnSbgKXXEx1WyRwaeX6QBc8SUNO4+wXEqPi0vO5v5a0VR0o424zZB5bqF7lY1wZde/7e6sZDqHBVHG6M8k/zqY5gt3xiyWdnWvIIRMN2u9DfOQ7TslpibSi9OdWo31MhvjAlH8jAgIeSZq4rrFLsrDinYvUIj84olh4Svtf3x4TqjtIfNtcXgwjd0c=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(376014)(366016)(7416014)(56012099006)(11063799006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?l6qhV7HOhUm3rz3vjkg0JXw42Airx7nAiOf/0aVu8bvVLJV2G4aarrKtapvT?=
+ =?us-ascii?Q?I9n+6pp11JsuOwaqwGDggjZdWEb8ZjLCVD3XF5d2mDG+srpxkGnrW/qzCuZM?=
+ =?us-ascii?Q?QfqaVP7V5zPeUwUPfaFirp+zsQsKaASwsG50VPXFOrWSppVdcx+DHjgv6xxF?=
+ =?us-ascii?Q?tWobfB65jTDGxh19qN/RM/OSL8/Nbvmh4ZLOkwPAn/LIjhImhuAWKjrMFZiO?=
+ =?us-ascii?Q?nj0Oys5V8YyaNnHIJr5rS1CNhgoiUD/3XJ4S/Mc96RQSzmyBb4DyVJLpLgF4?=
+ =?us-ascii?Q?8Uua0ka3HWZeG0yKl3chhQPGu/ygYO42e/aHGfCUTmMFWCoyg2mNx1NExcrI?=
+ =?us-ascii?Q?EsR1oz0FVU3cmUt3QgBVb6zdq5v3i3yszBFs9YUKa1v0EXOnyco0zUVlacTY?=
+ =?us-ascii?Q?wkAsIJXgWFBQ5DzYzm1zbymEVQ00pkrWFlRuyNWAKda2IRLfjlmC8S3F05fJ?=
+ =?us-ascii?Q?UzheJjVXbgsHKeGzim43Wq2AC57f/9HzuyzaCvMdpy6QUy32+M2QlzTa1L4z?=
+ =?us-ascii?Q?f7S6YRcLcsSG4xHZCry47UxTtsi2t4pJqFS+3X0+XKobp80EiBXqymjd+hqi?=
+ =?us-ascii?Q?glhDgxT7lF2HJFT8/qrJ7INWD+5F+S25Nfk1YcrDZe2R81Ie2+PLORPRAuC5?=
+ =?us-ascii?Q?axf8yV5/VsJYaj4K21R8BPPlRNMn/K8LuI3SPrW1B9t95ims4KJu4CVodxWv?=
+ =?us-ascii?Q?pwil4XZy3e/jKUoS7b7xDjnMRMXVAAYFoXMZAkniRAlaDWimnUk8TintR4Yl?=
+ =?us-ascii?Q?ukOqNCobLdVupCLA2gPCK5RuKT/dCJeToGGrKUmT90VnY45sdH0qAD1IGXfg?=
+ =?us-ascii?Q?YPfIb/PW9Qclw74ayAz27Ld4iO9enEttyMEZnzLrG5LUfLl1Vcdi6mTmlimj?=
+ =?us-ascii?Q?zUAgenR17FRwEF6WqL2soB8qzCgKVAAJXmmLmniDV80LnGfXhyRVPYO6ON+q?=
+ =?us-ascii?Q?cAVxHT227gE+lSe0HjLiBROoZiS1OLZhb72iJqekc9foCQEkMzp3RxfylgFe?=
+ =?us-ascii?Q?v7cUm/FJfmw+J2C3fOr1Bsl9gQH6G++L5N4JygiXDfKF/H7pwWbc4ZjlFXYt?=
+ =?us-ascii?Q?pZx587/FtYE2gq2fKK9ImkBkfAFWiLj/DiDZ0GQdoGWepdhgcApywums45Bw?=
+ =?us-ascii?Q?aPnCQxsKLCCWB6EZ2moR7YFZ782XNAISgVOFTAYXGCfTlNeueruSeibAoS3A?=
+ =?us-ascii?Q?lZ3LA1RhKzrgTp3YDXJrr50V59dSAVywWEwSQ0zoLI5EDN0AOXSs+RHpJ1x7?=
+ =?us-ascii?Q?XxFVDM4MpAqQMNvGjv1SHZ7nxtzHMP+uGFA8Mt0J2Q5tGG26/4a0K9iUdSxp?=
+ =?us-ascii?Q?FAAVkJpRbXRJXmKSt6SOXjBrDFqGR+H+ESD0osBL0nLg9pvBl4U7suGhfO8e?=
+ =?us-ascii?Q?ZGRTiVU/X8WNgAFwKw2t+5vUomFAQx0Rw7VbNIEhFJX926m4FWeXnvqEGbAt?=
+ =?us-ascii?Q?Jf5ySYXE26Tj+/4BAivnHYSNy0x9EjDlZ38pa+9pDRD2PTDiiB7NPwHHqHkT?=
+ =?us-ascii?Q?pxjsOF9JyMCailo+E8NMiHmnPHrzhYclGj4A3R0zpBAabThiOh57Xv/9S/7I?=
+ =?us-ascii?Q?GBlCF9IgR6gVNwy95rSXZnMcsTVVOfkwd4RQGIknW6j8aqEiMv/6Kneylosh?=
+ =?us-ascii?Q?SFy+ZP4UhGwmZP5+4fkcTIeeChTNpc6PBrj4CK7iui431D3HcXldDVDfdx83?=
+ =?us-ascii?Q?6awPRASySLHu/kCSIJ8de5uChCmYnYaTVX8vT7OpKwNjgqh3PYQ3ugDIMFqZ?=
+ =?us-ascii?Q?9gx74ttqSA=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2136d4b9-056f-4ac2-fdfd-08def7df0243
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Aug 2026 19:30:32.3039
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 1BCSrmo6O9G0Si9ax2f+64vuJFm18BCP9KeXlCo8LlO8ESf8ylg1bAazmevDQLXI
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA5PR12MB999277
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_122709_370877_DC2DB2A0 
-X-CRM114-Status: GOOD (  13.01  )
+X-CRM114-CacheID: sfid-20260811_123038_109316_7241B922 
+X-CRM114-Status: GOOD (  16.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,58 +138,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In jumbo_frm() (implemented in both "chain_mode.c" and "ring_mode.c"),
-an unsigned integer local variable is used to hold the value returned
-by dma_map_single().  On systems where a dma_addr_t is 64 bits, the
-subsequent dma_mapping_error() check of the returned value operates
-only on the low 32 bits (whose high bit won't be sign-extended).  In
-this case, dma_mapping_error() would return 0 (no error) even if there
-were one.
+On Tue, Aug 11, 2026 at 07:19:11PM +0000, tarunsahu@google.com wrote:
+> 
+> Hi,
+> 
+> I have a question regarding cache maintenance for Kernel Handover (KHO)
+> preserved memory across kexec reboots on arm64.
+> 
+> During kexec, all other CPUs gets hot-unplugged where they flush all
+> of their caches so there will be no issues with any KHO data preserved
+> having caches on these CPUs.
+> 
+> But CPU0 still has not been flushed its D-cache (Is this correct?) and
+> it will only do flushing for specific area by kexec_segment_flush().
+> 
+> So for KHO preserved memory, if its caches still marked dirty on CPU0
+> they will not be flushed?
+> 
+> Is my understanding correct? or AM I missing something?
+> Also if this true, This will be a problem?
+> 
+> PS: Pardon my less knowledge on ARM64 cache coherency.
 
-Fix this in both spots by using a dma_addr_t for the local variable.
+Yes, I think what you outline is correct, but I don't think it is a
+problem.
 
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Link: https://lore.kernel.org/linux-devicetree/20260606010122.21A211F00899@smtp.kernel.org/
-Signed-off-by: Alex Elder <elder@riscstar.com>
----
- drivers/net/ethernet/stmicro/stmmac/chain_mode.c | 3 ++-
- drivers/net/ethernet/stmicro/stmmac/ring_mode.c  | 3 ++-
- 2 files changed, 4 insertions(+), 2 deletions(-)
+As long as the CPU cache implementation is physically tagged and
+everything kexec runs during boot with paging and caching disabled is
+flushed it should be fine.
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/chain_mode.c b/drivers/net/ethernet/stmicro/stmmac/chain_mode.c
-index fc04a23342cfc..ec25193d287bb 100644
---- a/drivers/net/ethernet/stmicro/stmmac/chain_mode.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/chain_mode.c
-@@ -20,9 +20,10 @@ static int jumbo_frm(struct stmmac_tx_queue *tx_q, struct sk_buff *skb,
- 	unsigned int nopaged_len = skb_headlen(skb);
- 	struct stmmac_priv *priv = tx_q->priv_data;
- 	unsigned int entry = tx_q->cur_tx;
--	unsigned int bmax, buf_len, des2;
-+	unsigned int bmax, buf_len;
- 	unsigned int i = 1, len;
- 	struct dma_desc *desc;
-+	dma_addr_t des2;
- 
- 	desc = tx_q->dma_tx + entry;
- 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/ring_mode.c b/drivers/net/ethernet/stmicro/stmmac/ring_mode.c
-index 78fc6aa5bbe95..664d8cfb58cdc 100644
---- a/drivers/net/ethernet/stmicro/stmmac/ring_mode.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/ring_mode.c
-@@ -20,8 +20,9 @@ static int jumbo_frm(struct stmmac_tx_queue *tx_q, struct sk_buff *skb,
- 	unsigned int nopaged_len = skb_headlen(skb);
- 	struct stmmac_priv *priv = tx_q->priv_data;
- 	unsigned int entry = tx_q->cur_tx;
--	unsigned int bmax, len, des2;
-+	unsigned int bmax, len;
- 	struct dma_desc *desc;
-+	dma_addr_t des2;
- 
- 	if (priv->extend_desc)
- 		desc = (struct dma_desc *)(tx_q->dma_etx + entry);
+Once the new kernel comes up and installs a page table with cachable
+attributes everything will still be consistent from the CPU's
+perspective.
 
-base-commit: 31397cf1819210bd63fa3d2c7d8c24f7c8667d99
--- 
-2.53.0
+Anything in the new kernel that needs forced coherence, like DMA, will
+be doing flushes anyhow.
 
+Jason
 
