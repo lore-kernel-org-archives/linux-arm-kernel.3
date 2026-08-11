@@ -4,79 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07729C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 15:31:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01ED4C5CFE7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 15:31:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zjkcq8l0GSb9YOwXmla3++8CiBcoyxIkWo/FH5SvfOY=; b=fCMW8SNB3e2psl9PnJxH2QYacp
-	On0TbMSpjIMVWl7mDh61lp0wTn2j/SUxB9Y9SU+omNZ3OszwnX8k1k/YMcjte5QdIonYfpI2cfoQc
-	wNZ+s2AcDd8+j2/DNtr3X3p3YPLFUyAZmDDRO+GGzBduzMyQDAoKFswAeEHDDUfXxHwfWebjJmal7
-	IG2EiTfIpFnGGv+STB2ruV57pXAf0lvboiGFhapyYPE6g/J8/iq9SH/KtMukghqlir1G9pxRUKuyv
-	BkmlaFBMBrjaWzuGkuaWnGixRYQjrlDBbEO7DlFtxw6lgTVGo9K3nYDPv4UZRp7SvinS+E2iqhRYH
-	GR1l00OQ==;
+	bh=bcFhjwes9A89zvUuGgSpPmP9VQvVv75EU6Q8BfuMsS4=; b=jzuoJt5znYUPz+BtHH2rYa+ghz
+	OGBeVfLMVT8njHnvOh/1Zn5raXRcLHWFRGrkVzhXE10JAkhH7CUPLd+GNxqC3J9ZeM9g1aTQGPbnf
+	UTNBvWRkbxiA0qv0WtzOUfrlFi3XZhMe0MIdmQHiIcNq+vMUZDCAcZPqktWeze3KFZqz/aFXz4gh7
+	kLypIm40aNOpbd1PpjjqCEYeQp+09+RMF01WDz5/I7+MUOKCexdwab4KRugG7PqC65z4qK9zCseYp
+	CgeOEt6PewgWZZtkFBiYuuXwJNz3XkpzNmyFUoeWMA3Kv6jQyTQtuZAzuSws7WwmsFujdL4SZYVlW
+	ht7yTN0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtoRK-0000000EKAe-0tIn;
-	Tue, 11 Aug 2026 15:30:54 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1wtoRQ-0000000EKE9-2DCd;
+	Tue, 11 Aug 2026 15:31:00 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtoRG-0000000EK89-3NZs
+	id 1wtoRL-0000000EKB4-3eH1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 15:30:51 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-47f7027ca11so2123156f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 08:30:50 -0700 (PDT)
+	Tue, 11 Aug 2026 15:30:57 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-490cf322ed0so26616505e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 08:30:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1786462249; x=1787067049; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1786462254; x=1787067054; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=zjkcq8l0GSb9YOwXmla3++8CiBcoyxIkWo/FH5SvfOY=;
-        b=W5/LzjGPD10wjhRHA93RsV3IADwVwuglBn8lOeqezvLLBs2fg3tD4ftXFhzwp6kj08
-         L+lLLxjTzxyzv5+Notitr0KomVTdkkvsqeM66zeyFFfM9fleGPR65hwVMQtkQYQSkrPl
-         zo2oS36LySq9xC7TOIYvqxE5/6gHP6VsDTx3W0Klvik+Xll3Fy+XkTREyPFZjLD7UStL
-         UvegrTN1/uQiCe1VacSJZ3/bM+/Cv0NhPX3yXAsnBV4XMy0WU0c7WiYjAPK4oyiMgv7s
-         LxfHO6LLzp4SsdCrmAuhVfikaipZK0eoiDSCZqE9/b6R8K1R2TNqTdMlZ9S7wfmBLqt+
-         FlcQ==
+        bh=bcFhjwes9A89zvUuGgSpPmP9VQvVv75EU6Q8BfuMsS4=;
+        b=DMJE+FjAuODe1n89VyQQpXperomobRrgGij+2G3gZmhAEXR+usC+o6+DrKup6TBfLB
+         1HkVsbYvWfH4x458AsFVQqTZ9CaUHNORBUB+2nwgwGUs29mPHSY6xeOaeUnfpQfyYiwb
+         3HrN5gW2+FJpc8Z/swI7VLv6wIh2VIbgFqkFYqnAcVxqteppbkisQJTSgukXRlF6XS0W
+         MHvFd6x9sy8V0fDFC7lnyLri2hXbrjFdQmzsbCLcdLt4CjhwL2QBuyl/JaxAEfa//NjF
+         P5P3++uVpRA9yrrl7ZqQINRh5g5WIhj2H4LkPLfema5yfYO6NpXoNiXnb2Mx25PaXM9d
+         65aw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786462249; x=1787067049;
+        d=1e100.net; s=20251104; t=1786462254; x=1787067054;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=zjkcq8l0GSb9YOwXmla3++8CiBcoyxIkWo/FH5SvfOY=;
-        b=oSzxgIayJcLPzYRJNWZ4Tfby9HQMt1QpUEFopF4Ee+sBXCjxhs27Ywhud06x8A89eU
-         6xzPZAPCAyY5qEMV9NWLOszz4Ut+0zGb89hE5ps/XqfY39q6hbQygdn3B0+KzZGynZHC
-         MG8xPTY+osqFJzUdo4GzXT12IkUeNXuq/gomQBqyb547uoWKojdluW2IwRIqD//qYodQ
-         M5jzL4b4DvYO8mpbQDcOKXtQdEbFuxhExqyCpxkel1Nl8RIq49zSgjz8vSKXuyLVJR3M
-         inYhIORdQJGz1n6P9+EpN3x6052Gx3oUjYRPzFqiNP63iRzlWs+TVS5o+BEhZrCqbFVa
-         I7PA==
-X-Forwarded-Encrypted: i=1; AHgh+RoVZvb6zrS3yFr8mhNl3R2gNkJnWceyj+ujjszIl90IDc6zWVZ0ARSFEp7ckjnjZz8qpr5zzmG0hGSHeYD5gsF5@lists.infradead.org
-X-Gm-Message-State: AOJu0YyMh0n+14BNs/s0uHAp9ACVy/ammaY+5XafkggPqThRLj/CLx4V
-	xlP1NX8NkwWKo94Aoe2j5C9JyXy+QlUSrcH12mN6xn6oJ88lG3FDj8o6vglk1aC1bFc=
-X-Gm-Gg: AR+sD12fAaMNavCanA/v9jleYFVm6+3W4o6wgpnR2iFMFzYLAQQ8fNaJf9QWbr7Ug8g
-	0StOAWM4QUlNz2HRfK6kjGXiOyOWfO/cb/VME/q4E3+plaDUBR0TjBxwUif9m/l1eZ9f1ZZmGaM
-	xWKLUpmvIDFJh6xZTp6+3DlCpzLYPwkdk+cndYVROXp3cXwF5LxbJQcuysYvSG0m0+gCsydksyq
-	OBfxUmsNllDVYuxpqsmi6IX+DN0qttJwVtSQDfCqitn5Ex4tBTCll0B/H5jUInh8DXltL54pnsF
-	fsshyt8Tw+Vyj7ftyYOhP9/QO2EG2xaGcrln+WOvEIsRoJi0nJ0CBVN/lm6csWqKIEogky4tFnL
-	UCE3mX9hR4blF2y0IFo34C0NQqG7mEnYrumfQ/7+aWUhmWey7BszAX5dqm9RcYzT8rUYk1V13MD
-	D6h02hFOiY55lQ/uTm/kyHHh3lwcMuNnO0fyFBk6OwX+JXiNSRgWWUV+QwyCWdB3FD
-X-Received: by 2002:a05:600c:4513:b0:495:3e08:ad19 with SMTP id 5b1f17b1804b1-49978468c2bmr59898875e9.9.1786462248915;
-        Tue, 11 Aug 2026 08:30:48 -0700 (PDT)
+        bh=bcFhjwes9A89zvUuGgSpPmP9VQvVv75EU6Q8BfuMsS4=;
+        b=Ts38tYDZACHExGRRl+ySN3XhKmMV7J6ltvcIWbE3dz/owP1NHs3d60/iOPDDvPWQMT
+         L13Y4mDR/cNsMLBtCDp+agaUrLNAA04oQPl2zwjFNvRw8DSxeAiogeYqOdP3R/uHM4nl
+         3zQQWzyFaAvBaVN4wOcxFLW8wf+0YxZ2iaUOpB4L/iWWE3tGSr4FwS1CqVfI7m4gZz8i
+         ZY1HXJpMi2tvIatFauoBRKk5fEfnh1+ijH4d3sBIRamcu+NY30UJIFKDYyCFCY2+g6tD
+         9meXuU11jRop7kIsLpjDdOZbnUtflghCO9lcSBVAV8W6CKzfE6SAesrzO1TTZIDQx5F2
+         vMlQ==
+X-Forwarded-Encrypted: i=1; AHgh+RpEFVQw9KhC+uELCohC4rqS83Gw6xTkTStZPtocwkIKu9w89qekswbb0LibWGSfdOmN2L+OgIpRwI7hCfHJHzRD@lists.infradead.org
+X-Gm-Message-State: AOJu0YyBvpLh0pPTia4z/qHPSey9SMHT7oW+g9Lfi3BP03Pzw4x9divC
+	mye3Rfg24j9l00hv8oCyCOg2DvpD0bIUpymD2mLAw8Q4+T2Pv1aG1dyjVihVWGr+fQ4=
+X-Gm-Gg: AR+sD11I/GSDwUdWmvgkiCdS+LNGwi4/MSWab8Ki8CF8h+Sk6rRJZYAiKngbP1tb1nZ
+	f35KQN0omHqCmUUTGLT43enkGo5oKNyfHAz18cJfPetc9X/KOHl8ZBmCPGhthcI7QZYMMbtRzYI
+	/0QpDsHrSfn/n5AV6Tx4UTy9mUCmGwMZPTUysvYu4M0yVIBUtsg2erYN0cPopyxyZQGHd3CdG7g
+	WLoEjPJiuuyuQObdDpxRFx4Xs/0FkZDYD2+6z5qCKHZoO2ly7gQA3LCpKH1gG0BooV8AnYR2pFI
+	ZDnHj2L3//bRgT8d/i3PIThe4m1o1AwMXnrW2nzizOWSA+c24hyGuJDFQPLc//jIy++tV58jseQ
+	kNd1KmEsqMv0E8BbeDKSGR3Hn6dP5mcdutcFDXE8r+oS01FkHCWHD4dytQjtq4sd7zA5Lcp6/8I
+	Z2lBXeHAR8arEEHb79/aWhhk0YVg372/7KDdRaU0iYeGcgrf/RWb1OrwTTjybaIUY6R794FQ==
+X-Received: by 2002:a05:600c:8219:b0:493:bacb:1341 with SMTP id 5b1f17b1804b1-4997842db6cmr72514755e9.4.1786462253990;
+        Tue, 11 Aug 2026 08:30:53 -0700 (PDT)
 Received: from pop-os.local ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49977dfacb6sm49865395e9.1.2026.08.11.08.30.47
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49977dfacb6sm49865395e9.1.2026.08.11.08.30.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 11 Aug 2026 08:30:48 -0700 (PDT)
+        Tue, 11 Aug 2026 08:30:52 -0700 (PDT)
 From: James Clark <james.clark@linaro.org>
-Date: Tue, 11 Aug 2026 16:30:05 +0100
-Subject: [PATCH 02/14] perf cs-etm: Warn for invalid timestamp option
+Date: Tue, 11 Aug 2026 16:30:08 +0100
+Subject: [PATCH 05/14] perf cs-etm: Increase default timestamp generation
+ period
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260811-james-cs-unformatted-per-thread-fix-v1-2-90565318f5f8@linaro.org>
+Message-Id: <20260811-james-cs-unformatted-per-thread-fix-v1-5-90565318f5f8@linaro.org>
 References: <20260811-james-cs-unformatted-per-thread-fix-v1-0-90565318f5f8@linaro.org>
 In-Reply-To: <20260811-james-cs-unformatted-per-thread-fix-v1-0-90565318f5f8@linaro.org>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -97,8 +98,8 @@ Cc: Leo Yan <leo.yan@linux.dev>, linux-arm-kernel@lists.infradead.org,
  linux-doc@vger.kernel.org, James Clark <james.clark@linaro.org>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_083050_862994_8283B121 
-X-CRM114-Status: GOOD (  13.40  )
+X-CRM114-CacheID: sfid-20260811_083055_956033_057F117F 
+X-CRM114-Status: GOOD (  16.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,30 +114,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Instead of silently returning an error, print a useful warning.
+The original purpose of timestamps in per-CPU mode was to roughly emit
+samples in the order they occurred across multiple CPUs, rather than
+emit all the trace from CPU 1 followed by all from CPU 2 etc.
+Previously there was no way to change the interval from the minimum of 1
+cycle, but custom intervals are now supported by the driver.
+
+Drastically reduce the number of timestamps emitted by increasing the
+interval, which is more than enough to interleave sample generation.
+This reduces the size of the trace generated.
 
 Signed-off-by: James Clark <james.clark@linaro.org>
 ---
- tools/perf/arch/arm/util/cs-etm.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ tools/perf/arch/arm/util/cs-etm.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
 diff --git a/tools/perf/arch/arm/util/cs-etm.c b/tools/perf/arch/arm/util/cs-etm.c
-index d2861d66a661..acfdb3f53821 100644
+index d0486a164a70..d36b7e41399b 100644
 --- a/tools/perf/arch/arm/util/cs-etm.c
 +++ b/tools/perf/arch/arm/util/cs-etm.c
-@@ -176,8 +176,11 @@ static int cs_etm_validate_timestamp(struct perf_pmu *cs_etm_pmu, struct evsel *
- 	 *  0b01000 Implementation supports a maximum timestamp of 64bits.
- 	 */
- 	trcidr0 &= GENMASK(28, 24);
--	if (!trcidr0)
-+	if (!trcidr0) {
-+		pr_err("%s: timestamp not supported by HW, disable with %s/timestamp=0/\n",
-+		       CORESIGHT_ETM_PMU_NAME, CORESIGHT_ETM_PMU_NAME);
- 		return -EINVAL;
-+	}
+@@ -70,6 +70,9 @@ static const char * const metadata_ete_ro[] = {
  
- 	return 0;
- }
+ enum cs_etm_version { CS_NOT_PRESENT, CS_ETMV3, CS_ETMV4, CS_ETE };
+ 
++/* Default timestamp period of 256 cycles (2 ^ (9 - 1) = 256). */
++#define DEFAULT_TS	9
++
+ static bool cs_etm_is_ete(struct perf_pmu *cs_etm_pmu, struct perf_cpu cpu);
+ static int cs_etm_get_ro(struct perf_pmu *pmu, struct perf_cpu cpu, const char *path, __u64 *val);
+ static bool cs_etm_pmu_path_exists(struct perf_pmu *pmu, struct perf_cpu cpu, const char *path);
+@@ -458,7 +461,7 @@ static int cs_etm_recording_options(struct auxtrace_record *itr,
+ 		 * Timestamps are required to interleave samples from different
+ 		 * CPUs.
+ 		 */
+-		evsel__set_config_if_unset(cs_etm_evsel, "timestamp", 1);
++		evsel__set_config_if_unset(cs_etm_evsel, "timestamp", DEFAULT_TS);
+ 		/* Context IDs are required to associate trace to a process */
+ 		evsel__set_config_if_unset(cs_etm_evsel, "contextid", 1);
+ 	} else {
+@@ -477,7 +480,7 @@ static int cs_etm_recording_options(struct auxtrace_record *itr,
+ 	 * timestamp tracing.
+ 	 */
+ 	if (opts->sample_time_set)
+-		evsel__set_config_if_unset(cs_etm_evsel, "timestamp", 1);
++		evsel__set_config_if_unset(cs_etm_evsel, "timestamp", DEFAULT_TS);
+ 
+ 	/* Add dummy event to keep tracking */
+ 	err = parse_event(evlist, "dummy:u");
 
 -- 
 2.43.0
