@@ -4,61 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F83BC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 17:08:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8E21C5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 17:09:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HmcD5/Pkj3PY0x8OJ6vSMi1otWncIykWwVp2UYuWZpY=; b=GZFMIeT1kKDYGd0SrsCEAtojMU
-	Bm8iGQzcWqhOXKlyuBUNpZLHabH/XmCbOBNex4GKT3S2C75+smlveUVduyG9lmYhWmp9OT0yqfmTB
-	fUmZWSY4uLbRI4BfPq9TYEG87NCP092KBoaLwBCPi6RadVgwFcxABoVqJg2UCfybIZWQfMbOe4PD3
-	CDLOmxEoQXMIlmNB94JKwb3rbeXpW6sm4eNFHYMr01aHvechQbJLbB/GuCZZiB8+HcgMAjb9BAoGH
-	9Fg1B4Mm+EYosncRoKDRbiBc4aJrYoz/1ggcG96z9KkZoaAS2fsTcSAbqcX+LupJDJx+nY0GRQf1C
-	BHt5fd2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vuLc+eBTQsRcHHndOJtc/5UNxFkquB47Vebh+uHg3po=; b=xLDci4Ve/phPbjq2yrPBasWL80
+	MfB3y06CTNqaRJcKPfsyf41wASk4lioaBYMXQnX4gRj+7JjKebBYavL5/sIY4Qu+oef5FrM+TxkpN
+	UN69fX3XFDbKh4IJp65Z+g5XJ7kdWbWxPaEM9LWgLN3PtoqvcyuBIP4okDiPBwJH4hW18YQJjrxZr
+	ifuRe7brKZUZDdXWdgLSMf3OQFhmsweftOs6/pNrapF+oEsDEJKKW6Jsd10pHKtJPLOsmPjL3RNhd
+	79koN0K8VHp5NOzemZXCDU+gFfzK0IXGeUNA/5toZAL+mVUFPQca+x38IOx5wOa3lKWnSk58XKm2c
+	+CLMf9/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtpxz-0000000EbXn-22ML;
-	Tue, 11 Aug 2026 17:08:43 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtpxx-0000000EbXO-114C
+	id 1wtpyg-0000000EbfF-2bMI;
+	Tue, 11 Aug 2026 17:09:26 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wtpye-0000000Ebeu-42Ir
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 17:08:42 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 98BF91516;
-	Tue, 11 Aug 2026 10:08:35 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 01B263F632;
-	Tue, 11 Aug 2026 10:08:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786468119; bh=l1B9kwgyagD4GTWYA9xgnxv0nriU8NaPIVqR0Qd5zmg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=APAiW2Zlva9nQ4ZC+uRn2ZfzKnWWX0iCF8tncuonwqcDnIyyivoLkZHLVpNsyPbeI
-	 MnWddE2aIZrpKXOMDzPCBLGSKTChYL1mOBUhDJqsO1v9TZP0On8QqEi8f0Ym/tDxdJ
-	 SxbiiWnpra/o+iazXauyss32FCHPXfdN5hfKmA1g=
-Date: Tue, 11 Aug 2026 18:08:35 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Leo Yan <leo.yan@arm.com>
-Cc: Yeoreum Yun <yeoreum.yun@arm.com>, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	suzuki.poulose@arm.com, mike.leach@arm.com, james.clark@linaro.org,
-	alexander.shishkin@linux.intel.com, jie.gan@oss.qualcomm.com
-Subject: Re: [PATCH v9 10/13] coresight: etm4x: exclude ss_status from
- drvdata->config
-Message-ID: <antXE3aHdY21KTj6@e129823.arm.com>
-References: <20260725113645.57519-1-yeoreum.yun@arm.com>
- <20260725113645.57519-11-yeoreum.yun@arm.com>
- <20260811170242.GH15499@e132581.arm.com>
+	Tue, 11 Aug 2026 17:09:25 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6B45A600C8;
+	Tue, 11 Aug 2026 17:09:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 588361F00A3D;
+	Tue, 11 Aug 2026 17:09:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786468164;
+	bh=vuLc+eBTQsRcHHndOJtc/5UNxFkquB47Vebh+uHg3po=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject;
+	b=Tu1rqMC0YY3TBle4xI4qDvvm97eT9c7rCqaamZWMNMo0iqCUcCsWFC49SfTx1SHoM
+	 Bsv/WGkoTgGTZEeWXzhplmTRq+THfEH/iOBDN1WNb3jQtd/GPVnLXOQAEwu3zpWx2h
+	 5p2XtoVdCQpqRk6m88Vl7Ns0VJHx/wtLNhL/0ZYObWEdE8H4HbexF9em7TEjY+b07L
+	 qSQRRzaGbY70K8DP2+Rtp0J/wA9/SdLDCrITfQSZePK73EWgkog2jzUis29QRZAsG/
+	 tHkbC4W6OObl/7ENcbd/ZsR0u5AaJq+beHSf0Sp6tNfFrTvVm4JNhc0SowPesNaouO
+	 gtzdYvnL4fV3g==
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfauth.ams.internal (Postfix) with ESMTP id E68BB1980070;
+	Tue, 11 Aug 2026 13:09:21 -0400 (EDT)
+Received: from ams-imap-11 ([10.64.2.31])
+  by ams-compute-02.internal (MEProxy); Tue, 11 Aug 2026 13:09:21 -0400
+X-ME-Sender: <xms:P1d7aluzHBpOKT4g1lkWLPwsA-9zC4J1_LKphGI9fsToGEum9VB_fQ>
+    <xme:P1d7apTzzgT7xMXErdswtOtew6DB99dW1ZOF9bENt0MCAbS-_geOjnZvltg-eq9DH
+    rXXjmF9Oy-7ZkRgO95HTVvo7FWo08pnYT2977EF5OkHbNj8az9r1g>
+X-ME-Proxy-Cause: dmFkZTFofdFgFJq0nU6Moe8TviOaDqvGA8zMt6timdp8+AgUPcYdPRc42onFU7azTHwDiP
+    9LuwvxeI17UeVWze+z0jCic3+3Lafd6oh7mNIfJ2UmbZhnqcLwQR001qZ1r4TtSvxgCR9H
+    FTEbzbDzEUS6B8BkT/nxHlt4+HseYTUAGg1wssOiJUKjjNJNvu87QM62SGN0ayNxoaQb0p
+    J/qdoi3M4vgUk2XSNf44f4FB3an1kqdXoylI4HW7mGco9e+Uy+ypK63bWkbdJsp8RPgaOW
+    GiQkxEJmVFpC2jo6H1d8s/Wee94SFIJ7WNztrk5RYAw8aSTbJVPXUGxPFpaLiQtKX/cEIy
+    YzIBgCHFHTeEZvRZRMqIsQtvvDo9cDdgN+LaU4jHTP7EgAT+Lnd0/ip91k/2geQfmA8Y12
+    +T0p8Lx937DoHYJE6SoPxK5DmxsPx4V1v8SIeVwKKRb0ZvpDLmYAKFC/tfb3UQiaSYC6Rn
+    cdP5jCG+rOZ5SAcvNnvjrA9TxyMcNWp8LSjVsCZ4DZByTuq8fALLlFEE+pvuo1jTOXNyxU
+    Jwb73iYqabgcjO4M9XRpycJ69TbpzdMuHYxJTsHTjd6w2ZyM2Em5qz27+s3aK0zAQ062qE
+    LBQ79zVLuo3QZCz+dpRvMcBh6ZSd61oXPbOsOSq7btBw2bvrQwXO50uFdx6Q
+X-ME-Proxy: <xmx:QVd7ao_3kU1MNY6wnATbHYSpXZHoTUDsBkLAEizvf8L_hIdhJoH8aA>
+    <xmx:QVd7atFhRabESAxN-Sud0Yapvtk27ZIwf5RDPE7QKpxlWM_t9Bo2nw>
+    <xmx:QVd7aif9085EiJ7Bif8J_k-MlReewHUmWhvMGekIBCp0GJSnJmTp3w>
+    <xmx:QVd7amno3D4vRstjuzpIl-CFPTv5UJyE-qiDo_A4j9j7FZPx3g9zHw>
+    <xmx:QVd7aprqbzii9Mf2qVLhK11Wd_Cd4gwgjmJRfUQ-V82sSJ4kdQ_RtTGt>
+Feedback-ID: ice86485a:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id EC402F8006A; Tue, 11 Aug 2026 13:09:18 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260811170242.GH15499@e132581.arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_100841_328010_C3274A17 
-X-CRM114-Status: GOOD (  16.66  )
+Date: Tue, 11 Aug 2026 19:08:58 +0200
+From: "Ard Biesheuvel" <ardb@kernel.org>
+To: "Nick Desaulniers" <ndesaulniers@google.com>
+Cc: "Josh Poimboeuf" <jpoimboe@kernel.org>, "Will Deacon" <will@kernel.org>,
+ "Catalin Marinas" <catalin.marinas@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, live-patching@vger.kernel.org,
+ "Song Liu" <song@kernel.org>, "Miroslav Benes" <mbenes@suse.cz>,
+ "Petr Mladek" <pmladek@suse.com>, "Joe Lawrence" <joe.lawrence@redhat.com>,
+ "Mark Rutland" <mark.rutland@arm.com>, "Mark Brown" <broonie@kernel.org>,
+ "Kees Cook" <kees@kernel.org>
+Message-Id: <e48e0097-34f1-4ef8-a3b5-a6893507cfdf@app.fastmail.com>
+In-Reply-To: <CAKwvOdkn1WycY5d1EaOTdWWL-wH1wSeWxDGJJgmt2QW7PoQp4w@mail.gmail.com>
+References: <anmobvJXiBQqWn6S@willie-the-truck>
+ <e5q2mvqtf6iw4lco55uny5ffhppw6vlflxguhc4gg5nm3zdvmo@zs6rw7iov5qc>
+ <08d6c5cd-9924-4359-9181-a03718161528@app.fastmail.com>
+ <kp4rvh4vxo65gipgqz4i4dnw2ueylmus4yys6xfrbngp5nefzn@4a4ekjlzqlph>
+ <CAKwvOdmSVjY0TmOTc6WMmDHcLbn=tOV3R3zH_TO4zXZiYEsaBw@mail.gmail.com>
+ <anrvDIWMNGIa4WPK@willie-the-truck>
+ <4986ac98-d6da-474a-b218-b6468b68cb9f@app.fastmail.com>
+ <16e3ed42-1b1f-4ddc-9d8c-5e12ee7dbe3c@app.fastmail.com>
+ <answWdRpVQLtIzIj@willie-the-truck>
+ <CAKwvOdkrxJ_9qjaBNQS+o=+_m_f3e9k6jMEmXB-S3+nXGoLV7w@mail.gmail.com>
+ <buq25tpmdjlvskzfvlit6swc6tsjuzbdnjfix4w6af6247zads@ka44wuolomci>
+ <CAKwvOdkS5ZaBGaoiLwcXqCBjcOXLXE88VD3bj5ES1sssKFf4HA@mail.gmail.com>
+ <b4bdf563-274f-4ab9-804f-35c47ab2f353@app.fastmail.com>
+ <CAKwvOdkn1WycY5d1EaOTdWWL-wH1wSeWxDGJJgmt2QW7PoQp4w@mail.gmail.com>
+Subject: Re: [PATCH] arm64/module: Fix livepatch BTI exceptions with Clang 21+
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,36 +113,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 11, 2026 at 06:02:42PM +0100, Leo Yan wrote:
-> On Sat, Jul 25, 2026 at 12:36:42PM +0100, Yeoreum Yun wrote:
-> > The purpose of TRCSSCSRn register is to show status of
-> > the corresponding Single-shot Comparator Control and input supports.
-> 
-> I vaguely remember that we discussed the issue with always clearing
-> drvdata::ss_status in hw_enable(), which might result in single-shot
-> does not work properly in a perf session.
-> 
-> This issue is not introduced by this patch, and I think we agreed to
-> address it later. Could you document it in the commit log so that we
-> can understand and track the issue later.
 
-Okay. I'll add this in commit message.
 
-> 
-> > That means writable field's purpose for reset or restore from idle status
-> > not for configuration.
-> > 
-> > Therefore, exclude ss_status from drvdata->config and move it to drvdata.
-> > 
-> > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> 
-> With above amending:
-> 
-> Reviewed-by: Leo Yan <leo.yan@arm.com>
+On Tue, 11 Aug 2026, at 19:05, Nick Desaulniers wrote:
+> On Tue, Aug 11, 2026 at 9:55=E2=80=AFAM Ard Biesheuvel <ardb@kernel.or=
+g> wrote:
+>>
+>>
+>> On Tue, 11 Aug 2026, at 18:52, Nick Desaulniers wrote:
+>> > On Tue, Aug 11, 2026 at 9:41=E2=80=AFAM Josh Poimboeuf <jpoimboe@ke=
+rnel.org> wrote:
+>> >>
+>> >> On Tue, Aug 11, 2026 at 09:27:28AM -0700, Nick Desaulniers wrote:
+>> >> > On Tue, Aug 11, 2026 at 7:23=E2=80=AFAM Will Deacon <will@kernel=
+.org> wrote:
+>> >> > >
+>> >> > > On Tue, Aug 11, 2026 at 03:18:17PM +0200, Ard Biesheuvel wrote:
+>> >> > > >
+>> >> > > > On Tue, 11 Aug 2026, at 14:02, Ard Biesheuvel wrote:
+>> >> > > > > On Tue, 11 Aug 2026, at 11:44, Will Deacon wrote:
+>> >> > > > >> On Mon, Aug 10, 2026 at 09:41:35AM -0700, Nick Desaulnier=
+s wrote:
+>> >> > > > >
+>> >> > > > >>> Sure, but let's replace this with a link to a bug report=
+ in llvm's
+>> >> > > > >>> issue tracker?
+>> >> > > > >>
+>> >> > > > >> Yes, please! I can apply the patch once we have the bug n=
+umber.
+>> >> > > > >>
+>> >> > > > >
+>> >> > > > > I can look into that.
+>> >> > > >
+>> >> > > > https://github.com/llvm/llvm-project/issues/215547
+>> >> > >
+>> >> > > Thanks, Ard. I've ended up with the patch below.
+>> >> >
+>> >> > What's the extent that HAVE_LIVEPATCH will be used?
+>> >> >
+>> >> > Does this penalize kernels built with BTI in favor of HAVE_LIVEP=
+ATCH?
+>> >> >
+>> >> > For example, with my Android hat on, if we have a kernel that's =
+built
+>> >> > with ARM64_BTI_KERNEL=3Dy, and _dont_ use HAVE_LIVEPATCH, we're =
+going to
+>> >> > turn off BTI for a feature we're not using?  But maybe we _do_ i=
+ntend
+>> >> > to use HAVE_LIVEPATCH, and my assumption was wrong?
+>> >>
+>> >> The problem isn't specific to livepatch, livepatch just makes it e=
+asier
+>> >> to hit.
+>> >
+>> > Rereading Ard's report, let me see if I can articulate _how_ and te=
+ll
+>> > me if I'm still not getting it.
+>> >
+>> > Let's say we have code in .init.text that calls code in .text. If
+>> > .text was placed large enough away from .init.text, we get a veneer
+>> > inserted by _the kernel_ (not the linker).  This veneer has an
+>> > indirect call to the destination. No landing pad. Boom.
+>> >
+>> > Is that precise?
+>> >
+>>
+>> Yes.
+>
+> Naive question: Could the machinery that emits the veneer instead emit
+> N veneers, one for each cross section reference?  Rather than one
+> veneer that could branch indirectly to N destinations (that probably
+> don't have landing pads), could we instead have N veneers that branch
+> directly to 1 location each?  Are the veneers larger than just a
+> branch?  Is the destination unknown when the veneers are created? This
+> would retain the landing pad elision optimization for .text (which is
+> likely run more frequently than .init.text), and you could probably
+> put those veneers in .init.text and throw them away with the rest of
+> __init.
+>
 
-Thanks!
+The current veneer code emits veneers close to the call site, so that the
+veneer is in range for the caller.
 
--- 
-Sincerely,
-Yeoreum Yun
+These BTI veneers need to be emitted at the target end, so that the real
+target is withing direct branching range of the veneer.
+
+The PLT veneers are 12 bytes (ADRP + ADD + BR). These BTI veneers will
+need to be BTI_C + B, so 8 bytes.
+
+I'm prototyping something atm that may be able to address the .init.text
+vs .text issue. Fixing livepatch is a taller order.
+
+
 
