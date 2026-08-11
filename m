@@ -4,179 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDB28C5AC67
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 07:23:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2631CC5B56D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 07:29:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f8EzUcXXJNL4x6Gk7H03jm+Rg8w7+zTu14hF743xPMg=; b=EhjPDRvIa8LkDOw/avFus/k40z
-	Ym3h48Dd9SsgDwaok5Vo0AwbtD5hQP8d6PHtXuryLVWKIKZPKMjxiI9Q9BVkU2EPdN9G4QNoByTDa
-	Zv6AXs+Uu7AJZr4m9zbN2dxfsMHqrG5ggJRLDBFf6DG6vvFmHKU/lvCxsBf8VPdAbFaMzTabtywoN
-	pLE3aKWCLShfG4sqB3ouwf3qiVvVaatcS7e2e8AMKRqOH9uLhtM/Kl0xcNi9tpZvDJdlCycYCZPGh
-	cpQanSYgc3QEil1uU6OU6Aq8Fh+0TyWCxDtrLKsTo1cyh/xmSwIQuQYnxneP0gjV8DW9AhNnFAg5d
-	95LlvC3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fLnRuJFuGdy1GtQKk507tGXhGl33M4FPQ/a27fnbORg=; b=i8OMNPGumi6yzCIU2FmSrz7sba
+	aZpHUKEWqd+48rua7bFnWfi70dI35RRGLL4vIzwEWMQRU4/n88EP8ecrSQ0m0qKS6zSwXo+Rd3sGb
+	md94ekG8Q1wrddZWwNmGSljGpL2SBb6D129IJAw2Jn7NgdYThDjkDfzxaP4JgPjbVDfVzSasRhtR/
+	J4XveoS0ztd7XcZkhqPQIGssH7yRghXfGF5TAEMBmbkcvpuUEtB+p4PIOK8iOYT7/z+EeKX7tIs2l
+	9ovSRlXMCouE8hZX3SyXwLz0NKamN+79K1ZqGTz5Awc6bdzADY5mp6wERS/HAcJInLOMZUNmfWb4b
+	GS1JXbBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtgpe-0000000DVxt-3uBn;
-	Tue, 11 Aug 2026 07:23:30 +0000
-Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	id 1wtgvP-0000000DWYT-3Fwa;
+	Tue, 11 Aug 2026 07:29:27 +0000
+Received: from mx0b-00823401.pphosted.com ([148.163.152.46])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtgpZ-0000000DVx1-45B2
+	id 1wtgvN-0000000DWXn-1TX4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 07:23:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mHyJYJfhyUGMfNg1YdnMTfS6oUfm+fnC7MtQzr516vC/4Ha22Mog99QE5mOBvTz4U27lHEGdXsr4k5rGD8GxbigDpXZ+uY+VWOGL9QZS4TbYoyrBGGQz2qlWO2vAmmnfNRGgGNo2oodT5UXo3hE1RLFXTcX++BfZ0VBTJbnuQniLF5H/7XR2rYmttoEQ8+fPVb4D2Z4m+I3YtpOZbhwKoRS/PjmlhAHalEXm5g4spqEAsFPKgraQCLqeD/P0HE1yoOirtSd1ZMZ/8iWbcsXhzxFevJ8qGeKjouVGFCh1z/F7gH7ZKI17O4xw31+V6E/JyjX5sbXQhF4gWaeuf5bbhA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=f8EzUcXXJNL4x6Gk7H03jm+Rg8w7+zTu14hF743xPMg=;
- b=gr/uVu+zgWhYokkIQ6p5+bAcBPkVpL4NP6peLKJlk3lq5SnhkHCNiAIfF4sKqP2cwq3GQpf5/2nSaMHz2PVVgPSRHgU3QeBLjhMFjxpTdjW1LHxLVVkeo5ZvBPI4vp9kYYqKO630/Kt2CeaAUdgIP3CFsmuuMxwN52rqafOER9aMS9iLUIx+3VxG1hmvlAF9vde9YjoPfl2ThB+9DCh8EWJ5GEikg60jCgX5ECAcKfn33WVX2wgIzIT+/kju1MGLApqBc7pKqXusAWT7dcBZOqNWrp1v7r8RHhlXiK5AMBe7wPIboIpcVABVJ+hkVlOA67C0+Cd2tp0Em2OHt0wXsw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=f8EzUcXXJNL4x6Gk7H03jm+Rg8w7+zTu14hF743xPMg=;
- b=RYl/adFV5NfaQkgESM0RWorn0VRr4sOuPFseA0867Hqr1i4zIrtnB7bSRgU3Vyl/19Gety6tx8CwN7GjziAUb4xw5NIjxiyNjvVHRN5srL6lCHmDhGUM240BlYzYsK7M+0wooWMUnWmp0zzhfpsArizDS89zRl6MAp2d3PXR2+Y=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from LV5PR12MB9779.namprd12.prod.outlook.com (2603:10b6:408:301::14)
- by CH3PR12MB9026.namprd12.prod.outlook.com (2603:10b6:610:125::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.11; Tue, 11 Aug
- 2026 07:23:12 +0000
-Received: from LV5PR12MB9779.namprd12.prod.outlook.com
- ([fe80::8ac8:e862:8ae9:9287]) by LV5PR12MB9779.namprd12.prod.outlook.com
- ([fe80::8ac8:e862:8ae9:9287%5]) with mapi id 15.21.0292.024; Tue, 11 Aug 2026
- 07:23:12 +0000
-Message-ID: <48dc79b5-8120-4cb2-9c58-657ef3959e27@amd.com>
-Date: Tue, 11 Aug 2026 09:23:05 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: versal-net: Add retention state for cpu idle
-To: Jay Buddhabhatti <jay.buddhabhatti@amd.com>, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, git@amd.com
-References: <20260727121842.3410495-1-jay.buddhabhatti@amd.com>
-Content-Language: en-US
-From: Michal Simek <michal.simek@amd.com>
-Autocrypt: addr=michal.simek@amd.com; keydata=
- xsFNBFFuvDEBEAC9Amu3nk79+J+4xBOuM5XmDmljuukOc6mKB5bBYOa4SrWJZTjeGRf52VMc
- howHe8Y9nSbG92obZMqsdt+d/hmRu3fgwRYiiU97YJjUkCN5paHXyBb+3IdrLNGt8I7C9RMy
- svSoH4WcApYNqvB3rcMtJIna+HUhx8xOk+XCfyKJDnrSuKgx0Svj446qgM5fe7RyFOlGX/wF
- Ae63Hs0RkFo3I/+hLLJP6kwPnOEo3lkvzm3FMMy0D9VxT9e6Y3afe1UTQuhkg8PbABxhowzj
- SEnl0ICoqpBqqROV/w1fOlPrm4WSNlZJunYV4gTEustZf8j9FWncn3QzRhnQOSuzTPFbsbH5
- WVxwDvgHLRTmBuMw1sqvCc7CofjsD1XM9bP3HOBwCxKaTyOxbPJh3D4AdD1u+cF/lj9Fj255
- Es9aATHPvoDQmOzyyRNTQzupN8UtZ+/tB4mhgxWzorpbdItaSXWgdDPDtssJIC+d5+hskys8
- B3jbv86lyM+4jh2URpnL1gqOPwnaf1zm/7sqoN3r64cml94q68jfY4lNTwjA/SnaS1DE9XXa
- XQlkhHgjSLyRjjsMsz+2A4otRLrBbumEUtSMlPfhTi8xUsj9ZfPIUz3fji8vmxZG/Da6jx/c
- a0UQdFFCL4Ay/EMSoGbQouzhC69OQLWNH3rMQbBvrRbiMJbEZwARAQABzSlNaWNoYWwgU2lt
- ZWsgKEFNRCkgPG1pY2hhbC5zaW1la0BhbWQuY29tPsLBlAQTAQgAPgIbAwULCQgHAgYVCgkI
- CwIEFgIDAQIeAQIXgBYhBGc1DJv1zO6bU2Q1ajd8fyH+PR+RBQJn8lwDBQkaRgbLAAoJEDd8
- fyH+PR+RCNAP/iHkKbpP0XXfgfWqf8yyrFHjGPJSknERzxw0glxPztfC3UqeusQ0CPnbI85n
- uQdm5/zRgWr7wi8H2UMqFlfMW8/NH5Da7GOPc26NMTPA2ZG5S2SG2SGZj1Smq8mL4iueePiN
- x1qfWhVm7TfkDHUEmMAYq70sjFcvygyqHUCumpw36CMQSMyrxyEkbYm1NKORlnySAFHy2pOx
- nmXKSaL1yfof3JJLwNwtaBj76GKQILnlYx9QNnt6adCtrZLIhB3HGh4IRJyuiiM0aZi1G8ei
- 2ILx2n2LxUw7X6aAD0sYHtNKUCQMCBGQHzJLDYjEyy0kfYoLXV2P6K+7WYnRP+uV8g77Gl9a
- IuGvxgEUITjMakX3e8RjyZ5jmc5ZAsegfJ669oZJOzQouw/W9Qneb820rhA2CKK8BnmlkHP+
- WB5yDks3gSHE/GlOWqRkVZ05sUjVmq/tZ1JEdOapWQovRQsueDjxXcMjgNo5e8ttCyMo44u1
- pKXRJpR5l7/hBYWeMlcKvLwByep+FOGtKsv0xadMKr1M6wPZXkV83jMKxxRE9HlqWJLLUE1Q
- 0pDvn1EvlpDj9eED73iMBsrHu9cIk8aweTEbQ4bcKRGfGkXrCwle6xRiKSjXCdzWpOglNhjq
- 1g8Ak+G+ZR6r7QarL01BkdE2/WUOLHdGHB1hJxARbP2E3l46zsFNBFFuvDEBEACXqiX5h4IA
- 03fJOwh+82aQWeHVAEDpjDzK5hSSJZDE55KP8br1FZrgrjvQ9Ma7thSu1mbr+ydeIqoO1/iM
- fZA+DDPpvo6kscjep11bNhVa0JpHhwnMfHNTSHDMq9OXL9ZZpku/+OXtapISzIH336p4ZUUB
- 5asad8Ux70g4gmI92eLWBzFFdlyR4g1Vis511Nn481lsDO9LZhKyWelbif7FKKv4p3FRPSbB
- vEgh71V3NDCPlJJoiHiYaS8IN3uasV/S1+cxVbwz2WcUEZCpeHcY2qsQAEqp4GM7PF2G6gtz
- IOBUMk7fjku1mzlx4zP7uj87LGJTOAxQUJ1HHlx3Li+xu2oF9Vv101/fsCmptAAUMo7KiJgP
- Lu8TsP1migoOoSbGUMR0jQpUcKF2L2jaNVS6updvNjbRmFojK2y6A/Bc6WAKhtdv8/e0/Zby
- iVA7/EN5phZ1GugMJxOLHJ1eqw7DQ5CHcSQ5bOx0Yjmhg4PT6pbW3mB1w+ClAnxhAbyMsfBn
- XxvvcjWIPnBVlB2Z0YH/gizMDdM0Sa/HIz+q7JR7XkGL4MYeAM15m6O7hkCJcoFV7LMzkNKk
- OiCZ3E0JYDsMXvmh3S4EVWAG+buA+9beElCmXDcXPI4PinMPqpwmLNcEhPVMQfvAYRqQp2fg
- 1vTEyK58Ms+0a9L1k5MvvbFg9QARAQABwsF8BBgBCAAmAhsMFiEEZzUMm/XM7ptTZDVqN3x/
- If49H5EFAmfyXCkFCRpGBvgACgkQN3x/If49H5GY5xAAoKWHRO/OlI7eMA8VaUgFInmphBAj
- fAgQbW6Zxl9ULaCcNSoJc2D0zYWXftDOJeXyVk5Gb8cMbLA1tIMSM/BgSAnT7As2KfcZDTXQ
- DJSZYWgYKc/YywLgUlpv4slFv5tjmoUvHK9w2DuFLW254pnUuhrdyTEaknEM+qOmPscWOs0R
- dR6mMTN0vBjnLUeYdy0xbaoefjT+tWBybXkVwLDd3d/+mOa9ZiAB7ynuVWu2ow/uGJx0hnRI
- LGfLsiPu47YQrQXu79r7RtVeAYwRh3ul7wx5LABWI6n31oEHxDH+1czVjKsiozRstEaUxuDZ
- jWRHq+AEIq79BTTopj2dnW+sZAsnVpQmc+nod6xR907pzt/HZL0WoWwRVkbg7hqtzKOBoju3
- hftqVr0nx77oBZD6mSJsxM/QuJoaXaTX/a/QiB4Nwrja2jlM0lMUA/bGeM1tQwS7rJLaT3cT
- RBGSlJgyWtR8IQvX3rqHd6QrFi1poQ1/wpLummWO0adWes2U6I3GtD9vxO/cazWrWBDoQ8Da
- otYa9+7v0j0WOBTJaj16LFxdSRq/jZ1y/EIHs3Ysd85mUWXOB8xZ6h+WEMzqAvOt02oWJVbr
- ZLqxG/3ScDXZEUJ6EDJVoLAK50zMk87ece2+4GWGOKfFsiDfh7fnEMXQcykxuowBYUD0tMd2
- mpwx1d8=
-In-Reply-To: <20260727121842.3410495-1-jay.buddhabhatti@amd.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: CH0PR03CA0016.namprd03.prod.outlook.com
- (2603:10b6:610:b0::21) To LV5PR12MB9779.namprd12.prod.outlook.com
- (2603:10b6:408:301::14)
+	Tue, 11 Aug 2026 07:29:27 +0000
+Received: from pps.filterd (m0355091.ppops.net [127.0.0.1])
+	by mx0b-00823401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67B6TDvI2971078;
+	Tue, 11 Aug 2026 07:29:01 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lenovo.com; h=cc
+	:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=DKIM202306; bh=fLnRuJFuGdy1GtQKk507tGXhGl33M4FPQ/
+	a27fnbORg=; b=cFOpCwCw8r3P7CuL/0tfsFI09L8Zfta4v5i0+puIuJYeMfyfvb
+	A+qQauDUjnvEgkyTWCr5/N1pjj/1ZFSX5g85e3HRlUwqr9/2MoehSLWYEOH8b3IW
+	gw/BjrPAPi5bP6BATMSeAgH2syWutGHbhGl3wFIaDefGn4uZvoHl4PvNJIyQ2Aq5
+	7gXYrHea0EIpj5nHRQIgWfI7JfWv4bJu0ceoGpYGvjAyAzYDcx6oslnCO1ND4Uzd
+	vpO5yVFZDAIeholpKrGwENt2m8OEDDktBpopucXzcwwEFkGfwg/rHjI+6L5Q22RZ
+	wS0fPWedLy9t8iu+LfOUgmeQYaEn/04VL38A==
+Received: from hkglppfpool4.lenovo.com ([103.30.235.221])
+	by mx0b-00823401.pphosted.com (PPS) with ESMTPS id 4fxhjeuqdp-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Tue, 11 Aug 2026 07:29:01 +0000 (GMT)
+Received: from shelppfpol1.lenovo.com (unknown [10.122.146.34])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by hkglppfpool4.lenovo.com (Postfix) with ESMTPS id 4hK3CH275RzltBPK;
+	Tue, 11 Aug 2026 07:28:59 +0000 (UTC)
+Received: from SEANWANG1-P5MFL.lenovo.com (SEANWANG1-P5MFL.lenovo.com [10.111.201.157])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by shelppfpol1.lenovo.com (Postfix) with ESMTPS id 4hK3CG40tVzYlvJs;
+	Tue, 11 Aug 2026 07:28:58 +0000 (UTC)
+From: Sean Wang <seanwang1@lenovo.com>
+To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+        Sudeep Holla <sudeep.holla@kernel.org>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>, rafael@kernel.org,
+        Danilo Krummrich <dakr@kernel.org>
+Cc: Lifeng Zheng <zhenglifeng1@huawei.com>,
+        Beata Michalska <beata.michalska@arm.com>,
+        Xuewen Yan <xuewen.yan@unisoc.com>,
+        Geert Uytterhoeven <geert+renesas@glider.be>,
+        Sumit Gupta <sumitg@nvidia.com>, Yunhui Cui <cuiyunhui@bytedance.com>,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        driver-core@lists.linux.dev, Sean Wang <seanwang1@lenovo.com>
+Subject: [PATCH v3] arm64: topology: add source check in arch_cpu_idle_enter()
+Date: Tue, 11 Aug 2026 15:28:30 +0800
+Message-Id: <20260811072830.10028-1-seanwang1@lenovo.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV5PR12MB9779:EE_|CH3PR12MB9026:EE_
-X-MS-Office365-Filtering-Correlation-Id: 628c81e4-e61e-467c-4979-08def77966c9
-X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|1800799024|376014|6133799003|56012099006|10067099003|11063799006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: sFIFMCmgA9JsZlzAWtXs/azWXSnSLgPPYxaVs+pX1CPmQ0paZ0v6NK90dhSPTCuUUBMlDRU47S7O3NRlzIb5bUupHgQpYF33G1wP0DZPKxPRUqOx5Gt9wGRQ/aXITt6crHk0u8dEqVgt7lS3/pmpJ85YGKGt3rNu3HjZg9Vx/rkgnvDXi5c73Yb/7RGnVDKVfpalg5p7IuF7gq8HPY3pBkpjq2YDfgCECkukeZ7f6M8c+ftBgHF8yQJxK/yHgi4Pa73paeIdVB6U0Z7P8n3w9x2v6jAdMOoYjIhDpR6dyJbx/NaCGdZ47DMt+2Sugj2obAz10oc/LluByVYNiNNhyL5wCf32JvISC/wINcJftIOUu/lHRul1vgmSnhBkLUVYHSFAAd0meOk0sUjnZmi8qmHE7k2Vfg9BUasNdG3Heg+R3p2Dx6+H1b1CmYQaCcj96cdl4d+Gd8TGrjE/j6dmZQjhFPlYMWjMhaJBevIFO9nIc2bnXZHFpP3EEAVTS8VnwEm39c+KeKhbEpyj+7dIc8bLEvd5QvCvZqAF3LUDsGQ/S0kSd6k+0WS7vNhXctOMezV6DceKU1k2NQmt4gex4ubzcOTrQnLnq0gavRdxpkKvDqJGa4Cb4s8zwKtpaTxJ8ocE7wYaZLXskjEPb23t+lKWb/MaOYErVJNRut2i/+I=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV5PR12MB9779.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(376014)(6133799003)(56012099006)(10067099003)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YUMyOHhxZTZDcUVXMDJUK1dnWHVYU3grS2dOZEpFN3kyaWIxaFcxcFM1L09Y?=
- =?utf-8?B?cmEvK2ZaZ0I5OCt5WkExbytoeHlYWFN3cUlSc0JMMXZtL0FhWEZsdStwTTRn?=
- =?utf-8?B?Zi9xRHUwb2h0djhQUThFUjN4a1RZY2dHNnc4NFUrbERid3U3VVdwNTBIN3Ju?=
- =?utf-8?B?OSs1a29Ici95WGdEZHBBbXJIbktnelU2WGk1Sld0MnN0OXloL2xnZHR0U0hW?=
- =?utf-8?B?d2cxL0hNNk4wdVNKak55S1JxUU9lbWFvTWJMVFNER3hVaGFQNnJzUVo1cjY3?=
- =?utf-8?B?NHhMR2ZtTUZzMGFCZUoyd0NGSEh5ZUI1NzNUbm5xMlBLeEF1dzEranNodWVz?=
- =?utf-8?B?MWhSZXFiMmE4Z0FSMDJuZHY1RXBWSXFocDZUNWpZZUEwd2V6Z2FISW5nM3JD?=
- =?utf-8?B?aytYWENHclhzZTc3ZTFGcEhEOXZ1V2Jjc2lCYnJ0QTZEZVhFazl6cHRTYXFr?=
- =?utf-8?B?c2RWaHI4NmZkKytsSS9MUVdxaEZjdVJ6VUM5WS84elJSZ0c5NmRIWVdETWJG?=
- =?utf-8?B?dTRUbElRcFgyc0dmbFJ6SzBiOUROeGFXWXRSNW9iWHRqbEtoUm1jdWUxRjNY?=
- =?utf-8?B?MWVpQUwyYzZ4RDE0amJJME5IclYwTmQxbmFZQlF1RXNoWUpwYXAzOEswSHJZ?=
- =?utf-8?B?SmZDLy9ZRkROSnJJam8zb2FEMkMzd2kyb2JmNWdOTVF5cUpuYTFueE1VSG9l?=
- =?utf-8?B?UVFCeWJCdjhYQkh2YnpMaFJSMk43UmF3Z0w4R1JKa05tT2dqa3h3bXkyRWFN?=
- =?utf-8?B?ZHNoYUhlRkQ0NVlBZzFHVTlnK202RGdCbUJ1Y1RBYTVpd3g3Tmx6QTJya3Fw?=
- =?utf-8?B?T2NYdG1vbnhKYnRZOC9TQlRoNFcxd3B6d04xR1o4clBMaUZRQ3dWOEFmTkJt?=
- =?utf-8?B?ek5JZjBkS05kNk8rVzJkMTdwL3RNT1V5bmZVdFdGcVNsR0xPd29EbXJJaVpJ?=
- =?utf-8?B?Wm5aR0RWbWhFYm5SYklqRmhlUTQwMFZNMUt6WHpKY3czNW1yQWF5UFFTcTBs?=
- =?utf-8?B?QUordlNLNEMreXYwWVgyRnJ3Q3prY0Z0WWwwOHBRamY1SkZXVFpPMW0waFpp?=
- =?utf-8?B?TmZFcjVtL3ZRTWUyTjZodXpsNHhyQlJnMzQxMDFldU5PallZem5yaTNza29M?=
- =?utf-8?B?RDZ2MmhlQmJmU09Pa1VoczQvQlo4MHhzNWhmdm1ZQVRrd0tPRkREeUg3aTRz?=
- =?utf-8?B?NFlQTGNGRzIrNUFVWlI4MjF1UGlKbzRkcDdaS1F4QlVrZ1l6TkwxOExkZXdE?=
- =?utf-8?B?M25rVWsvZjFvalNWd09ZVGlTeVpIM2Z0YWFuL0RMd3ROT1pBa0FjbjZGYWZk?=
- =?utf-8?B?RWQrNzRQdTkxeUwzZW9VRFkyZGQydkp3K0tWNGxneThmWWlEM2dSM2FmbUhz?=
- =?utf-8?B?OVcxcm9KbWw5S3VVK1RNMTJnV3dlUUhYVkwxSTkvN3MvVXZmWDZPM1ZNQ1Ja?=
- =?utf-8?B?TmMwWDQ1WWJWcmpkc2lHQ3VBTFBVQkRDWTZTSW5xWEExSVVJNm1kQmpSYXJa?=
- =?utf-8?B?YmYwbzF6L2wwT20vSWpMV2tNODZLWTZjZ0diT3RDNGpZa09YWkF1c3lKMWhB?=
- =?utf-8?B?OHhoL2hrQTA0cG9lWGpPcXE4NCtiN21nM2dGTVhuMEJ6MTN6MVFzQnBEdXM3?=
- =?utf-8?B?ZCs0bXJ3TEVTaHF2TXRaVmlIZm9UNDh0NWpnZGtkTmltRkRRT21jTEFpaVpW?=
- =?utf-8?B?am0yUlI4YlN0NGJFZU4wRi80MlFnWWNVdVNzdE1vaVZWY1E2cnVRS0w0WmNY?=
- =?utf-8?B?TzEwNllXZ3doRDdnR0hXRkkxNjV3ZmJKbnhKMENaRTRiUjllUHhNeVZMZlBW?=
- =?utf-8?B?M2t1RkNJNk8zNS9udkZ4WklMQUZ2aXMvOWVjMjBCUVdyVEttaS9WUmNWWldu?=
- =?utf-8?B?K2JmR1pDUHJBa1BXY3FVRS9PZElTNVNRWHNUVVNrYjhtUno5Y01rMS9BTWRN?=
- =?utf-8?B?S2U4N2ZTVkdqYjNFeXJQUzd4cmtGMTgvNnc2K2JQSFQzUjU1WG1ZTE9kMWFX?=
- =?utf-8?B?MFNObUFmQ1lmcU9yRk1iQ3VMT0Z3TFBzMEVkb2JjRGxvNHhmV1Yvclp1dHJ4?=
- =?utf-8?B?eTBoMC9FNEdxK3IvbGZ0RElmMXZOUGRWUGdaYmdUN2RkUlRaQmVWSitBYVJW?=
- =?utf-8?B?bzA0bmN1ZWRIdVhmaTFJQlpNNFdIQk9IT0NUV1MreTNIN0NaQlBWamFvS3h3?=
- =?utf-8?B?ZW80TGYyaVpXZFRFSnl1cGowc0ppMFdjQ3VxRWFCZGNOcXZoYWtRZ2N3VXhq?=
- =?utf-8?B?dEZ2cEJHWjJlemQzTmJyc1BoV1R5bnBNMXBhZzNOT0F2Z2VnVkI5aVI4NkFH?=
- =?utf-8?B?TmhrS0pOVy9uODZyUUszNFVqbEkzZjJLa0tHVms3M1R3bkRTbWpSQT09?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 628c81e4-e61e-467c-4979-08def77966c9
-X-MS-Exchange-CrossTenant-AuthSource: LV5PR12MB9779.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Aug 2026 07:23:12.1602
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 5lkgU7s28HEp3LVCukpkqickqSWu2MdK/+O277oKkA1A7EX1WeLQyHBs1ybHRpOV
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9026
+Content-Transfer-Encoding: 8bit
+X-Authority-Analysis: v=2.4 cv=QPhYgALL c=1 sm=1 tr=0 ts=6a7acf3d cx=c_pps
+ a=kYoHdcNGVJUooFJAQZl1vA==:117 a=kYoHdcNGVJUooFJAQZl1vA==:17
+ a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=2RTuljz969oO5usasWGy:22
+ a=faLMhqsB0ZTpFNi-tw5Q:22 a=icsG72s9AAAA:8 a=8k6WQxmsAAAA:8
+ a=0sY-ZtaHpH0GsPKVRdcA:9 a=T89tl0cgrjxRNoSN2Dv0:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODExMDA2MSBTYWx0ZWRfX3tjiwvZ/tgoK
+ iIVNTWZTvh9FVCVnLc/BNHpvCUyGaA6ROC5s4Ebs2h6UKV3APklBzyhHHUB9aE2AE1JQBZUM1uH
+ Pi2/HAjIeKcndFoXKlYs+vnhZD3N+QM3+Z1BR3mYUv0Gy45Md+mst76GOX49oSIMc0U9SkoaVwI
+ qdysQ4PGpofzxjrYvnTPP041x4To+Y3mvwb7gBLjSDcMIEDl6NabrR6q138VsPrclF3AuxDIpqI
+ ddNUymrjz/PmT9ablXTu0WjwhPsizGHAt7hk2pvLgzb4vBFWoL5TjcDIyobBk2aGuT0qY330bfB
+ WifyG9/Apb10uBkuPyah+2f5w34rOIY6wyt7a4thdOCopOVCt+gquXoEr6AgwzLtRu9MsQUynbs
+ bGv0AhoZuEWfFf5SyN9AWtEp4+W/2YTp9oV7rnw2beaWSr5iB3s3r30vBoJNj4xziSgFshvZ40j
+ 6kyiIBIDGAqxeOIA3Ag==
+X-Proofpoint-ORIG-GUID: 5kO4fnpnN8YRkIyrhasUgr7GaUQz81Vp
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODExMDA2MSBTYWx0ZWRfX6XJGNzJACbGE
+ +ktM2oU+ehIv87RvJ8100i6o/LPqG6iy1mlxgCCOASaBSv3LGz5WgS+nRA52VyeHFmQmigAJcMw
+ HIWLR+Womv9pzo0h/Ms3sT/pIOK94P8=
+X-Proofpoint-GUID: 5kO4fnpnN8YRkIyrhasUgr7GaUQz81Vp
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-10_06,2026-08-10_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 bulkscore=0 lowpriorityscore=0 impostorscore=0 spamscore=0
+ malwarescore=0 clxscore=1015 priorityscore=1501 phishscore=0 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=-20
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608110061
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_002326_097201_FBF0C2F6 
-X-CRM114-Status: GOOD (  19.76  )
+X-CRM114-CacheID: sfid-20260811_002925_511514_922132F4 
+X-CRM114-Status: GOOD (  18.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -191,205 +116,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+arch_cpu_idle_enter() directly calls amu_scale_freq_tick() to update
+arch_freq_scale when a CPU enters idle. This bypasses the sft_data
+pointer check that topology_clear_scale_freq_source() relies on.
 
+As a result, even after calling topology_clear_scale_freq_source()
+with SCALE_FREQ_SOURCE_ARCH to disable AMU-based frequency scaling,
+the arch_freq_scale value can still be modified by AMU counters when
+the CPU goes idle through the arch_cpu_idle_enter() path.
 
-On 7/27/26 14:18, Jay Buddhabhatti wrote:
-> Remove the sleep state and replace it with a retention state for CPU idle.
-> The sleep state powers down the CPU core, and the wake-up time cannot be
-> guaranteed because the firmware may be busy handling other tasks at the time
-> of the wake-up request. This leads to unpredictable and potentially high
-> wake-up latency during CPU idle.
-> 
-> Replace the sleep state with a retention state to avoid this dependency on
-> firmware. The retention state uses a PSCI suspend parameter of 0: the
-> core simply executes WFI and retains its context without being powered off.
-> Since wake-up from WFI is handled entirely in hardware, it is effectively
-> immediate (a few cycles) and does not depend on firmware availability.
-> 
-> As the core is not powered down, the local timer is retained and
-> "local-timer-stop" is dropped. The entry/exit latency and min-residency
-> are set to the nominal minimum (1 us), allowing the cpuidle governor to
-> select the state even for very short idle windows.
-> 
-> Signed-off-by: Jay Buddhabhatti <jay.buddhabhatti@amd.com>
-> ---
->   arch/arm64/boot/dts/xilinx/versal-net.dtsi | 43 +++++++++++-----------
->   1 file changed, 21 insertions(+), 22 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/xilinx/versal-net.dtsi b/arch/arm64/boot/dts/xilinx/versal-net.dtsi
-> index 15f767608e67..792bed588ae1 100644
-> --- a/arch/arm64/boot/dts/xilinx/versal-net.dtsi
-> +++ b/arch/arm64/boot/dts/xilinx/versal-net.dtsi
-> @@ -103,7 +103,7 @@ cpu0: cpu@0 {
->   			enable-method = "psci";
->   			reg = <0>;
->   			operating-points-v2 = <&cpu_opp_table>;
-> -			cpu-idle-states = <&CPU_SLEEP_0>;
-> +			cpu-idle-states = <&CPU_RETENTION_0>;
->   			d-cache-size = <0x10000>; /* 64kB */
->   			d-cache-line-size = <64>;
->   			/* 4 ways set associativity */
-> @@ -133,7 +133,7 @@ cpu100: cpu@100 {
->   			enable-method = "psci";
->   			reg = <0x100>;
->   			operating-points-v2 = <&cpu_opp_table>;
-> -			cpu-idle-states = <&CPU_SLEEP_0>;
-> +			cpu-idle-states = <&CPU_RETENTION_0>;
->   			d-cache-size = <0x10000>; /* 64kB */
->   			d-cache-line-size = <64>;
->   			/* 4 ways set associativity */
-> @@ -163,7 +163,7 @@ cpu200: cpu@200 {
->   			enable-method = "psci";
->   			reg = <0x200>;
->   			operating-points-v2 = <&cpu_opp_table>;
-> -			cpu-idle-states = <&CPU_SLEEP_0>;
-> +			cpu-idle-states = <&CPU_RETENTION_0>;
->   			d-cache-size = <0x10000>; /* 64kB */
->   			d-cache-line-size = <64>;
->   			/* 4 ways set associativity */
-> @@ -193,7 +193,7 @@ cpu300: cpu@300 {
->   			enable-method = "psci";
->   			reg = <0x300>;
->   			operating-points-v2 = <&cpu_opp_table>;
-> -			cpu-idle-states = <&CPU_SLEEP_0>;
-> +			cpu-idle-states = <&CPU_RETENTION_0>;
->   			d-cache-size = <0x10000>; /* 64kB */
->   			d-cache-line-size = <64>;
->   			/* 4 ways set associativity */
-> @@ -223,7 +223,7 @@ cpu10000: cpu@10000 {
->   			enable-method = "psci";
->   			reg = <0x10000>;
->   			operating-points-v2 = <&cpu_opp_table>;
-> -			cpu-idle-states = <&CPU_SLEEP_0>;
-> +			cpu-idle-states = <&CPU_RETENTION_0>;
->   			d-cache-size = <0x10000>; /* 64kB */
->   			d-cache-line-size = <64>;
->   			/* 4 ways set associativity */
-> @@ -253,7 +253,7 @@ cpu10100: cpu@10100 {
->   			enable-method = "psci";
->   			reg = <0x10100>;
->   			operating-points-v2 = <&cpu_opp_table>;
-> -			cpu-idle-states = <&CPU_SLEEP_0>;
-> +			cpu-idle-states = <&CPU_RETENTION_0>;
->   			d-cache-size = <0x10000>; /* 64kB */
->   			d-cache-line-size = <64>;
->   			/* 4 ways set associativity */
-> @@ -283,7 +283,7 @@ cpu10200: cpu@10200 {
->   			enable-method = "psci";
->   			reg = <0x10200>;
->   			operating-points-v2 = <&cpu_opp_table>;
-> -			cpu-idle-states = <&CPU_SLEEP_0>;
-> +			cpu-idle-states = <&CPU_RETENTION_0>;
->   			d-cache-size = <0x10000>; /* 64kB */
->   			d-cache-line-size = <64>;
->   			/* 4 ways set associativity */
-> @@ -313,7 +313,7 @@ cpu10300: cpu@10300 {
->   			enable-method = "psci";
->   			reg = <0x10300>;
->   			operating-points-v2 = <&cpu_opp_table>;
-> -			cpu-idle-states = <&CPU_SLEEP_0>;
-> +			cpu-idle-states = <&CPU_RETENTION_0>;
->   			d-cache-size = <0x10000>; /* 64kB */
->   			d-cache-line-size = <64>;
->   			/* 4 ways set associativity */
-> @@ -343,7 +343,7 @@ cpu20000: cpu@20000 {
->   			enable-method = "psci";
->   			reg = <0x20000>;
->   			operating-points-v2 = <&cpu_opp_table>;
-> -			cpu-idle-states = <&CPU_SLEEP_0>;
-> +			cpu-idle-states = <&CPU_RETENTION_0>;
->   			d-cache-size = <0x10000>; /* 64kB */
->   			d-cache-line-size = <64>;
->   			/* 4 ways set associativity */
-> @@ -373,7 +373,7 @@ cpu20100: cpu@20100 {
->   			enable-method = "psci";
->   			reg = <0x20100>;
->   			operating-points-v2 = <&cpu_opp_table>;
-> -			cpu-idle-states = <&CPU_SLEEP_0>;
-> +			cpu-idle-states = <&CPU_RETENTION_0>;
->   			d-cache-size = <0x10000>; /* 64kB */
->   			d-cache-line-size = <64>;
->   			/* 4 ways set associativity */
-> @@ -403,7 +403,7 @@ cpu20200: cpu@20200 {
->   			enable-method = "psci";
->   			reg = <0x20200>;
->   			operating-points-v2 = <&cpu_opp_table>;
-> -			cpu-idle-states = <&CPU_SLEEP_0>;
-> +			cpu-idle-states = <&CPU_RETENTION_0>;
->   			d-cache-size = <0x10000>; /* 64kB */
->   			d-cache-line-size = <64>;
->   			/* 4 ways set associativity */
-> @@ -433,7 +433,7 @@ cpu20300: cpu@20300 {
->   			enable-method = "psci";
->   			reg = <0x20300>;
->   			operating-points-v2 = <&cpu_opp_table>;
-> -			cpu-idle-states = <&CPU_SLEEP_0>;
-> +			cpu-idle-states = <&CPU_RETENTION_0>;
->   			d-cache-size = <0x10000>; /* 64kB */
->   			d-cache-line-size = <64>;
->   			/* 4 ways set associativity */
-> @@ -463,7 +463,7 @@ cpu30000: cpu@30000 {
->   			enable-method = "psci";
->   			reg = <0x30000>;
->   			operating-points-v2 = <&cpu_opp_table>;
-> -			cpu-idle-states = <&CPU_SLEEP_0>;
-> +			cpu-idle-states = <&CPU_RETENTION_0>;
->   			d-cache-size = <0x10000>; /* 64kB */
->   			d-cache-line-size = <64>;
->   			/* 4 ways set associativity */
-> @@ -493,7 +493,7 @@ cpu30100: cpu@30100 {
->   			enable-method = "psci";
->   			reg = <0x30100>;
->   			operating-points-v2 = <&cpu_opp_table>;
-> -			cpu-idle-states = <&CPU_SLEEP_0>;
-> +			cpu-idle-states = <&CPU_RETENTION_0>;
->   			d-cache-size = <0x10000>; /* 64kB */
->   			d-cache-line-size = <64>;
->   			/* 4 ways set associativity */
-> @@ -523,7 +523,7 @@ cpu30200: cpu@30200 {
->   			enable-method = "psci";
->   			reg = <0x30200>;
->   			operating-points-v2 = <&cpu_opp_table>;
-> -			cpu-idle-states = <&CPU_SLEEP_0>;
-> +			cpu-idle-states = <&CPU_RETENTION_0>;
->   			d-cache-size = <0x10000>; /* 64kB */
->   			d-cache-line-size = <64>;
->   			/* 4 ways set associativity */
-> @@ -553,7 +553,7 @@ cpu30300: cpu@30300 {
->   			enable-method = "psci";
->   			reg = <0x30300>;
->   			operating-points-v2 = <&cpu_opp_table>;
-> -			cpu-idle-states = <&CPU_SLEEP_0>;
-> +			cpu-idle-states = <&CPU_RETENTION_0>;
->   			d-cache-size = <0x10000>; /* 64kB */
->   			d-cache-line-size = <64>;
->   			/* 4 ways set associativity */
-> @@ -636,13 +636,12 @@ llc: l4-cache { /* LLC inside CMN */
->   		idle-states {
->   			entry-method = "psci";
->   
-> -			CPU_SLEEP_0: cpu-sleep-0 {
-> +			CPU_RETENTION_0: cpu-retention-0 {
->   				compatible = "arm,idle-state";
-> -				arm,psci-suspend-param = <0x40000000>;
-> -				local-timer-stop;
-> -				entry-latency-us = <300>;
-> -				exit-latency-us = <600>;
-> -				min-residency-us = <10000>;
-> +				arm,psci-suspend-param = <0>;
-> +				entry-latency-us = <1>;
-> +				exit-latency-us = <1>;
-> +				min-residency-us = <1>;
->   			};
->   		};
->   	};
+Add topology_is_scale_freq_source() helper to check whether a specific
+frequency scaling source is currently registered for a CPU. Use it
+in arch_cpu_idle_enter() to verify that AMU is the active source
+before calling amu_scale_freq_tick().
 
-This patch should likely changed because default cpuidle-psci creates wfi 
-backend automatically when no DT idle states are detected. Jay is looking into it.
+This ensures that topology_clear_scale_freq_source() properly
+disables AMU updates in both the tick path (already handled by
+topology_scale_freq_tick()) and the idle path.
 
-Thanks,
-Michal
+Co-developed-by: Xuewen Yan <xuewen.yan@unisoc.com>
+Signed-off-by: Xuewen Yan <xuewen.yan@unisoc.com>
+Signed-off-by: Sean Wang <seanwang1@lenovo.com>
+---
+ arch/arm64/kernel/topology.c  |  3 ++-
+ drivers/base/arch_topology.c  | 13 +++++++++++++
+ include/linux/arch_topology.h |  1 +
+ 3 files changed, 16 insertions(+), 1 deletion(-)
 
-
+diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
+index b32f13358fbb..1dbd8f4c3178 100644
+--- a/arch/arm64/kernel/topology.c
++++ b/arch/arm64/kernel/topology.c
+@@ -175,7 +175,8 @@ void arch_cpu_idle_enter(void)
+ 
+ 	/* Kick in AMU update but only if one has not happened already */
+ 	if (housekeeping_cpu(cpu, HK_TYPE_TICK) &&
+-	    time_is_before_jiffies(per_cpu(cpu_amu_samples.last_scale_update, cpu)))
++	    time_is_before_jiffies(per_cpu(cpu_amu_samples.last_scale_update, cpu)) &&
++	    topology_is_scale_freq_source(SCALE_FREQ_SOURCE_ARCH, cpu))
+ 		amu_scale_freq_tick();
+ }
+ 
+diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
+index 8c5e47c28d9a..6049e77bbe1d 100644
+--- a/drivers/base/arch_topology.c
++++ b/drivers/base/arch_topology.c
+@@ -127,6 +127,19 @@ void topology_clear_scale_freq_source(enum scale_freq_source source,
+ }
+ EXPORT_SYMBOL_GPL(topology_clear_scale_freq_source);
+ 
++bool topology_is_scale_freq_source(enum scale_freq_source source, unsigned int cpu)
++{
++	struct scale_freq_data *sfd;
++	bool ret;
++
++	rcu_read_lock_sched();
++	sfd = rcu_dereference_sched(*per_cpu_ptr(&sft_data, cpu));
++	ret = (sfd && sfd->source == source);
++	rcu_read_unlock_sched();
++
++	return ret;
++}
++
+ void topology_scale_freq_tick(void)
+ {
+ 	struct scale_freq_data *sfd = rcu_dereference_sched(*this_cpu_ptr(&sft_data));
+diff --git a/include/linux/arch_topology.h b/include/linux/arch_topology.h
+index ebd7f8935f96..fb7c1fe74808 100644
+--- a/include/linux/arch_topology.h
++++ b/include/linux/arch_topology.h
+@@ -48,6 +48,7 @@ struct scale_freq_data {
+ void topology_scale_freq_tick(void);
+ void topology_set_scale_freq_source(struct scale_freq_data *data, const struct cpumask *cpus);
+ void topology_clear_scale_freq_source(enum scale_freq_source source, const struct cpumask *cpus);
++bool topology_is_scale_freq_source(enum scale_freq_source source, unsigned int cpu);
+ 
+ DECLARE_PER_CPU(unsigned long, hw_pressure);
+ 
+-- 
+2.25.1
 
 
