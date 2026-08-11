@@ -4,95 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D042AC5B56A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 16:07:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71EB0C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 16:11:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eCz0YHuViuBY7u6bH/PtQQQ8c7S/xgDkr5juavEWHHA=; b=icWxAOssoGBSwcOg0VjxLNh3EA
-	X71zFmS6SFE0d5ATVu6Z+N1CzHAu64giodqj4Pj3pM3hbKmhmnjpUSCgrvelfOYuzrXtKVcrj1SKC
-	kjicHNDj/z0O9sBUb+MlPnPadAmvGwZNxLM4IyPiKcmDMMOYF6cGvQqtQhJj9Q1GBereR4OSf+yIl
-	LS6HWNahEe3SvvmjwZOfE9l/62bZHQ3EMUvR5tm9As6VHPMuqKt36IKuUTJBZj1iSV1oYcWBr+iHM
-	x/JrPCxjsfUZZ5dq0c5OpzKCKVZaBfB/5JQQuxAzRwEgL/tJT0FoEdAlh4Z62KDqRIJfPVT3buDZI
-	ROkBQP7A==;
+	bh=s5aYQFH5/TsJrfgH3Hmm3Z5/dP+xYZg4aYmTqt5N98Q=; b=c/jtzb+8Uy33HluEh71yK63h0I
+	JHCWVeiDccjgY5nZdizzo381tg+/bSTFwrMzyFPN2OkedjmEU2hhg5yDyAvrgX7gXbl4BJorUSXI7
+	wTP605DE7H8aiYFQoP9zyKCBhJWP63S4cnpiU0uRu/mV0iMiGwqF420ArDAwqWMdMLrx37gt6WGRQ
+	BG6DNym5GFiZ/pBmpse9/3qXf71ldlPv8r+SzHrkS3w861BGi1nTjpGt9jJIsKaTye1TH0j+rs80Z
+	LJbYx2auKIbfSOD3O1VBwtQBPx41G1a9sgLoPtqnCO7dDEdk23OP1LpELaAQgXFy+sDi+NliE9xLY
+	lyJTCZCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtp0p-0000000ERBe-2nxm;
-	Tue, 11 Aug 2026 16:07:35 +0000
-Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
+	id 1wtp4B-0000000ERni-0Lpo;
+	Tue, 11 Aug 2026 16:11:03 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtp0n-0000000ERAw-2BBH
+	id 1wtp49-0000000ERnV-3cP3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 16:07:34 +0000
-Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-c9eefcf9175so2850743a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 09:07:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1786464453; x=1787069253; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=eCz0YHuViuBY7u6bH/PtQQQ8c7S/xgDkr5juavEWHHA=;
-        b=RcjW9z86//mqTMxI8erXj0ZzzLitpA22BmFtjyolyEMX/HaV8vI53WM489wgyrVtwm
-         hULGufEL14aLzL0xTFsuLT6f1mlIRjnGJuTpgQdjtwP0lyAvlUne/F/LTFCRXwtR86+u
-         OnlBqdVwPxh3sBIfzF/yvJtQLa6or2OJ59n+OuzfuP8XhJUBXQ0QesBcZhv5h2eBs77K
-         p0wiwakhveyEB7e1Q/USZQiV/0BFSVdhpAftdMkhw9ZcpzoBuNwoOCmrg6GIZVULzQF/
-         suveMGG/09A1lo6/egT3ZwOimUSJCQOuEm5wXsB1qAyJZa6JJ4BLzBFuh8CceE9Y0s+n
-         mLfw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786464453; x=1787069253;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=eCz0YHuViuBY7u6bH/PtQQQ8c7S/xgDkr5juavEWHHA=;
-        b=OU1JwrfFD+/9pz9nxZgIigg++1LFvYICdFJKLxv7IOh8UX9OFv63AJxKNy/VZk5DgN
-         JahbDo22zo+gw/jRH4+F0OJ1Pe3/65D+GCi7fUok+Q/0PVPYgBd6cq+ck1RjskTpwJoQ
-         6EIys0KQxaya7MsVNDXmU7Y4ecgv0Yf+2pnfCbfuXXcmk7OD7zVrOmsQKzLMqipsBZqP
-         d/bNcA0Y2rthYVyQU+q5Wwn0iIFGpK553dmtOlsl5tBmSfIy2b2BgcHvE+gaYU1IaVb6
-         JszQCRPU2kUwNkC26J5Q0TS06RluCnFCgE3BQxtqsn/ObjgZXLAf2G7sDS/nAyYoWTP5
-         2FuA==
-X-Forwarded-Encrypted: i=1; AHgh+RrGGJB0tqcUunGcz/9jga6JV7qEbqfej637zNo4ght4sLmSQIDpHVAWdcFGM/vOQV67VBvnwunom3S8V/xxRgOh@lists.infradead.org
-X-Gm-Message-State: AOJu0YyHlO8MUVzOwjOQMFCuAUhNNEZgSi7rI0EcCL+bW73Qq9MXy+Lq
-	lWGMmQT9D5XC1Y2lu5INR+MS7Kw9/4x2LrGEvSE/OXqPvIv3cXWP6pklYq8hxytemNg=
-X-Gm-Gg: AR+sD1381Oshi2u7QGqLSV+eZTmIk0Fs04dLB/u68lCaEgupL8eCgsv+aU3aa0xjybc
-	5VLKdN6Ru8y50aF24WzScT8TBaIrZUY8d9dNecDOchtQ5qLSyYlnsXQFqRA64ACRh4mSHiZQQq4
-	54d2ml7VbfePBdYhGKxYdl8Kl9ie/dlf8fcSkx9UMBqIRzUMC+TMwbYLxkAEXx2ENbqejdZF+bN
-	nm6cDCHUSemqTI9Vzx2YwhexQUMCMo0ofUVi5tTwotb3kxc9lbHbZXWxdskbPOFf/GXYHilg5oh
-	0C4Fjry877ur7amZn2R+5xvJH0atYKewBaDbPqpAlmmzInHv5BPDglALyQ6FOfgKLP5N0FnotRB
-	oTsdwlLGRtXtCo2bhcESpN4sHycWwHo9X+Ft6y05Y2VMkzC7vRKBFigNfqODLlaR5J4ARiy8ueD
-	JvZ2b6+VgA19jv0fyy8xpSCdTUXA2FVcBN90FUYVq06y3GTfQ62ZfgDyHWpiKnuYEee+3k+tfgc
-	7wSBdGmvuAupUX3234=
-X-Received: by 2002:a05:6a21:6497:b0:3b7:aefe:4367 with SMTP id adf61e73a8af0-3cc2bb05975mr6307163637.33.1786464452412;
-        Tue, 11 Aug 2026 09:07:32 -0700 (PDT)
-Received: from FJ7FR2JRQ3 ([178.93.176.7])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-31cf3d0517csm893108eec.9.2026.08.11.09.07.27
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 11 Aug 2026 09:07:31 -0700 (PDT)
-From: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
-To: Shuai Xue <xueshuai@linux.alibaba.com>,
-	Jing Zhang <renyu.zj@linux.alibaba.com>
-Cc: Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Yicong Yang <yangyicong@hisilicon.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
-Subject: [PATCH v2 2/2] perf/dwc_pcie: Skip sibling walks for new group leaders
-Date: Wed, 12 Aug 2026 00:07:20 +0800
-Message-ID: <20260811160720.28580-1-zhangzhanpeng.jasper@bytedance.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20260811131714.12779-1-zhangzhanpeng.jasper@bytedance.com>
-References: <20260811131714.12779-1-zhangzhanpeng.jasper@bytedance.com>
+	Tue, 11 Aug 2026 16:11:01 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 87AAB43E81
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 16:11:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 703201F01558
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 16:11:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786464661;
+	bh=s5aYQFH5/TsJrfgH3Hmm3Z5/dP+xYZg4aYmTqt5N98Q=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=OTxVVdhZRmaj9tkDRGlrzrtpdSexA49s47RLI8Twy4X2WCBf/g6bn8k/1d9JPgFpL
+	 y2GfduWi+ZR2W8AtNJ9UUWy0Jzlt8uVWTADljZX6LKKQGowZ1O0DA1++7yUSUqYfDz
+	 xnWwwtP0KKRTajZsIx3bFfJDthsQ422gzilaNI+jKfGTXv9zd8+5AgQY0/dKRdhXYS
+	 QwboSbp6U+VhfW9Nbv3/bE8sNBu3eyksQBNDp2KxA2kffHOk6uRtwaHx0uhnzVPfAW
+	 8PqlY/j+Yxvhi2iP6MxW+SkT2z0UT56qMQcg+PDuGgNUoQpsPbwr0W8foY1KZST59P
+	 GMhX9Wv+0tTEA==
+Received: by mail-ej1-f48.google.com with SMTP id a640c23a62f3a-c16794450aeso136181366b.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 09:11:01 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RoIQHbB2qBxIcVmz9Jzuo8igMBcxbWznqHXE4x+5gMd3MD97VAsiHY2E4af+6dLcn3GeJ82cFKW4NCr17n1Lvao@lists.infradead.org
+X-Gm-Message-State: AOJu0YzndPXBVvSxokWdXFVuPGrydtAzaLZv3EOG6to8euBu0aLHTEa3
+	hq2S7tP6zCmlrpfMbSefnuy0VGMcW/S24BkYJPl/fn+9mMgSNI1rWIaPpSM0Kq/3HINhwhrd0JI
+	t2NgekQ1QPiHvu4NztJr8RdgYewcSGg==
+X-Received: by 2002:a17:907:9344:b0:c19:49ee:19b9 with SMTP id
+ a640c23a62f3a-c20ecb40d59mr83318066b.15.1786464659836; Tue, 11 Aug 2026
+ 09:10:59 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_090733_563241_5792FE5A 
-X-CRM114-Status: GOOD (  15.61  )
+References: <20260806-longzhao-upstream-cv75-v2-v2-0-6b09707c5fe9@ambarella.com>
+ <20260806-longzhao-upstream-cv75-v2-v2-7-6b09707c5fe9@ambarella.com>
+ <CAD++jLk0LoOJk=TXin42AL3_z_7eVVkvMnYr1S8090C6A_B+dQ@mail.gmail.com>
+ <DS0PR19MB7925690FD29D578D8AC5D10EDADE2@DS0PR19MB7925.namprd19.prod.outlook.com>
+ <CAD++jLkUPU0eujvWc5Hn1tEu4n451LvkuGGT=j6OfirJENpRgg@mail.gmail.com>
+In-Reply-To: <CAD++jLkUPU0eujvWc5Hn1tEu4n451LvkuGGT=j6OfirJENpRgg@mail.gmail.com>
+From: Rob Herring <robh@kernel.org>
+Date: Tue, 11 Aug 2026 11:10:48 -0500
+X-Gmail-Original-Message-ID: <CAL_JsqJprX0oC3Gdj=RNNYtPiQ-0NkEPvn-MyQ9ZtFakKcj1ew@mail.gmail.com>
+X-Gm-Features: AUfX_mzXtvkrshAlkiMteNJj8gvRU9rIYBk-lG0usv9XUDyxXzzHJorja6k1J7w
+Message-ID: <CAL_JsqJprX0oC3Gdj=RNNYtPiQ-0NkEPvn-MyQ9ZtFakKcj1ew@mail.gmail.com>
+Subject: Re: Re: [PATCH v2 07/10] pinctrl: ambarella: add Ambarella pin controller
+To: Linus Walleij <linusw@kernel.org>
+Cc: Long Zhao <longzhao@ambarella.com>, Bartosz Golaszewski <brgl@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>, 
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>, 
+	"linux-serial@vger.kernel.org" <linux-serial@vger.kernel.org>, "soc@lists.linux.dev" <soc@lists.linux.dev>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,57 +93,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-for_each_sibling_event() requires the event context lock to be held.
-perf_try_init_event() only takes that lock when initializing a group
-member.
-The DWC PCIe PMU walks the sibling list twice for every event, including a
-new group leader whose event_init() method runs without the lock. Although
-the leader cannot have siblings yet, the lock assertion is evaluated before
-the empty list is walked and produces two lockdep warnings.
+On Mon, Aug 10, 2026 at 2:42=E2=80=AFPM Linus Walleij <linusw@kernel.org> w=
+rote:
+>
+> On Mon, Aug 10, 2026 at 6:02=E2=80=AFAM Long Zhao <longzhao@ambarella.com=
+> wrote:
+>
+> > Thanks for the review. I will rework this to reuse the PL061 driver wit=
+h
+> > per-variant register offsets, and evaluate modeling each GPIO bank as a
+> > separate DT entity. The duplicated GPIO implementation will be removed.
+>
+> Thanks Long, I think it will be easier if you break out the pin control
+> bindings and driver from the patch series and work on it separately,
+> the same with the serial driver at least.
+>
+> I understand this can be hard to test on the hardware, I usually
+> put a few patches "underneath" the b4 cover letter, and then the
+> b4 send-email will only send the cover letter and the patches
+> on top.
 
-Skip both sibling walks while initializing a group leader. Group member
-validation is unchanged and continues to run with the event context mutex
-held.
+The problem with that advice is then 'base-commit' is useless.
 
-Fixes: af9597adc2f1 ("drivers/perf: add DesignWare PCIe PMU driver")
-Signed-off-by: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
----
-A system-wide DWC PCIe PMU perf stat completed successfully with the same
-debug configuration, without lockdep reports or kernel taint.
+Maybe b4 could learn an 'ignore the top N commits" or "only track the
+first N commits".
 
- drivers/perf/dwc_pcie_pmu.c | 12 +++++++++---
- 1 file changed, 9 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/perf/dwc_pcie_pmu.c b/drivers/perf/dwc_pcie_pmu.c
-index 7b2e28aade73..a6667ac19a99 100644
---- a/drivers/perf/dwc_pcie_pmu.c
-+++ b/drivers/perf/dwc_pcie_pmu.c
-@@ -417,6 +417,10 @@ static int dwc_pcie_pmu_validate_group(struct perf_event *event)
- 		if (dwc_pcie_pmu_validate_add_lane_event(leader, val_lane_events))
- 			return -ENOSPC;
- 
-+	/* A new group leader cannot have any siblings yet. */
-+	if (event == leader)
-+		return 0;
-+
- 	for_each_sibling_event(sibling, leader) {
- 		type = DWC_PCIE_EVENT_TYPE(sibling);
- 		if (type == DWC_PCIE_TIME_BASE_EVENT) {
-@@ -452,9 +456,11 @@ static int dwc_pcie_pmu_event_init(struct perf_event *event)
- 	if (event->cpu < 0 || event->attach_state & PERF_ATTACH_TASK)
- 		return -EINVAL;
- 
--	for_each_sibling_event(sibling, event->group_leader) {
--		if (sibling->pmu != event->pmu && !is_software_event(sibling))
--			return -EINVAL;
-+	if (event != event->group_leader) {
-+		for_each_sibling_event(sibling, event->group_leader) {
-+			if (sibling->pmu != event->pmu && !is_software_event(sibling))
-+				return -EINVAL;
-+		}
- 	}
- 
- 	if (type < 0 || type >= DWC_PCIE_EVENT_TYPE_MAX)
--- 
-2.50.1 (Apple Git-155)
+Rob
 
