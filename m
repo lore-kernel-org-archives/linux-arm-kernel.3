@@ -4,95 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF7CDC5AC67
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 12:02:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F357C5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 12:08:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zwphYJ1xrn2R49LbIW+60BAY3dMAjsU1OcBiJKmRCAI=; b=w1XS4ebJZeIGSYkdLT6ckiqYTM
-	j1qO5OZaZsBVVM1HgUXjaxtB3boWk9EMGvHwGQD3rjLiSM/m/mzm1Q+QhFRpUEqftEH9yMws/5WW4
-	CHmZdXIBJFeHPfNerVyZ+xMc83gt/femxqWOQ0cUZNMLd3sQLky1+vzMKkm4sRMs5V8kt0JZvdNdD
-	20qOoJb6PHAZoWb6EUx1Itmis97f6xvVtPLTTydmmuNHV2vbXPWpliCj/hAImakk+vX3QJaR7EFMb
-	FllIxpIHyiEsJ2NkC+3Wvv1J+76pqZZFbBmmD2hk4JQrIi8A5jnmRf2C0CgHHpBgE67oP9q/cQ20n
-	6tHGrvKg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=TqvkAwCOsL1hVuT8GV7hCB1OxrgOjfzOsoMOW/vy4SI=; b=QLrMOVGV0ICLHm
+	0pMb9TW0JdaLQv8EaqQO7HAPIUd66oeeaui9gfs7Tw1BGJ4pH5HDjQSwbV+YtsfpG5C0QnmoqPE3E
+	Pffz0fyGxhbd9v6VvDr44AQYh7n9802pDQLlrujKX/ZxCvIePWxi+7pmQE6TUcZVqveaFteROJtCu
+	xyII3FxlHNq82UjhWrWOxK9jZ/GiDAxzxBKYG1sXh1WHtHDEmVGzcEzXTc+cbihGZR+rIL+3ktTBJ
+	ML2rLAVmWKrbzDrrY2xhxCEPXSuJaM6GfOlsWWQ19nivYjDTlFZ/N1rePJfJvXvXnZ/YG2r1rnuhq
+	xk8YhtvT7I5VL9UnMZGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtlBe-0000000DyTO-0L1k;
-	Tue, 11 Aug 2026 12:02:30 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtlBc-0000000DyTF-3GSt
+	id 1wtlHR-0000000DyqJ-2esk;
+	Tue, 11 Aug 2026 12:08:29 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wtlHP-0000000Dypi-2NLx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 12:02:28 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 305A84352C
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 12:02:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AEF961F00A3A;
-	Tue, 11 Aug 2026 12:02:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786449748;
-	bh=zwphYJ1xrn2R49LbIW+60BAY3dMAjsU1OcBiJKmRCAI=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=UqpxGeW8QFJ21zgq1eXGNj8dqipCjtSFaP61uzVQFCtsN3Rr5660Vjp62xzBBAqll
-	 S2Xu9hl2Ba/BjC7L45ZM/XEILqYyN2r1ktVyPKHIjawhK/gcAVf2uyyFXGCdwMyaIx
-	 E4ANYwjVPXnZaiSDmYtTDjtP2Cz8lodbNKTLecE/3JWFknc/9mALDUEZgr9qBqjQP8
-	 7DhWvef8ebjtDByb8jxL7mkLqN24D30aqyNnzy234vrhoBkIRrwaeTQXdALdjlvDtp
-	 DjoCw3GmKUKf8aBm/mtbB4gR2I6RboKARJRyfxz240ZCbqIi5hQZ/ZaHiqrd/2dCkh
-	 tvwFKaEcJ4Bew==
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfauth.ams.internal (Postfix) with ESMTP id 38641198003A;
-	Tue, 11 Aug 2026 08:02:26 -0400 (EDT)
-Received: from ams-imap-11 ([10.64.2.31])
-  by ams-compute-02.internal (MEProxy); Tue, 11 Aug 2026 08:02:26 -0400
-X-ME-Sender: <xms:Tw97akBcZO3noPhHlKZXJ6TlqWlhZp6jGlTb_fseV8X0h7KBOqZ4mg>
-    <xme:Tw97ahWbK6U0VChhjl4YnC1c1jLtL2ntKAjHqjBzsZbHrdk5FW0q7zz1Czrn5io4s
-    mltjcZEpo3GXD1J-S_y8HPw3ZJTcygRXEqW-6wtQQGNTKELUEQm-cM>
-X-ME-Proxy-Cause: dmFkZTEyB7N7n6QM0Uo3Fugkx0WZwpgnnYkOCEIKtQcEYUqJPHieMBMoFgezVcrXKKV7hd
-    xWZH74le51w0J1e43JssBhL/DpFYP6adM69IhvYR6He3VZj2kqrmHmaas0+tKDozPK6r0Q
-    Z4zQ6PqZpYektv9tEVBYYTO1DO5IoRAnqKDtBkEE2TKmKtzJjwjBQ/x1lwOgRkKCG93Z2a
-    RQCU9ufEeCkraBehAgx2QEAfiF5jfQj3coMyC/kVB0tP2ctqZ+lrm0Rm7YVDlOpyPqNgg4
-    c62CUJeGpkoXSGuovSIbHPOUb6hZdcTuvd6NjioJ/SCyrfGXYNkTPag0aPsnQRVWyIMumF
-    o/7VIdxIgEe28JBfoGgbeIlvc1u8Rzxl8QRwveHFNuGKZI1pctrvDvqt+pEtWeqeIIPR9y
-    p8OwXsjS9jDR6vrcorF1o2jPW+ErPy7PDefp1eluDIjeQ2I5OUCzWH0daOzdI/hMu7RD5d
-    ufIoKKjBsm5xaND6Ljn76nI69bi4aF4RkFjq4AZPdZNIa7SmrvojWxUVgW0foRB33KW59J
-    uLWPYIs6dbO82vXrsNi3HUu4ICxP4OOjwWolZno1YvdAzyT73UJPGLQisIfzUxpHYyOROz
-    G28IMdyhxmYRg/ziti+j/0li/MQLrH7fxGd5Ktr2eL+6137awdMdMECab/og
-X-ME-Proxy: <xmx:Ug97asJo80jiwGoVYyVAieysZnqNfTPGXcp_OLDIx0NyF-j-4xG61w>
-    <xmx:Ug97asR3VdH-QkDJg0ZLwjqLxERpJL0YLzmBF9rZwWbdzSrJsiGlsA>
-    <xmx:Ug97akIr49It671AWn1SuOKwQu83sjXLQYhKjm-s8ONS4sFUaJGpRg>
-    <xmx:Ug97av9WNa2NfL4zX_vibxK_D9NO2kYnuAa1XSIwHPurmFwsgdOGJQ>
-    <xmx:Ug97arJIWhzNw6dUMlljVxhTOnM6pl_mr4T4qU_igFZwZXvyWNGWhcKf>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 28EA8F8006A; Tue, 11 Aug 2026 08:02:23 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Tue, 11 Aug 2026 12:08:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EC6991516;
+	Tue, 11 Aug 2026 05:08:20 -0700 (PDT)
+Received: from [10.57.68.120] (unknown [10.57.68.120])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 46F423F86F;
+	Tue, 11 Aug 2026 05:08:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1786450104; bh=nOdG3GEOAIhS+BTOXENo2dxte+PXbMMlKYJCLwWAc2g=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=NvcAZYGj7W1RZOM8r24q6SdYh94WxBwaTQurPr3Fq1AIq9cH3E/KyBRHkRihM7ZHX
+	 7aPsCzJCZc4/29K/f2y6XEPFRlowo5i5AzLzHbK3aIDxtRNnhslfqyugbvVXfhuD1N
+	 KA01KCxZcCMbV3UETKlJXggohnqtY6JqIWBmEnLA=
+Message-ID: <12843f8d-8c70-477e-904b-ba775eed6345@arm.com>
+Date: Tue, 11 Aug 2026 13:08:16 +0100
 MIME-Version: 1.0
-Date: Tue, 11 Aug 2026 14:02:01 +0200
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Will Deacon" <will@kernel.org>,
- "Nick Desaulniers" <ndesaulniers@google.com>
-Cc: "Josh Poimboeuf" <jpoimboe@kernel.org>,
- "Catalin Marinas" <catalin.marinas@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, live-patching@vger.kernel.org,
- "Song Liu" <song@kernel.org>, "Miroslav Benes" <mbenes@suse.cz>,
- "Petr Mladek" <pmladek@suse.com>, "Joe Lawrence" <joe.lawrence@redhat.com>,
- "Mark Rutland" <mark.rutland@arm.com>, "Mark Brown" <broonie@kernel.org>,
- "Kees Cook" <kees@kernel.org>
-Message-Id: <4986ac98-d6da-474a-b218-b6468b68cb9f@app.fastmail.com>
-In-Reply-To: <anrvDIWMNGIa4WPK@willie-the-truck>
-References: <ed4fe1f95071897859ec7fbe9176246cbd4962bf.1786138806.git.jpoimboe@kernel.org>
- <anmobvJXiBQqWn6S@willie-the-truck>
- <e5q2mvqtf6iw4lco55uny5ffhppw6vlflxguhc4gg5nm3zdvmo@zs6rw7iov5qc>
- <08d6c5cd-9924-4359-9181-a03718161528@app.fastmail.com>
- <kp4rvh4vxo65gipgqz4i4dnw2ueylmus4yys6xfrbngp5nefzn@4a4ekjlzqlph>
- <CAKwvOdmSVjY0TmOTc6WMmDHcLbn=tOV3R3zH_TO4zXZiYEsaBw@mail.gmail.com>
- <anrvDIWMNGIa4WPK@willie-the-truck>
-Subject: Re: [PATCH] arm64/module: Fix livepatch BTI exceptions with Clang 21+
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC] arm64: entry: PSTATE_I_SET is leaking on pseudo NMI
+ mode
+To: Will Deacon <will@kernel.org>
+References: <20260807-arm64_fix-v1-1-d069ccf9d71b@debian.org>
+ <anXkO8YpoadRzm07@J2N7QTR9R3> <anXqMsJ14r3BAbMG@gmail.com>
+ <anYHjvJ1_4dDjuzw@gmail.com> <anm5T9FazACqOWXF@willie-the-truck>
+ <2a97f777-d33a-4b3d-8c8c-6f6894f04c29@arm.com>
+ <annoxlkkq1NpujsP@willie-the-truck>
+ <9b06f274-8db1-48e4-839e-e387c050d328@arm.com>
+ <ansIT2PCHq_EKuTE@willie-the-truck>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <ansIT2PCHq_EKuTE@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260811_050827_697222_0948CBE0 
+X-CRM114-Status: GOOD (  13.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,21 +72,44 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, rmikey@meta.com, "Peter Zijlstra \(Intel\)" <peterz@infradead.org>, Catalin Marinas <catalin.marinas@arm.com>, Jinjie Ruan <ruanjinjie@huawei.com>, kernel-team@meta.com, linux-kernel@vger.kernel.org, Breno Leitao <leitao@debian.org>, bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 8/11/26 12:32, Will Deacon wrote:
+> On Mon, Aug 10, 2026 at 05:39:52PM +0100, Vladimir Murzin wrote:
+>> On 8/10/26 16:05, Will Deacon wrote:
+>>  > So we could probably hack something as you suggest, but maybe the best
+>>> option is to take patches 8 and 9 from your FEAT_NMI series? WDYT?
+>>>
+>> Whatever you prefer, tbh :)
+>>
+>> Patch 9 codifies my understanding of how things are expected to
+>> work. That said, I accept that I could be missing something, hence the
+>> RFC tag.
+> Those two look fine to me and I already took the preceding changes.
+> 
+>> In case you decide to take it, we probably need to:
+>>
+>> - extend the commit message to cover Breno's report (right now, the
+>>   commit message makes it look like a refactoring)
+>>
+>> - add Fixes tags if we want it to be backported
+>>
+>> Alternatively, I can respin the patch separately with the suggestions
+>> above applied - just let me know ;)
+> Lemme have a go at picking them up... I'll yell if it all goes horribly
+> wrong!
+> 
 
+Ready, steady... :D
 
-On Tue, 11 Aug 2026, at 11:44, Will Deacon wrote:
-> On Mon, Aug 10, 2026 at 09:41:35AM -0700, Nick Desaulniers wrote:
+More than happy to help if those go wrong.
 
->> Sure, but let's replace this with a link to a bug report in llvm's
->> issue tracker?
->
-> Yes, please! I can apply the patch once we have the bug number.
->
+Cheers
+Vladimir
 
-I can look into that.
-
+> Will
+> 
 
 
