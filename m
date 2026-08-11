@@ -4,112 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF51AC5AC67
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 18:45:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84211C5AC67
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 18:50:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O0Y8XFy4Cr5mSbO1ygPEQcGzY7wJ/bk+XYxgiT/LhLU=; b=jIRw/P+gDKVeBZuUq86v1LAchM
-	+vwBdPDRGd/1PrcKioQQrp8dYBFufyX3yg85HksBV0dUhL+Br7N/+wvrBAmwmmLbCBAu2Mpa867JC
-	9wEfwd3HEjf1DZxs4Tu1jjtFKDoP0ZPHhgqbCxli10wgMXQ5SS+EJ60CbezIG7A/3/Zi+sTr/Onc/
-	Bz4mQQOVHGiiYykkE0E1ANUwPSbFZVrWSyzytyE43oy2SmkzFiIaZXZ45BdfDX4tBJKyZ0PwmujU7
-	zGXDahQwdHBcf8h7jZLddJC4lAbqMch/dwCWIqwFqUo6n4YAy2VGj8RfMkkblnuJENhvRqJzoWETz
-	s+Cquv5g==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=NgsQJ4VjYv+Gww+JX6UCqUNvdvt9jcjvaOzC6yXUAwM=; b=iUbB+aAGu8v8Aw8OXb8BL8ExWQ
+	uuRmoDqoGhB15iJ+jTSeqrRqjnRBxfMp7au1AHFb2X1xsCOMoWb/k4mDh8q6so30MKCw3OYIi4H3o
+	cXZTZWfJWO4cUQg+UIFyyOE0j/R+V0yO1CavNeYHyvDwDM0I8yFL0d7jiQiyxH2988Tao5FbHk8pF
+	T/PkiF1KqrCFLqRG4Kd2hGaKkv3qZnqIv1oMBhhnvGg1hkkfnLl7Kxx7l/VjmRrQ6yrUtfGlosYry
+	w/rIDVpZ9b1jc8QO367tFToMb09/oJYSnoKLhzQKrwjPltgqYlodJvIuANnIKunPuQeGOr1MT1Wen
+	MvrkltCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtrTD-0000000EnG5-2nBF;
-	Tue, 11 Aug 2026 18:45:03 +0000
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
+	id 1wtrYJ-0000000EnVc-0lo9;
+	Tue, 11 Aug 2026 18:50:19 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtrTA-0000000EnFQ-3HEP
+	id 1wtrYG-0000000EnVG-2il5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 18:45:02 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-6a1f8757b4eso1501a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 11:45:00 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1786473899; cv=none;
-        d=google.com; s=arc-20260327;
-        b=gj96HP4LVYZO4Kf7uOa18y3x9EzkEhNHg12MNM91uuCnXLV3UNjF/6HSacOHIJ0XmK
-         68jg+pKtwibOaS8zsZOZ+6gbHJPHAVwH0FMNP/MRAxHS0ipjdtoSgSTdejS4O+6KEY/P
-         3xHkRcEBLFk97dVzzESJsP9QYUUK2rhN9xhTq6FVTUCLnqr6ts17Eg/P5Zt7uYoHzhYP
-         jxtL3k/D059C5zyjWO6E1mq5hrTi1BaCgKoRue3I2hliuBJgEHs84WeBfLjWwmRs25d6
-         bNwvUlH8aQ4HaAO2V7z01WVMWq3jOgzs+8mrYxStV79m9StE4THNL1dVHekk3t1IfOF/
-         NCAg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=O0Y8XFy4Cr5mSbO1ygPEQcGzY7wJ/bk+XYxgiT/LhLU=;
-        fh=kSyWkz3hesXr6Co2KRVirgWlKFlqNVHJ3ejnTknnkRE=;
-        b=FC7UEaTUPqDaRpgXD2MOhE2/FW5l9hxrz8+0KJ85erXz6EOpWtWftNfYTy/ZkPz13f
-         AVGIO3bpsShd1+Gfe/7UsLA2LL1L8rD6Ipg0k2KplKIQzVtXDN/8dQv8yPubZG7gcDT2
-         CUSI79zuCP0JYgYNtnEnueliBTgHRbPCbP3t3uFa6bdwGDzFP1r16jIy5BN32iHdeFRT
-         bPgIMay3YLRCUvlJ+QyvemFJCLahc4fXekxl5+819T2JG5zHGsaETEjitI8nTVvBXQ6F
-         M3o+AknOtks9tDOqTyKTMq7WeNktEnzadrZrZEa80GMPSSRANNYauPaRnuO0mqMr7wol
-         +BRw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Tue, 11 Aug 2026 18:50:17 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2ce98cb8165so3028695ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 11:50:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1786473899; x=1787078699; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=O0Y8XFy4Cr5mSbO1ygPEQcGzY7wJ/bk+XYxgiT/LhLU=;
-        b=I48pxZ0ocEreccNjKJ4i20a2z7iPNkgCPXXHMnu3w8sMr+hO718ZVhJHhLVeJs0/JP
-         zf03GAtdZrtKmZsCABOF23H588NTxJs0A57NoYp6SGbKJN+I2MmAbBcGuuHqgnSbXyit
-         9RkCn3aDXxspuR3/TUoIOhxTaAqYWw2beXiP1BbANDkJJYX/ML5/HOyjjhMXTlZdT4sa
-         eGWy+ghjHzcAkzbW50aGy+pxZC3Rs6Fosez/f2r5SWVlPNp7oUG41lUaYOKbZido3XK/
-         DN9C1W54vQKeNnoGsO5UCD/KF1KW37WjFuYYtMBXRiMjx/mzinv1ceNU47+AIeDLPYRW
-         a93g==
+        d=gmail.com; s=20251104; t=1786474216; x=1787079016; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=NgsQJ4VjYv+Gww+JX6UCqUNvdvt9jcjvaOzC6yXUAwM=;
+        b=iBEJpvYvbtdboRYNZsfmrSKgMNwnOtxLIvqfGnYQv3bM+kzUO0oi1OMBhPemaQq1Hd
+         fQZwhhLtsY8XamIE1SIe0rSwD3k0O7mUZ1Rzas1wKC2wMWo8tww064IBfB6wS7Ot6U7T
+         Nyvh9xN74tfr+dYtmXjA7nILzkHbcdcVbar1fU+01Vd67XjPLbqiVlQxAIxiZM0bXSDG
+         SYHTBClnnhb6CotuHSoBVFDUpyd/pBvQD7uiDnRwDcpWsvJ0U6qAWhc0jz2vHBF+oYna
+         dx6no2qUDqq/sYfqdBv7MAietAMXWrvrtfsewXjGL+/bu4wq5AGMK+Bi0pJnUw83RVBD
+         wsTg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786473899; x=1787078699;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=O0Y8XFy4Cr5mSbO1ygPEQcGzY7wJ/bk+XYxgiT/LhLU=;
-        b=OkYxl6GgNKQkN07FZyYy1o0F0z7N5TyOtXODAe/DdjQSSnFLbNiexDad+bRmhxcad6
-         G5bpAnl3fd9P6ri3LRknYGmzSfPIJVRQgCDYzbOQ3KQmPX+Ks595Nui2Wg/AIZFYb23/
-         Bi87iZh9QG/TgTUBa/gFXhGYoht7dIKpr2+H1hliNihxYbGka46C4maBnUF2MiE1H1i8
-         aypjEaHUpzIjh2c2QwBQJiqyZ2FRKeHoSNpK80NG1nLPxNXSRP/VxiVAUiuGekz5Ajwk
-         VCgp7noeXbOVVkfyhpxRKo2JveN6QHp7SKZjdXupn0bC11I3Ty+8WqFhhQDAXdYOBRfd
-         7puA==
-X-Forwarded-Encrypted: i=1; AHgh+RrW3t1CMzsu+//ImBMAFzl1q898mvdXNYWzz59u+p9NksWnT3aTcNkBrwmcloiibtQ7MsR5fEOL7RRQ+mvTrpBf@lists.infradead.org
-X-Gm-Message-State: AOJu0YxIOx1sq/PbEYnNhjpmf5CAHiotsQH169SWTNC0hw/otfD0L7kJ
-	s+vJxqLVKNd5FQo9sSg6emCJ7tMzxtcNEuHUyvDlWuAnxgqrucr8CjQZ25rmIBHn9oGI8VmQISJ
-	16OABqIli5RRBetbJ2Otc7Ulkc90eoFAkm6N568Kj
-X-Gm-Gg: AR+sD13ea1AnIcOywbkVU74N9Islo+qveyVjFPtQCrbHOWeO3JH+z+JIxdKyOzUSNKF
-	+ZE/VPTJKJkA58opUrjFdDGu6HsWIBvAh7GpqnTxxjQ//9Oz56LLczmQDo7gxthOJZjq5s93T5K
-	SKFiwjHt9he5Twf06aeYTrUHZYuhxxpIcun29ebn6LDfvhRM8mH5L0JFQ3l1LLO+mbNUA1XZ7oY
-	y7pVKpD5JjQI8swWPEdc/lgqwyUNr0nHzRrPCIDcThLVS72O/qm1+hd4fSeiuyZGzIM5G0kIMpe
-	JYDX8/BsDZj/F0zq+FumSmqLtx6ScDlSLSUDQFURHnZuQk5I+nvh24RBPz4zAap/+MEpzvvnGh4
-	=
-X-Received: by 2002:a05:6402:5690:b0:6a0:6679:be47 with SMTP id
- 4fb4d7f45d1cf-6a3720e98f1mr7838a12.1.1786473898473; Tue, 11 Aug 2026 11:44:58
- -0700 (PDT)
+        d=1e100.net; s=20251104; t=1786474216; x=1787079016;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=NgsQJ4VjYv+Gww+JX6UCqUNvdvt9jcjvaOzC6yXUAwM=;
+        b=I51d6vQjf9SmYkVfmmalPoNCPZK+b/gRQ+hR6ySiPAE7UkoxgADkKB/fPQBNaEkuMf
+         F2F+ZIkoDsoQkFDfb+kzx+PHuRz9bt7iaPIjY6uOevedKXc+HKpC+oQCnr46RhtvW0eq
+         EpZcTf/2AHl8eXgZwPjOVeABxbdwnvVl1pMKGDOqwxV5C9QYBaW6R3STxiPF8VThE6kj
+         W3ikSqPEvkvCICLyCc9J5CxrBChJ2idMjNoRx6NiXGIMeA0v+s9Bh6kfskL4HgB0S3n9
+         KySnKWYbbd5LvaE57SMIVR7TenQ2xZMycSu78Z1y/KikbtMRQufxLcPsm8FaJD2S5d21
+         cZgg==
+X-Forwarded-Encrypted: i=1; AHgh+RpviwpJlqjCCRKne6flpZLyigj25v4Iuegjuj7cLjHif0mqtn+VOGE/+Q008fMaB1aydqSjER5WyuX46M8BbIJC@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyg+CTYJ6B2ueeQzAIjwgbPt1Wrsy0LI4mGCApBp5DQEOmacvnb
+	KrMvxWbVmrweT8eqkQ6Hwy61+fkT3gaPSrOQYKjGT8EKvgofdTBQTmHrUxMXig==
+X-Gm-Gg: AR+sD13vEkQc7nKARPJFNWRQGCM4STMFHvu7x61hVWACdn0RLEqLlxf4JadfLyIakct
+	Xr+JDKK+7uEz7R+fPMsc/tx2IHaNiBUCTvyCm9+gQjQaR9l6VhQSxUqDItCBHJibcLQEqUkEWtB
+	wj2Ocpofk4cnFOWqruYmeFSJAY7FMC9VcDIhQz9r/bSTfdOFXvmv+nW1JtdlaI+s/yWD0R7PU9R
+	QTNKK9YKFmgv40D1rTsx/3s+on8tgV8JqFBrP0mb+sRYOwre+KlB2t1KGB3Vbr7C/uyxzTP67NK
+	ZEgvKRCwbHdEwyzpkzlZWT2F1jltq89tf1o7WWGavLGbEpacX39Vzwq63tOGdRwyU/uLMsZiteX
+	IItgSjJMYfJtTIr2U0bsphZU26YVQFsMuFdcswbnt6lGp5iuxOMuI0yigOLzkkaAfw8CG9YwWzy
+	bGVWpsBd14EOLVXIX3qlh/03H0ACeiioazXwDhlgn1JbQ8marrPFnA0hV8AZS/RKIUIhZI95fu4
+	hE8HynSzjilnM1xizJz7Tusm+89igrHtAqMJKG+ZGQnkF3xK9vkNrXP37mQb1eGgC72V7ci2QEt
+	DtcOPdR8y50XADzvQhixT19aMKifqKKi7eY1rw==
+X-Received: by 2002:a17:903:1988:b0:2cf:af20:4254 with SMTP id d9443c01a7336-2d32da51aeamr29355045ad.10.1786474215582;
+        Tue, 11 Aug 2026 11:50:15 -0700 (PDT)
+Received: from ryzen.lan ([2601:644:8000:7a86::e35])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d315ef05fesm11600835ad.3.2026.08.11.11.50.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 11 Aug 2026 11:50:14 -0700 (PDT)
+From: Rosen Penev <rosenp@gmail.com>
+To: linux-sound@vger.kernel.org
+Cc: Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Michal Simek <michal.simek@amd.com>,
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/ZYNQ ARCHITECTURE),
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCHv2] ASoC: xilinx: formatter_pcm: use more devm in probe
+Date: Tue, 11 Aug 2026 11:50:13 -0700
+Message-ID: <20260811185013.26960-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-References: <20260808085824.732659-1-smostafa@google.com> <178621460524.381735.15023846552532101058.b4-ty@kernel.org>
- <CAFgf54qY8c9wO_RHQZpVSKUCTOgr+WWKCxetjb6BGf-G=5OTSA@mail.gmail.com>
- <86pkzo23u0.wl-maz@kernel.org> <antaNocfJp6mX-oV@google.com>
-In-Reply-To: <antaNocfJp6mX-oV@google.com>
-From: Mostafa Saleh <smostafa@google.com>
-Date: Tue, 11 Aug 2026 19:44:45 +0100
-X-Gm-Features: AUfX_myPHMsxz7vu-KOTkZeD0CkvzolqvNKht92XUvhOAw-KTF5RzZ5iKSgzCiM
-Message-ID: <CAFgf54rguaNDTDxtGfWG4rZEkFz3C_VoBw=Z8rVuWPLSfquVjg@mail.gmail.com>
-Subject: Re: [PATCH v2 0/3] KVM: arm64: Fixes for timers and pKVM
-To: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oupton@kernel.org>, linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, seiden@linux.ibm.com, 
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	catalin.marinas@arm.com, will@kernel.org, vdonnefort@google.com, 
-	tabba@google.com, sebastianene@google.com, keirf@google.com, 
-	yaoyuan@linux.alibaba.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_114500_886251_0C593A5B 
-X-CRM114-Status: GOOD (  37.29  )
+X-CRM114-CacheID: sfid-20260811_115016_694775_AED0C57B 
+X-CRM114-Status: GOOD (  17.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,104 +103,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 11, 2026 at 6:22=E2=80=AFPM Mostafa Saleh <smostafa@google.com>=
- wrote:
->
-> On Tue, Aug 11, 2026 at 02:18:15PM +0100, Marc Zyngier wrote:
-> > On Tue, 11 Aug 2026 13:17:25 +0100,
-> > Mostafa Saleh <smostafa@google.com> wrote:
-> > >
-> > > On Sat, Aug 8, 2026 at 7:44=E2=80=AFPM Oliver Upton <oupton@kernel.or=
-g> wrote:
-> > > >
-> > > > On Sat, 08 Aug 2026 08:58:21 +0000, Mostafa Saleh wrote:
-> > > > > What started as a  small patch ended up as a 3 patch series thank=
-s
-> > > > > to Sashiko.
-> > > > >
-> > > > > First patch from Marc to consolidate the offset calculation,
-> > > > > follow up patches fix issues with non-protected VM and timer
-> > > > > offset and protected VM running with broken CNTVOFF_EL2.
-> > > > >
-> > > > > [...]
-> > > >
-> > > > Dropped the unintended SOB in patch 3 you mentioned.
-> > > >
-> > > > Applied to next, thanks!
-> > > >
-> > > > [1/3] KVM: arm64: Make timer_get_offset() work in all contexts
-> > > >       https://git.kernel.org/kvmarm/kvmarm/c/2858600ecd01
-> > > > [2/3] KVM: arm64: Fix timer offsets for non-protected VMs
-> > > >       https://git.kernel.org/kvmarm/kvmarm/c/47d3eef780e3
-> > > > [3/3] KVM: arm64: Fix hvhe and broken CNTVOFF_EL2
-> > > >       https://git.kernel.org/kvmarm/kvmarm/c/2e813a6e8ebe
-> > > >
-> > >
-> > > Thanks Oliver! I believe there is one more bug. I'm not sure where th=
-e
-> > > bug is or if it relates to the broken timers.
-> > > Before those patches I could not boot a protected VM because of the
-> > > panic, now after booting protected VMs, I sometimes get a system
-> > > reset.
-> >
-> > On this quality HW, this is usually an indication that you are taking
-> > an exception in a tight loop.
-> >
->
-> I tried to add a poor man exception storm detection in the kernel
-> handlers (el1h_64_sync_handler and __gic_handle_irq), but it didn=E2=80=
-=99t trigger
-> before the reset.
->
-> My hunch would be that there are some paths in protected VMs that takes
-> too long that the watchdog fires. I saw the resets mostly at either
-> userspace boot or VM teardown, otherwise the VM seems functional.
->
-> I will collect timestamps from hypervisor entry/exit and check
-> how large are those.
->
+Use devm_clk_get_enabled() to let the clock be enabled automatically
+and cleaned up on unbind, dropping the manual clk_prepare_enable() and
+clk_disable_unprepare() calls in probe and remove. As a result, move the
+clk struct member into probe, which is the only place it's used.
 
-Max numbers I've seen doesn't exceed 2-3 ms, compared  to SMCs which
-can take almost a second.
-I'm not sure if the watchdog is the right conclusion, but without any
-clue from the firmware logs, I am lost.
+Simplify the probe error paths by returning directly instead of
+jumping to clk_err, and use devm_snd_soc_register_component() return
+value directly. Also remove error message from ioremap as it throws one
+itself. Same with devm_request_irq().
 
-Also, correcting myself, I now see it happened with a single vCPU
-although that took longer to reproduce.
+Assisted-by: opencode:deepseek-v4-flash-free
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
+---
+ v2: add signed-off-by. Further clean up some stuff.
+ sound/soc/xilinx/xlnx_formatter_pcm.c | 70 ++++++++-------------------
+ 1 file changed, 20 insertions(+), 50 deletions(-)
 
-Thanks,
-Mostafa
+diff --git a/sound/soc/xilinx/xlnx_formatter_pcm.c b/sound/soc/xilinx/xlnx_formatter_pcm.c
+index 3d6f1e4046d8..eb878c75e293 100644
+--- a/sound/soc/xilinx/xlnx_formatter_pcm.c
++++ b/sound/soc/xilinx/xlnx_formatter_pcm.c
+@@ -82,7 +82,6 @@ struct xlnx_pcm_drv_data {
+ 	int mm2s_irq;
+ 	struct snd_pcm_substream *play_stream;
+ 	struct snd_pcm_substream *capture_stream;
+-	struct clk *axi_clk;
+ 	unsigned int sysclk;
+ };
+ 
+@@ -596,30 +595,19 @@ static int xlnx_formatter_pcm_probe(struct platform_device *pdev)
+ 	u32 val;
+ 	struct xlnx_pcm_drv_data *aud_drv_data;
+ 	struct device *dev = &pdev->dev;
++	struct clk *axi_clk;
++
++	axi_clk = devm_clk_get_enabled(dev, "s_axi_lite_aclk");
++	if (IS_ERR(axi_clk))
++		return dev_err_probe(dev, PTR_ERR(axi_clk), "failed to get s_axi_lite_aclk");
+ 
+ 	aud_drv_data = devm_kzalloc(dev, sizeof(*aud_drv_data), GFP_KERNEL);
+ 	if (!aud_drv_data)
+ 		return -ENOMEM;
+ 
+-	aud_drv_data->axi_clk = devm_clk_get(dev, "s_axi_lite_aclk");
+-	if (IS_ERR(aud_drv_data->axi_clk)) {
+-		ret = PTR_ERR(aud_drv_data->axi_clk);
+-		dev_err(dev, "failed to get s_axi_lite_aclk(%d)\n", ret);
+-		return ret;
+-	}
+-	ret = clk_prepare_enable(aud_drv_data->axi_clk);
+-	if (ret) {
+-		dev_err(dev,
+-			"failed to enable s_axi_lite_aclk(%d)\n", ret);
+-		return ret;
+-	}
+-
+ 	aud_drv_data->mmio = devm_platform_ioremap_resource(pdev, 0);
+-	if (IS_ERR(aud_drv_data->mmio)) {
+-		dev_err(dev, "audio formatter ioremap failed\n");
+-		ret = PTR_ERR(aud_drv_data->mmio);
+-		goto clk_err;
+-	}
++	if (IS_ERR(aud_drv_data->mmio))
++		return PTR_ERR(aud_drv_data->mmio);
+ 
+ 	val = readl(aud_drv_data->mmio + XLNX_AUD_CORE_CONFIG);
+ 	if (val & AUD_CFG_MM2S_MASK) {
+@@ -628,7 +616,7 @@ static int xlnx_formatter_pcm_probe(struct platform_device *pdev)
+ 					       XLNX_MM2S_OFFSET);
+ 		if (ret) {
+ 			dev_err(dev, "audio formatter reset failed\n");
+-			goto clk_err;
++			return ret;
+ 		}
+ 		xlnx_formatter_disable_irqs(aud_drv_data->mmio +
+ 					    XLNX_MM2S_OFFSET,
+@@ -636,17 +624,14 @@ static int xlnx_formatter_pcm_probe(struct platform_device *pdev)
+ 
+ 		aud_drv_data->mm2s_irq = platform_get_irq_byname(pdev,
+ 								 "irq_mm2s");
+-		if (aud_drv_data->mm2s_irq < 0) {
+-			ret = aud_drv_data->mm2s_irq;
+-			goto clk_err;
+-		}
++		if (aud_drv_data->mm2s_irq < 0)
++			return aud_drv_data->mm2s_irq;
++
+ 		ret = devm_request_irq(dev, aud_drv_data->mm2s_irq,
+ 				       xlnx_mm2s_irq_handler, 0,
+ 				       "xlnx_formatter_pcm_mm2s_irq", aud_drv_data);
+-		if (ret) {
+-			dev_err(dev, "xlnx audio mm2s irq request failed\n");
+-			goto clk_err;
+-		}
++		if (ret)
++			return ret;
+ 	}
+ 	if (val & AUD_CFG_S2MM_MASK) {
+ 		aud_drv_data->s2mm_presence = true;
+@@ -654,7 +639,7 @@ static int xlnx_formatter_pcm_probe(struct platform_device *pdev)
+ 					       XLNX_S2MM_OFFSET);
+ 		if (ret) {
+ 			dev_err(dev, "audio formatter reset failed\n");
+-			goto clk_err;
++			return ret;
+ 		}
+ 		xlnx_formatter_disable_irqs(aud_drv_data->mmio +
+ 					    XLNX_S2MM_OFFSET,
+@@ -662,34 +647,21 @@ static int xlnx_formatter_pcm_probe(struct platform_device *pdev)
+ 
+ 		aud_drv_data->s2mm_irq = platform_get_irq_byname(pdev,
+ 								 "irq_s2mm");
+-		if (aud_drv_data->s2mm_irq < 0) {
+-			ret = aud_drv_data->s2mm_irq;
+-			goto clk_err;
+-		}
++		if (aud_drv_data->s2mm_irq < 0)
++			return aud_drv_data->s2mm_irq;
++
+ 		ret = devm_request_irq(dev, aud_drv_data->s2mm_irq,
+ 				       xlnx_s2mm_irq_handler, 0,
+ 				       "xlnx_formatter_pcm_s2mm_irq",
+ 				       aud_drv_data);
+-		if (ret) {
+-			dev_err(dev, "xlnx audio s2mm irq request failed\n");
+-			goto clk_err;
+-		}
++		if (ret)
++			return ret;
+ 	}
+ 
+ 	dev_set_drvdata(dev, aud_drv_data);
+ 
+-	ret = devm_snd_soc_register_component(dev, &xlnx_asoc_component,
++	return devm_snd_soc_register_component(dev, &xlnx_asoc_component,
+ 					      NULL, 0);
+-	if (ret) {
+-		dev_err(dev, "pcm platform device register failed\n");
+-		goto clk_err;
+-	}
+-
+-	return 0;
+-
+-clk_err:
+-	clk_disable_unprepare(aud_drv_data->axi_clk);
+-	return ret;
+ }
+ 
+ static void xlnx_formatter_pcm_remove(struct platform_device *pdev)
+@@ -706,8 +678,6 @@ static void xlnx_formatter_pcm_remove(struct platform_device *pdev)
+ 
+ 	if (ret)
+ 		dev_err(&pdev->dev, "audio formatter reset failed\n");
+-
+-	clk_disable_unprepare(adata->axi_clk);
+ }
+ 
+ static const struct of_device_id xlnx_formatter_pcm_of_match[] = {
+-- 
+2.55.0
 
-> > > I confirmed that cntvoff_el2 does not get written to non-zero, I also
-> > > removed the sysreg write completely (rely on xzr value at init) so my
-> > > guess is that the HW might be allergic to more than just non-zero
-> > > values in cntvoff_el2.
-> >
-> > Is that in hVHE mode? Can you trap the access and route it to the
-> > existing handling code?
-> >
->
-> Yes, only hVHE. Protected nVHE works fine.
->
-> One interesting observation is that when starting a VM with a single
-> vcpu I don=E2=80=99t see the reset anymore compared to 4 cpus before.
->
-> Enabling traps for timer unconditionally for protected VMs still has
-> the same issue.
->
-> > > I do not have issues with non-protected VMs anymore.
-> >
-> > Do these run with an offset or not?
->
-> Yes, they have the offset set from kvm_timer_vcpu_init() with
-> kvm_phys_timer_read().
->
-> Thanks,
-> Mostafa
->
-> >
-> >       M.
-> >
-> > --
-> > Without deviation from the norm, progress is not possible.
 
