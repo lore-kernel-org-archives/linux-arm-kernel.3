@@ -4,101 +4,184 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BD76C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 15:31:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F83AC5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 15:31:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ghssS34122+SF9JGQaRPjJsmiH0qvioNjK1NWp3olSk=; b=O8D/XCU7tQksD1npxXZUUl/EWg
-	93ZugMs+Dvtz3ZgzTNnpebJw2lWWaaQmal2CunU0gEraytQj61QzcKBylqC0r/2ai5A4iFKSaB0bh
-	MchakaewdwoA0SqCxJutd4OYUB5YbE3piOXHHiEFYj6XukhAuXNFpAV3OPHUZwtOjlpz8HHCTxnYI
-	l/al8KHA5MN+NJ8VAxll+trKdbqYeQO9OeJ8dv5hq9+QMRXtuKgnXCd9knTlKCumPz6tSakF/TIEZ
-	SScxHa4h1fFeleskoK/3xmPj3/dscChjkXlm1DZBI59w3H8l+CR6fgGTj3xKkjubf7p6RIETgJKZC
-	4lFuUm8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zVvq2WIcimOVDgtE0xT2n+0UibaWpW4BNROJeLI+buQ=; b=rn5vrQTcHkqDm7bjtCpdM9vhZn
+	ZPIEO/IDF+4KvKPN6q+cw+46hedvIcKx6LLMX0csfk+uzbraRQa9yJMw0L+Ui9i0bBfO8wKPBqXjL
+	nIGdWA+WLsM5ozimXIYOwQt+yEBGw+Cv/KmWq1tbv+eGddBRWQZjdzQGSsJdkK0bJzHK8jUYjYue6
+	bnE3fmbEyXc5KPHHQINhNZBg+9TYAcJojJvdw7fXqYaa04nkI3L3ZoWZE3rjZywvukHGJMAL5kwB/
+	H3vYtAtZ7SjlYj13XmhBdfmIsRmDqd6FxaLNDaASI4o8n4DrFjgOGLc/SL8xdHXcjm26lz/Z6PyG3
+	NIADZu8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtoRq-0000000EKcS-2uZM;
-	Tue, 11 Aug 2026 15:31:26 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1wtoS6-0000000EKto-46BE;
+	Tue, 11 Aug 2026 15:31:42 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtoRd-0000000EKPb-0EcR
+	id 1wtoS4-0000000EKql-2tMB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 15:31:16 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4953e04ef16so28814935e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 08:31:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1786462271; x=1787067071; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ghssS34122+SF9JGQaRPjJsmiH0qvioNjK1NWp3olSk=;
-        b=lRRzr7dl7r2casW1ywkK6mn0xFHEHBKKBa9dJW8NwFOfl9IIXWc2jRNRtVdiGOdTiG
-         W9yLZX2o4FZue21YFm9eVbW1lGIDO7JcdkwprW6wRZt8VehLVvCVvr4KyWNie2njInMV
-         c/0mBX3i/L7neKx7H5Hfg0wusaNOSvASziO2/1rt9mN/kISnIYWhHVjyPyjo+Jdh1eGB
-         wFyO9uMh6gReuIlWwO5U/D4oejjOTunisVWchpN13KORw7BwDM/RVfM7DBq2ScA7cgAg
-         Mbur3OMPsVeQThmwPoMbKbXXQ2wawKkKUKseyOGy1yIN6byx9nGoWBIJ2+oBAkd5Apt3
-         9gew==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786462271; x=1787067071;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ghssS34122+SF9JGQaRPjJsmiH0qvioNjK1NWp3olSk=;
-        b=K4f/pulLlFt9hf2sIcinyTTt3V20ECKp1XfzQ3W42PqbOCEoFQNW0qtPwu6m0hZRNI
-         n1jLNlNxZa7AI8jgbaQMEq5IJbyZx+dsESCpWRzErVwS56CLx1xM3DWFdy9C5b+a1D0o
-         r21T+7nB3qT/qf0SMaqCzdQU+fWt9tzmqpYiAdnZnuueYQTjO4N3ROes8x4j5HqpTXz3
-         Gjx7UkU3iwQHVgqrj1/XoFLHfzXXu9KOPTvmEmIsYKgk+QgGJMjpzx4w3c9yZy+9iEf8
-         UIQeQqcC1IrFAYt7guQ70H2zTmJ40pvaD+iz79ZitcBL11rqpEGpDsk9CgUTUbMCQg1Z
-         wwfg==
-X-Forwarded-Encrypted: i=1; AHgh+RrNpy6yYllBaH5Zg6cdfDB8GVJU8S5rXqI7dhGFBHOU0JC04ofLy1sV9erV96SgEZUECtZokg1OVsdkNR5vh/Sl@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy7wnDj/AGdaCBTDCjJTvZkYIlcjuqv3mG7u+mGG4Z18hUxlak+
-	VMBU5Lino2fReYLPdfmn+Kg4VK9BZkWo2mlhPyPFA/JzNj20OuMP5SocGh34mMfLNnA=
-X-Gm-Gg: AR+sD134n1/E4k58rm5F6EZ5bcUnawHuEpWeoW5UF/nVQC6CiSfIJ3dGjbeqFOKgmCB
-	omVRN3qmDvL/OGsl8ntD46SWXIxObTvWqNJDSvSlckiwDjNtxLKFIC0C+z65T1D4sYc7rG57/sz
-	3pzkl4GS4Zujdezmc9jAmXMUimh5EXwO7QoCaeE5gYG9JxgNWQTuEJBU5bn+xWjDnl8reEnvek0
-	fM1FKeobNA39YAEwXMwCFalpxN9zujHhtdoB6y9ztfQgfoUMRSW0spNeWU1As/Ww8LMhwCcmEYR
-	w9lMsxKbUXRL1BnHyTzub+tpnIdeHkHV9ernoJ27ZDtyLL59g6zz2/q+OEOS8xeI7axmwMmYY+5
-	h3E79NhU88PDjPYDuLnB8FdzU5Fcq/V5j+owpB/G8phsK+iqVdbBrJrMgfAoGulrH28YyE3LGXG
-	cLxuZ0NwN3876ijPILnnAX6VCbBbOBm3dShLP/udFrVb19LvuiWHvn9UKQ2b1q2wlq
-X-Received: by 2002:a05:600c:35c8:b0:498:28b:1025 with SMTP id 5b1f17b1804b1-49978433a49mr60012655e9.5.1786462271236;
-        Tue, 11 Aug 2026 08:31:11 -0700 (PDT)
-Received: from pop-os.local ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49977dfacb6sm49865395e9.1.2026.08.11.08.31.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 11 Aug 2026 08:31:10 -0700 (PDT)
-From: James Clark <james.clark@linaro.org>
-Date: Tue, 11 Aug 2026 16:30:17 +0100
-Subject: [PATCH 14/14] perf cs-etm: Test multiple per-thread threads
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+	Tue, 11 Aug 2026 15:31:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1786462300; x=1817998300;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=u6C/cbmWQ/tg2V+tRao/i3Fsc7ezElvcZ06glk5LRJg=;
+  b=mDUjde1HbHwhRhg5M7URGuKdd1yNORZW26dM3fGsiL4nMcaSbocaYXK8
+   TgLpHRqVi9p5lKIrUsM0sdI8X/IoebtoZlI5Ibs0f+hiJMKNcbMWtSA+v
+   lnCe+A70Ajfie90+urOQoLQB50Qw0kRiQG6FT0fQWC1yRmRgF5GNwRhz6
+   js/Gc1glBK3kPalIvPrMFNxfS1iYKZofBSWDL6BhO5osRyIV0gf1Wkc2Z
+   rLZJuzsO9MKCmXJHkh1DVvNySmDW8FpcBRqULDPAn4HXX0S9x8qJ8Olam
+   nXZWAIK89RS94Rr6Q4J1k+akAu3hwte9uLItMrC4tbeFsAVp2zfChZIrN
+   A==;
+X-CSE-ConnectionGUID: YgrjL2gpR0Kwfkl9SZq6XA==
+X-CSE-MsgGUID: v1z9dC7ISoa9z+GE++BgHg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11872"; a="104527583"
+X-IronPort-AV: E=Sophos;i="6.25,218,1779174000"; 
+   d="scan'208";a="104527583"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Aug 2026 08:31:39 -0700
+X-CSE-ConnectionGUID: 5rrr/U9aQ7ew8jE06mS5rQ==
+X-CSE-MsgGUID: n5JNykLfSLOMQdblGhQqMA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,218,1779174000"; 
+   d="scan'208";a="263958991"
+Received: from fmsmsx903.amr.corp.intel.com ([10.18.126.92])
+  by orviesa009.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Aug 2026 08:31:39 -0700
+Received: from FMSMSX901.amr.corp.intel.com (10.18.126.90) by
+ fmsmsx903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Tue, 11 Aug 2026 08:31:38 -0700
+Received: from fmsedg901.ED.cps.intel.com (10.1.192.143) by
+ FMSMSX901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45 via Frontend Transport; Tue, 11 Aug 2026 08:31:38 -0700
+Received: from BL0PR03CU003.outbound.protection.outlook.com (52.101.53.30) by
+ edgegateway.intel.com (192.55.55.81) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Tue, 11 Aug 2026 08:31:37 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=R+HPh7g1v5lcTCMIfpWHSSEhk4wCUNmIi9KEPrGu5NtA6GO2o2Gls3f1R/1BX/DFmDjydlSvWLRSfE4ryWUggK/+xWF4oaU2A4DuunADYX4UNvgne2u3nM/T4L9g7pVgbQoILhr7UVF2fHqo/lfHEcYCTVGJh5OOBW79Vjm/KzJLUq54G/0zsQF4av3txr3Pz62gnL698iao6DC0O6Q+Hvba1+qAcZW1ZspogFNy1REv3lcS2ULGE7rxAjFO0QFY+JFltjAr+ZJ/fUQHmZZAOyQOZY8hgWtM2dkPDSpVIgHOl4w3a6YRRydTZHMZO3z390MB5qpYeRc21ffYvm11vg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=zVvq2WIcimOVDgtE0xT2n+0UibaWpW4BNROJeLI+buQ=;
+ b=cEmzO3GDCHsivEh++Qv4uBUl5oHGH1dsu07DDE8Wcz/0du2eC1POfe528WCSqDRGeib08THIOqHJdodMsVw2fqu9lwHgoTTZUKsfqdYTEDa6e4YHOPEE8ugv9rJwH93kij8PFmitNBTxQRFIupGK6mEw5aOXXicn1JWGBIKy1zux2Q2bRTg7xzwKU5fwigOVssGkNAd1+x2t/x6hf11tLaYxUWdFpfCX5V9Eo6C4/yqgJFTcWqNth0Sm3Jvu9d0KE1mH2Ab0JlfoyXNeGytuGMvhan1CSPryYDEHHKMLEpzozmNX1a1xRTamKpIXDXXwtF/2Jxiw/DqPFVROME7qZw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from IA1PR11MB7198.namprd11.prod.outlook.com (2603:10b6:208:419::15)
+ by CO1PR11MB4833.namprd11.prod.outlook.com (2603:10b6:303:99::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.11; Tue, 11 Aug
+ 2026 15:31:30 +0000
+Received: from IA1PR11MB7198.namprd11.prod.outlook.com
+ ([fe80::2c4e:e92a:4fa:a456]) by IA1PR11MB7198.namprd11.prod.outlook.com
+ ([fe80::2c4e:e92a:4fa:a456%3]) with mapi id 15.21.0292.024; Tue, 11 Aug 2026
+ 15:31:30 +0000
+Message-ID: <b1547fe7-255d-43e4-8b0d-34318c331118@intel.com>
+Date: Tue, 11 Aug 2026 18:31:22 +0300
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/9] perf thread-stack: Bound wrapped branch stack copy
+To: Amir Ayupov <aaupov@fb.com>, <linux-perf-users@vger.kernel.org>,
+	<coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>, "Suzuki
+ K Poulose" <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>,
+	"Leo Yan" <leo.yan@arm.com>, Peter Zijlstra <peterz@infradead.org>, Ingo
+ Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	"Alexander Shishkin" <alexander.shishkin@linux.intel.com>, Jiri Olsa
+	<jolsa@kernel.org>, Ian Rogers <irogers@google.com>, John Garry
+	<john.g.garry@oracle.com>, "Will Deacon" <will@kernel.org>
+CC: <linux-doc@vger.kernel.org>, Mike Leach <mike.leach@arm.com>, "Jonathan
+ Corbet" <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, "Swapnil
+ Sapkal" <swapnil.sapkal@amd.com>
+References: <20260803090640.2412336-1-aaupov@fb.com>
+ <20260803090640.2412336-3-aaupov@fb.com>
+Content-Language: en-US
+From: Adrian Hunter <adrian.hunter@intel.com>
+Organization: Intel Finland Oy, Registered Address: c/o Alberga Business Park,
+ 6 krs, Bertel Jungin Aukio 5, 02600 Espoo, Business Identity Code: 0357606 -
+ 4, Domiciled in Helsinki
+In-Reply-To: <20260803090640.2412336-3-aaupov@fb.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260811-james-cs-unformatted-per-thread-fix-v1-14-90565318f5f8@linaro.org>
-References: <20260811-james-cs-unformatted-per-thread-fix-v1-0-90565318f5f8@linaro.org>
-In-Reply-To: <20260811-james-cs-unformatted-per-thread-fix-v1-0-90565318f5f8@linaro.org>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Mike Leach <mike.leach@arm.com>, Leo Yan <leo.yan@arm.com>, 
- John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
- Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, 
- Mathieu Poirier <mathieu.poirier@linaro.org>, 
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
- Suyash Mahar <smahar@meta.com>
-Cc: Leo Yan <leo.yan@linux.dev>, linux-arm-kernel@lists.infradead.org, 
- coresight@lists.linaro.org, linux-perf-users@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Arnaldo Carvalho de Melo <acme@redhat.com>, 
- linux-doc@vger.kernel.org, James Clark <james.clark@linaro.org>
-X-Mailer: b4 0.15.2
+X-ClientProxiedBy: DU2PR04CA0295.eurprd04.prod.outlook.com
+ (2603:10a6:10:28c::30) To IA1PR11MB7198.namprd11.prod.outlook.com
+ (2603:10b6:208:419::15)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR11MB7198:EE_|CO1PR11MB4833:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2288d028-3964-4e3d-d108-08def7bd9dd2
+X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|1800799024|366016|921020|6133799003|56012099006|10067099003|11063799006|4143699003|3023799007|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: TgPzGb4boIYbt/D4A5SxvO8yPQK5kHEdYtRnffSeHxOhQltNuLggMcokGWrzoL9Y/QEGrOD8Fnm4N0r1aVYP0VO5EVe18NwqwdfBwRmAJJSAJFnk3ntg4wl/I5wMTSpgTf7SQCYUrfPIvFtRpwxx4yv7eUS6tl/SqzG+f2h+bKjF9uJ269bUnEVn2hT+Sosd5D369ez6ywcOEiNmluGi0cpuStB9a32tvuNUdEaIMOHO2xVeLIAgvpaG6fFfGQio/M8kFG8jvnBQbTwXf6xEGcrFV9vBGLeKeH7Cf/RWVddX4ktBCZw2Ag1ziK7/v9ZExPc2SPH0JIm9oOKYOkve0evjNudOWuYn6TtNJ7zAc8suygnH1nxq+sqomfdnBUBZ2CQOjSlPel0u8HCvqqfZiQOGLa9k7/SALF/BnTgN586yS56Qg4utnWB7D39cohmwzG45E0piCK4demFTuo3R39CW7HxtSl6oO74qEcHI40xVYoVk0MuOQ7U1CPbXOQFPvuLKBw7q4Akp27HOPuBr6GRcIwRdpkfcOs9UtgYZQcJ6RjsENIocW+ftiULwtoMAztZtGvoJgSQWAI3jOXdH/QpW6SuwRnTlozfkFd7jk3k60HF5FHFEoRK93jcqOmiXSdQ8N0xE/tPXThYC80Jm5TP3I7xFDut46aWl1fXzN5sXSj8xzj6jNkutM8YrQ1u8gDhJObxMT6UC2NTwDLDBJQ==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA1PR11MB7198.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(1800799024)(366016)(921020)(6133799003)(56012099006)(10067099003)(11063799006)(4143699003)(3023799007)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MlJmb1YxR1Q5cUp5OHVxZmEzaTduTTZiVFVibkdlc3Fna1dOUWUrUTkxcStn?=
+ =?utf-8?B?S3ZrdkgrOUZ4enMwWEZHR2xzQXNFNWtjb25tQ1ZHa0E2L1Y5M3U2TUptR2I0?=
+ =?utf-8?B?czUxY25SUEk1WlpqaUlFTkpZVVpKNHhvYmlRMnp3bUlBbHNLYWl2YTBZbUsv?=
+ =?utf-8?B?Yi9YRmVmMjlmMm5QR3dRN21YT0xZYWs3cERPUjZMeTdIai91RXM2THJad2dT?=
+ =?utf-8?B?d1FZdUNxNmwzVDVsMjJ2NnpNbnFjWC9ac1Y5Sk9WSmlRbDJveExIbC9naG5H?=
+ =?utf-8?B?RE1DWUU0QXRwQlpodk5GTzdlTTVJYnJGd1ZEOXlqc1NCU2NjanRDUnd5dlVR?=
+ =?utf-8?B?NytCdEVoTENMSThzVkY3M21haUVXeDNRYlkyNFg3U2FvK2FmaC9UWW4yRWEw?=
+ =?utf-8?B?WkNjOGt5M2RKRDZ0Y2ZRU0lUQm1Tbm5nQjFQMXAvWGdpc0Y2YStNMHlueXN2?=
+ =?utf-8?B?UUtEWFJqRUJXaHpuNXpUTE9laHo0L3E0QnVKMUtaQWdPNnBDN3o5RDdVTXNY?=
+ =?utf-8?B?eXViK3NQU0xrSnhPcU92K1NhZHNiVTlQS0ZHVHRyMGZiZFVrYjFMMjB2MWhh?=
+ =?utf-8?B?OW8zNFRWaEdZVXdsNFhJcFFLZ0JKRW5DbWFJdmllSllyREluSGhEcVNBcW9q?=
+ =?utf-8?B?QWVmdFZrRHppU1RNYmRzbkdVK3N3NkE2ZHlsWkpvMkVaNlNkMnViY0ZBZFhG?=
+ =?utf-8?B?OXdBMkZaekUxTEhyZDUvTzFoandMd2pmNWNyZ3Qvdjc2enVBUDBTcENiUjFM?=
+ =?utf-8?B?bW82L2VDRmI3NnV4VE1kQ3VCT1pFZ3RYVHZHWGNnWkdGVnQ2akJaa3VJd1Q3?=
+ =?utf-8?B?Smk5YXl2T3IvNTNkYWh6blMvL0hSWmo2SVZOVzdWNHJCUUtvRkxLSFdVMTlU?=
+ =?utf-8?B?Q0NkMlFickY5QjdlZ05wUzhaUmx4MUl5QlhlV3kxK2N4eEVtUVVtVVY3OXhD?=
+ =?utf-8?B?WG9IMkF6bkloTnhGTG9VTHRvRmtPcS9mL0FLRWZsSkpFRURacEs5ZWdoM05Q?=
+ =?utf-8?B?TVBhVm1TZmtHNStjeTJKNStDNnVMMjAzT3dHZ0Y5K1NyRFpJa2xqQU1hVXN5?=
+ =?utf-8?B?YlVkeW91RVRpVDJTeEozSkMwWTZxYm8rVkQvOFhSNWlwRUIxNURqWFNHSzlt?=
+ =?utf-8?B?bk1sU1ZBekt4Zlo0R0o1NDVVR25JN2wzYUpTRDBwYjl6WVBpU0puNWhwVSs4?=
+ =?utf-8?B?UnQwNjBWQlh4dUdsWTlwTDdqZ2ZJdlNpM21HZVovQUIwY09idjFqZk9uVG9w?=
+ =?utf-8?B?dlBHeFRSTkkwWkVLZllhZzBvU3g3VCtiR2hoT0FUcEp2eXBPU0lTcXh3TmpD?=
+ =?utf-8?B?dUVBMWFLQ1VSNVYyRndIemcxbTRqVHhEZ3lIY1VaekZ6eHhEL0dldFBoMjUv?=
+ =?utf-8?B?UDdaTHM1OG8vVjV5NzhDaXV4bjdsZytBVTFiV0MwMDJjYUkwb2NWaURrNkw3?=
+ =?utf-8?B?Zm1xMU1SRm91TjY5KzU5cUpPa2NwV2p3QWJGWVN2K212UE00cnp3SWszY0w2?=
+ =?utf-8?B?T1MzVzgrZ1hxUjF4Y3JSZ2JNV3hjTExTV2pWOTg0NXNQRXNoNU5ReWx3TlRw?=
+ =?utf-8?B?MVA4YTdDeHRLSnNDYjFzYTBua2xQTnhCU05Bb0dGUHJwdzNKZlI0M1BwWFpp?=
+ =?utf-8?B?RGs2c0RMTmxUbjZQK043WXVXTUswQktCd2VoUVp6a1AwaWtUTEtadzI0OThz?=
+ =?utf-8?B?WVZRNEhOUVVqd0Q2RGtWVTNIMmtTR0hpZzlnYlZWaWNVdHZRSTFzT3ZMTjM3?=
+ =?utf-8?B?LzB4YzREa1RWc2R0MmhySVQ1WnluZWxGK1V1V05BVlRpa2NrWUlTaDQ2ejlL?=
+ =?utf-8?B?NmpDeXJtaGYrcFpRaEM2ZlhhTlU1VWxqdWJoRUlXN1ZuRDk2TGErdWxLWWlr?=
+ =?utf-8?B?Vmd0ZmZoWldKa2J0bWV5N1ZKQ3ZOSWh5Wk8zTDFMVmNYZUlqRFd5cDZNR2lM?=
+ =?utf-8?B?Q0lTWUoyUGhUMFJPNTFVM3QzUjdXVFF1UlFuM1lsS2tza0ZNMGpJWFY3Qisr?=
+ =?utf-8?B?UWFHcHVLS3JlaStmb0N0RjExVmlxNkFXS1JSejBtdUtmc1V4WWZxREdLVTRy?=
+ =?utf-8?B?WFBuNGp2Znk1emo1bFRRUUREbmlIdSs0endRbWlYd2lyWkpnY0VvQjI0M0Iy?=
+ =?utf-8?B?ekk1NWQ5Q3c0RXlkSW9RZWhzK0Y5SnNSbUtEYUZnaVhOOWtRQXFsbWJWaG14?=
+ =?utf-8?B?TmpJakMrcVJ1d2t5Ry9DeUtxblJ1c2hkNHRtSk1ob1RCUE9VZTRwd2tzdDVV?=
+ =?utf-8?B?VThrbXpiTGRGZWJ2a3AwOFZMNG1QQ2dWa2Y2TUtJSjNWQlVCSHUybm4wdlBs?=
+ =?utf-8?B?cVhXaFJrSzFrZThCeHNMUFdicU4xaGU3cDVLVGdaWHdDNWlUaDJzTGZsZ1ZW?=
+ =?utf-8?Q?Jq10FvdMJkVaNZDM=3D?=
+X-Exchange-RoutingPolicyChecked: Bj2In+ASe5NM9t7IIYxd4HkMFnCcTd5vXjot/3t4jrQaPDI9+YgRs/zCp3R/EQH90dDb9UOAGkshzD5jaZfejw991eq/LIN78IQ4m5Msg1F1NEwDqmAJKGi4ibjvzhZvGIxvuhmZmlMbStvqagEh1WPMPFIWplnXrGcQ88KMCpf3He+qBePYIm1t92ugStGy+O9oDifFZpi0hHQw+hoY2dQ6ssCx+nIZQogtQnj+CYpLp8Df0pBgw/gFOkC4Es34B8l7kqsnPWgw2HzwP6xeSt2b78G/vZUU8fT3j+AtEwT3ZzZ5XDtc0tyhmIqhvV7066sezKLpsePt8sSRvk06lA==
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2288d028-3964-4e3d-d108-08def7bd9dd2
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR11MB7198.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Aug 2026 15:31:30.4272
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Y5zOmipCuDOGfCgTlYQAYM7bxxpY7k//w6Nr1XGNP5zSdbtdrBHCjdP1CLyaTNQCUzoT8BVUzR2DXO1w9xXu4g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR11MB4833
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_083115_408815_4D65B0F6 
-X-CRM114-Status: GOOD (  14.72  )
+X-CRM114-CacheID: sfid-20260811_083140_790686_836E4285 
+X-CRM114-Status: GOOD (  21.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,100 +196,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Launch something that has multiple child threads, attach to it and
-make sure that all child threads are present in the samples
+On 03/08/2026 12:06, Amir Ayupov wrote:
+> When the internal branch ring has wrapped, thread_stack__br_sample()
+> computes the number of entries that still fit in the destination:
+> 
+> 	nr = min(ts->br_stack_pos, sz);
+> 
+> but then copies ts->br_stack_pos entries regardless, overrunning the
+> destination whenever sz is smaller than ts->br_stack_pos.
+> 
+> No caller can trigger this today: both intel-pt and cs-etm size the
+> thread stack ring and the output buffer from the same
+> synth_opts.last_branch_sz, so sz is never less than ts->br_stack_sz and
+> the two values always agree. It becomes reachable as soon as a caller
+> keeps a larger reconstruction ring than the requested output depth,
+> which is what --itrace=L does for late branch sampling.
+> 
+> Copy nr entries instead, so the destination bound is honoured whatever
+> the caller asks for.
+> 
+> Signed-off-by: Amir Ayupov <aaupov@fb.com>
+> ---
+>  tools/perf/util/thread-stack.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/tools/perf/util/thread-stack.c b/tools/perf/util/thread-stack.c
+> index 1a3dffa83bde2..51eaedb47bb1d 100644
+> --- a/tools/perf/util/thread-stack.c
+> +++ b/tools/perf/util/thread-stack.c
+> @@ -643,7 +643,7 @@ void thread_stack__br_sample(struct thread *thread, int cpu,
+>  		sz -= nr;
+>  		be = &dst->entries[nr];
+>  		nr = min(ts->br_stack_pos, sz);
+> -		memcpy(be, &src->entries[0], bsz * ts->br_stack_pos);
+> +		memcpy(be, &src->entries[0], bsz * nr);
+>  	}
+>  }
+>  
 
-Signed-off-by: James Clark <james.clark@linaro.org>
----
- .../perf/tests/shell/coresight/per-thread-multi.sh | 78 ++++++++++++++++++++++
- 1 file changed, 78 insertions(+)
+Has since been done:
 
-diff --git a/tools/perf/tests/shell/coresight/per-thread-multi.sh b/tools/perf/tests/shell/coresight/per-thread-multi.sh
-new file mode 100755
-index 000000000000..ea525ed5e18b
---- /dev/null
-+++ b/tools/perf/tests/shell/coresight/per-thread-multi.sh
-@@ -0,0 +1,78 @@
-+#!/bin/bash -e
-+# CoreSight per-thread multiple threads (exclusive)
-+
-+# SPDX-License-Identifier: GPL-2.0
-+
-+# If CoreSight is not available, skip the test
-+perf list pmu | grep -q cs_etm || exit 2
-+
-+if ! tmpdir=$(mktemp -d /tmp/perf-cs-callchain-test.XXXXXX); then
-+	echo "mktemp failed"
-+	exit 1
-+fi
-+
-+cleanup_files()
-+{
-+	if [[ $parent ]]; then
-+		kill -9 $parent
-+		wait $parent || true
-+	fi
-+	if [[ $perf ]]; then
-+		kill -9 $perf
-+		wait $perf || true
-+	fi
-+	rm -rf "$tmpdir"
-+	trap - EXIT TERM INT
-+}
-+
-+trap cleanup_files EXIT
-+trap 'cleanup_files; exit 1' TERM INT
-+
-+# Launch 2 threads to run indefinitely
-+nthreads=2
-+perf test -w named_threads $nthreads 0 &
-+parent=$!
-+
-+# While parent still exists, wait for the 2 children to spawn
-+while kill -0 "$parent" 2>/dev/null; do
-+  threads=(/proc/"$parent"/task/*)
-+
-+  if (( ${#threads[@]} >= $(($nthreads + 1)))); then
-+    break
-+  fi
-+
-+  sleep 0.1
-+done
-+
-+echo "Recording..."
-+perf record -o "$tmpdir/data" -e cs_etm//u --per-thread -Se -m,64K --pid $parent > /dev/null 2>&1 &
-+perf=$!
-+
-+sleep 1
-+
-+kill $parent
-+wait $parent || true
-+unset parent
-+wait $perf
-+unset perf
-+
-+echo "Decoding..."
-+perf script -i "$tmpdir/data" > "$tmpdir/script" 2>/dev/null
-+
-+# Exit early unless there is a dedicated sink per core which only TRBE
-+# guarantees. This is because shared sinks will report BUSY if two threads try
-+# to use them at the same time
-+if ! ls /sys/bus/coresight/devices/trbe* > /dev/null 2>&1; then
-+	echo "No TRBE sinks, skipping output validation"
-+	exit 0
-+fi
-+
-+# Check all threads were traced and they have the correct thread name and symbol
-+for i in $(seq 1 $nthreads); do
-+	if ! grep -q "thread${i} .* named_threads_thread${i}" "$tmpdir/script"; then
-+		echo "Error: thread${i} missing" >&2
-+		exit 1
-+	fi
-+done
-+
-+exit 0
+commit ab9c84d1cd59e6b3b73de34982a35a76e3a9b032
+Author: Arnaldo Carvalho de Melo <acme@redhat.com>
+Date:   Mon Jul 27 13:17:01 2026 -0300
 
--- 
-2.43.0
+    perf thread-stack: Fix heap buffer overflow on branch stack wrap copy
+    
+    thread_stack__br_sample() copies the wrap-around portion of the branch
+    stack ring buffer with:
+    
+      nr = min(ts->br_stack_pos, sz);
+      memcpy(be, &src->entries[0], bsz * ts->br_stack_pos);
+    
+    'nr' is correctly bounded to min(br_stack_pos, sz) but the memcpy uses
+    the unbounded ts->br_stack_pos directly.  When br_stack_pos exceeds
+    the remaining destination space 'sz', this writes past the destination
+    buffer.
+    
+    Use 'nr' (the bounded value) in the memcpy size, matching the pattern
+    of the first memcpy in the same function.
+    
+    Fixes: 86d67180b920 ("perf thread-stack: Add branch stack support")
+    Reported-by: sashiko-bot <sashiko-bot@kernel.org>
+    Assisted-by: Claude:claude-opus-4.6
+    Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
+    Reviewed-by: James Clark <james.clark@linaro.org>
+    Reviewed-by: Adrian Hunter <adrian.hunter@intel.com>
+    Signed-off-by: Namhyung Kim <namhyung@kernel.org>
+
+diff --git a/tools/perf/util/thread-stack.c b/tools/perf/util/thread-stack.c
+index c5ce741b0744..1360f44421ef 100644
+--- a/tools/perf/util/thread-stack.c
++++ b/tools/perf/util/thread-stack.c
+@@ -642,7 +642,7 @@ void thread_stack__br_sample(struct thread *thread, int cpu,
+                sz -= nr;
+                be = &dst->entries[nr];
+                nr = min(ts->br_stack_pos, sz);
+-               memcpy(be, &src->entries[0], bsz * ts->br_stack_pos);
++               memcpy(be, &src->entries[0], bsz * nr);
+        }
+ }
 
 
