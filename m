@@ -4,97 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D650C5B56A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 12:21:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C4F3C5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 12:28:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V0/BWpZ1mHkr6NJqOIKhKHqUTotk7EFya8FeeruKRfI=; b=SgNr/WmFgUQ9nL1wVqwUhiTrx3
-	rxrJMwUD1kECkmvGG9Wgmn65XRulGjU6d/o19piPAZIbJidvIl2tHosL3J5ZQ/1D6uKNOMlFoR4LL
-	wLOpSbTtEZxxB3idwBzQ8a4QkIz/0t70HLd3V3MaJvdFsdT/abzYQET/KZl4ZUIHRcD8qxI+lPRBV
-	bbF47RO8rIzsT6fMrCw1nZ+O5porjPAtOM6uH/aLFCCWt6sKjuNWMGxKPIJGhetUkJXqAmUEFBCsg
-	HmDdELSQ8rP+uAKKUp66Ik9WyMg9cVI2XxjGQWD4N1a4Z2lnI8sLyFqLXSqdDDt09tRNuBZRcs9Yg
-	AN7yvlfw==;
+	bh=UqDN8/oCng68xYLvZkz2cIdACIigPFlcuor8NDMkF1g=; b=W+hOH+ua9q++vbETe/KEXrXE5c
+	mgBCxxCfGx6lbrgvxQDD9iwBsogXNcqfnVJd6ivATbsSjvHcFnJRDosA7cf/8eQOsLlLgIHZtlVTx
+	cqPl2b+526LaZCLXtvEzaFxsxJw3O7rL1pPtwAOCxjwthGLMZtsk7Y3Y7g7W8w5G8pEh52JkX4fd7
+	7hM7R2i0YmdoZ8uX35We18Exr/+IZpMm36uLPWxJ9jqWXSK6tODYcwvfnfnKPqrlgf89OwVbOJ1Vh
+	T1ExLh3p4H5hPn2HbsRW/Pqm8NHrItzqS0TCXzKq3Dr7/B4lC3GSEZoest9JydHZX81pQtcZ5xDn7
+	rZnk0uag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtlUC-0000000E0jK-0Ddk;
-	Tue, 11 Aug 2026 12:21:44 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	id 1wtlas-0000000E1g0-2hr3;
+	Tue, 11 Aug 2026 12:28:34 +0000
+Received: from canpmsgout12.his.huawei.com ([113.46.200.227])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtlTk-0000000E0Oy-13Ug
+	id 1wtlap-0000000E1fE-04LB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 12:21:16 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-84f38f3b36eso2205091b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 05:21:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1786450871; x=1787055671; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=V0/BWpZ1mHkr6NJqOIKhKHqUTotk7EFya8FeeruKRfI=;
-        b=nvXcQfZNC2Klng8uez+pPdplQ+rCb7dVRzua1LOdHi/7mLViiaJjfAy114fcNiUt+m
-         yJ0kXPA+c3j8uCkJMF0uO40IM9bgjcWoakPeJkwrfNdUIi6DUuIzNqFLciRGEE5M0hYv
-         cuGlkFCPpEqOHwUphXQJf+5fpX1gAeOr7Hgao=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786450871; x=1787055671;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=V0/BWpZ1mHkr6NJqOIKhKHqUTotk7EFya8FeeruKRfI=;
-        b=bQRJHzCRs8P+uUaiQ6YqVEf+bD9Xc3wlz0k3Art7sitxTV7H79XxI42DyDiF7GUnyh
-         8qSwZ3ZgVPYACSW6Kh5qHfNvHKgwmArWC4WIsrCVpA/3LfRi8SFEZx9fGU5bXAPVL5B8
-         YQXjt/PSD2WSu6j380rmPPHIUDnAwMNboZLTzVwe2WzyIaCprG/HTsq9nCSNVISk2Zwb
-         +TRtbnld5z9WJKaq67nvPOR1kli3GdcUeZBTU/XiqvU2h+350z2XzaD0v5nBT9hTadjh
-         2q46QmXU58Oxqx9J2HasQZAi21TRYgwHavEgp79TbpOdyME44T3XoRWIxHKTi4hpnntZ
-         cjWw==
-X-Forwarded-Encrypted: i=1; AHgh+RqVFMHpcPJtE5mnVVq+zVpeUYaTx+Wlf2wtPRdpatfE0QuD3uLNQQ+v4OOrrocVck+HPXEjvN066yi01DMzDtD3@lists.infradead.org
-X-Gm-Message-State: AOJu0YwixDWnvOQgGbRvOn20SLKHKsyQvZ7o+uYNYrUXfav6lIo4O1RH
-	zUJ6jbEzUcmY1uEm5aXYsb9SXI3uJYGz2kz5udAmH9+uP8mvqleORQqY71UDB6JQiQ==
-X-Gm-Gg: AR+sD101hj/8EaTUkIYxdk+JtLM7Q1995VSge+Y0iiEnFlEiYfNMQB7xh5LIQUKH2UC
-	W8S8YsF6OMBzUeTKCBLLIHo5lrJr059a8rfmaJ0R1WaytgF6BgHp05IvuYScNWVdCqNeKrf0Rx4
-	Zj30Ui//ExQ88+rn99A9vjXes+AGBqxgoFi5N1h4GgGsUa/Bo7Azf7rXZ7Z2XimdtTRgMZdTJkZ
-	Klrwte+memnHykl2m+cP1Y6itLWOyifQaMeZ1fdO1qitr7/UGlWchjQ3zIbRULOvZtkrvTRp4tN
-	SMNGLnN63gdrFb5HY0v7MnHNDAwoDMDAA2gGIXFwfp9kcdFUbMkiT5CmxHxKjYEceWHS3X+A6dx
-	zbDZD2bWvyTF29R4TXtMPI7OIWP/XwMtIV9AAU29OIg04XEUUTYICJkSixLptaS6aoAeb0yR+qr
-	hZ5oHqjNdMHUw56A1B02IYsCitJh6/IlB1HFd4C+BtLB5iNIDVjlxvA+biht3Au4CoIhy+PDul1
-	YEPYQgzE487kjxKpKPbuwznBYtkEs8dYh/gO7vd5N1Eyg==
-X-Received: by 2002:a05:6a00:17aa:b0:848:2c2e:c79e with SMTP id d2e1a72fcca58-84fa86e19e7mr2769479b3a.12.1786450871439;
-        Tue, 11 Aug 2026 05:21:11 -0700 (PDT)
-Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:12e1:df26:6add:1ea7])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84fa9574e9dsm662454b3a.54.2026.08.11.05.21.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 11 Aug 2026 05:21:10 -0700 (PDT)
-From: Chen-Yu Tsai <wenst@chromium.org>
-To: Mark Brown <broonie@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Benson Leung <bleung@chromium.org>,
-	Tzung-Bi Shih <tzungbi@kernel.org>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Jiri Kosina <jikos@kernel.org>,
-	Andi Shyti <andi.shyti@kernel.org>
-Cc: Chen-Yu Tsai <wenst@chromium.org>,
-	linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	chrome-platform@lists.linux.dev,
-	linux-input@vger.kernel.org,
-	linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v4 8/9] arm64: dts: mediatek: mt8173-elm-hana: Unmark trackpad supply as always-on
-Date: Tue, 11 Aug 2026 20:20:08 +0800
-Message-ID: <20260811122011.3539250-9-wenst@chromium.org>
-X-Mailer: git-send-email 2.55.0.679.g6767b8d81c-goog
-In-Reply-To: <20260811122011.3539250-1-wenst@chromium.org>
-References: <20260811122011.3539250-1-wenst@chromium.org>
+	Tue, 11 Aug 2026 12:28:33 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=UqDN8/oCng68xYLvZkz2cIdACIigPFlcuor8NDMkF1g=;
+	b=4RXBb1CUHVzpGHtcdQoAm6GhT7Y91pGLP+RLujBgeEGqqHcUtbGpwcE6vaj5BHy/m1/ct3ioj
+	laUVHZs2uRjKDM9b3JelZsQPnfnJfZ2qEJCM0tKorPm/rvnKFG3gv5VMTai0A3JHFm4wF2KuQMg
+	VIXk3XYonoYSgIMD/bedf/I=
+Received: from mail.maildlp.com (unknown [172.19.163.200])
+	by canpmsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4hK9cl6C33znTVy;
+	Tue, 11 Aug 2026 20:17:59 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id D7C7940563;
+	Tue, 11 Aug 2026 20:28:22 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 11 Aug 2026 20:28:22 +0800
+Message-ID: <1cbcf4b7-201d-4476-a9a7-e5bcac4166b3@huawei.com>
+Date: Tue, 11 Aug 2026 20:28:21 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v2 26/45] arm64/efi: Implement override for IRQ flags
+ checks
+To: Vladimir Murzin <vladimir.murzin@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>
+CC: <mark.rutland@arm.com>, <maz@kernel.org>, <will@kernel.org>,
+	<catalin.marinas@arm.com>, <liaochang1@huawei.com>
+References: <20260727163453.7969-1-vladimir.murzin@arm.com>
+ <20260727163453.7969-27-vladimir.murzin@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260727163453.7969-27-vladimir.murzin@arm.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_052114_701134_05856BA4 
-X-CRM114-Status: GOOD (  18.23  )
+X-CRM114-CacheID: sfid-20260811_052831_674383_FF9AE572 
+X-CRM114-Status: GOOD (  16.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,59 +80,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Up until now, the MT8173 elm/hana device tree has set the dedicated
-regulator supplying the trackpad as always-on, simply because the Elan
-driver was missing proper delays. As a result the delay for the
-Synaptics trackpad was also omitted, as it was not strictly required
-under such a model and delayed the availability of the trackpad to the
-user.
 
-The Elan driver recently gained proper delays after power up, with
-opportunistic skipping of the delay when the regulator was originally
-on. The I2C HID driver gained similar opportunistic delay skipping.
-So has the I2C OF component prober library.
 
-Now fix the device tree to have the regulator not be always on, and
-let the I2C HID device have the correct post-power-on delay time.
+在 2026/7/28 0:34, Vladimir Murzin 写道:
+> Take advantage of the recent changes to the way arm64 represents IRQ
+> flags and implement an architecture-specific override for the EFI IRQ
+> flags check.
+> 
+> IRQ flags now carry both DAIF and PMR state. EFI is not expected to
+> modify either of them, so check both when verifying that IRQ state is
+> preserved across EFI runtime calls.
+> 
+> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+> ---
+>  arch/arm64/include/asm/efi.h | 38 ++++++++++++++++++++++++++++++------
+>  1 file changed, 32 insertions(+), 6 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/efi.h b/arch/arm64/include/asm/efi.h
+> index e8a9783235cb..0fc5a8cd5850 100644
+> --- a/arch/arm64/include/asm/efi.h
+> +++ b/arch/arm64/include/asm/efi.h
+> @@ -5,6 +5,7 @@
+>  #include <asm/boot.h>
+>  #include <asm/cpufeature.h>
+>  #include <asm/fpsimd.h>
+> +#include <asm/interrupts/common_flags.h>
+>  #include <asm/io.h>
+>  #include <asm/memory.h>
+>  #include <asm/mmu_context.h>
+> @@ -48,18 +49,43 @@ void arch_efi_call_virt_teardown(void);
+>  	(efi_rt_stack_top != NULL &&					\
+>  	 on_task_stack(current, READ_ONCE(efi_rt_stack_top[-1]), 1))
+>  
+> -#define ARCH_EFI_IRQ_FLAGS_MASK (PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT)
+> -
+>  /*
+>   * Even when Linux uses IRQ priorities for IRQ disabling, EFI does not.
+>   * And EFI shouldn't really play around with priority masking as it is not aware
+>   * which priorities the OS has assigned to its interrupts.
+>   */
+>  #define arch_efi_save_flags(state_flags)		\
+> -	((void)((state_flags) = read_sysreg(daif)))
+> -
+> -#define arch_efi_restore_flags(state_flags)	write_sysreg(state_flags, daif)
+> -
+> +	((void)((state_flags) = arch_local_save_flags()))
+> +
+> +#define arch_efi_restore_flags(state_flags)			\
+> +do {								\
+> +	arm64_exc_hwstate_t __st = {.flags=state_flags};	\
+> +								\
+> +	arm64_update_exc_hwstate(__st);				\
+> +} while(0)
+> +
+> +#define arch_efi_check_flags(state_flags, caller)									\
+> +do {															\
+> +	arm64_exc_hwstate_t __actual = {.flags =  arch_local_save_flags() };						\
+> +	arm64_exc_hwstate_t __expected = {.flags=state_flags};								\
+> +															\
+> +	if (__expected.flags == __actual.flags)										\
+> +		break;													\
+> +															\
+> +	add_taint(TAINT_FIRMWARE_WORKAROUND, LOCKDEP_NOW_UNRELIABLE);							\
+> +															\
+> +	if (system_uses_irq_prio_masking()) {										\
+> +		pr_err_ratelimited(FW_BUG "DAIF+PMR corrupted (0x%x + 0x%x=>0x%x + 0x%x) by EFI call from %pS\n",	\
+> +				   __expected.daif, __expected.pmr, __actual.daif, __actual.pmr,			\
+> +				   caller ?: __builtin_return_address(0));						\
+> +	} else {													\
+> +		pr_err_ratelimited(FW_BUG "DAIF corrupted (0x%x=>0x%x) by EFI call from %pS\n",				\
+> +				   __expected.daif, __actual.daif,							\
+> +				   caller ?: __builtin_return_address(0));						\
+> +	}														\
+> +															\
+> +	arch_efi_restore_flags(state_flags);										\
 
-Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
----
- arch/arm64/boot/dts/mediatek/mt8173-elm-hana.dtsi | 8 +-------
- arch/arm64/boot/dts/mediatek/mt8173-elm.dtsi      | 1 -
- 2 files changed, 1 insertion(+), 8 deletions(-)
+Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8173-elm-hana.dtsi b/arch/arm64/boot/dts/mediatek/mt8173-elm-hana.dtsi
-index 1004eb8ea52c..b9e311fcd9a0 100644
---- a/arch/arm64/boot/dts/mediatek/mt8173-elm-hana.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8173-elm-hana.dtsi
-@@ -62,13 +62,7 @@ trackpad2: trackpad@2c {
- 		pinctrl-0 = <&trackpad_irq>;
- 		reg = <0x2c>;
- 		hid-descr-addr = <0x0020>;
--		/*
--		 * The trackpad needs a post-power-on delay of 100ms,
--		 * but at time of writing, the power supply for it on
--		 * this board is always on. The delay is therefore not
--		 * added to avoid impacting the readiness of the
--		 * trackpad.
--		 */
-+		post-power-on-delay-ms = <100>;
- 		vdd-supply = <&mt6397_vgp6_reg>;
- 		wakeup-source;
- 		status = "fail-needs-probe";
-diff --git a/arch/arm64/boot/dts/mediatek/mt8173-elm.dtsi b/arch/arm64/boot/dts/mediatek/mt8173-elm.dtsi
-index a0573bc359fb..6b9f47f515c7 100644
---- a/arch/arm64/boot/dts/mediatek/mt8173-elm.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8173-elm.dtsi
-@@ -1093,7 +1093,6 @@ mt6397_vgp6_reg: ldo_vgp6 {
- 				regulator-min-microvolt = <3300000>;
- 				regulator-max-microvolt = <3300000>;
- 				regulator-enable-ramp-delay = <218>;
--				regulator-always-on;
- 			};
- 
- 			mt6397_vibr_reg: ldo_vibr {
--- 
-2.55.0.679.g6767b8d81c-goog
+> +} while(0)
+>  
+>  /* arch specific definitions used by the stub code */
+>  
 
 
