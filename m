@@ -4,148 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B8A6C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 15:12:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F24FC5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 15:12:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q+0y3mrD5zDdkpuQxbIwssRNlfJvUQ3+QhlfPnxVCFE=; b=NrqOTfusDwNlGSwlhoIjLEIDoH
-	ynheAN6cV2P0rQkWSupz2x5E4baHA3Z65C4VPbZK3Qg6V4+jZxCIVbM4qjLqpURI5mIPZ56K0Wg1t
-	Vp0Ghjqjix8ISC2vaRH3Nf+zhRLLG/B/s3psg+04lf+00vsCXJp8M3x4KTydMO9u02Qu19RILxycf
-	NMJ+dJvmhKCbRT9Mo3T881snnVp9bshPrQ8BdP0IYoqLwZ0i5fKEcOyUIaaxmE6KmsKQrMbELmED4
-	HoQhzNxyCHk/VP5iWwJH9s0YYq+jCk24CdrZZB/OguquiOJMHlRdgQ+EpBruv3btnpEVgiiSWY8rx
-	7Woa+EEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HNP0bVRN3BIEQFCgVCRS46/SHi+YQBr42iLusOUd4wg=; b=TNjQpDL2h22SxVtP4MLrDKCMIZ
+	uh6I9gj9PHM8Voual+FMKHKYF6CxqfNonhsHx6vR6Vn/nPxvlCqq6DIIpyHq2+MnFYQn/0LsDM/bA
+	M/+Y10tvyDG7YrIOFHI/m+7pr9i8pNnotx+7z+I+GPmzfmjMJ4EKYruoPCBhSPTdZA9ceMyNwTHWT
+	GSwNGSipEnGWpdnkIyuz5cLye7V8+MtscZrjkI9+F1ZC/rkE0lSrzQRyF2Tpvptl9wVwiSRleq14Y
+	WYdq2+nXQeLvzWCMGZMAhYVrD+PNQWTTURDHfs0Jp0TjWWrPQ+qTUG4KGuFpKCg8Wmn/L6glh3hiM
+	nkACTl0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wto97-0000000EIEg-3CmO;
-	Tue, 11 Aug 2026 15:12:08 +0000
-Received: from mail-westeuropeazon11010044.outbound.protection.outlook.com ([52.101.69.44] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1wto9P-0000000EIKc-0TrX;
+	Tue, 11 Aug 2026 15:12:23 +0000
+Received: from fhigh-a2-smtp.messagingengine.com ([103.168.172.153])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wto94-0000000EIDB-3BHD
+	id 1wto9M-0000000EIIZ-0xfo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 15:12:04 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=sWWk6pSlD8byBmR2/xXkPH8cc9TGXvKqJ4rKu9Jk+XCcRgeNJI1xeqzOC+k9IHFW/oRkvR121nsi4pjzENGveIGD0q+O0a6dj4bUxsCg/DbBAHcJfwzvDglJZ6scOnNPuL5Kr9SHvBpAIBe7cVaLqBA2P0kQvu7Ugw5juD2q/aNhk2q542KAXCU+1ObaEOYdD87XhmkN663hybZzPVdqLf3lIVijQE6aSurGFbFtF+TNDlGzI9XT3iL6FMJL5Xa5prpQVEm1aF4ZqLveGDFl+pVwIAdzZRHdn8lcFOX3/tPrZbGJelF6/ny6O9/jNyyzIDHtYmGVke0esyJOPOmr2Q==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=q+0y3mrD5zDdkpuQxbIwssRNlfJvUQ3+QhlfPnxVCFE=;
- b=Ji7jlxl+JV5SeUyNj/+Hc4Xw8J1TPLcmusZkl5MYQecoAVq7e5z0eA7SsW0wu05QaCwpv6dD4EGKYpKlTjVTiQiUNiLrfoFNkjk7hgWKneYJqlryaSjGGJwxn4ci5ButtuUfNcREPTCXmItVOzyLIp8Wxih9gDhlhpePjUBB/awQJUPEpWeNLDObj/0oWKqvEfcH392f/4Ne7kaaVT7QWeI2xQYcgC9Qh7AvBU8UQ86iOMYrXQA9QYfhRsBtg4B31FMhlWmO8bsgjj+2a1UguxFjqGbMSQpAq59xZj3pDEEmhyYaY67cres5FqHkHX0TFB+3HoogjOyDAIef+OjjKQ==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=arm.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
- dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=q+0y3mrD5zDdkpuQxbIwssRNlfJvUQ3+QhlfPnxVCFE=;
- b=TDJbxMJgplYHRdnhuZY9Raky6GcNKW05ROyJYnfaJFEgXZ2OtBk0VCaRkJX0gt2SnkKA5cIagmV08x/dZqLAclPNCU7z2JmDvAmDPPwa9zNZZ/cIcvFNDzBA6ryVBxr3G7eimibEAFCH+SI1KAkUIkFCUx6B3NTp+DsaiKuvmx4=
-Received: from AS4P189CA0014.EURP189.PROD.OUTLOOK.COM (2603:10a6:20b:5d7::17)
- by AS8PR08MB7861.eurprd08.prod.outlook.com (2603:10a6:20b:52c::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.25; Tue, 11 Aug
- 2026 15:11:52 +0000
-Received: from AM4PEPF00027A6C.eurprd04.prod.outlook.com
- (2603:10a6:20b:5d7:cafe::3e) by AS4P189CA0014.outlook.office365.com
- (2603:10a6:20b:5d7::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.315.11 via Frontend Transport; Tue,
- 11 Aug 2026 15:11:52 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AM4PEPF00027A6C.mail.protection.outlook.com (10.167.16.90) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.315.6
- via Frontend Transport; Tue, 11 Aug 2026 15:11:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cR8AWF7/EtVq0iKH8rAyxDNao8KSVedx1sN/eW48J7vN3fUVE/FYv3jmXTZLLPtVGel0WM+njKkU1WH8SWmfBZi7NH4VUCuE1RJ28HsKrcMzdMs3m/1bQggB3ZBKH09oIFuwuC6BxSEgzi6DIDWGeaX2Gr9VRiHTsk5NHIj1YaLrFV/5mUA+aZy/mc6ZznhjFf8HSL4DnDK7GE2F/29G5C80X8E9ERM1ulG1mNaYsgFOeIrwd64zGQtmVSPsvdl54LVKz6zIKSosigbfnAOV4ZRvactYvpU7B3rgW/1KgKniC+8XMq1iZlmmZfXxHJH7ehbZ5tL1qFog+KqffNl9WA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=q+0y3mrD5zDdkpuQxbIwssRNlfJvUQ3+QhlfPnxVCFE=;
- b=CFcm/oD+u1ZeprtqRfdpXlP34F2w8dkfKSt25aDhcWq0jzQnsil84Va7ikmBadNfaddxznYkaLfMmh8l78dc9UD/xqIB9fYnc+hyvfVJxLnkBQxBOVwMLLMcP1xO2Y2RQkVWk5IsBUoBc7cxe1aU41kFHikROyJ/KeNNTVY8emkjUmJDIzRiQGQuiYys188aEPPlSu8x+Z50uIChYwoZzsXF4AjE10bnwuDjRxza2S00OQiRCKqCTANeA4No63zqCjMt9TjgplT+uNhtrWr1+is4jbRphH/WyiamKckfY1jQp7MiL3Oi0fS+CUO1PqtEoeKOKL6cAbA1b9LnKgFIRg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=q+0y3mrD5zDdkpuQxbIwssRNlfJvUQ3+QhlfPnxVCFE=;
- b=TDJbxMJgplYHRdnhuZY9Raky6GcNKW05ROyJYnfaJFEgXZ2OtBk0VCaRkJX0gt2SnkKA5cIagmV08x/dZqLAclPNCU7z2JmDvAmDPPwa9zNZZ/cIcvFNDzBA6ryVBxr3G7eimibEAFCH+SI1KAkUIkFCUx6B3NTp+DsaiKuvmx4=
-Received: from DU0PR08MB8421.eurprd08.prod.outlook.com (2603:10a6:10:407::19)
- by GV1PR08MB8214.eurprd08.prod.outlook.com (2603:10a6:150:5d::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.25; Tue, 11 Aug
- 2026 15:11:18 +0000
-Received: from DU0PR08MB8421.eurprd08.prod.outlook.com
- ([fe80::2158:1cab:1d88:ba2e]) by DU0PR08MB8421.eurprd08.prod.outlook.com
- ([fe80::2158:1cab:1d88:ba2e%6]) with mapi id 15.21.0315.008; Tue, 11 Aug 2026
- 15:11:18 +0000
-From: Sascha Bischoff <Sascha.Bischoff@arm.com>
-To: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>
-CC: nd <nd@arm.com>, "maz@kernel.org" <maz@kernel.org>, "oupton@kernel.org"
-	<oupton@kernel.org>, Joey Gouly <Joey.Gouly@arm.com>, Suzuki Poulose
-	<Suzuki.Poulose@arm.com>, "yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>
-Subject: [PATCH v2 3/4] KVM: arm64: vgic: Reject out-of-range GICv5 PPI IDs
-Thread-Topic: [PATCH v2 3/4] KVM: arm64: vgic: Reject out-of-range GICv5 PPI
- IDs
-Thread-Index: AQHdKaOoMQb5WWMOvE2620AciVvx8Q==
-Date: Tue, 11 Aug 2026 15:11:18 +0000
-Message-ID: <20260811150941.941295-4-sascha.bischoff@arm.com>
-References: <20260811150941.941295-1-sascha.bischoff@arm.com>
-In-Reply-To: <20260811150941.941295-1-sascha.bischoff@arm.com>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-mailer: git-send-email 2.34.1
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-x-ms-traffictypediagnostic: DU0PR08MB8421:EE_|GV1PR08MB8214:EE_|AM4PEPF00027A6C:EE_|AS8PR08MB7861:EE_
-X-MS-Office365-Filtering-Correlation-Id: 44d2be40-1eac-4ebd-327b-08def7badfdf
-x-checkrecipientrouted: true
-nodisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|23010399003|376014|1800799024|366016|38070700021|10067099003|56012099006|11063799006|18002099003|22082099003|3023799007;
-X-Microsoft-Antispam-Message-Info-Original: YaO0JH1swwZlp3aLeUue0q/1mAzMQmUUNOutbkwc5EiWmdiXyWRtXhU6zf7Efy+ok9wWOMrnAvryLxy+AhTWWpeQIWD1wM5SYlkJMCwZzfNgGAjJqkrWNAhjoPPZ1FnagueUiUpwSK9P/vnpFM8WRfny0kFBJEcKdvcgVyNWjS4+i/rBZFFHhou8LU7YtEcGjA6aHLVmsv6HqZV5nYMcspwB3AuJ9gp6lXE8/joKKozWEz47rXrGgMNWbu+eJZ+21sq8xeOZuWZSBE1/pkWjI2mQGpkKgxorXeAmaXr8ODhlzsqFJkLKHtfrdCse08xVwH/ruAe+vZkRTPmWeG0Ne/nmHptIfunLa3LdJ22EH8bmM4Hafsl2GP9w00f4roISmsK1OZlFFC0jc9+WVNo4b3pKpMvDiRoDaSZcNXxaNuA5wnKqXieN+UNxuiQWDrJg2SdsS0ilqK2ebLMvUeGv67K577OsIwv8c/qe2xe3wqDQ6fr43OB4HwDNGi2nSzBS/qGdAy0ipnMb7dVbAKexVa/hule7m9ReKwf4VeyF2jibdTIFMlm56HS4wKG7brQEohYm/GLh6VPXyWbjPegbEfXAg9rNIyku40uoSWqnjflwGB7Tza+BlVphdHuB0wyvRVZNhGCW+BbMzMnOFTYb4B70G55vLL+9ixRP/8xTfIA=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR08MB8421.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(1800799024)(366016)(38070700021)(10067099003)(56012099006)(11063799006)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	Tue, 11 Aug 2026 15:12:22 +0000
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 6A5B9140014C;
+	Tue, 11 Aug 2026 11:12:15 -0400 (EDT)
+Received: from ams-imap-03 ([10.64.2.23])
+  by ams-compute-02.internal (MEProxy); Tue, 11 Aug 2026 11:12:16 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1786461134;
+	 x=1786547534; bh=HNP0bVRN3BIEQFCgVCRS46/SHi+YQBr42iLusOUd4wg=; b=
+	MYTFBvkL34sEhjqvkT+M9tVanfBZ+IXoOtflcQO45tIsRn8MZ59Y7RJPOnetRZTZ
+	iJJAVgpK/d3XiGE5ykevx/PUwIjEoZnFGixh082PqcDeKfDPR7urqmhmAd5cr94n
+	jxjyva0hXLl7xsMYDB5Lm4blmPxMX4+CUyZH0lBgo697MQ6cFpEZtOy73uxIQqXf
+	T7WdrGB0IhiP0IszOVBUcSkeR0Zho2GILcx61HFLZ8P+ymygNcYOqlQxvZ3pMGxw
+	Lf17zswpPY4G1ZLS2rA0DMnJOAge7yA8alUaWwY88xn+nIxleg7v4/uXP/tpBwK3
+	54kTpFU6SgSydt1Gia28yw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1786461134; x=
+	1786547534; bh=HNP0bVRN3BIEQFCgVCRS46/SHi+YQBr42iLusOUd4wg=; b=c
+	rAjKdScjIYRQW9zjdI+xjbWcr3hilXdwZVMpqedHYIiLMZy6ixa1uxET6MQZNHYJ
+	RBgMJSoz/TXJcm4X5W5GmFgSLEjF3PuWLiQSrFmxTuXMgitguk+73VTZUKvTVUjB
+	rHmb5NKtQf0Wgk0wvjGu2CMWSlR+XHmeG67kR808dqjawlozQ1oDVVYEHaUW8uAF
+	Jcwj1n//IzSsuXr7IfCi36pNjzbr16okEM97DnfsbJCW0E+AKP8PO3UXFxf/BCyt
+	YYy8iYDKFNJdcWM5+z4zY/MrojRSuTw/dgL2Lp+eCZNaUW3LhkE5Ph21gEgrYzYx
+	FcdNJU4PNvXwmZsMDNZVw==
+X-ME-Sender: <xms:yDt7amsi8NsWVPxjs15GY0jHt4JVsUZFcKxoTrnXbv9tZU9CYZQ5LQ>
+    <xme:yDt7amSdXcRTnNEZ3rVcgF9i0XJVuE6zayofn6cjIJWGw3OOTFjYicVYu1w3-O7Qz
+    Bdn93lnXQYDVqYVy8acAH_i3IPOg9umLu0tLLs4qUftobwXpxNZX8U>
+X-ME-Proxy-Cause: dmFkZTEIs3WxYSrZd5T5d1uzHrL7lqC6JQse04tRsA+075Eo8cjVSAwPTmul2O0vuNAxFe
+    28hZE8zH8kWsxj5ifkI5QA8wVVMeC6mwV348yjqhRXtgxGeWBPA8GhDTs8KiH61sEaT/A+
+    WD4WQYlqJ1AUhVz0VlIra/UZt605uq3jr5vSiGT9qR1LNAgmXpQ9yRxzkdPkaBAHqZcCIg
+    8+GehEWj8ChbU0lmwF6Xs2oh0fDwED+d6TcPwbdnKyUDVGK4J/n71ERROyeqnFgs8FoPU4
+    IPTJzjwzR0kvX2ad2Fv7pKRSMBFODb6rXhx1vDU9ZpWIhw92XJNaBrXXnhuF0HjJCQoMPg
+    ejVI2jUxO3dWwl9Y3xd3toIBE64TccTYx1KEkinLQp/AXb/e1D4rewoevRRs7EJT7IWBh/
+    H8sQQF+rs4/4Cl8oUndCBsGzsvearq22HDs9GmKEf5UuCWZh+R6Uo3+BYhk6/xLhwND4Wm
+    9f4IOsJO5MK4Nu+s8/fgJHhRVmfK9bj4aTLnZ44GQdP8W3IUIVKlhK0IanAfacvlz8DDwU
+    04bhH0pgZpPK63z7OAR4XvYI+nHTHgqKrJZGpqPgkq3Wpf/MAuwIYB7cdUbwYZXB7awteI
+    u/O+sAQLzU6pZS6g3oChRQD4zTQAKhEtUQt76Ilf6cB7RNJALefv78VjGO/g
+X-ME-Proxy: <xmx:yjt7anfmNTMtuOHNKtnkt0wEe54gypHldAKL03CJnh_DCXzOFop5Vw>
+    <xmx:yjt7ajuqI0g-eqY9OjgY7WgP5SSPu8G1mbsqorrIX2ErwyHHfbTc6w>
+    <xmx:yjt7auiHbnM_hDMAuoB3SCHQop7rDF_2J146PeKYoOkPuOaZGIQ00A>
+    <xmx:yjt7aruZtPsro7Qqt8HoJ_4v5k_fl5QXSlvciwFKQHiyXNKQlCYwdA>
+    <xmx:zjt7atzRPutVtdGuSZnggZ7G9H0xyjCKg1DEHmfdAZHD8iP4H28TOKmS>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 3244632A006A; Tue, 11 Aug 2026 11:12:08 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: BNqzBVlZDraarC3ZKW6v39hSek3fs3b5xJ8oPbyHbvLGhx9/Rh3IW55kwTkaKoIS4qLVivkJ5AZrg/BivrQaIBK+l57j3+RQIasPjISCx+JoUaW1S30otBnQSiDD1NqNE1fDu38nDFGzykEdXabG9nnLQqfBcEzkTBpXxsy9GeWjWXfhNPaTgBv6nSj/yc4fmwIE83G0JMFalGBYaASSeShUdZ9zQDng4u7WpMLq4Mwq29rOMPhu+Q7OH3ygL8hzIa9U3ZFij6dMoxfzr6KH6+s20CQUHNnyR35dUGZjV9XqHBmiYEjCI39J89FSWzfIKFc9+Qzl/bRHucKOyWMSOA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR08MB8214
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM4PEPF00027A6C.eurprd04.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: efb91331-4ad1-4aed-4b1c-08def7bacb5e
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|23010399003|82310400026|14060799003|36860700016|35042699022|13003099007|22082099003|18002099003|3023799007|56012099006|10067099003|11063799006;
-X-Microsoft-Antispam-Message-Info: ++ypL1sQGPpGgeaVI5s3bbNBDGKYP7k70qLDimhU7YVSrRTrPCnSfVjabKeze4sf2gP1lXqKFt5LZdtD36xdut47SUHF3E6lTmKf3Ge6CmmmA95w8M1qU0Fgp2NoA16im2GxLpId1OBecEqiLJyvjgEp0WzlPB4rrJe/NRK0JFj52h/G0vQeX57hhf5DnUzJ5r2tY1Fm/7G/qVkQxHpdt4IdKr7Ko3sXMkQeEA2v/KKn0FanmARmNhvcFyltZD/4iZvxZZKt7NSZiQhnHOK/i1+68eYKkp4Tr0N6QPpQ77rHkIUUuMg8yv8kTxeda44br/PFtL0aPaGqF+TDstgp7M03HSkXEhLyEpzdgYzK+PWDQG5DJZIaiuzqIrBWyc9mCBfpaGHCSiiiOvZMpat09BdkAd6Vx6EVOJAclHMaMu/NDg0GcCYakY7UVEOskRfD8AXoIqszPXRJk4BJbWr8wOcfazsToMaQ3InOEaRtcUOjd569wQjjDO5SfoVIr5UZJgt+BYWUJVwoPl6FHVFQAVShyOFuUv/6Bws3qHC/6b+/05UNUjPT+w1ajywEPjgMMIfVVLzMFyO2IWIclR+wLGhPw5tP/JbWL3+eDchztcAJ2GGuRqYjraXkmhz2ofQAULE2B/s3hkbg3gf0QCPGDg==
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(1800799024)(23010399003)(82310400026)(14060799003)(36860700016)(35042699022)(13003099007)(22082099003)(18002099003)(3023799007)(56012099006)(10067099003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: RdpnRkngWAPv74znxCqnN/N8GAb+SglfjPVy+NK6DnlJyvbIytuFPccOM/ISDmvobDe5kZPTAaEdZKDAMhMEbF75gaGyI/VFc6SsvdRzS4VMXAQj1VaceGFceWI8zrTzeAEupbR8PjWcuEK2xg20U8dFo6GYDTkq1JY1aCtBItphVXF1LaQaF599MwbJt2B4l4tfXkgM2L79c68yguNBMzCZZ2F9W0sqrfXCYcU5616yk8T5RvsKbqyaucnBZ77CllcozfBLtXXbbRXYJybHC8kJFOJJvGNjb2AfmSocXW7UGgOGSQG/7lYoLrrnj5Eifx+2nnnIRtamvLKtLlJH9QkBUWcmN2Xe5AkAltrwBxcaLWrkITAWSfgrz55nVvmVRioBzErG0N2TTcGEtYAZrmksXhMhaeGy/xT28Xtwbs1OHUFkzs45R/4EpzlBaHeo
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Aug 2026 15:11:52.4272
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 44d2be40-1eac-4ebd-327b-08def7badfdf
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM4PEPF00027A6C.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB7861
+X-ThreadId: AwnWr737caCF
+Date: Tue, 11 Aug 2026 17:11:47 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Will Deacon" <will@kernel.org>, linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org, "Ard Biesheuvel" <ardb@kernel.org>,
+ "Eric Biggers" <ebiggers@kernel.org>,
+ "Daniel Borkmann" <daniel@iogearbox.net>,
+ "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Alexei Starovoitov" <ast@kernel.org>, "Oliver Upton" <oupton@kernel.org>,
+ "Herbert Xu" <herbert@gondor.apana.org.au>, "Marc Zyngier" <maz@kernel.org>,
+ "Linus Walleij" <linusw@kernel.org>
+Message-Id: <6632712f-7782-4580-84c0-62124a016f46@app.fastmail.com>
+In-Reply-To: <20260811140132.22778-1-will@kernel.org>
+References: <20260811140132.22778-1-will@kernel.org>
+Subject: Re: [PATCH 00/12] arm64: Remove unused big-endian support
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_081202_800456_D7D7780E 
-X-CRM114-Status: GOOD (  10.40  )
+X-CRM114-CacheID: sfid-20260811_081220_341617_EF782097 
+X-CRM114-Status: GOOD (  21.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,40 +113,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-R0lDdjUgc3VwcG9ydHMgdXAgdG8gMTI4IFBQSXMsIGJ1dCBLVk0gY3VycmVudGx5IGltcGxlbWVu
-dHMgb25seSB0aGUNCmZpcnN0IDY0LCB3aGljaCBjb250YWluIHRoZSBhcmNoaXRlY3RlZCBQUElz
-IGl0IHN1cHBvcnRzLg0KDQpBbiBlbmNvZGVkIFBQSSB3aXRoIGFuIElEIG91dHNpZGUgdGhhdCBy
-YW5nZSBwYXNzZXMgaXJxX2lzX3BwaSgpLA0Kd2hpY2ggb25seSBjaGVja3MgdGhlIGVuY29kZWQg
-aW50ZXJydXB0IHR5cGUuIHZnaWNfZ2V0X3ZjcHVfaXJxKCkNCnRoZXJlZm9yZSBsb29rcyBpdCB1
-cCBpbiBwcml2YXRlX2lycXNbXSwgd2hlcmUgYXJyYXlfaW5kZXhfbm9zcGVjKCkNCmNsYW1wcyB0
-aGUgb3V0LW9mLXJhbmdlIGluZGV4IHRvIHplcm8gYW5kIGFsaWFzZXMgUFBJIDAuDQoNCkluY2x1
-ZGUgdGhlIHN1cHBvcnRlZCBQUEkgcmFuZ2UgaW4gaXJxX2lzX3BwaSgpIHNvIHRoYXQgS1ZNIGlu
-dGVyZmFjZXMNCnJlamVjdCB1bnN1cHBvcnRlZCBQUElzLiBBbHNvIHJlamVjdCBhbiBvdXQtb2Yt
-cmFuZ2UgUFBJIGluIHRoZSBsb29rdXANCmFzIGEgc2FmZWd1YXJkIGFnYWluc3QgY2FsbGVycyBi
-eXBhc3NpbmcgdGhlIHByZWRpY2F0ZS4NCg0KRml4ZXM6IDRkNTkxMjUyYmFjYiAoIktWTTogYXJt
-NjQ6IGdpYy12NTogSW1wbGVtZW50IFBQSSBpbnRlcnJ1cHQgaW5qZWN0aW9uIikNCkZpeGVzOiBl
-YjhiY2UwOGVjYjEgKCJLVk06IGFybTY0OiBnaWM6IEludHJvZHVjZSBpbnRlcnJ1cHQgdHlwZSBo
-ZWxwZXJzIikNCkxpbms6IGh0dHBzOi8vc2FzaGlrby5kZXYvIy9wYXRjaHNldC8yMDI2MDcyNDEw
-NDgxOS4xMjk2ODAzLTEtc2FzY2hhLmJpc2Nob2ZmQGFybS5jb20/cGFydD0yNw0KU2lnbmVkLW9m
-Zi1ieTogU2FzY2hhIEJpc2Nob2ZmIDxzYXNjaGEuYmlzY2hvZmZAYXJtLmNvbT4NCi0tLQ0KIGFy
-Y2gvYXJtNjQva3ZtL3ZnaWMvdmdpYy5jIHwgMiArKw0KIGluY2x1ZGUva3ZtL2FybV92Z2ljLmgg
-ICAgIHwgMiArKw0KIDIgZmlsZXMgY2hhbmdlZCwgNCBpbnNlcnRpb25zKCspDQoNCmRpZmYgLS1n
-aXQgYS9hcmNoL2FybTY0L2t2bS92Z2ljL3ZnaWMuYyBiL2FyY2gvYXJtNjQva3ZtL3ZnaWMvdmdp
-Yy5jDQppbmRleCAzNTJkNTJiZDYzMTVjLi5iMjUzMDNkOTkxOWZkIDEwMDY0NA0KLS0tIGEvYXJj
-aC9hcm02NC9rdm0vdmdpYy92Z2ljLmMNCisrKyBiL2FyY2gvYXJtNjQva3ZtL3ZnaWMvdmdpYy5j
-DQpAQCAtMTE4LDYgKzExOCw4IEBAIHN0cnVjdCB2Z2ljX2lycSAqdmdpY19nZXRfdmNwdV9pcnEo
-c3RydWN0IGt2bV92Y3B1ICp2Y3B1LCB1MzIgaW50aWQpDQogCQlzd2l0Y2ggKHR5cGUpIHsNCiAJ
-CWNhc2UgS1ZNX0RFVl9UWVBFX0FSTV9WR0lDX1Y1Og0KIAkJCWludGlkID0gdmdpY192NV9nZXRf
-aHdpcnFfaWQoaW50aWQpOw0KKwkJCWlmIChpbnRpZCA+PSBWR0lDX1Y1X05SX1BSSVZBVEVfSVJR
-UykNCisJCQkJcmV0dXJuIE5VTEw7DQogCQkJaW50aWQgPSBhcnJheV9pbmRleF9ub3NwZWMoaW50
-aWQsIFZHSUNfVjVfTlJfUFJJVkFURV9JUlFTKTsNCiAJCQlicmVhazsNCiAJCWRlZmF1bHQ6DQpk
-aWZmIC0tZ2l0IGEvaW5jbHVkZS9rdm0vYXJtX3ZnaWMuaCBiL2luY2x1ZGUva3ZtL2FybV92Z2lj
-LmgNCmluZGV4IGNlZmRkYzljNjIxZGUuLjFhNTQ5Y2NlZWNiZWMgMTAwNjQ0DQotLS0gYS9pbmNs
-dWRlL2t2bS9hcm1fdmdpYy5oDQorKysgYi9pbmNsdWRlL2t2bS9hcm1fdmdpYy5oDQpAQCAtNjUs
-NiArNjUsOCBAQA0KIAkJc3dpdGNoICh0KSB7CQkJCQkJXA0KIAkJY2FzZSBLVk1fREVWX1RZUEVf
-QVJNX1ZHSUNfVjU6CQkJCVwNCiAJCQlfX3JldCA9IGlzX3Y1X3R5cGUoR0lDVjVfSFdJUlFfVFlQ
-RV9QUEksIChpKSk7CVwNCisJCQlfX3JldCAmPSBGSUVMRF9HRVQoR0lDVjVfSFdJUlFfSUQsIChp
-KSkgPAlcDQorCQkJCSBWR0lDX1Y1X05SX1BSSVZBVEVfSVJRUzsJCVwNCiAJCQlicmVhazsJCQkJ
-CQlcDQogCQlkZWZhdWx0OgkJCQkJCVwNCiAJCQlfX3JldCAgPSAoaSkgPj0gVkdJQ19OUl9TR0lT
-OwkJCVwNCi0tIA0KMi4zNC4xDQo=
+On Tue, Aug 11, 2026, at 16:01, Will Deacon wrote:
+> Hi folks,
+>
+> Big-endian support on arm64 (CONFIG_CPU_BIG_ENDIAN) has depended on
+> BROKEN since 1cf89b6bf660 ("arm64: Kconfig: Make CPU_BIG_ENDIAN depend
+> on BROKEN") and has already seen some clean-up patches removing some of
+> the unused support code (e.g. 5276ea17a23c ("lib/crc: arm64: Assume a
+> little-endian kernel")).
+>
+> Finish the job, and remove the remaining big-endian support code from
+> arm64. Note that the SETEND emulation for 32-bit tasks remains and so
+> some of the mixed-endian EL0 helpers are retained.
+
+I had not expected the removal to come this soon, but I'm not
+complaining about that. I assume you are planning this for 7.4,
+leaving 7.3-LTS to still have the code in case someone wants to
+still use it, right?
+
+Not sure if you saw
+
+https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/arch/arm/mm/Kconfig?id=fe91e4e9da70765420538d9cbcf6d9a970237a8d
+
+https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/arch/arm/mach-ixp4xx/Kconfig?id=2262f02ac2aa545560a7f182c8e6b5c98e72763c
+
+so for 7.3, we have marked big-endian mode in arm32 as deprecated
+as well, and also managed to get ixp4xx working again in little-endian
+mode, which was slightly broken for a few years. It may be good to
+add a reference to your series for context.
+
+My suggestions there was to possibly remove arm32 big-endian mode at
+the same time as on arm64, but that does feel a little rushed if
+ixp4xx only has one release of supporting both, and removing be8
+but leaving be32 for a little while longer is probably not worth it.
+
+> I've broken this down into fairly coarse chunks, as it seemed a lot
+> easier to manage than one giant patch (even with the Kconfig being
+> effectively disabled already) and not all of it is just mindless
+> deletion. Despite that, I'm anticipating the whole thing going via the
+> arm64 tree.
+
+I would have done even larger patches, this does already feel fairly
+fine-grained to me ;-). I had a look at the individual patches to make
+sure this all makes sense, and I found nothing wrong here.
+
+For a 7.4 (or later) merge:
+
+Acked-by: Arnd Bergmann <arnd@arndb.de>
+
+There are also a few arm64 specific drivers that I think no
+longer need a dependency, but none of that is important:
+
+diff --git a/drivers/crypto/hisilicon/Kconfig b/drivers/crypto/hisilicon/Kconfig
+index aeff08ccbadd..1ae7b146b241 100644
+--- a/drivers/crypto/hisilicon/Kconfig
++++ b/drivers/crypto/hisilicon/Kconfig
+@@ -53,7 +53,6 @@ config CRYPTO_DEV_HISI_ZIP
+ 	tristate "Support for HiSilicon ZIP accelerator"
+ 	depends on PCI_MSI
+ 	depends on ARM64 || (COMPILE_TEST && 64BIT)
+-	depends on !CPU_BIG_ENDIAN || COMPILE_TEST
+ 	depends on UACCE || UACCE=n
+ 	depends on ACPI
+ 	select CRYPTO_DEV_HISI_QM
+diff --git a/drivers/firmware/qcom/Kconfig b/drivers/firmware/qcom/Kconfig
+index c7f8413ab996..f0c1061b0005 100644
+--- a/drivers/firmware/qcom/Kconfig
++++ b/drivers/firmware/qcom/Kconfig
+@@ -18,7 +18,6 @@ config QCOM_PAS_TEE
+ 	tristate "Qualcomm PAS TEE interface driver"
+ 	select QCOM_PAS
+ 	depends on TEE
+-	depends on !CPU_BIG_ENDIAN
+ 	default m if ARCH_QCOM
+ 	help
+ 	  Enable the generic Peripheral Authentication Service (PAS) provided
+diff --git a/drivers/firmware/tegra/Kconfig b/drivers/firmware/tegra/Kconfig
+index 3a9162706439..e9271d706726 100644
+--- a/drivers/firmware/tegra/Kconfig
++++ b/drivers/firmware/tegra/Kconfig
+@@ -14,7 +14,6 @@ config TEGRA_IVC
+ config TEGRA_BPMP
+ 	bool "Tegra BPMP driver"
+ 	depends on ARCH_TEGRA && TEGRA_HSP_MBOX
+-	depends on !CPU_BIG_ENDIAN
+ 	select TEGRA_IVC
+ 	help
+ 	  BPMP (Boot and Power Management Processor) is designed to off-loading
+diff --git a/drivers/soc/tegra/Kconfig b/drivers/soc/tegra/Kconfig
+index 8b6fdb9ad1ea..318e7b604342 100644
+--- a/drivers/soc/tegra/Kconfig
++++ b/drivers/soc/tegra/Kconfig
+@@ -102,7 +102,6 @@ config ARCH_TEGRA_210_SOC
+ config ARCH_TEGRA_186_SOC
+ 	bool "NVIDIA Tegra186 SoC"
+ 	default ARCH_TEGRA
+-	depends on !CPU_BIG_ENDIAN
+ 	select PINCTRL_TEGRA186
+ 	select MAILBOX
+ 	select SOC_TEGRA_PMC
+@@ -117,7 +116,6 @@ config ARCH_TEGRA_186_SOC
+ config ARCH_TEGRA_194_SOC
+ 	bool "NVIDIA Tegra194 SoC"
+ 	default ARCH_TEGRA
+-	depends on !CPU_BIG_ENDIAN
+ 	select MAILBOX
+ 	select PINCTRL_TEGRA194
+ 	select SOC_TEGRA_PMC
+@@ -127,7 +125,6 @@ config ARCH_TEGRA_194_SOC
+ config ARCH_TEGRA_234_SOC
+ 	bool "NVIDIA Tegra234 SoC"
+ 	default ARCH_TEGRA
+-	depends on !CPU_BIG_ENDIAN
+ 	select MAILBOX
+ 	select PINCTRL_TEGRA234
+ 	select SOC_TEGRA_PMC
+@@ -137,7 +134,6 @@ config ARCH_TEGRA_234_SOC
+ config ARCH_TEGRA_238_SOC
+ 	bool "NVIDIA Tegra238 SoC"
+ 	default ARCH_TEGRA
+-	depends on !CPU_BIG_ENDIAN
+ 	select MAILBOX
+ 	select SOC_TEGRA_PMC
+ 	help
+@@ -152,7 +148,6 @@ config ARCH_TEGRA_241_SOC
+ config ARCH_TEGRA_264_SOC
+ 	bool "NVIDIA Tegra264 SoC"
+ 	default ARCH_TEGRA
+-	depends on !CPU_BIG_ENDIAN
+ 	select MAILBOX
+ 	select SOC_TEGRA_PMC
+ 	help
+diff --git a/drivers/tee/qcomtee/Kconfig b/drivers/tee/qcomtee/Kconfig
+index 9f19dee08db4..bd9be3e9a9ac 100644
+--- a/drivers/tee/qcomtee/Kconfig
++++ b/drivers/tee/qcomtee/Kconfig
+@@ -3,7 +3,6 @@
+ config QCOMTEE
+ 	tristate "Qualcomm TEE Support"
+ 	depends on ARCH_QCOM || COMPILE_TEST
+-	depends on !CPU_BIG_ENDIAN
+ 	select QCOM_SCM
+ 	select QCOM_TZMEM_MODE_SHMBRIDGE
+ 	help
 
