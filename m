@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CB3CC5AC67
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 14:01:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55C47C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 14:02:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5ERaMPsjwHcuWRT7KK06+ij6/U9aQH1xxiJrGBBvL1s=; b=UVWnj+yyLRXwbsxbgsmEChJNrO
-	kf5N1dNUqk+DTgHhfPZcBcgFyG/LP/4EjslKOhO+8oXve6tsp7IaEulQVn1HufJZ25w2RbjTjbYpy
-	WP2itYBNPNzZHj8NkDBBT4N4OqiT3JLcJdXiCDYzvjY0cSTgOtes3EBpyiOZgqpYqmXYnRViPvIRM
-	Usg6SLxEZ7Z/SmKdTxc4XjCX/AiLUExXJGdK9GyhPpSoayYi4db8cUZI/3zJS1HosK/Z8c70/1l6e
-	qsli7mPPbBEOvSeAd0uX/7xiRb+g9Z68laqgoGvCYMFfBWLAPTizRee938tqkSNBaeZb34lKJtzhI
-	Ln83pIiw==;
+	bh=n9dRmmOuvF3CPO8z7383jINPuZ9NkflcJlXq8mm+S3Y=; b=WDNW4AL6nj25Cv5TW+HbSUeIUf
+	Wz8Mk+0DW+fLIld+YcR+lniv68HsilyW2o0e1DTdkLo3HLHLigoyYaE1pQqVVah+dD1xzRKB3gdnO
+	w91VYfKOXnGEXC0X9yA1h8x9lFsvGWz/Bkw6djZy+18vLcWfmacpj5XplBpPaLNVRF34c4H8/0tHu
+	A4ACNfBDGQ7LPb9c3UHC3aAjzTvqW17xzSrarmwzLMdlAlJMl1Dp7tllccl9R96O3HU5YGhpa2/rN
+	yFCeTbBmZRi4BMoajCstlUWz+T/0/Tf6hb3euicMWtqjYSgvQik+nnW/Fex72D/mLemZqfFeX15b3
+	Idw/ogEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtn33-0000000E9LK-197J;
-	Tue, 11 Aug 2026 14:01:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wtn39-0000000E9NI-1vzf;
+	Tue, 11 Aug 2026 14:01:51 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtn31-0000000E9KR-1sMX
+	id 1wtn37-0000000E9MT-2GP3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 14:01:43 +0000
+	Tue, 11 Aug 2026 14:01:49 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id EB93541FB0;
-	Tue, 11 Aug 2026 14:01:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73DBC1F00A3A;
-	Tue, 11 Aug 2026 14:01:40 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id F2458600C8;
+	Tue, 11 Aug 2026 14:01:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E9F51F000E9;
+	Tue, 11 Aug 2026 14:01:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786456902;
-	bh=5ERaMPsjwHcuWRT7KK06+ij6/U9aQH1xxiJrGBBvL1s=;
+	s=k20260515; t=1786456908;
+	bh=n9dRmmOuvF3CPO8z7383jINPuZ9NkflcJlXq8mm+S3Y=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=dnVQBEwSU7ZSnl+Gz3XvYWXW5SbVRLAUDeykXKtv44rNTMDSTQcBpndecLT63MIJV
-	 ETtcIGZzDcfAstoCc1M26RCjsuPFYzBC0xqU4pV0BL4u4P87i+YkIrLyDVHzimqAOi
-	 5R9ETWWMCR56SPA33S2K0AfuNZHzRQLj2ExAaWAAnXVdiEMwjVDFiMROdgGX2jf3bP
-	 +hqZKIh4AJBrt6ugDJ6KqP6G67uhwtdzTM2hkvlG/1Nhxmc/fUbmgrLDQgptC6X2II
-	 iFclhEQASMDmf7ip4Kj31TGG1q1Sa5NdLGJah3FplAU3m8Pc7QfgchSzg7mvbxusod
-	 M1fI+VcliCFbw==
+	b=DN2Y6ju9Mjq5AHx1VMdhsh7UePFooV9VT0RkY20PoWnkbINa61BzJ0Ze7agRymuvF
+	 req8t+ejvPx66nM1ugGqXKm+4ddFcUyP3vrXBia9gHygJQEeeHsIvnl3VXOQmOTx8s
+	 fi9G07RphYIExpeQu+fRzKK+BabPhiq70AILJlNKMCWfSwT4YmkiP5JFHFEA1bsNVS
+	 B6exa9qMRyMdyAwM3Wr3MhGIjhp+ktw+8nZZ0evQqdOvb/fmHd9wpv9/0eqdxStOxo
+	 TLg+3qtrnlFgDqe3WmYoqB7V3co12161p0b0+gX63jB5gWlRspt6IoHLIMJFUrpzCH
+	 TkS2lDf7AbcGA==
 From: Will Deacon <will@kernel.org>
 To: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org,
@@ -55,9 +55,9 @@ Cc: linux-kernel@vger.kernel.org,
 	Oliver Upton <oupton@kernel.org>,
 	Herbert Xu <herbert@gondor.apana.org.au>,
 	Marc Zyngier <maz@kernel.org>
-Subject: [PATCH 01/12] selftests/arm64: Remove big-endian support
-Date: Tue, 11 Aug 2026 15:01:20 +0100
-Message-ID: <20260811140132.22778-2-will@kernel.org>
+Subject: [PATCH 03/12] arm64: crypto: Assume a little-endian kernel
+Date: Tue, 11 Aug 2026 15:01:22 +0100
+Message-ID: <20260811140132.22778-4-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260811140132.22778-1-will@kernel.org>
 References: <20260811140132.22778-1-will@kernel.org>
@@ -77,72 +77,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Big-endian support on arm64 depends on BROKEN, so the arm64 selftests do
-not need to worry about testing this configuration any more.
+Commit 5276ea17a23c ("lib/crc: arm64: Assume a little-endian kernel")
+removed all usage of the CPU_LE()/CPU_BE() macros from the arm64 CRC
+assembly now that big-endian support depends on BROKEN.
 
-Remove the 128-bit byte-swapping helper from the fp-ptrace test and the
-big-endian definition of RSEQ_SIG_DATA from the rseq test.
+Do the same for the crypto assembly code.
 
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- tools/testing/selftests/arm64/fp/fp-ptrace.c | 19 +------------------
- tools/testing/selftests/rseq/rseq-arm64.h    |  5 -----
- 2 files changed, 1 insertion(+), 23 deletions(-)
+ arch/arm64/crypto/aes-ce-ccm-core.S    | 4 ++--
+ arch/arm64/crypto/aes-neonbs-core.S    | 4 ++--
+ arch/arm64/crypto/ghash-ce-core.S      | 6 +++---
+ arch/arm64/crypto/sm4-ce-cipher-core.S | 4 ++--
+ 4 files changed, 9 insertions(+), 9 deletions(-)
 
-diff --git a/tools/testing/selftests/arm64/fp/fp-ptrace.c b/tools/testing/selftests/arm64/fp/fp-ptrace.c
-index 22c584b78be5..77d630444996 100644
---- a/tools/testing/selftests/arm64/fp/fp-ptrace.c
-+++ b/tools/testing/selftests/arm64/fp/fp-ptrace.c
-@@ -112,23 +112,6 @@ static void handle_alarm(int sig, siginfo_t *info, void *context)
- 	got_alarm = true;
- }
+diff --git a/arch/arm64/crypto/aes-ce-ccm-core.S b/arch/arm64/crypto/aes-ce-ccm-core.S
+index f2624238fd95..c2e8f500da14 100644
+--- a/arch/arm64/crypto/aes-ce-ccm-core.S
++++ b/arch/arm64/crypto/aes-ce-ccm-core.S
+@@ -50,7 +50,7 @@
+ 	ld1	{v0.16b}, [x5]			/* load mac */
+ 	cbz	x2, ce_aes_ccm_final
+ 	ldr	x8, [x6, #8]			/* load lower ctr */
+-CPU_LE(	rev	x8, x8			)	/* keep swabbed ctr in reg */
++	rev	x8, x8				/* keep swabbed ctr in reg */
+ 0:	/* outer loop */
+ 	ld1	{v1.8b}, [x6]			/* load upper ctr */
+ 	prfm	pldl1strm, [x1]
+@@ -73,7 +73,7 @@ CPU_LE(	rev	x8, x8			)	/* keep swabbed ctr in reg */
+ 	eor	v0.16b, v0.16b, v2.16b		/* xor mac with pt ^ rk[last] */
+ 	st1	{v6.16b}, [x0], #16		/* write output block */
+ 	bne	0b
+-CPU_LE(	rev	x8, x8			)
++	rev	x8, x8
+ 	str	x8, [x6, #8]			/* store lsb end of ctr (BE) */
+ 	cbnz	x7, ce_aes_ccm_final
+ 	st1	{v0.16b}, [x5]			/* store mac */
+diff --git a/arch/arm64/crypto/aes-neonbs-core.S b/arch/arm64/crypto/aes-neonbs-core.S
+index baf450717b24..ba1f981a5464 100644
+--- a/arch/arm64/crypto/aes-neonbs-core.S
++++ b/arch/arm64/crypto/aes-neonbs-core.S
+@@ -824,8 +824,8 @@ SYM_FUNC_START(aesbs_ctr_encrypt)
+ 	frame_push	0
+ 	ldp		x7, x8, [x5]
+ 	ld1		{v0.16b}, [x5]
+-CPU_LE(	rev		x7, x7		)
+-CPU_LE(	rev		x8, x8		)
++	rev		x7, x7
++	rev		x8, x8
+ 	adds		x8, x8, #1
+ 	adc		x7, x7, xzr
  
--#ifdef CONFIG_CPU_BIG_ENDIAN
--static __uint128_t arm64_cpu_to_le128(__uint128_t x)
--{
--	u64 a = swab64(x);
--	u64 b = swab64(x >> 64);
--
--	return ((__uint128_t)a << 64) | b;
--}
--#else
--static __uint128_t arm64_cpu_to_le128(__uint128_t x)
--{
--	return x;
--}
--#endif
--
--#define arm64_le128_to_cpu(x) arm64_cpu_to_le128(x)
--
- static bool sve_supported(void)
- {
- 	return getauxval(AT_HWCAP) & HWCAP_SVE;
-@@ -897,7 +880,7 @@ static void fpsimd_to_sve(__uint128_t *v, char *z, int vl)
+diff --git a/arch/arm64/crypto/ghash-ce-core.S b/arch/arm64/crypto/ghash-ce-core.S
+index 33772d8fe6b5..ba350d57fc76 100644
+--- a/arch/arm64/crypto/ghash-ce-core.S
++++ b/arch/arm64/crypto/ghash-ce-core.S
+@@ -148,7 +148,7 @@ SYM_FUNC_START(pmull_ghash_update_p64)
+ 	sub		w0, w0, #1
  
- 	for (i = 0; i < __SVE_NUM_ZREGS; i++) {
- 		p = (__uint128_t *)&z[__SVE_ZREG_OFFSET(vq, i)];
--		*p = arm64_cpu_to_le128(v[i]);
-+		*p = v[i];
- 	}
- }
+ 3:	/* multiply XL by SHASH in GF(2^128) */
+-CPU_LE(	rev64		T1.16b, T1.16b	)
++	rev64		T1.16b, T1.16b
  
-diff --git a/tools/testing/selftests/rseq/rseq-arm64.h b/tools/testing/selftests/rseq/rseq-arm64.h
-index 21e1626a7235..f9fecf941bf2 100644
---- a/tools/testing/selftests/rseq/rseq-arm64.h
-+++ b/tools/testing/selftests/rseq/rseq-arm64.h
-@@ -12,12 +12,7 @@
-  * matches code endianness.
-  */
- #define RSEQ_SIG_CODE	0xd428bc00	/* BRK #0x45E0.  */
--
--#ifdef __AARCH64EB__
--#define RSEQ_SIG_DATA	0x00bc28d4	/* BRK #0x45E0.  */
--#else
- #define RSEQ_SIG_DATA	RSEQ_SIG_CODE
--#endif
+ 	ext		T2.16b, XL.16b, XL.16b, #8
+ 	ext		IN1.16b, T1.16b, T1.16b, #8
+@@ -272,7 +272,7 @@ SYM_FUNC_END(pmull_ghash_update_p64)
+ 	cbz		x0, 3f				// tag only?
  
- #define RSEQ_SIG	RSEQ_SIG_DATA
+ 	ldr		w8, [x5, #12]			// load lower counter
+-CPU_LE(	rev		w8, w8		)
++	rev		w8, w8
  
+ 0:	mov		w9, #4				// max blocks per round
+ 	add		x10, x0, #0xf
+@@ -380,7 +380,7 @@ CPU_LE(	rev		w8, w8		)
+ 	ret
+ 
+ 5:
+-CPU_LE(	rev		w8, w8		)
++	rev		w8, w8
+ 	str		w8, [x5, #12]			// store lower counter
+ 	st1		{XL.2d}, [x4]
+ 	b		4b
+diff --git a/arch/arm64/crypto/sm4-ce-cipher-core.S b/arch/arm64/crypto/sm4-ce-cipher-core.S
+index 4ac6cfbc5797..1682d727e097 100644
+--- a/arch/arm64/crypto/sm4-ce-cipher-core.S
++++ b/arch/arm64/crypto/sm4-ce-cipher-core.S
+@@ -18,7 +18,7 @@
+ SYM_FUNC_START(sm4_ce_do_crypt)
+ 	ld1		{v8.4s}, [x2]
+ 	ld1		{v0.4s-v3.4s}, [x0], #64
+-CPU_LE(	rev32		v8.16b, v8.16b		)
++	rev32		v8.16b, v8.16b
+ 	ld1		{v4.4s-v7.4s}, [x0]
+ 	sm4e		v8.4s, v0.4s
+ 	sm4e		v8.4s, v1.4s
+@@ -30,7 +30,7 @@ CPU_LE(	rev32		v8.16b, v8.16b		)
+ 	sm4e		v8.4s, v7.4s
+ 	rev64		v8.4s, v8.4s
+ 	ext		v8.16b, v8.16b, v8.16b, #8
+-CPU_LE(	rev32		v8.16b, v8.16b		)
++	rev32		v8.16b, v8.16b
+ 	st1		{v8.4s}, [x1]
+ 	ret
+ SYM_FUNC_END(sm4_ce_do_crypt)
 -- 
 2.55.0.679.g6767b8d81c-goog
 
