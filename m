@@ -4,67 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D0EDC5AD5A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 10:15:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02113C5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 10:16:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=km+FWImsIUFl8aBPViX6Zfp+UQcG2kTKxjWPuJ893Cc=; b=GT49k8bZQYu/g8G7kVnJrwFqjy
-	l+6vTae6+Rs54cXw+f+J8T9Cs8dgDoqF2dkuaAVJhtWpxVV8zKztlPyQxDmP7SP1AN9XOPHPgtW/M
-	GmXzAXgM3ERAiuV6ZoqX7pk3ouzf2des8OKQooRTXn0SN9l2vZEqWRRERdnGRjM0wi4vtkJL4oBel
-	md5QOo2Y8t3asFo/gMhR5OqZfcNf2DT+rM8DQb5sHXy9HXPQn6RdGeqtJZ4i2R+Tsdmk4C4fRTC5u
-	VoeKS4kY88g++y8O3AC2qRGSgU9cKW/i9ICPRjXsjWUATOlFNhkYrScOsUSIdzla3jDoe+LoxOwE7
-	LAmrIjWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QSgsid+8hez1eXzeSA9Zg8D1TtPMJ8doQmZ2Cl+Bqeg=; b=I+KvK/eiH3rexuM5Smp6GC1YM8
+	OCHYeX0z3CAnrQx3ou0JfBzGCx7Edy4qOUbVeVrxJeeAsANBVcWTbRNX5Xtukk3yIfp5W61d+KHms
+	lnyg5eaV+zBqkRfMJsxxeP3axPZJcUS3n+CT3DodQgNPx2lu4U6XkldaLpN3DNt2tDnDEVV6FpMH2
+	13S0JL4ESeejSUDr0yHkHOTyWfrYgsvPJeo+XUkezWf7yAsgAYkPTQXI9Ypmys62oLEMwjqU8xf9U
+	4hdpyaVdEG8z0AZQacP7R5Aj/K02nplK0qgQOj5RpEzyNGxH5sSgsGX8Fff7+qB1t+/vHK85jCqkn
+	QniiqyLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu5zr-0000000FrVF-1fMk;
-	Wed, 12 Aug 2026 10:15:43 +0000
+	id 1wu60O-0000000Frcd-1Tij;
+	Wed, 12 Aug 2026 10:16:16 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu5zm-0000000FrTA-0o2H;
-	Wed, 12 Aug 2026 10:15:41 +0000
+	id 1wu60M-0000000Frc3-2TSB
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 12 Aug 2026 10:16:14 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id AE03F406FC;
-	Wed, 12 Aug 2026 10:15:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B95B31F000E9;
-	Wed, 12 Aug 2026 10:15:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5ABA242A55;
+	Wed, 12 Aug 2026 10:16:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 785B01F000E9;
+	Wed, 12 Aug 2026 10:16:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786529737;
-	bh=km+FWImsIUFl8aBPViX6Zfp+UQcG2kTKxjWPuJ893Cc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=jBANmAl+tkrKwU6nUQz+XEl8WMrZu06odcl5Ygsah2atea2o3pSK5M0u2+Cb5dtxf
-	 CszY8HrUw5NMtAls7C3C22W0YPyC1CA0nJKdZUcpz7FAA5jPVo/Q0m+DtWULMhObmk
-	 l+U3I5N2ktZz5sC97a6ZDW5tkJ4nC1cvwezLr8g8hsFUxrhmlZiDmiD/TuiPL6gETq
-	 29lyz01++9kQ8c8J0lKgi5dg3FD9nUdJp1fGXHTswa5W49MzHFx1LoMu8dAjoNQeyU
-	 rf7AgbttoHEku/UruTDEAVbWBJDu1EDPe2V7WWiqzqV5orD6YUJnnC/hIm0+i5Dhnb
-	 OSUpU2Op6AKIw==
-Date: Wed, 12 Aug 2026 12:15:25 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Marek Vasut <marex@nabladev.com>
-Cc: linux-usb@vger.kernel.org, Pankaj Dev <pankaj.dev@st.com>, 
-	=?utf-8?Q?Cl=C3=A9ment?= Le Goffic <clement.legoffic@foss.st.com>, Fabrice Gasnier <fabrice.gasnier@foss.st.com>, 
-	Rahul Kumar <rahul.kumar05@st.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Christian Bruel <christian.bruel@foss.st.com>, Conor Dooley <conor+dt@kernel.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Rob Herring <robh@kernel.org>, Rosen Penev <rosenp@gmail.com>, 
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>, Vinod Koul <vkoul@kernel.org>, devicetree@vger.kernel.org, 
-	kernel@dh-electronics.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, 
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH 1/8] dt-bindings: phy: Document ST STM32MP25 USB2-FEMTO
- PHY
-Message-ID: <20260812-silky-omniscient-dalmatian-b268cb@quoll>
-References: <20260812010157.1772849-1-marex@nabladev.com>
- <20260812010157.1772849-2-marex@nabladev.com>
+	s=k20260515; t=1786529774;
+	bh=QSgsid+8hez1eXzeSA9Zg8D1TtPMJ8doQmZ2Cl+Bqeg=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=a1UHxS5z5jBxxOCToXSw/QHvnbJU9YwoVJEdoUtaEcB9L+kzgEdgWT6P+bkB5CCQA
+	 vnOk2lzFyr0j1jq4PDi/QIkhGzKEQY7PgXMgXy+AVTClzXgBxSKHtV1KsZNxWt4fnl
+	 HfLgTOdDeZYV/YwehPH/oAx8OEDZW2gwt2MyVghVVJ0lOqUgMciWT+XJfHHtaad6It
+	 djhw1eWzuk7B1+mG7CPRHGMyT7u724HQemuGoL+0zijYap6sGVDHjfzUMDNrP3S883
+	 gB1kKEMEbteheMVjNnNrDQEZYJB6k354ur0tcipiqY5tQA+iFPylAKZ4+z5W66TCMW
+	 VGsv6JkZstgeA==
+From: Mark Brown <broonie@kernel.org>
+To: linux-sound@vger.kernel.org, Rosen Penev <rosenp@gmail.com>
+Cc: Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, Michal Simek <michal.simek@amd.com>, 
+ Maruthi Srinivas Bayyavarapu <maruthi.srinivas.bayyavarapu@xilinx.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20260811185140.27149-1-rosenp@gmail.com>
+References: <20260811185140.27149-1-rosenp@gmail.com>
+Subject: Re: [PATCHv2] ASoC: xilinx: formatter_pcm: fix stream_data leak on
+ open error
+Message-Id: <178648611303.430562.12738113248939857735.b4-ty@b4>
+Date: Tue, 11 Aug 2026 23:08:33 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20260812010157.1772849-2-marex@nabladev.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1143; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=28dgqgU6Mrn4iZrK0fHEdRR5qr1SAlvZ0sMBk5h45Gs=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqfEfrafuyKo+gdgT58s5KrWBhp2GVgPWiOpLFP
+ 5jWMxE+Ed2JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCanxH6wAKCRAk1otyXVSH
+ 0FfKB/9EH90hFGb4K9i6lKctJukLbBq/4T20chqUaLH7koaWlMwBj5GIDSLkvgqKlXivoQJ6N4i
+ W4gXOtXEF4v+ZNDbugZqLUMcDlbjdGV1/KKzcP+0N6kgADKEsGplM5MxM3HKVsvR18sGl4hcpT8
+ S8VYMr8/JpyXtwEMNRip5x56xX/vsqOyYMqzTLvEHhtEszddbARC97PdF6rDT5VTYWC8N83knjW
+ ZMhJL/ZMsvUaBUre1p8Zh8h7t+Oo4/F07vEieGEXFztb2Ugjfk4Otf7ft3KggXtVSGwitCKzzt+
+ 34+8L7dPsYcSqkTAGyJfkMg94lXhupKXgFDBk5aweyvpHrg/
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,125 +84,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 12, 2026 at 02:55:41AM +0200, Marek Vasut wrote:
-> From: Pankaj Dev <pankaj.dev@st.com>
->=20
-> Document USB2 PHY for STM32MP25 USB2 controllers, which includes the
-> USB2.0 host-only controller and USB 2.0 part of the DWC3 controller.
-> Two such PHYs in total are present in STM32MP25 SoC, they both are
-> slightly different, therefore they use different compatible string
+On Tue, 11 Aug 2026 11:51:40 -0700, Rosen Penev wrote:
+> ASoC: xilinx: formatter_pcm: fix stream_data leak on open error
 
-What is slightly different? This should be either here, or better, in
-"description" part.
+Applied to
 
-> to discern them.
->=20
-> Signed-off-by: Cl=C3=A9ment Le Goffic <clement.legoffic@foss.st.com>
-> Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-> Signed-off-by: Marek Vasut <marex@nabladev.com>
-> Signed-off-by: Pankaj Dev <pankaj.dev@st.com>
-> Signed-off-by: Rahul Kumar <rahul.kumar05@st.com>
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.3
 
-Incomplete/incorrect DCO chain. Who sends it? Rahul?
+Thanks!
 
+[1/1] ASoC: xilinx: formatter_pcm: fix stream_data leak on open error
+      https://git.kernel.org/broonie/sound/c/b992511180e1
 
-> ---
-> Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
-> Cc: Christian Bruel <christian.bruel@foss.st.com>
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-> Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>
-> Cc: Neil Armstrong <neil.armstrong@linaro.org>
-> Cc: Pankaj Dev <pankaj.dev@st.com>
-> Cc: Rahul Kumar <rahul.kumar05@st.com>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Rosen Penev <rosenp@gmail.com>
-> Cc: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-> Cc: Vinod Koul <vkoul@kernel.org>
-> Cc: devicetree@vger.kernel.org
-> Cc: kernel@dh-electronics.com
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-phy@lists.infradead.org
-> Cc: linux-stm32@st-md-mailman.stormreply.com
-> Cc: linux-usb@vger.kernel.org
-> ---
->  .../bindings/phy/st,stm32-usb2phy.yaml        | 72 +++++++++++++++++++
->  1 file changed, 72 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/phy/st,stm32-usb2ph=
-y.yaml
->=20
-> diff --git a/Documentation/devicetree/bindings/phy/st,stm32-usb2phy.yaml =
-b/Documentation/devicetree/bindings/phy/st,stm32-usb2phy.yaml
-> new file mode 100644
-> index 0000000000000..ca9fc3b87383c
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/phy/st,stm32-usb2phy.yaml
-> @@ -0,0 +1,72 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/phy/st,stm32-usb2phy.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: STMicroelectronics STM32 MPU High-Speed USB PHY
-> +
-> +description:
-> +  USB2 PHY block in STM32 is attached to USB 2.0 Host controller and
-> +  USB 2.0 side of DWC3 DRD controller, and provides the USB LS/FS/HS
-> +  connectivity.
-> +
-> +maintainers:
-> +  - Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-> +  - Marek Vasut <marex@nabladev.com>
-> +  - Pankaj Dev <pankaj.dev@st.com>
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - st,stm32mp25-usb2phy1
-> +      - st,stm32mp25-usb2phy2
-> +
-> +  "#phy-cells":
-> +    const: 0
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +  resets:
-> +    maxItems: 1
-> +
-> +  vdd33-supply:
-> +    description: Phandle to regulator providing 3V3 power supply to the =
-USB2 HS PHY
-> +
-> +  st,syscfg:
-> +    $ref: /schemas/types.yaml#/definitions/phandle-array
-> +    description: Phandle to system configuration controller.
-> +    items:
-> +      - items:
-> +          - description: phandle to syscfg
-> +          - description: USB2PHY control offset within syscfg
-> +
-> +  "#clock-cells":
-> +    const: 0
-> +
-> +required:
-> +  - compatible
-> +  - "#clock-cells"
-> +  - "#phy-cells"
-> +  - clocks
-> +  - resets
-> +  - st,syscfg
-> +  - vdd33-supply
-> +
-> +unevaluatedProperties: false
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
-additionalProperties.
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
-Best regards,
-Krzysztof
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 
