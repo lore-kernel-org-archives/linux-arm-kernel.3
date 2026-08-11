@@ -4,61 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A627FC5B56A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 12:50:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B825BC5AC67
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 13:01:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WtFazJ4eDGxBIgrdgTbaPfe+cY7I7ADhXSuwt5WpCYE=; b=XZbFtGsODAaL800qEecApFomAq
-	Wso2SYec8DWmPxUlatqDq28d5cq2ei37Vre2h1sA5/e4FEH0iLadnYSKPctBfO6EC0YPDymS0fe/z
-	V49/zMHZ+ynzCqbsM74v38B/uoPCSGjGnsg/r/U8TlzM/Kb0Hs+LUqT/jQuaxS89kqJz47ZDEIyF9
-	hNclWVe+a08QnDOZwVkvsa2WErZgeotxYPf8nf/pcG17p2eLokMEgzf6MOlRNnmoNeQ67aIJehpVh
-	F0LRQhPy33FRgzhnTYFM0eaX1V3HRgH6UaNJNs9MvCF8YustjHfT27/Mw6BA2+ryw/QRX66qmu5w1
-	H7DX0xLQ==;
+	bh=7EzVfU42DNboWBRrLELfhvDn1lnOQfSuYeFuDLVFwHY=; b=bQcyxhjMAWTL/QwRjmRQlcux/4
+	m+7aKicoT7YvxRylgVN22tMKokoINknKIkFXCio3ik0vy1+oeSSBLHdptaLANNaezIHc6bY57ptIw
+	KSVzBn9k6im188MkivkwzdmruTU2S1r0NiVaFgHZ60DeJmyusZTrCXv1+oUaQLyU37bdc4c4ra+H/
+	aRiD7n9Yx/ZI0ReOhZ0UxMm0/ZQrXwZADZzhwdM7cBJ/YWkrok0nm2/vw68s2wTVfn4rlhRhb5B9u
+	vRPcVMOSeGKVzzH0l3OvjBtDPX0xeBaufBioS9ir8+Tq8y7rjUiit5M5JN/DO8AuQO2rVkNIUbE1f
+	hdrTP6lA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtlw8-0000000E3HY-1LSf;
-	Tue, 11 Aug 2026 12:50:32 +0000
-Received: from latitanza.investici.org ([185.218.207.228])
+	id 1wtm6k-0000000E3u6-1nIg;
+	Tue, 11 Aug 2026 13:01:30 +0000
+Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtlw4-0000000E3Fp-3h50
+	id 1wtm6g-0000000E3t1-1oT7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 12:50:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=grrlz.net;
-	s=stigmate; t=1786452614;
-	bh=WtFazJ4eDGxBIgrdgTbaPfe+cY7I7ADhXSuwt5WpCYE=;
-	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
-	b=uUW+LGl4DKK98b94JOiKvdRuX8FKmHHlnfE7vjYqdQvtlLFweHJfdoB+eo8UXODm1
-	 L9xCNo4WtWVwKoCH3tv3v3ofr0MSpT+AsmCQhnl7uNuOUvyX7uHIciF4QaWaAgWTjF
-	 nI1h7MzEGScJWS71J3QLiZV8FUEKPNiHsqM73qWM=
-Received: from mx3.investici.org (unknown [127.0.0.1])
-	by latitanza.investici.org (Postfix) with ESMTP id 4hKBKy5SgWzGpHK;
-	Tue, 11 Aug 2026 12:50:14 +0000 (UTC)
-Received: by mx3.investici.org (Postfix) id 4hKBKy364HzGpDr;
-	Tue, 11 Aug 2026 12:50:14 +0000 (UTC)
-Date: Tue, 11 Aug 2026 13:50:14 +0100
-From: Bradley Morgan <include@grrlz.net>
-To: Will Deacon <will@kernel.org>
-CC: Catalin Marinas <catalin.marinas@arm.com>,
- Mark Rutland <mark.rutland@arm.com>,
- Pasha Tatashin <pasha.tatashin@soleen.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- maz@kernel.org, james.morse@arm.com
-Subject: =?US-ASCII?Q?Re=3A_=5BPATCH=5D_arm64=3A_hibernate=3A_pass_H?=
- =?US-ASCII?Q?VC=5FSET=5FVECTORS_args_to_the_resume_hvc?=
-In-Reply-To: <anr28wUlKjci8JPn@willie-the-truck>
-References: <20260809213615.11646-1-include@grrlz.net> <anr28wUlKjci8JPn@willie-the-truck>
-Message-ID: <463DA5C2-C933-45EC-A200-21AAF6258418@grrlz.net>
+	Tue, 11 Aug 2026 13:01:28 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=7EzVfU42DNboWBRrLELfhvDn1lnOQfSuYeFuDLVFwHY=;
+	b=6spCHFowSfjeLeN67/0y5TMk+DC6s2cVvQuZG/CnFJtYXg2FjbG3F2Bx6HSA3mHoznszgeGAw
+	Oz54kH5NC4idcttIt0IGUHcUnSi8+9tnU9Hq7+ByJHNK+xAU1YRn4KSgLTtMVxapLF6c/PV3SKe
+	5DONG+aiN0Ru7pLb+OnzjJg=
+Received: from mail.maildlp.com (unknown [172.19.163.200])
+	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4hKBL945Y3z1K96b;
+	Tue, 11 Aug 2026 20:50:25 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 1E3254055B;
+	Tue, 11 Aug 2026 21:01:02 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 11 Aug 2026 21:01:01 +0800
+Message-ID: <f3297dda-9811-439b-8a49-6b66cf7e3767@huawei.com>
+Date: Tue, 11 Aug 2026 21:01:00 +0800
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v2 33/45] arm64: irq: Report FEAT_NMI masking local
+ IRQs
+To: Vladimir Murzin <vladimir.murzin@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>
+CC: <mark.rutland@arm.com>, <maz@kernel.org>, <will@kernel.org>,
+	<catalin.marinas@arm.com>, <liaochang1@huawei.com>
+References: <20260727163453.7969-1-vladimir.murzin@arm.com>
+ <20260727163453.7969-34-vladimir.murzin@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260727163453.7969-34-vladimir.murzin@arm.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_055029_060422_33479952 
-X-CRM114-Status: GOOD (  20.88  )
+X-CRM114-CacheID: sfid-20260811_060127_132770_F073F6C2 
+X-CRM114-Status: GOOD (  25.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,99 +80,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11 August 2026 11:18:27 BST, Will Deacon <will@kernel.org> wrote:
->[+Maz, Pasha and James]
->
->On Sun, Aug 09, 2026 at 09:36:15PM +0000, Bradley Morgan wrote:
->> swsusp_arch_suspend_exit() reinstalls the restored kernel's hyp stub
->> vectors with an hvc, but never passes the arguments. x0 is not set to
->> HVC_SET_VECTORS and x1 is not set to the vector address, so the stub
->> dispatch falls through and returns without writing vbar_el2. EL2 is
->> left pointing at the trans_pgd copy of the vectors, a page that
->> swsusp_free() releases right after resume.
->> 
->> Set the arguments up the same way __hyp_set_vectors() does.
->> 
->> Fixes: 788bfdd97434 ("arm64: trans_pgd: hibernate: Add
->trans_pgd_copy_el2_vectors")
->> Cc: stable@vger.kernel.org
->> Signed-off-by: Bradley Morgan <include@grrlz.net>
->> ---
->>  arch/arm64/kernel/hibernate-asm.S | 2 ++
->>  1 file changed, 2 insertions(+)
->> 
->> diff --git a/arch/arm64/kernel/hibernate-asm.S
->b/arch/arm64/kernel/hibernate-asm.S
->> index 0e1d9c3c6a93..2baefe7a82d3 100644
->> --- a/arch/arm64/kernel/hibernate-asm.S
->> +++ b/arch/arm64/kernel/hibernate-asm.S
->> @@ -89,6 +89,8 @@ alternative_insn "dc cvau, x4",  "dc civac, x4", 
->ARM64_WORKAROUND_CLEAN_CACHE
->>  	isb
->>  
->>  	cbz	x24, 3f		/* Do we need to re-initialise EL2? */
->> +	mov	x1, x24
->> +	mov	x0, #HVC_SET_VECTORS
->>  	hvc	#0
->>  3:	ret
->>  SYM_CODE_END(swsusp_arch_suspend_exit)
->
->I'm having a really hard time figuring out what's supposed to be going
->on here!
->
->The original hibernation code added by James in 82869ac57b5d ("arm64:
->kernel: Add support for hibernate/suspend-to-disk") unconditionally
->set the vectors in the exception handler:
->
->+el1_sync:
->+       msr     vbar_el2, x24
->+       eret
->+ENDPROC(el1_sync)
->
->However, it _also_ set the vectors from C code in swsusp_arch_resume():
->
->+       if (el2_reset_needed()) {
->+               phys_addr_t el2_vectors = phys_hibernate_exit;  /* base */
->+               el2_vectors += hibernate_el2_vectors -
->+                              __hibernate_exit_text_start;     /* offset */
->+
->+               __hyp_set_vectors(el2_vectors);
->+       }
->
->Later, Pasha refactored the assembly so that it could be shared with
->kexec in 788bfdd97434 ("arm64: trans_pgd: hibernate: Add
->trans_pgd_copy_el2_vectors"), however this added arguments to the
->exception handler without updating the hypercall on the hibernation path.
->
->So I think we need to figure out:
->
->0. Whether this code is actually broken atm (I have a feeling it might
->   happen to work)
-
-Yes, since 788bfdd97434.
 
 
->1. Why the original hibernation code set the vectors twice.
+在 2026/7/28 0:34, Vladimir Murzin 写道:
+> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> 
+> As we clear SCTLR_EL1.SPINTMASK when enabling FEAT_NMI, ALLINT masks
+> IRQs and FIQs regardless of superpriority.
+> Update irqflags.h and `regs_irqs_disabled()` to take it into account,
+> so we properly keep track of the local IRQ masking state.
+> 
+> We have documentation at the top of irqflags.h which explains the DAIF
+> masking. Since the additional masking with NMIs is related and also
+> covers the IF in DAIF, extend the comment to note what's going on
+> with NMIs.
+> 
+> Co-developed-by: Mark Brown <broonie@kernel.org>
+> Signed-off-by: Mark Brown <broonie@kernel.org>
+> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+> ---
+>  arch/arm64/include/asm/irqflags.h | 17 +++++++++++++++++
+>  arch/arm64/include/asm/ptrace.h   |  3 +++
+>  2 files changed, 20 insertions(+)
+> 
+> diff --git a/arch/arm64/include/asm/irqflags.h b/arch/arm64/include/asm/irqflags.h
+> index c719b7e2912e..9115cdc9d517 100644
+> --- a/arch/arm64/include/asm/irqflags.h
+> +++ b/arch/arm64/include/asm/irqflags.h
+> @@ -20,6 +20,16 @@
+>   * always masked and unmasked together, and have no side effects for other
+>   * flags. Keeping to this order makes it easier for entry.S to know which
+>   * exceptions should be unmasked.
+> + *
+> + * With the addition of the FEAT_NMI extension we gain an additional
+> + * class of superpriority IRQ/FIQ which is separately masked with a
+> + * choice of modes controlled by SCTLR_ELn.{SPINTMASK,NMI}.
+> + * Linux sets SPINTMASK to 0 and NMI to 1 which results in ALLINT.ALLINT
+> + * masking both superpriority interrupts and IRQ/FIQ regardless of the
+> + * I and F settings. Since these superpriority interrupts are being
+> + * used as NMIs we do not include them in the interrupt masking here,
+> + * anything that requires that NMIs be masked needs to explicitly do so,
+> + * but we do check for ALLINT masking IRQs/FIQs.
+>   */
+>  
+>   /*
+> @@ -104,6 +114,9 @@ static __always_inline unsigned long arch_local_save_flags(void)
+>  {
+>  	arm64_exc_hwstate_t hwstate = { .daif = read_sysreg(daif) };
+>  
+> +	if (system_uses_nmi())
+> +		hwstate.allint = read_sysreg_s(SYS_ALLINT);
+> +
+>  	if (system_uses_irq_prio_masking())
+>  		hwstate.pmr = read_sysreg_s(SYS_ICC_PMR_EL1);
+>  
+> @@ -117,6 +130,10 @@ static __always_inline bool arch_irqs_disabled_flags(unsigned long flags)
+>  	if (hwstate.daif & PSR_I_BIT)
+>  		return true;
+>  
+> +	/* SCTLR_EL1.SPINTMASK is clear, so ALLINT masks *all* IRQs/FIQs. */
+> +	if (system_uses_nmi())
+> +		return !!(hwstate.allint & ALLINT_ALLINT);
+> +
+>  	if (system_uses_irq_prio_masking()) {
+>  		WARN_ON_ONCE(IS_ENABLED(CONFIG_DEBUG_IRQFLAGS) &&
+>  			     hwstate.pmr != GIC_PRIO_IRQOFF &&
+> diff --git a/arch/arm64/include/asm/ptrace.h b/arch/arm64/include/asm/ptrace.h
+> index cf7e51b8ef0b..16ba164b890e 100644
+> --- a/arch/arm64/include/asm/ptrace.h
+> +++ b/arch/arm64/include/asm/ptrace.h
+> @@ -206,6 +206,9 @@ static __always_inline bool regs_irqs_disabled(const struct pt_regs *regs)
+>  	if (regs->pstate & PSR_I_BIT)
+>  		return true;
+>  
+> +	if (system_uses_nmi())
+> +		return !!(regs->pstate & PSR_ALLINT_BIT);
 
-They do different jobs. The C call parks EL2 on the safe page copy
-before the restore overwrites the current table. The asm call installs
-the final __hyp_stub_vectors afterwards.
+Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
 
+> +
+>  	if (system_uses_irq_prio_masking()) {
+>  		WARN_ON_ONCE(IS_ENABLED(CONFIG_DEBUG_IRQFLAGS) &&
+>  			     regs->pmr != GIC_PRIO_IRQOFF &&
 
->2. Assuming they only need to be set once, whether we can drop the hvc
->   from the swsusp_arch_suspend_exit assembly code entirely.
-
-No. After the restore vbar_el2 is only writable from EL2, and the
-temporary copy cannot stay. swsusp_free() frees it right after resume.
-
->3. Whether we can then drop the HVC_SET_VECTORS handling from this set
->   of vectors.
->
-
-No, this hvc uses it, and so does kexec.
-
->Will
->
-
-Thanks!
 
