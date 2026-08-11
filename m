@@ -4,71 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A48FC5B56A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 14:23:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ED98C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 14:26:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XkytS5/JYPqoV21rPgtFYMaLjnmwoh9e0CeURPfB4Go=; b=gMMEU/Vr+/JfPQOMVy0uhXqVCz
-	y2i146TOauqOQ+xpbIaPfIJX9w4Qs4y/3Sjv4dQjV9OFUDYPXM4z5QAIfS7+ZkUyRLLGnYRiUqpCK
-	l/EfWcj1pkz+Pjso5zkm4j+tDLjh0+Gh7r8RKEI6OvM1niz2ji4ZLPpnvj7gtkDpNGtWhnMTwvuqx
-	muzBIGjAG8NfoC9Hlg5Ll8eWUh0SPSflI55eON4h1jUoxDdF1+S21KWYWd8anEidjrIaMiw/UWPY2
-	2+q9J7H5GQsTmYNOWEmVg2BgKrjGoMNnWddqQ7nW53Aqr8gIBUxnqIo20syXrGEz9PRWaPXJgIQaY
-	LYR3I+HQ==;
+	bh=2lIe5PD7kYFCQLG2Th1SAANT3Q3n6dwSXPufWFRYVC4=; b=cLQ1ej1XG1X+zam+Wgf8S2Sm/S
+	oNSQw9Fx/ayJmGdZWq2Vxd3H2L50V3FnLnsUxjZKnhJhaqwnx1IqRInmIbdcKynXtfdaHV+mmuJU3
+	jqJ4TvRuI2m1KiDNP1SiOWghSYOTBveEN2piOymyL6QcI8hGwf5Id0LS5TL3ukX/QOloZpxRKg5vJ
+	ECrSekP4k1edpMI623n7qdZnMitVRxNwgdqmA7KZgQmYx9lopZHWqdLMfxm0vHjcieyyNtuUgZ6GK
+	4Nxok9gFGU+muqSg6SA/GTOYndYmKNqbpIA93ZOPLouP/Zuih4dPP5NsuaTV4+FgfU8Y+Rz0ucCRm
+	/ivNynAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtnO7-0000000ECz6-01Yo;
-	Tue, 11 Aug 2026 14:23:31 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wtnQj-0000000EDLB-1TGC;
+	Tue, 11 Aug 2026 14:26:15 +0000
+Received: from mail-westusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c000::1] helo=BYAPR05CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtnO5-0000000ECyr-0dFC
+	id 1wtnQg-0000000EDKm-0k9M
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 14:23:29 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 90C5C4068B;
-	Tue, 11 Aug 2026 14:23:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8FB21F000E9;
-	Tue, 11 Aug 2026 14:23:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786458208;
-	bh=XkytS5/JYPqoV21rPgtFYMaLjnmwoh9e0CeURPfB4Go=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=nFm9/IDCqUPec8VfrpbgRu58zarRXsb0+5sJImgcqrUerzfFoAiZx+IS1pRf05Bem
-	 +7kkMJRctqysJs8RL6nckRWev69/OzetsljjwNZJwZjexo/i2iWq7JWDzup28luEcb
-	 /g6+4odPN/46zM7GP/sITu5G7O1qNvMK/MxBiHIlJNcE9SAvYRu64d7TNAlxh0at1Z
-	 KZUyoKFp4GpISJ+TXpcgClikZdqD22ofD3h7yamWKXW5dAV4ualHHQoo4VaQMFkStS
-	 W3XiBPS5HX/M0Jo2qstJMFk7gTRdh5wfVbs7V8MwblEX3KJzMaKSOCQhcYWBWAVF7E
-	 fG5p1gLZQOIag==
-Date: Tue, 11 Aug 2026 15:23:21 +0100
-From: Will Deacon <will@kernel.org>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Nick Desaulniers <ndesaulniers@google.com>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	live-patching@vger.kernel.org, Song Liu <song@kernel.org>,
-	Miroslav Benes <mbenes@suse.cz>, Petr Mladek <pmladek@suse.com>,
-	Joe Lawrence <joe.lawrence@redhat.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mark Brown <broonie@kernel.org>, Kees Cook <kees@kernel.org>
-Subject: Re: [PATCH] arm64/module: Fix livepatch BTI exceptions with Clang 21+
-Message-ID: <answWdRpVQLtIzIj@willie-the-truck>
-References: <ed4fe1f95071897859ec7fbe9176246cbd4962bf.1786138806.git.jpoimboe@kernel.org>
- <anmobvJXiBQqWn6S@willie-the-truck>
- <e5q2mvqtf6iw4lco55uny5ffhppw6vlflxguhc4gg5nm3zdvmo@zs6rw7iov5qc>
- <08d6c5cd-9924-4359-9181-a03718161528@app.fastmail.com>
- <kp4rvh4vxo65gipgqz4i4dnw2ueylmus4yys6xfrbngp5nefzn@4a4ekjlzqlph>
- <CAKwvOdmSVjY0TmOTc6WMmDHcLbn=tOV3R3zH_TO4zXZiYEsaBw@mail.gmail.com>
- <anrvDIWMNGIa4WPK@willie-the-truck>
- <4986ac98-d6da-474a-b218-b6468b68cb9f@app.fastmail.com>
- <16e3ed42-1b1f-4ddc-9d8c-5e12ee7dbe3c@app.fastmail.com>
+	Tue, 11 Aug 2026 14:26:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=nQ+O0raNhMJvxMXvTNfdQrHHX1/EZGJyOsuvYoZSDfi436iQRoZCifRpSNN7ENtLhp+pFfddaQOaBNG5gAQDsYzE7ZvWIMtp9BMAvxGLNpky+sEPDvQqnS+bOZB7FTCuPv2+AiqxCzj2Cy2FYvnyl8Dekf9yUqgCW2kbT8nhK/bWRFB4vjKai+GMFF/DHoal2rUtzvBsvS7bNpj9xObaSLi3ScbWfePUpB9vvnHYVe55NV0N5jw6iT/DynfiqcMgDqYkMZ2oGaFK3kQjR7A9MIHvea/5WBg9VAJpsNAeC9cqIPX6KGPK8JaZ1ks0h5ddWqDtSIFiBbhcceUIBbf4bA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2lIe5PD7kYFCQLG2Th1SAANT3Q3n6dwSXPufWFRYVC4=;
+ b=Mt5sASykltXMgu58ltznvFG8okNgYiDli6HSks//fZy6fH86+4cl30rF/N8DI5NJHZz0BwN2qT59fTEa38yRK/DB45VAV5zz2cQvN8jlmI/59fi5JEJ1BwIZ39fuwvHsF9X0mOD0ld+AOHsGDi+ozbcM2FK38s0A7i43US0U3y015S24wHnr/hb3ZM2cBCOro7bYgOqn1YOvbOHha0hZJ6+PrUYRcGHmvO/od5d8y28ZNqn28Yc8+dFrMR2mBLaVbEgJOaPPULDRmcVl3oy3Nn5ThLvNyjDkptKAukfuwrvalUGIGp2Kr7JIR8cFXAd4N8tJGWO0qDNt+x/HJeh7/g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2lIe5PD7kYFCQLG2Th1SAANT3Q3n6dwSXPufWFRYVC4=;
+ b=WBpzkKm2BWGiz74rRlo/0Iv6wIhUlMXovYlxXfll/eRwNkTk+3uWNyUYzaHi/kM9cIF0rC1moE++IivkofTCDMY8drtJN1knFrqNgdx+qVyhsD9p5lpkVC5+45BGUR5wI6T25irIGDYKWejYG/8axtSsniiY2iibn/SaF9g1T20=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from DS0PR12MB9060.namprd12.prod.outlook.com (2603:10b6:8:c4::12) by
+ DS0PR12MB7851.namprd12.prod.outlook.com (2603:10b6:8:14a::8) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.315.11; Tue, 11 Aug 2026 14:25:55 +0000
+Received: from DS0PR12MB9060.namprd12.prod.outlook.com
+ ([fe80::e096:864d:d60a:c83f]) by DS0PR12MB9060.namprd12.prod.outlook.com
+ ([fe80::e096:864d:d60a:c83f%4]) with mapi id 15.21.0292.024; Tue, 11 Aug 2026
+ 14:25:55 +0000
+Message-ID: <6cf0791d-902d-4a89-bb57-d4c607991579@amd.com>
+Date: Tue, 11 Aug 2026 19:55:48 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] firmware: xilinx: ufs: move PHY/SRAM ready polling into
+ the firmware backend
+To: Michal Simek <michal.simek@amd.com>, linux-kernel@vger.kernel.org,
+ monstr@monstr.eu, git@amd.com
+Cc: Ajay Neeli <ajay.neeli@amd.com>,
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+ "Martin K. Petersen" <martin.petersen@oracle.com>,
+ "moderated list:ARM/ZYNQ ARCHITECTURE"
+ <linux-arm-kernel@lists.infradead.org>,
+ "open list:SCSI SUBSYSTEM" <linux-scsi@vger.kernel.org>
+References: <eaeaaea8ed76069943e0706a0917139ff6569929.1785855749.git.michal.simek@amd.com>
+Content-Language: en-US
+From: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
+In-Reply-To: <eaeaaea8ed76069943e0706a0917139ff6569929.1785855749.git.michal.simek@amd.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MA5P287CA0160.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:1ba::8) To DS0PR12MB9060.namprd12.prod.outlook.com
+ (2603:10b6:8:c4::12)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <16e3ed42-1b1f-4ddc-9d8c-5e12ee7dbe3c@app.fastmail.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR12MB9060:EE_|DS0PR12MB7851:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5ccd2670-ceac-4f16-d510-08def7b47450
+X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|366016|1800799024|6133799003|10067099003|56012099006|11063799006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: JXLHuav/43fhrEfpvX5I7reqmJkn8knognbxR7rSBeZbraq57ipMoYvX+Wmms3DZztxE7G1uAYRtXNae5MWMI81MbGJNrjvdKZ2GLg1SpBt34ZqvnBciDkcR8DE6RhGsLEdjpr67m0+IUDCMg8dOSVTfw9vlsMyrx8FFc+qicSBvKqkhJH8zzwzcDY8/XpbJA0I04Hw1w5l5RO7NdYc6BUyc1lm9i0t15OgffuZBnJX6Cs8UeQRdkKLouLDcxl8/LXv1UvKeGqXYCH7PUzzZl+Mo4D/odsDnrKfhYy9M8C+pmtrQ8FBtP50VO+rRTCCQ5l/YcbnMMii3Ss/DD6qxMy5s9tlxGmdtgv12S6peaImF+UJDROnd1AQL4at+1M/pvQqayECoAlfKq9KEFaVTFEfBDVgdVCEyp8Qyew+PmWA9uqb50aSlRTZE5LUCYztNhGNXJkXlU+sm1TqpvhVcLMpc/9KJegh/7YUT+7zkEbwiKtvzzOwaiyAduvl7hX72D1D7qNomYrDhzGzQO9gad4uUZlzLy4svGz34O8uusznzkIn2loPx0K9O2USYU7+u2aTxdG9rJBsjym8ZBBm/b4uRQGxkr0w8tmmLMVTHqu3Rn0nMjIyro/eTFpPl7EtiXJIcvAmoZ4L1XJQGqfEloxyXn6u3+9D63ESUKAr2rxI=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB9060.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(23010399003)(366016)(1800799024)(6133799003)(10067099003)(56012099006)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dVZOa0tweTJMcWsrc1VjY2M1MVVydStEQzA5a0VENkw4ZzZFMkFMQkIxU0NS?=
+ =?utf-8?B?cHE3MmRnNW9YbldrdERzYi9UeFNrTUF5dHdwWS9FNDk3NEJrbEJHdkplYVBT?=
+ =?utf-8?B?OFpXZDNnbnhnUjhtYzIxZEVJc3AyREN4YVEwMFZtMVRPdGQ2SXdUeFlFUjhW?=
+ =?utf-8?B?cWhML0N0OFdQODhOVDdqNTcxWUljZnZpckhMaENvKzBrYkJuMDFBRnNhQWN4?=
+ =?utf-8?B?ZCtFd24wWE1STTdVL0tOQXgyVjg4clFBZG5hQitYdnhodUdwMkVLZ0pqbk82?=
+ =?utf-8?B?L2lVdFNCUWFkZnVUS3d6N2pzMHVQMDI0bitBV01GS2NsMDNKRzM3dEZKdU8r?=
+ =?utf-8?B?bHo1Mml6RnJTeHNRL3YxaW9IVUs4RFh3ZmoxYVRkdzJaQjNaQUpXaUg1ZjNC?=
+ =?utf-8?B?RHdwaEUwcU5qd0loRk5HaXRXekRFVTZJOWxtOXV1TmdxM01pYUlPc1FwTWJ3?=
+ =?utf-8?B?QXZwMEpMbEhTcHRwUVdSdGJKVGxjR1FTQ0lJV3I0Y0xlSUtSLzE3RTdadXh0?=
+ =?utf-8?B?cHJZemxDWEd2Z0FSTlM0S2IrQVZtU2pyVW14YUdHS1Rxbm9GcUczQk9qdUJn?=
+ =?utf-8?B?ZjdVMUFidlFuT1l4Z1dFbWFxZGFzTFVnRE9lM0xwd2hDOWpYSWZjS3ZZdUIz?=
+ =?utf-8?B?Z0dmTFI1S080WUIyRlJpeWYrUFA3SHFDSkhEQXJLQnZicTd0a3RjU21wY29m?=
+ =?utf-8?B?TnRNMXY1UkZOV05udVk3bFgvdVozOWtwUlJhSXJteHZ5azI0QnJBWGY5RmFP?=
+ =?utf-8?B?QVRhOU1udzZpaGFOME5vQWNYWjNsK1JpaWtOWnVOSGRuZGVwR1RpUGU5K2gr?=
+ =?utf-8?B?MTU3SW0vNUx5TDlWVCt0VDVvYVoxOHFrcEpBdzNTSndLN3gwNHdvMUpaaUhq?=
+ =?utf-8?B?cTJONVpDOVYySm9iM2Z6OGJDcHRjYmRLRWtJeXo0MjVKa0Q1STFISTRVR1Ny?=
+ =?utf-8?B?SlVTUG9qdlRBUnJVZkhhTlk0TXFlZjFwY0NjV3FxQm5nWG5BN05XemRxRWNC?=
+ =?utf-8?B?T3N3d3hCSjRaZWxTU2RVWnk0dUpYUjNKa1d5U3BobU9VNElyVVBhaWs5NWtu?=
+ =?utf-8?B?RnVaKytUT0tNWWVYdnRBVENrUU83MXNueGpuZUpuMGV6VjFBblUrOWtMQ0VH?=
+ =?utf-8?B?a01UVHdPMHpkYWVNTnB4UGJ3UlB5Z3d5MlhYZlZBZFlYVTJ0Mzh3aUdydmhN?=
+ =?utf-8?B?dXQrSVgrZUNndXJQS3ZnVE9xME84RlBSbDZYSWFHVTQ1cFcwM2Z1MTJQb1Z1?=
+ =?utf-8?B?cFhWUzlPZ0c1d1hpTTNDc2VKY2xoVXFXTFRVZ3pxd1crTHUxeUlPTHJMN2hF?=
+ =?utf-8?B?ME5oa280YjN6VE9UWjFabW5TbzR4WDBOZ2dYanhSQlYrUlFWc0p4TzgwY3dC?=
+ =?utf-8?B?YUdQekJFbWd5cHpQM1R2dkcxWHZmVWR6NlZLb2ZHSWNPdGgyeGVTWDRGRDU4?=
+ =?utf-8?B?TTBPbkFvM1c0NXVBOUtPQWlmTGQzYWV4QnV1elJRZSt3T3NyaWRobjFtWkFk?=
+ =?utf-8?B?TGZqWjFiRU4reEcwTEJmOGxyNW9YMUszN1B3UTJsME5TN0xoOFYxaE1Ebm5Y?=
+ =?utf-8?B?UW5zM2k3U0ZZSG5WRjErOFVwdWl4Y1dKcXhCRFQvb3NGMG9EK3pTTE9taGdN?=
+ =?utf-8?B?aDVHZFpCcW5HZVF6R1ZrWVQzdE1iS0VhZkVQWWFnSExpVm9OOGN4MDFMUVpX?=
+ =?utf-8?B?S0QrZU1JN2crdXkyMmJTMnlzQXFqNEJhTERackhOTkdzSVRFMEpFK25iNFY1?=
+ =?utf-8?B?N0plL1ZielhjVkdWbXdxNzVGWHpQRVhMMGdxZjVZWkFNUGdsUVFkMFJ2M3VG?=
+ =?utf-8?B?YU96bUZLZnZja0orTHhoRlBNRTZaUW1HQ2FUT080Q0x1bHc4alEyQW01SDNO?=
+ =?utf-8?B?MU8weUpFSnQxSk5tVDNzVVc4VlcwNnpMc3poZWJ5S1B2OXliUVZlQ2h4dGdK?=
+ =?utf-8?B?dlRLWmgyMFV0RmdyM3dXN25hbjdWQ2o0enlhUlNxSkhiQVVFWktmc3YzVnlR?=
+ =?utf-8?B?MnhTbWg5T2FucVRFcXM2SWV2RDF5MC9JbFFhVmIzckNIdm5pQXBpZVIxMWoy?=
+ =?utf-8?B?SnMvbmVIRXhKbGp2MnBqWHdsbWN0bjcyalBzdGRLNi82eXhrbFRHbjByNU96?=
+ =?utf-8?B?Mll0aW9qM1A2R0N3ZnFpQVBHQ09hSUpLVlVRT3FRZFpYK3JRVWc4c21ydllq?=
+ =?utf-8?B?QTRRTTdEMDNyVmFiNDluQWVpWG5yV1pTWEkrS1JES09hMHAyb2dKM3ZaOGdI?=
+ =?utf-8?B?YmZLWWw0Nm9oTzQ4aGJSeUtGdGhkcVNMdHQ1L1Y5WldSR3dyWnc0RFhtN2hP?=
+ =?utf-8?B?eGF4WndWYzdsM3VHRHRaOEN2T1M0L2VuMUd4S3pzWjZFcytHRHdQQT09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5ccd2670-ceac-4f16-d510-08def7b47450
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB9060.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Aug 2026 14:25:55.2968
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: xK6l9I/nqRv4rZCQqPyuDCCzJDBCQmGfhWbCzd7+qh22cz3sJ+MLEyvZgwGGtcc1ODTetKt1sgOwnk9CbkPy2A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB7851
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260811_072610_486100_AA524918 
+X-CRM114-Status: GOOD (  30.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,76 +151,254 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 11, 2026 at 03:18:17PM +0200, Ard Biesheuvel wrote:
+
+
+On 8/4/2026 8:32 PM, Michal Simek wrote:
+> The Versal Gen 2 UFS driver polls the firmware for M-PHY TX/RX
+> configuration readiness and SRAM initialisation completion with two
+> open-coded do/while loops. Each iteration is a full firmware round-trip
+> (PM_IOCTL/IOCTL_READ_REG of a protected PMC_IOU_SLCR register), so the
+> loop can issue up to a million EEMI calls, and it hard-codes the wait
+> policy inside the controller driver.
 > 
-> On Tue, 11 Aug 2026, at 14:02, Ard Biesheuvel wrote:
-> > On Tue, 11 Aug 2026, at 11:44, Will Deacon wrote:
-> >> On Mon, Aug 10, 2026 at 09:41:35AM -0700, Nick Desaulniers wrote:
-> >
-> >>> Sure, but let's replace this with a link to a bug report in llvm's
-> >>> issue tracker?
-> >>
-> >> Yes, please! I can apply the patch once we have the bug number.
-> >>
-> >
-> > I can look into that.
+> Introduce coarse blocking helpers, zynqmp_pm_wait_mphy_tx_rx_config_ready()
+> and zynqmp_pm_wait_sram_init_done(), that take a caller-supplied timeout
+> budget and contain the poll loop. The loop is EEMI-specific (legacy
+> firmware only exposes the per-read status primitive) so it lives in the
+> firmware driver, keeping the UFS driver backend-agnostic: a future
+> backend can offload the wait to the platform in a single call without
+> touching the controller driver again. The existing per-read primitives stay
+> exported, so the current EEMI interface is unchanged.
 > 
-> https://github.com/llvm/llvm-project/issues/215547
+> The timeout budget remains owned by the UFS driver (the consumer that
+> knows the hardware) and is passed down, so EEMI and any future backend
+> stay consistent.
+> 
+> Signed-off-by: Michal Simek <michal.simek@amd.com>
 
-Thanks, Ard. I've ended up with the patch below.
+Reviewed-by: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
 
-Will
+Regards
+Sai Krishna
 
---->8
-
-Author: Josh Poimboeuf <jpoimboe@kernel.org>
-Date:   Tue Aug 11 14:11:44 2026 +0000
-
-    arm64: bti: Disable in-kernel BTI with recent versions of Clang
-    
-    The following BTI exception was seen when loading a livepatch module:
-    
-      Internal error: Oops - BTI: 0000000036000001 [#1]  SMP
-      pstate: 634004c9 (nZCv daIF +PAN -UAO +TCO +DIT -SSBS BTYPE=jc)
-      pc : kill_orphaned_pgrp+0x0/0x150
-      lr : do_exit+0x498/0xaf0 [livepatch_combined]
-    
-    The problem is that the patch module's do_exit() is branching to a
-    static function in vmlinux using a module PLT veneer (indirect branch),
-    but the target function doesn't have a BTI landing pad.
-    
-    Clang 21+ omits the landing pad for static functions which can only be
-    reached by a direct branch.  That's normally fine for ordinary modules
-    which only branch to global exported functions, but Mark Brown points
-    out [1] that this isn't guaranteed if the module branches between
-    sections. Futhermore, livepatch modules use klp relocations to reference
-    arbitrary kernel symbols, so with CONFIG_RANDOMIZE_MODULE_REGION_FULL
-    the module is far enough from the kernel that every R_AARCH64_CALL26
-    needs a PLT.
-    
-    Put Clang 21+ in the naughty corner alongside GCC, which suffers from
-    the same issue, by disabling CONFIG_ARM64_BTI_KERNEL until we have a
-    version of the toolchain with the problem resolved.
-    
-    Cc: Ard Biesheuvel <ardb@kernel.org>
-    Link: https://lore.kernel.org/r/da06bbd3-d04b-4d0f-b331-f5b91bc373a5@sirena.org.uk [1]
-    Fixes: fd1e0fd71f65 ("arm64: Implement HAVE_LIVEPATCH")
-    Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
-    [will: Stitched together commit message, diff and bug number]
-    Signed-off-by: Will Deacon <will@kernel.org>
-
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index b3afe0688919..fc57d90d92c1 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -2116,6 +2116,8 @@ config ARM64_BTI_KERNEL
-        depends on !CC_IS_GCC || GCC_VERSION >= 100100
-        # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=106671
-        depends on !CC_IS_GCC
-+       # https://github.com/llvm/llvm-project/issues/215547
-+       depends on !CC_IS_CLANG || CLANG_VERSION < 210000
-        depends on (!FUNCTION_GRAPH_TRACER || DYNAMIC_FTRACE_WITH_ARGS)
-        help
-          Build the kernel with Branch Target Identification annotations
+> ---
+> 
+>   drivers/firmware/xilinx/zynqmp-ufs.c     | 70 ++++++++++++++++++++++--
+>   drivers/ufs/host/ufs-amd-versal2.c       | 46 ++++------------
+>   include/linux/firmware/xlnx-zynqmp-ufs.h |  8 +--
+>   3 files changed, 82 insertions(+), 42 deletions(-)
+> 
+> diff --git a/drivers/firmware/xilinx/zynqmp-ufs.c b/drivers/firmware/xilinx/zynqmp-ufs.c
+> index 85da8a822f3a..81ccf61a037c 100644
+> --- a/drivers/firmware/xilinx/zynqmp-ufs.c
+> +++ b/drivers/firmware/xilinx/zynqmp-ufs.c
+> @@ -5,6 +5,7 @@
+>    * Copyright (C) 2025 Advanced Micro Devices, Inc.
+>    */
+>   
+> +#include <linux/delay.h>
+>   #include <linux/firmware/xlnx-zynqmp.h>
+>   #include <linux/module.h>
+>   
+> @@ -33,7 +34,7 @@
+>    *
+>    * Return:	Returns 0 on success or error value on failure.
+>    */
+> -int zynqmp_pm_is_mphy_tx_rx_config_ready(bool *is_ready)
+> +static int zynqmp_pm_is_mphy_tx_rx_config_ready(bool *is_ready)
+>   {
+>   	u32 regval;
+>   	int ret;
+> @@ -53,7 +54,6 @@ int zynqmp_pm_is_mphy_tx_rx_config_ready(bool *is_ready)
+>   
+>   	return ret;
+>   }
+> -EXPORT_SYMBOL_GPL(zynqmp_pm_is_mphy_tx_rx_config_ready);
+>   
+>   /**
+>    * zynqmp_pm_is_sram_init_done - check SRAM initialization
+> @@ -61,7 +61,7 @@ EXPORT_SYMBOL_GPL(zynqmp_pm_is_mphy_tx_rx_config_ready);
+>    *
+>    * Return:	Returns 0 on success or error value on failure.
+>    */
+> -int zynqmp_pm_is_sram_init_done(bool *is_done)
+> +static int zynqmp_pm_is_sram_init_done(bool *is_done)
+>   {
+>   	u32 regval;
+>   	int ret;
+> @@ -81,7 +81,69 @@ int zynqmp_pm_is_sram_init_done(bool *is_done)
+>   
+>   	return ret;
+>   }
+> -EXPORT_SYMBOL_GPL(zynqmp_pm_is_sram_init_done);
+> +
+> +/**
+> + * zynqmp_pm_wait_mphy_tx_rx_config_ready - wait for M-PHY TX-RX config ready
+> + * @timeout_us:	Caller-supplied timeout budget in microseconds
+> + *
+> + * Poll the M-PHY TX-RX configuration-ready status until it settles or the
+> + * timeout elapses. The poll loop is EEMI-specific (legacy firmware only offers
+> + * the per-read status primitive), so it lives here in the firmware driver
+> + * rather than in the UFS controller driver; an SCMI-based backend can instead
+> + * offload the wait to the platform in a single call. The timeout budget is
+> + * owned by the caller (UFS driver), keeping the policy with the consumer.
+> + *
+> + * Return:	Returns 0 once ready, -ETIMEDOUT on timeout, or error value.
+> + */
+> +int zynqmp_pm_wait_mphy_tx_rx_config_ready(u32 timeout_us)
+> +{
+> +	bool is_ready;
+> +	int ret;
+> +
+> +	while (timeout_us--) {
+> +		ret = zynqmp_pm_is_mphy_tx_rx_config_ready(&is_ready);
+> +		if (ret)
+> +			return ret;
+> +
+> +		if (!is_ready)
+> +			return 0;
+> +
+> +		usleep_range(1, 5);
+> +	}
+> +
+> +	return -ETIMEDOUT;
+> +}
+> +EXPORT_SYMBOL_GPL(zynqmp_pm_wait_mphy_tx_rx_config_ready);
+> +
+> +/**
+> + * zynqmp_pm_wait_sram_init_done - wait for SRAM initialization to complete
+> + * @timeout_us:	Caller-supplied timeout budget in microseconds
+> + *
+> + * Poll the SRAM initialization-done status until it is set or the timeout
+> + * elapses. As with the M-PHY wait, the poll loop is EEMI-specific and kept in
+> + * the firmware driver so the UFS controller driver stays backend-agnostic.
+> + *
+> + * Return:	Returns 0 once done, -ETIMEDOUT on timeout, or error value.
+> + */
+> +int zynqmp_pm_wait_sram_init_done(u32 timeout_us)
+> +{
+> +	bool is_done;
+> +	int ret;
+> +
+> +	while (timeout_us--) {
+> +		ret = zynqmp_pm_is_sram_init_done(&is_done);
+> +		if (ret)
+> +			return ret;
+> +
+> +		if (is_done)
+> +			return 0;
+> +
+> +		usleep_range(1, 5);
+> +	}
+> +
+> +	return -ETIMEDOUT;
+> +}
+> +EXPORT_SYMBOL_GPL(zynqmp_pm_wait_sram_init_done);
+>   
+>   /**
+>    * zynqmp_pm_set_sram_bypass - Set SRAM bypass Control
+> diff --git a/drivers/ufs/host/ufs-amd-versal2.c b/drivers/ufs/host/ufs-amd-versal2.c
+> index 2154d6286817..dff0c2c95486 100644
+> --- a/drivers/ufs/host/ufs-amd-versal2.c
+> +++ b/drivers/ufs/host/ufs-amd-versal2.c
+> @@ -225,8 +225,6 @@ static int ufs_versal2_setup_phy(struct ufs_hba *hba)
+>   static int ufs_versal2_phy_init(struct ufs_hba *hba)
+>   {
+>   	struct ufs_versal2_host *host = ufshcd_get_variant(hba);
+> -	u32 time_left;
+> -	bool is_ready;
+>   	int ret;
+>   	static const struct ufshcd_dme_attr_val rmmi_attrs[] = {
+>   		{ UIC_ARG_MIB(CBREFCLKCTRL2), CBREFREFCLK_GATE_OVR_EN, DME_LOCAL },
+> @@ -235,23 +233,15 @@ static int ufs_versal2_phy_init(struct ufs_hba *hba)
+>   		{ UIC_ARG_MIB(VS_MPHYCFGUPDT), 1, DME_LOCAL }
+>   	};
+>   
+> -	/* Wait for Tx/Rx config_rdy */
+> -	time_left = TIMEOUT_MICROSEC;
+> -	do {
+> -		time_left--;
+> -		ret = zynqmp_pm_is_mphy_tx_rx_config_ready(&is_ready);
+> -		if (ret)
+> -			return ret;
+> -
+> -		if (!is_ready)
+> -			break;
+> -
+> -		usleep_range(1, 5);
+> -	} while (time_left);
+> -
+> -	if (!time_left) {
+> +	/*
+> +	 * Wait for Tx/Rx config_rdy. The poll loop lives in the firmware
+> +	 * backend (EEMI today, SCMI in future) so this driver stays
+> +	 * backend-agnostic; the timeout budget stays here with the consumer.
+> +	 */
+> +	ret = zynqmp_pm_wait_mphy_tx_rx_config_ready(TIMEOUT_MICROSEC);
+> +	if (ret) {
+>   		dev_err(hba->dev, "Tx/Rx configuration signal busy.\n");
+> -		return -ETIMEDOUT;
+> +		return ret;
+>   	}
+>   
+>   	ret = ufshcd_dwc_dme_set_attrs(hba, rmmi_attrs, ARRAY_SIZE(rmmi_attrs));
+> @@ -264,23 +254,11 @@ static int ufs_versal2_phy_init(struct ufs_hba *hba)
+>   		return ret;
+>   	}
+>   
+> -	/* Wait for SRAM init done */
+> -	time_left = TIMEOUT_MICROSEC;
+> -	do {
+> -		time_left--;
+> -		ret = zynqmp_pm_is_sram_init_done(&is_ready);
+> -		if (ret)
+> -			return ret;
+> -
+> -		if (is_ready)
+> -			break;
+> -
+> -		usleep_range(1, 5);
+> -	} while (time_left);
+> -
+> -	if (!time_left) {
+> +	/* Wait for SRAM init done (poll handled by the firmware backend). */
+> +	ret = zynqmp_pm_wait_sram_init_done(TIMEOUT_MICROSEC);
+> +	if (ret) {
+>   		dev_err(hba->dev, "SRAM initialization failed.\n");
+> -		return -ETIMEDOUT;
+> +		return ret;
+>   	}
+>   
+>   	ret = ufs_versal2_setup_phy(hba);
+> diff --git a/include/linux/firmware/xlnx-zynqmp-ufs.h b/include/linux/firmware/xlnx-zynqmp-ufs.h
+> index d3538dd5822a..00383dd835f2 100644
+> --- a/include/linux/firmware/xlnx-zynqmp-ufs.h
+> +++ b/include/linux/firmware/xlnx-zynqmp-ufs.h
+> @@ -9,17 +9,17 @@
+>   #define __FIRMWARE_XLNX_ZYNQMP_UFS_H__
+>   
+>   #if IS_REACHABLE(CONFIG_ZYNQMP_FIRMWARE)
+> -int zynqmp_pm_is_mphy_tx_rx_config_ready(bool *is_ready);
+> -int zynqmp_pm_is_sram_init_done(bool *is_done);
+> +int zynqmp_pm_wait_mphy_tx_rx_config_ready(u32 timeout_us);
+> +int zynqmp_pm_wait_sram_init_done(u32 timeout_us);
+>   int zynqmp_pm_set_sram_bypass(void);
+>   int zynqmp_pm_get_ufs_calibration_values(u32 *val);
+>   #else
+> -static inline int zynqmp_pm_is_mphy_tx_rx_config_ready(bool *is_ready)
+> +static inline int zynqmp_pm_wait_mphy_tx_rx_config_ready(u32 timeout_us)
+>   {
+>   	return -ENODEV;
+>   }
+>   
+> -static inline int zynqmp_pm_is_sram_init_done(bool *is_done)
+> +static inline int zynqmp_pm_wait_sram_init_done(u32 timeout_us)
+>   {
+>   	return -ENODEV;
+>   }
+> ---
+> base-commit: 848acc8ffe1b7cd5f1bf427b93069becfebc2c9d
+> branch: xnext/ufs
+> 
 
 
