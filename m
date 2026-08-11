@@ -4,61 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79A65C5CFC1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 09:18:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 299E8C5CFC1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 09:29:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u/rtvz2OitzlkMvShH8dLU98BAHfJ20PcH98vTVmKWc=; b=tVfcBkDG3hm2MQHOa9pFh0v262
-	uHP3IbnXBmsFpxg1VoEQRhkb4KHv5z4wKRg5EvL+/osTtuz33FOm7IczyZvjNazFesSyTg3MW6w0y
-	PL5Q2oIs7GI4d+des2B+5tgAO9Um4W+RfO9ftceLCf8tByBeG71sENf1lvQ3jYru81PU/+jGXjtmM
-	SzQt5RIntWTxWQYlTXiC4xxdCs3298XKoiqMO5Qr2LcAbWii9cfhxxIM2I6TJ19JLhF9bXr1tP63p
-	FAen5Fi9z3CbcU1P5Tp8T4F1cqKqAqgbVPTsovB9pfQlz2/iX2jhJ0z7KF8wzVmKCGFSel1GwRgbq
-	vR1b641A==;
+	bh=tBl3GBctv61bQMyEd2S/uBaFdUwcRcdsqM3BfaYguhk=; b=Ze7+v9yZbWUw+YmLdTfDnaqnyW
+	H68ksSMQ61WOnTsiShjN97yRssZevYZN7N79BumtKrnsh/N4ndVX0mxb6N3ePJTUz2541oxNVzZKK
+	9jRjbXSWZ+pGtZlux6DFLIDxik6yug/MQrakxIhL1pJa+C5Z+vvGQuCtRfehuCdctme/gxmHUghXp
+	fsDOKT6gZlMJ+H8XoYZ5k1F3uR5lGgigT5qgLnQ9pOvNDKLzeuNxCkFq4mfUKOYZQvmYiaLtYIKPX
+	PhVE8vJgRFTuGeBnvmQCKON1fDtIt3ogENnedrkMQL8R/eEEakLGii2mrpVI+p/JcZDXQlePGi1QK
+	ReQw31dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wticP-0000000Dhzs-0yoq;
-	Tue, 11 Aug 2026 09:17:57 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wticM-0000000DhzN-21r9
+	id 1wtinB-0000000Dj6J-32nn;
+	Tue, 11 Aug 2026 09:29:05 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wtin7-0000000Dj31-1hBD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 09:17:55 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4B7E81516;
-	Tue, 11 Aug 2026 02:17:49 -0700 (PDT)
-Received: from [10.57.45.152] (unknown [10.57.45.152])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 417773F632;
-	Tue, 11 Aug 2026 02:17:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786439873; bh=rGGi2yKj3HpDSJIWZQdi6DjXNQswIDWAPnt9OjTz0TI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=eGJ9q7sU5vlcWlVIFIA5/275FSloVrTNCx0qUg/76qy5XO5qNeFxV0DAoHeqsi0NG
-	 3KTDKCaDhD0YWOHqVT4sIRtfFpTjSERVug761wO7yfY4o9rqfrkIs98eWHjIXu7KiY
-	 hH63U5CPMdD0gcVcWTaR49X5dPsuzK1nvg6c/2mA=
-Message-ID: <e138019e-5c7b-4ae3-837a-97cc95edb836@arm.com>
-Date: Tue, 11 Aug 2026 10:17:50 +0100
+	Tue, 11 Aug 2026 09:29:02 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4995b0343c1so25333355e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 02:29:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786440539; x=1787045339; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=tBl3GBctv61bQMyEd2S/uBaFdUwcRcdsqM3BfaYguhk=;
+        b=iQhcuY9XZ4dEgcHCOZUPAaEZdvcazii5/ph1+Q+Xj6FV2XDRhibe3FTgqlWQY6D+Fj
+         adZ5DyarcnnSOKL+owV1MjrEg99gUdgEYIkrhzxYrhq4iML6VRWLQ4laQo/LYHoZERon
+         kTFNS8CV+x+par0Awed2nsQwdAWSU9/vShauiR3BHFwvUuRdXvWv0UpcVbjq/7dCmx9K
+         8mWbeXOq7X9KNxUPZ/Jz9dBr7suWOba9H0LlXC9aIU75gJgK7IGpbSprQLPfRUw7+jD5
+         6CtWbiLv5Blc/3Q3j/BBVWjW0fGEXrQR+c+RlwRkOblQGu+DFx4tJg6W1t14dbUPkM1Y
+         adBw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786440539; x=1787045339;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=tBl3GBctv61bQMyEd2S/uBaFdUwcRcdsqM3BfaYguhk=;
+        b=QSi+5Q9xvgWAXoaRW1phoTk42BRo0gvVcWXst4RH2vy6ZSFhNejOQd85otnWTYbkes
+         V2VZN8Nq1Vmlb8+PBo1TrA6Dm044062mc6LiK2MZdOl/hbzbe6TIseLhuHcp2wFvjtUs
+         IXsLs92fJRuX92vCbavXmzP/KjdRy51tOzkXtGz0+Gr+ObTltHzFygjWXIhadywGOwsW
+         jf/MbuJ4+GtLgIklQT/A9/t+8lR+YP9YGZEv+Af6230uD/p+0JKRyxJIbBqTd5IcMaN0
+         0ilWFS7bn/izocOWSVLEaCFFmZM4XUS7hgvMI9Gd8Dd+8IclTDFnzLYhkWtMwuAlfa4U
+         DJUQ==
+X-Forwarded-Encrypted: i=1; AHgh+Ro/SQu6+wbrT0BdgzqwywfM2sjpG3tpWUZNkLg284+NdYBK/ItvW7eYdlO/p63RKf5hVIykjkIq+QAecxSlE431@lists.infradead.org
+X-Gm-Message-State: AOJu0YwFQUxUckd/u+pP52L7EdsgQixQGhvOUC0IMmfmBwr4a2TBE0CQ
+	5aJaQNH2jUjura5SFBmHgGwxyAwXc4YBcMBRf5KwJP95Hokc+ZMlwA1D
+X-Gm-Gg: AR+sD11QuCu94ZasAjuvhc1sFhU6TjSy3i9o4FHxo+8XSP74n7+igEyJkwaYtOgg7RZ
+	AV0RBdxHegLd70TDm2zYsNks68fa+2vamn7mREcx+fMtq4e3MHF2rQ470+jdQNzCz++pAa55eQc
+	N0sWjhXSlbaaomweDTNLzJ7FlwthmwiWuEjZB24aHWFale17rWB13Xt+IGzbYTELO7msQi0he1m
+	p1jVSbgwlOCfHSfKzO304Y3rdQI3hN0D/rhS6WuzP/nyExXGnZ8SmgfL08sxkzFcKEpD+cq92yK
+	OsPkPuN2zHWxTr84tybSGGc9fp58hIzvw2J92mSGYGUhOOcELvRAmCkoajNh9mpu5wYlwDeX/po
+	F4fHv8j0rNMODU9u7RzXqo5KIYGgEX7ln8rf0NJgrsZ9XUoYguZFswW/EBLApWak9emXkpceDn1
+	Tpc9qt+bwwRgdfRTkpzx4ZzeP0T0QhfpS9Ai/5h64OC/Zp1kfovqfEYmSeLGQR5gI+lX1JSZHC9
+	2uIjKQYzPaNeOvbLQOYGiYvMv1Yqze6h5PpigVaL3vsMKNu
+X-Received: by 2002:a05:600c:848a:b0:495:69eb:27fe with SMTP id 5b1f17b1804b1-49978463ca6mr33817265e9.11.1786440539279;
+        Tue, 11 Aug 2026 02:28:59 -0700 (PDT)
+Received: from Ansuel-XPS24.localdomain (host-87-20-3-207.retail.telecomitalia.it. [87.20.3.207])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4997402a89bsm56135735e9.0.2026.08.11.02.28.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 11 Aug 2026 02:28:58 -0700 (PDT)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Simon Horman <horms@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Christian Marangi <ansuelsmth@gmail.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	llvm@lists.linux.dev
+Subject: [PATCH net-next v13 01/12] net: phylink: keep and use MAC supported_interfaces in phylink struct
+Date: Tue, 11 Aug 2026 11:28:26 +0200
+Message-ID: <20260811092843.673837-2-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260811092843.673837-1-ansuelsmth@gmail.com>
+References: <20260811092843.673837-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] coresight: trbe: Hide enable_sink sysfs file
-Content-Language: en-GB
-To: James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>
-Cc: Mike Leach <mike.leach@arm.com>, Yeoreum Yun <yeoreum.yun@arm.com>,
- coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260807-james-cs-hide-trbe-enable-v2-1-0b2af223feed@linaro.org>
- <20260811090424.GD15499@e132581.arm.com>
- <7d4a7f0c-2b0e-471e-9c29-867bae981523@linaro.org>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <7d4a7f0c-2b0e-471e-9c29-867bae981523@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_021754_650828_F5992E73 
-X-CRM114-Status: GOOD (  15.71  )
+X-CRM114-CacheID: sfid-20260811_022901_474966_38958A07 
+X-CRM114-Status: GOOD (  19.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,44 +124,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/08/2026 10:10, James Clark wrote:
-> 
-> 
-> On 11/08/2026 10:04, Leo Yan wrote:
->> On Fri, Aug 07, 2026 at 11:13:22AM +0100, James Clark wrote:
->>> TRBE doesn't support sysfs mode, but the enable_sink file can still be
->>> successfully written to enable the device, and only attempting to enable
->>> the source would later fail.
->>>
->>> Avoid misleading users by adding a flag that devices can use to hide
->>> either the enable_sink or enable_source files, and set it for TRBE.
->>>
->>> Don't set it for ETE as it's possible that ETE could appear on the
->>> legacy bus and work with sysfs, and writing to enable_source already
->>> reports EINVAL if the device doesn't support sysfs mode.
->>
->> It is a pity that we cannot determine from the ETE registers whether ETE
->> is connected to the legacy bus or TRBE.
->>
-> 
-> We could determine it from the device tree. A path has to be built or 
-> you can't use it on the legacy bus either. Maybe we can do a more 
-> general change in the future to hide the flag for any non-connected CPU 
-> source.
+Add in phylink struct a copy of supported_interfaces from phylink_config
+and make use of that instead of relying on phylink_config value.
 
+This in preparation for support of PCS handling internally to phylink
+where a PCS can be removed or added after the phylink is created and we
+need both a reference of the supported_interfaces value from
+phylink_config and an internal value that can be updated with the new
+PCS info.
 
-There must be a sink enabled before the source can be enabled. So, 
-enable_source will fail. I would leave things as is, given the
-sinks can be loaded with modules and it is all dynamic
+Tested-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+---
+ drivers/net/phy/phylink.c | 22 +++++++++++++++-------
+ 1 file changed, 15 insertions(+), 7 deletions(-)
 
-Cheers
-Suzuki
-
-
-> 
->>> Signed-off-by: James Clark <james.clark@linaro.org>
->>
->> Reviewed-by: Leo Yan <leo.yan@arm.com>
-> 
+diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
+index b241768edbcb..b7180ae76cc8 100644
+--- a/drivers/net/phy/phylink.c
++++ b/drivers/net/phy/phylink.c
+@@ -60,6 +60,11 @@ struct phylink {
+ 	/* The link configuration settings */
+ 	struct phylink_link_state link_config;
+ 
++	/* What interface are supported by the current link.
++	 * Can change on removal or addition of new PCS.
++	 */
++	DECLARE_PHY_INTERFACE_MASK(supported_interfaces);
++
+ 	/* The current settings */
+ 	phy_interface_t cur_interface;
+ 
+@@ -628,7 +633,7 @@ static int phylink_validate_mask(struct phylink *pl, struct phy_device *phy,
+ static int phylink_validate(struct phylink *pl, unsigned long *supported,
+ 			    struct phylink_link_state *state)
+ {
+-	const unsigned long *interfaces = pl->config->supported_interfaces;
++	const unsigned long *interfaces = pl->supported_interfaces;
+ 
+ 	if (state->interface == PHY_INTERFACE_MODE_NA)
+ 		return phylink_validate_mask(pl, NULL, supported, state,
+@@ -1878,6 +1883,9 @@ struct phylink *phylink_create(struct phylink_config *config,
+ 		goto free_pl;
+ 	}
+ 
++	phy_interface_copy(pl->supported_interfaces,
++			   pl->config->supported_interfaces);
++
+ 	pl->mac_supports_eee_ops = phylink_mac_implements_lpi(mac_ops);
+ 	pl->mac_supports_eee = pl->mac_supports_eee_ops &&
+ 			       pl->config->lpi_capabilities &&
+@@ -2024,7 +2032,7 @@ static int phylink_validate_phy(struct phylink *pl, struct phy_device *phy,
+ 		 * those which the host supports.
+ 		 */
+ 		phy_interface_and(interfaces, phy->possible_interfaces,
+-				  pl->config->supported_interfaces);
++				  pl->supported_interfaces);
+ 
+ 		if (phy_interface_empty(interfaces)) {
+ 			phylink_err(pl, "PHY has no common interfaces\n");
+@@ -2824,12 +2832,12 @@ static phy_interface_t phylink_sfp_select_interface(struct phylink *pl,
+ 		return interface;
+ 	}
+ 
+-	if (!test_bit(interface, pl->config->supported_interfaces)) {
++	if (!test_bit(interface, pl->supported_interfaces)) {
+ 		phylink_err(pl,
+ 			    "selection of interface failed, SFP selected %s (%u) but MAC supports %*pbl\n",
+ 			    phy_modes(interface), interface,
+ 			    (int)PHY_INTERFACE_MODE_MAX,
+-			    pl->config->supported_interfaces);
++			    pl->supported_interfaces);
+ 		return PHY_INTERFACE_MODE_NA;
+ 	}
+ 
+@@ -3757,14 +3765,14 @@ static int phylink_sfp_config_optical(struct phylink *pl)
+ 
+ 	phylink_dbg(pl, "optical SFP: interfaces=[mac=%*pbl, sfp=%*pbl]\n",
+ 		    (int)PHY_INTERFACE_MODE_MAX,
+-		    pl->config->supported_interfaces,
++		    pl->supported_interfaces,
+ 		    (int)PHY_INTERFACE_MODE_MAX,
+ 		    pl->sfp_interfaces);
+ 
+ 	/* Find the union of the supported interfaces by the PCS/MAC and
+ 	 * the SFP module.
+ 	 */
+-	phy_interface_and(pl->sfp_interfaces, pl->config->supported_interfaces,
++	phy_interface_and(pl->sfp_interfaces, pl->supported_interfaces,
+ 			  pl->sfp_interfaces);
+ 	if (phy_interface_empty(pl->sfp_interfaces)) {
+ 		phylink_err(pl, "unsupported SFP module: no common interface modes\n");
+@@ -3935,7 +3943,7 @@ static int phylink_sfp_connect_phy(void *upstream, struct phy_device *phy)
+ 
+ 	/* Set the PHY's host supported interfaces */
+ 	phy_interface_and(phy->host_interfaces, phylink_sfp_interfaces,
+-			  pl->config->supported_interfaces);
++			  pl->supported_interfaces);
+ 
+ 	/* Do the initial configuration */
+ 	return phylink_sfp_config_phy(pl, phy);
+-- 
+2.53.0
 
 
