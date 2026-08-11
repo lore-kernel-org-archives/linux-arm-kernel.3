@@ -4,93 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 774DBC5AC67
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 09:11:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FEE2C5CFCF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 09:15:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4N1Q1nwOPIf6MIydtQa9UFtXathXYE0L3N4GuxjuFlk=; b=Z+9vFLNONqMecIEIQg2WtjKRwM
-	kbLEHEGRyNM07WefYxIM0o0qflF3/oMhjmTCQ/IpyeqhIIbCrUUWIs+Zq3rZz562pM36txY5pl6mk
-	czkyzzS6cTtSNDUWZaj9Rh/p2x0L8earv+E7eNVrTwZ+5lYCpY7gyEneKxxN1vxXTpBv0zbZmrbYh
-	Syo8b9HjLOFXIJzGhv8HxbohXSLLzhWdnECUAGWQcJg6FiixBHY2nMnRxP1NwfT0aiWrkYPFr1Axr
-	+68RjpP2ogZK+H1Bl1XV1cAZJzlqKqqg/2EV2t+VA1HEv8Gr2vsP7v8YIaWdbsd0aHAoC1knutIFw
-	dddotfhw==;
+	bh=14plqPeyH6RsdU2VmFKnJtMB+pmrsGKI/JGoWS24hKY=; b=yJ4f0sobn3o9VB4FMKr6Hvx5G6
+	Bh700jjcCOA6QwwS0/aH8tpOqmoTux1lN/3jtfm8oE58ebdweHETraeWQRD7KVbx7SSwQV6J994Zu
+	26hMo56N9xc/wUAH8/HGykJ7ijhd4kHj8RRrHzcS6j97sU+8QjmBQUkvRwQhGjaCVdRohgPwIpLHQ
+	Jf0n03xDYOb4ldgZph4BiZzdU1IjGQfqThrxwqjaRE7BU6EF7uLzhuSdT4FCgPN3H+T9jVQc/VrTh
+	a+6JH5uSgzury3j/yxH/betGTwmJvCHY6IBK7RVjhno1g5VxRLwy3qMpkj9nju3t7vOE1ln8SfTIB
+	7QIU6IKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtiVf-0000000DhHW-3Q95;
-	Tue, 11 Aug 2026 09:10:59 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1wtia2-0000000Dhnd-3j8l;
+	Tue, 11 Aug 2026 09:15:30 +0000
+Received: from mail-vk1-f176.google.com ([209.85.221.176])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtiVc-0000000DhH8-3YTA
+	id 1wtia0-0000000DhnD-39cV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 09:10:58 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-49802c418b5so27043345e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 02:10:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1786439455; x=1787044255; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=4N1Q1nwOPIf6MIydtQa9UFtXathXYE0L3N4GuxjuFlk=;
-        b=Q0KRFDhe7tVNz6Md+JSRuUzti2C8Zxy4unL7yAFTJ+4fIPQze2BELeO14ft5K3EqyM
-         0c5CJ6FA/UPW/8Szqg7iEeR0A4Jb38uKLs17RFKu4CqBK5fevXv+ocfOozgujkJmVKXt
-         nYYHMU6OgmEjqOTqi1XwMwbGIZhG6ARYIQTjob22on5oTHeZ9Fe5jtUwi3i7+P4vMFRJ
-         MFPAtLO7cBjcXIxhykVRSFAAKGjxg7pLbcoWkjnkJ1Gk3eqEcwdbQaFr8wS+i/IKn6k8
-         zL7zXlPLpSHd0pgB02VushURpuYilQh502AE2N5NxHmqCvDgzXzKDc132iDUF7QYALf1
-         g+Gg==
+	Tue, 11 Aug 2026 09:15:30 +0000
+Received: by mail-vk1-f176.google.com with SMTP id 71dfb90a1353d-5c3fabe908eso168266e0c.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 02:15:28 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786439455; x=1787044255;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=4N1Q1nwOPIf6MIydtQa9UFtXathXYE0L3N4GuxjuFlk=;
-        b=Qvc/52isJ26Ghiud1KS9838n+QH6dURnAZGE23BXL2FXrNgHmXPykENTTecJAR3Eno
-         yV5Gg7ZqiUcyKNTCCb//MguPR6WmSji/ZdosSaZMQepSCVs7H4Q2ux7B36zdapqXhQEQ
-         oM2DpRGg2AdKQxwKx56obqFA3LTju0zy9Vr+nidfzMwZ/CCJGydXlqHUkLpK+lioMt25
-         i99rwb1HAusBQda/mp/6vDGKccNJEe2D9FjGgN9/zA6BGAGKi9PNZnB9zCZrybDjd7tp
-         m4EdalOCFbly7Wl68f/uT+1+bmMtGvEkLjaLdaxcqW2idPnKlhVlZ9Fm5sCxL4IcNVbV
-         Cn7w==
-X-Forwarded-Encrypted: i=1; AHgh+RqTBBizOPnj16kgfNiZgUXtk/lzGm1xfAN+21MCTJk/9LqAnsEPaKP6XTPKDplzF7sQQDniLXFTDn1aJv2e8qHu@lists.infradead.org
-X-Gm-Message-State: AOJu0YybANlfiZ2geBNqXFOKeEuzE3pdQ6P7ALVdbANnDzF7q7OHkht/
-	cMhcs6NtIaffDtLUxhj3IS63Zteou8mNaXp4ltO5YeSzejcDFCg7m9dvmkp7wUhLYFc=
-X-Gm-Gg: AR+sD12C3aODmUm36xvFMEbS16ASHgrPOtVdv9H8re7/iyCVk1+lXasmyDIs/OHUiHR
-	dZQakxXmgufAheX2tjbYr5ntZF8kO76a/2lJxqMJ1FOyAhzMue+0FHz0YvlG/dW7EB1K2oVLEfa
-	ergTLGxSaimqXO+aS0zMLnYp9z6TuY/MDH5brGZEQRlT4qqAQ42nERq7A8b9gfwj0GWralzBk0F
-	Ob8Eq9PauBk7EC2Ttnp+4kPA1dIxH511epux7kHmEV7KU2lmcJSVd+avpnIn9HxQ7jchJjlgrKb
-	+gXBVGuYvuwE0i7VOeyKW0uvOoPstOBAAVj7z8HuogdfpcGIOmIPU1IuMm9JS+kLIAWvTXDWdtk
-	6L0Xb6ulsNULakb0mC+yAPnY5hyg0nLRc293QQrRmqkUdxUp12BbDv738cl4Q5/7ojspePjQxPY
-	ew7YXX/LviLhAhq8amdoE+xASG3gp8voCcsQ9omBYi+zJTOkV1IghG0LF86FvIiojglw==
-X-Received: by 2002:a05:600c:5247:b0:499:5e50:5be9 with SMTP id 5b1f17b1804b1-49978e1a8b9mr24005695e9.16.1786439454855;
-        Tue, 11 Aug 2026 02:10:54 -0700 (PDT)
-Received: from [192.168.1.3] ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-499788fd9a4sm30971785e9.12.2026.08.11.02.10.53
+        d=1e100.net; s=20251104; t=1786439727; x=1787044527;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=14plqPeyH6RsdU2VmFKnJtMB+pmrsGKI/JGoWS24hKY=;
+        b=dtak6urc4jdKg3wIWtH9i5Ccny3C2+IHC5vgkwn+q9JSHN/J0Qy0J5nT/jSl9KGnMA
+         UxnsSWNc0H8ihpZsIWMqOYPHgLYg6unHT8J2rVqngyTexSkzjlK5ryv0JeA91MJN1ikw
+         14wWyJ/NtV139gh0N3tk3ShzpJvYYn41K+w/RGizqga3B5vP9ogO0tB5wuOuR1J7qDdr
+         f14q4LZRX8UVlT+p3efAT+MeeSQAwrX5JM9rRUMEFRhARj4pet0hWtYMX7h8kxxApx3x
+         EWRLBhIyjpEhsp90SNxobQsx+aXKaqzvZXUaW6JpXZj0Wg4acBauY92LSIQfEXnhebP4
+         G9VA==
+X-Forwarded-Encrypted: i=1; AHgh+RoKh//3gVkGsjfwv9pBNBeXRsY9oD48tOfhl/XfV/BmH7p9Jak7BZOuVhihm40736LOWS2oJWK8RK4OLFep+4l8@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy3SAaW5qtypvBbT6g5uMTIt4K2RryZ9yXd3MtTz8maqa6Q21fp
+	o2nLIM2i5gFzGbYndqPlq5qd9r4PddMswFFVpR1rp1zHr31hSdqstRqVdWfaPzHI
+X-Gm-Gg: AR+sD137EHMhIRr8oJYKkgv+iUtA80T5l/DjsynLunkf5ZavYbEm59fN/nJuw+h2Kzs
+	Bel5or/80w6BW2yBsiV6OnOZDmNlLojVUP+GQmAJp93isLxf3Lmm/PrDmofFLaHTiqhOKQhqgEp
+	tU4nCqjbKfzkj2/5CtaXNq92c5DlOtaW/Ieq0BE6Xy2jCXsoTJhlzMYMOLHHBiVHFBOvmweVUL8
+	jAVt8VsT25QaYPuSoIdYVhIBLRBJccFDx5nwD4jd+9lppQoe3YqkBeac88kmcGjwpsTHxa77Uxr
+	FvDujY1tL4SyPqgXeT/uW51G5Dnnor0N9GtnKX/c1p0wR/ci6gRAaZ9wMeg+vRWAeYUxLA0hSVC
+	WHNdLzK/e65GlJlaWrCvAOmld92jqsiiVl0bQJ07XPi0/S7OOJxF6uwNQ2uZP6/JBIfTQn0ySWQ
+	3xZ8vmCospwCOddSjcUtm7dFyLNo01nA4yVJlAd5tUcB5j1L7uww4EyyLBFjh8rWJP/JEPjwtqI
+	tmtXcF/utXe5SrRH7sCaGeMow==
+X-Received: by 2002:a05:6122:d8c:b0:5c2:c0b2:9889 with SMTP id 71dfb90a1353d-5c4503b8608mr174928e0c.4.1786439727273;
+        Tue, 11 Aug 2026 02:15:27 -0700 (PDT)
+Received: from mail-ua1-f43.google.com (mail-ua1-f43.google.com. [209.85.222.43])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5c451e802absm195790e0c.17.2026.08.11.02.15.26
+        for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 11 Aug 2026 02:10:54 -0700 (PDT)
-Message-ID: <7d4a7f0c-2b0e-471e-9c29-867bae981523@linaro.org>
-Date: Tue, 11 Aug 2026 10:10:53 +0100
+        Tue, 11 Aug 2026 02:15:26 -0700 (PDT)
+Received: by mail-ua1-f43.google.com with SMTP id a1e0cc1a2514c-967327a0c7dso154634241.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 02:15:26 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Rr0RF50FZAb/oG06pCE7WxN0/FtcaRuuMnNA0NNj3hwfy9IFYQ/ZQCqd7f6c/1Oq5k4FKuChrgoNrs3autSoNK8@lists.infradead.org
+X-Received: by 2002:a05:6102:941:b0:738:1fcb:f276 with SMTP id
+ ada2fe7eead31-76b5527db20mr448203137.1.1786439726421; Tue, 11 Aug 2026
+ 02:15:26 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] coresight: trbe: Hide enable_sink sysfs file
-To: Leo Yan <leo.yan@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
- <mike.leach@arm.com>, Yeoreum Yun <yeoreum.yun@arm.com>,
- coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260807-james-cs-hide-trbe-enable-v2-1-0b2af223feed@linaro.org>
- <20260811090424.GD15499@e132581.arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20260811090424.GD15499@e132581.arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <cover.1785941595.git.geert+renesas@glider.be> <CAPx+jO87d7H92KSR7R7ObR05sM2JcHBCo+YuUf_1gE-KwhR7CQ@mail.gmail.com>
+ <CAMuHMdW78wFHKP8n2P_MEVASO3MFHCjXkEWSFXfE3-mCjkhsgA@mail.gmail.com>
+In-Reply-To: <CAMuHMdW78wFHKP8n2P_MEVASO3MFHCjXkEWSFXfE3-mCjkhsgA@mail.gmail.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 11 Aug 2026 11:15:13 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdV15qa+bntYdeEysEc3rJ4dNhQxiVJd-moAGTNyfPdDkA@mail.gmail.com>
+X-Gm-Features: AUfX_mzrvqkMTS8THhoJKajeDFG8F23c6THOaD8Dreq76GI2rXJHX-LkuIBfF_U
+Message-ID: <CAMuHMdV15qa+bntYdeEysEc3rJ4dNhQxiVJd-moAGTNyfPdDkA@mail.gmail.com>
+Subject: Re: [PATCH v3 0/6] R-Car X5H CPG/MDLC support
+To: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, Ulf Hansson <ulfh@kernel.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Wolfram Sang <wsa+renesas@sang-engineering.com>, 
+	Marek Vasut <marek.vasut+renesas@mailbox.org>, 
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, devicetree@vger.kernel.org, 
+	linux-clk@vger.kernel.org, linux-pm@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_021056_900041_5E6CA788 
-X-CRM114-Status: GOOD (  16.83  )
+X-CRM114-CacheID: sfid-20260811_021528_805831_EB3ABC7A 
+X-CRM114-Status: GOOD (  46.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,32 +105,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Ulf,
 
+On Mon, 10 Aug 2026 at 16:50, Geert Uytterhoeven <geert@linux-m68k.org> wro=
+te:
+> On Mon, 10 Aug 2026 at 16:18, Ulf Hansson <ulf.hansson@oss.qualcomm.com> =
+wrote:
+> > On Wed, Aug 5, 2026 at 5:21=E2=80=AFPM Geert Uytterhoeven
+> > <geert+renesas@glider.be> wrote:
+> > > This patch series adds minimal support for the Renesas R-Car X5H Cloc=
+k
+> > > Pulse Generator (CPG) and Module Controller (MDLC), to aim for replac=
+ing
+> > > the dummy clocks in r8a78000.dtsi with proper hardware description.
+> > > These two components are closely related, in the sense that they are
+> > > both supposed to be accessed through the ARM System Control and
+> > > Management Interface (SCMI) on the Ironhide development board.
+> > >
+> > > This series consists of three parts:
+> > >   1. Patches 1-2 add DT bindings and DT binding definitions,
+> > >   2. Patches 3-4 add minimal CPG and MDLC drivers,
+> > >   3. Patches 5-6 update the DTS.
+> > > Note that this series depends on v7.2-rc2, due to the use of
+> > > <linux/device-id/of.h>.
+> > >
+> > > Changes compared to v2[1]:
+> > >   - Add Acked-by, Reviewed-by,
+> > >   - Add fixed-rate clocks to kerneldoc of r8a78000_cpg_priv.map,
+> > >   - Use devm_clk_hw_register_fixed_rate(), drop unregister_fixed_clks=
+(),
+> > >   - Drop fill_clk_map(), as it is not really needed until SCMI remapp=
+ing
+> > >     support is added later,
+> > >   - Replace <linux/mod_devicetable.h> by more specific
+> > >     <linux/device-id/of.h> in v7.2-rc2,
+> > >   - Add a comment to document only always-on domains are supported,
+> > >   - Consistently use /* sentinel */ for zero sentinels,
+> > >   - Drop trailing commas from sentinels,
+> > >   - Sort MDLC nodes (alphabetically, by label).
+> > >
+> > > Major changes compared to v1[2] (more detail in the individual patche=
+s):
+> > >   - Add default support not using SCMI,
+> > >   - Drop everything related to SCMI.
+> > >
+> > > Note that this series does not use or rely on SCMI in any way.
+> > > SCMI remapping support will be added in a subsequent series (old vers=
+ion
+> > > at [3]).
+> > > Full hardware support without using SCMI could be added, too, if anyo=
+ne
+> > > would care about that use case.
+> > >
+> > > For testing, I have pushed this series plus additional work (includin=
+g
+> > > a rebased and updated version of [3]) to [4].
+> > >
+> > > While I know it is getting late in the cycle, this work (especially t=
+he
+> > > DT bindings) are a dependency for about any R-Car X5H progress, so it
+> > > would be good to have it included in v7.3.
+> > > Hence I plan to queue the clock patches (1, 3) in renesas-clk for v7.=
+3
+> > > (Stephen still hasn't merged my earlier PR for v7.3 anyway).
+> > > Ulf: It would be great if you could take the pmdomain patches (2, 4).
+> >
+> > Patch 2 applied for next, but I left patch4 for now as it didn't apply
+>
+> Thank you!
+>
+> > cleanly (drivers/soc/renesas/Kconfig had a conflict), thanks!
+>
+> I guess your tree still has the duplicate "default ARCH_RENESAS"?
+> Patch 4 just adds a single line there, and the conflict should be easy
+> to fix.
+>
+> If you want to send me a new patch, please let me know.
 
-On 11/08/2026 10:04, Leo Yan wrote:
-> On Fri, Aug 07, 2026 at 11:13:22AM +0100, James Clark wrote:
->> TRBE doesn't support sysfs mode, but the enable_sink file can still be
->> successfully written to enable the device, and only attempting to enable
->> the source would later fail.
->>
->> Avoid misleading users by adding a flag that devices can use to hide
->> either the enable_sink or enable_source files, and set it for TRBE.
->>
->> Don't set it for ETE as it's possible that ETE could appear on the
->> legacy bus and work with sysfs, and writing to enable_source already
->> reports EINVAL if the device doesn't support sysfs mode.
-> 
-> It is a pity that we cannot determine from the ETE registers whether ETE
-> is connected to the legacy bus or TRBE.
-> 
+I have sent a v4 against pmdomain/next:
+https://lore.kernel.org/all/d4bd0cc7f26c1bcdc260edb994b4971cb5dd3a10.178643=
+8424.git.geert+renesas@glider.be/
 
-We could determine it from the device tree. A path has to be built or 
-you can't use it on the legacy bus either. Maybe we can do a more 
-general change in the future to hide the flag for any non-connected CPU 
-source.
+Gr{oetje,eeting}s,
 
->> Signed-off-by: James Clark <james.clark@linaro.org>
-> 
-> Reviewed-by: Leo Yan <leo.yan@arm.com>
+                        Geert
 
+--=20
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
+.org
+
+In personal conversations with technical people, I call myself a hacker. Bu=
+t
+when I'm talking to journalists I just say "programmer" or something like t=
+hat.
+                                -- Linus Torvalds
 
