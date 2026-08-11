@@ -4,74 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E4D9C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 15:51:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72DE0C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 15:53:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XxiKjkGOIDuz0QSLHzgaYQsZjo6uIS8uakXKwPSshhM=; b=x5pI08X5NFsAoQb+ceyVWd0U1b
-	wXi3/NaU5TopVROk+U7bLpgchkObYtPdeSTGQJQO1X+GuZQ96B1Unx09XLsYWBpCM0lQ9umFMAYzi
-	CBtvcHKjRPGtmBUzTZ+0nFujjm+Agl3THmOCsUe1Cdw3W/4Us1Eq8tpyoAPe3s9IQ6OGnUDcKU5zZ
-	w3jmK7dEgAVp1j90F1OtO+3Iu4PCfcfuoXh//pOtcZ+p0hYxoL0tJyE9KdpU8qP9yO262NXRluIf+
-	uyTmaW8LfVHTkRH5QHxzsQ0QXiuqIN6FURsRK5aI4kQ89BikBreOnttoFTK+rMWDb6Bp2C2zb1FF1
-	4YVXGQXA==;
+	bh=DnF3aQdkXNx4oU+Fl+i9D15DW8KRXhFLW9FERxBFTB4=; b=e+VSMRxJWkbELQ24lrNBucneX5
+	hoOVMPCG1N3rXU/zToITtZ48Ku1BT3ZP0g1rvzPZXWF8zCWraGrRXDE0hXV1I4WniPJFjNqwvg7Ez
+	jNNhNrqiaqNLVPmHPcxX4ahCaMp3J6Pg3xU8bHG4eN3T8wNe/EiHNaK7WBzP8AcVop61CvdJtg/NU
+	yn5CBycb6Lf5Sx1Tvknm9SvUxvPV7a8WUauoo0WNGB/slO3jZT8r/lmy+RtR5esJ0ivekRLvv9gyi
+	gVKyJyn5bbk07Xv8mzhTPZ7rc2rIKxTb/m1yFei4oOE1UpjE6hOqS/8ClJx7Z/zDjJwTR5aj9fRv3
+	3g88GF9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtolB-0000000EOoW-3Ekr;
-	Tue, 11 Aug 2026 15:51:25 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wton0-0000000EP87-1AAS;
+	Tue, 11 Aug 2026 15:53:18 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtol8-0000000EOmJ-2N4k;
-	Tue, 11 Aug 2026 15:51:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1786463480;
-	bh=r5sxoIDBu+UMeliWhFNjPB2P71r/Kt23EzkhOScMzEc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=XLhCA431ofc9amUVBxgzt9EvqXcXG638L4I2yrpwHRIiH4bjBT2AX+FdhvwRJ4jP5
-	 lh/JYYZPzI5xUxEljpKJGcociaoxt+qUeNSN+V5zkFaxIcRwTlVXBZwRUOQKBoM4ix
-	 RgZR0n023UL4oCCzsXUzq3K0e88cf6SB/6nSKPjxNon6aMT5lCTSkQAC0+lcRAExXt
-	 WUG/oJFyiVbfXkgvQDRX93rz2Km45HoLx6tpGSxpMIW+YThI3UE70wj6pMvOGyGkXl
-	 1iPkfSr3yFIE+tUjpg6HEttUziZULCq1ybVp9fr3epdvEnas6gd3yNaAgo8PeAkyCk
-	 y8qP6ldgTtKLw==
-Received: from [100.64.0.241] (unknown [100.64.0.241])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id D1D8D17E06DB;
-	Tue, 11 Aug 2026 17:51:19 +0200 (CEST)
-Message-ID: <4f6fd388-c07c-436b-9816-a4de9e7fec8c@collabora.com>
-Date: Tue, 11 Aug 2026 18:51:19 +0300
+	id 1wtomy-0000000EP7n-1CJh;
+	Tue, 11 Aug 2026 15:53:16 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 40FA6600AF;
+	Tue, 11 Aug 2026 15:53:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B16171F000E9;
+	Tue, 11 Aug 2026 15:53:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786463595;
+	bh=DnF3aQdkXNx4oU+Fl+i9D15DW8KRXhFLW9FERxBFTB4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=AnBX8YUZAaCz4DWFbJVo8gwN0rMr0SQ87izcGiOCA8nKHT0RqjFPMsRZojovf1ARD
+	 R5XkNTvGzeFQAU5mg2idWrFbIwVVzAD9RSLBSFdfsCWYwNHz4H+gjbsAPn88kJWRk+
+	 wveagclyOQ7huxROaH9sdj2yv6rNO1qXpteNII8BFYSFExL2MDPOcYxWHR7f3mm5LR
+	 /jU41Z3dF5zhd1omvwkQVRIy5/zaud7PaVIy3tHMqxf3jNtOXwVGNc/ZXUC3X6uwqq
+	 DjWjoFk+g0u02Vd8xPFPyxWH/V95eAmH0jPD/oqP3vkmOrLhHgrclkzlhC5O0382d6
+	 uCdkZ/wtPpeJA==
+Date: Tue, 11 Aug 2026 08:53:13 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Uwe =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <ukleinek@kernel.org>
+Cc: Vladislav Leonov <vlad@zlab.su>, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, Simon Glass <sjg@chromium.org>,
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Andi Shyti <andi.shyti@kernel.org>, Andrew
+ Lunn <andrew+netdev@lunn.ch>, Aurelien Jarno <aurelien@aurel32.net>, Brian
+ Masney <bmasney@redhat.com>, Conor Dooley <conor+dt@kernel.org>, Daniel
+ Golle <daniel@makrotopia.org>, "David S. Miller" <davem@davemloft.net>,
+ David Wu <david.wu@rock-chips.com>, Eric Dumazet <edumazet@google.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Heiko Stuebner
+ <heiko@sntech.de>, Herbert Xu <herbert@gondor.apana.org.au>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Mark Brown <broonie@kernel.org>, Maxime
+ Chevallier <maxime.chevallier@bootlin.com>, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, Michael Turquette <mturquette@baylibre.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Nicolas Frattaroli
+ <nicolas.frattaroli@collabora.com>, Olivia Mackall <olivia@selenic.com>,
+ Paolo Abeni <pabeni@redhat.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Rob Herring <robh@kernel.org>, Stephen Boyd <sboyd@kernel.org>, Vinod Koul
+ <vkoul@kernel.org>, linux-crypto@vger.kernel.org,
+ linux-i2c@vger.kernel.org, linux-phy@lists.infradead.org,
+ linux-pwm@vger.kernel.org, linux-spi@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com, linux-usb@vger.kernel.org,
+ netdev@vger.kernel.org
+Subject: Re: [PATCH 00/25] ARM: rockchip: Add peripheral support for RV1106
+Message-ID: <20260811085313.379ac489@kernel.org>
+In-Reply-To: <anq1ouUnKA02Eauj@monoceros>
+References: <20260810121121.210040-1-vlad@zlab.su>
+	<20260810113548.7fd24d56@kernel.org>
+	<anq1ouUnKA02Eauj@monoceros>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 02/10] phy: rockchip: samsung-hdptx: Prevent
- divide-by-zero when computing clk rate
-To: Vinod Koul <vkoul@kernel.org>
-Cc: Manivannan Sadhasivam <mani@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>, Heiko Stuebner
- <heiko@sntech.de>, Algea Cao <algea.cao@rock-chips.com>,
- Dmitry Baryshkov <lumag@kernel.org>, kernel@collabora.com,
- linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Sashiko <sashiko-bot@kernel.org>, Diederik de Haas
- <diederik@cknow-tech.com>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Andy Yan <andy.yan@rock-chips.com>
-References: <20260723-hdptx-clk-fixes-v5-0-8e786067865f@collabora.com>
- <20260723-hdptx-clk-fixes-v5-2-8e786067865f@collabora.com>
- <qe6i5bvrn32xmwncl4zq3f5w6twpwfwvq5alaacsceq3vxn3nt@mbeytagr77j3>
- <605f96b2-709c-49f6-9446-49ed3bff7d96@collabora.com> <ansGZ9LUA7ItYHe7@vaman>
-Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <ansGZ9LUA7ItYHe7@vaman>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_085122_773319_24238933 
-X-CRM114-Status: GOOD (  18.44  )
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,65 +90,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/11/26 2:24 PM, Vinod Koul wrote:
-> On 07-08-26, 17:19, Cristian Ciocaltea wrote:
->> Hi Mani,
->>
->> On 8/7/26 3:56 PM, Manivannan Sadhasivam wrote:
->>> On Thu, Jul 23, 2026 at 10:41:45PM +0300, Cristian Ciocaltea wrote:
->>>> Calculating 'sdm' fraction in rk_hdptx_phy_clk_calc_rate_from_pll_cfg()
->>>> could trigger a divide-by-zero, as it uses div_u64() with a denominator
->>>> read directly from hardware: the values ropll_hw.sdm_deno,
->>>> ropll_hw.sdc_deno, ropll_hw.sdc_n, and ropll_hw.sdc_num are populated
->>>> from PLL registers which, in theory, could be left by the bootloader
->>>> uninitialized/misconfigured.
->>>>
->>>> Provide the necessary sanitization to avoid trusting the hardware state.
->>>>
->>>> Reported-by: Sashiko <sashiko-bot@kernel.org>
->>>> Closes: https://sashiko.dev/#/patchset/20260611-hdptx-clk-fixes-v3-0-67b1b0c00e16@collabora.com?part=1
->>>> Fixes: 3481fc04d969 ("phy: rockchip: samsung-hdptx: Compute clk rate from PLL config")
->>>> Tested-by: Diederik de Haas <diederik@cknow-tech.com>  # NanoPC-T6 LTS
->>>> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
->>>> Reviewed-by: Andy Yan <andy.yan@rock-chips.com>
->>>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
->>>> ---
->>>>  drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 11 ++++++++---
->>>>  1 file changed, 8 insertions(+), 3 deletions(-)
->>>>
->>>> diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
->>>> index 710603afff86..44e99343f249 100644
->>>> --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
->>>> +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
->>>> @@ -2270,10 +2270,15 @@ static u64 rk_hdptx_phy_clk_calc_rate_from_pll_cfg(struct rk_hdptx_phy *hdptx)
->>>>  
->>>>  	fout = PLL_REF_CLK * ropll_hw.pms_mdiv;
->>>>  	if (ropll_hw.sdm_en) {
->>>> +		val = 16U * ropll_hw.sdm_deno *
->>>> +		      (ropll_hw.sdc_deno * ropll_hw.sdc_n - ropll_hw.sdc_num);
->>>> +		if (!val) {
->>>> +			dev_dbg(hdptx->dev, "Invalid ROPLL hw state: deno == 0\n");
->>>
->>> If the hardware state is invalid, why can't this be a hard failure?
->>
->> This is an internal helper called from the .recalc_rate clk_op, which tries to
->> compute the current rate by reading back the hardware state. 
->>
->> Since .recalc_rate returns unsigned long, we cannot propagate errors to the
->> caller.  However, per the clk_ops documentation, the driver is expected to
->> return 0 if it cannot figure out the rate.
->>
->> Moreover, this condition isn't really fatal, as it only means the PLL
->> configuration currently stored in hardware can't be translated into a rate.  The
->> next .set_rate should program a valid configuration and help with the recovery.
-> 
-> This is a good explanation which may not be obvious to everyone. I would
-> think that it would be good idea to add a comment for this here
+On Tue, 11 Aug 2026 07:43:16 +0200 Uwe Kleine-K=C3=B6nig wrote:
+> On Mon, Aug 10, 2026 at 11:35:48AM -0700, Jakub Kicinski wrote:
+> > On Mon, 10 Aug 2026 15:10:51 +0300 Vladislav Leonov wrote: =20
+> > > Basic support for the Rockchip RV1106/RV1103 SoCs currently under rev=
+iew.
+> > > This series builds on top of that and enables the peripherals needed =
+to
+> > > bring up a board beyond a serial console: =20
+> >=20
+> > Don't expect maintainers to dig out patches for their subsystems
+> > from a big series. This is not how upstream development works. =20
+>=20
+> I see this from time to time and I personally think it's fine to have
+> these patches together. Also the only the patch that affects my
+> subsystem was Cc:d to me which is how I like it (but I think opinions
+> differ on that one, too).
+>=20
+> `b4 am -P _` is great!
 
-Ack, handled in v6:
-
-https://lore.kernel.org/all/20260811-hdptx-clk-fixes-v6-2-75bca0ee5753@collabora.com/
-
-Regards,
-Cristian
+We have automation and CI systems which ignore anything that isn't
+scoped to networking to save cost. Not sure if there's a polite way=20
+to say this but the smaller the subsystem the more flexibility can=20
+be afforded? Let's stick to the existing process, please.
 
