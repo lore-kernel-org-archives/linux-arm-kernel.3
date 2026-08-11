@@ -4,70 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20B52C5B56A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 16:41:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0840C5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 16:44:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YH81zlJN3/rJuDofrliVkDipcnRN11lptQvHyY7qVzs=; b=sOEx2NgJwAAMIgrm7HcJAOFat4
-	rCJ48tYsrS2n8+5GplvGArYWDvyR1IgRLybV2FY/vO9JXwpJVJV0iCDmmqRsjOmHUfyDXOXv0/QN6
-	jlBG0BI3PTzZAdU3Tm1K8U/DY8RtMNYg+26k1S9+Yrrp558wn+OnYpvRqc49qTsGz1AXnNAEOY6OS
-	Uj8pQnXxBktrlwE9QdFW9QBhJRJfH1565b6lzy1ZtTNvNgwWWhgW2ek+eLDcUZ/1mpnj899KF1q/g
-	kOv62xDPbkPZg/Bz/FTdWKNiM3IorUT4uMP45GY3MT9arztvI+xUktosrf4xieeMcHAXn3jIaXnJP
-	gjK8CqdA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ejjPang1xU/F/9iQxqedxUqRw2rwTNlrqqXQ/ycObk0=; b=PXoQFZVo8xQJOX/f0AlNWMaK3D
+	JVQjxyd/k+es3CCaBFbG49bGqJH+ASKoVnHeL60XQWD2LvHFfzAkbXxLoSe0jd4V4adLfHWz+lghM
+	2D4VY3C6X7VS2O5YXYje5YKjworRKF6+5VIXMwS3fGT7Qby6aBd4iYZ4G5McUmpz0saJPNbmahga1
+	gXveB5w9fe8W5vICD6GXGNhYIUCchW8Ftpg4QVTW7dD5hrUzOXlCGgM95IfRGPXaCrnHgBorUJ8Lk
+	epGoWDTnBqeLgqbpzGS8NUDQHjQBYVjVQQ1tjKHb4ZMhBIourmtfphE8MQEZ9Wxt4Z1ivuGyryLZP
+	wOdTJKIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtpXw-0000000EX4k-25dt;
-	Tue, 11 Aug 2026 16:41:48 +0000
+	id 1wtpag-0000000EXWh-3kl5;
+	Tue, 11 Aug 2026 16:44:38 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtpXv-0000000EX3Y-0ltt
+	id 1wtpaf-0000000EXWS-0d47
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 16:41:47 +0000
+	Tue, 11 Aug 2026 16:44:37 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 51113600BB;
-	Tue, 11 Aug 2026 16:41:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19BBD1F00A3A;
-	Tue, 11 Aug 2026 16:41:45 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 854AB600DA;
+	Tue, 11 Aug 2026 16:44:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0686E1F00A3A;
+	Tue, 11 Aug 2026 16:44:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786466506;
-	bh=YH81zlJN3/rJuDofrliVkDipcnRN11lptQvHyY7qVzs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=TynGOiim67HmflH0eOxafnmJOVZNOLxeyjxnM3yKIbwVAQiCL2ldUTyGyrP6hRTsT
-	 11GIiYBGK9Ro0dTUAIn8kJ1Gz7iUvhKVs+awQOt7Kim4WQjsDjx9QqiUqsoT6Mh++T
-	 bbYwjhQD/awEtNadgboMF8VUBiNeg2DbI6Xj2sTf+F31hWTuQl47Cwy9MuYGFw0FwP
-	 wFY1X694/IoHh5H9WVkxu8icbS0CQ0FJDg3W7KxvRdlVg0Q1syHVeyuskTfOSfnwDT
-	 rkqZuJtMIAzVmy8BS9MS0FgIqWYlgANCf8dAiiqm1ZUTnnKkvc6BbdspMP55szbUVD
-	 jn4PuNe3OyuvA==
-Date: Tue, 11 Aug 2026 09:41:43 -0700
-From: Josh Poimboeuf <jpoimboe@kernel.org>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, live-patching@vger.kernel.org, Song Liu <song@kernel.org>, 
-	Miroslav Benes <mbenes@suse.cz>, Petr Mladek <pmladek@suse.com>, 
-	Joe Lawrence <joe.lawrence@redhat.com>, Mark Rutland <mark.rutland@arm.com>, 
-	Mark Brown <broonie@kernel.org>, Kees Cook <kees@kernel.org>
-Subject: Re: [PATCH] arm64/module: Fix livepatch BTI exceptions with Clang 21+
-Message-ID: <buq25tpmdjlvskzfvlit6swc6tsjuzbdnjfix4w6af6247zads@ka44wuolomci>
-References: <anmobvJXiBQqWn6S@willie-the-truck>
- <e5q2mvqtf6iw4lco55uny5ffhppw6vlflxguhc4gg5nm3zdvmo@zs6rw7iov5qc>
- <08d6c5cd-9924-4359-9181-a03718161528@app.fastmail.com>
- <kp4rvh4vxo65gipgqz4i4dnw2ueylmus4yys6xfrbngp5nefzn@4a4ekjlzqlph>
- <CAKwvOdmSVjY0TmOTc6WMmDHcLbn=tOV3R3zH_TO4zXZiYEsaBw@mail.gmail.com>
- <anrvDIWMNGIa4WPK@willie-the-truck>
- <4986ac98-d6da-474a-b218-b6468b68cb9f@app.fastmail.com>
- <16e3ed42-1b1f-4ddc-9d8c-5e12ee7dbe3c@app.fastmail.com>
- <answWdRpVQLtIzIj@willie-the-truck>
- <CAKwvOdkrxJ_9qjaBNQS+o=+_m_f3e9k6jMEmXB-S3+nXGoLV7w@mail.gmail.com>
+	s=k20260515; t=1786466676;
+	bh=ejjPang1xU/F/9iQxqedxUqRw2rwTNlrqqXQ/ycObk0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=McyxGQoKdhDE7vq8s3suh+8h8i/PIBcr6/65ChoeIgzh5um+Gw4wWS5hVwUtTSVMr
+	 stPy41mfXsRRQscxKlTStdpT0AyntLDrMdveDlw02scJwlZXhQJHo+0F+2nJdN/VQ3
+	 6Jcd8S2J6p2r0N5hSnwnJk8SX3hdBW9GnRyaTPFp+Odkg2505O3NI/dTKCBAbGLodO
+	 jktAdUQUEpI5gV7SbGs4XFij+DEZmiJcwoz9LqjKprTLvlLrp7KWVhQ6OMg2YmK+t3
+	 bars+xoGvjf2/PPl/EjkiBEgec2w57d/DGH/Ax3/6fx52qMSMEvbfk74Or/7uEYje0
+	 aXnjNC+Y3EURg==
+Message-ID: <0b4f3e19-0944-47f4-a113-1e0c2a5af08b@kernel.org>
+Date: Tue, 11 Aug 2026 18:44:32 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAKwvOdkrxJ_9qjaBNQS+o=+_m_f3e9k6jMEmXB-S3+nXGoLV7w@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] dt-bindings: reset: Add Apple SoC CIO reset
+To: Conor Dooley <conor@kernel.org>
+Cc: Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20260809-b4-cio-reset-v1-0-4f33777d9b4b@kernel.org>
+ <20260809-b4-cio-reset-v1-1-4f33777d9b4b@kernel.org>
+ <20260810-unveiled-specked-a856434db8df@spud>
+Content-Language: en-US
+From: Sven Peter <sven@kernel.org>
+In-Reply-To: <20260810-unveiled-specked-a856434db8df@spud>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,39 +75,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 11, 2026 at 09:27:28AM -0700, Nick Desaulniers wrote:
-> On Tue, Aug 11, 2026 at 7:23 AM Will Deacon <will@kernel.org> wrote:
-> >
-> > On Tue, Aug 11, 2026 at 03:18:17PM +0200, Ard Biesheuvel wrote:
-> > >
-> > > On Tue, 11 Aug 2026, at 14:02, Ard Biesheuvel wrote:
-> > > > On Tue, 11 Aug 2026, at 11:44, Will Deacon wrote:
-> > > >> On Mon, Aug 10, 2026 at 09:41:35AM -0700, Nick Desaulniers wrote:
-> > > >
-> > > >>> Sure, but let's replace this with a link to a bug report in llvm's
-> > > >>> issue tracker?
-> > > >>
-> > > >> Yes, please! I can apply the patch once we have the bug number.
-> > > >>
-> > > >
-> > > > I can look into that.
-> > >
-> > > https://github.com/llvm/llvm-project/issues/215547
-> >
-> > Thanks, Ard. I've ended up with the patch below.
-> 
-> What's the extent that HAVE_LIVEPATCH will be used?
-> 
-> Does this penalize kernels built with BTI in favor of HAVE_LIVEPATCH?
-> 
-> For example, with my Android hat on, if we have a kernel that's built
-> with ARM64_BTI_KERNEL=y, and _dont_ use HAVE_LIVEPATCH, we're going to
-> turn off BTI for a feature we're not using?  But maybe we _do_ intend
-> to use HAVE_LIVEPATCH, and my assumption was wrong?
 
-The problem isn't specific to livepatch, livepatch just makes it easier
-to hit.
 
--- 
-Josh
+On 8/10/26 18:02, Conor Dooley wrote:
+> On Sun, Aug 09, 2026 at 02:16:02PM +0200, Sven Peter wrote:
+>> The CIO (USB4/Thunderbolt) blocks on Apple Silicon SoCs have a reset
+>> inside the power manager that has to be deasserted before their
+>> co-processor can be booted. On t8103 each port comes with a dedicated
+>> register page, represented as a standalone node. On t600x a single
+>> register shared by all ports of a die is located in the middle of the
+>> PMGR MMIO region instead, represented as a sub-node of the PMGR syscon.
+>>
+>> Signed-off-by: Sven Peter <sven@kernel.org>
+> Fix the sashiko complaint and then
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> pw-bot: not-applicable
+>
+>> +  - |
+>> +    power-management@28e080000 {
+>> +        compatible = "apple,t6000-pmgr", "apple,pmgr", "syscon", "simple-mfd";
+>> +        reg = <0x8e080000 0x1c000>;
+>> +        #address-cells = <1>;
+>> +        #size-cells = <1>;
+>> +
+>> +        reset-controller@1a034 {
+>> +            compatible = "apple,t6000-cio-reset";
+>> +            reg = <0x1a034 0x4>;
+>> +            #reset-cells = <1>;
+>> +        };
+>> +    };
+> Probably the fix is actually moving this to the parent device bnding.
+
+Thanks for the review, I've moved the example to the parent binding 
+where I just had to add the reset-controller node itself and could drop 
+all the stuff around it.
+
+
+Thanks,
+
+
+Sven
 
