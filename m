@@ -4,61 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F4107C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 15:49:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CFAFC5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 15:51:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ey0wZ3MT1kRfT5xCM+oK1Q4GRW+KV/jkQgpJPPLj4qk=; b=uFO+JQKiR9TXtkuAVp7lPZHxPp
-	qxLhKQgQwKHSTKDuKl89tPoeSRlkSnZ+GRR2i+H/LF7jHWDFuCQcAFpHKFVPKwIooH562ILZBp5o7
-	+DCBqn6rTn5pG06mGMyP8Mt5ozxJZxTyKMv+9NexSmKTpSeMj/mnIEJKj32j0Gv0goAsNNzUWq8kW
-	pOt+m2VZCLWW3HTimiuO2MtAuKYjzw9pPzUxfxeH2zvKwZ/UuLBmOdwucg5A/+AIfJfPH1gdTzc9Z
-	yayh8gETJG/bTgr+FB5lF23MBsYuS1WwwuRqTsec+d63epxRDDCYC8ll4vJvF1Lpo8M6bXGHYj35U
-	L3GnpirQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=33YJpQwOIeSZeTAgBok9y/2Ug35qVKcBR74swDnKfU4=; b=AJjicX+uC3bZ+sE9F8TlGCON33
+	bXScEtu16NlTnNlJivQh2yOSpaYpsXrKVQK50u2psuWyty5DgDlBJDUHYTpmdpqHwsk+wsZ6DsIPB
+	oVWUO3MlF3I6hgeGg4zmlbHQ34sHNZVQ4J7EJzL6Mt7el7Xt90AUkP1B6y/1740kr4zVTyy+9X+lC
+	UgX+fcxP0SaHJC+OBZPm1lIn1+DCTtggP9pmgpf/ipej1A1dCey2zcy+e7IyxxYMwyqs2VZpp0oLL
+	Rx34j+aOoOUsU4dzH8csaOurJj6mr4G8NBjrd8JBt/vESN3Nb9fyAjpptJ1z1Ch25Rh1+WVtpbCt2
+	Vg9N7QPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtoiy-0000000EOTt-0jws;
-	Tue, 11 Aug 2026 15:49:08 +0000
-Received: from latitanza.investici.org ([2a12:4180:dc1:929::42])
+	id 1wtokh-0000000EOfe-2Hf1;
+	Tue, 11 Aug 2026 15:50:55 +0000
+Received: from mail-northcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c105::7] helo=CH4PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtoiv-0000000EOT7-2SqY
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 15:49:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=grrlz.net;
-	s=stigmate; t=1786463341;
-	bh=Ey0wZ3MT1kRfT5xCM+oK1Q4GRW+KV/jkQgpJPPLj4qk=;
-	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
-	b=Kk8yDIB1bylWYp0qCBuZbD7XHeM32VMsFwvzESKy6ESPrvNGlkoggvLRZ7ndzNATf
-	 xy9pbzl/t9Ha3UGIw7U4VfOLnLZfsU1+03ipXrDS2oPdnkjAXyizDYYXKvEIb/E9id
-	 OzlRGLhNQvTUXiOaqOTFXyp3q1SvnmEijD6WU9wE=
-Received: from mx3.investici.org (unknown [127.0.0.1])
-	by latitanza.investici.org (Postfix) with ESMTP id 4hKGJF6X6zzGpGr;
-	Tue, 11 Aug 2026 15:49:01 +0000 (UTC)
-Received: by mx3.investici.org (Postfix) id 4hKGJF3f2mzGpGp;
-	Tue, 11 Aug 2026 15:49:01 +0000 (UTC)
-Date: Tue, 11 Aug 2026 16:49:00 +0100
-From: Bradley Morgan <include@grrlz.net>
-To: Will Deacon <will@kernel.org>
-CC: Catalin Marinas <catalin.marinas@arm.com>,
- Mark Rutland <mark.rutland@arm.com>,
- Pasha Tatashin <pasha.tatashin@soleen.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- maz@kernel.org, james.morse@arm.com
-Subject: =?US-ASCII?Q?Re=3A_=5BPATCH=5D_arm64=3A_hibernate=3A_pass_H?=
- =?US-ASCII?Q?VC=5FSET=5FVECTORS_args_to_the_resume_hvc?=
-In-Reply-To: <anszjQ7jBeYDqesp@willie-the-truck>
-References: <20260809213615.11646-1-include@grrlz.net> <anr28wUlKjci8JPn@willie-the-truck> <463DA5C2-C933-45EC-A200-21AAF6258418@grrlz.net> <anszjQ7jBeYDqesp@willie-the-truck>
-Message-ID: <22B7543B-44D6-4820-9CCC-8FEAFAD30EC8@grrlz.net>
+	id 1wtokc-0000000EOe4-2GXp;
+	Tue, 11 Aug 2026 15:50:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=IN9oe5SeGqznAISWgj6npxliNxqKAiMLgLpJwhAKZrhpYpN1pKMrzvhs/lF4KfhsY4TpRDypxgHfQqgNcYaf4o9usXUJAhBol4iob4wg3wt8Yj2mU3xFhSJcrJKTBk4aVys4RwFjIbsxG13EoTmGCSd8+njZ8QPklzYCVmRQnb4Mf6/jdpLuup60Mica2xfCJsno/DGRl30YQ0toUGW0DAUcxpjYWZxW7gsf39V6Vqd6RFem07LgLSK+w77Yq+WDo8nhUd2lPfcQMGGN5k6LaklZjv1/1uroibF+ufsbxmlFoBYa3lzPGIxA3SmLTPgMJx9kJGYo9uhki1W+AD1DTA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=33YJpQwOIeSZeTAgBok9y/2Ug35qVKcBR74swDnKfU4=;
+ b=sJj4+r0hBVDfUD8zSmhSyBwZcvMoez47VYCpkagWfU/chq0lY9AmlN+c/dZjwepGkxt1643t7fEcLx1gBSwzdsU6ZB9rK8NC8jN27FM5rUWbxZNzo9gLmxCndvR5Vmd7Fr2DD0hptwa8Z51XZmnSCGDxaPRZd0I5nnJjZD5if/2x/dkKtX5ovS10iLBpxX+UdmWrntM74amkFMvo0CPiZHU+qHLLsU59az4EPeWz3nJ+Ex47k0fHR8y2rGpc5jN0fWSHgFVOfXSkOHRPVe0wVD6dJ4xAMfOR8l7dKGgB0tQ00AkFvDKtod7pNBuKjiJk0xAPsyctr5eUSnMPtJh8bw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=33YJpQwOIeSZeTAgBok9y/2Ug35qVKcBR74swDnKfU4=;
+ b=w7c41NVBsqTxBwbQVoXXQhdV9PmEgkbIUY08bsKsqyPXmHWnm2bOvRcSVEAkCAqJFhyyTGIKp1n2jCe4+aXQxMFCwPhNC0CyJWTmN8XaiBt1EPRvM3gJ7pJ8L5IeGrE3Qr0NA+65ve0VyFWZGY5OwCo7OyYnTE1fULEgXGjiGxY=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from CY1PR12MB9697.namprd12.prod.outlook.com (2603:10b6:930:107::6)
+ by DM6PR12MB4353.namprd12.prod.outlook.com (2603:10b6:5:2a6::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.19; Tue, 11 Aug
+ 2026 15:50:34 +0000
+Received: from CY1PR12MB9697.namprd12.prod.outlook.com
+ ([fe80::3a41:55a0:8203:596d]) by CY1PR12MB9697.namprd12.prod.outlook.com
+ ([fe80::3a41:55a0:8203:596d%6]) with mapi id 15.21.0292.024; Tue, 11 Aug 2026
+ 15:50:34 +0000
+Message-ID: <f0e8a9be-6767-4cd5-9c92-c5e6c33332db@amd.com>
+Date: Tue, 11 Aug 2026 21:20:27 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] phy: zynqmp: register PHY provider after probe
+ initialization
+To: Vinod Koul <vkoul@kernel.org>,
+ Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+Cc: tomi.valkeinen@ideasonboard.com, neil.armstrong@linaro.org,
+ michal.simek@amd.com, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ git@amd.com, Sashiko <sashiko-bot@kernel.org>
+References: <20260807162510.3681572-1-radhey.shyam.pandey@amd.com>
+ <ansFRgkKgEHVVFJL@vaman>
+Content-Language: en-US
+From: "Pandey, Radhey Shyam" <radheys@amd.com>
+In-Reply-To: <ansFRgkKgEHVVFJL@vaman>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MA1PR01CA0178.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:d::7) To CY1PR12MB9697.namprd12.prod.outlook.com
+ (2603:10b6:930:107::6)
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY1PR12MB9697:EE_|DM6PR12MB4353:EE_
+X-MS-Office365-Filtering-Correlation-Id: c09ad0c0-74fc-492a-b56a-08def7c047c1
+X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|23010399003|22082099003|56012099006|18002099003|4143699003|11063799006|10067099003;
+X-Microsoft-Antispam-Message-Info: JSO5fukMr0ukwWz7IaFTUX6pVRx/r+KDXS7kZZFRkOajbMIZgFyrCInwSLmYQ5DqT4IubNETvTbggdW7vRClSweshLYBxkXpq4KFgYa83YPFqzuGC2BljvlzvQ7FvBs3Pis/zqRrm7RnbgDkJgoc7iNvTVB+f0q09U4bd/ODAJN2o/x/AlefRvviDUIdujJtmpuDMHLm3yYoEdkZvNJU5srfKglunWtS8X81Zzhgrl9r/4sqL/UOfjMf/AtSxxecXL/Byv/3NYTJVb5YmSmzohioC/iUA4bKYe/XQxl5ydqIXGP+s9k48ZwPRxBZVRCKS/A1mvCAAmH4cxcq6Y+X3DyC9WVXYAhRT3PLoJBEddAvypxHxiG/zCdh2tVS2ctcUO6I9nDLId+C0CPIgKWySgrFF008NECWh5qqo8rYpdmqNLTkdJ2b/IOmzS7mhwOc24c/vEdtKeJ0SgcwwEQwLGkmqQhiZQji3fK6StQDVvaXTulnyzseOhT6eJB5YVnh5+Hm/UgSaQlZ6LJkrqPynMXWXqtAQ+B9oqjPB0Gks180MXpe70uEpFmWi5M6r7c4T4uXQhmkGelJaVj+qctmMM0WLo21aZg4xtyFimW9HMJDFZKPvuYhDlTmszXmTTQUaiznzbfIE2TCl9GHEoUyHBqrsS1hQJlTCKzixal2+Bo=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY1PR12MB9697.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(23010399003)(22082099003)(56012099006)(18002099003)(4143699003)(11063799006)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aExBZmFQa2dCVHdBajRJdThSd2ptN1ZlWmRDdVdOTDBER3RiaUpib0REVHRW?=
+ =?utf-8?B?MjQvWE84RzgvcmRHNnYwdElYNG1Fa256ZU1ycEVGNE9NcUpFdEpKaWpUSW9s?=
+ =?utf-8?B?ZXpwS2ZjY3pBU0xuZnI0eGdlUnUrSjNrV1E3bWJkMmhFQm03ZkwvaFI3dW5U?=
+ =?utf-8?B?QlRHbEcyaHNyM0FaUDkybGF5V1RFQktScC92VTVxNmNIM2NscGNnNURmaXlF?=
+ =?utf-8?B?TEtUbm4xT1k0N2NQb3dhVDRHRzJnaDkzUk13dThTVTdHd3ltSE95b0kvY3M3?=
+ =?utf-8?B?Z3V6aHVONVlBeWtpVGpSdFlLL2hLVWE4RFNRbTN2ZTlISHcyUkx0ekNJcFd4?=
+ =?utf-8?B?OWJQMUI4WW85OVRBMUVJR25LalY2SDcwZHpUc3VhS01zVEJKTytNNk92RFJm?=
+ =?utf-8?B?ZmFIMm1URnNaOVpFbnRaZ1YyTzNMNGltMHhuOHBPY0tJYXREemVJMTNKa1hn?=
+ =?utf-8?B?S2E4YUFueTUyZzR3Y2pVUTlZbmExV0tIODRoYVgyVnBWc1RXUEhLWnMyR3Bw?=
+ =?utf-8?B?SXNMR3o4UzkwQllQSkR5clJkellyazU0RmhpRU13YlpMOEtGbkdpUjEwRlBJ?=
+ =?utf-8?B?aWIrWVRUSHhxbGVRNEVGblFMdGxvd3hMQlNBM3VoeS9WeXVmSTJqV3VadStn?=
+ =?utf-8?B?T2l0aURWUXlBTkR4Vmk5VloreXFrV1YwOEtaOWEySmdpdFFxNnhZeWVDRHhR?=
+ =?utf-8?B?cHA1cTRra1lqRlRuVHgyRG0yNW05d0NNVUkzTmtpdWZHTy83cGVnTENaL2dh?=
+ =?utf-8?B?c2tKVC9wVmJQa00zeVBFbDgxOFgrM2JtUGQ2K0FvN1E1RXJLZFVhRlRFSnFJ?=
+ =?utf-8?B?eVhpZnp6WmQvYXovblJmL0JLY09lZ1RqYlF6U3lCOXVOQS9mbDBZTFpoSXpn?=
+ =?utf-8?B?U1JaRUY2dzJNZ3BtclVyTy91c0dJaG9odmNobWdUMWs1WXBqVEtPOUl0bnA5?=
+ =?utf-8?B?MlE0ZkVlc2tBd1dsWUNhS1lMNzNYZkFUaVI5NGxQYWZyeDVwOTZBK3VzSUs4?=
+ =?utf-8?B?RjVWcm1EcDhzUisxY0V0RTFQNlV6NzFGWHpKN0FoOGMvdWM1TmVWajE3QXpU?=
+ =?utf-8?B?bVhWT3V3dHp1byszcGNveGFRaUtwZkgrNXk4Ty9scFJpZlF3eFRDV0pVQTl2?=
+ =?utf-8?B?YXJUOEQ2ZGtWaG5wRmZKSEFrRHZOdTZpY2FKRVBRaDRWUnlYY2ZBSHB2R3NE?=
+ =?utf-8?B?dndSUmFmT1laUmFjTVVaS3hoM292QWc1SDBoMHl2RWwrRmlzeHdZU240RXRE?=
+ =?utf-8?B?eWx4M1RqQWE5ZEpsSWY2MnpYTmdZakpjdzlBQTVDemxjVUk5RENXblFDOGZV?=
+ =?utf-8?B?QzFrMlhQYU0vZ3pQL3B5RVkwWjhLeERQM1pDclhSMXRvN1dsWklKNmdrWHd3?=
+ =?utf-8?B?Y2FaS0U1a1k3VElQRHlDYmFheENISWx4anhCcjdycDRnU1U0QlNoV1d3enZJ?=
+ =?utf-8?B?eWxyN09xd0U0S1pxNUZsOGk5cGlqVEVMeXg5bDY4TnQyd0c3Qkg0WXFlNnMy?=
+ =?utf-8?B?ZGEzOHYvTWpvVEJyZ1RKQmJTa2I1U0c3Ky9IQ0I1dW9OVUV6YUpFTXg0VVFR?=
+ =?utf-8?B?OXpITExkQm00R3M5NDBjVzZ0WUNhcVk4bCszUU8xaVMwSVRtdG1yZDBieHB5?=
+ =?utf-8?B?M0hzTUtGaGJ4MGhmNmcrSGJzWVBYd3BMbGpmUSsxc3FyblpleUY0ZUtDM1pO?=
+ =?utf-8?B?NVkvZGprMHBDeUpjMUtPd1VxMVdhRVl6aVE0c3hxb2RZZVRoUHdNUTU2Wmgw?=
+ =?utf-8?B?VEg2RlV5WHlGWlNMSFFDTEN2SU1VcytQVHJ1YXZnaEcxMkdlcFBIMWJGM3lu?=
+ =?utf-8?B?VnVWNUtrdW5Ea2tTSEtmOG5oZ2hidlFKcUgwVG9qN252aEgwVm1iYUhOc2Z3?=
+ =?utf-8?B?bUhXU2RJUlNmamxlNlY4WU1WMWUyeHZmL09QU01UUzI1b3NuYVdtanRqcWN6?=
+ =?utf-8?B?NTc4VW9wTm04cFVEa1lQUEFtUGZSYnlxekRaTVBhZkprbkt2bml5aGJ3ZnVE?=
+ =?utf-8?B?MFoxRHBneEk5T0tjeXdPUFJ2YXJPRjRVNFhmMTl6djdVSzBjVEE4OWVGWmU2?=
+ =?utf-8?B?VkRibVRacmtCWDR6Z1BmNnJ4cG5sOENXNmt6ay9yZktaeCtkbVV2aHk4cVhD?=
+ =?utf-8?B?Z25QUU5GbmNvZjNZT1hCcEtrZjFvbm9XM3pPRkJhZ3RTTVIxOXdPZHJNSG9n?=
+ =?utf-8?B?L2wyMUIwZFdkRTRiSjdKWVMrVU43b0V0RlpBYXRpSVBab3hiOXNUbkc0d1NM?=
+ =?utf-8?B?TjNXR0ZscDd4V1JvS0FaOVhkVDZ4RURpOUNiNEtoSXVUb2FXTzAzSHV6Nno4?=
+ =?utf-8?B?WTFoUkhBSlJsQ2pTV0NpM0pjMEVJTWZIWldUZGxjRUVaaHUzd3pvdz09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c09ad0c0-74fc-492a-b56a-08def7c047c1
+X-MS-Exchange-CrossTenant-AuthSource: CY1PR12MB9697.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Aug 2026 15:50:34.6304
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: bQrH4IbKFXEtUl7srNdgWuVaz1rdD5oy5TAH0KPN2mb20gS+1wkwGQ3UDqIaEonB
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4353
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_084905_764919_3466E842 
-X-CRM114-Status: GOOD (  31.99  )
+X-CRM114-CacheID: sfid-20260811_085050_589737_0972296C 
+X-CRM114-Status: GOOD (  20.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,147 +150,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11 August 2026 15:37:01 BST, Will Deacon <will@kernel.org> wrote:
->On Tue, Aug 11, 2026 at 01:50:14PM +0100, Bradley Morgan wrote:
->> On 11 August 2026 11:18:27 BST, Will Deacon <will@kernel.org> wrote:
->> >[+Maz, Pasha and James]
->> >
->> >On Sun, Aug 09, 2026 at 09:36:15PM +0000, Bradley Morgan wrote:
->> >> swsusp_arch_suspend_exit() reinstalls the restored kernel's hyp stub
->> >> vectors with an hvc, but never passes the arguments. x0 is not set to
->> >> HVC_SET_VECTORS and x1 is not set to the vector address, so the stub
->> >> dispatch falls through and returns without writing vbar_el2. EL2 is
->> >> left pointing at the trans_pgd copy of the vectors, a page that
->> >> swsusp_free() releases right after resume.
->> >> 
->> >> Set the arguments up the same way __hyp_set_vectors() does.
->> >> 
->> >> Fixes: 788bfdd97434 ("arm64: trans_pgd: hibernate: Add
->> >trans_pgd_copy_el2_vectors")
->> >> Cc: stable@vger.kernel.org
->> >> Signed-off-by: Bradley Morgan <include@grrlz.net>
->> >> ---
->> >>  arch/arm64/kernel/hibernate-asm.S | 2 ++
->> >>  1 file changed, 2 insertions(+)
->> >> 
->> >> diff --git a/arch/arm64/kernel/hibernate-asm.S
->> >b/arch/arm64/kernel/hibernate-asm.S
->> >> index 0e1d9c3c6a93..2baefe7a82d3 100644
->> >> --- a/arch/arm64/kernel/hibernate-asm.S
->> >> +++ b/arch/arm64/kernel/hibernate-asm.S
->> >> @@ -89,6 +89,8 @@ alternative_insn "dc cvau, x4",  "dc civac, x4", 
->> >ARM64_WORKAROUND_CLEAN_CACHE
->> >>  	isb
->> >>  
->> >>  	cbz	x24, 3f		/* Do we need to re-initialise EL2? */
->> >> +	mov	x1, x24
->> >> +	mov	x0, #HVC_SET_VECTORS
->> >>  	hvc	#0
->> >>  3:	ret
->> >>  SYM_CODE_END(swsusp_arch_suspend_exit)
->> >
->> >I'm having a really hard time figuring out what's supposed to be going
->> >on here!
->> >
->> >The original hibernation code added by James in 82869ac57b5d ("arm64:
->> >kernel: Add support for hibernate/suspend-to-disk") unconditionally
->> >set the vectors in the exception handler:
->> >
->> >+el1_sync:
->> >+       msr     vbar_el2, x24
->> >+       eret
->> >+ENDPROC(el1_sync)
->> >
->> >However, it _also_ set the vectors from C code in swsusp_arch_resume():
->> >
->> >+       if (el2_reset_needed()) {
->> >+               phys_addr_t el2_vectors = phys_hibernate_exit;  /* base
->*/
->> >+               el2_vectors += hibernate_el2_vectors -
->> >+                              __hibernate_exit_text_start;     /*
->offset */
->> >+
->> >+               __hyp_set_vectors(el2_vectors);
->> >+       }
->> >
->> >Later, Pasha refactored the assembly so that it could be shared with
->> >kexec in 788bfdd97434 ("arm64: trans_pgd: hibernate: Add
->> >trans_pgd_copy_el2_vectors"), however this added arguments to the
->> >exception handler without updating the hypercall on the hibernation
->path.
->> >
->> >So I think we need to figure out:
->> >
->> >0. Whether this code is actually broken atm (I have a feeling it might
->> >   happen to work)
->> 
->> Yes, since 788bfdd97434.
->
->Right, but did you manage to reproduce a crash? 
+On 8/11/2026 4:49 PM, Vinod Koul wrote:
+> On 07-08-26, 21:55, Radhey Shyam Pandey wrote:
+>> Register the OF PHY provider only after saved_regs allocation and
+>> runtime PM setup complete successfully. Publishing the provider
+>> mid-probe allowed concurrent consumers to obtain a phy via xpsgtr_xlate()
+>> while probe could still fail, leaving them with references into driver
+>> state that devres would free on the error path.
+> 
+> That fails for me!
+> 
+Thanks for the review. I assume you mean build failure? If yes, I will
+rebase it on the latest linux-phy next branch and send out v2.
 
-No, I had a read of the code, yk, summer holidays are here for me, so
-I have this kinda time
+Also to add - this is a theoretical race identified through sashiko and
+not something hit in practice. fw_devlink does enforce the ordering, but
+since it can be disabled, it seemed better to make the driver itself
+robust rather than depend on that.
 
-You're implying that this
->hasn't worked for five years, which makes me wonder why we bother to try
->to maintain this code!
+>>
+>> Reported-by: Sashiko <sashiko-bot@kernel.org>
+>> Link: https://lore.kernel.org/all/20260720155732.9DA581F000E9@smtp.kernel.org
+>> Fixes: b3db66f62446 ("phy: xilinx: add runtime PM support")
+>> Fixes: 5af9b304bc60 ("phy: xilinx: phy-zynqmp: Fix SGMII linkup failure on resume")
+>> Signed-off-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+>> ---
+>>   drivers/phy/xilinx/phy-zynqmp.c | 15 ++++++++-------
+>>   1 file changed, 8 insertions(+), 7 deletions(-)
+>>
+>> diff --git a/drivers/phy/xilinx/phy-zynqmp.c b/drivers/phy/xilinx/phy-zynqmp.c
+>> index 240626b55475..8930cbe24b5a 100644
+>> --- a/drivers/phy/xilinx/phy-zynqmp.c
+>> +++ b/drivers/phy/xilinx/phy-zynqmp.c
+>> @@ -1060,13 +1060,6 @@ static int xpsgtr_probe(struct platform_device *pdev)
+>>   					    xpsgtr_status_read);
+>>   	}
+>>   
+>> -	/* Register the PHY provider. */
+>> -	provider = devm_of_phy_provider_register(&pdev->dev, xpsgtr_xlate);
+>> -	if (IS_ERR(provider)) {
+>> -		dev_err(&pdev->dev, "registering provider failed\n");
+>> -		return PTR_ERR(provider);
+>> -	}
+>> -
+>>   	gtr_dev->saved_regs = devm_kmalloc(gtr_dev->dev,
+>>   					   sizeof(save_reg_address),
+>>   					   GFP_KERNEL);
+>> @@ -1082,6 +1075,14 @@ static int xpsgtr_probe(struct platform_device *pdev)
+>>   		return ret;
+>>   	}
+>>   
+>> +	provider = devm_of_phy_provider_register(&pdev->dev, xpsgtr_xlate);
+>> +	if (IS_ERR(provider)) {
+>> +		dev_err(&pdev->dev, "registering provider failed\n");
+>> +		pm_runtime_put(gtr_dev->dev);
+>> +		pm_runtime_disable(gtr_dev->dev);
+>> +		return PTR_ERR(provider);
+>> +	}
+>> +
+>>   	return 0;
+>>   }
+>>   
+>>
+>> base-commit: ea2bff00da89d7767d677bb68470130ba96f4928
+> 
+> and this does not exist for me!
 
-the path only runs when is_hyp_nvhe(), hence VHE machines never get there, 
+oh i see , this was on linux-next, will fix it in v2.
 
-
-
->
->> >1. Why the original hibernation code set the vectors twice.
->> 
->> They do different jobs. The C call parks EL2 on the safe page copy
->> before the restore overwrites the current table. The asm call installs
->> the final __hyp_stub_vectors afterwards.
->
->I think I probably need to spend some time understanding how all this is
->supposed to work. I can't currently tell how we end up with the stub
->vectors installed to start with nor why we can't do all this from C code.
->
-
-head.S installs __hyp_stub_vectors in vbar_el2 before dropping to EL1.
-The last set can't come from C code because at that point the image
-has been restored over the kernel. The safe page copy is the only code
-still running and it's about to hand control back. The hvc is how it
-reaches EL2.
-
->> >2. Assuming they only need to be set once, whether we can drop the hvc
->> >   from the swsusp_arch_suspend_exit assembly code entirely.
->> 
->> No. After the restore vbar_el2 is only writable from EL2, and the
->> temporary copy cannot stay. swsusp_free() frees it right after resume.
->
->Isn't vbar_el2 always only writable from EL2?
->
-
-Yes, that phrasing was sloppy on my end. All I meant was the safe page
-code runs at EL1, so the hvc is the way it reaches EL2.
-
->> >3. Whether we can then drop the HVC_SET_VECTORS handling from this set
->> >   of vectors.
->> >
->> No, this hvc uses it, and so does kexec.
->
->Where does kexec use it? I could only spot it making use of
->HVC_SOFT_RESTART.
->
-
-
-The non kexec_file path. machine_kexec.c calls
-__hyp_set_vectors(kimage->arch.el2_vectors) before jumping to the
-relocation code when is_hyp_nvhe(). The kexec_file path takes
-cpu_soft_restart, which is where HVC_SOFT_RESTART comes in. So kexec
-uses both, one per path........
-
-
-Well, I also will think about this approach, if you have any suggestions,
-feel free to show me. Please :)
-
->Will
->
-
-Thanks!
+Thanks,
+Radhey
 
