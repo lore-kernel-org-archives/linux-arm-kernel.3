@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1431C5CFCF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 14:02:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E471C5AC67
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 14:02:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TCTcqojh3jvi7qhN4/FwCwW56W3/kVP2/X7El3hYsr0=; b=xs2yaK7ToOTINTOn1v67lM28No
-	XVA2Bn+2aQtGpuqC3T/FzgviBl3aZu8JTs1eW+X34upfFFV7qbDRTCbelOc3ftin0ObNJ0gWahGSD
-	L6CvIfJavNo/tRj+0xqHRAs32N4DzZzH21dWLHS7hs6o4UFhLhC0FucuANAT+35J+tPVX0Gzg3BHl
-	egwIIfxefKm5EO5mEkqVrq5AG8AAgUsx1YczpzNh19OwvSOGnnHWdmmnRUpmIx8p+WGegpaO3fl5Z
-	VsPUhxNJAlcSqtcjCcVsREiXDyr8U1wc3hGzmNrXtOi6SYL8VCr12QEa3HXz2+KHORa0YzDafIgdh
-	M4fe0lSA==;
+	bh=onpTqTBmXiqGXmTMVV6/RDQ2iBB2lu9k9fuTRvKjlDY=; b=eDsOdDBKFD3oshag8EakuwAjdc
+	P4B9tkoUp+BxcHwqS5jOabEzsNCgrWqgq34V1ZsDK4zyNrktNXkG7YupUPXmZW2LVxjWS7CviGDYN
+	V3CDkoTM0/nO5VuGBOWQ1Cw9D3hxcCmEzCMcWxN1MxavSxzpWeN9G/9mdd7ElhZhbDtrmXjqnI5lu
+	gNUu9tDeoaVFpIAEXtS2UqeiHrPaY9esXZYNvvCmzlVn+5GhzeqHVxJUtjAtsvkEQ7TjQPCcfDfiA
+	UvD5skwP/yIh2ixtsC5WvJvOYUM+2rRCa+IW56Em6B4zhRm8UDmPpl5AJ+dqE/GW5rScLAXoS7OMM
+	mBYVLouw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtn3T-0000000E9ZQ-2JGV;
-	Tue, 11 Aug 2026 14:02:11 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wtn3a-0000000E9eH-3JGR;
+	Tue, 11 Aug 2026 14:02:18 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtn3R-0000000E9XX-3CxF
+	id 1wtn3U-0000000E9aO-2P5V
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 14:02:09 +0000
+	Tue, 11 Aug 2026 14:02:13 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6EF9343F44;
+	by sea.source.kernel.org (Postfix) with ESMTP id 5723543F67;
+	Tue, 11 Aug 2026 14:02:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D38A11F00A3E;
 	Tue, 11 Aug 2026 14:02:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE0591F00A3A;
-	Tue, 11 Aug 2026 14:02:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786456929;
-	bh=TCTcqojh3jvi7qhN4/FwCwW56W3/kVP2/X7El3hYsr0=;
+	s=k20260515; t=1786456932;
+	bh=onpTqTBmXiqGXmTMVV6/RDQ2iBB2lu9k9fuTRvKjlDY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=e5keyLbvriw9Y97mg90iEPdMiMwyRuSf1WHXjuWRu8/mLLPgyAyGkBhwJBxCAamjT
-	 eexZfoGXO+0tYTE5orEDoozwta09CkOImUC9V2iD4RqUeYX6fXIHzZYw8qnmcCV2/N
-	 4xJxpZScLdboWAbFvLNT8f/5p43zt5KRDDgdKCwLLdMSJdLr0It7zyeDGp82TLqRW5
-	 xxuAJeIhzQrehb8Wj0O4qfVPt8dLVv+F87/EbVIaVZFLoTyoUbD5I/iN+8x3pZhObP
-	 XOEOJJhRmVZdbBzuZQSYeN8zF5nmFQGhmKfe8cJ8RaVwSFWlce42yNTHeT7qDJDooJ
-	 GJyXp7pv72cbg==
+	b=C8e9PWNP5oKxdZ7Ic5tSUjOzX+rUytL1bm3B3sbQQlna2jgz3u4gsXb/ImrXY9jxj
+	 kM/NziwVbrf9tJ9qQaV61ttVe6YLr/jS8sqY8h4yydG3xhSgppdk6/EW6wxKKtmrIa
+	 uEpgnn+Y7IWzsz/Iiq4L8sVL41xOUbTz+3uIqcMJ7k/i3zTKumb4TMa42J1uRLyi5P
+	 aCCXT20tVvHeJ4Ma3I4xJUaNNVlI0vSb6jd6q/dxVbaJlHLUIHOlKk5mQCeyiqFTnV
+	 qyq8m92jAkitQPUIE/MoupvpPkdso4xM0e7ltndjsPv5KUAOJN9yJsCkcux6pyLkDP
+	 fvybetvm8932A==
 From: Will Deacon <will@kernel.org>
 To: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org,
@@ -55,9 +55,9 @@ Cc: linux-kernel@vger.kernel.org,
 	Oliver Upton <oupton@kernel.org>,
 	Herbert Xu <herbert@gondor.apana.org.au>,
 	Marc Zyngier <maz@kernel.org>
-Subject: [PATCH 10/12] arm64: Remove all usage of __AARCH64EB__
-Date: Tue, 11 Aug 2026 15:01:29 +0100
-Message-ID: <20260811140132.22778-11-will@kernel.org>
+Subject: [PATCH 11/12] arm64: image: Remove endianness handling for generating image header
+Date: Tue, 11 Aug 2026 15:01:30 +0100
+Message-ID: <20260811140132.22778-12-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260811140132.22778-1-will@kernel.org>
 References: <20260811140132.22778-1-will@kernel.org>
@@ -77,182 +77,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Big-endian support on arm64 depends on BROKEN. In preparation for
-removing the dead code altogether, remove all usage of
-__AARCH64EB__ from the arm64 kernel port.
+Since big-endian support for arm64 depends on BROKEN, we don't need to
+bother jumping through hoops to generate a little-endian kernel image
+header for a big-endian target. We can just ignore the possibility
+instead.
 
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- arch/arm64/include/asm/compat.h         | 14 --------------
- arch/arm64/include/asm/elf.h            | 12 ------------
- arch/arm64/include/asm/word-at-a-time.h |  6 ------
- arch/arm64/include/uapi/asm/byteorder.h |  4 ----
- arch/arm64/kernel/signal32.c            | 10 ----------
- arch/arm64/mm/extable.c                 |  5 -----
- 6 files changed, 51 deletions(-)
+ arch/arm64/include/asm/assembler.h | 11 -----------
+ arch/arm64/kernel/head.S           |  4 ++--
+ arch/arm64/kernel/image.h          | 24 ++----------------------
+ 3 files changed, 4 insertions(+), 35 deletions(-)
 
-diff --git a/arch/arm64/include/asm/compat.h b/arch/arm64/include/asm/compat.h
-index ae904a1ad529..5e4cc4d2f872 100644
---- a/arch/arm64/include/asm/compat.h
-+++ b/arch/arm64/include/asm/compat.h
-@@ -28,34 +28,20 @@ typedef u16		compat_ipc_pid_t;
- #include <linux/sched.h>
- #include <linux/sched/task_stack.h>
- 
--#ifdef __AARCH64EB__
--#define COMPAT_UTS_MACHINE	"armv8b\0\0"
--#else
- #define COMPAT_UTS_MACHINE	"armv8l\0\0"
--#endif
- 
- typedef u16		__compat_uid16_t;
- typedef u16		__compat_gid16_t;
- typedef s32		compat_nlink_t;
- 
- struct compat_stat {
--#ifdef __AARCH64EB__
--	short		st_dev;
--	short		__pad1;
--#else
- 	compat_dev_t	st_dev;
--#endif
- 	compat_ino_t	st_ino;
- 	compat_mode_t	st_mode;
- 	compat_ushort_t	st_nlink;
- 	__compat_uid16_t	st_uid;
- 	__compat_gid16_t	st_gid;
--#ifdef __AARCH64EB__
--	short		st_rdev;
--	short		__pad2;
--#else
- 	compat_dev_t	st_rdev;
--#endif
- 	compat_off_t	st_size;
- 	compat_off_t	st_blksize;
- 	compat_off_t	st_blocks;
-diff --git a/arch/arm64/include/asm/elf.h b/arch/arm64/include/asm/elf.h
-index d2779d604c7b..5a0bd3d38b1a 100644
---- a/arch/arm64/include/asm/elf.h
-+++ b/arch/arm64/include/asm/elf.h
-@@ -72,11 +72,7 @@
-  * These are used to set parameters in the core dumps.
-  */
- #define ELF_CLASS	ELFCLASS64
--#ifdef __AARCH64EB__
--#define ELF_DATA	ELFDATA2MSB
--#else
- #define ELF_DATA	ELFDATA2LSB
--#endif
- #define ELF_ARCH	EM_AARCH64
- 
- /*
-@@ -85,11 +81,7 @@
-  * intent than poking at uname or /proc/cpuinfo.
-  */
- #define ELF_PLATFORM_SIZE	16
--#ifdef __AARCH64EB__
--#define ELF_PLATFORM		("aarch64_be")
--#else
- #define ELF_PLATFORM		("aarch64")
--#endif
- 
- /*
-  * This is used to ensure we don't load something for the wrong architecture.
-@@ -195,11 +187,7 @@ extern int arch_setup_additional_pages(struct linux_binprm *bprm,
- #define STACK_RND_MASK			(0x3ffff >> (PAGE_SHIFT - 12))
+diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/assembler.h
+index 45279e577ff5..d3ce96c7b8ec 100644
+--- a/arch/arm64/include/asm/assembler.h
++++ b/arch/arm64/include/asm/assembler.h
+@@ -525,17 +525,6 @@ alternative_else_nop_endif
+ #define EXPORT_SYMBOL_NOKASAN(name)	EXPORT_SYMBOL(name)
  #endif
  
--#ifdef __AARCH64EB__
--#define COMPAT_ELF_PLATFORM		("v8b")
--#else
- #define COMPAT_ELF_PLATFORM		("v8l")
--#endif
- 
- /* AArch32 registers. */
- #define COMPAT_ELF_NGREG		18
-diff --git a/arch/arm64/include/asm/word-at-a-time.h b/arch/arm64/include/asm/word-at-a-time.h
-index 824ca6987a51..d7a3b69dc8c6 100644
---- a/arch/arm64/include/asm/word-at-a-time.h
-+++ b/arch/arm64/include/asm/word-at-a-time.h
-@@ -7,8 +7,6 @@
- 
- #include <linux/uaccess.h>
- 
--#ifndef __AARCH64EB__
+-	/*
+-	 * Emit a 64-bit absolute little endian symbol reference in a way that
+-	 * ensures that it will be resolved at build time, even when building a
+-	 * PIE binary. This requires cooperation from the linker script, which
+-	 * must emit the lo32/hi32 halves individually.
+-	 */
+-	.macro	le64sym, sym
+-	.long	\sym\()_lo32
+-	.long	\sym\()_hi32
+-	.endm
 -
- #include <linux/bitops.h>
- #include <linux/wordpart.h>
+ 	/*
+ 	 * mov_q - move an immediate constant into a 64-bit register using
+ 	 *         between 2 and 4 movz/movk instructions (depending on the
+diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
+index 8951ce693552..684896390258 100644
+--- a/arch/arm64/kernel/head.S
++++ b/arch/arm64/kernel/head.S
+@@ -61,8 +61,8 @@
+ 	efi_signature_nop			// special NOP to identity as PE/COFF executable
+ 	b	primary_entry			// branch to kernel start, magic
+ 	.quad	0				// Image load offset from start of RAM, little-endian
+-	le64sym	_kernel_size_le			// Effective size of kernel image, little-endian
+-	le64sym	_kernel_flags_le		// Informative flags, little-endian
++	.quad	_kernel_size_le			// Effective size of kernel image, little-endian
++	.quad	_kernel_flags_le		// Informative flags, little-endian
+ 	.quad	0				// reserved
+ 	.quad	0				// reserved
+ 	.quad	0				// reserved
+diff --git a/arch/arm64/kernel/image.h b/arch/arm64/kernel/image.h
+index 5c10ca773363..208843f96b4d 100644
+--- a/arch/arm64/kernel/image.h
++++ b/arch/arm64/kernel/image.h
+@@ -13,21 +13,6 @@
  
-@@ -36,10 +34,6 @@ static inline unsigned long zero_bytemask(unsigned long bits)
- 	return bits >> 7;
- }
+ #include <asm/image.h>
  
--#else	/* __AARCH64EB__ */
--#include <asm-generic/word-at-a-time.h>
--#endif
--
- /*
-  * Load an unaligned word from kernel space.
-  *
-diff --git a/arch/arm64/include/uapi/asm/byteorder.h b/arch/arm64/include/uapi/asm/byteorder.h
-index ca9cfdab33fc..b078e60f0506 100644
---- a/arch/arm64/include/uapi/asm/byteorder.h
-+++ b/arch/arm64/include/uapi/asm/byteorder.h
-@@ -17,10 +17,6 @@
- #ifndef __ASM_BYTEORDER_H
- #define __ASM_BYTEORDER_H
- 
--#ifdef __AARCH64EB__
--#include <linux/byteorder/big_endian.h>
--#else
- #include <linux/byteorder/little_endian.h>
--#endif
- 
- #endif	/* __ASM_BYTEORDER_H */
-diff --git a/arch/arm64/kernel/signal32.c b/arch/arm64/kernel/signal32.c
-index 5edcab50f753..3e1ce0b00a68 100644
---- a/arch/arm64/kernel/signal32.c
-+++ b/arch/arm64/kernel/signal32.c
-@@ -70,22 +70,12 @@ static inline int get_sigset_t(sigset_t *set,
- 
- /*
-  * VFP save/restore code.
+-/*
+- * There aren't any ELF relocations we can use to endian-swap values known only
+- * at link time (e.g. the subtraction of two symbol addresses), so we must get
+- * the linker to endian-swap certain values before emitting them.
 - *
-- * We have to be careful with endianness, since the fpsimd context-switch
-- * code operates on 128-bit (Q) register values whereas the compat ABI
-- * uses an array of 64-bit (D) registers. Consequently, we need to swap
-- * the two halves of each Q register when running on a big-endian CPU.
-  */
- union __fpsimd_vreg {
- 	__uint128_t	raw;
- 	struct {
--#ifdef __AARCH64EB__
--		u64	hi;
--		u64	lo;
--#else
- 		u64	lo;
- 		u64	hi;
--#endif
- 	};
- };
- 
-diff --git a/arch/arm64/mm/extable.c b/arch/arm64/mm/extable.c
-index 6e0528831cd3..299a244f68e6 100644
---- a/arch/arm64/mm/extable.c
-+++ b/arch/arm64/mm/extable.c
-@@ -79,12 +79,7 @@ ex_handler_load_unaligned_zeropad(const struct exception_table_entry *ex,
- 	addr &= ~0x7UL;
- 
- 	data = *(unsigned long*)addr;
+- * Note that, in order for this to work when building the ELF64 PIE executable
+- * (for KASLR), these values should not be referenced via R_AARCH64_ABS64
+- * relocations, since these are fixed up at runtime rather than at build time
+- * when PIE is in effect. So we need to split them up in 32-bit high and low
+- * words.
+- */
+-#define DEFINE_IMAGE_LE64(sym, data)				\
+-	sym##_lo32 = (data) & 0xffffffff;			\
+-	sym##_hi32 = (data) >> 32
 -
--#ifndef __AARCH64EB__
- 	data >>= 8 * offset;
--#else
--	data <<= 8 * offset;
--#endif
+ #define __HEAD_FLAG(field)	(__HEAD_FLAG_##field << \
+ 					ARM64_IMAGE_FLAG_##field##_SHIFT)
  
- 	pt_regs_write_reg(regs, reg_data, data);
+@@ -41,13 +26,8 @@
+ 				 __HEAD_FLAG(PAGE_SIZE) | \
+ 				 __HEAD_FLAG(PHYS_BASE))
  
+-/*
+- * These will output as part of the Image header, which should be little-endian
+- * regardless of the endianness of the kernel. While constant values could be
+- * endian swapped in head.S, all are done here for consistency.
+- */
+ #define HEAD_SYMBOLS						\
+-	DEFINE_IMAGE_LE64(_kernel_size_le, _end - _text);	\
+-	DEFINE_IMAGE_LE64(_kernel_flags_le, __HEAD_FLAGS);
++	_kernel_size_le		=  _end - _text;		\
++	_kernel_flags_le	= __HEAD_FLAGS;
+ 
+ #endif /* __ARM64_KERNEL_IMAGE_H */
 -- 
 2.55.0.679.g6767b8d81c-goog
 
