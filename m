@@ -4,68 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C4F3C5B56A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 12:28:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49E7CC5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 12:43:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UqDN8/oCng68xYLvZkz2cIdACIigPFlcuor8NDMkF1g=; b=W+hOH+ua9q++vbETe/KEXrXE5c
-	mgBCxxCfGx6lbrgvxQDD9iwBsogXNcqfnVJd6ivATbsSjvHcFnJRDosA7cf/8eQOsLlLgIHZtlVTx
-	cqPl2b+526LaZCLXtvEzaFxsxJw3O7rL1pPtwAOCxjwthGLMZtsk7Y3Y7g7W8w5G8pEh52JkX4fd7
-	7hM7R2i0YmdoZ8uX35We18Exr/+IZpMm36uLPWxJ9jqWXSK6tODYcwvfnfnKPqrlgf89OwVbOJ1Vh
-	T1ExLh3p4H5hPn2HbsRW/Pqm8NHrItzqS0TCXzKq3Dr7/B4lC3GSEZoest9JydHZX81pQtcZ5xDn7
-	rZnk0uag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4doV9GUIAy9xUM+AhC/KkssK6h0MHIlM0ziN846RuEo=; b=G8o5KhrDyI79+KYMfxuOnfNnhJ
+	BaUBL4XQCmzZ719Q0Kgm4SU45K8xxmzqycivB7VRm3JCNzaaCKqJ4VjTuqbNs7rH2MQymd8V1NFSv
+	YuUqunZwBN5Akxsu4xYWUWJZFyrmWPEznnw8W3WgjsfY2rotFuxnW8kr7SE4i2P7UMK6uOACgcLP1
+	4kmSgbEk/AhOI9U91erSJIM5Im+Ep152NXNhXHMCHTa3v4B/ryHG8zKOhlS6hvW9jM/e8VGfMGSFj
+	sNc3LfsaB3eVSnoWK13E124j0BmOd2txerrV2G+PgGdDJYI6OBwcpIUEBiZOEe3QmmmE5gZJDk4P9
+	ZB4wFBSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtlas-0000000E1g0-2hr3;
-	Tue, 11 Aug 2026 12:28:34 +0000
-Received: from canpmsgout12.his.huawei.com ([113.46.200.227])
+	id 1wtlp5-0000000E2dG-2D5B;
+	Tue, 11 Aug 2026 12:43:15 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtlap-0000000E1fE-04LB
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 12:28:33 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=UqDN8/oCng68xYLvZkz2cIdACIigPFlcuor8NDMkF1g=;
-	b=4RXBb1CUHVzpGHtcdQoAm6GhT7Y91pGLP+RLujBgeEGqqHcUtbGpwcE6vaj5BHy/m1/ct3ioj
-	laUVHZs2uRjKDM9b3JelZsQPnfnJfZ2qEJCM0tKorPm/rvnKFG3gv5VMTai0A3JHFm4wF2KuQMg
-	VIXk3XYonoYSgIMD/bedf/I=
-Received: from mail.maildlp.com (unknown [172.19.163.200])
-	by canpmsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4hK9cl6C33znTVy;
-	Tue, 11 Aug 2026 20:17:59 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id D7C7940563;
-	Tue, 11 Aug 2026 20:28:22 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 11 Aug 2026 20:28:22 +0800
-Message-ID: <1cbcf4b7-201d-4476-a9a7-e5bcac4166b3@huawei.com>
-Date: Tue, 11 Aug 2026 20:28:21 +0800
+	id 1wtlp4-0000000E2ct-1wY2;
+	Tue, 11 Aug 2026 12:43:14 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7BC28600AD;
+	Tue, 11 Aug 2026 12:43:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BAD41F000E9;
+	Tue, 11 Aug 2026 12:43:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786452193;
+	bh=4doV9GUIAy9xUM+AhC/KkssK6h0MHIlM0ziN846RuEo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=op7S08VpI3MrH1h/maoaiUxk163dPSARrCqOWylNsQmtVHV+KnxK4GX8vEm6kwbWL
+	 ntm5ElhUpUHiS4sSlN+gI77xvYnSbPQiqonQLrh3g0zDWKd3HMB6gl8M0JMh6mCTDT
+	 wGovQw6wQfSpz4wO5uP0Mtlqjwwi+kcvmLVCCNXHVCjcbZvjFMaQEdvEJkxcFdcLAn
+	 gU1wOk3RewFn3ukeZbekbefbLhtx9sxYiBjQsBMXQRhJbyo79cWQik9Y/kBA4DLNEs
+	 bxDoaLOKdBWil1q6EOIavriIi6PqWS9UmfwybeZv/TQn20XWNkNaYtvy/dOeRXNrCb
+	 uNLFK2CXeDLNg==
+Date: Tue, 11 Aug 2026 13:43:07 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Benson Leung <bleung@chromium.org>,
+	Tzung-Bi Shih <tzungbi@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Jiri Kosina <jikos@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	chrome-platform@lists.linux.dev, linux-input@vger.kernel.org,
+	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 1/9] regulator: core: Add "enable and wait" functions
+Message-ID: <99ad23ba-f8f2-404b-960e-1c22a20c9ac4@sirena.org.uk>
+References: <20260811122011.3539250-1-wenst@chromium.org>
+ <20260811122011.3539250-2-wenst@chromium.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 26/45] arm64/efi: Implement override for IRQ flags
- checks
-To: Vladimir Murzin <vladimir.murzin@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>
-CC: <mark.rutland@arm.com>, <maz@kernel.org>, <will@kernel.org>,
-	<catalin.marinas@arm.com>, <liaochang1@huawei.com>
-References: <20260727163453.7969-1-vladimir.murzin@arm.com>
- <20260727163453.7969-27-vladimir.murzin@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260727163453.7969-27-vladimir.murzin@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- dggpemf500011.china.huawei.com (7.185.36.131)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_052831_674383_FF9AE572 
-X-CRM114-Status: GOOD (  16.20  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="jN3Lu5VuliZs+Yka"
+Content-Disposition: inline
+In-Reply-To: <20260811122011.3539250-2-wenst@chromium.org>
+X-Cookie: Take me drunk, I'm home again!
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,85 +79,42 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+--jN3Lu5VuliZs+Yka
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-在 2026/7/28 0:34, Vladimir Murzin 写道:
-> Take advantage of the recent changes to the way arm64 represents IRQ
-> flags and implement an architecture-specific override for the EFI IRQ
-> flags check.
-> 
-> IRQ flags now carry both DAIF and PMR state. EFI is not expected to
-> modify either of them, so check both when verifying that IRQ state is
-> preserved across EFI runtime calls.
-> 
-> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
-> ---
->  arch/arm64/include/asm/efi.h | 38 ++++++++++++++++++++++++++++++------
->  1 file changed, 32 insertions(+), 6 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/efi.h b/arch/arm64/include/asm/efi.h
-> index e8a9783235cb..0fc5a8cd5850 100644
-> --- a/arch/arm64/include/asm/efi.h
-> +++ b/arch/arm64/include/asm/efi.h
-> @@ -5,6 +5,7 @@
->  #include <asm/boot.h>
->  #include <asm/cpufeature.h>
->  #include <asm/fpsimd.h>
-> +#include <asm/interrupts/common_flags.h>
->  #include <asm/io.h>
->  #include <asm/memory.h>
->  #include <asm/mmu_context.h>
-> @@ -48,18 +49,43 @@ void arch_efi_call_virt_teardown(void);
->  	(efi_rt_stack_top != NULL &&					\
->  	 on_task_stack(current, READ_ONCE(efi_rt_stack_top[-1]), 1))
->  
-> -#define ARCH_EFI_IRQ_FLAGS_MASK (PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT)
-> -
->  /*
->   * Even when Linux uses IRQ priorities for IRQ disabling, EFI does not.
->   * And EFI shouldn't really play around with priority masking as it is not aware
->   * which priorities the OS has assigned to its interrupts.
->   */
->  #define arch_efi_save_flags(state_flags)		\
-> -	((void)((state_flags) = read_sysreg(daif)))
-> -
-> -#define arch_efi_restore_flags(state_flags)	write_sysreg(state_flags, daif)
-> -
-> +	((void)((state_flags) = arch_local_save_flags()))
-> +
-> +#define arch_efi_restore_flags(state_flags)			\
-> +do {								\
-> +	arm64_exc_hwstate_t __st = {.flags=state_flags};	\
-> +								\
-> +	arm64_update_exc_hwstate(__st);				\
-> +} while(0)
-> +
-> +#define arch_efi_check_flags(state_flags, caller)									\
-> +do {															\
-> +	arm64_exc_hwstate_t __actual = {.flags =  arch_local_save_flags() };						\
-> +	arm64_exc_hwstate_t __expected = {.flags=state_flags};								\
-> +															\
-> +	if (__expected.flags == __actual.flags)										\
-> +		break;													\
-> +															\
-> +	add_taint(TAINT_FIRMWARE_WORKAROUND, LOCKDEP_NOW_UNRELIABLE);							\
-> +															\
-> +	if (system_uses_irq_prio_masking()) {										\
-> +		pr_err_ratelimited(FW_BUG "DAIF+PMR corrupted (0x%x + 0x%x=>0x%x + 0x%x) by EFI call from %pS\n",	\
-> +				   __expected.daif, __expected.pmr, __actual.daif, __actual.pmr,			\
-> +				   caller ?: __builtin_return_address(0));						\
-> +	} else {													\
-> +		pr_err_ratelimited(FW_BUG "DAIF corrupted (0x%x=>0x%x) by EFI call from %pS\n",				\
-> +				   __expected.daif, __actual.daif,							\
-> +				   caller ?: __builtin_return_address(0));						\
-> +	}														\
-> +															\
-> +	arch_efi_restore_flags(state_flags);										\
+On Tue, Aug 11, 2026 at 08:20:01PM +0800, Chen-Yu Tsai wrote:
+> In device power sequencing and initialization use cases, it is common
+> for the driver to enable the regulator and then wait for a certain
+> period of time to pass before continuing.
 
-Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+Please don't bury core changes for subsystems in the middle of random
+other serieses, this is the first time I've seen this.  :(
 
-> +} while(0)
->  
->  /* arch specific definitions used by the stub code */
->  
+> One case in particular is not optimized yet: a regulator left on either
+> by hardware reset default or by the bootloader, but does not have the
+> "regulator-boot-on" property set. As the enable timestamp only gets
+> updated when enabled by a consumer or by the core, the first enablement
+> always needs to wait.
 
+Just take a timestamp during registration if the regulator is enabled,
+we check if it's enabled anyway so we may as well take that as the last
+time the enable happened.
+
+--jN3Lu5VuliZs+Yka
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmp7GNoACgkQJNaLcl1U
+h9BeJwf+NkLsGljQXwokTuIRv+ig4jdUnALSbb8+0ZIRrZ+96sNEkwqEODMFToii
+m8eaYIc5o7+PoXbWo0li99AO3IoZAw8otyweKMS8qGabP4EmHx4RQlRtmT5EB8GN
+KKPHgVNpuTTrP8/pNacCVJUZ2keDYA98Mqugtuxo14y9ZOp4HKevYQvXdimF1sXM
+43lEEtZJ/tnW/FlDVUtljN42u51I1ly4Tc2SUvquTs1V5sOJGEFvAftOVMTQWZeb
+dGPhAbqkevlNFnoQqIGB/9AeSYm8PpMRwVbveoDgBKXYMiHKpxokg2Vib+LH/6rn
+wYimUcQhuqXcIN2eQrOr0HIWPeB9Qg==
+=2Up9
+-----END PGP SIGNATURE-----
+
+--jN3Lu5VuliZs+Yka--
 
