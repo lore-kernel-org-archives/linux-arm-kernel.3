@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD38FC5AC67
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 14:02:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 356CDC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 14:02:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OVtoFL/X2Cg8V2fpSt9ioOxaBxnq9YunbAkI7H2qxik=; b=PjnqwVmEGprdLxbrR2ha4nZwX8
-	cLZGKTYy7gl6y4av/tyDmm4zzx95xPcsY+YwNQm+HyBp7HsPnnIRZLWfgUS7lWR6SFPLvGesEenf3
-	aSsrlIW/BZwLexOafHZZRCYrst7Mw8qK2PsWKC4UrjeZrtVLgKKWjqwJ7iZhPDxQx9bc0xScCoezN
-	ZjiNgIPZXzmFnZjTgVGYiyjqe90t2vmqCARa5mpenoyYTACQ06yVzwT4kN+CY61iePNYgtvBCkQJt
-	yoPfXT/gquif/50fXFhrlEDTOlsrGgQYPgHFTBJsxjdYwMjYkChKzdHuaIm9v1J+emheT0BcSUC0a
-	iQVt20wg==;
+	bh=z0zsKLPuoXfAkZir/h/dqQAL4c+HSViad4xaceBOxj0=; b=m7VkN5Nm1iSnsokmZao5NbIcV+
+	SzbwKl3njlnnRdDOWRMHy8ApB4k17680RzAPSaWCYANn/mBfJEgu+N6BYuJq+WvOku3pMiwkNeL+t
+	vlUzt1eS6DYom2UzRtr7zRNbr9OMhyH0FWDJNmur173sAEiaHmbGvdzv+DZ9rwEcLEJio/S22xdvf
+	fGSVwGk8NH0trZhGkuKlDQ9+j+WYgbP7rqp9ePhaoOkpTnZYbYcamNMGpcwEklvpfKmSQrumD9wl8
+	Crw3oML779DPzb3JEDkPo0s0Uu84l3npQjn7ovpQPj7ftZgh4gO32DRNmZEwQNvV83PZQcXC0kFcD
+	j9Cvh1bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtn3J-0000000E9TR-45bn;
-	Tue, 11 Aug 2026 14:02:01 +0000
+	id 1wtn3T-0000000E9Yr-1E50;
+	Tue, 11 Aug 2026 14:02:11 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtn3G-0000000E9Rl-1l6v
+	id 1wtn3M-0000000E9VS-1Tq4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 14:01:58 +0000
+	Tue, 11 Aug 2026 14:02:04 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D870860A61;
-	Tue, 11 Aug 2026 14:01:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 369A01F00A3A;
-	Tue, 11 Aug 2026 14:01:55 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C7F28600DA;
+	Tue, 11 Aug 2026 14:02:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1AE2F1F00A3A;
+	Tue, 11 Aug 2026 14:02:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786456917;
-	bh=OVtoFL/X2Cg8V2fpSt9ioOxaBxnq9YunbAkI7H2qxik=;
+	s=k20260515; t=1786456923;
+	bh=z0zsKLPuoXfAkZir/h/dqQAL4c+HSViad4xaceBOxj0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=SpdsE61K1u0jLCWh6kUs1baLWdTEdZztiAz2wKLlQ00BASOUNsUVApf1NasS+wcra
-	 e+9bAYX0iaUPE3tOXc69ijfVRge67ZBEssLsKc01W223y1huZVK8Cdtyu8SHkSIwM+
-	 RyhlgqpnUgsdMHulcDvrVtUh4KS4VEjpO2IHkNf3HAnxBuXeGR3Jv1yU38uVZSR5lO
-	 nUM8TWVsBflIBX0dsO3gIyd5uO3PZKlV0uYYmBl+p2jkuqWIy0mKUu8Uq/PPlfccZy
-	 iFLeyn8Fwyxql88EK190MjZWqrbPem2af0oCXjXq1HrmfQtgGSNAGw443+m42MAEJC
-	 t9jy0+xxQSttg==
+	b=A9qbfdxwWf7yTuyuq/CAO6C8tqhr4rJ7HO685iKkeUmx2RKDm5UJVlCODGNS6bTIn
+	 TKv/gwZwn2QQ+Uof/QH19QJGyqerd2LzUUUaewgSJVW8EOQVfZ79K4pGqME80tkTm3
+	 KtN/PcokKYyj3E+D2f0v+6LAG53Y6+BynFPLL+mGivloDvN6hkx+o2xVSY3IMco7Tq
+	 fB9FaDY5+YAEJbsFhJ3/JjC0C8oBQyDUp0vrI4BTW40IYn4uIj9q02JGkXMKHUFIO7
+	 nHOxI/T3tEPbnDUOXe57I3MtgJgoI7c/ek3RAWwhM1RY9TRyOmi5B8Hvju8uFY0g3g
+	 gbsaLeInXyL9Q==
 From: Will Deacon <will@kernel.org>
 To: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org,
@@ -55,9 +55,9 @@ Cc: linux-kernel@vger.kernel.org,
 	Oliver Upton <oupton@kernel.org>,
 	Herbert Xu <herbert@gondor.apana.org.au>,
 	Marc Zyngier <maz@kernel.org>
-Subject: [PATCH 06/12] arm64: assembler: Remove endianness helper macros
-Date: Tue, 11 Aug 2026 15:01:25 +0100
-Message-ID: <20260811140132.22778-7-will@kernel.org>
+Subject: [PATCH 08/12] KVM: arm64: Remove support for a big-endian hypervisor object
+Date: Tue, 11 Aug 2026 15:01:27 +0100
+Message-ID: <20260811140132.22778-9-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260811140132.22778-1-will@kernel.org>
 References: <20260811140132.22778-1-will@kernel.org>
@@ -77,74 +77,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The CPU_LE()/CPU_BE() helper macros are only used by head.S. Since
-big-endian support depends on BROKEN, remove the last users along with
-the macro definitions. The unused regs_to_64() assembly macro, which
-somewhat bizarrely behaves differently depend on the endianness, is also
-removed.
+Big-endian support on arm64 depends on BROKEN. In preparation for
+removing the dead code altogether, remove the support for generating
+ELF relocations for a big-endian hypervisor object and drop the unused
+big-endian spinlock definition from nVHE.
 
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- arch/arm64/include/asm/assembler.h | 31 ------------------------------
- arch/arm64/kernel/head.S           |  3 +--
- 2 files changed, 1 insertion(+), 33 deletions(-)
+ arch/arm64/kvm/hyp/include/nvhe/spinlock.h |  4 ----
+ arch/arm64/kvm/hyp/nvhe/gen-hyprel.c       | 16 ----------------
+ 2 files changed, 20 deletions(-)
 
-diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/assembler.h
-index effae53e9739..45279e577ff5 100644
---- a/arch/arm64/include/asm/assembler.h
-+++ b/arch/arm64/include/asm/assembler.h
-@@ -133,37 +133,6 @@ lr	.req	x30		// link register
- 	b	\label
- 	.endm
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/spinlock.h b/arch/arm64/kvm/hyp/include/nvhe/spinlock.h
+index 7c7ea8c55405..b6978f03e86a 100644
+--- a/arch/arm64/kvm/hyp/include/nvhe/spinlock.h
++++ b/arch/arm64/kvm/hyp/include/nvhe/spinlock.h
+@@ -20,11 +20,7 @@
+ typedef union hyp_spinlock {
+ 	u32	__val;
+ 	struct {
+-#ifdef __AARCH64EB__
+-		u16 next, owner;
+-#else
+ 		u16 owner, next;
+-#endif
+ 	};
+ } hyp_spinlock_t;
  
--/*
-- * Select code when configured for BE.
-- */
--#ifdef CONFIG_CPU_BIG_ENDIAN
--#define CPU_BE(code...) code
+diff --git a/arch/arm64/kvm/hyp/nvhe/gen-hyprel.c b/arch/arm64/kvm/hyp/nvhe/gen-hyprel.c
+index b63f4e1c1033..99243e0fefb0 100644
+--- a/arch/arm64/kvm/hyp/nvhe/gen-hyprel.c
++++ b/arch/arm64/kvm/hyp/nvhe/gen-hyprel.c
+@@ -139,28 +139,12 @@ static struct {
+ 	const char	*sh_string;
+ } elf;
+ 
+-#if defined(CONFIG_CPU_LITTLE_ENDIAN)
+-
+ #define elf16toh(x)	le16toh(x)
+ #define elf32toh(x)	le32toh(x)
+ #define elf64toh(x)	le64toh(x)
+ 
+ #define ELFENDIAN	ELFDATA2LSB
+ 
+-#elif defined(CONFIG_CPU_BIG_ENDIAN)
+-
+-#define elf16toh(x)	be16toh(x)
+-#define elf32toh(x)	be32toh(x)
+-#define elf64toh(x)	be64toh(x)
+-
+-#define ELFENDIAN	ELFDATA2MSB
+-
 -#else
--#define CPU_BE(code...)
+-
+-#error PDP-endian sadly unsupported...
+-
 -#endif
 -
--/*
-- * Select code when configured for LE.
-- */
--#ifdef CONFIG_CPU_BIG_ENDIAN
--#define CPU_LE(code...)
--#else
--#define CPU_LE(code...) code
--#endif
--
--/*
-- * Define a macro that constructs a 64-bit value by concatenating two
-- * 32-bit registers. Note that on big endian systems the order of the
-- * registers is swapped.
-- */
--#ifndef CONFIG_CPU_BIG_ENDIAN
--	.macro	regs_to_64, rd, lbits, hbits
--#else
--	.macro	regs_to_64, rd, hbits, lbits
--#endif
--	orr	\rd, \lbits, \hbits, lsl #32
--	.endm
--
- /*
-  * Pseudo-ops for PC-relative adr/ldr/str <reg>, <symbol> where
-  * <symbol> is within the range +/- 4 GB of the PC.
-diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
-index 87a822e5c4ca..8951ce693552 100644
---- a/arch/arm64/kernel/head.S
-+++ b/arch/arm64/kernel/head.S
-@@ -138,8 +138,7 @@ SYM_CODE_START_LOCAL(record_mmu_state)
- 	b.ne	0f
- 	mrs	x19, sctlr_el2
- 0:
--CPU_LE( tbnz	x19, #SCTLR_ELx_EE_SHIFT, 1f	)
--CPU_BE( tbz	x19, #SCTLR_ELx_EE_SHIFT, 1f	)
-+	tbnz	x19, #SCTLR_ELx_EE_SHIFT, 1f
- 	tst	x19, #SCTLR_ELx_C		// Z := (C == 0)
- 	and	x19, x19, #SCTLR_ELx_M		// isolate M bit
- 	csel	x19, xzr, x19, eq		// clear x19 if Z
+ #define fatal_error(fmt, ...)						\
+ 	({								\
+ 		fprintf(stderr, "error: %s: " fmt "\n",			\
 -- 
 2.55.0.679.g6767b8d81c-goog
 
