@@ -4,128 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6096C5B56A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 16:13:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78D09C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 16:16:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0ZhjMkeDz7mOhuixgdwZd1hEcRbu9kb7PN7i+AiKq5Y=; b=4Xqkf6qWFAuMgHN0fiF4zBANLl
-	gCr8tiaQ1Jfi3rzJgdIrG1BOeupyqgPgA2jMUWBDA+ZiDc6vbto6Z1TOvaH9AN8+teQlmYOcvEMYo
-	vxKrnQ3S1AoTRLM2HsGOx6fXUiPIxqf46GbFJsm7cvXhOX0JPniVKqAy20o0lSsRpLi5Fe5y6bVja
-	GEERQ7Cd6kDzaQ5FTqEOKeU/6rFa81qG3MP/KR8OuvHkDU6pGm8R7ToHtIUWVA3h06vdNd0MsT/eW
-	GcdG46Y8Da4PhF/FQOACFwFP7LfVSlzTeWvmt9fSktK86QyRgO0vaoSkrvs604PSARQ/hSIja24Ws
-	O/0XbgIQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rL+1cscBL7DruRZtVhJ1GMBcU3y4ACC4gyo40QpBBnY=; b=El3tBhYj3udlw1MJQ8rbtSekR0
+	5XCpnwTVMVZaJbepjqsgo3AVfUkp5pgHW48DkMwnHTBbGo3B2T3gLP9xQ71MmaUOa4t1WaP8fiwEq
+	dqh+rzAOlH/2AdAy6exejahWb724YgHK8LlofhLeJYQ1h2DM314SmTRK4XPPC651xXKLOiBIgVoZV
+	tuiUS04rTZFUg4sTzi96Q0ZlPqeOIVBHx+3PPpKqzdTnBPUmL0sHLa+IlBymwlCrJgAJOpnRefvkV
+	nBz+hAm8HBqRJCTa5LP1DeKTMluI/yTG8FNwxlcl6k2py1Ut94Yjw0KHxLHHLt1doa0bIFxhkJMVj
+	yF4XrjFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtp6o-0000000ESFX-2IBe;
-	Tue, 11 Aug 2026 16:13:46 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1wtp9W-0000000ESuA-0Bfw;
+	Tue, 11 Aug 2026 16:16:34 +0000
+Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtp6l-0000000ESEZ-3eg5
+	id 1wtp9T-0000000ESt4-0Ymc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 16:13:44 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BhEClEkF/pOmor4lSnEFCODyQRvI17ZwXr0Z/f4JkvjD6t4LUESOmsL4lfct23AlCV1fW/lKmPmznHSU6F0/9n0dZmNzHRrMAw7H0dWV+Txo8FGApvfUoMKCEdW51Cs/fO/+35A5b2r/+6xD2ruFm7YX/ePdkElJkTIhnBc2811qe9YIJcQvAxXRfCCh8k0DuTUqIJpdsDs8UfYYPKb3y412EPsEKZjQ+W5m9nzA+CnCN2m738mXrnTO/do0rX69kZrR1cpFnOGNMEw8BjHmT54rmUO0FczoCcffBHV2+f7FyBwIa4H8PF7+6i8anNzLkZF2m4KC0DfscgGZdbjZPA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0ZhjMkeDz7mOhuixgdwZd1hEcRbu9kb7PN7i+AiKq5Y=;
- b=mdcp9P5FDWQb15FtFSGGHOsQWFA64MMM238vt5Rjs+3hShHxoVsfnaXLM+My3TeYyA0LtSnzXDJGLj2Occ1v6iuzPhIU9WS8SgQDgbdzvPj/wG58GGIvWKYJGgDuDQ0vb42CWSBPrzcbRvg/FBGp5bue0ENJSFH5slN3OzcIYWbNQRHQoNVavd2SOKLw2891CJHyOw4qT2s04TixhnU9rWBOctpwbH2swq+WxkCq+eylb/6kECE3ra40y0Am6zEHxG1yGkMxpUfAn8NXzR7E7Wc2NJt1ht97jgI1KMQkExbJfNBzdy8ekPhsf1pu8ra3+xPHaWhrIVsLXv+K2ML8kA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0ZhjMkeDz7mOhuixgdwZd1hEcRbu9kb7PN7i+AiKq5Y=;
- b=nIZ6TutZ96bxqL3RhdE0NR226tc29Ks80Uyaq0hZqii8frCFYhP0jBEAo5qm0s+aDTWSsIGxNFHlHa119cUfO++F1b7VhAxxIftpCi44Rr7sBvi3lW5Rdi5Hz1s+ks1Tn4I4rQch30Qj7izIykJK6gkeecC5wVCwY983FN7Ma0l8XNKV0Tu9oXDW2HqvtWAKJXLj4uyGJ6ROYW0dGiAlNwmn999r3Qk0Ci/mnYpBdP7akvTVIiP8x1HLbRnwvvnvSRYw8u+CW9qJdvuGLr4Hn+OnRqD4QUcV2blK9InFpp8um7i2XiKy3MMWVAkl9dxp2UQ6qJ2ubtBUOe0kraVehA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DU0PR04MB9467.eurprd04.prod.outlook.com (2603:10a6:10:35b::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.25; Tue, 11 Aug
- 2026 16:13:37 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0292.024; Tue, 11 Aug 2026
- 16:13:37 +0000
-Date: Tue, 11 Aug 2026 11:13:26 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Golla Nagendra <nagendra.golla@amd.com>
-Cc: vkoul@kernel.org, Frank.Li@kernel.org, michal.simek@amd.com,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	rafael@kernel.org, git@amd.com, dmaengine@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
-Subject: Re: [PATCH V3 1/6] dmaengine: zynqmp_dma: Fix PM usage count
- handling in probe error path
-Message-ID: <antKJr1N3A111W_V@SMW015318>
-References: <20260810100452.426320-1-nagendra.golla@amd.com>
- <20260810100452.426320-2-nagendra.golla@amd.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260810100452.426320-2-nagendra.golla@amd.com>
-X-ClientProxiedBy: SN7P222CA0023.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:806:124::31) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Tue, 11 Aug 2026 16:16:32 +0000
+Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-5aebd52488cso2063e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 09:16:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786464988; x=1787069788; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=rL+1cscBL7DruRZtVhJ1GMBcU3y4ACC4gyo40QpBBnY=;
+        b=elGZ7axkbTEizaM4xCJ/GTH0pUj9qge+lPUd6t4U3y0UsmiS4Wg5CrUangEoemM84k
+         d2G4KYqVwYgQZL+kEr8UEN7A3fncAznIjyN31pEfdzPwCXo62YTW3uCr4j+CmmPzHmeq
+         S24fC40KtqDcmdpQTuWQoC9lUiR+sQA1On2Po1Ux6gty0aaV3sHIUFmwTRZeugyyody2
+         1N33nKqbYc7PmzpRxwrNHx6qYxhr6V+yRjD8TKFGK6NrmHnGO3YORCaASAV4ube2WvxH
+         r/UAlgVoUWrKnytXy3yUS31MEj2oyOheql7esUFnsjRbUPTRxkBg3Y8Aeu+basL05s2W
+         V0ew==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786464988; x=1787069788;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=rL+1cscBL7DruRZtVhJ1GMBcU3y4ACC4gyo40QpBBnY=;
+        b=L7d3a7bqmrMsBd05/omEpytoikh7xlBRh0kUuqMDh3Muni8bolXARLaAUk4YCTlIrU
+         XpezRlf0bCHJ3XLh11R7X7ROP1IcncZw++EZL9rDSJtEiIEAMEdoDMnoi8mICB9EqsS4
+         X302fsuY97XSQ543OHU24DNEMR1HcMs9Fq0CdpKKnrQHvHlkDrrEeSTTPStB3DiIuPWC
+         zo9UgI8Igg+/pjJJd4qLYpC0gyxf13EHpzWea25ZhZ0FPHCVKih47/9dXb1sTyLiQoWQ
+         LAYqHrKHzFe42Fy1pdoTaLb7dWYUiFGrQeYgOua6uy6OslsruDEIE6SStoyRbyRdckRF
+         mmoQ==
+X-Forwarded-Encrypted: i=1; AHgh+RpDX6sCEjsefSjvqWcTysCZvGJwJNIW20OQaD3EQLrj8+Il9ELENwBPOrq6pGF9pLXMx/OgTf35rpFfM+8tCVfw@lists.infradead.org
+X-Gm-Message-State: AOJu0YwC42dWPue7J32+PutkwjqShcgkECvTyrS5llt+J7bpyoGMwo+6
+	sp9PJ6zpEjA4HvyIQj6E5DmmqShOnDR/aN8K/FPrkVyhWv85LkY7IYM=
+X-Gm-Gg: AR+sD13AcB/iKmy+hNXTY4OBQTVWiWU1Uoo1wUZ4KOBH4f61B4RLN0INLMtteq6pzYy
+	WjUycM/4NZD4T/X5+fessZ0AMB9GaOKyhd1QqF1GqpyZXuJ5YT3j5KALplAtS3OwMrTDDgbjNji
+	TFcZXbqaqhb1iqCkyiY7K4CnbITbKBvSLIUlGGaBTR7XIX67kDbuWi+c78tQPq8mYwLOSV3SJKx
+	qLioq1RJuS16YoQtqj6IMcfxYiaiRmDKT1WGhljLi+OOvlO2AH3xNz87LZfg94FgwV2jm8uU6pf
+	OPxWWqCNcL33zqJKr2ilKZRJTFvFG1DVPg6W4bTxmgrb42g9eCd4FZoUjNbSmv27cr7kbeYPcXX
+	7hGUNck1k2nWsKzdMwBlPEX2MyEa3uwoTQyuRE7VOU5p3Af/bbb57dO1269kzu8LWbEO2bLbDvK
+	4tNtOfufrTrCx+mWsOnxWxoALMeAl3DcCSOwyDefcfc9/wDLA8tq0=
+X-Received: by 2002:a05:6512:3e28:b0:5b0:1f06:f204 with SMTP id 2adb3069b0e04-5b448649364mr752550e87.34.1786464987550;
+        Tue, 11 Aug 2026 09:16:27 -0700 (PDT)
+Received: from fedora ([46.8.219.5])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5b4486cacbbsm377769e87.31.2026.08.11.09.16.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 11 Aug 2026 09:16:27 -0700 (PDT)
+From: Vitaliy Sochnev <sochnev.v.74@gmail.com>
+To: pabeni@redhat.com,
+	lorenzo@kernel.org
+Cc: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH net] net: airoha: npu: load the firmware without the sysfs fallback
+Date: Tue, 11 Aug 2026 19:16:13 +0100
+Message-ID: <20260811181613.19199-1-sochnev.v.74@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260811110253.181862-1-pabeni@redhat.com>
+References: <20260811110253.181862-1-pabeni@redhat.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DU0PR04MB9467:EE_
-X-MS-Office365-Filtering-Correlation-Id: 258068a6-1bff-4c01-feac-08def7c37fc3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|1800799024|19092799006|7416014|376014|18002099003|22082099003|11063799006|4143699003|56012099006|10067099003;
-X-Microsoft-Antispam-Message-Info: Mxz/iU6k62nWW/wLM46f6y1QeicpqsfMBDOMH4YK4VMad9ZzEqcqyyuywXvOQBprLMec7jI00+HmSBEpIyG0f42o9eSnLBGQE1ji5MBQL65K7KO/qoBVC9fK+gPxEHYY+0ahluhI9Gyu9QCV+0PkQVmasy6g841pe7ZFgGK/dpfCDOFmZl2Os5jXfu4MvHlHT6dKFTU/t7aa9UL7m1cXstCZousWqCEG7955saKJZacmkl8aMP+p8CS3t8TsKOOy/Cz9meCdCsCYTwh/8xXvnVyvk8fy4U7aid1hG2k2KvAShoylfnWxBOmLRLxN6hIT+RXvNJUzy7TBv3agjZefMkL9HbO2KCOUWG1jPMw0PwjNyPW5UdqQRM95qwmBKvupsTx8dBaw/oS0iv3crW12j5Y27a/Nc0GRolU6HeCxgvDqPw0i63f3WSEBKHmGghO9wB4vTPMTav7+5fAa6akD/EAh74LFeznwZMJJbz8PsSAO+Ft4nqIzqy0lAVr2TKbeNmEnki4V+siZLpFsJWZ1p1C3cSOa5PaNI1+Rs9d06ZyEdZj+8FIUxWJx2GNf9Ken0Yh+sLssF4nM4Jt5h5abmQ1xnCATxQmuFB1ohXACsAQ9Bn3WTo+9IxZECl9AdbVpigFFa55svRph13JfpAOCfvgUh5jdi7DFRH+Pde9hRo8=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(19092799006)(7416014)(376014)(18002099003)(22082099003)(11063799006)(4143699003)(56012099006)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?hxGsrSGmYvBwdbhouH6G9x9PwF7QtaE8IjL9rYaTZsa6S0uK4IjmzXvFQ8gg?=
- =?us-ascii?Q?yMlP1t9KhbwapkpDKnFC9SJSCaHpjlC4s9pfmvG1YFz4C/1doWqMhOf6D3uy?=
- =?us-ascii?Q?COSq068KD4Dh4Ggryt92hheO1Af4ZD7eyAMu6hpgN53it6YD65JPAjIOkPkv?=
- =?us-ascii?Q?4qNnbHDGDG5K9CDv0aSPJYdvzSyQPKEFgFeC+zr2Bi0RHNg2eE+IrJV5bYPa?=
- =?us-ascii?Q?qZ7gH+xNpL707z9Dp3MikuXg3KRauvioSi1Qg3ZZNKOgfW9inIQS+1TE91Uz?=
- =?us-ascii?Q?KFrObPw86jkRGBTzn7vwz4qMUHHGpw7aMQCL7oHDvfROJYk0nWelIC/L8WRF?=
- =?us-ascii?Q?l8s7UJHdTPA3fr3qBrg642vyXbVxbOmLl4NNBoNQJI8glcuQWu3e4B6Oi0HR?=
- =?us-ascii?Q?RfTQcx+P8ESNNablXNvzqCLHO/j6vdDgECyMdlmyi5+QFirZz16Aaeab/b1o?=
- =?us-ascii?Q?yYRBkgbkGiZ7B+Ufqy0BRwqXWmLyf/lqrVLCGa+roADDqNB+tcOwDuTAMsJ6?=
- =?us-ascii?Q?H7i3zRogTe5XfXsWKYFmFe1VPWOf5t+Ehtj2WJqlROR485LLcgRktadFLLdE?=
- =?us-ascii?Q?U3QutoMmIbD9tj2ssEc3bc71JKfR1IO8aZqOYhQooqmGe9LeyNGiRDtroy/y?=
- =?us-ascii?Q?J/3+Fv9kL2L0eY1Yk8hWDcZbwkWUAZsp5Fto0EV8Ip4dmKPSwf475rfmW8os?=
- =?us-ascii?Q?lrhjxIPi1QIZdXgZ8oU+z0C+oKOmmB52YgrzB2w52TFtQ7mHklz8WfHroJ8h?=
- =?us-ascii?Q?DNyquQa1WQQiYy0AwCZSIrkAq07W+PkGh8bhBbibNwgrB92/HCQyw6UsoFa7?=
- =?us-ascii?Q?gq8zAUr14BI3M/buPzGtxS8IDUWt8jkDBUy2lkQoocsLJRh0EyvJQlCdXb4r?=
- =?us-ascii?Q?56G6Ih8xeNunqxbILcB4dzEV0kcmjAPP1+jwrX8SQBratcy+bAFkh+UVjFYE?=
- =?us-ascii?Q?Sj5OkVx9hRcSdu1WcSTxSFtezuKHLGSPTzMxUvHR8tZLHwhaGKF4XSEyqvi/?=
- =?us-ascii?Q?VaP/EKNbMcTo85Mu+vlKNiCqpXIM6vp7Vh3ERm5a4TvFZqH2kSU8ktMBRGpf?=
- =?us-ascii?Q?EMZF4Dzz3fDqNBVOYGLJ+Qj8J85CK+NXUTdkA4g1TwXLG/aquQ0agnfyL6ZT?=
- =?us-ascii?Q?r4BCMJbLCC6QOyplriOjt/daXZJB1zdKk2nBuYWu5e3IEQn3dZz3rpL3c6L2?=
- =?us-ascii?Q?e3r6lufe8YV3xbmnRtBcbSPrnLyYGJxZf69XMrHopluKl3tdTaTp+6S/MnP6?=
- =?us-ascii?Q?5JgRFvHgULYmsq3jrPRnDX3/OZxj+zIftrz0ZC1vM0L7d9BM9vKHqWUBVVG9?=
- =?us-ascii?Q?3vT8wOanBFUtXalmIop2P1MmjpOFL6FIdt6fqAINPZugwMVctRKjyY7cMjX5?=
- =?us-ascii?Q?v7BZnISjC7yyv0KMbIPSOEZsbiCMMVoawOE/kN90NGFPlMMU3gPJkjboTCr0?=
- =?us-ascii?Q?wHcDJdsI+JFUiJauq6w533KIngHdvLgR/NfOzBT6HeFQmfW0LXUqUtU1Y6Ao?=
- =?us-ascii?Q?ATfkTxeEzyllpAP3iikaUftuUnS7oHdC0uoVIyd4ygi/PTAljsOjUNIRcPM/?=
- =?us-ascii?Q?rtU1BQp+qUEtjt0rk8rtM9SMECWYVXlvKNbYt02wEhct/1y9YLr8lQ6WdHPa?=
- =?us-ascii?Q?DEDgq4RXUgl9XJPqZEWJtIDo1vvoHC/mv+NeS5B68pX269KXa3KspIiQwR2D?=
- =?us-ascii?Q?5+EMvAB4TXhtKIOk+FOFb7TM6VKCE0efCejH6Kf62Xxv8kQ06bC9cBqwx5Ch?=
- =?us-ascii?Q?BS3/n76viUwPc/xb74nJ7UC7NwsKkVktgXpENZ1NuIcbJbyM3HX7?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 258068a6-1bff-4c01-feac-08def7c37fc3
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Aug 2026 16:13:37.1730
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: fwhkaQtAJnc6vvuLNJGFkNIy+On61xpsZHBg4XjbfgWPxx2tmtZcFtpPQ8wzA/BzJaegNFclhHbQjNVfHTM1UmDQUUA2NgdI3TGcQT2+uH/REBvWNUqnMCDmuRpUxdXS
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR04MB9467
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_091343_909782_649189F0 
-X-CRM114-Status: GOOD (  20.55  )
+X-CRM114-CacheID: sfid-20260811_091631_191182_A58C7527 
+X-CRM114-Status: GOOD (  14.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,57 +105,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 10, 2026 at 03:34:47PM +0530, Golla Nagendra wrote:
-> When pm_runtime_resume_and_get() succeeds during probe, it increments
-> the usage count and enables clocks. If a later step (e.g., channel
-> probe) fails, the error path only called pm_runtime_disable() without
-> a matching pm_runtime_put_sync(), leaking the reference and the clock
-> enable.
->
-> Add an else branch to drop the usage count acquired by
-> pm_runtime_resume_and_get() when runtime PM is still enabled, letting
-> the PM core suspend/disable clocks on the success-then-later-failure
-> path.
->
-> Fixes: 64c6f7da8c2c ("dmaengine: zynqmp_dma: Add runtime pm support")
-> Signed-off-by: Golla Nagendra <nagendra.golla@amd.com>
-> ---
-> Changes in V3:
-> - New patch: split from V2 2/3 per Frank Li's review to keep the PM usage
->   count fix separate from the per-channel reset changes
-> ---
->  drivers/dma/xilinx/zynqmp_dma.c | 2 ++
->  1 file changed, 2 insertions(+)
->
-> diff --git a/drivers/dma/xilinx/zynqmp_dma.c b/drivers/dma/xilinx/zynqmp_dma.c
-> index f6a812e49ddc..87986f65d24c 100644
-> --- a/drivers/dma/xilinx/zynqmp_dma.c
-> +++ b/drivers/dma/xilinx/zynqmp_dma.c
-> @@ -1152,6 +1152,8 @@ static int zynqmp_dma_probe(struct platform_device *pdev)
->  err_disable_pm:
->  	if (!pm_runtime_enabled(zdev->dev))
+Both findings look right, thanks - v2 addresses them in the code rather
+than only in the changelog.
 
-You just enable runtime pm above few lines.  Is it for CONFIG_PM?
+main-1-0, the lost warning: confirmed. request_firmware_direct() sets
+FW_OPT_NO_WARN, and the driver did not compensate. airoha_npu_load_firmware()
+returned the code silently and airoha_npu_probe() reported a generic
+"failed to run npu firmware" through dev_err_probe(), which at
+-EPROBE_DEFER only stores the string as the deferred-probe reason. So the
+file name reached neither the log nor the "deferred probe pending" line.
 
-You should check return value of pm_runtime_enable(), or change to use
+This is not hypothetical: I hit it myself building an AN7583 image that
+shipped the en7581 firmware set but not an7583_npu_rv32.bin. The pending
+message named nothing, and it cost me a rebuild to work out what was
+missing.
 
-devm_pm_runtime_enable().
+Since the regression would be introduced by this patch, and the patch
+carries Cc: stable, I did not want to leave it to a follow-up that stable
+might not pick up. v2 reports the failure from airoha_npu_load_firmware()
+through dev_err_probe() with the file name, so it lands in the deferred
+probe reason and the timeout line names it. The generic report in
+airoha_npu_probe() goes, since it would overwrite that reason; of the
+paths it covered, devm_ioremap_resource() reports itself and the
+malformed firmware-name property now does too.
 
-if devm_runtime_enable() failure, you can direct return. Need check
-pm_runtime_enabled() here again.
+main-1-1, the usermode helper: also correct, and my wording was too
+narrow. "the patch does not disable it, it only keeps the driver from
+falling into it" holds for the mechanism in general but not for this
+driver's requests, which lose the helper route entirely, including where
+it is the only one. v2 states that as a deliberate trade-off: the -ENOENT
+to -EPROBE_DEFER mapping was written to wait for a filesystem, and the
+sysfs helper interface has had no in-tree consumer since udev dropped
+firmware loading.
 
->  		zynqmp_dma_runtime_suspend(zdev->dev);
-> +	else
-> +		pm_runtime_put_sync(zdev->dev);
+v2 shortly, as a separate thread.
 
-This one suggest use PM acquire to fix this.
-
-Frank
-
->  	pm_runtime_disable(zdev->dev);
->  	return ret;
->  }
-> --
-> 2.43.7
->
+Thanks,
+Vitaliy
 
