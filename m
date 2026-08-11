@@ -4,78 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F019BC5AC67
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 06:38:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A8BBC5B569
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 06:44:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bxQ/JVN7kCxCQB3HdoijyIyqrXUmPIZpcFd1H63BlNI=; b=mMXBvH92JF6TkkYqVlnKyJdOQb
-	lNrhtXHAeiMcY09Em1/Qa1dCe1zgX1hWrpFhFhm0tuullvRyHtcWwKPGzcwEeRqlIS5YrAI2yV3Pf
-	cB+OGjPbznumdDdSR3mSlQyen0VPu7KzlhUR5ByDU2+pStQtk2gFKgSma8j/EYlZIgA+DJ4jnP17P
-	3m3Crg9tbySNEbJTeeyRUNdddqSXc6a3BUDYyocEB6VWqMz5dO6W0XRgYRVkbEXSilnucwYc7WWa5
-	upluER9zcZUp31s6TJ49B/R/YWZdK+gkayG43UvtKQAp49OyueOgKmKSE6EGN8t1fdEWAFOv5I92+
-	0Uxs/ZXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8CV9C0fteJuw/LuwvISkkiA3Pz1oEu9xaIlcJm9yiDM=; b=w3Zk0GZWSGACfku0TPSDmqOv8X
+	eE8tQ4deXEcOO89jqwdpHlYRdsOq2OGQ066NE/Fc38k7KhqfA5IM2eIq/5FkoajKzeRo7TqHvt3JD
+	A69N9HQGteC9WUiHPPbNBPII/WBI+IifzuT3d+VqqOtnVuXxom0prcovkQMrf8yZPJON8tgJGRIZV
+	45qavPMOmbAhiotBT2QaSfSiI5L4fx0Lb5NYoYXe/46zm3QaS2O0D3NakZ45cIXvSdJlxrT7T+60L
+	Lvd8r5fAVN4eVY/ckAdZG5G3akxbXm7BFct3SgyV+Ej0MvVzySWDMKluEYrdx8cpo7jBT+FL6JBFN
+	5jnFWzng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtg7j-0000000DR5r-2fJn;
-	Tue, 11 Aug 2026 06:38:07 +0000
-Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
+	id 1wtgDo-0000000DRTy-143K;
+	Tue, 11 Aug 2026 06:44:24 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtg7f-0000000DR4p-1HnS
+	id 1wtgDm-0000000DRTs-0Qao
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 06:38:06 +0000
-Received: from francesco-nb (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
-	by mail11.truemail.it (Postfix) with ESMTPA id E5A431FD34;
-	Tue, 11 Aug 2026 08:37:57 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1786430278;
-	bh=bxQ/JVN7kCxCQB3HdoijyIyqrXUmPIZpcFd1H63BlNI=; h=From:To:Subject;
-	b=L6AUW32FPrvIWnJ7D/WMO9AtzxEho4sGdj88qzGzFFjbjNO+jq4JwpO09+GDKkTrc
-	 aEm2zGMnTaKsdDteXL9b6lRC7bLL/kaduvJYH8XHaWS71DnrxzWmnXXk5Y047nT2aA
-	 rS+lZ9DbEECJdOfX8f5UBH2Ox1bpzfbj8UedIv97SzItyuM82Ra6JlbNOf4MHQ3dG2
-	 IuVzDx7kLBLQbCzbsCb2iyhEsAtiIQFjBkf/r2KeN7lU5g/E9r+3xfKHpzKM480RPj
-	 gFeShsQmLB0gaC8gYnpBckHhvQNtl/kkINzrjxLmFOOhOMS2/4Sw2WgXusxWe/bym1
-	 edIWB8GeZDjcA==
-Date: Tue, 11 Aug 2026 08:37:52 +0200
-From: Francesco Dolcini <francesco@dolcini.it>
-To: "Hongxing Zhu (OSS)" <hongxing.zhu@oss.nxp.com>
-Cc: Leonardo Costa <leoreis.costa@gmail.com>,
-	Bjorn Helgaas <helgaas@kernel.org>,
-	"robh@kernel.org" <robh@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	Frank Li <frank.li@nxp.com>,
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
-	"kernel@pengutronix.de" <kernel@pengutronix.de>,
-	"festevam@gmail.com" <festevam@gmail.com>,
-	"leonardo.costa@toradex.com" <leonardo.costa@toradex.com>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"regressions@lists.linux.dev" <regressions@lists.linux.dev>,
-	Sherry Sun <sherry.sun@nxp.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Hongxing Zhu <hongxing.zhu@nxp.com>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>
-Subject: Re: [REGRESSION] mainline/master: Apalis iMX6 no longer boots
-Message-ID: <20260811063752.GA7332@francesco-nb>
-References: <20260629143439.361560-1-leoreis.costa@gmail.com>
- <20260715234736.GA288957@bhelgaas>
- <VI0PR04MB1200862BE9B7C137EC7C18AF18CC72@VI0PR04MB12008.eurprd04.prod.outlook.com>
- <i6x6wpua7wlwmdq3hitoo53wkptgp62tvegmkabcru3d54eqg3@yk4eehwaarn2>
- <3hxiy6aaiagt5zunntpidaeqc4or4wrebf7mu7asvyyibqmvo2@xhvasdqp64rw>
- <GV2PR04MB12019BD5B14FA63CDFCC2015B8CDD2@GV2PR04MB12019.eurprd04.prod.outlook.com>
+	Tue, 11 Aug 2026 06:44:22 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3A2A06001D;
+	Tue, 11 Aug 2026 06:44:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9948A1F000E9;
+	Tue, 11 Aug 2026 06:44:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786430660;
+	bh=8CV9C0fteJuw/LuwvISkkiA3Pz1oEu9xaIlcJm9yiDM=;
+	h=Date:From:Subject:To:Cc:References:In-Reply-To;
+	b=XCAvdIU6359mhm5OSz0Qo6JbtwOuioQB4k9xxkVrjGyVMdlRefefIH3rmPS4arkay
+	 XuK1vyki3FVvFTXYpo1RxyUyVhkx5v2S7CD9PAfeNfFpFo1LVSmIfJQX1L17OPtB2G
+	 tfiPqRBLuMsEXUTBmA1nkqRX42CjC98Lwto2kJb6fED0BY6Kn9rP3B3WZxnstIfC81
+	 7UEiXlIxOfcx2WOcD6/5m+HmW+2Spd5wCs0f/riNZLGYfdEDLnh8/ipJ8hf2Cs9DQO
+	 533TaxnmKR546UDh9WH0mHYdoeJC0xQTZ1Ht6Sck8uMTPE2qc1Rwb0hKP0WJRQZP5A
+	 jMcU2BXtubH/g==
+Message-ID: <70373503-71e2-4646-9246-d3b5d8360cec@kernel.org>
+Date: Tue, 11 Aug 2026 08:44:13 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <GV2PR04MB12019BD5B14FA63CDFCC2015B8CDD2@GV2PR04MB12019.eurprd04.prod.outlook.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_233804_408452_D3C0F776 
-X-CRM114-Status: GOOD (  27.37  )
+User-Agent: Mozilla Thunderbird
+From: Hans Verkuil <hverkuil+cisco@kernel.org>
+Subject: Re: [PATCH v9 0/5] Add SCDC information to connector debugfs
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ Jani Nikula <jani.nikula@linux.intel.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Daniel Stone <daniel@fooishbar.org>, Chen-Yu Tsai <wens@kernel.org>,
+ Samuel Holland <samuel@sholland.org>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ kernel@collabora.com, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+References: <20260724-scdc-link-health-v9-0-bdda406d016d@collabora.com>
+Content-Language: en-US, nl
+In-Reply-To: <20260724-scdc-link-health-v9-0-bdda406d016d@collabora.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,166 +86,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 11, 2026 at 12:47:18AM +0000, Hongxing Zhu (OSS) wrote:
-> > -----Original Message-----
-> > From: Leonardo Costa <leoreis.costa@gmail.com>
-> > Sent: Tuesday, August 11, 2026 2:26 AM
-> > To: Hongxing Zhu (OSS) <hongxing.zhu@oss.nxp.com>
-> > Cc: Bjorn Helgaas <helgaas@kernel.org>; robh@kernel.org;
-> > krzk+dt@kernel.org; conor+dt@kernel.org; Frank Li <frank.li@nxp.com>;
-> > s.hauer@pengutronix.de; kernel@pengutronix.de; festevam@gmail.com;
-> > leonardo.costa@toradex.com; devicetree@vger.kernel.org;
-> > imx@lists.linux.dev; linux-arm-kernel@lists.infradead.org; linux-
-> > kernel@vger.kernel.org; regressions@lists.linux.dev; Sherry Sun
-> > <sherry.sun@nxp.com>; Manivannan Sadhasivam <mani@kernel.org>;
-> > Hongxing Zhu <hongxing.zhu@nxp.com>; linux-pci@vger.kernel.org
-> > Subject: Re: [REGRESSION] mainline/master: Apalis iMX6 no longer boots
-> > 
-> > On Thu, Jul 16, 2026 at 02:09:19PM -0300, Leonardo Costa wrote:
-> > > On Thu, Jul 16, 2026 at 02:15:42AM +0000, Hongxing Zhu (OSS) wrote:
-> > > > Hi Leonardo,
-> > > >
-> > > > Would you be able to test this patch on your affected boards? Your
-> > > > testing would help expedite the merge process and ensure the fix
-> > > > resolves the boot issue you're experiencing.
-> > > >
-> > > > Best Regards
-> > > > Richard Zhu
-> > >
-> > > Hi Richard,
-> > >
-> > > Sorry for taking long to respond, I was caught up with something. I
-> > > tested the patch and it solved the issue. I sent a Tested-by tag there.
-> > > Thanks for looking into this!
-> > >
-> > > Best Regards
-> > > Leonardo
-> > 
-> > Hi Richard,
-> > 
-> > That patch might have introduced/exposed a second regression where PCI
-> > devices are not linked properly during the initialization. Sorry for not catching
-> > this before, as I didn't have any device connected during the previous test.
-> Hi Leonardo:
-> Sorry to hear about that.
-> I did test commit 7678e81498e2 with one Intel NIC (82574L) connected, and I've
-> double-checked today based on v7.2-rc7. The PCIe link can be set up properly
-> on the i.MX6Q Sabresd board in my testing.
+On 24/07/2026 16:22, Nicolas Frattaroli wrote:
+> HDMI uses the DDC I2C bus for communicating various bits of link status
+> out of band with the actual HDMI video signal. This information can be
+> useful for debugging issues like questionable cables sabotaged by feline
+> teeth, Enthusiast Grade cables made of cow fencing wire, and other such
+> problems that ruin one's media viewing plans.
 > 
-> Here are the logs:
-> root@imx6qpdlsolox:~# lspci
-> 00:00.0 PCI bridge: Synopsys, Inc. DWC_usb3 / PCIe bridge (rev 01)
-> 01:00.0 Ethernet controller: Intel Corporation 82574L Gigabit Network Connection
-> root@imx6qpdlsolox:~# uname -a
-> Linux imx6qpdlsolox 7.2.0-rc7 #30 SMP Tue Aug 11 00:21:26 UTC 2026 armv7l GNU/Linux
-> root@imx6qpdlsolox:~# dmesg | grep pci
-> [    0.256138] imx6q-pcie 1ffc000.pcie: host bridge /soc/pcie@1ffc000 ranges:
-> [    0.256307] imx6q-pcie 1ffc000.pcie:       IO 0x0001f80000..0x0001f8ffff -> 0x0000000000
-> [    0.256339] imx6q-pcie 1ffc000.pcie:      MEM 0x0001000000..0x0001efffff -> 0x0001000000
-> [    0.256434] imx6q-pcie 1ffc000.pcie: config reg[1] 0x01f00000 == cpu 0x01f00000
-> [    0.458388] imx6q-pcie 1ffc000.pcie: iATU: unroll F, 4 ob, 4 ib, align 64K, limit 4G
-> [    0.458492] imx6q-pcie 1ffc000.pcie: Link: Only Gen1 is enabled
-> [    0.555294] imx6q-pcie 1ffc000.pcie: PCIe Gen.1 x1 link up
-> [    0.555783] imx6q-pcie 1ffc000.pcie: PCI host bridge to bus 0000:00
-> ...
+> Consequently, this series exposes various bits of pertinent information
+> from the SCDC protocol in an HDMI connector's debugfs. To continually
+> poll the link status, userspace can poll the debugfs file.
+
+Tested-by: Hans Verkuil <hverkuil+cisco@kernel.org>
+
+The contents of scdc_status is parsed correctly by edid-decode, so I'm happy :-)
+
+Regards,
+
+	Hans
+
 > 
-> The following endpoint devices also yielded the same results.
-> root@imx6qpdlsolox:~# lspci
-> 00:00.0 PCI bridge: Synopsys, Inc. DWC_usb3 / PCIe bridge (rev 01)
-> 01:00.0 Network controller: Qualcomm Atheros AR9287 Wireless Network Adapter (PCI-Express) (rev 01)
-> root@imx6qpdlsolox:~# uname -a
-> Linux imx6qpdlsolox 7.2.0-rc7 #30 SMP Tue Aug 11 00:21:26 UTC 2026 armv7l GNU/Linux
-> ...
+> ---
+> Changes in v9:
+> - Unlock mode_config.mutex on disconnected connector early exit
+> - Calculate and print Reed-Solomon error corrections counter on != 4
+>   lane FRL as well. Technically a functional change to an already
+>   reviewed patch, but I kept the R-b because it's so minor.
+> - Link to v8: https://patch.msgid.link/20260722-scdc-link-health-v8-0-cd1dacbb85d9@collabora.com
 > 
-> root@imx6qpdlsolox:~# lspci
-> 00:00.0 PCI bridge: Synopsys, Inc. DWC_usb3 / PCIe bridge (rev 01)
-> 01:00.0 USB controller: NEC Corporation uPD720200 USB 3.0 Host Controller (rev 04)
-> root@imx6qpdlsolox:~# uname -a
-> Linux imx6qpdlsolox 7.2.0-rc7 #30 SMP Tue Aug 11 00:21:26 UTC 2026 armv7l GNU/Linux
+> Changes in v8:
+> - Acquire mode_config mutex in an interruptible way during
+>   scdc_status_show to avoid racing connector state
+> - Remove scdc_debugfs_priv, use connector as debugfs entry priv instead
+> - Allocate and free state in scdc_status_show, since it doesn't need to
+>   persist across debugfs reads
+> - Check for NULL ddc in drm_scdc_read_state in the unlikely event an
+>   EDID with the SCDC flag was forced on a connector with no DDC
+> - Note: drm_connector_get() is omitted from drm_scdc_debugfs_init
+>   because drm_scdc_debugfs_init is called on connector construction and
+>   the debugfs is removed on connector destruction. Adding a redundant
+>   reference increase here would necessitate introducing a destruction
+>   callback to mirror the debugfs_init connector op for the sole purpose
+>   of decreasing the counter again.
+> - Link to v7: https://patch.msgid.link/20260721-scdc-link-health-v7-0-92df1b6ad5fc@collabora.com
 > 
-> Could you provide more details of your hardware setup (board, connected
-> devices, PERST# present or not)?
-> This may help us identify if there's a specific scenario that triggers the
-> regression you're experiencing.
-
-It's an apalis imx6, as reported already in this email thread.
-The DT is in Linux, you can check
-arch/arm/boot/dts/nxp/imx/imx6q-apalis-ixora-v1.2.dts every details
-about PERST# and more.
-
-This is the device connected:
-
-00:00.0 PCI bridge: Synopsys, Inc. DWC_usb3 / PCIe bridge (rev 01)
-01:00.0 SATA controller: ASMedia Technology Inc. ASM1061/ASM1062 Serial ATA Controller (rev 02)
-
-01:00.0 SATA controller: ASMedia Technology Inc. ASM1061/ASM1062 Serial ATA Controller (rev 02) (prog-if 01 [AHCI 1.0])
-	Subsystem: ASMedia Technology Inc. ASM1061/ASM1062 Serial ATA Controller
-	Flags: bus master, fast devsel, latency 0, IRQ 308
-	I/O ports at 1020 [size=8]
-	I/O ports at 1030 [size=4]
-	I/O ports at 1028 [size=8]
-	I/O ports at 1034 [size=4]
-	I/O ports at 1000 [size=32]
-	Memory at 01100000 (32-bit, non-prefetchable) [size=512]
-	Expansion ROM at 01200000 [virtual] [disabled] [size=64K]
-	Capabilities: [50] MSI: Enable+ Count=1/1 Maskable- 64bit-
-	Capabilities: [78] Power Management version 3
-	Capabilities: [80] Express Legacy Endpoint, IntMsgNum 0
-	Capabilities: [100] Virtual Channel
-	Kernel driver in use: ahci
-	Kernel modules: ahci
-
-
-These are some working logs from a 6.6.151 kernel
-
-[    0.233058] imx6q-pcie 1ffc000.pcie: host bridge /soc/pcie@1ffc000 ranges:
-[    0.233112] imx6q-pcie 1ffc000.pcie:       IO 0x0001f80000..0x0001f8ffff -> 0x0000000000
-[    0.233144] imx6q-pcie 1ffc000.pcie:      MEM 0x0001000000..0x0001efffff -> 0x0001000000
-[    0.465779] imx6q-pcie 1ffc000.pcie: iATU: unroll F, 4 ob, 4 ib, align 64K, limit 4G
-[    0.564230] imx6q-pcie 1ffc000.pcie: PCIe Gen.1 x1 link up
-[    0.564249] imx6q-pcie 1ffc000.pcie: Link: Only Gen1 is enabled
-[    0.564259] imx6q-pcie 1ffc000.pcie: Link up, Gen1
-[    0.564272] imx6q-pcie 1ffc000.pcie: PCIe Gen.1 x1 link up
-[    0.564778] imx6q-pcie 1ffc000.pcie: PCI host bridge to bus 0000:00
-[    0.564795] pci_bus 0000:00: root bus resource [bus 00-ff]
-[    0.564809] pci_bus 0000:00: root bus resource [io  0x0000-0xffff]
-[    0.564821] pci_bus 0000:00: root bus resource [mem 0x01000000-0x01efffff]
-[    0.564864] pci 0000:00:00.0: [16c3:abcd] type 01 class 0x060400
-[    0.564886] pci 0000:00:00.0: BAR 0 [mem 0x00000000-0x000fffff]
-[    0.564905] pci 0000:00:00.0: ROM [mem 0x00000000-0x0000ffff pref]
-[    0.564917] pci 0000:00:00.0: PCI bridge to [bus 01-ff]
-[    0.564931] pci 0000:00:00.0:   bridge window [io  0x0000-0x0fff]
-[    0.564943] pci 0000:00:00.0:   bridge window [mem 0x00000000-0x000fffff]
-[    0.564957] pci 0000:00:00.0:   bridge window [mem 0x00000000-0x000fffff pref]
-[    0.565405] pci 0000:00:00.0: Limiting cfg_size to 512
-[    0.565455] pci 0000:00:00.0: supports D1
-[    0.565465] pci 0000:00:00.0: PME# supported from D0 D1 D3hot D3cold
-[    0.574310] pci 0000:01:00.0: [1b21:0612] type 00 class 0x010601
-[    0.574458] pci 0000:01:00.0: BAR 0 [io  0x0000-0x0007]
-[    0.574541] pci 0000:01:00.0: BAR 1 [io  0x0000-0x0003]
-[    0.574616] pci 0000:01:00.0: BAR 2 [io  0x0000-0x0007]
-[    0.574774] pci 0000:01:00.0: BAR 3 [io  0x0000-0x0003]
-[    0.574854] pci 0000:01:00.0: BAR 4 [io  0x0000-0x001f]
-[    0.574925] pci 0000:01:00.0: BAR 5 [mem 0x00000000-0x000001ff]
-[    0.575001] pci 0000:01:00.0: ROM [mem 0x00000000-0x0000ffff pref]
-[    0.575765] pci 0000:01:00.0: 2.000 Gb/s available PCIe bandwidth, limited by 2.5 GT/s PCIe x1 link at 0000:00:00.0 (capable of 4.000 Gb/s with 5.0 GT/s PCIe x1 link)
-[    0.576808] pci 0000:00:00.0: BAR 0 [mem 0x01000000-0x010fffff]: assigned
-[    0.576860] pci 0000:00:00.0: bridge window [mem 0x01100000-0x011fffff]: assigned
-[    0.576895] pci 0000:00:00.0: bridge window [mem 0x01200000-0x012fffff pref]: assigned
-[    0.576928] pci 0000:00:00.0: ROM [mem 0x01300000-0x0130ffff pref]: assigned
-[    0.576958] pci 0000:00:00.0: bridge window [io  0x1000-0x1fff]: assigned
-[    0.577000] pci 0000:01:00.0: ROM [mem 0x01200000-0x0120ffff pref]: assigned
-[    0.577033] pci 0000:01:00.0: BAR 5 [mem 0x01100000-0x011001ff]: assigned
-[    0.577087] pci 0000:01:00.0: BAR 4 [io  0x1000-0x101f]: assigned
-[    0.577212] pci 0000:01:00.0: BAR 0 [io  0x1020-0x1027]: assigned
-[    0.577273] pci 0000:01:00.0: BAR 2 [io  0x1028-0x102f]: assigned
-[    0.577326] pci 0000:01:00.0: BAR 1 [io  0x1030-0x1033]: assigned
-[    0.577377] pci 0000:01:00.0: BAR 3 [io  0x1034-0x1037]: assigned
-[    0.577429] pci 0000:00:00.0: PCI bridge to [bus 01-ff]
-[    0.577460] pci 0000:00:00.0:   bridge window [io  0x1000-0x1fff]
-[    0.577491] pci 0000:00:00.0:   bridge window [mem 0x01100000-0x011fffff]
-[    0.577520] pci 0000:00:00.0:   bridge window [mem 0x01200000-0x012fffff pref]
-[    0.579109] pcieport 0000:00:00.0: PME: Signaling with IRQ 291
-[    0.580323] pcieport 0000:00:00.0: AER: enabled with IRQ 291
+> Changes in v7:
+> - Move HDMI debugfs registration to new state helper, fix up all users
+>   (sun4i, vc4, bridge)
+> - Register scdc debugfs in new hdmi debugfs helper
+> - Link to v6: https://patch.msgid.link/20260611-scdc-link-health-v6-0-6307875a6b5e@collabora.com
+> 
+> Changes in v6:
+> - Fix off-by-one error in drm_scdc_read_state
+> - Link to v5: https://patch.msgid.link/20260604-scdc-link-health-v5-0-11173b0ac3de@collabora.com
+> 
+> Changes in v5:
+> - Read all SCDC data regardless of update flags
+> - Dump SCDC data as hex before the human-readable output. It's separated
+>   with "\n----------------\n\n".
+> - No longer write 0 to read-only registers
+> - Add Reed-Solomon Corrections counter parsing
+> - Parsing has been kept. A desire was expressed to get this data without
+>   any external userspace tooling, and the kernel will need to parse it
+>   eventually anyway to set the link status.
+> - Functions have been made static as of right now, since external users
+>   may do another pass over the function signatures anyway.
+> - Link to v4: https://patch.msgid.link/20260527-scdc-link-health-v4-0-622ea40a1f59@collabora.com
+> 
+> Changes in v4:
+> - Don't use C struct bitfields for parsing status flags. Switch to
+>   bitwise AND for boolean flags, and FIELD_GET for multi-bit values.
+> - Drop the superfluous !! and parens
+> - Drop the __pure attributes on static functions
+> - Initialise stack local arrays with {}, not { 0 }.
+> - I've kept the print macros and %-30s format. Reason being that I don't
+>   want to repeat the format specifier and str_yes_no(foo) a bunch, and I
+>   like the %-30s format because it means all values are aligned with the
+>   value of the longest field, which is 30 chars long.
+> - Link to v3: https://patch.msgid.link/20260526-scdc-link-health-v3-0-59e4a4aaead1@collabora.com
+> 
+> Changes in v3:
+> - Add patch to change return type of drm_scdc_read/write.
+> - Rework error counter reading to duplicate less code.
+> - Also check lane 3 counter valid flag when reading its error counter.
+> - Use memset to clear buf for error counters, rather than doing it in
+>   the loop.
+> - Make read_error_counters not accept 0 as num_lanes; fix it up in the
+>   caller instead.
+> - Link to v2: https://patch.msgid.link/20260520-scdc-link-health-v2-0-511af18cd64b@collabora.com
+> 
+> Changes in v2:
+> - Add HDMI 2.1 SCDC status reporting
+> - Link to v1: https://patch.msgid.link/20260415-scdc-link-health-v1-0-8e731e88eaf0@collabora.com
+> 
+> To: Jani Nikula <jani.nikula@linux.intel.com>
+> To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
+> To: Maxime Ripard <mripard@kernel.org>
+> To: Thomas Zimmermann <tzimmermann@suse.de>
+> To: David Airlie <airlied@gmail.com>
+> To: Simona Vetter <simona@ffwll.ch>
+> To: Andrzej Hajda <andrzej.hajda@intel.com>
+> To: Neil Armstrong <neil.armstrong@linaro.org>
+> To: Robert Foss <rfoss@kernel.org>
+> To: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>
+> To: Jonas Karlman <jonas@kwiboo.se>
+> To: Jernej Skrabec <jernej.skrabec@gmail.com>
+> To: Luca Ceresoli <luca.ceresoli@bootlin.com>
+> To: Daniel Stone <daniel@fooishbar.org>
+> To: Hans Verkuil <hverkuil+cisco@kernel.org>
+> To: Chen-Yu Tsai <wens@kernel.org>
+> To: Samuel Holland <samuel@sholland.org>
+> To: Dave Stevenson <dave.stevenson@raspberrypi.com>
+> To: Maíra Canal <mcanal@igalia.com>
+> To: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
+> Cc: dri-devel@lists.freedesktop.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: kernel@collabora.com
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-sunxi@lists.linux.dev
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> 
+> ---
+> Nicolas Frattaroli (5):
+>       drm/scdc-helper: Don't use ssize_t return type for scdc_read/write
+>       drm/scdc-helper: Add scdc_status debugfs entry
+>       drm/scdc-helper: Implement parsing and printing HDMI 2.1 fields
+>       drm/debugfs: Move HDMI debugfs registration to state helper
+>       drm/display: hdmi-state-helper: Init SCDC debugfs for HDMI
+> 
+>  drivers/gpu/drm/display/drm_bridge_connector.c  |   3 +
+>  drivers/gpu/drm/display/drm_hdmi_state_helper.c | 156 +++++++++++++
+>  drivers/gpu/drm/display/drm_scdc_helper.c       | 289 +++++++++++++++++++++++-
+>  drivers/gpu/drm/drm_debugfs.c                   | 157 -------------
+>  drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c          |   1 +
+>  drivers/gpu/drm/vc4/vc4_hdmi.c                  |   1 +
+>  include/drm/display/drm_hdmi_state_helper.h     |   3 +
+>  include/drm/display/drm_scdc.h                  |  21 +-
+>  include/drm/display/drm_scdc_helper.h           | 103 ++++++++-
+>  9 files changed, 568 insertions(+), 166 deletions(-)
+> ---
+> base-commit: b747a63003130bef1a3d5d6ba97c94d0cee36f55
+> change-id: 20260413-scdc-link-health-89326013d96c
+> 
+> Best regards,
+> --  
+> Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> 
 
 
