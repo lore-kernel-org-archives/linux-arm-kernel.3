@@ -4,104 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2631CC5B56D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 07:29:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60413C5AC67
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 07:30:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fLnRuJFuGdy1GtQKk507tGXhGl33M4FPQ/a27fnbORg=; b=i8OMNPGumi6yzCIU2FmSrz7sba
-	aZpHUKEWqd+48rua7bFnWfi70dI35RRGLL4vIzwEWMQRU4/n88EP8ecrSQ0m0qKS6zSwXo+Rd3sGb
-	md94ekG8Q1wrddZWwNmGSljGpL2SBb6D129IJAw2Jn7NgdYThDjkDfzxaP4JgPjbVDfVzSasRhtR/
-	J4XveoS0ztd7XcZkhqPQIGssH7yRghXfGF5TAEMBmbkcvpuUEtB+p4PIOK8iOYT7/z+EeKX7tIs2l
-	9ovSRlXMCouE8hZX3SyXwLz0NKamN+79K1ZqGTz5Awc6bdzADY5mp6wERS/HAcJInLOMZUNmfWb4b
-	GS1JXbBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=umesvR1teUL1fcs6zCQaA4uwUSphr0DcLDjBnMFX9JE=; b=it+pt+plRi19CXkWjtHHZB8pTF
+	l55xollKA1VYyFTFQKANb76uM9lXgj4GEHTjvaOo/SQYUnUuDlr5d0vYaUEgbmC4vq27phCFtBgAz
+	7R2ZLNNqk5V61RwJJzyT9V35IKKU4zic2jjH3bKiBlALS/S02LJ8G8zLA7muUS39GIiJKMO522jiD
+	V9acbG75ik1HeZ4RMzS0WbLn/7qM4FRpbIbQ5MaZBzUkhZ9DsacJQswNWdbqWmPAJ+lErRHon3ugH
+	JQuE7SyTo/0mdew6YtwQs8/yaTvxBj1mA+j3zKGiasUDLCyob36kUuCHJjFZ/78rb2N57ZnZ2OVG3
+	NDppREow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtgvP-0000000DWYT-3Fwa;
-	Tue, 11 Aug 2026 07:29:27 +0000
-Received: from mx0b-00823401.pphosted.com ([148.163.152.46])
+	id 1wtgvv-0000000DWgA-3mno;
+	Tue, 11 Aug 2026 07:30:00 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtgvN-0000000DWXn-1TX4
+	id 1wtgvu-0000000DWfs-41IG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 07:29:27 +0000
-Received: from pps.filterd (m0355091.ppops.net [127.0.0.1])
-	by mx0b-00823401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67B6TDvI2971078;
-	Tue, 11 Aug 2026 07:29:01 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lenovo.com; h=cc
-	:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=DKIM202306; bh=fLnRuJFuGdy1GtQKk507tGXhGl33M4FPQ/
-	a27fnbORg=; b=cFOpCwCw8r3P7CuL/0tfsFI09L8Zfta4v5i0+puIuJYeMfyfvb
-	A+qQauDUjnvEgkyTWCr5/N1pjj/1ZFSX5g85e3HRlUwqr9/2MoehSLWYEOH8b3IW
-	gw/BjrPAPi5bP6BATMSeAgH2syWutGHbhGl3wFIaDefGn4uZvoHl4PvNJIyQ2Aq5
-	7gXYrHea0EIpj5nHRQIgWfI7JfWv4bJu0ceoGpYGvjAyAzYDcx6oslnCO1ND4Uzd
-	vpO5yVFZDAIeholpKrGwENt2m8OEDDktBpopucXzcwwEFkGfwg/rHjI+6L5Q22RZ
-	wS0fPWedLy9t8iu+LfOUgmeQYaEn/04VL38A==
-Received: from hkglppfpool4.lenovo.com ([103.30.235.221])
-	by mx0b-00823401.pphosted.com (PPS) with ESMTPS id 4fxhjeuqdp-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Tue, 11 Aug 2026 07:29:01 +0000 (GMT)
-Received: from shelppfpol1.lenovo.com (unknown [10.122.146.34])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by hkglppfpool4.lenovo.com (Postfix) with ESMTPS id 4hK3CH275RzltBPK;
-	Tue, 11 Aug 2026 07:28:59 +0000 (UTC)
-Received: from SEANWANG1-P5MFL.lenovo.com (SEANWANG1-P5MFL.lenovo.com [10.111.201.157])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by shelppfpol1.lenovo.com (Postfix) with ESMTPS id 4hK3CG40tVzYlvJs;
-	Tue, 11 Aug 2026 07:28:58 +0000 (UTC)
-From: Sean Wang <seanwang1@lenovo.com>
-To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
-        Sudeep Holla <sudeep.holla@kernel.org>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>, rafael@kernel.org,
-        Danilo Krummrich <dakr@kernel.org>
-Cc: Lifeng Zheng <zhenglifeng1@huawei.com>,
-        Beata Michalska <beata.michalska@arm.com>,
-        Xuewen Yan <xuewen.yan@unisoc.com>,
-        Geert Uytterhoeven <geert+renesas@glider.be>,
-        Sumit Gupta <sumitg@nvidia.com>, Yunhui Cui <cuiyunhui@bytedance.com>,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        driver-core@lists.linux.dev, Sean Wang <seanwang1@lenovo.com>
-Subject: [PATCH v3] arm64: topology: add source check in arch_cpu_idle_enter()
-Date: Tue, 11 Aug 2026 15:28:30 +0800
-Message-Id: <20260811072830.10028-1-seanwang1@lenovo.com>
-X-Mailer: git-send-email 2.34.1
+	Tue, 11 Aug 2026 07:29:59 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 57A6943BED
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 07:29:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20D961F0155A
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 07:29:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786433398;
+	bh=umesvR1teUL1fcs6zCQaA4uwUSphr0DcLDjBnMFX9JE=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc;
+	b=h9MJlD/TMbk1yYwxU1auxF3+RTiscFC8LEVkGOBR3L0L5NnHKaO35NeHFQbkMq7+X
+	 KpjM6059ZumPxL3YaJJ58W+d2plUYv4UhsRjmuO8c3PXeMRGCo+WjQwVyHS+HdmnaK
+	 LESbW/tUZTbeRqV6Rk3F3JSfA/7Urk1eaIb/1Ty0XHB5rNkIVSx2kwVbMo1mRDUDw3
+	 8o759Z3P0QB95srqkPVsv9lYLOwLewOTKZjSmDHfT2kiJ1N12/qyE9e8ikWarOH8nB
+	 VB9Z+UoNQoVli6ZzDwo80aAOEb2AsdwLNGx6T1wTP/5l3SSeem4O5GSgqDCWkq7rGM
+	 zcHmD5JC4udtQ==
+Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-5aebd52488cso2853687e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 00:29:58 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RoNtDBnaDY3aPvltlzunZJYkJimCXQ/fTB2KscRRsObM67+HMxI6LPuEWYM1rzStBYuVc7vgqOtKW5SnNgocU/p@lists.infradead.org
+X-Gm-Message-State: AOJu0YxU7N6SBhNeAzNMJzOsY8LrISsca2aFT46dNsPPK7pqBur1uPWU
+	VyDf566SAHA/7RsWl2YZhExF9slHr5cnPKxLAiVa97nUv0EdO7vUPLMA/lYM9gNjZs+lVo64djV
+	aqItEfNiANLjKEzikd6MeByJQ2BKc129v8+9BgcVjGQ==
+X-Received: by 2002:a05:6512:3096:b0:5b1:5451:d969 with SMTP id
+ 2adb3069b0e04-5b448649002mr229675e87.25.1786433396689; Tue, 11 Aug 2026
+ 00:29:56 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Tue, 11 Aug 2026 00:29:55 -0700
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Tue, 11 Aug 2026 00:29:55 -0700
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <20260810213456.1268831-1-marex@nabladev.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=QPhYgALL c=1 sm=1 tr=0 ts=6a7acf3d cx=c_pps
- a=kYoHdcNGVJUooFJAQZl1vA==:117 a=kYoHdcNGVJUooFJAQZl1vA==:17
- a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=2RTuljz969oO5usasWGy:22
- a=faLMhqsB0ZTpFNi-tw5Q:22 a=icsG72s9AAAA:8 a=8k6WQxmsAAAA:8
- a=0sY-ZtaHpH0GsPKVRdcA:9 a=T89tl0cgrjxRNoSN2Dv0:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODExMDA2MSBTYWx0ZWRfX3tjiwvZ/tgoK
- iIVNTWZTvh9FVCVnLc/BNHpvCUyGaA6ROC5s4Ebs2h6UKV3APklBzyhHHUB9aE2AE1JQBZUM1uH
- Pi2/HAjIeKcndFoXKlYs+vnhZD3N+QM3+Z1BR3mYUv0Gy45Md+mst76GOX49oSIMc0U9SkoaVwI
- qdysQ4PGpofzxjrYvnTPP041x4To+Y3mvwb7gBLjSDcMIEDl6NabrR6q138VsPrclF3AuxDIpqI
- ddNUymrjz/PmT9ablXTu0WjwhPsizGHAt7hk2pvLgzb4vBFWoL5TjcDIyobBk2aGuT0qY330bfB
- WifyG9/Apb10uBkuPyah+2f5w34rOIY6wyt7a4thdOCopOVCt+gquXoEr6AgwzLtRu9MsQUynbs
- bGv0AhoZuEWfFf5SyN9AWtEp4+W/2YTp9oV7rnw2beaWSr5iB3s3r30vBoJNj4xziSgFshvZ40j
- 6kyiIBIDGAqxeOIA3Ag==
-X-Proofpoint-ORIG-GUID: 5kO4fnpnN8YRkIyrhasUgr7GaUQz81Vp
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODExMDA2MSBTYWx0ZWRfX6XJGNzJACbGE
- +ktM2oU+ehIv87RvJ8100i6o/LPqG6iy1mlxgCCOASaBSv3LGz5WgS+nRA52VyeHFmQmigAJcMw
- HIWLR+Womv9pzo0h/Ms3sT/pIOK94P8=
-X-Proofpoint-GUID: 5kO4fnpnN8YRkIyrhasUgr7GaUQz81Vp
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-10_06,2026-08-10_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 bulkscore=0 lowpriorityscore=0 impostorscore=0 spamscore=0
- malwarescore=0 clxscore=1015 priorityscore=1501 phishscore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=-20
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608110061
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_002925_511514_922132F4 
-X-CRM114-Status: GOOD (  18.71  )
+References: <20260810213456.1268831-1-marex@nabladev.com>
+Date: Tue, 11 Aug 2026 00:29:55 -0700
+X-Gmail-Original-Message-ID: <CAMRc=MfnU5mJHsoJee-8-xy3e7vXE5yORfZRN9=Wom2-+ZocUQ@mail.gmail.com>
+X-Gm-Features: AUfX_mw3-GSxONxlPDeIuQSCzqxdWbLCCFW-DmbFUzmLFDfvwVGs6ZIrWEPCMBI
+Message-ID: <CAMRc=MfnU5mJHsoJee-8-xy3e7vXE5yORfZRN9=Wom2-+ZocUQ@mail.gmail.com>
+Subject: Re: [PATCH 1/2] arm64: Select HAVE_SHARED_GPIOS for ARCH_MXC
+To: Marek Vasut <marex@nabladev.com>
+Cc: Bartosz Golaszewski <brgl@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>, 
+	Fedor Ross <fedor.ross@ifm.com>, Frank Li <Frank.Li@nxp.com>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Rob Herring <robh@kernel.org>, Will Deacon <will@kernel.org>, 
+	devicetree@vger.kernel.org, imx@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,84 +87,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-arch_cpu_idle_enter() directly calls amu_scale_freq_tick() to update
-arch_freq_scale when a CPU enters idle. This bypasses the sft_data
-pointer check that topology_clear_scale_freq_source() relies on.
+On Mon, 10 Aug 2026 23:34:38 +0200, Marek Vasut <marex@nabladev.com> said:
+> Some NXP i.MX platforms use shared GPIOs. Enable support for them by
+> selecting the Kconfig switch provided by GPIOLIB.
+>
+> Signed-off-by: Marek Vasut <marex@nabladev.com>
+> ---
+> Cc: Bartosz Golaszewski <brgl@kernel.org>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Conor Dooley <conor+dt@kernel.org>
+> Cc: Fabio Estevam <festevam@gmail.com>
+> Cc: Fedor Ross <fedor.ross@ifm.com>
+> Cc: Frank Li <Frank.Li@nxp.com>
+> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> Cc: Linus Walleij <linus.walleij@linaro.org>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: devicetree@vger.kernel.org
+> Cc: imx@lists.linux.dev
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> ---
+>  arch/arm64/Kconfig.platforms | 1 +
+>  1 file changed, 1 insertion(+)
+>
+> diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
+> index d2acfac730037..bc279b864d3cb 100644
+> --- a/arch/arm64/Kconfig.platforms
+> +++ b/arch/arm64/Kconfig.platforms
+> @@ -275,6 +275,7 @@ config ARCH_MXC
+>  	bool "NXP i.MX SoC family"
+>  	select ARM64_ERRATUM_843419
+>  	select ARM64_ERRATUM_845719 if COMPAT
+> +	select HAVE_SHARED_GPIOS
+>  	select IMX_GPCV2
+>  	select IMX_GPCV2_PM_DOMAINS
+>  	select PM
+> --
+> 2.53.0
+>
+>
 
-As a result, even after calling topology_clear_scale_freq_source()
-with SCALE_FREQ_SOURCE_ARCH to disable AMU-based frequency scaling,
-the arch_freq_scale value can still be modified by AMU counters when
-the CPU goes idle through the arch_cpu_idle_enter() path.
-
-Add topology_is_scale_freq_source() helper to check whether a specific
-frequency scaling source is currently registered for a CPU. Use it
-in arch_cpu_idle_enter() to verify that AMU is the active source
-before calling amu_scale_freq_tick().
-
-This ensures that topology_clear_scale_freq_source() properly
-disables AMU updates in both the tick path (already handled by
-topology_scale_freq_tick()) and the idle path.
-
-Co-developed-by: Xuewen Yan <xuewen.yan@unisoc.com>
-Signed-off-by: Xuewen Yan <xuewen.yan@unisoc.com>
-Signed-off-by: Sean Wang <seanwang1@lenovo.com>
----
- arch/arm64/kernel/topology.c  |  3 ++-
- drivers/base/arch_topology.c  | 13 +++++++++++++
- include/linux/arch_topology.h |  1 +
- 3 files changed, 16 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
-index b32f13358fbb..1dbd8f4c3178 100644
---- a/arch/arm64/kernel/topology.c
-+++ b/arch/arm64/kernel/topology.c
-@@ -175,7 +175,8 @@ void arch_cpu_idle_enter(void)
- 
- 	/* Kick in AMU update but only if one has not happened already */
- 	if (housekeeping_cpu(cpu, HK_TYPE_TICK) &&
--	    time_is_before_jiffies(per_cpu(cpu_amu_samples.last_scale_update, cpu)))
-+	    time_is_before_jiffies(per_cpu(cpu_amu_samples.last_scale_update, cpu)) &&
-+	    topology_is_scale_freq_source(SCALE_FREQ_SOURCE_ARCH, cpu))
- 		amu_scale_freq_tick();
- }
- 
-diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
-index 8c5e47c28d9a..6049e77bbe1d 100644
---- a/drivers/base/arch_topology.c
-+++ b/drivers/base/arch_topology.c
-@@ -127,6 +127,19 @@ void topology_clear_scale_freq_source(enum scale_freq_source source,
- }
- EXPORT_SYMBOL_GPL(topology_clear_scale_freq_source);
- 
-+bool topology_is_scale_freq_source(enum scale_freq_source source, unsigned int cpu)
-+{
-+	struct scale_freq_data *sfd;
-+	bool ret;
-+
-+	rcu_read_lock_sched();
-+	sfd = rcu_dereference_sched(*per_cpu_ptr(&sft_data, cpu));
-+	ret = (sfd && sfd->source == source);
-+	rcu_read_unlock_sched();
-+
-+	return ret;
-+}
-+
- void topology_scale_freq_tick(void)
- {
- 	struct scale_freq_data *sfd = rcu_dereference_sched(*this_cpu_ptr(&sft_data));
-diff --git a/include/linux/arch_topology.h b/include/linux/arch_topology.h
-index ebd7f8935f96..fb7c1fe74808 100644
---- a/include/linux/arch_topology.h
-+++ b/include/linux/arch_topology.h
-@@ -48,6 +48,7 @@ struct scale_freq_data {
- void topology_scale_freq_tick(void);
- void topology_set_scale_freq_source(struct scale_freq_data *data, const struct cpumask *cpus);
- void topology_clear_scale_freq_source(enum scale_freq_source source, const struct cpumask *cpus);
-+bool topology_is_scale_freq_source(enum scale_freq_source source, unsigned int cpu);
- 
- DECLARE_PER_CPU(unsigned long, hw_pressure);
- 
--- 
-2.25.1
-
+Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
