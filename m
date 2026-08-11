@@ -4,91 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD1CFC5B56A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 14:32:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6237C5CFE7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 14:37:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lHv35RE6bkUtOImGbmK9Yom6+E0SECjA/P0mDcNGrZY=; b=qDbH6Q2lEyrleskZK7lxCkfG7d
-	G40oYiRnh3tAcxU8wG1M0tffLEZEaVqxanj6M5E0vqdH/0C9tu7e4/e0+h+Awuy3Hvx/wuwf1nUMT
-	tw3C/ERgp0cyWgTkEgVn3VK/sp4AZbU+nzv1aDvkTY3bwdyjg7cLsnI6D0C13zjjs647i8b0DxIm2
-	fFB4ZAeyqec7++oa6ZudWKu1k/K/pcdbEgopxDNAfIOr6sMmRZFXoRveKXqMdE+hHP9Mu5OzqOnG3
-	a27U1S9FcG83t2/i/P7NHI509ZFuWaRNiD12CoBDzuuywfWyNa3828d3g+pwn6wwcvH/EiEaE3vhl
-	37JS51dg==;
+	bh=0mfdfTDuJCfvilSFFKrwBMVPwUNKeCnOVk1kDLav9IE=; b=ytds46R9Owx8S+ke+IjMyiV51o
+	Onab+wqwY1ghZ1W+wQd3loNvX4/xfGOyXARrzYoRx89dLXwNAgQfIIqlHE3dGfXWU0oJx9G3Cwdkm
+	obWhrQEvGbq3hoHJ5wtLPRJLahaPiYV5Y87F1q91FZwq1rzqBJpqZk2X9C20l1LwlG1fRK97XZ8wI
+	K/qBFvYz5PxjjQUZaGVKn6XZdX5X5FktBvPLDIYqxUZXUCTJwIeu0raJwIv1CetyEThw0B+4Am2Xo
+	53ZiyNuqtlPv38Y87JrvNEK2bQMPwVKcusuPIwKdpt1CFo+DgiQgzqF8F3HEIhAy4JdHbvBOMWSZm
+	y5MSVBQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtnWv-0000000EDzV-1qFh;
-	Tue, 11 Aug 2026 14:32:37 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1wtnbI-0000000EERM-0vdo;
+	Tue, 11 Aug 2026 14:37:08 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtnWr-0000000EDyP-3S1a
+	id 1wtnbH-0000000EERE-253a
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 14:32:35 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-493b966dd74so20241635e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 07:32:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1786458751; x=1787063551; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=lHv35RE6bkUtOImGbmK9Yom6+E0SECjA/P0mDcNGrZY=;
-        b=JdBMibZY/rrnp6+LCZeX9QlXHw5BTQWaDRcP1nauUi/0DapcWvAbFQz0y//mZj63DU
-         QZGRkaMrYAb+yb1f8wgQQ9fc5jcW+T1ZFwNrq28I+k5njpakaMvOdFnvYkpRv1KGS60s
-         l+2wuoQnXXHxM5Xw8y+8lc7rMnuAXn01Lux+ALO+PSexG66NYVs1W9AjqGvBpZJ8hREv
-         wGYTcL+AG1FaWVCe9ZkJrxlvcJ6lLjaIhqsiXG0AOD+ff2fmCWt3W8jEp/yz/DSofYvW
-         W9s7vew1G2Uo5i5GlM9mMxO0YaYUmFZc+gO/FAYjEVhBbrExqchAzLOEpDZkfw+b8Ze6
-         7Vxg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786458751; x=1787063551;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=lHv35RE6bkUtOImGbmK9Yom6+E0SECjA/P0mDcNGrZY=;
-        b=Hd0PREb/y1pqA8Jzmh3CncUCYtvsX/Ls7wULc+NrJOJm8ViWzKeRihe669nPIXIl7x
-         KpKRBz1ayO1q1aSu0HU5/9NKfou9JlMd4wwx9rVilIPVBJVdR4Vr8ewX29pP7IYP5unR
-         WuAiE7nElSGbXLx1JFIMp8XrSWjpuyw1frk8NyAEL7kl0AiVym+LeMmM6GiJKUvWKGWK
-         HqFGDOQAp3TXOn15oJcy1yjoBmoD8ceTicboFPEyoUFX0iumAvHlaC18x6hiAmwr+u0Z
-         tAf3Gy2qR7QgYy0Xe2ZfYDxh6reb6NwOTuzqDbtG4UjjnNHInzkhDrxNO/u8LL3cidYm
-         mbAg==
-X-Forwarded-Encrypted: i=1; AHgh+RrefsOXUNj1ccTYNSqGPYh0IAwDW+QMZ1kLmc92LWEJehwNX0AwB+TQSt0RAv0RcObep+cdJXQYWQ/BlbFj3gGw@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy/rDz89BOZKoNUP5ioNNR2b1aXUhQjYlEi3jwcQ5AwotACmXI7
-	44tDV6eXVbbwOPg0kKre1HwWTX/XQ/J3lR05Ok21cAht9aOnc+0a+jtmOfGeq9TPodY=
-X-Gm-Gg: AR+sD126yiNj0x7gdVyrLpE8VLMo8lQCbYJ6JzL215nfTqTkgRDIlvXzsbmtUSCSCqy
-	ptyJU9W6P5SzJSiKCTuddAjjPovH+1WaTEGQtZ1mwe1I02YzRkJla7rEnQCA2vo9VwkAPu2hMe3
-	6T+B4GXOV8GYceG4rGlP+7MwAL67DDqTgGtAEZZ/rvPKK5RtU/Rk8LlH9QROYVbQR+Q91eBkw7l
-	WgLoOWAPS0KWlr5/qbAlarJiBj8Unb4FAXapdLftfZgzh6/dJfUrqJIUE/soqyY/Pn1F/Eu53Dq
-	JpjN8TdckSjbf9g20SNOyI3BYjWKiFGWCeyNU9Mh5FeN2CnlWDG6XltTA+BVdTTn8BPhioto45H
-	4poPfoH9jUYa7ps0P0bbC/Wa/Y2T+PsRARZZ0h5yes+ln/h8cmHsqk4evbY9zZpmLgIxUtxB/n9
-	wYNhb5lABL6LvqrXqGCB0EpBogYmBjzj7xDCdQwRUy62iS/uy7ujDO6Xwiisp9DNtqc9L4vXnkY
-	MVN1xTC9yF/UvaQK6yJxYIOacY8KfgvPXcbS5a2Ye/rLUINxpNb
-X-Received: by 2002:a05:600c:45d5:b0:499:740c:3428 with SMTP id 5b1f17b1804b1-49978446b35mr52841945e9.8.1786458751348;
-        Tue, 11 Aug 2026 07:32:31 -0700 (PDT)
-Received: from localhost (p200300f65f017104853c3975fdcddd6f.dip0.t-ipconnect.de. [2003:f6:5f01:7104:853c:3975:fdcd:dd6f])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-499788f13cbsm60543725e9.9.2026.08.11.07.32.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 11 Aug 2026 07:32:30 -0700 (PDT)
-Date: Tue, 11 Aug 2026 16:32:29 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Ian Rogers <irogers@google.com>
-Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-perf-users@vger.kernel.org, linux-rpi-kernel@lists.infradead.org
-Subject: Re: [PATCH v1 1/2] perf: Add Raspberry Pi BCM2835 AXI PMU driver
-Message-ID: <ansxmIcZnC9G6QN8@monoceros>
-References: <20260811083828.2057695-1-irogers@google.com>
- <20260811083828.2057695-2-irogers@google.com>
+	Tue, 11 Aug 2026 14:37:07 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 160084197E;
+	Tue, 11 Aug 2026 14:37:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45B2D1F00A3D;
+	Tue, 11 Aug 2026 14:37:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786459027;
+	bh=0mfdfTDuJCfvilSFFKrwBMVPwUNKeCnOVk1kDLav9IE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=lZ6i4MlLk+uPiOfTJvAMSPRirdhAFHy9i6pEwwOUbNVr+IixR3uDlgCFUCtOd2hb7
+	 QiUJtDp5cvXsI7m+NaRzJ14xY7q6wonT5lxDRbV4YHwCV2FVLfn4Q1e0QMykdXEk2M
+	 mcXTZGBHJP88Jcu9/zy3ySQcDFDNtazk7BddZHFEvhADbw4UIr8T6yCXugj0dAYkMZ
+	 O1RsUY88EcdfgLeN4r0VpafSZvTWLdO4P+v0mA1K/HTfaiUjRgOd1TGtW4BXLk7cm0
+	 cQNdb1mQ6ipfxZHb5XnyFN9NHlfK/oHidG/uYMjkQeMoABT1KoGnqEaywx+A3rLKm8
+	 KAekgZyZw4FdQ==
+Date: Tue, 11 Aug 2026 15:37:01 +0100
+From: Will Deacon <will@kernel.org>
+To: Bradley Morgan <include@grrlz.net>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	maz@kernel.org, james.morse@arm.com
+Subject: Re: [PATCH] arm64: hibernate: pass HVC_SET_VECTORS args to the
+ resume hvc
+Message-ID: <anszjQ7jBeYDqesp@willie-the-truck>
+References: <20260809213615.11646-1-include@grrlz.net>
+ <anr28wUlKjci8JPn@willie-the-truck>
+ <463DA5C2-C933-45EC-A200-21AAF6258418@grrlz.net>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="v6zicwwmtxhswzvi"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260811083828.2057695-2-irogers@google.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_073233_869867_DAABA8C9 
-X-CRM114-Status: GOOD (  15.17  )
+In-Reply-To: <463DA5C2-C933-45EC-A200-21AAF6258418@grrlz.net>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,67 +74,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Aug 11, 2026 at 01:50:14PM +0100, Bradley Morgan wrote:
+> On 11 August 2026 11:18:27 BST, Will Deacon <will@kernel.org> wrote:
+> >[+Maz, Pasha and James]
+> >
+> >On Sun, Aug 09, 2026 at 09:36:15PM +0000, Bradley Morgan wrote:
+> >> swsusp_arch_suspend_exit() reinstalls the restored kernel's hyp stub
+> >> vectors with an hvc, but never passes the arguments. x0 is not set to
+> >> HVC_SET_VECTORS and x1 is not set to the vector address, so the stub
+> >> dispatch falls through and returns without writing vbar_el2. EL2 is
+> >> left pointing at the trans_pgd copy of the vectors, a page that
+> >> swsusp_free() releases right after resume.
+> >> 
+> >> Set the arguments up the same way __hyp_set_vectors() does.
+> >> 
+> >> Fixes: 788bfdd97434 ("arm64: trans_pgd: hibernate: Add
+> >trans_pgd_copy_el2_vectors")
+> >> Cc: stable@vger.kernel.org
+> >> Signed-off-by: Bradley Morgan <include@grrlz.net>
+> >> ---
+> >>  arch/arm64/kernel/hibernate-asm.S | 2 ++
+> >>  1 file changed, 2 insertions(+)
+> >> 
+> >> diff --git a/arch/arm64/kernel/hibernate-asm.S
+> >b/arch/arm64/kernel/hibernate-asm.S
+> >> index 0e1d9c3c6a93..2baefe7a82d3 100644
+> >> --- a/arch/arm64/kernel/hibernate-asm.S
+> >> +++ b/arch/arm64/kernel/hibernate-asm.S
+> >> @@ -89,6 +89,8 @@ alternative_insn "dc cvau, x4",  "dc civac, x4", 
+> >ARM64_WORKAROUND_CLEAN_CACHE
+> >>  	isb
+> >>  
+> >>  	cbz	x24, 3f		/* Do we need to re-initialise EL2? */
+> >> +	mov	x1, x24
+> >> +	mov	x0, #HVC_SET_VECTORS
+> >>  	hvc	#0
+> >>  3:	ret
+> >>  SYM_CODE_END(swsusp_arch_suspend_exit)
+> >
+> >I'm having a really hard time figuring out what's supposed to be going
+> >on here!
+> >
+> >The original hibernation code added by James in 82869ac57b5d ("arm64:
+> >kernel: Add support for hibernate/suspend-to-disk") unconditionally
+> >set the vectors in the exception handler:
+> >
+> >+el1_sync:
+> >+       msr     vbar_el2, x24
+> >+       eret
+> >+ENDPROC(el1_sync)
+> >
+> >However, it _also_ set the vectors from C code in swsusp_arch_resume():
+> >
+> >+       if (el2_reset_needed()) {
+> >+               phys_addr_t el2_vectors = phys_hibernate_exit;  /* base */
+> >+               el2_vectors += hibernate_el2_vectors -
+> >+                              __hibernate_exit_text_start;     /* offset */
+> >+
+> >+               __hyp_set_vectors(el2_vectors);
+> >+       }
+> >
+> >Later, Pasha refactored the assembly so that it could be shared with
+> >kexec in 788bfdd97434 ("arm64: trans_pgd: hibernate: Add
+> >trans_pgd_copy_el2_vectors"), however this added arguments to the
+> >exception handler without updating the hypercall on the hibernation path.
+> >
+> >So I think we need to figure out:
+> >
+> >0. Whether this code is actually broken atm (I have a feeling it might
+> >   happen to work)
+> 
+> Yes, since 788bfdd97434.
 
---v6zicwwmtxhswzvi
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Subject: Re: [PATCH v1 1/2] perf: Add Raspberry Pi BCM2835 AXI PMU driver
-MIME-Version: 1.0
+Right, but did you manage to reproduce a crash? You're implying that this
+hasn't worked for five years, which makes me wonder why we bother to try
+to maintain this code!
 
-Hello,
+> >1. Why the original hibernation code set the vectors twice.
+> 
+> They do different jobs. The C call parks EL2 on the safe page copy
+> before the restore overwrites the current table. The asm call installs
+> the final __hyp_stub_vectors afterwards.
 
-On Tue, Aug 11, 2026 at 01:38:26AM -0700, Ian Rogers wrote:
-> +#include <linux/mod_devicetable.h>
-> [...]
-> +#include <linux/platform_device.h>
+I think I probably need to spend some time understanding how all this is
+supposed to work. I can't currently tell how we end up with the stub
+vectors installed to start with nor why we can't do all this from C code.
 
-Please rely on <linux/platform_device.h> to provide the definition of
-of_device_id and drop <linux/mod_devicetable.h>. The latter will go away
-soon.
+> >2. Assuming they only need to be set once, whether we can drop the hvc
+> >   from the swsusp_arch_suspend_exit assembly code entirely.
+> 
+> No. After the restore vbar_el2 is only writable from EL2, and the
+> temporary copy cannot stay. swsusp_free() frees it right after resume.
 
-> +/* Devices matching this driver in Device Tree */
-> +static const struct of_device_id rpi_axi_pmu_match[] = {
-> +	{
-> +		.compatible = "brcm,bcm2835-axiperf",
-> +		.data = (void *)CHIP_BCM2835,
-> +	},
-> +	{
-> +		.compatible = "brcm,bcm2711-axiperf",
-> +		.data = (void *)CHIP_BCM2835,
-> +	},
-> +	{},
+Isn't vbar_el2 always only writable from EL2?
 
-Please use
+> >3. Whether we can then drop the HVC_SET_VECTORS handling from this set
+> >   of vectors.
+> >
+> No, this hvc uses it, and so does kexec.
 
-	{ }
+Where does kexec use it? I could only spot it making use of
+HVC_SOFT_RESTART.
 
-as list terminator (that is, add a space and drop the comma).
-
-Also if the data is the same for all variants, maybe better drop the
-assigment to .data and hardcode the value accordingly.
-
-> +};
-> +
-> +MODULE_DEVICE_TABLE(of, rpi_axi_pmu_match);
-
-Usually there is no empty line between the device_id struct and the
-MODULE_DEVICE_TABLE macro.
-
-
---v6zicwwmtxhswzvi
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmp7MnoACgkQj4D7WH0S
-/k7XeggAsjqD6ZSGHh7fLT4aPVs7BB3P+0clSg1PcXCLwXSRHnoaYx6bqyH/8Qt0
-7ijosmeazKiJosSTI0Y2Fcv9Q+Jh8Ea23UKmlrbEq7IQlFB6o48YchhKSW0vl/KQ
-fHoXhe8mwuQyey/HX9NkiN0jysztfEaSW/w3XQYJ/68rZZbKqidb2LFM1CB4ZXkO
-K0zPSSZztOuQnwef12ELvWi5J9pgBaeSuu/P5V8XSwLXLP2iYOU3kgyM6iHWKrQ7
-5C4K9hBWBuX72UCoZQ6NlLPRVNpmRyC3Uf2YHFlqSwFgz+3p/cgGfAYkB6RsQ542
-HJCKnzijvQbI1BVGQWwauSIZrUyLTw==
-=6EO1
------END PGP SIGNATURE-----
-
---v6zicwwmtxhswzvi--
+Will
 
