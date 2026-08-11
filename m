@@ -4,110 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAC05C5AD7B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 02:02:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32AE0C5AD7B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 02:08:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J2ie5zT76vulUOKxlmSFoYHsSNdJQnoxvireTA5JYWQ=; b=3Fb0YlEfw7Szyg2ff7L+oZxKcI
-	WnF7Jz9gc8h97vNbkLai4w6q8kEPM/zsUIYio21UqUT5d9vYE1i4yZGcLpQWnms4o+GkbpEHsh++L
-	ULeuG9rQ9SfZ2hJmxS5zkrD2rTl6m3XRYFj7zsN681xwANRobXxIvHg2FprJkTSjI+yu609M7NsdY
-	AEhEZuu7WeDFx657EGYkKPq7oXDBNBDq2Q4Awt9CFwidyK04fX4Fcf/lsmorYOUIG2wvxGMit4PWB
-	yRjdlP845fLlSWQ33j2nN586lge4KtQuUnM3YJg7QkRQwMe0FG2u1KMsYgFnTMqb8dtTDDYGGrL3T
-	AmjZUZdg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rWm9RHbtzazf993VOPOsupHPiD1NvDkD8ms+u6UxPHc=; b=kwTq2fmUM868KZTPTZmjpYAYKv
+	vxr9ILj5xLp48yPLP3LfJIPwjUDDi2cBdU9AmepKNKyZqJVIusXc7x5HQoL1UmdnLJREvyPqLFwJZ
+	QJmmr01sdF3Sj3/WWuMSJobRtLRSq9bP1MR3VGzvnEPbNmPWtDAHprJFOR264AL4VZaxvhMsqHcRo
+	5Thl4MhTJzGqF9no0LnjLvxg5/LFe0jVijzRc9/GiJluwMXjTS0gtkaJ43JD+yWhaajtNN8jsxSnI
+	hEFwnr9UXP23WtsaetuUQZizfRTu1C2JBDe1ii/609IyNgIbkDEV0IVuyElYTyOTxmdcIazjrBxJ4
+	hlmdF4wA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtbp1-0000000D8Z6-034Y;
-	Tue, 11 Aug 2026 02:02:31 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1wtbug-0000000D9AD-1TDl;
+	Tue, 11 Aug 2026 02:08:22 +0000
+Received: from flow-b6-smtp.messagingengine.com ([202.12.124.141])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtboy-0000000D8Yh-1Pz5
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 02:02:29 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2cfff5f88dbso38770305ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 19:02:27 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1786413747; cv=none;
-        d=google.com; s=arc-20260327;
-        b=DNRGO2jjCbASjYdYaChWUvMxDVsxnihrfo3etSFwYqe1bEbs5okDq9J1SibXhEQXLL
-         iq3Qa+KcOLyiUilNrHwVcPWDtB8hYOrAKJWZv4gBMUWfNZserohysCf+yCVvVEig4sEG
-         GRAEwm++YfsbtUbpBi6jInR8tb4BIjbL3crEXsxEjL2MYY+f5+jVSI6NhyPdfYh1eKdL
-         Pb/bHRB/6DIX2BOZlgzSpv33y2o6tY07+w4TRaAnl3sjmduywuOKC32cyEYHBPQPYEDT
-         KEyCzchB/n0MEyriudwifNByvGgsz2FpN446c0UV0gS4MeIzcv5YtjrzGUSX104FZNxe
-         RG3A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=J2ie5zT76vulUOKxlmSFoYHsSNdJQnoxvireTA5JYWQ=;
-        fh=F1kSw99Ly5VxDYFSYY1I7s4VltETU64EwiJWjr0pEwE=;
-        b=sDKJqsanrKcoV0Xd77KFc3EKkfr6rhMSawzqRLzozvUSFwRgg/y9XqDvQBkTR3Kebm
-         f1x0HkIZC/FiaIUQ+ev++AoOYC5v+Yw4/GYAYyvLIJTAyOe961YBsYioKWZpFg9dokT2
-         536QysLpMCJdaSbPrYvCV8TpqA5x6P3zxGcBVhuQhzvivtqpZxIKQXQ2NXGhGwj9Wl5v
-         ycGzD9RH2NZPDYVyioJZo9ze9nonQwyZ4OHZD2Lcm9I5uqlr54B82tLpSHkYCStFnM01
-         a3PJmhiyTiQY+ZmVkX1MYNiWsLOTBnipOkAoMCAYMe6o5Uh4pWWqyIjL+utDp08RTNe2
-         lAkg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786413747; x=1787018547; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=J2ie5zT76vulUOKxlmSFoYHsSNdJQnoxvireTA5JYWQ=;
-        b=F+JLZhhHYbFF9xf3ZpUIeoKJJICne6JwjclaP+JaWIPrYKs7ZAtR4a+/plytxuNUqV
-         w2prYmMCivjM5kcd3A1FU4t22MOxLVwcx04d3TNiCVkn3jk9vd5YAtKIyHjaMIrl6WQ0
-         mNM9gPLlSOaXUuahRxzrXzWY9ztM+PTZ1rSKQbWVIMaJpar3/ualS50zYpbW4VeEHMgd
-         jIaXTsb065WvkIcj4ai5UrctsG4XhWvlGQJggeRNLkjFYa5/yjGvyjTt01hiuphObJoF
-         bfzIrffTnMo9TdvxN0LzxtAN317iOi56RQWRPE7/sF1kPR7pJbefLJxZhUBFUUX+nUDg
-         Ry4A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786413747; x=1787018547;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=J2ie5zT76vulUOKxlmSFoYHsSNdJQnoxvireTA5JYWQ=;
-        b=aju49yqU0ImlG054iSnTltVrZ1kqYRs3Oiihjex+rJ5xeVOp2GVPn2GvsJTuiyXUjK
-         lO8TCrrEFJW9+ukln2k+08zw0vAirvpkLzPBejQQDY1/f0P1DQUtvvCPAHlpQvRqUBAJ
-         mfvVxWAD2SkeDcfkQY2A6XPgEhQprOJlKQUr9yc0kHpFECoiMsV6eyZCy9bYe+VTiV3S
-         xDBHQfa+Bmo5E2oGG7mojxV9vyNeY6erJN4mU855kmYbBFCWTFBQmaiG0EafoK0HFLhm
-         TF2W6etnI+gxNebPylDLlVTiPdKz9iIgXNwWsQmwNWk9GTvddD7BvgjiSd3Czu58fYf2
-         YTQA==
-X-Forwarded-Encrypted: i=1; AHgh+RpzjjzNWbnMa4DfHfC6kb+WRdo3WsUIE24MHesEtuZsjMVjKoEAlAlFf3353w0yjIY1lEDPbdLLj797ZEMoKTIp@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy2Q0mMR3p9jE5AscICE6a8rKXtWu8hxvcDaloYtq5EQYhX+hEt
-	9axVi70gq3EjLd9PnCFlHeu5XqR3tr9yMT3RdBWBn8O/SOsDZgfI47ftMjvHekTXtBg6ACdfkdl
-	MOhilFw/vKiToWIK32MiQ0cweMREcnZk=
-X-Gm-Gg: AR+sD1258qE5M294h9SIEPSBlT+EbpqivZk9cxTus3wtMH1YNFJkkWmCsNZ+pCwIAbT
-	JTuDJNSntUsu3XA5PUMfQMgDw2BAKfqFSCYNw4HdF0Ie5B0F34Ra2GfpazrX3zb/uc3MwEYW9rl
-	sn4MDpXMbx/Vgy4ZRM1FN8N/PrE6iTEGDfYhXeZtj3RfPAbrmaSCUy9x91QSgdEYAEIcOsad4xQ
-	A69CMu4OLtg0LM+6nOhj29ted172RKB7IKmMbdaaWhPi4FxdNAdCALuvloMOhLl9ol86BXdhb43
-	I0dq/eK8Rc3Dxt04sl6n8nG7yXk9PlXZ6QPMqRQkpJ96rah5fHHKXIurdesB8kyew8UaPwyr2yh
-	eedhwoRPxdkHj3thsStBok8EGDKk/tG8O27seFnI0zf4BsWRY+IKPJePx
-X-Received: by 2002:a17:903:3201:b0:2ca:481:de45 with SMTP id
- d9443c01a7336-2d3177d887fmr819395ad.6.1786413746763; Mon, 10 Aug 2026
- 19:02:26 -0700 (PDT)
+	id 1wtbuc-0000000D99m-3Sxo;
+	Tue, 11 Aug 2026 02:08:21 +0000
+Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
+	by mailflow.stl.internal (Postfix) with ESMTP id D263E130008F;
+	Mon, 10 Aug 2026 22:08:14 -0400 (EDT)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-02.internal (MEProxy); Mon, 10 Aug 2026 22:08:15 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
+	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
+	:from:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=fm1; t=1786414094; x=
+	1786417694; bh=rWm9RHbtzazf993VOPOsupHPiD1NvDkD8ms+u6UxPHc=; b=J
+	lUTAAg7ypbKUVWXMw62mJurmR9MhUq5rfmwaNndjWP6fTJvnCfeayGTgFXHIbzny
+	HsqewVInRovsf4hYMlAn/7J9YXHICXBLAPoCR6xu6wD/pSFYVyVCQIPvuCv4nAiK
+	PNUrT303GsDCyw3rnTEOzYnJSG7IKS+y+CkDstvGYNxtI7E5Ru+yDQuDzhcYAVLi
+	jaSrYdBxYeXN+y6ZXd8rC8jBB7f3u18+zJuBD9phBaxietgdq0e6FPDlqiPFUkww
+	kBW4esosI5oRd8wev15if3ngh+Y56XAd6ST1+PQ/wUpZbhCcZwausbHseaaNBOyb
+	LoPrDf3CbhxmwKj4xd0cA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
+	:x-me-sender:x-sasl-enc; s=fm3; t=1786414094; x=1786417694; bh=r
+	Wm9RHbtzazf993VOPOsupHPiD1NvDkD8ms+u6UxPHc=; b=IG8kQt2DXynm+w/82
+	+vPHRp02FIYGa7Uh9BCLaaf7VGJMq7Jry8Di0R+f8DaUh2m0p7iV5wTDtzxDbPFE
+	ii683faabUgyR1sCWyxoCrsHN1oCZDHzg4HGw6aXJTsZyMdzQqrbW0yfz6yLH4rq
+	8eghTC/Pa6W/6iFYJMfzFGMa6Vr1lob3SEDjpMyA9DXVQwJ10waGt1t4QLHEw5ZC
+	D9qfPcqmBfTrZai1qeDOBicsdWjtRT8UsuydHZUE49i4+Vzv1MDcMlsqZMQIB8Bs
+	k8nTfqnuXLvUO+4s3oOpzasZ4O+MoQNEsT+o4KdsC4kY4G8LbamswqpXstY1zf5+
+	IHVdw==
+X-ME-Sender: <xms:DoR6alQWd_KRZ3ungJaulrfVDtU8Kk3T65C73QJ6mnn7Vc1yqB-iog>
+    <xme:DoR6alJ4nvrM2IbupZG-8CE-nicjJaGClXc7ANA-bOfcyqhL0I1qpvhaUqGV6z97A
+    kSKj3JJGb2AEoHRx-xxMQnWKFzIUIld26cBvpVypgJ7kCcZwDWf5oM>
+X-ME-Received: <xmr:DoR6anEIG5pz-PsQyA6pitWcoGARlynUHaBRH6Jx1s0xrwP4vgMZc1eutW7cer0r5zmD4AtXow>
+X-ME-Proxy-Cause: dmFkZTERbI1xbd5afPRWYP3f2skAMeglpOkczslCfBYcEYR3djMQW1qlWyWV/djaOiLGyB
+    jCqnT/qEQac9T+QQxqLt0cOIA598/BpHvO5omQCz3QbUsbNxGDGcCubRIfrxy4hpvIhjct
+    TW8FkzIdmi01QffYDmEb+MjTyO4pkSV+l8JoM08XDklG8EPPcc54YdVzBpusM91cNaToE2
+    Qvld2OMSe6kPDjEmkESLxjAFOAH24FisU5Ut9KwCYj4zPUxBGKl/Q1SU7YU4QS/fpya02c
+    2tn8jX0JUWNKiJRSx+jUM4x0hU9rJ6qB0gX5QZB9cNvKFCAtjRI1z0L8U4oEUppb0sossh
+    49XfuwWqudVJ5zPnObaG4tO5rE+cRooRkUgQrnVj6KeRVZ8G1A5RySKbCS9lDLzVZ2WyEZ
+    kAmeAUbRtTwW3uVf+w8QOo21fyX0npTD1rRsdb1y1oVSUZoqJNuf6MmQu6J9bxf81uqQE7
+    X7zRm3FXGnzrLocmt356t8g/cc5tDeo72/HTHKa34MyXyhu3xAOExKE0h5w/6YWEwCtnY/
+    dAkDQmJ9Sj0tdVbqBelIAPDjE+aGe/sVsmMVXWRQ6tI9/IMT3qrcIyUwX+cZ0gvgg+4URK
+    I0itSAPlUCR9AOFVC3ZM1peWnlXxOL/Q4WCWlRzhtxZ24yazYQwkYRWT+vKg
+X-ME-Proxy: <xmx:DoR6aq29sRK-sM1KhiqLDMXFjEacxMPwzCzV1IisE2HQQv77i_SmvA>
+    <xmx:DoR6anI7fSBaa3B5kz4JI4mow_ko-p9UTYGhvErYG0hF2dIzDwZn2g>
+    <xmx:DoR6an0HfQ-zkE49LsbD3I8PU0-5MMwpww_c3ISVazNw-OMsHRXi7Q>
+    <xmx:DoR6ajlhILSYjctLT-HLA81qdImd5ZE0G3bpIj3J6F6ubrL6_F5E1A>
+    <xmx:DoR6ao89ArTV7tWdcNp-ae8-pqmQ1ExxdCrH-eX-Dqi9v2q0h6DjAzVh>
+Feedback-ID: i7a5e4b5f:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
+ 10 Aug 2026 22:08:10 -0400 (EDT)
+From: Jiaxing Hu <gahing@gahingwoo.com>
+To: chaoyi.chen@rock-chips.com,
+	royalnet026@gmail.com,
+	heiko@sntech.de,
+	tomeu@tomeuvizoso.net,
+	robin.murphy@arm.com,
+	diederik@cknow-tech.com
+Cc: alchark@flipper.net,
+	linux-rockchip@lists.infradead.org,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Jiaxing Hu <gahing@gahingwoo.com>
+Subject: Re: [RFC PATCH v6 7/9] accel/rocket: add RK3576 NPU (RKNN) support
+Date: Tue, 11 Aug 2026 14:08:07 +1200
+Message-ID: <20260811020807.1605238-1-gahing@gahingwoo.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <4f300b78-d96d-4d98-8819-dc292b0c9b97@rock-chips.com>
+References: <20260806063413.350184-1-gahing@gahingwoo.com> <20260806063413.350184-8-gahing@gahingwoo.com> <20260807211629.1573228-1-gahing@gahingwoo.com> <4f300b78-d96d-4d98-8819-dc292b0c9b97@rock-chips.com>
 MIME-Version: 1.0
-References: <20260810111841.77898-1-phucduc.bui@gmail.com> <20260810121914.GA2757863@ragnatech.se>
-In-Reply-To: <20260810121914.GA2757863@ragnatech.se>
-From: Bui Duc Phuc <phucduc.bui@gmail.com>
-Date: Tue, 11 Aug 2026 09:02:15 +0700
-X-Gm-Features: AUfX_mx0gm4Mq6CMcIZ_Ee9wYl18KOH9W6eWXEblgpbB3dv-eRX3URinfX2ag78
-Message-ID: <CAABR9nFkFyhzQO7UGsaiSDcZ8km9=nv-2+4xWo40EG6c555Lbg@mail.gmail.com>
-Subject: Re: [PATCH v2 1/2] thermal/drivers/rcar_gen3: Handle -ENXIO from
- optional IRQ lookup
-To: =?UTF-8?Q?Niklas_S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>
-Cc: Markus Mayer <mmayer@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, rafael@kernel.org, 
-	Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, 
-	Lukasz Luba <lukasz.luba@arm.com>, Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
-	linux-pm@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_190228_388015_02701F79 
-X-CRM114-Status: GOOD (  24.79  )
+X-CRM114-CacheID: sfid-20260810_190819_590713_D84931C8 
+X-CRM114-Status: UNSURE (   9.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,73 +116,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Niklas,
+Hi Chaoyi,
 
-Thank you for your feedback.
+> I think it should be for every submit. That is, when you set
+> task_count_clear, you should also set task_last_layer_clear at the same
+> time.
 
-> > -     if (rcar_gen3_thermal_request_irqs(priv, pdev))
-> > +     ret = rcar_gen3_thermal_request_irqs(priv, pdev);
-> > +     if (ret == -ENXIO)
-> >               priv->ops.set_trips = NULL;
-> > +     else if (ret)
-> > +             return ret;
->
-> I'm not sure I like this.
->
-> The old behavior is that for any reason we can't get the optional IRQ
-> the driver still works, but without hardware trip points.
->
+That is what the driver does, and now it does it on purpose rather than by
+inheritance. v7 writes
 
-Regarding the old behavior, it was handled like this:
-------------------------------
-irq = platform_get_irq_optional(pdev, i);
-        if (irq < 0)
-                return irq;
-------------------------------
-As I understand it, this is essentially the behavior of
-platform_get_irq() itself:
+  PC_TASK_CON_TASK_LAST_LAYER_CLEAR |
+  PC_TASK_CON_TASK_COUNT_CLEAR |
+  PC_TASK_CON_TASK_PP_EN |
+  PC_TASK_CON_TASK_NUMBER(n)
 
-https://elixir.bootlin.com/linux/v7.2-rc6/source/drivers/base/platform.c#L301
+per submit, with the three RK3576 bits at 16, 17 and 18 and the RK3588 ones at
+12 and 13 beside them.
 
-This could be understood as rcar-gen3 not actually supporting an optional IRQ.
-If you still want to keep the old behavior, then I think we should switch to
-platform_get_irq() instead of platform_get_irq_optional(), since using
-the latter
-could give a misleading impression that rcar-gen3 supports an optional IRQ.
+Thank you for both answers. The layout settles a register this driver had only
+been able to reach by comparing traces, and the bit at 18 is one it was setting
+without knowing what it was.
 
-Incidentally, I also don't quite understand why rcar-gen2 supports an
-optional IRQ
-while rcar-gen3 does not. Is there a hardware limitation on rcar-gen3
-that requires
-the IRQ to be present, or is this just a difference in the driver
-implementation?
-
-https://elixir.bootlin.com/linux/v7.2-rc6/source/drivers/thermal/renesas/rcar_thermal.c#L422
-
-> While the new behavior is that if *something* other then the IRQ not
-> being available we fail probe. What is the gain here? What benefit is
-> there from the driver not providing thermal readouts if say for example
-> getting the optional IRQ would return -EINVAL ?
->
-
-Regarding the benefit of the new behavior:
-
-If rcar-gen3 actually supports an optional IRQ, I think the benefit is
-that it reflects
-the actual state of the system. It allows the developer to know that
-something went
-wrong and investigate or fix the underlying issue. In the case of
-`-EPROBE_DEFER`,
-the benefit is even clearer, as it allows the kernel to defer the
-probe and retry it later
-when the dependency becomes available.
-
-If we silently ignore the error as we do currently, the driver may
-still be able to provide
-thermal information as you mentioned. However, can we still guarantee
-the correctness
-and safety of the system?
-
-Best regards,
-Phuc
+Jiaxing
 
