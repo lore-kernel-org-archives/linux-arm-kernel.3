@@ -4,75 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E9EDC5B56A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 14:45:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86D9EC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 14:46:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3E9gzrqUSmsxtPYO1SMTzKKoyneSbVUSG4Bik/QNVSA=; b=LzrkSjT6x3tLNFCwx9ooKT2upt
-	+LT02P6kuI4Haoemu+Bm0N7dtb5bIg/vWqwn1aNOi/27HgyLX/VNeLiWbJZhm6ZWbKNrP2t/Zct2V
-	Uz1ZWkrXnJBXqoFCGvP146BV2IiR91asLCmAy4q2xW+184Z7/h+kw5b0n0VW4nPbc/65usTyuUJ7W
-	JpDTdmqtNEpUioH+vyf6tNegrQXfpb+D1/2iTYwWlPlFaPzm7QK9+4xvvhvPwVpWYM+sONt/+AhdS
-	3TM/F6g2F8rmlDTKAtyUPz9CC5KBx0j3whwwselEmSv1a6X76JKCwCi51eYMuNABJ7ViYC7Vy8x73
-	rGPrNfxQ==;
+	bh=bkBsw0nlNKffF346uy8TG9H988zPUKGCrYeJMzVpF88=; b=ilkeRBfjcTUq6EIE5wk5bgaoWz
+	FqMmycPtSqw6LVQ5Ooej0gulHt1RZ2J8+zzJXTvpoZLiNlCbruFMQKTZi6s2n27VtHjWpzz0vEr1b
+	a5HZEBQpmvt3di14yR34pLTWG4bKxST46ocICPgG+Al85RVV/sHSzmv/HSxWr+zoGIqf+kKadvsd4
+	Iji6dzfawDRqVC9VexfXdWrgQFGSe5O6bqoBhaxL9Q/Wu763BDjDWPviPmy0en3gs96nr1xTURNXu
+	SoLqEOVwCljuPBhWPavkNdInIVE17bEg/e6/7xgYRmbMHyXFCjU7FitWL1hRwRfWw9r02YzzSJ2eJ
+	M5849ZeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtniy-0000000EFBv-1PG8;
-	Tue, 11 Aug 2026 14:45:04 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtniv-0000000EFBD-0Nzj
+	id 1wtnk9-0000000EFIW-266Q;
+	Tue, 11 Aug 2026 14:46:20 +0000
+Received: from out-188.mta1.migadu.com ([95.215.58.188])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wtnk5-0000000EFI0-1mdq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 14:45:02 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E97BB1682;
-	Tue, 11 Aug 2026 07:44:54 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EF9DA3F86F;
-	Tue, 11 Aug 2026 07:44:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786459498; bh=/LPEH55R6LClPqeXnYARvDZU8XDKgr9ZBtZUHbi7ZdM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UhMkyTJN6nwQPPoHojp2Lj90fCxYgfZoPQnlFeUfUA7QykLZDiF4BKo9sc5b4f8Cu
-	 tgVMWQsawjcyUgRgg0Bm7XS/nBDFtj0Sesm5suAVALsIGilMsDyBy47x0YNQEeI5bh
-	 5ONfXUPbgnRx3kWP8wbSZ0K3W95SrAy0Gy8N9cpw=
-Date: Tue, 11 Aug 2026 15:44:53 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>
-Subject: Re: [PATCH v16 07/45] arm64: mm: Handle Granule Protection Faults
- (GPFs)
-Message-ID: <ans1ZSwMEKeT9Gfz@arm.com>
-References: <20260803134403.80630-1-steven.price@arm.com>
- <20260803134403.80630-8-steven.price@arm.com>
+	Tue, 11 Aug 2026 14:46:15 +0000
+X-Forwarded-Encrypted: i=1; AHgh+RooL0Bi8r2UwiLV/rCZNFpSEeXv2E2SyR8h8C+1ABzErg0u4qO+I7k+ow/riOCCDwDJTI/DW+JPIaJpMuPHlqgg@lists.infradead.org
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1786459568;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=bkBsw0nlNKffF346uy8TG9H988zPUKGCrYeJMzVpF88=;
+	b=ClW7kwPPsFdvWPR0w4rXuU1q71lk4ndY7trSLe1hh8OMP2bVZIqpR1brf562OPKwkL+Da/
+	4/oGH6N6794BotkAwwLqd0ocejuCMM3YIePg0eXvbc7aWbcTgLbOCwtLDlhmPHVRJ1XP7N
+	fetTQrSEfynLcXWoL4+xID50p66oIrc=
+X-Gm-Message-State: AOJu0Yz9Ir8ysvkrv79SA74IuKEBryW/gu+ostZ00maAxP+Izn8jeHkp
+	hmQ8ZfXR6Z9SVQ9wSedXI5V2ZNRVgE4c0jl1ESvCxl31FsIAkeheO2DeZx1Pi/UmTHT/u82UXx4
+	vRnuepjd4wkVOh172VM3ig0BZpOaY4hn+lkOvNfgl
+X-Received: by 2002:ac8:7fc5:0:b0:50f:af60:3496 with SMTP id
+ d75a77b69052e-52d5805b682mr10634971cf.1.1786459525915; Tue, 11 Aug 2026
+ 07:45:25 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260803134403.80630-8-steven.price@arm.com>
+References: <20260804112317.1937387-1-fuad.tabba@linux.dev>
+ <20260804112317.1937387-2-fuad.tabba@linux.dev> <20260810183017.32db8b80@gandalf.local.home>
+In-Reply-To: <20260810183017.32db8b80@gandalf.local.home>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Tue, 11 Aug 2026 16:44:48 +0200
+X-Gmail-Original-Message-ID: <CA+EHjTxge9X+XyNPpJwrpK5wiO4cHRHJrCPMPgo0iZBXHSLPxQ@mail.gmail.com>
+X-Gm-Features: AUfX_mxjTGmsQJDiPjF8-9rvIAUMM_O2scFaxYRWXLqNn62taG1aJ6Vh3ON23CE
+Message-ID: <CA+EHjTxge9X+XyNPpJwrpK5wiO4cHRHJrCPMPgo0iZBXHSLPxQ@mail.gmail.com>
+Subject: Re: [PATCH v3 01/11] tracing: Include linux/types.h in trace_remote_event.h
+To: Steven Rostedt <rostedt@goodmis.org>
+Cc: maz@kernel.org, oupton@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, 
+	mhiramat@kernel.org, alexandru.elisei@arm.com, vdonnefort@google.com, 
+	joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, qperret@google.com, ardb@kernel.org, 
+	linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_074501_261856_45EABFD0 
-X-CRM114-Status: GOOD (  22.63  )
+X-CRM114-CacheID: sfid-20260811_074613_609426_EAC41570 
+X-CRM114-Status: GOOD (  22.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,62 +80,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 03, 2026 at 02:43:23PM +0100, Steven Price wrote:
-> If the host attempts to access granules that have been delegated for use
-> in a realm these accesses will be caught and will trigger a Granule
-> Protection Fault (GPF).
-> 
-> A fault during a page walk signals a bug in the kernel and is handled by
-> oopsing the kernel. A non-page walk fault could be caused by user space
-> having access to a page which has been delegated to the kernel and will
-> trigger a SIGBUS to allow debugging why user space is trying to access a
-> delegated page.
-> 
-> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> ---
-> Changes since v10:
->  * Don't call arm64_notify_die() in do_gpf() but simply return 1.
-> Changes since v2:
->  * Include missing "Granule Protection Fault at level -1"
-> ---
->  arch/arm64/mm/fault.c | 28 ++++++++++++++++++++++------
->  1 file changed, 22 insertions(+), 6 deletions(-)
-> 
-> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-> index 85e23388f9bb..ea3ae0ca7dba 100644
-> --- a/arch/arm64/mm/fault.c
-> +++ b/arch/arm64/mm/fault.c
-> @@ -909,6 +909,22 @@ static int do_tag_check_fault(unsigned long far, unsigned long esr,
->  	return 0;
->  }
->  
-> +static int do_gpf_ptw(unsigned long far, unsigned long esr, struct pt_regs *regs)
-> +{
-> +	const struct fault_info *inf = esr_to_fault_info(esr);
-> +
-> +	die_kernel_fault(inf->name, far, esr, regs);
-> +	return 0;
-> +}
-> +
-> +static int do_gpf(unsigned long far, unsigned long esr, struct pt_regs *regs)
-> +{
-> +	if (!is_el1_instruction_abort(esr) && fixup_exception(regs, esr))
-> +		return 0;
-> +
-> +	return 1;
-> +}
+Hi Steve,
 
-Is there a valid case for fixup_exception() here? IOW, do we ever have a
-valid user mapping of the pages delegated to a guest? If the above is
-considered a kernel bug, I'd not silently ignore this (like return less
-bytes copied or -EFAULT to user) but rather warn, potentially
-rate-limited.
+On Tue, 11 Aug 2026 at 00:30, Steven Rostedt <rostedt@goodmis.org> wrote:
+>
+> On Tue,  4 Aug 2026 12:23:07 +0100
+> Fuad Tabba <fuad.tabba@linux.dev> wrote:
+>
+> > trace_remote_event.h uses bool without including linux/types.h, so a
+> > translation unit that includes it ahead of anything else that pulls
+> > types.h in fails to build, as with nvhe/trace.h at EL2.
+> >
+> > Fixes: 072529158e60 ("tracing: Add events to trace remotes")
+>
+> Is there a config that already fails the build without this change? Or is
+> it that new code will fail without it?
+>
+> If it is the former, please drop the fixes tag, as nothing is currently
+> broken. If it is the latter, then sure, keep it, but you should mention
+> what config options break with it.
 
-If there is a real use-case for this, what's preventing GUP + memcpy()
-from triggering a similar fault with no fixup available?
+I checked the include graph and tested by building with configurations
+that could potentially fail. Nothing does. I dropped the fixes tag in
+the branch I have based on kvmarm/next in case Oliver/Marc want to go
+that route [1], or I'll respin it on the latest tag once kvmarm/next
+has gone in to the next tag.
 
--- 
-Catalin
+Cheers,
+/fuad
+
+[1] https://android-kvm.googlesource.com/linux/+/refs/heads/tabba/pkvm-hostva-kvmarm-next
+
+
+
+
+>
+> -- Steve
+>
+>
+> > Acked-by: Steven Rostedt <rostedt@goodmis.org>
+> > Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+> > ---
+> >  include/linux/trace_remote_event.h | 2 ++
+> >  1 file changed, 2 insertions(+)
+> >
+> > diff --git a/include/linux/trace_remote_event.h b/include/linux/trace_remote_event.h
+> > index c8ae1e1f5e721..e4cc2d4497bcf 100644
+> > --- a/include/linux/trace_remote_event.h
+> > +++ b/include/linux/trace_remote_event.h
+> > @@ -3,6 +3,8 @@
+> >  #ifndef _LINUX_TRACE_REMOTE_EVENTS_H
+> >  #define _LINUX_TRACE_REMOTE_EVENTS_H
+> >
+> > +#include <linux/types.h>
+> > +
+> >  struct trace_remote;
+> >  struct trace_event_fields;
+> >  struct trace_seq;
+>
 
