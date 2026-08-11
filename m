@@ -4,71 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DAE2C5CFCF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 10:08:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A254C5AC67
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 10:10:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m9/67X/LTqY7+uC3dFrJVHFQgK16jDeYcGuHeHobhes=; b=RbZrPpQXaNZhTavun7egn4ASKu
-	TNRoKwPDhWMzq4vEB8rov+XFoyWnC0nrNkdLHB2CEbi9VE4ri+LkiIEiTU5vh/D6BSagEeSHBM6Hg
-	qZPTfnu0iZH19ydtGxl2Js7AXfYcy5MGi/koBiPNfLJxtsjTp4Y8YWOpsFrV9D+NAlqTHOBYR7NlC
-	WZLlZdc2+I1ZyA440fWcoqcmmfyreJM1KjIVChjioK8y5MBLP9WYhGp+vmyNQksmRMRTVDZXI4C92
-	H21AkLJPwK9n445Ub5c7zsghj0QZxJzW598VL6y5FogPaJUhgzVswuXUNCATMglK8hNOk2mj5zB+L
-	MDkCsaww==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=yi2AQubmBld0thtX/fIlK+IyfhDWkAZ51GVpdWF8ty4=; b=rLFjQACOrzbwVf4kzuF8SdYYF3
+	d7w6EJNqEru5sIXbILeV9wrgnknFBo9t+YmflpFBO7uvD63ky4VEYEF3dtbIcw6QnHbqODTq85fLV
+	oRvj7L4PVam0zzCCoLf3LdFNkYzLP8pTGqzy2H0Nm+GnIdjoIBItp5V5Gm4A2rOhoL+dLmbly+A0w
+	UF+u0FZm1KVY0RYT5I3wjnq3yZsWcl4uDg+6n0xg1QhrmWEgzqChgpb2/i9CfPAv4VY6NYQeWLOGM
+	ADP0wY39cFlqi3iYNVszOZIFER1gCKs09kFce0YLLy23J6sgESTlkUVXo6rvJ3oytFmUF1Ds/KDxK
+	u+UB150g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtjPa-0000000DoYl-3TiN;
-	Tue, 11 Aug 2026 10:08:46 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1wtjQw-0000000Doha-0m3F;
+	Tue, 11 Aug 2026 10:10:10 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtjPW-0000000DoYI-0SMj
+	id 1wtjQt-0000000Doh0-2x0Z
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 10:08:44 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 367991A1566;
-	Tue, 11 Aug 2026 10:08:37 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 08A576033C;
-	Tue, 11 Aug 2026 10:08:37 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D39FF11C4BE4F;
-	Tue, 11 Aug 2026 12:08:26 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1786442912; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=m9/67X/LTqY7+uC3dFrJVHFQgK16jDeYcGuHeHobhes=;
-	b=lHndeW7QJdEGn4ZG//J7fO4qbmQ90K8+WMK73B6JHfnlhc800us7XKEmPwV0UJbQVOhMld
-	aBsc2APDG5U/g2UZBQTES/0rByUDKlJWCKgWIRprK3lFt+JsIfENdmqR9BCFGmn+L7MoST
-	nVFc7O7r/1Y0U8dEJCEM2UPotuad7C9EqFcktw6nwlbi5zpIi+zqKBRNLlab2RjEYCrwjm
-	dHbu0mDuOUA3UvuhE1ulF8vckJblz0SSMuH1fSJGmDknJAH1unfLz+XZd81ScolRV2rThS
-	Mgdh7cRmUxsax7proZmq2PfmnpdP0Dh6QRmuYkUOze/BVW2+rjz+BKw+WaZzPg==
-Message-ID: <16c11b73-7d38-4856-9100-d27993ae0fa3@bootlin.com>
-Date: Tue, 11 Aug 2026 12:08:25 +0200
+	Tue, 11 Aug 2026 10:10:08 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2ce87c7e3bbso7906495ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 03:10:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786443007; x=1787047807; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=yi2AQubmBld0thtX/fIlK+IyfhDWkAZ51GVpdWF8ty4=;
+        b=cAmC5L5PWi6FRhTpzLcoe+dMJ+fJW/avzotkvn89IA4FFChvZFAxSgqNuLbFBRwZRX
+         9tIpRir2YNFCBR2VqX5NcJmn80mzjEXyQPZSFw7UYWeSlPnasteVeP7edmccW712C850
+         DpGwcg85/3/Qgl/+2rvMkmMFS5hzKnFWhx72q/2JoxZRQPJ+A2znaRf6iu/NYEe6s59A
+         hq1eizVdRRIxFv8M23eknVF/gZR4nVeaNboageBdOzcrWitK1ZshMG5/n+gM5G/dtldh
+         6SpRgfzT7utqPovZm76kJfQThad5ffwg9CsSGIaO4ltXKmF9oZBwBAbUFfC9q16rryqu
+         E9BQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786443007; x=1787047807;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=yi2AQubmBld0thtX/fIlK+IyfhDWkAZ51GVpdWF8ty4=;
+        b=SYShEwS5UpPX4XjbFaq5RuDzrlBTKsS7fUuczjZUw8PRzoZ2VWc7HoTnNV9rX1nvfC
+         5ffxFJK2LH99uatHxWQfwf0HPxsaFM8R0z1K1pc/X6shYYQWtCH2jWYvgdor0ePge1ov
+         thvW2TBI63HanHejxqOHLEnD9FLAwGCEKdzMV3oJyypYTijfokB20mshMYEb/noRk+ff
+         kknbMiHSDauavlDg+vEsc0yCjXwTwXuS3AHRYEZ/1Q3Tnng2ZxtrZfshSFz4R7nDw1UI
+         FUYeF0tUC/sKtXCNinc/G3H4dYddkmoJWaB3iMPwaNvn+HNyhzBPXVwU841q0UWt+yyN
+         jfdg==
+X-Gm-Message-State: AOJu0YwNcEvhHabgIoZ6Gy4+TOfZvAKDL+5/fjbQdN+dVOQS1wARcOAh
+	IRpO0WYAAURef8LSaNz16dJG0ggujBiiH5l1Gy528y5Zoj3c5dmBCtE1
+X-Gm-Gg: AR+sD10AtvkjRRvy6LcNOagggFIP5hb8phGYjBlV/XULOh6Ou2sQ8f/Gz3zx+9AOuko
+	Ea7PGf1P0gPQ6Gy5ea5Hre8eyuiWiy2NvHKnUWYAlUgZvvccokq9cGBi331/bAX26huYEqOM/BY
+	rLvaruZNd21SQG/cXqihY/G9IvIe/zK97g6suN007/UZSZz7ab+w1il4rm12VrPgHusGHQSdLh9
+	MMPTcAkuE5C5KmNbSOODk6JNN+6zqj+tFlxMBLEpWmT789rEF2tJWKM14O8ne+vQlunqzh357Y/
+	tOPWw2nAlP5VeN9ouYyB6zCrLZmIAoombjG8TtR2NMfNMW63joPl9/tUFCRr5/GOanZfruRaVvI
+	OwuicdH2VEJ8dsryY4dqAWYyidXVgqP6Suj/k4CLtTo6KeJ9c8ovC3r8LFDg3XprHSXHbEQLI+U
+	WcewsgPKg0wHQPukJepDX9Zk1LHk5ZGkJve6mfzRygoxfmj2/s7pu4za1ZGObpayiCVTWztHDur
+	OWQF4KnbEQuTv9VMdIRVfV4AOw6YCwzKPKxSJuOvispKhf3awpk+uNtDvNRSDq8DCP85ODaU/t3
+	ciqR
+X-Received: by 2002:a17:903:4688:b0:2cf:4339:aaa with SMTP id d9443c01a7336-2d317925cbfmr22741185ad.12.1786443006674;
+        Tue, 11 Aug 2026 03:10:06 -0700 (PDT)
+Received: from phuc-desktop.. ([183.91.15.56])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d315f4819dsm5189625ad.37.2026.08.11.03.10.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 11 Aug 2026 03:10:06 -0700 (PDT)
+From: phucduc.bui@gmail.com
+To: Daniel Mack <daniel@zonque.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	bui duc phuc <phucduc.bui@gmail.com>
+Subject: [RFC PATCH] ASoC: pxa: Use devm_clk_get_optional() for extclk clock
+Date: Tue, 11 Aug 2026 17:09:49 +0700
+Message-ID: <20260811100949.61142-1-phucduc.bui@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] net: stmmac: keep gso_enabled_types in sync with
- netdev features
-To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-References: <20260808-stmmac-fix-tso6-features-v1-1-f82b17595052@oss.qualcomm.com>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20260808-stmmac-fix-tso6-features-v1-1-f82b17595052@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_030842_294190_9470B1C2 
-X-CRM114-Status: GOOD (  19.35  )
+X-CRM114-CacheID: sfid-20260811_031007_777227_0EB2905C 
+X-CRM114-Status: GOOD (  15.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,69 +104,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Lorenzo,
+From: bui duc phuc <phucduc.bui@gmail.com>
 
-On 8/8/26 20:00, Lorenzo Bianconi wrote:
-> stmmac_set_gso_types() derives priv->gso_enabled_types all-or-nothing
-> from NETIF_F_TSO, but stmmac_set_gso_features() advertises NETIF_F_TSO,
-> NETIF_F_TSO6 and (on GMAC4) NETIF_F_GSO_UDP_L4 as independently
-> toggleable features. Since netdev_fix_features() only ties TSO6 to the
-> checksum features, disabling TSO (ethtool -K ethX tx-tcp-segmentation
-> off) leaves TSO6 enabled in dev->features while gso_enabled_types
-> becomes 0.
-> 
-> For a TCPv6 GSO skb the stack then keeps the frame unsegmented
-> (NETIF_F_TSO6 is still set), stmmac_features_check() does not clear the
-> GSO mask, and the stmmac_xmit() gate (gso_type & gso_enabled_types) is
-> false, so the multi-MSS skb is transmitted through the ordinary
-> descriptor path as a single oversized frame.
-> 
-> Derive each GSO type from its own feature bit instead, so the mask stays
-> in sync with dev->features and TCPv6 (or UDP L4 on GMAC4) segmentation
-> keeps working when only TSO is disabled.
+The Device Tree binding defines the extclk clock as an optional
+property, but the driver currently uses devm_clk_get() and manually
+handles the absence of the clock.
 
-Thanks for tackling this :)
+Use devm_clk_get_optional() to match the binding and simplify the
+optional clock handling. This also propagates errors other than the
+absence of the optional clock, including -EPROBE_DEFER.
 
-> 
-> Fixes: 2e4082e4b739 ("net: stmmac: simplify GSO/TSO test in stmmac_xmit()")
-> Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-> ---
->  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 24 ++++++++++++-----------
->  1 file changed, 13 insertions(+), 11 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index a71f0df26378..3d3042afcdf4 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -4371,16 +4371,18 @@ static void stmmac_flush_tx_descriptors(struct stmmac_priv *priv, int queue)
->  	stmmac_set_queue_tx_tail_ptr(priv, tx_q, queue, tx_q->cur_tx);
->  }
->  
-> -static void stmmac_set_gso_types(struct stmmac_priv *priv, bool tso)
-> +static void stmmac_set_gso_types(struct stmmac_priv *priv,
-> +				 netdev_features_t features)
->  {
-> -	if (!tso) {
-> -		priv->gso_enabled_types = 0;
-> -	} else {
-> -		/* Manage oversized TCP frames for GMAC4 device */
-> -		priv->gso_enabled_types = SKB_GSO_TCPV4 | SKB_GSO_TCPV6;
-> -		if (priv->plat->core_type == DWMAC_CORE_GMAC4)
-> -			priv->gso_enabled_types |= SKB_GSO_UDP_L4;
-> -	}
-> +	priv->gso_enabled_types = 0;
-> +
-> +	if (features & NETIF_F_TSO)
-> +		priv->gso_enabled_types |= SKB_GSO_TCPV4;
-> +	if (features & NETIF_F_TSO6)
-> +		priv->gso_enabled_types |= SKB_GSO_TCPV6;
-> +	/* Manage oversized UDP frames for GMAC4 devices */
-> +	if (features & NETIF_F_GSO_UDP_L4)
-> +		priv->gso_enabled_types |= SKB_GSO_UDP_L4;
->  }
+This changes the existing behavior for errors other than
+-EPROBE_DEFER. RFC to discuss whether these errors should cause probe
+to fail rather than being treated as an unavailable optional clock.
 
-Sashiko says this could be racy, as there's a short window where the enabled_types is 0.
+Fixes: 90eb6b59d311 ("ASoC: pxa-ssp: add support for an external clock in devicetree")
+Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
+---
+ sound/soc/pxa/pxa-ssp.c | 7 ++-----
+ 1 file changed, 2 insertions(+), 5 deletions(-)
 
-Maxime
+diff --git a/sound/soc/pxa/pxa-ssp.c b/sound/soc/pxa/pxa-ssp.c
+index f8054c1c59fa..3a0abcb0bfbd 100644
+--- a/sound/soc/pxa/pxa-ssp.c
++++ b/sound/soc/pxa/pxa-ssp.c
+@@ -769,13 +769,10 @@ static int pxa_ssp_probe(struct snd_soc_dai *dai)
+ 			goto err_priv;
+ 		}
+ 
+-		priv->extclk = devm_clk_get(dev, "extclk");
++		priv->extclk = devm_clk_get_optional(dev, "extclk");
+ 		if (IS_ERR(priv->extclk)) {
+ 			ret = PTR_ERR(priv->extclk);
+-			if (ret == -EPROBE_DEFER)
+-				goto err_priv;
+-
+-			priv->extclk = NULL;
++			goto err_priv;
+ 		}
+ 	} else {
+ 		priv->ssp = pxa_ssp_request(dai->id + 1, "SoC audio");
+-- 
+2.43.0
 
 
