@@ -4,62 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D1A4C5B56A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 15:44:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E081C5CFCF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 15:45:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=elSPNXzdKmLiSzaBsIbjtlxTtbtBm9V1qIvc6L3Olnk=; b=iiMFoJxh8QXSleB2coRRVhtsnK
-	hNcrDDbowROPaQ/z1mYxNayJ8j298sR+4sgb6XPI57HjHpC8ZZHvWIlNLRXDicryRzL5qB0AVocpJ
-	flmveXEoRW1zADA9LI6HiiU3qIasuNA1JDsQMQozvhZuPa7QI1DVHj/34IFJwU6mO9PXVU73aOq8n
-	UuQeJbOFgAjJ6UmWsh0mE7XwI91Q6JZlHaRqh2YunCSuEscl4BgchVkWk1abj5q4lVCdZ2odpHUMg
-	AeEDTzbyUL7ac4o/awm8f5G303tuYTgvJLQn/ENLu91FSw7SC6rXDljlDFrSbBW6+fkHFOlV4nQRN
-	F2XXF7vQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=C98zCQ+ofd4ATzlwuXoh3rV1etecW0sYxrf04+zSY+Y=; b=AzSXFfhSY14MY5+SnGv8nliTu+
+	wNeNJos4GzqCwsjIRGSNBRsH634Xd3aT6M11RR9Su/1GtC7v1qJctQTuogYR9Ii0N2eyNeXgz0XvP
+	d0W2uXMQTvLF8q4Y2/r6Ky+PJoCMqwg0Ds/CCGGfqOys0/i6Mzy2v4yTmkRsSrA63KRUVly8lQRov
+	yUcE1INHJqhWf6FKgCeYEk7FxhMCWebmYFzL4VbsS5/X692clXq9P7W2wC4tjOYqlLdNUD8zQxEmz
+	AIySAJawE5eSaFn3OgzeqmQKF/RcbyqF5GdUxufDjPmDLHTrzaO8GVgVOxw6NXY7/Ssr1aTYw6+Pn
+	AFcnWflw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtodu-0000000EMjt-3Zvn;
-	Tue, 11 Aug 2026 15:43:54 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtods-0000000EMjK-2HPG
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 15:43:53 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B9EAB1516;
-	Tue, 11 Aug 2026 08:43:46 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 096D23F632;
-	Tue, 11 Aug 2026 08:43:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786463030; bh=hQLSjCwZk9nOSIrJE2YUoZMmluijQPyTacbicC/GIzg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tACVSB9haxx+b5z5esFq1GdMDSp73EAaLWClW5d/yi9uQLUdt9xeDY4nnDhmtPnen
-	 uUTqogDxL2FL1EtY3wdTkQ1cAeYnH0b1Yt9vpRphjoNKPL06DiEnxTbG0GYEqGdscc
-	 K5F3mV4QK7ftIcrVGstaMk6l+ktUqPBcUQBvvnwM=
-Date: Tue, 11 Aug 2026 16:43:46 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Arnd Bergmann <arnd@arndb.de>, Ard Biesheuvel <ardb@kernel.org>,
-	Eric Biggers <ebiggers@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Marc Zyngier <maz@kernel.org>
-Subject: Re: [PATCH 00/12] arm64: Remove unused big-endian support
-Message-ID: <antDMvjBM1s7jfxe@arm.com>
-References: <20260811140132.22778-1-will@kernel.org>
+	id 1wtofK-0000000EMvz-0Ye3;
+	Tue, 11 Aug 2026 15:45:22 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wtofG-0000000EMu8-0tlc;
+	Tue, 11 Aug 2026 15:45:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1786463114;
+	bh=VPgeGDdA8QmrtAihuQbdXnoRiqxMYVaaD7wuBUl+Txk=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=fpU96XVq4KjGAlWVkjSh+lbjrdCugOiWPf/6OWGAi0J4B+KaO7muWkPX2HGuVO4iS
+	 jxla3qmP6ttON9IHC33peLnQe5hJlEGNn8tw+40xj7FNDNalthIdR6YXgcfFhJEkYG
+	 hlGKUXZ3Ov3FcJhURmKJtH08hD8qxkO6O46h2/izb06wyPM5GAPPMikQxAPyqJLLdb
+	 7s2CyIQsKaY9T8Ok6u6gMFwq1cATuCxKaKq8WLJq6WGvTK5cchOfbzeTVfwje6nKEL
+	 ehzgErlmpXSr4nOvBg4XesKqltQsfGTSBHrrKV1IRiSqVqmGtwDLlSg37QLl7H9DlE
+	 jgnwz1TDkpetQ==
+Received: from localhost (unknown [100.64.0.241])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id C07E317E0667;
+	Tue, 11 Aug 2026 17:45:14 +0200 (CEST)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Tue, 11 Aug 2026 18:44:43 +0300
+Subject: [PATCH v6 02/10] phy: rockchip: samsung-hdptx: Prevent
+ divide-by-zero when computing clk rate
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260811140132.22778-1-will@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260811-hdptx-clk-fixes-v6-2-75bca0ee5753@collabora.com>
+References: <20260811-hdptx-clk-fixes-v6-0-75bca0ee5753@collabora.com>
+In-Reply-To: <20260811-hdptx-clk-fixes-v6-0-75bca0ee5753@collabora.com>
+To: Vinod Koul <vkoul@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Heiko Stuebner <heiko@sntech.de>, Algea Cao <algea.cao@rock-chips.com>, 
+ Dmitry Baryshkov <lumag@kernel.org>
+Cc: kernel@collabora.com, linux-phy@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>, 
+ Diederik de Haas <diederik@cknow-tech.com>, 
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+ Andy Yan <andy.yan@rock-chips.com>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_084352_618104_2D53A563 
-X-CRM114-Status: GOOD (  10.88  )
+X-CRM114-CacheID: sfid-20260811_084519_307390_4C2B1EF8 
+X-CRM114-Status: GOOD (  11.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,18 +81,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 11, 2026 at 03:01:19PM +0100, Will Deacon wrote:
-> Hi folks,
-> 
-> Big-endian support on arm64 (CONFIG_CPU_BIG_ENDIAN) has depended on
-> BROKEN since 1cf89b6bf660 ("arm64: Kconfig: Make CPU_BIG_ENDIAN depend
-> on BROKEN") and has already seen some clean-up patches removing some of
-> the unused support code (e.g. 5276ea17a23c ("lib/crc: arm64: Assume a
-> little-endian kernel")).
-> 
-> Finish the job, and remove the remaining big-endian support code from
-> arm64. Note that the SETEND emulation for 32-bit tasks remains and so
-> some of the mixed-endian EL0 helpers are retained.
+Calculating 'sdm' fraction in rk_hdptx_phy_clk_calc_rate_from_pll_cfg()
+could trigger a divide-by-zero, as it uses div_u64() with a denominator
+read directly from hardware: the values ropll_hw.sdm_deno,
+ropll_hw.sdc_deno, ropll_hw.sdc_n, and ropll_hw.sdc_num are populated
+from PLL registers which, in theory, could be left by the bootloader
+uninitialized/misconfigured.
 
-Acked-by: Catalin Marinas <catalin.marinas@arm.com>
+Provide the necessary sanitization to avoid trusting the hardware state.
+
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Closes: https://sashiko.dev/#/patchset/20260611-hdptx-clk-fixes-v3-0-67b1b0c00e16@collabora.com?part=1
+Fixes: 3481fc04d969 ("phy: rockchip: samsung-hdptx: Compute clk rate from PLL config")
+Tested-by: Diederik de Haas <diederik@cknow-tech.com>  # NanoPC-T6 LTS
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Reviewed-by: Andy Yan <andy.yan@rock-chips.com>
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 16 +++++++++++++---
+ 1 file changed, 13 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
+index 710603afff86..d67ced2bf7b2 100644
+--- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
++++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
+@@ -2270,10 +2270,20 @@ static u64 rk_hdptx_phy_clk_calc_rate_from_pll_cfg(struct rk_hdptx_phy *hdptx)
+ 
+ 	fout = PLL_REF_CLK * ropll_hw.pms_mdiv;
+ 	if (ropll_hw.sdm_en) {
++		val = 16U * ropll_hw.sdm_deno *
++		      (ropll_hw.sdc_deno * ropll_hw.sdc_n - ropll_hw.sdc_num);
++		if (!val) {
++			/*
++			 * The PLL config currently stored in hardware can't be
++			 * translated into a rate. The next .set_rate() should
++			 * program a valid configuration and help with recovery.
++			 */
++			dev_dbg(hdptx->dev, "Invalid ROPLL hw state: deno == 0\n");
++			return 0;
++		}
++
+ 		sdm = div_u64(PLL_REF_CLK * ropll_hw.sdc_deno *
+-			      ropll_hw.pms_mdiv * ropll_hw.sdm_num,
+-			      16 * ropll_hw.sdm_deno *
+-			      (ropll_hw.sdc_deno * ropll_hw.sdc_n - ropll_hw.sdc_num));
++			      ropll_hw.pms_mdiv * ropll_hw.sdm_num, val);
+ 
+ 		if (ropll_hw.sdm_num_sign)
+ 			fout = fout - sdm;
+
+-- 
+2.55.0
+
 
