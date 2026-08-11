@@ -4,78 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D7A1C5B56A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 19:23:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9BB0C5AC67
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 19:27:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BeGshA0Vgo+UzbU0fiiao63/SMTHgTeOeOGAfbCNRM8=; b=XalXGvV+5eclOrpD4lxk2rNYaF
-	dvtIqQAAg2q48i158RDxVXIiR1AdjJARoGo+JaAj27W1cKwMIKI0YUR7bXSzZM7wsED2lwuygL+NO
-	c+9tf0JI/7fBw28vfrT+X/p2PSlST5MJiqgEjECBztfonNAtXe/fX73biQZl8xFNMq4YxBExI3A/d
-	TLhQG/m1788Q40RbOLqlWHOuETOY718RlvS2CiUFnYQPLIk+vI39KRMLAIzSHUmJAnnAOB9csV/kQ
-	e7sB+y2E+s0NwU2sljzXgTyyWpSMJ354nVEIsom/hoK5DRd0tIc+Cya6fOO6T8hMrpC23O/I0qcJ3
-	T2RKvS3g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8CJ6QNSqhWJGSffyTY/ffGanQulWe1yCj+00GIgVmXg=; b=tJyVdxMfNGhzWVzVF/Ct1Jysu7
+	t8NAVj3UX5MzuvSCP6l1kf7GTbJg0Dgt9/IrCelB/5uq6thgaJsgeNgOrUVlkpv4W8KO26axf9TQL
+	H5FsMGtXip/7661SFbhI1hA6YyXFaIlR66v9rhjLiI1X2vR2eW86Ve6oJyYdCqhYfT/n/K14q9g25
+	9NpfXldInQZ+SENA/DKDjf3tD8Y1NlMFL0f7jFwfSvv7X0EOzCONsBcotl6BpajmumgY5BEFIPyyY
+	dzW+TcSqYo3HeL9scqhXhSJyRO0E49BOXpfmnnK5nJWbtBppOHAhJmN6mgXN36OH6BbIVSOxYEcNN
+	0w6sWz0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wts4T-0000000EpZv-2N36;
-	Tue, 11 Aug 2026 19:23:33 +0000
-Received: from mail-ej1-x648.google.com ([2a00:1450:4864:20::648])
+	id 1wts80-0000000Epva-0UnN;
+	Tue, 11 Aug 2026 19:27:12 +0000
+Received: from mail-qt1-x82f.google.com ([2607:f8b0:4864:20::82f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wts4R-0000000EpZ1-1YkZ
+	id 1wts7x-0000000Epuw-1L5p
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 19:23:32 +0000
-Received: by mail-ej1-x648.google.com with SMTP id a640c23a62f3a-c15eb4015e7so9459466b.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 12:23:30 -0700 (PDT)
+	Tue, 11 Aug 2026 19:27:10 +0000
+Received: by mail-qt1-x82f.google.com with SMTP id d75a77b69052e-51c08df8513so2363411cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 12:27:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1786476209; x=1787081009; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=BeGshA0Vgo+UzbU0fiiao63/SMTHgTeOeOGAfbCNRM8=;
-        b=L5fXKNV13wIwUXnY540gk1x7QqdlAyOCeuDCP6Yu7kp5bmgHhGl4WVNSA1Gco8Ybqk
-         /LKeP7bKRzBKNx7IMuYAW0F11fZBpNL4hdynMPRuQBHOxYNeMN4+vHBZrPoCz1EnxiuP
-         VJgs4h60RjG53KPwi5h/E79nvpNPr5nsG35jjQRin1WURr4QrYvcjpzIOIBKOWoxdbDK
-         N6DDmLgkEjqO96mb+UoPUXSUApFK5zdf+hXnjPJf70KgiymX5e2z91n/Y1+dcL9WQqrZ
-         Py1GCprLjlCI9mSMs9CL34cATZdhw1bysmXNuJNTi5F9ZJ/cKrl0W5hew2WQyS2MD2Uy
-         9JbQ==
+        d=riscstar-com.20251104.gappssmtp.com; s=20251104; t=1786476428; x=1787081228; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=8CJ6QNSqhWJGSffyTY/ffGanQulWe1yCj+00GIgVmXg=;
+        b=Rk8t4frC/TRVzLTlh+Nlc7qr3S1LT+jE/OxJ3YT0TC8eEQHJ5aoFParAGliOm2+N7C
+         bgrtgrHjLpS+pCjPYlRr+u3QLJvrrHsoXd/HL9HvKWqd+0zIHXC5cmzgu+JAXFRJM+ZS
+         3Z6Pmw6ricJugmdOB/8lld9dpx57U5fyorFJ3BOvFxmF7GyEh+DdF9i7nMwskAdueOIg
+         CvvhOkVWxJiV+rzhe7Cfk/8FTXHTx3Eg28SK1XNiXdfT6KcX8ZvPhDIqWY5vG9KE7S5j
+         a6Fnx5GR7qsPtIbZv8wzMGVAcgZZRG047vQ/Rms2h6Qc2ew4LcIk1FsGlyc/i3Dg92X8
+         Of7g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786476209; x=1787081009;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20251104; t=1786476428; x=1787081228;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=BeGshA0Vgo+UzbU0fiiao63/SMTHgTeOeOGAfbCNRM8=;
-        b=DD4kjMo1aPSeGnzh9w56MXQWqCbvEZ2uRUmX1QkT2Y2AZMieuEtCWeDWqiQSMafsom
-         uQQkpCc9t13DRBEjUkXyVi3CtyQKeEz3isbcynLGlGScQhH9azBmaIx7XS7wmSZzxmy6
-         iqXy1FxCCo1PY103wJhQa54YWn3JIqguf/6CkzpWzzkhW02LZZlhV+21MRmb7FGvqi2u
-         gsi27e+0y1Jtmf0b6afjv8qFj7WQnlSNGp6mlv1AJhJrugTNWka+10WHL9xrkjbBNGtW
-         1ZzphkpyIGJuGPxKdQ1uqDFigVRxl2OW/hXOhdSjueh/qM0TPRdewcK1xrVnL/zOCzNk
-         Spgg==
-X-Gm-Message-State: AOJu0YyrMhvt2rb+6+RCwuwnFzLwMtX0JqPkiWMgAfllNo01/0Gz3kp6
-	GE6AEUJ4p4puMbVlwHB2AgP2BF3YUyEKx9FncjYDo2jZ1tgnJU8I4gm4n23nmG3TyKNQygVrJAG
-	y7C6nE0JbKMuLHVKN+Q==
-X-Received: from ejcyl12.prod.google.com ([2002:a17:907:bc8c:b0:c12:9029:1b1e])
- (user=tarunsahu job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:907:c16:b0:c20:7cb1:9046 with SMTP id a640c23a62f3a-c20e6072f0fmr297617666b.8.1786476208788;
- Tue, 11 Aug 2026 12:23:28 -0700 (PDT)
-Date: Tue, 11 Aug 2026 19:23:28 +0000
-In-Reply-To: <9huzldaczcr4.fsf@tarunix.c.googlers.com>
-Mime-Version: 1.0
-References: <9huzldaczcr4.fsf@tarunix.c.googlers.com>
-Message-ID: <9huzcxvotqa7.fsf@tarunix.c.googlers.com>
-Subject: Re: QNS: ARM64: Cache coherency while doing Kexec for KHO
-From: tarunsahu@google.com
-To: Pasha Tatashin <pasha.tatashin@soleen.com>, Pratyush Yadav <pratyush@kernel.org>, 
-	Mike Rapoport <rppt@kernel.org>, will@kernel.org, changyuanl@google.com, 
-	Alexander Graf <graf@amazon.com>, mark.rutland@arm.com, jgg@nvidia.com, dmatlack@google.com, 
-	skhawaja@google.com
-Cc: linux-arm-kernel@lists.infradead.org, kexec@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+        bh=8CJ6QNSqhWJGSffyTY/ffGanQulWe1yCj+00GIgVmXg=;
+        b=WorSGJmchw7wNPXIyVplWdkQ9Zpt3jWVWyL2I8ava5X2f8WihXKVQntRlYYc9ku/sB
+         H9w4bREEkO2tCC7jSoyhXg2P/8o7jT4SLih5wdbmgtBlGk6eVaialjYn8UiTOZqGGGVm
+         MH4/mPGE6cIcT+4CjdIKi6I8ZimTtbJcVoBLeJi3TBcGCAfMulJ60L/uwQc24ZlhZCJh
+         cXOHd+m0QbUJu1aTlKp/AUUwIPU/dtdds9ujlkPlI5oulsddFQgNxzOYTNqESTSxU2+m
+         QAcUkytmu6l+aou4eHgKiuwFniwIJgOipaHaeUBsK8qSdRLELhirBuj/ZOixGh8gGgHH
+         XvUA==
+X-Forwarded-Encrypted: i=1; AHgh+Ro6xwA2BhSkF7YrGw5+oODVjnJPbWbHejiylTTzb/aXKJ1GH/HHKOs+R5AmWZkERh1OB4PbdvAt5GFr75J/q1Y4@lists.infradead.org
+X-Gm-Message-State: AOJu0YycIIZmYoyAXWIW1O+AIR5WMATewtytxlCIKo5Cuwh0d72l6hAS
+	2QtyaGUDjewX6H6BiYWM2goVEReOLOYAFXvF2B/U5YiemaRLxmK0vwKKc9YHBUxAtD1GxgDdt0I
+	lhVjkJfE=
+X-Gm-Gg: AR+sD10mN23E0kHqWn7A8a116nhVnZtXN/aG/LkJbM8XQUbQQ6jvyg9E2p81jWjpN94
+	BZiLyCQT3elsg3Mrq1IS7l+H6jp9BHoKADE7W2+kBg3pvJT2Rkq7oUcKV53G9TKYvX8vdx8te7q
+	CTyWBkOw82rV/HxjCAP8JEENdMB7yW0+w3YJ/wwNBJJc7WgbtyKQTTJehF0O0Zx3QVXp+L7btGN
+	YShkvOMYW47dZSFqYtHEXXW1OWcuSqYmnqjzZ+whodOfFPyYaOZukOe4kgvfyiyEWey9I0VJ20d
+	6HdN3ZIiy9Y5rd3/DS5SSJsAcwLIavpg/7Hv3wbqAj0RUuS1sTDK8utTPsMUd7qeqlH4pIeXwkh
+	qCNlbWaqaRR4alT5gwjp2yl6VXA3ug4PqVblJkXv3eIlcLnYcpGHYJFiQEgnjMVizVrL+ZjoZ0L
+	WurFqIcDlNESfzLgqPjLe06uEEwonRvaG5gcUR7ClZbTnnlivfiChESslnWHk2U941nXGIKLRFK
+	ZY=
+X-Received: by 2002:a05:622a:5592:b0:51c:22c5:daf4 with SMTP id d75a77b69052e-52d58614af4mr54547001cf.28.1786476427825;
+        Tue, 11 Aug 2026 12:27:07 -0700 (PDT)
+Received: from zippy.localdomain ([73.62.185.64])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-52d61a399c8sm3228451cf.0.2026.08.11.12.27.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 11 Aug 2026 12:27:07 -0700 (PDT)
+From: Alex Elder <elder@riscstar.com>
+To: maxime.chevallier@bootlin.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com
+Cc: mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	linux-stm32@st-md-mailman.stormreply.com,
+	netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Sashiko <sashiko-bot@kernel.org>
+Subject: [PATCH] net: stmmac: use dma_addr_t for DMA addresses
+Date: Tue, 11 Aug 2026 14:27:02 -0500
+Message-ID: <20260811192703.1765416-1-elder@riscstar.com>
+X-Mailer: git-send-email 2.53.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_122331_420762_324E66C6 
-X-CRM114-Status: GOOD (  13.47  )
+X-CRM114-CacheID: sfid-20260811_122709_370877_DC2DB2A0 
+X-CRM114-Status: GOOD (  13.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,30 +107,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+In jumbo_frm() (implemented in both "chain_mode.c" and "ring_mode.c"),
+an unsigned integer local variable is used to hold the value returned
+by dma_map_single().  On systems where a dma_addr_t is 64 bits, the
+subsequent dma_mapping_error() check of the returned value operates
+only on the low 32 bits (whose high bit won't be sign-extended).  In
+this case, dma_mapping_error() would return 0 (no error) even if there
+were one.
 
-+ Added more folks to the lists
+Fix this in both spots by using a dma_addr_t for the local variable.
 
-Tarun Sahu <tarunsahu@google.com> writes:
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Link: https://lore.kernel.org/linux-devicetree/20260606010122.21A211F00899@smtp.kernel.org/
+Signed-off-by: Alex Elder <elder@riscstar.com>
+---
+ drivers/net/ethernet/stmicro/stmmac/chain_mode.c | 3 ++-
+ drivers/net/ethernet/stmicro/stmmac/ring_mode.c  | 3 ++-
+ 2 files changed, 4 insertions(+), 2 deletions(-)
 
-> Hi,
->
-> I have a question regarding cache maintenance for Kernel Handover (KHO)
-> preserved memory across kexec reboots on arm64.
->
-> During kexec, all other CPUs gets hot-unplugged where they flush all
-> of their caches so there will be no issues with any KHO data preserved
-> having caches on these CPUs.
->
-> But CPU0 still has not been flushed its D-cache (Is this correct?) and
-> it will only do flushing for specific area by kexec_segment_flush().
->
-> So for KHO preserved memory, if its caches still marked dirty on CPU0
-> they will not be flushed?
->
-> Is my understanding correct? or AM I missing something?
-> Also if this true, This will be a problem?
->
-> PS: Pardon my less knowledge on ARM64 cache coherency.
->
-> ~Tarun
+diff --git a/drivers/net/ethernet/stmicro/stmmac/chain_mode.c b/drivers/net/ethernet/stmicro/stmmac/chain_mode.c
+index fc04a23342cfc..ec25193d287bb 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/chain_mode.c
++++ b/drivers/net/ethernet/stmicro/stmmac/chain_mode.c
+@@ -20,9 +20,10 @@ static int jumbo_frm(struct stmmac_tx_queue *tx_q, struct sk_buff *skb,
+ 	unsigned int nopaged_len = skb_headlen(skb);
+ 	struct stmmac_priv *priv = tx_q->priv_data;
+ 	unsigned int entry = tx_q->cur_tx;
+-	unsigned int bmax, buf_len, des2;
++	unsigned int bmax, buf_len;
+ 	unsigned int i = 1, len;
+ 	struct dma_desc *desc;
++	dma_addr_t des2;
+ 
+ 	desc = tx_q->dma_tx + entry;
+ 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/ring_mode.c b/drivers/net/ethernet/stmicro/stmmac/ring_mode.c
+index 78fc6aa5bbe95..664d8cfb58cdc 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/ring_mode.c
++++ b/drivers/net/ethernet/stmicro/stmmac/ring_mode.c
+@@ -20,8 +20,9 @@ static int jumbo_frm(struct stmmac_tx_queue *tx_q, struct sk_buff *skb,
+ 	unsigned int nopaged_len = skb_headlen(skb);
+ 	struct stmmac_priv *priv = tx_q->priv_data;
+ 	unsigned int entry = tx_q->cur_tx;
+-	unsigned int bmax, len, des2;
++	unsigned int bmax, len;
+ 	struct dma_desc *desc;
++	dma_addr_t des2;
+ 
+ 	if (priv->extend_desc)
+ 		desc = (struct dma_desc *)(tx_q->dma_etx + entry);
+
+base-commit: 31397cf1819210bd63fa3d2c7d8c24f7c8667d99
+-- 
+2.53.0
+
 
