@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E471C5AC67
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8FE1C5B572
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 14:02:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=onpTqTBmXiqGXmTMVV6/RDQ2iBB2lu9k9fuTRvKjlDY=; b=eDsOdDBKFD3oshag8EakuwAjdc
-	P4B9tkoUp+BxcHwqS5jOabEzsNCgrWqgq34V1ZsDK4zyNrktNXkG7YupUPXmZW2LVxjWS7CviGDYN
-	V3CDkoTM0/nO5VuGBOWQ1Cw9D3hxcCmEzCMcWxN1MxavSxzpWeN9G/9mdd7ElhZhbDtrmXjqnI5lu
-	gNUu9tDeoaVFpIAEXtS2UqeiHrPaY9esXZYNvvCmzlVn+5GhzeqHVxJUtjAtsvkEQ7TjQPCcfDfiA
-	UvD5skwP/yIh2ixtsC5WvJvOYUM+2rRCa+IW56Em6B4zhRm8UDmPpl5AJ+dqE/GW5rScLAXoS7OMM
-	mBYVLouw==;
+	bh=YU9FiiOOoo487BSZG02G7hwJSOW9m0RKnWb9zznl0MQ=; b=D4e+vBuw57jAPsi3MlR/H9Pq1J
+	L9Fk1CcK5945hc14dPdrLU3cZo34iFBiKHK/iWMC1PuZQR9sqQ3z8y9F/8bXxHPO4S5mtJJRID6SZ
+	tgTT3HNjVWMhaetFJUnj/3WDaBK+IhvzlPhD/3xc1FIwxdio8sGqtRKrJOK+54cIn3q8UDZq2Tg9y
+	bdpAcnwh0h/Fi/64M0cTtkJUWQ2KZPMaM3HqQtoMqovW+6W07Evk3UXAZeMgINrZtl4yKBa4qLjYd
+	EQPbezsQqBERjSh797CDDHOg87dn1zNrjae0PetDOC9YdOULbNkeOFNHH7JVC2qd9Abb1h7ZfaFVQ
+	gtg9of8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtn3a-0000000E9eH-3JGR;
+	id 1wtn3a-0000000E9eZ-3yHG;
 	Tue, 11 Aug 2026 14:02:18 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtn3U-0000000E9aO-2P5V
+	id 1wtn3X-0000000E9cK-217C
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 14:02:13 +0000
+	Tue, 11 Aug 2026 14:02:15 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5723543F67;
+	by sea.source.kernel.org (Postfix) with ESMTP id 412A2434BB;
+	Tue, 11 Aug 2026 14:02:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BEFB81F00A3A;
 	Tue, 11 Aug 2026 14:02:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D38A11F00A3E;
-	Tue, 11 Aug 2026 14:02:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786456932;
-	bh=onpTqTBmXiqGXmTMVV6/RDQ2iBB2lu9k9fuTRvKjlDY=;
+	s=k20260515; t=1786456935;
+	bh=YU9FiiOOoo487BSZG02G7hwJSOW9m0RKnWb9zznl0MQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=C8e9PWNP5oKxdZ7Ic5tSUjOzX+rUytL1bm3B3sbQQlna2jgz3u4gsXb/ImrXY9jxj
-	 kM/NziwVbrf9tJ9qQaV61ttVe6YLr/jS8sqY8h4yydG3xhSgppdk6/EW6wxKKtmrIa
-	 uEpgnn+Y7IWzsz/Iiq4L8sVL41xOUbTz+3uIqcMJ7k/i3zTKumb4TMa42J1uRLyi5P
-	 aCCXT20tVvHeJ4Ma3I4xJUaNNVlI0vSb6jd6q/dxVbaJlHLUIHOlKk5mQCeyiqFTnV
-	 qyq8m92jAkitQPUIE/MoupvpPkdso4xM0e7ltndjsPv5KUAOJN9yJsCkcux6pyLkDP
-	 fvybetvm8932A==
+	b=BxoUlsKlyf/vU0w7o07D5edKXov2Qygn4lwPIvQIweyImiolYPayUlZ70zfIL1fKw
+	 syZpS8G85DxmLPPhlxP1ZodfYyHUs7+uX+CiKcvmPK14ImkX9OpEMF2gk91wtAguGB
+	 8g+TNeZH4FTDEt7MkACD3xIQ+8IfMPJXt9OYh6MqpV9qKbk5t8IllSf/XIY6J6dy7Q
+	 jZqXR1l/+xdFeCtcVifWo0Nyku7ljNNF/yYUt3OWnvAgiw7nDvF6l2NwJ0EhVoDIvf
+	 DnG3b8G2pnilQsZWQE4bhq1wVDcnB5DPMJ9/kAqQNbcEAf1KXxVU0Ug4Z2gBAKkzoq
+	 bxMnEpLAgzFCw==
 From: Will Deacon <will@kernel.org>
 To: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org,
@@ -55,9 +55,9 @@ Cc: linux-kernel@vger.kernel.org,
 	Oliver Upton <oupton@kernel.org>,
 	Herbert Xu <herbert@gondor.apana.org.au>,
 	Marc Zyngier <maz@kernel.org>
-Subject: [PATCH 11/12] arm64: image: Remove endianness handling for generating image header
-Date: Tue, 11 Aug 2026 15:01:30 +0100
-Message-ID: <20260811140132.22778-12-will@kernel.org>
+Subject: [PATCH 12/12] arm64: Kbuild: Remove vestigial big-endian support
+Date: Tue, 11 Aug 2026 15:01:31 +0100
+Message-ID: <20260811140132.22778-13-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260811140132.22778-1-will@kernel.org>
 References: <20260811140132.22778-1-will@kernel.org>
@@ -77,97 +77,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since big-endian support for arm64 depends on BROKEN, we don't need to
-bother jumping through hoops to generate a little-endian kernel image
-header for a big-endian target. We can just ignore the possibility
-instead.
+Since 1cf89b6bf660 ("arm64: Kconfig: Make CPU_BIG_ENDIAN depend on
+BROKEN"), CONFIG_CPU_BIG_ENDIAN has depended on BROKEN for arm64.
+
+Remove the last traces of its existence and unconditionally force a
+little-endian kernel build.
 
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- arch/arm64/include/asm/assembler.h | 11 -----------
- arch/arm64/kernel/head.S           |  4 ++--
- arch/arm64/kernel/image.h          | 24 ++----------------------
- 3 files changed, 4 insertions(+), 35 deletions(-)
+ arch/arm64/Kconfig  | 35 ++++-------------------------------
+ arch/arm64/Makefile | 12 ++----------
+ 2 files changed, 6 insertions(+), 41 deletions(-)
 
-diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/assembler.h
-index 45279e577ff5..d3ce96c7b8ec 100644
---- a/arch/arm64/include/asm/assembler.h
-+++ b/arch/arm64/include/asm/assembler.h
-@@ -525,17 +525,6 @@ alternative_else_nop_endif
- #define EXPORT_SYMBOL_NOKASAN(name)	EXPORT_SYMBOL(name)
- #endif
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index b3afe0688919..84cf009c0021 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -73,7 +73,7 @@ config ARM64
+ 	select ARCH_SUPPORTS_HUGETLBFS
+ 	select ARCH_SUPPORTS_MEMORY_FAILURE
+ 	select ARCH_SUPPORTS_SHADOW_CALL_STACK if CC_HAVE_SHADOW_CALL_STACK
+-	select ARCH_SUPPORTS_LTO_CLANG if CPU_LITTLE_ENDIAN
++	select ARCH_SUPPORTS_LTO_CLANG
+ 	select ARCH_SUPPORTS_LTO_CLANG_THIN
+ 	select ARCH_SUPPORTS_CFI
+ 	select ARCH_SUPPORTS_ATOMIC_RMW
+@@ -223,7 +223,7 @@ config ARM64
+ 	select HAVE_FUNCTION_ARG_ACCESS_API
+ 	select MMU_GATHER_RCU_TABLE_FREE
+ 	select HAVE_RSEQ
+-	select HAVE_RUST if RUSTC_SUPPORTS_ARM64
++	select HAVE_RUST
+ 	select HAVE_STACKPROTECTOR
+ 	select HAVE_STATIC_CALL if CFI
+ 	select HAVE_SYSCALL_TRACEPOINTS
+@@ -262,10 +262,6 @@ config ARM64
+ 	help
+ 	  ARM 64-bit (AArch64) Linux support.
  
--	/*
--	 * Emit a 64-bit absolute little endian symbol reference in a way that
--	 * ensures that it will be resolved at build time, even when building a
--	 * PIE binary. This requires cooperation from the linker script, which
--	 * must emit the lo32/hi32 halves individually.
--	 */
--	.macro	le64sym, sym
--	.long	\sym\()_lo32
--	.long	\sym\()_hi32
--	.endm
+-config RUSTC_SUPPORTS_ARM64
+-	def_bool y
+-	depends on CPU_LITTLE_ENDIAN
 -
- 	/*
- 	 * mov_q - move an immediate constant into a 64-bit register using
- 	 *         between 2 and 4 movz/movk instructions (depending on the
-diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
-index 8951ce693552..684896390258 100644
---- a/arch/arm64/kernel/head.S
-+++ b/arch/arm64/kernel/head.S
-@@ -61,8 +61,8 @@
- 	efi_signature_nop			// special NOP to identity as PE/COFF executable
- 	b	primary_entry			// branch to kernel start, magic
- 	.quad	0				// Image load offset from start of RAM, little-endian
--	le64sym	_kernel_size_le			// Effective size of kernel image, little-endian
--	le64sym	_kernel_flags_le		// Informative flags, little-endian
-+	.quad	_kernel_size_le			// Effective size of kernel image, little-endian
-+	.quad	_kernel_flags_le		// Informative flags, little-endian
- 	.quad	0				// reserved
- 	.quad	0				// reserved
- 	.quad	0				// reserved
-diff --git a/arch/arm64/kernel/image.h b/arch/arm64/kernel/image.h
-index 5c10ca773363..208843f96b4d 100644
---- a/arch/arm64/kernel/image.h
-+++ b/arch/arm64/kernel/image.h
-@@ -13,21 +13,6 @@
+ config CLANG_SUPPORTS_DYNAMIC_FTRACE_WITH_ARGS
+ 	def_bool CC_IS_CLANG
+ 	# https://github.com/ClangBuiltLinux/linux/issues/1507
+@@ -1542,28 +1538,6 @@ config ARM64_LPA2
+ 	def_bool y
+ 	depends on ARM64_PA_BITS_52 && !ARM64_64K_PAGES
  
- #include <asm/image.h>
- 
--/*
-- * There aren't any ELF relocations we can use to endian-swap values known only
-- * at link time (e.g. the subtraction of two symbol addresses), so we must get
-- * the linker to endian-swap certain values before emitting them.
-- *
-- * Note that, in order for this to work when building the ELF64 PIE executable
-- * (for KASLR), these values should not be referenced via R_AARCH64_ABS64
-- * relocations, since these are fixed up at runtime rather than at build time
-- * when PIE is in effect. So we need to split them up in 32-bit high and low
-- * words.
-- */
--#define DEFINE_IMAGE_LE64(sym, data)				\
--	sym##_lo32 = (data) & 0xffffffff;			\
--	sym##_hi32 = (data) >> 32
+-choice
+-	prompt "Endianness"
+-	default CPU_LITTLE_ENDIAN
+-	help
+-	  Select the endianness of data accesses performed by the CPU. Userspace
+-	  applications will need to be compiled and linked for the endianness
+-	  that is selected here.
 -
- #define __HEAD_FLAG(field)	(__HEAD_FLAG_##field << \
- 					ARM64_IMAGE_FLAG_##field##_SHIFT)
+-config CPU_BIG_ENDIAN
+-	bool "Build big-endian kernel"
+-	depends on BROKEN
+-	help
+-	  Say Y if you plan on running a kernel with a big-endian userspace.
+-
+-config CPU_LITTLE_ENDIAN
+-	bool "Build little-endian kernel"
+-	help
+-	  Say Y if you plan on running a kernel with a little-endian userspace.
+-	  This is usually the case for distributions targeting arm64.
+-
+-endchoice
+-
+ config NR_CPUS
+ 	int "Maximum number of CPUs (2-4096)"
+ 	range 2 4096
+@@ -1801,7 +1775,6 @@ config KUSER_HELPERS
  
-@@ -41,13 +26,8 @@
- 				 __HEAD_FLAG(PAGE_SIZE) | \
- 				 __HEAD_FLAG(PHYS_BASE))
+ config COMPAT_VDSO
+ 	bool "Enable vDSO for 32-bit applications"
+-	depends on !CPU_BIG_ENDIAN
+ 	depends on (CC_IS_CLANG && LD_IS_LLD) || "$(CROSS_COMPILE_COMPAT)" != ""
+ 	default y
+ 	help
+@@ -2263,7 +2236,7 @@ menu "ARMv9.6 architectural features"
+ config ARM64_LSUI
+ 	bool "Support Unprivileged Load Store Instructions (LSUI)"
+ 	default y
+-	depends on AS_HAS_LSUI && !CPU_BIG_ENDIAN
++	depends on AS_HAS_LSUI
+ 	help
+ 	  The Unprivileged Load Store Instructions (LSUI) provides
+ 	  variants load/store instructions that access user-space memory
+@@ -2468,7 +2441,7 @@ config EFI_STUB
  
--/*
-- * These will output as part of the Image header, which should be little-endian
-- * regardless of the endianness of the kernel. While constant values could be
-- * endian swapped in head.S, all are done here for consistency.
-- */
- #define HEAD_SYMBOLS						\
--	DEFINE_IMAGE_LE64(_kernel_size_le, _end - _text);	\
--	DEFINE_IMAGE_LE64(_kernel_flags_le, __HEAD_FLAGS);
-+	_kernel_size_le		=  _end - _text;		\
-+	_kernel_flags_le	= __HEAD_FLAGS;
+ config EFI
+ 	bool "UEFI runtime support"
+-	depends on OF && !CPU_BIG_ENDIAN
++	depends on OF
+ 	depends on KERNEL_MODE_NEON
+ 	select ARCH_SUPPORTS_ACPI
+ 	select LIBFDT
+diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
+index 6b005c8fef70..04e1a0d12f8f 100644
+--- a/arch/arm64/Makefile
++++ b/arch/arm64/Makefile
+@@ -119,20 +119,12 @@ KBUILD_CFLAGS	+= -ffixed-x18
+ KBUILD_RUSTFLAGS += -Zfixed-x18
+ endif
  
- #endif /* __ARM64_KERNEL_IMAGE_H */
+-ifeq ($(CONFIG_CPU_BIG_ENDIAN), y)
+-KBUILD_CPPFLAGS	+= -mbig-endian
+-CHECKFLAGS	+= -D__AARCH64EB__
+-# Prefer the baremetal ELF build target, but not all toolchains include
+-# it so fall back to the standard linux version if needed.
+-KBUILD_LDFLAGS	+= -EB $(call ld-option, -maarch64elfb, -maarch64linuxb -z norelro)
+-UTS_MACHINE	:= aarch64_be
+-else
+ KBUILD_CPPFLAGS	+= -mlittle-endian
+ CHECKFLAGS	+= -D__AARCH64EL__
+-# Same as above, prefer ELF but fall back to linux target if needed.
++# Prefer the baremetal ELF build target, but not all toolchains include
++# it so fall back to the standard linux version if needed.
+ KBUILD_LDFLAGS	+= -EL $(call ld-option, -maarch64elf, -maarch64linux -z norelro)
+ UTS_MACHINE	:= aarch64
+-endif
+ 
+ ifeq ($(CONFIG_LD_IS_LLD), y)
+ KBUILD_LDFLAGS	+= -z norelro
 -- 
 2.55.0.679.g6767b8d81c-goog
 
