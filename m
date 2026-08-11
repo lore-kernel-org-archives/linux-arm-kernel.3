@@ -4,107 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE245C5AD7B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 00:51:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 954CEC5AD55
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 01:09:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TU+gUe471oYilrCT6YTzzByDjScHGGMPSU9HnUH7Czo=; b=L0pBk6uXiF2UNnTo78voCVjCZf
-	mt4suiV4IGLHACDVT+DLDia3V63WXQKGpxmtwzWAAN99/QN9dl2lHA6lKnxffdcCb4xxIcf1Bg55O
-	/HQdBa3JoK8jELICOhRvJDuxeMwvO/fd5OyP0cZqCRNCU2wzr9urGIHYE7XzdB7z7g+tEuIVopuR3
-	rMxhBaw66G3psHZAAKLptlSjAJmtgFWjBSwrB3tyepDz8baKvNfLrU0TapXZ8qZ3IJTf8ZlN+sjQd
-	a1vUSMTZz02ly0ELRoKWHmxo9xSYUe9cJ9wEmcVkFB1zSUVBe+pqQgEReYo7jb9rFmz3oC69bsnFU
-	AWVvuf8g==;
+	bh=5ox2pSQcRMCfh620cnCM//FeEtDAYOQ5T3MWVhlTcio=; b=B7Ci8Lbhzky8XKZqooFRzaO4QJ
+	O976G9sPKVxRf+ZblqYgTPGQwpH9l7aLPjxJ7+392GTUwvJ9o215P/fl+dr0RnfONbKP9XZGMILvg
+	+bavRqzgw9qE3QzyJmtscxciRwHx/kX3FEuvVeZetTSXSLomSw9VN7glfXoPbiRue4XNqzT4OWQ5I
+	TltoKqJXk9m1cir51YiJ1KqR3agMkmbar1G4gN8YRZ/wHL9bKMJ3Y22spnZA1ChCKTT++jDS/w4SP
+	VJcSbQw/Xs2Ym5Yv5NjFEp17sH9wBLtfeCIAVU/2r43JxiaU6Vhu+GWVZUmzJsalo/mjNzgDZOwwV
+	Ce5tESsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtaiL-0000000D5eM-1Zd2;
-	Tue, 11 Aug 2026 00:51:33 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1wtazS-0000000D6Nc-2gyc;
+	Tue, 11 Aug 2026 01:09:14 +0000
+Received: from mail-m128196.netease.com ([103.209.128.196])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtaiI-0000000D5ds-2VHk
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 00:51:32 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-47f7854678cso1657290f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 17:51:29 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1786409488; cv=none;
-        d=google.com; s=arc-20260327;
-        b=s1BeWDo/IiTQNfItRCz2P9vmPL8kT/XsEHOTjVnNqeK0SC3Xufeqevm1sOUr54lR4h
-         CQ7HAPSs+NWp89LZL8Z3jRzCRy7QyPpQYw4MUt0s6Lve/sPcifIyZxFIGRWwG7i7rT/3
-         6qZ6xOsnzER3KR07PJN9Prb7plXyNo+QrEEhsy5JoE7OdubgODN1aK8PRx98CEu7Ia3T
-         RVh7r12bd6ov6Au+errZ0JujRBCR+Rjx2uLUxooLq2uE4PVgs8WnmzPBQ0eNfjsmdg5R
-         PBrjUAe/KbFPwRzW5b8ssA8/7QZui4ZJ3kjniDNsSvYF2ifIWCORAykIkVXy3Vxelc8U
-         zL9g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=TU+gUe471oYilrCT6YTzzByDjScHGGMPSU9HnUH7Czo=;
-        fh=K7HT+kafDhf7Xc4EGhXmneKrI/DEuxsmnKh9vwik1LA=;
-        b=glh/HIq4S+cT5dKlKnVazo856XojZwYqcn3fZnUxoDnjwchCIWpllhT6RPnOzaFRG3
-         IbuzQYkvkIMOGQTUp57Wrrn7I8JNu5NzieR/kQzsI5aJ3tmf/6gSinhOMK0ZSMQ6DLMn
-         o/JSlki0wjcS+uDgg5qGYCWebYOdFqfbrlKK7OtTq6L5aBLWhrhG5DNBbxrIHMAgOSTX
-         4rUM+iYyMKJhSWALBg0D926vQUPuK6f9UduwQaLrAVR2KDfGkyoUK4Qtn387p+pwf0kd
-         ioZR733pnVJrCnuBR+a6HehPbM8wJvr/p1/q9+q1Y/xydVZLXLLoSKuhuitK4DJ9RIBB
-         SzPQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bourg.net; s=google; t=1786409488; x=1787014288; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=TU+gUe471oYilrCT6YTzzByDjScHGGMPSU9HnUH7Czo=;
-        b=Vgm2pVe88YJW7Z9SmLO8KhK/Bi4OtUVo42eaOhFh885A9FDkuYKj0DHKp6I3LlXS65
-         svrtq3U87Ggu6HehkJP6lTpfpKiEz81vYyK6ccN44UJ2IwoSgy5s6EESWK1FJgO3YO+G
-         ZplcNhdHYfptsr56U7MEYocRUIPwoW/z5byE0=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786409488; x=1787014288;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=TU+gUe471oYilrCT6YTzzByDjScHGGMPSU9HnUH7Czo=;
-        b=Np8GyUF10JiX1Ursy4A2dSqG9i3Dq5gU+qf3kUi1WcWwC384t6nC/NEo7btup9PtB/
-         VALjxfNbviT3mukcgQ94lp9M6TNG3esSSC0gPG9/uzNkFtXPbdy2jAUq1BOPYlmR3KGa
-         dogXeWzUYZ2AfANBpimOa3OIXc2+l6VYQwxBqtogoTeXy89SscpZS4UIDnNSbOMunqTU
-         7Frh8GMhtvOIaA+D2Q84YTG6pDbdYBhvNa1X1L5rHK6HNAsmCa+DjM3N2r5QqG3peLBX
-         E1NgxRTa0Y6blR0z3IFISkcyBMyddVC1Japr3bjPcC9hs5pRwaC307DjFwyYKVv9EdHO
-         CjHQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rp4OPtMc5J2Ee9ZdC3EpM6XqD4/G5YWo36AgFahBcSWmjqoVIJUFueO5tqKCvzi3uBtmYDClYZy+UApQLVTvGAH@lists.infradead.org
-X-Gm-Message-State: AOJu0YxRhGUJuvJgfQmudn6jNkNhY9DXRT5yCigpOBMvYIgJImlO6A3K
-	y1A3KXUS1yBbj9XM/P/1Qe82cmF4rHzuHcMtTsQbqpogcjKnoEH2rFxjjHzgD9EHiiKJtSjBxit
-	zjbJ4/BjyqOgxgfWg3dVsO/iXcNHngsnpI+Dirtyyf6o7rVKxru2FoHDzrA==
-X-Gm-Gg: AR+sD11wu6Rr7MlIXhii1RItL3HVIl0oyRi7wgxdZnBw2OWtIZaD9wxCo3rIoLPJ9Tk
-	mFcdGutO+iDIwli+G0gvRzW5ydOAR/XzRgWIAc+aWLBzos+rrl8lgBGzGrVK3IJHFlMHRe7nv//
-	rnceAac7CzQflaEjIAxTOcAEElxKGbtcHca0gPEx2U06IhS9UDQl9KGP/g9SZLrPLFvnwQ/bodt
-	yXcMfxt1umOgCsoEqOWmGE1YnD8uZA56urBRzzA8lSy4tObtHPt86DfxC35wvsC0EIw7fYAyMkk
-	eHU8wIEpjC7d0b1ucDthA5wl8WhGYE1eqJl8Cheyo/fRMeX48Vr0lcNA/Aa4I4hCidN1ZpDyL+w
-	z
-X-Received: by 2002:a05:6000:25f5:b0:47f:8810:cc64 with SMTP id
- ffacd0b85a97d-48130ee5cafmr34643521f8f.19.1786409488054; Mon, 10 Aug 2026
- 17:51:28 -0700 (PDT)
+	id 1wtazO-0000000D6Mb-3mPM;
+	Tue, 11 Aug 2026 01:09:13 +0000
+Received: from [172.16.12.90] (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 497cc1d3b;
+	Tue, 11 Aug 2026 09:09:00 +0800 (GMT+08:00)
+Message-ID: <c1571659-0e9c-4d00-b517-c344c2772f9e@rock-chips.com>
+Date: Tue, 11 Aug 2026 09:08:59 +0800
 MIME-Version: 1.0
-References: <20260806000144.3388823-1-gus@bourg.net> <anXMug2_-vZl_pZ7@willie-the-truck>
- <30c5499e-8041-4e39-933b-c5220d53be77@app.fastmail.com> <anmwTDnFR2cgxkqR@willie-the-truck>
-In-Reply-To: <anmwTDnFR2cgxkqR@willie-the-truck>
-From: Gus Bourg <gus@bourg.net>
-Date: Mon, 10 Aug 2026 17:51:16 -0700
-X-Gm-Features: AUfX_mwbCQk-FDI59ImICq7SHb4tBkCUGzUKvFPt1wRrD1_jDiCNvRoPevXtuBc
-Message-ID: <CAKL=SEpvBqMjw2Ts4ODYHCJz0K1axwmtrUGKQEJeb_rvuAQk0A@mail.gmail.com>
-Subject: Re: [PATCH] arm64/efi: Do not call EFI runtime services preemptibly
- under SW PAN
-To: Will Deacon <will@kernel.org>
-Cc: Ard Biesheuvel <ardb@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>, linux-efi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v6 7/9] accel/rocket: add RK3576 NPU (RKNN) support
+To: Jiaxing Hu <gahing@gahingwoo.com>, royalnet026@gmail.com,
+ heiko@sntech.de, tomeu@tomeuvizoso.net, robin.murphy@arm.com,
+ diederik@cknow-tech.com
+Cc: alchark@flipper.net, linux-rockchip@lists.infradead.org,
+ dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260806063413.350184-1-gahing@gahingwoo.com>
+ <20260806063413.350184-8-gahing@gahingwoo.com>
+ <20260807211629.1573228-1-gahing@gahingwoo.com>
+ <4f300b78-d96d-4d98-8819-dc292b0c9b97@rock-chips.com>
+ <20260810104718.1214191-1-gahing@gahingwoo.com>
+Content-Language: en-US
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <20260810104718.1214191-1-gahing@gahingwoo.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-HM-Tid: 0a9fee5d9f0403a7kunm580812a34372e1
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaGh1NVhhMTExPHRgZQ0IYGFYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUJCSU
+	5LVUpLS1VKQktCWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=AhgqQMgoktMUJi3o7cEQ1EXjE1h6vtnke8qGBVEBJXyJDfTCkhJFBq8MVGdaqDT9vTZ56M6MTDOe66Ite3rdCLeZ0M0xfI9/E8D252RhX8EzIQcvcNwD9fp8kw5XsyrUNE9tiwlGaSiDNoUtyt7rrxxO3ZuecyLg7PZ3vsemUqw=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=5ox2pSQcRMCfh620cnCM//FeEtDAYOQ5T3MWVhlTcio=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_175130_757666_5DA2C7B1 
-X-CRM114-Status: GOOD (  31.68  )
+X-CRM114-CacheID: sfid-20260810_180911_511258_DCDA317C 
+X-CRM114-Status: GOOD (  17.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,128 +77,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 10, 2026 at 4:04=E2=80=AFAM Will Deacon <will@kernel.org> wrote=
-:
->
-> On Fri, Aug 07, 2026 at 04:56:00PM +0300, Ard Biesheuvel wrote:
-> >
-> >
-> > On Fri, 7 Aug 2026, at 15:16, Will Deacon wrote:
-> > > On Wed, Aug 05, 2026 at 05:01:44PM -0700, gus bourg wrote:
-> > >> From: Gus Bourg <gus@bourg.net>
-> > >>
-> > >> When PAN is emulated by switching TTBR0_EL1, arch_efi_call_virt_setu=
-p()
-> > >> installs the EFI mm into TTBR0_EL1 via uaccess_ttbr0_enable(), and o=
-nly a
-> > >> return from exception ever puts it back: check_and_switch_context() =
-skips
-> > >> the register write by design ("Defer TTBR0_EL1 setting for user thre=
-ads to
-> > >> uaccess_enable() when emulating PAN"), and __switch_to() does not to=
-uch it
-> > >> either. switch_mm() updates only thread_info->ttbr0.
-> > >>
-> > >> Since commit a5baf582f4c0 ("arm64/efi: Call EFI runtime services wit=
-hout
-> > >> disabling preemption") the runtime call is preemptible, so the EFI w=
-orker
-> > >> can now be scheduled out inside that window. An involuntary preempti=
-on is
-> > >> harmless, because __swpan_entry_el1()/__swpan_exit_el1() save and re=
-store
-> > >> the state around the exception. A voluntary reschedule is not: it pe=
-rforms
-> > >> no return from exception, so the worker resumes with another task's
-> > >> TTBR0_EL1 - or reserved_pg_dir - and the next efi_mm access takes a =
-level 0
-> > >> translation fault.
-> > >>
-> > >> There is such a preemption point in arch_efi_call_virt_setup() itsel=
-f,
-> > >> immediately after the TTBR0 install: __efi_fpsimd_begin() ->
-> > >> kernel_neon_begin() -> put_cpu_fpsimd_context() -> local_bh_enable()=
- ->
-> > >> preempt_check_resched().
-> > >
-> > > Hmm, can we move the ttbr0 toggling until after __efi_fpsimd_begin() =
-so
-> > > that this preemption point doesn't interfere?
-> > >
-> >
-> > Either that, or tweak the logic so that the switch is done eagerly in
-> > this particular case (untested):
-> >
-> > --- a/arch/arm64/mm/context.c
-> > +++ b/arch/arm64/mm/context.c
-> > @@ -266,7 +266,7 @@
-> >          * Defer TTBR0_EL1 setting for user threads to uaccess_enable()=
- when
-> >          * emulating PAN.
-> >          */
-> > -       if (!system_uses_ttbr0_pan())
-> > +       if (!system_uses_ttbr0_pan() || mm_is_efi(mm))
-> >                 cpu_switch_mm(mm->pgd, mm);
-> >  }
->
-> I think I'd prefer to avoid special-casing this, if we can. I was just
-> thinking of the diff below.
->
-> Will
+Hi Jiaxing,
 
-Tested the v2 approach (__efi_fpsimd_begin() before
-uaccess_ttbr0_enable()) on the board that originally reproduced the
-oops: Khadas VIM3, Amlogic A311D (4x Cortex-A73 + 2x Cortex-A53, no
-FEAT_PAN, so CONFIG_ARM64_SW_TTBR0_PAN is in use), EDK2-based UEFI
-firmware, v7.0.12 plus this change alone (my prior workaround removed).
+On 8/10/2026 6:47 PM, Jiaxing Hu wrote:
+> Hi Chaoyi,
+> 
+> Thank you, that settles it, and no apology needed for not reading the
+> series.
+> 
+>> For RK3576:
+>>
+>> - BIT[15:0] task_number
+>> - BIT[16] task_pp_en
+>> - BIT[17] task_count_clear
+>> - BIT[18] task_last_layer_clear
+> 
+> That matches the register trace bit for bit, and it is worth more than
+> the trace, because the trace could only say which word the vendor writes
+> and not what the bits in it are.
+> 
+> BIT[18] is new to me. I was setting it because the vendor's word had it
+> set and clearing it was not something I wanted to try blind. Now it can
+> be named rather than shipped as 0x7 << 16:
+> 
+>   #define PC_TASK_CON_TASK_NUMBER		GENMASK(15, 0)
+>   #define PC_TASK_CON_TASK_PP_EN		BIT(16)
+>   #define PC_TASK_CON_TASK_COUNT_CLEAR		BIT(17)
+>   #define PC_TASK_CON_TASK_LAST_LAYER_CLEAR	BIT(18)
+> 
+> with the RK3588 positions kept beside them, since the two differ only in
+> the width of the first field and that is exactly what made v1 through v6
+> wrong.
+> 
+> One question, if you have a moment. Is task_last_layer_clear meant to be
+> set on every submit, or only on the task that ends a layer? Setting it
+> unconditionally works on RK3576 here, but working and being right are
+> not the same thing, and I would rather not encode a guess in a driver
+> other people will copy from.
 
-Both firmware description modes were exercised (DeviceTree and ACPI
-boots of the same system):
+I think it should be for every submit. That is, when you set task_count_clear,
+you should also set task_last_layer_clear at the same time.
 
-  - 3,000,000 GetVariable calls (three concurrent readers) plus
-    200,000 GetTime calls per mode, under sustained CPU contention
-    (busy-loop load on half the cores to force scheduling in the call
-    window) - i.e. 6.4M calls total across the ACPI and DeviceTree
-    boots of the same system
-  - SetVariable create/write/delete round-trips in both modes
-  - ~15 reboots/power cycles (ResetSystem) and clean shutdowns across
-    the session
+> 
+> Thanks again,
+> Jiaxing
+> 
+> 
 
-Zero efi_call_rts faults and zero "Unable to handle kernel access to
-user memory" events; efivars and the EFI RTC remained functional
-throughout, and poweroff/reboot stayed clean. Under the unpatched
-preemptible path the same board faulted within thousands of calls with
-comparable contention, so this comfortably clears the reproduction
-threshold.
-
-Tested-by: gus bourg <gus@bourg.net>
-
-
->
-> --->8
->
-> diff --git a/arch/arm64/kernel/efi.c b/arch/arm64/kernel/efi.c
-> index 30cd7f804398..0ec90fd1754e 100644
-> --- a/arch/arm64/kernel/efi.c
-> +++ b/arch/arm64/kernel/efi.c
-> @@ -184,6 +184,8 @@ void arch_efi_call_virt_setup(void)
->                 efi_virtmap_load();
->         }
->
-> +       __efi_fpsimd_begin();
-> +
->         /*
->          * Enable access to the valid TTBR0_EL1 and invoke the errata
->          * workaround directly since there is no return from exception wh=
-en
-> @@ -191,8 +193,6 @@ void arch_efi_call_virt_setup(void)
->          */
->         uaccess_ttbr0_enable();
->         post_ttbr_update_workaround();
-> -
-> -       __efi_fpsimd_begin();
->  }
->
->  void arch_efi_call_virt_teardown(void)
->
+-- 
+Best, 
+Chaoyi
 
