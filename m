@@ -4,110 +4,183 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94981C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 14:20:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62DE4C5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 14:21:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=td3YrX4BitSFsJcuxTTJfNltqJvU+UzIl6ht+wT0AfE=; b=bkx+z3p9AlkhQaUzI6w9A19XHF
-	Xt9XTqKrcGKwP+yUbieMRkOGuvzEukPrICkzVu6G2jmho608dLnoxximDrbg2b6Dol1kQBgZFTXbg
-	6xN7G+fAkhEuJeimkQ5rtbqeg/wOMUPn+1wLctDatIGuONMqBnwkKxxoLMlS6gE90EOgLnxo3f8Gj
-	v9GVb/b0Mj3MZE7WXJpWtx5RcDCbWvdBzJ7P5pTEGU00yZc3vVJ4/sXYVt5PZBS6DHf/Smai0c+ZJ
-	IZZRFXZ+wCUAyXsocJfecVxU/FGswNZ2nCNzg+XkZfOwjfPMkVOyJ32Ea98rbqZ1QjS4rBjvN+Ns7
-	u1mDOfag==;
+	bh=RrjR1p5e94lLQchbplo3R4YiG1V4Oqp6E/dcH6AIDOg=; b=brCXZPbeiK3lmgkcRNUQQytIE8
+	Dw5SqHaINS1SaJxXJtcJomyl4gKQUXQtlg2Q9wHV2tVbLnCcNORMHJnzgKQYp8NxiQCNSED/iDSED
+	OGyz/Mekr4/XvbLHF4fBRSgKpF6sd5nWqZO0Jkt30Lfk4oU1qwKtCGTAb/YWO5PfyY8GoqWWK+Zp/
+	IWfsL5nQnxG55eX1u1SAJ0NUeRuj7j5kISArnMEe/8D59jAR07zcxHVzt6Gm/4bYDfAH6lLAC31iL
+	al5bNfNIhgRR4ITeu7+zlf9rnRlN5gezzA7TLMHDWBkdn9JtLwQfxoyguNAw+IvWbCaL5c5ltfP6a
+	inM3ykgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtnLA-0000000ECXc-1XxO;
-	Tue, 11 Aug 2026 14:20:28 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	id 1wtnMD-0000000ECic-2Pc7;
+	Tue, 11 Aug 2026 14:21:33 +0000
+Received: from mail-westus3azon11010002.outbound.protection.outlook.com ([52.101.201.2] helo=PH7PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtnL7-0000000ECWS-2FEX
+	id 1wtnMA-0000000EChy-18Ga
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 14:20:26 +0000
-Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-c1f758014b8so280515766b.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 07:20:24 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1786458023; cv=none;
-        d=google.com; s=arc-20260327;
-        b=GmNeb166365gmEfVVtv2XWqUs8KuXJ0npLd/0gWez7ZqhHmRC2HTpb/jKmGcQEGgZQ
-         FJsm9hGfCtO6Ka9MyQ8zZYNbOd3e6gpFMbZFeCQPdmRaG7uEh/umPpTMJHv+5dCPa3aO
-         +A7cF7z84j2P2rqsn1yH9QrTKnrkbCTfxNeuS/qHEUnSab/sk7/+s91YpY+iv2BtzWOu
-         UEh/BoFY4gtjNq05NZSriQuj8Iysp3wMwGlnmzQG392MshkJDMz9DBHUYw+zUBT6OiKN
-         USHLZfUBmU4QOdaBJRLsjwIdAg8TVGc582+kxp/BEUtSj15OkMHnZqCE6kUqq7hwG4JI
-         izqg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=td3YrX4BitSFsJcuxTTJfNltqJvU+UzIl6ht+wT0AfE=;
-        fh=ir/BZIGa+DikupQspLg/sHWDkob88HtGVrNdrniWz8Q=;
-        b=bAHekAL7D9cp+/VLVMnAU1xWh1n518tzB6gFowsyYVjXbIxP7979owJxwciReiLycM
-         xLbt0H4l6WdRHp9OUKwah9mcmwJ5fV4nIAe5PXDtUq9ZrErocu2/c9PrKvixLLkLhFde
-         3rxCm05BTSE7bCPDYPRo6pzNNH3U0rFAl2nORJME5NmyzPxQ/e05pbWI6vrvgnbDEHnd
-         ojjCuRpthaWFIUiw4qG2hqfdbbWKAIlPaYgFY8RjRjGnLCtdqbCvvGGp00fYno0U0iV/
-         sqAcDz23xULGnozcdvfKjD70kQaoUTD5FCJlmJ+H70gB/pDF4OlZam5pAByPXURtkmfk
-         Ep7Q==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786458023; x=1787062823; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=td3YrX4BitSFsJcuxTTJfNltqJvU+UzIl6ht+wT0AfE=;
-        b=g07IQO4Vl2jIIHAxVOlin2xvQDKnDd7w65SwH5BfGDXWNQUI2ZAwKlj3WL81MeecLO
-         kmuIX7AmVkuGvYDEVOeXLJNXnPQgeba7Hn63gueeErcmKFFGqj9l+lKT7S/l9cwbfKIS
-         3DA1YJPrsKm/351GC7LlTk0TaQOMq51qJxEbp9o2s5C+6XfacZxH2bFlv8FodGg+3HIl
-         IJU4sb8YJVKHU5soKMkrAq6qw3fAmnV2lcWGyyUYvilP9XxYDefdyWQAmT8BAV6YapQQ
-         gsk0Zrv6IxQcCoMv51/LTkkXlwZDkU2zj4bD29V3MlQ/cwO922694D8ykftvbgKh7Pzs
-         v74g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786458023; x=1787062823;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=td3YrX4BitSFsJcuxTTJfNltqJvU+UzIl6ht+wT0AfE=;
-        b=IDZhhXYHO4Qc1agJ8YwVWkQ37F8vxh9uw7NwkCr5+HcbGye2FK3JeE9JDbkcjjY1Rr
-         t+cNxAtYJxI8IWjYxMYDZ/XLV594MVX2+zZgKN0cqBF5s0MiOY/xd7c//0JLDhjLFpkA
-         9TUCDr/RB5NDTqSZ9CXCFms0wb4kdCZPEaxQfG2P+tcKQx7hykq7gdXp2TuVSZdiR/TT
-         52GJSL1jBylXH8B0ztI98c335eZKeqMBmUYZLYHO4OSKAE0W7Bxi9c27Epxfe1JTLkRO
-         CQ4Y43w57vW8Lt21ov9BI7N4D1DpIgz0dY1+nqJj5X0rz/PBL7Q4MmFQWkvVAeMa12/E
-         QBPA==
-X-Forwarded-Encrypted: i=1; AHgh+Ro1Vx4spzF3oeTkHgkm3skK3nLWIAeZyargGrvvcmA8BHVks3GH/iw9a1vVWvYzThpsNeWHm/Ff6Jn/jhwlTNY1@lists.infradead.org
-X-Gm-Message-State: AOJu0YxmrQpGiAEMnByCHz8CPbUpopPpGRQpOJGmNr+BmASk7w5nK59v
-	jncq9GyAEzOE/iMbA7RH82yEkFQM703iPMkw4WgDuJ9cWInMqDUCVGpbm61PjMUr7j5wGKQC2EI
-	Rt6yJWvSgmqbI8LnujTTPt92ggb6ab+Q=
-X-Gm-Gg: AR+sD12ayKoCEf698sGOQIkDEEz6LM6tB+1+enMM8uaHCMklAJYcU8+I+0cxlLa4k5I
-	qRjld/kbqEDeRifNfFBpHJZemty4w05Q+d9+b7+Q9ZZ6TENy1p98SzcNUDN/lA4tHUJNCwhvZVp
-	QqtGyqBKKL8XnAehN2jpttF0TxQvXTKHyHYZ/xLIlY8Xdu/WUzXEMNZtIN7eKfFfJx8OglQtm/6
-	u+5YF7zBwhirrdcwmJvB6Nvc2iVJ1cXfB6+KejBTtGmxsjSl6MbUYDYjCaNXf6K669U+Faj42aP
-	oi7wL9RJOaYrzC7hXfRX/L32LKKbbHqRz1N47CYKJbw=
-X-Received: by 2002:a17:907:3d11:b0:c15:d4f8:dade with SMTP id
- a640c23a62f3a-c20ec8ee1e6mr50072366b.2.1786458022732; Tue, 11 Aug 2026
- 07:20:22 -0700 (PDT)
+	Tue, 11 Aug 2026 14:21:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=GrPKhuEAE84f1jeP4x7NKApThwsEaNNG6xWy/lY2sA/5ctJZRH39VqZSYCOlvBLpfnzxyE/zoTOVqCJoLWhpvSjvWiVy3OWaVEvctCLPw/SwI3s9vc/DjJAi/dOvwzOfh83rKOBwiQcpGmjV7ZIK1D7yPh19r8Nk9c247GNlaqp7lblBUFMWX5+9PIc0BMs2Fw6pvvduzNfpvXA8zyfytqKAVTQm7UNdru2+3m1PXINJc6w+Z1HMNSB33cpqi87zbkjBXEPQ7Bgjm05kTqXZX174k8bLfSL7f10VtPW3m0kJ7I0nFcRwonQaLeZ/W4UR9mVb+tOuJzWKI8XmCxH/eg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=RrjR1p5e94lLQchbplo3R4YiG1V4Oqp6E/dcH6AIDOg=;
+ b=gd5mhEmUIDIu1JM8xetInT9GXkaQn4QZ66lgQq2VNiqdpBG2G+RVD/SCOtgubBajSE4xPY8u2ohoh2Yt6gMaDFKcmzSyFI9HKOdZyNincYCNc6INVkEaLtrRqnrQE3xnW+6W8+8LpQs2o3hwfUT4uoxkgpDNNEaE9AtZP9G0ZNo04djAc8oyR4DAvJbrAz7GSLJEw5Vj2HjRBxUTP2KoUeOsKP8pwY2ytYpZYONkIQjsSio9yqOe38mZtSY04Huos1fvghg1HS8Q/1IaH2FsdSuJRYijdI8VP/Vc3C4hC91OgCsjCb/b2fz4UbkI/2D/MRXGLTVIdEN2MiKxvfhd8Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=RrjR1p5e94lLQchbplo3R4YiG1V4Oqp6E/dcH6AIDOg=;
+ b=g3cT0H2U+Hme5Zntkb+WFo47jcLAzO65povrePpKs5MY9UCFZYnRAu4ZfD3JCtpMbyHLoN5WimKOZoybwmWgLJIPLly/BAr8KClqJjsWFEMWtJoN5/OuUqxNrcEQKb6vJv/KnPF24aeh7xJzno9LIWUq0a8h4mdDd+Wy0++nLiw=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from LV5PR12MB9779.namprd12.prod.outlook.com (2603:10b6:408:301::14)
+ by DM4PR12MB7645.namprd12.prod.outlook.com (2603:10b6:8:107::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.12; Tue, 11 Aug
+ 2026 14:21:21 +0000
+Received: from LV5PR12MB9779.namprd12.prod.outlook.com
+ ([fe80::8ac8:e862:8ae9:9287]) by LV5PR12MB9779.namprd12.prod.outlook.com
+ ([fe80::8ac8:e862:8ae9:9287%5]) with mapi id 15.21.0292.024; Tue, 11 Aug 2026
+ 14:21:21 +0000
+Message-ID: <7468b060-161b-4489-b876-4448bdeaf184@amd.com>
+Date: Tue, 11 Aug 2026 16:21:14 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] ASoC: xilinx: formatter_pcm: clear stream pointers on
+ close
+To: Rosen Penev <rosenp@gmail.com>, linux-sound@vger.kernel.org
+Cc: Vincenzo Frascino <vincenzo.frascino@arm.com>,
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+ "moderated list:ARM/ZYNQ ARCHITECTURE"
+ <linux-arm-kernel@lists.infradead.org>,
+ open list <linux-kernel@vger.kernel.org>,
+ "Dhanunjanrao, Katta" <katta.dhanunjanrao@amd.com>
+References: <20260807002056.42953-1-rosenp@gmail.com>
+Content-Language: en-US
+From: Michal Simek <michal.simek@amd.com>
+Autocrypt: addr=michal.simek@amd.com; keydata=
+ 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
+ mpwx1d8=
+In-Reply-To: <20260807002056.42953-1-rosenp@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: CH3P221CA0026.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:610:1e7::27) To LV5PR12MB9779.namprd12.prod.outlook.com
+ (2603:10b6:408:301::14)
 MIME-Version: 1.0
-References: <20260809160643.33991-1-l.scorcia@gmail.com> <20260809160643.33991-2-l.scorcia@gmail.com>
- <20260811-amethyst-seriema-of-gallantry-ca9c7f@quoll>
-In-Reply-To: <20260811-amethyst-seriema-of-gallantry-ca9c7f@quoll>
-From: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-Date: Tue, 11 Aug 2026 16:20:11 +0200
-X-Gm-Features: AUfX_mzTu9IARagHp5y3Lhufa5MQ0ahYW_Bpy7_ilNA0FNARMUxNWXd9eRk54e0
-Message-ID: <CAORyz2KXJf4gU46649w1ncb7TAOErdoGmfOMzwKr8b+eGdAgVA@mail.gmail.com>
-Subject: Re: [PATCH v3 1/8] dt-bindings: reset: Add mt6589 toprgu reset IDs
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: linux-mediatek@lists.infradead.org, 
-	Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, linux-watchdog@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV5PR12MB9779:EE_|DM4PR12MB7645:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6758e248-e3cc-4d34-22bc-08def7b3d0e3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|23010399003|22082099003|18002099003|6133799003|10067099003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: 3KDAkIibK3RZaftr7D/c5BJXdyiJfWA7j3jHLtZBHqI1o2m0OpQ4PcVaLxy394/xZ1lg5Z3+FddLaQoDxPfFHPG0byYxT8dynzPiJzU2y4t1OWGJ2/pN4/vkWe9GCjzxW9GZvLIksinGiIWJOvY9h0lCpSlBLxtYyA6TGkBo63ReXwq8U/f1gg43anVaTQzTXyc4hjDE0QXtGl5ZWBsUnQFFRR82upr34yFzRfXYyh5rTadPT+8lLzv+S7w0U5GMlnOs9IsG52RO/U0qRPcspgWNZ6H7P0DsGI95Jn5jWvtPqSyhixQx9CN8OSIHJsvnItoLM+9zLwDMIkCfA++N/Vcdy5lIyUK68aPmHj/UZLtm+fBHWFkY9yvLxLrq8zWY1yYJ9nS0oINnWp06BuvPuZSVF+sCmt5IWAXSJdfZvip1sCki+kzTUmDNIwPhf6vgJ289AO/FidEoVxc0TgZRGDPdp8OSIIx4ZDNf1M13yz9oQS8EzyUCmFVwMnOzHPVGcMES1u1pCe0FAEKtusAUjrE1Dv9SM3HK2Qf8eiWV0a5FtlgbRfKMYfgY8cInqPKAA+kFQr7gbcoHanhy4Q4r6Af8BJeC8Q3qj0CmDhC5aw4zWtN7vsUPoBGWz+vpF7CCBLYMMNEB0wetCuOb6Fmg24QwqF2+0XgegtYbkhc+4Ec=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV5PR12MB9779.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(23010399003)(22082099003)(18002099003)(6133799003)(10067099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?b3EwbnpheWR0QlVyWGFGUlZaRElFTm8zTHEwSU1mVTJWYmhhTGdxYjVORmNV?=
+ =?utf-8?B?ZEhnRzhxM2VDS2lmTDV6R1lQK0x2VDZqU29ocWtoU0NBZlBhd1lWRlgwSVkz?=
+ =?utf-8?B?SUkwVkZnRmhUMGdwbVlGZlZiMzJ3dVlKajhNaDVpVnhTNUhyc2c1U3g5blNS?=
+ =?utf-8?B?WW5jN21PODl5ZDJQYkZJSTk5dWF5a3dBenVHN1UxMmpuZkYyNmFhdCtSelh6?=
+ =?utf-8?B?aTdGUDNyT09WTDVMajFMV1lLQ1pUT1FTSWRjN0pSc2FiK21OZG5xOXVJRGJK?=
+ =?utf-8?B?cGpRK0ZyRUF2Ukk1TDI4UWZGQ2xScHN2VEV3L0NTZlV3c01mVk0reHhPT3pX?=
+ =?utf-8?B?UzNRdVdUaG5pOVZUWmNrMFZMb2VoRjZKaThvTmQrT3VTQjNMekVvVSsxbG10?=
+ =?utf-8?B?RUJVbHFpVVIzYy8ycEJWbWZVWWplS1oyTmUvWE8vMmc4NFFJQXNySnhTNzVM?=
+ =?utf-8?B?d0NRVVdMUW0veDBUdnpKZ2lGZkJyaUgxQlVBb2YveVlLcUdTdnJ3ZWlqZEly?=
+ =?utf-8?B?aHhFdFQ1SkgrdERudFFZdFliSjhVdHRPVDBXdVJVLzYwRE0vWFNjbVVQa1Zt?=
+ =?utf-8?B?YzJ2dGRGZ0REMDVNKzA0d1RkcUxJS3ljMXRTVFhIb3lIeDUvWTFhb1VDbUZ1?=
+ =?utf-8?B?UUpnQnhaVWFOMVFSVWZNZVF2NThYbkhnUnMwMGI0THl2WjhJc2NJYVI4a0N1?=
+ =?utf-8?B?TEtWdFNyZEtXNENzOFFIUWJPaWJQeWg1THoreHdYMXJ1SUJLUjllL2IvdVFn?=
+ =?utf-8?B?bjJna2UxK09TRlU3QlpTd2g1aG54YlhVOGtNZ29EQXJ2UFdma2pVL0RObzZm?=
+ =?utf-8?B?a1BQdUVWRXpPZllSQ0F4V24wZ3RxOFJwcHRkeTlFd3FZM1RUR0pqVER1a25I?=
+ =?utf-8?B?OVdGQnI2L3UyOEY0M2FpN3N6U0RjajE2d0Fwb2gzeXRpRU9TMFFLdlA4L2JZ?=
+ =?utf-8?B?SjBxNlFQL0NZU0R3M0Jja1pOdWRvVExldU1GMGswdEsyZi9KNFl5d1g0M0Zk?=
+ =?utf-8?B?Q09sTTVFaVNuZFRGaDJUS3NHODB3Y0Q2RUJWWTdteXo0eGM1RFlSdUlOaHp0?=
+ =?utf-8?B?blIzOHFGbWozSlBjN2J1R3V1dUp1Mlo1ell6WVVVanVvUDJLeUJBV2VSbTBx?=
+ =?utf-8?B?SllqdGNQVmtwU0N6dUFFNDBTd0Z2aXExem1naFFxckRybHZoTndOTWpZVEJI?=
+ =?utf-8?B?akNCMWhQbzRLaXJKRnJ5enRBTTIwOURPV3pBNUVUNzBIUjBkN0hydXk3VU0x?=
+ =?utf-8?B?ZTNuVVRIL24xYUZERkxmU1BxN3BBcWxOQ01HaXlvZm1JaXhKUG9IK0M2VEVQ?=
+ =?utf-8?B?NnVFSU9TZmNwczhRWEJrUWFJWWZDb3VLUGJZRkJEWWpxeG9iWDgyU3NNbkcy?=
+ =?utf-8?B?eXQ2N21QenpNWXQyeGdmSHBFa0ZtTno1bEhJM2ROZUdGaGx3czJUc0dmbXZp?=
+ =?utf-8?B?UGIrVkVhVmpob3VlQTRSYkZoSFlCZjlNd2ZSM0QydFo2MnF2cnh6UmRQb2cv?=
+ =?utf-8?B?Y1JsMisveEpsVHBQdUlQM2grQXVpS2k2cEdOTWtHY0ZmeEhYMk9uaHNxZUl6?=
+ =?utf-8?B?ekt0MDdFb2U3cDVmZm53S2g4ek9JL1lCdWw3WDRDQkhBYnBNbWtuS3dkY2lN?=
+ =?utf-8?B?RFFETEROeUdxZGIyUkxXTm5HaytOWlJzSDEzM3JIVnJYK0hkUWFUaXpDdkVu?=
+ =?utf-8?B?MU1FeEZvTEpqdzd1cUdJcTQzYXU3WjZVNjlZdjZ6eWphcS9HeDlGZXJnUklO?=
+ =?utf-8?B?ejlRMFExd0U4ZS83R0liYWI5ZnRFQWk0ZTIrWWl3WHAza1hMRE4ydm10dWs1?=
+ =?utf-8?B?UTBlb21pOEE0cUNDMUZSMm12LzI5MWw5T3d5Vlg3YXNnWFVrNUxhcjBoY0Jv?=
+ =?utf-8?B?SEJMb2xlK2Fia3AyRjRnR1NxZ2I4VUZKRnVaS1VGbVNUZ0EzR2xrRmtrZ3Zw?=
+ =?utf-8?B?WWlDTE5KV2lqaDN4Mm5pUFEwOHdyNGsrK09HQVE4RE9idjNvRUJuWWNFSHBP?=
+ =?utf-8?B?UGNrelJKK0huTFNJd05wVjNUY0JHVysvZGJhYzlpZHpoODJSbWNDRHB3S2k2?=
+ =?utf-8?B?M041dnhINGM5Q3dCd0dRMmVLaFg3QnE1ZFVzWE9SanZZZU1VT1hmblpjSU1D?=
+ =?utf-8?B?ZnBCUEZETXRVcVVtaThzMDNYNmRnMFYxam5NSG5zM2hRZmhLTS9wSmhjbDhq?=
+ =?utf-8?B?STVkNnpWTVNhMXNnWUxETEk2bU1NWkRFc3MxaktXcGg5a3E0ZU1SeGJQWkZa?=
+ =?utf-8?B?R0IzVEg0WWIyMFRoUTBrWFk4dmhuTFY0S0FWRXI3MjRzcjhIdGQwZENyNWdY?=
+ =?utf-8?B?TXExVFRKSWhsa2ZpNDQwVWRtVUx1R3p5aGVmdUxrRi8ySnBnb0RlZz09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6758e248-e3cc-4d34-22bc-08def7b3d0e3
+X-MS-Exchange-CrossTenant-AuthSource: LV5PR12MB9779.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Aug 2026 14:21:20.9989
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: DqQUyn4Yn/5hktPr4AD5YQCc8T/NWDPNNVCaTnRk8ea8DBz660SD2cEyThS3R9Sx
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB7645
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_072025_633861_34B572CF 
-X-CRM114-Status: GOOD (  18.13  )
+X-CRM114-CacheID: sfid-20260811_072130_318013_128456D0 
+X-CRM114-Status: GOOD (  21.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,59 +195,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Krzystof,
-thank you for your patience, I really appreciate it.
-I think that a lot of my confusion comes from the fact that I'm trying
-to follow the structure that is already upstream, but the whole driver
-and bindings could probably be refactored in a more straightforward
-way.
 
-> So binding already has reset-cells or not?
 
-The watchdog binding at mediatek,mtk-wdt.yaml [1] already declares the
-reset-cells property (optional).
-Inside this document the various SoC compatibles are divided into two
-lists - one that falls back onto "mediatek,mt6589-wdt" and another one
-of explicitly declared devices.
+On 8/7/26 02:20, Rosen Penev wrote:
+> xlnx_formatter_pcm_close() never clears adata->play_stream or
+> adata->capture_stream, and on reset failure it also skips
+> xlnx_formatter_disable_irqs(), leaving the hardware IOC interrupts
+> enabled while ALSA tears the stream down.  A subsequent interrupt then
+> dereferences the dangling substream pointer and calls
+> snd_pcm_period_elapsed() on a closed stream whose runtime has already
+> been freed, causing a WARN_ON or crash.  Since the IRQ is never
+> disabled, this repeats on every interrupt.
+> 
+> Disable the IRQs before resetting the formatter, and clear the stream
+> pointers in close so the IRQ handlers' NULL checks catch straggler
+> interrupts.  Do the cleanup even when the reset fails.
+> 
+> Fixes: 6f6c3c36f091 ("ASoC: xlnx: add pcm formatter platform driver")
+> Assisted-by: opencode:deepseek-v4-flash-free
+> Signed-off-by: Rosen Penev <rosenp@gmail.com>
+> ---
+>   sound/soc/xilinx/xlnx_formatter_pcm.c | 14 +++++++++-----
+>   1 file changed, 9 insertions(+), 5 deletions(-)
+> 
+> diff --git a/sound/soc/xilinx/xlnx_formatter_pcm.c b/sound/soc/xilinx/xlnx_formatter_pcm.c
+> index 7eba3a0205f1..e1d2f1cadf8d 100644
+> --- a/sound/soc/xilinx/xlnx_formatter_pcm.c
+> +++ b/sound/soc/xilinx/xlnx_formatter_pcm.c
+> @@ -421,15 +421,19 @@ static int xlnx_formatter_pcm_close(struct snd_soc_component *component,
+>   	int ret;
+>   	struct xlnx_pcm_stream_param *stream_data =
+>   			substream->runtime->private_data;
+> +	struct xlnx_pcm_drv_data *adata = dev_get_drvdata(component->dev);
+> +
+> +	xlnx_formatter_disable_irqs(stream_data->mmio, substream->stream);
+> +
+> +	if (substream->stream == SNDRV_PCM_STREAM_PLAYBACK)
+> +		adata->play_stream = NULL;
+> +	else
+> +		adata->capture_stream = NULL;
+>   
+>   	ret = xlnx_formatter_pcm_reset(stream_data->mmio);
+> -	if (ret) {
+> +	if (ret)
+>   		dev_err(component->dev, "audio formatter reset failed\n");
+> -		goto err_reset;
+> -	}
+> -	xlnx_formatter_disable_irqs(stream_data->mmio, substream->stream);
+>   
+> -err_reset:
+>   	kfree(stream_data);
+>   	return 0;
+>   }
 
-If I am not grossly mistaken, looking at the mtk_wdt.c [2] driver that
-handles all these compatibles there aren't really any different
-behaviors between any of those watchdogs/reset generators.
-In every one of them the .data object only provides the total number
-of reset bits in each SoC toprgu, plus a single "has_swsysrst_en" flag
-for mt7988 only.
-For mt6589 the number of resets is missing, which means its reset
-controller isn't enabled (and therefore it's not enabled in any of the
-"compatible" devices). We know that this SoC supports watchdog resets,
-so there really is no difference between all the SoCs. Both the total
-number of resets and the "has_swsysrst_en" flag could become
-properties in the binding document and be added to device trees.
+I am not convinced that this is correct. Based on
+https://docs.amd.com/r/en-US/pg330-audio-formatter/S2MM-Control-Register-0x10
 
-This change would avoid lots of redundant compatibles, but it would
-break existing dtbs and I don't see a way to keep compatibility. Maybe
-an entire new binding+driver and deprecating the current one...?
-Still I'd feel more comfortable hearing the voice of experts before
-proceeding in this direction.
+when you trigger reset (bit 1)
+"After completion of a soft reset, all registers and bits are in the Reset State."
 
-> We do not take bits, but identifiers of resets.
+Default value for BIT 13 (AUD_CTRL_IOC_IRQ_MASK) is 1.
+It means after your change interrupt on completion is enabled not disabled.
 
-Currently the existing mtk_wdt.c driver does not use a reset table
-that binds identifiers to bits for any of the existing devices. There
-are a bunch of mediatek,mt*.h files under dt-bindings/reset [3] that
-point directly to reset bits instead of being indexes.
-I can introduce a reset table in the driver, but it would break
-existing devices as those bits are referred in device trees and they
-are often non-contiguous (e.g. [4]). As before, it could be done by
-creating a new driver and deprecating the current one, but maybe I
-completely misunderstood your point, in which case I apologize.
+Katta: Can you please confirm it?
 
-Thank you for your help,
+Rosen: Did you test this on HW?
 
-[1] https://github.com/torvalds/linux/blob/master/Documentation/devicetree/bindings/watchdog/mediatek%2Cmtk-wdt.yaml
-[2] https://github.com/torvalds/linux/blob/master/drivers/watchdog/mtk_wdt.c
-[3] https://github.com/torvalds/linux/tree/master/include/dt-bindings/reset
-[4] https://github.com/torvalds/linux/blob/master/include/dt-bindings/reset/mt8195-resets.h
---
-Luca Leonardo Scorcia
-l.scorcia@gmail.com
+Thanks,
+Michal
+
 
