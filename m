@@ -4,108 +4,172 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADC7EC5AC67
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 05:04:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B185C5AD55
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 05:06:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:To:Subject:CC:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l0Kj0yc9XxyPL81uujyygKc80rtEnUflq8odLifFS04=; b=NYT3mMAJRxiTk7VFUv6D+CjMRp
-	zluLQFVSq81VQHu1YbyukVFS/v2ZU2u25CN9vd1alSXMSTd6smxlnkI7oOR4RMV78HXZ2Km1/Ni6S
-	UdC5aW2auVYNJo21VCFOOuHS8iZ+rb8hBdWmSmQK1GKTPtkE29azZYx22vjiCV3xEqqYgRi+j959+
-	remdAIqDKmuZybXNhNXmziDXx3YqO0dXnMl2nuidft+B+G1hqzwdEZCEARkFvBOCfsBx4rOfafDtp
-	jgMRZI/S8GRORuL+5mAuQOKmtPsJ+7UG3NJWl9GodKdYUDhKT8EeJCqRJmamVJU+YAXqpzpOtXmAW
-	NPtr6pJw==;
+	bh=83WyQUz/op8BKRV+5wJIcGbDyCF/U30uawdI1mABjs0=; b=FSwPYbSbpBN3Fbp+M+7CNdLknR
+	MY5MsclSmxXqjV5vc9UrNG2VGFIKruh9wIiY6I9ATzTW4u63By9sx780Y/QH9cD5oApn1Xt07dcby
+	tXQklwZ0+fsq65IdAYzHr8ofdbrFNNbWWELUrYvGrM1FtTP94TzF4k3SrCFCS0C/7H1/v4I8hfb1L
+	3kSRk2z/66F0SJ5GulQmb3G6F+Bjfzp9ZQ7Muf3wNCsw8RCgpHU+7zFG7n1f1ltMMomD7KpHnvzaU
+	BecKQuwbwo/YBAb0cV/OOM3AzYNZS6/dbFf/F5n0j+tm89mQ5pgLVrOOJWsyhZLqS9t7FmunI+xP+
+	QmeeMZfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtefF-0000000DIhL-3q3h;
-	Tue, 11 Aug 2026 05:04:37 +0000
-Received: from mail-qt1-x82c.google.com ([2607:f8b0:4864:20::82c])
+	id 1wtegp-0000000DIny-0SUA;
+	Tue, 11 Aug 2026 05:06:15 +0000
+Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtefD-0000000DIgy-2Eid
+	id 1wtegm-0000000DInY-07Gr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 05:04:37 +0000
-Received: by mail-qt1-x82c.google.com with SMTP id d75a77b69052e-51c01c79467so106941cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 22:04:33 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1786424673; cv=none;
-        d=google.com; s=arc-20260327;
-        b=TbseC6ZqxEIbGMuJwWOfx4uUXbBU4l0+b6+KQfQMGkBlgf8YxwdwuFK9OOXspbKW9m
-         Tfwl5G4sUqyxIcvdQB11RAgs0BE1tiptv7d53RQR9/H6wp4kgdj+kvPgCBoDLu3i/h5S
-         mD65ic7hjfR0o2XqGIlye384KZ3B8Xx/8M0H6O/f0YevSII//n23+ZyrjdAWaX5EV7Gg
-         2P9xtqSI5Zrsb+R4TwPNxPCNSvBKp/GjdKLnygxT6ZPNyGY7lbSGv9qzTFrj9Td/5Bdq
-         hdXKU6McPeZMPbZZ5PfiAyO2s+py25BXQZeCTP/GmxJbLcRNkH8UPRRb0IqZhemoV0fF
-         rwVw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=l0Kj0yc9XxyPL81uujyygKc80rtEnUflq8odLifFS04=;
-        fh=PqPazRrrdbDnhF1jOQ5mHXAKvuQvMyM0tLu1R7RI1Lg=;
-        b=hXrkNnC/5XDr0jfQ7z+oPYbImE6IJsFopZ5c9AcEG/AVKxDCoTjdTF4BKYbx0kswnZ
-         YxH9AosvSLpXyiUX5N+7Tc85gwLKEjkqY7xP+GA9Rjcio57F5VnFANYL/pK7H3kNTAzg
-         lgJ0TNPgYvUNLZGffPEntyKpTp27JXKLcz/kHNC5OpTQJ3yDTc+PJ7rg9eCm/ryOSikQ
-         lJwcT2B1/MG43lVkz8oyrpY+xEs6+iXekk1RhUKRAc+gGaIt71vEIYGB9IYsa/DMKAgM
-         nC5Yl/a5YJJ+1VvBRDRsH7nZmhGYGXPOG8BAkeExAej8U8+KGyLHZix+djcR9h4p+Q9Q
-         hYrA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1786424673; x=1787029473; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=l0Kj0yc9XxyPL81uujyygKc80rtEnUflq8odLifFS04=;
-        b=mIAO6RdND8AzkgVDAJLeXmBDcHRtGp/ZRTchaXZEps51Npsv2NipS4I0yUwbaStXqH
-         brXyIdjoInZVAgP4g/xrsmM6qEoyqT1koJlywNPeot172GDA69bBzPcYaOsDk5ApKh32
-         UKKiMDS0yO6YT71cYLZEkew4Sp97EJtNqGaRNDf/0KdjdclkwdFshFrarnF3pE0ybGn/
-         ft75sU3r8PG/4ZrQk6Yqgoa1WPc8d3VQjFybw47tXhAZqvbsRtZg4OuPGTEXkraiHwYA
-         FGRB9hLCm81LMiX0usfwwnfbSaqdKeda0Je5WL51mx+D0xkK94Ie0XPyn8dJkMDfWjgd
-         AorA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786424673; x=1787029473;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=l0Kj0yc9XxyPL81uujyygKc80rtEnUflq8odLifFS04=;
-        b=lkIDpksKonh5plq5x3xDMr2+2VRAGwfeu4dcbqh2Bg8TuOSQAueVyvVaSsiBxutLXM
-         CO2ZVXQwT+fDcZ/XTnYL86XIhLVSCAy2ydfAkIZ+fC9EGyWXvyvlY53oSUf6JkLCUZ28
-         Lb/r0bBzZPwR1AXtWu/NASolevmmho5hl6c9h+e7Xu0mFYRFGSmotFREmTMxcN75VbsO
-         GCekxCQZ3sjvLERRpIlwoKxXK8JxsKq1PbOg0VgYxEGPdTLLCGcO8YELX/dD68t7YAu1
-         vDOVAHPfYiFzUVX6/tWfIxWVY07qgKqBalxmKXOuJ491MUHrrvxI07NoUDgXSxAT+Msx
-         D6lA==
-X-Forwarded-Encrypted: i=1; AHgh+RoBU5dF4FOpsuy21hj6b30kJjwEX7vEGEaVVqHvEXqYeY1sSUv80jxl3bWF085Fubaccqtq5a69j/64A1OPLIwI@lists.infradead.org
-X-Gm-Message-State: AOJu0YwNm7ubMvLTOTejeuWX7wzdz9LqMYnwL6tPad1Hct/kxktbJF00
-	HPmqwbP3uKOY7gu5Qz2RzyjGWeQjMVpWp/1J6hqgUr6jd+QhgXVlnSEmXpKfZv/xjnPmS7j5bRT
-	7IxTx6XhyrFweqcYV8OYj146qqea59oFT/tnFF4Ez
-X-Gm-Gg: AR+sD12X6vZoCAkf6Nz2iuHBocytAJJTd14f//9lSmJbDZH7zEc7TLQP/EJZmQVrzB9
-	rmTHphqe9MIGQbSAr/UfK8Fx+k/usVSEG1DvAEVFliRJYkm2VcbNh/Ju7Eh4j7dOKNW4YrcfPzF
-	Qa6ad+Ep0QHnQ6TUSOl8B5cFn5PxLmCdZdzsnNoWTa46vjNL1c/5sv8esmTjadXJLKxGRWEJ+BH
-	U5Tr2WVeGgwMIsGsJ+ZJ0PjJtEyH++sVQEBPUD81sgeF7cJmfrnoHWdjsf1d1DO73UhrautXoM5
-	z7kr7yKFBuU9P6cTwLbkF5eEDAUtFVrd47FWdZzN5A==
-X-Received: by 2002:ac8:7fc9:0:b0:51c:ca9:3d15 with SMTP id
- d75a77b69052e-52d58236f99mr2540931cf.12.1786424672376; Mon, 10 Aug 2026
- 22:04:32 -0700 (PDT)
+	Tue, 11 Aug 2026 05:06:14 +0000
+Received: from pps.filterd (m0384305.ppops.net [127.0.0.1])
+	by m0384305.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 67AMpggq378793;
+	Tue, 11 Aug 2026 00:05:40 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=83WyQUz/op8BKRV+5wJIcGbDyCF/U30uawdI1mABj
+	s0=; b=QdisLsZthPQdumo+/2AOhHg3oVN6g+eovGj2e+PpXpJ4tMXcPnvXV9VIs
+	Wpio5i87ftuOKT4UMxQWauOoyowMmXmQxAAhhnXGfYUvw1XayIoA8EORVp7En2ih
+	0sjmOohv5qsMh06DNMLGLw8MJpx3UmJ5Las7apg9IjK6SEjEYrxVClXt9THyhmAm
+	iucARFY+z+PyypI9T3Tnz+sQlNA3aw30Hn1mm86FHukffYh/06p4tRZeBbVAOI+9
+	lhCTCLAST/Xl7cBQq3pjtEEQGt9F/25GDENUyLB+A/ArCDsKnrlm6QF/RS7eesRS
+	xc+Bb+fA3+RDlmYSWHILDigHjuzsQ==
+Received: from cy3pr05cu001.outbound.protection.outlook.com (mail-westcentralusazon11013015.outbound.protection.outlook.com [40.93.201.15])
+	by m0384305.ppops.net (PPS) with ESMTPS id 4fydt7edyd-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Tue, 11 Aug 2026 00:05:40 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XPzbJ6sjVCPOadueFnlkwTZonAynClh2EARd6qyWASL5y/LqeC2lJ4iHoVVE89MnGOIwwx+qL3jUQwfthBALQgvhZMdMJ0xfleY1d5JsPEP73/HlSm1i4qYAYwonudQMT9ILjjrcXPoG/8NoFFWxrfuw1VQf2onG9141kYHhG5lwQIWie3VL4lhzcKAAy9xq2mvVvwOI3oI8m6yEr9jdT5zzKQTqDTVAz2FhPcUZlDojL5fcOXqOOiqialXiMyqb/A12cVdhnehSjqIZyS4PGexPjQcIhAWDNC3mDhA5nmFf58UrtvSiNw1fF7bznMxoaqs37puWiE0aclZamaG0aQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=83WyQUz/op8BKRV+5wJIcGbDyCF/U30uawdI1mABjs0=;
+ b=dq42YSBNNrEEZ2RLSMGNlesvW9kZT89ofIsXnkDnc7d0vGO7yyH4mAXrfNRLsO/eDlPj2bovqWY64tud1t9bq5y+B+r/JRhCubq4vKB/bl5jc2Ab/ZY6FsI6yrhNxSaXUnmKXWtOls5SExpIqKh8XDfWqo7ziKbXtXzSUqJoZymgXR8DRLqJqqTJoZqtdSLp7xKSq5Kx+qVKPuYD29yCen8y/h+vX31GWJMMKZ0koZORkMwSPK4ZmQYMDc02mnmDGQz4u952y34/IJzZozHqReUGheQsia6dLJoglKPkmBPqnuhLB84W9XbomOQ2nX9Eitr5o+ySKE7ZbkgtfqPYsw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=83WyQUz/op8BKRV+5wJIcGbDyCF/U30uawdI1mABjs0=;
+ b=W5kyEV0ldSGu5Q/9G40VHWeuGqBUbUBWE71jKBaVUpuUvAKZRs0Xi0K1CzojhujFg/7Ft0NEJcbLD7Ah6s1mLj/0RzDpAGKR/S562PpeLtDz5g29/s4LgfSrqzZjSqPMG3Q+d8rA2DS5jyhNwMfJV/VQGhLoDOVjTW83P/mbbFk=
+Received: from BN9P221CA0003.NAMP221.PROD.OUTLOOK.COM (2603:10b6:408:10a::25)
+ by IA0PR10MB6723.namprd10.prod.outlook.com (2603:10b6:208:43f::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.25; Tue, 11 Aug
+ 2026 05:05:37 +0000
+Received: from BN1PEPF0000468A.namprd05.prod.outlook.com
+ (2603:10b6:408:10a:cafe::45) by BN9P221CA0003.outlook.office365.com
+ (2603:10b6:408:10a::25) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.292.25 via Frontend Transport; Tue,
+ 11 Aug 2026 05:05:37 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ BN1PEPF0000468A.mail.protection.outlook.com (10.167.243.135) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.315.6 via Frontend Transport; Tue, 11 Aug 2026 05:05:37 +0000
+Received: from DLEE205.ent.ti.com (157.170.170.85) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 11 Aug
+ 2026 00:05:27 -0500
+Received: from DLEE200.ent.ti.com (157.170.170.75) by DLEE205.ent.ti.com
+ (157.170.170.85) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 11 Aug
+ 2026 00:05:27 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE200.ent.ti.com
+ (157.170.170.75) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Tue, 11 Aug 2026 00:05:27 -0500
+Received: from [10.24.68.110] (uda0492258.dhcp.ti.com [10.24.68.110])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 67B55MDC485502;
+	Tue, 11 Aug 2026 00:05:22 -0500
+Message-ID: <d7841492-7e2a-4f4e-ae82-8058c7f4c6a5@ti.com>
+Date: Tue, 11 Aug 2026 10:38:55 +0530
 MIME-Version: 1.0
-References: <20260804-iommu_contig_hint-v4-1-d7a47ed5db98@oss.qualcomm.com>
-In-Reply-To: <20260804-iommu_contig_hint-v4-1-d7a47ed5db98@oss.qualcomm.com>
-From: Daniel Mentz <danielmentz@google.com>
-Date: Mon, 10 Aug 2026 22:04:20 -0700
-X-Gm-Features: AUfX_mz1Q0EQxjJGjo9fyY36FF5Mbr8Jb4EcjiIK9bRp6c3Ih6EjCsTWhRnEfds
-Message-ID: <CAE2F3rBQQEHsksOyE2ojQPbMd_vvFqaFMC2RzT0B6KkxMB5YgQ@mail.gmail.com>
-Subject: Re: [PATCH v4] iommu/io-pgtable-arm: Add support for contiguous hint bit
-To: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>, 
-	Prakash Gupta <prakash.gupta@oss.qualcomm.com>
-Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
-	"Joerg Roedel (AMD)" <joro@8bytes.org>, linux-arm-msm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+CC: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
+        <kuba@kernel.org>, <pabeni@redhat.com>, <c-vankar@ti.com>,
+        <vadim.fedorenko@linux.dev>, <v-singh1@ti.com>, <nm@ti.com>,
+        <daniel.zahka@gmail.com>, <nora.schiffer@ew.tq-group.com>,
+        <oss@vassilevski.com>, <grygorii.strashko@ti.com>,
+        <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
+        <s-vadapalli@ti.com>
+Subject: Re: [PATCH net] net: ethernet: ti: am65-cpsw-nuss: Fix port_id
+ extraction from SRC TAG
+To: Simon Horman <horms@kernel.org>
+References: <20260807111738.2055900-1-s-vadapalli@ti.com>
+ <20260810165629.788002-1-horms@kernel.org>
+Content-Language: en-US
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+In-Reply-To: <20260810165629.788002-1-horms@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN1PEPF0000468A:EE_|IA0PR10MB6723:EE_
+X-MS-Office365-Filtering-Correlation-Id: 63950af6-76b0-4a15-9dbd-08def7662e93
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|376014|7416014|82310400026|1800799024|13003099007|4143699003|6133799003|10067099003|56012099006|5023799004|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: JqnoQlOoGeeE6jdTWLjubjbQlfIDP6nR4eZAqTevbuXanFOud9TuP61Eq/pNXViYlVRbAPRuB+QcIq/KdzlLksgB4sqaBuS9xRvmCJ1L6eYlNT6k5LKhWtA5Ilb7AhC9wYcusITONVeoi0R/SIvRUlaO8VzOG2VBYCrBZXEYs4gEmwneK6DXD1f/z+nbUAxPAs1Pr41ZCgM0+Gc6ZL5MH2IZEsRFeQPybQ+FF+PVwsnSV/u2ZfmKY/KIvZtA9fLYl9LxjWhUMmAYNDglvNfbBq0w11vq5ulGKxOlYv98kJXdjW8XOiS3nTDsxU6W1gGZUDu1eBYG3YEGDZENO/UREUE83Q3YW5us74iR/T0RqDXRWC8Mb/Gaq3gavlbqR25Zs/6k7xOtz4oIvyhHikQgx3kvH11RguMHCc3nFGw9hF7Cqv94GbU1Q1Cgo6Vl0D3ZPJJICJmvLAg0jVrNUjyCDI4JLZzW7TxZtl8G2ub0cIrE6Q5VwznM6ABDIYS5eeWgmfnXDkikhfRLSFWnmS3zgg5LO8A87hjxa+2YqYjc23tm89MWhOUxdBU3v7cS3WXzXV2fKxqWWuuRC1zRR6xy4ps2af+pZ59v6tkXora3tGUI1nPRyuepPrypv8BOu9yCO/VHlV4mIqZLJcQcLZuOuQ==
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(376014)(7416014)(82310400026)(1800799024)(13003099007)(4143699003)(6133799003)(10067099003)(56012099006)(5023799004)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: AnFPDpRF7xormi0TgES4YsrphIL3adLR5OBWXPcr8rSdMS6Bjt09YBW6jpJkTRG+hzzZtosWqwoTHgJz/8QeNE+Vr97O1R1Mc1/V1J2PnKPD8jPsuWwiGq6QfQb4Oaz3hDWclQ708aTObO4ACLzBbXti6AUlyH0gJ6Ru3Uy2aF8jcViVMeBypXhqUCVtZFvizflxY9TVCfQSZi8MuQUVdjS+faz5NXlKJXGNP8EmgIuoCjxwhPqmM9GJCniLwyn9d8Bp0/AkbnUX26ftrrW9baEdzG4XgJDf3Dd+KDdpAGipeNrcSFiW2vTS6OzoGW0g61dyLBlNz8x5QB7SndjB+m17s/nIamJddAMHdjoa6tZlHYxJpp5yPWy6VsOMNNxAkLOBIMxCrxfsFBfKqEnrCEUw4rtjEnXiaGXkSeTOWzGABLyVCUJpeXC25J0VZgek
+X-Exchange-RoutingPolicyChecked: TKbqLbrDZUFh5V8z05x5+wdMeS2KjnQ0/ap38H3LKkZ1KNJNj2//7QOGVN6w4YFCbUPPRocB5yOhLvLpHTDvsm7OW39SCe2/VeM4BrxVmRm/haaGgfGRJ5TtSzJ/EnJ2OcuIr8kPpSn5YOFkiq/r9A9J6zLc/aUl/ABTcmtGPlz+nxg668ENnN1Rraiu12R/H6conOAkwdC31K2E859GYlmdRwKWR0C0GAj7dhDgmoSE8dBNCb0QXzE+oFYomE7qLYGn+QXHSInrUZEn1Y5WCl4Ognw7zRzedzBUBfYw3QnII7KIhej2CLW0hfcWWyB5QO5vvyA0z2mLmY5y22dQUg==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Aug 2026 05:05:37.2177
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 63950af6-76b0-4a15-9dbd-08def7662e93
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF0000468A.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR10MB6723
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODExMDA0MCBTYWx0ZWRfX5kFmmZtKHqSn
+ sHzRFgxFupBDVP1MdR1Nyg2P4ZRpESAsVITO9f65IHGwtWH4Vo0imIyy3lSzk7DuW3V0Rsgf5dX
+ oWRs1/TZ3OrnSgHu0NmsmtnB8GG23Qw6DnVDnL8eAKDSTqD8+0kllkHq68UX+cHXOgxr8N1w4od
+ FRB178nY2nFwxQ9MXYMe1leebm75+RIdm8jDGI4MB8FQ/m7M3MUUiVStkKc5CveWUCqzMIKoimR
+ 4zngXuPVGA/LBjBuT+fYFVDTPXaLA8ygp6bTRwgaNMgmSp1USpogtqiDMaKp57YprWiHNq1pThs
+ ZHIH4o92tNJYcrubZIbfOM2KbgbRCdpXObL1E3uxA2JqeHNpFbLZ36G8kKDtDdIBXRxr0+BvESE
+ ib71mFx1kTy0eqNLb/4BJ6jV7OV4HBatPJpwtJUHNyDMoIZ9uQ10qmAcvT+sAxB8YAJxpIPxYI4
+ FwOASzqPxmocRko023A==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODExMDA0MCBTYWx0ZWRfX7o/DjJPRqFDI
+ yBXjgB2zXnBVZ1oLdCFaY9CzVQQgWcihR4kM/wP+iWCPRE2xrVgEi7i6DzMHNa5thRV4juxA3fq
+ TFfScRH5NClUpFxZjzKiGelX/ILt6Us=
+X-Proofpoint-GUID: LuGwTrJP2AWaxfgcHhrLL_KevF-9oMel
+X-Proofpoint-ORIG-GUID: LuGwTrJP2AWaxfgcHhrLL_KevF-9oMel
+X-Authority-Analysis: v=2.4 cv=F85nsKhN c=1 sm=1 tr=0 ts=6a7aada4 cx=c_pps
+ a=vvCUPcqovLgrcFR9lHNvxw==:117 a=f+v6EHfkeJbVwR46tk4DMg==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10
+ a=s63m1ICgrNkA:10 a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=Z8NIEmU8O1QQgoT56wFK:22 a=taLDd7a_hP9WKsMzeGRc:22 a=9R54UkLUAAAA:8
+ a=sozttTNsAAAA:8 a=KuVrGXGn2YKwv8fyX_AA:9 a=QEXdDO2ut3YA:10
+ a=YTcpBFlVQWkNscrzJ_Dz:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-10_06,2026-08-10_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 lowpriorityscore=0 suspectscore=0 spamscore=0 adultscore=0
+ impostorscore=0 bulkscore=0 malwarescore=0 clxscore=1015 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608110040
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_220435_622739_EE9F5689 
-X-CRM114-Status: GOOD (  34.14  )
+X-CRM114-CacheID: sfid-20260810_220612_227178_35B0094E 
+X-CRM114-Status: GOOD (  28.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,196 +184,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 3, 2026 at 11:19=E2=80=AFPM Vijayanand Jitta
-<vijayanand.jitta@oss.qualcomm.com> wrote:
-> diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-ar=
-m.c
-> index 476c0e25631af..23a238de53ed5 100644
-> --- a/drivers/iommu/io-pgtable-arm.c
-> +++ b/drivers/iommu/io-pgtable-arm.c
-> [...]
-> +static unsigned long arm_lpae_get_cont_sizes(struct io_pgtable_cfg *cfg)
-> +{
-> +       unsigned long pg_size, blk_size, l1_blk_size, cont_sizes =3D 0;
-> +       unsigned long cont_leaf_size, cont_blk_size, cont_l1_blk_size;
-> +       int pg_shift, bits_per_level;
-> +
-> +       if (!cfg->pgsize_bitmap || (cfg->quirks & IO_PGTABLE_QUIRK_ARM_NO=
-_CONT_HINT))
-> +               return 0;
-> +
-> +       pg_shift =3D __ffs(cfg->pgsize_bitmap);
-> +       bits_per_level =3D pg_shift - ilog2(sizeof(arm_lpae_iopte));
+On 10/08/26 22:26, Simon Horman wrote:
+> This is an AI-generated review of your patch. The human sending this
+> email has considered the AI review valid, or at least plausible.
+> Full review at: https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260807111738.2055900-1-s-vadapalli@ti.com?part=1
+> ---
+> --- Patch [1]: [PATCH net] net: ethernet: ti: am65-cpsw-nuss: Fix port_id extraction from SRC TAG ---
+> commit b0ed959d350c90d8b49f6f81eba7461fbc86dcf4
+> Author: Siddharth Vadapalli <s-vadapalli@ti.com>
+> 
+> net: ethernet: ti: am65-cpsw-nuss: Fix port_id extraction from SRC TAG
+> 
+> The RX path extracts the ingress MAC port ID from the CPPI5 descriptor's
+> 16-bit Source Tag. Only the lower 8 bits carry the port ID, so the patch
+> masks the value with 0xFF before it is used as an index into
+> common->ports[].
+> 
+>> diff --git a/drivers/net/ethernet/ti/am65-cpsw-nuss.c b/drivers/net/ethernet/ti/am65-cpsw-nuss.c
+>> index 434a31080855..6330540979d7 100644
+>> --- a/drivers/net/ethernet/ti/am65-cpsw-nuss.c
+>> +++ b/drivers/net/ethernet/ti/am65-cpsw-nuss.c
+>> @@ -1310,6 +1310,8 @@ static int am65_cpsw_nuss_rx_packets(struct am65_cpsw_rx_flow *flow,
+>>   	k3_udma_glue_rx_cppi5_to_dma_addr(rx_chn->rx_chn, &buf_dma);
+>>   	pkt_len = cppi5_hdesc_get_pktlen(desc_rx);
+>>   	cppi5_desc_get_tags_ids(&desc_rx->hdr, &port_id, NULL);
+>> +	/* Port ID is contained in the lower 8-bits of the 16-bit Source Tag */
+>> +	port_id &= 0xFF;
+>>   	dev_dbg(dev, "%s rx port_id:%d\n", __func__, port_id);
+>>   	port = am65_common_get_port(common, port_id);
+>>   	ndev = port->ndev;
+> 
+> [Severity: High]
+> [Finding: main-1-0]
+> [Sources: opus-5]
+> 
+> The missing range check on port_id is pre-existing and not introduced by
+> this patch, but since the change is specifically about avoiding the
+> out-of-bounds access, would it be worth validating the value instead of
+> relying only on the mask?
 
-bits_per_level is also calculated in arm_lpae_alloc_pgtable(). I'm
-wondering if we can somehow re-use that value, although, I do
-understand that data->bits_per_level is only populated later.
+Hardware guarantees a valid Port ID in the lower 8-bits. A Software check 
+is an unnecessary overhead and will impact performance since this is on the 
+data-path and is not a one-time check during initialization.
 
-> +       pg_size =3D 1UL << pg_shift;
+> 
+> After the mask, port_id is still an unvalidated hardware-supplied value in
+> the range 0..255, and am65_common_get_port() does raw pointer arithmetic
+> with no bounds check:
+> 
+> drivers/net/ethernet/ti/am65-cpsw-nuss.h:
+>      #define am65_common_get_port(common, id) (&(common)->ports[(id) - 1])
+> 
+> common->ports is a devm_kcalloc() array of exactly common->port_num
+> entries (1..AM65_CPSW_MAX_PORTS, checked in am65_cpsw_nuss_probe()), which
+> is typically 1 or 2 on shipping parts. So port_id == 0 gives ports[-1] and
 
-In arm_lpae_restrict_pgsizes(), they call the same value "granule".
-Can we align with that and call it granule instead of pg_size?
+port_id will NOT be zero since port ID is a Hardware provided identifier of 
+the Physical MAC Ports starting from '1'.
 
-> +       blk_size =3D pg_size << bits_per_level;
+> any port_id above common->port_num reads past the end of the allocation.
+> The resulting pointer is dereferenced right away in
+> am65_cpsw_nuss_rx_packets():
+> 
+>      port = am65_common_get_port(common, port_id);
+>      ndev = port->ndev;
+>      ...
+>      if (port->xdp_prog) {
+> 
+> and ndev then flows into am65_cpsw_build_skb(), netdev_priv(),
+> netif_dormant() and ndev->stats.*. Can a stray low byte still produce the
+> same class of crash the commit message describes?
 
-I'm wondering if we can re-use the macro ARM_LPAE_BLOCK_SIZE. I do
-acknowledge, though, that this macro doesn't work in this context,
-because (d)->bits_per_level is still not populated.
-Also, for consistency, you might want to call this l2_blk_size.
+Since Hardware guarantees that the lower 8-bits will always be the Port ID, 
+the way Software expects it to be, additional checks aren't required.
 
-> +       l1_blk_size =3D blk_size << bits_per_level;
-> +
-> +       cont_leaf_size =3D arm_lpae_num_cont(pg_size) * pg_size;
-> +       if ((cfg->pgsize_bitmap & pg_size) &&
+> 
+> The driver already enforces the required index domain for this accessor on
+> the device tree path in am65_cpsw_nuss_init_slave_ports():
+> 
+>      if (!port_id || port_id > common->port_num) {
+>          dev_err(dev, "%pOF has invalid port_id %u %s\n",
+>              port_np, port_id, port_np->name);
+>          ret = -EINVAL;
+>          goto of_node_put;
+>      }
+> 
+>      port = am65_common_get_port(common, port_id);
+> 
+> Would the same !port_id || port_id > common->port_num test in the RX path,
+> dropping the packet and requeueing the page (bumping rx_errors, perhaps
+> with a WARN_ON_ONCE), be a more robust fix than the mask alone?
 
-Is (cfg->pgsize_bitmap & pg_size) ever false?
+Unlike am65_cpsw_init_slave_ports() function which is executed only once 
+during initialization, am65_cpsw_nuss_rx_packets is executed for every 
+packet that is received from the wire. More importantly, the sanity check 
+for port_id in am65_cpsw_nuss_init_slave_ports() is performed on the 
+device-tree provided MAC Port ID rather than a Hardware provided MAC Port 
+ID. The comparison therefore isn't apt.
 
-[...]
+> 
+> There is a second case even when the index is in range: ports disabled in
+> the device tree never get an ndev allocated, and every other iteration site
+> guards for that, for example in am65_cpsw_nuss_set_offload_fwd_mark():
+> 
+>      if (!port->ndev)
+>          continue;
+> 
+> The RX path uses port->ndev unconditionally, so an in-range port_id
+> belonging to a disabled port would hand a NULL net_device to
+> am65_cpsw_build_skb() and netdev_priv(). Should that case be rejected too?
 
-> +/*
-> + * Install num_entries leaf entries starting at ptep (index map_idx_star=
-t
-> + * within the current table), tagging arm_lpae_num_cont()-sized groups w=
-ith
-> + * the contiguous hint where both idx and paddr are aligned to the group
-> + * size. Entries in a misaligned group are installed without the hint.
-> + *
-> + * idx and paddr both advance by block_size per entry, so their alignmen=
-t
-> + * relative to the group size is invariant across a run of entries withi=
-n
-> + * this call: once a group qualifies (or fails to), every later whole gr=
-oup
-> + * does too, up to num_entries. This merges each such run into a single
-> + * arm_lpae_init_pte() call instead of one call per group.
-> + */
+All MAC Ports that are disabled in the device-tree are kept disabled by the 
+driver, so it is not possible to end up in a situation where the MAC Port 
+ID in the RX DMA Descriptor contains a disabled MAC Port.
 
-Can you provide an example for when this function installs descriptors
-where the contiguous bit is only set on a subset of them. I would
-assume that the contiguous bit is either set for all descriptors or
-none of them.
+> 
+> As a small nit, would a named mask defined alongside the other CPPI5/AM65
+> definitions read better here than the bare 0xFF literal?
 
-> +static int arm_lpae_install_leaf(struct arm_lpae_io_pgtable *data,
-> +                                unsigned long iova, phys_addr_t paddr,
-> +                                arm_lpae_iopte prot, int lvl,
-> +                                int map_idx_start, int num_entries, int =
-num_cont,
-> +                                arm_lpae_iopte *ptep, size_t *mapped)
-> +{
-> +       size_t block_size =3D ARM_LPAE_BLOCK_SIZE(lvl, data);
-> +       size_t cont_size =3D num_cont * block_size;
-> +       int done =3D 0;
-> +
-> +       while (done < num_entries) {
-> +               int idx =3D map_idx_start + done;
-> +               int remaining =3D num_entries - done;
-> +               int off =3D idx % num_cont;
-> +               arm_lpae_iopte pte =3D prot;
-> +               int chunk, ret;
-> +
-> +               if (off) {
-> +                       /* Misaligned prefix: advance to the next boundar=
-y */
-> +                       chunk =3D min_t(int, num_cont - off, remaining);
-> +               } else if (remaining >=3D num_cont && IS_ALIGNED(paddr, c=
-ont_size)) {
-> +                       /* Aligned: merge every full group in this run */
-> +                       chunk =3D remaining - remaining % num_cont;
-> +                       pte |=3D ARM_LPAE_PTE_CONT;
-> +               } else {
-> +                       /*
-> +                        * Aligned idx but paddr doesn't line up with con=
-t_size,
-> +                        * or too short for a full group. That holds for =
-the
-> +                        * rest of this call too, so install the remainde=
-r
-> +                        * plain in one go.
-> +                        */
-> +                       chunk =3D remaining;
-> +               }
-> +
-> +               ret =3D arm_lpae_init_pte(data, iova, paddr, pte, lvl, ch=
-unk, ptep);
-> +               if (ret)
-> +                       return ret;
-> +
-> +               *mapped +=3D chunk * block_size;
-> +               ptep +=3D chunk;
-> +               iova +=3D chunk * block_size;
-> +               paddr +=3D chunk * block_size;
-> +               done +=3D chunk;
-> +       }
-> +
-> +       return 0;
-> +}
-> +
->  static int __arm_lpae_map(struct arm_lpae_io_pgtable *data, unsigned lon=
-g iova,
->                           phys_addr_t paddr, size_t size, size_t pgcount,
->                           arm_lpae_iopte prot, int lvl, arm_lpae_iopte *p=
-tep,
-> @@ -462,21 +608,44 @@ static int __arm_lpae_map(struct arm_lpae_io_pgtabl=
-e *data, unsigned long iova,
->         size_t block_size =3D ARM_LPAE_BLOCK_SIZE(lvl, data);
->         size_t tblsz =3D ARM_LPAE_GRANULE(data);
->         struct io_pgtable_cfg *cfg =3D &data->iop.cfg;
-> -       int ret =3D 0, num_entries, max_entries, map_idx_start;
-> +       bool cont_hint_enabled =3D !(cfg->quirks & IO_PGTABLE_QUIRK_ARM_N=
-O_CONT_HINT);
-> +       int num_entries, max_entries, map_idx_start;
-> +       int num_cont =3D cont_hint_enabled ? arm_lpae_num_cont(block_size=
-) : 1;
-> +       bool use_cont =3D cont_hint_enabled && num_cont > 1;
->
->         /* Find our entry at the current level */
->         map_idx_start =3D ARM_LPAE_LVL_IDX(iova, lvl, data);
->         ptep +=3D map_idx_start;
->
-> +       /*
-> +        * Normalize an exact whole-CONT-group request down to the
-> +        * equivalent block_size/pgcount so it funnels through the same
-> +        * leaf path below. arm_lpae_install_leaf() independently decides=
-,
-> +        * per sub-chunk, whether the CONT hint actually applies.
-> +        */
-> +       if (use_cont && size =3D=3D block_size * num_cont) {
-> +               pgcount *=3D num_cont;
-> +               size =3D block_size;
+I don't see a real need for a macro given that a comment has been added 
+just above, and there aren't other places where this is used at the moment. 
+However, if reviewers believe that it should be replaced by a macro, I am 
+open to doing so.
 
-This appears to me as if you're throwing away information about
-whether this mapping request is suitable for the contiguous bit, and
-then in arm_lpae_install_leaf(), you're trying to recover that
-information. Can't you just do "prot |=3DARM_LPAE_PTE_CONT" here and
-then completely avoid the logic in arm_lpae_install_leaf?
+Regards,
+Siddharth.
 
-> +       }
-> +
->         /* If we can install a leaf entry at this level, then do so */
->         if (size =3D=3D block_size) {
-> +               int ret;
-> +
->                 max_entries =3D arm_lpae_max_entries(map_idx_start, data)=
-;
-> -               num_entries =3D min_t(int, pgcount, max_entries);
-> -               ret =3D arm_lpae_init_pte(data, iova, paddr, prot, lvl, n=
-um_entries, ptep);
-> -               if (!ret)
-> -                       *mapped +=3D num_entries * size;
-> +               num_entries =3D min_t(size_t, pgcount, max_entries);
->
-> -               return ret;
-> +               if (!use_cont) {
-> +                       ret =3D arm_lpae_init_pte(data, iova, paddr, prot=
-, lvl,
-> +                                               num_entries, ptep);
-> +                       if (!ret)
-> +                               *mapped +=3D num_entries * size;
-> +                       return ret;
-> +               }
-> +
-> +               return arm_lpae_install_leaf(data, iova, paddr, prot, lvl=
-,
-> +                                            map_idx_start, num_entries,
-> +                                            num_cont, ptep, mapped);
 
