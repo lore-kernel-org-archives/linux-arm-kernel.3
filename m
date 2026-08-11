@@ -4,66 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27679C5B56A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 16:04:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C158C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 16:04:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kTEhBchTLneopez9pbOvyypG5Yj5i0XvkQJ4fytigDE=; b=iEX/SE0vgcBWDlTRRyrZM9fP8d
-	Dy6XdgppZ3dorDAo1l79sR42Ra4e9euya6WN93rLiqlZWYZFPg0N6JGypwPibxPhqDfLAeA8s5qht
-	i0KFHtK1YKGwf6L+7I6FueV2zVUFc3OPwLvJ/725jGaGMt/VlA5gNzaG7fxo0Qen+Zx5177jgZOwX
-	ncvkKnLqbjZ2zzptVUL4u9Xq4JjtKja+SCec5UjGb0zMiikWFP55c1aK2kjvQtz0ASfl6xmP1bXRM
-	ptFmLQ6+MzfNQBcMZ+bUUmCcxaCkmwSA6hJ32KLCnRIeIPvdmixdf4IA+ODqUTkgmAZz7FIm82T92
-	U9vSoPjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ptgbg2rZaEsTjE9dLT79mTbDs0W/jNl0+5wzhjip51A=; b=yKyBKrxSGb7O2f8m+2HtgclPE1
+	IbUHK0X5jo3KwvijOdmCC0vx85HzBxtTpaXsfEQxMU3pEaB2X19nPa7VxExkXOmBLmeLmMToyZg0E
+	6M8SQisuANjiFmcQHm63Edg/bdyFooYM9qpAREFH8xLuEVaF1eyQHHwy7pxxGX6h/eog0uyAHOytS
+	QlE93biipOAmbQyUSg1WK+gBvjbUcjqBMmocY59Hh9Rb9LjwD8OSaL4+X1fGpMU5OrnQAXA/Plz36
+	knVXv0U0XOYo6IJRFbKpr0etBz9n7NdR0tHLKRnZttl5Lhk9KWsaFGB8b2Bag2IrYyOlWcGOH7g7h
+	39df0wIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtoxG-0000000EQQ7-3Tet;
-	Tue, 11 Aug 2026 16:03:54 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtoxE-0000000EQPW-0vOD
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 16:03:53 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AAE4D1516;
-	Tue, 11 Aug 2026 09:03:44 -0700 (PDT)
-Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D96803F86F;
-	Tue, 11 Aug 2026 09:03:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786464228; bh=e7Z+l/mTt+5Pf3Y1BUH3J9fnuA6QlidiOwjauwgkWhw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Xxn4tmxRk8DDeLoDWJgLcSjvqgphcHHVSsLy9W3k5A933OGBP25O9NacR3PR0oDK3
-	 ukIq7VgR7qCS4RSCWK4DChBI13S4mlFzVtMR+R0w67k3zZwG691gS+zt/F9N80ybn3
-	 y48X7w43mZz/dl4gMIp+oztTAkaA7JJMYvorezEE=
-Date: Tue, 11 Aug 2026 17:03:43 +0100
-From: Alexandru Elisei <alexandru.elisei@arm.com>
-To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
-Cc: Jack Thomson <jackabt.amazon@gmail.com>, maz@kernel.org,
-	oupton@kernel.org, pbonzini@redhat.com, joey.gouly@arm.com,
-	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, shuah@kernel.org,
-	corbet@lwn.net, vladimir.murzin@arm.com,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
-	isaku.yamahata@intel.com, Jack Thomson <jackabt@amazon.com>
-Subject: Re: [PATCH v5 2/5] KVM: arm64: Add pre_fault_memory implementation
-Message-ID: <antH38FPSmAZ0nrB@raptor>
-References: <20260612162354.73378-1-jackabt.amazon@gmail.com>
- <20260612162354.73378-3-jackabt.amazon@gmail.com>
- <alEXtW7w-rqlNG09@raptor>
- <yq5acxvz4u1i.fsf@kernel.org>
+	id 1wtoxn-0000000EQXv-40sL;
+	Tue, 11 Aug 2026 16:04:27 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wtoxl-0000000EQVX-2cQN;
+	Tue, 11 Aug 2026 16:04:26 +0000
+From: Gregor Herburger <gregor.herburger@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1786464261;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Ptgbg2rZaEsTjE9dLT79mTbDs0W/jNl0+5wzhjip51A=;
+	b=xr9xb9zrTfHNTZeaj5MGgn0tyThqOx/RCSoZjSPSlo+Akg052DnNmPKATeCfNOpEi4NC/g
+	tgWDU1S1bj0UjWRZ7OjUUUqW6RFleBxAkcQ0fqp7whUsEtnc7AukvaoKPqwZOamFonig8X
+	2XbN91ii3ZbKtj7yTlq4AWkGGuNeeeWJIdnHb0j23UInf9bJEs3t7FHNusHTNFuF3/8Da+
+	RiCjCHbcklMj0+x1HjIm3zucOLhMda4cwgaB0mmdGArYG/2uv0IUn4gF9GDKYmAqlZ5/rp
+	KSzFUqsBjiInWkONZJtM2pCLSowCFQ5y36pb30Q+RCPayWtT6nK+2HqDIIzWUQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1786464261;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Ptgbg2rZaEsTjE9dLT79mTbDs0W/jNl0+5wzhjip51A=;
+	b=sQQQuvQU9bqBEBvfQzlakrKZ4HGiHWQSxamvy/zoJeVhMQg94uiIWrED98Jc68Lg3cURoT
+	OW2PNlF+zkr19KCg==
+Date: Tue, 11 Aug 2026 18:04:15 +0200
+Subject: [PATCH 1/2] arm64: dts: broadcom: rp1: add spi controller
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <yq5acxvz4u1i.fsf@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260811-bcm2712-spi-v1-1-4c1708d354bb@linutronix.de>
+References: <20260811-bcm2712-spi-v1-0-4c1708d354bb@linutronix.de>
+In-Reply-To: <20260811-bcm2712-spi-v1-0-4c1708d354bb@linutronix.de>
+To: Andrea della Porta <andrea.porta@suse.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ Gregor Herburger <gregor.herburger@linutronix.de>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1786464260; l=3713;
+ i=gregor.herburger@linutronix.de; s=20260226; h=from:subject:message-id;
+ bh=FqFbK4KpdGlkNZietP69oqW51qLSXbPgbYrtUFNu9Zo=;
+ b=JELCilY3swOAHdx7HexxZOuK/fCO0wHMs3FrfqCULObgSSNNgd2xg9JpLyQIk3ivCmKrkrIjr
+ llMGKllo2GiDf6g0pCso0s04+i/PtetnpQ1b+/RAFarzSvCup5xFjUt
+X-Developer-Key: i=gregor.herburger@linutronix.de; a=ed25519;
+ pk=u72Lv7+/lS5CC1hmSrb17lv/6CK7HBh4Lvz77PHA5LM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_090352_296728_B1ECCF1F 
-X-CRM114-Status: GOOD (  19.72  )
+X-CRM114-CacheID: sfid-20260811_090425_817191_647D63D0 
+X-CRM114-Status: UNSURE (   7.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,44 +89,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Aneesh,
+The rp1 processor found on the Raspberry Pi 5 has nine Synchronous
+Serial Interfaces.
 
-On Mon, Aug 03, 2026 at 11:36:33AM +0530, Aneesh Kumar K.V wrote:
-> Alexandru Elisei <alexandru.elisei@arm.com> writes:
-> 
-> > Hi Jack,
-> >
-> > On Fri, Jun 12, 2026 at 05:23:50PM +0100, Jack Thomson wrote:
-> >> From: Jack Thomson <jackabt@amazon.com>
-> 
-> ....
-> 
-> >> +		if (kvm_is_error_hva(hva)) {
-> >> +			ret = -EFAULT;
-> >> +			goto out;
-> >> +		}
-> >> +
-> >> +		s2fd.hva = hva;
-> >> +		ret = user_mem_abort(&s2fd);
-> >
-> > If is_protected_kvm_enabled(), this function doesn't check if the mapping
-> > already exists. user_mem_abort() will call **p**kvm_pgtable_stage2_map()
-> > (emphasis is mine) to create the mapping, and pkvm_pgtable_stage2_map() will
-> > return -EAGAIN, and keep returning -EAGAIN until the mapping is destroyed, which
-> > might be some time away.
-> >
-> > Same thing happens **without** pKVM, kvm_pgtable_stage2_map() will return
-> > -EAGAIN if the mapping exists. But that's not such a big issue, when the
-> > user calls KVM_PRE_FAULT_MEMORY on the remaining range
-> > kvm_pgtable_get_leaf() will detect the existing mapping. Which you have
-> > already taken into consideration judging by the comment, so all good here.
-> >
-> 
-> But both gmem_abort() and user_mem_abort() handle -EAGAIN internally, don't they?
+Add the relevant nodes to the devicetree.
 
-I think you're right, please ignore my comment about an existing mapping with
-is_protected_kvm_enabled().
+Signed-off-by: Gregor Herburger <gregor.herburger@linutronix.de>
+---
+ arch/arm64/boot/dts/broadcom/rp1-common.dtsi | 119 +++++++++++++++++++++++++++
+ 1 file changed, 119 insertions(+)
 
-Thanks,
-Alex
+diff --git a/arch/arm64/boot/dts/broadcom/rp1-common.dtsi b/arch/arm64/boot/dts/broadcom/rp1-common.dtsi
+index 16f5359395835..8d9de71efdba9 100644
+--- a/arch/arm64/boot/dts/broadcom/rp1-common.dtsi
++++ b/arch/arm64/boot/dts/broadcom/rp1-common.dtsi
+@@ -26,6 +26,125 @@ rp1_clocks: clocks@40018000 {
+ 				       <200000000>;  // RP1_CLK_SYS
+ 	};
+ 
++	rp1_spi8: spi@4004c000 {
++		compatible = "snps,dw-apb-ssi";
++		reg = <0x00 0x4004c000  0x0 0x130>;
++		interrupts = <56 IRQ_TYPE_LEVEL_HIGH>;
++		clocks = <&rp1_clocks RP1_CLK_SYS>;
++		clock-names = "ssi_clk";
++		#address-cells = <1>;
++		#size-cells = <0>;
++		num-cs = <2>;
++
++		status = "disabled";
++	};
++
++	rp1_spi0: spi@40050000 {
++		compatible = "snps,dw-apb-ssi";
++		reg = <0x00 0x40050000  0x0 0x130>;
++		interrupts = <19 IRQ_TYPE_LEVEL_HIGH>;
++		clocks = <&rp1_clocks RP1_CLK_SYS>;
++		clock-names = "ssi_clk";
++		#address-cells = <1>;
++		#size-cells = <0>;
++		num-cs = <4>;
++
++		status = "disabled";
++	};
++
++	rp1_spi1: spi@40054000 {
++		compatible = "snps,dw-apb-ssi";
++		reg = <0x00 0x40054000  0x0 0x130>;
++		interrupts = <20 IRQ_TYPE_LEVEL_HIGH>;
++		clocks = <&rp1_clocks RP1_CLK_SYS>;
++		clock-names = "ssi_clk";
++		#address-cells = <1>;
++		#size-cells = <0>;
++		num-cs = <3>;
++
++		status = "disabled";
++	};
++
++	rp1_spi2: spi@40058000 {
++		compatible = "snps,dw-apb-ssi";
++		reg = <0x00 0x40058000  0x0 0x130>;
++		interrupts = <21 IRQ_TYPE_LEVEL_HIGH>;
++		clocks = <&rp1_clocks RP1_CLK_SYS>;
++		clock-names = "ssi_clk";
++		#address-cells = <1>;
++		#size-cells = <0>;
++		num-cs = <2>;
++
++		status = "disabled";
++	};
++
++	rp1_spi3: spi@4005c000 {
++		compatible = "snps,dw-apb-ssi";
++		reg = <0x00 0x4005c000  0x0 0x130>;
++		interrupts = <22 IRQ_TYPE_LEVEL_HIGH>;
++		clocks = <&rp1_clocks RP1_CLK_SYS>;
++		clock-names = "ssi_clk";
++		#address-cells = <1>;
++		#size-cells = <0>;
++		num-cs = <2>;
++
++		status = "disabled";
++	};
++
++	rp1_spi4: spi@40060000 {
++		compatible = "snps,dw-apb-ssi";
++		reg = <0x00 0x40060000  0x0 0x130>;
++		interrupts = <23 IRQ_TYPE_LEVEL_HIGH>;
++		clocks = <&rp1_clocks RP1_CLK_SYS>;
++		clock-names = "ssi_clk";
++		#address-cells = <0>;
++		#size-cells = <0>;
++		num-cs = <1>;
++		spi-slave;
++
++		status = "disabled";
++	};
++
++	rp1_spi5: spi@40064000 {
++		compatible = "snps,dw-apb-ssi";
++		reg = <0x00 0x40064000  0x0 0x130>;
++		interrupts = <24 IRQ_TYPE_LEVEL_HIGH>;
++		clocks = <&rp1_clocks RP1_CLK_SYS>;
++		clock-names = "ssi_clk";
++		#address-cells = <1>;
++		#size-cells = <0>;
++		num-cs = <2>;
++
++		status = "disabled";
++	};
++
++	rp1_spi6: spi@40068000 {
++		compatible = "snps,dw-apb-ssi";
++		reg = <0x00 0x40068000  0x0 0x130>;
++		interrupts = <54 IRQ_TYPE_LEVEL_HIGH>;
++		clocks = <&rp1_clocks RP1_CLK_SYS>;
++		clock-names = "ssi_clk";
++		#address-cells = <1>;
++		#size-cells = <0>;
++		num-cs = <3>;
++
++		status = "disabled";
++	};
++
++	rp1_spi7: spi@4006c000 {
++		compatible = "snps,dw-apb-ssi";
++		reg = <0x00 0x4006c000  0x0 0x130>;
++		interrupts = <55 IRQ_TYPE_LEVEL_HIGH>;
++		clocks = <&rp1_clocks RP1_CLK_SYS>;
++		clock-names = "ssi_clk";
++		#address-cells = <0>;
++		#size-cells = <0>;
++		num-cs = <1>;
++		spi-slave;
++
++		status = "disabled";
++	};
++
+ 	rp1_i2c0: i2c@40070000 {
+ 		compatible = "snps,designware-i2c";
+ 		reg = <0x0 0x40070000  0x0 0x1000>;
+
+-- 
+2.47.3
+
 
