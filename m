@@ -4,68 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 998C0C5AC67
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 13:54:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACE27C5AC67
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 14:01:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0JZA17aHcI0IRIEiveRVYy3aeVmVhVMofUrMfE0EO3w=; b=Q0HU/DruZq7/qPe6Z/dkb/VMN2
-	CtQcsSf8rFQqKbQY+59uMR8cLAc48rUyC3U8YK9JhBZVeaa0RDoJF+ljupyHRFv5OVlFW67INduTj
-	ZEW0Uq8rYxAMmj63qt7iZ+pbdlAJUjDd2MkifiIrTsnp++4ifpv2Q3zCOLPaz9o3/vTSdnJdQSxOk
-	wQQ9GDMu4Wdr3Xk1HBeMH4l5LY7XxuAodf+YPeAoXpgUTTpP/zgHLtwPariaMAaxMWbDvy2MIAR+t
-	ygOwN3fLip6bEwSomNLsIGGf61iOJAvZZbFveOJuOmuGqUcPsrMb4GaSkT2V+RQujm02iAGovr1+x
-	0bGqFhXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hvUoliD+aRM44Z5N7vriFmsAIJjxCRXSO0RSQInAnNs=; b=xO7SLfiHYaBZTX9VnjS2e2zQgy
+	emDPR3NKmoChKg7fj1L+EI2AnA6es1KVBcd5jO6T6fiWcQxTugfg3wZ8CkcM8GEaiKDiHlcfsvin/
+	P6bbEE3GyB0cb+8GEyXh3aiIYg7yhgHCCemnuhTnXnTaEt+U3m2X1y9+sx+RP6Ka3V02wouongaak
+	kF3WPv2U/qUfnOasgKs8zznTlN7e9IG15jK/E05Gbj4V5NWC7pPn49BJc1rmalefrI1vDvv5YCwss
+	AqEUfCQzlE4ujdpZwnxZtolwrJulQA5VHZP1IHVCBkFsPyjFxhDNp8QmDvHcgPV3n+dEYWrrOpuBd
+	kPpX7rMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtmwH-0000000E8ul-1eyc;
-	Tue, 11 Aug 2026 13:54:45 +0000
+	id 1wtn30-0000000E9Jr-0LJT;
+	Tue, 11 Aug 2026 14:01:42 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtmwE-0000000E8uD-2wGC
+	id 1wtn2y-0000000E9Jk-4AU1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 13:54:42 +0000
+	Tue, 11 Aug 2026 14:01:41 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 25D93600AD;
-	Tue, 11 Aug 2026 13:54:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A95EB1F00A3A;
-	Tue, 11 Aug 2026 13:54:41 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 392A4600AD;
+	Tue, 11 Aug 2026 14:01:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AF641F000E9;
+	Tue, 11 Aug 2026 14:01:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786456481;
-	bh=0JZA17aHcI0IRIEiveRVYy3aeVmVhVMofUrMfE0EO3w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=JGLfuozPTND9eWwSdd1YMCkf5wDMHWMqzqX3A10OvSKNYSnavA+xPAMEvITpisaUP
-	 NbbEhGfVNf0YAxGZFIzGA7jfaVz5uv7Zz1MSFD/LnlbdPwO24oJCrrFD6u6NJDPeV4
-	 q3/7Wvme4QGZ07JUy1dCUZbpZ22KM6gAMxeDxBGWetXSGiPMrxWTr7nrnVxTAtvk3g
-	 XHfzbdWwpxK5aOT3FiqVVw9yqq1M1BHV3HAXNB0Apj29Bzc6L9C85iksD3vosiun3K
-	 PXrosZyFreHyAxjJTvMK6G4ztVpdrDtzoP+zZzmPo2cEyz70YcZC5Kc4P8lZPYemJG
-	 VfUo1/x81zMyA==
-Date: Tue, 11 Aug 2026 08:54:41 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Yureka Lilian <yureka@cyberchaos.dev>
-Cc: Radu Rendec <radu@rendec.net>, Linus Walleij <linusw@kernel.org>,
-	Mark Kettenis <kettenis@openbsd.org>, linux-gpio@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
-	linux-pwm@vger.kernel.org, Neal Gompa <neal@gompa.dev>,
-	linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Janne Grunau <j@jannau.net>, Sasha Finkelstein <k@chaosmail.tech>,
-	Hector Martin <marcan@marcan.st>, Thomas Gleixner <tglx@kernel.org>,
-	Sven Peter <sven@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
-	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
-	Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>
-Subject: Re: [PATCH v2 8/9] dt-bindings: arm: apple: Add M4 based devices
-Message-ID: <178645648045.2076922.10746333465104640376.robh@kernel.org>
-References: <20260801-apple-m4-initial-devicetrees-v2-0-5cb07cc275da@cyberchaos.dev>
- <20260801-apple-m4-initial-devicetrees-v2-8-5cb07cc275da@cyberchaos.dev>
+	s=k20260515; t=1786456899;
+	bh=hvUoliD+aRM44Z5N7vriFmsAIJjxCRXSO0RSQInAnNs=;
+	h=From:To:Cc:Subject:Date;
+	b=lu6ernN7Mg4w3v7/OpMmDS7SzMPV9osdnuN2MJ+tt9z09jW76Za18B8bJTtffjpTf
+	 ErwqzvL6VvNFJcxHQ4lO5nZLWtQ3loO6vjnYatG2xc+qwUyQKsGvCJ2epDYK7ueoFH
+	 eeLu7Uc0FOknAgvfVs7ESYBxAZnjKrg8haA+ylfaY0U2wglAJCPQrEvvDPSMWhZbF9
+	 p01mkZA5pZC+JrDz6cogsRxjKD4RSQ4LRwk3pYlNgQ3yvAOvlpNXU98/bbCmLuDDa/
+	 ZIjwG4XPX9xWpnBHhCZIIFS3qZWNShXwNdb2lyC+hp7GqNTLny7lIsBsQWi++7cIQM
+	 X7yX3l15rYFDw==
+From: Will Deacon <will@kernel.org>
+To: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org,
+	Will Deacon <will@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Eric Biggers <ebiggers@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Marc Zyngier <maz@kernel.org>
+Subject: [PATCH 00/12] arm64: Remove unused big-endian support
+Date: Tue, 11 Aug 2026 15:01:19 +0100
+Message-ID: <20260811140132.22778-1-will@kernel.org>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260801-apple-m4-initial-devicetrees-v2-8-5cb07cc275da@cyberchaos.dev>
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,20 +75,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi folks,
 
-On Sat, 01 Aug 2026 23:40:38 +0200, Yureka Lilian wrote:
-> The Apple devices with the t8132 SoC (M4) are very similar to their M3
-> predecessors.
-> 
-> In addition to the MacBook Pro and the various MacBook Air and iMac
-> variants, a Mac mini is offered again with the M4.
-> 
-> Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
-> ---
->  Documentation/devicetree/bindings/arm/apple.yaml | 21 +++++++++++++++++++++
->  1 file changed, 21 insertions(+)
-> 
+Big-endian support on arm64 (CONFIG_CPU_BIG_ENDIAN) has depended on
+BROKEN since 1cf89b6bf660 ("arm64: Kconfig: Make CPU_BIG_ENDIAN depend
+on BROKEN") and has already seen some clean-up patches removing some of
+the unused support code (e.g. 5276ea17a23c ("lib/crc: arm64: Assume a
+little-endian kernel")).
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Finish the job, and remove the remaining big-endian support code from
+arm64. Note that the SETEND emulation for 32-bit tasks remains and so
+some of the mixed-endian EL0 helpers are retained.
+
+I've broken this down into fairly coarse chunks, as it seemed a lot
+easier to manage than one giant patch (even with the Kconfig being
+effectively disabled already) and not all of it is just mindless
+deletion. Despite that, I'm anticipating the whole thing going via the
+arm64 tree.
+
+Will
+
+Cc: Arnd Bergmann <arnd@arndb.de>
+Cc: Ard Biesheuvel <ardb@kernel.org>
+Cc: Eric Biggers <ebiggers@kernel.org>
+Cc: Daniel Borkmann <daniel@iogearbox.net>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Alexei Starovoitov <ast@kernel.org>
+Cc: Oliver Upton <oupton@kernel.org>
+Cc: Herbert Xu <herbert@gondor.apana.org.au> 
+Cc: Marc Zyngier <maz@kernel.org>
+
+--->8
+
+Will Deacon (12):
+  selftests/arm64: Remove big-endian support
+  arm64: bpf: Remove big-endian support from the JIT compiler
+  arm64: crypto: Assume a little-endian kernel
+  arm64: lib: Assume a little-endian kernel in custom library routines
+  arm64: lib: Assume a little-endian kernel in optimised string routines
+  arm64: assembler: Remove endianness helper macros
+  arm64: vdso32: Always build compat vDSO object as little-endian
+  KVM: arm64: Remove support for a big-endian hypervisor object
+  arm64: Remove all usage of CONFIG_CPU_BIG_ENDIAN
+  arm64: Remove all usage of __AARCH64EB__
+  arm64: image: Remove endianness handling for generating image header
+  arm64: Kbuild: Remove vestigial big-endian support
+
+ arch/arm64/Kconfig                           | 35 +-------
+ arch/arm64/Makefile                          | 12 +--
+ arch/arm64/crypto/aes-ce-ccm-core.S          |  4 +-
+ arch/arm64/crypto/aes-neonbs-core.S          |  4 +-
+ arch/arm64/crypto/ghash-ce-core.S            |  6 +-
+ arch/arm64/crypto/sm4-ce-cipher-core.S       |  4 +-
+ arch/arm64/include/asm/assembler.h           | 42 ---------
+ arch/arm64/include/asm/compat.h              | 14 ---
+ arch/arm64/include/asm/elf.h                 | 12 ---
+ arch/arm64/include/asm/processor.h           |  2 -
+ arch/arm64/include/asm/ptrace.h              |  6 --
+ arch/arm64/include/asm/sysreg.h              | 50 +++--------
+ arch/arm64/include/asm/thread_info.h         |  5 --
+ arch/arm64/include/asm/word-at-a-time.h      |  6 --
+ arch/arm64/include/uapi/asm/byteorder.h      |  4 -
+ arch/arm64/kernel/fpsimd.c                   | 21 +----
+ arch/arm64/kernel/head.S                     |  7 +-
+ arch/arm64/kernel/image.h                    | 38 +-------
+ arch/arm64/kernel/kexec_image.c              |  5 +-
+ arch/arm64/kernel/kgdb.c                     |  3 -
+ arch/arm64/kernel/ptrace.c                   |  8 +-
+ arch/arm64/kernel/signal32.c                 | 13 ---
+ arch/arm64/kernel/sys32.c                    |  5 --
+ arch/arm64/kernel/vdso32/Makefile            |  4 -
+ arch/arm64/kvm/hyp/include/nvhe/spinlock.h   |  4 -
+ arch/arm64/kvm/hyp/nvhe/gen-hyprel.c         | 16 ----
+ arch/arm64/lib/csum.c                        | 17 ----
+ arch/arm64/lib/memchr.S                      |  2 +-
+ arch/arm64/lib/memcmp.S                      |  2 -
+ arch/arm64/lib/strcmp.S                      | 34 +------
+ arch/arm64/lib/strlen.S                      | 26 ------
+ arch/arm64/lib/strncmp.S                     | 93 ++------------------
+ arch/arm64/lib/strnlen.S                     | 16 +---
+ arch/arm64/mm/extable.c                      |  5 --
+ arch/arm64/net/bpf_jit_comp.c                | 11 ---
+ tools/testing/selftests/arm64/fp/fp-ptrace.c | 19 +---
+ tools/testing/selftests/rseq/rseq-arm64.h    |  5 --
+ 37 files changed, 50 insertions(+), 510 deletions(-)
+
+-- 
+2.55.0.679.g6767b8d81c-goog
 
 
