@@ -4,120 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12970C5AC67
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 09:03:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0B4EC5CFD9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 09:03:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=WaWMG6qG0AoJfmw+GusTjDXo+UgHIcucLwKvmhwkcCY=; b=M7Qe0SCsMJQzuh
-	YVHKAh6j3eU7WE7vvPGO7vdg1SPz3UuRbL/j8JktZndjhRQyNjDAnVnB1eeY0FHlFqJXOW3keFF2c
-	c/M7W1IgxqkA/56lPqM0ZSC091lEfGhZRk7cvRJVfRpoNC48C85Djr9P2ZR53Ac1rea48MtJsQRXd
-	jmqY5XVYPyYOwt18agqN8UFVRlYGMMPTCrVoJgt7be8HHqUvSH0CoTyxs86BExb23N1mvQd41MD+m
-	DXQt/yl6OycU8ZY5LWF8aPitfr2PWoslgQ7cqA9HQGbLOGthFX5TRmUDEK1amlVcjmM9SdpcK2tUL
-	s8lrTU4F+mopIOaNwK5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oJ88OLZKf9QMZYTUIDUM+DdXOTb/AyphVnNJxcq65aI=; b=LgEhb/+BuLwjAmNu/Hlg3JfBwE
+	gqwMnZXk4CP83e53ffMhUzK1AkMXDrKs+K+dyztI+yxJUc/PogHUrMYk41aLl1oSum66s/SYQXXnd
+	XXNd4JUBzv+EBrw7cXxz9FaPT1/EDybcmRsyxLB+TQD16RCehzIjiXo4MQGkDXFAkPWSzlvtu1FCD
+	wvhgS7Clcb6gaeSbeVAWhp3gQB2w8hQgsRpezQE4B8XKBHwOlr2cbEVCL8Mx8vUJPxkWBQ6IzGaM1
+	XSQktA5gGR/DDpuw352Dap7S76Gk/e2cJIKdLBAT1i8GmrpvmlKCAZRxu/4dFvP0PtwG0Un4kFgQE
+	fNlan2EQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtiNl-0000000DgLP-3MFl;
-	Tue, 11 Aug 2026 09:02:49 +0000
-Received: from mail-westus3azon11021088.outbound.protection.outlook.com ([40.107.208.88] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1wtiNn-0000000DgMs-3oDr;
+	Tue, 11 Aug 2026 09:02:51 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtiNi-0000000DgJm-3XU9
+	id 1wtiNk-0000000DgJo-0G2D
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 09:02:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ResyciNWVSIBqs2pqJkmCJl5o6UiqTjgTGzwKeLl3i8V5Ppo8b+r2MFo5eLdQChkIHWJFhxtT2qwfVqGIfjejrcVJGhrPcM1YivvjO0O7D03jBjte4SDc2VJzItMEuWPOo7ODr/zgxzsYUcb9j7TRYaIiWLRMKZF2bqkc0TdoI3HAIbFvpvAWuSqKbo3wdjfzfXVBZWh5Pfs0+RkaipDDE77irqse65t6Yi2tOEFyI9KsZFFaGXiAQAD9I8Rhh+iwciZlLJHGneJleyl/XaXrkW4jFvnXjsc3Dm4boJS3wU9ny6IdC0fq/o0jBrt2ZN75BmYcDD5r6uP8WBV7wjNiw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=WaWMG6qG0AoJfmw+GusTjDXo+UgHIcucLwKvmhwkcCY=;
- b=uUfyI3mpi2MfKP7FnePZOzQ9yif4PoXYyXS15+dSASiX+3y1XVB/lWvP61q0J3E4uNS2lGrsSZuZrdaDml5t7XI5OFRDQ6nRTeNaOAEp7/LDb2PvxojwtRAoqYIC/fk73sy5Z9oEie9lCuA7UXR3AQsXferU9wfDO5LAhm+i2wjM756NkV66kXyXy+hXe7Gw/YDqa5+RsPu0mJDlM1JlGFQUWkq21ZhuVlJloVQmZKau0sVoXGauu45AoJJrGcQGkWaEeUHv9BeIWn1Zu/tHtrx6KvR0RriIF47Wg+e800HX/S/yFf+staRynHY2PSZvLSUX1a5c3H9t3CsHhv/Upw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 64.62.143.114) smtp.rcpttodomain=axiado.com smtp.mailfrom=axiado.com;
- dmarc=none action=none header.from=axiado.com; dkim=none (message not
- signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=WaWMG6qG0AoJfmw+GusTjDXo+UgHIcucLwKvmhwkcCY=;
- b=u9uVI2b53wfoEE+iLv0xuCcSeHSdGSpzqjvVb5AF99bbxnON+CrK+fkPC5jvLkKTZMRd9iuCiHdkGsJKCE9nC/eEKWgg/XhwCfjjviUNam4+SE6zRIykcX9f5uuqyLyi5VeKAroioFX3VmNwnHJGrh4wGUZCGW0O/kMG5USxOS3N9HdR2JV2e883SzW6s0545aqJggkHIBdkDO3qWl4ivG4kTAemqJi7K8lb1yzVWQ+yt6DKOF5aL917pN8lslBcqbgec26wc7vDeNuyEedqlR8Qu6no0YF7ANbYJnzch8PnffYZ7Ro2h9NxIRI8CZoTVFFFbS9E05UBdFVX+dRAfg==
-Received: from DSSP221CA0012.NAMP221.PROD.OUTLOOK.COM (2603:10b6:8:3d5::12) by
- PH0PR18MB5211.namprd18.prod.outlook.com (2603:10b6:510:173::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.12; Tue, 11 Aug
- 2026 09:02:32 +0000
-Received: from DS3PEPF000099DF.namprd04.prod.outlook.com
- (2603:10b6:8:3d5:cafe::35) by DSSP221CA0012.outlook.office365.com
- (2603:10b6:8:3d5::12) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.315.11 via Frontend Transport; Tue,
- 11 Aug 2026 09:02:32 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 64.62.143.114)
- smtp.mailfrom=axiado.com; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=axiado.com;
-Received-SPF: Fail (protection.outlook.com: domain of axiado.com does not
- designate 64.62.143.114 as permitted sender) receiver=protection.outlook.com;
- client-ip=64.62.143.114; helo=smtp.corp.axiado.com;
-Received: from smtp.corp.axiado.com (64.62.143.114) by
- DS3PEPF000099DF.mail.protection.outlook.com (10.167.17.202) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.315.6
- via Frontend Transport; Tue, 11 Aug 2026 09:02:32 +0000
-Received: from axz-uw1-build-vm02.corp.axiado.com (unknown [10.14.1.22])
-	by smtp.corp.axiado.com (Postfix) with ESMTP id 4E3CA4157BE1;
-	Tue, 11 Aug 2026 02:02:31 -0700 (PDT)
-From: Petar Stepanovic <pstepanovic@axiado.com>
-Subject: [PATCH v3 0/2] pwm: add Axiado AX3000 PWM support
-Date: Tue, 11 Aug 2026 02:01:49 -0700
-Message-Id: <20260811-axiado-ax3000-pwm-v3-0-6ceaccd812cf@axiado.com>
+	Tue, 11 Aug 2026 09:02:49 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-47de008b020so432264f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 02:02:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1786438966; x=1787043766; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=oJ88OLZKf9QMZYTUIDUM+DdXOTb/AyphVnNJxcq65aI=;
+        b=xyHlGfH5GbjS6CwzwzaSjViu8rioJ4vuKgw6m1ft1pbe7LdIz4tCIUyc1YfNOGxoZg
+         CcJZ0if6Ovg45PE701gINiqkwrgxhDzbfWxCxq/rsZO1ijQjrw6aXjr8W2HWOvKyZyZs
+         KB2Mg3GtUxF8FIKz68mdovMuYZhNhPlTkK5x2a9qWymghZZborg+Ej5SEtj0gq5i6PkX
+         1eXcOHQvJOH/4fEb+m+hJfPf/WBVn4YZaXxs1YihsT920gwljVblpNyunxD5LoeAllYw
+         MGt+DQUmTDNxjMY1EuoqX36cLimdRQiH1+jz2vgfWKaqtHU3Y7Gx6ou7xQ6O7KVbC2jE
+         wqjQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786438966; x=1787043766;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=oJ88OLZKf9QMZYTUIDUM+DdXOTb/AyphVnNJxcq65aI=;
+        b=I5HnICPDs3fuW29MEfEXEDhk82DPa9cMHbNSim86I89yg4XdY255J7thIFZZ72rRfa
+         35Lxu1b2jSkGMJbw/FPsd9ylXoMYoLujJFVOdQ/3fbI+bb2vjjVapmvRXOHP5TdRg3es
+         s0Q2LugO2FwkVU4EomCKCpCx7ikBjmaiIZ/SxQaPcUZ7DuMA46LAdp+VaqDkS3bKHb4W
+         jCAQmt85BhlLBTkuVifHTYa0aL0HZHO8PdQNb/tKP+adEYaBSHZ4CwO9+ejSMoTbQd2o
+         LY6ATOuuR6Xhs/4p1vMgbZMBUdDC3LRBBHvNXGGuFZR4+P+14lhVptXzcsO6f3fOKOYQ
+         aEVQ==
+X-Forwarded-Encrypted: i=1; AHgh+RpMyH+Uce4Q2shyCLQLE87caMzU79hnKpeN2CiwxtRtxpjAFO/WjX0vwUs19VpLlYGF2LWiGO1HRkhesABYyKNV@lists.infradead.org
+X-Gm-Message-State: AOJu0YwAQHn1ILLdIN8PnGwB5JmfesZA5G/LSE32aJejpVKshTEAihAo
+	zR/9KGn7OAWq+hTmPWzNc2gwcyTRzQ7uIb3hzVRSCL56bQsW1yYWThKMXKNt8+Ma0N0=
+X-Gm-Gg: AR+sD10RqbIpNFErQ68nSsooV3PYVCX2tL0sxZTXBv5CittyL9PvXAfKEplyBV9+uHy
+	79/b+B85RUCaXAy7YdIZtHzLMxEKkKIGKDQKE65hPlN4XMYVmFdwKd/uD+9SMZh5gFutKUjRAEF
+	Lh/nIRbgX80dCxNDF98xDHkba/YmP7EJ6qJD/+N1nqvN8nb/bW3xlFRXq+jXgYA6EtqTLTGLX/3
+	ubos1G332wI//AvnJpM8qWfEqJ100JpPvkPU++vwPqF4NdejNRlory0rU9X3uhrBzUJmHohfoHG
+	xReLJnMD7RBq6ALT+NoPmTJRXBuiAX29tBUwEQI1xYAn19chXHAJicIrPZptLMWpcicyXjoeTY4
+	MznvuvmoWmKWczGuXAXGqN+9DkiuBst+qKN6tMHehFAuzjf/ragogeLNjhSIUnoJ21h49EpfcoX
+	KvyL2AUuLw4qXB0/9mzHoKKlkAcFVQWvgBTWcPvpwoNwyhmUh09Eb2Gy9AYbthjaK3R/I=
+X-Received: by 2002:a05:6000:46ce:b0:474:bbbb:bf17 with SMTP id ffacd0b85a97d-4814b54d77bmr1881469f8f.0.1786438965631;
+        Tue, 11 Aug 2026 02:02:45 -0700 (PDT)
+Received: from [192.168.1.3] ([37.18.141.193])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4814a709624sm3106323f8f.22.2026.08.11.02.02.44
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 11 Aug 2026 02:02:45 -0700 (PDT)
+Message-ID: <8c8f6c2a-8fc2-4181-87fa-e64101dfce6f@linaro.org>
+Date: Tue, 11 Aug 2026 10:02:44 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAP3kemoC/23NQQ7CIBAF0Ks0rMUMA5biynsYFwjUsqg0YLCm6
- d2l7cKYdDX5kz9vJpJc9C6RczWR6LJPPjxL4IeKmE4/H456WzJBwBpOrKF69NqGMjgA0OHdU2O
- l4aJuhGoZKXdDdK0fV/N6K7nz6RXiZ32R2bLdtHpXy4wCNUoqqRUowcRl6xxN6MnCZfwREvkeg
- YVABMAW7tgw+0fM8/wFbCJnevYAAAA=
-X-Change-ID: 20260518-axiado-ax3000-pwm-cd7c346849f1
-To: Akhila Kavi <akavi@axiado.com>, 
- Prasad Bolisetty <pbolisetty@axiado.com>, 
- =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>
-Cc: linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Petar Stepanovic <pstepanovic@axiado.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1786438951; l=3694;
- i=pstepanovic@axiado.com; s=20250916; h=from:subject:message-id;
- bh=qtPLEdR45LEo0wZaU0U4sHX7g0VBI9UC1fT2eMz5fRk=;
- b=VEfYGiIE2wlausBpJI/WVPxYnNnB6DYiFIRV35Lyvtm977RlsjtctfbuF8poDWyixd93cpFQK
- dGDqSshxQyUBfl5/QDiRcDdi87dj5s34G4iqoEkTewpY6pnZTeHuBVm
-X-Developer-Key: i=pstepanovic@axiado.com; a=ed25519;
- pk=70f1UJOGT9U11ZK6o+ENXtv0I5wBE3e+Y9YWODzRsdI=
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS3PEPF000099DF:EE_|PH0PR18MB5211:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6dbf2e7f-a770-4eb0-3409-08def7874744
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700016|376014|23010399003|18002099003|56012099006|3023799007|13003099007|6133799003|10067099003;
-X-Microsoft-Antispam-Message-Info: RC/Afhs51ejpl5Y6KZlEnL5+Cy1oOQJkA/isRvcZMwIJfZy5hpKWiP5hI0yp7fECku5mIG1OJc2fQOKrCD/oBjB12O1zeTtu3g6MhW7GJjOreScATQCZvHkhDwDcGrvCKjOLi/UnNUegkHZCy4KQMQbZGYqMJYhv9TxqJIWs93tcZzCab9CTst4vmW2coCUmO0s+0qZr9p9KbMIQ8BAW9pcyX6Ls04h92JwIuDDdDTLBVc+1FYMWSgsSIehhycE7fRRqDl5jhFPxQzIIjZ0sCBWLut6SrY1SrSupJ3l9wSBlbuh0xjOIOp+66IXxRVL58fvx12DLLn0QHe5owhRvBxP4bwRd36XuPnI/TSzDjqUk3O9s/+EVo6bx4anY2POiiOYBPW/Deu44oA8Xa+ORGrpDU78YtTxTh4xT5enZFwT/GwSDz0B5Xi3JTf0ZWughuASELPJm6399O6h0ZoKKaxWF2xWdFmTVpmP8DyeqUAMD/3ZydXYjP96aizHWSe5l6G+SGfiLf0OWYevzyJKonZfBWXx2R4Iru4SGBhJmdHlsqWHwIhlacP4PBwT4d8SQhyiGNg7z/SXRXEUTHOIzQ9S8PoEAlVJp+AHvqHbGt9uEs1/hkSM3Kvt9jb8SW0gmx582JEFY01LkCMFJbRfXBw==
-X-Forefront-Antispam-Report: CIP:64.62.143.114;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtp.corp.axiado.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700016)(376014)(23010399003)(18002099003)(56012099006)(3023799007)(13003099007)(6133799003)(10067099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: cI7p1tB1GyeNA/kTBe42MNGnE2lXbNcJ+HbBVlqTgY1E8uci46lKAv8Lq5ToRHsXu8h8vwoyc3Tkx2x3G0ntHWXAZKGyHHxRtkxWqe7JWz8pkck7Q5kOtZrRAnMgaA8oWgwZJPcflqrDO/JF30Ck5qBaoep5cugPQZEircOX/LRYbtKqbMTNIWvdq8GqWPoMW6+FSnI8bpylSdx//TxgYVBMVJmYmuw3FBfbemqY1NbQyJkxXs4cpU90No1Hig55hBJJipwieehRhHO1UbFKuB0n/d0oXjJX9mLHowY/sOIk3OHMB60SXyn3nrvRPkGPQJW292uU0mHl2jCwoiDPqyWw5z14143Xny7oG2OYJiwgDFRcVPkDpatZWxqJEgSL6Hy4rr8B16aW6uKUaoE5CqaHblExGIwblAHJZDsHZb9T3SujA0ssbVyWXZzM1iYK
-X-OriginatorOrg: axiado.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Aug 2026 09:02:32.0221
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6dbf2e7f-a770-4eb0-3409-08def7874744
-X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=ff2db17c-4338-408e-9036-2dee8e3e17d7;Ip=[64.62.143.114];Helo=[smtp.corp.axiado.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS3PEPF000099DF.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR18MB5211
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] perf: arm_spe: Prefer large AUX mappings
+To: Leo Yan <leo.yan@arm.com>, Will Deacon <will@kernel.org>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Peter Zijlstra <peterz@infradead.org>, Mike Leach <mike.leach@arm.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>, Tamas Petz <tamas.petz@arm.com>,
+ Tamas Zsoldos <tamas.zsoldos@arm.com>,
+ Michiel van Tol <michiel.vantol@arm.com>, Dev Jain <dev.jain@arm.com>,
+ David Hildenbrand <david@kernel.org>, Yabin Cui <yabinc@google.com>,
+ coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org
+References: <20260810-perf_aux_trace_large_granule-v1-0-03306c9339e3@arm.com>
+ <20260810-perf_aux_trace_large_granule-v1-2-03306c9339e3@arm.com>
+ <annp-BdTviQoH6vy@willie-the-truck> <20260810174159.GC15499@e132581.arm.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20260810174159.GC15499@e132581.arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_020246_890723_46085D39 
-X-CRM114-Status: GOOD (  16.94  )
+X-CRM114-CacheID: sfid-20260811_020248_148220_77F020C5 
+X-CRM114-Status: GOOD (  25.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,89 +111,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds support for the PWM controller found on Axiado
-AX3000 and AX3005 SoCs.
 
-A new driver is needed because this PWM controller is a SoC-specific
-hardware block used on Axiado SoCs. It has its own register layout,
-enable control, period configuration, duty-cycle configuration, and
-does not match any existing upstream PWM driver.
 
-The controller provides configurable PWM output signals. The driver
-exposes the controller through the Linux PWM framework and supports
-period and duty-cycle configuration.
+On 10/08/2026 18:41, Leo Yan wrote:
+> On Mon, Aug 10, 2026 at 04:10:48PM +0100, Will Deacon wrote:
+>> On Mon, Aug 10, 2026 at 03:44:42PM +0100, Leo Yan wrote:
+>>> Commit 18049c8cff9c ("perf/aux: Allocate non-contiguous AUX pages by
+>>> default") made the AUX allocator use order-0 pages by default unless a
+>>> PMU explicitly asks for contiguous allocations.
+>>
+>> But that commit specifically calls out SPE as benefitting from
+>> non-contiguous pages:
+>>
+>>    "For instance, ARM SPE and TRBE operate with virtual pages, and
+>>     Coresight ETR allocates a separate buffer. For these PMUs,
+>>     allocating contiguous AUX pages unnecessarily exacerbates memory
+>>     fragmentation. This fragmentation can prevent their use on
+>>     long-running devices."
+>>
+>> so why doesn't passing PERF_PMU_CAP_AUX_PREFER_LARGE reintroduce the
+>> problems that 18049c8cff9c was trying to solve?
+> 
+> The question is how "allocating contiguous AUX pages unnecessarily
+> exacerbates memory fragmentation." The relevant information I could find
+> is [1]:
+> 
+>   "On Android, we collect ETM data periodically on internal user devices
+>    for AutoFDO optimization (for both userspace libraries and the
+>    kernel). Allocating a large chunk of contiguous AUX pages (4M for each
+>    CPU) periodically is almost unbearable. The kernel may need to kill
+>    many processes to fulfill the request. It affects user experience even
+>    after using PMU."
+> 
 
-The driver converts the requested period and duty cycle from nanoseconds
-to hardware clock cycles based on the input clock rate.
+This sounds like it could be an attribute to perf_event_open. We can do 
+PREFER_LARGE by default for performance and fewer discontinuities, but 
+on Android or small systems users can enable an option to revert back to 
+single pages.
 
-The datasheet is not publicly available. Public high-level product
-information is available at:
+Or can this bit be determined at allocation time: "The kernel may need 
+to kill many processes to fulfill the request"? If this memory pressure 
+exists on allocation then do it one way, if not do it the other way.
 
-https://axiado.com/products/#AX3080
-
-The register definitions and programming sequence used by this driver
-are based on Axiado internal SoC documentation.
-
-Signed-off-by: Petar Stepanovic <pstepanovic@axiado.com>
----
-Changes in v3:
-- Express AX3005 compatibility with AX3000 using a fallback compatible.
-- Update the Devicetree binding example accordingly.
-- Add 0% duty-cycle support using the hardware constant-low encoding.
-- Cache the rounded period for 0% duty-cycle waveform readback.
-- Allow sub-cycle duty requests to round down to 0% instead of rounding
-  up to one clock cycle.
-- Normalize high-time values greater than the period to 100% duty.
-- Drop the redundant AX3005 OF match entry and use the AX3000 fallback.
-- Clarify comments and PWM hardware limitations.
-- Link to v2: https://lore.kernel.org/r/20260723-axiado-ax3000-pwm-v2-0-22002f0b281d@axiado.com
-
-Changes in v2:
-- Migrated the driver from the legacy apply/get_state API to the new
-  waveform ops API (round_waveform_tohw/fromhw, read/write_waveform).
-- Cache the clock rate at probe and lock it with
-  devm_clk_rate_exclusive_get() instead of reading it on every op.
-- Improved rounding: clamp period/duty to hardware limits, reject
-  non-zero duty offset, preserve exact 100% duty, round sub-cycle duty
-  up to the minimum.
-- Added a "Limitations" comment block documenting hardware constraints.
-- Renamed macros from AX_PWM_* to AXIADO_PWM_* and dropped unused ones.
-- DT binding: dropped clock-names, made #pwm-cells required, and
-  updated the description and compatible list to cover both the AX3000
-  and AX3005 SoCs.
-- Added axiado,ax3005-pwm to the driver's OF device match table.
-- Link to v1: https://lore.kernel.org/r/20260618-axiado-ax3000-pwm-v1-0-c9797a909414@axiado.com
-
-To: Petar Stepanovic <pstepanovic@axiado.com>
-To: Akhila Kavi <akavi@axiado.com>
-To: Prasad Bolisetty <pbolisetty@axiado.com>
-To: Uwe Kleine-König <ukleinek@kernel.org>
-To: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Conor Dooley <conor+dt@kernel.org>
-To: Harshit Shah <hshah@axiado.com>
-Cc: linux-pwm@vger.kernel.org
-Cc: devicetree@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-
----
-Petar Stepanovic (2):
-      dt-bindings: pwm: add Axiado AX3000 PWM
-      pwm: add Axiado AX3000 PWM driver
-
- .../devicetree/bindings/pwm/axiado,ax3000-pwm.yaml |  53 ++++
- MAINTAINERS                                        |   9 +
- drivers/pwm/Kconfig                                |  11 +
- drivers/pwm/Makefile                               |   1 +
- drivers/pwm/pwm-axiado.c                           | 310 +++++++++++++++++++++
- 5 files changed, 384 insertions(+)
----
-base-commit: 368d34807e6d04bb2089918383b58abf40e720a0
-change-id: 20260518-axiado-ax3000-pwm-cd7c346849f1
-
-Best regards,
---  
-Petar Stepanovic <pstepanovic@axiado.com>
+> We might have missed chance to clarify how the fragmentation issue
+> occurs in the first place. Let's say, a phone with 8 CPUs, allocating
+> 4MB per CPU requires 32MB in total, which is a relatively small
+> portion of 4GiB or 8GiB of RAM commonly found in phones. Moreover, once
+> contiguous pages are freed, the buddy allocator can coalesce them
+> again into buddy list. It is not obvious to me that PREFER_LARGE
+> directly causes fragmentation.
+> 
+> One case where AUX allocation could exacerbate fragmentation is when the
+> system is already fragmented. If a high-order allocation fails and the
+> allocator falls back to smaller-order blocks, those allocations may
+> consume free blocks scattered across different buddy regions and make
+> subsequent high-order allocations more difficult.
+> 
+> If this is the main concern, I'd suggest using a smaller AUX buffer
+> (e.g. 1MB or even 512KB) for TRBE/SPE to reduce memory pressure.
+> Snapshot mode '-S' could also be considered, as it allows the buffer to
+> be allocated once and reused for subsequent recordings by signals.
+> 
+> OTOH, using only order-0 pages can significantly increase TTW overhead
+> on the trace path and lead to overflows, we observe this causes huge
+> trace discontinuity. In the end, we need to trace-off the fragmentation
+> concern against the trace discontinuity.
+> 
+> Thanks,
+> Leo
+> 
+> [1] https://lore.kernel.org/lkml/CALJ9ZPNLgEBxOmDim-vztUknEETwdL-Z2gJ8K9s44TiPgKZgHg@mail.gmail.com/
 
 
