@@ -4,74 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A8BBC5B569
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 06:44:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5BB8C5B569
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 06:45:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8CV9C0fteJuw/LuwvISkkiA3Pz1oEu9xaIlcJm9yiDM=; b=w3Zk0GZWSGACfku0TPSDmqOv8X
-	eE8tQ4deXEcOO89jqwdpHlYRdsOq2OGQ066NE/Fc38k7KhqfA5IM2eIq/5FkoajKzeRo7TqHvt3JD
-	A69N9HQGteC9WUiHPPbNBPII/WBI+IifzuT3d+VqqOtnVuXxom0prcovkQMrf8yZPJON8tgJGRIZV
-	45qavPMOmbAhiotBT2QaSfSiI5L4fx0Lb5NYoYXe/46zm3QaS2O0D3NakZ45cIXvSdJlxrT7T+60L
-	Lvd8r5fAVN4eVY/ckAdZG5G3akxbXm7BFct3SgyV+Ej0MvVzySWDMKluEYrdx8cpo7jBT+FL6JBFN
-	5jnFWzng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=F05fzZEZORLdpp+eIpRlKhpVR/4aFztg+5HhYVE5JGg=; b=Z5FpZ1p5HY7BufOiONSS/zDTbU
+	qojb+rILzP/mw02VGqhPVQMsl6yEowN1e72sv1g9Sta2OM351P3cAnbTPtEL0mznZClGsLKpasDq9
+	p+NGr0KzIh0FVqFglvdiClRXSK0EPpmIpfSvSZuPFF4voQJ71tVxpajk70VgfodXlj8F7TFoihU/m
+	V4uGvEE9y2Q9b59TcRm8SyI/fpROWZc3N3r+o/LrBf3pa/S1PgohAWUYyhj7nJ2XEKoiKzOBj6mMf
+	mLkXW7kZsTUPSQMld+dcorRuM8Gm4/Tlrr3VNvRHQCJKm/MUBOEfyfExs5x1qP3KuQBT3koMEQsfJ
+	lFT7oC7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtgDo-0000000DRTy-143K;
-	Tue, 11 Aug 2026 06:44:24 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wtgEJ-0000000DRZE-24IR;
+	Tue, 11 Aug 2026 06:44:55 +0000
+Received: from mail-westusazon11010041.outbound.protection.outlook.com ([52.101.85.41] helo=BYAPR05CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtgDm-0000000DRTs-0Qao
+	id 1wtgEE-0000000DRY9-248T
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 06:44:22 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3A2A06001D;
-	Tue, 11 Aug 2026 06:44:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9948A1F000E9;
-	Tue, 11 Aug 2026 06:44:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786430660;
-	bh=8CV9C0fteJuw/LuwvISkkiA3Pz1oEu9xaIlcJm9yiDM=;
-	h=Date:From:Subject:To:Cc:References:In-Reply-To;
-	b=XCAvdIU6359mhm5OSz0Qo6JbtwOuioQB4k9xxkVrjGyVMdlRefefIH3rmPS4arkay
-	 XuK1vyki3FVvFTXYpo1RxyUyVhkx5v2S7CD9PAfeNfFpFo1LVSmIfJQX1L17OPtB2G
-	 tfiPqRBLuMsEXUTBmA1nkqRX42CjC98Lwto2kJb6fED0BY6Kn9rP3B3WZxnstIfC81
-	 7UEiXlIxOfcx2WOcD6/5m+HmW+2Spd5wCs0f/riNZLGYfdEDLnh8/ipJ8hf2Cs9DQO
-	 533TaxnmKR546UDh9WH0mHYdoeJC0xQTZ1Ht6Sck8uMTPE2qc1Rwb0hKP0WJRQZP5A
-	 jMcU2BXtubH/g==
-Message-ID: <70373503-71e2-4646-9246-d3b5d8360cec@kernel.org>
-Date: Tue, 11 Aug 2026 08:44:13 +0200
-MIME-Version: 1.0
+	Tue, 11 Aug 2026 06:44:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dGj1VWjiY8ZPUAum61kZBijKVmElNI64YSkkBC9/O/MzgI+aG8biCHBRnLrJkWLVAwjk0ZiZtk4wbmNxswU1rI4SRD6vKPmKYXCM9BSQK/oodrmBi05/OY/7ZpWHDJYxc7X2MtGzWNiRXXmxFu15+O0zt/gGuOHwUmJAqtljm1Lfh+P9oBrV/zY8vfP4T3watf9G9dXv8JIhc9j5n/wQ3F/66V16hvlpavzUHJYQl/pNKJidIyGCvcNVa7OtHcGgnT1n87aInDWW0Vz1w64Ka+6PsLoxAft/tnjcr4zZOuKrxyRnlNOPyzhiP/mvrFRyHE9o/ESDTs5gPdYsblqXgQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=F05fzZEZORLdpp+eIpRlKhpVR/4aFztg+5HhYVE5JGg=;
+ b=R/xotvjsy59cDe0LN9KIqlYeQysnxzf6KRFg6Okyq32h/stQuNywQ9riMPQ75i/ZjlFdeYK3hxSMuFuBKD+aFrNzuylHyQ1HwLud5OvqnhIdJGhFTxrRcFofmU4BAB0BYFTiRdxbhA0SN+a0DECY41BSlUbl8u1q06zfTTXpW92E88LdloJyLoYDajmRfJgGMk9kRY4KmhgjWnQOvXPhJYhZl0EcCAy9Wr93gT7gcDunoWWovqmTntnKg8J1lAopHgVFU1Wt5GMXP5SdDkR/vUylSAuk73LLCQoXOt6A23FJjB3hVyv3kf1MUVl9+hP84ia1Fgos1zwIhcqfd9+ycQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=F05fzZEZORLdpp+eIpRlKhpVR/4aFztg+5HhYVE5JGg=;
+ b=mENvKyEaqpfj7Wh1QydT8luY6mVPSPpSu3b4uF5HUm80+oHnrdSeieX0lvMAj0mr54L00GgjRLkaoRn66gVgpVtIEJ59aKVmlgouS3dHQuA7eGQlEwCu86P9nTNxeVSvUiaKjLdLaAUCinrekp3+vNPu/NlW9RsWFD88PxgWNUI=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from CY1PR12MB9697.namprd12.prod.outlook.com (2603:10b6:930:107::6)
+ by IA0PR12MB8748.namprd12.prod.outlook.com (2603:10b6:208:482::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.25; Tue, 11 Aug
+ 2026 06:44:44 +0000
+Received: from CY1PR12MB9697.namprd12.prod.outlook.com
+ ([fe80::3a41:55a0:8203:596d]) by CY1PR12MB9697.namprd12.prod.outlook.com
+ ([fe80::3a41:55a0:8203:596d%6]) with mapi id 15.21.0292.024; Tue, 11 Aug 2026
+ 06:44:43 +0000
+Message-ID: <9e189214-1274-491b-97dc-1b943c6c5cea@amd.com>
+Date: Tue, 11 Aug 2026 12:14:34 +0530
 User-Agent: Mozilla Thunderbird
-From: Hans Verkuil <hverkuil+cisco@kernel.org>
-Subject: Re: [PATCH v9 0/5] Add SCDC information to connector debugfs
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- Jani Nikula <jani.nikula@linux.intel.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Daniel Stone <daniel@fooishbar.org>, Chen-Yu Tsai <wens@kernel.org>,
- Samuel Holland <samuel@sholland.org>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>,
- =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- kernel@collabora.com, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-References: <20260724-scdc-link-health-v9-0-bdda406d016d@collabora.com>
-Content-Language: en-US, nl
-In-Reply-To: <20260724-scdc-link-health-v9-0-bdda406d016d@collabora.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH 3/4] EDAC/versalnet: use put_device() on device_register()
+ failure
+To: Tarun Sahu <tarunsahu@google.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Geoff Levand <geoff@infradead.org>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ Nicholas Piggin <npiggin@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>,
+ dmatlack@google.com, Borislav Petkov <bp@alien8.de>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>, djeffery@redhat.com,
+ Tony Luck <tony.luck@intel.com>, skhawaja@google.com,
+ Russell King <linux@armlinux.org.uk>, stuart.w.hayes@gmail.com
+Cc: linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, driver-core@lists.linux.dev,
+ linux-edac@vger.kernel.org
+References: <20260810162814.1398016-1-tarunsahu@google.com>
+ <20260810162814.1398016-4-tarunsahu@google.com>
+Content-Language: en-US
+From: "Pandey, Radhey Shyam" <radheys@amd.com>
+In-Reply-To: <20260810162814.1398016-4-tarunsahu@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MA5P287CA0145.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:1d7::15) To CY1PR12MB9697.namprd12.prod.outlook.com
+ (2603:10b6:930:107::6)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY1PR12MB9697:EE_|IA0PR12MB8748:EE_
+X-MS-Office365-Filtering-Correlation-Id: 599aac83-07e4-42a3-13f7-08def7740645
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|23010399003|366016|1800799024|921020|18002099003|22082099003|11063799006|4143699003|56012099006|10067099003;
+X-Microsoft-Antispam-Message-Info: 7nzveOrTLyFjZW6oFnFse9uYc0PSNVhZH2m0jFWO7jP4xl4ubfrmEAiplbN2yri+gTu/PumE+ZStqORI13bfTi5bqN9k6FVc1FkyZpWMyv47LZOl30LhO97xbkG4A5rFA8Dn9a+qLw9HMySDoeRXWKPCZ8uGjzpJBj2ZnMqYZ0mycqUYYIBrwpVVSPeu/mFdlFc9fuWfe2/yIQqIQpEkyiXVqAxI4nf1cgGjQbAIKybZeIzoWYqmKyubcUQrSdYQF40eTb/Yqv4IuzPs2fNegF+snk3r/8gc3Xtmp8qyIzW8lrWUbbtidV8wL5hvJGxEx2GaM9BhRUhnZ4kvAJy8l4UKbHgbGcbP2Zy5k/I/OOixaqrFmAAZ3fVlhj2eQ5RhkA3o2qsojBX77Xb8gN4bscVgyd0q2SI7Zx0FJE8O6VGZNSAvJHs8BZI7E9rIR6G6BWrLf370MTCEBpVktzEG4iN1jweCSN4JCpyPnNGfMXhNdEK0AfvD2xQvPiEYMX7JRoIGUHq12CfM5gC4dX67KaT1NwcnSQZDGKNwbeHHlFegdaZizAsFVLPx+0wvvRjFC7L7Zw0KZJlGTkQrG/sDSGp/0W5u5RNugUUz/jAvVaIoDkmHIu0mr4oOKK1ABdxtMs56T8Df5GBtK5ZKFoQgbALW76/z0rj+ReHWbqZkw5nIQtf5PVXy1WyYohlngbBLd3bqMXv2GnV01BDTMpc8IQ==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY1PR12MB9697.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(23010399003)(366016)(1800799024)(921020)(18002099003)(22082099003)(11063799006)(4143699003)(56012099006)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VlhqbzltUGtYWHRtRUhSaTJ4VUgzV2g3Z2w4L1ZRTXZCQkVIM3d0ejNPRG9z?=
+ =?utf-8?B?UW1kKzZDOWwwMzNObzl4cktHMzQyczZyby8wZUFac1A3bEtkVXhaWVNFcTVo?=
+ =?utf-8?B?b0t5NzNqbnRieXEvUDhOTkZlekFkWkRyRzlDa2tERU02bWZuVDdVZnpJUjJh?=
+ =?utf-8?B?SXJ1akxOMnNHaHRISHpqeDFVQTRMM0pjU21HUzJ0UkhxVTdjZHZFRGdkclBN?=
+ =?utf-8?B?LzhpalA4eUtkQWx5NDJwbFNiMGMzdGpMTEpYSXlsY3hySnhwdUtlM3FYYUtX?=
+ =?utf-8?B?ZUJxV2VqSVJ0OGs2ejJZVVF1ZmJTVUZCV2ExeVVYZ0UrVEtvRndFTXB1VzRn?=
+ =?utf-8?B?ZUR5OTlNUG9JSXVaU1h5TDRvalFsVVVTRkZqc2pmOG82QUh0N25GZ3h1TWZD?=
+ =?utf-8?B?RDBPZUNCMDNPaXpac1l3K2Rta1M3VXBUVVljVy9PK0ZMei9rMmZqUWt2Tmkv?=
+ =?utf-8?B?SnplcEx5SG5xVFRZUkNQY1Q1OU1QVTBZbXlyUWcvZ01Wa2h4VXVOR3RsTkpC?=
+ =?utf-8?B?L1lDVmo0aXJ1QW1EdkwyN25aTUh5MnNVV095RGk3T2VmR3Q2c3dmVngrRUN3?=
+ =?utf-8?B?c2NHVndMZkN4cFp1aUowZFo2eFFnY2x5NHFscmxDZDBLQ2R1WHovWkdnbEYz?=
+ =?utf-8?B?WHpwa0VlVXg5UUx3dE1jelpPOUEvQ2FaeGxYYkxHMDZXZzBvc1dycHBGSXEx?=
+ =?utf-8?B?b3pCcXR4VVJXdzhVd1dRTWJxN2EvM0NsNFlFemFhSWpOM2ZKd0NTWUQ5SFJa?=
+ =?utf-8?B?SDJyVDNSQW80SjV1c1V3OHptdWZ3bzVHU2dhUks4S0JpaE9jMDNaVDh3bGxs?=
+ =?utf-8?B?TWpxTkg2QTJkbVZXVFY4Tk5WTE1yeW9yYXlyc2ZVbm9Uajk3L0ZibGtaTTJr?=
+ =?utf-8?B?Ym82Z1dnTWw5cEtMZG1MM0puNDF2dFpWdVB3a3VxL21lWVFlVkNiMlVRa1Jp?=
+ =?utf-8?B?VDE2cjZ3Ky9Xb2JrWnNtbXFYNXd4Sit3aklBNXhwNHFjZEg4bHhVQ1Bkbi9o?=
+ =?utf-8?B?VU9NN3U4YUl2VXZFSzZHSWJEaHZRMnpaTWlPT1RXUWlCTGx2eEtHNVZlcU9Z?=
+ =?utf-8?B?SzBOTHg3OEtGeVFPUzFwaWVVdTBoRC9YcXdFYllkcHJqbkxvQ01JYWIxM1Nh?=
+ =?utf-8?B?NlAwZGx4aXpVRWNWRUdnYUhCZUFYdWhrOC91WmZNekluKzhYZkx6WDBtZWRW?=
+ =?utf-8?B?NXYzRC9IcFErQU9JdlZUOHdvdGM4SjRHUEVXRTVUcVpzcnl5bTl0V09tQm1P?=
+ =?utf-8?B?aTNMNXJXYVRhUFBUYlN3dzZ6dkYrc1NNNXZiUjhYb2trdU9QdmlBaEV3bXd5?=
+ =?utf-8?B?N3gwMkxrRGRCSThRNlU5UnAxVFpLU3pGWTQ4ejdudVJuR2Q1U1dhb3lzdENE?=
+ =?utf-8?B?ZFJZdE1BSDQ0M0JZYUl2enFIWE5JaHNuQllxRHJvcklkMEZ4MitnWnAxZmVv?=
+ =?utf-8?B?ZUZFZE5Ub2NJUm9yc0JJcjhGM3M3NlNZb2wzbmtkNCs1dUs2ZHdEYlQ3MndJ?=
+ =?utf-8?B?MmRjYXJ1TFZLQU5UYWpFbEo2L3hIb2ZURmxrQm1mWmx2K2ZEUVB0Sm1MREw3?=
+ =?utf-8?B?bHQrS0o1Ukl3YWRnT3h5dnRUYVB4SUVrWkpnUmVOUWJtZzBLKzd5VGdFeWkr?=
+ =?utf-8?B?YVNZS2habGFKZmxoWkRPdnJiK2NGb2Nvd2R4ZHNZZTkrcWUwU3pDVWRxZTEy?=
+ =?utf-8?B?RW9iUXdiTUNGUHpkVzJMSWw1RXEzK3RhWkd3c09XaURBSTBtdHRDTkZmTHBy?=
+ =?utf-8?B?cHBoQ3RpTk1GK3dsVFEyczJCZllwME9rNnpQa0ZhcXVjRDZNcTBmdkJPUkFw?=
+ =?utf-8?B?Q0kxczBaQW9sOTlFYm14WHdYNkwzdUIvRXNvZHNGaGtmRVkwWitwZXpOVXh5?=
+ =?utf-8?B?SmdsVDNUVUZ3R0l4SnRQeW9RK3cwRmhrakEwREhQci9FTmRLd25adVJXVUVU?=
+ =?utf-8?B?V1l4SlNWRWtlcVBDemdQWXp6VmtRWVNXOGFnblZ4dnc3cFJqcFZSQ05lVy93?=
+ =?utf-8?B?L2lKN3dJTjVFZzdDVytGSXVOeFcxaGhVYkdhQU9RV1R0SXN5a0NYVTR0RHlW?=
+ =?utf-8?B?UmF6eFZRUDRsNmFPSGNGaUgyWHhjZHhubVUzYzZSUnlWVmNKK1l6MmRjNDdw?=
+ =?utf-8?B?S1Z1M3ZBaTVyNmhTaWhVaC8xZ3dIYTh1cmxEQk00blZIV3NXSThrUFliT3lw?=
+ =?utf-8?B?ZTJESXFoeStsTHBMcWtudDNPVTEra1B3Z0x1OUJ1bVkzMVdvbFBzbHhNZmNG?=
+ =?utf-8?B?U1VPbTNibkRuMHJqckU5UkRpd09PTjRZZVhTOTAzdm5OZ1BQcjMwc205UnpQ?=
+ =?utf-8?B?cllHTDNrdDNvMzdjUWRLNDJLNEM4ZGMyRXBSUjVHQlFXNFhRUGpMZz09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 599aac83-07e4-42a3-13f7-08def7740645
+X-MS-Exchange-CrossTenant-AuthSource: CY1PR12MB9697.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Aug 2026 06:44:43.1090
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: BR4Z+9NhF3xM52fqK1ArB1Jiz5E80oZmbHtB+5bjn0MGrC5bIguVa55TsIUmf9sr
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB8748
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260810_234450_689798_EF344D41 
+X-CRM114-Status: GOOD (  16.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,151 +157,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/07/2026 16:22, Nicolas Frattaroli wrote:
-> HDMI uses the DDC I2C bus for communicating various bits of link status
-> out of band with the actual HDMI video signal. This information can be
-> useful for debugging issues like questionable cables sabotaged by feline
-> teeth, Enthusiast Grade cables made of cow fencing wire, and other such
-> problems that ruin one's media viewing plans.
+On 8/10/2026 9:58 PM, Tarun Sahu wrote:
+> When device_register() fails, calling kfree(dev) directly bypasses the
+> device_release() callback (versal_edac_release) and leaks the allocated
+> driver core structures.
 > 
-> Consequently, this series exposes various bits of pertinent information
-> from the SCDC protocol in an HDMI connector's debugfs. To continually
-> poll the link status, userspace can poll the debugfs file.
-
-Tested-by: Hans Verkuil <hverkuil+cisco@kernel.org>
-
-The contents of scdc_status is parsed correctly by edid-decode, so I'm happy :-)
-
-Regards,
-
-	Hans
-
+> Fix this by calling put_device(dev) when device_register() returns an
+> error, ensuring proper refcount decrement and release cleanup.
 > 
+> Signed-off-by: Tarun Sahu <tarunsahu@google.com>
+
+Thanks for the patch. FYI, this issue is already being addressed in an
+ongoing series.
+https://lore.kernel.org/all/20260724171945.2812749-5-shubhrajyoti.datta@amd.com/
+
+-Radhey
+
 > ---
-> Changes in v9:
-> - Unlock mode_config.mutex on disconnected connector early exit
-> - Calculate and print Reed-Solomon error corrections counter on != 4
->   lane FRL as well. Technically a functional change to an already
->   reviewed patch, but I kept the R-b because it's so minor.
-> - Link to v8: https://patch.msgid.link/20260722-scdc-link-health-v8-0-cd1dacbb85d9@collabora.com
+>   drivers/edac/versalnet_edac.c | 6 ++++--
+>   1 file changed, 4 insertions(+), 2 deletions(-)
 > 
-> Changes in v8:
-> - Acquire mode_config mutex in an interruptible way during
->   scdc_status_show to avoid racing connector state
-> - Remove scdc_debugfs_priv, use connector as debugfs entry priv instead
-> - Allocate and free state in scdc_status_show, since it doesn't need to
->   persist across debugfs reads
-> - Check for NULL ddc in drm_scdc_read_state in the unlikely event an
->   EDID with the SCDC flag was forced on a connector with no DDC
-> - Note: drm_connector_get() is omitted from drm_scdc_debugfs_init
->   because drm_scdc_debugfs_init is called on connector construction and
->   the debugfs is removed on connector destruction. Adding a redundant
->   reference increase here would necessitate introducing a destruction
->   callback to mirror the debugfs_init connector op for the sole purpose
->   of decreasing the counter again.
-> - Link to v7: https://patch.msgid.link/20260721-scdc-link-health-v7-0-92df1b6ad5fc@collabora.com
-> 
-> Changes in v7:
-> - Move HDMI debugfs registration to new state helper, fix up all users
->   (sun4i, vc4, bridge)
-> - Register scdc debugfs in new hdmi debugfs helper
-> - Link to v6: https://patch.msgid.link/20260611-scdc-link-health-v6-0-6307875a6b5e@collabora.com
-> 
-> Changes in v6:
-> - Fix off-by-one error in drm_scdc_read_state
-> - Link to v5: https://patch.msgid.link/20260604-scdc-link-health-v5-0-11173b0ac3de@collabora.com
-> 
-> Changes in v5:
-> - Read all SCDC data regardless of update flags
-> - Dump SCDC data as hex before the human-readable output. It's separated
->   with "\n----------------\n\n".
-> - No longer write 0 to read-only registers
-> - Add Reed-Solomon Corrections counter parsing
-> - Parsing has been kept. A desire was expressed to get this data without
->   any external userspace tooling, and the kernel will need to parse it
->   eventually anyway to set the link status.
-> - Functions have been made static as of right now, since external users
->   may do another pass over the function signatures anyway.
-> - Link to v4: https://patch.msgid.link/20260527-scdc-link-health-v4-0-622ea40a1f59@collabora.com
-> 
-> Changes in v4:
-> - Don't use C struct bitfields for parsing status flags. Switch to
->   bitwise AND for boolean flags, and FIELD_GET for multi-bit values.
-> - Drop the superfluous !! and parens
-> - Drop the __pure attributes on static functions
-> - Initialise stack local arrays with {}, not { 0 }.
-> - I've kept the print macros and %-30s format. Reason being that I don't
->   want to repeat the format specifier and str_yes_no(foo) a bunch, and I
->   like the %-30s format because it means all values are aligned with the
->   value of the longest field, which is 30 chars long.
-> - Link to v3: https://patch.msgid.link/20260526-scdc-link-health-v3-0-59e4a4aaead1@collabora.com
-> 
-> Changes in v3:
-> - Add patch to change return type of drm_scdc_read/write.
-> - Rework error counter reading to duplicate less code.
-> - Also check lane 3 counter valid flag when reading its error counter.
-> - Use memset to clear buf for error counters, rather than doing it in
->   the loop.
-> - Make read_error_counters not accept 0 as num_lanes; fix it up in the
->   caller instead.
-> - Link to v2: https://patch.msgid.link/20260520-scdc-link-health-v2-0-511af18cd64b@collabora.com
-> 
-> Changes in v2:
-> - Add HDMI 2.1 SCDC status reporting
-> - Link to v1: https://patch.msgid.link/20260415-scdc-link-health-v1-0-8e731e88eaf0@collabora.com
-> 
-> To: Jani Nikula <jani.nikula@linux.intel.com>
-> To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
-> To: Maxime Ripard <mripard@kernel.org>
-> To: Thomas Zimmermann <tzimmermann@suse.de>
-> To: David Airlie <airlied@gmail.com>
-> To: Simona Vetter <simona@ffwll.ch>
-> To: Andrzej Hajda <andrzej.hajda@intel.com>
-> To: Neil Armstrong <neil.armstrong@linaro.org>
-> To: Robert Foss <rfoss@kernel.org>
-> To: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>
-> To: Jonas Karlman <jonas@kwiboo.se>
-> To: Jernej Skrabec <jernej.skrabec@gmail.com>
-> To: Luca Ceresoli <luca.ceresoli@bootlin.com>
-> To: Daniel Stone <daniel@fooishbar.org>
-> To: Hans Verkuil <hverkuil+cisco@kernel.org>
-> To: Chen-Yu Tsai <wens@kernel.org>
-> To: Samuel Holland <samuel@sholland.org>
-> To: Dave Stevenson <dave.stevenson@raspberrypi.com>
-> To: Maíra Canal <mcanal@igalia.com>
-> To: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
-> Cc: dri-devel@lists.freedesktop.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: kernel@collabora.com
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-sunxi@lists.linux.dev
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> 
-> ---
-> Nicolas Frattaroli (5):
->       drm/scdc-helper: Don't use ssize_t return type for scdc_read/write
->       drm/scdc-helper: Add scdc_status debugfs entry
->       drm/scdc-helper: Implement parsing and printing HDMI 2.1 fields
->       drm/debugfs: Move HDMI debugfs registration to state helper
->       drm/display: hdmi-state-helper: Init SCDC debugfs for HDMI
-> 
->  drivers/gpu/drm/display/drm_bridge_connector.c  |   3 +
->  drivers/gpu/drm/display/drm_hdmi_state_helper.c | 156 +++++++++++++
->  drivers/gpu/drm/display/drm_scdc_helper.c       | 289 +++++++++++++++++++++++-
->  drivers/gpu/drm/drm_debugfs.c                   | 157 -------------
->  drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c          |   1 +
->  drivers/gpu/drm/vc4/vc4_hdmi.c                  |   1 +
->  include/drm/display/drm_hdmi_state_helper.h     |   3 +
->  include/drm/display/drm_scdc.h                  |  21 +-
->  include/drm/display/drm_scdc_helper.h           | 103 ++++++++-
->  9 files changed, 568 insertions(+), 166 deletions(-)
-> ---
-> base-commit: b747a63003130bef1a3d5d6ba97c94d0cee36f55
-> change-id: 20260413-scdc-link-health-89326013d96c
-> 
-> Best regards,
-> --  
-> Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> 
+> diff --git a/drivers/edac/versalnet_edac.c b/drivers/edac/versalnet_edac.c
+> index 97ec05d68bbb..2912b3658915 100644
+> --- a/drivers/edac/versalnet_edac.c
+> +++ b/drivers/edac/versalnet_edac.c
+> @@ -829,8 +829,10 @@ static int init_one_mc(struct mc_priv *priv, struct platform_device *pdev, int i
+>   	dev->release = versal_edac_release;
+>   
+>   	rc = device_register(dev);
+> -	if (rc)
+> +	if (rc) {
+> +		put_device(dev);
+>   		goto err_mc_free;
+> +	}
+>   
+>   	mci->pdev = dev;
+>   	mc_init(mci, dev);
+> @@ -852,9 +854,9 @@ static int init_one_mc(struct mc_priv *priv, struct platform_device *pdev, int i
+>   	device_unregister(mci->pdev);
+>   err_mc_free:
+>   	edac_mc_free(mci);
+> +	return rc;
+>   err_dev_free:
+>   	kfree(dev);
+> -
+>   	return rc;
+>   }
+>   
 
 
