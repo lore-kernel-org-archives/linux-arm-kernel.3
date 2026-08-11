@@ -4,65 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 752FDC5B572
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B064FC5AC67
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 14:02:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J1Z78TEARAUt28Nj5AzN9ZydcmZVT/uTPf+fmKTQyug=; b=4JywukVh4otQAMeFmHVgNG0jSe
-	z/8iB7Mo8frvNHx6RgeJWh7n/V14hTKyiUFg2bB1hIRJjXsctGExJB2eTjVWdZK71ln9jQ3ytrHtm
-	SmYRjbjXXamtDp30WsigCC/XyRfmxjn81fRWrJDenJYGgbUQ2W6zxxpVlF6MbF0CqoibpLkpjYlOF
-	W9k36snCvVoQu1AN4pedwlcfwgCutD2+Yrrcwe9CHY+GrTeIwN2HTXXAWxvXEzLvj+xw4aOI5ZEQD
-	j63+0e3e3BYFfLRQmY7WYHnsc7JP30c+KMi8Ryb38cI0heejB4e1H6cl35Trk2GPUvSdaMTLRMmEo
-	CLBIKSKQ==;
+	bh=QTfxfEAC0awN9pGH45+tTaenBH8A7dUoYGm7pbjaa2I=; b=gB8E9myU7T2/jbhC0AlW6fsTH8
+	PNfRWL9ioq3m/zzLApNLEysnewVIeIm8/EuiP9GhJwyVFvT7nPxbu84L0rHlu9XzEws54BmR9uXvq
+	lG07AIcEJ8+FVYoz+aipLWjlC9OT8I/j1Uv0oVzQrZEjK1oBy8/Un04M9+/pNE5nybc+DYZM5O/an
+	k+rKlf1Zc5N+9XLyMnlVQ2jI1JRtqBuqdg7oJxYEJmlmWo38/3ozLeAyrhbbkbsJAcrzEEjeBGZZA
+	0Go4MX5cUESwsmOePaetwcuDrD0mzpK86PdtUT3jZFF5rSK/Mqf1PMghs1T7Rs+tkeIc8wy2f0YMR
+	KPSQA7Iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtn3C-0000000E9P4-2ikR;
+	id 1wtn3C-0000000E9PM-33gR;
 	Tue, 11 Aug 2026 14:01:54 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+Received: from sender4-op-o11.zoho.com ([136.143.188.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtn3A-0000000E9O6-1qho
-	for linux-arm-kernel@lists.infradead.org;
+	id 1wtn39-0000000E9Mx-1eG4;
 	Tue, 11 Aug 2026 14:01:52 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D94ED6011F;
-	Tue, 11 Aug 2026 14:01:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3688A1F00A3E;
-	Tue, 11 Aug 2026 14:01:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786456911;
-	bh=J1Z78TEARAUt28Nj5AzN9ZydcmZVT/uTPf+fmKTQyug=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=YY0QBNa2RGTQCg84BKmW/nQ7TCLnm+59uE1OaKQVJ6/YvJvp17mKSmiNEU4pE5BmX
-	 Kk2YgyiRm8VWhJkP0qi4ohxXKFRp0d/X+Z130mMH4J2DWHkToZhnfEJy2gMMhvOAXe
-	 71OeoAkWd3bKMVgF3hJUlsYcQ9DfH/bHimvvVyVxPiv4wrO8ZW8LNmO9TxEP/s0ALA
-	 erRE1W6ie8EXR4jltfWOZdswE42sMPC2lbpnPWyV5PdaltllgoIcd4B6fieCXNCMIl
-	 XwtDdwRJ088LufEI42ZF2e5zDFjsNWbgCrr1HiRD6ftzllfZ6ssI9hgW5jYb/6l3TK
-	 tiBeR3YucwTRw==
-From: Will Deacon <will@kernel.org>
-To: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org,
-	Will Deacon <will@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Eric Biggers <ebiggers@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Marc Zyngier <maz@kernel.org>
-Subject: [PATCH 04/12] arm64: lib: Assume a little-endian kernel in custom library routines
-Date: Tue, 11 Aug 2026 15:01:23 +0100
-Message-ID: <20260811140132.22778-5-will@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260811140132.22778-1-will@kernel.org>
-References: <20260811140132.22778-1-will@kernel.org>
+ARC-Seal: i=1; a=rsa-sha256; t=1786456882; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=iuiK3C4LcMuuAYXmzi8fmH4rIobNSTRbQuOLKD7s7cDn+17sSNrfTYNEOycgPnohwEc9XIySHVxfam3lekwmofRtTi27n2r2asJo9v2I8wS5uglq4ZF+7bfyMbf2DByctu5pyRtbk283WZczEPbqESzWhZ/g23myPaQBF4CeiaI=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1786456882; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=QTfxfEAC0awN9pGH45+tTaenBH8A7dUoYGm7pbjaa2I=; 
+	b=ErHxCO9IbTfIGd6wJVjZionZxuFsgvHPShn9LR62GylF52mp7/h4HwHvBkxDZtJPhRRJQgtH9F+dl9fkaz9lAuwuq1DT13BsFuqlIxk3wGoe9uNtxwGDIMBorbzm3FqAlsxqmk2xBM6JLePyMafI6WcI5LzbiyGR7VXNV0TU2dc=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=dmitry.osipenko@collabora.com;
+	dmarc=pass header.from=<dmitry.osipenko@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1786456882;
+	s=zohomail; d=collabora.com; i=dmitry.osipenko@collabora.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=QTfxfEAC0awN9pGH45+tTaenBH8A7dUoYGm7pbjaa2I=;
+	b=jd1+QhTc8gfLci1PVGSkH1sM5/sZWgv3+AEyQc2wcPn99fYDlqFOuZXEf2pwCHtY
+	F7UioO+Y3+m2B/dDA96KSn0mAtfYWornn/xjVpsLlAKGKuQlfPwPg4ohAMsmr+N8L7o
+	hWdKqQXV+NTh0Mwq4QrTEf4rOJffpCaIynF/OoYg=
+Received: by mx.zohomail.com with SMTPS id 1786456867632374.5144013643186;
+	Tue, 11 Aug 2026 07:01:07 -0700 (PDT)
+Message-ID: <816c3cc6-fe65-48fa-81d4-72026b66abcf@collabora.com>
+Date: Tue, 11 Aug 2026 17:01:02 +0300
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 0/4] media: synopsys: hdmirx: add HDMI audio capture
+ support
+To: Igor Paunovic <royalnet026@gmail.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>
+Cc: Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20260721064115.64809-1-royalnet026@gmail.com>
+ <20260805154039.10161-1-royalnet026@gmail.com>
+Content-Language: en-US
+From: Dmitry Osipenko <dmitry.osipenko@collabora.com>
+In-Reply-To: <20260805154039.10161-1-royalnet026@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ZohoMailClient: External
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260811_070151_503985_D713EE7E 
+X-CRM114-Status: UNSURE (   9.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,87 +86,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 5276ea17a23c ("lib/crc: arm64: Assume a little-endian kernel")
-removed all usage of the CPU_LE()/CPU_BE() macros from the arm64 CRC
-assembly now that big-endian support depends on BROKEN.
+On 8/5/26 18:40, Igor Paunovic wrote:
+> Hi Dmitry, Mauro,
+> 
+> First, belated thanks to Dmitry, Sebastian and Krzysztof for the reviews
+> and testing across this series - much appreciated.
+> 
+> A gentle ping: all four patches carry Reviewed-by tags (2/4 also has
+> Dmitry's Tested-by) and no changes have been requested since 23 July. Is
+> there anything needed from my side for the series to be picked up into
+> the media tree?
+You can always send follow up patches separately, referencing to this
+series in cover letter. It may take significant time before patches will
+land to kernel tree. No need to wait.
 
-Do the same for the rest of the custom arm64 library code, as well as
-removing all usage of the '__LITTLE_ENDIAN' macro.
-
-Signed-off-by: Will Deacon <will@kernel.org>
----
- arch/arm64/lib/csum.c   | 17 -----------------
- arch/arm64/lib/memchr.S |  2 +-
- 2 files changed, 1 insertion(+), 18 deletions(-)
-
-diff --git a/arch/arm64/lib/csum.c b/arch/arm64/lib/csum.c
-index 2432683e48a6..75db718e5b6a 100644
---- a/arch/arm64/lib/csum.c
-+++ b/arch/arm64/lib/csum.c
-@@ -47,11 +47,7 @@ unsigned int __no_sanitize_address do_csum(const unsigned char *buff, int len)
- 	 */
- 	shift = offset * 8;
- 	data = *ptr++;
--#ifdef __LITTLE_ENDIAN
- 	data = (data >> shift) << shift;
--#else
--	data = (data << shift) >> shift;
--#endif
- 
- 	/*
- 	 * Body: straightforward aligned loads from here on (the paired loads
-@@ -94,13 +90,8 @@ unsigned int __no_sanitize_address do_csum(const unsigned char *buff, int len)
- 		len -= 16;
- 		ptr += 2;
- 
--#ifdef __LITTLE_ENDIAN
- 		data = tmp >> 64;
- 		sum64 = accumulate(sum64, tmp);
--#else
--		data = tmp;
--		sum64 = accumulate(sum64, tmp >> 64);
--#endif
- 	}
- 	if (len > 0) {
- 		sum64 = accumulate(sum64, data);
-@@ -112,11 +103,7 @@ unsigned int __no_sanitize_address do_csum(const unsigned char *buff, int len)
- 	 * preserving odd/even alignment.
- 	 */
- 	shift = len * -8;
--#ifdef __LITTLE_ENDIAN
- 	data = (data << shift) >> shift;
--#else
--	data = (data >> shift) << shift;
--#endif
- 	sum64 = accumulate(sum64, data);
- 
- 	/* Finally, folding */
-@@ -140,11 +127,7 @@ __sum16 csum_ipv6_magic(const struct in6_addr *saddr,
- 	dst = *(const __uint128_t *)daddr->s6_addr;
- 
- 	sum += (__force u32)htonl(len);
--#ifdef __LITTLE_ENDIAN
- 	sum += (u32)proto << 24;
--#else
--	sum += proto;
--#endif
- 	src += (src >> 64) | (src << 64);
- 	dst += (dst >> 64) | (dst << 64);
- 
-diff --git a/arch/arm64/lib/memchr.S b/arch/arm64/lib/memchr.S
-index 37a9f2a4f7f4..b14b27cb8419 100644
---- a/arch/arm64/lib/memchr.S
-+++ b/arch/arm64/lib/memchr.S
-@@ -63,7 +63,7 @@ L(byte_loop):
- 	sub	srcin, srcin, #1
- 	ret
- L(found_word):
--CPU_LE(	rev	tmp, tmp)
-+	rev	tmp, tmp
- 	clz	tmp, tmp
- 	sub	tmp, tmp, #64
- 	add	result, srcin, tmp, asr #3
 -- 
-2.55.0.679.g6767b8d81c-goog
-
+Best regards,
+Dmitry
 
