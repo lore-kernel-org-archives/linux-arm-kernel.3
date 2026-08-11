@@ -4,113 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34BF1C5B574
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 07:36:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A73D6C5AC67
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 07:40:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sm0uTopbtQIPYWHArdgLDCR9McJR9msl4aDukPKx09U=; b=Kf4K5tlwYpdsjk/n+FZyG9eccU
-	i7GK3D+VlMfsJ4oFiIxLAYlnLj0q9vTVEKf4qMPLMqoTNrLcVdM8xtiR2WaUZVMQWumv5ioZkL/ni
-	W7M3Lvt8WPCBqZ17Meggv88J03NjvZElvRBfiG+LEe/EViLQxgWC38ZKG9mwZw+85fzU63sER2kk9
-	FS5kLr+73FgZwQeHcRlTc5BVkoMyZGTOa93t7YKlaE8c9k96xRp8SKcu/ONoW76ccjs/XMiAyKsDZ
-	YeZPq8AIHWiPGUbvUUwEQgZcZTXQ+zzPqEoW33fWfnuEJSJ4usz5l0YjtuKL/r6FQ4xn6Iarft5lp
-	Lwxh3cYQ==;
+	bh=2UaKxJipLpPfFvv6BArJuqZGXT9Pu6iR5SAiWFJFjl0=; b=fqMRi4/i9VOgz1EajDGMu+oUkn
+	tF1u9gmb84sGugSzQqM/BQmWVh0pwv52T8Ptv7ysn3GKiAhLRRwNsvZwcdiq+ByNVjKMQIK7gUkRC
+	+JEFEnNNSlKnUwsZ5iGoMeCIIHFs/JwsbxoZ4PhmvwklJCAiz7VuPU2cUcgciYpU86cueC3Xwc0lu
+	9J0WBYvWIe9wVnyBkujP1eXrYN81HUItPe0EK9q5xQnOTrWUtNJmt1DuOYZedjXe4TwEU4fSEWi+B
+	Om8MPQfB259v8p6naDr3M4Ym07xqqMxo5HTNX/OSvewAZZWwTRtc1v5VfwtSrn7UtDrEi0mLmmqpn
+	oQhD0Dsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wth2M-0000000DXSm-2xjQ;
-	Tue, 11 Aug 2026 07:36:38 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wth5z-0000000DXhr-0TBk;
+	Tue, 11 Aug 2026 07:40:23 +0000
+Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wth2L-0000000DXSf-1Rhq
+	id 1wth5v-0000000DXhY-072X
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 07:36:37 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1DD9B42E75;
-	Tue, 11 Aug 2026 07:36:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 914641F000E9;
-	Tue, 11 Aug 2026 07:36:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786433797;
-	bh=sm0uTopbtQIPYWHArdgLDCR9McJR9msl4aDukPKx09U=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=H+BJgD/Gc17A7PiIzhrIMWFn1ug3BaRxVwxzv+2fKz+woWOhSXp+qY1Si3Mcm6v9R
-	 is+EW+upc3uCKE3hdnWqzk1hsVnEAdHQ8yynZwQW9hz8TQguA7hdx7mkzc8FOPWGxy
-	 MLm0XIkalG1Vlq6szZvEOJ+X6sAGwqqsfu2AAmr5IIYh+McMNeHD8LWtFFNxcir+Go
-	 LXFyMUX8odqaEJ57csQ9KTbZAc+JsZN4pE6uw7brqXpZONMpoq9JnnxotCe+szZAH9
-	 JJ1xzirftaJnnkNUeBiI1d5pZV25UhiPyJzRoCH4Ev593YAzu3rfBXgTvfwOsPS2I3
-	 VzV+esD87WMdw==
-Message-ID: <3219a2e7-d11b-478e-ad2e-5f1ec2bbdf27@kernel.org>
-Date: Tue, 11 Aug 2026 09:36:26 +0200
+	Tue, 11 Aug 2026 07:40:21 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=2UaKxJipLpPfFvv6BArJuqZGXT9Pu6iR5SAiWFJFjl0=;
+	b=SnqCgbEgm7tAjqzLrNGfO3YDkAxZpCQsJGZfHB4y9HuXMxqv9Ofr2yjskzCTgJquHDanUFP0k
+	w+fhrHWFFIfqlePMrjI+caZhLjvks/IRMZ2Njn/JJD9uYAH6Y6kx6D5dego2PGyE+WI1ZgeYWaD
+	VBf3I07VzT0ZGqkSK1p1f7U=
+Received: from mail.maildlp.com (unknown [172.19.163.104])
+	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4hK3DM52QLzcb1N;
+	Tue, 11 Aug 2026 15:29:55 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id E9D6E4057F;
+	Tue, 11 Aug 2026 15:40:00 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 11 Aug 2026 15:40:00 +0800
+Message-ID: <6ac531ab-2a9e-430d-822c-9528971a5cad@huawei.com>
+Date: Tue, 11 Aug 2026 15:39:59 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/5] ASoC: dt-bindings: fsl,imx-asrc: update port
- binding to support multiple paths
-To: Shengjiu Wang <shengjiu.wang@gmail.com>
-Cc: shengjiu.wang@oss.nxp.com, lgirdwood@gmail.com, broonie@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, Frank.Li@nxp.com,
- s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
- shawnguo@kernel.org, linux-sound@vger.kernel.org,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Xiubo.Lee@gmail.com, nicoleotsuka@gmail.com, perex@perex.cz, tiwai@suse.com,
- linuxppc-dev@lists.ozlabs.org, Shengjiu Wang <shengjiu.wang@nxp.com>
-References: <20260804100218.49587-1-shengjiu.wang@oss.nxp.com>
- <20260804100218.49587-2-shengjiu.wang@oss.nxp.com>
- <20260810-normal-cuscus-of-argument-4b230b@quoll>
- <CAA+D8AM9s7EX-G246Hf2=DOx5q2qXWg_MjUCaoJ8RggOjp+5cQ@mail.gmail.com>
- <dc40dcae-3017-4e61-8c6d-7e6127e4ee77@kernel.org>
- <CAA+D8AOQ_y7BdR4h+X6qxFygPU6h1iFV0cYXHN4KB370yM2Bkw@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <CAA+D8AOQ_y7BdR4h+X6qxFygPU6h1iFV0cYXHN4KB370yM2Bkw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Subject: Re: [RFC PATCH v2 12/45] arm64: interrupts: Add common exception
+ state helpers
+To: Vladimir Murzin <vladimir.murzin@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>
+CC: <mark.rutland@arm.com>, <maz@kernel.org>, <will@kernel.org>,
+	<catalin.marinas@arm.com>, <liaochang1@huawei.com>
+References: <20260727163453.7969-1-vladimir.murzin@arm.com>
+ <20260727163453.7969-13-vladimir.murzin@arm.com>
+ <e93ae08b-64e2-4128-b1fd-910c4d197dbd@huawei.com>
+ <86ebda30-26ad-438b-9f98-2ea9e3849cd8@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <86ebda30-26ad-438b-9f98-2ea9e3849cd8@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260811_004019_703644_116973C7 
+X-CRM114-Status: UNSURE (   7.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,26 +83,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/08/2026 09:33, Shengjiu Wang wrote:
->>>>
->>>> Why mentioning upstream in the first place? Either this change breaks
->>>> ABI or not, explain that.
->>>
->>> The deprecated 'port' property is retained, so this change is fully backwards
->>> compatible and does not break ABI.
+
+
+在 2026/8/3 17:40, Vladimir Murzin 写道:
+> Hi Jinjie,
+> 
+> On 7/28/26 09:20, Jinjie Ruan wrote:
+>> Hi Vladimir,
 >>
->> So why? Drop redundant parts.
+>> Using two tables as below to map different contexts to the hwstate
+>> status makes the code appear more concise and clear. What do you think?
 > 
-> Ok, I will remove the sentence below in the commit message.
+> I think I already tried something like that and IIRC it hurts code
+> generation...  I'll have another look before posting next version.
+
+Thank you for very much.
+
 > 
->     No existing upstream DTS file for fsl,imx-asrc uses the previously
->     documented single 'port' node, so this change does not break any
->     in-tree device tree.
+> Cheers
+> Vladimir
 > 
 
-Honestly, it's redundant, because you are not dropping it. So even if
-DTS was using the port, what would change?
-
-Best regards,
-Krzysztof
 
