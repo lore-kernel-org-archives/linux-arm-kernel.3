@@ -4,62 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B58E1C5CFC1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 08:19:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F228AC5B574
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 08:34:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9F3teZ9TgBfVNf9k6Vvix665LbfdBdROKI9u4D2JIok=; b=iI5FtlSLGrlyxN
-	Mfb/UBc2aYZCHVCnXrE+LXSQG5UOlLKRh3EzD0Cn15K637yDHm72E4xVJOZiusPVL7yF76AdUO5JW
-	hO6weTRaxlSAbIGWUg6jI7Oxd6D83/krjDr3/Ab/yUz/fw43zFMvsIn/Dlxaym/Rpo6PQpgQ2EowJ
-	dQPKtRzUTc4PkxI7eIBPKAGRBvb8Plf7PoH7JEU3GDvpfCHjZGAcKlLarO9igzCtfrXtsrU2eQGXX
-	FT21DpW7VOAhucywIXuJUns2nyv6AuGggq1EHtUXm/5nmPebumouKn7cMf3pA6nyrjxmFX6zJo6BJ
-	Kdv1GYofnCYn4vGlAOIw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FpB3+FkrG1uWOg00/UfBQNwp9iXrIA9AhO2Rb76OdaI=; b=mK6csw3Vrs25PRkBuv65TljetZ
+	IjJh2puKCsPPa0ZnLPlWglsD8wKi8Zn9G1wU37wXTW8rhZEq0Er5ztmdhOx4cvFvZr1IgKli33Flc
+	X/tGFi60oPqAU8qs1Uim72nKfkQ1jcCu6aqhHDNSeamnwZX9tlsYRYjKbjjPasz1WsUrPeEjtkJZm
+	XdCLG8UwKK6ASE0zR3T++XBnTc5FFe8M5cdnq3c5d/H/ECKIbWg59wYvQ4opgrgL0jGekuWWrZyq8
+	p4EupJ4vowTMpvjQMyh0DYs1Q44RFqNnXh4q9X9h1RS71sr2PLeNP0RZy3pv19jxXk1K7DbSClT86
+	iuyPI6Qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wthhI-0000000DamK-0vYJ;
-	Tue, 11 Aug 2026 08:18:56 +0000
+	id 1wthwX-0000000DcGb-2Q4R;
+	Tue, 11 Aug 2026 08:34:41 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wthhF-0000000Dalo-0xER
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 08:18:54 +0000
+	id 1wthwT-0000000DcEz-2qRo;
+	Tue, 11 Aug 2026 08:34:39 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0C9CD1516;
-	Tue, 11 Aug 2026 01:18:48 -0700 (PDT)
-Received: from [10.57.68.120] (unknown [10.57.68.120])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 29D8D3F673;
-	Tue, 11 Aug 2026 01:18:48 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B295E1516;
+	Tue, 11 Aug 2026 01:34:31 -0700 (PDT)
+Received: from localhost (a085714.arm.com [10.164.19.28])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EA58F3F673;
+	Tue, 11 Aug 2026 01:34:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786436332; bh=8moHjI7fKAAhoK29cxA112fLWHn5wifKLAir2LIKSfw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=narF+GyVC4Q/fzrghTVc+nyDaF4Y3IUB9PAV3VRo16QzW01jXryrMz8PTQeO9v4oJ
-	 7he4UtXllLggJeyA51FxrTAOlInIjDuFJ3LFnSlTemt+hCNhL5jzU1G2T1YuKat4Je
-	 6fBTi078tPfkd/QULMqTbHJUQ4PEY9L/zaHjc0Bs=
-Message-ID: <e2325b50-882c-4948-ae0c-d84a39e50331@arm.com>
-Date: Tue, 11 Aug 2026 09:18:42 +0100
+	t=1786437275; bh=ZT08f1GiOgKpD31g66zZnUhmuNu7zNORWfMHkMNA+MM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ILvmNn+1uP0GCjTeWxHAARq3POjelk/zkkggHRqr669N5vBlnXQv9Yg8uShAHAWPV
+	 r+uFJpIr4Ahch5mMzxC2ouczYWRZPMGrkwVkFNIVMPn+HCacIXd33isOumG+cExtcS
+	 egAiyy/T4cf+1AQQkz3B427/hIS4SjOBaBYGwt8M=
+Date: Tue, 11 Aug 2026 14:04:32 +0530
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: linux-mm@kvack.org, akpm@linux-foundation.org, david@kernel.org, 
+	Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, 
+	Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>, 
+	WANG Xuerui <kernel@xen0n.name>, linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org, 
+	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
+	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, linux-sh@vger.kernel.org, 
+	sparclinux@vger.kernel.org, linux-um@lists.infradead.org, linux-arch@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [RFC V2 6/6] mm: Drop pxd_ERROR()
+Message-ID: <ijjadks7zjpwqlw4nbcawr3tva2r4y6gn3weuc73vbec46petn@ovlf52m2kugw>
+References: <20260811042119.3652929-1-anshuman.khandual@arm.com>
+ <20260811042119.3652929-7-anshuman.khandual@arm.com>
+ <CAMuHMdXfpkpYzZWGVb0fQrdn3uYHU3pyCkyAX9o2ux_Jj=2ByA@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC] arm64: entry: PSTATE_I_SET is leaking on pseudo NMI
- mode
-To: Jinjie Ruan <ruanjinjie@huawei.com>, Mark Rutland <mark.rutland@arm.com>,
- Breno Leitao <leitao@debian.org>
-References: <20260807-arm64_fix-v1-1-d069ccf9d71b@debian.org>
- <anXkO8YpoadRzm07@J2N7QTR9R3> <0c47125b-6a5e-41c9-b31c-d78643cbe6bd@arm.com>
- <7b16d183-86d5-481e-b212-977ad0598ac7@huawei.com>
- <3e5f1532-ea17-4994-8cd0-5ce1d42e9049@arm.com>
- <77080aa8-7df1-43f0-8c82-1096db05f745@huawei.com>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <77080aa8-7df1-43f0-8c82-1096db05f745@huawei.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAMuHMdXfpkpYzZWGVb0fQrdn3uYHU3pyCkyAX9o2ux_Jj=2ByA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_011853_331215_20A1E607 
-X-CRM114-Status: GOOD (  20.41  )
+X-CRM114-CacheID: sfid-20260811_013438_850904_CA0F1E06 
+X-CRM114-Status: GOOD (  23.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,71 +75,51 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: rmikey@meta.com, "Peter Zijlstra \(Intel\)" <peterz@infradead.org>, Catalin Marinas <catalin.marinas@arm.com>, kernel-team@meta.com, linux-kernel@vger.kernel.org, bpf@vger.kernel.org, Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/11/26 03:47, Jinjie Ruan wrote:
+On Tue, Aug 11, 2026 at 08:49:43AM +0200, Geert Uytterhoeven wrote:
+> Hi Anshuman,
 > 
-> 在 2026/8/10 21:04, Vladimir Murzin 写道:
->> On 8/10/26 13:44, Jinjie Ruan wrote:
->>>> Agreed on the need for a clearer explanation.
->>>>
->>>> Perhaps local_irq_disable() isn't the right API here, and we should
->>>> use local_daif_restore(DAIF_PROCCTX_NOIRQ) instead?
->>> The local_irq_disable() here is pair with the local_irq_enable() in
->>> preempt_schedule_irq(). So I think it is not correct to replace them
->>> separately.
->>>
->>> The pseudo NMI does not consider how to do local_irq_disable() /enable()
->>> when the interrupt is masked by the DAIF.I bit as I reported before.
->> Unless I missed anything local_daif_restore(DAIF_PROCCTX_NOIRQ) would
->> clear DAIF.{IF} and set PMR to GIC_PRIO_IRQOFF which is the state we
-> Hi, Vladimir,
+> Thanks for your patch!
 > 
-> Yes, local_daif_restore(DAIF_PROCCTX_NOIRQ) does indeed clear the
-> DAIF.IF bit and then set the PMR to IRQOFF.
+> On Tue, 11 Aug 2026 at 06:22, Anshuman Khandual
+> <anshuman.khandual@arm.com> wrote:
+> > pxd_ERROR() has been used in generic mm just to print the page table entry
+> > in pxd_clear_bad() before clearing those out with pxd_clear() later. These
+> > pxd_ERROR() macros have been provided by all platforms which basically did
+> > the same thing.
+> >
+> > Make pxd_clear_bad() use recently added ptval_to_str() instead for printing
+> > page table entries thus completely dropping dependency on platform provided
+> > pxd_ERROR() macros which can then be dropped off. First move all required
+> > helpers in core MM into a header file which could then be used else where.
 > 
-> But there is a side effect that will clear the DAIF.{DA} bit. This will
-> cause `arch_irqentry_exit_need_resched()` to bypass the DAIF check.
-> Originally, it could not be preempted, but after this fix, it becomes
-> preemptible.
-> 
-> As the below comment said, If DAIF.{DA} is set, we may be handling an
-> NMI or debug context, and preemption should not occur.
-> 
+> Oh, the "x" in "pxd" is a wildcard?
+> Except that is not, as it does not match "pte" ;-)
 
-Yes, indeed, it is why in my other reply I added
+Unfortunately that's the odd one but "pxd" was the closest possible :)
 
-"if we believe it is OK to downgrade the inherited context"
-
-... and it seems it is not OK.
-
-Cheers
-Vladimir
-
-> 30 static inline bool arch_irqentry_exit_need_resched(void)
->  31 {
->  32 >-------/*
->  33 >------- * DAIF.DA are cleared at the start of IRQ/FIQ handling, and
-> when GIC
->  34 >------- * priority masking is used the GIC irqchip driver will
-> clear DAIF.IF
->  35 >------- * using gic_arch_enable_irqs() for normal IRQs. If anything
-> is set in
->  36 >------- * DAIF we must have handled an NMI, so skip preemption.
->  37 >------- */
->  38 >-------if (system_uses_irq_prio_masking() && read_sysreg(daif))
->  39 >------->-------return false;
 > 
-> Best regards,
-> Jinjie
+> > Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 > 
->> expect from local_irq_disable() so we can do local_irq_{en,dis}able()
->> later on.
->>
->> Cheers
->> Vladimir
->>
+> >  arch/m68k/include/asm/mcf_pgtable.h           |  6 ---
+> >  arch/m68k/include/asm/motorola_pgtable.h      |  8 ----
+> >  arch/m68k/include/asm/sun3_pgtable.h          |  7 ----
+> 
+> Acked-by: Geert Uytterhoeven <geert@linux-m68k.org> # m68k
 
+Thanks !
+
+> 
+> Gr{oetje,eeting}s,
+> 
+>                         Geert
+> 
+> -- 
+> Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+> 
+> In personal conversations with technical people, I call myself a hacker. But
+> when I'm talking to journalists I just say "programmer" or something like that.
+>                                 -- Linus Torvalds
 
