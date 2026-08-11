@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAB16C5B572
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93958C5B56A
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 15:31:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,71 +12,71 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XCKgmnJbp7mmf0EumlB0lo4QQt9rPy5YuLxw+XknrhY=; b=kNwL0mxUs+DlcRmRe0cdYN8NPL
-	k8onPk/WxYcsc67m7/UbgmgPMCwxt9rRNY1qxkvX/9BOSJX+pO0xiL4ssqF7W+mlfVIhkltVxwxh7
-	6y3sZ2Qz5sXWmkldMu28uhSgShC08PooCup7WghTjtvYg7npGHjErOIav5AS5iqxxTlf4mouYIpEh
-	t+Uq19J4Tb8qyW5nSskAC+ljv0otoqdKKuwLbOREjh9Zb+iXg0s5a0MA9fHN8pA3IdELCGt4MVRNh
-	DmUcYRaw67xQ6/21ineSg+/r8l8FKw9CA2vOQhDlkBgo7K+W3UlTFHQZM0D1vSisX+//3QoWdhZaQ
-	+ilsz8gQ==;
+	bh=iIEqHB2kupPj+LJwStZlpRLPHkBGU+WfDNFf0olHiVQ=; b=lpZ8O8HwJxTv1QUGpOzC3NK1xp
+	ZaSGM6gENr+mshEjXxXaXOm/6uQEgEEvI0z7MweqMMfzgJOfDr+x5n8w58RAsRyrutqw/fodIo0vz
+	wmRrcKtfblzfJALa7XlN7pYX+G1rAd7kCoeBi4raRG1XiVhxdiCJGIOw7kfq7my8onhtV4ese5pPn
+	PmM/U/y6R32S64q8JnqKmrC3IzsrmDi0/LoLCo1CvrzaLkg2SS64MrNLjgFaUpGK47iMuWaxaknRd
+	MRLkp/4nTqjT/tejHwDrV9v7OgAZAGnxU79qISkouTfKspqCbjmsvKdbs45x1N+4qHIzmiFmNglYJ
+	zhMQO/7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtoRq-0000000EKbv-1nVv;
+	id 1wtoRq-0000000EKbO-0S06;
 	Tue, 11 Aug 2026 15:31:26 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtoRb-0000000EKMt-2Oya
+	id 1wtoRY-0000000EKJA-0m66
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 15:31:15 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-49800c6a846so30989935e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 08:31:11 -0700 (PDT)
+	Tue, 11 Aug 2026 15:31:09 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-49557167508so26999235e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 08:31:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1786462270; x=1787067070; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1786462266; x=1787067066; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=XCKgmnJbp7mmf0EumlB0lo4QQt9rPy5YuLxw+XknrhY=;
-        b=eI318EP2UZsxvxdLSeJdr+mkFof1cfe5bzcC0DQ0EOog/cpLox92Qf4DJeUfKTI78c
-         SAg6y3kv77LMJDwKxRmx6mdLIGzslmrKZqhkYLdU2MWAdGMMMV7SnOJ+PgxNALfLBx99
-         2q2Mp/JXGYJg3kP3fpI/vGaGlhwq/XvqhJf+5QNVMzmyLJ/6x7dPPXJz0Hv4dI2tAvAH
-         RvZ5kCczaF0kQ+xqxq8J8Qn9GJstHLkK+J0wBLK3pO+vnP49kbfHtAAg80aLrnLcKsK5
-         OHNzXK1L4A+P6LXWaGaeqb4p7tf1EYbif97avQ0xQWQqSJT5YbfMTuQeaf29MHTAj8WB
-         Ix3Q==
+        bh=iIEqHB2kupPj+LJwStZlpRLPHkBGU+WfDNFf0olHiVQ=;
+        b=ontw8ryrC6hgDEnBpJe81G8TUSqPwWcmURfyCxUm6Q51i93GDWTdSRnX0ERaVTnziJ
+         bSJW6GBZJHL/HJnaxHwKl17vncOY3KoYrzE5vWu5aHhUQNi76Iy8sXgii062zvWubskR
+         YAEDgspCBLsX3P3X9IXZNbiTOxiOsu54qSOczvpdTDJqbdNq7eO7WNslQX5u+RL6kRq1
+         CEu/wPB1j2hiK3zQXszDbz2Aj/GUTB7efFMQwClHTUwWE/ncFEPLL4bne0BJcwOj/yxt
+         4GroL7/yMm8SYYE6cpumOqC0UBNTbsCsC7yUP6rBkOsPgEpbOG48LKjIb6PR+0h33UD5
+         1HbQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786462270; x=1787067070;
+        d=1e100.net; s=20251104; t=1786462266; x=1787067066;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=XCKgmnJbp7mmf0EumlB0lo4QQt9rPy5YuLxw+XknrhY=;
-        b=IeypsvxLaKKICU74Wtd5QImYYGT9YQdqGSD9Ec9LQHjCxhfV3Ps/GVy68ZzJg2KjOH
-         kjG6m1cs6J0EAsioEoZEonkx3K6lm1ZQBVw2j5q8DflDzE7aYAc73pORx12nwIDEVrl6
-         Qxi9TV3uSjFtlASq7w9YOlU/1r+4QAn1YfY01UuH53LovKLt76JU1QVcDbAjy4usjgOp
-         YUMNXKobCloee75spLem8s5EPvSj3pSLEYZHaZy1KngAI8kDUqkb/TWwc8LmVjK9Fg4P
-         2sSVAY9rPz5Caq/gfiKItLcq/KCC2WVPKcbS9ANnhIGv+Z0MM6SxmPNCI7DmuBFWkuKy
-         K+YQ==
-X-Forwarded-Encrypted: i=1; AHgh+RrJ/GkxAx+7nFuJoSbeJtqmB57uIQYcaMd1PRqHzU4Ipf+0pCfb2Ho0MOg18hfX3X0NfWLPKgRA1Pumt14ZDrgR@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHnZNBFVrxcKY43Hu17j7CY9KtBrNnZ/5gs2OjIYkWqfKzjHoh
-	rDs07a4C0MjRr+NHN0jTOyQnC+0PD6+ULxCBsjowMW4xZr9RG8xMrCx8r+wzDjTgSfs=
-X-Gm-Gg: AR+sD10IZs6mhbbMdbjxkd6IhO7Vdg8EQOcWtSELA0p2TqHu+zMJIh+G92UgZnYQG3u
-	tfk1ftx3n0OGNvVx8dAw2q4KCDNXz4gCoH9ADvAbxVoTG7X38cg2KNShyss+gqzSNT16/A8mL8n
-	I7TCBvVSjVd4avvXsQN1wHWuZ1BCngYlJsbF+cioe1s7y9XneAcoPO3iyzZc8vzyPxuib7aN8OY
-	/sNLcAZhVwfdo9Q3I0Dml+Li64XY9mCwtd+6VY5O3iuvb+PF0uC6u7lUztu3uqzYVCSAXtAW2Yc
-	sMqrybPsYWcrkDtjFKPjz7fZS0tEmbvF0szMOAgtKcMzPh+VECPOlS641H/IaeHQNXL+bhl3+Mp
-	AhLF9fJF2zBMy+xFgEWr4ycNNEamnfGHZl4y0goc1GTHCcpaHesyJ4QqHrcQRefiBae3kW+BkJW
-	c50RfOxkDekdC1tarA/MDfxnHHw5sWoV0I+rdHbQ8jy/RA0pZJRxLaC4AKbp/wv6RG
-X-Received: by 2002:a05:600c:c162:b0:499:484a:7644 with SMTP id 5b1f17b1804b1-4997845f3e7mr63045865e9.9.1786462269793;
-        Tue, 11 Aug 2026 08:31:09 -0700 (PDT)
+        bh=iIEqHB2kupPj+LJwStZlpRLPHkBGU+WfDNFf0olHiVQ=;
+        b=nwvttFdppxleqBSeTvQEWey/jTJf+zoPrT08wcm+X8ERZAuP9C/oAoRNxn2c3oDdVy
+         xRGg+jjZuNVLhIgTJHQiC750n9Ls6auKceTfpulEXsRgrsSsE3ImUyjf680Dg+UUuTsO
+         LWDVbjjPc/zSTYg3eTYFwiwCvukeAbIwWtt/jkdKRESuEySA4k7Bb+P8r2xR5liAgtms
+         B0kGiaSHXOGHWNm9S+4CXHzAz6jierxtMIreRki+MxFJhG7w0qlBm0AlzHqlpgc99D68
+         3A1BYRYAhLTpXDK3mcAvtU6C9JV6Xmzp8qReMciSSzalYUTLVo/vr41z9jtAzjSmTFKo
+         Pd2g==
+X-Forwarded-Encrypted: i=1; AHgh+RrEiT+6pJvCAjxEhwTBJRIzSOyUvpddbMaLrulUfG5LWQ79BNL9NeH54Je/qjgzQ/FwGp+v18ro6bfHA0uZzF7R@lists.infradead.org
+X-Gm-Message-State: AOJu0YyqV5zwGo/armFqlMPEdPKdLJ+UBJ9LzoGg9vCSSg5XCneGGNF5
+	RLYxz8eQA2toTC2sB5NMwkiB7Sn5Av+ib3ezk/g54sRG7kbr/QVfU4q1LzXUvnthykA=
+X-Gm-Gg: AR+sD13lKo0wUoZ4zfaLagXEKTYgA/XZpZrPTMuG5laXnyKsY5CfeESrctRvvzdetkc
+	dMpeJ9xMa8APgbvZ91DNKQpWZtny+JhYV46R5dg1WUJHAy+VNlnOysDsAYI5pLie36Jm5BX/kZr
+	M1DQvmIwqRVZOuOXhMBvjp2odLYaw0BNOjtOMOivtFf6a/cId03+yYp13z9cjVJeVlMRB0mn9qI
+	VM5tj6EnrhUEVWFpGTVhmx3Dy7lsdGxCPZBk/CrBsnnw40sIHBTDHogxEDo/yitPi6lL1ryIkH5
+	MgQ2qgj6yeZKRJAneXzCsPRasZur9wjXXKATZlVbigP3H7D9pCajPVw7Y7VjC7Qhz1r+9OG73gu
+	WjZu+xjaSgUixBGEi2jokD5D/1cmNNyJqftpPPPqm0f0UyhcXTdBhgvmkIEt+TRBH84FdlT2FzW
+	J0EHL04fPKHufeRdJq0rY7CnRlxdjheXOc7m3s2KS2EZoHf6fAYcTizZ1IafcZeaZZ
+X-Received: by 2002:a05:600c:4709:b0:499:5220:db3d with SMTP id 5b1f17b1804b1-4997a65ef59mr12003705e9.16.1786462266487;
+        Tue, 11 Aug 2026 08:31:06 -0700 (PDT)
 Received: from pop-os.local ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49977dfacb6sm49865395e9.1.2026.08.11.08.31.08
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49977dfacb6sm49865395e9.1.2026.08.11.08.31.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 11 Aug 2026 08:31:09 -0700 (PDT)
+        Tue, 11 Aug 2026 08:31:05 -0700 (PDT)
 From: James Clark <james.clark@linaro.org>
-Date: Tue, 11 Aug 2026 16:30:16 +0100
-Subject: [PATCH 13/14] perf test: Add test for per-thread mode
+Date: Tue, 11 Aug 2026 16:30:14 +0100
+Subject: [PATCH 11/14] perf auxtrace: cs-etm: Capture wrapped snapshots
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260811-james-cs-unformatted-per-thread-fix-v1-13-90565318f5f8@linaro.org>
+Message-Id: <20260811-james-cs-unformatted-per-thread-fix-v1-11-90565318f5f8@linaro.org>
 References: <20260811-james-cs-unformatted-per-thread-fix-v1-0-90565318f5f8@linaro.org>
 In-Reply-To: <20260811-james-cs-unformatted-per-thread-fix-v1-0-90565318f5f8@linaro.org>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -97,8 +97,8 @@ Cc: Leo Yan <leo.yan@linux.dev>, linux-arm-kernel@lists.infradead.org,
  linux-doc@vger.kernel.org, James Clark <james.clark@linaro.org>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_083111_640732_FAC83E6D 
-X-CRM114-Status: GOOD (  15.46  )
+X-CRM114-CacheID: sfid-20260811_083108_292349_25B6D9AF 
+X-CRM114-Status: GOOD (  24.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,71 +113,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Test that per-thread mode works when the process migrates across CPUs
-and that the decode happens in the correct order.
+snapshot_has_wrapped() isn't implemented for Coresight, so when a wrap
+occurs we only save from offset 0 to current head, modulo buffer size,
+rather than capturing the whole buffer. Coresight drivers currently use
+a monotonic head pointer even in snapshot mode, which gives a lot more
+information for taking snapshots than a wrapped pointer. It means we
+don't need to search for data at the end of the buffer to guess if a
+wrap has occurred, and we can go back to saving partial buffers after a
+wrap by checking if the next size to take is less than the buffer
+size.
 
-A TODO is left in for when support for decoding in order with Perf
-records is added.
+The drivers will always be able to generate a monotonic head because
+TRBE has a bytes written counter, so even if we stop generating an AUX
+record on every overflow, we can check if the counter indicated an
+overwrite and offset head by a whole buffer size if it wrapped. This
+forces userspace to read the whole buffer rather than between last and
+current head. ETR and other sinks use software double buffering, so can
+continue as they are.
+
+Add a much simpler 'monotonic_snapshot_head' path for tracers to use,
+and use it for Coresight.
 
 Signed-off-by: James Clark <james.clark@linaro.org>
 ---
- tools/perf/tests/shell/coresight/per-thread.sh | 48 ++++++++++++++++++++++++++
- 1 file changed, 48 insertions(+)
+ tools/perf/arch/arm/util/cs-etm.c                  |  1 +
+ .../perf/tests/shell/coresight/raw_dump_stress.sh  |  5 -----
+ tools/perf/util/auxtrace.c                         | 22 ++++++++++++++++------
+ tools/perf/util/auxtrace.h                         |  2 ++
+ 4 files changed, 19 insertions(+), 11 deletions(-)
 
-diff --git a/tools/perf/tests/shell/coresight/per-thread.sh b/tools/perf/tests/shell/coresight/per-thread.sh
-new file mode 100755
-index 000000000000..77d1ed3405a9
---- /dev/null
-+++ b/tools/perf/tests/shell/coresight/per-thread.sh
-@@ -0,0 +1,48 @@
-+#!/bin/bash -e
-+# CoreSight per-thread CPU attribution (exclusive)
-+
-+# SPDX-License-Identifier: GPL-2.0
-+
-+# If CoreSight is not available, skip the test
-+perf list pmu | grep -q cs_etm || exit 2
-+
-+if ! tmpdir=$(mktemp -d /tmp/perf-cs-callchain-test.XXXXXX); then
-+	echo "mktemp failed"
-+	exit 1
-+fi
-+
-+cleanup_files()
-+{
-+	rm -rf "$tmpdir"
-+	trap - EXIT TERM INT
-+}
-+
-+trap cleanup_files EXIT
-+trap 'cleanup_files; exit 1' TERM INT
-+
-+echo "Recording..."
-+perf record -o "$tmpdir/data" -e cs_etm//u --per-thread -- \
-+	taskset --cpu-list 0 taskset --cpu-list 1 taskset --cpu-list 2 true > /dev/null 2>&1
-+
-+echo "Decoding..."
-+perf script -i "$tmpdir/data" --itrace=b -F comm,cpu 2> /dev/null | \
-+	grep -Eo '(taskset|true).*(\[[0-9]+\])' | \
-+	uniq | tail -n 3 > "$tmpdir/script" 2>/dev/null
-+
-+# Check that the decode says it ran on CPU 0, 1, 2, in that order. TODO: The
-+# correct result should be "taskset [0,1,2], true 2" but we don't decode trace
-+# in order of the Perf events yet, so everything is associated with the last
-+# exec.
-+cat > "$tmpdir/expected" << EOF
-+true [000]
-+true [001]
-+true [002]
-+EOF
-+
-+if ! diff -q "$tmpdir/script" "$tmpdir/expected"; then
-+	echo "FAIL: per-thread output doesn't match expected:"
-+	cat "$tmpdir/script"
-+	exit 1
-+fi
-+
-+exit 0
+diff --git a/tools/perf/arch/arm/util/cs-etm.c b/tools/perf/arch/arm/util/cs-etm.c
+index d36b7e41399b..dbf76dd3349e 100644
+--- a/tools/perf/arch/arm/util/cs-etm.c
++++ b/tools/perf/arch/arm/util/cs-etm.c
+@@ -918,6 +918,7 @@ struct auxtrace_record *cs_etm_record_init(int *err)
+ 	ptr->itr.info_fill		= cs_etm_info_fill;
+ 	ptr->itr.snapshot_start		= cs_etm_snapshot_start;
+ 	ptr->itr.snapshot_finish	= cs_etm_snapshot_finish;
++	ptr->itr.monotonic_snapshot_head = true;
+ 	ptr->itr.reference		= cs_etm_reference;
+ 	ptr->itr.free			= cs_etm_recording_free;
+ 	ptr->itr.read_finish		= auxtrace_record__read_finish;
+diff --git a/tools/perf/tests/shell/coresight/raw_dump_stress.sh b/tools/perf/tests/shell/coresight/raw_dump_stress.sh
+index bea70d825596..c9459ded4cbe 100755
+--- a/tools/perf/tests/shell/coresight/raw_dump_stress.sh
++++ b/tools/perf/tests/shell/coresight/raw_dump_stress.sh
+@@ -48,11 +48,6 @@ read -r size offset last_idx <<< "$(awk '
+ # everything was dumped. Allow 48 bytes difference to cover 3 frames: current
+ # frame length, a partial frame and a final empty one, all of which aren't
+ # dumped.
+-#
+-# TODO: for a single snapshot, offset should always be zero. However, we
+-# currently output AUX records in snapshot mode when we shouldn't, which
+-# increments the offset. Allow for that until it's fixed so we can test raw
+-# dumping.
+ decode_size=$((1 + last_idx - offset))
+ if [ "$decode_size" -gt "$((size - 48))" ] && [ "$decode_size" -le "$((size))" ]; then
+ 	echo "PASS: AUXTRACE buffer length matches dumped packet index"
+diff --git a/tools/perf/util/auxtrace.c b/tools/perf/util/auxtrace.c
+index 8ca872e6d465..e3c770b46e94 100644
+--- a/tools/perf/util/auxtrace.c
++++ b/tools/perf/util/auxtrace.c
+@@ -2051,9 +2051,9 @@ static int __auxtrace_mmap__read(struct mmap *map,
+ 				 bool snapshot, size_t snapshot_size)
+ {
+ 	struct auxtrace_mmap *mm = &map->auxtrace_mmap;
+-	u64 head, old = mm->prev, offset, ref;
++	u64 head, old = mm->prev, offset, ref, size;
+ 	unsigned char *data = mm->base;
+-	size_t size, head_off, old_off, len1, len2, padding;
++	size_t head_off, old_off, len1, len2, padding;
+ 	union perf_event ev;
+ 	void *data1, *data2;
+ 	int kernel_is_64_bit = perf_env__kernel_is_64_bit(env);
+@@ -2061,10 +2061,20 @@ static int __auxtrace_mmap__read(struct mmap *map,
+ 
+ 	head = auxtrace_mmap__read_head(mm, kernel_is_64_bit);
+ 
+-	if (snapshot && itr->snapshot_has_wrapped) {
+-		err = auxtrace_find_snapshot(itr, mm->idx, mm, data, &head, &old);
+-		if (err)
+-			return err;
++	if (snapshot) {
++		if (itr->snapshot_has_wrapped) {
++			err = auxtrace_find_snapshot(itr, mm->idx, mm, data, &head, &old);
++			if (err)
++				return err;
++		} else if (itr->monotonic_snapshot_head) {
++			size = head - old;
++			/* Force a full buffer read if a wrap has occurred */
++			if (size > mm->len) {
++				pr_debug3("%s: wrap detected, adjusting old from 0x%"PRIx64" to 0x%"PRIx64"\n",
++					  __func__, old, head - mm->len);
++				old = head - mm->len;
++			}
++		}
+ 	}
+ 
+ 	if (old == head)
+diff --git a/tools/perf/util/auxtrace.h b/tools/perf/util/auxtrace.h
+index a9d0c84184c5..971b817d3396 100644
+--- a/tools/perf/util/auxtrace.h
++++ b/tools/perf/util/auxtrace.h
+@@ -385,6 +385,7 @@ struct auxtrace_mmap_params {
+  * @evlist: selected events list
+  * @snapshot_wrapped_len: number of bits in @snapshot_wrapped
+  * @snapshot_wrapped: bitmap indicating if each aux buffer has wrapped
++ * @monotonic_snapshot_head: driver doesn't wrap head pointer on overflow
+  */
+ struct auxtrace_record {
+ 	int (*recording_options)(struct auxtrace_record *itr,
+@@ -412,6 +413,7 @@ struct auxtrace_record {
+ 	int snapshot_wrapped_len;
+ 	unsigned long *snapshot_wrapped;
+ 	int snapshot_search_bytes;
++	bool monotonic_snapshot_head;
+ };
+ 
+ /**
 
 -- 
 2.43.0
