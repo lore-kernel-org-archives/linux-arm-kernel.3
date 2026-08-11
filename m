@@ -4,73 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98AE6C5AD7B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 05:43:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74591C5AD7B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 05:44:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YMGTU+vf49B9TdnxXNYL8pil652GojAXCJRKNGBLc/w=; b=yX8mR++3gwn8HntlZe9avyqv+f
-	E8zQ8GyS5zP5RxQRjt3MMBG9VGECFNVVT18Dg/h9sQitqF3bUKOX++TLIAOOhyR5OGbjGavX6kTed
-	EUUT4/iF5bRup5wpxXYA7n/bCAZivTBeRVJx5ufpty+kZoXoFx+X33VYBYI6Lmi6FPJKY/sEO8o7N
-	BpY3LozBb5Phguk4gX6ybLaHr4SSqh5JWLLZqu2XERWCIX37xtN5fTFbyWL52TE4UOZsxD9/wshCM
-	31qJVpJj7oKXPr6a1jIdGAtnzn+zce+JQqQ3g5mvlonaaayrkaoAFf8nIIBvCFuOt4+Bmg1SCJcWw
-	ITcaaepg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N7P4L5tJ88+N+LleowMyQZT4Dw0kQrcA98X8789RllA=; b=SUN4JZn8VLtTUcdQ7iD892V55V
+	2avIFdtEHf8Vs947L8LRBvtws2+k2zSyFZliv7eba5AvlDdD4KiwF8oe+hwbAm02iYPcYYSoDv248
+	SisMe6Gxn8A7cXE8waLNcPVJnPaAPynEq6bq9lBfnw2useMtYj3ybrvYpp2HRUeIHqjnymprvVQJR
+	+kUB6xAn90r4568tCFphq21jAQVZmLPUybBlTdne+IZUapoaBZMXlpHvysnemLTaLRvZeim3ye/5F
+	P77j09Rufsb1G9MWKsTjJDBnS/IKrA4wLKfrZlW4cjLFE7A//98uW2aK97NUNayIREUTwPjdFf8+H
+	yjpUF9Lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtfGl-0000000DKar-1wv5;
-	Tue, 11 Aug 2026 05:43:27 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wtfHh-0000000DKld-2HWV;
+	Tue, 11 Aug 2026 05:44:21 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtfGi-0000000DKaP-11Hs;
-	Tue, 11 Aug 2026 05:43:20 +0000
+	id 1wtfHg-0000000DKlA-2dwX
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Aug 2026 05:44:20 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with UTF8SMTP id 888D6417A0;
-	Tue, 11 Aug 2026 05:43:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 8BDE61F000E9;
-	Tue, 11 Aug 2026 05:43:18 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 77BB06001D;
+	Tue, 11 Aug 2026 05:44:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F5C01F000E9;
+	Tue, 11 Aug 2026 05:44:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786426999;
-	bh=YMGTU+vf49B9TdnxXNYL8pil652GojAXCJRKNGBLc/w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Extm0du5n7L50sNNJpgM5PNYO8U2aUnoW7xIcOy0qQq1OG+1JkcD9nqWitFPDpd78
-	 zEP9WTJzYlRiVkhXGneXd5MLP0weKKeXtrjhGf+qJEXM7FbBi8Tv0GD3gqvlHrnjE3
-	 N2Y6gqBZFEg5bWlrxHDJ9OefwDnjT50hKkSOdhwkk+77PzQxfGq1Fjzc9pk9ZQF9K+
-	 woDxKQOwqTW1icqSssV3Mco9Tt9eceuABCXQx17oS67EuQI2ZVs9e96J96yMjPCZbl
-	 cXiTDwylteCFXODDBZu806lj45mQs0ju0rJw5A/MiCmL7AbL5iTHf6PRFiR/punGj+
-	 heRkFRnTFpxqg==
-Date: Tue, 11 Aug 2026 07:43:16 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: Vladislav Leonov <vlad@zlab.su>, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, Simon Glass <sjg@chromium.org>, linux-clk@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Andi Shyti <andi.shyti@kernel.org>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, Aurelien Jarno <aurelien@aurel32.net>, 
-	Brian Masney <bmasney@redhat.com>, Conor Dooley <conor+dt@kernel.org>, 
-	Daniel Golle <daniel@makrotopia.org>, "David S. Miller" <davem@davemloft.net>, 
-	David Wu <david.wu@rock-chips.com>, Eric Dumazet <edumazet@google.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Heiko Stuebner <heiko@sntech.de>, 
-	Herbert Xu <herbert@gondor.apana.org.au>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Mark Brown <broonie@kernel.org>, Maxime Chevallier <maxime.chevallier@bootlin.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Michael Turquette <mturquette@baylibre.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
-	Olivia Mackall <olivia@selenic.com>, Paolo Abeni <pabeni@redhat.com>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, Stephen Boyd <sboyd@kernel.org>, 
-	Vinod Koul <vkoul@kernel.org>, linux-crypto@vger.kernel.org, linux-i2c@vger.kernel.org, 
-	linux-phy@lists.infradead.org, linux-pwm@vger.kernel.org, linux-spi@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-usb@vger.kernel.org, netdev@vger.kernel.org
-Subject: Re: [PATCH 00/25] ARM: rockchip: Add peripheral support for RV1106
-Message-ID: <anq1ouUnKA02Eauj@monoceros>
-References: <20260810121121.210040-1-vlad@zlab.su>
- <20260810113548.7fd24d56@kernel.org>
+	s=k20260515; t=1786427058;
+	bh=N7P4L5tJ88+N+LleowMyQZT4Dw0kQrcA98X8789RllA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=JQFm3fgrJsbXaRc84rFczQxh8b+Sx1F2AXFckHiiDHGDpipU6Fz+dUsxfJC7ZyZX6
+	 y34AELS4FEDBUDkBVBe9dAkdJzXTjLdHGmzxJFlmnkdlKFsw2ylnT0jLeU/S3DqzGs
+	 PCz0mcG+RoEsmAlkbtcZnfWutDcmIIYWhgQrL92uzwfI8SNKzk557fhNz6m88ewjhV
+	 vQqTZ5Sox6RrLTBoMYmmxhnrb7QyXD1jnuZn6x2fMcf+7+/meSjQw+vA6ZV+pzwBe4
+	 wijEGIuqT4EOCeSJ0jCvNNIFTteR6YsfCzWyIEYksPYDfdDVLwjKHT4i1DT7a0yH5W
+	 v9llI3c+BpFdg==
+Message-ID: <371f3842-1d01-4e57-86b8-04bf1a0dd53f@kernel.org>
+Date: Tue, 11 Aug 2026 07:44:08 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="l56ppkyuc6yjydul"
-Content-Disposition: inline
-In-Reply-To: <20260810113548.7fd24d56@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/5] ASoC: dt-bindings: fsl,imx-asrc: update port
+ binding to support multiple paths
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: shengjiu.wang@oss.nxp.com, lgirdwood@gmail.com, broonie@kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, Frank.Li@nxp.com,
+ s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+ shawnguo@kernel.org, linux-sound@vger.kernel.org,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ shengjiu.wang@gmail.com, Xiubo.Lee@gmail.com, nicoleotsuka@gmail.com,
+ perex@perex.cz, tiwai@suse.com, linuxppc-dev@lists.ozlabs.org,
+ Shengjiu Wang <shengjiu.wang@nxp.com>
+References: <20260804100218.49587-1-shengjiu.wang@oss.nxp.com>
+ <20260804100218.49587-2-shengjiu.wang@oss.nxp.com>
+ <anH5i7y3JkB1moee@SMW015318> <20260810-magic-olive-gecko-5e8a36@quoll>
+ <anohg7YCylTQ47pk@SMW015318>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <anohg7YCylTQ47pk@SMW015318>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,52 +124,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 10/08/2026 21:07, Frank Li wrote:
+> On Mon, Aug 10, 2026 at 09:12:20AM +0200, Krzysztof Kozlowski wrote:
+>> On Tue, Aug 04, 2026 at 09:39:07AM -0500, Frank Li wrote:
+>>> On Tue, Aug 04, 2026 at 06:02:14PM +0800, shengjiu.wang@oss.nxp.com wrote:
+>>>> From: Shengjiu Wang <shengjiu.wang@nxp.com>
+>>>>
+>>>> The i.MX ASRC hardware supports up to three conversion pairs (A, B, C).
+>>>> The existing binding exposed only a single generic audio-graph port,
+>>>> which cannot represent independent conversion paths when multiple pairs
+>>>> are in use simultaneously.
+>>>>
+>>>> Add a ports container that enumerates up to three sub-ports, each
+>>>> representing an independent conversion path:
+>>>>   port@0 -- conversion path 0
+>>>>   port@1 -- conversion path 1
+>>>>   port@2 -- conversion path 2
+>>>>
+>>>> Each sub-port references audio-graph-port.yaml as before. Hardware pairs
+>>>> are allocated dynamically at stream open time; each active stream
+>>>> direction (playback or capture) on a port consumes one hardware pair.
+>>>>
+>>>> For backwards compatibility, keep the old single port property but mark
+>>>> it deprecated. A schema constraint (not: required: [port, ports]) ensures
+>>>> that both forms cannot be used at the same time. The binding example is
+>>>> updated to show the preferred ports form.
+>>>>
+>>>> No existing upstream DTS file for fsl,imx-asrc uses the previously
+>>>> documented single 'port' node, so this change does not break any
+>>>> in-tree device tree.
+>>>
+>>> if no existing upstream DTS file use it, you can direct replace with ports
+>>
+>> And what about all other users of this binding?
+> 
+> Kernel is that only known user. Uboot don't use this part.
 
---l56ppkyuc6yjydul
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 00/25] ARM: rockchip: Add peripheral support for RV1106
-MIME-Version: 1.0
+So other kernels will get broken?
 
-On Mon, Aug 10, 2026 at 11:35:48AM -0700, Jakub Kicinski wrote:
-> On Mon, 10 Aug 2026 15:10:51 +0300 Vladislav Leonov wrote:
-> > Basic support for the Rockchip RV1106/RV1103 SoCs currently under revie=
-w.
-> > This series builds on top of that and enables the peripherals needed to
-> > bring up a board beyond a serial console:
->=20
-> Don't expect maintainers to dig out patches for their subsystems
-> from a big series. This is not how upstream development works.
-
-I see this from time to time and I personally think it's fine to have
-these patches together. Also the only the patch that affects my
-subsystem was Cc:d to me which is how I like it (but I think opinions
-differ on that one, too).
-
-`b4 am -P _` is great!
-
-> Repost 4+5 as a separate series to networking..
-
-=2E.ooOO(It worked! :-)
-
-Best regards
-Uwe
-
---l56ppkyuc6yjydul
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmp6tnIACgkQj4D7WH0S
-/k4zEQf+MYRctJ734gymTU2g5TLMo295bcq0j0eEePOAdI6qDQPd95D0hAtgUEkt
-4cke2U6VUYvUyjrFyYBRIGUYGXlEBi8gWY+OEGO3fIZxlGHuQx78Dc6DP7G1Fwft
-Ss7cDBRXPd6Rz4yUkuh8gv1ajvzZbP93qgNy+PYkPVurLQoBKMEckIJ62+Beltca
-0+MG5Pptj/qnZAlIefzdk51PPWtMMzIUTP5PmOCIfE5HlxTcfLWKGiS01H0OIip6
-q4Mj5mEEySKrAaGz9TBfGv0T1AJA6/Dbzqn8X9BKcuOQ4C0VxJ8T1nFhQzEBtCqw
-f6yJy4qiT12FVPcrMFlEBIfbUoLrEg==
-=aKZl
------END PGP SIGNATURE-----
-
---l56ppkyuc6yjydul--
+Best regards,
+Krzysztof
 
