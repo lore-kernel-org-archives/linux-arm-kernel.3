@@ -4,68 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D52EC5CFCF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 09:45:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F339C5CFCF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 09:54:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tSpeYlqtnZyA+k5/9LIRfgyP93yJj/4XvuLOfnmiRCM=; b=MAD3ymN1yF5FibIV8U9gwi8N2a
-	uNQCNLN0Y2M0Wp6o2hm4Bvzj6Csg2wBd4xgkDnJp3gpkOLNBDjXrS2mRwYOq935oMK318tWOsQU5N
-	NbYCLWnbeO/F3O/3bWk7+atldSDl4Yp8u5gDsg3f1FuTWZzvSWk8vKevXdtWLl5ZX2/e9HGi/A0VP
-	VBoQJnFNLU7pCgPptlUr7Rw7gebITs68wMhLL3mB6ZOucHEtdGzIyRBcPsDYN4cqayEMJnKfVUEC8
-	4KNbet9aTJfqvrfA66DK2sp2XM5xbGeObkoOoxpWxilq00pgFHFg8qBhjUEA4cROo/IVvFgKB99bG
-	p22RRZEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YMfFkOBv7vea26mag8Jd4fWTZiErr47zU0KC7mS0yCY=; b=vw1x5xoYNAaLFibTQUHqDscGE+
+	c0OB508VUERyqdUKHIfJ9l8IL5FjgVieqzAvtOBv2NCzyQ7nvoN05MJ34Myu8GWcgly6eF7jmXwpB
+	tVZNd3dqV0Q2g9s5k7yFu+90bQzoB3ASffjXhVbmZg5SJ9oWj0L4XyIqQ1f5PpqN3C0U3VEvAooWm
+	Ev8iIV/sGJcPNWv9V1dZ41Td83raQRD+IuYpWZpF3amvjT+YxvDXW/mvnPo52oGcAyhnySbZrQqzd
+	EeRoIDSJoHwhz0mFJT0GoZkQse1rjkEk7bCcW1IWKkpER+jNw2QAfppy7+iOu3kbHcydFjCDNLvzs
+	AjPUATTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtj2T-0000000DmB2-0rbt;
-	Tue, 11 Aug 2026 09:44:53 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wtjBD-0000000DmrO-216a;
+	Tue, 11 Aug 2026 09:53:55 +0000
+Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtj2R-0000000DmAp-3NqN
+	id 1wtjB7-0000000DmqA-2m3N
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 09:44:51 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2FBF4415F6;
-	Tue, 11 Aug 2026 09:44:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 715571F000E9;
-	Tue, 11 Aug 2026 09:44:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786441491;
-	bh=tSpeYlqtnZyA+k5/9LIRfgyP93yJj/4XvuLOfnmiRCM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=AC5sqQEs+79Lxz8J+5irzfru6WqJ+WMNPNbg0BlsFRTYHLYNbJwKeTGoX/USNeXec
-	 qAHDt6fEvxZwkTQ0OkhSRJd9usYhQgHEvhI5g+ypsQIL23jvgewpj5nwaqHYC+6UkR
-	 zDs2sf/mhlntAhxfTUJvorenxXxBr0BVgNVACoI3eygn3tHiMvKXYkyieGSLa68kuy
-	 epnY2UANh4597IM2lyYPJchtIfF1HcGwBX9dtBGFtcKys1j8jrzRy+MyZp5o1wYNHe
-	 cz4zpMRPAcGysjFIRDbvmhuH41/xP3I5oQht3eFUqy94N6DKua+F7kG11roR8FQVtL
-	 FEgaji01XnGaA==
-Date: Tue, 11 Aug 2026 10:44:44 +0100
-From: Will Deacon <will@kernel.org>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Josh Poimboeuf <jpoimboe@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	live-patching@vger.kernel.org, Song Liu <song@kernel.org>,
-	Miroslav Benes <mbenes@suse.cz>, Petr Mladek <pmladek@suse.com>,
-	Joe Lawrence <joe.lawrence@redhat.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mark Brown <broonie@kernel.org>, Kees Cook <kees@kernel.org>
-Subject: Re: [PATCH] arm64/module: Fix livepatch BTI exceptions with Clang 21+
-Message-ID: <anrvDIWMNGIa4WPK@willie-the-truck>
-References: <ed4fe1f95071897859ec7fbe9176246cbd4962bf.1786138806.git.jpoimboe@kernel.org>
- <anmobvJXiBQqWn6S@willie-the-truck>
- <e5q2mvqtf6iw4lco55uny5ffhppw6vlflxguhc4gg5nm3zdvmo@zs6rw7iov5qc>
- <08d6c5cd-9924-4359-9181-a03718161528@app.fastmail.com>
- <kp4rvh4vxo65gipgqz4i4dnw2ueylmus4yys6xfrbngp5nefzn@4a4ekjlzqlph>
- <CAKwvOdmSVjY0TmOTc6WMmDHcLbn=tOV3R3zH_TO4zXZiYEsaBw@mail.gmail.com>
+	Tue, 11 Aug 2026 09:53:53 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=YMfFkOBv7vea26mag8Jd4fWTZiErr47zU0KC7mS0yCY=;
+	b=ILqyC7eEg41qepyyUww353hLWhY79P6m/OsDM2LUbN3zM5RLf5HHwwqoPl5+bowyvGWk6GzT8
+	Gv/NbgEBpyQvj1fEBrI4kcpO/Pnvnoee0oqMqPLuQY7blVBrVLH5tYJ+y9uLqu6c0fM/YtU8Wbc
+	kp/4ildR5JsOIRtVpuVkXJU=
+Received: from mail.maildlp.com (unknown [172.19.162.144])
+	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4hK69r1pg2zpT0b;
+	Tue, 11 Aug 2026 17:42:56 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 2602C40538;
+	Tue, 11 Aug 2026 17:53:38 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 11 Aug 2026 17:53:37 +0800
+Message-ID: <88bdbbd3-8644-49f0-ac64-30eb58679c4f@huawei.com>
+Date: Tue, 11 Aug 2026 17:53:36 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v2 21/45] arm64: gicv3: remove GIC_PRIO_PSR_I_SET
+To: Vladimir Murzin <vladimir.murzin@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>
+CC: <mark.rutland@arm.com>, <maz@kernel.org>, <will@kernel.org>,
+	<catalin.marinas@arm.com>, <liaochang1@huawei.com>
+References: <20260727163453.7969-1-vladimir.murzin@arm.com>
+ <20260727163453.7969-22-vladimir.murzin@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260727163453.7969-22-vladimir.murzin@arm.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAKwvOdmSVjY0TmOTc6WMmDHcLbn=tOV3R3zH_TO4zXZiYEsaBw@mail.gmail.com>
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260811_025351_342383_B5FB7D80 
+X-CRM114-Status: GOOD (  20.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,56 +79,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 10, 2026 at 09:41:35AM -0700, Nick Desaulniers wrote:
-> On Mon, Aug 10, 2026 at 9:39 AM Josh Poimboeuf <jpoimboe@kernel.org> wrote:
-> >
-> > On Mon, Aug 10, 2026 at 06:12:10PM +0200, Ard Biesheuvel wrote:
-> > > On Mon, 10 Aug 2026, at 17:48, Josh Poimboeuf wrote:
-> > > > In which case I think to properly support BTI going forward we would
-> > > > need two "veneers"?  Either that or remove BTI kernel support
-> > > > altogether.
-> > > >
-> > >
-> > > Yeah, it seems we did not argue our case convincingly: their assumption
-> > > that veneers/PLTs can be placed within -/+ 128M of their target does not
-> > > hold for us. But I don't think it holds for .text sections larger than
-> > > 128M either, so I'm not convinced their reasoning is sound even for the
-> > > general case.
-> > >
-> > > I suppose we could special-case the PLT logic to use direct branches
-> > > where possible, which would probably catch most of these (assuming
-> > > .text and .init.text tend to end up close to each other also for KLP
-> > > modules)
-> > >
-> > > For the remaining cases, we'd indeed need a second veneer at the callee
-> > > end (i.e., inside .text in this case) that is emitted when resolving a
-> > > cross-section indirect call to a function that lacks the BTI landing
-> > > pad. But that would be its sole purpose, so I don't think we should go
-> > > down this route. Instead, the 'address taken' check should include 'called
-> > > directly from a different section'. Emitting veneers to work around a
-> > > compiler optimization is just plain silly.
-> > >
-> > > I'll try and poke people on the Clang side of things to revisit this.
-> > > I guess that leaves kernel BTI broken for the foreseeable future but so
-> > > be it.
-> >
-> > Ok, so for now I suppose we need something like so?
-> >
-> > diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> > index 06b30924509ac..972988238f367 100644
-> > --- a/arch/arm64/Kconfig
-> > +++ b/arch/arm64/Kconfig
-> > @@ -2117,6 +2117,8 @@ config ARM64_BTI_KERNEL
-> >         depends on !CC_IS_GCC || GCC_VERSION >= 100100
-> >         # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=106671
-> >         depends on !CC_IS_GCC
-> > +       # https://github.com/llvm/llvm-project/commit/7af2b51e761f49974a64c3009882239cea618f2a
+
+
+在 2026/7/28 0:34, Vladimir Murzin 写道:
+> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 > 
-> Sure, but let's replace this with a link to a bug report in llvm's
-> issue tracker? I meet with Arm's toolchain team (of which Simon
-> is...on or adjacent to). I can bring this up then.
+> `GIC_PRIO_PSR_I_SET` was used to keep track of sections of the kernel
+> where interrupts always need to reach the CPU and could not be masked
 
-Yes, please! I can apply the patch once we have the bug number.
+I understand it's used in scenarios similar to CPU idle entering WFI,
+where the CPU needs to be woken up by interrupts.
 
-Will
+> via interrupt priorities, or DAIF bypassed the status of the PMR.
+> 
+> This flag unmasked IRQs when OR'd to GIC_PRIO_IRQON and ensured that
+
+Yes GIC_PRIO_PSR_I_SET | GIC_PRIO_IRQON has has a lower PMR priority ,so
+unmask the IRQs.
+
+> that IRQs were seen as disabled by the `local_irqs_...` functions,
+Yes, a flags value that is not equal to GIC_PRIO_IRQON is regarded as
+the disabled state for interrupts.
+
+> as they would only check the PMR if pseudo-NMIs were enabled.
+> 
+> This is not needed anymore as our IRQ masking APIs now know how to handle
+> interrupt priorities properly and in parallel with DAIF : remove it.
+
+Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> 
+> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+> ---
+>  arch/arm64/include/asm/ptrace.h         | 2 --
+>  include/linux/irqchip/arm-gic-v3-prio.h | 8 --------
+>  2 files changed, 10 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/ptrace.h b/arch/arm64/include/asm/ptrace.h
+> index e4c7e6bafa3d..cf7e51b8ef0b 100644
+> --- a/arch/arm64/include/asm/ptrace.h
+> +++ b/arch/arm64/include/asm/ptrace.h
+> @@ -24,8 +24,6 @@
+>  #define GIC_PRIO_IRQON		GICV3_PRIO_UNMASKED
+>  #define GIC_PRIO_IRQOFF		GICV3_PRIO_IRQ
+>  
+> -#define GIC_PRIO_PSR_I_SET	GICV3_PRIO_PSR_I_SET
+> -
+>  /* Additional SPSR bits not exposed in the UABI */
+>  #define PSR_MODE_THREAD_BIT	(1 << 0)
+>  #define PSR_IL_BIT		(1 << 20)
+> diff --git a/include/linux/irqchip/arm-gic-v3-prio.h b/include/linux/irqchip/arm-gic-v3-prio.h
+> index 44157c9abb78..464bf1d29453 100644
+> --- a/include/linux/irqchip/arm-gic-v3-prio.h
+> +++ b/include/linux/irqchip/arm-gic-v3-prio.h
+> @@ -20,17 +20,11 @@
+>   * GICV3_PRIO_NMI is the PMR view of the priority of pseudo-NMIs. This can be
+>   * written to the PMR to mask pseudo-NMIs.
+>   *
+> - * On arm64 some code sections either automatically switch back to PSR.I or
+> - * explicitly require to not use priority masking. If bit GICV3_PRIO_PSR_I_SET
+> - * is included in the priority mask, it indicates that PSR.I should be set and
+> - * interrupt disabling temporarily does not rely on IRQ priorities.
+>   */
+>  #define GICV3_PRIO_UNMASKED	0xe0
+>  #define GICV3_PRIO_IRQ		0xc0
+>  #define GICV3_PRIO_NMI		0x80
+>  
+> -#define GICV3_PRIO_PSR_I_SET	(1 << 4)
+> -
+>  #ifndef __ASSEMBLER__
+>  
+>  #define __gicv3_prio_to_ns(p)	(0xff & ((p) << 1))
+> @@ -45,8 +39,6 @@ static_assert(__gicv3_prio_valid_ns(GICV3_PRIO_IRQ));
+>  static_assert(GICV3_PRIO_NMI < GICV3_PRIO_IRQ);
+>  static_assert(GICV3_PRIO_IRQ < GICV3_PRIO_UNMASKED);
+>  
+> -static_assert(GICV3_PRIO_IRQ < (GICV3_PRIO_IRQ | GICV3_PRIO_PSR_I_SET));
+> -
+>  #endif /* __ASSEMBLER */
+>  
+>  #endif /* __LINUX_IRQCHIP_ARM_GIC_V3_PRIO_H */
+
 
