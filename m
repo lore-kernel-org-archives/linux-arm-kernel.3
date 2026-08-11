@@ -4,71 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5297C5CFCF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 10:17:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF322C5AC67
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 10:18:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cgveFXz0aPZb86sTyapTaqRebr2jiJ1fiLR3Fd+pKjw=; b=X5iWueEq1syAyoBpKpUW7lw8Q2
-	i0CoFk22Vf61pG+wVckipfHhnzSyOHdfRzGJq5JiQQQOBl0TGOW4OAIXHtgohNH6ZWyg9Gx5sTVs1
-	zLRZz6n86V8k62fUGEI0FzFAU6lmpy+ErvDzDfeTu6HlFmJfuSgNqh5yTt+mNnnHyDZtEEjUuFDwv
-	A3cCRxrzZBLxVikEr+PYrlBhn1iDj3p4WQFTK4Nn00UkBzZ0OY/X8NwBGyrMVq+cL4CK9DWL1zw1s
-	TIWEydESjvJut58R1m66aSXz5q32vwk08lNjVsDc3ZBn5iDqmszj9dM54R8LSRFQBTt47FmutFGeb
-	GpdqaqFQ==;
+	bh=FDsSGB1xRhkRov1KMpYy6biawVkrNNWECkhOPtva83U=; b=I6IJOIirXvPtJ0pW6KpjlQeS8d
+	cLwPVgio66SwkOFcIXbASTa0eRFmwE/qkRQvvssaOKhL3LoOQFqkIHlDBa1EhZNkARq2PSWcEJE5W
+	UuAQtdpz3B90pl75SromA9mWLZ3ajf1mOBEhyAzYtUoM5HtkSVcOn3reNZSXwVVAqg73mCl2jl3Hs
+	Om2ZVJLbi00xDbkpVMoPJxbBkM64hPYAufa07jduO++s+4YBwviN3LzOCYQUEMaNOtkz85aBF/Wv3
+	fsvYLt/xa5LRhHMeofD+Z0MIPBh9ZJpnH9jt069xdeoCuig+lhsHuE8gyuj8BhLSUjTztB6jO7kcr
+	E/GtnDYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtjYK-0000000Dpih-26H7;
-	Tue, 11 Aug 2026 10:17:48 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtjYH-0000000DpiD-3rUY
+	id 1wtjZ5-0000000DpsT-2e1a;
+	Tue, 11 Aug 2026 10:18:36 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wtjZ3-0000000DprV-3IAL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 10:17:47 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C8B1D14BF;
-	Tue, 11 Aug 2026 03:17:40 -0700 (PDT)
-Received: from localhost (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 573883F86F;
-	Tue, 11 Aug 2026 03:17:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786443464; bh=ZE7nm7ffD93BfMT8HVYKCGTJj/+7QxUldSFCAd+HgnY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GfDmzwVp6hox1IdOhr4CkTgrII9BC/aPtQ+CsaNYGnwMUuTn2WmZFcM8dT9zU5apC
-	 VJ4nZ0tn1xd/tYEk+msKedPgBfBoKTFFPf94b+45LR+aZd5IemiOBPqcaHUrOdmUVn
-	 rV0BJ0lhyNLymFjbsKMoALJn3c9gAK95MLqJNC8M=
-Date: Tue, 11 Aug 2026 11:17:42 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: Will Deacon <will@kernel.org>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Mike Leach <mike.leach@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Tue, 11 Aug 2026 10:18:33 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 755E943F5E;
+	Tue, 11 Aug 2026 10:18:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B26E21F00A3A;
+	Tue, 11 Aug 2026 10:18:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786443512;
+	bh=FDsSGB1xRhkRov1KMpYy6biawVkrNNWECkhOPtva83U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=MxdMjzdRWb9tyFdEMp/fLMZAWqyWR48m8YKXAFDQgtTnwwA9r2d6KXQwohhEGr+Mv
+	 YHRzhIbmHhJp159K5tXhoVzpz9ziHv0KOvgZnxBoqHTWG3fzgn9RbgPk5xiNPF7zGt
+	 oe2Qb6MH7IHhDDz3oLeZ9DqQ987UX1BxCU4mX74BTcK1mXh3HA48BdIOHFLq34bskK
+	 9kaE7jxNoV443H/cFneBJwRo9kxqopVQwubCOnxHevCIrXkMD2WyFnoFaOGN8KZJhU
+	 dtQ+OWRbEXcsN2sN3W3Svmu2MilHAVszdNc2AmML3MyuJ+iZz1rD19qyU7iGPNq4fr
+	 SOH48LGVk56qA==
+Date: Tue, 11 Aug 2026 11:18:27 +0100
+From: Will Deacon <will@kernel.org>
+To: Bradley Morgan <include@grrlz.net>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	Mark Rutland <mark.rutland@arm.com>,
-	Tamas Petz <tamas.petz@arm.com>,
-	Tamas Zsoldos <tamas.zsoldos@arm.com>,
-	Michiel van Tol <michiel.vantol@arm.com>,
-	Dev Jain <dev.jain@arm.com>, David Hildenbrand <david@kernel.org>,
-	Yabin Cui <yabinc@google.com>, coresight@lists.linaro.org,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org
-Subject: Re: [PATCH 2/2] perf: arm_spe: Prefer large AUX mappings
-Message-ID: <20260811101742.GE15499@e132581.arm.com>
-References: <20260810-perf_aux_trace_large_granule-v1-0-03306c9339e3@arm.com>
- <20260810-perf_aux_trace_large_granule-v1-2-03306c9339e3@arm.com>
- <annp-BdTviQoH6vy@willie-the-truck>
- <20260810174159.GC15499@e132581.arm.com>
- <8c8f6c2a-8fc2-4181-87fa-e64101dfce6f@linaro.org>
+	maz@kernel.org, james.morse@arm.com
+Subject: Re: [PATCH] arm64: hibernate: pass HVC_SET_VECTORS args to the
+ resume hvc
+Message-ID: <anr28wUlKjci8JPn@willie-the-truck>
+References: <20260809213615.11646-1-include@grrlz.net>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <8c8f6c2a-8fc2-4181-87fa-e64101dfce6f@linaro.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_031746_003882_B689EE73 
-X-CRM114-Status: GOOD (  19.85  )
+In-Reply-To: <20260809213615.11646-1-include@grrlz.net>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,51 +72,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 11, 2026 at 10:02:44AM +0100, James Clark wrote:
+[+Maz, Pasha and James]
 
-[...]
-
-> > The question is how "allocating contiguous AUX pages unnecessarily
-> > exacerbates memory fragmentation." The relevant information I could find
-> > is [1]:
-> > 
-> >   "On Android, we collect ETM data periodically on internal user devices
-> >    for AutoFDO optimization (for both userspace libraries and the
-> >    kernel). Allocating a large chunk of contiguous AUX pages (4M for each
-> >    CPU) periodically is almost unbearable. The kernel may need to kill
-> >    many processes to fulfill the request. It affects user experience even
-> >    after using PMU."
-> > 
+On Sun, Aug 09, 2026 at 09:36:15PM +0000, Bradley Morgan wrote:
+> swsusp_arch_suspend_exit() reinstalls the restored kernel's hyp stub
+> vectors with an hvc, but never passes the arguments. x0 is not set to
+> HVC_SET_VECTORS and x1 is not set to the vector address, so the stub
+> dispatch falls through and returns without writing vbar_el2. EL2 is
+> left pointing at the trans_pgd copy of the vectors, a page that
+> swsusp_free() releases right after resume.
 > 
-> This sounds like it could be an attribute to perf_event_open. We can do
-> PREFER_LARGE by default for performance and fewer discontinuities, but on
-> Android or small systems users can enable an option to revert back to single
-> pages.
+> Set the arguments up the same way __hyp_set_vectors() does.
 > 
-> Or can this bit be determined at allocation time: "The kernel may need to
-> kill many processes to fulfill the request"? If this memory pressure exists
-> on allocation then do it one way, if not do it the other way.
+> Fixes: 788bfdd97434 ("arm64: trans_pgd: hibernate: Add trans_pgd_copy_el2_vectors")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Bradley Morgan <include@grrlz.net>
+> ---
+>  arch/arm64/kernel/hibernate-asm.S | 2 ++
+>  1 file changed, 2 insertions(+)
+> 
+> diff --git a/arch/arm64/kernel/hibernate-asm.S b/arch/arm64/kernel/hibernate-asm.S
+> index 0e1d9c3c6a93..2baefe7a82d3 100644
+> --- a/arch/arm64/kernel/hibernate-asm.S
+> +++ b/arch/arm64/kernel/hibernate-asm.S
+> @@ -89,6 +89,8 @@ alternative_insn "dc cvau, x4",  "dc civac, x4",  ARM64_WORKAROUND_CLEAN_CACHE
+>  	isb
+>  
+>  	cbz	x24, 3f		/* Do we need to re-initialise EL2? */
+> +	mov	x1, x24
+> +	mov	x0, #HVC_SET_VECTORS
+>  	hvc	#0
+>  3:	ret
+>  SYM_CODE_END(swsusp_arch_suspend_exit)
 
-Be careful with "The kernel may need to kill many processes ...".
+I'm having a really hard time figuring out what's supposed to be going
+on here!
 
-The AUX allocator uses:
+The original hibernation code added by James in 82869ac57b5d ("arm64:
+kernel: Add support for hibernate/suspend-to-disk") unconditionally
+set the vectors in the exception handler:
 
-  #define PERF_AUX_GFP    (GFP_KERNEL | __GFP_ZERO | __GFP_NOWARN | __GFP_NORETRY) 
++el1_sync:
++       msr     vbar_el2, x24
++       eret
++ENDPROC(el1_sync)
 
-Documentation/core-api/memory-allocation.rst says that __GFP_NORETRY
-causes the allocator to "fail early rather than cause disruptive
-reclaim" and that "the OOM killer is not invoked".
+However, it _also_ set the vectors from C code in swsusp_arch_resume():
 
-Therefore, it is unlikely to me that AUX allocation itself would cause
-the kernel OOM killer to kill processes in order to satisfy the request.
++       if (el2_reset_needed()) {
++               phys_addr_t el2_vectors = phys_hibernate_exit;  /* base */
++               el2_vectors += hibernate_el2_vectors -
++                              __hibernate_exit_text_start;     /* offset */
++
++               __hyp_set_vectors(el2_vectors);
++       }
 
-I am a bit suspect the original observation was related to Android's
-lmkd [1], where allocating the AUX buffers increased overall memory
-pressure and indirectly caused processes to be killed. If so, I think it
-is important to understand what actually triggered those kills.
+Later, Pasha refactored the assembly so that it could be shared with
+kexec in 788bfdd97434 ("arm64: trans_pgd: hibernate: Add
+trans_pgd_copy_el2_vectors"), however this added arguments to the
+exception handler without updating the hypercall on the hibernation path.
 
-Thanks,
-Leo
+So I think we need to figure out:
 
-[1] https://source.android.com/docs/core/perf/lmkd?hl=en&utm_source=chatgpt.com
+0. Whether this code is actually broken atm (I have a feeling it might
+   happen to work)
+1. Why the original hibernation code set the vectors twice.
+2. Assuming they only need to be set once, whether we can drop the hvc
+   from the swsusp_arch_suspend_exit assembly code entirely.
+3. Whether we can then drop the HVC_SET_VECTORS handling from this set
+   of vectors.
+
+Will
 
