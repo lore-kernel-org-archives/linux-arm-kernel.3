@@ -4,92 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9491C5AD7B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 06:35:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31441C5AC67
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 06:37:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Rs1yPzUnIco2rjC6CFhLVWVyr0WMS18/eTcbCTT31s8=; b=t/ZB/Jz4v2IGk2tBnIWbHNrJK+
-	c/qcDhZM5dKpoZcWqWM3892oZtw0H9ntv8z7YjxXQSk2ovYAaKYaGUX13U1QsJ4y/MQdq11hL+n2C
-	H5/p7K9ddZpvVFTaNexbC+xyrW310zaLl0zuACFUQ10h8lZ4WCqJIPJ/J49vZIaUdmGfELT3Oxmyc
-	j1aYcMXLt4Rs1Ff74/8lTBVG5mbEHzxhYnxSL5E2DOYPyjwMWt4WZ4NIE66HsTWJ/efjETRjjDyCh
-	wUosNF3M/MQ2jHjvMiF6tf+epuuCdAOGADLRtFFLW0CiT7o1xb4fSvm5e7+Oi+Z8ovYz6UlbVuTnm
-	ZYIAQduA==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tBLr/zr3YozGXbYbeO35tZJWvBmZWp1KaYLtzkvre+A=; b=PfaXGycNyt2DbOycgiJkbrWBBB
+	d2o6VkuMI2Xu3jzk4yMnFhPnwHdsvIv6ErNz75ZCEiM3/OKQpWeSVO2CIZzqQJtSNbCsSFNrVcvEb
+	US7uWjkbdCLUAHPpB5TqdP1e7tzfTuUIN+7yOAF9L9QYmZ7ICHl/t3XSdzzryhEHXkkufwrUFOzBo
+	4NLcZG/oNjZcxBhvyuBcw5z2hWXb8MFJSNZyoFrsydS8p8Lj9nHwoggNavkCJYmu8/uECL011jUh0
+	yrIXmUVaxZpXBUoD0jKjfkiAAVYpMVYBGjfr4fRmliHUYt8GcqScROP2j3W2MbImy0Atjj4Z0MSun
+	YZx7W2Ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtg4j-0000000DQnP-0cVp;
-	Tue, 11 Aug 2026 06:35:01 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1wtg7I-0000000DR2H-2CIy;
+	Tue, 11 Aug 2026 06:37:40 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtg4g-0000000DQmi-3lm2
+	id 1wtg7G-0000000DR2B-3GrO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 06:35:00 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2d004f135b1so5895245ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 23:34:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786430098; x=1787034898; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Rs1yPzUnIco2rjC6CFhLVWVyr0WMS18/eTcbCTT31s8=;
-        b=UQ4Y60JC7dWCaLSMCYRvda59CS3Ndk8VPBgbv/gPGo+HrIiKAOUq7qCFZyyK/uhY7J
-         6iPAcRsIj8894XNBumPF2YcIdn18qZX+XQG6p3bRoK5HlsNHAfhTwEB5f41KDztzbm3n
-         ebfb05+NXmADVQmxvAsCXmczf6rGPVBAVEY3mPqZ1tmvWFD3LvpIHxTxMjCrHk+UmkWe
-         NwMwwEB113OjmajWBU8IJ6r8Jhrpz1gBPvTBNFuTlQRTERxE0HzPIvFcndGKQz07lN01
-         YijmcN/b+ySYRfoJ9/lRV7TIoN7BOoTdK9o2t/6JHAokcaUp86D2VsbXCZL23STkAxBu
-         otXg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786430098; x=1787034898;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Rs1yPzUnIco2rjC6CFhLVWVyr0WMS18/eTcbCTT31s8=;
-        b=RaSLm7FL4m83fPoath6M+Mw0AXPGlO1qWblq0dQOx9ZG13qAz6UaqbwbCg685pmVnf
-         iApb0+nWufwmny3ZOyUFb9BIEeXh9RU90V3qQby/xZnNgCGQ8aUZ1FVsCY8AO71PFeXZ
-         qjIWY9zXs5wsCk+Y86VosoU8rTvA2RI8Un8hym2+7kOEB4/14LDnSPzAp7Hj+EJ9ntBR
-         604xHS5CDnZkaKp9lngB74SMrOaMre+hbLf/MMigHE21f1WSyPVP/RqKCS4imFp47tqP
-         sxf0vFl9W0CNNwFEPG4mE9otQDqyfCeumpsYayAgrrSCi5/WEh95rLu1fTWREAdhIHJi
-         31Hw==
-X-Forwarded-Encrypted: i=1; AHgh+RrTZldd4YVtoHTo1qaJToYoBiwU9rLrfBaTsKutFwHF5yAw6v1BfEoXuqDzHy7sXlYfboKqHdTYF7iEZGceQ3ow@lists.infradead.org
-X-Gm-Message-State: AOJu0YzdjGJxmeCGdoODyT+igbiHDMMeWGhOm9xS8a06//QDGcjCalN3
-	qafV/g4k+Cj246o/vVjj4ab9bqN57XH50erGNCUgocOolxW8q8WBShjW
-X-Gm-Gg: AR+sD12eJFKc9+q2eS6sqksnSwLrSoiUOqF8RhAhf9QgP8HqSn851asuXPC21Cvf/+M
-	rqtqHF5bJiLONA6s63FPQXkhVbrQZn64LzHbBCZFSapxOyoGNubSRHNSDYfu4UHjQqf79YJkZhF
-	4ZF58KgOJrwc4NHips2ru92rJEUwsFurFRDZOJBz/3uHtmGrk5BE86opq3dy6atTpZ+CGI3VQZn
-	Czz+NRw7oPgw2OapDl2By2QDMhGb1KTmtlWruxUP4inxAcKYcUulL+oi2RJ5esrj4vHmug0VWPo
-	9UVBCFwLSre7Z6bUcNvuNzI4YKBjO0C++sWyDNzk3+0aN7Zel7kS+qpYeRf+qzjbLPacJ97E+Vn
-	vN3IxnHrKOPDGsli1x7uSaXw0yZ2iml7jFEceQWPBNf2tU0rme/EuFl6u3SqNq7urY8+IU6UsrO
-	Y9eQwk4CdSOE2as9XlLEQ8th5KL/20EfO994/RZu2L3YwT/2kOCig=
-X-Received: by 2002:a17:902:da87:b0:2c6:a772:7e43 with SMTP id d9443c01a7336-2d31798510cmr11974795ad.18.1786430097998;
-        Mon, 10 Aug 2026 23:34:57 -0700 (PDT)
-Received: from lgs.. ([101.36.106.88])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d315ef11e8sm2383365ad.1.2026.08.10.23.34.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Aug 2026 23:34:57 -0700 (PDT)
-From: Guangshuo Li <lgs201920130244@gmail.com>
-To: Olivia Mackall <olivia@selenic.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Guangshuo Li <lgs201920130244@gmail.com>,
-	Daniel Thompson <danielt@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
-	linux-crypto@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: stable@vger.kernel.org
-Subject: [PATCH v2] hwrng: stm32: fix usage_count leak when autosuspend_delay is negative
-Date: Tue, 11 Aug 2026 14:34:42 +0800
-Message-ID: <20260811063442.3058074-1-lgs201920130244@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Tue, 11 Aug 2026 06:37:38 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 03C22600AE
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 06:37:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0F8E1F00A3F
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 06:37:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786430257;
+	bh=tBLr/zr3YozGXbYbeO35tZJWvBmZWp1KaYLtzkvre+A=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=NL+O7hJO9q1BQS+zRadlFZYTgD+/P5LwFY7olRcT46/Q+sTlX67mt/71xscXAmoaV
+	 /cBkAi+l/obapKC+C2W4uSb0XBlaDEiF5g099OQ+mFmLp61Aklr34v5sW0LFCJ859M
+	 /ahRNt1cUgborCSwT9rGFZBGjZXLB2czg1Y8jooeckj29UnK5qFFS3lo2Ly30SJhx4
+	 0nZoaz89PX2YgXmba7xfSVhahSMKoCCWGGLexA9qCfSSjV5MkrOaefJ47JS6FVHwNH
+	 vZ9lJ7Nd2t44QVv0DW5xNX89QNmp6RN63M2A89f8GjhbCdJYQMsgzsqjFWGqS20/MP
+	 w8d1veoUR2Qpg==
+Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5b2aab18795so2707907e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 23:37:37 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Rp81CMxEyqoIna6tP+XeO6whky5qtHWM8hebf/Iwz3emT1Cu/TqKf/6WqXiWvrFAolU9GGQhZ6KNZVXEOHiDS+C@lists.infradead.org
+X-Gm-Message-State: AOJu0YwEVFLEobraHATbSFiCq5MPRMO7CDgKiIXAhp+FIaLpSlky9gKg
+	ZnnE/PcFt/CArAP5eBUksL1TKN0KzSL9YwMYDZuSX2Z2vepqQjC7ikly2Smh9Z9EFnRiT9rtfgs
+	o9z3Vz8CI5Aa/H97JKVSouZPEjBEH+So=
+X-Received: by 2002:a05:6512:2208:b0:5b3:e52:9ff7 with SMTP id
+ 2adb3069b0e04-5b44866558emr181770e87.51.1786430256514; Mon, 10 Aug 2026
+ 23:37:36 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_233459_152170_FCD45F79 
-X-CRM114-Status: GOOD (  15.94  )
+References: <20260810131032.455435-1-christophe.roullier@foss.st.com>
+In-Reply-To: <20260810131032.455435-1-christophe.roullier@foss.st.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Tue, 11 Aug 2026 08:37:24 +0200
+X-Gmail-Original-Message-ID: <CAD++jLn9z8oLGZ9UX=KhS3-OWou2pq0+dLVytWNf3AogDPgH=A@mail.gmail.com>
+X-Gm-Features: AUfX_mxIsECvNT5meQ9IAG2w79JxujnWbutJsYXdfanjQzB3zUMk7zQ6F8rMX8A
+Message-ID: <CAD++jLn9z8oLGZ9UX=KhS3-OWou2pq0+dLVytWNf3AogDPgH=A@mail.gmail.com>
+Subject: Re: [PATCH 0/3] Some improve for STM32MP2X
+To: Christophe Roullier <christophe.roullier@foss.st.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Russell King <rmk+kernel@armlinux.org.uk>, antonio.borneo@foss.st.com, 
+	Maxime Chevallier <maxime.chevallier@bootlin.com>, Vladimir Oltean <vladimir.oltean@nxp.com>, 
+	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,72 +84,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-stm32_rng_probe() calls pm_runtime_use_autosuspend(), but runtime PM is
-enabled with pm_runtime_enable() and the matching
-pm_runtime_dont_use_autosuspend() is not called on driver teardown.
+On Mon, Aug 10, 2026 at 3:10=E2=80=AFPM Christophe Roullier
+<christophe.roullier@foss.st.com> wrote:
 
-If the autosuspend delay is set to a negative value while autosuspend
-is enabled, the runtime PM core increments usage_count to prevent
-runtime suspend. Without calling pm_runtime_dont_use_autosuspend()
-during teardown, this reference is not dropped and usage_count remains
-unbalanced.
+> Add PHY Regu for MP23/MP25-DK
+> Increase deassert value for PHY Reset for MP25-EV1
+> Remove commit "net: stmmac: manage error case during stmmac_dvr_probe"
+> from my series to push in net-next networking tree
 
-Use devm_pm_runtime_enable() so that pm_runtime_dont_use_autosuspend()
-and pm_runtime_disable() are automatically called on probe failure and
-driver teardown. With runtime PM cleanup handled by devres,
-stm32_rng_remove() is no longer needed.
+These look good to me!
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 
-This issue was found by manual code inspection.
-
-Fixes: c6a97c42e399 ("hwrng: stm32 - add support for STM32 HW RNG")
-Cc: stable@vger.kernel.org
-Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
----
-v2:
-  - Replace pm_runtime_enable() with devm_pm_runtime_enable() to handle
-    runtime PM cleanup through devres.
-  - Remove stm32_rng_remove() and the manual cleanup on the probe failure
-    path.
-
- drivers/char/hw_random/stm32-rng.c | 10 +++-------
- 1 file changed, 3 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/char/hw_random/stm32-rng.c b/drivers/char/hw_random/stm32-rng.c
-index 9a8c00586ab0..f5bfe54c01dc 100644
---- a/drivers/char/hw_random/stm32-rng.c
-+++ b/drivers/char/hw_random/stm32-rng.c
-@@ -368,11 +368,6 @@ static int stm32_rng_init(struct hwrng *rng)
- 	return 0;
- }
- 
--static void stm32_rng_remove(struct platform_device *ofdev)
--{
--	pm_runtime_disable(&ofdev->dev);
--}
--
- static int __maybe_unused stm32_rng_runtime_suspend(struct device *dev)
- {
- 	struct stm32_rng_private *priv = dev_get_drvdata(dev);
-@@ -590,7 +585,9 @@ static int stm32_rng_probe(struct platform_device *ofdev)
- 
- 	pm_runtime_set_autosuspend_delay(dev, 100);
- 	pm_runtime_use_autosuspend(dev);
--	pm_runtime_enable(dev);
-+	ret = devm_pm_runtime_enable(dev);
-+	if (ret)
-+		return ret;
- 
- 	return devm_hwrng_register(dev, &priv->rng);
- }
-@@ -602,7 +599,6 @@ static struct platform_driver stm32_rng_driver = {
- 		.of_match_table = stm32_rng_match,
- 	},
- 	.probe = stm32_rng_probe,
--	.remove = stm32_rng_remove,
- };
- 
- module_platform_driver(stm32_rng_driver);
--- 
-2.43.0
-
+Yours,
+Linus Walleij
 
