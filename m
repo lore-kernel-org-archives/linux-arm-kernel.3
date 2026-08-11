@@ -4,70 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB81FC5CFCF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 15:45:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F4107C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 15:49:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8mN6e54beHXCai/EKI6aazkg/nTO3GyBWLQHPy0r0Xc=; b=r/bdRIkxj0ILPxNzt8/z/X3NXX
-	NJ1bHii7PkmECqx23pmzUMxKfk+W7r3F9UGwiawe8u/cSiPHZoEYqAes+SGY5lbQVJOIMv6tUgCAB
-	4TacfgUQiHLjPYsMOP7HKi4NmDgCuVdms1Sqrt+wcXvr96SyTPBUrCbHW4Q88jjg7plSHIYiTjLYq
-	vCjSjk1n63TTaD5qONj2/Yt1jmoOcktvuLke2WzYjlhm6ZLQ5FIpW4ZykPYSGBPkgUM9+qT+T4sHA
-	1al4KUZ8NyXTGIAk9nXMgm2RH0hEib+yey9gjEW98cF5hI8LghFeTxWMsoIALwfsCWovZcpRcABv9
-	0Fb3c9Wg==;
+	bh=Ey0wZ3MT1kRfT5xCM+oK1Q4GRW+KV/jkQgpJPPLj4qk=; b=uFO+JQKiR9TXtkuAVp7lPZHxPp
+	qxLhKQgQwKHSTKDuKl89tPoeSRlkSnZ+GRR2i+H/LF7jHWDFuCQcAFpHKFVPKwIooH562ILZBp5o7
+	+DCBqn6rTn5pG06mGMyP8Mt5ozxJZxTyKMv+9NexSmKTpSeMj/mnIEJKj32j0Gv0goAsNNzUWq8kW
+	pOt+m2VZCLWW3HTimiuO2MtAuKYjzw9pPzUxfxeH2zvKwZ/UuLBmOdwucg5A/+AIfJfPH1gdTzc9Z
+	yayh8gETJG/bTgr+FB5lF23MBsYuS1WwwuRqTsec+d63epxRDDCYC8ll4vJvF1Lpo8M6bXGHYj35U
+	L3GnpirQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtofc-0000000ENKV-1Yms;
-	Tue, 11 Aug 2026 15:45:40 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wtoiy-0000000EOTt-0jws;
+	Tue, 11 Aug 2026 15:49:08 +0000
+Received: from latitanza.investici.org ([2a12:4180:dc1:929::42])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtofL-0000000EMvs-1Igp;
-	Tue, 11 Aug 2026 15:45:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1786463117;
-	bh=5SKrvFoSDla5uvgGL6duV7V0Qw/nGnAPQX2iOHsHEgY=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Wpo+79KL+EIJccuZWuMjZL+ajgyc04RL8fj7BKOypKtNoSAHI+1sH5EHKfNPHAYHT
-	 4sc2OpBXhq0AWx6UKLuxKzCjFl//8kfN9jQlHgEUvTg0yytCJyWhmT03YW5gFq2kpS
-	 1Tb9lfUrz5HN+fxctgfRbAr5lw6d7OTI23zAjv/pfqetuAqHX2iMetftJzN8xYOaIw
-	 L+MP4yrZ1YiaSic1Q/w3XyX8YeHn2nUAM5/omDpMPpYHXcKgFRf0LaDdBfqqaLi8B1
-	 AABP1gzeVPawXjkKc6xBbdMTBTQXCu5bqknvVpg4284klkR+i5dKtSy79CExIiKDlX
-	 MkXNSG0igxLRQ==
-Received: from localhost (unknown [100.64.0.241])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id F3CE117E0F35;
-	Tue, 11 Aug 2026 17:45:16 +0200 (CEST)
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Tue, 11 Aug 2026 18:44:46 +0300
-Subject: [PATCH v6 05/10] phy: rockchip: samsung-hdptx: Handle uncommitted
- PHY config changes
+	id 1wtoiv-0000000EOT7-2SqY
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Aug 2026 15:49:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=grrlz.net;
+	s=stigmate; t=1786463341;
+	bh=Ey0wZ3MT1kRfT5xCM+oK1Q4GRW+KV/jkQgpJPPLj4qk=;
+	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
+	b=Kk8yDIB1bylWYp0qCBuZbD7XHeM32VMsFwvzESKy6ESPrvNGlkoggvLRZ7ndzNATf
+	 xy9pbzl/t9Ha3UGIw7U4VfOLnLZfsU1+03ipXrDS2oPdnkjAXyizDYYXKvEIb/E9id
+	 OzlRGLhNQvTUXiOaqOTFXyp3q1SvnmEijD6WU9wE=
+Received: from mx3.investici.org (unknown [127.0.0.1])
+	by latitanza.investici.org (Postfix) with ESMTP id 4hKGJF6X6zzGpGr;
+	Tue, 11 Aug 2026 15:49:01 +0000 (UTC)
+Received: by mx3.investici.org (Postfix) id 4hKGJF3f2mzGpGp;
+	Tue, 11 Aug 2026 15:49:01 +0000 (UTC)
+Date: Tue, 11 Aug 2026 16:49:00 +0100
+From: Bradley Morgan <include@grrlz.net>
+To: Will Deacon <will@kernel.org>
+CC: Catalin Marinas <catalin.marinas@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Pasha Tatashin <pasha.tatashin@soleen.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ maz@kernel.org, james.morse@arm.com
+Subject: =?US-ASCII?Q?Re=3A_=5BPATCH=5D_arm64=3A_hibernate=3A_pass_H?=
+ =?US-ASCII?Q?VC=5FSET=5FVECTORS_args_to_the_resume_hvc?=
+In-Reply-To: <anszjQ7jBeYDqesp@willie-the-truck>
+References: <20260809213615.11646-1-include@grrlz.net> <anr28wUlKjci8JPn@willie-the-truck> <463DA5C2-C933-45EC-A200-21AAF6258418@grrlz.net> <anszjQ7jBeYDqesp@willie-the-truck>
+Message-ID: <22B7543B-44D6-4820-9CCC-8FEAFAD30EC8@grrlz.net>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain;
+ charset=utf-8
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260811-hdptx-clk-fixes-v6-5-75bca0ee5753@collabora.com>
-References: <20260811-hdptx-clk-fixes-v6-0-75bca0ee5753@collabora.com>
-In-Reply-To: <20260811-hdptx-clk-fixes-v6-0-75bca0ee5753@collabora.com>
-To: Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Heiko Stuebner <heiko@sntech.de>, Algea Cao <algea.cao@rock-chips.com>, 
- Dmitry Baryshkov <lumag@kernel.org>
-Cc: kernel@collabora.com, linux-phy@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, 
- =?utf-8?q?Thomas_Niederpr=C3=BCm?= <dubito@online.de>, 
- Simon Wright <simon@symple.nz>, Diederik de Haas <diederik@cknow-tech.com>, 
- Andy Yan <andy.yan@rock-chips.com>, 
- Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_084523_694315_DD771366 
-X-CRM114-Status: GOOD (  22.57  )
+X-CRM114-CacheID: sfid-20260811_084905_764919_3466E842 
+X-CRM114-Status: GOOD (  31.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,199 +73,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Any changes to the PHY link rate and/or color depth done via the HDMI
-PHY configuration API are not immediately programmed into the hardware,
-but are delayed until the PHY usage count gets incremented from 0 to 1,
-that is when it is powered on or when the PLL clock exposed through
-the CCF API is prepared, whichever comes first.
+On 11 August 2026 15:37:01 BST, Will Deacon <will@kernel.org> wrote:
+>On Tue, Aug 11, 2026 at 01:50:14PM +0100, Bradley Morgan wrote:
+>> On 11 August 2026 11:18:27 BST, Will Deacon <will@kernel.org> wrote:
+>> >[+Maz, Pasha and James]
+>> >
+>> >On Sun, Aug 09, 2026 at 09:36:15PM +0000, Bradley Morgan wrote:
+>> >> swsusp_arch_suspend_exit() reinstalls the restored kernel's hyp stub
+>> >> vectors with an hvc, but never passes the arguments. x0 is not set to
+>> >> HVC_SET_VECTORS and x1 is not set to the vector address, so the stub
+>> >> dispatch falls through and returns without writing vbar_el2. EL2 is
+>> >> left pointing at the trans_pgd copy of the vectors, a page that
+>> >> swsusp_free() releases right after resume.
+>> >> 
+>> >> Set the arguments up the same way __hyp_set_vectors() does.
+>> >> 
+>> >> Fixes: 788bfdd97434 ("arm64: trans_pgd: hibernate: Add
+>> >trans_pgd_copy_el2_vectors")
+>> >> Cc: stable@vger.kernel.org
+>> >> Signed-off-by: Bradley Morgan <include@grrlz.net>
+>> >> ---
+>> >>  arch/arm64/kernel/hibernate-asm.S | 2 ++
+>> >>  1 file changed, 2 insertions(+)
+>> >> 
+>> >> diff --git a/arch/arm64/kernel/hibernate-asm.S
+>> >b/arch/arm64/kernel/hibernate-asm.S
+>> >> index 0e1d9c3c6a93..2baefe7a82d3 100644
+>> >> --- a/arch/arm64/kernel/hibernate-asm.S
+>> >> +++ b/arch/arm64/kernel/hibernate-asm.S
+>> >> @@ -89,6 +89,8 @@ alternative_insn "dc cvau, x4",  "dc civac, x4", 
+>> >ARM64_WORKAROUND_CLEAN_CACHE
+>> >>  	isb
+>> >>  
+>> >>  	cbz	x24, 3f		/* Do we need to re-initialise EL2? */
+>> >> +	mov	x1, x24
+>> >> +	mov	x0, #HVC_SET_VECTORS
+>> >>  	hvc	#0
+>> >>  3:	ret
+>> >>  SYM_CODE_END(swsusp_arch_suspend_exit)
+>> >
+>> >I'm having a really hard time figuring out what's supposed to be going
+>> >on here!
+>> >
+>> >The original hibernation code added by James in 82869ac57b5d ("arm64:
+>> >kernel: Add support for hibernate/suspend-to-disk") unconditionally
+>> >set the vectors in the exception handler:
+>> >
+>> >+el1_sync:
+>> >+       msr     vbar_el2, x24
+>> >+       eret
+>> >+ENDPROC(el1_sync)
+>> >
+>> >However, it _also_ set the vectors from C code in swsusp_arch_resume():
+>> >
+>> >+       if (el2_reset_needed()) {
+>> >+               phys_addr_t el2_vectors = phys_hibernate_exit;  /* base
+>*/
+>> >+               el2_vectors += hibernate_el2_vectors -
+>> >+                              __hibernate_exit_text_start;     /*
+>offset */
+>> >+
+>> >+               __hyp_set_vectors(el2_vectors);
+>> >+       }
+>> >
+>> >Later, Pasha refactored the assembly so that it could be shared with
+>> >kexec in 788bfdd97434 ("arm64: trans_pgd: hibernate: Add
+>> >trans_pgd_copy_el2_vectors"), however this added arguments to the
+>> >exception handler without updating the hypercall on the hibernation
+>path.
+>> >
+>> >So I think we need to figure out:
+>> >
+>> >0. Whether this code is actually broken atm (I have a feeling it might
+>> >   happen to work)
+>> 
+>> Yes, since 788bfdd97434.
+>
+>Right, but did you manage to reproduce a crash? 
 
-Since the clock might remain in prepared state after subsequent PHY
-config changes, the programming can also be triggered via
-clk_ops.set_rate().  However, from the clock consumer perspective (i.e.
-VOP2 display controller), the (pixel) clock rate doesn't vary with bpc,
-as that is handled internally by the PHY and reflected in the TDMS
-character rate only.
+No, I had a read of the code, yk, summer holidays are here for me, so
+I have this kinda time
 
-As a consequence, changing the bpc while preserving the modeline may
-lead to out-of-sync issues between CCF and HDMI PHY config state,
-because the .set_rate() callback is not invoked when clock rate remains
-constant.  This may also happen when the PHY PLL has been pre-programmed
-by an external entity, e.g. the bootloader, which is actually a
-regression introduced by the recent FRL-related changes.
+You're implying that this
+>hasn't worked for five years, which makes me wonder why we bother to try
+>to maintain this code!
 
-Introduce a pll_config_dirty flag to keep track of uncommitted PHY
-config changes and use it in clk_ops.determine_rate() to invalidate the
-current clock rate (as known by CCF) and, consequently, ensure those
-changes are programmed into hardware via clk_ops.set_rate().
+the path only runs when is_hyp_nvhe(), hence VHE machines never get there, 
 
-Moreover, proceed with a similar fix in phy_ops.power_on() callback, to
-handle the scenario where the CCF API is not used due to operating in
-FRL mode, while the clock is still in a prepared state and thus
-preventing rk_hdptx_phy_consumer_get() to apply the updated PHY
-configuration.
 
-Fixes: de5dba833118 ("phy: rockchip: samsung-hdptx: Add HDMI 2.1 FRL support")
-Fixes: 9d0ec51d7c22 ("phy: rockchip: samsung-hdptx: Add high color depth management")
-Tested-by: Thomas Niederprüm <dubito@online.de>
-Tested-by: Simon Wright <simon@symple.nz>
-Tested-by: Diederik de Haas <diederik@cknow-tech.com>  # NanoPC-T6 LTS
-Reviewed-by: Andy Yan <andy.yan@rock-chips.com>
-Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
----
- drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 84 +++++++++++++----------
- 1 file changed, 48 insertions(+), 36 deletions(-)
 
-diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-index d7d8414fdddd..c24e7f284170 100644
---- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-+++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-@@ -413,6 +413,7 @@ struct rk_hdptx_phy {
- 
- 	/* clk provider */
- 	struct clk_hw hw;
-+	bool pll_config_dirty;
- 	bool restrict_rate_change;
- 
- 	atomic_t usage_count;
-@@ -1260,13 +1261,19 @@ static int rk_hdptx_tmds_ropll_cmn_config(struct rk_hdptx_phy *hdptx)
- 
- static int rk_hdptx_pll_cmn_config(struct rk_hdptx_phy *hdptx)
- {
-+	int ret;
-+
- 	if (hdptx->hdmi_cfg.rate <= HDMI20_MAX_RATE)
--		return rk_hdptx_tmds_ropll_cmn_config(hdptx);
-+		ret = rk_hdptx_tmds_ropll_cmn_config(hdptx);
-+	else if (hdptx->hdmi_cfg.rate == FRL_8G4L_RATE)
-+		ret = rk_hdptx_frl_lcpll_ropll_cmn_config(hdptx);
-+	else
-+		ret = rk_hdptx_frl_lcpll_cmn_config(hdptx);
- 
--	if (hdptx->hdmi_cfg.rate == FRL_8G4L_RATE)
--		return rk_hdptx_frl_lcpll_ropll_cmn_config(hdptx);
-+	if (!ret)
-+		hdptx->pll_config_dirty = false;
- 
--	return rk_hdptx_frl_lcpll_cmn_config(hdptx);
-+	return ret;
- }
- 
- static int rk_hdptx_frl_lcpll_mode_config(struct rk_hdptx_phy *hdptx)
-@@ -1347,25 +1354,22 @@ static int rk_hdptx_phy_consumer_get(struct rk_hdptx_phy *hdptx)
- 		return 0;
- 
- 	ret = regmap_read(hdptx->grf, GRF_HDPTX_STATUS, &status);
--	if (ret)
--		goto dec_usage;
--
--	if (status & HDPTX_O_PLL_LOCK_DONE)
--		dev_warn(hdptx->dev, "PLL locked by unknown consumer!\n");
-+	if (ret) {
-+		atomic_dec(&hdptx->usage_count);
-+		return ret;
-+	}
- 
- 	if (mode == PHY_MODE_DP) {
- 		rk_hdptx_dp_reset(hdptx);
- 	} else {
--		ret = rk_hdptx_pll_cmn_config(hdptx);
--		if (ret)
--			goto dec_usage;
-+		/*
-+		 * Ignore PLL config errors at this point as pll_config_dirty
-+		 * was not reset and, therefore, operation will be retried.
-+		 */
-+		rk_hdptx_pll_cmn_config(hdptx);
- 	}
- 
- 	return 0;
--
--dec_usage:
--	atomic_dec(&hdptx->usage_count);
--	return ret;
- }
- 
- static int rk_hdptx_phy_consumer_put(struct rk_hdptx_phy *hdptx, bool force)
-@@ -1700,13 +1704,18 @@ static int rk_hdptx_phy_power_on(struct phy *phy)
- 		if (ret)
- 			rk_hdptx_phy_consumer_put(hdptx, true);
- 	} else {
--		regmap_write(hdptx->grf, GRF_HDPTX_CON0,
--			     HDPTX_MODE_SEL << 16 | FIELD_PREP(HDPTX_MODE_SEL, 0x0));
-+		if (hdptx->pll_config_dirty)
-+			ret = rk_hdptx_pll_cmn_config(hdptx);
- 
--		if (hdptx->hdmi_cfg.mode == PHY_HDMI_MODE_FRL)
--			ret = rk_hdptx_frl_lcpll_mode_config(hdptx);
--		else
--			ret = rk_hdptx_tmds_ropll_mode_config(hdptx);
-+		if (!ret) {
-+			regmap_write(hdptx->grf, GRF_HDPTX_CON0,
-+				     HDPTX_MODE_SEL << 16 | FIELD_PREP(HDPTX_MODE_SEL, 0x0));
-+
-+			if (hdptx->hdmi_cfg.mode == PHY_HDMI_MODE_FRL)
-+				ret = rk_hdptx_frl_lcpll_mode_config(hdptx);
-+			else
-+				ret = rk_hdptx_tmds_ropll_mode_config(hdptx);
-+		}
- 
- 		if (ret)
- 			rk_hdptx_phy_consumer_put(hdptx, true);
-@@ -2081,7 +2090,10 @@ static int rk_hdptx_phy_configure(struct phy *phy, union phy_configure_opts *opt
- 			dev_err(hdptx->dev, "invalid hdmi params for phy configure\n");
- 		} else {
- 			hdptx->restrict_rate_change = true;
--			dev_dbg(hdptx->dev, "%s rate=%llu bpc=%u\n", __func__,
-+			hdptx->pll_config_dirty = true;
-+
-+			dev_dbg(hdptx->dev, "%s %s rate=%llu bpc=%u\n", __func__,
-+				hdptx->hdmi_cfg.mode ? "FRL" : "TMDS",
- 				hdptx->hdmi_cfg.rate, hdptx->hdmi_cfg.bpc);
- 		}
- 
-@@ -2338,8 +2350,19 @@ static int rk_hdptx_phy_clk_determine_rate(struct clk_hw *hw,
- {
- 	struct rk_hdptx_phy *hdptx = to_rk_hdptx_phy(hw);
- 
--	if (hdptx->hdmi_cfg.mode == PHY_HDMI_MODE_FRL)
--		return hdptx->hdmi_cfg.rate;
-+	/*
-+	 * Invalidate current clock rate to ensure rk_hdptx_phy_clk_set_rate()
-+	 * will be invoked to commit PLL configuration.
-+	 */
-+	if (hdptx->pll_config_dirty) {
-+		req->rate = 0;
-+		return 0;
-+	}
-+
-+	if (hdptx->hdmi_cfg.mode == PHY_HDMI_MODE_FRL) {
-+		req->rate = hdptx->hdmi_cfg.rate;
-+		return 0;
-+	}
- 
- 	/*
- 	 * FIXME: Temporarily allow altering TMDS char rate via CCF.
-@@ -2371,17 +2394,6 @@ static int rk_hdptx_phy_clk_set_rate(struct clk_hw *hw, unsigned long rate,
- 				     unsigned long parent_rate)
- {
- 	struct rk_hdptx_phy *hdptx = to_rk_hdptx_phy(hw);
--	unsigned long long link_rate = rate;
--
--	if (hdptx->hdmi_cfg.mode != PHY_HDMI_MODE_FRL)
--		link_rate = DIV_ROUND_CLOSEST_ULL(rate * hdptx->hdmi_cfg.bpc, 8);
--
--	/* Revert any unlikely link rate change since determine_rate() */
--	if (hdptx->hdmi_cfg.rate != link_rate) {
--		dev_warn(hdptx->dev, "Reverting unexpected rate change from %llu to %llu\n",
--			 link_rate, hdptx->hdmi_cfg.rate);
--		hdptx->hdmi_cfg.rate = link_rate;
--	}
- 
- 	/*
- 	 * The link rate would be normally programmed in HW during
+>
+>> >1. Why the original hibernation code set the vectors twice.
+>> 
+>> They do different jobs. The C call parks EL2 on the safe page copy
+>> before the restore overwrites the current table. The asm call installs
+>> the final __hyp_stub_vectors afterwards.
+>
+>I think I probably need to spend some time understanding how all this is
+>supposed to work. I can't currently tell how we end up with the stub
+>vectors installed to start with nor why we can't do all this from C code.
+>
 
--- 
-2.55.0
+head.S installs __hyp_stub_vectors in vbar_el2 before dropping to EL1.
+The last set can't come from C code because at that point the image
+has been restored over the kernel. The safe page copy is the only code
+still running and it's about to hand control back. The hvc is how it
+reaches EL2.
 
+>> >2. Assuming they only need to be set once, whether we can drop the hvc
+>> >   from the swsusp_arch_suspend_exit assembly code entirely.
+>> 
+>> No. After the restore vbar_el2 is only writable from EL2, and the
+>> temporary copy cannot stay. swsusp_free() frees it right after resume.
+>
+>Isn't vbar_el2 always only writable from EL2?
+>
+
+Yes, that phrasing was sloppy on my end. All I meant was the safe page
+code runs at EL1, so the hvc is the way it reaches EL2.
+
+>> >3. Whether we can then drop the HVC_SET_VECTORS handling from this set
+>> >   of vectors.
+>> >
+>> No, this hvc uses it, and so does kexec.
+>
+>Where does kexec use it? I could only spot it making use of
+>HVC_SOFT_RESTART.
+>
+
+
+The non kexec_file path. machine_kexec.c calls
+__hyp_set_vectors(kimage->arch.el2_vectors) before jumping to the
+relocation code when is_hyp_nvhe(). The kexec_file path takes
+cpu_soft_restart, which is where HVC_SOFT_RESTART comes in. So kexec
+uses both, one per path........
+
+
+Well, I also will think about this approach, if you have any suggestions,
+feel free to show me. Please :)
+
+>Will
+>
+
+Thanks!
 
