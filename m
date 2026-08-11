@@ -4,68 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FFBAC5CFCF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 08:59:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF149C5AC67
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 09:02:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qtC4bZ4oiS+jDaJBObfI6XLhYsuBsmJEi4axBF+WMao=; b=JrdKDEDPahomGeXh4UsfcKrDvs
-	qIqaQhPdbxNnXqFyth4EqueBeu5fCQ4nV/sL/DnCE5bSVh+uoHfM9WQjaKJ2y4DIo77VOBR2kUBzr
-	h8WJPH3LhSQVim6A6gncw1LlHcR2lq1/DJn5abfG/RvmFIJV/o0EOh6iPJnpH8f+C11DxgyRREHxH
-	Yg8Bm/wum5fOEpPuqA8aHkghRsfb1pl9GlF6RkkoZ7e3NmJsAXHEpltJn5hpJ4YvXY3dy5UF02UdN
-	/vHV8e5W3rD1pxlCc9niYNWMmPvjrEyjDSH5o+J1ry5eHUrXttsSn97KKYOt2rbnd8xUcHbeGqN0v
-	BrIChOUg==;
+	bh=zSz5fp8A+4Oz/rfxGdk8BgRi5I8WhH3kRTjUpjFeckU=; b=nEiKjVilxjgCsk58QESjIi6/Q1
+	sP2O4AHx8DwziEhlzxsa3jlRXBpft2BaC+7GVk1UpVDWlrzgjGhdBDatnlHth4Ir1Ga+S00xbslsk
+	l1WI9Ff2ObpCL4qSG3s18w+2NU1vXmvff0hcKipa1zJJkAHCrr4IjX+88wzI/pLujlROg57ivLksi
+	yY4NbmyCaFEJ36aFc6bUSqdB7S6omKjtVj1VJd6baEdBQah5Fe25s/+tQjMrthUwyRyRtnWIb7ghT
+	kXKt0nlxxkkmkzs47R33GIZXs2i8oNvWy0WZHrkT2Ll464kIB/lppONpzEHPg1pNaD0FqqnzhktHN
+	fSXxDpNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtiKm-0000000DflG-2JAf;
-	Tue, 11 Aug 2026 08:59:44 +0000
-Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
+	id 1wtiNe-0000000DgHr-1poi;
+	Tue, 11 Aug 2026 09:02:42 +0000
+Received: from mail-northcentralusazon11020109.outbound.protection.outlook.com ([52.101.193.109] helo=CH1PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtiKi-0000000DfkP-2EPM
+	id 1wtiNb-0000000DgGk-1A6F
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 08:59:42 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=qtC4bZ4oiS+jDaJBObfI6XLhYsuBsmJEi4axBF+WMao=;
-	b=Y4ksyhwBasFbFVwS6cE35hsu5Kv8+AZMy4imSWAKo+GUF0RBbWM37xcnEPivykn6+vQ9nhewS
-	sWPrCZlBXi/eOCA5Sy3brCWWYLUTOiGgm6td/RiR56aka0Y0STFyz7xPrJsfSDUjJX7QhrMYC1R
-	IgMdRczB3vBgF6HXqT8cvGg=
-Received: from mail.maildlp.com (unknown [172.19.163.163])
-	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4hK4zW6jS2z1cyQN;
-	Tue, 11 Aug 2026 16:48:55 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 8B1F84057A;
-	Tue, 11 Aug 2026 16:59:31 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 11 Aug 2026 16:59:31 +0800
-Message-ID: <39b86a06-291f-46b3-8bef-4c0835b9a8bd@huawei.com>
-Date: Tue, 11 Aug 2026 16:59:30 +0800
+	Tue, 11 Aug 2026 09:02:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=U8TcHVOeue4mxuaCos5ZjheW89p/3Iwg6dD9W/ln4m4thE4YX0nfkOVthtOYOWqZVYGmrfPzGxu8XncLqNSw9MoV+c+rVMiOIhHtxf8E2JvNQ9EEDAaX8hOfhX4lr2DQYOzh0LJp1Rl/kIEGDSQ3hW6Z0Y/FP++d+vhrY+acbhdP5qQ0W4G/IuoCfPqcrsBjVGtrqdCYshr876kY1gtMfGBJCwLjn1skmowtKymDvV04AcmAjylj0shpasr9m0Kh4lDvzsGqgErg/yFVlnqp4jqF2fwSv0AQvjFw2+55Qsl6TbUd5GT6bgJAf/PA8dLShC7JXtQyzyFNy/hHrWyMYQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=zSz5fp8A+4Oz/rfxGdk8BgRi5I8WhH3kRTjUpjFeckU=;
+ b=N66SfIExJIwUmqsUK20V8TExdqP4k9ykjfnsm3aoIzAko5FfoTSTC6uri8pNQ4EhJZ7rQSfXoxJxB02WCRZQOgzeuUKWI3wPigaMZXa0UZGBCBf3H+Dk/zTlbZtf1mcm+S8PelYU4wPtWcqJS5Yj6azLIhX8F8JmfU8kGQmxRlWxaDB6heRd0hcUknfZe3ubG3hslH4nI6I4j2mnwjr7ZL+m5/SX0QeWgqy5dlgopA7k/qTDDHHWnMlIVGrt7WT9s3BEe3JWX3IEEvMGMcL3N/6XTbijCSvJy/N4Gzsw45aHodAgSzmAKT7CocNgki4r+C5GeMX8/0hhZ9FdmQTq/g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 64.62.143.114) smtp.rcpttodomain=axiado.com smtp.mailfrom=axiado.com;
+ dmarc=none action=none header.from=axiado.com; dkim=none (message not
+ signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=zSz5fp8A+4Oz/rfxGdk8BgRi5I8WhH3kRTjUpjFeckU=;
+ b=Z6r1CeSPpIIN5HEGztzgx8WVPKyTzgaaHJTwM9xZQon4Fqy2gc7mMZdh76tY6O/LPPM71OTIeeFS8Z112gXeXlEgRFqCMSLzh6FIjz2uFrEoBEIfcmcWfje1jlTm5HVZyALJNpD9WTKlKdZ3GxMyL6w5cBJL7sVdfEGIHvw/8Iu65JpQDw3tyRkqOzpFSA8o/0IbUo8XcHhkB0/aszPFBVuZr5rN0yUxmsRzLdaaz0mCtq0TaaVrIT5a3+DJyZzTPxYqicmoRfhSZWj8oEXwMtPDbPsH1xpsIRO670XsEbMEZJgDADvMks2b1T3jyRvqAEY7ZEE4Zr8beFF8xj4fEw==
+Received: from DS7PR06CA0025.namprd06.prod.outlook.com (2603:10b6:8:54::31) by
+ CH3PR18MB6005.namprd18.prod.outlook.com (2603:10b6:610:1e2::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.11; Tue, 11 Aug
+ 2026 09:02:32 +0000
+Received: from DS3PEPF000099E1.namprd04.prod.outlook.com
+ (2603:10b6:8:54:cafe::12) by DS7PR06CA0025.outlook.office365.com
+ (2603:10b6:8:54::31) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.292.25 via Frontend Transport; Tue,
+ 11 Aug 2026 09:02:32 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 64.62.143.114)
+ smtp.mailfrom=axiado.com; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=axiado.com;
+Received-SPF: Fail (protection.outlook.com: domain of axiado.com does not
+ designate 64.62.143.114 as permitted sender) receiver=protection.outlook.com;
+ client-ip=64.62.143.114; helo=smtp.corp.axiado.com;
+Received: from smtp.corp.axiado.com (64.62.143.114) by
+ DS3PEPF000099E1.mail.protection.outlook.com (10.167.17.196) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.315.6
+ via Frontend Transport; Tue, 11 Aug 2026 09:02:32 +0000
+Received: from axz-uw1-build-vm02.corp.axiado.com (unknown [10.14.1.22])
+	by smtp.corp.axiado.com (Postfix) with ESMTP id 84E674186B59;
+	Tue, 11 Aug 2026 02:02:31 -0700 (PDT)
+From: Petar Stepanovic <pstepanovic@axiado.com>
+Date: Tue, 11 Aug 2026 02:01:51 -0700
+Subject: [PATCH v3 2/2] pwm: add Axiado AX3000 PWM driver
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 19/45] arm64: cpuidle: use new helpers to bypass
- interrupt priority masking
-To: Vladimir Murzin <vladimir.murzin@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>
-CC: <mark.rutland@arm.com>, <maz@kernel.org>, <will@kernel.org>,
-	<catalin.marinas@arm.com>, <liaochang1@huawei.com>
-References: <20260727163453.7969-1-vladimir.murzin@arm.com>
- <20260727163453.7969-20-vladimir.murzin@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260727163453.7969-20-vladimir.murzin@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260811-axiado-ax3000-pwm-v3-2-6ceaccd812cf@axiado.com>
+References: <20260811-axiado-ax3000-pwm-v3-0-6ceaccd812cf@axiado.com>
+In-Reply-To: <20260811-axiado-ax3000-pwm-v3-0-6ceaccd812cf@axiado.com>
+To: Akhila Kavi <akavi@axiado.com>, 
+ Prasad Bolisetty <pbolisetty@axiado.com>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>
+Cc: linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Petar Stepanovic <pstepanovic@axiado.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1786438951; l=11123;
+ i=pstepanovic@axiado.com; s=20250916; h=from:subject:message-id;
+ bh=5lKeCfNkgVOGImhDdRmmNBGC/YUkoZXY+c/Z5sDNXdc=;
+ b=apf/cMLxKuOPoElxiQvfsmvObBMnF0SIwKMAQVAyjGK23ohlB4GcZYvegeV/YrIrFbRc9s4VS
+ rjlYWzTplOvASITSukMihlr9I+T30HdlhYOZ4RYuRABTKBHcaKh16Bm
+X-Developer-Key: i=pstepanovic@axiado.com; a=ed25519;
+ pk=70f1UJOGT9U11ZK6o+ENXtv0I5wBE3e+Y9YWODzRsdI=
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS3PEPF000099E1:EE_|CH3PR18MB6005:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6196d801-833d-41ba-8a81-08def7874743
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|23010399003|376014|1800799024|36860700016|6133799003|56012099006|10067099003|22082099003|18002099003|3023799007;
+X-Microsoft-Antispam-Message-Info: QIWXGrzP8ghVPuvAbJSRtffvFn9g/r5g1930zs4R4yO2NGVHkFZ9PMJZZIwpEKPgXBklAJDolxT75HiZ5DgPh7bCL7M6Sr+CSOcHbJUsbDgZWnaRyuu0wb7odVbbeF1mKSif+b/1zky1H4T6HVQRTG1RL82PG+znMz1htgSvPgPPDFRcHEsyPFCQ6D1xBy2ipKFdwukcTkG89r3dV3tLqm1yzr6iCzzpAzPOeVb9lhpL8RU1ZksYm1VjbVZRimjQuAuZALSRZiMZjIkRGjWdmSvjEn9QoziTHn4gC+u8IOi1DnePIFR9TM2kF5cwom6dgQmJjMzptfqUX3uEg+sT3QfLXHf0bgdFkPCbaGM4wAGptAgLbFvyjvEq64pXUCGuw40PnTvP7QQWPiK/MlpQgBOR7yXBx1A5SlD3+TCif836DQ74oblF+e8of3QoxIZ8AkVWW7cHEyByoWc+tNgMwyOU+lziLxgZB/LcrLs9t0/C6qqAC2UwLaZ1fFjtVoEvAccLliLpnQgVKrqsjhNCF9FZ+/LoxI08aJVdUO+WLm4JzFnjzLUjF4L9Lp5rpC8nhjQjF1Bkl3hHjRDHPipRhiSmmZy37hfDK5nLdYHB0P6FijVKRd5NNLVw96dvyuI9RhTo5QgA1lcl5xeG83LOOFIyUCY6jV2Pd3kQqyLH8xH7z+wRelYxkjvLkp9JTOtIRHX3NV4ZwvqSuXUnZ8H84A==
+X-Forefront-Antispam-Report: CIP:64.62.143.114;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtp.corp.axiado.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(23010399003)(376014)(1800799024)(36860700016)(6133799003)(56012099006)(10067099003)(22082099003)(18002099003)(3023799007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: b9VBo5tWvhiaHgpDdKNZrpJYfnJtHvJYS3gct1W3rgZEY74KS/TaE8iQtK2fFAiB5tnXQsJsha+PP7SNrCGRTpuRMsZGJosPL5k1+jst4oPEZn/mvIOAmd+sXzfAcMj4gJcP0m7t1iqHHeIsptbaddxHBWvgpzw3OJB3ZhewjkxQKd6F/PtsE7qGRxrIaWmgCKtKB28Jot5a3MrPuByaMt46UK7+cdZZHYJ1LiFoQI/HQu46FKniqr2SFEamQnhbvayRBwoxbkVm8iT/Vj0p/bB3A2fv/s9BHv+iwsxlWYDVhaYWiqp4o2sQOupqfcITHup7bq7fl1X6XxT1YIYV4Wu3kbMg84Vy/d5Tvuuw478A+oHg4iA92CgBRL8TsUZ/7AOekGOyZO1G1oGyE2s/xDAeLKTDrhQGpY6TjCRSKNL9Y1F/um8boQ5CYcxp+yEC
+X-OriginatorOrg: axiado.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Aug 2026 09:02:32.0185
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6196d801-833d-41ba-8a81-08def7874743
+X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=ff2db17c-4338-408e-9036-2dee8e3e17d7;Ip=[64.62.143.114];Helo=[smtp.corp.axiado.com]
+X-MS-Exchange-CrossTenant-AuthSource: DS3PEPF000099E1.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR18MB6005
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_015941_220569_979FB1E1 
-X-CRM114-Status: GOOD (  29.11  )
+X-CRM114-CacheID: sfid-20260811_020239_395668_D20526C9 
+X-CRM114-Status: GOOD (  28.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,153 +129,384 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The Axiado AX3000 and AX3005 SoCs include PWM controllers that can be
+used to generate configurable PWM output signals.
 
+Add a PWM driver with support for configuring period, duty cycle, and
+enable state through the Linux PWM framework.
 
-在 2026/7/28 0:34, Vladimir Murzin 写道:
-> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> 
-> When the CPU goes into WFI and pseudo-NMIs are in use, we need to make
-> sure that interrupts are not masked by the PMR otherwise they would not
-> reach the CPU and wake it up.
-> 
-> Now that we have a proper API that handles both DAIF and PMR, extend it
-> to provide helpers allowing to temporarily switch to masking interrupts
-> via DAIF only when interrupt priorities are in use.
-> This could allow other parts of the code to make use of it and makes it
-> easier to check for proper use.
-> 
-> Replace the custom cpuidle helper with those new helpers.
-> 
-> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
-> ---
->  arch/arm64/include/asm/cpuidle.h            | 18 ++----
->  arch/arm64/include/asm/interrupts/masking.h | 61 +++++++++++++++++++++
->  2 files changed, 65 insertions(+), 14 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/cpuidle.h b/arch/arm64/include/asm/cpuidle.h
-> index 2047713e097d..b70ef5fd5e57 100644
-> --- a/arch/arm64/include/asm/cpuidle.h
-> +++ b/arch/arm64/include/asm/cpuidle.h
-> @@ -5,32 +5,22 @@
->  #include <asm/proc-fns.h>
->  
->  #ifdef CONFIG_ARM64_PSEUDO_NMI
-> -#include <asm/arch_gicv3.h>
-> +#include <asm/interrupts/masking.h>
->  
->  struct arm_cpuidle_irq_context {
-> -	unsigned long pmr;
-> -	unsigned long daif_bits;
-> +	arm64_exc_hwstates_t arm64_context;
->  };
->  
->  #define arm_cpuidle_save_irq_context(__c)				\
->  	do {								\
->  		struct arm_cpuidle_irq_context *c = __c;		\
-> -		if (system_uses_irq_prio_masking()) {			\
-> -			c->daif_bits = read_sysreg(daif);		\
-> -			write_sysreg(c->daif_bits | PSR_I_BIT | PSR_F_BIT, \
-> -				     daif);				\
-> -			c->pmr = gic_read_pmr();			\
-> -			gic_write_pmr(GIC_PRIO_IRQON | GIC_PRIO_PSR_I_SET); \
-> -		}							\
-> +		c->arm64_context = local_exceptions_force_daif_save(); 	\
->  	} while (0)
->  
->  #define arm_cpuidle_restore_irq_context(__c)				\
->  	do {								\
->  		struct arm_cpuidle_irq_context *c = __c;		\
-> -		if (system_uses_irq_prio_masking()) {			\
-> -			gic_write_pmr(c->pmr);				\
-> -			write_sysreg(c->daif_bits, daif);		\
-> -		}							\
-> +		local_exceptions_force_daif_restore(c->arm64_context);	\
->  	} while (0)
->  #else
->  struct arm_cpuidle_irq_context { };
-> diff --git a/arch/arm64/include/asm/interrupts/masking.h b/arch/arm64/include/asm/interrupts/masking.h
-> index 193089fda252..e13852442062 100644
-> --- a/arch/arm64/include/asm/interrupts/masking.h
-> +++ b/arch/arm64/include/asm/interrupts/masking.h
-> @@ -89,6 +89,67 @@ static inline void local_exceptions_final_mask(void)
->  }
->  #endif /* CONFIG_DEBUG_IRQFLAGS */
->  
-> +/*
-> + * In some cases, WFI or guest entry for example, we always want interrupts
-> + * to reach the CPU even if masked. Masking via the PMR prevents them from
-> + * reaching the CPU and waking it up.
-> + * Force IRQ masking using DAIF by raising the priority mask
-> + * and setting the IF flags.
-> + *
-> + * Should only be called when IRQs are already masked.
-> + */
-> +static inline arm64_exc_hwstates_t local_exceptions_force_daif_save(void)
-> +{
-> +	arm64_exc_hwstates_t states = {};
-> +
-> +	if (!system_uses_irq_prio_masking())
-> +		return states;
-> +
-> +	/*
-> +	 * Cannot use lockdep_assert here as idle entry enables hardirqs
-> +	 * while keeping interrupts masked.
-> +	 */
-> +	WARN_ON_ONCE(!irqs_disabled());
-> +
-> +	states.saved.daif = read_sysreg(daif);
-> +	states.saved.pmr = read_sysreg_s(SYS_ICC_PMR_EL1);
+Signed-off-by: Petar Stepanovic <pstepanovic@axiado.com>
+---
+ MAINTAINERS              |   1 +
+ drivers/pwm/Kconfig      |  11 ++
+ drivers/pwm/Makefile     |   1 +
+ drivers/pwm/pwm-axiado.c | 310 +++++++++++++++++++++++++++++++++++++++++++++++
+ 4 files changed, 323 insertions(+)
 
-I'd suggest using gic_read_pmr() as it aligns better with the original
-implementation.
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 9999480376cc..14eea3bc4d4d 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -4319,6 +4319,7 @@ M:	Prasad Bolisetty <pbolisetty@axiado.com>
+ L:	linux-pwm@vger.kernel.org
+ S:	Supported
+ F:	Documentation/devicetree/bindings/pwm/axiado,ax3000-pwm.yaml
++F:	drivers/pwm/pwm-axiado.c
+ 
+ AXIS ARTPEC ARM64 SoC SUPPORT
+ M:	Jesper Nilsson <jesper.nilsson@axis.com>
+diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
+index 6f3147518376..76f6c04b0e23 100644
+--- a/drivers/pwm/Kconfig
++++ b/drivers/pwm/Kconfig
+@@ -129,6 +129,17 @@ config PWM_ATMEL_TCB
+ 	  To compile this driver as a module, choose M here: the module
+ 	  will be called pwm-atmel-tcb.
+ 
++config PWM_AXIADO
++	tristate "Axiado PWM support"
++	depends on ARCH_AXIADO || COMPILE_TEST
++	depends on HAS_IOMEM
++	help
++	  PWM framework driver for the PWM controller found on Axiado
++	  AX3000 and AX3005 SoCs.
++
++	  To compile this driver as a module, choose M here: the module
++	  will be called pwm-axiado.
++
+ config PWM_AXI_PWMGEN
+ 	tristate "Analog Devices AXI PWM generator"
+ 	depends on MICROBLAZE || NIOS2 || ARCH_ZYNQ || ARCH_ZYNQMP || ARCH_INTEL_SOCFPGA || COMPILE_TEST
+diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
+index 0dc0d2b69025..4466a29e780a 100644
+--- a/drivers/pwm/Makefile
++++ b/drivers/pwm/Makefile
+@@ -8,6 +8,7 @@ obj-$(CONFIG_PWM_ARGON_FAN_HAT)	+= pwm-argon-fan-hat.o
+ obj-$(CONFIG_PWM_ATMEL)		+= pwm-atmel.o
+ obj-$(CONFIG_PWM_ATMEL_HLCDC_PWM)	+= pwm-atmel-hlcdc.o
+ obj-$(CONFIG_PWM_ATMEL_TCB)	+= pwm-atmel-tcb.o
++obj-$(CONFIG_PWM_AXIADO)	+= pwm-axiado.o
+ obj-$(CONFIG_PWM_AXI_PWMGEN)	+= pwm-axi-pwmgen.o
+ obj-$(CONFIG_PWM_BCM2835)	+= pwm-bcm2835.o
+ obj-$(CONFIG_PWM_BCM_IPROC)	+= pwm-bcm-iproc.o
+diff --git a/drivers/pwm/pwm-axiado.c b/drivers/pwm/pwm-axiado.c
+new file mode 100644
+index 000000000000..4815d34b907e
+--- /dev/null
++++ b/drivers/pwm/pwm-axiado.c
+@@ -0,0 +1,310 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * Copyright (c) 2021-2026 Axiado Corporation.
++ */
++
++/*
++ * Limitations:
++ * - Only normal polarity is supported.
++ * - Configuration changes take effect immediately; the current period is
++ *   not guaranteed to complete.
++ * - Disable operations take effect immediately; the current period is not
++ *   guaranteed to complete.
++ * - When disabled, the output remains high.
++ * - The supported period range is 2 through 0xfffffffe PWM input clock
++ *   cycles; 0xffffffff is reserved by the hardware for a constant-low
++ *   output. Longer periods are rounded down to the maximum.
++ * - The hardware interprets a zero high time as a constant high output, so
++ *   a 0% duty cycle is programmed as a constant-low period instead. That
++ *   encoding does not hold the requested period, so the period cannot be
++ *   read back from the hardware while the duty cycle is 0%.
++ * - A 100% duty cycle is supported and produces a constant high output.
++ */
++
++#include <linux/bits.h>
++#include <linux/clk.h>
++#include <linux/err.h>
++#include <linux/io.h>
++#include <linux/math64.h>
++#include <linux/module.h>
++#include <linux/platform_device.h>
++#include <linux/pwm.h>
++
++/* Register offsets */
++#define AXIADO_PWM_CTRL_REG	0x0000
++#define AXIADO_PWM_PERIOD_REG	0x0004
++#define AXIADO_PWM_HIGH_REG	0x0008
++
++/* Period and duty cycle limits */
++#define AXIADO_PWM_PERIOD_MIN	2
++#define AXIADO_PWM_PERIOD_MAX	0xfffffffe
++#define AXIADO_PWM_PERIOD_CONST_LOW	0xffffffff
++#define AXIADO_PWM_DUTY_MIN	1
++
++/* Control register bits */
++#define AXIADO_PWM_CTRL_ENABLE	BIT(0)
++
++struct axiado_pwm_chip {
++	void __iomem *base;
++	unsigned long rate;
++	u32 cached_period;
++};
++
++struct axiado_pwm_waveform {
++	u32 period;
++	u32 duty;
++	bool enabled;
++};
++
++static int
++axiado_pwm_round_waveform_tohw(struct pwm_chip *chip,
++			       struct pwm_device *pwm,
++			       const struct pwm_waveform *wf,
++			       void *_wfhw)
++{
++	struct axiado_pwm_chip *axpwm = pwmchip_get_drvdata(chip);
++	struct axiado_pwm_waveform *wfhw = _wfhw;
++	u64 period;
++	u64 duty;
++	int ret = 0;
++
++	/* Encode a disabled request as a zeroed hardware waveform. */
++	if (!wf->period_length_ns) {
++		*wfhw = (struct axiado_pwm_waveform) {};
++
++		return 0;
++	}
++
++	/* Only an edge-aligned waveform starting at offset zero is supported. */
++	if (wf->duty_offset_ns)
++		return -EINVAL;
++
++	if (wf->duty_length_ns > wf->period_length_ns)
++		return -EINVAL;
++
++	period = mul_u64_u64_div_u64(wf->period_length_ns, axpwm->rate,
++				     NSEC_PER_SEC);
++
++	if (period < AXIADO_PWM_PERIOD_MIN) {
++		period = AXIADO_PWM_PERIOD_MIN;
++		ret = 1;
++	} else if (period > AXIADO_PWM_PERIOD_MAX) {
++		period = AXIADO_PWM_PERIOD_MAX;
++	}
++
++	/*
++	 * Keep the rounded period for a 0% duty cycle. .write_waveform()
++	 * translates it to the hardware constant-low representation.
++	 */
++	if (!wf->duty_length_ns) {
++		*wfhw = (struct axiado_pwm_waveform) {
++			.period = period,
++			.duty = 0,
++			.enabled = true,
++		};
++
++		return ret;
++	}
++
++	duty = mul_u64_u64_div_u64(wf->duty_length_ns, axpwm->rate,
++				   NSEC_PER_SEC);
++
++	/*
++	 * Preserve an exact 100% duty request when the hardware period has
++	 * been clamped.
++	 */
++	if (wf->duty_length_ns == wf->period_length_ns)
++		duty = period;
++
++	/*
++	 * Period clamping can leave the converted duty greater than the
++	 * final hardware period. In that case, clamp it to 100% duty.
++	 */
++	if (duty > period)
++		duty = period;
++
++	*wfhw = (struct axiado_pwm_waveform) {
++		.period = period,
++		.duty = duty,
++		.enabled = true,
++	};
++
++	return ret;
++}
++
++static int
++axiado_pwm_round_waveform_fromhw(struct pwm_chip *chip,
++				 struct pwm_device *pwm,
++				 const void *_wfhw,
++				 struct pwm_waveform *wf)
++{
++	struct axiado_pwm_chip *axpwm = pwmchip_get_drvdata(chip);
++	const struct axiado_pwm_waveform *wfhw = _wfhw;
++
++	if (!wfhw->enabled) {
++		*wf = (struct pwm_waveform) {
++			.period_length_ns = 0,
++			.duty_length_ns = 0,
++			.duty_offset_ns = 0,
++		};
++
++		return 0;
++	}
++
++	*wf = (struct pwm_waveform) {
++		.period_length_ns =
++			mul_u64_u64_div_u64_roundup(wfhw->period, NSEC_PER_SEC,
++						    axpwm->rate),
++		.duty_length_ns =
++			mul_u64_u64_div_u64_roundup(wfhw->duty, NSEC_PER_SEC,
++						    axpwm->rate),
++		.duty_offset_ns = 0,
++	};
++
++	return 0;
++}
++
++static int axiado_pwm_read_waveform(struct pwm_chip *chip,
++				    struct pwm_device *pwm,
++				    void *_wfhw)
++{
++	struct axiado_pwm_chip *axpwm = pwmchip_get_drvdata(chip);
++	struct axiado_pwm_waveform *wfhw = _wfhw;
++	u32 period;
++	u32 duty;
++	u32 ctrl;
++
++	ctrl = readl(axpwm->base + AXIADO_PWM_CTRL_REG);
++	period = readl(axpwm->base + AXIADO_PWM_PERIOD_REG);
++	duty = readl(axpwm->base + AXIADO_PWM_HIGH_REG);
++
++	/* The constant-low encoding doesn't hold the period, so restore it. */
++	if (period == AXIADO_PWM_PERIOD_CONST_LOW) {
++		period = axpwm->cached_period;
++		duty = 0;
++	} else if (duty > period) {
++		duty = period;
++	}
++
++	*wfhw = (struct axiado_pwm_waveform) {
++		.period = period,
++		.duty = duty,
++		.enabled = !!(ctrl & AXIADO_PWM_CTRL_ENABLE),
++	};
++
++	return 0;
++}
++
++static int axiado_pwm_write_waveform(struct pwm_chip *chip,
++				     struct pwm_device *pwm,
++				     const void *_wfhw)
++{
++	struct axiado_pwm_chip *axpwm = pwmchip_get_drvdata(chip);
++	const struct axiado_pwm_waveform *wfhw = _wfhw;
++	u32 period = wfhw->period;
++	u32 duty = wfhw->duty;
++
++	if (!wfhw->enabled) {
++		writel(0, axpwm->base + AXIADO_PWM_CTRL_REG);
++		return 0;
++	}
++
++	/*
++	 * A zero high time produces a constant high output, so use the
++	 * constant-low period encoding for a 0% duty cycle. Keep the high time
++	 * non-zero because a zero value takes precedence over that encoding.
++	 * Cache the requested period for .read_waveform().
++	 */
++	if (!duty) {
++		axpwm->cached_period = period;
++		period = AXIADO_PWM_PERIOD_CONST_LOW;
++		duty = AXIADO_PWM_DUTY_MIN;
++	}
++
++	/*
++	 * The hardware has no shadow registers. These writes may alter the
++	 * active waveform before the current period has completed.
++	 */
++	writel(period, axpwm->base + AXIADO_PWM_PERIOD_REG);
++	writel(duty, axpwm->base + AXIADO_PWM_HIGH_REG);
++	writel(AXIADO_PWM_CTRL_ENABLE, axpwm->base + AXIADO_PWM_CTRL_REG);
++
++	return 0;
++}
++
++static const struct pwm_ops axiado_pwm_ops = {
++	.sizeof_wfhw = sizeof(struct axiado_pwm_waveform),
++	.round_waveform_tohw = axiado_pwm_round_waveform_tohw,
++	.round_waveform_fromhw = axiado_pwm_round_waveform_fromhw,
++	.read_waveform = axiado_pwm_read_waveform,
++	.write_waveform = axiado_pwm_write_waveform,
++};
++
++static int axiado_pwm_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct axiado_pwm_chip *axpwm;
++	struct pwm_chip *chip;
++	struct clk *clk;
++	int ret;
++
++	chip = devm_pwmchip_alloc(dev, 1, sizeof(*axpwm));
++	if (IS_ERR(chip))
++		return PTR_ERR(chip);
++
++	axpwm = pwmchip_get_drvdata(chip);
++
++	axpwm->base = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(axpwm->base))
++		return dev_err_probe(dev, PTR_ERR(axpwm->base),
++				     "Failed to map registers\n");
++
++	clk = devm_clk_get_enabled(dev, NULL);
++	if (IS_ERR(clk))
++		return dev_err_probe(dev, PTR_ERR(clk),
++				     "Failed to get/enable clock\n");
++
++	ret = devm_clk_rate_exclusive_get(dev, clk);
++	if (ret)
++		return dev_err_probe(dev, ret,
++				     "Failed to lock clock rate\n");
++
++	axpwm->rate = clk_get_rate(clk);
++	if (!axpwm->rate)
++		return dev_err_probe(dev, -EINVAL,
++				     "Failed to get clock rate\n");
++
++	/*
++	 * Provide a valid fallback period if the bootloader left the
++	 * constant-low encoding programmed.
++	 */
++	axpwm->cached_period = AXIADO_PWM_PERIOD_MIN;
++
++	chip->ops = &axiado_pwm_ops;
++	chip->atomic = true;
++
++	ret = devm_pwmchip_add(dev, chip);
++	if (ret)
++		return dev_err_probe(dev, ret, "Failed to add PWM chip\n");
++
++	return 0;
++}
++
++static const struct of_device_id axiado_pwm_match[] = {
++	{ .compatible = "axiado,ax3000-pwm" },
++	{ }
++};
++MODULE_DEVICE_TABLE(of, axiado_pwm_match);
++
++static struct platform_driver axiado_pwm_driver = {
++	.driver = {
++		.name =  "axiado-pwm",
++		.of_match_table = axiado_pwm_match,
++	},
++	.probe = axiado_pwm_probe,
++};
++module_platform_driver(axiado_pwm_driver);
++
++MODULE_AUTHOR("Axiado Corporation");
++MODULE_DESCRIPTION("Axiado PWM driver");
++MODULE_LICENSE("GPL");
 
-> +	/*
-> +	 * We might have IF set or unset. In case IF already set orring with IF
-> +	 * won't change anything, combined with PMR set to IRQON we might become
-> +	 * one of contexts: CRITICAL, ERROR or NONMI. In case IF is unset (which
-> +	 * also implies that DA is unset) orring with IF and combining with PMR
-> +	 * set to IRQON would effectively gives us NONMI context.
-> +	 */
-
-The comment seems redundant to me, because __arm64_update_exc_hwstate()
-only needs the hwstate parameter and has no dependency on the context type.
-
-Otherwise, LGTM
-Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
-
-> +	states.expected.daif = states.saved.daif | DAIF_PROCCTX_NOIRQ;
-> +	states.expected.pmr = GIC_PRIO_IRQON;
-> +
-> +	arm64_update_exc_hwstate(states.expected);
-> +
-> +	return states;
-> +}
-> +
-> +/*
-> + * Return to masking with the PMR, restoring previously saved DAIF and PMR.
-> + *
-> + * IRQs or interrupt priority masking should not have been re-enabled in between
-> + * the save and restore.
-> + */
-> +static inline
-> +void local_exceptions_force_daif_restore(arm64_exc_hwstates_t states)
-> +{
-> +	if (!system_uses_irq_prio_masking())
-> +		return;
-> +
-> +	/*
-> +	 * Cannot use lockdep_assert here as idle entry enables hardirqs
-> +	 * while keeping interrupts masked.
-> +	 */
-> +	WARN_ON_ONCE(!irqs_disabled());
-> +
-> +	arm64_debug_exc_hwstate(states.expected);
-> +	arm64_update_exc_hwstate(states.saved);
-> +}
-> +
->  /*
->   * During early boot, we unmask PSR.DA before the GIC has been set up.
->   * If we use IRQ priority masking, the PMR and PSR will be out of sync
+-- 
+2.34.1
 
 
