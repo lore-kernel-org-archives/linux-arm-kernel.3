@@ -4,62 +4,183 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6237C5CFE7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 14:37:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6F19C5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 14:38:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0mfdfTDuJCfvilSFFKrwBMVPwUNKeCnOVk1kDLav9IE=; b=ytds46R9Owx8S+ke+IjMyiV51o
-	Onab+wqwY1ghZ1W+wQd3loNvX4/xfGOyXARrzYoRx89dLXwNAgQfIIqlHE3dGfXWU0oJx9G3Cwdkm
-	obWhrQEvGbq3hoHJ5wtLPRJLahaPiYV5Y87F1q91FZwq1rzqBJpqZk2X9C20l1LwlG1fRK97XZ8wI
-	K/qBFvYz5PxjjQUZaGVKn6XZdX5X5FktBvPLDIYqxUZXUCTJwIeu0raJwIv1CetyEThw0B+4Am2Xo
-	53ZiyNuqtlPv38Y87JrvNEK2bQMPwVKcusuPIwKdpt1CFo+DgiQgzqF8F3HEIhAy4JdHbvBOMWSZm
-	y5MSVBQg==;
+	bh=BSA0/caNv1hQV/O9tlwKSHJ31i7vLr7dcEOwfnUXmW8=; b=iDpOuW+9fvCXumjWQZlf5iUKt2
+	u87KJfAilfPb/nuy5/AMbL3XIqMZC3ohJzeccdqnnqvWjzSI3E7V2DRexE8Wx9A6Fvo0mj5Vp/Ggw
+	pLCFMhfu9xYmUNqG77FfzLIxcyqdP0C2XnKkYvkveoZ7tmTLU2nBbiNLOVAy97OO3F1oRg6AxY2vV
+	+7BITWqlkO16FpP/z3lMm6pANQDYOGzxPrp+ssivJHF9bujLIC8MogZwNhSQXuaE0wTOXTwTX84Fl
+	idR1nVQdyuX9FBG09Ks+8ObUQufEwSJpRNJ8t11OVTs2X7GSIt+deBbJvlvHQ3Oew91Rrun7NFIPb
+	rDb+8tfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtnbI-0000000EERM-0vdo;
-	Tue, 11 Aug 2026 14:37:08 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wtncS-0000000EEe7-2UbW;
+	Tue, 11 Aug 2026 14:38:20 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtnbH-0000000EERE-253a
+	id 1wtncP-0000000EEdL-3P8H
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 14:37:07 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 160084197E;
-	Tue, 11 Aug 2026 14:37:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45B2D1F00A3D;
-	Tue, 11 Aug 2026 14:37:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786459027;
-	bh=0mfdfTDuJCfvilSFFKrwBMVPwUNKeCnOVk1kDLav9IE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=lZ6i4MlLk+uPiOfTJvAMSPRirdhAFHy9i6pEwwOUbNVr+IixR3uDlgCFUCtOd2hb7
-	 QiUJtDp5cvXsI7m+NaRzJ14xY7q6wonT5lxDRbV4YHwCV2FVLfn4Q1e0QMykdXEk2M
-	 mcXTZGBHJP88Jcu9/zy3ySQcDFDNtazk7BddZHFEvhADbw4UIr8T6yCXugj0dAYkMZ
-	 O1RsUY88EcdfgLeN4r0VpafSZvTWLdO4P+v0mA1K/HTfaiUjRgOd1TGtW4BXLk7cm0
-	 cQNdb1mQ6ipfxZHb5XnyFN9NHlfK/oHidG/uYMjkQeMoABT1KoGnqEaywx+A3rLKm8
-	 KAekgZyZw4FdQ==
-Date: Tue, 11 Aug 2026 15:37:01 +0100
-From: Will Deacon <will@kernel.org>
-To: Bradley Morgan <include@grrlz.net>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	maz@kernel.org, james.morse@arm.com
-Subject: Re: [PATCH] arm64: hibernate: pass HVC_SET_VECTORS args to the
- resume hvc
-Message-ID: <anszjQ7jBeYDqesp@willie-the-truck>
-References: <20260809213615.11646-1-include@grrlz.net>
- <anr28wUlKjci8JPn@willie-the-truck>
- <463DA5C2-C933-45EC-A200-21AAF6258418@grrlz.net>
+	Tue, 11 Aug 2026 14:38:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1786459097; x=1817995097;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=WKSJf06XCEYYamcyDHMGpqOCbSRfyizRTf1F56u7jac=;
+  b=HTiLVEvmVM7zq/rGeJNy3vP1itNmH0XLCv/jUC6eyBdP6KL9iIv06rVy
+   tXwH/tlvsTZVO6bTUrQtY8ZeT7O37WuYhsjwzd2JkpkA3X98ArypiYF7t
+   YRiGiDkii8eg23Kcb0cCNG3vAPc06nu1ZRw3P51G0fcToTTRSfEvPpTiB
+   qCi7uWe253YNCtiRiEzofxoCjlWwXIOuoVudeqc0X8EHv0I3Eu93tBvmd
+   MogEAKKwsCDERVUO1z5gkT/XdwevT4yMh//SQjB9Hu3jn7xUgTIWwb1se
+   6CFHpIF207SoIRM9CFowELzTlL8Mc0T9NzCN+1DHVm5HTwW/8XwtI23KD
+   g==;
+X-CSE-ConnectionGUID: wulkyJSKR52dNEel+H/QmQ==
+X-CSE-MsgGUID: 6OMv2uJrS0+RagkMO0IuVA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11872"; a="104521851"
+X-IronPort-AV: E=Sophos;i="6.25,217,1779174000"; 
+   d="scan'208";a="104521851"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Aug 2026 07:38:10 -0700
+X-CSE-ConnectionGUID: A4GvaBH7RO2gZMt0NNKmnA==
+X-CSE-MsgGUID: ZMV92Ja3RJaHnhq2iHfaQg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,217,1779174000"; 
+   d="scan'208";a="260740605"
+Received: from fmsmsx903.amr.corp.intel.com ([10.18.126.92])
+  by fmviesa008.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Aug 2026 07:38:11 -0700
+Received: from FMSMSX902.amr.corp.intel.com (10.18.126.91) by
+ fmsmsx903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Tue, 11 Aug 2026 07:38:11 -0700
+Received: from fmsedg901.ED.cps.intel.com (10.1.192.143) by
+ FMSMSX902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45 via Frontend Transport; Tue, 11 Aug 2026 07:38:11 -0700
+Received: from BYAPR05CU005.outbound.protection.outlook.com (52.101.85.16) by
+ edgegateway.intel.com (192.55.55.81) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Tue, 11 Aug 2026 07:38:11 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ieWKA7kV0nNO2D7YsgWCIAmhSD7qdxrir7QDPywXHuUnIHXwhUYITiyBFH2JRNmFr2LWto+2tPMrXBE8C46asFbH1fKvkOCpm9WmrWE1e/55sN2lXDdujt4I1T4gd7UHriqgzyPrD/fsUBXWOBJGcIJ313A79iSSq7P0zc9n0dmdhdcoY7cB+LOf5Kh4n70IhfrH6ZBOC3KjNYC1pDGgEjMnCnCMzH3d/mUeo709lO7X/QQVuZ5gMz+fyw2NAv8weF/WB4CT3Mtr+SNx3zh7POu0BcMIWH7uPIRs+qR66IREbb/H4nLh7tfZ8aNEKxjMsUQ63B5ZhcSQwIKwR+aywQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BSA0/caNv1hQV/O9tlwKSHJ31i7vLr7dcEOwfnUXmW8=;
+ b=l7aiZw/zinPzVsARe9TPXyab+l0xtqyI96z1NYyUFA3Z0LGHGyKl+jcwI9YBotY9+T/41+4RQdyCjrZtqRybDLtzjPYfSpKLtIa+eaYJSMRAFRzZkkAj/phekinN01KWDxyPWmjRtA/nfQHszfNu8+Sw1wau+16dmMK9kU60bBn2wlosm8E4gHX0SAj/3eYpq+HOafef8mZhUdTAdsGe++UdjsQ+hENZ0AHt0TiNR8aB9ZPOPpB5x4IC+YzZZStbXcM0JMsoPYKRY8+U4wHdydlWHFtMZjvQcqbeh+aNjgodyVX2XEp49vXlYga7kunNfPDkjV+FGKQqIzUdfiVWjg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from IA1PR11MB7198.namprd11.prod.outlook.com (2603:10b6:208:419::15)
+ by DSWPR11MB9953.namprd11.prod.outlook.com (2603:10b6:8:39e::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.12; Tue, 11 Aug
+ 2026 14:38:09 +0000
+Received: from IA1PR11MB7198.namprd11.prod.outlook.com
+ ([fe80::2c4e:e92a:4fa:a456]) by IA1PR11MB7198.namprd11.prod.outlook.com
+ ([fe80::2c4e:e92a:4fa:a456%3]) with mapi id 15.21.0292.024; Tue, 11 Aug 2026
+ 14:38:07 +0000
+Message-ID: <bae0311d-25d5-4678-bfb5-505e3aa144a9@intel.com>
+Date: Tue, 11 Aug 2026 17:38:00 +0300
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/9] perf header: Tolerate inconsistent HEADER_GROUP_DESC
+To: Amir Ayupov <aaupov@fb.com>, <linux-perf-users@vger.kernel.org>,
+	<coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>, "Suzuki
+ K Poulose" <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>,
+	"Leo Yan" <leo.yan@arm.com>, Peter Zijlstra <peterz@infradead.org>, Ingo
+ Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	"Alexander Shishkin" <alexander.shishkin@linux.intel.com>, Jiri Olsa
+	<jolsa@kernel.org>, Ian Rogers <irogers@google.com>, John Garry
+	<john.g.garry@oracle.com>, "Will Deacon" <will@kernel.org>
+CC: <linux-doc@vger.kernel.org>, Mike Leach <mike.leach@arm.com>, "Jonathan
+ Corbet" <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, "Swapnil
+ Sapkal" <swapnil.sapkal@amd.com>
+References: <20260803090640.2412336-1-aaupov@fb.com>
+Content-Language: en-US
+From: Adrian Hunter <adrian.hunter@intel.com>
+Organization: Intel Finland Oy, Registered Address: c/o Alberga Business Park,
+ 6 krs, Bertel Jungin Aukio 5, 02600 Espoo, Business Identity Code: 0357606 -
+ 4, Domiciled in Helsinki
+In-Reply-To: <20260803090640.2412336-1-aaupov@fb.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: DU7PR01CA0007.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:50f::7) To IA1PR11MB7198.namprd11.prod.outlook.com
+ (2603:10b6:208:419::15)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <463DA5C2-C933-45EC-A200-21AAF6258418@grrlz.net>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR11MB7198:EE_|DSWPR11MB9953:EE_
+X-MS-Office365-Filtering-Correlation-Id: e6e8ea88-0a80-4dfb-81d3-08def7b628e8
+X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|23010399003|18002099003|22082099003|921020|3023799007|6133799003|10067099003|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info: inT2wCE2X9H1ZUOLVRJBbwXluj0J8WE4LkL0+K4WuNM165wFrCBcwXpuqXS/z9bJFUVMryVnMKoenW/hwg0ukV6ritEbfzvlLj8QD3hyzgxkhsSczMsUN8TEcz6Z4Xqv5ocUTia4YD+VrUana7gKkF9zGK1SD/WF84DMJ9PyF7NYp+AtdH9SAaVGH1ZMQJJiibGRyVyuWt7y3HJ7vGyRwBUEfT+A6yfN8rnMoScCifVTwYa1H0h8WECtOcr2XUC6JR/Jx+MklFg5+x4KBHx3AmiHbuw7C6nKYD436KEzpJ+3TkK89FmcAAhxPba1vQDFBS3ovzUCXDac/ra4uHiiVWURlIbY4v1XyC6hJSZI3Tj/0D9hW5ZuqT/oU2+bXUfwmWTrxgl86QgYuWWrTwwXt6tJP4COMNJYDXHc+hedix3CGVLaVU1xcBUkeycw38DJcqr101dklYpTI++e+A/AKXRLyo04+nvgob3M5LuOqU6nNmDngxIMtiHvI3UmR1KSJnvod0YXJXLVo67Aj5t62fC8Omqyg/m+dVvAjNU3EyIDxSr5NZNRY8GAx7ZyJC0sg9zLiEcf4a6Jazd573y8fQ43sGyhhRKlHDwX5yhazOc4oBRyh9i059TZq13V7ynxpu/uRQT61PQuUL/n0DTgM35kK84pb5pdrxOaozjKFxmMlUaEAmO9oEVjrHT/HRnPK+63xq9PPxazhke4tWbE8A==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA1PR11MB7198.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(23010399003)(18002099003)(22082099003)(921020)(3023799007)(6133799003)(10067099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eFB6R3FvWFlKbUF0T05rcDBHcEc2Yi8wNVVuZ1VYaTJNSGhvMVhrV3J4TkNG?=
+ =?utf-8?B?NEk4WENuZ0RFSlBrMldYVTlDMzNIQ0RNRzgrK1pqV3UwQ25zbFFscUVkZUVH?=
+ =?utf-8?B?UkUwN2tGZVVhTmE3cUhHZ0tNakJ4WDd4ZWUzU1JORTZXZ0tKaEt2YzM0ZVE0?=
+ =?utf-8?B?Si9PT3Zlajl5ZWcwQWYybVoyVGhHMjJVSlJTUXFMdnc1U3lQVXM5a2U1djFw?=
+ =?utf-8?B?UHhLUDVHWmJId2ZBMWNER3lzZCtzZjlJdDIrQXRzU1ErdTc1VXBYMWRtbzg1?=
+ =?utf-8?B?enRVTW84elREK0JjTVpHYmRjcnZrS2g4VmJCemZHcW5UalU4QkViVHd3QjdU?=
+ =?utf-8?B?MkVpNTMxK2xyaWViUWc3TnBBOWNZbzlFRGdYM1RSbjJBZHZEcEFhMlBHbXMx?=
+ =?utf-8?B?Wjk2R2NEbnBxQUpNY0tnQ2hMczBoME9uakQ3Z1daRGlnSXluOEQ1YWg0ZEJx?=
+ =?utf-8?B?LzVzVnl5KzhrUEl2a0NDK1Roand1Wi9PODg4Vk5uNTFQSVltZnpSVUxFRjZy?=
+ =?utf-8?B?U3FXZjk1WUE2N2lnaDlhdHZmd3JNSlZ6WXZxU2ZyOVpSMFlFUWJMMTFCQlFF?=
+ =?utf-8?B?R2lDa3VZU3BBMUxYdDBjQWdldVNHUnpWKzR4U2lWQXFVbE42UUMzRmRxZjY2?=
+ =?utf-8?B?NktyZ0Y2aWdOS21RY2dzanVlL0h6VjR1YVE5OXJRVHdmSjFuL3RCMzdtUFVq?=
+ =?utf-8?B?SFlsRXdqcEoxSjQ3M2hBdnRtTW9sL0x6U1E2a3UwaksvN3VzMWNyc3NsQzh6?=
+ =?utf-8?B?YS93eUx5SUZFOEFZQmM3UzNvRGxRK216MEo0Z3pCMlhneG0rMXZtRUVRVk1p?=
+ =?utf-8?B?TlFqT0hyc1QvR3d3ZU05YUdpYXM3V0NEWTdpWEl5b0RMdnlRNnkzVmpEUlhY?=
+ =?utf-8?B?WlFlZ0hrZ3ZIRTIwc21oblFLU05FM2QzR3hIcG50Y2Exa3dqTFAyOGorZHNQ?=
+ =?utf-8?B?aVlsalV5QzhHK25FS0wzQ3RiV3lmbTRqNStmTjJwb3dsVnQ2UmpPYlVhY1dn?=
+ =?utf-8?B?eStJWHNMOEJvdHJ1ZmtGZHJ6ejViOVlmOER6Q2crTzQ1RW9tczNIa0o1dWdY?=
+ =?utf-8?B?MVpzQUlTS3h0K1hJOUZXYy9PTFpSSnlBMzYvWHRUQWVDUWZZNUhjdnBRME16?=
+ =?utf-8?B?eUZyMytVMGYxVUc1bG44T3NWMXdWNk9xbWZCdndoTUQxTVlyaytBdFl4b1I0?=
+ =?utf-8?B?VHpRcFQvazNtcngrZ2Q4Y2lIZDhCZHdpdlVhZWQ2amt6N3FhaXhsL3c1U2Ux?=
+ =?utf-8?B?cnIvc0ZYV3RtL3VUV3BqMTMyWDE4My80RVFYN21iQ3B0WVJLOGwxbVkrOEtX?=
+ =?utf-8?B?N0hJVFJiL0RWc3RFVVEwV2NZSnNIakFxZm1mOW1HUVZDUEp3VlNHcytMbVd6?=
+ =?utf-8?B?M2tGQXVTTHZBaW5ULzJOTUNnLzQ5MG5NQ2FhcWlSL3NlUFMvK1hWajFLZjNE?=
+ =?utf-8?B?ZE9mL2xSRFJibmhZVVBzVDRwbEZPelFQZm5icmY1S2JiVGduTXR5TnlYenUz?=
+ =?utf-8?B?YnM4Sm53d1ZlVnBVZ0pndVlUeW9WSEorWDdZZFo4ZjNNTkxxRlFsRW0xMzNX?=
+ =?utf-8?B?c1BxVnBsdk5LdHJUdk94b2QvMm01R040bWtZdXVaRXkydk82emgxbzY4MVU3?=
+ =?utf-8?B?aXllWXpGM3ZZaDlMLzYvSHpKeXJEdkNDZUQ3SUhZNjVJT254NU9vU0FwenBo?=
+ =?utf-8?B?ZC9SVlpyTmQzYjIrMUdYTnI5ZytSZ3dLT3Z0WlAwVDcvdjFkb2g5SnBRelJw?=
+ =?utf-8?B?NFk3em4rbTd4NHd1OEg0UDNtQUpxNVA3SkJlNnVOL2lETUhETGM5cytFbXVp?=
+ =?utf-8?B?VGQxTWdsU2NFbncyajA1RDBXTjhodk01eStPbzZDNWg2Q2JGSk5waVFyTS9q?=
+ =?utf-8?B?aE5mV0pNWnlvc0lIa0FQZGw0dWNOVy9ReWdUUDRDNFlYNkkyclZoMmZDRUp2?=
+ =?utf-8?B?UEFMbzlpUG50cGdRMHFWY3Uya1lhWjduTGJMNGw0WFdYWmNHVWxkbjArSGJj?=
+ =?utf-8?B?NldnV0h0RGsxTzBiQ2lQeFlCYmI5eHphczRPODg3ZlFMYUhsSGM2Z1VsWkkz?=
+ =?utf-8?B?NDZBK1NTa2FONHZxdklWSkd6aHA5WmZTaXZ3a3ZFV2hwVURsS3hNUUdKdFpH?=
+ =?utf-8?B?cVBtNkhaSzNxeHpnSEYyZ1JsRGhlMytFMU5yUG0xU0lXQ1d2OEVzaHdkUVh5?=
+ =?utf-8?B?d3hTcHkyMCtMWG5DNGMxTk5IVk10K25wNGZDQWpIK2syNHFNYXYxWkJpQ1Qx?=
+ =?utf-8?B?SWFHVGhZV05UUXVtYlczQzZVSXEwbzUyUWxETmFpeWxGcDlvaDhVYmFSSGk4?=
+ =?utf-8?B?WmNSUForamxyTTBUQitEYUdaV3JPL0ZZT0l0a3lDWXhnYnNERDlzRG1mUzhC?=
+ =?utf-8?Q?w2QzItmV+lbn3oG4=3D?=
+X-Exchange-RoutingPolicyChecked: ikd6WJKFYYnrOeri3KodP2GP7y1AzOfa4/tPxmYZjT6H3BoZAzzPIkOPX9JX3juo2zSzAml7TleKZx524vVFCff2tMXnJwUaWsfTmo2mtdBomSf4GlxmKFZphyNF6T4ct4PA3FHCSw7nzOfvN0aIW+h74qzR1caQFFks7RcNRAtSHZY4QjhjoOOVCmHUZU5aO4jxSd7Ammi+VpySnyfd+u24Q1+TG2rfJ+iLMkfCIeAU35PNqi0MQx7it8rMxdG9hTMrE9dR/OrJtDCOcWUuSjfanDCJIgywbjiB3+wwtgUXmOhZhNcaaaqN9GRfkEoKWPNr9nJUVhzCr3Z10oUgJQ==
+X-MS-Exchange-CrossTenant-Network-Message-Id: e6e8ea88-0a80-4dfb-81d3-08def7b628e8
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR11MB7198.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Aug 2026 14:38:07.8138
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: XmzHuZpiNlrUW0+Rl3RKNq1bSPyFDbZGHFOokE2Hi3sKn6iBc/lufYQPF5RiXlAZx3OZey9JYk8tdIXjQxSN4Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DSWPR11MB9953
+X-OriginatorOrg: intel.com
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260811_073817_966636_D4AE6BF4 
+X-CRM114-Status: GOOD (  27.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,107 +195,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 11, 2026 at 01:50:14PM +0100, Bradley Morgan wrote:
-> On 11 August 2026 11:18:27 BST, Will Deacon <will@kernel.org> wrote:
-> >[+Maz, Pasha and James]
-> >
-> >On Sun, Aug 09, 2026 at 09:36:15PM +0000, Bradley Morgan wrote:
-> >> swsusp_arch_suspend_exit() reinstalls the restored kernel's hyp stub
-> >> vectors with an hvc, but never passes the arguments. x0 is not set to
-> >> HVC_SET_VECTORS and x1 is not set to the vector address, so the stub
-> >> dispatch falls through and returns without writing vbar_el2. EL2 is
-> >> left pointing at the trans_pgd copy of the vectors, a page that
-> >> swsusp_free() releases right after resume.
-> >> 
-> >> Set the arguments up the same way __hyp_set_vectors() does.
-> >> 
-> >> Fixes: 788bfdd97434 ("arm64: trans_pgd: hibernate: Add
-> >trans_pgd_copy_el2_vectors")
-> >> Cc: stable@vger.kernel.org
-> >> Signed-off-by: Bradley Morgan <include@grrlz.net>
-> >> ---
-> >>  arch/arm64/kernel/hibernate-asm.S | 2 ++
-> >>  1 file changed, 2 insertions(+)
-> >> 
-> >> diff --git a/arch/arm64/kernel/hibernate-asm.S
-> >b/arch/arm64/kernel/hibernate-asm.S
-> >> index 0e1d9c3c6a93..2baefe7a82d3 100644
-> >> --- a/arch/arm64/kernel/hibernate-asm.S
-> >> +++ b/arch/arm64/kernel/hibernate-asm.S
-> >> @@ -89,6 +89,8 @@ alternative_insn "dc cvau, x4",  "dc civac, x4", 
-> >ARM64_WORKAROUND_CLEAN_CACHE
-> >>  	isb
-> >>  
-> >>  	cbz	x24, 3f		/* Do we need to re-initialise EL2? */
-> >> +	mov	x1, x24
-> >> +	mov	x0, #HVC_SET_VECTORS
-> >>  	hvc	#0
-> >>  3:	ret
-> >>  SYM_CODE_END(swsusp_arch_suspend_exit)
-> >
-> >I'm having a really hard time figuring out what's supposed to be going
-> >on here!
-> >
-> >The original hibernation code added by James in 82869ac57b5d ("arm64:
-> >kernel: Add support for hibernate/suspend-to-disk") unconditionally
-> >set the vectors in the exception handler:
-> >
-> >+el1_sync:
-> >+       msr     vbar_el2, x24
-> >+       eret
-> >+ENDPROC(el1_sync)
-> >
-> >However, it _also_ set the vectors from C code in swsusp_arch_resume():
-> >
-> >+       if (el2_reset_needed()) {
-> >+               phys_addr_t el2_vectors = phys_hibernate_exit;  /* base */
-> >+               el2_vectors += hibernate_el2_vectors -
-> >+                              __hibernate_exit_text_start;     /* offset */
-> >+
-> >+               __hyp_set_vectors(el2_vectors);
-> >+       }
-> >
-> >Later, Pasha refactored the assembly so that it could be shared with
-> >kexec in 788bfdd97434 ("arm64: trans_pgd: hibernate: Add
-> >trans_pgd_copy_el2_vectors"), however this added arguments to the
-> >exception handler without updating the hypercall on the hibernation path.
-> >
-> >So I think we need to figure out:
-> >
-> >0. Whether this code is actually broken atm (I have a feeling it might
-> >   happen to work)
+On 03/08/2026 12:06, Amir Ayupov wrote:
+> process_group_desc() rejects the entire perf.data file ("invalid group
+> desc" -> "incompatible file format") whenever the group description is
+> inconsistent with the event list. Group information is optional metadata
+> and is not needed to decode samples, so a single bad group descriptor
+> should not make an otherwise valid file unreadable.
 > 
-> Yes, since 788bfdd97434.
+> This is observable with AUX area recordings (Arm CoreSight ETM, Intel PT)
+> that use aux-action pause/resume: the aux-action regrouping inflates the
+> AUX group leader's nr_members, producing a group descriptor that the
 
-Right, but did you manage to reproduce a crash? You're implying that this
-hasn't worked for five years, which makes me wonder why we bother to try
-to maintain this code!
+Regrouping by auxtrace_parse_aux_action() is done before group
+description is written, so it should match.  What exactly is
+wrong with it?
 
-> >1. Why the original hibernation code set the vectors twice.
+Can you give example perf commands?
+
+> strict reader rejects, even though the file is otherwise fine (older perf
+> and other tooling read it by rebuilding groups from event records).
 > 
-> They do different jobs. The C call parks EL2 on the safe page copy
-> before the restore overwrites the current table. The asm call installs
-> the final __hyp_stub_vectors afterwards.
+> Warn and fall back to a consistent ungrouped event list instead of
+> failing the read.
 
-I think I probably need to spend some time understanding how all this is
-supposed to work. I can't currently tell how we end up with the stub
-vectors installed to start with nor why we can't do all this from C code.
+Seems like just papering over the issue.  Why can't the group
+description be written correctly in the first place?
 
-> >2. Assuming they only need to be set once, whether we can drop the hvc
-> >   from the swsusp_arch_suspend_exit assembly code entirely.
 > 
-> No. After the restore vbar_el2 is only writable from EL2, and the
-> temporary copy cannot stay. swsusp_free() frees it right after resume.
+> Signed-off-by: Amir Ayupov <aaupov@fb.com>
+> ---
+>  tools/perf/util/header.c | 42 +++++++++++++++++++++++++++++++---------
+>  1 file changed, 33 insertions(+), 9 deletions(-)
+> 
+> diff --git a/tools/perf/util/header.c b/tools/perf/util/header.c
+> index e90e541f546b4..ddc59624d639b 100644
+> --- a/tools/perf/util/header.c
+> +++ b/tools/perf/util/header.c
+> @@ -3373,6 +3373,19 @@ static int process_group_desc(struct feat_fd *ff, void *data __maybe_unused)
+>  	i = nr = 0;
+>  	evlist__for_each_entry(session->evlist, evsel) {
+>  		if (i < nr_groups && evsel->core.idx == (int) desc[i].leader_idx) {
+> +			if (!desc[i].nr_members)
+> +				goto out_inconsistent;
+> +
+> +			if (nr > 0) {
+> +				/*
+> +				 * A new leader was found before the previous
+> +				 * group's members were all consumed, so the
+> +				 * group description is inconsistent with the
+> +				 * event list.
+> +				 */
+> +				goto out_inconsistent;
+> +			}
+> +
+>  			evsel__set_leader(evsel, evsel);
+>  			/* {anon_group} is a dummy name */
+>  			if (strcmp(desc[i].name, "{anon_group}")) {
+> @@ -3381,11 +3394,6 @@ static int process_group_desc(struct feat_fd *ff, void *data __maybe_unused)
+>  			}
+>  			evsel->core.nr_members = desc[i].nr_members;
+>  
+> -			if (i >= nr_groups || nr > 0) {
+> -				pr_debug("invalid group desc\n");
+> -				goto out_free;
+> -			}
+> -
+>  			leader = evsel;
+>  			nr = evsel->core.nr_members - 1;
+>  			i++;
+> @@ -3397,10 +3405,8 @@ static int process_group_desc(struct feat_fd *ff, void *data __maybe_unused)
+>  		}
+>  	}
+>  
+> -	if (i != nr_groups || nr != 0) {
+> -		pr_debug("invalid group desc\n");
+> -		goto out_free;
+> -	}
+> +	if (i != nr_groups || nr != 0)
+> +		goto out_inconsistent;
+>  
+>  	ret = 0;
+>  out_free:
+> @@ -3409,6 +3415,24 @@ static int process_group_desc(struct feat_fd *ff, void *data __maybe_unused)
+>  	free(desc);
+>  
+>  	return ret;
+> +
+> +out_inconsistent:
+> +	/*
+> +	 * Group information is optional metadata and is not required to decode
+> +	 * samples. Rather than rejecting the whole file, warn and fall back to
+> +	 * a consistent ungrouped event list. This can happen with otherwise
+> +	 * valid perf.data files, e.g. AUX area (Intel PT, Arm CoreSight ETM)
+> +	 * recordings using aux-action pause/resume.
+> +	 */
+> +	pr_warning("Inconsistent HEADER_GROUP_DESC, ignoring group information\n");
+> +	env->nr_groups = 0;
+> +	evlist__for_each_entry(session->evlist, evsel) {
+> +		evsel__set_leader(evsel, evsel);
+> +		evsel->core.nr_members = 1;
+> +		zfree(&evsel->group_name);
+> +	}
+> +	ret = 0;
+> +	goto out_free;
+>  }
+>  
+>  static int process_auxtrace(struct feat_fd *ff, void *data __maybe_unused)
 
-Isn't vbar_el2 always only writable from EL2?
-
-> >3. Whether we can then drop the HVC_SET_VECTORS handling from this set
-> >   of vectors.
-> >
-> No, this hvc uses it, and so does kexec.
-
-Where does kexec use it? I could only spot it making use of
-HVC_SOFT_RESTART.
-
-Will
 
