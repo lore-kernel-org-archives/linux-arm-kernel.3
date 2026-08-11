@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01ED4C5CFE7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 15:31:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99071C5CFCF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 15:31:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bcFhjwes9A89zvUuGgSpPmP9VQvVv75EU6Q8BfuMsS4=; b=jzuoJt5znYUPz+BtHH2rYa+ghz
-	OGBeVfLMVT8njHnvOh/1Zn5raXRcLHWFRGrkVzhXE10JAkhH7CUPLd+GNxqC3J9ZeM9g1aTQGPbnf
-	UTNBvWRkbxiA0qv0WtzOUfrlFi3XZhMe0MIdmQHiIcNq+vMUZDCAcZPqktWeze3KFZqz/aFXz4gh7
-	kLypIm40aNOpbd1PpjjqCEYeQp+09+RMF01WDz5/I7+MUOKCexdwab4KRugG7PqC65z4qK9zCseYp
-	CgeOEt6PewgWZZtkFBiYuuXwJNz3XkpzNmyFUoeWMA3Kv6jQyTQtuZAzuSws7WwmsFujdL4SZYVlW
-	ht7yTN0w==;
+	bh=SdlWRdH/H8iL8QSy1QmXwkvjy5+5wNnPwJoBbpgZwJA=; b=fg93qJL7QRKDGmDjyMao/yB4DX
+	ToIzfNU4dABAqpYnYlMhdRDwcLN1gQDygpErJn6tBdKrrw+ypb0t6GymtERX6PYCMyfkacByfjynm
+	cmY/LSjjb0mzXCnG57GInu+rwLgcikJWB0V8A4YWY9t6dHOwKivKQCMBwOLqX4E42sRqBqym/dnyt
+	L24UGz4CZLA8rNMWSkQJ4IHYoSiHAT7dX45Tohn5YP9bWj+yz8bvDykaBhxY8SEu+y5EqEn7md7T7
+	Z+eDxFFhkQKX7PWCl7eM0iuSbSHt8sdQ50MtpRqNTyAgGMc6jcEVQ4Pdz51tlF6tLBA47d/DQNEVO
+	otB7E05A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtoRQ-0000000EKE9-2DCd;
+	id 1wtoRQ-0000000EKDk-1HKA;
 	Tue, 11 Aug 2026 15:31:00 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtoRL-0000000EKB4-3eH1
+	id 1wtoRI-0000000EK8d-0QVN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 15:30:57 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-490cf322ed0so26616505e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 08:30:55 -0700 (PDT)
+	Tue, 11 Aug 2026 15:30:53 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-490cf322ed0so26615805e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 08:30:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1786462254; x=1787067054; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1786462250; x=1787067050; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=bcFhjwes9A89zvUuGgSpPmP9VQvVv75EU6Q8BfuMsS4=;
-        b=DMJE+FjAuODe1n89VyQQpXperomobRrgGij+2G3gZmhAEXR+usC+o6+DrKup6TBfLB
-         1HkVsbYvWfH4x458AsFVQqTZ9CaUHNORBUB+2nwgwGUs29mPHSY6xeOaeUnfpQfyYiwb
-         3HrN5gW2+FJpc8Z/swI7VLv6wIh2VIbgFqkFYqnAcVxqteppbkisQJTSgukXRlF6XS0W
-         MHvFd6x9sy8V0fDFC7lnyLri2hXbrjFdQmzsbCLcdLt4CjhwL2QBuyl/JaxAEfa//NjF
-         P5P3++uVpRA9yrrl7ZqQINRh5g5WIhj2H4LkPLfema5yfYO6NpXoNiXnb2Mx25PaXM9d
-         65aw==
+        bh=SdlWRdH/H8iL8QSy1QmXwkvjy5+5wNnPwJoBbpgZwJA=;
+        b=pc9IwUBu+IzsiKjwEDGX6ezaalbRjXgiKtrwryYMGDsTpijn3R8zOBYKqMR71O7IQv
+         XB5+fPmDKBM6EpQV4qd/bgZf7RrfNrHAoKX8CymfaVvcr438bQEEI2GQKF6vN8gl5dEU
+         Vm+jKDAo7Jz2dK7zi5SfjoZpZBMTSt1PuZkLEujmJOx/qDz9rALr/0BW7ftDbIeoS57V
+         C1EKG/IBglzYRssf2qRJxzdnISHP5Wvd726FkUJ03ACtFL4CEQofQXgO8mpU1IhMJq3N
+         b16O1TYtyy0I+wiq/C2FpZkgTJcy9zPRLMCZar/MrAOjmvmVKb40D5XCKNspFTWrrpKk
+         b2PA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786462254; x=1787067054;
+        d=1e100.net; s=20251104; t=1786462250; x=1787067050;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=bcFhjwes9A89zvUuGgSpPmP9VQvVv75EU6Q8BfuMsS4=;
-        b=Ts38tYDZACHExGRRl+ySN3XhKmMV7J6ltvcIWbE3dz/owP1NHs3d60/iOPDDvPWQMT
-         L13Y4mDR/cNsMLBtCDp+agaUrLNAA04oQPl2zwjFNvRw8DSxeAiogeYqOdP3R/uHM4nl
-         3zQQWzyFaAvBaVN4wOcxFLW8wf+0YxZ2iaUOpB4L/iWWE3tGSr4FwS1CqVfI7m4gZz8i
-         ZY1HXJpMi2tvIatFauoBRKk5fEfnh1+ijH4d3sBIRamcu+NY30UJIFKDYyCFCY2+g6tD
-         9meXuU11jRop7kIsLpjDdOZbnUtflghCO9lcSBVAV8W6CKzfE6SAesrzO1TTZIDQx5F2
-         vMlQ==
-X-Forwarded-Encrypted: i=1; AHgh+RpEFVQw9KhC+uELCohC4rqS83Gw6xTkTStZPtocwkIKu9w89qekswbb0LibWGSfdOmN2L+OgIpRwI7hCfHJHzRD@lists.infradead.org
-X-Gm-Message-State: AOJu0YyBvpLh0pPTia4z/qHPSey9SMHT7oW+g9Lfi3BP03Pzw4x9divC
-	mye3Rfg24j9l00hv8oCyCOg2DvpD0bIUpymD2mLAw8Q4+T2Pv1aG1dyjVihVWGr+fQ4=
-X-Gm-Gg: AR+sD11I/GSDwUdWmvgkiCdS+LNGwi4/MSWab8Ki8CF8h+Sk6rRJZYAiKngbP1tb1nZ
-	f35KQN0omHqCmUUTGLT43enkGo5oKNyfHAz18cJfPetc9X/KOHl8ZBmCPGhthcI7QZYMMbtRzYI
-	/0QpDsHrSfn/n5AV6Tx4UTy9mUCmGwMZPTUysvYu4M0yVIBUtsg2erYN0cPopyxyZQGHd3CdG7g
-	WLoEjPJiuuyuQObdDpxRFx4Xs/0FkZDYD2+6z5qCKHZoO2ly7gQA3LCpKH1gG0BooV8AnYR2pFI
-	ZDnHj2L3//bRgT8d/i3PIThe4m1o1AwMXnrW2nzizOWSA+c24hyGuJDFQPLc//jIy++tV58jseQ
-	kNd1KmEsqMv0E8BbeDKSGR3Hn6dP5mcdutcFDXE8r+oS01FkHCWHD4dytQjtq4sd7zA5Lcp6/8I
-	Z2lBXeHAR8arEEHb79/aWhhk0YVg372/7KDdRaU0iYeGcgrf/RWb1OrwTTjybaIUY6R794FQ==
-X-Received: by 2002:a05:600c:8219:b0:493:bacb:1341 with SMTP id 5b1f17b1804b1-4997842db6cmr72514755e9.4.1786462253990;
-        Tue, 11 Aug 2026 08:30:53 -0700 (PDT)
+        bh=SdlWRdH/H8iL8QSy1QmXwkvjy5+5wNnPwJoBbpgZwJA=;
+        b=XD4IA9TeNZvPqKAhVp60qyGdYp6JrwKVwNnxxwlCRvlgniiqwIHXRgMQSyrdD893vo
+         EgMjwMWotlexC00S1p+dvY33s5s9SlvGpiaYRDgqYM1MsBr70kYtpDo75CQLoZVPNxtG
+         xcVSU2t0RDXRv1YHsS6Msow3RMYed7063FdWm8LcBUDIFqE22BE/59tVDkNygcLFp5rN
+         +7XyX6gX5vanasBt5lYMfCraZUz3Vbg5D4qP/b+/t3AlOS745FHK2uNYloJSNY5IjLDx
+         NSJRqc4YhqSjgJjIhTA1So43VwBbJheKyT9d5jwzFOw2jtz8ztVvT0zPvTX29LGNrNRr
+         achw==
+X-Forwarded-Encrypted: i=1; AHgh+Ro8E/fAMAxsIDyABODJDK4XG0WBkCSbF7Ta6Opyck6Hxt1Ucpr05ae+hW63wk3pgnZ7PVLtUlfczPhBf1PxIEZA@lists.infradead.org
+X-Gm-Message-State: AOJu0YxiuP3eGZeZar6UvPxt1rqh/3j5aIa7aGJLK0ObKx7BPwuCLPrC
+	X2csm1om7+fq37IlwE47k6aip9h9pNhUAdjtCYWh0wN1zy1CriEdYVkv9+Olxf0B7w8=
+X-Gm-Gg: AR+sD11aFsjb+UbAh2GkIspBiwD7mmbVqdZzRTCw2opkMLKGfp1bW2qv7j/FVusgbda
+	EjAh5iP3/GWu+8HBGG9RVUNjnR4/XgEgPxw2lS/XiNdOENw133HDr5Uqfk0o0Rg2c4LT+PzhOm1
+	iQaQa423cYFcwp18I2yiS/dosLqSKrllQiMM1bKVq2CLgiYsuzuJR1LdsC0T6IbX9pWUfkhtWgD
+	JnkZjJJjDLpmK3n3Kdsi/2mu0UviYB9gsN3v0ihkyE6DAOn8ajMyxOWqTh/87bvIzhDfVQhv4Df
+	zyZe9u2ew5WRTzORlTZ4bBjEzIqau2y+6JOFguxAgcE/gaeCKC8SRlthAEqstoDQiw1LkxrsVRv
+	13vhjhxqlHOlIXHI6+6mdXtZY0rcQdAxqitZgxJ89DoY71yT8705fxQSiklylHqdZlDWJt27XvK
+	g/MyS7Df7NQfGP8Id2mbCVGr6a6WaGAqshRGX/8R3jJy6XdHe2Q06Nu0KhXHqR/LMQ
+X-Received: by 2002:a05:600c:310f:b0:499:737c:ce4c with SMTP id 5b1f17b1804b1-4997843703cmr53727915e9.6.1786462250133;
+        Tue, 11 Aug 2026 08:30:50 -0700 (PDT)
 Received: from pop-os.local ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49977dfacb6sm49865395e9.1.2026.08.11.08.30.51
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49977dfacb6sm49865395e9.1.2026.08.11.08.30.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 11 Aug 2026 08:30:52 -0700 (PDT)
+        Tue, 11 Aug 2026 08:30:49 -0700 (PDT)
 From: James Clark <james.clark@linaro.org>
-Date: Tue, 11 Aug 2026 16:30:08 +0100
-Subject: [PATCH 05/14] perf cs-etm: Increase default timestamp generation
- period
+Date: Tue, 11 Aug 2026 16:30:06 +0100
+Subject: [PATCH 03/14] perf cs-etm: Turn on context packet timestamps in
+ per-thread mode
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260811-james-cs-unformatted-per-thread-fix-v1-5-90565318f5f8@linaro.org>
+Message-Id: <20260811-james-cs-unformatted-per-thread-fix-v1-3-90565318f5f8@linaro.org>
 References: <20260811-james-cs-unformatted-per-thread-fix-v1-0-90565318f5f8@linaro.org>
 In-Reply-To: <20260811-james-cs-unformatted-per-thread-fix-v1-0-90565318f5f8@linaro.org>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -98,8 +98,8 @@ Cc: Leo Yan <leo.yan@linux.dev>, linux-arm-kernel@lists.infradead.org,
  linux-doc@vger.kernel.org, James Clark <james.clark@linaro.org>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_083055_956033_057F117F 
-X-CRM114-Status: GOOD (  16.05  )
+X-CRM114-CacheID: sfid-20260811_083052_166535_00828BBB 
+X-CRM114-Status: GOOD (  15.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,53 +114,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The original purpose of timestamps in per-CPU mode was to roughly emit
-samples in the order they occurred across multiple CPUs, rather than
-emit all the trace from CPU 1 followed by all from CPU 2 etc.
-Previously there was no way to change the interval from the minimum of 1
-cycle, but custom intervals are now supported by the driver.
-
-Drastically reduce the number of timestamps emitted by increasing the
-interval, which is more than enough to interleave sample generation.
-This reduces the size of the trace generated.
+Practically this costs nothing and preempts future changes that will be
+made to support decoding trace in order with Perf MMAP and JIT events.
+It also helps keep samples in order when we add support for multiple
+per-thread mode threads in the next commit.
 
 Signed-off-by: James Clark <james.clark@linaro.org>
 ---
- tools/perf/arch/arm/util/cs-etm.c | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+ tools/perf/arch/arm/util/cs-etm.c | 17 +++++++++++++----
+ 1 file changed, 13 insertions(+), 4 deletions(-)
 
 diff --git a/tools/perf/arch/arm/util/cs-etm.c b/tools/perf/arch/arm/util/cs-etm.c
-index d0486a164a70..d36b7e41399b 100644
+index acfdb3f53821..d0486a164a70 100644
 --- a/tools/perf/arch/arm/util/cs-etm.c
 +++ b/tools/perf/arch/arm/util/cs-etm.c
-@@ -70,6 +70,9 @@ static const char * const metadata_ete_ro[] = {
- 
- enum cs_etm_version { CS_NOT_PRESENT, CS_ETMV3, CS_ETMV4, CS_ETE };
- 
-+/* Default timestamp period of 256 cycles (2 ^ (9 - 1) = 256). */
-+#define DEFAULT_TS	9
-+
- static bool cs_etm_is_ete(struct perf_pmu *cs_etm_pmu, struct perf_cpu cpu);
- static int cs_etm_get_ro(struct perf_pmu *pmu, struct perf_cpu cpu, const char *path, __u64 *val);
- static bool cs_etm_pmu_path_exists(struct perf_pmu *pmu, struct perf_cpu cpu, const char *path);
-@@ -458,7 +461,7 @@ static int cs_etm_recording_options(struct auxtrace_record *itr,
- 		 * Timestamps are required to interleave samples from different
- 		 * CPUs.
- 		 */
--		evsel__set_config_if_unset(cs_etm_evsel, "timestamp", 1);
-+		evsel__set_config_if_unset(cs_etm_evsel, "timestamp", DEFAULT_TS);
- 		/* Context IDs are required to associate trace to a process */
- 		evsel__set_config_if_unset(cs_etm_evsel, "contextid", 1);
- 	} else {
-@@ -477,7 +480,7 @@ static int cs_etm_recording_options(struct auxtrace_record *itr,
- 	 * timestamp tracing.
+@@ -453,13 +453,22 @@ static int cs_etm_recording_options(struct auxtrace_record *itr,
  	 */
- 	if (opts->sample_time_set)
--		evsel__set_config_if_unset(cs_etm_evsel, "timestamp", 1);
-+		evsel__set_config_if_unset(cs_etm_evsel, "timestamp", DEFAULT_TS);
+ 	evsel__set_sample_bit(cs_etm_evsel, CPU);
  
- 	/* Add dummy event to keep tracking */
- 	err = parse_event(evlist, "dummy:u");
+-	/*
+-	 * Also the case of per-cpu mmaps, need the contextID in order to be notified
+-	 * when a context switch happened.
+-	 */
+ 	if (!perf_cpu_map__is_any_cpu_or_is_empty(cpus)) {
++		/*
++		 * Timestamps are required to interleave samples from different
++		 * CPUs.
++		 */
+ 		evsel__set_config_if_unset(cs_etm_evsel, "timestamp", 1);
++		/* Context IDs are required to associate trace to a process */
+ 		evsel__set_config_if_unset(cs_etm_evsel, "contextid", 1);
++	} else {
++		/*
++		 * Enable context packet timestamps only (no periodic
++		 * timestamps). Even in per-thread mode with a single process we
++		 * still need to correlate trace to a specific mmap around
++		 * execs, which can be done with just context packet timestamps.
++		 */
++		evsel__set_config_if_unset(cs_etm_evsel, "timestamp", UINT64_MAX);
+ 	}
+ 
+ 	/*
 
 -- 
 2.43.0
