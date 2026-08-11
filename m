@@ -4,62 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0541AC5CFCF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 08:58:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FFBAC5CFCF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 08:59:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aOPB5s1AVVEESZAsbtL0NPJBawQgvnyA8F7vvZJJ3SY=; b=llwzhzPxFL/bmC87gmztoX5i9N
-	LN5kFVCQowJrMbHTsEZR1r7eFhjEzrY/xd+PyFZcQ7Xz8CmUrSTS1l9LdvYwUs9YaxgTgqkxFVpDc
-	82bZ01Ovpp5SomFJeIyutpSC6FCXdGU3GZv5NjExnRBtW7VJ9CMIxUsEaQQcCEtqgI4NXz4qDWBMg
-	UYtIgEUOAL8ulcO8UamvkzjkKkdWtMB3ZDK/pU7jSdvi1oH4teCLWp8QmdQTs5fQYQGtyAeFmOxa4
-	ecve/DDig4SFUD3wcjRk1Ek9WYoTbgZrDwVL2Bqjr2En6/TfG74ZBmRfDNGgfTYctGMf797aiaHlK
-	p2RvOVBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qtC4bZ4oiS+jDaJBObfI6XLhYsuBsmJEi4axBF+WMao=; b=JrdKDEDPahomGeXh4UsfcKrDvs
+	qIqaQhPdbxNnXqFyth4EqueBeu5fCQ4nV/sL/DnCE5bSVh+uoHfM9WQjaKJ2y4DIo77VOBR2kUBzr
+	h8WJPH3LhSQVim6A6gncw1LlHcR2lq1/DJn5abfG/RvmFIJV/o0EOh6iPJnpH8f+C11DxgyRREHxH
+	Yg8Bm/wum5fOEpPuqA8aHkghRsfb1pl9GlF6RkkoZ7e3NmJsAXHEpltJn5hpJ4YvXY3dy5UF02UdN
+	/vHV8e5W3rD1pxlCc9niYNWMmPvjrEyjDSH5o+J1ry5eHUrXttsSn97KKYOt2rbnd8xUcHbeGqN0v
+	BrIChOUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtiHC-0000000DfOi-3zwp;
-	Tue, 11 Aug 2026 08:56:02 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wtiKm-0000000DflG-2JAf;
+	Tue, 11 Aug 2026 08:59:44 +0000
+Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtiH9-0000000DfOL-1vFl;
-	Tue, 11 Aug 2026 08:56:01 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 82505600AD;
-	Tue, 11 Aug 2026 08:55:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 392D81F000E9;
-	Tue, 11 Aug 2026 08:55:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786438558;
-	bh=aOPB5s1AVVEESZAsbtL0NPJBawQgvnyA8F7vvZJJ3SY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=BInhLC3A9EzYUaIcBOGFb/4Zc7qX4oBcukJnnBBuerT8zvQHOdCgMRb5oIMruRkEr
-	 5uesCaUdNbkWekEA1yxrUoorWZ+Yx4GF6BtF0Xg74JxfGJ7u0s6hE8nk5ER3B4S9fE
-	 140EPNujt84y8LwVfVWrhURIXrWohLWGhP2IEu2kXNEmyLT6CnnBisL0VvTX7zlyK7
-	 gWB6JBabTcFRLIGb/5h+s2X28XhXs90IC/PSxg2vUDq1N18YcIZIrYI046itSObl7s
-	 Olr1JoR345kNMqwnQg2ZwGHzKXOTd1YBkbd/3bP9PaUOJFH+5LAYiqEheiVypyUh33
-	 TkVsNIDz8TPlQ==
-Date: Tue, 11 Aug 2026 10:55:54 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-Cc: linux-mediatek@lists.infradead.org, 
-	Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 5/8] dt-bindings: reset: Add reset controller
- constants for mt8167
-Message-ID: <20260811-roaring-bat-of-blizzard-63ffee@quoll>
-References: <20260809160643.33991-1-l.scorcia@gmail.com>
- <20260809160643.33991-6-l.scorcia@gmail.com>
+	id 1wtiKi-0000000DfkP-2EPM
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Aug 2026 08:59:42 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=qtC4bZ4oiS+jDaJBObfI6XLhYsuBsmJEi4axBF+WMao=;
+	b=Y4ksyhwBasFbFVwS6cE35hsu5Kv8+AZMy4imSWAKo+GUF0RBbWM37xcnEPivykn6+vQ9nhewS
+	sWPrCZlBXi/eOCA5Sy3brCWWYLUTOiGgm6td/RiR56aka0Y0STFyz7xPrJsfSDUjJX7QhrMYC1R
+	IgMdRczB3vBgF6HXqT8cvGg=
+Received: from mail.maildlp.com (unknown [172.19.163.163])
+	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4hK4zW6jS2z1cyQN;
+	Tue, 11 Aug 2026 16:48:55 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 8B1F84057A;
+	Tue, 11 Aug 2026 16:59:31 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 11 Aug 2026 16:59:31 +0800
+Message-ID: <39b86a06-291f-46b3-8bef-4c0835b9a8bd@huawei.com>
+Date: Tue, 11 Aug 2026 16:59:30 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260809160643.33991-6-l.scorcia@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v2 19/45] arm64: cpuidle: use new helpers to bypass
+ interrupt priority masking
+To: Vladimir Murzin <vladimir.murzin@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>
+CC: <mark.rutland@arm.com>, <maz@kernel.org>, <will@kernel.org>,
+	<catalin.marinas@arm.com>, <liaochang1@huawei.com>
+References: <20260727163453.7969-1-vladimir.murzin@arm.com>
+ <20260727163453.7969-20-vladimir.murzin@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <20260727163453.7969-20-vladimir.murzin@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260811_015941_220569_979FB1E1 
+X-CRM114-Status: GOOD (  29.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,44 +80,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Aug 09, 2026 at 06:03:29PM +0200, Luca Leonardo Scorcia wrote:
-> Add the various bits that identify watchdog and mmsys resets. IDs for
-> mmsys resets restart from zero as they are used in a different device.
+
+
+在 2026/7/28 0:34, Vladimir Murzin 写道:
+> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 > 
-> Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
+> When the CPU goes into WFI and pseudo-NMIs are in use, we need to make
+> sure that interrupts are not masked by the PMR otherwise they would not
+> reach the CPU and wake it up.
+> 
+> Now that we have a proper API that handles both DAIF and PMR, extend it
+> to provide helpers allowing to temporarily switch to masking interrupts
+> via DAIF only when interrupt priorities are in use.
+> This could allow other parts of the code to make use of it and makes it
+> easier to check for proper use.
+> 
+> Replace the custom cpuidle helper with those new helpers.
+> 
+> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
 > ---
->  .../reset/mediatek,mt8167-resets.h            | 53 +++++++++++++++++++
->  1 file changed, 53 insertions(+)
->  create mode 100644 include/dt-bindings/reset/mediatek,mt8167-resets.h
+>  arch/arm64/include/asm/cpuidle.h            | 18 ++----
+>  arch/arm64/include/asm/interrupts/masking.h | 61 +++++++++++++++++++++
+>  2 files changed, 65 insertions(+), 14 deletions(-)
 > 
-> diff --git a/include/dt-bindings/reset/mediatek,mt8167-resets.h b/include/dt-bindings/reset/mediatek,mt8167-resets.h
-> new file mode 100644
-> index 000000000000..af8a3e499f8b
-> --- /dev/null
-> +++ b/include/dt-bindings/reset/mediatek,mt8167-resets.h
-> @@ -0,0 +1,53 @@
-> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-3-Clause) */
-> +#ifndef _DT_BINDINGS_RESET_CONTROLLER_MT8167
-> +#define _DT_BINDINGS_RESET_CONTROLLER_MT8167
+> diff --git a/arch/arm64/include/asm/cpuidle.h b/arch/arm64/include/asm/cpuidle.h
+> index 2047713e097d..b70ef5fd5e57 100644
+> --- a/arch/arm64/include/asm/cpuidle.h
+> +++ b/arch/arm64/include/asm/cpuidle.h
+> @@ -5,32 +5,22 @@
+>  #include <asm/proc-fns.h>
+>  
+>  #ifdef CONFIG_ARM64_PSEUDO_NMI
+> -#include <asm/arch_gicv3.h>
+> +#include <asm/interrupts/masking.h>
+>  
+>  struct arm_cpuidle_irq_context {
+> -	unsigned long pmr;
+> -	unsigned long daif_bits;
+> +	arm64_exc_hwstates_t arm64_context;
+>  };
+>  
+>  #define arm_cpuidle_save_irq_context(__c)				\
+>  	do {								\
+>  		struct arm_cpuidle_irq_context *c = __c;		\
+> -		if (system_uses_irq_prio_masking()) {			\
+> -			c->daif_bits = read_sysreg(daif);		\
+> -			write_sysreg(c->daif_bits | PSR_I_BIT | PSR_F_BIT, \
+> -				     daif);				\
+> -			c->pmr = gic_read_pmr();			\
+> -			gic_write_pmr(GIC_PRIO_IRQON | GIC_PRIO_PSR_I_SET); \
+> -		}							\
+> +		c->arm64_context = local_exceptions_force_daif_save(); 	\
+>  	} while (0)
+>  
+>  #define arm_cpuidle_restore_irq_context(__c)				\
+>  	do {								\
+>  		struct arm_cpuidle_irq_context *c = __c;		\
+> -		if (system_uses_irq_prio_masking()) {			\
+> -			gic_write_pmr(c->pmr);				\
+> -			write_sysreg(c->daif_bits, daif);		\
+> -		}							\
+> +		local_exceptions_force_daif_restore(c->arm64_context);	\
+>  	} while (0)
+>  #else
+>  struct arm_cpuidle_irq_context { };
+> diff --git a/arch/arm64/include/asm/interrupts/masking.h b/arch/arm64/include/asm/interrupts/masking.h
+> index 193089fda252..e13852442062 100644
+> --- a/arch/arm64/include/asm/interrupts/masking.h
+> +++ b/arch/arm64/include/asm/interrupts/masking.h
+> @@ -89,6 +89,67 @@ static inline void local_exceptions_final_mask(void)
+>  }
+>  #endif /* CONFIG_DEBUG_IRQFLAGS */
+>  
+> +/*
+> + * In some cases, WFI or guest entry for example, we always want interrupts
+> + * to reach the CPU even if masked. Masking via the PMR prevents them from
+> + * reaching the CPU and waking it up.
+> + * Force IRQ masking using DAIF by raising the priority mask
+> + * and setting the IF flags.
+> + *
+> + * Should only be called when IRQs are already masked.
+> + */
+> +static inline arm64_exc_hwstates_t local_exceptions_force_daif_save(void)
+> +{
+> +	arm64_exc_hwstates_t states = {};
 > +
-> +/* TOPRGU resets, these are actual bits in the register */
+> +	if (!system_uses_irq_prio_masking())
+> +		return states;
+> +
+> +	/*
+> +	 * Cannot use lockdep_assert here as idle entry enables hardirqs
+> +	 * while keeping interrupts masked.
+> +	 */
+> +	WARN_ON_ONCE(!irqs_disabled());
+> +
+> +	states.saved.daif = read_sysreg(daif);
+> +	states.saved.pmr = read_sysreg_s(SYS_ICC_PMR_EL1);
 
-Not a binding, drop these.
+I'd suggest using gic_read_pmr() as it aligns better with the original
+implementation.
 
-> +#define MT8167_TOPRGU_DDRPHY_FLASH_RST		0
-> +#define MT8167_TOPRGU_AUD_PAD_RST		1
-> +#define MT8167_TOPRGU_MM_RST			2
-> +#define MT8167_TOPRGU_MFG_RST			3
-> +#define MT8167_TOPRGU_MDSYS_RST			4
-> +#define MT8167_TOPRGU_CONN_RST			5
-> +#define MT8167_TOPRGU_PAD2CAM_DIG_MIPI_RX_RST	6
-> +#define MT8167_TOPRGU_DIG_MIPI_TX_RST		7
-> +#define MT8167_TOPRGU_SPI_PAD_MACRO_RST		8
-> +/* The data sheet describes bit 9 as "reserved, unused" */
+> +	/*
+> +	 * We might have IF set or unset. In case IF already set orring with IF
+> +	 * won't change anything, combined with PMR set to IRQON we might become
+> +	 * one of contexts: CRITICAL, ERROR or NONMI. In case IF is unset (which
+> +	 * also implies that DA is unset) orring with IF and combining with PMR
+> +	 * set to IRQON would effectively gives us NONMI context.
+> +	 */
 
-ID cannot be unused. If it is unused, then just use next one here, so MT8167_TOPRGU_APMIXED_RST=9.
+The comment seems redundant to me, because __arm64_update_exc_hwstate()
+only needs the hwstate parameter and has no dependency on the context type.
 
-Best regards,
-Krzysztof
+Otherwise, LGTM
+Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+
+> +	states.expected.daif = states.saved.daif | DAIF_PROCCTX_NOIRQ;
+> +	states.expected.pmr = GIC_PRIO_IRQON;
+> +
+> +	arm64_update_exc_hwstate(states.expected);
+> +
+> +	return states;
+> +}
+> +
+> +/*
+> + * Return to masking with the PMR, restoring previously saved DAIF and PMR.
+> + *
+> + * IRQs or interrupt priority masking should not have been re-enabled in between
+> + * the save and restore.
+> + */
+> +static inline
+> +void local_exceptions_force_daif_restore(arm64_exc_hwstates_t states)
+> +{
+> +	if (!system_uses_irq_prio_masking())
+> +		return;
+> +
+> +	/*
+> +	 * Cannot use lockdep_assert here as idle entry enables hardirqs
+> +	 * while keeping interrupts masked.
+> +	 */
+> +	WARN_ON_ONCE(!irqs_disabled());
+> +
+> +	arm64_debug_exc_hwstate(states.expected);
+> +	arm64_update_exc_hwstate(states.saved);
+> +}
+> +
+>  /*
+>   * During early boot, we unmask PSR.DA before the GIC has been set up.
+>   * If we use IRQ priority masking, the PMR and PSR will be out of sync
 
 
