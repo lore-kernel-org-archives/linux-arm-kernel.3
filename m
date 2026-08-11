@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47B7BC5CFC1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 22:20:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E45BC5CFC1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 22:43:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2PqIr4fmxyKnYA6iGlh4mS7egkuY16Gey8TStUT6D1M=; b=gqB82zzGW+RWis9I3wXHdj0PH6
-	gdEyBxfxDCS2tQ5howdR96T61EjoQO/566/SH22BoViAZryfKuAf6T5+b4hHDo/hhkgUJxFjuGU6E
-	we+70iw4rd1XcTBRL0PrUhsv+hbUe+DcKpBvafCSdAxEY5EWgARYmi1D24t4264J5X/lfjlaPAQ91
-	zJK2Qf+es3yJiBsnRqprlP6/9ZZLeOIRZGhZIzM2Yiniz/PP6Cn9FkgOH3+J9sPEo7a0Eb7SRK/Xw
-	CkbNuBL7Bz9h/2QyyjlbeXJ5FDNp+bEGkz/ea26CVU0oS868pO3O3qUhz9bX7Jt1tam4UAdIPCf1w
-	eenxUdxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8UjVzdA3ZiJV2WD71DqQ+LTR9g0cXUEs5gtk+/y0MpM=; b=ek4eoh8dgd3RVm+Z9OsYsGIjRO
+	q0sla6qlOdnl6+egHWXGFu6wKhiOP8209C3hKIBWtcbpIKLQN1o5zk8Ea+4j2wBG8LlfHoNvAeDSE
+	B2At/vODuqhbaAruFtBsr3TwwwHhfXZuK0itb1WT1uf3YtoSyUrKejn166bd2mjiSUj6ZCEkftwtm
+	6HpIhZKT+SyGXjRGrXTZjBFuOzkrfA0MDire6LH49CJCK5FC+Pej9eu3enjrjope5fm/QRpEPrDua
+	6KGYLc8egJj/sbKNRlGRXvpfctadoW6gAx6jBNNhEw1GkSm4NxMI99RK8HJRBO8XR25J0j3aJkaGH
+	UMqrvn3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtupg-0000000F20C-2wKf;
-	Tue, 11 Aug 2026 22:20:28 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wtvBl-0000000F2ya-1aXo;
+	Tue, 11 Aug 2026 22:43:17 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtupe-0000000F1zy-3TtM
+	id 1wtvBj-0000000F2yI-15IN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 22:20:27 +0000
+	Tue, 11 Aug 2026 22:43:15 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 28A9D43FDC;
-	Tue, 11 Aug 2026 22:20:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3CDE41F000E9;
-	Tue, 11 Aug 2026 22:20:24 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B4302600AE;
+	Tue, 11 Aug 2026 22:43:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C67C1F000E9;
+	Tue, 11 Aug 2026 22:43:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786486826;
-	bh=2PqIr4fmxyKnYA6iGlh4mS7egkuY16Gey8TStUT6D1M=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=S/6D7XHT9FGfHPutlacLa6+iaAPoW4X8kDi6DMftL9dHMThohK/2K4++IZCBqilkf
-	 6BsSvVDCRpgko8MCBdqP4v2neSimnmMtzlkoNexz5VNLwz/msZ9rfd1ZgGWbmennQn
-	 aj9fVLQEu1oZobXJJFAMRCUk2BsCVeA7T56WG4RIas3hG1hFY7g6qks057tHC0NxNW
-	 n3fVUSZh6xHyZIFOwAd8gFYQsMrCn2t+fCduf7n073LP/S4n6SJl09DHpaijzKLz6d
-	 jCzNmgU2M247hnrnbk41EAqfM+1tZBV9vbimjl0uPcIzDezhibcDZFoDQ5ZWvawUPL
-	 prapXu5z17gig==
-From: Mark Brown <broonie@kernel.org>
-To: Daniel Mack <daniel@zonque.org>, Liam Girdwood <lgirdwood@gmail.com>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Haojian Zhuang <haojian.zhuang@gmail.com>, 
- Robert Jarzmik <robert.jarzmik@free.fr>, phucduc.bui@gmail.com
-Cc: linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20260811100949.61142-1-phucduc.bui@gmail.com>
-References: <20260811100949.61142-1-phucduc.bui@gmail.com>
-Subject: Re: [RFC PATCH] ASoC: pxa: Use devm_clk_get_optional() for extclk
- clock
-Message-Id: <178648245852.119683.17286838052552347114.b4-ty@b4>
-Date: Tue, 11 Aug 2026 22:07:38 +0100
+	s=k20260515; t=1786488194;
+	bh=8UjVzdA3ZiJV2WD71DqQ+LTR9g0cXUEs5gtk+/y0MpM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=nHJlg6/ZExNylL+Soss19nqRu/AB3XBp1DEb/igjvoDkEyLz1Rh3ZyDFUQ/GovR3B
+	 0KjDaRkvhVeW3X/rhxl4A9wYfrHbNSjaB7tyQUQVWQRLBNzvrqW4yVsSOOENsW+f4H
+	 GX+lf83pstlgco6v0+9Thjgw2XkRr8VpMJC0OzGEQD7s+OT4Ok4riG5zYAbDU3xJoJ
+	 oIz2rK0brROJjOWrwLC5lrVoIrvMHhq3jfqfj/K3r072OCoUmYoikcg2LXwjaju3DU
+	 b3unrs1s9O9Vjz71P6fr1TESc0Toy4MHZpzRMBl33fre4TCwLk8AYykYATh/K1uNQP
+	 qCqn0LBDEDE+A==
+Date: Tue, 11 Aug 2026 15:41:10 -0700
+From: Eric Biggers <ebiggers@kernel.org>
+To: Bartosz Golaszewski <brgl@kernel.org>
+Cc: Demi Marie Obenour <demiobenour@gmail.com>,
+	linux-crypto@vger.kernel.org,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH] crypto: qce - Replace with stub driver
+Message-ID: <20260811224110.GC1905@sol>
+References: <20260731050838.158825-1-ebiggers@kernel.org>
+ <a28c2903-0976-4559-b870-4de5553ba9ab@kernel.org>
+ <3ba57269-3305-4d80-b3f2-aa82fa59b59d@gmail.com>
+ <b9b655a9-c683-4c4e-ba0d-f98577dd2912@kernel.org>
+ <20260801162900.GA2021@quark>
+ <e7aeec9b-11aa-4635-bde9-fb8c7ca38260@kernel.org>
+ <20260801171242.GA3567@quark>
+ <CAMRc=McL5QQRk8C8zzkHm+FUj-SAVi5PLJr2pXo8eNpaxXuALg@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1137; i=broonie@kernel.org;
- h=from:subject:message-id; bh=7Jr8fo4boJSL1ugftBxk4l8ujAkN96ATmdOYTBeOT+s=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqe6An4W7quwZTF0WWBqSdBtzwhPLKjxzXbBt3+
- pkpojzQv2yJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCanugJwAKCRAk1otyXVSH
- 0JxXB/9NfzVHgUpvmMC0HyLNxNf56+nUpXFElK4awv1etNBi6ectrnvEAf5tQLS5utQYVyYCI2H
- Vl/XZIS0Uqo0qTGP0WYX9MB751jigeXB0w7qyAK6qUAg+V8p/irG2HJlMD5Y5L08w8rqkRuhgIw
- P8tweuUZJkW3TdcARG7CJEjM5VI83phPvBKEubJZVtmUQ4LkfsN2oCQRuxNGCOtLbz5DfaBko9Z
- EtEvJ0vt1j/u9/G0s4n5G4IGcWzTlz+rCISgQ/NCrz2TgxZxfsZly64CbJXuYgx35n7RKcc3qoT
- lIJ+zePPfdLHp/bENbXgrt2eIpfzq021ayy64ouIoNyIg1jo
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAMRc=McL5QQRk8C8zzkHm+FUj-SAVi5PLJr2pXo8eNpaxXuALg@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,35 +83,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 11 Aug 2026 17:09:49 +0700, phucduc.bui@gmail.com wrote:
-> ASoC: pxa: Use devm_clk_get_optional() for extclk clock
+On Tue, Aug 11, 2026 at 08:42:55AM -0500, Bartosz Golaszewski wrote:
+> On Sat, 1 Aug 2026 19:12:42 +0200, Eric Biggers <ebiggers@kernel.org> said:
+> 
+> > Well, that again brings us back to the core issue which is the actual
+> > current functionality of the driver, which is to register crypto_ahash,
+> > crypto_skcipher, and crypto_aead algorithms with the crypto API.
+> >
+> > It isn't useful functionality, but rather just a footgun that allows
+> > users to misconfigure their systems, an issue I've seen happen multiple
+> > times.  CPU-based implementations of *every one* of those algorithms
+> > already exist.  On a typical SoC that has this hardware, the CPU-based
+> > implementations are ~50x faster as shown in tests.  Pending patches make
+> > the difference even greater at ~100x.  And the CPU-based implementations
+> > actually use significantly less CPU time, as well.  There seems to be no
+> > path forward for significantly fixing this issue, either.
+> >
+> 
+> You've repeated your point about performance several times. Nobody ever said
+> you're wrong. Performance is not the only reason for choosing one provider over
+> another.
 
-Applied to
+That isn't a very practical viewpoint for the in-kernel crypto use
+cases, where performance tends to be critical and users will do a lot to
+get even a few percent improvement, let alone 10000%!  But as Demi and I
+have explained, even if the performance aspect is ignored the driver
+still isn't worth it, for multiple other reasons.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.3
+Also, you did give saving CPU cycles as a reason earlier
+(https://lore.kernel.org/linux-crypto/CAMRc=Me55rUmjjR+ZzdWd2ss9JJMZzJch0zKd4GqONBjCzFMYQ@mail.gmail.com/).
+That's one of the reasons I actually tested it and responded to that.
+It sounds like you've now walked back your claim.  So great, we seem to
+be on the same page regarding that point now.
 
-Thanks!
+> > An alternative we could consider is dropping the cra_priority further,
+> > to further decrease the chance that these algorithms are used.  But I
+> > feel it's hard to justify why they're there at all, if the rationale for
+> > keeping them is "we made sure that no one can actually use them, so they
+> > can't be causing problems anymore"...
+> >
+> 
+> No, the rationale has never been this. FWIW it can be that it's used for
+> testing of the crypto module on a supported platform and that is already
+> enough of a reason to keep it upstream.
+> 
+> As I've said before: we don't just drop maintained drivers from linux.
 
-[1/1] ASoC: pxa: Use devm_clk_get_optional() for extclk clock
-      https://git.kernel.org/broonie/sound/c/6ec64d757af9
+We definitely do if the drivers are not useful or appropriate for
+inclusion in the kernel, though the policy varies by subsystem.  Even
+just last month an entire filesystem got dropped despite someone wanting
+to maintain it.
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+- Eric
 
