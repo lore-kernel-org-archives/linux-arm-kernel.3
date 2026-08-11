@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74591C5AD7B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 05:44:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F56AC5AD7B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 05:45:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N7P4L5tJ88+N+LleowMyQZT4Dw0kQrcA98X8789RllA=; b=SUN4JZn8VLtTUcdQ7iD892V55V
-	2avIFdtEHf8Vs947L8LRBvtws2+k2zSyFZliv7eba5AvlDdD4KiwF8oe+hwbAm02iYPcYYSoDv248
-	SisMe6Gxn8A7cXE8waLNcPVJnPaAPynEq6bq9lBfnw2useMtYj3ybrvYpp2HRUeIHqjnymprvVQJR
-	+kUB6xAn90r4568tCFphq21jAQVZmLPUybBlTdne+IZUapoaBZMXlpHvysnemLTaLRvZeim3ye/5F
-	P77j09Rufsb1G9MWKsTjJDBnS/IKrA4wLKfrZlW4cjLFE7A//98uW2aK97NUNayIREUTwPjdFf8+H
-	yjpUF9Lw==;
+	bh=GcCRuQu47XbS/YabNwNF7zEFiZjwtTPut+beTDpS0dc=; b=h2hf0DspaUWjEnEkvhI8EGCoD6
+	pYz9W4gfJDAtkQddN1L5nurgt95USbbAQUxMemsrxh0aVYeTVk/peURFWxX8w8qSPWwHFlZ5QeKZi
+	SfBI9pkH3wSqhOWsIQrR7YojSYHZHGyOAiwy7M8gF5uyPFsvea8Zo7AR02e1nd7KKX8ZtPGzNiP8Y
+	XflOQSvQqiAJPbdxRZ5v7UpofAr/nXf58kjj36GkeWNZ+57fW1w+6gfznM/gF1mw/2yv+rVOgMg9k
+	MrxLp4X6jodmDl1dPn97mvqU5DZgkYzidIU83qZAkVdo19g9W3ed6YlOdo7UeYUJulqHHo4r7Z5pS
+	9pfPVDOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtfHh-0000000DKld-2HWV;
-	Tue, 11 Aug 2026 05:44:21 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wtfIK-0000000DKtV-36GZ;
+	Tue, 11 Aug 2026 05:45:00 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtfHg-0000000DKlA-2dwX
+	id 1wtfIK-0000000DKtK-0eDg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 05:44:20 +0000
+	Tue, 11 Aug 2026 05:45:00 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 77BB06001D;
-	Tue, 11 Aug 2026 05:44:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F5C01F000E9;
-	Tue, 11 Aug 2026 05:44:10 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 43A0A41793;
+	Tue, 11 Aug 2026 05:44:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C2CE1F000E9;
+	Tue, 11 Aug 2026 05:44:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786427058;
-	bh=N7P4L5tJ88+N+LleowMyQZT4Dw0kQrcA98X8789RllA=;
+	s=k20260515; t=1786427099;
+	bh=GcCRuQu47XbS/YabNwNF7zEFiZjwtTPut+beTDpS0dc=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=JQFm3fgrJsbXaRc84rFczQxh8b+Sx1F2AXFckHiiDHGDpipU6Fz+dUsxfJC7ZyZX6
-	 y34AELS4FEDBUDkBVBe9dAkdJzXTjLdHGmzxJFlmnkdlKFsw2ylnT0jLeU/S3DqzGs
-	 PCz0mcG+RoEsmAlkbtcZnfWutDcmIIYWhgQrL92uzwfI8SNKzk557fhNz6m88ewjhV
-	 vQqTZ5Sox6RrLTBoMYmmxhnrb7QyXD1jnuZn6x2fMcf+7+/meSjQw+vA6ZV+pzwBe4
-	 wijEGIuqT4EOCeSJ0jCvNNIFTteR6YsfCzWyIEYksPYDfdDVLwjKHT4i1DT7a0yH5W
-	 v9llI3c+BpFdg==
-Message-ID: <371f3842-1d01-4e57-86b8-04bf1a0dd53f@kernel.org>
-Date: Tue, 11 Aug 2026 07:44:08 +0200
+	b=ezmmLbMWtbTQ10MqU7kjAysMd36nQLrQhc1zGs7TwsT6ee9sTrc5hzZF36tqemNxP
+	 f8Cjha/6JeZViNIRVricIFAP7WI+CtYHe7Ei1J9agThhTb52YcRx1/ZVMh+fGScG+J
+	 beE7eNA8SzUqSHxBeFZ+qkKM9+6vwaY0DGAIGuTiTYINeMlhbA9w2OnHyafrvrSY8k
+	 Cwbcv/yrvnjC+Q091v6uhJSR0SGsWfrU+mkaJfskaHrb9AF+iwIMxkLrhzkrAz5P5m
+	 rPfwUi+PNSJLUo4ja5bMlRdh55XgS0jupQ8ihj+HU0t+bb8iLV1fQPLKYVhZ/gMls4
+	 xktpa0syUJjWA==
+Message-ID: <dc40dcae-3017-4e61-8c6d-7e6127e4ee77@kernel.org>
+Date: Tue, 11 Aug 2026 07:44:48 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v3 1/5] ASoC: dt-bindings: fsl,imx-asrc: update port
  binding to support multiple paths
-To: Frank Li <Frank.li@oss.nxp.com>
+To: Shengjiu Wang <shengjiu.wang@gmail.com>
 Cc: shengjiu.wang@oss.nxp.com, lgirdwood@gmail.com, broonie@kernel.org,
  robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, Frank.Li@nxp.com,
  s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
  shawnguo@kernel.org, linux-sound@vger.kernel.org,
  devicetree@vger.kernel.org, imx@lists.linux.dev,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- shengjiu.wang@gmail.com, Xiubo.Lee@gmail.com, nicoleotsuka@gmail.com,
- perex@perex.cz, tiwai@suse.com, linuxppc-dev@lists.ozlabs.org,
- Shengjiu Wang <shengjiu.wang@nxp.com>
+ Xiubo.Lee@gmail.com, nicoleotsuka@gmail.com, perex@perex.cz, tiwai@suse.com,
+ linuxppc-dev@lists.ozlabs.org, Shengjiu Wang <shengjiu.wang@nxp.com>
 References: <20260804100218.49587-1-shengjiu.wang@oss.nxp.com>
  <20260804100218.49587-2-shengjiu.wang@oss.nxp.com>
- <anH5i7y3JkB1moee@SMW015318> <20260810-magic-olive-gecko-5e8a36@quoll>
- <anohg7YCylTQ47pk@SMW015318>
+ <20260810-normal-cuscus-of-argument-4b230b@quoll>
+ <CAA+D8AM9s7EX-G246Hf2=DOx5q2qXWg_MjUCaoJ8RggOjp+5cQ@mail.gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -107,9 +106,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <anohg7YCylTQ47pk@SMW015318>
+In-Reply-To: <CAA+D8AM9s7EX-G246Hf2=DOx5q2qXWg_MjUCaoJ8RggOjp+5cQ@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,43 +123,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/08/2026 21:07, Frank Li wrote:
-> On Mon, Aug 10, 2026 at 09:12:20AM +0200, Krzysztof Kozlowski wrote:
->> On Tue, Aug 04, 2026 at 09:39:07AM -0500, Frank Li wrote:
->>> On Tue, Aug 04, 2026 at 06:02:14PM +0800, shengjiu.wang@oss.nxp.com wrote:
->>>> From: Shengjiu Wang <shengjiu.wang@nxp.com>
->>>>
->>>> The i.MX ASRC hardware supports up to three conversion pairs (A, B, C).
->>>> The existing binding exposed only a single generic audio-graph port,
->>>> which cannot represent independent conversion paths when multiple pairs
->>>> are in use simultaneously.
->>>>
->>>> Add a ports container that enumerates up to three sub-ports, each
->>>> representing an independent conversion path:
->>>>   port@0 -- conversion path 0
->>>>   port@1 -- conversion path 1
->>>>   port@2 -- conversion path 2
->>>>
->>>> Each sub-port references audio-graph-port.yaml as before. Hardware pairs
->>>> are allocated dynamically at stream open time; each active stream
->>>> direction (playback or capture) on a port consumes one hardware pair.
->>>>
->>>> For backwards compatibility, keep the old single port property but mark
->>>> it deprecated. A schema constraint (not: required: [port, ports]) ensures
->>>> that both forms cannot be used at the same time. The binding example is
->>>> updated to show the preferred ports form.
->>>>
->>>> No existing upstream DTS file for fsl,imx-asrc uses the previously
->>>> documented single 'port' node, so this change does not break any
->>>> in-tree device tree.
->>>
->>> if no existing upstream DTS file use it, you can direct replace with ports
+On 11/08/2026 04:28, Shengjiu Wang wrote:
+> On Mon, Aug 10, 2026 at 3:14 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
 >>
->> And what about all other users of this binding?
+>> On Tue, Aug 04, 2026 at 06:02:14PM +0800, shengjiu.wang@oss.nxp.com wrote:
+>>> From: Shengjiu Wang <shengjiu.wang@nxp.com>
+>>>
+>>> The i.MX ASRC hardware supports up to three conversion pairs (A, B, C).
+>>
+>> Which SoC? Did you read this binding you are changing?
 > 
-> Kernel is that only known user. Uboot don't use this part.
+> The i.MX35 ASRC (the original) already supports three conversion pairs
+> (A, B, C).
+> All subsequent SoCs that reuse this IP -- including i.MX53, i.MX8QM, i.MX8QXP,
+> i.MX952, share the same three-pair hardware. This binding covers all of them.
+> 
+>>
+>>> The existing binding exposed only a single generic audio-graph port,
+>>> which cannot represent independent conversion paths when multiple pairs
+>>> are in use simultaneously.
+>>>
+>>> Add a ports container that enumerates up to three sub-ports, each
+>>> representing an independent conversion path:
+>>>   port@0 -- conversion path 0
+>>>   port@1 -- conversion path 1
+>>>   port@2 -- conversion path 2
+>>>
+>>> Each sub-port references audio-graph-port.yaml as before. Hardware pairs
+>>> are allocated dynamically at stream open time; each active stream
+>>> direction (playback or capture) on a port consumes one hardware pair.
+>>>
+>>> For backwards compatibility, keep the old single port property but mark
+>>
+>> Why? Did the old hardware change that it has more ports/paths?
+> 
+> The hardware has always supported three pairs; the original binding simply
+> did not expose them all. This patch corrects the binding to match what the
+> hardware has always been capable of.
+> 
+>>
+>>> it deprecated. A schema constraint (not: required: [port, ports]) ensures
+>>> that both forms cannot be used at the same time. The binding example is
+>>> updated to show the preferred ports form.
+>>>
+>>> No existing upstream DTS file for fsl,imx-asrc uses the previously
+>>> documented single 'port' node, so this change does not break any
+>>> in-tree device tree.
+>>
+>> Does it break other users of this binding?
+> 
+> No. The existing single 'port' property is kept and marked deprecated
+> so that any out-of-tree device tree still works without modification.
+> The new 'ports' form is additive only.
+> 
+>>
+>> Why mentioning upstream in the first place? Either this change breaks
+>> ABI or not, explain that.
+> 
+> The deprecated 'port' property is retained, so this change is fully backwards
+> compatible and does not break ABI.
 
-So other kernels will get broken?
+So why? Drop redundant parts.
 
 Best regards,
 Krzysztof
