@@ -4,65 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADCFBC5B569
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 07:03:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F38B8C5B570
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 07:04:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wx53Ap3mrvChep95/lU+75w+ogUAiLoztEeouw6F2LQ=; b=JQq0XrlW1+8kbbohqYU/v4+oI1
-	Tk9jcBeIcjjbzP4oeUsRUl8QVLLMwpIah21IkFaYgumJa3HkAuBs8aMvW3j78DTNsaWg3fN7TOYf+
-	5LrRmp9wldUuCTrrKp7abSqWckdxdufNgI5GFyFNusVwKk3/v4cAmY/VjjdXcnqupwzSkDCD1+oLW
-	/oa2kkT3iVTV9U9/mEKdf9BRClPlhK8w89JSv7f1JJBO+XIU67A/8Dm5oH0Kj2FW33EeyByHHPPc3
-	6NCzXtXr2ZTUjsCqte0TAhEQz/V0HIfy++I1rV+SYSqvlFpEdd26cqrsCB2CvK5V43zTBnR2D/MNl
-	uKD8Mclg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RRxJD7uS+nO+wGMuqirv86ZjQLFUxpRUTbD/rtVYb3w=; b=G2/ROGsn+H5voNOFG/VxhxiZlt
+	JAH3KDNI5AWY5TS9YYyfmFa3oWyRsuqJUOqdX9yFD4gwDjwsFn39Z1obFPelX0jq/0dcIIQF8vPb+
+	xc47TYUhXixPxQeaRetTjzkOAEahpdKesczt55ntmIT0RR7Tscgfy5Gw8ImguiafPZhfK3i4ba61D
+	PKmqz5+Psc0D2TqBmLS1um4suQyhsUB7EdkFWmVM+4pO9QH4KkwqcAlFXgHwSsUs8aGArPT40AJkG
+	b5jho4IgaPE+plj8kEjOGeoeBcYwANUf3dGvRKD9J7DvUXeePtLALSkroJJqOTzndBX56poHI76n3
+	AOL+pRpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtgWF-0000000DTkl-2hcv;
-	Tue, 11 Aug 2026 07:03:27 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wtgXX-0000000DTuG-3STq;
+	Tue, 11 Aug 2026 07:04:47 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtgWF-0000000DTkf-0EUb
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 07:03:27 +0000
+	id 1wtgXW-0000000DTtu-3f3w;
+	Tue, 11 Aug 2026 07:04:46 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A656641775;
-	Tue, 11 Aug 2026 07:03:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C93ED1F00A3A;
-	Tue, 11 Aug 2026 07:03:25 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 32AF5600AE;
+	Tue, 11 Aug 2026 07:04:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69FEA1F000E9;
+	Tue, 11 Aug 2026 07:04:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786431806;
-	bh=wx53Ap3mrvChep95/lU+75w+ogUAiLoztEeouw6F2LQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=QXj7YKtJ1ISP/nOGFp1MkHFIYyMUMD8gVgJnzdfT6sRYsTZ+MrwZun590xJA/je/W
-	 oV9DukkOEYE+l8++aPoZ0pdZxVSYX+RdU+JxTOjUtEND7bfsMqTGLSLaNaoRwmL2HI
-	 WobQNpyywlXbsGTUFAjVbUzTyRsJ4WSWbySu7ds6XHEp+oxNaZtTvNSJrKtHeVYIYF
-	 ZkTbfbrefFzn/45riO0XmmXTow4+HYV9jbaEraODjtVgc8Ep711eE6M33d5ydoqHBA
-	 vLlyepjS7FRbAddd7UKWQKOvpUo9H/w9gq9AuNbxlVrMnaBx7FwPFbUn4ex8sIkss4
-	 +f/nTygUtAkpA==
-Date: Tue, 11 Aug 2026 09:03:23 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: David Heidelberg <david@ixit.cz>
-Cc: Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Henrik Rydberg <rydberg@bitmath.org>, 
-	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Petr Hodina <petr.hodina@protonmail.com>, linux-input@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	phone-devel@vger.kernel.org
-Subject: Re: [PATCH v5 1/3] dt-bindings: input: touchscreen: st,stmfts:
- Introduce STM FTS5
-Message-ID: <20260811-inescapable-indigo-pig-0a5c3f@quoll>
-References: <20260810-stmfts5-v5-0-0c737d929976@ixit.cz>
- <20260810-stmfts5-v5-1-0c737d929976@ixit.cz>
+	s=k20260515; t=1786431885;
+	bh=RRxJD7uS+nO+wGMuqirv86ZjQLFUxpRUTbD/rtVYb3w=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=bzM3maFu7p+zTWeUoxvY9teEXaDWe8lw0WRDptVBYW/MXrliJO4Ek+Z5WiZWnTukC
+	 n4MVGOMlpRcFWJGuVNzIHXETHBlnYpsarCfPKFy6aZTC5nkg8geRaMa3jznn6veH7o
+	 92Ttscn5ftruZdhdJZVlWN9+FTaCcHv0VV+35AxqURXvaATR0WfEtqlgq/dJZYSjrc
+	 fbkbXm7hulbuXntCtqGA6tUv4Re7klrQBECAQCJnraVUjWvhBwO4omxc/FgQjxGKBO
+	 4Gof++MhdlvM5HmxssQSTPNz0xrhXJz7Im/e2eiUXitkXagBnavVml09ZG/pXjC0k7
+	 rNpANOWbDGysA==
+Message-ID: <71458ac6-d85b-409c-a48f-ff9fbd0615dc@kernel.org>
+Date: Tue, 11 Aug 2026 09:04:34 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260810-stmfts5-v5-1-0c737d929976@ixit.cz>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 08/21] dt-bindings: mfd: x-powers: add AC200
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, Andre Przywara
+ <andre.przywara@arm.com>, Richard Genoud <richard.genoud@bootlin.com>,
+ Maxime Ripard <mripard@kernel.org>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+ Jose Abreu <joabreu@synopsys.com>,
+ Maxime Chevallier <maxime.chevallier@bootlin.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
+ Heiner Kallweit <hkallweit1@gmail.com>, Russell King
+ <linux@armlinux.org.uk>, Saravana Kannan <saravanak@kernel.org>,
+ Lee Jones <lee@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ mfd@lists.linux.dev, linux-rockchip@lists.infradead.org
+References: <20260802-submit-acx00-of-dynamic-v1-v1-0-0a53cd9e21cc@gmail.com>
+ <20260802-submit-acx00-of-dynamic-v1-v1-8-0a53cd9e21cc@gmail.com>
+ <f2cc3c90-060f-40c1-a55e-e2ed91e65487@kernel.org>
+ <CADvTj4q7HnOYJZE-M070-1npEdne__Ct5D9FeUNVVXa8Bsm7qQ@mail.gmail.com>
+ <e198e8fa-6c5e-4c8d-a4de-d8bb25aab0bd@kernel.org>
+ <CADvTj4rjXGgF2d9Xm6TmeS2LwaM+O2wFFH=rGLA32y+aMk2KOg@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <CADvTj4rjXGgF2d9Xm6TmeS2LwaM+O2wFFH=rGLA32y+aMk2KOg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,28 +136,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 10, 2026 at 05:21:40PM +0200, David Heidelberg wrote:
->          touchscreen@49 {
->              compatible = "st,stmfts";
->              reg = <0x49>;
-> -            interrupt-parent = <&gpa1>;
-> -            interrupts = <1 IRQ_TYPE_LEVEL_LOW>;
-> -            touchscreen-size-x = <1599>;
-> -            touchscreen-size-y = <2559>;
-> +            interrupts-extended = <&gpa1 1 IRQ_TYPE_LEVEL_LOW>;
-> +            touchscreen-size-x = <1600>;
-> +            touchscreen-size-y = <2560>;
-
-This is not explained in the commit msg.
-
->              touch-key-connected;
->              avdd-supply = <&ldo30_reg>;
->              vdd-supply = <&ldo31_reg>;
->              ledvdd-supply = <&ldo33_reg>;
->          };
->      };
+On 03/08/2026 23:34, James Hilliard wrote:
+> On Mon, Aug 3, 2026 at 2:20 AM Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>>
+>> On 03/08/2026 09:54, James Hilliard wrote:
+>>> On Mon, Aug 3, 2026 at 1:07 AM Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>>>>
+>>>> On 03/08/2026 07:14, James Hilliard wrote:
+>>>>> The AC200 is an I2C-controlled mixed-signal companion IC containing
+>>>>> audio, video, RTC and Fast Ethernet PHY functions.
+>>>>
+>>>> This fails when applied, because you did not explain the
+>>>> dependencies/merging of this patchset.
+>>>>
+>>>> This is THE MOST important information of cover letter. The first thing
+>>>> to explain.
+>>>
+>>> I did mention in the cover letter that the pwm series is a dependency:
+>>> https://lore.kernel.org/all/20260703152215.192859-1-richard.genoud@bootlin.com/
+>>
+>> Apply this patch and test.
+>>
 > 
-> -- 
-> 2.55.0
-> 
+> How were you applying the series?
+
+b4. But it does not matter, your patchset simply fails for maintainer.
+
+AGAIN: apply this one and test.
+
+
+Best regards,
+Krzysztof
 
