@@ -4,100 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF680C5CFC1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 21:52:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47B7BC5CFC1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 22:20:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u4po5zk0dS52Bck5CruHj3lVNTqtL7/vSqh7qaAgXQo=; b=Z/7G/CUoNFfo81i/7zK9uA1pHR
-	ciY8lK+t+AvC73PTKjgxVLzfMHdbmDbkqdoYujEqxDMzf9fEps5dxe+GlsDw4E1MsTeSgA+pXLz5J
-	ipd22kwZaxmerzSzYaz9akQqRR1Vc52LY1rhkjDJePRQ7HRoojKuaU2c2kyuGmRFxz3hmNfA/Yw5v
-	WLp8uQGQx38+MxOgA9usoSxEWFsQvg2iKxWd3pTVwBVMfFbxDH0gRx8c4LiT39YmMbbsLE2rolMfv
-	VjEmS1iaDqCaSDmbT2zIBZqRKy7bfkzvY4l48h2u2EiTV3qukI/WUT4OZzOSBQk3gYUywAa0tJnbR
-	XzgWrJQA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2PqIr4fmxyKnYA6iGlh4mS7egkuY16Gey8TStUT6D1M=; b=gqB82zzGW+RWis9I3wXHdj0PH6
+	gdEyBxfxDCS2tQ5howdR96T61EjoQO/566/SH22BoViAZryfKuAf6T5+b4hHDo/hhkgUJxFjuGU6E
+	we+70iw4rd1XcTBRL0PrUhsv+hbUe+DcKpBvafCSdAxEY5EWgARYmi1D24t4264J5X/lfjlaPAQ91
+	zJK2Qf+es3yJiBsnRqprlP6/9ZZLeOIRZGhZIzM2Yiniz/PP6Cn9FkgOH3+J9sPEo7a0Eb7SRK/Xw
+	CkbNuBL7Bz9h/2QyyjlbeXJ5FDNp+bEGkz/ea26CVU0oS868pO3O3qUhz9bX7Jt1tam4UAdIPCf1w
+	eenxUdxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtuOs-0000000F0sW-3N1r;
-	Tue, 11 Aug 2026 21:52:46 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1wtupg-0000000F20C-2wKf;
+	Tue, 11 Aug 2026 22:20:28 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtuOq-0000000F0s7-1yOE
+	id 1wtupe-0000000F1zy-3TtM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 21:52:45 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4954b3c5cbeso294295e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 14:52:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786485162; x=1787089962; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=u4po5zk0dS52Bck5CruHj3lVNTqtL7/vSqh7qaAgXQo=;
-        b=bRXv3NIZuPoOn9saUxuXJWCeUN6aQw+Fr9BzyTrCHcAQJyQDwM1b/F3EO+SXOhPCUE
-         0xNhwSULA1VE1PW12UpWuWIWXbEJANYXqFkCu6xz3m0ju3ipgHY69xc8wR+O+xZ2vd88
-         JajH1CdJKDTOqQjYN7LykNGYcwGVlc3Q7uCyXrGy2c5tkDdCBLs30kxwXHSOQA8K2FER
-         fgfhSB7p1UYmV49VyLSZ9gwMfk5x69I4G3Xw/d6sqZ0QpUlUKugbfD4YOoUqFYqBD6rI
-         9ALmY/YJ34/M/Yx77wfJmuyqHOTVqdDQryykge0z+OwYc8pNSWLc3CpfS/ArYDM/Q291
-         jwFw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786485162; x=1787089962;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=u4po5zk0dS52Bck5CruHj3lVNTqtL7/vSqh7qaAgXQo=;
-        b=YzZwwSuNeYAz2oVZAv/5lEgWig+8HsMfgqISsZPhCzX7f5OsKqim5CySLaVa1yB1LX
-         FhsBaD/8D9uFf3QLZ4iJtIP4gJWs1H0Gphl4ogqZf0z/bfCWj4xI3WKUYcQYaHeuYRte
-         Hn9z5EzaSoWIZjUmDPwAwvDv9n4cl2cQX/WWlLx2o4EgdKXsjuhrVZZ1tikwXynl/G86
-         Tp1CnHjnVBV/ZCZoxBDmtu04isfXNaeDqEtruW90K36aawHslWMlndWOG2yPUeutEWB0
-         dHjSlTPHnZpUH0c+j85YA1BpGh1/+Zl/sdnNF3/SNkXOIJEFXp5ctgGi0jXDeFQYLiQP
-         2FEg==
-X-Forwarded-Encrypted: i=1; AHgh+Rr6mAkdNRLph4w6nSilNpVzbLqaDPtMXmyXbB24MU/RtoCq7gxbH8sPAkPB6t4bEvN9biSwERwoYSHmaUPy6Xk5@lists.infradead.org
-X-Gm-Message-State: AOJu0YxIdRZ6u5CWI2tzYKR/ZFEqt6eIS4jCf7HiLqGXbOARTLh0V9qi
-	cdZ1n8qTIduzdZD0/HwWUMuF5OTJZ3NNWRSd3bz9WIIaiu6yS1IPKWIX
-X-Gm-Gg: AR+sD12kasAMxJ5uGNtCNU9FDF+CsEOgFYqVEwMOdUCDoWjZlRgbzy7EnB7oSpsFYFy
-	r3mUJzo5qAr4eEY26krjhBoA16yS1RBDzePkyizHoECPNWtFPLWzm6Yp51qOih9dP8QdB12blDD
-	J+nBJSs0Yu6YuUClWi3kUJPc7RfAOs1GL4T6BAQPH6d9sgwDrhPEjJJ9LvJE/7bH126dNiyjKHg
-	3ul3G7asmOwKKiQdL9/mlnrVOxirC35lvEINK8mqmERjlc4sGA+aMohAK6JiCm8KWgLIDgcsl7+
-	PfSPGX6GQTTYwsaSOuKgiAvcA15UK9CBksMlnOg20lRZkLne2pNNqoKsbdASj7ijBY59HqmSrWn
-	VzdFWZDXVltnd3wNe96Hi8mC0A/lMLTSFRciRZykJ7nCG2awIkAkxJDBnlD93mM9FXccgu6D/qm
-	eyFBAEuT39g1UdzJQCRUGbc/v0dXmiWGuRTTdNRF2HlHgzgbNK
-X-Received: by 2002:a05:600c:c8d:b0:495:7561:a9cc with SMTP id 5b1f17b1804b1-4997c16802amr1408805e9.4.1786485162596;
-        Tue, 11 Aug 2026 14:52:42 -0700 (PDT)
-Received: from skbuf ([86.127.220.200])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4997abf94c1sm19437485e9.14.2026.08.11.14.52.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 11 Aug 2026 14:52:41 -0700 (PDT)
-Date: Wed, 12 Aug 2026 00:52:39 +0300
-From: Vladimir Oltean <olteanv@gmail.com>
-To: =?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <zajec5@gmail.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, "David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Jonas Gorski <jonas.gorski@gmail.com>, netdev@vger.kernel.org,
-	Hauke Mehrtens <hauke@hauke-m.de>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	bcm-kernel-feedback-list@broadcom.com,
-	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
-	Semih Baskan <strst.gs@gmail.com>
-Subject: Re: [PATCH V2 net 1/2] b53: deal with Northstar devices using CPU
- port 5 or 7
-Message-ID: <20260811215239.jogh366edojjo3mi@skbuf>
-References: <20260811193658.14304-1-zajec5@gmail.com>
+	Tue, 11 Aug 2026 22:20:27 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 28A9D43FDC;
+	Tue, 11 Aug 2026 22:20:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3CDE41F000E9;
+	Tue, 11 Aug 2026 22:20:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786486826;
+	bh=2PqIr4fmxyKnYA6iGlh4mS7egkuY16Gey8TStUT6D1M=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=S/6D7XHT9FGfHPutlacLa6+iaAPoW4X8kDi6DMftL9dHMThohK/2K4++IZCBqilkf
+	 6BsSvVDCRpgko8MCBdqP4v2neSimnmMtzlkoNexz5VNLwz/msZ9rfd1ZgGWbmennQn
+	 aj9fVLQEu1oZobXJJFAMRCUk2BsCVeA7T56WG4RIas3hG1hFY7g6qks057tHC0NxNW
+	 n3fVUSZh6xHyZIFOwAd8gFYQsMrCn2t+fCduf7n073LP/S4n6SJl09DHpaijzKLz6d
+	 jCzNmgU2M247hnrnbk41EAqfM+1tZBV9vbimjl0uPcIzDezhibcDZFoDQ5ZWvawUPL
+	 prapXu5z17gig==
+From: Mark Brown <broonie@kernel.org>
+To: Daniel Mack <daniel@zonque.org>, Liam Girdwood <lgirdwood@gmail.com>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Haojian Zhuang <haojian.zhuang@gmail.com>, 
+ Robert Jarzmik <robert.jarzmik@free.fr>, phucduc.bui@gmail.com
+Cc: linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20260811100949.61142-1-phucduc.bui@gmail.com>
+References: <20260811100949.61142-1-phucduc.bui@gmail.com>
+Subject: Re: [RFC PATCH] ASoC: pxa: Use devm_clk_get_optional() for extclk
+ clock
+Message-Id: <178648245852.119683.17286838052552347114.b4-ty@b4>
+Date: Tue, 11 Aug 2026 22:07:38 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260811193658.14304-1-zajec5@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_145244_528669_C47F05EF 
-X-CRM114-Status: GOOD (  15.17  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1137; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=7Jr8fo4boJSL1ugftBxk4l8ujAkN96ATmdOYTBeOT+s=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqe6An4W7quwZTF0WWBqSdBtzwhPLKjxzXbBt3+
+ pkpojzQv2yJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCanugJwAKCRAk1otyXVSH
+ 0JxXB/9NfzVHgUpvmMC0HyLNxNf56+nUpXFElK4awv1etNBi6ectrnvEAf5tQLS5utQYVyYCI2H
+ Vl/XZIS0Uqo0qTGP0WYX9MB751jigeXB0w7qyAK6qUAg+V8p/irG2HJlMD5Y5L08w8rqkRuhgIw
+ P8tweuUZJkW3TdcARG7CJEjM5VI83phPvBKEubJZVtmUQ4LkfsN2oCQRuxNGCOtLbz5DfaBko9Z
+ EtEvJ0vt1j/u9/G0s4n5G4IGcWzTlz+rCISgQ/NCrz2TgxZxfsZly64CbJXuYgx35n7RKcc3qoT
+ lIJ+zePPfdLHp/bENbXgrt2eIpfzq021ayy64ouIoNyIg1jo
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,31 +84,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 11, 2026 at 09:36:57PM +0200, Rafał Miłecki wrote:
-> From: Rafał Miłecki <rafal@milecki.pl>
-> 
-> Northstar devices have 3 CPU ports. Ports 5 and 7 may be used but have
-> their limitations. Warn user when CPU port 8 isn't used and add EAP
-> setup workaround to avoid non-functional standalone ports.
-> 
-> Fixes: 4227ea91e265 ("net: dsa: b53: prevent standalone from trying to forward to other ports")
-> Cc: Semih Baskan <strst.gs@gmail.com>
-> Signed-off-by: Rafał Miłecki <rafal@milecki.pl>
-> Tested-by: Semih Baskan <strst.gs@gmail.com>
-> ---
-> V2: Print warning on switch setup instead of on actual EAP mode change
-> 
-> I added PATCH 2/2 as requested but I'm not sure what DT maintainers will
-> say about it. I'd suggest to take this fix if there are not more
-> objections on net changes so regression can be fixed. I believe we can
-> take more time to improve Linux dealing with switch to be more optimal.
+On Tue, 11 Aug 2026 17:09:49 +0700, phucduc.bui@gmail.com wrote:
+> ASoC: pxa: Use devm_clk_get_optional() for extclk clock
 
-It's a good thing you added it, it created a better perspective into
-what problem you are trying to fix.
+Applied to
 
-Please look into implementing a solution based on commit b79d7c14f480
-("net: dsa: introduce preferred_default_local_cpu_port and use on
-MT7530").
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.3
 
-pw-bot: cr
+Thanks!
+
+[1/1] ASoC: pxa: Use devm_clk_get_optional() for extclk clock
+      https://git.kernel.org/broonie/sound/c/6ec64d757af9
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
