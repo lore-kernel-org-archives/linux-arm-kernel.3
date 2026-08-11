@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84211C5AC67
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 18:50:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8953C5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 18:51:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=NgsQJ4VjYv+Gww+JX6UCqUNvdvt9jcjvaOzC6yXUAwM=; b=iUbB+aAGu8v8Aw8OXb8BL8ExWQ
-	uuRmoDqoGhB15iJ+jTSeqrRqjnRBxfMp7au1AHFb2X1xsCOMoWb/k4mDh8q6so30MKCw3OYIi4H3o
-	cXZTZWfJWO4cUQg+UIFyyOE0j/R+V0yO1CavNeYHyvDwDM0I8yFL0d7jiQiyxH2988Tao5FbHk8pF
-	T/PkiF1KqrCFLqRG4Kd2hGaKkv3qZnqIv1oMBhhnvGg1hkkfnLl7Kxx7l/VjmRrQ6yrUtfGlosYry
-	w/rIDVpZ9b1jc8QO367tFToMb09/oJYSnoKLhzQKrwjPltgqYlodJvIuANnIKunPuQeGOr1MT1Wen
-	MvrkltCA==;
+	bh=r9QJl8pGujt3A7a5K1GMQ/gHvTRUESsI7iAe0ElAFJs=; b=a9xzU5GCxl2L+dVyu0HHaJydiX
+	whz2cShv69YsfUYkJ7TeIN6UX9DeDc1ScgMXUy7C22+6KFvcjo/P7lGloI5lzIle5Ycj4Y59C8aDi
+	qR7vkJRK5yFFPyyGTyLV+b1kIsSoZGtaYRYLNuclu1ZHhbBObLuhjT55wzBeTjDKmtNxBz9lJ0yr9
+	mJEpd8ALKPk30umMCRDRA49p0NeUZMGlZiYXetGD26zQ/INCb5dO++uGCWXu6z/Gn0sGFLZRUHH5e
+	Gp8xuIjfHDsOMFTwD+VNWKv+HzMx4+Qayy3Jj7ficaflBB4B5SxXNGhdecydYU/3bSK5pYf1+ponP
+	lUTE8o5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtrYJ-0000000EnVc-0lo9;
-	Tue, 11 Aug 2026 18:50:19 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1wtrZh-0000000Enbn-1YX6;
+	Tue, 11 Aug 2026 18:51:45 +0000
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtrYG-0000000EnVG-2il5
+	id 1wtrZf-0000000EnbR-2BBW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 18:50:17 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2ce98cb8165so3028695ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 11:50:16 -0700 (PDT)
+	Tue, 11 Aug 2026 18:51:44 +0000
+Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-84e0688b7e8so214755b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 11:51:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786474216; x=1787079016; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1786474302; x=1787079102; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=NgsQJ4VjYv+Gww+JX6UCqUNvdvt9jcjvaOzC6yXUAwM=;
-        b=iBEJpvYvbtdboRYNZsfmrSKgMNwnOtxLIvqfGnYQv3bM+kzUO0oi1OMBhPemaQq1Hd
-         fQZwhhLtsY8XamIE1SIe0rSwD3k0O7mUZ1Rzas1wKC2wMWo8tww064IBfB6wS7Ot6U7T
-         Nyvh9xN74tfr+dYtmXjA7nILzkHbcdcVbar1fU+01Vd67XjPLbqiVlQxAIxiZM0bXSDG
-         SYHTBClnnhb6CotuHSoBVFDUpyd/pBvQD7uiDnRwDcpWsvJ0U6qAWhc0jz2vHBF+oYna
-         dx6no2qUDqq/sYfqdBv7MAietAMXWrvrtfsewXjGL+/bu4wq5AGMK+Bi0pJnUw83RVBD
-         wsTg==
+        bh=r9QJl8pGujt3A7a5K1GMQ/gHvTRUESsI7iAe0ElAFJs=;
+        b=YLZjookDaC6yqIbpWomljGonJQRqz2n+oVpl/ULymTcNVMKC19LW/gYebkSpJLIQHt
+         MViD4ugkn+w6YAz7ntsBEf8DwC+OhZSDuEIjrVxU1SiHbp0GE2q7FGZMaGvEYXiaCBUE
+         8l05V97XO+GkrDqDlkyY8aivBb5Davl3NYpKFh0REmasRAfePaxG3SKmyzKeHwevaRaM
+         GiI2y/3t/CDR09PP4BqyG4atugUySClNohlBS2PCwKRWAGY8YTw51CsWrMpqnGJG4e/g
+         owcQwdzvcMd0ft0DwjLNwwhNLpNdHjaivpPL0V/KFZz6TJb8qSktgZ3APb99X3Ze6o6N
+         aapw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786474216; x=1787079016;
+        d=1e100.net; s=20251104; t=1786474302; x=1787079102;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=NgsQJ4VjYv+Gww+JX6UCqUNvdvt9jcjvaOzC6yXUAwM=;
-        b=I51d6vQjf9SmYkVfmmalPoNCPZK+b/gRQ+hR6ySiPAE7UkoxgADkKB/fPQBNaEkuMf
-         F2F+ZIkoDsoQkFDfb+kzx+PHuRz9bt7iaPIjY6uOevedKXc+HKpC+oQCnr46RhtvW0eq
-         EpZcTf/2AHl8eXgZwPjOVeABxbdwnvVl1pMKGDOqwxV5C9QYBaW6R3STxiPF8VThE6kj
-         W3ikSqPEvkvCICLyCc9J5CxrBChJ2idMjNoRx6NiXGIMeA0v+s9Bh6kfskL4HgB0S3n9
-         KySnKWYbbd5LvaE57SMIVR7TenQ2xZMycSu78Z1y/KikbtMRQufxLcPsm8FaJD2S5d21
-         cZgg==
-X-Forwarded-Encrypted: i=1; AHgh+RpviwpJlqjCCRKne6flpZLyigj25v4Iuegjuj7cLjHif0mqtn+VOGE/+Q008fMaB1aydqSjER5WyuX46M8BbIJC@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyg+CTYJ6B2ueeQzAIjwgbPt1Wrsy0LI4mGCApBp5DQEOmacvnb
-	KrMvxWbVmrweT8eqkQ6Hwy61+fkT3gaPSrOQYKjGT8EKvgofdTBQTmHrUxMXig==
-X-Gm-Gg: AR+sD13vEkQc7nKARPJFNWRQGCM4STMFHvu7x61hVWACdn0RLEqLlxf4JadfLyIakct
-	Xr+JDKK+7uEz7R+fPMsc/tx2IHaNiBUCTvyCm9+gQjQaR9l6VhQSxUqDItCBHJibcLQEqUkEWtB
-	wj2Ocpofk4cnFOWqruYmeFSJAY7FMC9VcDIhQz9r/bSTfdOFXvmv+nW1JtdlaI+s/yWD0R7PU9R
-	QTNKK9YKFmgv40D1rTsx/3s+on8tgV8JqFBrP0mb+sRYOwre+KlB2t1KGB3Vbr7C/uyxzTP67NK
-	ZEgvKRCwbHdEwyzpkzlZWT2F1jltq89tf1o7WWGavLGbEpacX39Vzwq63tOGdRwyU/uLMsZiteX
-	IItgSjJMYfJtTIr2U0bsphZU26YVQFsMuFdcswbnt6lGp5iuxOMuI0yigOLzkkaAfw8CG9YwWzy
-	bGVWpsBd14EOLVXIX3qlh/03H0ACeiioazXwDhlgn1JbQ8marrPFnA0hV8AZS/RKIUIhZI95fu4
-	hE8HynSzjilnM1xizJz7Tusm+89igrHtAqMJKG+ZGQnkF3xK9vkNrXP37mQb1eGgC72V7ci2QEt
-	DtcOPdR8y50XADzvQhixT19aMKifqKKi7eY1rw==
-X-Received: by 2002:a17:903:1988:b0:2cf:af20:4254 with SMTP id d9443c01a7336-2d32da51aeamr29355045ad.10.1786474215582;
-        Tue, 11 Aug 2026 11:50:15 -0700 (PDT)
+        bh=r9QJl8pGujt3A7a5K1GMQ/gHvTRUESsI7iAe0ElAFJs=;
+        b=NIO3tX6UHkXSlKv9ZY6HDKMyJXEC2R2hCVchj/uKUj2yZ57HVqglIAe7RUbQvb61LW
+         nkxDDrQiV+pKf11gzL0x3aKqgjTnwdvYylpn/ZfOM66cYLWicWrJt5qFjkTrV6s2Bh3l
+         CfkIXKm96ZgCZ8gku2myq15nNc12ZfAUu6ajxyLHeQbA1vJ1seY+caD/FFEm0oJj46bC
+         PyziI8vGSVwlQgCDXrmf94vlmCMK5291UzbikiEZ25Ui+TZ21jjHvjL4YeZQRsnIM/jb
+         9Ddky04jXdizr5Wh/u3AWjn9BkopAqMCS8vZb4z+nlbq1kjJ0arIP5g4Eqiwlru0I54R
+         HHmA==
+X-Forwarded-Encrypted: i=1; AHgh+RqSuJ+GsrFOL5EoDKOvsmiPcDHQotLeEYOpncB+g1c8iQKpPJdaycGxu07drePhrTO196Mcqwing862+6uSinP3@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzi0BXlqaDG64EvQmAnTxEc4DCrExWxCA+CWsGbJqQpRF0tlfse
+	4lmbu2kBae97CMLLU4qvp42Cf0HP62N/lei9ERXdHA3PMLpYKvl4A7e0
+X-Gm-Gg: AR+sD12rSewIy9u+PpvAhEmLxQONA3hqpzmhc6a2XNn8ok79iuswdUieRH9dHqU6aqd
+	vs7++lgMfrcmN/caCwYg5j+W/nGupd/kPWrjlLd8Qumbpw8KsiD7cn96X63otgY19tGsgmEy9Ea
+	dF/OU2w7Me07udUt7CqIMu7pccqEipNhD+D0krY5SC5C4kDOaB6JzRW4rvQ609hKxyfxwhoDnHc
+	seNtOuBnjpK0I+8dKIO70mVN4FRnuDfm8bPhh/PkF4+1G9OGbhOppxFg/EZKomd5UTur3TWCX8X
+	yJaFYBwlazsWEge4ucbc3+bI7MG8XWrKdeuQ1Ffa9DJ7kZvNK83A6vEhfbQjQgiI80bs/jclZxg
+	aYdbzX3hiSiK4qy8cOiak9FMRegmIWawkZCBnT/KxfBY6rZCmZ4oUiPZxt9r9rMUQIVS+FPFQ94
+	SaGGbInvOwNtYdka1ZEdyp9WSlxYFU7mRfyqn5YhRPDOy0GaRqKQOmA+Y8RGbbyHu1NrWKjh+cq
+	0QgjbHmmIHzoJDhU5IVzK8+59AAgi733n+8FGibCZAo9Lt48wX2a8SpxJrzlvYcdJFBzQrkakxU
+	wZ3S5KoZmmS7cm0eN8jrU0pN3RbXbnimhFQiLg==
+X-Received: by 2002:a05:6a00:3e02:b0:84f:5cd7:e3c6 with SMTP id d2e1a72fcca58-84fa866eae2mr5759834b3a.5.1786474302498;
+        Tue, 11 Aug 2026 11:51:42 -0700 (PDT)
 Received: from ryzen.lan ([2601:644:8000:7a86::e35])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d315ef05fesm11600835ad.3.2026.08.11.11.50.14
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84fb1f1edefsm155521b3a.45.2026.08.11.11.51.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 11 Aug 2026 11:50:14 -0700 (PDT)
+        Tue, 11 Aug 2026 11:51:41 -0700 (PDT)
 From: Rosen Penev <rosenp@gmail.com>
 To: linux-sound@vger.kernel.org
 Cc: Vincenzo Frascino <vincenzo.frascino@arm.com>,
@@ -78,17 +78,18 @@ Cc: Vincenzo Frascino <vincenzo.frascino@arm.com>,
 	Jaroslav Kysela <perex@perex.cz>,
 	Takashi Iwai <tiwai@suse.com>,
 	Michal Simek <michal.simek@amd.com>,
+	Maruthi Srinivas Bayyavarapu <maruthi.srinivas.bayyavarapu@xilinx.com>,
 	linux-arm-kernel@lists.infradead.org (moderated list:ARM/ZYNQ ARCHITECTURE),
 	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCHv2] ASoC: xilinx: formatter_pcm: use more devm in probe
-Date: Tue, 11 Aug 2026 11:50:13 -0700
-Message-ID: <20260811185013.26960-1-rosenp@gmail.com>
+Subject: [PATCHv2] ASoC: xilinx: formatter_pcm: fix stream_data leak on open error
+Date: Tue, 11 Aug 2026 11:51:40 -0700
+Message-ID: <20260811185140.27149-1-rosenp@gmail.com>
 X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_115016_694775_AED0C57B 
-X-CRM114-Status: GOOD (  17.80  )
+X-CRM114-CacheID: sfid-20260811_115143_597278_42571AA6 
+X-CRM114-Status: GOOD (  14.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,164 +104,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use devm_clk_get_enabled() to let the clock be enabled automatically
-and cleaned up on unbind, dropping the manual clk_prepare_enable() and
-clk_disable_unprepare() calls in probe and remove. As a result, move the
-clk struct member into probe, which is the only place it's used.
+In xlnx_formatter_pcm_open(), stream_data is allocated and
+adata->play_stream or adata->capture_stream is assigned early.  If a
+later step, such as snd_pcm_hw_constraint_step() or
+snd_pcm_hw_constraint_integer(), fails, the function returns the error
+immediately.  ALSA does not call the close callback when open fails, so
+stream_data is leaked and the stream pointer is left dangling, pointing
+to a substream that ALSA frees.  A later interrupt would then call
+snd_pcm_period_elapsed() on the freed substream.
 
-Simplify the probe error paths by returning directly instead of
-jumping to clk_err, and use devm_snd_soc_register_component() return
-value directly. Also remove error message from ioremap as it throws one
-itself. Same with devm_request_irq().
+Free stream_data and clear the stream pointer on the error paths.
 
+Fixes: 6f6c3c36f091 ("ASoC: xlnx: add pcm formatter platform driver")
 Assisted-by: opencode:deepseek-v4-flash-free
 Signed-off-by: Rosen Penev <rosenp@gmail.com>
+Reviewed-by: Michal Simek <michal.simek@amd.com>
 ---
- v2: add signed-off-by. Further clean up some stuff.
- sound/soc/xilinx/xlnx_formatter_pcm.c | 70 ++++++++-------------------
- 1 file changed, 20 insertions(+), 50 deletions(-)
+ v2: change goto label from err to error.
+ sound/soc/xilinx/xlnx_formatter_pcm.c | 14 +++++++++++---
+ 1 file changed, 11 insertions(+), 3 deletions(-)
 
 diff --git a/sound/soc/xilinx/xlnx_formatter_pcm.c b/sound/soc/xilinx/xlnx_formatter_pcm.c
-index 3d6f1e4046d8..eb878c75e293 100644
+index b50306b0fc06..3d6f1e4046d8 100644
 --- a/sound/soc/xilinx/xlnx_formatter_pcm.c
 +++ b/sound/soc/xilinx/xlnx_formatter_pcm.c
-@@ -82,7 +82,6 @@ struct xlnx_pcm_drv_data {
- 	int mm2s_irq;
- 	struct snd_pcm_substream *play_stream;
- 	struct snd_pcm_substream *capture_stream;
--	struct clk *axi_clk;
- 	unsigned int sysclk;
- };
- 
-@@ -596,30 +595,19 @@ static int xlnx_formatter_pcm_probe(struct platform_device *pdev)
- 	u32 val;
- 	struct xlnx_pcm_drv_data *aud_drv_data;
- 	struct device *dev = &pdev->dev;
-+	struct clk *axi_clk;
-+
-+	axi_clk = devm_clk_get_enabled(dev, "s_axi_lite_aclk");
-+	if (IS_ERR(axi_clk))
-+		return dev_err_probe(dev, PTR_ERR(axi_clk), "failed to get s_axi_lite_aclk");
- 
- 	aud_drv_data = devm_kzalloc(dev, sizeof(*aud_drv_data), GFP_KERNEL);
- 	if (!aud_drv_data)
- 		return -ENOMEM;
- 
--	aud_drv_data->axi_clk = devm_clk_get(dev, "s_axi_lite_aclk");
--	if (IS_ERR(aud_drv_data->axi_clk)) {
--		ret = PTR_ERR(aud_drv_data->axi_clk);
--		dev_err(dev, "failed to get s_axi_lite_aclk(%d)\n", ret);
--		return ret;
--	}
--	ret = clk_prepare_enable(aud_drv_data->axi_clk);
--	if (ret) {
--		dev_err(dev,
--			"failed to enable s_axi_lite_aclk(%d)\n", ret);
--		return ret;
--	}
--
- 	aud_drv_data->mmio = devm_platform_ioremap_resource(pdev, 0);
--	if (IS_ERR(aud_drv_data->mmio)) {
--		dev_err(dev, "audio formatter ioremap failed\n");
--		ret = PTR_ERR(aud_drv_data->mmio);
--		goto clk_err;
--	}
-+	if (IS_ERR(aud_drv_data->mmio))
-+		return PTR_ERR(aud_drv_data->mmio);
- 
- 	val = readl(aud_drv_data->mmio + XLNX_AUD_CORE_CONFIG);
- 	if (val & AUD_CFG_MM2S_MASK) {
-@@ -628,7 +616,7 @@ static int xlnx_formatter_pcm_probe(struct platform_device *pdev)
- 					       XLNX_MM2S_OFFSET);
- 		if (ret) {
- 			dev_err(dev, "audio formatter reset failed\n");
--			goto clk_err;
-+			return ret;
- 		}
- 		xlnx_formatter_disable_irqs(aud_drv_data->mmio +
- 					    XLNX_MM2S_OFFSET,
-@@ -636,17 +624,14 @@ static int xlnx_formatter_pcm_probe(struct platform_device *pdev)
- 
- 		aud_drv_data->mm2s_irq = platform_get_irq_byname(pdev,
- 								 "irq_mm2s");
--		if (aud_drv_data->mm2s_irq < 0) {
--			ret = aud_drv_data->mm2s_irq;
--			goto clk_err;
--		}
-+		if (aud_drv_data->mm2s_irq < 0)
-+			return aud_drv_data->mm2s_irq;
-+
- 		ret = devm_request_irq(dev, aud_drv_data->mm2s_irq,
- 				       xlnx_mm2s_irq_handler, 0,
- 				       "xlnx_formatter_pcm_mm2s_irq", aud_drv_data);
--		if (ret) {
--			dev_err(dev, "xlnx audio mm2s irq request failed\n");
--			goto clk_err;
--		}
-+		if (ret)
-+			return ret;
- 	}
- 	if (val & AUD_CFG_S2MM_MASK) {
- 		aud_drv_data->s2mm_presence = true;
-@@ -654,7 +639,7 @@ static int xlnx_formatter_pcm_probe(struct platform_device *pdev)
- 					       XLNX_S2MM_OFFSET);
- 		if (ret) {
- 			dev_err(dev, "audio formatter reset failed\n");
--			goto clk_err;
-+			return ret;
- 		}
- 		xlnx_formatter_disable_irqs(aud_drv_data->mmio +
- 					    XLNX_S2MM_OFFSET,
-@@ -662,34 +647,21 @@ static int xlnx_formatter_pcm_probe(struct platform_device *pdev)
- 
- 		aud_drv_data->s2mm_irq = platform_get_irq_byname(pdev,
- 								 "irq_s2mm");
--		if (aud_drv_data->s2mm_irq < 0) {
--			ret = aud_drv_data->s2mm_irq;
--			goto clk_err;
--		}
-+		if (aud_drv_data->s2mm_irq < 0)
-+			return aud_drv_data->s2mm_irq;
-+
- 		ret = devm_request_irq(dev, aud_drv_data->s2mm_irq,
- 				       xlnx_s2mm_irq_handler, 0,
- 				       "xlnx_formatter_pcm_s2mm_irq",
- 				       aud_drv_data);
--		if (ret) {
--			dev_err(dev, "xlnx audio s2mm irq request failed\n");
--			goto clk_err;
--		}
-+		if (ret)
-+			return ret;
+@@ -383,7 +383,7 @@ static int xlnx_formatter_pcm_open(struct snd_soc_component *component,
+ 	if (err) {
+ 		dev_err(component->dev,
+ 			"Unable to set constraint on period bytes\n");
+-		return err;
++		goto error;
  	}
  
- 	dev_set_drvdata(dev, aud_drv_data);
+ 	/* Resize the buffer bytes as divisible by 64 */
+@@ -393,7 +393,7 @@ static int xlnx_formatter_pcm_open(struct snd_soc_component *component,
+ 	if (err) {
+ 		dev_err(component->dev,
+ 			"Unable to set constraint on buffer bytes\n");
+-		return err;
++		goto error;
+ 	}
  
--	ret = devm_snd_soc_register_component(dev, &xlnx_asoc_component,
-+	return devm_snd_soc_register_component(dev, &xlnx_asoc_component,
- 					      NULL, 0);
--	if (ret) {
--		dev_err(dev, "pcm platform device register failed\n");
--		goto clk_err;
--	}
--
--	return 0;
--
--clk_err:
--	clk_disable_unprepare(aud_drv_data->axi_clk);
--	return ret;
+ 	/* Set periods as integer multiple */
+@@ -402,7 +402,7 @@ static int xlnx_formatter_pcm_open(struct snd_soc_component *component,
+ 	if (err < 0) {
+ 		dev_err(component->dev,
+ 			"Unable to set constraint on periods to be integer\n");
+-		return err;
++		goto error;
+ 	}
+ 
+ 	/* enable DMA IOC irq */
+@@ -411,6 +411,14 @@ static int xlnx_formatter_pcm_open(struct snd_soc_component *component,
+ 	writel(val, stream_data->mmio + XLNX_AUD_CTRL);
+ 
+ 	return 0;
++
++error:
++	if (substream->stream == SNDRV_PCM_STREAM_PLAYBACK)
++		adata->play_stream = NULL;
++	else
++		adata->capture_stream = NULL;
++	kfree(stream_data);
++	return err;
  }
  
- static void xlnx_formatter_pcm_remove(struct platform_device *pdev)
-@@ -706,8 +678,6 @@ static void xlnx_formatter_pcm_remove(struct platform_device *pdev)
- 
- 	if (ret)
- 		dev_err(&pdev->dev, "audio formatter reset failed\n");
--
--	clk_disable_unprepare(adata->axi_clk);
- }
- 
- static const struct of_device_id xlnx_formatter_pcm_of_match[] = {
+ static int xlnx_formatter_pcm_close(struct snd_soc_component *component,
 -- 
 2.55.0
 
