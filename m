@@ -4,83 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D65C3C5CFCF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 13:41:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F4036C5AC67
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 13:43:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Rtob55i4e0G3U1P7cI6YyoQ5Gk8sDLsGafMrnwcMx2Y=; b=xfEenDsLgsE4krItaT3etCUYIy
-	wQ9ZK5nqMkifeN2o0ySLecOBEvJ0qgEKVHGDJYIbqK/PrKCNKstQ30Hh2MKZBHOZD4V84hY5u0WDl
-	tPniUar1kaE9GzMN3HCfas53Oa520A2Jy1cjYDxrlpIwZWWXQGwqLbVPe/leGMQsbGjUpl1jXVwzu
-	bneSmwaZ99CQDPTk0tdcKsxpyjS82JQhOmutK0mMISbv+wn+DCpuLa3l7s7UkHyloONZQyEFXiLLB
-	rWc7gTm+kY9ODWP8L5Pxgv2Q/9KBghpVgesiklNhdW5E04iJSgJ23Kx7+lzs/k34XTjZ3GazZVIAT
-	Vr3YEjIQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dzCg+9gjTeQCSQnJV7nXw1uw5Ycp+ZYb0dfAyNCr8Zw=; b=d6UByBsdg3MGx4biSnJ+YBxatq
+	rx5z9P7aNVj4tWiZahzZdoPFv9YwwNVa0Nk6LYaOOVfDacbsn2SGUqdAyJc+rbNbgvR1g4p5u5Mqo
+	zdmFKnMK150St8MVsRd0CBqMdH243RgZgi73SfkKcI+UGLE1O+yMMoUxtHLhvjHUpz7n1LDcKiPml
+	zfzZMMXOB/8SW1bMXGz5KO7TpX8zcnCew23uWW32oESqGIUoD2l37Itd1PN9AcN247c2K0HcnUmCS
+	vsr/tWi/BFPhjaARZUz6sjPnj554WJ5BxSfpLTnc5KSIuEgVJJXE4AigZ5O67AaF3WPgAfw5WadaS
+	jaVmk+aA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtmjJ-0000000E7OO-0L7A;
-	Tue, 11 Aug 2026 13:41:21 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wtmkj-0000000E7YS-1RCy;
+	Tue, 11 Aug 2026 13:42:49 +0000
+Received: from mout01.posteo.de ([185.67.36.65])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtmjI-0000000E7O9-0VD2
+	id 1wtmkg-0000000E7Xl-3ZFX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 13:41:20 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 59405600AD;
-	Tue, 11 Aug 2026 13:41:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B39B11F000E9;
-	Tue, 11 Aug 2026 13:41:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786455678;
-	bh=Rtob55i4e0G3U1P7cI6YyoQ5Gk8sDLsGafMrnwcMx2Y=;
-	h=From:To:Cc:Subject:Date;
-	b=WjOpUM8Zua34pWZkC/xHj7rZadf2NR92L+j7peuB2sGQVps47SQ7I9RtU8SF18l6I
-	 IOh/wc7zD4UA0dbEhTmcxDzLStcT1cvy1mrgeLWWWyuGOUZKL6L8S5R71MlHSOjVOf
-	 Gh9h6CvCQXmsBmtCBx5c6iccERDFj62Dr+KKoVWJNsEppeq5zZyyzYCjMT2RGvAFbo
-	 +wpOunRFbWefmd0o691QiJ86WOkjX/8ExdZWV7k9L/oX/qR8GTQ+94d9ZuViEPto9z
-	 zp/AxyWsyP/wCjKCAeD8aWGIabx2hjjHuhMNglixaSBZdqHawXPD8B/SrTh5qLREzt
-	 J012u7kyh0ffg==
-From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-To: iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-coco@lists.linux.dev
-Cc: Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	x86@kernel.org,
-	"Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-Subject: [RFC PATCH] dma: swiotlb: Size shared default pools for memory encryption
-Date: Tue, 11 Aug 2026 19:10:56 +0530
-Message-ID: <20260811134056.756015-1-aneesh.kumar@kernel.org>
-X-Mailer: git-send-email 2.43.0
+	Tue, 11 Aug 2026 13:42:48 +0000
+Received: from submission (posteo.de [185.67.36.169]) 
+	by mout01.posteo.de (Postfix) with ESMTPS id 2D116240034
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 15:42:38 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.de;
+	s=1984.8680eb; t=1786455758;
+	bh=dzCg+9gjTeQCSQnJV7nXw1uw5Ycp+ZYb0dfAyNCr8Zw=;
+	h=Message-ID:Subject:From:To:Cc:Date:Autocrypt:Content-Type:
+	 MIME-Version:OpenPGP:From;
+	b=dovHz0PYtsiFBVMqx3bwf0qpFaKez/xdSmBFMj5DMd5B+W82SpjIX3tPlYqrSXXTL
+	 LgTDyWQrOtNAYW4xZlVG3N+ET1Ah2hBSAkPN9cI2nNIKsxVlMQhxdWb1jUaKNKW4Vu
+	 vTs0cq3dUQTmh4zb9Q7PB5rJudpSQZuVHj4y5OT7Ru2vUvY3xaFiBTinjZERIroB53
+	 gogHRnZ7eTh8LinVWixKRR4GQPBj5YsLy/wfxRUgtL/HaaOcVua5cisHJTIdFgIrAD
+	 sNfvw3tE4UjvkZMrbouch3t0mppmesc7efBab08FEVmK8PFw/wRfUxxgwWzmion3hh
+	 krmRNN+9ufK+g==
+Received: from customer (localhost [127.0.0.1])
+	by submission (posteo.de) with ESMTPSA id 4hKCVK3f0zz6tvx;
+	Tue, 11 Aug 2026 15:42:33 +0200 (CEST)
+Message-ID: <2b293ec3ff83348657a64ed551a3c8533fc1d336.camel@posteo.de>
+Subject: Re: [PATCH v3 1/5] dt-bindings: rtc: Add pinctrl for S35390A
+From: Markus Probst <markus.probst@posteo.de>
+To: Linus Walleij <linusw@kernel.org>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, Rob Herring
+	 <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	 <conor+dt@kernel.org>, Uwe =?ISO-8859-1?Q?Kleine-K=F6nig?=
+	 <uwe@kleine-koenig.org>, Andrew Lunn <andrew@lunn.ch>, Gregory Clement
+	 <gregory.clement@bootlin.com>, Sebastian Hesselbarth
+	 <sebastian.hesselbarth@gmail.com>, Michael Langer
+	 <michael.brainbug.langer@googlemail.com>, Andrew Morton
+	 <akpm@linux-foundation.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-rtc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org
+Date: Tue, 11 Aug 2026 13:42:35 +0000
+In-Reply-To: <CAD++jLmbp5v5oy9oas3q=nDEvdvmPZpX71eHwEUgSKkn4bfCkQ@mail.gmail.com>
+References: <20260805-rtc_s35390a_int1-v3-0-e836faba3e25@posteo.de>
+	 <20260805-rtc_s35390a_int1-v3-1-e836faba3e25@posteo.de>
+	 <CAD++jLmbp5v5oy9oas3q=nDEvdvmPZpX71eHwEUgSKkn4bfCkQ@mail.gmail.com>
+Autocrypt: addr=markus.probst@posteo.de; prefer-encrypt=mutual;
+ keydata=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
+ jfGillcaQOqFZ3WwVqyzG1BUfTow==
+Content-Type: multipart/signed; micalg="pgp-sha256";
+	protocol="application/pgp-signature"; boundary="=-QW3gka1UqdUF6X6NqTlC"
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+OpenPGP: url=https://posteo.de/keys/markus.probst@posteo.de.asc; preference=encrypt
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260811_064247_199900_2F143D71 
+X-CRM114-Status: GOOD (  14.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,314 +128,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Systems with memory encryption use swiotlb to provide shared or
-unencrypted buffers for device DMA. Confidential guests may route all
-DMA through these buffers, while SME hosts use them for devices that
-cannot address encrypted memory. The default swiotlb pool can therefore
-be exhausted under I/O-intensive workloads.
 
-Let architectures mark the default swiotlb pool as shared before
-swiotlb_init(). Move the existing x86 sizing policy into generic swiotlb
-code and add early pool marking for arm64 Realm guests, powerpc secure
-guests, s390 protected-virtualization guests, and x86 memory-encryption
-platforms. Use CC_ATTR_MEM_ENCRYPT on x86 to include host SME, whose
-swiotlb pool must also be decrypted for devices that cannot address
-encrypted memory.
+--=-QW3gka1UqdUF6X6NqTlC
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Move the powerpc secure-guest swiotlb enablement before initialization
-so that the shared pool is allocated with the required flags. pKVM
-guests continue to use a restricted DMA pool instead of the default
-swiotlb pool.
+On Fri, 2026-08-07 at 19:23 +0200, Linus Walleij wrote:
+> On Wed, Aug 5, 2026 at 9:32=E2=80=AFPM Markus Probst <markus.probst@poste=
+o.de> wrote:
+>=20
+> > Synology NAS devices use the output pin for interrupt signal 1 to wake =
+up
+> > the system.
+> >=20
+> > Move devicetree bindings for sii,s35390a into its own file.
+> > Add necessary properties to configure the individual pins via pinctrl,
+> > which allows the interrupt signal 1 to be used for wakeup alarm.
+> >=20
+> > Signed-off-by: Markus Probst <markus.probst@posteo.de>
+>=20
+> This is a bit unexpected but I really like how this looks
+> and how it is using pin control!
+Thanks!
 
-Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
----
- arch/arm64/mm/init.c                 |  6 ++-
- arch/powerpc/mm/mem.c                |  7 +++
- arch/powerpc/platforms/pseries/svm.c | 10 ----
- arch/s390/mm/init.c                  |  2 +
- arch/x86/mm/mem_encrypt.c            | 27 ++--------
- include/linux/swiotlb.h              |  7 ++-
- kernel/dma/swiotlb.c                 | 73 ++++++++++++++++++++++------
- 7 files changed, 82 insertions(+), 50 deletions(-)
+To give credit, the use of pin control was Alexandre his idea.
 
-diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-index e308a7cabd12..4c022e8aed43 100644
---- a/arch/arm64/mm/init.c
-+++ b/arch/arm64/mm/init.c
-@@ -338,8 +338,12 @@ void __init arch_setup_zero_pages(void)
- void __init arch_mm_preinit(void)
- {
- 	unsigned int flags = SWIOTLB_VERBOSE;
-+	/* pKVM uses restricted-dma-pool */
-+	bool cc_guest = is_realm_world();
- 
--	if (max_pfn <= PFN_DOWN(arm64_dma_phys_limit)) {
-+	if (cc_guest) {
-+		swiotlb_mark_default_cc_shared();
-+	} else if (max_pfn <= PFN_DOWN(arm64_dma_phys_limit)) {
- 		/*
- 		 * If no bouncing needed for ZONE_DMA, reduce the swiotlb
- 		 * buffer for kmalloc() bouncing to 1MB per 1GB of RAM.
-diff --git a/arch/powerpc/mm/mem.c b/arch/powerpc/mm/mem.c
-index 4c1afab91996..39246ac66ad4 100644
---- a/arch/powerpc/mm/mem.c
-+++ b/arch/powerpc/mm/mem.c
-@@ -287,6 +287,13 @@ void __init arch_mm_preinit(void)
- 	BUILD_BUG_ON(MMU_PAGE_COUNT > 16);
- 
- #ifdef CONFIG_SWIOTLB
-+	if (is_secure_guest()) {
-+		/* The host can access DMA buffers only through the SWIOTLB. */
-+		swiotlb_mark_default_cc_shared();
-+		ppc_swiotlb_enable = 1;
-+		ppc_swiotlb_flags |= SWIOTLB_ANY;
-+	}
-+
- 	/*
- 	 * Some platforms (e.g. 85xx) limit DMA-able memory way below
- 	 * 4G. We force memblock to bottom-up mode to ensure that the
-diff --git a/arch/powerpc/platforms/pseries/svm.c b/arch/powerpc/platforms/pseries/svm.c
-index 7a403dbd35ee..4a0be631dc6d 100644
---- a/arch/powerpc/platforms/pseries/svm.c
-+++ b/arch/powerpc/platforms/pseries/svm.c
-@@ -21,16 +21,6 @@ static int __init init_svm(void)
- 	if (!is_secure_guest())
- 		return 0;
- 
--	/* Don't release the SWIOTLB buffer. */
--	ppc_swiotlb_enable = 1;
--
--	/*
--	 * Since the guest memory is inaccessible to the host, devices always
--	 * need to use the SWIOTLB buffer for DMA even if dma_capable() says
--	 * otherwise.
--	 */
--	ppc_swiotlb_flags |= SWIOTLB_ANY;
--
- 	/* Share the SWIOTLB buffer with the host. */
- 	swiotlb_update_mem_attributes();
- 
-diff --git a/arch/s390/mm/init.c b/arch/s390/mm/init.c
-index 8d1de5a2e554..d88578fa550c 100644
---- a/arch/s390/mm/init.c
-+++ b/arch/s390/mm/init.c
-@@ -163,6 +163,8 @@ static void __init pv_init(void)
- 	if (!is_prot_virt_guest())
- 		return;
- 
-+	swiotlb_mark_default_cc_shared();
-+
- 	virtio_set_mem_acc_cb(virtio_require_restricted_mem_acc);
- 
- 	/* make sure bounce buffers are shared */
-diff --git a/arch/x86/mm/mem_encrypt.c b/arch/x86/mm/mem_encrypt.c
-index 95bae74fdab2..9fa4c97b34e0 100644
---- a/arch/x86/mm/mem_encrypt.c
-+++ b/arch/x86/mm/mem_encrypt.c
-@@ -101,9 +101,6 @@ void __init mem_encrypt_init(void)
- 
- void __init mem_encrypt_setup_arch(void)
- {
--	phys_addr_t total_mem = memblock_phys_mem_size();
--	unsigned long size;
--
- 	/*
- 	 * Do RMP table fixups after the e820 tables have been setup by
- 	 * e820__memory_setup().
-@@ -111,30 +108,12 @@ void __init mem_encrypt_setup_arch(void)
- 	if (cc_platform_has(CC_ATTR_HOST_SEV_SNP))
- 		snp_fixup_e820_tables();
- 
-+	if (cc_platform_has(CC_ATTR_MEM_ENCRYPT))
-+		swiotlb_mark_default_cc_shared();
-+
- 	if (!cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT))
- 		return;
- 
--	/*
--	 * For SEV and TDX, all DMA has to occur via shared/unencrypted pages.
--	 * Kernel uses SWIOTLB to make this happen without changing device
--	 * drivers. However, depending on the workload being run, the
--	 * default 64MB of SWIOTLB may not be enough and SWIOTLB may
--	 * run out of buffers for DMA, resulting in I/O errors and/or
--	 * performance degradation especially with high I/O workloads.
--	 *
--	 * Adjust the default size of SWIOTLB using a percentage of guest
--	 * memory for SWIOTLB buffers. Also, as the SWIOTLB bounce buffer
--	 * memory is allocated from low memory, ensure that the adjusted size
--	 * is within the limits of low available memory.
--	 *
--	 * The percentage of guest memory used here for SWIOTLB buffers
--	 * is more of an approximation of the static adjustment which
--	 * 64MB for <1G, and ~128M to 256M for 1G-to-4G, i.e., the 6%
--	 */
--	size = total_mem * 6 / 100;
--	size = clamp_val(size, IO_TLB_DEFAULT_SIZE, SZ_1G);
--	swiotlb_adjust_size(size);
--
- 	/* Set restricted memory access for virtio. */
- 	virtio_set_mem_acc_cb(virtio_require_restricted_mem_acc);
- }
-diff --git a/include/linux/swiotlb.h b/include/linux/swiotlb.h
-index 277b9aa2edaa..324859ecb5cd 100644
---- a/include/linux/swiotlb.h
-+++ b/include/linux/swiotlb.h
-@@ -189,7 +189,8 @@ void swiotlb_dev_init(struct device *dev);
- size_t swiotlb_max_mapping_size(struct device *dev);
- bool is_swiotlb_allocated(void);
- bool is_swiotlb_active(struct device *dev);
--void __init swiotlb_adjust_size(unsigned long size);
-+void __init swiotlb_mark_default_cc_shared(void);
-+void swiotlb_adjust_size(unsigned long size);
- phys_addr_t default_swiotlb_base(void);
- phys_addr_t default_swiotlb_limit(void);
- #else
-@@ -228,6 +229,10 @@ static inline bool is_swiotlb_active(struct device *dev)
- 	return false;
- }
- 
-+static inline void swiotlb_mark_default_cc_shared(void)
-+{
-+}
-+
- static inline void swiotlb_adjust_size(unsigned long size)
- {
- }
-diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
-index 897aba538c5b..bc67d427f995 100644
---- a/kernel/dma/swiotlb.c
-+++ b/kernel/dma/swiotlb.c
-@@ -208,7 +208,7 @@ unsigned long swiotlb_size_or_default(void)
- 	return default_nslabs << IO_TLB_SHIFT;
- }
- 
--void __init swiotlb_adjust_size(unsigned long size)
-+void swiotlb_adjust_size(unsigned long size)
- {
- 	/*
- 	 * If swiotlb parameter has not been specified, give a chance to
-@@ -274,24 +274,15 @@ static void swiotlb_mark_pool_used(struct io_tlb_pool *pool)
- void __init swiotlb_update_mem_attributes(void)
- {
- 	struct io_tlb_pool *mem = &io_tlb_default_mem.defpool;
--	unsigned long bytes;
--
--	/*
--	 * if platform support memory encryption, swiotlb buffers are
--	 * shared by default.
--	 */
--	if (cc_platform_has(CC_ATTR_MEM_ENCRYPT))
--		io_tlb_default_mem.cc_shared = true;
--	else
--		io_tlb_default_mem.cc_shared = false;
- 
- 	if (!mem->nslabs || mem->late_alloc)
- 		return;
--	bytes = PAGE_ALIGN(mem->nslabs << IO_TLB_SHIFT);
- 
- 	if (io_tlb_default_mem.cc_shared) {
- 		int ret;
-+		unsigned long bytes;
- 
-+		bytes = PAGE_ALIGN(mem->nslabs << IO_TLB_SHIFT);
- 		ret = set_memory_decrypted((unsigned long)mem->vaddr,
- 					   bytes >> PAGE_SHIFT);
- 		if (ret) {
-@@ -382,6 +373,42 @@ static void __init *swiotlb_memblock_alloc(unsigned long nslabs,
- 	return tlb;
- }
- 
-+void __init swiotlb_mark_default_cc_shared(void)
-+{
-+	io_tlb_default_mem.cc_shared = true;
-+}
-+
-+static void swiotlb_adjust_cc_attributes(void)
-+{
-+	unsigned long size;
-+	phys_addr_t total_mem = memblock_phys_mem_size();
-+
-+	/*
-+	 * For SEV and TDX and CCA, all DMA has to occur via
-+	 * shared/unencrypted pages. Kernel uses SWIOTLB to make this
-+	 * happen without changing device drivers. However, depending on
-+	 * the workload being run, the default 64MB of SWIOTLB may not be
-+	 * enough and SWIOTLB may run out of buffers for DMA, resulting in
-+	 * I/O errors and/or performance degradation especially with high
-+	 * I/O workloads.
-+	 *
-+	 * Adjust the default size of SWIOTLB using a percentage of guest
-+	 * memory for SWIOTLB buffers. Also, as the SWIOTLB bounce buffer
-+	 * memory is allocated from low memory, ensure that the adjusted
-+	 * size is within the limits of low available memory.
-+	 *
-+	 * The percentage of guest memory used here for SWIOTLB buffers is
-+	 * more of an approximation of the static adjustment which 64MB for
-+	 * <1G, and ~128M to 256M for 1G-to-4G, i.e., the 6%
-+	 */
-+	size = total_mem * 6 / 100;
-+	size = clamp_val(size, IO_TLB_DEFAULT_SIZE, SZ_1G);
-+	swiotlb_adjust_size(size);
-+
-+	if (!IS_ENABLED(CONFIG_SWIOTLB_DYNAMIC))
-+		pr_info("Consider enabling CONFIG_SWIOTLB_DYNAMIC for memory-encrypted systems\n");
-+}
-+
- /*
-  * Statically reserve bounce buffer space and initialize bounce buffer data
-  * structures for the software IO TLB used to implement the DMA API.
-@@ -395,8 +422,14 @@ void __init swiotlb_init_remap(bool addressing_limit, unsigned int flags,
- 	size_t alloc_size;
- 	void *tlb;
- 
--	if (!addressing_limit && !swiotlb_force_bounce)
-+	/*
-+	 * A shared pool is required for DMA on memory-encrypted systems even
-+	 * when all devices are otherwise able to address memory directly.
-+	 */
-+	if (!addressing_limit && !swiotlb_force_bounce &&
-+	    !io_tlb_default_mem.cc_shared)
- 		return;
-+
- 	if (swiotlb_force_disable)
- 		return;
- 
-@@ -411,6 +444,9 @@ void __init swiotlb_init_remap(bool addressing_limit, unsigned int flags,
- 		io_tlb_default_mem.phys_limit = ARCH_LOW_ADDRESS_LIMIT;
- #endif
- 
-+	if (io_tlb_default_mem.cc_shared)
-+		swiotlb_adjust_cc_attributes();
-+
- 	if (!default_nareas)
- 		swiotlb_adjust_nareas(num_possible_cpus());
- 
-@@ -465,7 +501,7 @@ int swiotlb_init_late(size_t size, gfp_t gfp_mask,
- 		int (*remap)(void *tlb, unsigned long nslabs))
- {
- 	struct io_tlb_pool *mem = &io_tlb_default_mem.defpool;
--	unsigned long nslabs = ALIGN(size >> IO_TLB_SHIFT, IO_TLB_SEGSIZE);
-+	unsigned long nslabs;
- 	unsigned int order, area_order, slot_order;
- 	bool leak_pages = false;
- 	unsigned int nareas;
-@@ -479,6 +515,15 @@ int swiotlb_init_late(size_t size, gfp_t gfp_mask,
- 	if (swiotlb_force_disable)
- 		return 0;
- 
-+	/* Apply the shared-pool default sizing before deriving nslabs. */
-+	if (io_tlb_default_mem.cc_shared &&
-+	    size == swiotlb_size_or_default()) {
-+		swiotlb_adjust_cc_attributes();
-+		size = swiotlb_size_or_default();
-+	}
-+
-+	nslabs = ALIGN(size >> IO_TLB_SHIFT, IO_TLB_SEGSIZE);
-+
- 	io_tlb_default_mem.force_bounce = swiotlb_force_bounce;
- 
- #ifdef CONFIG_SWIOTLB_DYNAMIC
--- 
-2.43.0
+- Markus Probst
 
+
+>=20
+> Yours,
+> Linus Walleij
+
+--=-QW3gka1UqdUF6X6NqTlC
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+
+-----BEGIN PGP SIGNATURE-----
+
+iQJPBAABCAA5FiEEgnQYxPSsWOdyMMRzNHYf+OetQ9IFAmp7JrkbFIAAAAAABAAO
+bWFudTIsMi41KzEuMTIsMiwyAAoJEDR2H/jnrUPStjQQAJWXeNaXaQVNvejgSBMg
+tvTp2Udl6C+FEODA4dfsNjhm16qkEzN0QBirIL86nifakQW3nergAjyuVfMvJw+0
+2sQvyvsW98NW7qEDZnL2Eehxjwbab8rop3EOCnkGusLwzBZEItVwpuX8G9UDZToO
+skG35NSKZ8vX7IUl04vdms+dP5ou28UseGm7CTR3y1PIaHcFwEEfUhQ1P8bZQJ7x
+broWwqA+qptOFUSfTv3xdi/XzO8PvIs0CR/eCsBI6rn8uuhhX1gvY55tH6uBb9W0
+NJPf+kLxgeLu2stTjGUN9+vFi8DBpX1/rj1ES6sKgd8P3MXCg15gXBZ9oYA3nNQj
+JhFuy2mc3qDqFVzTwcpQghvj2o+zomWbYOLFf0lSpv305UFb2pXXVsQNNr8YUglu
+21I4PRKMTIoskBqKuYyMf76CBaXmgWiP0138t2fo+BYhFkm2ivyyyaYMcDx9OGm7
+D/0aWJau2Em3UwXnFLc3vhgkFfgffaS7NWsQUyxGHovlRzcrZ+gSLDexRhk5mqGL
+kkQonf/4tUL4QgqriEb8qx8ey9ozpfhV/ts3cfYUdUCY/rev/8+iYfZMCIuV75VU
+Zm6Ucsawg/Wj0z5Ebt0F9n8UTZvacVZLuca/pA/lFhtA3WtRE24Inf51BW0HuNd6
+qrwJcxEd7O4+sMcBZXw19b1p
+=1cIM
+-----END PGP SIGNATURE-----
+
+--=-QW3gka1UqdUF6X6NqTlC--
 
