@@ -4,80 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53F01C5AD55
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 02:54:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95085C5AD55
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 03:21:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MoWxrfO3Q6icLGaAofp8s2umiohjGshMkph3r7NwxhU=; b=Fm889BDRqHS/1MfPbY7xrKzvnh
-	IGa0Kd5nIHfNv4tu7ZAHeJT2fLWoQxfFtsAXlx6EAcOCvZLabgZyFf+YziNRDEZSeI3x9uOUDFi9z
-	F6mUvcDGyW3FKotLARuie3X3DHjzuqYUzum0pm1OlSuAtxjt7SFbNZDpzxyFmfiFKvF3fXsmf3Qkg
-	XkWqoPZH+XQWkmbHK899iKTHRLVYtuiFpSw5iEDt/1KN82InQ8tEKqdcsbwkSzTCHgX7sko30UThE
-	0jS+30cWIvFP1AXMonUZ6SEBM7t0mqn8c5AE8HTkmO80JTdFjS1JS3hNg7OHx8G9bTs7fI8PWALyB
-	fHt9NIew==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
+	Content-Type:Content-Transfer-Encoding:Date:Message-ID:In-Reply-To:CC:To:From
+	:Subject:Mime-Version:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=A67nTvL3S0f5pXXi3bamCM1SiNXYu2ZVAm2b/1+zW94=; b=HS/aMTuL/SyqUuw/QKt/ttGsOT
+	BCcsASl9lO/mwUKmaQow24T+zRMQ/tJyuDZlQREGa6lNTwnCQTSWj0MZ6V4TWXSMXFADUaIagFYrI
+	OAoDHhyC/OeZIPmWwRf3lxOAmkx8RUSuVcyJDw2LaCL6VnfS5PV19vlK4ZNc4gLa96ipcO1UZr10C
+	ZvFXh2KWqwYqZvjRWhWGBM/bGeSaXzNg2MiRfZXb4tDthYuxS1G38yAqGkK5LHRv/5KxRh1lHBtZl
+	gAT2vEbaTVp0wcacMvAkdRND1Y84nGJyAFAOTER7Fck+fBJayDEzvrk736mM7ip+SAoUpnTXi90dC
+	EHwu2HTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtcdd-0000000DByY-3zGc;
-	Tue, 11 Aug 2026 02:54:49 +0000
-Received: from zg8tmtyylji0my4xnjeumjiw.icoremail.net ([162.243.161.220])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtcdZ-0000000DBsL-2iqX;
-	Tue, 11 Aug 2026 02:54:48 +0000
-Received: from zju.edu.cn (unknown [10.98.66.117])
-	by mtasvr (Coremail) with SMTP id _____wBHIX7SjnpqOeiCAA--.156S3;
-	Tue, 11 Aug 2026 10:54:10 +0800 (CST)
-Received: from localhost.localdomain (unknown [10.98.66.117])
-	by mail-app2 (Coremail) with SMTP id zC_KCgB3CtHSjnpqsZ7DAw--.40592S2;
-	Tue, 11 Aug 2026 10:54:10 +0800 (CST)
-From: Fan Wu <fanwu01@zju.edu.cn>
-To: Bjorn Helgaas <bhelgaas@google.com>
-Cc: shawn.lin@rock-chips.com,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	robh@kernel.org,
-	heiko@sntech.de,
-	dlemoal@kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Fan Wu <fanwu01@zju.edu.cn>
-Subject: [PATCH] PCI: rockchip-ep: disable link training work on remove
-Date: Tue, 11 Aug 2026 02:53:15 +0000
-Message-Id: <20260811025315.136998-1-fanwu01@zju.edu.cn>
-X-Mailer: git-send-email 2.34.1
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zC_KCgB3CtHSjnpqsZ7DAw--.40592S2
-X-CM-SenderInfo: qrstjiaswqq6lmxovvfxof0/
-X-CM-DELIVERINFO: =?B?MEjT9gXKKxbFmtjJiESix3B1w3vZ3A9ovKVTomAyoQazvoRs/NHSP8GI2EvgeEEW7R
-	sfncGSG+szpQCInt5Y8rbJUI0qI+tQE2w8INGKFcJ8d4DzpU4NXfzY/1BP2O6TETYvPXes
-	MwOqRdL0lUKjDUkPxayp9E6mavGmQbzmcFsnzP86
-X-Coremail-Antispam: 1Uk129KBj93XoW7AF4fXw48tF1DXF48CryDurX_yoW8ZF4Upa
-	4DXry3ArykWF42vwnxA3ZxZayYq3Zavay7Wwn7G3WfZ3WavF1UG34jgFnrArZxJrW8ZF17
-	Crs8tayUuF43WFgCm3ZEXasCq-sJn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7KY7ZEXa
-	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
-	0xBIdaVrnRJUUUP0b4IE77IF4wAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2
-	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
-	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
-	0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AK
-	xVW0oVCq3wAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52x082IY62kv0487Mc804V
-	CY07AIYIkI8VC2zVCFFI0UMc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AK
-	xVWUXVWUAwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48Icx
-	kI7VAKI48JM4x0Y48IcxkI7VAKI48G6xCjnVAKz4kxM4IIrI8v6xkF7I0E8cxan2IY04v7
-	MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr
-	0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0E
-	wIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JV
-	WxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAI
-	cVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU818BUUUUUU==
+	id 1wtd3W-0000000DD9x-1hWz;
+	Tue, 11 Aug 2026 03:21:34 +0000
+Received: from mailout4.samsung.com ([203.254.224.34])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wtd3R-0000000DD9R-2fi9
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Aug 2026 03:21:33 +0000
+Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20260811032122epoutp04de2dcc4451b84b7db5df1c6344d4528c~KoiUiYqUY0784107841epoutp04K
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 03:21:22 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20260811032122epoutp04de2dcc4451b84b7db5df1c6344d4528c~KoiUiYqUY0784107841epoutp04K
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1786418482;
+	bh=A67nTvL3S0f5pXXi3bamCM1SiNXYu2ZVAm2b/1+zW94=;
+	h=Subject:Reply-To:From:To:CC:In-Reply-To:Date:References:From;
+	b=POPJ0LWf/7/dGa9Brfj1tco+n1PE/NmCGYPNKaHW8zqgKcBOveuMF8jsipUewb42P
+	 wtfdLXUJLvwjAlEE3rToh4tAPEXQUPYPQYkEu+iCTKO7PNThcBB6UgGG3/AmA5xutE
+	 z/eFsyzoJeiPWNPfob6cqKUQ+rECvJENg6n2ax/Q=
+Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
+	20260811032122epcas5p2f7b76e4134904673c8632b7f12dc1d71~KoiUGHP6A1041910419epcas5p2f;
+	Tue, 11 Aug 2026 03:21:22 +0000 (GMT)
+Received: from epcas5p2.samsung.com (unknown [182.195.41.40]) by
+	epsnrtp02.localdomain (Postfix) with ESMTP id 4hJxjZ0XRLz2SSKg; Tue, 11 Aug
+	2026 03:21:22 +0000 (GMT)
+Mime-Version: 1.0
+Subject: RE: [PATCH v2] arm: backtrace-clang: fix wrong sp usage for
+ unwinding
+From: Maninder Singh <maninder1.s@samsung.com>
+To: Nick Desaulniers <ndesaulniers@google.com>
+CC: "ardb@kernel.org" <ardb@kernel.org>, "linux@armlinux.org.uk"
+	<linux@armlinux.org.uk>, "nathan@kernel.org" <nathan@kernel.org>,
+	"nick.desaulniers+lkml@gmail.com" <nick.desaulniers+lkml@gmail.com>,
+	"morbo@google.com" <morbo@google.com>, "justinstitt@google.com"
+	<justinstitt@google.com>, Onkarnath <onkarnath.1@samsung.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "llvm@lists.linux.dev"
+	<llvm@lists.linux.dev>, Rohit Thapliyal <r.thapliyal@samsung.com>
+X-Priority: 3
+X-Content-Kind-Code: NORMAL
+In-Reply-To: <CAKwvOdk=ydGGmeDnoYYNLhe0pSmDZ1FgSoB2W_985avY07Ga7g@mail.gmail.com>
+X-Drm-Type: N,general
+X-Msg-Generator: Mail
+X-Msg-Type: PERSONAL
+X-Reply-Demand: N
+Message-ID: <20260811032121epcms5p6e9ed3e8970f4b4aaf1f17aa8ae91f0b0@epcms5p6>
+Date: Tue, 11 Aug 2026 08:51:21 +0530
+X-CMS-MailID: 20260811032121epcms5p6e9ed3e8970f4b4aaf1f17aa8ae91f0b0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+X-CMS-RootMailID: 20260805045522epcas5p39659721ef26a447b71e860c2990a60c0
+References: <CAKwvOdk=ydGGmeDnoYYNLhe0pSmDZ1FgSoB2W_985avY07Ga7g@mail.gmail.com>
+	<20260805045514.1599433-1-maninder1.s@samsung.com>
+	<CGME20260805045522epcas5p39659721ef26a447b71e860c2990a60c0@epcms5p6>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_195445_858434_412AC62C 
-X-CRM114-Status: GOOD (  11.32  )
+X-CRM114-CacheID: sfid-20260810_202130_163548_C529457A 
+X-CRM114-Status: GOOD (  11.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,70 +90,25 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: maninder1.s@samsung.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The endpoint driver has no .remove callback, so on unbind the
-link_training work can keep running after the devm-allocated ep is freed,
-causing a use-after-free.  Add a .remove() callback that disables the
-worker.
+Hi Nick,
 
-This issue was found by an in-house static analysis tool.
-
-Fixes: bd6e61df4b2e ("PCI: rockchip-ep: Improve link training")
-Cc: stable@vger.kernel.org
-Assisted-by: Codex:gpt-5.6
-Signed-off-by: Fan Wu <fanwu01@zju.edu.cn>
----
- drivers/pci/controller/pcie-rockchip-ep.c | 21 +++++++++++++++++++++
- 1 file changed, 21 insertions(+)
-
-diff --git a/drivers/pci/controller/pcie-rockchip-ep.c b/drivers/pci/controller/pcie-rockchip-ep.c
-index 7994613..fbc2470 100644
---- a/drivers/pci/controller/pcie-rockchip-ep.c
-+++ b/drivers/pci/controller/pcie-rockchip-ep.c
-@@ -860,6 +860,7 @@ static int rockchip_pcie_ep_probe(struct platform_device *pdev)
- 	}
- 
- 	ep->epc = epc;
-+	platform_set_drvdata(pdev, ep);
- 	epc_set_drvdata(epc, ep);
- 
- 	err = rockchip_pcie_ep_get_resources(rockchip, ep);
-@@ -899,12 +900,32 @@ err_exit_ob_mem:
- 	return err;
- }
- 
-+static void rockchip_pcie_ep_remove(struct platform_device *pdev)
-+{
-+	struct rockchip_pcie_ep *ep = platform_get_drvdata(pdev);
-+	struct rockchip_pcie *rockchip = &ep->rockchip;
-+
-+	if (rockchip->perst_gpio) {
-+		ep->perst_asserted = true;
-+		disable_irq(ep->perst_irq);
-+	}
-+
-+	/* Disable, not cancel like .stop(): a racing .start() cannot re-arm it. */
-+	disable_delayed_work_sync(&ep->link_training);
-+
-+	rockchip_pcie_write(rockchip,
-+			    PCIE_CLIENT_CONF_DISABLE |
-+			    PCIE_CLIENT_LINK_TRAIN_DISABLE,
-+			    PCIE_CLIENT_CONFIG);
-+}
-+
- static struct platform_driver rockchip_pcie_ep_driver = {
- 	.driver = {
- 		.name = "rockchip-pcie-ep",
- 		.of_match_table = rockchip_pcie_ep_of_match,
- 	},
- 	.probe = rockchip_pcie_ep_probe,
-+	.remove = rockchip_pcie_ep_remove,
- };
- 
- builtin_platform_driver(rockchip_pcie_ep_driver);
--- 
-2.34.1
-
+> Suggested-by:=C2=A0=20Ard=20Biesheuvel=20<ardb=40kernel.org>=0D=0A>=20Rev=
+iewed-by:=20Nick=20Desaulniers=20<ndesaulniers=40google.com>=0D=0A>=20=0D=
+=0A>=20Thanks=20for=20reporting=20the=20issue=20and=20sending=20a=20patch.=
+=20Thanks=20for=20Ard=20for=0D=0A>=20suggesting=20a=20better=20fix.=0D=0A>=
+=20I=20assume=20you=20all=20know=20how=20to=20submit=20patches=20to=0D=0A>=
+=20https://www.arm.linux.org.uk/developer/patches/=0D=0A>=20=0D=0A=0D=0A=0D=
+=0AThanks=20for=20reviewing=20the=20patch,=20Actually=20I=20was=20not=20awa=
+re=20that=20ARM=20patches=0D=0Ahas=20to=20go=20through=20this=20way.=0D=0AM=
+aybe=20that=20is=20the=20reason=20my=20last=202=20bugfixes=20are=20also=20i=
+gnored=20from=20ARM=20side=20:)=0D=0Ahttps://lkml.org/lkml/2026/4/27/265=0D=
+=0A=0D=0ASo=20I=20was=20checking=20the=20way=20and=20created=20account=20th=
+ere=20to=20submit=20the=20patch.=0D=0AI=20will=20post=20the=20patch=20to=20=
+suggested=20site=20today=20for=20further=20checking.=0D=0Ahttps://www.arm.l=
+inux.org.uk/developer/patches/=0D=0A=0D=0A=0D=0AThanks=20Again,=0D=0AManind=
+er=20Singh=0D=0A
 
