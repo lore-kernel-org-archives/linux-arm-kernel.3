@@ -4,68 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75707C5B574
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 07:44:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 191F8C5AC67
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 07:48:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NMNxsOBgRLiRtNEbZR+RBGoAu6lXQrIeFDnqZH/I5Ag=; b=xNWoOHHPXNEZ31OBz6FIUqpgAi
-	OaEpUeRvPgS+D3c2G2Bp3eobKaahO6LPzRBUC32+aaLlCjXYlVcj2jWgmcjjyZbJ3z399mFHM0hFh
-	cvbhVjX26DCaamgf1UpKX01H2KKnRD5xxrYjgW1beuywuCnwSndU27vLJDZLLBNjSBJsTVb5kahIc
-	KQpIbtdI7R0EOZEzAHI8YN3c8C5I+1T0MFHAMCvDiRNUeRvi6KpUUUPQQ7HPE3SNQyc3BO+OLFb3J
-	i6gQVtCZvi3cxCM5o/LXNFH/eW8blV7VQ2mlDsQOSw0Ty7fvqAMHC8t3yaO7zCXplGImQwyL7AqkJ
-	ocsInWBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=daXUWiNhiN7cNvtBzAZ9KFArZ3GpfPxgFjFP5H8KqzI=; b=fTduOl4ZADjhK1MlIiyRU0C3LV
+	tsnVZlimm8AWhUqU73/GH1IxpjU0/rwGX+oCXUNWWXUyvh0rL1W+Kh3ZVqSwF6hL2OsSYlm75+C9Z
+	kHcLlnLzVFP27kryUw1c2i4WMkiehoZO0FBEV9yVcuSh8VZbUl1docJnRFYaMKM4lCZyjnA3pSWHO
+	nUyrotcv2b7zLsehygRrC9Yt/iFeVq5BV3smrlHWDw8arSdXXYMd7/eRzFAiNs5kd4msIZ9cL8Jge
+	m/B3EiPe5qTZ4VC411GtwNymRFtWBbNgi0nYnFN51scsKe/4kDlaP0j1p3vEPZT6zPA/bWi+uIqbh
+	LNykr7Hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wth9f-0000000DXyC-2jzG;
-	Tue, 11 Aug 2026 07:44:11 +0000
-Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
+	id 1wthE2-0000000DYHc-0UOH;
+	Tue, 11 Aug 2026 07:48:42 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wth9c-0000000DXxo-0JcM
+	id 1wthE1-0000000DYHR-1uvC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 07:44:09 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=NMNxsOBgRLiRtNEbZR+RBGoAu6lXQrIeFDnqZH/I5Ag=;
-	b=sOkh+vz6SXoEioykK9obZ/PcIqLGZUFimF95mbpW307bSjfAxqJtdj9B0iVnA6LJPFqF2hedf
-	Evp1C8QXm+udiTZ+h4CLc+ZQr/lvqr5+GemHytSNnlLKIpawxIkh/bJVyu/Ahn42sVGDUoot0uh
-	rLgYEj+XYuVxz3ej29zmm78=
-Received: from mail.maildlp.com (unknown [172.19.163.104])
-	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4hK3K74mDjz1T4Fq;
-	Tue, 11 Aug 2026 15:34:03 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 88EBC4057F;
-	Tue, 11 Aug 2026 15:43:52 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 11 Aug 2026 15:43:51 +0800
-Message-ID: <1694f91a-1f0a-4e25-94c8-3885c4560eea@huawei.com>
-Date: Tue, 11 Aug 2026 15:43:50 +0800
+	Tue, 11 Aug 2026 07:48:41 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8E047600AF;
+	Tue, 11 Aug 2026 07:48:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 469CB1F000E9;
+	Tue, 11 Aug 2026 07:48:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786434520;
+	bh=daXUWiNhiN7cNvtBzAZ9KFArZ3GpfPxgFjFP5H8KqzI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=DzgAtXk5RGh2onxOvP+qmdvGYDOuzPDI22Lv1njALZ47IygRgMoUvuOJQfPMVKLn5
+	 7mMc7QLA+Pd0ih0lzmbQxDoYn2s4tiKoyjWRKgBz3MTHODVNrEmsKAay2KNqua/8iZ
+	 frWOrLFaYN3YMTqmzlgGcCijl6w+jSgNDbGUULhFw4BUXQ8k/WKgF+N5u2u9yEHJuU
+	 ZQ6cMwEuRfWCOHujhF3zXAqemucZ00SIa8426xPhGKAFoMIEBv1vxXEQ5OaV/VzjvL
+	 qD1wugMLlYpB1YuqjCOCLyEuvtAwhvtIrYPPBn9mtwW508Uzwk2PYQ9NYpqZu5cMtX
+	 XtAoL1dpDVHww==
+Date: Tue, 11 Aug 2026 08:48:35 +0100
+From: Simon Horman <horms@kernel.org>
+To: Siddharth Vadapalli <s-vadapalli@ti.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, c-vankar@ti.com,
+	vadim.fedorenko@linux.dev, v-singh1@ti.com, nm@ti.com,
+	daniel.zahka@gmail.com, nora.schiffer@ew.tq-group.com,
+	oss@vassilevski.com, grygorii.strashko@ti.com,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, srk@ti.com
+Subject: Re: [PATCH net] net: ethernet: ti: am65-cpsw-nuss: Fix port_id
+ extraction from SRC TAG
+Message-ID: <20260811074835.GW51943@horms.kernel.org>
+References: <20260807111738.2055900-1-s-vadapalli@ti.com>
+ <20260810165629.788002-1-horms@kernel.org>
+ <d7841492-7e2a-4f4e-ae82-8058c7f4c6a5@ti.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 13/45] arm64: process: Use helper to check
- exception state
-To: Vladimir Murzin <vladimir.murzin@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>
-CC: <mark.rutland@arm.com>, <maz@kernel.org>, <will@kernel.org>,
-	<catalin.marinas@arm.com>, <liaochang1@huawei.com>
-References: <20260727163453.7969-1-vladimir.murzin@arm.com>
- <20260727163453.7969-14-vladimir.murzin@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <20260727163453.7969-14-vladimir.murzin@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- dggpemf500011.china.huawei.com (7.185.36.131)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_004408_300959_837BCD80 
-X-CRM114-Status: GOOD (  14.32  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <d7841492-7e2a-4f4e-ae82-8058c7f4c6a5@ti.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,72 +76,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-在 2026/7/28 0:34, Vladimir Murzin 写道:
-> debug_switch_state() explicitly checks the hardware exception state
-> for both the pseudo-NMI and non-NMI paths. The expected state matches
-> the NOIRQ_CONTEXT exception context introduced alongside the exception
-> masking helpers and state checkers.
+On Tue, Aug 11, 2026 at 10:38:55AM +0530, Siddharth Vadapalli wrote:
+> On 10/08/26 22:26, Simon Horman wrote:
+> > This is an AI-generated review of your patch. The human sending this
+> > email has considered the AI review valid, or at least plausible.
+> > Full review at: https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260807111738.2055900-1-s-vadapalli@ti.com?part=1
+> > ---
+> > --- Patch [1]: [PATCH net] net: ethernet: ti: am65-cpsw-nuss: Fix port_id extraction from SRC TAG ---
+> > commit b0ed959d350c90d8b49f6f81eba7461fbc86dcf4
+> > Author: Siddharth Vadapalli <s-vadapalli@ti.com>
+> > 
+> > net: ethernet: ti: am65-cpsw-nuss: Fix port_id extraction from SRC TAG
+> > 
+> > The RX path extracts the ingress MAC port ID from the CPPI5 descriptor's
+> > 16-bit Source Tag. Only the lower 8 bits carry the port ID, so the patch
+> > masks the value with 0xFF before it is used as an index into
+> > common->ports[].
+> > 
+> > > diff --git a/drivers/net/ethernet/ti/am65-cpsw-nuss.c b/drivers/net/ethernet/ti/am65-cpsw-nuss.c
+> > > index 434a31080855..6330540979d7 100644
+> > > --- a/drivers/net/ethernet/ti/am65-cpsw-nuss.c
+> > > +++ b/drivers/net/ethernet/ti/am65-cpsw-nuss.c
+> > > @@ -1310,6 +1310,8 @@ static int am65_cpsw_nuss_rx_packets(struct am65_cpsw_rx_flow *flow,
+> > >   	k3_udma_glue_rx_cppi5_to_dma_addr(rx_chn->rx_chn, &buf_dma);
+> > >   	pkt_len = cppi5_hdesc_get_pktlen(desc_rx);
+> > >   	cppi5_desc_get_tags_ids(&desc_rx->hdr, &port_id, NULL);
+> > > +	/* Port ID is contained in the lower 8-bits of the 16-bit Source Tag */
+> > > +	port_id &= 0xFF;
+> > >   	dev_dbg(dev, "%s rx port_id:%d\n", __func__, port_id);
+> > >   	port = am65_common_get_port(common, port_id);
+> > >   	ndev = port->ndev;
+> > 
+> > [Severity: High]
+> > [Finding: main-1-0]
+> > [Sources: opus-5]
+> > 
+> > The missing range check on port_id is pre-existing and not introduced by
+> > this patch, but since the change is specifically about avoiding the
+> > out-of-bounds access, would it be worth validating the value instead of
+> > relying only on the mask?
 > 
-> Use the helper instead of open-coding these checks.
-> 
-> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
-> Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
-> ---
->  arch/arm64/kernel/process.c | 21 ++-------------------
->  1 file changed, 2 insertions(+), 19 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
-> index 581f80e9b9b7..0fd09136d398 100644
-> --- a/arch/arm64/kernel/process.c
-> +++ b/arch/arm64/kernel/process.c
-> @@ -51,6 +51,7 @@
->  #include <asm/exec.h>
->  #include <asm/fpsimd.h>
->  #include <asm/gcs.h>
-> +#include <asm/interrupts/common_flags.h>
->  #include <asm/mmu_context.h>
->  #include <asm/mpam.h>
->  #include <asm/mte.h>
-> @@ -703,25 +704,7 @@ void update_sctlr_el1(u64 sctlr)
->  
->  static inline void debug_switch_state(void)
->  {
-> -	if (system_uses_irq_prio_masking()) {
-> -		unsigned long daif_expected = 0;
-> -		unsigned long daif_actual = read_sysreg(daif);
-> -		unsigned long pmr_expected = GIC_PRIO_IRQOFF;
-> -		unsigned long pmr_actual = read_sysreg_s(SYS_ICC_PMR_EL1);
-> -
-> -		WARN_ONCE(daif_actual != daif_expected ||
-> -			  pmr_actual != pmr_expected,
-> -			  "Unexpected DAIF + PMR: 0x%lx + 0x%lx (expected 0x%lx + 0x%lx)\n",
-> -			  daif_actual, pmr_actual,
-> -			  daif_expected, pmr_expected);
-> -	} else {
-> -		unsigned long daif_expected = DAIF_PROCCTX_NOIRQ;
-> -		unsigned long daif_actual = read_sysreg(daif);
-> -
-> -		WARN_ONCE(daif_actual != daif_expected,
-> -			  "Unexpected DAIF value: 0x%lx (expected 0x%lx)\n",
-> -			  daif_actual, daif_expected);
-> -	}
-> +	arm64_debug_exc_context(NOIRQ_CONTEXT);
+> Hardware guarantees a valid Port ID in the lower 8-bits. A Software check is
+> an unnecessary overhead and will impact performance since this is on the
+> data-path and is not a one-time check during initialization.
 
-Hi Vladimir,
+...
 
-After taking another look, I have a small suggestion:
+Hi Siddharth,
 
-if you postpone the introduction of arm64_debug_exc_context() and
-arm64_debug_exc_hwstate() from the previous patch to this one, the code
-review will be easier.
+Thanks for addressing the AI generated review.
+This all looks good to me now.
 
-Best regards,
-Jinjie
-
->  }
->  
->  /*
+Reviewed-by: Simon Horman <horms@kernel.org>
 
 
