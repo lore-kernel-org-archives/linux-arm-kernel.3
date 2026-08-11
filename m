@@ -4,70 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B308C5CFC1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 08:14:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55B2EC5B574
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 08:17:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RXKqNN/BYdahUkKtDSK1T4Al9EOhfuqUnyF7GQQHD3M=; b=IF0EA8POFbKyucvXMiXphwekZw
-	oSPMZdkIIw3MtSgY+0bF+0NT7jl2u3WLefzLqy16gd4lDX3g6AanL7Au4CYnnpw7xVriwNt8OF05X
-	EtHqUtGgncanmk4PT3nIN6rcA/seruQHffON8IIY1+CFD90gpnuVkMHfxM9fmpjZiNxQJ78sT9SyE
-	FO4s0kR6bMW7kDjtXzq1WaRUX1ZByFZWAVgjIAIFpNFZ1I2n9r6J6bH5ZY6spF3UEWK0OfYKkutMH
-	BJ6fJYI2zh5TR8kixyl60F1i6WNHnmkK9hKq7z0j+0n91BtjrweRklqu0ZLwq3vzNBjoQHIFNvR96
-	wXZ5uSOQ==;
+	bh=/N6NxxZa1/RwsdJJL1XOaQxBTanGcXh5CEXk/SH/G4M=; b=zlljBlyOAkcQyxXGAnMfUpAF0a
+	4B4oTU8/drn+BEYY8omKYjM6nwDFqlZ3ktHiA9nQ0rUuWIDeUktEbQ04pkYC2KalNyF+604gzgMj/
+	MvSkoqax2upI2HtE2edSN2hhcOLapyWGfFKBr3Y5gr9lt8v1ezhZg/5ylbH/XnRbPobuYxrdw1snL
+	xLh+W0MVNERfbKV4Zh6/JkRCDR0CNbYNW+ICegP7Ok152H9fg56tr3nwxwDZ6NfEEgoKF+5P1YzFi
+	DHK7A0yQB0sOy36JqL1vVAvnEHn5b/6qM1Msd8A4SqHRI56llcBJkOFH8p2kA1vmyiVwqR7QcoU2I
+	NpqoqMFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wthcY-0000000Da9H-2acL;
-	Tue, 11 Aug 2026 08:14:02 +0000
-Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
+	id 1wthfr-0000000DaaH-0Le4;
+	Tue, 11 Aug 2026 08:17:27 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wthcV-0000000Da8h-2af7
+	id 1wthfp-0000000DaZR-0MRi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 08:14:02 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=RXKqNN/BYdahUkKtDSK1T4Al9EOhfuqUnyF7GQQHD3M=;
-	b=zaCvKi7dLtmYUTyi6swu7jR18GyO6ebUywE7ct9aTBhcF8P9eTTOPpKLYTQaOoGMjkPitGNYi
-	O3+/nS0oKi3wICr9huL+mJCWkk3ygoHJTTWhxjcpHKZ7Nzwp/ohiCUOwsXWgagiA36cPGr8nhoQ
-	qnnq+5d1TQHOelZVoGZShZ4=
-Received: from mail.maildlp.com (unknown [172.19.162.223])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4hK3zN20xfzcb1r;
-	Tue, 11 Aug 2026 16:03:44 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 85CAA40575;
-	Tue, 11 Aug 2026 16:13:49 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 11 Aug 2026 16:13:48 +0800
-Message-ID: <e228c980-9e08-46be-9760-1586c3f3fa9e@huawei.com>
-Date: Tue, 11 Aug 2026 16:13:47 +0800
+	Tue, 11 Aug 2026 08:17:26 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2caced6038eso8752345ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 01:17:24 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1786436244; cv=none;
+        d=google.com; s=arc-20260327;
+        b=nErh3s2kJyEYomsfan4F7pV2Zp53Xzil7wJR9vm9a5NdHM23azodbKxZPMbak0tTAe
+         UPSyKgaLf8y4CFBxDzTv0pnc5xjvkm32zuZ2daktZH79W3CJUz+yUjik/BICe3iSkACp
+         MlEvNItFuiXP/ry+jbJh4kQlDeHKDYJOJKi+gZxP9BxXx0qyG9s6SOgYSFNHItqKbzAd
+         A4QgaQPn7tbgYFxKZA2bps3RAtqxVP+GPcvRzc6iG08jHn9OiPEsI7m6I1QHgp6O9Vov
+         pqUu/oUrIVa760Ma8bc6QQLkq62tWHaMfPiRZaGL6JhmDmfvoitwLjS2Cz7FA4q2cYls
+         p51A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=/N6NxxZa1/RwsdJJL1XOaQxBTanGcXh5CEXk/SH/G4M=;
+        fh=LbCKrYkmw55qGBA7RG0Xt9H/+0c8mSEwRbzZ5678Ju4=;
+        b=X5qTy/izZdRztVoYW6Z1ORgtWuCkno0s8ZUHOdum1cmeJ1Dozu3Y/azN7TA9wK9Pkp
+         h4Z499Cz0KITGvgi/04HIm096pzkttsdUZjq5GpXrb45VbltJes24JIty8IfdS7+NP6A
+         EMi3Se8We9PC8SBOjQjm+9zB7RuidZ5UMsUiqfoT9wJcneyDWVyKH+QGhwlpk0EbSQfS
+         WRPdiiQ+bQbJ2kC5M5NGcy1BFs9LMdfA+8KUZToIEXoAtBxfnoi2pi97Yp/stHxbNGb8
+         BQKEK3BNqGtJxiuu888vheRJT1lFCKw10jQre9bZYmlxXC1AlXdM/pWVVhrGNeri8K5d
+         r1nQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786436244; x=1787041044; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=/N6NxxZa1/RwsdJJL1XOaQxBTanGcXh5CEXk/SH/G4M=;
+        b=odXlPsVETGgiX09WLrsFo8LCeig2wRAUs6p0QmRRoc8mKZljAv4wUr1Zrsc9RAVVT5
+         NEYUTmtsyzgbNN7EwAZesAsGTh7dW1m37TGPTBfYbRXYDNRpTLs+R4Vnrvau1JzSskBx
+         jD4BVLdzNv7zSUe0fQvqWn7fzrmGesk43LJTl9QPj8JscWNzOqDoNVvTiG9o6Roh58Lu
+         7clPu9CQDe/qRLv5Kwg5ZElFNHqPql1sdp73fA7vNVGxlrecS9/4dSd1y5bYwyEpqnhp
+         tLnvlQ++AEVE0dr5mPuoN9jWSd6n5L1QS1g9hoGNrbkWQBvyUo8h9ExCtHrzGgESCgjV
+         4vVQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786436244; x=1787041044;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=/N6NxxZa1/RwsdJJL1XOaQxBTanGcXh5CEXk/SH/G4M=;
+        b=RUs5eXAfqqiZYAeMCU4i8IV2oiM9SsNtqi5Wci18wCKY4kvKHqxZBeb3aB9mSB+e6y
+         RgWWkfQDrxwEEqLtQEpCVyNT84CnXCffQfMnwrH1eOyvJbcTd2Y1nl1P/2CtQC7pFnW8
+         KwTL9B7MtKQf4ckJPr/X4KIGP1yw+hUkLtn6KmP3Q/zMcwQyqvlKcGyXR5rQThIbV54D
+         ETLzi5dlcULbhyUBsPRTwaJwDlzhrfvv3wMij6zJkyuA/+cbSBFqE6dRN8kDU9vWBKOD
+         cuUUhX2T/LDCyWhvmRGD6vYaEGlMUdsWfWFzlxC3dPhGy+GNgoJcU4DfLPJmH+ADtKLA
+         Cdmw==
+X-Forwarded-Encrypted: i=1; AHgh+RqbccIp3nfZC4kif6CAmnIZoGOX8t2ckrHUTlVA+0k0EvJl0J1OfpkEy7dBk9gTImgJIqEYF2/K+vt/u6sx2Ve8@lists.infradead.org
+X-Gm-Message-State: AOJu0YxDcRYt/4vRc2fRTI3yKyTKwKeu5tFZeL8K/fHp/GwB7dAwS/dd
+	479KYrHGNSAjpurUAjx//blaE2LywLCvMn1GFmhAc02LEqSoGhxMODugPvhY3kjb/1KWV/caeNW
+	4BrnBoZ1tuSxb2HK33LW5nprLLBROt5zTELGsJN0=
+X-Gm-Gg: AR+sD11Fj4AWfNL7Y/pzNwTZWnUCROqw8WHLhwUWPf+qL/DzyCI8BltGTe3AbZOT588
+	lC4A+YvJVD+PuxXPiGFy1Lc0OX4XRtQzaiV2z2jm/EzlXevLosv/TCelhg8eqaaK5JzLDU70Cbl
+	os355YnQvRZx8k5pVFvfCPCb+2OwS456PJ45ryCbmU0yFoX97t3nmQiN5iSd5ZgWRc95Gx/0PZj
+	qkjuO75F75VMRlnzuiW/aE4MPmpL6xd7OY5OIQhvv1WlztQgAh6cACBeYmv8++4772pKlNnohyQ
+	hJ+WSzazpQJgMajsCQVRasWZUiJ5GvSKdHEYsRxt6nZtGLc5H4+HLF8=
+X-Received: by 2002:a17:902:ffcf:b0:2cf:7ea3:7cf1 with SMTP id
+ d9443c01a7336-2d31877be01mr17789185ad.5.1786436244086; Tue, 11 Aug 2026
+ 01:17:24 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 14/45] arm64: entry: Introduce entry specific
- exception masking helpers
-To: Vladimir Murzin <vladimir.murzin@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>
-CC: <mark.rutland@arm.com>, <maz@kernel.org>, <will@kernel.org>,
-	<catalin.marinas@arm.com>, <liaochang1@huawei.com>
-References: <20260727163453.7969-1-vladimir.murzin@arm.com>
- <20260727163453.7969-15-vladimir.murzin@arm.com>
- <349f178a-9eba-4353-96ab-91fd50ce87da@huawei.com>
- <6b0a4c25-6e5a-4ff9-b87a-1d12636df08c@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <6b0a4c25-6e5a-4ff9-b87a-1d12636df08c@arm.com>
+References: <20260804100218.49587-1-shengjiu.wang@oss.nxp.com>
+ <20260804100218.49587-2-shengjiu.wang@oss.nxp.com> <20260810-normal-cuscus-of-argument-4b230b@quoll>
+ <CAA+D8AM9s7EX-G246Hf2=DOx5q2qXWg_MjUCaoJ8RggOjp+5cQ@mail.gmail.com>
+ <dc40dcae-3017-4e61-8c6d-7e6127e4ee77@kernel.org> <CAA+D8AOQ_y7BdR4h+X6qxFygPU6h1iFV0cYXHN4KB370yM2Bkw@mail.gmail.com>
+ <3219a2e7-d11b-478e-ad2e-5f1ec2bbdf27@kernel.org>
+In-Reply-To: <3219a2e7-d11b-478e-ad2e-5f1ec2bbdf27@kernel.org>
+From: Shengjiu Wang <shengjiu.wang@gmail.com>
+Date: Tue, 11 Aug 2026 16:17:02 +0800
+X-Gm-Features: AUfX_mx1LX0wZY0j5iDajd7W5oe3f6Rmcs5OiNPXvXt3EbMHLfrVtGbE60ayIAU
+Message-ID: <CAA+D8AO1q-n2S3X2d1ZZ_yXxNrHPjCPvrJrPZmTMOYZM9uEGeQ@mail.gmail.com>
+Subject: Re: [PATCH v3 1/5] ASoC: dt-bindings: fsl,imx-asrc: update port
+ binding to support multiple paths
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: shengjiu.wang@oss.nxp.com, lgirdwood@gmail.com, broonie@kernel.org, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, Frank.Li@nxp.com, 
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
+	shawnguo@kernel.org, linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Xiubo.Lee@gmail.com, nicoleotsuka@gmail.com, 
+	perex@perex.cz, tiwai@suse.com, linuxppc-dev@lists.ozlabs.org, 
+	Shengjiu Wang <shengjiu.wang@nxp.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_011400_319652_B77F8180 
-X-CRM114-Status: GOOD (  22.93  )
+X-CRM114-CacheID: sfid-20260811_011725_127128_53F795E8 
+X-CRM114-Status: GOOD (  13.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,235 +128,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Aug 11, 2026 at 3:36=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.or=
+g> wrote:
+>
+> On 11/08/2026 09:33, Shengjiu Wang wrote:
+> >>>>
+> >>>> Why mentioning upstream in the first place? Either this change break=
+s
+> >>>> ABI or not, explain that.
+> >>>
+> >>> The deprecated 'port' property is retained, so this change is fully b=
+ackwards
+> >>> compatible and does not break ABI.
+> >>
+> >> So why? Drop redundant parts.
+> >
+> > Ok, I will remove the sentence below in the commit message.
+> >
+> >     No existing upstream DTS file for fsl,imx-asrc uses the previously
+> >     documented single 'port' node, so this change does not break any
+> >     in-tree device tree.
+> >
+>
+> Honestly, it's redundant, because you are not dropping it. So even if
+> DTS was using the port, what would change?
+>
 
+Understood. Even if a DTS was using 'port', nothing would change since
+'port' is retained.  I will drop the sentence in v4.
 
-在 2026/8/3 20:21, Vladimir Murzin 写道:
-> On 7/28/26 10:18, Jinjie Ruan wrote:
->>
->> 在 2026/7/28 0:34, Vladimir Murzin 写道:
->>> From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
->>>
->>> The entry code handles interrupt masking differently from the rest of
->>> the kernel. Exception handlers enter and exit with all exceptions
->>> masked, but they must temporarily unmask the appropriate set of
->>> exceptions so that the rest of the handler executes with the expected
->>> exception state.
->>>
->>> For EL0 handlers, this means dropping to masking context appropriate
->>> for the work to be performed. For EL1 handlers, this means restoring
->>> the masking context of the interrupted task. In both cases, all
->>> exceptions must be masked again before returning from the exception
->>> handler.
->>>
->>> The rest of the kernel typically follows the opposite pattern: it
->>> raises the masking context to protect a critical section and later
->>> restores the previous context.
->>>
->>> Given these different usage patterns, introduce a dedicated set of
->>> exception masking helpers for the entry code. Keeping these helpers
->>> separate from the generic interrupt masking APIs makes the intended
->>> usage explicit and helps avoid mixing the two masking models.
->>>
->>> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
->>> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
->>> ---
->>>  arch/arm64/include/asm/interrupts/entry.h | 113 ++++++++++++++++++++++
->>>  1 file changed, 113 insertions(+)
->>>  create mode 100644 arch/arm64/include/asm/interrupts/entry.h
->>>
->>> diff --git a/arch/arm64/include/asm/interrupts/entry.h b/arch/arm64/include/asm/interrupts/entry.h
->>> new file mode 100644
->>> index 000000000000..d66eb5d633f0
->>> --- /dev/null
->>> +++ b/arch/arm64/include/asm/interrupts/entry.h
->>> @@ -0,0 +1,113 @@
->>> +/* SPDX-License-Identifier: GPL-2.0-only */
->>> +/*
->>> + * Copyright (C) 2025 Arm Ltd.
->>> + */
->>> +#ifndef __ASM_INTERRUPTS_ENTRY_H
->>> +#define __ASM_INTERRUPTS_ENTRY_H
->>> +
->>> +#include <asm/arch_gicv3.h>
->>> +#include <asm/bug.h>
->>> +#include <asm/cpufeature.h>
->>> +#include <asm/interrupts/common_flags.h>
->>> +
->>> +
->>> +static __always_inline
->>> +arm64_exc_hwstate_t __arm64_switch_exc_hwstate_to(arm64_exc_hwstate_t prev,
->>> +						  arm64_exc_hwstate_t next)
->>> +{
->>> +	bool irqs_disabled = arch_irqs_disabled_flags(next.flags);
->>> +	bool force;
->>> +
->>> +	arm64_debug_exc_hwstate(prev);
->>> +
->>> +	if (prev.flags == next.flags)
->>> +		return next;
->>> +
->>> +	if (!irqs_disabled)
->>> +		trace_hardirqs_on();
->>> +
->>> +	force = system_uses_irq_prio_masking() && prev.pmr != next.pmr;
->>> +
->>> +	__arm64_update_exc_hwstate(next, force);
->>> +
->>> +	if (irqs_disabled)
->>> +		trace_hardirqs_off();
->>> +
->>> +	return next;
->>> +}
->>> +
->>> +static __always_inline
->>> +arm64_exc_hwstate_t arm64_inherit_exc_context(struct pt_regs *regs)
->>> +{
->>> +	arm64_exc_hwstate_t prev = arm64_exc_hwstate_of_context(CRITICAL_CONTEXT);
->>> +	arm64_exc_hwstate_t next = arm64_inherit_exc_hwstate(regs);
->>> +
->>> +	return __arm64_switch_exc_hwstate_to(prev, next);
->>> +}
->>> +
->>> +static __always_inline
->>> +arm64_exc_hwstate_t arm64_drop_exc_context(arm64_exc_hwstate_t prev, arm64_exc_context_t context)
->>> +{
->>> +	arm64_exc_hwstate_t next = arm64_exc_hwstate_of_context(context);
->>> +
->>> +	if (IS_ENABLED(CONFIG_DEBUG_IRQFLAGS)) {
->>> +		bool pnmi = system_uses_irq_prio_masking();
->>> +
->>> +		WARN_ON_ONCE(context > ERROR_CONTEXT &&
->>> +			     prev.daif == DAIF_ERRCTX);
->>> +
->>> +		WARN_ON_ONCE(context > NONMI_CONTEXT &&
->>> +			     prev.daif == DAIF_PROCCTX_NOIRQ);
->> For daif, we can directly compare next and prev because, as the context
->> drops, the value of daif decreases.
->>
->> This is also the opposite of the meanings of "drop" and "lift" in the
->> function names, which is easy to understand.
->>
->> WARN_ON_ONCE(prev.daif < next.daif);
-> 
-> That's a very good point! I was too focused on checking the hardware
-> state against the logical exception context, so I missed that we could
-> perform the checks using the hardware state alone.
-> 
-> What do you think about:
-> 
->         if (IS_ENABLED(CONFIG_DEBUG_IRQFLAGS)) {
->                 WARN_ON_ONCE(prev.daif < next.daif);
-> 
->                 if (prev.daif == next.daif) {
->                         /*
->                          * GIC_PRIO_IRQON is larger that GIC_PRIO_IRQOFF so larger PMR value is weaker
->                          */
->                         WARN_ON_ONCE(system_uses_irq_prio_masking() && prev.pmr > next.pmr);
->                         WARN_ON_ONCE(system_uses_nmi() && prev.allint < next.allint);
+Thanks.
 
-Hi Vladimir,
-
-I have come up with what I think is a more comprehensible debugging method.
-
-Could we define a function that is the reverse of
-arm64_exc_hwstate_of_context(), such that we can derive the previous
-context from the previous hardware state? That would allow us to
-directly compare below enum types, making the logic significantly easier
-to follow. Any thoughts?
-
-This way, we don't even need to distinguish between pseudo-NMI and FEAT_NMI.
-
-+typedef enum arm64_exc_context {
-+	PROCESS_CONTEXT,
-+	NOIRQ_CONTEXT,
-+	NONMI_CONTEXT,
-+	ERROR_CONTEXT,
-+	CRITICAL_CONTEXT,
-+} arm64_exc_context_t;
-
-Best regards,
-Jinjie
-
->                 }
->         }
-> 
->>
->>> +
->>> +		WARN_ON_ONCE(context > NOIRQ_CONTEXT &&
->>> +			     pnmi && prev.pmr == GIC_PRIO_IRQOFF);
->>> +
->>> +		WARN_ON_ONCE(context > PROCESS_CONTEXT &&
->>> +			     ((pnmi && prev.daif == DAIF_PROCCTX && prev.pmr == GIC_PRIO_IRQON) ||
->>> +			      (!pnmi && prev.daif == DAIF_PROCCTX)));
->>> +	}
->>> +
->>> +	return __arm64_switch_exc_hwstate_to(prev, next);
->>> +}
->>> +
->>> +static __always_inline
->>> +arm64_exc_hwstate_t arm64_lift_exc_context(arm64_exc_hwstate_t prev, arm64_exc_context_t context)
->>> +{
->>> +	arm64_exc_hwstate_t next = arm64_exc_hwstate_of_context(context);
->>> +
->>> +	if (IS_ENABLED(CONFIG_DEBUG_IRQFLAGS)) {
->>> +		bool pnmi = system_uses_irq_prio_masking();
->>> +
->>> +		WARN_ON_ONCE(context < CRITICAL_CONTEXT &&
->>> +			     prev.daif == DAIF_MASK);
->>> +
->>> +		WARN_ON_ONCE(context < ERROR_CONTEXT &&
->>> +			     prev.daif == DAIF_ERRCTX);
->> WARN_ON_ONCE(prev.daif > next.daif);
->>
-> 
-> ... and
-> 
->         if (IS_ENABLED(CONFIG_DEBUG_IRQFLAGS)) {
->                 WARN_ON_ONCE(prev.daif > next.daif);
-> 
->                 if (prev.daif == next.daif) {
->                         /*
->                          * GIC_PRIO_IRQON is larger that GIC_PRIO_IRQOFF so smaller PMR value is stronger
->                          */
->                         WARN_ON_ONCE(system_uses_irq_prio_masking() && prev.pmr < next.pmr);
->                         WARN_ON_ONCE(system_uses_nmi() && prev.allint > next.allint);
->                 }
->         }
-> 
-> 
-> Cheers
-> Vladimir
-> 
->>> +
->>> +		WARN_ON_ONCE(context < NONMI_CONTEXT &&
->>> +			     pnmi && prev.daif == DAIF_PROCCTX_NOIRQ);
->>> +
->>> +		WARN_ON_ONCE(context < NOIRQ_CONTEXT &&
->>> +			     ((pnmi && prev.pmr == GIC_PRIO_IRQOFF) ||
->>> +			      (!pnmi && prev.daif == DAIF_PROCCTX_NOIRQ)));
->>> +	}
->>> +
->>> +	return __arm64_switch_exc_hwstate_to(prev, next);
->>> +}
->>> +
->>> +
->>> +static __always_inline
->>> +arm64_exc_hwstate_t arm64_unmask_exc_context(arm64_exc_context_t context)
->>> +{
->>> +	arm64_exc_hwstate_t prev = arm64_exc_hwstate_of_context(CRITICAL_CONTEXT);
->>> +
->>> +	return arm64_drop_exc_context(prev, context);
->>> +}
->>> +
->>> +static __always_inline
->>> +arm64_exc_hwstate_t arm64_mask_exc_context(arm64_exc_hwstate_t prev)
->>> +{
->>> +	return arm64_lift_exc_context(prev, CRITICAL_CONTEXT);
->>> +}
->>> +
->>> +#endif /* __ASM_INTERRUPTS_ENTRY_H */
->>
-> 
-> 
-
+Best regards
+Shengjiu Wang
 
