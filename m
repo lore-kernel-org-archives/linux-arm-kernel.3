@@ -4,101 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F24FC5B56A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 15:12:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8126BC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 15:12:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HNP0bVRN3BIEQFCgVCRS46/SHi+YQBr42iLusOUd4wg=; b=TNjQpDL2h22SxVtP4MLrDKCMIZ
-	uh6I9gj9PHM8Voual+FMKHKYF6CxqfNonhsHx6vR6Vn/nPxvlCqq6DIIpyHq2+MnFYQn/0LsDM/bA
-	M/+Y10tvyDG7YrIOFHI/m+7pr9i8pNnotx+7z+I+GPmzfmjMJ4EKYruoPCBhSPTdZA9ceMyNwTHWT
-	GSwNGSipEnGWpdnkIyuz5cLye7V8+MtscZrjkI9+F1ZC/rkE0lSrzQRyF2Tpvptl9wVwiSRleq14Y
-	WYdq2+nXQeLvzWCMGZMAhYVrD+PNQWTTURDHfs0Jp0TjWWrPQ+qTUG4KGuFpKCg8Wmn/L6glh3hiM
-	nkACTl0g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7qnLA5jwYRR4sOTTMTV6kH8dvnJR9u+vw1g786dZeMg=; b=eri9a5HLEblnfBXNj1zLnRTmF8
+	YtXnqgtC8+xLCAwnHAeG2k/9zqRw8fWrL8fqiKQqtjya/jSamLL1g1asLeWuXuCS18sy+uN7i2xpF
+	z4TNCFJq/177t/XhO9Vf9Zdo2Zg0uqhRAmwGz0J8zil+m0gxu8cIsNK5JSbZ7MMkLsIjr6rcYd3Ib
+	zbWSEIJ2OjrOq/nWR5Q1OkykeZElExmNu7Al9HGHVb21h+ctLI4tXP9MQtRA01MO/aD7aI8QqDWxN
+	9w2OjaeLFQzRAIkLSuViArQ7HC0/RzpblUtwssSPArqcOG6BdiJZs6JHuT9v022ZWib8RXn2M9hmA
+	UIX3clgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wto9P-0000000EIKc-0TrX;
-	Tue, 11 Aug 2026 15:12:23 +0000
-Received: from fhigh-a2-smtp.messagingengine.com ([103.168.172.153])
+	id 1wto9c-0000000EIQO-11W3;
+	Tue, 11 Aug 2026 15:12:36 +0000
+Received: from mail-westeuropeazon11010002.outbound.protection.outlook.com ([52.101.69.2] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wto9M-0000000EIIZ-0xfo
+	id 1wto9Z-0000000EIOB-2UcY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 15:12:22 +0000
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 6A5B9140014C;
-	Tue, 11 Aug 2026 11:12:15 -0400 (EDT)
-Received: from ams-imap-03 ([10.64.2.23])
-  by ams-compute-02.internal (MEProxy); Tue, 11 Aug 2026 11:12:16 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1786461134;
-	 x=1786547534; bh=HNP0bVRN3BIEQFCgVCRS46/SHi+YQBr42iLusOUd4wg=; b=
-	MYTFBvkL34sEhjqvkT+M9tVanfBZ+IXoOtflcQO45tIsRn8MZ59Y7RJPOnetRZTZ
-	iJJAVgpK/d3XiGE5ykevx/PUwIjEoZnFGixh082PqcDeKfDPR7urqmhmAd5cr94n
-	jxjyva0hXLl7xsMYDB5Lm4blmPxMX4+CUyZH0lBgo697MQ6cFpEZtOy73uxIQqXf
-	T7WdrGB0IhiP0IszOVBUcSkeR0Zho2GILcx61HFLZ8P+ymygNcYOqlQxvZ3pMGxw
-	Lf17zswpPY4G1ZLS2rA0DMnJOAge7yA8alUaWwY88xn+nIxleg7v4/uXP/tpBwK3
-	54kTpFU6SgSydt1Gia28yw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1786461134; x=
-	1786547534; bh=HNP0bVRN3BIEQFCgVCRS46/SHi+YQBr42iLusOUd4wg=; b=c
-	rAjKdScjIYRQW9zjdI+xjbWcr3hilXdwZVMpqedHYIiLMZy6ixa1uxET6MQZNHYJ
-	RBgMJSoz/TXJcm4X5W5GmFgSLEjF3PuWLiQSrFmxTuXMgitguk+73VTZUKvTVUjB
-	rHmb5NKtQf0Wgk0wvjGu2CMWSlR+XHmeG67kR808dqjawlozQ1oDVVYEHaUW8uAF
-	Jcwj1n//IzSsuXr7IfCi36pNjzbr16okEM97DnfsbJCW0E+AKP8PO3UXFxf/BCyt
-	YYy8iYDKFNJdcWM5+z4zY/MrojRSuTw/dgL2Lp+eCZNaUW3LhkE5Ph21gEgrYzYx
-	FcdNJU4PNvXwmZsMDNZVw==
-X-ME-Sender: <xms:yDt7amsi8NsWVPxjs15GY0jHt4JVsUZFcKxoTrnXbv9tZU9CYZQ5LQ>
-    <xme:yDt7amSdXcRTnNEZ3rVcgF9i0XJVuE6zayofn6cjIJWGw3OOTFjYicVYu1w3-O7Qz
-    Bdn93lnXQYDVqYVy8acAH_i3IPOg9umLu0tLLs4qUftobwXpxNZX8U>
-X-ME-Proxy-Cause: dmFkZTEIs3WxYSrZd5T5d1uzHrL7lqC6JQse04tRsA+075Eo8cjVSAwPTmul2O0vuNAxFe
-    28hZE8zH8kWsxj5ifkI5QA8wVVMeC6mwV348yjqhRXtgxGeWBPA8GhDTs8KiH61sEaT/A+
-    WD4WQYlqJ1AUhVz0VlIra/UZt605uq3jr5vSiGT9qR1LNAgmXpQ9yRxzkdPkaBAHqZcCIg
-    8+GehEWj8ChbU0lmwF6Xs2oh0fDwED+d6TcPwbdnKyUDVGK4J/n71ERROyeqnFgs8FoPU4
-    IPTJzjwzR0kvX2ad2Fv7pKRSMBFODb6rXhx1vDU9ZpWIhw92XJNaBrXXnhuF0HjJCQoMPg
-    ejVI2jUxO3dWwl9Y3xd3toIBE64TccTYx1KEkinLQp/AXb/e1D4rewoevRRs7EJT7IWBh/
-    H8sQQF+rs4/4Cl8oUndCBsGzsvearq22HDs9GmKEf5UuCWZh+R6Uo3+BYhk6/xLhwND4Wm
-    9f4IOsJO5MK4Nu+s8/fgJHhRVmfK9bj4aTLnZ44GQdP8W3IUIVKlhK0IanAfacvlz8DDwU
-    04bhH0pgZpPK63z7OAR4XvYI+nHTHgqKrJZGpqPgkq3Wpf/MAuwIYB7cdUbwYZXB7awteI
-    u/O+sAQLzU6pZS6g3oChRQD4zTQAKhEtUQt76Ilf6cB7RNJALefv78VjGO/g
-X-ME-Proxy: <xmx:yjt7anfmNTMtuOHNKtnkt0wEe54gypHldAKL03CJnh_DCXzOFop5Vw>
-    <xmx:yjt7ajuqI0g-eqY9OjgY7WgP5SSPu8G1mbsqorrIX2ErwyHHfbTc6w>
-    <xmx:yjt7auiHbnM_hDMAuoB3SCHQop7rDF_2J146PeKYoOkPuOaZGIQ00A>
-    <xmx:yjt7aruZtPsro7Qqt8HoJ_4v5k_fl5QXSlvciwFKQHiyXNKQlCYwdA>
-    <xmx:zjt7atzRPutVtdGuSZnggZ7G9H0xyjCKg1DEHmfdAZHD8iP4H28TOKmS>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 3244632A006A; Tue, 11 Aug 2026 11:12:08 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Tue, 11 Aug 2026 15:12:34 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=a8+grZt3h1bHX87fqa74VRaSVb0iFjUUiWvmEbLgIYTDtZIeOJ0w/l8jQReUHae7YSiEGXixL+/C4fySppoQbd95cHxFIlD4P8JlXC05Hr/6xYpoRtSlmmP253BgrxlwAUywNfKMKOi8N1kxRbgekqIln3ybEtV3I2cYS7imrQcwX+WQ9YJHSx7KrMWlAs4sWsXEUEHOGmjLM17I6ZJ6oRdbv+Kg04xP2RZ9B6yWAim/axp5HPzYgVGV9K1budD39e9KlYXxNvW7hw/T43rW6GNIFBmafP5OuEjP8LIPOBf0sNCxqnCifcyahgYWcHoSPCP3e0N3+XZByDgoJb6rDg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7qnLA5jwYRR4sOTTMTV6kH8dvnJR9u+vw1g786dZeMg=;
+ b=P54WKnGBVqZ7AwD0Dui310N3hiJNhQmv6cbmHLgELrjHdWDAuTG4iD5qIvQ0LAUHA3ErSS2fQpmL2t5vonTrQlisQJE+slsO9U0oa71SkfrT0PfAjkPX4AaHeHXXZA4IG0YFLKG9seHAlmQIu56gbhhmNwSzDzgUB8ASS7xrt9Zii8SAounVuL4YWuXOMpu5zY2PH1QOy6rqvKPk22HZvn2N5EziGtFQWwtYzenQv3gl08IFSxL2CGCBbYzw4tdhTjs17+DVlE0vZRb31V2Qb1lTFrGMBFOy9vK26vXxXaOu1kwFnMNOjYkgyohrG6/7Fj/Ajyln5Xdi3owNrVcvIQ==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=arm.com;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
+ dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7qnLA5jwYRR4sOTTMTV6kH8dvnJR9u+vw1g786dZeMg=;
+ b=GnEjXE3X/cv8LHGXMTTHcTR2EE6Xdpo+Diegg7wOe++vWKlnvz6MX7KOpLk8Ma2jPmjGHbzcGlgXqlsIHR8liokKaRmuxTjldv3TvlURAxkFtZAm9iFAn8W3TBcsvn28pPs6ne5a6H90aLv+MUvGOT/F+3smeVIVAdWM0bzXXLQ=
+Received: from AS4P190CA0026.EURP190.PROD.OUTLOOK.COM (2603:10a6:20b:5d0::13)
+ by AS8PR08MB8300.eurprd08.prod.outlook.com (2603:10a6:20b:56e::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.25; Tue, 11 Aug
+ 2026 15:12:26 +0000
+Received: from AM2PEPF0001C715.eurprd05.prod.outlook.com
+ (2603:10a6:20b:5d0:cafe::46) by AS4P190CA0026.outlook.office365.com
+ (2603:10a6:20b:5d0::13) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.315.12 via Frontend Transport; Tue,
+ 11 Aug 2026 15:12:26 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ AM2PEPF0001C715.mail.protection.outlook.com (10.167.16.185) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.315.6
+ via Frontend Transport; Tue, 11 Aug 2026 15:12:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=saSb0anNs+V8d7jhL5Y06/vl9enLDtO/p6mmVjEA7BsKt/DF6TE7tBk//1fHCLx3aDdHfnW9W2ps6GEpJJhpAe17jwrSTE7hSuHyIVPtvMWLQ3/j3nUjq+KvP/q2GR6XYOR35d9vfwgUeosJB4HKXjgWN8vzqYlN1lZ1SVrhOck5sSLjYZJsUx+1tFFIpkH4dvJ5HxEUbGdPQrAN6eCJJiBTm5/haQhUxC2iIEs92JJrauLaf6cU678CqSGFYehpPuVZ6wS4aON6qWMCy7wQ0WKivhxqY9wKM3pHyRxlc7JTQEKD46Lxb0LBpT3ZbWoQYaDuxNcqKuGwBcnaswGLcw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7qnLA5jwYRR4sOTTMTV6kH8dvnJR9u+vw1g786dZeMg=;
+ b=RC1I9B20f6h0eA9nRh6VCnRkosmLqx61CGVUHJ8uKQOVFcpOTIyni85YYxUZLNHmZo7RhUgrxBeHYMRGhMWgP7Dx65FgeFV4iq/66APbkbNjUmHhY0bSMjqv0+aqBj/vZd1CdDrBqKAXbOWLQ1LiKP09h1s7MrCtG5KmhAbLzQCRZeiv6q07I8JOOJwuozl/x/0ezIxbPpFc1CPaYMy8SvuJe6RPTnTi91M43oAhDsp0Bzfsuw8HZ5a25MKkBQpokpoU8OuIhUf3eWUDQtVplNc9NdK1U6Ujj3rSjMeq5UrGJd+TbTYGHF6qVlNicOrKaaZapxI+PuxbPKQNBPCEBg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7qnLA5jwYRR4sOTTMTV6kH8dvnJR9u+vw1g786dZeMg=;
+ b=GnEjXE3X/cv8LHGXMTTHcTR2EE6Xdpo+Diegg7wOe++vWKlnvz6MX7KOpLk8Ma2jPmjGHbzcGlgXqlsIHR8liokKaRmuxTjldv3TvlURAxkFtZAm9iFAn8W3TBcsvn28pPs6ne5a6H90aLv+MUvGOT/F+3smeVIVAdWM0bzXXLQ=
+Received: from DU0PR08MB8421.eurprd08.prod.outlook.com (2603:10a6:10:407::19)
+ by GV1PR08MB8214.eurprd08.prod.outlook.com (2603:10a6:150:5d::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.25; Tue, 11 Aug
+ 2026 15:11:49 +0000
+Received: from DU0PR08MB8421.eurprd08.prod.outlook.com
+ ([fe80::2158:1cab:1d88:ba2e]) by DU0PR08MB8421.eurprd08.prod.outlook.com
+ ([fe80::2158:1cab:1d88:ba2e%6]) with mapi id 15.21.0315.008; Tue, 11 Aug 2026
+ 15:11:49 +0000
+From: Sascha Bischoff <Sascha.Bischoff@arm.com>
+To: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>
+CC: nd <nd@arm.com>, "maz@kernel.org" <maz@kernel.org>, "oupton@kernel.org"
+	<oupton@kernel.org>, Joey Gouly <Joey.Gouly@arm.com>, Suzuki Poulose
+	<Suzuki.Poulose@arm.com>, "yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>
+Subject: [PATCH v2 4/4] KVM: arm64: Validate GICv5 timer PPIs before claiming
+ ownership
+Thread-Topic: [PATCH v2 4/4] KVM: arm64: Validate GICv5 timer PPIs before
+ claiming ownership
+Thread-Index: AQHdKaO766Ro5fxWskSEm2YT3tsa1g==
+Date: Tue, 11 Aug 2026 15:11:48 +0000
+Message-ID: <20260811150941.941295-5-sascha.bischoff@arm.com>
+References: <20260811150941.941295-1-sascha.bischoff@arm.com>
+In-Reply-To: <20260811150941.941295-1-sascha.bischoff@arm.com>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-mailer: git-send-email 2.34.1
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+x-ms-traffictypediagnostic: DU0PR08MB8421:EE_|GV1PR08MB8214:EE_|AM2PEPF0001C715:EE_|AS8PR08MB8300:EE_
+X-MS-Office365-Filtering-Correlation-Id: d8d5048d-f047-4a39-0ae9-08def7baf3e0
+x-checkrecipientrouted: true
+nodisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|23010399003|376014|1800799024|366016|38070700021|6133799003|10067099003|56012099006|5023799004|11063799006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info-Original: 9Dzew63HtWx2/C0FRuFQw7sHlQ/y9jpdsX9FutxyfWyB8Cniu1XqEWwrhyPCFIIr+IctNDVyET3/rF0liyd4kZZ8oVCBC3iX5FwhI4WB0+rvNHj/8jA3gMttVgenOBQuUZOIn2KNDfmxnkLBcB3n4WXUdartCALv/aAM181PYZckoI6WGmcqZW1D2A/mXSaAe2Muqh+IpnbcZs2tBq2IDTjpArcbutbiN5WFfuHeMM5PHTzUOAF5ZYvYxAd2q7Uxk16YDpN2R9NMKlCmDMDoX29o1N3O13YPZ+6XtoQFhI2UhJt6xOwPR7LACvqRq2zTZTTQwbfYDKXx6MO9hpxV9FlnCoAO2+Nw/OgJS9r/DNIR/CPpEzSIXUOoXryLNjREWsNsC42k1mWOu7dJsPtVOfZ1vNIpQJl/0U9HKypIs84doqcIibdzbwlqN5rV7qTFUUHvgb2Hs3KzRdXyIQjYy1c5YAsYn7TAe7jSu3php/K6mQGzznDSZCOk0CMln3nhX1E7A0K66Dlb3QHbb854UtQ+4/5sZmGFoD4qTNAU0cTLTSPdzhTFtIOHjliKX8MVmO6TG4goCwbKeMQi/W07tTYZSTpu34G7RRc3apDkqYN7XiI7bvUG/38mqWlLWTzBWHzuYGhh6fAubRNLe7WYB0OQDLNAIUYohJ9BtisLclE=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR08MB8421.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(1800799024)(366016)(38070700021)(6133799003)(10067099003)(56012099006)(5023799004)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-X-ThreadId: AwnWr737caCF
-Date: Tue, 11 Aug 2026 17:11:47 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Will Deacon" <will@kernel.org>, linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org, "Ard Biesheuvel" <ardb@kernel.org>,
- "Eric Biggers" <ebiggers@kernel.org>,
- "Daniel Borkmann" <daniel@iogearbox.net>,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "Alexei Starovoitov" <ast@kernel.org>, "Oliver Upton" <oupton@kernel.org>,
- "Herbert Xu" <herbert@gondor.apana.org.au>, "Marc Zyngier" <maz@kernel.org>,
- "Linus Walleij" <linusw@kernel.org>
-Message-Id: <6632712f-7782-4580-84c0-62124a016f46@app.fastmail.com>
-In-Reply-To: <20260811140132.22778-1-will@kernel.org>
-References: <20260811140132.22778-1-will@kernel.org>
-Subject: Re: [PATCH 00/12] arm64: Remove unused big-endian support
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+X-Exchange-RoutingPolicyChecked: gXAk0uQa+RRb8bj8HOAP50B6SlBueNXdV+HJmacPuAqP8tSxC3tVy+xwChRDSpA4PbO4oAzh4sNJCx2bmyPQXe6EWkcl35sKmKU8NoLQxYzXNwJzCrcPlEbIVUqozlZwGwHLC3UMqN49TooRaIeqnT5V2ownOnV8OqyPIImyLC0hzNsVZagEVboZTjpAbTELV7I63KHIcJcM2ygw6+FAI04nUmocGhUye77DQn2nL7ZxiQAeFO0vq60gJ303PyTSNngLcI1zwY7DEJCCsq6JQT4Q+oUVb3MfbiNImZw6iW9i31hSGgv+RbXfjJ5m7igtIwZcKJcp8nH5daPonlTbpw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR08MB8214
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM2PEPF0001C715.eurprd05.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 73149fc4-15ec-407a-d49b-08def7baddd4
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|35042699022|36860700016|14060799003|82310400026|1800799024|376014|11063799006|5023799004|56012099006|10067099003|6133799003|22082099003|18002099003|13003099007;
+X-Microsoft-Antispam-Message-Info: UedeUvAXDQ3xqAEr/ifQ1ZW+AkIipFqowKIqtMfAV83yCEZOqllEpnMpeHPrY+yyN59rcuAP6NFgxMb0b9TZFG39+dmMM31kmfRDEViEa676UlpMaPusmE8y2RVmgF+LSms5Xb/DxiZt0EWtflAjD8mlALHO2tCA76iH9p2/o0iFlWoJFh8sJiBOcWqFF9qv9tYJAPt8lwLh05M7uRWtO62ruIqcePFVrUjDuqNF+htAEzaUAY4t+K0BGHX03R31DTdSm2sU/m1Lyu2RbxhFBBkz2lalxGHI9PZ4N3UZSNjAWKVNfsVI2h8ZXQNCw7nqrZhD9dV/83QRTBBPQmBrQXX6RPT2/5a0C9ZXLIwihrG8+ZGtxqmwdVvlMVXsyLvlPzviUMD6ojpRXdms++s1A2SFfNvct+4f0zxEGWiq0OIRPXppnvO9F3X2SIQsdkAmqTMZyXvDEklvfaaTxDNOZvYgMIIW5jR6FJSCyop8e7p8NcbvBAaChuW/CTSIo1APOUcjJsqAsHxs7gQuUPLMhYtALZFyfz81zlNLrS1Bikdwf6xJJc+iV+shQnMb6BgGAe4JkgBcN/QS8+qpUyOd8EjRsn410v0BsQj6VqSz1aikTqyC6Kg4flwIiusMF2XZn56Y0kbngl3WKAjlFWcvGQ==
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(35042699022)(36860700016)(14060799003)(82310400026)(1800799024)(376014)(11063799006)(5023799004)(56012099006)(10067099003)(6133799003)(22082099003)(18002099003)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 98u7oSbwo3lzLIXF5aelbiA40qXzFnMijV0XUlA2kjM/FvgabbkO/LTrjaqREzQkWtkYIXc2VQf+Q9L0Ne2LHTvt1guiMcT7episSnLPrwGm8KC/amXWw07NYGwT9Zv9FeS8WbfWYJ5BT3NvG3N4okvEY5npOBwFlueGveigIwnYmH2tn3MNWqkprT9ozFK/DFbqS1OJkDeo/nxbl4w43dI3z9Brsqr945SlFFVNWte1zE87+JknLG7qWHj7xcavX9nZcDNsuJK3Hkcz7BjaIQ5y9ofJBMkNwHMpxhZs9fc1vCq8myLz26+x9IGpMPEbSSP3pC+8NGXcFLiXqfKvkPEddD6IHOgqPlpFEsUGpB96gfp0iieHjEnWQPOecRihhJk9hDuJa/pluvStvD0+1F3KYVPWMZ/ugxS/cU8wQFBrex8/ot+BQ8GYCYJgVMMb
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Aug 2026 15:12:25.9762
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: d8d5048d-f047-4a39-0ae9-08def7baf3e0
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: AM2PEPF0001C715.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB8300
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_081220_341617_EF782097 
-X-CRM114-Status: GOOD (  21.73  )
+X-CRM114-CacheID: sfid-20260811_081233_653175_56F6174A 
+X-CRM114-Status: GOOD (  12.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,147 +161,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 11, 2026, at 16:01, Will Deacon wrote:
-> Hi folks,
->
-> Big-endian support on arm64 (CONFIG_CPU_BIG_ENDIAN) has depended on
-> BROKEN since 1cf89b6bf660 ("arm64: Kconfig: Make CPU_BIG_ENDIAN depend
-> on BROKEN") and has already seen some clean-up patches removing some of
-> the unused support code (e.g. 5276ea17a23c ("lib/crc: arm64: Assume a
-> little-endian kernel")).
->
-> Finish the job, and remove the remaining big-endian support code from
-> arm64. Note that the SETEND emulation for 32-bit tasks remains and so
-> some of the mixed-endian EL0 helpers are retained.
-
-I had not expected the removal to come this soon, but I'm not
-complaining about that. I assume you are planning this for 7.4,
-leaving 7.3-LTS to still have the code in case someone wants to
-still use it, right?
-
-Not sure if you saw
-
-https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/arch/arm/mm/Kconfig?id=fe91e4e9da70765420538d9cbcf6d9a970237a8d
-
-https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/arch/arm/mach-ixp4xx/Kconfig?id=2262f02ac2aa545560a7f182c8e6b5c98e72763c
-
-so for 7.3, we have marked big-endian mode in arm32 as deprecated
-as well, and also managed to get ixp4xx working again in little-endian
-mode, which was slightly broken for a few years. It may be good to
-add a reference to your series for context.
-
-My suggestions there was to possibly remove arm32 big-endian mode at
-the same time as on arm64, but that does feel a little rushed if
-ixp4xx only has one release of supporting both, and removing be8
-but leaving be32 for a little while longer is probably not worth it.
-
-> I've broken this down into fairly coarse chunks, as it seemed a lot
-> easier to manage than one giant patch (even with the Kconfig being
-> effectively disabled already) and not all of it is just mindless
-> deletion. Despite that, I'm anticipating the whole thing going via the
-> arm64 tree.
-
-I would have done even larger patches, this does already feel fairly
-fine-grained to me ;-). I had a look at the individual patches to make
-sure this all makes sense, and I found nothing wrong here.
-
-For a 7.4 (or later) merge:
-
-Acked-by: Arnd Bergmann <arnd@arndb.de>
-
-There are also a few arm64 specific drivers that I think no
-longer need a dependency, but none of that is important:
-
-diff --git a/drivers/crypto/hisilicon/Kconfig b/drivers/crypto/hisilicon/Kconfig
-index aeff08ccbadd..1ae7b146b241 100644
---- a/drivers/crypto/hisilicon/Kconfig
-+++ b/drivers/crypto/hisilicon/Kconfig
-@@ -53,7 +53,6 @@ config CRYPTO_DEV_HISI_ZIP
- 	tristate "Support for HiSilicon ZIP accelerator"
- 	depends on PCI_MSI
- 	depends on ARM64 || (COMPILE_TEST && 64BIT)
--	depends on !CPU_BIG_ENDIAN || COMPILE_TEST
- 	depends on UACCE || UACCE=n
- 	depends on ACPI
- 	select CRYPTO_DEV_HISI_QM
-diff --git a/drivers/firmware/qcom/Kconfig b/drivers/firmware/qcom/Kconfig
-index c7f8413ab996..f0c1061b0005 100644
---- a/drivers/firmware/qcom/Kconfig
-+++ b/drivers/firmware/qcom/Kconfig
-@@ -18,7 +18,6 @@ config QCOM_PAS_TEE
- 	tristate "Qualcomm PAS TEE interface driver"
- 	select QCOM_PAS
- 	depends on TEE
--	depends on !CPU_BIG_ENDIAN
- 	default m if ARCH_QCOM
- 	help
- 	  Enable the generic Peripheral Authentication Service (PAS) provided
-diff --git a/drivers/firmware/tegra/Kconfig b/drivers/firmware/tegra/Kconfig
-index 3a9162706439..e9271d706726 100644
---- a/drivers/firmware/tegra/Kconfig
-+++ b/drivers/firmware/tegra/Kconfig
-@@ -14,7 +14,6 @@ config TEGRA_IVC
- config TEGRA_BPMP
- 	bool "Tegra BPMP driver"
- 	depends on ARCH_TEGRA && TEGRA_HSP_MBOX
--	depends on !CPU_BIG_ENDIAN
- 	select TEGRA_IVC
- 	help
- 	  BPMP (Boot and Power Management Processor) is designed to off-loading
-diff --git a/drivers/soc/tegra/Kconfig b/drivers/soc/tegra/Kconfig
-index 8b6fdb9ad1ea..318e7b604342 100644
---- a/drivers/soc/tegra/Kconfig
-+++ b/drivers/soc/tegra/Kconfig
-@@ -102,7 +102,6 @@ config ARCH_TEGRA_210_SOC
- config ARCH_TEGRA_186_SOC
- 	bool "NVIDIA Tegra186 SoC"
- 	default ARCH_TEGRA
--	depends on !CPU_BIG_ENDIAN
- 	select PINCTRL_TEGRA186
- 	select MAILBOX
- 	select SOC_TEGRA_PMC
-@@ -117,7 +116,6 @@ config ARCH_TEGRA_186_SOC
- config ARCH_TEGRA_194_SOC
- 	bool "NVIDIA Tegra194 SoC"
- 	default ARCH_TEGRA
--	depends on !CPU_BIG_ENDIAN
- 	select MAILBOX
- 	select PINCTRL_TEGRA194
- 	select SOC_TEGRA_PMC
-@@ -127,7 +125,6 @@ config ARCH_TEGRA_194_SOC
- config ARCH_TEGRA_234_SOC
- 	bool "NVIDIA Tegra234 SoC"
- 	default ARCH_TEGRA
--	depends on !CPU_BIG_ENDIAN
- 	select MAILBOX
- 	select PINCTRL_TEGRA234
- 	select SOC_TEGRA_PMC
-@@ -137,7 +134,6 @@ config ARCH_TEGRA_234_SOC
- config ARCH_TEGRA_238_SOC
- 	bool "NVIDIA Tegra238 SoC"
- 	default ARCH_TEGRA
--	depends on !CPU_BIG_ENDIAN
- 	select MAILBOX
- 	select SOC_TEGRA_PMC
- 	help
-@@ -152,7 +148,6 @@ config ARCH_TEGRA_241_SOC
- config ARCH_TEGRA_264_SOC
- 	bool "NVIDIA Tegra264 SoC"
- 	default ARCH_TEGRA
--	depends on !CPU_BIG_ENDIAN
- 	select MAILBOX
- 	select SOC_TEGRA_PMC
- 	help
-diff --git a/drivers/tee/qcomtee/Kconfig b/drivers/tee/qcomtee/Kconfig
-index 9f19dee08db4..bd9be3e9a9ac 100644
---- a/drivers/tee/qcomtee/Kconfig
-+++ b/drivers/tee/qcomtee/Kconfig
-@@ -3,7 +3,6 @@
- config QCOMTEE
- 	tristate "Qualcomm TEE Support"
- 	depends on ARCH_QCOM || COMPILE_TEST
--	depends on !CPU_BIG_ENDIAN
- 	select QCOM_SCM
- 	select QCOM_TZMEM_MODE_SHMBRIDGE
- 	help
+V2l0aCBHSUN2NSwgdGltZXIgUFBJcyB1c2UgYXJjaGl0ZWN0dXJhbGx5IGRlZmluZWQgSURzLCBh
+bmQgdGhlcmVmb3JlDQp3ZSByZXF1aXJlIHVzZXJzcGFjZSB0byB1c2UgdGhlIGFyY2hpdGVjdGVk
+IElEcyB0b28uIFdlIHBlcmZvcm0gdGhpcw0KdmFsaWRhdGlvbiBpbiB0aW1lcl9pcnFzX2FyZV92
+YWxpZCgpLCB3aGljaCB2YWxpZGF0ZXMgdGhlIGNvbmZpZ3VyZWQNClBQSSBhZnRlciBjbGFpbWlu
+ZyBpdCB3aXRoIGt2bV92Z2ljX3NldF9vd25lcigpLiBUaGlzIGlzIG9idmlvdXNseSB0aGUNCndy
+b25nIG9yZGVyLCBhbmQgY291bGQgYm90aCByZXN1bHQgaW4gYSBOVUxMIHBvaW50ZXIgZGVyZWZl
+cmVuY2UgZm9yDQphbiBJRCA+PSA2NCBhbmQgaW4gYW4gaW5jb3JyZWN0IG93bmVyc2hpcCBjbGFp
+bS4NCg0KU3dpdGNoIHRoZSBvcmRlciB0byBmaXJzdCB2YWxpZGF0ZSB0aGUgUFBJIGJlZm9yZSBz
+ZXR0aW5nIHRoZQ0Kb3duZXIuIFRoaXMgYm90aCBwcmV2ZW50cyBhbiBpbnZhbGlkIEdJQ3Y1IHRp
+bWVyIFBQSSBmcm9tIHJlYWNoaW5nIHRoZQ0KSVJRIGxvb2t1cCwgYW5kIGF2b2lkcyBjbGFpbWlu
+ZyBhbiBJUlEgZm9yIGEgdGltZXIgY29uZmlndXJhdGlvbiB0aGF0DQp3aWxsIGJlIHJlamVjdGVk
+Lg0KDQpGaXhlczogMDZjODViNThlMGIxICgiS1ZNOiBhcm02NDogTW92ZSBHSUN2NSB0aW1lciBQ
+UEkgdmFsaWRhdGlvbiBpbnRvIHRpbWVyX2lycXNfYXJlX3ZhbGlkKCkiKQ0KTGluazogaHR0cHM6
+Ly9zYXNoaWtvLmRldi8jL21lc3NhZ2UvMjAyNjA4MTAxMTE2MTQuRERDNzMxRjAwMEU5JTQwc210
+cC5rZXJuZWwub3JnDQpTaWduZWQtb2ZmLWJ5OiBTYXNjaGEgQmlzY2hvZmYgPHNhc2NoYS5iaXNj
+aG9mZkBhcm0uY29tPg0KLS0tDQogYXJjaC9hcm02NC9rdm0vYXJjaF90aW1lci5jIHwgNSArKyst
+LQ0KIDEgZmlsZSBjaGFuZ2VkLCAzIGluc2VydGlvbnMoKyksIDIgZGVsZXRpb25zKC0pDQoNCmRp
+ZmYgLS1naXQgYS9hcmNoL2FybTY0L2t2bS9hcmNoX3RpbWVyLmMgYi9hcmNoL2FybTY0L2t2bS9h
+cmNoX3RpbWVyLmMNCmluZGV4IDQxNTVmZTg5YjU4YTEuLmFmN2UyODk0Y2Q2OTAgMTAwNjQ0DQot
+LS0gYS9hcmNoL2FybTY0L2t2bS9hcmNoX3RpbWVyLmMNCisrKyBiL2FyY2gvYXJtNjQva3ZtL2Fy
+Y2hfdGltZXIuYw0KQEAgLTE1MjksMTMgKzE1MjksMTQgQEAgc3RhdGljIGJvb2wgdGltZXJfaXJx
+c19hcmVfdmFsaWQoc3RydWN0IGt2bV92Y3B1ICp2Y3B1KQ0KIA0KIAkJY3R4ID0gdmNwdV9nZXRf
+dGltZXIodmNwdSwgaSk7DQogCQlpcnEgPSB0aW1lcl9pcnEoY3R4KTsNCi0JCWlmIChrdm1fdmdp
+Y19zZXRfb3duZXIodmNwdSwgaXJxLCBjdHgpKQ0KLQkJCWJyZWFrOw0KIA0KIAkJLyogV2l0aCBH
+SUN2NSwgdGhlIGRlZmF1bHQgUFBJIGlzIHdoYXQgeW91IGdldCAtLSBub3RoaW5nIGVsc2UgKi8N
+CiAJCWlmICh2Z2ljX2lzX3Y1KHZjcHUtPmt2bSkgJiYgaXJxICE9IGdldF92Z2ljX3BwaSh2Y3B1
+LT5rdm0sIGRlZmF1bHRfcHBpW2ldKSkNCiAJCQlicmVhazsNCiANCisJCWlmIChrdm1fdmdpY19z
+ZXRfb3duZXIodmNwdSwgaXJxLCBjdHgpKQ0KKwkJCWJyZWFrOw0KKw0KIAkJLyoNCiAJCSAqIFdl
+IGtub3cgYnkgY29uc3RydWN0aW9uIHRoYXQgd2Ugb25seSBoYXZlIFBQSXMsIHNvIGFsbCB2YWx1
+ZXMNCiAJCSAqIGFyZSBsZXNzIHRoYW4gMzIgZm9yIG5vbi1HSUN2NSBWR0lDcy4gT24gR0lDdjUs
+IHRoZXkgYXJlDQotLSANCjIuMzQuMQ0K
 
