@@ -4,93 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49E10C5AC67
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 03:47:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E3B2C5AD7B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 03:50:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fO//i2RtgcRB0nXNuwN1GB8vOhXT0TWv6CJA+FzAN1E=; b=dtCaZnXNJ/Zyiqs3/eldmwgMMK
-	7Fe+yWBXbVcjSJ/2tffjio5Vs4b+Y16XzBabCC7rirTL5jvoAfmspoGxi/AIQ2JJx3KTzZzHDKUZB
-	u1VjHZXoqxe69Tk6lpbt2wmy9FxEiIV1iioTEnX4L3guY8voqE4UWu8IBZgWmtNLzksfXntCRraaE
-	Q1vQ/DtfLI8WQQOxrU4Ottldw+0E1NVyLc6yCedMK3vjRIEqjm/oUftmwPmYSThEu4jRD88RurUyB
-	Edl6AY95ngvhSJyq5qCPDn7TTEMipp5qJ10AEGwtixw0Vi9EWAj8mkZMfPJ7z2k949usC1/eSF1L2
-	LsKFdYXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UzLQVcGZ5l2XVUGPdqbb3e7Oajp0X5+/MxQRIPlN0dE=; b=MSXFuAg9ByK8MV2H63aB81eJyj
+	vkXg4EI40QQBcA0Zx5Qz8jj/2DKQTwV9a4xRndMjTxADEVraAsqgh04Mo8Cd+CibjV1KHhcS0Of0B
+	8f4B6aufQX4Z9NDu6Md9OMkap0vJJe4z23+/k2HtEYpomBHWripNboe+gb9ntknvURJpbWYUWII5i
+	ixB2VF4TOHjWnlnNxBMwBTf4GVG9OOyyxEo6RrVskQiyz/aUQW/yIuqjcubD4mHj28YvPs4n16sLo
+	2sWMrSmnl08aCrXY7BCiWtqzJhQSh1KjOGrGHv8YwNaGQwo18FhjuW3JCXA/DraT5fCUk3OT6drGe
+	QfgGvSiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtdSg-0000000DDvy-1ae6;
-	Tue, 11 Aug 2026 03:47:34 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1wtdVe-0000000DE9l-3Ne9;
+	Tue, 11 Aug 2026 03:50:38 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtdSe-0000000DDvc-2H5n
+	id 1wtdVc-0000000DE96-3IPh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 03:47:33 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-8485bd28dd0so325424b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 20:47:32 -0700 (PDT)
+	Tue, 11 Aug 2026 03:50:37 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2d032846c95so33158505ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Aug 2026 20:50:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786420051; x=1787024851; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=fO//i2RtgcRB0nXNuwN1GB8vOhXT0TWv6CJA+FzAN1E=;
-        b=VuLGN+ykq8k7tEZJBFvqOlSKzt3qOjXtNM7B3DykQzwt8NW1WScP1eDJYaxl5/+6+6
-         J/u8EAyXV2/8Faabans1vq6/3kh5kadPXM82A8XGBgijt2byh9rJ6/97GU4DxSdmUQFS
-         ofQl22pZ9BH4pRhmOvWMqQ6zX02t0wYC2NnsFNQN3Q7cZgvqlZYVuZWE6EKtOl/Q2D5R
-         cZbSPbdgyezdLnKQp1BUN2qsenHO0dl7hmHC4VvHlLOCk3/AK1KCFsVKYgJ/XZqYxvhJ
-         AAKeXcYnY/qfVULGluWfldd2rn03ykvaz2x8vRlCsZbLulGq8fhExSRmFyGllbGjv2qq
-         wLKA==
+        d=gmail.com; s=20251104; t=1786420235; x=1787025035; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=UzLQVcGZ5l2XVUGPdqbb3e7Oajp0X5+/MxQRIPlN0dE=;
+        b=rFOvE++MQwIdvY6XMkf+GbeAuzX3Im1QSebDmt3hM2Wl6xN2zV0ue8WotPYeqvSHjs
+         vYf7mmZr/cAssSFJ/ebkPV8NXuF8r2fraUhqVNtEcNYiusjvWyc2D6FivOeM5et7r/wv
+         wB4BOFsPDzx94SfY2+7DxTsmY28eNk19tj4yta3HDv7AYuzRZhBKkhBTBE9fhnxgTej5
+         HLarqgVOHQo1Q9gJ3OZT5kXL/hSj5rBryQ2li5qGxsDIVNOU7w798aGGpIAxPPKBEDNY
+         Le59+amECi3NhEzXDHicY76a4H9GabANnwCMjzApEWaD64PuJ+nmkHWKjRQE7Du6oGRo
+         5eMg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786420051; x=1787024851;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=fO//i2RtgcRB0nXNuwN1GB8vOhXT0TWv6CJA+FzAN1E=;
-        b=Z0JCwQGUXaRRfs/oghLzUhD56JVb2dxUXW+wRPz9dUpEeURyldVgzXbHHqo/bHc+1x
-         rhtabUOyjswHefartvcCYHV0KmuRfA61OfWivAPOm/IUqMAK2CeINsHS3QeRcxfVTP0r
-         VNjLTW0CocAxPRWgJX8caLVJd1WAL2MjobXYRJ5Yo3PKpVSYdLZr66dgw39XN5j9Omnf
-         49KcSGyaLMs0KZ4Nhk0a+srxp7zSbohuiRQodt/IYnb8QBbdh6tTTsO7lKwhmtiA9c6H
-         EVI82y2Q9B+IyQ3M9HK+VCXUffqgTtnVNFkeUpRcTId2EQybovoIUxtxD0wrwyvyUQrm
-         VLKA==
-X-Forwarded-Encrypted: i=1; AHgh+RrHkipoSEEhqHmb39flJkPDClKkqzIWCl+SFB6S2tWstmvIRUagfD8tlOqwSwW1pRJv1V68WSlvDcJzNpm/ftBb@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz2injOAq59mGXvKTcqUKpGcNymZU3Pqf6n4wEu/9jIdjQMRZnd
-	OSrBjBkqP1CLuyLPOiARyv+hnSikfJ9OnlrWBd+cGSGFM/F02t0AvFso
-X-Gm-Gg: AR+sD10Wek50EiFGpN1Sqc2qzR3aqtqT0KtxAJAFG0zxTzSv4+UTznRDE8F2guDOcvn
-	2n14WDt95MsqxDidaVBfBZwlhRpK/4bG2AaSX/xM3QWJcRpU7JENIZg2e3d3pygXsUlABSg+gEY
-	wOEcRaQWc7iDVI+KqEnm7uqmjcSo1CNUcVpN7o41R7Bx+GReO/fwqaTvblr8htuuSnmGb8jewsW
-	OzqbFdCwTez4lRnbwv7SxGw8rUZ52B/TicdhuKCK+5pOAQV51h788L+h/SF6LNDG1EXQzzWzUia
-	o5/eSztb9InM9yixyDvGEjWjdrcv5dfqnY7eZ982RFl8VUj1Ndscilz+L/bb3ZFANGOkk9yDDIQ
-	bXrc1IkkJfsTSBren/Ta3wAEQ6nvfGomuBLIAmw1FOfyPEQCRImPlXR3HCjouYQBK9s/uQo2XuS
-	v1JGT/C6cCBp34f8r3svTYaab/A0vL7QZP+ZFzYxzetjdI0TpmrHaT6fkrz6y/qqF+e5omo/HMV
-	GEjxwXrPMv0q2a7plh/CBTRGNlHJgUOjGR/oYnllCdtKy3QR2byp9cP/EB9AUyOurNFZ7B3o2ld
-	lBRChg==
-X-Received: by 2002:a05:6a00:90a7:b0:848:3f91:da82 with SMTP id d2e1a72fcca58-84fa8926f7cmr157503b3a.32.1786420051437;
-        Mon, 10 Aug 2026 20:47:31 -0700 (PDT)
-Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84f5a589d7bsm4537514b3a.53.2026.08.10.20.47.28
+        d=1e100.net; s=20251104; t=1786420235; x=1787025035;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=UzLQVcGZ5l2XVUGPdqbb3e7Oajp0X5+/MxQRIPlN0dE=;
+        b=peVhHrFn7roYIx5CtfxFpltLjFGb824D8+mHnMuwQ/KBFRub5jKdtdwVauikI1zCiS
+         tVwxpl6VhoriQvjkWqW+ku3SeO7rABgkXywnF8ghgoZbtO5geatZl6Rb9Fwg9bFF+y4y
+         tk8ojxP6gC1pMJ2rF0RR1r44IB/rhDj0BkUEzhprab7RavXyPl7txN+ClRlR8meHNVzl
+         8EoMQYzhwpN169z+nQ//fF7BISd3WHlw1oB6RyLUNK2zc+pnHP+J4/yCwP5q57i3b1ES
+         Gyep0U3pTZNyLfKnvR/QwfKPkDXmeOjAcG/Bg8TLfnzrPQsWHBRypvhdscryLSpubwOe
+         Jd4Q==
+X-Forwarded-Encrypted: i=1; AHgh+RqHxuRdoanOQItCRWTPYXSSKi2APqBFIORQtPVfOCylZZTJ82hJ/iN1IN5hX2AMYNNjSEmkYoxS8xg+1QcNcNiE@lists.infradead.org
+X-Gm-Message-State: AOJu0YzEX9vBe85MBXAYQ76HVVCEUkCzdCwea06EnyPZj+dsELU7r7uz
+	8oSkvQb2cYDlXnkGDGXR0VlH0aKpxuyfchqwgtbC5czQWgGtBHzVz7G+
+X-Gm-Gg: AR+sD13Wl6R/hkoVTZrBj+Xq9NR/BdXwEuQw3ONjD8WkdRL8PloGUdFdy31kk1O9tLM
+	fJgDJnXP101dDt8ZwZaEH1f6J7V2felfPU7A9ZYz4A1ZJa33J9yDYZYVwXaL2zoXp7GgzzR0XVc
+	lmEahe+Dq+p64EFRtNNe/diWLgMtgF3h0NEXl6MZjOh7JObO3mbmjSlhx/8FZ00un6YrlTyr75M
+	G6zpMLbkWvtcZOtPQbHoINYvbpsEwjtnXPV4MYVCwBFsfjh09kTekeAOi3PaoWFYXrDw7Dzh9eC
+	/dbECRE+P0w64ugMAsCx9vb275/wg1ojUfNMDnLWdQSywnkmGXndxD9xrm+YEkZH1AwOMqHjduK
+	TlIun0JMCET/szjaRAyF/KPSpf3zFSUkR9hZbDJRtWjjyr3DKknOWgy9rmF5yjYo8Af7z9VjzAN
+	5e+WDeG5vIbqzMGv859IWYOxNiHVSfOYHFd5vy/+Jqxr//wYaiUcHhst8Xuy4RgG3Vlf2m2pIsE
+	0J+mo7mpYBEWRr02eLvMxdEsP8hDIzsiw==
+X-Received: by 2002:a17:90b:2541:b0:381:a766:efcb with SMTP id 98e67ed59e1d1-392ec2fc235mr451558a91.4.1786420235511;
+        Mon, 10 Aug 2026 20:50:35 -0700 (PDT)
+Received: from blinky ([67.174.242.98])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-392d4050557sm1740457a91.3.2026.08.10.20.50.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Aug 2026 20:47:31 -0700 (PDT)
-From: phucduc.bui@gmail.com
-To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Michal Simek <michal.simek@amd.com>
-Cc: linux-arm-msm@vger.kernel.org,
-	netdev@vger.kernel.org,
+        Mon, 10 Aug 2026 20:50:34 -0700 (PDT)
+Date: Mon, 10 Aug 2026 20:50:31 -0700
+From: Charlie Jenkins <thecharlesjenkins@gmail.com>
+To: Atish Patra <atish.patra@linux.dev>
+Cc: Jiri Olsa <jolsa@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>, Rob Herring <robh@kernel.org>,
+	Anup Patel <anup@brainfault.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Ian Rogers <irogers@google.com>, Will Deacon <will@kernel.org>,
+	James Clark <james.clark@linaro.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH] net: xilinx: axienet: Propagate errors from optional IRQ lookup
-Date: Tue, 11 Aug 2026 10:47:15 +0700
-Message-ID: <20260811034715.6034-1-phucduc.bui@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-perf-users@vger.kernel.org,
+	Conor Dooley <conor@kernel.org>
+Subject: Re: [PATCH v8 12/22] RISC-V: perf: Modify the counter discovery
+ mechanism
+Message-ID: <anqcB37PywQpMhkc@blinky>
+References: <20260701-counter_delegation-v8-0-7909f863a645@meta.com>
+ <20260701-counter_delegation-v8-12-7909f863a645@meta.com>
+ <178453211938.543975.7016109597042850635.b4-review@b4>
+ <ba053fa1-9df5-406b-9f92-df0dcc76ff68@linux.dev>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ba053fa1-9df5-406b-9f92-df0dcc76ff68@linux.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260810_204732_607786_D4799806 
-X-CRM114-Status: GOOD (  14.84  )
+X-CRM114-CacheID: sfid-20260810_205036_834132_04A20F6C 
+X-CRM114-Status: GOOD (  31.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,55 +114,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: bui duc phuc <phucduc.bui@gmail.com>
+On Fri, Aug 07, 2026 at 01:08:31AM -0700, Atish Patra wrote:
+> 
+> On 7/20/26 12:21 AM, Charlie Jenkins wrote:
+> > On Wed, 01 Jul 2026 01:47:00 -0700, Atish Patra <atish.patra@linux.dev> wrote:
+> > > diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+> > > index 74d934238821..c20f1e33c65d 100644
+> > > --- a/drivers/perf/riscv_pmu_sbi.c
+> > > +++ b/drivers/perf/riscv_pmu_sbi.c
+> > > @@ -1599,13 +1658,23 @@ static int __init rvpmu_devinit(void)
+> > > [ ... skip 15 lines ... ]
+> > > +	 * in S-mode via Supervisor Counter delegation.
+> > > +	 */
+> > > +	if (riscv_isa_extension_available(NULL, SSCCFG) &&
+> > > +	    riscv_isa_extension_available(NULL, SMCDELEG) &&
+> > > +	    riscv_isa_extension_available(NULL, SSCSRIND))
+> > > +		static_branch_enable(&riscv_pmu_cdeleg_available);
+> > This needs to not only check that smcdeleg is supported in linux, but
+> > also that it is supported in the SBI implementation correct? Trying to
+> > boot this on OpenSBI before 6bb6b61c27eb ("lib: sbi: Add support for smcsrind and
+> > smcdeleg") will fail on an illegal instruction in
+> > rvpmu_deleg_find_ctrs() while trying to access the scountinhibit csr in
+> > the patch "RISC-V: perf: Implement supervisor counter delegation
+> > support". The proper mstateen bits need to be set for this to work
+> > without crashing.
+> 
+> Yeah. We can do trap/detect to identify if smcdeleg is actually available
+> but that is bit ugly.
+> The firmware should make sure that it doesn't advertises an ISA extension if
+> that is not avaialble
+> to S-mode but that model only works for newer firmware.
+> 
+> if you are running very old firmware with new Qemu/platform, the default ISA
+> extension may have
+> smcdeleg while older firmware may not even know about it.
+> 
+> In reality, I am hoping chances of that happening are rare as OpenSBI
+> patches have been available
+> from a long time and Linux kernel patches are yet to merge. I have not
+> addressed this in v9 as I am
+> not sure which is the best worst approach yet :)
 
-platform_get_irq_optional() returns a positive IRQ number on success or
-a negative error code on failure. For an optional IRQ, -ENXIO indicates
-that no optional IRQ is available, while other errors should be propagated.
+I had an old opensbi binary laying around and ran into this. This
+unfortunately crashes the kernel, but since there is not a good way of
+detecting it and newer firmware has handled it for 2 years now, I think
+it is acceptable to leave this as-is.
 
-Propagate all error codes returned by platform_get_irq_optional() other
-than -ENXIO.
+- Charlie
 
-Another call to platform_get_irq_optional() in the same function already
-handles the return value this way. Apply the same error handling to this
-call site for consistency.
-
-Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
----
- drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-index fcf517069d16..7ef099db1bcf 100644
---- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-+++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-@@ -2957,12 +2957,16 @@ static int axienet_probe(struct platform_device *pdev)
- 			lp->tx_irq = irq_of_parse_and_map(np, 0);
- 			of_node_put(np);
- 			lp->eth_irq = platform_get_irq_optional(pdev, 0);
-+			if (lp->eth_irq < 0 && lp->eth_irq != -ENXIO)
-+				return lp->eth_irq;
- 		} else {
- 			/* Check for these resources directly on the Ethernet node. */
- 			lp->dma_regs = devm_platform_get_and_ioremap_resource(pdev, 1, NULL);
- 			lp->rx_irq = platform_get_irq(pdev, 1);
- 			lp->tx_irq = platform_get_irq(pdev, 0);
- 			lp->eth_irq = platform_get_irq_optional(pdev, 2);
-+			if (lp->eth_irq < 0 && lp->eth_irq != -ENXIO)
-+				return lp->eth_irq;
- 		}
- 		if (IS_ERR(lp->dma_regs)) {
- 			dev_err(&pdev->dev, "could not map DMA regs\n");
-@@ -3047,7 +3051,7 @@ static int axienet_probe(struct platform_device *pdev)
- 		ndev->ethtool_ops = &axienet_ethtool_ops;
- 	}
- 	/* Check for Ethernet core IRQ (optional) */
--	if (lp->eth_irq <= 0)
-+	if (lp->eth_irq < 0)
- 		dev_info(&pdev->dev, "Ethernet core IRQ not defined\n");
- 
- 	/* Retrieve the MAC address */
--- 
-2.43.0
-
+> 
+> > 
 
