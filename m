@@ -4,76 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3A4BC5B56A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 15:45:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7B33C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 15:45:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=XRtS3sKa/OV7EpmyTBNHlfUAZ3aaGLZDvu2pXvYbAPY=; b=B3VJOLRJsU2L5G
-	grN9G02j+f7P4col3DVMEsAIu/OJVy1s/w/g3CE3ebkRPVltz06tMSVPlBjK3VZ2NKAyVppcb1RWn
-	IJ52KsUplw2UIADft6jkM46bxLOZkcpQZkLayoMGyKNZONJX37Gno0kkl82sXqXEfAKrMGh86JZu8
-	m1+Mu4SyxPnoDMNlcShl2Sp9b2Ib2qXSyutaT6UTplM7o/1RwgHYgF3N+GOR2T877J3c9QlxLwb4K
-	ROjyanzavPtRLoXJ5p1qlt17VGCmYyYTC066NqV1xBokYEDfa5dZfdv79Nwl8aC80pWxTse/JPLEh
-	N2l3DXCQHK6I+MgOwsIg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aPjnFnpFjIl/+/SG/RF7L31MSkCBc1nggfryf1N15TE=; b=eFkgCYB/z/osqryGhYwVlSwVd4
+	FjPM3WtYpPDzbQIUZgLuOhcJxj6lId/aU7n6FimRZSjPFLpCBbSc05nfN3LKwBxOLTM1uTU5aeDmg
+	3cCk08bOG+mU5wy0HabWgxJsltAvMdexPi6SeBwCGWfztnEQRVGZ483MYFnHy5Ah+fA93AuF55ei1
+	nOt9gJrb9/YcKfqaWZbODuYZz/B2nn884EYBXbDGW/0Nkv5Jo48/LwLuOx0fAYacRrNkIEXIJ9gmD
+	3YJp52rBxPdcsxBZWd+i0F+DoLjMSVDUPA99dIjlOfRq1c8dwoI9c+tWolC2nUYY369eL5jg61Lxr
+	8MFrTQEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtofM-0000000EMyz-20GZ;
-	Tue, 11 Aug 2026 15:45:24 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wtofP-0000000EN3A-2Ngy;
+	Tue, 11 Aug 2026 15:45:27 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtofG-0000000EMu4-0wDr;
-	Tue, 11 Aug 2026 15:45:21 +0000
+	id 1wtofG-0000000EMu9-0rcL;
+	Tue, 11 Aug 2026 15:45:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1786463113;
-	bh=zAiLET68OY8HdgI59XTkQe7bAKXLLTHOl72QpYx4CWc=;
-	h=From:Subject:Date:To:Cc:From;
-	b=Nnh6SiXscuZjV29WkE6SddA6YiiW065wS36+v3Xe4LPAOV+cuzcURJ2GSu+RARa1D
-	 OeSX2EXoxaX7NMkl5W1aACNVIeEbKSMyVylx/iYKFHpeP0uGo1R7U/qaqg01xC5QGM
-	 hiFXi72EgI4PSQldl9O3Y7+HjWRGJDt9HXJJJpYQXAfHz6DIJE0cDP/NPOa00bkPgy
-	 z4kJ2PCRxYzET7K89wbJejXSwKe+EmAGRYDXDtoP92HeNvYdoxVoyekCGSFdOfYCQg
-	 heD3rpoNKdwo8Nhr8JUTr9NPQXSPxiieZhel8YFeeDaQOm/020IFL3pZ8J7Lhw7Mhz
-	 iv9Y110n74DAQ==
+	s=mail; t=1786463115;
+	bh=JrjgPlFwi26yKa9Z2MTM44ZmRoRQNcIGk1d1iLJWgQc=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=psuX1ImC2BZQXuaPCDNjziMqtK7cN+4Ehv2OgPeDH0FvhYIQBhDZKzLG0+N1QdoI+
+	 7jF3veEighPseK81l+MEynHElxAX4oB0aUMCzw6E6egMTVEFXAG+RdJnrVk+6LZqi2
+	 dke/ZuxYTnDr7d6Ok9kLVaVYckpCrPEDQH2wsrA8v+FgWRSCzqFVkvmBxETqJ8Cjpz
+	 QAb390q7ZjkgjSkomVpA6z0XRO8vrq6OFKKAmxT/9Tcrt28+SQWAJ0QR0cXCQhXVyV
+	 WtUVRQNjkqT/u/IOZBz4QLPTRzOdcdk9wv3pjxIviec09l2G5KoB31WSLGAaijqOU3
+	 +Btl7J+dZjQMQ==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4D3DC17E0048;
-	Tue, 11 Aug 2026 17:45:13 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7E30A17E0E01;
+	Tue, 11 Aug 2026 17:45:15 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Subject: [PATCH v6 00/10] phy: rockchip: samsung-hdptx: Clock fixes and API
- transition cleanups
-Date: Tue, 11 Aug 2026 18:44:41 +0300
-Message-Id: <20260811-hdptx-clk-fixes-v6-0-75bca0ee5753@collabora.com>
+Date: Tue, 11 Aug 2026 18:44:44 +0300
+Subject: [PATCH v6 03/10] phy: rockchip: samsung-hdptx: Guard against clk
+ rate integer underflow
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3XQwW7DIAwG4FepOI8JDJikp73HtAMBs6BlpYIq6
- lTl3Ud6yaRkF0u/LX+W/GCVSqLKzqcHKzSnmvKlBXw5MT+6yyfxFFpmIAAFgOVjuN7u3E9fPKY
- 7Va6tBkQFsUNgbeta6DloS+8fLY+p3nL5eR6Y5dr935olFzz2fRfBIgQR33yeJjfk4l59/marN
- 8NmGCn3BjQDUZOWyvbeDUeG2gw8MtRq2EEOwgtBEo8M/deAvaGb4cmQDNqgD+7IMJthQe0N04y
- ObNdOtGJ2/1iW5Rexn6pNwgEAAA==
-X-Change-ID: 20260227-hdptx-clk-fixes-47426632f862
+Message-Id: <20260811-hdptx-clk-fixes-v6-3-75bca0ee5753@collabora.com>
+References: <20260811-hdptx-clk-fixes-v6-0-75bca0ee5753@collabora.com>
+In-Reply-To: <20260811-hdptx-clk-fixes-v6-0-75bca0ee5753@collabora.com>
 To: Vinod Koul <vkoul@kernel.org>, 
  Neil Armstrong <neil.armstrong@linaro.org>, 
  Heiko Stuebner <heiko@sntech.de>, Algea Cao <algea.cao@rock-chips.com>, 
  Dmitry Baryshkov <lumag@kernel.org>
 Cc: kernel@collabora.com, linux-phy@lists.infradead.org, 
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, 
- =?utf-8?q?Thomas_Niederpr=C3=BCm?= <dubito@online.de>, 
- Simon Wright <simon@symple.nz>, Diederik de Haas <diederik@cknow-tech.com>, 
- Andy Yan <andyshrk@gmail.com>, 
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
- Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>, 
- Sashiko <sashiko-bot@kernel.org>, Andy Yan <andy.yan@rock-chips.com>
+ linux-kernel@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_084519_313799_F18B6B93 
-X-CRM114-Status: GOOD (  12.14  )
+X-CRM114-CacheID: sfid-20260811_084519_347562_2F1D8020 
+X-CRM114-Status: GOOD (  12.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,84 +78,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series provides a set of bug fixes and cleanups for the Rockchip
-Samsung HDPTX PHY driver.
+The 'fout' subtraction in rk_hdptx_phy_clk_calc_rate_from_pll_cfg()
+could result in an integer underflow, if the hardware registers are
+misconfigured or contain uninitialized values, such that the computed
+sigma-delta modulator offset sdm exceeds the base frequency fout.
 
-The first part of the series addresses clock rate calculation and
-synchronization issues.  Specifically, it fixes edge cases where the PHY
-PLL is pre-programmed by an external component (like a bootloader) or
-when changing the color depth (bpc) while keeping the modeline constant.
-Because the Common Clock Framework .set_rate() callback might not be
-invoked if the pixel clock remains unchanged, this previously led to
-out-of-sync states between CCF and the actual HDMI PHY configuration.
+This might lead to an absurdly high clock rate being returned to the
+Common Clock Framework, with unpredictable effects on downstream clk
+consumers.
 
-The second part focuses on code cleanups and modernizing the register
-access.  Now that dw_hdmi_qp driver has fully switched to using
-phy_configure(), we can drop the deprecated TMDS rate setup workarounds
-and the restrict_rate_change flag logic.  Finally, it refactors the
-driver to consistently use standard bitfield macros.
+Provide the necessary sanitization to avoid trusting the hardware state.
 
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Closes: https://lore.kernel.org/all/20260611235702.0E9691F000E9@smtp.kernel.org/
+Fixes: 3481fc04d969 ("phy: rockchip: samsung-hdptx: Compute clk rate from PLL config")
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
-Changes in v6:
-- Collected R-b tags from Mani
-- Documented the expected recovery from invalid PLL hardware state in
-  patches 2 & 3 (Vinod)
-- Updated patch 5 description to avoid mentioning 'patches' (Mani)
-- Rebased series onto latest phy/next
-- Link to v5: https://patch.msgid.link/20260723-hdptx-clk-fixes-v5-0-8e786067865f@collabora.com
+ drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 14 ++++++++++++--
+ 1 file changed, 12 insertions(+), 2 deletions(-)
 
-Changes in v5:
-- Collected R-b/T-b tags from Dmitry, Andy & Diederik
-- Added new patch to guard against clk rate integer underflow (Sashiko)
-- Updated debug message in "Prevent divide-by-zero when computing clk
-  rate" to be consistent with the one introduced in the "underflow"
-  patch above
-- Added separate patch to consolidate consumer_put in
-  rk_hdptx_phy_power_on() error path (Dmitry)
-- Rebased series onto latest phy/next
-- Link to v4: https://patch.msgid.link/20260612-hdptx-clk-fixes-v4-0-ce5e1d456cda@collabora.com
+diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
+index d67ced2bf7b2..3a65c26f3efa 100644
+--- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
++++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
+@@ -2285,10 +2285,20 @@ static u64 rk_hdptx_phy_clk_calc_rate_from_pll_cfg(struct rk_hdptx_phy *hdptx)
+ 		sdm = div_u64(PLL_REF_CLK * ropll_hw.sdc_deno *
+ 			      ropll_hw.pms_mdiv * ropll_hw.sdm_num, val);
+ 
+-		if (ropll_hw.sdm_num_sign)
++		if (ropll_hw.sdm_num_sign) {
++			if (sdm > fout) {
++				/*
++				 * Similarly to the case above, it is expected
++				 * the next .set_rate() will help with recovery.
++				 */
++				dev_dbg(hdptx->dev, "Invalid ROPLL hw state: sdm > fout\n");
++				return 0;
++			}
++
+ 			fout = fout - sdm;
+-		else
++		} else {
+ 			fout = fout + sdm;
++		}
+ 	}
+ 
+ 	return DIV_ROUND_CLOSEST_ULL(fout * 2 * 8, ropll_hw.pms_sdiv * 10 * bpc);
 
-Changes in v4:
-- Added new patches to address new findings from Sashiko:
-  * Prevent divide-by-zero when computing clk rate
-  * Fix rate recalculation for 3.2GHz FRL
-- Updated patch "Consistently use bitfield macros" to handle a few more
-  bit operations
-- Link to v3: https://patch.msgid.link/20260611-hdptx-clk-fixes-v3-0-67b1b0c00e16@collabora.com
-
-Changes in v3:
-- Replaced div_u64() with DIV_ROUND_CLOSEST_ULL() in Patch 1 (Sashiko)
-- Fixed theoretical usage_count unbalanced issue in Patch 2 (Sashiko)
-- Rebased series onto latest phy/next
-- Link to v2: https://patch.msgid.link/20260511-hdptx-clk-fixes-v2-0-664e41379cab@collabora.com
-
-Changes in v2:
-- Collected Tested-by tags from Thomas and Simon
-- Fixed a typo in commit description of patch 1
-- Added a comment in patch 2 explaining why PLL config errors are
-  ignored for rk_hdptx_phy_consumer_get()
-- Added a missed FIELD_GET conversion for lcpll_hw.pms_sdiv in patch 6
-- Rebased onto latest phy/fixes
-- Link to v1: https://lore.kernel.org/r/20260227-hdptx-clk-fixes-v1-0-f998f2762d0f@collabora.com
-
----
-Cristian Ciocaltea (10):
-      phy: rockchip: samsung-hdptx: Fix rate recalculation for high bpc
-      phy: rockchip: samsung-hdptx: Prevent divide-by-zero when computing clk rate
-      phy: rockchip: samsung-hdptx: Guard against clk rate integer underflow
-      phy: rockchip: samsung-hdptx: Fix rate recalculation for 3.2GHz FRL
-      phy: rockchip: samsung-hdptx: Handle uncommitted PHY config changes
-      phy: rockchip: samsung-hdptx: Drop TMDS rate setup workaround
-      phy: rockchip: samsung-hdptx: Consolidate consumer_put on error path
-      phy: rockchip: samsung-hdptx: Drop restrict_rate_change handling
-      phy: rockchip: samsung-hdptx: Simplify GRF access with FIELD_PREP_WM16()
-      phy: rockchip: samsung-hdptx: Consistently use bitfield macros
-
- drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 285 +++++++++++-----------
- 1 file changed, 147 insertions(+), 138 deletions(-)
----
-base-commit: 9e953732c3ed02b19698bf4af05396a3573681e1
-change-id: 20260227-hdptx-clk-fixes-47426632f862
+-- 
+2.55.0
 
 
