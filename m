@@ -4,63 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F357C5B56A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 12:08:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D47CDC5CFE7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 12:09:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TqvkAwCOsL1hVuT8GV7hCB1OxrgOjfzOsoMOW/vy4SI=; b=QLrMOVGV0ICLHm
-	0pMb9TW0JdaLQv8EaqQO7HAPIUd66oeeaui9gfs7Tw1BGJ4pH5HDjQSwbV+YtsfpG5C0QnmoqPE3E
-	Pffz0fyGxhbd9v6VvDr44AQYh7n9802pDQLlrujKX/ZxCvIePWxi+7pmQE6TUcZVqveaFteROJtCu
-	xyII3FxlHNq82UjhWrWOxK9jZ/GiDAxzxBKYG1sXh1WHtHDEmVGzcEzXTc+cbihGZR+rIL+3ktTBJ
-	ML2rLAVmWKrbzDrrY2xhxCEPXSuJaM6GfOlsWWQ19nivYjDTlFZ/N1rePJfJvXvXnZ/YG2r1rnuhq
-	xk8YhtvT7I5VL9UnMZGg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KYf/U0nL9j9PnqjTffdu49QRWXvXhUFAROWiqj38684=; b=lUmvBoq05Tw4/Y5DU+QalSE/vY
+	rv1Xf81f7piE+C4/1Y74GR7dlChT8YdMdLuZxVt/lpry6tDDO2U2HGpjtW4JbMb+8Qc/jO+gsjQvQ
+	r1ay6gz5QS+en8aoyLhjTzXOWf9DS0ZqoWvZoCQIaRWyjx8QbOXVMy4C5dL9I/LpQCH9uReu+nEnF
+	LCXvjxTO9M+nk2uD6YVRqOPVU4zb0pveKB/Fbe2H5SVT9G+EXSow66rP2GCKPGejBGcYtwZ86fD/g
+	9lt6AyYunbLdyUTPN8jmIkrdqH8wcHtRm2gEkUhaqTs5+2u7Iwf890guIBxF8yYiAbp9B0O5tms2g
+	5Yh03A4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtlHR-0000000DyqJ-2esk;
-	Tue, 11 Aug 2026 12:08:29 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtlHP-0000000Dypi-2NLx
+	id 1wtlIL-0000000DyyS-3j3i;
+	Tue, 11 Aug 2026 12:09:25 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wtlIK-0000000DyyA-3yKk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 12:08:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EC6991516;
-	Tue, 11 Aug 2026 05:08:20 -0700 (PDT)
-Received: from [10.57.68.120] (unknown [10.57.68.120])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 46F423F86F;
-	Tue, 11 Aug 2026 05:08:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786450104; bh=nOdG3GEOAIhS+BTOXENo2dxte+PXbMMlKYJCLwWAc2g=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=NvcAZYGj7W1RZOM8r24q6SdYh94WxBwaTQurPr3Fq1AIq9cH3E/KyBRHkRihM7ZHX
-	 7aPsCzJCZc4/29K/f2y6XEPFRlowo5i5AzLzHbK3aIDxtRNnhslfqyugbvVXfhuD1N
-	 KA01KCxZcCMbV3UETKlJXggohnqtY6JqIWBmEnLA=
-Message-ID: <12843f8d-8c70-477e-904b-ba775eed6345@arm.com>
-Date: Tue, 11 Aug 2026 13:08:16 +0100
+	Tue, 11 Aug 2026 12:09:24 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6723A4173F;
+	Tue, 11 Aug 2026 12:09:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 965861F000E9;
+	Tue, 11 Aug 2026 12:09:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786450164;
+	bh=KYf/U0nL9j9PnqjTffdu49QRWXvXhUFAROWiqj38684=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=LRB9orrjzfTGLQNJxffigMBqmUUB4/JhA6YJvO2S7dsUnOwOIuEQZiK8dwsV6+oDU
+	 JiL7T+/QLTy1xs7YDID+RpfESR4UdYdNEVneioV/YjqmTkZ8YMeC3ZRuZL8Fq9E97e
+	 19WYDH4Y+sjD91Q/gHoAnJScpbUlaePG8Ls6wPF0eSp3zv06yKpXkDYfbSNG05I3xJ
+	 Y5lcSoavTXoBSYfhoqlQaXDNLask+4oUgR2HI3r35tw00vlDmpVk+ECXQpqNnIdfGy
+	 Zne1h8KaQE68sgtPLGLoNY6d+pQMZDYeHdPc4jPhugiOwhcdXVTszAh9bTJBZT6CSM
+	 99wjU8MB+DZCA==
+Date: Tue, 11 Aug 2026 13:09:19 +0100
+From: Will Deacon <will@kernel.org>
+To: Gus Bourg <gus@bourg.net>
+Cc: Ard Biesheuvel <ardb@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+	linux-efi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] arm64/efi: Do not call EFI runtime services preemptibly
+ under SW PAN
+Message-ID: <ansQ7xG51RddFmVu@willie-the-truck>
+References: <20260806000144.3388823-1-gus@bourg.net>
+ <anXMug2_-vZl_pZ7@willie-the-truck>
+ <30c5499e-8041-4e39-933b-c5220d53be77@app.fastmail.com>
+ <anmwTDnFR2cgxkqR@willie-the-truck>
+ <CAKL=SEpvBqMjw2Ts4ODYHCJz0K1axwmtrUGKQEJeb_rvuAQk0A@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC] arm64: entry: PSTATE_I_SET is leaking on pseudo NMI
- mode
-To: Will Deacon <will@kernel.org>
-References: <20260807-arm64_fix-v1-1-d069ccf9d71b@debian.org>
- <anXkO8YpoadRzm07@J2N7QTR9R3> <anXqMsJ14r3BAbMG@gmail.com>
- <anYHjvJ1_4dDjuzw@gmail.com> <anm5T9FazACqOWXF@willie-the-truck>
- <2a97f777-d33a-4b3d-8c8c-6f6894f04c29@arm.com>
- <annoxlkkq1NpujsP@willie-the-truck>
- <9b06f274-8db1-48e4-839e-e387c050d328@arm.com>
- <ansIT2PCHq_EKuTE@willie-the-truck>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <ansIT2PCHq_EKuTE@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_050827_697222_0948CBE0 
-X-CRM114-Status: GOOD (  13.91  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAKL=SEpvBqMjw2Ts4ODYHCJz0K1axwmtrUGKQEJeb_rvuAQk0A@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,44 +74,68 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, rmikey@meta.com, "Peter Zijlstra \(Intel\)" <peterz@infradead.org>, Catalin Marinas <catalin.marinas@arm.com>, Jinjie Ruan <ruanjinjie@huawei.com>, kernel-team@meta.com, linux-kernel@vger.kernel.org, Breno Leitao <leitao@debian.org>, bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/11/26 12:32, Will Deacon wrote:
-> On Mon, Aug 10, 2026 at 05:39:52PM +0100, Vladimir Murzin wrote:
->> On 8/10/26 16:05, Will Deacon wrote:
->>  > So we could probably hack something as you suggest, but maybe the best
->>> option is to take patches 8 and 9 from your FEAT_NMI series? WDYT?
->>>
->> Whatever you prefer, tbh :)
->>
->> Patch 9 codifies my understanding of how things are expected to
->> work. That said, I accept that I could be missing something, hence the
->> RFC tag.
-> Those two look fine to me and I already took the preceding changes.
+On Mon, Aug 10, 2026 at 05:51:16PM -0700, Gus Bourg wrote:
+> On Mon, Aug 10, 2026 at 4:04 AM Will Deacon <will@kernel.org> wrote:
+> > On Fri, Aug 07, 2026 at 04:56:00PM +0300, Ard Biesheuvel wrote:
+> > > On Fri, 7 Aug 2026, at 15:16, Will Deacon wrote:
+> > > > On Wed, Aug 05, 2026 at 05:01:44PM -0700, gus bourg wrote:
+> > > >> There is such a preemption point in arch_efi_call_virt_setup() itself,
+> > > >> immediately after the TTBR0 install: __efi_fpsimd_begin() ->
+> > > >> kernel_neon_begin() -> put_cpu_fpsimd_context() -> local_bh_enable() ->
+> > > >> preempt_check_resched().
+> > > >
+> > > > Hmm, can we move the ttbr0 toggling until after __efi_fpsimd_begin() so
+> > > > that this preemption point doesn't interfere?
+> > > >
+> > >
+> > > Either that, or tweak the logic so that the switch is done eagerly in
+> > > this particular case (untested):
+> > >
+> > > --- a/arch/arm64/mm/context.c
+> > > +++ b/arch/arm64/mm/context.c
+> > > @@ -266,7 +266,7 @@
+> > >          * Defer TTBR0_EL1 setting for user threads to uaccess_enable() when
+> > >          * emulating PAN.
+> > >          */
+> > > -       if (!system_uses_ttbr0_pan())
+> > > +       if (!system_uses_ttbr0_pan() || mm_is_efi(mm))
+> > >                 cpu_switch_mm(mm->pgd, mm);
+> > >  }
+> >
+> > I think I'd prefer to avoid special-casing this, if we can. I was just
+> > thinking of the diff below.
 > 
->> In case you decide to take it, we probably need to:
->>
->> - extend the commit message to cover Breno's report (right now, the
->>   commit message makes it look like a refactoring)
->>
->> - add Fixes tags if we want it to be backported
->>
->> Alternatively, I can respin the patch separately with the suggestions
->> above applied - just let me know ;)
-> Lemme have a go at picking them up... I'll yell if it all goes horribly
-> wrong!
+> Tested the v2 approach (__efi_fpsimd_begin() before
+> uaccess_ttbr0_enable()) on the board that originally reproduced the
+> oops: Khadas VIM3, Amlogic A311D (4x Cortex-A73 + 2x Cortex-A53, no
+> FEAT_PAN, so CONFIG_ARM64_SW_TTBR0_PAN is in use), EDK2-based UEFI
+> firmware, v7.0.12 plus this change alone (my prior workaround removed).
 > 
-
-Ready, steady... :D
-
-More than happy to help if those go wrong.
-
-Cheers
-Vladimir
-
-> Will
+> Both firmware description modes were exercised (DeviceTree and ACPI
+> boots of the same system):
 > 
+>   - 3,000,000 GetVariable calls (three concurrent readers) plus
+>     200,000 GetTime calls per mode, under sustained CPU contention
+>     (busy-loop load on half the cores to force scheduling in the call
+>     window) - i.e. 6.4M calls total across the ACPI and DeviceTree
+>     boots of the same system
+>   - SetVariable create/write/delete round-trips in both modes
+>   - ~15 reboots/power cycles (ResetSystem) and clean shutdowns across
+>     the session
+> 
+> Zero efi_call_rts faults and zero "Unable to handle kernel access to
+> user memory" events; efivars and the EFI RTC remained functional
+> throughout, and poweroff/reboot stayed clean. Under the unpatched
+> preemptible path the same board faulted within thousands of calls with
+> comparable contention, so this comfortably clears the reproduction
+> threshold.
+> 
+> Tested-by: gus bourg <gus@bourg.net>
 
+Thanks for giving it a spin. I'll send it out as a proper patch.
+
+Will
 
