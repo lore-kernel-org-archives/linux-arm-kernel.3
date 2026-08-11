@@ -4,60 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C40CC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 17:02:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B06DC5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Aug 2026 17:03:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v8vdoAfi9mU1oVKKGVCUjlV22guVNgIOu5glKyeocUI=; b=tDW1H5R95aat4EAEOBhDH7X+Y+
-	dEJLYOvp/6mRbvaWb7h0DZjXs3MAVAaDqJFUkYRMIbonQAG/BjRWJVMUrt9CNGH1N14GeQwC5WAHY
-	Pem8uqPfezLSde2T+G11IU9uV6kYVHVwwo2AwSlYqr7XpQYZN4sMPkgpwhhBh61lWgeYWK5jNkTAw
-	et1mIEUdiLm+7kGcylb7azmDystDsp2C80ivgsjt/dj3CvHp6W4maNSGiFD/v7qtS6kCUYKsY7J4U
-	aobvUxWz+trolDw27erZIf9Z2eEL8kEgoI3DVSRROu65ixIsbLrRvOsRfWSavxPqseAa+h+u77qsV
-	TfrA0fRQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RE6PaW6oiFSyel2UJhhOSEawLq+P9qyHEog1fKmmdL8=; b=Tv/bBT7c3ejAB49WRLrrXFMwIA
+	WSVtDKxZNg42a0wJ6OF+ayCZhEuZgwMIGV+A7DzFEaCu81lTwpjQ57nY+sICc9iNUEe7ZnBo6Uq3Y
+	EY2LB/sOsthxCHdV3iKWanRkMpAfAYLjOghB3tUcIyVutxPMK/gsFZXAkZSGEcRqvveGi/4qWRQgE
+	KjwgaE0nMxEKskmNv9ti+k25L7mqz68dqN5ObdI9tC/79fCENGPejwBWWrErX0S+Hb4ZQsvUoFOtL
+	Tbh665FmLk7skJxh8Mvp2vlLwWW2vOn7eM5SYo5vE1BN8m15mlDrLDfIUWhzAzsBuJC0d0+PNYXsE
+	0iTXAb/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtpsH-0000000EaDu-0YLR;
-	Tue, 11 Aug 2026 17:02:49 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtpsE-0000000EaDT-3qyD
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Aug 2026 17:02:48 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 287F31516;
-	Tue, 11 Aug 2026 10:02:41 -0700 (PDT)
-Received: from localhost (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AB6B43F86F;
-	Tue, 11 Aug 2026 10:02:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786467765; bh=ighsZYu56ze1VtoME88ZTPKrQBrVvRxtVSSr3jDVTkE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kUM84eTkp76JyCxHDet1JgI+LDkGzPflyyARAXD54Ar8//eKpS2Q97iNgRBnXT9Wa
-	 gFCO88wgfmHx/dGTchjzXeDzoTVsUnh/jhTv4DCsKEqotYpfwLDzLelvVHeDgnYYKr
-	 LDFLxVdJwYGgPCdAe1zbEoIseDkAwe6PepbMY2JM=
-Date: Tue, 11 Aug 2026 18:02:42 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, suzuki.poulose@arm.com,
-	mike.leach@arm.com, james.clark@linaro.org,
-	alexander.shishkin@linux.intel.com, jie.gan@oss.qualcomm.com
-Subject: Re: [PATCH v9 10/13] coresight: etm4x: exclude ss_status from
- drvdata->config
-Message-ID: <20260811170242.GH15499@e132581.arm.com>
-References: <20260725113645.57519-1-yeoreum.yun@arm.com>
- <20260725113645.57519-11-yeoreum.yun@arm.com>
+	id 1wtpt6-0000000EaPI-1sW8;
+	Tue, 11 Aug 2026 17:03:40 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wtpt5-0000000EaOj-0nE7;
+	Tue, 11 Aug 2026 17:03:39 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9E1F4600C8;
+	Tue, 11 Aug 2026 17:03:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0B811F000E9;
+	Tue, 11 Aug 2026 17:03:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786467818;
+	bh=RE6PaW6oiFSyel2UJhhOSEawLq+P9qyHEog1fKmmdL8=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=kVb8LJgRSqTvl0nIhU1rXpQ6Or5LyPpq408KhMHnOwhJ/iqKpkp0eXc81bEHRCrqS
+	 4Eg6Gb3tU6qIYIWLZSsG2T5FfQJ/+6jK1AOtCOB0HXOLyuCR1ASZ+iOyWvnWQxIgb2
+	 T0gtuV9vmvsckL+2C0t0lf9TOi8XDMKFBNXFEdvjhwR5VqYTtp4/7gIyyVnX/YbfCk
+	 xOqxXpd+HSOKvWBP+jjgTGH8VKnp35wQvJMDm8bh0z0TWqiWWW7zULsollVwohQuIu
+	 V01txlFGe6FmDGaFKNxfApj2StvSGLKUWJ2Feqsy5YObNjPcYWfnujrhrxkm7IgXZ2
+	 yEN5V+x4pP79A==
+From: Vinod Koul <vkoul@kernel.org>
+To: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Heiko Stuebner <heiko@sntech.de>, Algea Cao <algea.cao@rock-chips.com>, 
+ Dmitry Baryshkov <lumag@kernel.org>, 
+ Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: kernel@collabora.com, linux-phy@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, 
+ =?utf-8?q?Thomas_Niederpr=C3=BCm?= <dubito@online.de>, 
+ Simon Wright <simon@symple.nz>, Diederik de Haas <diederik@cknow-tech.com>, 
+ Andy Yan <andyshrk@gmail.com>, 
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+ Sashiko <sashiko-bot@kernel.org>, Andy Yan <andy.yan@rock-chips.com>
+In-Reply-To: <20260723-hdptx-clk-fixes-v5-0-8e786067865f@collabora.com>
+References: <20260723-hdptx-clk-fixes-v5-0-8e786067865f@collabora.com>
+Subject: Re: [PATCH v5 00/10] phy: rockchip: samsung-hdptx: Clock fixes and
+ API transition cleanups
+Message-Id: <178646781244.1081354.2111582665697305280.b4-ty@kernel.org>
+Date: Tue, 11 Aug 2026 22:33:32 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260725113645.57519-11-yeoreum.yun@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_100246_999777_C9B735B3 
-X-CRM114-Status: GOOD (  11.65  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.13.0
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,26 +78,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jul 25, 2026 at 12:36:42PM +0100, Yeoreum Yun wrote:
-> The purpose of TRCSSCSRn register is to show status of
-> the corresponding Single-shot Comparator Control and input supports.
 
-I vaguely remember that we discussed the issue with always clearing
-drvdata::ss_status in hw_enable(), which might result in single-shot
-does not work properly in a perf session.
-
-This issue is not introduced by this patch, and I think we agreed to
-address it later. Could you document it in the commit log so that we
-can understand and track the issue later.
-
-> That means writable field's purpose for reset or restore from idle status
-> not for configuration.
+On Thu, 23 Jul 2026 22:41:43 +0300, Cristian Ciocaltea wrote:
+> This series provides a set of bug fixes and cleanups for the Rockchip
+> Samsung HDPTX PHY driver.
 > 
-> Therefore, exclude ss_status from drvdata->config and move it to drvdata.
+> The first part of the series addresses clock rate calculation and
+> synchronization issues.  Specifically, it fixes edge cases where the PHY
+> PLL is pre-programmed by an external component (like a bootloader) or
+> when changing the color depth (bpc) while keeping the modeline constant.
+> Because the Common Clock Framework .set_rate() callback might not be
+> invoked if the pixel clock remains unchanged, this previously led to
+> out-of-sync states between CCF and the actual HDMI PHY configuration.
 > 
-> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> [...]
 
-With above amending:
+Applied, thanks!
 
-Reviewed-by: Leo Yan <leo.yan@arm.com>
+[01/10] phy: rockchip: samsung-hdptx: Fix rate recalculation for high bpc
+        commit: f0c2c9c58a48b621b1cb90f0821da422b31af814
+[02/10] phy: rockchip: samsung-hdptx: Prevent divide-by-zero when computing clk rate
+        commit: c4fe5a9f379055ce0ec930f6495ae62aad237b89
+[03/10] phy: rockchip: samsung-hdptx: Guard against clk rate integer underflow
+        commit: 229788526ff24e0607726e93b74dd2ef157a99cd
+[04/10] phy: rockchip: samsung-hdptx: Fix rate recalculation for 3.2GHz FRL
+        commit: 9ac3daadb9060360e937a5993a5fd88360d6fdad
+[05/10] phy: rockchip: samsung-hdptx: Handle uncommitted PHY config changes
+        commit: aec3e4ce25da4ed37bbbfedcbb7107ae9428b183
+[06/10] phy: rockchip: samsung-hdptx: Drop TMDS rate setup workaround
+        commit: c2dd42e3ebd76f24bdc21eafe17149bec2ce1394
+[07/10] phy: rockchip: samsung-hdptx: Consolidate consumer_put on error path
+        commit: e49e4bc9f90eeb6b672762c6f089e2fafec104c4
+[08/10] phy: rockchip: samsung-hdptx: Drop restrict_rate_change handling
+        commit: 1bb1b4769e43ecc8ed30bd30b6d4514614753f2c
+[09/10] phy: rockchip: samsung-hdptx: Simplify GRF access with FIELD_PREP_WM16()
+        commit: 859fd8ae691e8c89c881da5edf0a827531daa372
+[10/10] phy: rockchip: samsung-hdptx: Consistently use bitfield macros
+        commit: f3a8aba9c36f26b5bb1024653d9083f7e1e6d8c8
+
+Best regards,
+-- 
+~Vinod
+
+
 
