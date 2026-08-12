@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C385CC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 19:05:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20F31C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 19:07:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lzM2GkkjkDV3mB8NN84hl8NQXlztP2ZGMhnWG4sC68A=; b=W09l3bqWDwiYv3uJKaAi+eW0uf
-	rQLbZEY7SJ/SH4Ck4oJQjVvKxVXfOAKhsiz6XKEtE56ucZWnQvE16SOg8EPnSKbPNOhrFiyfYb9HW
-	1Cclu2InNlwuKL6rm55rQKHYq9TfV7SrNBbRfQEmjK9S2jQbqFsjMeGgx1+aA79qe5OHFrVzdAfuk
-	OAm5zzH7vnR7aPN9NM+zMR5xiwPizqoMqaocbpkO9IpWkC5di+7k93iwTmyl4mOnJB8U4LmrxdkgS
-	NdY8Atii0kfC07TUBcMhGFNsBYpzSMdI8jDxXQ0DhIdrJZmrbsYUjWRPNr9gR0ZMjA+IV4/051u15
-	DuPCms8Q==;
+	bh=utIf9qpYkESZpxoFc+6cRTzy83WPklzVXzlqxHNToFc=; b=Acpzw29zzDyVD4C7f+Nk6Fe9tc
+	ZYUTEn7UzjIPSbaM2W2oGhYWANVC43keJ8EFoB96bpEgSoCo6n+gof4yNFYKIWdc76p01G+sjlrGR
+	Hl0zhtqgxqMX6Z+Jtk+A8BcKO3qBwDdxB+0JmWh8hnrSYZRIVfYf+6XrDRFGg6irYgMdIgdooRwTz
+	oI5sCMEVjxKkCv2tuNX0zdjgoFTTW9e0jcObI4VfQnZVpEsekr1XxoPuoaLgQaebe2yToLidfpB/B
+	/6Ggxf+BtR7HjCtmD2agcO30QGDPHyofuJbMxbx9AfmKUURodzpBekY1wKcmZG9L9xNAfNik8ZQu8
+	Sggmh1hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuEGm-0000000Gqy3-2lii;
-	Wed, 12 Aug 2026 19:05:44 +0000
+	id 1wuEIX-0000000Gr99-3oRO;
+	Wed, 12 Aug 2026 19:07:33 +0000
 Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuEGj-0000000GqxG-44Yb
+	id 1wuEIV-0000000Gr8l-0od5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 19:05:43 +0000
+	Wed, 12 Aug 2026 19:07:32 +0000
 Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67CH1uXe4120774;
-	Wed, 12 Aug 2026 19:05:30 GMT
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67CH1uXt4120774;
+	Wed, 12 Aug 2026 19:07:20 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
 	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=lzM2Gk
-	kjkDV3mB8NN84hl8NQXlztP2ZGMhnWG4sC68A=; b=HKVU7yMURi/9DPks1a8V1g
-	Sw2yMXIUKUNNBSwmPPTo7lPjG3MBtNt2wC0ze4+G1/YLvmfalJdrZm1Wo1XACGOO
-	XiMcWC0AUTp/VEnrAa0JCoQIUgkYE5x6jX6FwMQBMfZdgsvc2WCLQc/j7WzTNomP
-	IVkVq/cb9G1GsiO35YN27A+Gx7YspvY8U/IyBjuPNBUozrvbC0tBtk8uVS13FAd8
-	+xHFTY39yf9rjoD3qCqQNh5MsUYVaKM5XaPNsEqiqx7IvwPCTqQZ/LNer5l1ITcw
-	PV2dsJIxC+HF8e68MhE2DHr2q7WQqkHCpBdQJOkmMsulBWdaDYOW8CGfF2gb3msg
+	:message-id:mime-version:references:subject:to; s=pp1; bh=utIf9q
+	pYkESZpxoFc+6cRTzy83WPklzVXzlqxHNToFc=; b=CA9EiHjseprTwJQ5VYGtgs
+	KRtmVmAfdi3a+kdnxg48qcmJS7uS3a7IHY0sQOhE4NnP5/PBdb3AaEvlcZwZ80z7
+	QlHszs2C08FlYsErJGJDILvMTl2z1Ma3/3Vg9lBcpnzhs644pav2UHi5KzeblgHc
+	xEzTx58MBgEKMsQDP/W/kmh73oTZR3eGdmu1BzaQscL4Dq+/M/7Q15HXFT10YuAH
+	idJYlwXhUElUhWNd2hGWJ1s6URrOTOFgwGA6e5pHhA6HzxQoVfywdi2o75Xj+VQJ
+	QE9a+6fcIvDzlisI0e77mym+Wp09QPs/DsDHRhceydK4n9Ag6JWsfNk30xIHFC8Q
 	==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fwvnwbb9r-1
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fwvnwbbnb-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 12 Aug 2026 19:05:29 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 67CIuKXV028626;
-	Wed, 12 Aug 2026 19:05:28 GMT
-Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4fxfsjyjgm-1
+	Wed, 12 Aug 2026 19:07:19 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 67CIuIep019003;
+	Wed, 12 Aug 2026 19:07:18 GMT
+Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4fxg9h7h1f-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 12 Aug 2026 19:05:28 +0000 (GMT)
+	Wed, 12 Aug 2026 19:07:18 +0000 (GMT)
 Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
-	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 67CJ5OTw47907160
+	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 67CJ7EVd37945744
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 12 Aug 2026 19:05:24 GMT
+	Wed, 12 Aug 2026 19:07:14 GMT
 Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 511B42004B;
-	Wed, 12 Aug 2026 19:05:24 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 68F8020043;
+	Wed, 12 Aug 2026 19:07:14 +0000 (GMT)
 Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id D4C0F20040;
-	Wed, 12 Aug 2026 19:05:22 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 4F8CF20040;
+	Wed, 12 Aug 2026 19:07:13 +0000 (GMT)
 Received: from [9.87.128.143] (unknown [9.87.128.143])
 	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Wed, 12 Aug 2026 19:05:22 +0000 (GMT)
-Message-ID: <88b37690-93a1-45d3-9a99-56b6afe26f3d@linux.ibm.com>
-Date: Wed, 12 Aug 2026 21:05:20 +0200
+	Wed, 12 Aug 2026 19:07:13 +0000 (GMT)
+Message-ID: <ef1dff42-5d35-4f2e-8a13-03c33b96a7d6@linux.ibm.com>
+Date: Wed, 12 Aug 2026 21:07:12 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 18/33] KVM: s390: Prepare gmap for a second KVM
- implementation
+Subject: Re: [PATCH v6 19/33] KVM: s390: gmap: Make storage keys optional
 To: Steffen Eiden <seiden@linux.ibm.com>, kvm@vger.kernel.org,
         kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
         linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org
@@ -97,32 +96,32 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
  <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
         Zenghui Yu <yuzenghui@huawei.com>
 References: <20260812153631.3376090-1-seiden@linux.ibm.com>
- <20260812153631.3376090-19-seiden@linux.ibm.com>
+ <20260812153631.3376090-20-seiden@linux.ibm.com>
 Content-Language: en-US
 From: Christian Borntraeger <borntraeger@linux.ibm.com>
-In-Reply-To: <20260812153631.3376090-19-seiden@linux.ibm.com>
+In-Reply-To: <20260812153631.3376090-20-seiden@linux.ibm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-TM-AS-GCONF: 00
 X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Authority-Analysis: v=2.4 cv=RsP16imK c=1 sm=1 tr=0 ts=6a7cc3f9 cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
+X-Authority-Analysis: v=2.4 cv=RsP16imK c=1 sm=1 tr=0 ts=6a7cc468 cx=c_pps
+ a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
  a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22
  a=RnoormkPH1_aCDwRdu11:22 a=RzCfie-kr_QcCd8fBx8p:22 a=VnNF1IyMAAAA:8
- a=S8B2aoqd-71-jbo-BzsA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-GUID: SjOFYKtYmoHRoJk8pdZmGV9gjCEuQ_ph
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODEyMDE1MyBTYWx0ZWRfX4G3s7tpKfv5X
- rNG9qs6KD/V/wVHia/Ez3p0xPVKBxHqfNxl7Cw5z4Ers8CdnGVnzX53z029VCiHvgD/chytC7e1
- f4glF6A/Mf7hFi+90j8H518HakGpMPaZFOATGgytrluYY6eq4NNHYqT0rYSR2Pt1P5bYNN5YAE8
- UHIQbL78bYm31e5+pCTuai6G7c0bzXSUW2o7kvAmJF+0tQUHPI2V1YpAGfJMKfri9yJ/CBeNDrt
- ZVDoiZmHfyJ4QuyMhcj2Z7x5vlVpJqd6cb0U8U0UbPDU24tejiNRJn59aFIIoJxgH4M9tPBQOla
- Q6R9oKT56uor0VUR4+8WRBfFhMwRwIK3GAzKIwpKCO4OKFmgqfWZuKjidzuPWfe0FHuI5668YA+
- r4t+lihE/BNqtMAPQYrB4wIKANeKgkVWxAGOjvCEcoU/22E82kuYRcfzLnSAYoUngEnzlsnKD5n
- OnOF5c4MJUV5nQ1A+aA==
-X-Proofpoint-ORIG-GUID: PolOHNE7T5dYAZKAW2nEM3hE577JQxo8
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODEyMDE1MyBTYWx0ZWRfX0RMVrCU0oKfC
- Jatas2TCnsT4jh9Pb7EQEcLEs78xtX1pHVmmFfsLOdvu/OyqpnM0OFLaF7b8wcL8H129Tq08D07
- BgwEpgY6nMwktgC26gA5punlD6aSOJQ=
+ a=PCBwtEoN02dcB8kVq5UA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-GUID: e7pmWi42NJwRQlwXtePs6KkKlmNqGyDr
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODEyMDE1MyBTYWx0ZWRfXyGUZkT8MYv1x
+ TlF8wjdWFsp0uYykCiFlcBqWlf00tU+XL11wPQfb7tGRwBLeYE9Q0ZANWiSFGKeC0agLkCnIauP
+ rhK5RZowRZwsa6MJ7TE4hbXeekDkRqM4izfOunCEFaWyPFchX4hM3R3/bdj5uUkltFk60CnWkCS
+ Kc5+QpzQdiIXLyfCSsuQ4kBeuw4K7Q8w48MpS53XpY2nUjneB4wdqfSjlH4GtODv1o/EBJzv6yb
+ MZOjG2BQUvIi2mLqXK/Y+pRzvBJee6l0QlE+w5iQC1vHnmANr7TirjdigmrN3GjZRKDow4jMgK9
+ BXvZ5mQoA43jr6KdWnhHI8ig3g0FADJ/qvmGhR1U+6cdyflvKZ5/w2PUqEHSr5YyiOWsVgjDAIY
+ JxjpHR+DahyiH6xCOk++5y12pgCO9MEsYFEMjkcKLVXDyMHxNsxanAjXwXVqI+Gn+ahstDf7e9j
+ jVDTED2Pc1Hcl6dq18w==
+X-Proofpoint-ORIG-GUID: LVy9jCCWjEPlN33hC9kn7oMuJIEOs0Sh
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODEyMDE1MyBTYWx0ZWRfX5BH9HXGn7ooG
+ NPJI5JceKu6wd8i+9AO5kpenjzBz74mpjTxj4jNiV4vVhFpdH1pM9gw/u75ByORufmSagSMWmTD
+ RxJzYyW01umkxTsOxxq9TMM0qW1qPnA=
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-08-12_05,2026-08-12_01,2025-10-01_01
@@ -132,8 +131,8 @@ X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608120153
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_120542_881127_17B76CA4 
-X-CRM114-Status: GOOD (  11.18  )
+X-CRM114-CacheID: sfid-20260812_120731_362876_DD9CDCD0 
+X-CRM114-Status: GOOD (  10.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,13 +148,18 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Am 12.08.26 um 17:36 schrieb Steffen Eiden:
-> Refactor gmap code such that a second s390 (host) KVM implementation can
-> use the gmap code as well. Move mmu code from s390 to gmap so the other
-> KVM implementation can use it as well.
+> Guard guest storage key handling behind `KVM_S390_MANAGES_S390_GUEST`.
+> This enables other KVM implementations to use gmap without implementing
+> storage key infrastructure. Define KVM_S390_MANAGES_S390_GUEST to 1 for
+> KVM hosts managing s390 guests (in kvm_host_s390.h). A KVM
+> implementation not implementing those features must define
+> KVM_S390_MANAGES_S390_GUEST to 0 in its kvm_host_<guest_arch>.h.
 > 
-> No functional change.
+> No functional changes besides the new guard.
 > 
 > Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
+
+Maybe we find a better way in the future but this certainly works.
 
 Reviewed-by: Christian Borntraeger <borntraeger@linux.ibm.com>
 
