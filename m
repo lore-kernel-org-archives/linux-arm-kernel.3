@@ -4,62 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90770C5AD5A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 08:08:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A97B4C5AD5A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 08:19:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g8o/j7j4w3KLWh32ubDeSN0JFxs0ZyyDKCxWJyyp8gQ=; b=nlyZqC9FoPCR3MoaPm020p/Mcb
-	HzfrnQDZUkEcvKZqSW4keNWXIcv/vYSATXN/bckFXxByUu7sY5/hCXXm5kJjfA8uGnc/+k8wR5HXA
-	s45NxvAJMDcKM9OYvOhCZGATNTEfnSz5B32ZqkJ4sHuGfBAPceFXQKiPlGIegI77cJGphYMUd2YqC
-	Nki0rZt7xM07QOtnoRVrvyfjj9YtdTOj5Ewf5FFyQJHS5ZABc64WYn5ioRZnxv6cF/PzJvug47E0b
-	i2JU6ibv5RfrJ2SKNgJL563XO04lKX4K8QMoYTrcB67kE1OmCFwxCAUk3pudM5ARPlahikfl0U7NP
-	CSwlEpAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tg2d+uSxSfnEQ+/wwkTn7ftgs1qXWrlfLkCgiC/frqc=; b=irVhibmOZeYiVwTjFpMjgXr1ta
+	fWfl2WLL0r7SedRrEQTeoOfQvG8ibA05d9FkeNHj8TZC6LFFHShTRIpKUmHOX/+lE+TO9FH8LyisF
+	Rn95QM+8TcY9PBESo/lm3mKW+W4ElbTc5k6ivQ//xSb2KzE3TdBB7P8lLf9+PVS2O3PQP7jPjPvzz
+	UD1pH0ifeGRYS2f9jl+/bDnCDftMboFxJGyMR8LA2kO0ZqIyfHrS4MGDTPZwWg6/CIgaQ0L0xaKqu
+	xuHeLXCxtGLAbY4cM1k7VL8IDedQiDV3rMSQJD8easQ86OIVddh+c9fWhGfXvg6Rm0zvBKlAx9cb/
+	vOfxz3Gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu40y-0000000Fccy-3hWy;
-	Wed, 12 Aug 2026 08:08:44 +0000
-Received: from mail.cyberchaos.dev ([195.39.247.168])
+	id 1wu4B1-0000000FdPS-2k0r;
+	Wed, 12 Aug 2026 08:19:07 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu40w-0000000Fcbd-1xHc;
-	Wed, 12 Aug 2026 08:08:44 +0000
-Message-ID: <cf6f4732-1122-4381-962d-e18b32ac178d@cyberchaos.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
-	s=mail; t=1786522118;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=g8o/j7j4w3KLWh32ubDeSN0JFxs0ZyyDKCxWJyyp8gQ=;
-	b=GEDyrtiYCcQ3apJP8ir4Ty/7Yf+NYe7qqakLArttAK2LHywzUmyCz+h6TozQyZlKsxx13T
-	akmN81Jlx7RH/mIrSpMhhZVScA5EjGX0PtUd9uYl2Lvgl6LE08iVdQwIycievawyYvPU/X
-	cKYrJo80sa72cBuy75AaZ0oCJiuNotY=
-Date: Wed, 12 Aug 2026 10:08:36 +0200
+	id 1wu4B0-0000000FdPM-3qg5
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 12 Aug 2026 08:19:07 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5B7F961878;
+	Wed, 12 Aug 2026 08:19:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 256A71F000E9;
+	Wed, 12 Aug 2026 08:18:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786522746;
+	bh=tg2d+uSxSfnEQ+/wwkTn7ftgs1qXWrlfLkCgiC/frqc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Bf1R0GNVZA16GWAATXUlPxuJ4mfMJXiDCQdYgqoD7y80q/FqN0jKELPlZTl9YTSrq
+	 pLpN5vvXrB/Hpwb2Qie70vFXzOaEtxgUQfwS1VvVVj/ntwWHq8sJ4V7c4wUqra+tJl
+	 Yu7Hd+z0rnMOw9KFYuMF/fE7zPPyOoJJ+gE0mIJ27Q1qkAQ1YstVhugQlPW/8W8DAF
+	 AbLBTUPp2Un1B907c7J1kcG/3mPgE6+afRtmm6eywgjLeY/vvyoDNRVwK1xLJYBz8l
+	 BdoJ382q3izk1A2BvnJTdmKd9ULzUj4G1OsjAwisEQrhF8vecaPPNkpzWjNr7I1jAb
+	 wPgPPC2subyLA==
+Date: Wed, 12 Aug 2026 09:18:56 +0100
+From: Lee Jones <lee@kernel.org>
+To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
+	Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	John Stultz <john.stultz@linaro.org>,
+	Moritz Fischer <moritz.fischer@ettus.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Christian Loehle <christian.loehle@arm.com>,
+	Ulf Hansson <ulfh@kernel.org>,
+	Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+	Andre Draszik <andre.draszik@linaro.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
+	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	devicetree@vger.kernel.org, mfd@lists.linux.dev,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Subject: Re: [PATCH v24 08/12] mfd: psci-mfd: Add psci-reboot-mode child cell
+Message-ID: <20260812081856.GF1072730@google.com>
+References: <20260803-arm-psci-system_reset2-vendor-reboots-v24-0-889281373870@oss.qualcomm.com>
+ <20260803-arm-psci-system_reset2-vendor-reboots-v24-8-889281373870@oss.qualcomm.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH 1/2] dt-bindings: nvme: Add apple,t8132-nvme-ans2
- compatible
-To: Rob Herring <robh@kernel.org>, Yureka Lilian <yureka@cyberchaos.dev>
-Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
- Neal Gompa <neal@gompa.dev>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Keith Busch <kbusch@kernel.org>,
- Jens Axboe <axboe@kernel.dk>, Christoph Hellwig <hch@lst.de>,
- Sagi Grimberg <sagi@grimberg.me>, asahi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-nvme@lists.infradead.org
-References: <20260811-apple-nvme-t8132-v1-0-865be32e42c3@cyberchaos.dev>
- <20260811-apple-nvme-t8132-v1-1-865be32e42c3@cyberchaos.dev>
- <20260811231121.GA271810-robh@kernel.org>
-Content-Language: en-US
-From: Yureka Lilian <yureka@cyberchaos.dev>
-In-Reply-To: <20260811231121.GA271810-robh@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_010842_759366_0706C5B8 
-X-CRM114-Status: GOOD (  18.27  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260803-arm-psci-system_reset2-vendor-reboots-v24-8-889281373870@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,136 +99,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thank you for the quick feedback!
+On Mon, 03 Aug 2026, Shivendra Pratap wrote:
 
-On 8/12/26 01:11, Rob Herring wrote:
-> On Tue, Aug 11, 2026 at 10:49:47PM +0200, Yureka Lilian wrote:
->> Add a new base compatible for the ANS2 NVMe on the Apple t8132 (M4) SoC,
->> which uses a separate MMIO base for its NVMMU.
->>
->> Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
->> ---
->>   .../devicetree/bindings/nvme/apple,nvme-ans.yaml   | 77 ++++++++++++++--------
->>   1 file changed, 48 insertions(+), 29 deletions(-)
->>
->> diff --git a/Documentation/devicetree/bindings/nvme/apple,nvme-ans.yaml b/Documentation/devicetree/bindings/nvme/apple,nvme-ans.yaml
->> index 4c0b1f90aff8..c8a41b268b9c 100644
->> --- a/Documentation/devicetree/bindings/nvme/apple,nvme-ans.yaml
->> +++ b/Documentation/devicetree/bindings/nvme/apple,nvme-ans.yaml
->> @@ -16,6 +16,7 @@ properties:
->>         - items:
->>             - const: apple,t6020-nvme-ans2
->>             - const: apple,t8103-nvme-ans2
->> +      - const: apple,t8132-nvme-ans2
->>         - items:
->>             - enum:
->>                 # Do not add additional SoC to this list.
->> @@ -24,16 +25,6 @@ properties:
->>                 - apple,t6000-nvme-ans2
->>             - const: apple,nvme-ans2
->>   
->> -  reg:
->> -    items:
->> -      - description: NVMe and NVMMU registers
->> -      - description: ANS2 co-processor control registers
->> -
->> -  reg-names:
->> -    items:
->> -      - const: nvme
->> -      - const: ans
->> -
-> Keep properties defined at the top level. More below.
->
->>     resets:
->>       maxItems: 1
->>   
->> @@ -68,25 +59,53 @@ properties:
->>   
->>         The SART address filter is documented in iommu/apple,sart.yaml.
->>   
->> -if:
->> -  properties:
->> -    compatible:
->> -      contains:
->> -        enum:
->> -          - apple,t6000-nvme-ans2
->> -          - apple,t6020-nvme-ans2
->> -then:
->> -  properties:
->> -    power-domains:
->> -      minItems: 3
->> -    power-domain-names:
->> -      minItems: 3
->> -else:
->> -  properties:
->> -    power-domains:
->> -      maxItems: 2
->> -    power-domain-names:
->> -      maxItems: 2
->> +allOf:
->> +  - if:
->> +      properties:
->> +        compatible:
->> +          contains:
->> +            const: apple,t8132-nvme-ans2
->> +    then:
->> +      properties:
->> +        reg:
->> +          items:
->> +            - description: NVMMU registers
->> +            - description: NVMe registers
->> +            - description: ANS2 co-processor control registers
->> +        reg-names:
->> +          items:
->> +            - const: nvmmu
->> +            - const: nvme
->> +            - const: ans
-> New entries go on the end.
-Ack
-> So nvmmu last and defined at the top level.
-I did read the docs which said the properties should always be 
-introduced at the top-level, however I couldn't figure out how to 
-describe the intended constraints in this way.
-> Then this is just 'minItems: 3'
->
->> +    else:
->> +      properties:
->> +        reg:
->> +          items:
->> +            - description: NVMe and NVMMU registers
->> +            - description: ANS2 co-processor control registers
->> +        reg-names:
->> +          items:
->> +            - const: nvme
->> +            - const: ans
-> And 'maxItems: 2' on these 2.
+> The PSCI "reboot-mode" node does not define a compatible because it is a
+> configuration of boot-states provided by the underlying firmware. With
+> the new firmware-node based cells in mfd-core, this node can now be
+> exposed as a proper child cell.
+> 
+> Add the psci-reboot-mode child cell to the psci-mfd driver with a
+> named_fwnode. Add psci-cpuidle-domain cell first to isolate it from
+> reboot-mode failures.
+> 
+> Suggested-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+> ---
+>  drivers/mfd/psci-mfd.c      | 27 ++++++++++++++++++++++++++-
+>  drivers/power/reset/Kconfig |  2 +-
+>  2 files changed, 27 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/mfd/psci-mfd.c b/drivers/mfd/psci-mfd.c
+> index 7affd6bb09dd..7befc4fa86f5 100644
+> --- a/drivers/mfd/psci-mfd.c
+> +++ b/drivers/mfd/psci-mfd.c
+> @@ -14,10 +14,35 @@ static const struct mfd_cell psci_cells[] = {
+>  	},
+>  };
+>  
+> +static const struct mfd_cell psci_reboot_mode_cell[] = {
+> +	{
+> +		.name = "psci-reboot-mode",
+> +		.named_fwnode = "reboot-mode",
+> +	},
+> +};
+> +
+>  static int psci_mfd_probe(struct platform_device *pdev)
+>  {
+> -	return devm_mfd_add_devices(&pdev->dev, PLATFORM_DEVID_AUTO, psci_cells,
+> +	int ret;
+> +
+> +	ret = devm_mfd_add_devices(&pdev->dev, PLATFORM_DEVID_AUTO, psci_cells,
+>  				   ARRAY_SIZE(psci_cells), NULL, 0, NULL);
+> +	if (ret)
+> +		goto out;
+> +
+> +	ret = devm_mfd_add_devices(&pdev->dev, PLATFORM_DEVID_AUTO,
+> +				   psci_reboot_mode_cell,
+> +				   ARRAY_SIZE(psci_reboot_mode_cell),
+> +				   NULL, 0, NULL);
+> +	if (ret) {
+> +		if (ret == -ENOMEM)
+> +			goto out;
+> +		dev_warn(&pdev->dev, "reboot-mode child cell failed to add: %d\n", ret);
 
-When the three items are defined at the top-level, I can't seem to make 
-the dtbs_check work:
+Okay Yoda, but why is this okay?
 
-[...]
-arch/arm64/boot/dts/apple/t8112-j413.dtb: nvme@27bcc0000 
-(apple,t8112-nvme-ans2): reg: [[2, 2076966912, 0, 262144], [2, 
-2000683008, 0, 16384]] is too short
-     from schema $id: http://devicetree.org/schemas/nvme/apple,nvme-ans.yaml
-arch/arm64/boot/dts/apple/t8112-j413.dtb: nvme@27bcc0000 
-(apple,t8112-nvme-ans2): reg-names: ['nvme', 'ans'] is too short
-     from schema $id: http://devicetree.org/schemas/nvme/apple,nvme-ans.yaml
-[...]
+Needs a comment.
 
-despite this compatible falling into the "... else ... maxItems: 2" branch
+> +		ret = 0;
+> +	}
+> +
+> +out:
+> +	return ret;
+>  }
+>  
+>  static const struct of_device_id psci_mfd_of_match[] = {
+> diff --git a/drivers/power/reset/Kconfig b/drivers/power/reset/Kconfig
+> index 143f3260f04a..1810482d52e6 100644
+> --- a/drivers/power/reset/Kconfig
+> +++ b/drivers/power/reset/Kconfig
+> @@ -362,7 +362,7 @@ config NVMEM_REBOOT_MODE
+>  
+>  config PSCI_REBOOT_MODE
+>  	bool "PSCI reboot mode driver"
+> -	depends on ARM_PSCI_FW || COMPILE_TEST
+> +	depends on (ARM_PSCI_FW && MFD_PSCI) || COMPILE_TEST
+>  	select REBOOT_MODE
+>  	help
+>  	  Say y here will enable PSCI reboot mode driver. This gets
+> 
+> -- 
+> 2.34.1
+> 
 
-Would it be acceptable to define the reg and reg-names with just 
-minItems: 2, maxItems: 3, but without specific items or descriptions, 
-and then add the compatible-specific items and descriptions in the 
-conditional part below?
-
->
-> Rob
-
-
-Thanks,
-
-- Yureka
-
+-- 
+Lee Jones
 
