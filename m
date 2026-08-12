@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C220C5CFDB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 09:11:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A11B8C5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 09:11:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MvazE23f8HbO9Hml0EoomjcFYwH5DF1NlDQc34IZPO4=; b=3bJnzjnazwFFDxvRXjA6lc5mJd
-	onveee6GkSrmxeNwPA5HP/6NOvrTXP89gzhdrHLDW/NdtQbUtCZlSe4jp42b7+AHHgsrgjVjiMZzb
-	jfnR+PqIaMPI0n+4tlSH46GBUD/lsb0vWO+9xhPAP/zti5zqwI7RQwzRV4J29ny53LrCLzgRPo0/G
-	GWvEnTUkZU2MMeZGWkAd5yoMI22gSvUMB7cP7ODMjMfVAtsA2/L6+rzmFP3Fm+n0EUG3WRLt4eiz6
-	zWmXBJeSZl38aXVSYJk1Y9JdYwD+TAYUozN7686CPkK2/DbtW26x7gVo4Q3LaDbN1NVbSHbaQ12TB
-	dAbDtIfw==;
+	bh=6pTgz0DwXr00MMfnrP29fVFPwkvrVf5WWN8ziQhZvNw=; b=kuRgS8DC6Tz0ukG2vVADhQ/Yvv
+	tHO8vV8uThGYbSl7C7dSKSDAKQvUOrX2ZKhezX02nT4xEUfHDwCcVpcfj21F0MD0RwESywB+M8wET
+	Ogmk6nPMdRwv/n20c27sPGshh95m6TAnD/FgSleQRVQTZ/KmP7fmRBMsWXWpomlPwzmA6GEH0HWqs
+	WzCBb3daD9c+sXxPwjO4rpvqnCTU3JPSX9luVFh3NMV7c3nWbm1F13kEKQvRLhM/OxNGE6IYs0NJx
+	RntVUOrgp8SOgr/yty909OTwSVRFMXGi9ZcRM0NIHXpjcevVHoGFW+6ybMy4B8uqDqhn2GXF1rLjr
+	LiJuIg/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu4zg-0000000FhgL-3ezl;
+	id 1wu4zg-0000000Fhfr-2MjC;
 	Wed, 12 Aug 2026 09:11:28 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu4zR-0000000FhY2-3MUA
+	id 1wu4zP-0000000FhWS-1Tle
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 09:11:15 +0000
+	Wed, 12 Aug 2026 09:11:12 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4098F60A85;
-	Wed, 12 Aug 2026 09:11:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0CF71F00A3F;
+	by tor.source.kernel.org (Postfix) with ESMTP id 7CE6F60DC0;
 	Wed, 12 Aug 2026 09:11:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED0DE1F00A3D;
+	Wed, 12 Aug 2026 09:11:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786525873;
-	bh=MvazE23f8HbO9Hml0EoomjcFYwH5DF1NlDQc34IZPO4=;
+	s=k20260515; t=1786525870;
+	bh=6pTgz0DwXr00MMfnrP29fVFPwkvrVf5WWN8ziQhZvNw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=kA+kaDCt0+N1ZeV0yvog50Gvju6gxEOR1X100qjD0pJbFMFgqoOhlUT3d1Dw0X10v
-	 /c5xFBNLJ2PgPNCY47gd9YuE1h80SzFO+uctV14GEcVMWBzyosQdE1A32e9k6AJogX
-	 2opdeT2UlzadgxAFlnb+pinDOMyawTSuZHFrL14Vm/mIqGtNCERsJuQ2aavdGc0sav
-	 9ifFdyhLC4JRX/3Y4GDk4gPtVKefVdKpI6svl8SwbOwbXq+sELNnahr7eolqI36mpF
-	 C0G1LhUFRJ0K7l1ywSFmhntuTFwu4ibsVL2GXrkSD46RZ16/CNaY7Y3XvRsH8sPk0q
-	 fLY4V8I/wy5lw==
+	b=bHWaS+pe+PGo4w02tTxnqsEfAcujAyPCKixf0RwpPhU+bRLQukzY/CXJ+9gvxaawG
+	 bucgvPGs+vNJkJ31JbdaZV6U6eQLoqe7/927QZ40A1udLxucbwWRb3Vx1a95w9Ve/b
+	 XGUJSkCoZyNmIAH72gjbSZ3hfkKqODX9GaMxJQ3DiOXEQGRl+NkSE/iNAIqzYEBqmd
+	 0CkZUxdnd/UTmHDPFCzRxYvIBlgjuxzhTz58fhhIOiiDVjKdcNuIb2wGplmlQT83pj
+	 +WI1U7bnCdvW0UOmz+8Lyarg0l4D3pKUDi7c7LF00QRLxI36YjBfJ0TCA4rf1SyOke
+	 yApQA0gaU176w==
 From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Date: Wed, 12 Aug 2026 11:10:34 +0200
-Subject: [PATCH 6/7] irqchip/gic-v5: Use logical cpu 0 irs_data for dynamic
- IST allocation
+Date: Wed, 12 Aug 2026 11:10:33 +0200
+Subject: [PATCH 5/7] irqchip/gic-v5: Release IRS iomem region on driver
+ init failure
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260812-gicv5-7-2-fixes-v1-6-3743e82c69a4@kernel.org>
+Message-Id: <20260812-gicv5-7-2-fixes-v1-5-3743e82c69a4@kernel.org>
 References: <20260812-gicv5-7-2-fixes-v1-0-3743e82c69a4@kernel.org>
 In-Reply-To: <20260812-gicv5-7-2-fixes-v1-0-3743e82c69a4@kernel.org>
 To: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
@@ -75,53 +75,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In set-ups with a 2-level IST, L1 table entries are created dynamically
-when LPIs are allocated.
+In gicv5_irs_of_init(), an IRS is set-up using of_io_request_and_map() to
+request its memory region (corresponding to the configuration frame) and
+map the IRS configuration frame.
 
-The L1 allocation and mapping, implemented in gicv5_irs_iste_alloc() is
-carried out in preemtible context and can be carried out on any IRS in
-the system.
+On gicv5_irs_of_init() failure, the driver unmaps the IRS iomem region but
+does not release the requested memory region leaving it allocated in the
+iomem resource tree.
 
-Current code indexes the per_cpu_irs_data per cpu array using
-smp_processor_id() to retrieve the IRS that is local to the core
-executing gicv5_irs_iste_alloc().
+Fix it by releasing the iomem region on gicv5_irs_of_init() probe failure.
 
-Since that's preemptible context, the core executing that function can
-change on preemption. Given that every IRS in the system is equivalent
-to each core, this is not really an issue in that even if the thread
-is preempted and resumed on a different cpu, the table allocation and
-mapping to an IRS would work seamlessly regardless.
+Likewise, on both OF and ACPI driver init failure, IRS iomem regions are
+requested but never released in gicv5_irs_remove().
 
-On the other hand, smp_processor_id() spits a legitimate splat on
-DEBUG_PREEMPT kernels when used in preemtible context and this should
-be fixed.
+Stash a copy of the IRS iomem region in a struct resource in
+struct gicv5_irs_chip_data and use it to release the requested region in
+gicv5_irs_remove() if the driver probe fails.
 
-Given that all IRSes are equivalent from a core perspective in terms of
-IST initialization, always choose as a policy the IRS local to logical
-cpu 0, preventing the smp_processor_id() splat.
-
-Fixes: 0f0101325876 ("irqchip/gic-v5: Add GICv5 LPI/IPI support")
+Fixes: 5cb1b6dab2de ("irqchip/gic-v5: Add GICv5 IRS/SPI support")
+Fixes: 35866efa52fe ("irqchip/gic-v5: Add ACPI IRS probing")
 Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
 Cc: Thomas Gleixner <tglx@kernel.org>
 Cc: Marc Zyngier <maz@kernel.org>
 Link: https://sashiko.dev/#/message/20260810104747.E5CE71F000E9%40smtp.kernel.org
 ---
- drivers/irqchip/irq-gic-v5-irs.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/irqchip/irq-gic-v5-irs.c   | 10 ++++++++++
+ include/linux/irqchip/arm-gic-v5.h |  2 ++
+ 2 files changed, 12 insertions(+)
 
 diff --git a/drivers/irqchip/irq-gic-v5-irs.c b/drivers/irqchip/irq-gic-v5-irs.c
-index 86da9f82a7b0..b3feb6340b59 100644
+index 9d25ce8bfd8c..86da9f82a7b0 100644
 --- a/drivers/irqchip/irq-gic-v5-irs.c
 +++ b/drivers/irqchip/irq-gic-v5-irs.c
-@@ -199,7 +199,7 @@ int gicv5_irs_iste_alloc(const u32 lpi)
- 	if (!gicv5_global_data.ist.l2)
- 		return 0;
+@@ -740,6 +740,7 @@ static int __init gicv5_irs_init(struct gicv5_irs_chip_data *irs_data)
+ static int __init gicv5_irs_of_init(struct device_node *node)
+ {
+ 	struct gicv5_irs_chip_data *irs_data;
++	struct resource res;
+ 	void __iomem *irs_base;
+ 	u8 iaffid_bits;
+ 	u32 idr;
+@@ -757,6 +758,11 @@ static int __init gicv5_irs_of_init(struct device_node *node)
+ 		goto out_err;
+ 	}
  
--	irs_data = per_cpu(per_cpu_irs_data, smp_processor_id());
-+	irs_data = per_cpu(per_cpu_irs_data, 0);
- 	if (!irs_data)
- 		return -ENOENT;
++	if (of_address_to_resource(node, ret, &res)) {
++		ret = -EINVAL;
++		goto out_err;
++	}
++
+ 	irs_base = of_io_request_and_map(node, ret, of_node_full_name(node));
+ 	if (IS_ERR(irs_base)) {
+ 		pr_err("%pOF: unable to map GICv5 IRS registers\n", node);
+@@ -765,6 +771,7 @@ static int __init gicv5_irs_of_init(struct device_node *node)
+ 	}
  
+ 	irs_data->fwnode = of_fwnode_handle(node);
++	irs_data->res = res;
+ 	gicv5_irs_init_bases(irs_data, irs_base, of_property_read_bool(node, "dma-noncoherent"));
+ 
+ 	idr = irs_readl_relaxed(irs_data, GICV5_IRS_IDR1);
+@@ -794,6 +801,7 @@ static int __init gicv5_irs_of_init(struct device_node *node)
+ 	gicv5_irs_clear_affinity(irs_data);
+ 	gicv5_irs_disable(irs_data);
+ 	iounmap(irs_base);
++	release_mem_region(res.start, resource_size(&res));
+ out_err:
+ 	kfree(irs_data);
+ 	return ret;
+@@ -810,6 +818,7 @@ void __init gicv5_irs_remove(void)
+ 		gicv5_irs_clear_affinity(irs_data);
+ 		gicv5_irs_disable(irs_data);
+ 		iounmap(irs_data->irs_base);
++		release_mem_region(irs_data->res.start, resource_size(&irs_data->res));
+ 		list_del(&irs_data->entry);
+ 		kfree(irs_data);
+ 	}
+@@ -958,6 +967,7 @@ static int __init gic_acpi_parse_madt_irs(union acpi_subtable_headers *header,
+ 	}
+ 
+ 	gicv5_irs_init_bases(irs_data, irs_base, irs->flags & ACPI_MADT_IRS_NON_COHERENT);
++	irs_data->res = *r;
+ 
+ 	gicv5_irs_acpi_init_affinity(irs->irs_id, irs_data);
+ 
+diff --git a/include/linux/irqchip/arm-gic-v5.h b/include/linux/irqchip/arm-gic-v5.h
+index f78787e654f4..2c2fb39f049c 100644
+--- a/include/linux/irqchip/arm-gic-v5.h
++++ b/include/linux/irqchip/arm-gic-v5.h
+@@ -6,6 +6,7 @@
+ #define __LINUX_IRQCHIP_ARM_GIC_V5_H
+ 
+ #include <linux/iopoll.h>
++#include <linux/ioport.h>
+ 
+ #include <asm/cacheflush.h>
+ #include <asm/smp.h>
+@@ -324,6 +325,7 @@ struct gicv5_irs_chip_data {
+ 	struct list_head	entry;
+ 	struct fwnode_handle	*fwnode;
+ 	void __iomem		*irs_base;
++	struct resource		res;
+ 	u32			flags;
+ 	u32			spi_min;
+ 	u32			spi_range;
 
 -- 
 2.53.0
