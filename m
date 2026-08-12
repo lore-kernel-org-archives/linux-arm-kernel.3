@@ -4,114 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DC40C5B56A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 12:12:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6C6AC5AD5A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 12:19:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C25d7u206gAS9PBJlhUuN2Ycn3eHUVpUH80KlaH6guw=; b=2SJJSUQhsRMXQWmD4vf4VwwzUA
-	KKhotNdORg/IWhP7tVbxQR5fCQpzZQ/3e17JwD2THGNgoMfFCMP3ObzyoPFXyyl5Da2OaaylsLHAc
-	RNDkP3rWI76uaGR87/rFAyX5hPHVwnS5gp9YHMMVXRYKsqOldYy55IiH/CKqQ40QyQf6X8hCL+SZS
-	LrPuFzRnvW2+boT8GwfLe4Ta18eGYdbUCK0h4BcsJ7AOwxECBE0lViX4pZbU1LUUawV8CGl8VX/iv
-	iHhMCJvr3DSMxfqdRrXfQ35VV+UXClncJbE5arW3ih6DbBVuELBR0wrezr3B9Gs5pD+mm4Sl4oTRD
-	+Vfy/D2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qN+NEXc2sLoZbhT0d0m9hPtU3cSXSNlpsA2LyZp2H+g=; b=oPJ3yqBXh8T+DlJvD3mFcdfhQl
+	CNJQ7bJO65vCZGbug2pQDrKiJTtmBD5iTH+M5SSIrNfBLs09kO4GJM1i5a65eAg9KSe89PpvkUxDR
+	2jquUvr//7S/f4bW1jXQN102O30zDxX8IO1qfBtBTTd8UdwYo3BL4qLyRC8Y//VMFFP1WKCbLejMp
+	qaKxdQIgahwTl1EXAsxIpdOFyhDqDhkV/9VCns97sQfKBVLtHLasBcBEt4OIXrawm3SlXRhWzqmpO
+	YB2lTrdkgwA7NRanRraC4DUJBDrCnBoAMo54ubmpM6MRBhNviFZAw3tabJFbnoSgAjfVywjs4j0dr
+	Em0TVG2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu7p6-0000000GA17-3SYF;
-	Wed, 12 Aug 2026 12:12:44 +0000
-Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu7p4-0000000GA0a-3n33
+	id 1wu7v7-0000000GAY0-1f39;
+	Wed, 12 Aug 2026 12:18:57 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wu7v2-0000000GAWW-1pZF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 12:12:44 +0000
-Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-6a0794669a6so1639529a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 05:12:42 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1786536761; cv=none;
-        d=google.com; s=arc-20260327;
-        b=srAdNs3sPx7EYkRozFKGSxSQyyRvzmXDjVULiWmAlcUptU1jekA/CAWmMqZmxmvPks
-         VoCWdogI3CwT6EhhWBBaUJx/PueDehtnOsVQC1Fq5odjOhNP9aUAOntJJZVUWvKAtV45
-         KQti+D+JydPlumPUruQzhbxn5pXbDmJ0nzDLQih45neljT903Fr4Pze5kuZaAtx/JJYB
-         nVUX14bBoS1X1iivXVg+cLGeRZhKGNqNDb+l42Rfda0knhLvbLWWmS4YnMnvJpE6KdWq
-         922qxxlkMkE/LQhraXZ0hFHnIsxDe7hO21yr5/hLbiSz3qUYN/MOQ9eetSrZKKX1rFzV
-         +krA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=C25d7u206gAS9PBJlhUuN2Ycn3eHUVpUH80KlaH6guw=;
-        fh=IpqDO53Dx9A0aNOul6bN8z1VaWLjiR4Nd6d8B5xSClM=;
-        b=FmnVUwHHmSqpOqmHy+uC5eQQLwJB7UlOg8dTlPg1Kcw7Y1LF4JgRMkqdPBcgZtf1Kp
-         nLNmDjE/00p7dd74+qnUvIlmkvyTvAX0THa/mJiRiKAZteb/MohBs/xlgjVN1nEAZ+Y/
-         w7YZCPMUTKFIDtP4KZ5bEIbw6AH0eq+Z7DkuacN+koIcYv4yicbIzfuFgMJFAfVD9Lax
-         qKaU+qZnsuWQzAYKHeoNMDjs0zugHXnSOOr92oSQhPcg5PzM9mJD9gVu46B3YIQvPhuk
-         LQNJTumZZE/N4Kv/7i1Mhf2Ixj9B1iyqXNk/2cdWAUU5abqWAhF6YPIaJ392nCwWHHP/
-         3u8Q==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1786536761; x=1787141561; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=C25d7u206gAS9PBJlhUuN2Ycn3eHUVpUH80KlaH6guw=;
-        b=CjJiELu1ZRXCMBjnoilCnewVAhqPSEFjhBp8GrLcH+vNzob7df4aoJQpzieVTuprod
-         pVtaKKoMc2WQ8GvqNAPzj4kznicLNloSncoQaL7FV/b0sMK9CSCtEMfYAH/60SEQI2DM
-         27v+e7z9kU/jpgDRBRgo0mRkf63CIafr5Fqc+WbSd7WM1TznWWR/SM/JhaIh1LMfUK8m
-         Wa3jWHJcZS57u21yoQ0siwCAtGjx6DilVrJcK1yCtpYRfz02SL3VAm6+VS58hTUIVJoI
-         7pVJ0H8sfMqIp7uTHF8/wzNdxEgGGB1l9RnlNY/7qga76au8MuFom5YkHeJgabUqPpe2
-         V0xA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786536761; x=1787141561;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=C25d7u206gAS9PBJlhUuN2Ycn3eHUVpUH80KlaH6guw=;
-        b=ML5r13uwkaZpnGXb83AP9EWIktQPEuVVz/eM2x0YzFeJ6R5/8pkuUbHZa9W4sUoMvy
-         iMI2IOFU8gnF32o++vXbdpdmBGOHIYA9eSVAQWlTFWR4ojKJlD6PL9n/AuGKoHYiMwg6
-         V3sr7r8JRs3nuunvnRpHlDdfEmwgEczftPEfmzG1pTYa0iO0hJc/KSPXJu3SLhCdLXVW
-         S/nQmp7ANQdTFBAa9sRp/5sFwIP6I1XvAn24ts3Y78mPLncpRwgXDMgWtC1/9I0qywhg
-         KzgU+cZ1SS2L1g5LZ9AZz2d1LF16G2brSVPQisR+8J9xuDUP3ZhDEzgnCpb5ACoJICT/
-         ydWg==
-X-Forwarded-Encrypted: i=1; AHgh+RpRZ67RrWicoyz8Nx6EZWIOmIik3oG9+MDAE9OkvVxJstBVjHc0mZCaQT2UMB5LkZpFGKiLDnh0+333ZnG+yubI@lists.infradead.org
-X-Gm-Message-State: AOJu0YwfN/HmlRoP8kbMQ+nbyjucGJZsafz0nFdhZcLwbTHJGiM12xhf
-	hSjfZtSHqoT7VWhQBNvaedmHDyZe2sH3Swt1lt6LGDl/tKbnLBVneHYDGAGGNe29CnlLIRhpa+p
-	xjt8S4KMIdWWxfwECW8kBxXTf39JFAFTqtSvL2VdZhw==
-X-Gm-Gg: AR+sD12KA+M0nQzX4z5+R5PYPAx7y2t4falmcRQKtCHgAdctYyFDCTHT4CMgN4ZV8eb
-	KjjuKso7r9vrrAdYyD6ZaEg+B/yRjcmu9Jej1IfZfc3pJHLLJ2jlq1/RKlMg7/yiPaP3Ll1ChNl
-	1pKZLmLKXt/rRxHWfD4YYZAyVuxdnfK7CREg2Jwnz+KomqLy154rcga479bFHA22AVMHO0wsUkP
-	+aat60ulbu4hJ+li9hUCQywmicYZSRlTrDLJhHK62uaXntuVz9531dbfkomvkQ1xZB9aafJ+k3M
-	mcvR+5Z/6cm6zh7Xilr1rjqwVnJx2vpZzYQ0A3jasVgkjCLfwOmcxCyl2HNPQbvjnKj4nSz/wvE
-	ZJg==
-X-Received: by 2002:a05:6402:5415:b0:6a1:df2c:cfa3 with SMTP id
- 4fb4d7f45d1cf-6a375eaed7dmr1884024a12.4.1786536760363; Wed, 12 Aug 2026
- 05:12:40 -0700 (PDT)
+	Wed, 12 Aug 2026 12:18:55 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 19FC61596;
+	Wed, 12 Aug 2026 05:18:45 -0700 (PDT)
+Received: from [10.57.44.219] (unknown [10.57.44.219])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 614353F632;
+	Wed, 12 Aug 2026 05:18:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1786537129; bh=enjpyTGV6J/Ax7972/ygga5P+saUH5TOac+lROt0YfI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=kNCmgPa7qbwWpc4aPu/N9O4IsZPqlPzAwORtgDQiHuFdRMliEFHLMbHgcSvs8EDCJ
+	 n4amYci4PH8hgMq4unWEILtiTirpl3DM9zhHsyb+uOFBMrPYCDKBIgGlx4RPhm6WqX
+	 pG4b/waj23NmfedDPTA6MyJ3XEjTDadHBaaYzNUc=
+Message-ID: <650bb70a-a02d-4976-a5c8-7cc5fb811b55@arm.com>
+Date: Wed, 12 Aug 2026 13:18:43 +0100
 MIME-Version: 1.0
-References: <20260724-arm-smmu-v3-instcfg-override-v1-0-e7acf4a8a525@linaro.org>
- <20260724-arm-smmu-v3-instcfg-override-v1-2-e7acf4a8a525@linaro.org>
- <amOpSPmc36+YXgCQ@nvidia.com> <CADrjBPoOctsStZn84vtCymdKen2R9XcM880=wxXSv1tpQ5+vyg@mail.gmail.com>
- <20260810141553.GP200537@ziepe.ca> <048c8d59-d47d-4f64-b93d-3b041636e230@arm.com>
-In-Reply-To: <048c8d59-d47d-4f64-b93d-3b041636e230@arm.com>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Wed, 12 Aug 2026 13:12:28 +0100
-X-Gm-Features: AUfX_mwXOifN2coQLoTdXQNBH4WeSdADhQh1-gynQzc7tMiJ7JxOqAB8IwzRDWc
-Message-ID: <CADrjBPpPqLaq75G4Rzxmf2VEwyZ_gwchf1f-jjzr3EXLkXaWsw@mail.gmail.com>
-Subject: Re: [PATCH 2/2] iommu/arm-smmu-v3: Override for Inst/Data attribute
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: Jason Gunthorpe <jgg@ziepe.ca>, Nicolin Chen <nicolinc@nvidia.com>, Will Deacon <will@kernel.org>, 
-	"Joerg Roedel (AMD)" <joro@8bytes.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Pranjal Shrivastava <praan@google.com>, Daniel Mentz <danielmentz@google.com>, 
-	Mostafa Saleh <smostafa@google.com>, linux-arm-kernel@lists.infradead.org, 
-	iommu@lists.linux.dev, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, kernel-team@android.com, 
-	tudor.ambarus@linaro.org, andre.draszik@linaro.org, willmcvicker@google.com, 
-	jyescas@google.com
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v16 00/45] arm64: Support for Arm CCA in KVM
+Content-Language: en-GB
+To: Gavin Shan <gshan@redhat.com>, Alper Gun <alpergun@google.com>
+Cc: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev, Catalin Marinas <catalin.marinas@arm.com>,
+ Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>,
+ James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
+ Zenghui Yu <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>,
+ "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+ Emi Kisanuki <fj0570is@fujitsu.com>, Vishal Annapurve
+ <vannapurve@google.com>, WeiLin.Chang@arm.com,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Javier.AlmansaSobrino@arm.com
+References: <20260803134403.80630-1-steven.price@arm.com>
+ <42170467-fe36-4382-867f-49bdc6a7bc9a@arm.com>
+ <d0ffbcb5-0cca-4d1e-9788-6b430345fa9b@redhat.com>
+ <5e86232a-89ed-40ff-89e2-9e48fbf9554e@arm.com>
+ <e2894206-7470-4606-b9ac-eedc8d2bdaf3@redhat.com>
+ <CABpDEukGY+ctSi6wHAaC7o4pGmastX_Y18K2_VYDhNME7TF+wQ@mail.gmail.com>
+ <f5d47f5f-5869-4e3a-a176-4fd632567975@arm.com>
+ <ad7d1093-685d-4c11-807d-929d16271cdb@redhat.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <ad7d1093-685d-4c11-807d-929d16271cdb@redhat.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_051242_978017_DE5CF951 
-X-CRM114-Status: GOOD (  22.28  )
+X-CRM114-CacheID: sfid-20260812_051852_647265_FBD80C7B 
+X-CRM114-Status: GOOD (  18.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,47 +90,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi folks,
+On 12/08/2026 11:35, Gavin Shan wrote:
+> Hi Alper and Suzuki,
+> 
+> On 8/12/26 4:04 PM, Suzuki K Poulose wrote:
+>> Hi Alper, Gavin
+>>
+>> On 12/08/2026 04:25, Alper Gun wrote:
+>>> On Tue, Aug 11, 2026 at 8:08 PM Gavin Shan <gshan@redhat.com> wrote:
+>>>> As the following calltrace indicates, -EAGAIN is returned from tf- 
+>>>> rmm::update_ripas()
+>>>> because true is returned from s2tte_drain_pending() for the S2TTE 
+>>>> corresponding to
+>>>> IPA 0x80000000. Linux host received error (RMI_ERROR_RTT, level=3) 
+>>>> in ripas_change().
+>>>> Upon this specific error and the IPA range [0x80000000 0x90000000], 
+>>>> find_map_level()
+>>>> returns level of 2, and realm_create_rtt_levels() returns 0 without 
+>>>> populating any
+>>>> RTTs. After that, rmi_rtt_set_ripas() is re-executed and the above 
+>>>> loop starts over
+>>>> again.
+>>>>
+>>>>     Linux host
+>>>>     ==========
+>>>>     kvm_arch_vcpu_ioctl_run                     // cca/host-v16
+>>>>       check_vcpu_requests
+>>>>         kvm_check_request
+>>>>           kvm_rec_handle_request
+>>>>             kvm_complete_ripas_change
+>>>>               realm_set_ipa_state
+>>>>                 ripas_change
+>>>>                   rmi_rtt_set_ripas
+>>>>                     SMC_RMI_RTT_SET_RIPAS
+>>>>
+>>>>     TF-RMM
+>>>>     ======
+>>>>     SMC_RMI_RTT_SET_RIPAS                      // tf-rmm/topics/rmm- 
+>>>> v2.0-poc_3
+>>>>       smc_rtt_set_ripas
+>>>>         s2tt_walk_lock_unlock
+>>>>         rtt_set_ripas_range
+>>>>           update_ripas
+>>>>             s2tte_drain_pending                // true, returns -EAGAIN
+>>>>
+>>>> The problem is the pending-bit for RTE corresponding IPA address 
+>>>> 0x80000000 isn't cleared
+>>>> when SMC_RMI_RTT_SET_RIPAS is invoked. I didn't figure out how this 
+>>>> bit is set and why
+>>>> it's not cleared in time.
+>>
+>> Thanks for the details.
+>>
+>>>>
+>>>
+>>> Hi Gavin, Suzuki,
+>>>
+>>> I think I ran into a similar issue on rmm-v2.0-poc_3 last week.
+>>> This looks like a potential RMM bug: could bit 32 be part of the 
+>>> physical
+>>> Address (if PA >= 4 GiB)?
+>>>
+>>> It seems s2tte_drain_pending() in lib/s2tt/src/s2tt.c checks bit 32 
+>>> without
+>>> checking whether the descriptor is valid or invalid.
+>>>
+>>> In my testing, guarding the drain checks with a check for 
+>>> S2TTE_INVALID seemed
+>>> to resolve the boot hang:
+>>> --- a/lib/s2tt/src/s2tt.c
+>>> +++ b/lib/s2tt/src/s2tt.c
+>>> @@ -1701,6 +1701,10 @@ unsigned long
+>>> s2tte_clear_drain_pending(unsigned long s2tte)
+>>>
+>>>   bool s2tte_drain_pending(unsigned long s2tte)
+>>>   {
+>>> + if ((s2tte & S2TT_DESC_VALID_MASK) != S2TTE_INVALID) {
+>>> + return false;
+>>
+>> We should use also consider cases where the entry is INVALID, but
+>> has HIPAS=ASSIGNED/ASSIGNED_DEV to make it tighter. So, I think
+>> it is better to use :
+>>
+>> s2tte_is_unassigned() or in the library stick to :
+>>
+>> if (!s2tte_has_hipas(s2tte, S2TTE_INVALID_HIPAS_UNASSIGNED))
+>>      return false;
+>>
+>> May be we should assert this and make the caller responsible for
+>> checking the bit. I will leave it to the tf-RMM team to fix.
+>>
+>> But for now, please use the above fix.
+>>
+> 
+> Both worked for me. With the extra check in place, the realm guest can boot
+> up successfully.
+> 
+> FYI, The below additional checks in s2tte_tlbi_pending() and 
+> s2tte_drain_handle()
+> aren't needed because they're always guarded by s2tte_drain_pending() in 
+> all
+> calling sites.
 
-On Mon, 10 Aug 2026 at 15:43, Robin Murphy <robin.murphy@arm.com> wrote:
->
-> On 10/08/2026 3:15 pm, Jason Gunthorpe wrote:
-> > On Fri, Aug 07, 2026 at 03:37:37PM +0100, Peter Griffin wrote:
-> >
-> >>>> @@ -1222,7 +1224,8 @@ void arm_smmu_get_ste_used(const __le64 *ent, __le64 *used_bits)
-> >>>>        if (cfg & BIT(1)) {
-> >>>>                used_bits[1] |=
-> >>>>                        cpu_to_le64(STRTAB_STE_1_S2FWB | STRTAB_STE_1_EATS |
-> >>>> -                                 STRTAB_STE_1_SHCFG | STRTAB_STE_1_MEV);
-> >>>> +                                 STRTAB_STE_1_SHCFG | STRTAB_STE_1_MEV |
-> >>>> +                                 STRTAB_STE_1_INSTCFG);
-> >>>>                used_bits[2] |=
-> >>>>                        cpu_to_le64(STRTAB_STE_2_S2VMID | STRTAB_STE_2_VTCR |
-> >>>>                                    STRTAB_STE_2_S2AA64 | STRTAB_STE_2_S2ENDI |
-> >>>
-> >>> This adds for "stage-1" and "stage-2", while missing "bypass"?
-> >>
-> >> I need to follow up again on this point, but I don't believe currently
-> >> we require the override for Laguna when it's in bypass.
-> >
-> > Oh? Why not?
-> >
-> > Is the issue the IOPTEs are set to no-exec or something like that?
->
-> In general, there isn't expected to be anything in the memory system
-> downstream of the SMMU that makes use of the Privileged or
-> Instruction/Data attributes, so I would assume that is the case on this
-> SoC. FWIW, hardware folks would be quite keen on relaxing the
-> architecture to say that an SMMU isn't even required to propagate those
-> attributes at all.
+fyi, the tf-RMM patch is out for review here : (Thanks Javier)
 
-As Robin mentioned above, there is nothing downstream of the SMMU that
-cares about the AxPROT[2] Instruction/Data attribute. So it could be
-added I guess for consistency reasons, but it seemed better not to add
-any code we don't strictly require. Maybe a comment should be added to
-_bypass to explain the inconsistency?
+https://review.trustedfirmware.org/c/TF-RMM/tf-rmm/+/53531
 
-Thanks,
+Please feel free to cherry-pick that one
 
-Peter
+Cheers
+Suzuki
 
