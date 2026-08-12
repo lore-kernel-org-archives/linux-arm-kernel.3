@@ -4,74 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9C10C5AD5A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 10:56:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 387D4C5CFDB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 11:02:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H19yU3A8Y/XE4lULkPLRYtMwMnahPHyjUbEiZ8HBLXM=; b=VBVWF7+tLx9FLZP+RbFW0X/s3L
-	5kmnkTAAWGNvUZqTF8mJTuXsDGerIP8e6cRccnMvggFPgraKIDU9g5huAQepqQFJzvSQZjEFlRbGX
-	2QzvKd87Nj10xann/24cW4Hd0gLlWhuw/MfPxfKFmaP0ZheaxB3lbFUmEmnULTUK8Bpa2h7uj+zyl
-	E4rwAdYevjYXnofCAM5odHHQ8V0k1xhksKhYhb6JPP/xs+l15/IRmlRlO49yYbn7FA1khTBto5GG7
-	4CTR6l61HThkFfs6YI8ObIKhC6iQt9OU8dOWAkLH6WUJJgm7UlQoYTDCpXhlvqYDh0lGuC6CqiUY+
-	B9dmJjSQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N/f+iTOOVNTQvrvGy/voP7LCXDz7uDlaqxyBdFvyvK4=; b=AaK80wruSas/r4F/rjonS1qXW6
+	G96w/A1N1vhb/IqT+O43InzskAA/BsLCsIuSiiDm8j+aqrQok59obwgxujYj0fcu9Rsyn01+o83sx
+	qWfwccgua0vlmj2q+XiGg8iqQH/exENFuJYZvNDg8fV1olo9vH6DRT3DknrpnhBtRULtNfqnH8xLF
+	1CHaTFFuIo0o584qjm1MzcV8wly3vpheyevis+yuCsK+VkC87ScA+BaKOa/GdJuND+J5v115Uuuk3
+	ctrweThMeqR/OUcy+SFaJLsPorWSlicOeiJgE/cZBFZPZM1qV1gyzD2sTtZP8QWGAC7YowcGGrweM
+	VxALCuDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu6dY-0000000Fyo1-0QLr;
-	Wed, 12 Aug 2026 10:56:44 +0000
-Received: from mx.nabladev.com ([178.251.229.89])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu6dR-0000000Fyml-2lLZ;
-	Wed, 12 Aug 2026 10:56:43 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A540511BD66;
-	Wed, 12 Aug 2026 12:56:25 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1786532190;
-	h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=H19yU3A8Y/XE4lULkPLRYtMwMnahPHyjUbEiZ8HBLXM=;
-	b=QOW0fXqL5P+LZcOk9Ad1vvUrZiV5Z5pfpESJ6kJuuJNJ48yR27mMGD07nT3W9LZ9kfdCf9
-	utUnTrFC0agBWlIICmuXyMDmcMklVISxPEYdZcoPVFDPGOgVycjbdxPhEZ4ffg3XojogaH
-	ggKwhOSUHaGg4j6bFDQ2fqFIv9mSAh/9M/ECRxXTyMiMBbw31sLmwlmdSib6MTKbJNpFO3
-	UR+K6p4wXJI7rN2WICoO8mSIvWiM37S4UWkhPz0Pfq4mS3azUfIRkhUwoW7wITbNCahWJd
-	sySy6HHbbfSQw5lM4Cc3U6uVO/BcQwCo8fxJ6ShB+SOaRJaWYCxW0Y4Q6hj9rw==
-Message-ID: <ff691741-a110-44e8-90e7-ac54a96de1af@nabladev.com>
-Date: Wed, 12 Aug 2026 12:56:23 +0200
+	id 1wu6jO-0000000Fzkv-3JpJ;
+	Wed, 12 Aug 2026 11:02:46 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wu6jJ-0000000FziW-32NV
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 12 Aug 2026 11:02:45 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 875641596;
+	Wed, 12 Aug 2026 04:02:33 -0700 (PDT)
+Received: from arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BEBBE3F86F;
+	Wed, 12 Aug 2026 04:02:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1786532557; bh=mdrIGZjICmq0LxOwQ6YiH5ZpPrFH3mTO0IlhyWlkIDA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ZGpV5YRLI7rdNyFSqiLdfEanSElpwuTSW6u+h99x0+n0OsN0F8HVFSj4UAyLA6Pdr
+	 sgDWFHZc6Qoqx9qryjKj6NH9tlbT1SuUH+l3IuXwRQHxJvHRiW9/eB53dmlXfVCZFU
+	 87t+L3949mhkIpaQVEw0nW09yC8WGZUpPbJTkjFw=
+Date: Wed, 12 Aug 2026 13:02:09 +0200
+From: Beata Michalska <beata.michalska@arm.com>
+To: Sean Wang1 <seanwang1@lenovo.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"rafael@kernel.org" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Lifeng Zheng <zhenglifeng1@huawei.com>,
+	Xuewen Yan <xuewen.yan@unisoc.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Sumit Gupta <sumitg@nvidia.com>,
+	Yunhui Cui <cuiyunhui@bytedance.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"driver-core@lists.linux.dev" <driver-core@lists.linux.dev>
+Subject: Re: [External] Re: [PATCH v3] arm64: topology: add source check in
+ arch_cpu_idle_enter()
+Message-ID: <anxSsfvpZHHsVnp_@arm.com>
+References: <20260811072830.10028-1-seanwang1@lenovo.com>
+ <anrzT-ez3b7uYaCt@arm.com>
+ <SI2PR03MB6688D1DC0796AC6F6A373C2E93DC2@SI2PR03MB6688.apcprd03.prod.outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/8] dt-bindings: phy: Document ST STM32MP25 USB2-FEMTO
- PHY
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: linux-usb@vger.kernel.org, Pankaj Dev <pankaj.dev@st.com>,
- Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
- Rahul Kumar <rahul.kumar05@st.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Christian Bruel <christian.bruel@foss.st.com>,
- Conor Dooley <conor+dt@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
- Rosen Penev <rosenp@gmail.com>, Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
- Vinod Koul <vkoul@kernel.org>, devicetree@vger.kernel.org,
- kernel@dh-electronics.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com
-References: <20260812010157.1772849-1-marex@nabladev.com>
- <20260812010157.1772849-2-marex@nabladev.com>
- <20260812-silky-omniscient-dalmatian-b268cb@quoll>
-Content-Language: en-US
-From: Marek Vasut <marex@nabladev.com>
-In-Reply-To: <20260812-silky-omniscient-dalmatian-b268cb@quoll>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <SI2PR03MB6688D1DC0796AC6F6A373C2E93DC2@SI2PR03MB6688.apcprd03.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_035641_579166_C5EF7F35 
-X-CRM114-Status: GOOD (  11.13  )
+X-CRM114-CacheID: sfid-20260812_040241_972749_A9CF7AD5 
+X-CRM114-Status: GOOD (  40.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,43 +83,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/12/26 12:15 PM, Krzysztof Kozlowski wrote:
-> On Wed, Aug 12, 2026 at 02:55:41AM +0200, Marek Vasut wrote:
->> From: Pankaj Dev <pankaj.dev@st.com>
->>
->> Document USB2 PHY for STM32MP25 USB2 controllers, which includes the
->> USB2.0 host-only controller and USB 2.0 part of the DWC3 controller.
->> Two such PHYs in total are present in STM32MP25 SoC, they both are
->> slightly different, therefore they use different compatible string
+On Wed, Aug 12, 2026 at 07:34:52AM +0000, Sean Wang1 wrote:
+> On Tus, Aug 11, 2026 at 06:03PM, Beata Michalska wrote:
 > 
-> What is slightly different? This should be either here, or better, in
-> "description" part.
-
-They are both Synopsys FEMTO-PHY , but they are each attached to a 
-different controller (one to USB 2.0 host , the other to DWC3 DRD) , and 
-their control bits in the system controller register are different for 
-each variant.
-
-I extended the description in V2.
-
->> to discern them.
->>
->> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
->> Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
->> Signed-off-by: Marek Vasut <marex@nabladev.com>
->> Signed-off-by: Pankaj Dev <pankaj.dev@st.com>
->> Signed-off-by: Rahul Kumar <rahul.kumar05@st.com>
+> > > --- a/arch/arm64/kernel/topology.c
+> > > +++ b/arch/arm64/kernel/topology.c
+> > > @@ -175,7 +175,8 @@ void arch_cpu_idle_enter(void)
+> > >
+> > >  	/* Kick in AMU update but only if one has not happened already */
+> > >  	if (housekeeping_cpu(cpu, HK_TYPE_TICK) &&
+> > > -
+> > time_is_before_jiffies(per_cpu(cpu_amu_samples.last_scale_update, cpu)))
+> > > +
+> > time_is_before_jiffies(per_cpu(cpu_amu_samples.last_scale_update, cpu))
+> > &&
+> > > +	    topology_is_scale_freq_source(SCALE_FREQ_SOURCE_ARCH, cpu))
+> > >  		amu_scale_freq_tick();
+> > I'm not entirely convinced you gained a lot by that.
+> > It's one additional check per each enter_idle for case where AMUs are the
+> > source vs 2 additional check when it is not.
+> > Will try to figure out smth less 'invasive'.
+> > 
 > 
-> Incomplete/incorrect DCO chain. Who sends it? Rahul?
-This is lifted from the ST downstream kernel fork, it's a combination of 
-a bunch of commits there and then cleaned up. Pankaj and Fabrice did 
-most of the downstream work, I did the clean up for upstreaming. I 
-collected the SoB lines from all the commits from ST downstream fork and 
-added mine, hence this list. How shall I address this correctly, with 
-some Co-developed-by tag ? Who gets which tag ?
+> First, I think that the rcu_read_lock_sched()/unlock() in
+> topology_is_scale_freq_source() is unnecessary. arch_cpu_idle_enter()
+> is called from do_idle() after local_irq_disable() at
+> kernel/sched/idle.c:340, which satisfies the rcu_sched grace period
+> requirement. This means we can call rcu_dereference_sched() directly
+> without explicit RCU lock.
+In this particular case RCU locking is not required, though you are exposing
+an API that might be used in other curcumstances, so the least we could do is
+document that.
+> 
+> I have two options to propose:
+> 
+> Option A: Keep the helper, but drop the explicit RCU lock
+> 
+>     bool topology_is_scale_freq_source(enum scale_freq_source source,
+>                                        unsigned int cpu)
+>     {
+>         struct scale_freq_data *sfd;
+>         sfd = rcu_dereference_sched(*per_cpu_ptr(&sft_data, cpu));
+>         return sfd && sfd->source == source;
+>     }
+> 
+> Option B: Drop the helper entirely, check directly in arch_cpu_idle_enter()
+> If a generic exported helper feels too invasive, we can do the
+> check locally within arch_cpu_idle_enter() without touching
+> drivers/base/arch_topology.c at all:
+> 
+>     if (housekeeping_cpu(cpu, HK_TYPE_TICK) &&
+>         time_is_before_jiffies(per_cpu(cpu_amu_samples.last_scale_update, cpu))) {
+>         struct scale_freq_data *sfd;
+>         sfd = rcu_dereference_sched(*this_cpu_ptr(&sft_data));
+>         if (sfd && sfd->source == SCALE_FREQ_SOURCE_ARCH)
+>             amu_scale_freq_tick();
+>     }
+> 
+> This keeps the change entirely in arm64 code and avoids adding
+> a new exported symbol. Which approach would you prefer?
+I do not mind this additional helper. Besides, not my place to either mind it
+or not.
+What I do mind is doing the check in the arch idle enter path. I would rather
+see some notification triggered when the source gets changed so that
+the previous sfd code can do some state transition that would avoid us having
+to run the check in the first place.
+Still pondering on that one.
+Preferably I would drop that 'tick' call from there completely, but apparently
+this was needed on some platforms to make AMU readings more reliable.
 
-additionalProperties is addressed in V2, so is the reported from Rob's 
-bot regarding the botched compatible string in example.
+> 
+> > Aside: I should have probably asked that earlier, but I am not sure I do fully
+> > understand the case we are trying to fix here.
+> > The topology_set_scale_freq_source prefers arch source to others. So if the
+> > AMUs were chosen to server as the source for the freq scale - I do not see
+> > why the sfd would be changed. That would require calling sequence clear-set
+> > to get a different source in place. I do understand the issue itself, though how
+> > did we end up there in the first place ?
+> 
+> The issue arises when topology_clear_scale_freq_source() is called
+> with SCALE_FREQ_SOURCE_ARCH to explicitly disable AMU-based frequency
+> scaling. This API is exported (EXPORT_SYMBOL_GPL), so it is designed
+> to be used by modules or subsystems that need to replace the frequency
+> invariance mechanism at runtime.
+>  
+So this is the bit I was missing: external module that does the switch
+willingly giving up on arch provided freq scale source.
+The rest is clear. Thanks.
 
-Thanks !
+---
+BR
+Beata
+
+> After clearing, the tick path (topology_scale_freq_tick()) correctly
+> skips the AMU update because sft_data is set to NULL. However, the
+> idle path (arch_cpu_idle_enter()) bypasses this check by calling
+> amu_scale_freq_tick() directly, so arch_freq_scale still gets
+> modified by AMU counters.
+>  
+> This creates an inconsistency: the tick path respects
+> topology_clear_scale_freq_source() but the idle path does not.
+>  
+> The goal of this patch is to make the idle path consistent with
+> the tick path, ensuring that topology_clear_scale_freq_source()
+> fully disables AMU updates across all paths.
 
