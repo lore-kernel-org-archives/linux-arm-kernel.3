@@ -4,63 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C5F3C5CFC1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 00:03:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7546AC5AC67
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 00:23:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5Kih/5Gb3n2KEUdLXQmm7RKtUqyE/igDwwvcsn9JuyU=; b=lRWr6yqK5E7lWczoaYuhJ3y2jU
-	NBf5llwQ6GhS0VzV9aGGGu98MnDsavv9TcZARQO7yEJejjOeoNTLQbiHAz4QYS+L2agoOvhIZgw+x
-	RrqHF9i/ZMZvDobjpofOXE9XWhcniHKsord7vLXbElfiKEYmvsRHsccXWfe4w7eYP/pxBKhLvxQTz
-	O+lejw3hqB9vaWxnJPfD++4lTdulBoZ9Yfgog6Gc05fcr4Lthh35CGx3Wae885TJ7A5s+BpuTa/Ew
-	p07+jukNZa0kfy47/qvajeE1AOEurcn/Dtg4Lgd/j1L2WmiPC27GA/s8gGCrJ9VCkjVW3i32WcgMe
-	8PT59YbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HVqfjQiQHCa9APiBAYTwHxe0w4t0H0mT5QhnLN7jra4=; b=HNM9jf+PbXpvua/ChzsjIHm5Eu
+	JOR0tZ+scb2iz3/+LP/zS/e1nHVF3iCUTuufsomuuaK1voSPOk6u4y/6bvyYRCSR+vlOgFlbtQo3J
+	ecvKfs8okr3GuqIIXNKt0gBCg2UM0IzyF9OwuGx49koJ1xP6zR6N5HkeUcoHzzNtu11OEo0smUACp
+	IifwXTwC85+tynyssUn59TawycevwBPMn4Rl6DUYwu/kInrEYLM+lHR+W/FwOHQ8MxNkko4+79P6l
+	we5e8Sl1qFNJ277N4GnK9tCorREfjlz0X2o/rGUGuy+Jq9fp0LgR2HIVcXIPf4CyeSoaDvcymEFkN
+	zHw9+KZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtwR4-0000000F7iY-32WG;
-	Wed, 12 Aug 2026 00:03:10 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wtwkQ-0000000F8gq-2HAN;
+	Wed, 12 Aug 2026 00:23:10 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtwQy-0000000F7hx-3ckm
+	id 1wtwkP-0000000F8gb-458g
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 00:03:08 +0000
+	Wed, 12 Aug 2026 00:23:09 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 21E7A60A91
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 00:03:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9F301F0155C
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 00:03:03 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4B1A041AB5;
+	Wed, 12 Aug 2026 00:23:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3DEE61F00A3D;
+	Wed, 12 Aug 2026 00:23:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786492983;
-	bh=5Kih/5Gb3n2KEUdLXQmm7RKtUqyE/igDwwvcsn9JuyU=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=hrIORbIq/rgGgPoVBZEkFCNjKZCBXeeWCVnQqG+xPs4CXt2w/Ck1EjSYrmESXEbaV
-	 C1CGl4XrK8IxZeP+6xRfJdg8PQaDCtQ1+I8eHyC7PsDU10dcueZv9e2LVH/Vh71Otw
-	 YW06oAKIWIYHw0CuYdzRNZ5qAVSJ0HimNOkn3ia6MBD0WylewrkSdrTULF5Fkpt5PK
-	 B61VI43+3EATMXnqdTb9JsXZdWNLPEyQXiLEoFMnNHbM9YDqWyQIdF8UR8TPxEs7b7
-	 KZBTK9JMRTBzloKxYFlAQrpNoJVA9jMpoAdbp1UXQ4L1BNuNarTR449317aBdUTIHZ
-	 RqBRD5br6tXuQ==
-Received: by mail-qk1-f175.google.com with SMTP id af79cd13be357-92e67555e24so27498585a.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 17:03:03 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RoCphcRsIn55pLYXWNW8Y5nSSc8RprheUJ8d5NQaLCXktVVOVUJD5n5veApIln8S5u++Phr/7u2V6kQzrBNp7yb@lists.infradead.org
-X-Gm-Message-State: AOJu0YwhAQ2/IdeXUknyqbgSrAhJ1dhu3DZJW8BuAIEihdIFC1VPPw2p
-	dA5lVSx5livE9GNTfYXr+9TpFSZLzAk8nWEFe7Pjqoif7nsL4RfxoqICz4EWEtRhlUHFlLgs8Fm
-	fisFmOLdkVO9x4qQ6XQihCOfZ5O49uto=
-X-Received: by 2002:a05:620a:3728:b0:915:b852:4361 with SMTP id
- af79cd13be357-936b3a7e00cmr113938785a.20.1786492982920; Tue, 11 Aug 2026
- 17:03:02 -0700 (PDT)
-MIME-Version: 1.0
-References: <cover.1786230311.git.jpoimboe@kernel.org> <56e974b384ffbb3f8b424e7c69da3f702f87f2f8.1786230311.git.jpoimboe@kernel.org>
-In-Reply-To: <56e974b384ffbb3f8b424e7c69da3f702f87f2f8.1786230311.git.jpoimboe@kernel.org>
-From: Song Liu <song@kernel.org>
-Date: Tue, 11 Aug 2026 17:02:51 -0700
-X-Gmail-Original-Message-ID: <CAPhsuW6EHzoqmHExDiUXSm0MmFH-PLdV8GNYCUNJA9xfj=hkkA@mail.gmail.com>
-X-Gm-Features: AUfX_myU79kwtA8KLOeDN0dTNn1aonfc4LkMsrlHzwmFWelV0XLc1lXPl_idklo
-Message-ID: <CAPhsuW6EHzoqmHExDiUXSm0MmFH-PLdV8GNYCUNJA9xfj=hkkA@mail.gmail.com>
-Subject: Re: [PATCH v4 22/22] klp-build: Add arm64 syscall patching macro
-To: Josh Poimboeuf <jpoimboe@kernel.org>
+	s=k20260515; t=1786494189;
+	bh=HVqfjQiQHCa9APiBAYTwHxe0w4t0H0mT5QhnLN7jra4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Jv6ul+a4EGrYnKqOsRMwHpw8/KSOgGmlSlk/Rke8ZBPg6CCZco8iVgFsPMlka6+3d
+	 pM99tZFn06OVlT5TqpgWl7HuhhTBrim8JyhhlGZ8Ktmo3gsnVbpbXyh7OtctQDftTk
+	 9JJ5/ezVGMponksoHDYaKv2Jhva4ibS7IoADLik4MSi4LyfzvbaF/MW/PnMj60fu1Q
+	 R5hOJAg59PWZJdBM8IU2bcG/Cp2c2bN2AUKutcG/9NXClIJqwUVOqx0RKl8bxaT3wy
+	 XAnYoBmUyE5JSG3kBQK5D8xnYoTrM62lDC2bhWJbeNywWTQF0IzGeVCoKdmKdxvY/n
+	 LAToTCpxMlvtw==
+Date: Tue, 11 Aug 2026 17:23:06 -0700
+From: Josh Poimboeuf <jpoimboe@kernel.org>
+To: Song Liu <song@kernel.org>
 Cc: x86@kernel.org, linux-kernel@vger.kernel.org, 
 	live-patching@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>, 
 	Joe Lawrence <joe.lawrence@redhat.com>, Catalin Marinas <catalin.marinas@arm.com>, 
@@ -68,8 +52,15 @@ Cc: x86@kernel.org, linux-kernel@vger.kernel.org,
 	Mark Rutland <mark.rutland@arm.com>, Nathan Chancellor <nathan@kernel.org>, 
 	Nicolas Schier <nsc@kernel.org>, Herbert Xu <herbert@gondor.apana.org.au>, 
 	Miroslav Benes <mbenes@suse.cz>, Petr Mladek <pmladek@suse.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v4 14/22] objtool: Reuse string references
+Message-ID: <anu8su4kuf3eUF3c@jpoimboe>
+References: <cover.1786230311.git.jpoimboe@kernel.org>
+ <e0856be4208a6bed2b22dffe2bf8e010470f49cf.1786230311.git.jpoimboe@kernel.org>
+ <CAPhsuW6JgV1a7jMxQ0bknOpQ7WQNSqYbAHWss18GCrzGZ79OcQ@mail.gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <CAPhsuW6JgV1a7jMxQ0bknOpQ7WQNSqYbAHWss18GCrzGZ79OcQ@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,14 +75,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 8, 2026 at 4:18=E2=80=AFPM Josh Poimboeuf <jpoimboe@kernel.org>=
- wrote:
->
-> Add arm64 support for KLP_SYSCALL_DEFINEx(), mirroring the arm64
-> __SYSCALL_DEFINEx() pattern from arch/arm64/include/asm/syscall_wrapper.h=
-.
->
-> Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
+On Tue, Aug 11, 2026 at 04:52:51PM -0700, Song Liu wrote:
+> > -unsigned int elf_add_string(struct elf *elf, struct section *strtab, const char *str)
+> > +int elf_find_string(struct elf *elf, struct section *strtab, const char *str)
+> >  {
+> 
+> elf_find_string() returns -1 for error and positive number for addend.
+> It is a good idea to add some comments for this behavior.
 
-Acked-by: Song Liu <song@kernel.org>
+Ok, will add a small comment above the function:
+
+diff --git a/tools/objtool/elf.c b/tools/objtool/elf.c
+index f6219f495efdc..f9a4226f115ef 100644
+--- a/tools/objtool/elf.c
++++ b/tools/objtool/elf.c
+@@ -1410,6 +1410,11 @@ int elf_find_string(struct elf *elf, struct section *strtab, const char *str)
+ 	return -1;
+ }
+ 
++/*
++ * Add a static string to the strtab section.
++ *
++ * Returns positive string offset on success, -1 on error.
++ */
+ int elf_add_string(struct elf *elf, struct section *strtab, const char *str)
+ {
+ 	void *data;
 
