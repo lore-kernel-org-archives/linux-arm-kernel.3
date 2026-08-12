@@ -4,151 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12B57C5CFDB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 08:33:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4071C5CFDB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 08:33:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AFIM07BsWUmRXowFn9qQEjJQwSE915UpKVvsGJRFiu0=; b=VFY4mkYlY0QDcdR4gC9egsiL85
-	fuQdIBGtZ1u7GsBSs0sCoERN1eGIuEBYQfdCmzJAcH1WAoTUL8K58q8cgAUSWxxIXCFIwigl8Ny/S
-	TYFVGQ3dDDH+Gk+naWwTl2Qiz904tOgOkO9tOcT8yItqgxYkVRvEoBQJOyBA8IWsiqCOEulTfOay6
-	AFIeeuGHkEpgaMEhlf2zv2ssZmgidXJIt21yVOzlyBB91RkWndGhE3/aQnGqxco3evysmN4eRYAHc
-	ZzvcZhKl+t6lKc+CEf1wtYuNv81mbdvb7pha/po/PWC2iYUvWVMk0LrhquDRPNq+2L1f0uXA0Y1Lj
-	CN0ZNeYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=D4fYTkdonNFudLiCicR5+qg8B8A7g4fsWwyZCZbxLtU=; b=OuiVz92mJNI14ukWSARh+HYH7B
+	KKStPaWyZyNOklS+REcsnNaH4YvGjLQR2ss6cKT++Asy/WQg4IgC0WmKYCfteBvopiZ3jHib863yH
+	WJ5qvgVTzt+48ORTMH1n4Rf4mM/qnFSBunbLZ4BAZ0+FqsnbacEVIXh1YItB5wFbtherTmDD4DMSD
+	nBWfjv4ylAN8oY1M2RT9GIafBxjPlNFRzGwlLnkCRX52VsFBLWWWv7VqCZObsEPW9mL7t5sMU/IOe
+	H7xQMtL1jcGKiEEwkC3Hn0i4ENYInsRrgKvdAKbtIqxsFVXpJZunddwwq17dcYJ1a8/CzZ8gy72d3
+	hxudM++A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu4OL-0000000FeLz-2nv8;
-	Wed, 12 Aug 2026 08:32:54 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wu4OT-0000000FeOV-2R5o;
+	Wed, 12 Aug 2026 08:33:01 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu4OG-0000000FeJj-3z6j
+	id 1wu4OS-0000000FeNl-13v3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 08:32:51 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67C62DEV2962109
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 08:32:48 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	AFIM07BsWUmRXowFn9qQEjJQwSE915UpKVvsGJRFiu0=; b=CkDL8DAQ7U5HJ5gu
-	1wiZk6P3XYhm6d4d9Pl6AKoAm0ojpYY6+9yiDJZDagzLZQTj16HDJomqpc5v54hm
-	GjSEyRKSdQVk2j9FpqyOAoeTrOP+p+wWdbUdRWU/yYx0PWT8D8Et1aCgK4asxrLu
-	BUA0QVwgeHqElbgMD6ra5qsvjO5su8wj1OYt0H/jivqkQ2lv9ithdF1oBONgCcid
-	f1xHlOKmxkuRrcEQW+w3H5tgD3Dj6/hJFlo1HgELfglRLWrUSkx5BHrqFLUnHTIe
-	s6AnqvpNyLsUsHayG1koazsaHDRh1sv/8JPb3KIjgGv77U1cYm15NtMwmv6XYC1y
-	Ee1l7A==
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g0jgrgqru-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 08:32:47 +0000 (GMT)
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-51bf321d786so11670691cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 01:32:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1786523567; x=1787128367; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=AFIM07BsWUmRXowFn9qQEjJQwSE915UpKVvsGJRFiu0=;
-        b=Kb02I5SDL1pm5khWhf8IV3bV76GxNbav6RC1qGuvhm/F5fUUdeNkpBsb7lIQn8Eyus
-         rdYjHlP3RRHQbjwCvH9reAKtueW41JnC7FBL1MhPTPlWEDW0pl/HldL7BlyYv0UyFKDh
-         uxhmElD5q66EdKDnhZg56UeFIaISeNEl9iCggVMWmhZA2v/0pDEfo+Ns7RCfNm0w5k+g
-         5xcR7vjFeNXbkLa7M4XBJgfR6iYPhz5MX2P0+e18F8bSDFMA0zn5RSrMYTUspcwWB6qN
-         fgQ4Oyp4RoTieANX8HjauU+6iQQpKcgl0RzSVaDwjCwe9x6if5rLHlIHC5QLkEk3eFwq
-         W/GA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786523567; x=1787128367;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=AFIM07BsWUmRXowFn9qQEjJQwSE915UpKVvsGJRFiu0=;
-        b=Hi2/tpgCt1Jl0EPma+/8zi+fJlJ0CVwk7BhXVCgtV27i8bsB/eFThXw2zo5Q22vpyt
-         Pw1TLYrFlV3zPa/VdNaImGuAVmCwStVsZ+n8GrfmsJkoLjTCFSXnmBgRvKWFXrvf06ER
-         CTsUu++8aoMbHxGq+J36eepOFzSiSSEEpxepn4ugEqTIWXGiOJSswMOPlzbdZyEDMJ5w
-         LC/NGdn8wjMmpPJqXAsYLm+52rUzBvT4yKg9O/1Iy0T+33O1dXdlmFvhLgsKwx1/5OXN
-         nKh27QS/XFmWqkP3uOJHTitxgKGs1lem1JXdb4upW2g1VAyxNhxs9XczxqQD6yJuMA+9
-         bsUg==
-X-Forwarded-Encrypted: i=1; AHgh+RoPfk5CeBGo/XNqNAn68v3MpJH7EN70srtYLqiZnc1v6CBfkxz0sg5lCQXI6joroH8hx2PiTG9bvbYJyDzYtNMV@lists.infradead.org
-X-Gm-Message-State: AOJu0YwyEtFBB0BJ+ETL8LQ7Y0QAr1+Za/3lKRh1lvbNJW7kG7X9IcCq
-	3AaWgMvv0qIaXaqdwNpkBk4ArruwJFI7+apobISaoLZ91ep1cNY3nn6Su00O7/J614rhtoMi0Zg
-	6f7MkTa/6MfMw1/DzWrCDNok+re2r9ZTB/WuooveTaga7EAE7hmQSYeG3v/HibdH9G7RImX9PMB
-	5/rw==
-X-Gm-Gg: AR+sD11OPZoSVWmWQDyzeYI1Tn2O8LifKQaLY/vueydSTbiaI9lgOG1iqJsemg3lect
-	0bt1O6zZdW5QNzlWCwaXPFXKwlFjTZ/lC0xgn3hf0dMqFt/NBicavJ9Biscc3vymom3FFWzVwFn
-	26bGRAttPWkxoeAThycyB6rVa6IEXLuJKNxgCPAHEap3AyENsr+hWlnKaZVs7Pmo82ok97SDN7q
-	uTuQKg74F63rxlTxjBDnKn/xREwJ5UaeejOhfHeryULwPukQiCdX7lzmSaR4/ppgDeOnheE/5mr
-	SKQGMhfuG3TCdOJRhUtHgJ85tZAO9vj+Fu5OOBMvNnvSfVyR0b4/YPse/54fvxrqPGvT8Ahkw2J
-	AfpGJ/8JxnNXVADwThMCe/vKTORdJhxmflQzuVwXYmaIRbPoKSNmlISFqvUzQoDs=
-X-Received: by 2002:a05:622a:4d91:b0:51c:1d18:2fe9 with SMTP id d75a77b69052e-52d6469cf4amr25908851cf.5.1786523567365;
-        Wed, 12 Aug 2026 01:32:47 -0700 (PDT)
-X-Received: by 2002:a05:622a:4d91:b0:51c:1d18:2fe9 with SMTP id d75a77b69052e-52d6469cf4amr25908681cf.5.1786523567010;
-        Wed, 12 Aug 2026 01:32:47 -0700 (PDT)
-Received: from ?IPV6:2a05:6e02:1041:c10:b467:f322:cd3a:615c? ([2a05:6e02:1041:c10:b467:f322:cd3a:615c])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4997c8fa1c7sm47131155e9.0.2026.08.12.01.32.45
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 12 Aug 2026 01:32:46 -0700 (PDT)
-Message-ID: <447b83e2-5bd0-4b7b-ba4d-61a0fe400195@oss.qualcomm.com>
-Date: Wed, 12 Aug 2026 10:32:45 +0200
+	Wed, 12 Aug 2026 08:33:00 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8E16B6187E
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 08:32:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 468E91F00A3D
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 08:32:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786523579;
+	bh=D4fYTkdonNFudLiCicR5+qg8B8A7g4fsWwyZCZbxLtU=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc;
+	b=OYBsB9g7UbjwdL7yOGmZrfiw53ED62SfdR0W4K14K/bqPwIinJWmUsrr+741SmLOm
+	 IpUIWKL3i8JdpmKe5rwm7bcBgGrww4pgyMyTDs5vK1Lq5HnhNaZpHc1XZGfiFoW+2c
+	 FnnIsubwyJA7R5zcY51vhpBsgOzggbwo7ubldGdl2dM3q0VOp4G0qiUsHWsLovcJlJ
+	 4cSvIBDoStQEjD6bqzolgi5gclxd4TgYgRQTl1Jwsx0MxiIHbbzy2mBfKkgQj6mKxA
+	 WykH03SkE22Z7Y/1kz4vhS5eCW1boKa/4qmu3nOFKWCn8mUOhPQ6h+OGLQE++X0UG+
+	 N5G+E0Gwt0+fg==
+Received: by mail-lf1-f50.google.com with SMTP id 2adb3069b0e04-5aeb98460c6so643426e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 01:32:59 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Rqs6neS1Ae6qvunCvtEFF2+lewvnvc0+8L1KbF8RaD0fAYUa9ZQW4gICyTh96me7uB6TUEnMvyJhc+Q0dpo03Ez@lists.infradead.org
+X-Gm-Message-State: AOJu0YwrtBf/o9NqRMRTPUG8sW1f+mxZVdYUadQ0GwSJcFofjtfVNFdy
+	3dpxh4r8nf3WIMUrIlGreKqSnb+m2lkO6YqtB29nRNWb1LQs/MeQJ51zwhDxf94gzhxkRFdGZyL
+	sAQtzceTuD7RGyXcGD35W6cbX4+CUiRFUw6zZB8Sn/w==
+X-Received: by 2002:a05:6512:605:20b0:5ae:c454:3746 with SMTP id
+ 2adb3069b0e04-5b44e315709mr317066e87.43.1786523571645; Wed, 12 Aug 2026
+ 01:32:51 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 12 Aug 2026 01:32:50 -0700
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 12 Aug 2026 01:32:50 -0700
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <20260812081856.GF1072730@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 5/7] clocksource/drivers/arm_arch_timer: Remove
- CONFIG_GENERIC_GETTIMEOFDAY ifdeffery
-To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
-        Arnd Bergmann <arnd@arndb.de>, Andy Lutomirski <luto@kernel.org>,
-        Thomas Gleixner <tglx@kernel.org>,
-        Vincenzo Frascino <vincenzo.frascino@arm.com>,
-        Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>,
-        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-        Daniel Lezcano <daniel.lezcano@kernel.org>,
-        Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
-        Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-        Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-        Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>
-Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-kbuild@vger.kernel.org, linux-mips@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
-        loongarch@lists.linux.dev
-References: <20260724-vdso-arch-clockmodes-v4-0-ddbe447be860@linutronix.de>
- <20260724-vdso-arch-clockmodes-v4-5-ddbe447be860@linutronix.de>
-Content-Language: en-US
-From: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
-In-Reply-To: <20260724-vdso-arch-clockmodes-v4-5-ddbe447be860@linutronix.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODEyMDA2NyBTYWx0ZWRfXx4LCZEQBrRF4
- U7GfWq1n065pn1ct9f4N6HoEjy5FrL7jnvtJOubxPsXjBL2JyIL1mc2Wk7Bqum8ynZSS5zOnBFf
- uJtFrExJs9ESrx1ncELKBScibOy8XE1bYd20joQBJv2s9h+9LOkaDx3ZEcXQF6yQju1GrGveCen
- 5PEybnXOlyywxWEX2VjAr7Y4kOzw+LtZmYDE9ukNVktlLLBf46C8EWF98gT5VovWiRlBKtfVT6f
- eUID7LYXohRDUrMZJe3zRyxnGJuW3iyUdwj4/irMC5eu92ntd+HUXMjP4emeEmhyDT95HYwoGQP
- VcStTuihhhwteFMOnAiCmiQaPkgcv5FbXlNGAtDa/RcVKcth+KXQm58hN5WnjOWjB79P29YAHiY
- rgeMzjJUDbgDm7lcfsQJcIyd33bJhjoN6W63sx7qnmIevqC2IqKME1buOaiYV2pt8C+DQz6rHJg
- lAeC37ZxcK6iytIhrVA==
-X-Proofpoint-ORIG-GUID: NLiceS0zPP2JzHI5ovPJzJkS4KF3QKyZ
-X-Authority-Analysis: v=2.4 cv=TNJ1jVla c=1 sm=1 tr=0 ts=6a7c2faf cx=c_pps
- a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22 a=VwQbUJbxAAAA:8
- a=EUspDBNiAAAA:8 a=eCx_7nzpRrifSLxMv2oA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=a_PwQJl-kcHnX1M80qC6:22
-X-Proofpoint-GUID: NLiceS0zPP2JzHI5ovPJzJkS4KF3QKyZ
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODEyMDA2NyBTYWx0ZWRfXx34KUpgaVVWZ
- +sN42gHz9mZoMeXgYTFCeiP0PqmnW84EanTIpsicy9Twa5sUtjZDVzoQvnPKb2Pg096HzRdFzWm
- QXgCGp2SwSoseh4NVHtRDYhVaSglULU=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-12_02,2026-08-10_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 priorityscore=1501 phishscore=0 impostorscore=0 adultscore=0
- suspectscore=0 bulkscore=0 spamscore=0 lowpriorityscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608120067
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_013249_295044_2731421A 
-X-CRM114-Status: GOOD (  11.38  )
+References: <20260803-arm-psci-system_reset2-vendor-reboots-v24-0-889281373870@oss.qualcomm.com>
+ <20260803-arm-psci-system_reset2-vendor-reboots-v24-8-889281373870@oss.qualcomm.com>
+ <20260812081856.GF1072730@google.com>
+Date: Wed, 12 Aug 2026 01:32:50 -0700
+X-Gmail-Original-Message-ID: <CAMRc=Me7Nua8xgKA43rCH9SV2DQoCyAuOqb+KNDTuPxv_H5y9A@mail.gmail.com>
+X-Gm-Features: AUfX_myM-KKHFiWlmkYHiKUnznZQ5Xi8sRhpZ_nwB_pCgToX6LZLHX_mNL9495Y
+Message-ID: <CAMRc=Me7Nua8xgKA43rCH9SV2DQoCyAuOqb+KNDTuPxv_H5y9A@mail.gmail.com>
+Subject: Re: [PATCH v24 08/12] mfd: psci-mfd: Add psci-reboot-mode child cell
+To: Lee Jones <lee@kernel.org>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Bjorn Andersson <andersson@kernel.org>, Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Souvik Chakravarty <Souvik.Chakravarty@arm.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Andy Yan <andy.yan@rock-chips.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	Mark Rutland <mark.rutland@arm.com>, Conor Dooley <conor+dt@kernel.org>, 
+	Konrad Dybcio <konradybcio@kernel.org>, John Stultz <john.stultz@linaro.org>, 
+	Moritz Fischer <moritz.fischer@ettus.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Daniel Lezcano <daniel.lezcano@kernel.org>, Christian Loehle <christian.loehle@arm.com>, 
+	Ulf Hansson <ulfh@kernel.org>, Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>, 
+	Bartosz Golaszewski <brgl@kernel.org>, Sudeep Holla <sudeep.holla@kernel.org>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>, Andre Draszik <andre.draszik@linaro.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>, linux-pm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
+	mfd@lists.linux.dev, Srinivas Kandagatla <srini@kernel.org>, 
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, 
+	Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,12 +102,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/24/26 15:36, Thomas Weißschuh wrote:
-> Now that there is a definition of VDSO_CLOCKMODE_ARCHTIMER
-> even if no vDSO is built, the ugly ifdeffery can be removed.
-> 
-> Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
-> Acked-by: Marc Zyngier <maz@kernel.org>
-> ---
-Acked-by: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
+On Wed, 12 Aug 2026 10:18:56 +0200, Lee Jones <lee@kernel.org> said:
+> On Mon, 03 Aug 2026, Shivendra Pratap wrote:
+>
+>> The PSCI "reboot-mode" node does not define a compatible because it is a
+>> configuration of boot-states provided by the underlying firmware. With
+>> the new firmware-node based cells in mfd-core, this node can now be
+>> exposed as a proper child cell.
+>>
+>> Add the psci-reboot-mode child cell to the psci-mfd driver with a
+>> named_fwnode. Add psci-cpuidle-domain cell first to isolate it from
+>> reboot-mode failures.
+>>
+>> Suggested-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+>> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+>> ---
+
+...
+
+>> +	if (ret) {
+>> +		if (ret == -ENOMEM)
+>> +			goto out;
+>> +		dev_warn(&pdev->dev, "reboot-mode child cell failed to add: %d\n", ret);
+>
+> Okay Yoda, but why is this okay?
+>
+
+Hi Lee,
+
+I'd like to call you out on this because making snarky comments on a non-native
+English speaker's syntax is really not OK. Please don't do this. As a native
+speaker you could have just proposed a better sounding version.
+
+Thanks,
+Bartosz
 
