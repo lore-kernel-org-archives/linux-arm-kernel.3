@@ -4,63 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E3C3C5CFC1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 02:53:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 414ADC5AC67
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 03:07:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f4J/lV9oDu5O+QjCGiWx3R7MU92RzGWD6b7CY//ngrk=; b=eU34jO6NQ4/t0ysOaTzRkG62+K
-	OgtBo8y9GQDq+N5xTf9MwntngZGCyYLp/SxYMHHk88R596eRbi0UgkXFjf2YmC8DNJkWmA+9ID1vQ
-	H6Cmv++aVPNoem9Gg+rwV3Cj4r+8zL4WBfqp7kmpuMwYxDPW3NF2xgQcRHKNrQ1Qpk4Cx/UZEOBdI
-	IO5Fpez3OkdoQzmF7fz2CYxibHKJKWKNbAXuJZoCB9Xx1Iv1MtCOgzjdJNO1M4PkORhKyg8pPhJnA
-	r39tzS0YTvrS2c4r7nZSm1jcVZn/advFUBXudzLtGs+25/cniRwAtVo2PN+e925vf6C7kEEPP8Bq9
-	uciFYfRQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=enSLMsFajQZDV5MklXX7wSgXtuk+Nlzh10i3tv/rzF4=; b=pwyEs2Aw4KZSmsV9ADQaKy/jqG
+	ZUrHIA0dU3U2RaLNZTIrASZgZKnnM3f0hl2Rc7KMzz9wiR7c7ovn8P/bn6nFmdHqJF9JDOMsmrBKa
+	qHuczNH8RoaTwnnLtCEjW7dg867hjzUonwFSV+c9h+HItYv48nkB3Sjt3OuYpQQI4LouZkrEsIcPr
+	MZnOR7EkPRKWuIWN5BcWcka/fMHVQpgUcA4RvCypw4U9vmetZmfAWbrMRYI3wi+5FuJXze4SKrL54
+	yy8REcgqneUZOda+WzLJ0yt2X5YLWD7rkQgOIdFFxG1osJoXJ9z+vcX7mHAOXzGYrfioVxaQcxOHw
+	SdzSjOFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtz61-0000000FJaR-3mcX;
-	Wed, 12 Aug 2026 02:53:37 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wtzJP-0000000FKUV-1WQv;
+	Wed, 12 Aug 2026 03:07:27 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtz60-0000000FJaG-26Us
+	id 1wtzJL-0000000FKU6-3l1t
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 02:53:36 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3BCB341AEF;
-	Wed, 12 Aug 2026 02:53:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F31401F000E9;
-	Wed, 12 Aug 2026 02:53:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786503216;
-	bh=f4J/lV9oDu5O+QjCGiWx3R7MU92RzGWD6b7CY//ngrk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=jNcjboZt2Z7UlufpgYTK8tRHm0AYNs1JTTLra/Hay3yBXn+Zuvl7zyfWDVFdtw5Mp
-	 AvKEKokWYOqiOYzROmiX5HeY7e5yW9j0wBGPHs76uXYLZADESaPwOgfA0nkBZFCiye
-	 ZXdKzkM0JlDItX7JCrAgmjo19su9Zbh631MJk91MxFHlRHU3ixuc2oesWRCHRteRuz
-	 1jn87szYOoVyi2l8BNFD1VfMscvtFJUjINPzhqqqArwcW6Y+ny2RqATJZ37+qnS09x
-	 ZwFGdAFguOiOOM4OA/aA7qN/cf4Ha/JWy4hLM7vErNkzWHlq+EOi3mIH+UBJ8mXVjN
-	 zgEUCXnzwCYRA==
-Date: Tue, 11 Aug 2026 21:53:35 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Sasha Finkelstein <k@chaosmail.tech>
-Cc: linux-arm-kernel@lists.infradead.org, Janne Grunau <j@jannau.net>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Sven Peter <sven@kernel.org>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-usb@vger.kernel.org,
+	Wed, 12 Aug 2026 03:07:25 +0000
+X-UUID: eb7925ec95fa11f1aa26b74ffac11d73-20260812
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.12,REQID:7c8e65db-44e9-447e-a9e7-d16adb0551e7,IP:0,U
+	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:-25
+X-CID-META: VersionHash:e7bac3a,CLOUDID:6353e8e742baf08e15818909926fe79a,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:102|136|850|865|898,TC:nil,Content:0|15|
+	50,EDM:-3|-100,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,
+	OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: eb7925ec95fa11f1aa26b74ffac11d73-20260812
+X-User: zenghongling@kylinos.cn
+Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <zenghongling@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 1043525765; Wed, 12 Aug 2026 11:07:15 +0800
+From: Hongling Zeng <zenghongling@kylinos.cn>
+To: yannick.fertre@foss.st.com,
+	raphael.gallais-pou@foss.st.com,
+	philippe.cornu@foss.st.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	benjamin.gaignard@linaro.org,
+	yannick.fertre@st.com
+Cc: dri-devel@lists.freedesktop.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Subject: Re: [PATCH v4 1/3] dt-bindings: usb: tps6598x: Add sn201202x/ACE3
-Message-ID: <178650321482.626908.7700828369794152716.robh@kernel.org>
-References: <20260806-tipd-ace3-v4-0-79855b150914@chaosmail.tech>
- <20260806-tipd-ace3-v4-1-79855b150914@chaosmail.tech>
+	zhongling0719@126.com,
+	Hongling Zeng <zenghongling@kylinos.cn>,
+	stable@vger.kernel.org
+Subject: [PATCH] drm/stm/ltdc: Fix clock cleanup error handling
+Date: Wed, 12 Aug 2026 11:07:10 +0800
+Message-Id: <20260812030710.549621-1-zenghongling@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260806-tipd-ace3-v4-1-79855b150914@chaosmail.tech>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260811_200724_257213_A25FC209 
+X-CRM114-Status: GOOD (  10.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,18 +89,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+When clk_prepare_enable() fails for bus_clk or lvds_clk, the previously
+prepared clocks are not cleaned up, leading to resource leaks.
 
-On Thu, 06 Aug 2026 11:37:20 +0200, Sasha Finkelstein wrote:
-> A variant of tps6598x that is attached to a SPMI bus and is found on
-> Apple devices starting from the M3 series
-> 
-> Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
-> ---
->  Documentation/devicetree/bindings/usb/apple,sn201202x.yaml | 78 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
->  MAINTAINERS                                                |  1 +
->  2 files changed, 79 insertions(+)
-> 
+In ltdc_resume():
+- If bus_clk preparation fails, pixel_clk remains prepared
+- If lvds_clk preparation fails, both pixel_clk and bus_clk remain prepared
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+In ltdc_load():
+- If bus_clk preparation fails, pixel_clk remains prepared
+
+Fix this by adding proper error handling to ensure all prepared clocks
+are disabled and unprepared when a subsequent clock preparation fails.
+
+Fixes: df61c776657f ("drm/stm: add sleep power management")
+Fixes: d80667642b0f ("drm/stm: ltdc: support new hardware version for STM32MP25 SoC")
+Fixes: b7243862f82a ("drm/stm: ltdc: handle lvds pixel clock")
+Cc: stable@vger.kernel.org
+Signed-off-by: Hongling Zeng <zenghongling@kylinos.cn>
+---
+Changes in v2:
+- Use separate error labels in ltdc_load() so a failed bus clock is not
+  passed to clk_disable_unprepare().
+- Keep cleanup limited to clocks that were successfully prepared.
+---
+ drivers/gpu/drm/stm/ltdc.c | 20 ++++++++++++++------
+ 1 file changed, 14 insertions(+), 6 deletions(-)
+
+diff --git a/drivers/gpu/drm/stm/ltdc.c b/drivers/gpu/drm/stm/ltdc.c
+index 8818dcf98da7..ac1c2f27563e 100644
+--- a/drivers/gpu/drm/stm/ltdc.c
++++ b/drivers/gpu/drm/stm/ltdc.c
+@@ -1908,16 +1908,25 @@ int ltdc_resume(struct drm_device *ddev)
+ 		ret = clk_prepare_enable(ldev->bus_clk);
+ 		if (ret) {
+ 			drm_err(ddev, "failed to enable bus clock (%d)\n", ret);
+-			return ret;
++			goto err_pixel;
+ 		}
+ 	}
+ 
+ 	if (ldev->lvds_clk) {
+ 		ret = clk_prepare_enable(ldev->lvds_clk);
+-		if (ret)
++		if (ret) {
+ 			drm_err(ddev, "failed to prepare lvds clock\n");
++			goto err_bus;
++		}
+ 	}
+ 
++	return 0;
++
++err_bus:
++	if (ldev->bus_clk)
++		clk_disable_unprepare(ldev->bus_clk);
++err_pixel:
++	clk_disable_unprepare(ldev->pixel_clk);
+ 	return ret;
+ }
+ 
+@@ -1963,7 +1972,7 @@ int ltdc_load(struct drm_device *ddev)
+ 		ret = clk_prepare_enable(ldev->bus_clk);
+ 		if (ret) {
+ 			drm_err(ddev, "Unable to prepare bus clock\n");
+-			return ret;
++			goto err_pixel;
+ 		}
+ 	}
+ 
+@@ -2093,11 +2102,10 @@ int ltdc_load(struct drm_device *ddev)
+ 
+ 	return 0;
+ err:
+-	clk_disable_unprepare(ldev->pixel_clk);
+-
+ 	if (ldev->bus_clk)
+ 		clk_disable_unprepare(ldev->bus_clk);
+-
++err_pixel:
++	clk_disable_unprepare(ldev->pixel_clk);
+ 	return ret;
+ }
+ 
+-- 
+2.25.1
 
 
