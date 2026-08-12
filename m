@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3710BC5DF65
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 19:13:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92B10C5AD5A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 19:13:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YWlLd/PWbYINVwpXcYMDnYu5TnVLNXcprwUMzPtexF8=; b=qRiUNJqK2Hel26AVzK3z8JJldb
-	/idmfUHzYr5kXwcxItgI/GzYOMd6Yhp5sA/4FidhnDfBogelvuVb02IovFwm0M2UUo9ypMZdw4S/B
-	Ufo73tKTFaNgPFAL7W6PRDH8JSE6J/vv3kNk8X7b7JZwCTQw0zaH/oa5z08GGDmPenKRkD92Rwuy/
-	RBIwWG026lSD3msOdJiJ1apkY9a8TrxWU1Ag/yepQpLmlpekPoF2HEc6ybkE4Zjlq9kF6IodDY0XQ
-	HBbruQ+LmtbxUO7tiZ0es3E6RKYWPaWP074iD6R+bSctlwsfGMgCzWBt8xC/zxZoWbQqb4kdb2SgX
-	UGwFMnKg==;
+	bh=BN6CuiaRGB1AYlG3am9cSnuE3fqaKjei2q5bctXcBqY=; b=GMuGEfR2k2Z68SP1OEWUn6lKvG
+	eaPpZRbsUl5ya67Gv3CViJrq7d3iQVCuPq2AI2DkM3nwVnG0IFMwNzGrTmvjwx9NVRpB+QVdMXwBl
+	cIWUgxcJUMkoaOlAST4A5MayYYhCyqvZBUtHfB8XkTkyVGdUnNv84QWgoVvauas0H9wcmmGpn/bwJ
+	rqDj1P2yQRel+x4a5c9Zl3W8iOD08ZOrobzpL/6ipCo5AyfWZr8d4nLSDXXn+LnyfEND4ueUGawOH
+	6zCxHyTu88q/QK7y7R3bAwZxaCDC4YztsIrhWt+EpIo4nE4SwtzMsOcVXtgfmkUovyy0sJahdDTDu
+	6pdFUT7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuEOD-0000000Grbp-00b6;
-	Wed, 12 Aug 2026 19:13:25 +0000
+	id 1wuEOL-0000000Grg6-2LL7;
+	Wed, 12 Aug 2026 19:13:33 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuEOA-0000000GraS-29vk
+	id 1wuEOG-0000000Grds-3zYe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 19:13:22 +0000
+	Wed, 12 Aug 2026 19:13:29 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id BFFDA60A7D;
-	Wed, 12 Aug 2026 19:13:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92C381F000E9;
-	Wed, 12 Aug 2026 19:13:18 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6865E61838;
+	Wed, 12 Aug 2026 19:13:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3DCFC1F00A3D;
+	Wed, 12 Aug 2026 19:13:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786562001;
-	bh=YWlLd/PWbYINVwpXcYMDnYu5TnVLNXcprwUMzPtexF8=;
+	s=k20260515; t=1786562008;
+	bh=BN6CuiaRGB1AYlG3am9cSnuE3fqaKjei2q5bctXcBqY=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=Hr2MvsEuaaEzcnb7pqx0fDgksL9RmFYJMkgCZLgfSVmtA2v5njcIiu97WrxWFn4e1
-	 Ov1BoT7tE/ncfuzI4cZV4HWqOzyHA9RrhJ2qNsb9fGFQhi1f2p6HOanh63+MmAo35b
-	 NdiKSOZ8ijOwnGNF0HdLXL2INR9Kds3iDADAxkTZFnYk4tunKWPbviJfnUoXT850ZW
-	 sxugucq/tXcbt0eVpe/42oRB2eMRnPrhEzN+UCrVfdZPhEkRR4KLpNj7ngfi4neZop
-	 oLNwP6k7zmx5bfnPzbe5sIO3aJWpRnJJ9H7XyOpw56QN8zypl0W/FIiGTgJAoXyL62
-	 GQ4rk0QPx3kIg==
+	b=UXyjHJEBh2EgR2hEhJ36fZCgaBYeSmt6D05dnsQbYXlTYlS/JXYm3URif7tn+fEc4
+	 OEgLs0YYXRe+rAjFGKf/QrGpCmepkSJTheSVJ1OMt3qPXmRA2QgoLh9bD1Lma84bgL
+	 scRORMP1JIuzIb+JqkQ44V5QM1Ko5/3YqhLY3187YVrWQ/ZO+Kt51ly1kaaDDImU+b
+	 nB25NosuI39m4LnRFnCRGV3FFU1efwxotEEFJ92BlCVM29CNJMwMZpk7E4bLrIc6FH
+	 33A3w0FJ5DOBw+KRqmgwDtziRX16TtW4HbVgjOJmlfOjInrI6Ryk0sPpwDHHKngp7C
+	 U99PbfqnA5PFw==
 From: Mark Brown <broonie@kernel.org>
-Date: Wed, 12 Aug 2026 20:12:01 +0100
-Subject: [PATCH v19 02/14] KVM: arm64: Fix FGT mapping for
- HFGITR_EL2.nGCSEPP
+Date: Wed, 12 Aug 2026 20:12:03 +0100
+Subject: [PATCH v19 04/14] KVM: arm64: Ensure GCS memory effects are
+ visible
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260812-arm64-gcs-v19-2-9105afd828ac@kernel.org>
+Message-Id: <20260812-arm64-gcs-v19-4-9105afd828ac@kernel.org>
 References: <20260812-arm64-gcs-v19-0-9105afd828ac@kernel.org>
 In-Reply-To: <20260812-arm64-gcs-v19-0-9105afd828ac@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -63,15 +63,15 @@ Cc: Peter Maydell <peter.maydell@linaro.org>,
  linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
  Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1184; i=broonie@kernel.org;
- h=from:subject:message-id; bh=cmvAQBxB4SuCRvDZjmRe7yIsmwDDWXuwPP1P7cDHpHg=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqfMW7xoiqvOLOz8+6G2+5A+ZgECZ+QwPkUzOLt
- FoOuI2C4wCJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCanzFuwAKCRAk1otyXVSH
- 0IvaB/wI/FpFkLyGyj1sYsB6MEmyR0ik9n4QuHmN5KWkK73wFPPVJsIFSFHjknqTDNsyB09SjFz
- azxPsfYekK80iNCgjxwTwfZqBYbDJ9VCV0jR8GREHkM73c1Xgrxhxev9hYi4lUg8+jkNfj76Pfc
- 6tOt3aT09Z27h7IaMmdSielrg7qg3PbnwnRoYALFINkCnDbbgkwtPWOGvlR7jZIuJPcjucaiVtv
- R4HNujT7W66L6kcHqwHmr/2YTOFZ50XerlMMiQ58ACSEjFPPZVlyAyboWYGt4xsHd4N83IqGZrP
- 64uyKkPUJd7AoFscpOZfS/MS6WnpxsrMNcPidD03h80zddgz
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2730; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=d+jizBZVNSS4Q/SrkgC2FFx1bYWJxe4wMcWpfuu8Wp0=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqfMW9rmhwdiW5BX34kKBe5Zw81RmwFnI+/KW9j
+ IEpQ4UI8Q2JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCanzFvQAKCRAk1otyXVSH
+ 0MajB/4ye4XG4ifNPwWdf1QAhPBjgjlH8C+FdVcrdY4SGzkXP4mNDrhad5bwwWOghzmrEAZ8+SG
+ pFh+rmEwSIpUYs+bRWtjIp/dHechSA24mwUrHdvHifpO3sjGE6jQml8aQUL+oTnKD7Vkar45MLH
+ 5r41w8+v+GIePM6TVdCLweZZmlCnLUVsp1IIFl6BulCAyyvaQ9D1Y/pQoA68uZEdR1mL8z6sIaw
+ H68kkJuI3NNOjcCF3uOiZ27nW7f0n2yVUyaE84tOOV89uhtlihey6KYrQyCgk1yhfy1dGHa8bGZ
+ aEsdFoy8txI0Dp27wiVUCnjQd8DVWXnuEtMM21191Rmi4ans
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -88,30 +88,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The encoding to trap mapping currently maps a FGT on OP_GCSPOPX to
-HFGITR_EL2.nGCSEPP but as per DDI0601 2026-06 this FGT controls trapping
-of GCSPUSHX and GCSPOPCX, and not the separate GCSPOPX instruction.
-Update the mapping to reflect the architecture.
+In order to allow efficient implementation of GCS implementations are
+permitted to do GCS specific caching, with barriers implicit in stack
+switch operations and GCSB DSYNC as an explicit barrier.  Since we do
+not use GCS in the hypervisor or host kernel the hypervisor cannot rely
+on any barriers being present in vCPU context switches other than those
+it explicitly inserts.  Add explicit barriers when loading and saving
+vCPU state.
 
-Fixes: 863ac38984a82 ("KVM: arm64: Add missing HFGITR_EL2 FGT entries to nested virt")
 Signed-off-by: Mark Brown <broonie@kernel.org>
+Reviewed-by: Yuan Yao <yaoyuan@linux.alibaba.com>
 ---
- arch/arm64/kvm/emulate-nested.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm64/kvm/hyp/nvhe/switch.c   | 13 +++++++++++++
+ arch/arm64/kvm/hyp/vhe/sysreg-sr.c | 14 ++++++++++++++
+ 2 files changed, 27 insertions(+)
 
-diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
-index 3c82f392845d..b32742d9dd73 100644
---- a/arch/arm64/kvm/emulate-nested.c
-+++ b/arch/arm64/kvm/emulate-nested.c
-@@ -1432,7 +1432,7 @@ static const struct encoding_to_trap_config encoding_to_fgt[] __initconst = {
- 	SR_FGT(OP_AT_S1E1A, 		HFGITR, ATS1E1A, 1),
- 	SR_FGT(OP_COSP_RCTX, 		HFGITR, COSPRCTX, 1),
- 	SR_FGT(OP_GCSPUSHX, 		HFGITR, nGCSEPP, 0),
--	SR_FGT(OP_GCSPOPX, 		HFGITR, nGCSEPP, 0),
-+	SR_FGT(OP_GCSPOPCX, 		HFGITR, nGCSEPP, 0),
- 	SR_FGT(OP_GCSPUSHM, 		HFGITR, nGCSPUSHM_EL1, 0),
- 	SR_FGT(OP_BRB_IALL, 		HFGITR, nBRBIALL, 0),
- 	SR_FGT(OP_BRB_INJ, 		HFGITR, nBRBINJ, 0),
+diff --git a/arch/arm64/kvm/hyp/nvhe/switch.c b/arch/arm64/kvm/hyp/nvhe/switch.c
+index 7318e3e6a5f3..fb4c9988c84d 100644
+--- a/arch/arm64/kvm/hyp/nvhe/switch.c
++++ b/arch/arm64/kvm/hyp/nvhe/switch.c
+@@ -290,6 +290,12 @@ int __kvm_vcpu_run(struct kvm_vcpu *vcpu)
+ 	 */
+ 	__debug_save_host_buffers_nvhe(vcpu);
+ 
++	/*
++	 * Ensure any GCS memory effects are visible to this CPU.
++	 */
++	if (ctxt_has_gcs(guest_ctxt))
++		gcsb_dsync();
++
+ 	/*
+ 	 * We're about to restore some new MMU state. Make sure
+ 	 * ongoing page-table walks that have started before we
+@@ -338,6 +344,13 @@ int __kvm_vcpu_run(struct kvm_vcpu *vcpu)
+ 	__timer_disable_traps(vcpu);
+ 	__hyp_vgic_save_state(vcpu);
+ 
++	/*
++	 * Ensure any GCS memory effects from the outgoing vCPU are
++	 * visible elsewhere.
++	 */
++	if (ctxt_has_gcs(guest_ctxt))
++		gcsb_dsync();
++
+ 	/*
+ 	 * Same thing as before the guest run: we're about to switch
+ 	 * the MMU context, so let's make sure we don't have any
+diff --git a/arch/arm64/kvm/hyp/vhe/sysreg-sr.c b/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
+index 4f775545c71b..6665d97eac95 100644
+--- a/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
++++ b/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
+@@ -228,6 +228,13 @@ void __vcpu_load_switch_sysregs(struct kvm_vcpu *vcpu)
+ 	host_ctxt = host_data_ptr(host_ctxt);
+ 	__sysreg_save_user_state(host_ctxt);
+ 
++	/*
++	 * Ensure any GCS memory effects are visible to the incoming
++	 * vCPU.
++	 */
++	if (ctxt_has_gcs(guest_ctxt))
++		gcsb_dsync();
++
+ 	/*
+ 	 * When running a normal EL1 guest, we only load a new vcpu
+ 	 * after a context switch, which involves a DSB, so all
+@@ -296,6 +303,13 @@ void __vcpu_put_switch_sysregs(struct kvm_vcpu *vcpu)
+ 	__sysreg_save_user_state(guest_ctxt);
+ 	__sysreg32_save_state(vcpu);
+ 
++	/*
++	 * Ensure any GCS memory effects from the outgoing vCPU are
++	 * visible elsewhere.
++	 */
++	if (ctxt_has_gcs(guest_ctxt))
++		gcsb_dsync();
++
+ 	/* Restore host user state */
+ 	__sysreg_restore_user_state(host_ctxt);
+ 
 
 -- 
 2.47.3
