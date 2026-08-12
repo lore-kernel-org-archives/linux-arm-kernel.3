@@ -4,91 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8AF1C5AD5A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 22:43:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAD14C5AD5A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 22:51:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rlblx6qt1rqemUxEZ6qZUYhzuNbcWAL6YV0Kj3/NsUE=; b=nvu9xDuihR4Z5BN848z5di4Y51
-	v9Dj5xixOVZ3lmkz8spXadHz1ZNR8c6yQ4WV1akOfU5fwOHZSb2A/P3Fc2RhWSP0YW7w1r48bM6mU
-	gpiiK5v2LTWBCzZYpmhuJch+Q6Sob4tupcBX7nmbyl4+qJmqWcXUgwuL3HYh6+7xD1rxVpzsFIkc/
-	Qq/gpmKqGMt+/3rJr4/wLo/OZiB1XB9NRYIACdR2XdrU/9sZvUmuX30lRgsnFcjD2XB2eP9YKE4lS
-	XojAFBO/mt1HAkSFF2V7oUO6J0nXrGAv6WVhf0p7G0azoS3+OgI/y7m+dSlcE5O6BAHkaCLZ2mTGf
-	G60uMjnw==;
+	bh=q94daslctU9u8EUSFugtHPk2cVBdSnc1E2aM20T8veU=; b=vMNapSniK2O/5/Z2KA3CA7yTwU
+	rXeeM7gWcA6idedBi2N5iGmTl9KfYfIMm+9TgMnUFdaIa4S2+LaO7vYT0gBqBKUutvKRiUxa715I3
+	VJhg4mmcmEViAPxOJYkiZf0+TLXaAODPbPYrgtvtcM6u95NmORUCPIW1NhCF8yQYWy+yEVsfuNBjD
+	lvy94grlh7v0PRdkRwZOWwGJxy+Saie4JmsPNztIwly5k1r6qtoepBZK4xAnwHXZHas5imlZzTDVo
+	wZuqavpcfkfxBoNLBLKx4Djvyi7oExHJPMjKCri8d0crJjPArrPA/O5oJjCkOZ1OXJ96r6nmipHJj
+	tFNU9vsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuHfN-0000000H6IY-1K3N;
-	Wed, 12 Aug 2026 22:43:21 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	id 1wuHmt-0000000H6bL-0R3F;
+	Wed, 12 Aug 2026 22:51:07 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuHfJ-0000000H6H6-1DWq
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 22:43:18 +0000
-Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-c9e7391839cso1337110a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 15:43:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivian.com; s=google; t=1786574596; x=1787179396; darn=lists.infradead.org;
-        h=content-type:mime-version:references:in-reply-to:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=rlblx6qt1rqemUxEZ6qZUYhzuNbcWAL6YV0Kj3/NsUE=;
-        b=YY6KU6gp4I+XoEkvoosZzeI37HHbQB6NZNPwVD67eFmGcV5V0BTCBMj/5bNuyIVOvy
-         rOok/U0U2SnOnQGxh6EdqPv+QGW46wJT+f247+QiDoeFv8umZUXervWaDPul11kNYFmw
-         tvTSVxi7Aj/AqnjAEoDGWUe90g5Z82mKqpAKsr3nQI/KQyKeHjQUbHM6g+XQlu62wBk3
-         /bwxmeao2048HXkxhzue5YsVbGIXEj5s7zxEjHbk0k9fPuh+LA+k665uEC1SMiSbwfLD
-         b50zPtJDlf2u54KCpNF2IHBlb4FpUJ7gzZHDcE+71LyfaTTCa94PKI9ZPInpf6pxm/7U
-         ZfAw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786574596; x=1787179396;
-        h=content-type:mime-version:references:in-reply-to:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=rlblx6qt1rqemUxEZ6qZUYhzuNbcWAL6YV0Kj3/NsUE=;
-        b=oi3SxilJoe3yB9/rXS0PNKe79YTRWfM3hR9WP9Nr7yfpXmbX9D6H6zPfkRBQbaWRyB
-         NlOZltg5oPVZqZQLpOdaqQ1SJY0dmkYv7Os1W9eAKse6vACjf+sY9kHMRhJoU3uJDRB4
-         ix7Is9jmTlRgYzlpUmJ4+JcZ8QC4mwB4EBtmq+GG3XRRdgCLuZpAE3yCVlJqZYeYr9zh
-         zN91befWii0VfTaGoorVvB39PyPWMKYz0ipMxaPGJIHh+7DXs7bGe4RTvXG3dqXcfTSy
-         0v5JXvQdNRx4o3xravMf6tKhjbAD6q03Z6sg4MNrCTt4GcChvkHeFIwcs3yAOoUI5t4S
-         CJmw==
-X-Forwarded-Encrypted: i=1; AHgh+RriUEAUAj15UW6z7fzMRtXtNuUg9LzadRIPxobbhjLCxaUEO/RPnm9hz8UHQN2+rX9fOfk2ViA+IcobnyOziUU5@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy40DaMnZcmEKzxfQHjJbgs0NPdV/OexWFD1Ik63RKjc3F4DhZ9
-	63aE4hmFOWLz7S8aTbSWJ3cl9sdznIobWn68E9o2TFoqBIxDn1FdorkivStKYNlgx39392qbyXb
-	fc1BbPeANZc9U5igTVfIa2ODjBporsaLk1gJCjoyk9PEFHmZA8ZsEDiRoTxp6nUO6JikO2A==
-X-Gm-Gg: AR+sD127TAjU0j1bBPqn48ClqqGarpK6V5wlZXrEnnMics3rfqDY9JbAEIfx5BqdpY4
-	NqOw90fjMZ+V5atqe0hPjvU1OIZD4r/DKxap7tW8l5zu89FweZ6N3IZK7AES4N4JEZKLO6esnb4
-	hvxDgMQTlfRrF2m9aFzi71DZyYuF9s+/PW4wbzZbKDH0rpUzeez6KykMUZiVlXj/Hd9JxdrRj17
-	PQoLJ2fcV115g4RGIXsqJl/EDez8DvhZeriTJb3g1ot2tXiSOywFFhJqYiE1FgtFypcBMDkjFQ/
-	6rY1taoAbLDyOsIP+HsVN1/4NvitcjI97BJXImishrqJqZlqtxS7JWR+YpAJh1M+DvB1gnyj4gi
-	hugCOcl27RMvp6wmPpc2IoZxaCf0663DrBnmhFGauulEOlgq6Dlsbe2nnzvBEJrH9rgvxrPtgfH
-	EVugOMk/it5zhzTsVjmHiCYu3DBBJibsnPAEdEw4UT8DOQjOEnhIvytQqacC0o/arCYc+nLCB1F
-	EBonuhCuQbokZcfnXiB+FgHNuPkzlUPBUno4YoBM1WSWDUexSdZ6vQtERtYVMA1iUq4UDhRuv+W
-	1x1A3CKfWvS/iP3t
-X-Received: by 2002:a05:6a20:cd96:b0:3b7:aefe:4367 with SMTP id adf61e73a8af0-3cc5540b487mr1915887637.33.1786574596145;
-        Wed, 12 Aug 2026 15:43:16 -0700 (PDT)
-Received: from ip-10-198-159-19.us-west-2.compute.internal (ec2-44-232-128-107.us-west-2.compute.amazonaws.com. [44.232.128.107])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cbef710cc24sm204967a12.20.2026.08.12.15.43.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Aug 2026 15:43:15 -0700 (PDT)
-From: Roland Dreier <rolanddreier@rivian.com>
-To: Sudeep Holla <sudeep.holla@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>
-Cc: arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/2] firmware: arm_scmi: Don't reuse raw xfers with async_done still armed
-Date: Wed, 12 Aug 2026 22:43:06 +0000
-Message-ID: <20260812224311.904964-2-rolanddreier@rivian.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260812224311.904964-1-rolanddreier@rivian.com>
-References: <20260812224311.904964-1-rolanddreier@rivian.com>
+	id 1wuHms-0000000H6bC-28lN;
+	Wed, 12 Aug 2026 22:51:06 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id DB76B42D67;
+	Wed, 12 Aug 2026 22:51:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CA8B1F000E9;
+	Wed, 12 Aug 2026 22:51:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786575065;
+	bh=q94daslctU9u8EUSFugtHPk2cVBdSnc1E2aM20T8veU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=GbmnXaWeCQaaqrT8Hp/zNHy8kss73W/neIJN1E9VGPX08O8vxf+frHXmvQsJO11Pj
+	 KEDci1oe6firfMN35BT3WQzabTnykjeteGsUCxySrWPYwgqKNjdYQwukD9pSBLnLhw
+	 eWM7OMMdS/widY/WecnKrnZ8Ermx8XAFjf6F2TXOy5e0T+cJSvb9WXeZl+lxyTVZtr
+	 FWqZWVM6xnchqFpC0bZpcGPKSGAKM9kzKPWLAt8D1+jfiwdepwXXLReZ0pwGOYuP1p
+	 DxV9WyH04g/bVqIj4TQE49i+1L1XYiihUebgNV0Ge7ocKfF2qzyWEdYE0KjQOh6n29
+	 pFU+uCfjZ4uAw==
+Date: Wed, 12 Aug 2026 17:51:05 -0500
+From: Rob Herring <robh@kernel.org>
+To: Marek Vasut <marex@nabladev.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-usb@vger.kernel.org,
+	Pankaj Dev <pankaj.dev@st.com>,
+	Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
+	Rahul Kumar <rahul.kumar05@st.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Christian Bruel <christian.bruel@foss.st.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Rosen Penev <rosenp@gmail.com>,
+	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+	Vinod Koul <vkoul@kernel.org>, devicetree@vger.kernel.org,
+	kernel@dh-electronics.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH 1/8] dt-bindings: phy: Document ST STM32MP25 USB2-FEMTO
+ PHY
+Message-ID: <20260812225105.GB693080-robh@kernel.org>
+References: <20260812010157.1772849-1-marex@nabladev.com>
+ <20260812010157.1772849-2-marex@nabladev.com>
+ <20260812-silky-omniscient-dalmatian-b268cb@quoll>
+ <ff691741-a110-44e8-90e7-ac54a96de1af@nabladev.com>
+ <ff957fbb-b8ed-485d-adaa-18258ed693a6@kernel.org>
+ <ea21d4fb-04a1-4280-9a73-6f566be2b015@nabladev.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_154317_333866_95176904 
-X-CRM114-Status: GOOD (  23.01  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ea21d4fb-04a1-4280-9a73-6f566be2b015@nabladev.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,139 +88,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In SCMI raw mode, scmi_xfer_raw_worker() releases the xfer before
-releasing the waiter that disarms xfer->async_done, and scmi_xfer_get()
-does not clear async_done when it hands out a recycled xfer. A concurrent
-transaction can therefore pick up the xfer while it still points at the
-old waiter's completion, so:
+On Wed, Aug 12, 2026 at 08:30:33PM +0200, Marek Vasut wrote:
+> On 8/12/26 1:22 PM, Krzysztof Kozlowski wrote:
+> > On 12/08/2026 12:56, Marek Vasut wrote:
+> > > On 8/12/26 12:15 PM, Krzysztof Kozlowski wrote:
+> > > > On Wed, Aug 12, 2026 at 02:55:41AM +0200, Marek Vasut wrote:
+> > > > > From: Pankaj Dev <pankaj.dev@st.com>
+> > > > > 
+> > > > > Document USB2 PHY for STM32MP25 USB2 controllers, which includes the
+> > > > > USB2.0 host-only controller and USB 2.0 part of the DWC3 controller.
+> > > > > Two such PHYs in total are present in STM32MP25 SoC, they both are
+> > > > > slightly different, therefore they use different compatible string
+> > > > 
+> > > > What is slightly different? This should be either here, or better, in
+> > > > "description" part.
+> > > 
+> > > They are both Synopsys FEMTO-PHY , but they are each attached to a
+> > > different controller (one to USB 2.0 host , the other to DWC3 DRD) , and
+> > > their control bits in the system controller register are different for
+> > > each variant.
+> > > 
+> > > I extended the description in V2.
+> > 
+> > Depending on the actual difference, this rather belongs to the phandle
+> > to syscon, instead of separate compatible.
+> 
+> Modeling that in the phandle to syscon won't scale, the PHY driver is simple
+> thus far and does not control all the bits in that syscon, if we were to
+> somehow extend the phandle to syscon to describe the various bit mappings
+> and differences in it, it would look awful quickly. Hence the separate
+> compatible strings, so the driver can match on them, derive match data from
+> them and use the match data to figure out differences of each instance.
 
- - a delayed response arriving for the new transaction can be signalled
-   on the old waiter's completion, which may already be re-armed for yet
-   another unrelated transaction, making that transaction's wait return
-   early; and
+There's no 'reg' so the syscon is the only control interface, right? So 
+this should be child node of the syscon (with a reg property).
 
- - the old waiter's disarm, which still runs after the xfer has been
-   released, clobbers the arming just installed by the new transaction,
-   so the new waiter times out even if its delayed response arrives.
-
-Release the waiter first, while the worker still holds a reference on
-the xfer, so that an xfer can never reach the free list still
-armed. Track whether a delayed response is expected in the waiter
-itself instead of peeking at xfer->async_done outside xfer->lock, and
-wait on the waiter's own embedded completion. (The new async flag is
-not strictly needed but it makes the logic easier to reason about)
-
-Finally, harden scmi_xfer_get() to clear async_done when handing out
-an xfer, so that no future release-ordering change can leak a stale
-arming into a new transaction.
-
-Fixes: 3c3d818a9317 ("firmware: arm_scmi: Add core raw transmission support")
-Signed-off-by: Roland Dreier <rolanddreier@rivian.com>
----
- drivers/firmware/arm_scmi/driver.c   |  1 +
- drivers/firmware/arm_scmi/raw_mode.c | 25 +++++++++++++++++++++----
- 2 files changed, 22 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index 5c295bdc15ca..2d8884f0036b 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -717,6 +717,7 @@ static struct scmi_xfer *scmi_xfer_get(const struct scmi_handle *handle,
- 
- 	refcount_set(&xfer->users, 1);
- 	atomic_set(&xfer->busy, SCMI_XFER_FREE);
-+	xfer->async_done = NULL;
- 	spin_unlock_irqrestore(&minfo->xfer_lock, flags);
- 
- 	return xfer;
-diff --git a/drivers/firmware/arm_scmi/raw_mode.c b/drivers/firmware/arm_scmi/raw_mode.c
-index 8751cff5fa4e..5ee21f6b7001 100644
---- a/drivers/firmware/arm_scmi/raw_mode.c
-+++ b/drivers/firmware/arm_scmi/raw_mode.c
-@@ -198,6 +198,8 @@ struct scmi_raw_mode_info {
-  * @async_response: A completion to be, optionally, used for async waits: it
-  *		    will be setup by @scmi_do_xfer_raw_start, if needed, to be
-  *		    pointed at by xfer->async_done.
-+ * @async: True if @async_response was armed on @xfer, i.e. if a delayed
-+ *	   response has to be waited for.
-  * @node: A list node.
-  */
- struct scmi_xfer_raw_waiter {
-@@ -205,6 +207,7 @@ struct scmi_xfer_raw_waiter {
- 	struct scmi_chan_info *cinfo;
- 	struct scmi_xfer *xfer;
- 	struct completion async_response;
-+	bool async;
- 	struct list_head node;
- };
- 
-@@ -349,6 +352,7 @@ scmi_xfer_raw_waiter_get(struct scmi_raw_mode_info *raw, struct scmi_xfer *xfer,
- 			scmi_xfer_async_response_arm(xfer, &rw->async_response);
- 		}
- 
-+		rw->async = async;
- 		rw->cinfo = cinfo;
- 		rw->xfer = xfer;
- 	}
-@@ -361,8 +365,16 @@ static void scmi_xfer_raw_waiter_put(struct scmi_raw_mode_info *raw,
- 				     struct scmi_xfer_raw_waiter *rw)
- {
- 	if (rw->xfer) {
-+		/*
-+		 * Disarm the delayed response before this waiter, and its
-+		 * embedded completion, can be picked up again for a new
-+		 * transaction: a delayed response received late, after the
-+		 * related wait timed out, must not signal a completion which
-+		 * has been in the meantime re-armed on a different xfer.
-+		 */
- 		scmi_xfer_async_response_disarm(rw->xfer);
- 		rw->xfer = NULL;
-+		rw->async = false;
- 	}
- 
- 	mutex_lock(&raw->free_mtx);
-@@ -479,18 +491,23 @@ static void scmi_xfer_raw_worker(struct work_struct *work)
- 				    ret, scmi_inflight_count(raw->handle));
- 
- 		/* Wait also for an async delayed response if needed */
--		if (!ret && xfer->async_done) {
-+		if (!ret && rw->async) {
- 			unsigned long tmo = msecs_to_jiffies(SCMI_MAX_RESPONSE_TIMEOUT);
- 
--			if (!wait_for_completion_timeout(xfer->async_done, tmo))
-+			if (!wait_for_completion_timeout(&rw->async_response, tmo))
- 				dev_err(dev,
- 					"timed out in RAW delayed resp - HDR:%08X\n",
- 					pack_scmi_header(&xfer->hdr));
- 		}
- 
--		/* Release waiter and xfer */
--		scmi_xfer_raw_put(raw->handle, xfer);
-+		/*
-+		 * Release the waiter first: this disarms the delayed response
-+		 * while we still hold a reference on the xfer, so that the xfer
-+		 * cannot be recycled by a new transaction while it still points
-+		 * at this waiter's completion.
-+		 */
- 		scmi_xfer_raw_waiter_put(raw, rw);
-+		scmi_xfer_raw_put(raw->handle, xfer);
- 	} while (1);
- }
- 
--- 
-2.54.0
-
-
--- 
-*CONFIDENTIALITY NOTE:* This electronic message (including any attachments) 
-may contain information that is privileged, confidential, and proprietary. 
-If you are not the intended recipient, you are hereby notified that any 
-disclosure, copying, distribution, or use of the information contained 
-herein (including any reliance thereon) is strictly prohibited. If you 
-received this electronic message in error, please immediately reply to the 
-sender that you have received this communication and destroy the material 
-in its entirety, whether in electronic or hard copy format. Although Rivian 
-has taken reasonable precautions to ensure no viruses are present in this 
-email, Rivian accepts no responsibility for any loss or damage arising from 
-the use of this email or attachments.
+Rob
 
