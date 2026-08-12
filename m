@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CFBCC5AC67
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 00:02:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C5F3C5CFC1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 00:03:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DX8AcDd8xiFvnAw086KkQaBdTXODmm6DYHpS2UGNDUI=; b=jJyuxZNJQihJkoiWPkldsjhENa
-	spbggKQEMmZz0S7Mbqw1Zp4oimTB357sScHewE5fyAVRada3NKhismdoDLHVJqwLU3iYEVaaeJPR8
-	h509xVlPAMsimoEhKOVEAUx5ZQFVmscZ/22OAl7Z3TLcCN62Xn3N9oY0isS1gB3XgSqv9WofbCrZ3
-	Zsyy9BIIohNUMzyP7FSlEzoRaaf9fHKdM/nsZkfVPeJCUUnPBtr8BMkBaYg7aEXeOkvxv4qfQFRub
-	IqpGaQ1mI2H/dQTIw5NawnpH7VrCUVSGbP0ar8pAfc1VXxM4WVp0VHKFrgug2Ctd6+gluX2Kw9Dcx
-	mK2sITgg==;
+	bh=5Kih/5Gb3n2KEUdLXQmm7RKtUqyE/igDwwvcsn9JuyU=; b=lRWr6yqK5E7lWczoaYuhJ3y2jU
+	NBf5llwQ6GhS0VzV9aGGGu98MnDsavv9TcZARQO7yEJejjOeoNTLQbiHAz4QYS+L2agoOvhIZgw+x
+	RrqHF9i/ZMZvDobjpofOXE9XWhcniHKsord7vLXbElfiKEYmvsRHsccXWfe4w7eYP/pxBKhLvxQTz
+	O+lejw3hqB9vaWxnJPfD++4lTdulBoZ9Yfgog6Gc05fcr4Lthh35CGx3Wae885TJ7A5s+BpuTa/Ew
+	p07+jukNZa0kfy47/qvajeE1AOEurcn/Dtg4Lgd/j1L2WmiPC27GA/s8gGCrJ9VCkjVW3i32WcgMe
+	8PT59YbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtwQg-0000000F7ev-2Z3U;
-	Wed, 12 Aug 2026 00:02:46 +0000
+	id 1wtwR4-0000000F7iY-32WG;
+	Wed, 12 Aug 2026 00:03:10 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtwQf-0000000F7ed-1YbW
+	id 1wtwQy-0000000F7hx-3ckm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 00:02:45 +0000
+	Wed, 12 Aug 2026 00:03:08 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A517360A7E
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 00:02:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FAD21F01558
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 00:02:44 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 21E7A60A91
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 00:03:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9F301F0155C
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 00:03:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786492964;
-	bh=DX8AcDd8xiFvnAw086KkQaBdTXODmm6DYHpS2UGNDUI=;
+	s=k20260515; t=1786492983;
+	bh=5Kih/5Gb3n2KEUdLXQmm7RKtUqyE/igDwwvcsn9JuyU=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=fLxVzLveCDQ38M556RCq1p1TVni/ud467RdrvXXAbN8c+bRq+DqlkaH9RW0nl6AP3
-	 t4SKOK2+oUARzpzfMAFhVWziQ/gVzMtuwKJX5DvOkLdB/cdRfI6oUwiCHN+BVCI2VO
-	 jLDQ5YJdxNcf/aOpUr09TS+zBmvVjHEyztvvb/XyZTJBLidbiYSi7L6sU+2Sb2WFx2
-	 cLU1BNie+SuGsdzSfmBCoRvnpuVY6tImUNt0VCqNlMTGszR5mn1zOYorUeGBrL/u8d
-	 pdsJzCjcqlbIU/Pcxl/yNNNs1f4P6S75chOUw1X5vtZJ2WNeBCvFK8WSBdT3uEgmhc
-	 Edn/wUPkQaFuw==
-Received: by mail-qk1-f170.google.com with SMTP id af79cd13be357-92e53581361so28081985a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 17:02:44 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RqUIbxfLgzkeLjGnK/493sTCre0HB6fNevzysjrjddH+L3tQptNrDMcYakpkMqo5+hxqKQtRvrJ/8d1pmwyzRfw@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywb5iUpGiofZTGakjdR/hnHEHl8S1dQ26n7OfvR6zfadmohzRFG
-	jhSEknsdTeGET/ctjFLq9C4T0xPjfCnRSMNuU7qIwy+u1NyyDimfhgwgF/Z/+u5eaRtbwEckx7h
-	rfjvL7uWELFVPncWAOyTbzUyXvW4EWhw=
-X-Received: by 2002:a05:620a:2789:b0:915:cb40:f76a with SMTP id
- af79cd13be357-936b3d5c7b6mr123863585a.39.1786492963606; Tue, 11 Aug 2026
- 17:02:43 -0700 (PDT)
+	b=hrIORbIq/rgGgPoVBZEkFCNjKZCBXeeWCVnQqG+xPs4CXt2w/Ck1EjSYrmESXEbaV
+	 C1CGl4XrK8IxZeP+6xRfJdg8PQaDCtQ1+I8eHyC7PsDU10dcueZv9e2LVH/Vh71Otw
+	 YW06oAKIWIYHw0CuYdzRNZ5qAVSJ0HimNOkn3ia6MBD0WylewrkSdrTULF5Fkpt5PK
+	 B61VI43+3EATMXnqdTb9JsXZdWNLPEyQXiLEoFMnNHbM9YDqWyQIdF8UR8TPxEs7b7
+	 KZBTK9JMRTBzloKxYFlAQrpNoJVA9jMpoAdbp1UXQ4L1BNuNarTR449317aBdUTIHZ
+	 RqBRD5br6tXuQ==
+Received: by mail-qk1-f175.google.com with SMTP id af79cd13be357-92e67555e24so27498585a.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 17:03:03 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RoCphcRsIn55pLYXWNW8Y5nSSc8RprheUJ8d5NQaLCXktVVOVUJD5n5veApIln8S5u++Phr/7u2V6kQzrBNp7yb@lists.infradead.org
+X-Gm-Message-State: AOJu0YwhAQ2/IdeXUknyqbgSrAhJ1dhu3DZJW8BuAIEihdIFC1VPPw2p
+	dA5lVSx5livE9GNTfYXr+9TpFSZLzAk8nWEFe7Pjqoif7nsL4RfxoqICz4EWEtRhlUHFlLgs8Fm
+	fisFmOLdkVO9x4qQ6XQihCOfZ5O49uto=
+X-Received: by 2002:a05:620a:3728:b0:915:b852:4361 with SMTP id
+ af79cd13be357-936b3a7e00cmr113938785a.20.1786492982920; Tue, 11 Aug 2026
+ 17:03:02 -0700 (PDT)
 MIME-Version: 1.0
-References: <cover.1786230311.git.jpoimboe@kernel.org> <afba3774f6a8a818f899e3d04a22ac55e9cca0e2.1786230311.git.jpoimboe@kernel.org>
-In-Reply-To: <afba3774f6a8a818f899e3d04a22ac55e9cca0e2.1786230311.git.jpoimboe@kernel.org>
+References: <cover.1786230311.git.jpoimboe@kernel.org> <56e974b384ffbb3f8b424e7c69da3f702f87f2f8.1786230311.git.jpoimboe@kernel.org>
+In-Reply-To: <56e974b384ffbb3f8b424e7c69da3f702f87f2f8.1786230311.git.jpoimboe@kernel.org>
 From: Song Liu <song@kernel.org>
-Date: Tue, 11 Aug 2026 17:02:32 -0700
-X-Gmail-Original-Message-ID: <CAPhsuW5MefQs4Cv78wm1i5YJJnSG3p1neRqoXgo0Np1BcTpAJg@mail.gmail.com>
-X-Gm-Features: AUfX_mzRyX-pZscT-qwuNT-GinBTphaTag_fBwZM1aCRGssM85AEKHR4m8vNWTw
-Message-ID: <CAPhsuW5MefQs4Cv78wm1i5YJJnSG3p1neRqoXgo0Np1BcTpAJg@mail.gmail.com>
-Subject: Re: [PATCH v4 21/22] klp-build: Support cross-compilation
+Date: Tue, 11 Aug 2026 17:02:51 -0700
+X-Gmail-Original-Message-ID: <CAPhsuW6EHzoqmHExDiUXSm0MmFH-PLdV8GNYCUNJA9xfj=hkkA@mail.gmail.com>
+X-Gm-Features: AUfX_myU79kwtA8KLOeDN0dTNn1aonfc4LkMsrlHzwmFWelV0XLc1lXPl_idklo
+Message-ID: <CAPhsuW6EHzoqmHExDiUXSm0MmFH-PLdV8GNYCUNJA9xfj=hkkA@mail.gmail.com>
+Subject: Re: [PATCH v4 22/22] klp-build: Add arm64 syscall patching macro
 To: Josh Poimboeuf <jpoimboe@kernel.org>
 Cc: x86@kernel.org, linux-kernel@vger.kernel.org, 
 	live-patching@vger.kernel.org, Peter Zijlstra <peterz@infradead.org>, 
@@ -87,8 +87,9 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On Sat, Aug 8, 2026 at 4:18=E2=80=AFPM Josh Poimboeuf <jpoimboe@kernel.org>=
  wrote:
 >
-> Add support for cross-compilation.  The user must export ARCH, and
-> either CROSS_COMPILE or LLVM as needed.
+> Add arm64 support for KLP_SYSCALL_DEFINEx(), mirroring the arm64
+> __SYSCALL_DEFINEx() pattern from arch/arm64/include/asm/syscall_wrapper.h=
+.
 >
 > Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
 
