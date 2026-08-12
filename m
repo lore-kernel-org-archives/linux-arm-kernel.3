@@ -4,79 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 888E8C5AC67
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 02:23:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 383E2C5CFE7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 02:41:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=H73TAwOAuZuY+AwTNwZCpyJkJqzHQ8W7sXvPEwn5o+Q=; b=0vqCayBMSg8jfU
-	/Z6d/xxg7uHkBoIYUoXa+9ZpKh+rrDMk8hkWl9PwSvDUMxYTVusQ1g6ZCy+YLHNdhuuS51tNP48Bm
-	1OCdfr2Thsr3dsbT/AKlaxYGCGh1BkAOs6mIpwbPVbfClU7YRhMvl6vhPLDsZ36J326JoKWLz1eC4
-	iW07jr9bS5mDkjkDh3kBwu3UxvJ9KQJ2NEI0gYNfey4TqsOTIx3GZc7YSwmiFFWjjeUmht/F0rjjQ
-	/Pu48SXhuPC9jjanKyUhNUeMz2l3w9xv8Wq/vckZe28R+RKXeEveBcyUoR6ZeJSJSQV9aWJwy0uIf
-	gGzgyEb+FS8VLu9PdEuQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aJhSp5FQgDQDLiRKd4qpwkqXiFacPMHlJzlZVfDeqvg=; b=VTzFfsHmf3tqQ+kO972iACHEo/
+	FmeWERUn4ffn9eFRduMwKzKUILF5nTE0bx+Ksg+xveoR73w6irvPmG0DeJO5cYBUVgFoLXRNR0d+6
+	FJBXbu8ZrVcMknTTJKpRDgENx1Q/E76OrgJ9wF0QqJEIHpGmYK9lOrUPIDE5FPSPy3razp6Di2MD9
+	YWlWUK0mDS5n0SP7nnzouOq8+lKJG5shoMygb+3FzVAONDb68bYYHATdg43zy3xnXwwGXvynyiCuS
+	8QyEtLPI5RObZPn9GGLD+9IkWj81Jmsn0k0GYQByberBAiI2DH0HAVtOelq4eFQzBlrmZvfb7XJHN
+	mHVdr76w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtyct-0000000FGg3-1dsU;
-	Wed, 12 Aug 2026 02:23:31 +0000
-Received: from mail-m103131191156.xmail.ntesmail.com ([103.131.191.156])
+	id 1wtyuQ-0000000FHoB-2P10;
+	Wed, 12 Aug 2026 02:41:38 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtycl-0000000FGcr-0Pvy
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 02:23:26 +0000
-Received: from [127.0.1.1] (unknown [36.129.139.90])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 49a56c4b0;
-	Wed, 12 Aug 2026 10:23:14 +0800 (GMT+08:00)
-From: Hongyang Zhao <hongyang.zhao@thundersoft.com>
-Subject: [PATCH v3 0/2] arm64: dts: qcom: qcs6490-rubikpi3: Add IMX219
- camera overlays
-Date: Wed, 12 Aug 2026 10:22:37 +0800
-Message-Id: <20260812-rubikpi-next-20260615-v3-0-06e21232d8e4@thundersoft.com>
+	id 1wtyuO-0000000FHn0-1j3Q;
+	Wed, 12 Aug 2026 02:41:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id AE1684403D;
+	Wed, 12 Aug 2026 02:41:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 7158DC2BCFA;
+	Wed, 12 Aug 2026 02:41:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1786502495;
+	bh=WUzJAYQHchFad4GvLC0D7YFZzyv0eyNbhdVP3Of0Nvo=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=jSpLwkDqZ6C7ia46qYI3N93gHk2zucG4Z+Fdvv1hW/wRqG3gpX3vzEfCT5YWEdQ4+
+	 vJdsBWk7hM2cEaBZ4dRbBAh4N7qS4zd8+Nhl3Wyo25UCl/fKQerIq+BJs1AOqDS92X
+	 jExG/HmqEDN9dkL9TCj11hz55tin2RBX65sIw6ke4KoMPx2vA6cdlaqwkh9z+DTL7M
+	 jd9wFZmKde3HY4R9/mzZ7TX/kB7B3hHcvgXYX/iy0K3sWbBna3hAefT8dVUak9+g0w
+	 qJSZ8z6KW17vXVuWidPOTeVQ4E2kbmHlKtdr2f+OHlfHLLEgd3KP3iifq4ZFflom/x
+	 JU5AqXmkeycug==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 56582C5CFCF;
+	Wed, 12 Aug 2026 02:41:35 +0000 (UTC)
+From: Zhentao Guo via B4 Relay <devnull+zhentao.guo.amlogic.com@kernel.org>
+Date: Wed, 12 Aug 2026 10:41:24 +0800
+Subject: [PATCH v7 2/6] firmware: meson: sm: Add video firmware loading SMC
+ call
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAO3Ye2oC/6XO0QqDIBQG4FcJr3dGalntau8xdmGpS0YaatKI3
- n0Wg12MwWCX/4Hz/f+CvHRaenTKFuRk1F5bkwI9ZKjrublJ0CJlRHLCcoYZuKnV91GDkXOA17W
- EgpECV5zXrOQo/Y5OKj3v7uWasnJ2gNA7yX/RIgYMVDSsrRvaVEqdQz8ZIZ23Khw7O2wVvfbBu
- se+POKt6H92mxrJ26oI/WYRyKGoupILUecYF5/Wuq5P/L9+ZV8BAAA=
-X-Change-ID: 20260616-rubikpi-next-20260615-462417aa865a
-To: Bjorn Andersson <andersson@kernel.org>, 
- Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>, 
+Message-Id: <20260812-b4-s4-vdec-upstream-v7-2-3fae085861bd@amlogic.com>
+References: <20260812-b4-s4-vdec-upstream-v7-0-3fae085861bd@amlogic.com>
+In-Reply-To: <20260812-b4-s4-vdec-upstream-v7-0-3fae085861bd@amlogic.com>
+To: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
- Roger Shimizu <rosh@debian.org>, linux-arm-msm@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- Hongyang Zhao <hongyang.zhao@thundersoft.com>
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+ devicetree@vger.kernel.org, Zhentao Guo <zhentao.guo@amlogic.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1786501394; l=2720;
- i=hongyang.zhao@thundersoft.com; s=20260127; h=from:subject:message-id;
- bh=LTaBk9f3msJO6Xsstu4uZkU2+x36F3GJxnDvgK5nDZs=;
- b=i1e9fCAQ8RNSznnVVdzbNMsQYU1PJDYn2qrVVB1tbxi7xSkuo6L61D7HnEsEFwg4bgCrVS9R+
- jLduNxACIwABVEQKZIpnHCVt75H989aK1PsHGlMbU5iLCRkOPpuml1i
-X-Developer-Key: i=hongyang.zhao@thundersoft.com; a=ed25519;
- pk=D9yL5W9Zj0lPBDAq9gzY++1849VlXuTWAkROzZ88J/4=
-X-HM-Tid: 0a9ff3c7ee3609d5kunm2a4e641d37f47f
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCGUNNVhlDSBpOHUpPSEkYGVYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlITVVKSUJVSkhCVUJLWVdZFhoPEhUdFFlBWU9LSFVKS0
-	lCQ0NMVUpLS1VLWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=IBr8dqd3lkzB18DsIpkDhOtTOOcoiKhh6U7jsoz39eNMBKCIWbm/RnZgrTCk2uqlFM29Vt2ccvHZcx4mnnufQCpRYJVGhG3BAmIKyFKZ8NI+l6ViHbNjVegSSR/BJ3Xn8LfpEJoe/B9JVVSHee8vU9LSVbfGdR/JU2H5U7CNc4s=; c=relaxed/relaxed; s=default; d=thundersoft.com; v=1;
-	bh=H73TAwOAuZuY+AwTNwZCpyJkJqzHQ8W7sXvPEwn5o+Q=;
-	h=date:mime-version:subject:message-id:from;
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_192323_415297_2391AFA6 
-X-CRM114-Status: UNSURE (   9.91  )
-X-CRM114-Notice: Please train this message.
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1786502492; l=711;
+ i=zhentao.guo@amlogic.com; s=20251024; h=from:subject:message-id;
+ bh=wZ/Fw+jH+tOBVIXbBc8zSjH7Kx36sATJ09qPRAeyKKk=;
+ b=Xt9ivrgwhvWtWeZnwM8Ld7t2yIjug1HR5O+eGfK+i13eAomJhfiwHZYm66+z9QwUDbEgLTNV7
+ 9HKitnCon3UApj3PEwp3fqX7NQ2wIFqNj2pUhUUWA0BGhmOPWqGt07Z
+X-Developer-Key: i=zhentao.guo@amlogic.com; a=ed25519;
+ pk=5yfDKrjreXwcAoEUsdtWafy6YN500upXp/CgtnXjLVU=
+X-Endpoint-Received: by B4 Relay for zhentao.guo@amlogic.com/20251024 with
+ auth_id=555
+X-Original-From: Zhentao Guo <zhentao.guo@amlogic.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,65 +85,35 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: zhentao.guo@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-RUBIK Pi 3 provides two camera connectors but ships without camera
-modules, and each connector can be used with different sensors. Describe
-only the board-level 3.3 V output rail in the base DTS and add optional,
-per-connector overlays for Raspberry Pi Camera Module V2 IMX219 sensors.
+From: Zhentao Guo <zhentao.guo@amlogic.com>
 
-CAM1 is connected to CCI1 and CSIPHY1, while CAM2 is connected to CCI0
-and CSIPHY4. The overlays can be used independently or combined, and the
-Makefile provides composed DTBs for both single-camera configurations and
-the dual-IMX219 configuration.
+Add SM_LOAD_VIDEO_FW at SMC ID 0xb200000f in the command
+table to load video firmware.
 
-Both single-camera configurations and the dual-camera configuration were
-validated at 3280x2464. In the dual-camera configuration, both sensors
-streamed concurrently and their privacy LEDs followed the streaming state.
-
-Signed-off-by: Hongyang Zhao <hongyang.zhao@thundersoft.com>
+Signed-off-by: Zhentao Guo <zhentao.guo@amlogic.com>
 ---
-Changes in v3:
-- Drop regulator-boot-on from VCC3V3_OUTPUT because the boot firmware
-  does not enable the rail.
-- Clarify that PWR_EN controls the camera module power domain, while the
-  baseboard has no dedicated per-camera regulator.
-- Drop the fixed 3.3 V constraints from the module power-domain
-  regulators.
-- Add Bryan's Reviewed-by tags.
-- Rebase onto next-20260810.
-- Link to v2: https://lore.kernel.org/r/20260723-rubikpi-next-20260615-v2-0-47c5add80114@thundersoft.com
+ drivers/firmware/meson/meson_sm.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-Changes in v2:
-- Keep the optional IMX219 sensors out of the base board DTS and add one
-  overlay per camera connector.
-- Add composed DTBs for CAM1, CAM2, and dual-IMX219 configurations.
-- Correct the power model: VCC3V3_OUTPUT is board-level, while each
-  PWR_EN controls the module-local sensor rails.
-- Model the 24 MHz sensor input clock separately for each camera module.
-- Describe CAMERA1_GPIO and CAMERA2_GPIO as privacy indicator LEDs and
-  associate each one with the corresponding sensor.
-- Drop output-high and output-low from the GPIO pinctrl states.
-- Rebase onto next-20260721.
-- Link to v1: https://lore.kernel.org/r/20260616-rubikpi-next-20260615-v1-1-3d96b89397ff@thundersoft.com
+diff --git a/drivers/firmware/meson/meson_sm.c b/drivers/firmware/meson/meson_sm.c
+index ab9751a59b55..887caa5c625d 100644
+--- a/drivers/firmware/meson/meson_sm.c
++++ b/drivers/firmware/meson/meson_sm.c
+@@ -48,6 +48,7 @@ static const struct meson_sm_chip gxbb_chip = {
+ 		CMD(SM_THERMAL_CALIB_READ,	0x82000047),
+ 		CMD(SM_A1_PWRC_SET,		0x82000093),
+ 		CMD(SM_A1_PWRC_GET,		0x82000095),
++		CMD(SM_LOAD_VIDEO_FW,		0xb200000f),
+ 		{ /* sentinel */ },
+ 	},
+ };
 
----
-Hongyang Zhao (2):
-      arm64: dts: qcom: qcs6490-rubikpi3: Add 3.3 V output supply
-      arm64: dts: qcom: qcs6490-rubikpi3: Add IMX219 camera overlays
-
- arch/arm64/boot/dts/qcom/Makefile                  |  15 +++
- .../qcs6490-thundercomm-rubikpi3-cam1-imx219.dtso  | 115 +++++++++++++++++++++
- .../qcs6490-thundercomm-rubikpi3-cam2-imx219.dtso  | 115 +++++++++++++++++++++
- .../boot/dts/qcom/qcs6490-thundercomm-rubikpi3.dts |  23 +++++
- 4 files changed, 268 insertions(+)
----
-base-commit: 3d08ff75a47a3e7e2ab45a3bcab6723b4d906422
-change-id: 20260616-rubikpi-next-20260615-462417aa865a
-
-Best regards,
 -- 
-Hongyang Zhao <hongyang.zhao@thundersoft.com>
+2.42.0
+
 
 
