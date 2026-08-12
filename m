@@ -4,131 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE34FC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 16:05:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9575C5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 16:11:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6SrozTgcD50K+M6c1dO3d+pliLU8xCC4+J1KLocUcoU=; b=nFjTaoETD0UOrtcNAQYmL0XmpM
-	tzENMRmOExKpeBhizxPLpqHbnje9auMAxJzRFyEbeaCf4cs+ssNMx5VuVVmWxuJ15dJHrX/MOjiZG
-	DUr7SeOe9FzSXQhZentw/LIREWcKuxnjvggeqZIP1SZaD2GQjEDqUMxICPsDKWzqnefkD9/JWF/aE
-	XUxVlbqpWGUKDMo2Zb/eq1GEN0XFdGeAdgkIwCLBQ9s7IQXQ1txhDU1BWthgkAQKksaGyi06Ov20D
-	0/AsFJXMC3KIzdz9i21rXE8mfBZgZiUuhb/LKR2oMwPm5cyREI3frq+OtoTL2agwPFI1cYsKIr4cL
-	VF3jsVEA==;
+	bh=XbfAZdLb7Gd/qSUJdj/UERpGGTxWx7AQk4XHSPv4SiM=; b=UvKRK0xfPdLJoceYd9iDAuZs3x
+	2e5pCpD4oKtNXb1vvZdfhGiMmfDg58S/5lXXt0IQTUNEWOytBqrd2EAZin5aU2NIR07GDgD9zasTM
+	YyiWtAd7YfGAhiacPooPAgmXTcigd6QY05zFichBQJjomef+ohCmNnnU2DxvrVViT1dK9AZEy00Ki
+	t7l8ZjVZnvQzR4YRQwyQUnmXiziJtQRBmek2kprv1v1yAM1ei9jNgriUg3PjpftSrzTaUeaU0P4l2
+	2qczCgSaEBNAhioGKBOikQEbYJj/pe8FW5BH1c5Bps6zyeqa1rVy4GwvTfzmUlFr5zSnGoQdiHWW+
+	yYG4ZGrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuBS0-0000000GYUY-1FZJ;
-	Wed, 12 Aug 2026 16:05:08 +0000
-Received: from mail-eastus2azon11011003.outbound.protection.outlook.com ([52.101.57.3] helo=BN8PR05CU002.outbound.protection.outlook.com)
+	id 1wuBYJ-0000000GYub-41t7;
+	Wed, 12 Aug 2026 16:11:39 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuBRx-0000000GYU9-3Urr
+	id 1wuBYH-0000000GYtz-1rZY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 16:05:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NaPQFqYTG+aezdrJed4CkxVz0U1BXGldBBEKx6WiCfRuSbx/TpPyZn3Z9KugULJ3ysnCifhc0M8f2VQBQjzTA+Vc8s0udO6wRmW+7mxOQ6OlI2aYvfIocqqKF8WaNGt9qM28G5X+/0hzExy67sO5Qh4al+IdfakmbDi248pE+RcMSrDph6wL3gs2wVDkO6DdaqJjls0E0dPEAB6iEm5yvNCaA6wuJMMDJncwp3dxEuqgGGCkONIG3tFRltE2tnNyharMrtYialbnNNTLboKjPiHeFcbqEd1fv1hBU3SQSFs5R8cRf8zrIpalvLF3bH5wkCkgqeR1IVLBIQAHWSGTVQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6SrozTgcD50K+M6c1dO3d+pliLU8xCC4+J1KLocUcoU=;
- b=jWL5Tz742rd5xMXo7CZUssM4ThqOJ7GqIYLPX1hGf7CEiRqAh5oj6woWh5oNtiEwI1Xx8T6LySmfxGiONx826f4GLTs5KiSNP2RaFtauF+ybFGlGMQAy70KSyBmXZVPGLk7P8QIjb1FNe8P8J7RAHG2L8fukuWhoRL30GzDiV12ccfQttw5uLNG7G9LSZRbBacRcaLufujtg/aIsj88QtMViUbr8DfkX9KpMYUpiBil5z52UjverOobBoD1PObOOBfdbL9/kR7m40KrMlCTLnKS6ZCOcTDPTsutynlUtiGTX8Gb2/n0i5TiKNJqIBh3q5g3XIYqGXTiytVCiKwp7yA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6SrozTgcD50K+M6c1dO3d+pliLU8xCC4+J1KLocUcoU=;
- b=TJMKkoCkBx/k/6SGBPY4cYYrtL5lEDmtfugXc2Qf2DZMIxll9pcC/CxfhOXLrVkJbWAvH2vW+e1H7cGBjsrrcKYwrAwV7ZjlqT2nOFwMhBNxYs2DapUtyO5b5QqHdV7wMKR5LZMMhakgfXGlKmhWmKZYQvXPbxqKlV5g+2kGEoo6x0o4egRIpQ8Ur+FM2qEoK5NNCmORsKrHsd1hP1zIRRAKpkn1F3dNFeYJTz7YxtBAwxNUakgShwGyCwrpdCQf/TI3jAnUFIii8RMJxc/5aDNyKRdLizMcCOwkMaAhIDjW0ygy7w0FYzu+6bwn5zR/IDl29Jxr9lKEozPjSWIg4A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by SA0PR12MB7463.namprd12.prod.outlook.com (2603:10b6:806:24b::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.14; Wed, 12 Aug
- 2026 16:04:57 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0315.011; Wed, 12 Aug 2026
- 16:04:57 +0000
-Date: Wed, 12 Aug 2026 13:04:55 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: iommu@lists.linux.dev, "Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Jean-Philippe Brucker <jpb@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Robin Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>,
-	David Matlack <dmatlack@google.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
-	Pranjal Shrivastava <praan@google.com>,
-	Samiullah Khawaja <skhawaja@google.com>
-Subject: Re: [PATCH 4/7] iommu/arm-smmu-v3: Remove io-pgtable-arm from sva.c
-Message-ID: <20260812160455.GA746351@nvidia.com>
-References: <0-v1-807e2d1a5efb+e1-iommupt_armv8_jgg@nvidia.com>
- <4-v1-807e2d1a5efb+e1-iommupt_armv8_jgg@nvidia.com>
- <amO8UPHuxrvoiXq7@google.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <amO8UPHuxrvoiXq7@google.com>
-X-ClientProxiedBy: YT3PR01CA0088.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:84::21) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	Wed, 12 Aug 2026 16:11:38 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67CFo1Ds3891813
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 16:11:37 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=XbfAZdLb7Gd/qSUJdj/UERpG
+	GTxWx7AQk4XHSPv4SiM=; b=KGQlhvAP0jr9XkEYhBKvzXRjo3jo54aXUdukIUr6
+	XluiRkeMgXQolEUr9aFip878cPikWcX9lgw5DpllZWms2Vd/a/AE9sw+kdyDrOhF
+	0dyZATXtKB5FywtApFQjwvuGNhlMV2fGv4Z2H9iMuB4r+QlnP0/TqPK/sLAf6LWi
+	DYLK3QcT1Jv3lH+fYxmwKPhyCPqgmary9VOTYYzixKQWmK40ZErIjQBGc6gNJv2N
+	6mOgBfvpPRenzxU8Ae4JAihR6wyOTxum4YsLOxVNH8NLq3LYEgfUOUNBj5z5Yb3F
+	9mIX/hMoAl9li1hAK8AUjJfrr0sW6pMhki4PkAqXxo618g==
+Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g0uts041j-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 16:11:35 +0000 (GMT)
+Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-84885a4fcabso1201986b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 09:11:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1786551095; x=1787155895; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=XbfAZdLb7Gd/qSUJdj/UERpGGTxWx7AQk4XHSPv4SiM=;
+        b=fRPWMKJ2p/+0iQJPJWcLeFVxWkgxG7ZwTrIH5IYMFB6X6cKBb8MM9Li0WYxtl66cTs
+         na5L4vJB1q+D0R9hIxj3ANQOFKnNIa26h2N+IrNHHKSi+XzDvJBlCrOXkCe1w/rOCH9e
+         S4nlrNcknLA6zXxbZFdjREpwKg79LyHQLG+cMDbYFTmvWjhy3g+vC0Du1svwMmKcTL1y
+         ZTY2aqfGTBZ5sU8bJ745n8lg5rp4n26g8VIKm7ghnX+K6n9nZD9uqpTTAMZafkiFkZxk
+         G76tGxuJt5im2XLjua5TNTcBD03MN7qYQNzXdv69TasxFuhmWUucyhXwVQ7/o57Mv2Gf
+         KEtA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786551095; x=1787155895;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=XbfAZdLb7Gd/qSUJdj/UERpGGTxWx7AQk4XHSPv4SiM=;
+        b=nai4mu5MeWDzCq1gmAyGi7HsRdAD777zX0g25yrfM8CwLoMzEd0d9PHlAB57ymP4J1
+         E2FymNsbmT8HRqc3YeEquEkU4jwhYMrxpzUGYwsX/Kl7OrnvKp8CJAkTjJp+dBpGrrYr
+         HPf/cUrPhUnjswruarBzgzkjZ+32uMKLFLR6uwwI1KBzAPAOMHBHbnSiohG/5737FnIY
+         SYseXypIiW/cVDONF7ThUEQrc36rFave/Awesf1JhzyWh76aXXEZfoPqkNnjOfrjDCvj
+         wQRPzrU83FFmzTKK+7IMEdgogmYjEbAy3Jxm0oqhV+7cLtejGKw3lQ13npHThf0lHNFx
+         JHoQ==
+X-Forwarded-Encrypted: i=1; AHgh+RrET+5s25yuzt6EaYxh7iT+Ur8eG7m1+n8qjkeBWY0fP0zoMRsJquOOHBMewXSZnvxm8mr89/9DmQOaRCj3ahiH@lists.infradead.org
+X-Gm-Message-State: AOJu0YxJlgTSlnylSQaFzAIihARzbFpu/wewoDK4tMaofB7Ptph04nK0
+	PpVgdkqxUkR/fZMI+qhMeBTlrrg7QKy5lANwoMMFC1lKkfckh9bIklCbnAflLkU7L/p6C3GnLRm
+	tjjc6NUFtPlgRMM3GNRk3Awoq+nsLWHWv9xV1h4+bIJ7dQKIlKq6joc/j0+rnBujOCyAq7+Hp5j
+	ALXQ==
+X-Gm-Gg: AR+sD12LzTsp4mheLbs6fcrP0fj/P0OAP05Q/inaxQ7i97H/0cW40XKONKcDwcphTe3
+	CdEnV1ZF/rUvijpa1V63N1ODHOKRJsJkA+//YXJauO94dKqLpXGS96vuJIQgNS/8o0a0LFaD76b
+	T1iMvoEKt4i6EZ63/bWk+QJPJkRm19SxRdqfNwW5UJXs1RrtaVxIDmJz8tc5RNJDRgs7GvI3LGc
+	aJs7KyTEMyPYafnZyx+iSn92PYwww/t1p9aYmdELYgxwwm+zh0WnFhlTJv8zlGUFnF/LNmRnQB/
+	RenWku0rBxEVFxTf4/OPOvBJwTV8ZM08cAwliVSuEBVze3a0eo+pxDN4wrggyINO5eFp5Ibtv0O
+	rDDjZ9Ja9u9Xw5A==
+X-Received: by 2002:a05:6a00:1311:b0:847:9c3a:b77f with SMTP id d2e1a72fcca58-84fb55806bamr5807449b3a.35.1786551095113;
+        Wed, 12 Aug 2026 09:11:35 -0700 (PDT)
+X-Received: by 2002:a05:6a00:1311:b0:847:9c3a:b77f with SMTP id d2e1a72fcca58-84fb55806bamr5807350b3a.35.1786551094390;
+        Wed, 12 Aug 2026 09:11:34 -0700 (PDT)
+Received: from localhost ([4.43.230.115])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cbee7d3607bsm941868a12.25.2026.08.12.09.11.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 12 Aug 2026 09:11:32 -0700 (PDT)
+Date: Wed, 12 Aug 2026 18:11:31 +0200
+From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH net-next v2] net: stmmac: improve TSO/GSO queue selection
+Message-ID: <anybM_3Rdg8X8CMs@lore-qca>
+References: <20260808-stmmac_select_queue-tso-fix-v2-1-67175b29772e@oss.qualcomm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|SA0PR12MB7463:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2f742257-3d00-437c-a5c0-08def88b745d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|7416014|366016|1800799024|10067099003|4143699003|11063799006|56012099006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: Pkb5wGCGYiqsll5eOcMNBBVZpuu4SGB6d2iWGbkNIjadA0rrwH90/j7Itul7yB0GnR/FXLcsdk8hiEgm3uDmlXI9hc3u4Z48ZotHGd7qkpuolKXDIXp57B1L03AY14MhhDnDjwGXi9PrvIXjDUCTolUjjoyJb1Dh2iPRzWAwrVQsXsw8JKvWLAM6ruiwgJ6EKC1b7lGqITUA38+ldcLmdZEafDYYzIOd3wZ6jn4Akn+mKEWd5ZaXmLShDEdn8+x6Ci/NKri4O8ne4cahVN+jqujR73a6HBeJ2J4NpZZ4yfbGxhpf/44BqI+Pxm+v+oW0Z+I2aKgyDpJNcU+VcgtMH+6zvwRB4owZMBfeNrx5adnkw+FPhsr8mHwsyX+nlOZdOowHPzTa9Kruqc/K3KCk++9sOh1w46/zlznGHhC8faD9XQ9tes4XH24JMxGQZzOKnhhBrf4O7m6sxWp1NiCIsBHkFp6hkwnxv6CzFmN0SSnRcNONkvcZlQ65epadJAAaptkYYKb0xUD1XrHHX4mLF5ATLul5r+5k8nI0G0YyenZkNcjBFdkwg2Fnv3YHIL17aDaGzJmtuD4ogIjSmJ8ylVTAB2REGpDpIMIC4gIYk4ee1k35skkcmGkLojNCTW4lv0t4Xjwv+U7wVFeB1/KeZIsogR9iUmEo2C8xUZYuZDA=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(366016)(1800799024)(10067099003)(4143699003)(11063799006)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?NQ7izpE7EQeyKgPpbXT9rwt8yo5Oqa1BXb1JYz71Y8t1dlIRovpusKF2SHmu?=
- =?us-ascii?Q?yL4Wg6NNROKxQH1FYbYo7p1CJjG2XwUXFYdNbCuZfL7f/eRcQD8503OVa31F?=
- =?us-ascii?Q?u/rMAdpSzkCv2PvXiDU87pnllcABZ9jsoVO2scAKga8L8H3FH166Izw9A4hZ?=
- =?us-ascii?Q?GwXyPKgBmaK+T0f8wf5yBmvD+uQFN74IubEyiJsA+IJa8KqRrUFeidpdW5F4?=
- =?us-ascii?Q?fbO+plQcRUpBWdyQ1vnuL95MNxg09e+nX1TJW/SIK4oAbZRQ4LUQs74hGkk4?=
- =?us-ascii?Q?Eb/UnGsZC6SdXu/WoiIpzvL8bX7k4aN0D52RHxByBR+xhQKarSpTZsrVMipU?=
- =?us-ascii?Q?LLOT4n3iR7yxr1ax3DJD0JufdiOApPCVbwhl48pTmMVnVRZusFbPV3FcQVTH?=
- =?us-ascii?Q?DtS10k7O58x45TGfa7FD6sr7J94TxjcghH8ZNY9j1GZ7ruxKyEET08kIVsog?=
- =?us-ascii?Q?KbcNstmsDttDANh+j2Aul7yzR2fZ30FxnnZysEqB8ZPubUnYN/npwKTgw29b?=
- =?us-ascii?Q?lfi08ug063DwkRyWFhmLHL8S9I8lJvnKjBr4mFmAIu1AGNjbYLMnVm9IZsBV?=
- =?us-ascii?Q?t6ihxLiqUr69aftz/THnUv2eroSFyuzMmWEYgi+qscmCFvUAwbuI25H50eUm?=
- =?us-ascii?Q?4HsR3ySOS9wJwwXTQHlEpf8npiYbqBf67xkeWyK+Bxxpgx4qX8S0K1q9oabb?=
- =?us-ascii?Q?Enukj/rCcBuwhpZVD8ljFZcKrt/48eZySaFDz31sYZXnCiAx1r2UAALvdhz4?=
- =?us-ascii?Q?kk+pQ5ai0/BWWhlIoyz1EniY+7XHWMBKVD0lcN1H1G6hQm+aiE3HzoUF5mdy?=
- =?us-ascii?Q?P+bCbCTwk6lVhbM7bGDlpIOfloyS+PrIrApPkISeGOBYWaaJWYR/IQ5RFxt3?=
- =?us-ascii?Q?a/6CkDQ4L7vXCpnkh0vznUv7QvsB4Skl2A+yXRrucwR4UVnAy9tuuQzFrO6O?=
- =?us-ascii?Q?W/Ez2Hf/C3sAUBYMvoPOR+6nwR8A/rtF/19fYzOkZ7dpi+5GAomIe2IhOQ6X?=
- =?us-ascii?Q?hxZUFpOlAGszKI3NS538pwId3S3SGzO+yTW413zO5ag4/J91vQ6Bo1q23bjt?=
- =?us-ascii?Q?j5N2KOL/cXqC760fR2zQA8y2uIw656lXeYWT7Gz781GDxHaXOEbzbh87uzaF?=
- =?us-ascii?Q?SPqLJxN4QiCUFTmTXwOwBrPNIl5QB7MtKMSC5Zkds2sLCN16riDVe6l2k+yl?=
- =?us-ascii?Q?WpN9XCEbm2LNGcMCZkj+w40BOqnXcKM/UPlfAICoXzlhLgHIrmN3kLrayUyg?=
- =?us-ascii?Q?UdW1Iks8BcFKtM8Ci2/qR4hsFyd2/UV3GYDje338gX7M3oQctDYGxMOlDjGv?=
- =?us-ascii?Q?l7FdTHErOBus4AWISZ0pRXYaUYfC1kDq0oa5B/v3EXf/1TLUfn+57x3iJ4Bm?=
- =?us-ascii?Q?1BWqpQ1dr08MSkO2WMSp3PjCYbXaXJ/nIUYfccD1P+uxFeI696EPuVGTCQkn?=
- =?us-ascii?Q?l4CwB62rlTGtEKVZ3n1QPi5j/gIf+1djKMyierg53RLiIG3riC3N7bPuc3xd?=
- =?us-ascii?Q?VtmZo5UaIf3VpofAscCR5NQ3jqjYwRRHsA+lDpSfdCvVY5ygnY+yTVUAYnMZ?=
- =?us-ascii?Q?9kGLwH/HWr0Oci1R5MH68FI6OJUjpHuqiK/TpL5AXCBejxIV0CZgv4nZdx9i?=
- =?us-ascii?Q?u06WkOWXixS1PFjtGMPwv8KsrCGMb84E5NUmUFC7KddwdkcWwmRay+XIt2T0?=
- =?us-ascii?Q?5jOq6+YYF7txy8BYQohYajx4JHLdzLCPCkr6nZk61h+tI3HI7xpzRSiLcvL7?=
- =?us-ascii?Q?BW9eBu06tg=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2f742257-3d00-437c-a5c0-08def88b745d
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Aug 2026 16:04:57.2067
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: J4S1RF64quSy4FkCx6DGubwOrMOb4BYFYmgmQC1M4J2aJy2x+3rVBatEAX6IyQPN
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA0PR12MB7463
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="iLzute234UfZUCF8"
+Content-Disposition: inline
+In-Reply-To: <20260808-stmmac_select_queue-tso-fix-v2-1-67175b29772e@oss.qualcomm.com>
+X-Proofpoint-GUID: 1LdkFS0RUA7QnHAohoeoLc6IlpB19iqW
+X-Authority-Analysis: v=2.4 cv=aPDAb79m c=1 sm=1 tr=0 ts=6a7c9b37 cx=c_pps
+ a=mDZGXZTwRPZaeRUbqKGCBw==:117 a=f2H3biQdujjI0Mw2rri0Ng==:17
+ a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22 a=VwQbUJbxAAAA:8
+ a=EUspDBNiAAAA:8 a=eOeSzAT4wrZiS6Nb83cA:9 a=CjuIK1q_8ugA:10
+ a=CIrVCWbjoDn5-O6LZhoA:9 a=zc0IvFSfCIW2DFIPzwfm:22
+X-Proofpoint-ORIG-GUID: 1LdkFS0RUA7QnHAohoeoLc6IlpB19iqW
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODEyMDEzMSBTYWx0ZWRfX13/gwwbKPDhW
+ aSDWWB5pXJb3quqZhg3GF1knPvW1dRzL8T0TNzAKp4LnKe7sJVAIZgRHu5lTkl3cJRbJ1n93h8R
+ +96hUqxGAgI3jaAZwtKziJCHmuXgFsg=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODEyMDEzMSBTYWx0ZWRfXyhkSA6szcZR6
+ BOB1VuPdR9RZ4CltLcCpr8waPaXRqp7ZSUNhburDf46fccBRf5LdB38naipSvM4OTid6d8tvhI3
+ tI/JUSnuWggzO5/LjrydfzLr4jH4RFcqI4KU1o0WjJg/hKIsaYy9qj4Q+cUTidub9y4nQPw5FLO
+ 5BVaXZrpF51z5mRklXpNiinruRYamLpKEZIL6vP3BclQykR601zTWs0A+IjXdPLF9HSSUQf0zsN
+ DnnDEgU0cjpyvQ7JLePX9mQpf1XcLU1L8wQFLd7BbRXTlV5fVXedMa9MZwqGIqLmTNw8xhYPHMi
+ PNsPUumQgxbmxUmrLHcbKe9P6eCH6NJmuw77ePNg5p39qcj7s2hulMXOpujomi8PN9mGskT4rJK
+ ODoUQ7unnzwjWkWkKlqX2d9aE/4ekGR5LB3IFGUnunsD7G8BN6FY9j/SvRzwjHEEjjT5Dqy/7kr
+ KwRn0A86Hgvazsmaeng==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-12_04,2026-08-12_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 spamscore=0 bulkscore=0 suspectscore=0 malwarescore=0
+ adultscore=0 phishscore=0 priorityscore=1501 clxscore=1015 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608120131
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_090505_900561_6B49E5A6 
-X-CRM114-Status: GOOD (  12.94  )
+X-CRM114-CacheID: sfid-20260812_091137_487904_B32AFBD2 
+X-CRM114-Status: GOOD (  30.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,41 +152,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 24, 2026 at 07:26:08PM +0000, Mostafa Saleh wrote:
-> > diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> > index 95186cf84e9abb..99ca96db0d0401 100644
-> > --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> > +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> > @@ -203,6 +203,13 @@ struct arm_vsmmu;
-> >  #define Q_MAX_SZ_SHIFT			(PAGE_SHIFT + MAX_PAGE_ORDER)
-> >  #endif
-> >  
-> > +/* Constants used for CD TCR and STE VTCR fields */
-> > +#define ARM_SMMU_TCR_TG0_4K	0
-> > +#define ARM_SMMU_TCR_TG0_64K	1
-> > +#define ARM_SMMU_TCR_TG0_16K	2
-> > +#define ARM_SMMU_TCR_RGN_WBWA	1
-> > +#define ARM_SMMU_TCR_SH_IS	3
-> 
-> Can the driver use the ones in generic_pt/armv.h instead of
-> re-defining them?
+--iLzute234UfZUCF8
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-No, it cannot include that file from here.
+> GSO (TSO/USO) frames are currently always sent through queue 0 since
+> the driver assumed there was no way to determine which queues are TSO
+> capable. This unconditionally pins all GSO traffic to queue 0, bypassing
+> the per-flow queue distribution and any XPS setup.
+>=20
+> Instead, pick the queue through netdev_pick_tx() and fall back to queue 0
+> only when the selected queue cannot provide hardware checksumming (COE
+> disabled) or, for the GSO types offloaded by hardware, cannot run TSO
+> (TBS enabled), since TSO and TBS cannot coexist on the same channel (see
+> stmmac_tso_channel_permitted()).
+>=20
+> While at it, base the TSO capability check on priv->gso_enabled_types
+> rather than a hardcoded GSO type mask, so it matches the TSO/USO
+> capability actually used by the transmit path (e.g. UDP segmentation is
+> only offloaded on GMAC4).
+>=20
+> Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
 
-However there are ARM architecture header we can use instead:
+please drop this version, I will post v3 to fix some pending issues.
 
-+#include <asm/sysreg.h>
-[..]
-        if (PAGE_SIZE == SZ_64K)
--               return ARM_LPAE_TCR_TG0_64K;
-+               return TCR_EL1_TG0_64K;
-        if (PAGE_SIZE == SZ_16K)
--               return ARM_LPAE_TCR_TG0_16K;
--       return ARM_LPAE_TCR_TG0_4K;
-+               return TCR_EL1_TG0_16K;
-+       return TCR_EL1_TG0_4K;
+Regards,
+Lorenzo
 
-And so on
+> ---
+> Changes in v2:
+> - Take into account when checksum offload is not supported.
+> - Link to v1: https://lore.kernel.org/r/20260807-stmmac_select_queue-tso-=
+fix-v1-1-4c4787bad02b@oss.qualcomm.com
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 18 ++++++++++--------
+>  1 file changed, 10 insertions(+), 8 deletions(-)
+>=20
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/=
+net/ethernet/stmicro/stmmac/stmmac_main.c
+> index b2b7d0242dd3..7a4bd0292966 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -6445,19 +6445,21 @@ static int stmmac_setup_tc(struct net_device *nde=
+v, enum tc_setup_type type,
+>  static u16 stmmac_select_queue(struct net_device *dev, struct sk_buff *s=
+kb,
+>  			       struct net_device *sb_dev)
+>  {
+> -	int gso =3D skb_shinfo(skb)->gso_type;
+> +	u32 queue =3D netdev_pick_tx(dev, skb, NULL) % dev->real_num_tx_queues;
+> +	struct stmmac_priv *priv =3D netdev_priv(dev);
+> =20
+> -	if (gso & (SKB_GSO_TCPV4 | SKB_GSO_TCPV6 | SKB_GSO_UDP_L4)) {
+> -		/*
+> -		 * There is no way to determine the number of TSO/USO
+> -		 * capable Queues. Let's use always the Queue 0
+> -		 * because if TSO/USO is supported then at least this
+> -		 * one will be capable.
+> +	if (skb_is_gso(skb) &&
+> +	    (priv->plat->tx_queues_cfg[queue].coe_unsupported ||
+> +	     ((skb_shinfo(skb)->gso_type & priv->gso_enabled_types) &&
+> +	      !stmmac_tso_channel_permitted(priv, queue)))) {
+> +		/* GSO frames need hardware checksumming. Moreover, hardware
+> +		 * TSO/USO can't run on COE-less or TBS queues. In this case
+> +		 * fall back to the queue reserved for TSO (queue 0).
+>  		 */
+>  		return 0;
+>  	}
+> =20
+> -	return netdev_pick_tx(dev, skb, NULL) % dev->real_num_tx_queues;
+> +	return queue;
+>  }
+> =20
+>  static int stmmac_set_mac_address(struct net_device *ndev, void *addr)
+>=20
+> ---
+> base-commit: 8ac4255c1e0c83d2e1559a18b8918673116fc8d6
+> change-id: 20260807-stmmac_select_queue-tso-fix-06cc586d4022
+>=20
+> Best regards,
+> --=20
+> Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+>=20
 
-Jason
+--iLzute234UfZUCF8
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCanybMwAKCRA6cBh0uS2t
+rLw+AQDYUIq7wRrULOWg4CrNbvX2N9Op34JkkAtDXEeQQ97yNwD/Vpyc3UeG+iXt
+waxrD4T3gZH18kfuM0iEjSHBI2wMBgk=
+=TbQQ
+-----END PGP SIGNATURE-----
+
+--iLzute234UfZUCF8--
 
