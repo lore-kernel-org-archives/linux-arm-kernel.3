@@ -4,68 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC7F3C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 18:02:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11E7DC5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 18:13:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uz27fRQbmLZ3xcxLxL3E+lR1tIUbt6V3Gu1RoS5Srs4=; b=zQmvAJM9xWdi6hMfvx0liwYxiT
-	Kd4rL0BPi128sQ9dPY/f63rIzyK4Xh2/xiH9zehRtUENNnLsGCtWJZj/M8ueWOo0/8kDzIPnx6mTO
-	Np7Y33gaCmpn2EZQXLxfuToNthhBi6xBHgkT+2GUboken/iv47fpal2H9D0aYDVtgV2jlXMHOObMc
-	k8lVMR5yke0MX+bpmjNglkf9O8TCB5Wc1qayrodQzMw+/jwYElyD5hPAV/UVG1YYD6EoJYGxeUF8Z
-	qNBFimM6FczbMqOng1GOFHuikBGHhMCQipEJA1eo7qb+rORme7ZXQbyZNe/IaOecOglMggPT/EgoT
-	9ajkwDPQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JG39/F4KEfF7inLCq813KLTycRSDoXWv8uD9Shm+z+w=; b=Zov+xD5GrWa/92m7SP9m+u7RaJ
+	nmmhvGnGHXb62PXzCm7ks2PuHjMNMAvraSo1BvPuzvI6Qgbsf8XB/vCzGt4xXGnMMbvjKJOt1xLcq
+	5aI2xwSpxWNQ1Oj3kmLGZDorvTQT0PyzO8d8SNv9Vvjl/pg9XxCjwbrlXIrA70IYQPecdSYIw9a4r
+	b66DMvenkN+l0r/TuI5vKM6a3+ZguLmgc3vDhfZ9WH75B0a0jy9QFwxWZbg9ktiwqbvONe3LOF/Rt
+	xfn9Xmt/3NDxvb7uIt6VypwDKdgKC664PncpFQg9uWiHYQB+iQ6/PjlfxP5YH1kWJNcNcZenUBsYP
+	TIHsTAYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuDHd-0000000Gk1n-2UGk;
-	Wed, 12 Aug 2026 18:02:33 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wuDS4-0000000GkgS-3MVg;
+	Wed, 12 Aug 2026 18:13:20 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuDHc-0000000Gk1b-0M7t;
-	Wed, 12 Aug 2026 18:02:32 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6448840278;
-	Wed, 12 Aug 2026 18:02:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 666F81F000E9;
-	Wed, 12 Aug 2026 18:02:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786557751;
-	bh=uz27fRQbmLZ3xcxLxL3E+lR1tIUbt6V3Gu1RoS5Srs4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ocomHOSxOmZSJCeI5nxJuoqhAhytsq3r9cJjlIsVsHbDvLUe+DB7jbdTJa7d88sjd
-	 m4pvknxfMPyLosyg+6KdokWt/qmg+e4yVNmU9JE+S5ZpfW1YlU7CxmQaUE8zYU1bRW
-	 WWRqVUHK3yBJndI+PzfNMb4p8mvK5RCzmBxLV1t4Fdnf+pYellKIpxLnh1ZqbAzbIJ
-	 5Guz1PvzSLP1H1+0amt58f6bMdcctlNxbgECiShUKMNo4TURA717QpgGtiZxojSBuc
-	 0P9IqUCKO9oqritMgalAXEJDzVFRdSQu9p2ec08lrcfBMhi0TJJT07ILInpp1ssJW5
-	 N7H160o46ZxxQ==
-Date: Wed, 12 Aug 2026 19:02:25 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Benson Leung <bleung@chromium.org>,
-	Tzung-Bi Shih <tzungbi@kernel.org>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Jiri Kosina <jikos@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	chrome-platform@lists.linux.dev, linux-input@vger.kernel.org,
-	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 1/9] regulator: core: Add "enable and wait" functions
-Message-ID: <93fe2e3e-7a2a-4aa3-ad27-9e99c602c495@sirena.org.uk>
-References: <20260811122011.3539250-1-wenst@chromium.org>
- <20260811122011.3539250-2-wenst@chromium.org>
- <99ad23ba-f8f2-404b-960e-1c22a20c9ac4@sirena.org.uk>
- <CAGXv+5EeEQM6O8Vb8e8fGjRzMe1icmz=cPm3GoKLxvEO=weVcA@mail.gmail.com>
+	id 1wuDS2-0000000Gkg8-0NDD
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 12 Aug 2026 18:13:19 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67CH1Svw4040648;
+	Wed, 12 Aug 2026 18:13:05 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=JG39/F
+	4KEfF7inLCq813KLTycRSDoXWv8uD9Shm+z+w=; b=YwNlw8fl7VP6ApJJ9JTOa+
+	xGYnbMSSEBo7kGAKG6xasiEnCuJzvzAHYVxm6EFOx8JXzkHp1hU96EYEDzNMyt2E
+	UdtdXO08Z3/9oAL1mQpb3jzja+rp7p6BI9E7W5vu+j9w1sifAQJfWKjTu8YWHkO3
+	MAD/AzF8MuaajxbMsXJSSH3bXK2HDbcNiOqZTm8uvry2UoWq59vp9Cwz7PlDecQE
+	nmxgLAU6P6YkhGBxDqhtJc/RpBV9Z5Q6suFbjQLGT5Q0TV/X3eUT7H3xJ+dCVGeJ
+	81dtdg2Pe+okPkRXb8l0uITWwX7wHa5xKICZslrPTfEE5u3Dmf4YG1VCPpb/Jndw
+	==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fwvq9kx55-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 12 Aug 2026 18:13:04 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 67CIBNw6017516;
+	Wed, 12 Aug 2026 18:13:03 GMT
+Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4fxf5w7fff-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 12 Aug 2026 18:13:03 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
+	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 67CICxJl30343546
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 12 Aug 2026 18:12:59 GMT
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id F09AD20049;
+	Wed, 12 Aug 2026 18:12:58 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id CC28E20040;
+	Wed, 12 Aug 2026 18:12:57 +0000 (GMT)
+Received: from [9.87.128.143] (unknown [9.87.128.143])
+	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Wed, 12 Aug 2026 18:12:57 +0000 (GMT)
+Message-ID: <4ed01037-4df6-49dd-ae2e-fdf83422916e@linux.ibm.com>
+Date: Wed, 12 Aug 2026 20:12:57 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="3qPAsn7wmCMfZq5C"
-Content-Disposition: inline
-In-Reply-To: <CAGXv+5EeEQM6O8Vb8e8fGjRzMe1icmz=cPm3GoKLxvEO=weVcA@mail.gmail.com>
-X-Cookie: !07/11 PDP a ni deppart m'I  !pleH
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 15/33] KVM: s390: Move kvm_host definitions to
+ kvm_host_s390
+To: Steffen Eiden <seiden@linux.ibm.com>, kvm@vger.kernel.org,
+        kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org
+Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter
+ <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Sean Christopherson <seanjc@google.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik
+ <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+References: <20260812153631.3376090-1-seiden@linux.ibm.com>
+ <20260812153631.3376090-16-seiden@linux.ibm.com>
+Content-Language: en-US
+From: Christian Borntraeger <borntraeger@linux.ibm.com>
+In-Reply-To: <20260812153631.3376090-16-seiden@linux.ibm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-GUID: DsaBQ2h3naiO3Vo2oYkoKH1-T5s06xyZ
+X-Authority-Analysis: v=2.4 cv=PbDPQChd c=1 sm=1 tr=0 ts=6a7cb7b1 cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+ a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8
+ a=Vz5mpp0vxluPlbYFWZQA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODEyMDE0NSBTYWx0ZWRfX5sG+8ghjFw9B
+ 3hGlAJaTVJO81fBbX4+2mVesHPIkDLCLDofnQdtRlEBNlPWhPfOTPbAUtdkuaEWpHPV5W1w/LQH
+ bWm/lgB1guMgdtYhR03oqwrVM3tbEDfluvnS8PXg3WaJ7a9ybyTbMyLvfCU36QsnLN+73kR28at
+ iuIwkWN7Jqf+QOo2YHfQeQc4HBrmpDu+MwnRkqIiRpj/b7Z1pa1io2s9qJ1BAas6Xx4eU1KAN5j
+ z4mbMlvz0Mw7gUpdPbJbr3GGwJdxZoNWRGzfT8rnw2yCMuUhtV1ihHiZDmvmoIBkrBEyecEeDkb
+ CHNXWADj/VqN6M2D0jwQ/iTQFgYTwE53Lf5JPMobIHSVkWmXjDeueAdodyA6LVwvAuJlfuPVGzc
+ t46CtWyMxWnE5YD7t+/0eD2MNjSkgrhUrna9dq+w6yuDUi09pFzmiYXb/PMLDJVJtsY8A/GVjC6
+ pLY+kC0knLoNeZKXftQ==
+X-Proofpoint-ORIG-GUID: Fe3qyqHBNR55QIRDPbvdUnSJe2ysgWdj
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODEyMDE0NSBTYWx0ZWRfXwfqwvJ0fRyi2
+ o39pRT2WPS/wYglQns9+vs5SWaIYgpfre+b7y6PuoBJdUBlA7O+53GbxwpzLubT1gesiW1AIuai
+ I3zrqUo0bmy1HyclBaATQIK8HBMk0tM=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-12_05,2026-08-12_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 bulkscore=0 impostorscore=0 malwarescore=0 adultscore=0
+ clxscore=1015 priorityscore=1501 suspectscore=0 phishscore=0
+ lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2608120145
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260812_111318_142312_A107823A 
+X-CRM114-Status: UNSURE (   8.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,42 +150,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Am 12.08.26 um 17:36 schrieb Steffen Eiden:
+> Rename kvm_host.h to kvm_host_s390.h and kvm_host_types.h to
+> kvm_host_s390_types.h to distinguish s390-specific KVM definitions
+> from the generic kvm_host.h that will be used for shared definitions.
+> 
+> No functional change.
+> 
+> Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 
---3qPAsn7wmCMfZq5C
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Reviewed-by: Christian Borntraeger <borntraeger@linux.ibm.com>
 
-On Wed, Aug 12, 2026 at 12:39:42PM +0800, Chen-Yu Tsai wrote:
-> On Tue, Aug 11, 2026 at 8:43=E2=80=AFPM Mark Brown <broonie@kernel.org> w=
-rote:
 
-> > Just take a timestamp during registration if the regulator is enabled,
-> > we check if it's enabled anyway so we may as well take that as the last
-> > time the enable happened.
 
-> Yeah, I just haven't figured out where exactly in regulator_register() to
-> put it. I think it should be after the supplies are resolved, so maybe
-> I could do this in the "final setup" part in regulator_resolve_supply()?
-
-Makes sense I think.  The other place would be while doing the
-constraints but they're optional so might not happen.  Perhaps make the
-one at the end of registration skip if there's a timestamp already?
-
---3qPAsn7wmCMfZq5C
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmp8tTEACgkQJNaLcl1U
-h9B2FAf8D1M22Grx18J9/WwNFIOC9lobobrOEs3T/vwO7/gO1L2DkkIIJ+O6giFE
-pVSJK0jvB/6bFVrLlTTFUvMLxE+WxD/G/kpriivyU1quihyIkp1hVbsCmVQlKcTx
-4gWcO383CQneVfUhZTcFpXFBT8l6pzLP4nT/6El14xC0nf6L2nX1me4vgBSlNhsX
-1vVrWMkUDh7nORWr3MBRcbVICD/95yzWD6uUq64zT2yX8QBFACOGWzt4w5dooGFO
-grAcJyH7t0K0WlFBSogUFX05QKN0eLiAuMEfCuVkpXf5phImv/MiaPaIlEZUxMC+
-lPVvKyLFNzRuafb6rYrFUuevW9Ibaw==
-=gO+2
------END PGP SIGNATURE-----
-
---3qPAsn7wmCMfZq5C--
 
