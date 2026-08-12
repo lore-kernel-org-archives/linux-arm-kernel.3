@@ -4,75 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC30BC5CFEE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 13:31:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6664DC5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 13:32:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xc1dJgNFPhFAUKTazkqSjXkd0S7WfNcp7Fj08b74Ygg=; b=xjOONaCdUbltQXWdON9VJ3hONS
-	UNv88TaBPsMiEC6bu64Nu5WftHl+41NKEcpmuVcbK4SuyLlrVjtAV8+n9+WoNN3e7DnF2sEnH3LVh
-	iPANc/vagallJk0AO6w21cpAB+X7rDhS+P7Or96fO9sAQTj4H5tuPa7BCadj494PL0Omjg6kUsSu5
-	eZdqlYTsus/E0TpuUzavf0YGhO7e3ZaYiB3J/3f7MCSpAU3gxOVunj3sPxkmQlmc2929XoGfUVKmD
-	O07q6w2hh4iZuxYalZdU7D+I5djp8H+600WiLGhMmTcy55XAGJfQnjO5aLSAau+axuSNEB+pw3acQ
-	Y1+MhLfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FHP2adXMKime99fuV2vPCh1LzH4rU7kufd/f7lfaEnw=; b=gHeVZZBe/A3+pDwofyV/x+RT/P
+	uB4PHMlRHDC9tHQdvYPzOq7ZtMeq5uk3T4Iw9uiGfrWwwZlJJOzX8z+JA/v2Kg4dqbhtDEnfDN6fy
+	2QSxrFcXCuyY898AANekrD7iJHZA2MHU67FSZyl8XjleqC9lf1eA9IfpNernJ7Wt9pSlq/KoFlHXS
+	iyUi6Wq0NLln/ru44wzqJXFCsVGrvaXhzD87/ePNyKLlIDUe38UuAn/ps/W/wGQVa4j3ZEkKDDJMN
+	Qu8bFpKxsjiZqQV9g8qa+HUaRdBfMh2jGFBGRCMWOYgqCgdPxvmYZJf16dAW/ZwInOKpHEye3KN/h
+	6Am1lhzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu93P-0000000GI9B-3eQY;
-	Wed, 12 Aug 2026 13:31:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wu94N-0000000GISd-0Z5f;
+	Wed, 12 Aug 2026 13:32:35 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu93M-0000000GI7W-0eUV
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 13:31:32 +0000
+	id 1wu94L-0000000GIRy-2vu3;
+	Wed, 12 Aug 2026 13:32:33 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8339543E69;
-	Wed, 12 Aug 2026 13:31:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA47A1F000E9;
-	Wed, 12 Aug 2026 13:31:28 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1219D6136F;
+	Wed, 12 Aug 2026 13:32:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F2E11F000E9;
+	Wed, 12 Aug 2026 13:32:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786541491;
-	bh=Xc1dJgNFPhFAUKTazkqSjXkd0S7WfNcp7Fj08b74Ygg=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=jYz2EhUqqsIVbliose2b7vSWVnZoG+oLWobO9XZ4zFlEN5l1mlhA2wNmhNhY1n9zc
-	 eORvQj5U0+BQzyMivvh+TdOasKUKekPBHgByiPe4GYc6KrxshY1sePWlYCOYtG8HBH
-	 QlA+C0lSKDzLu0FVXEJHz51VNHXFBFEkquYsvDYcJuyMRM2bnZuS/4ye9qWzgaTZWc
-	 LIBTSKxLrLJZg4NBWNO/zNiVVTdHgzuQN31tdx1YOQKfpJTR9Y9jK8ZqvlQ7lAVN60
-	 6SURZxSjhaHIjyVuSTBVlDYsNzYF6diZmu+0AATx/DqOwcJcmzAuVqRy0cRBNj6QKY
-	 6NN842SF3E1Sg==
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Date: Wed, 12 Aug 2026 14:31:21 +0100
-Subject: [PATCH 2/2] KVM: arm64: nv: Fix null ptr deref in
- kvm_nested_s2_unmap() on S2 teardown
+	s=k20260515; t=1786541552;
+	bh=FHP2adXMKime99fuV2vPCh1LzH4rU7kufd/f7lfaEnw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=NpavJL8RPxuNJNu1SBs6w918KEO6ukKSW8Yr9b/sBXY1tKAiORrsy8wHkCioJ9mG0
+	 AI1YnPz1VkTha8o9/c+ywk6S0XYF+NQ3dEIGv1otvYPcWGlJsiJejKBtCNi/KsmSAn
+	 OxtVJdQftYcSEikfEmlG9IQ8XM4mWTuG/99dE//Kns7WWWxNdo+ESzfQ4+Kcl1KFje
+	 h0Tm5Y5kT0UDsu+m43ZrLjB8RcextlNlh2hC7VOsTV5DBfMpw/J++D/wl/sgU1YKUO
+	 eurYC0DBCLiHBfZBbjxs9LHMumQKPr2NlSaF6mEfbg/7hiVu+CHxB0bp6XL9PdFCAu
+	 4aVIYtH4ZL6zQ==
+Date: Wed, 12 Aug 2026 15:32:24 +0200
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Rosen Penev <rosenp@gmail.com>
+Cc: linux-phy@lists.infradead.org, 
+	Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Kees Cook <kees@kernel.org>, 
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, 
+	"moderated list:ARM/Mediatek USB3 PHY DRIVER" <linux-arm-kernel@lists.infradead.org>, 
+	"moderated list:ARM/Mediatek USB3 PHY DRIVER" <linux-mediatek@lists.infradead.org>, 
+	"open list:ARM/Mediatek SoC support" <linux-kernel@vger.kernel.org>, 
+	"open list:KERNEL HARDENING (not covered by other areas):Keyword:b__counted_by(_le|_be)?b" <linux-hardening@vger.kernel.org>
+Subject: Re: [PATCH] phy: mediatek: tphy: simplify main allocation
+Message-ID: <djjg6jwpuu6l5wcc7zbxfi7j4n5hircmhivxohdtgufzrp6rlb@l6eyfdyfrxix>
+References: <20260304041400.7236-1-rosenp@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260812-kvm-arm-nested-virt-fix-v1-2-4ad883f1b6a5@kernel.org>
-References: <20260812-kvm-arm-nested-virt-fix-v1-0-4ad883f1b6a5@kernel.org>
-In-Reply-To: <20260812-kvm-arm-nested-virt-fix-v1-0-4ad883f1b6a5@kernel.org>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
- Fuad Tabba <tabba@google.com>, Joey Gouly <joey.gouly@arm.com>, 
- Steffen Eiden <seiden@linux.ibm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Zenghui Yu <yuzenghui@huawei.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Jintack Lim <jintack.lim@linaro.org>, 
- Christoffer Dall <christoffer.dall@linaro.org>, 
- Christoffer Dall <christoffer.dall@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
- linux-kernel@vger.kernel.org, "Lorenzo Stoakes (ARM)" <ljs@kernel.org>, 
- stable@vger.kernel.org
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2501; i=ljs@kernel.org;
- h=from:subject:message-id; bh=ebHCoiKax54AQOHYUYR/XNV51O7qILF7crOxXBEsDN0=;
- b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLJqSlcZ7/Ca21D/Ul3XJ+7ZjJVHJ7XKWh4QtxXw2/j6w
- cWDq18Ld5SyMIhxMciKKbI8/yK+P0gkbF7nBX83mDmsTCBDGLg4BWAiIe8Z/nuoKldLLp6x3Trw
- 0KJUsZZDqxbfDBXfJGxw0mVO3KID114yMszZrH1i6renC1W9FHMjTm0y5bg+Z4b4oVe9omKvW9f
- aLGcFAA==
-X-Developer-Key: i=ljs@kernel.org; a=openpgp;
- fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260304041400.7236-1-rosenp@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,69 +75,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 7270cc9157f4 ("KVM: arm64: nv: Handle VNCR_EL2 invalidation from MMU
-notifiers") introduced VNCR_EL2 invalidation in kvm_nested_s2_unmap().
+On Tue, Mar 03, 2026 at 08:14:00PM -0800, Rosen Penev wrote:
+> Use a flexible array member to replace kzalloc + kcalloc with a single
+> kzalloc.
+> 
+> Shuffled some code around as __counted_by requires the counting variable
+> to be assigned first.
+> 
+> Removed NULL check from of_get_match_data as it's never NULL per the
+> device table.
+> 
 
-However at the point of this being performed concurrent stage 2 teardown of
-a nested guest can cause kvm->arch.mmu.pgt to be set to NULL.
+Please do not combine multiple fixes in a single patch. Also, the NULL check can
+be kept for the case of sanity as it wouldn't hurt.
 
-This happens in kvm_flush_shadow_all() -> kvm_arch_flush_shadow_all() ->
-kvm_free_stage2_pgd() and is performed under the kvm->mmu_lock.
-
-Commit ec14c272408a ("KVM: arm64: nv: Unmap/flush shadow stage 2 page
-tables") introduced the teardown of the entire nested MMU range, which then
-invokes stage2_apply_range() with resched=true:
-
-mmu_notifier_invalidate_range_start()
-  -> ... -> kvm_mmu_notifier_invalidate_range_start()
-    -> kvm_mmu_unmap_gfn_range()
-      -> kvm_unmap_gfn_range()
-        -> kvm_nested_s2_unmap()
-          -> kvm_stage2_unmap_range()
-            -> __unmap_stage2_range()
-                -> stage2_apply_range()
-
-This means that stage2_apply_range() can drop the kvm->mmu_lock and thus
-concurrent progress can be made in lockstep with
-kvm_arch_flush_shadow_all().
-
-If kvm_arch_flush_shadow_all() advances ahead of stage2_apply_range() and
-completes its operation it guarantees a NULL pointer deref.
-
-Since kvm_free_stage2_pgd() is performed under the kvm->mmu_lock this will
-either be observed NULL or not and serialised against
-kvm_free_stage2_pgd().
-
-Resolve the issue by explicitly checking for a NULL value. Since this
-shouldn't be possible if blocking is not allowed, raise a warning if it is
-ever NULL in this case.
-
-Fixes: 7270cc9157f4 ("KVM: arm64: nv: Handle VNCR_EL2 invalidation from MMU notifiers")
-Cc: stable@vger.kernel.org
-Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
----
- arch/arm64/kvm/nested.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index 17123f0b6dab..9fc0b1696dcb 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -1295,7 +1295,11 @@ void kvm_nested_s2_unmap(struct kvm *kvm, bool may_block)
- 			kvm_stage2_unmap_range(mmu, 0, kvm_phys_size(mmu), may_block);
- 	}
- 
--	kvm_invalidate_vncr_ipa(kvm, 0, BIT(kvm->arch.mmu.pgt->ia_bits));
-+	/* NULL pgt should only be possible if raced when mmu_lock dropped. */
-+	if (kvm->arch.mmu.pgt)
-+		kvm_invalidate_vncr_ipa(kvm, 0, BIT(kvm->arch.mmu.pgt->ia_bits));
-+	else
-+		WARN_ON(!may_block);
- }
- 
- void kvm_nested_s2_flush(struct kvm *kvm)
+- Mani
 
 -- 
-2.55.0
-
+மணிவண்ணன் சதாசிவம்
 
