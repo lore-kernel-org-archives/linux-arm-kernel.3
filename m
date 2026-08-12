@@ -4,140 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57B7FC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 14:20:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 982C9C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 14:25:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=An4zeuydARqKnZALFmdBlJulO67EiBLBol4gK5VRiKg=; b=O8/1tt/t73hAQfeLVW1XaUGAHN
-	zMIImelFhCLYeBfSIS7IYblw2ipuqn2FcdcNzHerRix3pvahjU362uVo0wzuLKH5pKXVsNIlgD2Y9
-	TU3Eaqkph74B/bmVSZG9Ik8fhTkJRZqN/MY6AwE+T0xcpeCGcvYn/z+iImhLXYS2m0+bK18STPGn7
-	ytYoHBMxkLNyvFjJN+blBOEqPD+y8pyTIlirca9p5XxP/BWLye0cs2wq9oS+cHma8R5jRkPyZ/Sph
-	OwmRifXTzSs7FooaTkOP7zXkrJcdC0WsllxyH3Idu18qZndrLejyHxS6ZoUYHEskvlEbKlS9Y/Yft
-	AefMSRNg==;
+	bh=JSqQE2i3L0CpveRAmURpu582s2nkWDSB3uYX5ZL+2T8=; b=OIeOyKe2ruyMyL6EIHLzYfhLtX
+	GB6Lpe6k2sdtTclFSw0wVk0CY+hN3gG9nyBAuWFkeKA7LeowmCX4lEGtnhoJh40xVQQLWMCB6ra8t
+	Nugo1WVxYUXeHTKsoeNmJoCGYX+vFLE+43cBLyT23tMVjNAJEkdNyEe035dnMHUrqQdrgEPro9GLh
+	B2i+ZcmuArjaU9eWVdt5Lt9IwArELpTknZziROCEw8+CvE9u1IfLMFSpK8y2+o6+2HvQjxTqu83Rm
+	mk6p7h3oErc2z0uEztQkZ/WXww7pxTh0A3Ca/svnBcEYNB2jdyFOahBrubKX1ioyGKQVy8w7oOZvy
+	k4IwnfQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu9ot-0000000GNVk-2eUL;
-	Wed, 12 Aug 2026 14:20:39 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1wu9tb-0000000GNwk-1ES0;
+	Wed, 12 Aug 2026 14:25:31 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu9or-0000000GNVO-29fD
+	id 1wu9tZ-0000000GNwb-1loO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 14:20:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UdMFGXYaeMiz54Lkc8/G7pmRFgOp6YPoqG4hkd3X8wNiSb8boKveCGrbfaXiWd+kMZC/CSny0snGp7ta8V7ulUgmdavuelMcfeYIr8d3m0fU0pW2UGpX/yfDSm1/23fDCce8vOUwyXMLh9Rt6i4GDugXebWWHLtYG66hhnP8u9kJRMBVWBJejwE2eP1y3Cp0FOKv/lsM2n25RQPN7BvV/n12/2XNxX8fD1BH2zFa6IIo5iwwF5Oj2OBXdy0PAnIUHk5Jgki5Yzu4wmRuJ9ui1DAKUpKgxzv3P6s9CVupgJtM8nHxnz+AxKgOu0WmEZ6WVn4f4RwLjy21UD0QnWjvPg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=An4zeuydARqKnZALFmdBlJulO67EiBLBol4gK5VRiKg=;
- b=tDNIpEz59RiXB49be+mek9roPtpCgPxNJ51cY6Ah/cUmJrQUMUYadepoYniYR9mkkXdax2W4TlPNBIyBDtgbUcffNm7y6Mc4rTj/Cy3osW8XlI9Te+h9ZbEhZD+TR8Z+506/eir+uQjfsMQdzaBbjIYE2qdda5f3pyoXR15x3Xxm31rrYrOv4h9nUiBJqk5fxmTTndhOT0Vp0SuLzN7lT+WMpMBxfWMfoTNMuSiS/rC9/2fhe0EvB7fM3+zgBdJJ9W4ok949X0X5Jc22yWT6UKzvgX9ZcdK4mFmDwK9Z6QRmnVlGIPf1I+GcStesNO0xJ9I9E6bwuqBvx6hlMfkiSw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=An4zeuydARqKnZALFmdBlJulO67EiBLBol4gK5VRiKg=;
- b=gVmwqn/msOikpfTwSCso/stG4wbLmLvnPwgoV0R5HfIXtfnMUvo2nFNEFfk46+U9ldHfsafUPPkwapwD/8Q9ue0JKH0xaYm7crETZb1jmZrGuxQekZPXAcD+CxEYdKlIPWN9H+ij7O8qlUWD6QRuy1TrmwlIue3prQAtE6r2XDreqB3R4Pt1ATVrwHaVoi2HMIGomD8+F1eYeEgOV3mhHFKrPUEp7gFUxQ0LdAWfj8Aoz0NBmICneWsHGSje9oKNHP8S1R/eB6VCSsrIRc7fyQqKYmQTmUfj2naLGXPvw9nQO8jL2oBtw8MVA2P8izKpqOdQziUYA6M5f4/SJzpSqA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AM0PR04MB6978.eurprd04.prod.outlook.com (2603:10a6:208:17d::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.25; Wed, 12 Aug
- 2026 14:20:31 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0315.012; Wed, 12 Aug 2026
- 14:20:31 +0000
-Date: Wed, 12 Aug 2026 09:20:20 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Francesco Dolcini <francesco@dolcini.it>
-Cc: Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 2/4] drm: mxsfb: Add optional DPI output bus-width
- configuration
-Message-ID: <anyBJMt6U2zXKlCh@SMW015318>
-References: <20260812132954.148571-1-francesco@dolcini.it>
- <20260812132954.148571-3-francesco@dolcini.it>
+	Wed, 12 Aug 2026 14:25:29 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id CB3FE60A9E;
+	Wed, 12 Aug 2026 14:25:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D1CB1F00A3A;
+	Wed, 12 Aug 2026 14:25:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786544728;
+	bh=JSqQE2i3L0CpveRAmURpu582s2nkWDSB3uYX5ZL+2T8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Dmmx6ZWn/yq9Y7rIljHVtJ0HibDK0DhGwtOSaf7ok9f/Lkx2GTab1x6/Po/WqrsGO
+	 Ra5AYCnvY04w0XqOtX9O3BzOD3iSGL2VBg7X1yPn0tkLT2ZP7a0LigcolCG3GNKKz2
+	 9BD3WrkXkU7J3dRO6g5fxUS7ekzWJbodvB8VY3u3G8cMgSKvDGR9VfprMr2JOUqWvU
+	 esdYoSIMpCWDOMAr3yDR/pqeaOcDxziojDhnLHD40NOeiLc3SIDPlKfVfFcel7Fu6K
+	 USWmFqCgZ+32oVuFAYxob7DH7W8Ag788QJaM/MLWtW+WiV8p5q3E7XPAq2VKnIbsDl
+	 zt5rnw30klA5g==
+Date: Wed, 12 Aug 2026 15:25:24 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Joey Gouly <joey.gouly@arm.com>, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, Steffen Eiden <seiden@linux.ibm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Fuad Tabba <fuad.tabba@linux.dev>, 
+	Shen Yongchao <grayhat@foxmail.com>, Karl Mehltretter <kmehltretter@gmail.com>, 
+	stable@vger.kernel.org
+Subject: Re: [PATCH] KVM: arm64: nv: Fix life cycle of the nested_mmus array
+Message-ID: <anx9wCmr7mW7U58H@gremlin>
+References: <20260811122057.754772-1-maz@kernel.org>
+ <anxXP_ZTZb_iKu1w@e143914.arm.com>
+ <86ik5f1lon.wl-maz@kernel.org>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260812132954.148571-3-francesco@dolcini.it>
-X-ClientProxiedBy: PH7PR10CA0007.namprd10.prod.outlook.com
- (2603:10b6:510:23d::7) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM0PR04MB6978:EE_
-X-MS-Office365-Filtering-Correlation-Id: c7b74a6d-892b-4640-7183-08def87cddb8
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|7416014|23010399003|376014|1800799024|22082099003|18002099003|11063799006|4143699003|10067099003|56012099006|3023799007;
-X-Microsoft-Antispam-Message-Info: oA56ete6xLyhz9RXXKEm3LJSk6rv+IywT7Q8+0pk3dUZ7ANTc5FFU/HtYM14S1wqq8SNOa8BLg09P0plSifpaa0KZnnYEMzG+FgmeaionX7FpT3jl9YpVBqayoRqG1T7AGmZ131Y/FBS/QmnfLa+63wJNXbCyad/sojMpqxwEud29QtRL6L6GZ18cseTxAyoDIGGwllEMyiAgnWsg9t1/jNkRFixlOemf3AumQCHWf32DQuPALl7OXJKnYojyZKy++tylTUBjIccXtHeJQle3EYDn8l73VXCKUaccIJ/WeGQeARigA23yWxmooOztGCUtSd7cW6/aTBNnxjkqkB7XtTs3wWgXVqc5R9nbxaoNwVjrMrY1r1peqQ5STGXOsnhVIULFo5XSZjg0o2PwegoRqxP0GP++/85MT4eKKSxH82RSXmnw+euFRPmmBKY8UhQX2MR1wQPmqn+wQ58EQprSfCWxq/023kz2BdXEDWGARxhlotSq+parWaxBS6DOgw0/l5/Kzit9uo0qu2WDmh8I4ws4ooiaJftZnxahBse7gdhBy9UXNUHJnzbdOWbs6PqWDiguc3eD2It64Ca/05s10dpBjtl54sFwmwGE8s0P9EgMpa8j4GrSonOA1YGfx7Pt/dF0ouZ+GJGsrLJNKcqpdYDUjiyHQGcYPNEuJvb1Gw=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(7416014)(23010399003)(376014)(1800799024)(22082099003)(18002099003)(11063799006)(4143699003)(10067099003)(56012099006)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ZLvgR4RgqAB2Bkf4O6inC4uRbfrGE5kd9UP9Fwtp2U3xr2e7Il10Ckop8XzK?=
- =?us-ascii?Q?o9pGq30y2XLAbVfN7s5eNawOTcd5ykY8dqkbx7imlMbbeAEWJavTzWQtL7aN?=
- =?us-ascii?Q?SctEOnSvyWMujCaDVs33P+YDhPqIgnPX37OginC/fgCazmHjlYJmoNx9b5vE?=
- =?us-ascii?Q?lXc1F+qj4oS6lB8j9SQtPjbgBT4gBlgQ2YygtsILfoQ/VTxhyTTVM9CZ2rG6?=
- =?us-ascii?Q?uRCaRMlBUNFefVk48sccgtJZsLZhfJhcqWQAYahjTe1igenP2CSLFj+5uD8T?=
- =?us-ascii?Q?7SQBOoG4C6TNLk+RHGQkDB+yxCu2uoRRPq3QwLpK+O53NatvtqaLwthdIDSm?=
- =?us-ascii?Q?aU67CPTZgyd7G1KaPxDuiubKRu+YEbgEW47/kQkxlgjbzZDtdjPkgZvbS0Fn?=
- =?us-ascii?Q?xrSPH3u4BjhAHHwswwPLE8pFv7gTCirIVS7qybGtYZf7SeETweOcZY1s8NkI?=
- =?us-ascii?Q?mDaGielD3YfbMUxbP1EfnAr/3DV5rGpiab3KwKdHpmY0lGSdOJnF21e2rRKV?=
- =?us-ascii?Q?GLIBOZ6aQq/JQPTEBgvEXnl58HKf/teqfSBrLVqY74GCFbq2cOfJLdC6uqCT?=
- =?us-ascii?Q?WOIkS5u+Rdy0hg4wyGSIfySFr3z0Z7WdOuH3Ig4m+wyQeppXFkjU/df8DpHh?=
- =?us-ascii?Q?tukwboLTyFI9UWqhk3TSUAJbmVM4Is7pFtni1e8i/oeC9T6vL9xtGWKtwtQo?=
- =?us-ascii?Q?f0v1X1rRf2GRFAEsbJIuQxXB3H8fGubrbWl8G8h3midpkiK9ZEVNMa+lsUm7?=
- =?us-ascii?Q?1iwJQEl+FI+Jc7PlbZPnM+iGG2PnGiFHm9s807VnUcxrTkzH7fshWngrpqwv?=
- =?us-ascii?Q?IX+nRjqnl7wi/SfFPYywEJzImPEjP/Hnjby6TsTSCThEAcPqKu4WlKrD4AnK?=
- =?us-ascii?Q?wPryiUPCoyngBw+DzP6LqzCZPh5siPWk1aaIbPES2LmgQVTGn9NzB2go8R+V?=
- =?us-ascii?Q?tc6vUPGsvXBvsJd0DkyAp3m+9IhkE5Gv2tiy1L+BfGn2bnNms7N2W6xBqfQx?=
- =?us-ascii?Q?t+Vrr9SZIgzSsyWxjOc49x+z5SYZpuAaIjWnGabQaL8tj0ckzQYomjcUupqd?=
- =?us-ascii?Q?dPz6yaF+tE+XHMMyfDu2tWlSBFJT31dLKtGDh6QmqeYrvIreEFERygQESw83?=
- =?us-ascii?Q?I8fsBswKZICLIumVIRL1eF9IwWAHa94ax2PzWVR8JiYtEykLZXT0Boq7uQuW?=
- =?us-ascii?Q?5uvK7kjnK0W8Mj/I48Xi6lhQJJ3E2G1r09B9ie54BsoNZiczraxJTroq+ZDN?=
- =?us-ascii?Q?JLCqmcEAI+8Vnm0Zd2jBUkQAl+Ql6z7MHZviAOf/75miYuTDkVJ0FXfr80d1?=
- =?us-ascii?Q?CDs78ObV17duaxB49m1N9YBOhB6tmzuIqOTg8v1yv1ks+F+UM6AMBW2PLB9A?=
- =?us-ascii?Q?U0UwYqwHUUq2iDzYBTLN0mMC1TsvMVkF6wMqzHX3LdM5XQs3M9yeIXEu8KSC?=
- =?us-ascii?Q?aX/PxLaWsR+rM8eYuU8YG9fGAX+Wvlk2LqeB9WjhVw7GqtdEb9YI27Fmpyeo?=
- =?us-ascii?Q?8dnqjbz1dia8Cym4EHjlKhx9egyr4DXlUHyqogvFvfYwTyqYgYV/k2thGVR1?=
- =?us-ascii?Q?MILbHspsVGu1Btk74Wg730qPoDHkfZHDOwIpeEifnzFD/0lvj8ZiL2TgY4mu?=
- =?us-ascii?Q?nyDJ7V1nJxYAbhzGsp7vuZa3pFbLmEWDa+aPD3YtByPpBBb0iF0XPSljJRqW?=
- =?us-ascii?Q?PdEMTfrq8ERwBHqazMlMSeXcy7VX1Rvjj8CxXMTlp5xwDpEaCjNmA30/nPzA?=
- =?us-ascii?Q?UhiqXMLmWZmVZT9Npsr1ZUcL0F45n1K0uN9tStesgy4hYamFBrma?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c7b74a6d-892b-4640-7183-08def87cddb8
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Aug 2026 14:20:31.5845
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 44WUBCeUJNrRwfQ9aMEf0K/agW4SfbA/PQK/lt2QBg+ES6+QLU1ZdhaiA4D2TFACjiGOU1yOA0Ay7NNlAXgxyRyD3oDAbYymG+7jWUQErNphTXTONgxe4/T/pGUuqEqQ
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB6978
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_072037_557051_375D7A11 
-X-CRM114-Status: GOOD (  32.08  )
+In-Reply-To: <86ik5f1lon.wl-maz@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,135 +74,313 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 12, 2026 at 03:29:50PM +0200, Francesco Dolcini wrote:
-> From: Francesco Dolcini <francesco.dolcini@toradex.com>
+On Wed, Aug 12, 2026 at 03:02:32PM +0100, Marc Zyngier wrote:
+> Hi Joey,
 >
-> LCDIF programs LCD_DATABUS_WIDTH from the selected media bus format. The
-> format reported by the downstream panel or bridge describes the display
-> input, but it does not describe how the LCDIF data pins are physically
-> wired on the board.
+> On Wed, 12 Aug 2026 12:21:35 +0100,
+> Joey Gouly <joey.gouly@arm.com> wrote:
+> >
+> > Hi,
+> >
+> > Small comment / suggestion.
+> >
+> > On Tue, Aug 11, 2026 at 01:20:57PM +0100, Marc Zyngier wrote:
+> > > The nested_mmus array holds the shadow page tables that are used when
+> > > a guest is running a nested context. These structures are allocated on
+> > > VCPU_INIT for whole guest, which implies that they may have to be
+> > > relocated as the array grows.
+> > >
+> > > Should a VCPU_INIT occur whilst a vcpu is actively running an L2 and
+> > > that the allocation requires relocation, that vcpu will still be
+> > > running with a pointer to the previous structure, which will have been
+> > > freed.
+> > >
+> > > Fix this by turning the array of structures to an array of pointers,
+> > > which is now allocated at VM creation, sized to the absolute maximum
+> > > that KVM can handle.
+> > >
+> > > In turn, each VCPU_INIT contributes S2_MMU_PER_VCPU to the pool. No
+> > > reallocation is ever performed, and the life cycle of each object is
+> > > much clearer:
+> > >
+> > > - the nested_mmus array is allocated in kvm_init_nested(), and freed
+> > >   in kvm_arch_destroy_vm()
+> > >
+> > > - s2_mmu structures are allocated in kvm_vcpu_init_nested(), and freed
+> > >   on kvm_arch_flush_shadow_all()
+> > >
+> > > Finally, the freeing of vcpu->arch.vncr_array is made consistent
+> > > rather than being done on some failure paths, but not others.
+> > >
+> > > Fixes: 4f128f8e1aaa ("KVM: arm64: nv: Support multiple nested Stage-2 mmu structures")
+> > > Reported-by: Shen Yongchao <grayhat@foxmail.com>
+> > > Reported-by: Karl Mehltretter <kmehltretter@gmail.com>
+> > > Suggested-by: Karl Mehltretter <kmehltretter@gmail.com>
+> > > Link: https://lore.kernel.org/r/20260803224405.41468-1-kmehltretter@gmail.com
+> > > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > > Cc: stable@vger.kernel.org
+> > > ---
+> > >
+> > > Notes:
+> > >     Sending this as a first class patch, since the other approaches were even
+> > >     uglier than this one. I'm still displeased with kvm_arch_flush_shadow_all(),
+> > >     but that's a step in the direction of tightening it:
+> > >
+> > >  arch/arm64/include/asm/kvm_host.h   |  2 +-
+> > >  arch/arm64/include/asm/kvm_nested.h |  2 +-
+> > >  arch/arm64/kvm/arm.c                |  8 ++-
+> > >  arch/arm64/kvm/nested.c             | 91 +++++++++++++----------------
+> > >  4 files changed, 49 insertions(+), 54 deletions(-)
+> > >
+> > [..]
+> > > diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+> > > index 20af94197a8a7..50d6dcc75582c 100644
+> > > --- a/arch/arm64/kvm/nested.c
+> > > +++ b/arch/arm64/kvm/nested.c
+> > > @@ -44,11 +44,15 @@ struct vncr_tlb {
+> > >   */
+> > >  #define S2_MMU_PER_VCPU		2
+> > >
+> > > -void kvm_init_nested(struct kvm *kvm)
+> > > +int kvm_init_nested(struct kvm *kvm)
+> > >  {
+> > > -	kvm->arch.nested_mmus = NULL;
+> > > +	kvm->arch.nested_mmus = kvmalloc_array(KVM_MAX_VCPUS * S2_MMU_PER_VCPU,
+> > > +					       sizeof(struct s2_mmu *),
+> > > +					       GFP_KERNEL_ACCOUNT);
+> > >  	kvm->arch.nested_mmus_size = 0;
+> > >  	atomic_set(&kvm->arch.vncr_tlb_count, 0);
+> > > +
+> > > +	return kvm->arch.nested_mmus ? 0 : -ENOMEM;
+> > >  }
+> > >
+> > >  static int init_nested_s2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu)
+> > > @@ -69,8 +73,7 @@ static int init_nested_s2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu)
+> > >  int kvm_vcpu_init_nested(struct kvm_vcpu *vcpu)
+> > >  {
+> > >  	struct kvm *kvm = vcpu->kvm;
+> > > -	struct kvm_s2_mmu *tmp;
+> > > -	int num_mmus, ret = 0;
+> > > +	int num_mmus;
+> > >
+> > >  	if (test_bit(KVM_ARM_VCPU_HAS_EL2_E2H0, kvm->arch.vcpu_features) &&
+> > >  	    !cpus_have_final_cap(ARM64_HAS_HCR_NV1))
+> > > @@ -83,51 +86,40 @@ int kvm_vcpu_init_nested(struct kvm_vcpu *vcpu)
+> > >  	if (!vcpu->arch.ctxt.vncr_array)
+> > >  		return -ENOMEM;
+> > >
+> > > -	/*
+> > > -	 * Let's treat memory allocation failures as benign: If we fail to
+> > > -	 * allocate anything, return an error and keep the allocated array
+> > > -	 * alive. Userspace may try to recover by initializing the vcpu
+> > > -	 * again, and there is no reason to affect the whole VM for this.
+> > > -	 */
+> > >  	num_mmus = atomic_read(&kvm->online_vcpus) * S2_MMU_PER_VCPU;
+> > >
+> > >  	if (num_mmus > kvm->arch.nested_mmus_size) {
+> >
+> > Sashiko.dev complained about a possible race here, but looking at the
+> > code, it seems incorrect?
+> >
+> > Unsure why it didn't e-mail it.
+> > https://sashiko.dev/#/patchset/20260811122057.754772-1-maz%40kernel.org
+> >
+> > It seems that this code is serialised / protected by
+> > kvm->arch.config_lock in __kvm_vcpu_set_target() (which is the only
+> > caller of kvm_vcpu_init_nested() via kvm_setup_vcpu())
 >
-> These can differ. For example, a 16-bit LCDIF bus can be connected to a
-> 24-bit display by wiring the available color bits to the corresponding
-> display inputs. In that case, using the display's 24-bit format to
-> configure LCDIF selects the wrong data-bus mode and changes the assignment
-> of color bits on the LCD_DATA pins.
->
-> Read the optional bus-width endpoint property from the LCDIF output port
-> and use it to select the media bus format used to configure LCDIF. This
-> allows the LCDIF bus mode to describe the physical interface
-> independently of the downstream display format.
->
-> When the optional property is absent, or it has an invalid value, continue
-> using the format reported by the downstream display device, preserving
-> the existing behavior. The code is not validating the DT for
-> correctness and just fall back to the previous behavior in case of
-> errors.
->
-> Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
-> ---
+> Yeah, this looks like Sashiko went south again. You'd hope it'd be
+> able to follow such a simple code path...
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Well, I wonder if this is onto _something_ though maybe badly expressed.
 
-> v3: improve commit message and make it clear that the code assumes that
->     the DT is correct, when the DT contains an invalid property value,
->     the code safely fall-back to the previous behavior
-> v2: use the common bus-width property instead of the legacy interface-pix-fmt
-> ---
->  drivers/gpu/drm/mxsfb/mxsfb_drv.c | 24 ++++++++++++++++++++++++
->  drivers/gpu/drm/mxsfb/mxsfb_drv.h |  2 ++
->  drivers/gpu/drm/mxsfb/mxsfb_kms.c | 12 ++++++++++++
->  3 files changed, 38 insertions(+)
+The window is probably super small really but a concurrent MMU notifier
+event could possibly get confused because of the nested_mmus growth, and
+presumably that doesn't also take kvm->arch.config_lock I don't think?
+
+I attach my original patch that Marc's patch supercedes which goes into
+infinite probably-OTT detail (still learning so trying to think through
+things a lot :) but maybe useful there for reference.
+
+I think Marc's patch fixes this in any case :)
+
 >
-> diff --git a/drivers/gpu/drm/mxsfb/mxsfb_drv.c b/drivers/gpu/drm/mxsfb/mxsfb_drv.c
-> index 8b4a500347fb..f8ecc8bbd63c 100644
-> --- a/drivers/gpu/drm/mxsfb/mxsfb_drv.c
-> +++ b/drivers/gpu/drm/mxsfb/mxsfb_drv.c
-> @@ -12,7 +12,10 @@
->  #include <linux/clk.h>
->  #include <linux/dma-mapping.h>
->  #include <linux/io.h>
-> +#include <linux/media-bus-format.h>
->  #include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/of_graph.h>
->  #include <linux/platform_device.h>
->  #include <linux/property.h>
->  #include <linux/pm_runtime.h>
-> @@ -211,7 +214,10 @@ static int mxsfb_load(struct drm_device *drm,
->  		      const struct mxsfb_devdata *devdata)
->  {
->  	struct platform_device *pdev = to_platform_device(drm->dev);
-> +	struct device_node *np = pdev->dev.of_node;
->  	struct mxsfb_drm_private *mxsfb;
-> +	struct device_node *ep;
-> +	u32 bus_width = 0;
->  	int ret;
+> >
+> > So maybe a
+> >
+> > 	lockdep_assert_held(&kvm->arch.config_lock);
+> >
+> > makes sense in kvm_vcpu_init_nested()?
 >
->  	mxsfb = devm_kzalloc(&pdev->dev, sizeof(*mxsfb), GFP_KERNEL);
-> @@ -238,6 +244,24 @@ static int mxsfb_load(struct drm_device *drm,
->  	if (IS_ERR(mxsfb->clk_disp_axi))
->  		mxsfb->clk_disp_axi = NULL;
+> Sure, that's never a bad thing to add.
+
+This is still valuable though I think!
+
+We have a lot of asserts like this in core mm, really helpful practice I think.
+
+I wonder if it'd be helpful to have helper functons for this, e.g.:
+
+static inline void kvm_assert_config_locked(const struct kvm *kvm)
+{
+	lockdep_assert_held(&kvm->arch.config_lock);
+}
+
+static inline void kvm_assert_mmu_read_locked(const struct kvm *kvm)
+{
+	lockdep_assert_held_read(&kvm->mmu_lock);
+}
+
+static inline void kvm_assert_mmu_write_locked(const struct kvm *kvm)
+{
+	lockdep_assert_held_write(&kvm->mmu_lock);
+}
+
+etc.?
+
 >
-> +	ep = of_graph_get_next_endpoint(np, NULL);
-> +	if (ep) {
-> +		of_property_read_u32(ep, "bus-width", &bus_width);
-> +		of_node_put(ep);
-> +	}
-> +
-> +	switch (bus_width) {
-> +	case 16:
-> +		mxsfb->bus_format = MEDIA_BUS_FMT_RGB565_1X16;
-> +		break;
-> +	case 18:
-> +		mxsfb->bus_format = MEDIA_BUS_FMT_RGB666_1X18;
-> +		break;
-> +	case 24:
-> +		mxsfb->bus_format = MEDIA_BUS_FMT_RGB888_1X24;
-> +		break;
-> +	}
-> +
->  	ret = dma_set_mask_and_coherent(drm->dev, DMA_BIT_MASK(32));
->  	if (ret)
->  		return ret;
-> diff --git a/drivers/gpu/drm/mxsfb/mxsfb_drv.h b/drivers/gpu/drm/mxsfb/mxsfb_drv.h
-> index d160d921b25f..bdc47ce5be79 100644
-> --- a/drivers/gpu/drm/mxsfb/mxsfb_drv.h
-> +++ b/drivers/gpu/drm/mxsfb/mxsfb_drv.h
-> @@ -46,6 +46,8 @@ struct mxsfb_drm_private {
->  	struct drm_connector		*connector;
->  	struct drm_bridge		*bridge;
+> Thanks,
 >
-> +	u32				bus_format;
-> +
->  	bool				crc_active;
->  };
+> 	M.
 >
-> diff --git a/drivers/gpu/drm/mxsfb/mxsfb_kms.c b/drivers/gpu/drm/mxsfb/mxsfb_kms.c
-> index d8ebebc5314b..1d78c486d147 100644
-> --- a/drivers/gpu/drm/mxsfb/mxsfb_kms.c
-> +++ b/drivers/gpu/drm/mxsfb/mxsfb_kms.c
-> @@ -386,6 +386,18 @@ static void mxsfb_crtc_atomic_enable(struct drm_crtc *crtc,
->  	if (!bus_format)
->  		bus_format = MEDIA_BUS_FMT_RGB888_1X24;
->
-> +	/*
-> +	 * Prefer the bus format derived from the OF graph endpoint "bus-width"
-> +	 * property when available. Otherwise, use the bus format reported by
-> +	 * the downstream bridge or panel.
-> +	 *
-> +	 * This supports mismatched display and interface bus widths, such as
-> +	 * a 24-bit panel connected through an 18-bit interface or an 18-bit
-> +	 * panel connected through a 24-bit interface.
-> +	 */
-> +	if (mxsfb->bus_format)
-> +		bus_format = mxsfb->bus_format;
-> +
->  	mxsfb_crtc_mode_set_nofb(mxsfb, bridge_state, bus_format);
->
->  	/* Write cur_buf as well to avoid an initial corrupt frame */
 > --
-> 2.47.3
+> Without deviation from the norm, progress is not possible.
 >
->
+
+--
+Cheers, Lorenzo
+
+----8<----
+From c0ca5794fcfc85d5d5db822999496419d4417522 Mon Sep 17 00:00:00 2001
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Date: Tue, 11 Aug 2026 19:34:56 +0100
+Subject: [PATCH] KVM: arm64: nv: avoid race on nested MMU growth
+
+When starting up a new VM, kvm_vcpu_init_nested() sets up each vCPU:
+
+kvm_arch_vcpu_ioctl()
+  -> kvm_arch_vcpu_ioctl_vcpu_init()
+    -> kvm_vcpu_set_target()
+      -> __kvm_vcpu_set_target()
+        -> kvm_setup_vcpu()
+          -> kvm_vcpu_init_nested()
+
+With nested virtualisation this can result in nested_mmu growth in
+kvm->arch.nested_mmus[] and kvm->arch.nested_mmus_size.
+
+When this happens, kvm_vcpu_init_nested() allocates a new array then copies
+existing nested mmu state into it before swapping this array into
+kvm->arch.nested_mmus, all under kvm->mmu_lock.
+
+However it then initialises the entries via init_nested_s2_mmu() and sets
+kvm->arch.nested_mmus_size as well as handling teardown on
+init_nested_s2_mmu() returning an error, outside of the lock.
+
+An unlucky concurrent MMU notifier event could read these values before
+they are in a valid state.
+
+The newly allocated memory obtained from kvcalloc() is zeroed, which is
+especially problematic for a kvm_s2_mmu_valid() check as this checks for
+the absence of VTTBR_CNP_BIT in mmu->tlb_vttbr which is trivially true of
+zeroed memory.
+
+Since everything after the num_mmus > kvm->arch.nested_mmus_size branch is
+a no-op if this condition is not true, simplify things by replacing it with
+a guard clause on the inverse condition.
+
+The tmp variable is allocated to temporarily store data, but then this is
+swapped in to kvm->arch.nested_mmus[] and later operations are performed on
+this instead.
+
+Both the copying of existing data and the assignment of tmp[i].pgt->mmu
+must be done in a critical section as the former might be mutated under
+kvm->mmu_lock and the latter sets the externally visible pgt->mmu field.
+
+However, initialisation of new fields and error handling can be done
+outside the lock which simplifies things, and in any case
+init_nested_s2_mmu() ultimately acquires the kvm->mmu_lock in parts of its
+operation anyway so the lock cannot be held over it in any case.
+
+By limiting the scope over which kvm->mmu_lock is held any potential lock
+contention is also reduced.
+
+Error handling is made easier by the fact that no externally visible state
+has been altered by this stage as only tmp has been updated.
+
+Fix the race by setting kvm->arch.nested_mmus[] and
+kvm->arch.nested_mmus_size in the critical section.
+
+Fixes: 4f128f8e1aaa ("KVM: arm64: nv: Support multiple nested Stage-2 mmu structures")
+Cc: stable@vger.kernel.org
+Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+---
+ arch/arm64/kvm/nested.c | 41 +++++++++++++++++------------------------
+ 1 file changed, 17 insertions(+), 24 deletions(-)
+
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index f7b1385a5ac6..0c32977463b8 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -92,43 +92,36 @@ int kvm_vcpu_init_nested(struct kvm_vcpu *vcpu)
+ 	 */
+ 	num_mmus = atomic_read(&kvm->online_vcpus) * S2_MMU_PER_VCPU;
+
+-	if (num_mmus > kvm->arch.nested_mmus_size) {
+-		tmp = kvcalloc(num_mmus, sizeof(*tmp), GFP_KERNEL_ACCOUNT);
+-		if (!tmp)
+-			return -ENOMEM;
+-
+-		write_lock(&kvm->mmu_lock);
+-
+-		if (kvm->arch.nested_mmus_size) {
+-			memcpy(tmp, kvm->arch.nested_mmus,
+-			       size_mul(sizeof(*tmp), kvm->arch.nested_mmus_size));
+-
+-			for (int i = 0; i < kvm->arch.nested_mmus_size; i++)
+-				tmp[i].pgt->mmu = &tmp[i];
+-		}
+-
+-		swap(kvm->arch.nested_mmus, tmp);
+-
+-		write_unlock(&kvm->mmu_lock);
++	if (num_mmus <= kvm->arch.nested_mmus_size)
++		return 0;
+
+-		kvfree(tmp);
+-	}
++	tmp = kvcalloc(num_mmus, sizeof(*tmp), GFP_KERNEL_ACCOUNT);
++	if (!tmp)
++		return -ENOMEM;
+
+ 	for (int i = kvm->arch.nested_mmus_size; !ret && i < num_mmus; i++)
+-		ret = init_nested_s2_mmu(kvm, &kvm->arch.nested_mmus[i]);
++		ret = init_nested_s2_mmu(kvm, &tmp[i]);
+
+ 	if (ret) {
+ 		for (int i = kvm->arch.nested_mmus_size; i < num_mmus; i++)
+-			kvm_free_stage2_pgd(&kvm->arch.nested_mmus[i]);
+-
++			kvm_free_stage2_pgd(&tmp[i]);
+ 		free_page((unsigned long)vcpu->arch.ctxt.vncr_array);
+ 		vcpu->arch.ctxt.vncr_array = NULL;
+-
++		kvfree(tmp);
+ 		return ret;
+ 	}
+
++	write_lock(&kvm->mmu_lock);
++	if (kvm->arch.nested_mmus_size)
++		memcpy(tmp, kvm->arch.nested_mmus,
++		       size_mul(sizeof(*tmp), kvm->arch.nested_mmus_size));
++	for (int i = 0; i < kvm->arch.nested_mmus_size; i++)
++		tmp[i].pgt->mmu = &tmp[i];
++	swap(kvm->arch.nested_mmus, tmp);
+ 	kvm->arch.nested_mmus_size = num_mmus;
++	write_unlock(&kvm->mmu_lock);
+
++	kvfree(tmp);
+ 	return 0;
+ }
+
+--
+2.55.0
 
