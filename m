@@ -4,99 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18809C5CFDB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 10:49:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC804C5AD5A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 10:50:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=2htw98TlVcP+RIDb3b8KEcHym617Hw0Z8IMjX67kKx8=; b=Ml3WnGIZV/bq/ty//a3wpIEXjO
-	73PSQ3H6wTkXE36xLOf8lWfXr89GsrKr48xH9uA9DvtA2mr3L3JVSZUpNhItVxXduYaE6QC0GiAx3
-	fxc1Vug24Qvljalo92ElA5UAm+TAW41rhkpURRYq5epjJ4qOPx6+TyAa7csGrlkxLSILKv8xW+6QX
-	l6Tt+cruRM8YViBC/zdb8tlOg1ntl4KyDLlIZMoi68+7GBIWfXlOEzQq70/tJwA2ykwrVPEUCXYxt
-	i8h2+tcVc3epl8iQfS1b5VHLMfvCH9SGEApwUFk25otpzMm6DXpMgca9VIyUhmF2+Sm+6vAwrXMNS
-	Nw1jFRCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6+LP2g54XD3WX8ORfwi9OkxYPEre8WlqJpyCJNHJNzo=; b=ChpQtJZ0/lNDqVZ4oZIcaN7tD2
+	PzLNiRBtuF7HP98hEHlb2hUzDsnSL5PB2dzraVeqh58yiGwQmC4W2F5igcJNVXU0DcT2Zk7iXmiJ6
+	ImGHC2NFGt/r8nt5VC+2+4JQUu5xUwF+iCfBtP5k24WLRpTqrlxOkr8IAaHhiEw5o99Ca1G2Wo1EO
+	Uw8WshEIyQFTqbg5cpaNCubEDc50/QOmWYUlCSNRogFWCJpS4h0FTGa/5yBFjmu7GfC8j8aip4t2p
+	X8LJt5IAkPGIezLjR+XRBx6ojK1KEvkGD/ihGbMaBtB3Zzhh870bgJbzYmJIVGjRH9bn/ki1dh6Jd
+	T9jcS5Sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu6We-0000000FwXa-3eQ1;
-	Wed, 12 Aug 2026 10:49:36 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1wu6XT-0000000FwjA-1rYk;
+	Wed, 12 Aug 2026 10:50:27 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu6Wc-0000000FwWr-2TDh
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 10:49:36 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4954b3c5cbeso718385e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 03:49:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786531773; x=1787136573; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=2htw98TlVcP+RIDb3b8KEcHym617Hw0Z8IMjX67kKx8=;
-        b=CPFCx+CIIdqlq5506b5f72RMiY08voajQJ3dF8nRoISHEQaHeF4hxA2McohDZ2+EiW
-         EjLO0uHQd2RFv3YlPSDVFD7nRek86jm1IxY28DF9vMkE+AHuF7KiNE/xkz9kh0S0uARU
-         9ttDXIbUz2dJoNSlVK6rhHsSaO2S9UE/oZp5vwCXEba+Wuw9LM9OIH8W5tCYrYmwvlN1
-         4t1sfM9/Ye6W+LeyfH6duf4I9b/6/ja+O8dDToMB/oSJFMChPZqKrzlt5AHGt+JZeViM
-         S57/KWYMv5X+pfUH/uTVmvymW/crU+oiVnq2UBFtAFk6/QD/l9SUjAmnhx3GXc+OnGaq
-         M0kw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786531773; x=1787136573;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=2htw98TlVcP+RIDb3b8KEcHym617Hw0Z8IMjX67kKx8=;
-        b=blgIDvkJu3eezXeIbuHwk08/VMOTW99zIYUKVgWCQIZfEv1IFPJWylGuQfRT97k1Je
-         EK/bYnVBiGyhzgXrMx28SWkwaQGbKSxhir70+UM3mzB4FagQgxgcCluy6YnTl6QeAlEl
-         U7aTkgJULwCKM0ElGOGTllhhey+LOM+fSPN5Sms7IVaGsRDxxcChTSWDQXKKpiDIG06M
-         wLOMTjWUqFW1465ZKGA7IlIdq+oMSqSnZB0YqVaH9ZoIm+/I9BMhdAnd2DPhDEgBDIjg
-         O7Qq3+w9B/Wu6OCxqKwJoBrjP84dtcQEiDxdvjMUnM+7iz/ZvLqIkVE7HQ/fqs8x3k/z
-         RegA==
-X-Forwarded-Encrypted: i=1; AHgh+RoAY5qsb85Hk8EKzRzKWc7/l5CoCqhud6xax1tloiUZGkLANlK482m3LvxX2HcbCkRc6xPWYcwjrA+mOnOmTmeU@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz1QNhbqPKe7AIGIawLvvRvXVzNuBWoGIiSdrIgtDjOra5m1PrF
-	rX2ZkxOXJEGsknjLDyxHx6xifAdem6nq8V6ee1kofPHVGakvctpS6EIq
-X-Gm-Gg: AR+sD115OWdMY5aNmxvV+L4vIF9VqX5+qB9Pmn8R4A+WdirEV7mufaMHzi3rvS3UrQE
-	YXB6eUxQoJygOiH7uc/X8Bg70JJ9FXum1t/1GLY596DoFNTj9hEah2vLB5knzOKre/JDKFf6IdG
-	fkCLJWJtl8AsnY3YJf881lwPHXAWPCyTgBLz+CHjEdoru+yLXkvgAFbufoAGAlC2LywaMeSYBUf
-	j36rNfGvlW6uc50B6gK3wAmUS13hIBMoWxzjROplk2VeD1tU19LLWVdHxHMdVSGw5xYc6zIfy0D
-	1otehn1WQpqnm5IVv3w45wzBt/dF/GXcS3tJf0mDHNhsj1MAJyGDf+o1LmViQQbloKpmcRc2w5J
-	PduJxzUTe6GS0wNgMhVnJlVP4F397pG9rS8Sav5zZrYjgPCjtPWl6eOKKLtLSLk1Om9RVICLudw
-	jjmu1HBVHXl23HGjAK7wXm9Olb5g3ZpDJQwXdB1bFHLsYhGoncLCB64l5z9/zq5/NplnV4CaT61
-	FVfO2HMkKK3iLfNhaJ29juzKDxYUiE4EXJaqHGrYtKncVPY1eOLHTz3ut2OiZxZeVDrsNa2/t99
-	sLK4
-X-Received: by 2002:a05:600c:1d02:b0:493:f42e:1b3f with SMTP id 5b1f17b1804b1-4997c1412a8mr27209975e9.3.1786531772439;
-        Wed, 12 Aug 2026 03:49:32 -0700 (PDT)
-Received: from OrangePi5-Plus.BB-HOME (20014C4E1B84A600F9E120266BE3CC9B.dsl.pool.telekom.hu. [2001:4c4e:1b84:a600:f9e1:2026:6be3:cc9b])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4997abf94c1sm60999775e9.14.2026.08.12.03.49.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Aug 2026 03:49:31 -0700 (PDT)
-From: Igor Paunovic <royalnet026@gmail.com>
-To: Sandy Huang <hjc@rock-chips.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>
-Cc: Igor Paunovic <royalnet026@gmail.com>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	Alexey Charkov <alchark@flipper.net>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	dri-devel@lists.freedesktop.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] drm/rockchip: vop2: Scale the AXI clock to the bandwidth the mode needs
-Date: Wed, 12 Aug 2026 12:49:04 +0200
-Message-ID: <20260812104909.6390-1-royalnet026@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	id 1wu6XM-0000000Fwgw-1Ku6;
+	Wed, 12 Aug 2026 10:50:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1786531821; x=1818067821;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=gpDYs7XwG2MOK8iGen6heUfirgyajDEaGvE4a+Hf2d4=;
+  b=XFPbl3X3xbHhtjcbD5bcUSWhQpDJfGERqCDZSzzNex7SaJlg9vED6Mhn
+   oPN2hGiWhRmEj+a17mT7OgAdUYTz+pKtmZ93B1A0rNCw3RM6aAhesyfKw
+   z0q0/WdE2w83HL7i/uH9D72CyKFl1BzMZwzfvjU5/lmxQDK5mYgq6Z6Rv
+   wQca82d+t35CUJbSQ1d8/NG1UbFmufhHLpAp52Hs55Ency83uKXE1VJbh
+   tYHmL5vuZbKcq6SDmrgqIxYxWxoij3X1/H3cNXPQUc1ciakHEVa01wyfv
+   6JHtVpYqvYA3pdZGYos9ajdN5fGR81EGu9P9CEEI5UuXg2w8pNztCyX9+
+   w==;
+X-CSE-ConnectionGUID: GIjc+UcvQfWhXBoZDrj2vg==
+X-CSE-MsgGUID: RnpOSZXdSnCb60OLRa9FAg==
+X-IronPort-AV: E=Sophos;i="6.25,219,1779174000"; 
+   d="scan'208";a="62017601"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 12 Aug 2026 03:50:17 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Wed, 12 Aug 2026 03:50:16 -0700
+Received: from che-ll-i67131.microchip.com (10.10.85.11) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Wed, 12 Aug 2026 03:50:04 -0700
+From: Manikandan Muralidharan <manikandan.m@microchip.com>
+To: <pratyush@kernel.org>, <mwalle@kernel.org>,
+	<takahiro.kuwano@infineon.com>, <miquel.raynal@bootlin.com>,
+	<richard@nod.at>, <vigneshr@ti.com>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <srini@kernel.org>, <nicolas.ferre@microchip.com>,
+	<alexandre.belloni@bootlin.com>, <claudiu.beznea@tuxon.dev>,
+	<linux@armlinux.org.uk>, <richardcochran@gmail.com>, <arnd@arndb.de>,
+	<linusw@kernel.org>, <gregkh@linuxfoundation.org>,
+	<mathieu.dubois-briand@bootlin.com>, <michael@walle.cc>,
+	<linux-mtd@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<netdev@vger.kernel.org>
+CC: Manikandan Muralidharan <manikandan.m@microchip.com>
+Subject: [PATCH v7 0/7] Read MAC address from SST vendor specific SFDP region
+Date: Wed, 12 Aug 2026 16:19:48 +0530
+Message-ID: <20260812104955.485667-1-manikandan.m@microchip.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_034934_707420_C796635A 
-X-CRM114-Status: GOOD (  31.08  )
+X-CRM114-CacheID: sfid-20260812_035020_665603_A8E0D273 
+X-CRM114-Status: GOOD (  17.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,178 +90,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-VOP2 fetches the scanout data for all of its video ports over a single
-AXI clock.  On RK3588 that clock is pinned to 500 MHz by the device tree
-and nothing ever raises it, so a mode whose pixel rate outruns what the
-AXI clock can deliver underruns the internal scanout FIFO.  The hardware
-reports this as POST_BUF_EMPTY and the picture is corrupted.
+Some Microchip/SST QSPI flashes (e.g. the SST26VF064BEUI) are factory
+programmed with globally unique, write-protected EUI-48 and EUI-64
+identifiers stored in a vendor-specific SFDP parameter table. On boards
+that have no on-board EEPROM (sama5d27_wlsom1, sama5d29 curiosity,
+sam9x75 curiosity) this is a reliable source for an Ethernet MAC address,
+instead of relying on a U-Boot-provided or random address.
 
-3840x2160@120 over DisplayPort is such a mode.  Measured on an Orange Pi
-5 Plus by moving the rate at runtime while the mode was up, with dclk
-unchanged at 594 MHz throughout, so that the AXI rate was the only
-variable:
+The series exposes the SFDP as a generic NVMEM framework with no vendor
+code in the SPI NOR core:
+ - The SPI NOR core exposes the entire SFDP as a generic read-only NVMEM
+   device, rooted at a new "sfdp" child node of the flash.
+ - A new NVMEM layout driver (drivers/nvmem/layouts/) locates the
+   Microchip vendor parameter table at runtime and presents the EUI-48 as
+   a "mac-address" cell.
+ - Arbitrary parameters can be read with a standard fixed-layout
+   (known offset) or with an nvmem-layout parser (location discovered at runtime).
 
-  500 MHz: ~594000 suppressed vop2_isr callbacks per 5 s, corrupted
-  750 MHz: no POST_BUF_EMPTY at all for the 42 s the phase lasted, clean
-  500 MHz: ~607000 suppressed callbacks per 5 s, corrupted again
+Changes in v7:
+ - 1/7 - Add blank lines in the "sfdp" schema per review;
+ 		 Add Reviewed-by: Rob Herring.
+ - 2/7 - Add Reviewed-by: Rob Herring.
+ - 3/7 - Drop the spi_nor_sfdp_nvmem_put_np() helper and
+ 		 call of_node_put() right after devm_nvmem_register().
+ - 6/7 - Note in the commit message that the sama5d27_wlsom1 SoM ships the
+         factory-programmed SST26VF064BEUI, so the EUI-48 "mac-address"
+         cell is always present.
 
-Both transitions are immediate.  Heiko Stuebner reports the same
-starvation on different hardware [1].
+Changes in v6:
+ - 3/7 - Move the SFDP NVMEM registration from sfdp.c into core.c, since
+         sfdp.c is only for parsing the tables;use of_get_compatible_child()
+		 instead of the open-coded child-node lookup.
+ - 2/7, 6/7, 7/7 - Add Reviewed-by: Linus Walleij.
 
-The requirement follows each port's pixel rate rather than its interface
-clock, and it is per port rather than aggregate.  Two measurements at
-500 MHz pin that down:
+Changes in v5:
+ - 1/7 and 5/7 - Add R-b tags
+ - 3/7- Rework the comments, function name and commit message.Check all the nodes
+        (for_each_available_child) for the right compatible "jedec,sfdp" instead
+		of node name.
 
-  - a single port scanning out 3840x2160@120 underruns, while the same
-    composed pixel rate spread over three ports - 3840x2160@60 on one
-    and 3840x2160@30 on two others - is clean for a minute with no
-    underrun on any of them.  The totals are equal to the pixel:
-    3840*2160*120 == 3840*2160*(60+30+30).
+Changes in v4:
+ - Rework per v3 review: remove the vendor-specific SFDP handling from the
+   SPI NOR core; expose the whole SFDP as a generic read-only NVMEM device
+   and move the EUI extraction into an nvmem-layout driver.
+ - Introduce a new nvmem-layout driver to discover the vendor-table location
+   at runtime; no offset hardcoded in the device tree.
+ - Describe the SFDP via a dedicated "sfdp" subnode (compatible
+   "jedec,sfdp"), which also resolves the v3 dtbs_check "Unevaluated
+   properties ('nvmem-layout')" warning.
+ - Reverse the stored EUI bytes into canonical MAC order.
+ - Enable the layout in sama5_defconfig.
 
-  - 3840x2160@60 is clean where 3840x2160@120 is not, although both run
-    dclk at 594 MHz on this board: the 120 Hz link is YCbCr 4:2:0, which
-    halves dclk without halving the rate at which the port consumes
-    pixels.
+ Changes in v3:
+ - 2/3 - add support to update the QSPI partition into 'fixed-partition'
+   binding in sama5d27_wlsom1
+ - 3/3 - add nvmem-layout in qspi node for EUI48 MAC Address and nvmem cell
+   properties for macb node in sama5d27_wlsom1
 
-So the condition belongs on each video port's own crtc_clock.  Summing
-across ports would be wrong, and keying on dclk would miss 4:2:0
-entirely.  The threshold sits between the measured points: 3840x2160@60
-(594000 kHz) and 2560x1440@144 (about 586000 kHz) are both clean at the
-default rate, 3840x2160@120 (1188000 kHz) is not.
+Changes in v2:
+ - 1/3 - parse the SST vendor table, read and store the addresses
+  into a resource - managed space. Register the addresses
+  into NVMEM framework
+ - 2/3 - add support to update the QSPI partition into 'fixed-partition'
+  binding
 
-Take the maximum over the video ports that are scanning out rather than
-counting them, so that disabling one port cannot drop the rate below
-what a port that is still scanning needs.  The rate the platform set up
-is used as the lower bound, so a board that already configures a higher
-rate keeps it.
+v6: https://lore.kernel.org/linux-devicetree/20260729043026.1811147-1-manikandan.m@microchip.com/
 
-Tested on the same board on drm-misc-next plus the dw-dp and Rockchip
-USBDP PHY series, which DisplayPort Alt Mode needs in order to come up
-at all: 3840x2160@120 selects 750 MHz and runs with no underrun,
-dropping to 3840x2160@60 returns the clock to 500 MHz and stays clean,
-and going back raises it again.  On that same kernel without this patch
-the output shows no picture at any mode.
+Manikandan Muralidharan (7):
+  dt-bindings: mtd: jedec,spi-nor: allow the SFDP to be exposed via
+    NVMEM
+  dt-bindings: nvmem: layouts: add Microchip/SST SFDP EUI layout
+  mtd: spi-nor: sfdp: expose the SFDP as a read-only NVMEM device
+  nvmem: layouts: add Microchip/SST SFDP EUI layout driver
+  ARM: dts: microchip: sama5d27_wlsom1: use fixed-partitions for QSPI
+    flash
+  ARM: dts: microchip: sama5d27_wlsom1: read MAC address from QSPI SFDP
+  ARM: configs: sama5: enable Microchip/SST SFDP EUI NVMEM layout
 
-Link: https://lore.kernel.org/all/20260808104240.13776-1-royalnet026@gmail.com/
-Link: https://lore.kernel.org/all/20767137.geO5KgaWL5@diego/ [1]
-Signed-off-by: Igor Paunovic <royalnet026@gmail.com>
----
-Cristian, this overlaps with your ACLK work: the condition here is not
-FRL-specific, so it also covers the HDMI FRL case that 7e580d1cc3aa
-handles in the rockchip-3588 branch.  I did not want to queue this
-behind a series that is itself blocked, but I am equally happy to rebase
-on top of yours, or to drop this if you would rather carry it.  Whatever
-shape it takes should keep the FRL case working rather than replace it.
+ .../bindings/mtd/jedec,spi-nor.yaml           |  20 ++
+ .../layouts/microchip,sst26vf-sfdp-eui.yaml   |  60 ++++++
+ .../bindings/nvmem/layouts/nvmem-layout.yaml  |   1 +
+ MAINTAINERS                                   |   6 +
+ .../dts/microchip/at91-sama5d27_wlsom1.dtsi   |  61 +++---
+ .../dts/microchip/at91-sama5d27_wlsom1_ek.dts |   2 +
+ arch/arm/configs/sama5_defconfig              |   1 +
+ drivers/mtd/spi-nor/core.c                    |  78 ++++++++
+ drivers/nvmem/layouts/Kconfig                 |  10 +
+ drivers/nvmem/layouts/Makefile                |   1 +
+ drivers/nvmem/layouts/sst26vf-sfdp-eui.c      | 182 ++++++++++++++++++
+ 11 files changed, 400 insertions(+), 22 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/nvmem/layouts/microchip,sst26vf-sfdp-eui.yaml
+ create mode 100644 drivers/nvmem/layouts/sst26vf-sfdp-eui.c
 
-Chaoyi, thank you for the FIFO description and the downstream decision
-flow - the per-port measurement above came directly out of that.
 
-Based on drm-misc-next at c8d3d795dd40.  Tested on an Orange Pi 5 Plus;
-DisplayPort Alt Mode there additionally needs the dw-dp series and the
-Rockchip USBDP PHY series, neither of which is merged yet, so the test
-kernel carried both.
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 46 ++++++++++++++++++++
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.h |  2 +
- 2 files changed, 48 insertions(+)
-
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index 4cce3e336f5b..5dda1fc1c8a1 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-@@ -104,6 +104,20 @@ enum vop2_afbc_format {
- 
- #define VOP2_MAX_DCLK_RATE		600000000UL
- 
-+/*
-+ * All video ports fetch their scanout data over a single AXI clock.  The
-+ * hardware buffers that data in an internal FIFO which is drained at the
-+ * pixel rate, so a mode whose pixel rate outruns the fill rate underruns the
-+ * FIFO, which the hardware reports as POST_BUF_EMPTY and which shows up as a
-+ * corrupted image.  Raise the AXI clock for modes that need it.
-+ *
-+ * The requirement follows the pixel rate rather than the interface clock: a
-+ * YCbCr 4:2:0 link halves dclk but not the rate at which the video port
-+ * consumes pixels.
-+ */
-+#define VOP2_ACLK_RATE_HIGH		750000000UL
-+#define VOP2_HIGH_BW_PIXCLK_KHZ		1000000
-+
- /*
-  * bus-format types.
-  */
-@@ -1008,6 +1022,32 @@ static bool vop2_gamma_lut_in_use(struct vop2 *vop2, struct vop2_video_port *vp)
- 	return gamma_en_vp_id != nr_vps && gamma_en_vp_id != vp->id;
- }
- 
-+/*
-+ * Pick the AXI clock rate that satisfies every video port that is scanning
-+ * out.  Taking the maximum over the active ports rather than counting them
-+ * means a port being disabled can never drop the rate below what a port that
-+ * is still scanning needs.
-+ */
-+static void vop2_update_aclk_rate(struct vop2 *vop2)
-+{
-+	unsigned long rate = vop2->aclk_rate_normal;
-+	struct drm_crtc *crtc;
-+
-+	if (vop2->version != VOP_VERSION_RK3588)
-+		return;
-+
-+	drm_for_each_crtc(crtc, vop2->drm) {
-+		if (!crtc->state->active)
-+			continue;
-+
-+		if (crtc->state->adjusted_mode.crtc_clock > VOP2_HIGH_BW_PIXCLK_KHZ &&
-+		    rate < VOP2_ACLK_RATE_HIGH)
-+			rate = VOP2_ACLK_RATE_HIGH;
-+	}
-+
-+	clk_set_rate(vop2->aclk, rate);
-+}
-+
- static void vop2_crtc_atomic_disable(struct drm_crtc *crtc,
- 				     struct drm_atomic_commit *state)
- {
-@@ -1053,6 +1093,8 @@ static void vop2_crtc_atomic_disable(struct drm_crtc *crtc,
- 	if (!vop2->enable_count)
- 		vop2_disable(vop2);
- 
-+	vop2_update_aclk_rate(vop2);
-+
- 	vop2_unlock(vop2);
- 
- 	if (crtc->state->event && !crtc->state->active) {
-@@ -1780,6 +1822,8 @@ static void vop2_crtc_atomic_enable(struct drm_crtc *crtc,
- 
- 	vop2_lock(vop2);
- 
-+	vop2_update_aclk_rate(vop2);
-+
- 	ret = clk_prepare_enable(vp->dclk);
- 	if (ret < 0) {
- 		drm_err(vop2->drm, "failed to enable dclk for video port%d - %d\n",
-@@ -2875,6 +2919,8 @@ static int vop2_bind(struct device *dev, struct device *master, void *data)
- 		return dev_err_probe(drm->dev, PTR_ERR(vop2->aclk),
- 				     "failed to get aclk source\n");
- 
-+	vop2->aclk_rate_normal = clk_get_rate(vop2->aclk);
-+
- 	vop2->pclk = devm_clk_get_optional(vop2->dev, "pclk_vop");
- 	if (IS_ERR(vop2->pclk))
- 		return dev_err_probe(drm->dev, PTR_ERR(vop2->pclk),
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
-index ffcb39c130aa..50a3513c89ab 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
-@@ -326,6 +326,8 @@ struct vop2 {
- 	unsigned int enable_count;
- 	struct clk *hclk;
- 	struct clk *aclk;
-+	/* AXI clock rate set up by the platform, used as the lower bound. */
-+	unsigned long aclk_rate_normal;
- 	struct clk *pclk;
- 	struct clk *pll_hdmiphy0;
- 	struct clk *pll_hdmiphy1;
+base-commit: f5bbbfec59b4e2fb7520a91de3df8a6174325d6a
 -- 
 2.43.0
 
