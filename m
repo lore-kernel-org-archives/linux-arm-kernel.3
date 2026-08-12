@@ -4,110 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96402C5B567
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 04:40:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9127C5B567
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 05:24:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y8EqzbJg8fD3KowEEfKkshsn5eXfhPp6NSIWl0mIxuU=; b=nJ1BY2KUqlDcRKwFJdf78zsQSt
-	QPNKrWZQr3l39riCac1es563VqkYwUIclJ7eWe6ShqSHmMO20+N0hIF8bQvy38S9RygbSEs3uPAUc
-	lUz3Wn1OUJbs3CffR0FwpZj9MbfDaAf8q7Yo7LxHEAsGIAT3J7BTXpXEnbl0Haz2i2LgTdIRAXjOG
-	IdD7SnwD6uXfobddbKVIxIQshL9vW5d7y3xavUcpsne1hOXcSa8K3UEE+u8G8ViPzyuknZ/K+g5xh
-	NFvjebkBvOMs+8AtFs2WsXOKPNLwj7GFi/4eRNVM+P3g36pf4or7HndB9T3XRka0v584lkKVV5/T2
-	ksZdkhxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PXjQ3oOfjU5GoGzikE26HldLFyYdtMlQ+8nHvN8Ud2o=; b=2byhZ4RrMyd2lGtMZPiPAE1q86
+	rxbmUnp6pnWcM0Lc6b9RDFK1OcHrjqaV5zUVUq6FtkzDusW9YSuoR7KkFCeswhUP9bhcOVl0pMwBu
+	Adir8jRg3oLkqH5NnNpt1PZnr/A4wNwr+I3sQSxfGcpE3nEw/4YXVsoW2QWQU+FIQdIw5CRGgfn3r
+	UstRmhJDOqdn8yP2igR9VDPR7cOSAQ0iQgjjpLZJHYWFdGBR1IHXBAQKQZst8NvPj0jysYcSws/sR
+	ECRoGwJLrgpSjBdJMdGF0gGcRzeCnM7Es0h3prds01FN+aNWOBQoGHHwaGxpHpUs8AmouUiwFz062
+	RkzJevsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu0kw-0000000FPHO-0bgX;
-	Wed, 12 Aug 2026 04:39:58 +0000
-Received: from mail-oa1-x35.google.com ([2001:4860:4864:20::35])
+	id 1wu1Rx-0000000FQsh-1rh0;
+	Wed, 12 Aug 2026 05:24:25 +0000
+Received: from mail-pj1-x1046.google.com ([2607:f8b0:4864:20::1046])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu0ks-0000000FPGd-46uq
+	id 1wu1Rv-0000000FQrT-2Dnt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 04:39:56 +0000
-Received: by mail-oa1-x35.google.com with SMTP id 586e51a60fabf-455ca262ccbso319182fac.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 21:39:54 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1786509594; cv=none;
-        d=google.com; s=arc-20260327;
-        b=mQnlbOX864OosxaHf7uJSueDgMrlDm8FUtWgirEDw7OSV/bqWq5N8+z4+K/PLGAxd6
-         GmUVNKdWERP99pyVKbm7iWno1VgG8lDyOuJtHRAhnCXMbHMAzQGxpXd68OPPdbs6mq+p
-         9SzdLgS6rhiGRUK4QirBOoA+MU1J18paNTUIeZMW+X1SwcnWiRJqE9+Cu5/Vr9sd2nqM
-         RnA3clkU63FUGz54g7GPmbQCbFvpy5MrgTdfPTPe/gYQJqTnGhzGhusSGofCZgRaWSIS
-         /W7GHlwR5/MJypq4PrTWIZcbhWGsaXCfSTsLiLaiZCYLJ1pWGuN5/qtYjhFWZT9ZDYt7
-         BBRQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=y8EqzbJg8fD3KowEEfKkshsn5eXfhPp6NSIWl0mIxuU=;
-        fh=3vjQGoFr4cliw0aN9TCWKaymyAR8GTBoFqTVZ4YUJzM=;
-        b=nnClfe4wB8P/g65snwJqKPvj9+pvdGXPLCDRMyJHpAKpV3kXe6z2fKNhO7/6wt6XYC
-         /fx53qwO96VgS3g2zJLBnXUo0mAaiD6Vbus4bpKAL2Df/2squGfm1ybc9NM4J/JdDdmx
-         wZPrvXc65uczn6RhZCAiH7EUg3GxGUVBzTz8eLg3oJ0dsu/0KOmtOfcTTovCHtHv3pan
-         Q8FsPiiYRxfLBVKtuu9EhttLhXOFZjPqPjS2619pIHlHd8YTVl/JaV8KppojSIQXvGmY
-         cEYyamgxCRA7aOWqDiBlfFv5fDkyZI4h1e2XVZGc+czfuqXV1YLzrex7M+2GzpXILokt
-         qF3w==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Wed, 12 Aug 2026 05:24:24 +0000
+Received: by mail-pj1-x1046.google.com with SMTP id 98e67ed59e1d1-381250979d5so742942a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 22:24:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1786509594; x=1787114394; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=y8EqzbJg8fD3KowEEfKkshsn5eXfhPp6NSIWl0mIxuU=;
-        b=Iup0tSiz9+wfJSEVRQdeBRVC9XX1egfRngUJEofTm95UGhO8gvkO19ZLKtmbRCEId2
-         ixvKcKbZSS6iDCvHoasCZUoZPfl3o5OrfaLdJpYTzRKeVbm6RIQ1LCJE70Wg9rWtYfTC
-         ZivLYf8ybyDsbLhrRrF99T0+HFBe8j7PxhEsM=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786509594; x=1787114394;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=google.com; s=20251104; t=1786512261; x=1787117061; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=y8EqzbJg8fD3KowEEfKkshsn5eXfhPp6NSIWl0mIxuU=;
-        b=i93cm6x3zf8ysIWe6uLR0uemYk8V22GHhCMUvMt6kuCAxedzplHLDisaoJthFdiNVt
-         oGdU3Q44HtXjg1KW3SVkSnR5rbcH7OoJzGc9Xth/11zYOZW+D0nD0et5rhRGNwZrRNM6
-         ZVzAJ9QAcbmQfoqiPYDhTFqePm7q3GLCCTv7RbbT0VnMy1XauhgpeTDO+kJWZZnYIscS
-         RToIu2vFeILkif4XtJXU7IAIS5yZEQok5lEPEeSZJxT9iY6sVx5lG/7m2gce1xGUgomR
-         MlP3gb/j11G4xbYtit0CjRCZxLRnWqFf9H+OqcZ1+rIYrWXtzir5LTeso+KkDuDWRPj2
-         /tig==
-X-Forwarded-Encrypted: i=1; AHgh+Rp2r/MWbJfypwJJDMAymsMmsQrUxH/kTJccqG9tz4FBU/jU4CY3/bm9kecD7dgDo6p0ZHoOKNM+bZqZrA8n9VBs@lists.infradead.org
-X-Gm-Message-State: AOJu0YyAawviGOFSe+7/ABVSjI/d6d+snJnJKwpteF45vO/Ix9wqUte1
-	VSmH7I9xz+43TvJIIZ+2S7kbHAtUG4cS1rI8QUTSW1Wjdcyo4EYOyZWl0AjQXHiBiRTJSGFixsD
-	3uOmgK13fy4DQ2rRSY9IKwlbpFtWaWcUE6QY9VQiq
-X-Gm-Gg: AR+sD10jbOjXxUPpQ+CaxShcjJckS9cmMFYlwjr7wCNnCsPi2pShc99iIlEUCyPNWhC
-	6B8WOSwmvR72714ZTAMhKy92a+Gjhe9/Px9DebKcq6a62tcmSCz1xUw0Vt+FaceJecYAzy9ALCw
-	PYr+SeNE9eXgfvUxzbSznPZupNjU4RGoQe/WbzMIkw8vWU7HDYLwvgdRkmm5lpYqBu904sUXuVf
-	Jz4Oq5fGqw0muSY9u/gn9ebR7W6b8aHU2aTF1i7G2lYQzK1f27Ghnwf60gBwubNg/y4sqBH1StK
-	cLcfSgWRRjhvtCTL5wyfN6zMOEPCWeggEQK1TV92AxouBd583X8wyGk90JccNnH5Rgom5svjglp
-	s9y0tkQA=
-X-Received: by 2002:a05:6808:2f13:b0:495:d7ec:b6be with SMTP id
- 5614622812f47-4b210ca8dc6mr1833103b6e.18.1786509593853; Tue, 11 Aug 2026
- 21:39:53 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260811122011.3539250-1-wenst@chromium.org> <20260811122011.3539250-2-wenst@chromium.org>
- <99ad23ba-f8f2-404b-960e-1c22a20c9ac4@sirena.org.uk>
-In-Reply-To: <99ad23ba-f8f2-404b-960e-1c22a20c9ac4@sirena.org.uk>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Wed, 12 Aug 2026 12:39:42 +0800
-X-Gm-Features: AUfX_myPgwTrMoDWlXxd7K4JTdOxXQP71DAA9qzbfq1hbTylwiYJcqKiFEh4if4
-Message-ID: <CAGXv+5EeEQM6O8Vb8e8fGjRzMe1icmz=cPm3GoKLxvEO=weVcA@mail.gmail.com>
-Subject: Re: [PATCH v4 1/9] regulator: core: Add "enable and wait" functions
-To: Mark Brown <broonie@kernel.org>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Benson Leung <bleung@chromium.org>, Tzung-Bi Shih <tzungbi@kernel.org>, 
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Jiri Kosina <jikos@kernel.org>, 
-	Andi Shyti <andi.shyti@kernel.org>, linux-mediatek@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	chrome-platform@lists.linux.dev, linux-input@vger.kernel.org, 
-	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org
+        bh=PXjQ3oOfjU5GoGzikE26HldLFyYdtMlQ+8nHvN8Ud2o=;
+        b=oeQYcQz6mgOzQpw4fF9F4qtvPITnSSwU3VqsTFRyMaSg7ja7PI4Y4KF9Bz2FSrmJf3
+         iH6Jfn7SlndK1MQ1r6/ug7KFH5ZLK6Z3PU/jiGHSdgo2piilZHTuKWduhTx6IRpOS6ok
+         xzUIIIJqqzkhwz5k3OAIWBj3le2A2vbdTobMvHF3qk0yIa24IEfPI1fEEjzzNc0Hezub
+         1NJ+eHK0EbK4WXb02rEZsQY8lNAMHmiwHje7CBJC72n/qUb3VRFL3FKQhl/dwztly1RI
+         K9B9imw0tSyFpPRUAt3q1yJaS7mgOmKgp0m3ufBf3x+5hXXa/232OmF0DwW3rlbBMBoT
+         FpTQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786512261; x=1787117061;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=PXjQ3oOfjU5GoGzikE26HldLFyYdtMlQ+8nHvN8Ud2o=;
+        b=IeAkRznQIEqxv0XdrFWr4YAP3F2RzoP2Ad61IKmlnfV+WLKmNnHu68Tb5OYqRDxhm8
+         Z2mohVbTE5Agac80EeUx0vHNwopqcCtR9eyK6zJvu6o5ClutSXOc7OAxWLfqKSFYOxx7
+         bMNIDvDkEnssm8yDRIHWd8rhIxmhCBt+PxI7LG/lpfLwFcLLQdk68TYnff/6sUh1QHRR
+         dHnMUBWy99Th7jHAq27ZNtNGr9Jfl4NGRa6LSHRTsRjDk0NV/ZgNZUp0sTyTbDdQdPN6
+         PFqmpJgG34rX3d3qyehO2LDfswzaUjOWDclHII7BWSPuAA99PnU56zlfgoDKqP6ucbkU
+         tJOg==
+X-Gm-Message-State: AOJu0YyMF2iMpK4tPiUXo2rj6tiFtdlUv5sy5FBqhbmDKtL/XKw1q0+1
+	JjR6kwWDF2BnWAQTdFSU1mgGHfOloJLqVrw3CenjCUUjYvjo3Dth8vjOASY+fXJ+8bIKu0lTb4q
+	2IQMEnNV9EA==
+X-Received: from dlbro11.prod.google.com ([2002:a05:7022:158b:b0:140:ef7c:eac])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:1b0d:b0:381:1f51:1ff0
+ with SMTP id 98e67ed59e1d1-3930123c6ecmr2410896a91.2.1786512260580; Tue, 11
+ Aug 2026 22:24:20 -0700 (PDT)
+Date: Tue, 11 Aug 2026 22:24:15 -0700
+In-Reply-To: <20260812002728.2283079-1-irogers@google.com>
+Mime-Version: 1.0
+References: <20260812002728.2283079-1-irogers@google.com>
+X-Mailer: git-send-email 2.55.0.679.g6767b8d81c-goog
+Message-ID: <20260812052417.2361040-1-irogers@google.com>
+Subject: [PATCH v4 0/2] perf: Add Raspberry Pi AXI PMU driver
+From: Ian Rogers <irogers@google.com>
+To: irogers@google.com, linux-perf-users@vger.kernel.org, 
+	linux-rpi-kernel@lists.infradead.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	mark.rutland@arm.com, u.kleine-koenig@baylibre.com, will@kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_213955_058743_65D2D047 
-X-CRM114-Status: GOOD (  20.91  )
+X-CRM114-CacheID: sfid-20260811_222423_584970_5A31C2DF 
+X-CRM114-Status: GOOD (  12.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,35 +90,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 11, 2026 at 8:43=E2=80=AFPM Mark Brown <broonie@kernel.org> wro=
-te:
->
-> On Tue, Aug 11, 2026 at 08:20:01PM +0800, Chen-Yu Tsai wrote:
-> > In device power sequencing and initialization use cases, it is common
-> > for the driver to enable the regulator and then wait for a certain
-> > period of time to pass before continuing.
->
-> Please don't bury core changes for subsystems in the middle of random
-> other serieses, this is the first time I've seen this.  :(
+This patch series adds an uncore Performance Monitoring Unit (PMU) driver
+for Broadcom AXI system and VideoCore VPU performance monitors found on
+Raspberry Pi SoCs (BCM2835 through BCM2712 / Raspberry Pi 1 through 5).
 
-Sorry, that is entirely my fault. I was using an old v1 recipient list
-on the previous two versions and that list didn't include you.
+Motivation & Background
+------------------------
+Currently, Linux lacks a standard perf-API compatible driver for the
+Broadcom AXI performance counter blocks on Raspberry Pi platforms. Prior
+out-of-tree vendor solutions relied on custom debugfs nodes and ad-hoc
+kthreads, preventing integration with standard Linux perf tooling (`perf stat`,
+`perf list`, etc.).
 
-> > One case in particular is not optimized yet: a regulator left on either
-> > by hardware reset default or by the bootloader, but does not have the
-> > "regulator-boot-on" property set. As the enable timestamp only gets
-> > updated when enabled by a consumer or by the core, the first enablement
-> > always needs to wait.
->
-> Just take a timestamp during registration if the regulator is enabled,
-> we check if it's enabled anyway so we may as well take that as the last
-> time the enable happened.
+This driver implements standard `struct pmu` hardware uncore callbacks
+under `drivers/perf/`, exposing human-readable sysfs event aliases, unit
+scaling (`Bytes`), and bus filtering directly to user space.
 
-Yeah, I just haven't figured out where exactly in regulator_register() to
-put it. I think it should be after the supplies are resolved, so maybe
-I could do this in the "final setup" part in regulator_resolve_supply()?
+Key Architectural Improvements & Features
+------------------------------------------
+1. Standard Linux Perf Integration:
+   - Exposes uncore AXI interconnect events via `/sys/bus/event_source/devices/rpi_axi_pmu/`.
+   - Supports event sampling and hardware counter accumulation (`local64_add`),
+     automatically managing 31-bit hardware counter wraparound across high-bandwidth
+     interconnect transfers.
 
+2. CPU Hotplug Support (`cpuhp`):
+   - Registers dynamic CPU hotplug notifiers (`CPUHP_AP_ONLINE_DYN`).
+   - Automatically migrates PMU context (`perf_pmu_migrate_context`) to an online
+     CPU core when a designated CPU goes offline, avoiding stale uncore state.
 
-Thanks
-ChenYu
+3. Hybrid Memory-Mapped & Mailbox Work Queue Architecture:
+   - System Monitor (MMIO): Performs fast atomic-safe memory reads (~15ns)
+     directly mapped over ARM physical memory space (`MON__SYSTEM`).
+   - VPU Monitor (Mailbox IPC): For Broadcom BCM2835-BCM2711 platforms (RPi 1-4),
+     VideoCore VPU monitor IPC calls are offloaded to process context via a dedicated
+     workqueue (`vpu_work`) and serialized under `vpu_mutex`. This avoids atomic
+     sleeps or blocking in timer/interrupt context.
+
+4. PREEMPT_RT & Safety Hardening:
+   - Uses HRTIMER_MODE_REL_SOFT for timer callbacks to execute in softirq context,
+     ensuring spinlock acquisitions are 100% PREEMPT_RT safe.
+   - Sets suppress_bind_attrs = true to prevent unsafe manual sysfs unbinding while
+     active perf events exist.
+
+5. SoC Generation Support:
+   - Patch 1 adds core driver support for Broadcom BCM2835-BCM2711 (RPi 1-4).
+   - Patch 2 expands support for Broadcom BCM2712 (Raspberry Pi 5), adding PCIe RP1
+     Southbridge links, HEVC decoder, HVS display engine, and Cortex-A76 DSU L3
+     interconnect monitoring.
+
+Hardware Validation
+-------------------
+The driver has been validated on real hardware across multiple SoC generations:
+- Raspberry Pi 400 (BCM2711): Validated System L2, ARM CPU, and VideoCore VPU
+  firmware mailbox IPC performance counters.
+- Raspberry Pi 5 (BCM2712): Validated live byte throughput across HVS display
+  refresh cycles, Cortex-A76 DSU L3 interconnect memory traffic, and PCIe RP1
+  Southbridge transfers.
+
+Changes in v4
+-------------
+- Global Monitor Reset Protection: In rpi_axi_pmu_enable_bus_watcher(), only issue
+  global monitor resets (GEN_CTL_RESET_BIT) when num_monitored == 1. For subsequent
+  watchers, reset only the individual bus watcher, keeping running watchers intact.
+- IPC Failure Handling: In rpi_axi_pmu_read_counter(), return 0 on rpi_firmware_property()
+  failure instead of uninitialized -1, preventing 0xFFFFFFFF phantom counter spikes.
+- Lockdep & MMIO Safety: In rpi_axi_pmu_vpu_work_handler(), only unlock spinlock during
+  counter reads if use_mailbox_interface is true, keeping MMIO reads lock-protected.
+- Hardirq IPI Deadlock Fix: In rpi_axi_pmu_del(), use hrtimer_try_to_cancel() when in_hardirq()
+  to avoid infinite spinning if an SMP cross-CPU IPI interrupts a running softirq timer callback.
+- Timer Handler Early Return: In rpi_axi_pmu_timer_handler(), return HRTIMER_NORESTART early
+  if active_events == 0.
+- CPU Hotplug Preemption Race Fix: Initialize pmu->cpu = cpumask_first(cpu_online_mask) in
+  rpi_axi_pmu__init() to guarantee assignment to a valid online CPU core.
+- Type-Safe Driver Data Extraction: In rpi_axi_pmu_events_is_visible() and cpumask_show(),
+  retrieve struct pmu * from dev_get_drvdata(dev) and convert via pmu_to_rpi_axi_pmu().
+- Backward Compatibility: Added LINUX_VERSION_CODE check for hrtimer_setup fallback wrapper,
+  allowing out-of-tree builds to compile cleanly on Linux 6.12 LTS kernels.
+
+Ian Rogers (2):
+  perf: Add Raspberry Pi BCM2835 AXI PMU driver
+  perf: Add Raspberry Pi 5 (BCM2712) AXI PMU support
+
+ drivers/perf/Kconfig       |   10 +
+ drivers/perf/Makefile      |    1 +
+ drivers/perf/rpi_axi_pmu.c | 2049 ++++++++++++++++++++++++++++++++++++
+ 3 files changed, 2060 insertions(+)
+ create mode 100644 drivers/perf/rpi_axi_pmu.c
+
+-- 
+2.55.0.679.g6767b8d81c-goog
+
 
