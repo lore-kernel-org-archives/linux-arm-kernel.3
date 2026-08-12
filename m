@@ -4,64 +4,171 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06380C5AD5A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 11:10:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FB99C5AD5A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 11:12:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1BGeYy+HKVnNII57Wk8i1TQ14xwosVB6QDXqziS2obI=; b=3sVUy0awxLFmUTpXZRwmmyEG1u
-	lnjHRsn16w7Tq77Wm3uFWBciu78UZd2yteg2uhJDYx+JNlVOofd4L01zKnPC/WT8rYNgKGr1AykGS
-	iGt41cOHqGqGWjTWd1k4EZjmvG6W7L3J5RyUUyc4Bu1BACtLKP2lOyRzFhgal6RRm5QnaloSKkFmh
-	WnvTCSY8ngAVT8/0kZ6/uBi0wJTvuM9S3Pa662C3opfvwXkL7HP0NrX4yXXssp0GnqKeKVXwi/Eh7
-	Q5qN/67PlyYvPBtVOIu6XXLkONUZneYMMp/GDL4L7n8VYIz9kWHABD1bjw2qPvXwPopTcU6z+aLN+
-	gtTY/OGg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9ndb2tC+bNrjCtaEv2GcOaQRxLg67meiAfqQFQgJb9M=; b=uE/Ax6CZa8E8clHSJ9DqVGY7IC
+	sh86hG7bgirDEeQXnIGyy/6/IUi1J0PzeeZciSW5OTNAvCvUqMQ4Vi3kWuF84RGW6qZK+GEVL/sHb
+	Gl6UA909xSAYFWi8OhgUVoHrJVy2t385mlkrNnnpbSFew/rX7Q1cSe4AgFouOo8CjKLI56GE7k7G2
+	nOYTXBlAgOyWH3dkIBMgnLjul4Ee/qzaMm8PxjfseSWcJJ2MoJwPDsU2ufXmDRE3/tG/gR1OfHVCa
+	h6C+o23EzEYKi3WRgHZQ6NxoBuGmotNvTkdOdyHz8mlVcgjt7pJEkMw5eCZjFc3V+pMMDqr9m5fqF
+	6hM/moWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu6qN-0000000G0gj-1rQ0;
-	Wed, 12 Aug 2026 11:10:00 +0000
-Received: from vps.xff.cz ([195.181.215.36])
+	id 1wu6sM-0000000G0xb-1Los;
+	Wed, 12 Aug 2026 11:12:02 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu6qI-0000000G0f1-2QuM
+	id 1wu6sJ-0000000G0x7-0ODA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 11:09:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=xff.cz; s=mail;
-	t=1786532988; bh=SD43NxkphTG4QJfEO+11qTY39yGqRulO+tiLnWO6XVA=;
-	h=Date:From:To:Cc:Subject:X-My-GPG-KeyId:References:From;
-	b=H+9vH/PD3LSXCrW3OJ3VnB56FaN2xRLrNiX2WUJw96pyNof8Klwc2AHK9D+5w8lLJ
-	 xsbFFNlj0TT38bfXUrqAehw5rPYekDmasSjm/2szLnI78mJo2e4YzSIFTrgs2kb2PM
-	 1aGRB1Zeam0LUrGfTGFTnQosbrkcQsFgyMro8iPg=
-Date: Wed, 12 Aug 2026 13:09:46 +0200
-From: =?utf-8?Q?Ond=C5=99ej?= Jirman <megi@xff.cz>
-To: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
-Cc: linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	Daniel Lezcano <daniel.lezcano@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
-	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, 
-	"moderated list:ARM/Allwinner sunXi SoC support" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH] clocksource/drivers/sun4i: Wait for pending reload
- before CTRL write
-Message-ID: <hrm7ymjfylkhaijaxjvornxakhoss5tea6pfmt2y2jpn436lhu@2cchvasiv4mr>
-Mail-Followup-To: =?utf-8?Q?Ond=C5=99ej?= Jirman <megi@xff.cz>, 
-	Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>, linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	Daniel Lezcano <daniel.lezcano@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
-	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, 
-	"moderated list:ARM/Allwinner sunXi SoC support" <linux-arm-kernel@lists.infradead.org>
-X-My-GPG-KeyId: EBFBDDE11FB918D44D1F56C1F9F0A873BE9777ED
- <https://xff.cz/key.txt>
-References: <20260725113341.2250687-1-megi@xff.cz>
- <9e9003b7-0331-4b37-9b06-5e9de887199e@oss.qualcomm.com>
+	Wed, 12 Aug 2026 11:12:00 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67CB48Ge3319909
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 11:11:56 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	9ndb2tC+bNrjCtaEv2GcOaQRxLg67meiAfqQFQgJb9M=; b=UDIf2T/YdF5UCB9r
+	oZ2MjTxUAxBMd6zxDRE3PpC/hkOqQLqXGPCZ9yw4UBXsmIES8WaFccZs4nLf1F24
+	ZjwQ0iSmI1ZNMeeChWCVTqdKl37k1e3d8uWE85nRuU2v0nkCFtWOAG7rZ0YzImn2
+	2SCp3x3KRCAEMFN8AFMfOUOB8wYdp89yv2wPDaCWM3UQfa6zU+DXvnJYS4W0DJfg
+	AXcBnlnuHc26FJZ+Z6g06TC31QLV/dJtRVEnaAV19BaEqN3wz2qbWWmWy3kWK4ex
+	QaFDDRhpwSFQ+x3c0Y7HqRQ7WVC6ok44R4X7x8ITy74+vGavO7jkvZaLQhFs7Qnx
+	qfn3Jg==
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g0pmyr930-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 11:11:56 +0000 (GMT)
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2cc7e86e7c5so15808575ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 04:11:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1786533116; x=1787137916; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=9ndb2tC+bNrjCtaEv2GcOaQRxLg67meiAfqQFQgJb9M=;
+        b=KHR2RbwyuV1cW+80zMnYVrahuCR3qIsn1cQ1YZHiCepUSMhKn8mlmdgmowwGXr0LaN
+         7AKzkkXkim0yRkIIHE2GTFSY9UQ+ON1QqJFpClmE8YdVG6bWBt5jtryrkCq5QIsh3nqs
+         Eg8rwkobD9VoC0CsUoEs3JPUKwgv/mFuQjgRo1TrNUmrTJ9jlyGYnET1hLCDVOtwW2MD
+         Gr1CqYKXbHPA/T4Uj227h0vnd/UKacueKQuHmribQ203DobZQYqXApq/sPK40fsDnNny
+         DFCfuqDJGThHgEMu0bZjUB/9lo5n0i3iJnB6MMxu3igeIlBRmJAJXzJNvzU9nWRKIc4R
+         ih2Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786533116; x=1787137916;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=9ndb2tC+bNrjCtaEv2GcOaQRxLg67meiAfqQFQgJb9M=;
+        b=HcF3wesNz7MsZipbBlX8Bx9Uzecp10iPbgqYZi6D2Z9L8uWemGdJKqRTscFzrxuQzi
+         rLk5BQg3j+ovePAIsIHc3CkQPapTBcdyKpa78ZnCZ0+1AgcOHDidH+qnrT0rhTFqL8kJ
+         5uO5rLkmQJryVsQNRr0Y+go5hc2q5ri4UHYtVlYvCIHsGOjDjEZOWzv+CKdzXLU4lZxs
+         96Rw8F7FHssitnupT7tARJlkIN19yUc8wI5Dzx/a4H0B1yDncDsP8fIVZjuvyoXm3vFl
+         flU+cvzcvArYBnJEXCX88EM2ONXt14Zr1wxZPmibhyLYBU53hWfCMIKEbmguLYM+v+VN
+         99sw==
+X-Forwarded-Encrypted: i=1; AHgh+RrdLhsK7IJCor0vnanI9N+hEB/G4C6pzZ13olCWcb+lKv0hkkkL/l8ksgydbmFu9gwaVSYBkgy8mDplCRsxZuiE@lists.infradead.org
+X-Gm-Message-State: AOJu0YxhT9Qq81aD35M46pxil0hHWcOFtJpyJKSOTMjWXPgtQ1yZ8YIT
+	YECNjCE1YeukwVtMSQ4VOmpdELrHeFqXzuwSlfrmhqCFR/zfzzwIu0S0AN7bpwKYkwXem8uYRrE
+	X7fIPQj64jb9bic7nS9c53Y3QX2i+fQMe4jVyOlxjdIgsmejtFnndKdZO8v27QR7iDC5bzqIc/1
+	KZhA==
+X-Gm-Gg: AR+sD125xKEjfj2LUZNeRLKW0DjjaPrdwtScPhdWyzYVLPiAPBu223SwnD21Zkjwkb5
+	b29+nhxF125BiNQe27iotSDPEBmw6bv4Y8I5hH58GtqtQc+kgHqe/DGQOeNrvBs9JmNVM08xhls
+	qp65TIV/kximO8fYKo0/wJ/RJgQbzShHaeSio+I+/k7bnJbkHEzwIP7yoaf6xtIRz66N8LXMcQH
+	WOPqYfTqRFThyNbnNWtQORgLBWlEBLOoERArZY4jYspadgUMpZjBgfy2vr7ZjYtQ0qoxGHLPTJh
+	1KQ4ES0xuQ+U9xxx7wONaiqBa76VycNBhfKuV8cnuZkNywrnwTLO01J79P0GwsyYRUT7ppF2OM2
+	YwolyjZ/rMlsOd8oNXYsARWCtkjbqLLXBEw==
+X-Received: by 2002:a17:902:fc8f:b0:2ce:e75f:b713 with SMTP id d9443c01a7336-2d3456f5f5cmr56902505ad.23.1786533115659;
+        Wed, 12 Aug 2026 04:11:55 -0700 (PDT)
+X-Received: by 2002:a17:902:fc8f:b0:2ce:e75f:b713 with SMTP id d9443c01a7336-2d3456f5f5cmr56901585ad.23.1786533115222;
+        Wed, 12 Aug 2026 04:11:55 -0700 (PDT)
+Received: from [10.218.44.82] ([202.46.22.19])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d350be1504sm4886065ad.0.2026.08.12.04.11.45
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 12 Aug 2026 04:11:54 -0700 (PDT)
+Message-ID: <b7b68db4-a3cc-40a4-8748-527abe08934f@oss.qualcomm.com>
+Date: Wed, 12 Aug 2026 16:41:43 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <9e9003b7-0331-4b37-9b06-5e9de887199e@oss.qualcomm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v24 08/12] mfd: psci-mfd: Add psci-reboot-mode child cell
+To: Lee Jones <lee@kernel.org>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
+        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Andy Yan
+ <andy.yan@rock-chips.com>,
+        Matthias Brugger <matthias.bgg@gmail.com>,
+        Mark Rutland <mark.rutland@arm.com>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        John Stultz
+ <john.stultz@linaro.org>,
+        Moritz Fischer <moritz.fischer@ettus.com>,
+        "Rafael J. Wysocki" <rafael@kernel.org>,
+        Daniel Lezcano <daniel.lezcano@kernel.org>,
+        Christian Loehle <christian.loehle@arm.com>,
+        Ulf Hansson <ulfh@kernel.org>,
+        Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>,
+        Bartosz Golaszewski <brgl@kernel.org>,
+        Sudeep Holla
+ <sudeep.holla@kernel.org>,
+        Florian Fainelli <florian.fainelli@broadcom.com>,
+        Krzysztof Kozlowski <krzk@kernel.org>,
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+        Andre Draszik <andre.draszik@linaro.org>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
+        linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+        devicetree@vger.kernel.org, mfd@lists.linux.dev,
+        Srinivas Kandagatla <srini@kernel.org>,
+        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+References: <20260803-arm-psci-system_reset2-vendor-reboots-v24-0-889281373870@oss.qualcomm.com>
+ <20260803-arm-psci-system_reset2-vendor-reboots-v24-8-889281373870@oss.qualcomm.com>
+ <20260812081856.GF1072730@google.com>
+Content-Language: en-US
+From: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+In-Reply-To: <20260812081856.GF1072730@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODEyMDA5MCBTYWx0ZWRfXysuxEfUr2i5k
+ 1VueXncWROlcP8tpJmp1Bf/p1emuD0MmPHLBGL7uZ5o9Ycux3/CY7gGpYozeS9yy2n/MFJcmCPK
+ G7N6tpD4CKgS0yEa5GVMhm4R7v3nuYM=
+X-Proofpoint-ORIG-GUID: MOZBwNHZb4vwsPmEpuYfwwndc70rGybq
+X-Authority-Analysis: v=2.4 cv=C/fZDwP+ c=1 sm=1 tr=0 ts=6a7c54fc cx=c_pps
+ a=IZJwPbhc+fLeJZngyXXI0A==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+ a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
+ a=EUspDBNiAAAA:8 a=Tp_YqcUnzpVuw28kZAUA:9 a=QEXdDO2ut3YA:10
+ a=uG9DUKGECoFWVXl0Dc02:22
+X-Proofpoint-GUID: MOZBwNHZb4vwsPmEpuYfwwndc70rGybq
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODEyMDA5MCBTYWx0ZWRfX9Du3P+6YOV/X
+ JnnVtxdFq6gq/VdoZ3Qjrg/ssYYXl/6tcurIwIvo6fn+g/Vzl07/LMYZX+RgINR8o6JC+zaavf6
+ uGpukMsXomeOhEL/JmBgucnrC59vdfHl2/9WN1s7wwpYWDmeW075fH6NBHGiBbv+1CBh2rBWC6q
+ n+Wy+slakss4IlVWLx7/cuNt9//V22kIv7LKSL8UkoKCV+fT69QuSF2ykFSxTgCtOJV9o7H2ATr
+ 4W+0TaHRhK+tuU1xYYfJS8hgBc2YcZ8fSW0t8Bx7xnvNQNSQfCQ5cKIbYh2johyHeRQKacR085h
+ nnJN9EHCQBPHYY+nJ5y9hwuxa990RmDEORmcb7/Zv+Nuh7plgxxGIJoWMm/zTUF9c6ixgIhCd+K
+ zyhGz1ooPLRE9QnZWOjHxlt6GCMQyeCXjYXLqrBpdhIwPG3RT7ZUOyRFxOu7MEab2RXuxIrcwD+
+ V5rqx6Z76XOHKIBqx+w==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-12_03,2026-08-12_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 clxscore=1015 phishscore=0 spamscore=0 malwarescore=0
+ adultscore=0 suspectscore=0 lowpriorityscore=0 priorityscore=1501 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608120090
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_040955_900654_027C788C 
-X-CRM114-Status: GOOD (  38.08  )
+X-CRM114-CacheID: sfid-20260812_041159_177032_47305A11 
+X-CRM114-Status: GOOD (  23.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,108 +183,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Daniel,
 
-On Wed, Aug 12, 2026 at 11:56:03AM +0200, Daniel Lezcano wrote:
-> On 7/25/26 13:33, Ondřej Jirman wrote:
-> > From: Ondrej Jirman <megi@xff.cz>
-> > 
-> > The A13 manual says of TMR0_RELOAD: "After the bit is set, it can not be
-> > written again before it's cleared automatically."  Both time_stop() and
-> > time_start() read-modify-write the control register, so a reload still in
-> > flight gets rewritten and the write can be dropped, leaving the timer
-> > unarmed.  In oneshot mode this happens on every tick, and the tick
-> > eventually stops for good.
-> > 
-> > Wait for the reload to clear first.  All control register updates go
-> > through sun4i_clkevt_time_stop().
-> > 
-> > Without this my Allwinner A13 based Pocketbook Touch Lux 3 stops
-> > scheduling processes during boot or within a few seconds of executing
-> > userspace. Only sysrq+t over serial port works at this stage, which is
-> > how I discovered the root cause.
-> > 
-> > Fixes: 7e14183469d8 ("clocksource: sun4i: Fix bug when switching from periodic to oneshot modes")
-> > Signed-off-by: Ondrej Jirman <megi@xff.cz>
-> > ---
-> > BTW, similar issue will likely be also in timer-sun5i.c but I don't have any
-> > device that would exercise it. And it's possible that this triggers more easily
-> > with CONFIG_HZ=1000 which I use.
-> > 
-> >   drivers/clocksource/timer-sun4i.c | 26 +++++++++++++++++++++++++-
-> >   1 file changed, 25 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/drivers/clocksource/timer-sun4i.c b/drivers/clocksource/timer-sun4i.c
-> > index 7bdcc60ad43c..2e7457f671c4 100644
-> > --- a/drivers/clocksource/timer-sun4i.c
-> > +++ b/drivers/clocksource/timer-sun4i.c
-> > @@ -39,6 +39,9 @@
-> >   #define TIMER_SYNC_TICKS	3
-> > +/* The reload bit clears a couple of source clock cycles after it is set. */
-> > +#define TIMER_RELOAD_MAX_POLL	100
-> > +
-> >   /*
-> >    * When we disable a timer, we need to wait at least for 2 cycles of
-> >    * the timer source clock. We will use for that the clocksource timer
-> > @@ -53,9 +56,30 @@ static void sun4i_clkevt_sync(void __iomem *base)
-> >   		cpu_relax();
-> >   }
-> > +/*
-> > + * The control register must not be written while a reload is still in
-> > + * flight, or the write can be dropped.
-> > + */
-> > +static int sun4i_clkevt_wait_reload(void __iomem *base, u8 timer)
-> > +{
-> > +	int i;
-> > +
-> > +	for (i = 0; i < TIMER_RELOAD_MAX_POLL; i++) {
-> > +		if (!(readl(base + TIMER_CTL_REG(timer)) & TIMER_CTL_RELOAD))
-> > +			return 0;
-> > +		cpu_relax();
-> > +	}
+
+On 8/12/2026 1:48 PM, Lee Jones wrote:
+> On Mon, 03 Aug 2026, Shivendra Pratap wrote:
 > 
-> The loop looks correct but I'm wondering why not use the helper:
+>> The PSCI "reboot-mode" node does not define a compatible because it is a
+>> configuration of boot-states provided by the underlying firmware. With
+>> the new firmware-node based cells in mfd-core, this node can now be
+>> exposed as a proper child cell.
+>>
+>> Add the psci-reboot-mode child cell to the psci-mfd driver with a
+>> named_fwnode. Add psci-cpuidle-domain cell first to isolate it from
+>> reboot-mode failures.
+>>
+>> Suggested-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+>> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+>> ---
+>>   drivers/mfd/psci-mfd.c      | 27 ++++++++++++++++++++++++++-
+>>   drivers/power/reset/Kconfig |  2 +-
+>>   2 files changed, 27 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/drivers/mfd/psci-mfd.c b/drivers/mfd/psci-mfd.c
+>> index 7affd6bb09dd..7befc4fa86f5 100644
+>> --- a/drivers/mfd/psci-mfd.c
+>> +++ b/drivers/mfd/psci-mfd.c
+>> @@ -14,10 +14,35 @@ static const struct mfd_cell psci_cells[] = {
+>>   	},
+>>   };
+>>   
+>> +static const struct mfd_cell psci_reboot_mode_cell[] = {
+>> +	{
+>> +		.name = "psci-reboot-mode",
+>> +		.named_fwnode = "reboot-mode",
+>> +	},
+>> +};
+>> +
+>>   static int psci_mfd_probe(struct platform_device *pdev)
+>>   {
+>> -	return devm_mfd_add_devices(&pdev->dev, PLATFORM_DEVID_AUTO, psci_cells,
+>> +	int ret;
+>> +
+>> +	ret = devm_mfd_add_devices(&pdev->dev, PLATFORM_DEVID_AUTO, psci_cells,
+>>   				   ARRAY_SIZE(psci_cells), NULL, 0, NULL);
+>> +	if (ret)
+>> +		goto out;
+>> +
+>> +	ret = devm_mfd_add_devices(&pdev->dev, PLATFORM_DEVID_AUTO,
+>> +				   psci_reboot_mode_cell,
+>> +				   ARRAY_SIZE(psci_reboot_mode_cell),
+>> +				   NULL, 0, NULL);
+>> +	if (ret) {
+>> +		if (ret == -ENOMEM)
+>> +			goto out;
+>> +		dev_warn(&pdev->dev, "reboot-mode child cell failed to add: %d\n", ret);
 > 
-> ret = readl_poll_timeout_atomic(base + TIMER_CTL_REG(timer), val,
-> 				!(val & TIMER_CTL_RELOAD), 0, timeout);
+> Okay Yoda, but why is this okay?
 > 
+> Needs a comment.
 
-I can. The only difference would be that this would loop up to 1000 * timeout
-times, instead of 100 times in case reload bit never returns to 0. But that
-never happens anyway.
+sure. Will add a comment in code.
 
-> > +	return -ETIME;
-> > +}
-> > +
-> >   static void sun4i_clkevt_time_stop(void __iomem *base, u8 timer)
-> >   {
-> > -	u32 val = readl(base + TIMER_CTL_REG(timer));
-> > +	u32 val;
-> > +
-> > +	sun4i_clkevt_wait_reload(base, timer);
-> 
-> If it fails ?
+psci-mfd adds two child cells, psci-cpuidle-domain and psci-reboot-mode.
+psci-cpuidle-domain is boot-critical on supported systems.
+psci-reboot-mode is added separately as an optional child. For 
+non-critical failures from psci_reboot_mode_cell, we want to continue 
+the probe of psci-mfd.
 
-There's not much to do, since sun4i_clkevt_time_stop() does not return anything
-anyway and it's used across the file quite extensively. Well, the file is small,
-but sun4i_clkevt_time_stop is called in every function exported via timer_of
-struct... :)
-
-I can rewrite all these functions to report all errors to timer core, but in
-practice reload always resets very quickly, and a condition where the loop even
-loops happens once every few seconds or so. I doubt anything but return 0
-would ever happen anyway. I'd certainly notice, because it would again cause
-instant lockup of my e-reader. Maybe I can just return void from
-sun4i_clkevt_wait_reload() and not pretend there are errors to report,
-instead?
-
-Best regards,
-	o.
-
-> > +
-> > +	val = readl(base + TIMER_CTL_REG(timer));
-> >   	writel(val & ~TIMER_CTL_ENABLE, base + TIMER_CTL_REG(timer));
-> >   	sun4i_clkevt_sync(base);
-> >   }
-> 
+thanks,
+Shivendra
 
