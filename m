@@ -4,168 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1116C5B56A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 12:01:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 248A2C5AD5A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 12:01:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lQpxTs+IBrkIUMo80z2E8LlYsNIqn2+CdmdGE4AFzRE=; b=PeJrznsc4cad3wVB/3XxS82ayd
-	CZDQOtJ9E30ae+77MoG1dk9BcMh7mlcKTtUt0h6hbKC9FYe89C2EgFVgJkb4VIknES+OF3GyWrf5E
-	gl/nhQBkT1jrQRtQH1Po27dnnxfrulzAYypCqYz7ZlOn7MqqRJ44xmys0h8oE3nK2Qh8HjOs6RbHb
-	hrHWyIy0Cj2tm59le3G0YKiBqMCV/Hc2an6S1mduzcW4qPjwEuWNw74MmmtZen8LyDllX9eM/5B3b
-	iWkn6xKWeUk6AoUdui5xh/7/v+NtNtsau4HvaS/qrgBmoFHtpdIp+mUfaM3wSEkBuW4VQZaT1qm21
-	H+YoY3+w==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=XFMlwpc6tCSzUQMVWNSN4gTByCEbr3imhWdA2ltyOwE=; b=zvdUi7FGjkohvCeoCoT29SfddC
+	jvDj9kUWg908xtAPRqvuCcn+GEA4zQPfFRRgtbbb6xhMbeJ9GatRTCyQFftZ7r+iPTcGRm0BA6T2S
+	4aXUYEqtUoHikkPcX8MTmTiuZICVPFOm8etPbtPK+u1tMqW3wjeCX75++mm5Thb9ofE5B1GdXPns+
+	X12Jw+8GJDKbw+mqbLIKM5CffbVdjV0acUhlCSa7LsdbFYSf8kfHjEVPa7+vOyzGoy5VMXDT6yFcv
+	YqkO6pNdpt4RSz3yisRiXSbdJYubSEEhIgWWxV87gdLjwafblk0j4iIz0xI6jyAgnO8R+HojYYvvy
+	nst53jiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu7dn-0000000G98z-3RtP;
-	Wed, 12 Aug 2026 12:01:03 +0000
-Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
+	id 1wu7e8-0000000G9Dn-0rZt;
+	Wed, 12 Aug 2026 12:01:24 +0000
+Received: from mail-wr2-x02.google.com ([2a00:1450:4864:30::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu7dl-0000000G97x-0vDV
+	id 1wu7e5-0000000G9C8-2AEx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 12:01:02 +0000
-Received: from pps.filterd (m0380145.ppops.net [127.0.0.1])
-	by m0380145.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 67CB0DE7025013;
-	Wed, 12 Aug 2026 07:00:56 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=lQpxTs+IBrkIUMo80z2E8LlYsNIqn2+CdmdGE4AFz
-	RE=; b=HPmdQzR1O4p5CgSxk/fkICo3f4xCWdoxE2670F5+cH5pVceM8D6PW9/jv
-	LFNXgTC49j8fUIJ63F+O/K51jFD1/ga3QgWtodHJLP9lPLsgIne/XzmfOczUfhPG
-	GWtceXXcxlRp+3z/uFUT2XcboWeOEnV5y7Dic/yJoZ+sXlyRW8oB0KX7B5NhyxJl
-	Z3xvpeHP9shTABiKezSQkO96RB/M0BeN1iYoufJ7KZN4bR9V4VDCFBlYAwYYrDqh
-	+niBv2atEUkgvvtY0JxYlQ9ZV6/7ALfEJP3mJIWrkt67VUbOPF7IG+Kh43oj8kZm
-	lvE1UnynILIkkwrmcMWyc0JM77lEA==
-Received: from ph0pr06cu001.outbound.protection.outlook.com (mail-westus3azon11011056.outbound.protection.outlook.com [40.107.208.56])
-	by m0380145.ppops.net (PPS) with ESMTPS id 4g0d0ckfxb-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 12 Aug 2026 07:00:55 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=a06CJIy6zZQ+nuoZ0NYDjNisdE1dp5rhl/AgZSA/uXVup386NKemHNWi6qHdof+6GtOumO2wEUjXzVGrgLjE1MCsYkdZQf1H8Z3KQCk5emfBNlNoz+2O+uXPfSgrJ38xMbcsdwC/vVxuH+0RPL4cq/SX+z5VulOc1W7i88Clru+K+mv0ujZcqNE10jzpQfDWyriIplSTGDghQrY2Mykw2tHR2PBnym6TWAiFF+SUa/tYzE1UdkV0dWY+enTrmo0C3+NhoEhcibgmBhzh5LOpCeKBGvIPvXs+85nf6xrUhJek20Altd6kVk//kVPBrydUAvILsG2ID7/v07B/JR3tvA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lQpxTs+IBrkIUMo80z2E8LlYsNIqn2+CdmdGE4AFzRE=;
- b=wHDLEJrdxIRILH7SsBFD1POCex2jNDLO1+cuLNxdLFu9A0TFp1By80RU4lE+AhlKGoKU6+vznB//fG3N902proRY1v06yPNhfZBF849id5QRmC52xiJ3EE3nmH/AbVhpv8pCG6GQEumBOD+JiJQ7R4TrDjdBmqSPF698qMAJPvaw9TxuH/Umo6rAo2uRxDvlhS6FR8S2KWIqQx+HrcGyf0dJ18veiDiWvZ5c1jytYvzQmOu9/HP3MQxPLpteaqTY/oUKf9N8whT0SLGhvlmkiYNTbq1UFZ9a3nVQHucJjBJxAQ4PfMSZe3LHysE1PzonJSWNU9R2CJcUylPKjzjcww==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lQpxTs+IBrkIUMo80z2E8LlYsNIqn2+CdmdGE4AFzRE=;
- b=jFpWM+bSxfsY5ttmITOC3Vh2u5r5fB7iwK+U4cVWsCQAK5CUwBvIQ6W3SU3FyjXvOmu/MrVdsaJCWfvG/VTC1+Mk8Mq54Na5ZiMShirAN/wqRCT6HkEozU3SgOS2FUcjvcuBdnozWkJeBsmkloKddnyVacW+CNXQzZIg+PddzQo=
-Received: from PH8P220CA0034.NAMP220.PROD.OUTLOOK.COM (2603:10b6:510:348::17)
- by SA1PR10MB997631.namprd10.prod.outlook.com (2603:10b6:806:4b5::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.25; Wed, 12 Aug
- 2026 12:00:40 +0000
-Received: from SN1PEPF0002BA4C.namprd03.prod.outlook.com
- (2603:10b6:510:348:cafe::65) by PH8P220CA0034.outlook.office365.com
- (2603:10b6:510:348::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.315.14 via Frontend Transport; Wed,
- 12 Aug 2026 12:00:40 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- SN1PEPF0002BA4C.mail.protection.outlook.com (10.167.242.69) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.315.6 via Frontend Transport; Wed, 12 Aug 2026 12:00:39 +0000
-Received: from DLEE207.ent.ti.com (157.170.170.95) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 12 Aug
- 2026 07:00:30 -0500
-Received: from DLEE208.ent.ti.com (157.170.170.97) by DLEE207.ent.ti.com
- (157.170.170.95) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Wed, 12 Aug
- 2026 07:00:30 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE208.ent.ti.com
- (157.170.170.97) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
- Transport; Wed, 12 Aug 2026 07:00:30 -0500
-Received: from [10.24.51.254] (uda0498651.dhcp.ti.com [10.24.51.254])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 67CC0PN33054318;
-	Wed, 12 Aug 2026 07:00:25 -0500
-Message-ID: <8b41218f-8ffa-4c65-abfb-8d87793cffb2@ti.com>
-Date: Wed, 12 Aug 2026 17:30:24 +0530
+	Wed, 12 Aug 2026 12:01:22 +0000
+Received: by mail-wr2-x02.google.com with SMTP id ffacd0b85a97d-47f7f93b3d4so178740f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 05:01:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=wirenboard.com; s=google; t=1786536079; x=1787140879; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=XFMlwpc6tCSzUQMVWNSN4gTByCEbr3imhWdA2ltyOwE=;
+        b=jRq+GUNYthzFrUclosoNqwOvbtrhoT2Ws3WlVRV4XYVyXn0F3xrVoBW5H2X1iS/Wov
+         Y0Ltnm2lGKafKYokCmpcl/oiOpcJSGeBJIBLVtJ0Nawp6lOUQIp7CUXKY346kLOsNRKF
+         znwHHUUKEkR4YaJBXIT4sc8iUefqLkt5G7vUt93iPwVvVVoeaJZ4iIFkZ2NwSIFJvfnX
+         G88gNCr8bI+DLL6Y46JSzC6tPiRfFAFmfkDWQoszZybmcNq38GXFLtcwqwbqQAcl6qJo
+         0RjBI5EbTgEPSo5TNNU0XAc2nd/2hsowcUxkkCDTbkgAWvoR/8lyfB8SCQIh4kVXOSYR
+         WMcg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786536079; x=1787140879;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=XFMlwpc6tCSzUQMVWNSN4gTByCEbr3imhWdA2ltyOwE=;
+        b=LMLD/e/4OXPCMs7ZLTjttRBeG9V0x9m7Q2dmX6itS8LBXKFpJiD+3BteSeYsvwrgNp
+         pK6Qsim5vMZtdvVDi+GN401/qXVfEi63Z8IWYElxnfsoetnPpHhJ+dGMIGIcpNPNAm63
+         yadfL/EsjjAhWQ5RW+PtQ+czOcbUKG8MMOKiUQSZaTmMjBOEBZPCuqZG99/jAydOFXC5
+         HbKCyTcLGtojEEcGXVsDuQ+VHW3d2JEwXHI3i/32aXo+dHq84u0bfM9zSbH6GLx4wo9X
+         /bGpNfgwa1UyVRlqHX60Xv3OnaABlbHuvPeFhSKAVRbO6pKIm+Dyt9FmKIWpS4E4wUfS
+         neng==
+X-Forwarded-Encrypted: i=1; AHgh+Rpc66JMOx/ig7jfaV/wPSoBwS3pB+0hm+jPRaO3b2Mmekig7YRzrIu785+xO7NrOVgW2j407b7Ykni384gp8zTC@lists.infradead.org
+X-Gm-Message-State: AOJu0YyWialYvCHUXvcSfXqpsVA476iUqEW21EkmlHNnf3t/SZAlpx0s
+	4amU9npYQ2avd+SrGvpvD6syLohFfarVMEx0CcYG2Byn/bQUQrPyFo7JART2Zu054vU=
+X-Gm-Gg: AR+sD13Lf461hVYIvwdaEpFhXURMXYChpIuNpi9Y7lk1MHeYqw35IxBN317ET5nm1WX
+	MuTSFO+RJ037ibz0VFbB9Zg/a4C01rDFX4HffohchAYYpJ2asA8p/vurnYRpYzQIcsVBMggtEE1
+	14XHSm+C0ujX5VPWg5E8oOFBIhYAQgl6k6dyI6V1LMfV1FRnfJqA3qU3Bme+9TeJEuBkExBJp6V
+	upvurnFPyDXN15p5EMX4cMdccHprqiT8XyHkPyJ3rsF62k+hokX1yTMC8JoYCAY1QSJxzxidTOP
+	KrzborioAyOH6yt7eLuO9OCg2SSHXyIN3OZh/T6gy73AfTc43Wj1gQvhqu3ZdSZxpgwX5ZHgQxi
+	Zp0uBYA5MpPeHCfkgOh1Trv7doBARTfFox5TB67et1ilJIjExA7vcp68V/L1WobWRnDZ+QIcGO0
+	98CJHRzp2lcB/hVjeFiKDbskm+suS34eHdJXJOipvWHaQCMl02Vpwzw7/nAt/BkmCqPcz8B7Wu8
+	3mNXwrncDhIBFIbpc/lEKQ=
+X-Received: by 2002:a05:6000:240c:b0:47f:e797:41c8 with SMTP id ffacd0b85a97d-481527a0c61mr6728195f8f.4.1786536077716;
+        Wed, 12 Aug 2026 05:01:17 -0700 (PDT)
+Received: from localhost.localdomain ([85.137.25.106])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48150d4e29bsm6609473f8f.24.2026.08.12.05.01.15
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 12 Aug 2026 05:01:17 -0700 (PDT)
+From: Ilya Titov <ilya.titov@wirenboard.com>
+To: Linus Walleij <linusw@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>
+Cc: Bartosz Golaszewski <brgl@kernel.org>,
+	Maxime Ripard <mripard@kernel.org>,
+	=?UTF-8?q?Emilio=20L=C3=B3pez?= <emilio@elopez.com.ar>,
+	linux-gpio@vger.kernel.org,
+	linux-sunxi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Ilya Titov <ilya.titov@wirenboard.com>
+Subject: [PATCH] pinctrl: sunxi: keep a shadow copy of the data register output latches
+Date: Wed, 12 Aug 2026 15:01:14 +0300
+Message-ID: <20260812120114.32501-1-ilya.titov@wirenboard.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 13/19] dt-bindings: dma: ti: Add K3 BCDMA V2
-To: Krzysztof Kozlowski <krzk@kernel.org>
-CC: <peter.ujfalusi@gmail.com>, <vigneshr@ti.com>, <vkoul@kernel.org>,
-        <Frank.Li@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <nm@ti.com>, <ssantosh@kernel.org>,
-        <dmaengine@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <r-sharma3@ti.com>, <gehariprasath@ti.com>
-References: <20260810151423.1948224-1-s-adivi@ti.com>
- <20260810151423.1948224-14-s-adivi@ti.com>
- <20260811-exuberant-cobalt-cow-4d5287@quoll>
-Content-Language: en-US
-From: Sai Sree Kartheek Adivi <s-adivi@ti.com>
-In-Reply-To: <20260811-exuberant-cobalt-cow-4d5287@quoll>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN1PEPF0002BA4C:EE_|SA1PR10MB997631:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6277d6be-579d-47c2-a557-08def8695409
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700016|1800799024|82310400026|23010399003|7416014|3023799007|4143699003|56012099006|10067099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: v2vdA5VszgdOFzq4TrJjApv7RCnLsAG22d9bliZsUPq4vq9OCu08J64Jdc3Q59C4IMvqAMPv1PLZj7TEsxlpyLxQwGqCqUvc8vKbjlAvRUlBAlk+pHBQgkAun4nKyiAY+B/ICEyVV5AL2d7VQrGNdqyqUxxW73yDsGFr9V+WMf0YRzvyI+Qv2KijArwM0ivWUAesJOx9PDinPuUjwi4sl2wfk4XeUCiH6OaB4WXUE8orfDqO3NU0CPFPnFzLd0mkNaLuZ7aGKgI4VpJNN37pKzD5uCGqtOilRM0Fq7SMGQRjVgDy71SAi6/MciNkcUP/mChP2hznutHs/KHVuuTf0PGZYw99rU9khO0YXdlwiKd7yZheUO6i5KootANSqnScqkVD0br3g4q49gWKkOh6hhjLmEBWqv3+FkOirByxkWyAhU9INDlRwetGA6B1pDUXxQkvUNrKB80j4WxQL1fiOKzkT0nVmhXvY2AQC3dwyuz3i7ra6VM9BnX3EhguQx6n0GMLrDPoG28V6/zjY0DdGPjjFUN8AurCvYT/qcQ/cz+0b2KqJDAbKx6Lqi4lrTKXuZaVNxt1BK2Shy6xNIUYPZ8clQmRbVebLibPEWGzIXx8W0AM7LCrANocKzyptvp2U72P5/RjtytXqYbc+jNyPjJKhsGT8Lrp/iNIEsCJMMz26NS1wnu0db/JkKJwI42GR/w0XtwHDhm2gFLFIeI8iw==
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700016)(1800799024)(82310400026)(23010399003)(7416014)(3023799007)(4143699003)(56012099006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: TwWrbSXOJ2bDK7lwyfNYbyCgerjDTR83mTMKjkyXCUZTotbvIJZlzRSXU5VOFDyZtXsuYef7NBqCvvuE9T//Dk0GTnSp6uk/kC1MfgIHeigXcFPQrF8KPJNgK2nnSI5tfAcir71fjpjD0ixK7MNZcOAeeOI/g270U9UZito7s4ijvuG1JC/hDBu2BVNyLFnu628k9+WKzZNA0Ij0dyy/p2QUvJxsXY1jrAyqQvMn6DRP4buqAiHrFwiyH7GeCvzxgUgWlcUZbrH5NPT/HIEpEaGAPHokVP58ZquLLfFONzS2S2cuSluRvxjzPTVVAmrAgafPEfCXcawKNMTF3vaOufr5RoqdpktbwG4EXK7+44kNc9PQygWrXm3ustDyw/R3ydD/nJMDj2epg/YftFDOGM8qARuZ5zpUY24Nsudm5hy4zNlc6gs2a+auycJZ0YER
-X-Exchange-RoutingPolicyChecked: TXgSA6ADF12TtfUo8rZajDqQc1uwcx/puICcvCivrtsa39PNu7eOMkKUU5jO6bKej2VL5+0v9o7FsxFsTOlGvsf/hHhwBDbzW8kq9F/ZndwkppP/9zthrEaRvag9HZ+Lyz6LwJlI7k6TSpFmnbyHzvHj3pGKmAETnpPUke5u+w2bjLcjejT0/bQaM0RUM2Q3Dt37Mpz4nqNsLB4dccKdRt91BuZ+7KoSrR87ocfOVDrDZoN2Hlg+4coPYzeVqFzRgylGe1r17WMPWzzYhYd5k/i7JooOlerbW5Q1a809jgcv/s64Yadihi7Nxlp1/YCCJpwcgNw5FsaNgq1eCf1y7A==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Aug 2026 12:00:39.7655
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6277d6be-579d-47c2-a557-08def8695409
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF0002BA4C.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR10MB997631
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODEyMDA5NyBTYWx0ZWRfX24LjSkbMQ1Gv
- tCj7ZJGsCA8VmKzStPzkwVlqOJxihWi54nFo5HBPwpBeW4HH9TUH+X7yP2r5V+GN339lBs3j0nr
- idaJTxDCyhiuZxJ71Nqm/dy65fOpE9w=
-X-Proofpoint-ORIG-GUID: need_1s8EuNMCQEPTMKgp5t8rL5dsWYe
-X-Proofpoint-GUID: need_1s8EuNMCQEPTMKgp5t8rL5dsWYe
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODEyMDA5NyBTYWx0ZWRfXzI1hvcp65lSE
- ghTYqrlnVQUXVjSauVgF7DR+zSWUAwUm6LjvIQnYtAE2DE8tUj5xfZGTmsAdWiCzVHEQfSeljVa
- ai9IsSuNuzkK9Ae8Z5AcOSzYeqjO4PZlUVVEWY/uyVsNQWmOFja8Sv54mcrN97KQJ0WzgAAVFfU
- LDhtDDKpuPwbuOmvY2NqY2A0k+pVeH2e4arEwogzq91rN8eN7Rp0L04zZKF2SizIeUe7yi1wCr4
- KAoPldzULkv6FKrBIJPXj1gSp6IjsJgJfx8CXYEXm2wyCdpoTQiVW+s2y0EBa/UnJbVCQgDW/Ib
- zsfT6QrTPjCuVGXKeB4v60t/ZlsEdeJQBR/OKMhL05MrMFIwVtNG2V3j/MzNoowJ5TRfvXSk+gg
- JEjx3MCqh9SNIr7F2dk8/hQedLn5a6O8BfSkbZcXjSahMRID9zTSjh/xGYgqzMmYxBIJPATnzpI
- 30ArQhThyeOZypzJYwQ==
-X-Authority-Analysis: v=2.4 cv=Y+DIdBeN c=1 sm=1 tr=0 ts=6a7c6077 cx=c_pps
- a=k0sZSnccHBAUCD1Alv6C+w==:117 a=f+v6EHfkeJbVwR46tk4DMg==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10
- a=s63m1ICgrNkA:10 a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=Z8NIEmU8O1QQgoT56wFK:22 a=gO1vWkAQAl3rybz1DQOp:22 a=sozttTNsAAAA:8
- a=NPopYay3oyRqhmfhkGkA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-12_03,2026-08-12_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 lowpriorityscore=0 impostorscore=0 clxscore=1011 adultscore=0
- spamscore=0 bulkscore=0 phishscore=0 priorityscore=1501 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608120097
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_050101_422606_8C46D7D2 
-X-CRM114-Status: GOOD (  11.90  )
+X-CRM114-CacheID: sfid-20260812_050121_637332_1FC89AE7 
+X-CRM114-Status: GOOD (  32.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,31 +107,242 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Allwinner SoCs, reading a bank's data register returns the pin level,
+not the output latch, for pins that are muxed as inputs.  Writing a GPIO
+therefore corrupts the output latches of all input-muxed pins in the
+same bank: the read-modify-write in sunxi_pinctrl_gpio_set() reads back
+their pin levels and writes those into their latches.
 
-On 11/08/26 12:02, Krzysztof Kozlowski wrote:
-> On Mon, Aug 10, 2026 at 08:44:07PM +0530, Sai Sree Kartheek Adivi wrote:
->> New binding document for Texas Instruments K3 Block Copy DMA (BCDMA) V2.
->>
->> BCDMA V2 is introduced as part of AM62L.
->>
->> Signed-off-by: Sai Sree Kartheek Adivi <s-adivi@ti.com>
-> Please explain dropping tag. I could not find a reason for that in cover
-> letter.
+This breaks emulated open-drain lines (e.g. a bit-banged I2C bus from
+i2c-gpio).  Such a line is released high by muxing it as input and
+letting the pull-up raise it, so any concurrent GPIO write in the same
+bank stores 1 into its latch.  Driving the line low afterwards is a
+non-atomic data-then-mux sequence in sunxi_pinctrl_gpio_direction_output();
+if the poisoning write lands between the two steps, the pin actively
+drives high (push-pull) instead of low.
 
-Apologies, should've explained in the cover letter.
+Observed in practice as sporadic glitches on a T507 board bit-banging
+I2C on port E while other PE GPIOs are toggled.  On a scope the failure
+is unmistakable: on a clock pulse where SCL should fall to GND, the line
+instead steps *above* its idle high level for the whole low phase — the
+pad drives a strong push-pull 3.3 V high, higher than the level the
+pull-up sustains on the loaded bus — before the next transition recovers
+it.  The same can hit SDA, corrupting data instead of clocks.
 
-Dropped it because minItems on interrupt-names had to come back. Removing it
-broke dt_binding_check (dtschema flags items: {pattern:} as not-array without
-both min/maxItems). Kept the tx-/rx- rename though.
+Steps to reproduce on any sunxi board with a bit-banged (i2c-gpio) bus:
 
-Diff isn't exactly what you acked, so dropped the tag rather than carry it forward.
+  # background: toggle any other GPIO of the same bank, e.g. line 21
+  gpioset -c <chip> --toggle 100us 21=0 &
 
-Thanks,
-Kartheek
+  # foreground: keep the bit-banged bus busy
+  while :; do i2cdetect -y <bus> 0x50 0x57; done
 
-> Dropping this from patchwork.
->
-> Best regards,
-> Krzysztof
->
+  # watch SCL/SDA with a scope or logic analyzer: sporadic clock-low
+  # phases driven high (above the pull-up level) instead of low
+
+The bank spinlock cannot help: the racing write is a perfectly valid
+whole-register RMW that faithfully writes back what the hardware
+returned.  There are no set/clear registers on this IP to write a single
+bit atomically.
+
+Fix it the same way gpio-mmio handles hardware whose data register read
+does not return the output latch: keep a shadow copy of each bank's
+latches, base the read-modify-write on the shadow, and only write the
+register.  The shadow is seeded from the hardware at probe time so pins
+left in output mode by the bootloader keep their state.  Pins that reach
+output mode through the gpiolib paths write their value (and thereby
+their shadow bit) before the mux switch in
+sunxi_pinctrl_gpio_direction_output(); pins muxed to gpio_out directly
+through a pinmux node bypass that path, so sunxi_pmx_set() refreshes
+their shadow bit from the latch (readable once the pin is in output
+mode) to keep them driving their pre-existing level.
+
+Seeding the shadow reads the PIO registers at probe time, which requires
+the bus clock to be enabled.  The clock was only requested at the very
+end of probe, after devm_pinctrl_register() had already claimed the pin
+hogs described in the device tree - which mux pins, and thus access
+registers, with the clock still gated.  Move the request ahead of both.
+Boards whose bootloader leaves the PIO clock running are unaffected,
+which is why the pre-existing hog problem has gone unnoticed since
+commit 950707c0eb5c ("pinctrl: sunxi: add clock support").
+
+Fixes: df7b34f4c3d2 ("pinctrl: sunxi: Fix gpio_set behaviour")
+Cc: stable@vger.kernel.org
+Signed-off-by: Ilya Titov <ilya.titov@wirenboard.com>
+---
+Tested on a Wiren Board 8.5.1 (Allwinner T507) against a 6.18-based
+kernel, where the problem was found: the bit-banged ATECC/RTC bus on
+port E survives 200 probe rounds while another PE line is toggled every
+100 us in the background, which reliably corrupted transfers before.
+
+The mainline port has not been re-tested on that hardware; it was build
+tested on v7.2-rc7 with arm64 allmodconfig and arm allmodconfig (all 28
+PINCTRL_SUN* variants, W=1), both without new warnings, and sparse
+(v0.6.5) reports nothing for the driver.
+
+ drivers/pinctrl/sunxi/pinctrl-sunxi.c | 76 +++++++++++++++++++++------
+ drivers/pinctrl/sunxi/pinctrl-sunxi.h |  7 +++
+ 2 files changed, 68 insertions(+), 15 deletions(-)
+
+diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.c b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+index 25489beeb312..3cf5cd8ed991 100644
+--- a/drivers/pinctrl/sunxi/pinctrl-sunxi.c
++++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+@@ -837,6 +837,21 @@ static void sunxi_pmx_set(struct pinctrl_dev *pctldev,
+ 	writel((readl(pctl->membase + reg) & ~mask) | config << shift,
+ 	       pctl->membase + reg);
+ 
++	/*
++	 * A pin muxed to gpio_out directly through a pinmux node bypasses
++	 * sunxi_pinctrl_gpio_set() and drives whatever its output latch
++	 * holds.  Now that the pin is in output mode the data register
++	 * reads back the latch, so refresh the shadow to keep such pins
++	 * driving their pre-existing level.
++	 */
++	if (config == SUN4I_FUNC_OUTPUT) {
++		u32 *shadow = &pctl->dat_shadow[pin / PINS_PER_BANK];
++
++		sunxi_data_reg(pctl, pin, &reg, &shift, &mask);
++		*shadow = (*shadow & ~mask) |
++			  (readl(pctl->membase + reg) & mask);
++	}
++
+ 	raw_spin_unlock_irqrestore(&pctl->lock, flags);
+ }
+ 
+@@ -1017,21 +1032,29 @@ static int sunxi_pinctrl_gpio_set(struct gpio_chip *chip, unsigned int offset,
+ 				  int value)
+ {
+ 	struct sunxi_pinctrl *pctl = gpiochip_get_data(chip);
+-	u32 reg, shift, mask, val;
++	u32 *shadow = &pctl->dat_shadow[offset / PINS_PER_BANK];
++	u32 reg, shift, mask;
+ 	unsigned long flags;
+ 
+ 	sunxi_data_reg(pctl, offset, &reg, &shift, &mask);
+ 
+ 	raw_spin_lock_irqsave(&pctl->lock, flags);
+ 
+-	val = readl(pctl->membase + reg);
+-
++	/*
++	 * Reading the data register returns the pin level, not the output
++	 * latch, for pins muxed as inputs.  A read-modify-write based on
++	 * the register would therefore corrupt the latches of input-muxed
++	 * pins in the same bank (e.g. an emulated open-drain I2C line
++	 * released high), making them drive the wrong level once switched
++	 * to output.  Base the read-modify-write on a shadow copy of the
++	 * latches instead.
++	 */
+ 	if (value)
+-		val |= mask;
++		*shadow |= mask;
+ 	else
+-		val &= ~mask;
++		*shadow &= ~mask;
+ 
+-	writel(val, pctl->membase + reg);
++	writel(*shadow, pctl->membase + reg);
+ 
+ 	raw_spin_unlock_irqrestore(&pctl->lock, flags);
+ 
+@@ -1572,7 +1595,7 @@ int sunxi_pinctrl_init_with_flags(struct platform_device *pdev,
+ 	struct pinctrl_pin_desc *pins;
+ 	struct sunxi_pinctrl *pctl;
+ 	struct pinmux_ops *pmxops;
+-	int i, ret, last_pin, pin_idx;
++	int i, ret, last_pin, pin_idx, nbanks;
+ 	struct clk *clk;
+ 
+ 	pctl = devm_kzalloc(&pdev->dev, sizeof(*pctl), GFP_KERNEL);
+@@ -1610,6 +1633,37 @@ int sunxi_pinctrl_init_with_flags(struct platform_device *pdev,
+ 	if (!pctl->irq_array)
+ 		return -ENOMEM;
+ 
++	/*
++	 * The bus clock has to be enabled before the pinctrl device
++	 * registers, as the pin hogs claimed from there access registers.
++	 */
++	ret = of_clk_get_parent_count(node);
++	clk = devm_clk_get_enabled(&pdev->dev, ret == 1 ? NULL : "apb");
++	if (IS_ERR(clk))
++		return PTR_ERR(clk);
++
++	/*
++	 * Seed the output latch shadow from the hardware so pins the
++	 * bootloader left in output mode keep their state; see
++	 * sunxi_pinctrl_gpio_set() for why a shadow is needed.  This must
++	 * happen before the pinctrl device registers, as pin hogs can mux
++	 * pins to gpio_out and thereby update the shadow.
++	 */
++	last_pin = pctl->desc->pins[pctl->desc->npins - 1].pin.number;
++	nbanks = (round_up(last_pin, PINS_PER_BANK) - pctl->desc->pin_base) /
++		 PINS_PER_BANK;
++	pctl->dat_shadow = devm_kcalloc(&pdev->dev, nbanks,
++					sizeof(*pctl->dat_shadow), GFP_KERNEL);
++	if (!pctl->dat_shadow)
++		return -ENOMEM;
++
++	for (i = 0; i < nbanks; i++) {
++		u32 reg, shift, mask;
++
++		sunxi_data_reg(pctl, i * PINS_PER_BANK, &reg, &shift, &mask);
++		pctl->dat_shadow[i] = readl(pctl->membase + reg);
++	}
++
+ 	ret = sunxi_pinctrl_build_state(pdev);
+ 	if (ret) {
+ 		dev_err(&pdev->dev, "dt probe failed: %d\n", ret);
+@@ -1665,7 +1719,6 @@ int sunxi_pinctrl_init_with_flags(struct platform_device *pdev,
+ 	if (!pctl->chip)
+ 		return -ENOMEM;
+ 
+-	last_pin = pctl->desc->pins[pctl->desc->npins - 1].pin.number;
+ 	pctl->chip->owner = THIS_MODULE;
+ 	pctl->chip->request = gpiochip_generic_request;
+ 	pctl->chip->free = gpiochip_generic_free;
+@@ -1699,13 +1752,6 @@ int sunxi_pinctrl_init_with_flags(struct platform_device *pdev,
+ 			goto gpiochip_error;
+ 	}
+ 
+-	ret = of_clk_get_parent_count(node);
+-	clk = devm_clk_get_enabled(&pdev->dev, ret == 1 ? NULL : "apb");
+-	if (IS_ERR(clk)) {
+-		ret = PTR_ERR(clk);
+-		goto gpiochip_error;
+-	}
+-
+ 	pctl->irq = devm_kcalloc(&pdev->dev,
+ 				 pctl->desc->irq_banks,
+ 				 sizeof(*pctl->irq),
+diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.h b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+index 0daf7600e2fb..498e88a19f71 100644
+--- a/drivers/pinctrl/sunxi/pinctrl-sunxi.h
++++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+@@ -85,6 +85,7 @@
+ #define IO_BIAS_MASK		GENMASK(3, 0)
+ 
+ #define SUN4I_FUNC_INPUT	0
++#define SUN4I_FUNC_OUTPUT	1
+ #define SUN4I_FUNC_IRQ		6
+ #define SUN4I_FUNC_DISABLED_OLD 7
+ #define SUN4I_FUNC_DISABLED_NEW 15
+@@ -175,6 +176,12 @@ struct sunxi_pinctrl {
+ 	int				*irq;
+ 	unsigned			*irq_array;
+ 	raw_spinlock_t			lock;
++	/*
++	 * Output latch shadow, one word per bank.  Seeded lockless at
++	 * probe before the pinctrl device registers, protected by @lock
++	 * afterwards.
++	 */
++	u32				*dat_shadow;
+ 	struct pinctrl_dev		*pctl_dev;
+ 	unsigned long			flags;
+ 	u32				bank_mem_size;
+
+base-commit: f5bbbfec59b4e2fb7520a91de3df8a6174325d6a
+-- 
+2.50.1 (Apple Git-155)
+
 
