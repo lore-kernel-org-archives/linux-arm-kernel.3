@@ -4,87 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A97B4C5AD5A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 08:19:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F238C5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 08:20:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tg2d+uSxSfnEQ+/wwkTn7ftgs1qXWrlfLkCgiC/frqc=; b=irVhibmOZeYiVwTjFpMjgXr1ta
-	fWfl2WLL0r7SedRrEQTeoOfQvG8ibA05d9FkeNHj8TZC6LFFHShTRIpKUmHOX/+lE+TO9FH8LyisF
-	Rn95QM+8TcY9PBESo/lm3mKW+W4ElbTc5k6ivQ//xSb2KzE3TdBB7P8lLf9+PVS2O3PQP7jPjPvzz
-	UD1pH0ifeGRYS2f9jl+/bDnCDftMboFxJGyMR8LA2kO0ZqIyfHrS4MGDTPZwWg6/CIgaQ0L0xaKqu
-	xuHeLXCxtGLAbY4cM1k7VL8IDedQiDV3rMSQJD8easQ86OIVddh+c9fWhGfXvg6Rm0zvBKlAx9cb/
-	vOfxz3Gg==;
+	bh=QykdCuz3ObbGK17zwhD93Vyb082PIq8C7a4PH9Y6qI0=; b=gGYOitqVuuNPTYrPplH1JIQJR9
+	WJxvaM8pA1L/qp84liw674bAgh9phQ9uVOobc4dBrcS5nQ1L/wr9udfFjuc/mNLcFtSo9K1tCni2g
+	gYs+6FKXl/FuAHIuGQZkLqxMqW2WvGq1MOZWc31IDpA6Ufd9V7Hh/B9ghYFmYoIf0U+jyaK6ba7Et
+	h6A/cxQPJCYK2VgAWU3a0G/dtsV/goyIVGxNPi/BOyuvGFWIAjGPpqwl9MEUWI7EpzMUO24906DYl
+	zkCWDR1qK9UwTf0vyHDngzlJzYc6taaNKHQjLSSsm3oYBh+mpAGnwUHbQOBgSmAV5jPjQbVMvt7uo
+	gnT8gvGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu4B1-0000000FdPS-2k0r;
-	Wed, 12 Aug 2026 08:19:07 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wu4Cc-0000000FdZX-0dhW;
+	Wed, 12 Aug 2026 08:20:46 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu4B0-0000000FdPM-3qg5
+	id 1wu4CZ-0000000FdYt-2Pts
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 08:19:07 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5B7F961878;
-	Wed, 12 Aug 2026 08:19:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 256A71F000E9;
-	Wed, 12 Aug 2026 08:18:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786522746;
-	bh=tg2d+uSxSfnEQ+/wwkTn7ftgs1qXWrlfLkCgiC/frqc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Bf1R0GNVZA16GWAATXUlPxuJ4mfMJXiDCQdYgqoD7y80q/FqN0jKELPlZTl9YTSrq
-	 pLpN5vvXrB/Hpwb2Qie70vFXzOaEtxgUQfwS1VvVVj/ntwWHq8sJ4V7c4wUqra+tJl
-	 Yu7Hd+z0rnMOw9KFYuMF/fE7zPPyOoJJ+gE0mIJ27Q1qkAQ1YstVhugQlPW/8W8DAF
-	 AbLBTUPp2Un1B907c7J1kcG/3mPgE6+afRtmm6eywgjLeY/vvyoDNRVwK1xLJYBz8l
-	 BdoJ382q3izk1A2BvnJTdmKd9ULzUj4G1OsjAwisEQrhF8vecaPPNkpzWjNr7I1jAb
-	 wPgPPC2subyLA==
-Date: Wed, 12 Aug 2026 09:18:56 +0100
-From: Lee Jones <lee@kernel.org>
-To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
-	Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	John Stultz <john.stultz@linaro.org>,
-	Moritz Fischer <moritz.fischer@ettus.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Christian Loehle <christian.loehle@arm.com>,
-	Ulf Hansson <ulfh@kernel.org>,
-	Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-	Andre Draszik <andre.draszik@linaro.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
-	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	devicetree@vger.kernel.org, mfd@lists.linux.dev,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Subject: Re: [PATCH v24 08/12] mfd: psci-mfd: Add psci-reboot-mode child cell
-Message-ID: <20260812081856.GF1072730@google.com>
-References: <20260803-arm-psci-system_reset2-vendor-reboots-v24-0-889281373870@oss.qualcomm.com>
- <20260803-arm-psci-system_reset2-vendor-reboots-v24-8-889281373870@oss.qualcomm.com>
+	Wed, 12 Aug 2026 08:20:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1786522844; x=1818058844;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=zY9lfAeGg60M/szQsAT7pL7C5lr5YMoI0MFXXJjlo38=;
+  b=CurxtQEkH1h8IJVr1xzdMAnQIFnLNO6pbBpiIRFT5Ixv4OOw8ier+dnk
+   zrps4wbJNGwZSnd6Vbm6ICciy1qPZzhhgV2/6QriNDvAlsifak0ieqmGq
+   eghACET/sI7x2JYH1MpXkwQViMT84V/GF3CdLWleR+GDLDTybl6K2eaFk
+   CAd5GER0hLfyak+/pXvUSV9JahuGN9sIfy8ZcPSOnKGatjav+PgkdTzRl
+   RbV7Uniy82wiLSC4eYvedddQtZ4mRd3zUsGGTIKJeDlHc6ZkmALV2124x
+   qOuuZn5ShviXplItjDUONBoL7B+UgjxOhbP22ZhGX3xxEqgbVeRS6BPaX
+   Q==;
+X-CSE-ConnectionGUID: 0jTRvK6xRxKjc5zmR7Fn2Q==
+X-CSE-MsgGUID: B5IlsPf6Stm35yzCdutG7Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11872"; a="98581842"
+X-IronPort-AV: E=Sophos;i="6.25,219,1779174000"; 
+   d="scan'208";a="98581842"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Aug 2026 01:20:43 -0700
+X-CSE-ConnectionGUID: HxDbThHLS1imTTlw115NKw==
+X-CSE-MsgGUID: 4sV80IQTTc+RqD4rcZy7VQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,219,1779174000"; 
+   d="scan'208";a="267070761"
+Received: from rvuia-mobl.ger.corp.intel.com (HELO localhost) ([10.245.245.92])
+  by ORVIESA003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Aug 2026 01:20:40 -0700
+Date: Wed, 12 Aug 2026 11:20:37 +0300
+From: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Bui Duc Phuc <phucduc.bui@gmail.com>
+Cc: Andy Shevchenko <andy.shevchenko@gmail.com>,
+	Linus Walleij <linusw@kernel.org>, Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Mika Westerberg <mika.westerberg@linux.intel.com>,
+	Andy Shevchenko <andy@kernel.org>, robh@kernel.org,
+	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/5] pinctrl: keembay: Propagate errors from optional IRQ
+ lookup
+Message-ID: <anws1QKiDqMjLNYl@ashevche-desk.local>
+References: <20260810053142.27938-1-phucduc.bui@gmail.com>
+ <20260810053142.27938-2-phucduc.bui@gmail.com>
+ <CAHp75Vcb12Ok=yEF_WqKp=yS_EW9SWS=G2+B7Fa7aLH=u-aR0w@mail.gmail.com>
+ <CAABR9nETzzsjzE0JnnLC5tX7d=0yZW9bt+t8DuVxV=JSb1VsYw@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260803-arm-psci-system_reset2-vendor-reboots-v24-8-889281373870@oss.qualcomm.com>
+In-Reply-To: <CAABR9nETzzsjzE0JnnLC5tX7d=0yZW9bt+t8DuVxV=JSb1VsYw@mail.gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260812_012043_755560_42C5145C 
+X-CRM114-Status: GOOD (  16.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,88 +95,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 03 Aug 2026, Shivendra Pratap wrote:
+On Tue, Aug 11, 2026 at 09:48:01AM +0700, Bui Duc Phuc wrote:
 
-> The PSCI "reboot-mode" node does not define a compatible because it is a
-> configuration of boot-states provided by the underlying firmware. With
-> the new firmware-node based cells in mfd-core, this node can now be
-> exposed as a proper child cell.
+> > While this looks okay, have you considered actually having the
+> > platform_get_irq_optional() to be optional in this sense?
 > 
-> Add the psci-reboot-mode child cell to the psci-mfd driver with a
-> named_fwnode. Add psci-cpuidle-domain cell first to isolate it from
-> reboot-mode failures.
-> 
-> Suggested-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-> ---
->  drivers/mfd/psci-mfd.c      | 27 ++++++++++++++++++++++++++-
->  drivers/power/reset/Kconfig |  2 +-
->  2 files changed, 27 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/mfd/psci-mfd.c b/drivers/mfd/psci-mfd.c
-> index 7affd6bb09dd..7befc4fa86f5 100644
-> --- a/drivers/mfd/psci-mfd.c
-> +++ b/drivers/mfd/psci-mfd.c
-> @@ -14,10 +14,35 @@ static const struct mfd_cell psci_cells[] = {
->  	},
->  };
->  
-> +static const struct mfd_cell psci_reboot_mode_cell[] = {
-> +	{
-> +		.name = "psci-reboot-mode",
-> +		.named_fwnode = "reboot-mode",
-> +	},
-> +};
-> +
->  static int psci_mfd_probe(struct platform_device *pdev)
->  {
-> -	return devm_mfd_add_devices(&pdev->dev, PLATFORM_DEVID_AUTO, psci_cells,
-> +	int ret;
-> +
-> +	ret = devm_mfd_add_devices(&pdev->dev, PLATFORM_DEVID_AUTO, psci_cells,
->  				   ARRAY_SIZE(psci_cells), NULL, 0, NULL);
-> +	if (ret)
-> +		goto out;
-> +
-> +	ret = devm_mfd_add_devices(&pdev->dev, PLATFORM_DEVID_AUTO,
-> +				   psci_reboot_mode_cell,
-> +				   ARRAY_SIZE(psci_reboot_mode_cell),
-> +				   NULL, 0, NULL);
-> +	if (ret) {
-> +		if (ret == -ENOMEM)
-> +			goto out;
-> +		dev_warn(&pdev->dev, "reboot-mode child cell failed to add: %d\n", ret);
+> As I understand it, if we decide to use platform_get_irq_optional(),
+> then -ENXIO should be handled as the expected case where the IRQ is
+> not available.
 
-Okay Yoda, but why is this okay?
+If platform_get_irq_optional() was optional, it would return 0 instead of ENXIO
+(and avoid printing any message in such a case).
 
-Needs a comment.
+> If we do not want to handle -ENXIO as an optional IRQ,
+> then I think we should use platform_get_irq() instead,
+> which matches its intended semantics:
 
-> +		ret = 0;
-> +	}
-> +
-> +out:
-> +	return ret;
->  }
->  
->  static const struct of_device_id psci_mfd_of_match[] = {
-> diff --git a/drivers/power/reset/Kconfig b/drivers/power/reset/Kconfig
-> index 143f3260f04a..1810482d52e6 100644
-> --- a/drivers/power/reset/Kconfig
-> +++ b/drivers/power/reset/Kconfig
-> @@ -362,7 +362,7 @@ config NVMEM_REBOOT_MODE
->  
->  config PSCI_REBOOT_MODE
->  	bool "PSCI reboot mode driver"
-> -	depends on ARM_PSCI_FW || COMPILE_TEST
-> +	depends on (ARM_PSCI_FW && MFD_PSCI) || COMPILE_TEST
->  	select REBOOT_MODE
->  	help
->  	  Say y here will enable PSCI reboot mode driver. This gets
+> https://elixir.bootlin.com/linux/v7.2-rc6/source/drivers/base/platform.c#L301
+
+> -------------------------------
+> ret = platform_get_irq_optional(dev, num);
+> if (ret < 0)
+>         return dev_err_probe(&dev->dev, ret,
+>                                             "IRQ index %u not found\n", num);
+> -------------------------------
 > 
-> -- 
-> 2.34.1
-> 
+> In my opinion, we should not use an optional API if the IRQ is not
+> actually intended to be optional.
+
+Right. But does it suit for this driver?
 
 -- 
-Lee Jones
+With Best Regards,
+Andy Shevchenko
+
+
 
