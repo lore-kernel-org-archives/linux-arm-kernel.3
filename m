@@ -4,112 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4E8DC5B56A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 12:24:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC006C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 12:25:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k7YkQ+Bc7EQX0qDaijrFEUTuOpQfKm59tZjQohvjtGA=; b=YTSe4fylyGtphdIBqEpaajKVNn
-	MgbT4jfjpsMWgag9ep2qXwbE34uodrxBe+0jpo/kImafbJaKX9csmbqY+MWuok+L6+6xAKT80kWsx
-	jZKFyxKzjMnAuwLH0tBEWPA0iZKVlQsEY30U52vTg6IObT2nl3myDkE2NOGiPBRwDkB5Ox1x7I+o3
-	wmhqzs+ejVnNzXSIRtsUNrTHMViyfGbZ3XuwTkEwofvlBznpy3+y35ycOZuO/b/ER8MXC3fqEn2vF
-	Ag/PfC5JKzI7vF4/DdkA5fklAwFf7Mm/y2rPq4QqoyTtMD3qASEIcnDEhugZlBzVzuRn9t1Cc1SBx
-	oKXFyFgg==;
+	bh=Djp33DZuJ5kk88PXRco/OjHqQCYStiOV5FS5/ccjyz4=; b=mfLJIMUdmq8p3eAMLQ6joc7yE1
+	ELqTPct2uMAwnzdZf7uIFK60EmkqKwJ7V9HrjTfKDM91jnEGFCHq01YcxNuTenzZ/329k2zRdWs/1
+	xgofUAheg/6lVCG9T8lLEs9LntpzJjqbQXNeAVTp6rwpFlUU+1JM9xTMzmWkJght/RahhUh8c6+Ni
+	UcnThU29wM4797eev76XKidsUKblUp83B1wHWl7AT02eZCn4xFQtA7hYNv3QYyDhMuZ64wV5volOF
+	P2L7jQhmpYHmvn9nvBPX/by+pBaYPzqLwZBMMoU/FamClc0ml2HLrmJ/43nJI855fH27QbhB4evZJ
+	MtPJCTbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu80T-0000000GBZ3-1teu;
-	Wed, 12 Aug 2026 12:24:29 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	id 1wu81P-0000000GBiT-11of;
+	Wed, 12 Aug 2026 12:25:27 +0000
+Received: from mail-qt1-x829.google.com ([2607:f8b0:4864:20::829])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu80Q-0000000GBXx-49al
+	id 1wu81M-0000000GBhu-1A6V
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 12:24:28 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-6a09571dd5cso96580a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 05:24:25 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1786537464; cv=none;
-        d=google.com; s=arc-20260327;
-        b=ba8sMrjti0T0iBgK0lKhovJAOS6AptcBEfQCSNdXI6dc1cjGumKDr0lLR184F7Krms
-         PcmQzJxmBMI8FwbqNXxMYy/lkhYqmEzm+xqFoSUe2v+D9zWerdPIIez1Ou6MMNJKCVjK
-         v2dAaYhr+UuenRsaKqAYNfmoJsF3zuEuW279sO40hGrfWocf5wHo9EkVKyqDG+LH6DkJ
-         JrBjMg2/7ejwKwkk11qS643YW++MjSpiuDZiYGZFDl7fy3iIcpOjAv3wDaRdB1s3JElZ
-         +1CR3U1B9kyU+jo3ruocC3otfKsk7k2VbDGQwCtQbCLi45hij5RlSXIk7ps132l1/wb5
-         IlSw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=k7YkQ+Bc7EQX0qDaijrFEUTuOpQfKm59tZjQohvjtGA=;
-        fh=X3dmO5gmvDISTRxRQp7UOvjLZyxZswZoYb9PnxsS0pw=;
-        b=gAzaxIucfr37DE39VSpJDi+znWmajOevUCSWJWgyUlRgKGpPR3VSqj2ROpm3cQTEev
-         dn5Fz4yEYfmhqYTl3+lB2pv7y1qjsR6eWm9uF7zCmv+IVZXsAhMfIEa490lLZgGFYUhg
-         3HaksXmPUNW1OBuqg3co1OaG/sWha43x1xwZHW4MqI//ex+SdbjCkH1536+a2wKiCKx4
-         6AUxr7W6EiKUuJFcKD+eziY5rQ/4MRFhy/QW/qP6uEikIcUKJuwSuuugFO/MZHuguwvS
-         pMpPkRsUhEsgf2CA+oVKtJxMzULVDeGXGnGhlIFTVRVT3nN5DMkFgzMDl24yKqfCeI8J
-         4C1A==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Wed, 12 Aug 2026 12:25:25 +0000
+Received: by mail-qt1-x829.google.com with SMTP id d75a77b69052e-51c05dcdf49so10833791cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 05:25:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786537464; x=1787142264; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=k7YkQ+Bc7EQX0qDaijrFEUTuOpQfKm59tZjQohvjtGA=;
-        b=PtvKqZnb9o8XoDZNysagzjOYIWXibMhv0p1q6ZCe54aXLkyLEWfl3MJRKR/rWajWud
-         V3zKxfeR3g4w+JLAE0PC4X6J9hpM71ORWS5S9TGUcdV28WS/MYD+Rwj2yGjkcXf76Ave
-         LSZyvp5ywjyUSqaqTCIw43dCHkTq0vZ3o1hFg3HUa5PRkSBNMZ8q9wTviYI2W8y+6h1l
-         YxzhzcPqQL7j2rQts9mEEpJlAOXRO8l/U87Gmy4spSmWeCJGAO6qigNOM3z+Dm4jpXq6
-         nJ4veKYGYrsZqnrKmFXFIlJ0q8iwEmESDSwqYcYWaWd5UdBT0ldKarcluJ//MQQJwwiu
-         O6wg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786537464; x=1787142264;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=riscstar-com.20251104.gappssmtp.com; s=20251104; t=1786537523; x=1787142323; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=k7YkQ+Bc7EQX0qDaijrFEUTuOpQfKm59tZjQohvjtGA=;
-        b=HSnU06+1d119zcOxLbRLXxo7TP3J0bmq5ibL0+A3NQM5Pz7NnO9S3AW9DsL17xN71a
-         kMZl170irJ+C1UG8sXVNuMtV7tjWkrqZ5HEfbG/wB+tgxzyxbA5MWP7vR2QakvjxEYLX
-         zu7lM1IN9ED6Z7+mcPSBOmiDobYJvzyn6Nx/HCV58ZBqquetI/5dBCyhXwR+IJ/q38dW
-         RZgzn0hMIYaMojQmTMT9nAc+OHh0iGvFonlklwbUz+hcu9aFdnscG5aySjSisc7/rWb3
-         gaHfpykTy+EmZR1l9FfN4xh+by3A7BLkNmaqGEVWwoHNfeBkQiUreb8VVJdREpCpukWo
-         +Zxw==
-X-Forwarded-Encrypted: i=1; AHgh+Rq5AZ/Z1lzSGvJh6lq5qI3GK1eeY3LjRRuohHnbp/moGyBm38g5WJEpA4FBAwRT8ZmWtTwfsIIhwmYrpHdU2Syj@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy8Yrv3sXwBhHoOZrXmid6h1gAT6aCRr54Ysax7XcmmDA1/vGDL
-	g1BLXTyi4pir4bZlQhSxH3joYuBP/zT/4kE25GYWTfTTSVLkdhdPQdA43X0uBLiVlFzHCTUGGYd
-	ekVlEV+x6afD8VdSKkb10ADyiFvaTTkQ=
-X-Gm-Gg: AR+sD11G8GJbqzYpUTJDFkjLD4avUl6Ra9+3GfYY/oowR6REz2hwNzQHwXhP6TkewtA
-	LzeqBXTbKo1+G1rZ+rsNnjg4zuA+nlvyUN3HozQGIassBAr89OJc40SKF8ghG4hSs3P0O1mqUt6
-	4gc2Q/WJ/SVUmVfGlamYOmQlTcLK4z5XOPzEWvF65nYiycTZn9C8U0zMh33pPD6beJbK4bqEu9s
-	hsHb5WLl0OHCEcLhRC6oXq+vmPVBinwDxtskUtYL8rSQyWoi1tPBz+1wvN20Hfwz00pv4JmuBS+
-	v6XXN/DMQnmXY1FbA6U0iz6raiNlYiZGZrIKSycLurj/Wg==
-X-Received: by 2002:a05:6402:5515:b0:6a3:72bc:7bca with SMTP id
- 4fb4d7f45d1cf-6a375f517b5mr853527a12.3.1786537463007; Wed, 12 Aug 2026
- 05:24:23 -0700 (PDT)
+        bh=Djp33DZuJ5kk88PXRco/OjHqQCYStiOV5FS5/ccjyz4=;
+        b=V7hQAyCPCejdUsvnM8wtbqE9u49CAOJThi8/twkuhJI1F+IFJVZZvzJ9e2sTKOEHVT
+         eCsS/Cvp2SvvnlMJacntrkRGf3+gB/GmpzCQ5lLqNBKkCuMBC5DMQBRUB0At2KJ4Oe3l
+         Ocql8EaSdvimfDXraSV4LgKtGMCtAz7waCWN15pcvuS0Ccnq2wNh4ohfVv6Dz36KwwBP
+         1hFjwRo5ssn3lCWD4Ms3XhuvvaFzZCsQyMmYB57cRKWJ4uLVtm9oFZwr9bzz4YLNhAum
+         47mGc4qKQmewJHL7Bz/+yUCxxcJwH50TEIBxeq4z7WatHa+ocWiZ91v+wP6SgYFKYk4O
+         EfCw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786537523; x=1787142323;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Djp33DZuJ5kk88PXRco/OjHqQCYStiOV5FS5/ccjyz4=;
+        b=AP1WMoLZe6UoU7RBKjMjpiW2AEJClSq3jHFhhZf3dOyUpoh0Q1DYxqKAEhIg9n5cub
+         Tp/7ojxApga/DNK25SQEYhn6wrykeqBHr5D56uqEliF4ckRoRU6QwCssdpV7IIqajJyd
+         dPOsiNUZLiqkGs3NksNldnBkYGgG6xOeL19akwaoSxQ+GkfOJ7e1AXF4B7DpVr33Qp9+
+         hOJ/gyQulLXHyCSQEZALphaxHtpFGkEvmgfomgZltt3MqSqdrYwO7xeDzgXEBU3olFcZ
+         Kk0wE4wkRZTzmXrPOycolDKvKtWk9S4nOlYc7yQ1JduD8V+I8gjL3XfZjAKksy+ctvIP
+         mZhw==
+X-Forwarded-Encrypted: i=1; AHgh+Rolpf2CM6mw2pkNxDc+8nqDgIg24oZuTgWZe6tP1zHMY2xqebMcBvzZi5u4hbj17Ax7WgpxpKyc50pcXVlZ7AKC@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxq3a3X63n8gQA6s59XP99zbQ2Ilo6uK7aImnLvRwmi79trpLiw
+	OLgIlrh2ZZK0+7SMpnrFYPwa4YiarCaVd4wkZE0Q3n57n8+x6HhHjx+JhqpRzqBoqGk=
+X-Gm-Gg: AR+sD12+NV0Pr9V27K7USRF33IiBHqKv0QRYImE9+MM90HVDMr3xPUvzIA+QNLke2QG
+	0raDdAeTTZCxhZoNEjexsVAqMloBiSyy6BNpZ7vSNbE+ByVgFm7JppNhOscqgFxXvs03i7bXiRF
+	IKuromxZvvIy+HiuP5vHiEkvFGy1obF142MPgRqrTLMtzqubylhr4mwZ9HCzbNTWYevwIkYnY6g
+	qUswtQQ3eEB29BlA4ktgBmodm0Mnmj5Rtz7tEG9lSFzQQuv8H7ZhqPKiI+9sXWbP58fGOO0x39v
+	lY6MxpcIoSNyCF8l3Z5rgHk0uvyjivZo5P8UVAiqRdK9zFN5G1hn+VjJZGbZ7OV6MQDmvyPnfcC
+	Nq4qndRhdvdiPvTlBXX6hjv2pvq7ObV3YDku37ZNhJ0j1Koj+nvc4wcTJXNNQi2/1PDGDpOTgZu
+	XL0sVXcIOaeSQ2WlkLKTQT+fJtDPu13xigqu+BMFO8pyofwn4jax8DWGC2Mxlu
+X-Received: by 2002:a05:622a:83:b0:517:8d24:64d8 with SMTP id d75a77b69052e-52d646edbedmr31554961cf.13.1786537522952;
+        Wed, 12 Aug 2026 05:25:22 -0700 (PDT)
+Received: from [172.22.22.28] ([73.62.185.64])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-52d61dc9245sm16460631cf.25.2026.08.12.05.25.21
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 12 Aug 2026 05:25:22 -0700 (PDT)
+Message-ID: <72848f5d-768a-4d06-82d1-1168cae8c5b6@riscstar.com>
+Date: Wed, 12 Aug 2026 07:25:21 -0500
 MIME-Version: 1.0
-References: <20260810-dcphy-rx-v1-v3-0-a2d25c29adfc@gmail.com>
- <20260810-dcphy-rx-v1-v3-1-a2d25c29adfc@gmail.com> <20260812-refreshing-rampant-gecko-b38ef9@quoll>
-In-Reply-To: <20260812-refreshing-rampant-gecko-b38ef9@quoll>
-From: =?UTF-8?B?5qWK5pm65oiQ?= <jason98166@gmail.com>
-Date: Wed, 12 Aug 2026 20:24:11 +0800
-X-Gm-Features: AUfX_mz6P0tpS0X_aTP21idLy0_k0ZDj4Fov-0axes74Vj1me73dhQSiZbhCnY0
-Message-ID: <CAPwA33KM-sWkPVrP1h+swLinvrCZHzxPeS7h25KEO87Q_6WZuA@mail.gmail.com>
-Subject: Re: [PATCH v3 1/5] dt-bindings: phy: Add PHY_TYPE_DSI and
- PHY_TYPE_CSI definitions
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Guochun Huang <hero.huang@rock-chips.com>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Michael Riesch <michael.riesch@collabora.com>, 
-	"Bryan O'Donoghue" <bryan.odonoghue@linaro.org>, linux-phy@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] net: stmmac: use dma_addr_t for DMA addresses
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com
+Cc: mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Sashiko <sashiko-bot@kernel.org>
+References: <20260811192703.1765416-1-elder@riscstar.com>
+ <65494f6d-50fe-4bdb-98d9-7150d9a4fc91@bootlin.com>
+Content-Language: en-US
+From: Alex Elder <elder@riscstar.com>
+In-Reply-To: <65494f6d-50fe-4bdb-98d9-7150d9a4fc91@bootlin.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_052427_049451_E719EBF9 
-X-CRM114-Status: GOOD (  29.71  )
+X-CRM114-CacheID: sfid-20260812_052524_585656_03B0DB8D 
+X-CRM114-Status: GOOD (  26.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,112 +106,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thanks for the review.
+On 8/12/26 2:23 AM, Maxime Chevallier wrote:
+> Hi Alex,
+> 
+> On 8/11/26 21:27, Alex Elder wrote:
+>> In jumbo_frm() (implemented in both "chain_mode.c" and "ring_mode.c"),
+>> an unsigned integer local variable is used to hold the value returned
+>> by dma_map_single().  On systems where a dma_addr_t is 64 bits, the
+>> subsequent dma_mapping_error() check of the returned value operates
+>> only on the low 32 bits (whose high bit won't be sign-extended).  In
+>> this case, dma_mapping_error() would return 0 (no error) even if there
+>> were one.
+>>
+>> Fix this in both spots by using a dma_addr_t for the local variable.
+> 
+> Thanks :)
+> 
+> I was wondering if it would silently hides another address size related
+> issue a little bit lower, as we now have :
+> 
+>    dma_addr_t des2;
+> 
+>    des2 = dma_map_single(...);
+> 
+>    desc->des2 = cpu_to_le32(des2);
+> 
+> desc->des2 is __le32, so for 64 bit addresses we silently truncate the
+> address.
 
-> I read above, but still do not get why TYPE_DPHY/CPHY is not enough.
-> Isn't DPHY implying it is DSI?
+I saw that too.  Everything is unsigned, and only the lower
+32 bits will be used, but I'd rather see the dma_addr_t
+explicitly converted to u32 before being passed to cpu_to_le32().
+This should work regardless of the size of dma_addr_t:
 
-I see your point, and I did not explain this clearly enough in the previous
-version.
+	desc->des2 = cpu_to_le32(lower_32_bits(des2));
 
-D-PHY only describes the electrical layer, and both MIPI DSI and MIPI CSI-2
-can run on top of it. A CSI-2 receiver's PHY is a D-PHY just as much as a
-DSI transmitter's is, so PHY_TYPE_DPHY alone does not tell us which one the
-consumer is asking for.
+I didn't look, but there could be other places where this occurs.
+Tell me if you'd like me to send another patch that does this
+(here and in any other spots I find.)
+> However I don't see how jumbo would work on 64-bits anyways as des3 is the next
+> chunk of the jumbo frame...
+> 
+> I think this is good as-is, so
+> 
+> Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 
-That is the problem here. The RK3588 DC-PHY exposes both a transmitter and
-a receiver from a single PHY block, which can be used by two independent
-consumers at the same time. This is not a theoretical concern: on this
-board a DSI panel is scanning out while the same PHY receives CSI-2 frames
-from a camera. With only the electrical layer to identify the PHY, both
-consumers would end up with the same phandle cell:
+Thank you.
 
-dsi@fde20000 {
-phys =3D <&mipidcphy0 PHY_TYPE_DPHY>; /* wants the TX */
-};
+					-Alex
 
-csi2@fdd10000 {
-phys =3D <&mipidcphy0 PHY_TYPE_DPHY>; /* wants the RX */
-};
+> Maxime
+> 
+>>
+>> Reported-by: Sashiko <sashiko-bot@kernel.org>
+>> Link: https://lore.kernel.org/linux-devicetree/20260606010122.21A211F00899@smtp.kernel.org/
+>> Signed-off-by: Alex Elder <elder@riscstar.com>
+>> ---
+>>   drivers/net/ethernet/stmicro/stmmac/chain_mode.c | 3 ++-
+>>   drivers/net/ethernet/stmicro/stmmac/ring_mode.c  | 3 ++-
+>>   2 files changed, 4 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/drivers/net/ethernet/stmicro/stmmac/chain_mode.c b/drivers/net/ethernet/stmicro/stmmac/chain_mode.c
+>> index fc04a23342cfc..ec25193d287bb 100644
+>> --- a/drivers/net/ethernet/stmicro/stmmac/chain_mode.c
+>> +++ b/drivers/net/ethernet/stmicro/stmmac/chain_mode.c
+>> @@ -20,9 +20,10 @@ static int jumbo_frm(struct stmmac_tx_queue *tx_q, struct sk_buff *skb,
+>>   	unsigned int nopaged_len = skb_headlen(skb);
+>>   	struct stmmac_priv *priv = tx_q->priv_data;
+>>   	unsigned int entry = tx_q->cur_tx;
+>> -	unsigned int bmax, buf_len, des2;
+>> +	unsigned int bmax, buf_len;
+>>   	unsigned int i = 1, len;
+>>   	struct dma_desc *desc;
+>> +	dma_addr_t des2;
+>>   
+>>   	desc = tx_q->dma_tx + entry;
+>>   
+>> diff --git a/drivers/net/ethernet/stmicro/stmmac/ring_mode.c b/drivers/net/ethernet/stmicro/stmmac/ring_mode.c
+>> index 78fc6aa5bbe95..664d8cfb58cdc 100644
+>> --- a/drivers/net/ethernet/stmicro/stmmac/ring_mode.c
+>> +++ b/drivers/net/ethernet/stmicro/stmmac/ring_mode.c
+>> @@ -20,8 +20,9 @@ static int jumbo_frm(struct stmmac_tx_queue *tx_q, struct sk_buff *skb,
+>>   	unsigned int nopaged_len = skb_headlen(skb);
+>>   	struct stmmac_priv *priv = tx_q->priv_data;
+>>   	unsigned int entry = tx_q->cur_tx;
+>> -	unsigned int bmax, len, des2;
+>> +	unsigned int bmax, len;
+>>   	struct dma_desc *desc;
+>> +	dma_addr_t des2;
+>>   
+>>   	if (priv->extend_desc)
+>>   		desc = (struct dma_desc *)(tx_q->dma_etx + entry);
+>>
+>> base-commit: 31397cf1819210bd63fa3d2c7d8c24f7c8667d99
+> 
 
-There is then nothing in .of_xlate() to distinguish the two requests.
-
-I will make this clearer in the v4 commit message and include the example
-above so that the reasoning is easier to follow.
-
-For context, v2 described the direction with a Rockchip-private
-RK_DCPHY_DIR_* enum. Michael Riesch suggested using generic constants
-instead [1], and Vinod agreed [2].
-
-[1] https://lore.kernel.org/r/82da3622-9c3a-454c-87bc-fb4ec7adb68d@collabor=
-a.com
-[2] https://lore.kernel.org/r/anSuxfeitSqmSHNr@vaman
-
-> Your tag goes the last.
-
-Sure, I will fix this in v4. The Signed-off-by tag will come last, and I
-will check the whole series again.
-
-> Two simple defines needed Claude.
-
-Yes, I agree that these two defines themselves are simple and do not really
-need AI assistance.
-
-I added the Assisted-by tag because I used AI during the development of the
-series as a whole, including cross-checking the code, writing additional
-test cases, and looking up the relevant sections of the TRM. (I checked the
-corresponding sections in the TRM myself, reviewed the test cases, and
-re-ran them on the hardware before sending the series.)
-
-I also checked the current mainline guidance in
-Documentation/process/submitting-patches.rst and
-Documentation/process/coding-assistants.rst. Since I was not sure how much
-AI involvement should warrant tagging individual patches, I chose to mark
-the whole series consistently.
-
-That said, I am happy to drop the tag from this patch in v4 if you prefer -
-I wrote these two lines myself.
-
-Thanks,
-Jason
-
-
-Krzysztof Kozlowski <krzk@kernel.org> =E6=96=BC 2026=E5=B9=B48=E6=9C=8812=
-=E6=97=A5=E9=80=B1=E4=B8=89 =E4=B8=8B=E5=8D=886:51=E5=AF=AB=E9=81=93=EF=BC=
-=9A
->
-> On Mon, Aug 10, 2026 at 08:10:09PM +0800, Jason Yang wrote:
-> > MIPI D-PHY and C-PHY blocks are increasingly direction-agnostic: the
-> > same PHY IP can drive a MIPI DSI display or receive from a MIPI CSI-2
-> > camera, and combo blocks like the Samsung IP on RK3588 expose both
-> > directions to independent consumers at the same time. A binding that
-> > needs to tell the two consumers apart has nothing generic to reach
-> > for: most constants in this header name a protocol (PHY_TYPE_USB3,
-> > PHY_TYPE_DP, ...), while the MIPI entries name only the electrical
-> > layer.
-> >
-> > Add PHY_TYPE_DSI and PHY_TYPE_CSI to select a PHY by the MIPI
-> > protocol it speaks, which also implies the direction. They do not
-> > replace PHY_TYPE_DPHY/PHY_TYPE_CPHY, which remain the right choice
-> > where the cell selects the electrical layer. First user is the
-> > Rockchip RK3588 MIPI DC-PHY binding.
->
-> I read above, but still do not get why TYPE_DPHY/CPHY is not enough.
-> Isn't DPHY implying it is DSI?
->
-> >
-> > Suggested-by: Michael Riesch <michael.riesch@collabora.com>
-> > Signed-off-by: Jason Yang <jason98166@gmail.com>
->
-> Your tag goes the last.
->
-> > Assisted-by: Claude:claude-fable-5
->
-> Two simple defines needed Claude. Great, that probably makes AI
-> conglomerates very happy that we do not type even two lines anymore and
-> need their resource-hungry data centers to do that for us.
->
-> Best regards,
-> Krzysztof
->
 
