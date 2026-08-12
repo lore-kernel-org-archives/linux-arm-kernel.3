@@ -4,79 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7955BC5B56A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 10:01:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7DCEC5AD5A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 10:02:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VmbgncPtKrUj6hpngz8TyZ+tnlOEdXbb4i+DSo713o0=; b=Up0rTox0uY9+5WA8IgyeGXxZJq
-	k7CQo44sWTZDPd6vCEhZfZeWUHJaHlxEjGRInVj0n37MHyLmbiGQzrfMPx07j1hN4c4U2CmviHbqD
-	0S0QpLbf+u+v40bY2ttlbc3lV3uAj1Snr6ey0RuTSpEboeTs2gzvK8PXbmNODochJN9mgucbovJr3
-	eeHG0e+ZDeMfG1zoO23TyBLLQF1XUVQTR4yYUx+GtBbK8o1C83Dh/WkNjGApNrlqSYyZ1h55Cytb+
-	43jotcdnH6J+AD+E/Pp4et6snGBTHvRed9k1Q3C2dCfNMrj+b4L+GjpGMJBbquWh+6iZMd/BSvsRI
-	HXoQew9g==;
+	bh=CR60h/fVXoId0NfC1qox1rIsZX7Vdp8o1eA32koeHU0=; b=BTI0NmRPumxl1Cj5YD2EouIZXx
+	yYsT3Y5MGarid6dYnX5AXVCUQ/zKjuUFN4Q8w30UFBG/O3vgj0ZKw8qDBIvW28Me6GStnyb/IS9UG
+	4GwrsK8hkkEa+5/sbpiua85Hu2g4XQ0PshCi58CiKDOXkoMZ/r8Hitv60KUjUHONBY1sn6dkedbkm
+	dUvjB4Q2fxQqb/eprLnFZrNnKMJwEKKbhDiZp/b0BFUeIUtaM2Kt7avAzv/0YYVM91809zv4/lea/
+	kmgt+vJttdpRq4s9f3d0BT2PclW7IQKZN7DOUqco1ntL2loZ4U+WR6nuT8nvaIqYJOH+L6QecAWOQ
+	KJChImVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu5mH-0000000FplM-2vxu;
-	Wed, 12 Aug 2026 10:01:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu5mD-0000000FpkP-34Bu
+	id 1wu5nG-0000000Fpv3-0I9N;
+	Wed, 12 Aug 2026 10:02:42 +0000
+Received: from mail-ua1-f52.google.com ([209.85.222.52])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wu5nD-0000000FpuR-1dUS
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 10:01:40 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B2BC51596;
-	Wed, 12 Aug 2026 03:01:30 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 58C893F632;
-	Wed, 12 Aug 2026 03:01:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786528894; bh=laAQxkCDgu5rybBDPLSZxhaA8e2vicoqRxfv8eyBppg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=H9+Q3rweucDYcVESosYOqah1VsOK5/gZBmUDqRzZn63O1t3HEhDbFomEHapCTWR2C
-	 4HjayAQgmAUs2cjgjubPrIW3CeX2n+B9zHWT7RcBq9sIXEnzQmXnFEsazv1HuywPNi
-	 wqnvNT0Uoa+RgTsn5+EP2jUJQjbBJpJapx1rZX8o=
-Date: Wed, 12 Aug 2026 11:01:23 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
-	Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>, Jason Gunthorpe <jgg@ziepe.ca>,
-	Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
-Subject: Re: [RFC PATCH] dma: swiotlb: Size shared default pools for memory
- encryption
-Message-ID: <anxEc8EHmJQywVI5@arm.com>
-References: <20260811134056.756015-1-aneesh.kumar@kernel.org>
+	Wed, 12 Aug 2026 10:02:40 +0000
+Received: by mail-ua1-f52.google.com with SMTP id a1e0cc1a2514c-9693bbb962eso369286241.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 03:02:39 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786528958; x=1787133758;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=CR60h/fVXoId0NfC1qox1rIsZX7Vdp8o1eA32koeHU0=;
+        b=j91vj3uBHXQAeIviCyX1PwTVL5XF6YbLPaZoONIHp1CnwxrIWfe3g2jjzAtwT9ojGp
+         JzLl5Zd3vZL8J6yEdQPZrSKZq0Ek4ejp67ib84z/e5Poo9K8sivH65Vafsk5m2FnFxlj
+         Q5pMKUmb9nzv9GHSYltmAznuS/511E8OpYFrkae2rObDw88jOlsglBQQCGRfOltoAcig
+         Mkb1ZhRGjaN5CwbBvb51H6Lb4xWNnMqzZbWW90vUfdfNdDU03LPYO/u4DE/NILW9Q12t
+         L+JvcMCdETeg0Ji3WLmglS57iyag0pcNyVEagUxRk4W2ihxPTkAxbn9MT2Uo4c5x2+Wk
+         pXFg==
+X-Forwarded-Encrypted: i=1; AHgh+RqEs0h546D/gcdB7Peh29lwobmACTmtwU8oVABwiHgJdhQF2TdNSIDiMTRKh39Gj9j4nAWJ8tzpyi74lz51JUKT@lists.infradead.org
+X-Gm-Message-State: AOJu0YxsoMw3Ja2Juozehnmn7KqN4rE3tkNnvEnYF+pne7f5sEqtALj5
+	UVJSKHXGk5RROw4uu3aKY1kQSe898Ksk/RVQB9pu09wpXNUlauyEsNCprTpf8AFw
+X-Gm-Gg: AR+sD13e3aVQJzgVkK7ITTIzy4FJPKUfx+/ZtjuT7Ce0nUeMn40Y0a46VwP9rL9TmfS
+	08I7YRWhNIkmQ6VvTFu0BVdOWvMjmDK9oQt87MjcTxp5yjqhaQ31UcmT1YKYS3uvqkOsFTjXJ5Q
+	TOkWQqA9zu7usdrNlSJEQFkbxzfQ8E5Yw7kW8ADrxmywkZun8B5BbnEZMHsRHF7JjtdHMyEdu1Q
+	a80LJf2e1PLsyH0odC6NJOO8l8QW+0f4OM+K4BkhDoZAQyunXR8ZfCqHPKY93qfPiip7KH5BWfN
+	YlZYOSFPnr6lYcy3M0CZXMgsdWa6XFL+fZiOWTZuSPs2HGaIwklQY8M3x3oGqSxcc27Azsnv2Uh
+	lwY55jVAsNIplQFCribqDvrXuR3qTeYs90ZxctYAg3J4yEPxZ3mxsDBDFA/TklmgNw6w+pi3yRT
+	G/snYC17Ys6wC/YpUNCqqwLFjmbDvAgRdH359L/EheDdP9JmuX5Sae7knteh6zRtq7JQ9jHtPIn
+	c3rWiQaNsx67XiwDj9h4wcY2Q==
+X-Received: by 2002:a05:6102:1481:b0:738:6994:eb8 with SMTP id ada2fe7eead31-76c8a264471mr937445137.0.1786528957914;
+        Wed, 12 Aug 2026 03:02:37 -0700 (PDT)
+Received: from mail-ua1-f48.google.com (mail-ua1-f48.google.com. [209.85.222.48])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-97a3cc0da87sm1240237241.7.2026.08.12.03.02.36
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 12 Aug 2026 03:02:36 -0700 (PDT)
+Received: by mail-ua1-f48.google.com with SMTP id a1e0cc1a2514c-97723f98735so392330241.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 03:02:36 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Rqr5zkBp5CDUtX1jmYwJH/gbCg0Kp0ZbBKGV5zZUWdNMVVv/Dtky2r6XoZF1M5IAr5AFvTJfmiT+5pLcXyN1w11@lists.infradead.org
+X-Received: by 2002:a05:6102:3fa3:b0:738:531e:a43e with SMTP id
+ ada2fe7eead31-76c8e62eb86mr823119137.7.1786528956520; Wed, 12 Aug 2026
+ 03:02:36 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260811134056.756015-1-aneesh.kumar@kernel.org>
+References: <cover.1783505329.git.geert+renesas@glider.be> <49726acff0fee1c3606e83c4f242ef6aad25b4b8.1783505329.git.geert+renesas@glider.be>
+ <20260710-adventurous-burgundy-chimera-b2fff9@quoll> <CAMuHMdV=ckONBbTYELPJU8YWoNzdu3PJ95VR8cz+f_7dUeiPUw@mail.gmail.com>
+ <20260716214924.GA1477674-robh@kernel.org> <CAMuHMdU0ss6wUEdjC+OYa3iQS439aJ8b_d9M2ws7Ayn4_kOyMQ@mail.gmail.com>
+ <20260811163334.GA2354701-robh@kernel.org> <CAMuHMdWbzg-QpFBzzDa2hC3HzAmWUkerESC5O-cSVxmWX3_PkQ@mail.gmail.com>
+ <45dfd858-9d59-47e6-91e0-ef9e6e909af6@kernel.org>
+In-Reply-To: <45dfd858-9d59-47e6-91e0-ef9e6e909af6@kernel.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 12 Aug 2026 12:02:25 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdXJFdJQP1GVXrOWRuYO8Si_WF5X+vpzmAgTZY+tQstR1A@mail.gmail.com>
+X-Gm-Features: AUfX_myt-2ep2N9UFFpinQmtMeTX8Y6aB554SNFoItehXn5f25ET5eoahbFPK1U
+Message-ID: <CAMuHMdXJFdJQP1GVXrOWRuYO8Si_WF5X+vpzmAgTZY+tQstR1A@mail.gmail.com>
+Subject: Re: [PATCH v2 05/10] dt-bindings: clock: renesas,r8a78000-cpg: Add
+ firmware property
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Sudeep Holla <sudeep.holla@kernel.org>, 
+	Cristian Marussi <cristian.marussi@arm.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Saravana Kannan <saravanak@kernel.org>, 
+	Ulf Hansson <ulfh@kernel.org>, "Rafael J . Wysocki" <rafael@kernel.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, Vinod Koul <vkoul@kernel.org>, 
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, Kevin Hilman <khilman@baylibre.com>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Wolfram Sang <wsa+renesas@sang-engineering.com>, 
+	Marek Vasut <marek.vasut+renesas@mailbox.org>, 
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, arm-scmi@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-pm@vger.kernel.org, linux-clk@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_030137_879566_DA20EF88 
-X-CRM114-Status: GOOD (  24.52  )
+X-CRM114-CacheID: sfid-20260812_030239_447410_AF37DFA4 
+X-CRM114-Status: GOOD (  37.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,77 +113,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 11, 2026 at 07:10:56PM +0530, Aneesh Kumar K.V (Arm) wrote:
-> Systems with memory encryption use swiotlb to provide shared or
-> unencrypted buffers for device DMA. Confidential guests may route all
-> DMA through these buffers, while SME hosts use them for devices that
-> cannot address encrypted memory. The default swiotlb pool can therefore
-> be exhausted under I/O-intensive workloads.
-> 
-> Let architectures mark the default swiotlb pool as shared before
-> swiotlb_init().
+Hi Krzysztof,
 
-I thought we wanted even this decision to be moved out of the arch code.
+On Wed, 12 Aug 2026 at 11:51, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+> On 12/08/2026 11:47, Geert Uytterhoeven wrote:
+> >>>>>>> +  firmware:
+> >>>>>>
+> >>>>>> RPi is doing similar, but I have doubts. It looks way too close to
+> >>>>>> generic "syscon" which is disallowed.
+> >>>>>>
+> >>>>>> I think this should be vendor+purpose specific, e.g.:
+> >>>>>> "renesas,scmi-transport" or "renesas,scmi-firmware"
+> >>>>
+> >>>> If you can tell me the resource that a 'firmware' provider provides then
+> >>>> it is fine, but you can't.
+> >>>
+> >>> It provides a firmware API, which is not available until the firmware
+> >>> provider is initialized.
+> >>
+> >> I don't know what "a firmware API" is. What does it provide? I know what
+> >
+> > It can provide lots of things (everything we are no longer allowed to
+> > touch directly from Linux ;-)
+> >
+> >> a clock, GPIO, reset, interrupt, etc. provider is.
+> >
+> > A clock is an object you can access through the clock API.
+> > (s/clock/.../ for the other cases).
+> > Firmware is a service (virtual object) you can access through a
+> > firmware API.
+> >
+> > In all cases, the consumer of the object or service needs to know
+> > which object or service to use (there can be multiple).
+> >
+> > In all cases you cannot access the object or service until it is
+> > available (initialized and registered), for which we have -EPROBE_DEFER,
+> > and/or "[PATCH v2 02/10] of: property: fw_devlink: Add support for
+> > firmware".
+> >
+> > Thanks for your understanding ;-)
+>
+> I think that's the difference here. Clock is not an object, but a signal
+> on a wire or within IC coming from one device (provider) to another
+> (consumer). Firmware is not a signal, not a wire, not anything which can
+> be provided from one to another.
 
-> Move the existing x86 sizing policy into generic swiotlb
-> code and add early pool marking for arm64 Realm guests, powerpc secure
-> guests, s390 protected-virtualization guests, and x86 memory-encryption
-> platforms. Use CC_ATTR_MEM_ENCRYPT on x86 to include host SME, whose
-> swiotlb pool must also be decrypted for devices that cannot address
-> encrypted memory.
+Oh yes, it is a service provided by the secure world or a different
+CPU core to the application core running Linux.
 
-That's a functional change for x86. For now, I'd keep it to
-CC_ATTR_GUEST_MEM_ENCRYPT.
+Gr{oetje,eeting}s,
 
-BTW, why does arm64 report CC_ATTR_MEM_ENCRYPT instead of the GUEST
-option in realms?
-
-> Move the powerpc secure-guest swiotlb enablement before initialization
-> so that the shared pool is allocated with the required flags. pKVM
-> guests continue to use a restricted DMA pool instead of the default
-> swiotlb pool.
-> 
-> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
-> ---
->  arch/arm64/mm/init.c                 |  6 ++-
->  arch/powerpc/mm/mem.c                |  7 +++
->  arch/powerpc/platforms/pseries/svm.c | 10 ----
->  arch/s390/mm/init.c                  |  2 +
->  arch/x86/mm/mem_encrypt.c            | 27 ++--------
->  include/linux/swiotlb.h              |  7 ++-
->  kernel/dma/swiotlb.c                 | 73 ++++++++++++++++++++++------
->  7 files changed, 82 insertions(+), 50 deletions(-)
-> 
-> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-> index e308a7cabd12..4c022e8aed43 100644
-> --- a/arch/arm64/mm/init.c
-> +++ b/arch/arm64/mm/init.c
-> @@ -338,8 +338,12 @@ void __init arch_setup_zero_pages(void)
->  void __init arch_mm_preinit(void)
->  {
->  	unsigned int flags = SWIOTLB_VERBOSE;
-> +	/* pKVM uses restricted-dma-pool */
-> +	bool cc_guest = is_realm_world();
->  
-> -	if (max_pfn <= PFN_DOWN(arm64_dma_phys_limit)) {
-> +	if (cc_guest) {
-> +		swiotlb_mark_default_cc_shared();
-> +	} else if (max_pfn <= PFN_DOWN(arm64_dma_phys_limit)) {
->  		/*
->  		 * If no bouncing needed for ZONE_DMA, reduce the swiotlb
->  		 * buffer for kmalloc() bouncing to 1MB per 1GB of RAM.
-
-With your other reworking, doesn't the core code know the swiotlb will
-be shared? Can it not make the decision to resize at that point based
-solely on CC_ATTR_GUEST_MEM_ENCRYPT?
-
-I also wonder whether we could address Will's pKVM request not to
-allocate a bounce buffer once pKVM guests will start reporting
-CC_ATTR_GUEST_MEM_ENCRYPT. Some simple heuristic: if a
-restricted-dma-pool is advertised in DT (it will end up in
-rmem_swiotlb_setup()), skip resizing the default swiotlb. It's not
-perfect but the bounce buffer can be overridden on the command line.
+                        Geert
 
 -- 
-Catalin
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
