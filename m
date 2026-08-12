@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA105C5CFEE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 13:30:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1BF6C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 13:30:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=o4ci6Yt4x+qcC68j9ptpwtaBjmWSWxJExDyogI+F3sk=; b=0Zajqfj29OOgTA/AalN+yUd0Ca
-	ul5bwpQdTErU4Bf8/rIhGYb/04ZwW8pFShxrXqbqcs1+8EoKrsABjD0p9axlD2ts1s6o5Iv/lyVnm
-	cdC0eXn6U03kily05GWIzuZCQpRTo+7Ejw5SASmC0/P8D9/5y46Ll/DkQHuQ4/uq57yiB2BKW8YEK
-	FEn8XURq8MKX5Bbs5pt3SOGFdlIA7wULAXDGrNQyLJRJ7nh5UWE51FVJ8rXPI1mWhgQcS+qo0hBGX
-	qZrZe/AZ6v8GXYKfd9BPvNzALgZ7tPCxjFmT9p3GlcRG4DRE13O3SJXYAYqA0eKIc/aP0DVnpn1ad
-	B4185Dfg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Cy/5AnutR73xOx206RLh/f1PGGtvSU7v30Bw9Dyy0bg=; b=d0KN2W5r0ZjERqp0T1Mgx84zA1
+	JNpQw6M8/Cm2KY/GYw5s8p9TlwDF+YSqU3kgAG600BRhNQGrpxtGSYl9gps4ZOz7nMe6OHlHqbuvc
+	bGtdiLV7k5Hz0Cf1Nc8Al54QdSE0KWVFgTpwyfkQBHfvDvim4gwFLX1AgrVa4Mg3yZUSaUl7I1Rce
+	TlvzRu7qfsOqRpN1h2rBuLkfBMi+1ebuW9uF2w3hcn+IB629n8jlwZ6tSvLljTMoXaW/v2m0d2k+2
+	3+diMK/+jcfT13ozb9pgBoTsaplnXd2klBRxewN2ujhSDUyWb6noSozyU8SorfqeTnRuQHZFrvvyr
+	qw12fe3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu91z-0000000GHgs-1grY;
-	Wed, 12 Aug 2026 13:30:07 +0000
+	id 1wu925-0000000GHk9-2y90;
+	Wed, 12 Aug 2026 13:30:13 +0000
 Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu91v-0000000GHfZ-3SnY
+	id 1wu91x-0000000GHfl-3eyo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 13:30:06 +0000
+	Wed, 12 Aug 2026 13:30:07 +0000
 Received: from francesco-nb.. (93-33-22-216.ip42.fastwebnet.it [93.33.22.216])
-	by mail11.truemail.it (Postfix) with ESMTPA id 909141F901;
-	Wed, 12 Aug 2026 15:29:59 +0200 (CEST)
+	by mail11.truemail.it (Postfix) with ESMTPA id DD6A41FDCE;
+	Wed, 12 Aug 2026 15:30:02 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1786541400;
-	bh=o4ci6Yt4x+qcC68j9ptpwtaBjmWSWxJExDyogI+F3sk=; h=From:To:Subject;
-	b=R/pObcSjdtF+gPpYc8T2GhMhHAyNHI9T8vnlapHvBBJHcBFxdkB6Y6qqmtWYMe3/K
-	 fSC1RzFIcbhFFAPizk9CzuBGCjQUZPKDu+Sw0QIbRo49ZBxWUHJlbbItCL98eEDyhx
-	 vNrnFBZdZui7a2JjQivqYMMJ13/djFeT4bWsDv9q7lQWyArsHgFjE0xIefLCMHaj7s
-	 mDd4Icj3xK6jlS10wlp5UaTJG1lewGka+Hs30AJLY2HPWybpHzBcN2vgjbkYxmK55V
-	 R1wC9HLw+fsAxAzlASy5qtgQSIOSoKgc30+tSAADSmRhWmi2zGk5omOXyiSFkPYFR+
-	 8ZgGu0ZeNMAqA==
+	s=default; t=1786541404;
+	bh=Cy/5AnutR73xOx206RLh/f1PGGtvSU7v30Bw9Dyy0bg=; h=From:To:Subject;
+	b=EmBwwfFnYl41rr7PBG+17uYGTfeEkOYqhZiQ73jDGBrTXyebNgDWWS4G0y31L+DAe
+	 YXa6S9MYPjE7jarbP2zCizY7FkZtAWnUBpbskoEMV6qqR7FiZsk7dh5BaP3GiYZfrD
+	 9g7ScxtYqAbvY5L3MGduU4eJudEbpykPb3y/4qulm8zXG5gJ9wdPHdCUoWFm2D5F05
+	 tQoVUOk5iClZcX8uWXbT6V3zLeAq64tpxAp0tPYcyNH7l8CQcq/XwWSekM1873FOXD
+	 6QtT7ybWGV80nR8BlZyrm6NKWj5KzH5QIlMCrSpU6OwTt/HfHxSQ/fgJFEQA8Jam2I
+	 v7HtnC8FFEyIQ==
 From: Francesco Dolcini <francesco@dolcini.it>
 To: Marek Vasut <marex@denx.de>,
 	Stefan Agner <stefan@agner.ch>,
@@ -61,15 +61,17 @@ Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
 	linux-kernel@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v3 0/4] drm: mxsfb: Support LCDIF interface bus width
-Date: Wed, 12 Aug 2026 15:29:48 +0200
-Message-ID: <20260812132954.148571-1-francesco@dolcini.it>
+Subject: [PATCH v3 2/4] drm: mxsfb: Add optional DPI output bus-width configuration
+Date: Wed, 12 Aug 2026 15:29:50 +0200
+Message-ID: <20260812132954.148571-3-francesco@dolcini.it>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260812132954.148571-1-francesco@dolcini.it>
+References: <20260812132954.148571-1-francesco@dolcini.it>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_063004_774499_05F579F7 
-X-CRM114-Status: GOOD (  10.61  )
+X-CRM114-CacheID: sfid-20260812_063006_260132_C3834643 
+X-CRM114-Status: GOOD (  21.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,45 +88,127 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Francesco Dolcini <francesco.dolcini@toradex.com>
 
-The width of the physical LCDIF output bus can differ from the input bus
-format advertised by the downstream panel or bridge.
+LCDIF programs LCD_DATABUS_WIDTH from the selected media bus format. The
+format reported by the downstream panel or bridge describes the display
+input, but it does not describe how the LCDIF data pins are physically
+wired on the board.
 
-Such a distinction is required when the LCDIF bus width does not match the
-width of the downstream display interface. For example, an 18-bit or
-16-bit LCDIF bus can drive a 24-bit display by wiring the available color
-bits to the appropriate display inputs. Configuring LCDIF solely from the
-display's 24-bit format in this case selects the wrong LCD_DATABUS_WIDTH
-mode, changing the color-bit assignment on the LCD_DATA pins and resulting
-in incorrect colors.
+These can differ. For example, a 16-bit LCDIF bus can be connected to a
+24-bit display by wiring the available color bits to the corresponding
+display inputs. In that case, using the display's 24-bit format to
+configure LCDIF selects the wrong data-bus mode and changes the assignment
+of color bits on the LCD_DATA pins.
 
-Use the common OF graph endpoint bus-width property to describe the width
-of the physical LCDIF output bus. Make the mxsfb driver derive the
-corresponding media bus format from this property and use it in preference
-to the format reported by the downstream display. When the property is
-absent, the existing behavior is preserved.
+Read the optional bus-width endpoint property from the LCDIF output port
+and use it to select the media bus format used to configure LCDIF. This
+allows the LCDIF bus mode to describe the physical interface
+independently of the downstream display format.
 
-Set the endpoint bus width for the Colibri iMX6ULL and Colibri iMX7 boards,
-which route an 18-bit LCD interface.
+When the optional property is absent, or it has an invalid value, continue
+using the format reported by the downstream display device, preserving
+the existing behavior. The code is not validating the DT for
+correctness and just fall back to the previous behavior in case of
+errors.
 
-v3: use video-interfaces.yaml
-v2: https://lore.kernel.org/all/20260723093813.180089-1-francesco@dolcini.it/
- - use the common bus-width property instead of the legacy interface-pix-fmt
-v1: https://lore.kernel.org/all/20260717121847.488148-1-francesco@dolcini.it/
+Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+---
+v3: improve commit message and make it clear that the code assumes that
+    the DT is correct, when the DT contains an invalid property value,
+    the code safely fall-back to the previous behavior
+v2: use the common bus-width property instead of the legacy interface-pix-fmt
+---
+ drivers/gpu/drm/mxsfb/mxsfb_drv.c | 24 ++++++++++++++++++++++++
+ drivers/gpu/drm/mxsfb/mxsfb_drv.h |  2 ++
+ drivers/gpu/drm/mxsfb/mxsfb_kms.c | 12 ++++++++++++
+ 3 files changed, 38 insertions(+)
 
-Francesco Dolcini (4):
-  dt-bindings: lcdif: Add endpoint bus-width property
-  drm: mxsfb: Add optional DPI output bus-width configuration
-  ARM: dts: imx6ull-colibri: Set LCDIF bus-width
-  ARM: dts: imx7-colibri: Set LCDIF bus-width
-
- .../bindings/display/fsl,lcdif.yaml           |  9 +++++++
- .../arm/boot/dts/nxp/imx/imx6ull-colibri.dtsi |  1 +
- arch/arm/boot/dts/nxp/imx/imx7-colibri.dtsi   |  1 +
- drivers/gpu/drm/mxsfb/mxsfb_drv.c             | 24 +++++++++++++++++++
- drivers/gpu/drm/mxsfb/mxsfb_drv.h             |  2 ++
- drivers/gpu/drm/mxsfb/mxsfb_kms.c             | 12 ++++++++++
- 6 files changed, 49 insertions(+)
-
+diff --git a/drivers/gpu/drm/mxsfb/mxsfb_drv.c b/drivers/gpu/drm/mxsfb/mxsfb_drv.c
+index 8b4a500347fb..f8ecc8bbd63c 100644
+--- a/drivers/gpu/drm/mxsfb/mxsfb_drv.c
++++ b/drivers/gpu/drm/mxsfb/mxsfb_drv.c
+@@ -12,7 +12,10 @@
+ #include <linux/clk.h>
+ #include <linux/dma-mapping.h>
+ #include <linux/io.h>
++#include <linux/media-bus-format.h>
+ #include <linux/module.h>
++#include <linux/of.h>
++#include <linux/of_graph.h>
+ #include <linux/platform_device.h>
+ #include <linux/property.h>
+ #include <linux/pm_runtime.h>
+@@ -211,7 +214,10 @@ static int mxsfb_load(struct drm_device *drm,
+ 		      const struct mxsfb_devdata *devdata)
+ {
+ 	struct platform_device *pdev = to_platform_device(drm->dev);
++	struct device_node *np = pdev->dev.of_node;
+ 	struct mxsfb_drm_private *mxsfb;
++	struct device_node *ep;
++	u32 bus_width = 0;
+ 	int ret;
+ 
+ 	mxsfb = devm_kzalloc(&pdev->dev, sizeof(*mxsfb), GFP_KERNEL);
+@@ -238,6 +244,24 @@ static int mxsfb_load(struct drm_device *drm,
+ 	if (IS_ERR(mxsfb->clk_disp_axi))
+ 		mxsfb->clk_disp_axi = NULL;
+ 
++	ep = of_graph_get_next_endpoint(np, NULL);
++	if (ep) {
++		of_property_read_u32(ep, "bus-width", &bus_width);
++		of_node_put(ep);
++	}
++
++	switch (bus_width) {
++	case 16:
++		mxsfb->bus_format = MEDIA_BUS_FMT_RGB565_1X16;
++		break;
++	case 18:
++		mxsfb->bus_format = MEDIA_BUS_FMT_RGB666_1X18;
++		break;
++	case 24:
++		mxsfb->bus_format = MEDIA_BUS_FMT_RGB888_1X24;
++		break;
++	}
++
+ 	ret = dma_set_mask_and_coherent(drm->dev, DMA_BIT_MASK(32));
+ 	if (ret)
+ 		return ret;
+diff --git a/drivers/gpu/drm/mxsfb/mxsfb_drv.h b/drivers/gpu/drm/mxsfb/mxsfb_drv.h
+index d160d921b25f..bdc47ce5be79 100644
+--- a/drivers/gpu/drm/mxsfb/mxsfb_drv.h
++++ b/drivers/gpu/drm/mxsfb/mxsfb_drv.h
+@@ -46,6 +46,8 @@ struct mxsfb_drm_private {
+ 	struct drm_connector		*connector;
+ 	struct drm_bridge		*bridge;
+ 
++	u32				bus_format;
++
+ 	bool				crc_active;
+ };
+ 
+diff --git a/drivers/gpu/drm/mxsfb/mxsfb_kms.c b/drivers/gpu/drm/mxsfb/mxsfb_kms.c
+index d8ebebc5314b..1d78c486d147 100644
+--- a/drivers/gpu/drm/mxsfb/mxsfb_kms.c
++++ b/drivers/gpu/drm/mxsfb/mxsfb_kms.c
+@@ -386,6 +386,18 @@ static void mxsfb_crtc_atomic_enable(struct drm_crtc *crtc,
+ 	if (!bus_format)
+ 		bus_format = MEDIA_BUS_FMT_RGB888_1X24;
+ 
++	/*
++	 * Prefer the bus format derived from the OF graph endpoint "bus-width"
++	 * property when available. Otherwise, use the bus format reported by
++	 * the downstream bridge or panel.
++	 *
++	 * This supports mismatched display and interface bus widths, such as
++	 * a 24-bit panel connected through an 18-bit interface or an 18-bit
++	 * panel connected through a 24-bit interface.
++	 */
++	if (mxsfb->bus_format)
++		bus_format = mxsfb->bus_format;
++
+ 	mxsfb_crtc_mode_set_nofb(mxsfb, bridge_state, bus_format);
+ 
+ 	/* Write cur_buf as well to avoid an initial corrupt frame */
 -- 
 2.47.3
 
