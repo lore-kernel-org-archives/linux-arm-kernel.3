@@ -4,61 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A62D2C5B56A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 09:43:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9092FC5AD5A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 09:43:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uT1j/JBqsK2CwsMdQ8uSXV4Hx1epAt5Onvot93kluDk=; b=adwwAsGEixJv0oUwPST5DDqZXD
-	RKUY3j4I6O5KZKRG4BjwmRD4r5ZVAqpNHtfwhMq6/xCtDIZuhRCTeIraNquimInpex3Mnwc0Mwf2+
-	uKqqZoY/IUqN8Y4ns/U/D2UEai3BpCYJXFRWGzvc3aNvOJA7Dfm0n/YDbkyUTqcOF8VcoVUS4YIah
-	tKtkTM8LBUGRhwDKIRC1cECZkAJSiuV8qd4B2PWwvSgW7XF03+mTvP12ZOGtljYjZ4ESahERo8RTE
-	albJbO6hQ5c28eaZ7vVItDKQ8sDXwXGCVDEtS6Q1QhwwSfGs9bEY5yt/XjH3BjHgnEt8IFY/Ey5Pi
-	DuhwrovQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MCdVFBzoMQYqXVrZeC1sFHbOAswgeJFeoPQ04J47ZjA=; b=1SNqMA+gd6ZD0MhkpIDkXpYTAV
+	mXDqQKfJrsjuMW//zzVENtXPRG1OYWvTuQPWN+Mj+laYlv5u/wvaemmL0s/CkGxARbBBLFZXbGa1F
+	36g4+uYz58CBZcaTXvNuROPUT2dhiVa0mb4PsE6DMTW2ttKHICCQ+JrJj+Ecxukk7M3m/9S3d7z5/
+	x8+AmcnXbaz7FEyeZKsbVhJMO212VC7yg3AA82vUbcgBpc+J37+4/CK6Sv6iDwFIty6X2nYsHlTlu
+	uxxN2tKbYvEHkojAVo2LMRzeX6mAepXCDx6LZeI0XCa4N17p4MazBHfmkEAtTF8RSouXqrdcRF55g
+	L9W+4czw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu5UE-0000000FnFx-1B80;
-	Wed, 12 Aug 2026 09:43:06 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu5U7-0000000Fn9j-0MtV
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 09:43:01 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5F69F1596;
-	Wed, 12 Aug 2026 02:42:50 -0700 (PDT)
-Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B74A03F632;
-	Wed, 12 Aug 2026 02:42:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786527774; bh=TWIx30sQ2XIiCJN5oInxN1eYSUaNHzZF/7kx70htilc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=V8rQHImNyNAzejdLBSghKJJtyP98JyGNFZAaclJgQJX4RU6fdfS2KryNs33viqr2F
-	 XQje0saWr6PrHVv39YXDAKLHVPXX4bNANey2IJxbw0sXCRaSm+y1tzJjYEtIzKyjYo
-	 XQxiGkhteJciKjIwzdtfB12Wmc1C3H00f2wNuhLI=
-Date: Wed, 12 Aug 2026 10:42:50 +0100
-From: Alexandru Elisei <alexandru.elisei@arm.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: pbonzini@redhat.com, kvm@vger.kernel.org, linux-kernel@vger.kernel.org,
-	maz@kernel.org, oupton@kernel.org, suzuki.poulose@arm.com,
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	david.hildenbrand@arm.com, mark.rutland@arm.com,
-	ackerleytng@google.com
-Subject: Re: [PATCH v2] KVM: Ignore MMU notifiers for guest_memfd-only
- memslots
-Message-ID: <anxAGkdyPYXBlS00@raptor>
-References: <20260714160411.302386-1-alexandru.elisei@arm.com>
- <amPCdAswlk24Xilf@google.com>
+	id 1wu5UY-0000000FnOs-2GDW;
+	Wed, 12 Aug 2026 09:43:22 +0000
+Received: from flow-b8-smtp.messagingengine.com ([202.12.124.143])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wu5UE-0000000FnG1-43VQ;
+	Wed, 12 Aug 2026 09:43:17 +0000
+Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
+	by mailflow.stl.internal (Postfix) with ESMTP id B0E901300277;
+	Wed, 12 Aug 2026 05:43:01 -0400 (EDT)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-06.internal (MEProxy); Wed, 12 Aug 2026 05:43:02 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
+	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
+	:from:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=fm1; t=1786527781; x=
+	1786531381; bh=MCdVFBzoMQYqXVrZeC1sFHbOAswgeJFeoPQ04J47ZjA=; b=e
+	258z2J6AqsmCHjc1Dop95DilQy+XR+UoPr6XkrxtyBAhLeRquhr/RZn/Y03YXF2l
+	T8axbpVHu/fOyUW1IpGKZqTG2KFLQKDT23P7zQjHSCinkkpZnHa2hBRSWuPK/6gY
+	eO9I0E9W50h/pf4blluCNOAtWQOlDS0FbYiU/tfP5wHUJEf2IU9Ds/SAB4LEVjsN
+	4j2VeH78jTT0YXMFcF5yE5ebZZQAekM8QP/oLQ2S6hmJAcsJJh3dasZNVwuIriUs
+	PTZVIBSVxu+19fv5xt9PMlQg01ukYa+zTh1qhrcyibzNQtw/xhRb7Gc4R8yU9vBO
+	5zmzofluHnHVqK8++r55Q==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
+	:x-me-sender:x-sasl-enc; s=fm3; t=1786527781; x=1786531381; bh=M
+	CdVFBzoMQYqXVrZeC1sFHbOAswgeJFeoPQ04J47ZjA=; b=AnlZ/5+JyDNbx5gsz
+	8oOESIQmWoetQRbPAPGauZPPjt6ik6GnPKWKbhT9HHCsD/rsfb6px2MmQjO104I7
+	1GfDRwoepmIEaCOb/A+KmTPGYqOcFyAGJr3yz+zTC85VT9qxRNxWF9u+cbHsDZPN
+	DehSVYAUfG8x+qVYZWQQL2X311uFu3BZcB6BuhvtXpKyQM4TIU7WzQBJqP0XBCbH
+	hyFzDOKLHHvPxcrshGAVv3lorLvI5tyU539XhZ3pUJIDYc8BJLFjOKlS7sAaDXCl
+	FBgzaOsiWIwgcFDaHGHtlqkFdo0saAkep/6PXCXsKmZ7TYp/gNLtMCdTfWTPKc+8
+	8zaEA==
+X-ME-Sender: <xms:JUB8atManVFIjjFDoFGWFtWXDxmu7JcTD6oJGvs27Ag0QziUuSoiCg>
+    <xme:JUB8asEsJPMqvSvsulvGrkp1ym0ZWolk5WMgg_nw41NBQ2B0wZkaTaOHUu18eDfHY
+    BuLre7GmPzRUYuHE1pvnK9Et6IqILGxMItV-R3HJ86x6PM7le687wY>
+X-ME-Received: <xmr:JUB8aoHA0s6XJi1lEeVpToPDKHfjfUYSwZKEdBrvetsm6IkV0NEPuRVHsXZhS-VQhwr0nZbVaQ>
+X-ME-Proxy-Cause: dmFkZTFYxnYK7Q2ECfgrFvZDLHupbKEwB0KzlHGkD4bVUz8dV5bJotNng9zomczRjzyJrI
+    2Q0jwEuwUiPlDx6uthfnpWWjS0LZR7uLVOiJJSjrc/rCnI4umf2nP077Aj0HFKuzFXdOO9
+    iq/wRRLw1AF2WoSq7ZjbeFNHtxmGwjkgBk+d3ju3t10sSZ6mkdvh7svM+pGmjmXD7Qap7H
+    CKqt28oxZvPxroO59AJgRLBVwmC+DUtNsXlIXcAYiH7rBLa9NJaOJ2Tla671rl3Pan2a9T
+    5ig8QAlu2Li8SgD2rvFRiw2W5Ipr4nP3B3+Pt6WTk56AnufdQ9sOFRYCMXpvD3CSt+86Vi
+    cucoLZp2tMxa6t4wewhn3F/ApVFFprxiAPtH9eOK3mEK5JtKHmxfecIWsUaiXQqkFX7sFo
+    NSdoUq+vhZWnFxTnwJWFWN9uB+SYxqL31tgJSazDiv8cTYc6Bz5TRi0U+ix72SEwuwTNUi
+    dEHT0kPMg/6JAnvYRp8rLBTxL5wvNqD2Nkfl3lVCFGnOSGT0HO9HvwfUpkOHHmYtRS0Oqi
+    LnpiYPzBP0A6xAeW7FCT3DABV8xWiqyee6Ih2mNp0GnPaG/r/C3Ph70yv6hqWhoc4jttHF
+    fvAtxhuDvVOlT+8sqYli5u+anExVstOH9jPLIo4opw5k3ZHwiLC/5zT0abgA
+X-ME-Proxy: <xmx:JUB8ajB4-FD146wbXjLr7dL7EWv3zcvpWZ6AYZ0VrwoC0XFOzSTdsQ>
+    <xmx:JUB8aln9BB8Hs7VqfV_yjkS742Ia0YH_fUa-bfMFE3WS8THDwYKlMA>
+    <xmx:JUB8ap7KOMa9AcMyx5ekd0fj0RKv6ryQe7_ceVWnCytZmrQkVNeyOQ>
+    <xmx:JUB8akuWTD46oxF2pHE3gLmVi94fL9IxBGFqVtP34h3-Kg7mGVNNLw>
+    <xmx:JUB8atT3I9vJiecM4xDf1mzl5SJ7wLwkGXO0Y6fcoXdAsfoT6BrLmkYu>
+Feedback-ID: i7a5e4b5f:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 12 Aug 2026 05:42:54 -0400 (EDT)
+From: Jiaxing Hu <gahing@gahingwoo.com>
+To: tomeu@tomeuvizoso.net,
+	heiko@sntech.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	joro@8bytes.org,
+	will@kernel.org,
+	robin.murphy@arm.com,
+	ulfh@kernel.org,
+	p.zabel@pengutronix.de,
+	ogabbay@kernel.org,
+	zhangqing@rock-chips.com
+Cc: royalnet026@gmail.com,
+	alchark@flipper.net,
+	chaoyi.chen@rock-chips.com,
+	diederik@cknow-tech.com,
+	dri-devel@lists.freedesktop.org,
+	linux-rockchip@lists.infradead.org,
+	iommu@lists.linux.dev,
+	linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Jiaxing Hu <gahing@gahingwoo.com>
+Subject: [PATCH v7 09/10] arm64: dts: rockchip: rk3576: add NPU (RKNN) nodes
+Date: Wed, 12 Aug 2026 21:41:04 +1200
+Message-ID: <20260812094106.1391698-10-gahing@gahingwoo.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260812094106.1391698-1-gahing@gahingwoo.com>
+References: <20260812094106.1391698-1-gahing@gahingwoo.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <amPCdAswlk24Xilf@google.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_024256_333905_FBEFF12F 
-X-CRM114-Status: GOOD (  17.98  )
+X-CRM114-CacheID: sfid-20260812_024306_843345_A13E2444 
+X-CRM114-Status: GOOD (  10.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,46 +127,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sean,
+Add the two RKNN cores and their IOMMUs, plus the NPU power-domain
+resets the pmdomain driver now cycles on power-on. Both cores are
+disabled by default; boards enable what they wire up.
 
-(Sorry for the silence, was on holiday)
+Each core lists both NPU power domains, its own first. The compute path
+needs NPU1 powered even when only core 0 runs, and a node with a single
+domain would be auto-attached by the driver core before the driver can
+attach the list itself. The IOMMUs keep one domain each, since they rely
+on that same auto-attach.
 
-On Fri, Jul 24, 2026 at 12:52:20PM -0700, Sean Christopherson wrote:
-> On Tue, Jul 14, 2026, Alexandru Elisei wrote:
-> > +	 * TODO: Skip gmem-only memslots on mmu_notifier events entirely, once
-> > +	 * gfn_to_pfn_cache is also wired up to directly pull from guest_memfd.
-> 
-> So it turns out we need to solve a very related problem[*], thanks to commit
-> b9220d32799a ("KVM: x86/xen: allow shared_info to be mapped by fixed HVA"),
-> which as it says, allows populating gfn_to_pfn_cache directly with an HVA, i.e.
-> without a memslot.
-> 
-> My not-yet-tested solution for that mess is to give gfn_to_pfn_cache its own
-> invalidation sequence, at which point there shouldn't be a need to process
-> gmem-only memslots just for gfn_to_pfn_cache, because it will already be equipped
-> to handle memslot-less invalidation.
-> 
-> Given how simple this change *should* be, I'm going to put this patch on the
-> backburner for now, and then assuming my proposed change actually works, I'll
-> grab your original change (or more likely, re-post it as the last patch in the
-> series weans gfn_to_pfn_cache off mmu_invalidate_seq).
+Signed-off-by: Jiaxing Hu <gahing@gahingwoo.com>
+---
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi | 80 +++++++++++++++++++++++-
+ 1 file changed, 78 insertions(+), 2 deletions(-)
 
-By "original change" I assume you mean the RFC patch [1], where I skip the
-memslot entirely in handle_hva_range(), which would make sense since the
-problem you are solving involves cache entries without a memslot.
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+index b0c0d3c8b..1e6dd039f 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+@@ -1070,14 +1070,22 @@ power-domain@RK3576_PD_NPUTOP {
+ 						power-domain@RK3576_PD_NPU0 {
+ 							reg = <RK3576_PD_NPU0>;
+ 							clocks = <&cru HCLK_RKNN_ROOT>,
+-								 <&cru ACLK_RKNN0>;
++								 <&cru ACLK_RKNN0>,
++								 <&cru CLK_RKNN_DSU0>,
++								 <&cru ACLK_RKNN_CBUF>,
++								 <&cru HCLK_RKNN_CBUF>;
++							resets = <&cru SRST_A_RKNN0_BIU>;
+ 							pm_qos = <&qos_npu_m0>;
+ 							#power-domain-cells = <0>;
+ 						};
+ 						power-domain@RK3576_PD_NPU1 {
+ 							reg = <RK3576_PD_NPU1>;
+ 							clocks = <&cru HCLK_RKNN_ROOT>,
+-								 <&cru ACLK_RKNN1>;
++								 <&cru ACLK_RKNN1>,
++								 <&cru CLK_RKNN_DSU0>,
++								 <&cru ACLK_RKNN_CBUF>,
++								 <&cru HCLK_RKNN_CBUF>;
++							resets = <&cru SRST_A_RKNN1_BIU>;
+ 							pm_qos = <&qos_npu_m1>;
+ 							#power-domain-cells = <0>;
+ 						};
+@@ -1832,6 +1840,74 @@ qos_npu_m1ro: qos@27f22100 {
+ 			reg = <0x0 0x27f22100 0x0 0x20>;
+ 		};
+ 
++		rknn_core_0: npu@27700000 {
++			compatible = "rockchip,rk3576-rknn-core";
++			reg = <0x0 0x27700000 0x0 0x1000>,
++			      <0x0 0x27701000 0x0 0x1000>,
++			      <0x0 0x27703000 0x0 0x1000>;
++			reg-names = "pc", "cna", "core";
++			interrupts = <GIC_SPI 247 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&cru ACLK_RKNN0>, <&cru HCLK_RKNN_ROOT>,
++				 <&cru CLK_RKNN_DSU0>, <&cru PCLK_NPUTOP_ROOT>,
++				 <&cru ACLK_RKNN_CBUF>, <&cru HCLK_RKNN_CBUF>;
++			clock-names = "aclk", "hclk", "npu", "pclk",
++				      "aclk_cbuf", "hclk_cbuf";
++			resets = <&cru SRST_A_RKNN0>;
++			reset-names = "srst_a";
++			power-domains = <&power RK3576_PD_NPU0>, <&power RK3576_PD_NPU1>;
++			iommus = <&rknn_mmu_0>;
++			status = "disabled";
++		};
++
++		rknn_mmu_0: iommu@27702000 {
++			compatible = "rockchip,rk3576-iommu", "rockchip,rk3568-iommu";
++			reg = <0x0 0x27702000 0x0 0x100>,
++			      <0x0 0x27702100 0x0 0x100>;
++			interrupts = <GIC_SPI 247 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&cru ACLK_RKNN0>, <&cru HCLK_RKNN_ROOT>,
++				 <&cru CLK_RKNN_DSU0>, <&cru ACLK_RKNN_CBUF>,
++				 <&cru HCLK_RKNN_CBUF>;
++			clock-names = "aclk", "iface", "npu",
++				      "aclk_cbuf", "hclk_cbuf";
++			#iommu-cells = <0>;
++			power-domains = <&power RK3576_PD_NPU0>;
++			status = "disabled";
++		};
++
++		rknn_core_1: npu@27708000 {
++			compatible = "rockchip,rk3576-rknn-core";
++			reg = <0x0 0x27708000 0x0 0x1000>,
++			      <0x0 0x27709000 0x0 0x1000>,
++			      <0x0 0x2770b000 0x0 0x1000>;
++			reg-names = "pc", "cna", "core";
++			interrupts = <GIC_SPI 248 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&cru ACLK_RKNN1>, <&cru HCLK_RKNN_ROOT>,
++				 <&cru CLK_RKNN_DSU0>, <&cru PCLK_NPUTOP_ROOT>,
++				 <&cru ACLK_RKNN_CBUF>, <&cru HCLK_RKNN_CBUF>;
++			clock-names = "aclk", "hclk", "npu", "pclk",
++				      "aclk_cbuf", "hclk_cbuf";
++			resets = <&cru SRST_A_RKNN1>;
++			reset-names = "srst_a";
++			power-domains = <&power RK3576_PD_NPU1>, <&power RK3576_PD_NPU0>;
++			iommus = <&rknn_mmu_1>;
++			status = "disabled";
++		};
++
++		rknn_mmu_1: iommu@2770a000 {
++			compatible = "rockchip,rk3576-iommu", "rockchip,rk3568-iommu";
++			reg = <0x0 0x2770a000 0x0 0x100>,
++			      <0x0 0x2770a100 0x0 0x100>;
++			interrupts = <GIC_SPI 248 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&cru ACLK_RKNN1>, <&cru HCLK_RKNN_ROOT>,
++				 <&cru CLK_RKNN_DSU0>, <&cru ACLK_RKNN_CBUF>,
++				 <&cru HCLK_RKNN_CBUF>;
++			clock-names = "aclk", "iface", "npu",
++				      "aclk_cbuf", "hclk_cbuf";
++			#iommu-cells = <0>;
++			power-domains = <&power RK3576_PD_NPU1>;
++			status = "disabled";
++		};
++
+ 		gmac0: ethernet@2a220000 {
+ 			compatible = "rockchip,rk3576-gmac", "snps,dwmac-4.20a";
+ 			reg = <0x0 0x2a220000 0x0 0x10000>;
+-- 
+2.43.0
 
-[1] https://lore.kernel.org/kvm/20260615155244.183044-1-alexandru.elisei@arm.com/
-
-> 
-> It'll probably take me a few weeks to circle back to this, as I finally crawled
-> out from underneath a pile of urgent and am just now getting back into review
-> mode, but this is fairly high on my todo list, so with luck we might still squeeze
-> this into 7.3.
-
-Sounds great to me, thank you for your time and patience!
-
-Alex
-
-> 
-> [*] https://lore.kernel.org/all/aj2hi-NcqUUCaoQF@google.com
 
