@@ -4,100 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7351FC5B56A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 10:15:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D0EDC5AD5A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 10:15:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=evJV0/nQ/VH9qOcSVjxhTqp7hA3DXx2pjYS05+4XIY0=; b=NFFNVxdx1irZ8o497ptvgk3xRa
-	NcHopHwD5qu9f371Rgw6BXB7OMLYtnJSWUnpv/B/Z+taXpSPNbTBMp2Oz1Y6zuv+K8Mjot7q7yIaS
-	cE0O4aEc/y4+mAipyydWSJZAWtvxLFivBT/Qgk8h3lLWaq10+aFH7WlukS3JX0ibReebsX5vwp/g8
-	FFZc+/g/2J2TVlrVRz/nxAyVbPhbhNlnA6xnPOQ6aDXAKaUTeh+fzrUgGGYovR2hI32db9WfYIJSP
-	VmjkY1V3f9yi0lxef7JBzvDYHr10JxW2SyZLUo6GOxc0gQCPZ2dOvKCYfA4wNYiUv4BjIM/fQtT3s
-	myctSJ0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=km+FWImsIUFl8aBPViX6Zfp+UQcG2kTKxjWPuJ893Cc=; b=GT49k8bZQYu/g8G7kVnJrwFqjy
+	l+6vTae6+Rs54cXw+f+J8T9Cs8dgDoqF2dkuaAVJhtWpxVV8zKztlPyQxDmP7SP1AN9XOPHPgtW/M
+	GmXzAXgM3ERAiuV6ZoqX7pk3ouzf2des8OKQooRTXn0SN9l2vZEqWRRERdnGRjM0wi4vtkJL4oBel
+	md5QOo2Y8t3asFo/gMhR5OqZfcNf2DT+rM8DQb5sHXy9HXPQn6RdGeqtJZ4i2R+Tsdmk4C4fRTC5u
+	VoeKS4kY88g++y8O3AC2qRGSgU9cKW/i9ICPRjXsjWUATOlFNhkYrScOsUSIdzla3jDoe+LoxOwE7
+	LAmrIjWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu5zF-0000000FrI0-2HHW;
-	Wed, 12 Aug 2026 10:15:06 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1wu5zr-0000000FrVF-1fMk;
+	Wed, 12 Aug 2026 10:15:43 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu5zD-0000000FrGI-213f
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 10:15:04 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2cf52d15d88so7986655ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 03:15:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786529702; x=1787134502; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=evJV0/nQ/VH9qOcSVjxhTqp7hA3DXx2pjYS05+4XIY0=;
-        b=YojtwfUlvtip3q1sGmsaU23qDcBf6hhFaHgXPz/3v/OoY9/MQb1dU9cK1O8Rn5OL16
-         qkhNaGf/wskhWAWvfpIF7uzDVuWvcu0WUnQFH36Eym6EB2ZT/nQ4txR3Aqj2dcRQm569
-         5CKc69XcncVoQKsc/sYzFsk9Ql4O1F8ZCQTqOBjJZ2mWiiJqrFjJkeDfuAkf7G+2X+B7
-         nVVqLeK/j8V/qOY0D7Rss9bE4i58djrVtNLVWuksSAxzbx9HelvOoTIa4u0vryMmT66f
-         O6bSTgXe8AyUFJuIk3d5fq3nhQ9Y4vxIPTIrBHT9EYQI7oFQTc8sjEqSB1i+GY+A2ef8
-         P+Ag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786529702; x=1787134502;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=evJV0/nQ/VH9qOcSVjxhTqp7hA3DXx2pjYS05+4XIY0=;
-        b=GK6lzT3u2T3q7jsTEM+ORfL/yi7hyjas7AtX2Sla4pMWlzI04m6bXTf9OiGWcAW5JH
-         aE4n8eWjKT8WZwBA6Lq6Yk5mIYpYhpZNH2CIgYIbPo7YRJ0ZSHdxu5ubRNfSk2ySRe2D
-         YOJahMKzw3ncF8oFpWUdSt1bEm6A2/BnnpwHYtW7KJG40MtUNyKl4vH4nltOxc/72UIu
-         gpNyYGztTIsVc5nromZMBMUOXPdGc3vGa5EB4hhpuyzfAsDnSuZyuhfKUACYNtEqJB7+
-         wXNz1xhqgwphz57a5slTqxv2PQ3OEkAnaY1Sri2S01/C2SAcqHLElbWYhjtIiSWDnI3c
-         LxUg==
-X-Forwarded-Encrypted: i=1; AHgh+Ro/p8fWu+i1AoDWU1KqkWoDCi1JAs1yQk3DuxninBqkAEKLa8bddJOAZir3jQ+kca7bhE7QMF/s7pxFxZILUcwy@lists.infradead.org
-X-Gm-Message-State: AOJu0YxRuuDJrR3eilIUpacfGRBYai1Pwhb//3IPG5Q3mRImXk03Y02Y
-	4DJJ+HtfWk8C28vMoc9yLS9rrsA5naJ3MbddYEtnsVBymN80QTc4LWyD
-X-Gm-Gg: AR+sD11UiP3nD4wqA+j4WQ08XDOC70c9hJP7OCupLAPRWEheH5fMjYWcSIP63SYO+yM
-	Aq84LXzqEjCsNHJZR0GNf1JPZKkjxkXzCZhmApJWk44MPbf2+ehfSc92WFB4rW0c1N+FCzQ9QBB
-	DaUxwvhL1KPF03YmYu5dIKlPpIXemCK0US/xCkPFMtCWxkkTQLpCFMuBIELI8a0kJNuC2wQezAi
-	l6Z2RJtslRK0nVJSeO1W2BQoXrVgTN+wIvxgiu/BJBFtPEiqW7k96Yh0GPaJwepzjVPEgK7IQ9r
-	MS44Dfd+LHzYOkUjDrwoiZ5mgL5ofoSKPNkdXHhQgdkjNi2qy4Xyvf4Qvg61AAVIz2Dt1vnN+RT
-	zAfAqrab1oxlRLWe9pKALzYxvm4/5Xc1ny1+4ie/DFPaNbVEzItGpKaDz6vN6LYi26ASvfXc4ef
-	XIApiWbdUxPTWiWKFJu7Q1iOkrfeqIAgwR6NB2/vlhlLYB1wF1+xBOCaNqcLvp0dsyjNyUALiGi
-	6kwQPScgO18WNdWjY1KxFP5Y4ilxP15Ans7qOQYowvktYBstoIoq0TnsFTQ1gybL1ddiFpCun+M
-	8WMAdp7SSsigCXw=
-X-Received: by 2002:a17:903:191:b0:2cc:d69a:354a with SMTP id d9443c01a7336-2d3457202f4mr40437445ad.22.1786529702440;
-        Wed, 12 Aug 2026 03:15:02 -0700 (PDT)
-Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d35219d91dsm4159645ad.51.2026.08.12.03.14.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Aug 2026 03:15:02 -0700 (PDT)
-From: phucduc.bui@gmail.com
-To: Frank Li <Frank.Li@nxp.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>
-Cc: Fabio Estevam <festevam@gmail.com>,
-	Michael Trimarchi <michael@amarulasolutions.com>,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH 3/3] ASoC: mxs-sgtl5000: Drop redundant probe error messages
-Date: Wed, 12 Aug 2026 17:14:18 +0700
-Message-ID: <20260812101418.37966-4-phucduc.bui@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260812101418.37966-1-phucduc.bui@gmail.com>
-References: <20260812101418.37966-1-phucduc.bui@gmail.com>
+	id 1wu5zm-0000000FrTA-0o2H;
+	Wed, 12 Aug 2026 10:15:41 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id AE03F406FC;
+	Wed, 12 Aug 2026 10:15:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B95B31F000E9;
+	Wed, 12 Aug 2026 10:15:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786529737;
+	bh=km+FWImsIUFl8aBPViX6Zfp+UQcG2kTKxjWPuJ893Cc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=jBANmAl+tkrKwU6nUQz+XEl8WMrZu06odcl5Ygsah2atea2o3pSK5M0u2+Cb5dtxf
+	 CszY8HrUw5NMtAls7C3C22W0YPyC1CA0nJKdZUcpz7FAA5jPVo/Q0m+DtWULMhObmk
+	 l+U3I5N2ktZz5sC97a6ZDW5tkJ4nC1cvwezLr8g8hsFUxrhmlZiDmiD/TuiPL6gETq
+	 29lyz01++9kQ8c8J0lKgi5dg3FD9nUdJp1fGXHTswa5W49MzHFx1LoMu8dAjoNQeyU
+	 rf7AgbttoHEku/UruTDEAVbWBJDu1EDPe2V7WWiqzqV5orD6YUJnnC/hIm0+i5Dhnb
+	 OSUpU2Op6AKIw==
+Date: Wed, 12 Aug 2026 12:15:25 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Marek Vasut <marex@nabladev.com>
+Cc: linux-usb@vger.kernel.org, Pankaj Dev <pankaj.dev@st.com>, 
+	=?utf-8?Q?Cl=C3=A9ment?= Le Goffic <clement.legoffic@foss.st.com>, Fabrice Gasnier <fabrice.gasnier@foss.st.com>, 
+	Rahul Kumar <rahul.kumar05@st.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Christian Bruel <christian.bruel@foss.st.com>, Conor Dooley <conor+dt@kernel.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Rob Herring <robh@kernel.org>, Rosen Penev <rosenp@gmail.com>, 
+	Thinh Nguyen <Thinh.Nguyen@synopsys.com>, Vinod Koul <vkoul@kernel.org>, devicetree@vger.kernel.org, 
+	kernel@dh-electronics.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, 
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH 1/8] dt-bindings: phy: Document ST STM32MP25 USB2-FEMTO
+ PHY
+Message-ID: <20260812-silky-omniscient-dalmatian-b268cb@quoll>
+References: <20260812010157.1772849-1-marex@nabladev.com>
+ <20260812010157.1772849-2-marex@nabladev.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_031503_552160_57880F29 
-X-CRM114-Status: GOOD (  12.12  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20260812010157.1772849-2-marex@nabladev.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,30 +79,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: bui duc phuc <phucduc.bui@gmail.com>
+On Wed, Aug 12, 2026 at 02:55:41AM +0200, Marek Vasut wrote:
+> From: Pankaj Dev <pankaj.dev@st.com>
+>=20
+> Document USB2 PHY for STM32MP25 USB2 controllers, which includes the
+> USB2.0 host-only controller and USB 2.0 part of the DWC3 controller.
+> Two such PHYs in total are present in STM32MP25 SoC, they both are
+> slightly different, therefore they use different compatible string
 
-Remove the probe error messages to avoid duplicate error reporting,
-since the error is already reported by the called functions.
+What is slightly different? This should be either here, or better, in
+"description" part.
 
-Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
----
- sound/soc/mxs/mxs-sgtl5000.c | 2 --
- 1 file changed, 2 deletions(-)
+> to discern them.
+>=20
+> Signed-off-by: Cl=C3=A9ment Le Goffic <clement.legoffic@foss.st.com>
+> Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+> Signed-off-by: Marek Vasut <marex@nabladev.com>
+> Signed-off-by: Pankaj Dev <pankaj.dev@st.com>
+> Signed-off-by: Rahul Kumar <rahul.kumar05@st.com>
 
-diff --git a/sound/soc/mxs/mxs-sgtl5000.c b/sound/soc/mxs/mxs-sgtl5000.c
-index f1c0e612313d..a253a48ca59c 100644
---- a/sound/soc/mxs/mxs-sgtl5000.c
-+++ b/sound/soc/mxs/mxs-sgtl5000.c
-@@ -155,8 +155,6 @@ static int mxs_sgtl5000_probe(struct platform_device *pdev)
- 
- 		ret = snd_soc_of_parse_audio_routing(card, "audio-routing");
- 		if (ret) {
--			dev_err(&pdev->dev, "failed to parse audio-routing (%d)\n",
--				ret);
- 			mxs_saif_put_mclk(0);
- 			return ret;
- 		}
--- 
-2.43.0
+Incomplete/incorrect DCO chain. Who sends it? Rahul?
+
+
+> ---
+> Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
+> Cc: Christian Bruel <christian.bruel@foss.st.com>
+> Cc: Conor Dooley <conor+dt@kernel.org>
+> Cc: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+> Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>
+> Cc: Neil Armstrong <neil.armstrong@linaro.org>
+> Cc: Pankaj Dev <pankaj.dev@st.com>
+> Cc: Rahul Kumar <rahul.kumar05@st.com>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Rosen Penev <rosenp@gmail.com>
+> Cc: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+> Cc: Vinod Koul <vkoul@kernel.org>
+> Cc: devicetree@vger.kernel.org
+> Cc: kernel@dh-electronics.com
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linux-phy@lists.infradead.org
+> Cc: linux-stm32@st-md-mailman.stormreply.com
+> Cc: linux-usb@vger.kernel.org
+> ---
+>  .../bindings/phy/st,stm32-usb2phy.yaml        | 72 +++++++++++++++++++
+>  1 file changed, 72 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/phy/st,stm32-usb2ph=
+y.yaml
+>=20
+> diff --git a/Documentation/devicetree/bindings/phy/st,stm32-usb2phy.yaml =
+b/Documentation/devicetree/bindings/phy/st,stm32-usb2phy.yaml
+> new file mode 100644
+> index 0000000000000..ca9fc3b87383c
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/phy/st,stm32-usb2phy.yaml
+> @@ -0,0 +1,72 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/phy/st,stm32-usb2phy.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: STMicroelectronics STM32 MPU High-Speed USB PHY
+> +
+> +description:
+> +  USB2 PHY block in STM32 is attached to USB 2.0 Host controller and
+> +  USB 2.0 side of DWC3 DRD controller, and provides the USB LS/FS/HS
+> +  connectivity.
+> +
+> +maintainers:
+> +  - Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+> +  - Marek Vasut <marex@nabladev.com>
+> +  - Pankaj Dev <pankaj.dev@st.com>
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - st,stm32mp25-usb2phy1
+> +      - st,stm32mp25-usb2phy2
+> +
+> +  "#phy-cells":
+> +    const: 0
+> +
+> +  clocks:
+> +    maxItems: 1
+> +
+> +  resets:
+> +    maxItems: 1
+> +
+> +  vdd33-supply:
+> +    description: Phandle to regulator providing 3V3 power supply to the =
+USB2 HS PHY
+> +
+> +  st,syscfg:
+> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+> +    description: Phandle to system configuration controller.
+> +    items:
+> +      - items:
+> +          - description: phandle to syscfg
+> +          - description: USB2PHY control offset within syscfg
+> +
+> +  "#clock-cells":
+> +    const: 0
+> +
+> +required:
+> +  - compatible
+> +  - "#clock-cells"
+> +  - "#phy-cells"
+> +  - clocks
+> +  - resets
+> +  - st,syscfg
+> +  - vdd33-supply
+> +
+> +unevaluatedProperties: false
+
+additionalProperties.
+
+Best regards,
+Krzysztof
 
 
