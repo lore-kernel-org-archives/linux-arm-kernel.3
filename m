@@ -4,75 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBF3FC5CFDB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 01:03:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2FEEC5AC67
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 01:26:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/y0h0XBkWfzpZGbn2+ONwS3q9qDmIFhWudnEFeJ59eY=; b=LHHf5xWGhU+L4/GmRmQ5prQjxU
-	LWOSIgnlKq9J/H/XXy/auhAbAHjqz5QZ3qKQvJeMaGM82wlM+7zyivw7TmJtNGQiUTyJASVbrycyo
-	v96jHXnaY0KDab0rGae6874HYh0QfBiqJgxrQG8mA7Ury7ss4t6a1yvHJj0DsU45cCe/FSubkanf0
-	KFnGjUNy47YZhMo0Ue/D3Jt8rxcyE3STjGZXsQ7X9szR1IDoADTLiW0tow95aQsoX6iDy3/uxzlfK
-	5KTE0NtjMUHHI1B2GnEMKIBTia5uCmL94ULQ92ppVmYsW60pF/3BFD8i929lYyKhP5nQxS2WDAK3P
-	zNEc6v6Q==;
+	bh=nNjRP8b2E5ujn/7f/mFvE77jAW/d1Pb5a/2rPLROufo=; b=TZOI4Lc/72jianlRVheJMdSrHv
+	cwySQ5dR+BIFDzyolztxYHGbcQHQ0JezJVItrHE+W+TFgcxTfMXrv6xJzeolL/HcAXtXswBPzYrS1
+	w71AEa9uZbUZ5CtptncO0CLVRZCCorOpuesuRzbGCEmfrB1zDknxhSIy6kaoALY6G8v2ALDXI7jtT
+	1Olz/IsJ2JJYOddO+z6S5D9qo/M/J7GeNGMygRYDlNbvl0k+iyfFMKkUfdaWKUrcg//OByRqds4q/
+	iBKe9DgE126oJaSKLWRaiqvlX2cNrVMXC/qfzf4qsD1DWh77GkepgzPTNkF0qOWA4PTLxMksKBTxJ
+	/8/wlqAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtxNP-0000000FB4k-0Snt;
-	Wed, 12 Aug 2026 01:03:27 +0000
-Received: from mx.nabladev.com ([2a00:f820:417:0:178:251:229:89])
+	id 1wtxjE-0000000FCab-0u7K;
+	Wed, 12 Aug 2026 01:26:00 +0000
+Received: from mail-m20521016457.xmail.ntesmail.com ([205.210.164.57])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wtxNG-0000000FAxd-41WP;
-	Wed, 12 Aug 2026 01:03:25 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D543D11A195;
-	Wed, 12 Aug 2026 03:03:11 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1786496592; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=/y0h0XBkWfzpZGbn2+ONwS3q9qDmIFhWudnEFeJ59eY=;
-	b=Ll7s98JJVQDiY0e/l4m7Dar4+0mwNdLcNkFHdSxbO3R2L3z2FL3Y3ksub1NsxeAXzDSYV6
-	w4NlgeKUg1KyJvPxBecY8KPcuFwEs7wDo7qsSmSWacuoM7A85y2Z3mElBGFg4qsUefLaAZ
-	EYF1R33pNa1hoZypjLxTQ/HAVlC2W2eRUC0CT2yuaO5hZsa3JkNyfdr0ooQR7AjzdbDuqq
-	Hh00nQ8KlkD2zcGoyjJ3eBqO9q8CsEtNwnXUwAUFOIFSh2SY4A0IKfMjb9dz1EskLn7q2L
-	WVd5fm+WTRfLCPrL8U2OylIiIgJ0kVkdMMpTKWf9p1yjOOnmf9JskCbOx6jJeg==
-From: Marek Vasut <marex@nabladev.com>
-To: linux-usb@vger.kernel.org
-Cc: Pankaj Dev <pankaj.dev@st.com>,
-	Marek Vasut <marex@nabladev.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Christian Bruel <christian.bruel@foss.st.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Rahul Kumar <rahul.kumar05@st.com>,
-	Rob Herring <robh@kernel.org>,
-	Rosen Penev <rosenp@gmail.com>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	devicetree@vger.kernel.org,
-	kernel@dh-electronics.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH 8/8] arm64: dts: st: Add USB nodes on stm32mp251
-Date: Wed, 12 Aug 2026 02:55:48 +0200
-Message-ID: <20260812010157.1772849-9-marex@nabladev.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260812010157.1772849-1-marex@nabladev.com>
-References: <20260812010157.1772849-1-marex@nabladev.com>
+	id 1wtxj9-0000000FCZy-4Bc1;
+	Wed, 12 Aug 2026 01:25:58 +0000
+Received: from [172.16.12.90] (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 49a33dfec;
+	Wed, 12 Aug 2026 09:25:48 +0800 (GMT+08:00)
+Message-ID: <7759116b-0beb-4d25-b269-c020a8379cef@rock-chips.com>
+Date: Wed, 12 Aug 2026 09:25:46 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: drm/rockchip: vop2: ACLK_VOP pinned at 500 MHz starves DP 4K120
+ on RK3588
+To: Igor Paunovic <royalnet026@gmail.com>
+Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+ Heiko Stuebner <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
+ Sandy Huang <hjc@rock-chips.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Alexey Charkov <alchark@flipper.net>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260808104240.13776-1-royalnet026@gmail.com>
+ <33bd4a94-11af-4cf3-ae44-b7f8944250f6@collabora.com>
+ <c0a7521d-9c19-4197-802b-2b64a6ddea28@rock-chips.com>
+ <20260811212358.9980-1-royalnet026@gmail.com>
+Content-Language: en-US
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <20260811212358.9980-1-royalnet026@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-HM-Tid: 0a9ff3935a1603a7kunma9ed9a6653df7f
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDSkxCVh5CQksdQ0MeHk0YS1YVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUJCSU
+	5LVUpLS1VKQktCWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=cOaDyWdRAxlpsy2UZNaw6jtOHLzKEVO2PH1nfbpU2gGI4ztScBWgDjLI3RaPv+d3AbBmnR09Y0J5rghLR2gFDPknv7vF4fWjrUiRTGMmqaeeQ41edqMZcm9k6cQROed5Gpm6wcA8B8nsdYwH0Iuwi6EktnUe27rSlUwoi2AaoIM=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=nNjRP8b2E5ujn/7f/mFvE77jAW/d1Pb5a/2rPLROufo=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_180320_488557_14272088 
-X-CRM114-Status: UNSURE (   9.70  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260811_182556_753182_7E1780C0 
+X-CRM114-Status: GOOD (  36.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,120 +81,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Pankaj Dev <pankaj.dev@st.com>
+Hi Igor,
 
-Add USB controller and PHY nodes to stm32mp251 DT.
-This includes two USB 2.0 FEMTO PHYs, USB 2.0 host
-controller and DWC3 DRD controller nodes.
+On 8/12/2026 5:23 AM, Igor Paunovic wrote:
+> Hi Chaoyi, Cristian,
+> 
+> Chaoyi, your reading fits my own measurements better than mine did.
+> 
+> The link in that test was running YCbCr 4:2:0, so dclk sat at 594 MHz
+> for a 3840x2160@120 mode - the interface rate was the cheap part. What
+> was not cheap was what the video port had to compose: a single
+> full-screen 3840x2160 ARGB plane at 120 Hz. So the case I reported is
+> one where the interface was modest and the composition was not, which
+> is the direction you are pointing in. I framed it as a DisplayPort
+> problem because DisplayPort was the only thing I changed; that was the
+> wrong axis.
+> 
+> I should say what this bears on directly, because it is not
+> hypothetical for me. I have a patch here that I have not sent, which
+> replaces the frl_enabled condition with a threshold on the pixel clock:
+> 
+>   static bool vop2_needs_aclk_boost(struct drm_crtc_state *crtc_state)
+>   {
+>       return vcstate->frl_enabled ||
+>              crtc_state->adjusted_mode.crtc_clock > VOP2_HIGH_BW_PIXCLK_KHZ;
+>   }
+> 
+> with VOP2_HIGH_BW_PIXCLK_KHZ at 1000000, so that any video port needing
+> the bandwidth can ask for the higher rate. It also guards the refcount
+> on the way, since atomic_disable() runs for ports that were never
+> enabled and the counter is unsigned. It is written against the
+> rockchip-devel branch, on top of the commit Cristian mentions, and I
+> was holding it back until I had a threshold I could defend.
+> 
+> Your reply says the quantity I keyed it on is the wrong one, and I
+> cannot argue against that from my own data. The measurement the
+> threshold came from is that at 500 MHz a 2560x1440@144 mode stays clean
+> while 3840x2160@120 does not. But in both cases the port was composing
+> a single full-screen plane at the mode's own resolution, so mode and
+> composition moved together and the comparison cannot separate them. If
+> the rule belongs in terms of what the port composes, then the pixel
+> clock is at best a proxy that happens to fit the two points I have.
+> 
+> I would rather learn that before sending the patch than after. Two
+> things I can run here:
+> 
+>   - your first case: hold 3840x2160@120 on DP, leave ACLK at 500 MHz,
+>     and scan out a 1080p plane instead of the full-screen one. If that
+>     comes up clean, the pixel clock is not the variable and the patch
+>     as written is keyed on the wrong thing.
+> 
+>   - your second case: a modest mode with several 4K ARGB planes
+>     composed at once. I can drive that over HDMI, without the USB-C
+>     adapter in the path, so it is a cleaner test than the first.
+> 
+> Is there a form of the condition you would consider correct? What your
+> description suggests to me is something derived from the composed pixel
+> rate summed over a video port's enabled planes, with max() across the
+> active ports rather than a refcount - but you know what the hardware
+> actually stalls on, and I am inferring it from an interrupt counter.
+> 
 
-Signed-off-by: Marek Vasut <marex@nabladev.com>
-Signed-off-by: Pankaj Dev <pankaj.dev@st.com>
----
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: Christian Bruel <christian.bruel@foss.st.com>
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>
-Cc: Pankaj Dev <pankaj.dev@st.com>
-Cc: Rahul Kumar <rahul.kumar05@st.com>
-Cc: Rob Herring <robh@kernel.org>
-Cc: Rosen Penev <rosenp@gmail.com>
-Cc: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-Cc: Vinod Koul <vkoul@kernel.org>
-Cc: devicetree@vger.kernel.org
-Cc: kernel@dh-electronics.com
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-phy@lists.infradead.org
-Cc: linux-stm32@st-md-mailman.stormreply.com
-Cc: linux-usb@vger.kernel.org
----
- arch/arm64/boot/dts/st/stm32mp251.dtsi | 61 ++++++++++++++++++++++++++
- 1 file changed, 61 insertions(+)
+In fact, this is similar to what we do in the downstream kernel. 
+The complete decision flow is as follows[0]:
 
-diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/dts/st/stm32mp251.dtsi
-index 6e985f115b195..c54bd4554c33a 100644
---- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
-+++ b/arch/arm64/boot/dts/st/stm32mp251.dtsi
-@@ -168,6 +168,26 @@ timer {
- 		arm,no-tick-in-suspend;
- 	};
- 
-+	usb2_phy1: usb2-phy1 {
-+		compatible = "st,stm32mp25-usb2phy1";
-+		#phy-cells = <0>;
-+		#clock-cells = <0>;
-+		st,syscfg = <&syscfg 0x2400>;
-+		clocks = <&rcc CK_KER_USB2PHY1>;
-+		resets = <&rcc USB2PHY1_R>;
-+		status = "disabled";
-+	};
-+
-+	usb2_phy2: usb2-phy2 {
-+		compatible = "st,stm32mp25-usb2phy2";
-+		#phy-cells = <0>;
-+		#clock-cells = <0>;
-+		st,syscfg = <&syscfg 0x2800>;
-+		clocks = <&rcc CK_KER_USB2PHY2EN>;
-+		resets = <&rcc USB2PHY2_R>;
-+		status = "disabled";
-+	};
-+
- 	soc@0 {
- 		compatible = "simple-bus";
- 		#address-cells = <1>;
-@@ -1746,6 +1766,47 @@ stmmac_axi_config_1: stmmac-axi-config {
- 				};
- 			};
- 
-+			usbh_ohci: usb@482e0000 {
-+				compatible = "generic-ohci";
-+				reg = <0x482e0000 0x1000>;
-+				access-controllers = <&rifsc 63>;
-+				clocks = <&usb2_phy1>, <&rcc CK_BUS_USB2OHCI>;
-+				interrupts = <GIC_SPI 140 IRQ_TYPE_LEVEL_HIGH>;
-+				phys = <&usb2_phy1>;
-+				phy-names = "usb";
-+				resets = <&rcc USBH_R>;
-+				status = "disabled";
-+			};
-+
-+			usbh_ehci: usb@482f0000 {
-+				compatible = "generic-ehci";
-+				reg = <0x482f0000 0x1000>;
-+				access-controllers = <&rifsc 63>;
-+				clocks = <&usb2_phy1>, <&rcc CK_BUS_USB2EHCI>;
-+				companion = <&usbh_ohci>;
-+				interrupts = <GIC_SPI 139 IRQ_TYPE_LEVEL_HIGH>;
-+				phys = <&usb2_phy1>;
-+				phy-names = "usb";
-+				resets = <&rcc USBH_R>;
-+				status = "disabled";
-+			};
-+
-+			usb3dr: usb@48300000 {
-+				compatible = "st,stm32mp25-dwc3";
-+				reg = <0x48300000 0x100000>;
-+				access-controllers = <&rifsc 66>;
-+				clocks = <&rcc CK_KER_USB2PHY2>,
-+					 <&rcc CK_BUS_USB3DR>,
-+					 <&rcc CK_KER_USB2PHY2>;
-+				clock-names = "ref", "bus_early", "suspend";
-+				interrupts = <GIC_SPI 228 IRQ_TYPE_LEVEL_HIGH>;
-+				phys = <&usb2_phy2>, <&combophy PHY_TYPE_USB3>;
-+				phy-names = "usb2-phy", "usb3-phy";
-+				resets = <&rcc USB3DR_R>;
-+				st,syscfg = <&syscfg 0x4800>;
-+				status = "disabled";
-+			};
-+
- 			pcie_ep: pcie-ep@48400000 {
- 				compatible = "st,stm32mp25-pcie-ep";
- 				reg = <0x48400000 0x100000>,
+if (vop_bw_info->plane_num_4k || crtc_num > 1 ||
+	crtc->state->adjusted_mode.crtc_hdisplay > 2560 ||
+	crtc->state->adjusted_mode.crtc_vdisplay > 2560 ||
+	linedur_ns < 7500) {/* 4kp60 linedur_ns roughly equal to 7500 ns */
+	
+	/* set aclk to 750M */
+	funcs->set_aclk(crtc, ROCKCHIP_VOP_ACLK_ADVANCED_MODE, vop_bw_info);
+	priv->aclk_adjust_frame_num = 2;
+}
+
+I think the condition above should be equivalent to the
+"linedur_ns < 7500" here :)
+
+[0]: https://github.com/rockchip-linux/kernel/blob/develop-6.6/drivers/gpu/drm/rockchip/rockchip_drm_fb.c#L204
+
+
+> Cristian, understood on HDMI. If FRL and TMDS can serve the same mode
+> at different fixed rates, the mode cannot determine the rate on its own
+> and a bandwidth rule cannot be the whole story there. That answers what
+> I asked. Whatever shape this ends up taking should keep working for the
+> FRL case you already handle rather than replace it.
+> 
+> One thing worth carrying across from the dw-dp v11 thread, since not
+> everyone on this Cc list is on that one. Heiko reported that on his 4K
+> display he gets no output at all at the stock rate, and some output
+> after raising ACLK_VOP to 750 MHz, although that output is garbled:
+> 
+>   https://lore.kernel.org/all/20767137.geO5KgaWL5@diego/
+> 
+> So the starvation reproduces on hardware other than mine, which until
+> now I could not tell apart from a fault in my adapter. The garbling at
+> 750 MHz is not something I see here - the picture was correct the
+> moment the write landed and stayed correct - so that looks like a
+> separate problem, and I have replied to him on that thread rather than
+> fold it into this one.
+> 
+> Igor
+> 
+> 
+
 -- 
-2.53.0
-
+Best, 
+Chaoyi
 
