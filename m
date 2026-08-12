@@ -4,71 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 087C8C5CFDB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 09:06:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D5B1C5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 09:11:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h1el+5bynGwZTxmOlFRx3G0Um3mYKNFZI3qxJs10450=; b=x1fCiYpF+91pm3cja6T1jUDcMQ
-	/na7SsdjYmSmOhy48RPURo2BBAsAgKHok2z8hiek/+o2D8ZgCXAZwcpbVRQbysJZeoqkRi++qmK70
-	55JF6otgunI3zGGDwLVUzhIeo+j9JlRL+PZy/hIRYTRqGWuU0TRmls+XPUm5kv1XEnqceXmXQmXNK
-	9wfweUIEzj4mdxIZM6R1F5j1con69FfdGjS96s2LLq1iMuhxPf+U6FzzXFbhITSmkD10BAKM6cthu
-	wwEAWaMOu8X1qb3QAcl3SuqSG7cXbSnbmNE0sQ5yXPvEQNYIPQPSIc72hZgbqyo3GkDDSw4P5U7o5
-	girmuYhQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=/TsK+xeK6ioGMG5DntKuzt5bbxbLZEpNMAwwlq704iY=; b=hLRjMU+Pv05Fws
+	i5nZxR0tPrfBOsNIlKbP55/d//WMe9Nlsgp7tRoG0VnpeJbjODRQ1i6d82+yrYkxR+Io9b3KI5kgM
+	CjBzJN2rirDCUkot+1xIRUNBNJkU+t36RTL2tOpa3yfmBN1KKq1Oq+eVu1cQatWzzxRMTavjzYBmb
+	RQoJAYskP8D5VrzK76UbS3PDanMuZJnMpf7OJRS4VIvGHqissj7tgl/nzy+RkFYh3Ua0Iql/isVSf
+	xpXuFFLOWNhfaELkiQj5VoB2sRKnl4IJ99mZrpCanVFHKzQwm/hdnWxbbgM7QLz47OClSuoZfSWlJ
+	J7YZtMw8jBL5BxPf7Abg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu4uf-0000000Fh9J-1Vr2;
-	Wed, 12 Aug 2026 09:06:17 +0000
-Received: from mail-m83124.xmail.ntesmail.com ([156.224.83.124])
+	id 1wu4zD-0000000FhRt-3ek4;
+	Wed, 12 Aug 2026 09:11:01 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu4ua-0000000Fh7B-3i3a;
-	Wed, 12 Aug 2026 09:06:15 +0000
-Received: from [172.16.12.90] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 49b5abffa;
-	Wed, 12 Aug 2026 17:05:57 +0800 (GMT+08:00)
-Message-ID: <47d9ada4-5277-4ff6-b7d4-ed4fcbb6a6f7@rock-chips.com>
-Date: Wed, 12 Aug 2026 17:05:57 +0800
+	id 1wu4zB-0000000FhRf-0O6o
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 12 Aug 2026 09:10:57 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 866B9416A4;
+	Wed, 12 Aug 2026 09:10:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2EB2B1F000E9;
+	Wed, 12 Aug 2026 09:10:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786525856;
+	bh=/TsK+xeK6ioGMG5DntKuzt5bbxbLZEpNMAwwlq704iY=;
+	h=From:Subject:Date:To:Cc;
+	b=Uqh+l6HY/9cdO79SB2f3NJs8fEzBa54I/tWknUo1VMdTWOkbXcQcwjqMR0/dmA5vS
+	 UXnIIC0vxHz34p7Q6w4NlFqjD0wCSWdjjtbtGSQPYZoyb4aytxj4BbIHIzF+f+YG0X
+	 wFhwYC6p/giq+bYQlIpdfG6ycNcaVUe2opNKyYDpbrt2rQTEyByl2NNj1pjgG16qoO
+	 zcs8i8M2ahWaqYfeRIRIp0XwCSiasmcFj9zWdmloRLQGP1nzFS0CzGeuDAmsswhkM8
+	 0x5ZS4y6yIM3Evm8Bxll+AFIkq9wE0T1OwwSK+B3ATgrurCYgwirdNVrdvvrM7CVxZ
+	 rFpxAi4itgSyA==
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Subject: [PATCH 0/7] irqchip/gic-v5: Misc fixes following sashiko's report
+Date: Wed, 12 Aug 2026 11:10:28 +0200
+Message-Id: <20260812-gicv5-7-2-fixes-v1-0-3743e82c69a4@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: drm/rockchip: vop2: ACLK_VOP pinned at 500 MHz starves DP 4K120
- on RK3588
-To: Igor Paunovic <royalnet026@gmail.com>
-Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
- Heiko Stuebner <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
- Sandy Huang <hjc@rock-chips.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Alexey Charkov <alchark@flipper.net>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260808104240.13776-1-royalnet026@gmail.com>
- <33bd4a94-11af-4cf3-ae44-b7f8944250f6@collabora.com>
- <c0a7521d-9c19-4197-802b-2b64a6ddea28@rock-chips.com>
- <20260811212358.9980-1-royalnet026@gmail.com>
- <7759116b-0beb-4d25-b269-c020a8379cef@rock-chips.com>
- <20260812083857.60460-1-royalnet026@gmail.com>
-Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <20260812083857.60460-1-royalnet026@gmail.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0a9ff538a45f03a7kunmac5ca8645a5459
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDQkpCVkIYTkpOSRhJTB4dT1YVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUJCSU
-	5LVUpLS1VKQktCWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=JzzBXDF2SqrZWHEEKcqgSl4yADVvsT/qS1YZycy3unyz9vTyTyatY2ZpLX9R2FpQvO3mTO3jiEdmncU5ag4VxDLvYRT8K4H5Zk4GIS7UX3yMphO5Ui+0Atadmj3Cu+uN+XhyuqRebZXF9xQK/eWikF9FvKpPhUer0jdhI2siOfc=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=h1el+5bynGwZTxmOlFRx3G0Um3mYKNFZI3qxJs10450=;
-	h=date:mime-version:subject:message-id:from;
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_020613_607362_64F53285 
-X-CRM114-Status: GOOD (  41.95  )
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/zWO2w6CMAyGX4Xs2hI25BhjfA/DxRgFZzLQFYgJ4
+ d0toFfN1/6HLoLQWyRRBovwOFuyQ88gT4EwD913CLZhFipSaZRLCZ01cwIZKGjtBwmwyHLVYp3
+ mTSLY9fK4H9h0rw6mqX6iGbeYn8Lje+Kq8ZAJh0R6ryqDy79JJiqNo7A48yIGCaSJPwpry2No2
+ 5v2LjSDu26RtSYEBmfHMpizUIE3majW9Qstet3f4AAAAA==
+X-Change-ID: 20260811-gicv5-7-2-fixes-e9782feb68d5
+To: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
+ Jonathan Cameron <jic23@kernel.org>, 
+ "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, 
+ Sascha Bischoff <sascha.bischoff@arm.com>, 
+ Timothy Hayes <timothy.hayes@arm.com>
+Cc: Sascha Bischoff <Sascha.Bischoff@arm.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>
+X-Mailer: b4 0.15.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,130 +77,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Igor,
+While reviewing this series [1] sashiko spotted some issues [2] in the GICv5
+host driver.
 
-On 8/12/2026 4:38 PM, Igor Paunovic wrote:
-> Hi Chaoyi,
-> 
-> That is exactly what I was missing, thank you. Having the vendor's
-> decision flow meant I could stop guessing and go measure the case where
-> my rule and yours disagree. I have done that now, and the result is
-> worth more than my earlier argument was.
-> 
-> First, on equivalence: I do not think my threshold is equivalent to the
-> linedur_ns term - it is strictly narrower. With
-> linedur_ns = crtc_htotal * 1000000 / crtc_clock, and htotal 4400 for the
-> 4K modes my panel offers:
-> 
->   3840x2160@120  1188000 kHz   linedur_ns 3703
->   3840x2160@60    594000 kHz   linedur_ns 7407
->   2560x1440@144  ~586000 kHz   linedur_ns ~4600-4700
-> 
-> My VOP2_HIGH_BW_PIXCLK_KHZ of 1000000, at htotal 4400, is the same as
-> saying linedur_ns < 4400 - about 1.7x stricter than your 7500. So my
-> rule declines to boost in cases where yours boosts, and 3840x2160@60 is
-> one of them: your rule raises it on two counts (crtc_hdisplay > 2560 and
-> linedur_ns 7407 < 7500), mine does not raise it at all.
-> 
+This short series addresses them along with other minor issues spotted
+in the resulting code review following sashiko's report.
 
-Ah, that's close. What I want to say is that it has a direct
-correlation with dclk and resolution.
+Issues short description:
 
-> So I measured that case. I unplugged both HDMI cables, leaving the
-> DisplayPort output as the only display, and switched it between
-> 3840x2160@120 and 3840x2160@60, reading aclk_vop and dclk_vop2 from
-> clk_summary at each point:
-> 
->                         4K120 (YCbCr 4:2:0)      4K60
->   dclk_vop2             594 MHz                  594 MHz
->   aclk_vop              750 MHz                  500 MHz
->   vop interrupts/s      120                      60
->   POST_BUF_EMPTY        0                        0, over 60 s
-> 
-> The dclk is identical in the two states, because the 4K120 link runs
-> YCbCr 4:2:0 and the 4K60 link does not. The interface rate did not move
-> at all. What moved was what the video port composes - a full-screen 4K
-> ARGB plane at 120 Hz versus the same plane at 60 Hz - and the AXI clock.
-> That is the separation I told you I could not make from my earlier data,
-> where mode and composition moved together. The interrupt counts are one
-> vblank per frame in both states, so there is no starvation at either
-> point.
-> 
-> 3840x2160@60 is therefore clean at ACLK 500 MHz with a full-screen 4K
-> plane. For that case the downstream rule boosts and does not need to.
-> 
-> Putting all four points I now have in terms of composed pixels per ACLK
-> cycle:
-> 
->   3840x2160@120   995.3 Mpx/s   500 MHz   1.99   storms (116630 irq/s)
->   3840x2160@120   995.3 Mpx/s   750 MHz   1.33   clean
->   2560x1440@144   530.8 Mpx/s   500 MHz   1.06   clean
->   3840x2160@60    497.7 Mpx/s   500 MHz   1.00   clean
-> 
-> The boundary sits between 1.33 and 1.99. That quantity does not depend
-> on the connector or on the pixel format, which is what I think you were
-> pointing me at, and it fits every point I have rather than the two I
-> started from.
-> 
-> The honest limit of this: all four are a single full-screen plane on a
-> single video port. They say nothing about plane_num_4k or crtc_num > 1,
-> which are exactly the terms my condition has no counterpart for. I am
-> not proposing to drop your terms - I am saying the two mode-derived ones
-> appear to carry margin for this shape of workload, and I would rather
-> ask than assume.
-> 
-> The other thing I had not appreciated is where the decision lives.
-> rockchip_drm_aclk_adjust() runs from atomic_commit_tail, so it is
-> re-evaluated on every commit with that commit's plane information, and
-> aclk_adjust_frame_num holds the boost for two more commits on the way
-> down. My unsent patch puts the decision in vop2_crtc_atomic_enable() and
-> _disable(), which only run on modeset. A condition that depends on what
-> the planes are composing cannot live there: a client swapping a 1080p
-> plane for a 4K one without a modeset would never be seen. So the
-> placement has to change, not just the condition.
->
+* Check get_logical_index() return value in MADT IAFFID parsing that might cause
+  out-of-bounds per CPU array indexing
+* Add a check for !NULL LPI domain on LPI domain teardown
+* Disable enabled IRSes on GICv5 driver probe failure
+* Fix gicv5_init_common() error paths handling (clean-up paths were
+  missing some runtime error conditions and clean-up)
+* Release IRS iomem regions on OF probe and driver failures
+* Fix smp_processor_id() usage on two preemptible code paths:
+  - LPI/SPI IAFFID initialization
+  - Dynamic L2 IST table entry initialization
 
-Yes, I think it depends on the strategy you adopt.
+This series depends (as in, applies cleanly on top) on [3] as reported with
+the message-id tag.
 
-> Two things I would still rather learn than guess:
-> 
->   - Is the two-commit hold on the way down a hardware requirement - the
->     rate has to be up before the frame that needs it and stay up for a
->     beat after - or is it belt and braces? It decides whether an
->     upstream version needs the same hysteresis.
->
+[1] https://lore.kernel.org/kvm/20260810102652.758719-1-sascha.bischoff@arm.com
+[2] https://sashiko.dev/#/message/20260810104747.E5CE71F000E9%40smtp.kernel.org
+[3] https://lore.kernel.org/lkml/20260811152630.942023-1-sascha.bischoff@arm.com/
 
-I think this is a software strategy for debouncing.
+Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+---
+Lorenzo Pieralisi (7):
+      irqchip/gic-v5: Check get_logical_index() return value in MADT IAFFID parsing
+      irqchip/gic-v5: Check for NULL LPI domain on domain teardown
+      irqchip/gic-v5: Disable IRSes on probe failures
+      irqchip/gic-v5: Fix gicv5_init_common() error paths
+      irqchip/gic-v5: Release IRS iomem region on driver init failure
+      irqchip/gic-v5: Use logical cpu 0 irs_data for dynamic IST allocation
+      irqchip/gic-v5: Defer default SPI and LPI IAFFID programming
 
->   - Are the mode-derived terms describing something the hardware stalls
->     on, or are they a conservative stand-in for "this is probably a
->     heavy scene"? My 4K60 and 1440p144 points only make sense to me
->     under the second reading.
->
+ drivers/irqchip/irq-gic-v5-irs.c   | 23 ++++++++++++++++++++++-
+ drivers/irqchip/irq-gic-v5.c       | 28 +++++++++++-----------------
+ include/linux/irqchip/arm-gic-v5.h |  2 ++
+ 3 files changed, 35 insertions(+), 18 deletions(-)
+---
+base-commit: 2ee859ebf156157609f71060ae472711c8cbc326
+change-id: 20260811-gicv5-7-2-fixes-e9782feb68d5
+prerequisite-message-id: <20260811152630.942023-1-sascha.bischoff@arm.com>
+prerequisite-patch-id: 1e1b67496c67341e25a692236dfeff9526cddb97
+prerequisite-patch-id: e5229c5d6aaef58620ff58b48c1c8122cf93ca9c
 
-I think it's both. You can think of the VOP internally as having a FIFO:
-aclk is used to fill the FIFO, while dclk is used to consume from it. 
-This problem occurs when the fill rate cannot keep up with the consumption
-rate.
+Best regards,
+--  
+Lorenzo Pieralisi <lpieralisi@kernel.org>
 
-In practice, it is difficult to find a quantitative method to determine 
-whether the requirements can be met, so we can only try through 
-experimentation. For now, this strategy appears to satisfy our needs.
-
-> I will rewrite the patch along the lines of your flow rather than the
-> pixel-clock threshold, and move the decision to the commit path. For
-> what it is worth, the version I have been running locally since 7 August
-> has driven 3840x2160@120 HDR over DisplayPort with no HDMI output
-> present at all, which is the case the FRL-gated condition cannot serve;
-> it also drops the rate back to 500 MHz on modeset and restores it, so
-> the refcount side behaves.
-> 
-> Thanks again - this turned a guess into a measurement.
->
-
-Thank you for doing this, let's see if others have any comments.
-
--- 
-Best, 
-Chaoyi
 
