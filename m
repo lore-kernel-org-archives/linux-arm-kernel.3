@@ -4,72 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB69DC5B56A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 14:08:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEC36C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 14:13:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XBityMeKqjyowdclncFOnu3VU0emdWfgWBP0wAYzEhU=; b=27BmuF7ywbASQ5TpVKTtEe378Q
-	s1zGhEggGQqlsztZUIXKwwt9+qMO1KMBQEWrP56qvyCbg/AOVRAawDZThj20YcteDpTsNcVlvJvNH
-	VG3HoE+5HRNeOTDs0z9Eovntwh+ww/auRo6MvEtTolukiiv0yzkT04J865/pUmLIpSXSHx+vPqqVu
-	tLZOW4RfiVj69QCUUWBczFlA1wPd4zl9rMwnK4zb7FgNhlvDcuswYYwbk9D3YNguZJ3Z1jw4Qf70D
-	kWKLgMEUDdVyt4zc7gA4IsTXlYj4ArUztJxpVdqrVCt0DMrzsETUnvvl94GMSbfEHDplfxCaSuVKX
-	jqR1pGEg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8STauwTDAYu4AJ/YswLLkoEtlg49XW61JjuFzifRFes=; b=doXqLYyWZ2504cG86+Y3ghx1sU
+	bOHkMeT5GQFgt4aDMioDKNhOzHnPlhD4AFry08pjzEzq50pGl9CkaONKenbhy51DhuXW/L9rnlN8D
+	MGN8k9Z19mUeTumgZXQS3mMNvYvi0zxelEJr6FZRTiNbLqDif5rGJlZD+3KWrEtIsianXUT1jy6wH
+	BnSV8pHbTaT0bfMrHS9G/uoGTMLaW6ihaB5hhgnJSe/h3cfRVi2iUflg9sh7xgwsk3oo+UYMU/SeX
+	dgoJvaX0JMf7nw6rKe0S4jvKJPHbaVuL0DwyPiS0MAmwTOYHjdVpU6X3TiD/ecwVfhkYAP9TBFBHb
+	V/AkYLUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu9dL-0000000GLwb-1y2V;
-	Wed, 12 Aug 2026 14:08:43 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu9dH-0000000GLvy-3frC
+	id 1wu9hX-0000000GMIi-3oYc;
+	Wed, 12 Aug 2026 14:13:03 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wu9hV-0000000GMI7-3ave
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 14:08:42 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 62EB61A15B6;
-	Wed, 12 Aug 2026 14:08:36 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 2E7C86045E;
-	Wed, 12 Aug 2026 14:08:36 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A8A5911C4CF5E;
-	Wed, 12 Aug 2026 16:08:25 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1786543711; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=XBityMeKqjyowdclncFOnu3VU0emdWfgWBP0wAYzEhU=;
-	b=dfBfHwg/xTtwCKIqKwd6LzkSS7fZ2K9nMLgE4fMNGfMg0gHXnyWzjlg9RB0m/YIpasZRb7
-	wjzm05kYbHoV5COM9bUImVh4MFL+fs+ZmPeqe6pw8KBKbO7hqg3xOQNw3ZpTlWoGCGmvWJ
-	7jdEaauWKroly5iz/cE8P+HQcmQV3+5eJJ8pdTVLKSR+bCDE0qkvmiRkClbfVczb9Ftq4z
-	Tp2UrALb+ixnUULxtX03D0D53nyok21dsNwlP0X3mzWqczSI5oyC15HPb39l+ACCtRfJ2U
-	ZZ+ZGLEUBcvqaLuQbS0h1VZdC1kyU0g5dtk6mg+GhqU1jg5Qdk1LarYlUYBx/g==
-Message-ID: <96146485-03f4-4c82-bb4b-9338b6591b2f@bootlin.com>
-Date: Wed, 12 Aug 2026 16:08:24 +0200
+	Wed, 12 Aug 2026 14:13:03 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E56FE153B;
+	Wed, 12 Aug 2026 07:12:55 -0700 (PDT)
+Received: from localhost (unknown [10.2.196.114])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6FFE63F632;
+	Wed, 12 Aug 2026 07:12:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1786543979; bh=5/qbyJFLZnK5If02zc/1VqK+s8MFUkazuVR13uPkCAE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=imXr2p9XfQPS03rL3hubkL8+FG2FHXooJGyQjzjX3W/99pz2jm1hjYkR5g/1aYUWt
+	 hQkF3v+8eSWzuKp844FXIKUqljnnE1hJM69ggiTmcoUbu+IfzZlI91afPKU2vD6xCF
+	 86hNIlOqlfnIf+xMUvwnY9erQPoy9Xw8f43IcyJk=
+Date: Wed, 12 Aug 2026 15:12:57 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: moonafterrain@outlook.com
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Linu Cherian <lcherian@marvell.com>, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Yuhao Jiang <danisjiang@gmail.com>,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] coresight: configfs: restrict address parameter value to
+ root
+Message-ID: <20260812141257.GK15499@e132581.arm.com>
+References: <20260812-coresight-fixes-v1-1-53fbf4e73241@outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2] net: stmmac: dwxgmac2: add XGMAC timestamp
- interrupt support
-To: Zxyan Zhu <zxyan0222@gmail.com>,
- "Nazle Asmade, Muhammad Nazim Amirul"
- <muhammad.nazim.amirul.nazle.asmade@altera.com>
-Cc: mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- andrew+netdev@lunn.ch, richardcochran@gmail.com, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260810100221.9166-1-zxyan0222@gmail.com>
- <b3d90606-781a-4055-8529-e68e22a45ce9@bootlin.com>
- <20260812202027.976@gmail.com>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20260812202027.976@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260812-coresight-fixes-v1-1-53fbf4e73241@outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_070840_061153_2384760D 
-X-CRM114-Status: GOOD (  13.82  )
+X-CRM114-CacheID: sfid-20260812_071301_936728_B1C1D0BD 
+X-CRM114-Status: GOOD (  12.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,43 +77,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-+Nazim
+On Wed, Aug 12, 2026 at 05:13:14PM +0800, Junrui Luo via B4 Relay wrote:
 
-On 8/12/26 14:59, Zxyan Zhu wrote:
-> Hi Maxime,
-> 
-> On 8/12/26 5:10 PM, Maxime Chevallier wrote:
->> If there's an interrupt storm, then this should probably be a fix for -net
->> with a Fixes tag.
-> 
-> There is no interrupt storm. XGMAC_TSIE was never enabled before this
-> patch (XGMAC_INT_DEFAULT_EN was LPIIE | PMTIE only), and
-> dwxgmac2_host_irq_status() masks the status with the enable mask, so
-> XGMAC_INT_TSIS could never fire. The actual symptom is that
-> auxiliary-snapshot extts events were never reported -- a feature that
-> was never wired up, not a live interrupt storm.
+> Mark parameters that can hold a kernel address, and give those a
+> config_item_type whose 'value' attribute is 0600. Parameters holding
+> plain numbers, such as the strobing 'window' and 'period' counts, keep
+> the existing mode.
 
-Ah indeed, quite the opposite then.
+Thanks for reporting the issue.
 
-> 
-> So I'd like to keep this on net-next as a new feature rather than
-> retarget it to net.
+The patch seems overly complex to me. I'd suggest:
 
-Yes makes sense indeed.
+--- a/drivers/hwtracing/coresight/coresight-syscfg-configfs.c
++++ b/drivers/hwtracing/coresight/coresight-syscfg-configfs.c
+@@ -281,9 +281,16 @@ static ssize_t cscfg_param_value_show(struct config_item *item, char *page)
+ {
+        struct cscfg_fs_param *param_item = container_of(to_config_group(item),
+                                                         struct cscfg_fs_param, group);
+-       u64 value = param_item->feat_desc->params_desc[param_item->param_idx].value;
+-
+-       return scnprintf(page, PAGE_SIZE, "0x%llx\n", value);
++       struct cscfg_parameter_desc *param_desc =
++               param_item->feat_desc->params_desc + param_item->param_idx;
++       const char *name = param_desc->name;
++       u64 value = param_desc->value;
++
++       /* The kernel address should print with the "%pK" specifier */
++       if (!strncmp(name, "address"))
++               return scnprintf(page, PAGE_SIZE, "0x%pK\n", value);
++       else
++               return scnprintf(page, PAGE_SIZE, "0x%llx\n", value);
+ }
 
-Can you take a look at the sashiko-reported issues, it spots that this
-could interfere with the timestamping on agilex5 (another XGMAC platform) :
+We can add a flag (e.g., is_addr) in cscfg_parameter_desc to indicate
+a parameter presents an address. Since currently only pstop's "address"
+parameter has this issue, adding a general flag can be deferred until
+it is actually needed.
 
-https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260810100221.9166-1-zxyan0222%40gmail.com
-
-Maybe there's some stuff that could be made more generic by moving them out
-of the socfpga code and putting it in the more generic timestamping code ?
-
-I don't have any xgmac boards to verify sashiko's claim though.
-
-> 
-> Thanks,
-> Zxyan
-> 
-
+Thanks,
+Leo
 
