@@ -4,145 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71058C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 13:48:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 694D1C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 13:51:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YRGYRnn4G6Xd46W0JiSdcI04D+BrCSPSG17YMGfRxhM=; b=vx+oq03CccyuMiTCQQi9hIg+I/
-	M0pf+YpbjtfxcKWJ2MAZVyA/V1mLPGnY/Hb5i6FacxI2foeV25H/HBQhARc8SwqvNhP/dc54XRjwE
-	ntI6Qql/UjlQUPAfacHg36CPJrvAY4RkXjLlm/F+vH7PG1gn41BOKxRPjG03Wwf0QVHQEUpbDJ1Jo
-	RlRnpO48aplpDV0S3XwDE4ECHS6qdgF03WahUl+P1q/FDxVeyVPriI5MbJpzYajI7lbo9TyBwHyUZ
-	cTWs3QLM9ONBgLqrRqaM9bXTncLz8BbtDQvtQbxMMHeoMyN5gELrOaz51fU9rrOjFDLfXf1L5kuMb
-	ojmS7juQ==;
+	bh=jXOOKWoV7MEnR9+bM1yW21aczulQD8XP9QPvyBJVi5Q=; b=BLkvjsBx3uomuis8Gt5/dTs/v5
+	fdk7Mn8CeS1ZNgLBOsws7LWq/wsNEo7MwMaWdqD/V8MkvCA1vyTkWgn9gSZYoqixdAUn7Y/VAvQ/M
+	Oky/XOC8PZNPC03XH3tbimJw6+p7hcmMqr85eb9BsDEHpbJKdC8kjcrGHZillZj+NWmFCGbCRnRA0
+	qoKjvT+ZR3wFHIMKbg65g3X5H46ucR8b+0WFgBtExtEc9AEr6o1cfu9GhCDhATIDloVmfMWlVTX11
+	VahkrurNpBQusz/Mq22EDC0outfSPIKIuTwmeut0HLJTk8moMT9tAY8cR4kf/MA6WX5qdkvfHbeFZ
+	WkaP7QOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu9Jb-0000000GK4h-0jf1;
-	Wed, 12 Aug 2026 13:48:19 +0000
-Received: from mail-westeuropeazon11011061.outbound.protection.outlook.com ([52.101.70.61] helo=AS8PR04CU009.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu9JU-0000000GK49-2dQH
+	id 1wu9Mp-0000000GKRB-0XVZ;
+	Wed, 12 Aug 2026 13:51:39 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wu9Mm-0000000GKQj-17vi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 13:48:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Utjb1jHoMtcTeSDhgRKqys69k8kljT3faKm3TW5RI4KMjj4M54rKzIttiLpSyCmVyoMUgL/NGY3mJNz9aWK5xZLmso3PYi3o2mObVea+8qOeMaCy7qyKWQeK1ZHpmdPmFem3WX1xQBSCOz9lj1KM82qw+M9Ynzn59OeTY4JRguzlDyn86VkYS0NAy12pVDiROV6yzLAlSCnZuL16AfnKYBnUouv775zPqFk8vdFtEvBoupmGJ1ovSmSl+3gIxmWNAe0kho2kVAL1GWoC5Tot8kWX0oquZIynj1b7SPBLfC16K6ps+dLHZHddZ5plBcN0KViU0btYniH93Eg4bMIDUA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=YRGYRnn4G6Xd46W0JiSdcI04D+BrCSPSG17YMGfRxhM=;
- b=LV51HNpQ8bfnDWnSYxergiMEq7jj3km1GDyBKEsecfMbp8cQ6kU7xkxkGrLksmEhGVRgewfP7kQhGKHCjqIiql6WBhW+ycLtj6wTrksmORXBVxA8CEN7UglIHT4SBP6OR7r+MK1P2bFhmReCMbKOYSNDD51OuIxNudvkxdasgU3Nsi4krME42nuNRVxX476i142TJsjT1K2PSOGkq6L0Rhmerreo3MwgGj/o5MKU7tKTuMi5yMytox9fXOy0ls6nNZhVN3ZyCVDpHi2qOMwVJjAt2K9Ck1HbMn7WoVxx13erBMvkCjF5CwunquI5BF/eyvdzJzgSyM9hZC6iDM4sEg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=YRGYRnn4G6Xd46W0JiSdcI04D+BrCSPSG17YMGfRxhM=;
- b=P1U8Ql44QnUB70QAGUIwn7npJURSTgmPHT4JuFEjf5la0xfAsHYWFGGzYkw9PVtW8xjBCzSEpjlBeKud+8sHvle1OJ2XPFrOc691NTj41C54t/fYAW35dnz2WKfIggMQbe+YF6wTAKS6lULXQJHx5oMXYsDN6cA3wjQmiWEj8qqkw5RIW9pgPufS6+2N0bS5VQzCUWEzPRaHSF7DOQng4YGRjtVOHSVSsPwaCflOIigiG3oEeS0fncNqsIL6ExtO7Q7zKUT7lWW3LIiOpvnivjWQDwnRhBHKZqxUuPf9mYQ6IfJrtRchBAZVvvc6Vs5pedCZKW41n/iS0SZgmZ0FHg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GVXPR04MB12316.eurprd04.prod.outlook.com (2603:10a6:150:2c6::8)
- by GVXPR04MB10234.eurprd04.prod.outlook.com (2603:10a6:150:1c1::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.12; Wed, 12 Aug
- 2026 13:48:05 +0000
-Received: from GVXPR04MB12316.eurprd04.prod.outlook.com
- ([fe80::fc6e:ca22:f065:def4]) by GVXPR04MB12316.eurprd04.prod.outlook.com
- ([fe80::fc6e:ca22:f065:def4%5]) with mapi id 15.21.0292.024; Wed, 12 Aug 2026
- 13:48:05 +0000
-Message-ID: <30ffea19-e2d6-401c-ad42-54a2de2f52ec@oss.nxp.com>
-Date: Wed, 12 Aug 2026 16:51:36 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] ASoC: mxs-sgtl5000: Drop redundant probe error
- messages
-To: phucduc.bui@gmail.com, Frank Li <Frank.Li@nxp.com>,
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>
-Cc: Fabio Estevam <festevam@gmail.com>,
- Michael Trimarchi <michael@amarulasolutions.com>,
- Dario Binacchi <dario.binacchi@amarulasolutions.com>, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20260812101418.37966-1-phucduc.bui@gmail.com>
- <20260812101418.37966-4-phucduc.bui@gmail.com>
-Content-Language: en-US
-From: Daniel Baluta <daniel.baluta@oss.nxp.com>
-In-Reply-To: <20260812101418.37966-4-phucduc.bui@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: AS4P189CA0034.EURP189.PROD.OUTLOOK.COM
- (2603:10a6:20b:5dd::12) To GVXPR04MB12316.eurprd04.prod.outlook.com
- (2603:10a6:150:2c6::8)
+	Wed, 12 Aug 2026 13:51:37 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 95556153B;
+	Wed, 12 Aug 2026 06:51:31 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6B3253F66F;
+	Wed, 12 Aug 2026 06:51:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1786542695; bh=7nCoc+Gd4dBqkVM3L9DgfcWFTtT0Go8fgXf2EaF6ryw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mdhIzOxU4DrVBTfWu9sQVemCRyfbINm+gJGsobbhcHm6RT2xmNZhB26+0R9dosOlZ
+	 xJoZ5cz12TtS+PoAC7Z6fjscj7CPeR3vEFkFy0T4SY9x7smJreqT9+FtH5Fyd4YiTR
+	 1YAp2YSqYL4igzdFr1iNMh6k+hMv25AjPvBXLAdU=
+Date: Wed, 12 Aug 2026 14:51:29 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev, Marc Zyngier <maz@kernel.org>,
+	Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>
+Subject: Re: [PATCH v16 07/45] arm64: mm: Handle Granule Protection Faults
+ (GPFs)
+Message-ID: <anx6YbPMVz3OlpA5@arm.com>
+References: <20260803134403.80630-1-steven.price@arm.com>
+ <20260803134403.80630-8-steven.price@arm.com>
+ <ans1ZSwMEKeT9Gfz@arm.com>
+ <d4bdecca-517a-4b4b-bf67-cef6b09bc8c1@arm.com>
+ <7d4e5920-aa20-40cd-954e-037631bd0d6c@quicinc.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GVXPR04MB12316:EE_|GVXPR04MB10234:EE_
-X-MS-Office365-Filtering-Correlation-Id: e77a1c39-074f-4234-417d-08def8785604
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|19092799006|7416014|376014|56012099006|10067099003|6133799003|18002099003|22082099003|11063799006|4143699003;
-X-Microsoft-Antispam-Message-Info: Whh5MlTwaI0wgwTt1xYcF0n3UmxSOYX/YYBSJJMVGXEFxII2y2JWR86TkhL7pbcGMPHvUXSJS+S/iZohMtYXPqUvVqdcy02FG8l0RVudRHZBXAKVpNiPHCnvzlXOo04erz4ctut9sVgvt4B6h3X2KBCTW54hvyr+OnzpXdcAj6q8jcKxf6TSfUaoSLen9UnkOPAafnK7g35weOoHnKHl5PmCSWxslM0k9OFkhlbkg+5WkWgg3t/kQ2OYyC1DyjjIg3GtCUQKhzObKmWY6DRIX/eEincO84klEX+nqksj0UmqzDvCsTwc0Gnq0LD8FVhn6bzXAsNeHnC1eWgK5ucCw7BRp768p+DHh6VcJcLzz4AEoj2/NmLjNOzd5Rbx2BTv9fgKwNpZhrGewv5j80mBdloS7ddN8p13TK1MPOFBC8wP+3qFiBo6NLcjV71BnISAxIBbbAhybIWClBgncyJVaF1r+ir1bw60bKrw/nRf6IJPzscFF9A5DWkcD6bkoXvEtpXCed7bGIamync6Rn6C9UorKHQsXFxP8L2jD9a5mz83am3a/HD+k4K9ACYp4YK0L+aw+3US1olXBw/tqQJn9IHvIqrRq2BIh7L1Llqwd7o3jTN00b9JBRNdDUoUhsrvIFl5kk9SaLvG2xUyTy46CE7HQS6ZvDkuDTzFUrmuqVo=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12316.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(19092799006)(7416014)(376014)(56012099006)(10067099003)(6133799003)(18002099003)(22082099003)(11063799006)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MEl2Q3pmbmVCRnNGVHJ2d1VMNWNSMTk3a1hCS0thR2t5OEVmYk8rQStvNi9F?=
- =?utf-8?B?ZTYwMVNpcmdmNkxSN1d0RllZNzAxRmViSmw4eVg0OVNSQmNzQzJiQm84eHVx?=
- =?utf-8?B?MTFGWC9zSEw4aGwrYXZWQjdpbjZBMDhZU1M4eU5CM1BZMVdLVi9qajBiNEdu?=
- =?utf-8?B?UDhCZWdjV3BabFlYYUNhNU9VdEZkekxjTG5MWUNmT0tKSTRZbGlwaWliMFVq?=
- =?utf-8?B?T3RHcklyN0tuZ0tMZDFwK1Y1NS9TZ2tRalRZREhseG5LSHF6dUZPdjRCbW9y?=
- =?utf-8?B?cGxOZkVqZTJEQkhDTW12RjRZdHh6d2dqSFIwakp6WG0xQ2JFejdiaGVTZHJo?=
- =?utf-8?B?Y0NyV3RadzVrczZabjRMMTBzU1RrdjA5SEhzQ2RER1JvRmluWU03VmFGUTAw?=
- =?utf-8?B?SzhZUnlMcFhpS3B6Q1dTaE5vTzZCNnVua3FBN1dVWHJaMmxsWklMbzMwQXFH?=
- =?utf-8?B?bFpscWVJN1NUbEtPSXFkekl6TWx3Vm9VNEE1VEJ4dUdyWU8vNTdLME9RU1Rm?=
- =?utf-8?B?VE5KQTVQL0d2OVk3RHd2bWJlZzdFa0lxUGQ2MWRXTFN5MWFZS3laY2F1U0Jx?=
- =?utf-8?B?STYydFdTdTg5TmdJRFRLd3NXTGRpVys2cHF0dWJrZlA3cXRsbmdQVkNMbHFX?=
- =?utf-8?B?NklMWDl0OThuK0x1OVp5VGtPakY0OFkyRXEya3VRNFZZQVkxbWZveUVDQURw?=
- =?utf-8?B?V1VqeUZZeFA1NHQ4c0EwQm1ObE1TZU1HYU11MDZtTTRWU0VnZmNvcXJHYUht?=
- =?utf-8?B?aXFCWkIybGQ2M0ZETm9JbGNFbE5KZ0Y0U2dHYWs0VE9kbzdlUm5XdWtPNlZ3?=
- =?utf-8?B?R1h2bjJCNlFoT1U1dkhVMmVwelZwdU1uSGx3d0RNM0hTMStMOHJiek41eGYw?=
- =?utf-8?B?bFc0ZWx0Z3RzdTVQWEZVZG5IN3BlZG45dFFMNUVYU2JhS2V4SDY5OHg4cGZu?=
- =?utf-8?B?MWZyUDU0eHY0ajRUcUd6UTlFK2dwTmU0QlMrSTJHeEtPN3I5ZDdPRW9PdGYr?=
- =?utf-8?B?NGNQaTZIWHZsa1VGVkUvdWU5OGcxNitsS3hLL0hZMXk2MTlRSkhGcDQ3VEhw?=
- =?utf-8?B?dmtKZ1llQ2xGTWxoK2VxSE8zV0thYVVCN2p2SlQ2OXdqZ3FtWUNGajZ3cDZq?=
- =?utf-8?B?bFhYV2VzdWIzajkyZGJ6MjFlS0NtVVltSFFDMEkvRUd4U1ZjMVBoSUd1eFdh?=
- =?utf-8?B?c0RwalprTDdTNW5qK015S2h2a1lwMVhwWWJFMjNjVkNWZnduSUdEb0FCOHJI?=
- =?utf-8?B?K0l4ZDllNkd1ZkZtMjdrQ3FXMjRiOUIrdHhDeEtmV1Mzbm5rSGNrNGJZb0Z0?=
- =?utf-8?B?bmVTUXU5VlRRQ3RVb0x0VHNFTFhYU096NkxDNUwreXpCTjd1QVkzMmJPckxw?=
- =?utf-8?B?YkpSY0RHQ3hKalhIemVrd2NmU0JZMEU5Vkc5cTRVRXh6dUlOUFFqSkJpRnox?=
- =?utf-8?B?dC8xRlZOeDRDaVc5NE1FamVMTFJjUnhPQUhzL3JvUCszOVdCcjdPN2pkRHpG?=
- =?utf-8?B?UFR6OTAxalUya3ZFak1scW44Uk0yZlIrcXhJWjIzRFIzVnV6TmMxY0p1SFhO?=
- =?utf-8?B?UFd6UTNTdW1JUW1TdkJVajJnUGtISS9mTE0wMWJ4dVdMblBBaHZsVVFqN1BK?=
- =?utf-8?B?bmxkUHZhOGdKaW1JeXB6c1JIdU52MGtrTzg5bllqRmgvaWxNYi83ZjgzelFT?=
- =?utf-8?B?MmJuNzY2SC9najZKUkR5bHhhUzRJSm9OOXZ2bFgzRTRrc3U0cy9LYWhXT2c3?=
- =?utf-8?B?dmtldjZQNTNNaTExMHpxWmhwSHZCNnYvMm1jcDUwRjF1d2lsWitKZ3NhZnlR?=
- =?utf-8?B?TFF2S0tnNjVvS3kwSW1JMXAydGtGT2ptMGJwM2UwMlhJRmZENDJMUWhTWDl5?=
- =?utf-8?B?QzFuUmR6K2dUTUNEQStVWWF5T1BXUkVhbms1dWg5NTc3TG5LVmdKbnJYMHk4?=
- =?utf-8?B?eFdTZkhmVElSZUFXS2hJOWhUekZtdkJ1Q3hEdGsyWFdDOEF6dm9sMDEwMW9q?=
- =?utf-8?B?b01Wc2MyT2dzZkxjTThNOS81N09lVVN1TE0vK0FCMGlxc0VFNjJJa1c4aFZV?=
- =?utf-8?B?TVQybG1pWE9GTGczMktMa2cvb1hjL1Jlc2Z6K29Jb2E0bmg4OURjYU5VU2Rs?=
- =?utf-8?B?dXZJdDYvSCtJQjlsN3VHUUMzZHdiSWdna2ZsVzFhcXVyZTc1Y0RWemRJTnJr?=
- =?utf-8?B?cFVHWCt4U1hIa0lDS3lNcXJzdkRaR3dVbCt5NDN5V0hUOEhjd3EwWFNsTm56?=
- =?utf-8?B?YW5CQWYwaHc2WktQcHRtRnRTbU41d3Y3ajBhWHlWb2haSHNpTnVmQ1V1OGpM?=
- =?utf-8?B?Nm1nd0dRUWtsOG5VZE9oMTBiSVhMNk5mWDhpb3ZVWEFVWG8vcUpjdz09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e77a1c39-074f-4234-417d-08def8785604
-X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12316.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Aug 2026 13:48:05.7436
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ckPk55oL4rThazG8Y+3fb88GpXIPZs3iRdZH7I1ULeSkLaGw4yDAYYg1ld7BgKSjhcbzi3wmWZUHvo1yoG/3dg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10234
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <7d4e5920-aa20-40cd-954e-037631bd0d6c@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_064812_698683_D2050D22 
-X-CRM114-Status: GOOD (  16.07  )
+X-CRM114-CacheID: sfid-20260812_065136_388703_ACBAF56D 
+X-CRM114-Status: GOOD (  36.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,36 +90,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/12/26 13:14, phucduc.bui@gmail.com wrote:
-> From: bui duc phuc <phucduc.bui@gmail.com>
+On Wed, Aug 12, 2026 at 06:12:09PM +0530, Pavan Kondeti wrote:
+> On Tue, Aug 11, 2026 at 04:11:13PM +0100, Suzuki K Poulose wrote:
+> > On 11/08/2026 15:44, Catalin Marinas wrote:
+> > > On Mon, Aug 03, 2026 at 02:43:23PM +0100, Steven Price wrote:
+> > > > If the host attempts to access granules that have been delegated for use
+> > > > in a realm these accesses will be caught and will trigger a Granule
+> > > > Protection Fault (GPF).
+> > > > 
+> > > > A fault during a page walk signals a bug in the kernel and is handled by
+> > > > oopsing the kernel. A non-page walk fault could be caused by user space
+> > > > having access to a page which has been delegated to the kernel and will
+> > > > trigger a SIGBUS to allow debugging why user space is trying to access a
+> > > > delegated page.
+> > > > 
+> > > > Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> > > > Reviewed-by: Gavin Shan <gshan@redhat.com>
+> > > > Signed-off-by: Steven Price <steven.price@arm.com>
+> > > > ---
+> > > > Changes since v10:
+> > > >   * Don't call arm64_notify_die() in do_gpf() but simply return 1.
+> > > > Changes since v2:
+> > > >   * Include missing "Granule Protection Fault at level -1"
+> > > > ---
+> > > >   arch/arm64/mm/fault.c | 28 ++++++++++++++++++++++------
+> > > >   1 file changed, 22 insertions(+), 6 deletions(-)
+> > > > 
+> > > > diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+> > > > index 85e23388f9bb..ea3ae0ca7dba 100644
+> > > > --- a/arch/arm64/mm/fault.c
+> > > > +++ b/arch/arm64/mm/fault.c
+> > > > @@ -909,6 +909,22 @@ static int do_tag_check_fault(unsigned long far, unsigned long esr,
+> > > >   	return 0;
+> > > >   }
+> > > > +static int do_gpf_ptw(unsigned long far, unsigned long esr, struct pt_regs *regs)
+> > > > +{
+> > > > +	const struct fault_info *inf = esr_to_fault_info(esr);
+> > > > +
+> > > > +	die_kernel_fault(inf->name, far, esr, regs);
+> > > > +	return 0;
+> > > > +}
+> > > > +
+> > > > +static int do_gpf(unsigned long far, unsigned long esr, struct pt_regs *regs)
+> > > > +{
+> > > > +	if (!is_el1_instruction_abort(esr) && fixup_exception(regs, esr))
+> > > > +		return 0;
+> > > > +
+> > > > +	return 1;
+> > > > +}
+> > > 
+> > > Is there a valid case for fixup_exception() here? IOW, do we ever have a
+> > > valid user mapping of the pages delegated to a guest? If the above is
+> > > considered a kernel bug, I'd not silently ignore this (like return less
+> > > bytes copied or -EFAULT to user) but rather warn, potentially
+> > > rate-limited.
+> > 
+> > Good question. This shouldn't be a valid case. We expect the VMM to use
+> > guest_memfd and that should prevent any mmaps and thus fixups shouldn't
+> > be required. That said, this series doesn't enforce that the VMM uses
+> > GMEM backed memslots for Guest RAM. We should probably do that while
+> > mapping things in.
+> > 
+> > With that, we could drop that fixup and scream a bit.
 > 
-> Remove the probe error messages to avoid duplicate error reporting,
-> since the error is already reported by the called functions.
+> There is a valid case for fixup_exception() to be needed here in GPF
+> handling.
 > 
-> Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
-
-This looks to be OK. Indeed at various points snd_soc_of_parse_audio_routing prints
-an error message if it gets into trouble.
-
-Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
-
-> ---
-
->  sound/soc/mxs/mxs-sgtl5000.c | 2 --
->  1 file changed, 2 deletions(-)
+> -000 |load_unaligned_zeropad(inline)
+> -000 |hash_name(inline)
+> -000 |link_path_walk()
+> -001 |path_lookupat()
+> -002 |filename_lookup()
+> -003 |vfs_statx()
+> -004 |vfs_fstatat()
 > 
-> diff --git a/sound/soc/mxs/mxs-sgtl5000.c b/sound/soc/mxs/mxs-sgtl5000.c
-> index f1c0e612313d..a253a48ca59c 100644
-> --- a/sound/soc/mxs/mxs-sgtl5000.c
-> +++ b/sound/soc/mxs/mxs-sgtl5000.c
-> @@ -155,8 +155,6 @@ static int mxs_sgtl5000_probe(struct platform_device *pdev)
->  
->  		ret = snd_soc_of_parse_audio_routing(card, "audio-routing");
->  		if (ret) {
-> -			dev_err(&pdev->dev, "failed to parse audio-routing (%d)\n",
-> -				ret);
->  			mxs_saif_put_mclk(0);
->  			return ret;
->  		}
+> We observed this in Android running Gunyah when the page is mapped in
+> EL1 but unmapped at EL2. path_lookupat() can actually handle this
+> via fixup_exeption() when a word load crosses the page boundary.
+> However, Gunyah injects a Synchronous External Abort and we have
+> a downstream patch [1] that adds fixup_exception() in do_sea(). pKVM
+> injects [2] such faults back to EL1 and fixup_exception() is taken care.
 
+Ah, good point, completely forgot about load_unaligned_zeropad(). Since
+we don't unmap the linear map for delegated pages, we'll need the
+fixup_exception(). And I guess warning in this case is not desirable
+either. We could limit it to EX_TYPE_KACCESS_ERR_ZERO and
+EX_TYPE_LOAD_UNALIGNED_ZEROPAD, though not sure it's worth it.
+
+-- 
+Catalin
 
