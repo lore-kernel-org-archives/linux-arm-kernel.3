@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B51AC5CFCF
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71DCAC5B572
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 16:21:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IBI5WI/lAJafFgJ7Sy0DqBFi6pgrnyhinmb89eE1GpY=; b=GS7daEmXpaoQJENGs+B7fENrA8
-	9dRF5npEn5o6k9tByoDcm81ILW9P4eyMcHNFcfIrx5jJVWxZwjTAP85kLIYSY66AeXtbisCjZqGdy
-	nYS/yC1qPszYOxuwzI+T7IUjIR4fADOpJMbMILrY8kGiuqxs5ksgYlULSA0p01L9IiUBc+ZBHReg2
-	qmtkYCFLgiDtmEAS6Z2ojgqBTDG8Hk8NxHUMhAIWSklJ/xXHXKLUTIpkfu7UcgMI1hHTzJYlsbah8
-	kAO3FTs9JrWr5CqNTbCaSUZMBx1pC6gX76qRAtNyB/WxJRo50cHhrYdoNa8MBpeN8a2OMzjDk0vUN
-	nHxBmiRw==;
+	bh=Dd0UaRUFlUNzLlchQD+jEidsgZYPZdZT1MJFfY8nw7I=; b=uChzS3x6jrVvK8KNtIbr1bhqmg
+	b8qiFpiydZahTDZtYCM84VzQk/jDUr9q1mo3N1JzJkiqYrn8M8FFeoBV5/OMaqAmCR3nWX41nBiHT
+	/YPmXDRVjT3H9RVvjzXYtUELfiq6reXztlTguuSD0UdLG2via6tfKjxJSDI9Y9MS/bOQoJWxnLcp7
+	615kMNVcizNAdTzvj5MLvZfoeZlWwLCTWhnE0F6G5wHlzewr3GNbZtuWFK+I5QVVD1j0pLuqZjuyI
+	zGNdJxQzrPb3HkNqGUYPI5wj2/w96tsogaAlXWdA9gmfEOn9uIi7QjmCGtc3b/1pe1RmHWVBmE6AO
+	/nKwG3mQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuBhj-0000000GZee-03jG;
-	Wed, 12 Aug 2026 16:21:23 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wuBhi-0000000GZeM-3rRM;
+	Wed, 12 Aug 2026 16:21:22 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuBhh-0000000GZdY-0D1w
+	id 1wuBhf-0000000GZdO-2ctp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 16:21:21 +0000
+	Wed, 12 Aug 2026 16:21:19 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A3578433CD;
-	Wed, 12 Aug 2026 16:21:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA03D1F000E9;
+	by tor.source.kernel.org (Postfix) with ESMTP id AD78F60A9E;
 	Wed, 12 Aug 2026 16:21:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7CEE1F00A3A;
+	Wed, 12 Aug 2026 16:21:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786551680;
-	bh=IBI5WI/lAJafFgJ7Sy0DqBFi6pgrnyhinmb89eE1GpY=;
+	s=k20260515; t=1786551678;
+	bh=Dd0UaRUFlUNzLlchQD+jEidsgZYPZdZT1MJFfY8nw7I=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=F/onrWzqRC4xvmRq69jeVZIr9nMHor+y/MIcRRA00ZMKaNYP8M3jxBtpC3BRCbMVq
-	 D6hwGMwpR3P1+DVN3cLqPXJdUK9dDYXJVnoqJSz30nkdBkh69scq1CFPTqQbPlJSNh
-	 d6182f2VJ5T9x4bR+fzSJE/PQSmPXMdR5I2811lZUjftFvRAMaZC0rgAhyrL3GqdUZ
-	 pCELQX9noOq39Jf2JLZVIC8gBbA9hkbOJYMJpc7QI6s0zsGfuvVLuw0v5wercUxsUK
-	 J/0Xj/qLin6jk20Tyl7iNtwi0cDj7CO9yw/G5efCJmOl7oGk0TdqirXoYwTELOPn6D
-	 uDwEmjtxb9Oeg==
+	b=Qhk7K1Qxnf9MKxu12pVMP1etPhxWgoemh7hoBGW2uqthyMn2TdNewVEbeunhVHQpA
+	 YcRxatLrW31qrbAW2zjPechJEsR00R6pn33MlO0tLZcBXoSKfA4UErucIIKA+sezLa
+	 laLCjrpI0Ai6ZNrUkiJC7uKqQ+OAG+VULwuxgeCqRwJyimdJwhLFCRFNxg2Gaz4o8y
+	 yfu/SGPiMseYDw14+l0In9tLeF5gjRfuw1N2nNgXCflKZTkBZS70xp7wt7wDhyxRBm
+	 063k94u6rND7I/XL5/F1Aj0NSSygWBtnjDfOm4qzKHCp9PXK+JLYThaSVTjyW+fdXC
+	 yqT0sUvs6vHUw==
 From: Ard Biesheuvel <ardb@kernel.org>
 To: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org,
@@ -52,14 +52,14 @@ Cc: linux-kernel@vger.kernel.org,
 	Mark Brown <broonie@kernel.org>,
 	Josh Poimboeuf <jpoimboe@kernel.org>,
 	Nick Desaulniers <ndesaulniers@google.com>
-Subject: [PATCH 2/2] DONOTMERGE: arm64: module: Test module for BTI veneers
-Date: Wed, 12 Aug 2026 18:21:01 +0200
-Message-ID: <20260812162058.612202-6-ardb@kernel.org>
+Subject: [PATCH 1/2] arm64: module: Emit BTI veneers for cross-section calls
+Date: Wed, 12 Aug 2026 18:21:00 +0200
+Message-ID: <20260812162058.612202-5-ardb@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260812162058.612202-4-ardb@kernel.org>
 References: <20260812162058.612202-4-ardb@kernel.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2072; i=ardb@kernel.org; h=from:subject; bh=U9VKnlWYWUqNYLV5LzPacBbOScKTY/QnXgi2fcEyVDE=; b=owGbwMvMwCVmkMcZplerG8N4Wi2JIatmbv5Opml7uNO+Orx3XVMvZCc29duU/B/rftxsSi+6p eAluLqko5SFQYyLQVZMkUVg9t93O09PlKp1niULM4eVCWQIAxenAEyk/xgjw6Ons6c2ndG0Pmpf bHLF6yTvnJUNW5wYfz+zmb5z2rQDck6MDEvj1GWT1yhVXVu7r/bJSo1NMrExsiY5/nKOj26+Dlr ByQEA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=10607; i=ardb@kernel.org; h=from:subject; bh=B21wyovCJhRxB7emhF6LhSU98+q7Nh3TtINd2u1tWnc=; b=owGbwMvMwCVmkMcZplerG8N4Wi2JIatmbq5XxBXeo3uW2BXW3tpe4WslzLtw/eTeSWnHLyy++ 3374tvHO0pZGMS4GGTFFFkEZv99t/P0RKla51myMHNYmUCGMHBxCsBEti9jZHjKrOn2KFbo6eF5 SznnFp0+tODknZ6rV0Q+RHazuLywPFfM8D/UlSX3UvZ/PS/RI/YX25L+Ljkfdve936wdvU3fg34 0WbMBAA==
 X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -76,66 +76,290 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This module has a tiny .text section with a static function, which is
-called by the module init hook, which is placed in a ~128M init code
-section, which is therefore guaranteed to be place out of direct
-branching range when CONFIG_RANDOMIZE_MODULE_REGION_FULL is disabled.
+The compiler is permitted to omit BTI landing pads from static functions
+that never have their address taken, but are only called directly, even
+if those calls originate from other code sections.
 
-When CONFIG_ARM64_BTI_KERNEL is enabled, this forces the use of a BTI
-veneer, as recent GCCs and Clangs will elide BTI landing pads for static
-functions that never have their address taken, even in the presence of
-cross-section calls to those functions.
+This means that calls into a module's .text section from .init.text,
+which may need to be routed via a PLT if .text is out of direct
+branching range, may result in BTI exceptions due to the indirect calls
+performed by the PLT veneers. (Note that calls to .init.text from .text
+are not allowed.)
+
+The 'solution' is to emit yet another veneer - this is what the ELF
+psABI for AArch64 mandates in this case.
+
+So derive an upper bound for the number of veneers that may be needed in
+the core module region to ensure that any call from init code that ends
+up needing a PLT can be directed at a veneer with a BTI landing pad, and
+allocate the additional space.
+
+Then, emit these veneers as needed, i.e., only when emitting a PLT entry
+for a call from an init code section to a normal code section in the
+same module. In practice, this only occurs when a module's .init.text
+happens to be allocated far away from its .text section, which might
+happen when the initial 128M 'near' module region runs out of space
+between allocating the core module and allocating its init region.
 
 Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 ---
- arch/arm64/kernel/Makefile          |  1 +
- arch/arm64/kernel/bti_veneer_test.c | 26 ++++++++++++++++++++
- 2 files changed, 27 insertions(+)
+ arch/arm64/Kconfig                  |   2 -
+ arch/arm64/include/asm/module.h     |  12 ++
+ arch/arm64/include/asm/module.lds.h |   3 +
+ arch/arm64/kernel/module-plts.c     | 128 +++++++++++++++++++-
+ 4 files changed, 138 insertions(+), 7 deletions(-)
 
-diff --git a/arch/arm64/kernel/Makefile b/arch/arm64/kernel/Makefile
-index d2690c3ec528..b74e2dbd2d5f 100644
---- a/arch/arm64/kernel/Makefile
-+++ b/arch/arm64/kernel/Makefile
-@@ -72,6 +72,7 @@ obj-$(CONFIG_ARM64_MPAM)		+= mpam.o
- obj-$(CONFIG_ARM64_MTE)			+= mte.o
- obj-y					+= vdso-wrap.o
- obj-$(CONFIG_COMPAT_VDSO)		+= vdso32-wrap.o
-+obj-m					+= bti_veneer_test.o
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index b3afe0688919..25fa80b5591d 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -2114,8 +2114,6 @@ config ARM64_BTI_KERNEL
+ 	depends on CC_HAS_BRANCH_PROT_PAC_RET_BTI
+ 	# https://gcc.gnu.org/bugzilla/show_bug.cgi?id=94697
+ 	depends on !CC_IS_GCC || GCC_VERSION >= 100100
+-	# https://gcc.gnu.org/bugzilla/show_bug.cgi?id=106671
+-	depends on !CC_IS_GCC
+ 	depends on (!FUNCTION_GRAPH_TRACER || DYNAMIC_FTRACE_WITH_ARGS)
+ 	help
+ 	  Build the kernel with Branch Target Identification annotations
+diff --git a/arch/arm64/include/asm/module.h b/arch/arm64/include/asm/module.h
+index fb9b88eebeb1..0bdac3db5719 100644
+--- a/arch/arm64/include/asm/module.h
++++ b/arch/arm64/include/asm/module.h
+@@ -16,6 +16,7 @@ struct mod_plt_sec {
+ struct mod_arch_specific {
+ 	struct mod_plt_sec	core;
+ 	struct mod_plt_sec	init;
++	struct mod_plt_sec	bti;
  
- # Force dependency (vdso*-wrap.S includes vdso.so through incbin)
- $(obj)/vdso-wrap.o: $(obj)/vdso/vdso.so
-diff --git a/arch/arm64/kernel/bti_veneer_test.c b/arch/arm64/kernel/bti_veneer_test.c
-new file mode 100644
-index 000000000000..62c20e960d8d
---- /dev/null
-+++ b/arch/arm64/kernel/bti_veneer_test.c
-@@ -0,0 +1,26 @@
+ 	/* for CONFIG_DYNAMIC_FTRACE */
+ 	struct plt_entry	*ftrace_trampolines;
+@@ -43,6 +44,17 @@ struct plt_entry {
+ 	__le32	br;	/* br	x16				*/
+ };
+ 
++struct bti_veneer {
++	/*
++	 * Functions with static linkage may lack BTI landing pads if their
++	 * address is never taken. E.g., a direct call from .init.text to a
++	 * static function in .text may need an additional veneer at the target
++	 * end if it is routed via a PLT entry.
++	 */
++	__le32	bti_c;
++	__le32	b;
++};
 +
-+#include <linux/init.h>
-+#include <linux/module.h>
-+#include <linux/types.h>
-+
-+static int noinline static_noninit_function(void)
+ static inline bool is_forbidden_offset_for_adrp(void *place)
+ {
+ 	return cpus_have_final_cap(ARM64_WORKAROUND_843419) &&
+diff --git a/arch/arm64/include/asm/module.lds.h b/arch/arm64/include/asm/module.lds.h
+index 0b3aacd22c59..b6cc9da9dd24 100644
+--- a/arch/arm64/include/asm/module.lds.h
++++ b/arch/arm64/include/asm/module.lds.h
+@@ -1,6 +1,9 @@
+ SECTIONS {
+ 	.plt 0 : { BYTE(0) }
+ 	.init.plt 0 : { BYTE(0) }
++#ifdef CONFIG_ARM64_BTI_KERNEL
++	.text.bti_veneer 0 : { BYTE(0) }
++#endif
+ 	.text.ftrace_trampoline 0 : { BYTE(0) }
+ 	.init.text.ftrace_trampoline 0 : { BYTE(0) }
+ 
+diff --git a/arch/arm64/kernel/module-plts.c b/arch/arm64/kernel/module-plts.c
+index 7afd370da9f4..e2c009cce96c 100644
+--- a/arch/arm64/kernel/module-plts.c
++++ b/arch/arm64/kernel/module-plts.c
+@@ -66,12 +66,48 @@ static bool plt_entries_equal(const struct plt_entry *a,
+ 	       (q + aarch64_insn_adrp_get_offset(le32_to_cpu(b->adrp)));
+ }
+ 
++static u64 module_emit_bti_veneer(struct module *mod, const Elf64_Shdr *sechdrs,
++				  u64 target)
 +{
-+	static volatile int ret;
-+	return ret;
++	struct mod_plt_sec *pltsec = &mod->arch.bti;
++	struct bti_veneer *btiv = (void *)sechdrs[pltsec->plt_shndx].sh_addr;
++
++	/* Look for an existing entry pointing to 'target' */
++	for (int i = 0; i < pltsec->plt_num_entries; i++) {
++		u64 dst = (u64)&btiv[i].b +
++			  aarch64_get_branch_offset(btiv[i].b);
++		if (dst == target)
++			return (u64)&btiv[i];
++	}
++
++	/* Allocate a new veneer */
++	if (WARN_ON(pltsec->plt_num_entries >= pltsec->plt_max_entries))
++		return 0;
++
++	btiv += pltsec->plt_num_entries++;
++
++	btiv->bti_c	= aarch64_insn_gen_hint(AARCH64_INSN_HINT_BTIC);
++	btiv->b		= aarch64_insn_gen_branch_imm((u64)&btiv->b, target,
++						      AARCH64_INSN_BRANCH_NOLINK);
++
++	return (u64)btiv;
 +}
 +
-+static int __init bti_veneer_test_init(void)
++static bool target_needs_bti_veneer(struct module *mod, const Elf64_Sym *sym)
 +{
-+	return static_noninit_function();
-+}
-+module_init(bti_veneer_test_init);
++	if (sym->st_shndx == STN_UNDEF ||
++	    ELF64_ST_BIND(sym->st_info) != STB_LOCAL)
++		return false;
 +
-+static void bti_veneer_test_exit(void)
++	return !within_module_init((unsigned long)sym->st_value, mod);
++}
++
+ u64 module_emit_plt_entry(struct module *mod, Elf64_Shdr *sechdrs,
+ 			  void *loc, const Elf64_Rela *rela,
+ 			  Elf64_Sym *sym)
+ {
+-	struct mod_plt_sec *pltsec = !within_module_init((unsigned long)loc, mod) ?
+-						&mod->arch.core : &mod->arch.init;
++	bool is_init = within_module_init((unsigned long)loc, mod);
++	struct mod_plt_sec *pltsec = !is_init ? &mod->arch.core : &mod->arch.init;
+ 	struct plt_entry *plt = (struct plt_entry *)sechdrs[pltsec->plt_shndx].sh_addr;
+ 	int i = pltsec->plt_num_entries;
+ 	int j = i - 1;
+@@ -80,6 +116,16 @@ u64 module_emit_plt_entry(struct module *mod, Elf64_Shdr *sechdrs,
+ 	if (is_forbidden_offset_for_adrp(&plt[i].adrp))
+ 		i++;
+ 
++	if (system_supports_bti_kernel() && is_init) {
++		/*
++		 * Check if the target is a function with static linkage within
++		 * the same module but in a non-init section: if so, point the
++		 * PLT entry at a BTI veneer instead.
++		 */
++		if (target_needs_bti_veneer(mod, sym))
++			val = module_emit_bti_veneer(mod, sechdrs, val);
++	}
++
+ 	plt[i] = get_plt_entry(val, &plt[i]);
+ 
+ 	/*
+@@ -277,11 +323,66 @@ static int partition_branch_plt_relas(Elf64_Sym *syms, Elf64_Rela *rela,
+ 	return i;
+ }
+ 
++static int count_bti_veneers(const Elf_Ehdr *ehdr, const Elf_Shdr *sechdrs,
++			     const char *secstrings, const Elf64_Sym *syms,
++			     Elf64_Word cur)
 +{
++	int count = 0;
++
++	if (!system_supports_bti_kernel())
++		return 0;
++
++	/*
++	 * BTI veneers must be emitted within direct branching range of the
++	 * target function, so that PLTs emitted to perform calls that exceed
++	 * that range can use indirect calls as usual, even if the target
++	 * function lacks a landing pad. This is needed between init code
++	 * sections and normal code sections, which can be loaded far away from
++	 * each other. It should never be needed the other way around, given
++	 * that normal code cannot call init code.
++	 *
++	 * So go over init code sections, and find call/jump relocations
++	 * referring to symbols in the current section. If the symbol has
++	 * static linkage, allocate space for a BTI veneer.
++	 */
++
++	for (int i = 0; i < ehdr->e_shnum; i++) {
++		if (sechdrs[i].sh_type != SHT_RELA)
++			continue;
++
++		const Elf64_Shdr *dstsec = sechdrs + sechdrs[i].sh_info;
++
++		/* Ignore relocations that operate on non-exec sections */
++		if (!(dstsec->sh_flags & SHF_EXECINSTR))
++			continue;
++
++		/* Only look at .init code sections */
++		if (!module_init_layout_section(secstrings + dstsec->sh_name))
++			continue;
++
++		Elf64_Rela *rela = (void *)ehdr + sechdrs[i].sh_offset;
++		int num = sechdrs[i].sh_size / sizeof(Elf64_Rela);
++		for (int j = 0; j < num; j++) {
++			const Elf64_Sym *s = syms + ELF64_R_SYM(rela[j].r_info);
++
++			switch (ELF64_R_TYPE(rela[j].r_info)) {
++			case R_AARCH64_JUMP26:
++			case R_AARCH64_CALL26:
++				if (s->st_shndx == cur &&
++				    ELF64_ST_BIND(s->st_info) == STB_LOCAL)
++					count++;
++			}
++		}
++	}
++	return count;
 +}
-+module_exit(bti_veneer_test_exit);
 +
-+/* Make the init code region too big to fit in 128M 'near' module region */
-+asm(".section .init.padding, \"ax\", %progbits; .space (128 << 20) - 64; .previous");
+ int module_frob_arch_sections(Elf_Ehdr *ehdr, Elf_Shdr *sechdrs,
+ 			      char *secstrings, struct module *mod)
+ {
+ 	unsigned long core_plts = 0;
+ 	unsigned long init_plts = 0;
++	unsigned long bti_veneers = 0;
+ 	Elf64_Sym *syms = NULL;
+ 	Elf_Shdr *pltsec, *tramp = NULL, *init_tramp = NULL;
+ 	int i;
+@@ -295,6 +396,8 @@ int module_frob_arch_sections(Elf_Ehdr *ehdr, Elf_Shdr *sechdrs,
+ 			mod->arch.core.plt_shndx = i;
+ 		else if (!strcmp(secstrings + sechdrs[i].sh_name, ".init.plt"))
+ 			mod->arch.init.plt_shndx = i;
++		else if (!strcmp(secstrings + sechdrs[i].sh_name, ".text.bti_veneer"))
++			mod->arch.bti.plt_shndx = i;
+ 		else if (!strcmp(secstrings + sechdrs[i].sh_name,
+ 				 ".text.ftrace_trampoline"))
+ 			tramp = sechdrs + i;
+@@ -305,7 +408,8 @@ int module_frob_arch_sections(Elf_Ehdr *ehdr, Elf_Shdr *sechdrs,
+ 			syms = (Elf64_Sym *)sechdrs[i].sh_addr;
+ 	}
+ 
+-	if (!mod->arch.core.plt_shndx || !mod->arch.init.plt_shndx) {
++	if (!mod->arch.core.plt_shndx || !mod->arch.init.plt_shndx ||
++	    (IS_ENABLED(CONFIG_ARM64_BTI_KERNEL) && !mod->arch.bti.plt_shndx)) {
+ 		pr_err("%s: module PLT section(s) missing\n", mod->name);
+ 		return -ENOEXEC;
+ 	}
+@@ -335,12 +439,16 @@ int module_frob_arch_sections(Elf_Ehdr *ehdr, Elf_Shdr *sechdrs,
+ 		if (nents)
+ 			sort(rels, nents, sizeof(Elf64_Rela), cmp_rela, NULL);
+ 
+-		if (!module_init_layout_section(secstrings + dstsec->sh_name))
++		if (!module_init_layout_section(secstrings + dstsec->sh_name)) {
+ 			core_plts += count_plts(syms, rels, numrels,
+ 						sechdrs[i].sh_info, dstsec);
+-		else
++			bti_veneers += count_bti_veneers(ehdr, sechdrs,
++							 secstrings, syms,
++							 sechdrs[i].sh_info);
++		} else {
+ 			init_plts += count_plts(syms, rels, numrels,
+ 						sechdrs[i].sh_info, dstsec);
++		}
+ 	}
+ 
+ 	pltsec = sechdrs + mod->arch.core.plt_shndx;
+@@ -359,6 +467,16 @@ int module_frob_arch_sections(Elf_Ehdr *ehdr, Elf_Shdr *sechdrs,
+ 	mod->arch.init.plt_num_entries = 0;
+ 	mod->arch.init.plt_max_entries = init_plts;
+ 
++	if (system_supports_bti_kernel()) {
++		pltsec = sechdrs + mod->arch.bti.plt_shndx;
++		pltsec->sh_type = SHT_NOBITS;
++		pltsec->sh_flags = SHF_EXECINSTR | SHF_ALLOC;
++		pltsec->sh_addralign = L1_CACHE_BYTES;
++		pltsec->sh_size = (bti_veneers + 1) * sizeof(struct bti_veneer);
++		mod->arch.bti.plt_num_entries = 0;
++		mod->arch.bti.plt_max_entries = bti_veneers;
++	}
 +
-+MODULE_LICENSE("GPL");
+ 	if (tramp) {
+ 		tramp->sh_type = SHT_NOBITS;
+ 		tramp->sh_flags = SHF_EXECINSTR | SHF_ALLOC;
 -- 
 2.47.3
 
