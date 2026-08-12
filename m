@@ -4,76 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF660C5B567
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 06:04:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 171E0C5B567
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 06:06:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
+	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rhtfoveastp8Pk//WjuoKDqbIxYmNdaqAH0kK/2+gqk=; b=Vwh633GBrvGa9ftA9iqO161KU6
-	6e0LxIAKzSetemQ78DHXikZDm0hPZNb1oT2zgIbZilgSO0Dx/L8eXzlHMBO++haSggFSKgh8WmtUg
-	dZIADRjX8FcvHpLhdsWxtX8ehBxCrnXF0HcoJxb+pov6KM1ZtelHGmRuwaG5hmhv76pFyLioX1tno
-	gNlffwIdvNvjHArzYnJgs0Xwhv0TBrOgQ/EOj1qtf59OHIwdxmcENSzeCEcrmpoY2RTwNvM8OK+io
-	p1ITtqb/auuPn7h0iaH5YaTzmYVDPiJYJMxrk6VRJqZuJwWeqPk77Aq5QoXzsCHFiyc0JrzGgaaFL
-	tCNNEaWg==;
+	bh=kCvlCH6G6hLi7/+gEcb5Pr8BYZkvcHnMDP/PheZZ+p8=; b=FvUsXQhpJvkJXUOfsDB/h7HQvu
+	c2zqozzVJ7iEwOfgYAmBv6jBKHnrr7v2wmgDDDdVNQuubT+vifAi1PSEJq8ZVM7bfDLvAIoRH87e0
+	c/c8ONqeMtU4Vco++np0T9wmE4PSolsK8k/x8Fkkhzgd0uVznBpexfNwAJBUu19IfKCFHoRfHfxel
+	GP6so0sy22WCbTxkuyrP8COlPO3CDhgB80GAl8ZLn3UEF15KTIlFNZafKOpqm9dgqijF0kS1yuvVB
+	8kmf2C4R3F/ctd3uagmkCF4YR3YjrOVpVBeESIkwVesg+zrLja807BbMvBEiqDFUEbeOOp2iTQhYW
+	S6RjxNRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu24l-0000000FTzJ-2kWE;
-	Wed, 12 Aug 2026 06:04:31 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu24h-0000000FTyt-3iLF
+	id 1wu26g-0000000FU9l-3rCp;
+	Wed, 12 Aug 2026 06:06:30 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wu26f-0000000FU9b-2cWd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 06:04:29 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 412751516;
-	Tue, 11 Aug 2026 23:04:22 -0700 (PDT)
-Received: from [10.57.44.219] (unknown [10.57.44.219])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BCA7C3F86F;
-	Tue, 11 Aug 2026 23:04:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786514666; bh=tmIAlhtUrYkRiVryzRy6E42aPb+KIvoQND5y6DtYj/8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=pr0gPwatQrinT/xvvxhWSrPY8SQhis1ft5oWWGKpUlOlSsmKBigV7jyKOXWEQXEzR
-	 K6e9O8yEfSfCP1WQAj7dLNjj7jjjol+T3OWtrgsGfFIlHjKeqoi0eVTLj9ioz3iOOg
-	 jfKWBE0aQKAZi9Fpjuq6iyLTeeahfHryAvVN9Ktw=
-Message-ID: <f5d47f5f-5869-4e3a-a176-4fd632567975@arm.com>
-Date: Wed, 12 Aug 2026 07:04:21 +0100
+	Wed, 12 Aug 2026 06:06:29 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7E65443AA7;
+	Wed, 12 Aug 2026 06:06:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50C9B1F00A3A;
+	Wed, 12 Aug 2026 06:06:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786514787;
+	bh=kCvlCH6G6hLi7/+gEcb5Pr8BYZkvcHnMDP/PheZZ+p8=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date;
+	b=Rc5RsEcS+HSaDGPeWT2EOmCf5uMhb0+Gw5gtGTo9ulVSoqWSoIcyZLXoKtVMAzgXd
+	 OdfQPfsPJnqQRyde20g+7gnC1MSLqErxayupPWJkmXGxUweJrgEEib34VuE0offnIB
+	 YMT2mTjj4lTyI9Ju9O7bKuaWyg9see5+X6wksX4ssVf5KsbG0kN27/cBd8bA52li1U
+	 L2KWzeddKJYeoCERHZuUMft+xBtFmTNXwfDltnMtKRFZ1zuyp+bNA70mO1uEmFIgU0
+	 oOcfhT3mHJEcKi9DcjJ/PNmjr+jVZQeL0KUL9oTTBDTBuYdRUxcI2cwfFqr052Utpi
+	 JW6FX/UaAwhnA==
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v16 00/45] arm64: Support for Arm CCA in KVM
-Content-Language: en-GB
-To: Alper Gun <alpergun@google.com>, Gavin Shan <gshan@redhat.com>
-Cc: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev, Catalin Marinas <catalin.marinas@arm.com>,
- Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>,
- James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
- Zenghui Yu <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>,
- "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
- Emi Kisanuki <fj0570is@fujitsu.com>, Vishal Annapurve
- <vannapurve@google.com>, WeiLin.Chang@arm.com,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Javier.AlmansaSobrino@arm.com
-References: <20260803134403.80630-1-steven.price@arm.com>
- <42170467-fe36-4382-867f-49bdc6a7bc9a@arm.com>
- <d0ffbcb5-0cca-4d1e-9788-6b430345fa9b@redhat.com>
- <5e86232a-89ed-40ff-89e2-9e48fbf9554e@arm.com>
- <e2894206-7470-4606-b9ac-eedc8d2bdaf3@redhat.com>
- <CABpDEukGY+ctSi6wHAaC7o4pGmastX_Y18K2_VYDhNME7TF+wQ@mail.gmail.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <CABpDEukGY+ctSi6wHAaC7o4pGmastX_Y18K2_VYDhNME7TF+wQ@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_230428_077818_F7A7E9E9 
-X-CRM114-Status: GOOD (  22.41  )
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20260806082130.165665-2-krzk@kernel.org>
+References: <20260806082130.165665-2-krzk@kernel.org>
+Subject: Re: [GIT PULL] clk: samsung: drivers for v7.3
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Chanwoo Choi <cw00.choi@samsung.com>, linux-clk@vger.kernel.org, Sylwester Nawrocki <snawrocki@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, Peter Griffin <peter.griffin@linaro.org>, linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, Brian Masney <bmasney@redhat.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Michael Turquette <mturquette@baylibre.com>
+Date: Tue, 11 Aug 2026 23:06:25 -0700
+Message-ID: <178651478560.5862.9382305183926307170@lazor>
+User-Agent: alot/0.12
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,118 +68,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alper, Gavin
+Quoting Krzysztof Kozlowski (2026-08-06 01:21:30)
+> The following changes since commit dc59e4fea9d83f03bad6bddf3fa2e524917774=
+82:
+>=20
+>   Linux 7.2-rc1 (2026-06-28 12:01:31 -0700)
+>=20
+> are available in the Git repository at:
+>=20
+>   https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git tags/sam=
+sung-clk-7.3
+>=20
+> for you to fetch changes up to 6d32ae6403694035896cbf0436088fca4c6a35f1:
+>=20
+>   clk: samsung: pll: use kzalloc_flex (2026-07-18 18:21:13 +0200)
+>=20
+> ----------------------------------------------------------------
 
-On 12/08/2026 04:25, Alper Gun wrote:
-> On Tue, Aug 11, 2026 at 8:08 PM Gavin Shan <gshan@redhat.com> wrote:
->> As the following calltrace indicates, -EAGAIN is returned from tf-rmm::update_ripas()
->> because true is returned from s2tte_drain_pending() for the S2TTE corresponding to
->> IPA 0x80000000. Linux host received error (RMI_ERROR_RTT, level=3) in ripas_change().
->> Upon this specific error and the IPA range [0x80000000 0x90000000], find_map_level()
->> returns level of 2, and realm_create_rtt_levels() returns 0 without populating any
->> RTTs. After that, rmi_rtt_set_ripas() is re-executed and the above loop starts over
->> again.
->>
->>     Linux host
->>     ==========
->>     kvm_arch_vcpu_ioctl_run                     // cca/host-v16
->>       check_vcpu_requests
->>         kvm_check_request
->>           kvm_rec_handle_request
->>             kvm_complete_ripas_change
->>               realm_set_ipa_state
->>                 ripas_change
->>                   rmi_rtt_set_ripas
->>                     SMC_RMI_RTT_SET_RIPAS
->>
->>     TF-RMM
->>     ======
->>     SMC_RMI_RTT_SET_RIPAS                      // tf-rmm/topics/rmm-v2.0-poc_3
->>       smc_rtt_set_ripas
->>         s2tt_walk_lock_unlock
->>         rtt_set_ripas_range
->>           update_ripas
->>             s2tte_drain_pending                // true, returns -EAGAIN
->>
->> The problem is the pending-bit for RTE corresponding IPA address 0x80000000 isn't cleared
->> when SMC_RMI_RTT_SET_RIPAS is invoked. I didn't figure out how this bit is set and why
->> it's not cleared in time.
-
-Thanks for the details.
-
->>
-> 
-> Hi Gavin, Suzuki,
-> 
-> I think I ran into a similar issue on rmm-v2.0-poc_3 last week.
-> This looks like a potential RMM bug: could bit 32 be part of the physical
-> Address (if PA >= 4 GiB)?
-> 
-> It seems s2tte_drain_pending() in lib/s2tt/src/s2tt.c checks bit 32 without
-> checking whether the descriptor is valid or invalid.
-> 
-> In my testing, guarding the drain checks with a check for S2TTE_INVALID seemed
-> to resolve the boot hang:
-> --- a/lib/s2tt/src/s2tt.c
-> +++ b/lib/s2tt/src/s2tt.c
-> @@ -1701,6 +1701,10 @@ unsigned long
-> s2tte_clear_drain_pending(unsigned long s2tte)
-> 
->   bool s2tte_drain_pending(unsigned long s2tte)
->   {
-> + if ((s2tte & S2TT_DESC_VALID_MASK) != S2TTE_INVALID) {
-> + return false;
-
-We should use also consider cases where the entry is INVALID, but
-has HIPAS=ASSIGNED/ASSIGNED_DEV to make it tighter. So, I think
-it is better to use :
-
-s2tte_is_unassigned() or in the library stick to :
-
-if (!s2tte_has_hipas(s2tte, S2TTE_INVALID_HIPAS_UNASSIGNED))
-	return false;
-
-May be we should assert this and make the caller responsible for
-checking the bit. I will leave it to the tf-RMM team to fix.
-
-But for now, please use the above fix.
-
-Cheers
-Suzuki
-
-
-> + }
-> +
->    return (s2tte & S2TTE_SW_DRAIN_PENDING_BIT) != 0UL;
->   }
-> 
-> @@ -1730,11 +1734,19 @@ unsigned long
-> s2tte_clear_tlbi_pending(unsigned long s2tte)
-> 
->   bool s2tte_tlbi_pending(unsigned long s2tte)
->   {
-> + if ((s2tte & S2TT_DESC_VALID_MASK) != S2TTE_INVALID) {
-> + return false;
-> + }
-> +
->    return (s2tte & S2TTE_SW_TLBI_PENDING_BIT) != 0UL;
->   }
-> 
->   unsigned int s2tte_drain_handle(unsigned long s2tte)
->   {
-> + if ((s2tte & S2TT_DESC_VALID_MASK) != S2TTE_INVALID) {
-> + return 0U;
-> + }
-> +
->    return (unsigned int)EXTRACT(S2TTE_SW_HANDLE, s2tte);
->   }
-> 
-
-
-
-
-> Sharing in case it helps.
-> Thanks,
-> Alper
-
+Thanks. Pulled into clk-next
 
