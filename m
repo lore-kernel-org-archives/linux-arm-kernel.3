@@ -4,129 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F88EC5B56A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 15:37:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADCC4C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 15:38:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
+	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kXGIDIlS244Wb3drVu/TJHHrzeZieIF7N4UX4NU/+mk=; b=q0LO+CgibnWb7S+ucklMPhnyEZ
-	rShXK9G78eUUBAxoyb4AFYLh9BqcDwZdM0z8XFff8h4APOqtkG5oQsQ0bopkILbi54wvYJeTnqgy+
-	jTOaHkk2AStR718txf4UqIJwtVShRFne2Fv9I3peJF6a1cbhwRPNOByaObZ3LWc6JvjssQGIYNEcS
-	UzZ/kkdsxqtEANbc3Khb7rWq5Jpw5D2rPjcd/PCNQx5DwWENtZFchJ8FGJjTkTccbAoobku9trO3b
-	U5zgm3EUQaW53dzynpXUVFKIPzv3z8NOh/rDXjB+WA3MNScSz29wk07mDHkPIwTxw9GPCBU8Y71A7
-	Q+Jm3JSQ==;
+	bh=MnsGKFuMBTOgjRQ7tE0YFIFN0I5+jqQT6Tbo+szNMH8=; b=neEr009H/FcODByMNbuCQGmkFv
+	tUuclSdqKW+8c3yVEh8NBP4Qa/afW2w241xY9X2Cx56TpfQKvpdyaMIVHlKSQ/5mxGIkZBBJnMtuk
+	ZQ3l5qjXJAuN2qLst69qWDml/GWEfhqUMOA3YG7ASUJZaQRsBYCVYXEtbmlll48uWM/2U/CzjAYJj
+	OByn2IJk8Vdk+RpCIr/JW6KCVdg66zYvRu2yWG/Qc6/59OE7e1kfXk5dt3flZ+lHR6OKx/aARPkbl
+	o4xcyzKYEExrJuNl194Ndps9/InZg6F1T+ff7iBHqGoVJqqz6Zlr5ywqBvOM1S/BkiN0ohyEQfnTd
+	b3/0zakQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuB1J-0000000GUog-27eU;
-	Wed, 12 Aug 2026 15:37:33 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1wuB2A-0000000GVrw-1imI;
+	Wed, 12 Aug 2026 15:38:26 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuB0u-0000000GUBL-181e
+	id 1wuB1R-0000000GV4X-2V7o
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 15:37:10 +0000
-Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67CE1e7T2585766;
-	Wed, 12 Aug 2026 15:36:46 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=kXGIDIlS244Wb3drV
-	u/TJHHrzeZieIF7N4UX4NU/+mk=; b=k2E5JjonFpw7qGjs4AaC8n7gz97RTbPmo
-	oDW1hT2U07RSaVPDlh4YCpc0YkXIkbSyYfR1R2CikxTWNQocqfZBX4iWjL+rYIyv
-	V6vOKtRfJcMRSSSvkg/YU+Hxcqh1PBwL+FRFC3363XjuHyViQJkE1NLhrZ4qVpmt
-	ybTXsJtdWMTH53rtP1Fgq942Z8c0+iuFrq2JviRSq1E1u+mwiAI/D+dERt+BiYmO
-	+qCmglnGZUZoclJrROKnN1NbLuBgGUsLejdSdY8O6jsUGY2tjyFdBz/sfB3Vr6DH
-	ahIiXKpw037PBWBX3BfmUYCsFPwBsmY1OtcTKa2kMs0Y/0m/TpDww==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fyb23usgn-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 12 Aug 2026 15:36:46 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 67CFQJrv024780;
-	Wed, 12 Aug 2026 15:36:45 GMT
-Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4fxfsjxpjw-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 12 Aug 2026 15:36:44 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 67CFafAf39846240
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 12 Aug 2026 15:36:41 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id E5E8F2004E;
-	Wed, 12 Aug 2026 15:36:40 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 969E720065;
-	Wed, 12 Aug 2026 15:36:40 +0000 (GMT)
-Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Wed, 12 Aug 2026 15:36:40 +0000 (GMT)
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-s390@vger.kernel.org
-Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Sean Christopherson <seanjc@google.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v6 23/33] s390: Use arm64 headers
-Date: Wed, 12 Aug 2026 17:36:19 +0200
-Message-ID: <20260812153631.3376090-24-seiden@linux.ibm.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260812153631.3376090-1-seiden@linux.ibm.com>
-References: <20260812153631.3376090-1-seiden@linux.ibm.com>
+	Wed, 12 Aug 2026 15:37:41 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id BF5C540DA6;
+	Wed, 12 Aug 2026 15:37:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 964C51F01564;
+	Wed, 12 Aug 2026 15:37:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786549060;
+	bh=MnsGKFuMBTOgjRQ7tE0YFIFN0I5+jqQT6Tbo+szNMH8=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date;
+	b=LlCiLZHw3+ofYE4Ie3tuXkPweSejU6Ki5L0+yYDa/Qv43PLea15SMHIwyy387VJb7
+	 EhxWSJevaftiZ0e/IhAjshZrl9hv9k9kwgyr9ZHwt6Ca0RI+bOuMrFYfeJsnQ2cS0i
+	 pIgcDU9sSkDgJKRxKWN0Sen0G/v4xpfvk4EXRZDbswCmA35xuJhQSt0RFqpwPWKEPQ
+	 QyKz2uCg+fdofZVWEwv0v/QORFdbZoPTQKl5HbFsZE+VfHeWRzgTlm+MndQgmV2aJR
+	 1A5bXbbABFEL/DV8IkUUI7wl7nZ0J36ioHqsPN2vV0Y3NHuAuN1sPIoMsQZtGhylFW
+	 cZt9nX9PIIFFw==
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Authority-Analysis: v=2.4 cv=XqfK/1F9 c=1 sm=1 tr=0 ts=6a7c930e cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
- a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=V8glGbnc2Ofi9Qvn3v5h:22 a=VnNF1IyMAAAA:8 a=ZhoKsAT7EqIUtuKD8d0A:9
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODEyMDEyNiBTYWx0ZWRfX4f80eGbjIPKk
- 6cRkVZxiZPn3K8uPLEB0/JJfpg75wdl1KtWnC8qPyc/RImpLf+MvWG+eVYd3RQ/nEhYFoxstlKd
- einnEJYLqbavrv3rqxYECWZHmkr3WBIbKwhYoC2LIRNqYfXQCNpzSTm9X8SOc5nWo15drIXhhyy
- aCO3n1bTePiZqoqyq9xyDLrMFAQORDw3vls7nUpNvXxHbaTw2UJy/6Mig7HoKORmGsex95PabPu
- YllyFJr5eiK16DmqWKnIV0gQs5asSaPH6N+TRSunzKYQoUgG7bvUMzh+nj+VmVD+NluK3HKTaq5
- jDDAfvvroDdh7kadBoksQSZm+6B7SLKAdW6Rb5a0UHeD6C2rvx7XTXIqlxupBp32rSbLGpDXvNn
- 5KehgICeQ4EVY0/Qi4IpMJcXeFMN/JDXkKcnW+DobXexBnLoIAQ7TOmSYUlGOHQYT9G8SyQFZul
- bmUqrV9ewYeH8TnkdGA==
-X-Proofpoint-ORIG-GUID: n3hRj_FrNtEpFkuGDOE7zHtPK1cS0aDl
-X-Proofpoint-GUID: 2ih5OeKAX2XYO5NZTEwlS1cfSlPTMWhS
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODEyMDEyNiBTYWx0ZWRfX5fXzTNDO4F2l
- wxMJsbs8w2lvVyVCga5Z1gEOSAsGAcYQPy/RedBhDQA5YZ+TP0UPXOyDxYokMGz8ugi+KFzQtet
- pXknKKLcjvQAu/gSojbuv8ILd/lFmxw=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-12_04,2026-08-12_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 spamscore=0 adultscore=0 malwarescore=0 clxscore=1015
- suspectscore=0 priorityscore=1501 impostorscore=0 phishscore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608120126
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_083708_498927_5EB0A73E 
-X-CRM114-Status: GOOD (  23.22  )
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20260807155830.603972-1-andersson@kernel.org>
+References: <20260807155830.603972-1-andersson@kernel.org>
+Subject: Re: [GIT PULL] Qualcomm clock updates for v7.3
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, Imran Shaik <imran.shaik@oss.qualcomm.com>, Taniya Das <taniya.das@oss.qualcomm.com>, Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>, Stephan Gerhold <stephan.gerhold@linaro.org>, Stephan Gerhold <stephan@gerhold.net>, Qiang Yu <qiang.yu@oss.qualcomm.com>, Herman van Hazendonk <github.com@herrie.org>, Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>, Abel Vesa <abel.vesa@oss.qualcomm.com>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Lin Li <zhuolin.li@oss.qualcomm.com>, Loic Poulain <loic.poulain@oss.qualcomm.com>, Varadarajan Narayanan <varadarajan.narayanan@oss.qualcomm.com>, Brian Masney <bmasney@redhat.com>, Jerome Brunet <jbrunet@baylibre.com>, Luca Weiss <luca.weiss@fairphone.com>, Uwe =?utf-8?q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, Vladimir Zapolskiy <vz@kernel.org>
+To: Bjorn Andersson <andersson@kernel.org>, linux-clk@vger.kernel.org
+Date: Wed, 12 Aug 2026 08:37:38 -0700
+Message-ID: <178654905858.5862.417176047042178047@lazor>
+User-Agent: alot/0.12
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,253 +68,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce a flexible system for sharing ARM64 headers with s390 KVM.
-Selected arm64 headers or snippet of headers will be reachable by s390
-code through asm/header.h.
+Quoting Bjorn Andersson (2026-08-07 08:58:30)
+>=20
+> The following changes since commit dc59e4fea9d83f03bad6bddf3fa2e524917774=
+82:
+>=20
+>   Linux 7.2-rc1 (2026-06-28 12:01:31 -0700)
+>=20
+> are available in the Git repository at:
+>=20
+>   https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qco=
+m-clk-for-7.3
+>=20
+> for you to fetch changes up to c7d44572a85ae1b897e0bf95357439ee75ddbcc7:
+>=20
+>   clk: qcom: Add support for Qualcomm GPU Clock Controller on Shikra (202=
+6-08-04 10:39:11 -0500)
+>=20
+> ----------------------------------------------------------------
 
-Add copy-arm64h.awk that detects ARM64_S390_COMMON markers and extracts
-marked section into a generated header consumable by s390. Falls back to
-full file copy when no markers are found.
+Thanks. Pulled into clk-next.
 
-Transform copied includes by replacing '#include <asm/...>' with
-'#include <arm64/...>' and similar for uapi headers to ensure
-correct path resolution on s390 and allow for a clear separation of s390
-asm headers and arm64 asm headers.
-
-Integrate this extraction into the s390/kapi target, conditional on (the
-not yet existing) CONFIG_KVM_ARM64.
-
-Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
----
- arch/s390/tools/Makefile             |  9 +++-
- arch/s390/tools/Makefile.arm64h      | 57 ++++++++++++++++++++++
- arch/s390/tools/copy-arm64h-full.awk | 47 ++++++++++++++++++
- arch/s390/tools/copy-arm64h.awk      | 72 ++++++++++++++++++++++++++++
- 4 files changed, 184 insertions(+), 1 deletion(-)
- create mode 100644 arch/s390/tools/Makefile.arm64h
- create mode 100644 arch/s390/tools/copy-arm64h-full.awk
- create mode 100644 arch/s390/tools/copy-arm64h.awk
-
-diff --git a/arch/s390/tools/Makefile b/arch/s390/tools/Makefile
-index f2862364fb42..a624b2639b43 100644
---- a/arch/s390/tools/Makefile
-+++ b/arch/s390/tools/Makefile
-@@ -3,12 +3,19 @@
- # Makefile for s390 specific build tools
- #
- 
-+include $(srctree)/arch/s390/tools/Makefile.arm64h
-+
- kapi := arch/$(ARCH)/include/generated/asm
- kapi-hdrs-y := $(kapi)/facility-defs.h $(kapi)/dis-defs.h
- 
-+targets += $(addprefix ../../../,$(kapi-hdrs-y))
-+targets += $(patsubst $(objtree)/%,../../../%,$(ARM64_TARGETS))
-+
-+kapi-hdrs-$(CONFIG_KVM_ARM64) += $(ARM64_TARGETS)
-+
- PHONY += kapi
- 
--kapi:	$(kapi-hdrs-y)
-+kapi:	$(kapi-hdrs-y) $(kapi-hdrs-m)
- 
- hostprogs		    += gen_facilities
- hostprogs		    += gen_opcode_table
-diff --git a/arch/s390/tools/Makefile.arm64h b/arch/s390/tools/Makefile.arm64h
-new file mode 100644
-index 000000000000..3e033630470a
---- /dev/null
-+++ b/arch/s390/tools/Makefile.arm64h
-@@ -0,0 +1,57 @@
-+# SPDX-License-Identifier: GPL-2.0
-+#
-+# Share ARM64 headers with s390 KVM
-+#
-+
-+arm64api := $(objtree)/arch/$(ARCH)/include/generated/arm64
-+arm64uapi := $(objtree)/arch/$(ARCH)/include/generated/uapi/arm64
-+
-+# List of ARM64 headers to share with s390 KVM
-+# Format: [uapi:]header.h or header-gen.h
-+#
-+# * header.h - from arch/arm64/include/asm/ to arm64/
-+# * uapi:header.h - from arch/arm64/include/uapi/asm/ to uapi/arm64/
-+# * header-gen.h - generated as header-gen.h from ARM64 header header.h
-+# If a header contains partial markers (#ifdef ARM64_S390_COMMON) only this part will be copied.
-+# If the file does not contain any markers the whole file will be copied.
-+ARM64_SHARED_HEADERS := \
-+	brk-imm.h \
-+	esr.h \
-+	kvm_arm.h \
-+	kvm_emulate-gen.h \
-+	kvm_host.h \
-+	ptrace-gen.h \
-+	sysreg-gen.h \
-+	uapi:hwcap.h \
-+	uapi:kvm.h \
-+	uapi:ptrace.h \
-+	uapi:sve_context.h \
-+
-+quiet_cmd_gen_arm_hdr = GEN     $@
-+      cmd_gen_arm_hdr = mkdir -p $(dir $@); \
-+                      $(AWK) -f $(src)/copy-arm64h.awk $< > $@ || \
-+                      $(AWK) -f $(src)/copy-arm64h-full.awk -v srcfile="$(subst $(srctree)/,,$(subst $(srctree)/../,,$<))" $< > $@ || \
-+		      { echo "Error: Unbalanced ARM64_S390_COMMON markers in $<" >&2; rm -f $@; exit 1; }
-+
-+arm64-type = $(firstword $(subst :, ,$(1)))
-+arm64-base = $(or $(word 2,$(subst :, ,$(1))),$(1))
-+arm64-src-base = $(patsubst %-gen.h,%.h,$(call arm64-base,$(1)))
-+
-+arm64-src = $(srctree)/arch/arm64/include/$(if $(filter uapi,$(call arm64-type,$(1))),uapi/)asm/$(call arm64-src-base,$(1))
-+arm64-dst = $(if $(filter uapi,$(call arm64-type,$(1))),$(arm64uapi),$(arm64api))/$(call arm64-base,$(1))
-+
-+$(foreach hdr,$(ARM64_SHARED_HEADERS),\
-+	$(eval $(call arm64-dst,$(hdr)): $(call arm64-src,$(hdr)) $(src)/copy-arm64h.awk $(src)/copy-arm64h-full.awk))
-+
-+ARM64_TARGETS := $(sort $(foreach hdr,$(ARM64_SHARED_HEADERS),$(call arm64-dst,$(hdr))))
-+
-+$(ARM64_TARGETS):
-+	$(call cmd,gen_arm_hdr)
-+
-+quiet_cmd_gen_sysreg_arm64 = GEN     $@
-+      cmd_gen_sysreg_arm64 = mkdir -p $(dir $@); $(AWK) -f $(srctree)/arch/arm64/tools/gen-sysreg.awk $(srctree)/arch/arm64/tools/sysreg > $@
-+
-+$(arm64api)/sysreg-defs.h: $(srctree)/arch/arm64/tools/gen-sysreg.awk $(srctree)/arch/arm64/tools/sysreg FORCE
-+	$(call if_changed,gen_sysreg_arm64)
-+
-+ARM64_TARGETS += $(arm64api)/sysreg-defs.h
-diff --git a/arch/s390/tools/copy-arm64h-full.awk b/arch/s390/tools/copy-arm64h-full.awk
-new file mode 100644
-index 000000000000..a6aaf9cc3332
---- /dev/null
-+++ b/arch/s390/tools/copy-arm64h-full.awk
-@@ -0,0 +1,47 @@
-+#!/usr/bin/awk -f
-+# SPDX-License-Identifier: GPL-2.0
-+#
-+# Process entire ARM64 headers for sharing with s390 KVM
-+#
-+# Usage: copy-arm64h-full.awk -v srcfile=<source_path> <input_file>
-+#
-+# This processes the entire file (unlike copy-arm64h.awk which only extracts marked sections)
-+
-+BEGIN {
-+	max_guard_line = 25
-+	guard_found = 0
-+	header_added = 0
-+}
-+
-+# Find and process the include guard in the first few lines
-+NR <= max_guard_line && !guard_found && /^#ifndef [A-Z_0-9]+$/ {
-+	guard_name = $2
-+	guard_found = 1
-+	print "/* This header was copied from " srcfile " */"
-+	print ""
-+	print
-+	header_added = 1
-+	next
-+}
-+
-+# Transform include directives
-+/^#include <uapi\/asm\// {
-+	sub(/<uapi\/asm\//, "<uapi/arm64/")
-+	print
-+	next
-+}
-+
-+/^#include <asm\// {
-+	sub(/<asm\//, "<arm64/")
-+	print
-+	next
-+}
-+
-+/ARM64_S390_COMMON/ {
-+	exit 1
-+}
-+
-+# Pass through all other lines
-+{
-+	print
-+}
-diff --git a/arch/s390/tools/copy-arm64h.awk b/arch/s390/tools/copy-arm64h.awk
-new file mode 100644
-index 000000000000..d74df368c1b5
---- /dev/null
-+++ b/arch/s390/tools/copy-arm64h.awk
-@@ -0,0 +1,72 @@
-+#!/usr/bin/awk -f
-+# SPDX-License-Identifier: GPL-2.0
-+#
-+# Extract marked sections from ARM64 headers for sharing with s390 KVM
-+#
-+# Usage: share-arm64-header.awk <input_file>
-+#
-+# Extracts all sections between start/end markers. If no markers found, signals for fallback.
-+#TODO verification script or c file for arm to verify the ifdef things keep working
-+BEGIN {
-+	# Constants
-+	start_pattern = "^#ifdef ARM64_S390_COMMON$"
-+	end_pattern = "^#endif \\/\\* ARM64_S390_COMMON \\*\\/$"
-+	max_guard_line = 25
-+
-+	# State variables
-+	copying = found_marker = 0
-+	guard_name = ""
-+	file_header_done = 0
-+}
-+
-+NR <= max_guard_line && !guard_name && /^#ifndef [A-Za-z0-9_]+$/ {
-+	guard_name = $2
-+	filename = FILENAME
-+	sub(/^.*arch\/arm64\//, "arch/arm64/", filename)
-+	print "/*"
-+	print " * This header was automatically generated from " filename
-+	print " * Do not modify this file directly."
-+	print " */"
-+	print "#ifndef " guard_name
-+	print "#define " guard_name
-+	print ""
-+	next
-+}
-+
-+NR > max_guard_line && !guard_name && !file_header_done {
-+	print "error: no include guard found in first " max_guard_line " lines" > "/dev/stderr"
-+	file_header_done = 1
-+	exit 1
-+}
-+
-+!guard_name {
-+	print
-+	next
-+}
-+
-+$0 ~ start_pattern {
-+	if (copying) { exit 1 }
-+	copying = found_marker = 1
-+	next
-+}
-+
-+guard_name && !found_marker {
-+	next
-+}
-+
-+$0 ~ end_pattern { copying = 0; next }
-+
-+copying {
-+	gsub(/#include <asm\//, "#include <arm64/")
-+	gsub(/#include <uapi\/asm\//, "#include <uapi/arm64/")
-+	print
-+	next
-+}
-+
-+END {
-+	if (found_marker) {
-+		print ""
-+		print "#endif /* " guard_name " */"
-+	}
-+	exit !found_marker || copying
-+}
--- 
-2.53.0
-
+BTW, the free form paragraphs are nice and all but I usually end up
+rewriting it into bullet points. Maybe next time you can give a quick
+summary up front and point out anything that is out of the ordinary or
+needs a closer look.
 
