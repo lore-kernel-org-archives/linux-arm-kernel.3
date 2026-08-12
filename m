@@ -4,98 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB4F1C5CFDB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 20:15:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6DC5C5CFDB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 20:28:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2yss421pOFQ9jL8McJw1jGVeZX3JUo3yrK+bhiRFPy4=; b=kGM0ZY7V1et+OgDCe1tOL7EH05
-	KhNmYo02YlM1MnU55D8XU6R6fjEbXA154s35o7IYB/bn42Dcgmlhh4GyU31/zPnIsvBAcZMrhifEM
-	kgvjFjc4mBWSKM1os2QhBLUP8YKEvtY3T+y8dwkfchNYYS5o5T/fGVXiKUR7ALuw8op8d9Ozt9Nhp
-	B/KiZPssbzde9n1kjG2zSkcrqZyTMV9UFinXrFmUOeEQrE9a82wIvZ2GwGy1wwW/QYjDTkpbGCDOh
-	NN7CtcrnCH5NsotoVYxCYcfpRK2iTkcV3Z6MiST5Ub5WLFNy7sv/XDCe+9WA1/6hrykljgVGIQsPi
-	yZgxdzPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=AjpFkMsKmW6u4G9qYTxDb/1ny+R2gqVI/GEnKwza6RI=; b=QjbwjnNyUIc/SQeJoyIbhxg1m9
+	09Lz8RqnbNXHDBDLoz7ZUCQJlHM8trb9xulc6DCQfEJLEHlMzvhfdGwEMowIRJ1kNUotoqJ8Zw+Y+
+	lNxvYWjvb63BB0q+gAFzOZFs6JAIVnW+L+osSTTdaVhzpjP4znCnBOo7qHUX/5F1Gnqc4XbSurWlv
+	pMOaKxdZL1S2aB9JvwSFgn1Ne+MQMUODd/vo+npBuIWFDhkvaGr9aT1f+lDmn7TXr6Ll39CSCSwD9
+	oX/p/K14vH1UggMlIiiVNeXDFo691xAXjhWhybmig+SwLKvJZj7c7AQea95uxVPVI0RMnhtqlQakZ
+	YBY1UHQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuFM3-0000000GyZq-3Zuv;
-	Wed, 12 Aug 2026 20:15:15 +0000
-Received: from mail-ot1-x335.google.com ([2607:f8b0:4864:20::335])
+	id 1wuFZ3-0000000Gzym-0FpG;
+	Wed, 12 Aug 2026 20:28:41 +0000
+Received: from mail-germanywestcentralazon11022081.outbound.protection.outlook.com ([40.107.149.81] helo=FR5P281CU006.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuFLy-0000000GyXm-3G3m
+	id 1wuFYz-0000000GzxI-0NNp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 20:15:13 +0000
-Received: by mail-ot1-x335.google.com with SMTP id 46e09a7af769-7e9f1f24cbcso281184a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 13:15:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786565709; x=1787170509; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=2yss421pOFQ9jL8McJw1jGVeZX3JUo3yrK+bhiRFPy4=;
-        b=sVXeR3Ejn1xYuVxQqbtrPYtqNRV8gesibOyWreL8dA51uPCI2NgY3pqGJnLpt+CNbJ
-         LyXdHl6O9d50ypzf8kB/zzitrqYZvAatNG3gCU6GQlq51TBe5sff3vbr9pa5jKcvFMOB
-         MXKk6oyY0VFo1IUt9nNaEFlFNQRVM36ILi2sifPcvHQbKvMo3meUDc4pu7mZmAdIA7c3
-         4VroQPh16Pq7AdJB/xOCYqyxO3X9Zh7CeFt9fxKm3cmgGo2RJPxO9UPujeuZlw3fzLQT
-         fub9UR0u9Gvp543FQrdndreDAf6FqEqhzeu3aM8tk2vslvuELID5NNUQ7HWILRaZtM1x
-         fenA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786565709; x=1787170509;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=2yss421pOFQ9jL8McJw1jGVeZX3JUo3yrK+bhiRFPy4=;
-        b=cEpxf2IrPgWDSOM4oCYy0+TJuZX3pvamp8Rlh7Fl7/nCn6DoUFmO8/QjSqyjqABdc+
-         Pg1TYUkCbERydQrOJc81yyprOV99oUsN1wnQ9DIIsvMQBd8hPIyiVY5OrMDjZXNmd1Cf
-         fD6bsyBJVZwBbeX3L/sbiVJcPCVLNW5uNMij68w0j4oUwepvo+uH3nUNHESa54vVduy4
-         c0tCV6Cpir1R1k2auZFxB5r8rCZmchxn27rMGZBI44dc24le52Rwqax3+hw6o+yRctld
-         3HNOys1EpdKB93FAoxbEVg6wg+HpSt1r43CKnvWFqti6wXYGln3+bj0xL190OcoE6Tet
-         /7Mw==
-X-Forwarded-Encrypted: i=1; AHgh+RqdUe4JSIJ1VLy+S87tUrBjFtEjhmcp6w+e5nYnhka4cPNSsv5CTiBfYdrFQVRVsZRyV+MGlQwY3ViPnzvlLeaJ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz5zX5FJ5BprksU90kI1CgBkWv4zGjVAe7Qen4duCfA2fDRqiJs
-	OYIbYaSlq9ZcucaE06+GwI+l6L4eJjr5BCu5CD80jzFNQWAQsMwSFCVw
-X-Gm-Gg: AR+sD11PfzOmx1F7ouATuqkCKspiFR+HcrF5gYGRI0iY+sNIU2q+0GyyWIQZjUvg66e
-	0JmMQenpUIUTh1Far+4ysYwYW78A57Qh1PF1vMxOk1MIZ8oqzju2xW3ygKYZUjJLIFZ6HDQ2k1M
-	rFfX4wANBwyWCNFpTCLPyqJB9a9ujY/dw2yLuJqVMk3Jl0mMrnP6GA+Fvtpg6CsejescqzHYw/j
-	JVwIZ5EZOFmgMG1yzR364B0OphuwzXielt4+7JkFfwdlQUot9QQkoVCIfU8Z5UtHixw/vJDJGh9
-	xsb8hC7NANEYtkJvdW3wtJcM0IcythsVRCEHd+dJh7Goq26njBHTr0Wkzp4EfrfKQeXoaik1geb
-	u8gcG7gT9UqJ5XVJPSgQ/t3TX9bKFcoIDc6TC5M6UfgP8LX/xCe0qWU/TiCJ/3vgPBGOwte0OLM
-	xKyTK4RAqp49jOenSybC2g6OkBUg7RUiTDSdjnAPupvEy4ERk2MoEVEObOceXGzETl9u4lX9w5x
-	roJ0PCqTBPY3ICumwMT7v8hb9q4YjepLYzmhk1n
-X-Received: by 2002:a05:6830:82f9:b0:7f3:9729:a9e3 with SMTP id 46e09a7af769-7f3cad7c2f8mr70427a34.7.1786565709452;
-        Wed, 12 Aug 2026 13:15:09 -0700 (PDT)
-Received: from AMD.home.internal (dhcp-9-244-8-156.gobrightspeed.net. [9.244.8.156])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7f3c9cf3b0csm256006a34.21.2026.08.12.13.15.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Aug 2026 13:15:08 -0700 (PDT)
-From: Enzo Adriano <enzo.adriano.code@gmail.com>
-To: Andre Przywara <andre.przywara@arm.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Chen-Yu Tsai <wens@kernel.org>
-Cc: Brian Masney <bmasney@redhat.com>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Enzo Adriano <enzo.adriano.code@gmail.com>,
-	Sashiko <sashiko-bot@kernel.org>
-Subject: [PATCH RFT 2/2] clk: sunxi-ng: a523: use single-divider clock helpers
-Date: Wed, 12 Aug 2026 16:15:02 -0400
-Message-ID: <20260812201502.264919-3-enzo.adriano.code@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260812201502.264919-1-enzo.adriano.code@gmail.com>
-References: <20260723004856.55158e84@ryzen.lan>
- <20260812201502.264919-1-enzo.adriano.code@gmail.com>
+	Wed, 12 Aug 2026 20:28:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=sHHJTZYelOscfyjrnZZZd9YgZlURe6ybIsbWerG/2B1q6U6gijQ8ImouW80JTen9+WBsSrXGC5xb24Ccbqb6tVLXfNKNR2feO7ikINddt/T9UI17DxcsBC4hwqcaRZQylPEHZmPAu4h4Qbg1xXTaYuPrBPTJfjMj6kiysWip5N1tDsFzNtDEfe8XgeH4jzQI+VwM11YITs38byvEjuW+ExPPb06OBqC+CxQSLE7m99LrGkm+7qcSqI5LRghG4pFuM+cdfvdgq6vYsV3s49iWePjlWOTP0Ob+Kk+oNGRkqIZA6Nb3408xCgIU1ool/+BagpMjv+aq5fP8euvK2kk+uQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=AjpFkMsKmW6u4G9qYTxDb/1ny+R2gqVI/GEnKwza6RI=;
+ b=r7pGAVpyjeYdtC++dltHLSB6+zNig3syP7T9UC8CWfnkk1omEy6K80KJyknOrGXgFzEj9f7wzMIyEyFc7PQCE2WH/GCrxasLvXzZwKDmfMkpGzvD9j2Qe76JVaiSLCuXh0ZuKvurs6w1LQ4WCXeoeEb2ciXnG+EB1JQ9lhu9FKANuvPo8XnQe8Oj9GJhahuwfkEwCst8N9dlyAFxZqVY5IAzhq93lmXKv3xbHR8rycjOlEA3tt3K+n0vcYFjaDcwyZkKPSxVxTGU0jfQb9SWx1E26nndT0w2UPRqRYvSPJ81UhBRF18hsIuIboIUUxNNrZULax1n6nIk9e1ll1IQbQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=siewert.io; dmarc=pass action=none header.from=siewert.io;
+ dkim=pass header.d=siewert.io; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=siewert.io;
+Received: from FR3PPFB3D0CF1D2.DEUP281.PROD.OUTLOOK.COM (2603:10a6:d18:2::182)
+ by BEUP281MB3788.DEUP281.PROD.OUTLOOK.COM (2603:10a6:b10:a2::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.14; Wed, 12 Aug
+ 2026 20:28:29 +0000
+Received: from FR3PPFB3D0CF1D2.DEUP281.PROD.OUTLOOK.COM
+ ([fe80::aa8e:db31:b886:2365]) by FR3PPFB3D0CF1D2.DEUP281.PROD.OUTLOOK.COM
+ ([fe80::aa8e:db31:b886:2365%7]) with mapi id 15.21.0315.014; Wed, 12 Aug 2026
+ 20:28:29 +0000
+From: Tan Siewert <tan@siewert.io>
+Subject: [PATCH v3 0/2] ARM: dts: aspeed: ASRock Rack X470D4U BMC support
+Date: Wed, 12 Aug 2026 22:28:25 +0200
+Message-Id: <20260812-ts-x470d4u-v3-0-c8e266f1663b@siewert.io>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAGnXfGoC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyjHUUlJIzE
+ vPSU3UzU4B8JSMDI1NDA0Nz3ZJi3QoTc4MUk1JdU5Mky1RLi1QTY2NjJaCGgqLUtMwKsGHRsRB
+ +UWphKdDMEqhgbS0AmL38vnEAAAA=
+X-Change-ID: 20251017-ts-x470d4u-54b9e98e4333
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: Tan Siewert <tan@siewert.io>, Zev Weiss <zev@bewilderbeest.net>, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1786566507; l=2337;
+ i=tan@siewert.io; s=20260731; h=from:subject:message-id;
+ bh=bZ7/A9xzSjKm2HtVrjt3b8g+WbNKe3NcCLeojeIiTKs=;
+ b=BlvS5JwAn/HlbAce94h0vpjmGbpHs9rg4KpJ/3ThZlyeSvFqUMFVqZPdJCgKNhu75ILyXU14C
+ oWEI4aKCAH8DgRE9R7KR1Qvk3u7TB6W/c4/QcSi/0sZt8dethyUAIYA
+X-Developer-Key: i=tan@siewert.io; a=ed25519;
+ pk=TXy9xEw3OCAd0QBR/ZZowx3QJfMcoe0ROFfoghqLnU4=
+X-ClientProxiedBy: FR4P281CA0080.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:cd::15) To FR3PPFB3D0CF1D2.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d18:2::182)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: FR3PPFB3D0CF1D2:EE_|BEUP281MB3788:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9163e407-44ca-4b50-c6c3-08def8b0451c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|10070799003|376014|7416014|52116014|1800799024|366016|10067099003|56012099006|18002099003;
+X-Microsoft-Antispam-Message-Info: ekTmyW5ulEc6WUb69aIvo1PdkWOY8RJYPYQmQ1PoMLFa6bQ3YLg7jqLO9huv9NC0lNpXDhDkDeV73I3a4vmE5WUaqigjudU41EZHoWFHruzv4CjDLxOF1wezxd8TgWeylmZzmTIB90K5K+XleRNAJOR2/DZFTrHrB9J7u9ZBOej5lLJ/FyOJWLvYOuO80x0CCePVRlXuLvHwEuCfc5OaFs12sXnaYGpAjz+y3B0nIhoVef/qZdVLyPSrLtQOJsaPME89ZHL1yvErDBvj+VGyDiuBuMr9Lz3BZtQvnZ10aPrY4hyiCZJBsIdd5Bf1ivpR2F5I/I9hGsgZO2ePUim93nYr9ovVPQ6itBX6Sbm/Vyg836W4JAkaPBIVawF4hyzZO6G2dLL5Bljw3Kz5KLsWSw5PRfFzQAsUJX09O9DHiqkRZlTpRtmKGOSgyzz4et1S1bfY8CbSs02qKShA7bCwH2UXjcuWIKjidbUhxJO8TdCQ11D4J1TWfzLjxfOX9l1XsO6617RVIvTG/27lQrevNkGGxikh71VfXgPEQAJUnnrFOp0cTeJiMHL19fafiFM3U8oaqcV9tqDGZMqN+EpMiEOwi2Qk7A0Zma2alLoknjLgNgufW6zT/ZeQbqVrg0jIqOy0I2mc1w+dfzY6E1U/swFjC+xt8w+A+otUAWHV/m4=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:FR3PPFB3D0CF1D2.DEUP281.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(10070799003)(376014)(7416014)(52116014)(1800799024)(366016)(10067099003)(56012099006)(18002099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?S2ZvdUxvcWY1NFRqZFhrbldkMW5TVUd3TEZjeFZISWErTm10U1UwblJzblNK?=
+ =?utf-8?B?Z2xKT1ZlQW1rTG1QNXhFaHlIQVZTNk5KcnlEc2pPMSsxL0NlR2x3YUhjYysx?=
+ =?utf-8?B?VTRiRWhvekN6RDRQRGhoRUtNM2RYbXJ6eGlxNTlxVlVVVG82dEdaRkhsOHBJ?=
+ =?utf-8?B?UEppUnBXVnN5U0J0SkZrT01mdnp0RjR3MTJOWW1JNXk4YmNXK3FScmhaRVRV?=
+ =?utf-8?B?NUY4VDNvdWNCNHhLbDJMdkNKclA4VDA3MHY1ZzMxMFMyd1ppMURCMUU5ZGMw?=
+ =?utf-8?B?cGpGU3NEVzNpcWhMZHlrV1VYZkxzNTJtTmNoN1lQcWdFcCtsQ2gvOU5nQzMy?=
+ =?utf-8?B?UkJQUGF6ajJIYWxDQVBuSkt3Q1RxamwxdGJHcno4NGFMb0MyYlBFYlRpd2ZF?=
+ =?utf-8?B?WERBM25TdC94eTJ0UDBnM2h2ejErTEx3UVpWZlBJemppallRUW9WQ215OVZT?=
+ =?utf-8?B?bFJ2MkZNSklXUU1Cc2lER2JtRy9DTzNaQ2xzSEg1VG0yWVNwQlJ2dDhnVnR2?=
+ =?utf-8?B?cXZVSExVTHRmYnAyMkhWcW1mNUgxQ2NBdTdPV2l6ajljM2JaWEVUcUVrYlpN?=
+ =?utf-8?B?K1QyeDFWTmR3V05PM1pMWlIvRUt3d2ZROEhVNndwU1ZLMjFmUlFOM0VFQ0dR?=
+ =?utf-8?B?T2ZXcnNEODYxZjJnSXVSY2JwQ095RVpvN0lEM2llQTRTSWthVTRZU1RJWENP?=
+ =?utf-8?B?T3l1NVNTL0JNOXAwK1VMbXdWSmNFMk9GMzcwemY3dytFY0hPNW53Uk95MDRH?=
+ =?utf-8?B?V3p1eHh5d01naEVGLzJVeXVFZWRZUmdxOUNabFpWalF2OTZPWERQVWpWSXBp?=
+ =?utf-8?B?dFVxY2xLclN1UDdENmhTaTZTWGRSSzVEbkhKZjZjdnlnSHo0VWk0dmM0cXBH?=
+ =?utf-8?B?V0dPMmRQNzJHWW1sM3pIMDhtK3czeHUvcDRPd2hpS1ZxQ1ZodmV6YjVtQ3NM?=
+ =?utf-8?B?bzREbVZaMzduNkUxREtvL3BuUVFoM2VGZ0dtSXJvQWZqcG8vbmRDMDUrcHBy?=
+ =?utf-8?B?Z0pwaWJqdFVhN3lTcVJjODlXWHhSK0FoT0Flb1FCZmpHaVZ0d3U4dkx6Ly90?=
+ =?utf-8?B?ZVJXaGhYcU5vTXNQVmdKZ09zN29DUWxmRVd6MHpBYXdITEdaK1BYMmxBL09l?=
+ =?utf-8?B?SFovK3pNZnFkVXA1bjF1OVpoZ0J3dmViNDlXdVZDWnVYVldLeHhBZHphNzE0?=
+ =?utf-8?B?cG9HYm1xUndJZDBNY0hWVy9vWHRwUHVjOTVQcldQOEhDZ3Y2bSs0SDd5eUd1?=
+ =?utf-8?B?R1JudU5HLy9JZldXWTdabFZIUGE0eFVhOHhTNXdDZ1I3Z2pZNFdzNjl3ajZV?=
+ =?utf-8?B?Y0kvbmxTZEo4UFVWOWs1RjIvQ3NEcU82U0IzVWUzWTNDTldxNXY4YlhMeW5S?=
+ =?utf-8?B?T04vbjk2YzNyTVRvaFVVaVVINlVHdDVvZ3h4azVOMVpWMHp6VEYvQ251ODVW?=
+ =?utf-8?B?T2VLM3NNRXFvSUwvNlZVRlJEOHlWTENZbEllRjYrbTA2dnlFR3krQlptMGxS?=
+ =?utf-8?B?WTJUUkhvZkF3UFJQdzJkZkZLTE9zZHk4NUQ2czlPak9ZS1lKeW51TGZFTnJa?=
+ =?utf-8?B?c1dzS1VTeGVZQlVEd2tzUGZFejRyV3I2VkRiQ3ZUNUVmQ2I3S0xRMEZuR0Q4?=
+ =?utf-8?B?cEhDSmNsSnJmdW9xRGJQajZKMDlNSXhwVy9oeWFWRHJKalhBTTdPZFU5VWJW?=
+ =?utf-8?B?cytZUW1UMEsycU9ieEk4M3FrYmRzc3pMQjNjUnNvNmg0dXlzOEE0SE9MZDZT?=
+ =?utf-8?B?ZUllS1BSdW02Q1FSSVFwYkVPaFNWemtyTDhNVTNXUDBock8wU1l3dDdaYWlt?=
+ =?utf-8?B?TnBXRTZhQ1dHQ1BVY1g0cVl2VGpxVk1HV1pjVytEcVdFbENCUWxRMWgvV3Bv?=
+ =?utf-8?B?akRlTDFlWEpDSU05V3hmN0UxVFhPOGJnZmZSV0FYSnRFSFBhTi9UVjd1eHVH?=
+ =?utf-8?B?ZlU3aUh3Q2xzelZ1cVVQQXNUZWNzUHlLS2ZiNHk0eHI5d1hWc1pjenJZdXE2?=
+ =?utf-8?B?UGVOZHdMTm1sai9oSit6Qyt4TUdvN2Nlbm9WOHJRMEJXSGV1eFV5S0JvcTVR?=
+ =?utf-8?B?ZHhkbUlpRlBPL21VVUJqcW9aNG8ybHNJR00xMnVQbnNJOFEwK2VFUFZCUjFF?=
+ =?utf-8?B?cjB0YytHWWU0VkpxdHA4M2N4dEJnOUVVc1JHbEg3blJvcmZCazlnakFtSVBZ?=
+ =?utf-8?B?R1A2cEN2UUcveHMrNWhpdDl2eXd6Vm1kcG8xVnJkOWJaR3VtOGJHUGxpbnMx?=
+ =?utf-8?B?MmNxa1d2dWR5VVdDdjBhRDRXSzZ6djVOVlg1dmdGeSt1dWtBS3lScVltVC9P?=
+ =?utf-8?B?MTNDaXpxZTc3WWNTSFp3MDlodDJtMEJOYUxobW1mTG5SZUN4a3dtNW9Cdnlu?=
+ =?utf-8?Q?WD7igqAtoMTutHkCg3Qy7x+nvnMYZ6dMfXfOF?=
+X-OriginatorOrg: siewert.io
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9163e407-44ca-4b50-c6c3-08def8b0451c
+X-MS-Exchange-CrossTenant-AuthSource: FR3PPFB3D0CF1D2.DEUP281.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Aug 2026 20:28:29.4311
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: e8b4abbe-444b-4835-b8fd-87ac97451a7e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: n7FjsYqO5cCPdjO0f5XCJNqUMVaPgKAXD3H3NlQA/OYzmlMKbh9COvn/LSe2Gwk9
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BEUP281MB3788
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_131511_940255_BA740030 
-X-CRM114-Status: GOOD (  13.33  )
+X-CRM114-CacheID: sfid-20260812_132837_140458_6CF2EDD9 
+X-CRM114-Status: GOOD (  11.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,261 +153,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The A523 MBUS, IOMMU, and DRAM clocks have an M divider but no P
-divider, while HSTIMER0-5 and R-TIMER0-2 have a P divider but no M
-divider. They currently use the two-divider ccu_mp class by declaring
-the missing field with width zero.
+This series adds support for the BMC of the ASRock Rack X470D4U mainboard,
+which uses an ASPEED AST2500.
 
-ccu_mp_set_rate() unconditionally masks both divider fields, so a zero
-width forms an invalid GENMASK() range and can clear unrelated register
-bits. The M-only clocks also require the hardware update bit, which
-ccu_mp operations do not handle.
+The mainboard exists in three known flavors, the "normal" X470D4U, the
+X470D4U2-2T (with 2x10G RJ45) and the X470D4U2/1N1 (an ODM version with
+2x1G RJ45 that is now available in retail). The 1N1 version also has a 64MB
+BMC SPI by default, but they are all swappable.
 
-Use the single-divider M helper for MBUS, IOMMU, and DRAM, and the
-power-of-two P helper for the timer clocks. Preserve the parents,
-registers, real divider fields, muxes, gates, clock flags, and
-update-bit features.
+There are two device trees, one that has all the config and uses a 32MB
+flash layout, and another one called "data64" (similar to facebook-fuji)
+that uses the 64MB flash layout.
 
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Link: https://lore.kernel.org/r/20260722010926.0A8B01F000E9@smtp.kernel.org
-Link: https://lore.kernel.org/r/20260712081341.9D1431F00A3D@smtp.kernel.org
-Suggested-by: Chen-Yu Tsai <wens@kernel.org>
-Fixes: 6702d17f54a8 ("clk: sunxi-ng: a523: add video mod clocks")
-Fixes: 74b0443a0d0a ("clk: sunxi-ng: a523: add system mod clocks")
-Fixes: 8cea339cfb81 ("clk: sunxi-ng: add support for the A523/T527 PRCM CCU")
-Link: https://lore.kernel.org/r/CAGb2v67GDBTq8vdxNxBfNVSe=oStcgaJzm0ig2WAEXNQSkVa1g@mail.gmail.com
-Link: https://lore.kernel.org/r/20260723004856.55158e84@ryzen.lan
-Assisted-by: Codex:gpt-5
-Signed-off-by: Enzo Adriano <enzo.adriano.code@gmail.com>
+Please note that this board has been fully reverse-engineered.
+
+Thanks,
+Tan
+
+Signed-off-by: Tan Siewert <tan@siewert.io>
 ---
-not tested on A523/T527 hardware; testing on actual hardware is needed.
+Changes in v3:
+- remove mdio pinctrl from mac1 nc-si interface [Andrew Jeffrey]
+- remove "st,24c128" compatibility from fru eeprom [Tan]
+- enable uart1-4 [Tan]
+- add a data64 tree as alternative for boards with a 64M SPI [Zev]
+- add hog to bmc-ready GPIO pin as required by the host BIOS [Tan]
+- fix offenses reported by scripts/dtc/dt-check-style --mode strict [Tan]
+- Link to v2: https://lore.kernel.org/all/20251011112124.17588-1-tan@siewert.io/
 
- drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c |  37 +++---
- drivers/clk/sunxi-ng/ccu-sun55i-a523.c   | 136 +++++++++++------------
- 2 files changed, 82 insertions(+), 91 deletions(-)
+Changes in v2:
+- fix led node names [robh]
+- fix missing gfx memory region and other fixable dtbs_check issues [Tan]
+- Link to v1: https://lore.kernel.org/all/20250919185621.6647-1-tan@siewert.io/
 
-diff --git a/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c b/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c
-index db0e36d8838e74..349230e28c1c3a 100644
---- a/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c
-+++ b/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c
-@@ -43,27 +43,24 @@ static SUNXI_CCU_M_DATA_WITH_MUX(r_apb1_clk, "r-apb1",
- 				 24, 3,	/* mux */
- 				 0);
- 
--static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(r_cpu_timer0, "r-timer0",
--				       r_ahb_apb_parents, 0x100,
--				       0, 0,	/* no M */
--				       1, 3,	/* P */
--				       4, 3,	/* mux */
--				       BIT(0),
-+static SUNXI_CCU_P_DATA_WITH_MUX_GATE(r_cpu_timer0, "r-timer0",
-+				      r_ahb_apb_parents, 0x100,
-+				      1, 3,	/* P */
-+				      4, 3,	/* mux */
-+				      BIT(0),
-+				      0);
-+static SUNXI_CCU_P_DATA_WITH_MUX_GATE(r_cpu_timer1, "r-timer1",
-+				      r_ahb_apb_parents, 0x104,
-+				      1, 3,	/* P */
-+				      4, 3,	/* mux */
-+				      BIT(0),
-+				      0);
-+static SUNXI_CCU_P_DATA_WITH_MUX_GATE(r_cpu_timer2, "r-timer2",
-+				      r_ahb_apb_parents, 0x108,
-+				      1, 3,	/* P */
-+				      4, 3,	/* mux */
-+				      BIT(0),
- 				      0);
--static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(r_cpu_timer1, "r-timer1",
--				       r_ahb_apb_parents, 0x104,
--				       0, 0,	/* no M */
--				       1, 3,	/* P */
--				       4, 3,	/* mux */
--				       BIT(0),
--				       0);
--static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(r_cpu_timer2, "r-timer2",
--				       r_ahb_apb_parents, 0x108,
--				       0, 0,	/* no M */
--				       1, 3,	/* P */
--				       4, 3,	/* mux */
--				       BIT(0),
--				       0);
- 
- static SUNXI_CCU_GATE_HW(bus_r_timer_clk, "bus-r-timer", &r_ahb_clk.common.hw,
- 			 0x11c, BIT(0), 0);
-diff --git a/drivers/clk/sunxi-ng/ccu-sun55i-a523.c b/drivers/clk/sunxi-ng/ccu-sun55i-a523.c
-index 20dad06b37ca31..5c632e475aaa04 100644
---- a/drivers/clk/sunxi-ng/ccu-sun55i-a523.c
-+++ b/drivers/clk/sunxi-ng/ccu-sun55i-a523.c
-@@ -380,14 +380,14 @@ static const struct clk_parent_data mbus_parents[] = {
- 	{ .hw = &pll_periph1_150M_clk.hw },
- 	{ .fw_name = "hosc" },
- };
--static SUNXI_CCU_MP_DATA_WITH_MUX_GATE_FEAT(mbus_clk, "mbus", mbus_parents,
--					    0x540,
--					    0, 5,		/* M */
--					    0, 0,		/* no P */
--					    24, 3,	/* mux */
--					    BIT(31),	/* gate */
--					    CLK_IS_CRITICAL,
--					    CCU_FEATURE_UPDATE_BIT);
-+
-+static SUNXI_CCU_M_DATA_WITH_MUX_GATE_FEAT(mbus_clk, "mbus", mbus_parents,
-+					   0x540,
-+					   0, 5,	/* M */
-+					   24, 3,	/* mux */
-+					   BIT(31),	/* gate */
-+					   CLK_IS_CRITICAL,
-+					   CCU_FEATURE_UPDATE_BIT);
- 
- static const struct clk_hw *mbus_hws[] = { &mbus_clk.common.hw };
- 
-@@ -513,58 +513,53 @@ static const struct clk_parent_data hstimer_parents[] = {
- 	{ .fw_name = "losc" },
- 	{ .hw = &pll_periph0_200M_clk.hw },
- };
--static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(hstimer0_clk, "hstimer0",
--				       hstimer_parents, 0x730,
--				       0, 0,	/* M */
--				       0, 3,	/* P */
--				       24, 3,	/* mux */
--				       BIT(31),	/* gate */
--				       0);
- 
--static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(hstimer1_clk, "hstimer1",
--				       hstimer_parents,
--				       0x734,
--				       0, 0,	/* M */
--				       0, 3,	/* P */
--				       24, 3,	/* mux */
--				       BIT(31),	/* gate */
--				       0);
-+static SUNXI_CCU_P_DATA_WITH_MUX_GATE(hstimer0_clk, "hstimer0",
-+				      hstimer_parents, 0x730,
-+				      0, 3,	/* P */
-+				      24, 3,	/* mux */
-+				      BIT(31),	/* gate */
-+				      0);
- 
--static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(hstimer2_clk, "hstimer2",
--				       hstimer_parents,
--				       0x738,
--				       0, 0,	/* M */
--				       0, 3,	/* P */
--				       24, 3,	/* mux */
--				       BIT(31),	/* gate */
--				       0);
-+static SUNXI_CCU_P_DATA_WITH_MUX_GATE(hstimer1_clk, "hstimer1",
-+				      hstimer_parents,
-+				      0x734,
-+				      0, 3,	/* P */
-+				      24, 3,	/* mux */
-+				      BIT(31),	/* gate */
-+				      0);
- 
--static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(hstimer3_clk, "hstimer3",
--				       hstimer_parents,
--				       0x73c,
--				       0, 0,	/* M */
--				       0, 3,	/* P */
--				       24, 3,	/* mux */
--				       BIT(31),	/* gate */
--				       0);
-+static SUNXI_CCU_P_DATA_WITH_MUX_GATE(hstimer2_clk, "hstimer2",
-+				      hstimer_parents,
-+				      0x738,
-+				      0, 3,	/* P */
-+				      24, 3,	/* mux */
-+				      BIT(31),	/* gate */
-+				      0);
- 
--static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(hstimer4_clk, "hstimer4",
--				       hstimer_parents,
--				       0x740,
--				       0, 0,	/* M */
--				       0, 3,	/* P */
--				       24, 3,	/* mux */
--				       BIT(31),	/* gate */
--				       0);
-+static SUNXI_CCU_P_DATA_WITH_MUX_GATE(hstimer3_clk, "hstimer3",
-+				      hstimer_parents,
-+				      0x73c,
-+				      0, 3,	/* P */
-+				      24, 3,	/* mux */
-+				      BIT(31),	/* gate */
-+				      0);
- 
--static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(hstimer5_clk, "hstimer5",
--				       hstimer_parents,
--				       0x744,
--				       0, 0,	/* M */
--				       0, 3,	/* P */
--				       24, 3,	/* mux */
--				       BIT(31),	/* gate */
--				       0);
-+static SUNXI_CCU_P_DATA_WITH_MUX_GATE(hstimer4_clk, "hstimer4",
-+				      hstimer_parents,
-+				      0x740,
-+				      0, 3,	/* P */
-+				      24, 3,	/* mux */
-+				      BIT(31),	/* gate */
-+				      0);
-+
-+static SUNXI_CCU_P_DATA_WITH_MUX_GATE(hstimer5_clk, "hstimer5",
-+				      hstimer_parents,
-+				      0x744,
-+				      0, 3,	/* P */
-+				      24, 3,	/* mux */
-+				      BIT(31),	/* gate */
-+				      0);
- 
- static SUNXI_CCU_GATE_HWS(bus_hstimer_clk, "bus-hstimer", ahb_hws, 0x74c,
- 			  BIT(0), 0);
-@@ -584,14 +579,13 @@ static const struct clk_parent_data iommu_parents[] = {
- 	{ .fw_name = "hosc" },
- };
- 
--static SUNXI_CCU_MP_DATA_WITH_MUX_GATE_FEAT(iommu_clk, "iommu", iommu_parents,
--					    0x7b0,
--					    0, 5,	/* M */
--					    0, 0,	/* no P */
--					    24, 3,	/* mux */
--					    BIT(31),	/* gate */
--					    CLK_SET_RATE_PARENT,
--					    CCU_FEATURE_UPDATE_BIT);
-+static SUNXI_CCU_M_DATA_WITH_MUX_GATE_FEAT(iommu_clk, "iommu", iommu_parents,
-+					   0x7b0,
-+					   0, 5,	/* M */
-+					   24, 3,	/* mux */
-+					   BIT(31),	/* gate */
-+					   CLK_SET_RATE_PARENT,
-+					   CCU_FEATURE_UPDATE_BIT);
- 
- static SUNXI_CCU_GATE_HWS(bus_iommu_clk, "bus-iommu", apb0_hws, 0x7bc,
- 			  BIT(0), 0);
-@@ -603,14 +597,14 @@ static const struct clk_parent_data dram_parents[] = {
- 	{ .hw = &pll_periph0_400M_clk.hw },
- 	{ .hw = &pll_periph0_150M_clk.hw },
- };
--static SUNXI_CCU_MP_DATA_WITH_MUX_GATE_FEAT(dram_clk, "dram", dram_parents,
--					    0x800,
--					    0, 5,	/* M */
--					    0, 0,	/* no P */
--					    24, 3,	/* mux */
--					    BIT(31),	/* gate */
--					    CLK_IS_CRITICAL,
--					    CCU_FEATURE_UPDATE_BIT);
-+
-+static SUNXI_CCU_M_DATA_WITH_MUX_GATE_FEAT(dram_clk, "dram", dram_parents,
-+					   0x800,
-+					   0, 5,	/* M */
-+					   24, 3,	/* mux */
-+					   BIT(31),	/* gate */
-+					   CLK_IS_CRITICAL,
-+					   CCU_FEATURE_UPDATE_BIT);
- 
- static SUNXI_CCU_GATE_HWS(mbus_dma_clk, "mbus-dma", mbus_hws,
- 			  0x804, BIT(0), 0);
--- 
-2.53.0
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Joel Stanley <joel@jms.id.au>
+To: Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: Zev Weiss <zev@bewilderbeest.net>
+Cc: devicetree@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-aspeed@lists.ozlabs.org
+Cc: linux-kernel@vger.kernel.org
+
+---
+Tan Siewert (2):
+      dt-bindings: arm: aspeed: add ASRock X470D4U BMC
+      ARM: dts: aspeed: add asrock x470d4u bmc
+
+ .../devicetree/bindings/arm/aspeed/aspeed.yaml     |   2 +
+ arch/arm/boot/dts/aspeed/Makefile                  |   2 +
+ .../aspeed/aspeed-bmc-asrock-x470d4u-data64.dts    |  15 +
+ .../boot/dts/aspeed/aspeed-bmc-asrock-x470d4u.dts  | 381 +++++++++++++++++++++
+ 4 files changed, 400 insertions(+)
+---
+base-commit: 749c34389679f8d56cb200a69b62f9a64670034f
+change-id: 20251017-ts-x470d4u-54b9e98e4333
+
+Best regards,
+--  
+Tan Siewert <tan@siewert.io>
+
 
