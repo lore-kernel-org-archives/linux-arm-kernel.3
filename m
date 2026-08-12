@@ -4,99 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DC1DC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 12:59:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD881C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 13:13:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pwPmH81nKJ/dKUdS2s7CTbyuKAaXa7TlPqH1NAnZE88=; b=24fpT3Uy6ZG+fS4fXOY5CNh8kt
-	4iAGAJ1OnvZbgBUwL+3382JwvTmPyTFfs34x/jN984xogCRe1n8V/ShstJbO2myVcvpxEgNH9gFru
-	6nUNAqCHDsKcxXLcgblGXM7+p0WjFRYHftAxkSMwLPbknMZSR93tCzmzYCt22XGNcPY2Rw+4xJWYv
-	jAGIOrUxZffiyDPtBU3zGz/wgrJxQVQ35MITAp1g+4IgG6zCF3TYL7uvBawgjJN3BZKFg/M7phogJ
-	eHo+sXFXK61U8qvr60MH5cT0e23SHveTXwDtYn2hki38HybzwjyEyDBvUh6DaKDB0uvUXSArM/E12
-	5FlQcllA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7NbnZ3oa/RtGinQgKVF9pKDMVERXfqX9/LOk9QyatAs=; b=DT4hdaHwEQywV1zRt1BYCFe1Dg
+	LC+L+/4MfID1zhIQ1K2uqdZ9r7B7Qj6rBkySmlj1wtqEVmyeEA8Q3xJX6QuhBA5CcKA/GzJ+wqNpM
+	cBKpnYZaDsa7vzSAi+MjsNuvseqoxvsUp+MeizwkC17XMxgoc9WhCB1CR4Kj2tgabKEWIMC8sKmQN
+	orXCCH648CJsfXEr32u6OxglPZW6Ry4OLjd3xyF3gc5XTAEVMOpYryR2swHjQYLNWN7wuZ9cxppW4
+	bK4KGIdp062I0HXTOi2KRAyxpDKP8fciMVU+Z9oFmOp/A9uWyTJMOp2r7TlLqKdgkWfioAdoOliJz
+	JzKArq6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu8YK-0000000GEtK-2czf;
-	Wed, 12 Aug 2026 12:59:28 +0000
-Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	id 1wu8lx-0000000GFru-181A;
+	Wed, 12 Aug 2026 13:13:33 +0000
+Received: from out-147.mta1.migadu.com ([2001:41d0:203:375::93] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu8YH-0000000GEsK-0lG0
+	id 1wu8lu-0000000GFql-2twH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 12:59:26 +0000
-Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-38e7109321dso783060a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 05:59:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786539564; x=1787144364; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=pwPmH81nKJ/dKUdS2s7CTbyuKAaXa7TlPqH1NAnZE88=;
-        b=Ug4jwULEAdBp4TZNLgsk30ZwEeAgNs23yDnz9BEJ28YddF7p4V0ZTZOyGOZxCYi6aV
-         qn+/0PweU7q+8fH91GjlBppeEEpMLZ6i4uZSEG7qkjWsEN8F87Tj8YsoQis6BAVIdbDS
-         dwsSujsNlhhyvO95phPZ7W3XiEQv7JXyN6SpkT6wCa0wKvgAgIn8hN6ZoUmQc4ZGH4u7
-         sVPSS+uzCRomEsxl4IIGA3njPQ0bV6eut7slHj4yJaif78vqUtpbg+Lrjv8tWCWzXdHs
-         EF3WgTahJO/qNUmyEAPhxxmZJRMbBrgmhebEQ/HfxxR9HwlIbdFPG1gqDP6LDJV0bWVp
-         NaKg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786539564; x=1787144364;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=pwPmH81nKJ/dKUdS2s7CTbyuKAaXa7TlPqH1NAnZE88=;
-        b=Q+KhBVf71lsf2YNOodS5GQ556gIX4nVnRk/31v4m5+mTMSNtwrWjKQMMV/vjXDOxGR
-         z5ckgkBSSqzNzmMqOxkqtNDVReDZSSlb0Lnrhs/4YZgPlgKj25/5InDMBdyKeeQwvQrL
-         TUzXGM2O06mf0+G07k6JR+0bNRH7/aLs6cFMREUsvvWf9NOp2pwQfAd9ON3qUtR3wOTt
-         0Wyx8TYxGA4FRrVs7+JGnFcWOJp+6fxS1gpXvc4BbiRVwzX2vTkCfjMMj+qjXgnszU4a
-         GWyfWjM9c/FkNcf6/y/G7rOJcOLEU5N/JCOB8jJHNj6kTnrvHF6qutvxJvunrFJEDB4c
-         TzFQ==
-X-Forwarded-Encrypted: i=1; AHgh+RqsGBSPAUIFVclEF/ywOZh6lTkEGDXVtYhZETUDUEw1kifTeyqaBx6mzEfVxg2Wr70g2KECVPfp2E0SvAhht2by@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzp5rOqyQ5xKsvNSgLCc7TV4gMwpAqcMj5TbY5Fj/hqR/E2VRF5
-	xdKuXzmeY7XjSUYH/jTeBr4uSjX+P1WFcHCKXR4SWFNZ/mD2Npnz0bw7
-X-Gm-Gg: AR+sD136WBSvpJHmMhz13GOVuBlbC9ppgVBdSq/a7V/3TgVu35VDz5cFpO4Lj88HWRa
-	I1f6fNp+T2XcLseIXWTyOJcS937RZ0QNIL2QT1zT/Y1wgYjKNw3TmN2WhS02BzNS802AhKDxInv
-	ClDnBTK/ddd8yPuSk0J1ssbiL+y8S9BzdCeACKSdzzQ0fXPgPwLoMSBWEiLx+VtsK29JIqVS6ya
-	9Ho+PunCN5GrzOSGifhqkq/UVHOBUWI2XWXLXY7/ZyL1ugUEY6EIjBqWq+JxEJpSyyjRyOQEzXj
-	J0Qk3+FUG5SgJkiFQCNBjYIa70Y7mC7LyXgMCCGjwAf1FpXMsddkphWOHrVNXdF1yCxtX78Wisy
-	tEfERtEssrZC3UM+hJE2tNPNVkKVnowKWdv87Xe2G6xonwQWYDuWmucV57TVxSlUe5DCVTD4lPN
-	NiDnKTn3wXkODrTX+NPFYiEiOEc1e0xZixLwfUWFkwpjeiYz6DoDOTwOJcLNezxu1FmggfyOu1l
-	7oK
-X-Received: by 2002:a17:90b:164b:b0:37f:b0a9:1a68 with SMTP id 98e67ed59e1d1-3930128c13cmr4879261a91.7.1786539564092;
-        Wed, 12 Aug 2026 05:59:24 -0700 (PDT)
-Received: from zhuxin.hobot.cc ([39.170.101.209])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-392fe485255sm980949a91.2.2026.08.12.05.59.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Aug 2026 05:59:23 -0700 (PDT)
-From: Zxyan Zhu <zxyan0222@gmail.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	andrew+netdev@lunn.ch,
-	richardcochran@gmail.com,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v2] net: stmmac: dwxgmac2: add XGMAC timestamp interrupt support
-Date: Wed, 12 Aug 2026 20:59:12 +0800
-Message-Id: <20260812202027.976@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <b3d90606-781a-4055-8529-e68e22a45ce9@bootlin.com>
-References: <20260810100221.9166-1-zxyan0222@gmail.com> <b3d90606-781a-4055-8529-e68e22a45ce9@bootlin.com>
+	Wed, 12 Aug 2026 13:13:32 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=7NbnZ3oa/RtGinQgKVF9pKDMVERXfqX9/LOk9QyatAs=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1786540406; v=1; x=1787145206;
+ b=lvuqJamfxASnuuzwCd7cyQM0Z5BLRyt9NrIJ6PnfMfQeHV8V1tlFXa/OVEAOtwC+ldnVtsL2
+ 8umyFKHZKediIRklOJJkjIYttu49vO8qZRUlvJ1hrvforo9t7IT7GIvVaCQ2QME+Ud+FA7BjGOX
+ 8riMOxU45MW5a/RdLt0POz/s=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: from linux.dev (54.71.19.239)
+	by smtp.migadu.com with ESMTPS id ee06e5b49e57f9a5;
+	Wed, 12 Aug 2026 13:13:26 +0000
+Date: Wed, 12 Aug 2026 13:13:12 +0000
+From: "Jose Fernandez (Anthropic)" <jose.fernandez@linux.dev>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Steven Rostedt <rostedt@goodmis.org>, 
+	Masami Hiramatsu <mhiramat@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, Sami Tolvanen <samitolvanen@google.com>, 
+	Leon Hwang <leon.hwang@linux.dev>, Ihor Solodrai <ihor.solodrai@linux.dev>, 
+	linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, llvm@lists.linux.dev, bpf@vger.kernel.org, 
+	Florent Revest <revest@chromium.org>, Puranjay Mohan <puranjay@kernel.org>, 
+	Xu Kuohai <xukuohai@huawei.com>
+Subject: Re: [PATCH 0/2] arm64: ftrace: support DIRECT_CALLS without CALL_OPS
+Message-ID: <anxxPkqbVgnikp6R@linux.dev>
+References: <20260609-arm64-ftrace-direct-calls-v1-0-4a46f266697f@linux.dev>
+ <amjnf5gz0xP5PTSB@J2N7QTR9R3>
+ <amn7cBQ-cqs2XlKV@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <amn7cBQ-cqs2XlKV@linux.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_055925_221049_C08D6A02 
-X-CRM114-Status: GOOD (  12.00  )
+X-CRM114-CacheID: sfid-20260812_061330_879755_71BFFB28 
+X-CRM114-Status: GOOD (  12.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,23 +78,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Maxime,
+On Wed, Jul 29, 2026 at 02:02:52PM +0000, Jose Fernandez (Anthropic) wrote:
+> One idea I would like your opinion on is an in-range
+> allocation preference for BPF trampolines, since execmem seems to
+> have the shape for it on arm64 already.
+[...]
 
-On 8/12/26 5:10 PM, Maxime Chevallier wrote:
-> If there's an interrupt storm, then this should probably be a fix for -net
-> with a Fixes tag.
+Hi Mark,
 
-There is no interrupt storm. XGMAC_TSIE was never enabled before this
-patch (XGMAC_INT_DEFAULT_EN was LPIIE | PMTIE only), and
-dwxgmac2_host_irq_status() masks the status with the enable mask, so
-XGMAC_INT_TSIS could never fire. The actual symptom is that
-auxiliary-snapshot extts events were never reported -- a feature that
-was never wired up, not a live interrupt storm.
-
-So I'd like to keep this on net-next as a new feature rather than
-retarget it to net.
+Quick update on this, also for the others on the thread waiting on
+the perf side. After some internal discussion we decided to try
+adding CALL_OPS support on kCFI kernels directly, instead of the
+in-range allocation above. The section argument Sami added to
+-fpatchable-function-entry in clang 21 turns out to be enough to do
+it with kernel changes only. We have it working as a local series and
+I plan to send it as an RFC in the next couple of weeks. Mentioning
+it now in case you are already looking at this or have thoughts
+before then.
 
 Thanks,
-Zxyan
-
+Jose
 
