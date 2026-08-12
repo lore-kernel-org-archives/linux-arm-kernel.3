@@ -4,115 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09114C5CFEB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 11:19:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC2D0C5CFDB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 11:20:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l/Wc313GCSl3I+9bKCPbE8GI5lwCsPHIrZHzJG1vSW0=; b=ijtp91vqGboPKPehIFhZ+By7S6
-	TEMpWE6yjlRz8Y24vBDQLGtd6ugFL6Z2GA19Om1XWBsYM+pQfqXAamjRe/bRvFTV/QIvmpsxHCTeb
-	Ki2lik8Bn8TTgsxlBiUSzUQOM1P32hX3x8B41/jR9ke9Oo5Erns+RD82vb9ED+wq9DAhSnNqw6Ug9
-	MjRSbWRTv9boRj9Q3sCOlVfqGX+C1ZUa7Hrrgg6Dx1/680y5BBcRvApdKiQs5GgS/1Zp7yKiUy/bu
-	uKoO1ht66EIJtAIpnNC7amr5xUwvKwfeExrnN6JS88wXICnHBh3VO7WD1c1X13A1F+wm517XUZYAg
-	7G21xArA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9+zrfepUvONfB4EyAxMBrInEBGNeqXHZ4lQ9CmctDXA=; b=PLcjZtPTS3H1Ceu9/Ndil0+bAY
+	p693mxdkpDRa3La5ry6Y4zCR5ExPLiK/G5s7Jajmaj+6x4vlxukBKm12Q6nwnSBdhQbLyw4N5NT0t
+	wPt3uUdue2OrXYyS+WGtJH/wVhKCs8FPA3TqScapx8svi3V6vih2eal4W8CpL0kZ6HKU+BUV8UiZ8
+	1WNzqIJ5o8J88xnvGeB8bh8/kjypfsEWk2hQ7QZvMrcY0TBkL5mMwBZeKaDMVTI+6WDWt+gmgPyQ3
+	mOlDhf3KkXPtnCuh7XEj9SB7ogSgkLbCxhyangaI9C67TssUlgiR805lPSPe6QSx7Xa1DYLczFC+x
+	c1BLFwbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu6zh-0000000G1rS-0YOT;
-	Wed, 12 Aug 2026 11:19:37 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wu70s-0000000G2DJ-0cQi;
+	Wed, 12 Aug 2026 11:20:50 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu6ze-0000000G1r3-2Jri;
-	Wed, 12 Aug 2026 11:19:35 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 041DB436E1;
-	Wed, 12 Aug 2026 11:19:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79C931F000E9;
-	Wed, 12 Aug 2026 11:19:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786533573;
-	bh=l/Wc313GCSl3I+9bKCPbE8GI5lwCsPHIrZHzJG1vSW0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=lEqlYMMDgeTWx8AQyeZDeNvVbDlKRIB4pQGJ6n2Dxbb98LpTz0OaCHQKEnqr3cLQO
-	 F8jABLEmGoA1eFi4yVM0INwhQZjWwbUYh7kTVOrw13k2eL3i2sW9WF2p60zuAyPddP
-	 niXXnwlds6idzM5cDHLT0T+ggPH9mu6eUdpb0cX2zrdJxENvwR165k34SkTa7s6aoc
-	 LFxIZtHzHee3VQz88+b0DgeVjRYMNM3AX4QyDpXnOJXq7kpjD9FuUCvETmfwaJFFh5
-	 2++70MQ443NWiphSX+NfcfZdMz1tERFm69ZeBbb67w/gKKmzYzzoK0vYS8YytEqOHW
-	 l6wOnqNizwyeQ==
-Message-ID: <e0ada89f-26b2-4e82-8273-8ea7b391c147@kernel.org>
-Date: Wed, 12 Aug 2026 13:19:25 +0200
+	id 1wu70m-0000000G2Ai-2CVo
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 12 Aug 2026 11:20:48 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2d0407aedd6so11259475ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 04:20:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786533644; x=1787138444; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=9+zrfepUvONfB4EyAxMBrInEBGNeqXHZ4lQ9CmctDXA=;
+        b=llLHo+LtE3pXDQnQUhM51vnnI4P48UXRLumL6GOtO5UgTefh7ctmFbn4YUyQa0GcaU
+         oZZokRQIvNMrTOaAD4+CYxBakSFGEcuyJ5Ssd//E9hj0wO8DCJLemfERd8nA9igtU7Ay
+         JMo8IXhArKn4WmRVNPl2WZ9i1TEHWDxDhbhLyRJxq11U9OcA1e3EtZnso1ua5e3t1GkU
+         7zp7RX29KTEPXNOlMyG2MvQqYSl8BQVXhCHigsxLlOsVTgMgea1GCsqAaNSa6xe1S8Jh
+         U372AoU/PpafKT2zVg6b3GF6hBfw1GINa9jPtytGlM5u6dEyGrkd6+arkz0lYJoe/hNt
+         jyDA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786533644; x=1787138444;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=9+zrfepUvONfB4EyAxMBrInEBGNeqXHZ4lQ9CmctDXA=;
+        b=RXmnjNVkv+hhIXMt691i9ZD3GJT9sXcbNtUSwi3ydNQj3ScvKeFxCuXrzjTgQGLWF+
+         sNW27yUd3Rvr+Un0QB5ldDvsfiw0ymgmLudlPJLlp4kLNMyfk8Lhh96pAxyJ0NkPLwYQ
+         hoMBFeDjklx/FABV3BxEx/b/8xScK7FxuYcW3XngLR9cr0dGPHJj7N3s7jB2qywyIYBr
+         Vg2Ssoky0Kyhco/01h0TqPCcV9wZ4WiJi3E2cDec/ZrxgMYm/FTaHWa0K+tvRpI6J4HC
+         tFzKwz5eRzT18fchXYgh1yggw/g4Wr3jrYHYqCae9o/V9XgnfaV/utfhtc39U1yITxus
+         fvdg==
+X-Forwarded-Encrypted: i=1; AHgh+RorYz5pVjbZq0jDfUup5eNtl+DA5vfbQEH2nZRQlV77d7kosXL7xGyojzpQD3RPHoE5mG0QmdCQ7Eps/aF5ZFSQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YyD1O9ol4/xXFIWrhioZU3v6yVv3yUHp7NpMEnwleBK6F+PKkjZ
+	4V6ySrD/rW09KhqDh51qbiQUGYHtEcHjuTNlR7ackWdsjTIWvonsWJFS
+X-Gm-Gg: AR+sD10GoGX61X87cJ4bxiw57uwsA2HMSKqJl+zp1BJlyokrmtGlD0nZyuNvpqcjlXs
+	wUEXdLBPgn89tvcsnVXUj6K3MVJu1OQ5Asr9q6Py+ahzY1uHaj9+alAlDFzcuFa4nYTbeoPn+5c
+	gi8XsuMbCdj4vZbkJ5G8Ieplgcka6dO4Km46HJP7Qd/P87XZ2/BlaTE5ZgbB8SDpJxJFy69Hkyv
+	4W/FM543Da5l7kDrs/SjXIJmVzXSqGCFUZvvpe/kgWC9jcu+hIu0+rGDOFZXihELdKIsoBle7ia
+	SaiZCH8vx32I8NJoJZG4vjUvTcgXhlyvIqZKTwyI2PM9HhB72MbX5KfSqv/y4xCFfAm4mOSCZBe
+	TwcT8E/G5CDCW+/PEYXJxHRdBEiTpaH04YmLl+cwx/iDqsHkyuxZkJ4nufDSWtsWhtwFsJZO8Oj
+	kfuY4q5KEiBS1jX6NAQhEa3lQqbvLME/i9tJ3u7XiLvrx9hL87lP7orTQFnh0Mx0x5mXGDAbJ1h
+	/hPvbbUcm3mMhHSWM+gOMtpDiY+3BxquvtFp1Hi8ct/W/Mox+anRedwpZ3HMDlnzFamwLgE2SWa
+	I4ai
+X-Received: by 2002:a17:90b:28cf:b0:37f:bfa2:1887 with SMTP id 98e67ed59e1d1-393012af827mr4741095a91.8.1786533643641;
+        Wed, 12 Aug 2026 04:20:43 -0700 (PDT)
+Received: from phuc-desktop.. ([183.91.15.56])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-392f935f5ecsm3193765a91.5.2026.08.12.04.20.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 12 Aug 2026 04:20:43 -0700 (PDT)
+From: phucduc.bui@gmail.com
+To: Ulf Hansson <ulfh@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Stepan Ionichev <sozdayvek@gmail.com>,
+	Colin Ian King <colin.i.king@gmail.com>,
+	Pedro Demarchi Gomes <pedrodemargomes@gmail.com>,
+	Osama Abdelkader <osama.abdelkader@gmail.com>,
+	linux-mmc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org,
+	bui duc phuc <phucduc.bui@gmail.com>
+Subject: [PATCH 0/3] mmc: Handle errors from optional IRQ lookup
+Date: Wed, 12 Aug 2026 18:20:20 +0700
+Message-ID: <20260812112023.42254-1-phucduc.bui@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC V2 1/6] loongarch/mm: Stop using pte_ERROR()
-To: Anshuman Khandual <anshuman.khandual@arm.com>, linux-mm@kvack.org,
- akpm@linux-foundation.org
-Cc: Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker
- <dalias@libc.org>, John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
- Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>,
- WANG Xuerui <kernel@xen0n.name>, linux-alpha@vger.kernel.org,
- linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
- loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
- linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-um@lists.infradead.org, linux-arch@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20260811042119.3652929-1-anshuman.khandual@arm.com>
- <20260811042119.3652929-2-anshuman.khandual@arm.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20260811042119.3652929-2-anshuman.khandual@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260812_042044_679951_7D8D36D3 
+X-CRM114-Status: UNSURE (   9.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,59 +110,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/11/26 06:21, Anshuman Khandual wrote:
-> Directly use pr_err() in __set_fixmap() and drop pte_ERROR() which helps in
-> eventually dropping pte_ERROR() macro across the tree. In this new printing
-> __FILE__ and __LINE__ has been dropped because they are always the same and
-> don't really add any value.
-> 
-> Cc: Huacai Chen <chenhuacai@kernel.org>
-> Cc: WANG Xuerui <kernel@xen0n.name>
-> Cc: loongarch@lists.linux.dev
-> Cc: linux-kernel@vger.kernel.org
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> ---
->  arch/loongarch/include/asm/pgtable.h | 2 --
->  arch/loongarch/mm/init.c             | 2 +-
->  2 files changed, 1 insertion(+), 3 deletions(-)
-> 
-> diff --git a/arch/loongarch/include/asm/pgtable.h b/arch/loongarch/include/asm/pgtable.h
-> index 223528c04d73..a32a8fff70c1 100644
-> --- a/arch/loongarch/include/asm/pgtable.h
-> +++ b/arch/loongarch/include/asm/pgtable.h
-> @@ -128,8 +128,6 @@ struct vm_area_struct;
->  #define ptep_get(ptep) READ_ONCE(*(ptep))
->  #define pmdp_get(pmdp) READ_ONCE(*(pmdp))
->  
-> -#define pte_ERROR(e) \
-> -	pr_err("%s:%d: bad pte %016lx.\n", __FILE__, __LINE__, pte_val(e))
->  #ifndef __PAGETABLE_PMD_FOLDED
->  #define pmd_ERROR(e) \
->  	pr_err("%s:%d: bad pmd %016lx.\n", __FILE__, __LINE__, pmd_val(e))
-> diff --git a/arch/loongarch/mm/init.c b/arch/loongarch/mm/init.c
-> index 3407030f3e7a..be9b127daef2 100644
-> --- a/arch/loongarch/mm/init.c
-> +++ b/arch/loongarch/mm/init.c
-> @@ -203,7 +203,7 @@ void __init __set_fixmap(enum fixed_addresses idx,
->  
->  	ptep = populate_kernel_pte(addr);
->  	if (!pte_none(ptep_get(ptep))) {
-> -		pte_ERROR(*ptep);
-> +		pr_err("bad pte %016lx\n", pte_val(*ptep));
->  		return;
->  	}
->  
+From: bui duc phuc <phucduc.bui@gmail.com>
 
-Ah, I missed that we want to print actual values, I somehow thought that we
-would be printing pte_none() ...
+Hi all,
 
-Maybe we should just be more verbose while at it?
+This series improves error handling for optional IRQ lookups in several
+MMC drivers.
 
-pr_err("unexpected set PTE at %ul in __set_fixmap: %016lx\n",
-       addr, pte_val(*ptep));
+I noticed that mmc: litex_mmc handles the return value from
+platform_get_irq_optional() correctly, distinguishing the case where an
+optional IRQ is not available from other errors. This series follows the
+same approach in the affected drivers.
+
+Best regards,
+Phuc
+
+bui duc phuc (3):
+  mmc: meson-gx: Handle errors from optional IRQ lookup
+  mmc: davinci: Handle errors from optional IRQ lookup
+  mmc: davinci: Handle optional IRQ return value correctly
+
+ drivers/mmc/host/davinci_mmc.c  | 8 ++++++--
+ drivers/mmc/host/meson-gx-mmc.c | 6 +++++-
+ 2 files changed, 11 insertions(+), 3 deletions(-)
 
 -- 
-Cheers,
+2.43.0
 
-David
 
