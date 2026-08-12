@@ -4,95 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDB29C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 18:19:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6396BC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 18:32:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=m0TVCaE8Q+34m7ChzAdVqyf9wcVW6q1366258ZKAIuQ=; b=evkx7AR+OpFfeHrZ6Ceovj5v2F
-	UtPtpapraNRtMmIzP0tc0ZxbPt3dcJKpLg/po24dA/klwuMpWwh0NtpuQyUbeIttFC/z1HQ15XsH5
-	T2t31fUAonAHdK39Rh8qbS1Ye4Gw6GHGOSSnyVIy17jip84zWRtfeJxGj0SrL/S+7qTrZsRgpV3Tw
-	L72nHqpmOubrx7Z5tUCWH0/vviwWzfZn4155uavaIhlT9rmY8z9hsmi2+rzbRECYDVVxKqI0J9ZHy
-	7w1O5ZHQh58uQKLejegwHTSUqzDto2jB8Ao2Vhj8l18viOA4jp9HMWaJKOj8qQqRoiCztb/SZpJvL
-	QM7T3wAg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=okFdoIS6XfSDlDB0pniyw0cE1iD4IxLcZ4kFa7I2rqw=; b=nEbMx6K4anUuKLj0dXwZeyi285
+	gQvwMmT1JXFtXwgHg6g9H5mU5YyMYQ9dPP/3DbgeXTlOz14kgprQNYhdWQKj4Aj3LZUxbbo0kz2DR
+	Y/3Y4QmGNzgVlbMtuizFi4MrGtMdgt+swgI8gDwFZBGhiqBy4rH0FHU8RjiCT8PIuwDPCfRp7FYoC
+	v02nUZdt43vpRKwp2p45OZK1iXD3Jh03+Sxu3Ly3Qp/bz0Pwjh0nlK/3IEHgU9P5kbXU/fvD99JaA
+	SJzVyoZwox8102neLjA1+oM7yhAsBUfYPgJCWRG4XDsexMv1fgZRkCYhyYd2I+POi/1TQKdTkzYT/
+	bZ9DcJMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuDXd-0000000GmKZ-2HIe;
-	Wed, 12 Aug 2026 18:19:05 +0000
-Received: from mail-ot1-x333.google.com ([2607:f8b0:4864:20::333])
+	id 1wuDkV-0000000Gnrw-3bUe;
+	Wed, 12 Aug 2026 18:32:23 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuDXa-0000000GmIm-050j
+	id 1wuDkT-0000000GnrR-1Ge1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 18:19:04 +0000
-Received: by mail-ot1-x333.google.com with SMTP id 46e09a7af769-7eb787dec99so812810a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 11:19:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786558741; x=1787163541; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=m0TVCaE8Q+34m7ChzAdVqyf9wcVW6q1366258ZKAIuQ=;
-        b=OHZ5FabsCffAuXuDZYg4BYW1TTrAZptZVFEb9xzQwLJQ1yaLQg2VA/9QQbp3swPgeX
-         stPpp4CWJPGJKsKc2N6sEhP0U6xQoSIVioBG79LJ5+LVa2IRL0WOb5e+22VeP0e91urX
-         0Z+2yT6IggAfiPtz9Msptrhs7iPvkrxQk8LDFiCwnGhpfVVUY4ezDSu+y7psgru7kDWE
-         Ns4YLNeGggwr1sM2IM3tHSe4CwBM0q7DsjzjLFssUmfJ+8Ch2ZZ/pr9vED+pVHNzMT6f
-         Pbe5lD68033ejJ/GRm/iM4i0QK+o+2oNAxF7+3HWLj4HUGBiMfAnzETak4BlVd6sZNGz
-         +rZw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786558741; x=1787163541;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=m0TVCaE8Q+34m7ChzAdVqyf9wcVW6q1366258ZKAIuQ=;
-        b=bAdxdFKFJo73D32Hx2sA3vIHh8/hELKIaiJs4T3g/z37yDf2gjWQCt3J0vHlx2GHUW
-         ROyNH1Bcstk/Q44XGkZxpC4nEpT8WBfEvUbrDs/IYnx6M3M1eY/LHVPhIeKcfgTg6EF+
-         m/ZxAP0wGLXRd6AbsncoeIJdtgprQoy737/JG+wuu6a+Q8hq0GgDLpRZtX0YTp2vUAGO
-         5Cu6/vGH9ybiPjLkMtEWwk3IF6cg5fumtFVFKDQ9ZsYeYE4eaLTB6rjL6jBB7GDsiASP
-         WDBpONlaIsF/T2yfOkIj0P17nHDxhDMEDOB2nUknMBYcKhn/ZDZSxQmqgoFDGaYUa/X4
-         J2pw==
-X-Forwarded-Encrypted: i=1; AHgh+Ro/KOZwYq+sN5PfBrMMrJ3ScWw1cYZ8+/Pb5dVaF3iHYNSIqcjVZCKn3fObIhdj0v8JckKQI/n5p79Io5AbQmEO@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz4yfVEV7oiGoeg7M1DfHy9cmoNfob4sAxaaKdN/S/gHBXJoBxh
-	EYSk88pWl3B4SDGJIEHwqHbv1RDUz3YJ7rrzFb+jhEFVtxEfbfmUHTHV
-X-Gm-Gg: AR+sD10ghol1otq1Dry3SS71Tf3LlzLC9/be3KtwCCA6ZayYCuEW+E0pShg2QNKcdFE
-	hRple4RbwvXhCBSuLZcjDC995MZBDB48rOSz7/j7rkQOFc/NKpMQVor3Ka7t0QGKRnobfFh0kfY
-	jGV1/IwOEsVtJMsQNK5sdxPDZ6h6KXqJpvI+WWGjrMoH9Gg/GZZ63FpDOIXfq1eRfUpixO+z5kX
-	ifkzyg96FkIgrs2QxUNUD2+U2oLgeCnzNX0EaJv6n/c6+958zXq3+fsDYgKgvD0vt9si3Wo/WE8
-	/97lj3Ak86DndDpGC6RwvgM5bdWrvaV7b0ipHi3AGx39co7afHewkS7zHUgBx/VdD7rpuODOZ8m
-	MO5h6nsheMOcadWjKsDDYnLx4rInPnQ83iCCQPVs/rFCAaeKW2mAeRZ4zzC7n3KA3pg2c1fS5+l
-	9ZckqJfdP3zVczaVPZ+gNj16za9dptSu4eSPfFqjmxpQHt1Ll1+UJl8TtqfaLsynSJbtfig2R+u
-	IkziIC8K+34SugmdWpxC5wjfj/A06H2RGwjkm1a2Wtv9XlPhIWJ7Bka9Bm0f7XGWrt294Ct8HLe
-	f6EFljTi7dPmyODNhTpz+whFuY1vf6HxcnW3yg==
-X-Received: by 2002:a05:6830:828d:b0:7e6:f582:955e with SMTP id 46e09a7af769-7f3b79a016dmr6963465a34.10.1786558740714;
-        Wed, 12 Aug 2026 11:19:00 -0700 (PDT)
-Received: from ryzen.lan ([2601:644:8000:7a86::e35])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7f3b3420373sm3589768a34.19.2026.08.12.11.18.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Aug 2026 11:19:00 -0700 (PDT)
-From: Rosen Penev <rosenp@gmail.com>
-To: linux-phy@lists.infradead.org
-Cc: Chunfeng Yun <chunfeng.yun@mediatek.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Mediatek USB3 PHY DRIVER),
-	linux-mediatek@lists.infradead.org (moderated list:ARM/Mediatek USB3 PHY DRIVER),
-	linux-kernel@vger.kernel.org (open list:ARM/Mediatek SoC support),
-	linux-hardening@vger.kernel.org (open list:KERNEL HARDENING (not covered by other areas):Keyword:\b__counted_by(_le|_be|_ptr)?\b)
-Subject: [PATCHv2] phy: mediatek: tphy: simplify main allocation
-Date: Wed, 12 Aug 2026 11:18:57 -0700
-Message-ID: <20260812181857.64544-1-rosenp@gmail.com>
-X-Mailer: git-send-email 2.55.0
+	Wed, 12 Aug 2026 18:32:22 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67CH1a7T3994381;
+	Wed, 12 Aug 2026 18:32:08 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=okFdoI
+	S6XfSDlDB0pniyw0cE1iD4IxLcZ4kFa7I2rqw=; b=En+T51bOZbP0Qd1B7JlRin
+	yh7LcbUVlRIh5KT8JTatMTQr7te5HmB/kmCB27dh5+ORgJ+CiCnzErtbWhh6ZjwV
+	5Ptme75FDRls1N+NmI+A55b3+eKWMcvWtj8tcRQAfVTqcoxI2BIomzcXmeQTv4J0
+	LELCtYjIlagSEIrILya1AMFMLfl7cE5ISy9C7i3mb6kLeFHXY0F1Cl/R5Ca/YQHN
+	UpPmcwHJwkqVbpKrvjwM+AsCr+YRuhY5JqfJyPra1ZzHqUJ1G68Oyg5sNsr/RAnx
+	VO15EhmSegr6k5DmqgrBwkc3TowtUoUpd7N8wEqLejWNnMQnypn5kpL4Fq5rXtwQ
+	==
+Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fwvp336bc-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 12 Aug 2026 18:32:08 +0000 (GMT)
+Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma12.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 67CIQLRh013188;
+	Wed, 12 Aug 2026 18:32:07 GMT
+Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
+	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4fxesq7k28-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 12 Aug 2026 18:32:07 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
+	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 67CIW3uR32178558
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 12 Aug 2026 18:32:03 GMT
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 4C0B520049;
+	Wed, 12 Aug 2026 18:32:03 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 3EDF220040;
+	Wed, 12 Aug 2026 18:32:02 +0000 (GMT)
+Received: from [9.87.128.143] (unknown [9.87.128.143])
+	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Wed, 12 Aug 2026 18:32:02 +0000 (GMT)
+Message-ID: <724c04bd-f725-4409-82e5-94a63a1900f9@linux.ibm.com>
+Date: Wed, 12 Aug 2026 20:32:01 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 16/33] KVM: s390: Move s390 kvm code into a
+ subdirectory
+To: Steffen Eiden <seiden@linux.ibm.com>, kvm@vger.kernel.org,
+        kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org
+Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter
+ <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Sean Christopherson <seanjc@google.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik
+ <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+References: <20260812153631.3376090-1-seiden@linux.ibm.com>
+ <20260812153631.3376090-17-seiden@linux.ibm.com>
+Content-Language: en-US
+From: Christian Borntraeger <borntraeger@linux.ibm.com>
+In-Reply-To: <20260812153631.3376090-17-seiden@linux.ibm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Authority-Analysis: v=2.4 cv=AMtp2X5w c=1 sm=1 tr=0 ts=6a7cbc28 cx=c_pps
+ a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
+ a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VnNF1IyMAAAA:8
+ a=EQfAt2u_B7ro7Q8_flIA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-GUID: ZPB-Rpz1g85S4Jmrnn_4co1oTvG4phtp
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODEyMDE0OSBTYWx0ZWRfXyGHWSaRDCrf4
+ AZp0vtL1TrYNuvchrUO9tbOWFZokEWvcXW1WlQlvj737oRFfV1VVv1YOFS3g/Jhnuk4clCWRy9s
+ REcnCY5k74pB+mCfC4kQV3YL+dUYTHR+sL2EsWYkuNTZyiUa6vsXWIF8txLU9YA+PF2tZYGBtGc
+ LoMNsClAGHe2za4mt9FuKbQBXRjrztYhP0uVKPDlTK1nTMQdfBTx/cAV6CGnAOnnU70VBrHjVaL
+ PMb+4pnzJ9+I4Z+z3e2cPlWNwWFEJfGjBUWQJ27n7Ft5tWgM5Rx294v4Qi1C191St6wwEZ3nJ4d
+ syw1uUDSwsbv+5Oj4hlwUZYg1hMZh6DkYefRXzKMczdhC6W07EDIzqH3HHMDMpfotJpRLe1j7TQ
+ Vv0F3eUKa1gx5va7E/+Tg1zTseACdrOgxQlJG30vPKQVtkIKV0TWuz+eeZe8eCPmcQYsqMDTXjo
+ KYplnBrkSvK4/0Bzyfg==
+X-Proofpoint-ORIG-GUID: OjY3KTKN4jMyaBFleawkpmY6CEwNrlvP
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODEyMDE0OSBTYWx0ZWRfX8Ad9dcnOPQdH
+ W50K+MUu6F0m/J7zH0FtDcdiHHIfWKyUNz5o3Wpi4QssWiCiboVUpu7wgFfggFGq1ANOjAtg6IU
+ 2TPEJqNmX4uzkYoVJLEqFod8yrIbsyU=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-12_05,2026-08-12_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 adultscore=0 lowpriorityscore=0 clxscore=1015
+ priorityscore=1501 impostorscore=0 phishscore=0 spamscore=0 bulkscore=0
+ malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2608120149
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_111902_088196_19FD608B 
-X-CRM114-Status: GOOD (  13.84  )
+X-CRM114-CacheID: sfid-20260812_113221_460732_750C7C62 
+X-CRM114-Status: UNSURE (   9.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,67 +150,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use a flexible array member to replace kzalloc + kcalloc with a single
-kzalloc.
+Am 12.08.26 um 17:36 schrieb Steffen Eiden:
+> Move all the code required to run s390 KVM guests on s390 to a s390
+> subdirectory. Move gmap related code into a gmap directory to later
+> share gmap code between KVM implementations.
+> 
+> Update S390 VFIO-PCI MAINTAINERS filepath.
+> 
+> No functional change.
+> 
+> Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 
-Shuffled some code around as __counted_by requires the counting variable
-to be assigned first.
+Reviewed-by: Christian Borntraeger <borntraeger@linux.ibm.com>
 
-Removed NULL check from of_get_match_data as it's never NULL per the
-device table.
-
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
----
- v2: add back NULL check
- drivers/phy/mediatek/phy-mtk-tphy.c | 17 +++++++----------
- 1 file changed, 7 insertions(+), 10 deletions(-)
-
-diff --git a/drivers/phy/mediatek/phy-mtk-tphy.c b/drivers/phy/mediatek/phy-mtk-tphy.c
-index acf506529507..e9b9e667b319 100644
---- a/drivers/phy/mediatek/phy-mtk-tphy.c
-+++ b/drivers/phy/mediatek/phy-mtk-tphy.c
-@@ -340,10 +340,10 @@ struct mtk_tphy {
- 	struct device *dev;
- 	void __iomem *sif_base;	/* only shared sif */
- 	const struct mtk_phy_pdata *pdata;
--	struct mtk_phy_instance **phys;
--	int nphys;
- 	int src_ref_clk; /* MHZ, reference clock for slew rate calibrate */
- 	int src_coef; /* coefficient for slew rate calibrate */
-+	int nphys;
-+	struct mtk_phy_instance *phys[] __counted_by(nphys);
- };
- 
- #if IS_ENABLED(CONFIG_DEBUG_FS)
-@@ -1572,22 +1572,19 @@ static int mtk_tphy_probe(struct platform_device *pdev)
- 	struct mtk_tphy *tphy;
- 	struct resource res;
- 	int port, ret;
-+	size_t nphys;
- 
--	tphy = devm_kzalloc(dev, sizeof(*tphy), GFP_KERNEL);
-+	nphys = of_get_child_count(np);
-+	tphy = devm_kzalloc(dev, struct_size(tphy, phys, nphys), GFP_KERNEL);
- 	if (!tphy)
- 		return -ENOMEM;
- 
-+	tphy->nphys = nphys;
-+	tphy->dev = dev;
- 	tphy->pdata = of_device_get_match_data(dev);
- 	if (!tphy->pdata)
- 		return -EINVAL;
- 
--	tphy->nphys = of_get_child_count(np);
--	tphy->phys = devm_kcalloc(dev, tphy->nphys,
--				       sizeof(*tphy->phys), GFP_KERNEL);
--	if (!tphy->phys)
--		return -ENOMEM;
--
--	tphy->dev = dev;
- 	platform_set_drvdata(pdev, tphy);
- 
- 	sif_res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
--- 
-2.55.0
 
 
