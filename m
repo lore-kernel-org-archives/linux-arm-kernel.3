@@ -4,68 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F6D9C5B56A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 15:03:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 195A1C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 15:08:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jduChRQknpVUgXASaHBJO/5joK+yzVoQPf9XFLsGa9w=; b=PejoiIxMj0LuHLnUBHAUmQLkKD
-	I6V753fpVO0TDOsqhFZI3E6C7dYLXMd8caPXgMiD3LqzIw1rrW9Sr6kHrmxw8VQbqtH+fo131feBE
-	oZxnrWs4ChGYIOC5AnbJgnqVtCJyI9yECLwsrt2sGHuzqPk5KCzH0fHUJgydsz31unJ0QK7X2m2cC
-	BVpkEcfCaOULhxx8nMIAc05F2A72W6Ty77ZAKtZmdJ+gNftqMaABN3kXAHiCLcN3eojKLEfufttyT
-	hHV+zbT4x7uP9K8Fuqwzudu9W+Os+S4h0D55YW0Y5Ui8HlUpf30iiMepo0q+lkYaVYiWvRDXQAq6T
-	zhir3Z/A==;
+	bh=QIfjX2+FT4/MfQrfD5uaOld2GWanjnVeBmCHbsRzOlg=; b=byMBLysexk+3iRT12ezlRusDbS
+	9VeAT5Oy9mE40eVB4qTdgfTwyHrN3GqSLTzA3SlN8V8D+n+rURK2VVnJTXWkd7vsl63m3sk5Dh3XU
+	kfiN2mNfTa7X9YE5EUjRZd/EuZmUd1JLtFVa6Cz6eanaUyV4COfnQpnRbHyxZUEpKTdlFC9fPFLSF
+	giYbU3sn7d0+7iMcp+n7Nr4oYC/P2h2YN7xWDSrYAlcfBzzUoprQR9t7FyOMUyDCanPfAcuaxNUnJ
+	uXFJ3TTYZ888Gp6kppswiVh0cxNjljudOyNeVOr1V5cCFJx0UBfPJY1NGi5D4fyV1MhchDVnELUFr
+	IUVmFfww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuATv-0000000GQnN-3F7D;
-	Wed, 12 Aug 2026 15:03:03 +0000
-Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
+	id 1wuAYc-0000000GRBn-1kHi;
+	Wed, 12 Aug 2026 15:07:54 +0000
+Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuATs-0000000GQms-1I4Z
+	id 1wuAYZ-0000000GRB7-3lsl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 15:03:02 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
-	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 0D4F5201D3C;
-	Wed, 12 Aug 2026 17:02:52 +0200 (CEST)
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1wuATj-0018fv-34;
-	Wed, 12 Aug 2026 17:02:51 +0200
-Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.98.2)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1wuATj-0000000E1IT-3Pn9;
-	Wed, 12 Aug 2026 17:02:51 +0200
-Date: Wed, 12 Aug 2026 17:02:51 +0200
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: Francesco Dolcini <francesco@dolcini.it>
-Cc: Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Alexander Stein <alexander.stein@ew.tq-group.com>, 
-	imx@lists.linux.dev, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, Francesco Dolcini <francesco.dolcini@toradex.com>, 
+	Wed, 12 Aug 2026 15:07:53 +0000
+Received: from francesco-nb (93-33-22-216.ip42.fastwebnet.it [93.33.22.216])
+	by mail11.truemail.it (Postfix) with ESMTPA id 8F5771FA72;
+	Wed, 12 Aug 2026 17:07:47 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1786547269;
+	bh=QIfjX2+FT4/MfQrfD5uaOld2GWanjnVeBmCHbsRzOlg=; h=From:To:Subject;
+	b=yJjYXpSUCLRCa5pojNpDgw1JjcG7rickEEAdul+edWkEhr8iaBia58o474wZ6lYs3
+	 v9h+gO8qj/IVaR3xKZ6WPSyrGXMgguHGYG8KXZ7r650LVD+0pMX+djyAuQoOYgjJKi
+	 TrgSSWlcDqubnPsSZTqSUI2T3XkoX1T/oLvoGlwr9lWBr1WT5Y+2lNsElIC0x368aH
+	 /GZ/cD851KKG7fxZJOTyFLGyW5fVmRqF03XmcrS7VfFVrdLzAv8xPqoYYECbMm/Qi8
+	 wqx4vp/11u4BZldR0KRlHKpiktmN89lLCT0cAsvFKpPbrjE+bJYvHf+7x6JQlMBtFU
+	 dW0g+fkJkKAVA==
+Date: Wed, 12 Aug 2026 17:07:43 +0200
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Marco Felsch <m.felsch@pengutronix.de>
+Cc: Francesco Dolcini <francesco@dolcini.it>, Marek Vasut <marex@denx.de>,
+	Stefan Agner <stefan@agner.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	imx@lists.linux.dev, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
 	linux-arm-kernel@lists.infradead.org
 Subject: Re: [PATCH v3 2/4] drm: mxsfb: Add optional DPI output bus-width
  configuration
-Message-ID: <sn6xydbjkkz5b5okgnenp3zspj4ivr6gjpxow26kjknl7i2ihh@a55eb3vhby4i>
+Message-ID: <20260812150743.GA169597@francesco-nb>
 References: <20260812132954.148571-1-francesco@dolcini.it>
  <20260812132954.148571-3-francesco@dolcini.it>
+ <sn6xydbjkkz5b5okgnenp3zspj4ivr6gjpxow26kjknl7i2ihh@a55eb3vhby4i>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260812132954.148571-3-francesco@dolcini.it>
+In-Reply-To: <sn6xydbjkkz5b5okgnenp3zspj4ivr6gjpxow26kjknl7i2ihh@a55eb3vhby4i>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_080300_502634_0D4E808F 
-X-CRM114-Status: GOOD (  36.21  )
+X-CRM114-CacheID: sfid-20260812_080752_261726_EA1A59F5 
+X-CRM114-Status: GOOD (  32.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,156 +86,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Francesco,
+On Wed, Aug 12, 2026 at 05:02:51PM +0200, Marco Felsch wrote:
+> Hi Francesco,
+> 
+> On 26-08-12, Francesco Dolcini wrote:
+> > From: Francesco Dolcini <francesco.dolcini@toradex.com>
+> > 
+> > LCDIF programs LCD_DATABUS_WIDTH from the selected media bus format. The
+> > format reported by the downstream panel or bridge describes the display
+> > input, but it does not describe how the LCDIF data pins are physically
+> > wired on the board.
+> > 
+> > These can differ. For example, a 16-bit LCDIF bus can be connected to a
+> > 24-bit display by wiring the available color bits to the corresponding
+> > display inputs. In that case, using the display's 24-bit format to
+> > configure LCDIF selects the wrong data-bus mode and changes the assignment
+> > of color bits on the LCD_DATA pins.
+> > 
+> > Read the optional bus-width endpoint property from the LCDIF output port
+> > and use it to select the media bus format used to configure LCDIF. This
+> > allows the LCDIF bus mode to describe the physical interface
+> > independently of the downstream display format.
+> > 
+> > When the optional property is absent, or it has an invalid value, continue
+> > using the format reported by the downstream display device, preserving
+> > the existing behavior. The code is not validating the DT for
+> > correctness and just fall back to the previous behavior in case of
+> > errors.
+> > 
+> > Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+> > ---
+> > v3: improve commit message and make it clear that the code assumes that
+> >     the DT is correct, when the DT contains an invalid property value,
+> >     the code safely fall-back to the previous behavior
+> > v2: use the common bus-width property instead of the legacy interface-pix-fmt
+> > ---
+> >  drivers/gpu/drm/mxsfb/mxsfb_drv.c | 24 ++++++++++++++++++++++++
+> >  drivers/gpu/drm/mxsfb/mxsfb_drv.h |  2 ++
+> >  drivers/gpu/drm/mxsfb/mxsfb_kms.c | 12 ++++++++++++
+> >  3 files changed, 38 insertions(+)
+> > 
+> > diff --git a/drivers/gpu/drm/mxsfb/mxsfb_drv.c b/drivers/gpu/drm/mxsfb/mxsfb_drv.c
+> > index 8b4a500347fb..f8ecc8bbd63c 100644
+> > --- a/drivers/gpu/drm/mxsfb/mxsfb_drv.c
+> > +++ b/drivers/gpu/drm/mxsfb/mxsfb_drv.c
+> > @@ -12,7 +12,10 @@
+> >  #include <linux/clk.h>
+> >  #include <linux/dma-mapping.h>
+> >  #include <linux/io.h>
+> > +#include <linux/media-bus-format.h>
+> >  #include <linux/module.h>
+> > +#include <linux/of.h>
+> > +#include <linux/of_graph.h>
+> >  #include <linux/platform_device.h>
+> >  #include <linux/property.h>
+> >  #include <linux/pm_runtime.h>
+> > @@ -211,7 +214,10 @@ static int mxsfb_load(struct drm_device *drm,
+> >  		      const struct mxsfb_devdata *devdata)
+> >  {
+> >  	struct platform_device *pdev = to_platform_device(drm->dev);
+> > +	struct device_node *np = pdev->dev.of_node;
+> >  	struct mxsfb_drm_private *mxsfb;
+> > +	struct device_node *ep;
+> > +	u32 bus_width = 0;
+> 
+> IMHO this default value makes no sense with..
+> 
+> >  	int ret;
+> >  
+> >  	mxsfb = devm_kzalloc(&pdev->dev, sizeof(*mxsfb), GFP_KERNEL);
+> > @@ -238,6 +244,24 @@ static int mxsfb_load(struct drm_device *drm,
+> >  	if (IS_ERR(mxsfb->clk_disp_axi))
+> >  		mxsfb->clk_disp_axi = NULL;
+> >  
+> > +	ep = of_graph_get_next_endpoint(np, NULL);
+> > +	if (ep) {
+> > +		of_property_read_u32(ep, "bus-width", &bus_width);
+> > +		of_node_put(ep);
+> > +	}
+> > +
+> > +	switch (bus_width) {
+> > +	case 16:
+> > +		mxsfb->bus_format = MEDIA_BUS_FMT_RGB565_1X16;
+> > +		break;
+> > +	case 18:
+> > +		mxsfb->bus_format = MEDIA_BUS_FMT_RGB666_1X18;
+> > +		break;
+> > +	case 24:
+> > +		mxsfb->bus_format = MEDIA_BUS_FMT_RGB888_1X24;
+> > +		break;
+> 
+> these cases in case no bus-width was specified without the knowledge of
+> the mxsfb_kms.c since the '0' value is not covered. However, I'm not the
+> maintainer of this driver. Thanks for making use of the bus-width
+> property :)
 
-On 26-08-12, Francesco Dolcini wrote:
-> From: Francesco Dolcini <francesco.dolcini@toradex.com>
-> 
-> LCDIF programs LCD_DATABUS_WIDTH from the selected media bus format. The
-> format reported by the downstream panel or bridge describes the display
-> input, but it does not describe how the LCDIF data pins are physically
-> wired on the board.
-> 
-> These can differ. For example, a 16-bit LCDIF bus can be connected to a
-> 24-bit display by wiring the available color bits to the corresponding
-> display inputs. In that case, using the display's 24-bit format to
-> configure LCDIF selects the wrong data-bus mode and changes the assignment
-> of color bits on the LCD_DATA pins.
-> 
-> Read the optional bus-width endpoint property from the LCDIF output port
-> and use it to select the media bus format used to configure LCDIF. This
-> allows the LCDIF bus mode to describe the physical interface
-> independently of the downstream display format.
-> 
-> When the optional property is absent, or it has an invalid value, continue
-> using the format reported by the downstream display device, preserving
-> the existing behavior. The code is not validating the DT for
-> correctness and just fall back to the previous behavior in case of
-> errors.
-> 
-> Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
-> ---
-> v3: improve commit message and make it clear that the code assumes that
->     the DT is correct, when the DT contains an invalid property value,
->     the code safely fall-back to the previous behavior
-> v2: use the common bus-width property instead of the legacy interface-pix-fmt
-> ---
->  drivers/gpu/drm/mxsfb/mxsfb_drv.c | 24 ++++++++++++++++++++++++
->  drivers/gpu/drm/mxsfb/mxsfb_drv.h |  2 ++
->  drivers/gpu/drm/mxsfb/mxsfb_kms.c | 12 ++++++++++++
->  3 files changed, 38 insertions(+)
-> 
-> diff --git a/drivers/gpu/drm/mxsfb/mxsfb_drv.c b/drivers/gpu/drm/mxsfb/mxsfb_drv.c
-> index 8b4a500347fb..f8ecc8bbd63c 100644
-> --- a/drivers/gpu/drm/mxsfb/mxsfb_drv.c
-> +++ b/drivers/gpu/drm/mxsfb/mxsfb_drv.c
-> @@ -12,7 +12,10 @@
->  #include <linux/clk.h>
->  #include <linux/dma-mapping.h>
->  #include <linux/io.h>
-> +#include <linux/media-bus-format.h>
->  #include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/of_graph.h>
->  #include <linux/platform_device.h>
->  #include <linux/property.h>
->  #include <linux/pm_runtime.h>
-> @@ -211,7 +214,10 @@ static int mxsfb_load(struct drm_device *drm,
->  		      const struct mxsfb_devdata *devdata)
->  {
->  	struct platform_device *pdev = to_platform_device(drm->dev);
-> +	struct device_node *np = pdev->dev.of_node;
->  	struct mxsfb_drm_private *mxsfb;
-> +	struct device_node *ep;
-> +	u32 bus_width = 0;
+I think it's needed, otherwise the variable might be non-initialized if
+the bus-width property is not present.
 
-IMHO this default value makes no sense with..
+And I need it to be 0, by default, so that we do leave bus_format to 0,
+and with that we maintain the previous existing behavior.
 
->  	int ret;
->  
->  	mxsfb = devm_kzalloc(&pdev->dev, sizeof(*mxsfb), GFP_KERNEL);
-> @@ -238,6 +244,24 @@ static int mxsfb_load(struct drm_device *drm,
->  	if (IS_ERR(mxsfb->clk_disp_axi))
->  		mxsfb->clk_disp_axi = NULL;
->  
-> +	ep = of_graph_get_next_endpoint(np, NULL);
-> +	if (ep) {
-> +		of_property_read_u32(ep, "bus-width", &bus_width);
-> +		of_node_put(ep);
-> +	}
-> +
-> +	switch (bus_width) {
-> +	case 16:
-> +		mxsfb->bus_format = MEDIA_BUS_FMT_RGB565_1X16;
-> +		break;
-> +	case 18:
-> +		mxsfb->bus_format = MEDIA_BUS_FMT_RGB666_1X18;
-> +		break;
-> +	case 24:
-> +		mxsfb->bus_format = MEDIA_BUS_FMT_RGB888_1X24;
-> +		break;
+Francesco
 
-these cases in case no bus-width was specified without the knowledge of
-the mxsfb_kms.c since the '0' value is not covered. However, I'm not the
-maintainer of this driver. Thanks for making use of the bus-width
-property :)
-
-Regards,
-  Marco
-
-> +	}
-> +
->  	ret = dma_set_mask_and_coherent(drm->dev, DMA_BIT_MASK(32));
->  	if (ret)
->  		return ret;
-> diff --git a/drivers/gpu/drm/mxsfb/mxsfb_drv.h b/drivers/gpu/drm/mxsfb/mxsfb_drv.h
-> index d160d921b25f..bdc47ce5be79 100644
-> --- a/drivers/gpu/drm/mxsfb/mxsfb_drv.h
-> +++ b/drivers/gpu/drm/mxsfb/mxsfb_drv.h
-> @@ -46,6 +46,8 @@ struct mxsfb_drm_private {
->  	struct drm_connector		*connector;
->  	struct drm_bridge		*bridge;
->  
-> +	u32				bus_format;
-> +
->  	bool				crc_active;
->  };
->  
-> diff --git a/drivers/gpu/drm/mxsfb/mxsfb_kms.c b/drivers/gpu/drm/mxsfb/mxsfb_kms.c
-> index d8ebebc5314b..1d78c486d147 100644
-> --- a/drivers/gpu/drm/mxsfb/mxsfb_kms.c
-> +++ b/drivers/gpu/drm/mxsfb/mxsfb_kms.c
-> @@ -386,6 +386,18 @@ static void mxsfb_crtc_atomic_enable(struct drm_crtc *crtc,
->  	if (!bus_format)
->  		bus_format = MEDIA_BUS_FMT_RGB888_1X24;
->  
-> +	/*
-> +	 * Prefer the bus format derived from the OF graph endpoint "bus-width"
-> +	 * property when available. Otherwise, use the bus format reported by
-> +	 * the downstream bridge or panel.
-> +	 *
-> +	 * This supports mismatched display and interface bus widths, such as
-> +	 * a 24-bit panel connected through an 18-bit interface or an 18-bit
-> +	 * panel connected through a 24-bit interface.
-> +	 */
-> +	if (mxsfb->bus_format)
-> +		bus_format = mxsfb->bus_format;
-> +
->  	mxsfb_crtc_mode_set_nofb(mxsfb, bridge_state, bus_format);
->  
->  	/* Write cur_buf as well to avoid an initial corrupt frame */
-> -- 
-> 2.47.3
-> 
-> 
-> 
-
--- 
-#gernperDu 
-#CallMeByMyFirstName
-
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
 
