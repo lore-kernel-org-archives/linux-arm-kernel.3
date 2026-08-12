@@ -4,100 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41ABFC5CFDB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 11:21:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4C76C5CFDB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 11:21:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=doym3QyHT8bL7rPyfRL2QEekEkOSH3JrEcV5LcFpHT4=; b=UrfGpmjge8hq99pezqh7No6Er0
-	73AgJTGDFJKqFjZTk+Y8udSFji9RE/HbjrDghDUUbq2IJim8jRfEhGwTIWANooCfjZKAa+gS3N45R
-	Wa2NUk/3hPIfOM1b/q97cScVJYo/1uCA6c1jdcppuJziCY6cgN1ZFzt2y5L5Q9ENm9aITFqv3ojqY
-	7BKqvxtNDgLiCFmcMy2VtR6Uh9YlacZTxxGuwtHDBet6YbZ9KxIZ3wEbJ9ulKHhQS7RbAjTWmmWFf
-	d58y3/9+mvoUcgYQ8QMfZJuX76iUPVcLT7Z71Rtj8jeStxMiBiGbpyGremLSPl8dqlVvrf9TBfY53
-	vJzXmX+w==;
+	bh=+TveDZHhaOZxOI6aHVBWLYlU17AabpcT5JTtlV96+eA=; b=mqCqJydCIbO9ldGCblesEHaXWD
+	KkXs+xhBry3cLqz5lLTjmXfQq9EEdcj0Ph+nO1ClUkKdhSO+7ZCjwG3ZmcvsWsE9oDGdUD60tDZKO
+	+EiYfDv1lWGS8ud4UtS5onz+60VTy6kmVTjid7Vh4SrWg3ywAhoBMcr0c26f20GbAHV3SdFWmpIgr
+	Pj8kPVdBMVztfihDskihuYim3MatfVyxY625IFvJbyRM5PToq5YW+JDNCBZ/3SjiF+V1aqNKg9uKU
+	VdPZJdHulfXBCJ8Lv+tTKOx0+hPi+C2E/iqDGMDZOa5ArSoyXf+gQOl0E4tkJe3IRy6YC2dnEeAtr
+	C4bKwklw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu719-0000000G2PT-0QZY;
-	Wed, 12 Aug 2026 11:21:07 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1wu71f-0000000G2dE-1QKA;
+	Wed, 12 Aug 2026 11:21:39 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu715-0000000G2Ld-2Vgo
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 11:21:05 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-38a0c7e841fso1219547a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 04:21:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786533663; x=1787138463; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=doym3QyHT8bL7rPyfRL2QEekEkOSH3JrEcV5LcFpHT4=;
-        b=nSXPeUix85jFNXn7oTwbJEz1smMZq0tlmEAbEa/GYVK1OT/RrhOmt5BGQTsladgkFw
-         WLpEgMDv/yoyUUfBYfRryOZ5hNLbAuWPRNVMZK+TLM2HR60FkoQqbqYpL3JAZtAn+tlh
-         Aj9u5yU5YQHIiRYsr9xwtFQPBzcMefVykX2YmYWvdn1IyevFyPV92Zih9L4cDwxEeGNw
-         N5isoypaKnTvYUzBh6yZMn/BYQNZyXgnX+BZ+bdEzNnr4lZChnxW8J4wYcwUmf7MLyF1
-         lXEPZAp6dqCpY1COCgb8jYs9phzdGnexm4oiUZW/07U/7uYvHzeTeN9OW0rVmZW5pL/G
-         slfQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786533663; x=1787138463;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=doym3QyHT8bL7rPyfRL2QEekEkOSH3JrEcV5LcFpHT4=;
-        b=j9i6dT10GVgtbMTfM7ZBRfNNSqRV433xGepxldqaTX6RrOcUvGFJc/RaxXz/qQyYwd
-         kF3M9awL7j1/mKo8jHUV7y7WMW33ucESed0JamwZW8cc8/m9l+XUpCg3/6xsT9z6rlhg
-         7DbveFSxr4e/gcwKsoTGYOv8sjWHyq7bkattFaRZftvlbkvifZ9I6MgRq9lzqwnBZzvN
-         XF1VIT7GTrM3KEbtEQRoGyHSz6+h66uG0yBPemSve1xZhOdY/xLZtIz70FHwezs8x8bV
-         tcInDH2UNsDSLiQIaC6dqr+2Lx81K2cnyXDhB4/xHoYfbrKazZKuOzst1YNmYgnyocC0
-         srFA==
-X-Forwarded-Encrypted: i=1; AHgh+RpkCkhhvGss0eifx6SdwY34Ll+8v4cudZzIe1kIzmhhxcplpwuiEmy5rmZx9V/QuhdSEWa59F+mAUIjryu1ybt9@lists.infradead.org
-X-Gm-Message-State: AOJu0YxQK0shb4uvIGS3R8MHAnrX8IZrIXylpC7y4fXEdHG0oB+Adr5M
-	/zke/4y+UYIrLA3aQRPieMKmHSeFpNtW5eAhRiPa258SFr1BHRBMnV4OFOtBzA==
-X-Gm-Gg: AR+sD120dK4cwYOmtOyOkChW8B9wwhdmc169ZT4oJfTscsQaJ166WqPdfOFgUfsKF8F
-	aiPvHTejPrKigAoG2UMIBxct6e5Prf87EfzYaU8KRUvFz5pdR5tTTeUzZEj7BmMoUBndxUONOB8
-	Qlcar41i+1jccU05i0cZyq4BnM2e5IkTqYlEMWgTq9hhoVxZZhnJe9iWgBfNUdZWn4wmsyAtjqU
-	DfYcO1I90SBT61TfqRRszHyV5tO3AgdP+C9ZzvEgKcu/XMAcJ2cahhC4ioiecUeAsfV8qjUlaVY
-	pkQpza/mwVjje5okpRkV6IDbTt108dnQLrPKzXrPlfFQU38YODLUPHYXC1TYDBNObM5PzV7RiHv
-	RTKBoCua+6bkGoxTu/5ONMBlQTdPhXIs3szlnhNO5IyA0QX8H8PdBEQqJVcblVHVO3oK+ZdgrOi
-	R2sy7vGVCUVhNbazyy980jE+6lvWXUKo149JrcFZPGsNiNzJqtFAodqlfQ2BFvhtp/Zl33Oy5gs
-	Z06Vz3rs8hgW1gBEjRlHiDacg9BxJa3LFZc4yNoG0wJ+xatdIb1USQ5iWGhvZsw5BZKC6MzeBsU
-	nNB7kvsq4w==
-X-Received: by 2002:a17:90b:3807:b0:38d:f096:a1dc with SMTP id 98e67ed59e1d1-393013e58ecmr4752057a91.11.1786533662842;
-        Wed, 12 Aug 2026 04:21:02 -0700 (PDT)
-Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-392f935f5ecsm3193765a91.5.2026.08.12.04.20.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Aug 2026 04:21:02 -0700 (PDT)
-From: phucduc.bui@gmail.com
-To: Ulf Hansson <ulfh@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Stepan Ionichev <sozdayvek@gmail.com>,
-	Colin Ian King <colin.i.king@gmail.com>,
-	Pedro Demarchi Gomes <pedrodemargomes@gmail.com>,
-	Osama Abdelkader <osama.abdelkader@gmail.com>,
-	linux-mmc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org,
-	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH 3/3] mmc: davinci: Handle optional IRQ return value correctly
-Date: Wed, 12 Aug 2026 18:20:23 +0700
-Message-ID: <20260812112023.42254-4-phucduc.bui@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260812112023.42254-1-phucduc.bui@gmail.com>
-References: <20260812112023.42254-1-phucduc.bui@gmail.com>
+	id 1wu71d-0000000G2cD-2f5I;
+	Wed, 12 Aug 2026 11:21:37 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id A2E4E600E2;
+	Wed, 12 Aug 2026 11:21:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40D901F000E9;
+	Wed, 12 Aug 2026 11:21:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786533696;
+	bh=+TveDZHhaOZxOI6aHVBWLYlU17AabpcT5JTtlV96+eA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=BmXhqXpH52I2iHHZnRDP6XIleIkxYUTARJtDZTfgN3ma29eqOPVpovsyhj8t0O5tm
+	 eskDXlbDcyfaWVlhD27C21PFw4XwN18QhZN7khcNfE8MEjYA43gycEqOEYgt1Ciu3g
+	 5xGg5iozvCuX6IHRI+TfhTpZ4Cg4BReUlUZhENEqeTN7Jw/GwUinLa0UEsBjUHBdoE
+	 CfvBxbe9NOkQ/YfJoq1NnMsw79f0fDyRytMhym/hkYvQT3AFi59a7w9AEL4FKhh2sv
+	 n952ZvqgZiWGfwjDPVnHtQDOg8lvSVBcbyhNcfKb/MSsXPp4eOmk+Aj6UAJip9v/GY
+	 oYYIElK2eTBFA==
+Message-ID: <94b52871-9cfc-42d6-b30f-545b722e71a0@kernel.org>
+Date: Wed, 12 Aug 2026 13:21:28 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_042103_643510_64A261E0 
-X-CRM114-Status: GOOD (  14.61  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC V2 4/6] sh/mm: Stop using [p4d|pud|pmd]_ERROR()
+To: Anshuman Khandual <anshuman.khandual@arm.com>, linux-mm@kvack.org,
+ akpm@linux-foundation.org
+Cc: Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker
+ <dalias@libc.org>, John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+ Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>,
+ WANG Xuerui <kernel@xen0n.name>, linux-alpha@vger.kernel.org,
+ linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+ loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-um@lists.infradead.org, linux-arch@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20260811042119.3652929-1-anshuman.khandual@arm.com>
+ <20260811042119.3652929-5-anshuman.khandual@arm.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20260811042119.3652929-5-anshuman.khandual@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,34 +127,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: bui duc phuc <phucduc.bui@gmail.com>
+On 8/11/26 06:21, Anshuman Khandual wrote:
+> Stop using [p4d|pud|pmd]_ERROR() in __get_pte_phys() as the pgtable entries
+> are known to be NULL and hence could not really be accessed.
+> 
+> Cc: Yoshinori Sato <ysato@users.sourceforge.jp>
+> Cc: Rich Felker <dalias@libc.org>
+> Cc: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
+> Cc: linux-sh@vger.kernel.org
+> Cc: linux-kernel@vger.kernel.org
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> ---
+>  arch/sh/mm/init.c | 12 +++---------
+>  1 file changed, 3 insertions(+), 9 deletions(-)
+> 
+> diff --git a/arch/sh/mm/init.c b/arch/sh/mm/init.c
+> index b3c7fd84ceb4..0bb8555568a4 100644
+> --- a/arch/sh/mm/init.c
+> +++ b/arch/sh/mm/init.c
+> @@ -58,22 +58,16 @@ static pte_t *__get_pte_phys(unsigned long addr)
+>  	}
+>  
+>  	p4d = p4d_alloc(NULL, pgd, addr);
+> -	if (unlikely(!p4d)) {
+> -		p4d_ERROR(*p4d);
+> +	if (unlikely(!p4d))
+>  		return NULL;
+> -	}
+>  
+>  	pud = pud_alloc(NULL, p4d, addr);
+> -	if (unlikely(!pud)) {
+> -		pud_ERROR(*pud);
+> +	if (unlikely(!pud))
+>  		return NULL;
+> -	}
+>  
+>  	pmd = pmd_alloc(NULL, pud, addr);
+> -	if (unlikely(!pmd)) {
+> -		pmd_ERROR(*pmd);
+> +	if (unlikely(!pmd))
+>  		return NULL;
+> -	}
+>  
+>  	return pte_offset_kernel(pmd, addr);
+>  }
 
-host->sdio_irq is assigned from platform_get_irq_optional(), which
-returns a positive IRQ number on success or a negative error code on
-failure. Therefore, 0 is not a possible return value from this API.
+Do we want to print an error like "allocating p4d table failed"?
 
-Check for a positive IRQ number before requesting the SDIO IRQ instead
-of treating zero as a valid IRQ.
+Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
 
-Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
----
- drivers/mmc/host/davinci_mmc.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/mmc/host/davinci_mmc.c b/drivers/mmc/host/davinci_mmc.c
-index 4765d2dee599..dddd152d2ec4 100644
---- a/drivers/mmc/host/davinci_mmc.c
-+++ b/drivers/mmc/host/davinci_mmc.c
-@@ -1303,7 +1303,7 @@ static int davinci_mmcsd_probe(struct platform_device *pdev)
- 	if (ret)
- 		goto mmc_add_host_fail;
- 
--	if (host->sdio_irq >= 0) {
-+	if (host->sdio_irq > 0) {
- 		ret = devm_request_irq(&pdev->dev, host->sdio_irq,
- 				       mmc_davinci_sdio_irq, 0,
- 				       mmc_hostname(mmc), host);
 -- 
-2.43.0
+Cheers,
 
+David
 
