@@ -4,151 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1EF2C5CFDB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 08:33:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ACFFC5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 08:39:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HAvLO0GLp2loAsKy0xyKwG5aLfgTFlT7QknME37DmoA=; b=tKBLCg1Bl6vdbrAkOsFwPFFSE4
-	6aaElaWCsCU46drxZxm/Bp3+7PvaFoNBLGHSCw+TCYMGqTxpRRF+5lAbMWekj8RWend1dNM8H+BxJ
-	VTJ51MTYar+t9taxWUhMT4ck+0HM+gHDFVDlsNB1FMphmSFN2pZOO4lIfggryzcr5qzUOdOkTPoiE
-	KC1ZrAExKzdIqOQVnLGjZqZLe7c0iaFLaLaOvBkW40ZJ9F/PryCfkNZG2wzky8UqtMRVXrcuhhFew
-	fKLbqYCFWVpm+PbH+qAQdGlGcLXvBG6+I8K+UTcu2nsfPk6GiCILVemUy6t/skeWMDZKzW0WvQ84g
-	wyIFXNcg==;
+	bh=iTwjESD9HnwpOl/QOYMlTaCAN0eAUwIAYn/lLI/hTrg=; b=fVqp/wBPrxWu5rJ92oGZLHGuru
+	r3dXbfGEkab4v96vkH+fRLp7pRCzm9anLt8pgpiSS3n7BE/j+jcAWtXdq35q6bpIuaBjPV77locZg
+	m7JWoUZr0pKTB+U/DpCopigHpg5cZiFUgvFmMKUzMGELBMzI7NXMt/G1K7mvVfz4ZLlwG2/mG7zrV
+	HWd/uRbB0UCYmu/aOiZRlnAhY8hTCZlOMksPUPAC/5xdupr3o4xc/g0+PBNhoLrxrKug8kAYrnIZX
+	xtqUOTxHjtiHph3ab5Ry7W8wJAinq00tyqcVSHrODB2v0J7lVKr7O5xsEXKfsskvADp7vFOD8PDH6
+	0B9bARLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu4Ox-0000000FeYr-4A23;
-	Wed, 12 Aug 2026 08:33:32 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wu4Uc-0000000Ff9y-4ASH;
+	Wed, 12 Aug 2026 08:39:23 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu4Oj-0000000FeUg-3Wpa
+	id 1wu4UZ-0000000Ff8V-2Rzd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 08:33:20 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67C62LTr3288516
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 08:33:17 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	HAvLO0GLp2loAsKy0xyKwG5aLfgTFlT7QknME37DmoA=; b=CMi+xbV8rlZ997l6
-	8ymfyCRnjTVDNYMTFbQHDvUOjeReWM0cMy1Nw29jxh6/EDU8FzIYaqrlwgV6Dugn
-	Th7xAreT9RbRpZiaZNk+Ysied6XpVbJFURZv2SgQTM/+JG5tUZWc3Lr/c4Vf7A5d
-	l6jMNpk5fMu0/wKwGbZkUeDeUixWNfMRkRazXLD0J8FxCUGrAjjVIhnO7GBU5dQD
-	bvumQhfhc1mO+doLBf+WbbcnepCS6H5Ic6uwaJaHFNlixse9tH3RAXjawBbJR5fQ
-	hO6a5Chx7vTh8a3CJdlOdTlrQnchK70Mpj7t7/gHEA8jL3rmO0tDthA+ANAZEa6T
-	OdEjbw==
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g049ev8ar-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 08:33:16 +0000 (GMT)
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-51c01ff996dso10750381cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 01:33:16 -0700 (PDT)
+	Wed, 12 Aug 2026 08:39:21 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-47f502ff678so73402f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 01:39:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1786523596; x=1787128396; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=HAvLO0GLp2loAsKy0xyKwG5aLfgTFlT7QknME37DmoA=;
-        b=QSoNVmsjmOdPuxgUaiqewWoLogdY/TgyG7V0bZEI3312Y9PM1t9IOV/BThDE5WPX4u
-         B+A2FBumvkB2ehzd2Sr8Gje2IshSc4EbIxF2lBIZiJH1Hj4zMVjpkpaDcX87fwgunq6B
-         fFMwGUBCgw8LxzMZ2Js9B1nn21idf9YQcIJPRzDLgOEJ0Z/CjUSeV3IYMmFiUpLVSiD9
-         Fs9pBRauxdYs4Drc+01MYz97ry/G5Sawn2eYJ6ODj3B2kr4JBcUlqrFXy/BzEBAuxk++
-         ItLDxplcbGp00TZho6YjykcVhX7dBlHeL5WZuntONycu+6NdTYDiPTWhPGvdPgtwah3F
-         ibjw==
+        d=gmail.com; s=20251104; t=1786523958; x=1787128758; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=iTwjESD9HnwpOl/QOYMlTaCAN0eAUwIAYn/lLI/hTrg=;
+        b=hwr9wrR/UKPVJCcSQiyMIVL5dvLs6AGgeU2WfrCKHtNlJAB+Fr5RlT57KOQ0bMVOW5
+         j4GnGUKZXV5Dj2M7uobIwRZlZmPCnzZixA95egyYqGFKTd3mM4whJxa7QBe59DgxQDz9
+         XhogPUxp2OukCi5IvqTGPVoiuLbQ1EQtOCGaMXl8pgJFm5ExNcCYZ2Gs5DC9zbumGbVo
+         dfdO/eGp32kaF2UX+GwfMsjt24vD+e0UGwzOWIOz8+/UaInG7b0SvZXvtBhLHebfcRew
+         NozTtVJNgJ5pIqvNbemfJptw9WzlS8SzdfGmc0jfEYGVIaYYAoc6wf0PqpN5HAgoxkQu
+         DSbw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786523596; x=1787128396;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=HAvLO0GLp2loAsKy0xyKwG5aLfgTFlT7QknME37DmoA=;
-        b=LOtQ4aeegeRqLV86QpbpQyp2BQPU4t7QN69WlL7K5qhLhN2rvaDfhNJAs3QtwxTwAd
-         du8PS9fxVMASlYj0bHYuSteD/zFtpynP2E5v63YwEjaQ0/Tb0F6mpZlxdeIb9pvOF8+M
-         GRb5VjRbFuo/gATZ9CNyTlSUSN7pGpTPlp7KTB0UpYex/qKWR8DRlFCQNLxLGTuZpkVW
-         H5KoA51OzSB8iKT4ttaxIVPWOk2zz0YwHQKEnv00Eb2LDNV0pMFPUgUdZGdJ6qFwBYkz
-         XPtbpVWpb0UIRbm4PIm4sCrgwwFDOWa7C5zjXNQasC8hfapvlaZ9rf65bhoP0r6au4dc
-         mMIQ==
-X-Forwarded-Encrypted: i=1; AHgh+RqOfxQjKvoGPec4fCOOhcDHHd/WJRVasSjGWiIUz4gL01vlT5ITcueiZdir0WmEFB6E08RulRxu2qrLs89rifu1@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzccm3sJzLfV7QHEhvIJI2oxCgvhhOd0Yx1qV/1dFrlFe8EfjAJ
-	hwsesKiJ5pkZvQQcWLs06GgNtE/VA+Q+RncZmlbjOJkrB+dzYKV556SY/Dx3duPotRhhECevpGS
-	C60B7Qzo937BLjenKgK3DH9L8y89zxMbmI+F6KRN7YqKjmZBdS74RCYaXzlsy22c0IsHOGFM36a
-	X+fg==
-X-Gm-Gg: AR+sD10+GTf16GyznaO4qb1uyqvzObOglPyTZNjaZGNO38BMM6zI3AjbfWlMtFQDqPC
-	OZbxDbaP/aEsXtCAFQ3if0/EeOze2XvYnH+v40BR/lgjomMNS8LOfCTnqQslk2gj5l+MNOuxyRM
-	4qo9fz7GM0bf5vg7p6RCTzNKfMInpzLVF2ir6msgcoN2Mcr19z0l1W5zHGrzHApQQ2xfE7b6Oh0
-	n7pA5DqHo61ZCWZNZHmqqjpxgkARv5fJcz5PZo6HoWp/NURxh7mArFLB7rIO0F0bq+L/VgdHMl9
-	VIN1EfHDlDmBQ+UDHcedhuIvWKFuFCaee2T+M5nZhisCIWpVFyh0f9ZlaG76eYtyk34TuKqySLI
-	lonQGrDoHCWZ4fXMkJ6uLnjbzrNSurz04zwfX8HkDaehyRBNn11EgTdkmAdHMdJo=
-X-Received: by 2002:ac8:5d16:0:b0:517:76b7:7b3e with SMTP id d75a77b69052e-52d64823701mr25115291cf.38.1786523596197;
-        Wed, 12 Aug 2026 01:33:16 -0700 (PDT)
-X-Received: by 2002:ac8:5d16:0:b0:517:76b7:7b3e with SMTP id d75a77b69052e-52d64823701mr25115061cf.38.1786523595799;
-        Wed, 12 Aug 2026 01:33:15 -0700 (PDT)
-Received: from ?IPV6:2a05:6e02:1041:c10:b467:f322:cd3a:615c? ([2a05:6e02:1041:c10:b467:f322:cd3a:615c])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4997c998f27sm28031395e9.15.2026.08.12.01.33.14
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 12 Aug 2026 01:33:15 -0700 (PDT)
-Message-ID: <16d3f0b9-2a12-42d0-93b6-b9da3f540256@oss.qualcomm.com>
-Date: Wed, 12 Aug 2026 10:33:14 +0200
+        d=1e100.net; s=20251104; t=1786523958; x=1787128758;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=iTwjESD9HnwpOl/QOYMlTaCAN0eAUwIAYn/lLI/hTrg=;
+        b=JCfzDt9RMf38O3S9TrM0shz8sb86DYbzbFDIW36u7ZJAasqU/iHzpia/a42mYMEtBG
+         eYjcw/L8GYqJZVkF3kLq8u2VrZd2VQ01c2VrqtCY66L2jLc73V/I42LWhZ8O//5YtdFw
+         +xsF3G7x4jxZONVfaxvMyKDtvCGJGw05WZDRa004r0xMp9ZqiYfewScZyNJ7R53H40ft
+         yLmsXuV8fLd4M6CRnVbStWlLLnjMlIWNw4xFOQZ686s3vM+5iFHccX7kBYJ6wom0Xvej
+         lu4PgyAqBSut2iC7dLEbaseQ2RayusyYwWafB5o7yUY6qwz9+bvEpWVyfhQpjQxBjc6T
+         7a0A==
+X-Forwarded-Encrypted: i=1; AHgh+RpP9wLdaCrw0B3GSbGcsObNutlTVsm86D8L9ECVd7OM9dhjqKKwJqBlFC8RFqEpdsEuZzEFYX6JuV6DD8FJIKZJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwfwxQvtQFd5hHlMTAVZSYIGb5LVB+txFFxlqJJlrOBb657fwiW
+	TETqTdqQLXtZ05s9M5pga/yrNnEL+T6HoeNmlnOJZRScp2E5rYzPB8X1
+X-Gm-Gg: AR+sD11b24TFaEi+ZIlkY/OoWb1HG1+tuBbmd/1JqZBu8z+EYXszWWvglreE/x/wZ/g
+	qSsTH1j0yE0Dk6VK0J3LVXJBOMNPLnIlHOJU4AUgwClmAVxEBCFctYZigBixOmGFNyooghVsOfT
+	ksVGvEVbuXJe0pdhGz6LJ6l684PeEuDUoFtQU91h66GdXq1XQcCWRgMogDMRh799n3KMshETG0G
+	QGLaKSbPmexZhAKfUxaVegz8hTRZlvtrxHifsQeCHVaRA8/5tZmRp/eZFC7FfTJcaKsq7cvHvBy
+	lUOBla5mK7g9Ni48PzlSH3GUzZL6Ou/pN5lutThaktjGqfTGi05RYnFZLXVB6FdwC1Y6XYfRX46
+	I6rqQLJOY1xPU6hQ3eM8nPRMWVogMzmKNi6bEmfDqkxD9ZHs0+1FZWJWw9oTLYXeT8M/uXdaV/8
+	L6hp4n5lLXkYbC/N4aGZUwpBCUCltUGv3f1rI3lE9ivRFuCkYg82SLdOJyehZRksoygsDpYeCE+
+	xnK4jSv0vleifA2SQoUWHGejW704AOqKugxHIUzqsWkpqDp4ebWLTuo1bnwsoqUb+ezDw==
+X-Received: by 2002:a05:600c:1f92:b0:496:c249:ddb1 with SMTP id 5b1f17b1804b1-4997c1582dcmr18291075e9.4.1786523957466;
+        Wed, 12 Aug 2026 01:39:17 -0700 (PDT)
+Received: from OrangePi5-Plus.BB-HOME (20014C4E1B84A600FEFE3CD53078703A.dsl.pool.telekom.hu. [2001:4c4e:1b84:a600:fefe:3cd5:3078:703a])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4997abf94c1sm53087835e9.14.2026.08.12.01.39.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 12 Aug 2026 01:39:17 -0700 (PDT)
+From: Igor Paunovic <royalnet026@gmail.com>
+To: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Cc: Igor Paunovic <royalnet026@gmail.com>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Sandy Huang <hjc@rock-chips.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Alexey Charkov <alchark@flipper.net>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	dri-devel@lists.freedesktop.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: drm/rockchip: vop2: ACLK_VOP pinned at 500 MHz starves DP 4K120 on RK3588
+Date: Wed, 12 Aug 2026 10:38:52 +0200
+Message-ID: <20260812083857.60460-1-royalnet026@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <7759116b-0beb-4d25-b269-c020a8379cef@rock-chips.com>
+References: <20260808104240.13776-1-royalnet026@gmail.com> <33bd4a94-11af-4cf3-ae44-b7f8944250f6@collabora.com> <c0a7521d-9c19-4197-802b-2b64a6ddea28@rock-chips.com> <20260811212358.9980-1-royalnet026@gmail.com> <7759116b-0beb-4d25-b269-c020a8379cef@rock-chips.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 6/7] clocksource/drivers/timer-riscv: Remove
- CONFIG_GENERIC_GETTIMEOFDAY ifdeffery
-To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
-        Arnd Bergmann <arnd@arndb.de>, Andy Lutomirski <luto@kernel.org>,
-        Thomas Gleixner <tglx@kernel.org>,
-        Vincenzo Frascino <vincenzo.frascino@arm.com>,
-        Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>,
-        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-        Daniel Lezcano <daniel.lezcano@kernel.org>,
-        Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
-        Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-        Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-        Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>
-Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-kbuild@vger.kernel.org, linux-mips@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
-        loongarch@lists.linux.dev
-References: <20260724-vdso-arch-clockmodes-v4-0-ddbe447be860@linutronix.de>
- <20260724-vdso-arch-clockmodes-v4-6-ddbe447be860@linutronix.de>
-Content-Language: en-US
-From: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
-In-Reply-To: <20260724-vdso-arch-clockmodes-v4-6-ddbe447be860@linutronix.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODEyMDA2NyBTYWx0ZWRfX6MWDH9HAnFRE
- NriZJuSwG3A5aGjU3yLOBYhcumetLFrMKv8Yc14VZTPCRTTLrTbMZrauZAtmGRJBDkz/7TVlQXy
- Y+ldu45/h43EB07fQ0VX8ssSvtXPXFY=
-X-Authority-Analysis: v=2.4 cv=DoFmPm/+ c=1 sm=1 tr=0 ts=6a7c2fcc cx=c_pps
- a=JbAStetqSzwMeJznSMzCyw==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22 a=EUspDBNiAAAA:8
- a=eCx_7nzpRrifSLxMv2oA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=VT0m5QDJU3gA:10 a=uxP6HrT_eTzRwkO_Te1X:22
-X-Proofpoint-ORIG-GUID: k_BWk9OwbPJ6eWQgcKltINKC2I796qk-
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODEyMDA2NyBTYWx0ZWRfX+1h/CRUqAbJP
- dg+dShWAgxoqq7AmAaOGxZUp1kNQoGu+FdoAyYisddOUHdXi/hjvvAAqsmYsSaab0KTZOcLDl5j
- ZOk2JNuhK0D9eYEp3UrtQVRCYvDckNPmfeXvoBdNT89m/rNIgoLeja1mjUieQ/iam1FX9qZf2up
- nxSUybKnskUrxwl8tCANBZCk/KLOg68wosfE+rxmTvaKsvp+nmhB7dTNwX+MMKUovC/Xu5+lEU5
- iYYHuMSnEuCtXtLD3RMV2JBFQeFKTl9aiWLj/p7fuHpQN0JLKD3GSZN4EHTo1Y+hE6+zwzmWDIC
- Jgk4p0/PQxrTD03IK7fSfPMS7/586Rj+JA+Efth9NdePKhUnZzxyKB17rzONQuFSTdnT7gAw8OF
- cLRjCKmJEEpVl1O5Ro47FZsx+LbkLnsPDggrFzN1K3GWowyyTtl1cRtVjbit/kG9OebrNMnGL8w
- q/PdDl/OBEXUqni5E9A==
-X-Proofpoint-GUID: k_BWk9OwbPJ6eWQgcKltINKC2I796qk-
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-12_02,2026-08-10_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 malwarescore=0 priorityscore=1501 phishscore=0 suspectscore=0
- clxscore=1015 bulkscore=0 adultscore=0 lowpriorityscore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608120067
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_013318_295158_6ADA19D0 
-X-CRM114-Status: GOOD (  11.13  )
+X-CRM114-CacheID: sfid-20260812_013919_678178_B53EC9BB 
+X-CRM114-Status: GOOD (  28.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,13 +113,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/24/26 15:36, Thomas Weißschuh wrote:
-> Now that there is a definition of VDSO_CLOCKMODE_ARCHTIMER
-> even if no vDSO is built, the ugly ifdeffery can be removed.
-> 
-> Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
-> ---
+Hi Chaoyi,
 
-Acked-by: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
+That is exactly what I was missing, thank you. Having the vendor's
+decision flow meant I could stop guessing and go measure the case where
+my rule and yours disagree. I have done that now, and the result is
+worth more than my earlier argument was.
 
+First, on equivalence: I do not think my threshold is equivalent to the
+linedur_ns term - it is strictly narrower. With
+linedur_ns = crtc_htotal * 1000000 / crtc_clock, and htotal 4400 for the
+4K modes my panel offers:
+
+  3840x2160@120  1188000 kHz   linedur_ns 3703
+  3840x2160@60    594000 kHz   linedur_ns 7407
+  2560x1440@144  ~586000 kHz   linedur_ns ~4600-4700
+
+My VOP2_HIGH_BW_PIXCLK_KHZ of 1000000, at htotal 4400, is the same as
+saying linedur_ns < 4400 - about 1.7x stricter than your 7500. So my
+rule declines to boost in cases where yours boosts, and 3840x2160@60 is
+one of them: your rule raises it on two counts (crtc_hdisplay > 2560 and
+linedur_ns 7407 < 7500), mine does not raise it at all.
+
+So I measured that case. I unplugged both HDMI cables, leaving the
+DisplayPort output as the only display, and switched it between
+3840x2160@120 and 3840x2160@60, reading aclk_vop and dclk_vop2 from
+clk_summary at each point:
+
+                        4K120 (YCbCr 4:2:0)      4K60
+  dclk_vop2             594 MHz                  594 MHz
+  aclk_vop              750 MHz                  500 MHz
+  vop interrupts/s      120                      60
+  POST_BUF_EMPTY        0                        0, over 60 s
+
+The dclk is identical in the two states, because the 4K120 link runs
+YCbCr 4:2:0 and the 4K60 link does not. The interface rate did not move
+at all. What moved was what the video port composes - a full-screen 4K
+ARGB plane at 120 Hz versus the same plane at 60 Hz - and the AXI clock.
+That is the separation I told you I could not make from my earlier data,
+where mode and composition moved together. The interrupt counts are one
+vblank per frame in both states, so there is no starvation at either
+point.
+
+3840x2160@60 is therefore clean at ACLK 500 MHz with a full-screen 4K
+plane. For that case the downstream rule boosts and does not need to.
+
+Putting all four points I now have in terms of composed pixels per ACLK
+cycle:
+
+  3840x2160@120   995.3 Mpx/s   500 MHz   1.99   storms (116630 irq/s)
+  3840x2160@120   995.3 Mpx/s   750 MHz   1.33   clean
+  2560x1440@144   530.8 Mpx/s   500 MHz   1.06   clean
+  3840x2160@60    497.7 Mpx/s   500 MHz   1.00   clean
+
+The boundary sits between 1.33 and 1.99. That quantity does not depend
+on the connector or on the pixel format, which is what I think you were
+pointing me at, and it fits every point I have rather than the two I
+started from.
+
+The honest limit of this: all four are a single full-screen plane on a
+single video port. They say nothing about plane_num_4k or crtc_num > 1,
+which are exactly the terms my condition has no counterpart for. I am
+not proposing to drop your terms - I am saying the two mode-derived ones
+appear to carry margin for this shape of workload, and I would rather
+ask than assume.
+
+The other thing I had not appreciated is where the decision lives.
+rockchip_drm_aclk_adjust() runs from atomic_commit_tail, so it is
+re-evaluated on every commit with that commit's plane information, and
+aclk_adjust_frame_num holds the boost for two more commits on the way
+down. My unsent patch puts the decision in vop2_crtc_atomic_enable() and
+_disable(), which only run on modeset. A condition that depends on what
+the planes are composing cannot live there: a client swapping a 1080p
+plane for a 4K one without a modeset would never be seen. So the
+placement has to change, not just the condition.
+
+Two things I would still rather learn than guess:
+
+  - Is the two-commit hold on the way down a hardware requirement - the
+    rate has to be up before the frame that needs it and stay up for a
+    beat after - or is it belt and braces? It decides whether an
+    upstream version needs the same hysteresis.
+
+  - Are the mode-derived terms describing something the hardware stalls
+    on, or are they a conservative stand-in for "this is probably a
+    heavy scene"? My 4K60 and 1440p144 points only make sense to me
+    under the second reading.
+
+I will rewrite the patch along the lines of your flow rather than the
+pixel-clock threshold, and move the decision to the commit path. For
+what it is worth, the version I have been running locally since 7 August
+has driven 3840x2160@120 HDR over DisplayPort with no HDMI output
+present at all, which is the case the FRL-gated condition cannot serve;
+it also drops the rate back to 500 MHz on modeset and restores it, so
+the refcount side behaves.
+
+Thanks again - this turned a guess into a measurement.
+
+Igor
 
