@@ -4,116 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D340C5AD5A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 11:16:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 222B4C5AD5A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 11:16:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YkQoXb0oPuJag9CbgccsDCcg6lD66fmA+f0vn+2nKnc=; b=zc4KzdM3DLIy9KyPvqu67+R8JC
-	ANzCpA4MFssgfoavArnJjk9hwQX/S+EGuxcC0IbUfpDOksFu4wen1VH0HFNtPqVBgg90SE5EEC8NB
-	PKHD7b3t62Ufn0ELehqyn8eeBeD52r5V/BaZbuonzNXC+2v3Qu/f+6o8Z/C5rYGlZq3NaLuCDtc6r
-	pYV3t34mPGlweNgP9xfLRTFlx5IQZbNoES5Q9XYPQkHY/K4wPciMDCNMLvNylAP0Wc63uw6j6nmwN
-	Y+022wE2od1wNvvZ2FbW/6+1239nziL5sWQzPppgLEeUrQLpnQW4shTE9htcsndW7xmN3LPfcZnrK
-	O3Digrgw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bXJAoKuOzaSXieVdd1OyY5L7/X1+2blaPqmx6LTftp8=; b=se+HLBqieUex9zM3icRpEHMhmu
+	VnLDxrOvLtT4p1C0nicpqAk8C0EkngAlmBQPE1cI7y/SXXzd95VvgPzjFWmnzp0n4fZuulIq3fO5S
+	KXDFvu1QOgZvdV9PSN4DgngySeBQlo9PCv7C1BrBzYfY/vecAMBeCmQJ8F2H83fN6kzABMzUNvxEj
+	whYSA1OkDGtOfsoZ8KcIyAIN7iZbUfY960kzRXm3Sv+jFzWUfonVmEjft1PX0qpp4B9c6HvTD6nXx
+	t26rSdxr0dYermrKTsg315ea5fzOo0Gr0qcYqFPn6xnoGB7qfoPV6T7WErn9YmjH4p+ix16gARW3+
+	+S24XZtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu6wY-0000000G1Mb-221O;
-	Wed, 12 Aug 2026 11:16:22 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wu6wl-0000000G1RD-0ahm;
+	Wed, 12 Aug 2026 11:16:35 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu6wV-0000000G1ME-1eEY;
-	Wed, 12 Aug 2026 11:16:21 +0000
+	id 1wu6wh-0000000G1Pr-1gv2
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 12 Aug 2026 11:16:34 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B4B1540A54;
-	Wed, 12 Aug 2026 11:16:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67D991F000E9;
-	Wed, 12 Aug 2026 11:16:12 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BB754600E2;
+	Wed, 12 Aug 2026 11:16:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFEB71F000E9;
+	Wed, 12 Aug 2026 11:16:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786533378;
-	bh=YkQoXb0oPuJag9CbgccsDCcg6lD66fmA+f0vn+2nKnc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=QpYnab0nUAcCJt+cGKDODAg3Qx17qgpheF1kaPKjsEoNN2gGuC0MuGrznO70IIyhN
-	 q50JvXDgyoCv5Jx5qqIDGxWfc6HKUhKU1cTL6H08Bu0/sTb+uVVkxHOr9rNxyxfXN+
-	 uTOwGwCn+zeXNrwSywo8TfLqLOj8YKABP/oehAVFpqhoXslPkdGl4cJu2E5FlZnHvd
-	 OHboyKwgV46xqG0UclX10xA1e/iuxKmzt5h+ORt+lsnPp3+vkZZha97q3G8FyC0e7Y
-	 cjS1vMXaxJ+pGqTfML7xuwxCWKh+43tBp3fxPKAcuInhN6x79dSPFwsyX+48ySeYf2
-	 SVT6YpwBVn8/Q==
-Message-ID: <ac5a912b-fc98-4b77-b453-2f9bd8f9e6db@kernel.org>
-Date: Wed, 12 Aug 2026 13:16:10 +0200
+	s=k20260515; t=1786533390;
+	bh=bXJAoKuOzaSXieVdd1OyY5L7/X1+2blaPqmx6LTftp8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=aq7b+b7PcLmUOEwd9UicdMfO87JgdcEtptnXSCcIaSWvrXr1ePMlHrIKMCMgDJRoe
+	 3IsYqPg00fvZLBvex1B84lsnSnpAJKQNNfdZJRdlj3o9mEo2sro2TuYIkZQ9yXoH6B
+	 rxMEz5m/yTiX35wWi4zR+Ak4dt3cw4nY1oEgYvPVOvLt4oqEi25Q7AhB4h/8Ac3JTu
+	 1SeA6OSlIJTPkubkkO5OHP610vxPikIYNqJtQyXg72dk32xyBtqVc+RyJL1en1E0LX
+	 qIv4L/33x6zTNJb4+5EFNDuzGkVCOYrxCiUmGjvbn4BjzJNfRI1txUD+5+lgDacvnk
+	 +4etDeFAQiBcw==
+Date: Wed, 12 Aug 2026 13:16:22 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Petar Stepanovic <pstepanovic@axiado.com>
+Cc: Akhila Kavi <akavi@axiado.com>, 
+	Prasad Bolisetty <pbolisetty@axiado.com>, Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>, linux-pwm@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/2] dt-bindings: pwm: add Axiado AX3000 PWM
+Message-ID: <20260812-fearless-antelope-of-might-cf3eff@quoll>
+References: <20260811-axiado-ax3000-pwm-v3-0-6ceaccd812cf@axiado.com>
+ <20260811-axiado-ax3000-pwm-v3-1-6ceaccd812cf@axiado.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC V2 2/6] parisc/mm: Directly use generic
- [pmd|pgd]_clear_bad()
-To: Anshuman Khandual <anshuman.khandual@arm.com>, linux-mm@kvack.org,
- akpm@linux-foundation.org
-Cc: Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker
- <dalias@libc.org>, John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
- Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>,
- WANG Xuerui <kernel@xen0n.name>, linux-alpha@vger.kernel.org,
- linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
- loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
- linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-um@lists.infradead.org, linux-arch@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20260811042119.3652929-1-anshuman.khandual@arm.com>
- <20260811042119.3652929-3-anshuman.khandual@arm.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
- dBrn+lhhOYjjNefFQou6478faXE6o2AhmebqT4KiQoUQFV4R7y1KMEKoSyy8hQaK1umALTdL
- QZLQMzNE74ap+GDK0wnacPQFpcG1AE9RMq3aeErY5tujekBS32jfC/7AnH7I0v1v1TbbK3Gp
- XNeiN4QroO+5qaSr0ID2sz5jtBLRb15RMre27E1ImpaIv2Jw8NJgW0k/D1RyKCwaTsgRdwuK
- Kx/Y91XuSBdz0uOyU/S8kM1+ag0wvsGlpBVxRR/xw/E8M7TEwuCZQArqqTCmkG6HGcXFT0V9
- PXFNNgV5jXMQRwU0O/ztJIQqsE5LsUomE//bLwzj9IVsaQpKDqW6TAPjcdBDPLHvriq7kGjt
- WhVhdl0qEYB8lkBEU7V2Yb+SYhmhpDrti9Fq1EsmhiHSkxJcGREoMK/63r9WLZYI3+4W2rAc
- UucZa4OT27U5ZISjNg3Ev0rxU5UH2/pT4wJCfxwocmqaRr6UYmrtZmND89X0KigoFD/XSeVv
- jwBRNjPAubK9/k5NoRrYqztM9W6sJqrH8+UWZ1Idd/DdmogJh0gNC0+N42Za9yBRURfIdKSb
- B3JfpUqcWwE7vUaYrHG1nw54pLUoPG6sAA7Mehl3nd4pZUALHwARAQABzS5EYXZpZCBIaWxk
- ZW5icmFuZCAoQ3VycmVudCkgPGRhdmlkQGtlcm5lbC5vcmc+wsGQBBMBCAA6AhsDBQkmWAik
- AgsJBBUKCQgCFgICHgUCF4AWIQQb2cqtc1xMOkYN/MpN3hD3AP+DWgUCaYJt/AIZAQAKCRBN
- 3hD3AP+DWriiD/9BLGEKG+N8L2AXhikJg6YmXom9ytRwPqDgpHpVg2xdhopoWdMRXjzOrIKD
- g4LSnFaKneQD0hZhoArEeamG5tyo32xoRsPwkbpIzL0OKSZ8G6mVbFGpjmyDLQCAxteXCLXz
- ZI0VbsuJKelYnKcXWOIndOrNRvE5eoOfTt2XfBnAapxMYY2IsV+qaUXlO63GgfIOg8RBaj7x
- 3NxkI3rV0SHhI4GU9K6jCvGghxeS1QX6L/XI9mfAYaIwGy5B68kF26piAVYv/QZDEVIpo3t7
- /fjSpxKT8plJH6rhhR0epy8dWRHk3qT5tk2P85twasdloWtkMZ7FsCJRKWscm1BLpsDn6EQ4
- jeMHECiY9kGKKi8dQpv3FRyo2QApZ49NNDbwcR0ZndK0XFo15iH708H5Qja/8TuXCwnPWAcJ
- DQoNIDFyaxe26Rx3ZwUkRALa3iPcVjE0//TrQ4KnFf+lMBSrS33xDDBfevW9+Dk6IISmDH1R
- HFq2jpkN+FX/PE8eVhV68B2DsAPZ5rUwyCKUXPTJ/irrCCmAAb5Jpv11S7hUSpqtM/6oVESC
- 3z/7CzrVtRODzLtNgV4r5EI+wAv/3PgJLlMwgJM90Fb3CB2IgbxhjvmB1WNdvXACVydx55V7
- LPPKodSTF29rlnQAf9HLgCphuuSrrPn5VQDaYZl4N/7zc2wcWM7BTQRVy5+RARAA59fefSDR
- 9nMGCb9LbMX+TFAoIQo/wgP5XPyzLYakO+94GrgfZjfhdaxPXMsl2+o8jhp/hlIzG56taNdt
- VZtPp3ih1AgbR8rHgXw1xwOpuAd5lE1qNd54ndHuADO9a9A0vPimIes78Hi1/yy+ZEEvRkHk
- /kDa6F3AtTc1m4rbbOk2fiKzzsE9YXweFjQvl9p+AMw6qd/iC4lUk9g0+FQXNdRs+o4o6Qvy
- iOQJfGQ4UcBuOy1IrkJrd8qq5jet1fcM2j4QvsW8CLDWZS1L7kZ5gT5EycMKxUWb8LuRjxzZ
- 3QY1aQH2kkzn6acigU3HLtgFyV1gBNV44ehjgvJpRY2cC8VhanTx0dZ9mj1YKIky5N+C0f21
- zvntBqcxV0+3p8MrxRRcgEtDZNav+xAoT3G0W4SahAaUTWXpsZoOecwtxi74CyneQNPTDjNg
- azHmvpdBVEfj7k3p4dmJp5i0U66Onmf6mMFpArvBRSMOKU9DlAzMi4IvhiNWjKVaIE2Se9BY
- FdKVAJaZq85P2y20ZBd08ILnKcj7XKZkLU5FkoA0udEBvQ0f9QLNyyy3DZMCQWcwRuj1m73D
- sq8DEFBdZ5eEkj1dCyx+t/ga6x2rHyc8Sl86oK1tvAkwBNsfKou3v+jP/l14a7DGBvrmlYjO
- 59o3t6inu6H7pt7OL6u6BQj7DoMAEQEAAcLBfAQYAQgAJgIbDBYhBBvZyq1zXEw6Rg38yk3e
- EPcA/4NaBQJonNqrBQkmWAihAAoJEE3eEPcA/4NaKtMQALAJ8PzprBEXbXcEXwDKQu+P/vts
- IfUb1UNMfMV76BicGa5NCZnJNQASDP/+bFg6O3gx5NbhHHPeaWz/VxlOmYHokHodOvtL0WCC
- 8A5PEP8tOk6029Z+J+xUcMrJClNVFpzVvOpb1lCbhjwAV465Hy+NUSbbUiRxdzNQtLtgZzOV
- Zw7jxUCs4UUZLQTCuBpFgb15bBxYZ/BL9MbzxPxvfUQIPbnzQMcqtpUs21CMK2PdfCh5c4gS
- sDci6D5/ZIBw94UQWmGpM/O1ilGXde2ZzzGYl64glmccD8e87OnEgKnH3FbnJnT4iJchtSvx
- yJNi1+t0+qDti4m88+/9IuPqCKb6Stl+s2dnLtJNrjXBGJtsQG/sRpqsJz5x1/2nPJSRMsx9
- 5YfqbdrJSOFXDzZ8/r82HgQEtUvlSXNaXCa95ez0UkOG7+bDm2b3s0XahBQeLVCH0mw3RAQg
- r7xDAYKIrAwfHHmMTnBQDPJwVqxJjVNr7yBic4yfzVWGCGNE4DnOW0vcIeoyhy9vnIa3w1uZ
- 3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
- CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
- qIws/H2t
-In-Reply-To: <20260811042119.3652929-3-anshuman.khandual@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260811-axiado-ax3000-pwm-v3-1-6ceaccd812cf@axiado.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,23 +73,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/11/26 06:21, Anshuman Khandual wrote:
-> Drop [pmd|pgd]_ERROR() followed by [pmd|pgd]_clear() instances. But instead
-> directly use semantically equivalent generic helpers [pmd|pgd]_clear_bad()
-> in unmap_uncached_[pte|pmd]() which helps in dropping their corresponding
-> [pmd|pgd]_ERROR() macros across the tree.
+On Tue, Aug 11, 2026 at 02:01:50AM -0700, Petar Stepanovic wrote:
+> The Axiado AX3000 and AX3005 SoCs include PWM controllers that can be
+> used to generate configurable PWM output signals.
 > 
-> Cc: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>
-> Cc: Helge Deller <deller@gmx.de>
-> Cc: linux-parisc@vger.kernel.org
-> Cc: linux-kernel@vger.kernel.org
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> Signed-off-by: Petar Stepanovic <pstepanovic@axiado.com>
 > ---
+>  .../devicetree/bindings/pwm/axiado,ax3000-pwm.yaml | 53 ++++++++++++++++++++++
+>  MAINTAINERS                                        |  8 ++++
+>  2 files changed, 61 insertions(+)
+> 
 
-Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
+Where did you explain reason to drop the tag?
 
--- 
-Cheers,
+<form letter>
+This is a friendly reminder during the review process.
 
-David
+It looks like you received a tag and forgot to add it.
+
+If you do not know the process, here is a short explanation:
+Please add Acked-by/Reviewed-by/Tested-by tags when posting new
+versions of patchset, under or above your Signed-off-by tag, unless
+patch changed significantly (e.g. new properties added to the DT
+bindings). Tag is "received", when provided in a message replied to you
+on the mailing list. Tools like b4 can help here. However, there's no
+need to repost patches *only* to add the tags. The upstream maintainer
+will do that for tags received on the version they apply.
+
+Please read:
+https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/submitting-patches.rst#L577
+
+If a tag was not added on purpose, please state in the patch changelog
+or cover letter why and what changed.
+</form letter>
+
+> diff --git a/Documentation/devicetree/bindings/pwm/axiado,ax3000-pwm.yaml b/Documentation/devicetree/bindings/pwm/axiado,ax3000-pwm.yaml
+> new file mode 100644
+> index 000000000000..7297abccbc24
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/pwm/axiado,ax3000-pwm.yaml
+> @@ -0,0 +1,53 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/pwm/axiado,ax3000-pwm.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Axiado AX3000 PWM controller
+> +
+> +maintainers:
+> +  - Petar Stepanovic <pstepanovic@axiado.com>
+> +  - Akhila Kavi <akavi@axiado.com>
+> +  - Prasad Bolisetty <pbolisetty@axiado.com>
+> +
+> +description:
+> +  The Axiado PWM controller found on the AX3000 and AX3005 SoCs.
+> +
+> +allOf:
+> +  - $ref: pwm.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    oneOf:
+> +      - const: axiado,ax3000-pwm
+> +      - items:
+> +          - const: axiado,ax3000-pwm
+
+So 3000 is listed twice. You need to test your DTS.
+
+Best regards,
+Krzysztof
+
 
