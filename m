@@ -4,113 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 076A3C5AD5A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 21:02:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D787DC5CFDB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 21:16:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=eS0igH6p3phd0yMFsnOQZ+4mmHdJrMcSmVlciJfLpEE=; b=yVDQ/c102xpB1EcOxao8FeYDIs
-	UMX0w25eB8ZSIeoDAPzLq5SVSYieTuDGHLFe6hTncCxer6hCyl92z5HigC0vY+rg0hrPNk6xYr5l3
-	UyJvxhwGZan7uVTxXpCpgNdVBGugdDlGiBNIhzxqqdVlTjVpN8hV6v00807W9N8OBGLzz8T+Q2G5o
-	pglbm7vSCRS5eNHsNDBZK6kjMYV2CB39Mcu7SuRqdCeOcjDzLw79hye2dzLKhmQGeEYix3y0EivJ3
-	2cYgvsTLb8h6w8nwp8B5bhmk48g7t9guxlvj1CY8ujqqWK5BWrP+vjkWs+xd3W2PDFl0VvBDI9vq4
-	d3a5Z0pg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Jy+yY7ScNPTLI9GPqIPBBSp+vMzLO39xsKXyzQYJ99g=; b=BQtHSxPCIvsFd6EIcBpdopAGOi
+	1WS3dVGVw1EY/XQOkR5z3jIvc8NlqrxYpGIYlFaVE17sTxV5jbmGY6AZchnLg5s2jPcY0cPTJwEwL
+	gdk4OBF4Gg912xLGXbej0YqqFOd64EN+OFD6Tq8lDFpPe5CCsBLH1OIOsSmQ6sOvnN9uD3y8Udncp
+	TR3WM793tzDziA41TBoiKNurGaDvgMoh2EFXMh5yL+o/M0rzbAZ/woXPu6Nkuk9Janje7ZW7ccsck
+	gP9jvHLS4fiynIN0Rvhk0V7QioNA1unJhFW/2B+G4lMT0w4z1VoWfaAgieJzklFVxfqwwiVJtxLZs
+	4VbdFtuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuG5c-0000000H1nW-12ks;
-	Wed, 12 Aug 2026 21:02:20 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1wuGJ1-0000000H2LA-1dEv;
+	Wed, 12 Aug 2026 21:16:11 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuG5X-0000000H1mz-0IBS
+	id 1wuGIx-0000000H2Kp-2IQa
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 21:02:18 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-47f71156e1aso561f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 14:02:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1786568533; x=1787173333; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=eS0igH6p3phd0yMFsnOQZ+4mmHdJrMcSmVlciJfLpEE=;
-        b=UqykV1a3Pc8AqQHMzhdSEanmyp0ABZN7yBtx7ppKpI8ro4lO1gOgLhmSacvyvxFF/Q
-         FDmj1Bhg2MpAwx2AzXSD/rVp0771YwMIrW7r+jCz/XF1vdZfi4FuceCiSgECfO8pz82U
-         E8KZVcb+tBfzLps/MmyMGYBSSnGHmDTAtymNPtIxCk2DKezeBgztJ63ijWMuamWzz9I4
-         WcEvrZqljsu15q1ZRnu4VunV/khtnuYgD2KrVjE8lrlvGC4v386dI1/hcLESgboNz+d2
-         53c54i8jzc1/h00mk5JWzDOsXtkXDWQPf43YJ9gf6R9pwp70WnL4eSC0L7F8sMWlnmM6
-         dQSg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786568533; x=1787173333;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=eS0igH6p3phd0yMFsnOQZ+4mmHdJrMcSmVlciJfLpEE=;
-        b=ifUwfU61BwCd97393dYJUxtdmJz0NZIs5InSjcq11K/X9SXzkzheGWG1EgIK85FNbT
-         WsJvQZAZilulhOT0UZQgl2+QmnR4IaqT0Pv4v5K3Pe/Lnhmo5W88a9z5/Vv38SjkL0Pp
-         dqWwUpEiRq6oMlMhVa5hWwB2Yzzu83MtIhfXVwVIwgLiZTNnytyIVI4bI63u10HHPIYg
-         5y3z2PoUMRNdzskIlKqbXwZy2m+k8roIieGrOeeFF62OiF4qavtnqsAdKEsoBy9LRNXu
-         0lA9+5LATy5Vv+PZRQnzdqe/KDgESaLFJigx3MPVKd6TePxh14yV02YPjm2Or6fpD6zE
-         1bKA==
-X-Forwarded-Encrypted: i=1; AHgh+RrODifFJefzQgOK7Dx1M8hRM5A6QyaE5RcDrH9rUSPXCyIoX74zQt/JA41MYQzjMLBIA5CErzcsxfrPKXufx9a2@lists.infradead.org
-X-Gm-Message-State: AOJu0YyFCWF8/bFJGE6VKUuZ6VEa8z7FeVNs2+aW+l70FIlPA6SceJj3
-	Qf263PAGttcX1otOCB+wuPavSy5bWxg2+i7l/n2kC/fdph65XrGCzX+RjNmsWvrBLgE=
-X-Gm-Gg: AR+sD108LSCaHrGv3hEJzyAlYGwnuefLFfBotMyrhOYw8pOoHUXcIy3y3oBPzAddpkj
-	osEQ/BoOK/cP9KU007v3w+cee930woN/xTOmZG6W+k4ONHo9/fDtXa9dPcN82rQ40tK1vYmpdRd
-	g8IXQkfFzy2VhtnPyOAS8fxCeULnqxDM/lmqN7hzICWVBOLM4k/XoK+qwmMw/732z21CzCQGB4w
-	Q5z+2m9TUEg+GDPF5hk6f37vnEEunm8nSZGf5g7hKpkaaxstURxazL+efaRKu8L0b3lkQd6rhBe
-	Bz7ankHD9AqAE7YNmzikaZW0gepzejQWmhLzNDb5uvVF7BQhGb3zSjh18N1mBQWsrOQpC1+QUAR
-	xwbVPGxgI5+2IrCJD82+0I2IeHqaRP+CSMIK6I9Bp5FgYtZWW82OGOFtFI/0TT1l96AN8SLzXRm
-	F+zIxh8e6nzErQYifDZIsb9LHVqqUKRhBf2zU1WWMxP7c8vgB4FDEHTLinTs4=
-X-Received: by 2002:a05:6000:2a89:b0:47f:776f:3838 with SMTP id ffacd0b85a97d-48159ca6049mr1024076f8f.6.1786568532369;
-        Wed, 12 Aug 2026 14:02:12 -0700 (PDT)
-Received: from localhost ([2a01:e0a:3c5:5fb1:282d:879b:d1fe:f977])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-4815a5c2769sm426055f8f.36.2026.08.12.14.02.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Aug 2026 14:02:11 -0700 (PDT)
-From: Jerome Brunet <jbrunet@baylibre.com>
-Date: Wed, 12 Aug 2026 23:02:02 +0200
-Subject: [PATCH v2] spi: dt-bindings: sun6i: Add compatibles for A733's SPI
- controllers
+	Wed, 12 Aug 2026 21:16:09 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id D2329402EE;
+	Wed, 12 Aug 2026 21:16:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A2CD1F000E9;
+	Wed, 12 Aug 2026 21:16:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786569366;
+	bh=Jy+yY7ScNPTLI9GPqIPBBSp+vMzLO39xsKXyzQYJ99g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=E58VqySMPVR3JY7HOTNGr9aKopdC/lyGXtSvQDmLeEvPWmMjbVUfelG4CWhcmWxtn
+	 2bHovtMMDJThTowpyek8S0i+tc0b6ncMVDblTqQ23iiglr3Z0fyKP0qc0aJm1QM/OY
+	 n52J3OD/J1sUCV817jRl7Sz1js835hjMmDRTPEExkqDiXgXvsnGhNNZgKfxWx7O08M
+	 fFdtsDOfEq7cNMUzcxFkpXuXJ5x00ORiLqfOPmZWVin+GpzY93COwrR1QarzO+4POW
+	 XLFIeSISNBKyGvbDbGY1G3Py9Ehvh9hVQW5YtSGZwsuTTrZPKSd2XruYcCFvIGNvNS
+	 YB9LOHBnjNflA==
+Date: Wed, 12 Aug 2026 16:16:05 -0500
+From: Rob Herring <robh@kernel.org>
+To: Nagadheeraj Rottela <nagadheeraj.rottela@amd.com>
+Cc: Srinivas Neeli <srinivas.neeli@amd.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Michal Simek <michal.simek@amd.com>, Andrew Lunn <andrew@lunn.ch>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	Simon Horman <horms@kernel.org>,
+	Russell King <linux@armlinux.org.uk>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, git-dev@amd.com
+Subject: Re: [PATCH 01/20] dt-bindings: net: add Xilinx TSN Endpoint Ethernet
+ MAC
+Message-ID: <20260812211605.GA984427-robh@kernel.org>
+References: <20260807104431.157230-1-nagadheeraj.rottela@amd.com>
+ <20260807104431.157230-2-nagadheeraj.rottela@amd.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260812-allwinner-a733-spi-support-v2-1-937bff0fa78e@baylibre.com>
-X-B4-Tracking: v=1; b=H4sIAEnffGoC/42NSw6CMBQAr0K69pl+RMSV9zAs2vKQZ7BtWkAJ4
- e4CXsDlJJOZmSWMhIlds5lFHCmRdyvIQ8Zsq90DgeqVmeTyzC88B911b3IOI+hCKUiBIA0h+Ng
- DKq5LbXleaMXWQIjY0GeP36sfp8E80fZbcTNaSr2P034fxeb9NRoFCChMUwtxEmhseTN66shEP
- Fr/YtWyLF+qmJyj2QAAAA==
-X-Change-ID: 20260805-allwinner-a733-spi-support-e30a9ac057a3
-To: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>
-Cc: linux-spi@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- linux-kernel@vger.kernel.org, Jerome Brunet <jbrunet@baylibre.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1539; i=jbrunet@baylibre.com;
- h=from:subject:message-id; bh=0CBhCBU2Ye60x8lfkWT28rE3Pec6oVMCAnjppoXmg0A=;
- b=owEBbQKS/ZANAwAKAeb8Dxw38tqFAcsmYgBqfN9Q+u0hwY5bmCREf8SoJGx0s9FOJ2i+Jt28L
- XwaflMwzwuJAjMEAAEKAB0WIQT04VmuGPP1bV8btxvm/A8cN/LahQUCanzfUAAKCRDm/A8cN/La
- hadkEACsSQx6tBKrNKoNPl56rW05ntzcDV4ES4lN835wpmXCzKW5YfclSB1Hw3//6dDLcCm+Wzs
- SMFe4WKJsIrxRA4wEPiP4qPgbmG4Didsxhp2jc/A2i0Z0LeIDz++zLcvBNiqqYHDE53HyhqDANn
- QGkAootOt0gQXUrp6jB2BkVoNQFjjN6vGJd/5ciuZUmzFZ+YiK4KtBcCXQOB1ylzuI+/LzewAae
- xNpfs5uJ5OOLVeHDcpVRfVoN6t/uFLg15IKlRlCb4pqjl6X39UZXdpYhAyTRl59bdIzNcrI+3Ln
- sX2xVa69TcxRFX9PWs36m1XaWeVPT39/1gvadDYPop0UT4NBAC9hQ+gYFKx2Os5dCbNjofo0UXI
- ZuXD28tFriBHAtukty38MySAlJ/nYz23qImyc0obgyHDnzGBfH99+cZGX7LiD4ACLbHZ29OladY
- NfSavowucJuOI44ngpXIMBgtXq7TbBDoi3gXFz2ulpM4F4yNbESQfP31e2p7goeR1Szq07jr6jw
- LKk7CF/sTnqzJfJj5qYPpekMDgJoXlC+Ol+Ht4O0wvQ7CsrwXRAsUAjOoGJ5arFpaBVEvpt1saR
- fef9Tvm7vJDQVtnc3zVTtzN8QVYFtx21ZncuvU7vXTzQVI78dM1/2v5i5HPdz2bjtaLhy+2JRaA
- l9uFYaAreYhPgQw==
-X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
- fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_140216_549558_0CE0EF5D 
-X-CRM114-Status: UNSURE (   9.83  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260807104431.157230-2-nagadheeraj.rottela@amd.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,44 +82,314 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The A733 has six SPI controllers with the same IP as the A523.
-Like the A523, one of them (spi1) also supports DBI mode.
+On Fri, Aug 07, 2026 at 04:14:12PM +0530, Nagadheeraj Rottela wrote:
+> From: Srinivas Neeli <srinivas.neeli@amd.com>
+> 
+> Add a binding for the Xilinx TSN Endpoint Ethernet MAC IP. The
+> top-level node describes the IP wrapper, which owns the six shared
+> IP clocks and the xlnx,num-priorities parameter, and has two
+> children:
+> 
+>   - xlnx,tsn-ep-mac: the endpoint MAC, owning the host-side DMA
+>     channels (dmas / dma-names / tx-queues-config).
+> 
+>   - xlnx,tsn-switch: the three-port Ethernet switch covering the
+>     switch fabric and the two per-MAC register windows. The MDIO
+>     controllers and PTP register blocks sit at fixed offsets inside
+>     the per-MAC windows, accessed through the mdio-mac1 / mdio-mac2
+>     children and per-MAC interrupt-names entries. Each external
+>     port@N references its PHY through a phy-handle in the matching
+>     mdio-mac<N> child.
+> 
+> Signed-off-by: Srinivas Neeli <srinivas.neeli@amd.com>
+> Co-developed-by: Nagadheeraj Rottela <nagadheeraj.rottela@amd.com>
+> Signed-off-by: Nagadheeraj Rottela <nagadheeraj.rottela@amd.com>
+> ---
+>  .../net/xlnx,tsn-endpoint-ethernet-mac.yaml   | 343 ++++++++++++++++++
+>  MAINTAINERS                                   |   7 +
+>  2 files changed, 350 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml b/Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml
+> new file mode 100644
+> index 000000000000..00f52b7b623c
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml
+> @@ -0,0 +1,343 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/net/xlnx,tsn-endpoint-ethernet-mac.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Xilinx TSN Endpoint Ethernet MAC
+> +
+> +description:
+> +  TSN Endpoint Ethernet MAC IP implements IEEE 802.1 Time-Sensitive
+> +  Networking (TSN) standards and provides low-latency network connectivity
+> +  in either Endpoint-only or Bridged Endpoint configurations. In the
+> +  Bridged Endpoint mode, the IP integrates a three-port switch, with two
+> +  ports connected to the external network and one port connected to an
+> +  internal endpoint. It also supports GMII/RGMII interfaces for connection
+> +  to an external PHY, enabling full-duplex operation at 100 Mb/s and
+> +  1 Gb/s speeds.
+> +
+> +maintainers:
+> +  - Srinivas Neeli <srinivas.neeli@amd.com>
+> +  - Nagadheeraj Rottela <nagadheeraj.rottela@amd.com>
+> +
+> +properties:
+> +  compatible:
+> +    const: xlnx,tsn-endpoint-ethernet-mac-3.0
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    items:
+> +      - description: GTX clock for transmitter logic and RTC
+> +      - description: GTX 90-degree phase shifted clock for RGMII
+> +      - description: Host RX FIFO clock
+> +      - description: Host TX FIFO clock
+> +      - description: Reference clock for IDELAY control
+> +      - description: AXI-Lite register interface clock
+> +
+> +  clock-names:
+> +    items:
+> +      - const: gtx
+> +      - const: gtx90
+> +      - const: host_rxfifo
+> +      - const: host_txfifo
+> +      - const: ref
+> +      - const: s_axi
+> +
+> +  ranges: true
+> +
+> +  xlnx,num-priorities:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    minimum: 2
+> +    maximum: 8
+> +    description:
+> +      Number of traffic classes (priorities) configured in the IP.
+> +      This is an IP configuration parameter that determines the number of
+> +      priority queues available for QoS scheduling. Traffic classes map to
+> +      IEEE 802.1Q priority levels (0-7).
 
-Add SoC specific compatible strings, falling back to the A523 ones.
+Vendor specific properties go after standard properties. See ordering 
+rules.
 
-Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
----
-Changes in v2:
-- Combined allwinner,sun60i-a733-spi with allwinner,sun55i-a523-spi-dbi
-- Link to v1: https://patch.msgid.link/20260805-allwinner-a733-spi-support-v1-1-7bfd1141ebc9@baylibre.com
----
- Documentation/devicetree/bindings/spi/allwinner,sun6i-a31-spi.yaml | 6 ++++++
- 1 file changed, 6 insertions(+)
+> +
+> +  '#address-cells':
+> +    const: 1
+> +
+> +  '#size-cells':
+> +    const: 1
+> +
+> +patternProperties:
+> +  "^ep-mac@":
 
-diff --git a/Documentation/devicetree/bindings/spi/allwinner,sun6i-a31-spi.yaml b/Documentation/devicetree/bindings/spi/allwinner,sun6i-a31-spi.yaml
-index 6af4ff233158..14c2f318dd04 100644
---- a/Documentation/devicetree/bindings/spi/allwinner,sun6i-a31-spi.yaml
-+++ b/Documentation/devicetree/bindings/spi/allwinner,sun6i-a31-spi.yaml
-@@ -34,6 +34,12 @@ properties:
-           - const: allwinner,sun50i-r329-spi-dbi
-           - const: allwinner,sun50i-r329-spi
-       - items:
-+          - enum:
-+              - allwinner,sun55i-a523-spi-dbi
-+              - allwinner,sun60i-a733-spi
-+          - const: allwinner,sun55i-a523-spi
-+      - items:
-+          - const: allwinner,sun60i-a733-spi-dbi
-           - const: allwinner,sun55i-a523-spi-dbi
-           - const: allwinner,sun55i-a523-spi
- 
+'^ethernet@[0-9a-f]+$'
 
----
-base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
-change-id: 20260805-allwinner-a733-spi-support-e30a9ac057a3
+> +    type: object
+> +    $ref: /schemas/net/ethernet-controller.yaml#
 
-Best regards,
---  
-Jerome
+Move unevaluatedProperties here.
 
+> +    description:
+> +      Endpoint MAC sub-node. Provides the host-side data path through the
+> +      DMA channels described by its dmas / dma-names.
+> +    properties:
+> +      compatible:
+> +        const: xlnx,tsn-ep-mac
+> +
+> +      reg:
+> +        maxItems: 1
+> +
+> +      dmas:
+> +        minItems: 2
+> +        maxItems: 32
+> +
+> +      dma-names:
+> +        minItems: 2
+> +        maxItems: 32
+> +        items:
+> +          pattern: "^(tx|rx)_chan(1[0-5]|[0-9])$"
+> +        description: |
+> +          Names matching the entries in 'dmas', one per DMA channel and in
+> +          the same order. TX channel names use "tx_chan<N>" and RX channel
+> +          names use "rx_chan<N>", where N is 0..15. Example: "tx_chan0",
+> +          "tx_chan1", ..., "rx_chan0", "rx_chan1", ....
+> +
+> +      tx-queues-config:
+> +        type: object
+
+Move additionalProperties here.
+
+> +        description:
+> +          TX queue configuration node that maps IP priority queues to
+> +          DMA TX channels. The TSN IP supports multiple priority queues for
+> +          QoS scheduling, and each queue can be connected to a specific DMA
+> +          channel. This mapping defines which DMA TX channel is used to
+> +          transmit packets for each priority queue. For example, queue0
+> +          with xlnx,dma-channel-num set to 5 means priority queue 0 uses
+> +          tx_chan5 for data transfer.
+> +
+> +        patternProperties:
+> +          "^queue[0-7]$":
+> +            description:
+> +              Each subnode represents a priority queue. The
+> +              xlnx,dma-channel-num property specifies which DMA TX channel
+> +              (tx_chan0 to tx_chan15) is connected to this queue for
+> +              transmitting packets.
+> +            type: object
+
+Move additionalProperties here and then a blank line after.
+
+> +            properties:
+> +              xlnx,dma-channel-num:
+> +                $ref: /schemas/types.yaml#/definitions/uint32
+> +                description:
+> +                  DMA TX channel number connected to this priority queue.
+> +                minimum: 0
+> +                maximum: 15
+> +
+> +            required:
+> +              - xlnx,dma-channel-num
+> +
+> +            additionalProperties: false
+> +
+> +        additionalProperties: false
+> +
+> +    required:
+> +      - compatible
+> +      - reg
+> +      - dmas
+> +      - dma-names
+> +      - tx-queues-config
+> +
+> +    unevaluatedProperties: false
+> +
+> +  "^switch@":
+
+^switch@[0-9a-f]+$
+
+> +    type: object
+> +    $ref: /schemas/net/dsa/dsa.yaml#/$defs/ethernet-ports
+> +    description:
+> +      Three-port Ethernet switch sub-node. Contains the switch fabric
+> +      register window and the two per-MAC register windows; each per-MAC
+> +      window houses an MDIO controller and a PTP register block at fixed
+> +      offsets. The IP's per-MAC and PTP-timer interrupts are exposed here.
+> +
+> +    properties:
+> +      compatible:
+> +        const: xlnx,tsn-switch
+> +
+> +      reg:
+> +        items:
+> +          - description: Switch fabric register window
+> +          - description: MAC1 register window (includes MDIO and PTP)
+> +          - description: MAC2 register window (includes MDIO and PTP)
+> +
+> +      reg-names:
+> +        items:
+> +          - const: switch
+> +          - const: mac1
+> +          - const: mac2
+> +
+> +      interrupts:
+> +        maxItems: 7
+> +
+> +      interrupt-names:
+> +        items:
+> +          - const: ptp_rx_mac1
+> +          - const: ptp_tx_mac1
+> +          - const: mac_irq_mac1
+> +          - const: ptp_timer
+> +          - const: ptp_rx_mac2
+> +          - const: ptp_tx_mac2
+> +          - const: mac_irq_mac2
+> +
+> +      mdio-mac1:
+
+mdio-1
+
+> +        $ref: /schemas/net/mdio.yaml#
+> +        description:
+> +          MDIO bus controller for MAC1. Registers reside inside the mac1
+> +          reg-names window.
+> +        unevaluatedProperties: false
+> +
+> +      mdio-mac2:
+
+mdio-2
+
+> +        $ref: /schemas/net/mdio.yaml#
+> +        description:
+> +          MDIO bus controller for MAC2. Registers reside inside the mac2
+> +          reg-names window.
+> +        unevaluatedProperties: false
+> +
+> +      ethernet-ports:
+> +        type: object
+> +        additionalProperties: true
+> +
+> +        properties:
+> +          port@0:
+> +            type: object
+> +            additionalProperties: true
+> +            description:
+> +              CPU port. Wired internally to the ep-mac sibling.
+> +
+> +            properties:
+> +              reg:
+> +                const: 0
+> +
+> +              phy-mode:
+> +                const: internal
+> +
+> +        patternProperties:
+> +          "^port@[1-2]$":
+> +            type: object
+> +            additionalProperties: true
+> +            description:
+> +              External Ethernet port (port@1 is wired to MAC1, port@2 to
+> +              MAC2). Its PHY is reached through the corresponding
+> +              mdio-mac<N> bus.
+> +
+> +            properties:
+> +              phy-mode:
+> +                enum:
+> +                  - gmii
+> +                  - rgmii
+> +                  - rgmii-id
+> +
+> +    required:
+> +      - compatible
+> +      - reg
+> +      - reg-names
+> +      - interrupts
+> +      - interrupt-names
+> +
+> +    unevaluatedProperties: false
+> +
+> +additionalProperties: false
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - clock-names
+> +  - xlnx,num-priorities
+> +  - ranges
+> +  - '#address-cells'
+> +  - '#size-cells'
+> +
+> +examples:
+> +  - |
+> +    tsn_ip: tsn@80040000 {
+
+Drop unused labels.
+
+Rob
 
