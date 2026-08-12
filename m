@@ -4,138 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11E7DC5B56A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 18:13:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38C46C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 18:16:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JG39/F4KEfF7inLCq813KLTycRSDoXWv8uD9Shm+z+w=; b=Zov+xD5GrWa/92m7SP9m+u7RaJ
-	nmmhvGnGHXb62PXzCm7ks2PuHjMNMAvraSo1BvPuzvI6Qgbsf8XB/vCzGt4xXGnMMbvjKJOt1xLcq
-	5aI2xwSpxWNQ1Oj3kmLGZDorvTQT0PyzO8d8SNv9Vvjl/pg9XxCjwbrlXIrA70IYQPecdSYIw9a4r
-	b66DMvenkN+l0r/TuI5vKM6a3+ZguLmgc3vDhfZ9WH75B0a0jy9QFwxWZbg9ktiwqbvONe3LOF/Rt
-	xfn9Xmt/3NDxvb7uIt6VypwDKdgKC664PncpFQg9uWiHYQB+iQ6/PjlfxP5YH1kWJNcNcZenUBsYP
-	TIHsTAYA==;
+	bh=PgwvOoLAHdeH5x1LPpK/Ic794djJ4NRcQySFzYPO0Xs=; b=lCbCVgxm6q/6EnkAcCpI3FmQWa
+	sKJgiuCLMGpP5eht+6Yn3eTqe7VwzXl2WfOD4a8ie/pomf3wbJpbvw+E7/jOP4WLafVjqmQH3uI1v
+	5jW+3SsRDTnHiNoFHo+1w9nw1ANktAkpUcWlDoJuWjPqiONyLNbd9HE6vgi98DKBjFhw/5jDZvDA/
+	WrPaYq9i2B5D3kay77mFNWS45qAPHGqDJ/ieFzmVyxeJNwkXLlysDTrWhSSFevLGDHRAlYVMX6GDh
+	Gq+4P0ah9aZaAQibgLra/6vvztP17zPbofA+08e1ncK0BwRdSJndUgeTp96Ybb6k8DwKkyETI1RqZ
+	mRrO124A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuDS4-0000000GkgS-3MVg;
-	Wed, 12 Aug 2026 18:13:20 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1wuDUd-0000000Gm2a-3sx2;
+	Wed, 12 Aug 2026 18:15:59 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuDS2-0000000Gkg8-0NDD
+	id 1wuDUb-0000000Gm1T-1p9v
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 18:13:19 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67CH1Svw4040648;
-	Wed, 12 Aug 2026 18:13:05 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=JG39/F
-	4KEfF7inLCq813KLTycRSDoXWv8uD9Shm+z+w=; b=YwNlw8fl7VP6ApJJ9JTOa+
-	xGYnbMSSEBo7kGAKG6xasiEnCuJzvzAHYVxm6EFOx8JXzkHp1hU96EYEDzNMyt2E
-	UdtdXO08Z3/9oAL1mQpb3jzja+rp7p6BI9E7W5vu+j9w1sifAQJfWKjTu8YWHkO3
-	MAD/AzF8MuaajxbMsXJSSH3bXK2HDbcNiOqZTm8uvry2UoWq59vp9Cwz7PlDecQE
-	nmxgLAU6P6YkhGBxDqhtJc/RpBV9Z5Q6suFbjQLGT5Q0TV/X3eUT7H3xJ+dCVGeJ
-	81dtdg2Pe+okPkRXb8l0uITWwX7wHa5xKICZslrPTfEE5u3Dmf4YG1VCPpb/Jndw
-	==
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fwvq9kx55-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 12 Aug 2026 18:13:04 +0000 (GMT)
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 67CIBNw6017516;
-	Wed, 12 Aug 2026 18:13:03 GMT
-Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4fxf5w7fff-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 12 Aug 2026 18:13:03 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 67CICxJl30343546
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 12 Aug 2026 18:12:59 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id F09AD20049;
-	Wed, 12 Aug 2026 18:12:58 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id CC28E20040;
-	Wed, 12 Aug 2026 18:12:57 +0000 (GMT)
-Received: from [9.87.128.143] (unknown [9.87.128.143])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Wed, 12 Aug 2026 18:12:57 +0000 (GMT)
-Message-ID: <4ed01037-4df6-49dd-ae2e-fdf83422916e@linux.ibm.com>
-Date: Wed, 12 Aug 2026 20:12:57 +0200
+	Wed, 12 Aug 2026 18:15:59 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-c1712a04ddaso218409166b.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 11:15:56 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1786558555; cv=none;
+        d=google.com; s=arc-20260327;
+        b=NLeg9UMLi5yZP7La+54a/sDBEOBuDstHsvvk3F1lAvGMh7uBR5ilSroqB+U6zp9Pa9
+         sPGUpfBPUKCgpMTTUtuYBYM4JDo66ZZ1yisMJSSprXh/w1Ca0GdEbGHUY+R+hHCh1qrD
+         y1CLH2S3NMu9CHQSDLJl8uwDAd5TTEpwsM/AwvSWhpUQLZzo6hOZrvmJ9TpHu6TdL0Ru
+         zISpyyEOXs/O9UnQRY+A7F32eM85BHQf6s02YIenTKdnIC8cwisM8cvxa38xyycrNGJ6
+         qyE3bpIthxOcIHCyWC91J+pqPv4+OQ4spQ4Xwg/aBHF8/Mz/hugAWW1tMlrp1Pvzb3bh
+         8Auw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=PgwvOoLAHdeH5x1LPpK/Ic794djJ4NRcQySFzYPO0Xs=;
+        fh=ZRW8yR5VAsCgvatpkUdaQvw+0UWTQdKPy3RjPL31MkA=;
+        b=DLtIxiNWsgVKUTjnDKWAhElkC+4yOtCten7CrSRX5a3935tCfo6mucXzeLra5wXWWr
+         am/0VrGOmzxAsv/xX1n1Z1XUBtxf5w84wTQWRs/+UI+rhdtRrtze50WCM1JwAh6CW92K
+         hVHCKGNAAJ7g+jvapdP14qWlSTT3rt+F0f5Ubbv8oVQ9bjaqBazG7PmPjfVjpizvaz1G
+         3gna9zYdjocolcsiAm9d4b/iSgmqo1joAwEtgSMqJgcHtwO6bXbgj8rzPijhmWqF7CbC
+         8U0z/A16jR/w0AeMMx3z3W7JfKqnrZOEnFOQlTy4zA8qB6jWRC6Xk39OWmE0JvBJxb8z
+         M5tA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786558555; x=1787163355; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=PgwvOoLAHdeH5x1LPpK/Ic794djJ4NRcQySFzYPO0Xs=;
+        b=NnUnDbAYTQbOwj/fxcFXA9n2iavnR2lp5BkZkAi8ybEwdmAlrLpefxCKDZTGO7RdRQ
+         yse/7WtV9ZxNI31ACFsnfcFjvsNPy4Ztj5uvq1SwtI/Fgnz+Z0TAmNJYrnwsgXjFm7Zt
+         ZpWWZxeLETdb5NdxANerTHuCGNJ2rEKCPLOMkQkXnvnZZxNFO/AXacAwNTaKkIPPooW2
+         sAkW0rc00GPgwEvCAgPhg8r6ap0vfTC6j+kpJVJgwZsU8yXqK4rEZ+Ulg0ZX42uZOnMI
+         kT0OGEBe14bHSVvGaGu4lhQyNAK6y32/qCoTCSOCIl6WcPmXP2eiXNfQZ5h435PwOyLB
+         Bayw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786558555; x=1787163355;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=PgwvOoLAHdeH5x1LPpK/Ic794djJ4NRcQySFzYPO0Xs=;
+        b=Bk+hUAioloOYM+4+xMzGqJHUw0kKhmf2X9ieLO5bFRpxodxOHRP5wlSmrfwXaozI4v
+         mPzS/h1tTNZSWSG7Wy6qAdF9LkxWBniwZY66R+iZgOB2KxaGKJGE9GIeoh14zW4/3gfI
+         l8+AXYP2ZNSY2YUIa9/0of2ieMa1DYzo7tS7VacDzRK9VjFLJ0n64aeWSXu+9ECHQQTs
+         emq5micPcsW9lP0E4YdN7dMyBwUmi1o+hcdHr/IXE6gA1DNb+rE5CJU1UgE79KQFAPwF
+         ClNzTg4wkufYXrzif7xLABWE/rgydqdYfC0pk+nJ5RQUbNXYpv7krXVpbMZfJ7nYanFj
+         Hr6A==
+X-Forwarded-Encrypted: i=1; AHgh+RqtjddYHXr6ziC7S1rt16T3W3x1HzbS7UmPeEqeA76Ebat7M5gBeAmtunWkUxnGykTOh7BCm+MJTD/6QOBEr8ay@lists.infradead.org
+X-Gm-Message-State: AOJu0YzLToY2s7PCJgxNn9FER8nLBxeEOYzqXCuUnA0Rv9EUW3eyMRT5
+	rDkicCaXWWq5Qfk3Su9bHV2MbTNIQbYvJblio+rHIkIXjuw87Xprd74JBHcODG09xIP/9gl+BN1
+	rj89sTrqcO4jW5TB/dppz7dYSLudesWw=
+X-Gm-Gg: AR+sD12yPKRIyDa82e35p7Qg6GNWOePHk12d/GP8/mXGmEg7q7OgzcqBZAnXZoJF6qe
+	+xZPnTRXLKhsXlhN46P/eXw6T49amplMlCF8hBkK87gBI0Z1OJ5KCJ4gYphST6tJhTf0ecWHkcl
+	bXHvlBCfjoUlyZpKeSI7KpvwFMjlFMVrLMdDsmsst+en4Yz8CIUItktGnSbn8rRGdss4lQnDSnO
+	Rr72jSvgf7dY0TGwIVLtIBnNwMYS+uibkfOUsMVTja9lWoI+4mhXInd7gJE1Fw4wVcnEqrf8ziY
+	gbVtKdyXOxyhpx/uwQOIqeDCr0Oss0b1fevwCo3bnp6HCRx2QpB6FnWMtahUuH2Nb+ay7sUMJTY
+	rIDrSRQn1nqvQQM8w4/EswxVUxvLlSsHkvE8M7RQIQuuBzczxX0rAYIANAGitD+pRYv7NBSh3Ll
+	wwFy9Mb3sQdG0C+j/FFI+3NfTlnND+lpTFhL22/Mwc42azfZss2PBBJZQ=
+X-Received: by 2002:a17:907:c0d:b0:c20:899:b8bc with SMTP id
+ a640c23a62f3a-c2108ee3cf0mr7867166b.6.1786558554870; Wed, 12 Aug 2026
+ 11:15:54 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 15/33] KVM: s390: Move kvm_host definitions to
- kvm_host_s390
-To: Steffen Eiden <seiden@linux.ibm.com>, kvm@vger.kernel.org,
-        kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org
-Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Friedrich Welter
- <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Sean Christopherson <seanjc@google.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik
- <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-References: <20260812153631.3376090-1-seiden@linux.ibm.com>
- <20260812153631.3376090-16-seiden@linux.ibm.com>
-Content-Language: en-US
-From: Christian Borntraeger <borntraeger@linux.ibm.com>
-In-Reply-To: <20260812153631.3376090-16-seiden@linux.ibm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-GUID: DsaBQ2h3naiO3Vo2oYkoKH1-T5s06xyZ
-X-Authority-Analysis: v=2.4 cv=PbDPQChd c=1 sm=1 tr=0 ts=6a7cb7b1 cx=c_pps
- a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
- a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8
- a=Vz5mpp0vxluPlbYFWZQA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODEyMDE0NSBTYWx0ZWRfX5sG+8ghjFw9B
- 3hGlAJaTVJO81fBbX4+2mVesHPIkDLCLDofnQdtRlEBNlPWhPfOTPbAUtdkuaEWpHPV5W1w/LQH
- bWm/lgB1guMgdtYhR03oqwrVM3tbEDfluvnS8PXg3WaJ7a9ybyTbMyLvfCU36QsnLN+73kR28at
- iuIwkWN7Jqf+QOo2YHfQeQc4HBrmpDu+MwnRkqIiRpj/b7Z1pa1io2s9qJ1BAas6Xx4eU1KAN5j
- z4mbMlvz0Mw7gUpdPbJbr3GGwJdxZoNWRGzfT8rnw2yCMuUhtV1ihHiZDmvmoIBkrBEyecEeDkb
- CHNXWADj/VqN6M2D0jwQ/iTQFgYTwE53Lf5JPMobIHSVkWmXjDeueAdodyA6LVwvAuJlfuPVGzc
- t46CtWyMxWnE5YD7t+/0eD2MNjSkgrhUrna9dq+w6yuDUi09pFzmiYXb/PMLDJVJtsY8A/GVjC6
- pLY+kC0knLoNeZKXftQ==
-X-Proofpoint-ORIG-GUID: Fe3qyqHBNR55QIRDPbvdUnSJe2ysgWdj
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODEyMDE0NSBTYWx0ZWRfXwfqwvJ0fRyi2
- o39pRT2WPS/wYglQns9+vs5SWaIYgpfre+b7y6PuoBJdUBlA7O+53GbxwpzLubT1gesiW1AIuai
- I3zrqUo0bmy1HyclBaATQIK8HBMk0tM=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-12_05,2026-08-12_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 bulkscore=0 impostorscore=0 malwarescore=0 adultscore=0
- clxscore=1015 priorityscore=1501 suspectscore=0 phishscore=0
- lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2608120145
+References: <20260304041400.7236-1-rosenp@gmail.com> <djjg6jwpuu6l5wcc7zbxfi7j4n5hircmhivxohdtgufzrp6rlb@l6eyfdyfrxix>
+In-Reply-To: <djjg6jwpuu6l5wcc7zbxfi7j4n5hircmhivxohdtgufzrp6rlb@l6eyfdyfrxix>
+From: Rosen Penev <rosenp@gmail.com>
+Date: Wed, 12 Aug 2026 11:15:43 -0700
+X-Gm-Features: AUfX_mxqbIvZ73kcSiSnSMXY77gQTI6q5M4UWPSGxgp8t1CwI1GTwLlXmGpI4Co
+Message-ID: <CAKxU2N_VYNgYKhS11Frzio4fbg_ZnDsvCfEypvxSiw3-JV0_QQ@mail.gmail.com>
+Subject: Re: [PATCH] phy: mediatek: tphy: simplify main allocation
+To: Manivannan Sadhasivam <mani@kernel.org>
+Cc: linux-phy@lists.infradead.org, Chunfeng Yun <chunfeng.yun@mediatek.com>, 
+	Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Kees Cook <kees@kernel.org>, 
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, 
+	"moderated list:ARM/Mediatek USB3 PHY DRIVER" <linux-arm-kernel@lists.infradead.org>, 
+	"moderated list:ARM/Mediatek USB3 PHY DRIVER" <linux-mediatek@lists.infradead.org>, 
+	"open list:ARM/Mediatek SoC support" <linux-kernel@vger.kernel.org>, 
+	"open list:KERNEL HARDENING (not covered by other areas):Keyword:b__counted_by(_le|_be)?b" <linux-hardening@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_111318_142312_A107823A 
-X-CRM114-Status: UNSURE (   8.96  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260812_111557_500155_F8F56911 
+X-CRM114-Status: GOOD (  14.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,17 +126,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am 12.08.26 um 17:36 schrieb Steffen Eiden:
-> Rename kvm_host.h to kvm_host_s390.h and kvm_host_types.h to
-> kvm_host_s390_types.h to distinguish s390-specific KVM definitions
-> from the generic kvm_host.h that will be used for shared definitions.
-> 
-> No functional change.
-> 
-> Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
-
-Reviewed-by: Christian Borntraeger <borntraeger@linux.ibm.com>
-
-
-
+On Wed, Aug 12, 2026 at 6:32=E2=80=AFAM Manivannan Sadhasivam <mani@kernel.=
+org> wrote:
+>
+> On Tue, Mar 03, 2026 at 08:14:00PM -0800, Rosen Penev wrote:
+> > Use a flexible array member to replace kzalloc + kcalloc with a single
+> > kzalloc.
+> >
+> > Shuffled some code around as __counted_by requires the counting variabl=
+e
+> > to be assigned first.
+> >
+> > Removed NULL check from of_get_match_data as it's never NULL per the
+> > device table.
+> >
+>
+> Please do not combine multiple fixes in a single patch. Also, the NULL ch=
+eck can
+> be kept for the case of sanity as it wouldn't hurt.
+hmm? There are no fixes here. Just a FAM conversion.
+>
+> - Mani
+>
+> --
+> =E0=AE=AE=E0=AE=A3=E0=AE=BF=E0=AE=B5=E0=AE=A3=E0=AF=8D=E0=AE=A3=E0=AE=A9=
+=E0=AF=8D =E0=AE=9A=E0=AE=A4=E0=AE=BE=E0=AE=9A=E0=AE=BF=E0=AE=B5=E0=AE=AE=
+=E0=AF=8D
 
