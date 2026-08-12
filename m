@@ -4,96 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB043C5B56A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 16:38:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59672C5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 16:45:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=58Vxr1ewmacSO4oLjVc12aVhWqqIgFPJfyqFJRG5hDM=; b=mZuDHD/I0rMxYtQ+DcUk6NOsMF
-	Xj/H0wjtaVXg3qrY8b4yjmGnqO0z0ARgap6iTm24z94D3sSTOvOA5E95XH4trntxy3sP87IWbyB35
-	MHEiDeTw9V7R3RG7eg9cLtTQzCNVjNfCVRvdZKxjNqpo8W3oOI+yoPwDb052IpVUowAJe+KRsLAAX
-	DUfusFV416rIalb8K4DFzKBPpU7YEQI/WWEhzzvGkQX4JeqYzqKY4XnENUA9Ddi/gRdeVcJ3QaHsu
-	6F70isGSL7vgyRx6jXEiWG+rTH1B4TF4kx0m2xwQi4+XKc/1b8OX5Ieq00jIQzuIYN6WYOFzDW7cM
-	SWnDuNwg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=65zVvl9g7ejbJxIb6EcLV8Edgiv87CjX+iEqwz1O46I=; b=BT5I7OTTYC72BELC7fMg+gVGqd
+	xOGMV2Fc7ZgCYcWZsZ2CIbbkSwd/JNBkpITmrIKgf7RB9A+qejQW6RVo5hVErnd7B/zy0y4N+3PkW
+	VITcMmErujrPF2iXfMwbI/TRz/um/XjRWB1vIwPryw6E7t1e++iaB3yIX71pOuMPfZsiF1fW6FaMl
+	TaeeBC80mpvHDmSr3K0hWG0ozOcn2hFLYJ3PjiHlUVjr76BOAYjrQGZV1EM2F4Jkr9dEqsUZUSGD5
+	QqofxRYK3Gt18EuEPR1njaUsrQ0tKKHWpAqQNtni3JDGJhPoklItSslnfjkv/X+A6NaapvGawXvwp
+	h+AEyY4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuByW-0000000Gbbw-0zEa;
-	Wed, 12 Aug 2026 16:38:44 +0000
-Received: from mail-qk1-x735.google.com ([2607:f8b0:4864:20::735])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuByQ-0000000GbZk-0y2c
+	id 1wuC5G-0000000GcEn-0Q36;
+	Wed, 12 Aug 2026 16:45:42 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wuC5C-0000000GcEO-2yfc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 16:38:39 +0000
-Received: by mail-qk1-x735.google.com with SMTP id af79cd13be357-93695893ac1so76496785a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 09:38:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20251104.gappssmtp.com; s=20251104; t=1786552717; x=1787157517; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=58Vxr1ewmacSO4oLjVc12aVhWqqIgFPJfyqFJRG5hDM=;
-        b=vTbn0JBDLRPjWCPG/kAUpYvdHHFOdfPDaAs/CW5wNHGPVZI3z7KZCn9/w3eNoDuOtP
-         kNAZMFmTbSEOG2inBB65dH4HP8YSjOGixcdDfs7cOL5TuISnNSYhThQg7+qIA9yXjy2d
-         6QHHf6IvCJqCzBwqppOhqQE07eYuBZrhHZGx37jpUFnX8WLjAmZU/p85u6Oqszb7vI37
-         lGzbJmuVAvQvRaIEWtFVBKT5GVCZClBhmPsxw9E5pjGfiEZIIlos1gAuPDU7dbP52Fe+
-         KPlhQPagaASQTdNu8H27N4xaG9/q7pYDdszCb04a7TEtoAGxV1q1zRObepE19aZI1fLS
-         2zzA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786552717; x=1787157517;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=58Vxr1ewmacSO4oLjVc12aVhWqqIgFPJfyqFJRG5hDM=;
-        b=QJlZfHLggggT5rPj/vtWU05G0GRoSbJEfyfkan0TU0SR7pHGKM+nS56M+DNhQEiDtj
-         s9RUh6E1hgA0wjDF1MOVm3S+MQVRMxHsl43yfsxD1jiXA5C3cKy2fV+JseFC7I6hsX2i
-         c5+d+4IADm2PPdJqszKyA0TWiq4fmFSB8/dwjyJC7utGu1erlbW5O0x3trr16mk+ifuN
-         ppa7NIV2cmvsNjyBesrncnRzVDxikQUO0KXVtZsrmEb4ilKaG5YfK+zBkIUd2N7XBkub
-         xIzFPUP0V/Bgr9Kjb6pzxkiAalrT/SXowayLyLP8mUN4Ve0hY/hSUNxBd9mGv3Fw2ueU
-         XSVQ==
-X-Forwarded-Encrypted: i=1; AHgh+RqvjseW9JgBrqXUjEcMES8ZhC9NaAkekOLCmp2of9qNeJrzi2B2DoOCzj2+Vu1XcZY/DQIpfDKnitsUwQXA0SP8@lists.infradead.org
-X-Gm-Message-State: AOJu0YyTo4yT/fSKEIWnP5lKkfhFMJ4v6tAqErn3PfrFWzXoGa6UIb8k
-	K1j3eOF+ETGM/HqWWu0joGT9J7nw7AutuHA7lTWk2EdLQnO+V3oBtqxXZmB08BU+ZDI=
-X-Gm-Gg: AR+sD12I8m/tnodlUqqHS5Wn2Z3L7/AjiTmgE7+24SKBFdUcdvyRgo4xMzkxJdGJnvt
-	88PRxdI4zQg81xux8SESWZvoOU8sUwaoH0QGhG+++xhfJBfILzAZ3KuP7jQn3rifw6LUM+uON+x
-	sRt59wemBBaOvtrn/0/h6Imdfz4An8m02Ii2lLLGFA+a0TXS08HVVo2oBLwKkUktprR15LvhBVL
-	1jYWYadYEOdQXnxvruXPnR6+3KTuzR25cush1DdUkYOWdh1ZZgP7rnbv/Ay/wgKEcqC49uCiZg2
-	tPBfUmNYm/hBwk1o07Fr8onBidnwl8xoqKwvzQe4Fm2EYP+tFzTYAwGlvHlzQZaD3JmcGaz5i+R
-	aPp8WbuyNGfb0TIfEJgVvbD5tU+17e9Zg0gHP4yX7t/+fTZOde4JIWMrYvbKCS6d7IDQW76TMpT
-	IDpg0cBXb81zcCQhOLSQh42THvhVGzzIdVXDneekVIujboRCbky3qyBtIX4X9/0y4f
-X-Received: by 2002:a05:620a:199b:b0:92e:4859:49dd with SMTP id af79cd13be357-936b3d3af54mr541451685a.26.1786552716869;
-        Wed, 12 Aug 2026 09:38:36 -0700 (PDT)
-Received: from zippy.localdomain ([73.62.185.64])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-936b5dd3d4dsm166040385a.3.2026.08.12.09.38.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Aug 2026 09:38:36 -0700 (PDT)
-From: Alex Elder <elder@riscstar.com>
-To: maxime.chevallier@bootlin.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com
-Cc: sashiko-bot@kernel.org,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	linux-stm32@st-md-mailman.stormreply.com,
-	netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next v2 1/2] net: stmmac: use dma_addr_t for DMA addresses
-Date: Wed, 12 Aug 2026 11:38:30 -0500
-Message-ID: <20260812163832.271742-2-elder@riscstar.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260812163832.271742-1-elder@riscstar.com>
-References: <20260812163832.271742-1-elder@riscstar.com>
+	Wed, 12 Aug 2026 16:45:40 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DF77F1682;
+	Wed, 12 Aug 2026 09:45:30 -0700 (PDT)
+Received: from localhost (unknown [10.2.196.114])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7BA1D3F632;
+	Wed, 12 Aug 2026 09:45:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1786553134; bh=kZfrWbpyWg25XOFCqRRGcIF1rCmQ4eG3ydpCkOGHodI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=oOux6qhYWyqRR6AQNI3mpag4wcBPehmp/ImE64d+pwI7lYma08H/zuwvUthOA3I0x
+	 oiWrr2gANwwy90HJuPcvWdNY45AO+U02tO2oekuqeMCW+xElgqsOpMBqhXxVPA6qC9
+	 jeth4bANAMhv7i/gk2ktctLrD9lxzTQqp4iLWlOk=
+Date: Wed, 12 Aug 2026 17:45:32 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: James Clark <james.clark@linaro.org>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@arm.com>, Suyash Mahar <smahar@meta.com>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Qi Liu <liuqi115@huawei.com>, Junhao He <hejunhao3@huawei.com>,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Jonathan Cameron <jic23@kernel.org>,
+	sashiko-bot <sashiko-bot@kernel.org>
+Subject: Re: [PATCH v3 1/8] coresight: tmc-etr: Don't stop Perf cleanup for
+ active sysfs reads
+Message-ID: <20260812164532.GA313579@e132581.arm.com>
+References: <20260728-james-cs-multiple-per-threads-v3-0-6aee7579f1dc@linaro.org>
+ <20260728-james-cs-multiple-per-threads-v3-1-6aee7579f1dc@linaro.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260728-james-cs-multiple-per-threads-v3-1-6aee7579f1dc@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_093838_273850_C3F9C6B2 
-X-CRM114-Status: GOOD (  14.08  )
+X-CRM114-CacheID: sfid-20260812_094538_848878_6CE1DA18 
+X-CRM114-Status: GOOD (  28.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,57 +76,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In jumbo_frm() (implemented in both "chain_mode.c" and "ring_mode.c"),
-an unsigned integer local variable is used to hold the value returned
-by dma_map_single().  On systems where a dma_addr_t is 64 bits, the
-subsequent dma_mapping_error() check of the returned value operates
-only on the low 32 bits (whose high bit won't be sign-extended).  In
-this case, dma_mapping_error() would return 0 (no error) even if there
-were one.
+On Tue, Jul 28, 2026 at 04:00:13PM +0100, James Clark wrote:
+> The linked fixes commit deliberately allows reads of an old sysfs buffer
+> while in Perf mode because they are separate software buffers. However
+> it didn't modify tmc_disable_etr_sink() to match this relaxation. The
+> result is that when a Perf event ends while the sysfs buffer is being
+> read, clean up will be skipped.
+> 
+> Fix it by ignoring the sysfs_reading flag unless the active session is
+> a sysfs one.
 
-Fix this in both spots by using a dma_addr_t for the local variable.
+I am not clear why this is relevant to per-thread mode, maybe it would
+be clear for me after reading other patches.
 
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Link: https://lore.kernel.org/linux-devicetree/20260606010122.21A211F00899@smtp.kernel.org/
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Signed-off-by: Alex Elder <elder@riscstar.com>
----
- drivers/net/ethernet/stmicro/stmmac/chain_mode.c | 3 ++-
- drivers/net/ethernet/stmicro/stmmac/ring_mode.c  | 3 ++-
- 2 files changed, 4 insertions(+), 2 deletions(-)
+For this patch self, I think the issue comes from the sink buffer's life
+time - SYSFS mode's buffer has longer life time than a sysfs session,
+it is designed to allow reading sysfs trace data after the sysfs
+session, or even during a perf session. So the code gets complex for
+handling these cases.
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/chain_mode.c b/drivers/net/ethernet/stmicro/stmmac/chain_mode.c
-index fc04a23342cfc..ec25193d287bb 100644
---- a/drivers/net/ethernet/stmicro/stmmac/chain_mode.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/chain_mode.c
-@@ -20,9 +20,10 @@ static int jumbo_frm(struct stmmac_tx_queue *tx_q, struct sk_buff *skb,
- 	unsigned int nopaged_len = skb_headlen(skb);
- 	struct stmmac_priv *priv = tx_q->priv_data;
- 	unsigned int entry = tx_q->cur_tx;
--	unsigned int bmax, buf_len, des2;
-+	unsigned int bmax, buf_len;
- 	unsigned int i = 1, len;
- 	struct dma_desc *desc;
-+	dma_addr_t des2;
- 
- 	desc = tx_q->dma_tx + entry;
- 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/ring_mode.c b/drivers/net/ethernet/stmicro/stmmac/ring_mode.c
-index 78fc6aa5bbe95..664d8cfb58cdc 100644
---- a/drivers/net/ethernet/stmicro/stmmac/ring_mode.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/ring_mode.c
-@@ -20,8 +20,9 @@ static int jumbo_frm(struct stmmac_tx_queue *tx_q, struct sk_buff *skb,
- 	unsigned int nopaged_len = skb_headlen(skb);
- 	struct stmmac_priv *priv = tx_q->priv_data;
- 	unsigned int entry = tx_q->cur_tx;
--	unsigned int bmax, len, des2;
-+	unsigned int bmax, len;
- 	struct dma_desc *desc;
-+	dma_addr_t des2;
- 
- 	if (priv->extend_desc)
- 		desc = (struct dma_desc *)(tx_q->dma_etx + entry);
--- 
-2.53.0
+I really think we should have a correct life time (or state machine)
+for sysfs buffer, something like:
 
+  Operations                        |  ETR sysfs buffer state machine
+  ----------------------------------+-----------------------------------------
+                                    |  INVALID: Init state, buffer unallocated
+  echo 1 > .../tmc_etr0/enable_sink |  READY: user can read zeroed data
+  echo 1 > .../etm0/enable_source   |  BUSY: user cannot read as hardware is
+                                    |        writing data to buffer
+  echo 0 > .../etm0/enable_source   |  READY: trace is stopped, user can read
+                                    |         trace data
+  echo 0 > .../tmc_etr0/enable_sink |  INVALID: buffer has been released
+
+With the state machine's help, we might even don't need to bother what
+the sink device's mode is.
+
+> When sysfs and Perf share the same memory in ETR_MODE_RESRV mode, a new
+> Perf session needs to overwrite an old inactive sysfs session by zeroing
+> len. This avoids sysfs from reading stale data because it has a separate
+> set of offsets in its etr_buf struct, even if that's backed by the same
+> memory as the Perf one.
+
+This can be naturally resolved if we have a state machine above?
+
+[...]
+
+> +static bool tmc_perf_sysfs_shared(struct tmc_drvdata *drvdata,
+> +				  struct etr_buf *perf_buf)
+> +{
+> +	/* In ETR_MODE_RESRV mode, sysfs and Perf share the same memory. */
+> +	return perf_buf &&
+> +	       drvdata->sysfs_buf &&
+> +	       drvdata->sysfs_buf->mode == ETR_MODE_RESRV &&
+> +	       perf_buf->mode == ETR_MODE_RESRV;
+> +}
+> +
+>  static int tmc_enable_etr_sink_perf(struct coresight_device *csdev,
+>  				    struct coresight_path *path)
+>  {
+> @@ -1772,6 +1782,18 @@ static int tmc_enable_etr_sink_perf(struct coresight_device *csdev,
+>  		goto unlock_out;
+>  	}
+>  
+> +	/*
+> +	 * Don't use if it's shared and being read by sysfs. Sysfs may only
+> +	 * start reading (the cleared zero length buffer) after the first
+> +	 * tmc_enable_etr_sink_perf(), which changes the result of this check,
+> +	 * so it should only be done once.
+> +	 */
+> +	if ((drvdata->sysfs_reading &&
+> +	     tmc_perf_sysfs_shared(drvdata, etr_perf->etr_buf))) {
+> +		rc = -EBUSY;
+> +		goto unlock_out;
+> +	}
+
+This is quite tricky. If someone reads the sysfs entry in the middle of
+a perf session, and the traced task is migrated to a different CPU or
+wakes up, the sink device may need to be re-enabled, however the sink
+enabling could fail due to the concurrent sysfs read here.
+
+Thanks,
+Leo
 
