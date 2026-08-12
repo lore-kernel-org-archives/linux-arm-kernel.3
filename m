@@ -4,80 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E378C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 17:26:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A745BC5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 17:27:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sgtKXHzGDDQyHWV9xugerf2/7MZfWzmH0C1BOKc6FKY=; b=OIMuZWRekXnqstgCECavzfRjgS
-	D5mWDF/1I7pDGMaUY6kNWO0BfdAwnaqSLV/NysccUd4tBnCi1v1FKey51P3ZDMEhu6/oM8kaY1vuy
-	XCN+QOTNz081vr/gLn1DV72KZ7bVE4ii/L/1cwxs+ERaa6jVbDtxiAAtbr1fRX4ZA5Aurv21ce0wa
-	YmP0qBPzynryX73Dl9OGgRKeX+uGmpANZ0MZdH90N0uufgqJE7tlwc1L8Db9McbpPW81xa/yHpEKV
-	KBJseLZ5Fp3aMuFI/0TfjAYz7JSOa1DYivip/ymghg42F9ipTSIiovbjopQLYkCK9b1ZvAdbO4OnE
-	jwUB/8hg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZX05ZDVE7Jfr5drKaSXjQHHtY4lpNkrei6dG9kjKuCQ=; b=zIHP2VqyeNgU1XZU+QqMSM9JIS
+	J/Wof5ujHrX58CrG27iogSEqZqGn3HmZV4qSdGlQYHYHBMCrbJGcNwatkb0xOhEtEH7SbDozi8DJ+
+	M/3KfRVrM3JBQf9Papd5p6fzk9vc5aVN57v5weeY2Ms4VEURYBMeG3viG6k0ac+FxPr/WQTEk8HIA
+	P6ZbisxeGO9XD8T8WAYb6I/ftzgENuWldXLNpGx6hNAJJtV86tNH3486fea1QsGXWBylaqbfzeh2+
+	cn1Jiii/IvLdIR1zXCl3hly6HyftnTUI+1iwKN5YUR5m1rG+1TFNws1H/Eoy1RHYzs7Jr6ds6z0ce
+	1U/O6yaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuCiG-0000000GfEw-3wAi;
-	Wed, 12 Aug 2026 17:26:00 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuCiE-0000000GfEP-2Jqo
+	id 1wuCjs-0000000Gfaw-1bXV;
+	Wed, 12 Aug 2026 17:27:40 +0000
+Received: from mgamail.intel.com ([198.175.65.14])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wuCjq-0000000GfaN-3VU3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 17:25:59 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 027DA1596;
-	Wed, 12 Aug 2026 10:25:53 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B91943F66F;
-	Wed, 12 Aug 2026 10:25:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786555556; bh=H8Ctj6oiAsOEpGNBs0wlRNq4MV8mA+m6BBgfdUbyouk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=B7MvlTwCYIwI4GDClgPFTpjUn0sPusFPcML8t810t+/14DjgB7H6MHkilb/6UiE7z
-	 ygNoSqQ5anoFHIng2RTl38bEgQufRq6aCROSFR8PsvTOYN+DONSLOZ4RNcz/oEDVl8
-	 rDzolVsJ4vasql17ywsCsdZsl95wvqEHSbsasHfo=
-Date: Wed, 12 Aug 2026 18:25:49 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
-	Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>, Jason Gunthorpe <jgg@ziepe.ca>,
-	Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
-Subject: Re: [RFC PATCH] dma: swiotlb: Size shared default pools for memory
- encryption
-Message-ID: <anysnQFVTO_RAYxp@arm.com>
-References: <20260811134056.756015-1-aneesh.kumar@kernel.org>
- <anxEc8EHmJQywVI5@arm.com>
- <yq5ajypvioks.fsf@kernel.org>
+	Wed, 12 Aug 2026 17:27:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1786555659; x=1818091659;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=WJPLHXt8itB/Cw880Ar8NhbyTTeEUpwQxfJvdcAm5iw=;
+  b=jwSvUCMlc5rI50YMMFht4yNKyz9ajttHHpXEoFQOMPE4k48kCMtzqw90
+   VR7vDM1q37HJvMkkJiiaHds5/++lu2VhNe95kF8vpjjFLWKc+ZFDDBVN7
+   hyhqACzDxM9XnD5qozg5VUHOcmSc0tjmka12CWrmKWlXkKN5VXo2DYxO+
+   xm5+M/chtEhX+jkovg4pWRyPVgUMct49Wa+jf2qF9W+08FA80/KL3Ypw4
+   AUK5achkseH0292SvcjE+YfOa9x/+OlWKVM24nzNLp6bPxaEteVyFvkLH
+   vU4rgLTMe/yuCzWPZaXbbz6XfDrxo4Cmka7iEB8/oI636XlRjaKUd4pQ8
+   A==;
+X-CSE-ConnectionGUID: gxxjnd4iQUOltHFK/7j9WQ==
+X-CSE-MsgGUID: WW/BnWyoQFWo06mNHDoN6w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11873"; a="90996227"
+X-IronPort-AV: E=Sophos;i="6.25,219,1779174000"; 
+   d="scan'208";a="90996227"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Aug 2026 10:27:38 -0700
+X-CSE-ConnectionGUID: e4SWaOEVTd+gRiS5EYjQbg==
+X-CSE-MsgGUID: Auz9Ud84QUGgNeZ3b4NBoA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,219,1779174000"; 
+   d="scan'208";a="261936541"
+Received: from soc-cp83kr3.clients.intel.com (HELO [10.122.185.5]) ([10.122.185.5])
+  by orviesa006-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Aug 2026 10:27:36 -0700
+Message-ID: <16296d40-67f3-4e50-923c-5b26fc122121@intel.com>
+Date: Wed, 12 Aug 2026 12:27:35 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <yq5ajypvioks.fsf@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 14/21] KVM: arm64: Apply dynamic guest counter
+ reservations
+To: Colton Lewis <coltonlewis@google.com>, kvm@vger.kernel.org
+Cc: Alexandru Elisei <alexandru.elisei@arm.com>,
+ Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
+ Russell King <linux@armlinux.org.uk>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+ Mingwei Zhang <mizhang@google.com>, Joey Gouly <joey.gouly@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, Mark Rutland <mark.rutland@arm.com>,
+ Shuah Khan <shuah@kernel.org>,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ James Clark <james.clark@linaro.org>, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, linux-perf-users@vger.kernel.org,
+ linux-kselftest@vger.kernel.org
+References: <20260612192909.1153907-1-coltonlewis@google.com>
+ <20260612192909.1153907-15-coltonlewis@google.com>
+Content-Language: en-US
+From: "Chen, Zide" <zide.chen@intel.com>
+In-Reply-To: <20260612192909.1153907-15-coltonlewis@google.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_102558_679560_0C54C216 
-X-CRM114-Status: GOOD (  24.66  )
+X-CRM114-CacheID: sfid-20260812_102738_923100_48380D2A 
+X-CRM114-Status: GOOD (  24.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,68 +99,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 12, 2026 at 04:38:03PM +0530, Aneesh Kumar K.V wrote:
-> Catalin Marinas <catalin.marinas@arm.com> writes:
-> > On Tue, Aug 11, 2026 at 07:10:56PM +0530, Aneesh Kumar K.V (Arm) wrote:
-> >> Systems with memory encryption use swiotlb to provide shared or
-> >> unencrypted buffers for device DMA. Confidential guests may route all
-> >> DMA through these buffers, while SME hosts use them for devices that
-> >> cannot address encrypted memory. The default swiotlb pool can therefore
-> >> be exhausted under I/O-intensive workloads.
-> >> 
-> >> Let architectures mark the default swiotlb pool as shared before
-> >> swiotlb_init().
-> >
-> > I thought we wanted even this decision to be moved out of the arch code.
+
+
+On 6/12/2026 2:29 PM, Colton Lewis wrote:
+> Apply dynamic guest counter reservations by checking if the requested
+> guest mask collides with any events the host has scheduled and calling
+> pmu_perf_resched_update() with a hook that updates the mask of
+> available counters in between schedule out and schedule in.
 > 
-> Architectures may want to use an unencrypted swiotlb pool for different
-> reasons, one of them being CC_ATTR_GUEST_MEM_ENCRYPT. x86 hosts also
-> require unencrypted pool to support SME. We can cover both cases using
-> CC_ATTR_MEM_ENCRYPT.
+> Signed-off-by: Colton Lewis <coltonlewis@google.com>
+> ---
+>  arch/arm64/kvm/pmu-direct.c  | 69 +++++++++++++++++++++++++++++++++++-
+>  include/linux/perf/arm_pmu.h |  1 +
+>  2 files changed, 69 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/kvm/pmu-direct.c b/arch/arm64/kvm/pmu-direct.c
+> index 49f1feb5d280c..044f011c9c84b 100644
+> --- a/arch/arm64/kvm/pmu-direct.c
+> +++ b/arch/arm64/kvm/pmu-direct.c
+> @@ -87,6 +87,73 @@ u64 kvm_pmu_direct_pmcr_read(struct kvm_vcpu *vcpu)
+>  		ARMV8_PMU_PMCR_N);
+>  }
+>  
+> +/* Callback to update counter mask between perf scheduling */
+> +static void kvm_pmu_update_mask(struct pmu *pmu, void *data)
+> +{
+> +	struct arm_pmu *arm_pmu = to_arm_pmu(pmu);
+> +	unsigned long *new_mask = data;
+> +
+> +	bitmap_copy(arm_pmu->cntr_mask, new_mask, ARMPMU_MAX_HWEVENTS);
+> +}
+> +
+> +/**
+> + * kvm_pmu_set_guest_counters() - Handle dynamic counter reservations
+> + * @cpu_pmu: struct arm_pmu to potentially modify
+> + * @guest_mask: new guest mask for the pmu
+> + *
+> + * Check if guest counters will interfere with current host events and
+> + * call into perf_pmu_resched_update if a reschedule is required.
+> + */
+> +static void kvm_pmu_set_guest_counters(struct arm_pmu *cpu_pmu, u64 guest_mask)
+> +{
+> +	struct pmu_hw_events *cpuc = this_cpu_ptr(cpu_pmu->hw_events);
+> +	DECLARE_BITMAP(guest_bitmap, ARMPMU_MAX_HWEVENTS);
+> +	DECLARE_BITMAP(new_mask, ARMPMU_MAX_HWEVENTS);
+> +	bool need_resched = false;
+> +
+> +	bitmap_from_arr64(guest_bitmap, &guest_mask, ARMPMU_MAX_HWEVENTS);
+> +	bitmap_copy(new_mask, cpu_pmu->hw_cntr_impl, ARMPMU_MAX_HWEVENTS);
+> +
+> +	if (guest_mask) {
+> +		/* Subtract guest counters from available host mask */
+> +		bitmap_andnot(new_mask, new_mask, guest_bitmap, ARMPMU_MAX_HWEVENTS);
+> +
+> +		/* Did we collide with an active host event? */
+> +		if (bitmap_intersects(cpuc->used_mask, guest_bitmap, ARMPMU_MAX_HWEVENTS)) {
+> +			int idx;
+> +
+> +			need_resched = true;
+> +			cpuc->host_squeezed = true;
+> +
+> +			/* Look for pinned events that are about to be preempted */
+> +			for_each_set_bit(idx, guest_bitmap, ARMPMU_MAX_HWEVENTS) {
+> +				if (test_bit(idx, cpuc->used_mask) && cpuc->events[idx] &&
+> +				    cpuc->events[idx]->attr.pinned) {
+> +					pr_warn_once("perf: Pinned host event squeezed out by KVM guest PMU partition\n");
+> +					break;
+> +				}
+> +			}
+> +		}
+> +	} else {
+> +		/*
+> +		 * Restoring to hw_cntr_impl.
+> +		 * Only resched if we previously squeezed an event.
+> +		 */
+> +		if (cpuc->host_squeezed) {
+> +			need_resched = true;
+> +			cpuc->host_squeezed = false;
+> +		}
+> +	}
+> +
+> +	if (need_resched) {
+> +		/* Collision: run full perf reschedule */
+> +		perf_pmu_resched_update(&cpu_pmu->pmu, kvm_pmu_update_mask, new_mask);
+> +	} else {
+> +		/* Host was never using guest counters anyway */
+> +		bitmap_copy(cpu_pmu->cntr_mask, new_mask, ARMPMU_MAX_HWEVENTS);
+> +	}
+> +}
+> +
+>  /**
+>   * kvm_pmu_host_counter_mask() - Compute bitmask of host-reserved counters
+>   * @pmu: Pointer to arm_pmu struct
+> @@ -209,6 +276,7 @@ void kvm_pmu_load(struct kvm_vcpu *vcpu)
+>  
+>  	pmu = vcpu->kvm->arch.arm_pmu;
+>  	guest_counters = kvm_pmu_guest_counter_mask(pmu);
+> +	kvm_pmu_set_guest_counters(pmu, guest_counters);
+>  	kvm_pmu_apply_event_filter(vcpu);
+>  
+>  	for_each_set_bit(i, &guest_counters, ARMPMU_MAX_HWEVENTS) {
+> @@ -317,7 +385,6 @@ void kvm_pmu_put(struct kvm_vcpu *vcpu)
+>  	/* Stop guest counters and disable interrupts in hardware. */
+>  	write_sysreg(mask, pmcntenclr_el0);
+>  	write_sysreg(mask, pmintenclr_el1);
+> -
+>  	kvm_pmu_set_guest_counters(pmu, 0);
 
-Yes but in one case it did not do resizing. With your proposal, it now
-does swiotlb resizing even for SME.
+I must have missed something.
 
-> However, pKVM does not want an unencrypted SWIOTLB
-> pool. So I was thinking it would be much cleaner to let the architecture
-> code drive that decision.
+Here, vcpu->kvm->arch.arm_pmu->cntr_mask is restored to cntr_mask_impl.
+Is this same struct shared with the perf driver
+(to_arm_pmu(event->pmu)), and shared across other vCPUs as well?
 
-Let's not single out pKVM but rather the reason it does not want one -
-it relies heavily on restricted mem. If you started a pKVM guest
-without rmem in DT, I assume it will need swiotlb to function properly.
-It's not a great heuristic (devices may not use rmem) but it preserves
-the current behaviour and can be overridden on the command line.
+If so, if another pCPU still has a PMU-partition-enabled vcpu loaded
+with guest-owned counters (MDCR_EL2.HPMN is set), could a host event be
+scheduled onto one of those guest-owned counters, conflicting with the
+guest?
 
-> > BTW, why does arm64 report CC_ATTR_MEM_ENCRYPT instead of the GUEST
-> > option in realms?
+>  	preempt_enable();
+>  }
 
-It's still not clear to me why we went for CC_ATTR_MEM_ENCRYPT instead
-of CC_ATTR_GUEST_MEM_ENCRYPT.
 
-> For the same reason I mentioned above, architectures may have different
-> reasons for setting cc_shared = true. IMHO, it is cleaner to let the
-> architecture code make that decision before swiotlb_init().
-
-The arch code already reports cc_platform_has(), can we not rely on
-this in the core code instead of specific is_realm_world() and a new
-SWIOTLB_INIT_CC_SHARED flag or function call?
-
-We have three different decisions that shouldn't be driven by a single
-flag from the arch code:
-
-1. allocate default pool
-2. make default pool shared
-3. resize default pool
-
-(1) is traditionally driven by arch code and that's fine. For (2), the
-core code has the information via CC_ATTR_*. For (3), we can enlarge it
-based on CC_ATTR_GUEST_MEM_ENCRYPT in combination with rmem (but not
-CC_ATTR_MEM_ENCRYPT to keep the current x86 behaviour).
-
-I think we should also move the reduction based on
-CONFIG_DMA_BOUNCE_UNALIGNED_KMALLOC into the core code. Riscv copied the
-same heuristic as arm64, so there's precedent for sharing.
-
--- 
-Catalin
 
