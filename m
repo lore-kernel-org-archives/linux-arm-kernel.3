@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 991B5C5DF64
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 15:37:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA61DC5DF61
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 15:37:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eEIg1Xw4LzW5cs8dPxyjzAXZwHhpDE2Y+1SyF1VqDm0=; b=x2DYOtvwlzfh4lgc7IqDMDztRD
-	1bvNmHemUDXQ59N0L3Bsnbfilp2lAaQj7M/Ye21xy2aS4lFvrs/8E/zt6f6Zl4EB1Oust/0ckUTNW
-	rmsC4GiRJIPhnd2iq9n7tL70vxFUzZ3i5GolBYQwt8i+sDVn2KApFKrJo/DklExHoDlvmHKcRIU78
-	d1gzCXNXdDgpE0ISSP7lj4/OeDkTcPS5Fh4T2wIcyOBO8a3xBNVsExb10Lq3tC/O5OdN5FBe45n1v
-	V7R28brUIunOosMwx1wba7gLitc7ivQMHa0X4YcQDfsqckJJ7Tl9QU1akiCEuys51N54GELVw7pfo
-	14WLMgEw==;
+	bh=aaAObDlEPyOkMHd+7Cm8L/rvLRRZcLQUEVCbbkCwFzI=; b=pu82KXPwVs7QPV8/H2ZtL+MtvC
+	sbiSjpXfxmGMsR+L/d9OeGc5Tu136zr57M7lVkRrQoLuqujOp7cOWZnFtTeoZ/XjWmx3XgbefRhik
+	tYaiMYm/fOEGfmXQuvF58NZXIZ+7kUyEckCDlIvcmrXnN9THuG5nvyNMNVAkGd6jv5DMyp5QcPJhv
+	rzgXEO6qrNkeLnFz0mMkv5jTONvumpUbjLUTpf5NtEN9JLKp4r/e+XayKPxSSRqH1QKqWtJAmuG4p
+	YbA7KIJ/d5CpUhWYjc41XXv/GAa0rST7EhHsTRa1u0uQN6LdZvZhDVXqQcCS7SRvuQ3mp9EsGWXfX
+	Aa6CRkyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuB1C-0000000GUay-3vAy;
-	Wed, 12 Aug 2026 15:37:26 +0000
+	id 1wuB1E-0000000GUfE-2ZLg;
+	Wed, 12 Aug 2026 15:37:28 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuB0r-0000000GU7t-1lGv
+	id 1wuB0s-0000000GU9h-3hYY
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 12 Aug 2026 15:37:05 +0000
+	Wed, 12 Aug 2026 15:37:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=eEIg1Xw4LzW5cs8dPxyjzAXZwHhpDE2Y+1SyF1VqDm0=; b=OTG7uMxfa88FLfOAUxL8I4LoKW
-	NiW4aX34g9LkLrXCIou7Cd6nkZYeAa4D0TO8J3qzIKNiVkwGlmTvJf3GAffrlr1evtTlq2MFkIRdH
-	0nN8G1S1KuRw0bt96zVHbtlEVZL4vBIAWsuPpUy4yaPfXrGzkE8+mQb3257qgaF6AsS1L9ycoGfVr
-	feskf2XM2JrLruMt6d49bQQDd0G6e7r9q0t3DtXfikC8qJK4spzenIGzROjNU4emDWAW7RuIi8361
-	LtkfmozJCrlg6cMySfA1K+qzRUe72dOwpKqoCcZRepvdpXodCpS9P0eiWjV8h/vdc0Ee6O7REk0bq
-	VxpAuYTA==;
+	bh=aaAObDlEPyOkMHd+7Cm8L/rvLRRZcLQUEVCbbkCwFzI=; b=EwUuks76RQ43OlsFg278deg3dW
+	DHkESaFUy0NKdHbPEFyZLoBF0pcd3Yr0+ZepXapmSnmgGCMy0zaSeyfRYHXC0rlL0RVe2DQly+QfK
+	DGIswNvwy4rq4Z7l1PqAhPd3X8XnZEkyMVPlLXS6m9yThJ79ptFUDjH07MAQFQcZb4CSUR3NV09GX
+	W7fltRwy6uSJKtB6fNYsr6zSDi+OkwgH9Qg4kcrcG4vL2ZYkBVNHSFT9VuZxaFjCAwPVTjsAoqTWh
+	BBGVzvDh81rj+kuALGVYSyUKn2ObZj1wXl3mWXD4UeyKgFyO6omMbgG/fKvrpjP+ouM8NOPbT2k3M
+	sXZ+5Fvg==;
 Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wuB0n-0000000FZAt-3693
+	id 1wuB0o-0000000FZBn-3zUm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 15:37:04 +0000
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67CE1S3x3686405;
-	Wed, 12 Aug 2026 15:36:44 GMT
+	Wed, 12 Aug 2026 15:37:05 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67CE1pvC3640582;
+	Wed, 12 Aug 2026 15:36:46 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
 	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=eEIg1Xw4LzW5cs8dP
-	xyjzAXZwHhpDE2Y+1SyF1VqDm0=; b=IwN7xo260tXIwAnCqP5iqEH6pBM0X50u4
-	bBe1YvnlpHjTz/xLlY6taA+XVQzqgfLM2xcRPAJ3rf46ipvGTlYWLZ4Pxh133eli
-	InEua6EO4COwbd7q6lzMDtZOjBW3xcbbIa8t85cSTMk3ksM7bIeXjtFdk4gJBBxR
-	602poLr3xFNExIDNNe0danjlaTwI5oznBfhChxxHjAo4puSlwE118faWahgNtYFB
-	EZmRzUqr4pxiC5LtvSL5UEl+73IWUiSPfnlOM3Waa+G1/Zl6NyaBfvmDhL9jhkxL
-	Oka/QwD+iXXrd+lb2iJpKONmQv01ST5t724AXRKHtLmDrMeKbEmtg==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fwvm9u9u5-1
+	:mime-version:references:subject:to; s=pp1; bh=aaAObDlEPyOkMHd+7
+	Cm8L/rvLRRZcLQUEVCbbkCwFzI=; b=HxChjJBk+k7fAePv/DkhdRciorxxPqNVs
+	Fq/JOOl5KtqpPkwPGY6EVq4DBxxZnzJgMxZyIIL34JVvENNvcOvpyFNv1NinuD5N
+	wsA4mk0Zsfe3ptTHwt0GoNmnxxCMlycyPEMtiHtvbLnfPrcOwZTbY9a8zUldAg9E
+	17odPVqMU73cCmwNjTJExAv+16E+F1+AvqMKxvWzZgrtudGPSSjCaYKkDn+z4lnL
+	tvGM3C5wv830MieC1Nchgx4a/92bgJiwn7b6Xa1SYsjkFvxRtHQ4tZPp9/rrdG3P
+	IRvnzaddKGEAXthubSA2VnVeFs+HLgOWxLOGv6ArynwiOp10zrDrA==
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fwvq9k7ch-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 12 Aug 2026 15:36:43 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 67CFQTf6024859;
-	Wed, 12 Aug 2026 15:36:42 GMT
-Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4fxfsjxpjn-1
+	Wed, 12 Aug 2026 15:36:45 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 67CFQP1a013797;
+	Wed, 12 Aug 2026 15:36:44 GMT
+Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4fxg9h6mka-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 12 Aug 2026 15:36:42 +0000 (GMT)
+	Wed, 12 Aug 2026 15:36:44 +0000 (GMT)
 Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 67CFacer26607904
+	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 67CFaeeJ30474914
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 12 Aug 2026 15:36:38 GMT
+	Wed, 12 Aug 2026 15:36:40 GMT
 Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 6E6B420040;
-	Wed, 12 Aug 2026 15:36:38 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 3C7AE20049;
+	Wed, 12 Aug 2026 15:36:40 +0000 (GMT)
 Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 1599120067;
-	Wed, 12 Aug 2026 15:36:38 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id E07562004E;
+	Wed, 12 Aug 2026 15:36:39 +0000 (GMT)
 Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
 	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Wed, 12 Aug 2026 15:36:38 +0000 (GMT)
+	Wed, 12 Aug 2026 15:36:39 +0000 (GMT)
 From: Steffen Eiden <seiden@linux.ibm.com>
 To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
         linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
@@ -104,9 +104,9 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
         Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
         Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
         Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v6 16/33] KVM: s390: Move s390 kvm code into a subdirectory
-Date: Wed, 12 Aug 2026 17:36:12 +0200
-Message-ID: <20260812153631.3376090-17-seiden@linux.ibm.com>
+Subject: [PATCH v6 21/33] KVM: s390: gmap: Make prefix handling optional
+Date: Wed, 12 Aug 2026 17:36:17 +0200
+Message-ID: <20260812153631.3376090-22-seiden@linux.ibm.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260812153631.3376090-1-seiden@linux.ibm.com>
 References: <20260812153631.3376090-1-seiden@linux.ibm.com>
@@ -114,35 +114,35 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-TM-AS-GCONF: 00
 X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODEyMDEyNiBTYWx0ZWRfX8KvD/J/dZhsQ
- YS7wq0vmF10P0ro7yCi1FFfcy2Kpe/upnIu/jVBfScm8JVu0VQTAgS0rU/O/Z0XlWc/M10qGHDo
- yCkbdwcJIurX5A+XTyhfjn3L4bgvKwnShrCVNmNq4dvlaCXC5x5F2RhawcmSPMfgTHG8IUfQgzH
- rkJf52mdNYxsfW+Yz09FgkfZKjMyfqIH5MhdrrSsNzY9aa6utZ+KhcH+mWUnBd7KbZXmgGH7pdF
- 0KMTBPDRmkib+oiZTiiscnGH6Zjc+hORbO5AYnsfX8unvzM0roa0NuAUI2MbTfoCX5GBm0dKSHc
- zlhUJ2pSn5BsPVLjhWGSNFEe3aPjQzcCCqyDCPV0g7m8tzhM2/BnR1TaZFG9ADjtbdOtA1fiFDO
- t5aOAKqQDPDTzrsLBtP8G8nlZS4JekmoYgsMga71hqSqdfCNHLJzEJE7/LxlUByMBy8+wc8UDBl
- 7fo3meLF2vsVfcDUMYw==
-X-Proofpoint-ORIG-GUID: Vgn75nfZb8w5zP45uaoqsu3-ApumsbzN
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODEyMDEyNiBTYWx0ZWRfXxGSscRy5sw92
- MkKlE0u86yrVoyr96v2J+dg8IvBumW1fDNrr+7MtJgsFRAriMGZds/iHJpTLQuUmqSE7HMhVzuA
- kw1SoXeKfI3+QujSwkBB7lFct8f4XMc=
-X-Authority-Analysis: v=2.4 cv=IfK3n2qa c=1 sm=1 tr=0 ts=6a7c930c cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
+X-Proofpoint-GUID: TILkdj32NvlETDYS1R3Kh76anHKPAYH1
+X-Authority-Analysis: v=2.4 cv=PbDPQChd c=1 sm=1 tr=0 ts=6a7c930e cx=c_pps
+ a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
  a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=U7nrCbtTmkRpXpFmAIza:22 a=VnNF1IyMAAAA:8 a=VwQbUJbxAAAA:8
- a=l8Pa1nNPRxDDRIpcrlkA:9
-X-Proofpoint-GUID: q5_k0aIdYqMZ-vw1puVkrjVtk6VgDvKy
+ a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8 a=vumRUvCQ2wGzuXjOa00A:9
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODEyMDEyNiBTYWx0ZWRfX60u34E28Gevj
+ XaEGSbC9MtGkUrJiKx52XJFcqH1JW1p/+6yPZW55m2JZkohNGyfAKstJ3hqxdp1hpMcW+DDPSQr
+ UZbWl9BtM/P1XTZnQbVNuvbHQbPmM9xl83PwH7rlW7wLaWMRD22o13ElQMR8n28nCmzcKGYawYc
+ sMOw6+dWqoGxQodMUTuYI4MzFdXKij9QkvR52YKOxje2bvVWJLSRoSNMyboyWInHUps+cDfF61j
+ Hb8Ti+9FjXSMW1Z/H7eIdW89UrzIkGmdptuZefXKxcNB7lwlI1KePjP0jqY62c//8gHc9mWtiLc
+ IqqswPHEMaOzRYoSaCIkw74zol1uOVnJgeQccZ0QpFwl5V+JcQn/sWXOTQXRu+l4LVFu6H1Uz92
+ RYqNcrEcoT4vc20eYgli/HN15wzIW8G0ppqDlL/6XctkVpkHjjT/7ZgaActxrLwW5sF+yVUYVmk
+ qqM41I9xPcSrUFYwbMg==
+X-Proofpoint-ORIG-GUID: DlOU6DU5XwB_cNfpOlA2Xr09lDEgC93l
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODEyMDEyNiBTYWx0ZWRfX2Icw4x8d1zYO
+ Ep+tonKZi74jupPab3UY229sbY3VK7tRNjZoFVo2FO8WbvzDCIedp8c2bdKLSTR4850pTCPMoxu
+ RwaWACs6gPLGQVomeDy0Vx6NCTMZsV8=
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-08-12_04,2026-08-12_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 priorityscore=1501 impostorscore=0 bulkscore=0 clxscore=1015
- lowpriorityscore=0 adultscore=0 malwarescore=0 spamscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608120126
+ spamscore=0 bulkscore=0 impostorscore=0 malwarescore=0 adultscore=0
+ clxscore=1015 priorityscore=1501 suspectscore=0 phishscore=0
+ lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2608120126
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_163702_167649_6188DA6E 
-X-CRM114-Status: GOOD (  16.90  )
+X-CRM114-CacheID: sfid-20260812_163703_347525_76A69873 
+X-CRM114-Status: GOOD (  15.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,244 +157,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move all the code required to run s390 KVM guests on s390 to a s390
-subdirectory. Move gmap related code into a gmap directory to later
-share gmap code between KVM implementations.
+Guard guest prefix handling behind `KVM_S390_MANAGES_S390_GUEST`. This
+enables other KVM implementations to use gmap without implementing
+prefix handling. The prefix handling is integrated deeply in the gmap
+implementation. Therefore, provide safe default implementations for the
+guarded functions.
 
-Update S390 VFIO-PCI MAINTAINERS filepath.
-
-No functional change.
+No functional changes.
 
 Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 ---
- MAINTAINERS                           |  2 +-
- arch/s390/kvm/Makefile                | 11 +----------
- arch/s390/kvm/gmap/Makefile           |  5 +++++
- arch/s390/kvm/{ => gmap}/dat.c        |  0
- arch/s390/kvm/{ => gmap}/dat.h        |  0
- arch/s390/kvm/{ => gmap}/faultin.c    |  0
- arch/s390/kvm/{ => gmap}/faultin.h    |  0
- arch/s390/kvm/{ => gmap}/gmap.c       |  0
- arch/s390/kvm/{ => gmap}/gmap.h       |  0
- arch/s390/kvm/{ => gmap}/trace_gmap.h |  2 +-
- arch/s390/kvm/{ => s390}/Makefile     |  9 ++++-----
- arch/s390/kvm/{ => s390}/diag.c       |  0
- arch/s390/kvm/{ => s390}/gaccess.c    |  0
- arch/s390/kvm/{ => s390}/gaccess.h    |  0
- arch/s390/kvm/{ => s390}/guestdbg.c   |  0
- arch/s390/kvm/{ => s390}/intercept.c  |  0
- arch/s390/kvm/{ => s390}/interrupt.c  |  0
- arch/s390/kvm/{ => s390}/pci.c        |  0
- arch/s390/kvm/{ => s390}/pci.h        |  0
- arch/s390/kvm/{ => s390}/priv.c       |  0
- arch/s390/kvm/{ => s390}/pv.c         |  0
- arch/s390/kvm/{ => s390}/s390.c       |  0
- arch/s390/kvm/{ => s390}/s390.h       |  0
- arch/s390/kvm/{ => s390}/sigp.c       |  0
- arch/s390/kvm/{ => s390}/trace-s390.h |  0
- arch/s390/kvm/{ => s390}/trace.h      |  0
- arch/s390/kvm/{ => s390}/vsie.c       |  0
- 27 files changed, 12 insertions(+), 17 deletions(-)
- create mode 100644 arch/s390/kvm/gmap/Makefile
- rename arch/s390/kvm/{ => gmap}/dat.c (100%)
- rename arch/s390/kvm/{ => gmap}/dat.h (100%)
- rename arch/s390/kvm/{ => gmap}/faultin.c (100%)
- rename arch/s390/kvm/{ => gmap}/faultin.h (100%)
- rename arch/s390/kvm/{ => gmap}/gmap.c (100%)
- rename arch/s390/kvm/{ => gmap}/gmap.h (100%)
- rename arch/s390/kvm/{ => gmap}/trace_gmap.h (96%)
- copy arch/s390/kvm/{ => s390}/Makefile (62%)
- rename arch/s390/kvm/{ => s390}/diag.c (100%)
- rename arch/s390/kvm/{ => s390}/gaccess.c (100%)
- rename arch/s390/kvm/{ => s390}/gaccess.h (100%)
- rename arch/s390/kvm/{ => s390}/guestdbg.c (100%)
- rename arch/s390/kvm/{ => s390}/intercept.c (100%)
- rename arch/s390/kvm/{ => s390}/interrupt.c (100%)
- rename arch/s390/kvm/{ => s390}/pci.c (100%)
- rename arch/s390/kvm/{ => s390}/pci.h (100%)
- rename arch/s390/kvm/{ => s390}/priv.c (100%)
- rename arch/s390/kvm/{ => s390}/pv.c (100%)
- rename arch/s390/kvm/{ => s390}/s390.c (100%)
- rename arch/s390/kvm/{ => s390}/s390.h (100%)
- rename arch/s390/kvm/{ => s390}/sigp.c (100%)
- rename arch/s390/kvm/{ => s390}/trace-s390.h (100%)
- rename arch/s390/kvm/{ => s390}/trace.h (100%)
- rename arch/s390/kvm/{ => s390}/vsie.c (100%)
+ arch/s390/kvm/gmap/dat.c  |  2 +-
+ arch/s390/kvm/gmap/dat.h  |  9 +++++++++
+ arch/s390/kvm/gmap/gmap.c | 12 +++++++-----
+ arch/s390/kvm/gmap/gmap.h |  9 ++++++++-
+ 4 files changed, 25 insertions(+), 7 deletions(-)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 15c7dc516f7c..29802f061063 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -24150,7 +24150,7 @@ L:	linux-s390@vger.kernel.org
- L:	kvm@vger.kernel.org
- S:	Supported
- T:	git git://git.kernel.org/pub/scm/linux/kernel/git/kvms390/linux.git
--F:	arch/s390/kvm/pci*
-+F:	arch/s390/kvm/s390/pci*
- F:	drivers/vfio/pci/vfio_pci_zdev.c
- F:	include/uapi/linux/vfio_zdev.h
+diff --git a/arch/s390/kvm/gmap/dat.c b/arch/s390/kvm/gmap/dat.c
+index 43ebafb56ce5..3038eae1cfcc 100644
+--- a/arch/s390/kvm/gmap/dat.c
++++ b/arch/s390/kvm/gmap/dat.c
+@@ -1011,6 +1011,7 @@ bool dat_test_age_gfn(union asce asce, gfn_t start, gfn_t end)
+ 	return _dat_walk_gfn_range(start, end, asce, &test_age_ops, 0, NULL) > 0;
+ }
  
-diff --git a/arch/s390/kvm/Makefile b/arch/s390/kvm/Makefile
-index 961de97b8e80..a4e3875b5bdd 100644
---- a/arch/s390/kvm/Makefile
-+++ b/arch/s390/kvm/Makefile
-@@ -3,13 +3,4 @@
- #
- # Copyright IBM Corp. 2008
++#if KVM_S390_MANAGES_S390_GUEST
+ static long dat_set_pn_crste(union crste *crstep, gfn_t gfn, gfn_t next, struct dat_walk *walk)
+ {
+ 	union crste newcrste, oldcrste;
+@@ -1059,7 +1060,6 @@ int dat_set_prefix_notif_bit(union asce asce, gfn_t gfn)
+ 	return 0;
+ }
  
--include $(srctree)/virt/kvm/Makefile.kvm
--
--ccflags-y := -I$(src)
--
--kvm-y += s390.o intercept.o interrupt.o priv.o sigp.o
--kvm-y += diag.o gaccess.o guestdbg.o vsie.o pv.o
--kvm-y += dat.o gmap.o faultin.o
--
--kvm-$(CONFIG_VFIO_PCI_ZDEV_KVM) += pci.o
--obj-$(CONFIG_KVM) += kvm.o
-+obj-$(CONFIG_KVM) += s390/
-diff --git a/arch/s390/kvm/gmap/Makefile b/arch/s390/kvm/gmap/Makefile
-new file mode 100644
-index 000000000000..3a4f8df11622
---- /dev/null
-+++ b/arch/s390/kvm/gmap/Makefile
-@@ -0,0 +1,5 @@
-+# SPDX-License-Identifier: GPL-2.0
+-#if KVM_S390_MANAGES_S390_GUEST
+ /**
+  * dat_perform_essa() - Perform ESSA actions on the PGSTE.
+  * @asce: The asce to operate on.
+diff --git a/arch/s390/kvm/gmap/dat.h b/arch/s390/kvm/gmap/dat.h
+index 4f11f9bbd83a..e452c141b841 100644
+--- a/arch/s390/kvm/gmap/dat.h
++++ b/arch/s390/kvm/gmap/dat.h
+@@ -549,7 +549,16 @@ void dat_set_ptval(struct page_table *table, struct ptval_param param, unsigned
+ 
+ int dat_set_slot(struct kvm_s390_mmu_cache *mc, union asce asce, gfn_t start, gfn_t end,
+ 		 u16 type, u16 param);
 +
-+GMAP ?= ../gmap
++#if KVM_S390_MANAGES_S390_GUEST
+ int dat_set_prefix_notif_bit(union asce asce, gfn_t gfn);
++#else
++static inline int dat_set_prefix_notif_bit(union asce asce, gfn_t gfn)
++{
++	return 0;
++}
++#endif /* KVM_S390_MANAGES_S390_GUEST */
 +
-+gmap-y += $(GMAP)/dat.o $(GMAP)/gmap.o $(GMAP)/faultin.o
-diff --git a/arch/s390/kvm/dat.c b/arch/s390/kvm/gmap/dat.c
-similarity index 100%
-rename from arch/s390/kvm/dat.c
-rename to arch/s390/kvm/gmap/dat.c
-diff --git a/arch/s390/kvm/dat.h b/arch/s390/kvm/gmap/dat.h
-similarity index 100%
-rename from arch/s390/kvm/dat.h
-rename to arch/s390/kvm/gmap/dat.h
-diff --git a/arch/s390/kvm/faultin.c b/arch/s390/kvm/gmap/faultin.c
-similarity index 100%
-rename from arch/s390/kvm/faultin.c
-rename to arch/s390/kvm/gmap/faultin.c
-diff --git a/arch/s390/kvm/faultin.h b/arch/s390/kvm/gmap/faultin.h
-similarity index 100%
-rename from arch/s390/kvm/faultin.h
-rename to arch/s390/kvm/gmap/faultin.h
-diff --git a/arch/s390/kvm/gmap.c b/arch/s390/kvm/gmap/gmap.c
-similarity index 100%
-rename from arch/s390/kvm/gmap.c
-rename to arch/s390/kvm/gmap/gmap.c
-diff --git a/arch/s390/kvm/gmap.h b/arch/s390/kvm/gmap/gmap.h
-similarity index 100%
-rename from arch/s390/kvm/gmap.h
-rename to arch/s390/kvm/gmap/gmap.h
-diff --git a/arch/s390/kvm/trace_gmap.h b/arch/s390/kvm/gmap/trace_gmap.h
-similarity index 96%
-rename from arch/s390/kvm/trace_gmap.h
-rename to arch/s390/kvm/gmap/trace_gmap.h
-index a3cad705021b..15ec88bdce55 100644
---- a/arch/s390/kvm/trace_gmap.h
-+++ b/arch/s390/kvm/gmap/trace_gmap.h
-@@ -7,7 +7,7 @@
- #undef TRACE_SYSTEM
- #define TRACE_SYSTEM kvm
- #undef TRACE_INCLUDE_PATH
--#define TRACE_INCLUDE_PATH .
-+#define TRACE_INCLUDE_PATH ../gmap
- #undef TRACE_INCLUDE_FILE
- #define TRACE_INCLUDE_FILE trace_gmap
+ bool dat_test_age_gfn(union asce asce, gfn_t start, gfn_t end);
  
-diff --git a/arch/s390/kvm/Makefile b/arch/s390/kvm/s390/Makefile
-similarity index 62%
-copy from arch/s390/kvm/Makefile
-copy to arch/s390/kvm/s390/Makefile
-index 961de97b8e80..762a63826423 100644
---- a/arch/s390/kvm/Makefile
-+++ b/arch/s390/kvm/s390/Makefile
-@@ -1,15 +1,14 @@
- # SPDX-License-Identifier: GPL-2.0
--# Makefile for kernel virtual machines on s390
--#
--# Copyright IBM Corp. 2008
+ #if KVM_S390_MANAGES_S390_GUEST
+diff --git a/arch/s390/kvm/gmap/gmap.c b/arch/s390/kvm/gmap/gmap.c
+index 86513f653850..4968330e9553 100644
+--- a/arch/s390/kvm/gmap/gmap.c
++++ b/arch/s390/kvm/gmap/gmap.c
+@@ -24,11 +24,6 @@
+ #include "s390.h"
+ #include "faultin.h"
  
-+KVM := ../../../../virt/kvm
- include $(srctree)/virt/kvm/Makefile.kvm
-+include $(srctree)/arch/s390/kvm/gmap/Makefile
+-static inline bool kvm_s390_is_in_sie(struct kvm_vcpu *vcpu)
+-{
+-	return vcpu->arch.sie_block->prog0c & PROG_IN_SIE;
+-}
+-
+ static int gmap_limit_to_type(gfn_t limit)
+ {
+ 	if (!limit)
+@@ -256,6 +251,12 @@ int s390_replace_asce(struct gmap *gmap)
+ 	return 0;
+ }
  
--ccflags-y := -I$(src)
-+ccflags-y := -I$(src) -I$(srctree)/arch/s390/kvm/gmap
++#if KVM_S390_MANAGES_S390_GUEST
++static inline bool kvm_s390_is_in_sie(struct kvm_vcpu *vcpu)
++{
++	return vcpu->arch.sie_block->prog0c & PROG_IN_SIE;
++}
++
+ bool _gmap_unmap_prefix(struct gmap *gmap, gfn_t gfn, gfn_t end, bool hint)
+ {
+ 	struct kvm *kvm = gmap->kvm;
+@@ -278,6 +279,7 @@ bool _gmap_unmap_prefix(struct gmap *gmap, gfn_t gfn, gfn_t end, bool hint)
+ 	}
+ 	return true;
+ }
++#endif /* KVM_S390_MANAGES_S390_GUEST */
  
- kvm-y += s390.o intercept.o interrupt.o priv.o sigp.o
- kvm-y += diag.o gaccess.o guestdbg.o vsie.o pv.o
--kvm-y += dat.o gmap.o faultin.o
-+kvm-y += $(gmap-y)
+ struct clear_young_pte_priv {
+ 	struct gmap *gmap;
+diff --git a/arch/s390/kvm/gmap/gmap.h b/arch/s390/kvm/gmap/gmap.h
+index 6f3bf11d2166..8f47f29c89fd 100644
+--- a/arch/s390/kvm/gmap/gmap.h
++++ b/arch/s390/kvm/gmap/gmap.h
+@@ -85,7 +85,6 @@ struct gmap_cache {
+ 	for (pos = (head); n = pos ? pos->next : NULL, pos; pos = n)
  
- kvm-$(CONFIG_VFIO_PCI_ZDEV_KVM) += pci.o
- obj-$(CONFIG_KVM) += kvm.o
-diff --git a/arch/s390/kvm/diag.c b/arch/s390/kvm/s390/diag.c
-similarity index 100%
-rename from arch/s390/kvm/diag.c
-rename to arch/s390/kvm/s390/diag.c
-diff --git a/arch/s390/kvm/gaccess.c b/arch/s390/kvm/s390/gaccess.c
-similarity index 100%
-rename from arch/s390/kvm/gaccess.c
-rename to arch/s390/kvm/s390/gaccess.c
-diff --git a/arch/s390/kvm/gaccess.h b/arch/s390/kvm/s390/gaccess.h
-similarity index 100%
-rename from arch/s390/kvm/gaccess.h
-rename to arch/s390/kvm/s390/gaccess.h
-diff --git a/arch/s390/kvm/guestdbg.c b/arch/s390/kvm/s390/guestdbg.c
-similarity index 100%
-rename from arch/s390/kvm/guestdbg.c
-rename to arch/s390/kvm/s390/guestdbg.c
-diff --git a/arch/s390/kvm/intercept.c b/arch/s390/kvm/s390/intercept.c
-similarity index 100%
-rename from arch/s390/kvm/intercept.c
-rename to arch/s390/kvm/s390/intercept.c
-diff --git a/arch/s390/kvm/interrupt.c b/arch/s390/kvm/s390/interrupt.c
-similarity index 100%
-rename from arch/s390/kvm/interrupt.c
-rename to arch/s390/kvm/s390/interrupt.c
-diff --git a/arch/s390/kvm/pci.c b/arch/s390/kvm/s390/pci.c
-similarity index 100%
-rename from arch/s390/kvm/pci.c
-rename to arch/s390/kvm/s390/pci.c
-diff --git a/arch/s390/kvm/pci.h b/arch/s390/kvm/s390/pci.h
-similarity index 100%
-rename from arch/s390/kvm/pci.h
-rename to arch/s390/kvm/s390/pci.h
-diff --git a/arch/s390/kvm/priv.c b/arch/s390/kvm/s390/priv.c
-similarity index 100%
-rename from arch/s390/kvm/priv.c
-rename to arch/s390/kvm/s390/priv.c
-diff --git a/arch/s390/kvm/pv.c b/arch/s390/kvm/s390/pv.c
-similarity index 100%
-rename from arch/s390/kvm/pv.c
-rename to arch/s390/kvm/s390/pv.c
-diff --git a/arch/s390/kvm/s390.c b/arch/s390/kvm/s390/s390.c
-similarity index 100%
-rename from arch/s390/kvm/s390.c
-rename to arch/s390/kvm/s390/s390.c
-diff --git a/arch/s390/kvm/s390.h b/arch/s390/kvm/s390/s390.h
-similarity index 100%
-rename from arch/s390/kvm/s390.h
-rename to arch/s390/kvm/s390/s390.h
-diff --git a/arch/s390/kvm/sigp.c b/arch/s390/kvm/s390/sigp.c
-similarity index 100%
-rename from arch/s390/kvm/sigp.c
-rename to arch/s390/kvm/s390/sigp.c
-diff --git a/arch/s390/kvm/trace-s390.h b/arch/s390/kvm/s390/trace-s390.h
-similarity index 100%
-rename from arch/s390/kvm/trace-s390.h
-rename to arch/s390/kvm/s390/trace-s390.h
-diff --git a/arch/s390/kvm/trace.h b/arch/s390/kvm/s390/trace.h
-similarity index 100%
-rename from arch/s390/kvm/trace.h
-rename to arch/s390/kvm/s390/trace.h
-diff --git a/arch/s390/kvm/vsie.c b/arch/s390/kvm/s390/vsie.c
-similarity index 100%
-rename from arch/s390/kvm/vsie.c
-rename to arch/s390/kvm/s390/vsie.c
+ int s390_replace_asce(struct gmap *gmap);
+-bool _gmap_unmap_prefix(struct gmap *gmap, gfn_t gfn, gfn_t end, bool hint);
+ bool gmap_age_gfn(struct gmap *gmap, gfn_t start, gfn_t end);
+ bool gmap_unmap_gfn_range(struct gmap *gmap, struct kvm_memory_slot *slot, gfn_t start, gfn_t end);
+ int gmap_try_fixup_minor(struct gmap *gmap, struct guest_fault *fault);
+@@ -163,6 +162,14 @@ static inline void gmap_handle_vsie_unshadow_event(struct gmap *parent, gfn_t gf
+ 		_gmap_handle_vsie_unshadow_event(parent, gfn);
+ }
+ 
++#if KVM_S390_MANAGES_S390_GUEST
++bool _gmap_unmap_prefix(struct gmap *gmap, gfn_t gfn, gfn_t end, bool hint);
++#else
++static inline bool _gmap_unmap_prefix(struct gmap *gmap, gfn_t gfn, gfn_t end, bool hint)
++{
++	return true;
++}
++#endif /* KVM_S390_MANAGES_S390_GUEST */
+ static inline bool gmap_mkold_prefix(struct gmap *gmap, gfn_t gfn, gfn_t end)
+ {
+ 	return _gmap_unmap_prefix(gmap, gfn, end, true);
 -- 
 2.53.0
 
