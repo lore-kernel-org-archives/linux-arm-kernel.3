@@ -4,116 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA88AC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 17:43:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A99A0C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 17:58:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RRy7TSLv7XgtK7yVOoP/4PPtFt0r1aZ67kTGnhbzw7Y=; b=PsuHT7LPRNrYy5tQ+8O8BG5L6+
-	m9PPT+k8Bo3kqu/rYMdXzQucAC/A0+3APvWkMNksp9+wllJ5dOyCtO6nGDU/ea+HjG+OI7KWHxL7A
-	LD9zo+izM+VvBR5gcuJim8WQvUjkYFYm+8/I82Cydc7VHVrUhYqgzM9tBZvrC492G/Jqna6XzCFq2
-	w7u0NgCtfDZVgQn5OkrQFP8JF4WU8s7ymgJoaB2LdIzuSYsdxnTuyb3Ug8SKhGClsco45r17MxgVm
-	TqgpfsH+1185HCYLg/fYlfLSd0geflWn+mQKbTy19x1p3L6fmR3O0D7qQBn/o9mhxfjeFrLMqir8B
-	vdxbAQNw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fuSr6/eeaMrRsHUHHYzlvdoFfyGGwlSHMW89VzkIKtQ=; b=ozLJBpTgV8TAqx8qTzuOgjReg3
+	AwlmKd3OqGz4Br6Io7aODR3dEJirkV1idzaCKJI9EmYegYXVeo05L8oJCc5yyvpe1FypCFYUMSFyG
+	aAcgioQdpzXyDv8B0KWsZ70HnBd0vQLLZK5ftpy5sXF8+3uIXtoxrAApb5zoCA5o04ZemANW+aBs/
+	gw3VDGqK94XIK4VjwFqzSmEz0RFaFAUGyVceZsG1oiBZZyVkG0F8HtXWdKjM/N4xz9Bxw0axGc0Z0
+	1QbjkzC72SYGmd6kOonuOO/pvEvPo1KN1SHL/w13sscjuaR80M3NKG3FQjwzNjzyekgVvvx4uOX7E
+	OprymDZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuCym-0000000GhxD-1a2F;
-	Wed, 12 Aug 2026 17:43:04 +0000
-Received: from mail-qt1-x82d.google.com ([2607:f8b0:4864:20::82d])
+	id 1wuDDp-0000000Gjfn-0Egd;
+	Wed, 12 Aug 2026 17:58:37 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuCyj-0000000Ghw8-2wo7
+	id 1wuDDm-0000000GjfL-2t7N
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 17:43:03 +0000
-Received: by mail-qt1-x82d.google.com with SMTP id d75a77b69052e-51c4436d02cso8139271cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 10:43:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1786556580; x=1787161380; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=RRy7TSLv7XgtK7yVOoP/4PPtFt0r1aZ67kTGnhbzw7Y=;
-        b=hf/VCe4r7218Ygm3T5PPCKh1Ypd3kkxuJrhR9DC98sTJREJQU6lg/taYTGK83sAiff
-         Arph8C11+d440pa8qReWLvc+HABOyHuFiRpmHd1Z3DHTGVPmiDkLIbfVyBHfOj8a1Qij
-         b+ntPjgov3BBYdcPSZN6n5OVicWRlKMlRhwAQaHiQu1ZsmM89wX9rNQMmgn4EH/Ubbgi
-         3C0uxTlLGtKXx4qRIi8QYacdEvZtoTrIjGIWKN2MTfzGjIukgRf+1gJzrYjdhDg6RV6L
-         RijoHty9PjdOkweZyFeAYTm0He6dOtghRAfzyYpAqqxpO/+ILZ3ArsiqYvT8Qj6DO0rh
-         1e3A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786556580; x=1787161380;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=RRy7TSLv7XgtK7yVOoP/4PPtFt0r1aZ67kTGnhbzw7Y=;
-        b=NDFo7vMfHDFB3RnER0hxSvuja8bT7D0JtlKTu9Tjnw7nEf3K2Tb9ifxGBYO6t2vSYO
-         78/osYwOm6Zxv8nwhTmRJRJcHFZTaOayuHMSnC7MKgxz8y8MmuCnkvRrwzU52ZTcTrnQ
-         j4gRBj02TU5CkNdG8q+F/t7cr1k6isWQETyVF6hGOrDIqKAXGqhUgs11z22uetLBGX+e
-         gY3XfpsNn5otRfaUItkaYcR3UOKEQEDLS40KpbjpMjjYFYC4g4Kg2N3w1sMtfnXnpKPn
-         PthankZHdEIOIk+fj2izJ2bxOclqrm54+j55M8gVRvUQRcPQrRHItwk2f5HxE/n7EBd5
-         eMMA==
-X-Forwarded-Encrypted: i=1; AHgh+RolFwX3E5USIXBGdtWj1IJbBOs3+M/J4U4L0RyJ+vNEP3h2uasB/grOR2zEjEP2sw00xZeNCHneahW5iAlGZru7@lists.infradead.org
-X-Gm-Message-State: AOJu0YwbDt/0+dlzh9aEDCZg7NBPCgTB9/Us6BwnHFsSMFuQBztfr4B6
-	JoaLtSEN3KgcAA47PgkbMvzEtJgrjN3f7TfXm2PLjpLCl7JlBKz+klO83ENZlHOofp51/PFmCE/
-	dixpi
-X-Gm-Gg: AR+sD116OkHFghGCLw4LB3pG8D58wAv80kAAzAU8T24CkA2FlOfanNNoTMu3eO3CCZ8
-	d5tgxD3L0U8XNQMkyfYwdan1xBPcLhAONKS9zb/HVYEWjD66Ft4ILSa4i2WtKnJ7CLNMJL6vErJ
-	v4IN+nFU2a7tX5wqOhFpquQHWzlMOeA8dxwh6uGCR6CBGuiflvUga6uRbnYvgxtEdlbyFchgbCj
-	cnpMlNv5tpqKskPmLVgycCmaS8kBaTch227N//Opy7BjFjE1vNkPARcgmdTJVYs6HYjXGE6QM1Z
-	ObWlirfgC0ylYu7huPGg37cjow8Uy+DrpqDOZ7CHe27ZX7W5YEThsWVJZmtlflaiOMJkmdWEkwM
-	Th4fFXaRa6S7L4kb7ZfMjfBtNahwWf2xOfG4n7Hj51w/frjnByt8qGv4RuGMJ1Qzl0JydhbSf6q
-	cBWujch2Y0zYiGHCgRHN5axi1S1JhIjZJ6ln6vqg==
-X-Received: by 2002:a05:622a:145:b0:528:38b1:b54c with SMTP id d75a77b69052e-52d646a004amr57067221cf.2.1786556579927;
-        Wed, 12 Aug 2026 10:42:59 -0700 (PDT)
-Received: from ziepe.ca ([142.166.156.215])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-52d61d91199sm22262711cf.14.2026.08.12.10.42.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Aug 2026 10:42:59 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1wuCyg-00000003IL0-2V6p;
-	Wed, 12 Aug 2026 14:42:58 -0300
-Date: Wed, 12 Aug 2026 14:42:58 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-coco@lists.linux.dev, Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>, Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
-Subject: Re: [RFC PATCH] dma: swiotlb: Size shared default pools for memory
- encryption
-Message-ID: <20260812174258.GF662699@ziepe.ca>
-References: <20260811134056.756015-1-aneesh.kumar@kernel.org>
- <anxEc8EHmJQywVI5@arm.com>
- <yq5ajypvioks.fsf@kernel.org>
- <anysnQFVTO_RAYxp@arm.com>
+	Wed, 12 Aug 2026 17:58:35 +0000
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67CH1bgZ2217958;
+	Wed, 12 Aug 2026 17:58:23 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=fuSr6/
+	eeaMrRsHUHHYzlvdoFfyGGwlSHMW89VzkIKtQ=; b=UabF+UYlQd16hM/zI0amP6
+	kW09Y8xgrSz51NWzc3Qy81uF5fGWvmzrrkBYRLiEpSShcLQQrwUBiseONYeuiUam
+	KDXjEJBdze82BP0S+5GxZThflPXQSfn7KAB5TpHfXLalC3xnZLz2idk+z2VCYqGu
+	rTqcOWB669DW1kyOA+WHtiC5Epcv7WJh014aOQz6B2VEtKXz0NnpU1RVntZi9SiT
+	dxF67gD2BDAiXIugCs25pXVuQYE6QHvLfF+FJWwIM+7el+U3NAkpXzhwp0BtlnGt
+	okyurC/G4wW0E10xx+oHQwwBA9m5eYkWlkrp2mSbbNy9K3h6uew7qlNXIu9Ibg7g
+	==
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fwvk03vqq-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 12 Aug 2026 17:58:22 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 67CHuIrp018316;
+	Wed, 12 Aug 2026 17:58:21 GMT
+Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4fxfsjy9nx-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 12 Aug 2026 17:58:21 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
+	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 67CHwHRR28115298
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 12 Aug 2026 17:58:17 GMT
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 269EF20049;
+	Wed, 12 Aug 2026 17:58:17 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 0C13F20040;
+	Wed, 12 Aug 2026 17:58:14 +0000 (GMT)
+Received: from [9.87.128.143] (unknown [9.87.128.143])
+	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Wed, 12 Aug 2026 17:58:13 +0000 (GMT)
+Message-ID: <f8e7aa8a-f3a8-4186-9fd9-95e9885562b2@linux.ibm.com>
+Date: Wed, 12 Aug 2026 19:58:10 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <anysnQFVTO_RAYxp@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 14/33] KVM: s390: Rename kvm-s390.{c,h} to s390.{c,h}
+To: Steffen Eiden <seiden@linux.ibm.com>, kvm@vger.kernel.org,
+        kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org
+Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter
+ <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Sean Christopherson <seanjc@google.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik
+ <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+References: <20260812153631.3376090-1-seiden@linux.ibm.com>
+ <20260812153631.3376090-15-seiden@linux.ibm.com>
+Content-Language: en-US
+From: Christian Borntraeger <borntraeger@linux.ibm.com>
+In-Reply-To: <20260812153631.3376090-15-seiden@linux.ibm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODEyMDE0MiBTYWx0ZWRfX988gdqFD3S3y
+ F1yyA+LbQ1Mw3jbCPc+0sTv99OWbTVqCmVYvyl+JbJ0q/vdBUV6vKFRABkraXFUt8YW7HVeEq/t
+ R3RLcuJGWHXL4JAEE+mtK8ZOH0nN+ZDaGqblQyMuENz/Tnt1oIoqfDmsTYiXNaaKD25C2imkaId
+ xRMmusVeba04UnOr2W7Lepl3usN4+y0UFvebq0aWQjxy9QZPjFHfqD5gCIHB1MMji4yQNUbyBgk
+ IpSPlc3g+al5bPb2gCXoOgCicgOwXZ+gbEjbpgzc9xXa9l1+sP5+RhInvLKYk6yeswa+clYj1Vt
+ z0SWz6Auf8Km7O0TaRMQM1ctuxBTpf/wzvvW0E37Wbw4RQQrORQe2ziNgo8qUDEeOOM+Dn1eLT+
+ he3PPPa2ZeMQBC086GU+BW+KLvpIvv/r4IqOHKhupxlyiOH41yaBZaj0pJ01B9yfg4tDIYAY/vG
+ YhoUSaHA8ec1FLZXeBw==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODEyMDE0MiBTYWx0ZWRfXzEASJRj0p3r8
+ JkmnsqVffsMKPpC8OcJgUQCKdgou82HP+FDWNvfomoOEoTJckLnyJfir++2Vqaj5Qc+Ah5YCYGV
+ tF6No84ioHdS7qzASWM/jQoGL/agxtI=
+X-Authority-Analysis: v=2.4 cv=RqD16imK c=1 sm=1 tr=0 ts=6a7cb43f cx=c_pps
+ a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
+ a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=VnNF1IyMAAAA:8
+ a=hk9PhALmR_EFMQ00aDgA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-GUID: xv4SAS-1CFtckbb9ZIxJxCBX1BhuOECA
+X-Proofpoint-ORIG-GUID: cEAZkxjNuz8FmAAGSbsgFJS4UGxP5pHm
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-12_05,2026-08-12_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 priorityscore=1501 suspectscore=0 lowpriorityscore=0
+ clxscore=1015 adultscore=0 bulkscore=0 malwarescore=0 impostorscore=0
+ spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2608120142
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_104301_893356_A44E119E 
-X-CRM114-Status: GOOD (  10.79  )
+X-CRM114-CacheID: sfid-20260812_105834_749759_1DE302C7 
+X-CRM114-Status: GOOD (  16.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,18 +148,240 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 12, 2026 at 06:25:49PM +0100, Catalin Marinas wrote:
-> > > BTW, why does arm64 report CC_ATTR_MEM_ENCRYPT instead of the GUEST
-> > > option in realms?
+Am 12.08.26 um 17:36 schrieb Steffen Eiden:
+> Rename kvm-s390.c to s390.c and kvm-s390.h to s390.h for consistency
+> with the new directory structure. Update all include statements and
+> simplify Makefile ccflags from explicit paths to -I$(src).
 > 
-> It's still not clear to me why we went for CC_ATTR_MEM_ENCRYPT instead
-> of CC_ATTR_GUEST_MEM_ENCRYPT.
+> No functional change.
+> 
+> Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 
-Yeah, this tune should be only for CC guests that have the
-shared/private issue.
+Reviewed-by: Christian Borntraeger <borntraeger@linux.ibm.com>
 
-The AMD SME issue with the address width on bare metal is an entirely
-different problem that would need a different kind of tuning.
+> ---
+>   arch/s390/kvm/Makefile               | 4 ++--
+>   arch/s390/kvm/diag.c                 | 2 +-
+>   arch/s390/kvm/gaccess.c              | 2 +-
+>   arch/s390/kvm/gaccess.h              | 2 +-
+>   arch/s390/kvm/gmap.c                 | 2 +-
+>   arch/s390/kvm/guestdbg.c             | 2 +-
+>   arch/s390/kvm/intercept.c            | 2 +-
+>   arch/s390/kvm/interrupt.c            | 2 +-
+>   arch/s390/kvm/pci.c                  | 2 +-
+>   arch/s390/kvm/priv.c                 | 2 +-
+>   arch/s390/kvm/pv.c                   | 2 +-
+>   arch/s390/kvm/{kvm-s390.c => s390.c} | 2 +-
+>   arch/s390/kvm/{kvm-s390.h => s390.h} | 2 +-
+>   arch/s390/kvm/sigp.c                 | 2 +-
+>   arch/s390/kvm/vsie.c                 | 2 +-
+>   15 files changed, 16 insertions(+), 16 deletions(-)
+>   rename arch/s390/kvm/{kvm-s390.c => s390.c} (99%)
+>   rename arch/s390/kvm/{kvm-s390.h => s390.h} (99%)
+> 
+> diff --git a/arch/s390/kvm/Makefile b/arch/s390/kvm/Makefile
+> index dac9d53b23d8..961de97b8e80 100644
+> --- a/arch/s390/kvm/Makefile
+> +++ b/arch/s390/kvm/Makefile
+> @@ -5,9 +5,9 @@
+>   
+>   include $(srctree)/virt/kvm/Makefile.kvm
+>   
+> -ccflags-y := -Ivirt/kvm -Iarch/s390/kvm
+> +ccflags-y := -I$(src)
+>   
+> -kvm-y += kvm-s390.o intercept.o interrupt.o priv.o sigp.o
+> +kvm-y += s390.o intercept.o interrupt.o priv.o sigp.o
+>   kvm-y += diag.o gaccess.o guestdbg.o vsie.o pv.o
+>   kvm-y += dat.o gmap.o faultin.o
+>   
+> diff --git a/arch/s390/kvm/diag.c b/arch/s390/kvm/diag.c
+> index 031ab6e5d6c4..09033c8ff1bb 100644
+> --- a/arch/s390/kvm/diag.c
+> +++ b/arch/s390/kvm/diag.c
+> @@ -12,7 +12,7 @@
+>   #include <linux/kvm_host.h>
+>   #include <asm/gmap_helpers.h>
+>   #include <asm/virtio-ccw.h>
+> -#include "kvm-s390.h"
+> +#include "s390.h"
+>   #include "trace.h"
+>   #include "trace-s390.h"
+>   #include "gaccess.h"
+> diff --git a/arch/s390/kvm/gaccess.c b/arch/s390/kvm/gaccess.c
+> index 0d389a302a70..e5c064f263df 100644
+> --- a/arch/s390/kvm/gaccess.c
+> +++ b/arch/s390/kvm/gaccess.c
+> @@ -17,7 +17,7 @@
+>   #include <asm/access-regs.h>
+>   #include <asm/fault.h>
+>   #include <asm/dat-bits.h>
+> -#include "kvm-s390.h"
+> +#include "s390.h"
+>   #include "dat.h"
+>   #include "gmap.h"
+>   #include "gaccess.h"
+> diff --git a/arch/s390/kvm/gaccess.h b/arch/s390/kvm/gaccess.h
+> index b5385cec60f4..ef922b3b4990 100644
+> --- a/arch/s390/kvm/gaccess.h
+> +++ b/arch/s390/kvm/gaccess.h
+> @@ -14,7 +14,7 @@
+>   #include <linux/kvm_host.h>
+>   #include <linux/uaccess.h>
+>   #include <linux/ptrace.h>
+> -#include "kvm-s390.h"
+> +#include "s390.h"
+>   
+>   /**
+>    * kvm_s390_real_to_abs - convert guest real address to guest absolute address
+> diff --git a/arch/s390/kvm/gmap.c b/arch/s390/kvm/gmap.c
+> index 3758e4009709..b5b920392378 100644
+> --- a/arch/s390/kvm/gmap.c
+> +++ b/arch/s390/kvm/gmap.c
+> @@ -21,7 +21,7 @@
+>   
+>   #include "dat.h"
+>   #include "gmap.h"
+> -#include "kvm-s390.h"
+> +#include "s390.h"
+>   #include "faultin.h"
+>   
+>   static inline bool kvm_s390_is_in_sie(struct kvm_vcpu *vcpu)
+> diff --git a/arch/s390/kvm/guestdbg.c b/arch/s390/kvm/guestdbg.c
+> index 9a6149e310bb..1bf7e91b7e61 100644
+> --- a/arch/s390/kvm/guestdbg.c
+> +++ b/arch/s390/kvm/guestdbg.c
+> @@ -8,7 +8,7 @@
+>    */
+>   #include <linux/kvm_host.h>
+>   #include <linux/errno.h>
+> -#include "kvm-s390.h"
+> +#include "s390.h"
+>   #include "gaccess.h"
+>   
+>   /*
+> diff --git a/arch/s390/kvm/intercept.c b/arch/s390/kvm/intercept.c
+> index 1980df61ef30..ca1205dfac8b 100644
+> --- a/arch/s390/kvm/intercept.c
+> +++ b/arch/s390/kvm/intercept.c
+> @@ -17,7 +17,7 @@
+>   #include <asm/sysinfo.h>
+>   #include <asm/uv.h>
+>   
+> -#include "kvm-s390.h"
+> +#include "s390.h"
+>   #include "gaccess.h"
+>   #include "trace.h"
+>   #include "trace-s390.h"
+> diff --git a/arch/s390/kvm/interrupt.c b/arch/s390/kvm/interrupt.c
+> index 0d9fbe75dc66..9aa786952718 100644
+> --- a/arch/s390/kvm/interrupt.c
+> +++ b/arch/s390/kvm/interrupt.c
+> @@ -29,7 +29,7 @@
+>   #include <asm/nmi.h>
+>   #include <asm/airq.h>
+>   #include <asm/tpi.h>
+> -#include "kvm-s390.h"
+> +#include "s390.h"
+>   #include "gaccess.h"
+>   #include "trace-s390.h"
+>   #include "pci.h"
+> diff --git a/arch/s390/kvm/pci.c b/arch/s390/kvm/pci.c
+> index 50f5ec79600e..82892e1e03d9 100644
+> --- a/arch/s390/kvm/pci.c
+> +++ b/arch/s390/kvm/pci.c
+> @@ -14,7 +14,7 @@
+>   #include <asm/pci_io.h>
+>   #include <asm/sclp.h>
+>   #include "pci.h"
+> -#include "kvm-s390.h"
+> +#include "s390.h"
+>   
+>   struct zpci_aift *aift;
+>   
+> diff --git a/arch/s390/kvm/priv.c b/arch/s390/kvm/priv.c
+> index b1ba24c346ef..b3cb2c2c3aa7 100644
+> --- a/arch/s390/kvm/priv.c
+> +++ b/arch/s390/kvm/priv.c
+> @@ -26,7 +26,7 @@
+>   #include <asm/ap.h>
+>   #include <asm/gmap_helpers.h>
+>   #include "gaccess.h"
+> -#include "kvm-s390.h"
+> +#include "s390.h"
+>   #include "trace.h"
+>   #include "gmap.h"
+>   
+> diff --git a/arch/s390/kvm/pv.c b/arch/s390/kvm/pv.c
+> index f549b161b972..7adfdc9b62be 100644
+> --- a/arch/s390/kvm/pv.c
+> +++ b/arch/s390/kvm/pv.c
+> @@ -18,7 +18,7 @@
+>   #include <linux/sched/mm.h>
+>   #include <linux/mmu_notifier.h>
+>   #include <asm/gmap_helpers.h>
+> -#include "kvm-s390.h"
+> +#include "s390.h"
+>   #include "dat.h"
+>   #include "gaccess.h"
+>   #include "gmap.h"
+> diff --git a/arch/s390/kvm/kvm-s390.c b/arch/s390/kvm/s390.c
+> similarity index 99%
+> rename from arch/s390/kvm/kvm-s390.c
+> rename to arch/s390/kvm/s390.c
+> index 4faff6625da3..ff09ffc10f0d 100644
+> --- a/arch/s390/kvm/kvm-s390.c
+> +++ b/arch/s390/kvm/s390.c
+> @@ -50,7 +50,7 @@
+>   #include <asm/fpu.h>
+>   #include <asm/ap.h>
+>   #include <asm/uv.h>
+> -#include "kvm-s390.h"
+> +#include "s390.h"
+>   #include "gaccess.h"
+>   #include "gmap.h"
+>   #include "faultin.h"
+> diff --git a/arch/s390/kvm/kvm-s390.h b/arch/s390/kvm/s390.h
+> similarity index 99%
+> rename from arch/s390/kvm/kvm-s390.h
+> rename to arch/s390/kvm/s390.h
+> index 6d2842fb71a3..e144ca2e6d5e 100644
+> --- a/arch/s390/kvm/kvm-s390.h
+> +++ b/arch/s390/kvm/s390.h
+> @@ -452,7 +452,7 @@ void kvm_s390_vsie_destroy(struct kvm *kvm);
+>   int kvm_s390_handle_sigp(struct kvm_vcpu *vcpu);
+>   int kvm_s390_handle_sigp_pei(struct kvm_vcpu *vcpu);
+>   
+> -/* implemented in kvm-s390.c */
+> +/* implemented in s390.c */
+>   int kvm_s390_try_set_tod_clock(struct kvm *kvm, const struct kvm_s390_vm_tod_clock *gtod);
+>   int kvm_s390_store_status_unloaded(struct kvm_vcpu *vcpu, unsigned long addr);
+>   int kvm_s390_vcpu_store_status(struct kvm_vcpu *vcpu, unsigned long addr);
+> diff --git a/arch/s390/kvm/sigp.c b/arch/s390/kvm/sigp.c
+> index 55c34cb35428..131b3371ef4f 100644
+> --- a/arch/s390/kvm/sigp.c
+> +++ b/arch/s390/kvm/sigp.c
+> @@ -14,7 +14,7 @@
+>   #include <linux/slab.h>
+>   #include <asm/sigp.h>
+>   #include "gaccess.h"
+> -#include "kvm-s390.h"
+> +#include "s390.h"
+>   #include "trace.h"
+>   
+>   static int __sigp_sense(struct kvm_vcpu *vcpu, struct kvm_vcpu *dst_vcpu,
+> diff --git a/arch/s390/kvm/vsie.c b/arch/s390/kvm/vsie.c
+> index f546239d8ff8..cc94ede0621f 100644
+> --- a/arch/s390/kvm/vsie.c
+> +++ b/arch/s390/kvm/vsie.c
+> @@ -23,7 +23,7 @@
+>   #include <asm/nmi.h>
+>   #include <asm/dis.h>
+>   #include <asm/facility.h>
+> -#include "kvm-s390.h"
+> +#include "s390.h"
+>   #include "gaccess.h"
+>   #include "gmap.h"
+>   
 
-Jason
 
