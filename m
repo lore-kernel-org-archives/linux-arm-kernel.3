@@ -4,94 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC006C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 12:25:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEEF8C5CFDB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 12:28:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Djp33DZuJ5kk88PXRco/OjHqQCYStiOV5FS5/ccjyz4=; b=mfLJIMUdmq8p3eAMLQ6joc7yE1
-	ELqTPct2uMAwnzdZf7uIFK60EmkqKwJ7V9HrjTfKDM91jnEGFCHq01YcxNuTenzZ/329k2zRdWs/1
-	xgofUAheg/6lVCG9T8lLEs9LntpzJjqbQXNeAVTp6rwpFlUU+1JM9xTMzmWkJght/RahhUh8c6+Ni
-	UcnThU29wM4797eev76XKidsUKblUp83B1wHWl7AT02eZCn4xFQtA7hYNv3QYyDhMuZ64wV5volOF
-	P2L7jQhmpYHmvn9nvBPX/by+pBaYPzqLwZBMMoU/FamClc0ml2HLrmJ/43nJI855fH27QbhB4evZJ
-	MtPJCTbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ElBNO9EPvHuirVGnvX/nkoBxhVDqF0yWtKSEwWHqacU=; b=xo4e4F6ZLic/atddkGF9Y38Z4H
+	5dFgv49g5Y7TJC6XFrZigIhGG/y53Hs4QxnIyE4Luk6bGlf328zbjQZnSN5DaicsSnxmJg1ZDQBWN
+	jiVnoiCdulH2+atrsnA1F8MCA0giuzLVPOjJwN+AsyaLcJWHtSt1oQlAmQkhj5cmT2SlitOhjZ0gR
+	HMkfqvdssCIrYXcx2UYLtk4g2syAgxt4yQM9k4/XYb4O1ooGRDm7qHk5r7VBfaM1l2sRYWk0qXsrf
+	GA7UTns36zle4jYgxab2W7lSRkwv6fKxVYxWR3wtgHn0lJ9N2Bca7VTE97Bdo8F7Wjo9MvZKntfZT
+	uTrRQ4ZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu81P-0000000GBiT-11of;
-	Wed, 12 Aug 2026 12:25:27 +0000
-Received: from mail-qt1-x829.google.com ([2607:f8b0:4864:20::829])
+	id 1wu83m-0000000GBy2-37hJ;
+	Wed, 12 Aug 2026 12:27:54 +0000
+Received: from mout02.posteo.de ([185.67.36.66])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu81M-0000000GBhu-1A6V
+	id 1wu83j-0000000GBxW-3Eqv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 12:25:25 +0000
-Received: by mail-qt1-x829.google.com with SMTP id d75a77b69052e-51c05dcdf49so10833791cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 05:25:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20251104.gappssmtp.com; s=20251104; t=1786537523; x=1787142323; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Djp33DZuJ5kk88PXRco/OjHqQCYStiOV5FS5/ccjyz4=;
-        b=V7hQAyCPCejdUsvnM8wtbqE9u49CAOJThi8/twkuhJI1F+IFJVZZvzJ9e2sTKOEHVT
-         eCsS/Cvp2SvvnlMJacntrkRGf3+gB/GmpzCQ5lLqNBKkCuMBC5DMQBRUB0At2KJ4Oe3l
-         Ocql8EaSdvimfDXraSV4LgKtGMCtAz7waCWN15pcvuS0Ccnq2wNh4ohfVv6Dz36KwwBP
-         1hFjwRo5ssn3lCWD4Ms3XhuvvaFzZCsQyMmYB57cRKWJ4uLVtm9oFZwr9bzz4YLNhAum
-         47mGc4qKQmewJHL7Bz/+yUCxxcJwH50TEIBxeq4z7WatHa+ocWiZ91v+wP6SgYFKYk4O
-         EfCw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786537523; x=1787142323;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Djp33DZuJ5kk88PXRco/OjHqQCYStiOV5FS5/ccjyz4=;
-        b=AP1WMoLZe6UoU7RBKjMjpiW2AEJClSq3jHFhhZf3dOyUpoh0Q1DYxqKAEhIg9n5cub
-         Tp/7ojxApga/DNK25SQEYhn6wrykeqBHr5D56uqEliF4ckRoRU6QwCssdpV7IIqajJyd
-         dPOsiNUZLiqkGs3NksNldnBkYGgG6xOeL19akwaoSxQ+GkfOJ7e1AXF4B7DpVr33Qp9+
-         hOJ/gyQulLXHyCSQEZALphaxHtpFGkEvmgfomgZltt3MqSqdrYwO7xeDzgXEBU3olFcZ
-         Kk0wE4wkRZTzmXrPOycolDKvKtWk9S4nOlYc7yQ1JduD8V+I8gjL3XfZjAKksy+ctvIP
-         mZhw==
-X-Forwarded-Encrypted: i=1; AHgh+Rolpf2CM6mw2pkNxDc+8nqDgIg24oZuTgWZe6tP1zHMY2xqebMcBvzZi5u4hbj17Ax7WgpxpKyc50pcXVlZ7AKC@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxq3a3X63n8gQA6s59XP99zbQ2Ilo6uK7aImnLvRwmi79trpLiw
-	OLgIlrh2ZZK0+7SMpnrFYPwa4YiarCaVd4wkZE0Q3n57n8+x6HhHjx+JhqpRzqBoqGk=
-X-Gm-Gg: AR+sD12+NV0Pr9V27K7USRF33IiBHqKv0QRYImE9+MM90HVDMr3xPUvzIA+QNLke2QG
-	0raDdAeTTZCxhZoNEjexsVAqMloBiSyy6BNpZ7vSNbE+ByVgFm7JppNhOscqgFxXvs03i7bXiRF
-	IKuromxZvvIy+HiuP5vHiEkvFGy1obF142MPgRqrTLMtzqubylhr4mwZ9HCzbNTWYevwIkYnY6g
-	qUswtQQ3eEB29BlA4ktgBmodm0Mnmj5Rtz7tEG9lSFzQQuv8H7ZhqPKiI+9sXWbP58fGOO0x39v
-	lY6MxpcIoSNyCF8l3Z5rgHk0uvyjivZo5P8UVAiqRdK9zFN5G1hn+VjJZGbZ7OV6MQDmvyPnfcC
-	Nq4qndRhdvdiPvTlBXX6hjv2pvq7ObV3YDku37ZNhJ0j1Koj+nvc4wcTJXNNQi2/1PDGDpOTgZu
-	XL0sVXcIOaeSQ2WlkLKTQT+fJtDPu13xigqu+BMFO8pyofwn4jax8DWGC2Mxlu
-X-Received: by 2002:a05:622a:83:b0:517:8d24:64d8 with SMTP id d75a77b69052e-52d646edbedmr31554961cf.13.1786537522952;
-        Wed, 12 Aug 2026 05:25:22 -0700 (PDT)
-Received: from [172.22.22.28] ([73.62.185.64])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-52d61dc9245sm16460631cf.25.2026.08.12.05.25.21
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 12 Aug 2026 05:25:22 -0700 (PDT)
-Message-ID: <72848f5d-768a-4d06-82d1-1168cae8c5b6@riscstar.com>
-Date: Wed, 12 Aug 2026 07:25:21 -0500
+	Wed, 12 Aug 2026 12:27:53 +0000
+Received: from submission (posteo.de [185.67.36.169]) 
+	by mout02.posteo.de (Postfix) with ESMTPS id F00B2240104
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 14:27:44 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.de;
+	s=1984.8680eb; t=1786537664;
+	bh=ElBNO9EPvHuirVGnvX/nkoBxhVDqF0yWtKSEwWHqacU=;
+	h=Message-ID:Subject:From:To:Cc:Date:Autocrypt:Content-Type:
+	 MIME-Version:OpenPGP:From;
+	b=lCq5Q5LiwcsfJzkHKr5ABpM+49V7h/hnKL9/ToAbyI095olNp5Y1qknXWx8/OOq5O
+	 dICSAYxeqZQiYzL5L2nEzt/eQQCEuKZYrYW4ZL01e5Xm85iFkFJYMxvJOUz1zSE5xP
+	 39Tg1vfuIXQHPKaK54BFx8zLqOAjxGP/zzt6ncXLjTDOr1TDtBdPSNhmLfB6ySQ5X7
+	 lgER+VbhxKyUsfD95DgfZsA3R3oKPMx5cL09gsFyRf0PPSGOhm0xIR3s7wuDvT7yu7
+	 OFUFqiqQbN/EIToNwab4RiL5tuUGR6UsfWA9b1KT/cXbigRSdkSZM+TDiA2NghsppC
+	 TTBGdTQkJ9pPg==
+Received: from customer (localhost [127.0.0.1])
+	by submission (posteo.de) with ESMTPSA id 4hKnnV5CDfz9rxB;
+	Wed, 12 Aug 2026 14:27:42 +0200 (CEST)
+Message-ID: <053e901c9145d57c01078df6febe8b22fd79b850.camel@posteo.de>
+Subject: Re: [PATCH v3 1/5] dt-bindings: rtc: Add pinctrl for S35390A
+From: Markus Probst <markus.probst@posteo.de>
+To: Rob Herring <robh@kernel.org>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, Krzysztof Kozlowski
+	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Uwe
+ =?ISO-8859-1?Q?Kleine-K=F6nig?=
+	 <uwe@kleine-koenig.org>, Andrew Lunn <andrew@lunn.ch>, Gregory Clement
+	 <gregory.clement@bootlin.com>, Sebastian Hesselbarth
+	 <sebastian.hesselbarth@gmail.com>, Michael Langer
+	 <michael.brainbug.langer@googlemail.com>, Andrew Morton
+	 <akpm@linux-foundation.org>, Linus Walleij <linusw@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Date: Wed, 12 Aug 2026 12:27:44 +0000
+In-Reply-To: <20260812020844.GA520945-robh@kernel.org>
+References: <20260805-rtc_s35390a_int1-v3-0-e836faba3e25@posteo.de>
+	 <20260805-rtc_s35390a_int1-v3-1-e836faba3e25@posteo.de>
+	 <20260812020844.GA520945-robh@kernel.org>
+Autocrypt: addr=markus.probst@posteo.de; prefer-encrypt=mutual;
+ keydata=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
+ jfGillcaQOqFZ3WwVqyzG1BUfTow==
+Content-Type: multipart/signed; micalg="pgp-sha256";
+	protocol="application/pgp-signature"; boundary="=-4FzxRt0vSudbgFRbezTj"
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] net: stmmac: use dma_addr_t for DMA addresses
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com
-Cc: mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Sashiko <sashiko-bot@kernel.org>
-References: <20260811192703.1765416-1-elder@riscstar.com>
- <65494f6d-50fe-4bdb-98d9-7150d9a4fc91@bootlin.com>
-Content-Language: en-US
-From: Alex Elder <elder@riscstar.com>
-In-Reply-To: <65494f6d-50fe-4bdb-98d9-7150d9a4fc91@bootlin.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+OpenPGP: url=https://posteo.de/keys/markus.probst@posteo.de.asc; preference=encrypt
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_052524_585656_03B0DB8D 
-X-CRM114-Status: GOOD (  26.87  )
+X-CRM114-CacheID: sfid-20260812_052752_117270_542B053A 
+X-CRM114-Status: GOOD (  28.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,99 +129,229 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/12/26 2:23 AM, Maxime Chevallier wrote:
-> Hi Alex,
-> 
-> On 8/11/26 21:27, Alex Elder wrote:
->> In jumbo_frm() (implemented in both "chain_mode.c" and "ring_mode.c"),
->> an unsigned integer local variable is used to hold the value returned
->> by dma_map_single().  On systems where a dma_addr_t is 64 bits, the
->> subsequent dma_mapping_error() check of the returned value operates
->> only on the low 32 bits (whose high bit won't be sign-extended).  In
->> this case, dma_mapping_error() would return 0 (no error) even if there
->> were one.
->>
->> Fix this in both spots by using a dma_addr_t for the local variable.
-> 
-> Thanks :)
-> 
-> I was wondering if it would silently hides another address size related
-> issue a little bit lower, as we now have :
-> 
->    dma_addr_t des2;
-> 
->    des2 = dma_map_single(...);
-> 
->    desc->des2 = cpu_to_le32(des2);
-> 
-> desc->des2 is __le32, so for 64 bit addresses we silently truncate the
-> address.
 
-I saw that too.  Everything is unsigned, and only the lower
-32 bits will be used, but I'd rather see the dma_addr_t
-explicitly converted to u32 before being passed to cpu_to_le32().
-This should work regardless of the size of dma_addr_t:
+--=-4FzxRt0vSudbgFRbezTj
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-	desc->des2 = cpu_to_le32(lower_32_bits(des2));
+On Tue, 2026-08-11 at 21:08 -0500, Rob Herring wrote:
+> On Wed, Aug 05, 2026 at 07:32:27PM +0000, Markus Probst wrote:
+> > Synology NAS devices use the output pin for interrupt signal 1 to wake =
+up
+> > the system.
+> >=20
+> > Move devicetree bindings for sii,s35390a into its own file.
+> > Add necessary properties to configure the individual pins via pinctrl,
+> > which allows the interrupt signal 1 to be used for wakeup alarm.
+> >=20
+> > Signed-off-by: Markus Probst <markus.probst@posteo.de>
+> > ---
+> >  .../devicetree/bindings/rtc/sii,s35390a.yaml       | 109 +++++++++++++=
+++++++++
+> >  .../devicetree/bindings/rtc/trivial-rtc.yaml       |   3 -
+> >  MAINTAINERS                                        |   1 +
+> >  3 files changed, 110 insertions(+), 3 deletions(-)
+> >=20
+> > diff --git a/Documentation/devicetree/bindings/rtc/sii,s35390a.yaml b/D=
+ocumentation/devicetree/bindings/rtc/sii,s35390a.yaml
+> > new file mode 100644
+> > index 000000000000..0355f17f233a
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/rtc/sii,s35390a.yaml
+> > @@ -0,0 +1,109 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/rtc/sii,s35390a.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: S-35390A 2-WIRE REAL-TIME CLOCK
+> > +
+> > +maintainers:
+> > +  - Alexandre Belloni <alexandre.belloni@bootlin.com>
+>=20
+> This should be someone with the h/w, not subsystem maintainer.
+There has been a discussion about this before.
+See
+https://lore.kernel.org/all/20260701-bronze-jaguar-of-perfection-028bac@quo=
+ll/
+and replies.
 
-I didn't look, but there could be other places where this occurs.
-Tell me if you'd like me to send another patch that does this
-(here and in any other spots I find.)
-> However I don't see how jumbo would work on 64-bits anyways as des3 is the next
-> chunk of the jumbo frame...
-> 
-> I think this is good as-is, so
-> 
-> Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+If desired I can use my own name.
 
-Thank you.
+>=20
+> > +
+> > +description:
+> > +  The S-35390A is a CMOS 2-wire real-time clock IC which operates with=
+ the
+> > +  very low current consumption in the wide range of operation voltage.
+> > +
+> > +allOf:
+> > +  - $ref: rtc.yaml#
+> > +
+> > +properties:
+> > +  compatible:
+> > +    const: sii,s35390a
+> > +
+> > +  reg:
+> > +    maxItems: 1
+> > +
+> > +  interrupts:
+> > +    minItems: 1
+> > +    maxItems: 2
+> > +    description: Supports up to 2 interrupt lines via the INT1 and INT=
+2 pins.
+> > +
+> > +  wakeup-parent: true
+> > +
+> > +  wakeup-source: true
+> > +
+> > +  "#clock-cells":
+> > +    const: 1
+> > +
+> > +patternProperties:
+> > +  "^pins":
+>=20
+> Do you need wild cards here? Wouldn't just 'pins' for the node name be=
+=20
+> fine?
+Pin control by itself supports multiple states.
+I am not sure if this has a usecase with this device though.
 
-					-Alex
+>=20
+> > +    type: object
+> > +    patternProperties:
+> > +      "-pins$":
+> > +        type: object
+> > +        properties:
+> > +          pins:
+> > +            $ref: /schemas/pinctrl/pinmux-node.yaml#/properties/pins
+> > +            items:
+> > +              enum:
+> > +                - int1
+> > +                - int2
+> > +
+> > +          function:
+> > +            $ref: /schemas/types.yaml#/definitions/string
+> > +            description: |
+> > +              Pin function:
+> > +              - ignore:  Preserve the previous state.
+> > +              - disable: Disable pin output.
+> > +              - wakeup:  Output wakes up the system.
+> > +              - clock:   Output clock pulse.
+> > +              - pmin1:   Minute periodical output with 50% duty.
+> > +              - pmin2:   Minute periodical output L for 7.81 ms.
+> > +                         Can only be used with pin int1.
+> > +            enum:
+> > +              - ignore
+> > +              - disable
+> > +              - wakeup
+> > +              - clock
+> > +              - pmin1
+> > +              - pmin2
+> > +
+> > +        required:
+> > +          - function
+> > +
+> > +        additionalProperties: false
+> > +
+> > +    additionalProperties: false
+> > +
+> > +required:
+> > +  - compatible
+> > +  - reg
+> > +
+> > +unevaluatedProperties: false
+> > +
+> > +examples:
+> > +  - |
+> > +    i2c {
+> > +        #address-cells =3D <1>;
+> > +        #size-cells =3D <0>;
+> > +
+> > +        rtc@30 {
+> > +            compatible =3D "sii,s35390a";
+> > +            reg =3D <0x30>;
+> > +            pinctrl-0 =3D <&rtc_pins_default>;
+> > +            pinctrl-names =3D "default";
+> > +
+> > +            wakeup-parent =3D <&int>;
+> > +
+> > +            rtc_pins_default: pins {
+> > +              int1-pins {
+> > +                pins =3D "int1";
+> > +                function =3D "wakeup";
+> > +              };
+> > +              int2-pins {
+> > +                pins =3D "int2";
+> > +                function =3D "disable";
+> > +              };
+> > +            };
+> > +        };
+> > +    };
+> > diff --git a/Documentation/devicetree/bindings/rtc/trivial-rtc.yaml b/D=
+ocumentation/devicetree/bindings/rtc/trivial-rtc.yaml
+> > index f4d0eed98a08..7b3f682ef4d5 100644
+> > --- a/Documentation/devicetree/bindings/rtc/trivial-rtc.yaml
+> > +++ b/Documentation/devicetree/bindings/rtc/trivial-rtc.yaml
+> > @@ -81,8 +81,6 @@ properties:
+> >        - ricoh,rv5c386
+> >        # I2C bus SERIAL INTERFACE REAL-TIME CLOCK IC
+> >        - ricoh,rv5c387a
+> > -      # 2-wire CMOS real-time clock
+> > -      - sii,s35390a
+> >        # ST SPEAr Real-time Clock
+> >        - st,spear600-rtc
+> >        # VIA/Wondermedia VT8500 Real-time Clock
+> > @@ -105,5 +103,4 @@ required:
+> >    - reg
+> > =20
+> >  additionalProperties: false
+> > -
+> >  ...
+> > diff --git a/MAINTAINERS b/MAINTAINERS
+> > index 5114e6db7307..4c8bc35cfe55 100644
+> > --- a/MAINTAINERS
+> > +++ b/MAINTAINERS
+> > @@ -22695,6 +22695,7 @@ T:	git git://git.kernel.org/pub/scm/linux/kerne=
+l/git/abelloni/linux.git
+> >  F:	Documentation/admin-guide/rtc.rst
+> >  F:	Documentation/devicetree/bindings/rtc/
+> >  F:	drivers/rtc/
+> > +F:	include/dt-bindings/rtc/
+> >  F:	include/linux/rtc.h
+> >  F:	include/linux/rtc/
+> >  F:	include/uapi/linux/rtc.h
+> >=20
+> > --=20
+> > 2.54.0
+> >=20
 
-> Maxime
-> 
->>
->> Reported-by: Sashiko <sashiko-bot@kernel.org>
->> Link: https://lore.kernel.org/linux-devicetree/20260606010122.21A211F00899@smtp.kernel.org/
->> Signed-off-by: Alex Elder <elder@riscstar.com>
->> ---
->>   drivers/net/ethernet/stmicro/stmmac/chain_mode.c | 3 ++-
->>   drivers/net/ethernet/stmicro/stmmac/ring_mode.c  | 3 ++-
->>   2 files changed, 4 insertions(+), 2 deletions(-)
->>
->> diff --git a/drivers/net/ethernet/stmicro/stmmac/chain_mode.c b/drivers/net/ethernet/stmicro/stmmac/chain_mode.c
->> index fc04a23342cfc..ec25193d287bb 100644
->> --- a/drivers/net/ethernet/stmicro/stmmac/chain_mode.c
->> +++ b/drivers/net/ethernet/stmicro/stmmac/chain_mode.c
->> @@ -20,9 +20,10 @@ static int jumbo_frm(struct stmmac_tx_queue *tx_q, struct sk_buff *skb,
->>   	unsigned int nopaged_len = skb_headlen(skb);
->>   	struct stmmac_priv *priv = tx_q->priv_data;
->>   	unsigned int entry = tx_q->cur_tx;
->> -	unsigned int bmax, buf_len, des2;
->> +	unsigned int bmax, buf_len;
->>   	unsigned int i = 1, len;
->>   	struct dma_desc *desc;
->> +	dma_addr_t des2;
->>   
->>   	desc = tx_q->dma_tx + entry;
->>   
->> diff --git a/drivers/net/ethernet/stmicro/stmmac/ring_mode.c b/drivers/net/ethernet/stmicro/stmmac/ring_mode.c
->> index 78fc6aa5bbe95..664d8cfb58cdc 100644
->> --- a/drivers/net/ethernet/stmicro/stmmac/ring_mode.c
->> +++ b/drivers/net/ethernet/stmicro/stmmac/ring_mode.c
->> @@ -20,8 +20,9 @@ static int jumbo_frm(struct stmmac_tx_queue *tx_q, struct sk_buff *skb,
->>   	unsigned int nopaged_len = skb_headlen(skb);
->>   	struct stmmac_priv *priv = tx_q->priv_data;
->>   	unsigned int entry = tx_q->cur_tx;
->> -	unsigned int bmax, len, des2;
->> +	unsigned int bmax, len;
->>   	struct dma_desc *desc;
->> +	dma_addr_t des2;
->>   
->>   	if (priv->extend_desc)
->>   		desc = (struct dma_desc *)(tx_q->dma_etx + entry);
->>
->> base-commit: 31397cf1819210bd63fa3d2c7d8c24f7c8667d99
-> 
+Thanks
+- Markus Probst
 
+
+--=-4FzxRt0vSudbgFRbezTj
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+
+-----BEGIN PGP SIGNATURE-----
+
+iQJPBAABCAA5FiEEgnQYxPSsWOdyMMRzNHYf+OetQ9IFAmp8ZrUbFIAAAAAABAAO
+bWFudTIsMi41KzEuMTIsMiwyAAoJEDR2H/jnrUPSGhsP/0FkoRbcsk5+7zV5xzR+
+CIA/ua0L0QQzESlsroGrtiXxmjAjC/URYmYg8V9x66J2G43ubBMowXp1cm0PLXEs
+Fh2zKPYQEA6T4vxjSGyBXrBg+F3mQ5j2XWu+qny0h5IyPcuAg5PetYQaNl0UAFbL
+41Outw5xs+pKwwAVd+0WkxA3fGPYmayOt48QW+4Qt0r8UvpbG019CHzpLJyeesQn
+6gSnKXs2Vtlad/mlEyDNKXWQeilyCjZttyrQVa8Ospg0KCTyAsJ8bouK6wSsH7IP
+JH+GhYmuAs7ljbeyRjnIyeN6eADayJjDg7Z45Zo+RC838Kct7rLToFP9AsEJLTCd
+KOVIN4a0YZltuZHOsXHdqpc6Br819G2r6TSUOxGNFg+zXqoc9PDyfvkYQWW6GMbw
+PrybeiDp3Q2cIJ4FYaIsflhoXJ8P9OnH7BjMDx9XEa26jfqmuR70ESllkjlL44bE
+KvwBXAMV+fadhl0S4AhexuyWducvyx/bfwnGPNcZl5uqt1PQyuTqci5Bjctu28TQ
+EDTAXzPtzEWmjZYZzVPW7jGOuac+/GdokHWpPxpDiJb+grio5sIthzD5le/JmNTA
+UtbNQODBuxm4Chldw0w+IxUJjhOeRn+oFLFYTSX/oqPUGlQzXx1Ckqf2Ocv/nM3T
+eYmi/LCAVi48JEIml31MLULy
+=Y5gm
+-----END PGP SIGNATURE-----
+
+--=-4FzxRt0vSudbgFRbezTj--
 
