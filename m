@@ -4,78 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 694D1C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 13:51:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A110C5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 13:57:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jXOOKWoV7MEnR9+bM1yW21aczulQD8XP9QPvyBJVi5Q=; b=BLkvjsBx3uomuis8Gt5/dTs/v5
-	fdk7Mn8CeS1ZNgLBOsws7LWq/wsNEo7MwMaWdqD/V8MkvCA1vyTkWgn9gSZYoqixdAUn7Y/VAvQ/M
-	Oky/XOC8PZNPC03XH3tbimJw6+p7hcmMqr85eb9BsDEHpbJKdC8kjcrGHZillZj+NWmFCGbCRnRA0
-	qoKjvT+ZR3wFHIMKbg65g3X5H46ucR8b+0WFgBtExtEc9AEr6o1cfu9GhCDhATIDloVmfMWlVTX11
-	VahkrurNpBQusz/Mq22EDC0outfSPIKIuTwmeut0HLJTk8moMT9tAY8cR4kf/MA6WX5qdkvfHbeFZ
-	WkaP7QOw==;
+	bh=xmhuhS+v/9s11IQrzskxs9EJP+Sc9JsApWwLp7y5lZ4=; b=jR97Ec3lXuYPHS+1+yQBn8XUdA
+	40yCI9NUrc2FBE8TqPSrT3F1KnosC0HkQ1TPRo10lw7Wb7vLOS+P+utZfEDvT30dJHa8y8tzUx07U
+	kRtRsf8dQexYkSgj590Bu8tvW6DLy4xW2FE3TGdUoV2tVqwzIQdNzGKtlq29gw/iGUpAmq/8EWRQ2
+	Y4QcVdu9wj2Mf2C/xjvbMoVpfFVsZiIwsqjHQPJB5n0yG3SmMaye5YdhTyKiPd/MHIVJGTnt3K+ev
+	dJ/roAADbNmDZGslR3Drpta9G4sEc2kZWZPzGZ3W+gOeRgOHkIxn1hdZTOAdea2BlVrh137cD53jX
+	ZM2itKbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu9Mp-0000000GKRB-0XVZ;
-	Wed, 12 Aug 2026 13:51:39 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu9Mm-0000000GKQj-17vi
+	id 1wu9SD-0000000GKjx-01qs;
+	Wed, 12 Aug 2026 13:57:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wu9SB-0000000GKjm-0A43
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 13:51:37 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 95556153B;
-	Wed, 12 Aug 2026 06:51:31 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6B3253F66F;
-	Wed, 12 Aug 2026 06:51:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786542695; bh=7nCoc+Gd4dBqkVM3L9DgfcWFTtT0Go8fgXf2EaF6ryw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mdhIzOxU4DrVBTfWu9sQVemCRyfbINm+gJGsobbhcHm6RT2xmNZhB26+0R9dosOlZ
-	 xJoZ5cz12TtS+PoAC7Z6fjscj7CPeR3vEFkFy0T4SY9x7smJreqT9+FtH5Fyd4YiTR
-	 1YAp2YSqYL4igzdFr1iNMh6k+hMv25AjPvBXLAdU=
-Date: Wed, 12 Aug 2026 14:51:29 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev, Marc Zyngier <maz@kernel.org>,
-	Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Wed, 12 Aug 2026 13:57:11 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 91A08437E3;
+	Wed, 12 Aug 2026 13:57:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68E0F1F000E9;
+	Wed, 12 Aug 2026 13:57:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786543030;
+	bh=xmhuhS+v/9s11IQrzskxs9EJP+Sc9JsApWwLp7y5lZ4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=Q3Uwd7Td5hGP+kPmHFixQfsLdhmicx7BAUb5SsDNUrDPoWJ/g5Hb7A0xRUOzqwafv
+	 RIJohD9pY0t99xmg8HLWoaWUNiTTqqo0MpxbASbINR9VpNJDMsyePrgvLY8Z8AKqn+
+	 QcsqTLEISJzN3HOuIH3f7nDCNLSIom7L/NLzPwvHlKfTr4Xz/iZeH16XSn2lT+hKju
+	 KrHRF9VBdQLIbBQZhjijW3PLnc3bjgIaXaKf0BJLaxfHKXNVSUkKEiAPbnw6NhnWCq
+	 aN2+7j0tqF6i2f8ogKS8fM4udmk63SO0mv+D5cuN5cyAD+KvKk5HwZTwNbtdcFNpLN
+	 Opmr99PtTN/qw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wu9S8-0000000ExFT-0HJ3;
+	Wed, 12 Aug 2026 13:57:08 +0000
+Date: Wed, 12 Aug 2026 14:57:07 +0100
+Message-ID: <86jypv1lxo.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Karl Mehltretter <kmehltretter@gmail.com>
+Cc: Oliver Upton <oupton@kernel.org>,
+	kvmarm@lists.linux.dev,
+	Fuad Tabba <fuad.tabba@linux.dev>,
 	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>
-Subject: Re: [PATCH v16 07/45] arm64: mm: Handle Granule Protection Faults
- (GPFs)
-Message-ID: <anx6YbPMVz3OlpA5@arm.com>
-References: <20260803134403.80630-1-steven.price@arm.com>
- <20260803134403.80630-8-steven.price@arm.com>
- <ans1ZSwMEKeT9Gfz@arm.com>
- <d4bdecca-517a-4b4b-bf67-cef6b09bc8c1@arm.com>
- <7d4e5920-aa20-40cd-954e-037631bd0d6c@quicinc.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <7d4e5920-aa20-40cd-954e-037631bd0d6c@quicinc.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_065136_388703_ACBAF56D 
-X-CRM114-Status: GOOD (  36.12  )
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Eric Auger <eric.auger@redhat.com>,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [RFC PATCH 1/2] KVM: arm64: vgic-v3: Roll back failed redistributor region setup
+In-Reply-To: <anotFcOP0kcQJwrA@gmail.com>
+References: <cover.1786344511.git.kmehltretter@gmail.com>
+	<4e00fc25aa61ec52e6ef033a53588ce3f5550982.1786344511.git.kmehltretter@gmail.com>
+	<86tsp2139b.wl-maz@kernel.org>
+	<anotFcOP0kcQJwrA@gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kmehltretter@gmail.com, oupton@kernel.org, kvmarm@lists.linux.dev, fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, pbonzini@redhat.com, shuah@kernel.org, eric.auger@redhat.com, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,93 +97,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 12, 2026 at 06:12:09PM +0530, Pavan Kondeti wrote:
-> On Tue, Aug 11, 2026 at 04:11:13PM +0100, Suzuki K Poulose wrote:
-> > On 11/08/2026 15:44, Catalin Marinas wrote:
-> > > On Mon, Aug 03, 2026 at 02:43:23PM +0100, Steven Price wrote:
-> > > > If the host attempts to access granules that have been delegated for use
-> > > > in a realm these accesses will be caught and will trigger a Granule
-> > > > Protection Fault (GPF).
-> > > > 
-> > > > A fault during a page walk signals a bug in the kernel and is handled by
-> > > > oopsing the kernel. A non-page walk fault could be caused by user space
-> > > > having access to a page which has been delegated to the kernel and will
-> > > > trigger a SIGBUS to allow debugging why user space is trying to access a
-> > > > delegated page.
-> > > > 
-> > > > Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> > > > Reviewed-by: Gavin Shan <gshan@redhat.com>
-> > > > Signed-off-by: Steven Price <steven.price@arm.com>
-> > > > ---
-> > > > Changes since v10:
-> > > >   * Don't call arm64_notify_die() in do_gpf() but simply return 1.
-> > > > Changes since v2:
-> > > >   * Include missing "Granule Protection Fault at level -1"
-> > > > ---
-> > > >   arch/arm64/mm/fault.c | 28 ++++++++++++++++++++++------
-> > > >   1 file changed, 22 insertions(+), 6 deletions(-)
-> > > > 
-> > > > diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-> > > > index 85e23388f9bb..ea3ae0ca7dba 100644
-> > > > --- a/arch/arm64/mm/fault.c
-> > > > +++ b/arch/arm64/mm/fault.c
-> > > > @@ -909,6 +909,22 @@ static int do_tag_check_fault(unsigned long far, unsigned long esr,
-> > > >   	return 0;
-> > > >   }
-> > > > +static int do_gpf_ptw(unsigned long far, unsigned long esr, struct pt_regs *regs)
-> > > > +{
-> > > > +	const struct fault_info *inf = esr_to_fault_info(esr);
-> > > > +
-> > > > +	die_kernel_fault(inf->name, far, esr, regs);
-> > > > +	return 0;
-> > > > +}
-> > > > +
-> > > > +static int do_gpf(unsigned long far, unsigned long esr, struct pt_regs *regs)
-> > > > +{
-> > > > +	if (!is_el1_instruction_abort(esr) && fixup_exception(regs, esr))
-> > > > +		return 0;
-> > > > +
-> > > > +	return 1;
-> > > > +}
-> > > 
-> > > Is there a valid case for fixup_exception() here? IOW, do we ever have a
-> > > valid user mapping of the pages delegated to a guest? If the above is
-> > > considered a kernel bug, I'd not silently ignore this (like return less
-> > > bytes copied or -EFAULT to user) but rather warn, potentially
-> > > rate-limited.
+On Mon, 10 Aug 2026 22:22:37 +0100,
+Karl Mehltretter <kmehltretter@gmail.com> wrote:
+> 
+> On Mon, Aug 10, 2026 at 03:03:44PM +0100, Marc Zyngier wrote:
 > > 
-> > Good question. This shouldn't be a valid case. We expect the VMM to use
-> > guest_memfd and that should prevent any mmaps and thus fixups shouldn't
-> > be required. That said, this series doesn't enforce that the VMM uses
-> > GMEM backed memslots for Guest RAM. We should probably do that while
-> > mapping things in.
+> > > A later REDIST_REGION attribute can be inserted successfully and then
 > > 
-> > With that, we could drop that fixup and scream a bit.
+> > Later than what?
 > 
-> There is a valid case for fixup_exception() to be needed here in GPF
-> handling.
+> I meant a REDIST_REGION write after earlier
+> region writes have already assigned RDs to some vCPUs.
 > 
-> -000 |load_unaligned_zeropad(inline)
-> -000 |hash_name(inline)
-> -000 |link_path_walk()
-> -001 |path_lookupat()
-> -002 |filename_lookup()
-> -003 |vfs_statx()
-> -004 |vfs_fstatat()
+> In the selftest (patch 2) 
+> - region 0 contains RDs for vCPUs 0 and 1
+> - region 1 contains RD for vCPU 2
+> - the REDIST_REGION write for region 2 fails while KVM processes vCPU 3
 > 
-> We observed this in Android running Gunyah when the page is mapped in
-> EL1 but unmapped at EL2. path_lookupat() can actually handle this
-> via fixup_exeption() when a word load crosses the page boundary.
-> However, Gunyah injects a Synchronous External Abort and we have
-> a downstream patch [1] that adds fixup_exception() in do_sea(). pKVM
-> injects [2] such faults back to EL1 and fixup_exception() is taken care.
+> > Holes in the MMIO space are the norm. The IPA space can multi-TB
+> > large, and there is no reason why it'd cover everything (where would
+> > you place the RAM otherwise?).
+> > 
+> > Is the problem here that you are left with vcpus that seem to have
+> > been matched to an RD (base_addr being set), but that really are left
+> > unconnected?
+> 
+> Yes I guess "hole" is the wrong term. The vCPU still has an RD and a
+> base address, but its iodev has been removed from KVM_MMIO_BUS.
+> An access to that RD address then causes KVM_RUN to return
+> to userspace with KVM_EXIT_MMIO.
+> 
+> > 
+> > > failing vCPU already has its base address and region assigned, but the
+> > > old i < c rollback does not include it.
+> > 
+> > What is "it"?
+> 
+> I meant the current vCPU redistributor iodev.
+> vgic_register_redist_iodev() sets the vCPU's region and base address
+> before calling kvm_io_bus_register_dev(). If this call fails for
+> vCPU c, the rollback in vgic_register_all_redist_iodevs() processes only
+> vCPUs with indices below c.
+> 
+> > > Preserve devices assigned by earlier successful setters. On failure,
+> > > unregister only vCPUs associated with the newly inserted region, clear
+> > > their cached base addresses, and free that region. This also includes the
+> > > current vCPU when iodev registration itself fails.
+> > 
+> > What I don't see here is an argument explaining that doing this
+> > doesn't change the guest-visible assignment of RDs, which would be a
+> > regression.
+> 
+> vgic_register_redist_iodev() returns immediately if a vCPU's RD base
+> address is already set, so its RD region and address don't change.
+> 
+> Regions are filled in index order, a vCPU without an RD address can
+> use the new region only after older regions are full.
+> 
+> So freeing the new region and clearing the RD state of vCPUs associated
+> with it restores the state before the failed write.
+> 
+> > Based on what I understand of your earlier description, why isn't this
+> > as simple as this untested hack:
+> 
+> I ran the selftest (patch 2) with this, still failed with:
+> 
+>   Unexpected MMIO exit at 0x8050008
+> 
+> When redistributor registration for vCPU 3 fails, the for loop does
+> vCPUs 0 to 3. The issue is that the iodevs for vCPUs 0 to 2 were
+> registered by earlier successful region writes and should not be
+> unregistered.
 
-Ah, good point, completely forgot about load_unaligned_zeropad(). Since
-we don't unmap the linear map for delegated pages, we'll need the
-fixup_exception(). And I guess warning in this case is not desirable
-either. We could limit it to EX_TYPE_KACCESS_ERR_ZERO and
-EX_TYPE_LOAD_UNALIGNED_ZEROPAD, though not sure it's worth it.
+But that's not something we guarantee. Actually, that's not something
+userspace should have any view on. And we're far better off just
+resetting everything
+
+> 
+> On retry, vgic_register_redist_iodev() sees the set addresses
+> and does not re-register those iodevs.
+
+Which address? All addresses have been reset. What's missing in my
+original patch is resetting the free_index counter.
+
+> 
+> > I don't mind the cleaning up, but not as part of fixing the issue,
+> > which has to be as small as possible (think of the backports).
+> 
+> I reworked the change without a new helper (see below).
+> Is this closer to what you had in mind?
+
+[snip]
+
+No. I want *all* RDs to be gone on failure, and the next successful
+registration to result in all possible RDs to be matched against a
+vcpu if there are enough of them. Effectively an atomic behaviour from
+the PoV of userspace.
+
+See the patch below for what I came up with.
+
+	M.
+
+diff --git a/arch/arm64/kvm/vgic/vgic-mmio-v3.c b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+index 5913a20d8301..94d2f4c6dc51 100644
+--- a/arch/arm64/kvm/vgic/vgic-mmio-v3.c
++++ b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+@@ -839,6 +839,13 @@ void vgic_unregister_redist_iodev(struct kvm_vcpu *vcpu)
+ 	struct vgic_io_device *rd_dev = &vcpu->arch.vgic_cpu.rd_iodev;
+ 
+ 	kvm_io_bus_unregister_dev(vcpu->kvm, KVM_MMIO_BUS, &rd_dev->dev);
++
++	guard(mutex)(&vcpu->kvm->arch.config_lock);
++	if (vcpu->arch.vgic_cpu.rdreg) {
++		vcpu->arch.vgic_cpu.rdreg->free_index--;
++		vcpu->arch.vgic_cpu.rdreg = NULL;
++	}
++	rd_dev->base_addr = VGIC_ADDR_UNDEF;
+ }
+ 
+ static int vgic_register_all_redist_iodevs(struct kvm *kvm)
+@@ -859,7 +866,7 @@ static int vgic_register_all_redist_iodevs(struct kvm *kvm)
+ 		/* The current c failed, so iterate over the previous ones. */
+ 		int i;
+ 
+-		for (i = 0; i < c; i++) {
++		for (i = 0; i <= c; i++) {
+ 			vcpu = kvm_get_vcpu(kvm, i);
+ 			vgic_unregister_redist_iodev(vcpu);
+ 		}
+@@ -953,17 +960,8 @@ static int vgic_v3_alloc_redist_region(struct kvm *kvm, uint32_t index,
+ 
+ void vgic_v3_free_redist_region(struct kvm *kvm, struct vgic_redist_region *rdreg)
+ {
+-	struct kvm_vcpu *vcpu;
+-	unsigned long c;
+-
+ 	lockdep_assert_held(&kvm->arch.config_lock);
+ 
+-	/* Garbage collect the region */
+-	kvm_for_each_vcpu(c, vcpu, kvm) {
+-		if (vcpu->arch.vgic_cpu.rdreg == rdreg)
+-			vcpu->arch.vgic_cpu.rdreg = NULL;
+-	}
+-
+ 	list_del(&rdreg->list);
+ 	kfree(rdreg);
+ }
 
 -- 
-Catalin
+Without deviation from the norm, progress is not possible.
 
