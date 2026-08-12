@@ -4,101 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7DCEC5AD5A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 10:02:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5844C5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 10:03:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CR60h/fVXoId0NfC1qox1rIsZX7Vdp8o1eA32koeHU0=; b=BTI0NmRPumxl1Cj5YD2EouIZXx
-	yYsT3Y5MGarid6dYnX5AXVCUQ/zKjuUFN4Q8w30UFBG/O3vgj0ZKw8qDBIvW28Me6GStnyb/IS9UG
-	4GwrsK8hkkEa+5/sbpiua85Hu2g4XQ0PshCi58CiKDOXkoMZ/r8Hitv60KUjUHONBY1sn6dkedbkm
-	dUvjB4Q2fxQqb/eprLnFZrNnKMJwEKKbhDiZp/b0BFUeIUtaM2Kt7avAzv/0YYVM91809zv4/lea/
-	kmgt+vJttdpRq4s9f3d0BT2PclW7IQKZN7DOUqco1ntL2loZ4U+WR6nuT8nvaIqYJOH+L6QecAWOQ
-	KJChImVA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VUCfF1UAtrr5Sz4037NGCH3ZcjKNMv5UJ6wXb/uvgGE=; b=R1MvZ3Gq9QDndLkhX8DOedVBHP
+	8PZK20dVZSZtIhyrHEwveRRO4R3LxOUEodFQAlHxsrklagCKI/KjZqoSnkepBHxV/ewidGaeEwrHp
+	WKYdMdMfqzebCFiTFZgv+cvyW5NZTrHfAsZ+8zhODejrE+naGa7nicJdwXKj2Wfv0vwLIReF5G3Hu
+	8dfRPj2+ZLg8BF7G8QzB8i5pYxy+bmUnGAffB9BrymaBspxZE/tnlLxANh+feS/A2GxHL/UDK167y
+	pog7rBxrjhlsljxp4rwQcYsxdL5cX+Xh/EqOSMVQnjnGP0lyQqz+4Jwvwqag9ubP68AlCQMkT3iVH
+	I5/dprYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu5nG-0000000Fpv3-0I9N;
-	Wed, 12 Aug 2026 10:02:42 +0000
-Received: from mail-ua1-f52.google.com ([209.85.222.52])
+	id 1wu5ni-0000000Fq0N-0EHw;
+	Wed, 12 Aug 2026 10:03:11 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu5nD-0000000FpuR-1dUS
+	id 1wu5ng-0000000Fpzo-1lib
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 10:02:40 +0000
-Received: by mail-ua1-f52.google.com with SMTP id a1e0cc1a2514c-9693bbb962eso369286241.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 03:02:39 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786528958; x=1787133758;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=CR60h/fVXoId0NfC1qox1rIsZX7Vdp8o1eA32koeHU0=;
-        b=j91vj3uBHXQAeIviCyX1PwTVL5XF6YbLPaZoONIHp1CnwxrIWfe3g2jjzAtwT9ojGp
-         JzLl5Zd3vZL8J6yEdQPZrSKZq0Ek4ejp67ib84z/e5Poo9K8sivH65Vafsk5m2FnFxlj
-         Q5pMKUmb9nzv9GHSYltmAznuS/511E8OpYFrkae2rObDw88jOlsglBQQCGRfOltoAcig
-         Mkb1ZhRGjaN5CwbBvb51H6Lb4xWNnMqzZbWW90vUfdfNdDU03LPYO/u4DE/NILW9Q12t
-         L+JvcMCdETeg0Ji3WLmglS57iyag0pcNyVEagUxRk4W2ihxPTkAxbn9MT2Uo4c5x2+Wk
-         pXFg==
-X-Forwarded-Encrypted: i=1; AHgh+RqEs0h546D/gcdB7Peh29lwobmACTmtwU8oVABwiHgJdhQF2TdNSIDiMTRKh39Gj9j4nAWJ8tzpyi74lz51JUKT@lists.infradead.org
-X-Gm-Message-State: AOJu0YxsoMw3Ja2Juozehnmn7KqN4rE3tkNnvEnYF+pne7f5sEqtALj5
-	UVJSKHXGk5RROw4uu3aKY1kQSe898Ksk/RVQB9pu09wpXNUlauyEsNCprTpf8AFw
-X-Gm-Gg: AR+sD13e3aVQJzgVkK7ITTIzy4FJPKUfx+/ZtjuT7Ce0nUeMn40Y0a46VwP9rL9TmfS
-	08I7YRWhNIkmQ6VvTFu0BVdOWvMjmDK9oQt87MjcTxp5yjqhaQ31UcmT1YKYS3uvqkOsFTjXJ5Q
-	TOkWQqA9zu7usdrNlSJEQFkbxzfQ8E5Yw7kW8ADrxmywkZun8B5BbnEZMHsRHF7JjtdHMyEdu1Q
-	a80LJf2e1PLsyH0odC6NJOO8l8QW+0f4OM+K4BkhDoZAQyunXR8ZfCqHPKY93qfPiip7KH5BWfN
-	YlZYOSFPnr6lYcy3M0CZXMgsdWa6XFL+fZiOWTZuSPs2HGaIwklQY8M3x3oGqSxcc27Azsnv2Uh
-	lwY55jVAsNIplQFCribqDvrXuR3qTeYs90ZxctYAg3J4yEPxZ3mxsDBDFA/TklmgNw6w+pi3yRT
-	G/snYC17Ys6wC/YpUNCqqwLFjmbDvAgRdH359L/EheDdP9JmuX5Sae7knteh6zRtq7JQ9jHtPIn
-	c3rWiQaNsx67XiwDj9h4wcY2Q==
-X-Received: by 2002:a05:6102:1481:b0:738:6994:eb8 with SMTP id ada2fe7eead31-76c8a264471mr937445137.0.1786528957914;
-        Wed, 12 Aug 2026 03:02:37 -0700 (PDT)
-Received: from mail-ua1-f48.google.com (mail-ua1-f48.google.com. [209.85.222.48])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-97a3cc0da87sm1240237241.7.2026.08.12.03.02.36
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 12 Aug 2026 03:02:36 -0700 (PDT)
-Received: by mail-ua1-f48.google.com with SMTP id a1e0cc1a2514c-97723f98735so392330241.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 03:02:36 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+Rqr5zkBp5CDUtX1jmYwJH/gbCg0Kp0ZbBKGV5zZUWdNMVVv/Dtky2r6XoZF1M5IAr5AFvTJfmiT+5pLcXyN1w11@lists.infradead.org
-X-Received: by 2002:a05:6102:3fa3:b0:738:531e:a43e with SMTP id
- ada2fe7eead31-76c8e62eb86mr823119137.7.1786528956520; Wed, 12 Aug 2026
- 03:02:36 -0700 (PDT)
+	Wed, 12 Aug 2026 10:03:08 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6C103415AA;
+	Wed, 12 Aug 2026 10:03:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4CA31F000E9;
+	Wed, 12 Aug 2026 10:03:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786528986;
+	bh=VUCfF1UAtrr5Sz4037NGCH3ZcjKNMv5UJ6wXb/uvgGE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=Z8F/fftDf17dt8VMfG82K31UoEYpifag2Gyi7U0w7Yuwig7vvuUyhvkOCdpBvnFFX
+	 dkedhhx8vCot3G+jTLeTXk2hvnWTyGTkefYL1SvjktZE0RELs5p95FVPnhjrEk9r8j
+	 J1gtfw1ED2MDkEF3tMiBBGt0OygTcnEtrKStDFWAoRz6I1QpcPT466wvD6RjipjTWL
+	 2eOB+YWwPkh9Rcv7Tm2JKb1IwZs5Ug5+sJyx1eAFCq8ib3OsxpqRuXB/xQNO0bZVbF
+	 MSxftiofDrGViSeKOocIxOZH0eeOQ9sa2/7tjjo6VhrAy+9IrV/HSpmGTBoSlIvWgb
+	 G/eQ0rqSOmXZA==
+Message-ID: <9557331b-8d7e-4235-93c5-f8b799df6fff@kernel.org>
+Date: Wed, 12 Aug 2026 12:02:58 +0200
 MIME-Version: 1.0
-References: <cover.1783505329.git.geert+renesas@glider.be> <49726acff0fee1c3606e83c4f242ef6aad25b4b8.1783505329.git.geert+renesas@glider.be>
- <20260710-adventurous-burgundy-chimera-b2fff9@quoll> <CAMuHMdV=ckONBbTYELPJU8YWoNzdu3PJ95VR8cz+f_7dUeiPUw@mail.gmail.com>
- <20260716214924.GA1477674-robh@kernel.org> <CAMuHMdU0ss6wUEdjC+OYa3iQS439aJ8b_d9M2ws7Ayn4_kOyMQ@mail.gmail.com>
- <20260811163334.GA2354701-robh@kernel.org> <CAMuHMdWbzg-QpFBzzDa2hC3HzAmWUkerESC5O-cSVxmWX3_PkQ@mail.gmail.com>
- <45dfd858-9d59-47e6-91e0-ef9e6e909af6@kernel.org>
-In-Reply-To: <45dfd858-9d59-47e6-91e0-ef9e6e909af6@kernel.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 12 Aug 2026 12:02:25 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdXJFdJQP1GVXrOWRuYO8Si_WF5X+vpzmAgTZY+tQstR1A@mail.gmail.com>
-X-Gm-Features: AUfX_myt-2ep2N9UFFpinQmtMeTX8Y6aB554SNFoItehXn5f25ET5eoahbFPK1U
-Message-ID: <CAMuHMdXJFdJQP1GVXrOWRuYO8Si_WF5X+vpzmAgTZY+tQstR1A@mail.gmail.com>
-Subject: Re: [PATCH v2 05/10] dt-bindings: clock: renesas,r8a78000-cpg: Add
- firmware property
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Sudeep Holla <sudeep.holla@kernel.org>, 
-	Cristian Marussi <cristian.marussi@arm.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Saravana Kannan <saravanak@kernel.org>, 
-	Ulf Hansson <ulfh@kernel.org>, "Rafael J . Wysocki" <rafael@kernel.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, Vinod Koul <vkoul@kernel.org>, 
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, Kevin Hilman <khilman@baylibre.com>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Wolfram Sang <wsa+renesas@sang-engineering.com>, 
-	Marek Vasut <marek.vasut+renesas@mailbox.org>, 
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, arm-scmi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-pm@vger.kernel.org, linux-clk@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_030239_447410_AF37DFA4 
-X-CRM114-Status: GOOD (  37.00  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/4] dt-bindings: remoteproc: add imx-rproc-psci
+To: Jiafei Pan <jiafei.pan@nxp.com>
+Cc: "andersson@kernel.org" <andersson@kernel.org>,
+ "mathieu.poirier@linaro.org" <mathieu.poirier@linaro.org>,
+ Peng Fan <peng.fan@nxp.com>, Frank Li <frank.li@nxp.com>,
+ "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+ "kernel@pengutronix.de" <kernel@pengutronix.de>,
+ "festevam@gmail.com" <festevam@gmail.com>,
+ "imx@lists.linux.dev" <imx@lists.linux.dev>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "Z.Q. Hou" <zhiqiang.hou@nxp.com>, Mingkai Hu <mingkai.hu@nxp.com>,
+ "linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>
+References: <20260511023928.39640-1-Jiafei.Pan@nxp.com>
+ <20260511023928.39640-2-Jiafei.Pan@nxp.com>
+ <20260514-omniscient-futuristic-macaque-af0718@quoll>
+ <MRWPR04MB1227740CFAD4D4AAF1758F8A48ADC2@MRWPR04MB12277.eurprd04.prod.outlook.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <MRWPR04MB1227740CFAD4D4AAF1758F8A48ADC2@MRWPR04MB12277.eurprd04.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,62 +127,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+On 12/08/2026 11:19, Jiafei Pan wrote:
+> 
+> NXP Confidential
+> On Wed, May 14, 2026 at 11:38:13AM +0000, Krzysztof Kozlowski wrote:
+>>> +description:
+>>> +  This binding provides support for managing Cortex-A cores as remote
+>>> +  processors on i.MX platforms using the PSCI (Power State Coordination
+>>> +  Interface) for CPU power management operations. This allows single
+>>> +  Cortex-A core or multiple Cortex-A cores to be controlled by Linux as
+>>> +  a remote processor, enabling them to run RTOS or bare-metal applications.
+>>
+>> Describe the hardware, not the binding.
+> 
+> Will fix. Updated to describe the hardware:
+> 
+>   NXP i.MX SoCs integrate multiple Cortex-A cores. On certain i.MX
+>   platforms, one or more of these cores can be offloaded to run RTOS
+>   or bare-metal firmware as a remote processor, while the remaining
+>   cores run Linux. The cores are powered on and off via PSCI (Power
+>   State Coordination Interface) CPU_ON/CPU_OFF calls to the firmware.
+> 
+>>> +  compatible:
+>>> +    const: fsl,imx-rproc-psci
+>>
+>> Why isn't the compatible specific?
+> 
+> Will fix. Updated to use a SoC-specific compatible with a generic
+> fallback:
+> 
+>   compatible:
+>     - items:
+>       - enum:
+>           - fsl,imx93-ca53-rproc-
+>       - const: fsl,imx-rproc-psci
 
-On Wed, 12 Aug 2026 at 11:51, Krzysztof Kozlowski <krzk@kernel.org> wrote:
-> On 12/08/2026 11:47, Geert Uytterhoeven wrote:
-> >>>>>>> +  firmware:
-> >>>>>>
-> >>>>>> RPi is doing similar, but I have doubts. It looks way too close to
-> >>>>>> generic "syscon" which is disallowed.
-> >>>>>>
-> >>>>>> I think this should be vendor+purpose specific, e.g.:
-> >>>>>> "renesas,scmi-transport" or "renesas,scmi-firmware"
-> >>>>
-> >>>> If you can tell me the resource that a 'firmware' provider provides then
-> >>>> it is fine, but you can't.
-> >>>
-> >>> It provides a firmware API, which is not available until the firmware
-> >>> provider is initialized.
-> >>
-> >> I don't know what "a firmware API" is. What does it provide? I know what
-> >
-> > It can provide lots of things (everything we are no longer allowed to
-> > touch directly from Linux ;-)
-> >
-> >> a clock, GPIO, reset, interrupt, etc. provider is.
-> >
-> > A clock is an object you can access through the clock API.
-> > (s/clock/.../ for the other cases).
-> > Firmware is a service (virtual object) you can access through a
-> > firmware API.
-> >
-> > In all cases, the consumer of the object or service needs to know
-> > which object or service to use (there can be multiple).
-> >
-> > In all cases you cannot access the object or service until it is
-> > available (initialized and registered), for which we have -EPROBE_DEFER,
-> > and/or "[PATCH v2 02/10] of: property: fw_devlink: Add support for
-> > firmware".
-> >
-> > Thanks for your understanding ;-)
->
-> I think that's the difference here. Clock is not an object, but a signal
-> on a wire or within IC coming from one device (provider) to another
-> (consumer). Firmware is not a signal, not a wire, not anything which can
-> be provided from one to another.
+Don't do generic fallbacks. Works poor, as visible in multiple cases now.
 
-Oh yes, it is a service provided by the secure world or a different
-CPU core to the application core running Linux.
 
-Gr{oetje,eeting}s,
+> 
+>>> +  fsl,cpus-mask:
+>>> +    $ref: /schemas/types.yaml#/definitions/uint32
+>>> +    description:
+>>> +      Bitmask indicating which CPU cores are assigned to this remote
+>>> +      processor instance. Each bit represents a CPU core, where bit N
+>>> +      corresponds to CPU N. For example, 0x2 (0b10) assigns CPU core 1,
+>>> +      while 0x6 (0b110) assigns CPU cores 1 and 2.
+>>
+>> So you partition existing Cortex-A cores? Or how exactly? Why isn't this
+>> deducible from the compatible (I assume you read carefully writing
+>> bindings)?
+> 
+> Yes, we partition existing Cortex-A cores. On i.MX93 for example,
+> there are 2 Cortex-A55 cores. Core 0 runs Linux as the primary OS,
+> while core 1 (or any subset of the remaining cores on SoCs with more
+> cores, e.g. 4x A55) can be assigned to a remoteproc instance to run
+> RTOS or bare-metal firmware.
+> 
+> The reason fsl,cpus-mask cannot be deduced from the compatible is
+> that the assignment is flexible and board/use-case specific. On a
+> 4-core SoC, the user may assign core 1 only, cores 1+2, cores 2+3,
+> or all non-primary cores to one or more remoteproc instances. This
+> runtime flexibility cannot be encoded in the compatible string.
+> 
+> We considered using a `cpus` phandle list instead, but the CPU nodes
+> in the DT are already claimed by the Linux CPU topology and do not
+> naturally represent "remote processor" assignments. The bitmask
+> approach directly maps to the PSCI CPU_ON/CPU_OFF MPIDR-based
+> interface used by the firmware.
+You replied three months after my comment. Well, you have such right but
+so you know entire context is gone and I am not going to put my time to
+read the binding again.
 
-                        Geert
+Just for you know - if you partition the cpus, they are gone from the
+cpus list as well. Not sure how this affects the bitmask but remember to
+model only available CPUs properly in DT.
 
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Best regards,
+Krzysztof
 
