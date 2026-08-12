@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75172C5CFDB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 11:21:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41ABFC5CFDB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 11:21:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CbzzHBH8DpqZehMLNcK23Xh4Yld6J3JsAmwo9QAsqAM=; b=VsmJfvjkS7LxaAY8nt2qjRelG5
-	skTWIHQC7bkDV+NXqZYhdm8rsJTxJdQi3ypd3Y2FmnSFqHEZzAvkgzRUTq6zMZYzStN6J9gvUMXor
-	PZgrVbUS8h5N1B2t7JXALS3d9xKC9vh6f1OkIJCMyhTOk7cQ5mndG6+eZemjc+RNz2nb0IANjyK1M
-	fkXBuwtVjW9d5fBZAQlMMCdn+dWnuloKI0QhS1jzKLAqpVj12Y51G7AumLMzizC1+anV27ikQdFEl
-	6gIAZ9rWjP6iwQn+vauyJ0TMHYTV1aaoSptfloxE2LnnUSA6LoM8ldU7v9VCmEuGPG5e6qk1rDhtC
-	sEJPLD8Q==;
+	bh=doym3QyHT8bL7rPyfRL2QEekEkOSH3JrEcV5LcFpHT4=; b=UrfGpmjge8hq99pezqh7No6Er0
+	73AgJTGDFJKqFjZTk+Y8udSFji9RE/HbjrDghDUUbq2IJim8jRfEhGwTIWANooCfjZKAa+gS3N45R
+	Wa2NUk/3hPIfOM1b/q97cScVJYo/1uCA6c1jdcppuJziCY6cgN1ZFzt2y5L5Q9ENm9aITFqv3ojqY
+	7BKqvxtNDgLiCFmcMy2VtR6Uh9YlacZTxxGuwtHDBet6YbZ9KxIZ3wEbJ9ulKHhQS7RbAjTWmmWFf
+	d58y3/9+mvoUcgYQ8QMfZJuX76iUPVcLT7Z71Rtj8jeStxMiBiGbpyGremLSPl8dqlVvrf9TBfY53
+	vJzXmX+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu714-0000000G2Kb-0SLn;
-	Wed, 12 Aug 2026 11:21:02 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1wu719-0000000G2PT-0QZY;
+	Wed, 12 Aug 2026 11:21:07 +0000
+Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu70x-0000000G2G7-3e2U
+	id 1wu715-0000000G2Ld-2Vgo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 11:20:58 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2cf52d15d88so8432595ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 04:20:55 -0700 (PDT)
+	Wed, 12 Aug 2026 11:21:05 +0000
+Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-38a0c7e841fso1219547a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 04:21:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786533655; x=1787138455; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1786533663; x=1787138463; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=CbzzHBH8DpqZehMLNcK23Xh4Yld6J3JsAmwo9QAsqAM=;
-        b=Aw/IM9xgiR68T9+lF3weWxNGcJ9o24c4wS6nVDyjjnr91sRF+SAnnPp0cM5QQLGX5D
-         Bxq3WgY2LTJkqVjVpM6VKTzKXwdNu/pDaYO0FeK3w6bLdQO8U2svakQ1V2605hMvjpn8
-         hHzRcQpNbG+ewE0Sq+JAi+XjZYeeoTtzmIYA9yzAoJPAT5+Gva3R4pgJlsyhjT9RRrC0
-         OZ/IgdeLEjP1AV6H5okXIc6yLQZvVS5JfFkBgGNF30D+tg8S3yTFeA6uUZdHaIwSFaJy
-         7OlmzRcWOA5OCru+B1MbaHww/hR+0m/Y+wP9jf3Gg7TRqbMwSukFIQbM6FGUaelIeDmH
-         PUrQ==
+        bh=doym3QyHT8bL7rPyfRL2QEekEkOSH3JrEcV5LcFpHT4=;
+        b=nSXPeUix85jFNXn7oTwbJEz1smMZq0tlmEAbEa/GYVK1OT/RrhOmt5BGQTsladgkFw
+         WLpEgMDv/yoyUUfBYfRryOZ5hNLbAuWPRNVMZK+TLM2HR60FkoQqbqYpL3JAZtAn+tlh
+         Aj9u5yU5YQHIiRYsr9xwtFQPBzcMefVykX2YmYWvdn1IyevFyPV92Zih9L4cDwxEeGNw
+         N5isoypaKnTvYUzBh6yZMn/BYQNZyXgnX+BZ+bdEzNnr4lZChnxW8J4wYcwUmf7MLyF1
+         lXEPZAp6dqCpY1COCgb8jYs9phzdGnexm4oiUZW/07U/7uYvHzeTeN9OW0rVmZW5pL/G
+         slfQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786533655; x=1787138455;
+        d=1e100.net; s=20251104; t=1786533663; x=1787138463;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=CbzzHBH8DpqZehMLNcK23Xh4Yld6J3JsAmwo9QAsqAM=;
-        b=Laykxu6/Ky9HaIzpyUmO4KucOHSB9oABjRpLG6fgHkmYR0El32O6JqvdVg+uNzs3O/
-         wa08b16mQInk8qhmbQUzR+y1dzdwzfo3T6BzJiY84oDT6BQlc4Xrl+OqqEg6y4PgDYyH
-         p42zK2zDCFJ4ZOBwoYqA4KLRHWQ13wPkLU3oLvSbRepzCszOmBzJzKS9+cmiLec7Jrxj
-         Obchvv+8BrUXLC5jXBLmUNvHq/wFHrcH1PUsYDfUJGnIXfiquN/Jgo7vpu9ProP4ApeD
-         Nm7OUor45/5+PSRyGCceE0mVQRQMrkWJ7lTRX6h82NSafDPXX8y8nMcIirvRZlxVyjPL
-         2VRg==
-X-Forwarded-Encrypted: i=1; AHgh+Rq/ssu6CpOELaE2ropsB80PTJObL/1l+vagHa0F9R5psSmE6MyEzgfC0RiNqluZUevtxq3r8n8VR7FV8uF7mNC6@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw1+yYvh3hZ9lWGP5L01CEpRK2Gt/mMoSN7fcdHBMKRoW5JtW7x
-	CkAaka3uhNrCYo8jWwWCYWF79t0EXeRpt66bYBvOB8kZ1UPxLuciw/fV
-X-Gm-Gg: AR+sD11+pRdUpVezMD/S7fCE0ZnRUEQ9fT05WPFb3C8xvpMvH4lHOyTQkMheCSJj7hz
-	bkTn/Qao1EtgCwnlCEEdE12sFP0md0+61mrcNzN8jck4iMNR+rzMCxtCG6CB8agi7DzcuMtYnT8
-	pFpWwaLC7NbcdLum1KaCR+G/tw1kgBLiC6h+57RC1e4hy7xGYf4W4o/oXDCWWwC9xDceG9CujUY
-	M7xyfV3laGtT/4hPx4d+Fs4/OnBpE9CPzeAW1JdlWprDtFbZXvC3kQ3VYYBDIfeC1uqUWmgFucG
-	rJ0dXe1TunNvxcO3l5CxyVq2pRNu6hgfa5AcqHWz7EbUz05cFzx5L1zlJSxILUn/RR9n08LD0qW
-	gYdN+M7J5JiWcfwCKNFpBqQo8CLwsgu+YyXcddFSNFvmXolYFEGqWHPolYrCNte//CW0GvzTL0v
-	OPzHUQLhs+J077GA99eVFi2lQVQzqgMKtOuXJ9DBeha0FmJi2bZdVUil0W/jII+0m+zGZlPp8sZ
-	n9M6rjKVafw8xuaQ1QrtdWLDyrsGFyV5MMpaqlI0FZ9XMv5MwSNSeWOyW8xA0AVl4Rc6IBCNqN6
-	EgkW
-X-Received: by 2002:a17:90b:1dca:b0:366:10f1:3d91 with SMTP id 98e67ed59e1d1-3930123d0c3mr4872172a91.1.1786533654838;
-        Wed, 12 Aug 2026 04:20:54 -0700 (PDT)
+        bh=doym3QyHT8bL7rPyfRL2QEekEkOSH3JrEcV5LcFpHT4=;
+        b=j9i6dT10GVgtbMTfM7ZBRfNNSqRV433xGepxldqaTX6RrOcUvGFJc/RaxXz/qQyYwd
+         kF3M9awL7j1/mKo8jHUV7y7WMW33ucESed0JamwZW8cc8/m9l+XUpCg3/6xsT9z6rlhg
+         7DbveFSxr4e/gcwKsoTGYOv8sjWHyq7bkattFaRZftvlbkvifZ9I6MgRq9lzqwnBZzvN
+         XF1VIT7GTrM3KEbtEQRoGyHSz6+h66uG0yBPemSve1xZhOdY/xLZtIz70FHwezs8x8bV
+         tcInDH2UNsDSLiQIaC6dqr+2Lx81K2cnyXDhB4/xHoYfbrKazZKuOzst1YNmYgnyocC0
+         srFA==
+X-Forwarded-Encrypted: i=1; AHgh+RpkCkhhvGss0eifx6SdwY34Ll+8v4cudZzIe1kIzmhhxcplpwuiEmy5rmZx9V/QuhdSEWa59F+mAUIjryu1ybt9@lists.infradead.org
+X-Gm-Message-State: AOJu0YxQK0shb4uvIGS3R8MHAnrX8IZrIXylpC7y4fXEdHG0oB+Adr5M
+	/zke/4y+UYIrLA3aQRPieMKmHSeFpNtW5eAhRiPa258SFr1BHRBMnV4OFOtBzA==
+X-Gm-Gg: AR+sD120dK4cwYOmtOyOkChW8B9wwhdmc169ZT4oJfTscsQaJ166WqPdfOFgUfsKF8F
+	aiPvHTejPrKigAoG2UMIBxct6e5Prf87EfzYaU8KRUvFz5pdR5tTTeUzZEj7BmMoUBndxUONOB8
+	Qlcar41i+1jccU05i0cZyq4BnM2e5IkTqYlEMWgTq9hhoVxZZhnJe9iWgBfNUdZWn4wmsyAtjqU
+	DfYcO1I90SBT61TfqRRszHyV5tO3AgdP+C9ZzvEgKcu/XMAcJ2cahhC4ioiecUeAsfV8qjUlaVY
+	pkQpza/mwVjje5okpRkV6IDbTt108dnQLrPKzXrPlfFQU38YODLUPHYXC1TYDBNObM5PzV7RiHv
+	RTKBoCua+6bkGoxTu/5ONMBlQTdPhXIs3szlnhNO5IyA0QX8H8PdBEQqJVcblVHVO3oK+ZdgrOi
+	R2sy7vGVCUVhNbazyy980jE+6lvWXUKo149JrcFZPGsNiNzJqtFAodqlfQ2BFvhtp/Zl33Oy5gs
+	Z06Vz3rs8hgW1gBEjRlHiDacg9BxJa3LFZc4yNoG0wJ+xatdIb1USQ5iWGhvZsw5BZKC6MzeBsU
+	nNB7kvsq4w==
+X-Received: by 2002:a17:90b:3807:b0:38d:f096:a1dc with SMTP id 98e67ed59e1d1-393013e58ecmr4752057a91.11.1786533662842;
+        Wed, 12 Aug 2026 04:21:02 -0700 (PDT)
 Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-392f935f5ecsm3193765a91.5.2026.08.12.04.20.50
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-392f935f5ecsm3193765a91.5.2026.08.12.04.20.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Aug 2026 04:20:54 -0700 (PDT)
+        Wed, 12 Aug 2026 04:21:02 -0700 (PDT)
 From: phucduc.bui@gmail.com
 To: Ulf Hansson <ulfh@kernel.org>,
 	Neil Armstrong <neil.armstrong@linaro.org>,
@@ -87,17 +87,17 @@ To: Ulf Hansson <ulfh@kernel.org>,
 	linux-amlogic@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org,
 	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH 2/3] mmc: davinci: Handle errors from optional IRQ lookup
-Date: Wed, 12 Aug 2026 18:20:22 +0700
-Message-ID: <20260812112023.42254-3-phucduc.bui@gmail.com>
+Subject: [PATCH 3/3] mmc: davinci: Handle optional IRQ return value correctly
+Date: Wed, 12 Aug 2026 18:20:23 +0700
+Message-ID: <20260812112023.42254-4-phucduc.bui@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260812112023.42254-1-phucduc.bui@gmail.com>
 References: <20260812112023.42254-1-phucduc.bui@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_042055_941858_B9189022 
-X-CRM114-Status: GOOD (  15.54  )
+X-CRM114-CacheID: sfid-20260812_042103_643510_64A261E0 
+X-CRM114-Status: GOOD (  14.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,40 +114,31 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: bui duc phuc <phucduc.bui@gmail.com>
 
-platform_get_irq_optional() returns a positive IRQ number on success or
-a negative error code on failure. For an optional IRQ, -ENXIO indicates
-that no optional IRQ is available. Other errors, such as -EPROBE_DEFER
-and -EINVAL, should be propagated so that the caller can handle them
-appropriately.
+host->sdio_irq is assigned from platform_get_irq_optional(), which
+returns a positive IRQ number on success or a negative error code on
+failure. Therefore, 0 is not a possible return value from this API.
 
-However, the driver currently stores the return value directly in
-host->sdio_irq and continues probing.
-
-Propagate negative errors other than -ENXIO, and only assign the IRQ to
-host->sdio_irq when a valid IRQ number is returned.
+Check for a positive IRQ number before requesting the SDIO IRQ instead
+of treating zero as a valid IRQ.
 
 Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
 ---
- drivers/mmc/host/davinci_mmc.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ drivers/mmc/host/davinci_mmc.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/mmc/host/davinci_mmc.c b/drivers/mmc/host/davinci_mmc.c
-index cdb9fa94b56d..4765d2dee599 100644
+index 4765d2dee599..dddd152d2ec4 100644
 --- a/drivers/mmc/host/davinci_mmc.c
 +++ b/drivers/mmc/host/davinci_mmc.c
-@@ -1248,7 +1248,11 @@ static int davinci_mmcsd_probe(struct platform_device *pdev)
+@@ -1303,7 +1303,7 @@ static int davinci_mmcsd_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		goto mmc_add_host_fail;
  
- 	host->use_dma = use_dma;
- 	host->mmc_irq = irq;
--	host->sdio_irq = platform_get_irq_optional(pdev, 1);
-+	ret = platform_get_irq_optional(pdev, 1);
-+	if (ret < 0 && ret != -ENXIO)
-+		return ret;
-+	if (ret > 0)
-+		host->sdio_irq = ret;
- 
- 	if (host->use_dma) {
- 		ret = davinci_acquire_dma_channels(host);
+-	if (host->sdio_irq >= 0) {
++	if (host->sdio_irq > 0) {
+ 		ret = devm_request_irq(&pdev->dev, host->sdio_irq,
+ 				       mmc_davinci_sdio_irq, 0,
+ 				       mmc_hostname(mmc), host);
 -- 
 2.43.0
 
