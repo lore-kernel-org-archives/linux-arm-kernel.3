@@ -4,56 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADCC4C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 15:38:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26B85C5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 15:40:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
-	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MnsGKFuMBTOgjRQ7tE0YFIFN0I5+jqQT6Tbo+szNMH8=; b=neEr009H/FcODByMNbuCQGmkFv
-	tUuclSdqKW+8c3yVEh8NBP4Qa/afW2w241xY9X2Cx56TpfQKvpdyaMIVHlKSQ/5mxGIkZBBJnMtuk
-	ZQ3l5qjXJAuN2qLst69qWDml/GWEfhqUMOA3YG7ASUJZaQRsBYCVYXEtbmlll48uWM/2U/CzjAYJj
-	OByn2IJk8Vdk+RpCIr/JW6KCVdg66zYvRu2yWG/Qc6/59OE7e1kfXk5dt3flZ+lHR6OKx/aARPkbl
-	o4xcyzKYEExrJuNl194Ndps9/InZg6F1T+ff7iBHqGoVJqqz6Zlr5ywqBvOM1S/BkiN0ohyEQfnTd
-	b3/0zakQ==;
+	bh=e/YlgeABxqSPNply52GCSCmwjqU1TLwkSzzxrjdXtPI=; b=fOzIfqaoXOVzAl4zxsw5GGeCw/
+	LKvugTWUUEEUwAmVNVLAJrKKBH39K5R3tDis70H6f7iq709/6bOmldS/NBAZra8ojZ4KuVU3bDGrm
+	YXmk2RhvZ6JkYB6dw+SUlGxiVPhe7x6BYywF42RupJpdeJVFwTVNdRafaq3JLX+dPa2UdHd6efU32
+	aJ9KIYZsCSD4XMs7Baq/XXCiCCII6vcoFphr61eh7mjDDiaCgfcU8dlU9HMfkEua9cA+Y+aHgXUAq
+	s34qjXaERF9ihNWmiFI19B72lPv/gwDWBpps1rkLkqfQNx4Z/8ZaN7yEtw5PaPU4+tALukn/XtPPH
+	Z1VjEKtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuB2A-0000000GVrw-1imI;
-	Wed, 12 Aug 2026 15:38:26 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuB1R-0000000GV4X-2V7o
+	id 1wuB3z-0000000GWLi-3Zme;
+	Wed, 12 Aug 2026 15:40:19 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wuB3x-0000000GWLN-10zO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 15:37:41 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BF5C540DA6;
-	Wed, 12 Aug 2026 15:37:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 964C51F01564;
-	Wed, 12 Aug 2026 15:37:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786549060;
-	bh=MnsGKFuMBTOgjRQ7tE0YFIFN0I5+jqQT6Tbo+szNMH8=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date;
-	b=LlCiLZHw3+ofYE4Ie3tuXkPweSejU6Ki5L0+yYDa/Qv43PLea15SMHIwyy387VJb7
-	 EhxWSJevaftiZ0e/IhAjshZrl9hv9k9kwgyr9ZHwt6Ca0RI+bOuMrFYfeJsnQ2cS0i
-	 pIgcDU9sSkDgJKRxKWN0Sen0G/v4xpfvk4EXRZDbswCmA35xuJhQSt0RFqpwPWKEPQ
-	 QyKz2uCg+fdofZVWEwv0v/QORFdbZoPTQKl5HbFsZE+VfHeWRzgTlm+MndQgmV2aJR
-	 1A5bXbbABFEL/DV8IkUUI7wl7nZ0J36ioHqsPN2vV0Y3NHuAuN1sPIoMsQZtGhylFW
-	 cZt9nX9PIIFFw==
-Content-Type: text/plain; charset="utf-8"
+	Wed, 12 Aug 2026 15:40:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9C0611596;
+	Wed, 12 Aug 2026 08:40:11 -0700 (PDT)
+Received: from [10.57.44.219] (unknown [10.57.44.219])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2EBD43F66F;
+	Wed, 12 Aug 2026 08:40:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1786549215; bh=zN/WiVKoMI3rKwUNQzf/CFzkgl2DOGa4/+tIpa89YXg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=P5KBS1DDcDt2umaSj9ukE+Pf/OEVx8CX3GAxEaA33tJPWUKE5tNdg3+HnYhNXUYF/
+	 mcjVrCElP6IQxLr4ZZoJse04WLDbVWovt/TSx0KU9vcCZqryPCmzA5Y8rMQtu26f7e
+	 VHpO83jjPRPU35BRVOF/cj2zH5ONRHBA9BWEqetM=
+Message-ID: <2c04aab0-99e3-47e6-808d-9662dd5b1a10@arm.com>
+Date: Wed, 12 Aug 2026 16:40:09 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20260807155830.603972-1-andersson@kernel.org>
-References: <20260807155830.603972-1-andersson@kernel.org>
-Subject: Re: [GIT PULL] Qualcomm clock updates for v7.3
-From: Stephen Boyd <sboyd@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, Imran Shaik <imran.shaik@oss.qualcomm.com>, Taniya Das <taniya.das@oss.qualcomm.com>, Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>, Stephan Gerhold <stephan.gerhold@linaro.org>, Stephan Gerhold <stephan@gerhold.net>, Qiang Yu <qiang.yu@oss.qualcomm.com>, Herman van Hazendonk <github.com@herrie.org>, Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>, Abel Vesa <abel.vesa@oss.qualcomm.com>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Lin Li <zhuolin.li@oss.qualcomm.com>, Loic Poulain <loic.poulain@oss.qualcomm.com>, Varadarajan Narayanan <varadarajan.narayanan@oss.qualcomm.com>, Brian Masney <bmasney@redhat.com>, Jerome Brunet <jbrunet@baylibre.com>, Luca Weiss <luca.weiss@fairphone.com>, Uwe =?utf-8?q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, Vladimir Zapolskiy <vz@kernel.org>
-To: Bjorn Andersson <andersson@kernel.org>, linux-clk@vger.kernel.org
-Date: Wed, 12 Aug 2026 08:37:38 -0700
-Message-ID: <178654905858.5862.417176047042178047@lazor>
-User-Agent: alot/0.12
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v16 29/45] KVM: arm64: CCA: Support runtime faulting of
+ memory
+Content-Language: en-GB
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
+ Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>
+References: <20260803134403.80630-1-steven.price@arm.com>
+ <20260803134403.80630-30-steven.price@arm.com> <antC5JOxDPs7i876@arm.com>
+ <b512db4b-793b-4dd1-baac-e873b39f5b0b@arm.com> <anx9195WR8wokAcL@arm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <anx9195WR8wokAcL@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260812_084017_560477_A65B63FE 
+X-CRM114-Status: GOOD (  31.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,29 +85,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Bjorn Andersson (2026-08-07 08:58:30)
->=20
-> The following changes since commit dc59e4fea9d83f03bad6bddf3fa2e524917774=
-82:
->=20
->   Linux 7.2-rc1 (2026-06-28 12:01:31 -0700)
->=20
-> are available in the Git repository at:
->=20
->   https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qco=
-m-clk-for-7.3
->=20
-> for you to fetch changes up to c7d44572a85ae1b897e0bf95357439ee75ddbcc7:
->=20
->   clk: qcom: Add support for Qualcomm GPU Clock Controller on Shikra (202=
-6-08-04 10:39:11 -0500)
->=20
-> ----------------------------------------------------------------
+On 12/08/2026 15:06, Catalin Marinas wrote:
+> On Wed, Aug 12, 2026 at 10:01:48AM +0100, Suzuki K Poulose wrote:
+>> On 11/08/2026 16:42, Catalin Marinas wrote:
+>>> On Mon, Aug 03, 2026 at 02:43:45PM +0100, Steven Price wrote:
+>>>> At runtime if the realm guest accesses memory which hasn't yet been
+>>>> mapped then KVM needs to either populate the region or fault the guest.
+>>>>
+>>>> For memory in the lower (protected) region of IPA a fresh page is
+>>>> provided to the RMM which will zero the contents. For memory in the
+>>>> upper (shared) region of IPA, the memory from the memslot is mapped
+>>>> into the realm VM non secure.
+>>>
+>>> Is this still true with in-place guestmem conversion?
+>>>
+>>>> @@ -1693,7 +1709,14 @@ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
+>>>>    	kvm_fault_lock(kvm);
+>>>>    	if (mmu_invalidate_retry(kvm, mmu_seq)) {
+>>>>    		ret = -EAGAIN;
+>>>> -		goto out_unlock;
+>>>> +		goto out_release_page;
+>>>> +	}
+>>>> +
+>>>> +	if (kvm_is_realm(kvm)) {
+>>>> +		prot &= ~KVM_PGTABLE_PROT_X;
+>>>> +		ret = realm_map_ipa(kvm, s2fd->fault_ipa, pfn,
+>>>> +				    PAGE_SIZE, prot, memcache);
+>>>> +		goto out_release_page;
+>>>>    	}
+>>>
+>>> [...]
+>>>
+>>>> +int realm_map_ipa(struct kvm *kvm, phys_addr_t ipa,
+>>>> +		  kvm_pfn_t pfn, unsigned long map_size,
+>>>> +		  enum kvm_pgtable_prot prot,
+>>>> +		  struct kvm_mmu_memory_cache *memcache)
+>>>> +{
+>>>> +	struct realm *realm = &kvm->arch.realm;
+>>>> +
+>>>> +	ipa = ALIGN_DOWN(ipa, map_size);
+>>>> +	if (!kvm_realm_is_private_address(realm, ipa)) {
+>>>> +		return realm_map_non_secure(kvm, ipa, pfn, map_size, prot,
+>>>> +					    memcache);
+>>>> +	}
+>>>> +
+>>>> +	/* It's impossible to map protected pages read-only. */
+>>>> +	if (WARN_ON(!(prot & KVM_PGTABLE_PROT_W)))
+>>>> +		return -EFAULT;
+>>>> +	return realm_map_protected(kvm, ipa, pfn, map_size, memcache);
+>>>> +}
+>>>
+>>> I was trying to understand (with the help of some LLMs) to understand
+>>> whether we can end up on the do_gpf() path as a result of VMM actions.
+>>> The above kvm_realm_is_private_address() only checks for the IPA but
+>>> does not check against guestmem if the page is truly private. I probably
+>>> miss something but the scenario would be something like:
+>>>
+>>> 1. VMM creates the gmem region with GUEST_MEMFD_FLAG_MMAP |
+>>>      GUEST_MEMFD_FLAG_INIT_SHARED, mmap()able and GUP-pinnable
+>>>
+>>> 2. VMM starts an O_DIRECT write() from that mapping; the block layer
+>>>      FOLL_PINs the shared folio
+>>>
+>>> 3. VMM runs a vCPU so the realm touches the protected-IPA alias of the
+>>>      same gfn. gmem_abort() delegates the pinned, still-shared page to
+>>>      the RMM
+>>>
+>>> 4. The in-flight I/O then reads the now-Realm page from the kernel
+>>>      linear map. That access takes a GPF at EL1, so do_gpf() ->
+>>>      die_kernel_fault()
+>>
+>> This is correct. The fundamental issue is that we have a disconnect
+>> between the "gmem attribute" changes (to private/shared) and the
+>> RIPAS and this is something we want to fix.
+>>
+>> e.g., the KVM CCA driver sets the entire DRAM to RIPAS_RAM for
+>> the Realm before ACTIVATION and we expect that the VMM changes
+>> the gmem to PRIVATE. They both are not in sync. his is something
+>> we were discussing the other day with Aneesh.
+>>
+>> Once they are in sync, we are protected. If the RIPAS=EMPTY
+>> (gmem=shared) a stage2 fault doesn't come to the Host.
+>>
+>> If the RIPAS=RAM, the gmem is private and there are no usespace
+>> mappings.
+>>
+>> The reason why it is disconnected at the moment is due to the
+>> weird semantics for Guest triggered conversions in CCA
+>> i.e., Realm requests via RSI_IPA_STATE_SET, triggering a RIPAS_CHANGE
+>> exit to the KVM.
+>>
+>> The KVM exits to VMM with MEMORY_FAULT_EXIT and the VMM can service this
+>> by invoking GMEM(SET_ATTRIBUTES2).
+> 
+> I guess a buggy or malicious VMM may skip the gmem attribute setting and
+> simply resume the guest. Currently we can end up with SET_RIPAS
+> irrespective of what the VMM did. So at this point maybe we need to
+> check that the gmem attribute was actually changed before handling the
+> pending RMI requests.
+> 
+> The other place to check the gmem status is when handling the
+> gmem_abort().
 
-Thanks. Pulled into clk-next.
+We did have that check in v14 [0] and forcing a MEMORY_FAULT_EXIT. I 
+thought we didn't need it with in-place conversion, but looks like that was
+wrong call.
 
-BTW, the free form paragraphs are nice and all but I usually end up
-rewriting it into bullet points. Maybe next time you can give a quick
-summary up front and point out anything that is out of the ordinary or
-needs a closer look.
+
+[0] 
+https://lore.kernel.org/all/20260513131757.116630-30-steven.price@arm.com/
+
+
+> 
+> I wonder whether we can have any races with either of these if multiple
+> vCPUs toggle the RIPAS state between RAM and EMPTY and we need both
+> places (the RIPAS_CHANGE exit and the actual stage 2 fault).
+> 
+>> But, the KVM needs to invoke the
+>> RMI_RTT_SET_RIPAS in the context of the "vcpu", which we don't have
+>> from the "kvm" context. I guess we can fix it by running through the
+>> vcpus and find the matching one with the "ipa" range and the "ripas".
+> 
+> Or multiple vcpus? Does the spec allow multiple RIPAS_CHANGE requests
+> for the same IPA? If yes, we probably need to clear all.
+
+Ideally, a guest shouldn't pass overlapping requests to the host. Host
+could reject either of them, irrespective of the order we got it.
+
+I will get this clarified in the spec.
+
+Cheers
+Suzuki
+
+
+
 
