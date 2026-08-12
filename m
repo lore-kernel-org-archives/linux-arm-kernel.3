@@ -4,62 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 982C9C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 14:25:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EEDEC5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 14:27:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JSqQE2i3L0CpveRAmURpu582s2nkWDSB3uYX5ZL+2T8=; b=OIeOyKe2ruyMyL6EIHLzYfhLtX
-	GB6Lpe6k2sdtTclFSw0wVk0CY+hN3gG9nyBAuWFkeKA7LeowmCX4lEGtnhoJh40xVQQLWMCB6ra8t
-	Nugo1WVxYUXeHTKsoeNmJoCGYX+vFLE+43cBLyT23tMVjNAJEkdNyEe035dnMHUrqQdrgEPro9GLh
-	B2i+ZcmuArjaU9eWVdt5Lt9IwArELpTknZziROCEw8+CvE9u1IfLMFSpK8y2+o6+2HvQjxTqu83Rm
-	mk6p7h3oErc2z0uEztQkZ/WXww7pxTh0A3Ca/svnBcEYNB2jdyFOahBrubKX1ioyGKQVy8w7oOZvy
-	k4IwnfQg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ASEcelLFoJ/llNSS4zb7EhEiRbhth5Y9y6EoNChT3gY=; b=wfDSJ96FMD4+DsmoXcZwtHmcZX
+	v5w/xvpzL4vEdoKGYrQTMFcn5Zc/7VXLDpaE6Xaezh1aua62w1EpsaBD3a7g8QIpcHG9TPcQEhv1N
+	oSfLW+GZkNBXyhIV62dKjHC7IMrWnbdsqH/WQsq+DgpiSVQJEGqrcP0ITnsCf3kcyfJbklcdXV0A4
+	6dCrc41lW+9GeoYTfW8PDhJz3IqHqTbEBozsdna0XGUgAx+aAFt0c38LxoIxkH2onqcpaIo7uhS8L
+	rC6B1O49lDQT4cZ0CcYP++txgj+7+VBuMTnnfmdVe78QiLp6VRiy9UHheAlSVTLiS0n9MtcNHK7bh
+	CFMSIDSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu9tb-0000000GNwk-1ES0;
-	Wed, 12 Aug 2026 14:25:31 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wu9v5-0000000GO9c-2nfk;
+	Wed, 12 Aug 2026 14:27:03 +0000
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu9tZ-0000000GNwb-1loO
+	id 1wu9v2-0000000GO8x-4BzH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 14:25:29 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id CB3FE60A9E;
-	Wed, 12 Aug 2026 14:25:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D1CB1F00A3A;
-	Wed, 12 Aug 2026 14:25:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786544728;
-	bh=JSqQE2i3L0CpveRAmURpu582s2nkWDSB3uYX5ZL+2T8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Dmmx6ZWn/yq9Y7rIljHVtJ0HibDK0DhGwtOSaf7ok9f/Lkx2GTab1x6/Po/WqrsGO
-	 Ra5AYCnvY04w0XqOtX9O3BzOD3iSGL2VBg7X1yPn0tkLT2ZP7a0LigcolCG3GNKKz2
-	 9BD3WrkXkU7J3dRO6g5fxUS7ekzWJbodvB8VY3u3G8cMgSKvDGR9VfprMr2JOUqWvU
-	 esdYoSIMpCWDOMAr3yDR/pqeaOcDxziojDhnLHD40NOeiLc3SIDPlKfVfFcel7Fu6K
-	 USWmFqCgZ+32oVuFAYxob7DH7W8Ag788QJaM/MLWtW+WiV8p5q3E7XPAq2VKnIbsDl
-	 zt5rnw30klA5g==
-Date: Wed, 12 Aug 2026 15:25:24 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Joey Gouly <joey.gouly@arm.com>, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, Steffen Eiden <seiden@linux.ibm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Fuad Tabba <fuad.tabba@linux.dev>, 
-	Shen Yongchao <grayhat@foxmail.com>, Karl Mehltretter <kmehltretter@gmail.com>, 
-	stable@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: nv: Fix life cycle of the nested_mmus array
-Message-ID: <anx9wCmr7mW7U58H@gremlin>
-References: <20260811122057.754772-1-maz@kernel.org>
- <anxXP_ZTZb_iKu1w@e143914.arm.com>
- <86ik5f1lon.wl-maz@kernel.org>
+	Wed, 12 Aug 2026 14:27:02 +0000
+Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-6a0a4a18180so1668407a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 07:27:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1786544819; x=1787149619; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ASEcelLFoJ/llNSS4zb7EhEiRbhth5Y9y6EoNChT3gY=;
+        b=x8NMaGHUDYag9FsZeCLa5q74KucV/A+4ZkoQkut05o/8fyDYcWdVbrn1LxtpQFE9ez
+         Im80zelXSfwVOHAfuPt4aAoeKUfpmLqRIO/2bOBMbbtE+y7PYRO6qpeRBjb+oPAXW6q9
+         XCI38DkudQTgcGGlxMCnXmXOIZRQxB4uDKVmVXu18lK1Qpj8wCi/xRAuttY5HTohu4CQ
+         9tEK/h3nouRzqJP/zMYSoXEh3xofBV1rCaLHCdE0Xy8zvSJRhyk6Rw4+CN3cDTart4fM
+         H0azTA7OIFHSqjcLrwnwGPrGOrG59GDfUZlGzkRhOu8wo2oTSEvN9YEn5b77JZLlNgPE
+         FS+w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786544819; x=1787149619;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ASEcelLFoJ/llNSS4zb7EhEiRbhth5Y9y6EoNChT3gY=;
+        b=lvI3w4GTJc22PSK32dBZ1bc474rLaJkyfNrKRZeUltl3CKeh0wyNXutpc8BB8OC56w
+         GhVT3/wTZEc8yzBcM8Eo9VrdzYHNXlL0/2axdIjEzSsONYb2bE05pQFJCP5EthPTmat6
+         yS4ebSKbvY50sAAFsuu2f6FYYeKpmA7uduvxJl2qlymJee6lDiKixJbVGJ9x9wxNSvWX
+         qa25LOG8Iawb8tU4SqV2bro3SRMIUeGOMQJgtO8IT1mgbozHhBfik08kR3eCrW3ln2on
+         dMIu6YdZWzJ6lonIRroMvTwOyYCZw8k7QZbQQTNnL/gkJCV7UUopJkZAUZh3HR59EA9w
+         9aDg==
+X-Forwarded-Encrypted: i=1; AHgh+RrnOaJqaVx+Bh83LwZiiiGVGJReG2iSPuZ+UVDQQudaloxBjfTCvVIftV4IrOhpLtz1dn8lISYBjU/Ko9+Mv9XE@lists.infradead.org
+X-Gm-Message-State: AOJu0YxupE/o284guLksqUuMzVK15sqiAEi+LZJCMz8sQrMwivs+/csU
+	B/asaN62GeizG3aPRgpxzRZxDrs+eOEPmtBjBezekfeWUQEye05Po6ZfuyRpwzz+EJU=
+X-Gm-Gg: AR+sD118VHscXnHHo8lyCn8wiRNPL/gvAcE8zg3Ds+xSuMKF0EkfeZlw0PTMXRkqkSU
+	yLIshopCX4gHgDVMcVd41jcwKxauMvrhFy7ZqtoPYw36tEeDWBHOKmc8AYCEjPQzw2SxiSgGIHu
+	c4Bce5lD4MFjmudenyCfBg+mVv73UfKkDSuFoUM1OVUk4iQWhLiByO6M/AyCV2UXBtAS7iIw7E1
+	T7M1LKmOetBWIhEQ33BrCYrW+BPjXNEHgUSdK8AsmujTCvo5qtrYPPCs9GxG+NDukaiZjiTz0tr
+	dHud2lW268MOdnBVcQupc40JCW96KhLrSacsnzTCxqyOkEzN6OlxTve30TbCmFDcrYX3L8NuwuE
+	ondHa61sQFQQ0h4YD6TjIzNMdnwJILE7SxjhIOAieXcCcd86OVnju63kIHY7JfRE2gndoBCwyi3
+	j0321QE+82e9oE1UmaBXNqQ7YfZRi21eS2UqrlqukiFp27rQ/pmwo4fsXnE6n623q6AxNmrN6Fe
+	RVb
+X-Received: by 2002:a05:6402:5410:b0:6a1:da7a:917b with SMTP id 4fb4d7f45d1cf-6a375f7eff5mr2589534a12.20.1786544818890;
+        Wed, 12 Aug 2026 07:26:58 -0700 (PDT)
+Received: from [192.168.1.3] ([37.18.141.193])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a376a0fb5csm817831a12.24.2026.08.12.07.26.57
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 12 Aug 2026 07:26:58 -0700 (PDT)
+Message-ID: <6ddc4d8d-b2f0-4df5-962c-f945e8fbf8f6@linaro.org>
+Date: Wed, 12 Aug 2026 15:26:56 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <86ik5f1lon.wl-maz@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/9] perf cs-etm: Add branch history to existing samples
+To: Amir Ayupov <aaupov@fb.com>
+Cc: linux-doc@vger.kernel.org, Mike Leach <mike.leach@arm.com>,
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+ Swapnil Sapkal <swapnil.sapkal@amd.com>, linux-perf-users@vger.kernel.org,
+ coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Leo Yan <leo.yan@arm.com>,
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>, John Garry
+ <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>
+References: <20260803090202.2324641-1-aaupov@fb.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20260803090202.2324641-1-aaupov@fb.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260812_072701_086045_B67E5A98 
+X-CRM114-Status: GOOD (  43.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,313 +113,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 12, 2026 at 03:02:32PM +0100, Marc Zyngier wrote:
-> Hi Joey,
->
-> On Wed, 12 Aug 2026 12:21:35 +0100,
-> Joey Gouly <joey.gouly@arm.com> wrote:
-> >
-> > Hi,
-> >
-> > Small comment / suggestion.
-> >
-> > On Tue, Aug 11, 2026 at 01:20:57PM +0100, Marc Zyngier wrote:
-> > > The nested_mmus array holds the shadow page tables that are used when
-> > > a guest is running a nested context. These structures are allocated on
-> > > VCPU_INIT for whole guest, which implies that they may have to be
-> > > relocated as the array grows.
-> > >
-> > > Should a VCPU_INIT occur whilst a vcpu is actively running an L2 and
-> > > that the allocation requires relocation, that vcpu will still be
-> > > running with a pointer to the previous structure, which will have been
-> > > freed.
-> > >
-> > > Fix this by turning the array of structures to an array of pointers,
-> > > which is now allocated at VM creation, sized to the absolute maximum
-> > > that KVM can handle.
-> > >
-> > > In turn, each VCPU_INIT contributes S2_MMU_PER_VCPU to the pool. No
-> > > reallocation is ever performed, and the life cycle of each object is
-> > > much clearer:
-> > >
-> > > - the nested_mmus array is allocated in kvm_init_nested(), and freed
-> > >   in kvm_arch_destroy_vm()
-> > >
-> > > - s2_mmu structures are allocated in kvm_vcpu_init_nested(), and freed
-> > >   on kvm_arch_flush_shadow_all()
-> > >
-> > > Finally, the freeing of vcpu->arch.vncr_array is made consistent
-> > > rather than being done on some failure paths, but not others.
-> > >
-> > > Fixes: 4f128f8e1aaa ("KVM: arm64: nv: Support multiple nested Stage-2 mmu structures")
-> > > Reported-by: Shen Yongchao <grayhat@foxmail.com>
-> > > Reported-by: Karl Mehltretter <kmehltretter@gmail.com>
-> > > Suggested-by: Karl Mehltretter <kmehltretter@gmail.com>
-> > > Link: https://lore.kernel.org/r/20260803224405.41468-1-kmehltretter@gmail.com
-> > > Signed-off-by: Marc Zyngier <maz@kernel.org>
-> > > Cc: stable@vger.kernel.org
-> > > ---
-> > >
-> > > Notes:
-> > >     Sending this as a first class patch, since the other approaches were even
-> > >     uglier than this one. I'm still displeased with kvm_arch_flush_shadow_all(),
-> > >     but that's a step in the direction of tightening it:
-> > >
-> > >  arch/arm64/include/asm/kvm_host.h   |  2 +-
-> > >  arch/arm64/include/asm/kvm_nested.h |  2 +-
-> > >  arch/arm64/kvm/arm.c                |  8 ++-
-> > >  arch/arm64/kvm/nested.c             | 91 +++++++++++++----------------
-> > >  4 files changed, 49 insertions(+), 54 deletions(-)
-> > >
-> > [..]
-> > > diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-> > > index 20af94197a8a7..50d6dcc75582c 100644
-> > > --- a/arch/arm64/kvm/nested.c
-> > > +++ b/arch/arm64/kvm/nested.c
-> > > @@ -44,11 +44,15 @@ struct vncr_tlb {
-> > >   */
-> > >  #define S2_MMU_PER_VCPU		2
-> > >
-> > > -void kvm_init_nested(struct kvm *kvm)
-> > > +int kvm_init_nested(struct kvm *kvm)
-> > >  {
-> > > -	kvm->arch.nested_mmus = NULL;
-> > > +	kvm->arch.nested_mmus = kvmalloc_array(KVM_MAX_VCPUS * S2_MMU_PER_VCPU,
-> > > +					       sizeof(struct s2_mmu *),
-> > > +					       GFP_KERNEL_ACCOUNT);
-> > >  	kvm->arch.nested_mmus_size = 0;
-> > >  	atomic_set(&kvm->arch.vncr_tlb_count, 0);
-> > > +
-> > > +	return kvm->arch.nested_mmus ? 0 : -ENOMEM;
-> > >  }
-> > >
-> > >  static int init_nested_s2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu)
-> > > @@ -69,8 +73,7 @@ static int init_nested_s2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu)
-> > >  int kvm_vcpu_init_nested(struct kvm_vcpu *vcpu)
-> > >  {
-> > >  	struct kvm *kvm = vcpu->kvm;
-> > > -	struct kvm_s2_mmu *tmp;
-> > > -	int num_mmus, ret = 0;
-> > > +	int num_mmus;
-> > >
-> > >  	if (test_bit(KVM_ARM_VCPU_HAS_EL2_E2H0, kvm->arch.vcpu_features) &&
-> > >  	    !cpus_have_final_cap(ARM64_HAS_HCR_NV1))
-> > > @@ -83,51 +86,40 @@ int kvm_vcpu_init_nested(struct kvm_vcpu *vcpu)
-> > >  	if (!vcpu->arch.ctxt.vncr_array)
-> > >  		return -ENOMEM;
-> > >
-> > > -	/*
-> > > -	 * Let's treat memory allocation failures as benign: If we fail to
-> > > -	 * allocate anything, return an error and keep the allocated array
-> > > -	 * alive. Userspace may try to recover by initializing the vcpu
-> > > -	 * again, and there is no reason to affect the whole VM for this.
-> > > -	 */
-> > >  	num_mmus = atomic_read(&kvm->online_vcpus) * S2_MMU_PER_VCPU;
-> > >
-> > >  	if (num_mmus > kvm->arch.nested_mmus_size) {
-> >
-> > Sashiko.dev complained about a possible race here, but looking at the
-> > code, it seems incorrect?
-> >
-> > Unsure why it didn't e-mail it.
-> > https://sashiko.dev/#/patchset/20260811122057.754772-1-maz%40kernel.org
-> >
-> > It seems that this code is serialised / protected by
-> > kvm->arch.config_lock in __kvm_vcpu_set_target() (which is the only
-> > caller of kvm_vcpu_init_nested() via kvm_setup_vcpu())
->
-> Yeah, this looks like Sashiko went south again. You'd hope it'd be
-> able to follow such a simple code path...
 
-Well, I wonder if this is onto _something_ though maybe badly expressed.
 
-The window is probably super small really but a concurrent MMU notifier
-event could possibly get confused because of the nested_mmus growth, and
-presumably that doesn't also take kvm->arch.config_lock I don't think?
+On 03/08/2026 10:01, Amir Ayupov wrote:
+> This series implements --itrace=L for Arm CoreSight ETM: decoded branch
 
-I attach my original patch that Marc's patch supercedes which goes into
-infinite probably-OTT detail (still learning so trying to think through
-things a lot :) but maybe useful there for reference.
+Hi Amir,
 
-I think Marc's patch fixes this in any case :)
+How did you send this? The cover letter seems to be on a different 
+thread to the patches.
 
->
-> >
-> > So maybe a
-> >
-> > 	lockdep_assert_held(&kvm->arch.config_lock);
-> >
-> > makes sense in kvm_vcpu_init_nested()?
->
-> Sure, that's never a bad thing to add.
+> history is attached to the PMU samples already present in the recording,
+> rather than to synthesised instruction samples.
+> 
+> The motivating use case is context-sensitive PGO, which wants a callchain
+> and a branch stack describing the same point in time. Recording a cycles
+> event with call-graph=fp and aux-action=pause supplies the callchain, and
+> the ETM trace leading up to that sample supplies the branch stack, without
+> having to trace a long-running process continuously.
+> 
+> Intel PT has had this since commit f0a0251cee80 ("perf intel-pt: Add
+> support for synthesizing branch stacks for regular events"), so this
+> deliberately follows intel-pt: the same --itrace=L option and the same
+> thread_stack__br_sample_late() call.
+> 
+> Patches 1 to 4 are independent fixes and infrastructure the feature needs:
+> 
+>    1  makes an inconsistent HEADER_GROUP_DESC non-fatal. AUX recordings
+>       using aux-action pause/resume produce a group descriptor the strict
+>       reader rejects, which makes an otherwise readable perf.data
+>       unreadable, so without this the recipe in patch 9 cannot be decoded
+>       at all. Useful on its own.
+>    2  reports hw_idx as -1 rather than 0 in reconstructed branch stacks,
+>       since they have no hardware index.
+>    3  bounds a wrapped memcpy in thread_stack__br_sample(). Latent today,
+>       reachable once a caller keeps a ring larger than the requested output
+>       depth.
+>    4  adds a dlfilter that drops samples with an empty branch stack.
+> 
+> Patch 5 is a no-functional-change refactor splitting
+> cs_etm__process_timestamped_queues() into its three parts. Heap seeding
+> moves to cs_etm__update_queues(), gated on queues.new_data and mirroring
+> intel_pt_update_queues(); the end-of-session flush moves to
+> cs_etm__flush_timestamped_queues(); and the decode loop is left on its own
+> so patch 6 can drive it once per sample. Neither seeding nor flushing can
+> be repeated, which is why they have to come out first. The moved code is
+> unchanged, so both loops appear as context in the diff.
+> 
+> Patch 6 is the feature and patch 7 adds a shell test.
+> 
+> Patch 8 is where review attention is most useful. --itrace=L attaches
+> whatever the thread stack holds when a sample is processed. With a duty
+> cycled trace most samples fire while the trace is off; they have nothing
+> newly decoded, but the thread stack still holds the previous window, so
+> they were being given branches that ran an arbitrary amount of time
+> earlier. On a 12 s capture with pause period 100003 and resume period
+> 8350251, of 335291 samples that received branch history only 3371 were
+> backed by trace decoded for that sample.
+> 
+> A trace window belongs to exactly one sample, and with AUX pause and
+> resume the sample is what stops the trace, so the pairing is one to one by
 
-This is still valuable though I think!
+What happens when aux-pause isn't used and there isn't a 1:1 pairing? 
+There is a lot of description of that which implies that it doesn't work 
+if there isn't. But as far as I can tell it works just as well by using 
+the timestamps?
 
-We have a lot of asserts like this in core mm, really helpful practice I think.
+> construction. Patch 8 therefore takes the branch history when attaching it
+> instead of copying it, and a later sample with nothing newly decoded finds
+> an empty branch stack, which the dlfilter removes.
+> thread_stack__br_sample() is unchanged, so lowercase --itrace=l keeps the
+> overlapping branch stacks it produces today.
+> 
+> Patch 9 documents the workflow.
+> 
+> Because the sample is what stops the trace, the history attached to it
+> lines up well with the callchain: on a brstack capture the leaf of the
+> callchain matched the function containing the newest branch stack entry's
+> target for 93.5% of attached samples. The residual comes from the decode
+> loop stopping on interpolated timestamps, so a few branches that ran just
+> after the sample can still be included. Trimming those with the sample ip
+> raises it to 96.8%, but that matters far more for free-running ETM
+> strobing than for pause and resume, so I have left it out of this series
+> and will send it separately.
+> 
+> Patch 8 could be squashed into patch 6, since patch 6 on its own produces
+> mostly stale history. I kept them apart so the decode mechanism and the
+> attachment policy can be reviewed separately, but I am happy to fold them.
+> 
+> Testing
+> -------
+> 
+> Built with:
+> 
+>    make -C tools/perf NO_LIBELF=1 NO_LIBTRACEEVENT=1 CORESIGHT=1
+> 
+> Every patch builds individually. checkpatch reports only "does MAINTAINERS
+> need updating?" for the two new files and "quoted string split across
+> lines" for the dlfilter description string, which matches how
+> dlfilter-show-cycles.c already writes it.
+> 
+> Tested on Arm Neoverse V2 with CoreSight ETM:
+> 
+>    - perf test "CoreSight branch history on existing samples": Ok, 3 for 3
+>    - captures from 5 MiB to 2.5 GiB decoded with --itrace=L64, no decode
+>      errors
+>    - the other CoreSight tests are unchanged by this series; four of them
+>      fail identically at the base commit on this machine
 
-I wonder if it'd be helpful to have helper functons for this, e.g.:
+Can you report or investigate these failures please. None of the tests 
+should be failing on TRBE hardware, at least on the latest 
+perf-tools-next branch. You can try applying "[PATCH 00/14] perf cs-etm: 
+Per-thread mode fixes and snapshot wrap support" to be sure, but I don't 
+think that fixes any current failures.
 
-static inline void kvm_assert_config_locked(const struct kvm *kvm)
-{
-	lockdep_assert_held(&kvm->arch.config_lock);
-}
+> 
+> Amir Ayupov (9):
+>    perf header: Tolerate inconsistent HEADER_GROUP_DESC
+>    perf thread-stack: Report branch stack hw_idx as not available
+>    perf thread-stack: Bound wrapped branch stack copy
+>    perf dlfilter: Add non-empty branch stack filter
+>    perf cs-etm: Split up cs_etm__process_timestamped_queues()
+>    perf cs-etm: Add branch history to existing samples
+>    perf test cs-etm: Test branch history on existing samples
+>    perf cs-etm: Consume branch history when attaching it to a sample
+>    Documentation: coresight: Document context-sensitive PGO workflow
+> 
+>   .../trace/coresight/coresight-perf.rst        |  62 +++++
+>   tools/perf/Makefile.perf                      |   1 +
+>   .../dlfilters/dlfilter-nonempty-brstack.c     |  26 ++
+>   .../tests/shell/coresight/add_last_branch.sh  | 175 +++++++++++++
+>   tools/perf/util/cs-etm.c                      | 242 ++++++++++++++++--
+>   tools/perf/util/header.c                      |  42 ++-
+>   tools/perf/util/thread-stack.c                |  21 +-
+>   tools/perf/util/thread-stack.h                |   1 +
+>   8 files changed, 544 insertions(+), 26 deletions(-)
+>   create mode 100644 tools/perf/dlfilters/dlfilter-nonempty-brstack.c
+>   create mode 100755 tools/perf/tests/shell/coresight/add_last_branch.sh
+> 
+> 
+> base-commit: da85966dfd23a3b03e00ee3bce6ad301f0a2b229
 
-static inline void kvm_assert_mmu_read_locked(const struct kvm *kvm)
-{
-	lockdep_assert_held_read(&kvm->mmu_lock);
-}
-
-static inline void kvm_assert_mmu_write_locked(const struct kvm *kvm)
-{
-	lockdep_assert_held_write(&kvm->mmu_lock);
-}
-
-etc.?
-
->
-> Thanks,
->
-> 	M.
->
-> --
-> Without deviation from the norm, progress is not possible.
->
-
---
-Cheers, Lorenzo
-
-----8<----
-From c0ca5794fcfc85d5d5db822999496419d4417522 Mon Sep 17 00:00:00 2001
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Date: Tue, 11 Aug 2026 19:34:56 +0100
-Subject: [PATCH] KVM: arm64: nv: avoid race on nested MMU growth
-
-When starting up a new VM, kvm_vcpu_init_nested() sets up each vCPU:
-
-kvm_arch_vcpu_ioctl()
-  -> kvm_arch_vcpu_ioctl_vcpu_init()
-    -> kvm_vcpu_set_target()
-      -> __kvm_vcpu_set_target()
-        -> kvm_setup_vcpu()
-          -> kvm_vcpu_init_nested()
-
-With nested virtualisation this can result in nested_mmu growth in
-kvm->arch.nested_mmus[] and kvm->arch.nested_mmus_size.
-
-When this happens, kvm_vcpu_init_nested() allocates a new array then copies
-existing nested mmu state into it before swapping this array into
-kvm->arch.nested_mmus, all under kvm->mmu_lock.
-
-However it then initialises the entries via init_nested_s2_mmu() and sets
-kvm->arch.nested_mmus_size as well as handling teardown on
-init_nested_s2_mmu() returning an error, outside of the lock.
-
-An unlucky concurrent MMU notifier event could read these values before
-they are in a valid state.
-
-The newly allocated memory obtained from kvcalloc() is zeroed, which is
-especially problematic for a kvm_s2_mmu_valid() check as this checks for
-the absence of VTTBR_CNP_BIT in mmu->tlb_vttbr which is trivially true of
-zeroed memory.
-
-Since everything after the num_mmus > kvm->arch.nested_mmus_size branch is
-a no-op if this condition is not true, simplify things by replacing it with
-a guard clause on the inverse condition.
-
-The tmp variable is allocated to temporarily store data, but then this is
-swapped in to kvm->arch.nested_mmus[] and later operations are performed on
-this instead.
-
-Both the copying of existing data and the assignment of tmp[i].pgt->mmu
-must be done in a critical section as the former might be mutated under
-kvm->mmu_lock and the latter sets the externally visible pgt->mmu field.
-
-However, initialisation of new fields and error handling can be done
-outside the lock which simplifies things, and in any case
-init_nested_s2_mmu() ultimately acquires the kvm->mmu_lock in parts of its
-operation anyway so the lock cannot be held over it in any case.
-
-By limiting the scope over which kvm->mmu_lock is held any potential lock
-contention is also reduced.
-
-Error handling is made easier by the fact that no externally visible state
-has been altered by this stage as only tmp has been updated.
-
-Fix the race by setting kvm->arch.nested_mmus[] and
-kvm->arch.nested_mmus_size in the critical section.
-
-Fixes: 4f128f8e1aaa ("KVM: arm64: nv: Support multiple nested Stage-2 mmu structures")
-Cc: stable@vger.kernel.org
-Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
----
- arch/arm64/kvm/nested.c | 41 +++++++++++++++++------------------------
- 1 file changed, 17 insertions(+), 24 deletions(-)
-
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index f7b1385a5ac6..0c32977463b8 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -92,43 +92,36 @@ int kvm_vcpu_init_nested(struct kvm_vcpu *vcpu)
- 	 */
- 	num_mmus = atomic_read(&kvm->online_vcpus) * S2_MMU_PER_VCPU;
-
--	if (num_mmus > kvm->arch.nested_mmus_size) {
--		tmp = kvcalloc(num_mmus, sizeof(*tmp), GFP_KERNEL_ACCOUNT);
--		if (!tmp)
--			return -ENOMEM;
--
--		write_lock(&kvm->mmu_lock);
--
--		if (kvm->arch.nested_mmus_size) {
--			memcpy(tmp, kvm->arch.nested_mmus,
--			       size_mul(sizeof(*tmp), kvm->arch.nested_mmus_size));
--
--			for (int i = 0; i < kvm->arch.nested_mmus_size; i++)
--				tmp[i].pgt->mmu = &tmp[i];
--		}
--
--		swap(kvm->arch.nested_mmus, tmp);
--
--		write_unlock(&kvm->mmu_lock);
-+	if (num_mmus <= kvm->arch.nested_mmus_size)
-+		return 0;
-
--		kvfree(tmp);
--	}
-+	tmp = kvcalloc(num_mmus, sizeof(*tmp), GFP_KERNEL_ACCOUNT);
-+	if (!tmp)
-+		return -ENOMEM;
-
- 	for (int i = kvm->arch.nested_mmus_size; !ret && i < num_mmus; i++)
--		ret = init_nested_s2_mmu(kvm, &kvm->arch.nested_mmus[i]);
-+		ret = init_nested_s2_mmu(kvm, &tmp[i]);
-
- 	if (ret) {
- 		for (int i = kvm->arch.nested_mmus_size; i < num_mmus; i++)
--			kvm_free_stage2_pgd(&kvm->arch.nested_mmus[i]);
--
-+			kvm_free_stage2_pgd(&tmp[i]);
- 		free_page((unsigned long)vcpu->arch.ctxt.vncr_array);
- 		vcpu->arch.ctxt.vncr_array = NULL;
--
-+		kvfree(tmp);
- 		return ret;
- 	}
-
-+	write_lock(&kvm->mmu_lock);
-+	if (kvm->arch.nested_mmus_size)
-+		memcpy(tmp, kvm->arch.nested_mmus,
-+		       size_mul(sizeof(*tmp), kvm->arch.nested_mmus_size));
-+	for (int i = 0; i < kvm->arch.nested_mmus_size; i++)
-+		tmp[i].pgt->mmu = &tmp[i];
-+	swap(kvm->arch.nested_mmus, tmp);
- 	kvm->arch.nested_mmus_size = num_mmus;
-+	write_unlock(&kvm->mmu_lock);
-
-+	kvfree(tmp);
- 	return 0;
- }
-
---
-2.55.0
 
