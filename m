@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49D76C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 15:37:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3710CC5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 15:37:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cl76esLcWjymMPYNC2q4aJds0FA9d90E9bv8u7T8wTk=; b=vPEH/WmNapUXfzc2770UTIFOD8
-	HMqAXLuujerZF0FnePc60awMLDOZAkhIip6hrUW8n71KV17vwFkD1HlfmApbD0A1BVOLnyWTV7+oT
-	LucVN+HFwdC7haMQo86fNkc4eLTVf/XF4+jJodTNickTjzu+hs3XBa5iQVfwvrDzlKWpdO7AvAJzf
-	FGZJs1avpUWows2O9dF+ycYcJ5YVyVYHTmhkD099dP+KVUzZaMGta3VGAlEVIhuCbIgEuqAUAcA7i
-	p4IcCZ1oPtdqZ6AtfMuKArBwhJ951Af72FhYoilRTafIMohigjzNWWYsS7g9MslgrjszGj+9K0sDt
-	uJhzmi5A==;
+	bh=rJrLyzddm9CEpE2TZZohj7jwwyh45qkZ85dZIflvNdE=; b=2M/TP//db9AwfiyD9FMPTD1URd
+	8vPwhj5tGDSYRYWcni5+7IqkYfHMI8iGqzilKSt9zZSe7cbXzk7RKXQvMhxfKRJn1uL0c97nG1TdT
+	vTyrKVFiumZ1yzTApum6vU+BWtGuzW7oAgIDVDY/y2BLEgEWt/LGRo34uwxR8iKGW8tjxCCQoOD34
+	F/Qk2VSYPTRQFC8brDgCDYCL7KRyszwc0Z25TDHqCVgf+8GO6W7UmjgX6kReHxGzwppOZLRM/gVic
+	yOMDzbrVtYZlvgAk66qWlHSd/bXFhea8Scy+9oLBY32b3FVqOuTfzay2/iW4g6H3MW9ZcLJKeuuem
+	pGa5Lu+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuB0g-0000000GTu7-12kX;
-	Wed, 12 Aug 2026 15:36:54 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1wuB0m-0000000GTzF-01xj;
+	Wed, 12 Aug 2026 15:37:00 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuB0e-0000000GTr8-0mcG
+	id 1wuB0f-0000000GTsz-2YCR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 15:36:53 +0000
-Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67CE1dBi3717242;
-	Wed, 12 Aug 2026 15:36:39 GMT
+	Wed, 12 Aug 2026 15:36:57 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67CE1pHC3640585;
+	Wed, 12 Aug 2026 15:36:40 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
 	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=cl76esLcWjymMPYNC
-	2q4aJds0FA9d90E9bv8u7T8wTk=; b=pM73YVOraZ9L4kLBoj7bQdvCw+V+QsHuH
-	IrxygcItbD1PcAMFNwfUnvcjYarpJuQNiSNnQsK5d+EOnkbCO9SBdNbZMf82N0vn
-	zqUdOTBMxyDIwNSsKpAtkq8SGD/5/z6G9G0rEBluf9S7u8DLwh/FqYkowkWDky/w
-	IuNgGKFRt9B91ogZOGWeYIFKcw/2ReaXPs8V0QVdDcDwgn7IaT9sVViE0a+TGCfS
-	0LCxR4WFVsXgTtlEJQKXE5Fb5F90YpomIjvc7f/GtP6eaH6P0Yle/ea4KzZxNJ44
-	iY5bMfJeYtQdU1y6BUdqf305mIWdj57MA9IneA8gpcZfMZ/X0DP2w==
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fwvnwads4-1
+	:mime-version:references:subject:to; s=pp1; bh=rJrLyzddm9CEpE2TZ
+	Zohj7jwwyh45qkZ85dZIflvNdE=; b=rlEXqtgPpJxQnGEBAEYtV8jtCkb5LbI0W
+	GOy1nWe7BvFfcByl9X8O3mm1mBNe+AW11AA4/fL8GKzQ6zof6StHFLp/R2ADbcrN
+	xG2JPIVQvskACbkfTL/cG1a0VqEkNaLXG0EZnwTiMnQzGPQA6KcCabVX9zFpgLJ7
+	DEBnriGwMii/SMfxHvsxjGeq5MDKWCZDbLYM8KAyYTZkUjtBHn5qSntSYnY0Bgm1
+	fKJXS8CfO4e1NfTJWQOcKf9luQXdW0VV1MYDmehSfxL7sOtTApPtU7ADJKys1oXM
+	xKzdiljjDq9BTJY0lN6hkpb6b4IlBZk/HdE4xIs5nZosVQN1pH+yA==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fwvq9k7bg-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 12 Aug 2026 15:36:39 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 67CFBKqN018660;
+	Wed, 12 Aug 2026 15:36:38 GMT
+Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4fxf5w6tcx-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Wed, 12 Aug 2026 15:36:38 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 67CFQHmj011835;
-	Wed, 12 Aug 2026 15:36:37 GMT
-Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4fxesq6usv-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 12 Aug 2026 15:36:37 +0000 (GMT)
 Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 67CFaXaZ23724610
+	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 67CFaYE148693686
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 12 Aug 2026 15:36:33 GMT
+	Wed, 12 Aug 2026 15:36:34 GMT
 Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 91DE72004F;
-	Wed, 12 Aug 2026 15:36:33 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 46D6220040;
+	Wed, 12 Aug 2026 15:36:34 +0000 (GMT)
 Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 3C89A2004D;
+	by IMSVA (Postfix) with ESMTP id EF1642004D;
 	Wed, 12 Aug 2026 15:36:33 +0000 (GMT)
 Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
 	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
@@ -89,9 +89,9 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
         Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
         Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
         Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v6 03/33] KVM: Allow KVM implementations to switch off MMIO independent of Kconfig
-Date: Wed, 12 Aug 2026 17:35:59 +0200
-Message-ID: <20260812153631.3376090-4-seiden@linux.ibm.com>
+Subject: [PATCH v6 05/33] arm64: ptrace: Use constants for compat register numbers
+Date: Wed, 12 Aug 2026 17:36:01 +0200
+Message-ID: <20260812153631.3376090-6-seiden@linux.ibm.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260812153631.3376090-1-seiden@linux.ibm.com>
 References: <20260812153631.3376090-1-seiden@linux.ibm.com>
@@ -99,34 +99,35 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-TM-AS-GCONF: 00
 X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Authority-Analysis: v=2.4 cv=RsP16imK c=1 sm=1 tr=0 ts=6a7c9306 cx=c_pps
- a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
+X-Proofpoint-GUID: XxRMhA5t4KAqrWvUZzivpLuljWJk0Lzz
+X-Authority-Analysis: v=2.4 cv=PbDPQChd c=1 sm=1 tr=0 ts=6a7c9308 cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
  a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=RzCfie-kr_QcCd8fBx8p:22 a=VnNF1IyMAAAA:8 a=-AqJVl6EvvwGbS2dlloA:9
-X-Proofpoint-GUID: qeZTNIEAxa3y3BEKND009Oy6PQoaMMSY
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODEyMDEyNiBTYWx0ZWRfX1yLHaTv0/gQA
- AMe15tA3bTGbhZnvvcori5MJYebtr9sb1pUlWB8Ufe2n5CXZpLh4c01kq/w88si3lLSP7hm731N
- gdlQgkRlnVFKKlImeOiVbFIUrwuKEaCXXT4h9aMQnZC4FEtaPxlbjNkEQn9Ju5iyv4WH7jXPxK7
- PDzPNN/CVOC/eLgmhqOuOKGjCAp585gt5oSsUTw+bGQOkg5T6h6pXwPlq8ZtH7H+txTDn1TxgAb
- bb/Phj7J+f26hKARCjJE7uhVX+5lTTRqBKKjFMf2t5QVvaTuYu3tWcy+gZYOzG9JVSWAY66wpYZ
- f6q/uWCkg3aku/jLvj2u9J7k9GQuUWNzmcRxuUfuLNEbeKgzxndxAz9ovdjuL4rUWJj7vjZwtl+
- Ci8qxxE2v3M+WcVw/5LKOmZ1OgcuD90pyIzg+tyl0C6AxjeHqfZrhSeqeS8C2Zyc2qr0j0vONO5
- tyZ9mCQQc1ALfU1eQcw==
-X-Proofpoint-ORIG-GUID: M6iwbjeeBzLS_qIaPi5H-SJ8HN70rNMe
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODEyMDEyNiBTYWx0ZWRfX+h4ZucUGWXEY
- Zkqpw0M33aL9ebdwLcLV+rQfSXMyq4uvM/OMagy2Lzg9UkDofeaAf8hGIPFkcXDYQMx91W9GFoa
- 7yaBcIPGPGYaDmk5wXZOponH040f7rg=
+ a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8 a=8sKaXpLx0aSSeG29UzUA:9
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODEyMDEyNiBTYWx0ZWRfX9zkNOYox4fBp
+ Uuvky4U1aRpnkBfvNenjPz4iMYWUKb1jEzdwn/u9z894jXTideB3xIJWqGXGGibH5hQ0xlGI0OD
+ u/TwQu0htUNNtcy1VlAGbVCqpUA81OpNJfbT0QyQNo530zVBuu7n4H4wZJ16fyRoRfA0+Fgco1o
+ rlZHaI6N3qMHkK0q735j9BJKETpSvEqznxUF94aEVOV/CksLd5UfMVH2flvRN3NBaGSNJGuCGgw
+ CTrk7Nz+K2Cw1ObcDXLoYsPzgWHGufNt1kA7H1tipK0N5DsA0hVQZiPnHW2vuCHbt4WDQB6EMkM
+ FrEJCmjof74ri367kWN85/N1asbhdAxI9tZnrVA5yrY7yErEHHCC4ns/uezFi9BPNwSRmkjjcd8
+ Bee6+ISQ1wDouUfGjgE1j5xXYy9nBUyqYrYIxogHGPC7NrnMO2WD/5anaLZERDTKtQia6iqfwHz
+ dMOetXE2cGDDGRmw2Vg==
+X-Proofpoint-ORIG-GUID: dbaGJcJQZP5wv0qSovhsnwwl7zprjDUF
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODEyMDEyNiBTYWx0ZWRfX+Oc2q8yfDASJ
+ zjOhW+KMaKrLuIwGsAxixDhLVAQHnmVBxkAIJUvDpdJfjT0jhnBNfFZy3w+E/2sqBCgbPSZQiOg
+ ggAY2IN3+EC3hr1L+ApLaVSxFijskKw=
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-08-12_04,2026-08-12_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 impostorscore=0 suspectscore=0 clxscore=1015 malwarescore=0
- phishscore=0 adultscore=0 lowpriorityscore=0 priorityscore=1501 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608120126
+ spamscore=0 bulkscore=0 impostorscore=0 malwarescore=0 adultscore=0
+ clxscore=1015 priorityscore=1501 suspectscore=0 phishscore=0
+ lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2608120126
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_083652_377388_E60DEA6F 
-X-CRM114-Status: GOOD (  16.49  )
+X-CRM114-CacheID: sfid-20260812_083653_664336_B05427F4 
+X-CRM114-Status: GOOD (  13.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,90 +142,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Only defining KVM_MMIO is not flexible enough for multi-KVM systems
-where one KVM implements MMIO but others do not. Solve this by
-additionally testing for the non-existence of KVM_NO_MMIO before
-including MMIO code to KVM.
+Define an enum to determine the register number for the mapping from
+AArch32 and AArch64 registers. This allows for a more flexible use of
+the register mappings.
 
 Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 ---
- virt/kvm/coalesced_mmio.c | 4 ++++
- virt/kvm/coalesced_mmio.h | 2 +-
- virt/kvm/kvm_main.c       | 8 ++++----
- 3 files changed, 9 insertions(+), 5 deletions(-)
+ arch/arm64/include/asm/ptrace.h | 60 ++++++++++++++++++++++-----------
+ 1 file changed, 41 insertions(+), 19 deletions(-)
 
-diff --git a/virt/kvm/coalesced_mmio.c b/virt/kvm/coalesced_mmio.c
-index 6b1d90161099..8ff9d9a6f47a 100644
---- a/virt/kvm/coalesced_mmio.c
-+++ b/virt/kvm/coalesced_mmio.c
-@@ -15,6 +15,8 @@
- #include <linux/slab.h>
- #include <linux/kvm.h>
+diff --git a/arch/arm64/include/asm/ptrace.h b/arch/arm64/include/asm/ptrace.h
+index f7dc5fb9427d..49a83a0636b9 100644
+--- a/arch/arm64/include/asm/ptrace.h
++++ b/arch/arm64/include/asm/ptrace.h
+@@ -102,26 +102,48 @@
+ #define COMPAT_USER_SZ	296
  
-+#ifndef KVM_NO_MMIO
+ /* Architecturally defined mapping between AArch32 and AArch64 registers */
++enum {
++	__compat_fp		= 11,
++	__compat_sp		= 13,
++	__compat_lr		= 14,
++	__compat_sp_hyp		= 15,
++	__compat_lr_irq		= 16,
++	__compat_sp_irq		= 17,
++	__compat_lr_svc		= 18,
++	__compat_sp_svc		= 19,
++	__compat_lr_abt		= 20,
++	__compat_sp_abt		= 21,
++	__compat_lr_und		= 22,
++	__compat_sp_und		= 23,
++	__compat_r8_fiq		= 24,
++	__compat_r9_fiq		= 25,
++	__compat_r10_fiq	= 26,
++	__compat_r11_fiq	= 27,
++	__compat_r12_fiq	= 28,
++	__compat_sp_fiq		= 29,
++	__compat_lr_fiq		= 30,
++};
 +
- #include "coalesced_mmio.h"
+ #define compat_usr(x)	regs[(x)]
+-#define compat_fp	regs[11]
+-#define compat_sp	regs[13]
+-#define compat_lr	regs[14]
+-#define compat_sp_hyp	regs[15]
+-#define compat_lr_irq	regs[16]
+-#define compat_sp_irq	regs[17]
+-#define compat_lr_svc	regs[18]
+-#define compat_sp_svc	regs[19]
+-#define compat_lr_abt	regs[20]
+-#define compat_sp_abt	regs[21]
+-#define compat_lr_und	regs[22]
+-#define compat_sp_und	regs[23]
+-#define compat_r8_fiq	regs[24]
+-#define compat_r9_fiq	regs[25]
+-#define compat_r10_fiq	regs[26]
+-#define compat_r11_fiq	regs[27]
+-#define compat_r12_fiq	regs[28]
+-#define compat_sp_fiq	regs[29]
+-#define compat_lr_fiq	regs[30]
++#define compat_fp	regs[__compat_fp]
++#define compat_sp	regs[__compat_sp]
++#define compat_lr	regs[__compat_lr]
++#define compat_sp_hyp	regs[__compat_sp_hyp]
++#define compat_lr_irq	regs[__compat_lr_irq]
++#define compat_sp_irq	regs[__compat_sp_irq]
++#define compat_lr_svc	regs[__compat_lr_svc]
++#define compat_sp_svc	regs[__compat_sp_svc]
++#define compat_lr_abt	regs[__compat_lr_abt]
++#define compat_sp_abt	regs[__compat_sp_abt]
++#define compat_lr_und	regs[__compat_lr_und]
++#define compat_sp_und	regs[__compat_sp_und]
++#define compat_r8_fiq	regs[__compat_r8_fiq]
++#define compat_r9_fiq	regs[__compat_r9_fiq]
++#define compat_r10_fiq	regs[__compat_r10_fiq]
++#define compat_r11_fiq	regs[__compat_r11_fiq]
++#define compat_r12_fiq	regs[__compat_r12_fiq]
++#define compat_sp_fiq	regs[__compat_sp_fiq]
++#define compat_lr_fiq	regs[__compat_lr_fiq]
  
- static inline struct kvm_coalesced_mmio_dev *to_mmio(struct kvm_io_device *dev)
-@@ -188,3 +190,5 @@ int kvm_vm_ioctl_unregister_coalesced_mmio(struct kvm *kvm,
- 	 */
- 	return 0;
- }
-+
-+#endif /* ifndef KVM_NO_MMIO */
-diff --git a/virt/kvm/coalesced_mmio.h b/virt/kvm/coalesced_mmio.h
-index 36f84264ed25..826af421a5be 100644
---- a/virt/kvm/coalesced_mmio.h
-+++ b/virt/kvm/coalesced_mmio.h
-@@ -11,7 +11,7 @@
-  *
-  */
- 
--#ifdef CONFIG_KVM_MMIO
-+#if defined(CONFIG_KVM_MMIO) && !defined(KVM_NO_MMIO)
- 
- #include <linux/list.h>
- 
-diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index 0b34477bf325..a5dcb38e80db 100644
---- a/virt/kvm/kvm_main.c
-+++ b/virt/kvm/kvm_main.c
-@@ -4063,7 +4063,7 @@ static vm_fault_t kvm_vcpu_fault(struct vm_fault *vmf)
- 	else if (vmf->pgoff == KVM_PIO_PAGE_OFFSET)
- 		page = virt_to_page(vcpu->arch.pio_data);
- #endif
--#ifdef CONFIG_KVM_MMIO
-+#if defined(CONFIG_KVM_MMIO) && !defined(KVM_NO_MMIO)
- 	else if (vmf->pgoff == KVM_COALESCED_MMIO_PAGE_OFFSET)
- 		page = virt_to_page(vcpu->kvm->coalesced_mmio_ring);
- #endif
-@@ -4904,7 +4904,7 @@ static int kvm_vm_ioctl_check_extension_generic(struct kvm *kvm, long arg)
- 	case KVM_CAP_ENABLE_CAP_VM:
- 	case KVM_CAP_HALT_POLL:
- 		return 1;
--#ifdef CONFIG_KVM_MMIO
-+#if defined(CONFIG_KVM_MMIO) && !defined(KVM_NO_MMIO)
- 	case KVM_CAP_COALESCED_MMIO:
- 		return KVM_COALESCED_MMIO_PAGE_OFFSET;
- 	case KVM_CAP_COALESCED_PIO:
-@@ -5245,7 +5245,7 @@ static long kvm_vm_ioctl(struct file *filp,
- 		break;
- 	}
- #endif
--#ifdef CONFIG_KVM_MMIO
-+#if defined(CONFIG_KVM_MMIO) && !defined(KVM_NO_MMIO)
- 	case KVM_REGISTER_COALESCED_MMIO: {
- 		struct kvm_coalesced_mmio_zone zone;
- 
-@@ -5580,7 +5580,7 @@ static long kvm_dev_ioctl(struct file *filp,
- #ifdef CONFIG_X86
- 		r += PAGE_SIZE;    /* pio data page */
- #endif
--#ifdef CONFIG_KVM_MMIO
-+#if defined(CONFIG_KVM_MMIO) && !defined(KVM_NO_MMIO)
- 		r += PAGE_SIZE;    /* coalesced mmio ring page */
- #endif
- 		break;
+ static inline unsigned long compat_psr_to_pstate(const unsigned long psr)
+ {
 -- 
 2.53.0
 
