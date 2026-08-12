@@ -4,102 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E198C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 15:34:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49D76C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 15:37:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fzIk5I7OqDCOAhpxa2DhuDUN9BeeRjYb7EQC4Ahia0I=; b=eiBfq+tw97oWORPjfnyyW/JbEk
-	8qg0Wwd6rzb6DcAGckbCg5VrXCU8OY+taQlFrpjLQeMMKYaHiixnZZPctO6lypx+Cgm47msPWQWxF
-	yIFsV+1GA3hbyZop+frstYogcNi5lQKxUxLJ05h/8W1p35NHmmyDYPiEIMrQDygEuUshkpWeNVp1z
-	IjcyZzvCdDknNa7IS1ZUJrVQEkm5kKwjtzjStzO0hOx2Ndz1c92BE6boHukcW1QGo/gL3Clb6Q5zF
-	zAGQS8x555hHcoqxIpWG4TmAyvkJ8jWJKuIKu3GAB/uH9/0Kw0q27eC0hDMFA7vZAq31G8ZCIxTtS
-	MMMuu7jw==;
+	bh=cl76esLcWjymMPYNC2q4aJds0FA9d90E9bv8u7T8wTk=; b=vPEH/WmNapUXfzc2770UTIFOD8
+	HMqAXLuujerZF0FnePc60awMLDOZAkhIip6hrUW8n71KV17vwFkD1HlfmApbD0A1BVOLnyWTV7+oT
+	LucVN+HFwdC7haMQo86fNkc4eLTVf/XF4+jJodTNickTjzu+hs3XBa5iQVfwvrDzlKWpdO7AvAJzf
+	FGZJs1avpUWows2O9dF+ycYcJ5YVyVYHTmhkD099dP+KVUzZaMGta3VGAlEVIhuCbIgEuqAUAcA7i
+	p4IcCZ1oPtdqZ6AtfMuKArBwhJ951Af72FhYoilRTafIMohigjzNWWYsS7g9MslgrjszGj+9K0sDt
+	uJhzmi5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuAyU-0000000GTPG-3pnY;
-	Wed, 12 Aug 2026 15:34:38 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	id 1wuB0g-0000000GTu7-12kX;
+	Wed, 12 Aug 2026 15:36:54 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuAyP-0000000GTMG-1Em6
+	id 1wuB0e-0000000GTr8-0mcG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 15:34:34 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-38dfe910e9dso1341596a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 08:34:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786548873; x=1787153673; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=fzIk5I7OqDCOAhpxa2DhuDUN9BeeRjYb7EQC4Ahia0I=;
-        b=jyvbms4I82AdodRLWtOKyO7EZX6B1m62CvxHGqkEyw/sM2wF8vA53xiMnX8qV5ixXz
-         sknhDy+s8DPP1FIMARWsctq9dRh3g96XPp2g++pTHmcKDFoWm3neXpFOlSvjxMW2UKZi
-         qx7OwO9WQD/EJ6bB6Ndof/bOcZ8kQz8zu3WUgWKXSJojvRapjHpEzpVrLDdP5gfrC1Yu
-         b949Mu20IxBxuTBfUZxtA3DkoUFAPIv7dl5+F40pdshaXFaIEL/lBMSbilfqpqFulntf
-         BV2O1cFfCFcOsvkEXJx8OHZnhOkFF/5dc/qnV7INkuq7O65/pblO7ZhBP3hF3qyUKKXP
-         roSA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786548873; x=1787153673;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=fzIk5I7OqDCOAhpxa2DhuDUN9BeeRjYb7EQC4Ahia0I=;
-        b=LdfCZ+4yOyWovtnD6uyDWcXU607t4vgI7RP2SujeS42Jx/tcKBJgqtYxRIwUxKy9S9
-         xrzL+AS7EUp1qJKUzvh1/QpjdOlk25f887GQF3COWzOkj9iLp2OsjGqb8uGga/sv5Ylm
-         3vL49AV+cFDFowvSoYq/a4fpxZWaJvFxSUX1mQYoC6uD/rqDbKUJ8vfYMJSGpkbBAOUd
-         M7mXoPyncf7VKliB14VL6mJ0zAz224ze4RlTmHQ9Jb+RX2Sj9VyusIrj6b/1NZ5b6LHe
-         t6FPo912757Ov0d2C4GjdFFScfnW2ReBDHzMnwPnsxjpg/Ej6m50DONjBlPrgxS62NsN
-         zyeQ==
-X-Forwarded-Encrypted: i=1; AHgh+RooK7QOwUUaXU5QrAJ0q2HYrp998SbDBg84Zzda0roFhW5UOQj3VzY59UnNNi/26LdJLOtS7c8tj5AJ/kQZwzD2@lists.infradead.org
-X-Gm-Message-State: AOJu0YwzN5af1f7YOa46HyrylkZPb73NuimmQX70BmHqrAgVyJhjra5D
-	NqwzhKILe3/4o8AfHR+gbv1DgUwnumt3Vba4kSYTusT1Ai/HSuG9TCU=
-X-Gm-Gg: AR+sD11xXOB0a6PymreJiKjKY55B1fZHZtr3EPkuLYwKIkxYuFkCjK8iky5fTMjlSTM
-	/CT5VoqbmcusYuJes7ulRory2wKOHqbhh2zKekdwrM0gg085ABgZeZDdDrbuwChdcPkdNai4gj3
-	GdpsnjDIqwUuTuc89KJOAiIv7sEmsLUmUw3IHWg+fKFOl52OWVXHZpzOc5e4SOp3caFYE+rhEJV
-	kqewBat1ehdWtXqSshDHWhBJt1vVPz0slFPfOHy5UqZ2vhxsWEzf72OOhDdBFSUvrGNHGpgJpBo
-	FLFAyFdipQmQT8VwT19tziM0EUJJUAiSiAPzGbfHxGQrFmIYTwXpG8s8AMOkYjd4LIFAx341s9h
-	LX4g+5aQsZeZSDKtYPX6WOnTeHBDDBTCOkL+NEGLuiJv8Rd9NzHNsywjHI5HDGqAwvujR9XM+Kf
-	HwlwbOkQ/pZiIAafNVJ6JqnhkvDCOvLawZ67VyTWxAUeGDdK4LWjztGaoiUqja92GjL0ActPea0
-	J9WFCUift4awdDHl9NbyTRhpcPQ1SMfMvY=
-X-Received: by 2002:a17:90a:d64f:b0:390:8361:a532 with SMTP id 98e67ed59e1d1-393011eea08mr7525677a91.7.1786548872437;
-        Wed, 12 Aug 2026 08:34:32 -0700 (PDT)
-Received: from at-Standard-PC-Q35-ICH9-2009.. ([14.97.72.18])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-31dba3e9791sm7160804eec.0.2026.08.12.08.34.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Aug 2026 08:34:32 -0700 (PDT)
-From: Atharva Tiwari <atharvatiwarilinuxdev@gmail.com>
-To: 
-Cc: Atharva Tiwari <atharvatiwarilinuxdev@gmail.com>,
-	Andre Eikmeyer <andre@negmaster.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>,
-	Sven Peter <sven@kernel.org>,
-	Janne Grunau <j@jannau.net>,
-	Neal Gompa <neal@gompa.dev>,
-	Sebastian Reichel <sre@kernel.org>,
-	Andreas Noever <andreas.noever@gmail.com>,
-	Mika Westerberg <westeri@kernel.org>,
-	Yehezkel Bernat <YehezkelShB@gmail.com>,
-	linux-acpi@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-pm@vger.kernel.org,
-	linux-usb@vger.kernel.org
-Subject: [PATCH RESEND v7] thunderbolt: Add device links for Apple T2 NHI
-Date: Wed, 12 Aug 2026 11:34:07 -0400
-Message-ID: <20260812153411.1159-2-atharvatiwarilinuxdev@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260812153411.1159-1-atharvatiwarilinuxdev@gmail.com>
-References: <20260812153411.1159-1-atharvatiwarilinuxdev@gmail.com>
+	Wed, 12 Aug 2026 15:36:53 +0000
+Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67CE1dBi3717242;
+	Wed, 12 Aug 2026 15:36:39 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=pp1; bh=cl76esLcWjymMPYNC
+	2q4aJds0FA9d90E9bv8u7T8wTk=; b=pM73YVOraZ9L4kLBoj7bQdvCw+V+QsHuH
+	IrxygcItbD1PcAMFNwfUnvcjYarpJuQNiSNnQsK5d+EOnkbCO9SBdNbZMf82N0vn
+	zqUdOTBMxyDIwNSsKpAtkq8SGD/5/z6G9G0rEBluf9S7u8DLwh/FqYkowkWDky/w
+	IuNgGKFRt9B91ogZOGWeYIFKcw/2ReaXPs8V0QVdDcDwgn7IaT9sVViE0a+TGCfS
+	0LCxR4WFVsXgTtlEJQKXE5Fb5F90YpomIjvc7f/GtP6eaH6P0Yle/ea4KzZxNJ44
+	iY5bMfJeYtQdU1y6BUdqf305mIWdj57MA9IneA8gpcZfMZ/X0DP2w==
+Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fwvnwads4-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 12 Aug 2026 15:36:38 +0000 (GMT)
+Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma12.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 67CFQHmj011835;
+	Wed, 12 Aug 2026 15:36:37 GMT
+Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
+	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4fxesq6usv-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 12 Aug 2026 15:36:37 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
+	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 67CFaXaZ23724610
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 12 Aug 2026 15:36:33 GMT
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 91DE72004F;
+	Wed, 12 Aug 2026 15:36:33 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 3C89A2004D;
+	Wed, 12 Aug 2026 15:36:33 +0000 (GMT)
+Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
+	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Wed, 12 Aug 2026 15:36:33 +0000 (GMT)
+From: Steffen Eiden <seiden@linux.ibm.com>
+To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-s390@vger.kernel.org
+Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Sean Christopherson <seanjc@google.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+Subject: [PATCH v6 03/33] KVM: Allow KVM implementations to switch off MMIO independent of Kconfig
+Date: Wed, 12 Aug 2026 17:35:59 +0200
+Message-ID: <20260812153631.3376090-4-seiden@linux.ibm.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260812153631.3376090-1-seiden@linux.ibm.com>
+References: <20260812153631.3376090-1-seiden@linux.ibm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Authority-Analysis: v=2.4 cv=RsP16imK c=1 sm=1 tr=0 ts=6a7c9306 cx=c_pps
+ a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
+ a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
+ a=RzCfie-kr_QcCd8fBx8p:22 a=VnNF1IyMAAAA:8 a=-AqJVl6EvvwGbS2dlloA:9
+X-Proofpoint-GUID: qeZTNIEAxa3y3BEKND009Oy6PQoaMMSY
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODEyMDEyNiBTYWx0ZWRfX1yLHaTv0/gQA
+ AMe15tA3bTGbhZnvvcori5MJYebtr9sb1pUlWB8Ufe2n5CXZpLh4c01kq/w88si3lLSP7hm731N
+ gdlQgkRlnVFKKlImeOiVbFIUrwuKEaCXXT4h9aMQnZC4FEtaPxlbjNkEQn9Ju5iyv4WH7jXPxK7
+ PDzPNN/CVOC/eLgmhqOuOKGjCAp585gt5oSsUTw+bGQOkg5T6h6pXwPlq8ZtH7H+txTDn1TxgAb
+ bb/Phj7J+f26hKARCjJE7uhVX+5lTTRqBKKjFMf2t5QVvaTuYu3tWcy+gZYOzG9JVSWAY66wpYZ
+ f6q/uWCkg3aku/jLvj2u9J7k9GQuUWNzmcRxuUfuLNEbeKgzxndxAz9ovdjuL4rUWJj7vjZwtl+
+ Ci8qxxE2v3M+WcVw/5LKOmZ1OgcuD90pyIzg+tyl0C6AxjeHqfZrhSeqeS8C2Zyc2qr0j0vONO5
+ tyZ9mCQQc1ALfU1eQcw==
+X-Proofpoint-ORIG-GUID: M6iwbjeeBzLS_qIaPi5H-SJ8HN70rNMe
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODEyMDEyNiBTYWx0ZWRfX+h4ZucUGWXEY
+ Zkqpw0M33aL9ebdwLcLV+rQfSXMyq4uvM/OMagy2Lzg9UkDofeaAf8hGIPFkcXDYQMx91W9GFoa
+ 7yaBcIPGPGYaDmk5wXZOponH040f7rg=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-12_04,2026-08-12_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 impostorscore=0 suspectscore=0 clxscore=1015 malwarescore=0
+ phishscore=0 adultscore=0 lowpriorityscore=0 priorityscore=1501 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608120126
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_083433_373977_C7EC7EC9 
-X-CRM114-Status: GOOD (  17.89  )
+X-CRM114-CacheID: sfid-20260812_083652_377388_E60DEA6F 
+X-CRM114-Status: GOOD (  16.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,147 +141,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Ice Lake Thunderbolt NHI That are only on T2 Macs. The NHI and its
-associated PCIe Root Ports all sit directly on the Root Complex
-with no upstream port. Identify the tunneled PCIe Root Ports by
-their PCI IDs and create device links back to the NHI so that
-PCIe tunnels can be re-established after sleep.
+Only defining KVM_MMIO is not flexible enough for multi-KVM systems
+where one KVM implements MMIO but others do not. Solve this by
+additionally testing for the non-existence of KVM_NO_MMIO before
+including MMIO code to KVM.
 
-And on other Thunderbolt NHI's, like Titan Ridge, the default method
-is used to add device links.
-
-Co-developed-by: Andre Eikmeyer <andre@negmaster.com>
-Signed-off-by: Andre Eikmeyer <andre@negmaster.com>
-
-Signed-off-by: Atharva Tiwari <atharvatiwarilinuxdev@gmail.com>
+Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 ---
-Changes in v7:
-- Used pci_lock_rescan_remove to prevent race conditons.
-- Fixed patch format.
+ virt/kvm/coalesced_mmio.c | 4 ++++
+ virt/kvm/coalesced_mmio.h | 2 +-
+ virt/kvm/kvm_main.c       | 8 ++++----
+ 3 files changed, 9 insertions(+), 5 deletions(-)
 
-Changes in v6:
-- Used for_each_pci_bridge in Icelake section
-- Removed has_apple_t2_chip as its not required now
-
-Changes in v5:
-- Used Icelake root PCI IDs for detection of root ports instead of TRP
-
-Changes in v4:
-- Limited TRP check to T2 Icelake systems only
-- Optimized has_apple_t2_chip check
-- Included pci.h to drivers/thunderbolt/tb.c
-- Used __free(pci_dev_put) to avoid label
-
-Changes in v3:
-- Fix build errors with non-x86 machines
-- Used __initconst for apple_t2_devices
-- Removed UEFI_QUIRK_SKIP_CERT as its unused now
-- Used IS_ENABLED(CONFIG_ACPI) in tb_apple_add_links for the T2 part
-- Removed !bid check to remove warning with -Waddress
-
-Changes in v2:
-- Used a less generic name for has_t2_chip
-- Used DMI instead of PCI for has_apple_t2_chip to avoid PCI problems
-- Initialized ret in tb_apple_add_links
-
-Link to v6:
-https://lore.kernel.org/all/20260730223435.2874-1-atharvatiwarilinuxdev@gmail.com/
-
-Link to v5:
-https://lore.kernel.org/all/20260727211807.1223-1-atharvatiwarilinuxdev@gmail.com/
-
-Link to v4:
-https://lore.kernel.org/all/20260724164641.2239-1-atharvatiwarilinuxdev@gmail.com/
-
-Link to v3:
-https://lore.kernel.org/all/20260721063412.11588-1-atharvatiwarilinuxdev@gmail.com/
-
-Link to v2:
-https://lore.kernel.org/all/20260721054506.11871-1-atharvatiwarilinuxdev@gmail.com/
-
-Link to v1:
-https://lore.kernel.org/all/20260719180308.1398-1-atharvatiwarilinuxdev@gmail.com/
-
- drivers/thunderbolt/tb.c | 49 +++++++++++++++++++++++++++++++++++++++-
- 1 file changed, 48 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/thunderbolt/tb.c b/drivers/thunderbolt/tb.c
-index c69c323e6952..2534c6378000 100644
---- a/drivers/thunderbolt/tb.c
-+++ b/drivers/thunderbolt/tb.c
-@@ -9,6 +9,7 @@
+diff --git a/virt/kvm/coalesced_mmio.c b/virt/kvm/coalesced_mmio.c
+index 6b1d90161099..8ff9d9a6f47a 100644
+--- a/virt/kvm/coalesced_mmio.c
++++ b/virt/kvm/coalesced_mmio.c
+@@ -15,6 +15,8 @@
  #include <linux/slab.h>
- #include <linux/errno.h>
- #include <linux/delay.h>
-+#include <linux/pci.h>
- #include <linux/pm_runtime.h>
- #include <linux/platform_data/x86/apple.h>
+ #include <linux/kvm.h>
  
-@@ -3305,16 +3306,62 @@ static const struct tb_cm_ops tb_cm_ops = {
- static bool tb_apple_add_links(struct tb_nhi *nhi)
- {
- 	struct pci_dev *upstream, *pdev;
--	bool ret;
-+	bool ret = false;
++#ifndef KVM_NO_MMIO
++
+ #include "coalesced_mmio.h"
  
- 	if (!x86_apple_machine)
- 		return false;
+ static inline struct kvm_coalesced_mmio_dev *to_mmio(struct kvm_io_device *dev)
+@@ -188,3 +190,5 @@ int kvm_vm_ioctl_unregister_coalesced_mmio(struct kvm *kvm,
+ 	 */
+ 	return 0;
+ }
++
++#endif /* ifndef KVM_NO_MMIO */
+diff --git a/virt/kvm/coalesced_mmio.h b/virt/kvm/coalesced_mmio.h
+index 36f84264ed25..826af421a5be 100644
+--- a/virt/kvm/coalesced_mmio.h
++++ b/virt/kvm/coalesced_mmio.h
+@@ -11,7 +11,7 @@
+  *
+  */
  
-+	/* Identify the tunneled PCIe Root Ports by their PCI IDs
-+	 * on Macs with Icelake NHI's
-+	 * and create device links so that
-+	 * PCIe tunnels can be re-established after sleep.
-+	 */
-+	if (nhi->pdev->device == PCI_DEVICE_ID_INTEL_ICL_NHI0 ||
-+		nhi->pdev->device == PCI_DEVICE_ID_INTEL_ICL_NHI1) {
-+		const struct device_link *link;
-+
-+		pci_lock_rescan_remove();
-+
-+		for_each_pci_bridge(pdev, nhi->pdev->bus) {
-+			if (!pci_is_pcie(pdev) || pci_pcie_type(pdev) != PCI_EXP_TYPE_ROOT_PORT)
-+				continue;
-+
-+			switch (pdev->device) {
-+			/* Ice Lake Thunderbolt 3 PCIe Root Ports */
-+			case 0x8a1d:
-+			case 0x8a1f:
-+			case 0x8a21:
-+			case 0x8a23:
-+				break;
-+			default:
-+				continue;
-+			}
-+
-+			link = device_link_add(&pdev->dev, &nhi->pdev->dev,
-+					DL_FLAG_AUTOREMOVE_SUPPLIER |
-+					DL_FLAG_PM_RUNTIME);
-+			if (link) {
-+				dev_dbg(&nhi->pdev->dev, "created link from %s\n",
-+					dev_name(&pdev->dev));
-+				ret = true;
-+			} else {
-+				dev_warn(&nhi->pdev->dev,
-+					"device link creation from %s failed\n",
-+					dev_name(&pdev->dev));
-+			}
-+		}
-+
-+		pci_unlock_rescan_remove();
-+		return ret;
-+	}
-+
- 	switch (nhi->pdev->device) {
- 	case PCI_DEVICE_ID_INTEL_LIGHT_RIDGE:
- 	case PCI_DEVICE_ID_INTEL_CACTUS_RIDGE_4C:
- 	case PCI_DEVICE_ID_INTEL_FALCON_RIDGE_2C_NHI:
- 	case PCI_DEVICE_ID_INTEL_FALCON_RIDGE_4C_NHI:
-+	case PCI_DEVICE_ID_INTEL_TITAN_RIDGE_2C_NHI:
-+	case PCI_DEVICE_ID_INTEL_TITAN_RIDGE_4C_NHI:
+-#ifdef CONFIG_KVM_MMIO
++#if defined(CONFIG_KVM_MMIO) && !defined(KVM_NO_MMIO)
+ 
+ #include <linux/list.h>
+ 
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index 0b34477bf325..a5dcb38e80db 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -4063,7 +4063,7 @@ static vm_fault_t kvm_vcpu_fault(struct vm_fault *vmf)
+ 	else if (vmf->pgoff == KVM_PIO_PAGE_OFFSET)
+ 		page = virt_to_page(vcpu->arch.pio_data);
+ #endif
+-#ifdef CONFIG_KVM_MMIO
++#if defined(CONFIG_KVM_MMIO) && !defined(KVM_NO_MMIO)
+ 	else if (vmf->pgoff == KVM_COALESCED_MMIO_PAGE_OFFSET)
+ 		page = virt_to_page(vcpu->kvm->coalesced_mmio_ring);
+ #endif
+@@ -4904,7 +4904,7 @@ static int kvm_vm_ioctl_check_extension_generic(struct kvm *kvm, long arg)
+ 	case KVM_CAP_ENABLE_CAP_VM:
+ 	case KVM_CAP_HALT_POLL:
+ 		return 1;
+-#ifdef CONFIG_KVM_MMIO
++#if defined(CONFIG_KVM_MMIO) && !defined(KVM_NO_MMIO)
+ 	case KVM_CAP_COALESCED_MMIO:
+ 		return KVM_COALESCED_MMIO_PAGE_OFFSET;
+ 	case KVM_CAP_COALESCED_PIO:
+@@ -5245,7 +5245,7 @@ static long kvm_vm_ioctl(struct file *filp,
  		break;
- 	default:
- 		return false;
+ 	}
+ #endif
+-#ifdef CONFIG_KVM_MMIO
++#if defined(CONFIG_KVM_MMIO) && !defined(KVM_NO_MMIO)
+ 	case KVM_REGISTER_COALESCED_MMIO: {
+ 		struct kvm_coalesced_mmio_zone zone;
+ 
+@@ -5580,7 +5580,7 @@ static long kvm_dev_ioctl(struct file *filp,
+ #ifdef CONFIG_X86
+ 		r += PAGE_SIZE;    /* pio data page */
+ #endif
+-#ifdef CONFIG_KVM_MMIO
++#if defined(CONFIG_KVM_MMIO) && !defined(KVM_NO_MMIO)
+ 		r += PAGE_SIZE;    /* coalesced mmio ring page */
+ #endif
+ 		break;
 -- 
-2.43.0
+2.53.0
 
 
