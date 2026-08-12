@@ -4,157 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50FAFC5AD5A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 09:34:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75E15C5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 09:41:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zEx69xiRSRAe0xJc/Z4e3vk2TczdhrCLmrje/dy0AFE=; b=KFEVwADbp3CEssQrgBCzW1odkT
-	knLMW4mwjWITxUPFS5G44OXnem06uL6len5IXZ+EPrgWa5yjwC5cnbOS0V/rHUXaQ4XylZgKSidXV
-	V1wv1bac6ulFTKKtg4WRFvV5uaIfiAH36NxooqSZ+0lD++ThqfO4XjeRvRAl3yyLh9yJ5QM9hiMuo
-	7dhRLeA6IN++4VgeefProOlGPRV7iEhKXiWMr1skxIKq4LeB5XBvOSyc/aMReQ198TYzAXK/30bz9
-	pGh5rv5VlhE44kpPs3owktax8DFo2VDoyfPEcP7PuEdQv1a3aK42sLUgGvpHcku9FOgbXKgKzG7v2
-	EG4jnESw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=XTtrf9QqIJ0aEwhEPUrpZWj0OOWgjuwh9E5x/Ee+vU4=; b=Ac0GbijE2Eujg1bFEOjOY+JfKf
+	wQI0POsz5Z8fwuPHCJPL6t6p3qJyBfV9ozXqXvzuJYXlFewjBJYxi1q9luroBcf08ZYeAdsxjPXhI
+	0vhu1IaNjlD5CKynEzNggv2pOdk8WZn0YbkpE42RPh8G0Ugwv0HogSNEwfvhg84YS8Bs61Vjwk72l
+	j4tcXnvsjaMWgbqdrwLD4ZeZpVAOvr5ioybUHCtFefVyKN+pBPNXwQM2300m3xrcITo4vcI2q2Ehy
+	BvEmYD25ZPtMp59jmf+SyxpMzvompfPK05/d2/3FX5gf3RD6NUkNeAYaKhq4zlAiiRmClGI3SFNov
+	ITnkWszA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu5LU-0000000FlVt-1KH6;
-	Wed, 12 Aug 2026 09:34:00 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wu5Sk-0000000FmPO-3zIz;
+	Wed, 12 Aug 2026 09:41:30 +0000
+Received: from flow-b8-smtp.messagingengine.com ([202.12.124.143])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu5LR-0000000FlVM-1jWt
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 09:33:59 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67C8YRFW2934258
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 09:33:57 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	zEx69xiRSRAe0xJc/Z4e3vk2TczdhrCLmrje/dy0AFE=; b=iFsEgs9Kn2SP+ADc
-	UyW9spWpFNQctEnMMn4PpsmqXVyKZCc3OUPe02eFhUrZaAL6rZRURmXDYHiC3c2i
-	0O8aKFIu3NlWffaJwDuUyg2rHFs8yHv9pei7b0mctZc7TOb1HwgsU3QacztK/Ltq
-	FhnJl70ArFP8R1P0h7/RLq1sqVWEA6tZnxwpgjo1dKEltg3so41URrgoW8W0c6rb
-	Mf2KItT8MGASwIdzJGARc94prVxEHQPPBwvyrSaVY5zcsN2X1vXOsrqNL7TJ/Jrg
-	kuEQw2ckiY1vbTsQmPP/dDvrxxqAl1ps28/Or0ySMtc643+u6XuWTkxF92ppayqE
-	CQng+w==
-Received: from mail-vs1-f69.google.com (mail-vs1-f69.google.com [209.85.217.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g08jrk5ge-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 09:33:56 +0000 (GMT)
-Received: by mail-vs1-f69.google.com with SMTP id ada2fe7eead31-737f1f1e1bbso126070137.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 02:33:56 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1786527236; cv=none;
-        d=google.com; s=arc-20260327;
-        b=HxDxG3ERXVrBDQwfSFA6WiLysq6v4oQrLwfVCgE0g2/UzjihvsNUXP2v0pPhprSvJh
-         qeFkYfxPBqs2vJZTTKZ4znE9ZJSd7s4YDgV8rwUyjC4NJTdEotTz+uZMSj4uCR9mMHnK
-         mzGPffl0jmZ81je85j3fbqII/+xnn2ct1elKsCvYHUz5bbzKh4cpyEMMPK6pJBvmiG4D
-         NefgLUH/9o5bKoLA0JHZ2skLQ6KxLexoJPK9EENgPznveeNfYIPSXux2p1fLhqUvfAvq
-         qClgC+5ydwoQwNe1zKmex/p6EqYyD5SYKTMDuowPqiVc85Mck6bd9Ce1/jYgipKiXhOQ
-         6bJA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=zEx69xiRSRAe0xJc/Z4e3vk2TczdhrCLmrje/dy0AFE=;
-        fh=1U2yzaFWJlFKc2GZF7Nh9cAagCdYBicDwUvlyYp0BTM=;
-        b=G3EseMg3eHziKSwuCzKaIp6yginJ5h4Vop68yPMOML88y/4KZtSWMv1w4yFWlE+CfU
-         66HSqK8Uf+5IpIrIwsJAK6zk64Vg3FXIDnYYsMPUb64aRO1kfetsQMExvp+hknPhWvNh
-         EqXwQc59QhTHmnnOAIrH4uUZg6v0yw5lXkRXl2zjdCp06nlcv/NSJKGnwmXEmy07m+o2
-         G8VjJUrF+WJjMCKYOXe4ysE/NPmxEItC9SMkQOBKUQeRYJN3ULXBA68fOmSCXGQCFVKz
-         tOfoXDcBDlOdY11KJeBjTmER/4w2cwI1CgBJvY5Wf6YBMBAqXHQAjRQoX6OHAfTKOaXp
-         sHKQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1786527236; x=1787132036; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=zEx69xiRSRAe0xJc/Z4e3vk2TczdhrCLmrje/dy0AFE=;
-        b=E/LciSBji4ZEz1F0Kt/j8UTB7OczxNQYU1JnepylEa2oIiGb7q6a5IKUqnBGZ73RW6
-         9d49cmXkK4uBqLVLtwfC325bXNRGsUC3nEJ24uip7srdSulwH1jYmXznkbFm4WI/CUz2
-         Bk29lcfJ53tfgGPZNHXyHVnGER/r+ijZ8uD17QnBQPAOGqY8MclBONix8aLiwbFQczdG
-         S+QwxihWYlHLtSdYl0vg3pkq51dhfwueTXCeKEVuIu+9nJ7wYShzyOJd+cSuqZxZEjvj
-         ehyfk70ufKuW545ylYe6WGCev5q28+2Adziyc5x0dNqt1odaXZeXskv2g8skeFL0VUDC
-         i+cg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786527236; x=1787132036;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=zEx69xiRSRAe0xJc/Z4e3vk2TczdhrCLmrje/dy0AFE=;
-        b=amOofQ7C2JLnrNz/T5GEa/jD23kNs/PS4Gp4ZBnb5FBRUEmZD/zxJ+ARgcJab3VyDo
-         yoGwUmTMv6Iig17O3kF/71tmpD937i+aLvgIEgzVTjM6WTN2uSDz8uFhpTDcxaG5REEQ
-         Tfsdi5ZgHXKlscNKIKym8qQbzv3oOt4+DDP+jse0tBMbINxHyrL5MQftY+IuPAtIzafH
-         oT9YQx5iD3yln4XzwHabdXhnKKdubpY907HmkDnf5dJaJO8rGhhsaSW+MTSb8wRMLFQa
-         qDIlieeShsclwCZnXzldg6nsfxiTIALbYuS3584IM2FOCztneeB7JT7fEx1qYwxt2+bX
-         CnXQ==
-X-Forwarded-Encrypted: i=1; AHgh+RoGaw3q/bbYy/Xly6my3x/tksWGbwJXFi6DdHK9QCl2wF8rHVp94cuIczyqtIjS6FATsROTwOAqbIZTo6W4x3dg@lists.infradead.org
-X-Gm-Message-State: AOJu0YwdhcGONOZw6QFsflCK4rmb75PT1aiQPbNBvjpnRLzbEXU5o0ud
-	BJUDMACjnwBxT24dPNAqBtTDUaum0Fu4isOlsITyVarZA2rcrKXxmNM9GXCsSkrYZwHcAUT735e
-	oLLAAFUKZplXzaN0kO3f3n0pnoPrxDrxD5UoR1j4pyE0CFSX0Jw6f84xtofwdHU2joCVdb5iJWu
-	uLyf1LZuv5toHgQYHiz/fxqI3lF6TbOYkWNpjz5ut0WBwR+SfKipQ+
-X-Gm-Gg: AR+sD11LFByFZNHad1cCTEtNQpbeOsASALNLmMiJgkY7NK+0bJMfoZzvJFkJQ7ec1dX
-	K+gfHKM3TSqEaqc1EO8cG0W3iaznjBWGb3+ajI3vM59zuZZNOdyUwYipD8Df0OrUCrLgLf8KoQS
-	tjIP3hRJtlCRJGWmJM0N1e7kpoapAmHgW/pNra9l304tnENXbyN4QdlmGvnRag1S1tm/rlmXeBs
-	wMwfGOrDg6n0X93
-X-Received: by 2002:a05:6102:94d:b0:74a:be82:73a6 with SMTP id ada2fe7eead31-76c88b5d4f3mr653461137.8.1786527235662;
-        Wed, 12 Aug 2026 02:33:55 -0700 (PDT)
-X-Received: by 2002:a05:6102:94d:b0:74a:be82:73a6 with SMTP id
- ada2fe7eead31-76c88b5d4f3mr653449137.8.1786527235189; Wed, 12 Aug 2026
- 02:33:55 -0700 (PDT)
+	id 1wu5Sf-0000000FmNu-2aXP;
+	Wed, 12 Aug 2026 09:41:28 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailflow.stl.internal (Postfix) with ESMTP id 31829130082A;
+	Wed, 12 Aug 2026 05:41:19 -0400 (EDT)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-04.internal (MEProxy); Wed, 12 Aug 2026 05:41:19 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
+	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
+	:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to; s=fm1; t=1786527679; x=1786531279; bh=XTtrf9QqIJ
+	0aEwhEPUrpZWj0OOWgjuwh9E5x/Ee+vU4=; b=Do3+aaE4i5NUeaY7SfW37Pv25l
+	QUqp2DkEix2OMEKW2ejeNDwBY/EZZJUenQZ9uSZbixupOlZFEntTSb/QgCwgDacH
+	DvRtGzpFbGUAcconqSl45ZnVslcobtb3T2yIbJoFvqL91siSMIHyys2Ik8aeBezx
+	cPSyTv00jaYgSTGCvFJm4FcR0k8+D3jIe7pms7OgT3wSz1chERp709rnNx4cT3VN
+	3kx6Hzw3lUVdqJTzRwjuWoK/dMPvv02dUf7xsWhHSHsqF80UKw80zbNmZzw3hT/s
+	Is3t2Itf6eSVFFeCjLKJv8O438bKp3P29x4jYr8YW7WuK0aVQiYctqgx0+XA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1786527679; x=1786531279; bh=XTtrf9QqIJ0aEwhEPUrpZWj0OOWgjuwh9E5
+	x/Ee+vU4=; b=btQRECF23aTza3IYQHkV0GTKQTlE9dEXDtuTd/kLYeJ/N7cEJDm
+	IiWhKkB3lU2kKH62Qxxd8PYm4pFiZExgW8NFXZ2ty+39XHTMUz8KafzqvX33Mz8l
+	bN5z6UeDkps6q495gzqtxHxZdBGRMrlrBkAh6qRmH4108GXIiGlEln6nZVgdrsrB
+	dbtXdnK3n9mgxVWkKzuGMPw26XnJffPU1NZAdNQP5ToIU9YwXdcu5xgjzllOEwZo
+	f8rYVGKQVPAgHql625a8leMv6hzYuM92/u9WEOrL1/PLKNeD58iSHTxu9auqL2cT
+	8JQoyz87j8UF8vYqO3jQhkcMT35PiJFMqbg==
+X-ME-Sender: <xms:vT98agsS4QSOhkQqfbZHJbaLgpeDzpyE7L3Y-NJdEfiMKEh_aLXNwA>
+    <xme:vT98apm_0M54j0_nYdAd-EU1oQhgcJGidYpopFQlqfKZykD40vLEkbOGdnzJBo7HM
+    rhc1FpJLSggX5iIcivIIH27w_OZeW-Q3llEmsgUhumHB7AbnLq1vvJx>
+X-ME-Received: <xmr:vT98anlWWxK6HWMo_ofmolGB5kfxu4NBl0RxXN8h1FSrNT0QeARtr_Grh6jK49GcPP0k99NycQ>
+X-ME-Proxy-Cause: dmFkZTGczlsc6lTmWVXF5EdFbdBVrzj/e7Ns03qZEcXkYEtO1ejPPywerw48yQ4lW5hk3J
+    fT+nPF6HwKq4wLnadj9B/7Dxa+JyDDEx+4c7COf2RfNTk8z5C7N//KLe5jziAvw/TtX/Jp
+    OrC/dIaTR/CyYlCFQH75cyZe9sWyJHnxZXS6yI7T6OJVjuheIcXU/eK6bZTz4XhwORckp+
+    14uoPBgn1Yp6vTSRddKOl657KK8RRAbUi7J1na8KuT9wzNcxlASvghh7F98Jutl24ebq9g
+    llnAP0pM5Ea0ZgFR9n5XPa2NKSElqXsALbI2HKi6XGVMFztOK0Iz3JFRIByX2nDIiMMtXZ
+    UayMLhX5L+S5al0XL9J/cmf77OnCUAbzlK/sgfcDEOMzs5USN3TTAHwETXv90c4PKmhd3E
+    Zmz/EZ0BjpxB8OvYiYRpneXAP1XbgYOrNEKBJcIp5n8s/2jaS0bqmK1X9Vn9sof/vgYmTk
+    bvyl8cFXFIBWFfgbSL2CbvQsUC+cHXRo+QL67C/1tkaNU1MwgMrG1H86LT0nPU5APvaGh/
+    KlRbyLA/BLZ9XeMTVX8Jka4laTBy/2rMvzmVvmGiEmGpS/a8BNddhIHgaQa5EQZWWVVCcX
+    CbidpSWly9KWj0mV1YU1or1O0uOzTW9F4XmzyDq/iNxuoMmBJCXvIZyMncMA
+X-ME-Proxy: <xmx:vT98asgifRk94cDkLTcUXFX_FUWxfgO-0kb2gLskTwBeV5Ojuj0TzQ>
+    <xmx:vT98ahEw5sSI2tHzovJwRUzDykMjOANd2zw1vm7Hrt-VyGlwwnr3pQ>
+    <xmx:vT98avayTAxSp2mQzvqpSvIiwOmlD7KiA7oU_mZBJwpqmrk6-gihEA>
+    <xmx:vT98asOTpXiddBNbBAhaBCxSGY5yEyHgNNio6EsY_QOjmeHZJgZIPA>
+    <xmx:vj98auwTyboyMhBm7PhDqpWlPNQ7n7PA3U2Yrp9MTW6bqezTSakjfVHi>
+Feedback-ID: i7a5e4b5f:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 12 Aug 2026 05:41:09 -0400 (EDT)
+From: Jiaxing Hu <gahing@gahingwoo.com>
+To: tomeu@tomeuvizoso.net,
+	heiko@sntech.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	joro@8bytes.org,
+	will@kernel.org,
+	robin.murphy@arm.com,
+	ulfh@kernel.org,
+	p.zabel@pengutronix.de,
+	ogabbay@kernel.org,
+	zhangqing@rock-chips.com
+Cc: royalnet026@gmail.com,
+	alchark@flipper.net,
+	chaoyi.chen@rock-chips.com,
+	diederik@cknow-tech.com,
+	dri-devel@lists.freedesktop.org,
+	linux-rockchip@lists.infradead.org,
+	iommu@lists.linux.dev,
+	linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Jiaxing Hu <gahing@gahingwoo.com>
+Subject: [PATCH v7 00/10] accel/rocket: RK3576 NPU (RKNN) enablement
+Date: Wed, 12 Aug 2026 21:40:55 +1200
+Message-ID: <20260812094106.1391698-1-gahing@gahingwoo.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20260811-domain_off_ss3-v1-0-6a0a0fc023f5@oss.qualcomm.com> <20260811-domain_off_ss3-v1-2-6a0a0fc023f5@oss.qualcomm.com>
-In-Reply-To: <20260811-domain_off_ss3-v1-2-6a0a0fc023f5@oss.qualcomm.com>
-From: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
-Date: Wed, 12 Aug 2026 11:33:42 +0200
-X-Gm-Features: AUfX_myst2nAw5V_YUmuhaFbQdg1Mey-MuLYa2PToXnP1p5QWau0DOIrAmPhVs0
-Message-ID: <CAPx+jO-FAL1asnPRwhdH3R8QZvdTnCiRG-uJh7sT7p55nqBw-A@mail.gmail.com>
-Subject: Re: [PATCH 2/2] pmdomain: core: Initialize state_idx to deepest state
- for OFF domains
-To: Maulik Shah <maulik.shah@oss.qualcomm.com>
-Cc: Ulf Hansson <ulfh@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>,
-        Daniel Lezcano <daniel.lezcano@kernel.org>,
-        Christian Loehle <christian.loehle@arm.com>,
-        Sudeep Holla <sudeep.holla@kernel.org>,
-        "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
-        Dmitry Osipenko <digetx@gmail.com>, linux-pm@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Proofpoint-GUID: BKDdOruqCABF75irhbkrkxa5FfFmvuK_
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODEyMDA3NiBTYWx0ZWRfX5qYubh3nUMLA
- XvsqYzbrU699/FXkVbEaTES4CSmAkir6nL0l9PB+2YmeFzPjxpwIEmevsqiYkUwfktuZ56hsus6
- Mkjk09juXUDkW+ySjV2gR2xo++RT77w=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODEyMDA3NiBTYWx0ZWRfX5mEUYnP8MEum
- 9Xyrg+xkrbIErkcUoTrbPzPbYQn/tag2dWv5S34nYFtQljDnrRq7gici48+WX5f8vrc1qctu6M7
- LuP300V9kppoP34l23epYGAFx+eLvPwFePWrw2MV1iSaAZ8bDbPD1Q8C1gdS1BUPaCGMg9JTSnO
- AdME1gWWP1V5st43Bp1kuDnW1hRn5VeKlD64N/gbrQraOVgvI66nZ1DD0doqN1Mh631vbIAk4Uq
- R3Ln24r/DPGc7cfAJAMQNBm+3fKFVn5RssC8xKX1v1n1hMyVJ5BBD2wB4Fa8Ks+NWc+pJzefg0P
- CM6519ysGiGP1f6Y/rIEgiaj0xsVZ72tkyYUPVq21kozc7J0bFSBhG+x9rXRf9KYk/7fiNCQINg
- P9djuiRAXaGGnhVtbSaPRxCluC3MfximM96RdqPOcQSqBTHBIYUb3Y8saSXz0xyVqP3kB9LsmEa
- E7eTk9fCuUI3FtDrHEg==
-X-Authority-Analysis: v=2.4 cv=Z7Dc2nRA c=1 sm=1 tr=0 ts=6a7c3e04 cx=c_pps
- a=5HAIKLe1ejAbszaTRHs9Ug==:117 a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10
- a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=YMgV9FUhrdKAYTUUvYB2:22 a=EUspDBNiAAAA:8 a=P2j-IMcOwh7rrdvbTMwA:9
- a=QEXdDO2ut3YA:10 a=gYDTvv6II1OnSo0itH1n:22
-X-Proofpoint-ORIG-GUID: BKDdOruqCABF75irhbkrkxa5FfFmvuK_
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-12_02,2026-08-10_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 lowpriorityscore=0 adultscore=0 clxscore=1015 impostorscore=0
- spamscore=0 priorityscore=1501 bulkscore=0 phishscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608120076
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_023357_462359_75BACCFA 
-X-CRM114-Status: GOOD (  28.16  )
+X-CRM114-CacheID: sfid-20260812_024126_431383_2EDEAC3A 
+X-CRM114-Status: GOOD (  27.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,109 +123,173 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 11, 2026 at 7:50=E2=80=AFAM Maulik Shah
-<maulik.shah@oss.qualcomm.com> wrote:
->
-> pm_genpd_init() sets genpd->status from is_off but never touches state_id=
-x,
-> which stays at its kzalloc'd value of 0 (dt_idle_pd_alloc()) regardless o=
-f
-> is_off. A domain that starts OFF without ever having gone through an actu=
-al
-> power-off sequence is therefore left looking like it's parked at its
-> shallowest idle state (state_idx=3D0) instead of its deepest one, even th=
-ough
-> it is fully powered down.
->
-> This is visible on hamoa, where cluster0/1/2 each expose two idle states,
-> CL4 (state_idx=3D0) and CL5 (state_idx=3D1, the deepest). When CPU-cluste=
-r
-> genpds are initialised directly into GENPD_STATE_OFF under OSI mode
-> ("cpuidle: psci: Start CPU-cluster pmdomain OFF when OSI is used"),
-> clusters whose CPUs are excluded at boot (e.g. maxcpus=3D4, leaving clust=
-ers
-> 1 and 2 untouched) never go through a power-off path, so their state_idx
-> remains 0 instead of the deepest 1. debugfs reports this as "off-0",
-> meaning the domain is off but parked at idle-state 0 (CL4) rather than
-> "off-1", idle-state 1 (CL5):
->
-> genpd_power_off() and genpd_sync_power_off() both gate parent power-off o=
-n
-> every child being at its deepest state index:
->
->   if (child->state_idx < child->state_count - 1)
->       return;
->
-> so the parent's check treats these fully-off children as "not yet at
-> deepest state" and refuses to power off, blocking the deepest system-leve=
-l
-> low-power mode (SS3) from ever being entered.
->
-> Without this change:
->
->   $ cat .../power-domain-cpu-cluster1/current_state
->   off-0
->
->   $ cat /sys/kernel/debug/qcom_stats/apss
->   Count: 0
->   Last Entered At: 0
->   Last Exited At: 0
->   Accumulated Duration: 0
->
-> Fix this at the source: when a domain is initialised OFF, set its state_i=
-dx
-> to its deepest state (state_count - 1) instead of leaving it at 0. This
-> makes genpd's reported state consistent with reality for every is_off=3Dt=
-rue
-> caller of pm_genpd_init(), not just the PSCI CPU-cluster case, and requir=
-es
-> no special-casing in the parent power-off checks.
->
-> With this change, the domain correctly reports its deepest state and SS3
-> is entered normally:
->
->   $ cat .../power-domain-cpu-cluster1/current_state
->   off-1
->
->   $ cat /sys/kernel/debug/qcom_stats/apss
->   Count: 218
->   Last Entered At: 726792712
->   Last Exited At: 726950687
->   Accumulated Duration: 199888773
->
-> Fixes: e7d90cfac551 ("PM: domains: Prevent power off for parent unless ch=
-ild is in deepest state")
-> Assisted-by: Claude:claude-sonnet-5
-> Signed-off-by: Maulik Shah <maulik.shah@oss.qualcomm.com>
-> ---
->  drivers/pmdomain/core.c | 2 ++
->  1 file changed, 2 insertions(+)
->
-> diff --git a/drivers/pmdomain/core.c b/drivers/pmdomain/core.c
-> index 842c4169e290..5d96d9eabc1f 100644
-> --- a/drivers/pmdomain/core.c
-> +++ b/drivers/pmdomain/core.c
-> @@ -2409,6 +2409,8 @@ int pm_genpd_init(struct generic_pm_domain *genpd,
->         INIT_WORK(&genpd->power_off_work, genpd_power_off_work_fn);
->         atomic_set(&genpd->sd_count, 0);
->         genpd->status =3D is_off ? GENPD_STATE_OFF : GENPD_STATE_ON;
-> +       if (is_off && genpd->state_count)
-> +               genpd->state_idx =3D genpd->state_count - 1;
+Based on Igor Paunovic's "[PATCH v2] accel/rocket: request the core
+clocks by name", as v6 was:
 
-Even if this is probably the most sane default value, I would prefer
-to keep the flexibility.
+  https://lore.kernel.org/linux-rockchip/20260729130743.128876-1-royalnet026@gmail.com/
 
-That said, please make this change on the genpd provider driver
-instead of in the core.
+Tested on a Radxa ROCK 4D, on next-20260730.
 
->         genpd_set_stay_on(genpd, is_off);
->         genpd->sync_state =3D GENPD_SYNC_STATE_OFF;
->         genpd->device_count =3D 0;
->
-> --
-> 2.43.0
->
+The thing this series has been describing as unsolved since v3 is solved,
+and it was one register write. That changes the cover letter more than it
+changes the patches, so the correction comes first.
 
-Kind regards
-Uffe
+The claim I have to withdraw
+============================
+
+Every version of this series from v1 to v6 has said that the RK3576's
+completion interrupt is armed exactly as on RK3588 and never reaches the
+GIC, and v6 shipped an hrtimer that samples INTERRUPT_RAW_STATUS instead
+of waiting for it. That is not true. The interrupt works.
+
+It never fired because the block believed it had 28672 tasks left to
+run, so the job was never complete. PC_TASK_CON packs the task number
+with three controls above it, and the field widths are not the same on
+both SoCs:
+
+  RK3588   BIT[11:0] task_number, BIT[12] pp_en, BIT[13] count_clear
+  RK3576   BIT[15:0] task_number, BIT[16] pp_en, BIT[17] count_clear,
+           BIT[18] last_layer_clear
+
+rocket_registers.h is generated from the RK3588 description, so writing
+it unchanged on an RK3576 asks for task_number 0x7001, that is 28673
+tasks, and puts TASK_COUNT_CLEAR on a bit that does nothing. The counter
+was then only ever cleared by a reset, which is precisely the "one task
+per reset" shape v6 reported, and it is why every completion path I
+added looked necessary.
+
+It was found by taking an ordered trace of every register write during
+one submit and diffing it against the same trace from the vendor driver
+on the same board. Exactly one value differed.
+
+Robin and Diederik, my apologies for the thread that premise cost you.
+Robin's shortlist for an interrupt that never arrives was an extra clock
+or power domain in the path, a masking control that had been overlooked,
+a wrong description, or terminally broken hardware. It was none of those,
+because the interrupt was not the thing that was wrong.
+
+Chaoyi Chen of Rockchip confirmed the layout on the list, including the
+fourth control at BIT(18) that the trace could not have named:
+
+  https://lore.kernel.org/all/4f300b78-d96d-4d98-8819-dc292b0c9b97@rock-chips.com/
+
+I sent a correction to the list when this landed rather than leaving it
+until now:
+
+  https://lore.kernel.org/all/20260807211629.1573228-1-gahing@gahingwoo.com/
+
+So v7 drops the poll entirely. There is no hrtimer, no poll work, no
+second completion path and no arbitration between two of them. A job is
+retired by its interrupt, the way it is on RK3588.
+
+Changes in v7
+=============
+
+  * accel/rocket: PC_TASK_CON is written with the RK3576 field layout.
+    The defines are in rocket_job.c rather than in rocket_registers.h,
+    which is generated and says not to edit it by hand.
+
+  * accel/rocket: the completion poll and everything supporting it is
+    gone: poll_completion, the hrtimer, the work, poll_seq and its
+    mirror, poll_dying, the teardown ordering in rocket_job_fini() and
+    the arbitration in rocket_job_handle_irq(). 7/9 in v6 was 142 added
+    lines in rocket_job.c and 8/10 here is 90, most of which is the
+    comment explaining the register.
+
+  * accel/rocket: the job_lock fix is its own patch now, 1/10, with a
+    Fixes tag. It is an RK3588 bug and it was buried in the middle of a
+    preparation patch in v6, where nobody could backport it.
+
+  * accel/rocket: the power domain list is attached before
+    iommu_group_get() rather than after rocket_job_init(). In v6 a
+    failure there returned without unwinding either of them. Igor caught
+    it. Moving the call is better than adding an unwind path, since
+    everything before that point is devres managed and a plain return is
+    then correct. It also keeps commit f509a081f6a2
+    ("accel/rocket: fix unwinding in error path in rocket_core_init")
+    from having a second copy of itself to keep in step.
+
+  * accel/rocket: struct rocket_core's clks[] no longer grows in 7/10.
+    Igor pointed out that 7/10 claimed nothing changes for RK3588 while
+    growing the array there, with the two extra names only arriving in
+    8/10. The array now grows in the patch that adds the names.
+
+  * The series is 10 patches rather than 9 because of the split above.
+    Nothing else moved.
+
+What this means for the split in 7/10 and 8/10
+==============================================
+
+Diederik asked for the enablement to be split and Igor seconded it, and
+v6 did that. The split survives v7 unchanged: 7/10 is the soc_data
+plumbing with RK3588 keeping four clocks and two resets, and 8/10 is the
+RK3576 enablement. What changed is that 8/10 is now much smaller.
+
+Where it stands
+===============
+
+With every debug knob off, on a ROCK 4D:
+
+  * the NPU probes with the two domain list and no attach failure;
+  * a convolution submitted three times with three different inputs is
+    byte exact against the CPU reference each time, with no reset in
+    between and with nothing retiring the job but the interrupt;
+  * the NPU's line in /proc/interrupts goes from zero to three across
+    those three submits, one each and no more;
+  * unbind and rebind is clean with no warning;
+  * every patch builds on its own;
+  * dt_binding_check is clean on all three bindings the series touches.
+
+The measurement in v6 that could not tell a recomputation from an
+untouched output buffer has been replaced by one that can: the inputs
+differ between submits, so a stale buffer cannot pass.
+
+That was run on this branch with nothing else applied. The out of tree
+work this hardware has needed for the userspace investigation, including
+an rk_iommu flush_iotlb_all that is neither upstream nor in this series,
+is not present, and the userspace results below are the same without it.
+
+The userspace side is a separate matter and is not part of this series.
+It runs regular convolutions, depthwise convolutions and the first
+convolution of MobileNet V1 byte exact per output channel against the
+CPU reference, and two chained operators come out at the accuracy the
+hardware's own arithmetic allows. A whole MobileNet does not run yet.
+Nothing that is still wrong there is in the kernel.
+
+Igor, thank you again for the RK3588 review. Both of the things you
+found in v6 are addressed above and the completion path has changed
+enough that it needs another look rather than a carried tag. Your offer
+to run this on all three RK3588 cores would be very welcome, since the
+only behaviour change to RK3588 in the series is the job_lock ordering
+in 1/10 and I cannot test it here.
+
+Jiaxing Hu (10):
+  accel/rocket: take the completion register writes under job_lock
+  dt-bindings: npu: rockchip: add rockchip,rk3576-rknn-core
+  dt-bindings: power: rockchip: allow resets in a power domain node
+  dt-bindings: iommu: rockchip: allow the RK3576 NPU MMU clock set
+  pmdomain/rockchip: add optional per-domain power-on settle delay
+  pmdomain/rockchip: cycle optional power-domain resets on power-on
+  accel/rocket: select the per-core clock and reset counts from match
+    data
+  accel/rocket: add RK3576 NPU (RKNN) support
+  arm64: dts: rockchip: rk3576: add NPU (RKNN) nodes
+  arm64: dts: rockchip: rk3576-rock-4d: enable NPU
+
+ .../bindings/iommu/rockchip,iommu.yaml        |  8 ++
+ .../npu/rockchip,rk3588-rknn-core.yaml        | 47 +++++++++-
+ .../power/rockchip,power-controller.yaml      |  8 ++
+ .../boot/dts/rockchip/rk3576-rock-4d.dts      | 10 +++
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi      | 80 ++++++++++++++++-
+ drivers/accel/rocket/rocket_core.c            | 28 +++++-
+ drivers/accel/rocket/rocket_core.h            | 11 ++-
+ drivers/accel/rocket/rocket_device.c          |  4 +
+ drivers/accel/rocket/rocket_drv.c             | 22 ++++-
+ drivers/accel/rocket/rocket_job.c             | 90 ++++++++++++++-----
+ drivers/pmdomain/rockchip/pm-domains.c        | 71 ++++++++++-----
+ 11 files changed, 324 insertions(+), 55 deletions(-)
+
+-- 
+2.43.0
+
 
