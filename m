@@ -4,75 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A6C8C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 14:13:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 971EDC5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 14:15:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ns5dOofzDARA0sfK6n3RJfzysxVv/8KNU5zRqXQ1YpM=; b=AYp6nUMOnwXQ58gOd93YcGaWdR
-	4YkUvsr2lWIjtkMaT+wZD7HYFjjsN9XUKAy3D/vaxVVzVwbJs6SC2tFhNpWvSOFYym4l0Sl/tlT+G
-	h9tkr5uWYBL/yiQG20eVsY7k+ZSVQhixgCu+LYjLjb7l8Ex7nUPYSIVs7tLSyqbBJ2keCFXuyZy8x
-	ENX7NUr5UOyKzmzfY3VVzRRSIh6kUez6gQ9xtIg0Chyz3F83GWs3/rZIqId2+4z73bu0QaYrLB7lb
-	bT6IscEo0S3ZeOKFRztMoW6lg6Fh1DMYbS3ehdqji/SX8W83E2K+0edR9LHXM8/QCTUGVeReJ0f4f
-	Pm75ClUg==;
+	bh=HpEHIdjrgsJVHjWro/18EmwhZ9NM+fW368nfv0gWPro=; b=grHRcwlCSEmCh/8NmB9OSyjMXk
+	cwUtk3MoVLntKl3a/MNEx4Nj436rSbPGl8vOSmN2xbgz0kirJlAKDR4+n9WTEkq+J6fvgwY4vl/1D
+	vxmqyWADD/KNFgD+ZktxVvT5NlpPHqm3byeEYt81PpoC2vWJxvNyvkeQQEYqEKOk2JeSgITJ675nv
+	JhmOT1nm6AUTPgI5hSFBhkdVXUfnxawSvwEu9HnqmtQARJwDljmlzrUF4/Kcs4kgEqqoIgoGYN20q
+	Qw4rSHcCSqExJKclE8ibvA4UjaUAh7twSRuM1vPkNAX3jwjgEBKaexDBq1UrG4f0W5PKXDCWfswnK
+	yLx1+Y+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu9hb-0000000GMJs-05h8;
-	Wed, 12 Aug 2026 14:13:07 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1wu9ju-0000000GMim-1UQW;
+	Wed, 12 Aug 2026 14:15:30 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu9hY-0000000GMIg-1x3K
+	id 1wu9jr-0000000GMi8-2Nd4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 14:13:05 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-49954b88fffso11207075e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 07:13:03 -0700 (PDT)
+	Wed, 12 Aug 2026 14:15:28 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-47f84023916so856982f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 07:15:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1786543982; x=1787148782; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1786544126; x=1787148926; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:in-reply-to:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Ns5dOofzDARA0sfK6n3RJfzysxVv/8KNU5zRqXQ1YpM=;
-        b=Hpr777w9HeyqH4KyEXtTVRMqsVepSLfJRD1N5CDKehxJo1LKt2IyqG3fCLN2+GBvVc
-         FuqkuBQoV2FDKDd8EymiM4wduZGw461Zk9bj4I7+dpsmVu+KD8lPUA5P6ec7I0Ea6mm5
-         dqOx2QAuJr3i+CZTbFEKxgLm9hjOxb7NsI1ohtcJBqPioT6e9tQiAGPdGmJhciR8E22Q
-         TpAy14/HmI4HHX4RRafCdlOfwgMzcQ3L6XxTWBpuqT0Mc8a6VRAOml1CQ1EsWTciUkT2
-         YYppgIjfqF2cCNNPF8gELhgff1YxwnPL2Aw2F+q5OzkIzNCLLwM8dO41inifmmhfVZip
-         Ya/g==
+        bh=HpEHIdjrgsJVHjWro/18EmwhZ9NM+fW368nfv0gWPro=;
+        b=HWXWDigxNlZeRT4ZuTC5L6mHI6tP1IrjXxxLn8LVLrxYA2uc26Jqq9lGAP2AqMS1HS
+         eT0HaihzUL0KTZ4dh9rDWAhwnY+UQSaKJ2Jptf4y1oXrIv3faS8GU3FdUSi1WFAWMCJ0
+         O7VG6sRv/eDHY0Fre1Jh5ZZ0GUfxOlRe/Ee5BLCWVlySi4COfgNhTIGxW/pj/ZfRdkxd
+         yVlquO9HgabGE9EEFuvv/gRT8V4e6/7z+FbdW/ge8WBWsN/VRZYSXdNBnMQwsnrUfX4Q
+         jHTVbVw47SByedqXpLKPKRwc1NJ6I50kWH+35NZliXEpIQqRM8Ox4eKnzLHLjbADts+1
+         Ze8g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786543982; x=1787148782;
+        d=1e100.net; s=20251104; t=1786544126; x=1787148926;
         h=content-transfer-encoding:content-type:in-reply-to:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Ns5dOofzDARA0sfK6n3RJfzysxVv/8KNU5zRqXQ1YpM=;
-        b=CsZeUEAHu4uUOsisIB73NYwyIaJtVp6UM4UAj19qraYuufLNKMAJxux3wwWs8p+c+b
-         doMA5xgPBw721IIzLdI+KWOFrQfXO7VRJXMZj3c4Nu6PorMKE07nwXYLj6RpV+P4DfZ2
-         k2fAupRXPKfmKkkYea9uvR6gSSQAQxuWvQHcAmDbeZrmzuVw0kwDn6V2PRyv3eBcpjC8
-         rVsk1NY3zcnNYLTzelTnYF8/kVwLJkvjrYJ8JXkwaXJzqHawNwKxTS16NfhTt+nR7hsu
-         L5Whfj7KdseQj1DVUqMCVVYqkdNNIvqauwNu0NyvXZOlkSlZ2rqAiBoCijO1vwBFsvZK
-         CM6A==
-X-Forwarded-Encrypted: i=1; AHgh+RpqkIX73Qx4fGqed+oG2Zz8RJS2hNnZYSQF/UR5omfJwHHHMw+dOTqDtiWvqnvYM6pNSs4cJSF2llV5RnR5lCSf@lists.infradead.org
-X-Gm-Message-State: AOJu0YyXOHyk+Ejxx2wFSJ6DtCTvcwf/zaEzSkyZ/X7caX6FRT1MhjHW
-	6Ukmn/UKD1VU6c98t328A4M69QyOBB9Rm4nmSppuE/M+fqWCHv5fGxhGaEU/nAAyR08=
-X-Gm-Gg: AR+sD13K35HrfwqJg3jxsAPpUjoi4i/qmJJ0XGdC63pImgAhi6MKG1ID7nIl1A4bewW
-	769lh10Po+GViDTELgNqdhnZeUCALuzAAO89LvBJnSp91vPqWkuP0kylo/3rj6d64pcvfvw0BdX
-	ZqUWpLFPcgvmlX562EGc2qXapcCLl/0Im5bFxEvbPtGML9NMEb/WkGxUO+T6hqREv86dcOoOCFL
-	iL6a/Ie6UiUfduBo9VPVnbhsXobi4B6kgpDGfvubk3yYAPA/s+f/fV0J5XVL4Z1SPqCalxdyNqU
-	BfQKMxSKoXsWUrZpzCT2Ao32FtrDjmeowwHAI6DR71igNKyRYgSQmD1CI/8TfOyhk1yg9HArpom
-	SVDld70V/nf5XPFX3/hT4q6dxGgcKkfcF+1PhuyVDkifiVJNaQ+7ab10qulZclpl4X3b6L14Cs+
-	rGLXVbB3TkfmGCGu6nhuCCHLrd1kCHL8YOB/WJ5kmAw11uLIrVFUPA/b0mGAd4L4zLYg==
-X-Received: by 2002:a05:600c:1394:b0:495:7888:281c with SMTP id 5b1f17b1804b1-4997bf6d93dmr63995455e9.0.1786543982524;
-        Wed, 12 Aug 2026 07:13:02 -0700 (PDT)
+        bh=HpEHIdjrgsJVHjWro/18EmwhZ9NM+fW368nfv0gWPro=;
+        b=P1n+ZFRqygQpKtSPessulMFZHy6MfbnEGLhAwyE5nNR3Or2iFlxQ6d5dsYcG/i/KM4
+         U0n7L0IyryxTYUzGFo0QAK9K7t9c3AaeSNnRHfkMqHvJagPwAJr8jQpz1ZedyrdcMss0
+         iREGncfjJk0PtSi8xvPnKRVEnAr17AfZUBRMBzp3z3XiN/ldC0F9IBEk2Is+CNFm50f/
+         vmeOsebXxoZxBIOLDCkuTuMb1lmPCvsoBHkuG3GqLkfPCxzroI/OjFBNl71zCPq3GB03
+         myn6mufr36BLE/zXGCuOhpTEhvjSA4SqMSG3+wXJo7egHXM5CggvBWUXrUUUotrYfvUa
+         7eOA==
+X-Forwarded-Encrypted: i=1; AHgh+RrG0W69qKXAph3ZGoYj0xg0fWR1LIB/ufF0RJH+69XlwxBL7roVqTiQs5gZ7aZ77eL8L/ONhg3QnHfdTlZ69QCM@lists.infradead.org
+X-Gm-Message-State: AOJu0YxThonoIUPrf0+B/oWuTvd/Q6EbQu5m9s7AIoukX2NQTm1yKaLH
+	kj5qmqUDPEciTgv6lvZ7e+nCTGFQJmaRRrBQvuCQPXqSTp7QtCqeR2m+Ri/13/TfQ+wPFiIo/Xm
+	yZtgmBY8dIg==
+X-Gm-Gg: AR+sD12KolXy8Yr7CXP5eJ2S9lOnmZqb3FvQdcDCakBaQVtvJHQlboOLgpBLfGb2XNM
+	uq5FUK2pZEUg83HE4Qt5LCYVgUeaCBRDuQtscoa2MEkxjOtX1maJkPzuwClQjXqRVTWDMvKpns8
+	bai3/wR8trGYpBe94TJm2l4Waem6F92VLHjV9rL4xe0f3kWm8bcC7ppSD928n7JR2u0KXWxbotU
+	Q0bVu8K/eROrdRIO0ibS2U5Yc0yTUMd++fthmqoHh4iLyA81pmqfLPBnSVuDjJZAUdTNhrxtOGo
+	/PVrZmrI0mIS5hInNRjGURMmzS+OGRKZxPW4zj+metYL1Y0DcS5uDF8earuDbsC0bV9yeg4ZWkP
+	R+ERlcrzqPES1PwM4p3mmugoEycDOqT3jIz1Ed+URS+v2zA8/zsQ8fcyh1W4Q1HnG7qfY8M2kGM
+	w7ADfhbckoID6MPl7+swKjqaDo6vsQ6mguH6bCLygaipWBFPI3Rbvh37YM3uweARKIiw==
+X-Received: by 2002:a05:6000:606:b0:47d:ee9d:90c8 with SMTP id ffacd0b85a97d-481528ad9cbmr8183311f8f.3.1786544125695;
+        Wed, 12 Aug 2026 07:15:25 -0700 (PDT)
 Received: from [192.168.1.3] ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4997b33e038sm43548665e9.4.2026.08.12.07.13.01
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48150d72232sm7848055f8f.37.2026.08.12.07.15.24
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 12 Aug 2026 07:13:02 -0700 (PDT)
-Message-ID: <e7418175-3421-4cd1-be80-993ff076c9b3@linaro.org>
-Date: Wed, 12 Aug 2026 15:13:00 +0100
+        Wed, 12 Aug 2026 07:15:25 -0700 (PDT)
+Message-ID: <80a801e9-5c95-46f6-8ee0-f07a17cfd287@linaro.org>
+Date: Wed, 12 Aug 2026 15:15:24 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH 7/9] perf test cs-etm: Test branch history on existing
@@ -98,8 +99,8 @@ In-Reply-To: <20260803090640.2412336-7-aaupov@fb.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_071304_560464_B699AB40 
-X-CRM114-Status: GOOD (  33.63  )
+X-CRM114-CacheID: sfid-20260812_071527_641289_80BB69B0 
+X-CRM114-Status: GOOD (  16.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,202 +137,18 @@ On 03/08/2026 10:06, Amir Ayupov wrote:
 >   1 file changed, 175 insertions(+)
 >   create mode 100755 tools/perf/tests/shell/coresight/add_last_branch.sh
 > 
-> diff --git a/tools/perf/tests/shell/coresight/add_last_branch.sh b/tools/perf/tests/shell/coresight/add_last_branch.sh
-> new file mode 100755
-> index 0000000000000..4654069ad651f
-> --- /dev/null
-> +++ b/tools/perf/tests/shell/coresight/add_last_branch.sh
-> @@ -0,0 +1,175 @@
-> +#!/bin/bash -e
-> +# SPDX-License-Identifier: GPL-2.0
-> +# CoreSight branch history on existing samples (exclusive)
-> +
-> +perf list pmu | grep -q 'cs_etm//' || exit 2
-> +
-> +if [ "$(id -u)" != 0 ]; then
-> +	echo "[Skip] No root permission"
-> +	exit 2
-> +fi
 
-Is this so you can use -C 0? It's not completely obvious what that has 
-to do with the test. Can you not drop the -C option or use --per-thread 
-mode with a simpler non-forking workload?
+[...]
 
-I don't mind keeping it for some variety in the tests, but it should be 
-documented.
-
-> +
-> +tmpdir=$(mktemp -d /tmp/perf-cs-add-last-branch.XXXXX)
-> +
-> +cleanup()
-> +{
-> +	rm -rf "$tmpdir"
-> +	trap - EXIT TERM INT
-> +}
-> +
-> +# shellcheck disable=SC2317 # Called through trap.
-> +trap_cleanup()
-> +{
-> +	cleanup
-> +	exit 1
-> +}
-> +trap trap_cleanup EXIT TERM INT
-> +
-> +record_data()
-> +{
-> +	if perf record -T -o "$tmpdir/data" -C 0 \
-> +		-e cs_etm/aux-action=start-paused,timestamp/u \
-
-Timestamp needs a value on newer kernels or Perf returns an error. But 
-do you need to provide the option at all? It's on by default for per-CPU 
-mode.
-
-> +		-e cycles/aux-action=resume,period=550019/u \
-> +		-e cycles/aux-action=pause,period=100003,call-graph=fp/u -- \
-> +		taskset --cpu-list 0 perf test -w context_switch_loop 100000 \
-
-The other Coresight tests use --workload-ctl to record less data and 
-save some decode time. I think this test might benefit from it too.
-
-> +		>/dev/null 2>"$tmpdir/stderr"; then
-> +		return 0
-> +	fi
-> +
-> +	echo "Failed to record ETM trace with AUX pause/resume" >&2
-> +	cat "$tmpdir/stderr" >&2
-> +	return 1
-> +}
-> +
-> +decode()
-> +{
-> +	local size=$1
-> +	local output=$2
-> +
-> +	if perf script -i "$tmpdir/data" --itrace="L$size" \
-> +		-F comm,pid,tid,event,ip,brstack >"$output" \
-> +		2>"$tmpdir/stderr"; then
-> +		return 0
-> +	fi
-> +
-> +	if grep -q "itrace=L requires virtual timestamped trace" \
-> +		"$tmpdir/stderr"; then
-> +		echo "[Skip] Virtual CoreSight timestamps are not available"
-> +		cleanup
-> +		exit 2
-> +	fi
-> +
-> +	cat "$tmpdir/stderr" >&2
-> +	return 1
-> +}
-> +
-> +check_process_samples()
-> +{
-> +	local output=$1
-> +	local comm
-> +
-> +	for comm in proc1 proc2; do
-> +		awk -v comm="$comm" '
-> +			$1 == comm && /cycles\/aux-action=pause/ {
-> +				in_sample = 1
-> +				next
-> +			}
-> +			!NF {
-> +				in_sample = 0
-> +				next
-> +			}
-> +			in_sample && /0x[[:xdigit:]]+\/0x[[:xdigit:]]+\// {
-> +				found = 1
-> +			}
-> +			END { exit !found }
-> +		' "$output" || {
-> +			echo "No pause-event branch stack found for $comm" >&2
-> +			return 1
-> +		}
-> +	done
-> +}
-> +
-> +check_callchains()
-> +{
-> +	local output="$tmpdir/script-callchain"
-> +
-> +	perf script -i "$tmpdir/data" -F comm,event,ip >"$output" 2>/dev/null
-> +
-> +	awk '
-> +		/cycles\/aux-action=pause/ {
-> +			in_sample = 1
-> +			frames = 0
-> +			next
-> +		}
-> +		!NF {
-> +			if (in_sample && frames >= 2)
-> +				found = 1
-> +			in_sample = 0
-> +			next
-> +		}
-> +		in_sample && /^[[:space:]]+[[:xdigit:]]+([[:space:]]|$)/ {
-> +			frames++
-> +		}
-> +		END {
-> +			if (in_sample && frames >= 2)
-> +				found = 1
-> +			exit !found
-> +		}
-> +	' "$output" || {
-> +		echo "No multi-frame pause-event callchain found" >&2
-> +		return 1
-> +	}
-
-Can you add some example output in the test saying what these awks are 
-looking for. It failed for me but I wasn't sure why. I've attached my 
-script-callchain file if that helps.
-
-
-> +}
-> +
-> +check_branch_stacks()
-> +{
-> +	local output=$1
-> +	local max_entries=$2
-> +
-> +	local ret
-> +
-> +	if awk -v max="$max_entries" '
-> +		/0x[[:xdigit:]]+\/0x[[:xdigit:]]+\// {
-> +			entries = 0
-> +			for (i = 1; i <= NF; i++)
-> +				if ($i ~ /^0x[[:xdigit:]]+\/0x[[:xdigit:]]+\//)
-> +					entries++
-> +			if (entries)
-> +				found = 1
-> +			if (entries > max) {
-> +				status = 2
-> +				exit
-> +			}
-> +		}
-> +		END {
-> +			if (status)
-> +				exit status
-> +			if (!found)
-> +				exit 1
-> +		}
-> +	' "$output"; then
-> +		return 0
-> +	else
-> +		ret=$?
-> +	fi
-> +
-> +	case $ret in
-> +	1) echo "No ETM branch stacks found" >&2 ;;
-> +	2) echo "Branch stack exceeds requested L$max_entries depth" >&2 ;;
-> +	esac
-> +	return 1
-> +}
 > +
 > +record_data
 > +check_callchains
 > +
 > +decode 4 "$tmpdir/script-l4"
 > +check_process_samples "$tmpdir/script-l4"
+
+Minor nit, but these should be capital L. l is a different option.
+
 > +check_branch_stacks "$tmpdir/script-l4" 4
 > +
 > +decode 64 "$tmpdir/script-l64"
