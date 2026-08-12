@@ -4,83 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A110C5B56A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 13:57:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DBC5C5CFCF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 14:02:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xmhuhS+v/9s11IQrzskxs9EJP+Sc9JsApWwLp7y5lZ4=; b=jR97Ec3lXuYPHS+1+yQBn8XUdA
-	40yCI9NUrc2FBE8TqPSrT3F1KnosC0HkQ1TPRo10lw7Wb7vLOS+P+utZfEDvT30dJHa8y8tzUx07U
-	kRtRsf8dQexYkSgj590Bu8tvW6DLy4xW2FE3TGdUoV2tVqwzIQdNzGKtlq29gw/iGUpAmq/8EWRQ2
-	Y4QcVdu9wj2Mf2C/xjvbMoVpfFVsZiIwsqjHQPJB5n0yG3SmMaye5YdhTyKiPd/MHIVJGTnt3K+ev
-	dJ/roAADbNmDZGslR3Drpta9G4sEc2kZWZPzGZ3W+gOeRgOHkIxn1hdZTOAdea2BlVrh137cD53jX
-	ZM2itKbg==;
+	bh=fm2lkQQTeatuHGurNh7/1ULP0hoNWqxW+N4geEJMvaQ=; b=oN7sXzGG63/tzsiM4SvEvM4ono
+	R4wW68TsjvyEJk1Np7FzWT/t+K1NI9LbUDVORuYmH3uyvkaKo8KHPuEmMMnfzmvMgG5Aew8cz6ZeK
+	OfLNkWBHbM4Zh3PPAcxECFNN4HLxvuYI4GlrnzVrpanmitEAu4W1oEyZTyeGHmJPR0WadCSg7RfH2
+	AUSP9r/wjiMWwho/u846R/IXFU3hltTE3XpAoHjbrEsosZaxsBWfQdAyXggl/D9hD25YPNMh9XZGD
+	OK62+aWO7ldZgetwqAMrc1c6txKnLdCcwOKhc/O8m9k9rp6C7kWRxLqUsoP4O/aAlUqwiO5C4ssai
+	vBXkRyaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu9SD-0000000GKjx-01qs;
-	Wed, 12 Aug 2026 13:57:13 +0000
+	id 1wu9XR-0000000GLGW-1Cre;
+	Wed, 12 Aug 2026 14:02:37 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu9SB-0000000GKjm-0A43
+	id 1wu9XQ-0000000GLGC-1ZU1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 13:57:11 +0000
+	Wed, 12 Aug 2026 14:02:36 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 91A08437E3;
-	Wed, 12 Aug 2026 13:57:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68E0F1F000E9;
-	Wed, 12 Aug 2026 13:57:10 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D2A6741E49;
+	Wed, 12 Aug 2026 14:02:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B47D21F00A3A;
+	Wed, 12 Aug 2026 14:02:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786543030;
-	bh=xmhuhS+v/9s11IQrzskxs9EJP+Sc9JsApWwLp7y5lZ4=;
+	s=k20260515; t=1786543355;
+	bh=fm2lkQQTeatuHGurNh7/1ULP0hoNWqxW+N4geEJMvaQ=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=Q3Uwd7Td5hGP+kPmHFixQfsLdhmicx7BAUb5SsDNUrDPoWJ/g5Hb7A0xRUOzqwafv
-	 RIJohD9pY0t99xmg8HLWoaWUNiTTqqo0MpxbASbINR9VpNJDMsyePrgvLY8Z8AKqn+
-	 QcsqTLEISJzN3HOuIH3f7nDCNLSIom7L/NLzPwvHlKfTr4Xz/iZeH16XSn2lT+hKju
-	 KrHRF9VBdQLIbBQZhjijW3PLnc3bjgIaXaKf0BJLaxfHKXNVSUkKEiAPbnw6NhnWCq
-	 aN2+7j0tqF6i2f8ogKS8fM4udmk63SO0mv+D5cuN5cyAD+KvKk5HwZTwNbtdcFNpLN
-	 Opmr99PtTN/qw==
+	b=DvNIQ975LyKKF4Z2fXIGSbRsV/QRYPF1yCnmpNjRpQkAoGLnLRUrPgM9y+wt14GRA
+	 3c0ssLb3l+t9MZksJR1rv2y/IoS06rKmTxvWfKclMdSDyKi8HD6yUxFT/1KBOtF3yn
+	 pEtVXLHxo6eLUgzYWqpTk3eFb+wtCSgbTiCPeBPkd4Aw8K6odvl9xSlSh4MgLofHaO
+	 QKFMeLGfEJdoQ9cCBZyj0o7MQ7sgWyjb9nbzB300GUSopQpIYZL3SIQ6uLPCS24XJn
+	 VkaRd1PdUxzuNBYW9+pDf3mh+a9Y/lL+PzFl6GdznhdFUOqnzW9KeOACVjmYFwsty+
+	 OE8EgYR1h3UUg==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wu9S8-0000000ExFT-0HJ3;
-	Wed, 12 Aug 2026 13:57:08 +0000
-Date: Wed, 12 Aug 2026 14:57:07 +0100
-Message-ID: <86jypv1lxo.wl-maz@kernel.org>
+	id 1wu9XN-0000000ExQm-1KYL;
+	Wed, 12 Aug 2026 14:02:33 +0000
+Date: Wed, 12 Aug 2026 15:02:32 +0100
+Message-ID: <86ik5f1lon.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
-To: Karl Mehltretter <kmehltretter@gmail.com>
-Cc: Oliver Upton <oupton@kernel.org>,
-	kvmarm@lists.linux.dev,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
+To: Joey Gouly <joey.gouly@arm.com>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
 	Steffen Eiden <seiden@linux.ibm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
 	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Eric Auger <eric.auger@redhat.com>,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [RFC PATCH 1/2] KVM: arm64: vgic-v3: Roll back failed redistributor region setup
-In-Reply-To: <anotFcOP0kcQJwrA@gmail.com>
-References: <cover.1786344511.git.kmehltretter@gmail.com>
-	<4e00fc25aa61ec52e6ef033a53588ce3f5550982.1786344511.git.kmehltretter@gmail.com>
-	<86tsp2139b.wl-maz@kernel.org>
-	<anotFcOP0kcQJwrA@gmail.com>
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Shen Yongchao <grayhat@foxmail.com>,
+	Karl Mehltretter <kmehltretter@gmail.com>,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] KVM: arm64: nv: Fix life cycle of the nested_mmus array
+In-Reply-To: <anxXP_ZTZb_iKu1w@e143914.arm.com>
+References: <20260811122057.754772-1-maz@kernel.org>
+	<anxXP_ZTZb_iKu1w@e143914.arm.com>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=US-ASCII
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kmehltretter@gmail.com, oupton@kernel.org, kvmarm@lists.linux.dev, fuad.tabba@linux.dev, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, pbonzini@redhat.com, shuah@kernel.org, eric.auger@redhat.com, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
+X-SA-Exim-Rcpt-To: joey.gouly@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, seiden@linux.ibm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, fuad.tabba@linux.dev, grayhat@foxmail.com, kmehltretter@gmail.com, stable@vger.kernel.org
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -97,152 +89,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 10 Aug 2026 22:22:37 +0100,
-Karl Mehltretter <kmehltretter@gmail.com> wrote:
+Hi Joey,
+
+On Wed, 12 Aug 2026 12:21:35 +0100,
+Joey Gouly <joey.gouly@arm.com> wrote:
 > 
-> On Mon, Aug 10, 2026 at 03:03:44PM +0100, Marc Zyngier wrote:
+> Hi,
+> 
+> Small comment / suggestion.
+> 
+> On Tue, Aug 11, 2026 at 01:20:57PM +0100, Marc Zyngier wrote:
+> > The nested_mmus array holds the shadow page tables that are used when
+> > a guest is running a nested context. These structures are allocated on
+> > VCPU_INIT for whole guest, which implies that they may have to be
+> > relocated as the array grows.
 > > 
-> > > A later REDIST_REGION attribute can be inserted successfully and then
+> > Should a VCPU_INIT occur whilst a vcpu is actively running an L2 and
+> > that the allocation requires relocation, that vcpu will still be
+> > running with a pointer to the previous structure, which will have been
+> > freed.
 > > 
-> > Later than what?
-> 
-> I meant a REDIST_REGION write after earlier
-> region writes have already assigned RDs to some vCPUs.
-> 
-> In the selftest (patch 2) 
-> - region 0 contains RDs for vCPUs 0 and 1
-> - region 1 contains RD for vCPU 2
-> - the REDIST_REGION write for region 2 fails while KVM processes vCPU 3
-> 
-> > Holes in the MMIO space are the norm. The IPA space can multi-TB
-> > large, and there is no reason why it'd cover everything (where would
-> > you place the RAM otherwise?).
+> > Fix this by turning the array of structures to an array of pointers,
+> > which is now allocated at VM creation, sized to the absolute maximum
+> > that KVM can handle.
 > > 
-> > Is the problem here that you are left with vcpus that seem to have
-> > been matched to an RD (base_addr being set), but that really are left
-> > unconnected?
-> 
-> Yes I guess "hole" is the wrong term. The vCPU still has an RD and a
-> base address, but its iodev has been removed from KVM_MMIO_BUS.
-> An access to that RD address then causes KVM_RUN to return
-> to userspace with KVM_EXIT_MMIO.
-> 
+> > In turn, each VCPU_INIT contributes S2_MMU_PER_VCPU to the pool. No
+> > reallocation is ever performed, and the life cycle of each object is
+> > much clearer:
 > > 
-> > > failing vCPU already has its base address and region assigned, but the
-> > > old i < c rollback does not include it.
+> > - the nested_mmus array is allocated in kvm_init_nested(), and freed
+> >   in kvm_arch_destroy_vm()
 > > 
-> > What is "it"?
-> 
-> I meant the current vCPU redistributor iodev.
-> vgic_register_redist_iodev() sets the vCPU's region and base address
-> before calling kvm_io_bus_register_dev(). If this call fails for
-> vCPU c, the rollback in vgic_register_all_redist_iodevs() processes only
-> vCPUs with indices below c.
-> 
-> > > Preserve devices assigned by earlier successful setters. On failure,
-> > > unregister only vCPUs associated with the newly inserted region, clear
-> > > their cached base addresses, and free that region. This also includes the
-> > > current vCPU when iodev registration itself fails.
+> > - s2_mmu structures are allocated in kvm_vcpu_init_nested(), and freed
+> >   on kvm_arch_flush_shadow_all()
 > > 
-> > What I don't see here is an argument explaining that doing this
-> > doesn't change the guest-visible assignment of RDs, which would be a
-> > regression.
+> > Finally, the freeing of vcpu->arch.vncr_array is made consistent
+> > rather than being done on some failure paths, but not others.
+> > 
+> > Fixes: 4f128f8e1aaa ("KVM: arm64: nv: Support multiple nested Stage-2 mmu structures")
+> > Reported-by: Shen Yongchao <grayhat@foxmail.com>
+> > Reported-by: Karl Mehltretter <kmehltretter@gmail.com>
+> > Suggested-by: Karl Mehltretter <kmehltretter@gmail.com>
+> > Link: https://lore.kernel.org/r/20260803224405.41468-1-kmehltretter@gmail.com
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > Cc: stable@vger.kernel.org
+> > ---
+> > 
+> > Notes:
+> >     Sending this as a first class patch, since the other approaches were even
+> >     uglier than this one. I'm still displeased with kvm_arch_flush_shadow_all(),
+> >     but that's a step in the direction of tightening it:
+> > 
+> >  arch/arm64/include/asm/kvm_host.h   |  2 +-
+> >  arch/arm64/include/asm/kvm_nested.h |  2 +-
+> >  arch/arm64/kvm/arm.c                |  8 ++-
+> >  arch/arm64/kvm/nested.c             | 91 +++++++++++++----------------
+> >  4 files changed, 49 insertions(+), 54 deletions(-)
+> > 
+> [..]
+> > diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+> > index 20af94197a8a7..50d6dcc75582c 100644
+> > --- a/arch/arm64/kvm/nested.c
+> > +++ b/arch/arm64/kvm/nested.c
+> > @@ -44,11 +44,15 @@ struct vncr_tlb {
+> >   */
+> >  #define S2_MMU_PER_VCPU		2
+> >  
+> > -void kvm_init_nested(struct kvm *kvm)
+> > +int kvm_init_nested(struct kvm *kvm)
+> >  {
+> > -	kvm->arch.nested_mmus = NULL;
+> > +	kvm->arch.nested_mmus = kvmalloc_array(KVM_MAX_VCPUS * S2_MMU_PER_VCPU,
+> > +					       sizeof(struct s2_mmu *),
+> > +					       GFP_KERNEL_ACCOUNT);
+> >  	kvm->arch.nested_mmus_size = 0;
+> >  	atomic_set(&kvm->arch.vncr_tlb_count, 0);
+> > +
+> > +	return kvm->arch.nested_mmus ? 0 : -ENOMEM;
+> >  }
+> >  
+> >  static int init_nested_s2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu)
+> > @@ -69,8 +73,7 @@ static int init_nested_s2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu)
+> >  int kvm_vcpu_init_nested(struct kvm_vcpu *vcpu)
+> >  {
+> >  	struct kvm *kvm = vcpu->kvm;
+> > -	struct kvm_s2_mmu *tmp;
+> > -	int num_mmus, ret = 0;
+> > +	int num_mmus;
+> >  
+> >  	if (test_bit(KVM_ARM_VCPU_HAS_EL2_E2H0, kvm->arch.vcpu_features) &&
+> >  	    !cpus_have_final_cap(ARM64_HAS_HCR_NV1))
+> > @@ -83,51 +86,40 @@ int kvm_vcpu_init_nested(struct kvm_vcpu *vcpu)
+> >  	if (!vcpu->arch.ctxt.vncr_array)
+> >  		return -ENOMEM;
+> >  
+> > -	/*
+> > -	 * Let's treat memory allocation failures as benign: If we fail to
+> > -	 * allocate anything, return an error and keep the allocated array
+> > -	 * alive. Userspace may try to recover by initializing the vcpu
+> > -	 * again, and there is no reason to affect the whole VM for this.
+> > -	 */
+> >  	num_mmus = atomic_read(&kvm->online_vcpus) * S2_MMU_PER_VCPU;
+> >  
+> >  	if (num_mmus > kvm->arch.nested_mmus_size) {
 > 
-> vgic_register_redist_iodev() returns immediately if a vCPU's RD base
-> address is already set, so its RD region and address don't change.
+> Sashiko.dev complained about a possible race here, but looking at the
+> code, it seems incorrect?
 > 
-> Regions are filled in index order, a vCPU without an RD address can
-> use the new region only after older regions are full.
+> Unsure why it didn't e-mail it.
+> https://sashiko.dev/#/patchset/20260811122057.754772-1-maz%40kernel.org
 > 
-> So freeing the new region and clearing the RD state of vCPUs associated
-> with it restores the state before the failed write.
-> 
-> > Based on what I understand of your earlier description, why isn't this
-> > as simple as this untested hack:
-> 
-> I ran the selftest (patch 2) with this, still failed with:
-> 
->   Unexpected MMIO exit at 0x8050008
-> 
-> When redistributor registration for vCPU 3 fails, the for loop does
-> vCPUs 0 to 3. The issue is that the iodevs for vCPUs 0 to 2 were
-> registered by earlier successful region writes and should not be
-> unregistered.
+> It seems that this code is serialised / protected by
+> kvm->arch.config_lock in __kvm_vcpu_set_target() (which is the only
+> caller of kvm_vcpu_init_nested() via kvm_setup_vcpu())
 
-But that's not something we guarantee. Actually, that's not something
-userspace should have any view on. And we're far better off just
-resetting everything
+Yeah, this looks like Sashiko went south again. You'd hope it'd be
+able to follow such a simple code path...
 
 > 
-> On retry, vgic_register_redist_iodev() sees the set addresses
-> and does not re-register those iodevs.
-
-Which address? All addresses have been reset. What's missing in my
-original patch is resetting the free_index counter.
-
+> So maybe a
 > 
-> > I don't mind the cleaning up, but not as part of fixing the issue,
-> > which has to be as small as possible (think of the backports).
+> 	lockdep_assert_held(&kvm->arch.config_lock);
 > 
-> I reworked the change without a new helper (see below).
-> Is this closer to what you had in mind?
+> makes sense in kvm_vcpu_init_nested()?
 
-[snip]
+Sure, that's never a bad thing to add.
 
-No. I want *all* RDs to be gone on failure, and the next successful
-registration to result in all possible RDs to be matched against a
-vcpu if there are enough of them. Effectively an atomic behaviour from
-the PoV of userspace.
-
-See the patch below for what I came up with.
+Thanks,
 
 	M.
-
-diff --git a/arch/arm64/kvm/vgic/vgic-mmio-v3.c b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
-index 5913a20d8301..94d2f4c6dc51 100644
---- a/arch/arm64/kvm/vgic/vgic-mmio-v3.c
-+++ b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
-@@ -839,6 +839,13 @@ void vgic_unregister_redist_iodev(struct kvm_vcpu *vcpu)
- 	struct vgic_io_device *rd_dev = &vcpu->arch.vgic_cpu.rd_iodev;
- 
- 	kvm_io_bus_unregister_dev(vcpu->kvm, KVM_MMIO_BUS, &rd_dev->dev);
-+
-+	guard(mutex)(&vcpu->kvm->arch.config_lock);
-+	if (vcpu->arch.vgic_cpu.rdreg) {
-+		vcpu->arch.vgic_cpu.rdreg->free_index--;
-+		vcpu->arch.vgic_cpu.rdreg = NULL;
-+	}
-+	rd_dev->base_addr = VGIC_ADDR_UNDEF;
- }
- 
- static int vgic_register_all_redist_iodevs(struct kvm *kvm)
-@@ -859,7 +866,7 @@ static int vgic_register_all_redist_iodevs(struct kvm *kvm)
- 		/* The current c failed, so iterate over the previous ones. */
- 		int i;
- 
--		for (i = 0; i < c; i++) {
-+		for (i = 0; i <= c; i++) {
- 			vcpu = kvm_get_vcpu(kvm, i);
- 			vgic_unregister_redist_iodev(vcpu);
- 		}
-@@ -953,17 +960,8 @@ static int vgic_v3_alloc_redist_region(struct kvm *kvm, uint32_t index,
- 
- void vgic_v3_free_redist_region(struct kvm *kvm, struct vgic_redist_region *rdreg)
- {
--	struct kvm_vcpu *vcpu;
--	unsigned long c;
--
- 	lockdep_assert_held(&kvm->arch.config_lock);
- 
--	/* Garbage collect the region */
--	kvm_for_each_vcpu(c, vcpu, kvm) {
--		if (vcpu->arch.vgic_cpu.rdreg == rdreg)
--			vcpu->arch.vgic_cpu.rdreg = NULL;
--	}
--
- 	list_del(&rdreg->list);
- 	kfree(rdreg);
- }
 
 -- 
 Without deviation from the norm, progress is not possible.
