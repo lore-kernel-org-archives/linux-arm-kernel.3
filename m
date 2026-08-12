@@ -4,128 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E1A5C5CFDB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 10:38:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A15CC5CFDB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 10:42:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lu/qiEjyLXDw9PVQ3MvX7lPg6/5KHHIEuSsW3VTnccg=; b=C0ap/fYdWZKAiu60CCIobwRvoG
-	h+FuwGXGkljoAUevDgbNvbw1BEHR7gV3R846N3zq/ZgD8xowdH61GlzOhdpOagaNB9hRw8SmyPInQ
-	uDWpg0Ei/vRg/vuEFBW2+bIxIwJzFkwLDOe0sUmaiaydUmNQrQV983wEDyl11w0IL8wt3XsBRkRZ0
-	dQHqEbpCSc/+oXppywIKDsx4gkiYFTTy8foq7oFNcZEQ+Z+oW8GYBtCd+8eVqQ19Gy9MyJTKj8QfC
-	caGXjq7nRJ6aSpRKHcmdzwR9fR/yuf5MIWxANtDFY4p8JIbo4hXGWGGoO8juyHPTw0il6uOoLVQZX
-	H39tm7aA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oQCtK9Zo1de+A3sotcD075GV8QTyisgrlxMApAd28Jo=; b=4pa5jw7sKTnsxMg6sgCeoJMG2M
+	KTLzoi/l9MzyUGyCPeGfA2Ub2oCE/j8FXQ0p27M9/QV2yAiAXEzwv2b2tVEH7gTMUSXIRbBQnB8f5
+	I94YPM+6lS9p1W/BWzR3Wqt/KmWwgHyA834nhnfqkqGY/NLkwA1aVeMYNnshWSsgBZPsQrREmlBCm
+	b+k0CzHQH5ic+rmpnLpYjxMDQYXuJSStaam6nOe8rRWvK7ciYZPzi1i9oefAd6vbwzfNpTHBz2ilp
+	DSJRrnMeIQuwi5IHLpPAdq7bM/v2rQXtggOeiAuFD3H5S+wDUBe/BLPKo+niw6XJyTQ4HChSPm/Js
+	WMtRV0/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu6Lr-0000000FusI-30ga;
-	Wed, 12 Aug 2026 10:38:27 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wu6PC-0000000FvLQ-053P;
+	Wed, 12 Aug 2026 10:41:54 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu6Lq-0000000Fus3-2Y8v
+	id 1wu6PB-0000000FvL7-0qI6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 10:38:26 +0000
+	Wed, 12 Aug 2026 10:41:53 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id F268060A88;
-	Wed, 12 Aug 2026 10:38:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C5011F000E9;
-	Wed, 12 Aug 2026 10:38:15 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 792A960A85;
+	Wed, 12 Aug 2026 10:41:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE3571F000E9;
+	Wed, 12 Aug 2026 10:41:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786531105;
-	bh=Lu/qiEjyLXDw9PVQ3MvX7lPg6/5KHHIEuSsW3VTnccg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=blRbcy/nSgMOHQs7HEFHJPqzROH6mLO3n+/pVLTZwrFBZNl1orRvZXPwnIFB60gSG
-	 Kw7tMtiTrTsitWbBy3RYd/t7iMiSczc+nzoMNRWGzALZhSJEc8yuTdTdZw9+DGHLfj
-	 NODWxMMfbcscYz4Rm5RGH9o52BKZvqmh7Jx4nw/OyazSH36j7TsaLvvufgWWSFayeS
-	 nnUVLuTx0UALHWFVHP9Rrju+DXUqUHUzChvaGh7bi0eyKBmPgmlLKUMJWtZpJ+5fTs
-	 cXN7SzRj7aFN8ll8kOeXEKKzaZVLifKJO4fDFOnZniUvccI1IjLBPpuPxxMAqRt9QH
-	 MO/GuKeDwbnbg==
-Message-ID: <7b066c1f-20b7-407f-9268-e9dbeafab004@kernel.org>
-Date: Wed, 12 Aug 2026 12:38:12 +0200
+	s=k20260515; t=1786531312;
+	bh=oQCtK9Zo1de+A3sotcD075GV8QTyisgrlxMApAd28Jo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=UXKBvXfLqQUvdQFsZIjDZzl1U9DT0+1jyCDqaLcyBCQ8rrSeKtvKse0FcmeZK5PLP
+	 6RSjApSZp27zBiVd8eqOMmHqQMF8ZtmUhJhJW/tIC5zfewNVO2nT2/h2OwQwZildWv
+	 fe1HyMcavmhRFFGUvhRI3RcErZIbv4iouHKeGgXpcTd+2FQhMq3vJ8LpTBmnSjmchn
+	 QfAqxusiEJeoiddKrZuf325BQxepxSWNi7ibHyBRb90ulmLkrK70WJoRoyGW69+xy6
+	 LhiK52tfNz0RdQKUTgl1iCowWHigxZuBUKDLHJbKr9CMRi9WqbHx9UaqIbimOLaPEy
+	 Qo5sExFPLviBw==
+Date: Wed, 12 Aug 2026 11:41:45 +0100
+From: Will Deacon <will@kernel.org>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: Peter Griffin <peter.griffin@linaro.org>,
+	"Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Pranjal Shrivastava <praan@google.com>,
+	Daniel Mentz <danielmentz@google.com>,
+	Mostafa Saleh <smostafa@google.com>,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	kernel-team@android.com, tudor.ambarus@linaro.org,
+	andre.draszik@linaro.org, willmcvicker@google.com,
+	jyescas@google.com
+Subject: Re: [PATCH 0/2] Add arm-smmu-v3 support for instcfg data override
+ feature
+Message-ID: <anxN6RwREhUEuddT@willie-the-truck>
+References: <20260724-arm-smmu-v3-instcfg-override-v1-0-e7acf4a8a525@linaro.org>
+ <amYIuhYenP4-qHyV@willie-the-truck>
+ <0b7c0272-5506-4aee-82b3-76a78f2b39dc@arm.com>
+ <CADrjBPqZFDvyLFpDy1YP9qrMNUCtZYtJhiaDd0iTnmB4ZYO8GQ@mail.gmail.com>
+ <anmvW1LkypAGW6Sc@willie-the-truck>
+ <77edba4a-b6b0-4b50-9328-7c177a0af283@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 05/10] dt-bindings: clock: renesas,r8a78000-cpg: Add
- firmware property
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Rob Herring <robh@kernel.org>, Sudeep Holla <sudeep.holla@kernel.org>,
- Cristian Marussi <cristian.marussi@arm.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Saravana Kannan <saravanak@kernel.org>,
- Ulf Hansson <ulfh@kernel.org>, "Rafael J . Wysocki" <rafael@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
- Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
- Vinod Koul <vkoul@kernel.org>, Konrad Dybcio
- <konrad.dybcio@oss.qualcomm.com>, Kevin Hilman <khilman@baylibre.com>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Wolfram Sang <wsa+renesas@sang-engineering.com>,
- Marek Vasut <marek.vasut+renesas@mailbox.org>,
- Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
- arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-pm@vger.kernel.org,
- linux-clk@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <cover.1783505329.git.geert+renesas@glider.be>
- <49726acff0fee1c3606e83c4f242ef6aad25b4b8.1783505329.git.geert+renesas@glider.be>
- <20260710-adventurous-burgundy-chimera-b2fff9@quoll>
- <CAMuHMdV=ckONBbTYELPJU8YWoNzdu3PJ95VR8cz+f_7dUeiPUw@mail.gmail.com>
- <20260716214924.GA1477674-robh@kernel.org>
- <CAMuHMdU0ss6wUEdjC+OYa3iQS439aJ8b_d9M2ws7Ayn4_kOyMQ@mail.gmail.com>
- <20260811163334.GA2354701-robh@kernel.org>
- <CAMuHMdWbzg-QpFBzzDa2hC3HzAmWUkerESC5O-cSVxmWX3_PkQ@mail.gmail.com>
- <45dfd858-9d59-47e6-91e0-ef9e6e909af6@kernel.org>
- <CAMuHMdXJFdJQP1GVXrOWRuYO8Si_WF5X+vpzmAgTZY+tQstR1A@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <CAMuHMdXJFdJQP1GVXrOWRuYO8Si_WF5X+vpzmAgTZY+tQstR1A@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <77edba4a-b6b0-4b50-9328-7c177a0af283@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,58 +85,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/08/2026 12:02, Geert Uytterhoeven wrote:
-> Hi Krzysztof,
+On Mon, Aug 10, 2026 at 06:16:56PM +0100, Robin Murphy wrote:
+> On 10/08/2026 12:00 pm, Will Deacon wrote:
+> > On Fri, Aug 07, 2026 at 04:25:11PM +0100, Peter Griffin wrote:
+> > > On Mon, 27 Jul 2026 at 11:53, Robin Murphy <robin.murphy@arm.com> wrote:
+> > > > 
+> > > > On 26/07/2026 2:16 pm, Will Deacon wrote:
+> > > > > On Fri, Jul 24, 2026 at 01:39:41PM +0100, Peter Griffin wrote:
+> > > > > > These two patches add support for a new "arm,instdata-override" DT property
+> > > > > > that enables the override of the instruction/data attribute of incoming
+> > > > > > traffic to Data by setting the INSTCFG override bits.
+> > > > > > 
+> > > > > > It is intended to be specified when the smmu can't guarantee that these
+> > > > > > attributes are provided correctly from the client device.
+> > > > > 
+> > > > > This is going to need an in-tree user and a much more detailed
+> > > > > description of what is being worked around before we consider this for
+> > > > > inclusion.
+> > > 
+> > > Regarding an in-tree user, I haven't sent the Device Tree (DT) patch
+> > > yet for Laguna SoC which adds the smmu nodes and this property because
+> > > 1) I want to land the initial SoC/board DT first
+> > > 2) I want agreement on the DT property name. Currently I used
+> > > "arm,instdata-override" which is what downstream used. However, since
+> > > this is intended to work around silicon errata something like
+> > > "google,lga-instcfg-data-override" might be more appropriate?
+> > > 
+> > > For Laguna SoC the first in-tree user of this is the amb_smmu smmu
+> > > instance which is used by the Synopsis dwc3 IP. The Laguna dwc3 glue
+> > > driver is already upstream at drivers/usb/dwc3/dwc3-google.c
+> > > 
+> > > > > 
+> > > > > In particular, if a particular client is emitting data reads as
+> > > > > instructions, then a better work around would be to avoid mapping its
+> > > > > domains using IOMMU_NOEXEC. But I can't tell what's going on from the
+> > > > > limited description provided here.
+> > > > 
+> > > > Unless it's also emitting the privileged bit and thus falling foul of
+> > > > the implicit Unpriv-W -> Priv-XN rule, but then we also have the means
+> > > > to deal with devices which actually do that themselves (hello pl330...),
+> > > > so that would seemingly only leave the case of some innocent piece of
+> > > > AMBA-interfaced IP which doesn't expect to need special attributes, but
+> > > > the system integrator has gone out of their way to tie the AxPROT bits
+> > > > to some wacky value, which I would put in "erratum workaround" territory.
+> > > > 
+> > > 
+> > > You're correct Robin. It is an erratum workaround for the Laguna SoC
+> > > due to some custom usage of the AxPROT bits which differs from the
+> > > standard ARM SMMU handling for Privileged/Unprivileged and
+> > > Instruction/Data transaction attributes. The effect is all
+> > > transactions appear to the SMMU as "Privileged Instruction" accesses.
+> > 
+> > Ah, so this sounds like what Robin was worried about.
+> > 
+> > > The software workaround in this series enables the SMMU's INSTCFG
+> > > override feature to ignore the incoming value and treat all SMMU
+> > > transactions as "Data".
+> > > 
+> > > One small clarification: in the cover letter I incorrectly said this
+> > > was set only for some SMMU IP instances, but that is incorrect. It is
+> > > actually set on *all* arm-smmu-v3 IP instances in the Laguna SoC.
+> > > 
+> > > Does the above provide the additional detail you need Will?
+> > 
+> > So it sounds like using the instcfg override on this hardware still breaks
+> > IOMMU_PRIV and IOMMU_NOEXEC:
+> > 
+> >    1. If you don't pass IOMMU_PRIV, you still get privileged transactions
 > 
-> On Wed, 12 Aug 2026 at 11:51, Krzysztof Kozlowski <krzk@kernel.org> wrote:
->> On 12/08/2026 11:47, Geert Uytterhoeven wrote:
->>>>>>>>> +  firmware:
->>>>>>>>
->>>>>>>> RPi is doing similar, but I have doubts. It looks way too close to
->>>>>>>> generic "syscon" which is disallowed.
->>>>>>>>
->>>>>>>> I think this should be vendor+purpose specific, e.g.:
->>>>>>>> "renesas,scmi-transport" or "renesas,scmi-firmware"
->>>>>>
->>>>>> If you can tell me the resource that a 'firmware' provider provides then
->>>>>> it is fine, but you can't.
->>>>>
->>>>> It provides a firmware API, which is not available until the firmware
->>>>> provider is initialized.
->>>>
->>>> I don't know what "a firmware API" is. What does it provide? I know what
->>>
->>> It can provide lots of things (everything we are no longer allowed to
->>> touch directly from Linux ;-)
->>>
->>>> a clock, GPIO, reset, interrupt, etc. provider is.
->>>
->>> A clock is an object you can access through the clock API.
->>> (s/clock/.../ for the other cases).
->>> Firmware is a service (virtual object) you can access through a
->>> firmware API.
->>>
->>> In all cases, the consumer of the object or service needs to know
->>> which object or service to use (there can be multiple).
->>>
->>> In all cases you cannot access the object or service until it is
->>> available (initialized and registered), for which we have -EPROBE_DEFER,
->>> and/or "[PATCH v2 02/10] of: property: fw_devlink: Add support for
->>> firmware".
->>>
->>> Thanks for your understanding ;-)
->>
->> I think that's the difference here. Clock is not an object, but a signal
->> on a wire or within IC coming from one device (provider) to another
->> (consumer). Firmware is not a signal, not a wire, not anything which can
->> be provided from one to another.
+> However this is inherently true of VMSA stage 1 anyway - I admit I had to
+> double-check, but we don't have any user-only permissions (other than
+> perhaps execute as implied by explicit or implicit PXN). IOMMU_PRIV can only
+> _remove_ unprivileged access.
 > 
-> Oh yes, it is a service provided by the secure world or a different
-> CPU core to the application core running Linux.
+> >    2. If you don't pass IOMMU_NOEXEC, you do not get execute permission
+> > 
+> > Is that correct?
+> > 
+> > Perhaps it would be better to override PRIVCFG to force unprivileged,
+> > then reject IOMMU_PRIV and ignore IOMMU_NOEXEC?
+> 
+> From what Daniel said, it sounds like the privileged attribute is still the
+> doing of the device itself rather than the integration issue in this case,
+> so while nobbling PRIVCFG might also achieve the end result of making
+> IOMMU_READ | IOMMU_WRITE pages mostly not fault on reads, it seems less
+> appropriate as a workaround. Particularly since IOMMU_PRIV is exposed via a
+> general DMA API attribute, while IOMMU_NOEXEC is only accessible to
+> dedicated IOMMU API/io-pgtable users.
 
-Service is still not a resource. Not mentioning it is way too generic,
-because anything can be a service. We have entire services-based economies.
+Ok, I did a bit of digging internally and it looks like the situation
+isn't quite what has been described here:
 
-Best regards,
-Krzysztof
+- The issue is that AxPROT is wired so that all transactions appear as
+  instructions. This is an SMMU integration problem and happens
+  irrespective of the client device.
+
+- Transactions are _not_ forced to be privileged. That appears to be a
+  mistake earlier in the thread.
+
+- The reason privilege is interesting is because of Robin's point that
+  the architecture forces privileged XN for unpriviliged W.
+
+So, based on that, I think the instcfg override makes sense.
+
+I tend to agree with Robin that overiding this based on the SoC makes
+sense, but Rob has _way_ more experience that I do with DT stuff so I
+defer to his judgement.
+
+Will
 
