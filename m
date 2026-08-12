@@ -4,62 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CD05C5AD5A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 10:54:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9C10C5AD5A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 10:56:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XmNobfuMx0pDiDam9efhZOx9BexMksK/K764FtZWuog=; b=BzGoWHIz40dIQSa4QW+170OgMp
-	q0jUmON39b4SelNRLYe013F79ko/ZbA+7l8SasSf9pM5bWqWCYP94qpM0XAi6Wbkrbcz0qR+VOr4p
-	Bwy8oB2aC0xoHuOl+Ho6FXVfgpPcdctgGCccpE/B566p5AA2fhwceJ1uhHZ6fsWN3T+oPJQUwQ0BM
-	PygIcEyrRzZVjY15oC27UduXnd20MiguG73eSK7sLpzndwgIdZm/goUisj68OGzAemJIBARB6a+qq
-	Z98fepVFUdSrr72l1zeDgvp4PszFiWq0ssoQI8Ok43ne/7v1LmY7cd8NeUcXXvLHTmIcyj5f6GAYW
-	uiaGgsnA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=H19yU3A8Y/XE4lULkPLRYtMwMnahPHyjUbEiZ8HBLXM=; b=VBVWF7+tLx9FLZP+RbFW0X/s3L
+	5kmnkTAAWGNvUZqTF8mJTuXsDGerIP8e6cRccnMvggFPgraKIDU9g5huAQepqQFJzvSQZjEFlRbGX
+	2QzvKd87Nj10xann/24cW4Hd0gLlWhuw/MfPxfKFmaP0ZheaxB3lbFUmEmnULTUK8Bpa2h7uj+zyl
+	E4rwAdYevjYXnofCAM5odHHQ8V0k1xhksKhYhb6JPP/xs+l15/IRmlRlO49yYbn7FA1khTBto5GG7
+	4CTR6l61HThkFfs6YI8ObIKhC6iQt9OU8dOWAkLH6WUJJgm7UlQoYTDCpXhlvqYDh0lGuC6CqiUY+
+	B9dmJjSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu6aj-0000000FyDa-0AK6;
-	Wed, 12 Aug 2026 10:53:49 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wu6dY-0000000Fyo1-0QLr;
+	Wed, 12 Aug 2026 10:56:44 +0000
+Received: from mx.nabladev.com ([178.251.229.89])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu6ah-0000000FyCr-3mmB;
-	Wed, 12 Aug 2026 10:53:48 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2EE2960A85;
-	Wed, 12 Aug 2026 10:53:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C36961F00A3A;
-	Wed, 12 Aug 2026 10:53:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786532026;
-	bh=XmNobfuMx0pDiDam9efhZOx9BexMksK/K764FtZWuog=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=RBtRE+crRVJnULlydWzSt1Tbm1jQGdY0tHzRCOBkLyoEaej1J1pNMg0Y84gPz78+1
-	 jvvglA2Em7xkTR7Z18tKkg17DVoi7POO2PYyQwpWPHaLWgxw+6ddjsjYOxcZzyaZcU
-	 JIGz0EJln2WesR/SiQ0f7jDQ0xUV/jdojbEfFxoAddHsSbeUOFNPuwL9v76vZmLi1S
-	 ZO5Y4sD6IRG2r7sf86NRSfe7N5eLnHGAl37E7mtqaN6/5c+ejsiB3f1Qkus8MAZ4Pr
-	 AJR63jwH2wVHZUI+mbhcufWP25HyaGa1xRvO4bihjj7vETUk45GBVnuS06+wiQKwzF
-	 UncEa35Ofw2kA==
-Date: Wed, 12 Aug 2026 12:53:37 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Jason Yang <jason98166@gmail.com>
-Cc: Vinod Koul <vkoul@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Guochun Huang <hero.huang@rock-chips.com>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Michael Riesch <michael.riesch@collabora.com>, 
-	Bryan O'Donoghue <bryan.odonoghue@linaro.org>, linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/5] dt-bindings: phy: rockchip,rk3588-mipi-dcphy:
- allow DSI and CSI consumers
-Message-ID: <20260812-fast-famous-fulmar-3bde7e@quoll>
-References: <20260810-dcphy-rx-v1-v3-0-a2d25c29adfc@gmail.com>
- <20260810-dcphy-rx-v1-v3-2-a2d25c29adfc@gmail.com>
+	id 1wu6dR-0000000Fyml-2lLZ;
+	Wed, 12 Aug 2026 10:56:43 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A540511BD66;
+	Wed, 12 Aug 2026 12:56:25 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
+	s=dkim; t=1786532190;
+	h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=H19yU3A8Y/XE4lULkPLRYtMwMnahPHyjUbEiZ8HBLXM=;
+	b=QOW0fXqL5P+LZcOk9Ad1vvUrZiV5Z5pfpESJ6kJuuJNJ48yR27mMGD07nT3W9LZ9kfdCf9
+	utUnTrFC0agBWlIICmuXyMDmcMklVISxPEYdZcoPVFDPGOgVycjbdxPhEZ4ffg3XojogaH
+	ggKwhOSUHaGg4j6bFDQ2fqFIv9mSAh/9M/ECRxXTyMiMBbw31sLmwlmdSib6MTKbJNpFO3
+	UR+K6p4wXJI7rN2WICoO8mSIvWiM37S4UWkhPz0Pfq4mS3azUfIRkhUwoW7wITbNCahWJd
+	sySy6HHbbfSQw5lM4Cc3U6uVO/BcQwCo8fxJ6ShB+SOaRJaWYCxW0Y4Q6hj9rw==
+Message-ID: <ff691741-a110-44e8-90e7-ac54a96de1af@nabladev.com>
+Date: Wed, 12 Aug 2026 12:56:23 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260810-dcphy-rx-v1-v3-2-a2d25c29adfc@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/8] dt-bindings: phy: Document ST STM32MP25 USB2-FEMTO
+ PHY
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: linux-usb@vger.kernel.org, Pankaj Dev <pankaj.dev@st.com>,
+ Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
+ Rahul Kumar <rahul.kumar05@st.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Christian Bruel <christian.bruel@foss.st.com>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
+ Rosen Penev <rosenp@gmail.com>, Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+ Vinod Koul <vkoul@kernel.org>, devicetree@vger.kernel.org,
+ kernel@dh-electronics.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com
+References: <20260812010157.1772849-1-marex@nabladev.com>
+ <20260812010157.1772849-2-marex@nabladev.com>
+ <20260812-silky-omniscient-dalmatian-b268cb@quoll>
+Content-Language: en-US
+From: Marek Vasut <marex@nabladev.com>
+In-Reply-To: <20260812-silky-omniscient-dalmatian-b268cb@quoll>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260812_035641_579166_C5EF7F35 
+X-CRM114-Status: GOOD (  11.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,48 +86,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 10, 2026 at 08:10:10PM +0800, Jason Yang wrote:
-> The Samsung MIPI D-/C-PHY block on RK3588 drives a MIPI DSI
-> transmitter and, on the same PHY, can receive from a MIPI CSI camera.
-> Describing both as independent consumers of one PHY requires the
-> devicetree to tell them apart.
+On 8/12/26 12:15 PM, Krzysztof Kozlowski wrote:
+> On Wed, Aug 12, 2026 at 02:55:41AM +0200, Marek Vasut wrote:
+>> From: Pankaj Dev <pankaj.dev@st.com>
+>>
+>> Document USB2 PHY for STM32MP25 USB2 controllers, which includes the
+>> USB2.0 host-only controller and USB 2.0 part of the DWC3 controller.
+>> Two such PHYs in total are present in STM32MP25 SoC, they both are
+>> slightly different, therefore they use different compatible string
 > 
-> Let the existing single cell also take PHY_TYPE_DSI or PHY_TYPE_CSI,
-> selecting the PHY by the protocol the consumer speaks. PHY_TYPE_DPHY
-> stays accepted and equivalent to PHY_TYPE_DSI so shipped device trees
-> remain valid, and PHY_TYPE_CPHY keeps selecting a C-PHY transmitter.
-> The receiver support added by this series is D-PHY only.
+> What is slightly different? This should be either here, or better, in
+> "description" part.
+
+They are both Synopsys FEMTO-PHY , but they are each attached to a 
+different controller (one to USB 2.0 host , the other to DWC3 DRD) , and 
+their control bits in the system controller register are different for 
+each variant.
+
+I extended the description in V2.
+
+>> to discern them.
+>>
+>> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+>> Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+>> Signed-off-by: Marek Vasut <marex@nabladev.com>
+>> Signed-off-by: Pankaj Dev <pankaj.dev@st.com>
+>> Signed-off-by: Rahul Kumar <rahul.kumar05@st.com>
 > 
-> Signed-off-by: Jason Yang <jason98166@gmail.com>
-> Assisted-by: Claude:claude-fable-5
-> ---
->  .../devicetree/bindings/phy/rockchip,rk3588-mipi-dcphy.yaml   | 11 ++++++++---
->  1 file changed, 8 insertions(+), 3 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcphy.yaml b/Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcphy.yaml
-> index c8ff5ba22a86..1f7c2e2ddfc1 100644
-> --- a/Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcphy.yaml
-> +++ b/Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcphy.yaml
-> @@ -22,9 +22,14 @@ properties:
->    "#phy-cells":
->      const: 1
->      description: |
-> -      Argument is mode to operate in. Supported modes are:
-> -        - PHY_TYPE_DPHY
-> -        - PHY_TYPE_CPHY
-> +      The block contains a MIPI transmitter and a MIPI receiver, which
-> +      can be referenced independently. The argument selects one of
-> +      them:
-> +        - PHY_TYPE_DSI: the transmitter, for a MIPI DSI host
-> +        - PHY_TYPE_CSI: the receiver, for a MIPI CSI-2 host
-> +        - PHY_TYPE_DPHY: the transmitter in D-PHY mode; equivalent to
-> +          PHY_TYPE_DSI and kept for existing device trees
-> +        - PHY_TYPE_CPHY: the transmitter in C-PHY mode
+> Incomplete/incorrect DCO chain. Who sends it? Rahul?
+This is lifted from the ST downstream kernel fork, it's a combination of 
+a bunch of commits there and then cleaned up. Pankaj and Fabrice did 
+most of the downstream work, I did the clean up for upstreaming. I 
+collected the SoB lines from all the commits from ST downstream fork and 
+added mine, hence this list. How shall I address this correctly, with 
+some Co-developed-by tag ? Who gets which tag ?
 
-So PHY_TYPE_DSI is the same as PHY_TYPE_DPHY. Why doing this change?
-Commit msg did not tell me why we need equivalent code.
+additionalProperties is addressed in V2, so is the reported from Rob's 
+bot regarding the botched compatible string in example.
 
-Best regards,
-Krzysztof
-
+Thanks !
 
