@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08383C5B572
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABCC4C5B56A
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 15:37:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,57 +12,72 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U18O0gCKgALa+XbZC+EvXju0IjuEjqVEq5R1cGYDB6c=; b=Y0AdN7Z7GY9OYutE6zp4pVoBlN
-	IjavPHSqRUD4mmXcNTpicgLMKigO5SKv4/mg8ZCkv1hNDI4fo1UGeAbCYk0+ZjE8SZeQnGpJrwMv5
-	tl6kkrVh3vB+BbNboXU95fIAKI4ylqAeL2nhl5yPXivtYO76q6ngjYHsHNFeoO9ow+QhT5yS7kqXw
-	VOFnhHcZ0pHrWzFe55ji0inqMWAl4CU+CiiaZvTTbH+khB7nOjEvfECK3jfjkbNji8ASrDAZNWj+G
-	x6F2IGmdekO6NGlWMj6JK/WVoXXlc4xTrDlVeERoZJlEhcuHq8dWjx3KE8x50qj5ZrXxkvpp+2Dlv
-	1merz//Q==;
+	bh=ywId08J7Tbx4MqC2rzjHWK754WaVxW5lbY11LpqyFpM=; b=HV+Tgn+cuCM0QfDt2Q5KSaf9cW
+	9UvCeldN1pLiqdWe8de2XOyUmINfcNbwKjMGHf9reLOQ7gFpB3+UIM6I6MLH2p1qQB/1JOvFWSFPg
+	DR/zWp2Nuh4MDqdQGLGXcfYSAxaa0c7fKkvO8IHB32VIWVvb0Ca8Lyqr7O+/637mleB2rVHaMluoh
+	1pIP+JfiktECX1LiO3cLr8DsCyDEQgBfig1FbL/XbCSBHlRyImuNVTFF1uVp0NKXMnilHEqfw2Rug
+	qPiy1LKvuLfXqvDt0rUgJyxGejb4+xTH36hZqE3OEuYpxQJ7flY6upbNLyqr821HiZ1w8AOoAVPMh
+	UHZMhwTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuB18-0000000GURS-0ce8;
-	Wed, 12 Aug 2026 15:37:22 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1wuB1A-0000000GUWs-30hZ;
+	Wed, 12 Aug 2026 15:37:24 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuB0g-0000000GTtL-13x4
+	id 1wuB0r-0000000GU7v-1npn
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 12 Aug 2026 15:37:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=ywId08J7Tbx4MqC2rzjHWK754WaVxW5lbY11LpqyFpM=; b=DME7e0pDW7ubyKtze4az3TvYBd
+	xY2+DxTZhSqSPGol7v8FS8q6nOxv9rtrPGbkYZWIpZOpOTCzgyGiBS5p/BF3TV168dVY7UwgIjMWO
+	mOcUIEsHjnYdyfu7/yPRvuSofrGneXqFOLUrYmadi40zEvLXWuyFMOJwewWAxjFTLWhIN5gOmlTqC
+	3X3eqDTHAOlaxdSMhuTQ3182zxnJP2shFkYdVT8UYs4oaeDHbxfRytHCpu9QV+KKXolwcQ78ZqHo6
+	K7b1iyp+D3vc362m9IYXiebbvf0krvE35zTUVqGOWaY3/qxc49GVU0Ayh0nRuC0vn9ZaUPqqgMIBE
+	5XYkAa+w==;
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wuB0n-0000000FZAw-1568
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 15:36:59 +0000
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67CE1tDl3594435;
-	Wed, 12 Aug 2026 15:36:41 GMT
+	Wed, 12 Aug 2026 15:37:04 +0000
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67CE1hKB1816625;
+	Wed, 12 Aug 2026 15:36:48 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
 	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=U18O0gCKgALa+XbZC
-	+EvXju0IjuEjqVEq5R1cGYDB6c=; b=Zi1WvFFf93bV0tBRYnzILg+u46RE5Zf7z
-	OEx24FKzT9EIIUl9NynuUi0poCwfU+CNDzFoIfQislUvfZBOl1FELWGu3+mM+lsB
-	hLosVWUm+bOF6sKFaR5H6Y6jXyucqi0zKbMcMW4pmkR3huM8FQO5sbLPquyZeGau
-	PvCpUQpnJ36F+UxAJMJFaakYYS6UfQ92VsD0u2HNjpWZmgZpPdEbFLVJTd4t+NzJ
-	RyYwpe3lihRzE7XxYT490yqwxGsG+w0jRbVu0qmXQEYVKMhpdnymna6nV1/yESxO
-	FKqQgp26RJmbXxaA+WkvRSRJrcdnGW3acRFwkhcVb8go7uriPgpJA==
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fwvp32e1a-1
+	:mime-version:references:subject:to; s=pp1; bh=ywId08J7Tbx4MqC2r
+	zjHWK754WaVxW5lbY11LpqyFpM=; b=OWbsfRODcbtZ+jG23VuVnoqLvcmFf/vzB
+	DF1THDv7D8up8Ybg8CwimGIGsMfzDd9IdCDkofSzc+BPd7GMHjy3BznoiTge4bQW
+	Qrv3emIm7G67P7nttCyl/sP0hBohQiCpimBHMWXsKV29KV/jJQgbd5K8pH2jocpO
+	uybMKXqYIn/MVsWj6xIYqMwo7cAxLqzQM4vpa625lPizppLpJ/0BANUQ7UsGguN1
+	K+xXd8KrY9yFjFkgQ+nmE+HPVzgAObYA00ktToBc+UYWP01lrA3xCFTY6+tKEiLc
+	jwzSnItuzBfqjtRo9wwP9jYa0b/DhVMApZq7g4guSqN5btDTcyAhg==
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fwvk0381j-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 12 Aug 2026 15:36:40 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 67CFQIpB021717;
-	Wed, 12 Aug 2026 15:36:39 GMT
+	Wed, 12 Aug 2026 15:36:47 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 67CFQKuF013754;
+	Wed, 12 Aug 2026 15:36:46 GMT
 Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4fxhfy6g3u-1
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4fxg9h6mkh-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 12 Aug 2026 15:36:39 +0000 (GMT)
+	Wed, 12 Aug 2026 15:36:46 +0000 (GMT)
 Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 67CFaZ7u38404606
+	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 67CFagkI32833894
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 12 Aug 2026 15:36:35 GMT
+	Wed, 12 Aug 2026 15:36:42 GMT
 Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id ADD472004B;
-	Wed, 12 Aug 2026 15:36:35 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 6DFDB2004B;
+	Wed, 12 Aug 2026 15:36:42 +0000 (GMT)
 Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 670472004F;
-	Wed, 12 Aug 2026 15:36:35 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 1E15220063;
+	Wed, 12 Aug 2026 15:36:42 +0000 (GMT)
 Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
 	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Wed, 12 Aug 2026 15:36:35 +0000 (GMT)
+	Wed, 12 Aug 2026 15:36:42 +0000 (GMT)
 From: Steffen Eiden <seiden@linux.ibm.com>
 To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
         linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
@@ -89,9 +104,9 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
         Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
         Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
         Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v6 09/33] arm64: Prepare sharing arm64 headers with s390
-Date: Wed, 12 Aug 2026 17:36:05 +0200
-Message-ID: <20260812153631.3376090-10-seiden@linux.ibm.com>
+Subject: [PATCH v6 27/33] s390/hwcaps: Report SAE support as hwcap
+Date: Wed, 12 Aug 2026 17:36:23 +0200
+Message-ID: <20260812153631.3376090-28-seiden@linux.ibm.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260812153631.3376090-1-seiden@linux.ibm.com>
 References: <20260812153631.3376090-1-seiden@linux.ibm.com>
@@ -99,35 +114,35 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-TM-AS-GCONF: 00
 X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Authority-Analysis: v=2.4 cv=AMtp2X5w c=1 sm=1 tr=0 ts=6a7c9308 cx=c_pps
- a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODEyMDEyNiBTYWx0ZWRfX8L2/FKqxGSlW
+ vgNmx14J9IYgW0LX1+/tVAEcSlua2VHHEVeD0Xs96Dff2m8h6FXfm8iWNlDvDbyrTBS9Oshpt0z
+ cXASFlwn4ETMPiKzCoiBCxRiV2cPR7Ya7X4jaGQ+DHExuYCZ7GE+6PSL+kBLgeN4431uwdFKgjv
+ 2lfrnn7kg5Wj7LvHofPVIAhEb38lG/tFOP630i++dH8E9UIZ/d8wZ1kRJpXMOk3qqjaEEP5gexd
+ Fuqrc1Hu9MBiPou7wfGdOLQm5n5CqVJ0iBsUakBYyv2iAzzIjb2lNTIiaX01ERIfoLcWXusz3Ud
+ tE/Vyka4zSOjfnMKL7ys6YII6PbFxx/u9JO1kW/+cOKqLGh9YaDvYYAZLJYx7s2CGUwimSWQXHi
+ UEMiacGHe4kitz8e8aj75TUGhxBhXnCFsIu+c52fGzRcO53iJYinaa8iHSJwJJIDQEH4jPAwLiF
+ g0IQWezDUfLcPPzJOtQ==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODEyMDEyNiBTYWx0ZWRfX156oRYZPK18E
+ 1C6gzisMf98MnNZ03CSyWWzoG7/znmvwMyxnj5alA713M4//fxyypAhXvm9T0t2T2HLOPTSOerf
+ dtmHpmU15HnpG0oVxX/G+6o3uiFlGK4=
+X-Authority-Analysis: v=2.4 cv=RqD16imK c=1 sm=1 tr=0 ts=6a7c9310 cx=c_pps
+ a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
  a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VnNF1IyMAAAA:8 a=CvB7ObVER1VTR8-vp5wA:9
-X-Proofpoint-GUID: sV3KgM9W7HkqCkJES1T2_u9se0kqIrJz
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODEyMDEyNiBTYWx0ZWRfX1Zeji/METrWj
- EgY35Q9j3h6xHElOkND5TQU6w/3VQRXg3ltQyn5GL5cSgd6qlKhlc1UUkkL/skr9ejNbQD5Migl
- g23SILHVk2fonR4WARvF9a2Rw1uyX4vI9u7v0v3cgldkvWL4Qx27RhOTOLZLAYl4zsiQqBYiWb1
- 6GDDvtLuOF1bCYDt9Qlxwh9EF1YCG5/VkgOvgvJf20IfrSFxBD1oIy4IMHCRflhWBuPyGr7Qdy9
- 234vwCTM39qMbHXEbcrT4JsmTQfrcorhcjd2Y+ijxYx9HI480yHADH9vv2EtTzSz3E72naiJBJT
- oy/YhkQb2itDwLIG5bgTsW5mWThCmzehmcBb7ciAt2X0apvd++JOt0uI6mIz8qT3C3FRerEytQt
- gZm4sgYmTmGed+OeDv/C1AtKdJj2xyOz1xUcNE590tzjVDvzW7xuzWoCKRq2BwyU6BAVXTjaR+z
- Y98heJU6lM/yvxnc59A==
-X-Proofpoint-ORIG-GUID: hQ3rD-W-G9yHiPNUPcCiy-wWKmBtIlgw
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODEyMDEyNiBTYWx0ZWRfXynTp/phZlpTJ
- jlliUKTgVyWVbaC5YpTy50es4aEPYEuqyxOtkq4G8hQig9Z+7rKIFcrs5X7/ntiM7s6B35Ca25m
- Y9dF8L9oJC8X+5vx/FvJ7qePOWMGu1c=
+ a=uAbxVGIbfxUO_5tXvNgY:22 a=VnNF1IyMAAAA:8 a=MMtvGDNtdIwsdepEW5QA:9
+X-Proofpoint-GUID: 0-Sx_h0QMZJtm-CgfA5ljB4a-Bs0AUo5
+X-Proofpoint-ORIG-GUID: h9o-llhFTRv1ZcMcdsqAjo28CI0ugT_-
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-08-12_04,2026-08-12_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 adultscore=0 lowpriorityscore=0 clxscore=1015
- priorityscore=1501 impostorscore=0 phishscore=0 spamscore=0 bulkscore=0
- malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ phishscore=0 priorityscore=1501 suspectscore=0 lowpriorityscore=0
+ clxscore=1015 adultscore=0 bulkscore=0 malwarescore=0 impostorscore=0
+ spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
  definitions=main-2608120126
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_083654_434819_C4601406 
-X-CRM114-Status: GOOD (  20.48  )
+X-CRM114-CacheID: sfid-20260812_163701_703052_EA1069D8 
+X-CRM114-Status: GOOD (  17.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,169 +157,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Prepare the sharing of arm64 headers with s390 by moving a few
-definitions inside headers to reduce the number of shared markers.
-Clean up some includes to further streamline the sharing of headers.
+From: Hendrik Brueckner <brueckner@linux.ibm.com>
 
-No functional change.
+Report SAE support as hwcap (and /proc/cpuinfo)
 
+Signed-off-by: Hendrik Brueckner <brueckner@linux.ibm.com>
+Reviewed-by: Steffen Eiden <seiden@linux.ibm.com>
 Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
+Reviewed-by: Janosch Frank <frankja@linux.ibm.com>
 ---
- arch/arm64/include/asm/esr.h         |  4 +-
- arch/arm64/include/asm/kvm_arm.h     |  5 ++-
- arch/arm64/include/asm/kvm_emulate.h |  5 ++-
- arch/arm64/include/asm/kvm_host.h    | 59 ++++++++++++++--------------
- arch/arm64/include/asm/sysreg.h      |  2 +-
- 5 files changed, 39 insertions(+), 36 deletions(-)
+ arch/s390/include/asm/elf.h    | 2 ++
+ arch/s390/include/asm/sclp.h   | 5 ++++-
+ arch/s390/kernel/processor.c   | 3 +++
+ drivers/s390/char/sclp_early.c | 1 +
+ 4 files changed, 10 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/include/asm/esr.h b/arch/arm64/include/asm/esr.h
-index f816f5d77f1a..da085c83b57e 100644
---- a/arch/arm64/include/asm/esr.h
-+++ b/arch/arm64/include/asm/esr.h
-@@ -7,7 +7,7 @@
- #ifndef __ASM_ESR_H
- #define __ASM_ESR_H
+diff --git a/arch/s390/include/asm/elf.h b/arch/s390/include/asm/elf.h
+index bb63fa4d20bb..ad3108ecfb07 100644
+--- a/arch/s390/include/asm/elf.h
++++ b/arch/s390/include/asm/elf.h
+@@ -123,6 +123,7 @@ enum {
+ 	HWCAP_NR_NNPA		= 20,
+ 	HWCAP_NR_PCI_MIO	= 21,
+ 	HWCAP_NR_SIE		= 22,
++	HWCAP_NR_SAE		= 23,
+ 	HWCAP_NR_MAX
+ };
  
--#include <asm/memory.h>
-+#include <asm/brk-imm.h>
- #include <asm/sysreg.h>
- 
- #define ESR_ELx_EC_UNKNOWN	UL(0x00)
-@@ -435,7 +435,7 @@
- #define ESR_ELx_IT_GCSPOPX		7
- 
- #ifndef __ASSEMBLER__
--#include <asm/types.h>
-+#include <linux/types.h>
- 
- static inline unsigned long esr_brk_comment(unsigned long esr)
- {
-diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
-index 4bfbd827c5aa..57edd8437200 100644
---- a/arch/arm64/include/asm/kvm_arm.h
-+++ b/arch/arm64/include/asm/kvm_arm.h
-@@ -7,10 +7,11 @@
- #ifndef __ARM64_KVM_ARM_H__
- #define __ARM64_KVM_ARM_H__
- 
-+#include <linux/const.h>
-+#include <linux/bits.h>
-+#include <linux/types.h>
- #include <asm/esr.h>
--#include <asm/memory.h>
- #include <asm/sysreg.h>
--#include <asm/types.h>
+@@ -150,6 +151,7 @@ enum {
+ #define HWCAP_NNPA		BIT(HWCAP_NR_NNPA)
+ #define HWCAP_PCI_MIO		BIT(HWCAP_NR_PCI_MIO)
+ #define HWCAP_SIE		BIT(HWCAP_NR_SIE)
++#define HWCAP_SAE		BIT(HWCAP_NR_SAE)
  
  /*
-  * Because I'm terribly lazy and that repainting the whole of the KVM
-diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-index b31d50bdf59e..a34a9417ff4d 100644
---- a/arch/arm64/include/asm/kvm_emulate.h
-+++ b/arch/arm64/include/asm/kvm_emulate.h
-@@ -44,11 +44,12 @@ enum exception_type {
- bool kvm_condition_valid32(const struct kvm_vcpu *vcpu);
- void kvm_skip_instr32(struct kvm_vcpu *vcpu);
+  * These are used to set parameters in the core dumps.
+diff --git a/arch/s390/include/asm/sclp.h b/arch/s390/include/asm/sclp.h
+index 44066550b9b1..68f61b71a2d5 100644
+--- a/arch/s390/include/asm/sclp.h
++++ b/arch/s390/include/asm/sclp.h
+@@ -56,7 +56,9 @@ struct sclp_core_entry {
+ 	u8 siif : 1;
+ 	u8 sigpif : 1;
+ 	u8 : 3;
+-	u8 reserved2[3];
++	u8 aef: 1;
++	u8 : 7;
++	u8 reserved2[2];
+ 	u8 : 2;
+ 	u8 ib : 1;
+ 	u8 cei : 1;
+@@ -109,6 +111,7 @@ struct sclp_info {
+ 	unsigned char has_aeni : 1;
+ 	unsigned char has_aisi : 1;
+ 	unsigned char has_astfleie2 : 1;
++	unsigned char has_aef : 1;
+ 	unsigned int ibc;
+ 	unsigned int mtid;
+ 	unsigned int mtid_cp;
+diff --git a/arch/s390/kernel/processor.c b/arch/s390/kernel/processor.c
+index e33a3eccda56..6da55a158027 100644
+--- a/arch/s390/kernel/processor.c
++++ b/arch/s390/kernel/processor.c
+@@ -150,6 +150,7 @@ static void show_cpu_summary(struct seq_file *m, void *v)
+ 		[HWCAP_NR_NNPA]		= "nnpa",
+ 		[HWCAP_NR_PCI_MIO]	= "pcimio",
+ 		[HWCAP_NR_SIE]		= "sie",
++		[HWCAP_NR_SAE]		= "sae",
+ 	};
+ 	int i, cpu;
  
-+int kvm_inject_dabt_excl_atomic(struct kvm_vcpu *vcpu, u64 addr);
-+int kvm_inject_serror_esr(struct kvm_vcpu *vcpu, u64 esr);
-+
- void kvm_inject_undefined(struct kvm_vcpu *vcpu);
- void kvm_inject_sync(struct kvm_vcpu *vcpu, u64 esr);
--int kvm_inject_serror_esr(struct kvm_vcpu *vcpu, u64 esr);
- int kvm_inject_sea(struct kvm_vcpu *vcpu, bool iabt, u64 addr);
--int kvm_inject_dabt_excl_atomic(struct kvm_vcpu *vcpu, u64 addr);
- void kvm_inject_size_fault(struct kvm_vcpu *vcpu);
+@@ -254,6 +255,8 @@ static int __init setup_hwcaps(void)
+ 	/* virtualization support */
+ 	if (sclp.has_sief2)
+ 		elf_hwcap |= HWCAP_SIE;
++	if (sclp.has_aef)
++		elf_hwcap |= HWCAP_SAE;
  
- static inline int kvm_inject_sea_dabt(struct kvm_vcpu *vcpu, u64 addr)
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 46c8d7928b3f..22770c1132cb 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -56,6 +56,36 @@
- #define KVM_REQ_MAP_L1_VNCR_EL2		KVM_ARCH_REQ(10)
- #define KVM_REQ_VGIC_PROCESS_UPDATE	KVM_ARCH_REQ(11)
+ 	return 0;
+ }
+diff --git a/drivers/s390/char/sclp_early.c b/drivers/s390/char/sclp_early.c
+index 22dd797e6229..e58d24b95bd1 100644
+--- a/drivers/s390/char/sclp_early.c
++++ b/drivers/s390/char/sclp_early.c
+@@ -96,6 +96,7 @@ static void __init sclp_early_facilities_detect(void)
+ 		sclp.has_ib = cpue->ib;
+ 		sclp.has_cei = cpue->cei;
+ 		sclp.has_skey = cpue->skey;
++		sclp.has_aef = cpue->aef;
+ 		break;
+ 	}
  
-+/*
-+ * If we encounter a data abort without valid instruction syndrome
-+ * information, report this to user space.  User space can (and
-+ * should) opt in to this feature if KVM_CAP_ARM_NISV_TO_USER is
-+ * supported.
-+ */
-+#define KVM_ARCH_FLAG_RETURN_NISV_IO_ABORT_TO_USER	0
-+/* Memory Tagging Extension enabled for the guest */
-+#define KVM_ARCH_FLAG_MTE_ENABLED			1
-+/* At least one vCPU has ran in the VM */
-+#define KVM_ARCH_FLAG_HAS_RAN_ONCE			2
-+/* The vCPU feature set for the VM is configured */
-+#define KVM_ARCH_FLAG_VCPU_FEATURES_CONFIGURED		3
-+/* PSCI SYSTEM_SUSPEND enabled for the guest */
-+#define KVM_ARCH_FLAG_SYSTEM_SUSPEND_ENABLED		4
-+/* VM counter offset */
-+#define KVM_ARCH_FLAG_VM_COUNTER_OFFSET			5
-+/* Timer PPIs made immutable */
-+#define KVM_ARCH_FLAG_TIMER_PPIS_IMMUTABLE		6
-+/* Initial ID reg values loaded */
-+#define KVM_ARCH_FLAG_ID_REGS_INITIALIZED		7
-+/* Fine-Grained UNDEF initialised */
-+#define KVM_ARCH_FLAG_FGU_INITIALIZED			8
-+/* SVE exposed to guest */
-+#define KVM_ARCH_FLAG_GUEST_HAS_SVE			9
-+/* MIDR_EL1, REVIDR_EL1, and AIDR_EL1 are writable from userspace */
-+#define KVM_ARCH_FLAG_WRITABLE_IMP_ID_REGS		10
-+/* Unhandled SEAs are taken to userspace */
-+#define KVM_ARCH_FLAG_EXIT_SEA				11
-+
- #define KVM_DIRTY_LOG_MANUAL_CAPS   (KVM_DIRTY_LOG_MANUAL_PROTECT_ENABLE | \
- 				     KVM_DIRTY_LOG_INITIALLY_SET)
- 
-@@ -338,35 +368,6 @@ struct kvm_arch {
- 	/* Protects VM-scoped configuration data */
- 	struct mutex config_lock;
- 
--	/*
--	 * If we encounter a data abort without valid instruction syndrome
--	 * information, report this to user space.  User space can (and
--	 * should) opt in to this feature if KVM_CAP_ARM_NISV_TO_USER is
--	 * supported.
--	 */
--#define KVM_ARCH_FLAG_RETURN_NISV_IO_ABORT_TO_USER	0
--	/* Memory Tagging Extension enabled for the guest */
--#define KVM_ARCH_FLAG_MTE_ENABLED			1
--	/* At least one vCPU has ran in the VM */
--#define KVM_ARCH_FLAG_HAS_RAN_ONCE			2
--	/* The vCPU feature set for the VM is configured */
--#define KVM_ARCH_FLAG_VCPU_FEATURES_CONFIGURED		3
--	/* PSCI SYSTEM_SUSPEND enabled for the guest */
--#define KVM_ARCH_FLAG_SYSTEM_SUSPEND_ENABLED		4
--	/* VM counter offset */
--#define KVM_ARCH_FLAG_VM_COUNTER_OFFSET			5
--	/* Timer PPIs made immutable */
--#define KVM_ARCH_FLAG_TIMER_PPIS_IMMUTABLE		6
--	/* Initial ID reg values loaded */
--#define KVM_ARCH_FLAG_ID_REGS_INITIALIZED		7
--	/* Fine-Grained UNDEF initialised */
--#define KVM_ARCH_FLAG_FGU_INITIALIZED			8
--	/* SVE exposed to guest */
--#define KVM_ARCH_FLAG_GUEST_HAS_SVE			9
--	/* MIDR_EL1, REVIDR_EL1, and AIDR_EL1 are writable from userspace */
--#define KVM_ARCH_FLAG_WRITABLE_IMP_ID_REGS		10
--	/* Unhandled SEAs are taken to userspace */
--#define KVM_ARCH_FLAG_EXIT_SEA				11
- 	unsigned long flags;
- 
- 	/* VM-wide vCPU feature set */
-diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
-index 1aa601c95188..ab205f9db94a 100644
---- a/arch/arm64/include/asm/sysreg.h
-+++ b/arch/arm64/include/asm/sysreg.h
-@@ -1263,6 +1263,6 @@
- 		 FIELD_PREP(reg##_##field##_MASK,	\
- 			    SYS_FIELD_VALUE(reg, field, val))
- 
--#endif
-+#endif /* __ASSEMBLER__ */
- 
- #endif	/* __ASM_SYSREG_H */
 -- 
 2.53.0
 
