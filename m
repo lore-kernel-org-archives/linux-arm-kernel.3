@@ -4,69 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF59DC5CFDB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 11:36:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE14EC5CFDB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 11:37:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tjZ5K9I9vxkV4z0lzFLfUGBEaz+OoE8Mfm2dOhW6PXA=; b=3pSsRVU0i5b+f4stAPmyP3pMwT
-	Rr6IRRamQA88NcTXwfA4ZiEPijlyZSkp5E/Xw8Bt2yj5EN6dZNLh6DHgsWmpW0SbYqROw+ilPXznJ
-	x4E3Il0NWp6eGVmafspalfWklM/odrDLLq3jvniTdFD52wX694t7FvSGfJnI5dGqQ90LvlCUZ5muU
-	VdV3bSUWYtPJzP32nlBKmQ7hiQDEZT9kOt+N/qPapDgSIByGQfnm8Y70K6QkvBSES5wBWFUf0xCYp
-	wF9yT1pIY0SsygqMv0ZmM4EmDLya1sicvo5ZCufdY3HF2J49IP98yAl0jTXKQeqCCRlMgU+nLNZkM
-	10vSPN5A==;
+	bh=/nKOXb11thqF/gUJpn3dQgk/iwZeR/0ericzfrjsocw=; b=bv4FyT2GYmvXmk7AkSjp7ZFblm
+	/f+UdRg+QSIMy/uo/sOy0g8+o4fK6Eaa5ca2iQhnwUDQd6mguE26sVbyLNQc3jb5ctH4BxinpxAXs
+	jYUHHyyU7HPe++MS/OEoTW3meRP+Mkss5VNp6wxbaFQtp4z25CSb2TMj1+5F8WJrlQJsHD5iuxwXJ
+	2RS09TVKv1GQZDXqffhZnnu7BZ4RmJaqYC30tvNxO9PWJqDGD8EeYAx0gC5pm+EtwxbRW0jUdVB1l
+	MR1wf60YP2H2Gn7gy6I2HPTGjgxOlWsITvuTKPa8LAFKF4dqVC/3sD8tPbPBlbywUx22eXPsOcluF
+	kOBF/p6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuTjt-00000000ZSD-2IVn;
-	Thu, 13 Aug 2026 11:36:49 +0000
+	id 1wuTkp-00000000Zab-2vrJ;
+	Thu, 13 Aug 2026 11:37:47 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuTjr-00000000ZRw-2b46
+	id 1wuTkp-00000000ZaV-0yky
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 11:36:47 +0000
+	Thu, 13 Aug 2026 11:37:47 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 06E18600AD;
-	Thu, 13 Aug 2026 11:36:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEFAA1F000E9;
-	Thu, 13 Aug 2026 11:36:44 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id AB463600AD;
+	Thu, 13 Aug 2026 11:37:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB8D51F000E9;
+	Thu, 13 Aug 2026 11:37:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786621006;
-	bh=tjZ5K9I9vxkV4z0lzFLfUGBEaz+OoE8Mfm2dOhW6PXA=;
+	s=k20260515; t=1786621066;
+	bh=/nKOXb11thqF/gUJpn3dQgk/iwZeR/0ericzfrjsocw=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=aEhjFG299PGC3w/xcQk2AxrMxB67zDNALb2llcpnTaK42LcfbCk9uP4QFSfsA6hhu
-	 ATLXznlz28ceA1ljJ6explTG9f4e1KEqx0gP40o6Em5XSD6JUHvN+gkzyUTyKkcOPg
-	 2Rn+vwiE1dqtN+icNINzMHl9LT44RaXz9po3h+3Ee97FV+SXHD0DWX6m7llMC7G6xw
-	 sjmE1LTpYpd8C7nntE2RVzLVSXIbSbarq+SyQK/oL4TrPNcbys8LIFGQr+7kuOuN/h
-	 yxvHq65OHpJ2v5TIk6qZ5jPisJepzgTlJ5rVP/sUo6JvLh10wEMj2PI/leBL0rA6I1
-	 iWFWNiR7+4ViA==
+	b=R2jRinvu3znaYhc7gsGUjrAk+/k1y7lEEo6yMZfJUv5FBklyHKZTn0CE3vwE84bmn
+	 UcGc20yjyCDrlOLnq2qTisaVcQXV4Q+ndQrMFtqXT3/mDp3e+EY/5xKIQvdn+EsrG4
+	 5qJ2VsicDHdG7YdXqxTiVwlk1Bi9hF6Kch8kmtf3q1Wns+FdgLXc1cUhafyg+XKD7U
+	 Y42liR8PcCPV/UT+KrAhFYy5D9IykgaMIJxSzlgapO+oW4kKnCHRXE5unYY+pdKHU1
+	 IYTS9BTXtuI77KgyuW5Hu2W1loi9sQopfWMLfoOyesoN2Mon2T4tzxs+i6Z97txhpv
+	 rKfH1xVPre5qw==
 From: Mark Brown <broonie@kernel.org>
-To: Daniel Mack <daniel@zonque.org>, Liam Girdwood <lgirdwood@gmail.com>, 
+To: Frank Li <Frank.Li@nxp.com>, Liam Girdwood <lgirdwood@gmail.com>, 
  Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Haojian Zhuang <haojian.zhuang@gmail.com>, 
- Robert Jarzmik <robert.jarzmik@free.fr>, phucduc.bui@gmail.com
-Cc: linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, phucduc.bui@gmail.com
+Cc: Fabio Estevam <festevam@gmail.com>, 
+ Michael Trimarchi <michael@amarulasolutions.com>, 
+ Dario Binacchi <dario.binacchi@amarulasolutions.com>, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org, 
  linux-kernel@vger.kernel.org
-In-Reply-To: <20260812084311.29188-1-phucduc.bui@gmail.com>
-References: <20260812084311.29188-1-phucduc.bui@gmail.com>
-Subject: Re: [PATCH] ASoC: pxa: Drop redundant probe error messages
-Message-Id: <178655526662.342177.4013313611398631040.b4-ty@b4>
-Date: Wed, 12 Aug 2026 18:21:06 +0100
+In-Reply-To: <20260812101418.37966-1-phucduc.bui@gmail.com>
+References: <20260812101418.37966-1-phucduc.bui@gmail.com>
+Subject: Re: [PATCH 0/3] ASoC: mxs: Improve probe error handling
+Message-Id: <178655643965.342177.15378550063939908942.b4-ty@b4>
+Date: Wed, 12 Aug 2026 18:40:39 +0100
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1119; i=broonie@kernel.org;
- h=from:subject:message-id; bh=Uz3lNAd4B2wNCRRTWD4clAwXjG3Q0JgX4dRcKNsXM4o=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqfaxKDzkLiCKvZB8B+mdlqVU2815XQr8UFxuXr
- f9UoehwkOaJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCan2sSgAKCRAk1otyXVSH
- 0OhTB/9UbDHyIfVRRK+sG1hFlazEXuZAqD4deW69cqgOVCBJiCSRb0TR9ALvCJabw1JLvx+MgpK
- Q+kV2GHS5jbZcfBw2C+rRUJcM/Pe5V6RiGEEZe3pZpz8kyaaY4CXWEDy46WiurR10q/BY2XVS64
- lOe972HjlytJh55BKTKTeN64gyA+FJbgDtvZRh4g64I9yqKDbNnotmAtFdjVhDEN2vbSJPupIS2
- m9OMqtXkRuyCxGUjNMuMx8+ZGGtZdTV/PZmZ0EoWCi9rLNgmo0a/Uq0MwxQWP3VWeCYCzy9YOe7
- brtwS/9tnDNsqZShysCFeWY7DlR04tFToILUwD/kKQ2UZ39X
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1703; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=YYBnUv6qdzX56esAR5zst0HHT1xQZW6e40uF451j4EQ=;
+ b=kA0DAAoBJNaLcl1Uh9AByyZiAGp9rIWh6xTQ7WPfj3zThpUIuqEjMWG53Pd40BdJ+zxf4am83
+ IkBMwQAAQoAHRYhBK3maKpnVxi1n+Kf6iTWi3JdVIfQBQJqfayFAAoJECTWi3JdVIfQAXQH/0HH
+ EU1dNuux362PF5w+farDKIDNho9sBJoPXbuNA8/g7gnBkJSIiZ0jZ5wJ8hH7EuMz0xmmlb0CTZb
+ oRxalWXG5wPknNvu+VX2WK/TD03WpP6fmeutio6kjUjaUKtNSkeGeGX9elyDLePD/WRlC6T2psV
+ eyQiXycR4FmWPynU2th3Mu2rgQFgAt7AknnbnwRbtFuldo5ZrhULNwiU9b49um3HQEnyFT10IjM
+ PNoRzw2vd0plBtwFguHujliFE87X7Qi6UFmIMDcQewmkJXdT4+KnxaPk+xPSkszd8bGcaFwch2h
+ 73ZZ3qUrsL+bnwMIbkd017BjsaV9FGmWxMVS4TY=
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -83,8 +86,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 12 Aug 2026 15:43:11 +0700, phucduc.bui@gmail.com wrote:
-> ASoC: pxa: Drop redundant probe error messages
+On Wed, 12 Aug 2026 17:14:15 +0700, phucduc.bui@gmail.com wrote:
+> ASoC: mxs: Improve probe error handling
+> 
+> From: bui duc phuc <phucduc.bui@gmail.com>
+> 
+> Hi all,
+> 
+> This series improves probe error handling in the MXS ASoC drivers.
+> Use dev_err_probe() where appropriate and remove redundant dev_err() calls
+> when the corresponding errors are already reported by the called functions
+> or further down the call chain.
+> 
+> [...]
 
 Applied to
 
@@ -92,8 +106,12 @@ Applied to
 
 Thanks!
 
-[1/1] ASoC: pxa: Drop redundant probe error messages
-      https://git.kernel.org/broonie/sound/c/79a883d53960
+[1/3] ASoC: mxs-saif: Use dev_err_probe() for error handling
+      https://git.kernel.org/broonie/sound/c/b215caca714e
+[2/3] ASoC: mxs-saif: Drop redundant probe error messages
+      https://git.kernel.org/broonie/sound/c/f0701e5fc299
+[3/3] ASoC: mxs-sgtl5000: Drop redundant probe error messages
+      https://git.kernel.org/broonie/sound/c/e84c06775d4a
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent to Linus during
