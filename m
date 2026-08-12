@@ -4,66 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0F83C5AD5A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 05:47:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA46BC5CFCF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 05:48:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ASikUcOZUi2MI5VSLokSdXyltIXYWOt3TqA1nkUrzuo=; b=ADCTRXRFanqBfRVzz5HbYdFzb4
-	vcEyNssPFlJh50qp9M+ww84a1wj5VW8onL3m1zBCZyMntLgGlffokqK5Cti1YA8Oc0Jym97ynh/M+
-	QPvROyZN20IF/keUWWSblLyhh5uNEp2W8TdZvFjs9FU2IY0vRlZsu6+pLZFpRNRIpm47t//8war4z
-	hNzEZRUhfD/xto14AjJxjH7SNQVkpidy8dsSYzjethQ2LefM2LMoxM7ASqJq0fGuJ0wrnDLw9HlF9
-	+xKwLuv04W0sjI2TyvM2TJEUvIpz3z+vG/TPGBUwgDqjVvw+3FbuEs9c8ni3v/QhZylGuZI2fPgKU
-	RiifBxmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=IHxOT7Wnk5xlww8xoI2HTvhglRQOBXxqoCb/87tWt9U=; b=i1hU2TQEG7+PEz
+	ebMqTEc8rHbEFyWwKV+ZGxmtUIE4VVQOkh7lnpPbspCce5yhmQ4rAqTI7Ho9C4AdWCaXqi/kPIBj5
+	4WaGdjv4qxBYwSmqJpe9sfP99LJJAkzE0wD88gimYNVC9p7B27lvRYtYNte6i0opvBEWqysfq2o2/
+	7tCZ+ETJy/OtisQAZtsCLVcXRCoVM62B27R3XtxITM/gHDpM4eCSG3YmXj+iiXqKeFtfed9PmjelN
+	kECkymUWRoprwGSbmQSAZnWeyjA5Tpx4IUWbMoXJXkc86YQ4Y6wkj0mJO+dvGHCSVs3Fgl1IVjc8M
+	sI+82+lYIDiPFOCtPUPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu1oX-0000000FSRj-0hMr;
-	Wed, 12 Aug 2026 05:47:45 +0000
-Received: from smtp1-g21.free.fr ([2a01:e0c:1:1599::10])
+	id 1wu1pM-0000000FSXl-1PCI;
+	Wed, 12 Aug 2026 05:48:36 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=twmbx01.aspeedtech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu1oT-0000000FSQx-1SDO
+	id 1wu1pJ-0000000FSWa-1FgW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 05:47:43 +0000
-Received: from L30177.local (unknown [IPv6:2a01:e0a:ac2:22b0:7d8d:27f7:7380:ca30])
-	(Authenticated sender: vjardin@free.fr)
-	by smtp1-g21.free.fr (Postfix) with ESMTPSA id A2289B0054E;
-	Wed, 12 Aug 2026 07:47:23 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=free.fr;
-	s=smtp-20201208; t=1786513655;
-	bh=45kXpICPk2fQlHBOyTHvZ8n5In6ehM3cu9U3J0fp2cs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=T1ESoodOBaikyKpT2rC28GxM4wtzx+caAaLrGFANJbgT5BCATQd1QBXWTImHBzkT4
-	 APZqNqzgrhgQhBP3lgDFSn/A0VP49JwOQfHo9lJwls+XMyA5LyFielDVwpI3iC0Zn9
-	 78owLe6cCVPT0bdGhqRpJD6DYsic8/0SCJii73qgEXjmR6wJKd12IE82vze1OZsDJY
-	 URMwQwV7owzdW7pzJ6nLE2zJbRRi/FkdpTVFVlzGm9NVXZxZEAHY5eyUqpufEKvdr9
-	 S50ppMq++G6g/ufJrRkl8J3no1iiAD2ijsPZ3AkkVsbDjxtIE1z2DzawqRcqPvdrcO
-	 bq/vgk2nDgfxA==
-Date: Wed, 12 Aug 2026 07:47:22 +0200
-From: Vincent Jardin <vjardin@free.fr>
-To: "Carlos Song (OSS)" <carlos.song@oss.nxp.com>
-Cc: Oleksij Rempel <o.rempel@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Andi Shyti <andi.shyti@kernel.org>, Frank Li <frank.li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] i2c: imx: add I2C_M_REV_DIR_ADDR and I2C_M_NOSTART
-Message-ID: <anwI6qnsikPrd80W@L30177.local>
-References: <20260807-for-upstream-i2c-imx-lx2160-reverse-v1-1-f276ce8cb660@free.fr>
- <AM0PR04MB6802658862C4E2ED8628FFA8E8DD2@AM0PR04MB6802.eurprd04.prod.outlook.com>
+	Wed, 12 Aug 2026 05:48:34 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Wed, 12 Aug
+ 2026 13:48:26 +0800
+Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Wed, 12 Aug 2026 13:48:26 +0800
+From: Ryan Chen <ryan_chen@aspeedtech.com>
+Subject: [PATCH 0/7] Add Aspeed AST2700 SDRAM EDAC support
+Date: Wed, 12 Aug 2026 13:48:24 +0800
+Message-ID: <20260812-edac-v1-0-03992edea297@aspeedtech.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <AM0PR04MB6802658862C4E2ED8628FFA8E8DD2@AM0PR04MB6802.eurprd04.prod.outlook.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIACgJfGoC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDMyNT3dSUxGRdi1RLM4NUA6NU8zRzJaDSgqLUtMwKsDHRsbW1AEd5t41
+ WAAAA
+X-Change-ID: 20260625-edac-8e960e02e7f7
+To: Stefan Schaeckeler <sschaeck@cisco.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Borislav Petkov <bp@alien8.de>, Tony Luck <tony.luck@intel.com>, "Sebastian
+ Andrzej Siewior" <bigeasy@linutronix.de>, Clark Williams
+	<clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>
+CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>,
+	<linux-edac@vger.kernel.org>, Borislav Petkov <bp@suse.de>,
+	<linux-rt-devel@lists.linux.dev>, Ryan Chen <ryan_chen@aspeedtech.com>,
+	<stable@vger.kernel.org>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1786513706; l=2810;
+ i=ryan_chen@aspeedtech.com; s=20251126; h=from:subject:message-id;
+ bh=iJPKTwaUlWXTtq4FbV7av/iGgAlKvVcOixKOblgP5dA=;
+ b=8f8TR6x2H15qSiqX++8gKE+a9Je/bBd1L6n9u/sgQSTtbIArgdPaAHdk6laBU+hjZSQmTcY57
+ azS13RCOuQuCI7Oy88hLQymdCWjELJqj4v/KXCeoCPAP+yPyAFL8hJ9
+X-Developer-Key: i=ryan_chen@aspeedtech.com; a=ed25519;
+ pk=Xe73xY6tcnkuRjjbVAB/oU30KdB3FvG4nuJuILj7ZVc=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_224741_824221_947D86AD 
-X-CRM114-Status: GOOD (  17.91  )
+X-CRM114-CacheID: sfid-20260811_224833_343533_330E21ED 
+X-CRM114-Status: GOOD (  13.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,172 +81,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Carlos,
+Add ECC error reporting for the Aspeed AST2700 SoC to the existing
+aspeed_edac driver.
 
-Thanks a lot for the review, and no problem for the delay.
+The AST2700 memory controller keeps the same overall EDAC programming
+model as the earlier Aspeed BMC SoCs, but uses a different register
+layout, a split interrupt status/clear/mask scheme and DDR4/DDR5 memory.
+Rather than fork the driver, the existing code is first tidied and
+generalised, then the AST2700 is added as one more per-SoC variant.
 
-> This is a such rare i2c frame design in the Realtek RTL8366SE SMI read
-> frame, right?
+The series is organised as:
 
-It is rare, but I have been inspired for I2C_M_REV_DIR_ADDR by the source
-of two client drivers that use it.
+ - dt-bindings: document the new "aspeed,ast2700-sdram-edac" compatible;
+ - set dimm->grain to the controllers' ECC granularity, fixing a
+   pre-existing WARN_ON in the EDAC core on the first reported error
+   (carries a Fixes: tag and Cc: stable);
+ - clean up whitespace and include ordering so the following changes
+   start from a consistent style;
+ - free the mem_ctl_info unconditionally on remove, dropping a NULL
+   check on a value that cannot be NULL there;
+ - drop the regmap, which serves only as an MMIO wrapper here,
+   in favour of direct readl()/writel() under an explicit raw spinlock,
+   annotating the register base with __guarded_by() so that the locking
+   is checked at build time under CONFIG_WARN_CONTEXT_ANALYSIS;
+ - abstract the SoC-specific details (register layout, ECC/DRAM-type
+   bits, memory types, write-protection key) behind per-SoC chip data;
+ - add the AST2700 support, teaching the shared error-reporting helpers
+   to report an error without an address for its single shared
+   failure-address register.
 
-Note that I2C_M_NOSTART is not rare at all. It is what regmap uses for a real
-gather write. regmap_i2c_gather_write() opens with
+Tested with the memory controller's ECC error injection on both an
+existing SoC and the new one:
 
-        if (!i2c_check_functionality(i2c->adapter, I2C_FUNC_NOSTART))
-                return -ENOTSUPP;
+ - AST2600: an injected correctable error is reported through the EDAC
+   interface as a CE with the recorded failure address, confirming the
+   regmap removal and the chip-data refactor do not regress the existing
+   controllers.
 
-FYI, some clients that need REV_DIR_ADDR and NOSTART,
+ - AST2700: an injected correctable error is likewise reported as a CE
+   with the expected failure address.
 
-  drivers/input/joystick/as5011.c
-  drivers/video/fbdev/matrox/matroxfb_maven.c
+Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
+---
+Ryan Chen (7):
+      dt-bindings: edac: aspeed: Add AST2700 SDRAM EDAC
+      EDAC/aspeed: Set the DIMM grain
+      EDAC/aspeed: Clean up whitespace and include ordering
+      EDAC/aspeed: Free the mem_ctl_info unconditionally on remove
+      EDAC/aspeed: Replace regmap with direct register access
+      EDAC/aspeed: Abstract SoC differences behind chip data
+      EDAC/aspeed: Add AST2700 support
 
-both build the identical 2-message pattern,
+ .../bindings/edac/aspeed,ast2400-sdram-edac.yaml   |   6 +-
+ drivers/edac/aspeed_edac.c                         | 414 +++++++++++++--------
+ 2 files changed, 268 insertions(+), 152 deletions(-)
+---
+base-commit: 5464985e42c04e335fb30e38fbc409c997db9bec
+change-id: 20260625-edac-8e960e02e7f7
 
-  i2c_check_functionality(adapter,
-                                I2C_FUNC_NOSTART |
-                                I2C_FUNC_PROTOCOL_MANGLING)
+Best regards,
+-- 
+Ryan Chen <ryan_chen@aspeedtech.com>
 
-I do not have those devices, so I did not check it beside code readings.
-
-Some clients that need NOSTART alone,
-
-  drivers/base/regmap/regmap-i2c.c
-  drivers/infiniband/hw/hfi1/qsfp.c
-  drivers/gpu/drm/i915/display/dvo_ivch.c
-
-About the i2c masters, that use I2C_M_REV_DIR_ADDR in code,
-
-  drivers/i2c/algos/i2c-algo-bit.c
-  drivers/i2c/algos/i2c-algo-pcf.c
-  drivers/i2c/busses/i2c-s3c2410.c <- the model I did investigate
-  drivers/i2c/busses/i2c-tegra-bpmp.c
-  drivers/media/pci/cobalt/cobalt-i2c.c
-
-So a taxnonomy can be,
-
-  adapter            REV_DIR impl   MANGLING adv   NOSTART adv   usable
-  i2c-algo-bit           yes            yes            yes         yes
-  i2c-algo-pcf           yes            yes            no          no
-  i2c-s3c2410            yes            yes            yes         yes
-  i2c-tegra-bpmp         yes            yes            yes         yes
-  cobalt-i2c             yes         (private adapter, not exposed)
-  i2c-brcmstb            no             yes            yes         no
-  i2c-pxa                no             yes            yes         no
-  i2c-tegra              no             yes         yes (cond)     no
-  i2c-imx (this patch)   yes            yes            yes         yes
-
-> Is Realtek RTL8366SE SMI driver upstream? Can I found the driver?
-
-Not yet, and I cannot point you at a tree today. It is Realtek's
-"Unmanaged Switch" DSA driver, which is not public yet.
-
-What I can share is the message construction, which is the part you
-asked about and is not Realtek-specific.
-
-        static int as5011_i2c_read(struct i2c_client *client,
-                                   uint8_t aregaddr, signed char *value)
-        {
-                uint8_t data[2] = { aregaddr };
-                struct i2c_msg msg_set[2] = {
-                        {
-                                .addr = client->addr,
-                                .flags = I2C_M_REV_DIR_ADDR,
-                                .len = 1,
-                                .buf = (uint8_t *)data
-                        },
-                        {
-                                .addr = client->addr,
-                                .flags = I2C_M_RD | I2C_M_NOSTART,
-                                .len = 1,
-                                .buf = (uint8_t *)data
-                        }
-                };
-                int error;
-
-                error = i2c_transfer(client->adapter, msg_set, 2);
-                if (error < 0)
-                        return error;
-
-                *value = data[0] & 0x80 ? -1 * (1 + ~data[0]) : data[0];
-                return 0;
-        }
-
-And the Realtek accessor, which is the same two messages with a 2-byte
-register and 2-byte data instead of 1 and 1:
-
-        u8 ra[2]   = { reg & 0xff, (reg >> 8) & 0xff };
-        u8 data[2] = { 0xff, 0xff };
-        struct i2c_msg msgs[2] = {
-                {
-                        .addr  = client->addr,
-                        .flags = I2C_M_REV_DIR_ADDR,
-                        .len   = sizeof(ra),
-                        .buf   = ra,
-                }, {
-                        .addr  = client->addr,
-                        .flags = I2C_M_RD | I2C_M_NOSTART,
-                        .len   = sizeof(data),
-                        .buf   = data,
-                },
-        };
-
-        ret = i2c_transfer(client->adapter, msgs, 2);
-        if (ret != 2)
-                return ret < 0 ? ret : -EIO;
-
-        *val = data[0] | (data[1] << 8);
-
-msgs[0] is a write message carrying I2C_M_REV_DIR_ADDR, so the address
-byte goes out with the read bit set while the master keeps transmitting
-the two register-address bytes. msgs[1] is the read half with
-I2C_M_NOSTART, so no repeated start is emitted and the controller simply
-turns the bus around. Writes are an ordinary unflagged 4-byte write and
-need nothing from this patch.
-
-> ... Have you test this i2c-imx feature in your LS board with RTL8366SE?
-
-Yes, on an LX2160A board carrying four RTL8366SE-CG. Two are strapped to
-the chip's 2-wire "EEPROM SMI" mode and hang off hardware i2c-imx
-controllers; the other two are on MDIO, for both the same switch registers
-are reachable both ways and should answer the same values.
-
-First, the failure on an unpatched kernel, which is reproducible with
-nothing but i2ctools and is I think the clearest way to see the problem.
-These two commands are byte-identical:
-
-        # i2ctransfer -y -f -a 1 w2@0x7c 0x00 0x13 r4@0x7c
-        0xff 0xff 0x00 0x00
-        # i2ctransfer -y -f -a 1 r6@0x7c        # no preceding write at all
-        0xff 0xff 0x00 0x00 0x00 0x00
-
-Then, with this patch both chips answer correctly. For testing this patch,
-I did use the following that I have just pushed to help, for the record:
-
-        https://github.com/vjardin/smi-probe
-
-        # smi-probe -t i2c -b /dev/i2c-1 -a 0x7c id
-        chip_num    0x6980  CHIP_RTL8367E (inside RTL8366SE-CG)
-        chip_ver    0x0030
-        svlan_tpid  0x88a8  reset default, as expected
-
-        # smi-probe -t i2c -b /dev/i2c-1 -a 0x7c rd 0x1300
-        reg 0x1300 = 0x6980
-        # smi-probe -t i2c -b /dev/i2c-1 -a 0x7c rd 0x1202
-        reg 0x1202 = 0x88a8
-
-        # smi-probe -t i2c -b /dev/i2c-2 -a 0x5c rd 0x1202 # U19, IIC3
-        reg 0x1202 = 0x88a8
-        # smi-probe -t mdio -b 0x8b97000 -a 0x1a rd 0x1202 # MDIO control
-        reg 0x1202 = 0x88a8
-
-Then it binds as a DSA switch and enumerates its four user ports:
-
-        realtek-US-switch-dsa-i2c 2-005c: RTK DSA unit 0 (EEPROM SMI, addr 0x5c)
-
-I have many other i2c devices on this board, no regression.
-
-Thanks again for your review,
-  Vincent
 
