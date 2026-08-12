@@ -4,66 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FC99C5CFEB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 19:17:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F282C5CFDB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 19:33:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vulnVaw+vwGhSqzj5teru2K+Qul5lbSis05amXckvE8=; b=vNbPDm7ZcvDPDKAGP53blx6ll1
-	3E+jRMYjyhzKeE7TpRk3xBgFXmJfIImxSyZ4bIBaCw82fKNzHntc5E17VBnITt2YicijEV/h2zeL6
-	N+tkwmPot0V0sXGiBMlOlzmN3F3ed09mQLS1xcQ4PDxbI4+XZWYHHjSlbkhaGtiJvbIm4IswOmqR8
-	3W753TAB3iZtTZNnP8EXdno0vvvFvOvkTl6P4TJzOID1nGHtalFrUX/3uXkUumde8w7VQKiZTh1AL
-	SIRmeIk79y6s4yufu29kOOEKUkp6kk4PdEWotkAhPIIgRHKqBIkj3KfdW173Odti24Hnad5JgO41V
-	ZmnYVXCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ED8eqHdTv64gQstfC56Ow6bZBOe8x1ePNie/0Y4oVZU=; b=JGHzaExKYPjDu0kUyP5DdN3Q1+
+	1hrJfg2f4lyFcw4Owu4XIOSCel/IFNS/DkyjTa8jfRuDH6J1jJkHI3M68I+MjMxt8Dymv7Q9jCcUf
+	DjdOtdmoYGjyaIyAzoRbbHFP0EoX8qqytobWU5C75C0/N+QRItYSjLi2gxnBSiMPmRn4/Oh0gMHsd
+	+Vqa/8qm9C925GDTjEBfS8AiaRAWS3MnwGEKeEFU5D04w36AJafP7YBNMcEVmieM6K/33zNkRGnOm
+	sowyHIsRYIMPuJyKf91mKSkvCbqkRLDBSUId6r+MdDcu+dxSp9Zxb9qTTo5GRgaVKsPv/gSc6aXFB
+	dniJQvLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuERp-0000000Gt0s-0CeE;
-	Wed, 12 Aug 2026 19:17:09 +0000
-Received: from vps.xff.cz ([195.181.215.36])
+	id 1wuEhQ-0000000GttM-31bO;
+	Wed, 12 Aug 2026 19:33:16 +0000
+Received: from mx.nabladev.com ([178.251.229.89])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuERl-0000000Gszx-2NPi
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 19:17:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=xff.cz; s=mail;
-	t=1786562221; bh=eOKwlFn0rXXGqLQ3iyvphePz/D2yEesjxJGTD0yph7U=;
-	h=Date:From:To:Cc:Subject:X-My-GPG-KeyId:References:From;
-	b=p11HCuf2WV2OYVA7npp2oQWMfsiCxSCdXZ7A7XBZtCYexKyprYR58TbKDM+2/iuMX
-	 YSf0g3ck6aRLFlrltsdL7GOPM5EQ2/5LkT35Mf0lu4Mff+pFCCne1X++X58IGt7xY6
-	 dFTkzJnjMTs2omZzDtAXw4V7oa30ECa1ZsrIg04Y=
-Date: Wed, 12 Aug 2026 21:17:01 +0200
-From: =?utf-8?Q?Ond=C5=99ej?= Jirman <megi@xff.cz>
-To: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
-Cc: linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	Daniel Lezcano <daniel.lezcano@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
-	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, 
-	"moderated list:ARM/Allwinner sunXi SoC support" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH] clocksource/drivers/sun4i: Wait for pending reload
- before CTRL write
-Message-ID: <p3aovubrngwpep25xdsxdklvopkqtg3cyeu5qai3iiv53u25sz@3ozm2vejnf4a>
-Mail-Followup-To: =?utf-8?Q?Ond=C5=99ej?= Jirman <megi@xff.cz>, 
-	Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>, linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	Daniel Lezcano <daniel.lezcano@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
-	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, 
-	"moderated list:ARM/Allwinner sunXi SoC support" <linux-arm-kernel@lists.infradead.org>
-X-My-GPG-KeyId: EBFBDDE11FB918D44D1F56C1F9F0A873BE9777ED
- <https://xff.cz/key.txt>
-References: <20260725113341.2250687-1-megi@xff.cz>
- <9e9003b7-0331-4b37-9b06-5e9de887199e@oss.qualcomm.com>
- <hrm7ymjfylkhaijaxjvornxakhoss5tea6pfmt2y2jpn436lhu@2cchvasiv4mr>
- <9fb18d37-0406-46e6-8552-fb925dc14fad@oss.qualcomm.com>
+	id 1wuEhM-0000000Gts8-1z7B;
+	Wed, 12 Aug 2026 19:33:15 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8786311A705;
+	Wed, 12 Aug 2026 21:33:01 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
+	s=dkim; t=1786563185;
+	h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=ED8eqHdTv64gQstfC56Ow6bZBOe8x1ePNie/0Y4oVZU=;
+	b=fGnrOCSTNX2NlStNgvZoVWdpVAUR25aGrikNpgSdV49w063CUcRdklzwrUw0lXsfYzbLar
+	BrcehqdHgDePwKkNLArWE3zazdl9BWMK+QSIk0HzCcixVgskQCh+UWKIyVz2Je+t7K5rzI
+	ufSKA7pnRYl/J9/AkoadK2RQc1uHTMiq30zPZtOkemGNy4J7xRkQrBK/9r//7lOCWKdA3V
+	KD0FGZ9C/nn4pgl+AJ6jEEFql6+HRySPbQ0HGOw8IhIuqeWGmJqTJjMZ7YiVOB1htEceaO
+	Fr5MoprhMTjIgLJyIM0d3hLQaL4Xk3cV2UfPOIIF6OE12DZVqesaDb9aY0j3JA==
+Message-ID: <ea21d4fb-04a1-4280-9a73-6f566be2b015@nabladev.com>
+Date: Wed, 12 Aug 2026 20:30:33 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/8] dt-bindings: phy: Document ST STM32MP25 USB2-FEMTO
+ PHY
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: linux-usb@vger.kernel.org, Pankaj Dev <pankaj.dev@st.com>,
+ Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
+ Rahul Kumar <rahul.kumar05@st.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Christian Bruel <christian.bruel@foss.st.com>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
+ Rosen Penev <rosenp@gmail.com>, Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+ Vinod Koul <vkoul@kernel.org>, devicetree@vger.kernel.org,
+ kernel@dh-electronics.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com
+References: <20260812010157.1772849-1-marex@nabladev.com>
+ <20260812010157.1772849-2-marex@nabladev.com>
+ <20260812-silky-omniscient-dalmatian-b268cb@quoll>
+ <ff691741-a110-44e8-90e7-ac54a96de1af@nabladev.com>
+ <ff957fbb-b8ed-485d-adaa-18258ed693a6@kernel.org>
+Content-Language: en-US
+From: Marek Vasut <marex@nabladev.com>
+In-Reply-To: <ff957fbb-b8ed-485d-adaa-18258ed693a6@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <9fb18d37-0406-46e6-8552-fb925dc14fad@oss.qualcomm.com>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_121706_051375_CBEF56CA 
-X-CRM114-Status: GOOD (  47.60  )
+X-CRM114-CacheID: sfid-20260812_123312_667527_90627601 
+X-CRM114-Status: GOOD (  17.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,119 +88,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 12, 2026 at 01:49:18PM +0200, Daniel Lezcano wrote:
-> On 8/12/26 13:09, Ondřej Jirman wrote:
-> > Hello Daniel,
-> > 
-> > On Wed, Aug 12, 2026 at 11:56:03AM +0200, Daniel Lezcano wrote:
-> > > On 7/25/26 13:33, Ondřej Jirman wrote:
-> > > > From: Ondrej Jirman <megi@xff.cz>
-> > > > 
-> > > > The A13 manual says of TMR0_RELOAD: "After the bit is set, it can not be
-> > > > written again before it's cleared automatically."  Both time_stop() and
-> > > > time_start() read-modify-write the control register, so a reload still in
-> > > > flight gets rewritten and the write can be dropped, leaving the timer
-> > > > unarmed.  In oneshot mode this happens on every tick, and the tick
-> > > > eventually stops for good.
-> > > > 
-> > > > Wait for the reload to clear first.  All control register updates go
-> > > > through sun4i_clkevt_time_stop().
-> > > > 
-> > > > Without this my Allwinner A13 based Pocketbook Touch Lux 3 stops
-> > > > scheduling processes during boot or within a few seconds of executing
-> > > > userspace. Only sysrq+t over serial port works at this stage, which is
-> > > > how I discovered the root cause.
-> > > > 
-> > > > Fixes: 7e14183469d8 ("clocksource: sun4i: Fix bug when switching from periodic to oneshot modes")
-> > > > Signed-off-by: Ondrej Jirman <megi@xff.cz>
-> > > > ---
-> > > > BTW, similar issue will likely be also in timer-sun5i.c but I don't have any
-> > > > device that would exercise it. And it's possible that this triggers more easily
-> > > > with CONFIG_HZ=1000 which I use.
-> > > > 
-> > > >    drivers/clocksource/timer-sun4i.c | 26 +++++++++++++++++++++++++-
-> > > >    1 file changed, 25 insertions(+), 1 deletion(-)
-> > > > 
-> > > > diff --git a/drivers/clocksource/timer-sun4i.c b/drivers/clocksource/timer-sun4i.c
-> > > > index 7bdcc60ad43c..2e7457f671c4 100644
-> > > > --- a/drivers/clocksource/timer-sun4i.c
-> > > > +++ b/drivers/clocksource/timer-sun4i.c
-> > > > @@ -39,6 +39,9 @@
-> > > >    #define TIMER_SYNC_TICKS	3
-> > > > +/* The reload bit clears a couple of source clock cycles after it is set. */
-> > > > +#define TIMER_RELOAD_MAX_POLL	100
-> > > > +
-> > > >    /*
-> > > >     * When we disable a timer, we need to wait at least for 2 cycles of
-> > > >     * the timer source clock. We will use for that the clocksource timer
-> > > > @@ -53,9 +56,30 @@ static void sun4i_clkevt_sync(void __iomem *base)
-> > > >    		cpu_relax();
-> > > >    }
-> > > > +/*
-> > > > + * The control register must not be written while a reload is still in
-> > > > + * flight, or the write can be dropped.
-> > > > + */
-> > > > +static int sun4i_clkevt_wait_reload(void __iomem *base, u8 timer)
-> > > > +{
-> > > > +	int i;
-> > > > +
-> > > > +	for (i = 0; i < TIMER_RELOAD_MAX_POLL; i++) {
-> > > > +		if (!(readl(base + TIMER_CTL_REG(timer)) & TIMER_CTL_RELOAD))
-> > > > +			return 0;
-> > > > +		cpu_relax();
-> > > > +	}
-> > > 
-> > > The loop looks correct but I'm wondering why not use the helper:
-> > > 
-> > > ret = readl_poll_timeout_atomic(base + TIMER_CTL_REG(timer), val,
-> > > 				!(val & TIMER_CTL_RELOAD), 0, timeout);
-> > > 
-> > 
-> > I can. The only difference would be that this would loop up to 1000 * timeout
-> > times, instead of 100 times in case reload bit never returns to 0. But that
-> > never happens anyway.
+On 8/12/26 1:22 PM, Krzysztof Kozlowski wrote:
+> On 12/08/2026 12:56, Marek Vasut wrote:
+>> On 8/12/26 12:15 PM, Krzysztof Kozlowski wrote:
+>>> On Wed, Aug 12, 2026 at 02:55:41AM +0200, Marek Vasut wrote:
+>>>> From: Pankaj Dev <pankaj.dev@st.com>
+>>>>
+>>>> Document USB2 PHY for STM32MP25 USB2 controllers, which includes the
+>>>> USB2.0 host-only controller and USB 2.0 part of the DWC3 controller.
+>>>> Two such PHYs in total are present in STM32MP25 SoC, they both are
+>>>> slightly different, therefore they use different compatible string
+>>>
+>>> What is slightly different? This should be either here, or better, in
+>>> "description" part.
+>>
+>> They are both Synopsys FEMTO-PHY , but they are each attached to a
+>> different controller (one to USB 2.0 host , the other to DWC3 DRD) , and
+>> their control bits in the system controller register are different for
+>> each variant.
+>>
+>> I extended the description in V2.
 > 
-> Sorry I don't get the 1000 * timeout
+> Depending on the actual difference, this rather belongs to the phandle
+> to syscon, instead of separate compatible.
 
-If you look at implementation of readl_poll_timeout_atomic() the timeout
-parameter means that readl_poll_timeout_atomic() will do at most timeout * 1000
-thight loops, so minimum timeout is 1000 loops.
+Modeling that in the phandle to syscon won't scale, the PHY driver is 
+simple thus far and does not control all the bits in that syscon, if we 
+were to somehow extend the phandle to syscon to describe the various bit 
+mappings and differences in it, it would look awful quickly. Hence the 
+separate compatible strings, so the driver can match on them, derive 
+match data from them and use the match data to figure out differences of 
+each instance.
 
-> Does the documentation says anything about the duration before the register
-> is cleared ?
-
-Not directly, but for start after stop, manual says to wait at least 2 Tcycles
-(input clock cycles to the timer).
-
-Regards,
-	o.
-
-> > > > +	return -ETIME;
-> > > > +}
-> > > > +
-> > > >    static void sun4i_clkevt_time_stop(void __iomem *base, u8 timer)
-> > > >    {
-> > > > -	u32 val = readl(base + TIMER_CTL_REG(timer));
-> > > > +	u32 val;
-> > > > +
-> > > > +	sun4i_clkevt_wait_reload(base, timer);
-> > > 
-> > > If it fails ?
-> > 
-> > There's not much to do, since sun4i_clkevt_time_stop() does not return anything
-> > anyway and it's used across the file quite extensively. Well, the file is small,
-> > but sun4i_clkevt_time_stop is called in every function exported via timer_of
-> > struct... :)
-> > 
-> > I can rewrite all these functions to report all errors to timer core, but in
-> > practice reload always resets very quickly, and a condition where the loop even
-> > loops happens once every few seconds or so. I doubt anything but return 0
-> > would ever happen anyway. I'd certainly notice, because it would again cause
-> > instant lockup of my e-reader. Maybe I can just return void from
-> > sun4i_clkevt_wait_reload() and not pretend there are errors to report,
-> > instead?
-> IMO, returning void is fine along with a message, may be a WARN as it is
-> really, AFAIU, not supposed to happen. It will be easy for anyone to find
-> out where the issue is coming from
+>>>> to discern them.
+>>>>
+>>>> Signed-off-by: Clément Le Goffic <clement.legoffic@foss.st.com>
+>>>> Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+>>>> Signed-off-by: Marek Vasut <marex@nabladev.com>
+>>>> Signed-off-by: Pankaj Dev <pankaj.dev@st.com>
+>>>> Signed-off-by: Rahul Kumar <rahul.kumar05@st.com>
+>>>
+>>> Incomplete/incorrect DCO chain. Who sends it? Rahul?
+>> This is lifted from the ST downstream kernel fork, it's a combination of
+>> a bunch of commits there and then cleaned up. Pankaj and Fabrice did
+>> most of the downstream work, I did the clean up for upstreaming. I
+>> collected the SoB lines from all the commits from ST downstream fork and
+>> added mine, hence this list. How shall I address this correctly, with
+>> some Co-developed-by tag ? Who gets which tag ?
 > 
+> Everything explained in submitting patches. The SoBs represent the
+> chronological lifecyle of the patch. Person sending the patch is
+> obviously the last one touching. How Rahul could touch the code AFTER
+> you sent it?
+Fixed for all patches in V2, thanks.
 
