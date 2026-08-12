@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99573C5B56A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 17:39:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73EBAC5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 17:39:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1DPxNpNWLzx60d0n22dFdKU+b4l5krj35aor9Qokw2s=; b=TvKDFTEnITb/Z8fwTu5+33De+f
-	rqh/rwC2n0JGyTZ9YCJdRPLnyGFN2HjaAQnS8+WiOyCCSjjvRAr6rEXBMTEbuVKdNAoPH4BvRCAUZ
-	6N0dx81nPUVX8YfrNeVgXOHcyjYvRzUMwDoOltIHn+Kuswd2ulpgJivIdY3W9ydpyokvUdPQegsan
-	S3eARgt/E2t1n2/XeVZMOMEOELtMFbq22dy/49KXe75wjS5z8sqZh9MxIAGZeGSv1EZLUstC/O81G
-	YZDgOVgAFZLbyn88304ovrvAyRfx3kDXU2KMIfU00uv19Ocz4WeZ1eZ+tGBB29ybIL5VGsH+zJvMa
-	xqLP4Ztg==;
+	bh=K3L0urHHnNsCfnXEcfgOe0LXU5kW7y+bZr76ke8Ew2k=; b=iZJRVL8HcbltTxTV76baIgL8Fy
+	+Cx6iBFGcVAK0rp/KJ25pl5Cn1MXX4KIuHG0bPYNCyJko38HO0S8o31z1+xfPlpZkQHk5jxiBU6i0
+	ug5AkCrD4n+CItZ3FHH0aD6QN47lJNJVfu3SEWb7lucUu+/vpIZ/KKNSRC4RkHmLVpmPO3bcKxz/I
+	YpNlfpfX6ZZmzBRMJTkHKOMBhR/5jTlD2HDJq0+ib1YJGDZWApWJz+8bRu5ag4wl3Q8kquXzdorDB
+	jSdttUgI9x3I04gD2U5DBR+Ro/0oPxePNPhyna1rMZGpC0MZ0JqCWe2+KkxaoJ19LyDQda8ZlGDNo
+	3bb+MSig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuCv3-0000000Ggac-0hJA;
+	id 1wuCv3-0000000GgaK-0Dtr;
 	Wed, 12 Aug 2026 17:39:13 +0000
 Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuCuy-0000000GgXv-1Ees
+	id 1wuCuv-0000000GgWZ-1mI3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 17:39:09 +0000
+	Wed, 12 Aug 2026 17:39:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
 	s=20170329; h=Cc:To:Message-Id:Content-Transfer-Encoding:Content-Type:
 	MIME-Version:Subject:Date:From:From:Reply-To;
-	bh=1DPxNpNWLzx60d0n22dFdKU+b4l5krj35aor9Qokw2s=; b=NhHYXlXZ0/e8bImJBziZNYde4j
-	zq5dJEs5/j4l1Y5Wv9WOMEauoklQ0qNmcbpeWU1srOvAnYKeN+7BdvTuq9QRqbyQhcBnthdvME80x
-	IcI35+AVmy9MsCgREl/Y5se/sLvQf+7sINg7AgkujTpI5lUSr0S3qMVwyr46ouBElNBG5uzslcILx
-	2D/o3tqx3Zcwmg+/KcYCOSh+UQvo8pLFvOEL8vyjkMJq3C0vdrlKf1RLd0B3HAZ+Djk7ayMJbocPw
-	th8mpfN1wdXgt68l6XqNgkjUtttc6HnUPI6s/FKIq8DqyUleBtZ0wXkB5vNT2r3/sYjrUKURzqgko
-	WoRqTcdw==;
+	bh=K3L0urHHnNsCfnXEcfgOe0LXU5kW7y+bZr76ke8Ew2k=; b=Jo4DMJXl0SWx6Ua9AoF5TdbGw/
+	0FxRGQpZ4szIgmtll9yW3NB5vIHvKgUM4AAk3m/8flCrg+LSDpraSR2nUdMc74scRrwoV15y9AdxC
+	qHVN9LSuvjiQSAY0AEECP/v9ZmAlZo9iQvPFPgaDgDBSkcHO6vHqFX4v8UIu8jR0FqSPGsIEHKGBR
+	2YoDYg403tdNOeGSEQ3fQu07s0ewGxU/kM/qjhsY+367EWDNc84x3RUbxvsoUJkur0fAO5wP6py80
+	BzPkpmjTj4CjPi8fQ+eIk2K2kKEqgYQqRPguGOl2qJ3kUb3IRSiDnQnbbuzNiGS6jIz9lqxfCPinv
+	zNGK1Kzw==;
 Received: from [177.139.22.20] (helo=[192.168.15.100])
 	by fanzine2.igalia.com with esmtpsa 
 	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
-	id 1wuCur-000FR2-29; Wed, 12 Aug 2026 19:39:01 +0200
+	id 1wuCun-000FR2-MU; Wed, 12 Aug 2026 19:38:57 +0200
 From: =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
-Date: Wed, 12 Aug 2026 14:38:34 -0300
-Subject: [PATCH v5 03/13] scripts/syscall.tbl: Use the common table
+Date: Wed, 12 Aug 2026 14:38:33 -0300
+Subject: [PATCH v5 02/13] syscalls: Create unified partial table for all
+ archs
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260812-tonyk-syscall_table-v5-3-3d383927c609@igalia.com>
+Message-Id: <20260812-tonyk-syscall_table-v5-2-3d383927c609@igalia.com>
 References: <20260812-tonyk-syscall_table-v5-0-3d383927c609@igalia.com>
 In-Reply-To: <20260812-tonyk-syscall_table-v5-0-3d383927c609@igalia.com>
 To: Masami Hiramatsu <mhiramat@kernel.org>, Arnd Bergmanon <arnd@arndb.de>
@@ -58,9 +59,8 @@ Cc: linux-kernel@vger.kernel.org, linux-kbuild@vger.kernel.org,
  =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_103908_523045_9949088B 
-X-CRM114-Status: UNSURE (   7.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260812_103905_636771_CB8B85AD 
+X-CRM114-Status: GOOD (  16.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,202 +75,302 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove some of the duplicated code by using the common syscall number
-table.
+To take advantage of the subset of syscall numbers that are guaranteed to
+be shared, create a new table and adapt generation scripts to use it. In
+that way, every new syscall can be added to a single file.
+
+Create special ABIs in order to make the table work for different archs:
+
+ - `clone3` for archs that use the common clone3 entry
+ - `__clone3` for archs that use their own special entry point
+
+Create flags for syscall Makefiles to use the common table.
 
 Signed-off-by: André Almeida <andrealmeid@igalia.com>
 ---
- arch/arm64/tools/syscall_32.tbl | 68 -----------------------------------------
- scripts/Makefile.asm-headers    |  9 +++---
- scripts/syscall.tbl             | 68 -----------------------------------------
- 3 files changed, 5 insertions(+), 140 deletions(-)
+ scripts/syscall_common.tbl | 83 ++++++++++++++++++++++++++++++++++++++++++++++
+ scripts/syscallhdr.sh      | 60 +++++++++++++++++++++++++--------
+ scripts/syscalltbl.sh      | 29 ++++++++++++----
+ 3 files changed, 152 insertions(+), 20 deletions(-)
 
-diff --git a/arch/arm64/tools/syscall_32.tbl b/arch/arm64/tools/syscall_32.tbl
-index 62d93d88e0fe..957cb7d59443 100644
---- a/arch/arm64/tools/syscall_32.tbl
-+++ b/arch/arm64/tools/syscall_32.tbl
-@@ -415,71 +415,3 @@
- 400	common	migrate_pages		sys_migrate_pages
- 401	common	kexec_file_load		sys_kexec_file_load
- # 402 is unused
--403	common	clock_gettime64			sys_clock_gettime
--404	common	clock_settime64			sys_clock_settime
--405	common	clock_adjtime64			sys_clock_adjtime
--406	common	clock_getres_time64		sys_clock_getres
--407	common	clock_nanosleep_time64		sys_clock_nanosleep
--408	common	timer_gettime64			sys_timer_gettime
--409	common	timer_settime64			sys_timer_settime
--410	common	timerfd_gettime64		sys_timerfd_gettime
--411	common	timerfd_settime64		sys_timerfd_settime
--412	common	utimensat_time64		sys_utimensat
--413	common	pselect6_time64			sys_pselect6			compat_sys_pselect6_time64
--414	common	ppoll_time64			sys_ppoll			compat_sys_ppoll_time64
--416	common	io_pgetevents_time64		sys_io_pgetevents		compat_sys_io_pgetevents_time64
--417	common	recvmmsg_time64			sys_recvmmsg			compat_sys_recvmmsg_time64
--418	common	mq_timedsend_time64		sys_mq_timedsend
--419	common	mq_timedreceive_time64		sys_mq_timedreceive
--420	common	semtimedop_time64		sys_semtimedop
--421	common	rt_sigtimedwait_time64		sys_rt_sigtimedwait		compat_sys_rt_sigtimedwait_time64
--422	common	futex_time64			sys_futex
--423	common	sched_rr_get_interval_time64	sys_sched_rr_get_interval
--424	common	pidfd_send_signal		sys_pidfd_send_signal
--425	common	io_uring_setup			sys_io_uring_setup
--426	common	io_uring_enter			sys_io_uring_enter
--427	common	io_uring_register		sys_io_uring_register
--428	common	open_tree			sys_open_tree
--429	common	move_mount			sys_move_mount
--430	common	fsopen				sys_fsopen
--431	common	fsconfig			sys_fsconfig
--432	common	fsmount				sys_fsmount
--433	common	fspick				sys_fspick
--434	common	pidfd_open			sys_pidfd_open
--435	common	clone3				sys_clone3
--436	common	close_range			sys_close_range
--437	common	openat2				sys_openat2
--438	common	pidfd_getfd			sys_pidfd_getfd
--439	common	faccessat2			sys_faccessat2
--440	common	process_madvise			sys_process_madvise
--441	common	epoll_pwait2			sys_epoll_pwait2		compat_sys_epoll_pwait2
--442	common	mount_setattr			sys_mount_setattr
--443	common	quotactl_fd			sys_quotactl_fd
--444	common	landlock_create_ruleset		sys_landlock_create_ruleset
--445	common	landlock_add_rule		sys_landlock_add_rule
--446	common	landlock_restrict_self		sys_landlock_restrict_self
--# 447 reserved for memfd_secret
--448	common	process_mrelease		sys_process_mrelease
--449	common	futex_waitv			sys_futex_waitv
--450	common	set_mempolicy_home_node		sys_set_mempolicy_home_node
--451	common	cachestat			sys_cachestat
--452	common	fchmodat2			sys_fchmodat2
--453	common	map_shadow_stack		sys_map_shadow_stack
--454	common	futex_wake			sys_futex_wake
--455	common	futex_wait			sys_futex_wait
--456	common	futex_requeue			sys_futex_requeue
--457	common	statmount			sys_statmount
--458	common	listmount			sys_listmount
--459	common	lsm_get_self_attr		sys_lsm_get_self_attr
--460	common	lsm_set_self_attr		sys_lsm_set_self_attr
--461	common	lsm_list_modules		sys_lsm_list_modules
--462	common	mseal				sys_mseal
--463	common	setxattrat			sys_setxattrat
--464	common	getxattrat			sys_getxattrat
--465	common	listxattrat			sys_listxattrat
--466	common	removexattrat			sys_removexattrat
--467	common	open_tree_attr			sys_open_tree_attr
--468	common	file_getattr			sys_file_getattr
--469	common	file_setattr			sys_file_setattr
--470	common	listns				sys_listns
--471	common	rseq_slice_yield		sys_rseq_slice_yield
-diff --git a/scripts/Makefile.asm-headers b/scripts/Makefile.asm-headers
-index 8a4856e74180..681713f240cc 100644
---- a/scripts/Makefile.asm-headers
-+++ b/scripts/Makefile.asm-headers
-@@ -15,9 +15,10 @@ all:
+diff --git a/scripts/syscall_common.tbl b/scripts/syscall_common.tbl
+new file mode 100644
+index 000000000000..81e326a8172f
+--- /dev/null
++++ b/scripts/syscall_common.tbl
+@@ -0,0 +1,83 @@
++# SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note
++#
++# syscall numbers shared by all architectures
++#
++# The format is:
++# <number> <abi> <name> <entry point> [<compat entry point> [noreturn]]
++#
++# The abi can be "32", "clone3", "__cln3" and "memfd_secret"
++#
++# clone3 stands for the common clone3 entry, used by most archs. Some archs have
++# their special entry and should use "__clone3".
++#
++# "memfd_secret" is not implemented by every architecture
++
++403	32	clock_gettime64			sys_clock_gettime
++404	32	clock_settime64			sys_clock_settime
++405	32	clock_adjtime64			sys_clock_adjtime
++406	32	clock_getres_time64		sys_clock_getres
++407	32	clock_nanosleep_time64		sys_clock_nanosleep
++408	32	timer_gettime64			sys_timer_gettime
++409	32	timer_settime64			sys_timer_settime
++410	32	timerfd_gettime64		sys_timerfd_gettime
++411	32	timerfd_settime64		sys_timerfd_settime
++412	32	utimensat_time64		sys_utimensat
++413	32	pselect6_time64			sys_pselect6			compat_sys_pselect6_time64
++414	32	ppoll_time64			sys_ppoll			compat_sys_ppoll_time64
++416	32	io_pgetevents_time64		sys_io_pgetevents		compat_sys_io_pgetevents_time64
++417	32	recvmmsg_time64			sys_recvmmsg			compat_sys_recvmmsg_time64
++418	32	mq_timedsend_time64		sys_mq_timedsend
++419	32	mq_timedreceive_time64		sys_mq_timedreceive
++420	32	semtimedop_time64		sys_semtimedop
++421	32	rt_sigtimedwait_time64		sys_rt_sigtimedwait		compat_sys_rt_sigtimedwait_time64
++422	32	futex_time64			sys_futex
++423	32	sched_rr_get_interval_time64	sys_sched_rr_get_interval
++424	common	pidfd_send_signal		sys_pidfd_send_signal
++425	common	io_uring_setup			sys_io_uring_setup
++426	common	io_uring_enter			sys_io_uring_enter
++427	common	io_uring_register		sys_io_uring_register
++428	common	open_tree			sys_open_tree
++429	common	move_mount			sys_move_mount
++430	common	fsopen				sys_fsopen
++431	common	fsconfig			sys_fsconfig
++432	common	fsmount				sys_fsmount
++433	common	fspick				sys_fspick
++434	common	pidfd_open			sys_pidfd_open
++435	clone3	clone3				sys_clone3
++435	__clone3	clone3			__sys_clone3
++436	common	close_range			sys_close_range
++437	common	openat2				sys_openat2
++438	common	pidfd_getfd			sys_pidfd_getfd
++439	common	faccessat2			sys_faccessat2
++440	common	process_madvise			sys_process_madvise
++441	common	epoll_pwait2			sys_epoll_pwait2		compat_sys_epoll_pwait2
++442	common	mount_setattr			sys_mount_setattr
++443	common	quotactl_fd			sys_quotactl_fd
++444	common	landlock_create_ruleset		sys_landlock_create_ruleset
++445	common	landlock_add_rule		sys_landlock_add_rule
++446	common	landlock_restrict_self		sys_landlock_restrict_self
++447	memfd_secret	memfd_secret		sys_memfd_secret
++448	common	process_mrelease		sys_process_mrelease
++449	common	futex_waitv			sys_futex_waitv
++450	common	set_mempolicy_home_node		sys_set_mempolicy_home_node
++451	common	cachestat			sys_cachestat
++452	common	fchmodat2			sys_fchmodat2
++453	common	map_shadow_stack		sys_map_shadow_stack
++454	common	futex_wake			sys_futex_wake
++455	common	futex_wait			sys_futex_wait
++456	common	futex_requeue			sys_futex_requeue
++457	common	statmount			sys_statmount
++458	common	listmount			sys_listmount
++459	common	lsm_get_self_attr		sys_lsm_get_self_attr
++460	common	lsm_set_self_attr		sys_lsm_set_self_attr
++461	common	lsm_list_modules		sys_lsm_list_modules
++462	common	mseal				sys_mseal
++463	common	setxattrat			sys_setxattrat
++464	common	getxattrat			sys_getxattrat
++465	common	listxattrat			sys_listxattrat
++466	common	removexattrat			sys_removexattrat
++467	common	open_tree_attr			sys_open_tree_attr
++468	common	file_getattr			sys_file_getattr
++469	common	file_setattr			sys_file_setattr
++470	common	listns				sys_listns
++471	common	rseq_slice_yield		sys_rseq_slice_yield
+diff --git a/scripts/syscallhdr.sh b/scripts/syscallhdr.sh
+index bad1ab606a0f..54e09d3e686c 100755
+--- a/scripts/syscallhdr.sh
++++ b/scripts/syscallhdr.sh
+@@ -16,7 +16,7 @@
+ set -e
  
- src := $(srctree)/$(subst /generated,,$(obj))
+ usage() {
+-	echo >&2 "usage: $0 [--abis ABIS] [--emit-nr] [--offset OFFSET] [--prefix PREFIX] INFILE OUTFILE" >&2
++	echo >&2 "usage: $0 [--abis ABIS] [--emit-nr] [--offset OFFSET] [--prefix PREFIX] [--common-tbl PATH] INFILE OUTFILE" >&2
+ 	echo >&2
+ 	echo >&2 "  INFILE    input syscall table"
+ 	echo >&2 "  OUTFILE   output header file"
+@@ -26,6 +26,7 @@ usage() {
+ 	echo >&2 "  --emit-nr          Emit the macro of the number of syscalls (__NR_syscalls)"
+ 	echo >&2 "  --offset OFFSET    The offset of syscall numbers"
+ 	echo >&2 "  --prefix PREFIX    The prefix to the macro like __NR_<PREFIX><NAME>"
++	echo >&2 "  --common-tbl PATH  Use the common number table"
+ 	exit 1
+ }
  
--syscall_abis_32  += common,32
--syscall_abis_64  += common,64
-+syscall_abis_32  += clone3,common,32
-+syscall_abis_64  += clone3,common,64
- syscalltbl := $(srctree)/scripts/syscall.tbl
-+syscalltbl_common := $(srctree)/scripts/syscall_common.tbl
- syshdr-args := --emit-nr
+@@ -34,6 +35,8 @@ abis=
+ emit_nr=
+ offset=
+ prefix=
++common_tbl=
++common_tbl_path=
  
- # let architectures override $(syscall_abis_%) and $(syscalltbl)
-@@ -58,14 +59,14 @@ quiet_cmd_remove = REMOVE  $(unwanted)
-       cmd_remove = rm -f $(unwanted)
+ while [ $# -gt 0 ]
+ do
+@@ -50,6 +53,10 @@ do
+ 	--prefix)
+ 		prefix=$2
+ 		shift 2;;
++	--common-tbl)
++		common_tbl=1
++		common_tbl_path=$2
++		shift 2;;
+ 	-*)
+ 		echo "$1: unknown option" >&2
+ 		usage;;
+@@ -69,13 +76,33 @@ guard=_UAPI_ASM_$(basename "$outfile" |
+ 	sed -e 'y/abcdefghijklmnopqrstuvwxyz/ABCDEFGHIJKLMNOPQRSTUVWXYZ/' \
+ 	-e 's/[^A-Z0-9_]/_/g' -e 's/__/_/g')
  
- quiet_cmd_syshdr = SYSHDR  $@
--      cmd_syshdr = $(CONFIG_SHELL) $(syshdr) \
-+      cmd_syshdr = $(CONFIG_SHELL) $(syshdr) --common-tbl $(syscalltbl_common) \
- 		   $(if $(syshdr-args-$*),$(syshdr-args-$*),$(syshdr-args)) \
- 		   $(if $(syscall_compat),--prefix "compat$*_") \
- 		   --abis $(subst $(space),$(comma),$(strip $(syscall_abis_$*))) \
- 		   $< $@
+-grep -E "^[0-9A-Fa-fXx]+[[:space:]]+$abis" "$infile" | {
++emit_start_guard() {
+ 	echo "#ifndef $guard"
+ 	echo "#define $guard"
+ 	echo
++}
++
++# emit_nr(prefix, nr)
++emit_nr() {
++	local nr=$1
++	local prefix=$2
++	echo
++	echo "#ifdef __KERNEL__"
++	echo "#define __NR_${prefix}syscalls $nr"
++	echo "#endif"
++}
++
++emit_end_guard() {
++	echo
++	echo "#endif /* $guard */"
++}
++
++max=0
++# gen_hdr(infile)
++gen_hdr() {
++	input=$1
  
- quiet_cmd_systbl = SYSTBL  $@
--      cmd_systbl = $(CONFIG_SHELL) $(systbl) \
-+      cmd_systbl = $(CONFIG_SHELL) $(systbl) --common-tbl $(syscalltbl_common) \
- 		   $(if $(systbl-args-$*),$(systbl-args-$*),$(systbl-args)) \
- 		   --abis $(subst $(space),$(comma),$(strip $(syscall_abis_$*))) \
- 		   $< $@
-diff --git a/scripts/syscall.tbl b/scripts/syscall.tbl
-index 7a42b32b6577..ee828d03094e 100644
---- a/scripts/syscall.tbl
-+++ b/scripts/syscall.tbl
-@@ -344,71 +344,3 @@
- 293	common	rseq				sys_rseq
- 294	common	kexec_file_load			sys_kexec_file_load
- # 295 through 402 are unassigned to sync up with generic numbers don't use
--403	32	clock_gettime64			sys_clock_gettime
--404	32	clock_settime64			sys_clock_settime
--405	32	clock_adjtime64			sys_clock_adjtime
--406	32	clock_getres_time64		sys_clock_getres
--407	32	clock_nanosleep_time64		sys_clock_nanosleep
--408	32	timer_gettime64			sys_timer_gettime
--409	32	timer_settime64			sys_timer_settime
--410	32	timerfd_gettime64		sys_timerfd_gettime
--411	32	timerfd_settime64		sys_timerfd_settime
--412	32	utimensat_time64		sys_utimensat
--413	32	pselect6_time64			sys_pselect6			compat_sys_pselect6_time64
--414	32	ppoll_time64			sys_ppoll			compat_sys_ppoll_time64
--416	32	io_pgetevents_time64		sys_io_pgetevents		compat_sys_io_pgetevents_time64
--417	32	recvmmsg_time64			sys_recvmmsg			compat_sys_recvmmsg_time64
--418	32	mq_timedsend_time64		sys_mq_timedsend
--419	32	mq_timedreceive_time64		sys_mq_timedreceive
--420	32	semtimedop_time64		sys_semtimedop
--421	32	rt_sigtimedwait_time64		sys_rt_sigtimedwait		compat_sys_rt_sigtimedwait_time64
--422	32	futex_time64			sys_futex
--423	32	sched_rr_get_interval_time64	sys_sched_rr_get_interval
--424	common	pidfd_send_signal		sys_pidfd_send_signal
--425	common	io_uring_setup			sys_io_uring_setup
--426	common	io_uring_enter			sys_io_uring_enter
--427	common	io_uring_register		sys_io_uring_register
--428	common	open_tree			sys_open_tree
--429	common	move_mount			sys_move_mount
--430	common	fsopen				sys_fsopen
--431	common	fsconfig			sys_fsconfig
--432	common	fsmount				sys_fsmount
--433	common	fspick				sys_fspick
--434	common	pidfd_open			sys_pidfd_open
--435	common	clone3				sys_clone3
--436	common	close_range			sys_close_range
--437	common	openat2				sys_openat2
--438	common	pidfd_getfd			sys_pidfd_getfd
--439	common	faccessat2			sys_faccessat2
--440	common	process_madvise			sys_process_madvise
--441	common	epoll_pwait2			sys_epoll_pwait2		compat_sys_epoll_pwait2
--442	common	mount_setattr			sys_mount_setattr
--443	common	quotactl_fd			sys_quotactl_fd
--444	common	landlock_create_ruleset		sys_landlock_create_ruleset
--445	common	landlock_add_rule		sys_landlock_add_rule
--446	common	landlock_restrict_self		sys_landlock_restrict_self
--447	memfd_secret	memfd_secret		sys_memfd_secret
--448	common	process_mrelease		sys_process_mrelease
--449	common	futex_waitv			sys_futex_waitv
--450	common	set_mempolicy_home_node		sys_set_mempolicy_home_node
--451	common	cachestat			sys_cachestat
--452	common	fchmodat2			sys_fchmodat2
--453	common	map_shadow_stack		sys_map_shadow_stack
--454	common	futex_wake			sys_futex_wake
--455	common	futex_wait			sys_futex_wait
--456	common	futex_requeue			sys_futex_requeue
--457	common	statmount			sys_statmount
--458	common	listmount			sys_listmount
--459	common	lsm_get_self_attr		sys_lsm_get_self_attr
--460	common	lsm_set_self_attr		sys_lsm_set_self_attr
--461	common	lsm_list_modules		sys_lsm_list_modules
--462	common	mseal				sys_mseal
--463	common	setxattrat			sys_setxattrat
--464	common	getxattrat			sys_getxattrat
--465	common	listxattrat			sys_listxattrat
--466	common	removexattrat			sys_removexattrat
--467	common	open_tree_attr			sys_open_tree_attr
--468	common	file_getattr			sys_file_getattr
--469	common	file_setattr			sys_file_setattr
--470	common	listns				sys_listns
--471	common	rseq_slice_yield		sys_rseq_slice_yield
+-	max=0
+-	while read nr abi name native compat ; do
++	while read nr abi name native compat; do
+ 
+ 		max=$nr
+ 
+@@ -84,15 +111,20 @@ grep -E "^[0-9A-Fa-fXx]+[[:space:]]+$abis" "$infile" | {
+ 		fi
+ 
+ 		echo "#define __NR_$prefix$name $nr"
+-	done
+ 
+-	if [ -n "$emit_nr" ]; then
+-		echo
+-		echo "#ifdef __KERNEL__"
+-		echo "#define __NR_${prefix}syscalls $(($max + 1))"
+-		echo "#endif"
+-	fi
++	done < <(grep -E "^[0-9A-Fa-fXx]+[[:space:]]+$abis" "$input")
++}
+ 
+-	echo
+-	echo "#endif /* $guard */"
+-} > "$outfile"
++emit_start_guard > $outfile
++
++gen_hdr $infile >> $outfile
++
++if [ -n "$common_tbl" ]; then
++	gen_hdr $common_tbl_path  >> "$outfile"
++fi
++
++if [ -n "$emit_nr" ]; then
++	emit_nr $(($max + 1)) $prefix >> $outfile
++fi
++
++emit_end_guard >> $outfile
+diff --git a/scripts/syscalltbl.sh b/scripts/syscalltbl.sh
+index c4b1f85c2dd6..91c135143b22 100755
+--- a/scripts/syscalltbl.sh
++++ b/scripts/syscalltbl.sh
+@@ -16,18 +16,21 @@
+ set -e
+ 
+ usage() {
+-	echo >&2 "usage: $0 [--abis ABIS] INFILE OUTFILE" >&2
++	echo >&2 "usage: $0 [--abis ABIS] [--common-tbl PATH] INFILE OUTFILE" >&2
+ 	echo >&2
+ 	echo >&2 "  INFILE    input syscall table"
+ 	echo >&2 "  OUTFILE   output header file"
+ 	echo >&2
+ 	echo >&2 "options:"
+ 	echo >&2 "  --abis ABIS        ABI(s) to handle (By default, all lines are handled)"
++	echo >&2 "  --common-tbl PATH  Use the common syscall number table"
+ 	exit 1
+ }
+ 
+ # default unless specified by options
+ abis=
++common_tbl=
++common_tbl_path=
+ 
+ while [ $# -gt 0 ]
+ do
+@@ -35,6 +38,10 @@ do
+ 	--abis)
+ 		abis="($(echo "${2%,}" | tr ',' '|'))"
+ 		shift 2;;
++	--common-tbl)
++		common_tbl=1
++		common_tbl_path=$2
++		shift 2;;
+ 	-*)
+ 		echo "$1: unknown option" >&2
+ 		usage;;
+@@ -52,12 +59,14 @@ outfile="$2"
+ 
+ nxt=0
+ 
+-grep -E "^[0-9]+[[:space:]]+$abis" "$infile" | {
++# gen_tbl(infile)
++gen_tbl() {
++	input=$1
+ 
+ 	while read nr abi name native compat noreturn; do
+ 
+ 		if [ $nxt -gt $nr ]; then
+-			echo "error: $infile: syscall table is not sorted or duplicates the same syscall number" >&2
++			echo "error: $input: syscall table is not sorted or duplicates the same syscall number" >&2
+ 			exit 1
+ 		fi
+ 
+@@ -72,7 +81,7 @@ grep -E "^[0-9]+[[:space:]]+$abis" "$infile" | {
+ 
+ 		if [ -n "$noreturn" ]; then
+ 			if [ "$noreturn" != "noreturn" ]; then
+-				echo "error: $infile: invalid string \"$noreturn\" in 'noreturn' column"
++				echo "error: $input: invalid string \"$noreturn\" in 'noreturn' column"
+ 				exit 1
+ 			fi
+ 			if [ -n "$compat" ]; then
+@@ -88,5 +97,13 @@ grep -E "^[0-9]+[[:space:]]+$abis" "$infile" | {
+ 			echo "__SYSCALL($nr, sys_ni_syscall)"
+ 		fi
+ 		nxt=$((nr + 1))
+-	done
+-} > "$outfile"
++
++	done < <(grep -E "^[0-9]+[[:space:]]+$abis" "$input")
++
++}
++
++gen_tbl $infile  > "$outfile"
++
++if [ -n "$common_tbl" ]; then
++	gen_tbl $common_tbl_path >> "$outfile"
++fi
 
 -- 
 2.55.0
