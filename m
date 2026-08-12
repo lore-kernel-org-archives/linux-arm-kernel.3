@@ -4,50 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7D15C5B56A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 09:27:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C3DEC5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 09:27:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nro8Z0P34FiLOz9GekJpKeBnvOZx/XL2v+1wurWV7cA=; b=ekytZB5jm7tm9BWeV6qN44usSs
-	9C4tsqBOjYVDN5WZJq3Om2gHBO7cIZb9RSphWmOhUE6r+Y7TR24Ihcyxu0YSJwFiyP3mkse8T3Lit
-	Pc5f3ab27D3fOhR6WflZcaNm/dlEZghuwge3E+gLS+8SDuGndImOm1jUci2woO7hHSSoZ8bPd/dQb
-	mmQIPY5dyJ6Cub43OmLOUHaGx6X/VYEIve0i6rChCl327/6GMC3xY78v6Umutw7s5vni5HlUyt/0v
-	lI97BUasbb/mgeJKa4qPPWDau41yTnlRGvGVfCbhfrAQVNZS2NQQ4nWmJ6AhhI2rnoka5t4/eQyQC
-	t3k1IKIg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=f9AVvI/rzO1xlw04zuQKTwjeDA+3NqKNZVc0uqJpvu8=; b=wwGO8GTAWzJagZ
+	tLAYFbD4GpdjHfxD8eJ/Ojfiz6RkC+bxNxEA70zcROV9MA7ldQDLQ7YCf3rRTa/UkSYIl1yoc2W85
+	xGpzoSk39oK1Ravza9wZ0p09juKSv7tdAn87UGuzbCjNhOeEpoil2e7LHRVoshUf4317/m752D5Pc
+	hzB8smu/rgDbzube4Xt4vuWz1qTg19nK9Z2mnUJFPmcOd187+rF01gPRpCVF6qPKCQkmONmgjA+Wo
+	aaX3SiOMw0qsOvnUscEqfDQz6q0b7BAtExqSqOtfGrqdXbCpiDtQkR9zFsTHKJ5CvM2BaEQGRLMue
+	u3dK5wdcTNtLgQCdjDGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu5EW-0000000Fk97-2j0P;
-	Wed, 12 Aug 2026 09:26:48 +0000
+	id 1wu5Ea-0000000FkA6-49x2;
+	Wed, 12 Aug 2026 09:26:53 +0000
 Received: from chaosmail.tech ([77.81.229.115])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu5ET-0000000Fk73-2TTW
+	id 1wu5ET-0000000Fk72-2dzy
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 12 Aug 2026 09:26:47 +0000
-Received: by chaosmail.tech (Postfix) id 525731CBF49;
-	Wed, 12 Aug 2026 09:26:39 +0000 (UTC)
+Received: by chaosmail.tech (Postfix) id 9D3AB1CBF47;
+	Wed, 12 Aug 2026 09:26:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chaosmail.tech;
-	s=mail; t=1786526800;
+	s=mail; t=1786526798;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=nro8Z0P34FiLOz9GekJpKeBnvOZx/XL2v+1wurWV7cA=;
-	b=rNr92pCXZ4vaNHvd/VvNbi8vEEEZ3ebtgTRqb6Do2t648LZgznF9JJUUNnC5m9UWjAtvmI
-	reQKn2wbKf6mAcmcaVri19JyTPXGzJ/wyvbXsuRotoF9a6zHTdYd0J9DbAYNm4LhdjDEwu
-	U+H4jz6hLeV/Vw8kP8p6DIHIyNPqIZQ=
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=f9AVvI/rzO1xlw04zuQKTwjeDA+3NqKNZVc0uqJpvu8=;
+	b=ZWIqQpVtS+Atl0Z/sP2B6O3bEQ4MDdjCKBnSy54gc7qKXk28Msr6airV21WeLNnb1YK9Nq
+	AU8lD3kUziZhCahn4xPAu7Q8HxkZenQjs1HvbIiYhdw+vC7e7SeyOChsupHArvPQxXQQ6u
+	dgGAW0z5VSOGMHMyZFyV5xTzyQjqe7w=
 From: Sasha Finkelstein <k@chaosmail.tech>
-Date: Wed, 12 Aug 2026 11:26:34 +0200
-Subject: [PATCH v3 2/2] dmaengine: apple-admac: Add M3 generation ADMACs
+Subject: [PATCH v3 0/2] dmaengine: apple-admac: Add support for M3
+ generation
+Date: Wed, 12 Aug 2026 11:26:32 +0200
+Message-Id: <20260812-t603x-admac-v3-0-d1f137f803e1@chaosmail.tech>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260812-t603x-admac-v3-2-d1f137f803e1@chaosmail.tech>
-References: <20260812-t603x-admac-v3-0-d1f137f803e1@chaosmail.tech>
-In-Reply-To: <20260812-t603x-admac-v3-0-d1f137f803e1@chaosmail.tech>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/23OQQ6CMBAF0KuQrq0pQynRlfcwLqZlkBoR09YGQ
+ 7i7LW40uvzJn/dnZp6cJc/2xcwcRevteEuh2hTM9Hg7E7dtygwEKNFAzYMS1cSxHdBwLLVoEIz
+ RtWTp4u6os9OqHU/v7B/6QiZkIjd668PonutcLHPvvxxLLrhC2ZIRUHUCDumb0Q9or9tApmeZj
+ /AJ7L4BSABJDVorg7KmH2BZlhc1I2lU/gAAAA==
+X-Change-ID: 20260725-t603x-admac-a1b07a2ccb54
 To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
  Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -55,17 +58,19 @@ To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
  =?utf-8?q?Martin_Povi=C5=A1er?= <povik+lin@cutebit.org>
 Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  dmaengine@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Sasha Finkelstein <k@chaosmail.tech>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1786526797; l=2761;
+ linux-kernel@vger.kernel.org, Sasha Finkelstein <k@chaosmail.tech>, 
+ Joshua Peisach <jpeisach@ubuntu.com>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1786526797; l=1162;
  i=k@chaosmail.tech; s=20241124; h=from:subject:message-id;
- bh=iqpgnXjoJctug1BS/CGLHHYEeWe15yGKDUxQ6dH13qQ=;
- b=2rnOo8+wzdSbWJ7P2hhJ5HESQh4EKmOYckNlJHriSClRw8ejfOfqy9vaxCGXEFiQRq/qszbJe
- 1+LQAp1QFd3BSfFKFaoMohjBztDe0TgTVf4rhdu2P8rq0l5Hspsggs2
+ bh=3u3QE19SmPpO/aRh7YhNURUWTLddt0t0CS44cHgFr3U=;
+ b=SPFkVGKOfj9cw1v+THOzC4ymtBZRhIOgNqarJLO50npnORVat3BScv3f+tPc2d0rpKu3Etv+M
+ 6DpKVn4jhJuCsm3YtGfKtA7b5DJhELa7pB0Hr6Z8G/vwnTaAPjqo3K0
 X-Developer-Key: i=k@chaosmail.tech; a=ed25519;
  pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_022646_100070_07A44B76 
-X-CRM114-Status: GOOD (  14.29  )
+X-CRM114-CacheID: sfid-20260812_022646_098348_53CD5485 
+X-CRM114-Status: UNSURE (   9.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,98 +85,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The admacs present on t8122 and t603x SoCs need additional writes in
-order to operate correctly. The exact purpose of this register
-is unknown
+The ADMACs present in M3 series devices (t8122 and t603x SoCs) need
+additional register writes in order to function correctly. Add a new
+compatible chain for those, and change the driver to do the write.
+
+To simplify the merge strategy, the device tree entries will be sent
+in a future patch series.
 
 Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
 ---
- drivers/dma/apple-admac.c | 23 +++++++++++++++++++++++
- 1 file changed, 23 insertions(+)
+Changes in v3:
+- Use t8013 hw data as default
+- Link to v2: https://patch.msgid.link/20260729-t603x-admac-v2-0-e4b2bb6ca45e@chaosmail.tech
 
-diff --git a/drivers/dma/apple-admac.c b/drivers/dma/apple-admac.c
-index 14a5ee14a481..fd6236c7c024 100644
---- a/drivers/dma/apple-admac.c
-+++ b/drivers/dma/apple-admac.c
-@@ -39,10 +39,14 @@
- 
- #define FLAG_DESC_NOTIFY	BIT(16)
- 
-+#define T8122_UNK_28_VAL	0x200000
-+
- #define REG_TX_START		0x0000
- #define REG_TX_STOP		0x0004
- #define REG_RX_START		0x0008
- #define REG_RX_STOP		0x000c
-+#define REG_UNK_28		0x0028
-+#define REG_UNK_2C		0x002c
- #define REG_IMPRINT		0x0090
- #define REG_TX_SRAM_SIZE	0x0094
- #define REG_RX_SRAM_SIZE	0x0098
-@@ -127,6 +131,7 @@ struct admac_data {
- 	struct mutex cache_alloc_lock;
- 	struct admac_sram txcache, rxcache;
- 
-+	bool set_unk28;
- 	int irq;
- 	int irq_index;
- 	int nchannels;
-@@ -147,6 +152,10 @@ struct admac_tx {
- 	struct list_head node;
- };
- 
-+struct admac_hw {
-+	bool set_unk28;
-+};
-+
- static int admac_alloc_sram_carveout(struct admac_data *ad,
- 				     enum dma_transfer_direction dir,
- 				     u32 *out)
-@@ -747,6 +756,11 @@ static int admac_device_config(struct dma_chan *chan,
- 	u32 bus_width = readl_relaxed(ad->base + REG_BUS_WIDTH(adchan->no)) &
- 		~(BUS_WIDTH_WORD_SIZE | BUS_WIDTH_FRAME_SIZE);
- 
-+	if (ad->set_unk28) {
-+		writel_relaxed(T8122_UNK_28_VAL, ad->base + REG_UNK_28);
-+		writel_relaxed(T8122_UNK_28_VAL, ad->base + REG_UNK_2C);
-+	}
-+
- 	switch (is_tx ? config->dst_addr_width : config->src_addr_width) {
- 	case DMA_SLAVE_BUSWIDTH_1_BYTE:
- 		wordsize = 1;
-@@ -805,6 +819,7 @@ static int admac_probe(struct platform_device *pdev)
- 	struct device_node *np = pdev->dev.of_node;
- 	struct admac_data *ad;
- 	struct dma_device *dma;
-+	const struct admac_hw *hw;
- 	int nchannels;
- 	int err, irq, i;
- 
-@@ -822,6 +837,9 @@ static int admac_probe(struct platform_device *pdev)
- 	ad->dev = &pdev->dev;
- 	ad->nchannels = nchannels;
- 	mutex_init(&ad->cache_alloc_lock);
-+	hw = of_device_get_match_data(&pdev->dev);
-+	if (hw)
-+		ad->set_unk28 = hw->set_unk28;
- 
- 	/*
- 	 * The controller has 4 IRQ outputs. Try them all until
-@@ -935,7 +953,12 @@ static void admac_remove(struct platform_device *pdev)
- 	reset_control_rearm(ad->rstc);
- }
- 
-+static const struct admac_hw admac_t8122_hw = {
-+	.set_unk28 = true,
-+};
-+
- static const struct of_device_id admac_of_match[] = {
-+	{ .compatible = "apple,t8122-admac", .data = &admac_t8122_hw },
- 	{ .compatible = "apple,t8103-admac", },
- 	{ .compatible = "apple,admac", },
- 	{ }
+Changes in v2:
+- Typo fix
+- Link to v1: https://patch.msgid.link/20260725-t603x-admac-v1-0-6a4dec023f02@chaosmail.tech
 
--- 
-2.55.0
+---
+Sasha Finkelstein (2):
+      dt-bindings: dma: apple,admac: Add M3 generation ADMACs
+      dmaengine: apple-admac: Add M3 generation ADMACs
+
+ Documentation/devicetree/bindings/dma/apple,admac.yaml | 10 ++++++++--
+ drivers/dma/apple-admac.c                              | 23 +++++++++++++++++++++++
+ 2 files changed, 31 insertions(+), 2 deletions(-)
+---
+base-commit: 0ce37745d4bfbc493f718169c3974898ffec8ee7
+change-id: 20260725-t603x-admac-a1b07a2ccb54
+
+Best regards,
+--  
+Sasha Finkelstein <k@chaosmail.tech>
 
 
