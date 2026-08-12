@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA61DC5DF61
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEA76C5DF66
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 15:37:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,72 +12,72 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aaAObDlEPyOkMHd+7Cm8L/rvLRRZcLQUEVCbbkCwFzI=; b=pu82KXPwVs7QPV8/H2ZtL+MtvC
-	sbiSjpXfxmGMsR+L/d9OeGc5Tu136zr57M7lVkRrQoLuqujOp7cOWZnFtTeoZ/XjWmx3XgbefRhik
-	tYaiMYm/fOEGfmXQuvF58NZXIZ+7kUyEckCDlIvcmrXnN9THuG5nvyNMNVAkGd6jv5DMyp5QcPJhv
-	rzgXEO6qrNkeLnFz0mMkv5jTONvumpUbjLUTpf5NtEN9JLKp4r/e+XayKPxSSRqH1QKqWtJAmuG4p
-	YbA7KIJ/d5CpUhWYjc41XXv/GAa0rST7EhHsTRa1u0uQN6LdZvZhDVXqQcCS7SRvuQ3mp9EsGWXfX
-	Aa6CRkyg==;
+	bh=eGPgAnjtKT6ftTAM6aOkUfJetBSRY7Y8hfEs8FIUvWE=; b=Bjm9XEqslWeqbBitXtL1Hy49en
+	YDvOgUV5wOXchi4SyZIdU35bGwwHCo7XgjU/Pi8uQgoovlJDq46iPfRvTqCcSZ9wE3Yaz9uxGXakY
+	5mqykabmC2bKGv5qBQuXkcTBa63bj29ZpP0QPXew0tmTdm2EyGpkJcKS1x6GOX44+t3JSOJAsO1q0
+	PWB555YrwTxCJbj8r4ftxO9nzWykG4KHKW/kxw2dn37K10Fnj8nW4YBFdsTW8hiH9W+W8TpSDhOqt
+	+pB06SBUx5Y0qWlmPLUezEMYaBppvvSqCWLTz6lszBN1qODIGWQQR/AXoSsjI9T8pI1PZWE+NXxFF
+	b1+G8Euw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuB1E-0000000GUfE-2ZLg;
-	Wed, 12 Aug 2026 15:37:28 +0000
+	id 1wuB19-0000000GUVi-49X5;
+	Wed, 12 Aug 2026 15:37:23 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuB0s-0000000GU9h-3hYY
+	id 1wuB0r-0000000GU7o-1Xw6
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 12 Aug 2026 15:37:07 +0000
+	Wed, 12 Aug 2026 15:37:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=aaAObDlEPyOkMHd+7Cm8L/rvLRRZcLQUEVCbbkCwFzI=; b=EwUuks76RQ43OlsFg278deg3dW
-	DHkESaFUy0NKdHbPEFyZLoBF0pcd3Yr0+ZepXapmSnmgGCMy0zaSeyfRYHXC0rlL0RVe2DQly+QfK
-	DGIswNvwy4rq4Z7l1PqAhPd3X8XnZEkyMVPlLXS6m9yThJ79ptFUDjH07MAQFQcZb4CSUR3NV09GX
-	W7fltRwy6uSJKtB6fNYsr6zSDi+OkwgH9Qg4kcrcG4vL2ZYkBVNHSFT9VuZxaFjCAwPVTjsAoqTWh
-	BBGVzvDh81rj+kuALGVYSyUKn2ObZj1wXl3mWXD4UeyKgFyO6omMbgG/fKvrpjP+ouM8NOPbT2k3M
-	sXZ+5Fvg==;
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	bh=eGPgAnjtKT6ftTAM6aOkUfJetBSRY7Y8hfEs8FIUvWE=; b=IUe6ma0poNxPerfyCHaXmMrpaQ
+	zTaTkILfx5EGPFOP3FzkborDxKLM/WZPRVsfuYzBnXnoIliLm6F0b3MpaXc3ph8D8x+sYDS2zJWYl
+	70Z6PMzQ3e/7zAXkAsa4KPjL4ogWdBdxZFwUGdyK+XaR9b/kCG7Iept4/yq/Hj/9nRqh/3U+zWbBN
+	kLyM6Jf8YKsChbjxBrm/mdK4fDyjRI2i4graTdGoGLuNFmpr0Wa8LynWT3g5iXq4x8aSWY0DwvIhr
+	czCR/+VsebVIO5I2Uw7ltCAcwSmPNpk8myS9cEyzW9VoC2vxPk0RPA3K39Gnk/gmltIZcOVbl5/PT
+	thzAtVWg==;
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wuB0o-0000000FZBn-3zUm
+	id 1wuB0n-0000000FZAm-0sVy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 15:37:05 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67CE1pvC3640582;
-	Wed, 12 Aug 2026 15:36:46 GMT
+	Wed, 12 Aug 2026 15:37:04 +0000
+Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67CE1mmH3717448;
+	Wed, 12 Aug 2026 15:36:39 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
 	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=aaAObDlEPyOkMHd+7
-	Cm8L/rvLRRZcLQUEVCbbkCwFzI=; b=HxChjJBk+k7fAePv/DkhdRciorxxPqNVs
-	Fq/JOOl5KtqpPkwPGY6EVq4DBxxZnzJgMxZyIIL34JVvENNvcOvpyFNv1NinuD5N
-	wsA4mk0Zsfe3ptTHwt0GoNmnxxCMlycyPEMtiHtvbLnfPrcOwZTbY9a8zUldAg9E
-	17odPVqMU73cCmwNjTJExAv+16E+F1+AvqMKxvWzZgrtudGPSSjCaYKkDn+z4lnL
-	tvGM3C5wv830MieC1Nchgx4a/92bgJiwn7b6Xa1SYsjkFvxRtHQ4tZPp9/rrdG3P
-	IRvnzaddKGEAXthubSA2VnVeFs+HLgOWxLOGv6ArynwiOp10zrDrA==
-Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fwvq9k7ch-1
+	:mime-version:references:subject:to; s=pp1; bh=eGPgAnjtKT6ftTAM6
+	aOkUfJetBSRY7Y8hfEs8FIUvWE=; b=c/UNId0hpEOA58rnxwOmyntRiuISlwrDT
+	FiZh4n6pQ1CpXnj0eux/G2tuDsHBEo/8Me1UTJV1UCzQsI1IK8/L0cI/L9bmjxzt
+	/o3c24i1XAkfiT7O5uzYgOVupWIrVZ/m1qcsVwHMPXfw7dpgie2Pu7xsIOBiFsl1
+	w+F2MUpLaIQVKR6jm00JYCfGAV6WQr6p48VFxcLwTTl2Q3Etfm8tXGO05C7yCtTw
+	EuNu9WFaUn1Ic7pyuOJ/8cDSlHx4rluywr5aQaDRVN0iV7omkilOkSEXqrE2sODL
+	U37qOxjzO8vBIirJd4zDkb77B5GJDrHcmNYnnj7ktHv1/ANO3BgpQ==
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fwvnwads8-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 12 Aug 2026 15:36:45 +0000 (GMT)
-Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma23.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 67CFQP1a013797;
-	Wed, 12 Aug 2026 15:36:44 GMT
-Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
-	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4fxg9h6mka-1
+	Wed, 12 Aug 2026 15:36:38 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 67CFQHri024761;
+	Wed, 12 Aug 2026 15:36:38 GMT
+Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4fxfsjxpj2-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 12 Aug 2026 15:36:44 +0000 (GMT)
+	Wed, 12 Aug 2026 15:36:37 +0000 (GMT)
 Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 67CFaeeJ30474914
+	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 67CFaYrf48693682
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 12 Aug 2026 15:36:40 GMT
+	Wed, 12 Aug 2026 15:36:34 GMT
 Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 3C7AE20049;
-	Wed, 12 Aug 2026 15:36:40 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id E92C720049;
+	Wed, 12 Aug 2026 15:36:33 +0000 (GMT)
 Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id E07562004E;
-	Wed, 12 Aug 2026 15:36:39 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 97B192005A;
+	Wed, 12 Aug 2026 15:36:33 +0000 (GMT)
 Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
 	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Wed, 12 Aug 2026 15:36:39 +0000 (GMT)
+	Wed, 12 Aug 2026 15:36:33 +0000 (GMT)
 From: Steffen Eiden <seiden@linux.ibm.com>
 To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
         linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
@@ -104,9 +104,9 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
         Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
         Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
         Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v6 21/33] KVM: s390: gmap: Make prefix handling optional
-Date: Wed, 12 Aug 2026 17:36:17 +0200
-Message-ID: <20260812153631.3376090-22-seiden@linux.ibm.com>
+Subject: [PATCH v6 04/33] arm64: Use proper include variant
+Date: Wed, 12 Aug 2026 17:36:00 +0200
+Message-ID: <20260812153631.3376090-5-seiden@linux.ibm.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260812153631.3376090-1-seiden@linux.ibm.com>
 References: <20260812153631.3376090-1-seiden@linux.ibm.com>
@@ -114,35 +114,34 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-TM-AS-GCONF: 00
 X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-GUID: TILkdj32NvlETDYS1R3Kh76anHKPAYH1
-X-Authority-Analysis: v=2.4 cv=PbDPQChd c=1 sm=1 tr=0 ts=6a7c930e cx=c_pps
- a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
+X-Authority-Analysis: v=2.4 cv=RsP16imK c=1 sm=1 tr=0 ts=6a7c9307 cx=c_pps
+ a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
  a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8 a=vumRUvCQ2wGzuXjOa00A:9
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODEyMDEyNiBTYWx0ZWRfX60u34E28Gevj
- XaEGSbC9MtGkUrJiKx52XJFcqH1JW1p/+6yPZW55m2JZkohNGyfAKstJ3hqxdp1hpMcW+DDPSQr
- UZbWl9BtM/P1XTZnQbVNuvbHQbPmM9xl83PwH7rlW7wLaWMRD22o13ElQMR8n28nCmzcKGYawYc
- sMOw6+dWqoGxQodMUTuYI4MzFdXKij9QkvR52YKOxje2bvVWJLSRoSNMyboyWInHUps+cDfF61j
- Hb8Ti+9FjXSMW1Z/H7eIdW89UrzIkGmdptuZefXKxcNB7lwlI1KePjP0jqY62c//8gHc9mWtiLc
- IqqswPHEMaOzRYoSaCIkw74zol1uOVnJgeQccZ0QpFwl5V+JcQn/sWXOTQXRu+l4LVFu6H1Uz92
- RYqNcrEcoT4vc20eYgli/HN15wzIW8G0ppqDlL/6XctkVpkHjjT/7ZgaActxrLwW5sF+yVUYVmk
- qqM41I9xPcSrUFYwbMg==
-X-Proofpoint-ORIG-GUID: DlOU6DU5XwB_cNfpOlA2Xr09lDEgC93l
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODEyMDEyNiBTYWx0ZWRfX2Icw4x8d1zYO
- Ep+tonKZi74jupPab3UY229sbY3VK7tRNjZoFVo2FO8WbvzDCIedp8c2bdKLSTR4850pTCPMoxu
- RwaWACs6gPLGQVomeDy0Vx6NCTMZsV8=
+ a=RzCfie-kr_QcCd8fBx8p:22 a=VnNF1IyMAAAA:8 a=d3WjOe2bLlXSZPWdUOEA:9
+X-Proofpoint-GUID: P6gFbGSDggD4L-zZXBOItFsSrc5gX5tC
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODEyMDEyNiBTYWx0ZWRfX6gr+77HpB1d6
+ En16SZVNMJQwSeEHCRyYKjjjz0E5vjNOJeQVSNTW1jDHKnZLqDXwFoTurRdVH9Ls2xckIC04U3A
+ IOC/idlGzKGOE6F6uv15feSJT0tRHr3sls/b/dyyMOgvhYUjlOWxPbeZl1sNYuiOgiLNK/6+OK2
+ xi5TTYTRMCZ9J7xkoaIw7w3E+jnWzKg8YaXX9F8Kyv7f6ma4Kj9pBxEr0cLsTaBNaK4dduFM8il
+ b2e0U8xPZMsQAWWzk6il+EHquGlnnJHTY+KkBhF3fWvQXFFAfBcVQSoF1wm+DxWCgaxE/xlT7GB
+ K9hRYDYgsT8KMTt2jSIZ97JdPim9yEOx3JnmTi6/o5rvbVWVnf95bD0mscyVBvq86bOtCq0cI5Q
+ 2e/l7gBdm+mCbYuwIgZQtdPu+uxqRLakEkleFA3nfCgNJjrtFEG7D6nluTTdx2iSh3FO4b8LseR
+ jEvU+mNpNOHfKEoICgA==
+X-Proofpoint-ORIG-GUID: peK-E1XwVJ35p7lF-ahfEIF6XNutEUJr
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODEyMDEyNiBTYWx0ZWRfX9MB+Ec1YYNIS
+ dK4Cn6GUYAgzdaakqy06b088+y+upwIVb+xJ4CnytLWdf4Tu5uHSSlYbakjaMeuBmiSjM9F5mvT
+ CSvXeSzcxRTQ87e0Due9prEpa56IyI4=
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-08-12_04,2026-08-12_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 bulkscore=0 impostorscore=0 malwarescore=0 adultscore=0
- clxscore=1015 priorityscore=1501 suspectscore=0 phishscore=0
- lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2608120126
+ spamscore=0 impostorscore=0 suspectscore=0 clxscore=1015 malwarescore=0
+ phishscore=0 adultscore=0 lowpriorityscore=0 priorityscore=1501 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608120126
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_163703_347525_76A69873 
-X-CRM114-Status: GOOD (  15.96  )
+X-CRM114-CacheID: sfid-20260812_163701_522134_61B6A878 
+X-CRM114-Status: GOOD (  15.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,127 +156,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Guard guest prefix handling behind `KVM_S390_MANAGES_S390_GUEST`. This
-enables other KVM implementations to use gmap without implementing
-prefix handling. The prefix handling is integrated deeply in the gmap
-implementation. Therefore, provide safe default implementations for the
-guarded functions.
+Use <> for including the sysreg header as it is not discoverable from
+the current directory.
 
-No functional changes.
-
+Fixes: c07d8017bceb ("arm64/sysreg: Enable automatic generation of system register definitions")
 Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 ---
- arch/s390/kvm/gmap/dat.c  |  2 +-
- arch/s390/kvm/gmap/dat.h  |  9 +++++++++
- arch/s390/kvm/gmap/gmap.c | 12 +++++++-----
- arch/s390/kvm/gmap/gmap.h |  9 ++++++++-
- 4 files changed, 25 insertions(+), 7 deletions(-)
+ arch/arm64/include/asm/sysreg.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/s390/kvm/gmap/dat.c b/arch/s390/kvm/gmap/dat.c
-index 43ebafb56ce5..3038eae1cfcc 100644
---- a/arch/s390/kvm/gmap/dat.c
-+++ b/arch/s390/kvm/gmap/dat.c
-@@ -1011,6 +1011,7 @@ bool dat_test_age_gfn(union asce asce, gfn_t start, gfn_t end)
- 	return _dat_walk_gfn_range(start, end, asce, &test_age_ops, 0, NULL) > 0;
- }
+diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+index 7aa08d59d494..4bfdac9401bd 100644
+--- a/arch/arm64/include/asm/sysreg.h
++++ b/arch/arm64/include/asm/sysreg.h
+@@ -173,7 +173,7 @@
+  * come from here. The header relies on the definition of sys_reg()
+  * earlier in this file.
+  */
+-#include "asm/sysreg-defs.h"
++#include <asm/sysreg-defs.h>
  
-+#if KVM_S390_MANAGES_S390_GUEST
- static long dat_set_pn_crste(union crste *crstep, gfn_t gfn, gfn_t next, struct dat_walk *walk)
- {
- 	union crste newcrste, oldcrste;
-@@ -1059,7 +1060,6 @@ int dat_set_prefix_notif_bit(union asce asce, gfn_t gfn)
- 	return 0;
- }
- 
--#if KVM_S390_MANAGES_S390_GUEST
- /**
-  * dat_perform_essa() - Perform ESSA actions on the PGSTE.
-  * @asce: The asce to operate on.
-diff --git a/arch/s390/kvm/gmap/dat.h b/arch/s390/kvm/gmap/dat.h
-index 4f11f9bbd83a..e452c141b841 100644
---- a/arch/s390/kvm/gmap/dat.h
-+++ b/arch/s390/kvm/gmap/dat.h
-@@ -549,7 +549,16 @@ void dat_set_ptval(struct page_table *table, struct ptval_param param, unsigned
- 
- int dat_set_slot(struct kvm_s390_mmu_cache *mc, union asce asce, gfn_t start, gfn_t end,
- 		 u16 type, u16 param);
-+
-+#if KVM_S390_MANAGES_S390_GUEST
- int dat_set_prefix_notif_bit(union asce asce, gfn_t gfn);
-+#else
-+static inline int dat_set_prefix_notif_bit(union asce asce, gfn_t gfn)
-+{
-+	return 0;
-+}
-+#endif /* KVM_S390_MANAGES_S390_GUEST */
-+
- bool dat_test_age_gfn(union asce asce, gfn_t start, gfn_t end);
- 
- #if KVM_S390_MANAGES_S390_GUEST
-diff --git a/arch/s390/kvm/gmap/gmap.c b/arch/s390/kvm/gmap/gmap.c
-index 86513f653850..4968330e9553 100644
---- a/arch/s390/kvm/gmap/gmap.c
-+++ b/arch/s390/kvm/gmap/gmap.c
-@@ -24,11 +24,6 @@
- #include "s390.h"
- #include "faultin.h"
- 
--static inline bool kvm_s390_is_in_sie(struct kvm_vcpu *vcpu)
--{
--	return vcpu->arch.sie_block->prog0c & PROG_IN_SIE;
--}
--
- static int gmap_limit_to_type(gfn_t limit)
- {
- 	if (!limit)
-@@ -256,6 +251,12 @@ int s390_replace_asce(struct gmap *gmap)
- 	return 0;
- }
- 
-+#if KVM_S390_MANAGES_S390_GUEST
-+static inline bool kvm_s390_is_in_sie(struct kvm_vcpu *vcpu)
-+{
-+	return vcpu->arch.sie_block->prog0c & PROG_IN_SIE;
-+}
-+
- bool _gmap_unmap_prefix(struct gmap *gmap, gfn_t gfn, gfn_t end, bool hint)
- {
- 	struct kvm *kvm = gmap->kvm;
-@@ -278,6 +279,7 @@ bool _gmap_unmap_prefix(struct gmap *gmap, gfn_t gfn, gfn_t end, bool hint)
- 	}
- 	return true;
- }
-+#endif /* KVM_S390_MANAGES_S390_GUEST */
- 
- struct clear_young_pte_priv {
- 	struct gmap *gmap;
-diff --git a/arch/s390/kvm/gmap/gmap.h b/arch/s390/kvm/gmap/gmap.h
-index 6f3bf11d2166..8f47f29c89fd 100644
---- a/arch/s390/kvm/gmap/gmap.h
-+++ b/arch/s390/kvm/gmap/gmap.h
-@@ -85,7 +85,6 @@ struct gmap_cache {
- 	for (pos = (head); n = pos ? pos->next : NULL, pos; pos = n)
- 
- int s390_replace_asce(struct gmap *gmap);
--bool _gmap_unmap_prefix(struct gmap *gmap, gfn_t gfn, gfn_t end, bool hint);
- bool gmap_age_gfn(struct gmap *gmap, gfn_t start, gfn_t end);
- bool gmap_unmap_gfn_range(struct gmap *gmap, struct kvm_memory_slot *slot, gfn_t start, gfn_t end);
- int gmap_try_fixup_minor(struct gmap *gmap, struct guest_fault *fault);
-@@ -163,6 +162,14 @@ static inline void gmap_handle_vsie_unshadow_event(struct gmap *parent, gfn_t gf
- 		_gmap_handle_vsie_unshadow_event(parent, gfn);
- }
- 
-+#if KVM_S390_MANAGES_S390_GUEST
-+bool _gmap_unmap_prefix(struct gmap *gmap, gfn_t gfn, gfn_t end, bool hint);
-+#else
-+static inline bool _gmap_unmap_prefix(struct gmap *gmap, gfn_t gfn, gfn_t end, bool hint)
-+{
-+	return true;
-+}
-+#endif /* KVM_S390_MANAGES_S390_GUEST */
- static inline bool gmap_mkold_prefix(struct gmap *gmap, gfn_t gfn, gfn_t end)
- {
- 	return _gmap_unmap_prefix(gmap, gfn, end, true);
+ /*
+  * System registers, organised loosely by encoding but grouped together
 -- 
 2.53.0
 
