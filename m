@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D16D6C5B56A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 13:28:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4515C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 13:28:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aSDcvewipoZNYTT+WMH6V9nJ9au04QroQYI+jUHvzRg=; b=k0TPNyDX82SUEZrBGC8mOGm3DR
-	DmRAK0Qqd1DtvkMA51Zmt2mqVRamMQj2Rz09dWxi4QiXxeLMSD6PSHRl9DK+SIoiCpFzEQ0drj8/C
-	Zsu71ZK/n6q4lErQnuYXyRuopok6hUmnaZrRc8PTicDVPEaWrE6Lu8QJlrgZK2fzQSz63JY1SNXya
-	dAtmtxnDAt8hIzq1tLwPu7dHYm8Gf3yRWgwbHZ4CFh798u0JL2hQwQlsU0Rtrvw3b37DENhACnNQx
-	SV3zVx0C/tGrS/b2ksnMrDS2Ag97SIJn6uN/VexnlVBo/T3Pfnc3k90SQbscElhEb1aMFMWDKJOcS
-	EOnqGEtQ==;
+	bh=eGyGvWCodz+0FevuarrifPNB90a1n0BY2okOjukDJ30=; b=c+8gj91HwZJBKtK/WFIfVpCtpq
+	ZSnsXFvBTvNq55dtMSr+w/uVwxVvGclJO1WkLS2ywfsrxWC6vmJufOp5/SpQf9cdgf+hYHqphy1gI
+	eO6aqsiDMydizNXOkyG56wHc50AnYb9M7yqfp5H3bHQM3H0RlvAuj0ff1M+LaxRYPPrBM0IzDzabH
+	yFPek/22ic2VlFpmkWMg63VmFsqUdbyv2SCDNsjzOAtbNUhGtYjGsAqV8d7B4zop7rBz+wxd+/zZY
+	JveZv4S0zalxe3bIH0J0hweP/qU1MnK7nBH+KkcGo2gL3ciAE1ZeJ3qsTHLhNskMN26Y/bgeogjtv
+	MoybOIAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu90F-0000000GHET-0uup;
-	Wed, 12 Aug 2026 13:28:19 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1wu90H-0000000GHFS-1mtq;
+	Wed, 12 Aug 2026 13:28:21 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu90B-0000000GHDM-3sA3
+	id 1wu90E-0000000GHE9-3vPD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 13:28:17 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4954d29264cso4753405e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 06:28:15 -0700 (PDT)
+	Wed, 12 Aug 2026 13:28:20 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-49954b88fffso10494815e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 06:28:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786541294; x=1787146094; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1786541297; x=1787146097; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=aSDcvewipoZNYTT+WMH6V9nJ9au04QroQYI+jUHvzRg=;
-        b=huRvTKZU9RF2I/my7xoRyKXmKyYKYFkjrhD3SNtlS13fQWQ3fZnIXROnOcD0f+8o7l
-         rRvxw3CE7m1F8nMhsM1uDXEw6hmm23CjlN7TYd98tprfjlG+0VRDBH5yDbWSWxc+Fct6
-         3xqpAKdE2ICkQ5CjBBQMtTTavDwHYS5JEG37qHnn4jL4m1ICiMHgkpOROhJhP5WcAQdF
-         jj0vobsDefMHOy1wynvvKrULpRDcQ6hj84OP1NJNSxv9IpHBPVKEZkNPBAk8y9G4PE7S
-         YN6gxuyHyLb2HrBN0jl6dPwxjOSPb0FfcaaDp138cY463YQsERUDoDg11Omm6+0Zb/o0
-         Dy6g==
+        bh=eGyGvWCodz+0FevuarrifPNB90a1n0BY2okOjukDJ30=;
+        b=B6tL5nuxdMYnje1JCSH3JXAeAPPYZ4XwpAGWRekxRVlVkBm6YZiTRZKiaqkULRzj3v
+         I+GYfSRPQHBEiDWwFG8UkuC7bdqdfxDGpPo5iMqe93qxr7RgjpK49bWoAFV2xvKpBjef
+         uX3hRQF/WsaqEgUHf6ep2ZAcVjxLtVmlnMBHWdY/OiRW1pIZObrkITd1O7riX7hHT++y
+         A1U/C4b5fyn7LMmAutU1nISJZK6AMG+7Z6vlt6JLtJTYppFWLow2D9iiFIHLgVe7Qnyg
+         bqOgq3FTqVF90M4TJjGAGfRIYRWSpUkOlJyUhynOo5JQ0gFrRmgVaKyN9PDUmHXrPK7i
+         TRMw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786541294; x=1787146094;
+        d=1e100.net; s=20251104; t=1786541297; x=1787146097;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=aSDcvewipoZNYTT+WMH6V9nJ9au04QroQYI+jUHvzRg=;
-        b=M/IEE1RsfrAvseoNUXvxLjBnNJ8eYbdMz21HcHlJhxi6pftC4Sxf7EA5UvlKEoEcDO
-         aoLo2mM91Z0eosp2t2TIj644fv8ej6EifpAiMfiS6aMxsU1IIWLoYCOJYI0xNS1gfDlf
-         GnVlb7W4JGJi+7lNeyuUOAtURHE5VKKJ9HEzad56Wx9APcG3jXFris1TFTcPe06Kkdt0
-         vl1gU6Pquwjl+Fc4lx8ew6syAqMEXrxGB2oLEscmOsV7IEkz9hoZXAMQtCDQnbuNooZE
-         IUDeFKNn7BKbOF4aEu5oLpD1fMHdo6s7Pp9FpeORrEhq5w7MJIUHKwmAaw07CF1vkBRs
-         /xvg==
-X-Forwarded-Encrypted: i=1; AHgh+RqhOOUmV+GXiUuhUZQfP2bKdbW5CgXCdIE/sknpXNiL7GsxMOczrX2pnb8lni6M4l5HscVb9LkclLuZYL+fycyp@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx2Q4+BCaRE5bN+6y9OWWGQPCRnYg2iTV78vUQq2HDp6oJOlq5l
-	ubc2Dc1H8RXaZ15bds5dJqMmSqnY1La2lECuzD6Z5PCVkWdV4oE4FmQN
-X-Gm-Gg: AR+sD12WNav4cQOh3PnwqUtyIdMIoV4SmwOMIUZdCV76xA9QnrskvzUl6WDDbzAWORA
-	cCRxSWY7Vao94NaSiL5bUugqR1FhV6vz7/WpXlexGmoJn/sBat8G/nEerO7+Js2WcLfiJ1doy0H
-	Hqo/+PI+u2N6PBHJm9Dg9rWvoozfX3SJa0PBw1FGi6ztwL4BORiqqs/O2p/YK7QbvO0cVsp9WTj
-	KPLW2eUpo+tP/YnWjStP/mVX89Wb0bnSWfJFjuF3+w9LjE0QhaopeqTkXeL6EeEKY7FKZ1kVsW+
-	DNI0rFPiOT0r145Fmd5P4T8k8hyWtebhhxmiK86K8CxqKegpVNn86xbOuoSoF7pFJkLa+Z2p+tp
-	XV+p+WaoE3rj4nbCQU7oUukm9Q7FZ7Yqc/TVhVXXlw0BLkDHKBXA8IdFRWcSxbNS+XyeYkUCIlh
-	fswgY/kaD3uF+N/fQ4cKeQc7qDqKMNsjd69aRucamHLpLGC3lb9cV6+IQcFtPAtTNwA3awVwakV
-	6HllMSwvVxS+ZtWU+L179sGdMC3n8k+j3h8IAEH
-X-Received: by 2002:a05:600c:a207:b0:499:7024:9d4a with SMTP id 5b1f17b1804b1-4997c10e847mr41921955e9.8.1786541293829;
-        Wed, 12 Aug 2026 06:28:13 -0700 (PDT)
+        bh=eGyGvWCodz+0FevuarrifPNB90a1n0BY2okOjukDJ30=;
+        b=N/sfY/UJKhQWNTGT1WBskgAxeJyGtKyt+Dc5bjOeLLfUDNb5CeW3iTCEyWtUprkaSN
+         cAM1yUVR9X6GDYnLzS6ZzP+uk8944/zis13p1z3ItxupUY2qd4Q0+anoI34XQLADOTDz
+         1/uvyz1NaCjexjRE23P+r/gXLzI1M3xl0hxD3ua9L7YBS3CvasCMBl2X1ZPUrsokTTtN
+         JXjzH0MmzbDOwuwCLORKAXoqxm3mYhpa1y/73r8x21yaof6dxkm4MXHc68W+hr/+NHCD
+         tT3gPu218OumZ/DMBxsnJ+I64xJXIIpaVXr85gGHXjlnKD7lJR60vAwjq37wg4hVSIMU
+         Zt8w==
+X-Forwarded-Encrypted: i=1; AHgh+RqQNtvqfL4uiKw+H+0+IMrsxr7JLX9tjFZDQjBwYFuvxikkVbc6MpdTPHyPF1BLQ5mVBCdH4jf6z541FbQlLUj6@lists.infradead.org
+X-Gm-Message-State: AOJu0YzOiGw4168+6ksRJaDkOUoolhwIk2w2rdAYprvtOHHk1/e1tT/a
+	NLsJil2cqfRNBC3uLxvKWrCqP9HnCdTa1jCIVhbZGs1gxs2TKiIW3DVo
+X-Gm-Gg: AR+sD11/p5Q7w+NaIHgXcXh/WZUXF+5aszqy9hJ1cfYsapKG+K9kY7LZ4u0Txed7SU/
+	Zf24CH4AegDp9dRGeaL1Yj0wkrt+6DP5+FVdgnME4Yp+Jj2g7dWLEAmHIr0XktwTTbiDB3uohXk
+	4ZwCEBLUH7HXTTuT52yYidvaBka7kjFRH8W08DJvTrjSiKm78piO2RXRfNiVGfz3ZRpvECAaISv
+	GAAeJvxSnW+cVkWQ4QdUjQqbL8VfU8FBtWYqT14xb5NC0WRvY/gzArCRaPAqJB4epsz/FYI0jvK
+	JFqc+ZZWIGsj554o7Su8/FJX92n2JkWp3rlPBojDmH8ZwTNqlx19GAY0WOzznkndEC3fYkLQnOS
+	HDekwx8iw4lTx4dEIe/ACmGFWLjtD68yZ6gvZ84WpnwOc57M1S8QAzgW4eSmWMP9Mrp+fCeBklB
+	lnwGHNTkqmCuMEeXLj9XQsUeWW28iwqSv4irE9Su3oZ6tAh0VpUlx9JLKxmXHtKROhVC9ct9aI8
+	6G1QQljq9QQNTZu+0FIOuuCADv4EA==
+X-Received: by 2002:a05:600c:b85:b0:498:2b1f:e0c6 with SMTP id 5b1f17b1804b1-4997c12caffmr71100895e9.18.1786541296817;
+        Wed, 12 Aug 2026 06:28:16 -0700 (PDT)
 Received: from localhost.localdomain.pl ([89.151.31.85])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4997abf917csm87818995e9.13.2026.08.12.06.28.12
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4997abf917csm87818995e9.13.2026.08.12.06.28.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Aug 2026 06:28:13 -0700 (PDT)
+        Wed, 12 Aug 2026 06:28:16 -0700 (PDT)
 From: =?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <zajec5@gmail.com>
 To: Andrew Lunn <andrew@lunn.ch>,
 	"David S . Miller" <davem@davemloft.net>,
@@ -89,9 +89,9 @@ Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
 	devicetree@vger.kernel.org,
 	bcm-kernel-feedback-list@broadcom.com,
 	=?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <rafal@milecki.pl>
-Subject: [PATCH V3 2/4 net-next?] net: dsa: b53: prefer CPU port 8 for Northstar devices
-Date: Wed, 12 Aug 2026 15:27:53 +0200
-Message-ID: <20260812132755.32585-2-zajec5@gmail.com>
+Subject: [PATCH V3 3/4] ARM: dts: BCM5301X: drop pointless "cpu" labels from switch CPU ports
+Date: Wed, 12 Aug 2026 15:27:54 +0200
+Message-ID: <20260812132755.32585-3-zajec5@gmail.com>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20260812132755.32585-1-zajec5@gmail.com>
 References: <20260812132755.32585-1-zajec5@gmail.com>
@@ -99,8 +99,8 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_062816_000957_912CDA8C 
-X-CRM114-Status: GOOD (  15.81  )
+X-CRM114-CacheID: sfid-20260812_062819_044209_C26B5D85 
+X-CRM114-Status: GOOD (  13.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,61 +117,379 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Rafał Miłecki <rafal@milecki.pl>
 
-It allows using all switch features in opposite to ports 5 and 7.
+Those labels don't really have any use.
 
 Signed-off-by: Rafał Miłecki <rafal@milecki.pl>
 ---
-I think this can be net-next but I was asked to send a complete patchset
-Can you pick those 2 patches to different trees?
+ .../broadcom/bcm4708-buffalo-wzr-1166dhp-common.dtsi |  4 ----
+ .../arm/boot/dts/broadcom/bcm4708-luxul-xap-1510.dts |  4 ----
+ .../arm/boot/dts/broadcom/bcm4708-luxul-xwc-1000.dts |  4 ----
+ arch/arm/boot/dts/broadcom/bcm4708-netgear-r6250.dts |  4 ----
+ .../boot/dts/broadcom/bcm4708-smartrg-sr400ac.dts    |  4 ----
+ .../dts/broadcom/bcm47081-buffalo-wzr-600dhp2.dts    |  4 ----
+ .../boot/dts/broadcom/bcm47081-luxul-xap-1410.dts    |  4 ----
+ .../boot/dts/broadcom/bcm47081-luxul-xwr-1200.dts    |  4 ----
+ .../arm/boot/dts/broadcom/bcm4709-linksys-ea9200.dts |  4 ----
+ arch/arm/boot/dts/broadcom/bcm4709-netgear-r8000.dts |  4 ----
+ .../boot/dts/broadcom/bcm47094-asus-rt-ac3100.dtsi   | 12 ------------
+ .../boot/dts/broadcom/bcm47094-dlink-dir-885l.dts    |  4 ----
+ .../boot/dts/broadcom/bcm47094-dlink-dir-890l.dts    |  1 -
+ .../boot/dts/broadcom/bcm47094-linksys-panamera.dts  |  6 ------
+ .../boot/dts/broadcom/bcm47094-luxul-abr-4500.dts    |  4 ----
+ .../boot/dts/broadcom/bcm47094-luxul-xap-1610.dts    |  4 ----
+ .../boot/dts/broadcom/bcm47094-luxul-xbr-4500.dts    |  4 ----
+ .../boot/dts/broadcom/bcm47094-luxul-xwc-2000.dts    |  4 ----
+ .../boot/dts/broadcom/bcm47094-luxul-xwr-3100.dts    |  4 ----
+ .../boot/dts/broadcom/bcm47094-luxul-xwr-3150-v1.dts |  4 ----
+ arch/arm/boot/dts/broadcom/bcm53015-meraki-mr26.dts  |  2 --
+ arch/arm/boot/dts/broadcom/bcm53016-meraki-mr32.dts  |  2 --
+ 22 files changed, 91 deletions(-)
 
- drivers/net/dsa/b53/b53_common.c | 27 +++++++++++++++++++++++++++
- 1 file changed, 27 insertions(+)
-
-diff --git a/drivers/net/dsa/b53/b53_common.c b/drivers/net/dsa/b53/b53_common.c
-index 5fd8362d0430..052812d2faa9 100644
---- a/drivers/net/dsa/b53/b53_common.c
-+++ b/drivers/net/dsa/b53/b53_common.c
-@@ -766,6 +766,32 @@ void b53_disable_port(struct dsa_switch *ds, int port)
- }
- EXPORT_SYMBOL(b53_disable_port);
+diff --git a/arch/arm/boot/dts/broadcom/bcm4708-buffalo-wzr-1166dhp-common.dtsi b/arch/arm/boot/dts/broadcom/bcm4708-buffalo-wzr-1166dhp-common.dtsi
+index 9f9084269ef5..b3bd99ae01f4 100644
+--- a/arch/arm/boot/dts/broadcom/bcm4708-buffalo-wzr-1166dhp-common.dtsi
++++ b/arch/arm/boot/dts/broadcom/bcm4708-buffalo-wzr-1166dhp-common.dtsi
+@@ -178,10 +178,6 @@ port@4 {
+ 			label = "wan";
+ 		};
  
-+static struct dsa_port *b53_preferred_default_local_cpu_port(struct dsa_switch *ds)
-+{
-+	struct b53_device *dev = ds->priv;
-+	struct dsa_port *cpu_dp;
-+
-+	/*
-+	 * Northstar SoCs devices have 3 Ethernet controllers and 3 CPU ports:
-+	 * 5 (IMP1), 7, 8 (IMP0). This design was meant for dual IMP setups when
-+	 * WAN traffic goes to port 5 and LAN traffic goes to port 8.
-+	 *
-+	 * While all 3 ports support Broadcom header, ports 5 and 7 have their
-+	 * limitations. Features that relay on trapping to CPU (e.g. EAP, STP)
-+	 * won't work when using those as CPU ones.
-+	 *
-+	 * Prefer CPU port 8 if available.
-+	 */
-+	if (is5301x(dev)) {
-+		cpu_dp = dsa_to_port(ds, B53_CPU_PORT);
-+
-+		if (dsa_port_is_cpu(cpu_dp))
-+			return cpu_dp;
-+	}
-+
-+	return NULL;
-+}
-+
- void b53_brcm_hdr_setup(struct dsa_switch *ds, int port)
- {
- 	struct b53_device *dev = ds->priv;
-@@ -2724,6 +2750,7 @@ static const struct dsa_switch_ops b53_switch_ops = {
- 	.port_setup		= b53_setup_port,
- 	.port_enable		= b53_enable_port,
- 	.port_disable		= b53_disable_port,
-+	.preferred_default_local_cpu_port = b53_preferred_default_local_cpu_port,
- 	.support_eee		= b53_support_eee,
- 	.set_mac_eee		= b53_set_mac_eee,
- 	.set_ageing_time	= b53_set_ageing_time,
+-		port@5 {
+-			label = "cpu";
+-		};
+-
+ 		port@7 {
+ 			status = "disabled";
+ 		};
+diff --git a/arch/arm/boot/dts/broadcom/bcm4708-luxul-xap-1510.dts b/arch/arm/boot/dts/broadcom/bcm4708-luxul-xap-1510.dts
+index 72e960c888ac..efef16da1242 100644
+--- a/arch/arm/boot/dts/broadcom/bcm4708-luxul-xap-1510.dts
++++ b/arch/arm/boot/dts/broadcom/bcm4708-luxul-xap-1510.dts
+@@ -82,10 +82,6 @@ port@4 {
+ 			label = "lan";
+ 		};
+ 
+-		port@5 {
+-			label = "cpu";
+-		};
+-
+ 		port@7 {
+ 			status = "disabled";
+ 		};
+diff --git a/arch/arm/boot/dts/broadcom/bcm4708-luxul-xwc-1000.dts b/arch/arm/boot/dts/broadcom/bcm4708-luxul-xwc-1000.dts
+index 750e17482371..842dc9af6fc2 100644
+--- a/arch/arm/boot/dts/broadcom/bcm4708-luxul-xwc-1000.dts
++++ b/arch/arm/boot/dts/broadcom/bcm4708-luxul-xwc-1000.dts
+@@ -85,10 +85,6 @@ port@4 {
+ 			label = "lan";
+ 		};
+ 
+-		port@5 {
+-			label = "cpu";
+-		};
+-
+ 		port@7 {
+ 			status = "disabled";
+ 		};
+diff --git a/arch/arm/boot/dts/broadcom/bcm4708-netgear-r6250.dts b/arch/arm/boot/dts/broadcom/bcm4708-netgear-r6250.dts
+index 2bdbc7d18b0e..e480e2006657 100644
+--- a/arch/arm/boot/dts/broadcom/bcm4708-netgear-r6250.dts
++++ b/arch/arm/boot/dts/broadcom/bcm4708-netgear-r6250.dts
+@@ -119,10 +119,6 @@ port@4 {
+ 			label = "wan";
+ 		};
+ 
+-		port@5 {
+-			label = "cpu";
+-		};
+-
+ 		port@7 {
+ 			status = "disabled";
+ 		};
+diff --git a/arch/arm/boot/dts/broadcom/bcm4708-smartrg-sr400ac.dts b/arch/arm/boot/dts/broadcom/bcm4708-smartrg-sr400ac.dts
+index 03f4a6d37a67..4a72501cfdfd 100644
+--- a/arch/arm/boot/dts/broadcom/bcm4708-smartrg-sr400ac.dts
++++ b/arch/arm/boot/dts/broadcom/bcm4708-smartrg-sr400ac.dts
+@@ -160,10 +160,6 @@ port@4 {
+ 			nvmem-cell-names = "mac-address";
+ 		};
+ 
+-		port@5 {
+-			label = "cpu";
+-		};
+-
+ 		port@7 {
+ 			status = "disabled";
+ 		};
+diff --git a/arch/arm/boot/dts/broadcom/bcm47081-buffalo-wzr-600dhp2.dts b/arch/arm/boot/dts/broadcom/bcm47081-buffalo-wzr-600dhp2.dts
+index 192b8db5a89c..55f7a12001bc 100644
+--- a/arch/arm/boot/dts/broadcom/bcm47081-buffalo-wzr-600dhp2.dts
++++ b/arch/arm/boot/dts/broadcom/bcm47081-buffalo-wzr-600dhp2.dts
+@@ -142,10 +142,6 @@ port@4 {
+ 			label = "wan";
+ 		};
+ 
+-		port@5 {
+-			label = "cpu";
+-		};
+-
+ 		port@7 {
+ 			status = "disabled";
+ 		};
+diff --git a/arch/arm/boot/dts/broadcom/bcm47081-luxul-xap-1410.dts b/arch/arm/boot/dts/broadcom/bcm47081-luxul-xap-1410.dts
+index 0198b5f9e4a7..a7aa8992b87d 100644
+--- a/arch/arm/boot/dts/broadcom/bcm47081-luxul-xap-1410.dts
++++ b/arch/arm/boot/dts/broadcom/bcm47081-luxul-xap-1410.dts
+@@ -78,10 +78,6 @@ port@4 {
+ 			label = "poe";
+ 		};
+ 
+-		port@5 {
+-			label = "cpu";
+-		};
+-
+ 		port@7 {
+ 			status = "disabled";
+ 		};
+diff --git a/arch/arm/boot/dts/broadcom/bcm47081-luxul-xwr-1200.dts b/arch/arm/boot/dts/broadcom/bcm47081-luxul-xwr-1200.dts
+index 73ff1694a4a0..3fc4bded5cf2 100644
+--- a/arch/arm/boot/dts/broadcom/bcm47081-luxul-xwr-1200.dts
++++ b/arch/arm/boot/dts/broadcom/bcm47081-luxul-xwr-1200.dts
+@@ -145,10 +145,6 @@ port@4 {
+ 			nvmem-cell-names = "mac-address";
+ 		};
+ 
+-		port@5 {
+-			label = "cpu";
+-		};
+-
+ 		port@7 {
+ 			status = "disabled";
+ 		};
+diff --git a/arch/arm/boot/dts/broadcom/bcm4709-linksys-ea9200.dts b/arch/arm/boot/dts/broadcom/bcm4709-linksys-ea9200.dts
+index 9041dc6bfa8d..23e5ae237602 100644
+--- a/arch/arm/boot/dts/broadcom/bcm4709-linksys-ea9200.dts
++++ b/arch/arm/boot/dts/broadcom/bcm4709-linksys-ea9200.dts
+@@ -196,10 +196,6 @@ port@5 {
+ 		port@7 {
+ 			status = "disabled";
+ 		};
+-
+-		port@8 {
+-			label = "cpu";
+-		};
+ 	};
+ };
+ 
+diff --git a/arch/arm/boot/dts/broadcom/bcm4709-netgear-r8000.dts b/arch/arm/boot/dts/broadcom/bcm4709-netgear-r8000.dts
+index a4b135d37659..bbb6b869507e 100644
+--- a/arch/arm/boot/dts/broadcom/bcm4709-netgear-r8000.dts
++++ b/arch/arm/boot/dts/broadcom/bcm4709-netgear-r8000.dts
+@@ -242,9 +242,5 @@ fixed-link {
+ 				full-duplex;
+ 			};
+ 		};
+-
+-		port@8 {
+-			label = "cpu";
+-		};
+ 	};
+ };
+diff --git a/arch/arm/boot/dts/broadcom/bcm47094-asus-rt-ac3100.dtsi b/arch/arm/boot/dts/broadcom/bcm47094-asus-rt-ac3100.dtsi
+index 2d2e7e581291..8cc9db307527 100644
+--- a/arch/arm/boot/dts/broadcom/bcm47094-asus-rt-ac3100.dtsi
++++ b/arch/arm/boot/dts/broadcom/bcm47094-asus-rt-ac3100.dtsi
+@@ -151,18 +151,6 @@ port@4 {
+ 			nvmem-cells = <&et0macaddr 1>;
+ 			nvmem-cell-names = "mac-address";
+ 		};
+-
+-		port@5 {
+-			label = "cpu";
+-		};
+-
+-		port@7 {
+-			label = "cpu";
+-		};
+-
+-		port@8 {
+-			label = "cpu";
+-		};
+ 	};
+ };
+ 
+diff --git a/arch/arm/boot/dts/broadcom/bcm47094-dlink-dir-885l.dts b/arch/arm/boot/dts/broadcom/bcm47094-dlink-dir-885l.dts
+index c5099defe9f9..74290ada098c 100644
+--- a/arch/arm/boot/dts/broadcom/bcm47094-dlink-dir-885l.dts
++++ b/arch/arm/boot/dts/broadcom/bcm47094-dlink-dir-885l.dts
+@@ -167,9 +167,5 @@ port@5 {
+ 		port@7 {
+ 			status = "disabled";
+ 		};
+-
+-		port@8 {
+-			label = "cpu";
+-		};
+ 	};
+ };
+diff --git a/arch/arm/boot/dts/broadcom/bcm47094-dlink-dir-890l.dts b/arch/arm/boot/dts/broadcom/bcm47094-dlink-dir-890l.dts
+index 944d592dee2c..f79c9c5e2023 100644
+--- a/arch/arm/boot/dts/broadcom/bcm47094-dlink-dir-890l.dts
++++ b/arch/arm/boot/dts/broadcom/bcm47094-dlink-dir-890l.dts
+@@ -205,7 +205,6 @@ port@7 {
+ 		};
+ 
+ 		port@8 {
+-			label = "cpu";
+ 			phy-mode = "rgmii";
+ 		};
+ 	};
+diff --git a/arch/arm/boot/dts/broadcom/bcm47094-linksys-panamera.dts b/arch/arm/boot/dts/broadcom/bcm47094-linksys-panamera.dts
+index 675967a1ad0a..0c89e103a95b 100644
+--- a/arch/arm/boot/dts/broadcom/bcm47094-linksys-panamera.dts
++++ b/arch/arm/boot/dts/broadcom/bcm47094-linksys-panamera.dts
+@@ -241,7 +241,6 @@ port@4 {
+ 		};
+ 
+ 		port@5 {
+-			label = "cpu";
+ 			status = "disabled";
+ 
+ 			fixed-link {
+@@ -251,7 +250,6 @@ fixed-link {
+ 		};
+ 
+ 		port@7 {
+-			label = "cpu";
+ 			status = "disabled";
+ 
+ 			fixed-link {
+@@ -259,10 +257,6 @@ fixed-link {
+ 				full-duplex;
+ 			};
+ 		};
+-
+-		port@8 {
+-			label = "cpu";
+-		};
+ 	};
+ };
+ 
+diff --git a/arch/arm/boot/dts/broadcom/bcm47094-luxul-abr-4500.dts b/arch/arm/boot/dts/broadcom/bcm47094-luxul-abr-4500.dts
+index e374062eb5b7..fc518a8a28cd 100644
+--- a/arch/arm/boot/dts/broadcom/bcm47094-luxul-abr-4500.dts
++++ b/arch/arm/boot/dts/broadcom/bcm47094-luxul-abr-4500.dts
+@@ -104,10 +104,6 @@ port@4 {
+ 			label = "lan1";
+ 		};
+ 
+-		port@5 {
+-			label = "cpu";
+-		};
+-
+ 		port@7 {
+ 			status = "disabled";
+ 		};
+diff --git a/arch/arm/boot/dts/broadcom/bcm47094-luxul-xap-1610.dts b/arch/arm/boot/dts/broadcom/bcm47094-luxul-xap-1610.dts
+index 3a33705c2969..532d3edeec70 100644
+--- a/arch/arm/boot/dts/broadcom/bcm47094-luxul-xap-1610.dts
++++ b/arch/arm/boot/dts/broadcom/bcm47094-luxul-xap-1610.dts
+@@ -97,10 +97,6 @@ port@1 {
+ 			label = "lan";
+ 		};
+ 
+-		port@5 {
+-			label = "cpu";
+-		};
+-
+ 		port@7 {
+ 			status = "disabled";
+ 		};
+diff --git a/arch/arm/boot/dts/broadcom/bcm47094-luxul-xbr-4500.dts b/arch/arm/boot/dts/broadcom/bcm47094-luxul-xbr-4500.dts
+index cf95af9db1e6..3ba672b090cd 100644
+--- a/arch/arm/boot/dts/broadcom/bcm47094-luxul-xbr-4500.dts
++++ b/arch/arm/boot/dts/broadcom/bcm47094-luxul-xbr-4500.dts
+@@ -104,10 +104,6 @@ port@4 {
+ 			label = "lan1";
+ 		};
+ 
+-		port@5 {
+-			label = "cpu";
+-		};
+-
+ 		port@7 {
+ 			status = "disabled";
+ 		};
+diff --git a/arch/arm/boot/dts/broadcom/bcm47094-luxul-xwc-2000.dts b/arch/arm/boot/dts/broadcom/bcm47094-luxul-xwc-2000.dts
+index 992c19e1cfa1..9149bf85e716 100644
+--- a/arch/arm/boot/dts/broadcom/bcm47094-luxul-xwc-2000.dts
++++ b/arch/arm/boot/dts/broadcom/bcm47094-luxul-xwc-2000.dts
+@@ -72,10 +72,6 @@ port@0 {
+ 			label = "lan";
+ 		};
+ 
+-		port@5 {
+-			label = "cpu";
+-		};
+-
+ 		port@7 {
+ 			status = "disabled";
+ 		};
+diff --git a/arch/arm/boot/dts/broadcom/bcm47094-luxul-xwr-3100.dts b/arch/arm/boot/dts/broadcom/bcm47094-luxul-xwr-3100.dts
+index 4d0ba315a204..7133bbb94ae7 100644
+--- a/arch/arm/boot/dts/broadcom/bcm47094-luxul-xwr-3100.dts
++++ b/arch/arm/boot/dts/broadcom/bcm47094-luxul-xwr-3100.dts
+@@ -144,10 +144,6 @@ port@4 {
+ 			nvmem-cell-names = "mac-address";
+ 		};
+ 
+-		port@5 {
+-			label = "cpu";
+-		};
+-
+ 		port@7 {
+ 			status = "disabled";
+ 		};
+diff --git a/arch/arm/boot/dts/broadcom/bcm47094-luxul-xwr-3150-v1.dts b/arch/arm/boot/dts/broadcom/bcm47094-luxul-xwr-3150-v1.dts
+index 8e487f60a2cc..0a5c6df78466 100644
+--- a/arch/arm/boot/dts/broadcom/bcm47094-luxul-xwr-3150-v1.dts
++++ b/arch/arm/boot/dts/broadcom/bcm47094-luxul-xwr-3150-v1.dts
+@@ -135,10 +135,6 @@ port@4 {
+ 			nvmem-cell-names = "mac-address";
+ 		};
+ 
+-		port@5 {
+-			label = "cpu";
+-		};
+-
+ 		port@7 {
+ 			status = "disabled";
+ 		};
+diff --git a/arch/arm/boot/dts/broadcom/bcm53015-meraki-mr26.dts b/arch/arm/boot/dts/broadcom/bcm53015-meraki-mr26.dts
+index 08abfdc63d18..38af5b3428d2 100644
+--- a/arch/arm/boot/dts/broadcom/bcm53015-meraki-mr26.dts
++++ b/arch/arm/boot/dts/broadcom/bcm53015-meraki-mr26.dts
+@@ -137,8 +137,6 @@ port@0 {
+ 		};
+ 
+ 		port@5 {
+-			label = "cpu";
+-
+ 			fixed-link {
+ 				speed = <1000>;
+ 				full-duplex;
+diff --git a/arch/arm/boot/dts/broadcom/bcm53016-meraki-mr32.dts b/arch/arm/boot/dts/broadcom/bcm53016-meraki-mr32.dts
+index 45bd27906f29..f635a49e1857 100644
+--- a/arch/arm/boot/dts/broadcom/bcm53016-meraki-mr32.dts
++++ b/arch/arm/boot/dts/broadcom/bcm53016-meraki-mr32.dts
+@@ -178,8 +178,6 @@ port@0 {
+ 		};
+ 
+ 		port@5 {
+-			label = "cpu";
+-
+ 			fixed-link {
+ 				speed = <1000>;
+ 				full-duplex;
 -- 
 2.51.0
 
