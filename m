@@ -4,74 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B224C5B56A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 15:34:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E198C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 15:34:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/jMN3WBwV3KB4v9bEDXkBGlhmHx1HUQvcapjqufTDqM=; b=EznktiKwhj7dHPUenLWsg8NBiF
-	ayjjccSkd/oNorGUJ6jkmqBa5mSHEkRw2Op+aYTrdBE+B52qzy39/cvgtVqTlFwuJHZqFXGzMGb4l
-	7VfhHmwE2FESP4O4H92kxcsfczzLrySG538ycJpC8dGGP54TAAJXXWBD7MdqnuoW4+uf192Vi1e71
-	aDWKWCRvyNniAUr84nWCtFM+6+QwHuRHP1blPLogUyhp0T/a98xk06vixW5qXcGS/pj+MhmrgQaHz
-	KJV9JZxUUhuuQNSQ+pZkLHwN3BBFG99qOn/5206E6ah9z9seCBXy6fGxgeRhifyL0LqnNP2tERyzP
-	TlijCcVA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fzIk5I7OqDCOAhpxa2DhuDUN9BeeRjYb7EQC4Ahia0I=; b=eiBfq+tw97oWORPjfnyyW/JbEk
+	8qg0Wwd6rzb6DcAGckbCg5VrXCU8OY+taQlFrpjLQeMMKYaHiixnZZPctO6lypx+Cgm47msPWQWxF
+	yIFsV+1GA3hbyZop+frstYogcNi5lQKxUxLJ05h/8W1p35NHmmyDYPiEIMrQDygEuUshkpWeNVp1z
+	IjcyZzvCdDknNa7IS1ZUJrVQEkm5kKwjtzjStzO0hOx2Ndz1c92BE6boHukcW1QGo/gL3Clb6Q5zF
+	zAGQS8x555hHcoqxIpWG4TmAyvkJ8jWJKuIKu3GAB/uH9/0Kw0q27eC0hDMFA7vZAq31G8ZCIxTtS
+	MMMuu7jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuAyP-0000000GTMd-2CSr;
-	Wed, 12 Aug 2026 15:34:33 +0000
+	id 1wuAyU-0000000GTPG-3pnY;
+	Wed, 12 Aug 2026 15:34:38 +0000
 Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuAyJ-0000000GTKU-10i2
+	id 1wuAyP-0000000GTMG-1Em6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 15:34:32 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-38ea87caafeso1028256a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 08:34:26 -0700 (PDT)
+	Wed, 12 Aug 2026 15:34:34 +0000
+Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-38dfe910e9dso1341596a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 08:34:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786548866; x=1787153666; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=/jMN3WBwV3KB4v9bEDXkBGlhmHx1HUQvcapjqufTDqM=;
-        b=b4dV9cBN1FO6BBxFgt2wIYRZRmQrFuoC9RoJvhkTLnESx68IRDB+uoX/oaVIFWyjEU
-         1SMnZJBeyTlcxFYRoAmpDs/efEF0I3atHbHV0q3j12OV/DQ3heU+3uNFk1oPBAwJljz9
-         vVBzTS1EuncNKDUNmiUUM5ILxd0ZPFK5SbRb78ZxZvggj4Om53jNgTZEGSzy6WpeHCw+
-         khZqM1jt0UF7X9n9PNWgeBHUWoD2rusU/F1CmoYu66gbDifsjs/zicE+1HkuSvaE+MJc
-         wEg0AAtGAnfA7Vu3jmMXTHz/BYcmcwEw28XPgJ6ZcdXea7dvD5u1Pg76jZRmdPHUbePo
-         vIXQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786548866; x=1787153666;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1786548873; x=1787153673; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=/jMN3WBwV3KB4v9bEDXkBGlhmHx1HUQvcapjqufTDqM=;
-        b=Mt+Y1af/yO4+7Sd65GlqfgxVJ37H7uesrXzk/c+Ns24d0gouN0u+7g5G1o5CVKPrLN
-         dPL0KP8jIj/dLVJwuZzSXT/Js63RqccWIRHgzCgJQUJhwY1aWo0UnbkuQP/k15ES0EHW
-         J9oZBvzmopn0zFDdtknyrijkatrCqZdru2uWKxBkc/vqtF1Uib1eWCIOKOYg1hgYUG4x
-         TePMEf74nnYd7G+7puG5byOREt8xln07f+aTXDUct+Ynmn8kUUqVFqbEyBF6l6AgOsUQ
-         bYdAFrBl326sPmYdWfJHQ6LiD/uQWwvIuQP3VNW5drncUbKnhZFiDfRO2PGV3ZbVZ+cU
-         lc4Q==
-X-Forwarded-Encrypted: i=1; AHgh+Ro+Qy4GGpCGkvancAZweRpUhaAHuroq3jZuQpo0mHzAy7koqso2Ax+8waYTVN3Aj0E1t7xAdC5Vm15FuN/RiDJg@lists.infradead.org
-X-Gm-Message-State: AOJu0YzhaGNmTazHZqaiu9VEgnMVlmVmEdEUrMTrJlYGY6D646Os+kJV
-	xashIYndAYcg7ELxVBI48XjtJKdBqHkA4SzIwuhlwUeNviuqjKZnpHw=
-X-Gm-Gg: AR+sD12joPferC99cmoWx9z2/qcW+FufwdXL+dpFycDaAXtIVUHplexfJpv3NKWimpR
-	8hF2zJhIg0n/uEhCdmIfOyL9BZomaqVoPD/D2AB+mg1BeX29h8BlE16MOENeU35CdEBRtVu2KeF
-	qdEzPOAtxW39vEqD/2hAJss9OQ9iOJfk+W9PsnFTYThf1OzgVwWjwUPhhefA7fNwRBX/5j7BecX
-	idFVlGvSY/CbHaYOk0pN0nCxw9qo6y6UVNRiWijyqM+cVXr3FlR2umXhiGx7OBt7mnTXXQNRsHs
-	GtR/whSpoqyCIB/VVyOEPueOox4+KyzRB4/MvFnWgL/EJ6t0f7Aiovni4vc3zxlQ2kXAT0+LWC0
-	81Ukt8/W67GkiRdqGYsym4vf1Jq1pGXkdOxS2YPPb+HhW9a7wkk2tOPzUoqPv4uLYEbawMZcZCk
-	xdOUlXdz6ORTbGk1oPgcphcAKEb2re2TKkea9sRjtRvAewERd208Ss3eam8D04wXr+kv+Kf7TAS
-	gy80YoDWma/drSRBvxvEf0b
-X-Received: by 2002:a17:90b:580b:b0:381:28e0:6259 with SMTP id 98e67ed59e1d1-39301490293mr7234944a91.9.1786548865759;
-        Wed, 12 Aug 2026 08:34:25 -0700 (PDT)
+        bh=fzIk5I7OqDCOAhpxa2DhuDUN9BeeRjYb7EQC4Ahia0I=;
+        b=jyvbms4I82AdodRLWtOKyO7EZX6B1m62CvxHGqkEyw/sM2wF8vA53xiMnX8qV5ixXz
+         sknhDy+s8DPP1FIMARWsctq9dRh3g96XPp2g++pTHmcKDFoWm3neXpFOlSvjxMW2UKZi
+         qx7OwO9WQD/EJ6bB6Ndof/bOcZ8kQz8zu3WUgWKXSJojvRapjHpEzpVrLDdP5gfrC1Yu
+         b949Mu20IxBxuTBfUZxtA3DkoUFAPIv7dl5+F40pdshaXFaIEL/lBMSbilfqpqFulntf
+         BV2O1cFfCFcOsvkEXJx8OHZnhOkFF/5dc/qnV7INkuq7O65/pblO7ZhBP3hF3qyUKKXP
+         roSA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786548873; x=1787153673;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=fzIk5I7OqDCOAhpxa2DhuDUN9BeeRjYb7EQC4Ahia0I=;
+        b=LdfCZ+4yOyWovtnD6uyDWcXU607t4vgI7RP2SujeS42Jx/tcKBJgqtYxRIwUxKy9S9
+         xrzL+AS7EUp1qJKUzvh1/QpjdOlk25f887GQF3COWzOkj9iLp2OsjGqb8uGga/sv5Ylm
+         3vL49AV+cFDFowvSoYq/a4fpxZWaJvFxSUX1mQYoC6uD/rqDbKUJ8vfYMJSGpkbBAOUd
+         M7mXoPyncf7VKliB14VL6mJ0zAz224ze4RlTmHQ9Jb+RX2Sj9VyusIrj6b/1NZ5b6LHe
+         t6FPo912757Ov0d2C4GjdFFScfnW2ReBDHzMnwPnsxjpg/Ej6m50DONjBlPrgxS62NsN
+         zyeQ==
+X-Forwarded-Encrypted: i=1; AHgh+RooK7QOwUUaXU5QrAJ0q2HYrp998SbDBg84Zzda0roFhW5UOQj3VzY59UnNNi/26LdJLOtS7c8tj5AJ/kQZwzD2@lists.infradead.org
+X-Gm-Message-State: AOJu0YwzN5af1f7YOa46HyrylkZPb73NuimmQX70BmHqrAgVyJhjra5D
+	NqwzhKILe3/4o8AfHR+gbv1DgUwnumt3Vba4kSYTusT1Ai/HSuG9TCU=
+X-Gm-Gg: AR+sD11xXOB0a6PymreJiKjKY55B1fZHZtr3EPkuLYwKIkxYuFkCjK8iky5fTMjlSTM
+	/CT5VoqbmcusYuJes7ulRory2wKOHqbhh2zKekdwrM0gg085ABgZeZDdDrbuwChdcPkdNai4gj3
+	GdpsnjDIqwUuTuc89KJOAiIv7sEmsLUmUw3IHWg+fKFOl52OWVXHZpzOc5e4SOp3caFYE+rhEJV
+	kqewBat1ehdWtXqSshDHWhBJt1vVPz0slFPfOHy5UqZ2vhxsWEzf72OOhDdBFSUvrGNHGpgJpBo
+	FLFAyFdipQmQT8VwT19tziM0EUJJUAiSiAPzGbfHxGQrFmIYTwXpG8s8AMOkYjd4LIFAx341s9h
+	LX4g+5aQsZeZSDKtYPX6WOnTeHBDDBTCOkL+NEGLuiJv8Rd9NzHNsywjHI5HDGqAwvujR9XM+Kf
+	HwlwbOkQ/pZiIAafNVJ6JqnhkvDCOvLawZ67VyTWxAUeGDdK4LWjztGaoiUqja92GjL0ActPea0
+	J9WFCUift4awdDHl9NbyTRhpcPQ1SMfMvY=
+X-Received: by 2002:a17:90a:d64f:b0:390:8361:a532 with SMTP id 98e67ed59e1d1-393011eea08mr7525677a91.7.1786548872437;
+        Wed, 12 Aug 2026 08:34:32 -0700 (PDT)
 Received: from at-Standard-PC-Q35-ICH9-2009.. ([14.97.72.18])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-31dba3e9791sm7160804eec.0.2026.08.12.08.34.20
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-31dba3e9791sm7160804eec.0.2026.08.12.08.34.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Aug 2026 08:34:25 -0700 (PDT)
+        Wed, 12 Aug 2026 08:34:32 -0700 (PDT)
 From: Atharva Tiwari <atharvatiwarilinuxdev@gmail.com>
 To: 
 Cc: Atharva Tiwari <atharvatiwarilinuxdev@gmail.com>,
+	Andre Eikmeyer <andre@negmaster.com>,
 	"Rafael J. Wysocki" <rafael@kernel.org>,
 	Len Brown <lenb@kernel.org>,
 	Sven Peter <sven@kernel.org>,
@@ -87,15 +89,17 @@ Cc: Atharva Tiwari <atharvatiwarilinuxdev@gmail.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-pm@vger.kernel.org,
 	linux-usb@vger.kernel.org
-Subject: [PATCH] debug
-Date: Wed, 12 Aug 2026 11:34:06 -0400
-Message-ID: <20260812153411.1159-1-atharvatiwarilinuxdev@gmail.com>
+Subject: [PATCH RESEND v7] thunderbolt: Add device links for Apple T2 NHI
+Date: Wed, 12 Aug 2026 11:34:07 -0400
+Message-ID: <20260812153411.1159-2-atharvatiwarilinuxdev@gmail.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260812153411.1159-1-atharvatiwarilinuxdev@gmail.com>
+References: <20260812153411.1159-1-atharvatiwarilinuxdev@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_083427_279277_28E56117 
-X-CRM114-Status: GOOD (  12.94  )
+X-CRM114-CacheID: sfid-20260812_083433_373977_C7EC7EC9 
+X-CRM114-Status: GOOD (  17.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,68 +114,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Ice Lake Thunderbolt NHI That are only on T2 Macs. The NHI and its
+associated PCIe Root Ports all sit directly on the Root Complex
+with no upstream port. Identify the tunneled PCIe Root Ports by
+their PCI IDs and create device links back to the NHI so that
+PCIe tunnels can be re-established after sleep.
+
+And on other Thunderbolt NHI's, like Titan Ridge, the default method
+is used to add device links.
+
+Co-developed-by: Andre Eikmeyer <andre@negmaster.com>
+Signed-off-by: Andre Eikmeyer <andre@negmaster.com>
+
 Signed-off-by: Atharva Tiwari <atharvatiwarilinuxdev@gmail.com>
 ---
- drivers/acpi/sbshc.c                | 11 +++++++++--
- drivers/power/supply/macsmc-power.c |  2 ++
- 2 files changed, 11 insertions(+), 2 deletions(-)
+Changes in v7:
+- Used pci_lock_rescan_remove to prevent race conditons.
+- Fixed patch format.
 
-diff --git a/drivers/acpi/sbshc.c b/drivers/acpi/sbshc.c
-index 6bf5c5de5b89..a919be8bff05 100644
---- a/drivers/acpi/sbshc.c
-+++ b/drivers/acpi/sbshc.c
-@@ -207,6 +207,7 @@ int acpi_smbus_register_callback_global(smbus_alarm_callback callback, void *con
+Changes in v6:
+- Used for_each_pci_bridge in Icelake section
+- Removed has_apple_t2_chip as its not required now
+
+Changes in v5:
+- Used Icelake root PCI IDs for detection of root ports instead of TRP
+
+Changes in v4:
+- Limited TRP check to T2 Icelake systems only
+- Optimized has_apple_t2_chip check
+- Included pci.h to drivers/thunderbolt/tb.c
+- Used __free(pci_dev_put) to avoid label
+
+Changes in v3:
+- Fix build errors with non-x86 machines
+- Used __initconst for apple_t2_devices
+- Removed UEFI_QUIRK_SKIP_CERT as its unused now
+- Used IS_ENABLED(CONFIG_ACPI) in tb_apple_add_links for the T2 part
+- Removed !bid check to remove warning with -Waddress
+
+Changes in v2:
+- Used a less generic name for has_t2_chip
+- Used DMI instead of PCI for has_apple_t2_chip to avoid PCI problems
+- Initialized ret in tb_apple_add_links
+
+Link to v6:
+https://lore.kernel.org/all/20260730223435.2874-1-atharvatiwarilinuxdev@gmail.com/
+
+Link to v5:
+https://lore.kernel.org/all/20260727211807.1223-1-atharvatiwarilinuxdev@gmail.com/
+
+Link to v4:
+https://lore.kernel.org/all/20260724164641.2239-1-atharvatiwarilinuxdev@gmail.com/
+
+Link to v3:
+https://lore.kernel.org/all/20260721063412.11588-1-atharvatiwarilinuxdev@gmail.com/
+
+Link to v2:
+https://lore.kernel.org/all/20260721054506.11871-1-atharvatiwarilinuxdev@gmail.com/
+
+Link to v1:
+https://lore.kernel.org/all/20260719180308.1398-1-atharvatiwarilinuxdev@gmail.com/
+
+ drivers/thunderbolt/tb.c | 49 +++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 48 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/thunderbolt/tb.c b/drivers/thunderbolt/tb.c
+index c69c323e6952..2534c6378000 100644
+--- a/drivers/thunderbolt/tb.c
++++ b/drivers/thunderbolt/tb.c
+@@ -9,6 +9,7 @@
+ #include <linux/slab.h>
+ #include <linux/errno.h>
+ #include <linux/delay.h>
++#include <linux/pci.h>
+ #include <linux/pm_runtime.h>
+ #include <linux/platform_data/x86/apple.h>
  
- 	struct acpi_smb_hc *hc = READ_ONCE(global_hc);
- 
-+	pr_warn("registered callback\n");
- 	mutex_lock(&hc->lock);
- 	hc->callback = callback;
- 	hc->context = context;
-@@ -233,6 +234,7 @@ EXPORT_SYMBOL_GPL(acpi_smbus_unregister_callback_global);
- 
- static inline void acpi_smbus_callback(void *context)
+@@ -3305,16 +3306,62 @@ static const struct tb_cm_ops tb_cm_ops = {
+ static bool tb_apple_add_links(struct tb_nhi *nhi)
  {
-+	pr_warn("acpi_smbus_callback\n");
- 	struct acpi_smb_hc *hc = context;
- 	if (hc->callback)
- 		hc->callback(hc->context);
-@@ -243,15 +245,20 @@ static int smbus_alarm(void *context)
- 	struct acpi_smb_hc *hc = context;
- 	union acpi_smb_status status;
- 	u8 address;
--	if (smb_hc_read(hc, ACPI_SMB_STATUS, &status.raw))
-+	pr_warn("smbus_alarm called\n");
-+	if (smb_hc_read(hc, ACPI_SMB_STATUS, &status.raw)) {
-+		pr_err("smbus_alarm: cant read status\n");
- 		return 0;
-+	}
- 	/* Check if it is only a completion notify */
- 	if (status.fields.done && status.fields.status == SMBUS_OK) {
- 		hc->done = true;
- 		wake_up(&hc->wait);
- 	}
--	if (!status.fields.alarm)
-+	if (!status.fields.alarm) {
-+		pr_err("no alarm\n");
- 		return 0;
-+	}
- 	mutex_lock(&hc->lock);
- 	smb_hc_read(hc, ACPI_SMB_ALARM_ADDRESS, &address);
- 	status.fields.alarm = 0;
-diff --git a/drivers/power/supply/macsmc-power.c b/drivers/power/supply/macsmc-power.c
-index d4614fd728c5..8fb3694ddc58 100644
---- a/drivers/power/supply/macsmc-power.c
-+++ b/drivers/power/supply/macsmc-power.c
-@@ -927,6 +927,8 @@ static void macsmc_power_acpi_callback(void *context)
- {
- 	struct macsmc_power *power = context;
+ 	struct pci_dev *upstream, *pdev;
+-	bool ret;
++	bool ret = false;
  
-+	dev_warn(power->dev, "got interrupt\n");
+ 	if (!x86_apple_machine)
+ 		return false;
+ 
++	/* Identify the tunneled PCIe Root Ports by their PCI IDs
++	 * on Macs with Icelake NHI's
++	 * and create device links so that
++	 * PCIe tunnels can be re-established after sleep.
++	 */
++	if (nhi->pdev->device == PCI_DEVICE_ID_INTEL_ICL_NHI0 ||
++		nhi->pdev->device == PCI_DEVICE_ID_INTEL_ICL_NHI1) {
++		const struct device_link *link;
 +
- 	power_supply_changed(power->batt);
- 	power_supply_changed(power->ac);
- }
++		pci_lock_rescan_remove();
++
++		for_each_pci_bridge(pdev, nhi->pdev->bus) {
++			if (!pci_is_pcie(pdev) || pci_pcie_type(pdev) != PCI_EXP_TYPE_ROOT_PORT)
++				continue;
++
++			switch (pdev->device) {
++			/* Ice Lake Thunderbolt 3 PCIe Root Ports */
++			case 0x8a1d:
++			case 0x8a1f:
++			case 0x8a21:
++			case 0x8a23:
++				break;
++			default:
++				continue;
++			}
++
++			link = device_link_add(&pdev->dev, &nhi->pdev->dev,
++					DL_FLAG_AUTOREMOVE_SUPPLIER |
++					DL_FLAG_PM_RUNTIME);
++			if (link) {
++				dev_dbg(&nhi->pdev->dev, "created link from %s\n",
++					dev_name(&pdev->dev));
++				ret = true;
++			} else {
++				dev_warn(&nhi->pdev->dev,
++					"device link creation from %s failed\n",
++					dev_name(&pdev->dev));
++			}
++		}
++
++		pci_unlock_rescan_remove();
++		return ret;
++	}
++
+ 	switch (nhi->pdev->device) {
+ 	case PCI_DEVICE_ID_INTEL_LIGHT_RIDGE:
+ 	case PCI_DEVICE_ID_INTEL_CACTUS_RIDGE_4C:
+ 	case PCI_DEVICE_ID_INTEL_FALCON_RIDGE_2C_NHI:
+ 	case PCI_DEVICE_ID_INTEL_FALCON_RIDGE_4C_NHI:
++	case PCI_DEVICE_ID_INTEL_TITAN_RIDGE_2C_NHI:
++	case PCI_DEVICE_ID_INTEL_TITAN_RIDGE_4C_NHI:
+ 		break;
+ 	default:
+ 		return false;
 -- 
 2.43.0
 
