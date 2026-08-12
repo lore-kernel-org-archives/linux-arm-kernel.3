@@ -4,145 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 177E2C5B567
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 04:38:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96402C5B567
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 04:40:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KdFIJwL/ItKbdlpitmpynsip1Jdt+5SlhtYQlqlCk0g=; b=y3vn9np8d5Ue55xWaoAJcuJwQ+
-	BPKr8EAvYYR0wmBmlxh+u/+b5R1MZvMFdLSPNKAp50s5IznvKYzDsqmNGwMX4zvXUbx3Xem3oWX5+
-	n2vNcdC7D/epf7I6RhVmA98iqsXKCEWVHHbM8gI1RKwcjvww/kRKvKIw0nWzZF/+TaFD2nS5+V/3U
-	HRL5TUTRdYyOJeTUeiH2boPRrCaRjE2ePoe8R55ighOBmKy9SsmPjDu2QcRBhAIL+ZIRHdibN7kKf
-	RDibbrbfayKtzaUQn5vtMbMtbZ9fc2Hne7PU3N5kwkVGzQspFp5kpETTdxPRF0Oyt5nA6vbhHOob5
-	7qDYwC5A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y8EqzbJg8fD3KowEEfKkshsn5eXfhPp6NSIWl0mIxuU=; b=nJ1BY2KUqlDcRKwFJdf78zsQSt
+	QPNKrWZQr3l39riCac1es563VqkYwUIclJ7eWe6ShqSHmMO20+N0hIF8bQvy38S9RygbSEs3uPAUc
+	lUz3Wn1OUJbs3CffR0FwpZj9MbfDaAf8q7Yo7LxHEAsGIAT3J7BTXpXEnbl0Haz2i2LgTdIRAXjOG
+	IdD7SnwD6uXfobddbKVIxIQshL9vW5d7y3xavUcpsne1hOXcSa8K3UEE+u8G8ViPzyuknZ/K+g5xh
+	NFvjebkBvOMs+8AtFs2WsXOKPNLwj7GFi/4eRNVM+P3g36pf4or7HndB9T3XRka0v584lkKVV5/T2
+	ksZdkhxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu0jh-0000000FPBY-3nFA;
-	Wed, 12 Aug 2026 04:38:41 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wu0kw-0000000FPHO-0bgX;
+	Wed, 12 Aug 2026 04:39:58 +0000
+Received: from mail-oa1-x35.google.com ([2001:4860:4864:20::35])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu0jf-0000000FPBE-28oc
+	id 1wu0ks-0000000FPGd-46uq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 04:38:40 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67C4V49B1991464
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 04:38:36 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=KdFIJwL/ItKbdlpitmpyns
-	ip1Jdt+5SlhtYQlqlCk0g=; b=dDGKzETudy29AjLkkhcrI3J8T/ooJ3pvWamvwH
-	aZUQlH8jGMRBYkLFtMn/raO7fadcVhwKMxeuuV7MSztfP5u11IiyIO8HO/IMeSSs
-	rvegBRhU5LL+tvgGSLgRy683dW4zN1LxG8T8mRuzHWt0vxtRKGVl2kxMDlu4HiDL
-	TJnDPG7ITzrNvFPowflV2TkY2ePiTi4D2wp/hcKHlMQO4f5J/MzsWYO5VuBAz0CX
-	dKgWC+8apkGrGHVxjJCdat0AA86TXXgaNRHyOhorBUkNaisfVotUPF4ZSPC9O1pw
-	XuX37hLw06XvveTz/9ifCbtdvM52at/9Ee0+1wtcMxbNG3Gw==
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g049g3dwf-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 04:38:36 +0000 (GMT)
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2cacd6d37edso9775165ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 21:38:36 -0700 (PDT)
+	Wed, 12 Aug 2026 04:39:56 +0000
+Received: by mail-oa1-x35.google.com with SMTP id 586e51a60fabf-455ca262ccbso319182fac.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Aug 2026 21:39:54 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1786509594; cv=none;
+        d=google.com; s=arc-20260327;
+        b=mQnlbOX864OosxaHf7uJSueDgMrlDm8FUtWgirEDw7OSV/bqWq5N8+z4+K/PLGAxd6
+         GmUVNKdWERP99pyVKbm7iWno1VgG8lDyOuJtHRAhnCXMbHMAzQGxpXd68OPPdbs6mq+p
+         9SzdLgS6rhiGRUK4QirBOoA+MU1J18paNTUIeZMW+X1SwcnWiRJqE9+Cu5/Vr9sd2nqM
+         RnA3clkU63FUGz54g7GPmbQCbFvpy5MrgTdfPTPe/gYQJqTnGhzGhusSGofCZgRaWSIS
+         /W7GHlwR5/MJypq4PrTWIZcbhWGsaXCfSTsLiLaiZCYLJ1pWGuN5/qtYjhFWZT9ZDYt7
+         BBRQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=y8EqzbJg8fD3KowEEfKkshsn5eXfhPp6NSIWl0mIxuU=;
+        fh=3vjQGoFr4cliw0aN9TCWKaymyAR8GTBoFqTVZ4YUJzM=;
+        b=nnClfe4wB8P/g65snwJqKPvj9+pvdGXPLCDRMyJHpAKpV3kXe6z2fKNhO7/6wt6XYC
+         /fx53qwO96VgS3g2zJLBnXUo0mAaiD6Vbus4bpKAL2Df/2squGfm1ybc9NM4J/JdDdmx
+         wZPrvXc65uczn6RhZCAiH7EUg3GxGUVBzTz8eLg3oJ0dsu/0KOmtOfcTTovCHtHv3pan
+         Q8FsPiiYRxfLBVKtuu9EhttLhXOFZjPqPjS2619pIHlHd8YTVl/JaV8KppojSIQXvGmY
+         cEYyamgxCRA7aOWqDiBlfFv5fDkyZI4h1e2XVZGc+czfuqXV1YLzrex7M+2GzpXILokt
+         qF3w==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1786509516; x=1787114316; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=KdFIJwL/ItKbdlpitmpynsip1Jdt+5SlhtYQlqlCk0g=;
-        b=Y9L/mh0A4GFgZnoKl/smRxgpg/tq48nPwe2FQQmmcYtWmbxlwa56smldRuz6YU+Pcm
-         VrKwIzcZYdiGBvYJ+MKopJB5UXy2GgnnWjHENv7cI+9/UXKxdnXFmdQZErGA/YDLR1X9
-         GuTuL5MRYzarJ5+zacUyTJK54Bf+YznlO1sq5dS0W8LYHBdWKzO0e+ICd2YtYj7X4my5
-         x0eY7rYqnBPboVzB8vlMKNNa3iameQrjZrlkTQqNTv2egbGFn4M63HeDHR08dtszA0nL
-         Sl5asqXibMk/yGfdXX+trWtgbp3xn6wACFRrGAhqVVXDRvbH1NFXYetIZWNrixt+6C12
-         JSjA==
+        d=chromium.org; s=google; t=1786509594; x=1787114394; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=y8EqzbJg8fD3KowEEfKkshsn5eXfhPp6NSIWl0mIxuU=;
+        b=Iup0tSiz9+wfJSEVRQdeBRVC9XX1egfRngUJEofTm95UGhO8gvkO19ZLKtmbRCEId2
+         ixvKcKbZSS6iDCvHoasCZUoZPfl3o5OrfaLdJpYTzRKeVbm6RIQ1LCJE70Wg9rWtYfTC
+         ZivLYf8ybyDsbLhrRrF99T0+HFBe8j7PxhEsM=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786509516; x=1787114316;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=KdFIJwL/ItKbdlpitmpynsip1Jdt+5SlhtYQlqlCk0g=;
-        b=clieT4FD/fMrtbLziywkEU8YF8qrj/YjBTG58pxKJKyWoNcCWmwA8aLj/GP9GHo64n
-         cqhqbS9ytkg7IPOIEK52nF7bJZuIo/mg/+e8k9SyJTAMdWbIWoS7rbQUaUV8IxJqtsH0
-         53eXDV5mp1M2q/6mbmEd/dwXVAS6N87S29CDe/J2TMWwg9pSzB5q6z5Ens0HPCkj2Ugb
-         NNnRnGzIvFpR332zW/ekvYGtwwPDOhT1Kr7bjsm2I8EU/g4OSWA1ku4gsXwVTFuT/zFN
-         Ypfp6oLgLX7zZq1Loc/DmYoRslf2w1w7qs/V2Y77g8JqCXLGCZD1Imv41lwMSelmsrGF
-         UMmA==
-X-Forwarded-Encrypted: i=1; AHgh+RqkLPHewRxFrfdMdxacsodPiy02+zAQXDVdn8ryR0zRAVUsztDfagHkxUhc1GIZb9PHBDehpTidj7l/pTeGkND9@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz8LFt+lT+fW5LUCLHlCAlb5G+m3A/qOTWhJJZ3WZVbqHqpzueO
-	lqRG5tvwPFvdhfjZQxePFPX17c8dzIcBDerkVV/1iUVBVKy3a+RJj7QBBjOufscCytSf0y5FcZg
-	nNugz9xCDLRMtnP4yt4js8mMxJqLA7SzR3foNOTHdagmzZvCYF3Y8SBTzMgQ8oSMiZOiQYivpDW
-	tGS2Yw6BiwsjT1
-X-Gm-Gg: AR+sD13nEWWnIRAL3rbaMLuBHL1iUJ5EgIK2zm8Hka2ceEcXXz4/5lf4sbwY6qm6g6Y
-	fAN8MiK5wo2F97RhhQo3gL+gX4JkxZilDRtv6+qMGnBsn8MmlbGSBo8Yq1NDOElGzWdyYZ4gqxV
-	qCJU0jrhqT3uz0pBbql0k+d/BBTqVN8VgmHJM1V7IX+xWabEsi7mt5fKqUMDr3lAKdzt95SHvo6
-	CD18a/PtjnCd8IKDRyxw4lEJdOrlm5b861/b2y0sgyTix8csWglQtYOS43vH13MkMn7xoUC1a48
-	jdm4uVZEn4S/PV5dFtMUkIKd0vL7yeokhZJgjtAG8PQAvVqWz7eiUzofGQhrFBPas0b1OdkSGxq
-	RCbyYgmqtKzwCGQ==
-X-Received: by 2002:a17:903:320b:b0:2ca:ecf6:910e with SMTP id d9443c01a7336-2d3450e0539mr33371375ad.0.1786509515767;
-        Tue, 11 Aug 2026 21:38:35 -0700 (PDT)
-X-Received: by 2002:a17:903:320b:b0:2ca:ecf6:910e with SMTP id d9443c01a7336-2d3450e0539mr33370935ad.0.1786509515282;
-        Tue, 11 Aug 2026 21:38:35 -0700 (PDT)
-Received: from localhost ([4.43.230.115])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d352208fa5sm1111035ad.62.2026.08.11.21.38.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 11 Aug 2026 21:38:34 -0700 (PDT)
-From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Date: Wed, 12 Aug 2026 06:38:13 +0200
-Subject: [PATCH net v2] net: stmmac: keep gso_enabled_types in sync with
- netdev features
+        d=1e100.net; s=20251104; t=1786509594; x=1787114394;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=y8EqzbJg8fD3KowEEfKkshsn5eXfhPp6NSIWl0mIxuU=;
+        b=i93cm6x3zf8ysIWe6uLR0uemYk8V22GHhCMUvMt6kuCAxedzplHLDisaoJthFdiNVt
+         oGdU3Q44HtXjg1KW3SVkSnR5rbcH7OoJzGc9Xth/11zYOZW+D0nD0et5rhRGNwZrRNM6
+         ZVzAJ9QAcbmQfoqiPYDhTFqePm7q3GLCCTv7RbbT0VnMy1XauhgpeTDO+kJWZZnYIscS
+         RToIu2vFeILkif4XtJXU7IAIS5yZEQok5lEPEeSZJxT9iY6sVx5lG/7m2gce1xGUgomR
+         MlP3gb/j11G4xbYtit0CjRCZxLRnWqFf9H+OqcZ1+rIYrWXtzir5LTeso+KkDuDWRPj2
+         /tig==
+X-Forwarded-Encrypted: i=1; AHgh+Rp2r/MWbJfypwJJDMAymsMmsQrUxH/kTJccqG9tz4FBU/jU4CY3/bm9kecD7dgDo6p0ZHoOKNM+bZqZrA8n9VBs@lists.infradead.org
+X-Gm-Message-State: AOJu0YyAawviGOFSe+7/ABVSjI/d6d+snJnJKwpteF45vO/Ix9wqUte1
+	VSmH7I9xz+43TvJIIZ+2S7kbHAtUG4cS1rI8QUTSW1Wjdcyo4EYOyZWl0AjQXHiBiRTJSGFixsD
+	3uOmgK13fy4DQ2rRSY9IKwlbpFtWaWcUE6QY9VQiq
+X-Gm-Gg: AR+sD10jbOjXxUPpQ+CaxShcjJckS9cmMFYlwjr7wCNnCsPi2pShc99iIlEUCyPNWhC
+	6B8WOSwmvR72714ZTAMhKy92a+Gjhe9/Px9DebKcq6a62tcmSCz1xUw0Vt+FaceJecYAzy9ALCw
+	PYr+SeNE9eXgfvUxzbSznPZupNjU4RGoQe/WbzMIkw8vWU7HDYLwvgdRkmm5lpYqBu904sUXuVf
+	Jz4Oq5fGqw0muSY9u/gn9ebR7W6b8aHU2aTF1i7G2lYQzK1f27Ghnwf60gBwubNg/y4sqBH1StK
+	cLcfSgWRRjhvtCTL5wyfN6zMOEPCWeggEQK1TV92AxouBd583X8wyGk90JccNnH5Rgom5svjglp
+	s9y0tkQA=
+X-Received: by 2002:a05:6808:2f13:b0:495:d7ec:b6be with SMTP id
+ 5614622812f47-4b210ca8dc6mr1833103b6e.18.1786509593853; Tue, 11 Aug 2026
+ 21:39:53 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260812-stmmac-fix-tso6-features-v2-1-72c3b06eb8d4@oss.qualcomm.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4VNSw6CMBC9ipm1Q0pDobjyHoZFLVNpYql2CtEQ7
- m7DBdy85P03YEqeGC6nDRKtnn2cC5HnE9jJzA9CPxYOUshWaKGRcwjGovMfzBxbdGTykoixc6N
- V1DeNJgml/kpUQsf0DWbKMBRx8pxj+h53a31Y/5fXGmt0Wt7rTvVKKHmNzNV7MU8bQ6gKwLDv+
- w94huD1zAAAAA==
-X-Change-ID: 20260808-stmmac-fix-tso6-features-7fdc5e9448e2
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org,
-        Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-X-Mailer: b4 0.14.3
-X-Proofpoint-GUID: OVnDDu0ngRvtgbWu6ZIQhvwH_vXzArJx
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODEyMDAzMiBTYWx0ZWRfX3hx5uBexczfR
- TuxPqp268NCnzXKjHcOqrLKauogZMEKSZw6dsQ4YWLqCOJF6jV9ExBQCCqvyFpvWNg2xkdH/Grs
- D2DUW9tf+UWV1luaYyeWtqQ2+WrTM9g=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODEyMDAzMiBTYWx0ZWRfXyqZ0bEIu2Uup
- QbIXl3xWihRdpctbeJrDUnvvQVXXT7l4FY/Pv8fg9glyhgkEb10/i2WvoqSAuO9a70lU/ZDd2N3
- ewzsjPoKmLl4zpviEaYJPzUCX5c2B29gflMq652ActZ3wnwdVjus+xLFxN+/PWwTzcrsDU+Bcvn
- ooYycJei08Bs1j/7Eq+ixqZB9VswUBG71byUzeZnt32QxEDJ89FsaP961TGsxGb8447Yv39HAKw
- yWvdsrR2OZJwNFy/Ah/ax+bFjvz9sPu/tEdYyUisJP1/3o20RoJOWQ3GBrrWXBAGRMY1YVoMbvc
- 00kDGGRVM6KCORffHfBhtOJYrvhkf3yitRNhnT2Rb8qbOe63avXk+K5t1BfhjMGti5v2MUAtaER
- 9Jv2iynCtHkTD+q6J1cbF+4UbB4JG5KMTxSjRA2QTNfxLis/LuCCMUp03X4+wZ5HDmVReTSVflW
- 0luyP1Ebp5DyuwOtKHA==
-X-Proofpoint-ORIG-GUID: OVnDDu0ngRvtgbWu6ZIQhvwH_vXzArJx
-X-Authority-Analysis: v=2.4 cv=LIRWhpW9 c=1 sm=1 tr=0 ts=6a7bf8cc cx=c_pps
- a=cmESyDAEBpBGqyK7t0alAg==:117 a=f2H3biQdujjI0Mw2rri0Ng==:17
- a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=3uZi2X7aTxeIN_KhKxEA:9 a=QEXdDO2ut3YA:10
- a=1OuFwYUASf3TG4hYMiVC:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-12_01,2026-08-10_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 impostorscore=0 bulkscore=0 phishscore=0 suspectscore=0
- priorityscore=1501 adultscore=0 malwarescore=0 spamscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608120032
+References: <20260811122011.3539250-1-wenst@chromium.org> <20260811122011.3539250-2-wenst@chromium.org>
+ <99ad23ba-f8f2-404b-960e-1c22a20c9ac4@sirena.org.uk>
+In-Reply-To: <99ad23ba-f8f2-404b-960e-1c22a20c9ac4@sirena.org.uk>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Wed, 12 Aug 2026 12:39:42 +0800
+X-Gm-Features: AUfX_myPgwTrMoDWlXxd7K4JTdOxXQP71DAA9qzbfq1hbTylwiYJcqKiFEh4if4
+Message-ID: <CAGXv+5EeEQM6O8Vb8e8fGjRzMe1icmz=cPm3GoKLxvEO=weVcA@mail.gmail.com>
+Subject: Re: [PATCH v4 1/9] regulator: core: Add "enable and wait" functions
+To: Mark Brown <broonie@kernel.org>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Benson Leung <bleung@chromium.org>, Tzung-Bi Shih <tzungbi@kernel.org>, 
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Jiri Kosina <jikos@kernel.org>, 
+	Andi Shyti <andi.shyti@kernel.org>, linux-mediatek@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	chrome-platform@lists.linux.dev, linux-input@vger.kernel.org, 
+	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260811_213839_565243_89DA1061 
-X-CRM114-Status: GOOD (  18.48  )
+X-CRM114-CacheID: sfid-20260811_213955_058743_65D2D047 
+X-CRM114-Status: GOOD (  20.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,103 +122,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-stmmac_set_gso_types() derives priv->gso_enabled_types all-or-nothing
-from NETIF_F_TSO, but stmmac_set_gso_features() advertises NETIF_F_TSO,
-NETIF_F_TSO6 and (on GMAC4) NETIF_F_GSO_UDP_L4 as independently
-toggleable features. Since netdev_fix_features() only ties TSO6 to the
-checksum features, disabling TSO (ethtool -K ethX tx-tcp-segmentation
-off) leaves TSO6 enabled in dev->features while gso_enabled_types
-becomes 0.
+On Tue, Aug 11, 2026 at 8:43=E2=80=AFPM Mark Brown <broonie@kernel.org> wro=
+te:
+>
+> On Tue, Aug 11, 2026 at 08:20:01PM +0800, Chen-Yu Tsai wrote:
+> > In device power sequencing and initialization use cases, it is common
+> > for the driver to enable the regulator and then wait for a certain
+> > period of time to pass before continuing.
+>
+> Please don't bury core changes for subsystems in the middle of random
+> other serieses, this is the first time I've seen this.  :(
 
-For a TCPv6 GSO skb the stack then keeps the frame unsegmented
-(NETIF_F_TSO6 is still set), stmmac_features_check() does not clear the
-GSO mask, and the stmmac_xmit() gate (gso_type & gso_enabled_types) is
-false, so the multi-MSS skb is transmitted through the ordinary
-descriptor path as a single oversized frame.
+Sorry, that is entirely my fault. I was using an old v1 recipient list
+on the previous two versions and that list didn't include you.
 
-Derive each GSO type from its own feature bit instead, so the mask stays
-in sync with dev->features and TCPv6 (or UDP L4 on GMAC4) segmentation
-keeps working when only TSO is disabled.
+> > One case in particular is not optimized yet: a regulator left on either
+> > by hardware reset default or by the bootloader, but does not have the
+> > "regulator-boot-on" property set. As the enable timestamp only gets
+> > updated when enabled by a consumer or by the core, the first enablement
+> > always needs to wait.
+>
+> Just take a timestamp during registration if the regulator is enabled,
+> we check if it's enabled anyway so we may as well take that as the last
+> time the enable happened.
 
-Fixes: 9edfa7dab811 ("net: stmmac: enable TSO for IPv6")
-Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
----
-Changes in v2:
-- Fix possible race between stmmac_set_gso_types() and stmmac_xmit().
-- Fix fixes tag.
-- Link to v1: https://lore.kernel.org/r/20260808-stmmac-fix-tso6-features-v1-1-f82b17595052@oss.qualcomm.com
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 28 +++++++++++++----------
- 1 file changed, 16 insertions(+), 12 deletions(-)
+Yeah, I just haven't figured out where exactly in regulator_register() to
+put it. I think it should be after the supplies are resolved, so maybe
+I could do this in the "final setup" part in regulator_resolve_supply()?
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index a71f0df26378..df3549f55741 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -4371,16 +4371,20 @@ static void stmmac_flush_tx_descriptors(struct stmmac_priv *priv, int queue)
- 	stmmac_set_queue_tx_tail_ptr(priv, tx_q, queue, tx_q->cur_tx);
- }
- 
--static void stmmac_set_gso_types(struct stmmac_priv *priv, bool tso)
-+static void stmmac_set_gso_types(struct stmmac_priv *priv,
-+				 netdev_features_t features)
- {
--	if (!tso) {
--		priv->gso_enabled_types = 0;
--	} else {
--		/* Manage oversized TCP frames for GMAC4 device */
--		priv->gso_enabled_types = SKB_GSO_TCPV4 | SKB_GSO_TCPV6;
--		if (priv->plat->core_type == DWMAC_CORE_GMAC4)
--			priv->gso_enabled_types |= SKB_GSO_UDP_L4;
--	}
-+	unsigned int gso_types = 0;
-+
-+	if (features & NETIF_F_TSO)
-+		gso_types |= SKB_GSO_TCPV4;
-+	if (features & NETIF_F_TSO6)
-+		gso_types |= SKB_GSO_TCPV6;
-+	/* Manage oversized UDP frames for GMAC4 devices */
-+	if (features & NETIF_F_GSO_UDP_L4)
-+		gso_types |= SKB_GSO_UDP_L4;
-+
-+	WRITE_ONCE(priv->gso_enabled_types, gso_types);
- }
- 
- static void stmmac_set_gso_features(struct net_device *ndev)
-@@ -4416,7 +4420,7 @@ static void stmmac_set_gso_features(struct net_device *ndev)
- 	if (priv->plat->core_type == DWMAC_CORE_GMAC4)
- 		ndev->hw_features |= NETIF_F_GSO_UDP_L4;
- 
--	stmmac_set_gso_types(priv, true);
-+	stmmac_set_gso_types(priv, ndev->hw_features);
- 
- 	dev_info(priv->device, "TSO feature enabled\n");
- }
-@@ -4766,7 +4770,7 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb, struct net_device *dev)
- 		stmmac_stop_sw_lpi(priv);
- 
- 	if (skb_is_gso(skb) &&
--	    skb_shinfo(skb)->gso_type & priv->gso_enabled_types)
-+	    (skb_shinfo(skb)->gso_type & READ_ONCE(priv->gso_enabled_types)))
- 		return stmmac_tso_xmit(skb, dev);
- 
- 	if (priv->est && priv->est->enable &&
-@@ -6198,7 +6202,7 @@ static int stmmac_set_features(struct net_device *netdev,
- 			stmmac_enable_sph(priv, priv->ioaddr, sph_en, chan);
- 	}
- 
--	stmmac_set_gso_types(priv, features & NETIF_F_TSO);
-+	stmmac_set_gso_types(priv, features);
- 
- 	if (features & NETIF_F_HW_VLAN_CTAG_RX)
- 		priv->hw->hw_vlan_en = true;
 
----
-base-commit: 7b53449540502cb21b32bca62a6258e22cd97bbe
-change-id: 20260808-stmmac-fix-tso6-features-7fdc5e9448e2
-
-Best regards,
--- 
-Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-
+Thanks
+ChenYu
 
