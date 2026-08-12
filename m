@@ -4,70 +4,172 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D787DC5CFDB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 21:16:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1EACC5AD5A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 21:24:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jy+yY7ScNPTLI9GPqIPBBSp+vMzLO39xsKXyzQYJ99g=; b=BQtHSxPCIvsFd6EIcBpdopAGOi
-	1WS3dVGVw1EY/XQOkR5z3jIvc8NlqrxYpGIYlFaVE17sTxV5jbmGY6AZchnLg5s2jPcY0cPTJwEwL
-	gdk4OBF4Gg912xLGXbej0YqqFOd64EN+OFD6Tq8lDFpPe5CCsBLH1OIOsSmQ6sOvnN9uD3y8Udncp
-	TR3WM793tzDziA41TBoiKNurGaDvgMoh2EFXMh5yL+o/M0rzbAZ/woXPu6Nkuk9Janje7ZW7ccsck
-	gP9jvHLS4fiynIN0Rvhk0V7QioNA1unJhFW/2B+G4lMT0w4z1VoWfaAgieJzklFVxfqwwiVJtxLZs
-	4VbdFtuQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6r2ven/RnLXM8I08xHMpC7ryR8CYaNWA1hJhMRAb89c=; b=IfNVIbylbTJGYPAvL6e4Ww1E+m
+	1tr3pywqtwAm9u8ZA/mqOOOlL1E0Z898zmwAAnSf+UJukNeYGrYrKQoHeZMftQdF7agURFyQu4xoI
+	KrmOSt0mVirC1JChYLv0sQo6jbYA9DxUlDI1Mr8saxFnKvGyDuHnQfOsyCdmlH/PmlatMQl/F7FG8
+	2LAHgyZIpzEQHV62l7fE2id0AQmd4Fq97CP29dcG4PWZrxpLOBXV/WzOEM5iiHYIzWsRs8fHxk3bR
+	ZJ4Dj45T4jEzD1oY5E1mvKZ1FaRppqZCCXXu6jHfMwVAyk/zNxzmPxCMRXsKTRGCd0hlC4GQWu3B5
+	D0tf9oBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuGJ1-0000000H2LA-1dEv;
-	Wed, 12 Aug 2026 21:16:11 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wuGR6-0000000H2sW-13dl;
+	Wed, 12 Aug 2026 21:24:32 +0000
+Received: from mail-norwayeastazon11013057.outbound.protection.outlook.com ([40.107.159.57] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuGIx-0000000H2Kp-2IQa
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 21:16:09 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D2329402EE;
-	Wed, 12 Aug 2026 21:16:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A2CD1F000E9;
-	Wed, 12 Aug 2026 21:16:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786569366;
-	bh=Jy+yY7ScNPTLI9GPqIPBBSp+vMzLO39xsKXyzQYJ99g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=E58VqySMPVR3JY7HOTNGr9aKopdC/lyGXtSvQDmLeEvPWmMjbVUfelG4CWhcmWxtn
-	 2bHovtMMDJThTowpyek8S0i+tc0b6ncMVDblTqQ23iiglr3Z0fyKP0qc0aJm1QM/OY
-	 n52J3OD/J1sUCV817jRl7Sz1js835hjMmDRTPEExkqDiXgXvsnGhNNZgKfxWx7O08M
-	 fFdtsDOfEq7cNMUzcxFkpXuXJ5x00ORiLqfOPmZWVin+GpzY93COwrR1QarzO+4POW
-	 XLFIeSISNBKyGvbDbGY1G3Py9Ehvh9hVQW5YtSGZwsuTTrZPKSd2XruYcCFvIGNvNS
-	 YB9LOHBnjNflA==
-Date: Wed, 12 Aug 2026 16:16:05 -0500
-From: Rob Herring <robh@kernel.org>
-To: Nagadheeraj Rottela <nagadheeraj.rottela@amd.com>
-Cc: Srinivas Neeli <srinivas.neeli@amd.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Michal Simek <michal.simek@amd.com>, Andrew Lunn <andrew@lunn.ch>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	Simon Horman <horms@kernel.org>,
-	Russell King <linux@armlinux.org.uk>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, git-dev@amd.com
-Subject: Re: [PATCH 01/20] dt-bindings: net: add Xilinx TSN Endpoint Ethernet
- MAC
-Message-ID: <20260812211605.GA984427-robh@kernel.org>
-References: <20260807104431.157230-1-nagadheeraj.rottela@amd.com>
- <20260807104431.157230-2-nagadheeraj.rottela@amd.com>
+	id 1wuGR3-0000000H2rk-0bKY;
+	Wed, 12 Aug 2026 21:24:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=aqOj+l3+oIYqt4FSeIFo7qY4glL4an8FdoRrj4p3FVNkfHxO9/+gTtAgg108i62MQE4MLdZ1ZBmT57i/V2JzGZd8b9KxqKv+M6fy+i8STO0ctb1EiuHsRWQ286JQkSMYIHnM/x9UH/vV2jpZ2AhM8eZuQ9VdGxFeGsihbPPoC3IH9/P+yynX5EuBITZ/PJOv4EMwwPgHU1YLtDVUawkAkQfhoj9RF7gmQtwkm/Jt3TNXaB5dwhBV2O1mgjGsv01z5tK40b5Td+akBAR6Mze7Fw9JFy3fGCGxxc3fXo3Kmc3g8QmD7dhCYvdBW2ns9Cnl4OPsQ71XrtZYfRbJ1A8Cgw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6r2ven/RnLXM8I08xHMpC7ryR8CYaNWA1hJhMRAb89c=;
+ b=CSaeDFQ0GH/yOK24tRH3Ps/qtd+RsB1+eAptFJ5vcNQJHM+53Qf1ySnAqCFqvV6xtaSUaUgSExUavsXbqjguTkZvBCoJnJMnTGGEaSk2oSufirVrmFb2Cv9k0RNGvbuMUd5PaeVYlWf+nIZgRI0asWzAva92Ok5mWnHmgQ3+zAfHxFXdHQDauzlcvCWigXAnQR7lVq9wqWwgMPK07iNGX2Os/AoWKk2H1qoZ2mdIdGcrBJG+VLSN07B5rEZ2+v97RdgAibvF9BG6ueFtuP23HFusROMj0Tr7pWI1fkcZ91oaDOY1X9kyBy7EB40UjJUdn6SdDQ3fp4lMZcT1nNSQEQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6r2ven/RnLXM8I08xHMpC7ryR8CYaNWA1hJhMRAb89c=;
+ b=nbyOGB0Pmq7RnA5jJkV/BfiSl4utlC85XQzmL2Xb8PY9VWhWlTSOJy62q89R74/GY/duKPciWsY36h0ttQYm4iLsSmoCYTPxJWZ5tmYxpKkScaSKTiKEnz1DyLGII7NyxQ0ALrVKuCsrBF000RnUyjoeBz6pt4wheJ48HxYRq+Rix78NOTwZ1cyikzegZbseHs5U5qeFQl8MvgEEoIHyekpjbg8rZmpcYvfN+4InlDcahzy6Zz8iCMD6lERd+zWNI1t33iaPVcGgRESahAUDHpvO5uUT7GhvezDtxULddcAhNnKOC5UjDK8b8QmdATc+4qbdJkCCHp2GjbE/0Mijaw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by GV4PR04MB11821.eurprd04.prod.outlook.com (2603:10a6:150:2e0::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.12; Wed, 12 Aug
+ 2026 21:24:21 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0315.012; Wed, 12 Aug 2026
+ 21:24:21 +0000
+From: Frank.Li@oss.nxp.com
+Subject: [PATCH 0/2] dmaengine: rename dma_chan::dev to dma_chan::chan_dev
+ for clarity
+Date: Wed, 12 Aug 2026 17:24:07 -0400
+Message-Id: <20260812-dma-chan_dev-rename-v1-0-a67131f7d5c2@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAHfkfGoC/yXMUQqDMBCE4avIPndBIw2tVymlrMlot2AsSRVBv
+ HujPn4M86+UEBWJmmKliFmTjiGjuhTk3hJ6sPpsMqWx5a0y7AfhfXl5zBwRZABba2wt7gpxd8r
+ Pb0Sny1F9PE+nqf3A/fYUbdsfkvysUXcAAAA=
+X-Change-ID: 20260812-dma-chan_dev-rename-66263ac5eac9
+To: Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
+ Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
+ Paul Cercueil <paul@crapouillou.net>, 
+ Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+ Binbin Zhou <zhoubinbin@loongson.cn>, 
+ Patrice Chotard <patrice.chotard@foss.st.com>, 
+ =?utf-8?q?Am=C3=A9lie_Delaunay?= <amelie.delaunay@foss.st.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Steven Rostedt <rostedt@goodmis.org>, 
+ Masami Hiramatsu <mhiramat@kernel.org>, 
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
+ Thierry Reding <thierry.reding@kernel.org>, 
+ Jonathan Hunter <jonathanh@nvidia.com>, 
+ Ludovic Desroches <ludovic.desroches@microchip.com>, 
+ Viresh Kumar <vireshk@kernel.org>, Keguang Zhang <keguang.zhang@gmail.com>, 
+ =?utf-8?q?Andreas_F=C3=A4rber?= <afaerber@suse.de>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Daniel Mack <daniel@zonque.org>, 
+ Haojian Zhuang <haojian.zhuang@gmail.com>, 
+ Robert Jarzmik <robert.jarzmik@free.fr>, Chen-Yu Tsai <wens@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, Kelvin Cao <kelvin.cao@microchip.com>, 
+ Logan Gunthorpe <logang@deltatee.com>, 
+ Laxman Dewangan <ldewangan@nvidia.com>, 
+ Vignesh Raghavendra <vigneshr@ti.com>
+Cc: linux-arm-kernel@lists.infradead.org, dmaengine@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org, 
+ linux-stm32@st-md-mailman.stormreply.com, 
+ linux-trace-kernel@vger.kernel.org, linux-tegra@vger.kernel.org, 
+ linux-actions@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ imx@lists.linux.dev, Frank Li <Frank.Li@nxp.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1786569857; l=3124;
+ i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
+ bh=UA98GhwZovdDcfmvuuvyw+1b9God/YO8Hnwwgyhk0pE=;
+ b=O3dG0MBa76kCus/cynthz9VVRaJUyZlGllCA1GyS7TtkPUiiAbWt+EJRiKM3kltyYQ9mddXyZ
+ 2E6pVBPTgOQCN8W/oz31rN+z2TGCmDz7R+dg8/8N2w4fmkPSPqqsGKN
+X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
+ pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
+X-ClientProxiedBy: SA0PR13CA0024.namprd13.prod.outlook.com
+ (2603:10b6:806:130::29) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260807104431.157230-2-nagadheeraj.rottela@amd.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GV4PR04MB11821:EE_
+X-MS-Office365-Filtering-Correlation-Id: b85ae998-4783-45ad-1356-08def8b81353
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|366016|7416014|376014|19092799006|921020|56012099006|18002099003|10067099003|11063799006|41080700001;
+X-Microsoft-Antispam-Message-Info: p4HDzsJxh/d3bb36/4fz0Z4VqThPAv+eG6e3s2LBt1LP4O0n3rN+hzWmh4cOvm2FhhZy29dO6K6SVhqaPnNNOIrtxCJ6sFjQm2N4qN9rSAJD1Npe4aa+pK3ne9uz/9Dsrp5V7dXMUXSxvItvizoELxz9XVnaObDkwoVk3RFFV7cbpUxBAGsvLVHHU0dWS0ciLVoY7e6DF0jUDbZF23vRhjbtOuDowYRhPEfCkDWhWV0RWclAgL67Kr9ASqZsIimuj4+ubjrd50iE4OW3X93j+EjTjA/2TftLWUXrMb4QsX2QcA9+i0hRjTXmOMQEAItt10uK3YEUw/VLWpcFxDC77kefF+UASt/ghBECH84KbK1sYxxFV0Sm7iwi7Ir5bsEC7dRJSEPvi4Mduk6OZBdE7OdGAdVJzstT5ic4jjDAcIzUOFZz7lYu1DJc2M7t/iD9bSgMYyF9duTUrADj9VUPrEdZBeZnDOLQut1togueVF4uex2hUC6g0XVx1fdxX8njZ0HeoJI00Lm0MHSd0VVALRfAh8WGbA51527Ukc0pgUQ3IopZk3v0JzE5KUSjQwJR8Ujz7wm+6qE/N3tzssiByZO22ZzbxjjOCtpS3WeRYcik6FdJ6/rcYIg4AAiIz11N35+GSP1cbKtxy1P6MlI7oatyotr1LHzVdQefcble27htTdgYYRPrb28toUveqUDF9OF5lqLON1eGc5FEClbxKTgi4vY+pzvtWG9vjgAU7eA=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(366016)(7416014)(376014)(19092799006)(921020)(56012099006)(18002099003)(10067099003)(11063799006)(41080700001);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cDc2eUlGVDIxWVB5QnM4WCtPVDkraVdFdGNpKzlBL0N5eU43S0RId09oUktL?=
+ =?utf-8?B?Tnhlb1RWd3RBQkdEaTd0NWk3MUZUK01weXFyb09uOWlOeGNyRnY5cmtMQUIx?=
+ =?utf-8?B?NHcrSVIrcUxsMXN2Z1plRGRtSGhjL0owTXhycTl1MFU5K204WTVpU3BxZVRT?=
+ =?utf-8?B?ZUNKdjZEMHlEa0kzMEpIZWdtcUpTelJjaXZmdzVlN21LbkJ0VmsrdEdGLzlX?=
+ =?utf-8?B?OUdyU0E1eFF3cTV6VzNGQkJIVHNZWVNmdUxsajZzUW1MT0d2NmRtcThIem40?=
+ =?utf-8?B?d2RJdjcwQkN3a0Ira2xrYjFjS292STgyRERNK09UZG4wR25OeCs3cm45Njcy?=
+ =?utf-8?B?NTZBNjBZb3JLSEdyZHp3dWtYZlhzYWpwQTNxbk9DQWgxWTFZTmZFN3FZb3JO?=
+ =?utf-8?B?NW9NQ2l2RmNRYjlXemZjNXhuNEpWMDNjNSszcUp1elU5UEpDV2x3WWpScm5w?=
+ =?utf-8?B?d3NlT2JETUwwN1gwL0s1RWVWSWJhZ2M0eWpFN0VpQXZkSTBUelBMamUwbmwz?=
+ =?utf-8?B?RDdYNC9XWkJCaFlrZWRuOGFSa2hMR2JvSnFtMzVFd3oxNnJXeFdMRGM2eXRB?=
+ =?utf-8?B?dms5WkcwZ0dwTExETkxvODNPSlVxakRWUDRPdENJOXdBM2V6WG84eENZcnV4?=
+ =?utf-8?B?NVRBNnNtbDMyTFUxbU5WbzlIU1haSW9acFU2d3JFZU1JQ1hNMzdjWUoxam9r?=
+ =?utf-8?B?dGJYOEZVb1d2VGZjY1dKOThpSUh6WXY1cCtHcDA1eHp5V09iTkh4UzNBWW5p?=
+ =?utf-8?B?VWdxR0h4NnE5eDdlVHRsNFBrNW5JcEZLWUVnNEFLRytqaHRSQWYvcTFXbi9v?=
+ =?utf-8?B?TDlTVzh1cUJvdGdndnpxblpFQVd1WVJEK1VTKzFGTEk4SVhsRGozaGRUZDBw?=
+ =?utf-8?B?WFViZnhzK2MxaXBtY1lHY2VQYkFtNE8vQU82aVpJQm5zeE5CMU1sVk1OZHJV?=
+ =?utf-8?B?dE5jYzNOZmV4N3RQRjRTSzN3M0QySENMRGhmWnE3YWxieDh1K2N5RWlKcnJF?=
+ =?utf-8?B?WHd3allaNDlNK0gzR2VLbmsyY1dWM1V4azdrT0ErRHhqL01NdmxKOEJ2cjJX?=
+ =?utf-8?B?cDRHY1QzdDJ4UEVtWDhsZFhrdzQ3bzQvNGxwQ0xZdnIrZ0F5RVl2NStFKzlY?=
+ =?utf-8?B?bVA1SnpubW5FK3Vaa0RkbTlkMXYrNldKVnJERWhOTXRodUlad2JMNjFyT3FL?=
+ =?utf-8?B?UzF3VFZYV1NmWXNiUDAyWDhiVGVMSzVMcFFqNTlRc21RejhtWTROeCt6WEJm?=
+ =?utf-8?B?SDFneUEvSDRpMzZZb2hKWDZoQk9jUVlybXl1U0lOYy9rcHR2QWFZTWdUZk8z?=
+ =?utf-8?B?SE5vQ2JYUXRjOFQyS1NYMEtwUGQzMzdMY2ZVWTNjcU4wMWl5dW1ZdlBzd1lj?=
+ =?utf-8?B?ajN0ZEx4ZXJBUmxVOUQyaGdTZ05wU2dFTjVrR0xwY1ZETUU5U1hqbVhTU0Rj?=
+ =?utf-8?B?SlY0cGlVRHA4dU56ekxhTlErbHIrYStDL255RGZKcFBLWXFVaG83LzRrcnhC?=
+ =?utf-8?B?UWxPVEJvL1NJZktaNTUwQU4wanpPM2FtN1NtQ0R3Ylo5RFFiS2FpUG9HZ0hH?=
+ =?utf-8?B?R29KOHB2c1dOYk5IcjEwUU5EMnBsdkVrUTlZMmdFWUtQZHpHVVZBYzlVOUVn?=
+ =?utf-8?B?dFdpbnJEUlZiZkhMaFFXVTlNaFBCNkxqWXZpWTJ6b3gxOGJZWWs0M2wrcUlq?=
+ =?utf-8?B?RStSbmxMV3NZMkZhTlhIbTg5clBwWDRndlVtRkFhTFRVMjhkSkl2VmdFSkRp?=
+ =?utf-8?B?WGdCM0hya0Ntb29hWkJUVWJzVFRzRHRvOURZSmdHb3VsTjk1SmRlT0xBeFE3?=
+ =?utf-8?B?TVN0VVFWYURQVHpwZ1Y4RnBVZlMrcEVLQXVIZGVGemFwbVRBb1V2OElMWm56?=
+ =?utf-8?B?bUt5SVpVeGZHZjQwRmw4aWdxNW9xbmNmM3BHZXpYQjhtWGtYTnBhbCtXanVL?=
+ =?utf-8?B?MTd1YkFBL1dNbjhrQzd6R0lPTXo0bWtLMHJ6UC9PQ0RDamFzdFUyWUYxNnd4?=
+ =?utf-8?B?MkI1cmorS2RUektDYXNhNy9Vb0JnRnduclhRZ2NmcXVJYm9TNmhzblA5cStR?=
+ =?utf-8?B?eVJVbStpaGd3VUl3YjVEb0ZBVjFEd0IvWjV5SkNlanNVQnNkM0NtVTVLQjB3?=
+ =?utf-8?B?a0hrRXpac2M5MElPWUxKOUhXajJiZTRURmFkUUNzcmF0bXIvZUxkOEQ3b2Zv?=
+ =?utf-8?B?Rko3d1BSZFJkNjZSbStCdXNBdG9NbGFxNUEzTE8zN3AxQTJMMUh6aDJFbXh0?=
+ =?utf-8?B?RDV2cXI2bmo4aXMyQWNxdDJhUEFFWXcyU2FwbkJBZDhZZmx6UXo1N1JRWkJB?=
+ =?utf-8?B?a05wS0I1YjRnTzZDb2ZLdWpJTzZvaUFFMENsL0NlN0Z4Yy9pZi9EV3g5R0xO?=
+ =?utf-8?Q?7GQslGTb3wx8l4I8MalVZ7CMmVYX4QPi6vzLe?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b85ae998-4783-45ad-1356-08def8b81353
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Aug 2026 21:24:21.8024
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 4teVXYxJeLPy/7htDi1ZDbQboXNnc+vogORtO5UiVZsehF73hRh2vhjorSOy6MD0TMu/ujffe/8VU7gB9cXEXSTOro61s0ARzRw5X6if6Ef42Gg7JfK6ro1ryA77q2+U
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV4PR04MB11821
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260812_142429_192514_C7147C21 
+X-CRM114-Status: GOOD (  10.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,314 +184,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 07, 2026 at 04:14:12PM +0530, Nagadheeraj Rottela wrote:
-> From: Srinivas Neeli <srinivas.neeli@amd.com>
-> 
-> Add a binding for the Xilinx TSN Endpoint Ethernet MAC IP. The
-> top-level node describes the IP wrapper, which owns the six shared
-> IP clocks and the xlnx,num-priorities parameter, and has two
-> children:
-> 
->   - xlnx,tsn-ep-mac: the endpoint MAC, owning the host-side DMA
->     channels (dmas / dma-names / tx-queues-config).
-> 
->   - xlnx,tsn-switch: the three-port Ethernet switch covering the
->     switch fabric and the two per-MAC register windows. The MDIO
->     controllers and PTP register blocks sit at fixed offsets inside
->     the per-MAC windows, accessed through the mdio-mac1 / mdio-mac2
->     children and per-MAC interrupt-names entries. Each external
->     port@N references its PHY through a phy-handle in the matching
->     mdio-mac<N> child.
-> 
-> Signed-off-by: Srinivas Neeli <srinivas.neeli@amd.com>
-> Co-developed-by: Nagadheeraj Rottela <nagadheeraj.rottela@amd.com>
-> Signed-off-by: Nagadheeraj Rottela <nagadheeraj.rottela@amd.com>
-> ---
->  .../net/xlnx,tsn-endpoint-ethernet-mac.yaml   | 343 ++++++++++++++++++
->  MAINTAINERS                                   |   7 +
->  2 files changed, 350 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml b/Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml
-> new file mode 100644
-> index 000000000000..00f52b7b623c
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml
-> @@ -0,0 +1,343 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/net/xlnx,tsn-endpoint-ethernet-mac.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Xilinx TSN Endpoint Ethernet MAC
-> +
-> +description:
-> +  TSN Endpoint Ethernet MAC IP implements IEEE 802.1 Time-Sensitive
-> +  Networking (TSN) standards and provides low-latency network connectivity
-> +  in either Endpoint-only or Bridged Endpoint configurations. In the
-> +  Bridged Endpoint mode, the IP integrates a three-port switch, with two
-> +  ports connected to the external network and one port connected to an
-> +  internal endpoint. It also supports GMII/RGMII interfaces for connection
-> +  to an external PHY, enabling full-duplex operation at 100 Mb/s and
-> +  1 Gb/s speeds.
-> +
-> +maintainers:
-> +  - Srinivas Neeli <srinivas.neeli@amd.com>
-> +  - Nagadheeraj Rottela <nagadheeraj.rottela@amd.com>
-> +
-> +properties:
-> +  compatible:
-> +    const: xlnx,tsn-endpoint-ethernet-mac-3.0
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    items:
-> +      - description: GTX clock for transmitter logic and RTC
-> +      - description: GTX 90-degree phase shifted clock for RGMII
-> +      - description: Host RX FIFO clock
-> +      - description: Host TX FIFO clock
-> +      - description: Reference clock for IDELAY control
-> +      - description: AXI-Lite register interface clock
-> +
-> +  clock-names:
-> +    items:
-> +      - const: gtx
-> +      - const: gtx90
-> +      - const: host_rxfifo
-> +      - const: host_txfifo
-> +      - const: ref
-> +      - const: s_axi
-> +
-> +  ranges: true
-> +
-> +  xlnx,num-priorities:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    minimum: 2
-> +    maximum: 8
-> +    description:
-> +      Number of traffic classes (priorities) configured in the IP.
-> +      This is an IP configuration parameter that determines the number of
-> +      priority queues available for QoS scheduling. Traffic classes map to
-> +      IEEE 802.1Q priority levels (0-7).
+The current dma_chan structure contains both "device" and "dev". So
 
-Vendor specific properties go after standard properties. See ordering 
-rules.
+    chan->device->dev refers to the DMA engine device.
+    chan->dev->device refers to the per-channel device instance.
 
-> +
-> +  '#address-cells':
-> +    const: 1
-> +
-> +  '#size-cells':
-> +    const: 1
-> +
-> +patternProperties:
-> +  "^ep-mac@":
+Their similar naming makes the distinction unclear and increases reader
+confusion.
 
-'^ethernet@[0-9a-f]+$'
+Add union dma_chan::chan_dev to make its purpose explicit and clearly
+identify it as the per-channel device. After all user switch to chan_dev,
+union and dma_chan::dev will be removed.
 
-> +    type: object
-> +    $ref: /schemas/net/ethernet-controller.yaml#
+Update the kernel-doc accordingly. Besides its sysfs usage, the per-channel
+device is also used by some DMA engine drivers for IOMMU mapping and
+therefore deserves a more accurate description.
 
-Move unevaluatedProperties here.
+1st patch use existing helper dma_chan_name() to reduce rename difference.
+2nd rename drivers/dma
 
-> +    description:
-> +      Endpoint MAC sub-node. Provides the host-side data path through the
-> +      DMA channels described by its dmas / dma-names.
-> +    properties:
-> +      compatible:
-> +        const: xlnx,tsn-ep-mac
-> +
-> +      reg:
-> +        maxItems: 1
-> +
-> +      dmas:
-> +        minItems: 2
-> +        maxItems: 32
-> +
-> +      dma-names:
-> +        minItems: 2
-> +        maxItems: 32
-> +        items:
-> +          pattern: "^(tx|rx)_chan(1[0-5]|[0-9])$"
-> +        description: |
-> +          Names matching the entries in 'dmas', one per DMA channel and in
-> +          the same order. TX channel names use "tx_chan<N>" and RX channel
-> +          names use "rx_chan<N>", where N is 0..15. Example: "tx_chan0",
-> +          "tx_chan1", ..., "rx_chan0", "rx_chan1", ....
-> +
-> +      tx-queues-config:
-> +        type: object
+Need following patch to clean other dma engineer driver, which is not
+in drivers/dma
 
-Move additionalProperties here.
+After complete all rename work, dma_chan::dev can be removed.
 
-> +        description:
-> +          TX queue configuration node that maps IP priority queues to
-> +          DMA TX channels. The TSN IP supports multiple priority queues for
-> +          QoS scheduling, and each queue can be connected to a specific DMA
-> +          channel. This mapping defines which DMA TX channel is used to
-> +          transmit packets for each priority queue. For example, queue0
-> +          with xlnx,dma-channel-num set to 5 means priority queue 0 uses
-> +          tx_chan5 for data transfer.
-> +
-> +        patternProperties:
-> +          "^queue[0-7]$":
-> +            description:
-> +              Each subnode represents a priority queue. The
-> +              xlnx,dma-channel-num property specifies which DMA TX channel
-> +              (tx_chan0 to tx_chan15) is connected to this queue for
-> +              transmitting packets.
-> +            type: object
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
+---
+Frank Li (2):
+      dmaengine: use dma_chan_name() helper to get per-channel device name
+      dmaengine: add union chan_dev for dma_chan::dev for clarity
 
-Move additionalProperties here and then a blank line after.
+ drivers/dma/arm-dma350.c                       |  2 +-
+ drivers/dma/at_hdmac.c                         |  2 +-
+ drivers/dma/at_xdmac.c                         |  2 +-
+ drivers/dma/dma-jz4780.c                       | 10 ++---
+ drivers/dma/dmaengine.c                        | 34 ++++++++---------
+ drivers/dma/dw-axi-dmac/dw-axi-dmac-platform.c |  2 +-
+ drivers/dma/dw-axi-dmac/dw-axi-dmac.h          |  4 +-
+ drivers/dma/dw/core.c                          |  2 +-
+ drivers/dma/ep93xx_dma.c                       |  2 +-
+ drivers/dma/idma64.c                           |  4 +-
+ drivers/dma/loongson/loongson1-apb-dma.c       |  2 +-
+ drivers/dma/loongson/loongson2-apb-cmc-dma.c   |  4 +-
+ drivers/dma/loongson/loongson2-apb-dma.c       |  4 +-
+ drivers/dma/mmp_pdma.c                         |  2 +-
+ drivers/dma/nbpfaxi.c                          |  2 +-
+ drivers/dma/owl-dma.c                          |  2 +-
+ drivers/dma/pch_dma.c                          |  2 +-
+ drivers/dma/pxa_dma.c                          | 52 +++++++++++++-------------
+ drivers/dma/st_fdma.c                          |  2 +-
+ drivers/dma/stm32/stm32-dma.c                  |  4 +-
+ drivers/dma/stm32/stm32-dma3.c                 |  8 ++--
+ drivers/dma/stm32/stm32-mdma.c                 |  4 +-
+ drivers/dma/sun6i-dma.c                        |  2 +-
+ drivers/dma/switchtec_dma.c                    | 14 +++----
+ drivers/dma/tegra186-gpc-dma.c                 |  4 +-
+ drivers/dma/tegra20-apb-dma.c                  |  2 +-
+ drivers/dma/ti/k3-udma.c                       |  6 +--
+ drivers/dma/timb_dma.c                         |  2 +-
+ include/linux/dmaengine.h                      | 18 ++++++---
+ include/trace/events/tegra_apb_dma.h           |  6 +--
+ 30 files changed, 107 insertions(+), 99 deletions(-)
+---
+base-commit: 28d012efb4327f9c75d5e042a7c91e9a542efa98
+change-id: 20260812-dma-chan_dev-rename-66263ac5eac9
 
-> +            properties:
-> +              xlnx,dma-channel-num:
-> +                $ref: /schemas/types.yaml#/definitions/uint32
-> +                description:
-> +                  DMA TX channel number connected to this priority queue.
-> +                minimum: 0
-> +                maximum: 15
-> +
-> +            required:
-> +              - xlnx,dma-channel-num
-> +
-> +            additionalProperties: false
-> +
-> +        additionalProperties: false
-> +
-> +    required:
-> +      - compatible
-> +      - reg
-> +      - dmas
-> +      - dma-names
-> +      - tx-queues-config
-> +
-> +    unevaluatedProperties: false
-> +
-> +  "^switch@":
+Best regards,
+--  
+Frank Li <Frank.Li@nxp.com>
 
-^switch@[0-9a-f]+$
-
-> +    type: object
-> +    $ref: /schemas/net/dsa/dsa.yaml#/$defs/ethernet-ports
-> +    description:
-> +      Three-port Ethernet switch sub-node. Contains the switch fabric
-> +      register window and the two per-MAC register windows; each per-MAC
-> +      window houses an MDIO controller and a PTP register block at fixed
-> +      offsets. The IP's per-MAC and PTP-timer interrupts are exposed here.
-> +
-> +    properties:
-> +      compatible:
-> +        const: xlnx,tsn-switch
-> +
-> +      reg:
-> +        items:
-> +          - description: Switch fabric register window
-> +          - description: MAC1 register window (includes MDIO and PTP)
-> +          - description: MAC2 register window (includes MDIO and PTP)
-> +
-> +      reg-names:
-> +        items:
-> +          - const: switch
-> +          - const: mac1
-> +          - const: mac2
-> +
-> +      interrupts:
-> +        maxItems: 7
-> +
-> +      interrupt-names:
-> +        items:
-> +          - const: ptp_rx_mac1
-> +          - const: ptp_tx_mac1
-> +          - const: mac_irq_mac1
-> +          - const: ptp_timer
-> +          - const: ptp_rx_mac2
-> +          - const: ptp_tx_mac2
-> +          - const: mac_irq_mac2
-> +
-> +      mdio-mac1:
-
-mdio-1
-
-> +        $ref: /schemas/net/mdio.yaml#
-> +        description:
-> +          MDIO bus controller for MAC1. Registers reside inside the mac1
-> +          reg-names window.
-> +        unevaluatedProperties: false
-> +
-> +      mdio-mac2:
-
-mdio-2
-
-> +        $ref: /schemas/net/mdio.yaml#
-> +        description:
-> +          MDIO bus controller for MAC2. Registers reside inside the mac2
-> +          reg-names window.
-> +        unevaluatedProperties: false
-> +
-> +      ethernet-ports:
-> +        type: object
-> +        additionalProperties: true
-> +
-> +        properties:
-> +          port@0:
-> +            type: object
-> +            additionalProperties: true
-> +            description:
-> +              CPU port. Wired internally to the ep-mac sibling.
-> +
-> +            properties:
-> +              reg:
-> +                const: 0
-> +
-> +              phy-mode:
-> +                const: internal
-> +
-> +        patternProperties:
-> +          "^port@[1-2]$":
-> +            type: object
-> +            additionalProperties: true
-> +            description:
-> +              External Ethernet port (port@1 is wired to MAC1, port@2 to
-> +              MAC2). Its PHY is reached through the corresponding
-> +              mdio-mac<N> bus.
-> +
-> +            properties:
-> +              phy-mode:
-> +                enum:
-> +                  - gmii
-> +                  - rgmii
-> +                  - rgmii-id
-> +
-> +    required:
-> +      - compatible
-> +      - reg
-> +      - reg-names
-> +      - interrupts
-> +      - interrupt-names
-> +
-> +    unevaluatedProperties: false
-> +
-> +additionalProperties: false
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - clock-names
-> +  - xlnx,num-priorities
-> +  - ranges
-> +  - '#address-cells'
-> +  - '#size-cells'
-> +
-> +examples:
-> +  - |
-> +    tsn_ip: tsn@80040000 {
-
-Drop unused labels.
-
-Rob
 
