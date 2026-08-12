@@ -4,73 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D8B0C5B56A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 09:02:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 087C8C5CFDB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 09:06:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BjYTXGS1I+G3s2Zx0RzTXvGfd9gK/2FScJL9IfzQqtE=; b=O5N/5AIGxU9XMhngGZsUCxGpNV
-	pd12RloHN7e2Ir84jLG/hUKCZ4KcWJhWbrujdAoYCUK7fY5O5wPZD5bqux4dc/eY7eMMC+v2AoRIu
-	OjQhjeFmw1893W8siwXlKhfDzWFBHIlmlIxq9Q2I84MyaeJ6kcNtt/NTFqVSvpzhr5zaNGpj/Me6K
-	8oql89eIL6iBJKEAi5IYdsbM2Qc2y3aJ4UFbAe+R4TJNjZlFgap6gC83+bCgySLHmL1zdPFHFXbAn
-	f3T0MJh9gqBiGYS9a/QX8B8KWLWSKCLBbirriJNPKNf83FkLCnGLgJT2FjGv5EYVIoBheLrLArzp5
-	rotjaHTA==;
+	bh=h1el+5bynGwZTxmOlFRx3G0Um3mYKNFZI3qxJs10450=; b=x1fCiYpF+91pm3cja6T1jUDcMQ
+	/na7SsdjYmSmOhy48RPURo2BBAsAgKHok2z8hiek/+o2D8ZgCXAZwcpbVRQbysJZeoqkRi++qmK70
+	55JF6otgunI3zGGDwLVUzhIeo+j9JlRL+PZy/hIRYTRqGWuU0TRmls+XPUm5kv1XEnqceXmXQmXNK
+	9wfweUIEzj4mdxIZM6R1F5j1con69FfdGjS96s2LLq1iMuhxPf+U6FzzXFbhITSmkD10BAKM6cthu
+	wwEAWaMOu8X1qb3QAcl3SuqSG7cXbSnbmNE0sQ5yXPvEQNYIPQPSIc72hZgbqyo3GkDDSw4P5U7o5
+	girmuYhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu4qW-0000000FgsB-2I3V;
-	Wed, 12 Aug 2026 09:02:00 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu4qT-0000000FgrY-26nt
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 09:01:59 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DE1441596;
-	Wed, 12 Aug 2026 02:01:51 -0700 (PDT)
-Received: from [10.57.44.219] (unknown [10.57.44.219])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BE2753F86F;
-	Wed, 12 Aug 2026 02:01:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786525315; bh=fhi1CG9KJ7r5EFbdg94wZP9tdmI61cXorDFoinPpFvI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=QGPEfFKybXe6rNomdv0fzgoUx1xUydEqGfiSseGhGVM9AgQ2oBiMSL++OZ1Z6BDei
-	 +U9WxgtH3yQbk+rt/X7cx2cSz05c1xdVZ1kJ0xtqt3bmOl2mIEkr28sEjAiJ86XpQm
-	 sXbjd99E1hsDc3d4VRdqy/3aroVUYRnmw2mUPcuo=
-Message-ID: <b512db4b-793b-4dd1-baac-e873b39f5b0b@arm.com>
-Date: Wed, 12 Aug 2026 10:01:48 +0100
+	id 1wu4uf-0000000Fh9J-1Vr2;
+	Wed, 12 Aug 2026 09:06:17 +0000
+Received: from mail-m83124.xmail.ntesmail.com ([156.224.83.124])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wu4ua-0000000Fh7B-3i3a;
+	Wed, 12 Aug 2026 09:06:15 +0000
+Received: from [172.16.12.90] (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 49b5abffa;
+	Wed, 12 Aug 2026 17:05:57 +0800 (GMT+08:00)
+Message-ID: <47d9ada4-5277-4ff6-b7d4-ed4fcbb6a6f7@rock-chips.com>
+Date: Wed, 12 Aug 2026 17:05:57 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v16 29/45] KVM: arm64: CCA: Support runtime faulting of
- memory
-Content-Language: en-GB
-To: Catalin Marinas <catalin.marinas@arm.com>,
- Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, Marc Zyngier
- <maz@kernel.org>, Will Deacon <will@kernel.org>,
- James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
- Zenghui Yu <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
- Lorenzo Pieralisi <lpieralisi@kernel.org>
-References: <20260803134403.80630-1-steven.price@arm.com>
- <20260803134403.80630-30-steven.price@arm.com> <antC5JOxDPs7i876@arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <antC5JOxDPs7i876@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: drm/rockchip: vop2: ACLK_VOP pinned at 500 MHz starves DP 4K120
+ on RK3588
+To: Igor Paunovic <royalnet026@gmail.com>
+Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+ Heiko Stuebner <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
+ Sandy Huang <hjc@rock-chips.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Alexey Charkov <alchark@flipper.net>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260808104240.13776-1-royalnet026@gmail.com>
+ <33bd4a94-11af-4cf3-ae44-b7f8944250f6@collabora.com>
+ <c0a7521d-9c19-4197-802b-2b64a6ddea28@rock-chips.com>
+ <20260811212358.9980-1-royalnet026@gmail.com>
+ <7759116b-0beb-4d25-b269-c020a8379cef@rock-chips.com>
+ <20260812083857.60460-1-royalnet026@gmail.com>
+Content-Language: en-US
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <20260812083857.60460-1-royalnet026@gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-HM-Tid: 0a9ff538a45f03a7kunmac5ca8645a5459
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDQkpCVkIYTkpOSRhJTB4dT1YVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUJCSU
+	5LVUpLS1VKQktCWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=JzzBXDF2SqrZWHEEKcqgSl4yADVvsT/qS1YZycy3unyz9vTyTyatY2ZpLX9R2FpQvO3mTO3jiEdmncU5ag4VxDLvYRT8K4H5Zk4GIS7UX3yMphO5Ui+0Atadmj3Cu+uN+XhyuqRebZXF9xQK/eWikF9FvKpPhUer0jdhI2siOfc=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=h1el+5bynGwZTxmOlFRx3G0Um3mYKNFZI3qxJs10450=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_020157_671567_2DC1E715 
-X-CRM114-Status: GOOD (  29.68  )
+X-CRM114-CacheID: sfid-20260812_020613_607362_64F53285 
+X-CRM114-Status: GOOD (  41.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,114 +83,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/08/2026 16:42, Catalin Marinas wrote:
-> On Mon, Aug 03, 2026 at 02:43:45PM +0100, Steven Price wrote:
->> At runtime if the realm guest accesses memory which hasn't yet been
->> mapped then KVM needs to either populate the region or fault the guest.
->>
->> For memory in the lower (protected) region of IPA a fresh page is
->> provided to the RMM which will zero the contents. For memory in the
->> upper (shared) region of IPA, the memory from the memslot is mapped
->> into the realm VM non secure.
+Hi Igor,
+
+On 8/12/2026 4:38 PM, Igor Paunovic wrote:
+> Hi Chaoyi,
 > 
-> Is this still true with in-place guestmem conversion?
+> That is exactly what I was missing, thank you. Having the vendor's
+> decision flow meant I could stop guessing and go measure the case where
+> my rule and yours disagree. I have done that now, and the result is
+> worth more than my earlier argument was.
 > 
->> @@ -1693,7 +1709,14 @@ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
->>   	kvm_fault_lock(kvm);
->>   	if (mmu_invalidate_retry(kvm, mmu_seq)) {
->>   		ret = -EAGAIN;
->> -		goto out_unlock;
->> +		goto out_release_page;
->> +	}
->> +
->> +	if (kvm_is_realm(kvm)) {
->> +		prot &= ~KVM_PGTABLE_PROT_X;
->> +		ret = realm_map_ipa(kvm, s2fd->fault_ipa, pfn,
->> +				    PAGE_SIZE, prot, memcache);
->> +		goto out_release_page;
->>   	}
+> First, on equivalence: I do not think my threshold is equivalent to the
+> linedur_ns term - it is strictly narrower. With
+> linedur_ns = crtc_htotal * 1000000 / crtc_clock, and htotal 4400 for the
+> 4K modes my panel offers:
 > 
-> [...]
+>   3840x2160@120  1188000 kHz   linedur_ns 3703
+>   3840x2160@60    594000 kHz   linedur_ns 7407
+>   2560x1440@144  ~586000 kHz   linedur_ns ~4600-4700
 > 
->> +int realm_map_ipa(struct kvm *kvm, phys_addr_t ipa,
->> +		  kvm_pfn_t pfn, unsigned long map_size,
->> +		  enum kvm_pgtable_prot prot,
->> +		  struct kvm_mmu_memory_cache *memcache)
->> +{
->> +	struct realm *realm = &kvm->arch.realm;
->> +
->> +	ipa = ALIGN_DOWN(ipa, map_size);
->> +	if (!kvm_realm_is_private_address(realm, ipa)) {
->> +		return realm_map_non_secure(kvm, ipa, pfn, map_size, prot,
->> +					    memcache);
->> +	}
->> +
->> +	/* It's impossible to map protected pages read-only. */
->> +	if (WARN_ON(!(prot & KVM_PGTABLE_PROT_W)))
->> +		return -EFAULT;
->> +	return realm_map_protected(kvm, ipa, pfn, map_size, memcache);
->> +}
-> 
-> I was trying to understand (with the help of some LLMs) to understand
-> whether we can end up on the do_gpf() path as a result of VMM actions.
-> The above kvm_realm_is_private_address() only checks for the IPA but
-> does not check against guestmem if the page is truly private. I probably
-> miss something but the scenario would be something like:
-> 
-> 1. VMM creates the gmem region with GUEST_MEMFD_FLAG_MMAP |
->     GUEST_MEMFD_FLAG_INIT_SHARED, mmap()able and GUP-pinnable
-> 
-> 2. VMM starts an O_DIRECT write() from that mapping; the block layer
->     FOLL_PINs the shared folio
-> 
-> 3. VMM runs a vCPU so the realm touches the protected-IPA alias of the
->     same gfn. gmem_abort() delegates the pinned, still-shared page to
->     the RMM
-> 
-> 4. The in-flight I/O then reads the now-Realm page from the kernel
->     linear map. That access takes a GPF at EL1, so do_gpf() ->
->     die_kernel_fault()
-
-This is correct. The fundamental issue is that we have a disconnect
-between the "gmem attribute" changes (to private/shared) and the
-RIPAS and this is something we want to fix.
-
-e.g., the KVM CCA driver sets the entire DRAM to RIPAS_RAM for
-the Realm before ACTIVATION and we expect that the VMM changes
-the gmem to PRIVATE. They both are not in sync. his is something
-we were discussing the other day with Aneesh.
-
-Once they are in sync, we are protected. If the RIPAS=EMPTY
-(gmem=shared) a stage2 fault doesn't come to the Host.
-
-If the RIPAS=RAM, the gmem is private and there are no usespace
-mappings.
-
-The reason why it is disconnected at the moment is due to the
-weird semantics for Guest triggered conversions in CCA
-i.e., Realm requests via RSI_IPA_STATE_SET, triggering a RIPAS_CHANGE
-exit to the KVM.
-
-The KVM exits to VMM with MEMORY_FAULT_EXIT and the VMM can service this
-by invoking GMEM(SET_ATTRIBUTES2). But, the KVM needs to invoke the
-RMI_RTT_SET_RIPAS in the context of the "vcpu", which we don't have
-from the "kvm" context. I guess we can fix it by running through the
-vcpus and find the matching one with the "ipa" range and the "ripas".
-
-And as for the VMM requests before the Realm is activated, we could
-map that to RMI_RTT_INIT_RIPAS and removing the implicit change
-from KVM arm64.
-
-
-Thanks
-Suzuki
-
-
-> 
-> x86, IIUC, also checks kvm_gmem_is_private(). They also have
-> kvm_arch_gmem_make_private() triggered on the kvm_gmem_get_pfn() path
-> but I got lost in the call sites, not sure whether that's strictly
-> needed if we check both private IPA and kvm_gmem_is_private().
+> My VOP2_HIGH_BW_PIXCLK_KHZ of 1000000, at htotal 4400, is the same as
+> saying linedur_ns < 4400 - about 1.7x stricter than your 7500. So my
+> rule declines to boost in cases where yours boosts, and 3840x2160@60 is
+> one of them: your rule raises it on two counts (crtc_hdisplay > 2560 and
+> linedur_ns 7407 < 7500), mine does not raise it at all.
 > 
 
+Ah, that's close. What I want to say is that it has a direct
+correlation with dclk and resolution.
+
+> So I measured that case. I unplugged both HDMI cables, leaving the
+> DisplayPort output as the only display, and switched it between
+> 3840x2160@120 and 3840x2160@60, reading aclk_vop and dclk_vop2 from
+> clk_summary at each point:
+> 
+>                         4K120 (YCbCr 4:2:0)      4K60
+>   dclk_vop2             594 MHz                  594 MHz
+>   aclk_vop              750 MHz                  500 MHz
+>   vop interrupts/s      120                      60
+>   POST_BUF_EMPTY        0                        0, over 60 s
+> 
+> The dclk is identical in the two states, because the 4K120 link runs
+> YCbCr 4:2:0 and the 4K60 link does not. The interface rate did not move
+> at all. What moved was what the video port composes - a full-screen 4K
+> ARGB plane at 120 Hz versus the same plane at 60 Hz - and the AXI clock.
+> That is the separation I told you I could not make from my earlier data,
+> where mode and composition moved together. The interrupt counts are one
+> vblank per frame in both states, so there is no starvation at either
+> point.
+> 
+> 3840x2160@60 is therefore clean at ACLK 500 MHz with a full-screen 4K
+> plane. For that case the downstream rule boosts and does not need to.
+> 
+> Putting all four points I now have in terms of composed pixels per ACLK
+> cycle:
+> 
+>   3840x2160@120   995.3 Mpx/s   500 MHz   1.99   storms (116630 irq/s)
+>   3840x2160@120   995.3 Mpx/s   750 MHz   1.33   clean
+>   2560x1440@144   530.8 Mpx/s   500 MHz   1.06   clean
+>   3840x2160@60    497.7 Mpx/s   500 MHz   1.00   clean
+> 
+> The boundary sits between 1.33 and 1.99. That quantity does not depend
+> on the connector or on the pixel format, which is what I think you were
+> pointing me at, and it fits every point I have rather than the two I
+> started from.
+> 
+> The honest limit of this: all four are a single full-screen plane on a
+> single video port. They say nothing about plane_num_4k or crtc_num > 1,
+> which are exactly the terms my condition has no counterpart for. I am
+> not proposing to drop your terms - I am saying the two mode-derived ones
+> appear to carry margin for this shape of workload, and I would rather
+> ask than assume.
+> 
+> The other thing I had not appreciated is where the decision lives.
+> rockchip_drm_aclk_adjust() runs from atomic_commit_tail, so it is
+> re-evaluated on every commit with that commit's plane information, and
+> aclk_adjust_frame_num holds the boost for two more commits on the way
+> down. My unsent patch puts the decision in vop2_crtc_atomic_enable() and
+> _disable(), which only run on modeset. A condition that depends on what
+> the planes are composing cannot live there: a client swapping a 1080p
+> plane for a 4K one without a modeset would never be seen. So the
+> placement has to change, not just the condition.
+>
+
+Yes, I think it depends on the strategy you adopt.
+
+> Two things I would still rather learn than guess:
+> 
+>   - Is the two-commit hold on the way down a hardware requirement - the
+>     rate has to be up before the frame that needs it and stay up for a
+>     beat after - or is it belt and braces? It decides whether an
+>     upstream version needs the same hysteresis.
+>
+
+I think this is a software strategy for debouncing.
+
+>   - Are the mode-derived terms describing something the hardware stalls
+>     on, or are they a conservative stand-in for "this is probably a
+>     heavy scene"? My 4K60 and 1440p144 points only make sense to me
+>     under the second reading.
+>
+
+I think it's both. You can think of the VOP internally as having a FIFO:
+aclk is used to fill the FIFO, while dclk is used to consume from it. 
+This problem occurs when the fill rate cannot keep up with the consumption
+rate.
+
+In practice, it is difficult to find a quantitative method to determine 
+whether the requirements can be met, so we can only try through 
+experimentation. For now, this strategy appears to satisfy our needs.
+
+> I will rewrite the patch along the lines of your flow rather than the
+> pixel-clock threshold, and move the decision to the commit path. For
+> what it is worth, the version I have been running locally since 7 August
+> has driven 3840x2160@120 HDR over DisplayPort with no HDMI output
+> present at all, which is the case the FRL-gated condition cannot serve;
+> it also drops the rate back to 500 MHz on modeset and restores it, so
+> the refcount side behaves.
+> 
+> Thanks again - this turned a guess into a measurement.
+>
+
+Thank you for doing this, let's see if others have any comments.
+
+-- 
+Best, 
+Chaoyi
 
