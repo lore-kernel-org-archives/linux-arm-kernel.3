@@ -4,117 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEEF8C5CFDB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 12:28:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95EC9C5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 12:34:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ElBNO9EPvHuirVGnvX/nkoBxhVDqF0yWtKSEwWHqacU=; b=xo4e4F6ZLic/atddkGF9Y38Z4H
-	5dFgv49g5Y7TJC6XFrZigIhGG/y53Hs4QxnIyE4Luk6bGlf328zbjQZnSN5DaicsSnxmJg1ZDQBWN
-	jiVnoiCdulH2+atrsnA1F8MCA0giuzLVPOjJwN+AsyaLcJWHtSt1oQlAmQkhj5cmT2SlitOhjZ0gR
-	HMkfqvdssCIrYXcx2UYLtk4g2syAgxt4yQM9k4/XYb4O1ooGRDm7qHk5r7VBfaM1l2sRYWk0qXsrf
-	GA7UTns36zle4jYgxab2W7lSRkwv6fKxVYxWR3wtgHn0lJ9N2Bca7VTE97Bdo8F7Wjo9MvZKntfZT
-	uTrRQ4ZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ky4ujpdFUrBoeVyTnNyym1tbNd1LG9e7N6vAuh+mNkM=; b=FNNzVJ7FDnAe9OwYWPdRsgfUoM
+	nPfB0sfN6t7TZ1HufqBcBNzQ7TIAVQCYejvOpRhjwRn6K4cIkRisKtORrdbwIDyespXvq0cFCnzUj
+	cPPV2qSplEYYgabZtz2xI5fRvLP7onwFX0QNhq928qRVKJGG22CoYJ5SAYHRh8xNZ8FhC5tRy1HbE
+	P2wW4aGigWl2eKqVI/ZLWhhEFtacBZlC9dBF8tTHwSDcXA5ecnCy/Y4nyEl7uq3mWcGuBuZp5rdUf
+	vPo3Nd9o+JGKOATsozPI51e4hfvr+o0ncQgTcswW5emr4XzOxuaFT6irR+URnxjhoV9Pk3LeOBojX
+	28C2uQtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu83m-0000000GBy2-37hJ;
-	Wed, 12 Aug 2026 12:27:54 +0000
-Received: from mout02.posteo.de ([185.67.36.66])
+	id 1wu89a-0000000GCKm-07ZT;
+	Wed, 12 Aug 2026 12:33:54 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu83j-0000000GBxW-3Eqv
+	id 1wu89W-0000000GCK2-3a20
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 12:27:53 +0000
-Received: from submission (posteo.de [185.67.36.169]) 
-	by mout02.posteo.de (Postfix) with ESMTPS id F00B2240104
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 14:27:44 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.de;
-	s=1984.8680eb; t=1786537664;
-	bh=ElBNO9EPvHuirVGnvX/nkoBxhVDqF0yWtKSEwWHqacU=;
-	h=Message-ID:Subject:From:To:Cc:Date:Autocrypt:Content-Type:
-	 MIME-Version:OpenPGP:From;
-	b=lCq5Q5LiwcsfJzkHKr5ABpM+49V7h/hnKL9/ToAbyI095olNp5Y1qknXWx8/OOq5O
-	 dICSAYxeqZQiYzL5L2nEzt/eQQCEuKZYrYW4ZL01e5Xm85iFkFJYMxvJOUz1zSE5xP
-	 39Tg1vfuIXQHPKaK54BFx8zLqOAjxGP/zzt6ncXLjTDOr1TDtBdPSNhmLfB6ySQ5X7
-	 lgER+VbhxKyUsfD95DgfZsA3R3oKPMx5cL09gsFyRf0PPSGOhm0xIR3s7wuDvT7yu7
-	 OFUFqiqQbN/EIToNwab4RiL5tuUGR6UsfWA9b1KT/cXbigRSdkSZM+TDiA2NghsppC
-	 TTBGdTQkJ9pPg==
-Received: from customer (localhost [127.0.0.1])
-	by submission (posteo.de) with ESMTPSA id 4hKnnV5CDfz9rxB;
-	Wed, 12 Aug 2026 14:27:42 +0200 (CEST)
-Message-ID: <053e901c9145d57c01078df6febe8b22fd79b850.camel@posteo.de>
-Subject: Re: [PATCH v3 1/5] dt-bindings: rtc: Add pinctrl for S35390A
-From: Markus Probst <markus.probst@posteo.de>
-To: Rob Herring <robh@kernel.org>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, Krzysztof Kozlowski
-	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Uwe
- =?ISO-8859-1?Q?Kleine-K=F6nig?=
-	 <uwe@kleine-koenig.org>, Andrew Lunn <andrew@lunn.ch>, Gregory Clement
-	 <gregory.clement@bootlin.com>, Sebastian Hesselbarth
-	 <sebastian.hesselbarth@gmail.com>, Michael Langer
-	 <michael.brainbug.langer@googlemail.com>, Andrew Morton
-	 <akpm@linux-foundation.org>, Linus Walleij <linusw@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Date: Wed, 12 Aug 2026 12:27:44 +0000
-In-Reply-To: <20260812020844.GA520945-robh@kernel.org>
-References: <20260805-rtc_s35390a_int1-v3-0-e836faba3e25@posteo.de>
-	 <20260805-rtc_s35390a_int1-v3-1-e836faba3e25@posteo.de>
-	 <20260812020844.GA520945-robh@kernel.org>
-Autocrypt: addr=markus.probst@posteo.de; prefer-encrypt=mutual;
- keydata=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
- jfGillcaQOqFZ3WwVqyzG1BUfTow==
-Content-Type: multipart/signed; micalg="pgp-sha256";
-	protocol="application/pgp-signature"; boundary="=-4FzxRt0vSudbgFRbezTj"
+	Wed, 12 Aug 2026 12:33:53 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 086EA1A15A0;
+	Wed, 12 Aug 2026 12:33:46 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id CF9026045E;
+	Wed, 12 Aug 2026 12:33:45 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8B23111C48F6F;
+	Wed, 12 Aug 2026 14:33:35 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1786538020; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=ky4ujpdFUrBoeVyTnNyym1tbNd1LG9e7N6vAuh+mNkM=;
+	b=qWEyFnhKGgeFpd626FTrych5MuMWMPuEtLRsuzVYDBm2f8PyE1UORGE1TD1swuHzEaMfZk
+	/cOiG4PQYQ4t8iImsjHDd2vX/VgwFl9NYwKep/4Zbz6+1xBu2YIHNJeI/x2Co7Kouxb1d4
+	qNRvw0HDWyWgWBF1TFi9/EDGNRxCDcIHLgQ6M1zISoRA+N06/Mwfw5rprEpU4Db4nz1YG4
+	Qk7uqdNUABQx7LSn5gqvkinraledsjT2F66hMvAWK7HZMU1VhiX2RUCNmodbfBgzYDqYvC
+	xCSUc7eUmZovR/rB52N4N14bWSAb7nxPK8vnlJczsNyVMWXuboS633vUd2d8fw==
+Message-ID: <a15dda96-9a91-4055-b394-618ebd99b4df@bootlin.com>
+Date: Wed, 12 Aug 2026 14:33:34 +0200
 MIME-Version: 1.0
-OpenPGP: url=https://posteo.de/keys/markus.probst@posteo.de.asc; preference=encrypt
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] net: stmmac: use dma_addr_t for DMA addresses
+To: Alex Elder <elder@riscstar.com>, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com
+Cc: mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Sashiko <sashiko-bot@kernel.org>
+References: <20260811192703.1765416-1-elder@riscstar.com>
+ <65494f6d-50fe-4bdb-98d9-7150d9a4fc91@bootlin.com>
+ <72848f5d-768a-4d06-82d1-1168cae8c5b6@riscstar.com>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <72848f5d-768a-4d06-82d1-1168cae8c5b6@riscstar.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_052752_117270_542B053A 
-X-CRM114-Status: GOOD (  28.30  )
+X-CRM114-CacheID: sfid-20260812_053351_051031_603C8196 
+X-CRM114-Status: GOOD (  22.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,229 +81,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
---=-4FzxRt0vSudbgFRbezTj
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+On 8/12/26 14:25, Alex Elder wrote:
+> On 8/12/26 2:23 AM, Maxime Chevallier wrote:
+>> Hi Alex,
+>>
+>> On 8/11/26 21:27, Alex Elder wrote:
+>>> In jumbo_frm() (implemented in both "chain_mode.c" and "ring_mode.c"),
+>>> an unsigned integer local variable is used to hold the value returned
+>>> by dma_map_single().  On systems where a dma_addr_t is 64 bits, the
+>>> subsequent dma_mapping_error() check of the returned value operates
+>>> only on the low 32 bits (whose high bit won't be sign-extended).  In
+>>> this case, dma_mapping_error() would return 0 (no error) even if there
+>>> were one.
+>>>
+>>> Fix this in both spots by using a dma_addr_t for the local variable.
+>>
+>> Thanks :)
+>>
+>> I was wondering if it would silently hides another address size related
+>> issue a little bit lower, as we now have :
+>>
+>>    dma_addr_t des2;
+>>
+>>    des2 = dma_map_single(...);
+>>
+>>    desc->des2 = cpu_to_le32(des2);
+>>
+>> desc->des2 is __le32, so for 64 bit addresses we silently truncate the
+>> address.
+> 
+> I saw that too.  Everything is unsigned, and only the lower
+> 32 bits will be used, but I'd rather see the dma_addr_t
+> explicitly converted to u32 before being passed to cpu_to_le32().
+> This should work regardless of the size of dma_addr_t:
+> 
+>     desc->des2 = cpu_to_le32(lower_32_bits(des2));
 
-On Tue, 2026-08-11 at 21:08 -0500, Rob Herring wrote:
-> On Wed, Aug 05, 2026 at 07:32:27PM +0000, Markus Probst wrote:
-> > Synology NAS devices use the output pin for interrupt signal 1 to wake =
-up
-> > the system.
-> >=20
-> > Move devicetree bindings for sii,s35390a into its own file.
-> > Add necessary properties to configure the individual pins via pinctrl,
-> > which allows the interrupt signal 1 to be used for wakeup alarm.
-> >=20
-> > Signed-off-by: Markus Probst <markus.probst@posteo.de>
-> > ---
-> >  .../devicetree/bindings/rtc/sii,s35390a.yaml       | 109 +++++++++++++=
-++++++++
-> >  .../devicetree/bindings/rtc/trivial-rtc.yaml       |   3 -
-> >  MAINTAINERS                                        |   1 +
-> >  3 files changed, 110 insertions(+), 3 deletions(-)
-> >=20
-> > diff --git a/Documentation/devicetree/bindings/rtc/sii,s35390a.yaml b/D=
-ocumentation/devicetree/bindings/rtc/sii,s35390a.yaml
-> > new file mode 100644
-> > index 000000000000..0355f17f233a
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/rtc/sii,s35390a.yaml
-> > @@ -0,0 +1,109 @@
-> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/rtc/sii,s35390a.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: S-35390A 2-WIRE REAL-TIME CLOCK
-> > +
-> > +maintainers:
-> > +  - Alexandre Belloni <alexandre.belloni@bootlin.com>
->=20
-> This should be someone with the h/w, not subsystem maintainer.
-There has been a discussion about this before.
-See
-https://lore.kernel.org/all/20260701-bronze-jaguar-of-perfection-028bac@quo=
-ll/
-and replies.
+Fine by me, if you add that in V2 feel free to keep my review tag :)
 
-If desired I can use my own name.
+Maxime
 
->=20
-> > +
-> > +description:
-> > +  The S-35390A is a CMOS 2-wire real-time clock IC which operates with=
- the
-> > +  very low current consumption in the wide range of operation voltage.
-> > +
-> > +allOf:
-> > +  - $ref: rtc.yaml#
-> > +
-> > +properties:
-> > +  compatible:
-> > +    const: sii,s35390a
-> > +
-> > +  reg:
-> > +    maxItems: 1
-> > +
-> > +  interrupts:
-> > +    minItems: 1
-> > +    maxItems: 2
-> > +    description: Supports up to 2 interrupt lines via the INT1 and INT=
-2 pins.
-> > +
-> > +  wakeup-parent: true
-> > +
-> > +  wakeup-source: true
-> > +
-> > +  "#clock-cells":
-> > +    const: 1
-> > +
-> > +patternProperties:
-> > +  "^pins":
->=20
-> Do you need wild cards here? Wouldn't just 'pins' for the node name be=
-=20
-> fine?
-Pin control by itself supports multiple states.
-I am not sure if this has a usecase with this device though.
+> 
+> I didn't look, but there could be other places where this occurs.
+> Tell me if you'd like me to send another patch that does this
+> (here and in any other spots I find.)
+>> However I don't see how jumbo would work on 64-bits anyways as des3 is the next
+>> chunk of the jumbo frame...
+>>
+>> I think this is good as-is, so
+>>
+>> Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+> 
+> Thank you.
+> 
+>                     -Alex
+> 
+>> Maxime
+>>
+>>>
+>>> Reported-by: Sashiko <sashiko-bot@kernel.org>
+>>> Link: https://lore.kernel.org/linux-devicetree/20260606010122.21A211F00899@smtp.kernel.org/
+>>> Signed-off-by: Alex Elder <elder@riscstar.com>
+>>> ---
+>>>   drivers/net/ethernet/stmicro/stmmac/chain_mode.c | 3 ++-
+>>>   drivers/net/ethernet/stmicro/stmmac/ring_mode.c  | 3 ++-
+>>>   2 files changed, 4 insertions(+), 2 deletions(-)
+>>>
+>>> diff --git a/drivers/net/ethernet/stmicro/stmmac/chain_mode.c b/drivers/net/ethernet/stmicro/stmmac/chain_mode.c
+>>> index fc04a23342cfc..ec25193d287bb 100644
+>>> --- a/drivers/net/ethernet/stmicro/stmmac/chain_mode.c
+>>> +++ b/drivers/net/ethernet/stmicro/stmmac/chain_mode.c
+>>> @@ -20,9 +20,10 @@ static int jumbo_frm(struct stmmac_tx_queue *tx_q, struct sk_buff *skb,
+>>>       unsigned int nopaged_len = skb_headlen(skb);
+>>>       struct stmmac_priv *priv = tx_q->priv_data;
+>>>       unsigned int entry = tx_q->cur_tx;
+>>> -    unsigned int bmax, buf_len, des2;
+>>> +    unsigned int bmax, buf_len;
+>>>       unsigned int i = 1, len;
+>>>       struct dma_desc *desc;
+>>> +    dma_addr_t des2;
+>>>         desc = tx_q->dma_tx + entry;
+>>>   diff --git a/drivers/net/ethernet/stmicro/stmmac/ring_mode.c b/drivers/net/ethernet/stmicro/stmmac/ring_mode.c
+>>> index 78fc6aa5bbe95..664d8cfb58cdc 100644
+>>> --- a/drivers/net/ethernet/stmicro/stmmac/ring_mode.c
+>>> +++ b/drivers/net/ethernet/stmicro/stmmac/ring_mode.c
+>>> @@ -20,8 +20,9 @@ static int jumbo_frm(struct stmmac_tx_queue *tx_q, struct sk_buff *skb,
+>>>       unsigned int nopaged_len = skb_headlen(skb);
+>>>       struct stmmac_priv *priv = tx_q->priv_data;
+>>>       unsigned int entry = tx_q->cur_tx;
+>>> -    unsigned int bmax, len, des2;
+>>> +    unsigned int bmax, len;
+>>>       struct dma_desc *desc;
+>>> +    dma_addr_t des2;
+>>>         if (priv->extend_desc)
+>>>           desc = (struct dma_desc *)(tx_q->dma_etx + entry);
+>>>
+>>> base-commit: 31397cf1819210bd63fa3d2c7d8c24f7c8667d99
+>>
+> 
 
->=20
-> > +    type: object
-> > +    patternProperties:
-> > +      "-pins$":
-> > +        type: object
-> > +        properties:
-> > +          pins:
-> > +            $ref: /schemas/pinctrl/pinmux-node.yaml#/properties/pins
-> > +            items:
-> > +              enum:
-> > +                - int1
-> > +                - int2
-> > +
-> > +          function:
-> > +            $ref: /schemas/types.yaml#/definitions/string
-> > +            description: |
-> > +              Pin function:
-> > +              - ignore:  Preserve the previous state.
-> > +              - disable: Disable pin output.
-> > +              - wakeup:  Output wakes up the system.
-> > +              - clock:   Output clock pulse.
-> > +              - pmin1:   Minute periodical output with 50% duty.
-> > +              - pmin2:   Minute periodical output L for 7.81 ms.
-> > +                         Can only be used with pin int1.
-> > +            enum:
-> > +              - ignore
-> > +              - disable
-> > +              - wakeup
-> > +              - clock
-> > +              - pmin1
-> > +              - pmin2
-> > +
-> > +        required:
-> > +          - function
-> > +
-> > +        additionalProperties: false
-> > +
-> > +    additionalProperties: false
-> > +
-> > +required:
-> > +  - compatible
-> > +  - reg
-> > +
-> > +unevaluatedProperties: false
-> > +
-> > +examples:
-> > +  - |
-> > +    i2c {
-> > +        #address-cells =3D <1>;
-> > +        #size-cells =3D <0>;
-> > +
-> > +        rtc@30 {
-> > +            compatible =3D "sii,s35390a";
-> > +            reg =3D <0x30>;
-> > +            pinctrl-0 =3D <&rtc_pins_default>;
-> > +            pinctrl-names =3D "default";
-> > +
-> > +            wakeup-parent =3D <&int>;
-> > +
-> > +            rtc_pins_default: pins {
-> > +              int1-pins {
-> > +                pins =3D "int1";
-> > +                function =3D "wakeup";
-> > +              };
-> > +              int2-pins {
-> > +                pins =3D "int2";
-> > +                function =3D "disable";
-> > +              };
-> > +            };
-> > +        };
-> > +    };
-> > diff --git a/Documentation/devicetree/bindings/rtc/trivial-rtc.yaml b/D=
-ocumentation/devicetree/bindings/rtc/trivial-rtc.yaml
-> > index f4d0eed98a08..7b3f682ef4d5 100644
-> > --- a/Documentation/devicetree/bindings/rtc/trivial-rtc.yaml
-> > +++ b/Documentation/devicetree/bindings/rtc/trivial-rtc.yaml
-> > @@ -81,8 +81,6 @@ properties:
-> >        - ricoh,rv5c386
-> >        # I2C bus SERIAL INTERFACE REAL-TIME CLOCK IC
-> >        - ricoh,rv5c387a
-> > -      # 2-wire CMOS real-time clock
-> > -      - sii,s35390a
-> >        # ST SPEAr Real-time Clock
-> >        - st,spear600-rtc
-> >        # VIA/Wondermedia VT8500 Real-time Clock
-> > @@ -105,5 +103,4 @@ required:
-> >    - reg
-> > =20
-> >  additionalProperties: false
-> > -
-> >  ...
-> > diff --git a/MAINTAINERS b/MAINTAINERS
-> > index 5114e6db7307..4c8bc35cfe55 100644
-> > --- a/MAINTAINERS
-> > +++ b/MAINTAINERS
-> > @@ -22695,6 +22695,7 @@ T:	git git://git.kernel.org/pub/scm/linux/kerne=
-l/git/abelloni/linux.git
-> >  F:	Documentation/admin-guide/rtc.rst
-> >  F:	Documentation/devicetree/bindings/rtc/
-> >  F:	drivers/rtc/
-> > +F:	include/dt-bindings/rtc/
-> >  F:	include/linux/rtc.h
-> >  F:	include/linux/rtc/
-> >  F:	include/uapi/linux/rtc.h
-> >=20
-> > --=20
-> > 2.54.0
-> >=20
-
-Thanks
-- Markus Probst
-
-
---=-4FzxRt0vSudbgFRbezTj
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-
------BEGIN PGP SIGNATURE-----
-
-iQJPBAABCAA5FiEEgnQYxPSsWOdyMMRzNHYf+OetQ9IFAmp8ZrUbFIAAAAAABAAO
-bWFudTIsMi41KzEuMTIsMiwyAAoJEDR2H/jnrUPSGhsP/0FkoRbcsk5+7zV5xzR+
-CIA/ua0L0QQzESlsroGrtiXxmjAjC/URYmYg8V9x66J2G43ubBMowXp1cm0PLXEs
-Fh2zKPYQEA6T4vxjSGyBXrBg+F3mQ5j2XWu+qny0h5IyPcuAg5PetYQaNl0UAFbL
-41Outw5xs+pKwwAVd+0WkxA3fGPYmayOt48QW+4Qt0r8UvpbG019CHzpLJyeesQn
-6gSnKXs2Vtlad/mlEyDNKXWQeilyCjZttyrQVa8Ospg0KCTyAsJ8bouK6wSsH7IP
-JH+GhYmuAs7ljbeyRjnIyeN6eADayJjDg7Z45Zo+RC838Kct7rLToFP9AsEJLTCd
-KOVIN4a0YZltuZHOsXHdqpc6Br819G2r6TSUOxGNFg+zXqoc9PDyfvkYQWW6GMbw
-PrybeiDp3Q2cIJ4FYaIsflhoXJ8P9OnH7BjMDx9XEa26jfqmuR70ESllkjlL44bE
-KvwBXAMV+fadhl0S4AhexuyWducvyx/bfwnGPNcZl5uqt1PQyuTqci5Bjctu28TQ
-EDTAXzPtzEWmjZYZzVPW7jGOuac+/GdokHWpPxpDiJb+grio5sIthzD5le/JmNTA
-UtbNQODBuxm4Chldw0w+IxUJjhOeRn+oFLFYTSX/oqPUGlQzXx1Ckqf2Ocv/nM3T
-eYmi/LCAVi48JEIml31MLULy
-=Y5gm
------END PGP SIGNATURE-----
-
---=-4FzxRt0vSudbgFRbezTj--
 
