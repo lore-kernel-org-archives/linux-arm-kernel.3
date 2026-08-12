@@ -4,118 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EA16C5CFDB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 10:35:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E1A5C5CFDB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 10:38:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0nFHBCckinCTeWhtqGBwRJEbOqSgiMtmkEGgpj2JEUY=; b=uAGm/f88p0MK5S2vGragpvtxAD
-	xGVTDOoVaWoyfkZIO0elOSkI3oUshPXGGwa574qmG49BUXV05Ga5zDpXof5Lc3C4rQga64FV/7zPx
-	+SoP3NLpCfhECIdNKjyzrqmmOBXa9JZS96zTXzpywWCuTTilm3zpPeXHN05u7ubTaXHttz/MLeB0v
-	f1qasEFNTZNHK9RgokuesXrZI9VM4y01peztbxrima8cKRzLaooGT5SCdJisBUJPQPceCcB60bO7W
-	yHV8qeNcNia/SxxMB0EcvuQqTPF9rFcU8QhkjnWtqYe4YlXi8huZoL9Tb5JLx2s0T9VVTLLXdvKMa
-	YOo5gKDg==;
+	bh=Lu/qiEjyLXDw9PVQ3MvX7lPg6/5KHHIEuSsW3VTnccg=; b=C0ap/fYdWZKAiu60CCIobwRvoG
+	h+FuwGXGkljoAUevDgbNvbw1BEHR7gV3R846N3zq/ZgD8xowdH61GlzOhdpOagaNB9hRw8SmyPInQ
+	uDWpg0Ei/vRg/vuEFBW2+bIxIwJzFkwLDOe0sUmaiaydUmNQrQV983wEDyl11w0IL8wt3XsBRkRZ0
+	dQHqEbpCSc/+oXppywIKDsx4gkiYFTTy8foq7oFNcZEQ+Z+oW8GYBtCd+8eVqQ19Gy9MyJTKj8QfC
+	caGXjq7nRJ6aSpRKHcmdzwR9fR/yuf5MIWxANtDFY4p8JIbo4hXGWGGoO8juyHPTw0il6uOoLVQZX
+	H39tm7aA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu6JE-0000000FuSi-2wcb;
-	Wed, 12 Aug 2026 10:35:44 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1wu6Lr-0000000FusI-30ga;
+	Wed, 12 Aug 2026 10:38:27 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu6JA-0000000FuRn-2dX0
+	id 1wu6Lq-0000000Fus3-2Y8v
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 10:35:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1786530937;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0nFHBCckinCTeWhtqGBwRJEbOqSgiMtmkEGgpj2JEUY=;
-	b=IYsYManqe4Wut0H2fMGppRqAogF1C3B+F3yMGsJEMP3ccTMtVrxZnHniXfpzbr2w0Al6rk
-	9wQqKHOJdO6Deye4VGBn+ZU3nBbz6PSO7YIFo013NTlwdnsgiM0Ba3lY72CtaICtz9WkKE
-	kb6brpIMP6sTBDAGbQ5lTAuTMaoj5G4=
-Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com
- [209.85.216.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-632-Ndo1D4LzMH2bR_cKES3K2w-1; Wed, 12 Aug 2026 06:35:23 -0400
-X-MC-Unique: Ndo1D4LzMH2bR_cKES3K2w-1
-X-Mimecast-MFC-AGG-ID: Ndo1D4LzMH2bR_cKES3K2w_1786530919
-Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-38e22137fb3so1139678a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 03:35:19 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786530919; x=1787135719;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=0nFHBCckinCTeWhtqGBwRJEbOqSgiMtmkEGgpj2JEUY=;
-        b=Gu1UKcQHwTGxodfRriyShJDwaa/ickz+EFfpTn/SN4XERhZJa4FCK+/j0IzIbsYlzm
-         kmZPgeRdU1gwB7N4AxY/7DW1IRrPO5rTbD2TaoBm3bOMmNnEn232+mpfyGdWGRPzRuj8
-         mlg0nGB0IWHvwhj3BOHC3/XCyh5VqGClgnwBh6BRBhoKMkVmW5kaYBhaM2/RpFKKyC7f
-         lplkN15+K+4bkISxuzu5Id/NE+Dk6wxZckllCKCXJ3YLy5xudG88rXHWdS63hubFn3//
-         fJ7D2StOv+sitZWnsEL4UCoQ0qBm0euVyeVrhB91MoyjCKSVaeuEsoNEvKJJp2sG2BJV
-         NiNA==
-X-Forwarded-Encrypted: i=1; AHgh+RroKu5tJuQBmIsRVG4zeBZunxVb0UGrRdBqpcPbhVGsrRWh9tJeKPFHx2b3kzyhYWdPRKxzFAfAUs0iwihujYNH@lists.infradead.org
-X-Gm-Message-State: AOJu0YztaT2skQaAqnhEQCQOdiXJg1bnG3gPW+qGUWA4uIEXzQmpiZiO
-	o9JzvE79pbDh5Etgesf95xJGS3ibX7Mi+DkuJQNLZVarQ1XzDKamY+fOwvxokGaJaAdfxlQpslt
-	AhYVJ3oLFUnZZsSMWPAPbEaz9cBtcY8PJ5eth72KTRqwPkk/TBF6+rwXIvQr9F/UUVlA7YujhVo
-	ZK
-X-Gm-Gg: AR+sD11igcYh5KExvjQBweVOxCRHwixFoFUYTMm+cfxgADnE2hi15LHSXHPF6RkBd35
-	52EE9wjsJcCMVq3zUUZMN6SvJXUsSH3k9EdETeqUk1kqKFSRD6xmqYnzmGKyFyUng47EGQ+dy0D
-	Xx1xzzZYYIxVMP2cQRroxiH48/mAVndzf+3VvtkGvXmWYDh7usX6RxDUfwtKJxhBNi/kYMBWF65
-	Nvbye3KfFzoibEqOuY99oudh7B6G9QpnTRUtbg6sTrl+6Ir4IYh0MtJz3C1pZ5ggnETrJ7b1Tgt
-	oMxry+uucxKploxTgNxt1qsSnP2GwLqQiB1POe+CSEwr1OCMbx5zfAu39rQXhV9Kclb6/QSjFAM
-	2gOG79m/9bU4VJ3qS54jTHn+Leg+lnfON/AlHP4d4ci0=
-X-Received: by 2002:a17:90b:35cc:b0:38f:5828:a40c with SMTP id 98e67ed59e1d1-3930151d000mr4704154a91.10.1786530918657;
-        Wed, 12 Aug 2026 03:35:18 -0700 (PDT)
-X-Received: by 2002:a17:90b:35cc:b0:38f:5828:a40c with SMTP id 98e67ed59e1d1-3930151d000mr4704090a91.10.1786530918167;
-        Wed, 12 Aug 2026 03:35:18 -0700 (PDT)
-Received: from [192.168.68.51] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-392f88d1e8csm3212165a91.5.2026.08.12.03.35.07
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 12 Aug 2026 03:35:17 -0700 (PDT)
-Message-ID: <ad7d1093-685d-4c11-807d-929d16271cdb@redhat.com>
-Date: Wed, 12 Aug 2026 20:35:05 +1000
+	Wed, 12 Aug 2026 10:38:26 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id F268060A88;
+	Wed, 12 Aug 2026 10:38:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C5011F000E9;
+	Wed, 12 Aug 2026 10:38:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786531105;
+	bh=Lu/qiEjyLXDw9PVQ3MvX7lPg6/5KHHIEuSsW3VTnccg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=blRbcy/nSgMOHQs7HEFHJPqzROH6mLO3n+/pVLTZwrFBZNl1orRvZXPwnIFB60gSG
+	 Kw7tMtiTrTsitWbBy3RYd/t7iMiSczc+nzoMNRWGzALZhSJEc8yuTdTdZw9+DGHLfj
+	 NODWxMMfbcscYz4Rm5RGH9o52BKZvqmh7Jx4nw/OyazSH36j7TsaLvvufgWWSFayeS
+	 nnUVLuTx0UALHWFVHP9Rrju+DXUqUHUzChvaGh7bi0eyKBmPgmlLKUMJWtZpJ+5fTs
+	 cXN7SzRj7aFN8ll8kOeXEKKzaZVLifKJO4fDFOnZniUvccI1IjLBPpuPxxMAqRt9QH
+	 MO/GuKeDwbnbg==
+Message-ID: <7b066c1f-20b7-407f-9268-e9dbeafab004@kernel.org>
+Date: Wed, 12 Aug 2026 12:38:12 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v16 00/45] arm64: Support for Arm CCA in KVM
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, Alper Gun <alpergun@google.com>
-Cc: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev, Catalin Marinas <catalin.marinas@arm.com>,
- Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>,
- James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
- Zenghui Yu <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>,
- "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
- Emi Kisanuki <fj0570is@fujitsu.com>, Vishal Annapurve
- <vannapurve@google.com>, WeiLin.Chang@arm.com,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Javier.AlmansaSobrino@arm.com
-References: <20260803134403.80630-1-steven.price@arm.com>
- <42170467-fe36-4382-867f-49bdc6a7bc9a@arm.com>
- <d0ffbcb5-0cca-4d1e-9788-6b430345fa9b@redhat.com>
- <5e86232a-89ed-40ff-89e2-9e48fbf9554e@arm.com>
- <e2894206-7470-4606-b9ac-eedc8d2bdaf3@redhat.com>
- <CABpDEukGY+ctSi6wHAaC7o4pGmastX_Y18K2_VYDhNME7TF+wQ@mail.gmail.com>
- <f5d47f5f-5869-4e3a-a176-4fd632567975@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <f5d47f5f-5869-4e3a-a176-4fd632567975@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: dAhaFFvDXbiImLKIBLLdNs5iOmGt9IGB4SlmNMUvf4w_1786530919
-X-Mimecast-Originator: redhat.com
+Subject: Re: [PATCH v2 05/10] dt-bindings: clock: renesas,r8a78000-cpg: Add
+ firmware property
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Rob Herring <robh@kernel.org>, Sudeep Holla <sudeep.holla@kernel.org>,
+ Cristian Marussi <cristian.marussi@arm.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Saravana Kannan <saravanak@kernel.org>,
+ Ulf Hansson <ulfh@kernel.org>, "Rafael J . Wysocki" <rafael@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
+ Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+ Vinod Koul <vkoul@kernel.org>, Konrad Dybcio
+ <konrad.dybcio@oss.qualcomm.com>, Kevin Hilman <khilman@baylibre.com>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Wolfram Sang <wsa+renesas@sang-engineering.com>,
+ Marek Vasut <marek.vasut+renesas@mailbox.org>,
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+ arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-pm@vger.kernel.org,
+ linux-clk@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <cover.1783505329.git.geert+renesas@glider.be>
+ <49726acff0fee1c3606e83c4f242ef6aad25b4b8.1783505329.git.geert+renesas@glider.be>
+ <20260710-adventurous-burgundy-chimera-b2fff9@quoll>
+ <CAMuHMdV=ckONBbTYELPJU8YWoNzdu3PJ95VR8cz+f_7dUeiPUw@mail.gmail.com>
+ <20260716214924.GA1477674-robh@kernel.org>
+ <CAMuHMdU0ss6wUEdjC+OYa3iQS439aJ8b_d9M2ws7Ayn4_kOyMQ@mail.gmail.com>
+ <20260811163334.GA2354701-robh@kernel.org>
+ <CAMuHMdWbzg-QpFBzzDa2hC3HzAmWUkerESC5O-cSVxmWX3_PkQ@mail.gmail.com>
+ <45dfd858-9d59-47e6-91e0-ef9e6e909af6@kernel.org>
+ <CAMuHMdXJFdJQP1GVXrOWRuYO8Si_WF5X+vpzmAgTZY+tQstR1A@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_033540_868609_4F556C31 
-X-CRM114-Status: GOOD (  27.02  )
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <CAMuHMdXJFdJQP1GVXrOWRuYO8Si_WF5X+vpzmAgTZY+tQstR1A@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,134 +140,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alper and Suzuki,
-
-On 8/12/26 4:04 PM, Suzuki K Poulose wrote:
-> Hi Alper, Gavin
+On 12/08/2026 12:02, Geert Uytterhoeven wrote:
+> Hi Krzysztof,
 > 
-> On 12/08/2026 04:25, Alper Gun wrote:
->> On Tue, Aug 11, 2026 at 8:08 PM Gavin Shan <gshan@redhat.com> wrote:
->>> As the following calltrace indicates, -EAGAIN is returned from tf-rmm::update_ripas()
->>> because true is returned from s2tte_drain_pending() for the S2TTE corresponding to
->>> IPA 0x80000000. Linux host received error (RMI_ERROR_RTT, level=3) in ripas_change().
->>> Upon this specific error and the IPA range [0x80000000 0x90000000], find_map_level()
->>> returns level of 2, and realm_create_rtt_levels() returns 0 without populating any
->>> RTTs. After that, rmi_rtt_set_ripas() is re-executed and the above loop starts over
->>> again.
+> On Wed, 12 Aug 2026 at 11:51, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>> On 12/08/2026 11:47, Geert Uytterhoeven wrote:
+>>>>>>>>> +  firmware:
+>>>>>>>>
+>>>>>>>> RPi is doing similar, but I have doubts. It looks way too close to
+>>>>>>>> generic "syscon" which is disallowed.
+>>>>>>>>
+>>>>>>>> I think this should be vendor+purpose specific, e.g.:
+>>>>>>>> "renesas,scmi-transport" or "renesas,scmi-firmware"
+>>>>>>
+>>>>>> If you can tell me the resource that a 'firmware' provider provides then
+>>>>>> it is fine, but you can't.
+>>>>>
+>>>>> It provides a firmware API, which is not available until the firmware
+>>>>> provider is initialized.
+>>>>
+>>>> I don't know what "a firmware API" is. What does it provide? I know what
 >>>
->>>     Linux host
->>>     ==========
->>>     kvm_arch_vcpu_ioctl_run                     // cca/host-v16
->>>       check_vcpu_requests
->>>         kvm_check_request
->>>           kvm_rec_handle_request
->>>             kvm_complete_ripas_change
->>>               realm_set_ipa_state
->>>                 ripas_change
->>>                   rmi_rtt_set_ripas
->>>                     SMC_RMI_RTT_SET_RIPAS
+>>> It can provide lots of things (everything we are no longer allowed to
+>>> touch directly from Linux ;-)
 >>>
->>>     TF-RMM
->>>     ======
->>>     SMC_RMI_RTT_SET_RIPAS                      // tf-rmm/topics/rmm-v2.0-poc_3
->>>       smc_rtt_set_ripas
->>>         s2tt_walk_lock_unlock
->>>         rtt_set_ripas_range
->>>           update_ripas
->>>             s2tte_drain_pending                // true, returns -EAGAIN
+>>>> a clock, GPIO, reset, interrupt, etc. provider is.
 >>>
->>> The problem is the pending-bit for RTE corresponding IPA address 0x80000000 isn't cleared
->>> when SMC_RMI_RTT_SET_RIPAS is invoked. I didn't figure out how this bit is set and why
->>> it's not cleared in time.
-> 
-> Thanks for the details.
-> 
+>>> A clock is an object you can access through the clock API.
+>>> (s/clock/.../ for the other cases).
+>>> Firmware is a service (virtual object) you can access through a
+>>> firmware API.
 >>>
+>>> In all cases, the consumer of the object or service needs to know
+>>> which object or service to use (there can be multiple).
+>>>
+>>> In all cases you cannot access the object or service until it is
+>>> available (initialized and registered), for which we have -EPROBE_DEFER,
+>>> and/or "[PATCH v2 02/10] of: property: fw_devlink: Add support for
+>>> firmware".
+>>>
+>>> Thanks for your understanding ;-)
 >>
->> Hi Gavin, Suzuki,
->>
->> I think I ran into a similar issue on rmm-v2.0-poc_3 last week.
->> This looks like a potential RMM bug: could bit 32 be part of the physical
->> Address (if PA >= 4 GiB)?
->>
->> It seems s2tte_drain_pending() in lib/s2tt/src/s2tt.c checks bit 32 without
->> checking whether the descriptor is valid or invalid.
->>
->> In my testing, guarding the drain checks with a check for S2TTE_INVALID seemed
->> to resolve the boot hang:
->> --- a/lib/s2tt/src/s2tt.c
->> +++ b/lib/s2tt/src/s2tt.c
->> @@ -1701,6 +1701,10 @@ unsigned long
->> s2tte_clear_drain_pending(unsigned long s2tte)
->>
->>   bool s2tte_drain_pending(unsigned long s2tte)
->>   {
->> + if ((s2tte & S2TT_DESC_VALID_MASK) != S2TTE_INVALID) {
->> + return false;
+>> I think that's the difference here. Clock is not an object, but a signal
+>> on a wire or within IC coming from one device (provider) to another
+>> (consumer). Firmware is not a signal, not a wire, not anything which can
+>> be provided from one to another.
 > 
-> We should use also consider cases where the entry is INVALID, but
-> has HIPAS=ASSIGNED/ASSIGNED_DEV to make it tighter. So, I think
-> it is better to use :
-> 
-> s2tte_is_unassigned() or in the library stick to :
-> 
-> if (!s2tte_has_hipas(s2tte, S2TTE_INVALID_HIPAS_UNASSIGNED))
->      return false;
-> 
-> May be we should assert this and make the caller responsible for
-> checking the bit. I will leave it to the tf-RMM team to fix.
-> 
-> But for now, please use the above fix.
-> 
+> Oh yes, it is a service provided by the secure world or a different
+> CPU core to the application core running Linux.
 
-Both worked for me. With the extra check in place, the realm guest can boot
-up successfully.
+Service is still not a resource. Not mentioning it is way too generic,
+because anything can be a service. We have entire services-based economies.
 
-FYI, The below additional checks in s2tte_tlbi_pending() and s2tte_drain_handle()
-aren't needed because they're always guarded by s2tte_drain_pending() in all
-calling sites.
-
-Thanks,
-Gavin
-
-
-> Cheers
-> Suzuki
-> 
-> 
->> + }
->> +
->>    return (s2tte & S2TTE_SW_DRAIN_PENDING_BIT) != 0UL;
->>   }
->>
->> @@ -1730,11 +1734,19 @@ unsigned long
->> s2tte_clear_tlbi_pending(unsigned long s2tte)
->>
->>   bool s2tte_tlbi_pending(unsigned long s2tte)
->>   {
->> + if ((s2tte & S2TT_DESC_VALID_MASK) != S2TTE_INVALID) {
->> + return false;
->> + }
->> +
->>    return (s2tte & S2TTE_SW_TLBI_PENDING_BIT) != 0UL;
->>   }
->>
->>   unsigned int s2tte_drain_handle(unsigned long s2tte)
->>   {
->> + if ((s2tte & S2TT_DESC_VALID_MASK) != S2TTE_INVALID) {
->> + return 0U;
->> + }
->> +
->>    return (unsigned int)EXTRACT(S2TTE_SW_HANDLE, s2tte);
->>   }
->>
-> 
-> 
-> 
-> 
->> Sharing in case it helps.
->> Thanks,
->> Alper
-> 
-
+Best regards,
+Krzysztof
 
