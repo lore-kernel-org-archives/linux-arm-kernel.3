@@ -4,89 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BEB6C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 16:36:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A50D8C5CFCF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 16:38:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lulY/imNSY4kViCEFvXo2yMu2/ktyqgptsFx/K/KoVU=; b=XkbRwiCu8AC7y6KbCXhsnLGnxh
-	E7n9RlEfHVsnfk+h/ZzJqGrcRiCS9sBcljTcKJG+KlxSwNGJbm2mWyTjhopClSoNmYbUj1RjYdxsB
-	OlhtCJFwLHp6OWQhQv6vSFmNA42ClhBM8afPPzOS9KgSPbMuZT7P9Z2gvz+vqLF4n19yyapEzVC9f
-	z+KjLe7zxnCx+a9MDNgQ5uWgIBlnajTNpwJJYXD+rv3e33RFY1P20MgswEJEIdcI7/fmGyjT9aDAk
-	lmwxxENE6rKRl+2Xdd0z70374bH9uvNrdpvUtN61iDkOzajwyEWts89KPoVcVDB94cQOPmz++QSVP
-	+5XI3nlg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=lPcSO++aLadMD+PhAcYNjZTJ5cORSmb5CC6MRR2Bwvk=; b=gBeqHWvp9nWWw+vwKqAJYbIbu0
+	2qrOa11WY4sx9tJJdJjFwx9Vjy4fmyfWYHt8JkkvjmnRO1SVB1muOCILQAcwz0ZzMRWfN206snllE
+	U664oqMrNUPc4FGhjk9WzbpjOrc5WScpjWJDiqgp4uLOMagbXTOS2MHQegSUoHJ+/fu4QtEKOzHPU
+	GURi3X4+4IlsMN58p3vNRleSNm8GyKlzjvUdyHK/kB8TgAbKZkladjtPCfZADOQ5KMeRUFIEyS8NB
+	0l2uIrQcS+jrDnhenhk7TilSowcWUHW+h/VJMHK9WJWrN02ztTGEJ+76xqYN3THXNQNW6LvL3ZGoE
+	JhcrMDDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuBwO-0000000Gb8b-0SMf;
-	Wed, 12 Aug 2026 16:36:32 +0000
-Received: from mail-pf1-x446.google.com ([2607:f8b0:4864:20::446])
+	id 1wuByS-0000000Gbay-0VCS;
+	Wed, 12 Aug 2026 16:38:40 +0000
+Received: from mail-qk1-x72f.google.com ([2607:f8b0:4864:20::72f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuBwL-0000000Gb8D-1uK7
+	id 1wuByP-0000000GbZj-1Yat
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 16:36:30 +0000
-Received: by mail-pf1-x446.google.com with SMTP id d2e1a72fcca58-84f0d3ab2f4so1035132b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 09:36:28 -0700 (PDT)
+	Wed, 12 Aug 2026 16:38:38 +0000
+Received: by mail-qk1-x72f.google.com with SMTP id af79cd13be357-92e99ef0902so50147785a.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 09:38:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1786552587; x=1787157387; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=lulY/imNSY4kViCEFvXo2yMu2/ktyqgptsFx/K/KoVU=;
-        b=Jtmz0qX9V0zRfFnJocqlNFG1YGlKOKvaYU2g/XQwHAO/5M/+G2PaeWjxYzF8p9Bf8K
-         V6eqAqA1kKVTdR0AAkCTfxVwEPAKf56IZwtFjryeTelthMsBTtfVVLLFwoSzdWXy+5Cp
-         e2I8QmSKLuW86W2moh5Nykja4+sk5vCKrdz6lebJ+SqhHtXg3WZg0Mm0bM01rN8jnQ4+
-         e1E3E6ws5mfc98O5BWOCMbxIFa8+a2zm3dIU4RiRPaSUwFw9ETj3r4lH5lF1R0gs+mVv
-         S36Tt6bUmLMF5lCtMwB20F9/NeGc8kK9dZvFsGoea8MkT7F6eQcRf6bnH9iloMKJVy1D
-         +9IA==
+        d=riscstar-com.20251104.gappssmtp.com; s=20251104; t=1786552716; x=1787157516; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=lPcSO++aLadMD+PhAcYNjZTJ5cORSmb5CC6MRR2Bwvk=;
+        b=XE8zum7hZPH9M8Gsxv9SXO3RbIcBq3mfkuRXzJQwF45eSCYSKWq/hfxLsUbelxiw2S
+         dhvzGUN7+uLOjGgWVOMatnCbq1ZjYbOddg8qhCnw0ce42+BEkKd7imLUpOEXEjHJQDkh
+         9Ad03mFP8CdIppZAzxUiK+VmXHITThDP+kUC3WDCk/Md40QT+egKlPQYK9d9ieszYs97
+         qM8CZuzsHc9c1Lge4kim67pwi1AXrihEFkoHIsYMwUP1YPHm3dv/MhOcHVkEnzOOnC2S
+         feJ/836X4qC//zwQYMwfnslTJxzvXQlIH6a8D3VlT4K7VfgrZSPs9V4uadR0u0bBToxk
+         G1SQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786552587; x=1787157387;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20251104; t=1786552716; x=1787157516;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=lulY/imNSY4kViCEFvXo2yMu2/ktyqgptsFx/K/KoVU=;
-        b=LUSWjBAuLF3eMxlqd1kj4A4cZ91nBSkp8yYGOOqg9EWXpK7DH2HGUKqAiEUeoJiGPP
-         5ccQ29JW1okyOq6TcK5TAcejRrfA/v1+eOys4JTvM4Bgs4ZgMkq+T8m0Q25qk17lHykY
-         5GESb8HI2rpXP87a9KRTy8t3VDJc/Vzd1Y6DlJmNmIjV/wfjpfSIaWMW/4XwBLzyHbUx
-         uU3jioyxl3ErY6i5t8fN5U4BH8Nb7wVd2S6I5qjqBQ+OeU4ceDNEcE0F70pOdHl9Hb0/
-         aJwrNd53QYlUol6MxiKGBX/X9cNMVQln6OcK736tiIzWgIKtIW42agDIQHdmkv/1eBpB
-         mbrQ==
-X-Forwarded-Encrypted: i=1; AHgh+RoSowtpoxaN+mW1Bj7Sauwq03UGXRn1lJ4EVQsvbER5sWhgbK5cXtgsY0rqR8Ins5eTkdoeBydKcu3x0FPYtnfr@lists.infradead.org
-X-Gm-Message-State: AOJu0YxdIU0nVAQUJP8ctxc6nWSjx/viFv/ihPR5Cow4M7SLEebZtFPg
-	6wK+gkf6VxGcEO6dvnHn55ofyOYrnlLNgDEIwGNc3spXfac7NErGiSclWtLGdXMo6alNEDl/vea
-	ix7fgBA==
-X-Received: from pgkz26.prod.google.com ([2002:a63:a5a:0:b0:cbe:df3b:e024])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a21:b98:b0:3c3:a9e1:a819
- with SMTP id adf61e73a8af0-3cc3f73ea48mr8503628637.24.1786552587302; Wed, 12
- Aug 2026 09:36:27 -0700 (PDT)
-Date: Wed, 12 Aug 2026 09:36:26 -0700
-In-Reply-To: <cdb8b0bd-a15a-440b-9d7c-b532aeee6eb9@linux.ibm.com>
-Mime-Version: 1.0
-References: <20260812153631.3376090-1-seiden@linux.ibm.com> <cdb8b0bd-a15a-440b-9d7c-b532aeee6eb9@linux.ibm.com>
-Message-ID: <anyhChQlOs37se4B@google.com>
-Subject: Re: [PATCH v6 00/33] KVM: s390: Introduce arm64 KVM
-From: Sean Christopherson <seanjc@google.com>
-To: Christian Borntraeger <borntraeger@linux.ibm.com>
-Cc: Steffen Eiden <seiden@linux.ibm.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>, 
-	Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, 
-	David Hildenbrand <david@kernel.org>, Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>, 
-	Gautam Gala <ggala@linux.ibm.com>, Hariharan Mari <hari55@linux.ibm.com>, 
-	Heiko Carstens <hca@linux.ibm.com>, Hendrik Brueckner <brueckner@linux.ibm.com>, 
-	Ilya Leoshkevich <iii@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Joey Gouly <joey.gouly@arm.com>, Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>, 
-	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>, Oliver Upton <oupton@kernel.org>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Sven Schnelle <svens@linux.ibm.com>, Ulrich Weigand <Ulrich.Weigand@de.ibm.com>, 
-	Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>
-Content-Type: text/plain; charset="us-ascii"
+        bh=lPcSO++aLadMD+PhAcYNjZTJ5cORSmb5CC6MRR2Bwvk=;
+        b=WyqgcrmdWSEqnaUlJcEBq5/EF+lt9GdA/mlByrUfpzwFO9IUxTxzo4Gdf6ztr4+x+U
+         Uz4AP+S3ZiqUH1Ydj0fKyw8IZ02Ur2TbtLFb83w7kqwJRtF8N1i9bTUiVDbNEhkRycr+
+         EHdz2kd4fPjuQb0ALdxycICAS/bIbQwubDrzP/hd74hsIVu0H78zYHf54msva3yl8Qzt
+         DKRLps/mXRQ51Xs3F/Oaqg+zw4EVlkYOu4xX8VL5CoYXGuoyvaUYEFSEZCQk4jobMGYX
+         MFdQWKbTqUtnT13xLVKq6vT1Px4Fy1w1JISaQQZmFszsS3QmfrlhHmyIole0c0l8iVJF
+         E7ZQ==
+X-Forwarded-Encrypted: i=1; AHgh+RoWcpO3BL+0+bEw3yHPZ7YWof/z9Ff6rbeW9JT+R4eWdcC2zD25wFbuXYEKgEkKNyoRp4Xd8IbYjRohG2kZwIYU@lists.infradead.org
+X-Gm-Message-State: AOJu0YxmhNYyUeSBK8tl7xclm5R2R2XLVfyoKwjUU8rgJGzVHZdVntpk
+	M9O3h7C6uz19JeB5wnPR7jxtvDpLPkIdP0JX29x3jeepsuBvZtCqzK2zEXMIcJTHh50=
+X-Gm-Gg: AR+sD13Ku2XGIsJXDshoFDfX/4M6F6JZFw6URMviq7S1b7EA0hXa8X+ef30/pH4edPd
+	lMt8YrWElbHuzFSde9XLYIy3d3ysWu6wPlNuAA8FJu5TM3HXA2ehrVb5Df/KaRMDxKJCmVYjtIB
+	+KK6NVL3emxWRzJ8PX+67+8X/p/2blAdGP134AU63tOyrv5rEP9McN31yHcIoorykxfafc1Cts/
+	i98S7zBug3G65YQhDIY2yq1siv2IjzDf8d8anHg726Q4RJ8mXMptplRefSEWO+aXd7D4E3LerZ1
+	6XGussPyJbOlY0v1UcWAnsByxtAu33N/Q2r/Dgtchsop7m6HATtuv1fXgBXfFFpieEkSYxYu0Jh
+	kcGIdrQsgCXdJGEpT060cYnwzAz2hyLefy5FtLGI5KW8jT+7CLFmNcZ/ZPWqKe2yukc0Y9ZQoBy
+	ONViERQkjvdNcYG7vVfTi2GbeG7Nfwcfo1rMoHRJlxYK8Rs+yU0KzniFQK2S1xE+eo
+X-Received: by 2002:a05:620a:7018:b0:931:3ff3:30b1 with SMTP id af79cd13be357-936b3a26859mr553359485a.4.1786552715597;
+        Wed, 12 Aug 2026 09:38:35 -0700 (PDT)
+Received: from zippy.localdomain ([73.62.185.64])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-936b5dd3d4dsm166040385a.3.2026.08.12.09.38.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 12 Aug 2026 09:38:35 -0700 (PDT)
+From: Alex Elder <elder@riscstar.com>
+To: maxime.chevallier@bootlin.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com
+Cc: sashiko-bot@kernel.org,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	linux-stm32@st-md-mailman.stormreply.com,
+	netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net-next v2 0/2] net: stmmac: DMA address handling fixes
+Date: Wed, 12 Aug 2026 11:38:29 -0500
+Message-ID: <20260812163832.271742-1-elder@riscstar.com>
+X-Mailer: git-send-email 2.53.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_093629_498026_E2EC24B6 
-X-CRM114-Status: GOOD (  13.47  )
+X-CRM114-CacheID: sfid-20260812_093837_680217_DD2458AB 
+X-CRM114-Status: GOOD (  10.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,25 +105,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 12, 2026, Christian Borntraeger wrote:
-> Am 12.08.26 um 17:35 schrieb Steffen Eiden:
-> 
-> > C) KVM/s390 reorganization (patches 12-22):
-> >     Prepare s390 for a second KVM module. Move existing s390 KVM code into
-> >     dedicated s390 and gmap subdirectories to make room for a second KVM
-> >     implementation. Refactor gmap to better integrate with the second KVM
-> >     implementation. GMAP hides a few features only required when managing s390
-> >     guests: Storage keys, CMMA, and prefix handling. Those are guarded behind an
-> >     #if KVM_S390_MANAGES_S390_GUEST. Only features which implementation would
-> >     break kvm-arm64 code are guarded. I leave the non-breaking stuff (like
-> >     shadow-gmaps or ucontrol) for the LTO.
-> 
-> I will likely take 12-21 for the next merge window so that we can minimize this
-> patch set.  sashiko and claude are happy. Mostly mechanical moves. I will review
-> those first and might do small fixups myself if necessary.
+Update jumbo_frm() (implemented in both "chain_mode.c" and "ring_mode.c")
+to ensure DMA errors don't get lost due to casting the result to an
+integer of the wrong size.  This was a Sashiko suggestion.
 
-Speaking of trimming down the patch set...
+In addition, add explicit calls to lower_32_bits() to DMA addresses
+before they are passed to cpu_to_le32(), to guarantee the type of
+the converted value is u32.
 
-Steffen, can you post patch 1, "vfio: Use file-based reference counting for KVM",
-separately?  I'd love to get that merged sooner than later.
+Maxime implied that a new version the first patch could handle both
+fixes, but I thought it better to do them separately.
+ 
+					-Alex
+
+Here is v1 of the series (the patch):
+  https://lore.kernel.org/lkml/20260811192703.1765416-1-elder@riscstar.com/	 
+
+Alex Elder (2):
+  net: stmmac: use dma_addr_t for DMA addresses
+  net: stmmac: convert DMA address to lower 32 before assignment
+
+ drivers/net/ethernet/stmicro/stmmac/chain_mode.c |  9 +++++----
+ drivers/net/ethernet/stmicro/stmmac/ring_mode.c  | 15 ++++++++-------
+ 2 files changed, 13 insertions(+), 11 deletions(-)
+
+
+base-commit: 5e6de6a2b522f659defacb1551d0465ba6ce13cf
+-- 
+2.53.0
+
 
