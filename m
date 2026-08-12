@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1D0CC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 16:38:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB043C5B56A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 16:38:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PCmXTVYaRt4RiBQRwuD2RR3u3e6JKLZJQPNiKvz5wI0=; b=C7d0kOy3KjYDxY4kNvpW0XSe2g
-	PYJvSzebUn9pPfG+TurQZLzs/3iuSZUmj5acTQAxdNWnvFuqdgjGvo6d0oo0Z76mbKlEGvD6J/qOI
-	VK2Zc1AGg+Fe3xc+TCxEmvfrBrb0SYFA2TmuqputFrF3O8I0JdAQJ41T1RxGZYxq7IFo393xoo4Dx
-	ER6wTHPoR/CnHrUXN3gOsvViH/pXa24FZ4Rg33TCHwUxPIvIZHeYG4ac83g1x78Tl9uljHMtrDui6
-	xnvMiisby4HpO8J+0SL+5bBHODHvO3QEae8O4d73tgPizcWADKxxIhmvfK2ik9dwpcqKaSWOWNNvA
-	nqKfOtJQ==;
+	bh=58Vxr1ewmacSO4oLjVc12aVhWqqIgFPJfyqFJRG5hDM=; b=mZuDHD/I0rMxYtQ+DcUk6NOsMF
+	Xj/H0wjtaVXg3qrY8b4yjmGnqO0z0ARgap6iTm24z94D3sSTOvOA5E95XH4trntxy3sP87IWbyB35
+	MHEiDeTw9V7R3RG7eg9cLtTQzCNVjNfCVRvdZKxjNqpo8W3oOI+yoPwDb052IpVUowAJe+KRsLAAX
+	DUfusFV416rIalb8K4DFzKBPpU7YEQI/WWEhzzvGkQX4JeqYzqKY4XnENUA9Ddi/gRdeVcJ3QaHsu
+	6F70isGSL7vgyRx6jXEiWG+rTH1B4TF4kx0m2xwQi4+XKc/1b8OX5Ieq00jIQzuIYN6WYOFzDW7cM
+	SWnDuNwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuByW-0000000GbcE-1SEa;
+	id 1wuByW-0000000Gbbw-0zEa;
 	Wed, 12 Aug 2026 16:38:44 +0000
-Received: from mail-qk1-x731.google.com ([2607:f8b0:4864:20::731])
+Received: from mail-qk1-x735.google.com ([2607:f8b0:4864:20::735])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuByR-0000000GbaE-2PPd
+	id 1wuByQ-0000000GbZk-0y2c
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 16:38:40 +0000
-Received: by mail-qk1-x731.google.com with SMTP id af79cd13be357-92e85499ffbso99594085a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 09:38:39 -0700 (PDT)
+	Wed, 12 Aug 2026 16:38:39 +0000
+Received: by mail-qk1-x735.google.com with SMTP id af79cd13be357-93695893ac1so76496785a.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 09:38:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20251104.gappssmtp.com; s=20251104; t=1786552718; x=1787157518; darn=lists.infradead.org;
+        d=riscstar-com.20251104.gappssmtp.com; s=20251104; t=1786552717; x=1787157517; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=PCmXTVYaRt4RiBQRwuD2RR3u3e6JKLZJQPNiKvz5wI0=;
-        b=k1U3XrGVnN9xx5qficWcqYsxq4H/SGmp8OdnfwgWzDDlYOu94fpNcWyXIX97FbqYF8
-         RZ9qn/m87ckySG7DNHBUqicp8t0d0uAURvGRP/6av+OANSXbm3opuF5aOv3lE7NWAYhK
-         N9yhSurbVhqDpcl9TnDvrawuBmdV9vmyuCWRqeKnVTK/XI0IlGlhHGyzfWFcShx67Z/v
-         vU6PccujXyoqYZ358aJqt5WRrAwBhlKRyH9VS48b1k/XcJwuGqzA12uPHRJf4pGay3fm
-         D0zD8ztcA6sB7xBX4LopzgPgQNU1DgJxLIG5R8z+VJZJyOwYP3JCsgQ+4V3bxf2aiQUd
-         TG3Q==
+        bh=58Vxr1ewmacSO4oLjVc12aVhWqqIgFPJfyqFJRG5hDM=;
+        b=vTbn0JBDLRPjWCPG/kAUpYvdHHFOdfPDaAs/CW5wNHGPVZI3z7KZCn9/w3eNoDuOtP
+         kNAZMFmTbSEOG2inBB65dH4HP8YSjOGixcdDfs7cOL5TuISnNSYhThQg7+qIA9yXjy2d
+         6QHHf6IvCJqCzBwqppOhqQE07eYuBZrhHZGx37jpUFnX8WLjAmZU/p85u6Oqszb7vI37
+         lGzbJmuVAvQvRaIEWtFVBKT5GVCZClBhmPsxw9E5pjGfiEZIIlos1gAuPDU7dbP52Fe+
+         KPlhQPagaASQTdNu8H27N4xaG9/q7pYDdszCb04a7TEtoAGxV1q1zRObepE19aZI1fLS
+         2zzA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786552718; x=1787157518;
+        d=1e100.net; s=20251104; t=1786552717; x=1787157517;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=PCmXTVYaRt4RiBQRwuD2RR3u3e6JKLZJQPNiKvz5wI0=;
-        b=GkoFOh+ZD22gZ4zTVoSBtfdBTsrYkUuGuHEuEUPvtxkctWYK0UBrACOiTzfDrijPvF
-         5x5VQEqw+4NcgvXk5H0zm8nVwM3IMYPwWSmZo0DeAjXKd6IqTahL47Lw1lIBOiO1bC7o
-         cadPP4u2q9qN3dylL5a71Az7gvD7tkSQbxrrhjqtLkPUOJLe+YmYb3fR5KQ5TurREhLD
-         0yT56IxFeqJ3iuaUxlz/LCspC579/O+fLx6lF6k62LNzEZvKh3qa693ZESRwvPbQSRzc
-         lwKj5Z8mn9+ThAe0vMrhjbaJ/+C6ytbP7F/D6vZBp9felJTvLg6NdjMLMt/gaVoaCPGo
-         MnwQ==
-X-Forwarded-Encrypted: i=1; AHgh+RoyVHcmYx/Eu6qa/H1cnKlt81EngXuILqfvn+TQBUx/DhxbB+MocJszq9AsouGMEAcOtHch8sYOjGg4PyNfPzOV@lists.infradead.org
-X-Gm-Message-State: AOJu0YwlNuKAKymOPhZON+rLBeorohThTvfS2xXDC1luzB1TIEPy3fQW
-	iyasgsqo7ajIXy9YKBVgtiTODmfzKk7vCoKDTLL5LBE3Eqb4PkXu8i5i2QbFJT2EiBY=
-X-Gm-Gg: AR+sD11ycnAaIs/ahzcYzIHllDANF9yXAe4CKh4B3ExhKWxWH291VwS0GQ5QRq2Ya6K
-	I9mhTulWnqvEMpLtJ0hGCu/eNj65V4XvY12551PFzuZeiGPEXU649vMKHWrM2edBkBs20EghKFR
-	5HBvHERs1GNZmsnKIF3KIHYTHxCkPc8j4carqFUemV1CDivAzyvy5bCYcjBWAONE3xyM4CRCctf
-	7yYvweOBIvSdflTZRxZpcH+WWlxPmvP1Ot0wDyqH4nvA1sMuxMAhT74ruf4cfOeaE6j+dD/mU79
-	421yOn0F9qYyDndA7eOcp6diQcr4BlxGnIhy6m0BCrG3oWYkXPeAmQkbV/qv9E9rUeHly/JG2ne
-	jU2fcA93tP0vyQOYs5xh3SfOkfhqeEG25MOsbmsPR3vIFYkw7yjasOZC2B+pVbOBCzet/shwZOY
-	XakG4nCp41VwUmG7yBXcS1EiOLVkkDoSU1XBL7xB4f0JWJR2M8MbtzBeXSkfLyLayR
-X-Received: by 2002:a05:620a:19a7:b0:92e:7533:ef63 with SMTP id af79cd13be357-936b3a82f84mr533659785a.13.1786552718202;
-        Wed, 12 Aug 2026 09:38:38 -0700 (PDT)
+        bh=58Vxr1ewmacSO4oLjVc12aVhWqqIgFPJfyqFJRG5hDM=;
+        b=QJlZfHLggggT5rPj/vtWU05G0GRoSbJEfyfkan0TU0SR7pHGKM+nS56M+DNhQEiDtj
+         s9RUh6E1hgA0wjDF1MOVm3S+MQVRMxHsl43yfsxD1jiXA5C3cKy2fV+JseFC7I6hsX2i
+         c5+d+4IADm2PPdJqszKyA0TWiq4fmFSB8/dwjyJC7utGu1erlbW5O0x3trr16mk+ifuN
+         ppa7NIV2cmvsNjyBesrncnRzVDxikQUO0KXVtZsrmEb4ilKaG5YfK+zBkIUd2N7XBkub
+         xIzFPUP0V/Bgr9Kjb6pzxkiAalrT/SXowayLyLP8mUN4Ve0hY/hSUNxBd9mGv3Fw2ueU
+         XSVQ==
+X-Forwarded-Encrypted: i=1; AHgh+RqvjseW9JgBrqXUjEcMES8ZhC9NaAkekOLCmp2of9qNeJrzi2B2DoOCzj2+Vu1XcZY/DQIpfDKnitsUwQXA0SP8@lists.infradead.org
+X-Gm-Message-State: AOJu0YyTo4yT/fSKEIWnP5lKkfhFMJ4v6tAqErn3PfrFWzXoGa6UIb8k
+	K1j3eOF+ETGM/HqWWu0joGT9J7nw7AutuHA7lTWk2EdLQnO+V3oBtqxXZmB08BU+ZDI=
+X-Gm-Gg: AR+sD12I8m/tnodlUqqHS5Wn2Z3L7/AjiTmgE7+24SKBFdUcdvyRgo4xMzkxJdGJnvt
+	88PRxdI4zQg81xux8SESWZvoOU8sUwaoH0QGhG+++xhfJBfILzAZ3KuP7jQn3rifw6LUM+uON+x
+	sRt59wemBBaOvtrn/0/h6Imdfz4An8m02Ii2lLLGFA+a0TXS08HVVo2oBLwKkUktprR15LvhBVL
+	1jYWYadYEOdQXnxvruXPnR6+3KTuzR25cush1DdUkYOWdh1ZZgP7rnbv/Ay/wgKEcqC49uCiZg2
+	tPBfUmNYm/hBwk1o07Fr8onBidnwl8xoqKwvzQe4Fm2EYP+tFzTYAwGlvHlzQZaD3JmcGaz5i+R
+	aPp8WbuyNGfb0TIfEJgVvbD5tU+17e9Zg0gHP4yX7t/+fTZOde4JIWMrYvbKCS6d7IDQW76TMpT
+	IDpg0cBXb81zcCQhOLSQh42THvhVGzzIdVXDneekVIujboRCbky3qyBtIX4X9/0y4f
+X-Received: by 2002:a05:620a:199b:b0:92e:4859:49dd with SMTP id af79cd13be357-936b3d3af54mr541451685a.26.1786552716869;
+        Wed, 12 Aug 2026 09:38:36 -0700 (PDT)
 Received: from zippy.localdomain ([73.62.185.64])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-936b5dd3d4dsm166040385a.3.2026.08.12.09.38.37
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-936b5dd3d4dsm166040385a.3.2026.08.12.09.38.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Aug 2026 09:38:37 -0700 (PDT)
+        Wed, 12 Aug 2026 09:38:36 -0700 (PDT)
 From: Alex Elder <elder@riscstar.com>
 To: maxime.chevallier@bootlin.com,
 	andrew+netdev@lunn.ch,
@@ -83,17 +83,17 @@ Cc: sashiko-bot@kernel.org,
 	netdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next v2 2/2] net: stmmac: convert DMA address to lower 32 before assignment
-Date: Wed, 12 Aug 2026 11:38:31 -0500
-Message-ID: <20260812163832.271742-3-elder@riscstar.com>
+Subject: [PATCH net-next v2 1/2] net: stmmac: use dma_addr_t for DMA addresses
+Date: Wed, 12 Aug 2026 11:38:30 -0500
+Message-ID: <20260812163832.271742-2-elder@riscstar.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260812163832.271742-1-elder@riscstar.com>
 References: <20260812163832.271742-1-elder@riscstar.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_093839_626744_92D87D9E 
-X-CRM114-Status: GOOD (  13.59  )
+X-CRM114-CacheID: sfid-20260812_093838_273850_C3F9C6B2 
+X-CRM114-Status: GOOD (  14.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,106 +109,55 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 In jumbo_frm() (implemented in both "chain_mode.c" and "ring_mode.c"),
-there are places where a DMA descriptor is converted to little-endian
-byte order in assignment.  The DMA descriptor could be a 64-bit value,
-which makes the 32-bit byte swapping operation seem a little sketchy.
+an unsigned integer local variable is used to hold the value returned
+by dma_map_single().  On systems where a dma_addr_t is 64 bits, the
+subsequent dma_mapping_error() check of the returned value operates
+only on the low 32 bits (whose high bit won't be sign-extended).  In
+this case, dma_mapping_error() would return 0 (no error) even if there
+were one.
 
-Explicitly extract the low-order 32 bits of the dma_addr_t value being
-converted into a u32 so it's crystal clear that we're doing the right
-thing.
+Fix this in both spots by using a dma_addr_t for the local variable.
 
-Suggested-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Link: https://lore.kernel.org/linux-devicetree/20260606010122.21A211F00899@smtp.kernel.org/
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 Signed-off-by: Alex Elder <elder@riscstar.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/chain_mode.c |  6 +++---
- drivers/net/ethernet/stmicro/stmmac/ring_mode.c  | 12 ++++++------
- 2 files changed, 9 insertions(+), 9 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/chain_mode.c | 3 ++-
+ drivers/net/ethernet/stmicro/stmmac/ring_mode.c  | 3 ++-
+ 2 files changed, 4 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/net/ethernet/stmicro/stmmac/chain_mode.c b/drivers/net/ethernet/stmicro/stmmac/chain_mode.c
-index ec25193d287bb..66025e2509e91 100644
+index fc04a23342cfc..ec25193d287bb 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/chain_mode.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/chain_mode.c
-@@ -37,7 +37,7 @@ static int jumbo_frm(struct stmmac_tx_queue *tx_q, struct sk_buff *skb,
+@@ -20,9 +20,10 @@ static int jumbo_frm(struct stmmac_tx_queue *tx_q, struct sk_buff *skb,
+ 	unsigned int nopaged_len = skb_headlen(skb);
+ 	struct stmmac_priv *priv = tx_q->priv_data;
+ 	unsigned int entry = tx_q->cur_tx;
+-	unsigned int bmax, buf_len, des2;
++	unsigned int bmax, buf_len;
+ 	unsigned int i = 1, len;
+ 	struct dma_desc *desc;
++	dma_addr_t des2;
  
- 	des2 = dma_map_single(priv->device, skb->data,
- 			      buf_len, DMA_TO_DEVICE);
--	desc->des2 = cpu_to_le32(des2);
-+	desc->des2 = cpu_to_le32(lower_32_bits(des2));
- 	if (dma_mapping_error(priv->device, des2))
- 		return -1;
- 	tx_q->tx_skbuff_dma[entry].buf = des2;
-@@ -55,7 +55,7 @@ static int jumbo_frm(struct stmmac_tx_queue *tx_q, struct sk_buff *skb,
- 			des2 = dma_map_single(priv->device,
- 					      (skb->data + bmax * i),
- 					      bmax, DMA_TO_DEVICE);
--			desc->des2 = cpu_to_le32(des2);
-+			desc->des2 = cpu_to_le32(lower_32_bits(des2));
- 			if (dma_mapping_error(priv->device, des2))
- 				return -1;
- 			tx_q->tx_skbuff_dma[entry].buf = des2;
-@@ -68,7 +68,7 @@ static int jumbo_frm(struct stmmac_tx_queue *tx_q, struct sk_buff *skb,
- 			des2 = dma_map_single(priv->device,
- 					      (skb->data + bmax * i), len,
- 					      DMA_TO_DEVICE);
--			desc->des2 = cpu_to_le32(des2);
-+			desc->des2 = cpu_to_le32(lower_32_bits(des2));
- 			if (dma_mapping_error(priv->device, des2))
- 				return -1;
- 			tx_q->tx_skbuff_dma[entry].buf = des2;
+ 	desc = tx_q->dma_tx + entry;
+ 
 diff --git a/drivers/net/ethernet/stmicro/stmmac/ring_mode.c b/drivers/net/ethernet/stmicro/stmmac/ring_mode.c
-index 664d8cfb58cdc..f7949419eb9fd 100644
+index 78fc6aa5bbe95..664d8cfb58cdc 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/ring_mode.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/ring_mode.c
-@@ -40,7 +40,7 @@ static int jumbo_frm(struct stmmac_tx_queue *tx_q, struct sk_buff *skb,
+@@ -20,8 +20,9 @@ static int jumbo_frm(struct stmmac_tx_queue *tx_q, struct sk_buff *skb,
+ 	unsigned int nopaged_len = skb_headlen(skb);
+ 	struct stmmac_priv *priv = tx_q->priv_data;
+ 	unsigned int entry = tx_q->cur_tx;
+-	unsigned int bmax, len, des2;
++	unsigned int bmax, len;
+ 	struct dma_desc *desc;
++	dma_addr_t des2;
  
- 		des2 = dma_map_single(priv->device, skb->data, bmax,
- 				      DMA_TO_DEVICE);
--		desc->des2 = cpu_to_le32(des2);
-+		desc->des2 = cpu_to_le32(lower_32_bits(des2));
- 		if (dma_mapping_error(priv->device, des2))
- 			return -1;
- 
-@@ -48,7 +48,7 @@ static int jumbo_frm(struct stmmac_tx_queue *tx_q, struct sk_buff *skb,
- 		tx_q->tx_skbuff_dma[entry].len = bmax;
- 		tx_q->tx_skbuff_dma[entry].is_jumbo = true;
- 
--		desc->des3 = cpu_to_le32(des2 + BUF_SIZE_4KiB);
-+		desc->des3 = cpu_to_le32(lower_32_bits(des2) + BUF_SIZE_4KiB);
- 		stmmac_prepare_tx_desc(priv, desc, 1, bmax, csum,
- 				STMMAC_RING_MODE, 0, false, skb->len);
- 		tx_q->tx_skbuff[entry] = NULL;
-@@ -61,27 +61,27 @@ static int jumbo_frm(struct stmmac_tx_queue *tx_q, struct sk_buff *skb,
- 
- 		des2 = dma_map_single(priv->device, skb->data + bmax, len,
- 				      DMA_TO_DEVICE);
--		desc->des2 = cpu_to_le32(des2);
-+		desc->des2 = cpu_to_le32(lower_32_bits(des2));
- 		if (dma_mapping_error(priv->device, des2))
- 			return -1;
- 		tx_q->tx_skbuff_dma[entry].buf = des2;
- 		tx_q->tx_skbuff_dma[entry].len = len;
- 		tx_q->tx_skbuff_dma[entry].is_jumbo = true;
- 
--		desc->des3 = cpu_to_le32(des2 + BUF_SIZE_4KiB);
-+		desc->des3 = cpu_to_le32(lower_32_bits(des2) + BUF_SIZE_4KiB);
- 		stmmac_prepare_tx_desc(priv, desc, 0, len, csum,
- 				STMMAC_RING_MODE, 1, !skb_is_nonlinear(skb),
- 				skb->len);
- 	} else {
- 		des2 = dma_map_single(priv->device, skb->data,
- 				      nopaged_len, DMA_TO_DEVICE);
--		desc->des2 = cpu_to_le32(des2);
-+		desc->des2 = cpu_to_le32(lower_32_bits(des2));
- 		if (dma_mapping_error(priv->device, des2))
- 			return -1;
- 		tx_q->tx_skbuff_dma[entry].buf = des2;
- 		tx_q->tx_skbuff_dma[entry].len = nopaged_len;
- 		tx_q->tx_skbuff_dma[entry].is_jumbo = true;
--		desc->des3 = cpu_to_le32(des2 + BUF_SIZE_4KiB);
-+		desc->des3 = cpu_to_le32(lower_32_bits(des2) + BUF_SIZE_4KiB);
- 		stmmac_prepare_tx_desc(priv, desc, 1, nopaged_len, csum,
- 				STMMAC_RING_MODE, 0, !skb_is_nonlinear(skb),
- 				skb->len);
+ 	if (priv->extend_desc)
+ 		desc = (struct dma_desc *)(tx_q->dma_etx + entry);
 -- 
 2.53.0
 
