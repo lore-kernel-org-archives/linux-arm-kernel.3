@@ -4,51 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AADAC5CFEB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 09:11:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C220C5CFDB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 09:11:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=45oTmQP1SXYA+aGwK18rImau8rHNkkL/xftpEJkoGYs=; b=ZmzB1ZsV7IvFaAbFeRhEkRizI+
-	zsMoqlvAcW1AwGwCXb2x1QHooEusLXsaYfBnh2ruHR/AzhDq0BF2l3T8xfCOOqdADKLVJKLKgxS3u
-	1S2cyTbB7zUHvFvKEXpoSx86oL1XvzCN2T8RcDS3h6L/Ew5RPeAXAizEJ6W5eiZSFAzydgnh+9WYS
-	A70ctqsv6B1Y6F5EIHUYRzziBKOZsBlKwBFPnk+pkAP67H5ChY6kX+lARJPvMwJoinT9zX+TnkRT0
-	19qYDQbVnJzgqEpNr+x7Gv7xe80b2/MqLM7HOmjFVt7CEY9X592MSuLaQXEcePvXFY/yGNKQmwvtz
-	M1Y+sI/g==;
+	bh=MvazE23f8HbO9Hml0EoomjcFYwH5DF1NlDQc34IZPO4=; b=3bJnzjnazwFFDxvRXjA6lc5mJd
+	onveee6GkSrmxeNwPA5HP/6NOvrTXP89gzhdrHLDW/NdtQbUtCZlSe4jp42b7+AHHgsrgjVjiMZzb
+	jfnR+PqIaMPI0n+4tlSH46GBUD/lsb0vWO+9xhPAP/zti5zqwI7RQwzRV4J29ny53LrCLzgRPo0/G
+	GWvEnTUkZU2MMeZGWkAd5yoMI22gSvUMB7cP7ODMjMfVAtsA2/L6+rzmFP3Fm+n0EUG3WRLt4eiz6
+	zWmXBJeSZl38aXVSYJk1Y9JdYwD+TAYUozN7686CPkK2/DbtW26x7gVo4Q3LaDbN1NVbSHbaQ12TB
+	dAbDtIfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu4zN-0000000FhVl-31p3;
-	Wed, 12 Aug 2026 09:11:09 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wu4zg-0000000FhgL-3ezl;
+	Wed, 12 Aug 2026 09:11:28 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu4zM-0000000FhUd-1D0I
+	id 1wu4zR-0000000FhY2-3MUA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 09:11:08 +0000
+	Wed, 12 Aug 2026 09:11:15 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B920860A85;
-	Wed, 12 Aug 2026 09:11:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 359961F00A3A;
-	Wed, 12 Aug 2026 09:11:05 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4098F60A85;
+	Wed, 12 Aug 2026 09:11:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0CF71F00A3F;
+	Wed, 12 Aug 2026 09:11:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786525867;
-	bh=45oTmQP1SXYA+aGwK18rImau8rHNkkL/xftpEJkoGYs=;
+	s=k20260515; t=1786525873;
+	bh=MvazE23f8HbO9Hml0EoomjcFYwH5DF1NlDQc34IZPO4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=dyUIywoeERVqJLkAEmKO9UCxXJTHMtXsYjvPcCLllEEb8Ax0jdPzEMfgfFvRanYSl
-	 /AstqOMriUWtD38LIeqne12q8CGYFUO95ktGUjWIRcbho/PzHD8OqM8s/Zdw6pQMiF
-	 1/gT+/7U3AbQUkxzeR9zLgbuMO7VHbXxQgY4jts2uRlFpvsEb2g1fr13YsOM7gDK2E
-	 DKIaQMk88Xo7j6XsNGkHZ0pqhn8nTkj2a9rWnR4IErwVEVjvqZ1tygtIgAyqwGKnVU
-	 6cVK0QVJxvvUGBxqvEj7l2teFEpuhR/VWFeZIOhKcZKDuqfPaACTVHGzFkoZZ/3fw8
-	 AG41qgvbie1Fw==
+	b=kA+kaDCt0+N1ZeV0yvog50Gvju6gxEOR1X100qjD0pJbFMFgqoOhlUT3d1Dw0X10v
+	 /c5xFBNLJ2PgPNCY47gd9YuE1h80SzFO+uctV14GEcVMWBzyosQdE1A32e9k6AJogX
+	 2opdeT2UlzadgxAFlnb+pinDOMyawTSuZHFrL14Vm/mIqGtNCERsJuQ2aavdGc0sav
+	 9ifFdyhLC4JRX/3Y4GDk4gPtVKefVdKpI6svl8SwbOwbXq+sELNnahr7eolqI36mpF
+	 C0G1LhUFRJ0K7l1ywSFmhntuTFwu4ibsVL2GXrkSD46RZ16/CNaY7Y3XvRsH8sPk0q
+	 fLY4V8I/wy5lw==
 From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Date: Wed, 12 Aug 2026 11:10:32 +0200
-Subject: [PATCH 4/7] irqchip/gic-v5: Fix gicv5_init_common() error paths
+Date: Wed, 12 Aug 2026 11:10:34 +0200
+Subject: [PATCH 6/7] irqchip/gic-v5: Use logical cpu 0 irs_data for dynamic
+ IST allocation
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260812-gicv5-7-2-fixes-v1-4-3743e82c69a4@kernel.org>
+Message-Id: <20260812-gicv5-7-2-fixes-v1-6-3743e82c69a4@kernel.org>
 References: <20260812-gicv5-7-2-fixes-v1-0-3743e82c69a4@kernel.org>
 In-Reply-To: <20260812-gicv5-7-2-fixes-v1-0-3743e82c69a4@kernel.org>
 To: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
@@ -74,52 +75,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Current code fails to disable interrupts on gicv5_starting_cpu() failure
-and to set the handle_arch_irq pointer to NULL if gicv5_irs_enable() fails.
+In set-ups with a 2-level IST, L1 table entries are created dynamically
+when LPIs are allocated.
 
-Update the respective error paths to fix them.
+The L1 allocation and mapping, implemented in gicv5_irs_iste_alloc() is
+carried out in preemtible context and can be carried out on any IRS in
+the system.
 
-Fixes: 7ec80fb3f025 ("irqchip/gic-v5: Add GICv5 PPI support")
+Current code indexes the per_cpu_irs_data per cpu array using
+smp_processor_id() to retrieve the IRS that is local to the core
+executing gicv5_irs_iste_alloc().
+
+Since that's preemptible context, the core executing that function can
+change on preemption. Given that every IRS in the system is equivalent
+to each core, this is not really an issue in that even if the thread
+is preempted and resumed on a different cpu, the table allocation and
+mapping to an IRS would work seamlessly regardless.
+
+On the other hand, smp_processor_id() spits a legitimate splat on
+DEBUG_PREEMPT kernels when used in preemtible context and this should
+be fixed.
+
+Given that all IRSes are equivalent from a core perspective in terms of
+IST initialization, always choose as a policy the IRS local to logical
+cpu 0, preventing the smp_processor_id() splat.
+
+Fixes: 0f0101325876 ("irqchip/gic-v5: Add GICv5 LPI/IPI support")
 Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
 Cc: Thomas Gleixner <tglx@kernel.org>
 Cc: Marc Zyngier <maz@kernel.org>
+Link: https://sashiko.dev/#/message/20260810104747.E5CE71F000E9%40smtp.kernel.org
 ---
- drivers/irqchip/irq-gic-v5.c | 7 ++++---
- 1 file changed, 4 insertions(+), 3 deletions(-)
+ drivers/irqchip/irq-gic-v5-irs.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/irqchip/irq-gic-v5.c b/drivers/irqchip/irq-gic-v5.c
-index a7fae93e993e..4f5d1eebb4fa 100644
---- a/drivers/irqchip/irq-gic-v5.c
-+++ b/drivers/irqchip/irq-gic-v5.c
-@@ -1174,7 +1174,7 @@ static int __init gicv5_init_common(struct fwnode_handle *parent_domain)
+diff --git a/drivers/irqchip/irq-gic-v5-irs.c b/drivers/irqchip/irq-gic-v5-irs.c
+index 86da9f82a7b0..b3feb6340b59 100644
+--- a/drivers/irqchip/irq-gic-v5-irs.c
++++ b/drivers/irqchip/irq-gic-v5-irs.c
+@@ -199,7 +199,7 @@ int gicv5_irs_iste_alloc(const u32 lpi)
+ 	if (!gicv5_global_data.ist.l2)
+ 		return 0;
  
- 	ret = gicv5_starting_cpu(smp_processor_id());
- 	if (ret)
--		goto out_dom;
-+		goto out_int;
+-	irs_data = per_cpu(per_cpu_irs_data, smp_processor_id());
++	irs_data = per_cpu(per_cpu_irs_data, 0);
+ 	if (!irs_data)
+ 		return -ENOENT;
  
- 	ret = set_handle_irq(gicv5_handle_irq);
- 	if (ret)
-@@ -1182,16 +1182,17 @@ static int __init gicv5_init_common(struct fwnode_handle *parent_domain)
- 
- 	ret = gicv5_irs_enable();
- 	if (ret)
--		goto out_int;
-+		goto out_handle;
- 
- 	gicv5_smp_init();
- 
- 	gicv5_irs_its_probe();
- 	return 0;
- 
-+out_handle:
-+	set_handle_irq(NULL);
- out_int:
- 	gicv5_cpu_disable_interrupts();
--out_dom:
- 	gicv5_free_domains();
- 	return ret;
- }
 
 -- 
 2.53.0
