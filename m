@@ -4,81 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5877EC5CFDB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 11:32:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1066DC5CFDB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 11:32:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8R0bYt528y2mbivyUE1djUnRJwaalT2no2Rhah2uRgU=; b=BMTZMhm1lC+iWrtfY4s4xvzIsJ
-	uHaUu987SMsB0ow+XX5e3zsNFwLVDocJeNAgSfJlGIDAloeEweWPz7Esb23pOYVXtegAhdBYgXLP7
-	1zOJmuE1Qdlaa999t+vDus5caOtH230UDFKyCs8ort8zWt1MqEtWOiS/MIR/Nn6M1ynC/0a9DklQT
-	cnp1lQfuZbcml7uA7pml9UDfceLoViuQhjiGRkzYsdGlN0onBb3FjwrSmjRVwdWkzu05g0JQamPGO
-	DcwVAPhrd8zhyH1coMJFlmeoMirPEdCYrRRBTHrNcLbs8na4xQLXJKGcs6WgEqI9Oz6YtC2tlZPS0
-	TSnCqhjw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ysf3SL8z1BYuNQJkHGQoXNPKydjj8b8j6DRO12UFwp0=; b=oJRNLAmeyCvAAxpWmimKp1HrWE
+	COM8bRhaps1n1ZJt1aCpOY7bpN9zwKHN5vsaLXdNKe6j4fzMD88KM7AsJf1no/DtefAfVIPMKJMLu
+	vp/Fibpql95DzU4lKWonJ5iXkYqVLUMqzmHjlqCZCbjSkAb9mZlSCZCUI1g4h71IeR/22dWcPZ3M9
+	Okmz9V8oz/6ATH/17LcpsPZdzrF3BCD7pItBfvfb5dSdehS4zmWfl2L4VBAQqznUzgSs9ShBrzbqL
+	+Eo6RXtDQGIgfSPK/8e049ZH8yikoY5GOF7BCCyY8UY4GqiPz80RcfSFt0pNLPQ/UjOPRyx5bJC9Q
+	4grTmxfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu7BV-0000000G5XA-47vz;
+	id 1wu7BX-0000000G5XW-2SDb;
 	Wed, 12 Aug 2026 11:31:51 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+Received: from mgamail.intel.com ([198.175.65.19])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu7BU-0000000G5Ws-1f4B
+	id 1wu7BS-0000000G5WK-0Klz
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 12 Aug 2026 11:31:49 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A6A86601E0;
-	Wed, 12 Aug 2026 11:31:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47EF91F000E9;
-	Wed, 12 Aug 2026 11:31:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786534307;
-	bh=8R0bYt528y2mbivyUE1djUnRJwaalT2no2Rhah2uRgU=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=cvoNZLlJHW+4WOwYmevlbzkHPd7+Hbm9aTKER6k84q/k54rUk8JPdaAZtnxpqPlGh
-	 WBUIWjAoHCAfBrKR2k6VIIpyHPdYitk67obZ1E3ZqU0mj2wcu8OQaFMwuWv1Gc8pRn
-	 lGVsxICtRj7Pjsym6tNbO6xBq5x5xHZvdLvgC1NfkP22+Sr8s4yoJGpQaMusWOl6Wo
-	 TTlkiBlem5dh19IDXWOSxSjsWWSi3+UQ7dGyxBjXjtEnOwL8mPkqaYjAH37SBlFd3b
-	 ieLS7PaRTKrwBLLAqi7+ZIAmPBmvS1d+u3/VKi9x/bOU1+ohhYTujIU+5khH/iE0fR
-	 GUsUxWVBsS1lQ==
-X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
-	Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>,
-	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
-Subject: Re: [RFC PATCH] dma: swiotlb: Size shared default pools for memory
- encryption
-In-Reply-To: <anxEc8EHmJQywVI5@arm.com>
-References: <20260811134056.756015-1-aneesh.kumar@kernel.org>
- <anxEc8EHmJQywVI5@arm.com>
-Date: Wed, 12 Aug 2026 17:01:33 +0530
-Message-ID: <yq5ah5kzinhm.fsf@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1786534306; x=1818070306;
+  h=date:from:to:cc:subject:message-id;
+  bh=ipnm0NkbAZmqTDaSkJDuYWBKb4UyGjBlzd6ENblJNBU=;
+  b=DejpIbNSr8bt65hXdGsW0oML0SAhu0S1SI8iyk8dPVHEGP4fXxMoV4Mh
+   BcRdIvzl+CF5zuwep8sRmlkk6YjMwxNRinfIvo89voBxHRtEFE7kM6oR9
+   vFv9IbzQgKfGhIIiwXpb+7fMvbKQUFMXfMxtyvYnTJx3DFLq4CO/5yeLr
+   /6u8H7F8xBj2q71R6YMkUcQyZkRRvU558GxIAvW7lgB7p63f0Y94JDQcl
+   gUyMDBXY2xkYnkQRl+CiOJeCF+twOc76oiXbfEdChuF+5ydzeVQ/yeTyT
+   Xv1Ds7URx0s6RN1gw/YQyodf1t1SlDtgXaE8YeYTIfUldRccEWpFq11QO
+   A==;
+X-CSE-ConnectionGUID: sW4xBL8vQ3+XhWtNb4DevA==
+X-CSE-MsgGUID: RE7KICEjT6ilK/tP9JeAMA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11872"; a="87011161"
+X-IronPort-AV: E=Sophos;i="6.25,219,1779174000"; 
+   d="scan'208";a="87011161"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Aug 2026 04:31:45 -0700
+X-CSE-ConnectionGUID: N7iEgN3gRNWE+sUezIGtOg==
+X-CSE-MsgGUID: fI/7fiAVRvKoetKmv2Y56A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,219,1779174000"; 
+   d="scan'208";a="259786553"
+Received: from lkp-server01.sh.intel.com (HELO 6eda058d650d) ([10.239.97.150])
+  by fmviesa010.fm.intel.com with ESMTP; 12 Aug 2026 04:31:43 -0700
+Received: from kbuild by 6eda058d650d with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wu7BN-00000000QXP-14De;
+	Wed, 12 Aug 2026 11:31:41 +0000
+Date: Wed, 12 Aug 2026 19:31:21 +0800
+From: kernel test robot <lkp@intel.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:soc/arm] BUILD SUCCESS
+ acf1efa9485fda84f332c8fbbe7b4453dbec183a
+Message-ID: <202608121908.7IiMAAgi-lkp@intel.com>
+User-Agent: s-nail v14.9.25
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260812_043147_663846_6A041783 
+X-CRM114-Status: UNSURE (   5.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,143 +83,185 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Catalin Marinas <catalin.marinas@arm.com> writes:
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/arm
+branch HEAD: acf1efa9485fda84f332c8fbbe7b4453dbec183a  Merge tag 'samsung-soc-7.3' of https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux into soc/arm
 
->
-> I also wonder whether we could address Will's pKVM request not to
-> allocate a bounce buffer once pKVM guests will start reporting
-> CC_ATTR_GUEST_MEM_ENCRYPT. Some simple heuristic: if a
-> restricted-dma-pool is advertised in DT (it will end up in
-> rmem_swiotlb_setup()), skip resizing the default swiotlb. It's not
-> perfect but the bounce buffer can be overridden on the command line.
+elapsed time: 1519m
 
-I have a follow-up cleanup patch where I switch the swiotlb
-initialization reason to a flag value. With that, we now have
-SWIOTLB_INIT_CC_SHARED.
+configs tested: 165
+configs skipped: 1
 
-The challenge is that it is still not clear when pKVM would want to use
-an unencrypted swiotlb pool for DMA bouncing. I would expect pKVM to
-have some additional condition based on which it chooses either the
-restricted-dma-pool or the default swiotlb pool.
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
-Using the presence of a restricted-dma-pool to decide whether the
-default swiotlb pool should be unencrypted is one option, but I am not
-sure that is the right abstraction.
+tested configs:
+alpha                            allnoconfig    gcc-16.1.0
+alpha                           allyesconfig    gcc-16.1.0
+alpha                              defconfig    gcc-16.1.0
+arc                             allmodconfig    gcc-16.1.0
+arc                             allyesconfig    gcc-16.1.0
+arc                           randconfig-001    gcc-12.5.0
+arc                  randconfig-001-20260812    gcc-12.5.0
+arc                  randconfig-002-20260812    gcc-10.5.0
+arc                  randconfig-002-20260812    gcc-12.5.0
+arm                    am200epdkit_defconfig    gcc-16.1.0
+arm                  randconfig-001-20260812    clang-19
+arm                  randconfig-001-20260812    gcc-12.5.0
+arm                  randconfig-002-20260812    gcc-12.5.0
+arm                  randconfig-003-20260812    gcc-12.5.0
+arm                  randconfig-003-20260812    gcc-14.3.0
+arm                  randconfig-004-20260812    clang-24
+arm                  randconfig-004-20260812    gcc-12.5.0
+arm64                         randconfig-001    gcc-14.3.0
+arm64                randconfig-001-20260812    clang-24
+arm64                randconfig-001-20260812    gcc-14.3.0
+arm64                randconfig-002-20260812    clang-20
+arm64                randconfig-002-20260812    gcc-14.3.0
+arm64                randconfig-003-20260812    clang-17
+arm64                randconfig-003-20260812    gcc-14.3.0
+arm64                randconfig-004-20260812    clang-24
+arm64                randconfig-004-20260812    gcc-14.3.0
+csky                            allmodconfig    gcc-16.1.0
+csky                 randconfig-001-20260812    gcc-10.5.0
+csky                 randconfig-001-20260812    gcc-14.3.0
+csky                 randconfig-002-20260812    gcc-14.3.0
+csky                 randconfig-002-20260812    gcc-16.1.0
+hexagon              randconfig-001-20260811    clang-24
+hexagon              randconfig-001-20260812    gcc-11.5.0
+hexagon              randconfig-002-20260811    clang-22
+hexagon              randconfig-002-20260812    gcc-11.5.0
+i386                            alldefconfig    gcc-14
+i386                            allmodconfig    gcc-14
+i386       buildonly-randconfig-001-20260812    clang-22
+i386       buildonly-randconfig-002-20260812    clang-22
+i386       buildonly-randconfig-002-20260812    gcc-14
+i386       buildonly-randconfig-003-20260812    clang-22
+i386       buildonly-randconfig-004-20260812    clang-22
+i386       buildonly-randconfig-005-20260812    clang-22
+i386       buildonly-randconfig-005-20260812    gcc-14
+i386       buildonly-randconfig-006-20260812    clang-22
+i386                 randconfig-001-20260811    gcc-14
+i386                 randconfig-001-20260812    clang-22
+i386                 randconfig-002-20260811    gcc-14
+i386                 randconfig-002-20260812    clang-22
+i386                 randconfig-003-20260811    gcc-14
+i386                 randconfig-003-20260812    clang-22
+i386                 randconfig-004-20260811    gcc-14
+i386                 randconfig-004-20260812    clang-22
+i386                 randconfig-005-20260811    gcc-14
+i386                 randconfig-005-20260812    clang-22
+i386                 randconfig-006-20260811    gcc-14
+i386                 randconfig-006-20260812    clang-22
+i386                 randconfig-007-20260811    clang-22
+i386                 randconfig-007-20260812    clang-22
+i386                 randconfig-011-20260812    gcc-12
+i386                 randconfig-011-20260812    gcc-14
+i386                 randconfig-012-20260812    gcc-12
+i386                 randconfig-013-20260812    clang-22
+i386                 randconfig-013-20260812    gcc-12
+i386                 randconfig-014-20260812    clang-22
+i386                 randconfig-014-20260812    gcc-12
+i386                 randconfig-015-20260812    clang-22
+i386                 randconfig-015-20260812    gcc-12
+i386                 randconfig-016-20260812    clang-22
+i386                 randconfig-016-20260812    gcc-12
+i386                 randconfig-017-20260812    clang-22
+i386                 randconfig-017-20260812    gcc-12
+loongarch                          defconfig    clang-24
+loongarch            randconfig-001-20260811    gcc-15.2.0
+loongarch            randconfig-001-20260812    gcc-11.5.0
+loongarch            randconfig-002-20260811    clang-24
+loongarch            randconfig-002-20260812    gcc-11.5.0
+nios2                           allmodconfig    gcc-11.5.0
+nios2                            allnoconfig    gcc-11.5.0
+nios2                randconfig-001-20260811    gcc-8.5.0
+nios2                randconfig-001-20260812    gcc-11.5.0
+nios2                randconfig-002-20260811    gcc-9.5.0
+nios2                randconfig-002-20260812    gcc-11.5.0
+parisc                          allmodconfig    gcc-16.1.0
+parisc                          allyesconfig    gcc-16.1.0
+parisc                             defconfig    gcc-16.1.0
+parisc               randconfig-001-20260811    gcc-10.5.0
+parisc               randconfig-001-20260812    clang-17
+parisc               randconfig-002-20260811    gcc-16.1.0
+parisc               randconfig-002-20260812    clang-17
+powerpc              randconfig-001-20260811    clang-24
+powerpc              randconfig-001-20260812    clang-17
+powerpc              randconfig-002-20260811    clang-17
+powerpc              randconfig-002-20260812    clang-17
+powerpc64            randconfig-001-20260811    gcc-15.2.0
+powerpc64            randconfig-001-20260812    clang-17
+powerpc64            randconfig-002-20260811    gcc-13.4.0
+powerpc64            randconfig-002-20260812    clang-17
+riscv                         randconfig-001    gcc-13.4.0
+riscv                randconfig-001-20260811    clang-24
+riscv                randconfig-001-20260812    clang-24
+riscv                randconfig-002-20260811    clang-24
+riscv                randconfig-002-20260812    clang-24
+s390                 randconfig-001-20260811    clang-20
+s390                 randconfig-001-20260812    clang-24
+s390                 randconfig-002-20260811    clang-24
+s390                 randconfig-002-20260812    clang-24
+sh                                 defconfig    gcc-16.1.0
+sh                   randconfig-001-20260811    gcc-13.4.0
+sh                   randconfig-001-20260812    clang-24
+sh                   randconfig-002-20260811    gcc-16.1.0
+sh                   randconfig-002-20260812    clang-24
+sparc                randconfig-001-20260811    gcc-16.1.0
+sparc                randconfig-001-20260812    gcc-13.4.0
+sparc                randconfig-002-20260811    gcc-16.1.0
+sparc                randconfig-002-20260812    gcc-13.4.0
+sparc64              randconfig-001-20260811    gcc-8.5.0
+sparc64              randconfig-001-20260812    gcc-13.4.0
+sparc64              randconfig-002-20260811    gcc-8.5.0
+sparc64              randconfig-002-20260812    gcc-13.4.0
+um                   randconfig-001-20260811    gcc-14
+um                   randconfig-001-20260812    gcc-13.4.0
+um                   randconfig-002-20260811    gcc-14
+um                   randconfig-002-20260812    gcc-13.4.0
+x86_64     buildonly-randconfig-001-20260812    gcc-14
+x86_64     buildonly-randconfig-002-20260812    gcc-14
+x86_64     buildonly-randconfig-003-20260812    clang-22
+x86_64     buildonly-randconfig-003-20260812    gcc-14
+x86_64     buildonly-randconfig-004-20260812    gcc-14
+x86_64     buildonly-randconfig-005-20260812    gcc-14
+x86_64     buildonly-randconfig-006-20260812    gcc-14
+x86_64                                 kexec    clang-22
+x86_64                        randconfig-001    gcc-14
+x86_64               randconfig-001-20260811    clang-22
+x86_64               randconfig-001-20260812    clang-22
+x86_64               randconfig-002-20260811    gcc-14
+x86_64               randconfig-002-20260812    clang-22
+x86_64               randconfig-003-20260811    clang-22
+x86_64               randconfig-003-20260812    clang-22
+x86_64               randconfig-004-20260811    gcc-14
+x86_64               randconfig-004-20260812    clang-22
+x86_64               randconfig-005-20260811    clang-22
+x86_64               randconfig-005-20260812    clang-22
+x86_64               randconfig-006-20260811    gcc-13
+x86_64               randconfig-006-20260812    clang-22
+x86_64               randconfig-011-20260812    clang-22
+x86_64               randconfig-012-20260812    clang-22
+x86_64               randconfig-013-20260812    clang-22
+x86_64               randconfig-014-20260812    clang-22
+x86_64               randconfig-014-20260812    gcc-14
+x86_64               randconfig-015-20260812    clang-22
+x86_64               randconfig-016-20260812    clang-22
+x86_64               randconfig-071-20260812    clang-22
+x86_64               randconfig-072-20260812    clang-22
+x86_64               randconfig-073-20260812    clang-22
+x86_64               randconfig-073-20260812    gcc-14
+x86_64               randconfig-074-20260812    clang-22
+x86_64               randconfig-075-20260812    clang-22
+x86_64               randconfig-075-20260812    gcc-14
+x86_64               randconfig-076-20260812    clang-22
+x86_64                          rhel-9.4-bpf    gcc-14
+xtensa               randconfig-001-20260811    gcc-16.1.0
+xtensa               randconfig-001-20260812    gcc-13.4.0
+xtensa               randconfig-002-20260811    gcc-10.5.0
+xtensa               randconfig-002-20260812    gcc-13.4.0
 
-modified   arch/arm64/mm/init.c
-@@ -342,7 +342,7 @@ void __init arch_mm_preinit(void)
- 	bool cc_guest = is_realm_world();
- 
- 	if (cc_guest)
--		swiotlb_mark_default_cc_shared();
-+		flags |= SWIOTLB_INIT_CC_SHARED;
- 	else if (max_pfn > PFN_DOWN(arm64_dma_phys_limit))
- 		flags |= SWIOTLB_INIT_ADDRESSING_LIMIT;
- 
-modified   arch/powerpc/mm/mem.c
-@@ -289,9 +289,8 @@ void __init arch_mm_preinit(void)
- #ifdef CONFIG_SWIOTLB
- 	if (is_secure_guest()) {
- 		/* The host can access DMA buffers only through the SWIOTLB. */
--		swiotlb_mark_default_cc_shared();
- 		ppc_swiotlb_enable = 1;
--		ppc_swiotlb_flags |= SWIOTLB_ANY;
-+		ppc_swiotlb_flags |= SWIOTLB_INIT_CC_SHARED | SWIOTLB_ANY;
- 	}
- 
- 	/*
-modified   arch/s390/mm/init.c
-@@ -163,12 +163,10 @@ static void __init pv_init(void)
- 	if (!is_prot_virt_guest())
- 		return;
- 
--	swiotlb_mark_default_cc_shared();
--
- 	virtio_set_mem_acc_cb(virtio_require_restricted_mem_acc);
- 
- 	/* make sure bounce buffers are shared */
--	swiotlb_init(SWIOTLB_VERBOSE);
-+	swiotlb_init(SWIOTLB_VERBOSE | SWIOTLB_INIT_CC_SHARED);
- 	swiotlb_update_mem_attributes();
- }
- 
-modified   arch/x86/mm/mem_encrypt.c
-@@ -14,6 +14,7 @@
- #include <linux/mem_encrypt.h>
- #include <linux/virtio_anchor.h>
- 
-+#include <asm/iommu.h>
- #include <asm/sev.h>
- 
- /* Override for DMA direct allocation check - ARCH_HAS_FORCE_DMA_UNENCRYPTED */
-@@ -109,7 +110,7 @@ void __init mem_encrypt_setup_arch(void)
- 		snp_fixup_e820_tables();
- 
- 	if (cc_platform_has(CC_ATTR_MEM_ENCRYPT))
--		swiotlb_mark_default_cc_shared();
-+		x86_swiotlb_flags |= SWIOTLB_INIT_CC_SHARED;
- 
- 	if (!cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT))
- 		return;
-modified   include/linux/swiotlb.h
-@@ -18,6 +18,8 @@ struct scatterlist;
- #define SWIOTLB_ANY	(1 << 1) /* allow any memory for the buffer */
- /* Initialize a default-sized pool for devices with limited DMA addressing. */
- #define SWIOTLB_INIT_ADDRESSING_LIMIT	(1 << 2)
-+/* Initialize a shared default pool for confidential-computing systems. */
-+#define SWIOTLB_INIT_CC_SHARED		(1 << 3)
- 
- /*
-  * Maximum allowable number of contiguous slabs to map,
-@@ -191,7 +193,6 @@ void swiotlb_dev_init(struct device *dev);
- size_t swiotlb_max_mapping_size(struct device *dev);
- bool is_swiotlb_allocated(void);
- bool is_swiotlb_active(struct device *dev);
--void __init swiotlb_mark_default_cc_shared(void);
- void __init swiotlb_adjust_size(unsigned long size);
- phys_addr_t default_swiotlb_base(void);
- phys_addr_t default_swiotlb_limit(void);
-@@ -231,10 +232,6 @@ static inline bool is_swiotlb_active(struct device *dev)
- 	return false;
- }
- 
--static inline void swiotlb_mark_default_cc_shared(void)
--{
--}
--
- static inline void swiotlb_adjust_size(unsigned long size)
- {
- }
-modified   kernel/dma/swiotlb.c
-@@ -373,11 +373,6 @@ static void __init *swiotlb_memblock_alloc(unsigned long nslabs,
- 	return tlb;
- }
- 
--void __init swiotlb_mark_default_cc_shared(void)
--{
--	io_tlb_default_mem.cc_shared = true;
--}
--
- static void __init swiotlb_adjust_cc_attributes(void)
- {
- 	unsigned long size;
-@@ -429,7 +424,7 @@ static bool __init swiotlb_should_init(unsigned int flags)
- 	if (swiotlb_force_bounce)
- 		return true;
- 
--	if (io_tlb_default_mem.cc_shared)
-+	if (flags & SWIOTLB_INIT_CC_SHARED)
- 		return true;
- 
- 	return false;
-@@ -451,6 +446,9 @@ void __init swiotlb_init_remap(unsigned int flags,
- 	if (!swiotlb_should_init(flags))
- 		return;
- 
-+	if (flags & SWIOTLB_INIT_CC_SHARED)
-+		io_tlb_default_mem.cc_shared = true;
-+
- 	io_tlb_default_mem.force_bounce = swiotlb_force_bounce;
- 
- #ifdef CONFIG_SWIOTLB_DYNAMIC
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
