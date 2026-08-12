@@ -4,71 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 387D4C5CFDB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 11:02:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89D71C5CFEE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 11:05:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N/f+iTOOVNTQvrvGy/voP7LCXDz7uDlaqxyBdFvyvK4=; b=AaK80wruSas/r4F/rjonS1qXW6
-	G96w/A1N1vhb/IqT+O43InzskAA/BsLCsIuSiiDm8j+aqrQok59obwgxujYj0fcu9Rsyn01+o83sx
-	qWfwccgua0vlmj2q+XiGg8iqQH/exENFuJYZvNDg8fV1olo9vH6DRT3DknrpnhBtRULtNfqnH8xLF
-	1CHaTFFuIo0o584qjm1MzcV8wly3vpheyevis+yuCsK+VkC87ScA+BaKOa/GdJuND+J5v115Uuuk3
-	ctrweThMeqR/OUcy+SFaJLsPorWSlicOeiJgE/cZBFZPZM1qV1gyzD2sTtZP8QWGAC7YowcGGrweM
-	VxALCuDw==;
+	bh=TAMJucX98od9lFQS19sQLl0kAJ7auuTQYd+7WMR6MJ8=; b=vAqA2xKZOwE9Yv4JEmzVMxLEVR
+	DE/60ZY7ilIcJXPa2Pmk7924iH39+AJedJ4B/sx6RZ0HRWXdryUtAQz5woIyHGZobo7ethaYjhjZZ
+	qJKTj7voJ1Nhl186iHkpTst5hLdoC7BHViKaF/dH3Sdkwr/TRupXHvVzrGNoytZi9XHqbbhYjicY4
+	mAuhLC9R4ArHtNcdIHb/nB4TJ2XnuWxpWtkPde+yuhy1MBCm+arWLeR8npCnCA+6bcWgGAXyZ/A7k
+	NC9evR/DSjwpjgUAMMObRSbB5PQ0DtE8Hp3xyzkHWuTA2US0HbD+zBKXLcr/RPZ9F3YJPubnDygg8
+	u9nkK+rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu6jO-0000000Fzkv-3JpJ;
-	Wed, 12 Aug 2026 11:02:46 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wu6jJ-0000000FziW-32NV
+	id 1wu6m9-0000000G05A-2MC5;
+	Wed, 12 Aug 2026 11:05:37 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wu6m6-0000000G04p-0ffn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 11:02:45 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 875641596;
-	Wed, 12 Aug 2026 04:02:33 -0700 (PDT)
-Received: from arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BEBBE3F86F;
-	Wed, 12 Aug 2026 04:02:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786532557; bh=mdrIGZjICmq0LxOwQ6YiH5ZpPrFH3mTO0IlhyWlkIDA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZGpV5YRLI7rdNyFSqiLdfEanSElpwuTSW6u+h99x0+n0OsN0F8HVFSj4UAyLA6Pdr
-	 sgDWFHZc6Qoqx9qryjKj6NH9tlbT1SuUH+l3IuXwRQHxJvHRiW9/eB53dmlXfVCZFU
-	 87t+L3949mhkIpaQVEw0nW09yC8WGZUpPbJTkjFw=
-Date: Wed, 12 Aug 2026 13:02:09 +0200
-From: Beata Michalska <beata.michalska@arm.com>
-To: Sean Wang1 <seanwang1@lenovo.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"rafael@kernel.org" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Lifeng Zheng <zhenglifeng1@huawei.com>,
-	Xuewen Yan <xuewen.yan@unisoc.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Sumit Gupta <sumitg@nvidia.com>,
-	Yunhui Cui <cuiyunhui@bytedance.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"driver-core@lists.linux.dev" <driver-core@lists.linux.dev>
-Subject: Re: [External] Re: [PATCH v3] arm64: topology: add source check in
- arch_cpu_idle_enter()
-Message-ID: <anxSsfvpZHHsVnp_@arm.com>
-References: <20260811072830.10028-1-seanwang1@lenovo.com>
- <anrzT-ez3b7uYaCt@arm.com>
- <SI2PR03MB6688D1DC0796AC6F6A373C2E93DC2@SI2PR03MB6688.apcprd03.prod.outlook.com>
+	Wed, 12 Aug 2026 11:05:35 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-6a0a4a17f91so1312470a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 04:05:33 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1786532732; cv=none;
+        d=google.com; s=arc-20260327;
+        b=pNjM6ZmrMtkUoHtaXL/PVDodlfeKH3sUD0K6Dmj9MLg6r3fbla7ZaT9gbT/8F+h3Wq
+         yd7Ozw/rEgBUbi0KgXyWRFvHa2/ikhYPUo6jApJx03KzJraq+yaDb8BtuzuTyx0kViak
+         78q+pIisvaqGg9PvRXrVkfRNBeF4EwBUtF97ZwYc0F0JE/s9lHF7jHAIZECVUoTEfzWC
+         Qtl5ESgNPs9X/FXMFXwY7E7vRtghBWUuCxvt/g+UOusOHquS/RAM8znzOJce5cXLogbi
+         yDZhZKiaSN2weoJ/9x5frpaqB56RRXwYfXAURC//U5jejp7mdFwG9sHZeYxVO5KwjqdH
+         BNZQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=TAMJucX98od9lFQS19sQLl0kAJ7auuTQYd+7WMR6MJ8=;
+        fh=b4bicH66EM5pIv8DaIcnCbhZiuqHhlsVb8dvzLjN8GQ=;
+        b=J278y61CLPxsByrE27OhYlO4jlG3IuH3neK8V+dnMLdoUFhbvJ+B6qLxYNjEDglT+E
+         lWitFSXdFXDIkzmr0NxPD3QzNWBM9B4Rz/zTMZRg2hx5nF18xOmDKejlQ+JnlfNLLSM5
+         YfhjkTEBYNBhn0TieFpnXbhZgSYGbPk7n4OFe4cZ7e6R6D0pRWvWVwY2mgp7lHuAId7H
+         ZQfN5aTGWpGnAWsbJeTzVmeLYjUjELm4sxfcgkgGCTNiAYgOH9DBCa+p+YCmb1zRae3m
+         goELQY0ZGbpgjoJcih8J8vMjn6/JhPNPPEZtOIpvDr8k1JrZRtyR8EmGnMDodjHT8Anr
+         R6NA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1786532732; x=1787137532; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=TAMJucX98od9lFQS19sQLl0kAJ7auuTQYd+7WMR6MJ8=;
+        b=SsW4btoighmdrxMpVo25jEWiSKCQRSNoW7/NRE58lOHX1IJnhUDfhs+IA6zt/9odMs
+         JBjxM+Sk2K4gPjXBVDimxc8id3EMt4/7aST6YaF0FskFmxys+1urIQ3KCejKAMXavtQt
+         XwMn9oPQxyoUO4WCghepADdsTiC9fyyemxJDmYL5kp9Yos9QlloGTsDL9iyZHw5AcYvY
+         ZJp/zUL5cnUrMiwUnZDjAECHqKhk8xN3hIycwXP4FeVLHrmMrm86pYoBeY5LDcRp6i2Y
+         hF3EeG9IGvyMoXcS6yRNiFxRPno7Mn7Luyt0xbA4O7+a1mRiAdomigf0KJ1UbzWUdPSI
+         QQBw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786532732; x=1787137532;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=TAMJucX98od9lFQS19sQLl0kAJ7auuTQYd+7WMR6MJ8=;
+        b=Y8zJXOrnbd5ymYceJ0XICwKXYIYL/m1VvjeLfoFf7uvFcN4pmXaekkecLHhR+zZj4q
+         FKAm+4jszHsdD4QsXToao0aEw1z41GGDqojfcwcL+xVPkgyfQFWjyw9CAPwUSeJCjMI9
+         leUbuRDXQJFfrEJT6Rq2HrEdcbYO0HFkMKFzPP0YaknJGZE4sgpwfPN2rKbd0HBHrXRb
+         Sze9DqwxCSvmVfenD04pk/rZL1VK8tXzUK2oeWcljxEY496swE/HjjOra5avF2yvWpvg
+         UOmO9E4cF/Ywv/LSXvVOpeZT95ueyDs91R62vxSppQWocfz9EleGZC4S84yuEr84dspw
+         9cvw==
+X-Forwarded-Encrypted: i=1; AHgh+RqFcMvpipQ1QEt2ad62ho8NmYvCZKQ2mpCgV7z3dTbcb2aPFIKgOTO2hukzvmgt5LHyUAwlUR1bU7IULWg93Eiw@lists.infradead.org
+X-Gm-Message-State: AOJu0YwSEfMYys/UP1bNepP4Uxpqhp8PMVUeAncHlPy0gOSCnFG0+E4r
+	bVmjdxkeM0/VIz3rrFE0E0jUSoZY3lM4w2LysFfPIjl5ynL51azB8tGlVsvWCqKPKudD+G6O/d/
+	blwUFjpBuYgFZfopOmM7rRiKkIR3QedWiYBRLv4/3Kw==
+X-Gm-Gg: AR+sD1163nW0ZxHcHguHb/WrnkjZuQr8lDVmVeB6Ruwkuv6xnVVcevV0H9dVBWCk93v
+	0ge55ea37lK4zHRGnKBq+ThfbTbA5k080CZa92or5AEpwQuKJMOMP0kPplyFaxeOz5i+jin2Eld
+	PvBe1PvKSzpNbwGE8zHuoBsYvbWdLRyZ7oLmVdEPgVUngbn5gZNyeT7f58KTlLdnxEO+d7JwBPY
+	1fV80I4PHbf4C4ZoHjp8gFdNSrBtBcpvT4V1o+mOh8++v2j2kWseetNAskM4W+/8FbBr8MkxACk
+	F8Cd9yQ2XaAEC56c83cuhQ9EO0Y7/p8BPkBW6uZ+TdxgxtAgl0krQt/AyQ3jnN2CXfsx+mKTDs6
+	4Uw==
+X-Received: by 2002:a05:6402:3228:b0:6a1:f95b:8cef with SMTP id
+ 4fb4d7f45d1cf-6a375e9645emr1820229a12.4.1786532731531; Wed, 12 Aug 2026
+ 04:05:31 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <SI2PR03MB6688D1DC0796AC6F6A373C2E93DC2@SI2PR03MB6688.apcprd03.prod.outlook.com>
+References: <20260724-arm-smmu-v3-instcfg-override-v1-0-e7acf4a8a525@linaro.org>
+ <amYIuhYenP4-qHyV@willie-the-truck> <0b7c0272-5506-4aee-82b3-76a78f2b39dc@arm.com>
+ <CADrjBPqZFDvyLFpDy1YP9qrMNUCtZYtJhiaDd0iTnmB4ZYO8GQ@mail.gmail.com>
+ <anmvW1LkypAGW6Sc@willie-the-truck> <77edba4a-b6b0-4b50-9328-7c177a0af283@arm.com>
+ <anxN6RwREhUEuddT@willie-the-truck>
+In-Reply-To: <anxN6RwREhUEuddT@willie-the-truck>
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Wed, 12 Aug 2026 12:05:19 +0100
+X-Gm-Features: AUfX_mwI8H7TXg42iNqR_RkOIUIpO3gOTAkuA-Ll7XQip0ZZWi-1F1xt3OUBfdI
+Message-ID: <CADrjBPqRPaZiwpj+cPznsXe79dsXa9kAObLKEOBQk0W5PovU5g@mail.gmail.com>
+Subject: Re: [PATCH 0/2] Add arm-smmu-v3 support for instcfg data override feature
+To: Will Deacon <will@kernel.org>
+Cc: Robin Murphy <robin.murphy@arm.com>, "Joerg Roedel (AMD)" <joro@8bytes.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Pranjal Shrivastava <praan@google.com>, Daniel Mentz <danielmentz@google.com>, 
+	Mostafa Saleh <smostafa@google.com>, linux-arm-kernel@lists.infradead.org, 
+	iommu@lists.linux.dev, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, kernel-team@android.com, 
+	tudor.ambarus@linaro.org, andre.draszik@linaro.org, willmcvicker@google.com, 
+	jyescas@google.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_040241_972749_A9CF7AD5 
-X-CRM114-Status: GOOD (  40.27  )
+X-CRM114-CacheID: sfid-20260812_040534_253438_20FF066B 
+X-CRM114-Status: GOOD (  52.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,108 +126,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 12, 2026 at 07:34:52AM +0000, Sean Wang1 wrote:
-> On Tus, Aug 11, 2026 at 06:03PM, Beata Michalska wrote:
-> 
-> > > --- a/arch/arm64/kernel/topology.c
-> > > +++ b/arch/arm64/kernel/topology.c
-> > > @@ -175,7 +175,8 @@ void arch_cpu_idle_enter(void)
+Hi Will,
+
+On Wed, 12 Aug 2026 at 11:41, Will Deacon <will@kernel.org> wrote:
+>
+> On Mon, Aug 10, 2026 at 06:16:56PM +0100, Robin Murphy wrote:
+> > On 10/08/2026 12:00 pm, Will Deacon wrote:
+> > > On Fri, Aug 07, 2026 at 04:25:11PM +0100, Peter Griffin wrote:
+> > > > On Mon, 27 Jul 2026 at 11:53, Robin Murphy <robin.murphy@arm.com> wrote:
+> > > > >
+> > > > > On 26/07/2026 2:16 pm, Will Deacon wrote:
+> > > > > > On Fri, Jul 24, 2026 at 01:39:41PM +0100, Peter Griffin wrote:
+> > > > > > > These two patches add support for a new "arm,instdata-override" DT property
+> > > > > > > that enables the override of the instruction/data attribute of incoming
+> > > > > > > traffic to Data by setting the INSTCFG override bits.
+> > > > > > >
+> > > > > > > It is intended to be specified when the smmu can't guarantee that these
+> > > > > > > attributes are provided correctly from the client device.
+> > > > > >
+> > > > > > This is going to need an in-tree user and a much more detailed
+> > > > > > description of what is being worked around before we consider this for
+> > > > > > inclusion.
+> > > >
+> > > > Regarding an in-tree user, I haven't sent the Device Tree (DT) patch
+> > > > yet for Laguna SoC which adds the smmu nodes and this property because
+> > > > 1) I want to land the initial SoC/board DT first
+> > > > 2) I want agreement on the DT property name. Currently I used
+> > > > "arm,instdata-override" which is what downstream used. However, since
+> > > > this is intended to work around silicon errata something like
+> > > > "google,lga-instcfg-data-override" might be more appropriate?
+> > > >
+> > > > For Laguna SoC the first in-tree user of this is the amb_smmu smmu
+> > > > instance which is used by the Synopsis dwc3 IP. The Laguna dwc3 glue
+> > > > driver is already upstream at drivers/usb/dwc3/dwc3-google.c
+> > > >
+> > > > > >
+> > > > > > In particular, if a particular client is emitting data reads as
+> > > > > > instructions, then a better work around would be to avoid mapping its
+> > > > > > domains using IOMMU_NOEXEC. But I can't tell what's going on from the
+> > > > > > limited description provided here.
+> > > > >
+> > > > > Unless it's also emitting the privileged bit and thus falling foul of
+> > > > > the implicit Unpriv-W -> Priv-XN rule, but then we also have the means
+> > > > > to deal with devices which actually do that themselves (hello pl330...),
+> > > > > so that would seemingly only leave the case of some innocent piece of
+> > > > > AMBA-interfaced IP which doesn't expect to need special attributes, but
+> > > > > the system integrator has gone out of their way to tie the AxPROT bits
+> > > > > to some wacky value, which I would put in "erratum workaround" territory.
+> > > > >
+> > > >
+> > > > You're correct Robin. It is an erratum workaround for the Laguna SoC
+> > > > due to some custom usage of the AxPROT bits which differs from the
+> > > > standard ARM SMMU handling for Privileged/Unprivileged and
+> > > > Instruction/Data transaction attributes. The effect is all
+> > > > transactions appear to the SMMU as "Privileged Instruction" accesses.
 > > >
-> > >  	/* Kick in AMU update but only if one has not happened already */
-> > >  	if (housekeeping_cpu(cpu, HK_TYPE_TICK) &&
-> > > -
-> > time_is_before_jiffies(per_cpu(cpu_amu_samples.last_scale_update, cpu)))
-> > > +
-> > time_is_before_jiffies(per_cpu(cpu_amu_samples.last_scale_update, cpu))
-> > &&
-> > > +	    topology_is_scale_freq_source(SCALE_FREQ_SOURCE_ARCH, cpu))
-> > >  		amu_scale_freq_tick();
-> > I'm not entirely convinced you gained a lot by that.
-> > It's one additional check per each enter_idle for case where AMUs are the
-> > source vs 2 additional check when it is not.
-> > Will try to figure out smth less 'invasive'.
-> > 
-> 
-> First, I think that the rcu_read_lock_sched()/unlock() in
-> topology_is_scale_freq_source() is unnecessary. arch_cpu_idle_enter()
-> is called from do_idle() after local_irq_disable() at
-> kernel/sched/idle.c:340, which satisfies the rcu_sched grace period
-> requirement. This means we can call rcu_dereference_sched() directly
-> without explicit RCU lock.
-In this particular case RCU locking is not required, though you are exposing
-an API that might be used in other curcumstances, so the least we could do is
-document that.
-> 
-> I have two options to propose:
-> 
-> Option A: Keep the helper, but drop the explicit RCU lock
-> 
->     bool topology_is_scale_freq_source(enum scale_freq_source source,
->                                        unsigned int cpu)
->     {
->         struct scale_freq_data *sfd;
->         sfd = rcu_dereference_sched(*per_cpu_ptr(&sft_data, cpu));
->         return sfd && sfd->source == source;
->     }
-> 
-> Option B: Drop the helper entirely, check directly in arch_cpu_idle_enter()
-> If a generic exported helper feels too invasive, we can do the
-> check locally within arch_cpu_idle_enter() without touching
-> drivers/base/arch_topology.c at all:
-> 
->     if (housekeeping_cpu(cpu, HK_TYPE_TICK) &&
->         time_is_before_jiffies(per_cpu(cpu_amu_samples.last_scale_update, cpu))) {
->         struct scale_freq_data *sfd;
->         sfd = rcu_dereference_sched(*this_cpu_ptr(&sft_data));
->         if (sfd && sfd->source == SCALE_FREQ_SOURCE_ARCH)
->             amu_scale_freq_tick();
->     }
-> 
-> This keeps the change entirely in arm64 code and avoids adding
-> a new exported symbol. Which approach would you prefer?
-I do not mind this additional helper. Besides, not my place to either mind it
-or not.
-What I do mind is doing the check in the arch idle enter path. I would rather
-see some notification triggered when the source gets changed so that
-the previous sfd code can do some state transition that would avoid us having
-to run the check in the first place.
-Still pondering on that one.
-Preferably I would drop that 'tick' call from there completely, but apparently
-this was needed on some platforms to make AMU readings more reliable.
+> > > Ah, so this sounds like what Robin was worried about.
+> > >
+> > > > The software workaround in this series enables the SMMU's INSTCFG
+> > > > override feature to ignore the incoming value and treat all SMMU
+> > > > transactions as "Data".
+> > > >
+> > > > One small clarification: in the cover letter I incorrectly said this
+> > > > was set only for some SMMU IP instances, but that is incorrect. It is
+> > > > actually set on *all* arm-smmu-v3 IP instances in the Laguna SoC.
+> > > >
+> > > > Does the above provide the additional detail you need Will?
+> > >
+> > > So it sounds like using the instcfg override on this hardware still breaks
+> > > IOMMU_PRIV and IOMMU_NOEXEC:
+> > >
+> > >    1. If you don't pass IOMMU_PRIV, you still get privileged transactions
+> >
+> > However this is inherently true of VMSA stage 1 anyway - I admit I had to
+> > double-check, but we don't have any user-only permissions (other than
+> > perhaps execute as implied by explicit or implicit PXN). IOMMU_PRIV can only
+> > _remove_ unprivileged access.
+> >
+> > >    2. If you don't pass IOMMU_NOEXEC, you do not get execute permission
+> > >
+> > > Is that correct?
+> > >
+> > > Perhaps it would be better to override PRIVCFG to force unprivileged,
+> > > then reject IOMMU_PRIV and ignore IOMMU_NOEXEC?
+> >
+> > From what Daniel said, it sounds like the privileged attribute is still the
+> > doing of the device itself rather than the integration issue in this case,
+> > so while nobbling PRIVCFG might also achieve the end result of making
+> > IOMMU_READ | IOMMU_WRITE pages mostly not fault on reads, it seems less
+> > appropriate as a workaround. Particularly since IOMMU_PRIV is exposed via a
+> > general DMA API attribute, while IOMMU_NOEXEC is only accessible to
+> > dedicated IOMMU API/io-pgtable users.
+>
+> Ok, I did a bit of digging internally and it looks like the situation
+> isn't quite what has been described here:
 
-> 
-> > Aside: I should have probably asked that earlier, but I am not sure I do fully
-> > understand the case we are trying to fix here.
-> > The topology_set_scale_freq_source prefers arch source to others. So if the
-> > AMUs were chosen to server as the source for the freq scale - I do not see
-> > why the sfd would be changed. That would require calling sequence clear-set
-> > to get a different source in place. I do understand the issue itself, though how
-> > did we end up there in the first place ?
-> 
-> The issue arises when topology_clear_scale_freq_source() is called
-> with SCALE_FREQ_SOURCE_ARCH to explicitly disable AMU-based frequency
-> scaling. This API is exported (EXPORT_SYMBOL_GPL), so it is designed
-> to be used by modules or subsystems that need to replace the frequency
-> invariance mechanism at runtime.
->  
-So this is the bit I was missing: external module that does the switch
-willingly giving up on arch provided freq scale source.
-The rest is clear. Thanks.
+Thanks Will for taking the time to dig into this.
 
----
-BR
-Beata
+>
+> - The issue is that AxPROT is wired so that all transactions appear as
+>   instructions. This is an SMMU integration problem and happens
+>   irrespective of the client device.
+>
+> - Transactions are _not_ forced to be privileged. That appears to be a
+>   mistake earlier in the thread.
 
-> After clearing, the tick path (topology_scale_freq_tick()) correctly
-> skips the AMU update because sft_data is set to NULL. However, the
-> idle path (arch_cpu_idle_enter()) bypasses this check by calling
-> amu_scale_freq_tick() directly, so arch_freq_scale still gets
-> modified by AMU counters.
->  
-> This creates an inconsistency: the tick path respects
-> topology_clear_scale_freq_source() but the idle path does not.
->  
-> The goal of this patch is to make the idle path consistent with
-> the tick path, ensuring that topology_clear_scale_freq_source()
-> fully disables AMU updates across all paths.
+Yes, sorry about that. That was my mistake. The information I found
+about this issue unfortunately contained that misinformation. Daniel
+Mentz corrected this in a follow up email, though. In the next version
+I'll use your and Daniel's more verbose description of the issue.
+
+>
+> - The reason privilege is interesting is because of Robin's point that
+>   the architecture forces privileged XN for unpriviliged W.
+>
+> So, based on that, I think the instcfg override makes sense.
+
+Ok, great thanks for confirming.
+
+Peter
 
