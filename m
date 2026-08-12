@@ -4,76 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F956C5AD5A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 19:16:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FC99C5CFEB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Aug 2026 19:17:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8b0E3afoPnZkiPg+jH/k7XQt1abcSw9xlAcqP63SUao=; b=f913rqg0sw04x9Uzl8DBv3mlrn
-	yfDOaIcEIxvWOEaQbtncyTxo7G2u1ki0CeiT5+vcXxwisSOTkTKDgCAXPkVgHpJd6x6xGsw344crb
-	zbGYTOk8UTLTlOIheIfzPp5AFWuotiQMPoTeZEWaJ1Wma31vs0kQ7cJwkEd2kbQY6BR5nXDT9UNtq
-	uJaEmeJS8VqIb5Locxgf59YomnIElipeZgdjhQOvcjsFBDTCokksBRT2I0SDV3KNiWy88LpOnqiE5
-	amhelY0d34cRbk3Pur1rfgu676mCDKaaQ0/Ydr/BWm4BokRvebYAH9yxBm06udvDb3r46tnFjhiGT
-	u2LjOidA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vulnVaw+vwGhSqzj5teru2K+Qul5lbSis05amXckvE8=; b=vNbPDm7ZcvDPDKAGP53blx6ll1
+	3E+jRMYjyhzKeE7TpRk3xBgFXmJfIImxSyZ4bIBaCw82fKNzHntc5E17VBnITt2YicijEV/h2zeL6
+	N+tkwmPot0V0sXGiBMlOlzmN3F3ed09mQLS1xcQ4PDxbI4+XZWYHHjSlbkhaGtiJvbIm4IswOmqR8
+	3W753TAB3iZtTZNnP8EXdno0vvvFvOvkTl6P4TJzOID1nGHtalFrUX/3uXkUumde8w7VQKiZTh1AL
+	SIRmeIk79y6s4yufu29kOOEKUkp6kk4PdEWotkAhPIIgRHKqBIkj3KfdW173Odti24Hnad5JgO41V
+	ZmnYVXCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuEQx-0000000Gstc-3dZu;
-	Wed, 12 Aug 2026 19:16:15 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wuERp-0000000Gt0s-0CeE;
+	Wed, 12 Aug 2026 19:17:09 +0000
+Received: from vps.xff.cz ([195.181.215.36])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuEQw-0000000GstJ-2Eaf
+	id 1wuERl-0000000Gszx-2NPi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Aug 2026 19:16:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D4D4B60A7D;
-	Wed, 12 Aug 2026 19:16:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 7FDAEC2BCB3;
-	Wed, 12 Aug 2026 19:16:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1786562173;
-	bh=Q1Vle0rqeQ3K3aV4e5/QzUYwn9ftpZkyCHoxfFIHFXg=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=vNq8WpzOi7wioumZhHQhQl8XiNTiwFlf6T7Ibh39KzDnM+ZZBInLL6G+EjQ1W2VDp
-	 6qdOdKEMFfYujg3/r+7tUXslWcdqW62l4ThEEim4oGgJSHj4rlnUpvSLs11qP/u/RE
-	 My2GZy9g08dKB/PLZakOjy439Lth0CVoSkpdYaeJjzSrMgXVFIUyMEDUfE3owOFquh
-	 apTJfo+nG0EcvujDO+1chwf/CC0tlm1uScaZO1jC12r4L1My0Txo88skTOHfDIO+Cj
-	 fhaeVGQQWQ8bnzfv27zm5/7EGzRKEtinHaGySr4j4qxYerfuadzwFJoQOlV0pDHZST
-	 YE+VOTd+yLx1g==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5299BC5CFEB;
-	Wed, 12 Aug 2026 19:16:13 +0000 (UTC)
-From: Vincent Jardin via B4 Relay <devnull+vjardin.free.fr@kernel.org>
-Date: Wed, 12 Aug 2026 21:16:05 +0200
-Subject: [PATCH v2] i2c: imx: add I2C_M_REV_DIR_ADDR and I2C_M_NOSTART
+	Wed, 12 Aug 2026 19:17:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=xff.cz; s=mail;
+	t=1786562221; bh=eOKwlFn0rXXGqLQ3iyvphePz/D2yEesjxJGTD0yph7U=;
+	h=Date:From:To:Cc:Subject:X-My-GPG-KeyId:References:From;
+	b=p11HCuf2WV2OYVA7npp2oQWMfsiCxSCdXZ7A7XBZtCYexKyprYR58TbKDM+2/iuMX
+	 YSf0g3ck6aRLFlrltsdL7GOPM5EQ2/5LkT35Mf0lu4Mff+pFCCne1X++X58IGt7xY6
+	 dFTkzJnjMTs2omZzDtAXw4V7oa30ECa1ZsrIg04Y=
+Date: Wed, 12 Aug 2026 21:17:01 +0200
+From: =?utf-8?Q?Ond=C5=99ej?= Jirman <megi@xff.cz>
+To: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>
+Cc: linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Daniel Lezcano <daniel.lezcano@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
+	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, 
+	"moderated list:ARM/Allwinner sunXi SoC support" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH] clocksource/drivers/sun4i: Wait for pending reload
+ before CTRL write
+Message-ID: <p3aovubrngwpep25xdsxdklvopkqtg3cyeu5qai3iiv53u25sz@3ozm2vejnf4a>
+Mail-Followup-To: =?utf-8?Q?Ond=C5=99ej?= Jirman <megi@xff.cz>, 
+	Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>, linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Daniel Lezcano <daniel.lezcano@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
+	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, 
+	"moderated list:ARM/Allwinner sunXi SoC support" <linux-arm-kernel@lists.infradead.org>
+X-My-GPG-KeyId: EBFBDDE11FB918D44D1F56C1F9F0A873BE9777ED
+ <https://xff.cz/key.txt>
+References: <20260725113341.2250687-1-megi@xff.cz>
+ <9e9003b7-0331-4b37-9b06-5e9de887199e@oss.qualcomm.com>
+ <hrm7ymjfylkhaijaxjvornxakhoss5tea6pfmt2y2jpn436lhu@2cchvasiv4mr>
+ <9fb18d37-0406-46e6-8552-fb925dc14fad@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260812-for-upstream-i2c-imx-lx2160-reverse-v2-1-f1343714c5a9@free.fr>
-X-B4-Tracking: v=1; b=H4sIAHTGfGoC/5WNSw6CMBBAr0Jm7Zi20VJccQ/DAupUJpFPpkgwp
- He3cgOX7y3e2yGSMEW4FTsIrRx5GjOYUwG+b8cnIT8yg1HGKqdKDJPge46LUDsgG488bPjajLY
- Kc4AkEpZtdemqq9XaOcilWSjwdlzuTeae4zLJ55iu+mf/668aNQZTWk/Od9aqOgjROQg0KaUvt
- JtifNQAAAA=
-To: Oleksij Rempel <o.rempel@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Andi Shyti <andi.shyti@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>
-Cc: linux-i2c@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Vincent Jardin <vjardin@free.fr>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1786562171; l=10750;
- i=vjardin@free.fr; s=20260525; h=from:subject:message-id;
- bh=FpCrX4lwAPTSqYANmveCLwNTw7LbAWMK39UMM8ZpFjM=;
- b=d9BrWXfGUbEbRbxkwNLachmppbCdcpjE/h9wqbXbfvdVGW1hk8f/9g+XcFzGJVAzpFfqur2Et
- 5L2BeMsIwB6Bwj0a5wPsnSAEpJH1GJLqBQPSq5hmXimpaCKUylTtsRx
-X-Developer-Key: i=vjardin@free.fr; a=ed25519;
- pk=hppgLeFpGpKOi7LNwGEZ4jOYofJCoGd4Jf1ltAabiLw=
-X-Endpoint-Received: by B4 Relay for vjardin@free.fr/20260525 with
- auth_id=871
-X-Original-From: Vincent Jardin <vjardin@free.fr>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <9fb18d37-0406-46e6-8552-fb925dc14fad@oss.qualcomm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260812_121706_051375_CBEF56CA 
+X-CRM114-Status: GOOD (  47.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,323 +75,122 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: vjardin@free.fr
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Vincent Jardin <vjardin@free.fr>
+On Wed, Aug 12, 2026 at 01:49:18PM +0200, Daniel Lezcano wrote:
+> On 8/12/26 13:09, Ondřej Jirman wrote:
+> > Hello Daniel,
+> > 
+> > On Wed, Aug 12, 2026 at 11:56:03AM +0200, Daniel Lezcano wrote:
+> > > On 7/25/26 13:33, Ondřej Jirman wrote:
+> > > > From: Ondrej Jirman <megi@xff.cz>
+> > > > 
+> > > > The A13 manual says of TMR0_RELOAD: "After the bit is set, it can not be
+> > > > written again before it's cleared automatically."  Both time_stop() and
+> > > > time_start() read-modify-write the control register, so a reload still in
+> > > > flight gets rewritten and the write can be dropped, leaving the timer
+> > > > unarmed.  In oneshot mode this happens on every tick, and the tick
+> > > > eventually stops for good.
+> > > > 
+> > > > Wait for the reload to clear first.  All control register updates go
+> > > > through sun4i_clkevt_time_stop().
+> > > > 
+> > > > Without this my Allwinner A13 based Pocketbook Touch Lux 3 stops
+> > > > scheduling processes during boot or within a few seconds of executing
+> > > > userspace. Only sysrq+t over serial port works at this stage, which is
+> > > > how I discovered the root cause.
+> > > > 
+> > > > Fixes: 7e14183469d8 ("clocksource: sun4i: Fix bug when switching from periodic to oneshot modes")
+> > > > Signed-off-by: Ondrej Jirman <megi@xff.cz>
+> > > > ---
+> > > > BTW, similar issue will likely be also in timer-sun5i.c but I don't have any
+> > > > device that would exercise it. And it's possible that this triggers more easily
+> > > > with CONFIG_HZ=1000 which I use.
+> > > > 
+> > > >    drivers/clocksource/timer-sun4i.c | 26 +++++++++++++++++++++++++-
+> > > >    1 file changed, 25 insertions(+), 1 deletion(-)
+> > > > 
+> > > > diff --git a/drivers/clocksource/timer-sun4i.c b/drivers/clocksource/timer-sun4i.c
+> > > > index 7bdcc60ad43c..2e7457f671c4 100644
+> > > > --- a/drivers/clocksource/timer-sun4i.c
+> > > > +++ b/drivers/clocksource/timer-sun4i.c
+> > > > @@ -39,6 +39,9 @@
+> > > >    #define TIMER_SYNC_TICKS	3
+> > > > +/* The reload bit clears a couple of source clock cycles after it is set. */
+> > > > +#define TIMER_RELOAD_MAX_POLL	100
+> > > > +
+> > > >    /*
+> > > >     * When we disable a timer, we need to wait at least for 2 cycles of
+> > > >     * the timer source clock. We will use for that the clocksource timer
+> > > > @@ -53,9 +56,30 @@ static void sun4i_clkevt_sync(void __iomem *base)
+> > > >    		cpu_relax();
+> > > >    }
+> > > > +/*
+> > > > + * The control register must not be written while a reload is still in
+> > > > + * flight, or the write can be dropped.
+> > > > + */
+> > > > +static int sun4i_clkevt_wait_reload(void __iomem *base, u8 timer)
+> > > > +{
+> > > > +	int i;
+> > > > +
+> > > > +	for (i = 0; i < TIMER_RELOAD_MAX_POLL; i++) {
+> > > > +		if (!(readl(base + TIMER_CTL_REG(timer)) & TIMER_CTL_RELOAD))
+> > > > +			return 0;
+> > > > +		cpu_relax();
+> > > > +	}
+> > > 
+> > > The loop looks correct but I'm wondering why not use the helper:
+> > > 
+> > > ret = readl_poll_timeout_atomic(base + TIMER_CTL_REG(timer), val,
+> > > 				!(val & TIMER_CTL_RELOAD), 0, timeout);
+> > > 
+> > 
+> > I can. The only difference would be that this would loop up to 1000 * timeout
+> > times, instead of 100 times in case reload bit never returns to 0. But that
+> > never happens anyway.
+> 
+> Sorry I don't get the 1000 * timeout
 
-The Realtek RTL8366SE SMI read frame per:
+If you look at implementation of readl_poll_timeout_atomic() the timeout
+parameter means that readl_poll_timeout_atomic() will do at most timeout * 1000
+thight loops, so minimum timeout is 1000 loops.
 
-  S Addr Rd [A] reg[7:0] [A] reg[15:8] [A] [data[7:0]] A [data[15:8]] NA P
+> Does the documentation says anything about the duration before the register
+> is cleared ?
 
-Linux support it using I2C_M_REV_DIR_ADDR on a write message
-that inverts the transmitted R/W bit, and I2C_M_NOSTART on the following
-read message that continues the frame without re-addressing.
+Not directly, but for start after stop, manual says to wait at least 2 Tcycles
+(input clock cycles to the timer).
 
-This NXP i2c-imx is missing such support, so on an LX2160A the Realtek switch
-could not be used.
+Regards,
+	o.
 
-Signed-off-by: Vincent Jardin <vjardin@free.fr>
----
-Follow the logics from i2c-algo-bit and i2c-s3c2410 (addr ^= 1).
-
-Documentation/i2c/i2c-protocol.rst says I2C_M_NOSTART "may also be used
-between direction changes by some rare devices"; the RTL8366SE is one of
-such device !
-
-- The NOSTART read turns the bus around without waiting for a completion,
-  because the controller stretches SCL after the previous byte and the
-  frame is therefore still open. That is what lets i2c_imx_read() enter
-  the state the ISR would otherwise have moved to.
-
-- I2C_FUNC_PROTOCOL_MANGLING also covers I2C_M_IGNORE_NAK,
-  I2C_M_NO_RD_ACK and I2C_M_STOP, which this driver does not implement.
-  They are rejected with -EOPNOTSUPP rather than advertised and silently
-  ignored. I2C_M_NOSTART on the first message is rejected as well.
----
-Changes in v2:
-- message validation with i2c_imx_check_msgs() (Carlos Song)
-  No functional change
-- Link to v1: https://lore.kernel.org/r/20260807-for-upstream-i2c-imx-lx2160-reverse-v1-1-f276ce8cb660@free.fr
----
- drivers/i2c/busses/i2c-imx.c | 153 ++++++++++++++++++++++++++++++++-----------
- 1 file changed, 113 insertions(+), 40 deletions(-)
-
-diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
-index 9477d814fde9..7dc9c43673ee 100644
---- a/drivers/i2c/busses/i2c-imx.c
-+++ b/drivers/i2c/busses/i2c-imx.c
-@@ -1000,16 +1000,10 @@ static inline int i2c_imx_isr_write(struct imx_i2c_struct *i2c_imx)
- 	return 1;
- }
- 
--static inline int i2c_imx_isr_read(struct imx_i2c_struct *i2c_imx)
-+static inline void i2c_imx_setup_read(struct imx_i2c_struct *i2c_imx)
- {
--	int result;
- 	unsigned int temp;
- 
--	result = i2c_imx_isr_acked(i2c_imx);
--	if (result)
--		return result;
--
--	/* setup bus to read data */
- 	temp = imx_i2c_read_reg(i2c_imx, IMX_I2C_I2CR);
- 	temp &= ~I2CR_MTX;
- 	if ((i2c_imx->msg->len - 1) || (i2c_imx->msg->flags & I2C_M_RECV_LEN))
-@@ -1017,6 +1011,18 @@ static inline int i2c_imx_isr_read(struct imx_i2c_struct *i2c_imx)
- 
- 	imx_i2c_write_reg(temp, i2c_imx, IMX_I2C_I2CR);
- 	imx_i2c_read_reg(i2c_imx, IMX_I2C_I2DR); /* dummy read */
-+}
-+
-+static inline int i2c_imx_isr_read(struct imx_i2c_struct *i2c_imx)
-+{
-+	int result;
-+
-+	result = i2c_imx_isr_acked(i2c_imx);
-+	if (result)
-+		return result;
-+
-+	/* setup bus to read data */
-+	i2c_imx_setup_read(i2c_imx);
- 
- 	return 0;
- }
-@@ -1172,6 +1178,16 @@ static irqreturn_t i2c_imx_isr(int irq, void *dev_id)
- 	return i2c_imx_master_isr(i2c_imx, status);
- }
- 
-+static u8 i2c_imx_addr_byte(struct i2c_msg *msg)
-+{
-+	u8 addr = i2c_8bit_addr_from_msg(msg);
-+
-+	if (msg->flags & I2C_M_REV_DIR_ADDR)
-+		addr ^= 1;
-+
-+	return addr;
-+}
-+
- static int i2c_imx_dma_write(struct imx_i2c_struct *i2c_imx,
- 					struct i2c_msg *msgs)
- {
-@@ -1200,7 +1216,7 @@ static int i2c_imx_dma_write(struct imx_i2c_struct *i2c_imx,
- 	 * Write slave address.
- 	 * The first byte must be transmitted by the CPU.
- 	 */
--	imx_i2c_write_reg(i2c_8bit_addr_from_msg(msgs), i2c_imx, IMX_I2C_I2DR);
-+	imx_i2c_write_reg(i2c_imx_addr_byte(msgs), i2c_imx, IMX_I2C_I2DR);
- 	time_left = wait_for_completion_timeout(
- 				&i2c_imx->dma->cmd_complete,
- 				msecs_to_jiffies(DMA_TIMEOUT));
-@@ -1242,14 +1258,20 @@ static int i2c_imx_prepare_read(struct imx_i2c_struct *i2c_imx,
- 	int result;
- 	unsigned int temp = 0;
- 
--	/* write slave address */
--	imx_i2c_write_reg(i2c_8bit_addr_from_msg(msgs), i2c_imx, IMX_I2C_I2DR);
--	result = i2c_imx_trx_complete(i2c_imx, !use_dma);
--	if (result)
--		return result;
--	result = i2c_imx_acked(i2c_imx);
--	if (result)
--		return result;
-+	/*
-+	 * I2C_M_NOSTART continues a frame that is already open, so there is
-+	 * no address phase: go straight to turning the bus around.
-+	 */
-+	if (!(msgs->flags & I2C_M_NOSTART)) {
-+		/* write slave address */
-+		imx_i2c_write_reg(i2c_imx_addr_byte(msgs), i2c_imx, IMX_I2C_I2DR);
-+		result = i2c_imx_trx_complete(i2c_imx, !use_dma);
-+		if (result)
-+			return result;
-+		result = i2c_imx_acked(i2c_imx);
-+		if (result)
-+			return result;
-+	}
- 
- 	dev_dbg(&i2c_imx->adapter.dev, "<%s> setup bus\n", __func__);
- 
-@@ -1371,16 +1393,18 @@ static int i2c_imx_atomic_write(struct imx_i2c_struct *i2c_imx,
- 	int i, result;
- 
- 	dev_dbg(&i2c_imx->adapter.dev, "<%s> write slave address: addr=0x%x\n",
--		__func__, i2c_8bit_addr_from_msg(msgs));
-+		__func__, i2c_imx_addr_byte(msgs));
- 
--	/* write slave address */
--	imx_i2c_write_reg(i2c_8bit_addr_from_msg(msgs), i2c_imx, IMX_I2C_I2DR);
--	result = i2c_imx_trx_complete(i2c_imx, true);
--	if (result)
--		return result;
--	result = i2c_imx_acked(i2c_imx);
--	if (result)
--		return result;
-+	if (!(msgs->flags & I2C_M_NOSTART)) {
-+		/* write slave address */
-+		imx_i2c_write_reg(i2c_imx_addr_byte(msgs), i2c_imx, IMX_I2C_I2DR);
-+		result = i2c_imx_trx_complete(i2c_imx, true);
-+		if (result)
-+			return result;
-+		result = i2c_imx_acked(i2c_imx);
-+		if (result)
-+			return result;
-+	}
- 	dev_dbg(&i2c_imx->adapter.dev, "<%s> write data\n", __func__);
- 
- 	/* write data */
-@@ -1402,7 +1426,7 @@ static int i2c_imx_atomic_write(struct imx_i2c_struct *i2c_imx,
- static int i2c_imx_write(struct imx_i2c_struct *i2c_imx, struct i2c_msg *msgs)
- {
- 	dev_dbg(&i2c_imx->adapter.dev, "<%s> write slave address: addr=0x%x\n",
--		__func__, i2c_8bit_addr_from_msg(msgs));
-+		__func__, i2c_imx_addr_byte(msgs));
- 
- 	i2c_imx->state = IMX_I2C_STATE_WRITE;
- 	i2c_imx->msg = msgs;
-@@ -1411,8 +1435,16 @@ static int i2c_imx_write(struct imx_i2c_struct *i2c_imx, struct i2c_msg *msgs)
- 	/*
- 	 * By writing the device address we start the state machine in the ISR.
- 	 * The ISR will report when it is done or when it fails.
-+	 *
-+	 * I2C_M_NOSTART continues a frame that is already open and so has no
-+	 * address byte: push the first data byte instead. That raises the same
-+	 * interrupt and the ISR carries on from the second byte.
- 	 */
--	imx_i2c_write_reg(i2c_8bit_addr_from_msg(msgs), i2c_imx, IMX_I2C_I2DR);
-+	if (msgs->flags & I2C_M_NOSTART)
-+		imx_i2c_write_reg(msgs->buf[i2c_imx->msg_buf_idx++], i2c_imx,
-+				  IMX_I2C_I2DR);
-+	else
-+		imx_i2c_write_reg(i2c_imx_addr_byte(msgs), i2c_imx, IMX_I2C_I2DR);
- 	wait_event_timeout(i2c_imx->queue,
- 			   i2c_imx->state == IMX_I2C_STATE_DONE ||
- 			   i2c_imx->state == IMX_I2C_STATE_FAILED,
-@@ -1529,22 +1561,29 @@ static int i2c_imx_read(struct imx_i2c_struct *i2c_imx, struct i2c_msg *msgs,
- 
- 	dev_dbg(&i2c_imx->adapter.dev,
- 		"<%s> write slave address: addr=0x%x\n",
--		__func__, i2c_8bit_addr_from_msg(msgs));
-+		__func__, i2c_imx_addr_byte(msgs));
- 
- 	i2c_imx->is_lastmsg = is_lastmsg;
- 
--	if (block_data)
--		i2c_imx->state = IMX_I2C_STATE_READ_BLOCK_DATA;
--	else
--		i2c_imx->state = IMX_I2C_STATE_READ;
- 	i2c_imx->msg = msgs;
- 	i2c_imx->msg_buf_idx = 0;
- 
--	/*
--	 * By writing the device address we start the state machine in the ISR.
--	 * The ISR will report when it is done or when it fails.
--	 */
--	imx_i2c_write_reg(i2c_8bit_addr_from_msg(msgs), i2c_imx, IMX_I2C_I2DR);
-+	if (msgs->flags & I2C_M_NOSTART) {
-+		i2c_imx->state = block_data ? IMX_I2C_STATE_READ_BLOCK_DATA_LEN
-+					    : IMX_I2C_STATE_READ_CONTINUE;
-+		i2c_imx_setup_read(i2c_imx);
-+	} else {
-+		if (block_data)
-+			i2c_imx->state = IMX_I2C_STATE_READ_BLOCK_DATA;
-+		else
-+			i2c_imx->state = IMX_I2C_STATE_READ;
-+
-+		/*
-+		 * By writing the device address we start the state machine in the ISR.
-+		 * The ISR will report when it is done or when it fails.
-+		 */
-+		imx_i2c_write_reg(i2c_imx_addr_byte(msgs), i2c_imx, IMX_I2C_I2DR);
-+	}
- 	wait_event_timeout(i2c_imx->queue,
- 			   i2c_imx->state == IMX_I2C_STATE_DONE ||
- 			   i2c_imx->state == IMX_I2C_STATE_FAILED,
-@@ -1574,6 +1613,33 @@ static int i2c_imx_read(struct imx_i2c_struct *i2c_imx, struct i2c_msg *msgs,
- 	return ret;
- }
- 
-+#define I2C_IMX_UNSUPPORTED_PROTOCOL_MANGLING_FLAGS \
-+	(I2C_M_IGNORE_NAK | I2C_M_NO_RD_ACK | I2C_M_STOP)
-+
-+static int i2c_imx_check_msgs(struct i2c_msg *msgs, int num)
-+{
-+	int i;
-+
-+	for (i = 0; i < num; i++) {
-+		/* Reject rather than silently transfer */
-+		if (msgs[i].flags & I2C_IMX_UNSUPPORTED_PROTOCOL_MANGLING_FLAGS)
-+			return -EOPNOTSUPP;
-+
-+		if (msgs[i].flags & I2C_M_NOSTART) {
-+			/*
-+			 * NOSTART continues an already open frame. The first
-+			 * message has nothing to continue from,
-+			 * a 0 length continuation leaves the controller with
-+			 * no byte to clock.
-+			 */
-+			if (i == 0 || msgs[i].len == 0)
-+				return -EOPNOTSUPP;
-+		}
-+	}
-+
-+	return 0;
-+}
-+
- static int i2c_imx_xfer_common(struct i2c_adapter *adapter,
- 			       struct i2c_msg *msgs, int num, bool atomic)
- {
-@@ -1583,6 +1649,10 @@ static int i2c_imx_xfer_common(struct i2c_adapter *adapter,
- 	struct imx_i2c_struct *i2c_imx = i2c_get_adapdata(adapter);
- 	int use_dma = 0;
- 
-+	result = i2c_imx_check_msgs(msgs, num);
-+	if (result)
-+		return result;
-+
- 	/* Start I2C transfer */
- 	result = i2c_imx_start(i2c_imx, atomic);
- 	if (result) {
-@@ -1604,7 +1674,7 @@ static int i2c_imx_xfer_common(struct i2c_adapter *adapter,
- 		if (i == num - 1)
- 			is_lastmsg = true;
- 
--		if (i) {
-+		if (i && !(msgs[i].flags & I2C_M_NOSTART)) {
- 			dev_dbg(&i2c_imx->adapter.dev,
- 				"<%s> repeated start\n", __func__);
- 			temp = imx_i2c_read_reg(i2c_imx, IMX_I2C_I2CR);
-@@ -1636,7 +1706,8 @@ static int i2c_imx_xfer_common(struct i2c_adapter *adapter,
- #endif
- 
- 		use_dma = i2c_imx->dma && msgs[i].len >= DMA_THRESHOLD &&
--			msgs[i].flags & I2C_M_DMA_SAFE;
-+			msgs[i].flags & I2C_M_DMA_SAFE &&
-+			!(msgs[i].flags & I2C_M_NOSTART);
- 		if (msgs[i].flags & I2C_M_RD) {
- 			int block_data = msgs->flags & I2C_M_RECV_LEN;
- 
-@@ -1730,7 +1801,9 @@ static int i2c_imx_init_recovery_info(struct imx_i2c_struct *i2c_imx,
- static u32 i2c_imx_func(struct i2c_adapter *adapter)
- {
- 	return I2C_FUNC_I2C | I2C_FUNC_SMBUS_EMUL
--		| I2C_FUNC_SMBUS_READ_BLOCK_DATA;
-+		| I2C_FUNC_SMBUS_READ_BLOCK_DATA
-+		| I2C_FUNC_NOSTART
-+		| I2C_FUNC_PROTOCOL_MANGLING;
- }
- 
- static const struct i2c_algorithm i2c_imx_algo = {
-
----
-base-commit: 3d6d817622b0a9721e3cc404df3469171582be13
-change-id: 20260807-for-upstream-i2c-imx-lx2160-reverse-7a94b9561188
-
-Best regards,
--- 
-Vincent Jardin <vjardin@free.fr>
-
-
+> > > > +	return -ETIME;
+> > > > +}
+> > > > +
+> > > >    static void sun4i_clkevt_time_stop(void __iomem *base, u8 timer)
+> > > >    {
+> > > > -	u32 val = readl(base + TIMER_CTL_REG(timer));
+> > > > +	u32 val;
+> > > > +
+> > > > +	sun4i_clkevt_wait_reload(base, timer);
+> > > 
+> > > If it fails ?
+> > 
+> > There's not much to do, since sun4i_clkevt_time_stop() does not return anything
+> > anyway and it's used across the file quite extensively. Well, the file is small,
+> > but sun4i_clkevt_time_stop is called in every function exported via timer_of
+> > struct... :)
+> > 
+> > I can rewrite all these functions to report all errors to timer core, but in
+> > practice reload always resets very quickly, and a condition where the loop even
+> > loops happens once every few seconds or so. I doubt anything but return 0
+> > would ever happen anyway. I'd certainly notice, because it would again cause
+> > instant lockup of my e-reader. Maybe I can just return void from
+> > sun4i_clkevt_wait_reload() and not pretend there are errors to report,
+> > instead?
+> IMO, returning void is fine along with a message, may be a WARN as it is
+> really, AFAIU, not supposed to happen. It will be easy for anyone to find
+> out where the issue is coming from
+> 
 
