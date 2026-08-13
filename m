@@ -4,63 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D174EC5CFCF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 16:05:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20690C5CFCF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 16:05:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CassZyB3CfPiImnR0NQX/XzYwGVV1P3P5xE3jYeq9oc=; b=jCb1I5Zn4+TuDsP4XOUiIKJYqE
-	Qfz/vONYIz7+W2NamZlAhOkwtUg22vsJv6oX3L6cPVZmesL5cpyn9E00FznWEk1JYIBaetfzGjgD/
-	pMkHS9OrFAgh7iyob57sc0Ua4ed7nLWbLeizt0zYpQJss0fUS+dWWGwKk1IkXlHqnGZf+6A3Ir1pq
-	loVYUpYQ0IImpgt4xk1PL49AnT1a/q1U/+pxcF6OUFWs9xGtHAt1qglfkQNoCUabWu9NfWjhARHhv
-	o/IeOvwMfGGbSXDWD4XZlfNlmxGzhL8IfsCqCZSnVkWEJBuyuYhPCiidJt++6kAZjmlFsRhlbqVsm
-	ZU1Oey3Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4CcnZ2KFgh7hkbDfH6sn+2MKaA4mEkDbq8zL1Hsfs7M=; b=VAS5pyVLT4ItxwAxbExJDAu+MQ
+	OBBg5ILcXZ7Hut0k6PApwbKrZJ0ofkszmVL9hNkceCzjSSeOQ7m3WDGt0ifnJhK+lZL3OBEA/0hEF
+	pDCqyLoU/rbz25QSaXkTiEHqqq/GYWjjcrQiElWnCf1WKz6rIl1zoRoQ5AN7YVWrk9/gzGkPA3HlI
+	sLrb3MLVcxncFAKLiVZtwnIkgPWF/US3VcLiAF+enVZOp4hZulNeSOh2mjGCtjP1WhgOU/bLdyW8A
+	35ww1UbyuRsiW65bZiC/pzAu/CQsKFXbY6efnVjkiZ6Rb1A9sKTSxylgHYpxkbM8flly1NnvKyx5E
+	KNdtXgtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuXvc-000000016e5-0gIS;
-	Thu, 13 Aug 2026 16:05:12 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuXvZ-000000016dH-1VdL
+	id 1wuXwB-000000016mw-1wgi;
+	Thu, 13 Aug 2026 16:05:47 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wuXw8-000000016lc-4BPt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 16:05:10 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 83FDB1576;
-	Thu, 13 Aug 2026 09:05:03 -0700 (PDT)
-Received: from localhost (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0E3C33F66F;
-	Thu, 13 Aug 2026 09:05:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786637107; bh=CassZyB3CfPiImnR0NQX/XzYwGVV1P3P5xE3jYeq9oc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TNOpS4YLTIhs6sVykm2n3NBT0qKRfMV0QbHUYZyj1BaeXI8ZwRwxiaVivxOfGF0Tj
-	 p/rw4rgsNzWOoX1ifg+eKC7MNn7Xg/yNRscpdnf1LvqmIiHeYmONNSahN4m65+UAdN
-	 Y9bJ3go5VikudayYlqIgMT86FbnueQURnaa8+kR8=
-Date: Thu, 13 Aug 2026 17:05:04 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@arm.com>, Suyash Mahar <smahar@meta.com>,
-	Yeoreum Yun <yeoreum.yun@arm.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Qi Liu <liuqi115@huawei.com>, Junhao He <hejunhao3@huawei.com>,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Jonathan Cameron <jic23@kernel.org>
-Subject: Re: [PATCH v3 4/8] coresight: tmc-etr: Prevent per-thread events
- from sharing a sink
-Message-ID: <20260813160504.GC8904@e132581.arm.com>
-References: <20260728-james-cs-multiple-per-threads-v3-0-6aee7579f1dc@linaro.org>
- <20260728-james-cs-multiple-per-threads-v3-4-6aee7579f1dc@linaro.org>
+	Thu, 13 Aug 2026 16:05:46 +0000
+Received: from localhost.localdomain (unknown [111.196.241.250])
+	by APP-01 (Coremail) with SMTP id qwCowAAX7O9V631qIEh7BQ--.56475S2;
+	Fri, 14 Aug 2026 00:05:41 +0800 (CST)
+From: Pengpeng Hou <pengpeng@iscas.ac.cn>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Shameer Kolothum <skolothumtho@nvidia.com>,
+	Joerg Roedel <jroedel@suse.de>,
+	linux-acpi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Pengpeng Hou <pengpeng@iscas.ac.cn>
+Subject: [PATCH v2 2/2] ACPI: IORT: validate RMR node array extents
+Date: Fri, 14 Aug 2026 00:05:40 +0800
+Message-ID: <20260813160540.72395-1-pengpeng@iscas.ac.cn>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20260813160118.69153-1-pengpeng@iscas.ac.cn>
+References: <20260813160118.69153-1-pengpeng@iscas.ac.cn>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260728-james-cs-multiple-per-threads-v3-4-6aee7579f1dc@linaro.org>
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: qwCowAAX7O9V631qIEh7BQ--.56475S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxJw1UGF15uFWkZF4xGrW7urg_yoW5CFykpF
+	4DGry5Aws5JF12grWSv3Z5AFWYqw1kGrWakrZa93yqyFn0yrnIya109FyY9F15JFW8ua1x
+	Krs8tFW7CF1DZrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9F14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
+	6r4UJwA2z4x0Y4vEx4A2jsIE14v26r1j6r4UM28EF7xvwVC2z280aVCY1x0267AKxVW8JV
+	W8Jr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_JF0_Jw1lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
+	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x
+	0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2
+	zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF
+	4lIxAIcVC0I7IYx2IY6xkF7I0E14v26F4j6r4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_
+	JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcS
+	sGvfC2KfnxnUUI43ZEXa7VUbtxhJUUUUU==
+X-Originating-IP: [111.196.241.250]
+X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_090509_452599_9D70047D 
-X-CRM114-Status: GOOD (  10.90  )
+X-CRM114-CacheID: sfid-20260813_090545_407456_DBA20F3C 
+X-CRM114-Status: GOOD (  11.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,29 +89,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 28, 2026 at 04:00:16PM +0100, James Clark wrote:
+IORT RMR nodes carry offsets and counts for reserved-memory descriptors and
+ID mappings.  iort_node_get_rmr_info() trusts both arrays and later loops
+over the firmware counts without proving that either array fits in the
+containing node.
 
-[...]
+Require the fixed RMR payload, then validate each non-empty array with
+checked multiplication and subtraction-based bounds before constructing
+an element pointer.  Keep the helpers under CONFIG_IOMMU_API with their
+users.
 
-> The identity and compatibility of a session are determined by the owning
-> process, the target process, and the inheritance settings together.
+Fixes: 491cf4a6735a ("ACPI/IORT: Add support to retrieve IORT RMR reserved regions")
+Assisted-by: Codex:gpt-5
+Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
+---
+ drivers/acpi/arm64/iort.c | 53 +++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 53 insertions(+)
 
-Could you elaborate a bit on the session model you are trying to support
-here?
+diff --git a/drivers/acpi/arm64/iort.c b/drivers/acpi/arm64/iort.c
+index 101d54eec544..17d904f4c1ee 100644
+--- a/drivers/acpi/arm64/iort.c
++++ b/drivers/acpi/arm64/iort.c
+@@ -15,6 +15,7 @@
+ #include <linux/iommu.h>
+ #include <linux/kernel.h>
+ #include <linux/list.h>
++#include <linux/overflow.h>
+ #include <linux/pci.h>
+ #include <linux/platform_device.h>
+ #include <linux/slab.h>
+@@ -962,6 +963,48 @@ void acpi_configure_pmsi_domain(struct device *dev)
+ }
+ 
+ #ifdef CONFIG_IOMMU_API
++static bool iort_node_array_valid(struct acpi_iort_node *node, u32 offset,
++				  u32 count, size_t elem_size,
++				  size_t min_offset, const char *name)
++{
++	size_t bytes;
++
++	/* An empty array has no elements to access, regardless of its offset. */
++	if (!count)
++		return true;
++
++	if (!offset || offset < min_offset || offset > node->length) {
++		pr_err(FW_BUG "Invalid %s offset in IORT node %p\n", name,
++		       node);
++		return false;
++	}
++
++	if (check_mul_overflow(count, elem_size, &bytes) ||
++	    bytes > node->length - offset) {
++		pr_err(FW_BUG "Invalid %s array in IORT node %p\n", name,
++		       node);
++		return false;
++	}
++
++	return true;
++}
++
++static bool iort_rmr_node_valid(struct acpi_iort_node *node)
++{
++	struct acpi_iort_rmr *rmr;
++
++	if (node->length < sizeof(*node) + sizeof(*rmr)) {
++		pr_err(FW_BUG "Truncated RMR node in IORT table\n");
++		return false;
++	}
++
++	rmr = (struct acpi_iort_rmr *)node->node_data;
++	return iort_node_array_valid(node, rmr->rmr_offset, rmr->rmr_count,
++				     sizeof(struct acpi_iort_rmr_desc),
++				     sizeof(*node) + sizeof(*rmr),
++				     "RMR descriptor");
++}
++
+ static void iort_rmr_free(struct device *dev,
+ 			  struct iommu_resv_region *region)
+ {
+@@ -1152,12 +1195,22 @@ static void iort_node_get_rmr_info(struct acpi_iort_node *node,
+ 	u32 num_sids = 0;
+ 	int i;
+ 
++	if (!iort_rmr_node_valid(node))
++		return;
++
+ 	if (!node->mapping_offset || !node->mapping_count) {
+ 		pr_err(FW_BUG "Invalid ID mapping, skipping RMR node %p\n",
+ 		       node);
+ 		return;
+ 	}
+ 
++	if (!iort_node_array_valid(node, node->mapping_offset,
++				   node->mapping_count,
++				   sizeof(struct acpi_iort_id_mapping),
++				   sizeof(*node) + sizeof(*rmr),
++				   "ID mapping"))
++		return;
++
+ 	rmr = (struct acpi_iort_rmr *)node->node_data;
+ 	if (!rmr->rmr_offset || !rmr->rmr_count)
+ 		return;
+-- 
+2.50.1 (Apple Git-155)
 
-My understanding of a legacy sink such as ETR/ETF is that it can be
-owned by only one perf session at a time. Multiple events belonging to
-that session may use the sink, but an attempt from another perf session
-should be rejected with -EBUSY.
-
-For per-thread mode, I wonder if we could support _only_ non-inherited
-events. In that case, we would not need to determine compatibility based
-on the target process and inheritance settings.
-
-From the patch, it seems trying to support a more flexible model, where
-an already active legacy sink can also be shared by another perf session
-and also support inherit mode for child events?
-
-Thanks,
-Leo
 
