@@ -4,54 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67FF0C5DF64
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 15:20:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F109FC5CFEB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 15:20:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kuJO180+ZdLosOCxprt4BAEakCmT8F4JphnBce+EMCw=; b=Yn/51QJHGJM6zIv13lWWZrEwgw
-	TEJAmQv3p7YNotmpeATyPTYKAMGItia0HPSvVQ/QFZduWXuIgJgO0mL6wZccb5IUEF6bgCTDAzbER
-	S6yChmxTRxQZUA7SeaJVZllsdciKd23Qq0C5Wzm+WcK6gdwGlgbJsCXHqIAIsRWnEOBo3+1cCitnT
-	l7Aa75sXZIbiKqYf/ZBa5HpFUJ2b9rZNF76wSWjuNav2og4yh87kSkfFBQf4uuYFO2I5f8Xg71mZE
-	tPm+hlNm5yAioQShe27eKPNyhdf1yVPfbvhstYCG0iRt2NborQoImd9SC7yTj4t406fTbVjpvRnWE
-	1GeBnyhA==;
+	bh=qteh83VivTCx6FaEB5GNy+dRpMiPZZQGFPwm5/AXQMw=; b=bY6UVdWUeAkDpoOFvWzpVT7xcc
+	UQaFYNUBs7iHiYACApLljwlBb9lkVOmNiyVXtw2M6apr2Dt4QGMqz4JyQiJVmeYtD96vaSqNXxhOq
+	KTEkWk8t/2YY2c4nTUc2sUqj2ZXKmPL3IoGiTU0olQbYNUo44Elm+DiOaC0eS/xnUFFoG9WIp/tlB
+	VJWRYv4QOhCxYsYCudrqRcVvaMx//Sv7CUHSAU9vH94ymQPzD3pFbaqYD/m8zvBdrCsG0Ds0My6NB
+	vg8w8hJJpiZZTrjMfzvdWgRsisDQEzXhHmrBYm8CTr+MlmCwzkatqwW2qVF8jJ7xRc6EvJgg09F+R
+	NAU9JUAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuXE2-00000000xPM-2E7D;
-	Thu, 13 Aug 2026 15:20:10 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1wuXE7-00000000xVX-3ONz;
+	Thu, 13 Aug 2026 15:20:15 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuXDt-00000000xDj-11qS
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 15:20:08 +0000
+	id 1wuXDz-00000000xJi-1uzr;
+	Thu, 13 Aug 2026 15:20:11 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id C1AB81A1605;
-	Thu, 13 Aug 2026 15:19:59 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id DB9E34E41208;
+	Thu, 13 Aug 2026 15:20:05 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 95BB0602B8;
-	Thu, 13 Aug 2026 15:19:59 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2A6E311C4E070;
-	Thu, 13 Aug 2026 17:19:53 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id B0116602B8;
+	Thu, 13 Aug 2026 15:20:05 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 13EEC11C4E068;
+	Thu, 13 Aug 2026 17:19:58 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1786634394; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1786634400; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=kuJO180+ZdLosOCxprt4BAEakCmT8F4JphnBce+EMCw=;
-	b=ffVndZj+rMFzOUk/4qRvjKaafqYBqb8qdlA5fYR9XGl440pkgpq2dYpLLgShs/e1CCetUd
-	sl/6PznTnj5F0Jo+HE9jq0quRO5Fx4rrxjvkhZJTKj1BocSfWBftJf1afMkY3/n/vkZ8Hi
-	UJVduZQwor9odp2Ujt/Cj2BoVEj36GwaXoUWNPhQXZ76cDxhJNCi1ok1HJtDdATcdum4hc
-	3d6Pzcgd6MgsIQuayV3OX0zWGVvHg4Uut0gaf5wY9TH85qCV+zY2/betg4qzBPQ5DzpSIv
-	g3nLAno+YpyIv229euTA8ahKZuRtA1NGoer0onAXIka6etLFtYSRfdkT7h7q+Q==
+	bh=qteh83VivTCx6FaEB5GNy+dRpMiPZZQGFPwm5/AXQMw=;
+	b=g+VL/uTAffqUiZSMAQt6MBjvUw6cHpQJwNurtXPixdPN/6Z1xGDXzMMHWTV/WKYWKwv2dB
+	LhvPd7MdVU79N5l/8zdSDXkQofAIDRphIdfFlqZ5UIrxG8399SAcLkOliTaAbd8extg6S8
+	5Qp2R4ExlZuM7o5rybKF0FbQ9IwHgu5CHuhUrTJSXIrLxpqKfwSdWMo3OIzfmZhi98uiZF
+	kf14bxe4siLzANhdhup4zDNeHZsPhcLqBWw0Xmj83XTgPLClQqTMwFyHO6W8WcvJu6B2/3
+	UpgzWswV46mALvt/RKiJapMSh2OZNYtDAcBz9sN5eCKTBJLoJrhsaO46/nr8OQ==
 From: Miquel Raynal <miquel.raynal@bootlin.com>
-Date: Thu, 13 Aug 2026 17:19:06 +0200
-Subject: [PATCH v3 06/23] mtd: spi-nor: Create an indirection on the part
- name
+Date: Thu, 13 Aug 2026 17:19:07 +0200
+Subject: [PATCH v3 07/23] mtd: spi-nor: Move the SFDP header structure to a
+ C header
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260813-winbond-v7-1-spi-nor-rv-addition-v3-6-b637cf120d5c@bootlin.com>
+Message-Id: <20260813-winbond-v7-1-spi-nor-rv-addition-v3-7-b637cf120d5c@bootlin.com>
 References: <20260813-winbond-v7-1-spi-nor-rv-addition-v3-0-b637cf120d5c@bootlin.com>
 In-Reply-To: <20260813-winbond-v7-1-spi-nor-rv-addition-v3-0-b637cf120d5c@bootlin.com>
 To: Pratyush Yadav <pratyush@kernel.org>, Michael Walle <mwalle@kernel.org>, 
@@ -69,8 +68,8 @@ Cc: Steam Lin <STLin2@winbond.com>, Hsin-Yi Wang <hsinyi@chromium.org>,
 X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_082001_595116_61A1AC54 
-X-CRM114-Status: GOOD (  15.60  )
+X-CRM114-CacheID: sfid-20260813_082007_840847_8FC4EC4B 
+X-CRM114-Status: GOOD (  10.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,94 +84,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We currently print through sysfs and debugfs the name of the part if the
-.name field, which is legacy, has been filled in the ID table (otherwise
-"(null)" is printed). These IDs had an interest until manufacturers
-started re-using more and more extensively the so called unique JEDEC
-IDs. At this stage, a name that was tailored for a chip sold in 2016 may
-no longer be relevant for a chip sold in 2026. Still showing this name
-through the various filesystems may confuse people, removing these names
-cannot be done since they are now part of the user ABI (because of
-sysfs).
-
-In order to allow overwriting the .name field (which is part of a
-read-only structure), let's create a spi-nor pointer which will by
-default point to that .name, but which can be cleared in fixup hooks to
-make sure the name is hidden on newer parts.
+The sfdp_header structure is currently defined in sfdp.c, whereas the
+sfdp_parameter_header structure is defined in sfdp.h. In order to ease
+the reuse of this structure outside of the sfdp.c file, move this
+structure to the sfdp C header (.h).
 
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- drivers/mtd/spi-nor/core.c    | 1 +
- drivers/mtd/spi-nor/debugfs.c | 3 +--
- drivers/mtd/spi-nor/sysfs.c   | 4 ++--
- include/linux/mtd/spi-nor.h   | 1 +
- 4 files changed, 5 insertions(+), 4 deletions(-)
+ drivers/mtd/spi-nor/sfdp.c | 11 -----------
+ drivers/mtd/spi-nor/sfdp.h | 11 +++++++++++
+ 2 files changed, 11 insertions(+), 11 deletions(-)
 
-diff --git a/drivers/mtd/spi-nor/core.c b/drivers/mtd/spi-nor/core.c
-index 3a611283a9e6..cf6eccb4c423 100644
---- a/drivers/mtd/spi-nor/core.c
-+++ b/drivers/mtd/spi-nor/core.c
-@@ -3492,6 +3492,7 @@ int spi_nor_scan(struct spi_nor *nor, const char *name,
- 		return PTR_ERR(info);
+diff --git a/drivers/mtd/spi-nor/sfdp.c b/drivers/mtd/spi-nor/sfdp.c
+index 39cb8ac3a037..8e39bacddf16 100644
+--- a/drivers/mtd/spi-nor/sfdp.c
++++ b/drivers/mtd/spi-nor/sfdp.c
+@@ -34,17 +34,6 @@
  
- 	nor->info = info;
-+	nor->partname = info->name;
+ #define SFDP_SIGNATURE		0x50444653U
  
- 	mutex_init(&nor->lock);
+-struct sfdp_header {
+-	u32		signature; /* Ox50444653U <=> "SFDP" */
+-	u8		minor;
+-	u8		major;
+-	u8		nph; /* 0-base number of parameter headers */
+-	u8		unused;
+-
+-	/* Basic Flash Parameter Table. */
+-	struct sfdp_parameter_header	bfpt_header;
+-};
+-
+ /* Fast Read settings. */
+ struct sfdp_bfpt_read {
+ 	/* The Fast Read x-y-z hardware capability in params->hwcaps.mask. */
+diff --git a/drivers/mtd/spi-nor/sfdp.h b/drivers/mtd/spi-nor/sfdp.h
+index e8ed814c6530..2cbe22246c5e 100644
+--- a/drivers/mtd/spi-nor/sfdp.h
++++ b/drivers/mtd/spi-nor/sfdp.h
+@@ -149,4 +149,15 @@ struct sfdp_parameter_header {
+ 	u8		id_msb;
+ };
  
-diff --git a/drivers/mtd/spi-nor/debugfs.c b/drivers/mtd/spi-nor/debugfs.c
-index 512825c3fc85..275671222588 100644
---- a/drivers/mtd/spi-nor/debugfs.c
-+++ b/drivers/mtd/spi-nor/debugfs.c
-@@ -82,13 +82,12 @@ static int spi_nor_params_show(struct seq_file *s, void *data)
- 	struct spi_nor_flash_parameter *params = nor->params;
- 	struct spi_nor_erase_map *erase_map = &params->erase_map;
- 	struct spi_nor_erase_region *region = erase_map->regions;
--	const struct flash_info *info = nor->info;
- 	char buf[16], *str;
- 	loff_t lock_start;
- 	u64 lock_length;
- 	unsigned int i;
- 
--	seq_printf(s, "name\t\t%s\n", info->name);
-+	seq_printf(s, "name\t\t%s\n", nor->partname);
- 	seq_printf(s, "id\t\t%*ph\n", SPI_NOR_MAX_ID_LEN, nor->id);
- 	string_get_size(params->size, 1, STRING_UNITS_2, buf, sizeof(buf));
- 	seq_printf(s, "size\t\t%s\n", buf);
-diff --git a/drivers/mtd/spi-nor/sysfs.c b/drivers/mtd/spi-nor/sysfs.c
-index 643513ee891b..a2dabe4c6422 100644
---- a/drivers/mtd/spi-nor/sysfs.c
-+++ b/drivers/mtd/spi-nor/sysfs.c
-@@ -25,7 +25,7 @@ static ssize_t partname_show(struct device *dev,
- 	struct spi_mem *spimem = spi_get_drvdata(spi);
- 	struct spi_nor *nor = spi_mem_get_drvdata(spimem);
- 
--	return sysfs_emit(buf, "%s\n", nor->info->name);
-+	return sysfs_emit(buf, "%s\n", nor->partname);
- }
- static DEVICE_ATTR_RO(partname);
- 
-@@ -78,7 +78,7 @@ static umode_t spi_nor_sysfs_is_visible(struct kobject *kobj,
- 
- 	if (attr == &dev_attr_manufacturer.attr && !nor->manufacturer)
- 		return 0;
--	if (attr == &dev_attr_partname.attr && !nor->info->name)
-+	if (attr == &dev_attr_partname.attr && !nor->partname)
- 		return 0;
- 	if (attr == &dev_attr_jedec_id.attr && !nor->info->id && !nor->id)
- 		return 0;
-diff --git a/include/linux/mtd/spi-nor.h b/include/linux/mtd/spi-nor.h
-index 3a55d76ea77d..b1e573367604 100644
---- a/include/linux/mtd/spi-nor.h
-+++ b/include/linux/mtd/spi-nor.h
-@@ -395,6 +395,7 @@ struct spi_nor {
- 	u8			*id;
- 	const struct flash_info	*info;
- 	const struct spi_nor_manufacturer *manufacturer;
-+	const char		*partname;
- 	u8			addr_nbytes;
- 	u8			erase_opcode;
- 	u8			read_opcode;
++struct sfdp_header {
++	u32		signature; /* Ox50444653U <=> "SFDP" */
++	u8		minor;
++	u8		major;
++	u8		nph; /* 0-base number of parameter headers */
++	u8		unused;
++
++	/* Basic Flash Parameter Table. */
++	struct sfdp_parameter_header	bfpt_header;
++};
++
+ #endif /* __LINUX_MTD_SFDP_H */
 
 -- 
 2.54.0
