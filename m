@@ -4,97 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7ED71C5CFDB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 10:53:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46283C5CFDB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 10:54:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	Subject:Cc:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+xQTI3Vq8sC9x2ATvB7YIuXwWhZNhSgMb5gkauWI9KY=; b=UXZ8qtRSArCOyemEaGsLuN71Ua
-	nmDErCDWUDX5SjC695X3qb1D84Bb5QvCgOtWB+Og0tB0Vih9zGG+OBKhCM8Dwx7qveEiK/zVevn5T
-	I1ZAcGyjWn1njp4pISjG4Xe0L+my8K9N7vJBpWSiycvGD2rWVsNejmOL8mo3in7nv8XpPct+lAULx
-	nuGPnKsH/eKTV7HEW4MT76tQHqza1hWp6r8CqxJP7yO05FQUwaZ0f/k1aZ0t612MM509nJYhTLLdf
-	XpkKr6peZ80YBmFG3H3nIJ7Pn6J9AZpt3+Np4HjcXjnxQNdwQrBs24G3PvXofajrtJnlbY14TERmH
-	FSOVtDsw==;
+	bh=ucjmi31stySKpq8sayBZo6yeaMDgZDDCZ61xnVduxj0=; b=i2wA8XNywD+C1p+CGv9Am28Ph7
+	jraOk+GfnQZpbkDso9/KQYDITycIeDnObbg2P2QnstW+573gNvafUVE7Eb9btCtSLfrkkrBFHaFrC
+	1v/BbODDwA2FvT7Ima9vNrvi3k1oQcTkGhpCjvbyDsoUFme+r7E5KFPmMxspnyutRYsTDzMBMPbqG
+	cFBXXrCUbpcMEm09hSCRFaV+2H5WQR3zmFdvPA/09CG5DJfDPnlET241ueA3t4U6TZdx/Cvyerghn
+	98Brrd7p3BZEm1uXmrVGiD2SKmQfB04MpJsLUm8+XccoVytlXqFYLpCACQRApaWkXXgce7AaZOpal
+	kScB/Epw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuT3j-00000000W1j-3BGj;
-	Thu, 13 Aug 2026 10:53:15 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	id 1wuT4e-00000000WEf-04dK;
+	Thu, 13 Aug 2026 10:54:12 +0000
+Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuT3h-00000000W0J-08AU
+	id 1wuT4b-00000000WDr-3hKN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 10:53:14 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-c1677c91969so65151566b.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 03:53:11 -0700 (PDT)
+	Thu, 13 Aug 2026 10:54:11 +0000
+Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-cbe6295f05bso597877a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 03:54:09 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1786618449; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Q4vwD2/pjn3jAFqrBdDJyFKSd5jQORl+0H5ZOKFpHUTT6p1gJx6+IrzE1vhaUygSVG
+         0W/YHLPgas0F7XzPX0gkmVWe5ivtFMceY0f91pLw0EHO9rpAoDu/x2PD2YdJoH4TpcJP
+         uX+mh/REi9mF+D3gWMm9WLH4JS0/zSqDNelQjQKlyKNPCFXJjDRyRArZJ6LNbg0UG8gZ
+         YTe/f9nzjuOrkn9A5jKyagK03Pz4UutXNtO9a8VY3NX0d/wUaFW+PxHcwpsu6wExJIEP
+         nBPJ6GCqNoF4+Ghj4x5lSdn40Hg54tph1nIhXAvvzreH3fI2fDHadr0cy6i3tlLJDEQq
+         VUJg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=ucjmi31stySKpq8sayBZo6yeaMDgZDDCZ61xnVduxj0=;
+        fh=atcmiZzZMV+EiTX0whw2fjDqMVOE29vDyjuoqAbt9eY=;
+        b=Swbd/NQbi4P6Lu5nXeQHgx/3jnJEql7TexC/REa9U6b6p74NoeHfV8VG4iT+oZ1boc
+         wJ8eKTUlhbwD0V7qKFhGRVAsg1y+YUfT4ffWORviq0z7aWPOrsFu78J58E0iP3Tbi7+D
+         unlzcIGn3yzgz+W+ZN0sJHMvS+x60fS85RVLvj7M5eE6/ogrJp14zUowSJqkYAxxqT2p
+         O8It+haUcYlJAJBOy8KjUEjnp+zjTmhxxVemxAkxkphsO/1mV0dN0aSduIL0ZvCedQpo
+         ZcpO/H/EuifD8KRhPqwEmHZeH0078EKwlYYEYRZKyRv53abhniiZvyhTHkyB+1iUpEpF
+         ws5g==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1786618390; x=1787223190; darn=lists.infradead.org;
-        h=in-reply-to:references:from:subject:cc:to:message-id:date
-         :content-type:content-transfer-encoding:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=+xQTI3Vq8sC9x2ATvB7YIuXwWhZNhSgMb5gkauWI9KY=;
-        b=P/iCW2M3FwKFWKMT5iMm1CXX6emp9Igm4iF+uXMzlWLA2vHE5JfFepvM9jugTOCMd8
-         ydeibM/8xxdJ3+QAJRQreqDI1trzP4ZKL/y0Lzwn0RzHbZGwE2s4mfq9yo7ohxFLOE6+
-         YDT2UWYCdJ7Og0VPln0KHHNFWc5wLpbYFh53KRCc1oZl22aCKCBOse/TgKtLZiWUkVnn
-         zo7vjMCIxJnNoCGVA6a5uD3m5We9YbjjIpGx3g4wlTo0wxP5vgQZnVCVu5zJmT3evyAu
-         DIsSJZyggJJpjz/n3mAG4xEllNkSxx9vP3HPalutPr+I40SfQ8ZsMXPMVLpqRvdzfdk+
-         3zNg==
+        d=gmail.com; s=20251104; t=1786618449; x=1787223249; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=ucjmi31stySKpq8sayBZo6yeaMDgZDDCZ61xnVduxj0=;
+        b=MQytHDm0YRCM2JblTmkhYd+yWbt5ID57Ps2aPnbWlcF0NaB+R50e266+OJgPxTJv55
+         22QhMSBl72fy5b4jpnEazn85840y3yvG1t2mnjqV5Fe4APNHX8mBGiQUFp3RGjMwwKcS
+         O5QTx6da4JQGufKOh5233KGZznIjxyvoUI8ycHXGzy8LT25zIrw+CZiFrEYsLTleGXCS
+         +cnKpdFYcK2h6ptD+edC+HGoCT7c5INRroiiuOH0JVjoOBC0rLsEZqcgQ/oPi38/XT0J
+         Ka9KbpdfPf7yWxMHttKgOgulKdynX3UA9TmCuNxYbmprvVSUGpkyP6SVEOGhsrOC0SS8
+         OMmw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786618390; x=1787223190;
-        h=in-reply-to:references:from:subject:cc:to:message-id:date
-         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+        d=1e100.net; s=20251104; t=1786618449; x=1787223249;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=+xQTI3Vq8sC9x2ATvB7YIuXwWhZNhSgMb5gkauWI9KY=;
-        b=dncyoWQO3ITy+uaEW4+5BS/vPSC46s28MfW2dgDZClW/INDWJ5rfUAfqEFNr9bAw1M
-         9M1ObjdeKMqurIcoZIQOSxiSK2M50i+pgsNmMc2dLhEn85Ql6UXdPubWFLUxvo0ATg81
-         AzpKjplLeZODqiktCLR9M/QrWgF6pUXSeG1D6+69N8oXdhDxi2seYSfNri/kOP6tR7lG
-         5geJczvpAkw/vHDAINyfxglIla07nI0Yt0gtsKXSxfc5CzusIF27lzgh6Qbp1kzUtv8I
-         7qLCTDuYRGqzGq/S4xlYId+a5jrs1qW3Omzri/hCcLGocQY0Ss3vz4L59mLbdp7uVah/
-         nQbw==
-X-Forwarded-Encrypted: i=1; AHgh+RouQLAV780n1+YEAsR9Vi1oGnkgbaoaJBSBxRYrxZ9uWcEzmygRrs/dPZj9hpLQ44o1jdeBP4Mm2sGNy/Dr+V/Y@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzv+RVAvw6bLajt5nZkx22J/BYARJQMJfjXOGlr0Am5Yp76HM+5
-	zyhH7ZOvz+sWObUQiq2T9N8sW4ac35tfwMlbwRQdDXVay8hXctTSueFGidWb3+z+4vA=
-X-Gm-Gg: AR+sD11yATLjXHguQAQBstDsRtwspZZqLQuQQ+BaX5ms7hwEz99HCvXzz1Y8PDKTmlA
-	LTiCKAnDGEoCHwjnSH1TQrTXSbOIKS9TmP4cFtjMA1K7sAmu2nwr2edHstHUXiHyCwflgucPx26
-	Zl50Rt8BykqYeNaQv52PRIWQFYPo8+nvlZRX/Uut3N5e/ykqRwroIwPJ4jk7Z3vtcTNeeh45dRo
-	dVDvRYlTgJMk2Mh++qAcsSPDt4pHhcUNI7yo4A2s9BpXAvRz5vUF1BJrQaRhlc2dK7VIvVQjrkq
-	vLYSn8Dcp4bUs+gjZsOSoWuN/Bk13Iu5skuNsdtCnhQg//2s5JyIcV/njACbeQDJWlqpQ/fP6xK
-	592Tr6E6fLbLViE+Q50zVEebyo2a3pNGNrGszQMS1ZQkFtjOF/nDvWul31b8ITMrC3UmvJKnIHw
-	Zr9LaUaJ6uN4tqTefYHd55rE5dzcToWDI+ZdkmVO/QYBzmNxPCM4rrblkz4dnXwE5Tmi10o/w5M
-	+0H9uN5ijKNGK8pbrTn9NQ1U1qawqyJCA5siy5Ot7oW/r3pKsE5HQ==
-X-Received: by 2002:a17:907:6d0d:b0:c20:fc74:5dc0 with SMTP id a640c23a62f3a-c2109161ec7mr212458366b.32.1786618390352;
-        Thu, 13 Aug 2026 03:53:10 -0700 (PDT)
-Received: from localhost ([2a00:2381:fd67:101:c11:afa0:9e5d:4eee])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c211aa04446sm620566b.26.2026.08.13.03.53.09
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 13 Aug 2026 03:53:09 -0700 (PDT)
-Mime-Version: 1.0
+        bh=ucjmi31stySKpq8sayBZo6yeaMDgZDDCZ61xnVduxj0=;
+        b=lKanvLfeflWTTEPrIZVSAAVTkxMj3Qs3LyQlcLSqGLhI50BS8YBZ7ATm1PMMOQZY2c
+         o6KkOK4UmZxj1LbEppObyvvUH28DBvsulLcp7DpGQ/VnK5gYE1dWaSYNqDuzNT+0mSPe
+         LmDTvQwhOd8MspOr7Sg/P6Tydh+3Fyw/ruaCcB9mdXSA9SOokdNovWur5dD3OwQ7qluQ
+         Lmq79YLa3FBfOHrneuUMOQYztFMNB1EdP8+Cg4p94k+mDGilKNTCZEYITBuQaEEWNXqh
+         iAcEnAmr64gGoIzhg4JRfNGnC8dF6SsDdTaAI4G/4+bJcoF0IFDSOtUWntAx7p+B/hmg
+         FPDQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rrdj7UUUB/qh3vRaoERadEb1ZepwJGQrn0JncYmpiorxm9yjacXJiGogMP09RCKohNbwlV5YNf77DewDiw/E/Zb@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyi5iyII1w2LHZ1sLhJs1H6VC1HRYDERp9N8VdcUmzeCdGoLaPC
+	CETNoC91pwZPQRyjtg9/5GA9UCT+OG7CsWslY19JwSUpztsAx4LbH33Sptio6MG+mz87blolC/p
+	8CdGIJo+jlNOF6tvxWAzWmlwVe32VBLE=
+X-Gm-Gg: AR+sD103ZkGAPq0jYpVR9c49sMe7JeN+qbbc7sV4UGrkqlT8Vj3HNSKgpMfd396nw6g
+	GcAVXpHz6mAO/nNAizUaP+lnONK9f+320dDNjzsdnaUMAXueY2OpYt9/u1OqJKRixKjh5/u0fYO
+	0JWTu+1phpWPffEhk5XSR93+medKsZ+Qjs4/fcUCbrfm0Qvwg1FfERxHw+OkNuT/Cl87gauocE+
+	0T91OBLIEDKC+5k7v79QIKZwKPyw5vbhc2nnEKobhTfbLdR66oItIi0sLlKttFKj3ZDXdBLUOMw
+	1S86cFsqUK9jPXH2ffPAESQMvK5Sy9+ZYO9mCnP9ct76szsG52PmYm7ZFeMbog==
+X-Received: by 2002:a17:90b:53ce:b0:38e:4f42:d0d6 with SMTP id
+ 98e67ed59e1d1-3931f9126e8mr1840719a91.12.1786618448460; Thu, 13 Aug 2026
+ 03:54:08 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260812132755.32585-1-zajec5@gmail.com>
+In-Reply-To: <20260812132755.32585-1-zajec5@gmail.com>
+From: Semih Baskan <strst.gs@gmail.com>
+Date: Thu, 13 Aug 2026 13:53:56 +0300
+X-Gm-Features: AUfX_mwvfJgoJzaqHfueN-LQn7bH3GneBJt2tzTAZG8zD1CSNA7ePCjt5jSH6b4
+Message-ID: <CAAsRjRn4Pfv3LzQtVbeBzw49fN3Fk+M4JGwKkKq6pvo5Uk-fpQ@mail.gmail.com>
+Subject: Re: [PATCH V3 1/4 net] net: dsa: b53: deal with Northstar devices
+ using CPU port 5 or 7
+To: =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <zajec5@gmail.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, "David S . Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, Jonas Gorski <jonas.gorski@gmail.com>, 
+	Vladimir Oltean <olteanv@gmail.com>, netdev@vger.kernel.org, 
+	Hauke Mehrtens <hauke@hauke-m.de>, linux-arm-kernel@lists.infradead.org, 
+	devicetree@vger.kernel.org, bcm-kernel-feedback-list@broadcom.com, 
+	=?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 13 Aug 2026 11:53:08 +0100
-Message-Id: <DKNRD14Y6EKO.XP8CIMGJ4RYK@linaro.org>
-To: "Jassi Brar" <jassisinghbrar@gmail.com>
-Cc: "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- <linux-samsung-soc@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, "Krzysztof Kozlowski"
- <krzysztof.kozlowski@oss.qualcomm.com>, "Krzysztof Kozlowski"
- <krzk@kernel.org>, "Sam Protsenko" <semen.protsenko@linaro.org>, "Rob
- Herring" <robh@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Tudor
- Ambarus" <tudor.ambarus@linaro.org>, "Peter Griffin"
- <peter.griffin@linaro.org>, "Alim Akhtar" <alim.akhtar@samsung.com>
-Subject: Re: [PATCH v4 0/2] Exynos850 AP-to-APM mailbox support
-From: "Alexey Klimov" <alexey.klimov@linaro.org>
-X-Mailer: aerc 0.20.0
-References: <20260709-exynos850-ap2apm-mailbox-v4-0-caf2fe9a237d@linaro.org>
-In-Reply-To: <20260709-exynos850-ap2apm-mailbox-v4-0-caf2fe9a237d@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_035313_096059_CDCC4564 
-X-CRM114-Status: UNSURE (   9.22  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260813_035409_926202_69C76996 
+X-CRM114-Status: GOOD (  11.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,17 +124,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jassi,
+Hi Rafa=C5=82,
 
-On Thu Jul 9, 2026 at 3:45 PM BST, Alexey Klimov wrote:
-> This patch series introduces support for the AP-to-APM mailbox on the=20
-> Exynos850 SoC. This mailbox is required for communicating with the APM=20
-> co-processor using ACPM.
+Tested on an Asus RT-N18U (BCM47081 + BCM53011 rev 5), with a local
+DTS change enabling ports 7 and 8 like your 4/4 does for the R8000
+(the in-tree bcm-ns.dtsi state). With patches 1 and 2 applied:
 
-Gentle ping. Is there anything else should be updated here or is it good
-to go?
+- The op works as designed: DSA picks port 8, the conduit is gmac2,
+  the 1/4 warning stays silent, and management over the bridged LAN
+  ports runs through the port 8 path with no issues.
+- Trap delivery is restored: 20 of 20 BPDUs injected into a front port
+  reach the CPU. On the port 5 topology the same probe measured 0 across
+  every front port.
 
-Thanks,
-Alexey
+With all three CPU ports enabled, GMNGCFG ends up in dual IMP mode
+(0xc2 read back). In that mode a tagged frame whose VID is missing
+from the VLAN table is delivered to no CPU port at all: an 8021q
+upper on a standalone port receives 0 of 7 tagged probes, whether
+the port 5 conduit is up or down. With port 8 as the only enabled
+CPU port in the DT, where GMNGCFG reads 0b10, the same frames were
+delivered. So the preferred CPU port alone does not revive
+standalone 8021q uppers on DTs that enable all three ports.
 
+The same effect touches 4/4: the R8000 today has ports 5 and 7
+disabled, the single IMP configuration, and enabling them lands the
+switch in dual IMP mode through the same driver path. If its switch
+behaves like this BCM53011, standalone 8021q uppers on the R8000
+stop receiving with 4/4 applied.
+
+On the RT-N18U the boot firmware provisions a MAC only for gmac0,
+so gmac2 comes up with a random MAC and the bridge inherits it,
+changing per boot.
+
+Best regards,
+Semih
 
