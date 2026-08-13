@@ -4,58 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5581EC5CFEB
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FAE6C5DF67
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 10:19:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1DciAVRokxPcn1L9HDos7COkh0/2iR9jLvBMrYvTQJw=; b=Q5sMJzLnGR1645mgUVD8PVTsKb
-	8Rudplp1v0i2GXAklfvmSET4KVuOdJfv+hGQV6TlQbEZ3/6CFz5LdAMeg49LhaYjGMGNdP2R7Y5kD
-	aPnNMm52FG1D4keMVMm9+cM9bz8gEG8TiM2+6E43Rl+Z1sy7fpQASwTK2+LGhKQT0fs+k8MNz1OF1
-	3F5DfDL9T4LmDZ/6sw6XsD02d9Doe5CU91WFHNdLj9eU/XF/1LX6dqL897t8ReM+aXyVo/10NR7Z6
-	z2U5daJ/SsO+xswlFRc1+D98D2vWn045tPHLxbUREhp0yagEY7NwyDf12b7+mSUwgD//8qYh639gE
-	fgrexZ0w==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dpkfw74KomD29eYBQKrY0G7zGLVu5kAQQGJgVU6Pyy4=; b=xSrCULlxRYcxuNL+VziYYaQI/x
+	Gf0QCkAY+944BYWX4az5pMf/gmPbVecZVUYe3M+QLypORrH7jq3hqFEduLOYnoWvPKY7NHgo2M5qp
+	UEK1C0R3ogFf3SigReCD65ATr4vE4r/uUKb7FjbS3qUTBo5AyCiLFmk9Wzs+J7aZ7oZlvHfRy/CXl
+	dw18SFgwayAEGjEJ51Bgfukw9h9hdIEy8qikQJkGy3YZ+La+f7HxGVHNzTYhBC5OimCpkA5Em+nwi
+	csGFBmQKhQgvN1ZuOQchNtHKPzmYj6Wat7s0B/xkpxHIwQOwiAiQNHr0Fo3PKv/jiDk/aU6MBn78/
+	TWek5vGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuSXI-00000000Rla-28Z7;
+	id 1wuSXI-00000000RkU-09ta;
 	Thu, 13 Aug 2026 10:19:44 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuSXH-00000000Rjw-15HI
+	id 1wuSXG-00000000Rju-480i
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 13 Aug 2026 10:19:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 82105600AD;
+	by sea.source.kernel.org (Postfix) with ESMTP id 669C743F2C;
 	Thu, 13 Aug 2026 10:19:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 2C91DC19425;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 365F5C2BCF5;
 	Thu, 13 Aug 2026 10:19:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1786616382;
-	bh=SJDE1Y6wyBQ85Y66UA/dDM+xt1Anlk6x3sBOuqBhgZU=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=EiSsLd2yA+kZfYusxLpQSuXVZQgSnq1Qs6w4wzJYMDqnMQ4PaFxgJyAvNiNr4W7yI
-	 5oPQYyWqzOZvcBYb9yhRj1I3LsvLObqAe2qPatd12EcnKD2v9q9DueJGruqsp1EhnH
-	 NPX4tEUbJ0Ui5M1YbET5+67CDbbjsQUI8IUbzdF8bGZ5e67b4CDRyE3EcZ5mcH0hZP
-	 jGS48rHI1ZrxOtJMN4QzbOvsdWjzeDfOPYggCrLWc2rC9qBA+EDbZ5CGttZC6mrrEN
-	 PDdbABDxYBhDEi/2UYKRw18pYl1GOX8cruaUUZrQGjEtyw1mV6ONCxsSoaSvDAPhWm
-	 GKtwi7Mf+tB7w==
+	bh=tivZ5BYNFH4W6I41+vAAaK6MuTK6IPDTNH6UPZleqPQ=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=mGnuC/mejcrrYhLk7Br7O1tXg1tmkXHHpNhO/qfT+hP6+KQ25JPXvFzPnQYY52dA7
+	 x0e7+6mikKgvsAu8j/xVEIbq8PVk+DJpb+RnFDKmGU8RcskuuaHzNMpVnvATcc0P20
+	 gQXuD3hBQ5aVeQifG7ojAC87QsDvwzm5CGcHanrH7AUHSB+XTAgLt6bAHSRdi00X6C
+	 neLudpG7rycg87NloALvihtJggYt3k9rAejNyyregXcIaFNA6qeHKZXOI12Lood3kJ
+	 n8KEG1oUHXNFs9FprI0VD4FpF86qk+HpZ94ZSiiMnQ0OfD/yQ6/PG+w0lwzDi0OqnF
+	 VK1XHTykLqT8A==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0899EC5CFEB;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1760AC5CFDB;
 	Thu, 13 Aug 2026 10:19:42 +0000 (UTC)
 From: Long Zhao via B4 Relay <devnull+longzhao.ambarella.com@kernel.org>
-Subject: [PATCH v3 0/3] Ambarella CV75: pinctrl and PL061 GPIO
-Date: Thu, 13 Aug 2026 18:19:35 +0800
-Message-Id: <20260813-cv75-v3-b-v3-0-1d82e18da09b@ambarella.com>
+Date: Thu, 13 Aug 2026 18:19:36 +0800
+Subject: [PATCH v3 1/3] dt-bindings: pinctrl: add Ambarella CV75 pinctrl
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIADiafWoC/yXMQQ5AMBBA0avIrE1CJ0pcRSy0BmOBtDQScXfF8
- iU//wLPTthDnVzgOIiXdYmgNAE7dcvIKH00qEzprMoJbSgLDIQGq0LlWlNHWjHEfnM8yPm9mva
- 3P8zMdn8HcN8PipT8HG0AAAA=
-X-Change-ID: 20260813-cv75-v3-b-8521663a362e
+Message-Id: <20260813-cv75-v3-b-v3-1-1d82e18da09b@ambarella.com>
+References: <20260813-cv75-v3-b-v3-0-1d82e18da09b@ambarella.com>
+In-Reply-To: <20260813-cv75-v3-b-v3-0-1d82e18da09b@ambarella.com>
 To: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>
@@ -63,11 +61,11 @@ Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Long Zhao <longzhao@ambarella.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1786616380; l=1753;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1786616380; l=6392;
  i=longzhao@ambarella.com; s=20260730; h=from:subject:message-id;
- bh=SJDE1Y6wyBQ85Y66UA/dDM+xt1Anlk6x3sBOuqBhgZU=;
- b=7wMvdXyZV5AuuFfYWy35sAWu8p8pkJOi8yy9vOlUwmaSxl+eTcRezkGRSI91D4KoReHb5Hd/s
- Yk4w3TsxwQnCXpY+avWuyCTi1JdsMGpIFPBU8ryO9QYyUJgNPswJstu
+ bh=nKtxPce2re61fXy+1qoLhWBCtRzuGBLrRckpr8oXxx4=;
+ b=9Z5HhHhd1/8TNCzj70zkVVsxR+3GB/4uflnrqpQP9721BvtFNCvSdacdiONUPvCu+FR43Bvmu
+ 7EUj/I8C99aDBMRafLQ7EWVKejUnyjYNKLFMvbHR1+QEWd3tzT7OA5K
 X-Developer-Key: i=longzhao@ambarella.com; a=ed25519;
  pk=/xGhPTOX0/eYsyTWzyjjgAIW1Z/YD+IlnOnvcdRozow=
 X-Endpoint-Received: by B4 Relay for longzhao@ambarella.com/20260730 with
@@ -88,53 +86,265 @@ Reply-To: longzhao@ambarella.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is part B of a 3-part CV75 v3 split:
+From: Long Zhao <longzhao@ambarella.com>
 
-  A: bindings + RCT/CCU clocks + SoC/EVK DT + MAINTAINERS
-  B: pinctrl + PL061 GPIO variant  (this series)
-  C: 8250_dw UART quirks
-
-Depends on series A:
-https://lore.kernel.org/r/20260813-cv75-v3-a-v3-0-cfdd20b1b4dd@ambarella.com
-
-Link to v2:
-https://lore.kernel.org/r/20260806-longzhao-upstream-cv75-v2-v2-0-6b09707c5fe9@ambarella.com
-
-Summary:
-- CV75 pinctrl binding and driver
-- Ambarella register-layout variant for gpio-pl061
-
-Changes since v2 (B scope):
-- reuse PL061 with Ambarella register-layout variant (Linus)
-- model each GPIO bank as a separate DT/AMBA primecell node (Linus)
-- complete function/groups enums in the pinctrl binding (Krzysztof)
-
-Verified on CV75 with A+B+C.
+Document the CV75 pin controller binding using generic function and
+groups properties for pinmux configuration.
 
 Signed-off-by: Long Zhao <longzhao@ambarella.com>
-
 ---
-Long Zhao (3):
-      dt-bindings: pinctrl: add Ambarella CV75 pinctrl
-      gpio: pl061: add Ambarella CV75 register layout variant
-      pinctrl: ambarella: add CV75 pin controller
+ .../bindings/pinctrl/ambarella,cv75-pinctrl.yaml   | 240 +++++++++++++++++++++
+ 1 file changed, 240 insertions(+)
 
- .../devicetree/bindings/gpio/pl061-gpio.yaml       |  35 +-
- .../bindings/pinctrl/ambarella,cv75-pinctrl.yaml   | 240 ++++++
- drivers/gpio/gpio-pl061.c                          | 280 +++++--
- drivers/pinctrl/Kconfig                            |  13 +
- drivers/pinctrl/Makefile                           |   2 +
- drivers/pinctrl/pinctrl-ambarella-cv75.c           | 561 ++++++++++++++
- drivers/pinctrl/pinctrl-ambarella.c                | 839 +++++++++++++++++++++
- drivers/pinctrl/pinctrl-ambarella.h                |  50 ++
- 8 files changed, 1949 insertions(+), 71 deletions(-)
----
-base-commit: 18bf29fba8d0bdd0db5a0497ecf06f404bc740d1
-change-id: 20260813-cv75-v3-b-8521663a362e
+diff --git a/Documentation/devicetree/bindings/pinctrl/ambarella,cv75-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/ambarella,cv75-pinctrl.yaml
+new file mode 100644
+index 000000000000..9d65da32d3d2
+--- /dev/null
++++ b/Documentation/devicetree/bindings/pinctrl/ambarella,cv75-pinctrl.yaml
+@@ -0,0 +1,240 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pinctrl/ambarella,cv75-pinctrl.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Ambarella CV75 Pin Controller
++
++maintainers:
++  - Long Zhao <longzhao@ambarella.com>
++
++description:
++  The Ambarella CV75 pin controller configures pin multiplexing, bias and
++  drive strength for the main GPIO banks. Pin groups and their mux settings
++  are defined by the pin controller driver and selected by function and group
++  names.
++
++allOf:
++  - $ref: pinctrl.yaml#
++
++properties:
++  compatible:
++    const: ambarella,cv75-pinctrl
++
++  reg:
++    maxItems: 1
++    description: IOMUX registers
++
++  ambarella,drive-strength-syscon:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description: RCT syscon containing the drive-strength registers.
++
++  ambarella,pull-syscon:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description: Secure scratchpad syscon containing the pull registers.
++
++patternProperties:
++  "^[a-z0-9-]+-pins$":
++    type: object
++    allOf:
++      - $ref: pinmux-node.yaml#
++      - $ref: pincfg-node.yaml#
++    additionalProperties: false
++
++    properties:
++      function:
++        enum:
++          - can0
++          - can1
++          - clk_au
++          - dmic0
++          - enet0
++          - hsync0
++          - hsync1
++          - i2c0
++          - i2c1
++          - i2c2
++          - i2c3
++          - i2cs
++          - i2s0
++          - i2s1
++          - ir
++          - pwm0
++          - pwm1
++          - pwm2
++          - pwm3
++          - pwm4
++          - pwm5
++          - pwm6
++          - pwm7
++          - pwm8
++          - pwm9
++          - pwm10
++          - pwm11
++          - sdmmc0
++          - sdmmc1
++          - snand
++          - spi0
++          - spi1
++          - spi2
++          - spi3
++          - spi_slave
++          - spinor
++          - uart0
++          - uart1
++          - uart2
++          - uart3
++          - uart4
++          - vin_master_sync
++          - vsync0
++          - vsync1
++          - vsync2
++          - vsync3
++          - wdt
++
++      groups:
++        $ref: /schemas/types.yaml#/definitions/string-array
++        items:
++          enum:
++            - can0
++            - can1
++            - clk_au
++            - dmic0
++            - enet_2nd_ref_clk_a
++            - enet_2nd_ref_clk_b
++            - enet_ext_osc_clk
++            - enet0_ptp_pps_o
++            - hsync0
++            - hsync1
++            - i2c0_a
++            - i2c0_b
++            - i2c1_a
++            - i2c1_b
++            - i2c2
++            - i2c3_a
++            - i2c3_b
++            - i2c3_c
++            - i2cs_a
++            - i2cs_b
++            - i2cs_c
++            - i2cs_d
++            - i2s0
++            - i2s1
++            - ir
++            - pwm0
++            - pwm1
++            - pwm2
++            - pwm3
++            - pwm4_a
++            - pwm4_b
++            - pwm5_a
++            - pwm5_b
++            - pwm6_a
++            - pwm6_b
++            - pwm7_a
++            - pwm7_b
++            - pwm8_a
++            - pwm8_b
++            - pwm9_a
++            - pwm9_b
++            - pwm10_a
++            - pwm10_b
++            - pwm11_a
++            - pwm11_b
++            - rgmii0
++            - rmii0
++            - sdmmc0_1bit
++            - sdmmc0_4bit
++            - sdmmc0_cd
++            - sdmmc0_hs_sel
++            - sdmmc0_reset
++            - sdmmc0_wp
++            - sdmmc1_1bit
++            - sdmmc1_4bit
++            - sdmmc1_cd
++            - sdmmc1_hs_sel
++            - sdmmc1_reset
++            - sdmmc1_wp
++            - snand
++            - spi0
++            - spi1
++            - spi2
++            - spi3_a
++            - spi3_b
++            - spi3_c
++            - spi_slave_a
++            - spi_slave_b
++            - spi_slave_c
++            - spi_slave_d
++            - spi_slave_e
++            - spinor
++            - uart0
++            - uart1
++            - uart1_flow
++            - uart2_a
++            - uart2_b
++            - uart2_c
++            - uart2_flow_a
++            - uart2_flow_b
++            - uart3_a
++            - uart3_b
++            - uart3_flow_a
++            - uart3_flow_b
++            - uart4_a
++            - uart4_b
++            - uart4_flow_a
++            - uart4_flow_b
++            - vin_master_sync_a
++            - vin_master_sync_b
++            - vin_master_sync_c
++            - vin_master_sync_d
++            - vin_master_sync_e
++            - vsync0
++            - vsync1
++            - vsync2
++            - vsync3
++            - wdt_a
++            - wdt_b
++            - wdt_c
++            - wdt_d
++            - wdt_e
++            - wdt_f
++        minItems: 1
++        maxItems: 6
++        uniqueItems: true
++
++      bias-disable: true
++      bias-pull-down: true
++      bias-pull-up: true
++
++      drive-strength:
++        enum: [3, 4, 5, 6, 7, 8, 9, 12]
++
++    required:
++      - function
++      - groups
++
++required:
++  - compatible
++  - reg
++  - ambarella,drive-strength-syscon
++  - ambarella,pull-syscon
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    pinctrl: pinctrl@e4010000 {
++        compatible = "ambarella,cv75-pinctrl";
++        reg = <0xe4010000 0x1000>;
++        ambarella,drive-strength-syscon = <&rct>;
++        ambarella,pull-syscon = <&scratchpad>;
++
++        uart0-pins {
++            function = "uart0";
++            groups = "uart0";
++            bias-disable;
++            drive-strength = <8>;
++        };
++    };
 
-Best regards,
---  
-Long Zhao <longzhao@ambarella.com>
+-- 
+2.34.1
 
 
 
