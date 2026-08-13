@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41149C5CFCF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 15:53:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFB9BC5CFCF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 15:58:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pojo/5ihe+x3tRo9VM4Cq8odA8bQ3ul0KyDtov7i6YE=; b=YM8q8KSUVLCHFQroMrLpIBExi4
-	Ppm5eMGkbqaLMRdDm+To4nn0irRUjyNUdTTRbO+5MhcIRBvu0Gjjj2F0Zyf1w9i2nDisIqIkaaFqh
-	A+sWVH1F8ciggrzzryXp+Y9ZxRFlZfk0FXhOwBAfE4gwh+L7KlHH1jjQ73ZAZhLW5bF7L8+eHC5OX
-	HpKfgY/PJWJlP3RWqRXh5HZDIVqygVlF6B3vWqcgO2EbGH66G1YRpX6ndvKQZpn+ypl/p+sSSe8yx
-	jRDgiOvSHvWwQRN3DuiyPQJ+M3zfjyW5mdwCoIfk04AOc7tywv3mIJTjGQjHTMWyZTISTyindSc8N
-	3sWUIxuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=X+sf+p3WhWnqM+wowbpZwkUZExGfKoZLqOMvtUH8jQk=; b=Ez9KVJgBahx687hWzmZA0DQxex
+	ZLixGPBEuYadpiPOvS1EHaNTvkbPdWVu7+VfdRg/AEnqGKJ90Rnu5dwyJRHobI9aBZRozoD6C/Tmq
+	QEARWO4lpV9qVV8G9hQIQUYuLENQaR6rwf28aKwP/XvljDHKDrzl2/0WFA3raWRqAUWJw9x2QdD3R
+	bdoXnjkQKZuB/BrEIkbuznWFC444LnymLnnBTnv2oygz8GQL7vE8WP2ZjPo9QCh6pTbhSuRcSTPLi
+	zckxitqCEgTt4Ls62+fiiB81MBIZZB2U6cy6UTmTyvAUFyC6HYLSONEO8jEr5Wqw4sFlUfkG6WEdx
+	vPougF9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuXk0-000000015Hm-3lyJ;
-	Thu, 13 Aug 2026 15:53:12 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wuXoj-000000015gh-1zKO;
+	Thu, 13 Aug 2026 15:58:05 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuXjz-000000015HZ-1Qzl
+	id 1wuXoh-000000015gT-2yLm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 15:53:11 +0000
+	Thu, 13 Aug 2026 15:58:03 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 63B9B61882;
-	Thu, 13 Aug 2026 15:53:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2CB821F000E9;
-	Thu, 13 Aug 2026 15:53:09 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C2C6D60A69;
+	Thu, 13 Aug 2026 15:58:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD4221F000E9;
+	Thu, 13 Aug 2026 15:58:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786636390;
-	bh=pojo/5ihe+x3tRo9VM4Cq8odA8bQ3ul0KyDtov7i6YE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=aQanQO+DNNS5jcSgP9fd7qtYMs2Pe1fwqXr8IVo5Xg/278WctdtrgvZH2RFhMI2Bq
-	 Vys2IlJu8+7RNtHd9GFVY+iZtms6peyf+l/QcBbZgx/Gm3BTqPPiHZEo/kXxrgWzjc
-	 WPKT8cX+3DYFceElFmHFZIFbijDudJoKEGdVCgg1z/3Ww3hasXEtRaTKqzUh6T49L1
-	 l5Fp3Rmmm5lqxD6u+u+N1Z/74u6iRNy/pJlQxMxwykGwK1H8NEM2EOdkTtEiNyGyBX
-	 1vA0PYo89Qz1l11NYxjnK0oo7Jnwel+/2VO2EbK3Q1rMaEkOPDQRJhJZ535zBUTP1q
-	 fYS8OJRhxBvHg==
-Date: Thu, 13 Aug 2026 08:53:07 -0700
-From: Josh Poimboeuf <jpoimboe@kernel.org>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Mark Brown <broonie@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>
-Subject: Re: [PATCH 1/2] arm64: module: Emit BTI veneers for cross-section
- calls
-Message-ID: <an3kKsTNAYjbDIRH@jpoimboe>
-References: <20260812162058.612202-4-ardb@kernel.org>
- <20260812162058.612202-5-ardb@kernel.org>
- <anzo2Q-TxbB0PUhi@jpoimboe>
- <ba248b4e-958d-4eef-bb66-22a737a6412d@app.fastmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <ba248b4e-958d-4eef-bb66-22a737a6412d@app.fastmail.com>
+	s=k20260515; t=1786636682;
+	bh=X+sf+p3WhWnqM+wowbpZwkUZExGfKoZLqOMvtUH8jQk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=Hp9DucV7OGLG9m/FudPQWPZAS8FQEfKoOcVhBywLxXt2TMkJ8qskyGU0U2f8bvJo5
+	 8vcoabbgKXod/KTWP4b7H4Uh3W5COSWeAZAeOapWrAuHt+vCoeSGvyOeSk/2hhxk68
+	 Dcb7j/eDAnqPvku+ZYZ5J8Gvlcyq2AJ3WRbq7tEBzxs6A6y9f2WtC2muZVhgE7o84p
+	 QU12XP4scz6PGeizQzxMiTy4MjJRZ1cfzWw7zdcPhWpcnwsxpLtuVGfPtQBD/3Nmv1
+	 yRsPbJlObOy2CcU3gUlXPljOfebCE5EuZ9ZiJzik/MNnNbKZL8OkVXvde/AUfIrCBU
+	 Z3f+INhJswJIA==
+Date: Fri, 14 Aug 2026 00:57:58 +0900
+From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+To: Hongyan Xia <hongyan.xia@transsion.com>
+Cc: Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Jiazi Li
+ <jiazi.li@transsion.com>, Pu Hu <hupu@transsion.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [RFC PATCH v2 1/4] arm64/entry: Make
+ debug_exception_enter/exit() noinstr
+Message-Id: <20260814005758.c8cc04d276a0f82689ccddca@kernel.org>
+In-Reply-To: <c3a90368dd6c096af9d918e036a27728696fb8a4.1786603168.git.hongyan.xia@transsion.com>
+References: <cover.1786603168.git.hongyan.xia@transsion.com>
+	<c3a90368dd6c096af9d918e036a27728696fb8a4.1786603168.git.hongyan.xia@transsion.com>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,121 +75,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 13, 2026 at 09:34:44AM +0300, Ard Biesheuvel wrote:
+On Thu, 13 Aug 2026 06:49:27 +0000
+Hongyan Xia <hongyan.xia@transsion.com> wrote:
+
+> From: Hongyan Xia <hongyan.xia@transsion.com>
 > 
-> On Thu, 13 Aug 2026, at 00:52, Josh Poimboeuf wrote:
-> > On Wed, Aug 12, 2026 at 06:21:00PM +0200, Ard Biesheuvel wrote:
-> >> The compiler is permitted to omit BTI landing pads from static functions
-> >> that never have their address taken, but are only called directly, even
-> >> if those calls originate from other code sections.
-> >> 
-> >> This means that calls into a module's .text section from .init.text,
-> >> which may need to be routed via a PLT if .text is out of direct
-> >> branching range, may result in BTI exceptions due to the indirect calls
-> >> performed by the PLT veneers. (Note that calls to .init.text from .text
-> >> are not allowed.)
-> >> 
-> >> The 'solution' is to emit yet another veneer - this is what the ELF
-> >> psABI for AArch64 mandates in this case.
-> >> 
-> >> So derive an upper bound for the number of veneers that may be needed in
-> >> the core module region to ensure that any call from init code that ends
-> >> up needing a PLT can be directed at a veneer with a BTI landing pad, and
-> >> allocate the additional space.
-> >> 
-> >> Then, emit these veneers as needed, i.e., only when emitting a PLT entry
-> >> for a call from an init code section to a normal code section in the
-> >> same module. In practice, this only occurs when a module's .init.text
-> >> happens to be allocated far away from its .text section, which might
-> >> happen when the initial 128M 'near' module region runs out of space
-> >> between allocating the core module and allocating its init region.
-> >> 
-> >> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-> >> ---
-> >>  arch/arm64/Kconfig                  |   2 -
-> >>  arch/arm64/include/asm/module.h     |  12 ++
-> >>  arch/arm64/include/asm/module.lds.h |   3 +
-> >>  arch/arm64/kernel/module-plts.c     | 128 +++++++++++++++++++-
-> >>  4 files changed, 138 insertions(+), 7 deletions(-)
-> >> 
-> >> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> >> index b3afe0688919..25fa80b5591d 100644
-> >> --- a/arch/arm64/Kconfig
-> >> +++ b/arch/arm64/Kconfig
-> >> @@ -2114,8 +2114,6 @@ config ARM64_BTI_KERNEL
-> >>  	depends on CC_HAS_BRANCH_PROT_PAC_RET_BTI
-> >>  	# https://gcc.gnu.org/bugzilla/show_bug.cgi?id=94697
-> >>  	depends on !CC_IS_GCC || GCC_VERSION >= 100100
-> >> -	# https://gcc.gnu.org/bugzilla/show_bug.cgi?id=106671
-> >> -	depends on !CC_IS_GCC
-> >
-> > This doesn't work for livepatch though, and removing the "depends on
-> > !CC_IS_GCC" is a livepatch regression as it broadly increases the
-> > likelihood of ARM64_BTI_KERNEL (default y) getting enabled.
-> >
-> > So "livepatch broken on arm64 clang 21+" now becomes "livepatch broken 
-> > on arm64".
-> >
+> Commit 879a6754d3d11e30af24b7dc486f561510d62641 ran into a crash because
+> debug_exception_enter/exit() triggered page faults caused by perf dwarf
+> call graph tracing. That patch was a band-aid on top.
 > 
-> ... when kernel mode BTI is enabled.
+> Instead of trying to band-aid all possible paths that can happen during
+> instrumentation or perf tracing, simply force-inline these functions and
+> use the notrace variant of preempt handling to avoid all the complexity.
 > 
-> I have no insight into which pieces of livepatch for arm64 are actually
-> upstream. Is it just the tooling that is missing? In this case, though,
-> I think HAVE_LIVEPATCH should depend on !ARM64_BTI_KERNEL, rather than
-> the other way around. I can add that in v2.
-
-So arm64 has supported livepatch since HAVE_LIVEPATCH was introduced
-with fd1e0fd71f65 ("arm64: Implement HAVE_LIVEPATCH").
-
-The only production tooling for arm64 livepatch is out-of-tree, though
-it's possible to create some rudimentary livepatches in tree (see
-samples/livepatch).
-
-Though I think klp-build for arm64 is solid and ready to be merged soon.
-
-> > So either ARM64_BTI_KERNEL needs to depend on !LIVEPATCH (which will
-> > keep BTI disabled for most distros), or we need a different approach
-> > which uses __vmalloc_node_range() to allocate a veneer within 128MB of
-> > the target.  I can try to write that up.
-> >
+> Drop the RCU_LOCKDEP_WARN(): arm64_enter_el1_dbg() runs first and
+> enters NMI context via ct_nmi_enter(), so RCU is always watching by the
+> time debug_exception_enter() runs.
 > 
-> Yes. Or pre-allocate some space in vmlinux for this purpose. I suppose
-> we might just use -fpatchable-function-entry for this, and add one
-> additional NOP to vmlinux for livepatch kernels, so that a landing pad
-> can be patched in as needed. AFAIR the ftrace code already deals with
-> the BTI landing pads gracefully.
+> Also mark __preempt_count_add/sub() __always_inline so the preempt
+> count updates fold into the noinstr callers instead of becoming
+> outlined calls to instrumentable text.
 
-It looked to me like ftrace is using RET instead of BR, which I proposed
-to do in the veneer, but Will objected:
+Looks good to me as a kprobe maintainer.
 
-  https://lore.kernel.org/ed4fe1f95071897859ec7fbe9176246cbd4962bf.1786138806.git.jpoimboe@kernel.org
+Reviewed-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
 
-I have a patch using __vmalloc_node_range() to allocate the 2nd veneer
-near the target, which seems to work fine, I'll post it later.
+Thanks,
 
-> > vmlinux text size > 128MB?
-> >
-> > The linker adds veneers for that case, but doesn't make them
-> > BTI-friendly unless GNU_PROPERTY_AARCH64_FEATURE_1_BTI is set on *all*
-> > .o files, which is not currently happening for .S files.
-> >
 > 
-> I think we should fix that.
+> Signed-off-by: Hongyan Xia <hongyan.xia@transsion.com>
+> ---
+>  arch/arm64/include/asm/preempt.h |  4 ++--
+>  arch/arm64/kernel/entry-common.c | 13 ++++---------
+>  2 files changed, 6 insertions(+), 11 deletions(-)
 > 
-> > And when I force that bit with "-z force-bti" on a 700MB text
-> > allyesconfig vmlinux with 22k linker-created veneers, it's crashes the
-> > GNU linker :-/
-> >
-> > Seems kernel BTI is borked all around...
+> diff --git a/arch/arm64/include/asm/preempt.h b/arch/arm64/include/asm/preempt.h
+> index 932ea4b62042..326f221c3f56 100644
+> --- a/arch/arm64/include/asm/preempt.h
+> +++ b/arch/arm64/include/asm/preempt.h
+> @@ -41,14 +41,14 @@ static inline bool test_preempt_need_resched(void)
+>  	return !current_thread_info()->preempt.need_resched;
+>  }
+>  
+> -static inline void __preempt_count_add(int val)
+> +static __always_inline void __preempt_count_add(int val)
+>  {
+>  	u32 pc = READ_ONCE(current_thread_info()->preempt.count);
+>  	pc += val;
+>  	WRITE_ONCE(current_thread_info()->preempt.count, pc);
+>  }
+>  
+> -static inline void __preempt_count_sub(int val)
+> +static __always_inline void __preempt_count_sub(int val)
+>  {
+>  	u32 pc = READ_ONCE(current_thread_info()->preempt.count);
+>  	pc -= val;
+> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
+> index ceb4eb11232a..d5c1d6defe29 100644
+> --- a/arch/arm64/kernel/entry-common.c
+> +++ b/arch/arm64/kernel/entry-common.c
+> @@ -292,20 +292,15 @@ static __always_inline void fpsimd_syscall_exit(void)
+>   * accidentally schedule in exception context and it will force a warning
+>   * if we somehow manage to schedule by accident.
+>   */
+> -static void debug_exception_enter(struct pt_regs *regs)
+> +static __always_inline void debug_exception_enter(struct pt_regs *regs)
+>  {
+> -	preempt_disable();
+> -
+> -	/* This code is a bit fragile.  Test it. */
+> -	RCU_LOCKDEP_WARN(!rcu_is_watching(), "exception_enter didn't work");
+> +	preempt_disable_notrace();
+>  }
+> -NOKPROBE_SYMBOL(debug_exception_enter);
+>  
+> -static void debug_exception_exit(struct pt_regs *regs)
+> +static __always_inline void debug_exception_exit(struct pt_regs *regs)
+>  {
+> -	preempt_enable_no_resched();
+> +	preempt_enable_no_resched_notrace();
+>  }
+> -NOKPROBE_SYMBOL(debug_exception_exit);
+>  
+>  UNHANDLED(el1t, 64, sync)
+>  UNHANDLED(el1t, 64, irq)
+> -- 
+> 2.47.3
 > 
-> allyesconfig is useful, but it is not a configuration that is expected
-> to boot successfully. But it certainly shouldn't crash the linker, so
-> this is something we should report to the binutils folks.
 
-Yeah, working on reporting that now, I have a couple of small
-reproducers.  The crash isn't specific to allyesconfig though.  It
-doesn't like the use of PROVIDE() in linker scripts, apparently...
 
 -- 
-Josh
+Masami Hiramatsu (Google) <mhiramat@kernel.org>
 
