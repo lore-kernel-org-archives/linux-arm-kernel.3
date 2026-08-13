@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86C0CC5CFEB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 14:41:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C56EFC5DF67
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 14:41:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zfgCd9JZmx1G3JenYZxMpetacJxXe9R/CJ7kBOkKzAo=; b=B2N1l14myQ2JTGsH427FbRcFZk
-	dBpinKuTGQ5Qwcrw2jeDRQjXXVKFOfCcNQM6Wcgv8FBkQFFbnA9G3eqaNba3AbaybquDoT9FWWtrM
-	D2SDGvW0sd0lSLuouHJ7fXEdg0lBOPUdQmfq06j8JbiqRi5l36henj60ahePckPH9Rpxdcz9eTTrY
-	DhjJftBcWZCjK7j7xsGGoV92eAuXyfvOpjPB3kyeHnfAjUFXzagJsgkrryqB+iQYfy1gZXPDdFZCG
-	DUyBUKR4xMEs3MXsNhAEArae90wl44Cmnqxzhetyjugldl73UMlVb+M24CJRd0p68VjIR8Au4qf5F
-	OwJOyw0Q==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4182N1qJg8wcsdY0I1VphGRMJvbBfDpbj3gNAH48eMo=; b=5AFKSRXkxd/OV+Wn26FBYk9ZYF
+	F8bb+PuwoGr6HknFOAGnlRsUl/6hKP9yM68+eSHi11GZYdlQqDgf/vqq+EJQAmbQFdJZspG2/iCDT
+	fMQeTekm/xysjs0xDwE81V6PeIVqylCPRAEVvSN9jwovMo6qVvfo9deUpbLM7SJKQcECF3VDbQG3o
+	IChQwtdO8VUgCaw0DxjBXt9i0zU1HxP+f8o2Pq72c/Q8jM5FF//oIYbm1P+Y0zbo+eQaK5rN3wSuT
+	KnEOclh9Lxg7d+v2P1GaezzUIelHIvjo2oDEZAKFqxCtzjIs0fb/ljJOwv2V8UA7/+z1jiGewo4yj
+	whURqQrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuWc4-00000000rLk-2P1S;
-	Thu, 13 Aug 2026 14:40:56 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1wuWc9-00000000rOO-0EyP;
+	Thu, 13 Aug 2026 14:41:01 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuWc2-00000000rJy-2Tex
+	id 1wuWc5-00000000rLO-02WC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 14:40:55 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-47f502ff678so239117f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 07:40:53 -0700 (PDT)
+	Thu, 13 Aug 2026 14:40:58 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-481595afa73so43295f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 07:40:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786632052; x=1787236852; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=zfgCd9JZmx1G3JenYZxMpetacJxXe9R/CJ7kBOkKzAo=;
-        b=cmk6WRa/WNX04NhZ1FVYDqoiFGYbm66RMqxEekirV6ei4jHJZzthhA2HXzBAGPKZvi
-         3FYBQ/67ia+T3cRS/qNlSnHOMICOutUBLNFGyMguXsvfMqu5CP77o/VCEPa2wIrd889t
-         cLvrbqPDqiq5Sfj9KlBlg72Ru5JlwgYLrJ47Tu7g75mGC6A5E7Nw6pfvBWy1MISgjEpe
-         zmNIDXxUygehCWbVdSZJvL8nsYWyqyVkiWqdouimPVqt2S+9BpsQomTe5cnQkSPVEgn2
-         vKd/5/euE5Gg3Q0VLh8RAC9DtEatRFOgkWheT9c8HmqGstRUF0nNJa0lNVmYROYRXIXa
-         O0Hw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786632052; x=1787236852;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1786632055; x=1787236855; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=zfgCd9JZmx1G3JenYZxMpetacJxXe9R/CJ7kBOkKzAo=;
-        b=WfEQB98EJSfe0XJS7EO82v4GvYj+ZOv1OqeCy5v8dLjar16BaRkcLMkqXLtRngZMeX
-         ete1khuCj5kKQFwHPySV4CfPnw7y+kq7L/bOxzLGZ1gQCgeCyAbvCr3PxmWoScynZFdK
-         zjMaLt+7mzt539wt++kUHdJAj8HjAE++H0YJb1e6p1ZvNYelC+LOLtIY1nCM8pT6e1Uo
-         4MrzlkyGhxwOuU/P9hP41vteGnrDfeMC7FSQH5kUGtJwuu0x0hMUaV5cqgwbKorHJZgc
-         WF4bPGBqGHebmu2TVE8DgjX6Mkwx7/Q8cP4mqhLlVgLOSvHi0uS5kZWiTxpeq/k8gc/Q
-         XQ7Q==
-X-Forwarded-Encrypted: i=1; AHgh+Rr2WE8l7y55jvLBMz37f+18xbZ/3uteqmcY6dC7Ew1qSHOWxQsNyABwFARGSCMLnR/a3BFhMdTm7aZuNvjYHvoD@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywqklq5kzgx3W1wDn2EOEdTtt+F2ZneoBdGBe1ii/5AUGxrh46I
-	JbB2TfjVzK7kOWf3767oMY0Gm5fwY6M/SPSvBPWMXN4N74qltgLpF76s
-X-Gm-Gg: AR+sD13QavOxLrY9EtcfukTzaOfm7B/ZmOR4sDR1a45R1d+1DMzzXFeR+rIiTtc2IfP
-	azr2DGcztkYfb8hLJubZpQGx5KYWZ3xfwQ27tyTVCoSVz2WJnW9+VW3V2L3+J5CAQnSHV/vqDbd
-	fUdwGwBqYC5y4eY3xfTPjZD2OTjYXpVawkFaWcdSLUTYAfYH4FJJulL2RDFvJJRn0Mt1NxJI3xe
-	ruy7ucdRauYNbyrhw/aPNPQOqmzG7D+HX8Df2BkUj+42dTLJwB2m2rPQUlImjdBHb+vfoK2KQnS
-	SYthwZabBFprU05XfCrn8lvOF0vQDjhAi2Dmcr9TdwzUNgVpI3thjcevWCqrdQIJbd7+LdfzfV+
-	mQ0OdDxTxJwuz/+Y93bpkjDI8cz5NqxerFq9s9DKphCHdxanmXpOsGZolY4XKvEPt2vQxYa9v9U
-	db9DLqg2YVBOXpn8T2yCgtFVgkZQONixhFSrAO6lURMDRrnxOHch9P6UEti27StH2QNSefIkTDg
-	cP3yaDi61KsNZ/CAXBJTBpczYtBYrfVPjiZwMc74aA/+K+Pja26B7Dx+h7uLBSRmSNXXvcpiyIt
-	slNr
-X-Received: by 2002:a05:600c:3ba2:b0:498:8e6:d463 with SMTP id 5b1f17b1804b1-49982617b0emr35862875e9.1.1786632052215;
-        Thu, 13 Aug 2026 07:40:52 -0700 (PDT)
+        bh=4182N1qJg8wcsdY0I1VphGRMJvbBfDpbj3gNAH48eMo=;
+        b=WDCNItftxIB39lQqMVQ92Ud7HaxYZnTjlClEUodUqbWjcN7AdZy1DcvL0lfr8jjpfL
+         nDdEOp1DOV1W6TV/4P75J7J7G2gtuAVjNLV5Q+1tl5yPaDU1bI0+smTKQzopX5N08KOM
+         co+ukoq3yhIIejO8oUz4lycoSoDDWHLla/7RUFPyl2PnZFyoCSTLH9sP9+oqdFnYCh9k
+         4sny52JDCnLXLpJbGcH70qHvq9BQ55jYLtHUF9QqINZ3bt8iFa0mgV0fQhgIM1wYzcNW
+         T+TnEWu5eGAIKFEN3uCifjwwO4RZwmMGtE7sj6TuoQyRcFVa40bTDMlW7C3dFyAvsTGm
+         j9wA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786632055; x=1787236855;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=4182N1qJg8wcsdY0I1VphGRMJvbBfDpbj3gNAH48eMo=;
+        b=WwkPBkJvJ+G7ZdKqVyJ18F/h9C+AtQAOcDyPW9z7a9BbAL+iBsgJyoqeqJEl2cZwnD
+         D29tLQlg+NvgNibkgke0LTweK8sOxlCE7ZO614tA8ScdOPlOTKJKRkQ69AomkYGNeBNP
+         4tB6WDwz7yc+a5X9nDn+loHbwYpZ68RrZH3NpV9JWp9NNUv6rnJTKm4bZH38XJA5HCUs
+         rJEKb4qbEf4bf7h6DAEdZ8MEm2PZPFD/il0RsmZ4seWRetEJXz5SUJzelNYgAzuup1/U
+         XLRuguZxWYQ/UuBLYFP9GhsGyaSaNvVvr2kVPCZ4QAwuwzVhIf54eXMdkMp/3nYE4f/g
+         8Xdg==
+X-Forwarded-Encrypted: i=1; AHgh+Ro54Lh3V9cY3Sg+EFR8TlpsUMopDNSgF+mTkVSThO1xs4iFr/UPtifQ+8W9lOAOvmGPjZI+n6AZ+wV16G3sDFum@lists.infradead.org
+X-Gm-Message-State: AOJu0YyXDyxCJvb1GHGFTvu6AplehwCVLt6/xb7YYMZQZ2h20h79pr1L
+	h+7Mn6THOhJw9TH9apGABeV++9GFm7xlaC9O1OtQk4PNt0z1m6JLP76R
+X-Gm-Gg: AR+sD12TpgsmsXeV+mL02e0zoDLaNa6OjFq1bZcl6ntRmk4tqDgAlcoCoc7/bNLl8ud
+	oJqUudXrEUNCHTNY77YiOS8U7TajduaYBPuT6Hzcv4ucZtGThHCbNQlyoGeTNRNIlpMc8DdmzdD
+	MkYJV27cXrICtCL7mbGHZ2HpayM5JEAqZ1zg+suPb2pMs9PCZYuJsgsV+FkV3Tk4eykE6QfB5Kh
+	dVdfrwEQ38JCMVX/5LuQUXG0fe4AdQFwP6gY6jytCgmzK9fHml+QNHsYI20RqrJWnKTGewVvmyS
+	cS6H+ZBKUBcknnVVYJmhGtZDZsqGw3TlrGxK2lOtGjBFJi92j6t6eN1qOrGodsQtrWbT8UgyP4A
+	qdrNtTR9cgNh2hV5aSnakWr+yvJqcGjOsamuMIYmxFaizPCY26OvnCWy9vuSbFHZ6sqlzRO7B1p
+	+Qvtb1XiCSVHJ+lcyUY8MXq0uNOIx/Qe3U6oYpZaXD5bffgkL6QeWQJaRCaYFOUUv15luzrzq/O
+	B2nzhSSepEI+JnARs+7pPofI/vM7kX0uxttXD+yWSFWxZLN2VJD1SSU7khJRg10sky7Kw==
+X-Received: by 2002:a05:600c:4513:b0:499:5b0f:72b with SMTP id 5b1f17b1804b1-499821aa11emr43142705e9.1.1786632055178;
+        Thu, 13 Aug 2026 07:40:55 -0700 (PDT)
 Received: from OrangePi5-Plus.BB-HOME (20014C4E1B911C00AE6C52CFC8961284.dsl.pool.telekom.hu. [2001:4c4e:1b91:1c00:ae6c:52cf:c896:1284])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49981b58700sm66426445e9.9.2026.08.13.07.40.50
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49981b58700sm66426445e9.9.2026.08.13.07.40.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Aug 2026 07:40:51 -0700 (PDT)
+        Thu, 13 Aug 2026 07:40:54 -0700 (PDT)
 From: Igor Paunovic <royalnet026@gmail.com>
 To: Sandy Huang <hjc@rock-chips.com>,
 	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
@@ -87,15 +87,17 @@ Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Igor Paunovic <royalnet026@gmail.com>
-Subject: [PATCH 0/2] drm/rockchip: Add missing DRM_BRIDGE_CONNECTOR selects
-Date: Thu, 13 Aug 2026 16:40:17 +0200
-Message-ID: <20260813144019.12089-1-royalnet026@gmail.com>
+Subject: [PATCH 2/2] drm/rockchip: rk3066_hdmi: Add missing Kconfig selects
+Date: Thu, 13 Aug 2026 16:40:19 +0200
+Message-ID: <20260813144019.12089-3-royalnet026@gmail.com>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260813144019.12089-1-royalnet026@gmail.com>
+References: <20260813144019.12089-1-royalnet026@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_074054_635532_17452FD0 
-X-CRM114-Status: GOOD (  11.12  )
+X-CRM114-CacheID: sfid-20260813_074057_069871_9D3E9DCD 
+X-CRM114-Status: GOOD (  11.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,42 +112,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-While testing the dw-dp v11 series I noticed that ROCKCHIP_DW_DP does
-not select DRM_BRIDGE_CONNECTOR although dw_dp-rockchip.c calls
-drm_bridge_connector_init(), and Sebastian suggested handling this
-independently of that series [1].
+rk3066_hdmi.c calls drm_bridge_connector_init(), but
+ROCKCHIP_RK3066_HDMI selects neither DRM_BRIDGE_CONNECTOR nor
+DRM_DISPLAY_HELPER, whose module carries the bridge-connector code. A
+configuration with ROCKCHIP_RK3066_HDMI as the only enabled Rockchip
+output option fails to link:
 
-The ROCKCHIP_DW_DP gap was in fact found before: Marius Dinu posted
-the same one-liner in March [2] and dropped it when the failure
-stopped reproducing in his build. The failure is
-configuration-dependent - any other enabled option that selects
-DRM_BRIDGE_CONNECTOR masks it - so it can come and go with unrelated
-config changes. It still reproduces on current drm-misc-next.
+  aarch64-linux-gnu-ld: drivers/gpu/drm/rockchip/rk3066_hdmi.o: in function `rk3066_hdmi_bind':
+  rk3066_hdmi.c:(.text+0x7a4): undefined reference to `drm_bridge_connector_init'
+  aarch64-linux-gnu-ld: drivers/gpu/drm/rockchip/rk3066_hdmi.o: in function `rk3066_hdmi_bridge_atomic_enable':
+  rk3066_hdmi.c:(.text+0xe74): undefined reference to `drm_atomic_helper_connector_hdmi_update_infoframes'
 
-A sweep over drivers/gpu/drm/rockchip found eight callers of
-drm_bridge_connector_init(). Five options already select it,
-ROCKCHIP_INNO_HDMI gets it through its DRM_INNO_HDMI core option, and
-two are left with a latent link failure: ROCKCHIP_DW_DP and
-ROCKCHIP_RK3066_HDMI. The rk3066 case additionally needs
-DRM_DISPLAY_HELPER, whose module carries the bridge-connector code.
+Select both, like ROCKCHIP_CDN_DP, ROCKCHIP_LVDS and ROCKCHIP_RGB do.
+DRM_BRIDGE_CONNECTOR in turn selects DRM_DISPLAY_HDMI_STATE_HELPER,
+which resolves the second symbol.
 
-Both failures were reproduced on drm-misc-next (d85a5e9dfb42) with an
-arm64 allnoconfig-based configuration enabling only DRM_ROCKCHIP plus
-the option in question; with the fixes applied both configurations
-link cleanly, and an arm64 defconfig re-run shows no new Kconfig
-warnings. Both issues are present in released kernels: the rk3066 one
-since v6.16, the dw_dp one since v6.18.
+Fixes: 57d6811e8a6d ("drm/rockchip: rk3066_hdmi: switch to drm bridge")
+Signed-off-by: Igor Paunovic <royalnet026@gmail.com>
+---
+ drivers/gpu/drm/rockchip/Kconfig | 2 ++
+ 1 file changed, 2 insertions(+)
 
-[1] https://lore.kernel.org/r/aneNCDU12OzG99UX@venus
-[2] https://lore.kernel.org/r/20260319155051.1944-1-m95d+git@psihoexpert.ro
-
-Igor Paunovic (2):
-  drm/rockchip: dw_dp: Select DRM_BRIDGE_CONNECTOR
-  drm/rockchip: rk3066_hdmi: Add missing Kconfig selects
-
- drivers/gpu/drm/rockchip/Kconfig | 3 +++
- 1 file changed, 3 insertions(+)
-
+diff --git a/drivers/gpu/drm/rockchip/Kconfig b/drivers/gpu/drm/rockchip/Kconfig
+index 697c0748eeca..4e58685f58ff 100644
+--- a/drivers/gpu/drm/rockchip/Kconfig
++++ b/drivers/gpu/drm/rockchip/Kconfig
+@@ -146,6 +146,8 @@ config ROCKCHIP_RGB
+ config ROCKCHIP_RK3066_HDMI
+ 	bool "Rockchip specific extensions for RK3066 HDMI"
+ 	depends on DRM_ROCKCHIP
++	select DRM_DISPLAY_HELPER
++	select DRM_BRIDGE_CONNECTOR
+ 	help
+ 	  This selects support for Rockchip SoC specific extensions
+ 	  for the RK3066 HDMI driver. If you want to enable
 -- 
 2.43.0
 
