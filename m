@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A463AC5B572
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB27BC5DF64
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 06:50:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,57 +12,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LYDW+ngw5qRURlwX89PvvWJBIbVdW4n1IuPbDPKQw08=; b=oi+yW6DKm3B0FM/xLmgslyXhB8
-	06RRmmHiRfKccLWe+Yma9TSNQ/WGKUePMTMGWfCPV4LRPUdO+Qb19aDmonMQKM1dP9A4ev0bO/aGr
-	LfNCJ00dDrH36poX5bBQF2tBwEx1VjMYZUMDQzQPdPI6nUxeiQqilmvLrZ5eEbdiwHYy/RVYW29Y2
-	If00OfELbUi+d1jaMGDI5Oc5bvA90jxULSmticHoFw/GWM4cSW9YjEbaz7Dro2qwIgy/TlGeOS6tV
-	jU/GzUyx5T7df6R3ZVOhg8EObJ6xUwQQ8pfv7rNfNf7i61aDq7hXSY41e+YNjgcQEsSCWkzSj3oly
-	yRot29ZA==;
+	bh=esRaKPAk94c43Je7PkJfvEjqoEjhDmofNT29Loe5z14=; b=SrTI5F0J7MfZsThVtjUuQXznJp
+	RSbaRG3V4mhVM1WKXqHEYuU+7VbLUlWi0XEkCBtrdu10MhmzbA4GcLy+vNpXvtOD9vyUMjLtsOPGu
+	UQkwiNXyTAn7cK91K4TmRJqMoxCJHVziCa4OR7n3bcBN9RfIK4b3FnxBuOSX3Xz53H2LhVTAh6g/Z
+	Wsr42xmmRTsJl7qGGoXpYgmGHqCQ60hsANZw6IIeSjnp9DRO47zbuGkwqbZCVHMsAupwYtPLhW2qW
+	22Sm/1YSprKRymkEO3VqYTpAdbuTDf+VKXflZRnl5wD+/eyo0hDXDB6H+h0Xd9fevIg/3c9PRiKsi
+	A5JaCSnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuPGO-0000000HWMf-3Bp8;
+	id 1wuPGO-0000000HWMt-3jgK;
 	Thu, 13 Aug 2026 06:50:04 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuPGA-0000000HWG1-2dIo
+	id 1wuPGB-0000000HWGL-1JNy
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 06:49:50 +0000
+	Thu, 13 Aug 2026 06:49:51 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id DE983600DA;
-	Thu, 13 Aug 2026 06:49:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66AD71F00ACF;
-	Thu, 13 Aug 2026 06:49:49 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C0567601E0;
+	Thu, 13 Aug 2026 06:49:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 463CE1F00A3D;
+	Thu, 13 Aug 2026 06:49:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786603789;
-	bh=LYDW+ngw5qRURlwX89PvvWJBIbVdW4n1IuPbDPKQw08=;
+	s=k20260515; t=1786603790;
+	bh=esRaKPAk94c43Je7PkJfvEjqoEjhDmofNT29Loe5z14=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=X6LWYWU+mWJ/If0/MpTS3wczw7IetQ4Xv2cKzyEVUbexBH+NPMYJW0O1yBiBkP5+H
-	 nPIIn1j9s0vvCg3JePdyx8+hER1RYRLUIL6JemlzVZyxjsgWYQU8yrZfBNizmNRQ/w
-	 IaaJsGk4vejpA7Q8uXsVKPlVfcAAmbMBq3bwi8cx9f3qPVucqtfJ/dZE2w5dNTfHFC
-	 NPdxNan+TgHT/LW0aelb6bHzquuR+XJJLN/59tmNflDvqIFIIUdWC+3wl+OOCPOpKm
-	 JzDl03iGXahQNLHNECBPbW4pqq5aNF3k6SlN1kHBGOqsNMVVikMLBq02HgJkNzjuDq
-	 O6Gag3y1wmUlg==
+	b=Fh+xHKiJ+qhl6KNCpr9Fxozjyvb/TsRlLgJ42ijX0PPy4dmnqy7DGhz3NvGNzJg19
+	 3shrRKC49w1YaFq/fwN7JMrgfHE2cUILaaFgaQLdfgJH8Szlf2lKwjA1vvcnZfvPKU
+	 qTUK4ey9Y/0kf8hk0ocyQtyMJksxtvkY5z2ofyG8Vu0U42XqnzthhJUKJ4aQqUYDfv
+	 fbWtTNLJzWk2NVmHw2LrO/JPvXTDA+9fBMrJCHwIMSfLkPKFHig4WtfFAHMiD3QsQc
+	 H3yJ97gYNLp1uUI3i0fur2VGEtGiXGAQHyMVorrJuA6nuI8l1CSiG6KSgbmu3FJcol
+	 SzNeBG6NWrL6w==
 From: Oliver Upton <oupton@kernel.org>
-To: Marc Zyngier <maz@kernel.org>,
-	Karl Mehltretter <kmehltretter@gmail.com>
-Cc: Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
+To: maz@kernel.org,
 	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v2] KVM: arm64: GICv2: Don't WARN on out-of-range GICV_DIR INTID
-Date: Wed, 12 Aug 2026 23:49:43 -0700
-Message-ID: <178660378177.666424.79190290228047804.b4-ty@kernel.org>
+	linux-arm-kernel@lists.infradead.org,
+	Vincent Donnefort <vdonnefort@google.com>
+Cc: Oliver Upton <oupton@kernel.org>,
+	joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	kernel-team@android.com,
+	fuad.tabba@linux.dev,
+	qperret@google.com
+Subject: Re: [PATCH v2] KVM: arm64: Drop %pB on nVHE panic when stage-2 is active
+Date: Wed, 12 Aug 2026 23:49:46 -0700
+Message-ID: <178660378182.666424.15304247402418505023.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260726174803.5880-1-kmehltretter@gmail.com>
-References: <20260726174803.5880-1-kmehltretter@gmail.com>
+In-Reply-To: <20260803093906.3531699-1-vdonnefort@google.com>
+References: <20260803093906.3531699-1-vdonnefort@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -80,23 +80,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 26 Jul 2026 19:48:03 +0200, Karl Mehltretter wrote:
-> vgic_v2_deactivate() passes the INTID a guest wrote to GICV_DIR straight
-> to vgic_get_vcpu_irq(), and treats a failed lookup as a "can't happen"
-> condition with WARN_ON_ONCE().
+On Mon, 03 Aug 2026 10:39:06 +0100, Vincent Donnefort wrote:
+> With pKVM, the host stage-2 is lazily mapped. kallsyms, accessed via
+> the modifier %pB is therefore potentially unmapped. If the hyp panic
+> occurred while the host stage-2 lock was held, handling this fault
+> deadlocks.
 > 
-> The guest can make it happen at will, though: for any INTID outside of
-> the implemented SGI, PPI and SPI ranges the lookup returns NULL, since
-> GICv2 has no LPIs. A guest running with EOImode==1 writing such an INTID
-> to GICV_DIR triggers the WARN, and panics hosts running with
-> panic_on_warn.
+> Skip %pB formatting unless the host stage-2 is disabled.
 > 
 > [...]
 
 Applied to next, thanks!
 
-[1/1] KVM: arm64: GICv2: Don't WARN on out-of-range GICV_DIR INTID
-      https://git.kernel.org/kvmarm/kvmarm/c/c6d9c8ac6521
+[1/1] KVM: arm64: Drop %pB on nVHE panic when stage-2 is active
+      https://git.kernel.org/kvmarm/kvmarm/c/2ad524c5e257
 
 --
 Best,
