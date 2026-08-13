@@ -4,108 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 831CDC5CFEB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 13:45:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 555E0C5DF66
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 13:45:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
+	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
+	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9+HPC3+AUFbQ7Y0T+7bHOfa1aSDywdsqW2vFh63jDrA=; b=PUduxvrIkrtfuKIjJkgfph7cBR
-	XF6E9vTTwuiIEbhjdmM+aDIifkVpM7QbsCLBGgM12JWw+nFuGG/OE33XSbiZXz160p5alp3yKzwOV
-	CnS8vBRsBWK4hUSICMVXoYgGUdBJA3ePBO25wReW/nUMyTQpkINLa0R/KYMoTnSR2WpclWObK8Zdb
-	7uViq1WSFL4QOCZq35dwSLy/PUTFC2FcBZPs5W0GUZXheb9mbqx4aRHcGwCQial0fXlTJi9jkkSTg
-	QkSVnRVImBNPUB1fT4g0YybFqQRAhlYdFpc9tna4t4ZWslVTTyiHLE+8X6sbX0cVqYssfQ9C29FT7
-	kk4qSg5w==;
+	bh=1cPfZ/bD6Z97U49M2447wQA3NGD5B4htgMrzWxyPoww=; b=lvYHoU55SpetVimJcHEGhxcrnp
+	ZqO1sCzV73HSMASafwE0eByV3/Wp5ow5M4sotcQZwP6CU4g+5iyyPR6UvDY6NF/ucoWESo93zP/T1
+	zY0lID/nBbxh1TMv5vZEKJWDXuzbine0xIbV2T1qCbHLGEBIJRcTF68PRb5B78j1SI5ywASRFO1dJ
+	qwdWo0wPO4uS83ImO5YRsP532iagN2kt4HI6GCbYmzZlnkNLK0lS8XIDM3u4jgBypoGaRW+qHogp4
+	5fb7Cvs8uZZlOkDI0PgHYxvlRTR0lDP2L+u7LHzAHiLcJwh+YN5Q/Aod8kDkFI4zl5TX8rja+Gyqb
+	HFK++vZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuVk2-00000000mAS-1yaK;
-	Thu, 13 Aug 2026 13:45:06 +0000
-Received: from mail-qt1-x82c.google.com ([2607:f8b0:4864:20::82c])
+	id 1wuVk7-00000000mD6-2pGi;
+	Thu, 13 Aug 2026 13:45:11 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuVk0-00000000m9V-0XPR
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 13:45:05 +0000
-Received: by mail-qt1-x82c.google.com with SMTP id d75a77b69052e-51c15a5b265so237641cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 06:45:02 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1786628702; cv=none;
-        d=google.com; s=arc-20260327;
-        b=JhvenRfAQ8PwFSZvP5lUqBAnDq20TvTh0MgbZsjnGLceLgdBl1UgRekR/qAQtbxknR
-         vZqpKC1Vca8cTCs5NtTmSkBPa8W54cXs81Vu/ET8NYDwHRE0sguqUCG204SMS1DlsUzg
-         bJrvVfnHKHIPsPHqyQQCP6TBjClBect2G8lpkuzaixal3oDFfZNBy1HN97gH8T+dXCpD
-         nCxcTsDzNsdzvKyMUUb1oeAde9i7gmStmUhsdWL9G0heWk6nT9BQa2ojAMbTppcvr/cw
-         mXfwVL/51cfg3LrYaIja7jNIYDJDiV2pXsDGZcgm97geYc8I/3uErY55FcVTD1ByAap0
-         FvDw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=9+HPC3+AUFbQ7Y0T+7bHOfa1aSDywdsqW2vFh63jDrA=;
-        fh=UkJLm/zqZRJDLb+kfdiP0K17dviRxpEBkSvivoknrAQ=;
-        b=qT7Cjbblr8VEUVrLQRGH+meibletVozPIX0xpPRq1TtUmMBlK09T6RUWu/ngrM/000
-         3gLmzVpcG1z5LweNau8T0EIyyFhJatROG0R8c6H4TgCf1FhaC58aBZAxx46Ye9GEUUOG
-         KIj+Ddkoo+KNO2UHYxvvn6/I0/D4o0u/U5gEO8gGIUeT6Tp5RZYuTWyYsjbqS1ChOl+E
-         FXr5RyJvdQLr03vfMP+fusbYwZ5BqxIIJ8PwkZZPTL4byUpbxZTNUr0Hftad967ef0MI
-         DCJGkx7iEMmd5PP1MedmFFEWUvzEiMBxSm87v8Dm3T0PZ8QwmcUPqozJPQDoRuRukxpj
-         jSNg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1786628702; x=1787233502; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=9+HPC3+AUFbQ7Y0T+7bHOfa1aSDywdsqW2vFh63jDrA=;
-        b=aMGMlUDjB8CEOPdu9dLxck2aH/IvUJPlQ5UQqhuzc+dnh15zWo3yLIk/eygXkJK7Ng
-         WGF08VNOhDteVziHAG6eyW9MtoKwlEYILjPpi2SJnkAdulbgCPralc3rTLdkh8M62sQR
-         if9Lbq1ZcsoOimmLo7bxiYYvbB7ZO56Q+X6xWj0uJV2qUzmf1+nUs/7WDA7IJ2N6xQN2
-         jPvqThayTIO+EmNHm0je7ajll4LGGrNqLx3IDpBUDGQyM5qp0ps01K/hhDO8e+4xONKP
-         MA3aMr2D2dMWrcpEnUyx4xoSYC1ec6/i3GOKWiIfm5zdCdzaoIPCwWdWE/bgNhoyHpRX
-         aDGw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786628702; x=1787233502;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=9+HPC3+AUFbQ7Y0T+7bHOfa1aSDywdsqW2vFh63jDrA=;
-        b=gv9WypNqdicJIg5U/uDjwX/jluxp/OXG2KScRdY/t7QcBvHWwbqmM+WszI0tYTvVDR
-         x9beK6j3E61+9W9y/gOb+6/JpST+pghAioYreTjECaYUCmgEl/k4o59igRutBvoqQZAV
-         /xI/Uv+nJB0ohF67p+clvuWzxjEDXdEsvVbhwZpLehgT4EdRnHjLr8xwD3d/sDYW/EW4
-         jna0u3lCm1RVW2X4wpE780A7xE7I6YtpVL/HvHQzRneDTGCoBbZDesPgMjQVk5CobRQ4
-         uhQT4h+o9QACuQ+Xi/TV/iVvOXnQMXR/Krs2v0sEaBhKFblhOHQbVyHo4eqA0+wi6aX0
-         +iRg==
-X-Forwarded-Encrypted: i=1; AHgh+RqyPj6MYGQldw3nVNNSKmzwLPELNg/IXQhaTXv3FV0x+YYD/47Y9OQcY9BWZbMS7LeujiIY/IETQQT5frQrJ+mN@lists.infradead.org
-X-Gm-Message-State: AOJu0YyDHi12mqwJQoPODIR1Ozm/z/rQUjOm7e3hJimahNpSyAAgYyBl
-	2lmZCKY/cHDP4T6u4ExMEDWsKcdLAI6E4yXZpYqrJ7mvbTOQIC3Sd2bl4TbqMe1YY8o9KEzgqIp
-	9VSz1R9rd0G9xZRrhF+eJF627pvPYGNqS13KM1rka
-X-Gm-Gg: AR+sD13g/UaUgvKWV3iwcZASfnhY6sHvTg+aYKgcQv11LdTmyc/S3ADJwndMdbC7bbM
-	+v51fKKqo/Z8/1aT1MZ0hAhP/GNRr2YXg7nRGKQOvaJxtEXZL2GvUngaVkG0UMiVw0ImPO8Aq9a
-	bwS0K4R7owm3CotHwXtULCx+dEJE2OL/kMWgKhW1lS+Y6IFxyEKOkT5TaYsQBalcoNCK7thmlsG
-	xMYfkHoLiEqk3OmkgZ4sVWpmvMlTETQN6XaV53uv9m1b1XJRsL+kRSu0sGsN8SFFOxT5xY0ftff
-	sO97zaz7r/+fxr06047wq89ympvlYsRtvVBtWjNtzHO1Ig==
-X-Received: by 2002:a05:622a:1341:b0:516:ccc0:ee38 with SMTP id
- d75a77b69052e-52d76df7793mr2133191cf.9.1786628701050; Thu, 13 Aug 2026
- 06:45:01 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260812002728.2283079-1-irogers@google.com> <20260812052417.2361040-1-irogers@google.com>
- <anwuYYxLFbtDmmHx@willie-the-truck> <CAP-5=fW9bH_yd2VF+X1jnem91+dOHPjP53uNQ8x69xFmjLbt4g@mail.gmail.com>
- <an2DHgfQsQ6TOF44@willie-the-truck>
-In-Reply-To: <an2DHgfQsQ6TOF44@willie-the-truck>
-From: Ian Rogers <irogers@google.com>
-Date: Thu, 13 Aug 2026 06:44:48 -0700
-X-Gm-Features: AUfX_my-v7duLndJmy2k7kBJAwkUqkIybxSl67HmWKvBg4-_7qLXe33jwdYgudA
-Message-ID: <CAP-5=fVOzmzxO2X4+r9goRxtwtWqdR15kPBP9ApSjuP2u6p7Cw@mail.gmail.com>
-Subject: Re: [PATCH v4 0/2] perf: Add Raspberry Pi AXI PMU driver
-To: Will Deacon <will@kernel.org>
-Cc: linux-perf-users@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	mark.rutland@arm.com, u.kleine-koenig@baylibre.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_064504_172159_3A83E0EC 
-X-CRM114-Status: GOOD (  41.39  )
+	id 1wuVk4-00000000mBR-1kle;
+	Thu, 13 Aug 2026 13:45:08 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 00E8E43901;
+	Thu, 13 Aug 2026 13:45:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A92E1F000E9;
+	Thu, 13 Aug 2026 13:45:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786628707;
+	bh=1cPfZ/bD6Z97U49M2447wQA3NGD5B4htgMrzWxyPoww=;
+	h=Date:From:To:Subject:In-Reply-To:References:Cc;
+	b=K3Df+RbxgUm4SC4zm2ucVvCWGJb4vf72uz1aaayTkRQLpcuRSaIxkrfB1HWAWHg9O
+	 KXPhhHayTkqgGtzOC+gz6MRLRF28zAbJpu5N+voo0Gc2inVoIxiE73icOIDPVNDWSH
+	 BigmAUhsF6ptF2TXs5v06LgwMI2rntR79vwvugIgCkUilf6eDVr5ulWnaP+lSjQOC7
+	 SO7lIlNqXmsy2O4mempnYH9iSC/NZtjrMRvD0s0APhlTd6Akl9OKSup8DvxVxTJlEr
+	 dbyccZe+HL4GEekw+YL7JFSybSDyS2NgZ+VDibBSzz/s8alxSz4/lZ7gZ482/hAqtH
+	 7Se2Mw53nZG3A==
+Message-ID: <b4902134934e37aaa9b8c0c332324e2e@kernel.org>
+Date: Thu, 13 Aug 2026 13:45:05 +0000
+From: "Maxime Ripard" <mripard@kernel.org>
+To: "Cristian Ciocaltea" <cristian.ciocaltea@collabora.com>
+Subject: Re: [PATCH v10 02/69] drm/connector: hdmi: Handle reset() state
+ allocation failure
+In-Reply-To: <20260731-dw-hdmi-qp-scramb-v10-2-294364b2cf15@collabora.com>
+References: <20260731-dw-hdmi-qp-scramb-v10-2-294364b2cf15@collabora.com>
+Cc: dri-devel@lists.freedesktop.org, kernel@collabora.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev, "Algea
+ Cao" <algea.cao@rock-chips.com>, "Andrzej Hajda" <andrzej.hajda@intel.com>, "Andy
+ Yan" <andy.yan@rock-chips.com>, "Chen-Yu Tsai" <wens@kernel.org>, "Daniel
+ Stone" <daniels@collabora.com>, "Dave Stevenson" <dave.stevenson@raspberrypi.com>, "David
+ Airlie" <airlied@gmail.com>, =?utf-8?b?SGVpa28gU3TDvGJuZXI=?= <heiko@sntech.de>, "Jernej
+ Skrabec" <jernej.skrabec@gmail.com>, "Jonas Karlman" <jonas@kwiboo.se>, "Laurent
+ Pinchart" <Laurent.pinchart@ideasonboard.com>, "Liu Ying" <victor.liu@nxp.com>, "Luca
+ Ceresoli" <luca.ceresoli@bootlin.com>, "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime
+ Ripard" <mripard@kernel.org>, =?utf-8?b?TWHDrXJhIENhbmFs?= <mcanal@igalia.com>, "Neil
+ Armstrong" <neil.armstrong@linaro.org>, "Phong LE" <ple@baylibre.com>, "Raspberry
+ Pi Kernel Maintenance" <kernel-list@raspberrypi.com>, "Robert Foss" <rfoss@kernel.org>, "Samuel
+ Holland" <samuel@sholland.org>, "Sandy Huang" <hjc@rock-chips.com>, Sashiko <sashiko-bot@kernel.org>, "Simona
+ Vetter" <simona@ffwll.ch>, "Thomas Zimmermann" <tzimmermann@suse.de>
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,92 +77,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 13, 2026 at 1:41=E2=80=AFAM Will Deacon <will@kernel.org> wrote=
-:
->
-> On Wed, Aug 12, 2026 at 06:38:24AM -0700, Ian Rogers wrote:
-> > On Wed, Aug 12, 2026 at 1:27=E2=80=AFAM Will Deacon <will@kernel.org> w=
-rote:
-> > >
-> > > On Tue, Aug 11, 2026 at 10:24:15PM -0700, Ian Rogers wrote:
-> > > > This patch series adds an uncore Performance Monitoring Unit (PMU) =
-driver
-> > > > for Broadcom AXI system and VideoCore VPU performance monitors foun=
-d on
-> > > > Raspberry Pi SoCs (BCM2835 through BCM2712 / Raspberry Pi 1 through=
- 5).
-> > >
-> > > Why are you sending four versions of this patch series, at -rc7, each=
- in
-> > > reply to the previous one? Nobody is going to review that.
-> >
-> > See the cover letter for changes. They address the sashiko reviews,
-> > you may not see these reviews as they are only sent to me and
-> > linux-perf-users, which is somewhat customary in the sashiko setup.
->
-> Have you considered running Sashiko locally given that you work at Google=
-?
+On Fri, 31 Jul 2026 19:19:09 +0300, Cristian Ciocaltea wrote:
+> In drmm_connector_hdmi_init(), if the reset callback fails to allocate
+> memory, e.g. inside drm_atomic_helper_connector_reset(),
+> connector->state will remain NULL.  This is unconditionally passed to
+> drm_connector_attach_max_bpc_property(), leading to a NULL pointer
+> dereference.
+> 
+> [ ... ]
 
-Yes I do. If you look at the changes you will notice that more issues
-are being resolved per version than the issues raised by Sashiko.
-Unfortunately, factors like the model, context window and just the
-inherent non-determinism of AI mean that AI reviews generate a
-firehose of suggestions that you can't reproduce either remotely or
-locally.
+Reviewed-by: Maxime Ripard <mripard@kernel.org>
 
-> > I don't see any relevance in rc7, I'm just mailing out a new driver
-> > now that I have the opportunity to look at it. Whether and when it
-> > gets pulled upstream is up to a maintainer.
->
-> Right, as the maintainer for drivers/perf/ and I'm just asking you to
-> slow down a bit. I don't need 10 versions of a patch series in two days
-> when I'm focussed almost entirely on the upcoming merge window, which
-> this is too late for. You should read
-> Documentation/process/submitting-patches.rst which states:
->
->   | Wait for a minimum of one week before resubmitting
-
-That's not what it says:
-https://www.kernel.org/doc/Documentation/process/submitting-patches.rst
-"""
-Once upon a time, patches used to disappear into the void without comment,
-but the development process works more smoothly than that now.  You should
-receive comments within a few weeks (typically 2-3); if that does not
-happen, make sure that you have sent your patches to the right place.
-Wait for a minimum of one week before resubmitting or pinging reviewers
-- possibly longer during busy times like merge windows.
-"""
-
-That discusses pinging or resending the same patch version. It also
-lacks language around AI reviews where a response in less than an hour
-is now the norm, but anyway. Spending 3 months on this series would be
-ridiculous.
-
-> > The changes are sent in reply to each other because the entire series
-> > is visible in one mailbox (b4 mbox), which I find easier to work with
-> > and provides me better context. Others use semcode to do something
-> > similar, but I've not explored that.
->
-> Unfortunately, this tends to confuse b4 when applying the patches and
-> makes it really hard to manage on the maintainers' side. I think this
-> is also documented in Documentation/process/submitting-patches.rst so
-> please do what everybody else does.
-
-I work with b4 without issue using this approach.
-
-> > Let me know if I should drop you from the cc, I placed you there as
-> > Mark and you were the only suggested reviewers from
-> > scripts/get_maintainer.pl but I don't want to spam uninterested
-> > people.
->
-> It depends if you want the patches merged...
->
-> For now, I'm ctrl+d'ing the thread.
-
-Tbh, this seems to be a theme so I'm not surprised. I guess thank you
-for noticing I sent a patch.
-
-Ian
-
-> Will
+Thanks!
+Maxime
 
