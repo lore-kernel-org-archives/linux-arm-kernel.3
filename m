@@ -4,66 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E347C5AC67
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 05:45:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B806C5AC67
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 05:58:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PZARLK//mxzBm5+oVQwAyaOB1/sFHwMbhqQJ5pXDXaA=; b=jZcSm2M+ympNMhUmsxfq7JR8WJ
-	XyKqUecBvemwS08jgS5wK73A6uWZqi/jGOY/WkanRsJRJap38gA0xLyN0gxXVcjY3Ov+EYY3RCkqb
-	baMwglJqIp3t+0AUI+uIlOypKsgcgiakneqJEidol+My/r9q/DHI4k4SA4hFxF07N9+pSDld5Qblr
-	dtYVJRnIRkH25v82vnDFvVmkkF+YOl5r9b49RXz15xyrxmoh4wfCvocGvooS+BzPQ59AEKGhMVowN
-	Wpi2jTpMuyjgsBXIPBqIoqsuAWZYx8m1B8XF+ZPsRbSxNGFbi5xgUEUQCDlKws2gxLap2fLRQn5x/
-	eZ2Wlqjg==;
+	bh=+7PeLXe+ue8rItbBi6+JlGfhsV/36WDiPAKPGI7m+do=; b=3ZPV9N6+orUQcmq0SroIunubIq
+	CcCgSCjpKpwsgEiGA5q3/ro+a1AHWRm4lqyv9UTvPDnWG4a+vWQzzxvFOf23w/+tZJkxMijfWCSEZ
+	QnhuWTWqAcmGF5LoB1NSrxk3W+dZLYZK5NexGArcN9A3cgfBbDNjkb0dwehanuSeChrRhD1Y+QMVK
+	S2rVtwdJBa5EFwSqVDBJf0MXFa3rD7OWneLVatq/FrJU57Jj8ND9n9Q7FlO4Pks1QZSlQK8cyFCrn
+	2AzwJv0LwY2Ohb1GzKzLwKqTT4A0X2kNxU004JaMThRCiNxrbAXIjZBC1JTRdzJVYZmOl+7LoP709
+	k5LL7WZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuOFL-0000000HRPV-0wcp;
-	Thu, 13 Aug 2026 05:44:55 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuOFI-0000000HROT-2xXs;
-	Thu, 13 Aug 2026 05:44:54 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 708381516;
-	Wed, 12 Aug 2026 22:44:47 -0700 (PDT)
-Received: from localhost (a085714.arm.com [10.164.19.28])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A22393F673;
-	Wed, 12 Aug 2026 22:44:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786599891; bh=CoIN6guADWC+zDyPfhFO/S+t2cXcLfG3khdmtOUCkug=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=anxqrjk0iLjQHV3BgBtB7FofiyVfbzxU/TOQyrqfHVrE3KY34mv1wfvSAdfZk8k+b
-	 NqfdwWG4Em+MP9I5C6wmSIbC3ZhVt828UvY5voXcU42QX/ayulcSospBc/5SlZ/BEt
-	 dTzsVhGl1W0qDqm43doqgOf533QinHxqjz/j8G+o=
-Date: Thu, 13 Aug 2026 11:14:48 +0530
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: linux-mm@kvack.org, akpm@linux-foundation.org, 
-	Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, 
-	Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>, 
-	WANG Xuerui <kernel@xen0n.name>, linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org, 
-	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
-	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, linux-sh@vger.kernel.org, 
-	sparclinux@vger.kernel.org, linux-um@lists.infradead.org, linux-arch@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [RFC V2 4/6] sh/mm: Stop using [p4d|pud|pmd]_ERROR()
-Message-ID: <3bruvrvxg5blgzuhqg2f27yvfjvvsycx6lmt3jcianvpuqcs5n@zdgzfhmmhvom>
-References: <20260811042119.3652929-1-anshuman.khandual@arm.com>
- <20260811042119.3652929-5-anshuman.khandual@arm.com>
- <94b52871-9cfc-42d6-b30f-545b722e71a0@kernel.org>
+	id 1wuORv-0000000HS8I-1z4o;
+	Thu, 13 Aug 2026 05:57:55 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wuORs-0000000HS7w-3hxG
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 13 Aug 2026 05:57:54 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-495757ccbc1so2598395e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 22:57:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786600671; x=1787205471; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=+7PeLXe+ue8rItbBi6+JlGfhsV/36WDiPAKPGI7m+do=;
+        b=UZ537i4ZntiAO2eNWzgEwIOrD3+WnuquYPcAb7TwQ5ymRmbatfCcXWIbKgc8wmS5qD
+         NVoFgYCd0OST5ZSkn+hioIBJLnXHKqg4PsnTOj+vZQYn36zUItK2LP/mohcvDvGyCQNS
+         5AZZCY+oy8HpXslpxnp7hVuCskcsf6zrxmckxi+oovVvaagcZcpaad8PugaxM4u6cLg9
+         HV+2m4YEYZCgvE41joedINmlJwRKjoo2aLXz/C4+c6/qs8sRtr4EwwKPXIgnHKe7Sm9u
+         sXXv8IyGvhSR5V+ww6lxvde94+6AthivlRlm14OuTMgQvAtkq8J0ECQwET+g5PoMSwVE
+         cUHg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786600671; x=1787205471;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=+7PeLXe+ue8rItbBi6+JlGfhsV/36WDiPAKPGI7m+do=;
+        b=ALs7kpekvlEFwY/KE4vNyZZSg6bLagSA+Fn5kYWihc5A1XLaJVYDI7N8QnyJavAsJG
+         erBMJeD8XbsB58nTncGz6EhwxkRX2zm4R40nemCXKojSbnHhIRhqhj1GdeQhMTB0v2zj
+         0gTU3EZkWQpYh18vdkhfePgD72k/vXXMma5jAqGDHuszTtxdWK95iFnCFzbkWlC05EjS
+         zFl+l6BocNbS2Ja7kq3DapQV1JiF/3a2M43oeB9qTa1VIAsKhs65qJKR73lbDD+V+rzB
+         yjOEXyawYGiSgD1505g0uVKnDYC5Bf+qSWkbJgQXifWbY/4AMfkkDEasAP0HZJmW6jer
+         pGrA==
+X-Forwarded-Encrypted: i=1; AHgh+RqReuwRyoeruNjqRLsIoivTscPVHXYpCJmD7ztaJumDk5N/DRUkbrpcTAwjuJpOZpAwvV5xUkalzjMfPwQHMWq1@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx4tVl2ie46tfWt3klC5Rcza46/wy1qCkOwTCJ+SjBra/iR+UTv
+	xzxFF0CXbyAh7LwBXzZUStMrhc6zCNP05Bjo2CGvjVvjUT+XnA396ohJ9XALNoce
+X-Gm-Gg: AR+sD100iqX6BoxVIhiJzxE+/VqthQGIzFqG2S5afTadco12s/sFw8VuutRknxsOUgd
+	dC/48D8+b3uW6HEJsFbLK2lctlsFUexNu3Pok3/lOJpecMZBBhykwp1hH0IXR2TYLTiFLk+Upn3
+	ULEJGsXUXfp+r5LkG7OovJAbF77K+7+2FCRy2cIy7sL+mlsDoaSKmxTYvLtIr7VkS08neHRPsQk
+	tev5xjvj3/IGIrpldILPvnvICNlWjjbMnIy7Zo0QK/XOj+NHLeD983yEmrg4l2PFsKiRkY4/D52
+	bbnEGdSjKJtbR5/ltqdEkThC3ZmRYn0+ibDayjSX3W2PJqpfi/eMOwXqztoV2OSeS3ySFz9Jf9A
+	OBEmt/WoKJtxRDt3x4MoBNLpVNUG+Qxdioa+wOi0HXo1z0hP8Qoe46WdDuzFw/yLW6JNZYqqJ/n
+	jgOyezRXbRmqgr7FVxDmSFdhv0/SXWKDfbpwwr+853OjZ9KM+TikJpTcYpTZ10gojmB+hLwnAQL
+	QAIDYdrD9mmZ7AAmGRKqBujwylZAzR+oBuVTEx9Ga0nDX+pW4DqTBVAtXVCNTj9wdk9522yIOM/
+	Rb2RHe1k52MS3tVgrXgIAHROCiDV8RIvGhUyjlK0dlhQaW/OjYtuJ7O/UIhSp7z/6kY=
+X-Received: by 2002:a05:600c:190f:b0:499:484a:98e7 with SMTP id 5b1f17b1804b1-4998218e63dmr29591735e9.14.1786600670592;
+        Wed, 12 Aug 2026 22:57:50 -0700 (PDT)
+Received: from MacBook-Pro-von-Karl (dynamic-2a02-3100-9c79-1f01-1565-573d-10dc-99f9.310.pool.telefonica.de. [2a02:3100:9c79:1f01:1565:573d:10dc:99f9])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4998216cf70sm28991305e9.12.2026.08.12.22.57.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 12 Aug 2026 22:57:49 -0700 (PDT)
+Date: Thu, 13 Aug 2026 07:57:48 +0200
+From: Karl Mehltretter <kmehltretter@gmail.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oupton@kernel.org>, kvmarm@lists.linux.dev, 
+	Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Shuah Khan <shuah@kernel.org>, Eric Auger <eric.auger@redhat.com>, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
+Subject: Re: [RFC PATCH 1/2] KVM: arm64: vgic-v3: Roll back failed
+ redistributor region setup
+Message-ID: <an1cYl928Fue-z3s@gmail.com>
+References: <cover.1786344511.git.kmehltretter@gmail.com>
+ <4e00fc25aa61ec52e6ef033a53588ce3f5550982.1786344511.git.kmehltretter@gmail.com>
+ <86tsp2139b.wl-maz@kernel.org>
+ <anotFcOP0kcQJwrA@gmail.com>
+ <86jypv1lxo.wl-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <94b52871-9cfc-42d6-b30f-545b722e71a0@kernel.org>
+In-Reply-To: <86jypv1lxo.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_224452_917988_4CA2F757 
-X-CRM114-Status: GOOD (  16.97  )
+X-CRM114-CacheID: sfid-20260812_225752_962518_280DA100 
+X-CRM114-Status: GOOD (  16.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,90 +111,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 12, 2026 at 01:21:28PM +0200, David Hildenbrand (Arm) wrote:
-> On 8/11/26 06:21, Anshuman Khandual wrote:
-> > Stop using [p4d|pud|pmd]_ERROR() in __get_pte_phys() as the pgtable entries
-> > are known to be NULL and hence could not really be accessed.
-> > 
-> > Cc: Yoshinori Sato <ysato@users.sourceforge.jp>
-> > Cc: Rich Felker <dalias@libc.org>
-> > Cc: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
-> > Cc: linux-sh@vger.kernel.org
-> > Cc: linux-kernel@vger.kernel.org
-> > Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> > ---
-> >  arch/sh/mm/init.c | 12 +++---------
-> >  1 file changed, 3 insertions(+), 9 deletions(-)
-> > 
-> > diff --git a/arch/sh/mm/init.c b/arch/sh/mm/init.c
-> > index b3c7fd84ceb4..0bb8555568a4 100644
-> > --- a/arch/sh/mm/init.c
-> > +++ b/arch/sh/mm/init.c
-> > @@ -58,22 +58,16 @@ static pte_t *__get_pte_phys(unsigned long addr)
-> >  	}
-> >  
-> >  	p4d = p4d_alloc(NULL, pgd, addr);
-> > -	if (unlikely(!p4d)) {
-> > -		p4d_ERROR(*p4d);
-> > +	if (unlikely(!p4d))
-> >  		return NULL;
-> > -	}
-> >  
-> >  	pud = pud_alloc(NULL, p4d, addr);
-> > -	if (unlikely(!pud)) {
-> > -		pud_ERROR(*pud);
-> > +	if (unlikely(!pud))
-> >  		return NULL;
-> > -	}
-> >  
-> >  	pmd = pmd_alloc(NULL, pud, addr);
-> > -	if (unlikely(!pmd)) {
-> > -		pmd_ERROR(*pmd);
-> > +	if (unlikely(!pmd))
-> >  		return NULL;
-> > -	}
-> >  
-> >  	return pte_offset_kernel(pmd, addr);
-> >  }
+On Wed, Aug 12, 2026 at 02:57:07PM +0100, Marc Zyngier wrote:
+> On Mon, 10 Aug 2026 22:22:37 +0100,
+> Karl Mehltretter <kmehltretter@gmail.com> wrote:
+> > Is this closer to what you had in mind?
 > 
-> Do we want to print an error like "allocating p4d table failed"?
-
-Sure, will add error prints like the following.
-
---- a/arch/sh/mm/init.c
-+++ b/arch/sh/mm/init.c
-@@ -56,16 +56,22 @@ static pte_t *__get_pte_phys(unsigned long addr)
-                return NULL;
-
-        p4d = p4d_alloc(NULL, pgd, addr);
--       if (unlikely(!p4d))
-+       if (unlikely(!p4d)) {
-+               pr_err("allocating p4d table failed\n");
-                return NULL;
-+       }
-
-        pud = pud_alloc(NULL, p4d, addr);
--       if (unlikely(!pud))
-+       if (unlikely(!pud)) {
-+               pr_err("allocating pud table failed\n");
-                return NULL;
-+       }
-
-        pmd = pmd_alloc(NULL, pud, addr);
--       if (unlikely(!pmd))
-+       if (unlikely(!pmd)) {
-+               pr_err("allocating pmd table failed\n");
-                return NULL;
-+       }
-
-        return pte_offset_kernel(pmd, addr);
- }
-
+> No. I want *all* RDs to be gone on failure, and the next successful
+> registration to result in all possible RDs to be matched against a
+> vcpu if there are enough of them. Effectively an atomic behaviour from
+> the PoV of userspace.
 > 
-> Reviewed-by: David Hildenbrand (Arm) <david@kernel.org>
+> See the patch below for what I came up with.
 > 
-> -- 
-> Cheers,
-> 
-> David
+
+Understood. I believe your sketch needs two small adjustments:
+
+free_index must be incremented before kvm_io_bus_register_dev().
+If registration fails, the current vCPU already has an RD assignment, but
+there is otherwise no increment for the teardown path to undo.
+
+The garbage collection in vgic_v3_free_redist_region() should remain.
+VM teardown frees the regions before unregistering the RD iodevs, so
+removing it would leave rdreg pointers referring to freed regions.
+
+Does that look OK to you? If so, I could include both in v2.
+I'll also split the selftest change and have it check only the
+final state after the retry.
+
+Thanks,
+Karl
 
