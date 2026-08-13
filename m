@@ -4,66 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAFB0C5AD5A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 00:51:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01C80C5CFCF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 01:41:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yirCD5X6JRo6FnvaQn8dOoocTC1WS5mRd3Z8F+DJEGI=; b=YuUULHSaijQaIZr6wIIZvTp1cs
-	NSD8Zn5rXiIPU7xbthad7LfD2gFp6eRU6A+VXiH/l2d87I1Pq5apzSJQ9zFwMm0+IWMzNQvo+dO9k
-	3j/zcrDke3oNI23qpO311GR/mXYcnaXrVfQUpMuTgTudYxE2v6+MjJxuYo5fqQfV6zz4uFHbyLFPA
-	aIvwg92+gOkZB/sTxj9aa2JoTpuX8Gi0dl0F8/tjezCJqvtrikh1PuQuK9F/ESmiZrNwLFARPcvag
-	Cm/J/PtfAHSe3QHoIRDS1JQ3walvh5h/nVV2iycymhJP0/8m0aEdBKII0V3xFLVntNkPd+gYuPTIn
-	X39sPwcw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qGRpOM/KyLSRqGYlhqMn9rv/CZjCp3mr3TzX59jyJJo=; b=X8gIQVzR+WZPFrZVr3nPI2paRE
+	mjVaECjLdV0IJB+8zAI20r5rbaa8bc2eoS853sM1mCl1gF/YzfCUUFVkelGddmpi36e+0MZi72Ed3
+	wouPvQ+Yf0/dMkHaYoXoemKIOWhtvPrFtYY1yI+43+RrDDtzcnI3fntAexgYfQj0p30DJdE4qp5fx
+	O+A+YZteJ80XTH6sLw9U6eeVArnDrBogBChx1zfUHKVPVoKpTBNksES8FGwHVrYnw8NtwckDYXOhX
+	hVhQ2R1gou2ywzvqEx+6OVbdExdZiU/4MRlISbH9et5WQxLnKU66Xehk1Ae3P+bdwkfGZWukYiG+5
+	k7MBcpCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuJez-0000000HDfW-0Mc7;
-	Thu, 13 Aug 2026 00:51:05 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wuKRU-0000000HFHl-35Vy;
+	Thu, 13 Aug 2026 01:41:12 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuJey-0000000HDfP-27dh
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 00:51:04 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CD6D5439C2;
-	Thu, 13 Aug 2026 00:51:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF0131F000E9;
-	Thu, 13 Aug 2026 00:51:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786582263;
-	bh=yirCD5X6JRo6FnvaQn8dOoocTC1WS5mRd3Z8F+DJEGI=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=lCq9pPB1LayH5HtbYkpt4oX+TiDhrC2ZJv8lbWaZJ7i7gw/4l82h1cydXjhWWHJpA
-	 q+WYj4ve6Hg/HclNwhCB3+IQdvRfBtRePYCyn3PVkc6brvbQIyEQFMSlfGvhao9CEJ
-	 7+6mayWRKkUtsbi9a4EJSlCHrpfiNe5Jt6/yZ1mGTYHcA1qIFNwI3A8N0Ow7IGVzmn
-	 zCvSBSGGmpbaFetVsHP7EkJUW87yT2Qt7/bpQceb91yJDBk5+cHgxdQm5ausQf2ipE
-	 fnvyt1qQr4pbN5nafhEJuG6wEB97q/VdibcN/shcIt3KjCJDQXwdlQCTpmU2gOG0Fm
-	 O2lcfHXSZMAUg==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 19913380CED0;
-	Thu, 13 Aug 2026 00:50:20 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1wuKRR-0000000HFHB-2pyB;
+	Thu, 13 Aug 2026 01:41:10 +0000
+X-UUID: 0bbed4e296b811f1afed4741b24580c9-20260812
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=qGRpOM/KyLSRqGYlhqMn9rv/CZjCp3mr3TzX59jyJJo=;
+	b=Mxe22oy1kHFf8edanl6+FWeXFkISXdrF6RysrgaP4MYfxvyh7BWR5/a8dMr+5ANn8kjghAxzoddqhVRUiA9FJg8gXWX6JBNHljopM/Scfw7Og2I1K3lPsf18gNuz7NNVSFvKeBcX/+ZKKAb3/f0cwsdKv1HvNBvpWsgh8zjbnrc=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:21228dc4-bb6f-4013-ba0e-17767d7a6ab9,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:7db8b62,CLOUDID:9090d0f1-0685-46a3-9cac-19d8f3a05ae7,B
+	ulkID:nil,BulkQuantity:0,SF:102|123|836|865|888|898,TC:-5,Content:0|15|50|
+	99,EDM:-3,IP:nil,URL:1,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0,OS
+	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 0bbed4e296b811f1afed4741b24580c9-20260812
+Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw01.mediatek.com
+	(envelope-from <zhaoping.shu@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 83107601; Wed, 12 Aug 2026 18:41:04 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Thu, 13 Aug 2026 09:41:01 +0800
+Received: from mcddlt001.gcn.mediatek.inc (10.19.240.15) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Thu, 13 Aug 2026 09:40:59 +0800
+From: <zhaoping.shu@mediatek.com>
+To: <davem@davemloft.net>, <edumazet@google.com>, <kuba@kernel.org>,
+	<pabeni@redhat.com>, <horms@kernel.org>, <ncardwell@google.com>,
+	<kuniyu@google.com>, <matthias.bgg@gmail.com>,
+	<angelogioacchino.delregno@collabora.com>, <willemb@google.com>,
+	<alice@isovalent.com>, <sd@queasysnail.net>, <eilaimemedsnaimel@gmail.com>,
+	<imv4bel@gmail.com>, <hw.he@mediatek.com>, <netdev@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>
+CC: <haijun.liu@mediatek.com>, <xiayu.zhang@mediatek.com>,
+	<lambert.wang@mediatek.com>, <Iven.Yang@mediatek.com>, Zhaoping Shu
+	<zhaoping.shu@mediatek.com>
+Subject: [PATCH net v3] net: gro: Fix nesting of TCP GSO SKBs in  skb_gro_receive_list()
+Date: Thu, 13 Aug 2026 09:40:56 +0800
+Message-ID: <20260813014056.160533-1-zhaoping.shu@mediatek.com>
+X-Mailer: git-send-email 2.17.0
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net] net: ethernet: ti: am65-cpsw-nuss: Fix port_id
- extraction
- from SRC TAG
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <178658221863.2168272.12259674468445322692.git-patchwork-notify@kernel.org>
-Date: Thu, 13 Aug 2026 00:50:18 +0000
-References: <20260807111738.2055900-1-s-vadapalli@ti.com>
-In-Reply-To: <20260807111738.2055900-1-s-vadapalli@ti.com>
-To: Siddharth Vadapalli <s-vadapalli@ti.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, c-vankar@ti.com, horms@kernel.org,
- vadim.fedorenko@linux.dev, v-singh1@ti.com, nm@ti.com,
- daniel.zahka@gmail.com, nora.schiffer@ew.tq-group.com, oss@vassilevski.com,
- grygorii.strashko@ti.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- srk@ti.com
+Content-Type: text/plain
+X-MTK: N
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260812_184109_736549_2976913C 
+X-CRM114-Status: GOOD (  16.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,32 +90,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+From: HW He <hw.he@mediatek.com>
 
-This patch was applied to netdev/net.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+A device supports GRO_HW, and the device driver enables the
+NETIF_F_GRO_FRAGLIST feature. During a tethering test,
+skb_gro_receive_list() reaggregates the GSO packet. However,
+skb_segment_list() cannot segment this packet back into
+the original packets, which leads to IP fragmentation or packet drop.
 
-On Fri, 7 Aug 2026 16:47:37 +0530 you wrote:
-> On the packet reception path, the ID of the MAC Port on which the packet
-> was received, is embedded in the RX DMA Descriptor's metadata. The ID is
-> extracted using the helper function cppi5_desc_get_tags_ids() which fills
-> in the 16-bit Source Tag into the 'port_id' variable. However, it is only
-> the lower 8-bits of the 16-bit Source Tag that represent the MAC Port ID,
-> while the upper 8-bits are Hardware-Reserved and carry an arbitrary value.
-> With the existing logic, sporadic kernel crash is observed due to the
-> subsequent driver code accessing out-of-bound memory because of an invalid
-> port_id.
-> 
-> [...]
+Scenario (Tethering/Forwarding):
+1.Driver submits a single TCP packet, P1. P1 is kept in the
+gro_list as the first packet.
 
-Here is the summary with links:
-  - [net] net: ethernet: ti: am65-cpsw-nuss: Fix port_id extraction from SRC TAG
-    https://git.kernel.org/netdev/net/c/36a05d282007
+2. The driver submits a TCP GSO skb, P2. P2 has already aggregated
+multiple TCP packets by HW_GRO, and its non-linear data is stored in
+frags[].
 
-You are awesome, thank you!
+3. P1 and P2 match the GRO rules, and since there is no local socket,
+they are aggregated by skb_gro_receive_list(). The resulting skb,
+P3, has a frag_list entry that still contains frags[]:
+P3: [ Linear Data ] -> frag_list -> [ Linear Data ]
+                                    [ frag[1] ]
+                                    [ frag[2] ]
+                                    ...
+4. Later, tcp4_gso_segment() or tcp6_gso_segment() calls
+skb_segment_list() to segment P3. However, skb_segment_list() only
+segments the entries in frag_list. It does not segment the frags[]
+inside P2, so P3 is not restored to the original packets, which leads
+to IP fragmentation or packet drop in the following path.
+
+When NETIF_F_GRO_HW is enabled, do not set NAPI_GRO_CB(skb)->is_flist.
+Fall through to the regular skb_gro_receive() path instead of
+skb_gro_receive_list().
+
+Fixes: 8d95dc474f85 ("net: add code for TCP fraglist GRO")
+Signed-off-by: HW He <hw.he@mediatek.com>
+Signed-off-by: Zhaoping Shu <zhaoping.shu@mediatek.com>
+---
+[2]: https://patchwork.kernel.org/patch/14706032
+[1]: https://patchwork.kernel.org/patch/14702209
+---
+ net/ipv4/tcp_offload.c   | 7 +++----
+ net/ipv6/tcpv6_offload.c | 3 ++-
+ 2 files changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/net/ipv4/tcp_offload.c b/net/ipv4/tcp_offload.c
+index 3b1fdcd3cb29..641c47fb1ea2 100644
+--- a/net/ipv4/tcp_offload.c
++++ b/net/ipv4/tcp_offload.c
+@@ -395,9 +395,6 @@ static void tcp4_check_fraglist_gro(struct list_head *head, struct sk_buff *skb,
+ 	struct net *net;
+ 	int iif, sdif;
+ 
+-	if (likely(!(skb->dev->features & NETIF_F_GRO_FRAGLIST)))
+-		return;
+-
+ 	p = tcp_gro_lookup(head, th);
+ 	if (p) {
+ 		NAPI_GRO_CB(skb)->is_flist = NAPI_GRO_CB(p)->is_flist;
+@@ -430,7 +427,9 @@ struct sk_buff *tcp4_gro_receive(struct list_head *head, struct sk_buff *skb)
+ 	if (!th)
+ 		goto flush;
+ 
+-	tcp4_check_fraglist_gro(head, skb, th);
++	if (unlikely((skb->dev->features & NETIF_F_GRO_FRAGLIST) &&
++		     !(skb->dev->features & NETIF_F_GRO_HW)))
++		tcp4_check_fraglist_gro(head, skb, th);
+ 
+ 	return tcp_gro_receive(head, skb, th);
+ 
+diff --git a/net/ipv6/tcpv6_offload.c b/net/ipv6/tcpv6_offload.c
+index f2a659cd6183..e983f55c4419 100644
+--- a/net/ipv6/tcpv6_offload.c
++++ b/net/ipv6/tcpv6_offload.c
+@@ -57,7 +57,8 @@ static __always_inline struct sk_buff *tcp6_gro_receive(struct list_head *head,
+ 	if (!th)
+ 		goto flush;
+ 
+-	if (unlikely(skb->dev->features & NETIF_F_GRO_FRAGLIST))
++	if (unlikely((skb->dev->features & NETIF_F_GRO_FRAGLIST) &&
++		     !(skb->dev->features & NETIF_F_GRO_HW)))
+ 		tcp6_check_fraglist_gro(head, skb, th);
+ 
+ 	return tcp_gro_receive(head, skb, th);
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.17.0
 
 
