@@ -4,71 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 963D3C5CFDB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 09:20:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6048C5CFDB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 09:22:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:Cc:References
-	:Message-Id:Date:Subject:Mime-Version:From:Content-Transfer-Encoding:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XSbxuFNDxlXVpQ/cS578M2yFcGMkc7DG8pgNdZPizcw=; b=D1uJdAwTTBDnakVCbbkpFg3HHi
-	HGFSFG1EZNgJYv4/w1el4qISCt/VBU53yg9cF7HYevsEF2Q6+GkuuPkG+j0Kcr3FAEeLpCUAibh/9
-	oaOJcTVjDI2ziuudqDhBAT1acL1ANr6nQUufOIyVz2QEDCTH8f4bBGgUf0zJXVuOwjeORQl5AaoyQ
-	E9wrL8ZVEx3yg5Xidbj39sDR4kOug+2gIPkQxYlnT2zQcTlTSIsPNUIySg/mq9uJVoJdJUfAXFlJG
-	8yW7XywrrjzXaVdPljxCpEqTtJXozosxSqIh06YabKnpsEovwebOQQemgFrmSyxr9nw1DFPLrxXvG
-	S0JovfUA==;
+	bh=DgUgxtuzm+kIKyhbVcquKkq7TZWn5puByEvA3pIroyE=; b=UAcYZVIBNk7yhJhD9tRymvm8v1
+	pGroblU7oJf8m19jafZjpsK7KEnrBtt6HjeL4d2tXFAAiRpUXS0w3mRQtayGaeRF3qbTUoQ/Okpda
+	yDKyD/ZXc66/w/qSUatV2CZUKeUOsR/KLqcQDx4X36QWL16kojUmBwdle763ubMpZFqt3kqQPiSdS
+	Qo+n33E/3G6CH1Meyj7XxDmKMc3LPdcW1424Xqh16sKZwnD0WEX35YRjp46H4LW1y6ISC1y7N1cQf
+	UQeNgC+zDs0iIq0nP7E7y2RIqMfXGWGXjyAPxd45q5cTmo6tVBOAg4Fa0QuLi/2G9LLMj/w64GVCb
+	kJJL+X6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuRbz-00000000H0h-35fb;
-	Thu, 13 Aug 2026 09:20:31 +0000
-Received: from ixit.cz ([2a02:830a:f787:8f00::2])
+	id 1wuRe2-00000000HRM-0bsr;
+	Thu, 13 Aug 2026 09:22:38 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuRbw-00000000Gz0-0nwx;
-	Thu, 13 Aug 2026 09:20:30 +0000
-Received: from smtpclient.apple (85-70-170-181.rcd.o2.cz [85.70.170.181])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by ixit.cz (Postfix) with ESMTPSA id BC3165340217;
-	Thu, 13 Aug 2026 11:20:21 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ixit.cz; s=dkim;
-	t=1786612821;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=XSbxuFNDxlXVpQ/cS578M2yFcGMkc7DG8pgNdZPizcw=;
-	b=LZXlAaqMDuz1Eu1qoATS2mQYnT7CsZwlU8A/IXlgD06ajK8b+e6H1n9LYw4UJuCZm5U/K1
-	45EC+UwLTUEFW7hK5NTe7T8cn5/fV82S+8GeZjkxTS2flC4JayGWz1E96Y3dcIj8ur1J4R
-	hWWn2JaZ0EhUTvH7hyEn/4YiTGlPbJw=
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-From: David Heidelberg <david@ixit.cz>
-Mime-Version: 1.0 (1.0)
-Subject: Re: [PATCH 00/33] Add support for Qualcomm Snapdragon SM7150 SoC and Google Pixel 4a
-Date: Thu, 13 Aug 2026 11:20:11 +0200
-Message-Id: <7B026D92-3826-494D-B1A9-EF01D41B4461@ixit.cz>
-References: <b15b2687-0c2e-43b2-ac9e-78e04e77e065@mainlining.org>
-Cc: Jens Reidel <adrian@mainlining.org>,
- Danila Tikhonov <danila@jiaxyga.com>, Miro Mraz <mraz.miro@seznam.cz>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-pm@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- linux-watchdog@vger.kernel.org, linux-usb@vger.kernel.org,
- linux-phy@lists.infradead.org, linux-mmc@vger.kernel.org,
- netdev@vger.kernel.org, linux-scsi@vger.kernel.org,
- dmaengine@vger.kernel.org, linux-crypto@vger.kernel.org,
- linux-i2c@vger.kernel.org, linux-clk@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- linux-remoteproc@vger.kernel.org, dri-devel@lists.freedesktop.org,
- neil.armstrong@linaro.org, linux-hardening@vger.kernel.org,
- linux@mainlining.org, Connor Mitchell <c.dog29@hotmail.com>
-In-Reply-To: <b15b2687-0c2e-43b2-ac9e-78e04e77e065@mainlining.org>
-To: Danila Tikhonov <danila@mainlining.org>
-X-Mailer: iPhone Mail (23G71)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_022028_512995_FB91B491 
-X-CRM114-Status: GOOD (  18.69  )
+	id 1wuRe0-00000000HQy-08LD;
+	Thu, 13 Aug 2026 09:22:36 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 747B741195;
+	Thu, 13 Aug 2026 09:22:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 717B21F000E9;
+	Thu, 13 Aug 2026 09:22:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786612955;
+	bh=DgUgxtuzm+kIKyhbVcquKkq7TZWn5puByEvA3pIroyE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=UhmmOldq+PDGAyEslmCjiLjBnx7hy3Er+VjxhkncYXo8zcBxMD+tjnDlmW/FV39Uu
+	 2PJXoGmz9BRh6oG0yfz4QISKvIVZJPA6RTfD3OQNLXKqt3obXbf2N6eyKpkST+aL/Z
+	 a+tUmMMd45MJIP/5Go+YwvfrILL/Gf8/U3MM2kcvHxBh1BHadiZyqFrgcVpmbpUbNM
+	 qMAhiaXTnFKM6pGXYtdBXT16Urc8HfRfyzZkLYrgPGPpenLnaaT2jjc0OpGWCaKoSZ
+	 9+7iyMyLFxyx3XcYflCl/EKg2BBlRP7Yz9bN8dzdecBF7UuhS2ZjWkFKSo89BYEj2Q
+	 VWSbb1xQXgzsA==
+Message-ID: <cb21a4d5-9a8e-4530-90bf-d48e13f79b4b@kernel.org>
+Date: Thu, 13 Aug 2026 11:22:27 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 3/6] media: dt-bindings: Add Amlogic V4L2 video decoder
+To: Zhentao Guo <zhentao.guo@amlogic.com>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-media@vger.kernel.org, devicetree@vger.kernel.org
+References: <20260812-b4-s4-vdec-upstream-v7-0-3fae085861bd@amlogic.com>
+ <20260812-b4-s4-vdec-upstream-v7-3-3fae085861bd@amlogic.com>
+ <20260813-rustling-sassy-terrier-11b99d@quoll>
+ <80e58bd7-7eb7-4d05-b309-115643767a43@amlogic.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <80e58bd7-7eb7-4d05-b309-115643767a43@amlogic.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,83 +121,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 13/08/2026 10:39, Zhentao Guo wrote:
+> Hi Krzysztof
+> 
+>> On Wed, Aug 12, 2026 at 10:41:25AM +0800, Zhentao Guo wrote:
+>>> Describe the initial support for the V4L2 stateless video decoder
+>>> driver used with the Amlogic S4 (S805X2) platform.
+>>>
+>>> Signed-off-by: Zhentao Guo <zhentao.guo@amlogic.com>
+>>> ---
+>>>   .../devicetree/bindings/media/amlogic,s4-vdec.yaml | 111 +++++++++++++++++++++
+>>>   1 file changed, 111 insertions(+)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/media/amlogic,s4-vdec.yaml b/Documentation/devicetree/bindings/media/amlogic,s4-vdec.yaml
+>>> new file mode 100644
+>>> index 000000000000..b5af3f931b26
+>>> --- /dev/null
+>>> +++ b/Documentation/devicetree/bindings/media/amlogic,s4-vdec.yaml
+>>> @@ -0,0 +1,111 @@
+>>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>>> +# Copyright (C) 2025 Amlogic, Inc. All rights reserved
+>>> +%YAML 1.2
+>>> +---
+>>> +$id: http://devicetree.org/schemas/media/amlogic,s4-vdec.yaml#
+>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>>> +
+>>> +title: Amlogic Video Decode Accelerator
+>>> +
+>>> +maintainers:
+>>> +  - Zhentao Guo <zhentao.guo@amlogic.com>
+>>> +
+>>> +description:
+>>> +  The Video Decoder Accelerator present on Amlogic SOCs.
+>>> +  It supports stateless h264 decoding.
+>>> +
+>>> +properties:
+>>> +  compatible:
+>>> +    const: amlogic,s4-vdec
+>>> +
+>>> +  reg:
+>>> +    maxItems: 2
+>>> +
+>>> +  reg-names:
+>>> +    items:
+>>> +      - const: dos
+>>> +      - const: dmc
+>>> +
+>>> +  interrupts:
+>>> +    maxItems: 2
+>>> +
+>>> +  interrupt-names:
+>>> +    items:
+>>> +      - const: hvdec
+>>> +      - const: vdec
+>> vdec is the name of the module, so not really useful name.
+> Ok, I'll come up with a new name and change it in the next revision.
+>>> +
+>>> +  clocks:
+>>> +    maxItems: 3
+>>> +
+>>> +  clock-names:
+>>> +    items:
+>>> +      - const: dos
+>>> +      - const: vdec
+>> Same here
+> OK, but there would be a nit. In file 
+> drivers/soc/amlogic/meson-clk-measure.c, This clock source is also named 
+> *"vdec"*in|drivers/soc/amlogic/meson-clk-measure.c|, where a 
 
-> On 12. 8. 2026, at 22:54, Danila Tikhonov <danila@mainlining.org> wrote:
->=20
-> =EF=BB=BFHi David,
->=20
-> Thank you for your comment.
->=20
->> On 12/08/2026 14:40, David Heidelberg wrote:
->>=20
->>=20
->>> On 23/04/2025 09:26, Neil Armstrong wrote:
->>> Hi,
->>>=20
->>> On 23/04/2025 00:07, Jens Reidel wrote:
->>>> Hi everyone,
->>>>=20
->>>> apologies for the mess this created. Danila's mail provider ratelimited=
- him halfway through sending the series and the attempt to re-try sending th=
-e second half an hour later ended up with a new message ID (I think due to n=
-ot using --in-reply-to).
->>>> He asked me to let you know that this will be resolved later and the wh=
-ole series will be re-sent once the problems are resolved.
->>>=20
->>> The b4 web submission is a great alternative when the mail provider is r=
-ate limited:
->>> https://b4.docs.kernel.org/en/latest/contributor/send.html#web-endpoint
->>>=20
->>=20
->> I see people interested in moving Pixel 4a forward, but it seems this was=
- never upstreamed? I looked at sm7150 repository [1] where I see FROMLIST, b=
-ut these patches never arrived to the list and this series is from 2025.
->>=20
->> Should we expect v2 (re)based on recent tree?
->>=20
->=20
-> I'd definitely like to get back to upstreaming SM7150 and the devices
-> based on it, but I don't think there's much value in continuing with
-> this particular series as-is. A lot has changed in the kernel over the
-> past year, which would require substantial changes throughout the series
-> and would effectively force the maintainers to review it from scratch
-> anyway.
+Source does not matter. You do not describe here the source, but this
+device. How is the input called in this device, not in the source?
 
-After longer period of time maintainers will have to do full review anyway. S=
-ure, the reviews needs to be addressed :)
+> *"vdec"*clock node is created in debugfs for checking its status. Using 
+> a different name in the driver (including DT and binding) would make it 
+> inconsistent with the debugfs node naming.
 
->=20
-> I'd also like to split the series up to avoid targeting such a large
-> number of maintainers in a single submission.
+What inconsistency? How would provider name matter?
 
-Yes, that=E2=80=99s exactly what=E2=80=99s needed (at least for the part pat=
-ches I saw).
 
-> Hopefully, I'll be able to
-> find some time to work on this in the near future.
-
-Where the most recent patchset can be found? Just in case someone wanted to p=
-ush some bits in meantime.
-
-Thanks
-David
-
->=20
->=20
->> Thanks
->> David
->>=20
->> [1] https://github.com/sm7150-mainline/linux/commit/7ea41523c678e94a7c048=
-936052b5b1b1b109cdd
->>=20
->>> Neil
->>>=20
->>>>=20
->>>> Best regards,
->>>> Jens
->>>=20
->>>=20
-> ---
-> Best regards,
-> Danila
+Best regards,
+Krzysztof
 
