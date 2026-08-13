@@ -4,104 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5916C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 10:13:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85461C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 10:14:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OvZxXgWwlw9mSCW44p+jCE5q4lBZ+vVfSoXZPbAhS0M=; b=4CcRVbY9SlBv+EqhRJFK6n5Wk0
-	GkBJZKEelIF1e7DjcxTS1qe/nMlifuOBcNwleFhOr8yQ8vsaRLRfc9eI4ZMAQix78u0N+y/WTxn0W
-	+ak23IxJ/BLMzA6Gkj7iZbQ6+/wdDTpRX+sNKsegAUStXxqL+7HtWT4ynynlV/EnSRBqbM7lcJKK1
-	DiQKgucnvDYGReKdSErBmnt/BYFQR6ckgttQsq0xkc0iN820VWoRqwEpKDKDlSQi+XUnO5Lg17odC
-	7P0GlgLUV4oKu6zxdzB41jVaGaikJo2UzoQdgs4ifUEb862aeZRL90RapNwPNW3Cr5wEwNv84aseH
-	urSJ9xpg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uSZUuVpg9SCc7RZSw/Ssreis2MVZVjsphaT0uMe4oMU=; b=BQUHPuYE3KD38Tk855q23mSfCb
+	8IHdUPfT+l74P4iV5q46UzEerdiPW+kvkFHe6qF9PLUppg9t/0/B7ShhB4TA4ozrg8zfg+qF1Mbdq
+	lteZNNY0xFLQjvoJOLxNtGuSF/5O2eYpeQEZryJmHH00Q4Q4Kqbbo69EvZ22mu29V7JXX3bRV0b4d
+	6GEraaz2to+cx1uaH8RPJYdo4lYRCAW3FT3Mxs7xArv5KHfzON7FM/K3NsIj+WM3TZ02rdT9UhqCr
+	CeHYLwFx2D7c73jpwBXIp8xqcLbD9K7pCLtDV9WZBtDxX2yOsEwD8VvpZWoZkkGwzA3QHl+d1oTlJ
+	SlPkBS0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuSRX-00000000R57-3MWg;
-	Thu, 13 Aug 2026 10:13:47 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1wuSRz-00000000RCk-0I22;
+	Thu, 13 Aug 2026 10:14:15 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuSRV-00000000R3t-0V7m
+	id 1wuSRx-00000000RCR-2kJ9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 10:13:46 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-47fe76491b8so151581f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 03:13:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786616023; x=1787220823; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=OvZxXgWwlw9mSCW44p+jCE5q4lBZ+vVfSoXZPbAhS0M=;
-        b=oEJeJqk5xKAjD2uo6LaEG9ffUrlm1dBYqJ9/SB4wN5BfmkWn3mtVi3haPwyhx+/vx9
-         dfJgZqkERg7tXxrTk9yF/BRCcvapWvpki4iJ3lz6+Li5CH1+WUzqIBrxib/bKHJn7tPc
-         zQwW4jeyInnbX+WYQGyIxFPwTFmlxuAWDsnqeFmbRxc/aSJZlcMixR0cHsR0vXECPHtT
-         cAF9LoVU6ocRwC2SR9mTTWp9yJlJscyENEZevDtaHVKVfwsxmp/EE5b6aLl2pgrctiMW
-         8WMJaFxsxEop5EMbgVu5O0CRAN0QWH+lgJlJsL4S39vAE9JjRo7tqWyHKRtz9Kf3ivwv
-         Vz+Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786616023; x=1787220823;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=OvZxXgWwlw9mSCW44p+jCE5q4lBZ+vVfSoXZPbAhS0M=;
-        b=CYl/T+RCCd+bSzEHBFhhYoQNG7oEF7s6GpEq4PAkOmelCgowwwByrpAmESBHMFb8iW
-         elWrQTR57L/WyiLu9aDA/yyp/ouH3x0+noxkSk6zs2r6Ha3MuLsgZr7KVb5lDJEBNaCK
-         f6lfdgzWGr2N5srjaEJnTrILuARFwkNDpGBMSKKPJwPiCBMA69EKCRLTAoMLB911JiCZ
-         L7BU0ZAhgIhI7X/7gd9K6KLYccHWQauNroYg4TPjcdJvgcJAGXEyLTicWsrfz21rLJ60
-         7UF+pKE5NYa0fZak2cC5CAObiyXRbbdoSBcmLG0tZVHe1lzgCjMR0TPCmqYyEZxPrDI6
-         pJTA==
-X-Forwarded-Encrypted: i=1; AHgh+Roh/up9hH+WUiJULGeBpFVIypUsQKGDbSdRrcG5eRpwnoTMWdQbJac+lyfH3mxUuBmijsGp6DPoGBSVDRlIAO6R@lists.infradead.org
-X-Gm-Message-State: AOJu0YwWUjseJ3tUOkmgKkYEIRYixzCq9tchvE8ztO19Eha6BqqsjQqJ
-	TieTo4FsCRLUuLxBF8//IE1EziBtl5oQ4GcjvlFxgpUSZEjtiTNxM8jl
-X-Gm-Gg: AR+sD10B5NwjUyj141L25HeOIUsyvipGzgtPe+w6fqqeOjhGSJR1ehQfDmFLYuqYsUq
-	RXvAXOP/9jw/SrDiWrL2L+hZb/n5J7fyPOV7/0jMNdApf2enZbNDsoJVbWg7MXVGAo1k3HRwW+j
-	1O8+Zf8YKvbsLXkIHeBfCBBoko3rmz+rQvFT0BhrxGAdh7iTzpssCcaTG65GZ7WB+bfCOkZmrBS
-	8gzWbILCQmi/B6EGU9E+7RY9+05Bjv0nccetWcZVWLs0momUx/CVmkSVw8J/6BPNQfKjr0hxIhY
-	HkK/KFD2jBkmhbO5EPfWeZilv0vGFHIqJnMlnTP0ECEVptqpa9x3tRDS+3ETuzWmcnpM/Up5J0V
-	HE2OUOI8ixCPrEr+fxyGSZBPYQMaCYtO8wFQ7dsZ1Gqi2jH3ltRfAsRuSH4NPMFmqwbxMJ7bx+X
-	ocoKSsr6hVQdOBW1zfPpFxvfQJwYhfjRYicK2CazG4kdh7eZnU1RFGV0SLVExwg5EPl/suf83xG
-	90FQRBuQketir1xpvAbLOM2yaUJCeiQmjTF095xUtdG0/11GTx1ezGOKewUmo/uVGt/9KfGVS8F
-	ZMby
-X-Received: by 2002:a05:600c:b93:b0:499:59da:12b9 with SMTP id 5b1f17b1804b1-499825cefdcmr25741845e9.0.1786616022989;
-        Thu, 13 Aug 2026 03:13:42 -0700 (PDT)
-Received: from OrangePi5-Plus.BB-HOME (20014C4E1B911C009377EE8DF6D0A1C2.dsl.pool.telekom.hu. [2001:4c4e:1b91:1c00:9377:ee8d:f6d0:a1c2])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49981abd6desm59541945e9.0.2026.08.13.03.13.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Aug 2026 03:13:42 -0700 (PDT)
-From: Igor Paunovic <royalnet026@gmail.com>
-To: Sandy Huang <hjc@rock-chips.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>
-Cc: Igor Paunovic <royalnet026@gmail.com>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	Alexey Charkov <alchark@flipper.net>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	dri-devel@lists.freedesktop.org,
-	linux-rockchip@lists.infradead.org,
+	Thu, 13 Aug 2026 10:14:13 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id C31A0600E2;
+	Thu, 13 Aug 2026 10:14:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 270771F000E9;
+	Thu, 13 Aug 2026 10:14:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786616052;
+	bh=uSZUuVpg9SCc7RZSw/Ssreis2MVZVjsphaT0uMe4oMU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=dPrRuqQ1x9D9rMkX+lbk4Bc/EbxPS/82Q06yoG3nI/BswMuRJt+Uj0EByx7DtjOVL
+	 RDFvp5EqiIPLEB0+7s7RAZdnKA96jfpzZT2ukcYPIuXOdVcG7LumUqLQddtBCpGV0x
+	 EXj0FidbNgYVDV1PMhNXsBdK43RLF3SWZvU3p+vlByll/WYbw9O0d86v8J5glnpel9
+	 Gs7KY1qHUAgdZy4TOiX7o/dxaTig5MFl+Kr6CQplVLfkp1219QWIUyL7Tu+fxF6okt
+	 iWowso/n+nG4czMd3mbqe3a+3gn1512ePCWN1tnyFktB0+MMSy98pm4r8HC4XQ2Daz
+	 461F1EoqUHHLw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wuSRu-0000000FI7L-0X1r;
+	Thu, 13 Aug 2026 10:14:10 +0000
+Date: Thu, 13 Aug 2026 11:14:09 +0100
+Message-ID: <868q6a1g5q.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Steffen Eiden <seiden@linux.ibm.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] drm/rockchip: vop2: Scale the AXI clock to the bandwidth the mode needs
-Date: Thu, 13 Aug 2026 12:13:00 +0200
-Message-ID: <20260813101307.10945-1-royalnet026@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260813100027.349761F000E9@smtp.kernel.org>
-References: <20260813094614.9072-1-royalnet026@gmail.com> <20260813100027.349761F000E9@smtp.kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_031345_211463_8FCB24A7 
-X-CRM114-Status: GOOD (  17.85  )
+	linux-kernel@vger.kernel.org,
+	linux-s390@vger.kernel.org,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Andreas Grapentin <gra@linux.ibm.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	David Hildenbrand <david@kernel.org>,
+	Friedrich Welter <fritz@linux.ibm.com>,
+	Fuad Tabba <tabba@google.com>,
+	Gautam Gala <ggala@linux.ibm.com>,
+	Hariharan Mari <hari55@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Hendrik Brueckner <brueckner@linux.ibm.com>,
+	Ilya Leoshkevich <iii@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Nico Boehr <nrb@linux.ibm.com>,
+	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+	Oliver Upton <oupton@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Will Deacon <will@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v6 09/33] arm64: Prepare sharing arm64 headers with s390
+In-Reply-To: <20260812153631.3376090-10-seiden@linux.ibm.com>
+References: <20260812153631.3376090-1-seiden@linux.ibm.com>
+	<20260812153631.3376090-10-seiden@linux.ibm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: seiden@linux.ibm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org, agordeev@linux.ibm.com, gra@linux.ibm.com, arnd@arndb.de, catalin.marinas@arm.com, borntraeger@linux.ibm.com, imbrenda@linux.ibm.com, david@kernel.org, fritz@linux.ibm.com, tabba@google.com, ggala@linux.ibm.com, hari55@linux.ibm.com, hca@linux.ibm.com, brueckner@linux.ibm.com, iii@linux.ibm.com, frankja@linux.ibm.com, joey.gouly@arm.com, nrb@linux.ibm.com, oss@nina.schoetterlglausch.eu, oupton@kernel.org, pbonzini@redhat.com, seanjc@google.com, suzuki.poulose@arm.com, svens@linux.ibm.com, Ulrich.Weigand@de.ibm.com, gor@linux.ibm.com, will@kernel.org, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,57 +111,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The review bot found three things on v2 and all three are right. I am
-answering rather than sending a v3 straight away, because the fix for
-the two High ones is a single change that touches a file shared by
-every Rockchip SoC, and I would rather ask about that than guess.
+On Wed, 12 Aug 2026 16:36:05 +0100,
+Steffen Eiden <seiden@linux.ibm.com> wrote:
 
-Both High findings come from the same shortcut. v2 keeps the
-requirement in a global atomic state object, which I still think is the
-right container, but it applies the rate from vop2_crtc_atomic_enable()
-and _disable() rather than from the commit tail:
+[...]
 
-  - Out of order commits. Two non-blocking commits on different CRTCs
-    share only the private object, and nothing orders them, so a commit
-    that took its snapshot before another CRTC raised the rate can land
-    after it and lower it again.
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index 46c8d7928b3f..22770c1132cb 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -56,6 +56,36 @@
+>  #define KVM_REQ_MAP_L1_VNCR_EL2		KVM_ARCH_REQ(10)
+>  #define KVM_REQ_VGIC_PROCESS_UPDATE	KVM_ARCH_REQ(11)
+>  
+> +/*
+> + * If we encounter a data abort without valid instruction syndrome
+> + * information, report this to user space.  User space can (and
+> + * should) opt in to this feature if KVM_CAP_ARM_NISV_TO_USER is
+> + * supported.
+> + */
+> +#define KVM_ARCH_FLAG_RETURN_NISV_IO_ABORT_TO_USER	0
+> +/* Memory Tagging Extension enabled for the guest */
+> +#define KVM_ARCH_FLAG_MTE_ENABLED			1
+> +/* At least one vCPU has ran in the VM */
+> +#define KVM_ARCH_FLAG_HAS_RAN_ONCE			2
+> +/* The vCPU feature set for the VM is configured */
+> +#define KVM_ARCH_FLAG_VCPU_FEATURES_CONFIGURED		3
+> +/* PSCI SYSTEM_SUSPEND enabled for the guest */
+> +#define KVM_ARCH_FLAG_SYSTEM_SUSPEND_ENABLED		4
+> +/* VM counter offset */
+> +#define KVM_ARCH_FLAG_VM_COUNTER_OFFSET			5
+> +/* Timer PPIs made immutable */
+> +#define KVM_ARCH_FLAG_TIMER_PPIS_IMMUTABLE		6
+> +/* Initial ID reg values loaded */
+> +#define KVM_ARCH_FLAG_ID_REGS_INITIALIZED		7
+> +/* Fine-Grained UNDEF initialised */
+> +#define KVM_ARCH_FLAG_FGU_INITIALIZED			8
+> +/* SVE exposed to guest */
+> +#define KVM_ARCH_FLAG_GUEST_HAS_SVE			9
+> +/* MIDR_EL1, REVIDR_EL1, and AIDR_EL1 are writable from userspace */
+> +#define KVM_ARCH_FLAG_WRITABLE_IMP_ID_REGS		10
+> +/* Unhandled SEAs are taken to userspace */
+> +#define KVM_ARCH_FLAG_EXIT_SEA				11
+> +
 
-  - Multi-CRTC disable. atomic_disable() runs once per CRTC, and the
-    first one already sees a state in which every participating CRTC is
-    off, so the rate drops while the others are still scanning out and
-    waiting for dsp_hold_completion.
+I don't mind the move, but please add a comment indicating that these
+are bit indices for for kvm_arch::flags, as we have now lost locality.
 
-vc4 solves both of these for its core clock, and what I did was take
-half of that pattern instead of all of it:
+And whilst we're at it, there is not reason why this has to be a set
+of #define, it can perfectly be an enum, as the numbers themselves
+have no particular meaning. Something like the untested hack below.
 
-  - vc4_atomic_commit_setup() records a pending commit per channel in
-    the private state and the next commit waits on it with
-    drm_crtc_commit_wait(). That is the ordering v2 has no equivalent
-    of.
+	M.
 
-  - vc4_atomic_commit_tail() holds max(old, new) for the length of the
-    commit and only drops to the new rate after
-    drm_atomic_helper_wait_for_flip_done(). That is exactly the window
-    the second finding describes.
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 08b2f24dc3c79..402bbb5eb0d91 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -306,6 +306,39 @@ enum fgt_group_id {
+ 	__NR_FGT_GROUP_IDS__
+ };
+ 
++/* Bit indices for kvm_arch::flags */
++enum kvm_arch_flag_bits {
++	/*
++	 * If we encounter a data abort without valid instruction syndrome
++	 * information, report this to user space.  User space can (and
++	 * should) opt in to this feature if KVM_CAP_ARM_NISV_TO_USER is
++	 * supported.
++	 */
++	KVM_ARCH_FLAG_RETURN_NISV_IO_ABORT_TO_USER,
++	/* Memory Tagging Extension enabled for the guest */
++	KVM_ARCH_FLAG_MTE_ENABLED,
++	/* At least one vCPU has ran in the VM */
++	KVM_ARCH_FLAG_HAS_RAN_ONCE,
++	/* The vCPU feature set for the VM is configured */
++	KVM_ARCH_FLAG_VCPU_FEATURES_CONFIGURED,
++	/* PSCI SYSTEM_SUSPEND enabled for the guest */
++	KVM_ARCH_FLAG_SYSTEM_SUSPEND_ENABLED,
++	/* VM counter offset */
++	KVM_ARCH_FLAG_VM_COUNTER_OFFSET,
++	/* Timer PPIs made immutable */
++	KVM_ARCH_FLAG_TIMER_PPIS_IMMUTABLE,
++	/* Initial ID reg values loaded */
++	KVM_ARCH_FLAG_ID_REGS_INITIALIZED,
++	/* Fine-Grained UNDEF initialised */
++	KVM_ARCH_FLAG_FGU_INITIALIZED,
++	/* SVE exposed to guest */
++	KVM_ARCH_FLAG_GUEST_HAS_SVE,
++	/* MIDR_EL1, REVIDR_EL1, and AIDR_EL1 are writable from userspace */
++	KVM_ARCH_FLAG_WRITABLE_IMP_ID_REGS,
++	/* Unhandled SEAs are taken to userspace */
++	KVM_ARCH_FLAG_EXIT_SEA,
++};
++
+ struct kvm_arch {
+ 	struct kvm_s2_mmu mmu;
+ 
+@@ -338,35 +371,7 @@ struct kvm_arch {
+ 	/* Protects VM-scoped configuration data */
+ 	struct mutex config_lock;
+ 
+-	/*
+-	 * If we encounter a data abort without valid instruction syndrome
+-	 * information, report this to user space.  User space can (and
+-	 * should) opt in to this feature if KVM_CAP_ARM_NISV_TO_USER is
+-	 * supported.
+-	 */
+-#define KVM_ARCH_FLAG_RETURN_NISV_IO_ABORT_TO_USER	0
+-	/* Memory Tagging Extension enabled for the guest */
+-#define KVM_ARCH_FLAG_MTE_ENABLED			1
+-	/* At least one vCPU has ran in the VM */
+-#define KVM_ARCH_FLAG_HAS_RAN_ONCE			2
+-	/* The vCPU feature set for the VM is configured */
+-#define KVM_ARCH_FLAG_VCPU_FEATURES_CONFIGURED		3
+-	/* PSCI SYSTEM_SUSPEND enabled for the guest */
+-#define KVM_ARCH_FLAG_SYSTEM_SUSPEND_ENABLED		4
+-	/* VM counter offset */
+-#define KVM_ARCH_FLAG_VM_COUNTER_OFFSET			5
+-	/* Timer PPIs made immutable */
+-#define KVM_ARCH_FLAG_TIMER_PPIS_IMMUTABLE		6
+-	/* Initial ID reg values loaded */
+-#define KVM_ARCH_FLAG_ID_REGS_INITIALIZED		7
+-	/* Fine-Grained UNDEF initialised */
+-#define KVM_ARCH_FLAG_FGU_INITIALIZED			8
+-	/* SVE exposed to guest */
+-#define KVM_ARCH_FLAG_GUEST_HAS_SVE			9
+-	/* MIDR_EL1, REVIDR_EL1, and AIDR_EL1 are writable from userspace */
+-#define KVM_ARCH_FLAG_WRITABLE_IMP_ID_REGS		10
+-	/* Unhandled SEAs are taken to userspace */
+-#define KVM_ARCH_FLAG_EXIT_SEA				11
++	/* VM-wide flags, described in kvm_arch_flag_bits */
+ 	unsigned long flags;
+ 
+ 	/* VM-wide vCPU feature set */
 
-Hence the question. Doing the same in rockchip means adding both
-.atomic_commit_setup and .atomic_commit_tail to
-rockchip_mode_config_helpers in rockchip_drm_fb.c, which today carries
-only .atomic_commit_tail = drm_atomic_helper_commit_tail_rpm and is
-shared by every SoC this driver supports, VOP as well as VOP2. The
-commit tail would be a thin wrapper around the rpm helper with the
-clock work on either side of it, and both hooks would do nothing on
-anything that is not RK3588.
-
-Is that acceptable, or would you rather this stayed inside vop2 in some
-other shape? I am happy to write it either way, but I would rather find
-that out before than after.
-
-The Medium finding needs no discussion: if
-drm_atomic_private_obj_init() fails, the jump to err_crtcs does not
-undo rockchip_rgb_init(). It is also new in this patch, since before it
-nothing after rockchip_rgb_init() could fail, so it is mine and it will
-be fixed in the next version whatever shape the rest takes.
-
-Igor
+-- 
+Without deviation from the norm, progress is not possible.
 
