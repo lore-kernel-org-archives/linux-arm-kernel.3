@@ -4,66 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF52BC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 06:03:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A201C5CFEB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 06:05:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ns4GoDNqcj/9AON25YCP9GahdV/I2v0GEJ5Utg1AonY=; b=2cXPqYA+jD3RuHfNwzX+pIIx8u
-	i1CeWZ5s6cLNfiyMpJKGHQdyPPuabh7IB80lHSqfFgF1i8DrIfKraIQVWkDfuT6y3rI1tBaph2w6J
-	q3FlFeD6Asxx9XUmV8yMc9tHBEU2MXJxDesyhcyezNYVpJmbexiog+pW0R3V+PJ0dnKNl6O6eI9bw
-	b7/8Cty68rqQJfY5QR5RxORr7m7Nnk59dtErluiepDcdY27MhCGTHkXjmOL/VlWJ+FzbAHRnKOQar
-	Z0Fyx/hYDsYz5R/AAnlCX2QEEqjMjil/ps1PszcEBkmFTiA/3E0W0q3MNmxCKUp5xn/JV7q/JTSEz
-	oB+w3E5A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Mime-Version:
+	Message-Id:Date:From:Cc:In-Reply-To:Content-Transfer-Encoding:References:
+	Subject:To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wy7JTPz+xuFrPRklb+y4gtwQ+LyjInDrwDQ324LLPGk=; b=iksILDmubhW2TfeDp0Kfaq0L/n
+	pwwGdrV4ZY47m02dfHbmpTcJPAU2d7FIb2bLVdR4UHRCdNbh74yxKgd9lw8qb8MwQjBlJX1j0rps3
+	cjYEwOh/If8X5BSrwhDyCIihPtLyBxv9AseqgtjtIz+BB7oxTGIgreFQaI70yJi9itSG6UVV5sraC
+	g7vWEmFt6yX3Vu98Zjkhg9Xkfw/XIcOAHSTftZmmwOqy7cjJc5UIrCZQVXMJPcn8VGQr1rCbWJJ9a
+	n2UHuUX5Rj2dIS1ntWq/oy8M0SG3iN3NzGowUGRXDDsSF0i6LeLCOAfI05Z8zbX1uIrKtB/1/fPfV
+	UQ2chPIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuOXM-0000000HSMO-0KVc;
-	Thu, 13 Aug 2026 06:03:32 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuOXI-0000000HSLn-0yta;
-	Thu, 13 Aug 2026 06:03:30 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 27767153B;
-	Wed, 12 Aug 2026 23:03:23 -0700 (PDT)
-Received: from localhost (a085714.arm.com [10.164.19.28])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5B05F3F632;
-	Wed, 12 Aug 2026 23:03:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786601007; bh=urvzQP14xjouAFJaMxm1KkmF2FK+YkPxtlg+0tmM3dk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FCmrH71a8GibDaT/4TzLpR5i+19TJkV8Y7yUEveP9J/tnpZ41lNWsq0jvpmBepdWh
-	 3M9emmtusN3STsiD2oIUPfk8jrriw7cyAgWrBFzUsYOHmzUnSzzBNBDES9ShVkwlc0
-	 +Kv5zwJCzOVfLHIcWwsl8hCWFk4UC3OStKBDaUuE=
-Date: Thu, 13 Aug 2026 11:33:23 +0530
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: linux-mm@kvack.org, akpm@linux-foundation.org, 
-	Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, 
-	Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>, 
-	WANG Xuerui <kernel@xen0n.name>, linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org, 
-	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
-	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, linux-sh@vger.kernel.org, 
-	sparclinux@vger.kernel.org, linux-um@lists.infradead.org, linux-arch@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [RFC V2 6/6] mm: Drop pxd_ERROR()
-Message-ID: <2ys7apbnfuj3ugfoqgbptgej3jjcyfpmdgbv6qbxupmwg6mefc@h5p33ua2nzlu>
-References: <20260811042119.3652929-1-anshuman.khandual@arm.com>
- <20260811042119.3652929-7-anshuman.khandual@arm.com>
- <1fb9ed88-67d0-4ac1-878d-0dc8e1135d19@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <1fb9ed88-67d0-4ac1-878d-0dc8e1135d19@kernel.org>
+	id 1wuOYm-0000000HSZY-2KCk;
+	Thu, 13 Aug 2026 06:05:00 +0000
+Received: from va-2-38.ptr.blmpb.com ([209.127.231.38])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wuOYk-0000000HSYt-14VG
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 13 Aug 2026 06:04:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=feishu2604151535; d=picoheart.com; t=1786601090; h=from:subject:
+ mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
+ mime-version:in-reply-to:message-id;
+ bh=wy7JTPz+xuFrPRklb+y4gtwQ+LyjInDrwDQ324LLPGk=;
+ b=UtvrOEZO8ZTfzCPy++o+RWirTYyRzYlfrq1miGh/SoYwYTWL1Xp+HMISlakHGmJ8XQMfcD
+ mWsjddcldXtnXtaEOdVjwDCRMKbZXLSKxaRTs8XU8GZDTuaan4J6GK9VeEELNIKcoK/On/
+ SC0FbJOoisMSq8LEzWkoRo6FIRym3PyzS61zS9nKI3gwPPU6/PdpLDZZcrNX+Swvi35AhU
+ yPDnHcSeqg0hzcEkt0v/SHHAw/kBBO9EIu5rqXxCbb5OXr2DuF4vsg4N1gMrtKHxr4G7pQ
+ lsfGzVW57Lh+DfnfEo7L61Hjk//RSJY5ZXXgzu/twUarfLN7cGeaHYGjvlfEzA==
+To: "Zhanpeng Zhang" <zhangzhanpeng.jasper@bytedance.com>
+Subject: Re: [PATCH v2 1/2] perf/dwc_pcie: Avoid nested bus notifier locking
+Received: from [100.86.210.149] ([120.234.91.243]) by smtp.feishu.cn with ESMTPS; Thu, 13 Aug 2026 14:04:47 +0800
+References: <20260811131714.12779-1-zhangzhanpeng.jasper@bytedance.com> <20260811160649.28255-1-zhangzhanpeng.jasper@bytedance.com>
+Content-Transfer-Encoding: 7bit
+In-Reply-To: <20260811160649.28255-1-zhangzhanpeng.jasper@bytedance.com>
+X-Lms-Return-Path: <lba+26a7d5e80+b5a9d3+lists.infradead.org+yang.yicong@picoheart.com>
+User-Agent: Mozilla Thunderbird
+X-Original-From: Yicong Yang <yang.yicong@picoheart.com>
+Cc: "Shuai Xue" <xueshuai@linux.alibaba.com>, 
+	"Jing Zhang" <renyu.zj@linux.alibaba.com>, <yang.yicong@picoheart.com>, 
+	"Will Deacon" <will@kernel.org>, "Mark Rutland" <mark.rutland@arm.com>, 
+	"Baolin Wang" <baolin.wang@linux.alibaba.com>, 
+	"Jonathan Cameron" <Jonathan.Cameron@huawei.com>, 
+	<linux-arm-kernel@lists.infradead.org>, 
+	<linux-perf-users@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+From: "Yicong Yang" <yang.yicong@picoheart.com>
+Date: Thu, 13 Aug 2026 14:04:45 +0800
+Message-Id: <d7ccd4f5-5804-4c0f-992e-48fe6f0efcb0@picoheart.com>
+Mime-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_230328_346729_A58E2C1B 
-X-CRM114-Status: GOOD (  18.47  )
+X-CRM114-CacheID: sfid-20260812_230458_508258_C5360BFE 
+X-CRM114-Status: GOOD (  16.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,70 +76,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 12, 2026 at 01:33:14PM +0200, David Hildenbrand (Arm) wrote:
-> On 8/11/26 06:21, Anshuman Khandual wrote:
-> > pxd_ERROR() has been used in generic mm just to print the page table entry
-> > in pxd_clear_bad() before clearing those out with pxd_clear() later. These
-> > pxd_ERROR() macros have been provided by all platforms which basically did
-> > the same thing.
-> > 
-> > Make pxd_clear_bad() use recently added ptval_to_str() instead for printing
-> > page table entries thus completely dropping dependency on platform provided
-> > pxd_ERROR() macros which can then be dropped off. First move all required
-> > helpers in core MM into a header file which could then be used else where.
-> > 
+On 8/12/26 12:06 AM, Zhanpeng Zhang wrote:
+> dwc_pcie_pmu_notifier() registers a synthetic platform device directly from
+> the BUS_NOTIFY_ADD_DEVICE callback. Bus notifier callbacks run with the
+> bus_notifier rwsem held, so platform_device_register_data() enters the
+> platform bus notifier chain before the PCI bus notifier returns. When PCI
+> host bridges are registered during late init, lockdep reports this as
+> possible recursive locking.
 > 
-> It might make sense to split this patch further up to ease review:
+> Move platform device reconciliation to a work item that runs after the PCI
+> notifier returns. Serialize it with PCI rescan and removal, and parent each
+> synthetic device to its Root Port so their lifetimes remain coupled.
 > 
-> Patch 1) provide ptval_to_str() a header.
+> During removal, unregister the perf PMU and its CPU hotplug instance before
+> PCI resources disappear, then defer only platform device destruction.
+> Disable manual bind controls to preserve that ordering.
 > 
-> Patch 2) Stop using pxd_ERROR() and friends in common code, converting to
-> pteval_to_str()
-> 
-> Patch 3) Remove now unused pxd_ERROR() and friends from arch code.
+> Fixes: af9597adc2f1 ("drivers/perf: add DesignWare PCIe PMU driver")
+> Signed-off-by: Zhanpeng Zhang <zhangzhanpeng.jasper@bytedance.com>
 
-Sure but the intiial platform changes which now use ptval_to_str() as well
-will probably come after the Patch (2) but before the Patch (3).
+please attach the lockdep warning/trace in the commit for better
+understanding the issue..
 
+> ---
+> Tested on a RISC-V system with CONFIG_KASAN, CONFIG_PROVE_LOCKING,
+> CONFIG_DEBUG_LOCK_ALLOC and CONFIG_LOCKDEP enabled. Late-init PCI discovery
+> no longer triggers the nested bus notifier warning.
 > 
-> ...
-> > +static inline void
-> > +ptval_bytes_to_hex_str(char *buf, size_t buf_size, const void *entry, size_t entry_size)
-> > +{
-> > +	if (WARN_ON_ONCE(buf_size < entry_size * 2 + 1)) {
-> > +		snprintf(buf, buf_size, "overflow");
-> > +		return;
-> > +	}
-> > +
-> > +	switch (entry_size) {
-> > +	case sizeof(u32):
-> > +		snprintf(buf, buf_size, "%08x", *(const u32 *)entry);
-> > +		break;
-> > +	case sizeof(u64):
-> > +		snprintf(buf, buf_size, "%016llx", *(const u64 *)entry);
-> > +		break;
-> > +#if defined(__SIZEOF_INT128__)
-> > +	case sizeof(u128):
-> > +		snprintf(buf, buf_size, "%016llx%016llx",
-> > +			 (unsigned long long)(*(const u128 *)entry >> 64),
-> > +			 (unsigned long long)*(const u128 *)entry);
-> > +		break;
-> > +#endif
-> > +	default:
-> > +		snprintf(buf, buf_size, "unsupported");
-> > +		break;
-> > +	}
-> > +}
+>  drivers/perf/dwc_pcie_pmu.c | 149 +++++++++++++++++++++++++++---------
+>  1 file changed, 113 insertions(+), 36 deletions(-)
 > 
-> Why not leave ptval_bytes_to_hex_str() in the C file for less churn for now?
 
-Agreed - will change.
+[...]
 
-> 
-> -- 
-> Cheers,
-> 
-> David
+>  
+> @@ -815,7 +891,11 @@ static int dwc_pcie_pmu_offline_cpu(unsigned int cpu, struct hlist_node *cpuhp_n
+>  
+>  static struct platform_driver dwc_pcie_pmu_driver = {
+>  	.probe = dwc_pcie_pmu_probe,
+> -	.driver = {.name = "dwc_pcie_pmu",},
+> +	.driver = {
+> +		.name = "dwc_pcie_pmu",
+> +		.probe_type = PROBE_FORCE_SYNCHRONOUS,
 
-Thanks for the review.
+this looks irrelevant to the issue to resolve. need description here.
+
+I suppose this issue is because both the PMU and the PCIe controller
+are on the platform bus, right? If we switch the PMU to the faux device
+interface [1] this could be solved?
+
+thanks.
+
+[1] https://lore.kernel.org/all/20260708084507.98242-4-yang.yicong@picoheart.com/
 
