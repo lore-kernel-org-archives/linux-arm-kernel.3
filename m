@@ -4,99 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9164C5CFDB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 09:46:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81E9AC5CFDB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 09:52:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ACK6suDD45CZ07tgkZL9oiPF+BXY/lG7ANXuekOfOK4=; b=oCC5g30dMQgVb5PVlv7U+hQ8u+
-	tgFFAg8CpuVa3fPfJvdsUEOifHu8zpoHEC0FxCdpqfjVmT3Boasw/yjXco4JACbHauL4EojsdScog
-	NKAqY/2e/qGlVFd9bi0M8v50H3quSqGOLuAn44OvubP9mxUceD/ubsM/c11JNCB0lzHaxrNNMRVSW
-	+o6xZxlJ38eir/7Xko8P7dSsYW0t0IbnQ/eCUcUuUwgniDdp8CuaPLhFs8cfw0PrVzAFpCVSxjBLM
-	FQEdmvAbhU7/SeyfKw7LzUSia1CFcdp9nWz363QEKp93EYsxCREWhtKlv0E0Y58f0EIGNSZpTeFyw
-	F3c/1TGw==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fL0Oyp88GwG7kNOMBo/yujFF8wNjRPW6Iy2PxK6WeBs=; b=rZGTkwhthbmwkk9HOVRo7pntKv
+	A4Z9DVxkAoEGwWlJymw0is0pbugVhFwkLTLDtXl0aORC+siIRd7g2UtaG4r+Wgp2I1/RxewwY74rw
+	lzXT216sYertDkcfzrlhjhcN1MsaH6FrxjVsat1FtFrAG3rm3tP/XTYcmiKBa+4cUWC+snTgLMNNq
+	TiAaxpdV56bllEmimC7mYTYUSShMTAgKBXY7NEDf5ok9GFCzNTEsjr2dM8slBncnYr6th0IaniR08
+	xqeD/S4K7zDKhuW1MN75KR0vMfwChKHOOlzd3T4xm85FVJIwOGxm+oC47lN22De/En7ass86wx0yA
+	qc1SO/HQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuS16-00000000MUZ-45m2;
-	Thu, 13 Aug 2026 09:46:29 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1wuS6S-00000000NK3-3QHw;
+	Thu, 13 Aug 2026 09:52:00 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuS14-00000000MSW-0tlW
+	id 1wuS6P-00000000NJe-3DmW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 09:46:27 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-47fe76491b8so147505f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 02:46:25 -0700 (PDT)
+	Thu, 13 Aug 2026 09:51:59 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67D923pT3421996
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 09:51:57 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	fL0Oyp88GwG7kNOMBo/yujFF8wNjRPW6Iy2PxK6WeBs=; b=UFUCq942nrPbctuG
+	znqVroq90ZHi1z6V+1XxkjtfazzjyNXp2Y5VDZ2/qipRLuIKKF2bhPW20H7MJyJn
+	ldj7zeVIUXvmcnOP6NqpwPSHfc/gOTnu0k3wh6zQ37txwhhZhyDi1+4xp5s9E5EP
+	J89+jJvxeqB+yci1ay4nwuxkLbFEn0PiNs3HFW9pX2biFiMB5Tc9UFn+eojAwBZh
+	20AIDG9+031yQBtGkVM5WV9lJP/wToh0JbZCeSDF7VH2Wj0oQ2CIkar/zmxa6vBE
+	QSeQfgHKFd9Rjx5CtCeAgvmgh7RFgWC+xDJRgdnEHwcCl+UXNb1Cw0kdOi+lMxIU
+	WVBh8g==
+Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g152m9nr2-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 09:51:56 +0000 (GMT)
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2cd01a14e81so10451085ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 02:51:56 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1786614716; cv=none;
+        d=google.com; s=arc-20260327;
+        b=G+ApAQnxRFM5spn+bQ8tBCCBq0cYJ2v7R/cjwmazzUslXn+LB77CcRheCh0V/bjf/y
+         N/9Qi7T355pJs3gk7GrXRpCu0UL/cz1mtZrJK6/i5bi0ruLUS0V/PXssu//LMXLgl0fz
+         MmBNRrp2NAfFwpfeuo5eZ10zF8HLKDilkIAQAU0aHx+8kjB1ChPQFKyeOX9787/cl75d
+         EV8qoaSGvee/c5CJE3hL5kWsdWv4HGwMHuO0VQ5HCte9tmMIsbcqWcZ2T10OAmE44yJY
+         UACW13BZwlsaU3QkSUJNMtYSjiRc7ttUjx1LdUWXWhGJKl7Ut/qBhfjGFWEVunJLtTUd
+         FbCw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=fL0Oyp88GwG7kNOMBo/yujFF8wNjRPW6Iy2PxK6WeBs=;
+        fh=s7D2H9xMJswr40kgXXxfECKAZcC1IA3Ot36BGFODXV8=;
+        b=Du/wzyQHVlfWVkyaP2m27u8sCTIHSut9BCZ38ZaNLmk8G0/f/xi5lxXjZ7vvo80MyD
+         YAFrqYtqbzxg9Xh2TZf/ftc8r4jCRLM1+xb36B5tGItqEGp1HDehlQQbj+uYbO9tt61+
+         OL0ZaovlS6NDZLe/oljnP+E0OJlOxVUTNSsFaxSA8k9VER7GCSs0FCMvM+fO5ZZNZhXb
+         hceDUlQUnnLhckqcZH3b/1nVmntE3BpLdP83A8QhtXEeJ1rq1Yl2Sy8VO53TtUUVkY4y
+         k0aJ6ShNByDe/6K+s9Eek8WkvnIyFNkONKs8jqG9Z/o3ihZgifOkRG2SFbRmiDKfT9Pm
+         8aew==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786614384; x=1787219184; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ACK6suDD45CZ07tgkZL9oiPF+BXY/lG7ANXuekOfOK4=;
-        b=sYCBSWcbcGCsgTGbNzoNDqGFVsJzsOHHtvTTaTCGthTWYIiGI/UMgZ//rakbHB2IrT
-         2S+OHlZg9qW8sbTBQW9X1muXg/f8ccubCzjcu3uUStRVMLJGb6NMrMvpjuNiGDeqks9k
-         SpqhfrcT+a9OEoRzEcpUVJXxSBy6GouSCxW08zhVNl8RExhY4avB+ifj9Mum/JYq+e3W
-         hjwvR5DuhRJvsmnI2AJPgS+U9VaoCjQQaZveg801aV+ti8XzSnLuiwjTCxaF8ZdQ45wc
-         7A17NAIElo07pFJ2HChdaeF47vwJZbn0xBTKJEaPpt0N4eUIUzW1oH4XTke7tZkA40xk
-         texg==
+        d=oss.qualcomm.com; s=google; t=1786614716; x=1787219516; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=fL0Oyp88GwG7kNOMBo/yujFF8wNjRPW6Iy2PxK6WeBs=;
+        b=belSeturkJr6T2jcZFvJvwjkjOtkYFfcnpBohOyG49aFU+GRKJzD3ePALt4uFHQQLP
+         rZLyOZTEfxqw8Z3k4wbEiOnUHHhezqIF2WaI2bbXZIUxc2p+tpyhY+rrpBpxdJiIWD9a
+         6aisnx877vslEy3hf8xNh+Rs2y3Vt1dXbiHXGY135zi/e8EzPpEJupCmFQW9qhjnO/UO
+         Rkd01pp17OOIfE4nLvrpRpOJ9MWQGEKa/YRM0384zrOewrQLRqHsCsoLDKVY7C8Ry1dz
+         vUsXwEV7PZqMrTB+YvjjHFNoLKazJmT5HobLDpcvpNcOtwVKYV/8kjozJQqz9YQtJktx
+         G/0A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786614384; x=1787219184;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ACK6suDD45CZ07tgkZL9oiPF+BXY/lG7ANXuekOfOK4=;
-        b=MxnV7UDNoR16KgDBZS4RyOU4uyyPJyVUbUCKLziVEePjoWIoxV4euP3iXdU7+wj0jf
-         mU+zxq36gnONc89OVBWrNEnCjH8IPshz8SfswMUpAAbWwYscf/CANQJ9ffVDSJWefvcN
-         fK71R98UjsoAsSwobFJhliIWlIVyL9JcFhVv3hWAYAXrGbKDJtC5ja4Gs9gK3mwX66RP
-         1F4lUu2glP8a3zeaIptNy2O+1rzBPJfhYZ7CK+NiliFUP1tDw/IjG4bq4DTRzJb8T05c
-         MJ2/y68bxDb3V0M2/xPU5nn+H7N8/C9V5Zlcavlr80lAIxxuVRGEKTTk7a8w4y9Y0zuo
-         a2JQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rov1Ax1ELjh1j0KRPPxTS200XxYIR5vCZHPSO5vVSAgBq772fDdGWqsh04/yUwwvNp61fZ9oSkcfMRLsjFvgJrO@lists.infradead.org
-X-Gm-Message-State: AOJu0YwTYq26rgS+W7nPP+Msa39WpCNPvVR4fPsOklLMaQBQdwRTe+50
-	VeyxgzIxcGq1vJzGLuwG6dUWDCWFNJPAYEBHqm0wRuECehnall6FY98C
-X-Gm-Gg: AR+sD137Xq3WAmEROkiUqlHWN6hgOb4qUMnuiVkETFbzzq/XodAXrUXgF9flMRcv9jI
-	PWEHT9C9xuWlLFApkVD56AjKfVwALzXfE+DD9xmnOjTHQaEwFr2WIbFNzL7ZDCtDQ3ZIazPJqwh
-	3pIyfrAYErAFLYLvkUZrQshFaaXAtSE/sxG70G7XVbWKwfWYt/Z4Qg3NPUdBQkZn1Nic2s2AsVl
-	G5I6IlqQXSE3hVw7FBuib0x3EnMWLjh7uw976IYHmCxuZ91esn0IfB9aC0XrQfcCX/YMOGGB9Y/
-	i5Cj2ScLb6iHbJNUG3CabHVPARCq/a9La0PIi2kK4cZY9B0lrN5/sy3QT2WYviHK7Ys+0xwvHQn
-	hWrMOR0Lr7/yDyN8WWDd22szNn6sf3uY84BWdXv3epTSBxfOB5BMAHd5NztttODRy1i8PnkYh93
-	u7ix7FGEFI2fFIGkhzFpxdMkfLDwBXekpKFUPdylqVLQUvxxrCdypnz50ERbQF3HPIUa/1Wkm6x
-	EZx+bVm6FAomqHTdCpMA+Pwu1FyqZrLsf60ACVQLTJMiI9Naeg2teNAk3tJaYlf8TftAUA8TekK
-	rDUt
-X-Received: by 2002:a05:600c:3b09:b0:499:59a1:96f7 with SMTP id 5b1f17b1804b1-4998261b11fmr26856695e9.1.1786614383669;
-        Thu, 13 Aug 2026 02:46:23 -0700 (PDT)
-Received: from OrangePi5-Plus.BB-HOME (20014C4E1B911C009377EE8DF6D0A1C2.dsl.pool.telekom.hu. [2001:4c4e:1b91:1c00:9377:ee8d:f6d0:a1c2])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4815a568c40sm4870863f8f.13.2026.08.13.02.46.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Aug 2026 02:46:23 -0700 (PDT)
-From: Igor Paunovic <royalnet026@gmail.com>
-To: Sandy Huang <hjc@rock-chips.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>
-Cc: Igor Paunovic <royalnet026@gmail.com>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	Alexey Charkov <alchark@flipper.net>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	dri-devel@lists.freedesktop.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] drm/rockchip: vop2: Scale the AXI clock to the bandwidth the mode needs
-Date: Thu, 13 Aug 2026 11:45:56 +0200
-Message-ID: <20260813094614.9072-1-royalnet026@gmail.com>
-X-Mailer: git-send-email 2.53.0
+        d=1e100.net; s=20251104; t=1786614716; x=1787219516;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=fL0Oyp88GwG7kNOMBo/yujFF8wNjRPW6Iy2PxK6WeBs=;
+        b=k7MAyK+sC849Hb03p6DPD0B/zhpKM6KtLOw4tVTrZcEU1S+U6cx0HS+kBTnoZFHSFo
+         GMHOeotTnXwl5j9WHh6y+QesmmPiKAj2n3/+Ozb+t9cWDKJLkVTEpYGsUYdyA/L7EM8W
+         AGMRG3yTqYREYKIFUCQZ8nCt7Y/PCSuNueGT4W8HEL5LrsE03/dPuPl8JMzkd8KNfozV
+         1Z0sjRv9H4o1ayCASWbu3QjsnBxAIYucS66N51pBKMZrluf20cbUXBFROMWBS2KXNA6i
+         UBSoWlVnzF9zqMMnwjvRy8lfapRCxcc6mtvsicmzwKIUCbv2RRSP5OaqhDhEP2Zx4PSb
+         rspQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rr5nGFuZ5ILCMjHcA0l9g3/pO/OBkCoKlYVcHqCaud4nzLV33hhz0C2DS8QjupUS0mjyKZ1wUJj4VStCGf5Znzn@lists.infradead.org
+X-Gm-Message-State: AOJu0YwLp8kcu5knwykgKdh9lzhDKZi7yF/0Xw9kZNPZsliQyR0J/5Mc
+	xXGq04qHljAeRjBNWIPQTLOd3VOgu/wRne+rS3Ky5NObJYJhPP+6n6y+jGghFIva0laU8FHpEpp
+	uRoBRGsEjDjtAHUQUasRdpCaOHBXv1I2+p0Wg2Irxd0ctz96V94M1WFxGTaoQ8W8nuSpwBZACaz
+	gtPO3Lhq3lUFVNb59vCKUVZ6qOZbsjBnF+9eIAYcq5IH/VzI66aXBz
+X-Gm-Gg: AR+sD10RRVYiTuPgCmWKwbyMlPX6AI6UxHSCxRVj2IEJhK4TYyEjNP+x0oqZoX7yXrK
+	qCB5n6s0OIZavBAElL8czFqcxyKlAFfnZA3QzoYtJr9aINxC3EeL5JnTLnFGeYfEEr/J9Uq1Fa5
+	0jZbtSU/s6L2JXyXrc9ZzZ6yeozPMJyHp/q7VmKdXPPRYH+oDfE3f5xX4UjA==
+X-Received: by 2002:a17:902:d4c7:b0:2c9:a5e9:c26e with SMTP id d9443c01a7336-2d37e833aa5mr44485495ad.13.1786614716126;
+        Thu, 13 Aug 2026 02:51:56 -0700 (PDT)
+X-Received: by 2002:a17:902:d4c7:b0:2c9:a5e9:c26e with SMTP id
+ d9443c01a7336-2d37e833aa5mr44485025ad.13.1786614715579; Thu, 13 Aug 2026
+ 02:51:55 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20251218-cpu_cluster_component_pm-v2-0-2335a6ae62a0@oss.qualcomm.com>
+ <20251218-careful-ruby-wildebeest-a8babd@sudeepholla> <d0ce8306-84e0-4940-98aa-dbc356d87593@oss.qualcomm.com>
+ <20251219-hysterical-sparkling-meerkat-59c5eb@sudeepholla>
+ <11a01108-63da-4317-a547-5977a469a7dc@oss.qualcomm.com> <20260723-light-aardwolf-of-swiftness-1c46ea@sudeepholla>
+In-Reply-To: <20260723-light-aardwolf-of-swiftness-1c46ea@sudeepholla>
+From: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
+Date: Thu, 13 Aug 2026 11:51:42 +0200
+X-Gm-Features: AUfX_mzzSEQffGx9CifuPbFV5RxAKHUylsQq-VNyHO84epcOG5G-e9RJOaAN9Os
+Message-ID: <CAPx+jO-sCierYj8jnoKQHckJG16dOBxnNrsZVYO=38R2cLV8nw@mail.gmail.com>
+Subject: Re: [PATCH v2 00/12] coresight: Add CPU cluster funnel/replicator/tmc support
+To: Sudeep Holla <sudeep.holla@kernel.org>,
+        "Maulik Shah (mkshah)" <maulik.shah@oss.qualcomm.com>
+Cc: yuanfang zhang <yuanfang.zhang@oss.qualcomm.com>, ulfh@kernel.org,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach <mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Mathieu Poirier <mathieu.poirier@linaro.org>,
+        Leo Yan <leo.yan@linux.dev>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, kernel@oss.qualcomm.com,
+        coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org, Jie Gan <jie.gan@oss.qualcomm.com>,
+        linux-pm@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODEzMDA2OCBTYWx0ZWRfX0hqcE5PdGsJT
+ gdAsUMQILO/ZqN0wOhtQxaPQNYi2vf5qQdTFu65XgDsumLyHATvwHH/o/Y+d5hpmffQk4ObudWk
+ E3We4ak0hybvv/+u6l7aVJrD0omBOkQ=
+X-Proofpoint-GUID: Zk8yzGIFXKpYG9csGFaUBXGgC0hu8OcJ
+X-Authority-Analysis: v=2.4 cv=D8R37PRj c=1 sm=1 tr=0 ts=6a7d93bc cx=c_pps
+ a=JL+w9abYAAE89/QcEU+0QA==:117 a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10
+ a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=eoimf2acIAo5FJnRuUoq:22 a=7CQSdrXTAAAA:8 a=VwQbUJbxAAAA:8
+ a=c5Fe1Fe05ZhRYI1i2R0A:9 a=QEXdDO2ut3YA:10 a=324X-CrmTo6CU4MGRt3R:22
+ a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODEzMDA2OCBTYWx0ZWRfX2yMP7Z4ZrMF8
+ U3lPAx5YMAcYKkeI3ikfgX/hgJdNRgmNIrDgav/jnbZQSvBj936awGTX8PVTxyDPQKqLNrlE7ux
+ E2QYCkTuMbThAdaZKQP6jLknP0BmDFzerVnRQsQOPvFcd0F3ZKv5T8FSTBj3VonzcYzOAKq81oU
+ nrrvc407Wwp0PoVLp04tBrzIeWNPm5Td+khWLX4dNBPmxyRNoA/yFc4uKQUoIaTWCGa6LN4wZnD
+ kjpAjbZOaClSS+kZ34MVhOvcpgWmRWvR435iTUZwdDCQ90+QOdvyOtMgAnGZFl4pcd1uYM/lJOA
+ KK9p/OH4eomwQJiNViZLoP55IxbTqSznqOvcjwD3rOW3NNFtOd61yv0HH2nES9WPav0+B+hyg/D
+ WTsgGQnhGR/n9Yfoeyja+bPRI4qoU71QE9F3TrAs1z1/Zj3V/AeEXtThEAKxc+1WD6S4423DzvO
+ D6TuJm8/+qIOPsgsf1A==
+X-Proofpoint-ORIG-GUID: Zk8yzGIFXKpYG9csGFaUBXGgC0hu8OcJ
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-13_03,2026-08-12_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 clxscore=1015 malwarescore=0 priorityscore=1501
+ adultscore=0 phishscore=0 bulkscore=0 spamscore=0 suspectscore=0
+ impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2608130068
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_024626_355225_46539E04 
-X-CRM114-Status: GOOD (  34.73  )
+X-CRM114-CacheID: sfid-20260813_025157_841884_72D00D5B 
+X-CRM114-Status: GOOD (  57.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,299 +180,256 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-VOP2 fetches the scanout data for all of its video ports over a single
-AXI clock.  On RK3588 that clock is pinned to 500 MHz by the device tree
-and nothing ever raises it, so a mode whose pixel rate outruns what the
-AXI clock can deliver underruns the internal scanout FIFO.  The hardware
-reports this as POST_BUF_EMPTY and the picture is corrupted.
++ linux-pm
 
-3840x2160@120 over DisplayPort is such a mode.  Measured on an Orange Pi
-5 Plus by moving the rate at runtime while the mode was up, with dclk
-unchanged at 594 MHz throughout, so that the AXI rate was the only
-variable:
+On Thu, Jul 23, 2026 at 3:45=E2=80=AFPM Sudeep Holla <sudeep.holla@kernel.o=
+rg> wrote:
+>
+> On Mon, May 25, 2026 at 06:47:27PM +0530, Maulik Shah (mkshah) wrote:
+> >
+> >
+> > On 12/19/2025 3:51 PM, Sudeep Holla wrote:
+> > > On Fri, Dec 19, 2025 at 10:13:14AM +0800, yuanfang zhang wrote:
+> > >>
+> > >>
+> > >> On 12/18/2025 7:33 PM, Sudeep Holla wrote:
+> > >>> On Thu, Dec 18, 2025 at 12:09:40AM -0800, Yuanfang Zhang wrote:
+> > >>>> This patch series adds support for CoreSight components local to C=
+PU clusters,
+> > >>>> including funnel, replicator, and TMC, which reside within CPU clu=
+ster power
+> > >>>> domains. These components require special handling due to power do=
+main
+> > >>>> constraints.
+> > >>>>
+> > >>>
+> > >>> Could you clarify why PSCI-based power domains associated with clus=
+ters in
+> > >>> domain-idle-states cannot address these requirements, given that PS=
+CI CPU-idle
+> > >>> OSI mode was originally intended to support them? My understanding =
+of this
+> > >>> patch series is that OSI mode is unable to do so, which, if accurat=
+e, appears
+> > >>> to be a flaw that should be corrected.
+> > >>
+> > >> It is due to the particular characteristics of the CPU cluster power
+> > >> domain.Runtime PM for CPU devices works little different, it is most=
+ly used
+> > >> to manage hierarchicalCPU topology (PSCI OSI mode) to talk with genp=
+d
+> > >> framework to manage the last CPU handling in cluster.
+> > >
+> > > That is indeed the intended design. Could you clarify which specific
+> > > characteristics differentiate it here?
+> >
+> > Sorry for coming very late on this.
+> >
+> > This series is intended to handle coresight components which resides wi=
+thin CPU cluster.
+> > For the cases where cluster is in deepest idle low power mode or all CP=
+Us belonging to cluster
+> > are hotplugged off, access to coresight components can not be done.
+> >
+>
+> Sure, but the question is why is the cluster entering deepest idle state =
+if
+> coresight is in use ?
+>
+> > The implementation tried to address in two parts,
+> > 1. Using cluster power-domain to know which coresight component belongs=
+ to which cluster/CPUs
+>
+> OK
+>
+> > 2. Schedule the task on intended cluster's CPU to make sure the CPU (an=
+d cluster) power is
+> > ON while coresight component of the cluster is being accessed (using sm=
+p_call_function_single()).
+> >
+>
+> Why, just block any cluster entering deeper idle state when corresponding
+> coresight component is in use. This should be taken care automatically.
+>
+> > The use of power-domains in (1) will limit this to PSCI OS-Initiated mo=
+de,
+>
+> Yes
+>
+> > to have this support on PSCI Platform-Coordinated mode too, probably in=
+stead of power-domains,
+> > cpu-maps (which also defines the clusters) from device tree is a better=
+ choice which will give
+> > the information on which CPU belongs to which cluster.
+> >
+>
+> No, let the platform deal with it. And the whole OSI mode was pushed givi=
+ng
+> such use-case as example and now you are telling you want to solve the pr=
+oblem
+> for PC mode. I am confused. Just use OSI.
+>
+> > (2) ensured that scheduling happened on intended CPU and while the acce=
+ss is in progress, CPU (and
+> > cluster) will not enter power down in between.
+> >
+>
+> No, just block entering that state in OS(for OSI) and in the platform(for=
+ PC)
+>
+> > >
+> > >> It doesn=E2=80=99t really send IPI to wakeup CPU device (It don=E2=
+=80=99t have
+> > >> .power_on/.power_off) callback implemented which gets invoked from
+> > >> .runtime_resume callback. This behavior is aligned with the upstream=
+ Kernel.
+> > >>
+> > >
+> > > I am quite lost here. Why is it necessary to wake up the CPU? If I un=
+derstand
+> > > correctly, all of this complexity is meant to ensure that the cluster=
+ power
+> > > domain is enabled before any of the funnel registers are accessed. Is=
+ that
+> > > correct?
+> >
+> > Yes, This is to ensure that CPU (and cluster) power is ON while coresig=
+ht components
+> > for same cluster are being accessed.
+> >
+>
+> Or just don't turn off cluster if coresight is enabled and in use.
+>
+> > >
+> > > If so, and if the cluster domains are already defined as the power do=
+mains for
+> > > these funnel devices, then they should be requested to power on autom=
+atically
+> > > before any register access occurs. Is that not the case?
+> >
+> > Cluster power-domains will be only available for PSCI OS-initiated mode=
+ but also
+> > will not help for cases where all CPUs in cluster are hotplugged off as=
+ hotplugs are
+> > platform coordinated.
+> >
+>
+> See above, let platform deal with it. It is called PC for that reason.
 
-  500 MHz: ~594000 suppressed vop2_isr callbacks per 5 s, corrupted
-  750 MHz: no POST_BUF_EMPTY at all for the 42 s the phase lasted, clean
-  500 MHz: ~607000 suppressed callbacks per 5 s, corrupted again
+I agree. If PC mode is used, then the FW should manage this through
+another channel, like SCMI for example.
 
-Both transitions are immediate.  Heiko Stuebner reports the same
-starvation on different hardware [1].
+>
+> > After discussion with our HW team to automatically request power on for=
+ coresight
+> > component GPR [1] can be used but they seems not working as intended on=
+ the existing
+> > SoCs and will be available on next generation SoC.
+> >
+> > [1] https://developer.arm.com/documentation/ddi0480/d/Functional-Overvi=
+ew/Granular-Power-Requestor
+> >
+>
+> You are looking at it from wrong side as you allowed cluster to power dow=
+n
+> when the coresight in the cluster power domain was still in use, right ?
 
-The requirement follows each port's pixel rate rather than its interface
-clock, and it is per port rather than aggregate.  Two measurements at
-500 MHz pin that down:
+This coresight part that is about to be configured for profiling
+belongs to one CPU cluster. The current CPU we are running on when
+starting the configuration, belongs to another cluster.
 
-  - a single port scanning out 3840x2160@120 underruns, while the same
-    composed pixel rate spread over three ports - 3840x2160@60 on one
-    and 3840x2160@30 on two others - is clean for a minute with no
-    underrun on any of them.  The totals are equal to the pixel:
-    3840*2160*120 == 3840*2160*(60+30+30).
+Hence, the cluster that contains the CPU for profiling may be turned
+off. See more below.
 
-  - 3840x2160@60 is clean where 3840x2160@120 is not, although both run
-    dclk at 594 MHz on this board: the 120 Hz link is YCbCr 4:2:0, which
-    halves dclk without halving the rate at which the port consumes
-    pixels.
+>
+> > >
+> > > What am I missing in this reasoning?
+> > >
+> > > The only explanation I can see is that the firmware does not properly=
+ honor
+> > > power-domain requests coming directly from the OS. I believe that may=
+ be the
+> > > case, but I would be glad to be proven wrong.
+> > >
+> >
+> > please see below comment for more details, This seems not a firmware is=
+sue.
+> >
+> > >>>
+> > >>>> Unlike system-level CoreSight devices, these components share the =
+CPU cluster's
+> > >>>> power domain. When the cluster enters low-power mode (LPM), their =
+registers
+> > >>>> become inaccessible. Notably, `pm_runtime_get` alone cannot bring =
+the cluster
+> > >>>> out of LPM, making standard register access unreliable.
+> > >>>>
+> > >>>
+> > >>> Are these devices the only ones on the system that are uniquely bou=
+nd to
+> > >>> cluster-level power domains? If not, what additional devices share =
+this
+> > >>> dependency so that we can understand how they are managed in compar=
+ison?
+> > >>>
+> > >>
+> > >> Yes, devices like ETM and TRBE also share this power domain and acce=
+ss constraint.
+> > >> Their drivers naturally handle enablement/disablement on the specifi=
+c CPU they
+> > >> belong to (e.g., via hotplug callbacks or existing smp_call_function=
+ paths).
+> > >
+> > > I understand many things are possible to implement, but the key quest=
+ion
+> > > remains: why doesn=E2=80=99t the existing OSI mechanism - added speci=
+fically to cover
+> > > cases like this solve the problem today?
+> > >
+> > > Especially on platforms with OSI enabled, what concrete limitation fo=
+rces us
+> > > into this additional =E2=80=9Cwake-up=E2=80=9D path instead of relyin=
+g on OSI to manage the
+> > > dependency/power sequencing?
+> >
+> > + Ulf in loop.
+> >
+> > Current platforms with OSI enabled, Linux PSCI do not implement the pow=
+er_on/power_off
+> > requests, as far as i know, runtime PM was never meant to implement thi=
+s part and
+> > pm_runtime_get_sync() (from drivers/cpuidle/cpuidle-psci.c) call is onl=
+y used to convey
+> > to cluster power domains about a child CPU/ sub domain being on after i=
+t has already
+> > been landed in Linux.
+> >
+>
+> When a shared power domain has one of the consumer active, why is the pow=
+er
+> domain being turned off. OSI is supposed to handle that, I still don't
+> understand what am I missing ?
+>
+> > The standalone invoke of pm_runtime_get_sync() from another CPU do not =
+really turn on/get
+> > the CPU (and cluster), as the CPUs either use CPUidle / CPU hotplug pat=
+hs to enter/exit
+> > low power mode.
 
-So the condition belongs on each video port's own crtc_clock.  Summing
-across ports would be wrong, and keying on dclk would miss 4:2:0
-entirely.  The threshold sits between the measured points: 3840x2160@60
-(594000 kHz) and 2560x1440@144 (about 586000 kHz) are both clean at the
-default rate, 3840x2160@120 (1188000 kHz) is not.
+This is the main problem!
 
-Track the requirement as a global atomic state object rather than by
-walking the CRTC list when the rate is applied.  Each CRTC records what
-it needs during its own atomic check, and the rate applied is the
-maximum over the ports.  Going through the atomic state is what makes
-this safe: a commit only ever writes the entry for a CRTC it holds a
-lock for, and never reads the state of a CRTC that a concurrent commit
-may be swapping underneath it.  The rate the platform set up is used as
-the lower bound, so a board that already configures a higher rate keeps
-it.
+Calling pm_runtime_get_sync() on a device, doesn't necessarily power
+on the CPU PM domain (cluster) it belongs to.
 
-Tested on the same board on drm-misc-next plus the dw-dp and Rockchip
-USBDP PHY series, which DisplayPort Alt Mode needs in order to come up
-at all: 3840x2160@120 selects 750 MHz and runs with no underrun,
-dropping to 3840x2160@60 returns the clock to 500 MHz and stays clean,
-and going back raises it again.  On that same kernel without this patch
-the output shows no picture at any mode.
+At the moment pm_runtime_get_sync(), for CPU PM domains, only
+guarantees that an already powered-on CPU PM domain stays powered on
+if it's already on.
 
-Link: https://lore.kernel.org/all/20260808104240.13776-1-royalnet026@gmail.com/
-Link: https://lore.kernel.org/all/20767137.geO5KgaWL5@diego/ [1]
-Signed-off-by: Igor Paunovic <royalnet026@gmail.com>
----
-v2:
- - Reworked how the requirement is tracked.  v1 computed the rate by walking
-   the CRTC list at the point it applied it, which read the state of CRTCs the
-   commit holds no lock for; a concurrent non-blocking commit on another CRTC
-   can swap and free that state underneath.  Caught by the Sashiko AI review
-   [2] before anyone had to trip over it.  v2 has each CRTC record its own
-   requirement in a global atomic state object during its own atomic check and
-   takes the maximum over the ports, so a commit never reads state it does not
-   own.  The shape follows vc4's handling of its core clock, which is the same
-   problem.
- - Retested on hardware with the new mechanism, since the old measurement no
-   longer applies to it: 3840x2160@120 selects 750 MHz, dropping to
-   3840x2160@60 returns the clock to 500 MHz, and going back raises it again,
-   with no POST_BUF_EMPTY in any phase and nothing failing in the atomic path.
+I am working on a patch to fix this in a generic way, I will keep you poste=
+d.
 
-v1: https://lore.kernel.org/all/20260812104909.6390-1-royalnet026@gmail.com/
-[2] https://lore.kernel.org/all/20260812105649.39CBA1F000E9@smtp.kernel.org/
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 107 +++++++++++++++++++
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.h |  19 ++++
- 2 files changed, 126 insertions(+)
+[...]
 
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index 4cce3e336f5b..fdee08042ac7 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-@@ -104,6 +104,20 @@ enum vop2_afbc_format {
- 
- #define VOP2_MAX_DCLK_RATE		600000000UL
- 
-+/*
-+ * All video ports fetch their scanout data over a single AXI clock.  The
-+ * hardware buffers that data in an internal FIFO which is drained at the
-+ * pixel rate, so a mode whose pixel rate outruns the fill rate underruns the
-+ * FIFO, which the hardware reports as POST_BUF_EMPTY and which shows up as a
-+ * corrupted image.  Raise the AXI clock for modes that need it.
-+ *
-+ * The requirement follows the pixel rate rather than the interface clock: a
-+ * YCbCr 4:2:0 link halves dclk but not the rate at which the video port
-+ * consumes pixels.
-+ */
-+#define VOP2_ACLK_RATE_HIGH		750000000UL
-+#define VOP2_HIGH_BW_PIXCLK_KHZ		1000000
-+
- /*
-  * bus-format types.
-  */
-@@ -1008,6 +1022,72 @@ static bool vop2_gamma_lut_in_use(struct vop2 *vop2, struct vop2_video_port *vp)
- 	return gamma_en_vp_id != nr_vps && gamma_en_vp_id != vp->id;
- }
- 
-+static struct drm_private_state *
-+vop2_aclk_create_state(struct drm_private_obj *obj)
-+{
-+	struct vop2_aclk_state *state;
-+
-+	state = kzalloc_obj(*state);
-+	if (!state)
-+		return ERR_PTR(-ENOMEM);
-+
-+	return &state->base;
-+}
-+
-+static struct drm_private_state *
-+vop2_aclk_duplicate_state(struct drm_private_obj *obj)
-+{
-+	struct vop2_aclk_state *state;
-+
-+	state = kmemdup(obj->state, sizeof(*state), GFP_KERNEL);
-+	if (!state)
-+		return NULL;
-+
-+	__drm_atomic_helper_private_obj_duplicate_state(obj, &state->base);
-+
-+	return &state->base;
-+}
-+
-+static void vop2_aclk_destroy_state(struct drm_private_obj *obj,
-+				    struct drm_private_state *state)
-+{
-+	kfree(to_vop2_aclk_state(state));
-+}
-+
-+static const struct drm_private_state_funcs vop2_aclk_state_funcs = {
-+	.atomic_create_state = vop2_aclk_create_state,
-+	.atomic_duplicate_state = vop2_aclk_duplicate_state,
-+	.atomic_destroy_state = vop2_aclk_destroy_state,
-+};
-+
-+/* The rate that satisfies every video port, never below the platform's own. */
-+static unsigned long vop2_aclk_rate(struct vop2 *vop2,
-+				    const struct vop2_aclk_state *aclk_state)
-+{
-+	unsigned long rate = vop2->aclk_rate_normal;
-+	unsigned int i;
-+
-+	for (i = 0; i < vop2->data->nr_vps; i++)
-+		rate = max(rate, aclk_state->vp_rate[i]);
-+
-+	return rate;
-+}
-+
-+static void vop2_apply_aclk_rate(struct vop2 *vop2, struct drm_atomic_commit *state)
-+{
-+	struct drm_private_state *priv_state;
-+
-+	if (vop2->version != VOP_VERSION_RK3588)
-+		return;
-+
-+	priv_state = drm_atomic_get_new_private_obj_state(state, &vop2->aclk_obj);
-+	if (!priv_state)
-+		return;
-+
-+	clk_set_rate(vop2->aclk,
-+		     vop2_aclk_rate(vop2, to_vop2_aclk_state(priv_state)));
-+}
-+
- static void vop2_crtc_atomic_disable(struct drm_crtc *crtc,
- 				     struct drm_atomic_commit *state)
- {
-@@ -1053,6 +1133,8 @@ static void vop2_crtc_atomic_disable(struct drm_crtc *crtc,
- 	if (!vop2->enable_count)
- 		vop2_disable(vop2);
- 
-+	vop2_apply_aclk_rate(vop2, state);
-+
- 	vop2_unlock(vop2);
- 
- 	if (crtc->state->event && !crtc->state->active) {
-@@ -1780,6 +1862,8 @@ static void vop2_crtc_atomic_enable(struct drm_crtc *crtc,
- 
- 	vop2_lock(vop2);
- 
-+	vop2_apply_aclk_rate(vop2, state);
-+
- 	ret = clk_prepare_enable(vp->dclk);
- 	if (ret < 0) {
- 		drm_err(vop2->drm, "failed to enable dclk for video port%d - %d\n",
-@@ -1993,6 +2077,20 @@ static int vop2_crtc_atomic_check(struct drm_crtc *crtc,
- 	if (ret)
- 		return ret;
- 
-+	if (vp->vop2->version == VOP_VERSION_RK3588) {
-+		struct drm_private_state *priv_state;
-+
-+		priv_state = drm_atomic_get_private_obj_state(state,
-+							      &vp->vop2->aclk_obj);
-+		if (IS_ERR(priv_state))
-+			return PTR_ERR(priv_state);
-+
-+		to_vop2_aclk_state(priv_state)->vp_rate[vp->id] =
-+			crtc_state->active &&
-+			crtc_state->adjusted_mode.crtc_clock > VOP2_HIGH_BW_PIXCLK_KHZ ?
-+			VOP2_ACLK_RATE_HIGH : 0;
-+	}
-+
- 	drm_atomic_crtc_state_for_each_plane(plane, crtc_state)
- 		nplanes++;
- 
-@@ -2875,6 +2973,8 @@ static int vop2_bind(struct device *dev, struct device *master, void *data)
- 		return dev_err_probe(drm->dev, PTR_ERR(vop2->aclk),
- 				     "failed to get aclk source\n");
- 
-+	vop2->aclk_rate_normal = clk_get_rate(vop2->aclk);
-+
- 	vop2->pclk = devm_clk_get_optional(vop2->dev, "pclk_vop");
- 	if (IS_ERR(vop2->pclk))
- 		return dev_err_probe(drm->dev, PTR_ERR(vop2->pclk),
-@@ -2944,6 +3044,11 @@ static int vop2_bind(struct device *dev, struct device *master, void *data)
- 
- 	rockchip_drm_dma_init_device(vop2->drm, vop2->dev);
- 
-+	ret = drm_atomic_private_obj_init(vop2->drm, &vop2->aclk_obj,
-+					  &vop2_aclk_state_funcs);
-+	if (ret)
-+		goto err_crtcs;
-+
- 	pm_runtime_enable(&pdev->dev);
- 
- 	return 0;
-@@ -2960,6 +3065,8 @@ static void vop2_unbind(struct device *dev, struct device *master, void *data)
- 
- 	pm_runtime_disable(dev);
- 
-+	drm_atomic_private_obj_fini(&vop2->aclk_obj);
-+
- 	if (vop2->rgb)
- 		rockchip_rgb_fini(vop2->rgb);
- 
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
-index ffcb39c130aa..df148dc61703 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
-@@ -8,6 +8,7 @@
- #define _ROCKCHIP_DRM_VOP2_H
- 
- #include <linux/regmap.h>
-+#include <drm/drm_atomic.h>
- #include <drm/drm_modes.h>
- #include <dt-bindings/soc/rockchip,vop2.h>
- #include "rockchip_drm_drv.h"
-@@ -286,6 +287,21 @@ struct vop2_data {
- 	unsigned int soc_id;
- };
- 
-+/*
-+ * The AXI clock is shared by every video port, so the rate it has to run at is
-+ * a property of the device rather than of one CRTC.  Track it as a global
-+ * atomic state object: each CRTC records its own requirement during atomic
-+ * check, and the rate applied is the maximum over the ports.  Going through
-+ * the atomic state is what makes this safe - a commit never reads the state of
-+ * a CRTC it does not hold a lock for.
-+ */
-+struct vop2_aclk_state {
-+	struct drm_private_state base;
-+	unsigned long vp_rate[ROCKCHIP_MAX_CRTC];
-+};
-+
-+#define to_vop2_aclk_state(x) container_of(x, struct vop2_aclk_state, base)
-+
- struct vop2 {
- 	u32 version;
- 	struct device *dev;
-@@ -326,6 +342,9 @@ struct vop2 {
- 	unsigned int enable_count;
- 	struct clk *hclk;
- 	struct clk *aclk;
-+	/* AXI clock rate set up by the platform, used as the lower bound. */
-+	unsigned long aclk_rate_normal;
-+	struct drm_private_obj aclk_obj;
- 	struct clk *pclk;
- 	struct clk *pll_hdmiphy0;
- 	struct clk *pll_hdmiphy1;
--- 
-2.43.0
-
+Kind regards
+Uffe
 
