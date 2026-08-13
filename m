@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D0D4C5CFEB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 07:45:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E40C0C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 07:45:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qb2/PVw77jNAjhPyvWAbUllJXSfF+p/dWMllt/2V5Lo=; b=WMun/6C5Kc/ZKN4EF3uznRjY7U
-	LcMdBfExqlQ+40T5BnUfFJH5K3gv4SIWxKHhJ27iQq65vT11nV6sKetc7dLGwm1zFYOw249FJpQub
-	g6B0W5QVex9qJ4XeeCFylUAlGClDkYLgJtd5RvQbju5yZv7BpwquCeTt2iScvblo4cLdyNq7fcabX
-	tDOjS4Swc0Vbl89od+58FvdZaY7DnJvgJTD5+oh81rV03W/iB9oOuf8V5TMTkgvE+N7PjDnG5HSJb
-	doaisyMRjBwGkTbIBNOqsDc7Ul7zugu+vLSP08uI1V+Gr3p0uyjQT1mPjOc7iqeL5SaA0UuJ5noLv
-	Ak30gvWw==;
+	bh=zS2zqdJiOa2sx/kU92rSbkJMqQaAm8Zcb70/3tDfkeY=; b=BRNLwqGNteYiNVPAcoYNAj9gSk
+	jpw2SihwY38Lw2A8nKaFoFE5K/8ljParbJ6VvCFyxNTfAh9ticd0LnYDUyHqdRX8HW4lbniCd9Fno
+	nAamscbXTqbdWZnH2S4QzRCIqStOjt2/xLSwPawuDL60AdKUK6rOdOKvEcGUIaT4ABSQ7MmK8fe3n
+	YGVEvi2lQguY5bocJh7pYbs9zypyVApXmrzYgNVcAJ773gWfd7/9WEDLeKks66xwRDBZ4xFHxfV7i
+	tQOJLzfOBXmNTVWkMfXiI9bChf2dFT2DuOdvJ+ura4K0zVMHfv3ZhCPcBF3cERP0CefM/aSveTaRg
+	417ChRSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuQ7u-000000001v5-3dvR;
+	id 1wuQ7u-000000001un-3DhB;
 	Thu, 13 Aug 2026 07:45:22 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuQ7t-000000001uR-1ubW
+	id 1wuQ7s-000000001tv-0xhV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 07:45:21 +0000
+	Thu, 13 Aug 2026 07:45:20 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3869043FF0;
-	Thu, 13 Aug 2026 07:45:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6A301F00ACA;
+	by sea.source.kernel.org (Postfix) with ESMTP id 7ADAF437C0;
 	Thu, 13 Aug 2026 07:45:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14A6D1F00A3E;
+	Thu, 13 Aug 2026 07:45:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786607121;
-	bh=qb2/PVw77jNAjhPyvWAbUllJXSfF+p/dWMllt/2V5Lo=;
+	s=k20260515; t=1786607119;
+	bh=zS2zqdJiOa2sx/kU92rSbkJMqQaAm8Zcb70/3tDfkeY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=m5UmQCueJW//EmSqdPCH3jcWW4ZI1SWRv/QnKkxZhNb0zdLPuhQ9l8RfOePcnhryb
-	 UnRFVV4WO0dYphC05CgzEZsGFNZTpJR9XpShD1kqJvXqyu6rlKZ3hgZjKlQg4EMr9a
-	 fm9GH8gkab0HCel8rbaNHRb9Uf5j4HJ5vS8vS5Eh1TkFS90G7ueyZrwmY7GmHicVSS
-	 cXqhbWQxlUmB3iMWz42IyNYyuiKGd7Jx0b4qX+RXrJxYby8nnwfK0DVH7aMLm1Wj9z
-	 PV0o2ycRSgYVadwZ8hkqy090aOunuS247BtRPYgtwgoe9YfLzy9q2sh6KetW/y2Rja
-	 /lrbYXXiKcitA==
+	b=UzXHBoEtBmMuNPGP+xwLE1aylKAxP5rBEFJAQ8trqq5BFqfukBkOCLQojb1/JPoGO
+	 orcuJu7Yka3GMipr9Pl5sZrfMW0wI+6JFJcwejOAjCZePi72Dlx95O3vVhZYCPRA8N
+	 1JaIbuiwoZllFqQrNXNNxbwJ04C47Zk64L7oXjVR/I5brCpBhGUD9myMSzwAzBIXYu
+	 sMfYXEK55jy2BICdpaP/TY44ZK5D5uUjcZ5nLRi/nYvzBV+YMMuYwHW6MAFdxdcaEx
+	 hK7KY0fDAwVTW+Ph42zsSTjxzr5lsqzx9ky62bptLlTmsmI+D7X4pEQX2E4r5C36L7
+	 atEGGqiO3lXrA==
 From: Ard Biesheuvel <ardb@kernel.org>
 To: linux-efi@vger.kernel.org
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -49,14 +49,14 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	Huacai Chen <chenhuacai@kernel.org>,
 	WANG Xuerui <kernel@xen0n.name>,
 	loongarch@lists.linux.dev
-Subject: [PATCH 2/3] efi: Pass EFI boot memmap struct address to core kernel
-Date: Thu, 13 Aug 2026 09:45:09 +0200
-Message-ID: <20260813074506.643472-7-ardb@kernel.org>
+Subject: [PATCH 1/3] efi: Turn boot memmap handling into shared code
+Date: Thu, 13 Aug 2026 09:45:08 +0200
+Message-ID: <20260813074506.643472-6-ardb@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260813074506.643472-5-ardb@kernel.org>
 References: <20260813074506.643472-5-ardb@kernel.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7384; i=ardb@kernel.org; h=from:subject; bh=Bt4Bu3YM+RvaYW7VrzsihnlGhLQxIMvRLCkrYZBeDn4=; b=owGbwMvMwCVmkMcZplerG8N4Wi2JIau2jK0109a+yi48T13Wc2u7v8RiKas1r7fYiU1j9mNaq HlFVaujlIVBjItBVkyRRWD233c7T0+UqnWeJQszh5UJZAgDF6cATCR/GSPDk4abgtZ8Aet5d1Yy TFj34J+J8cplOe8Cy67PP9FyuelXLMP/2G1K1RtT701gX3BrlsSylhnbtoqnLmKVF34vK8Aq1M/ NAwA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3647; i=ardb@kernel.org; h=from:subject; bh=ObemBNiXAA9fc6eSrHBLJHvN6r7CgsJHYV6Qi819ZeU=; b=owGbwMvMwCVmkMcZplerG8N4Wi2JIau2jOW3XHWU/8OtfRdnPWQ7x5u/IYtrn2xCQ4Wb18+D1 89WbMzoKGVhEONikBVTZBGY/ffdztMTpWqdZ8nCzGFlAhnCwMUpABNZ18PwT0l5v757oceh7bOZ vZMVpq2NmrEqjX07/+6Zp2NPRSfmHGP4w3UgfY0aS+/HgPIVFz48t4w4EKC6+tJmbt0LbP+vzJg 1lxUA
 X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -73,224 +73,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The EFI stub already passes a struct efi_boot_memmap populated with the
-information of the EFI memory map as a configuration table, and so
-passing the physical address, size, descriptor size and descriptor
-version via 4 different DT properties is kind of redundant.
+Move the handling of the boot memmap config table from loongarch
+specific code to code that is shared between all architectures that
+select EFI_GENERIC_STUB (all EFI archs except x86).
 
-Instead, pass the physical address of this struct in memory so that the
-kernel can just retrieve the values directly.
-
-Unfortunately, the scheme with four separate properties is boot ABI for
-Xen, and so this needs to remain supported. But for the EFI stub itself,
-this is just an internal ABI that can be modified.
+This will be used in a subsequent patch to replace the clunky FDT based
+passing of the memmap parameters.
 
 Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 ---
- Documentation/arch/arm/uefi.rst    | 10 +----
- drivers/firmware/efi/fdtparams.c   | 39 ++++++++++++++++---
- drivers/firmware/efi/libstub/fdt.c | 40 ++------------------
- 3 files changed, 37 insertions(+), 52 deletions(-)
+ arch/loongarch/kernel/efi.c | 10 ++++------
+ drivers/firmware/efi/efi.c  |  4 ++++
+ include/linux/efi.h         |  3 +++
+ 3 files changed, 11 insertions(+), 6 deletions(-)
 
-diff --git a/Documentation/arch/arm/uefi.rst b/Documentation/arch/arm/uefi.rst
-index 2b7ad9bd7cd2..c19cf3720f27 100644
---- a/Documentation/arch/arm/uefi.rst
-+++ b/Documentation/arch/arm/uefi.rst
-@@ -54,17 +54,9 @@ Name                        Type     Description
- ==========================  ======   ===========================================
- linux,uefi-system-table     64-bit   Physical address of the UEFI System Table.
+diff --git a/arch/loongarch/kernel/efi.c b/arch/loongarch/kernel/efi.c
+index 69dd83f8082f..089378856bab 100644
+--- a/arch/loongarch/kernel/efi.c
++++ b/arch/loongarch/kernel/efi.c
+@@ -28,12 +28,10 @@
+ static unsigned long efi_nr_tables;
+ static unsigned long efi_config_table;
  
--linux,uefi-mmap-start       64-bit   Physical address of the UEFI memory map,
-+linux,uefi-boot-memmap      64-bit   Physical address of a struct efi_boot_memmap
-                                      populated by the UEFI GetMemoryMap() call.
+-static unsigned long __initdata boot_memmap = EFI_INVALID_TABLE_ADDR;
+ static unsigned long __initdata fdt_pointer = EFI_INVALID_TABLE_ADDR;
  
--linux,uefi-mmap-size        32-bit   Size in bytes of the UEFI memory map
--                                     pointed to in previous entry.
--
--linux,uefi-mmap-desc-size   32-bit   Size in bytes of each entry in the UEFI
--                                     memory map.
--
--linux,uefi-mmap-desc-ver    32-bit   Version of the mmap descriptor format.
--
- kaslr-seed                  64-bit   Entropy used to randomize the kernel image
-                                      base address location.
+ static efi_system_table_t *efi_systab;
+ static efi_config_table_type_t arch_tables[] __initdata = {
+-	{LINUX_EFI_BOOT_MEMMAP_GUID,	&boot_memmap,	"MEMMAP" },
+ 	{DEVICE_TREE_GUID,		&fdt_pointer,	"FDTPTR" },
+ 	{},
+ };
+@@ -132,14 +130,14 @@ void __init efi_init(void)
+ 	if (IS_ENABLED(CONFIG_EFI_EARLYCON) || IS_ENABLED(CONFIG_SYSFB))
+ 		init_primary_display();
  
-diff --git a/drivers/firmware/efi/fdtparams.c b/drivers/firmware/efi/fdtparams.c
-index b815d2a754ee..a54a76a6aaeb 100644
---- a/drivers/firmware/efi/fdtparams.c
-+++ b/drivers/firmware/efi/fdtparams.c
-@@ -10,22 +10,30 @@
+-	if (boot_memmap == EFI_INVALID_TABLE_ADDR)
++	if (efi.boot_memmap == EFI_INVALID_TABLE_ADDR)
+ 		return;
  
- #include <linux/unaligned.h>
+-	tbl = early_memremap_ro(boot_memmap, sizeof(*tbl));
++	tbl = early_memremap_ro(efi.boot_memmap, sizeof(*tbl));
+ 	if (tbl) {
+ 		struct efi_memory_map_data data;
  
-+#include <asm/early_ioremap.h>
-+
- enum {
- 	SYSTAB,
-+	MEMMAP,
-+#ifdef CONFIG_XEN
- 	MMBASE,
- 	MMSIZE,
- 	DCSIZE,
- 	DCVERS,
+-		data.phys_map		= boot_memmap + sizeof(*tbl);
++		data.phys_map		= efi.boot_memmap + sizeof(*tbl);
+ 		data.size		= tbl->map_size;
+ 		data.desc_size		= tbl->desc_size;
+ 		data.desc_version	= tbl->desc_ver;
+@@ -156,7 +154,7 @@ void __init efi_init(void)
+ 		 * Also, set the EFI_PRESERVE_BS_REGIONS flag to indicate that
+ 		 * critical boot services code/data regions like this are preserved.
+ 		 */
+-		memblock_reserve((phys_addr_t)boot_memmap, sizeof(*tbl) + data.size);
++		memblock_reserve((phys_addr_t)efi.boot_memmap, sizeof(*tbl) + data.size);
+ 		set_bit(EFI_PRESERVE_BS_REGIONS, &efi.flags);
+ 
+ 		early_memunmap(tbl, sizeof(*tbl));
+diff --git a/drivers/firmware/efi/efi.c b/drivers/firmware/efi/efi.c
+index 0327a39d31fa..d33760d6a527 100644
+--- a/drivers/firmware/efi/efi.c
++++ b/drivers/firmware/efi/efi.c
+@@ -55,6 +55,9 @@ struct efi __read_mostly efi = {
+ #ifdef CONFIG_UNACCEPTED_MEMORY
+ 	.unaccepted		= EFI_INVALID_TABLE_ADDR,
+ #endif
++#ifdef CONFIG_EFI_GENERIC_STUB
++	.boot_memmap		= EFI_INVALID_TABLE_ADDR,
++#endif
+ };
+ EXPORT_SYMBOL(efi);
+ 
+@@ -647,6 +650,7 @@ static const efi_config_table_type_t common_tables[] __initconst = {
+ 	{LINUX_EFI_UNACCEPTED_MEM_TABLE_GUID,	&efi.unaccepted,	"Unaccepted"	},
+ #endif
+ #ifdef CONFIG_EFI_GENERIC_STUB
++	{LINUX_EFI_BOOT_MEMMAP_GUID,		&efi.boot_memmap,	"MEMMAP"	},
+ 	{LINUX_EFI_PRIMARY_DISPLAY_TABLE_GUID,	&primary_display_table			},
+ #endif
+ 	{},
+diff --git a/include/linux/efi.h b/include/linux/efi.h
+index aa15ff88539b..bc1cd005ca0f 100644
+--- a/include/linux/efi.h
++++ b/include/linux/efi.h
+@@ -650,6 +650,9 @@ extern struct efi {
+ 	unsigned long			mokvar_table;		/* MOK variable config table */
+ 	unsigned long			coco_secret;		/* Confidential computing secret table */
+ 	unsigned long			unaccepted;		/* Unaccepted memory table */
++#ifdef CONFIG_EFI_GENERIC_STUB
++	unsigned long			boot_memmap;		/* The EFI memory map captured by the stub */
 +#endif
  
- 	PARAMCOUNT
- };
- 
- static __initconst const char name[][22] = {
- 	[SYSTAB] = "System Table         ",
-+	[MEMMAP] = "Boot Memory Map      ",
-+#ifdef CONFIG_XEN
- 	[MMBASE] = "MemMap Address       ",
- 	[MMSIZE] = "MemMap Size          ",
- 	[DCSIZE] = "MemMap Desc. Size    ",
- 	[DCVERS] = "MemMap Desc. Version ",
-+#endif
- };
- 
- static __initconst const struct {
-@@ -49,10 +57,7 @@ static __initconst const struct {
- 		.path = "/chosen",
- 		.params = {	//  <-----------26----------->
- 			[SYSTAB] = "linux,uefi-system-table",
--			[MMBASE] = "linux,uefi-mmap-start",
--			[MMSIZE] = "linux,uefi-mmap-size",
--			[DCSIZE] = "linux,uefi-mmap-desc-size",
--			[DCVERS] = "linux,uefi-mmap-desc-ver",
-+			[MEMMAP] = "linux,uefi-boot-memmap",
- 		}
- 	}
- };
-@@ -84,17 +89,20 @@ static int __init efi_get_fdt_prop(const void *fdt, int node, const char *pname,
- u64 __init efi_get_fdt_params(struct efi_memory_map_data *mm)
- {
- 	const void *fdt = initial_boot_params;
--	unsigned long systab;
-+	unsigned long systab, memmap;
- 	int i, j, node;
- 	struct {
- 		void	*var;
- 		int	size;
- 	} target[] = {
- 		[SYSTAB] = { &systab,		sizeof(systab) },
-+		[MEMMAP] = { &memmap,		sizeof(memmap) },
-+#ifdef CONFIG_XEN
- 		[MMBASE] = { &mm->phys_map,	sizeof(mm->phys_map) },
- 		[MMSIZE] = { &mm->size,		sizeof(mm->size) },
- 		[DCSIZE] = { &mm->desc_size,	sizeof(mm->desc_size) },
- 		[DCVERS] = { &mm->desc_version,	sizeof(mm->desc_version) },
-+#endif
- 	};
- 
- 	BUILD_BUG_ON(ARRAY_SIZE(target) != ARRAY_SIZE(name));
-@@ -115,6 +123,9 @@ u64 __init efi_get_fdt_params(struct efi_memory_map_data *mm)
- 		for (j = 0; j < ARRAY_SIZE(target); j++) {
- 			const char *pname = dt_params[i].params[j];
- 
-+			if (pname[0] == '\0')
-+				continue;
-+
- 			if (!efi_get_fdt_prop(fdt, node, pname, name[j],
- 					      target[j].var, target[j].size))
- 				continue;
-@@ -123,8 +134,24 @@ u64 __init efi_get_fdt_params(struct efi_memory_map_data *mm)
- 			pr_err("Can't find property '%s' in DT!\n", pname);
- 			return 0;
- 		}
--		if (dt_params[i].paravirt)
-+		if (IS_ENABLED(CONFIG_XEN) && dt_params[i].paravirt) {
- 			set_bit(EFI_PARAVIRT, &efi.flags);
-+		} else {
-+			struct efi_boot_memmap *bm;
-+
-+			bm = early_memremap_ro(memmap, sizeof(*bm));
-+			if (!bm) {
-+				pr_err("Cannot remap EFI boot memory map\n");
-+				return 0;
-+			}
-+
-+			mm->phys_map		= memmap + sizeof(*bm);
-+			mm->size		= bm->map_size;
-+			mm->desc_size		= bm->desc_size;
-+			mm->desc_version	= bm->desc_ver;
-+
-+			early_memunmap(bm, sizeof(*bm));
-+		}
- 		return systab;
- 	}
- notfound:
-diff --git a/drivers/firmware/efi/libstub/fdt.c b/drivers/firmware/efi/libstub/fdt.c
-index 23b3543d3041..417b1344bdd8 100644
---- a/drivers/firmware/efi/libstub/fdt.c
-+++ b/drivers/firmware/efi/libstub/fdt.c
-@@ -32,7 +32,6 @@ static efi_status_t update_fdt(void *orig_fdt, unsigned long orig_fdt_size,
- {
- 	int node, num_rsv;
- 	int status;
--	fdt32_t fdt_val32;
- 	fdt64_t fdt_val64;
- 
- 	/* Do some checks on provided FDT, if it exists: */
-@@ -102,21 +101,7 @@ static efi_status_t update_fdt(void *orig_fdt, unsigned long orig_fdt_size,
- 
- 	fdt_val64 = cpu_to_fdt64(U64_MAX); /* placeholder */
- 
--	status = fdt_setprop_var(fdt, node, "linux,uefi-mmap-start", fdt_val64);
--	if (status)
--		goto fdt_set_fail;
--
--	fdt_val32 = cpu_to_fdt32(U32_MAX); /* placeholder */
--
--	status = fdt_setprop_var(fdt, node, "linux,uefi-mmap-size", fdt_val32);
--	if (status)
--		goto fdt_set_fail;
--
--	status = fdt_setprop_var(fdt, node, "linux,uefi-mmap-desc-size", fdt_val32);
--	if (status)
--		goto fdt_set_fail;
--
--	status = fdt_setprop_var(fdt, node, "linux,uefi-mmap-desc-ver", fdt_val32);
-+	status = fdt_setprop_var(fdt, node, "linux,uefi-boot-memmap", fdt_val64);
- 	if (status)
- 		goto fdt_set_fail;
- 
-@@ -148,33 +133,14 @@ static efi_status_t update_fdt_memmap(void *fdt, struct efi_boot_memmap *map)
- {
- 	int node = fdt_path_offset(fdt, "/chosen");
- 	fdt64_t fdt_val64;
--	fdt32_t fdt_val32;
- 	int err;
- 
- 	if (node < 0)
- 		return EFI_LOAD_ERROR;
- 
--	fdt_val64 = cpu_to_fdt64((unsigned long)map->map);
--
--	err = fdt_setprop_inplace_var(fdt, node, "linux,uefi-mmap-start", fdt_val64);
--	if (err)
--		return EFI_LOAD_ERROR;
--
--	fdt_val32 = cpu_to_fdt32(map->map_size);
--
--	err = fdt_setprop_inplace_var(fdt, node, "linux,uefi-mmap-size", fdt_val32);
--	if (err)
--		return EFI_LOAD_ERROR;
--
--	fdt_val32 = cpu_to_fdt32(map->desc_size);
--
--	err = fdt_setprop_inplace_var(fdt, node, "linux,uefi-mmap-desc-size", fdt_val32);
--	if (err)
--		return EFI_LOAD_ERROR;
--
--	fdt_val32 = cpu_to_fdt32(map->desc_ver);
-+	fdt_val64 = cpu_to_fdt64((unsigned long)map);
- 
--	err = fdt_setprop_inplace_var(fdt, node, "linux,uefi-mmap-desc-ver", fdt_val32);
-+	err = fdt_setprop_inplace_var(fdt, node, "linux,uefi-boot-memmap", fdt_val64);
- 	if (err)
- 		return EFI_LOAD_ERROR;
- 
+ 	efi_get_time_t			*get_time;
+ 	efi_set_time_t			*set_time;
 -- 
 2.47.3
 
