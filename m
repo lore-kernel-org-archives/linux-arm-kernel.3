@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6354CC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 10:23:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E62A8C5CFDB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 10:23:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0n22+2hszmfvyV2F6H4a1xfwpgDEvNULiXfiBMAoQkg=; b=TmDC7CCr4b5bPe4qCRZ1V6dTKS
-	KdD1vn3+QLWtftu7vgEsE+e3ORuRCjmsWCtPWiKDBf5BtFSDm+hC9D5KENN1qdYgeWNd8TvtrGqux
-	0+cqzYIQH9ynGVZh7Yt5DNGmGcdF+gBEqz5FhSGoel13x9wIqXAee+FU6dFWOhzWv/2nwdjcwtFDw
-	ZTFZR19Ewso+qQVdcCSLRG0hF7MN5Z1l4jszSeFLvmMf8D40lPrCmF4gl0kK4MleHUxX3TM3C38Tw
-	EHa9rRcc7gA5Jhr1tT7wGAmN4GLlDLQ1esdB+gfMuVLEFP3P7ztxuGrxBYZdW9RKm9dnEhJ10suvK
-	2+XGRGWw==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=04cXYLRJ4kD0BXV+N19EfarZadNTZMNe2eQxiQ5cnkE=; b=h+BHHA7RYqjyVSJ5bbZIxvxhqL
+	sW7OTEh/5Et0JhOKyZfltfQncVXiBoyiJ+qO7p5QEBt/H0Y4xe7EOgcej6qTU0ADv89LFEOHbfNVw
+	0zZ8tYpNMemoFyqLq19yRl9jW1jxq8XiOUmb/2/A43s+rV9h4rUGJAHQ2ClcHcxyMtorwg0kmj3V1
+	1KWoKURUCwCvvx9AMTj7QSdoj+BYWXw6ouWQP1RNoOvRko7Pgr5I5nTOnMqOYso5Ynns5pfN1m4WI
+	za81MGWd0n+QJuCv/AVFUPD1fFaVWBz84Np4KfO0ZJ/6tzOcUuXLs9YlbIQR0Uf4riMvb1hwuqTJO
+	LUAtRKDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuSax-00000000SHC-1HwX;
-	Thu, 13 Aug 2026 10:23:31 +0000
+	id 1wuSb4-00000000SJl-1keN;
+	Thu, 13 Aug 2026 10:23:38 +0000
 Received: from mail-northcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c105::7] helo=CH4PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuSau-00000000SGL-1AQ1
+	id 1wuSb2-00000000SIn-44P1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 10:23:29 +0000
+	Thu, 13 Aug 2026 10:23:38 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=E+92Ja5TmMvMG62GNxUUlQDazrZn56GCQYZHz6b5ycVbx7GAci4c/m3ipvSaJ9xualq8wH4v4/C6N6GxrwjDrswEW++/X6fo9VePved4VdxuG4lmbXxI/cuJgeRIBfQ2foUS2j+itc53bHRcjie4IpLO4ZLco0J6BIOlFDMU159COkCH/+IAp9RTKrTv6YZtb09RUK/UobeaueUqnq8XQNKZSb3+WdRxBRrEH/KirH1t5OFf4VZI6e3XqyZ4lDgRMxvDkA5LkAS6NbZ3XAMuFnZs6TaGFlZbGRJ4zIeRp3MFlSH30GNy/aE47/rObWJOpV57dzop6HEmFOohBbE1WQ==
+ b=p7tlT+n4R7NGL1HMC0fMt8QoFTjBPIlkzcf8g1dOb99hXUldOziJkXoVnVkKA0qnO0sw2ZfQDPgYZc87n264gQj1lZnY4c0fKyRHnPyabttV5e+ZmrB1GqJJqj+JgrVAeb5nCh5U6ydnYRRlKKVVLY1N2g3DsykjADMhuvC0zOfMTlGFhb7AfwjwPi5JVGTKoEwTcbxU9kLUe/ciHhoQRVFdLDTx7OAROtjfRm26zfJLzMAVSGOYBO4apa4+U6zM3VXnnOtd6NdiBdgwM/y25Z6YrongHVMKANdGU9P5VVuuifEwXjb8M5O9/7uIGuWblJkceWGnssOhWg7uAz8Jqw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0n22+2hszmfvyV2F6H4a1xfwpgDEvNULiXfiBMAoQkg=;
- b=E1cjGJCD+Kx+MyTfGIA7P1Z6nyK5jAwg8uq3WvyQ5QlK3+/G0qKaFTGFRo7qZ46VHVUjCQDHiULCeuln/+Y+YLqb5bdmDnqAAa7mFhOks+Yh94/xt+fyBOhPPL9keu0KBqpg8h9xuR2J+9rzvtDSKsNaGfOQnIHZDrjdtyNQhpMMz8aY1Z1E3SdHd/J+ImGp6DeG7TIJMMGJqf0CZ9z7G2ZixKWPFOGxEM0SO1peAVaI7IjObK0Uius/kFXjoTsLczH1Bi27fjdIPfw/cMEFL8RXM5twj53mg5WisoVoE0V5NYTbx3zAWnhosfvA+dsI9POWV4Z+8UwQ/cf6SR+LHA==
+ bh=04cXYLRJ4kD0BXV+N19EfarZadNTZMNe2eQxiQ5cnkE=;
+ b=V0w4Aechgqo2mrRDOnt9NvvvsA2JKft5u2sjI1IuIp3iuDkGP1ilSrI1rH1BX4qS5bntZO0Utvd7tmMp5SJlZDE0o92Y6oa9NX6R1YSfgUlVnZV5bNHK4DHFYjdkTHzcTi6nVunzCefyqIc3O+WtMjSoiuP2kPr/RJPtXYvTy5wmlmnFIY5UjzDSTHyDV2l159eRyoZ7+KOL8j86vQIy+9AeLUeTK6MXh+3TuVJxFbv33MrCRKoSNANSF2bQ2e0IIqWmnDhKon+miGNkLmW1PRTFIa91abveQG+JYgJ+7UqufZ/mJ5aSjFkWH5hL5WU+2EkT4l54ykn4ppw4A0hJTA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  216.228.117.161) smtp.rcpttodomain=codeconstruct.com.au
  smtp.mailfrom=nvidia.com; dmarc=pass (p=reject sp=reject pct=100) action=none
@@ -41,18 +41,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0n22+2hszmfvyV2F6H4a1xfwpgDEvNULiXfiBMAoQkg=;
- b=gzNgi24iXsTmWC5d7wcmiitLpcChVpGbnAnzXLCMbmnQrvdNrRujIsYanDzGKpIjvRBu5XLFTQ+LTPuKhiYvZBW4AYguyplzkdXPQpAXg1ngcRVhFuVcNaYmzU/KC/eHX2mAzjjWFhX7btUwvkDfXGYuNlCYs0Jz1LET5vCVQogMj3/p0hEe/mZsSta1QyPRFtI34jMiI/MMs01G45HVXhimOOoFj8smln4XBiU/AtJSu1POSVKWoMEQxp/lEDQxmaixpjV7JCHpqQdjVKv84Gb+qGSFp0eLl6azJEObFDLIb+jWDnWle61F/QfIfpGuv6KfarvNRw41YkRu19d14A==
-Received: from CH5PR05CA0024.namprd05.prod.outlook.com (2603:10b6:610:1f0::29)
- by PH7PR12MB9204.namprd12.prod.outlook.com (2603:10b6:510:2e7::14) with
+ bh=04cXYLRJ4kD0BXV+N19EfarZadNTZMNe2eQxiQ5cnkE=;
+ b=JqiKP+7SvRsVlE33s45yD+JaMIx8ScelOkwr+OrQCymiKiUotWr/qHk6jE+SP0R1QaFPhSXkLKoHJFW5QpePwbZjCnDkLwAfaKisD0YClbyZkwkQqodjgaDzmrZB0iYuslv8ZGqtWVBEX5SxOaQDd/MERxZPoyoNS7DeX7hoYVfWM9UEMtWIE4DG1H1cogbwdreRC1/hYYsDhWanduRbEeSymczQ0U9BfWyjMhEc8lH2QC10zjgzZxzGgOjSVNG8xbM2GfnzGym5oU8U+nPIy2iO6D+0e5jlwiYaCcPwj67YO8eVmcgKb/S26uAKLIrItE/mnDVr6fBo1j9ozIjlyA==
+Received: from CH0P220CA0012.NAMP220.PROD.OUTLOOK.COM (2603:10b6:610:ef::18)
+ by DS4PR12MB9636.namprd12.prod.outlook.com (2603:10b6:8:27f::13) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.15; Thu, 13 Aug
- 2026 10:23:19 +0000
-Received: from CH2PEPF0000009A.namprd02.prod.outlook.com
- (2603:10b6:610:1f0:cafe::59) by CH5PR05CA0024.outlook.office365.com
- (2603:10b6:610:1f0::29) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.339.4 via Frontend Transport; Thu, 13
- Aug 2026 10:23:19 +0000
+ 2026 10:23:29 +0000
+Received: from CH2PEPF0000009E.namprd02.prod.outlook.com
+ (2603:10b6:610:ef:cafe::7b) by CH0P220CA0012.outlook.office365.com
+ (2603:10b6:610:ef::18) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.315.14 via Frontend Transport; Thu,
+ 13 Aug 2026 10:23:29 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
  smtp.mailfrom=nvidia.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=nvidia.com;
@@ -60,17 +60,17 @@ Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
  216.228.117.161 as permitted sender) receiver=protection.outlook.com;
  client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
 Received: from mail.nvidia.com (216.228.117.161) by
- CH2PEPF0000009A.mail.protection.outlook.com (10.167.244.22) with Microsoft
+ CH2PEPF0000009E.mail.protection.outlook.com (10.167.244.27) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.339.3 via Frontend Transport; Thu, 13 Aug 2026 10:23:19 +0000
+ 15.21.339.3 via Frontend Transport; Thu, 13 Aug 2026 10:23:28 +0000
 Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
  (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Thu, 13 Aug
- 2026 03:23:03 -0700
+ 2026 03:23:11 -0700
 Received: from nvidia.com (10.126.231.37) by rnnvmail201.nvidia.com
  (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 13 Aug
- 2026 03:23:01 -0700
+ 2026 03:23:08 -0700
 From: Jacky Huang <jackyhuang@nvidia.com>
 To: Andrew Jeffery <andrew@codeconstruct.com.au>, Joel Stanley
 	<joel@jms.id.au>
@@ -80,10 +80,12 @@ CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	<linux-aspeed@lists.ozlabs.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>, <openbmc@lists.ozlabs.org>, Jacky Huang
 	<jackyhuang@nvidia.com>
-Subject: [PATCH 0/8] ARM: dts: aspeed: Move flash nodes out of aspeed-g6.dtsi
-Date: Thu, 13 Aug 2026 19:22:25 +0900
-Message-ID: <20260813102233.3088939-1-jackyhuang@nvidia.com>
+Subject: [PATCH 3/8] ARM: dts: aspeed: nvidia: Declare SPI NOR flashes on boards
+Date: Thu, 13 Aug 2026 19:22:28 +0900
+Message-ID: <20260813102233.3088939-4-jackyhuang@nvidia.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260813102233.3088939-1-jackyhuang@nvidia.com>
+References: <20260813102233.3088939-1-jackyhuang@nvidia.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
@@ -92,29 +94,29 @@ X-ClientProxiedBy: rnnvmail201.nvidia.com (10.129.68.8) To
  rnnvmail201.nvidia.com (10.129.68.8)
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PEPF0000009A:EE_|PH7PR12MB9204:EE_
-X-MS-Office365-Filtering-Correlation-Id: ca45aa3c-3cd3-4c18-0741-08def924e530
+X-MS-TrafficTypeDiagnostic: CH2PEPF0000009E:EE_|DS4PR12MB9636:EE_
+X-MS-Office365-Filtering-Correlation-Id: 76dc69c8-5082-43ae-6af9-08def924eaac
 X-LD-Processed: 43083d15-7273-40c1-b7db-39efd9ccc17a,ExtAddr
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|36860700016|376014|7416014|1800799024|82310400026|6133799003|10067099003|11063799006|56012099006|18002099003;
-X-Microsoft-Antispam-Message-Info: IedzPbulGu5dA8DEhXXTmy3u5LdUUgz6z00py5ghbqo7DO1Yr7HSjicaCxfgLo6E2aYerbAtfy18SCWug/QmeDtK1bHOJjxYy/Ixmjvsgfsv3nUOrbkT6vH4xbd8iiMI6dR1GgO9A+osz5X917345gsOEy//VMXhynq6qIWWvpM0CCZkwdA51rJVQ8ayzO/ZxBauQYT7voEnGY4m/MFfQCaJANzdhZ8QTt7ofjckLYdN417TjcVuNv5Ee9DnHuGdCVIvqvWd0eGB8YolZJtcg3p5Los42fFALhTCQShfUJ9OAjoL33+J6Fykdia9ruRR6sYsNQcQ+hSH2g49nAkY87L/p0D7AIuEngU45FhFV4/SuoUF45dMnCVEaoTx3UizABhILRfICmLulpuWbMqLPYZxFGSzDwTrrlQY7AbyyzCWbovNhzwU10Y+UGHUinnaqPw1juhHkV9rNWHaabL4r8iAMgMyBShvs/SKNH76ax7hCflqEIRGFPRMJvQ+884SUmWsmwJ1DkHEzDxvgBVd7mqt90nN6ohGJe3nnoZQ/LjDfTw1j7l+uNW9B58mOuF/JpvliemWH/2UFKnKn9Sm14ZytWSa/YO0usBXTzVEMJCRKV/xYae8QyfZKhPBlew4m+VnWhR01X3opf8C3+unNiaLj1HdvmNa9H/6n6IhYKq2497frAx1hb7HOg2mRm25sBoFttwXGkMJXLKW8KIm3w==
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(376014)(7416014)(1800799024)(82310400026)(6133799003)(10067099003)(11063799006)(56012099006)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|376014|36860700016|7416014|23010399003|18002099003|22082099003|11063799006|56012099006|10067099003;
+X-Microsoft-Antispam-Message-Info: e+PhBof/eutx2yiMMavwrv1qCXwLWh7ndCYp0/+Y32MG1/6x5OZRV3aBki4cKs5I6pM8N4LKYklr5PieoNZSj8Qo+XBhq9dpw3DkeaDJJEFkplvhcm6k5gavLoH89uRw5BCt88AcERQeEYzkiq7TDm29DkQyeHsbF2XcJ5ZHfI5+ms9t5bAp1M0f0EZ2mGyeoONLvcQFDJw9YUQpA4tIczjgen7rgzN9WI0m8PHpHnB2w9LQbFdfFKQk7uln3gR6IKAcml69PVt05t7EQmmlLRQLzXzBBjHhn7EVCSdPTNcqT2MlgppzprhDfW37BL5lXu6HrZ4GybwYaJRzlN8oX8GRHtniFfA+H6wLcoilSOki/ZMu5Gwe6XQYSAenkoQju7wL4Rzh0RwkvzYnTR40TYlTJcG1n7ZcV0WDXMnb87UU6m7CBlKCqvFFZPuhmYrDSZbMHJk+aeGfT3yb9UFPLER1dBXxPS8FEf+apVrqWyExjeEe5b+hdJY+hVQtlzj8houMjrm8a4yeLwEhS3EHEmIgiBWlQf3UpgK/PqI1HzlWTpgNHr0Pd/zmW380yuhFUtMML3VOm1NYx7ZcwX+WsK7XpGukqNlGbW+5o+bI4YBJFn0M7tsKL6Wa5IkzOWqnUQSgtcefdfJCBUeeddSeDJqJmPOg7j9gK8EK0RARWuGEuqC1QuEtygPHY2pc0fEO5TJxHYHnAT2T7xfwWqmuTw==
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(376014)(36860700016)(7416014)(23010399003)(18002099003)(22082099003)(11063799006)(56012099006)(10067099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: AKmjt0Zl9ACqNRwXjX1f7YN6bNpDkIudcioempjYDk030zbLH/b8QED2X4ZQJA83pFUm6d3LZiL0cViAXWryqhM5xc4IEU2MkU2TCR0Jlj6qS2PLFdu1Hi+FPuK9+WbnkggJQgi8AODADrc+zLjYZzauyMBt4SM9++Hg0yfKvjrdaRpP/p7YZvRUOssb2RgyhnFDktiwVv+iu6XHavSSh/Eoma9W4AyBjd6BeXJIwrD8yiSPoxE2JTWOJHz63lo8L8kfYvp6jxAO54pgqCoQlyCH3+8vlpyjf99BiKxVJ9oJbodM02mv0AhckjSfT8o2syfLacOyHoW4Yg2O6xogzHf5jZOje3XuyAx4QtYG8+IGyzeqWc/yymLzms1IwvMtVmchPC3ec5RjTGfhLTYAj5nYkEl5F8p70NhTm07VrQp27c4ZacoQ4cAEE8chlMYf
+X-MS-Exchange-AntiSpam-MessageData-0: 5jr0TR2zo2vCmBE2T4dsBQVZ/udVcLUDoYAQPubLybmVPy2jd6HxZVS2bPVJXAjyAmeoD277l2PV0/LnbjqIZZnmKxTcw0iY9zDyodldQjppLVTD+AE35ezRnjFRQOf8RvfDiV4MeLwz0lAkSZ9qITf42EcEgXXjacx/gxOXx5rsxRN5q/HIA2lqnF3gsvnOWzxqqdYwmvdqTUXz2+nfADXK9kxxZ/yhGtiBK3deXi5lW1bAUTDyu95LibY+1EX7A4ggKcBcrpi7AH5hqtscnPxQtVlg2E4nf/sK34Iz1ejaiRFzJ0hrjSJXWLOSykMik8IsVZy4z/3GrExBzCxMZtm+tMykIEmp1QbxotH3ulmk7l5SgZObIgbGi+wPDlWodGu44YURa7/oAm9Fl+lLa8ZD6FIXoKnD/COde9b3aw1UzF5i1szvsoBtqL0Yz9Gj
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Aug 2026 10:23:19.0910
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Aug 2026 10:23:28.3237
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: ca45aa3c-3cd3-4c18-0741-08def924e530
+X-MS-Exchange-CrossTenant-Network-Message-Id: 76dc69c8-5082-43ae-6af9-08def924eaac
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF0000009A.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF0000009E.namprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB9204
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS4PR12MB9636
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_032328_324092_3504272E 
-X-CRM114-Status: UNSURE (   8.57  )
+X-CRM114-CacheID: sfid-20260813_032337_034036_D1BDB690 
+X-CRM114-Status: UNSURE (   9.57  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -130,54 +132,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move SPI NOR flash descriptions out of aspeed-g6.dtsi. The disabled
-flash@* stubs there describe board population, not SoC IP.
+Declare jedec,spi-nor flash nodes with the properties previously
+inherited from aspeed-g6.dtsi stubs. Keep status = "okay" so these
+boards stay enabled while the SoC stubs still exist.
 
-Patches #1..#7 make each board (or vendor common dtsi) declare the
-flashes it uses, and keep status = "okay" so intermediate commits stay
-bisect-safe while the stubs still exist. Patch #8 removes the stubs.
+Signed-off-by: Jacky Huang <jackyhuang@nvidia.com>
+---
+ arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dts | 5 +++++
+ arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-msx4-bmc.dts     | 5 +++++
+ 2 files changed, 10 insertions(+)
 
-
-Jacky Huang (8):
-  ARM: dts: aspeed: facebook: Declare SPI NOR flashes on boards
-  ARM: dts: aspeed: ibm: Declare SPI NOR flashes on boards
-  ARM: dts: aspeed: nvidia: Declare SPI NOR flashes on boards
-  ARM: dts: aspeed: ampere: Declare SPI NOR flashes on boards
-  ARM: dts: aspeed: asus: Declare SPI NOR flashes on boards
-  ARM: dts: aspeed: inventec: Declare SPI NOR flashes on boards
-  ARM: dts: aspeed: Declare SPI NOR flashes on remaining boards
-  ARM: dts: aspeed: g6: Remove board-level flash stubs
-
- .../boot/dts/aspeed/aspeed-ast2600-evb.dts    |  4 ++
- .../aspeed/aspeed-bmc-ampere-mtjefferson.dts  |  9 +++
- .../aspeed/aspeed-bmc-ampere-mtmitchell.dts   |  9 +++
- .../aspeed-bmc-asus-kommando-ipmi-card.dts    |  3 +
- .../boot/dts/aspeed/aspeed-bmc-asus-x4tf.dts  |  6 ++
- .../aspeed/aspeed-bmc-facebook-anacapa.dts    |  7 +++
- .../aspeed/aspeed-bmc-facebook-bletchley.dts  |  9 +++
- .../aspeed/aspeed-bmc-facebook-catalina.dts   |  6 ++
- .../aspeed/aspeed-bmc-facebook-clemente.dts   |  6 ++
- .../aspeed/aspeed-bmc-facebook-greatlakes.dts |  4 ++
- .../dts/aspeed/aspeed-bmc-facebook-harma.dts  |  8 +++
- .../aspeed/aspeed-bmc-facebook-minerva.dts    |  6 ++
- .../aspeed/aspeed-bmc-facebook-rainiera6.dts  |  8 +++
- .../aspeed/aspeed-bmc-facebook-sanmiguel.dts  |  6 ++
- .../aspeed-bmc-facebook-santabarbara.dts      |  8 +++
- .../aspeed/aspeed-bmc-facebook-yosemite4.dts  |  4 ++
- .../aspeed/aspeed-bmc-facebook-yosemite5.dts  |  8 +++
- .../boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dts   |  6 ++
- .../aspeed/aspeed-bmc-inventec-starscream.dts |  6 ++
- .../aspeed-bmc-inventec-transformers.dts      |  6 ++
- .../aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dts |  5 ++
- .../dts/aspeed/aspeed-bmc-nvidia-msx4-bmc.dts |  5 ++
- .../boot/dts/aspeed/aspeed-bmc-opp-tacoma.dts |  9 +++
- .../dts/aspeed/aspeed-bmc-qcom-dc-scm-v1.dts  |  9 +++
- .../boot/dts/aspeed/aspeed-bmc-quanta-s6q.dts |  6 ++
- .../aspeed/aspeed-bmc-ufispace-ncplite.dts    |  6 ++
- arch/arm/boot/dts/aspeed/aspeed-g6.dtsi       | 56 -------------------
- .../ast2600-facebook-netbmc-common.dtsi       |  8 +++
- 28 files changed, 177 insertions(+), 56 deletions(-)
-
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dts
+index 4de38613b0ea..c8788c67ddec 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dts
+@@ -145,8 +145,10 @@ &fmc {
+ 	flash@0 {
+ 		status = "okay";
+ 		compatible = "jedec,spi-nor";
++		reg = <0>;
+ 		label = "bmc";
+ 		spi-max-frequency = <50000000>;
++		spi-rx-bus-width = <2>;
+ 		partitions {
+ 			compatible = "fixed-partitions";
+ 			#address-cells = <1>;
+@@ -180,9 +182,12 @@ &spi2 {
+ 
+ 	// Data SPI is 64MB in size
+ 	flash@0 {
++		compatible = "jedec,spi-nor";
++		reg = <0>;
+ 		status = "okay";
+ 		label = "config";
+ 		spi-max-frequency = <50000000>;
++		spi-rx-bus-width = <2>;
+ 		partitions {
+ 			compatible = "fixed-partitions";
+ 			#address-cells = <1>;
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-msx4-bmc.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-msx4-bmc.dts
+index 29f56176e2ca..0228764721bf 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-msx4-bmc.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-msx4-bmc.dts
+@@ -56,17 +56,22 @@ &fmc {
+ 
+ 	flash@0 {
+ 		compatible = "jedec,spi-nor";
++		reg = <0>;
+ 		label = "bmc";
+ 		status = "okay";
++		spi-max-frequency = <50000000>;
++		spi-rx-bus-width = <2>;
+ 		#include "openbmc-flash-layout-128.dtsi"
+ 	};
+ 
+ 	flash@1 {
+ 		compatible = "jedec,spi-nor";
++		reg = <1>;
+ 		label = "alt-bmc";
+ 		spi-tx-bus-width = <1>;
+ 		spi-rx-bus-width = <1>;
+ 		status = "okay";
++		spi-max-frequency = <50000000>;
+ 		#include "openbmc-flash-layout-128-alt.dtsi"
+ 	};
+ };
 -- 
 2.43.0
 
