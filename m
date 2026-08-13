@@ -4,99 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5DEEC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 16:11:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6781CC5CFCF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 16:15:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pnq03KAWqgH6HH5nirP52bCCrm4Fj5p/TfEHastox6U=; b=vZX1GK1UiY+IRMZywbMdJUGgpb
-	NsRpqnpQr0C3vaJvHQ7lGb+iexxr40deBzs8WxX5Pi/vtYbhqsNBbMAGu+5GcdEyDS0BZaRT2d5k9
-	0CdKrS/aywPMZCqDSK8PyFqtFSEhaTjjEqDeHfp0GINJ6l1Ix+B9xQgI70fQIbEvpq4t0Geq196r8
-	RbyX57xul2OUrOnVk1vVBkuh0NBV3xx2oMOPDU3zuVVm+AeZE8WU7mRt16WwkrquOh6COs2aB87qr
-	hcSjHUijaFArP4tk3Zrgh6iwdYH2bjXVpBH01MMnf3tak+awTJBEwEyQcotu4PiJ+Axz79khKsnJY
-	POQp8uoQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fGPnLAQmqj7Whsa4yy9m6HVCGSQ0x2mZZlgM8eulIDE=; b=OtCkEYwKfRmU1gi+agpyOjEDrM
+	NS0ZVYP1KLuyABpJWi5pt6rFQijZE8ZAFwbuJ3jDveINf0ivouaXo7CFNaRoz4uRsEaJt7eeAIeY9
+	s5p5Rv7J4OHwpi7z+8SA6OfLTuH4BH+ovrQqbihknjka++xOOJbza6a0xGBCi9WEkxuxX9i6XmEeS
+	4D5wODH3DT5Gx+shMC34rhiOUiaw50zhrnhZ2o6IAz3ozAy/wm12kgauv1NuRIShUBCwCB0jZVT81
+	9u1OxKWbobt9Q2wbgCbFGYBT1YzyPjjppTBk0dhyZ1bjNxJ4vF8lFEQn8rkSrT6Y+GAGMUXU4qNMe
+	PXdovXGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuY1X-000000017fa-1JPX;
-	Thu, 13 Aug 2026 16:11:19 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1wuY5S-000000018VG-3Xfi;
+	Thu, 13 Aug 2026 16:15:22 +0000
+Received: from mail-francesouthazon11011045.outbound.protection.outlook.com ([40.107.130.45] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuY1M-000000017Yo-3myK
+	id 1wuY5P-000000018UP-2daU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 16:11:10 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-49554ebb87dso782945e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 09:11:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786637467; x=1787242267; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=pnq03KAWqgH6HH5nirP52bCCrm4Fj5p/TfEHastox6U=;
-        b=shvES0mLceg4mtUjWxh2Z1ajTWQ03Cmoe2ljBcGG40+jii902SsJKrqx9QazcpbRr7
-         q5duWAMWUyAeY7fHkgkc+DWDh+/Z+UsFAYOoMaI180I8WxemxYjRHn7vNv9ysXgn+wUH
-         RYQanOA5nmUviIY/wYmlYeESfJWB6fvsLPzFTZ+t8MMdY6tPEHRym7htzBtcK4Ztr8lD
-         wVHfcGuzgxSqQ2iaCJKXbkZBc9sMPPvQJVKL5Jygpfi2k6WxcIoJv+03j04lQUzzFEa1
-         Xe8clgYDzhhjEcN4lgIzGtVIhKzVkWkZBRqprX0pxhlLYwahi+G3Igd6V6chrpVlQP5U
-         qFlg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786637467; x=1787242267;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=pnq03KAWqgH6HH5nirP52bCCrm4Fj5p/TfEHastox6U=;
-        b=VIGKZ30z73wNVLgeir0qNxrDTBzRggzla/PZrQ02wkxj7F7KzJth5DX84mAXBjwGh5
-         B5csPZPbFyqLF2vEkZrazYylVvi1JWPCd3Ae3zD4zydHUriP+ruzfL4v/jq7j4y72u6U
-         ND+XgN48pXKMkoqdFaQO4z2HI0yfz1duD76oMKcr1YEt1MJy752mCMEfNknCSG2L3cTd
-         5o0y0QKKKrir5NZ1WpTTFibvFUnX+12ojetJ7VpjcWg8e0m9//0oZ8p83gf/Gx2XZoKR
-         4mhnzp/HO24AjIx+UfL1qrssmvhQv3i3QqVtBC+yi/fpTCc6ng5dRzXyKwll9YHs46xF
-         tJ/A==
-X-Forwarded-Encrypted: i=1; AHgh+Ro5K3WsUxKEdvNGuFZoSSzqZgIUCvBXdG75e5ziTIO7Ja0bL8yClwFIEEEdWumNJ9cthVwpD0Z1qtYQM4xbgwA5@lists.infradead.org
-X-Gm-Message-State: AOJu0YwAzrYrGXhv69WM7eTTdcMeqe8pGrCNVhwbHZ4YUTDnGaJJ7pNb
-	IvgXl6pRhRd36RV2rId8gIkyZzykaK4LHpGmgfg9sOU/5GRgR3xsQ0kI
-X-Gm-Gg: AR+sD11glrtnO5mAbOBZs+v2WGkkBkyDg7CzhKe+PQUu8tDrq4H2OZxYDmWhFgOBUxZ
-	c9eBW4ZQNMLZKDtPd/LMKzwoebM9oDXhzUAAaCpX4/WlDwyP+4kkaVBWUXEETP6eg/H0nsqXlFT
-	EN0ui1duFNuKnsw5Ky5eDnj1SckVfmWAJzlQQLYOnqaewbWgPkO9+B6aAclakNM8m/OEuY+rIOe
-	2tOQasGz7jRbn1IBtG23ntkIWODIvFO8xSXJkTf8eeJrGhG2v5kHQYWEzIxWQFl/BtXGzu6TRQL
-	CeUlk/V4I76o+22/IXLOz9d+CMyJmV1k19U05wfMLf77iFrAIWmG9taqchgR3TDtD/noeURcbKW
-	3EBeYjEXQjwMgOguzNrrHPLghpISloAeiXCfgRRc71CqQ6GNO+TFCf0sxzWleTUDSn/GK1TZZzo
-	JMhqcG0OjezA7xtgqMrBSvSGPfb89qY6gw0nqYSEMo1MOwG9e4TzXMKUCNXwojjjwfPzVvm4dMT
-	/Qo
-X-Received: by 2002:a05:600c:8b2f:b0:496:c378:6420 with SMTP id 5b1f17b1804b1-499821a2051mr98698775e9.8.1786637467151;
-        Thu, 13 Aug 2026 09:11:07 -0700 (PDT)
-Received: from deb05.proceq.com ([213.160.61.66])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4815f21a24esm449409f8f.11.2026.08.13.09.11.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Aug 2026 09:11:06 -0700 (PDT)
-From: Mehmet Fide <mehmet.fide@gmail.com>
-To: Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Stefan Agner <stefan@agner.ch>,
-	Fabio Estevam <festevam@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Francesco Dolcini <francesco@dolcini.it>,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	devicetree@vger.kernel.org,
+	Thu, 13 Aug 2026 16:15:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZHHB8y69KlVvbog/sHSYXxQXu7XPmfkWYEvwKcZq9ev+FaUpYLIunh+Ca2fvkQCHQmRvWoM/FGtWFGoDr4HXrNn7l5L2tuvHbLR2go2NeAkleI9ANc9aNfarRXN4q++ZxH//XGCZLEPRqCie75DnSz3rljDQf7Xbend9Eqkp1VPaX18u8rB1ZDd1gGVzs/KBmr6QDgdCEEeaXVOyAXvboSDyfjFecCKuBUKAvRFZRcR3OjbZcr7YaKMESAnw7TAJ7uZfEXoPHdlRrqXSxX+XUTALxxu7HqtPl7TaOfzq6GYRPLPqYY7BLGAwei1rwVXi2It5rX+3G0TtjvpDx2k0oQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=fGPnLAQmqj7Whsa4yy9m6HVCGSQ0x2mZZlgM8eulIDE=;
+ b=GmOhIv0j5nfQye+qTcM9BN9/OkS7HmDbSJ1o9Q+qzozVrWiNFJJ4EcJsVEYYLRNap+Z8k9OG92122fB1+8xObfhO+IMUvqyr19S6Lk7QQSr2T8QS6WW5SxZ0flGbGrQ8cjPAUwD+ukhtLRB5a3gAbRNCTzIkKQwHfAomgQZ4GD9yDIpMIEyr6+1qeyG/hb7q6IKQ1K/gPLL7qXCnkZhUStOXY+9GHNY00g6eFJMswPHnhmw+jSsm4fWKzdz5kwUhpzsNFn2rh9jonO6V+xBYWT5mofDI1zbqNFp8WeRXkRIoXZ1l9fX+GJdUeOqCL4A1t1XsSPH5guA5AFIkKjM/og==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=fGPnLAQmqj7Whsa4yy9m6HVCGSQ0x2mZZlgM8eulIDE=;
+ b=j1hsXMuDD1Jyd35RoLEYpseM2y/mUF5s0fFsREZ2IV+MFQQUQ/lzXbns8OfY4kCq6roiSgwCx8oVYYgCqnmVvDazugQN07ygIL4drwbsOfGhWfZb6+uS46o3NadRHVxy+V5wk77igWm0oddCBnzihKwYwP9u90cdefyssS+4VdducsBY8UcQHsmxF0jlBGB5oUmSm2CvMWbD7LcRdOp17JLm4hGsBtHXRz7lmEKS5RuMMIFyPyeGONhgsm3uCE98wsSuMveHeRO3YoXLA/TlfCG8FjmgjPmIpyvYWRg6NQkRcrwn3i4iJsyURrAAYQ33CwQbIjMDD52xC3rLsW51bA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DU4PR04MB11791.eurprd04.prod.outlook.com (2603:10a6:10:623::11)
+ by DU2PR04MB8885.eurprd04.prod.outlook.com (2603:10a6:10:2e0::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.14; Thu, 13 Aug
+ 2026 16:15:12 +0000
+Received: from DU4PR04MB11791.eurprd04.prod.outlook.com
+ ([fe80::11ca:6b74:3234:d7de]) by DU4PR04MB11791.eurprd04.prod.outlook.com
+ ([fe80::11ca:6b74:3234:d7de%5]) with mapi id 15.21.0315.014; Thu, 13 Aug 2026
+ 16:15:12 +0000
+Date: Thu, 13 Aug 2026 11:15:04 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Leonardo Costa <leoreis.costa@gmail.com>
+Cc: Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de,
+	festevam@gmail.com, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Mehmet Fide <mehmet.fide@screeningeagle.com>
-Subject: [PATCH v4 4/4] ARM: dts: vf: add Iris carrier board support for Colibri VF50 and VF61
-Date: Thu, 13 Aug 2026 18:11:01 +0200
-Message-ID: <20260813161101.2274327-5-mehmet.fide@gmail.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260813161101.2274327-1-mehmet.fide@gmail.com>
-References: <20260813161101.2274327-1-mehmet.fide@gmail.com>
+	Leonardo Costa <leonardo.costa@toradex.com>
+Subject: Re: [PATCH 6/6] arm64: dts: freescale: imx8mp-verdin: Add Mezzanine
+ with Toradex Display 10.1" LVDS V2
+Message-ID: <an3tiDOUUYLb8PAq@SMW015318>
+References: <20260813133335.1941580-1-leoreis.costa@gmail.com>
+ <20260813133335.1941580-7-leoreis.costa@gmail.com>
+ <an3brO5COdw_F76m@SMW015318>
+ <rglymw6p4c65yoqz3pjn6e6nq7cil2fa7m7dqghshgdpavby7d@kyza3ceavq6z>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <rglymw6p4c65yoqz3pjn6e6nq7cil2fa7m7dqghshgdpavby7d@kyza3ceavq6z>
+X-ClientProxiedBy: SJ0PR05CA0079.namprd05.prod.outlook.com
+ (2603:10b6:a03:332::24) To DU4PR04MB11791.eurprd04.prod.outlook.com
+ (2603:10a6:10:623::11)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU4PR04MB11791:EE_|DU2PR04MB8885:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9534e902-cd83-41d7-cb38-08def9560db8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|23010399003|376014|7416014|18002099003|22082099003|56012099006|11063799006|4143699003|10067099003;
+X-Microsoft-Antispam-Message-Info: M/7qtPRHQv01bkGdC8G2DOoqwr+ylKzHy5Y3lqWtoRirHTOmi+nRjSnXc5mNVayt+MLlfKTjmPv5tFPuFHdy9vE4WjWAxoM9rufOtwdkzRpzNKDdcNJUn0XoFKY9h+JNtg0Rmm5W53EYk4UFAASEl4+fiIcFdLqpUlScwiBsJy36hDDtX46WP/t+T/pn1riFz8YI566Hd1yVr6/bs68qbTsSeeQfFeTFEmN74uWkiSUGROt9UAJIEO0/m6iwfntgrVgRP2YqDXll2MlSRUCl10ukRgVRsYwA+JFOLb/jkOBXRcLvGq52A5Fq1dSGkovT7SiF/vIYVJ0goRA5t21KNyo3GGF4aGPOYsv9ut2r3bdLTJ9HtBYguCmeAE+Ml+rPbnzoAAEWdNIe7sJDPtHGApZ4Fry1iVXVWk9DKtr50UDNKWWEEG0eomS/nEc1N51auJrANDIiKeTM2gWgBTQNTXoDaBILmYhpQgnS5H59vHjAZ4IVw31R8CPGHrHYP4aBcF6uYcmW/SjMiYbP1Xfsw47ompKQy44KTMF6boPbBvjESCUAoqlxkvBW5E4hTnNlI6NYaUhxBkCbn2BnwnTI2O4UZYtHUHU34gYbxSBU8MsMoou+vvomNrXD9ENYmNwtZJ0WJkqQO8GBf7rMk4d1mYAP+TcFLtcmIDZTq883Tdc=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU4PR04MB11791.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(23010399003)(376014)(7416014)(18002099003)(22082099003)(56012099006)(11063799006)(4143699003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?m8cQcaacK3f+W8elmiWbiqGBDg2GPeqk/qMZkGW71xSD1vYAncWCQQ9cRKDb?=
+ =?us-ascii?Q?146eW8xmEwl8pBT7WBEwdkQQ05vJFSppVLmtXa3GjJSxmMnG5j1ujvGuxAxE?=
+ =?us-ascii?Q?295s3qj/EQyjDe46OH2DPNhlh3Ij0t60Lzruyd/Fe2VytConPcE5n5T3CTE2?=
+ =?us-ascii?Q?Ai7DbzEh6gM7t9dsb+FixGlrwjT5LhlU2+pOIyxEaZRdqL/uxhtX+CWzWUQB?=
+ =?us-ascii?Q?YOtN6NU3IiY1eUXBR1DSdNx5dx6EUbcgFnGAu2qylJyAMZ/ck400vQnvLWM7?=
+ =?us-ascii?Q?16AQ2uDjVTTFSh4X51JFvHyRctO9tbwQmrIwdUEX0CEV3VzcZ7XZ7XE/eOkk?=
+ =?us-ascii?Q?7da9ciAgfE5E3BysjoKBgDXwuIBEFwf6cnVNNCHYN/LIRqbeRGlIvWaaR7fX?=
+ =?us-ascii?Q?rk6OManaH1v9oZnFK0t4RM7eA/pMpt1pxjgB0uhIgNYKrLsfSeQ814jb6gon?=
+ =?us-ascii?Q?rKsBeXV8FIrVg/fiG/kYqhmNiwWr1R/KbT+TP3cXSh7XP2+OTqNbqueZ4Msc?=
+ =?us-ascii?Q?cT6kck3YOQBHzv75wpvJmvXV2MVl4AyhUPr3x7/Gl4phNsf6PI1Yg53aSaRJ?=
+ =?us-ascii?Q?zU8utkrNbywnheoO99lL7g6AdUsVTrj2+Ch5GFRZ+8rNCTGJ5Ad8Au0zEZ7d?=
+ =?us-ascii?Q?7MolqAXH/BC6DkOs/6lPtN50CHPjnNhlHqU2k6aJlwPiKOHu8GosgZoLx82k?=
+ =?us-ascii?Q?hzw0Eeu7pjIW6BO7El9HhmDXhhnkgPP8cOVv89sNcWWHB/AXioHbUA5hKpit?=
+ =?us-ascii?Q?CiqC+lYb3A1906wLFbOokTd2BlnAOhMXNFRYwg+GKNxXOBU4mFHg2MNJAGlr?=
+ =?us-ascii?Q?3c/OVDeiFqTNZF7f0KsgpwVXyCImUxroKGGZTDExBX5olr+YRKU6M9fsiaDF?=
+ =?us-ascii?Q?XDIkUNyTVC49rNsjjzKhSSGMJTazNY3yqFyf/oQH7zgpCz0VrrJJY1PVKRw7?=
+ =?us-ascii?Q?uM2JWmnPE9X7Mov0dp1dIvCIlYsk59FmCBAOV+OWeamJ1LaynpmPQhxewIxb?=
+ =?us-ascii?Q?2Cr/Y6dhY7ftCsBYIrwAAbvlNlRi6Xy7ZK8/3Z82MhvrQ/3GcJ9i8BFMzV+q?=
+ =?us-ascii?Q?j4gUSapKLitXEvOHcZqhgfU/JlR9N7p7Z/qifyhOHReUm8pHb0hwsKA6vXXG?=
+ =?us-ascii?Q?uEvJl27rGuvpZ38ObbaPANE0PMGeHX8S/XlTl/4b+IXnDdxyWjn+2dmdplhY?=
+ =?us-ascii?Q?aLKI4R2qyhXSlavw2FWAtYc/VoCApEdf/+XVNur+SnReYs0ahdEhOJ/1UIgr?=
+ =?us-ascii?Q?wqufxqK79fJaxdRbXdvbkEpoE6lykYtpJkcbTD37Ti7jLap9lLAn+9e2Efhx?=
+ =?us-ascii?Q?JsODq47mlMSAge6BaojOePBp/fMcvn6qSQN332QG1L9qGK9u9r+69TYhh8oK?=
+ =?us-ascii?Q?kYf60VvmClyawftK3xfJM3XChYXZbyHi273RywM3BIuOl2uVWgdOz8i1nyH7?=
+ =?us-ascii?Q?NXZAcIZuUKeQc1DC4oaxtWOXRynoXV9BE0JuGiwzm01/WC6LZMsi0DACqMev?=
+ =?us-ascii?Q?CKyqGMDnNV7DuKbkYxOlJ+1SYUho49D4y0EmR/bG1rHPXhdC4zwO7uNuA5ih?=
+ =?us-ascii?Q?VUff4K5s3OWzO+3NZx0ykSYBwgM0E/GfzTt48xBZ8xeiRCCXfgHyyYNI3u7x?=
+ =?us-ascii?Q?tMKyYV/qNXoXcgohGEEW/KcTNOX3NGuH1ab97qZ4luhmU+Gz3QfPKOHzZ9kd?=
+ =?us-ascii?Q?hLf3AXiKwmJxozo5/1+GBYjMV2Dflwv9FnJs6I21ZfFH0+JxUQlMaLFsgy4+?=
+ =?us-ascii?Q?gwV5aqvmeRSKgGULZ+YsSaxbUeEH1IByHP57oHTP8ILeiaeZ/6Y1?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9534e902-cd83-41d7-cb38-08def9560db8
+X-MS-Exchange-CrossTenant-AuthSource: DU4PR04MB11791.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Aug 2026 16:15:12.8874
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: LqIbV8FijPWcjPrH+pa6w7PexRLhHvf4+yNjXNpyyK3hmgokOvmzBmBUuzXo7sKQMxg11+e8QoCT/qVE6Cn77hIBpiofoclpDNEJpJ3OUxG1rEZBAenPTTLNc5OXmyVx
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8885
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_091108_980657_79DDE8C2 
-X-CRM114-Status: GOOD (  24.82  )
+X-CRM114-CacheID: sfid-20260813_091519_669171_53DCEE33 
+X-CRM114-Status: GOOD (  18.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,227 +143,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Mehmet Fide <mehmet.fide@screeningeagle.com>
+On Thu, Aug 13, 2026 at 12:43:29PM -0300, Leonardo Costa wrote:
+> On Thu, Aug 13, 2026 at 09:58:52AM -0500, Frank Li wrote:
+> > On Thu, Aug 13, 2026 at 10:33:35AM -0300, Leonardo Costa wrote:
+> > > From: Leonardo Costa <leonardo.costa@toradex.com>
+> > >
+> > > Add a device tree overlay enabling the Toradex Capacitive Touch Display
+> > > 10.1" LVDS V2 on the Verdin Development Board with Verdin iMX8M Plus
+> > > Mezzanine expansion board. The panel connects via the i.MX8M Plus LCDIF
+> > > on the Mezzanine LVDS interface (J10). The panel is an Opto Logic
+> > > SCX1001511GGC49 10.1" WXGA TFT LCD LVDS and the touch input is provided
+> > > by an ILITEK ILI251x capacitive touch controller.
+> > >
+> > > Link: https://developer.toradex.com/hardware/accessories/displays/capacitive-touch-display-101inch-lvds
+> > > Link: https://developer.toradex.com/hardware/verdin-som-family/add-ons/verdin-imx8m-plus-mezzanine
+> > > Signed-off-by: Leonardo Costa <leonardo.costa@toradex.com>
+> > > ---
+> >
+> > what's difference with Add Toradex Capacitive Touch Display 10.1" LVDS V2
+> >
+> > why not share one dtso?
+> >
+> > Frank
+>
+> Hi Frank,
+>
+> There are two main differences:
+>
+> 1. The mezzanine one uses different backlight controll pins, so here we
+> use the 'backlight-mezzanine' node, instead of the 'backlight' one, used
+> in the one without the mezzanine.
+>
+> 2. The touchscreen GPIO and interrupt pins are also different with the
+> mezzanine board.
 
-The Iris is a small off-the-shelf carrier board for the Colibri
-family. Describe what the board itself provides: Ethernet, one USB
-host and one OTG port, the pin header UARTs, i2c with the carrier
-RTC on it, the PWM pins on the X16 header, SPI and the microSD slot.
-The host port gets its VBUS through a regulator on SODIMM 129, and
-the two GPIOs that turn the RS232 transceivers on, SODIMM 102 and
-104, are hogged. The touchscreen is an add-on rather than part of
-the board, so it is left out.
 
-This describes an Iris V1.1. A V2.0 carries the same signals on the
-same pins; what it adds, and what this does not describe, is the
-regulator on SODIMM 100 that can cut power to the uSD slot.
+And there are for imx8mm
+https://lore.kernel.org/imx/20260724-v1-verdin-imx8mm-dtbos-v2-3-9d7988bd76f6@toradex.com/
 
-Tested on a Colibri VF50 on an Iris V1.1 running 6.18: Ethernet at
-100Mbps/Full, a USB dongle enumerating once the VBUS regulator is in
-place, the RTC read back over i2c0, all three UARTs, the SPI
-controller registering, both PWM chips registering, the microSD
-slot, the EXT_IO pin group still applied next to the carrier hog
-group, and both hogs holding their pins.
+https://lore.kernel.org/imx/sr26lfvwasgcosfzcf4ydtwxwjjutlio2yqpgxldatpzjo7e4y@77k7gefnjzvl/
 
-Signed-off-by: Mehmet Fide <mehmet.fide@screeningeagle.com>
----
- arch/arm/boot/dts/nxp/vf/Makefile             |   2 +
- arch/arm/boot/dts/nxp/vf/vf-colibri-iris.dtsi | 126 ++++++++++++++++++
- .../boot/dts/nxp/vf/vf500-colibri-iris.dts    |  14 ++
- .../boot/dts/nxp/vf/vf610-colibri-iris.dts    |  14 ++
- 4 files changed, 156 insertions(+)
- create mode 100644 arch/arm/boot/dts/nxp/vf/vf-colibri-iris.dtsi
- create mode 100644 arch/arm/boot/dts/nxp/vf/vf500-colibri-iris.dts
- create mode 100644 arch/arm/boot/dts/nxp/vf/vf610-colibri-iris.dts
+Any ways, it is too late for 7.3, we have enough time for 7.4 to discuss
+work on optimization solution.
 
-diff --git a/arch/arm/boot/dts/nxp/vf/Makefile b/arch/arm/boot/dts/nxp/vf/Makefile
-index 0a4a7f9dd43e..47be8bc318e2 100644
---- a/arch/arm/boot/dts/nxp/vf/Makefile
-+++ b/arch/arm/boot/dts/nxp/vf/Makefile
-@@ -1,8 +1,10 @@
- # SPDX-License-Identifier: GPL-2.0
- dtb-$(CONFIG_SOC_VF610) += \
- 	vf500-colibri-eval-v3.dtb \
-+	vf500-colibri-iris.dtb \
- 	vf610-bk4.dtb \
- 	vf610-colibri-eval-v3.dtb \
-+	vf610-colibri-iris.dtb \
- 	vf610m4-colibri.dtb \
- 	vf610-cosmic.dtb \
- 	vf610m4-cosmic.dtb \
-diff --git a/arch/arm/boot/dts/nxp/vf/vf-colibri-iris.dtsi b/arch/arm/boot/dts/nxp/vf/vf-colibri-iris.dtsi
-new file mode 100644
-index 000000000000..36e34dd766ae
---- /dev/null
-+++ b/arch/arm/boot/dts/nxp/vf/vf-colibri-iris.dtsi
-@@ -0,0 +1,126 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
-+/*
-+ * Copyright 2026 Mehmet Fide
-+ *
-+ * Toradex Iris carrier board V1.1, common part for Colibri VF50 and VF61.
-+ *
-+ * The Colibri modules are pin compatible, so the carrier signals sit on the
-+ * same SODIMM pins as they do for the i.MX modules, whose Iris device trees
-+ * are already upstream. The two SODIMM pins below are taken from the Colibri
-+ * VFxx datasheet (102 -> PTA12 -> PORT0[5], 104 -> PTD28 -> PORT2[2]).
-+ *
-+ * An Iris V2.0 carries the same signals on the same pins, so everything here
-+ * works on it as well. What it adds is a regulator on SODIMM 100 that can cut
-+ * power to the uSD slot, which this file does not describe.
-+ */
-+
-+/ {
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+
-+	reg_usbh_vbus: regulator-usbh-vbus {
-+		compatible = "regulator-fixed";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_usbh1_reg>;
-+		regulator-name = "VCC_USB[1-4]";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		gpio = <&gpio2 19 GPIO_ACTIVE_LOW>;	/* SODIMM 129, USBH_PEN */
-+	};
-+};
-+
-+&gpio0 {
-+	/*
-+	 * The RS232 transceivers on the carrier are switched on by these two
-+	 * lines. Delete the hog to turn a transceiver off from userspace.
-+	 * The pin group belongs to the gpio controller rather than to iomuxc,
-+	 * which would depend on its own child and log a dependency cycle.
-+	 */
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_iris_uart1_tx_on>;
-+
-+	uart1-tx-on-hog {
-+		gpio-hog;
-+		gpios = <5 GPIO_ACTIVE_HIGH>;	/* SODIMM 102 */
-+		output-high;
-+	};
-+};
-+
-+&gpio2 {
-+	pinctrl-names = "default";
-+	/* keep the EXT_IO group from vf-colibri.dtsi alongside ours */
-+	pinctrl-0 = <&pinctrl_gpio_ext>, <&pinctrl_iris_uart25_tx_on>;
-+
-+	uart25-tx-on-hog {
-+		gpio-hog;
-+		gpios = <2 GPIO_ACTIVE_HIGH>;	/* SODIMM 104 */
-+		output-high;
-+	};
-+};
-+
-+&iomuxc {
-+	pinctrl_iris_uart1_tx_on: irisuart1txongrp {
-+		fsl,pins = <
-+			VF610_PAD_PTA12__GPIO_5		0x22ef
-+		>;
-+	};
-+
-+	pinctrl_iris_uart25_tx_on: irisuart25txongrp {
-+		fsl,pins = <
-+			VF610_PAD_PTD28__GPIO_66	0x22ef
-+		>;
-+	};
-+};
-+
-+/* Colibri SSP, on the extension connector */
-+&dspi1 {
-+	status = "okay";
-+};
-+
-+&esdhc1 {
-+	status = "okay";
-+};
-+
-+&fec1 {
-+	status = "okay";
-+};
-+
-+&pwm0 {
-+	status = "okay";
-+};
-+
-+&pwm1 {
-+	status = "okay";
-+};
-+
-+&i2c0 {
-+	status = "okay";
-+
-+	/* M41T0M6 real time clock on the carrier */
-+	rtc@68 {
-+		compatible = "st,m41t0";
-+		reg = <0x68>;
-+	};
-+};
-+
-+&uart0 {
-+	status = "okay";
-+};
-+
-+&uart1 {
-+	status = "okay";
-+};
-+
-+&uart2 {
-+	status = "okay";
-+};
-+
-+&usbdev0 {
-+	status = "okay";
-+};
-+
-+&usbh1 {
-+	vbus-supply = <&reg_usbh_vbus>;
-+	status = "okay";
-+};
-diff --git a/arch/arm/boot/dts/nxp/vf/vf500-colibri-iris.dts b/arch/arm/boot/dts/nxp/vf/vf500-colibri-iris.dts
-new file mode 100644
-index 000000000000..aa91537cab37
---- /dev/null
-+++ b/arch/arm/boot/dts/nxp/vf/vf500-colibri-iris.dts
-@@ -0,0 +1,14 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
-+/*
-+ * Copyright 2026 Mehmet Fide
-+ */
-+
-+/dts-v1/;
-+#include "vf500-colibri.dtsi"
-+#include "vf-colibri-iris.dtsi"
-+
-+/ {
-+	model = "Toradex Colibri VF50 on Iris Carrier Board";
-+	compatible = "toradex,vf500-colibri-vf50-on-iris", "toradex,vf500-colibri_vf50",
-+		     "fsl,vf500";
-+};
-diff --git a/arch/arm/boot/dts/nxp/vf/vf610-colibri-iris.dts b/arch/arm/boot/dts/nxp/vf/vf610-colibri-iris.dts
-new file mode 100644
-index 000000000000..7db5aa490966
---- /dev/null
-+++ b/arch/arm/boot/dts/nxp/vf/vf610-colibri-iris.dts
-@@ -0,0 +1,14 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
-+/*
-+ * Copyright 2026 Mehmet Fide
-+ */
-+
-+/dts-v1/;
-+#include "vf610-colibri.dtsi"
-+#include "vf-colibri-iris.dtsi"
-+
-+/ {
-+	model = "Toradex Colibri VF61 on Iris Carrier Board";
-+	compatible = "toradex,vf610-colibri-vf61-on-iris", "toradex,vf610-colibri_vf61",
-+		     "fsl,vf610";
-+};
--- 
-2.54.0
+If use nexus connectors, we can share one dtso now if there are not
+clock settings.
 
+clock patches is close to pick up
+https://lore.kernel.org/all/20260807-schneider-v7-2-rc1-eip201-upstream-v5-1-8785f9531cf0@bootlin.com/
+
+Frank
+
+>
+> Leonardo
 
