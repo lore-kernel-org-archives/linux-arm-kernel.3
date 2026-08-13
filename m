@@ -4,115 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25461C5CFCF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 17:06:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A026C5DF67
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 17:08:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9TxFFtT5q6hhEXv1kvzuRF0i2wkqVQa93JW+RoA9mS8=; b=oeQgxm0ZukdAl2D8QbTiZ0BYJ/
-	xTXx2FittewNjtTio74tmWVQbVIyQygHvWhnlqvGxZHvjkyGJHknbJI1SHG6kCGhSf+Q6C97JD+xp
-	DZeJigwYCAkpxwsWsSjHaLsdayhAGlD3R4G0vF5gRVUKFfpRnchznujLJsgjf6esoykvX1B2c64x5
-	kvj7bDkium+qE9Z0VHXd7+0ECoC+pToBulGKnljC/b24DXHthp7jEkfFVpJJf+wrN5HKWAF38BgTm
-	0dUbYCDZZTJM/cjyo5ESkh2x4XQdyWZl3NXslMCRvXcK0mJOibjQnnG7jfUWz34BfbMONk1JIwLHL
-	d0909o+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=f7DAD2zZXWNg2HkwxBcjlBg+AYTe/jXHTqJJj5avZbQ=; b=YJI31SKB9R1kw8Guv3pJHrS7Nr
+	fPRDsa9F7LtBFtXzEYkaz/kATlBEDP/nWazE7b+QVEfB0JHE/5JQ0/F83UoCbx8l8hl/2oaBR/K8M
+	xrAdDMloHjvbdZ5CjXn7g8ZTLydZRinhJA+lQyLFWVHF7VC/WDLLNpwvvcNn8XMtYw69gVCK50lxf
+	TBA/TbALl0ntrJ7hQCx3yae7GrYl913sQPsWrYAc9KhXgeOMTQ04Ta/2HfOd23FtPgbFzlNdnAcmF
+	x68sTRUXhJ9yVi87ekq0PYVUY2uOpiL7Sls55ye97EI+zPoaJhTfT8TE8rnz/Ac9c4f9bOrPoNfPC
+	ueJ5bL+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuYtA-00000001FJ9-2wuY;
-	Thu, 13 Aug 2026 17:06:44 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1wuYuk-00000001Fbg-0p62;
+	Thu, 13 Aug 2026 17:08:22 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuYt8-00000001FHd-0i34
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 17:06:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1786640801;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=9TxFFtT5q6hhEXv1kvzuRF0i2wkqVQa93JW+RoA9mS8=;
-	b=N3ku9FKmNTEjNRcBj9t+tI2+1+GU/yic5l1Xq+UorHuwYBwqGu1NxVl/6NcA7Y2HSYk8gX
-	6NSAkZTD+F3qNC5a4pXRGWiquZS6wKMXb3hwNKDXcEPTcfnXm5UkTJ9OgoPLpRWoZ3Aqdc
-	/0gp+7Z8QqKzwN33L34r+H8/zBuGNsc=
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-448-kZvjQ2dNO5aDefn4CIGjPA-1; Thu,
- 13 Aug 2026 13:06:37 -0400
-X-MC-Unique: kZvjQ2dNO5aDefn4CIGjPA-1
-X-Mimecast-MFC-AGG-ID: kZvjQ2dNO5aDefn4CIGjPA_1786640791
-Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 0777C18002C4;
-	Thu, 13 Aug 2026 17:06:31 +0000 (UTC)
-Received: from wsxc.redhat.com (unknown [10.96.134.24])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 3411D195608A;
-	Thu, 13 Aug 2026 17:06:18 +0000 (UTC)
-From: Ricardo Robaina <rrobaina@redhat.com>
-To: audit@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-alpha@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org,
-	linux-mips@vger.kernel.org,
-	linux-openrisc@vger.kernel.org,
-	linux-parisc@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	linux-um@lists.infradead.org,
-	bpf@vger.kernel.org
-Cc: paul@paul-moore.com,
-	eparis@redhat.com,
-	sgrubb@redhat.com,
-	oleg@redhat.com,
-	richard.henderson@linaro.org,
-	mattst88@gmail.com,
-	linmag7@gmail.com,
-	linux@armlinux.org.uk,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	guoren@kernel.org,
-	monstr@monstr.eu,
-	tsbogend@alpha.franken.de,
-	jonas@southpole.se,
-	stefan.kristiansson@saunalahti.fi,
-	shorne@gmail.com,
-	James.Bottomley@HansenPartnership.com,
-	deller@gmx.de,
-	ysato@users.sourceforge.jp,
-	dalias@libc.org,
-	glaubitz@physik.fu-berlin.de,
-	davem@davemloft.net,
-	andreas@gaisler.com,
-	richard@nod.at,
-	anton.ivanov@cambridgegreys.com,
-	johannes@sipsolutions.net,
-	chris@zankel.net,
-	jcmvbkbc@gmail.com,
-	tglx@kernel.org,
-	peterz@infradead.org,
-	luto@kernel.org,
-	Ricardo Robaina <rrobaina@redhat.com>
-Subject: [PATCH 13/13] xtensa: pass all six syscall args to audit_syscall_entry()
-Date: Thu, 13 Aug 2026 14:03:03 -0300
-Message-ID: <0c7aa94c05b08d959d885b3b0434646a6b2fcfd0.1786626275.git.rrobaina@redhat.com>
-In-Reply-To: <cover.1786626275.git.rrobaina@redhat.com>
-References: <cover.1786626275.git.rrobaina@redhat.com>
+	id 1wuYui-00000001FbO-2IRp;
+	Thu, 13 Aug 2026 17:08:20 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4F43E40BB3;
+	Thu, 13 Aug 2026 17:08:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2F951F000E9;
+	Thu, 13 Aug 2026 17:08:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786640900;
+	bh=f7DAD2zZXWNg2HkwxBcjlBg+AYTe/jXHTqJJj5avZbQ=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=lKO4mVWKyB8Ivz2mi24upBjMU0iMatY3dGdaAGvpsM+0faGiz7uJGh3a8UBatCynD
+	 IraLXb3soVF0Dbcf14GcYiTPEaInqZB2dfT+H94Y2f6zZ88az6um2NCzv0fFVg1i78
+	 RIqyFEDoeBuaYeOVpR8yUHM1aRa0K18Oefo5j3pbzWVqbkIKX4FMxU9wFuOyA29rdK
+	 6RQAEfMKer/jQIJLjPMQ0N2Grta+uztfaCe5o/1+t9TeivYfYOYd1Btdk8yjFDXJYB
+	 qmU+EVu27iZy5Vj+oPmHgsxGdxtzJOJFSH54cqzp70j854lX1HyiGmsbN8oylLnUOm
+	 VQqJ21dYJBLTg==
+From: Mark Brown <broonie@kernel.org>
+To: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Valerio Setti <vsetti@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>
+Cc: linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ kernel test robot <lkp@intel.com>
+In-Reply-To: <20260812-aiu-formatter-static-v1-1-67936d57ba05@baylibre.com>
+References: <20260812-aiu-formatter-static-v1-1-67936d57ba05@baylibre.com>
+Subject: Re: [PATCH] ASoC: meson: aiu: make aiu_formatter_i2s_drv static
+Message-Id: <178662342504.110398.3190102623647989462.b4-ty@b4>
+Date: Thu, 13 Aug 2026 13:17:05 +0100
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
-X-Mimecast-MFC-PROC-ID: hGph2JRCFgj49mFL5zpyrpIpF-YH4DYFO4K1j3zt2pE_1786640791
-X-Mimecast-Originator: redhat.com
-Content-Transfer-Encoding: 8bit
-content-type: text/plain; charset="US-ASCII"; x-default=true
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_100642_281470_2E37C892 
-X-CRM114-Status: UNSURE (   9.15  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,30 +73,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update the audit_syscall_entry() call to forward the 5th and 6th
-syscall arguments (areg[8], areg[9]) now that the audit core logs
-all six.
+On Wed, 12 Aug 2026 22:50:34 +0200, Jerome Brunet wrote:
+> ASoC: meson: aiu: make aiu_formatter_i2s_drv static
 
-Signed-off-by: Ricardo Robaina <rrobaina@redhat.com>
----
- arch/xtensa/kernel/ptrace.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+Applied to
 
-diff --git a/arch/xtensa/kernel/ptrace.c b/arch/xtensa/kernel/ptrace.c
-index b80d54b2ea34..122a6ffc0757 100644
---- a/arch/xtensa/kernel/ptrace.c
-+++ b/arch/xtensa/kernel/ptrace.c
-@@ -564,7 +564,8 @@ int do_syscall_trace_enter(struct pt_regs *regs)
- 
- 	audit_syscall_entry(regs->syscall, regs->areg[6],
- 			    regs->areg[3], regs->areg[4],
--			    regs->areg[5]);
-+			    regs->areg[5], regs->areg[8],
-+			    regs->areg[9]);
- 	return 1;
- }
- 
--- 
-2.55.0
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.3
+
+Thanks!
+
+[1/1] ASoC: meson: aiu: make aiu_formatter_i2s_drv static
+      https://git.kernel.org/broonie/sound/c/583e44f2828b
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 
