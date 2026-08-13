@@ -4,62 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82815C5CFDB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 08:18:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9F0FC5CFDB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 08:22:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6lKhAtdX6ajxLRq78OZCtHKqt/EMngZfRfG821+Ysrs=; b=igvuOrQaMO7e8r1eSC1Ez91Ndx
-	EKlCXlgiZsGsPnDek8WmDFl6+ANNCgcb5CHKNUxe18v6w6aYs5F50uW+Y5q0A+tqe4iFg+gW04H1E
-	aivamT7TDUe7EsWzE9lrK4OxmBJ5kGWmwga020xZb6wC/RoX50UDeFlmhuBmlJx4yH2C6K460GGzA
-	laseGC+T1kkAKITy9mLOSImdVqD7B0/iImWKRV4IkwMTWTbWlSgRVnl+kADVV9EKYDRjwh25egxI7
-	2Q9fBmCiZWkGi6la24o0wXodQWZlf+gdfQo4Kg9aIWc63dsj2xrX/gcl/k8yWeP8l13rf5UY6kjfX
-	6dYB6JDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=bnFio1oNNrm91Jw4PTtNlaJV8syzqd0jiUAgXBq7K3U=; b=aufWufK5Ru4E36kl1LJ3K0ThrJ
+	kl3IVBuS+2UpaF3znRI1AYUac/4UICcjeNaEXFLLvts9QMXNEv7tO/8955APVXBnpkM2d8ZeNHN+X
+	zhCg3S1fNjLcdf+9Apa1UoiekUfvSVzMVs0rUEw9pZDsA6KqzWJ2SvIneqeJYzXEbHpM3VfYkhutM
+	1Lti8ug+CkxEOf8gs7dSvitL6zhcMQUK38fxQQaTil4h5uNp5PVc8IvPk+TNlZb587g96FjovnvxN
+	ESUzWyOxE1ubgKWxGIV56yLPNW+KW7A7TSqbZNC94sHhhi2eluJ0wclwTQ0OW7O/CFof7Eg3U356/
+	DWFgeGkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuQe3-000000006yi-2XIJ;
-	Thu, 13 Aug 2026 08:18:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wuQhW-000000007O0-0UXz;
+	Thu, 13 Aug 2026 08:22:10 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuQe1-000000006yJ-3cSe
+	id 1wuQhU-000000007Ml-073b
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 08:18:33 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5D9894128B;
-	Thu, 13 Aug 2026 08:18:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 360AD1F000E9;
-	Thu, 13 Aug 2026 08:18:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786609113;
-	bh=6lKhAtdX6ajxLRq78OZCtHKqt/EMngZfRfG821+Ysrs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Xe+RHaTAqmXrzjW+inuEbx9ggFBmtrC7kMsdWYLnQeY7kPHsrPEHMiA3GVmHLICEw
-	 NJtP5+nxrDnnOeX3BCueZ/tHPYpcAiDZB8zRdgp56++qdGBNPP0e+tHrXJIqHX4Aq9
-	 ZfLsPu9o6A/5ht2IJJrPC7j+aSr0HYHPHtRd9JCzfyIt1fBxEuj1w6QdSzT0jI7+CN
-	 b+L8b/WeyA01CfIRr+tEfWs1inWPxtZ2wWrXf64WsFaCiHFM7qECGghB0U+4C2++EW
-	 FvHtvdXIEJjvdAG0p0aKk6cDiy+u0qplLORiV6muNSpkIewgSH3mB9TPMn6NAXDiJp
-	 QJ6kubQEZ2PDg==
-Date: Thu, 13 Aug 2026 10:18:26 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Mehmet Fide <mehmet.fide@gmail.com>
-Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Stefan Agner <stefan@agner.ch>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Francesco Dolcini <francesco@dolcini.it>, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 3/4] dt-bindings: arm: fsl: add the Colibri VF50 and
- VF61 on Iris
-Message-ID: <20260813-gaur-of-authentic-will-3cdcdd@quoll>
-References: <20260810140053.2793495-1-mehmet.fide@gmail.com>
- <20260810142047.2811230-1-mehmet.fide@gmail.com>
- <20260810142047.2811230-4-mehmet.fide@gmail.com>
+	Thu, 13 Aug 2026 08:22:09 +0000
+Date: Thu, 13 Aug 2026 10:22:02 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1786609324;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=bnFio1oNNrm91Jw4PTtNlaJV8syzqd0jiUAgXBq7K3U=;
+	b=eD96uLUciE8j2GP/q4QeItW5OshyUxrCgZupSZvzlDVdpsPxWU85h6hJgZKrB1Ky/U8urP
+	VlxOJngoFCNBCVGoLwlHK8tLAeSMAqAw9Jo7gIb2VAJ6f9WNg3jmOPq6/9ffbdpAvPIPxz
+	EXyMBaA9yjmv52alX57wgmIryq0frLHKY6Ms3bNUoDp+ti15ZxCxwjd+t8iroYVyGxFOwE
+	0kxWY0XeK9YnGI2jBJOa4yejen99R1qfO6KMLPBgfJ7pAdA1S3oauMWBgzHvTnI4Hk9UhK
+	seqSwHDybl1N0TJaBZdQW7OKPuhHUi/yzMvRmDPRxDR9JeQYVWTXnjg6IbcanA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1786609324;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=bnFio1oNNrm91Jw4PTtNlaJV8syzqd0jiUAgXBq7K3U=;
+	b=y3ptXPA5Lo3wMSLHcgJ/kGZiDctoIQm8sXXnCRX+BOuwbubQh9IBV4PZZ11vLNFWeqaWTI
+	M7h8yC7HygwGtqDw==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-remoteproc@vger.kernel.org, linux-rt-devel@lists.linux.dev,
+	Jassi Brar <jassisinghbrar@gmail.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Steven Rostedt <rostedt@goodmis.org>, Peng Fan <peng.fan@nxp.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Andrew Morton <akpm@linux-foundation.org>
+Subject: [PATCH REPOST REPOST v6] remoteproc: imx_rproc: Invoke the callback
+ directly
+Message-ID: <20260813-imx_mbox_rproc-v6-1-6903a93b0456@linutronix.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260810142047.2811230-4-mehmet.fide@gmail.com>
+Content-Transfer-Encoding: quoted-printable
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3XOTW6DMBAF4Ksgr+vIY+Mfsuo9qigyZtxYKjgxB
+ BFF3L0OWSQqdPlGM9+8O+kxBezJvriThGPoQ+xyUB8FcSfbfSMNTc6EM66Y5BUN7XRs6zgd0zl
+ FR3UjgXtpldeG5KNzQh+mBfw6PHPCyzW7w3NIatsjdbFtw7AvRr3jNDlNHrun0A8x3ZYuIyzL/
+ 70dgTJaG++dUAiA8vMndNchxS5MuwYXbuQvQjGxIngmLGOyapyoVWW3CPFGgF4RIhNaV6UB4A1
+ 6t0WUL0JvtCgpUKVrYFIxaxRsEfKN4LAi5IMQRlnuvJG8/EvM8/wLYGsYQegBAAA=
+X-Change-ID: 20260529-imx_mbox_rproc-7d512f5a6f78
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260813_012208_212044_3F2A99E6 
+X-CRM114-Status: GOOD (  22.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,61 +91,176 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 10, 2026 at 04:20:46PM +0200, Mehmet Fide wrote:
-> From: Mehmet Fide <mehmet.fide@screeningeagle.com>
-> 
-> The Vybrid Colibri modules are documented on the evaluation board only.
-> Add the Iris carrier, as the i.MX Colibri modules already have it.
-> 
-> Signed-off-by: Mehmet Fide <mehmet.fide@screeningeagle.com>
-> ---
->  Documentation/devicetree/bindings/arm/fsl.yaml | 12 ++++++++++++
->  1 file changed, 12 insertions(+)
-> 
+The imx-mailbox driver moved the callback invocation into the threaded
+IRQ handler. This means the callback is invoked in preemptible context
+and there is no need to schedule the kworker for the
+imx_rproc_notified_idr_cb() invocation.
 
-Thank you for your patch. There is something to discuss/improve.
+This was tested with the rpmsg-tty driver on imx93.
 
-> diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
-> index 8687631..d58343f 100644
-> --- a/Documentation/devicetree/bindings/arm/fsl.yaml
-> +++ b/Documentation/devicetree/bindings/arm/fsl.yaml
-> @@ -1711,6 +1711,12 @@ properties:
->            - const: toradex,vf500-colibri_vf50
->            - const: fsl,vf500
->  
-> +      - description: Toradex Colibri VF50 Module on Iris Carrier Board
-> +        items:
-> +          - const: toradex,vf500-colibri_vf50-on-iris
+Remove the workqueue handling and invoke the imx_rproc_notified_idr_cb()
+callback directly.
 
-This should be just part of the enum with
-toradex,vf500-colibri_vf50-on-eval.
+Reviewed-by: Peng Fan <peng.fan@nxp.com>
+Reviewed-by: Mathieu Poirier <mathieu.poirier@linaro.org>
+Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+---
+The imx's remoteproc driver uses a kworker from its mailbox callback to
+complete the request. The reason is that the imx mailbox driver invokes
+the callback from its interrupt handler and the remoteproc callback (at
+least the rpmsg-tty) requires a preemptible context.
 
-And use hyphens, not underscores for every newly introduced compatible
-even if it is inconsistent with old code.
+This works but is problematic in a PREEMPT_RT environment where the
+latency of the invocation is important. By scheduling a kworker the
+high task priority from the threaded handler is lost and the kworker
+competes for CPU ressources with every SCHED_OTHER task in the system.
+This can lead to long delays on a busy system with other RT threads
+which are less important than the completion of this request.
 
+Looking over other mailbox driver, like the arm_mhu for instance, they
+use a threaded interrupt handler to invoke the callback. This avoids the
+kworker detour.
 
-> +          - const: toradex,vf500-colibri_vf50
-> +          - const: fsl,vf500
-> +
->        - description: VF610 based Boards
->          items:
->            - enum:
-> @@ -1725,6 +1731,12 @@ properties:
->            - const: toradex,vf610-colibri_vf61
->            - const: fsl,vf610
->  
-> +      - description: Toradex Colibri VF61 Module on Iris Carrier Board
-> +        items:
-> +          - const: toradex,vf610-colibri_vf61-on-iris
+The here suggested change utilises a threaded interrupt to invoke the
+callback. The primary handler mask the interrupt source so that the
+handler can run without getting interrupted by the interrupt again.
+Doing so avoids marking the interrupt IRQF_ONESHOT so that in a
+shared-interrupt environment the other interrupt can still fire while
+the first is masked.
 
-Same here.
+The first four patches are result of the sashiko review. Does not look
+critical.
 
-Also, Do not attach (thread) your patchsets to some other threads (unrelated
-or older versions). This buries them deep in the mailbox and might
-interfere with applying entire sets. See also:
-https://elixir.bootlin.com/linux/v6.16-rc2/source/Documentation/process/submitting-patches.rst#L830
+This change was tested on a im93 board with rpmsg-tty driver.
+
+v5=E2=80=A6v6: https://patch.msgid.link/20260721-imx_mbox_rproc-v5-1-6386a2=
+cf8524@linutronix.de
+  - Repost. Adding Greg and akpm, hoping someone will apply it.
+
+v4=E2=80=A6v5: https://lore.kernel.org/all/20260703-imx_mbox_rproc-v4-1-67b=
+10560a861@linutronix.de/
+  - Repost
+
+v3=E2=80=A6v4: https://lore.kernel.org/r/20260617-imx_mbox_rproc-v3-0-77948=
+112defc@linutronix.de
+  - The mailbox bits are part of v7.2-rc1. This is just a repost of the
+    imx_rproc driver which is left.
+
+v2=E2=80=A6v3: https://lore.kernel.org/r/20260603-imx_mbox_rproc-v2-0-a0059=
+dc3b69a@linutronix.de
+  - Forward the error in imx_mu_generic_tx() to the caller (new patch
+    #1)
+  - Extend the patch description a bit for for "Start splitting the IRQ
+    handler" to briefly explain why callbacks are moved to the threaded
+    handler.
+  - Drop imx_mu_con_priv::pending. The primary handler wakes its
+    threaded handler. Once the handler is woken, the pending flag must
+    be set and there is no need to set/ clear it.
+  - Avoid the double clk_disable_unprepare() if
+    devm_mbox_controller_register() fails.
+
+v1=E2=80=A6v2: https://lore.kernel.org/r/20260529-imx_mbox_rproc-v1-0-b8ffc=
+36e11e5@linutronix.de
+  - Using correct register to enable RXDB event.
+  - Update commit description for the "threaded interrupt", "unmasks the
+    interrupt" =3D> "masks the interrupt event".
+  - Add a shutdown field so that the interrupt does not unmask the
+    interrupt if it has been already disabled because the channel is
+    about to be shutdown.  A possible race mentioned by sashiko.
+  - Use devm_pm_runtime_enable(). This should avoid a possible race
+    sashiko mentioned.
+  - Use devm_of_platform_populate().
+---
+ drivers/remoteproc/imx_rproc.c | 33 +--------------------------------
+ 1 file changed, 1 insertion(+), 32 deletions(-)
+
+diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
+index 7662ebd9d2f49..e18ae33a5cf85 100644
+--- a/drivers/remoteproc/imx_rproc.c
++++ b/drivers/remoteproc/imx_rproc.c
+@@ -24,7 +24,6 @@
+ #include <linux/regmap.h>
+ #include <linux/remoteproc.h>
+ #include <linux/scmi_imx_protocol.h>
+-#include <linux/workqueue.h>
+=20
+ #include "imx_rproc.h"
+ #include "remoteproc_internal.h"
+@@ -115,8 +114,6 @@ struct imx_rproc {
+ 	struct mbox_client		cl;
+ 	struct mbox_chan		*tx_ch;
+ 	struct mbox_chan		*rx_ch;
+-	struct work_struct		rproc_work;
+-	struct workqueue_struct		*workqueue;
+ 	void __iomem			*rsc_table;
+ 	struct imx_sc_ipc		*ipc_handle;
+ 	struct notifier_block		rproc_nb;
+@@ -892,21 +889,11 @@ static int imx_rproc_notified_idr_cb(int id, void *pt=
+r, void *data)
+ 	return 0;
+ }
+=20
+-static void imx_rproc_vq_work(struct work_struct *work)
+-{
+-	struct imx_rproc *priv =3D container_of(work, struct imx_rproc,
+-					      rproc_work);
+-	struct rproc *rproc =3D priv->rproc;
+-
+-	idr_for_each(&rproc->notifyids, imx_rproc_notified_idr_cb, rproc);
+-}
+-
+ static void imx_rproc_rx_callback(struct mbox_client *cl, void *msg)
+ {
+ 	struct rproc *rproc =3D dev_get_drvdata(cl->dev);
+-	struct imx_rproc *priv =3D rproc->priv;
+=20
+-	queue_work(priv->workqueue, &priv->rproc_work);
++	idr_for_each(&rproc->notifyids, imx_rproc_notified_idr_cb, rproc);
+ }
+=20
+ static int imx_rproc_xtr_mbox_init(struct rproc *rproc, bool tx_block)
+@@ -1271,13 +1258,6 @@ static int imx_rproc_sys_off_handler(struct sys_off_=
+data *data)
+ 	return NOTIFY_DONE;
+ }
+=20
+-static void imx_rproc_destroy_workqueue(void *data)
+-{
+-	struct workqueue_struct *workqueue =3D data;
+-
+-	destroy_workqueue(workqueue);
+-}
+-
+ static int imx_rproc_probe(struct platform_device *pdev)
+ {
+ 	struct device *dev =3D &pdev->dev;
+@@ -1305,17 +1285,6 @@ static int imx_rproc_probe(struct platform_device *p=
+dev)
+ 		priv->ops =3D dcfg->ops;
+=20
+ 	dev_set_drvdata(dev, rproc);
+-	priv->workqueue =3D create_workqueue(dev_name(dev));
+-	if (!priv->workqueue) {
+-		dev_err(dev, "cannot create workqueue\n");
+-		return -ENOMEM;
+-	}
+-
+-	ret =3D devm_add_action_or_reset(dev, imx_rproc_destroy_workqueue, priv->=
+workqueue);
+-	if (ret)
+-		return dev_err_probe(dev, ret, "Failed to add devm destroy workqueue act=
+ion\n");
+-
+-	INIT_WORK(&priv->rproc_work, imx_rproc_vq_work);
+=20
+ 	ret =3D imx_rproc_xtr_mbox_init(rproc, true);
+ 	if (ret)
+
+---
+base-commit: 2ee859ebf156157609f71060ae472711c8cbc326
+change-id: 20260529-imx_mbox_rproc-7d512f5a6f78
 
 Best regards,
-Krzysztof
-
+-- =20
+Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 
