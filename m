@@ -4,61 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B862C5CFDB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 07:45:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC439C5CFDB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 07:46:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=200+BjYXiK26SNAL0SOvp1TouAoOBZeEW1FAjxntMk4=; b=V+C120GvN9nPsiyf9kVnPFmTD7
-	N6dc4pw3w94GO90Yqblw110/qhFGqiQkH6XeUZugLJpkl/i7r/UY/NmlH2CyBYTQa4mbZQao4bAyO
-	Kzrj4ztyarIhaJx/EU4t3Gjhkf4Nb1202HL00Z9VJ/RQFCh13JFf+LEK4C/s4yd+MgO6xJRHUHOvE
-	F3lA9+65KBI/rfH2UWNlv+odHfoCNNZTA4GgGn0ndC/upr/bR2xrPHyTfMLEqWKK7Q4nd+JEAn9Td
-	dHAVgzq7hDcBCgxh7upeHwtieTsbZiyoHpYpp4r2ukAZ9YMC7p/e9DYH2CxPeGgFdILZCQYVW7aky
-	9bkgjq4Q==;
+	bh=5wxhWIOrz2kNxcocrn9fFklfGlma0HZ/9L9pcwnG4N0=; b=FAJsFc0AY3xnowKSDnbQpE9Ye8
+	n/IuA9vZqvHXe1tzuHGTEP/9Y3yZDdo9hjJN/unLjrIha6T1eGgWEDC64P/mVx8JPnpqzGfqjyyNN
+	bwXjgmTHZf9QvpZ1L9sn0GFykmf6aPoxdvZJdmysbZ01OJUSGLOKiOnJ6FOwiA6ZJZFfArlKlrGch
+	8PHNj6wF9sQ2hVhrGXB+I4q9Wb1m+H+F5LuCYeo+kMHWcDtPoU9+ozfjeUttukFf2Ak5Sv3DYlRJj
+	wApdP/4zaeRWLwMagSUhfppbvFbJe0oFjKpiVLRb9oGxmgSfjUOGwC4Gf5FU1GgAM5LcYvpNnqweT
+	kJ4x4OZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuQ7z-000000001wp-46Pv;
-	Thu, 13 Aug 2026 07:45:27 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wuQ8Y-000000002AH-0rt2;
+	Thu, 13 Aug 2026 07:46:02 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuQ7v-000000001vS-0ieb
+	id 1wuQ8U-0000000028t-46IU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 07:45:23 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E9C3D41AAE;
-	Thu, 13 Aug 2026 07:45:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 846A31F000E9;
-	Thu, 13 Aug 2026 07:45:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786607122;
-	bh=200+BjYXiK26SNAL0SOvp1TouAoOBZeEW1FAjxntMk4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=hXZEz0CqrDI/4sLy2u8OnIwe/9ZXHWKuUkJ6hi5R2sGlWchj2bRCQEqfO+DuXmImp
-	 yiw47kZHd5Pi2dWMjAUALl3JzNLHZ/43N3lfPSeqsKPuqFKen7qPjBYxz9li2z3tHD
-	 SVR0d1xdCqopX0L8HoT8VKJpUQVzTE0RVk+n92KHuZET5AbiK0mbELb0wr7dy1ID9j
-	 J0Fn4bULVRAQt9yAsIocR8Zkyx8GIdv0nu+WFyNW2yCU1dYKqTo5Hv7kYeZ5c9qCwv
-	 jfBa4QMNZ/5YxTWW2rdWCLhNV57ekATyzxEGziaso/vCWX+8CaH7QYKDaVNeES6OgA
-	 7WKEOPdSbbE5Q==
-From: Ard Biesheuvel <ardb@kernel.org>
-To: linux-efi@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	loongarch@lists.linux.dev
-Subject: [PATCH 3/3] efi: Make the 'linux,uefi-boot-memmap' DT property optional
-Date: Thu, 13 Aug 2026 09:45:10 +0200
-Message-ID: <20260813074506.643472-8-ardb@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260813074506.643472-5-ardb@kernel.org>
-References: <20260813074506.643472-5-ardb@kernel.org>
+	Thu, 13 Aug 2026 07:46:00 +0000
+Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67D61hP7422639;
+	Thu, 13 Aug 2026 07:45:45 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=5wxhWI
+	Orz2kNxcocrn9fFklfGlma0HZ/9L9pcwnG4N0=; b=YuPBivRtBNwJBu+khnt1GU
+	BiVqVKwAKxqcepKWZ8fkz/1r6zPdIjqTJgCN8ZaCgM526vgNdfzCmhl1Jqa4zait
+	u/hj9158GLoMkRZguwA50UP+JXMqx5CcUDCRJwfZHpCgm/b7s/GQkB7WdFGzePuB
+	p6A4+SKPEG8vA8rzH5cKqNzTu6MGK6wAAEv/dfIlowcqKMrGFm8aUN/bx1ZsYLaU
+	6SaHcxpqP+mVBkYXen2UQbZ6Tah1ZqitVGI9++62F2jAAWtubLKCmuKRzibAHBIP
+	apKNEPDMBzz+Fxiaztdutah+pxopl1CRY2L4R02mQIhJrqV4ccmAFmnCLsodD9Bg
+	==
+Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fyb23y7w5-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 13 Aug 2026 07:45:45 +0000 (GMT)
+Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma11.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 67D7fdqe005198;
+	Thu, 13 Aug 2026 07:45:44 GMT
+Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
+	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4fxhfy9vuq-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 13 Aug 2026 07:45:44 +0000 (GMT)
+Received: from smtpav01.fra02v.mail.ibm.com (smtpav01.fra02v.mail.ibm.com [10.20.54.100])
+	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 67D7jdbi31785384
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 13 Aug 2026 07:45:39 GMT
+Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 7C47920040;
+	Thu, 13 Aug 2026 07:45:39 +0000 (GMT)
+Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id D8C982004E;
+	Thu, 13 Aug 2026 07:45:38 +0000 (GMT)
+Received: from [9.224.77.173] (unknown [9.224.77.173])
+	by smtpav01.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Thu, 13 Aug 2026 07:45:38 +0000 (GMT)
+Message-ID: <ef51ea3b-784d-47e6-ade2-14bebaafa7af@linux.ibm.com>
+Date: Thu, 13 Aug 2026 09:45:38 +0200
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3173; i=ardb@kernel.org; h=from:subject; bh=nzmEqWgig/8uve8+0Y/RZPjKgq7imO33lTZpARev920=; b=owGbwMvMwCVmkMcZplerG8N4Wi2JIau2jD1dSS7Kz93ahic8+m74LSu1woPcLJnpM47G9z2Y/ aZgx4OOUhYGMS4GWTFFFoHZf9/tPD1RqtZ5lizMHFYmkCEMXJwCMJF9Oxj+aavEL241u9ghv7Ey b+Pl2QrqTUKFC5WebF7J+CawqIz9AyPDhnUhZzYwCyxPO/fTLfSK3XGnT6pRAg/eGx3ZHWYRdX4 VKwA=
-X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 00/33] KVM: s390: Introduce arm64 KVM
+To: Steffen Eiden <seiden@linux.ibm.com>, kvm@vger.kernel.org,
+        kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org
+Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter
+ <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Sean Christopherson <seanjc@google.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik
+ <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+References: <20260812153631.3376090-1-seiden@linux.ibm.com>
+Content-Language: en-US
+From: Christian Borntraeger <borntraeger@linux.ibm.com>
+In-Reply-To: <20260812153631.3376090-1-seiden@linux.ibm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Authority-Analysis: v=2.4 cv=XqfK/1F9 c=1 sm=1 tr=0 ts=6a7d7629 cx=c_pps
+ a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
+ a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=V8glGbnc2Ofi9Qvn3v5h:22 a=cBNhPelFHdF66-ObYm0A:9
+ a=QEXdDO2ut3YA:10
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODEzMDA1MSBTYWx0ZWRfX3scfBSEApymH
+ AQgmy8l5lVkwsIPsAPois7OG8BL/l3ppbaTaVpBKPvA2HshcrCNevrSrbmEOgthAyMquWqXp6Tt
+ rg9dvq887TaMwoXpN6mYXY2JFqlUWAj73/kQ4eqQy4lzuY70zwfdyDl1XZgTbhLHX8fvUFo5gIO
+ xXP7774ZKIOEDIdIgwpmc1kxZhzW+ts9dom2Pl/ssMrbzAGXqP2d3cN8Tif2+Krs2NfSeEdD7P1
+ hQbjrf2Pta58S3mljYyOujAmIVsx6iXnsaYmPRvNA2UleRyaDQw4hetuTWYIcAX8MZ5EvHs0pSz
+ qtZ4u524R8aDB1voxRnU8lcK8ywGVx78+Zfnq5IOrrTfpHoADhQLTGoc6K00MaDYXXk1bIRBWGQ
+ BGHxh5/iDfg/NptmpxLNm4qKZTEKaPe+cfJMZIYenydLZP8/WnGaCggTgw6K6ZSMxaDRmT7wnfg
+ P3MjlMUXC7RJn4Scs6Q==
+X-Proofpoint-ORIG-GUID: Pp0T091dZEvuATX0JOSDZWgF2LJ7OuXR
+X-Proofpoint-GUID: jAEarrlgndIg1HcmIo59Vp38wsXCp6Rt
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODEzMDA1MSBTYWx0ZWRfX2FbayEkFPgOz
+ D7Ud+M6RwTnR/57QibX3eIgjozkBSL030RlMctJAH/GtK5vj5scrOuja31BRhVO8w9dsPcoYils
+ M8t5QV6j9c/i1nKXUVJyb4LvmBOkHg4=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-13_02,2026-08-12_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 spamscore=0 adultscore=0 malwarescore=0 clxscore=1015
+ suspectscore=0 priorityscore=1501 impostorscore=0 phishscore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608130051
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260813_004559_144497_BE8934B7 
+X-CRM114-Status: GOOD (  10.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,100 +146,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The 'linux,uefi-boot-memmap DT property' is redundant in principle,
-given that it carries a physical address that is also passed via a EFI
-config table entry.
+Am 12.08.26 um 17:35 schrieb Steffen Eiden:
 
-However, if SetVirtualAddressMap() has been called, the address of the
-config table array has been translated to virtual, and so the memory map
-is needed to translate it back to physical before it can be located.
 
-This means that passing the linux,uefi-boot-memmap DT property is only
-needed if SetVirtualAddressMap() has been called, which is a terrible
-idea anyway, and if it has not been called, the config table array can
-simply be parsed to look for LINUX_EFI_BOOT_MEMMAP_TABLE_GUID, and the
-address taken from there.
-
-So permit this, and make the boot memmap property optional.
-
-Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
----
- drivers/firmware/efi/fdtparams.c | 42 ++++++++++++++++++--
- 1 file changed, 38 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/firmware/efi/fdtparams.c b/drivers/firmware/efi/fdtparams.c
-index a54a76a6aaeb..89ffccf35fd7 100644
---- a/drivers/firmware/efi/fdtparams.c
-+++ b/drivers/firmware/efi/fdtparams.c
-@@ -89,14 +89,15 @@ static int __init efi_get_fdt_prop(const void *fdt, int node, const char *pname,
- u64 __init efi_get_fdt_params(struct efi_memory_map_data *mm)
- {
- 	const void *fdt = initial_boot_params;
--	unsigned long systab, memmap;
-+	unsigned long systab, memmap = 0;
- 	int i, j, node;
- 	struct {
- 		void	*var;
- 		int	size;
-+		int	optional;
- 	} target[] = {
- 		[SYSTAB] = { &systab,		sizeof(systab) },
--		[MEMMAP] = { &memmap,		sizeof(memmap) },
-+		[MEMMAP] = { &memmap,		sizeof(memmap), 1 },
- #ifdef CONFIG_XEN
- 		[MMBASE] = { &mm->phys_map,	sizeof(mm->phys_map) },
- 		[MMSIZE] = { &mm->size,		sizeof(mm->size) },
-@@ -131,14 +132,47 @@ u64 __init efi_get_fdt_params(struct efi_memory_map_data *mm)
- 				continue;
- 			if (!j)
- 				goto notfound;
--			pr_err("Can't find property '%s' in DT!\n", pname);
--			return 0;
-+			if (!target[j].optional) {
-+				pr_err("Can't find property '%s' in DT!\n", pname);
-+				return 0;
-+			}
- 		}
- 		if (IS_ENABLED(CONFIG_XEN) && dt_params[i].paravirt) {
- 			set_bit(EFI_PARAVIRT, &efi.flags);
- 		} else {
- 			struct efi_boot_memmap *bm;
- 
-+			if (!memmap) {
-+				unsigned long tables, nr_tables;
-+				efi_system_table_t *st;
-+				efi_config_table_t *tbl;
-+
-+				st = early_memremap_ro(systab, sizeof(*st));
-+				if (!st) {
-+					pr_err("Cannot remap EFI system table\n");
-+					return 0;
-+				}
-+
-+				tables		= st->tables;
-+				nr_tables	= st->nr_tables;
-+
-+				early_memunmap(st, sizeof(*st));
-+
-+				tbl = early_memremap_ro(tables, sizeof(*tbl) * nr_tables);
-+				if (!tbl) {
-+					pr_err("Cannot remap EFI config table array\n");
-+					return 0;
-+				}
-+
-+				for (int i = 0; i < nr_tables; i++) {
-+					if (!efi_guidcmp(tbl[i].guid, LINUX_EFI_BOOT_MEMMAP_GUID)) {
-+						memmap = (unsigned long)tbl[i].table;
-+						break;
-+					}
-+				}
-+				early_memunmap(tbl, sizeof(*tbl) * nr_tables);
-+			}
-+
- 			bm = early_memremap_ro(memmap, sizeof(*bm));
- 			if (!bm) {
- 				pr_err("Cannot remap EFI boot memory map\n");
--- 
-2.47.3
-
+> C) KVM/s390 reorganization (patches 12-22):
+>     Prepare s390 for a second KVM module. Move existing s390 KVM code into
+>     dedicated s390 and gmap subdirectories to make room for a second KVM
+>     implementation. Refactor gmap to better integrate with the second KVM
+>     implementation. GMAP hides a few features only required when managing s390
+>     guests: Storage keys, CMMA, and prefix handling. Those are guarded behind an
+>     #if KVM_S390_MANAGES_S390_GUEST. Only features which implementation would
+>     break kvm-arm64 code are guarded. I leave the non-breaking stuff (like
+>     shadow-gmaps or ucontrol) for the LTO.
+> 
+So I picked 12-21 for kvms390/next and left 22 for later.
 
