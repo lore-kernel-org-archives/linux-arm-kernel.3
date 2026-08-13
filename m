@@ -4,112 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46283C5CFDB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 10:54:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E82EC5CFDB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 11:10:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ucjmi31stySKpq8sayBZo6yeaMDgZDDCZ61xnVduxj0=; b=i2wA8XNywD+C1p+CGv9Am28Ph7
-	jraOk+GfnQZpbkDso9/KQYDITycIeDnObbg2P2QnstW+573gNvafUVE7Eb9btCtSLfrkkrBFHaFrC
-	1v/BbODDwA2FvT7Ima9vNrvi3k1oQcTkGhpCjvbyDsoUFme+r7E5KFPmMxspnyutRYsTDzMBMPbqG
-	cFBXXrCUbpcMEm09hSCRFaV+2H5WQR3zmFdvPA/09CG5DJfDPnlET241ueA3t4U6TZdx/Cvyerghn
-	98Brrd7p3BZEm1uXmrVGiD2SKmQfB04MpJsLUm8+XccoVytlXqFYLpCACQRApaWkXXgce7AaZOpal
-	kScB/Epw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qEhbAdeBtYd8Pzzm6iRICcp6vTdyVfBx3PFK2vEBGKU=; b=VLBu5HZBdBM1xVKQZQc1zGEV/s
+	+XwmCMa3aaMa3HPmLhpU2izEDdG3+nHLQ/+bjB4zR++b9jDfUU8yamtgU9tcq8Nlj83Jtjc1tci03
+	m+XYrViNQzJNcFK1dyJOqF97ZAE22IsdUChW3MMfNHdzMZSCBJ5HJNL12QIyjya1FKHzoPEhDXnOY
+	RNgfx2Mw6cH4uFI7s+OF8yeadVrr0amQQUEECOP/4vVRBGY72sy/7d4psQRLHAqSKmjqFw4ZXiKXc
+	LISTIosTcCiT2g2m9egeSwP78B1pkXHBh7B3MDl1wk/j2doFOvb7WoMdF8ceHfWc8ObfJrrhMX8OF
+	XMJy3a1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuT4e-00000000WEf-04dK;
-	Thu, 13 Aug 2026 10:54:12 +0000
-Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
+	id 1wuTJx-00000000Wvy-0L4E;
+	Thu, 13 Aug 2026 11:10:01 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuT4b-00000000WDr-3hKN
+	id 1wuTJu-00000000WvL-2tfG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 10:54:11 +0000
-Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-cbe6295f05bso597877a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 03:54:09 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1786618449; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Q4vwD2/pjn3jAFqrBdDJyFKSd5jQORl+0H5ZOKFpHUTT6p1gJx6+IrzE1vhaUygSVG
-         0W/YHLPgas0F7XzPX0gkmVWe5ivtFMceY0f91pLw0EHO9rpAoDu/x2PD2YdJoH4TpcJP
-         uX+mh/REi9mF+D3gWMm9WLH4JS0/zSqDNelQjQKlyKNPCFXJjDRyRArZJ6LNbg0UG8gZ
-         YTe/f9nzjuOrkn9A5jKyagK03Pz4UutXNtO9a8VY3NX0d/wUaFW+PxHcwpsu6wExJIEP
-         nBPJ6GCqNoF4+Ghj4x5lSdn40Hg54tph1nIhXAvvzreH3fI2fDHadr0cy6i3tlLJDEQq
-         VUJg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=ucjmi31stySKpq8sayBZo6yeaMDgZDDCZ61xnVduxj0=;
-        fh=atcmiZzZMV+EiTX0whw2fjDqMVOE29vDyjuoqAbt9eY=;
-        b=Swbd/NQbi4P6Lu5nXeQHgx/3jnJEql7TexC/REa9U6b6p74NoeHfV8VG4iT+oZ1boc
-         wJ8eKTUlhbwD0V7qKFhGRVAsg1y+YUfT4ffWORviq0z7aWPOrsFu78J58E0iP3Tbi7+D
-         unlzcIGn3yzgz+W+ZN0sJHMvS+x60fS85RVLvj7M5eE6/ogrJp14zUowSJqkYAxxqT2p
-         O8It+haUcYlJAJBOy8KjUEjnp+zjTmhxxVemxAkxkphsO/1mV0dN0aSduIL0ZvCedQpo
-         ZcpO/H/EuifD8KRhPqwEmHZeH0078EKwlYYEYRZKyRv53abhniiZvyhTHkyB+1iUpEpF
-         ws5g==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Thu, 13 Aug 2026 11:10:00 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2cee9b74ee1so4600885ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 04:09:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786618449; x=1787223249; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=ucjmi31stySKpq8sayBZo6yeaMDgZDDCZ61xnVduxj0=;
-        b=MQytHDm0YRCM2JblTmkhYd+yWbt5ID57Ps2aPnbWlcF0NaB+R50e266+OJgPxTJv55
-         22QhMSBl72fy5b4jpnEazn85840y3yvG1t2mnjqV5Fe4APNHX8mBGiQUFp3RGjMwwKcS
-         O5QTx6da4JQGufKOh5233KGZznIjxyvoUI8ycHXGzy8LT25zIrw+CZiFrEYsLTleGXCS
-         +cnKpdFYcK2h6ptD+edC+HGoCT7c5INRroiiuOH0JVjoOBC0rLsEZqcgQ/oPi38/XT0J
-         Ka9KbpdfPf7yWxMHttKgOgulKdynX3UA9TmCuNxYbmprvVSUGpkyP6SVEOGhsrOC0SS8
-         OMmw==
+        d=gmail.com; s=20251104; t=1786619397; x=1787224197; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=qEhbAdeBtYd8Pzzm6iRICcp6vTdyVfBx3PFK2vEBGKU=;
+        b=bqHgc9iMpVPKh8CJJhzJGpHRaxgHH+V0nOB/l+q3lsIJKA/8pXa65IQrkU8TMu6xLo
+         kAAwCjWpX59RB+6YCT/bG0MensfmkbtNpaQm5s9uUaTS0VhctQf5pBDOG8gJVb2YMtDz
+         W3PXuLbXOzp8CpWuGLdmw9GFsqGV3YqIcVanhNmXLTzlNi2fXFasOpIs723gBryS5qAk
+         v09iwFqxOg+4TEeqVqVYMswpQ3Iz5TG92Bml/GkCZAIX3h8Y/GWWMepGkncROVXRst8O
+         NBPhLKWyVwwjuwSut4ognL66c94A6VUQ7I/AEb7IoISEK2OMF79xkpgAzqIb5MaOV5M6
+         kfPg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786618449; x=1787223249;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ucjmi31stySKpq8sayBZo6yeaMDgZDDCZ61xnVduxj0=;
-        b=lKanvLfeflWTTEPrIZVSAAVTkxMj3Qs3LyQlcLSqGLhI50BS8YBZ7ATm1PMMOQZY2c
-         o6KkOK4UmZxj1LbEppObyvvUH28DBvsulLcp7DpGQ/VnK5gYE1dWaSYNqDuzNT+0mSPe
-         LmDTvQwhOd8MspOr7Sg/P6Tydh+3Fyw/ruaCcB9mdXSA9SOokdNovWur5dD3OwQ7qluQ
-         Lmq79YLa3FBfOHrneuUMOQYztFMNB1EdP8+Cg4p94k+mDGilKNTCZEYITBuQaEEWNXqh
-         iAcEnAmr64gGoIzhg4JRfNGnC8dF6SsDdTaAI4G/4+bJcoF0IFDSOtUWntAx7p+B/hmg
-         FPDQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rrdj7UUUB/qh3vRaoERadEb1ZepwJGQrn0JncYmpiorxm9yjacXJiGogMP09RCKohNbwlV5YNf77DewDiw/E/Zb@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyi5iyII1w2LHZ1sLhJs1H6VC1HRYDERp9N8VdcUmzeCdGoLaPC
-	CETNoC91pwZPQRyjtg9/5GA9UCT+OG7CsWslY19JwSUpztsAx4LbH33Sptio6MG+mz87blolC/p
-	8CdGIJo+jlNOF6tvxWAzWmlwVe32VBLE=
-X-Gm-Gg: AR+sD103ZkGAPq0jYpVR9c49sMe7JeN+qbbc7sV4UGrkqlT8Vj3HNSKgpMfd396nw6g
-	GcAVXpHz6mAO/nNAizUaP+lnONK9f+320dDNjzsdnaUMAXueY2OpYt9/u1OqJKRixKjh5/u0fYO
-	0JWTu+1phpWPffEhk5XSR93+medKsZ+Qjs4/fcUCbrfm0Qvwg1FfERxHw+OkNuT/Cl87gauocE+
-	0T91OBLIEDKC+5k7v79QIKZwKPyw5vbhc2nnEKobhTfbLdR66oItIi0sLlKttFKj3ZDXdBLUOMw
-	1S86cFsqUK9jPXH2ffPAESQMvK5Sy9+ZYO9mCnP9ct76szsG52PmYm7ZFeMbog==
-X-Received: by 2002:a17:90b:53ce:b0:38e:4f42:d0d6 with SMTP id
- 98e67ed59e1d1-3931f9126e8mr1840719a91.12.1786618448460; Thu, 13 Aug 2026
- 03:54:08 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1786619397; x=1787224197;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=qEhbAdeBtYd8Pzzm6iRICcp6vTdyVfBx3PFK2vEBGKU=;
+        b=qTaygB2BQHm1qAz4RG3k0NwcmbEPNwa9oogT8JT5Aw+1CbbrbaR/ecUHwJQDLIWhky
+         UR6SkC7Cz7iwXCKoxZNArgw5kdWLHfAt51U9tO2yZvcPocxLu75qLN9QGvSgF3VimgPG
+         vWVB1LLv5sZUMmuBZHHa4rIPIu+v8Dv6wR2rfi1B+0w6Agbf98XWoApvg1a+Hj/+p83U
+         2BR8Vqj5opyJqorl2n1wVlmW4/V+8m4ZY9DRrPYQSavdQ15VM/yR9zjrQbG2bIRf+iOj
+         kiQeriT+mMDBWzMpnafxamJnPS//O4pjF4uaV238vAmapGEtRl3irW0OsdpBDT2lxAgk
+         N3gA==
+X-Forwarded-Encrypted: i=1; AHgh+Rr1hrU8YBkL01avHXvzF1j+Pl7+325yWRelXwclRqtHO1t58DfdzI7A64CyvFSAet6qMZIESJoMsjXyqT0Ki2xU@lists.infradead.org
+X-Gm-Message-State: AOJu0YzhVWPPLySBc81P0uIkN1XPKRBTrrBMpZkX47q6rQBOu1IPsBqy
+	M6Hg8F3NZjCmGyCGBskBo0Cm6RnrArQqEwDpYcR9WO8EVXaZ1e4rVqVi
+X-Gm-Gg: AR+sD13JjvhlOVzWyVjf9qXt18sawMt0vdy7ap+tJcW5enm03xzY/kbPj/84Smvd0L9
+	SH+HEWGqKwBXiN7RYwP9I+AvEW31sd0g6VBCE83bpzx4XH73SLPIhLTwUP1mDvI9U9kYX2NOOGT
+	X3LjMYT9XKAkh1NRnJi620T3I/pqGd6OAN1izDLsbaocNPW1BwXyIqRZ7X2ZDT/ddgbbFVHIxpJ
+	8FWUeWiPr3+0ze+OyTQiWQSvDHNLFTiog7n1q7ExuxM8Alsc4A1a6y9gIRf/g92PM5Lj7umBSNQ
+	QvUZiw+Swj/CVampFA21ssV24xWI9KlHLPInrgMdV/M5gs+wZw3oNSkgwXoIoi9MOjgc0fabg/9
+	khvrc7C9NjDZtDDuJzUkX22eslYPFk8Cf3Hgn73+L/IITMLLSrKdyeXg3ih/K8DKXjLyX72ABEQ
+	TldLHp7iEaCJzVcD+VTs/Z59+neHJ7KHsVtybIPDfsUvyyRkdWeIiOXS3hwM4SitgkHuF1O6FpE
+	meKbIjVL6NYw9kiWXHwWXf37IvZJ2MB4Of6MB3CjBYmbwbuHLYprDmbPIX/CTmaXd5zcdpu54mP
+	rxI=
+X-Received: by 2002:a17:90b:53cb:b0:381:1c96:829b with SMTP id 98e67ed59e1d1-3931e0241cemr6358795a91.3.1786619397312;
+        Thu, 13 Aug 2026 04:09:57 -0700 (PDT)
+Received: from localhost.localdomain ([2406:7400:94:ab62:887d:e555:df21:3318])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1412da7d3cfsm10442224c88.15.2026.08.13.04.09.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 13 Aug 2026 04:09:56 -0700 (PDT)
+From: Manush Prajwal <manushprajwal555@gmail.com>
+To: Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Manush Prajwal <manushprajwal555@gmail.com>
+Subject: [PATCH] pinctrl: imx1-core: fix device_node refcount leak
+Date: Thu, 13 Aug 2026 16:39:38 +0530
+Message-ID: <20260813110938.1512-1-manushprajwal555@gmail.com>
+X-Mailer: git-send-email 2.46.2.windows.1
 MIME-Version: 1.0
-References: <20260812132755.32585-1-zajec5@gmail.com>
-In-Reply-To: <20260812132755.32585-1-zajec5@gmail.com>
-From: Semih Baskan <strst.gs@gmail.com>
-Date: Thu, 13 Aug 2026 13:53:56 +0300
-X-Gm-Features: AUfX_mwvfJgoJzaqHfueN-LQn7bH3GneBJt2tzTAZG8zD1CSNA7ePCjt5jSH6b4
-Message-ID: <CAAsRjRn4Pfv3LzQtVbeBzw49fN3Fk+M4JGwKkKq6pvo5Uk-fpQ@mail.gmail.com>
-Subject: Re: [PATCH V3 1/4 net] net: dsa: b53: deal with Northstar devices
- using CPU port 5 or 7
-To: =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <zajec5@gmail.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, "David S . Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, Jonas Gorski <jonas.gorski@gmail.com>, 
-	Vladimir Oltean <olteanv@gmail.com>, netdev@vger.kernel.org, 
-	Hauke Mehrtens <hauke@hauke-m.de>, linux-arm-kernel@lists.infradead.org, 
-	devicetree@vger.kernel.org, bcm-kernel-feedback-list@broadcom.com, 
-	=?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_035409_926202_69C76996 
-X-CRM114-Status: GOOD (  11.87  )
+X-CRM114-CacheID: sfid-20260813_040958_749564_AD51AB3A 
+X-CRM114-Status: GOOD (  12.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,38 +101,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rafa=C5=82,
+imx1_pinctrl_dt_is_flat_functions() iterates child and grandchild
+device nodes with for_each_child_of_node() but returns early from
+inside both loops without dropping the reference the iterator holds
+on the current node. Since the function returns a bool rather than a
+node, there is no legitimate reason to keep the reference: call
+of_node_put() on both loop variables before the early returns.
 
-Tested on an Asus RT-N18U (BCM47081 + BCM53011 rev 5), with a local
-DTS change enabling ports 7 and 8 like your 4/4 does for the R8000
-(the in-tree bcm-ns.dtsi state). With patches 1 and 2 applied:
+Found by inspection; the sibling helper in pinctrl-imx.c avoids this
+by using for_each_child_of_node_scoped() instead.
 
-- The op works as designed: DSA picks port 8, the conduit is gmac2,
-  the 1/4 warning stays silent, and management over the bridged LAN
-  ports runs through the port 8 path with no issues.
-- Trap delivery is restored: 20 of 20 BPDUs injected into a front port
-  reach the CPU. On the port 5 topology the same probe measured 0 across
-  every front port.
+Signed-off-by: Manush Prajwal <manushprajwal555@gmail.com>
+---
+ drivers/pinctrl/freescale/pinctrl-imx1-core.c | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
 
-With all three CPU ports enabled, GMNGCFG ends up in dual IMP mode
-(0xc2 read back). In that mode a tagged frame whose VID is missing
-from the VLAN table is delivered to no CPU port at all: an 8021q
-upper on a standalone port receives 0 of 7 tagged probes, whether
-the port 5 conduit is up or down. With port 8 as the only enabled
-CPU port in the DT, where GMNGCFG reads 0b10, the same frames were
-delivered. So the preferred CPU port alone does not revive
-standalone 8021q uppers on DTs that enable all three ports.
+diff --git a/drivers/pinctrl/freescale/pinctrl-imx1-core.c b/drivers/pinctrl/freescale/pinctrl-imx1-core.c
+index b7bd4ef9c0..fa8f6a7e03 100644
+--- a/drivers/pinctrl/freescale/pinctrl-imx1-core.c
++++ b/drivers/pinctrl/freescale/pinctrl-imx1-core.c
+@@ -551,12 +551,17 @@ static bool imx1_pinctrl_dt_is_flat_functions(struct device_node *np)
+ 	struct device_node *pinctrl_np;
+ 
+ 	for_each_child_of_node(np, function_np) {
+-		if (of_property_present(function_np, "fsl,pins"))
++		if (of_property_present(function_np, "fsl,pins")) {
++			of_node_put(function_np);
+ 			return true;
++		}
+ 
+ 		for_each_child_of_node(function_np, pinctrl_np) {
+-			if (of_property_present(pinctrl_np, "fsl,pins"))
++			if (of_property_present(pinctrl_np, "fsl,pins")) {
++				of_node_put(pinctrl_np);
++				of_node_put(function_np);
+ 				return false;
++			}
+ 		}
+ 	}
+ 
+-- 
+2.46.2.windows.1
 
-The same effect touches 4/4: the R8000 today has ports 5 and 7
-disabled, the single IMP configuration, and enabling them lands the
-switch in dual IMP mode through the same driver path. If its switch
-behaves like this BCM53011, standalone 8021q uppers on the R8000
-stop receiving with 4/4 applied.
-
-On the RT-N18U the boot firmware provisions a MAC only for gmac0,
-so gmac2 comes up with a random MAC and the bridge inherits it,
-changing per boot.
-
-Best regards,
-Semih
 
