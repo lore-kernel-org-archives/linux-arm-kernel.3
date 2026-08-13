@@ -4,74 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9CB4C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 10:19:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6354CC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 10:23:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AwMYR8yMGh2SaVJrHO4Cr1K21iIB96i/KwhFeYZjQyc=; b=ssY4p8jAzQ3JmUDPGMcs0yc30z
-	G/IUtoiOPrUa52SqoO9C6QqpQgY1fWv/jNHxGyLIpC07J1XNZRmULjRUAmTpTesfrGZfou89UYLKl
-	PhujM7RIcrsX3SvOXv8rwmeZAkksv7vdnBdkLH2aF3x8Y/KVj9zWdqgFzEW8uDUBbWNtCGtNDwUo6
-	lpg04YZFFGFsSCYEuBfiLwMJ0J90aiI1pkgfRO172fnoselUTmooAecT4WuX5rc0eQvqwOuZe1Swm
-	QrtTkRjL/V16jZCayyJhGwffcQKfFPZEx6tU42tYNBD+IA6uscSeWHPXXR58JlrRlmr5CT5ZDB/d+
-	Esbiwyhg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0n22+2hszmfvyV2F6H4a1xfwpgDEvNULiXfiBMAoQkg=; b=TmDC7CCr4b5bPe4qCRZ1V6dTKS
+	KdD1vn3+QLWtftu7vgEsE+e3ORuRCjmsWCtPWiKDBf5BtFSDm+hC9D5KENN1qdYgeWNd8TvtrGqux
+	0+cqzYIQH9ynGVZh7Yt5DNGmGcdF+gBEqz5FhSGoel13x9wIqXAee+FU6dFWOhzWv/2nwdjcwtFDw
+	ZTFZR19Ewso+qQVdcCSLRG0hF7MN5Z1l4jszSeFLvmMf8D40lPrCmF4gl0kK4MleHUxX3TM3C38Tw
+	EHa9rRcc7gA5Jhr1tT7wGAmN4GLlDLQ1esdB+gfMuVLEFP3P7ztxuGrxBYZdW9RKm9dnEhJ10suvK
+	2+XGRGWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuSXI-00000000Rl0-0mU5;
-	Thu, 13 Aug 2026 10:19:44 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wuSax-00000000SHC-1HwX;
+	Thu, 13 Aug 2026 10:23:31 +0000
+Received: from mail-northcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c105::7] helo=CH4PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuSXG-00000000Rjv-47xR
+	id 1wuSau-00000000SGL-1AQ1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 10:19:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7571D44001;
-	Thu, 13 Aug 2026 10:19:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 449E2C2BCC7;
-	Thu, 13 Aug 2026 10:19:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1786616382;
-	bh=kkPL9EyprWFKhfEi/hKLlvnSSF7MIMNjph6VWcA/M5M=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=GLYzPc5LLMSC2eM2hdr1PsEAI2Wo7MS1X9aawt6s1GN+DpGi4XqTkRfLzhpoTSMuF
-	 MAw3L8UA4Q6jVkuKmMbBVlIuCUpJlfLqWhuJeLqMJbGqmsGlqrSm0Meuh1iSjTmdK3
-	 8xjc1WSFm0SdO1P5ihZ7OtCq+Atmb8teBhxzPROMYo45pg0mtRXmovCsdPyWK0r+Om
-	 4gj/Rv0gl535D7UsEZM1j3eiRoIe/RvMSX64LmjvWWa+0AbJDkYkD9C+pxIqVyry0O
-	 TeOLraM1cRuf7jqQX+7bGXLBxcYrr/YS21gbsWaqZuaL2lbD3Ev3CvNEHChe2JR/9h
-	 wvkhCcp+l8mWQ==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 25F9DC5B572;
-	Thu, 13 Aug 2026 10:19:42 +0000 (UTC)
-From: Long Zhao via B4 Relay <devnull+longzhao.ambarella.com@kernel.org>
-Date: Thu, 13 Aug 2026 18:19:37 +0800
-Subject: [PATCH v3 2/3] gpio: pl061: add Ambarella CV75 register layout
- variant
+	Thu, 13 Aug 2026 10:23:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=E+92Ja5TmMvMG62GNxUUlQDazrZn56GCQYZHz6b5ycVbx7GAci4c/m3ipvSaJ9xualq8wH4v4/C6N6GxrwjDrswEW++/X6fo9VePved4VdxuG4lmbXxI/cuJgeRIBfQ2foUS2j+itc53bHRcjie4IpLO4ZLco0J6BIOlFDMU159COkCH/+IAp9RTKrTv6YZtb09RUK/UobeaueUqnq8XQNKZSb3+WdRxBRrEH/KirH1t5OFf4VZI6e3XqyZ4lDgRMxvDkA5LkAS6NbZ3XAMuFnZs6TaGFlZbGRJ4zIeRp3MFlSH30GNy/aE47/rObWJOpV57dzop6HEmFOohBbE1WQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=0n22+2hszmfvyV2F6H4a1xfwpgDEvNULiXfiBMAoQkg=;
+ b=E1cjGJCD+Kx+MyTfGIA7P1Z6nyK5jAwg8uq3WvyQ5QlK3+/G0qKaFTGFRo7qZ46VHVUjCQDHiULCeuln/+Y+YLqb5bdmDnqAAa7mFhOks+Yh94/xt+fyBOhPPL9keu0KBqpg8h9xuR2J+9rzvtDSKsNaGfOQnIHZDrjdtyNQhpMMz8aY1Z1E3SdHd/J+ImGp6DeG7TIJMMGJqf0CZ9z7G2ZixKWPFOGxEM0SO1peAVaI7IjObK0Uius/kFXjoTsLczH1Bi27fjdIPfw/cMEFL8RXM5twj53mg5WisoVoE0V5NYTbx3zAWnhosfvA+dsI9POWV4Z+8UwQ/cf6SR+LHA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=codeconstruct.com.au
+ smtp.mailfrom=nvidia.com; dmarc=pass (p=reject sp=reject pct=100) action=none
+ header.from=nvidia.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0n22+2hszmfvyV2F6H4a1xfwpgDEvNULiXfiBMAoQkg=;
+ b=gzNgi24iXsTmWC5d7wcmiitLpcChVpGbnAnzXLCMbmnQrvdNrRujIsYanDzGKpIjvRBu5XLFTQ+LTPuKhiYvZBW4AYguyplzkdXPQpAXg1ngcRVhFuVcNaYmzU/KC/eHX2mAzjjWFhX7btUwvkDfXGYuNlCYs0Jz1LET5vCVQogMj3/p0hEe/mZsSta1QyPRFtI34jMiI/MMs01G45HVXhimOOoFj8smln4XBiU/AtJSu1POSVKWoMEQxp/lEDQxmaixpjV7JCHpqQdjVKv84Gb+qGSFp0eLl6azJEObFDLIb+jWDnWle61F/QfIfpGuv6KfarvNRw41YkRu19d14A==
+Received: from CH5PR05CA0024.namprd05.prod.outlook.com (2603:10b6:610:1f0::29)
+ by PH7PR12MB9204.namprd12.prod.outlook.com (2603:10b6:510:2e7::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.15; Thu, 13 Aug
+ 2026 10:23:19 +0000
+Received: from CH2PEPF0000009A.namprd02.prod.outlook.com
+ (2603:10b6:610:1f0:cafe::59) by CH5PR05CA0024.outlook.office365.com
+ (2603:10b6:610:1f0::29) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.339.4 via Frontend Transport; Thu, 13
+ Aug 2026 10:23:19 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ CH2PEPF0000009A.mail.protection.outlook.com (10.167.244.22) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.339.3 via Frontend Transport; Thu, 13 Aug 2026 10:23:19 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Thu, 13 Aug
+ 2026 03:23:03 -0700
+Received: from nvidia.com (10.126.231.37) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 13 Aug
+ 2026 03:23:01 -0700
+From: Jacky Huang <jackyhuang@nvidia.com>
+To: Andrew Jeffery <andrew@codeconstruct.com.au>, Joel Stanley
+	<joel@jms.id.au>
+CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Ryan Chen <ryan_chen@aspeedtech.com>,
+	Billy Tsai <billy_tsai@aspeedtech.com>, <devicetree@vger.kernel.org>,
+	<linux-aspeed@lists.ozlabs.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <openbmc@lists.ozlabs.org>, Jacky Huang
+	<jackyhuang@nvidia.com>
+Subject: [PATCH 0/8] ARM: dts: aspeed: Move flash nodes out of aspeed-g6.dtsi
+Date: Thu, 13 Aug 2026 19:22:25 +0900
+Message-ID: <20260813102233.3088939-1-jackyhuang@nvidia.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260813-cv75-v3-b-v3-2-1d82e18da09b@ambarella.com>
-References: <20260813-cv75-v3-b-v3-0-1d82e18da09b@ambarella.com>
-In-Reply-To: <20260813-cv75-v3-b-v3-0-1d82e18da09b@ambarella.com>
-To: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>
-Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Long Zhao <longzhao@ambarella.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1786616380; l=16958;
- i=longzhao@ambarella.com; s=20260730; h=from:subject:message-id;
- bh=YfYtQj7Xovs5OWqzlv/T3tMKMeKQ2jLFCSoHI0SgglQ=;
- b=5hI1kcH8xUqO/4vT5JZug50+x15BhpORcz5Zn6ZOxmpRH8iMKfIabvlBbggJGMzMigzB661OF
- MCTHKhP4WV/AU8NzYh2taXAYCOiF7BNEVr7C3ZCJ+H9aZCyXc5hVyPK
-X-Developer-Key: i=longzhao@ambarella.com; a=ed25519;
- pk=/xGhPTOX0/eYsyTWzyjjgAIW1Z/YD+IlnOnvcdRozow=
-X-Endpoint-Received: by B4 Relay for longzhao@ambarella.com/20260730 with
- auth_id=903
-X-Original-From: Long Zhao <longzhao@ambarella.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.126.231.37]
+X-ClientProxiedBy: rnnvmail201.nvidia.com (10.129.68.8) To
+ rnnvmail201.nvidia.com (10.129.68.8)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH2PEPF0000009A:EE_|PH7PR12MB9204:EE_
+X-MS-Office365-Filtering-Correlation-Id: ca45aa3c-3cd3-4c18-0741-08def924e530
+X-LD-Processed: 43083d15-7273-40c1-b7db-39efd9ccc17a,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|36860700016|376014|7416014|1800799024|82310400026|6133799003|10067099003|11063799006|56012099006|18002099003;
+X-Microsoft-Antispam-Message-Info: IedzPbulGu5dA8DEhXXTmy3u5LdUUgz6z00py5ghbqo7DO1Yr7HSjicaCxfgLo6E2aYerbAtfy18SCWug/QmeDtK1bHOJjxYy/Ixmjvsgfsv3nUOrbkT6vH4xbd8iiMI6dR1GgO9A+osz5X917345gsOEy//VMXhynq6qIWWvpM0CCZkwdA51rJVQ8ayzO/ZxBauQYT7voEnGY4m/MFfQCaJANzdhZ8QTt7ofjckLYdN417TjcVuNv5Ee9DnHuGdCVIvqvWd0eGB8YolZJtcg3p5Los42fFALhTCQShfUJ9OAjoL33+J6Fykdia9ruRR6sYsNQcQ+hSH2g49nAkY87L/p0D7AIuEngU45FhFV4/SuoUF45dMnCVEaoTx3UizABhILRfICmLulpuWbMqLPYZxFGSzDwTrrlQY7AbyyzCWbovNhzwU10Y+UGHUinnaqPw1juhHkV9rNWHaabL4r8iAMgMyBShvs/SKNH76ax7hCflqEIRGFPRMJvQ+884SUmWsmwJ1DkHEzDxvgBVd7mqt90nN6ohGJe3nnoZQ/LjDfTw1j7l+uNW9B58mOuF/JpvliemWH/2UFKnKn9Sm14ZytWSa/YO0usBXTzVEMJCRKV/xYae8QyfZKhPBlew4m+VnWhR01X3opf8C3+unNiaLj1HdvmNa9H/6n6IhYKq2497frAx1hb7HOg2mRm25sBoFttwXGkMJXLKW8KIm3w==
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(376014)(7416014)(1800799024)(82310400026)(6133799003)(10067099003)(11063799006)(56012099006)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: AKmjt0Zl9ACqNRwXjX1f7YN6bNpDkIudcioempjYDk030zbLH/b8QED2X4ZQJA83pFUm6d3LZiL0cViAXWryqhM5xc4IEU2MkU2TCR0Jlj6qS2PLFdu1Hi+FPuK9+WbnkggJQgi8AODADrc+zLjYZzauyMBt4SM9++Hg0yfKvjrdaRpP/p7YZvRUOssb2RgyhnFDktiwVv+iu6XHavSSh/Eoma9W4AyBjd6BeXJIwrD8yiSPoxE2JTWOJHz63lo8L8kfYvp6jxAO54pgqCoQlyCH3+8vlpyjf99BiKxVJ9oJbodM02mv0AhckjSfT8o2syfLacOyHoW4Yg2O6xogzHf5jZOje3XuyAx4QtYG8+IGyzeqWc/yymLzms1IwvMtVmchPC3ec5RjTGfhLTYAj5nYkEl5F8p70NhTm07VrQp27c4ZacoQ4cAEE8chlMYf
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Aug 2026 10:23:19.0910
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: ca45aa3c-3cd3-4c18-0741-08def924e530
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF0000009A.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB9204
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260813_032328_324092_3504272E 
+X-CRM114-Status: UNSURE (   8.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,553 +127,58 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: longzhao@ambarella.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Long Zhao <longzhao@ambarella.com>
+Move SPI NOR flash descriptions out of aspeed-g6.dtsi. The disabled
+flash@* stubs there describe board population, not SoC IP.
 
-Extend gpio-pl061 with a per-variant register layout so the Ambarella
-CV75 GPIO banks can reuse the PL061 driver instead of a duplicate.
+Patches #1..#7 make each board (or vendor common dtsi) declare the
+flashes it uses, and keep status = "okay" so intermediate commits stay
+bisect-safe while the stubs still exist. Patch #8 removes the stubs.
 
-Signed-off-by: Long Zhao <longzhao@ambarella.com>
----
- .../devicetree/bindings/gpio/pl061-gpio.yaml       |  35 ++-
- drivers/gpio/gpio-pl061.c                          | 280 ++++++++++++++++-----
- 2 files changed, 244 insertions(+), 71 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/gpio/pl061-gpio.yaml b/Documentation/devicetree/bindings/gpio/pl061-gpio.yaml
-index 4d970e55104b..414f8d4a3976 100644
---- a/Documentation/devicetree/bindings/gpio/pl061-gpio.yaml
-+++ b/Documentation/devicetree/bindings/gpio/pl061-gpio.yaml
-@@ -15,7 +15,9 @@ select:
-   properties:
-     compatible:
-       contains:
--        const: arm,pl061
-+        enum:
-+          - arm,pl061
-+          - ambarella,cv75-gpio
-   required:
-     - compatible
- 
-@@ -24,9 +26,20 @@ properties:
-     pattern: "^gpio@[0-9a-f]+$"
- 
-   compatible:
--    items:
--      - const: arm,pl061
--      - const: arm,primecell
-+    oneOf:
-+      - items:
-+          - const: arm,pl061
-+          - const: arm,primecell
-+      - items:
-+          - const: ambarella,cv75-gpio
-+          - const: arm,primecell
-+
-+  arm,primecell-periphid:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    description:
-+      Value to override the hardware PrimeCell peripheral ID. Ambarella
-+      variants use a synthetic ID retaining the PL061 part number because
-+      the hardware has no discoverable ID or assigned designer ID.
- 
-   reg:
-     maxItems: 1
-@@ -57,6 +70,20 @@ properties:
-     minItems: 1
-     maxItems: 8
- 
-+allOf:
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: ambarella,cv75-gpio
-+    then:
-+      properties:
-+        arm,primecell-periphid:
-+          const: 0x00000061
-+      required:
-+        - arm,primecell-periphid
-+        - gpio-ranges
-+
- required:
-   - compatible
-   - reg
-diff --git a/drivers/gpio/gpio-pl061.c b/drivers/gpio/gpio-pl061.c
-index 919cf86fd590..d9e5a9f25681 100644
---- a/drivers/gpio/gpio-pl061.c
-+++ b/drivers/gpio/gpio-pl061.c
-@@ -26,41 +26,94 @@
- #include <linux/slab.h>
- #include <linux/spinlock.h>
- 
--#define GPIODIR 0x400
--#define GPIOIS  0x404
--#define GPIOIBE 0x408
--#define GPIOIEV 0x40C
--#define GPIOIE  0x410
--#define GPIORIS 0x414
--#define GPIOMIS 0x418
--#define GPIOIC  0x41C
--
- #define PL061_GPIO_NR	8
-+#define PL061_REG_NONE	U32_MAX
-+#define PL061_AMBARELLA_PERIPH_ID	0x00000061
-+
-+struct pl061_variant_data {
-+	u32 data;
-+	u32 dir;
-+	u32 is;
-+	u32 ibe;
-+	u32 iev;
-+	u32 ie;
-+	u32 ris;
-+	u32 mis;
-+	u32 ic;
-+	u32 afsel;
-+	u32 mask;
-+	u32 enable;
-+	unsigned int ngpio;
-+	bool access_32bit;
-+	bool masked_data_address;
-+	bool write_data_after_dir;
-+	bool clear_irq_on_type;
-+};
- 
- struct pl061_context_save_regs {
--	u8 gpio_data;
--	u8 gpio_dir;
--	u8 gpio_is;
--	u8 gpio_ibe;
--	u8 gpio_iev;
--	u8 gpio_ie;
-+	u32 gpio_data;
-+	u32 gpio_dir;
-+	u32 gpio_is;
-+	u32 gpio_ibe;
-+	u32 gpio_iev;
-+	u32 gpio_ie;
-+	u32 gpio_afsel;
-+	u32 gpio_mask;
- };
- 
- struct pl061 {
- 	raw_spinlock_t		lock;
- 
- 	void __iomem		*base;
-+	const struct pl061_variant_data *variant;
- 	struct gpio_chip	gc;
- 	int			parent_irq;
- 
- 	struct pl061_context_save_regs csave_regs;
- };
- 
-+static u32 pl061_read(struct pl061 *pl061, u32 offset)
-+{
-+	if (pl061->variant->access_32bit)
-+		return readl_relaxed(pl061->base + offset);
-+
-+	return readb_relaxed(pl061->base + offset);
-+}
-+
-+static void pl061_write(struct pl061 *pl061, u32 value, u32 offset)
-+{
-+	if (pl061->variant->access_32bit)
-+		writel_relaxed(value, pl061->base + offset);
-+	else
-+		writeb_relaxed(value, pl061->base + offset);
-+}
-+
-+static int pl061_get_data(struct pl061 *pl061, unsigned int offset)
-+{
-+	if (pl061->variant->masked_data_address)
-+		return !!readb_relaxed(pl061->base + BIT(offset + 2));
-+
-+	pl061_write(pl061, BIT(offset), pl061->variant->mask);
-+	return !!(pl061_read(pl061, pl061->variant->data) & BIT(offset));
-+}
-+
-+static void pl061_set_data(struct pl061 *pl061, unsigned int offset, int value)
-+{
-+	if (pl061->variant->masked_data_address) {
-+		writeb_relaxed(!!value << offset,
-+			       pl061->base + BIT(offset + 2));
-+		return;
-+	}
-+
-+	pl061_write(pl061, BIT(offset), pl061->variant->mask);
-+	pl061_write(pl061, value ? BIT(offset) : 0, pl061->variant->data);
-+}
-+
- static int pl061_get_direction(struct gpio_chip *gc, unsigned offset)
- {
- 	struct pl061 *pl061 = gpiochip_get_data(gc);
- 
--	if (readb(pl061->base + GPIODIR) & BIT(offset))
-+	if (pl061_read(pl061, pl061->variant->dir) & BIT(offset))
- 		return GPIO_LINE_DIRECTION_OUT;
- 
- 	return GPIO_LINE_DIRECTION_IN;
-@@ -70,12 +123,12 @@ static int pl061_direction_input(struct gpio_chip *gc, unsigned offset)
- {
- 	struct pl061 *pl061 = gpiochip_get_data(gc);
- 	unsigned long flags;
--	unsigned char gpiodir;
-+	u32 gpiodir;
- 
- 	raw_spin_lock_irqsave(&pl061->lock, flags);
--	gpiodir = readb(pl061->base + GPIODIR);
-+	gpiodir = pl061_read(pl061, pl061->variant->dir);
- 	gpiodir &= ~(BIT(offset));
--	writeb(gpiodir, pl061->base + GPIODIR);
-+	pl061_write(pl061, gpiodir, pl061->variant->dir);
- 	raw_spin_unlock_irqrestore(&pl061->lock, flags);
- 
- 	return 0;
-@@ -86,19 +139,20 @@ static int pl061_direction_output(struct gpio_chip *gc, unsigned offset,
- {
- 	struct pl061 *pl061 = gpiochip_get_data(gc);
- 	unsigned long flags;
--	unsigned char gpiodir;
-+	u32 gpiodir;
- 
- 	raw_spin_lock_irqsave(&pl061->lock, flags);
--	writeb(!!value << offset, pl061->base + (BIT(offset + 2)));
--	gpiodir = readb(pl061->base + GPIODIR);
-+	pl061_set_data(pl061, offset, value);
-+	gpiodir = pl061_read(pl061, pl061->variant->dir);
- 	gpiodir |= BIT(offset);
--	writeb(gpiodir, pl061->base + GPIODIR);
-+	pl061_write(pl061, gpiodir, pl061->variant->dir);
- 
- 	/*
- 	 * gpio value is set again, because pl061 doesn't allow to set value of
- 	 * a gpio pin before configuring it in OUT mode.
- 	 */
--	writeb(!!value << offset, pl061->base + (BIT(offset + 2)));
-+	if (pl061->variant->write_data_after_dir)
-+		pl061_set_data(pl061, offset, value);
- 	raw_spin_unlock_irqrestore(&pl061->lock, flags);
- 
- 	return 0;
-@@ -107,15 +161,24 @@ static int pl061_direction_output(struct gpio_chip *gc, unsigned offset,
- static int pl061_get_value(struct gpio_chip *gc, unsigned offset)
- {
- 	struct pl061 *pl061 = gpiochip_get_data(gc);
-+	unsigned long flags;
-+	int value;
- 
--	return !!readb(pl061->base + (BIT(offset + 2)));
-+	raw_spin_lock_irqsave(&pl061->lock, flags);
-+	value = pl061_get_data(pl061, offset);
-+	raw_spin_unlock_irqrestore(&pl061->lock, flags);
-+
-+	return value;
- }
- 
- static int pl061_set_value(struct gpio_chip *gc, unsigned int offset, int value)
- {
- 	struct pl061 *pl061 = gpiochip_get_data(gc);
-+	unsigned long flags;
- 
--	writeb(!!value << offset, pl061->base + (BIT(offset + 2)));
-+	raw_spin_lock_irqsave(&pl061->lock, flags);
-+	pl061_set_data(pl061, offset, value);
-+	raw_spin_unlock_irqrestore(&pl061->lock, flags);
- 
- 	return 0;
- }
-@@ -126,15 +189,14 @@ static int pl061_irq_type(struct irq_data *d, unsigned trigger)
- 	struct pl061 *pl061 = gpiochip_get_data(gc);
- 	int offset = irqd_to_hwirq(d);
- 	unsigned long flags;
--	u8 gpiois, gpioibe, gpioiev;
--	u8 bit = BIT(offset);
-+	u32 gpiois, gpioibe, gpioiev;
-+	u32 bit = BIT(offset);
- 
--	if (offset < 0 || offset >= PL061_GPIO_NR)
-+	if (offset < 0 || offset >= gc->ngpio)
- 		return -EINVAL;
- 
- 	if ((trigger & (IRQ_TYPE_LEVEL_HIGH | IRQ_TYPE_LEVEL_LOW)) &&
--	    (trigger & (IRQ_TYPE_EDGE_RISING | IRQ_TYPE_EDGE_FALLING)))
--	{
-+	    (trigger & (IRQ_TYPE_EDGE_RISING | IRQ_TYPE_EDGE_FALLING))) {
- 		dev_err(gc->parent,
- 			"trying to configure line %d for both level and edge "
- 			"detection, choose one!\n",
-@@ -142,12 +204,11 @@ static int pl061_irq_type(struct irq_data *d, unsigned trigger)
- 		return -EINVAL;
- 	}
- 
--
- 	raw_spin_lock_irqsave(&pl061->lock, flags);
- 
--	gpioiev = readb(pl061->base + GPIOIEV);
--	gpiois = readb(pl061->base + GPIOIS);
--	gpioibe = readb(pl061->base + GPIOIBE);
-+	gpioiev = pl061_read(pl061, pl061->variant->iev);
-+	gpiois = pl061_read(pl061, pl061->variant->is);
-+	gpioibe = pl061_read(pl061, pl061->variant->ibe);
- 
- 	if (trigger & (IRQ_TYPE_LEVEL_HIGH | IRQ_TYPE_LEVEL_LOW)) {
- 		bool polarity = trigger & IRQ_TYPE_LEVEL_HIGH;
-@@ -199,9 +260,11 @@ static int pl061_irq_type(struct irq_data *d, unsigned trigger)
- 			 offset);
- 	}
- 
--	writeb(gpiois, pl061->base + GPIOIS);
--	writeb(gpioibe, pl061->base + GPIOIBE);
--	writeb(gpioiev, pl061->base + GPIOIEV);
-+	pl061_write(pl061, gpiois, pl061->variant->is);
-+	pl061_write(pl061, gpioibe, pl061->variant->ibe);
-+	pl061_write(pl061, gpioiev, pl061->variant->iev);
-+	if (pl061->variant->clear_irq_on_type)
-+		pl061_write(pl061, bit, pl061->variant->ic);
- 
- 	raw_spin_unlock_irqrestore(&pl061->lock, flags);
- 
-@@ -218,9 +281,9 @@ static void pl061_irq_handler(struct irq_desc *desc)
- 
- 	chained_irq_enter(irqchip, desc);
- 
--	pending = readb(pl061->base + GPIOMIS);
-+	pending = pl061_read(pl061, pl061->variant->mis);
- 	if (pending) {
--		for_each_set_bit(offset, &pending, PL061_GPIO_NR)
-+		for_each_set_bit(offset, &pending, gc->ngpio)
- 			generic_handle_domain_irq(gc->irq.domain,
- 						  offset);
- 	}
-@@ -232,12 +295,12 @@ static void pl061_irq_mask(struct irq_data *d)
- {
- 	struct gpio_chip *gc = irq_data_get_irq_chip_data(d);
- 	struct pl061 *pl061 = gpiochip_get_data(gc);
--	u8 mask = BIT(irqd_to_hwirq(d) % PL061_GPIO_NR);
--	u8 gpioie;
-+	u32 mask = BIT(irqd_to_hwirq(d));
-+	u32 gpioie;
- 
- 	raw_spin_lock(&pl061->lock);
--	gpioie = readb(pl061->base + GPIOIE) & ~mask;
--	writeb(gpioie, pl061->base + GPIOIE);
-+	gpioie = pl061_read(pl061, pl061->variant->ie) & ~mask;
-+	pl061_write(pl061, gpioie, pl061->variant->ie);
- 	raw_spin_unlock(&pl061->lock);
- 
- 	gpiochip_disable_irq(gc, d->hwirq);
-@@ -247,14 +310,14 @@ static void pl061_irq_unmask(struct irq_data *d)
- {
- 	struct gpio_chip *gc = irq_data_get_irq_chip_data(d);
- 	struct pl061 *pl061 = gpiochip_get_data(gc);
--	u8 mask = BIT(irqd_to_hwirq(d) % PL061_GPIO_NR);
--	u8 gpioie;
-+	u32 mask = BIT(irqd_to_hwirq(d));
-+	u32 gpioie;
- 
- 	gpiochip_enable_irq(gc, d->hwirq);
- 
- 	raw_spin_lock(&pl061->lock);
--	gpioie = readb(pl061->base + GPIOIE) | mask;
--	writeb(gpioie, pl061->base + GPIOIE);
-+	gpioie = pl061_read(pl061, pl061->variant->ie) | mask;
-+	pl061_write(pl061, gpioie, pl061->variant->ie);
- 	raw_spin_unlock(&pl061->lock);
- }
- 
-@@ -270,10 +333,10 @@ static void pl061_irq_ack(struct irq_data *d)
- {
- 	struct gpio_chip *gc = irq_data_get_irq_chip_data(d);
- 	struct pl061 *pl061 = gpiochip_get_data(gc);
--	u8 mask = BIT(irqd_to_hwirq(d) % PL061_GPIO_NR);
-+	u32 mask = BIT(irqd_to_hwirq(d));
- 
- 	raw_spin_lock(&pl061->lock);
--	writeb(mask, pl061->base + GPIOIC);
-+	pl061_write(pl061, mask, pl061->variant->ic);
- 	raw_spin_unlock(&pl061->lock);
- }
- 
-@@ -314,6 +377,10 @@ static int pl061_probe(struct amba_device *adev, const struct amba_id *id)
- 	if (pl061 == NULL)
- 		return -ENOMEM;
- 
-+	pl061->variant = id->data;
-+	if (!pl061->variant)
-+		return dev_err_probe(dev, -EINVAL, "missing variant data\n");
-+
- 	pl061->base = devm_ioremap_resource(dev, &adev->res);
- 	if (IS_ERR(pl061->base))
- 		return PTR_ERR(pl061->base);
-@@ -327,7 +394,7 @@ static int pl061_probe(struct amba_device *adev, const struct amba_id *id)
- 	pl061->gc.direction_output = pl061_direction_output;
- 	pl061->gc.get = pl061_get_value;
- 	pl061->gc.set = pl061_set_value;
--	pl061->gc.ngpio = PL061_GPIO_NR;
-+	pl061->gc.ngpio = pl061->variant->ngpio;
- 	pl061->gc.label = dev_name(dev);
- 	pl061->gc.parent = dev;
- 	pl061->gc.owner = THIS_MODULE;
-@@ -335,7 +402,14 @@ static int pl061_probe(struct amba_device *adev, const struct amba_id *id)
- 	/*
- 	 * irq_chip support
- 	 */
--	writeb(0, pl061->base + GPIOIE); /* disable irqs */
-+	pl061_write(pl061, 0, pl061->variant->ie); /* disable irqs */
-+	if (pl061->variant->enable != PL061_REG_NONE)
-+		pl061_write(pl061, GENMASK(pl061->gc.ngpio - 1, 0),
-+			    pl061->variant->enable);
-+	if (pl061->variant->afsel != PL061_REG_NONE)
-+		pl061_write(pl061, 0, pl061->variant->afsel);
-+	if (pl061->variant->mask != PL061_REG_NONE)
-+		pl061_write(pl061, 0, pl061->variant->mask);
- 	irq = adev->irq[0];
- 	if (!irq)
- 		dev_warn(&adev->dev, "IRQ support disabled\n");
-@@ -366,20 +440,37 @@ static int pl061_probe(struct amba_device *adev, const struct amba_id *id)
- static int pl061_suspend(struct device *dev)
- {
- 	struct pl061 *pl061 = dev_get_drvdata(dev);
-+	unsigned long flags;
- 	int offset;
- 
-+	raw_spin_lock_irqsave(&pl061->lock, flags);
- 	pl061->csave_regs.gpio_data = 0;
--	pl061->csave_regs.gpio_dir = readb(pl061->base + GPIODIR);
--	pl061->csave_regs.gpio_is = readb(pl061->base + GPIOIS);
--	pl061->csave_regs.gpio_ibe = readb(pl061->base + GPIOIBE);
--	pl061->csave_regs.gpio_iev = readb(pl061->base + GPIOIEV);
--	pl061->csave_regs.gpio_ie = readb(pl061->base + GPIOIE);
--
--	for (offset = 0; offset < PL061_GPIO_NR; offset++) {
--		if (pl061->csave_regs.gpio_dir & (BIT(offset)))
--			pl061->csave_regs.gpio_data |=
--				pl061_get_value(&pl061->gc, offset) << offset;
-+	pl061->csave_regs.gpio_dir =
-+		pl061_read(pl061, pl061->variant->dir);
-+	pl061->csave_regs.gpio_is =
-+		pl061_read(pl061, pl061->variant->is);
-+	pl061->csave_regs.gpio_ibe =
-+		pl061_read(pl061, pl061->variant->ibe);
-+	pl061->csave_regs.gpio_iev =
-+		pl061_read(pl061, pl061->variant->iev);
-+	pl061->csave_regs.gpio_ie =
-+		pl061_read(pl061, pl061->variant->ie);
-+	if (pl061->variant->afsel != PL061_REG_NONE)
-+		pl061->csave_regs.gpio_afsel =
-+			pl061_read(pl061, pl061->variant->afsel);
-+	if (pl061->variant->mask != PL061_REG_NONE)
-+		pl061->csave_regs.gpio_mask =
-+			pl061_read(pl061, pl061->variant->mask);
-+
-+	for (offset = 0; offset < pl061->gc.ngpio; offset++) {
-+		if ((pl061->csave_regs.gpio_dir & BIT(offset)) &&
-+		    pl061_get_data(pl061, offset))
-+			pl061->csave_regs.gpio_data |= BIT(offset);
- 	}
-+	if (pl061->variant->mask != PL061_REG_NONE)
-+		pl061_write(pl061, pl061->csave_regs.gpio_mask,
-+			    pl061->variant->mask);
-+	raw_spin_unlock_irqrestore(&pl061->lock, flags);
- 
- 	return 0;
- }
-@@ -389,7 +480,7 @@ static int pl061_resume(struct device *dev)
- 	struct pl061 *pl061 = dev_get_drvdata(dev);
- 	int offset;
- 
--	for (offset = 0; offset < PL061_GPIO_NR; offset++) {
-+	for (offset = 0; offset < pl061->gc.ngpio; offset++) {
- 		if (pl061->csave_regs.gpio_dir & (BIT(offset)))
- 			pl061_direction_output(&pl061->gc, offset,
- 					pl061->csave_regs.gpio_data &
-@@ -398,20 +489,75 @@ static int pl061_resume(struct device *dev)
- 			pl061_direction_input(&pl061->gc, offset);
- 	}
- 
--	writeb(pl061->csave_regs.gpio_is, pl061->base + GPIOIS);
--	writeb(pl061->csave_regs.gpio_ibe, pl061->base + GPIOIBE);
--	writeb(pl061->csave_regs.gpio_iev, pl061->base + GPIOIEV);
--	writeb(pl061->csave_regs.gpio_ie, pl061->base + GPIOIE);
-+	pl061_write(pl061, pl061->csave_regs.gpio_is,
-+		    pl061->variant->is);
-+	pl061_write(pl061, pl061->csave_regs.gpio_ibe,
-+		    pl061->variant->ibe);
-+	pl061_write(pl061, pl061->csave_regs.gpio_iev,
-+		    pl061->variant->iev);
-+	pl061_write(pl061, pl061->csave_regs.gpio_ie,
-+		    pl061->variant->ie);
-+	if (pl061->variant->afsel != PL061_REG_NONE)
-+		pl061_write(pl061, pl061->csave_regs.gpio_afsel,
-+			    pl061->variant->afsel);
-+	if (pl061->variant->mask != PL061_REG_NONE)
-+		pl061_write(pl061, pl061->csave_regs.gpio_mask,
-+			    pl061->variant->mask);
-+	if (pl061->variant->enable != PL061_REG_NONE)
-+		pl061_write(pl061, GENMASK(pl061->gc.ngpio - 1, 0),
-+			    pl061->variant->enable);
- 
- 	return 0;
- }
- 
- static DEFINE_SIMPLE_DEV_PM_OPS(pl061_dev_pm_ops, pl061_suspend, pl061_resume);
- 
-+static struct pl061_variant_data pl061_arm = {
-+	.data = 0x000,
-+	.dir = 0x400,
-+	.is = 0x404,
-+	.ibe = 0x408,
-+	.iev = 0x40c,
-+	.ie = 0x410,
-+	.ris = 0x414,
-+	.mis = 0x418,
-+	.ic = 0x41c,
-+	.afsel = PL061_REG_NONE,
-+	.mask = PL061_REG_NONE,
-+	.enable = PL061_REG_NONE,
-+	.ngpio = PL061_GPIO_NR,
-+	.masked_data_address = true,
-+	.write_data_after_dir = true,
-+};
-+
-+static struct pl061_variant_data pl061_ambarella = {
-+	.data = 0x00,
-+	.dir = 0x04,
-+	.is = 0x08,
-+	.ibe = 0x0c,
-+	.iev = 0x10,
-+	.ie = 0x14,
-+	.afsel = 0x18,
-+	.ris = 0x1c,
-+	.mis = 0x20,
-+	.ic = 0x24,
-+	.mask = 0x28,
-+	.enable = 0x2c,
-+	.ngpio = 32,
-+	.access_32bit = true,
-+	.clear_irq_on_type = true,
-+};
-+
- static const struct amba_id pl061_ids[] = {
- 	{
- 		.id	= 0x00041061,
- 		.mask	= 0x000fffff,
-+		.data	= &pl061_arm,
-+	},
-+	{
-+		.id	= PL061_AMBARELLA_PERIPH_ID,
-+		.mask	= 0xffffffff,
-+		.data	= &pl061_ambarella,
- 	},
- 	{ 0, 0 },
- };
+Jacky Huang (8):
+  ARM: dts: aspeed: facebook: Declare SPI NOR flashes on boards
+  ARM: dts: aspeed: ibm: Declare SPI NOR flashes on boards
+  ARM: dts: aspeed: nvidia: Declare SPI NOR flashes on boards
+  ARM: dts: aspeed: ampere: Declare SPI NOR flashes on boards
+  ARM: dts: aspeed: asus: Declare SPI NOR flashes on boards
+  ARM: dts: aspeed: inventec: Declare SPI NOR flashes on boards
+  ARM: dts: aspeed: Declare SPI NOR flashes on remaining boards
+  ARM: dts: aspeed: g6: Remove board-level flash stubs
+
+ .../boot/dts/aspeed/aspeed-ast2600-evb.dts    |  4 ++
+ .../aspeed/aspeed-bmc-ampere-mtjefferson.dts  |  9 +++
+ .../aspeed/aspeed-bmc-ampere-mtmitchell.dts   |  9 +++
+ .../aspeed-bmc-asus-kommando-ipmi-card.dts    |  3 +
+ .../boot/dts/aspeed/aspeed-bmc-asus-x4tf.dts  |  6 ++
+ .../aspeed/aspeed-bmc-facebook-anacapa.dts    |  7 +++
+ .../aspeed/aspeed-bmc-facebook-bletchley.dts  |  9 +++
+ .../aspeed/aspeed-bmc-facebook-catalina.dts   |  6 ++
+ .../aspeed/aspeed-bmc-facebook-clemente.dts   |  6 ++
+ .../aspeed/aspeed-bmc-facebook-greatlakes.dts |  4 ++
+ .../dts/aspeed/aspeed-bmc-facebook-harma.dts  |  8 +++
+ .../aspeed/aspeed-bmc-facebook-minerva.dts    |  6 ++
+ .../aspeed/aspeed-bmc-facebook-rainiera6.dts  |  8 +++
+ .../aspeed/aspeed-bmc-facebook-sanmiguel.dts  |  6 ++
+ .../aspeed-bmc-facebook-santabarbara.dts      |  8 +++
+ .../aspeed/aspeed-bmc-facebook-yosemite4.dts  |  4 ++
+ .../aspeed/aspeed-bmc-facebook-yosemite5.dts  |  8 +++
+ .../boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dts   |  6 ++
+ .../aspeed/aspeed-bmc-inventec-starscream.dts |  6 ++
+ .../aspeed-bmc-inventec-transformers.dts      |  6 ++
+ .../aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dts |  5 ++
+ .../dts/aspeed/aspeed-bmc-nvidia-msx4-bmc.dts |  5 ++
+ .../boot/dts/aspeed/aspeed-bmc-opp-tacoma.dts |  9 +++
+ .../dts/aspeed/aspeed-bmc-qcom-dc-scm-v1.dts  |  9 +++
+ .../boot/dts/aspeed/aspeed-bmc-quanta-s6q.dts |  6 ++
+ .../aspeed/aspeed-bmc-ufispace-ncplite.dts    |  6 ++
+ arch/arm/boot/dts/aspeed/aspeed-g6.dtsi       | 56 -------------------
+ .../ast2600-facebook-netbmc-common.dtsi       |  8 +++
+ 28 files changed, 177 insertions(+), 56 deletions(-)
 
 -- 
-2.34.1
-
+2.43.0
 
 
