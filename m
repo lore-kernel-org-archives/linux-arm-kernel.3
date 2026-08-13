@@ -4,80 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0732CC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 11:53:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6F0FC5CFDB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 11:56:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+fm+CeLKS/2B3l8wNfarjP4MGGPunmU90uKBggPTChU=; b=O3HYVSTH63WEfuXH8DVSoGHkP7
-	0nI7Z2aRvqojRJG1jAS7hWAauvYt9+vWiuhrmv83wCW2K+57jlErgBd7UuaatTTaJVtN41csMBkFf
-	il52LkS+cpzG9T1hY9jRfqe+rHmvvxnVxpw4pzfJAgt5LA3ZYoctLAynJZZktNWaDie32DYSAVmXb
-	DU4J6ixl5c3mXoZxRElN3AjNqBK1oxed/JjQTiiI8QUaKp1hl9f+3MRfuRMv6AjF80h12DgD/NBDk
-	SUY3old9bHcWPF6sL9fTc/8YKu/PVsCbXH9O3upS5wd08dHEtjfGRLktieHDmfX3B6JEp+vyT0vC2
-	IWHq4wog==;
+	bh=jV+fr1YQSYU+Nk0tUAwhRpsmVLUxLPPUsySQv1/P7jU=; b=C4PUlcEk5RWhQdwBEx8vFsBiO4
+	h2MxDidgnaiHIzQg+rIZKzy8OIFcC8dq63aTWHavffOxH3J87N2cC2nO3/cMYC8uZjs311cdaHoUv
+	M24GXoLuXCtqnurPGgtOxCscoJ6cYdpCGECbYtwYZjUkXr23UsujXqpPgo4uMXIVYGObUahDla2aU
+	KilWHl36T+mRj94PFXXFoIpKD0BLCaR9APdnpMsZjwUQXDlzm50sp2hxaiTX5DyDUJsLl/TDb3f8t
+	svKg9lMxm5cLsNGf73YtOxo3CdJry2C2DQDjHHzGPN2rzknFDreu+iTqJMnmQzWgjb387b6GUBtvN
+	G8F9g2dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuTzn-00000000af7-3HKc;
-	Thu, 13 Aug 2026 11:53:15 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wuU2c-00000000apj-0NaX;
+	Thu, 13 Aug 2026 11:56:10 +0000
+Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuTzm-00000000aeo-3Hcq
+	id 1wuU2Z-00000000apK-2Uz1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 11:53:14 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5EF804402F
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 11:53:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43A8F1F00ACF
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 11:53:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786621994;
-	bh=+fm+CeLKS/2B3l8wNfarjP4MGGPunmU90uKBggPTChU=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=UgV2RCTFFoe8cwLWNUIuifb5WIdiXPPM+iHiuDr5ZPq8ELyvYb68lIF4yk9xDAscA
-	 RRj0FaaUn8MtYxfa+3KL2YuVm6AsqYRCy0ZG+CpE6kqGLweRa3LDBkpFmgYDBpahX0
-	 COJKUDCse9eswFdo0/fPFyQXIIIRh7b2tL/fE+pPvrDgTm4vgcnfevykwbaAzms+eT
-	 p+yBX+2wruAjjBivWwkVjbw1EsLyqzbTDL5CurY53cakXLv1EqeWhohDod/i5G0aSN
-	 oWYmg+o6xU0KnpUo7Phb6BpL7s7np2B5/FHrLup7a0Clf+Qpwin9W5YszwqKIbhUMF
-	 wfHDP6vh85i/Q==
-Received: by mail-lj1-f170.google.com with SMTP id 38308e7fff4ca-39c9452244aso15445761fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 04:53:14 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+Rp/cyzot0OCe0A0IaeL93O3yK3Yn7pWutaBuUanboUXbsdOEWyNqjBK5EkW2SjHJUKuk6IC4pDHTPhoav2MRnqo@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzm/LFavRT8GZcvd/NcToDmxcCHX1Ejn3+mmQwr8MrvovctFIhz
-	Gyx+gFnneyOZsCkkx58Zojlm2pZYtceDvTR7yI11OkmlXx1tbuAaz5gnNksn839RayEzaIEV7yY
-	568gIZmxxv+ZUBzFtIEhDyMaMGJ43bROlobLFLpv5Cw==
-X-Received: by 2002:a2e:be05:0:b0:39f:bc94:eba1 with SMTP id
- 38308e7fff4ca-3a11a6b7762mr7298321fa.16.1786621992909; Thu, 13 Aug 2026
- 04:53:12 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 13 Aug 2026 06:53:11 -0500
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 13 Aug 2026 06:53:11 -0500
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <bc95e0b0-2cc5-4ad6-a319-ae4e159b92fe@gmail.com>
+	Thu, 13 Aug 2026 11:56:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=ew.tq-group.com; s=default2602; h=Content-Type:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=jV+fr1YQSYU+Nk0tUAwhRpsmVLUxLPPUsySQv1/P7jU=; b=WIdOMCWuTO4eLAyYs6Kf6uR2Zv
+	Va89VhI+u9Dmu+cns7ATJDSn8UUqS+X3ZyihRtem3zTW74T96FVdWpmHSRVoME+79JG7AHVdiJYFu
+	a2zXUhIY4lTDLxpiAjlhfDQql1yI2Zo+/KewKwFDmJ4MbuqKk2CgXAvpW2YLvVAIgcWnx6aAS55mM
+	5OQr03rFN28yNM+2SkzuflKkewUehcJ4kSzhE6It/HC3EBRS4OdsQR70b8+H0aQzUYnyCyba1GnVK
+	Te/Gv4yskbCkmumZOWGkuliITOOdONnuyra4rqfhpGoVfmsObkermgEpIWG8t0vS2vuIZuDDtj5U4
+	DX9uyiBQ==;
+Received: from sslproxy03.your-server.de ([88.198.220.132])
+	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1wuTgX-0002Fs-1v;
+	Thu, 13 Aug 2026 13:33:22 +0200
+Received: from localhost ([127.0.0.1])
+	by sslproxy03.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1wuTgW-000HCm-1a;
+	Thu, 13 Aug 2026 13:33:21 +0200
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, dri-devel@lists.freedesktop.org
+Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org,
+ Francesco Dolcini <francesco@dolcini.it>
+Subject: Re: [PATCH v4 1/4] dt-bindings: lcdif: Add endpoint bus-width property
+Date: Thu, 13 Aug 2026 13:33:20 +0200
+Message-ID: <16977374.uLZWGnKmhe@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <20260813092836.38367-2-francesco@dolcini.it>
+References: <20260813092836.38367-1-francesco@dolcini.it>
+ <20260813092836.38367-2-francesco@dolcini.it>
 MIME-Version: 1.0
-References: <20260731050838.158825-1-ebiggers@kernel.org> <a28c2903-0976-4559-b870-4de5553ba9ab@kernel.org>
- <3ba57269-3305-4d80-b3f2-aa82fa59b59d@gmail.com> <b9b655a9-c683-4c4e-ba0d-f98577dd2912@kernel.org>
- <20260801162900.GA2021@quark> <e7aeec9b-11aa-4635-bde9-fb8c7ca38260@kernel.org>
- <20260801171242.GA3567@quark> <CAMRc=McL5QQRk8C8zzkHm+FUj-SAVi5PLJr2pXo8eNpaxXuALg@mail.gmail.com>
- <20260811224110.GC1905@sol> <CAMRc=MfVqphaVsfcmUXjGmu6m+F6nJYXgAPuTVjZBwFnd48BkA@mail.gmail.com>
- <bc95e0b0-2cc5-4ad6-a319-ae4e159b92fe@gmail.com>
-Date: Thu, 13 Aug 2026 06:53:11 -0500
-X-Gmail-Original-Message-ID: <CAMRc=Mcno_F2UuLXZ3ruaVSbYhssVK90m3KM=+dwskLMSp8TXg@mail.gmail.com>
-X-Gm-Features: AUfX_mxLj0BqXm4Ose-q9nkSpZaIi5poNDxpaETn2wXloBBECH8QMDb1EFqov7M
-Message-ID: <CAMRc=Mcno_F2UuLXZ3ruaVSbYhssVK90m3KM=+dwskLMSp8TXg@mail.gmail.com>
-Subject: Re: [PATCH] crypto: qce - Replace with stub driver
-To: Demi Marie Obenour <demiobenour@gmail.com>
-Cc: linux-crypto@vger.kernel.org, Herbert Xu <herbert@gondor.apana.org.au>, 
-	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>, 
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Bartosz Golaszewski <brgl@kernel.org>, Eric Biggers <ebiggers@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
+X-Virus-Scanned: Clear (ClamAV 1.4.3/28091/Thu Aug 13 08:25:54 2026)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260813_045607_742102_18B6F9D9 
+X-CRM114-Status: GOOD (  13.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,90 +93,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 12 Aug 2026 18:33:45 +0200, Demi Marie Obenour
-<demiobenour@gmail.com> said:
-> On 8/12/26 04:07, Bartosz Golaszewski wrote:
->> On Wed, 12 Aug 2026 00:41:10 +0200, Eric Biggers <ebiggers@kernel.org> said:
->>> On Tue, Aug 11, 2026 at 08:42:55AM -0500, Bartosz Golaszewski wrote:
->>>
->>>> No, the rationale has never been this. FWIW it can be that it's used for
->>>> testing of the crypto module on a supported platform and that is already
->>>> enough of a reason to keep it upstream.
->>>>
->>>> As I've said before: we don't just drop maintained drivers from linux.
->>>
->>> We definitely do if the drivers are not useful or appropriate for
->>> inclusion in the kernel, though the policy varies by subsystem.  Even
->>> just last month an entire filesystem got dropped despite someone wanting
->>> to maintain it.
->>>
->>
->> I suppose you're talking about EFS? A thing that can't even be tested on real
->> hardware? This is a much more extreme case. Here you have several people
->> representing the vendor saying they want to keep and maintain it. I'm fine
->> having my own tree and sending PRs to Herbert if he agrees and you are of
->> course entirely free to disregard any patches targetting it.
->
-> Would you be okay with one of these options?
->
-> 1. Make the stub driver as the default, with
->    the real driver guarded by an off-by-default Kconfig option.
->
-> 2. Keep the driver as is (with the power management issue fixed),
->    but don't register any algorithm implementations with the crypto API.
->
-> 3. Only register algorithm implementations with the crypto API if a
->    non-default Kconfig option is selected.
->
-> 4. Only register algorithm implementations with the crypto API if a
->    non-default module parameter is selected.
->
-> 5. Move the driver out of drivers/crypto, delete the algorithm
->    registrations, and then add support for restricted media content
->    decryption later.
->
-> The last option would be my preferred one.
->
+Am Donnerstag, 13. August 2026, 11:28:31 CEST schrieb Francesco Dolcini:
+> From: Francesco Dolcini <francesco.dolcini@toradex.com>
+>=20
+> The DPI output of the LCD interface can be configured with a bus width
+> of 16, 18, or 24 bits. Introduce a bus-width property to the output
+> endpoint, specifying the number of parallel RGB bits connected.
+>=20
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
 
-I actually have a slightly different spin on the stub driver. I'd like to
-keep the driver future-proof and avoid all kinds of needless churn when we
-do get to the secure dma bufs and restricted media playback (and we will get
-there eventually :) ).
+Acked-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 
-Can we make the QCE into an MFD driver with the core binding to the DT node
-and handling the interconnect bandwidth, while the part handling crypto
-algorithms becomes its cell and is moved into a separate module? This one can
-be disabled in defconfig by default and I don't even mind it being guarded with
-CONFIG_EXPERT. The core module would remain in arm64 defconfig.
+> ---
+> v4: use /schemas/graph.yaml#/$defs/port-base
+> v3: use video-interfaces.yaml
+> v2: use the common bus-width property instead of the legacy interface-pix=
+=2Dfmt
+> ---
+>  .../devicetree/bindings/display/fsl,lcdif.yaml       | 12 +++++++++++-
+>  1 file changed, 11 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/display/fsl,lcdif.yaml b/D=
+ocumentation/devicetree/bindings/display/fsl,lcdif.yaml
+> index 2dd0411ec651..89cea0c14cf1 100644
+> --- a/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
+> +++ b/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
+> @@ -68,9 +68,19 @@ properties:
+>      maxItems: 1
+> =20
+>    port:
+> -    $ref: /schemas/graph.yaml#/properties/port
+> +    $ref: /schemas/graph.yaml#/$defs/port-base
+> +    unevaluatedProperties: false
+>      description: The LCDIF output port
+> =20
+> +    properties:
+> +      endpoint:
+> +        $ref: /schemas/media/video-interfaces.yaml
+> +        unevaluatedProperties: false
+> +
+> +        properties:
+> +          bus-width:
+> +            enum: [ 16, 18, 24 ]
+> +
+>    display:
+>      $ref: /schemas/types.yaml#/definitions/phandle
+>      description: phandle to display panel
+>=20
 
-With that: any future extensions providing support for more functionalities of
-this IP can simply be implemented as more MFD cells while we can also keep
-chipping away at the existing code and use it for testing the BAM pipe locking.
 
-> Also, if Qualcomm has customers who use the QCE via the crypto API,
-> is Qualcomm aware of _why_ they made that choice?  From Eric's and
-> my perspective, that seems like a very strange decision, unless there
-> are factors that Eric and I are not aware of.
->
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
 
-SM8650 with the QCE is FIPS 140-2 certified and apparently this makes
-a difference. Don't ask me if that makes sense, I don't claim to understand
-the legal aspects of it.
 
-> Finally, would you be willing to have a group call to discuss this
-> at some point?  That might be a more suitable venue for this kind of
-> discussion, and could potentially lead to a conclusion faster.  Also,
-> while at least I couldn't sign any NDAs, there might be information that
-> you could discuss there that you cannot post to a public mailing list.
-
-Sure, I'm fine to have a call. If you think about coming to Linux Plumbers this
-year, I'll be there all week and it's a good place for such a discussion too.
-
-FYI I've only been online for a couple days this week and I'm going offline
-again until the end of August with the exception of August 26th when I'll be
-able to chime in again. Any call would too have to happen in September at the
-earliest.
-
-Thanks,
-Bartosz
 
