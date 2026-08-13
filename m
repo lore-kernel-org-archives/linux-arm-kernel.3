@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39B81C5DF69
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46092C5DF6A
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 12:00:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,47 +12,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gl7pzEDzH9tjdIyxD95ZeyTVYyxrwo2K+cstBIKfrsw=; b=VXkAOOlkw7NI8dBjc2Y7yqicMn
-	IST7u5HqmwpjO8Zyjy2AIckYbOiIziabZa8KvUUdtgomfilOKWQ/ctN5UKs2aSSuAzKK//yGYK0XV
-	pFkaip/84I2URyCoC834kbn44OnyE3QkUEpaiIIDryyaf54ljUO30UlV0YcpVfCQlLm1gbWN+qa/d
-	Af0au+jlHcVARNzJAQFkbSRt8aKbbRx58oecKtyQQpDzwN+x39hAoW75RVtzime3APBcDKkICTcKj
-	JLrloiJ9v+NCODSWy+4j+dBfxeuDkrSU1UMPbIBJqkvM08eHQUqNEYFlQK0Ykr0RR8PQX7kKIa2Tk
-	TnKve+8A==;
+	bh=hnsuhTnwruNlhSL0/SVa9iHD8/J7u6o4xdiucrC9H0w=; b=Cp3h3Nimd/GY0u4ABTw9sfhg58
+	swZaMh3YI3EylYE10oTS4tXfpXon1Yl6grbrQzA2Ni+26mw8eKZJxO/0737tW7jVXnvNhzr/tOZ7b
+	0GNC/GsGg4a2NZrG9S30BKA+p+xA/m14kazYtmPCbpeTm5Zd/iQ/vHtVjLQh+4cSneGFotKBaWhok
+	LPOsrYoFYgbtnQpmNN3BCTM04pp55QKs8xM2Oud9pYlSbf8PYLbkdPHfXzQ67NdQi95MH0fSLMj+G
+	GTL9OA76PpPLn4li7r0XLOvJT6a2LTgit2WihsQ4+YD+LWAM+BcRCi3DZHLzDENkN27O3iPR1HmSW
+	PV03RUPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuU6N-00000000b9f-1PTL;
-	Thu, 13 Aug 2026 12:00:03 +0000
+	id 1wuU6M-00000000b89-3tcp;
+	Thu, 13 Aug 2026 12:00:02 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuU6L-00000000b6X-1sy9
+	id 1wuU6L-00000000b6X-1Vg3
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 13 Aug 2026 12:00:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 10768440B2;
-	Thu, 13 Aug 2026 12:00:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 70437C19425;
+	by sea.source.kernel.org (Postfix) with ESMTP id E236944095;
+	Thu, 13 Aug 2026 12:00:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 57E01C2BD01;
 	Thu, 13 Aug 2026 12:00:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1786622400;
-	bh=295IKqaeCumSuUEaZhnHHBluCh18/amZPEFle+tiP3I=;
+	bh=rAuUTuhk4arTff/ub+2xkJknpVOqCl6uqwl2q+e0uZc=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=YxGcxvfC2rGJ4++Ys4Sll/sqCSngCdT90KsuytGLQZ9Wd7sb2cORCGbenG497jNwa
-	 YsMg3AuIVKsoeTjjTG8AamXwlgz0YQ+Y1PdYodVNSWBD3sNkNjUiiQRqhcWjnSUa6a
-	 B8SPMnPIsNKsctGVWFt+AymfeIvgpjRQ+xSfKkwbhXbIyeGW3rndKEwsKaCSnK16D9
-	 lfDb1uUYYyOWQKC/T0Aq3SElvy+lWtOPGApr14Bu0OSr343H72q24XFjKVnlhL3ZKD
-	 707ZW9xUVIYqDxgXs6lnnqQQX8+0mIgiWzhooVeTUr9v/v78FV885D2eO09c1DE2Sz
-	 IPmPN5JPEemoQ==
+	b=CDTLL/gr1So9I4/cCdLXlp0oyJFuhpj/N2CtoHB+1bhvJzPDp4pG7APAwNH1GNtDn
+	 xtT6/ZjSPxwxTErTCYw1F2rC2k/etY89VpS0JrFosxzd3IlXfNjuVpjN8d8MBm9ACL
+	 uDR8sveCpp7tAARnfmpSj1vxBH49BwliEnNPyo6oh+yYfc+MM4oze0WJx58kx6TY9s
+	 T3lJa+MzxL4yBgzjl63EpB2Uxqpr2LeM293+UcGzEth1GabD5KsZ3LiQuZ8w/gWy22
+	 rkhnba1Mu3qx2vy+PSlcpI3PYK2Ug3wj/pxYJDv9ZLb7Z4WV0h8d/Rqi9pluvEXRVb
+	 T32IgLMo6bbpw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 4E0FFC5DF6B;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 33935C5CFEB;
 	Thu, 13 Aug 2026 12:00:00 +0000 (UTC)
 From: Colin Huang via B4 Relay <devnull+u8813345.gmail.com@kernel.org>
-Date: Thu, 13 Aug 2026 19:59:42 +0800
-Subject: [PATCH v5 12/15] ARM: dts: aspeed: anacapa: Add SPI flash VCC
- supply
+Date: Thu, 13 Aug 2026 19:59:40 +0800
+Subject: [PATCH v5 10/15] ARM: dts: aspeed: anacapa: Add LPDB fuse monitor
+ GPIO expander
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260813-anacapa-devlop-phase-devicetree-v5-12-c7058f63dc67@gmail.com>
+Message-Id: <20260813-anacapa-devlop-phase-devicetree-v5-10-c7058f63dc67@gmail.com>
 References: <20260813-anacapa-devlop-phase-devicetree-v5-0-c7058f63dc67@gmail.com>
 In-Reply-To: <20260813-anacapa-devlop-phase-devicetree-v5-0-c7058f63dc67@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -63,11 +63,11 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  colin.huang2@amd.com, Colin Huang <u8813345@gmail.com>, 
  Rex Fu <rex.fu.amd@gmail.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1786622378; l=941;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1786622378; l=3733;
  i=u8813345@gmail.com; s=20260202; h=from:subject:message-id;
- bh=f6LU0FAv4z223NfwbW5+xtWf2s69Q4QEuw+6jPL4YpI=;
- b=hxmqSUUNDPFUSi5olnMyqpzfvJ1Z1bOj6dU+/km8oNPb+g1XvRmOkm/uKa1kUDaYRoIa0YqE9
- 2aaFkPODsyODkknuDeC+bw75S52+eNE2N5JNs+wP2WhQZQqClhSoVSv
+ bh=iRt5dSDALZ6dumrYugDV1SM8iNqVZO1lxfanv1TXY2Q=;
+ b=Rcpi1/hWJBtFFO983ci0PvRhB4Kf7s3+Vwvvx17PoSzpamxGe+SeVUlZawFIYbGG1p7o1uFHX
+ qzZgAW53nUGAedIhMAIWmmhjlTOsXNJhbyYzEZjWYBakVTSYzCWfX/M
 X-Developer-Key: i=u8813345@gmail.com; a=ed25519;
  pk=Zlg0WqpCw4qbswOqamTBTXIchwR/3SnYZpy7rjaGMdQ=
 X-Endpoint-Received: by B4 Relay for u8813345@gmail.com/20260202 with
@@ -90,41 +90,116 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Rex Fu <rex.fu.amd@gmail.com>
 
-Specify the 3.3 V auxiliary rail as the SPI flash VCC supply to
-avoid using the dummy regulator during device initialization.
+Add PCA9554 GPIO expanders for PDB fuse monitor signals on the
+Anacapa DVT board.
+
+The patch adds GPIO expander definitions for both the left and
+right PDBs under the i2c8 multiplexer and updates the associated
+gpio-line-names to reflect the final signal assignments.
 
 Signed-off-by: Rex Fu <rex.fu.amd@gmail.com>
 ---
- .../boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt2.dts | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+ .../dts/aspeed/aspeed-bmc-facebook-anacapa-dvt.dts | 87 ++++++++++++++++++++++
+ 1 file changed, 87 insertions(+)
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt2.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt2.dts
-index f913fa3f622d..cb4b815f1803 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt2.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt2.dts
-@@ -27,6 +27,22 @@ / {
- 	i2c51 = &i2c10mux0ch0;
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-dvt.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-dvt.dts
+index 0eb547ad0ec1..f09dd1abe77d 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-dvt.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-dvt.dts
+@@ -8,6 +8,93 @@ / {
+ 	compatible = "facebook,anacapa-bmc-dvt", "aspeed,ast2600";
  };
  
-+&fmc {
-+	flash@0 {
-+		vcc-supply = <&p3v3_bmc_aux>;
-+	};
-+	flash@1 {
-+		vcc-supply = <&p3v3_bmc_aux>;
++// MB - PDB
++&i2c8 {
++	i2c-mux@72 {
++		i2c8mux0ch0: i2c@0 {
++			gpio@22 {
++				gpio-line-names =
++					"RPDB_FAN_FULL_SPEED_R_N", "RPDB_I2C_TMP432_U8_ALERT_R_N",
++					"RPDB_I2C_TMP432_U29_ALERT_R_N", "RPDB_GLOBAL_WP",
++					"RPDB_FAN_CT_FAN_FAIL_R_N", "RPDB_VERID_A0",
++					"RPDB_VERID_A1", "RPDB_VERID_A2",
++					"RPDB_ALERT_P50V_HSC2_R_N", "RPDB_ALERT_P50V_HSC3_R_N",
++					"RPDB_ALERT_P50V_HSC4_R_N", "RPDB_ALERT_P50V_STBY_R_N",
++					"RPDB_P12V_MB_VRM_ALERT_R_N",
++					"RPDB_P12V_STBY_VRM_ALERT_R_N",
++					"RPDB_PGD_P3V3_STBY_PWRGD_R",
++					"RPDB_P12V_STBY_VRM_PWRGD_BUF_R";
++			};
++			gpio@24 {
++				gpio-line-names =
++					"RPDB_EAM2_PRSNT_MOS_N_R", "RPDB_EAM3_PRSNT_MOS_N_R",
++					"RPDB_PWRGD_P50V_HSC4_SYS_R",
++					"RPDB_PWRGD_P50V_STBY_SYS_BUF_R",
++					"RPDB_P50V_FAN5_R2_PG", "RPDB_P50V_FAN6_R2_PG",
++					"RPDB_P50V_FAN7_R2_PG", "RPDB_P50V_FAN8_R2_PG",
++					"RPDB_SKU_ID0", "RPDB_FAN5_PRSNT_N_R",
++					"", "RPDB_FAN6_PRSNT_N_R",
++					"RPDB_FAN7_PRSNT_N_R", "RPDB_FAN8_PRSNT_N_R",
++					"", "";
++			};
++			gpio@38 {
++				compatible = "nxp,pca9554";
++				reg = <0x38>;
++				gpio-controller;
++				#gpio-cells = <2>;
++
++				interrupt-parent = <&sgpiom0>;
++				interrupts = <174 IRQ_TYPE_LEVEL_LOW>;
++
++				gpio-line-names =
++					"RPDB_P50V_FUSE2_TVS1", "RPDB_P50V_FUSE2_TVS2",
++					"RPDB_P50V_FUSE3_TVS1", "RPDB_P50V_FUSE3_TVS2",
++					"RPDB_P50V_FUSE4_TVS1", "",
++					"", "";
++			};
++		};
++		i2c8mux0ch1: i2c@1 {
++			gpio@22 {
++				gpio-line-names =
++					"LPDB_FAN_FULL_SPEED_R_N", "LPDB_I2C_TEMP75_U8_ALERT_R_N",
++					"LPDB_I2C_TMP432_U29_ALERT_R_N", "LPDB_GLOBAL_WP",
++					"LPDB_FAN_CT_FAN_FAIL_R_N", "LPDB_VERID_A0",
++					"LPDB_VERID_A1", "LPDB_VERID_A2",
++					"LPDB_ALERT_P50V_HSC0_R_N", "LPDB_ALERT_P50V_HSC1_R_N",
++					"LPDB_ALERT_P50V_HSC5_R_N", "LPDB_I2C_P12V_SW_VRM_ALERT_R_N",
++					"LPDB_EAM0_PRSNT_MOS_N_R", "LPDB_EAM1_PRSNT_MOS_N_R",
++					"LPDB_PWRGD_P50V_HSC5_SYS_R", "BARKLIP_PRSNT_N_R3";
++			};
++			gpio@24 {
++				gpio-line-names =
++					"LPDB_P50V_FAN0_R2_PG", "LPDB_P50V_FAN1_R2_PG",
++					"LPDB_P50V_FAN2_R2_PG", "LPDB_P50V_FAN3_R2_PG",
++					"LPDB_P50V_FAN4_R2_PG", "LPDB_FAN0_PRSNT_N_R",
++					"LPDB_FAN1_PRSNT_N_R", "LPDB_FAN2_PRSNT_N_R",
++					"LPDB_FAN3_PRSNT_N_R", "LPDB_FAN4_PRSNT_N_R",
++					"LPDB_SKU_ID0", "",
++					"", "",
++					"", "LPDB_PG_P3V3_R";
++			};
++			gpio@38 {
++				compatible = "nxp,pca9554";
++				reg = <0x38>;
++				gpio-controller;
++				#gpio-cells = <2>;
++
++				interrupt-parent = <&sgpiom0>;
++				interrupts = <174 IRQ_TYPE_LEVEL_LOW>;
++
++				gpio-line-names =
++					"LPDB_P50V_FUSE0_TVS1", "LPDB_P50V_FUSE0_TVS2",
++					"LPDB_P50V_FUSE1_TVS1", "LPDB_P50V_FUSE1_TVS2",
++					"LPDB_P50V_FUSE5_TVS1", "",
++					"", "";
++			};
++		};
 +	};
 +};
 +
-+// BIOS Flash
-+&spi2 {
-+	flash@0 {
-+		vcc-supply = <&p3v3_bmc_aux>;
-+	};
-+};
-+
- // MB - PDB
- &i2c8 {
- 	i2c-mux@72 {
+ &sgpiom0 {
+ 	ngpios = <128>;
+ 	bus-frequency = <2000000>;
 
 -- 
 2.34.1
