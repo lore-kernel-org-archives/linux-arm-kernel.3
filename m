@@ -4,94 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06A47C5CFC1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 11:28:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00473C5CFC1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 11:38:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Od3wbNXS9rJBhW02utE5o2yh9IgRySqZm0ekh3uR4Ts=; b=o0QuHGTfNBYewUIxwbgvrIv/5R
-	B0by7i2lgKDpKg97sxU3DHSINsqIKfZQ/Wb5GQBqoif5WUKIY1YAhbzc6lrQu/CIxlCUJdqz8589h
-	DnfbGZmVsa1RUgrYnyoUzRHRlMT0SZet9JY3vqy6p5bTFFm2GkWLqT6dpF2AxXhypenpFUrMg+BBP
-	aPSZ5QADOLbnAlhqAYVYQP4EpyxziG3H7z4z8xjbR1k2Zrcg04AQ7YXMx9TmhMyMd2/kNhN2M9puE
-	8eh1Jt9MmksxH6gH8t9sXuaOBRmH+ve2PlUd/TNFkZy5S4yxh4lzgS9qy8kpFbdzyMazUxBx1dx6d
-	Bi4e0qRA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VxlozOHTV0l7kH01VkY8gMQr+CBC1D950EXG7JLaJQA=; b=49JShk6v3w9ms/46Ai/uurwK5g
+	llr6hFAtoUtHPA68O076j9t+MwwBIajacxQMcy99cEhQGz/eIwSPOnIbjUDaEDY29XqYOhBuNwxvq
+	rRfCj23ROUKdE3kea+u4BJ6TTYf5fbJ73DLXwsr8gH13UTkR0Ym1NPLFesw8d1R9YhypwjGM8UnLs
+	tzizMJjivZJaqsoUB6Ca3EXunyqCAUpXvN4URTXdqgn//qedzZX5guD1LF/N13wWQq7/YVgi7ONck
+	AuSbSS2SfQ4cGY2GlACBufvdGbdgr7dKlvsJQxJs1Y6DPy0XN4CxtxXi9K5oHdRLvHhTIhmAAZkrV
+	q94i4m1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuq5W-00000002ah3-3G3i;
-	Fri, 14 Aug 2026 11:28:38 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1wuqEl-00000002bFw-3WCz;
+	Fri, 14 Aug 2026 11:38:11 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuq5U-00000002ag7-0HzC
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Aug 2026 11:28:37 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-4815b8781c7so402397f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 04:28:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1786706914; x=1787311714; darn=lists.infradead.org;
-        h=content-type:mime-version:message-id:date:user-agent:references
-         :in-reply-to:subject:cc:to:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=Od3wbNXS9rJBhW02utE5o2yh9IgRySqZm0ekh3uR4Ts=;
-        b=WuL07T+oPfta8y6TkD1xsp/hbh2N86ic/NmLaf4emG+k6HIRqiW6q7WeNMSwQUZ1ns
-         wCvEc9FkhQxnwXM7Uj7X3asQIIoprIkuFay9tGxdxJp2uPHIpA2GV87ZXjA7nqcVnVWn
-         At4lf3dhqs752a54NRZU/EeC57f3XKuEIh1c7Ky6K+HsR2XAk1BiQ0GWapxd8887MQ5O
-         ZNa0LlxkU8+QxZuDvEi0Kh+Lum+Poxxe4EYwwnwNUwc6UkPuld/T0ys7QOdS+ePxKdoa
-         TjL8QRrQFtyNysUWwoErxi66O25dCMAgS1py793DHaR1MsNtGGeBgT+8VsBRpaQr/4jV
-         h7PQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786706914; x=1787311714;
-        h=content-type:mime-version:message-id:date:user-agent:references
-         :in-reply-to:subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=Od3wbNXS9rJBhW02utE5o2yh9IgRySqZm0ekh3uR4Ts=;
-        b=FpwCtWht4bSS7+0rJ04OYI3d+0ZcnY0TBDFJWzc5F3eeC5CY/PcKegjiDSsyfKJSNJ
-         MtJWKmza/t/DMEz9WoUW53PBwvvc4n/UQqsOc8R0HOcv6P3pFXekE26p7SUIG0Jjek2e
-         dvJ+vbXvekiXfa6Ytp/DSUB6JqfhD1+7myTg5I5Qtcnvd9S0hicZiOG6EV+AMpVBdYPJ
-         vAL5ct+qWIXiZcbsTyRW22gC267hzNJzca0/ewZVJ9HrnVj4v++7Yau2HF2cpI5nJyto
-         ipz5Ai1Iy9TcQayEUtLEk1fuAGOcCj3URdSqJuyQiVmV96nD/GI18uIzPF20sGDX2xMK
-         oXvQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rq7bPu4NWszR4f61wvrALHKtCyApXiJtZV7oe0bfpsK49zMH2JqRE1FJlhlySkEiXZZQc2xdLG0S7uXRgEZFaDH@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx5bY6FN4Gj/W1kEo0BBzrqIBliHXSquDMSt7our1ZUMoUg6RWC
-	tRmOI+eeYyycTAs2o4oQ7DyrMJQQCoDk/z4w04M26mxC/PphK89mopeMalbc+IzsKtU=
-X-Gm-Gg: AR+sD10TyQglis+I2Ch6oR6Q+Z0exhJg6G1v8JD6P6zU/1xnAc64Q1doFQE4ONQZPqq
-	teRM6H4pGjBw9ppWgsZP/uQRZ6O2Oy8XLFMkXTvAYhouKIY2GCVNUsvSUJHMuG9TRx3Lxk/gdWj
-	bmrCrFHpIUApTYVdH+9HAKIYB3gm88UNHOb5PtSkAd46VhVE4Nx654dFKJscjW9me4CzH/QmHQh
-	m/cqPyZXpFe2SYLY7sZAvrW/YXRykaxBq8l8MJ+EbPaVqQe3Ilfz+voorlewQQvm14EXuqP6mp1
-	NXenXA+VYwPBRPKREbIYxtIpaqiDWXNvyOaeu8FAh7psr5Ta5xNIaf1CChlD68DywVM5Q/9UbDs
-	0j03CA/ex1kySNg5D+Gn1M7UAV0ddOey754onFkCdXUhmr7DzSGkY88/2+b8whUwMKT2FPqAoaw
-	QyOsSc9mezkHeGPZpc5BogMHGIGoWprKBJ+ijeyFQ6eo3vgl436PlVh7zlXmI=
-X-Received: by 2002:a05:600c:4708:b0:495:6396:8b67 with SMTP id 5b1f17b1804b1-499879419bdmr54955745e9.4.1786706914115;
-        Fri, 14 Aug 2026 04:28:34 -0700 (PDT)
-Received: from localhost ([2a01:e0a:3c5:5fb1:9886:6a22:ee2a:d5e1])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-499899753ccsm24626765e9.0.2026.08.14.04.28.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 14 Aug 2026 04:28:33 -0700 (PDT)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: phucduc.bui@gmail.com, Mark Brown <broonie@kernel.org>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Neil Armstrong
- <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, Martin
- Blumenstingl <martin.blumenstingl@googlemail.com>, Jaroslav Kysela
- <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
- linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] ASoC: meson: meson-card-utils: Drop redundant probe
- error messages
-In-Reply-To: <20260814094211.25151-2-phucduc.bui@gmail.com> (phucduc bui's
-	message of "Fri, 14 Aug 2026 16:42:11 +0700")
-References: <20260814094211.25151-1-phucduc.bui@gmail.com>
-	<20260814094211.25151-2-phucduc.bui@gmail.com>
-User-Agent: mu4e 1.12.9; emacs 30.1
-Date: Fri, 14 Aug 2026 13:28:32 +0200
-Message-ID: <1jzeyplz4v.fsf@starbuckisacylon.baylibre.com>
+	id 1wuqEl-00000002bFn-13Vp;
+	Fri, 14 Aug 2026 11:38:11 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 40C85600C3;
+	Fri, 14 Aug 2026 11:38:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F16A1F00A3F;
+	Fri, 14 Aug 2026 11:38:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786707490;
+	bh=VxlozOHTV0l7kH01VkY8gMQr+CBC1D950EXG7JLaJQA=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=KepxzxOdSYKlibc5rEqXOGzBXVMFs1aQ1AWkQvi595DOpbfObOGWdjN1Mc78QnPxf
+	 CV6LbtEgYVhqByWeVVFCwzbE+vyfMQUqNunj2/5vGwu1hFYOwZHh43k67r52FshhyS
+	 FVwAoFhKIxCB9dYoLpCWOs0dh/il8BKHZAPgpAWboFG+BfaHSEfwyyjhca3erZarrB
+	 ymKGZb5iU0F+Vu+ZyEW9p4NUHFUEYDmTEjt79GSDWwVSKJTkub9/jb70BeNbGtQXTJ
+	 wM5jHPePD3YVU8y8V3hwuHP6NFTP3rXTC8OrMmO2RuJXFgfiZPWwr92Vs1XIZzi+Bk
+	 7Kqrz048g5HMw==
+From: Mark Brown <broonie@kernel.org>
+To: Nicolas Frattaroli <frattaroli.nicolas@gmail.com>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, Heiko Stuebner <heiko@sntech.de>, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+ linux-rockchip@lists.infradead.org, phucduc.bui@gmail.com
+Cc: linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org
+In-Reply-To: <20260806052136.21034-1-phucduc.bui@gmail.com>
+References: <20260806052136.21034-1-phucduc.bui@gmail.com>
+Subject: Re: [PATCH 00/14] ASoC: rockchip: Simplify probe error handling
+Message-Id: <178663242938.110398.4616104123339333100.b4-ty@b4>
+Date: Thu, 13 Aug 2026 15:47:09 +0100
 MIME-Version: 1.0
-Content-Type: text/plain
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260814_042836_111738_C1FDDA88 
-X-CRM114-Status: UNSURE (   9.14  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3083; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=X+bkHMIykGMfgTnFl5dYB3gFs/d1nAs0ablI5dIyuq4=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqfv4dF0ELklDTaytUOl3gquXr3axUlVMYXBwQo
+ 1zxlqyUExOJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCan7+HQAKCRAk1otyXVSH
+ 0GiuB/4+eK/zn9anwX0PkYIkZrXfGhmYu9bJt/AudK1M4kG6Hscfr/jvlLrncqp0ySlP4PrVWZo
+ y19XgIcfarO6vNf9pESDLYcK4TbEopvlwz1AimPqRRjFMUDVapCXMcA2XASw/JgwQ1HEHNB2hKW
+ xRQMiNQe4DPLp6npE4yZVxMDChCMHuleA2qEGbioQGc+8dEDyzN0CkIJPa3koXXXMgai0SnIkc+
+ lK/1rNPaXlqCdq/oCr0xhi5kVmMQH1lla/liD6ajFrGVQU/Xj3Bz22rRhLfv2Stqed1Y28Tt/bn
+ NZhofyWyJK5k3oUKIBtzLsE6J4ZHJy9BNEnSUeWuMxAD2tW1
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,15 +83,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On lun. 14 janv. 2008 at 11:42, phucduc.bui@gmail.com wrote:
-
+On Thu, 06 Aug 2026 12:21:22 +0700, phucduc.bui@gmail.com wrote:
+> ASoC: rockchip: Simplify probe error handling
+> 
 > From: bui duc phuc <phucduc.bui@gmail.com>
->
-> The functions called here don't log the error themselves, but the
-> error is already reported deeper in the call chain, so the dev_err()
-> calls are redundant and can be removed.
->
-> Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
+> 
+> Hi all,
+> 
+> This series simplifies probe error handling across Rockchip ASoC drivers.
+> 
+> [...]
 
-Acked-by: Jerome Brunet <jbrunet@baylibre.com>
+Applied to
+
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.3
+
+Thanks!
+
+[01/14] ASoC: rockchip: rk3288_hdmi_analog: Drop redundant probe error messages
+        https://git.kernel.org/broonie/sound/c/931f4a1223e1
+[02/14] ASoC: rockchip: rk3288_hdmi_analog: Use dev_err_probe() for error handling
+        https://git.kernel.org/broonie/sound/c/06f5854050f5
+[03/14] ASoC: rockchip: rockchip_i2s: Use dev_err_probe() for error handling
+        https://git.kernel.org/broonie/sound/c/b5e4b1159743
+[04/14] ASoC: rockchip: rockchip_i2s: Drop redundant probe error messages
+        https://git.kernel.org/broonie/sound/c/c1bf7ae0c87a
+[05/14] ASoC: rockchip: rockchip_i2s: Propagate -EPROBE_DEFER from devm_pinctrl_get()
+        https://git.kernel.org/broonie/sound/c/be4f82d15235
+[06/14] ASoC: rockchip: i2s-tdm: Inline PTR_ERR() in dev_err_probe()
+        https://git.kernel.org/broonie/sound/c/334d5ea7582b
+[07/14] ASoC: rockchip: i2s-tdm: Drop redundant probe error messages
+        https://git.kernel.org/broonie/sound/c/9fea4805ed95
+[08/14] ASoC: rockchip: rockchip_max98090: Drop redundant probe error messages
+        https://git.kernel.org/broonie/sound/c/de983524dcbe
+[09/14] ASoC: rockchip: rockchip_pdm: Drop redundant probe error messages
+        https://git.kernel.org/broonie/sound/c/7d3f7eb890f1
+[10/14] ASoC: rockchip: rockchip_rt5645: Drop redundant probe error messages
+        https://git.kernel.org/broonie/sound/c/b300f1313b00
+[11/14] ASoC: rockchip: rockchip_sai: Propagate -EPROBE_DEFER from IRQ lookup
+        https://git.kernel.org/broonie/sound/c/c97bdbf862c6
+[12/14] ASoC: rockchip: rockchip_sai: Return the original error code
+        https://git.kernel.org/broonie/sound/c/7a2229ef7cdb
+[13/14] ASoC: rockchip: rockchip_sai: Drop redundant probe error messages
+        https://git.kernel.org/broonie/sound/c/26c9632c33f7
+[14/14] ASoC: rockchip: spdif: Return the original error code
+        https://git.kernel.org/broonie/sound/c/5784ef446847
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
