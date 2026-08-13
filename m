@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87336C5CFDB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 11:33:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A7AAC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 11:33:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lph++7GkXhNCe09CPgw1E6pMsOs4MY7kRuOO+yDHD+A=; b=JRs5UGpC9XJ/FOdboYHpcvhOwt
-	p47Vf/qDVHTaSzEglS0OSX5zFFyl3N6sIZedsbtFDl3v65ZKZTAgjjTu9kxgTAg0F7n41acS3SCvS
-	CAoaYGS9UGcBwAmFWf1W9fGUY76FekF9/iDwAzUp1obQTX9T/bAd/U+K1EsTwFQVIgbTJu7lar2/O
-	Y34NDYtI801X+oIaqcKNjccrbcfETyRgYVoOynwWakgY/sBsO7bgL0TkkRVvDP4k9TI9myVhN3X2P
-	sgNIyyrheVkQkLi+TmUunQWxCK3uGURC6Pg+tJyMjMEjiSStcZlhimKPWOf2a9eH6Ph60pF0zshk9
-	pSHxO9Ow==;
+	bh=sFnA6Ef7ubnQ2/hX+qzCf4AYCihzuJoRE0dgbY1LGCE=; b=M7vx44jTNTfmsIKcdGxsCW+D6l
+	8Ns8RDt3ObIZxoDo+GKwXKKHeh2oxgTDfrk8JhUxuk9T0efrh/y4Q9CUtFzxOGxr0advldEIlaEpM
+	a6wteaz1JQOJxvVSIhiJlHcQCsatXT3bICBGO2ZIR3rF10JPkJnivAWeMTDy/q1qwpiBLUJXoC7yV
+	Etbdb07U4WMDpTRPZIEzTpS5cpf8GLIbLlqxo2i+OphV+ZIHnENHGBk2k0ghsfdEcyesfKxwma4KP
+	pwfbK88pcQHMDzBS3HDKbUPMBhh6C4RFDbcaIWpr4uvqmYVe1k9+GiTxshDugz5GYXFe15jiWOZcA
+	CvVXqqAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuTgm-00000000YSs-2Sa7;
-	Thu, 13 Aug 2026 11:33:36 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wuTgx-00000000YYy-12Q2;
+	Thu, 13 Aug 2026 11:33:47 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuTgj-00000000YRa-3Ph3
+	id 1wuTgo-00000000YUE-13Nc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 11:33:33 +0000
+	Thu, 13 Aug 2026 11:33:38 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 16796600B0;
-	Thu, 13 Aug 2026 11:33:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E666E1F00A3E;
-	Thu, 13 Aug 2026 11:33:31 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0792D42DA0;
+	Thu, 13 Aug 2026 11:33:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F0141F00AC4;
+	Thu, 13 Aug 2026 11:33:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786620812;
-	bh=lph++7GkXhNCe09CPgw1E6pMsOs4MY7kRuOO+yDHD+A=;
+	s=k20260515; t=1786620817;
+	bh=sFnA6Ef7ubnQ2/hX+qzCf4AYCihzuJoRE0dgbY1LGCE=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=A4JBBHLBUjGNgT7LQl9H/aIz5zZtT0UMGxYsfwHm+m7TtFWFGpSkQ8S00lhGMpMHl
-	 IRTDgtnIW85LKSWKrAwdfOtToI7JPGFr+fDwRNrzLbOBJimFsmGUYgnD3DNGQgebwZ
-	 +lNngtnQ7qpN8PdZrZTGoqp9sp2jW4iujfIcFRfSrFNqnmDCJ1xYHC6b50Hz0g1jRn
-	 gn9PajCF7G4DcvzF/00RmpRMS1P87rFzAq4n18dm67MwJrEbKr8TOkFNh7fBjkkoCa
-	 gJD6p5AJFCAftypmIHD37g4BINiPpaPvVLt0kDsE2jKEhlmWwIrawY71+ICSzgDUGN
-	 gVx4A+nvghUBw==
+	b=h79y3UimKev9g0XE2GkoUt5TZHI3tZe9g74UkHcs7Xgl2TfT9R46VhsGhK7RZ8yyg
+	 +/5jTS9Mahtj+4qaIxaCInF/VhIZJ3HzfkTVPbQJQZMFsxR0AAxYYFRNdu7OJ2xmMz
+	 ViwSmEzbJDQzW5Wz9Zdz/QVrJ08Hs3LrRJk/mJ4p0i0PyIV4DRU+h5zWyeNXYbHK/P
+	 1RzLMEfDdEbDqWx34OZT6op4fArhkhgb0WUrOxwznFCIS0fV7tx4l7MtQklz0nnLjs
+	 7Ag8OWjrHdT8eQ0OgWNAWuJwAYeBdBGY07rvcsGIdXuZNs/gc+XbDLuOV19pyNYe7S
+	 mZ38lw0sxefGQ==
 From: Sudeep Holla <sudeep.holla@kernel.org>
-Date: Thu, 13 Aug 2026 12:32:57 +0100
-Subject: [PATCH v3 2/9] firmware: arm_scmi: Extend transport driver macro
- to support ACPI
+Date: Thu, 13 Aug 2026 12:33:01 +0100
+Subject: [PATCH v3 6/9] firmware: arm_scmi: Refactor protocol device
+ creation logic
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260813-acpi_scmi_pcc-v3-2-cb6b88b4ebb3@kernel.org>
+Message-Id: <20260813-acpi_scmi_pcc-v3-6-cb6b88b4ebb3@kernel.org>
 References: <20260813-acpi_scmi_pcc-v3-0-cb6b88b4ebb3@kernel.org>
 In-Reply-To: <20260813-acpi_scmi_pcc-v3-0-cb6b88b4ebb3@kernel.org>
 To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
@@ -71,68 +71,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Extend the SCMI transport driver helper to support ACPI-based systems.
-Introduce an internal helper macro that accepts both OF and ACPI match
-tables, and expose two wrappers:
+Move the protocol validation and device creation logic in scmi_probe()
+into a reusable scmi_device_check_create() helper.
 
-  - DEFINE_SCMI_TRANSPORT_DRIVER(...) for DT/OF transports
-  - DEFINE_SCMI_ACPI_TRANSPORT_DRIVER(...) for ACPI transports
+The helper centralizes checks for the protocol ID range, implementation
+availability and duplicate activation before invoking
+scmi_create_protocol_devices(). This preserves the existing behavior
+while allowing the logic to be reused by the ACPI path, where protocol
+child fwnodes are absent.
 
-For ACPI, set the generated platform_driver .acpi_match_table via
-ACPI_PTR(). The ACPI wrapper relies on the firmware-node propagation
-provided by the preceding change so fwnode lookups on the spawned
-platform device see the correct firmware description.
-
-Keep existing DT users unchanged while allowing transports to be probed
-using struct acpi_device_id tables on ACPI platforms.
+No functional change intended.
 
 Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
 ---
- drivers/firmware/arm_scmi/common.h | 13 +++++++++++--
- 1 file changed, 11 insertions(+), 2 deletions(-)
+ drivers/firmware/arm_scmi/driver.c | 60 ++++++++++++++++++++++----------------
+ 1 file changed, 35 insertions(+), 25 deletions(-)
 
-diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
-index cc7d11c3c1f3..0b896171faa2 100644
---- a/drivers/firmware/arm_scmi/common.h
-+++ b/drivers/firmware/arm_scmi/common.h
-@@ -9,6 +9,7 @@
- #ifndef _SCMI_COMMON_H
- #define _SCMI_COMMON_H
- 
-+#include <linux/acpi.h>
- #include <linux/bitfield.h>
- #include <linux/completion.h>
- #include <linux/device.h>
-@@ -615,7 +616,8 @@ struct scmi_transport_supplier __supplier = {			\
- 	.th.supplier_put = scmi_transport_supplier_put,		\
+diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+index aad678db0f6e..951ba3df6ba6 100644
+--- a/drivers/firmware/arm_scmi/driver.c
++++ b/drivers/firmware/arm_scmi/driver.c
+@@ -3244,6 +3244,40 @@ static void scmi_enable_matching_quirks(struct scmi_info *info)
+ 			   rev->sub_vendor_id, rev->impl_ver);
  }
  
--#define DEFINE_SCMI_TRANSPORT_DRIVER(__tag, __drv, __desc, __match, __core_ops)\
-+#define __DEFINE_SCMI_TRANSPORT_DRIVER(__tag, __drv, __desc, __of_match,       \
-+					__acpi_match, __core_ops)	       \
- static void __tag##_dev_free(void *data)				       \
- {									       \
- 	struct platform_device *spdev = data;				       \
-@@ -679,11 +681,18 @@ err_mem:								       \
- static struct platform_driver __drv = {					       \
- 	.driver = {							       \
- 		   .name = #__tag "_transport",				       \
--		   .of_match_table = __match,				       \
-+		   .of_match_table = __of_match,			       \
-+		   .acpi_match_table = ACPI_PTR(__acpi_match),		       \
- 		   },							       \
- 	.probe = __tag##_probe,						       \
- }
++static void scmi_device_check_create(struct fwnode_handle *fwnode, int prot_id,
++				     struct scmi_info *info)
++{
++	int ret;
++	struct device *dev = info->dev;
++	struct scmi_handle *handle = &info->handle;
++
++	if (!FIELD_FIT(MSG_PROTOCOL_ID_MASK, prot_id)) {
++		dev_err(dev, "Out of range protocol %d\n", prot_id);
++		return;
++	}
++
++	if (!scmi_is_protocol_implemented(handle, prot_id)) {
++		dev_err(dev, "SCMI protocol %d not implemented\n",
++			prot_id);
++		return;
++	}
++
++	/*
++	 * Save this valid fwnode protocol descriptor amongst
++	 * @active_protocols for this SCMI instance.
++	 */
++	ret = idr_alloc(&info->active_protocols, fwnode,
++			prot_id, prot_id + 1, GFP_KERNEL);
++	if (ret != prot_id) {
++		dev_err(dev, "SCMI protocol %d already activated. Skip\n",
++			prot_id);
++		return;
++	}
++
++	fwnode_handle_get(fwnode);
++	scmi_create_protocol_devices(fwnode, info, prot_id, NULL);
++}
++
+ static int scmi_probe(struct platform_device *pdev)
+ {
+ 	int ret;
+@@ -3372,31 +3406,7 @@ static int scmi_probe(struct platform_device *pdev)
+ 		if (fwnode_property_read_u32(child, "reg", &prot_id))
+ 			continue;
  
-+#define DEFINE_SCMI_TRANSPORT_DRIVER(__tag, __drv, __desc, __match, __core_ops)\
-+	__DEFINE_SCMI_TRANSPORT_DRIVER(__tag, __drv, __desc, __match, NULL, __core_ops)
-+
-+#define DEFINE_SCMI_ACPI_TRANSPORT_DRIVER(__tag, __drv, __desc, __match, __core_ops)\
-+	__DEFINE_SCMI_TRANSPORT_DRIVER(__tag, __drv, __desc, NULL, __match, __core_ops)
-+
- void scmi_notification_instance_data_set(const struct scmi_handle *handle,
- 					 void *priv);
- void *scmi_notification_instance_data_get(const struct scmi_handle *handle);
+-		if (!FIELD_FIT(MSG_PROTOCOL_ID_MASK, prot_id)) {
+-			dev_err(dev, "Out of range protocol %d\n", prot_id);
+-			continue;
+-		}
+-
+-		if (!scmi_is_protocol_implemented(handle, prot_id)) {
+-			dev_err(dev, "SCMI protocol %d not implemented\n",
+-				prot_id);
+-			continue;
+-		}
+-
+-		/*
+-		 * Save this valid fwnode protocol descriptor amongst
+-		 * @active_protocols for this SCMI instance.
+-		 */
+-		ret = idr_alloc(&info->active_protocols, child,
+-				prot_id, prot_id + 1, GFP_KERNEL);
+-		if (ret != prot_id) {
+-			dev_err(dev, "SCMI protocol %d already activated. Skip\n",
+-				prot_id);
+-			continue;
+-		}
+-
+-		fwnode_handle_get(child);
+-		scmi_create_protocol_devices(child, info, prot_id, NULL);
++		scmi_device_check_create(child, prot_id, info);
+ 	}
+ 
+ 	return 0;
 
 -- 
 2.43.0
