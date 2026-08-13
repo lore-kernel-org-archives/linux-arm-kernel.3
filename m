@@ -4,97 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A606C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 21:06:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B29F0C5CFDB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 21:34:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ultvd+YwB2CCLSLTdZwfLPvD251NBr4TYb3rtNreqUc=; b=nwgBpFqsDjJ3EnrclsDP+ukLOH
-	ReFDjbjoGAISjCmU911fk4zKc6Qorivuu4SXAOt+yrBZNxQW0sCqMlZ0zfcl+8GPerqXJ671EEMxA
-	oMeLdsFHoC8m6cPV64m3NDM7K2vEmJLIXy9wZOdxsKZyibZDR+IkN22XuZaP5kdQwju/Om8E4/d8X
-	wnJ+IGfjfHzTYCXKxLW/rL0n+seDn1mjMI4IHKSMH/EABBbTNDs1jzBwF/KJ+gZaESyTppPXgQHs9
-	L8pMWwwZ7Ggk0YjElztjjCiL9FPJzxOsf9mX+l3EXytX0w146VReaXblg9Jgi492Gk4LkNIUdQmcg
-	7C0/aqLg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RJmCPul9jOqQ/QdYG0814B9QmndHxDgtfe+WTkVwZeo=; b=eUxkD7br4p9lUemE2VXiJ/wqkC
+	276RcYVmnu7d/j+pr+vA+3Ev/09B0hlDT9ZAWkc5v/I4FWZuofLXiPCOUj774aeGWGJ8ctmlm5ppt
+	Fmqh5qfnSstt5xGj3U2RH8IbErlDQPn5HOfvhjbwzEM244GiCnfwcp0bXhkpbVZndxEacjplySadq
+	5fiNd3sWjrEBknMRovCJqFNmzwl6MPNzPRSGYRobiIHjqCzqBWCDlbPgKZOUU+TiTuYij1IzKZ3pZ
+	4Qve3SB3PCR0gxYxKV3VMlvsY+Hk8dd7uHU7HUuXAGmH7ILSmHy2p1DLxurflOwfbb1Wva7Xkh20T
+	HcOiGNdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wucdX-00000001cpf-1NUE;
-	Thu, 13 Aug 2026 21:06:51 +0000
-Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
+	id 1wud3p-00000001eVO-2PFl;
+	Thu, 13 Aug 2026 21:34:01 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wucdU-00000001cpD-0ZYX
+	id 1wud3o-00000001eVH-13Ki
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 21:06:49 +0000
-Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-cbe6295f05bso1100609a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 14:06:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=nexthop.ai; s=google; t=1786655206; x=1787260006; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=ultvd+YwB2CCLSLTdZwfLPvD251NBr4TYb3rtNreqUc=;
-        b=N55rYgaru7vDN38ABJftjG7q91R9WA6Vgv6G3QtORq6gqQARQ2ZcKgziAj8FnRZTGW
-         XUmydBjjQWdk40mJny7rcuqAGXRvdPYL/b3qKA9DxDschdupz2b/y7TzRYJrSt2DK7PK
-         vvV/Dw2gfb1iFRXwyRn3sPj/Vrv9/ZtjIrmD35T4iYaSBbCzPhuE7ky6O+YVWgOQP0jS
-         TOJ7bo7ZWL4N5Ty84xp0vL4DfVYtl9b69XPx/BTNISslD15Q4Jaw8hiltMCbuan5opgI
-         Gkjg/OCeAISb+s0a7uu9PY9GcSYoF4TC2tFSBDWhYgvpmHiOnNuSTfDt374oZqPHklxz
-         LzbQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786655206; x=1787260006;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=ultvd+YwB2CCLSLTdZwfLPvD251NBr4TYb3rtNreqUc=;
-        b=TEcdIupVxZVOq6qaha4iLTE4Up335x5tDmOikfRra9diaLF6OX6wg2660Asn78V1TS
-         EvfAZvoGj8Vmqlud8EGkwL+lhqlELrVttCri/qonInUKsvT9n6PHpWBax5Opaj3h1Zz/
-         P7/hqoB2ahFDiBO97kukw4eOLH8IShjtIQ+XcWiqTHO4rYZKe/Z0IE+DM7elexUpyYxJ
-         IeC2cqzbG2beo0ZWfP8WOMwc6MCcDPsxq4iF4WBtH67BnGuAqHDLVv0QJnIHU+m4I73g
-         PugbzxDWQWAFjsMyqCFKZL2/RdIGDPie9qijpG0TZLKAP6wX+R5/WDSOSakosqbRJoI0
-         H1Eg==
-X-Gm-Message-State: AOJu0YzmLtc4BtshpDkC08bF5PV/aRSAcqkwX/5v2RApJ5shXFUV13UQ
-	YLMlL31QrE3ryERBePpXAhJr4yEeNGJgLprsXXzKTsIIIZN1syZHWnmGOqkqxJLnr2w=
-X-Gm-Gg: AR+sD11mPTxwtJ3VIRqBNoyH97DwXpsD2UhdAnuAeuVmh8tr7ac5P3gB+KhdN9+UiGU
-	8BkpTKqGptEmMnF+dSrZW2ufkEaqKuTQJHV3a7tKgupY2IKwOMZ5w7V6pCQF7GLRoiHmbIpKKK5
-	dknPaimGXGhw71YMzMHYHAJkpGh7bxFEfCK553tl4dhjgqmdtVBPNXB8QLNW4OdSgwyO0LBas5A
-	MqtjcFSndW57jLhalzLTrLYrYzSBTN9bqYbAD/ghE2b0r59TrjtvO15KicEFUSDFRq/z+yi1H6m
-	KWUhd8IZdmqpFMiEcGTmixyveL9DxJi6Zso52nlphKkzS26soGjW6qJWlfmNeV67wc4giD3Cw9o
-	ewHxCysjpOfoEokq59CRtYXAsEGouz3QDpi3k/E4YTNzk6a//FjYR8UsZrWMMl2t4PeH6CY9PKK
-	tREy+U6vHjt4CiBAgiyqyj5iJXzd8ldS8tdiP8TykAXNdPeqSFYgOGum63ulQiXu4=
-X-Received: by 2002:a17:90a:e7c8:b0:37f:a913:1554 with SMTP id 98e67ed59e1d1-3931f5b9ec6mr4934140a91.16.1786655206294;
-        Thu, 13 Aug 2026 14:06:46 -0700 (PDT)
-Received: from [127.0.0.2] ([50.145.100.174])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-31ebf732526sm9841832eec.19.2026.08.13.14.06.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Aug 2026 14:06:45 -0700 (PDT)
-From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
-Date: Thu, 13 Aug 2026 14:06:40 -0700
-Subject: [PATCH] i2c: xiic: restore runtime PM teardown in remove to fix
- clk WARN flood
+	Thu, 13 Aug 2026 21:34:00 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8833A400FF;
+	Thu, 13 Aug 2026 21:33:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6F621F000E9;
+	Thu, 13 Aug 2026 21:33:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786656839;
+	bh=RJmCPul9jOqQ/QdYG0814B9QmndHxDgtfe+WTkVwZeo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=KS0moFFF0rJITVVbOktfgUKvpVxgrVDDBPYx1NnyUMIWpFA2fym+YrnoXEcAFEC+z
+	 Pf6qZgmB1SojQqV3DbqFeyXjVm3MCCfEJc22VTTnCuvZYZlOuCZLCVt2jb8lXEmgn8
+	 K0yzSb0lb8xZoJd/DBgG7za2GgvLuiVbnYzA8EGHQfeuFCJ8PN5IJuMiyneA1lrJDv
+	 frsXSzCGRjghvcb0q2rCwHNAxPcyzlqCzlkc1mWEvLJyvwTtIpObfbxDQwvPlkC+wk
+	 E+O9ST1kdCy8HpOptKG2YW8U3Izp3sprT8kEfqMoDK3FU9a8AbMUwnaogYxRAKykFd
+	 35TIr6ysbh9WQ==
+Date: Thu, 13 Aug 2026 22:33:55 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Miquel Raynal <miquel.raynal@bootlin.com>
+Cc: Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Steam Lin <STLin2@winbond.com>,
+	linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 4/5] spi: ma35d1-qspi: Add DTR support
+Message-ID: <09c3928f-4b58-4ac6-8e1a-84dfe3ff6b92@sirena.org.uk>
+References: <20260813-perso-ma35d1-upstream-qspi-v1-0-b217b9870eb1@bootlin.com>
+ <20260813-perso-ma35d1-upstream-qspi-v1-4-b217b9870eb1@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260813-i2c-xiic-restore-runtime-pm-teardown-v1-1-0e7dfb206790@nexthop.ai>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXNwQrCMAyA4VcZORtoK4j4KuKhTaNGWDuSbg7G3
- t2qx+/y/xsYq7DBZdhAeRGTWjr8YQB6xvJglNwNwYWTO/sjSiBcRQiVrVVl1Lk0GRmnERtHzfV
- dMGcXk88pkAvQU5PyXdbf5nr72+b0YmrfNuz7BzsuC02IAAAA
-X-Change-ID: 20260813-i2c-xiic-restore-runtime-pm-teardown-dd0ab1db2c02
-To: Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>, 
- Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Abdurrahman Hussain <abdurrahman@nexthop.ai>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1786655204; l=1608;
- i=abdurrahman@nexthop.ai; s=20260510; h=from:subject:message-id;
- bh=+Iyoqht06orAWWu+u7sHJGc4N1C/gzIr5LzUDuiY8Bc=;
- b=aZPjAYgXpSdHMLsS5PSsc0LoM9SiqlcTXDl56EtQPLQhYYNTWWCUoXuF4aTG3wyNCHQg0xcQ/
- UbKAg7bvJgxBmyzrDURg6yFE93cZkVoIsmJ3HkhI3eAvhqCeGMUFeD6
-X-Developer-Key: i=abdurrahman@nexthop.ai; a=ed25519;
- pk=omTm9cCAbO0ZhS32aKfJDKue0W3sQGpG9ub5eYHif8I=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_140648_198386_F246E7C2 
-X-CRM114-Status: GOOD (  10.69  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="Ofwh2gFKdI85BSw4"
+Content-Disposition: inline
+In-Reply-To: <20260813-perso-ma35d1-upstream-qspi-v1-4-b217b9870eb1@bootlin.com>
+X-Cookie: Immanuel doesn't pun, he Kant.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,47 +74,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The devres conversion dropped the remove-time runtime PM trailer
-(pm_runtime_disable + pm_runtime_set_suspended +
-pm_runtime_dont_use_autosuspend). devm_pm_runtime_enable's release
-action then calls pm_runtime_dont_use_autosuspend() while runtime PM
-is still enabled, triggering an immediate runtime suspend: the suspend
-callback clk_disable()s the clock that the devm_clk_get_enabled()
-release is about to clk_disable_unprepare(), and every device teardown
-WARNs in clk_core_disable() ("clkN already disabled").
 
-Restore the trailer: with runtime PM disabled and the state forced to
-suspended before devres runs, the suspend callback cannot fire and the
-clock enable count stays balanced.
+--Ofwh2gFKdI85BSw4
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Fixes: 50c63491ff26 ("i2c: xiic: switch to devres managed APIs")
----
-Signed-off-by: Abdurrahman Hussain <abdurrahman@nexthop.ai>
----
- drivers/i2c/busses/i2c-xiic.c | 3 +++
- 1 file changed, 3 insertions(+)
+On Thu, Aug 13, 2026 at 10:00:24AM +0200, Miquel Raynal wrote:
+> The controller has DTR support, a bit must be set for it. The behaviour
+> is interesting though, as the speed won't improve when enabled. This is
+> because there seems to be an internal divisor (/2) which keeps the rate
+> equal when DTR is enabled. As a result, this commit also doubles the
+> target bus speed, which in practice does not happen. This way, there is
+> a real gain:
 
-diff --git a/drivers/i2c/busses/i2c-xiic.c b/drivers/i2c/busses/i2c-xiic.c
-index 3e7735e1dae0..89636ca36915 100644
---- a/drivers/i2c/busses/i2c-xiic.c
-+++ b/drivers/i2c/busses/i2c-xiic.c
-@@ -1545,6 +1545,9 @@ static void xiic_i2c_remove(struct platform_device *pdev)
- 		xiic_deinit(i2c);
- 
- 	pm_runtime_put_sync(dev);
-+	pm_runtime_disable(dev);
-+	pm_runtime_set_suspended(dev);
-+	pm_runtime_dont_use_autosuspend(dev);
- }
- 
- static const struct dev_pm_ops xiic_dev_pm_ops = {
+> @@ -567,7 +577,8 @@ static int nuvoton_qspi_transfer_one(struct spi_contr=
+oller *ctlr,
+>  			buswidth =3D 2;
+>  	}
+> =20
+> -	ret =3D nuvoton_qspi_configure_bus(spi, buswidth, dir, xfer->speed_hz);
+> +	ret =3D nuvoton_qspi_configure_bus(spi, buswidth, dir, xfer->speed_hz,
+> +					 xfer->dtr_mode);
+>  	if (ret)
+>  		return ret;
 
----
-base-commit: d58772d8520c7ef247c4b95c9bd76d3a25da9ff5
-change-id: 20260813-i2c-xiic-restore-runtime-pm-teardown-dd0ab1db2c02
+This needs ctlr->dtr_caps configuring, otherwise the validation will
+block it - only the _mem_caps were updated.
 
-Best regards,
---  
-Abdurrahman Hussain <abdurrahman@nexthop.ai>
+--Ofwh2gFKdI85BSw4
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmp+OEIACgkQJNaLcl1U
+h9DZ2Af+Nhsdzbp64ywAW88mtOuZ/FvF8klN/5pJZjRQzBM9u/Xw6tkIa1wfMTEa
+rubL4TJK2bNU7LG3vghKhkFZ9Z9E1GPYNHOPzQ42E0BWI/T+sCeMQdQKcCHWpiFq
+tADVc3oMY8vjymgRSzDU53flhddz6GREVOgoPy+LrRrjktCu84481I8YbMVjZqqh
+BXc4yo15EgqxKK/qckLVqpq1bNS133PJrA1xPT5gQSsPfr19uHRs22AGot0Vdd2y
+mSchqod0ciOlSQBQ+k9YfiYwpacrPZ9qIm9HJgULjKyk8vu2YZ9m8sK7BVAPSeAE
+cH4Wwpf6YPp6rElv0Wzo4CDGbtmTEA==
+=mY/B
+-----END PGP SIGNATURE-----
+
+--Ofwh2gFKdI85BSw4--
 
