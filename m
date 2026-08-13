@@ -4,93 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C74CC5CFDB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 08:25:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54F3FC5CFDB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 08:25:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Am6SCPk8v8GLDWCWFlAXnJrEZnAx8ooip6YoSLmy0cA=; b=wYmGmd25CNZXvN4vZ2Kqq4XifD
-	pyWSUIm7Le+WIjMdnmYiz3TDvJTidQ2OuBYzC45cibrvkKqjqOuWwjdsmCaMNC1Ffo57tTpZod8oO
-	A0gdWaW3iwAwv/NcQ1IQiDSBsyvRW7sVozU+DsJS11tIyYFAjpXupC71cXwDwKaDBgrOU5QN8VgCE
-	PfCWrL+ETbUuWGBWEh2Nx1yQWYBVgJ6OPcPjoNgI0zhRMMbAQuvjLI6+R0X7Sg/fEcCAgsBqOecsV
-	UsckSAfeGyMGz3l0UZMvfVAjbJtThnW4oxP+mtN/ekLAkxLBM4Hwdu3uvuHdVsZA5T/ejApcuNgzm
-	uSR9gUpg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ejniql02SfwwOOOcI7+HB/qQKUEdal0G1+U3LL775ws=; b=Vj0h9XvK9dCBTxvbjXKPhLIhpK
+	gGGCdyTNR+dI+z3X4wrXD26qFGxobpFxmFcyVdE8Nke6Tub3Okk3lEn21WG4xRPE3jgY3f+t18zKc
+	ac/iy5NUg2SIbzuId3XE9vLWAyOWk/Sa+fMlJ0TZRLjwuk4voZLTANyiHfKR5jTkTXUdag+AyXehb
+	KYwZNl+xgwK82McNFDzdGNABkWLKtDtSWXw7dwcpAA3gVWJSXb9kWPUKShu0YlVUlR4RVRF0dEZfv
+	zydyRFP7U9m9AjTwRl8wNqcEo40da2NPAUxqZQmLHEL6fWEdcMvtWISW4wmot8flKVvGaC9RAWqLs
+	gDLek37w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuQkk-0000000081n-47wa;
-	Thu, 13 Aug 2026 08:25:30 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1wuQl0-0000000085W-0RhQ;
+	Thu, 13 Aug 2026 08:25:46 +0000
+Received: from mail-swedencentralazon11013061.outbound.protection.outlook.com ([52.101.83.61] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuQki-0000000081S-0nQZ
+	id 1wuQkx-0000000084Q-0J1A
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 08:25:29 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-499840a2575so1148495e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 01:25:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1786609526; x=1787214326; darn=lists.infradead.org;
-        h=user-agent:in-reply-to:content-disposition:content-type
-         :mime-version:references:message-id:subject:cc:to:date:from:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=Am6SCPk8v8GLDWCWFlAXnJrEZnAx8ooip6YoSLmy0cA=;
-        b=P+n9UKvygg2g5rJaR6lDiCwjt9sb3fNn8aGbeYHNExRNj9+GB4HTKanx+swC9Sm6pR
-         22UEz5qUFTmLsis1lSEXHVrwVMCoh9Z0TjLW+UBXeiokprwVX+a0sJocS+A0JRqhPpqE
-         kk8pT6AguUMjiEpjcfeY+77qirxC431wDXUEcasoFu+Y/ITL5mUZKh2vB9UUWj61Uz9l
-         WsZ81EcOm/9IfXZ3r2hAWfL1Wog0dnvqcXQLEontI5URRQJzEpNfJNXVNpZ/1yZPBivi
-         vorNzChuczWeQN7egKnOIjGYjKR857hbCDzYWRT3Sg0xcqkOEm79c5Zdi+ZNpzBPz3oa
-         CzmA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786609526; x=1787214326;
-        h=user-agent:in-reply-to:content-disposition:content-type
-         :mime-version:references:message-id:subject:cc:to:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Am6SCPk8v8GLDWCWFlAXnJrEZnAx8ooip6YoSLmy0cA=;
-        b=XxRR9RQIzn+FDZFXRy2FVerE8dsXdFv0UvAVkPw0CbCOxu/5AyXEzv7DdaZgWcWVJd
-         N3qgx41JY56hCqkGnULaIITDCBueT0j89q1qu2tEPEPdKH978ZsqLsL7FmZZ+IQkrThI
-         AyklgYmqrhRHPSiUQZvo60AckFFBYRNvmsRw4NOaQbeV1O/dRnLKzDcED25/C2u5l8gA
-         uu8W2FwEKRy3rBz572IHHlE0KhW4dDvQzNBIMIuJBGjLczuEOs3jUB65P+rXwsyaziu3
-         NPES+DTjFRfqTdohcjGNOwRMB9TSdrprMUo8D1qRfa987va7R1FBQDnvFweHfU9ogmME
-         i1Fg==
-X-Forwarded-Encrypted: i=1; AHgh+RrrGDR18kC9lV+gOjPGBecU/xho4AsHNDQLiEUWc21NfWds+RNEmeAEVADzkXnM8lCTeRH9z/P+NW5OQlmesnRs@lists.infradead.org
-X-Gm-Message-State: AOJu0YxNESbXxI1FhEefXgY7yvyfXJb0ZahdCqtT2oMzI2Kzt4A6JYX6
-	m3Y1J+HBDoAoCHNHN9dMPBkey6Ugiy+NQ90oa9rlkABICMVSDrKCedAHGtA6OFv6kqc=
-X-Gm-Gg: AR+sD10o3vEbHFSilWKL/4fyo1HB/QYGVBUKPLHgZnigUNyksMFC8FKQ3/S9iaPZws9
-	/mc7pf+jEEMHUdEpJZR4+T+eYsu4MXN+v9neDqMrR0wOsGs6rmRGOBSpnT+d1G1o1KQw0iWl2ly
-	tjasULPVEqSw0Zu0Nb4thGkwZbLV6rMs8EYLtFbuRUpA/g+izVndBuPizjbpqtTvhEBcVpEvqM2
-	5dxLWaEYuZyMLQz06LnFN0cnFhZmFyHuZ3Kc+dJo+gOJCDAvv428AkbxhvQZhpix1YefX84OiwO
-	WB9ogROVyhgWTxRSEmcrsT5bTCyjc38rss+Bfh/GkmutP/y+0YxPd7avPZ1yhZTbMk56M1b8TrM
-	fHFeGvThfWzRYn2/841xBGn3PZDh90cicyoZidsoXWXlynnyu4+zF4YLVXmlqqKo+UYKi3CH42Y
-	bZ5TdKZCbi4NIDmMR64OIu5809p2orXTIbOhToasaToqYukhzyrKFP0C0aR0mZnO9fW1F8Qndod
-	0fl1dcYqOU4
-X-Received: by 2002:a05:600c:5489:b0:493:f318:3bc6 with SMTP id 5b1f17b1804b1-49982199212mr46034725e9.13.1786609526347;
-        Thu, 13 Aug 2026 01:25:26 -0700 (PDT)
-Received: from r1chard ([61.222.76.173])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3931efaaae5sm1964641a91.0.2026.08.13.01.25.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Aug 2026 01:25:25 -0700 (PDT)
-From: Richard Lyu <richard.lyu@suse.com>
-X-Google-Original-From: Richard Lyu <r1chard@r1chard>
-Date: Thu, 13 Aug 2026 16:25:21 +0800
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: linux-efi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>, loongarch@lists.linux.dev
-Subject: Re: [PATCH 2/3] efi: Pass EFI boot memmap struct address to core
- kernel
-Message-ID: <an1_cb5w02aii7ir@r1chard>
-References: <20260813074506.643472-5-ardb@kernel.org>
- <20260813074506.643472-7-ardb@kernel.org>
+	Thu, 13 Aug 2026 08:25:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=I0i8IoQuT7gnHcuE5qcPQeT2D2Z5srOQ4ETsJMmyQp3TffnlVAcMi7jdnvzbW9AM2RZtGJuyiMQojDBacqi83ECbiQEPwZxfD3rWF7JltHIYQWjVLHU0s9MtTGngTkk7fjJFEakt8X3QpEQrRcGxY38wmKNxH879N8rBN4iwy/L85IlV5aoOrmEgtxLL+6eKKg4+zT6dblXZsvMnbAaYHCNKSqlN5uEWLV4ZjYmDAhQqwIdScwE+/P4HUwGglxHUPboKnPX1kPyXw+wE89U0DqBbEE3q2icNOX5BnnbiNIXk+0+O4HZwSutUgiMkzHvooZniz4TJFqzavrPihnOT4w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ejniql02SfwwOOOcI7+HB/qQKUEdal0G1+U3LL775ws=;
+ b=mHZfpzUlf0IBVKFTEvEThhnYLWDW5kD3Yf0RwGZHAOjp6EpyxGQWBLkyr7hxnTZgVbHDWts6MLmttiYPMtDayXT4JIg4GaINKoRYgZmyUaYPMeTjxFO7jkNJtX4H7XuM6dhSKLsYLJA8DctenQCBtIvOjqc1nTowUlHOv4p9gYb37z2BgTovEL+wH1lucXMl1yq/AmkoY3V/ztSeWJx0Ddi68p4mSSqkqI4+t7XO7m/gqyQh2ghXPnj53XOibOlY2Jxo5pZCU8MXNRbdTXhMOUayWtfIle76LfdpxRBKgrK28COfON4wSftG/M9lQIXXxAw6bDdpsyTYuH82rPX6CA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ejniql02SfwwOOOcI7+HB/qQKUEdal0G1+U3LL775ws=;
+ b=EZNKK8uwriQ2kk+uAnqm9o5A5KYhsW3Dsp4nQ5ndpaZfvNeAxlfpdIu3S91SCApJ37HemhYUkSxeYW1YqfRya4z3bIbzGHBUHeZJPpm8u3evYRKptNkjt4WK/1vPqjQUaS3DijvqBo2SHztcEsD2DjSrK/qll6cK/CtChW2f0068dBeS5ooS6yGkEflpOoNMPdzAClV65JZ9aeHbzDgJUamWVj1qWgjV40GU8VjJzD2Uf9GNXJTb2IgHDOxskmygkANlActZyH1k3jqLWKjmWuJy0iqyhooJQ3cLrmBUFDY2MZi+LBS7Vj7XubeSt4qTYz874mR0lsCymjnegIyHow==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8096.eurprd04.prod.outlook.com (2603:10a6:102:1c7::19)
+ by AM0PR04MB12142.eurprd04.prod.outlook.com (2603:10a6:20b:744::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.12; Thu, 13 Aug
+ 2026 08:25:37 +0000
+Received: from PAXPR04MB8096.eurprd04.prod.outlook.com
+ ([fe80::68be:f721:5000:3f2d]) by PAXPR04MB8096.eurprd04.prod.outlook.com
+ ([fe80::68be:f721:5000:3f2d%5]) with mapi id 15.21.0315.014; Thu, 13 Aug 2026
+ 08:25:36 +0000
+From: hongxing.zhu@oss.nxp.com
+To: leoreis.costa@gmail.com,
+	fra.schnyder@gmail.com,
+	francesco@dolcini.it,
+	frank.li@nxp.com,
+	l.stach@pengutronix.de,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	robh@kernel.org,
+	bhelgaas@google.com,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com
+Cc: linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Richard Zhu <hongxing.zhu@nxp.com>,
+	stable@vger.kernel.org
+Subject: [PATCH v1] PCI: imx6: Move clock enable after core reset assertion
+Date: Thu, 13 Aug 2026 16:29:00 +0800
+Message-Id: <20260813082900.270003-1-hongxing.zhu@oss.nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI2PR02CA0054.apcprd02.prod.outlook.com
+ (2603:1096:4:196::13) To PAXPR04MB8096.eurprd04.prod.outlook.com
+ (2603:10a6:102:1c7::19)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii; format=flowed
-Content-Disposition: inline
-In-Reply-To: <20260813074506.643472-7-ardb@kernel.org>
-User-Agent: Mutt/2.2.16 (2025-11-22)
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8096:EE_|AM0PR04MB12142:EE_
+X-MS-Office365-Filtering-Correlation-Id: e484df26-85c3-4d46-d1e8-08def914735d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|1800799024|7416014|23010399003|376014|18002099003|56012099006|11063799006|6133799003|10067099003|921020;
+X-Microsoft-Antispam-Message-Info: Avl4AJvf87/5JeP9qDI6ikYlBc2H4tfD5tgluwX3MLumgGycVkWwPZQQa+pmr0jvCa0PIHZphQfwWJLgG7bUUvvJi5+G57dDaBPiZgRDPaO0wRaSZHbJjy/F7t/BYjIj3hPqoncj6O40SyvJUa4KUJFj0eiuO3BKpQAXFl71b5+MsSsmbot1wGGnR1/JubVsDAnyTDoQf55Ilt/uL1ejIKvsUXl2krIMRF+cY0AqfRB9geohl4j2QnNGrVaxH3daVEAOuUMl2Prg897Nzw14UXfjuSU+WOUTEv0sp3QiYFygShWLosk/ABTL+h7J/jIFy9nYmbP92Hq4gtRGFYVXKoS8s+vezwXA17LGn89iIFIbPYhl9O+bm8/GGw71qYoaWEyuEGcfT77u9AXm7j964IfaGUOx4i0n+t64gZmXhys3qEfWQyM3QCiX3b8x7Daeo/1mBNnCTugZLH/g4rqynd6r+IsaM1ajYdCYcgsxtCP6/CEQcfjYcTeTqy4UNsbddi2mAR4+dhXjYkE6V690tDqRky8kxblRhFFLI4/7g2z9qPZdQLbkbWMA0E8TsL6xMptXmVNUsueQSXKFzjGbpQnDKcAT/cAUqxSPZhWfRjVNQ9kki+iwMX4kwEhCCFOrLJk8dWKLyEi37harmRJiUhIae66rNC0NZ6u1Qcssntivh8n+Sc0DJgKhHZof2xlgxLPIsq+GwDb/9g/N7C1ZfQ==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8096.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(1800799024)(7416014)(23010399003)(376014)(18002099003)(56012099006)(11063799006)(6133799003)(10067099003)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?pMGcHnnuUi0qwljYQ8KIFraUMvcpt3M+ohyzCollUA+e4r6EkyTITgk/cCm9?=
+ =?us-ascii?Q?kBS5NB4KrVtWy11xG40iL+kTSImz9jHU8trhn+bHEx6iO5TEcDF7lwrW5zSV?=
+ =?us-ascii?Q?w1nbX8QqCvY+DnyAADYVf0mzMMbug+2RVnN4NDTk/AyarQ1ahanESzHlUaCQ?=
+ =?us-ascii?Q?Pif5/hlPit+zgfpCFHN3tIjy9ZMWmXjZ8Q8vRF7S3AKdNzXhzDdZchHwZdQw?=
+ =?us-ascii?Q?FQn1rniO4+loDXXxBM92t4+o9L2jIV1gY9uGsmN1QGyR8nu54Y9gdwbiPrOb?=
+ =?us-ascii?Q?drIAlqyPJZqLhGMRLtsxuW416JO9Ut9luBieG8aWO89KL5CAwYymYvPSEINR?=
+ =?us-ascii?Q?RXS7LyICwx/erYYNd3kEZQwVSmkG/+ni3RvuNC5TozmYQI9VrDNzQc6/Q1/Q?=
+ =?us-ascii?Q?/hgPWwcsNeuiDGotxcMhFQrRDmm36rZPBF45KFcgLFkXTD1n4u1w23UchQes?=
+ =?us-ascii?Q?ynPDVt+LNCPYeYQtTZCYZFbp4dvkRZK45dEwP4rSX9LLE7VSPHhEbRpWOan9?=
+ =?us-ascii?Q?oyGsHq382zV21Lme/o7tlvdPZH0j3IlqKnSJZ7VbTVszQBh0WPxF9MIv/uUS?=
+ =?us-ascii?Q?XSp/+4MsUICht5bKyLE+/BXghSck2CAHTF1eEiXO4ZGuZR1bHEGHjvymdROG?=
+ =?us-ascii?Q?cHZMPaojAc079Wiwys7lahmgk1ua+gHB317pIGPVD/MOGpaXBP2JFYzUIO7f?=
+ =?us-ascii?Q?3gohFCQvRgIFID40wvGKbHWTVDItzn5zKRoXps0kswVZhyhsi+3eOYplDkeN?=
+ =?us-ascii?Q?m3tislb4OXVyoK33HMMjEYVRU3HDKL84d1C/rjJBUVxDZsdfosgvSlaOklm9?=
+ =?us-ascii?Q?VMXM9SoEATbmMGHCGlcKyKaozZ13KcVBwa5gPgHj1ybwiZm0t9B6keHONJda?=
+ =?us-ascii?Q?m4kvZJwSaqgBl//zhNHTQZ/pQxGQy9z/r03c4RTZe4KBQnl9kPNs/AzC3+dP?=
+ =?us-ascii?Q?T69B52F1AEhZOx46Fsg2ORGQgRTL1Rr831iAiugIxN5kjYx4X50q5N6iyBVH?=
+ =?us-ascii?Q?YsPaavu5UsFm3xF20LG0pRgRQsPXDqXrsTQDnC9h9xDPDcgKbb7zba12J5mt?=
+ =?us-ascii?Q?PRVx7w1q6b6P/MEVxMgjhsCVTSd78KFWVcedJuyk8WiBESzd7yYx7pqkusSr?=
+ =?us-ascii?Q?szYvPbktmMBpHJsJChkhbXkMMeCgg2cejrHtOsdxnYa1pKKI/zMVDSXmjJbZ?=
+ =?us-ascii?Q?oGpAcD6OxkXmOTzUChS0HsgU5dujU+Ngx7c48GXwVS5KqqHF2ValCAGgZIcc?=
+ =?us-ascii?Q?Ss2VyS2xmdJN+RB3G3UxjFIBz+dYjhl0LbyB17UY/uvYaIetPA7Vh09RE13P?=
+ =?us-ascii?Q?fB8rfYSm2DldWPDc56uyfGChpHU5OQT9u+zC71CL8iUWOL4eLvmJrriwI7VK?=
+ =?us-ascii?Q?f7McRIyYwkAXj9shgIoEjxBLqnXg/cGZGj4XDctZ1/IzqqdJwnITLEYezBod?=
+ =?us-ascii?Q?T66DkjPz0js3P9rvbb1ZKiBcvgsYDTkXBwThJM9kbVLkaKJjxfLjaoz4z4w4?=
+ =?us-ascii?Q?k4PP0nVI0jmZjYZrTazMIp75yWmxJ3aHyNdHpAbTzBR/uTe60kiLDPYNuWUo?=
+ =?us-ascii?Q?NoE051/XzcyVVMN1o8ECkRBzJnv8lWXq6O7Gy5vnHhV5InypNyphaZ009j17?=
+ =?us-ascii?Q?PsSLa9pBF8LDChdqnTePxv+DmEOZXBFbIuXQ3HNS9aydTxV1Uxn8pw6+CVhE?=
+ =?us-ascii?Q?/k5XpApodLTTdjEztnzzHg0Ungw+pv6xmIRHChaA9Lmg1+weaO6DSVPNUfLP?=
+ =?us-ascii?Q?Gm592/8cquT/MYpRgd9BLdUPFRUgzSy12nkgfnXhNgtvIwP+nEXf?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e484df26-85c3-4d46-d1e8-08def914735d
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8096.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Aug 2026 08:25:36.6795
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ztWhGPx3Bi1Mhm4/0vr2E6ALq0/Ju9t56NqHJ/k0VUO4ZlxuRqTvX7+LQIwb3j9sxbljNFOPvVQ3AI2LequOZF4dZJTqiIs0XjEFLwkzsPKNrACbsDmJQBoeTLTZz/Sw
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB12142
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_012528_286061_F4B31997 
-X-CRM114-Status: GOOD (  20.41  )
+X-CRM114-CacheID: sfid-20260813_012543_122236_A415E5EA 
+X-CRM114-Status: GOOD (  11.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,230 +150,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026/08/13 09:45, Ard Biesheuvel wrote:
->The EFI stub already passes a struct efi_boot_memmap populated with the
->information of the EFI memory map as a configuration table, and so
->passing the physical address, size, descriptor size and descriptor
->version via 4 different DT properties is kind of redundant.
->
->Instead, pass the physical address of this struct in memory so that the
->kernel can just retrieve the values directly.
->
->Unfortunately, the scheme with four separate properties is boot ABI for
->Xen, and so this needs to remain supported. But for the EFI stub itself,
->this is just an internal ABI that can be modified.
->
->Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
->---
-> Documentation/arch/arm/uefi.rst    | 10 +----
-> drivers/firmware/efi/fdtparams.c   | 39 ++++++++++++++++---
-> drivers/firmware/efi/libstub/fdt.c | 40 ++------------------
-> 3 files changed, 37 insertions(+), 52 deletions(-)
->
->diff --git a/Documentation/arch/arm/uefi.rst b/Documentation/arch/arm/uefi.rst
->index 2b7ad9bd7cd2..c19cf3720f27 100644
->--- a/Documentation/arch/arm/uefi.rst
->+++ b/Documentation/arch/arm/uefi.rst
->@@ -54,17 +54,9 @@ Name                        Type     Description
-> ==========================  ======   ===========================================
-> linux,uefi-system-table     64-bit   Physical address of the UEFI System Table.
->
->-linux,uefi-mmap-start       64-bit   Physical address of the UEFI memory map,
->+linux,uefi-boot-memmap      64-bit   Physical address of a struct efi_boot_memmap
->                                      populated by the UEFI GetMemoryMap() call.
->
->-linux,uefi-mmap-size        32-bit   Size in bytes of the UEFI memory map
->-                                     pointed to in previous entry.
->-
->-linux,uefi-mmap-desc-size   32-bit   Size in bytes of each entry in the UEFI
->-                                     memory map.
->-
->-linux,uefi-mmap-desc-ver    32-bit   Version of the mmap descriptor format.
->-
-> kaslr-seed                  64-bit   Entropy used to randomize the kernel image
->                                      base address location.
->
->diff --git a/drivers/firmware/efi/fdtparams.c b/drivers/firmware/efi/fdtparams.c
->index b815d2a754ee..a54a76a6aaeb 100644
->--- a/drivers/firmware/efi/fdtparams.c
->+++ b/drivers/firmware/efi/fdtparams.c
->@@ -10,22 +10,30 @@
->
-> #include <linux/unaligned.h>
->
->+#include <asm/early_ioremap.h>
->+
-> enum {
-> 	SYSTAB,
->+	MEMMAP,
->+#ifdef CONFIG_XEN
-> 	MMBASE,
-> 	MMSIZE,
-> 	DCSIZE,
-> 	DCVERS,
->+#endif
->
-> 	PARAMCOUNT
-> };
->
-> static __initconst const char name[][22] = {
-> 	[SYSTAB] = "System Table         ",
->+	[MEMMAP] = "Boot Memory Map      ",
->+#ifdef CONFIG_XEN
-> 	[MMBASE] = "MemMap Address       ",
-> 	[MMSIZE] = "MemMap Size          ",
-> 	[DCSIZE] = "MemMap Desc. Size    ",
-> 	[DCVERS] = "MemMap Desc. Version ",
->+#endif
-> };
->
-> static __initconst const struct {
->@@ -49,10 +57,7 @@ static __initconst const struct {
-> 		.path = "/chosen",
-> 		.params = {	//  <-----------26----------->
-> 			[SYSTAB] = "linux,uefi-system-table",
->-			[MMBASE] = "linux,uefi-mmap-start",
->-			[MMSIZE] = "linux,uefi-mmap-size",
->-			[DCSIZE] = "linux,uefi-mmap-desc-size",
->-			[DCVERS] = "linux,uefi-mmap-desc-ver",
->+			[MEMMAP] = "linux,uefi-boot-memmap",
-> 		}
-> 	}
-> };
->@@ -84,17 +89,20 @@ static int __init efi_get_fdt_prop(const void *fdt, int node, const char *pname,
-> u64 __init efi_get_fdt_params(struct efi_memory_map_data *mm)
-> {
-> 	const void *fdt = initial_boot_params;
->-	unsigned long systab;
->+	unsigned long systab, memmap;
-> 	int i, j, node;
-> 	struct {
-> 		void	*var;
-> 		int	size;
-> 	} target[] = {
-> 		[SYSTAB] = { &systab,		sizeof(systab) },
->+		[MEMMAP] = { &memmap,		sizeof(memmap) },
->+#ifdef CONFIG_XEN
-> 		[MMBASE] = { &mm->phys_map,	sizeof(mm->phys_map) },
-> 		[MMSIZE] = { &mm->size,		sizeof(mm->size) },
-> 		[DCSIZE] = { &mm->desc_size,	sizeof(mm->desc_size) },
-> 		[DCVERS] = { &mm->desc_version,	sizeof(mm->desc_version) },
->+#endif
-> 	};
->
-> 	BUILD_BUG_ON(ARRAY_SIZE(target) != ARRAY_SIZE(name));
->@@ -115,6 +123,9 @@ u64 __init efi_get_fdt_params(struct efi_memory_map_data *mm)
-> 		for (j = 0; j < ARRAY_SIZE(target); j++) {
-> 			const char *pname = dt_params[i].params[j];
->
->+			if (pname[0] == '\0')
->+				continue;
->+
-> 			if (!efi_get_fdt_prop(fdt, node, pname, name[j],
-> 					      target[j].var, target[j].size))
-> 				continue;
->@@ -123,8 +134,24 @@ u64 __init efi_get_fdt_params(struct efi_memory_map_data *mm)
-> 			pr_err("Can't find property '%s' in DT!\n", pname);
-> 			return 0;
-> 		}
->-		if (dt_params[i].paravirt)
->+		if (IS_ENABLED(CONFIG_XEN) && dt_params[i].paravirt) {
-> 			set_bit(EFI_PARAVIRT, &efi.flags);
->+		} else {
->+			struct efi_boot_memmap *bm;
->+
->+			bm = early_memremap_ro(memmap, sizeof(*bm));
->+			if (!bm) {
->+				pr_err("Cannot remap EFI boot memory map\n");
->+				return 0;
->+			}
->+
->+			mm->phys_map		= memmap + sizeof(*bm);
->+			mm->size		= bm->map_size;
->+			mm->desc_size		= bm->desc_size;
->+			mm->desc_version	= bm->desc_ver;
->+
->+			early_memunmap(bm, sizeof(*bm));
->+		}
-> 		return systab;
-> 	}
-> notfound:
->diff --git a/drivers/firmware/efi/libstub/fdt.c b/drivers/firmware/efi/libstub/fdt.c
->index 23b3543d3041..417b1344bdd8 100644
->--- a/drivers/firmware/efi/libstub/fdt.c
->+++ b/drivers/firmware/efi/libstub/fdt.c
->@@ -32,7 +32,6 @@ static efi_status_t update_fdt(void *orig_fdt, unsigned long orig_fdt_size,
-> {
-> 	int node, num_rsv;
-> 	int status;
->-	fdt32_t fdt_val32;
-> 	fdt64_t fdt_val64;
->
-> 	/* Do some checks on provided FDT, if it exists: */
->@@ -102,21 +101,7 @@ static efi_status_t update_fdt(void *orig_fdt, unsigned long orig_fdt_size,
->
-> 	fdt_val64 = cpu_to_fdt64(U64_MAX); /* placeholder */
->
->-	status = fdt_setprop_var(fdt, node, "linux,uefi-mmap-start", fdt_val64);
->-	if (status)
->-		goto fdt_set_fail;
->-
->-	fdt_val32 = cpu_to_fdt32(U32_MAX); /* placeholder */
->-
->-	status = fdt_setprop_var(fdt, node, "linux,uefi-mmap-size", fdt_val32);
->-	if (status)
->-		goto fdt_set_fail;
->-
->-	status = fdt_setprop_var(fdt, node, "linux,uefi-mmap-desc-size", fdt_val32);
->-	if (status)
->-		goto fdt_set_fail;
->-
->-	status = fdt_setprop_var(fdt, node, "linux,uefi-mmap-desc-ver", fdt_val32);
->+	status = fdt_setprop_var(fdt, node, "linux,uefi-boot-memmap", fdt_val64);
-> 	if (status)
-> 		goto fdt_set_fail;
->
->@@ -148,33 +133,14 @@ static efi_status_t update_fdt_memmap(void *fdt, struct efi_boot_memmap *map)
-> {
-> 	int node = fdt_path_offset(fdt, "/chosen");
-> 	fdt64_t fdt_val64;
->-	fdt32_t fdt_val32;
-> 	int err;
->
-> 	if (node < 0)
-> 		return EFI_LOAD_ERROR;
->
->-	fdt_val64 = cpu_to_fdt64((unsigned long)map->map);
->-
->-	err = fdt_setprop_inplace_var(fdt, node, "linux,uefi-mmap-start", fdt_val64);
->-	if (err)
->-		return EFI_LOAD_ERROR;
->-
->-	fdt_val32 = cpu_to_fdt32(map->map_size);
->-
->-	err = fdt_setprop_inplace_var(fdt, node, "linux,uefi-mmap-size", fdt_val32);
->-	if (err)
->-		return EFI_LOAD_ERROR;
->-
->-	fdt_val32 = cpu_to_fdt32(map->desc_size);
->-
->-	err = fdt_setprop_inplace_var(fdt, node, "linux,uefi-mmap-desc-size", fdt_val32);
->-	if (err)
->-		return EFI_LOAD_ERROR;
->-
->-	fdt_val32 = cpu_to_fdt32(map->desc_ver);
->+	fdt_val64 = cpu_to_fdt64((unsigned long)map);
->
->-	err = fdt_setprop_inplace_var(fdt, node, "linux,uefi-mmap-desc-ver", fdt_val32);
->+	err = fdt_setprop_inplace_var(fdt, node, "linux,uefi-boot-memmap", fdt_val64);
-> 	if (err)
-> 		return EFI_LOAD_ERROR;
->
->-- 
->2.47.3
->
->
+From: Richard Zhu <hongxing.zhu@nxp.com>
 
-Reviewed-by: Richard Lyu <richard.lyu@suse.com>
+Commit 610fa91d9863 ("PCI: imx6: Assert PERST# before enabling regulators")
+inadvertently moved clock enablement before core reset assertion, breaking
+PCI device initialization on i.MX6Q Apalis platforms when
+ASM1061/ASM1062 is connected.
+
+Logs:
+root@apalis-imx6-11486042:~# dmesg | grep pcie
+imx6q-pcie 1ffc000.pcie: host bridge /soc/pcie@1ffc000 ranges:
+imx6q-pcie 1ffc000.pcie:       IO 0x0001f80000..0x0001f8ffff -> 0x0000000000
+imx6q-pcie 1ffc000.pcie:      MEM 0x0001000000..0x0001efffff -> 0x0001000000
+imx6q-pcie 1ffc000.pcie: config reg[1] 0x01f00000 == cpu 0x01f00000
+imx6q-pcie 1ffc000.pcie: iATU: unroll F, 4 ob, 4 ib, align 64K, limit 4G
+imx6q-pcie 1ffc000.pcie: Link: Only Gen1 is enabled
+imx6q-pcie 1ffc000.pcie: Link failed to come up. LTSSM: POLL_CONFIG
+imx6q-pcie 1ffc000.pcie: probe with driver imx6q-pcie failed with error -110
+
+To fix this regression, restore the original sequence where clocks are
+enabled after asserting core reset and configuring the controller type.
+
+Fixes: 610fa91d9863 ("PCI: imx6: Assert PERST# before enabling regulators")
+Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+Reported-by: Leonardo Costa <leoreis.costa@gmail.com>
+Closes: https://lore.kernel.org/all/bl7i3obu2clzsgeoct2a4mtfhv6typcjdqmgneropf3hpgwve6@n2m5uhlduw57/T/#u
+Reported-by: Franz Schnyder <fra.schnyder@gmail.com>
+Closes: https://lore.kernel.org/all/t65y5d54axtksbfs7r4olcefqhwm6m4dz3njgnrnf7fcotj74i@o7avoznlafbj/
+Cc: stable@vger.kernel.org # 7.1+
+---
+ drivers/pci/controller/dwc/pci-imx6.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+index 39790e66b98dc..f7a2eb257c169 100644
+--- a/drivers/pci/controller/dwc/pci-imx6.c
++++ b/drivers/pci/controller/dwc/pci-imx6.c
+@@ -1394,12 +1394,6 @@ static int imx_pcie_host_init(struct dw_pcie_rp *pp)
+ 		}
+ 	}
+ 
+-	ret = imx_pcie_clk_enable(imx_pcie);
+-	if (ret) {
+-		dev_err(dev, "unable to enable pcie clocks: %d\n", ret);
+-		goto err_pwrctrl_power_off;
+-	}
+-
+ 	if (pp->bridge && imx_check_flag(imx_pcie, IMX_PCIE_FLAG_HAS_LUT)) {
+ 		pp->bridge->enable_device = imx_pcie_enable_device;
+ 		pp->bridge->disable_device = imx_pcie_disable_device;
+@@ -1415,6 +1409,12 @@ static int imx_pcie_host_init(struct dw_pcie_rp *pp)
+ 
+ 	imx_pcie_configure_type(imx_pcie);
+ 
++	ret = imx_pcie_clk_enable(imx_pcie);
++	if (ret) {
++		dev_err(dev, "unable to enable pcie clocks: %d\n", ret);
++		goto err_pwrctrl_power_off;
++	}
++
+ 	if (imx_pcie->phy) {
+ 		ret = phy_init(imx_pcie->phy);
+ 		if (ret) {
+
+base-commit: 28d012efb4327f9c75d5e042a7c91e9a542efa98
+-- 
+2.34.1
 
 
