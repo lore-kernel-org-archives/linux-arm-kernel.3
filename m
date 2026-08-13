@@ -4,96 +4,173 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38B54C5CFDB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 19:42:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C623C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 19:58:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DqIAszTtxLt3u5AoXko0nwkV9SMzO100Lpqs/t1ZveU=; b=lWTstO29oleAvKuN4OEhafiHqx
-	QBvJ7Doui0n6YW0yIsIbIvqXjQWMrB6Pvay+KxcKP3wOQZ0lumXj6NFvHYECjDuq2HJXdhrsbdThy
-	Ru9/Nbb5hFEFVwPe1FUuwuqhCEoS3Zs6t8UQ9InyWkkx076XYGDUiYkWzMmkdM8o55quiuM6TuLE6
-	4bn/8NQ5h8fySe+ldM4mOM1kAc4cfOlduuMlsdqTSVJmhkUaU99ytrcaG9wod2+JzDMRYsYgyhDoR
-	+Y9vktaJLT3TnH4ETmqYcyhNJlYL2Ikx2w5QoY/E6ZDXBtbO1+V1gpWNkslSgDg08UyLSd2ujzujl
-	BjARWCcg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lV5VKIVt/+eyZiCmLlLTB+92JixUIskGcFMYaRUV6Xo=; b=oMvYjYe/0BNdTWid+/yaNFbSLN
+	dt9cj4Q9AEDFBUjXsgpQ8youOpFzgb5x9NC5UQPhO04Qg8QyGQoY2S8SiF0rulsk7GAn5XiJRbdG5
+	ru5Fkwb4NnyHJxYh9x8R9gJP5wSIeVYShmNr1O21b4Xj/MRK+V5f+fJvTC87iit8fD59PSbyGQ/nN
+	zEWTCriqOtgt+1Oyz0eJSuNHm5cc1YbaTYKyMddbAg7j8sRdQ7xUUMnZ3wqMsciIB/1mIr+gfL25/
+	J6J3NJXGgj8I9d4F3mAjZPVFsYPZZ0yu99U+G+rpPa2JoSnAEHouIsvBdrxFVT2AIi5YyL9c9c4Pd
+	nDSqXvcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wubJa-00000001SrO-1Z0h;
-	Thu, 13 Aug 2026 19:42:10 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1wubZ5-00000001TUi-0ATe;
+	Thu, 13 Aug 2026 19:58:11 +0000
+Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wubJW-00000001Sr2-1VGe
+	id 1wubZ0-00000001TUH-3E3j
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 19:42:09 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2d004f135b1so4116315ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 12:42:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786650125; x=1787254925; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=DqIAszTtxLt3u5AoXko0nwkV9SMzO100Lpqs/t1ZveU=;
-        b=BuzCRmBeaKhhd6fBEPlMRnKM/4X2353gk5UdSBWQBYU5p1QaPFujm0b8DIlW1IGM2w
-         RHpX6w+97Agw8beClF1Pru7tj4Q210m0qgAb7uNd4j7nBQyCLWQ0H0G9y+cR3dAPziZn
-         4iVAwv/6N7rZav7+5jzgYFkbjDkPQL1beFFYU2yamHish0Jpq+/3BM5pvvQiAKZnX3Dt
-         9Eo1/sU6yp0OQrGqPERpictr5+rWxTGH64nGPU89xh6mPMkcI9tE1VUe/w2Z14tfCVCN
-         YU5OS76QDtJx8mKv5IOpEUmvt2aronY5BdURCaaXAD4xCsbiAHUvLVHxkAGYC4n5Scea
-         +k3Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786650125; x=1787254925;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=DqIAszTtxLt3u5AoXko0nwkV9SMzO100Lpqs/t1ZveU=;
-        b=UZWzaTTmvP6ja0QwN5AsqOjzLZPtrl6RNAOZ/F0zJutwlCo27/+qXfJCOUAW+W7mgJ
-         Ra1ZBkDUryoSzqPI1zCjJNY6wE8MLJbbNG40/UEbpWfaH6eGPp0pAaiN3M/+JYdijOQO
-         7s8HMebT9qcVpsoAVqB5O6v/MGUvtZRA1WQaECLl+vXKHhQafuLMVhICRBEtbHxMZ2xI
-         LPtnF3j0hMiOgqvUZfOr0tAUCCbiWRnZiEAJHfYA9fTLd4rz0XaOam9c2xm9hbn6qOfY
-         g/tCjcVnR122Hv55ZfJ1nAJNJUyDeoQbAQse/Jgnfs1VfueI8ajPfNJkFoRJte0bm0DD
-         CZvw==
-X-Forwarded-Encrypted: i=1; AHgh+RrmKON2bC3QBDRfXo/geq+5vjHgw6+uJjG0PGbTPy3djtEEaPZdf+bhZWX+Pv9+mSPKJU5q8sTWCi3wncA1/8Ik@lists.infradead.org
-X-Gm-Message-State: AOJu0YzZB2p/TwxEQwAC95pnRwuLLeGlfRdUT4BhJWtbFNG2/CY2X3RD
-	mmY8P9Xo1fC5CH3OKdq2cZyH4MuGefhsZHo3PCWDF4XIEb5QyVx+KSEp
-X-Gm-Gg: AR+sD11P/CvnHfFhur/QtHKcdqtZx5cDF8n9WjumbEOEvh6t5moppyhqjtMwYU9V6qx
-	y086F4Vi6yFqdveNVGucfw37hcxlTI+xpypi9qrJud4asJSxMiCBdL+hy4uzu2mwHYGuWwjo2IO
-	AuNFH2XuIgo6YPnE5nMrUCbZT+jKg6J+qmWwRIheUhapx0m8Ahm/JybafnoEdds2NcZzZrSyYdO
-	dLDSgy3oiUX+6FDTssDBv/FCxUh8aHbrl2N7L8+nBrpAT0vATOwU2PZRoqvj66T8vMvKKCcmqw8
-	2p56QRHTXcbm/w3scN7K/wZ5Q9QBGz4vB9eEFyrVKouHrLrY4a2dOxaJ1BFvQQIFTRfq/IrBf7g
-	GKW0VkPb3DWbtY4rakE41aeL0duqy6XXtfqWRVUSba6v2mYMppVt0ovhXNND9aUS+Bhi9J+PR+V
-	g1ZvQJiyQE5d6okRm65usLGtzPX8EJN9GfgWfE1JsDEi/F4dtyHSX7Fqf7mCNjgeL8qbpJP9GlS
-	iAcTP3ems69o9SXoTdp4hzbihbQe7ABWPgUL5WJ
-X-Received: by 2002:a17:902:c40a:b0:2c7:f4bd:91b5 with SMTP id d9443c01a7336-2d3b04bba89mr4333075ad.0.1786650124980;
-        Thu, 13 Aug 2026 12:42:04 -0700 (PDT)
-Received: from google.com ([2a00:79e0:2ebe:8:85b8:2741:2d36:4d32])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-31ebc75d8casm11870034eec.3.2026.08.13.12.42.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Aug 2026 12:42:04 -0700 (PDT)
-Date: Thu, 13 Aug 2026 12:42:00 -0700
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: david@ixit.cz
-Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Henrik Rydberg <rydberg@bitmath.org>, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Petr Hodina <petr.hodina@protonmail.com>, 
-	linux-input@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	phone-devel@vger.kernel.org
-Subject: Re: [PATCH v5 2/3] Input: stmfts - support FTS5
-Message-ID: <an4ZsjdKiELiPhuO@google.com>
-References: <20260810-stmfts5-v5-0-0c737d929976@ixit.cz>
- <20260810-stmfts5-v5-2-0c737d929976@ixit.cz>
+	Thu, 13 Aug 2026 19:58:09 +0000
+Received: from pps.filterd (m0384305.ppops.net [127.0.0.1])
+	by m0384305.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 67DIfQ183917904;
+	Thu, 13 Aug 2026 14:57:58 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=lV5VKIVt/+eyZiCmLlLTB+92JixUIskGcFMYaRUV6
+	Xo=; b=oBcXUSPI4warnwe9LZG/ktWOZliMw94K2YaxecRSRP1AEib2+THg+SrOt
+	3gxi2rE9cL/f6CwKEDQR3WB0RO8IpvWM0tC6qtC6og2ONlVSbsItOuyYhBKSK6eO
+	GPyr+dJEJuYvmGdtNOEbwJ463MyO3qc/JMYi9Ic/Y6z7j2lXrWadj4H5Bhzf3tds
+	ZPHFhljt764X4SDUjeDpdoc69NOL+ssa+ybZXbw5SqEB5pwGIEX8NLH1z9Qm81UT
+	dKgGCN7+QVRQolgPoo1qvdrXXZcPFxMZcKMiwIjA+x0Gd/KaPd9AHybvfqd2hnve
+	gJ98yUy+8c7vuYrW58AgDXJzQuY0Q==
+Received: from sn4pr2101cu001.outbound.protection.outlook.com (mail-southcentralusazon11012033.outbound.protection.outlook.com [40.93.195.33])
+	by m0384305.ppops.net (PPS) with ESMTPS id 4g1a67m77j-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Thu, 13 Aug 2026 14:57:57 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yphK9Y0Xwn2lVRa9E7aM3VuIOQHYDhJ2K0HwqlZtmcoWucQHOMrzA+4pFgypCuu1pUgGzg29gVgF61WIJeAFi1plIscLm+UsPwbn1pHCTHApf+oycehE9sSF51sGCOLTyIB1Y/5akRQpLpGG4JiQmbGgDWaoJ5SogJfvMzoiEw2vRNTY09UG+3hftvfHIJMGB0YEhNO7CjOZfzUyX9T+IC2shYwRjtiOwCJHlsl7DKZ+PbEu38w237U3Y35qCvJBZNXzJzS6yTZIilPZbYSglBkMCvpgoWXi5eatYLGQmlqCv2I5U3Cs6Jyg56Aef/aKlXwOTfWh9NmnLnsYKoKcrg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=lV5VKIVt/+eyZiCmLlLTB+92JixUIskGcFMYaRUV6Xo=;
+ b=qOSJdepbi9H9HYzkpc7YxHgAx9bowCkCOqco8hTBYVbzpnHiDWyG/j7HOeV4BMQfRVjqNVrm72f+HQCWn5cgrhlIO9NXRKbwPxDwdiUnSzx5nGlxwVVIWm3sWhEJl35OnMSSYG5ZIn5uQzRDLduaEtvVYKf0MyaCTaqSpdoVSXjEHQccl6WHwyOJWDMJT43sBVqCH6v2/VUr9ElP8VkBNj2GBZ/3lCOulGP3Ww201ea8fipbHj82wzEd15QaKM6toyLkfaDfHXuu6PdOuJgsc40a8oTxuDbiNoyLWLWjeDhXj4mZHCad748qb7C9nYvQzyU3xePIjOqhjEnrDVXAzg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=lV5VKIVt/+eyZiCmLlLTB+92JixUIskGcFMYaRUV6Xo=;
+ b=fyMbCdR+ru1X1DcEhUBO+mEFrXuMzNhMvf6GYNpxIzdt9tIqZlK3kwKDQ+++1ZY1BvAfbW0Re7QR43f1BV3vBRGmui28bdEYUePtgoANBiB3sL/VoS2o3XD4fZDg8m/5ieJo9JncDA26s1NJ44HyWIy9N6EPZ+vxm3Ry6AkvQLI=
+Received: from SA0PR13CA0025.namprd13.prod.outlook.com (2603:10b6:806:130::30)
+ by PH7PR10MB7768.namprd10.prod.outlook.com (2603:10b6:510:30d::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.14; Thu, 13 Aug
+ 2026 19:57:53 +0000
+Received: from SA2PEPF000015CB.namprd03.prod.outlook.com
+ (2603:10b6:806:130:cafe::8a) by SA0PR13CA0025.outlook.office365.com
+ (2603:10b6:806:130::30) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.339.5 via Frontend Transport; Thu, 13
+ Aug 2026 19:57:53 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ SA2PEPF000015CB.mail.protection.outlook.com (10.167.241.201) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.339.3 via Frontend Transport; Thu, 13 Aug 2026 19:57:53 +0000
+Received: from DLEE214.ent.ti.com (157.170.170.117) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 13 Aug
+ 2026 14:57:52 -0500
+Received: from DLEE213.ent.ti.com (157.170.170.116) by DLEE214.ent.ti.com
+ (157.170.170.117) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 13 Aug
+ 2026 14:57:52 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE213.ent.ti.com
+ (157.170.170.116) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45 via Frontend
+ Transport; Thu, 13 Aug 2026 14:57:52 -0500
+Received: from [10.249.64.201] ([10.249.64.201])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 67DJvqcv1434084;
+	Thu, 13 Aug 2026 14:57:52 -0500
+Message-ID: <b4ed6b46-07c3-4ebf-9fc8-b9ae0dc03a51@ti.com>
+Date: Thu, 13 Aug 2026 14:57:52 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260810-stmfts5-v5-2-0c737d929976@ixit.cz>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1] arm64: dts: ti: k3-am62-verdin: Set MMC clock pins as
+ OUTPUT
+To: Francesco Dolcini <francesco@dolcini.it>, Nishanth Menon <nm@ti.com>,
+        Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
+        "Rob
+ Herring" <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        "Conor
+ Dooley" <conor+dt@kernel.org>
+CC: Francesco Dolcini <francesco.dolcini@toradex.com>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, Moteen Shah <m-shah@ti.com>,
+        <stable@vger.kernel.org>
+References: <20260813111238.56892-1-francesco@dolcini.it>
+Content-Language: en-US
+From: "Mendez, Judith" <jm@ti.com>
+In-Reply-To: <20260813111238.56892-1-francesco@dolcini.it>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA2PEPF000015CB:EE_|PH7PR10MB7768:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1137c263-22b7-4e67-f0a3-08def9752931
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|7416014|376014|82310400026|1800799024|23010399003|56012099006|10067099003|3023799007|22082099003|18002099003|13003099007;
+X-Microsoft-Antispam-Message-Info: 7gotDR1rF449l+/brF7bByT7MPjoZpvZb3tiXrNir/8HecN4i6lPdQ8W9/R2c1YwUCiJg1bsn+Z67b1kVD5z0CIiVV2vN37bmMiaZlPKKIaAJmkSye92pg2Y87/S1wpgCoIs6zJ8+GxAHlAZcwV2M0DQjz6GLySzlRaxFYE2sfpuAtAp5GutlaOwzV9+mI+AHLL91kSfwX+UvfEpJAFKUdSo9QF5cHLxTgxB7Tikp0WxeRZLfyuQ1unuF+j36H6xdvT1FIJqAxJloS3gtg7yboNIg/BNyfnkJ+mbvqVT9MwdQyeAZCp75GYU1bC7k+ypmMikBE+oUjS+oSyvGf7gxNg2BuKdFTS2xWq6fIJrnv8QfbHFc+t53h3zAk67jBOjNJKlSSSBtM+Oy4SvuS8Dli13/G/fwoBobMQbh9Z4jUE5WCr0JZKT1g4T8FuVZe8aMiLqhNYzb2lfNgh79dMYvQoFlsp4AOQ5vnq7LDloEastPkfUcMoPmi3uKatP6XN1iaem6k/JeVPhSZjElBrCLS81fcVGcOOFwv9GcsiUp9JXJ+JrfZxK9S0n0a6ToVIg6US11F/igDPDfy1KwtY96GBLlyB+KE/6UbGBs7RsmmrcTQp2X6/ItYi/mIWo2m3F639DzLUuTWg2fwO+tKkhssCg+a63zMAjbqVbNVRJemaqkgycLrZFMZNvgFjGjkZLlvKH9wWhWkJCVC9t+1aXtw==
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(7416014)(376014)(82310400026)(1800799024)(23010399003)(56012099006)(10067099003)(3023799007)(22082099003)(18002099003)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: Ay3egwIVJXdBqLDYsxaN1Wlcxj30OzBZ+8yRzNGEEPnipqfCmXfqcI3cQmq44QMIwyMAg4IcU/+yZ15ikBgISa4R+CLO14DX31tlPeU1O8EWbJ+HXF+SAgkf+BUDPGd6Zpag2Ycqv04BfMcBiqHgXfDpz0AjskU3QJeNBv665s448EvTBZPDv7XFQXcS6G18C/2fhSWp39p6MRd/1JZJ6icI4L5t6fjxcdw8edio7XqWLU1RSKzHGaUO9i/22Bos81RllOtY6bn/oVfNMerIaIAl0D0jorrAQ13S5aKlTGImo1RXffbwok1aDwuplK9nwQgA4JRSUmjNYc5GOSAc/8PbdcC8LylrYij2fQi4AStBoZw+02gCx31chXye+sEQzWKXbq1auX6A5F2vepKEvIBVfXgzcMSvYMUejf4pwPs72atsm7eQB4n41EoKwta8
+X-Exchange-RoutingPolicyChecked: ClO7CODwT0fj8Bgn7jEjn3iCjWzw9m1J5sbSHkRWiCggsaNoN+L3HAthvwhJ+t+fepy7o5pQ4BXrZX/rELaw2sEebS3CiRSqHu898cz9S3wzcCU146qdZTOUrnS+IcBVk5fyVuzqmCqUjSb7xxLYZaas+gR9cmIt5S4/asySEYqQhFv3fmWzleiXLmKa5cGHawFbJf3uWW0IjfBeqYRFTMq1Xy/Ejbk4mEXD/1lRvNb4sKW12ucIbr6ZtOKjLbhElvp0KYBywpOjar2AZqzbglzyYQU3PJB29HhpvnBQpVQyPb2JefFg77VsTShdJCVeoLkyZ2OUKa+Z03UPslvkdg==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Aug 2026 19:57:53.0008
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1137c263-22b7-4e67-f0a3-08def9752931
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF000015CB.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR10MB7768
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODEzMDE0NCBTYWx0ZWRfX0W9Xlo1AD4lw
+ l0UvxIokAndlLSBehFYMIiUx9zHcQmyPvUDdMxQvXYVw3Ex5RQCpJ735OYg/e1joBkUHIXyCPy2
+ +qQpYyoKKvn6OjGf7wmiP96XonjlLWh/EvPPmbw0SIf2KBJKv1F5QPdcvR4f5tVSViVeDdPhLg0
+ 4b/WL6eVpk6q7zZqFvDPmUBUUe9aJ0AEey9gCZuXYJ1Wjj3ICsb1BmZu2vpQ//tvoxOFs/ZZote
+ N2vBCVjE7RoxBNinSKo8ZTxida4AzBMdtVqH3atS3kkkBd0IVyddytWhxUy1VaNpUy35GfQMkTy
+ hZhtuYu0vdt7cK/luEqdG7xNaFHpT1Y0fTcmGel+jRj01fYxYIJjoC9kWMAcHbL7IlmWrCSQjSZ
+ lDaFyC5xMnjqGJEbWSLyZqsHGbydWrN7ps72/io2UkbINxgh7o3rXeuuToacqTkvmH9U9jDGV8k
+ q5Kl/xCg6hhzIZKMwdg==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODEzMDE0NCBTYWx0ZWRfX4DAH7COpNJFl
+ 8I4VXOZI2YaMgjwVPpghf043Lwi+dPoKf7vbOM7JLJtBr4uen0s9+88ogxs2m/iQ76er/9uVWpx
+ 8CaWgIzCkjbnThzh/TRiqgX/MvkFjW4=
+X-Proofpoint-ORIG-GUID: 6JXF0udlJguaHkFJ8jNgl5MXfJtj_rPq
+X-Authority-Analysis: v=2.4 cv=D/J37PRj c=1 sm=1 tr=0 ts=6a7e21c5 cx=c_pps
+ a=Za6wG3+qag5e9bFCWm8neg==:117 a=f+v6EHfkeJbVwR46tk4DMg==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10
+ a=s63m1ICgrNkA:10 a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=Z8NIEmU8O1QQgoT56wFK:22 a=taLDd7a_hP9WKsMzeGRc:22 a=sozttTNsAAAA:8
+ a=m8ToADvmAAAA:8 a=VwQbUJbxAAAA:8 a=DUBBNdmAkku80Pm9GmMA:9 a=QEXdDO2ut3YA:10
+ a=kCrBFHLFDAq2jDEeoMj9:22
+X-Proofpoint-GUID: 6JXF0udlJguaHkFJ8jNgl5MXfJtj_rPq
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-13_06,2026-08-12_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1011 impostorscore=0 spamscore=0 suspectscore=0 bulkscore=0
+ priorityscore=1501 phishscore=0 lowpriorityscore=0 malwarescore=0
+ adultscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2608130144
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_124207_121226_E8636E84 
-X-CRM114-Status: GOOD (  37.47  )
+X-CRM114-CacheID: sfid-20260813_125806_988686_9B31A141 
+X-CRM114-Status: GOOD (  14.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,877 +185,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi David,
+Hi Francesco,
 
-On Mon, Aug 10, 2026 at 05:21:41PM +0200, David Heidelberg via B4 Relay wrote:
-> From: David Heidelberg <david@ixit.cz>
+On 8/13/2026 6:12 AM, Francesco Dolcini wrote:
+> From: Francesco Dolcini <francesco.dolcini@toradex.com>
 > 
-> FTS support SLPI and AP mode, introduce mode-switch GPIO to switch between
-> those two. Currently we can handle only full power AP mode, so we just
-> keep the AP on.
+> MMC clock pins must be configured as OUTPUT-only per TRM [0] with
+> receiver disabled (RXACTIVE bit = 0). Change MMC CLK pins from
+> PIN_INPUT to PIN_OUTPUT to match documentation.
 > 
-> Useful for devices like Pixel 3 (blueline), Pixel 4a (sunfish),
-> Xiaomi Mi 8 (dipper), and many others.
-> 
-> Based on work of  Petr Hodina <petr.hodina@protonmail.com>
-> Signed-off-by: David Heidelberg <david@ixit.cz>
+> Link: https://www.ti.com/lit/pdf/spruiv7 Rev. C: Table 12-246. MMCSDi I/O Signals [0]
+> Fixes: 316b80246b16 ("arm64: dts: ti: add verdin am62")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+
+Assuming defaults are set.
+
+Reviewed-by: Judith Mendez <jm@ti.com>
+
 > ---
->  drivers/input/touchscreen/stmfts.c | 430 ++++++++++++++++++++++++++++++++++---
->  1 file changed, 396 insertions(+), 34 deletions(-)
+>   arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi | 6 +++---
+>   1 file changed, 3 insertions(+), 3 deletions(-)
 > 
-> diff --git a/drivers/input/touchscreen/stmfts.c b/drivers/input/touchscreen/stmfts.c
-> index 972687797f826..1da113d7197e6 100644
-> --- a/drivers/input/touchscreen/stmfts.c
-> +++ b/drivers/input/touchscreen/stmfts.c
-> @@ -1,23 +1,27 @@
->  // SPDX-License-Identifier: GPL-2.0
-> -// STMicroelectronics FTS Touchscreen device driver
-> -//
-> -// Copyright (c) 2017 Samsung Electronics Co., Ltd.
-> -// Copyright (c) 2017 Andi Shyti <andi@etezian.org>
-> +/* STMicroelectronics FTS Touchscreen device driver
-> + *
-> + * Copyright 2017 Samsung Electronics Co., Ltd.
-> + * Copyright 2017 Andi Shyti <andi@etezian.org>
-> + * Copyright David Heidelberg <david@ixit.cz>
-> + * Copyright Petr Hodina <petr.hodina@protonmail.com>
-> + */
->  
->  #include <linux/delay.h>
->  #include <linux/gpio/consumer.h>
->  #include <linux/i2c.h>
->  #include <linux/input/mt.h>
->  #include <linux/input/touchscreen.h>
->  #include <linux/interrupt.h>
->  #include <linux/irq.h>
->  #include <linux/leds.h>
->  #include <linux/module.h>
-> +#include <linux/of_device.h>
->  #include <linux/pm_runtime.h>
->  #include <linux/regulator/consumer.h>
->  
->  /* I2C commands */
->  #define STMFTS_READ_INFO			0x80
->  #define STMFTS_READ_STATUS			0x84
->  #define STMFTS_READ_ONE_EVENT			0x85
->  #define STMFTS_READ_ALL_EVENT			0x86
-> @@ -30,16 +34,17 @@
->  #define STMFTS_SS_HOVER_SENSE_ON		0x95
->  #define STMFTS_MS_KEY_SENSE_OFF			0x9a
->  #define STMFTS_MS_KEY_SENSE_ON			0x9b
->  #define STMFTS_SYSTEM_RESET			0xa0
->  #define STMFTS_CLEAR_EVENT_STACK		0xa1
->  #define STMFTS_FULL_FORCE_CALIBRATION		0xa2
->  #define STMFTS_MS_CX_TUNING			0xa3
->  #define STMFTS_SS_CX_TUNING			0xa4
-> +#define STMFTS5_SET_SCAN_MODE			0xa0
->  
->  /* events */
->  #define STMFTS_EV_NO_EVENT			0x00
->  #define STMFTS_EV_MULTI_TOUCH_DETECTED		0x02
->  #define STMFTS_EV_MULTI_TOUCH_ENTER		0x03
->  #define STMFTS_EV_MULTI_TOUCH_LEAVE		0x04
->  #define STMFTS_EV_MULTI_TOUCH_MOTION		0x05
->  #define STMFTS_EV_HOVER_ENTER			0x07
-> @@ -47,22 +52,42 @@
->  #define STMFTS_EV_HOVER_MOTION			0x09
->  #define STMFTS_EV_KEY_STATUS			0x0e
->  #define STMFTS_EV_ERROR				0x0f
->  #define STMFTS_EV_CONTROLLER_READY		0x10
->  #define STMFTS_EV_SLEEP_OUT_CONTROLLER_READY	0x11
->  #define STMFTS_EV_STATUS			0x16
->  #define STMFTS_EV_DEBUG				0xdb
->  
-> +/* events FTS5 */
-> +#define STMFTS5_EV_CONTROLLER_READY		0x03
-> +/* FTM5 event IDs (full byte, not masked) */
-> +#define STMFTS5_EV_MULTI_TOUCH_ENTER		0x13
-> +#define STMFTS5_EV_MULTI_TOUCH_MOTION		0x23
-> +#define STMFTS5_EV_MULTI_TOUCH_LEAVE		0x33
-> +#define STMFTS5_EV_STATUS_UPDATE		0x43
-> +#define STMFTS5_EV_USER_REPORT			0x53
-> +#define STMFTS5_EV_DEBUG			0xe3
-> +#define STMFTS5_EV_ERROR			0xf3
-> +
->  /* multi touch related event masks */
->  #define STMFTS_MASK_EVENT_ID			0x0f
->  #define STMFTS_MASK_TOUCH_ID			0xf0
->  #define STMFTS_MASK_LEFT_EVENT			0x0f
->  #define STMFTS_MASK_X_MSB			0x0f
->  #define STMFTS_MASK_Y_LSB			0xf0
-> +#define STMFTS5_MASK_TOUCH_TYPE			0x0f
-> +
-> +/* touch type classifications */
-> +#define STMFTS_TOUCH_TYPE_INVALID		0x00
-> +#define STMFTS_TOUCH_TYPE_FINGER		0x01
-> +#define STMFTS_TOUCH_TYPE_GLOVE			0x02
-> +#define STMFTS_TOUCH_TYPE_STYLUS		0x03
-> +#define STMFTS_TOUCH_TYPE_PALM			0x04
-> +#define STMFTS_TOUCH_TYPE_HOVER			0x05
->  
->  /* key related event masks */
->  #define STMFTS_MASK_KEY_NO_TOUCH		0x00
->  #define STMFTS_MASK_KEY_MENU			0x01
->  #define STMFTS_MASK_KEY_BACK			0x02
->  
->  #define STMFTS_EVENT_SIZE	8
->  #define STMFTS_STACK_DEPTH	32
-> @@ -71,19 +96,22 @@
->  #define STMFTS_DEV_NAME		"stmfts"
->  
->  static const struct regulator_bulk_data stmfts_supplies[] = {
->  	{ .supply = "vdd" },
->  	{ .supply = "avdd" },
->  };
->  
->  struct stmfts_data {
-> +	const struct stmfts_chip_ops *ops;
-> +
->  	struct i2c_client *client;
->  	struct input_dev *input;
->  	struct gpio_desc *reset_gpio;
-> +	struct gpio_desc *mode_switch_gpio;
->  	struct led_classdev led_cdev;
->  	struct mutex mutex;
->  
->  	struct touchscreen_properties prop;
->  
->  	struct regulator_bulk_data *supplies;
->  
->  	/*
-> @@ -100,19 +128,31 @@ struct stmfts_data {
->  
->  	u8 data[STMFTS_DATA_MAX_SIZE];
->  
->  	struct completion cmd_done;
->  
->  	bool use_key;
->  	bool led_status;
->  	bool hover_enabled;
-> +	bool stylus_enabled;
->  	bool running;
->  };
->  
-> +struct stmfts_chip_ops {
-> +	int  (*configure)(struct stmfts_data *sdata);
-> +	void (*power_off)(struct stmfts_data *sdata);
-> +	int  (*setup_input)(struct stmfts_data *sdata);
-> +	int  (*input_open)(struct input_dev *dev);
-> +	void (*input_close)(struct input_dev *dev);
-> +	void (*parse_events)(struct stmfts_data *sdata);
-> +	int  (*set_hover)(struct stmfts_data *sdata, bool enable);
-> +	int  (*runtime_resume)(struct stmfts_data *sdata);
-> +};
-> +
->  static int stmfts_brightness_set(struct led_classdev *led_cdev,
->  				 enum led_brightness value)
->  {
->  	struct stmfts_data *sdata = container_of(led_cdev,
->  					struct stmfts_data, led_cdev);
->  	int err;
->  
->  	if (value != sdata->led_status && sdata->ledvdd) {
-> @@ -165,16 +205,17 @@ static int stmfts_read_events(struct stmfts_data *sdata)
->  
->  	ret = i2c_transfer(sdata->client->adapter, msgs, ARRAY_SIZE(msgs));
->  	if (ret < 0)
->  		return ret;
->  
->  	return ret == ARRAY_SIZE(msgs) ? 0 : -EIO;
->  }
->  
-> +/* FTS4 event handling functions */
->  static void stmfts_report_contact_event(struct stmfts_data *sdata,
->  					const u8 event[])
->  {
->  	u8 slot_id = (event[0] & STMFTS_MASK_TOUCH_ID) >> 4;
->  	u16 x = event[1] | ((event[2] & STMFTS_MASK_X_MSB) << 8);
->  	u16 y = (event[2] >> 4) | (event[3] << 4);
->  	u8 maj = event[4];
->  	u8 min = event[5];
-> @@ -200,16 +241,114 @@ static void stmfts_report_contact_release(struct stmfts_data *sdata,
->  	u8 slot_id = (event[0] & STMFTS_MASK_TOUCH_ID) >> 4;
->  
->  	input_mt_slot(sdata->input, slot_id);
->  	input_mt_report_slot_inactive(sdata->input);
->  
->  	input_sync(sdata->input);
->  }
->  
-> +/* FTS5 event handling functions */
-> +static void stmfts5_report_contact_event(struct stmfts_data *sdata,
-> +					 const u8 event[])
-> +{
-> +	u8 area;
-> +	u8 maj;
-> +	u8 min;
-> +	/* FTM5 event format:
-> +	 * event[0] = event ID (0x13/0x23)
-> +	 * event[1] = touch type (low 4 bits) | touch ID (high 4 bits)
-> +	 * event[2] = X LSB
-> +	 * event[3] = X MSB (low 4 bits) | Y MSB (high 4 bits)
-> +	 * event[4] = Y LSB
-> +	 * event[5] = pressure
-> +	 * event[6] = major (low 4 bits) | minor (high 4 bits)
-> +	 * event[7] = minor (high 2 bits)
-> +	 */
-> +	u8 touch_id = (event[1] & STMFTS_MASK_TOUCH_ID) >> 4;
-> +	u8 touch_type = event[1] & STMFTS5_MASK_TOUCH_TYPE;
-> +	int x, y, distance;
-> +	unsigned int tool = MT_TOOL_FINGER;
-> +
-> +	/* Parse coordinates with better precision */
-> +	x = (((int)event[3] & STMFTS_MASK_X_MSB) << 8) | event[2];
-> +	y = ((int)event[4] << 4) | ((event[3] & STMFTS_MASK_Y_LSB) >> 4);
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi b/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi
+> index e97b2b047d10..895b1b7dcac7 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi
+> @@ -573,7 +573,7 @@ AM62X_IOPAD(0x15c, PIN_INPUT, 0)  /* (AB22) MDIO0_MDIO */ /* ETH_1_MDIO, SODIMM
+>   	pinctrl_sdhci0: main-mmc0-default-pins {
+>   		pinctrl-single,pins = <
+>   			AM62X_IOPAD(0x220, PIN_INPUT,        0) /*  (Y3) MMC0_CMD  */
+> -			AM62X_IOPAD(0x218, PIN_INPUT,        0) /* (AB1) MMC0_CLK  */
+> +			AM62X_IOPAD(0x218, PIN_OUTPUT,       0) /* (AB1) MMC0_CLK  */
+>   			AM62X_IOPAD(0x214, PIN_INPUT,        0) /* (AA2) MMC0_DAT0 */
+>   			AM62X_IOPAD(0x210, PIN_INPUT_PULLUP, 0) /* (AA1) MMC0_DAT1 */
+>   			AM62X_IOPAD(0x20c, PIN_INPUT_PULLUP, 0) /* (AA3) MMC0_DAT2 */
+> @@ -589,7 +589,7 @@ AM62X_IOPAD(0x1f8, PIN_INPUT_PULLUP, 0) /* (AC2) MMC0_DAT7 */
+>   	pinctrl_sdhci1: main-mmc1-default-pins {
+>   		pinctrl-single,pins = <
+>   			AM62X_IOPAD(0x23c, PIN_INPUT,        0) /* (A21) MMC1_CMD  */ /* SODIMM 74 */
+> -			AM62X_IOPAD(0x234, PIN_INPUT,        0) /* (B22) MMC1_CLK  */ /* SODIMM 78 */
+> +			AM62X_IOPAD(0x234, PIN_OUTPUT,       0) /* (B22) MMC1_CLK  */ /* SODIMM 78 */
+>   			AM62X_IOPAD(0x230, PIN_INPUT,        0) /* (A22) MMC1_DAT0 */ /* SODIMM 80 */
+>   			AM62X_IOPAD(0x22c, PIN_INPUT,        0) /* (B21) MMC1_DAT1 */ /* SODIMM 82 */
+>   			AM62X_IOPAD(0x228, PIN_INPUT,        0) /* (C21) MMC1_DAT2 */ /* SODIMM 70 */
+> @@ -601,7 +601,7 @@ AM62X_IOPAD(0x224, PIN_INPUT,        0) /* (D22) MMC1_DAT3 */ /* SODIMM 72 */
+>   	pinctrl_sdhci2: main-mmc2-default-pins {
+>   		pinctrl-single,pins = <
+>   			AM62X_IOPAD(0x120, PIN_INPUT, 0) /* (C24) MMC2_CMD   */ /* WiFi_SDIO_CMD   */
+> -			AM62X_IOPAD(0x118, PIN_INPUT, 0) /* (D25) MMC2_CLK   */ /* WiFi_SDIO_CLK   */
+> +			AM62X_IOPAD(0x118, PIN_OUTPUT,0) /* (D25) MMC2_CLK   */ /* WiFi_SDIO_CLK   */
+>   			AM62X_IOPAD(0x114, PIN_INPUT, 0) /* (B24) MMC2_DAT0  */ /* WiFi_SDIO_DATA0 */
+>   			AM62X_IOPAD(0x110, PIN_INPUT, 0) /* (C25) MMC2_DAT1  */ /* WiFi_SDIO_DATA1 */
+>   			AM62X_IOPAD(0x10c, PIN_INPUT, 0) /* (E23) MMC2_DAT2  */ /* WiFi_SDIO_DATA2 */
 
-This does not match the comment above. This treats byte[4] as Y MSB, but
-comment above says that it is Y LSB...
-
-> +
-> +	/* Parse pressure - ensure non-zero for active touch */
-> +	area = event[5];
-> +	if (area <= 0 && touch_type != STMFTS_TOUCH_TYPE_HOVER) {
-
-Area can't be less than 0, it's a u8.
-
-> +		/* Should not happen for contact events. Set minimum pressure
-> +		 * to prevent touch from being dropped
-> +		 */
-> +		dev_warn_once(&sdata->client->dev,
-> +			      "zero pressure on contact event, slot %d\n", touch_id);
-> +		area = 1;
-> +	}
-
-Should this check be pas the switch()? No need to complain about area
-for invalid touch types.
-
-> +
-> +	/* Parse touch area with improved bit extraction */
-> +	maj = (((event[0] & 0x0C) << 2) | ((event[6] & 0xF0) >> 4));
-
-Why do we need event[0] in major? It contains event ID... Could you add
-an comment explaining it.
-
-> +	min = (((event[7] & 0xC0) >> 2) | (event[6] & 0x0F));
-> +
-> +	/* Distance is 0 for touching, max for hovering */
-> +	distance = 0;
-> +
-> +	/* Classify touch type and set appropriate tool and parameters */
-> +	switch (touch_type) {
-> +	case STMFTS_TOUCH_TYPE_STYLUS:
-> +		if (sdata->stylus_enabled) {
-> +			tool = MT_TOOL_PEN;
-> +			break;
-> +		}
-> +		fallthrough; /* Report as finger if stylus not enabled */
-> +
-> +	case STMFTS_TOUCH_TYPE_FINGER:
-> +	case STMFTS_TOUCH_TYPE_GLOVE:
-> +		tool = MT_TOOL_FINGER;
-> +		break;
-> +
-> +	case STMFTS_TOUCH_TYPE_PALM:
-> +		/* Palm touch - report but can be filtered by userspace */
-> +		tool = MT_TOOL_PALM;
-> +		break;
-> +
-> +	case STMFTS_TOUCH_TYPE_HOVER:
-> +		tool = MT_TOOL_FINGER;
-> +		area = 0;
-> +		distance = 255;
-> +		break;
-> +
-> +	case STMFTS_TOUCH_TYPE_INVALID:
-> +	default:
-> +		dev_warn(&sdata->client->dev,
-> +			 "invalid touch type %d for slot %d\n",
-> +			 touch_type, touch_id);
-> +		return;
-> +	}
-> +
-> +	input_mt_slot(sdata->input, touch_id);
-> +	input_mt_report_slot_state(sdata->input, tool, true);
-> +
-> +	input_report_abs(sdata->input, ABS_MT_POSITION_X, x);
-> +	input_report_abs(sdata->input, ABS_MT_POSITION_Y, y);
-> +	input_report_abs(sdata->input, ABS_MT_TOUCH_MAJOR, maj);
-> +	input_report_abs(sdata->input, ABS_MT_TOUCH_MINOR, min);
-> +	input_report_abs(sdata->input, ABS_MT_PRESSURE, area);
-> +	input_report_abs(sdata->input, ABS_MT_DISTANCE, distance);
-> +}
-> +
-> +static void stmfts5_report_contact_release(struct stmfts_data *sdata,
-> +					   const u8 event[])
-> +{
-> +	/* FTM5 format: touch ID is in high 4 bits of event[1] */
-> +	u8 touch_id = (event[1] & STMFTS_MASK_TOUCH_ID) >> 4;
-> +
-> +	input_mt_slot(sdata->input, touch_id);
-> +	input_mt_report_slot_inactive(sdata->input);
-> +}
-> +
->  static void stmfts_report_hover_event(struct stmfts_data *sdata,
->  				      const u8 event[])
->  {
->  	u16 x = (event[2] << 4) | (event[4] >> 4);
->  	u16 y = (event[3] << 4) | (event[4] & STMFTS_MASK_Y_LSB);
->  	u8 z = event[5];
->  
->  	input_report_abs(sdata->input, ABS_X, x);
-> @@ -292,29 +431,72 @@ static void stmfts_parse_events(struct stmfts_data *sdata)
->  
->  		default:
->  			dev_err(&sdata->client->dev,
->  				"unknown event %#02x\n", event[0]);
->  		}
->  	}
->  }
->  
-> +static void stmfts5_parse_events(struct stmfts_data *sdata)
-> +{
-> +	for (int i = 0; i < STMFTS_STACK_DEPTH; i++) {
-> +		u8 *event = &sdata->data[i * STMFTS_EVENT_SIZE];
-> +
-> +		switch (event[0]) {
-> +		case STMFTS5_EV_CONTROLLER_READY:
-> +			complete(&sdata->cmd_done);
-> +			fallthrough;
-> +
-> +		case STMFTS_EV_NO_EVENT:
-> +		case STMFTS5_EV_STATUS_UPDATE:
-> +		case STMFTS5_EV_USER_REPORT:
-> +		case STMFTS5_EV_DEBUG:
-> +			goto sync;
-> +
-> +		case STMFTS5_EV_MULTI_TOUCH_ENTER:
-> +		case STMFTS5_EV_MULTI_TOUCH_MOTION:
-> +			stmfts5_report_contact_event(sdata, event);
-> +			break;
-> +
-> +		case STMFTS5_EV_MULTI_TOUCH_LEAVE:
-> +			stmfts5_report_contact_release(sdata, event);
-> +			break;
-> +
-> +		case STMFTS5_EV_ERROR:
-> +			dev_warn(&sdata->client->dev,
-> +				 "error code: 0x%x%x%x%x%x%x",
-> +				 event[6], event[5], event[4],
-> +				 event[3], event[2], event[1]);
-> +			break;
-> +
-> +		default:
-> +			dev_err(&sdata->client->dev,
-> +				"unknown FTS5 event %#02x\n", event[0]);
-> +		}
-> +	}
-> +
-> +sync:
-> +	input_mt_sync_frame(sdata->input);
-> +	input_sync(sdata->input);
-> +}
-> +
->  static irqreturn_t stmfts_irq_handler(int irq, void *dev)
->  {
->  	struct stmfts_data *sdata = dev;
->  	int err;
->  
->  	guard(mutex)(&sdata->mutex);
->  
->  	err = stmfts_read_events(sdata);
->  	if (unlikely(err))
->  		dev_err(&sdata->client->dev,
->  			"failed to read events: %d\n", err);
->  	else
-> -		stmfts_parse_events(sdata);
-> +		sdata->ops->parse_events(sdata);
->  
->  	return IRQ_HANDLED;
->  }
->  
->  static int stmfts_command(struct stmfts_data *sdata, const u8 cmd)
->  {
->  	int err;
->  
-> @@ -326,16 +508,29 @@ static int stmfts_command(struct stmfts_data *sdata, const u8 cmd)
->  
->  	if (!wait_for_completion_timeout(&sdata->cmd_done,
->  					 msecs_to_jiffies(1000)))
->  		return -ETIMEDOUT;
->  
->  	return 0;
->  }
->  
-> +static int stmfts5_set_scan_mode(struct stmfts_data *sdata, const u8 val)
-> +{
-> +	u8 scan_mode_cmd[3] = { STMFTS5_SET_SCAN_MODE, 0x00, val };
-> +	int err;
-> +
-> +	err = i2c_master_send(sdata->client, scan_mode_cmd,
-> +			      sizeof(scan_mode_cmd));
-> +	if (err != sizeof(scan_mode_cmd))
-> +		return err < 0 ? err : -EIO;
-> +
-> +	return 0;
-> +}
-> +
->  static int stmfts_input_open(struct input_dev *dev)
->  {
->  	struct stmfts_data *sdata = input_get_drvdata(dev);
->  	int err;
->  
->  	err = pm_runtime_resume_and_get(&sdata->client->dev);
->  	if (err)
->  		return err;
-> @@ -365,16 +560,37 @@ static int stmfts_input_open(struct input_dev *dev)
->  			/* I can still use only the touch screen */
->  			dev_warn(&sdata->client->dev,
->  				 "failed to enable touchkey\n");
->  	}
->  
->  	return 0;
->  }
->  
-> +static int stmfts5_input_open(struct input_dev *dev)
-> +{
-> +	struct stmfts_data *sdata = input_get_drvdata(dev);
-> +	int err;
-> +
-> +	err = pm_runtime_resume_and_get(&sdata->client->dev);
-> +	if (err)
-> +		return err;
-> +
-> +	err = stmfts5_set_scan_mode(sdata, 0xff);
-> +	if (err) {
-> +		pm_runtime_put_sync(&sdata->client->dev);
-> +		return err;
-> +	}
-> +
-> +	scoped_guard(mutex, &sdata->mutex)
-> +		sdata->running = true;
-> +
-> +	return 0;
-
-I wonder if input open/close can not be merged into shared
-implementations. You already have set_hover() and other helpers...
-
-> +}
-> +
->  static void stmfts_input_close(struct input_dev *dev)
->  {
->  	struct stmfts_data *sdata = input_get_drvdata(dev);
->  	int err;
->  
->  	err = i2c_smbus_write_byte(sdata->client, STMFTS_MS_MT_SENSE_OFF);
->  	if (err)
->  		dev_warn(&sdata->client->dev,
-> @@ -398,16 +614,32 @@ static void stmfts_input_close(struct input_dev *dev)
->  		if (err)
->  			dev_warn(&sdata->client->dev,
->  				 "failed to disable touchkey: %d\n", err);
->  	}
->  
->  	pm_runtime_put_sync(&sdata->client->dev);
->  }
->  
-> +static void stmfts5_input_close(struct input_dev *dev)
-> +{
-> +	struct stmfts_data *sdata = input_get_drvdata(dev);
-> +	int err;
-> +
-> +	err = stmfts5_set_scan_mode(sdata, 0x00);
-> +	if (err)
-> +		dev_warn(&sdata->client->dev,
-> +			 "failed to disable touchscreen: %d\n", err);
-> +
-> +	scoped_guard(mutex, &sdata->mutex)
-> +		sdata->running = false;
-> +
-> +	pm_runtime_put_sync(&sdata->client->dev);
-> +}
-> +
->  static ssize_t stmfts_sysfs_chip_id(struct device *dev,
->  				    struct device_attribute *attr, char *buf)
->  {
->  	struct stmfts_data *sdata = dev_get_drvdata(dev);
->  
->  	return sysfs_emit(buf, "%#x\n", sdata->chip_id);
->  }
->  
-> @@ -482,20 +714,18 @@ static ssize_t stmfts_sysfs_hover_enable_write(struct device *dev,
->  	if (kstrtoul(buf, 0, &value))
->  		return -EINVAL;
->  
->  	hover = !!value;
->  
->  	guard(mutex)(&sdata->mutex);
->  
->  	if (hover != sdata->hover_enabled) {
-> -		if (sdata->running) {
-> -			err = i2c_smbus_write_byte(sdata->client,
-> -						   value ? STMFTS_SS_HOVER_SENSE_ON :
-> -							   STMFTS_SS_HOVER_SENSE_OFF);
-> +		if (sdata->running && sdata->ops->set_hover) {
-> +			err = sdata->ops->set_hover(sdata, hover);
->  			if (err)
->  				return err;
->  		}
->  
->  		sdata->hover_enabled = hover;
->  	}
->  
->  	return len;
-> @@ -551,16 +781,20 @@ static void stmfts_reset(struct stmfts_data *sdata)
->  	gpiod_set_value_cansleep(sdata->reset_gpio, 0);
->  	msleep(50);
->  }
->  
->  static int stmfts_configure(struct stmfts_data *sdata)
->  {
->  	int err;
->  
-> +	err = stmfts_read_system_info(sdata);
-> +	if (err)
-> +		return err;
-> +
->  	err = stmfts_command(sdata, STMFTS_SYSTEM_RESET);
->  	if (err)
->  		return err;
->  
->  	err = stmfts_command(sdata, STMFTS_SLEEP_OUT);
->  	if (err)
->  		return err;
->  
-> @@ -596,55 +830,123 @@ static int stmfts_power_on(struct stmfts_data *sdata)
->  	 * The datasheet does not specify the power on time, but considering
->  	 * that the reset time is < 10ms, I sleep 20ms to be sure
->  	 */
->  	msleep(20);
->  
->  	if (sdata->reset_gpio)
->  		stmfts_reset(sdata);
->  
-> -	err = stmfts_read_system_info(sdata);
-> -	if (err)
-> -		goto err_disable_regulators;
-> -
->  	enable_irq(sdata->client->irq);
->  
->  	msleep(50);
->  
-> -	err = stmfts_configure(sdata);
-> +	err = sdata->ops->configure(sdata);
->  	if (err)
->  		goto err_disable_irq;
->  
->  	/*
->  	 * At this point no one is using the touchscreen
->  	 * and I don't really care about the return value
->  	 */
->  	(void)i2c_smbus_write_byte(sdata->client, STMFTS_SLEEP_IN);
->  
->  	return 0;
->  
->  err_disable_irq:
->  	disable_irq(sdata->client->irq);
-> -err_disable_regulators:
->  	regulator_bulk_disable(ARRAY_SIZE(stmfts_supplies), sdata->supplies);
->  	return err;
->  }
->  
-> +static int stmfts5_configure(struct stmfts_data *sdata)
-> +{
-> +	u8 event[STMFTS_EVENT_SIZE];
-> +	int err;
-> +
-> +	/* Verify I2C communication */
-> +	err = i2c_smbus_read_i2c_block_data(sdata->client,
-> +					    STMFTS_READ_ALL_EVENT,
-> +					    sizeof(event), event);
-> +	if (err < 0)
-> +		return err;
-> +
-> +	return 0;
-> +}
-> +
-> +static void stmfts5_chip_power_off(struct stmfts_data *sdata)
-> +{
-> +	i2c_smbus_write_byte(sdata->client, STMFTS_SLEEP_IN);
-> +	msleep(20);
-> +}
-> +
->  static void stmfts_power_off(void *data)
->  {
->  	struct stmfts_data *sdata = data;
->  
->  	disable_irq(sdata->client->irq);
->  
->  	if (sdata->reset_gpio)
->  		gpiod_set_value_cansleep(sdata->reset_gpio, 1);
->  
-> +	if (sdata->ops->power_off)
-> +		sdata->ops->power_off(sdata);
-
-As Sashiko mentioned, you want to do this before asserting reset.
-
-> +
->  	regulator_bulk_disable(ARRAY_SIZE(stmfts_supplies), sdata->supplies);
->  }
->  
-> +static int stmfts_setup_input(struct stmfts_data *sdata)
-> +{
-> +	struct device *dev = &sdata->client->dev;
-> +
-> +	input_set_abs_params(sdata->input, ABS_MT_ORIENTATION, 0, 255, 0, 0);
-> +	input_set_abs_params(sdata->input, ABS_DISTANCE, 0, 255, 0, 0);
-> +
-> +	sdata->use_key = device_property_read_bool(dev, "touch-key-connected");
-> +	if (sdata->use_key) {
-> +		input_set_capability(sdata->input, EV_KEY, KEY_MENU);
-> +		input_set_capability(sdata->input, EV_KEY, KEY_BACK);
-> +	}
-> +
-> +	return input_mt_init_slots(sdata->input, STMFTS_MAX_FINGERS,
-> +				   INPUT_MT_DIRECT);
-> +}
-> +
-> +static int stmfts5_setup_input(struct stmfts_data *sdata)
-> +{
-> +	struct device *dev = &sdata->client->dev;
-> +
-> +	sdata->mode_switch_gpio = devm_gpiod_get_optional(dev, "mode-switch",
-> +							  GPIOD_OUT_HIGH);
-> +	if (IS_ERR(sdata->mode_switch_gpio))
-> +		return dev_err_probe(dev, PTR_ERR(sdata->mode_switch_gpio),
-> +				     "Failed to get GPIO 'switch'\n");
-> +
-> +	/* Set resolution for accurate calibration */
-> +	if (!input_abs_get_res(sdata->input, ABS_MT_POSITION_X)) {
-> +		input_abs_set_res(sdata->input, ABS_MT_POSITION_X, 10);
-> +		input_abs_set_res(sdata->input, ABS_MT_POSITION_Y, 10);
-> +	}
-> +
-> +	input_set_abs_params(sdata->input, ABS_MT_DISTANCE, 0, 255, 0, 0);
-> +
-> +	/* Enable stylus support if requested */
-> +	sdata->stylus_enabled = device_property_read_bool(dev, "stylus-enabled");
-> +
-> +	return input_mt_init_slots(sdata->input, STMFTS_MAX_FINGERS,
-> +				   INPUT_MT_DIRECT);
-> +}
-> +
-> +static int stmfts_set_hover(struct stmfts_data *sdata, bool enable)
-> +{
-> +	return i2c_smbus_write_byte(sdata->client,
-> +				    enable ? STMFTS_SS_HOVER_SENSE_ON :
-> +					     STMFTS_SS_HOVER_SENSE_OFF);
-> +}
-> +
->  static int stmfts_enable_led(struct stmfts_data *sdata)
->  {
->  	int err;
->  
->  	/* get the regulator for powering the leds on */
->  	sdata->ledvdd = devm_regulator_get(&sdata->client->dev, "ledvdd");
->  	if (IS_ERR(sdata->ledvdd))
->  		return PTR_ERR(sdata->ledvdd);
-> @@ -680,16 +982,18 @@ static int stmfts_probe(struct i2c_client *client)
->  		return -ENOMEM;
->  
->  	i2c_set_clientdata(client, sdata);
->  
->  	sdata->client = client;
->  	mutex_init(&sdata->mutex);
->  	init_completion(&sdata->cmd_done);
->  
-> +	sdata->ops = of_device_get_match_data(dev);
-> +
->  	err = devm_regulator_bulk_get_const(dev,
->  					    ARRAY_SIZE(stmfts_supplies),
->  					    stmfts_supplies,
->  					    &sdata->supplies);
->  	if (err)
->  		return err;
->  
->  	sdata->reset_gpio = devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_HIGH);
-> @@ -698,37 +1002,28 @@ static int stmfts_probe(struct i2c_client *client)
->  				     "Failed to get GPIO 'reset'\n");
->  
->  	sdata->input = devm_input_allocate_device(dev);
->  	if (!sdata->input)
->  		return -ENOMEM;
->  
->  	sdata->input->name = STMFTS_DEV_NAME;
->  	sdata->input->id.bustype = BUS_I2C;
-> -	sdata->input->open = stmfts_input_open;
-> -	sdata->input->close = stmfts_input_close;
-> +	sdata->input->open = sdata->ops->input_open;
-> +	sdata->input->close = sdata->ops->input_close;
->  
->  	input_set_capability(sdata->input, EV_ABS, ABS_MT_POSITION_X);
->  	input_set_capability(sdata->input, EV_ABS, ABS_MT_POSITION_Y);
->  	touchscreen_parse_properties(sdata->input, true, &sdata->prop);
->  
->  	input_set_abs_params(sdata->input, ABS_MT_TOUCH_MAJOR, 0, 255, 0, 0);
->  	input_set_abs_params(sdata->input, ABS_MT_TOUCH_MINOR, 0, 255, 0, 0);
-> -	input_set_abs_params(sdata->input, ABS_MT_ORIENTATION, 0, 255, 0, 0);
->  	input_set_abs_params(sdata->input, ABS_MT_PRESSURE, 0, 255, 0, 0);
-> -	input_set_abs_params(sdata->input, ABS_DISTANCE, 0, 255, 0, 0);
-> -
-> -	sdata->use_key = device_property_read_bool(dev, "touch-key-connected");
-> -	if (sdata->use_key) {
-> -		input_set_capability(sdata->input, EV_KEY, KEY_MENU);
-> -		input_set_capability(sdata->input, EV_KEY, KEY_BACK);
-> -	}
->  
-> -	err = input_mt_init_slots(sdata->input,
-> -				  STMFTS_MAX_FINGERS, INPUT_MT_DIRECT);
-> +	err = sdata->ops->setup_input(sdata);
->  	if (err)
->  		return err;
->  
->  	input_set_drvdata(sdata->input, sdata);
->  
->  	/*
->  	 * stmfts_power_on expects interrupt to be disabled, but
->  	 * at this point the device is still off and I do not trust
-> @@ -789,27 +1084,71 @@ static int stmfts_runtime_suspend(struct device *dev)
->  
->  	ret = i2c_smbus_write_byte(sdata->client, STMFTS_SLEEP_IN);
->  	if (ret)
->  		dev_warn(dev, "failed to suspend device: %d\n", ret);
->  
->  	return ret;
->  }
->  
-> +static int stmfts_chip_runtime_resume(struct stmfts_data *sdata)
-> +{
-> +	return i2c_smbus_write_byte(sdata->client, STMFTS_SLEEP_OUT);
-> +}
-> +
-> +static int stmfts5_chip_runtime_resume(struct stmfts_data *sdata)
-> +{
-> +	struct i2c_client *client = sdata->client;
-> +	struct device *dev = &client->dev;
-> +	u8 int_enable_cmd[4] = { 0xB6, 0x00, 0x2C, 0x01 };
-> +	int err;
-> +
-> +	err = i2c_smbus_write_byte(client, STMFTS_SLEEP_OUT);
-> +	if (err)
-> +		return err;
-> +
-> +	msleep(20);
-> +
-> +	/* Perform capacitance tuning after wakeup */
-> +	err = i2c_smbus_write_byte(client, STMFTS_MS_CX_TUNING);
-> +	if (err)
-> +		dev_warn(dev, "MS_CX_TUNING failed: %d\n", err);
-> +	msleep(20);
-> +
-> +	err = i2c_smbus_write_byte(client, STMFTS_SS_CX_TUNING);
-> +	if (err)
-> +		dev_warn(dev, "SS_CX_TUNING failed: %d\n", err);
-> +	msleep(20);
-> +
-> +	/* Force calibration */
-> +	err = i2c_smbus_write_byte(client, STMFTS_FULL_FORCE_CALIBRATION);
-> +	if (err)
-> +		dev_warn(dev, "FORCE_CALIBRATION failed: %d\n", err);
-> +	msleep(50);
-> +
-> +	/* Enable controller interrupts */
-> +	err = i2c_master_send(client, int_enable_cmd, sizeof(int_enable_cmd));
-> +	if (err != sizeof(int_enable_cmd))
-> +		return err < 0 ? err : -EIO;
-> +
-> +	msleep(20);
-> +
-> +	return 0;
-> +}
-> +
->  static int stmfts_runtime_resume(struct device *dev)
->  {
->  	struct stmfts_data *sdata = dev_get_drvdata(dev);
-> -	struct i2c_client *client = sdata->client;
-> -	int ret;
-> +	int err;
->  
-> -	ret = i2c_smbus_write_byte(client, STMFTS_SLEEP_OUT);
-> -	if (ret)
-> -		dev_err(dev, "failed to resume device: %d\n", ret);
-> +	err = sdata->ops->runtime_resume(sdata);
-> +	if (err)
-> +		dev_err(dev, "failed to resume device: %d\n", err);
->  
-> -	return ret;
-> +	return err;
->  }
->  
->  static int stmfts_suspend(struct device *dev)
->  {
->  	struct stmfts_data *sdata = dev_get_drvdata(dev);
->  
->  	stmfts_power_off(sdata);
->  
-> @@ -824,18 +1163,39 @@ static int stmfts_resume(struct device *dev)
->  }
->  
->  static const struct dev_pm_ops stmfts_pm_ops = {
->  	SYSTEM_SLEEP_PM_OPS(stmfts_suspend, stmfts_resume)
->  	RUNTIME_PM_OPS(stmfts_runtime_suspend, stmfts_runtime_resume, NULL)
->  };
->  
->  #ifdef CONFIG_OF
-> +static const struct stmfts_chip_ops stmfts4_ops = {
-> +	.configure	= stmfts_configure,
-> +	.setup_input	= stmfts_setup_input,
-> +	.input_open	= stmfts_input_open,
-> +	.input_close	= stmfts_input_close,
-> +	.parse_events	= stmfts_parse_events,
-> +	.set_hover	= stmfts_set_hover,
-> +	.runtime_resume	= stmfts_chip_runtime_resume,
-> +};
-> +
-> +static const struct stmfts_chip_ops stmfts5_ops = {
-> +	.configure	= stmfts5_configure,
-> +	.power_off	= stmfts5_chip_power_off,
-> +	.setup_input	= stmfts5_setup_input,
-> +	.input_open	= stmfts5_input_open,
-> +	.input_close	= stmfts5_input_close,
-> +	.parse_events	= stmfts5_parse_events,
-> +	.runtime_resume	= stmfts5_chip_runtime_resume,
-> +};
-> +
->  static const struct of_device_id stmfts_of_match[] = {
-> -	{ .compatible = "st,stmfts", },
-> +	{ .compatible = "st,stmfts",	.data = &stmfts4_ops },
-> +	{ .compatible = "st,stmfts5",	.data = &stmfts5_ops },
->  	{ },
->  };
->  MODULE_DEVICE_TABLE(of, stmfts_of_match);
->  #endif
->  
->  static const struct i2c_device_id stmfts_id[] = {
->  	{ .name = "stmfts" },
->  	{ }
-> @@ -853,10 +1213,12 @@ static struct i2c_driver stmfts_driver = {
->  	.probe = stmfts_probe,
->  	.remove = stmfts_remove,
->  	.id_table = stmfts_id,
->  };
->  
->  module_i2c_driver(stmfts_driver);
->  
->  MODULE_AUTHOR("Andi Shyti <andi.shyti@samsung.com>");
-> +MODULE_AUTHOR("David Heidelberg <david@ixit.cz>");
-> +MODULE_AUTHOR("Petr Hodina <petr.hodina@protonmail.com>");
->  MODULE_DESCRIPTION("STMicroelectronics FTS Touch Screen");
->  MODULE_LICENSE("GPL");
-> 
-
-
-Thanks.
-
--- 
-Dmitry
 
