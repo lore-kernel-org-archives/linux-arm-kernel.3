@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0A07C5DF66
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 11:33:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CD25C5CFEB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 11:34:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MFU827lDWVGro8n3gmbWB6iOksvX3kBnB8CWUXkl5bw=; b=Qv/pLrjPBzCmpjNcpxnRkuY7Vj
-	xjCG4AYPxdyV5HHOdRm7qBbYAo1nbJwiSJsHmn09gMxWS0qtanse31ZFDxGt5ZH71yUw7jwp14I2U
-	aCDUgi+dD6g1alj5LA8fIk11FX7lXXGtsvW4XCiFqX9gORKf+gJRwRutGN+hgQkfLyoJAIxJmuyKa
-	PqjWiMmqlJnnbU8ugo0F0qPCDOL6dpU0deUpql264Z0kOrjHfscBVtas8RC7/inx0NWlBBk4h8aj4
-	MVukqtt7Th82LxFqnffRYlcBaKFW0dVysaJEgapj2Sw+VBIwsMWKlXCoQnvrWwZj4kFj8nVNpGXud
-	or2nesgg==;
+	bh=y+zdQDNzy9XwsWlPqks3FdQJfc35rE02ceOkdYN/X4E=; b=wwycurXd6IKQjU/+ZcewFBqrg7
+	5vMoaYy/jtCtK12VFr3MAnuQkNCgXIQcyVSHxks56qhCrK24TIB9UoSEtmZj/X6B35ulG0uBC4mod
+	AW4zOq+2lIaTAFGmnXi1njCoNzU9D/+navvaVC6DMOOJMPc1dVtSbJk1wnP2AzfufBz3Xcs0t/3Uf
+	yiq8vDVKwX5ty2vGSkwv3rTCOQH/oIVsOJmOo4BfKFZ/x2mAvBF6Y5UEV1SRpB9XLijYR9D7SjSwE
+	pu34VzlO6NAa2T8nU6uWh/rVLtzzCRzFqrTMSuZfDBiaiOfA23388tehavgyjG7nNZ/5DOYrUqnva
+	KQp/FRUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuTgw-00000000YY4-3vTT;
-	Thu, 13 Aug 2026 11:33:46 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wuTgx-00000000YaI-39dq;
+	Thu, 13 Aug 2026 11:33:47 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuTgl-00000000YSK-3lBJ
+	id 1wuTgs-00000000YVo-201F
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 11:33:35 +0000
+	Thu, 13 Aug 2026 11:33:42 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8528F42DA0;
-	Thu, 13 Aug 2026 11:33:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D3301F00A3D;
-	Thu, 13 Aug 2026 11:33:34 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E60A6600AD;
+	Thu, 13 Aug 2026 11:33:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C09BF1F00A3A;
+	Thu, 13 Aug 2026 11:33:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786620815;
-	bh=MFU827lDWVGro8n3gmbWB6iOksvX3kBnB8CWUXkl5bw=;
+	s=k20260515; t=1786620821;
+	bh=y+zdQDNzy9XwsWlPqks3FdQJfc35rE02ceOkdYN/X4E=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=c4hKVxUuBK2CsqbnZuhjcrO82vYBB9cD3x7QvD0PzVfYAYm8zVbg4sW/NnAOjlZax
-	 Pj5k3omEoIDEQD0JIqPW6BBd5xGI2tbg0SA+EOhNveWgUxnz/dlcRdqVYG3tz90uOt
-	 wXf0SoXSKWkjwW+Mtb4tslD+oAvesJqQhXHocEHDgH+O1FeDRQqJGmj21tKZmOAonF
-	 dl3fhArdI2pXoWkE0vAShcnz35H2dKmbuljbwZ9k1/fWB9yLFCNJ42W82aG88Q9Fmc
-	 LnVbW9SEaEP20wqLIkEh42nilcHoh2eQ9ChKSjXABAp8CGaASMKMaqyj1/KJoKytwZ
-	 9RiorPpQl8aSA==
+	b=SRCSlI7P53oA4cwNrU5q0zW+NinY5tBKh8OsuWfm1M9+LWos/Yvr2AY1X4VA7QPEa
+	 LqX4BSwLKfTXaqf49rlQXDN/E+Pbf5+hVvDTbqy4kgy3TfHe0MN0eUbp807bRmPbRB
+	 AJuFeOdC6uhedFYYZf2xFdqsNgyAibiTc6pzqKMmzd3er3PJSfQjVLWG8eme5iHW33
+	 Ay/AQJhV9USx2DHAsqZTepw2AFGqFXaDwgP6ifMGNYdbMe9V7VDYPFCpSRFTGZusfA
+	 As60PyduvXobDk4R6yg20vo2RgxUTZZHQMSVIRScobzdzSuZbDMRJcFePpljfYw5Ux
+	 wZBQ6LbgmsFhg==
 From: Sudeep Holla <sudeep.holla@kernel.org>
-Date: Thu, 13 Aug 2026 12:32:59 +0100
-Subject: [PATCH v3 4/9] firmware: arm_scmi: Fall back to ACPI HID when
- "compatible" is absent
+Date: Thu, 13 Aug 2026 12:33:04 +0100
+Subject: [PATCH v3 9/9] firmware: arm_scmi: Validate PCC shared memory
+ signature
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260813-acpi_scmi_pcc-v3-4-cb6b88b4ebb3@kernel.org>
+Message-Id: <20260813-acpi_scmi_pcc-v3-9-cb6b88b4ebb3@kernel.org>
 References: <20260813-acpi_scmi_pcc-v3-0-cb6b88b4ebb3@kernel.org>
 In-Reply-To: <20260813-acpi_scmi_pcc-v3-0-cb6b88b4ebb3@kernel.org>
 To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
@@ -71,65 +71,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-scmi_debugfs_common_setup() uses the "compatible" property to
-populate the debugfs transport type string. ACPI-described SCMI
-devices do not provide that DT property, so the string remains
-NULL and debugfs setup falls through the allocation failure path.
+Validate the PCC shared memory signature when setting up an SCMI PCC
+channel.
 
-Check the property lookup result and use the ACPI HID as the
-fallback transport type when an ACPI companion is present.
-
-All supported DT SCMI platforms are expected to provide "compatible",
-so the non-ACPI fallback is not needed for normal DT operation. Keep
-the explicit "unknown" fallback anyway to avoid passing NULL to
-kstrdup() if that assumption is ever violated.
+Reject channels whose shared memory signature does not encode
+PCC_SIGNATURE combined with the PCC subspace ID, so misconfigured
+firmware is caught before the transport starts using the shared memory
+region.
 
 Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
 ---
- drivers/firmware/arm_scmi/driver.c | 16 ++++++++++++++--
- 1 file changed, 14 insertions(+), 2 deletions(-)
+ drivers/firmware/arm_scmi/transports/pcc.c | 12 ++++++++++--
+ 1 file changed, 10 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index 9014723e0f7f..9ad827c6a9ab 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -16,6 +16,7 @@
- 
- #define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
- 
-+#include <linux/acpi.h>
- #include <linux/bitmap.h>
- #include <linux/cleanup.h>
- #include <linux/debugfs.h>
-@@ -3063,6 +3064,15 @@ static void scmi_debugfs_common_cleanup(void *d)
- 	kfree(dbg->type);
+diff --git a/drivers/firmware/arm_scmi/transports/pcc.c b/drivers/firmware/arm_scmi/transports/pcc.c
+index 337d551e3ad8..0ead0ec77162 100644
+--- a/drivers/firmware/arm_scmi/transports/pcc.c
++++ b/drivers/firmware/arm_scmi/transports/pcc.c
+@@ -623,8 +623,11 @@ static void rx_callback(struct mbox_client *cl, void *m)
  }
  
-+static const char *scmi_acpi_device_hid(struct acpi_device *adev)
-+{
-+#ifdef CONFIG_ACPI
-+	return adev ? acpi_device_hid(adev) : "unknown";
-+#else
-+	return "unknown";
-+#endif
-+}
-+
- static struct scmi_debug_info *scmi_debugfs_common_setup(struct scmi_info *info)
+ static int pcc_chan_validate_shmem(struct scmi_chan_info *cinfo,
+-				   struct scmi_pcc *smbox)
++				   struct scmi_pcc *smbox, int ss_id)
  {
- 	char top_dir[16];
-@@ -3080,8 +3090,10 @@ static struct scmi_debug_info *scmi_debugfs_common_setup(struct scmi_info *info)
- 		return NULL;
++	struct pcc_shared_mem __iomem *shmem = smbox->pchan->shmem;
++	u32 valid_signature = ss_id + PCC_SIGNATURE;
++
+ 	if (smbox->pchan->shmem_size < SCMI_PCC_SHMEM_OVERHEAD ||
+ 	    smbox->pchan->shmem_size - SCMI_PCC_SHMEM_OVERHEAD <
+ 	    cinfo->max_msg_size) {
+@@ -632,6 +635,11 @@ static int pcc_chan_validate_shmem(struct scmi_chan_info *cinfo,
+ 		return -ENOSPC;
  	}
  
--	fwnode_property_read_string(dev_fwnode(info->dev), "compatible",
--				    &c_ptr);
-+	if (fwnode_property_read_string(dev_fwnode(info->dev), "compatible",
-+					&c_ptr))
-+		c_ptr = scmi_acpi_device_hid(ACPI_COMPANION(info->dev));
++	if (ioread32(&shmem->header.signature) != valid_signature) {
++		dev_err(cinfo->dev, "invalid PCC shared memory signature\n");
++		return -EINVAL;
++	}
 +
- 	dbg->type = kstrdup(c_ptr, GFP_KERNEL);
- 	if (!dbg->type) {
- 		kfree(dbg->name);
+ 	return 0;
+ }
+ 
+@@ -667,7 +675,7 @@ static int pcc_chan_setup(struct scmi_chan_info *cinfo, struct device *dev,
+ 		return ret;
+ 	}
+ 
+-	ret = pcc_chan_validate_shmem(cinfo, smbox);
++	ret = pcc_chan_validate_shmem(cinfo, smbox, ss_id);
+ 	if (ret) {
+ 		pcc_mbox_free_channel(smbox->pchan);
+ 		return ret;
 
 -- 
 2.43.0
