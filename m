@@ -4,68 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43D5AC5CFDB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 09:03:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C39C2C5CFDB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 09:06:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LIUCyI1DmaIJkYpbNrBXxcSosIT/TqoljgTn7CMHNp0=; b=tiBpGiusZSW5bai3cWkR6jV75B
-	YxyBDjWOQTJPY3AmLJ1kj9soW6uNvQhXnAd0MzzujZ4FFHu3AAcdbBjEszxLV8VP1tGhPftAzna3C
-	86ouyJSn+3u3lAQZb09ZTS3fjstUbCrNRNAnNyHwJGCeQO7I9EoLQuY2EbyVbk7XT5Rk+51lvtaUM
-	3VAVdggbB7mQ01p3pu4ZjHxs72NIlGxEbXjy9lT6/qBfL7r8W1dfnjBzb/QY0BjXwO5d+ZJPiTyU/
-	YBsRHI/99NT+4eBHdIRYYO5nM3IUF74By1fOHh97X76iJDctcyHifjZqhJxUwkPy/fwJIjx46b1AD
-	12PHhqeA==;
+	bh=fbqFz9oC4bda8ogv6FXwjJKlN9QVBN3oOqLozCtFF5k=; b=f3WW1Jeivo5iO4jP4dKpdgKiCU
+	VuJ0mlJFpxOBu4zwuJhrW62RconI3Y79MxLFlJCyFz5AWC0i46om6sPgezH0uV6TYa48yBag8F71l
+	eL6lz5Zb5f6IuPRTalVAvdWxBItesmMQWTBoMLg7hrWNUWmqj8YOsUR/+lc3wAO9TUEk5f0SnJIuw
+	TeoY2L88zdw3DQHO+rgY/62QATzyW4u7i75x2okLI/BTF5701o6T9Zvt731rtlTgxZ9gD38/fN4eA
+	2KQK6pijSu3BqKHRUwB4C06gOj5dKNWfcQaDsPpFmELqUO5Q/cIaLRCFsJA9dLgl6b+2yH3c4rArJ
+	jpnUN+OA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuRLK-00000000Ekl-3HCW;
-	Thu, 13 Aug 2026 09:03:18 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wuRO6-00000000F8R-18ne;
+	Thu, 13 Aug 2026 09:06:10 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuRLK-00000000Ekd-0qs2
+	id 1wuRO5-00000000F86-17bv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 09:03:18 +0000
+	Thu, 13 Aug 2026 09:06:09 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 96D81600AD;
-	Thu, 13 Aug 2026 09:03:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FDD51F000E9;
-	Thu, 13 Aug 2026 09:03:09 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 45C7A40AEA;
+	Thu, 13 Aug 2026 09:06:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB5261F000E9;
+	Thu, 13 Aug 2026 09:06:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786611797;
-	bh=LIUCyI1DmaIJkYpbNrBXxcSosIT/TqoljgTn7CMHNp0=;
+	s=k20260515; t=1786611967;
+	bh=fbqFz9oC4bda8ogv6FXwjJKlN9QVBN3oOqLozCtFF5k=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=Ht27A/7P5ZRM0WD78BiwoVAkJUPSuCeoGk/qSh0fAfqEDbt6ctl9oMyLiVF+Hun6i
-	 XBqb5L1d73+0Cn+G1v0VIGTcNlz5xvFMWiWsCohYJVc4/XJc8Xh7l6sUzxw7R/PAjt
-	 Y6RtJsaWMb1C++ybFL5QSiIfsymIDEOnqI9nwfaqg/uK5YXCY2vrYQJeNgtXJ1q1vv
-	 8OXR8rI41EOJsFLvcm8diDqtBsp0ZxlQwm6Tc+h1kTRZUQIBa701J1lUls8D3fM7MG
-	 nqW1qR8oD9I9Mnj5MU89/8czjzmiUK5gxy93eSDIn+Ph79+rwLbYJd9/1sBkxDSaI+
-	 eM12gI05bVh0w==
-Message-ID: <cf1e1514-fb92-46cd-95a3-9c857bf08f66@kernel.org>
-Date: Thu, 13 Aug 2026 11:03:06 +0200
+	b=mBl9+9CbDX5jAtJsin25vEmWjMliO/w9uYjoxk2GKI6inAqPfgbUMtIm1eqdQXpJs
+	 Y/n44PyGqLx1JoSyCUeYbz2TNz/0cK/sNb5hz50O6CcwvjhvcXc6RJ6AkBksanYSrG
+	 pPmTUIZI5KeGUGxlK1CSk99J7IWbz1cSrnB/L1hicDe5n8C48yrTHDN+plCAJaysqO
+	 sCj7x8d6YH2bY7i/frXrQIUNbsOam6akMyFAzgtGlCJN0vrEY+/5pHpi063RJwcqjs
+	 SPRg5SC0r0qnvi70bGlP7p2vGIO8RXaFnf3dlY98qVKoP3uZ39hPOe/Of+iS6ojGn5
+	 F+cK33UGefOTg==
+Message-ID: <7a1006c2-68b0-417d-ba3c-2efbb72f503e@kernel.org>
+Date: Thu, 13 Aug 2026 11:05:59 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/4] dt-bindings: lcdif: Add endpoint bus-width
- property
-To: Alexander Stein <alexander.stein@ew.tq-group.com>,
- Francesco Dolcini <francesco@dolcini.it>
-Cc: Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
+Subject: Re: [PATCH v2 4/4] ARM: dts: vf: add Iris carrier board support for
+ Colibri VF50 and VF61
+To: Francesco Dolcini <francesco@dolcini.it>
+Cc: Mehmet Fide <mehmet.fide@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Stefan Agner <stefan@agner.ch>,
  Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- Francesco Dolcini <francesco.dolcini@toradex.com>,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-References: <20260812132954.148571-1-francesco@dolcini.it>
- <20260813-classy-boa-of-apotheosis-57207e@quoll>
- <20260813083402.GA19687@francesco-nb> <7661119.LvFx2qVVIh@steina-w>
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20260810140053.2793495-1-mehmet.fide@gmail.com>
+ <20260810142047.2811230-1-mehmet.fide@gmail.com>
+ <20260810142047.2811230-5-mehmet.fide@gmail.com>
+ <20260813-comical-elastic-beluga-abcb1d@quoll>
+ <20260813084246.GC19687@francesco-nb>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -111,7 +105,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <7661119.LvFx2qVVIh@steina-w>
+In-Reply-To: <20260813084246.GC19687@francesco-nb>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -128,67 +122,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/08/2026 10:56, Alexander Stein wrote:
-> Am Donnerstag, 13. August 2026, 10:34:02 CEST schrieb Francesco Dolcini:
->> On Thu, Aug 13, 2026 at 10:10:43AM +0200, Krzysztof Kozlowski wrote:
->>> On Wed, Aug 12, 2026 at 03:29:49PM +0200, Francesco Dolcini wrote:
->>>> From: Francesco Dolcini <francesco.dolcini@toradex.com>
->>>>
->>>> The DPI output of the LCD interface can be configured with a bus width
->>>> of 16, 18, or 24 bits. Introduce a bus-width property to the output
->>>> endpoint, specifying the number of parallel RGB bits connected.
->>>>
->>>> Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
->>>> ---
->>>> v3: use video-interfaces.yaml
->>>> v2: use the common bus-width property instead of the legacy interface-pix-fmt
->>>> ---
->>>>  Documentation/devicetree/bindings/display/fsl,lcdif.yaml | 9 +++++++++
->>>>  1 file changed, 9 insertions(+)
->>>>
->>>> diff --git a/Documentation/devicetree/bindings/display/fsl,lcdif.yaml b/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
->>>> index 2dd0411ec651..1f3daf002707 100644
->>>> --- a/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
->>>> +++ b/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
->>>> @@ -71,6 +71,15 @@ properties:
->>>>      $ref: /schemas/graph.yaml#/properties/port
->>>>      description: The LCDIF output port
->>>>  
->>>> +    properties:
->>>> +      endpoint:
->>>> +        $ref: /schemas/media/video-interfaces.yaml
->>>
->>> This won't work, you need to test your DTS. The port schema does not
->>> allow video-interfaces properties. You need port-base, like in every
->>> other case.
+On 13/08/2026 10:42, Francesco Dolcini wrote:
+> On Thu, Aug 13, 2026 at 10:22:04AM +0200, Krzysztof Kozlowski wrote:
+>>> +++ b/arch/arm/boot/dts/nxp/vf/vf-colibri-iris.dtsi
+>>> @@ -0,0 +1,125 @@
+>>> +// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
 >>
->> Thanks for the review Krzysztof
->>
->> Given my testing was not ok, and I am not sure what I did wrong exactly
->> on my tests, is this the change I should do?
-
-Yes
-
->>
->> diff --git a/Documentation/devicetree/bindings/display/fsl,lcdif.yaml b/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
->> index 1f3daf002707..89cea0c14cf1 100644
->> --- a/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
->> +++ b/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
->> @@ -68,7 +68,8 @@ properties:
->>      maxItems: 1
->>  
->>    port:
->> -    $ref: /schemas/graph.yaml#/properties/port
->> +    $ref: /schemas/graph.yaml#/$defs/port-base
->> +    unevaluatedProperties: false
->>      description: The LCDIF output port
+>> Odd license ("or later"), but I guess this is a derived work of existing
+>> code.
 > 
-> With that change:
-> Tested-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+> Not related to this patch set, but related to this comment. As Toradex,
+> for some reason I am now aware of, we traditionally use
+> 
+> GPL-2.0-or-later OR MIT for DT files.
+> 
+> Should we consider moving to GPL-2.0-only OR MIT for our future
+> submission? Any additional info on the topic?
 
-Please do not. Build testing is not testing (in the meaning of
-"Tested-by" tag), otherwise where is Rob's tested-by tag for all the
-patches he build tested?
+
+Linux kernel preference is GPL-2.0 (not "later") and this should be
+used, unless your lawyers requested something else or you have derived
+work, obviously.
+
+For the second part, preferred is to be consistent with the bindings
+thus use BSD-2-Clause which is, I think, fully equivalent to MIT.
+
+Although none of above comments is worth relicensing existing code or
+rejecting a patch.
+
 
 Best regards,
 Krzysztof
