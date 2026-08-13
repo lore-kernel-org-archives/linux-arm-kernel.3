@@ -4,63 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C83EC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 18:35:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EF9BC5CFDB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 18:45:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XZgQqfWhjeae346F7UzshHYB0WN20rOZoF9gnVt76tU=; b=g4oJS3EJyrL17j8g9FYV0qh2XM
-	XKs+7njuNlRmKoSd+Kjz3trnPZoNme53U97wOcpHOIxDgMmdVCZRpJOpzIieIKkjxx9v6Q0Ca2AcD
-	JSE2oCvAJS7V/+9BVfHW95LRKDcd4OihYEIwydnNSL5rM+hXFRuAIrgwd4Jpowkg4aLqjuqVOC60D
-	GZm0NAkt9JmSV3rCyJ5T7pqo++VUweABww/Fiv1GCNIb+YDxd3p1CBuxOambLx1KERiU7swyBlQwm
-	UUd9WTPd4QV1caOdIk1WbyAex3WTfCT85TzeXHweGNcPS/xpljpaZhZ70ZOGzOSKbONvai/S22MPx
-	QNaIzXYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=phkEPNm95bzYNOZgAgMUx5XENpoN+CmJBdRK2AvZ+NE=; b=oYYynXAzycfrE2i3/44BxoSwVD
+	B7dCfYMyTP9kkYAy3peUywm4f6rXh8QL0tAtaPuML7ddeOggaySKskWdLsud6MXOhyZu5rh6XTDwq
+	q8P/nRE4NDrJXdcRZABFnzAsJRe37gZc4UsGIv8at9+FtJd7hmm1DxqA3pBst0s0ZFKvRJT3VZ5RU
+	Yayi6g+Zz4/P8Np5OKd0qFdmCK+XLCeH21aLreIZeRibjADjm17e+lwazUn6rZ9A7Jgp/BiKZ2fJK
+	pIZPGA4oeRB8Q+rt0B60G8YmRxITDNqwlUCZia19xrrKdSOTMQn5bNf+waDAbHKpOvECUDkJh63pT
+	i9AEYAlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuaH8-00000001OTU-0ZDg;
-	Thu, 13 Aug 2026 18:35:34 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuaH5-00000001OSu-1zTN
+	id 1wuaQp-00000001OxE-2dJz;
+	Thu, 13 Aug 2026 18:45:35 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wuaQm-00000001Owp-1Zb9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 18:35:33 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 731871AC1;
-	Thu, 13 Aug 2026 11:35:25 -0700 (PDT)
-Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 979B93F66F;
-	Thu, 13 Aug 2026 11:35:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786646129; bh=ypR6W/dNnMSW894YQ07/N4UOntpoZiX7QMEFKrEpAwo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=eks41NNLCuKhGX7jr3b/ziw2jjyu4b6RY3o7+K2p0YxThjLoC/ZsyCEtj8CxqIhVy
-	 Fqk0SRdFHB1WN7neolRNAGa7ZAnT+htTuk+Dwmf9o84jM5TUixFXCRkY8EcbeGwoFR
-	 9CNz/IogP70V7fqJ/A0slCmbuBMDXlRsMhOhtZYM=
-Message-ID: <5b01a446-929a-4b35-8f6f-174175a87ff4@arm.com>
-Date: Thu, 13 Aug 2026 19:35:25 +0100
+	Thu, 13 Aug 2026 18:45:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=RhofyKQkrqc39yV28paaNDbVVVHQuO32jBZlOdMSXZ3SZKRz+7ERznW6YnAdIuh0trRY3b/fD8D/NVm0PhcSYg6Rf51chvMfeKo6kKm2fMcVs52QS1/IEcxaMJvsxDCqr81VPjv7DhtGfj28RiLztXJ8QSAIuom4pCe/9wLSuT2OGGNgmMAhvJWBLGhCe+lbH9zpjfNVr/TLVt+MSR5TWRjVjGlHHXkpA1zg4/wFsM9TVK7NwiMhG6KJ5Y9QRQsMP+aAoAcdtjPADShqe8MlrFm3te7DGwkbp+wqfShqS/lvEmq9/QgT17Idec1QvEMJ8PSHUTaEGNasQxMIBt/PsQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=phkEPNm95bzYNOZgAgMUx5XENpoN+CmJBdRK2AvZ+NE=;
+ b=Fm231QRFda04K350x77UfTIOCTiJR+7+2ZcQFPH+Fvs1gUI+8kXXX5UQ6POYzEuvdH2RQyz6kiATJ7lNFwEe5jps7POuf+P4YWrUxP1fu4n9B3r2PsRvxCpO6ea9PbZKPIu2tRGPCVwP6s/KDOYo/LOscMh5wvE5Nm92uWCEykPi9fEivlWotk1wZxX9ycUi+hk382Uc1tCN/L8Y9/f6RXeoZtw3lkBJX42iFQHhYSsHImq2jeQRxByUNQlDw3rolfuCwhkGl2wnG/HoER4grNQgKDJIXQf01bDKjx/jl45DyEkhuld2jCreyeL/EzWpPHyfzAW5mA7nR/tggZdcsg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=phkEPNm95bzYNOZgAgMUx5XENpoN+CmJBdRK2AvZ+NE=;
+ b=qOHRKSNN05sgPTN6fYFKuhUwjU7318u1L94w49HnpQLRD0XFos+oNhaApX5+a8AFjbF1/7Y2UNg/6QzUY86Lxil+gHMlvY45rTyTS0dlRVirqakFidUmmAGMXD3mPBVBlB0mnYhuoZRi6Uo1p4vfau0SfexPWggZWOXXqcc1P+XwsiSlozpEc3ekyhJRhMvl1uUTIlDHl/Eb6pPMhXw+SjDa9xJuCXaISvWS2k3y/NsERZusdm7bBIDu57rt2w2CrhpT0YP+lzVwdplgHYUsswVuXnOG7eT8wZbvRrlBaoq+5J0/AXUBxujZ8uHpl00GOpw4A1JwUiDNVGA30Hda+g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AS5PR04MB10060.eurprd04.prod.outlook.com (2603:10a6:20b:676::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.15; Thu, 13 Aug
+ 2026 18:45:26 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0315.014; Thu, 13 Aug 2026
+ 18:45:26 +0000
+Date: Thu, 13 Aug 2026 13:45:19 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Thomas Huth <thuth@redhat.com>
+Cc: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] soc: imx: Replace __ASSEMBLY__ with __ASSEMBLER__ in
+ header file
+Message-ID: <an4Qv6kA-hnbUYaA@SMW015318>
+References: <20260619122448.188046-1-thuth@redhat.com>
+ <b82da069-b76c-47f6-bf8e-f47701cb318e@redhat.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <b82da069-b76c-47f6-bf8e-f47701cb318e@redhat.com>
+X-ClientProxiedBy: SA9PR03CA0025.namprd03.prod.outlook.com
+ (2603:10b6:806:20::30) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/2] ACPI: IORT: validate node and RMR extents
-To: Pengpeng Hou <pengpeng@iscas.ac.cn>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Shameer Kolothum <skolothumtho@nvidia.com>, Joerg Roedel <jroedel@suse.de>,
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260813160118.69153-1-pengpeng@iscas.ac.cn>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20260813160118.69153-1-pengpeng@iscas.ac.cn>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AS5PR04MB10060:EE_
+X-MS-Office365-Filtering-Correlation-Id: edd360f5-f3c9-406d-6d1b-08def96b0a17
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016|23010399003|19092799006|56012099006|10067099003|11063799006|4143699003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: HylSyw5GKzhsfaEII455LXXk/mgYbfiyJbQVabi9o+Narvzu+yUWHcrfV3SHVQI1tjiN1BH7XIA/yHxvTHAK6xbalcedd1A8hoGxk6DJTpNqUCBF/AwwfxCLoQ7dHl3dlkcG7pVstoEHfNkjgNFh+YDgRDkzxqRHyVv0I2i9JH7Ih1U8n0SRnrEyFMZL5itY7xVfoI3zCm8H5GtUFXtrb8dKAqgbMTyjpIOehSsLj3b3JH587HbuOBw0wNW//uxrt1t6yqqmqEPni23K89PYp2v1UpNUrvw6i8r9t4v2uOdU54YT8edp7akrxD3HyWZY6fm7zJZ5GWf5ouRokDht74+JDac0U7nxMBT7CZJE9EsvtcAIXy1g1SMCOD9p/CkiYif6yjMaxLhIFCRv3YOwSXw2tzH4TGbi4VFse8Tv6r9k7uNsgyEkKEt0qvfDs3FYEjIHlZPZCV5IceJOB6/Job2ADwa0umiK7I6cZ+eMYvysvKadb5mwx2ns8VnM3iOl/sjDMNlVlrZTGCyNvRTn2wxiSXKQ7NU9T+V6fJ3xZ0pv/l5BriFTU23D5/roUioXU2/0egYl5l7gAXNWkXwddhrrxsr9QDdTuRHIckq61AM4Rrp8C1M0n1XNGKLQETgWO1lCukVVoaqJgKCxGDxx8ZQTg097TaFR0fknKTDiMs8=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(23010399003)(19092799006)(56012099006)(10067099003)(11063799006)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?I6b8b58A6ll0rt0xP2bYiQjVe0wrORxHbHyXVATgZn+lm7A5fAflOC9/CoZS?=
+ =?us-ascii?Q?KLGJJ65+kTiEClRkaAxgnYdt177KC8DJBo/6sytXZKYWMZp8iKcb4CYH8NYb?=
+ =?us-ascii?Q?siuI/kCJMLwItOvvTnOtYwwHidfIZcyluB4nJxs5IRZWlj6BS9b+ADe1IwAV?=
+ =?us-ascii?Q?WN156FMXEBK4f7k13tR8piGSLviExEqrK1Mup4tK00b87ma3GcHG27M0o/mp?=
+ =?us-ascii?Q?8DGmne/XYeljC7Gx4EHOyPFa2kP/IpVRruR/63wYINMFiICyHq0OBbkFpKQd?=
+ =?us-ascii?Q?Op76iDDavqTpdSFLHGfvAPYVzTQFf6nFMevC1bCuUX+8R869CQjZALb0t/s7?=
+ =?us-ascii?Q?6MKuBWWMXuo9/GxAkn6DaFeXCmUp5qByHChc+6qm8l/+pqU5TbwUcIte4qG/?=
+ =?us-ascii?Q?7fjDTKveSN5KrgVCBANvQxMAqf+VkUMxOWml+aZTsCDg2s0PnqTNSZgrRrbl?=
+ =?us-ascii?Q?tp0nRLk2RBMbt2+r5PW6fFC7FJaHgivAAb0AJ3R8JqSnXSk+DisfRAJXxNmc?=
+ =?us-ascii?Q?OjhwTefvvjCYDmOXKOcAWFAWT9m9kEH4+MNzeE5kk8tFNadFjjr7m5sYWBG1?=
+ =?us-ascii?Q?DXod1qiMHxoVxhr+NeH623Ry/Yuw3o3I2oloUgey8souxeYIndiZYzbDOARV?=
+ =?us-ascii?Q?i2FTK9PnCw43MSFjfBsaZuVAHNxXIh0LF61FUuDeILRYkFxaXBsnYMTI+YvV?=
+ =?us-ascii?Q?8JDuY4CaF5VEigp+f28Ssm85LHwkyAUvDi/WTiEgJ0uQtwxovh0zM0UDqIhA?=
+ =?us-ascii?Q?50N1gQv11+lck3FnWdWmMW2J3llzMxLYA0Lwu5tVNm+t500obGojZc+EactV?=
+ =?us-ascii?Q?X+1ACaXUfzX4Bdpolj9EU4r+rfwP7xduCAOwJQXEh/8ZH3CKF3CF09RjwrO+?=
+ =?us-ascii?Q?THNNwSk8jh0W4lxCq6N1LBYE+58K6v4dBwoum388nUM+1VH5q7ArnJ7v6eWw?=
+ =?us-ascii?Q?z7J/yTZ2JCS9UD04TXAHNTiZO14+LwgwlLOYRHYMSXMZlPGZgIb1h4Tuc7I4?=
+ =?us-ascii?Q?mJg+31Hltcl74Zb+mxxLRqo/U3K8sjaWs70IU6EwtP/HNXsMmZmHNsr6jrj7?=
+ =?us-ascii?Q?xV4N/yEBNs8+z69XkLs7TmwEq7kFxiomTKYceADaJqySShBskiARa0+yfzQB?=
+ =?us-ascii?Q?YTzr0e9mY9WUktnAJdM7OnC3YEI3fLmD7X8vev6pjodw3HZ9R3znhQbXiPNJ?=
+ =?us-ascii?Q?zzbIvbGDwcGBNU+rUAUQESuA7hCWDoYvCY8xJZ2rN4NUi/1jj/vl6vSYOMsc?=
+ =?us-ascii?Q?HywsHyt9eoPCYnZ68CbJioPhfBcLnxwMoUDggTdKDSZ+IQgKtU4Kz/eYlvUf?=
+ =?us-ascii?Q?dta3UxNDAxd5bkMMyv6nRKkzejGycgOZiN0WwOwYjiZsG74uCOdOfvwoZX2v?=
+ =?us-ascii?Q?XWCs3K8QX7BHYZrHq4uEPF71SYg84P2oB145pbZW62bN09GZEKw/G0wr/947?=
+ =?us-ascii?Q?5PfLgORlj5OhSVtSfIUozteJD6R155MCODUEt18gblIXmePaqN4fn139IV9P?=
+ =?us-ascii?Q?FfV1UmsjxtmJUnRZ9AbcrVQaVyOkGVQ5bRLexxYFkqX3uWT50mkSWCN4r3vz?=
+ =?us-ascii?Q?C0l0pkqiVxdFOK4WsdSxf8TjNREMIsl2auO4A++N4D6vfrQ0lSW/RvCyMmav?=
+ =?us-ascii?Q?yMlcv07u26L06ylnybq0gUiNw3J30FybO87SE6/HhBs+Zfn/gHvoOJ9UuKn8?=
+ =?us-ascii?Q?JfC1XlODiO546Kks1IkACo9ugcUoAOVYeHx7+3BHeM8rnnYqAXgctablh1qy?=
+ =?us-ascii?Q?wlXBMjDlo0/egSENzsuzTrAz544xIIjrCEwbEtGRstwxM1w3L3EN?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: edd360f5-f3c9-406d-6d1b-08def96b0a17
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Aug 2026 18:45:26.2449
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: HnwzahszJ5O0y0SaFHV3lOp3cH9E7ymnYJLMrmHyhRnCCoF4kmBHgm+a4pNps7apGPqPbkoWz3bDoHf62eUUEwylwEuY3pdqZJNDyBFJHcPvek+GrQFK0yaNw487yKnS
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB10060
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_113531_630295_707DC014 
-X-CRM114-Status: GOOD (  19.62  )
+X-CRM114-CacheID: sfid-20260813_114532_426626_EDC81744 
+X-CRM114-Status: GOOD (  23.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,69 +139,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/08/2026 5:01 pm, Pengpeng Hou wrote:
-> The original patch combined the generic IORT node walk with the
-> IOMMU-specific RMR descriptor and ID-mapping arrays.  This version
-> separates those contracts as requested.
-> 
-> Patch 1 validates the root node area, complete node headers and advertised
-> node lengths in each generic walker.  Patch 2, built only with
-> CONFIG_IOMMU_API, validates the fixed RMR payload and both arrays before
-> walking them.
+On Thu, Aug 13, 2026 at 09:35:38AM +0200, Thomas Huth wrote:
+>
+> On 19/06/2026 14.24, Thomas Huth wrote:
+> > From: Thomas Huth <thuth@redhat.com>
+> >
+> > While the GCC and Clang compilers already define __ASSEMBLER__
+> > automatically when compiling assembly code, __ASSEMBLY__ is a
+> > macro that only gets defined by the Makefiles in the kernel.
+> > This can be very confusing when switching between userspace
+> > and kernelspace coding, or when dealing with uapi headers that
+> > rather should use __ASSEMBLER__ instead. So let's standardize now
+> > on the __ASSEMBLER__ macro that is provided by the compilers.
+> >
+> > This is a completely mechanical patch (done with a simple "sed -i"
+> > statement).
+> >
+> > Signed-off-by: Thomas Huth <thuth@redhat.com>
+> > ---
+> >   Note: This patch has been split from an earlier bigger patch of
+> >   mine to ease reviewing.
+> >
+> >   include/soc/imx/cpu.h | 2 +-
+> >   1 file changed, 1 insertion(+), 1 deletion(-)
+> >
+> > diff --git a/include/soc/imx/cpu.h b/include/soc/imx/cpu.h
+> > index 0bf610acafd06..8c53150acd76e 100644
+> > --- a/include/soc/imx/cpu.h
+> > +++ b/include/soc/imx/cpu.h
+> > @@ -30,7 +30,7 @@
+> >   #define MXC_CPU_VF600               0x600
+> >   #define MXC_CPU_VF610               (MXC_CPU_VF600 | MXC_CPU_VFx10)
+> >
+> > -#ifndef __ASSEMBLY__
+> > +#ifndef __ASSEMBLER__
+> >   extern unsigned int __mxc_cpu_type;
+> >   #endif
+> >
+>
+> Friendly ping!
+>
+> Could anybody please pick this up? Thanks!
 
-But why? If a platform really did have an IORT that's so obviously 
-malformed or corrupted, why would we assume that all its other ACPI 
-tables are valid enough to even be able to boot as far as running this 
-code? Or conversely, what if the table does happen to have the correct 
-structure but is still full of nonsense such that we end up exploding 
-later when a driver touches bogus iomem?
+Sorry, I missed it. It is too late for 7.3.
 
-Mainline Linux is not a firmware validation suite; if we can't assume 
-basic stuff like table headers are correct then there's basically not 
-much point in even trying. Also it is highly unlikely that people who 
-write firmware would ship it without doing any testing; if Linux crashes 
-horribly the first time they try to boot their new build, they're 
-probably going to notice that something's wrong. However, from 
-experience, if Linux does successfully boot to a shell then they may 
-assume it's fine and ship it even if the IORT node ID mapping offsets 
-are bogus so MSIs don't work and devices have fallen back to legacy 
-interrupts...
+Frank
 
-Thus if anything there's an argument to be made that the more we try to 
-be robust against unreasonably broken firmware, the more unreasonably 
-broken firmware will propagate into the wild. And if you think people 
-will care about kernel warnings, try looking at the boot logs of just 
-about any production Android device ;)
-
-Thanks,
-Robin.
-
-> 
-> Changes since v1:
-> https://lore.kernel.org/all/20260706094300.82618-1-pengpeng@iscas.ac.cn/
-> - split generic traversal from RMR array validation
-> - validate root node_offset and node_count before pointer construction
-> - scope RMR helpers with their CONFIG_IOMMU_API users
-> - document why a zero-count array needs no offset validation
-> 
-> Testing used Linux 3d6d817622b0 plus this series, GCC 13.3 and QEMU
-> 8.2.2 with a Cortex-A57 arm64 CPU model.  A temporary KUnit harness in
-> iort.c called the actual static validation helpers; the harness is not
-> part of this series.  The acpi_iort_bounds suite passed both tests,
-> covering invalid root offsets, truncated node and RMR payload extents,
-> and out-of-bounds RMR descriptor and ID-mapping arrays.
-> 
-> This did not exercise a platform-provided IORT table through the complete
-> boot-time discovery path.
-> 
-> Pengpeng Hou (2):
->    ACPI: IORT: validate table and node extents before traversal
->    ACPI: IORT: validate RMR node array extents
-> 
->   drivers/acpi/arm64/iort.c | 117 +++++++++++++++++++++++++++++++++++---
->   1 file changed, 109 insertions(+), 8 deletions(-)
-> 
-> 
-> base-commit: 3d6d817622b0a9721e3cc404df3469171582be13
-
+>
+>  Thomas
+>
+>
 
