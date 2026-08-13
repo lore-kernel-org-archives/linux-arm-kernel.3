@@ -4,78 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BBBFC5CFCF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 00:03:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAD4DC5AD5A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 00:06:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GwCTpCXh9rcScl0BR+msQzZZgOaQLIyE12sHaz6kHFY=; b=KMrKj/kMPWcCBwi7UG0fdh/JdS
-	RRgqG0cx4mWXJ6LQTugwHa2hIneQrO/7nJ+E0aljQyVP1y/wnbn0ykoGdFgQ/LAOAzzc4QCUbjdQ/
-	9TZNiXTKh505gS7bZtGYhVXO7y0otIngS6suvLJpyUO9i7DoBx72fiff1lDHn2AJxWoHvOd3DyViL
-	BU7J4AX7XjDXdBVOSePejt3pMO4oa9D4qJ/QA2tBynefoNOLnBqXmYh830pU+/ZmqYQ1e//DRwGjm
-	9whs62fttpdU4qwBioyMe/sp3d8+1m6unRR5GiEEl/0gh85Kw89xze410i5sSHkLYnb8EhVodi3bh
-	2AvcgGKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Wx5qD1bTE3okJgcwPgCBz83Zocyi88FPJfPF28sTzWk=; b=czsLnXs+PrIeN1iLMtAnkdrmC/
+	ke5xkkmHKxePouLsgDWi25w3D4fvecZu0rna4Kq0NlZ57ewszKmbjtGNUi4b+aLDGU6pPJ4GmNWSU
+	ZjQWxRswYt/UGcoE/cE826vO4GUriIeYkc/sJhOma2v7XJ8IAXJ48yE+zjjy8gnFhyhc1duAsGNB7
+	DdALoq0K+yMH7FOW2DaKqNzIV4oddPaDZDvBArkW2skoJ261Jkt3egEbBk7JO6ZqC/JTYFxrJrZbA
+	OVPVP+h4MKLLfldlFBpoDbaKnv8lqEY6qF0hGT44E5Z+DbaxqP0wB5wNKSdKyEPQ+ImqtB2eN9qAY
+	gDvYNfRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuIuV-0000000HBNW-06b0;
-	Thu, 13 Aug 2026 00:03:03 +0000
-Received: from sender4-op-o11.zoho.com ([136.143.188.11])
+	id 1wuIxb-0000000HBbZ-2MXQ;
+	Thu, 13 Aug 2026 00:06:15 +0000
+Received: from mail-pg1-x562.google.com ([2607:f8b0:4864:20::562])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuIuS-0000000HBMy-0kN1;
-	Thu, 13 Aug 2026 00:03:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1786579367; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=mE3WnUoLG3PUyof3yAn4yRvDiIrO4wbFpZ5Ud92qrGj9XTtKGSa6tSlrA7R303WjqU26tuU0tyz7jDpZaOh0fOtogp4MN5CqiqY4yfQ9ANQb4CrFe9MA2Ue48RzMu5aN0KYbtzZpi9hF2v0F0/U/H+BsVg1fQ+0jXO+uCgbnSFA=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1786579367; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=GwCTpCXh9rcScl0BR+msQzZZgOaQLIyE12sHaz6kHFY=; 
-	b=ORJ/bNkhDm2UONTIxn3MZ0yL7MMfKYIt8+e8BY3FnlcHaDIHrsMMZcSBffinQCYWsn+N47d3a7iePjYpIsGuLP8lNidJqlhQqs80gLdAIAXXxLsv11Auqw5ykW/mn424uUV1Esz8M+e6/37Vwc2c+ACm6C9q1JwzHs/Iz2c77tk=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1786579367;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=GwCTpCXh9rcScl0BR+msQzZZgOaQLIyE12sHaz6kHFY=;
-	b=hpIspdneOTXlzv3nDG+Xon+wLKRBuMicjfpQglMZOWyYeHtal3rudHDv+pagWEPq
-	ScfCMYxDfDXByWgGdIdW2W8BrktQYqrgjd9cdxXIEJVy0I3JjC+wrePejalVGThQZuC
-	BogdP3Lfalu7LOXLIM9h5OaVut02sx9zWcubYmok=
-Received: by mx.zohomail.com with SMTPS id 1786579364116535.4259576810091;
-	Wed, 12 Aug 2026 17:02:44 -0700 (PDT)
-Received: by venus (Postfix, from userid 1000)
-	id B01EC18057D; Thu, 13 Aug 2026 02:02:38 +0200 (CEST)
-Date: Thu, 13 Aug 2026 02:02:38 +0200
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: =?utf-8?B?5qWK5pm65oiQ?= <jason98166@gmail.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Vinod Koul <vkoul@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Guochun Huang <hero.huang@rock-chips.com>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Michael Riesch <michael.riesch@collabora.com>, 
-	Bryan O'Donoghue <bryan.odonoghue@linaro.org>, linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 1/5] dt-bindings: phy: Add PHY_TYPE_DSI and
- PHY_TYPE_CSI definitions
-Message-ID: <an0FMnDSWbud8hPc@venus>
-References: <20260810-dcphy-rx-v1-v3-0-a2d25c29adfc@gmail.com>
- <20260810-dcphy-rx-v1-v3-1-a2d25c29adfc@gmail.com>
- <20260812-refreshing-rampant-gecko-b38ef9@quoll>
- <CAPwA33KM-sWkPVrP1h+swLinvrCZHzxPeS7h25KEO87Q_6WZuA@mail.gmail.com>
+	id 1wuIxX-0000000HBaZ-42lk
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 13 Aug 2026 00:06:13 +0000
+Received: by mail-pg1-x562.google.com with SMTP id 41be03b00d2f7-ca97d139d5fso1371416a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 17:06:11 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786579571; x=1787184371;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=Wx5qD1bTE3okJgcwPgCBz83Zocyi88FPJfPF28sTzWk=;
+        b=J5bLE0ICW0/DmJTMnaTD7++gAoOYHcM9HWqQHGQOI2Fmi91NMoZl/QR9pkbxVL/H3S
+         r8NNA9GNWdeCYDIYHvlDWBaKJTWL0D/2DT9ORbRIFRwuINOoJppuA8GqENPN7gSkq094
+         OSW3yBSf45Icd9n27Bb0rMFljRdIXyWgXHFDgtfXOEDbLkDhYXB+RsbTxNsUTFsQhnxK
+         SKpY1s3qSSh7qpPHkqZc4OuJqJLJledbk2xk+KXIy6FnNZF9qqE+22ZgIWqSJRaC5qkf
+         4b1HXrbNL7UOeNd+Zbnk+pMvPHoWDzMAXINXqKLOgcdFTK3ICvCDNpJk9XNHgIW2VdKs
+         fgCQ==
+X-Gm-Message-State: AOJu0YwIIE7u6gqhbMwEj/V8vYZkHb6ZsdUVwSTcYcggUIHhO8YV2/z5
+	HFEhjBYnYCPMXFbOh1Nl0Gs0mrxRZZRLbiwbm94mebwXMsGsHbMxJpzvPOqZv80FboXK6BydLWo
+	uZw73mshiqBW4OzEF/PcqiuJYMbG2eUVTtnR7teRsOPHr59wlDmJQk6+gEQfulUpzCt3EjuLLcL
+	EEHp/bdLecq2LXn295K9EzjobRY23KuTpOyqlhxTb3vyjMkv+S6aQKhP9zJOvLyFh7KRQ3Q8xNW
+	fiVKKQRBwWu2KSh9SMk2c5k+HXhZdnUI3s=
+X-Gm-Gg: AR+sD13bE7CxcK4E8RDyYKnctFiX0n8mD88zIEDCQWR31kyPxSfo2GiqBKJWmqFVmdF
+	g1TWEfIs7nL14et5j8uXFO4KowVE0smxBswA4atJUlnQPb4WsU7MO8VqzSz8lMj10KsjuivFiqE
+	luOiba7E2S3ietFOHslNt/uiE4v3JHYootNhE/+R1Qu3MrKJrfmilKNjUU2AlOZoVlhKLxMwt8z
+	4GyFBO7+g07WpaHdEhyLNgwqrNXGEc7+D96G7nPRmYfGUHtf98NJR/1SRb6a9y34+gl7We6NARL
+	uq3IWQ4UAEi0tGIM/3L7ScK0kUOqbixUDHSKGUZXgrj5Z4we0lUkVe09CaZ+vAW24qhqJEiMg30
+	HcUIDcThqHGSLrj3PLs2Mq9tAAOBzQKzpFOf49Zg0B84cWxTh67PaZelDlh1XbFtAhT1mj37rOa
+	JjfLYYO00lcnptYz/nzTUO8sXB7i1McdqyY2aSCA==
+X-Received: by 2002:a05:6a21:a247:b0:3bf:5b7a:fc8b with SMTP id adf61e73a8af0-3cc54bc9a71mr2927043637.0.1786579570522;
+        Wed, 12 Aug 2026 17:06:10 -0700 (PDT)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-0.dlp.protect.broadcom.com. [144.49.247.0])
+        by smtp-relay.gmail.com with ESMTPS id 41be03b00d2f7-cbef6526517sm187374a12.4.2026.08.12.17.06.09
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 12 Aug 2026 17:06:10 -0700 (PDT)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-92e5e38fbc5so146606485a.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 17:06:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1786579569; x=1787184369; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Wx5qD1bTE3okJgcwPgCBz83Zocyi88FPJfPF28sTzWk=;
+        b=brdy2kzzSgwHy+4XtD3hXmPV+bk1NuPzKHSKXI4btMc26DLa6Dima85siiGB8ztwC8
+         hkDc/YILf2otE8tHFnTG5dC3oSYFD7Zq3ZzYuBueLiau1yY9LZFRN0kRcReQTBy0toKo
+         9vwKGV4y+preR5kDzvsy6HOfUIxn61nmxS6yI=
+X-Received: by 2002:a05:6214:53ca:b0:8f0:5b55:1f64 with SMTP id 6a1803df08f44-90a80b8a548mr18381376d6.20.1786579568996;
+        Wed, 12 Aug 2026 17:06:08 -0700 (PDT)
+X-Received: by 2002:a05:6214:53ca:b0:8f0:5b55:1f64 with SMTP id 6a1803df08f44-90a80b8a548mr18380416d6.20.1786579568260;
+        Wed, 12 Aug 2026 17:06:08 -0700 (PDT)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-90a817bbb3fsm2968896d6.15.2026.08.12.17.06.06
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 12 Aug 2026 17:06:06 -0700 (PDT)
+Message-ID: <e67a21d5-4841-469a-a75e-0987be9b915c@broadcom.com>
+Date: Wed, 12 Aug 2026 17:06:05 -0700
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="kvsrere4zmtnxm4a"
-Content-Disposition: inline
-In-Reply-To: <CAPwA33KM-sWkPVrP1h+swLinvrCZHzxPeS7h25KEO87Q_6WZuA@mail.gmail.com>
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-0.2.10.1.5.2/286.560.97
-X-ZohoMailClient: External
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 1/2] perf: Add Raspberry Pi BCM2835 AXI PMU driver
+To: Ian Rogers <irogers@google.com>, linux-perf-users@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ mark.rutland@arm.com, u.kleine-koenig@baylibre.com, will@kernel.org
+References: <20260812230145.2644281-1-irogers@google.com>
+ <20260812230800.2646749-1-irogers@google.com>
+ <20260812230800.2646749-2-irogers@google.com>
+Content-Language: en-US, fr-FR
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <20260812230800.2646749-2-irogers@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_170300_256871_32FC6362 
-X-CRM114-Status: GOOD (  39.02  )
+X-CRM114-CacheID: sfid-20260812_170612_046563_F8C38455 
+X-CRM114-Status: GOOD (  14.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,162 +150,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 8/12/26 16:07, Ian Rogers wrote:
+> This commit adds an uncore performance monitoring unit (PMU) driver
+> for Broadcom BCM2835-BCM2711 AXI system monitors and VideoCore VPU firmware
+> mailbox monitors found on Raspberry Pi 1 through 4.
 
---kvsrere4zmtnxm4a
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v3 1/5] dt-bindings: phy: Add PHY_TYPE_DSI and
- PHY_TYPE_CSI definitions
-MIME-Version: 1.0
+Missing generative AI tags here?
 
-Hi,
+> 
+> Signed-off-by: Ian Rogers <irogers@google.com>
+> ---
+>   drivers/perf/Kconfig       |   10 +
+>   drivers/perf/Makefile      |    1 +
+>   drivers/perf/rpi_axi_pmu.c | 1793 ++++++++++++++++++++++++++++++++++++
+>   3 files changed, 1804 insertions(+)
+>   create mode 100644 drivers/perf/rpi_axi_pmu.c
 
-On Wed, Aug 12, 2026 at 08:24:11PM +0800, =E6=A5=8A=E6=99=BA=E6=88=90 wrote:
-> Thanks for the review.
->=20
-> > I read above, but still do not get why TYPE_DPHY/CPHY is not enough.
-> > Isn't DPHY implying it is DSI?
->=20
-> I see your point, and I did not explain this clearly enough in the previo=
-us
-> version.
->=20
-> D-PHY only describes the electrical layer, and both MIPI DSI and MIPI CSI=
--2
-> can run on top of it. A CSI-2 receiver's PHY is a D-PHY just as much as a
-> DSI transmitter's is, so PHY_TYPE_DPHY alone does not tell us which one t=
-he
-> consumer is asking for.
->=20
-> That is the problem here. The RK3588 DC-PHY exposes both a transmitter and
-> a receiver from a single PHY block, which can be used by two independent
-> consumers at the same time. This is not a theoretical concern: on this
-> board a DSI panel is scanning out while the same PHY receives CSI-2 frames
-> from a camera. With only the electrical layer to identify the PHY, both
-> consumers would end up with the same phandle cell:
->=20
-> dsi@fde20000 {
-> phys =3D <&mipidcphy0 PHY_TYPE_DPHY>; /* wants the TX */
-> };
->=20
-> csi2@fdd10000 {
-> phys =3D <&mipidcphy0 PHY_TYPE_DPHY>; /* wants the RX */
-> };
->=20
-> There is then nothing in .of_xlate() to distinguish the two requests.
->=20
-> I will make this clearer in the v4 commit message and include the example
-> above so that the reasoning is easier to follow.
->=20
-> For context, v2 described the direction with a Rockchip-private
-> RK_DCPHY_DIR_* enum. Michael Riesch suggested using generic constants
-> instead [1], and Vinod agreed [2].
->=20
-> [1] https://lore.kernel.org/r/82da3622-9c3a-454c-87bc-fb4ec7adb68d@collab=
-ora.com
-> [2] https://lore.kernel.org/r/anSuxfeitSqmSHNr@vaman
+This is more applicable to the second part of the patch, but the 
+dependency on the Raspberry Pi firmware interface bothers me a bit. We 
+have the AXI PMU blocks available on the 7712/77122 chips which are 
+sister chips to the 2712, we don't run the Raspberry Pi firmware on 
+those systems however.
 
-Your new binding is lacking too. If you select <&mipidcphy0 PHY_TYPE_CSI>
-you defined the direction of the PHY, but will it operate in C-PHY or in
-D-PHY mode?
+Once your patches land, I will see if I can get generative AI to help me 
+add support for the two AXI PMUs that exist on those chips.
 
-Greetings,
+Thanks for doing this!
+-- 
+Florian
 
--- Sebastian
-
-> > Your tag goes the last.
->=20
-> Sure, I will fix this in v4. The Signed-off-by tag will come last, and I
-> will check the whole series again.
->=20
-> > Two simple defines needed Claude.
->=20
-> Yes, I agree that these two defines themselves are simple and do not real=
-ly
-> need AI assistance.
->=20
-> I added the Assisted-by tag because I used AI during the development of t=
-he
-> series as a whole, including cross-checking the code, writing additional
-> test cases, and looking up the relevant sections of the TRM. (I checked t=
-he
-> corresponding sections in the TRM myself, reviewed the test cases, and
-> re-ran them on the hardware before sending the series.)
->=20
-> I also checked the current mainline guidance in
-> Documentation/process/submitting-patches.rst and
-> Documentation/process/coding-assistants.rst. Since I was not sure how much
-> AI involvement should warrant tagging individual patches, I chose to mark
-> the whole series consistently.
->=20
-> That said, I am happy to drop the tag from this patch in v4 if you prefer=
- -
-> I wrote these two lines myself.
->=20
-> Thanks,
-> Jason
->=20
->=20
-> Krzysztof Kozlowski <krzk@kernel.org> =E6=96=BC 2026=E5=B9=B48=E6=9C=8812=
-=E6=97=A5=E9=80=B1=E4=B8=89 =E4=B8=8B=E5=8D=886:51=E5=AF=AB=E9=81=93=EF=BC=
-=9A
-> >
-> > On Mon, Aug 10, 2026 at 08:10:09PM +0800, Jason Yang wrote:
-> > > MIPI D-PHY and C-PHY blocks are increasingly direction-agnostic: the
-> > > same PHY IP can drive a MIPI DSI display or receive from a MIPI CSI-2
-> > > camera, and combo blocks like the Samsung IP on RK3588 expose both
-> > > directions to independent consumers at the same time. A binding that
-> > > needs to tell the two consumers apart has nothing generic to reach
-> > > for: most constants in this header name a protocol (PHY_TYPE_USB3,
-> > > PHY_TYPE_DP, ...), while the MIPI entries name only the electrical
-> > > layer.
-> > >
-> > > Add PHY_TYPE_DSI and PHY_TYPE_CSI to select a PHY by the MIPI
-> > > protocol it speaks, which also implies the direction. They do not
-> > > replace PHY_TYPE_DPHY/PHY_TYPE_CPHY, which remain the right choice
-> > > where the cell selects the electrical layer. First user is the
-> > > Rockchip RK3588 MIPI DC-PHY binding.
-> >
-> > I read above, but still do not get why TYPE_DPHY/CPHY is not enough.
-> > Isn't DPHY implying it is DSI?
-> >
-> > >
-> > > Suggested-by: Michael Riesch <michael.riesch@collabora.com>
-> > > Signed-off-by: Jason Yang <jason98166@gmail.com>
-> >
-> > Your tag goes the last.
-> >
-> > > Assisted-by: Claude:claude-fable-5
-> >
-> > Two simple defines needed Claude. Great, that probably makes AI
-> > conglomerates very happy that we do not type even two lines anymore and
-> > need their resource-hungry data centers to do that for us.
-> >
-> > Best regards,
-> > Krzysztof
-> >
->=20
-
---kvsrere4zmtnxm4a
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmp9CZsACgkQ2O7X88g7
-+poMdA/+ICtBJCzEX7PKeAy7Yv55VjRVuT2TXm2zXEzL51T3bDJexKUirtRbfMe8
-MVsbhgPXfK0DqnsEqb3nRuKmW7ZFM73jfdVwkBHNHbbT9B8X6EjTqxWWKhJ1I7Rq
-wRx0Ibvgibz+Cua/l19VI15cVzD2/qSiOQVGgQ1ZJMB7bFRhUR5mFycUFnDpqeSZ
-Z6zPjsLlr9akUUFD0DM9uhLWPEdGbcfbOFDZMDmiby8QMuaL8Tiu/EEwIU/8CZyr
-2LUUB7m9bZlIU+sWiSs8O8Lt3sRApYLcHOhEL6fVbeK14hjtKCTUDRu/aQVRMftM
-p5pUwddJbbaoOYo8JAj1bj1M9HtAB0RhClp6zZ8hNsj9JWNaszbwi9K9T7TXW29E
-gAxx6+S5K4fQW/G74cRGdPfu76njGl38OMYd5zzKmq612AL2r0fDDQL6Be8FCCb3
-+amOu/h5bmtgq70/RtQvHC+gqvFU34KnOqkK1hZdOJR4cNZbdId4ZmdQvERrYozu
-CCCs9odN81VkRfdoWGEt5/eOyBSIdmY//4fjQlnwS9xaTnUdc2nXNTpMvtksbdAO
-G7rjixC0wzTL9nm+0ApIRPyOf9eE1B4uQU1a7HRhO5uK+IbXqpIbFe73ffGPL28b
-bga6qoBymYm693W+bXUAyLRQuNNIYNp4/FMCx6z3hKHDrv5lLa8=
-=EA91
------END PGP SIGNATURE-----
-
---kvsrere4zmtnxm4a--
 
