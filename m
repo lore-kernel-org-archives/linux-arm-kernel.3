@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4219DC5CFDB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 09:17:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7ADDC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 09:18:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kIqhZs3FKvSwy1BNUsfQzjPnm36Ri75iiQox/jpOJyM=; b=W/C364GJZjiAN3RJMynfJ6A5hf
-	lUOgobBkoXoCl9j+epLV/iHfxS/grfLw8Mq34CABFPk0qA+0xwR/S/tRAYzBC4Yz2hA35ZFYWLsnr
-	wC4gJ4osrVC9EYIiSx7cl4Bgya2Lo5+IHcJRafjL+mp26iCoAxXlXLF1bt1PVh2Z9lNxjTPBE1e1i
-	80T7aIK2cvLHVh74YStaMKi4wOenONLVr9lXHYvqs4kh/E0Q4CoVeD62KgQOOfChzSLAevjaMAY7D
-	zPEzyJjikegOdTZz1FfSGhR2jRsOiCgVzQqZSG0aOmWyljbRT0EDfo5NM1GEqorw4SdUDIknXAn3a
-	k7i0pw1g==;
+	bh=SFa96UMPUKdPMFLMZa9e++7ab7lmWL1tMpa/ViaInoM=; b=n9J9fQ0DKa5T56Bp2G6w84U6FE
+	+M9hSR6jI3O8cyY+knLmMB3UTey/IoRxdOzg1nj4ingD1UX6tAWPnUrZ6di+J9KMcU7sAnbLviu38
+	egvoAjGxQCQolBKdealV4+vqkIURcE4gQVwig4cKbN7Bs2hT8HffDf7xr5cOhQS6PTSOzRK2WZ1ID
+	OLwy6cv2kmzH5LJ+MCpGTuwbKXuafaMmPRGk2fJYRAKwTV13c3cLzjz5K/2lMBbxaP06KBL9uf+pN
+	I4xjGamAhwT3teP58fCk5LJ9evYCHoQB4Q38pKpi3OrmrH4IGQw7WVM/3JF9Hjdb0glqB+OA1k2Tq
+	DorksAAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuRYd-00000000GSl-0Kaa;
-	Thu, 13 Aug 2026 09:17:03 +0000
+	id 1wuRZO-00000000Gau-0t22;
+	Thu, 13 Aug 2026 09:17:50 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuRYb-00000000GSN-2DaC
+	id 1wuRZM-00000000Gah-3LqO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 09:17:01 +0000
+	Thu, 13 Aug 2026 09:17:48 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id CD22D600AD;
-	Thu, 13 Aug 2026 09:17:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75B4B1F000E9;
-	Thu, 13 Aug 2026 09:17:00 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 41CDD6011F;
+	Thu, 13 Aug 2026 09:17:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E85F81F000E9;
+	Thu, 13 Aug 2026 09:17:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786612620;
-	bh=kIqhZs3FKvSwy1BNUsfQzjPnm36Ri75iiQox/jpOJyM=;
+	s=k20260515; t=1786612668;
+	bh=SFa96UMPUKdPMFLMZa9e++7ab7lmWL1tMpa/ViaInoM=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=OSSlvxUSbp0ZqEsgL++LWTWwBHTmzBT1032P8TjwuzeK+iK9uuVVkUGjvZaPqR7Nh
-	 hee38iyq2KjVPfdHIWxYGjLH+hmTd+SUGz+fiI9u+bKJU+QnDWEPZuz7me6IyKaOAz
-	 n9ctp5xLatiB0hxTZRm7eMQIek19nSZikPGJiy4D3XXRj4p9HFaccMqZ3aHO8CN6bD
-	 0fChkItfWFo/T+7eXb7F5hCWuG6HVgBF30g+LFGZEK1OOnx0aB2wiexnTygt7Pa+Gp
-	 WlzrPy1SQGFP8zglcR/SSbjF+PYrcldsJH0bSHW0S700Eei023B3ZojbaEl0eV1F0Q
-	 eiwmA8J995IIA==
+	b=IMXZwGBv7s7z4J73JtHq94MBWzh8TJGMCPUSQz75YC/gWWn84liNir/y4SJXASOpA
+	 jIoeaVUfxaUcAI+x3HtDwvfuiK5FFM1b9cv3HfvOT6ED7GOmuwUYaVHufA6wqq0cgT
+	 veCPb6T4dr/Kfgs6HuGRtc4M5jra8VzoSveAr3c5ULUIo8nmsTJB+DqSUhsE6vd7u3
+	 Bc+aERd7JjqT3rtK5jisskUitZk3cNpOWp/rJAGBpuacn6efxYaRrXJenozbZ6AiQ3
+	 awuQlEjS6VLy0qkDrk76SvA43nC2/WqMU888f5pju/JXZ7AnEMFHfitZekSG0mdhaW
+	 nnjobiDh60Bxw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wuRYY-0000000FGVs-0iOI;
-	Thu, 13 Aug 2026 09:16:58 +0000
-Date: Thu, 13 Aug 2026 10:16:57 +0100
-Message-ID: <86fr0i1it2.wl-maz@kernel.org>
+	id 1wuRZJ-0000000FGXk-45XV;
+	Thu, 13 Aug 2026 09:17:46 +0000
+Date: Thu, 13 Aug 2026 10:17:45 +0100
+Message-ID: <86ecg21irq.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
 To: Steffen Eiden <seiden@linux.ibm.com>
 Cc: kvm@vger.kernel.org,
@@ -84,10 +84,10 @@ Cc: kvm@vger.kernel.org,
 	Vasily Gorbik <gor@linux.ibm.com>,
 	Will Deacon <will@kernel.org>,
 	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v6 04/33] arm64: Use proper include variant
-In-Reply-To: <20260812153631.3376090-5-seiden@linux.ibm.com>
+Subject: Re: [PATCH v6 05/33] arm64: ptrace: Use constants for compat register numbers
+In-Reply-To: <20260812153631.3376090-6-seiden@linux.ibm.com>
 References: <20260812153631.3376090-1-seiden@linux.ibm.com>
-	<20260812153631.3376090-5-seiden@linux.ibm.com>
+	<20260812153631.3376090-6-seiden@linux.ibm.com>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
@@ -111,33 +111,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 12 Aug 2026 16:36:00 +0100,
+On Wed, 12 Aug 2026 16:36:01 +0100,
 Steffen Eiden <seiden@linux.ibm.com> wrote:
 > 
-> Use <> for including the sysreg header as it is not discoverable from
-> the current directory.
+> Define an enum to determine the register number for the mapping from
+> AArch32 and AArch64 registers. This allows for a more flexible use of
+> the register mappings.
 > 
-> Fixes: c07d8017bceb ("arm64/sysreg: Enable automatic generation of system register definitions")
 > Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
-> ---
->  arch/arm64/include/asm/sysreg.h | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
-> index 7aa08d59d494..4bfdac9401bd 100644
-> --- a/arch/arm64/include/asm/sysreg.h
-> +++ b/arch/arm64/include/asm/sysreg.h
-> @@ -173,7 +173,7 @@
->   * come from here. The header relies on the definition of sys_reg()
->   * earlier in this file.
->   */
-> -#include "asm/sysreg-defs.h"
-> +#include <asm/sysreg-defs.h>
->  
->  /*
->   * System registers, organised loosely by encoding but grouped together
 
-Acked-by: Marc Zyngier <maz@kernel.org>
+Reviewed-by: Marc Zyngier <maz@kernel.org>
 
 	M.
 
