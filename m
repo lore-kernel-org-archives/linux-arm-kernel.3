@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD333C5DF66
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 20:52:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5A22C5DF66
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 20:52:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KSjt+Z/77C+t8gAU8dGIGE4fioptxlWMgElqscF/UnQ=; b=P7isb2vX5wgws2mK++JiklYcmj
-	SMQ+BDNJGDSmp1GIc4V5kYW44jVcTukSxBArcJEfjBs50/bb7SvS/rlmoNf7lWaARL/qel/VOHUJG
-	jNwFRueTB9kvjd1hjdbgq2F8ZUvRt89+xpn0DvYyEd9qAVxG2Fu8+LI1cg6+vG+DhSf/BumoSDPD9
-	pMDjgDcfyIst62MClvLpqH3RlfTax3V9G211Rcc0YrSP68KWWuJcRVbV+YvPTpOc9SlsBUxCs0DHs
-	toYAWBb8JawMYJx/A1yRBjgQ3oguydhw1jYB3+l/BX8JNJD4h1nr+IIfvyylWZjXszAH4L7TqYQCx
-	mod9OIMA==;
+	bh=ODRcUwXxjEhZq12u240NHcr8PrnLKD2Eb/03p16ydHo=; b=3WlHiDh8oB/UjoV+jQy+ZNad5w
+	8Q6PPC2MMEuP5/1ElEyT9N8FdLD/y8Tn+5U4AiSTwx0wkVH1ETWrB9FkrdSOUOcf7mKSjpoiskiYk
+	xZcxG2phyr17mhRMm2z/soxW68rD/4Xc5OzMzMV2Idhdk/q+DCknnxPsEjkukrnfHQ/tXJjJebWT8
+	ozcYiqn77i/BK0AKVcn6ODtf/MFjGMEwUD/FXp4fBaprVtF219SIfU15UkJDlggQZbUeX/freTu01
+	Oq9vXy46jbWpBoU6YAhddv8O4n4ppN50VHhQT2p84nUFTOEVxe+R2q2vDv1Qqor+fcTh387gJih5j
+	g83y2wyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wucPI-00000001XSe-34A7;
-	Thu, 13 Aug 2026 20:52:09 +0000
+	id 1wucPS-00000001Xep-1C38;
+	Thu, 13 Aug 2026 20:52:18 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wucP6-00000001XBU-1q8u;
-	Thu, 13 Aug 2026 20:51:57 +0000
+	id 1wucP8-00000001XD9-23W4;
+	Thu, 13 Aug 2026 20:52:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
 	s=mail; t=1786654310;
-	bh=mUcbOwAR6yXSrFE55prrZ2ir3KShnytA84FyYDFCZhk=;
+	bh=PXHKMSpYVZHMssue5abhVvAacRo3zKsN2PEAz7q2k88=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=gg9okzcEksFatFkfO3cGn/2T2oyTK46Q1Jg+sGkILDYO4EO15goK6A4H++ou2LqsH
-	 LgPEMV61Eyh3pMG6mWtkju+YBHE2Fhf3RXOX8/ygOCWHunyKAtrQrB75VdU8TUN8E2
-	 qt47OF1JJSG4aDCQi/pPyRfHaavEEsm12Aqs9q7qDo+vO2/6rBspMyWHAvV49r1BxD
-	 bKZT6ZTI5HrFoihRymC712nDaV08e3mZqqi6avbMwbh8l4E7GBRY+iGF7mFImpRbpJ
-	 13CasERfHHgEZ2ken3usnKihoA+5bxxMLSwH//KDJnq2eVOmAIqjXpcoVQqOhKJ8G5
-	 TwpaYGg33M3vw==
+	b=M1XWqRmEXL/1hgKUjegDo1tJM2/vXFQ/USvV/y6BwDPat9oxzZE0FUhZQHeKGOIr+
+	 SJxXURM88dtTD/mnwUbOX2F90eYk5Uvqa62QPxdkyExrmNty7zzIMPSdmEBZlL5K/S
+	 xkAlGWqLBCyhC5mwR/N740f0i8iytH1T/aSvSQovNdgCsA5ogGkARoE5OlCUtxo+VU
+	 sK2VR/oFwQpTj3TDwpIfSMrGchxeAC7M2L5jVYa4yCWw3uFXtwq6VGb8EXngd5Pupu
+	 IFN5JoFSssmFnkAIz+5UVwG3zrtlAIJBtLnKpWCBOqtVgB/KMkbmf5Ak+d3g97BcUz
+	 PFBCIjS+B80DA==
 Received: from jupiter.universe (unknown [100.64.1.62])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange x25519)
 	(No client certificate requested)
 	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id D809B17E0F83;
-	Thu, 13 Aug 2026 22:51:49 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3B9D917E10B0;
+	Thu, 13 Aug 2026 22:51:50 +0200 (CEST)
 Received: by jupiter.universe (Postfix, from userid 1000)
-	id 97EB348002F; Thu, 13 Aug 2026 22:51:49 +0200 (CEST)
+	id A00CD48003A; Thu, 13 Aug 2026 22:51:49 +0200 (CEST)
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Thu, 13 Aug 2026 22:51:46 +0200
-Subject: [PATCH v14 03/38] phy: rockchip: usbdp: Do not lose USB3 PHY
- status
+Date: Thu, 13 Aug 2026 22:51:51 +0200
+Subject: [PATCH v14 08/38] phy: rockchip: usbdp: Amend SSC modulation
+ deviation
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260813-rockchip-usbdp-cleanup-v14-3-b5ad9c68fa11@collabora.com>
+Message-Id: <20260813-rockchip-usbdp-cleanup-v14-8-b5ad9c68fa11@collabora.com>
 References: <20260813-rockchip-usbdp-cleanup-v14-0-b5ad9c68fa11@collabora.com>
 In-Reply-To: <20260813-rockchip-usbdp-cleanup-v14-0-b5ad9c68fa11@collabora.com>
 To: Vinod Koul <vkoul@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, 
@@ -71,26 +71,26 @@ Cc: Andy Yan <andy.yan@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>,
  kernel@collabora.com, devicetree@vger.kernel.org, linux-usb@vger.kernel.org, 
  Sebastian Reichel <sebastian.reichel@collabora.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1478;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1834;
  i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=mUcbOwAR6yXSrFE55prrZ2ir3KShnytA84FyYDFCZhk=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGp+LmT8KOoaa/liNprPu7f2o0xwgpJU0pvNR
- PtRQCMmCXAqZ4kCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqfi5kAAoJENju1/PI
- O/qaUeUP/3JuF0jplmRx0UHZjcG5wySSi3qRfp/FxI2lyqSWFn+IOkks6ArSsEkiDUrEyTK7Ld8
- ctmb1jiP6sN9JxTxm6V5yZnRWUB7uY7tOpFMGdAo6PC9AFuXA/Hg7TIat/oELrnV67epRalizcT
- UyVpsHzlX+FmQzCVB1NexzWAH53E/9OSne+B23TyRU64Yhd3w/q81dut817aPnVQ6S8uwD6fkLx
- y1K/h20Ry8VlpBFOUUG38kNwVmCm5Gqx05iD93euKxd8bIzn15nacUQdyoHeH5A0J0gzqh6zxpK
- oj6aiOgbM1d6Hp8XP2whDKNCfLoLFjFUir+yDx+FyHYIgSYMIyf7oleZTRNKiU42klLIIUtkRLn
- fzO7L5OgUvnUjrc05ZFl59dHvj4xrudsIA6vi9KPsVL0AWNIvRpUqRbVJ3/S97bvFih5ESgjRzi
- +KtBF1XIJsIHR2/7X7vVb3zeu4tQkvGpDEdw0oP0kg35MlJsPBpR0vUOotbL0bT6v/HlMNwebPM
- VoCm2W2ML2f5gKu3svYfVC6h9fd/HZgbJpamrlfrIYMuoVcepVmijFdRx48jbdMoCLCbfeaW+ij
- HEv/sf/PrJjiJaULJGJY5jX3N+r2ROLwuJpLZNEck16AhgdsU4vTk3dIIx+hAOOcvfheFHGhNPS
- CQsdBKOErBrUHj3/l73MqKw==
+ bh=HXiyKQzOLebOOViqA6Mhv+EF+Z5glMQZ2bbr98+itxg=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGp+LmSYtRoSoEg0ZTDO5fabpfj/P1r607QVu
+ 75k8FLfTb2FFokCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqfi5kAAoJENju1/PI
+ O/qa9PEP/1Z/BRuSVyn3Y+rLLEC1WgReYHsY/dRJu2M4i60h18lam7lLWVJtBudDncRD+ArWgUT
+ 5mjY5/PeF83oZ6knEuwPU2baffc2098St7QS55N2F807aqB4alIaXJjxIHWEZb+n02U3GRVmnhv
+ LjkJYZEIpu6LtAE96oPFEtaBIwRkvWJOCUvIpNq6yU+GWr+8cJEfVq22eTOMAN1ESPkchhdnZey
+ ZJYGBbSwTueWbih56nX/765xf9k0RqRyTYCZiRsoQIR+dqoYfqdsLLJFuZK7eg+2OqjY4d8ZuwP
+ YB/RBzQWE0uwfI7NclIybxTq0RFGaJLPy+rV2k38GLnFQX3hoHuCEmuzvkz0sAKA490JTDn5+68
+ YFv3kS2l6jqMqDd6WWG1A8jWIsqYoz/wDfLziPyHLGXC1gFrguNW2tNHfMnkz5QIijrAcyKA5BH
+ kPYiNUyJIkEMO+yj9sjc/uz/KhwQAQ63gEBJAKQgp3lAW6bgimCNie4klQWfjS4luw+4mXBODZM
+ LVkIgdBAE0BkGltv5LdbiLMRSl3YP1soRurdHK31oCdRoyydWG480XP5q8+WwA/MIHDvRGkzO5Y
+ HH8MVXaxfoDFqkiE4gGmXyF8gRuHghtZBzrcWMFXPRoLiphD0hxoZM8PF+AXAAWYvbw3oF1BkNo
+ 6yf9zGaFsQhs9dl+xc+ww6Q==
 X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
  fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_135156_660467_8C6F418A 
-X-CRM114-Status: GOOD (  12.36  )
+X-CRM114-CacheID: sfid-20260813_135158_819370_9AEF1AE1 
+X-CRM114-Status: GOOD (  10.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,37 +105,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-By default (i.e. without manually enabling runtime PM) DWC3 requests the
-USB3 PHY once and keeps it enabled all the time. When DisplayPort is
-being requested later on, a mode change is needed. This re-initializes
-the PHY. During re-initialization the status variable has incorrectly
-been cleared, which means the tracking information for USB3 is lost.
+From: Frank Wang <frank.wang@rock-chips.com>
 
-This is not an immediate problem, since the DP side keeps the PHY
-enabled. But once DP is toggled off, the whole PHY will be disabled.
-This is a problem, because the USB side still needs it powered.
+Move SSC modulation deviation into private config of clock
 
-Fix things by not clearing the status flags.
+ - 24M: 0x00d4[5:0] = 0x30
+ - 26M: 0x00d4[5:0] = 0x33
 
-Fixes: 2f70bbddeb45 ("phy: rockchip: add usbdp combo phy driver")
+Signed-off-by: Frank Wang <frank.wang@rock-chips.com>
+[Taken over from rockchip's kernel tree; register 0x00d4 is not
+described in the TRM]
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 Tested-by: Igor Paunovic <royalnet026@gmail.com> # Orange Pi 5 Plus
 Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- drivers/phy/rockchip/phy-rockchip-usbdp.c | 1 -
- 1 file changed, 1 deletion(-)
+ drivers/phy/rockchip/phy-rockchip-usbdp.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index a5ffdf7a6e76..12dfdd470a78 100644
+index e3f5a26c876a..cb6acadfbccf 100644
 --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
 +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-@@ -1008,7 +1008,6 @@ static int rk_udphy_power_on(struct rk_udphy *udphy, u8 mode)
- 			rk_udphy_u3_port_disable(udphy, false);
- 		udphy->mode_change = false;
- 	} else if (udphy->mode_change) {
--		udphy->status = UDPHY_MODE_NONE;
- 		if (udphy->mode == UDPHY_MODE_DP)
- 			rk_udphy_u3_port_disable(udphy, true);
+@@ -350,7 +350,8 @@ static const struct reg_sequence rk_udphy_24m_refclk_cfg[] = {
+ 	{0x0a64, 0xa8}, {0x1a3c, 0xd0},
+ 	{0x1a44, 0xd0}, {0x1a48, 0x01},
+ 	{0x1a4c, 0x0d}, {0x1a54, 0xe0},
+-	{0x1a5c, 0xe0}, {0x1a64, 0xa8}
++	{0x1a5c, 0xe0}, {0x1a64, 0xa8},
++	{0x00d4, 0x30}
+ };
  
+ static const struct reg_sequence rk_udphy_26m_refclk_cfg[] = {
+@@ -377,7 +378,7 @@ static const struct reg_sequence rk_udphy_26m_refclk_cfg[] = {
+ 	{0x0c30, 0x0e}, {0x0c48, 0x06},
+ 	{0x1c30, 0x0e}, {0x1c48, 0x06},
+ 	{0x028c, 0x18}, {0x0af0, 0x00},
+-	{0x1af0, 0x00}
++	{0x1af0, 0x00}, {0x00d4, 0x33}
+ };
+ 
+ static const struct reg_sequence rk_udphy_init_sequence[] = {
+@@ -412,8 +413,7 @@ static const struct reg_sequence rk_udphy_init_sequence[] = {
+ 	{0x0070, 0x7d}, {0x0074, 0x68},
+ 	{0x0af4, 0x1a}, {0x1af4, 0x1a},
+ 	{0x0440, 0x3f}, {0x10d4, 0x08},
+-	{0x20d4, 0x08}, {0x00d4, 0x30},
+-	{0x0024, 0x6e},
++	{0x20d4, 0x08}, {0x0024, 0x6e}
+ };
+ 
+ static inline int rk_udphy_grfreg_write(struct regmap *base,
 
 -- 
 2.53.0
