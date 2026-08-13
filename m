@@ -4,99 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85461C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 10:14:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C811FC5CFDB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 10:14:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uSZUuVpg9SCc7RZSw/Ssreis2MVZVjsphaT0uMe4oMU=; b=BQUHPuYE3KD38Tk855q23mSfCb
-	8IHdUPfT+l74P4iV5q46UzEerdiPW+kvkFHe6qF9PLUppg9t/0/B7ShhB4TA4ozrg8zfg+qF1Mbdq
-	lteZNNY0xFLQjvoJOLxNtGuSF/5O2eYpeQEZryJmHH00Q4Q4Kqbbo69EvZ22mu29V7JXX3bRV0b4d
-	6GEraaz2to+cx1uaH8RPJYdo4lYRCAW3FT3Mxs7xArv5KHfzON7FM/K3NsIj+WM3TZ02rdT9UhqCr
-	CeHYLwFx2D7c73jpwBXIp8xqcLbD9K7pCLtDV9WZBtDxX2yOsEwD8VvpZWoZkkGwzA3QHl+d1oTlJ
-	SlPkBS0g==;
+	bh=4+XPCcsxlxHhn+gNhWT0KKVmDZdRlsAx4uqcAXqWp/k=; b=G9MDV59y2nHC55z6ePpGUwKTRb
+	fvjUR71yv0t87jmVX5UDbnOewW2i/7/4Xk9l5QU58A8ueiZjA/pGBNj3lUK19L4wWdHCrYJnGgVwX
+	L8JNrqdU2W1/ygCQRA8QtGuUh6oJEf/ESZ5z6ttUCCJm2rKcugrdqUsMF+vFQ54Myoqbmag17MZ/3
+	N2FYg58CBCTb5Rd9XV1ugvxxCW9wd8vtAIfM2AHAcmDRbJ/EV32TfhF9LptDmzuZ2ZQ5ABrYgcC+s
+	NNA9brGAFaLq9THqNfMhteYu340LkE798Jdr8BHBpY3DzK4xp2b1VZWNRS1AyjzRDDwYnx2Ub7Pl6
+	RLaKBSBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuSRz-00000000RCk-0I22;
-	Thu, 13 Aug 2026 10:14:15 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuSRx-00000000RCR-2kJ9
+	id 1wuSSV-00000000RK2-0wt6;
+	Thu, 13 Aug 2026 10:14:47 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wuSSS-00000000RJJ-1WBH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 10:14:13 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C31A0600E2;
-	Thu, 13 Aug 2026 10:14:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 270771F000E9;
-	Thu, 13 Aug 2026 10:14:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786616052;
-	bh=uSZUuVpg9SCc7RZSw/Ssreis2MVZVjsphaT0uMe4oMU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=dPrRuqQ1x9D9rMkX+lbk4Bc/EbxPS/82Q06yoG3nI/BswMuRJt+Uj0EByx7DtjOVL
-	 RDFvp5EqiIPLEB0+7s7RAZdnKA96jfpzZT2ukcYPIuXOdVcG7LumUqLQddtBCpGV0x
-	 EXj0FidbNgYVDV1PMhNXsBdK43RLF3SWZvU3p+vlByll/WYbw9O0d86v8J5glnpel9
-	 Gs7KY1qHUAgdZy4TOiX7o/dxaTig5MFl+Kr6CQplVLfkp1219QWIUyL7Tu+fxF6okt
-	 iWowso/n+nG4czMd3mbqe3a+3gn1512ePCWN1tnyFktB0+MMSy98pm4r8HC4XQ2Daz
-	 461F1EoqUHHLw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wuSRu-0000000FI7L-0X1r;
-	Thu, 13 Aug 2026 10:14:10 +0000
-Date: Thu, 13 Aug 2026 11:14:09 +0100
-Message-ID: <868q6a1g5q.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Steffen Eiden <seiden@linux.ibm.com>
-Cc: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-s390@vger.kernel.org,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Andreas Grapentin <gra@linux.ibm.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	David Hildenbrand <david@kernel.org>,
-	Friedrich Welter <fritz@linux.ibm.com>,
-	Fuad Tabba <tabba@google.com>,
-	Gautam Gala <ggala@linux.ibm.com>,
-	Hariharan Mari <hari55@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Hendrik Brueckner <brueckner@linux.ibm.com>,
-	Ilya Leoshkevich <iii@linux.ibm.com>,
-	Janosch Frank <frankja@linux.ibm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Nico Boehr <nrb@linux.ibm.com>,
-	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-	Oliver Upton <oupton@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Will Deacon <will@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v6 09/33] arm64: Prepare sharing arm64 headers with s390
-In-Reply-To: <20260812153631.3376090-10-seiden@linux.ibm.com>
-References: <20260812153631.3376090-1-seiden@linux.ibm.com>
-	<20260812153631.3376090-10-seiden@linux.ibm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: seiden@linux.ibm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org, agordeev@linux.ibm.com, gra@linux.ibm.com, arnd@arndb.de, catalin.marinas@arm.com, borntraeger@linux.ibm.com, imbrenda@linux.ibm.com, david@kernel.org, fritz@linux.ibm.com, tabba@google.com, ggala@linux.ibm.com, hari55@linux.ibm.com, hca@linux.ibm.com, brueckner@linux.ibm.com, iii@linux.ibm.com, frankja@linux.ibm.com, joey.gouly@arm.com, nrb@linux.ibm.com, oss@nina.schoetterlglausch.eu, oupton@kernel.org, pbonzini@redhat.com, seanjc@google.com, suzuki.poulose@arm.com, svens@linux.ibm.com, Ulrich.Weigand@de.ibm.com, gor@linux.ibm.com, will@kernel.org, yuzenghui@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Thu, 13 Aug 2026 10:14:45 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D500314BF;
+	Thu, 13 Aug 2026 03:14:36 -0700 (PDT)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9AB203F632;
+	Thu, 13 Aug 2026 03:14:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1786616080; bh=U15xNbiafg66CEIzVRlypK8u3rfXnTp1g65n4DJvfbI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=iRwRbjBfKkbTekiHhgSHDee8iScOP7hLExYevoXGPxybcmXHsShvqyZ+n4Q1QtEz5
+	 mUeoHoDZtuh/SyWCFDteMoc3Ll5a7OYCVoiYaZ7ECQgr+vO8kxFpeynNlNrZ359z0k
+	 f+qqeNwpXN/5jj5Cc4D49oJoWzpEMRZd6kE/a10M=
+Date: Thu, 13 Aug 2026 11:14:28 +0100
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Roland Dreier <rolanddreier@rivian.com>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] firmware: arm_scmi: Protect xfer->async_done with
+ xfer->lock
+Message-ID: <an2ZBM0LGFT139j3@pluto>
+References: <20260812224311.904964-1-rolanddreier@rivian.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260812224311.904964-1-rolanddreier@rivian.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260813_031444_522551_2F40859E 
+X-CRM114-Status: GOOD (  11.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,141 +71,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 12 Aug 2026 16:36:05 +0100,
-Steffen Eiden <seiden@linux.ibm.com> wrote:
+On Wed, Aug 12, 2026 at 10:43:05PM +0000, Roland Dreier wrote:
+> Asynchronous SCMI commands are completed by a delayed response. The RX
+Hi,
 
-[...]
+> path signals the response with complete(xfer->async_done). Unlike
 
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index 46c8d7928b3f..22770c1132cb 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -56,6 +56,36 @@
->  #define KVM_REQ_MAP_L1_VNCR_EL2		KVM_ARCH_REQ(10)
->  #define KVM_REQ_VGIC_PROCESS_UPDATE	KVM_ARCH_REQ(11)
->  
-> +/*
-> + * If we encounter a data abort without valid instruction syndrome
-> + * information, report this to user space.  User space can (and
-> + * should) opt in to this feature if KVM_CAP_ARM_NISV_TO_USER is
-> + * supported.
-> + */
-> +#define KVM_ARCH_FLAG_RETURN_NISV_IO_ABORT_TO_USER	0
-> +/* Memory Tagging Extension enabled for the guest */
-> +#define KVM_ARCH_FLAG_MTE_ENABLED			1
-> +/* At least one vCPU has ran in the VM */
-> +#define KVM_ARCH_FLAG_HAS_RAN_ONCE			2
-> +/* The vCPU feature set for the VM is configured */
-> +#define KVM_ARCH_FLAG_VCPU_FEATURES_CONFIGURED		3
-> +/* PSCI SYSTEM_SUSPEND enabled for the guest */
-> +#define KVM_ARCH_FLAG_SYSTEM_SUSPEND_ENABLED		4
-> +/* VM counter offset */
-> +#define KVM_ARCH_FLAG_VM_COUNTER_OFFSET			5
-> +/* Timer PPIs made immutable */
-> +#define KVM_ARCH_FLAG_TIMER_PPIS_IMMUTABLE		6
-> +/* Initial ID reg values loaded */
-> +#define KVM_ARCH_FLAG_ID_REGS_INITIALIZED		7
-> +/* Fine-Grained UNDEF initialised */
-> +#define KVM_ARCH_FLAG_FGU_INITIALIZED			8
-> +/* SVE exposed to guest */
-> +#define KVM_ARCH_FLAG_GUEST_HAS_SVE			9
-> +/* MIDR_EL1, REVIDR_EL1, and AIDR_EL1 are writable from userspace */
-> +#define KVM_ARCH_FLAG_WRITABLE_IMP_ID_REGS		10
-> +/* Unhandled SEAs are taken to userspace */
-> +#define KVM_ARCH_FLAG_EXIT_SEA				11
-> +
-
-I don't mind the move, but please add a comment indicating that these
-are bit indices for for kvm_arch::flags, as we have now lost locality.
-
-And whilst we're at it, there is not reason why this has to be a set
-of #define, it can perfectly be an enum, as the numbers themselves
-have no particular meaning. Something like the untested hack below.
-
-	M.
-
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 08b2f24dc3c79..402bbb5eb0d91 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -306,6 +306,39 @@ enum fgt_group_id {
- 	__NR_FGT_GROUP_IDS__
- };
+[snip]
  
-+/* Bit indices for kvm_arch::flags */
-+enum kvm_arch_flag_bits {
-+	/*
-+	 * If we encounter a data abort without valid instruction syndrome
-+	 * information, report this to user space.  User space can (and
-+	 * should) opt in to this feature if KVM_CAP_ARM_NISV_TO_USER is
-+	 * supported.
-+	 */
-+	KVM_ARCH_FLAG_RETURN_NISV_IO_ABORT_TO_USER,
-+	/* Memory Tagging Extension enabled for the guest */
-+	KVM_ARCH_FLAG_MTE_ENABLED,
-+	/* At least one vCPU has ran in the VM */
-+	KVM_ARCH_FLAG_HAS_RAN_ONCE,
-+	/* The vCPU feature set for the VM is configured */
-+	KVM_ARCH_FLAG_VCPU_FEATURES_CONFIGURED,
-+	/* PSCI SYSTEM_SUSPEND enabled for the guest */
-+	KVM_ARCH_FLAG_SYSTEM_SUSPEND_ENABLED,
-+	/* VM counter offset */
-+	KVM_ARCH_FLAG_VM_COUNTER_OFFSET,
-+	/* Timer PPIs made immutable */
-+	KVM_ARCH_FLAG_TIMER_PPIS_IMMUTABLE,
-+	/* Initial ID reg values loaded */
-+	KVM_ARCH_FLAG_ID_REGS_INITIALIZED,
-+	/* Fine-Grained UNDEF initialised */
-+	KVM_ARCH_FLAG_FGU_INITIALIZED,
-+	/* SVE exposed to guest */
-+	KVM_ARCH_FLAG_GUEST_HAS_SVE,
-+	/* MIDR_EL1, REVIDR_EL1, and AIDR_EL1 are writable from userspace */
-+	KVM_ARCH_FLAG_WRITABLE_IMP_ID_REGS,
-+	/* Unhandled SEAs are taken to userspace */
-+	KVM_ARCH_FLAG_EXIT_SEA,
-+};
-+
- struct kvm_arch {
- 	struct kvm_s2_mmu mmu;
- 
-@@ -338,35 +371,7 @@ struct kvm_arch {
- 	/* Protects VM-scoped configuration data */
- 	struct mutex config_lock;
- 
--	/*
--	 * If we encounter a data abort without valid instruction syndrome
--	 * information, report this to user space.  User space can (and
--	 * should) opt in to this feature if KVM_CAP_ARM_NISV_TO_USER is
--	 * supported.
--	 */
--#define KVM_ARCH_FLAG_RETURN_NISV_IO_ABORT_TO_USER	0
--	/* Memory Tagging Extension enabled for the guest */
--#define KVM_ARCH_FLAG_MTE_ENABLED			1
--	/* At least one vCPU has ran in the VM */
--#define KVM_ARCH_FLAG_HAS_RAN_ONCE			2
--	/* The vCPU feature set for the VM is configured */
--#define KVM_ARCH_FLAG_VCPU_FEATURES_CONFIGURED		3
--	/* PSCI SYSTEM_SUSPEND enabled for the guest */
--#define KVM_ARCH_FLAG_SYSTEM_SUSPEND_ENABLED		4
--	/* VM counter offset */
--#define KVM_ARCH_FLAG_VM_COUNTER_OFFSET			5
--	/* Timer PPIs made immutable */
--#define KVM_ARCH_FLAG_TIMER_PPIS_IMMUTABLE		6
--	/* Initial ID reg values loaded */
--#define KVM_ARCH_FLAG_ID_REGS_INITIALIZED		7
--	/* Fine-Grained UNDEF initialised */
--#define KVM_ARCH_FLAG_FGU_INITIALIZED			8
--	/* SVE exposed to guest */
--#define KVM_ARCH_FLAG_GUEST_HAS_SVE			9
--	/* MIDR_EL1, REVIDR_EL1, and AIDR_EL1 are writable from userspace */
--#define KVM_ARCH_FLAG_WRITABLE_IMP_ID_REGS		10
--	/* Unhandled SEAs are taken to userspace */
--#define KVM_ARCH_FLAG_EXIT_SEA				11
-+	/* VM-wide flags, described in kvm_arch_flag_bits */
- 	unsigned long flags;
- 
- 	/* VM-wide vCPU feature set */
+> 
+> -- 
+> *CONFIDENTIALITY NOTE:* This electronic message (including any attachments) 
+> may contain information that is privileged, confidential, and proprietary. 
+> If you are not the intended recipient, you are hereby notified that any 
+> disclosure, copying, distribution, or use of the information contained 
+> herein (including any reliance thereon) is strictly prohibited. If you 
+> received this electronic message in error, please immediately reply to the 
+> sender that you have received this communication and destroy the material 
+> in its entirety, whether in electronic or hard copy format. Although Rivian 
+> has taken reasonable precautions to ensure no viruses are present in this 
+> email, Rivian accepts no responsibility for any loss or damage arising from 
+> the use of this email or attachments.
 
--- 
-Without deviation from the norm, progress is not possible.
+...not so much to review with this footer...please drop it an repost
+
+Thanks,
+Cristian
+
 
