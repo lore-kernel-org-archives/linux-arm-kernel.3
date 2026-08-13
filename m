@@ -4,98 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 642EFC5CFDB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 10:53:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7ED71C5CFDB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 10:53:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VClEaxk6PDCpbMUBw2853JJXBEWZhgyWS9kaf0qrafQ=; b=IR8Pe+tiheAnYhaykZMnWB7XHs
-	bNv99bcHceHNAxKzvN7e7puo3oBytDSXJIyl0wZAXkl202S7rj8byuursGlRLqtORhJpc/gcbTDf6
-	MCdfpG6U6Gpvu2l/rkoeCvFA2KvyAdA8ActeyA0CYhzUfiXUhqgti4DPRbvmX6EqDg4M5rFABXceg
-	Tg0b1H7hjVLFhepVXAGffEJsdNtooOV5KCkb7PiwlcyeFfAI6uBkLVRBbN0ZSF/NyjnLY0DvmounU
-	TGy4i8ZnHjX/h2EUb+z7OQGfo/V96M4HlasO3EKJtO9XsrQGAyX/3l8dAZs4Vu9XwvJsxc3N4Ru0s
-	JSUs3Cew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	Subject:Cc:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+xQTI3Vq8sC9x2ATvB7YIuXwWhZNhSgMb5gkauWI9KY=; b=UXZ8qtRSArCOyemEaGsLuN71Ua
+	nmDErCDWUDX5SjC695X3qb1D84Bb5QvCgOtWB+Og0tB0Vih9zGG+OBKhCM8Dwx7qveEiK/zVevn5T
+	I1ZAcGyjWn1njp4pISjG4Xe0L+my8K9N7vJBpWSiycvGD2rWVsNejmOL8mo3in7nv8XpPct+lAULx
+	nuGPnKsH/eKTV7HEW4MT76tQHqza1hWp6r8CqxJP7yO05FQUwaZ0f/k1aZ0t612MM509nJYhTLLdf
+	XpkKr6peZ80YBmFG3H3nIJ7Pn6J9AZpt3+Np4HjcXjnxQNdwQrBs24G3PvXofajrtJnlbY14TERmH
+	FSOVtDsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuT3d-00000000W06-2oY2;
-	Thu, 13 Aug 2026 10:53:09 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wuT3j-00000000W1j-3BGj;
+	Thu, 13 Aug 2026 10:53:15 +0000
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuT3c-00000000Vzv-2eZL
+	id 1wuT3h-00000000W0J-08AU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 10:53:08 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 32B4241A22;
-	Thu, 13 Aug 2026 10:53:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10BE91F000E9;
-	Thu, 13 Aug 2026 10:53:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786618387;
-	bh=VClEaxk6PDCpbMUBw2853JJXBEWZhgyWS9kaf0qrafQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=nzksol/DmEAKL+PU4VlCleNZvyT2VvWMcIssccG/5Y0HHY+sS8wwZrHwailJWtN2W
-	 ioW61Xkgktd1X2ogFCtzfYbJBPeLCGIHXRFXzyIk1AgKYQWr3F+aO/DlP8/Dt33RDr
-	 VuFO44XSAULWO/reQ7+nAgD2+RgBlqOz/2kKOChf0GH596MsDKHCA8fB/s9YuYKtkg
-	 kuV1l1z7UpK9FbBkcBzQqghnCxltBGxhHmDm7v28xEBJ5khRkJj0g+xXMgVbNiu/BA
-	 cTrMjvz2g7BjhBnNENloZ4Ep4h3onORffkRCuEwo9cACH3GIjjAME+KfOkmragPrM6
-	 MXCMii2/SljwA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wuT3Z-0000000FIud-0BzS;
-	Thu, 13 Aug 2026 10:53:05 +0000
-Date: Thu, 13 Aug 2026 11:53:04 +0100
-Message-ID: <867blu1ecv.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Steffen Eiden <seiden@linux.ibm.com>
-Cc: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-s390@vger.kernel.org,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Andreas Grapentin <gra@linux.ibm.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	David Hildenbrand <david@kernel.org>,
-	Friedrich Welter <fritz@linux.ibm.com>,
-	Fuad Tabba <tabba@google.com>,
-	Gautam Gala <ggala@linux.ibm.com>,
-	Hariharan Mari <hari55@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Hendrik Brueckner <brueckner@linux.ibm.com>,
-	Ilya Leoshkevich <iii@linux.ibm.com>,
-	Janosch Frank <frankja@linux.ibm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Nico Boehr <nrb@linux.ibm.com>,
-	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-	Oliver Upton <oupton@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Will Deacon <will@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v6 00/33] KVM: s390: Introduce arm64 KVM
-In-Reply-To: <20260812153631.3376090-1-seiden@linux.ibm.com>
-References: <20260812153631.3376090-1-seiden@linux.ibm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: seiden@linux.ibm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org, agordeev@linux.ibm.com, gra@linux.ibm.com, arnd@arndb.de, catalin.marinas@arm.com, borntraeger@linux.ibm.com, imbrenda@linux.ibm.com, david@kernel.org, fritz@linux.ibm.com, tabba@google.com, ggala@linux.ibm.com, hari55@linux.ibm.com, hca@linux.ibm.com, brueckner@linux.ibm.com, iii@linux.ibm.com, frankja@linux.ibm.com, joey.gouly@arm.com, nrb@linux.ibm.com, oss@nina.schoetterlglausch.eu, oupton@kernel.org, pbonzini@redhat.com, seanjc@google.com, suzuki.poulose@arm.com, svens@linux.ibm.com, Ulrich.Weigand@de.ibm.com, gor@linux.ibm.com, will@kernel.org, yuzenghui@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Thu, 13 Aug 2026 10:53:14 +0000
+Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-c1677c91969so65151566b.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 03:53:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1786618390; x=1787223190; darn=lists.infradead.org;
+        h=in-reply-to:references:from:subject:cc:to:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=+xQTI3Vq8sC9x2ATvB7YIuXwWhZNhSgMb5gkauWI9KY=;
+        b=P/iCW2M3FwKFWKMT5iMm1CXX6emp9Igm4iF+uXMzlWLA2vHE5JfFepvM9jugTOCMd8
+         ydeibM/8xxdJ3+QAJRQreqDI1trzP4ZKL/y0Lzwn0RzHbZGwE2s4mfq9yo7ohxFLOE6+
+         YDT2UWYCdJ7Og0VPln0KHHNFWc5wLpbYFh53KRCc1oZl22aCKCBOse/TgKtLZiWUkVnn
+         zo7vjMCIxJnNoCGVA6a5uD3m5We9YbjjIpGx3g4wlTo0wxP5vgQZnVCVu5zJmT3evyAu
+         DIsSJZyggJJpjz/n3mAG4xEllNkSxx9vP3HPalutPr+I40SfQ8ZsMXPMVLpqRvdzfdk+
+         3zNg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786618390; x=1787223190;
+        h=in-reply-to:references:from:subject:cc:to:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=+xQTI3Vq8sC9x2ATvB7YIuXwWhZNhSgMb5gkauWI9KY=;
+        b=dncyoWQO3ITy+uaEW4+5BS/vPSC46s28MfW2dgDZClW/INDWJ5rfUAfqEFNr9bAw1M
+         9M1ObjdeKMqurIcoZIQOSxiSK2M50i+pgsNmMc2dLhEn85Ql6UXdPubWFLUxvo0ATg81
+         AzpKjplLeZODqiktCLR9M/QrWgF6pUXSeG1D6+69N8oXdhDxi2seYSfNri/kOP6tR7lG
+         5geJczvpAkw/vHDAINyfxglIla07nI0Yt0gtsKXSxfc5CzusIF27lzgh6Qbp1kzUtv8I
+         7qLCTDuYRGqzGq/S4xlYId+a5jrs1qW3Omzri/hCcLGocQY0Ss3vz4L59mLbdp7uVah/
+         nQbw==
+X-Forwarded-Encrypted: i=1; AHgh+RouQLAV780n1+YEAsR9Vi1oGnkgbaoaJBSBxRYrxZ9uWcEzmygRrs/dPZj9hpLQ44o1jdeBP4Mm2sGNy/Dr+V/Y@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzv+RVAvw6bLajt5nZkx22J/BYARJQMJfjXOGlr0Am5Yp76HM+5
+	zyhH7ZOvz+sWObUQiq2T9N8sW4ac35tfwMlbwRQdDXVay8hXctTSueFGidWb3+z+4vA=
+X-Gm-Gg: AR+sD11yATLjXHguQAQBstDsRtwspZZqLQuQQ+BaX5ms7hwEz99HCvXzz1Y8PDKTmlA
+	LTiCKAnDGEoCHwjnSH1TQrTXSbOIKS9TmP4cFtjMA1K7sAmu2nwr2edHstHUXiHyCwflgucPx26
+	Zl50Rt8BykqYeNaQv52PRIWQFYPo8+nvlZRX/Uut3N5e/ykqRwroIwPJ4jk7Z3vtcTNeeh45dRo
+	dVDvRYlTgJMk2Mh++qAcsSPDt4pHhcUNI7yo4A2s9BpXAvRz5vUF1BJrQaRhlc2dK7VIvVQjrkq
+	vLYSn8Dcp4bUs+gjZsOSoWuN/Bk13Iu5skuNsdtCnhQg//2s5JyIcV/njACbeQDJWlqpQ/fP6xK
+	592Tr6E6fLbLViE+Q50zVEebyo2a3pNGNrGszQMS1ZQkFtjOF/nDvWul31b8ITMrC3UmvJKnIHw
+	Zr9LaUaJ6uN4tqTefYHd55rE5dzcToWDI+ZdkmVO/QYBzmNxPCM4rrblkz4dnXwE5Tmi10o/w5M
+	+0H9uN5ijKNGK8pbrTn9NQ1U1qawqyJCA5siy5Ot7oW/r3pKsE5HQ==
+X-Received: by 2002:a17:907:6d0d:b0:c20:fc74:5dc0 with SMTP id a640c23a62f3a-c2109161ec7mr212458366b.32.1786618390352;
+        Thu, 13 Aug 2026 03:53:10 -0700 (PDT)
+Received: from localhost ([2a00:2381:fd67:101:c11:afa0:9e5d:4eee])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c211aa04446sm620566b.26.2026.08.13.03.53.09
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 13 Aug 2026 03:53:09 -0700 (PDT)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 13 Aug 2026 11:53:08 +0100
+Message-Id: <DKNRD14Y6EKO.XP8CIMGJ4RYK@linaro.org>
+To: "Jassi Brar" <jassisinghbrar@gmail.com>
+Cc: "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ <linux-samsung-soc@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, "Krzysztof Kozlowski"
+ <krzysztof.kozlowski@oss.qualcomm.com>, "Krzysztof Kozlowski"
+ <krzk@kernel.org>, "Sam Protsenko" <semen.protsenko@linaro.org>, "Rob
+ Herring" <robh@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Tudor
+ Ambarus" <tudor.ambarus@linaro.org>, "Peter Griffin"
+ <peter.griffin@linaro.org>, "Alim Akhtar" <alim.akhtar@samsung.com>
+Subject: Re: [PATCH v4 0/2] Exynos850 AP-to-APM mailbox support
+From: "Alexey Klimov" <alexey.klimov@linaro.org>
+X-Mailer: aerc 0.20.0
+References: <20260709-exynos850-ap2apm-mailbox-v4-0-caf2fe9a237d@linaro.org>
+In-Reply-To: <20260709-exynos850-ap2apm-mailbox-v4-0-caf2fe9a237d@linaro.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260813_035313_096059_CDCC4564 
+X-CRM114-Status: UNSURE (   9.22  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,29 +109,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 12 Aug 2026 16:35:56 +0100,
-Steffen Eiden <seiden@linux.ibm.com> wrote:
-> 
-> Introduce arm-on-s390. Enable KVM-accelerated ARM CPU virtualisation on s390.
+Hi Jassi,
 
-[...]
+On Thu Jul 9, 2026 at 3:45 PM BST, Alexey Klimov wrote:
+> This patch series introduces support for the AP-to-APM mailbox on the=20
+> Exynos850 SoC. This mailbox is required for communicating with the APM=20
+> co-processor using ACPM.
 
-> Based on next-20260811.
-
-Please don't do that. -next isn't a reliable base for *anything*. For
-all I know, half of what's in -next is broken and will never be
-merged. This makes the whole thing untestable.
-
-Base your patches on a release tag: ideally an -rc from Linus' tree,
-or (worse case) a kvmarm tag for patches targeting KVM/arm64.
-
-We can easily deal with conflicts at merge time if necessary, and ask
-you to check that nothing broke in the process.
+Gentle ping. Is there anything else should be updated here or is it good
+to go?
 
 Thanks,
+Alexey
 
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
 
