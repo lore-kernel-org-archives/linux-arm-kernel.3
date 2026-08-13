@@ -4,57 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ABC9C5CFCF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 12:47:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA2CDC5CFEB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 12:47:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GEMtB4MMyqpWx0NCbO02GoY/6Qds2bTUY/L3nLZe/z8=; b=pMZDT6/aQsBjPqCxY6zjsV6zHq
-	S601NelATvHNkMisWDsAp0pn9djNh51adXR1TYeyB2t7lBTtnoc6Iemua1kyI/NXCn4la0K4/Ocds
-	+AYB96VDBA/D8ryAhQUzrx3pCw4p1T4Rszz09zRoznx0z9D3APSRa4paKwUdmbr7q8XS8Qs1/6nNu
-	Q5ksZ+8dYgrQ2+MJSNsWtdOmsXIvhdqRPl1vwef9eru6jn9R/76jz0+vJS8zv8ob8mGojpurN1cJ8
-	lPIu2/CupU6JYUx7OWdHpUYX9OAuZskNLg6ruQMHIxl0snzQ7PIQQSW4xVhjK95XAB219SCju1Nzz
-	hN1EdjWQ==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HslpzYipd5w0ihr49lUzliJQ81tnrOcg0pHtnDU5NeU=; b=IRrywNmAp/Qb26Xc7nYLggeb2v
+	tXHjsmau3JNT9GR1UTSEegGLaCG0LIdm091+/J+p+tyTAAFoQGiDDWrDhM18+0OPIbKzexs/gROgh
+	PSsVReo7wipn4qyDCgvYTwatdJdU7vHlgT05gKxZZy52a1erkbcg0YVwV5ki41TuaN5FYjot10kbp
+	hG2jZ4WgV7Sf2MlcD6iwDwYRk44d1yJRF+AiT4o60bmR0lllY9FffTL5Epi4T8E3A5sibVv06QoW0
+	vMg+h/k0oPtYe4efxMtRo0tMCFPnvLhZX83x3Jk0XHEMX/pvzdwej9iAbV4PSx5JJdlZgI4h6ToZ4
+	OVw4E9ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuUq9-00000000g7X-3AFC;
+	id 1wuUq9-00000000g7T-2q3L;
 	Thu, 13 Aug 2026 12:47:21 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuUq8-00000000g77-24tz
+	id 1wuUq8-00000000g76-0mW5
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 13 Aug 2026 12:47:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3E753600AF;
+	by tor.source.kernel.org (Postfix) with ESMTP id 36018600AD;
 	Thu, 13 Aug 2026 12:47:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id DD72CC2BCF5;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id D320FC19425;
 	Thu, 13 Aug 2026 12:47:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1786625238;
-	bh=8kTH94Wcd0bVsOqfvvaM4yEZ3psYoK8Y+qCaQ46vfj0=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=LYM6GFxYIcabDOggYt6z7uzARFMa2MLfF7clbLF/8Engsv7LwOolKd14PQ1s5FzRg
-	 ZVFbn4Xnqx80VbQx8AnrsDgn7eo8sVoehfzg8WxUMZkBAL3doafHAEL6Y8zadY85qF
-	 draxOaz0YVR2AXEBlrqWokxuDSdhJLgHuugCDacLEhOltdkoMcjc+rAKQMMfS8g42t
-	 817xRURIbdnInrSQm5IWsR9+xVIBn0Tza0q0o2xc5RwcrQEtsgjdXygTCIDf/dcIpp
-	 t0xVTV0uVEQ2mqbMes1wtGtcRgKSA3nIPny5Pom1YLmScmSilur/qv3PyZGDlXFNdT
-	 J2uCuEEdHAJlg==
+	bh=VpG4nwidpgDqllXzLatya6ZM559BrQia13sMRj/SAJg=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=Ej7xMUSkdsrv3rN1FW/I1G1+LpYjrMyJOoM4LJtNrrgIhuehsWLxYS2C5GLKM1pdD
+	 GCDpY0v8AYj5XEgwuowg129R9QveG8hHi2K5SI0iecFseQfYJsyU2GXoj8i+8Sdx41
+	 +Ki5hWJsieAbD3xBWue3wZCGpUMHjMNhO7trrjO7BRwMOg5e7urIKlnsuCRSD28OoR
+	 OMto5MA01w97hcSQhK6yjDLgrej63hQT+GES6xFZwWMZOiMd2I1etqDFqdl5uswr6G
+	 NZ5VdvQqezpBIM6/PLqZZ30tqvuhJ4hCmmc43h+u57w902i5g+4S7Sv0LosTUFXsyf
+	 SKIkIKNyW4t3A==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B81C0C5CFCF;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id AAD3EC5CFEB;
 	Thu, 13 Aug 2026 12:47:18 +0000 (UTC)
 From: Junrui Luo via B4 Relay <devnull+moonafterrain.outlook.com@kernel.org>
-Date: Thu, 13 Aug 2026 20:47:16 +0800
-Subject: [PATCH 1/2] coresight: etm-perf: don't leak the AUX handle on
- failed resume
+Subject: [PATCH 0/2] coresight: etm-perf: fix resume AUX leak and
+ exclude_kernel bypass
+Date: Thu, 13 Aug 2026 20:47:15 +0800
+Message-Id: <20260813-coresight-fixes-v1-0-7411a73cd496@outlook.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260813-coresight-fixes-v1-1-7411a73cd496@outlook.com>
-References: <20260813-coresight-fixes-v1-0-7411a73cd496@outlook.com>
-In-Reply-To: <20260813-coresight-fixes-v1-0-7411a73cd496@outlook.com>
+X-B4-Tracking: v=1; b=H4sIANO8fWoC/x3LSwqAMAwA0atI1hZiFX9XERfSxDabKo2IULy7x
+ eVjmAzKSVhhrjIkvkXliAVNXYELW/RshIrBou1xbFrjjsQqPlxml4fVDDQhoe2QaINynYn/UKZ
+ lfd8PGvv9s2EAAAA=
+X-Change-ID: 20260813-coresight-fixes-7d90d0240dda
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
  Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>, 
  Leo Yan <leo.yan@arm.com>, 
@@ -65,13 +67,13 @@ Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org, Junrui Luo <moonafterrain@outlook.com>, 
  Yuhao Jiang <danisjiang@gmail.com>, stable@vger.kernel.org
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2150;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1493;
  i=moonafterrain@outlook.com; h=from:subject:message-id;
- bh=yzAo1y/oAIoZDkd9ZQ7K7NSoBvEh92PgMNscnk7BIUA=;
- b=owJ4nJvAy8zAJVb4wiKgu++DA+NptSSGrNo9V+NKtQ37yzf+WmV9qneb7rEYSe/27bWH6rlyn
- yRK6apfN+ooZWEQ42KQFVNkOV5w6ZuF7xbdLT5bkmHmsDKBDGHg4hSAiTAcYmS4MtHziTrfiqXJ
- ly/X6ufezZidyXvyp0Y1V+WLORfWMHlcYvin/6D4RNsBvon8Txn9bvx0Fl9S+nZidJHdL/OudTW
- 8Ic3MAMzmS7I=
+ bh=VpG4nwidpgDqllXzLatya6ZM559BrQia13sMRj/SAJg=;
+ b=kA0DAAoWceg4UIuO8EAByyZiAGp9vNSjHQlEcb9EjdLpv+Fnx2ZHfkz4l9Q3T+XGlV9mSIcAh
+ Yh1BAAWCgAdFiEEx3DS9jhNtC20TLRjceg4UIuO8EAFAmp9vNQACgkQceg4UIuO8EDvZwEAnaw5
+ wS8HmZVvjl7Z/YhUflgIhG8lLALa73Cq983JJgIA/2r6v15+IanMe3rftVpzLwidlGuVhwgCozh
+ ut7ZF6/kO
 X-Developer-Key: i=moonafterrain@outlook.com; a=openpgp;
  fpr=C770D2F6384DB42DB44CB46371E838508B8EF040
 X-Endpoint-Received: by B4 Relay for moonafterrain@outlook.com/default with
@@ -92,58 +94,40 @@ Reply-To: moonafterrain@outlook.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Junrui Luo <moonafterrain@outlook.com>
+Two independent fixes for coresight-etm-perf.c, both tagged for stable.
 
-etm_event_start() shares one error label between the initial start and
-the PERF_EF_RESUME path. On the initial start, reaching 'fail' means
-perf_aux_output_begin() has not succeeded, so marking the event
-PERF_HES_STOPPED is correct. On resume, an AUX transaction opened by the
-earlier successful start is still outstanding, and 'goto fail' jumps past
-fail_end_stop, which would have ended it.
+Patch 1: etm_event_start() shares one error label between the initial
+start and the PERF_EF_RESUME path. Taking it on resume skips
+fail_end_stop, leaving the AUX transaction from the earlier successful
+start outstanding while the event is marked PERF_HES_STOPPED.
+etm_event_stop() then returns early, so the AUX handle, the sink, the
+remaining path elements and the trace ID are all leaked.
 
-The following etm_event_stop() returns early on PERF_HES_STOPPED, ahead
-of perf_aux_output_end(), coresight_disable_source() and
-coresight_disable_path(). This leaks the AUX ring buffer reference and
-leaves the sink, the remaining path elements and the trace ID held, so no
-later session can use them. ctxt->event_data is cleared just above that
-early return, so the leak is silent.
+Patch 2: etm_event_init() accepts events with both attr.exclude_kernel
+and attr.exclude_user set. Neither config parser ORs the mode bits, so
+ETM_MODE_EXCL_KERN is overwritten by ETM_MODE_EXCL_USER and the tracer
+is programmed to trace the kernel instead. perf_event_open() skips
+perf_allow_kernel() when attr.exclude_kernel is set, so an unprivileged
+caller can reach this.
 
-Make resume infallible as pt_event_start() does: leave hw.state alone so
-the regular stop path still runs the full teardown. etm_event_resume()
-already logs the failure.
+Build tested for arm64. I have no CoreSight hardware, so neither fix has
+been exercised at runtime.
 
-Fixes: abffe22e93d7 ("coresight: perf: Support AUX trace pause and resume")
-Reported-by: Yuhao Jiang <danisjiang@gmail.com>
-Assisted-by: Claude:claude-opus-5
-Cc: stable@vger.kernel.org
 Signed-off-by: Junrui Luo <moonafterrain@outlook.com>
 ---
- drivers/hwtracing/coresight/coresight-etm-perf.c | 9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
+Junrui Luo (2):
+      coresight: etm-perf: don't leak the AUX handle on failed resume
+      coresight: etm-perf: reject events that exclude both kernel and user space
 
-diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
-index 09b21a711a87..af0295eab143 100644
---- a/drivers/hwtracing/coresight/coresight-etm-perf.c
-+++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
-@@ -548,8 +548,13 @@ static void etm_event_start(struct perf_event *event, int flags)
- 
- 	if (flags & PERF_EF_RESUME) {
- 		path = etm_event_get_ctxt_path(ctxt);
--		if (etm_event_resume(path) < 0)
--			goto fail;
-+		/*
-+		 * Don't mark the event stopped on failure: the AUX transaction
-+		 * from the initial start is still live and etm_event_stop()
-+		 * bails out early on PERF_HES_STOPPED, leaking it and the path.
-+		 * etm_event_resume() already reports the error.
-+		 */
-+		etm_event_resume(path);
- 		return;
- 	}
- 
+ drivers/hwtracing/coresight/coresight-etm-perf.c | 20 ++++++++++++++++++--
+ 1 file changed, 18 insertions(+), 2 deletions(-)
+---
+base-commit: f5bbbfec59b4e2fb7520a91de3df8a6174325d6a
+change-id: 20260813-coresight-fixes-7d90d0240dda
 
+Best regards,
 -- 
-2.51.2
+Junrui Luo <moonafterrain@outlook.com>
 
 
 
