@@ -4,112 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 803E0C5AD5A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 02:29:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85E72C5AD5A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 03:08:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:Subject:References:In-Reply-To:Message-ID:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cnmgta/wS6M8HYTbflNWe4vYMLIDSzI2C2egQNuOXpM=; b=T8PP+EcGAyap4XyWwM4MfJzU8j
-	GXtwD9zufSyIx0fl3dp4gPncdiGAbimcLRpp16YsudTBybYf7SVCb++sJBkgdpyIQgpbChv2mAizD
-	nVkvFKledWQeijebHYN8HmxPXdio+cS24M9vB+DHxKqBOlMrL0ojwq1IjqHniWaGx8LNRXTiEMkTu
-	bPBsFjQWEVB9XvQTNBB0v3GvkzWwtWchHMKxrQV3umqOxX4uEk2alwhpwUeEtQe5sXlSFSxAJ2+bJ
-	HIEBMC70gHQjvULymIocGQP/04Bfo47+x03VfYr/fHf6Tj0H1TH02+jAujWUaTQprMkkjN/vSVv33
-	fuxLSBeA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=SXT+TFtZILC9kput4/TKXz12rDzU5NmQQ01pk2ZkiiM=; b=KXdwequygKjlpQ7s1HJd1PGamo
+	omrUsymk47bThx8H5CAGNv/I5uql0kk9zKT11bIduP4alGhOP/ZxjEVbIRYPU+TQwq2bjjiOlEbIy
+	y6WZzTAQheDhpC/thE75qX1rODu48uD9b1RZurhGAksZgiBfV3+njyycnF3VIPNIZddOU2nwOnWpN
+	kVcaVgCbY89i72bzMUqJl0jeXr2lXOZhmTRxt4vfAc+CHDd1QsTJ8oV+MXSBdC0uHJVDtrzDXjzFj
+	+bGyEGnd6Vqp1Nfu3IUgSRYogeAQb69p+q2fUaoTKw5/7MRMn1qI27lNFrnpzQICvwZ90O04esBRt
+	8zV3MkoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuLCW-0000000HHh9-1BWY;
-	Thu, 13 Aug 2026 02:29:48 +0000
-Received: from mail-yx1-xb12a.google.com ([2607:f8b0:4864:20::b12a])
+	id 1wuLnb-0000000HIqo-3dqE;
+	Thu, 13 Aug 2026 03:08:07 +0000
+Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuLCT-0000000HHg4-1kiX
+	id 1wuLnY-0000000HIpt-0bNz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 02:29:47 +0000
-Received: by mail-yx1-xb12a.google.com with SMTP id 956f58d0204a3-6688acd1a51so2655030d50.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 19:29:44 -0700 (PDT)
+	Thu, 13 Aug 2026 03:08:05 +0000
+Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-c9ef3e1337fso1358021a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 20:08:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786588184; x=1787192984; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:subject
-         :references:in-reply-to:message-id:cc:to:from:date:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=cnmgta/wS6M8HYTbflNWe4vYMLIDSzI2C2egQNuOXpM=;
-        b=VEmWudQsoA2Pu/TTylnLJlcpBUZO6T7jz2hdPjIynfJHjWe8dLekvSLCWEqXi7drjN
-         xO7wRb/XMIhOMoLOQs3WE+KUYkBCnG75gsZvSur1/msctbBtkDXFJOHwO2NjE3DyKKu5
-         7uP8Mka5zYdCFXg6VmT2n1QTydVTqqTQmgGVS7X4lMzaFhXktanGly/qHyVZ6TES6CG4
-         SEt8iTF3w/lAtDxWUi7bVw3NELZTqx70Mk4o1j56NZ4g3kDfLD2apMaFFpRrSXkDaQWK
-         O2UxjkXhgDLjxiPAhhHepcDhhElyU2zJCddslV8IDBipintlHwyjBCm0KrWw3dzOcT6H
-         K2aw==
+        d=gmail.com; s=20251104; t=1786590482; x=1787195282; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=SXT+TFtZILC9kput4/TKXz12rDzU5NmQQ01pk2ZkiiM=;
+        b=d+skxO0PoaItcFYXn1FTUsGWiwi87z6eXGBxThWXWhSDRwt5WsjVkq8vaMSimVIPnv
+         twTB/M7Pvst0FkKJTtJ2epj5b/EuSycHY+HkC92N5fQkvlv6vJnVz/1hnGlHCnQTNNN8
+         kRJNR+swfdIjXOgxcEXPpA7Z/Ts+904TBO//NZ3QfrITPh+kOUMf8pxn3PBW4BB+d0q+
+         K/SJmwBP2QI4Jll82+KosjsgNfzQSbXuokAug824WLmZnLJTLlNhSjqTcwemA6xuwWQR
+         BR5rS0AJGzZwUEt2ykRH6JSDw73jP93m4z6EVccsie5Ep/pJyy9ulmq5qPdMIsBfBIC1
+         MqXg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786588184; x=1787192984;
-        h=content-transfer-encoding:content-type:mime-version:subject
-         :references:in-reply-to:message-id:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=cnmgta/wS6M8HYTbflNWe4vYMLIDSzI2C2egQNuOXpM=;
-        b=k0KTURVjNi9u7upUc/59X2tDudP18VRXEilHvbDAvoee5ayP9U5dJb4Pk96BANihPO
-         HbpyxirBs98bXhdUT7iZEbX40lo+9Vo2T9rTn/P2WQI2kdmV27aUfFlxTnaabs6qj91u
-         sV0NqimKHgMsQMtCIIx/0v3GL9qUizVqPsDB1wgm/4rAKdEbIrdrzl5tcQSamkwvL6QT
-         cCs8TYGkzotYGpqnYfHxHQ5MMM1sKUJcpxs7eoh3eOacCI/wMAVyJShGy1A5WWpznZd8
-         qRGRVoihi+G1oLa9DhfZMG2qnJbKLvRd9zMW4L6SYuMj/79lDomRdCcm63M8gToCd3Ug
-         EdbA==
-X-Forwarded-Encrypted: i=1; AHgh+Ro/FVop7mVSVpTAcPoSCjoNkIs78ofZQ6m2Lq2a619O2Sj29WR4LPbviWvQhd/m//g0bfnTiR0vIfRXYoC/enUz@lists.infradead.org
-X-Gm-Message-State: AOJu0YxICTAqbDv+SZ/+jWbRdS8MukSAlwi1tfQfc+mjOv78ZE7U7hPN
-	ttu3+QQZbbPYzmHriXIJqAdUzeo5MUv7iTY6BpXmUk0Y6IvleXaq7s8w
-X-Gm-Gg: AR+sD10BBO2Awjjek8Qzx5q1r8bg8HYznNg3f5VPeaa68xLAv+2a6aZRqRombfnD2KO
-	lOSGsbah/1HdD0EzKGq1+OTtQBANdFUawcW50Ln80lHR/YPhFjzmiappSC8wQiX6qe+628sA1zk
-	FhFYFwjBfog20Q11RC9EYmL/O9KcnAA2gGVipyrHdyKDBfJbmTnDUpOdQn5zzPK9xIs54d9+WOW
-	1FM7UCmWTX+w21S3rgeXaFcXMdb9N5U2/Jjsv3H9F4Xnctwjdz7DVRimnPxtHgs3veYjnYd5zvY
-	Fptf0aC8iCUKAcIkBsZH4GVtIzuJez0mpVPHh1DExMIR0Q5bl+AI1gOycI9FfE+TWgeVBsjX9kH
-	nv88enemGs6Aa1SCuyS6AXs58KA6kIBXFUO74KnVJiZ/yqSgsyg1KzemCKD54/KZYRX5RmHcHRd
-	pAY2C78EAf6Ix4qKdj00Qqx2J6ZFJfJ37ysFJ9PS3Rxfb9z4bPSbMVPh9bvmhQqbAv02ggQN6JM
-	hYYo2FwLjt/K4t0GC+BKmOMRjZMlTdzwDTLb4HmsKhwack=
-X-Received: by 2002:a05:690e:4288:10b0:66c:4be4:89ef with SMTP id 956f58d0204a3-66c514f1295mr1042206d50.14.1786588183813;
-        Wed, 12 Aug 2026 19:29:43 -0700 (PDT)
-Received: from gmail.com (250.4.48.34.bc.googleusercontent.com. [34.48.4.250])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8346f704851sm4472597b3.48.2026.08.12.19.29.42
+        d=1e100.net; s=20251104; t=1786590482; x=1787195282;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=SXT+TFtZILC9kput4/TKXz12rDzU5NmQQ01pk2ZkiiM=;
+        b=iEZVjAo4KTgQoV9EdGcVWBArpU//vjXn3fUZoL/UDql2eRjERng9a8RhFLVs5DXP3S
+         VMfrKWdRif/cm7+zILojy6x9whu0wojCQt5mulVsX1NdMIsymuq3cLf8E8swS8qijudl
+         3HwHbc5rPh1KMYOXdSmVuPGBpXB0hBlHwIHUwXDyDpA0rrw/9KS6RzmXaP9iL7wKkkgB
+         C1hmUTHUiv3GBv9Ee/mC23JjSvXiHu+W5besOnXj5G8vxGD19kUJvQzIKZ7qGWuCjhS2
+         PVdN2MZfjRxaS1aHwIjxa6NV0tHqdELGqqdIbuXOAfzePHrXc0Q61slhHVuhylbQv0pv
+         YNdw==
+X-Forwarded-Encrypted: i=1; AHgh+RqnaZ2wEwvnnNK9YZmOcBjnOMh0koYlnwo/+d+5qn6wEOllqshgE0X6s6BFUvt16IFrTWirvHRbqlNxrJD6Z5Ij@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHzpAX7DzkB/94Kr+VnSbwIZhxuUiqsgDu04LPUJ6t5JIFdmhW
+	k/GG5iFZLUnRGnXdeMdTwwYHl3qCGIyrIrRcue8R0+s+LaZIMy9vz3jH
+X-Gm-Gg: AR+sD12oSXP48BRnNgw0jbyntrqZB0xQC87/7ZgrHMVCeB+/v6XpZKN63Yflm1TOnUV
+	imZw+watVcr78hQgr68VL10KFyWNnq00gQzSY9H2S/9FVikrS0hEoFyeuOXddtbtvjKrGn00JRy
+	wshXv89s89UsG+O4KfCJTXEAeeNUad3UG9luE4XNC2qqiJM8ZIL6GdHBa+R5D0nzZeA4cf8qrPU
+	N0QdrqvI/l8766lS7TobJvBWJWn/qmplZwf+UKkQIg00eV7FPz5UZfiUz09JAZq1A4FfS0mA4PN
+	mMZ5cSMfA+JSMEs1P9acgM86kAgq7e3L/4Y/vxZGF9AttTCuVJd1KDXTqPLNj4UUp91SnxAMDj5
+	w7/2LjqtWRgz1XT/8ovASUVy1d20eTXcg4SClCBRn1CR3OYFfnVnyEzhZimg02Djrl8q30YT2Oi
+	iLHtRIE3Uf6wKxHf/0FMotHd+Wt2DjnO1MuTzugxDBbEoNPjRSHvZVOdF20b/I/chtaXFrWU6mb
+	t5Ks8CmvcLRZoM+UA==
+X-Received: by 2002:a05:6a21:7002:b0:3cb:eca6:ce5 with SMTP id adf61e73a8af0-3cc5539af60mr3994167637.24.1786590482312;
+        Wed, 12 Aug 2026 20:08:02 -0700 (PDT)
+Received: from sdklog.tvstore.opera.com ([2804:1b3:a8c0:46f0:6d62:6c3f:1af0:ff3c])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-31ebf731f95sm2249048eec.15.2026.08.12.20.07.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Aug 2026 19:29:42 -0700 (PDT)
-Date: Wed, 12 Aug 2026 22:29:42 -0400
-From: Willem de Bruijn <willemdebruijn.kernel@gmail.com>
-To: zhaoping.shu@mediatek.com, 
- davem@davemloft.net, 
- edumazet@google.com, 
- kuba@kernel.org, 
- pabeni@redhat.com, 
- horms@kernel.org, 
- ncardwell@google.com, 
- kuniyu@google.com, 
- matthias.bgg@gmail.com, 
- angelogioacchino.delregno@collabora.com, 
- willemb@google.com, 
- alice@isovalent.com, 
- sd@queasysnail.net, 
- eilaimemedsnaimel@gmail.com, 
- imv4bel@gmail.com, 
- hw.he@mediatek.com, 
- netdev@vger.kernel.org, 
- linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org
-Cc: haijun.liu@mediatek.com, 
- xiayu.zhang@mediatek.com, 
- lambert.wang@mediatek.com, 
- Iven.Yang@mediatek.com, 
- Zhaoping Shu <zhaoping.shu@mediatek.com>
-Message-ID: <willemdebruijn.kernel.1372b82f50882@gmail.com>
-In-Reply-To: <20260813014056.160533-1-zhaoping.shu@mediatek.com>
-References: <20260813014056.160533-1-zhaoping.shu@mediatek.com>
-Subject: Re: [PATCH net v3] net: gro: Fix nesting of TCP GSO SKBs in 
- skb_gro_receive_list()
-Mime-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: 7bit
+        Wed, 12 Aug 2026 20:08:01 -0700 (PDT)
+From: Marcelo Mendes Spessoto Junior <marcelomspessoto@gmail.com>
+To: "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Shuah Khan <shuah@kernel.org>,
+	=?UTF-8?q?Andreas=20F=C3=A4rber?= <afaerber@suse.de>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	netdev@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-actions@lists.infradead.org
+Cc: Marcelo Mendes Spessoto Junior <marcelomspessoto@gmail.com>
+Subject: [PATCH net-next] selftests: net: separate ipv6_flowlabel_mgr test
+Date: Thu, 13 Aug 2026 00:07:05 -0300
+Message-ID: <20260813030708.37609-1-marcelomspessoto@gmail.com>
+X-Mailer: git-send-email 2.55.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_192945_482921_67C563E1 
-X-CRM114-Status: GOOD (  28.65  )
+X-CRM114-CacheID: sfid-20260812_200804_186502_8D882FFE 
+X-CRM114-Status: GOOD (  11.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,83 +107,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-zhaoping.shu@ wrote:
-> From: HW He <hw.he@mediatek.com>
-> 
-> A device supports GRO_HW, and the device driver enables the
-> NETIF_F_GRO_FRAGLIST feature. During a tethering test,
-> skb_gro_receive_list() reaggregates the GSO packet. However,
-> skb_segment_list() cannot segment this packet back into
-> the original packets, which leads to IP fragmentation or packet drop.
-> 
-> Scenario (Tethering/Forwarding):
-> 1.Driver submits a single TCP packet, P1. P1 is kept in the
-> gro_list as the first packet.
-> 
-> 2. The driver submits a TCP GSO skb, P2. P2 has already aggregated
-> multiple TCP packets by HW_GRO, and its non-linear data is stored in
-> frags[].
-> 
-> 3. P1 and P2 match the GRO rules, and since there is no local socket,
-> they are aggregated by skb_gro_receive_list(). The resulting skb,
-> P3, has a frag_list entry that still contains frags[]:
-> P3: [ Linear Data ] -> frag_list -> [ Linear Data ]
->                                     [ frag[1] ]
->                                     [ frag[2] ]
->                                     ...
-> 4. Later, tcp4_gso_segment() or tcp6_gso_segment() calls
-> skb_segment_list() to segment P3. However, skb_segment_list() only
-> segments the entries in frag_list. It does not segment the frags[]
-> inside P2, so P3 is not restored to the original packets, which leads
-> to IP fragmentation or packet drop in the following path.
-> 
-> When NETIF_F_GRO_HW is enabled, do not set NAPI_GRO_CB(skb)->is_flist.
-> Fall through to the regular skb_gro_receive() path instead of
-> skb_gro_receive_list().
-> 
-> Fixes: 8d95dc474f85 ("net: add code for TCP fraglist GRO")
-> Signed-off-by: HW He <hw.he@mediatek.com>
-> Signed-off-by: Zhaoping Shu <zhaoping.shu@mediatek.com>
-> ---
-> [2]: https://patchwork.kernel.org/patch/14706032
-> [1]: https://patchwork.kernel.org/patch/14702209
-> ---
->  net/ipv4/tcp_offload.c   | 7 +++----
->  net/ipv6/tcpv6_offload.c | 3 ++-
->  2 files changed, 5 insertions(+), 5 deletions(-)
-> 
-> diff --git a/net/ipv4/tcp_offload.c b/net/ipv4/tcp_offload.c
-> index 3b1fdcd3cb29..641c47fb1ea2 100644
-> --- a/net/ipv4/tcp_offload.c
-> +++ b/net/ipv4/tcp_offload.c
-> @@ -395,9 +395,6 @@ static void tcp4_check_fraglist_gro(struct list_head *head, struct sk_buff *skb,
->  	struct net *net;
->  	int iif, sdif;
->  
-> -	if (likely(!(skb->dev->features & NETIF_F_GRO_FRAGLIST)))
-> -		return;
-> -
+The ipv6_flowlabel_mgr used to be a component of a broader overall
+flow label test, defined in the ipv6_flowlabel.sh file. This wrapper
+script called tests defined on ipv6_flowlabel.c and
+ipv6_flowlabel_mgr.c files, using predefined parameters and enforcing
+the in_netns.sh helper to set network namespaces for each test env.
 
-Interesting that ipv4 and ipv6 diverge here. Nice to try to make them
-more alike.
+However, the ipv6_flowlabel_mgr.c was drastically changed recently.
+These modifications led to the mgr tests becoming a self contained and
+independent test suite, enforcing netns creation by itself and
+not relying on the ipv6_flowlabel.sh wrapper for proper test execution
+anymore. Therefore, remove the mgr tests from the wrapper and update
+the Makefile to handle it as a standalone test program instead.
 
->  	p = tcp_gro_lookup(head, th);
->  	if (p) {
->  		NAPI_GRO_CB(skb)->is_flist = NAPI_GRO_CB(p)->is_flist;
-> @@ -430,7 +427,9 @@ struct sk_buff *tcp4_gro_receive(struct list_head *head, struct sk_buff *skb)
->  	if (!th)
->  		goto flush;
->  
-> -	tcp4_check_fraglist_gro(head, skb, th);
-> +	if (unlikely((skb->dev->features & NETIF_F_GRO_FRAGLIST) &&
-> +		     !(skb->dev->features & NETIF_F_GRO_HW)))
+Signed-off-by: Marcelo Mendes Spessoto Junior <marcelomspessoto@gmail.com>
+---
+ tools/testing/selftests/net/Makefile          | 2 +-
+ tools/testing/selftests/net/ipv6_flowlabel.sh | 3 ---
+ 2 files changed, 1 insertion(+), 4 deletions(-)
 
-Would it be better to test skb_is_gso(skb) and only skip fraglist GRO
-for HW-GRO skbs, rather than disabling it for all skbs?
-
-If treating the features as mutually exclusive, another option would
-be to replace these datapath checks with disabling one at configuration
-time, in netdev_fix_features.
-
+diff --git a/tools/testing/selftests/net/Makefile b/tools/testing/selftests/net/Makefile
+index ab890e6f79dd..0f5c178bc224 100644
+--- a/tools/testing/selftests/net/Makefile
++++ b/tools/testing/selftests/net/Makefile
+@@ -150,7 +150,6 @@ TEST_GEN_FILES := \
+ 	ip_local_port_range \
+ 	ipsec \
+ 	ipv6_flowlabel \
+-	ipv6_flowlabel_mgr \
+ 	msg_zerocopy \
+ 	nettest \
+ 	psock_fanout \
+@@ -183,6 +182,7 @@ TEST_GEN_PROGS := \
+ 	epoll_busy_poll \
+ 	getsockopt_iter \
+ 	icmp_rfc4884 \
++	ipv6_flowlabel_mgr \
+ 	ipv6_fragmentation \
+ 	proc_net_pktgen \
+ 	reuseaddr_conflict \
+diff --git a/tools/testing/selftests/net/ipv6_flowlabel.sh b/tools/testing/selftests/net/ipv6_flowlabel.sh
+index 2eeda39bf64c..5d1b5464c54c 100755
+--- a/tools/testing/selftests/net/ipv6_flowlabel.sh
++++ b/tools/testing/selftests/net/ipv6_flowlabel.sh
+@@ -7,9 +7,6 @@
+ 
+ set -e
+ 
+-echo "TEST management"
+-./ipv6_flowlabel_mgr
+-
+ echo "TEST datapath"
+ ./in_netns.sh \
+   sh -c 'sysctl -q -w net.ipv6.auto_flowlabels=0 && ./ipv6_flowlabel -l 1'
+-- 
+2.55.0
 
 
