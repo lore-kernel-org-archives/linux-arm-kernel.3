@@ -4,131 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6781CC5CFCF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 16:15:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F6E8C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 16:16:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fGPnLAQmqj7Whsa4yy9m6HVCGSQ0x2mZZlgM8eulIDE=; b=OtCkEYwKfRmU1gi+agpyOjEDrM
-	NS0ZVYP1KLuyABpJWi5pt6rFQijZE8ZAFwbuJ3jDveINf0ivouaXo7CFNaRoz4uRsEaJt7eeAIeY9
-	s5p5Rv7J4OHwpi7z+8SA6OfLTuH4BH+ovrQqbihknjka++xOOJbza6a0xGBCi9WEkxuxX9i6XmEeS
-	4D5wODH3DT5Gx+shMC34rhiOUiaw50zhrnhZ2o6IAz3ozAy/wm12kgauv1NuRIShUBCwCB0jZVT81
-	9u1OxKWbobt9Q2wbgCbFGYBT1YzyPjjppTBk0dhyZ1bjNxJ4vF8lFEQn8rkSrT6Y+GAGMUXU4qNMe
-	PXdovXGw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WKTV2ZTSUoxL0x2hN/gj5r+kKUiy8iekG3jkXHZrZMA=; b=G70kyYjcU0yjpjCPP9CRe8AoQA
+	yLn8hX5eTBCFYx7XTMoYBI6nC18dCHD7giEV81TnX398NFlBx5AszdfgzRA7f7yOZ5ZRvYnHMJbVH
+	YAOKgSXbiL+U+Fzx7aKnQezbW/jfcPu9UTmW9lJ3RupqZparyu0XxWa+1qmddyngHZPDJc4WEv35g
+	pcDAP/i7eSlA9Kv8uacRUL9DlxHYk9VDB4DmA9YIf34EMxOmrIL8dIHLx2+2D2MZmXNOeNKgu+cYf
+	6Z+R5rFNV02H6UXsNEtKfDbJ+NItXQ+AVub75wI3N4Hqg3jDXCJHMCfwoNwupr/Em1ADuRzoQCceG
+	Jg8F5abQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuY5S-000000018VG-3Xfi;
-	Thu, 13 Aug 2026 16:15:22 +0000
-Received: from mail-francesouthazon11011045.outbound.protection.outlook.com ([40.107.130.45] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1wuY6Q-000000018bP-0285;
+	Thu, 13 Aug 2026 16:16:22 +0000
+Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuY5P-000000018UP-2daU
+	id 1wuY6N-000000018ab-1zKx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 16:15:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZHHB8y69KlVvbog/sHSYXxQXu7XPmfkWYEvwKcZq9ev+FaUpYLIunh+Ca2fvkQCHQmRvWoM/FGtWFGoDr4HXrNn7l5L2tuvHbLR2go2NeAkleI9ANc9aNfarRXN4q++ZxH//XGCZLEPRqCie75DnSz3rljDQf7Xbend9Eqkp1VPaX18u8rB1ZDd1gGVzs/KBmr6QDgdCEEeaXVOyAXvboSDyfjFecCKuBUKAvRFZRcR3OjbZcr7YaKMESAnw7TAJ7uZfEXoPHdlRrqXSxX+XUTALxxu7HqtPl7TaOfzq6GYRPLPqYY7BLGAwei1rwVXi2It5rX+3G0TtjvpDx2k0oQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fGPnLAQmqj7Whsa4yy9m6HVCGSQ0x2mZZlgM8eulIDE=;
- b=GmOhIv0j5nfQye+qTcM9BN9/OkS7HmDbSJ1o9Q+qzozVrWiNFJJ4EcJsVEYYLRNap+Z8k9OG92122fB1+8xObfhO+IMUvqyr19S6Lk7QQSr2T8QS6WW5SxZ0flGbGrQ8cjPAUwD+ukhtLRB5a3gAbRNCTzIkKQwHfAomgQZ4GD9yDIpMIEyr6+1qeyG/hb7q6IKQ1K/gPLL7qXCnkZhUStOXY+9GHNY00g6eFJMswPHnhmw+jSsm4fWKzdz5kwUhpzsNFn2rh9jonO6V+xBYWT5mofDI1zbqNFp8WeRXkRIoXZ1l9fX+GJdUeOqCL4A1t1XsSPH5guA5AFIkKjM/og==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=fGPnLAQmqj7Whsa4yy9m6HVCGSQ0x2mZZlgM8eulIDE=;
- b=j1hsXMuDD1Jyd35RoLEYpseM2y/mUF5s0fFsREZ2IV+MFQQUQ/lzXbns8OfY4kCq6roiSgwCx8oVYYgCqnmVvDazugQN07ygIL4drwbsOfGhWfZb6+uS46o3NadRHVxy+V5wk77igWm0oddCBnzihKwYwP9u90cdefyssS+4VdducsBY8UcQHsmxF0jlBGB5oUmSm2CvMWbD7LcRdOp17JLm4hGsBtHXRz7lmEKS5RuMMIFyPyeGONhgsm3uCE98wsSuMveHeRO3YoXLA/TlfCG8FjmgjPmIpyvYWRg6NQkRcrwn3i4iJsyURrAAYQ33CwQbIjMDD52xC3rLsW51bA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from DU4PR04MB11791.eurprd04.prod.outlook.com (2603:10a6:10:623::11)
- by DU2PR04MB8885.eurprd04.prod.outlook.com (2603:10a6:10:2e0::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.14; Thu, 13 Aug
- 2026 16:15:12 +0000
-Received: from DU4PR04MB11791.eurprd04.prod.outlook.com
- ([fe80::11ca:6b74:3234:d7de]) by DU4PR04MB11791.eurprd04.prod.outlook.com
- ([fe80::11ca:6b74:3234:d7de%5]) with mapi id 15.21.0315.014; Thu, 13 Aug 2026
- 16:15:12 +0000
-Date: Thu, 13 Aug 2026 11:15:04 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Leonardo Costa <leoreis.costa@gmail.com>
-Cc: Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de,
-	festevam@gmail.com, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Leonardo Costa <leonardo.costa@toradex.com>
-Subject: Re: [PATCH 6/6] arm64: dts: freescale: imx8mp-verdin: Add Mezzanine
- with Toradex Display 10.1" LVDS V2
-Message-ID: <an3tiDOUUYLb8PAq@SMW015318>
-References: <20260813133335.1941580-1-leoreis.costa@gmail.com>
- <20260813133335.1941580-7-leoreis.costa@gmail.com>
- <an3brO5COdw_F76m@SMW015318>
- <rglymw6p4c65yoqz3pjn6e6nq7cil2fa7m7dqghshgdpavby7d@kyza3ceavq6z>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <rglymw6p4c65yoqz3pjn6e6nq7cil2fa7m7dqghshgdpavby7d@kyza3ceavq6z>
-X-ClientProxiedBy: SJ0PR05CA0079.namprd05.prod.outlook.com
- (2603:10b6:a03:332::24) To DU4PR04MB11791.eurprd04.prod.outlook.com
- (2603:10a6:10:623::11)
+	Thu, 13 Aug 2026 16:16:21 +0000
+Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-cbeeaac53a9so1865800a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 09:16:19 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1786637779; cv=none;
+        d=google.com; s=arc-20260327;
+        b=SThY+L3NLrS8cP6s6EP4KAq7qPWf+Mz7MimaXnmE6KppOqvK+oT6vBPmwY1QplmN4N
+         toprB7AYakd3ZWczlUJ/c3Uq/lt1tjMqkhTBjeRRL7RqnPWfu/VMvombKMzXNrez+o33
+         m2xY/+LbFXOyWplMqhRXYq3V1xz6fwYfoDO4ZQezmxBl2FU8L41b/qL1gnhC44gaHvQa
+         L3X1xtgjG13JqBiDKhu06UAsgIAFl9hRnZWJONgdKRbQNXVsa2QOulYna+5N0/j7zx8d
+         TBPAbuhXs8bfnhJMzmDonbr067nueuW2JuD8g9Gdb6or/gUA8hcxCaGOGVl/hycuEeKK
+         7VqQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=WKTV2ZTSUoxL0x2hN/gj5r+kKUiy8iekG3jkXHZrZMA=;
+        fh=VIRpuwqACd0zSMEsDH6mVZjJoxan5cTYSImza7h7wDs=;
+        b=Jqn5s1MJC0P55CGMJP+pXDh/HrxUqoTQnV5qerYLXwVqFKLGUcOZ/ooTGLT6adara6
+         QHJ7Lu0ZKfBXWjfzHKJR6/fjaqA9W5f3SYo7M5Y6S8E73Ktxx6UpXejO3XyccgrKBBDY
+         2J9AfZzLwi5V39bxFfrgvzM6nVjfv0k11wM7bCj2Wqepr2ZIVDq8hDGyEo6dDNkh8cOI
+         CfS+maHmi+UsB1xOH2HpzbnmFBSoYzHG6tJS5kKBFLEZ1wSAJJAFH9RQFPnJz+yNvPet
+         r8dPyjViay0dgmSfirV3FTHu/fTUNL1zvyFXSao0cuh9gSYTCsFB9a8qSt6tjdDllEo0
+         wjDg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786637779; x=1787242579; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=WKTV2ZTSUoxL0x2hN/gj5r+kKUiy8iekG3jkXHZrZMA=;
+        b=rs5AylSHtL3wivoZjY4HnbHRSr+p5ZmMgF1DDMl+/8Uk0y1NtLLxH+Lo+mtPb4xqGV
+         pLEGYZurnqjxKXUqGFTBevx1Z/Kl2nCkDXjSJAfo7ix2z4PWsj9x9iP35edLfXvUNSIv
+         NiSFXPlZ3JeZJcyxonKCbJqE6i2sgAjOR1zDEC5Mk7w6CNpUi8GSXTR5tvfnD7LznM9e
+         BULaIIpo5qLm6xKM71FzSZd6bSOVQmFVwgeTDNBSYil+s6FbvVqAv9BwmsDWFT735LVP
+         Jkn38fXZaDqO4gP+/PyPFugPw1qIz7l1+rqKbyONcL51ctTyan46Zn06iKC/IaXJz52f
+         rdqw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786637779; x=1787242579;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=WKTV2ZTSUoxL0x2hN/gj5r+kKUiy8iekG3jkXHZrZMA=;
+        b=NK11gcydyvKLCVHVMEKAS/CfEWkGcYqjsxERWtncxU5Fl7T8YwLcnx8QQTBoLi2Egs
+         IfFQoMtRPENCtW1QqovCHJaCCpHUt/lL3on/2JY5YOpMRo68cIAvVH6KujiL+7qkyfZ5
+         3mNbL3ItlqJ0gBls9tksrUfJcQMwlFelTaj4m6FhpwLV2EmrXLJ3BdpMKdCWTp2kbT6S
+         0wwzyo2hdBaEwWphZN7WEesG2mnM/bkn5lLGtF3IzFD3hO9l0zzLQMZY0zMUMgKiuwk1
+         6OqPOkkSPLQKIaUXsSLyOmj4KHmzKGSpVXAZ0nNDHeMTlqbJxkmAOxYIRgxqOz0OhX/U
+         bnug==
+X-Forwarded-Encrypted: i=1; AHgh+RpXNDZuwnH0x7IyesFBgk87pjd8ojgI1AZ9G/jN2wjOUAZuMD5eD+oc6h8Wl/mycT6uUKA9avV35suw6rE7jjzh@lists.infradead.org
+X-Gm-Message-State: AOJu0YzcFsnGWtjnuHieq3Y+S3T0tqqKPfSl/eLNBkPB5XhixngwicYV
+	d2z2TXSdvWTD1n4pFyZetYW9Ofpbgg7zmTsG6F4ZZE4cVQ+U8Hu4SgU2jQ1HcQjJTuCLNZLwZ/U
+	JDKpcEamnBWv7lOlW4hJB4IQEpO20oSw=
+X-Gm-Gg: AR+sD13Czjsth+Wtau4pmFdHxx7B0TEQXQUqcm06BnHJzridQbV3McL3JuRNIxeaJpc
+	oUHo3QCWj0uklLN1Sc2iVqc8uLTRrMLd5cj6K/2qn0+wJKQfpcFLF9xujrI6R+7Yr4vq3Wgnl24
+	FvRHH0kuan3/fOULemukXKI8OEX1aNe4B18SqvKUzeKHInlYzaQr4K3Tz/gX8uAwy+N70esfikw
+	vwimR9OyPfgtH+WXccIAYDgCU5hcCOhbciT5cIpiEjFF8UkXCrF91zQhy41cibQ/AetiiufOJBv
+	sB3sWGToU3Dbxq4OL4YplYON7/4ZXW6bgKWsoWflQid18J+OIqa/lVIoHL9SxLhVU90XAUVDt/s
+	/5+g=
+X-Received: by 2002:a05:6a00:94f8:b0:848:4754:28e4 with SMTP id
+ d2e1a72fcca58-84fc6dd20d5mr7964377b3a.15.1786637778230; Thu, 13 Aug 2026
+ 09:16:18 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU4PR04MB11791:EE_|DU2PR04MB8885:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9534e902-cd83-41d7-cb38-08def9560db8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|23010399003|376014|7416014|18002099003|22082099003|56012099006|11063799006|4143699003|10067099003;
-X-Microsoft-Antispam-Message-Info: M/7qtPRHQv01bkGdC8G2DOoqwr+ylKzHy5Y3lqWtoRirHTOmi+nRjSnXc5mNVayt+MLlfKTjmPv5tFPuFHdy9vE4WjWAxoM9rufOtwdkzRpzNKDdcNJUn0XoFKY9h+JNtg0Rmm5W53EYk4UFAASEl4+fiIcFdLqpUlScwiBsJy36hDDtX46WP/t+T/pn1riFz8YI566Hd1yVr6/bs68qbTsSeeQfFeTFEmN74uWkiSUGROt9UAJIEO0/m6iwfntgrVgRP2YqDXll2MlSRUCl10ukRgVRsYwA+JFOLb/jkOBXRcLvGq52A5Fq1dSGkovT7SiF/vIYVJ0goRA5t21KNyo3GGF4aGPOYsv9ut2r3bdLTJ9HtBYguCmeAE+Ml+rPbnzoAAEWdNIe7sJDPtHGApZ4Fry1iVXVWk9DKtr50UDNKWWEEG0eomS/nEc1N51auJrANDIiKeTM2gWgBTQNTXoDaBILmYhpQgnS5H59vHjAZ4IVw31R8CPGHrHYP4aBcF6uYcmW/SjMiYbP1Xfsw47ompKQy44KTMF6boPbBvjESCUAoqlxkvBW5E4hTnNlI6NYaUhxBkCbn2BnwnTI2O4UZYtHUHU34gYbxSBU8MsMoou+vvomNrXD9ENYmNwtZJ0WJkqQO8GBf7rMk4d1mYAP+TcFLtcmIDZTq883Tdc=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU4PR04MB11791.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(23010399003)(376014)(7416014)(18002099003)(22082099003)(56012099006)(11063799006)(4143699003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?m8cQcaacK3f+W8elmiWbiqGBDg2GPeqk/qMZkGW71xSD1vYAncWCQQ9cRKDb?=
- =?us-ascii?Q?146eW8xmEwl8pBT7WBEwdkQQ05vJFSppVLmtXa3GjJSxmMnG5j1ujvGuxAxE?=
- =?us-ascii?Q?295s3qj/EQyjDe46OH2DPNhlh3Ij0t60Lzruyd/Fe2VytConPcE5n5T3CTE2?=
- =?us-ascii?Q?Ai7DbzEh6gM7t9dsb+FixGlrwjT5LhlU2+pOIyxEaZRdqL/uxhtX+CWzWUQB?=
- =?us-ascii?Q?YOtN6NU3IiY1eUXBR1DSdNx5dx6EUbcgFnGAu2qylJyAMZ/ck400vQnvLWM7?=
- =?us-ascii?Q?16AQ2uDjVTTFSh4X51JFvHyRctO9tbwQmrIwdUEX0CEV3VzcZ7XZ7XE/eOkk?=
- =?us-ascii?Q?7da9ciAgfE5E3BysjoKBgDXwuIBEFwf6cnVNNCHYN/LIRqbeRGlIvWaaR7fX?=
- =?us-ascii?Q?rk6OManaH1v9oZnFK0t4RM7eA/pMpt1pxjgB0uhIgNYKrLsfSeQ814jb6gon?=
- =?us-ascii?Q?rKsBeXV8FIrVg/fiG/kYqhmNiwWr1R/KbT+TP3cXSh7XP2+OTqNbqueZ4Msc?=
- =?us-ascii?Q?cT6kck3YOQBHzv75wpvJmvXV2MVl4AyhUPr3x7/Gl4phNsf6PI1Yg53aSaRJ?=
- =?us-ascii?Q?zU8utkrNbywnheoO99lL7g6AdUsVTrj2+Ch5GFRZ+8rNCTGJ5Ad8Au0zEZ7d?=
- =?us-ascii?Q?7MolqAXH/BC6DkOs/6lPtN50CHPjnNhlHqU2k6aJlwPiKOHu8GosgZoLx82k?=
- =?us-ascii?Q?hzw0Eeu7pjIW6BO7El9HhmDXhhnkgPP8cOVv89sNcWWHB/AXioHbUA5hKpit?=
- =?us-ascii?Q?CiqC+lYb3A1906wLFbOokTd2BlnAOhMXNFRYwg+GKNxXOBU4mFHg2MNJAGlr?=
- =?us-ascii?Q?3c/OVDeiFqTNZF7f0KsgpwVXyCImUxroKGGZTDExBX5olr+YRKU6M9fsiaDF?=
- =?us-ascii?Q?XDIkUNyTVC49rNsjjzKhSSGMJTazNY3yqFyf/oQH7zgpCz0VrrJJY1PVKRw7?=
- =?us-ascii?Q?uM2JWmnPE9X7Mov0dp1dIvCIlYsk59FmCBAOV+OWeamJ1LaynpmPQhxewIxb?=
- =?us-ascii?Q?2Cr/Y6dhY7ftCsBYIrwAAbvlNlRi6Xy7ZK8/3Z82MhvrQ/3GcJ9i8BFMzV+q?=
- =?us-ascii?Q?j4gUSapKLitXEvOHcZqhgfU/JlR9N7p7Z/qifyhOHReUm8pHb0hwsKA6vXXG?=
- =?us-ascii?Q?uEvJl27rGuvpZ38ObbaPANE0PMGeHX8S/XlTl/4b+IXnDdxyWjn+2dmdplhY?=
- =?us-ascii?Q?aLKI4R2qyhXSlavw2FWAtYc/VoCApEdf/+XVNur+SnReYs0ahdEhOJ/1UIgr?=
- =?us-ascii?Q?wqufxqK79fJaxdRbXdvbkEpoE6lykYtpJkcbTD37Ti7jLap9lLAn+9e2Efhx?=
- =?us-ascii?Q?JsODq47mlMSAge6BaojOePBp/fMcvn6qSQN332QG1L9qGK9u9r+69TYhh8oK?=
- =?us-ascii?Q?kYf60VvmClyawftK3xfJM3XChYXZbyHi273RywM3BIuOl2uVWgdOz8i1nyH7?=
- =?us-ascii?Q?NXZAcIZuUKeQc1DC4oaxtWOXRynoXV9BE0JuGiwzm01/WC6LZMsi0DACqMev?=
- =?us-ascii?Q?CKyqGMDnNV7DuKbkYxOlJ+1SYUho49D4y0EmR/bG1rHPXhdC4zwO7uNuA5ih?=
- =?us-ascii?Q?VUff4K5s3OWzO+3NZx0ykSYBwgM0E/GfzTt48xBZ8xeiRCCXfgHyyYNI3u7x?=
- =?us-ascii?Q?tMKyYV/qNXoXcgohGEEW/KcTNOX3NGuH1ab97qZ4luhmU+Gz3QfPKOHzZ9kd?=
- =?us-ascii?Q?hLf3AXiKwmJxozo5/1+GBYjMV2Dflwv9FnJs6I21ZfFH0+JxUQlMaLFsgy4+?=
- =?us-ascii?Q?gwV5aqvmeRSKgGULZ+YsSaxbUeEH1IByHP57oHTP8ILeiaeZ/6Y1?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9534e902-cd83-41d7-cb38-08def9560db8
-X-MS-Exchange-CrossTenant-AuthSource: DU4PR04MB11791.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Aug 2026 16:15:12.8874
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: LqIbV8FijPWcjPrH+pa6w7PexRLhHvf4+yNjXNpyyK3hmgokOvmzBmBUuzXo7sKQMxg11+e8QoCT/qVE6Cn77hIBpiofoclpDNEJpJ3OUxG1rEZBAenPTTLNc5OXmyVx
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8885
+References: <20260813014056.160533-1-zhaoping.shu@mediatek.com>
+ <willemdebruijn.kernel.1372b82f50882@gmail.com> <0e1f71c4417099399eda78fd2a082b2444e42af9.camel@mediatek.com>
+In-Reply-To: <0e1f71c4417099399eda78fd2a082b2444e42af9.camel@mediatek.com>
+From: Willem de Bruijn <willemdebruijn.kernel@gmail.com>
+Date: Thu, 13 Aug 2026 12:15:40 -0400
+X-Gm-Features: AUfX_mznkHuU-cF144mVumH8tZacn1_Y1N_Jk90APs0ZCVnzLy3r3jqX6yEARUw
+Message-ID: <CAF=yD-+AF1aW5D5H_QPKE1yxyU2wLxOmT8c2Fm4CJsPY=BjW-g@mail.gmail.com>
+Subject: Re: [PATCH net v3] net: gro: Fix nesting of TCP GSO SKBs in skb_gro_receive_list()
+To: =?UTF-8?B?Wmhhb3BpbmcgU2h1ICjoiJLlj6zlubMp?= <Zhaoping.Shu@mediatek.com>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>, 
+	"sd@queasysnail.net" <sd@queasysnail.net>, "imv4bel@gmail.com" <imv4bel@gmail.com>, 
+	"alice@isovalent.com" <alice@isovalent.com>, 
+	"eilaimemedsnaimel@gmail.com" <eilaimemedsnaimel@gmail.com>, =?UTF-8?B?SFcgSGUgKOS9leS8nyk=?= <HW.He@mediatek.com>, 
+	"horms@kernel.org" <horms@kernel.org>, "kuba@kernel.org" <kuba@kernel.org>, 
+	"pabeni@redhat.com" <pabeni@redhat.com>, "edumazet@google.com" <edumazet@google.com>, 
+	"willemb@google.com" <willemb@google.com>, "netdev@vger.kernel.org" <netdev@vger.kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>, "davem@davemloft.net" <davem@davemloft.net>, 
+	"kuniyu@google.com" <kuniyu@google.com>, "ncardwell@google.com" <ncardwell@google.com>, 
+	=?UTF-8?B?SGFpanVuIExpdSAo5YiY5rW35YabKQ==?= <haijun.liu@mediatek.com>, 
+	=?UTF-8?B?WGlheXUgWmhhbmcgKOW8oOWkj+Wuhyk=?= <Xiayu.Zhang@mediatek.com>, 
+	=?UTF-8?B?TGFtYmVydCBXYW5nICjnjovkvJ8p?= <Lambert.Wang@mediatek.com>, 
+	=?UTF-8?B?SXZlbiBZYW5nICjpmLPlhYkp?= <Iven.Yang@mediatek.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_091519_669171_53DCEE33 
-X-CRM114-Status: GOOD (  18.49  )
+X-CRM114-CacheID: sfid-20260813_091619_569159_1B36450E 
+X-CRM114-Status: GOOD (  41.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,57 +133,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 13, 2026 at 12:43:29PM -0300, Leonardo Costa wrote:
-> On Thu, Aug 13, 2026 at 09:58:52AM -0500, Frank Li wrote:
-> > On Thu, Aug 13, 2026 at 10:33:35AM -0300, Leonardo Costa wrote:
-> > > From: Leonardo Costa <leonardo.costa@toradex.com>
+On Thu, Aug 13, 2026 at 4:40=E2=80=AFAM Zhaoping Shu (=E8=88=92=E5=8F=AC=E5=
+=B9=B3)
+<Zhaoping.Shu@mediatek.com> wrote:
+>
+> On Wed, 2026-08-12 at 22:29 -0400, Willem de Bruijn wrote:
+> > External email : Please do not click links or open attachments until
+> > you have verified the sender or the content.
+> >
+> >
+> > zhaoping.shu@ wrote:
+> > > From: HW He <hw.he@mediatek.com>
 > > >
-> > > Add a device tree overlay enabling the Toradex Capacitive Touch Display
-> > > 10.1" LVDS V2 on the Verdin Development Board with Verdin iMX8M Plus
-> > > Mezzanine expansion board. The panel connects via the i.MX8M Plus LCDIF
-> > > on the Mezzanine LVDS interface (J10). The panel is an Opto Logic
-> > > SCX1001511GGC49 10.1" WXGA TFT LCD LVDS and the touch input is provided
-> > > by an ILITEK ILI251x capacitive touch controller.
+> > > A device supports GRO_HW, and the device driver enables the
+> > > NETIF_F_GRO_FRAGLIST feature. During a tethering test,
+> > > skb_gro_receive_list() reaggregates the GSO packet. However,
+> > > skb_segment_list() cannot segment this packet back into
+> > > the original packets, which leads to IP fragmentation or packet
+> > > drop.
 > > >
-> > > Link: https://developer.toradex.com/hardware/accessories/displays/capacitive-touch-display-101inch-lvds
-> > > Link: https://developer.toradex.com/hardware/verdin-som-family/add-ons/verdin-imx8m-plus-mezzanine
-> > > Signed-off-by: Leonardo Costa <leonardo.costa@toradex.com>
+> > > Scenario (Tethering/Forwarding):
+> > > 1.Driver submits a single TCP packet, P1. P1 is kept in the
+> > > gro_list as the first packet.
+> > >
+> > > 2. The driver submits a TCP GSO skb, P2. P2 has already aggregated
+> > > multiple TCP packets by HW_GRO, and its non-linear data is stored
+> > > in
+> > > frags[].
+> > >
+> > > 3. P1 and P2 match the GRO rules, and since there is no local
+> > > socket,
+> > > they are aggregated by skb_gro_receive_list(). The resulting skb,
+> > > P3, has a frag_list entry that still contains frags[]:
+> > > P3: [ Linear Data ] -> frag_list -> [ Linear Data ]
+> > >                                     [ frag[1] ]
+> > >                                     [ frag[2] ]
+> > >                                     ...
+> > > 4. Later, tcp4_gso_segment() or tcp6_gso_segment() calls
+> > > skb_segment_list() to segment P3. However, skb_segment_list() only
+> > > segments the entries in frag_list. It does not segment the frags[]
+> > > inside P2, so P3 is not restored to the original packets, which
+> > > leads
+> > > to IP fragmentation or packet drop in the following path.
+> > >
+> > > When NETIF_F_GRO_HW is enabled, do not set NAPI_GRO_CB(skb)-
+> > > >is_flist.
+> > > Fall through to the regular skb_gro_receive() path instead of
+> > > skb_gro_receive_list().
+> > >
+> > > Fixes: 8d95dc474f85 ("net: add code for TCP fraglist GRO")
+> > > Signed-off-by: HW He <hw.he@mediatek.com>
+> > > Signed-off-by: Zhaoping Shu <zhaoping.shu@mediatek.com>
 > > > ---
+> > > [2]:
+> > > https://urldefense.com/v3/__https://patchwork.kernel.org/patch/147060=
+32__;!!CTRNKA9wMg0ARbw!kigb147-G9EgNqdWMhaQ43udYOvN90SG6bVjeM-GxTsPo3E07_tb=
+ysuoEieszr5CbCqT94AYpt1b_M7VsgNaZcjtBS_AnYo$
+> > > [1]:
+> > > https://urldefense.com/v3/__https://patchwork.kernel.org/patch/147022=
+09__;!!CTRNKA9wMg0ARbw!kigb147-G9EgNqdWMhaQ43udYOvN90SG6bVjeM-GxTsPo3E07_tb=
+ysuoEieszr5CbCqT94AYpt1b_M7VsgNaZcjtu0bQPNI$
+> > > ---
+> > >  net/ipv4/tcp_offload.c   | 7 +++----
+> > >  net/ipv6/tcpv6_offload.c | 3 ++-
+> > >  2 files changed, 5 insertions(+), 5 deletions(-)
+> > >
+> > > diff --git a/net/ipv4/tcp_offload.c b/net/ipv4/tcp_offload.c
+> > > index 3b1fdcd3cb29..641c47fb1ea2 100644
+> > > --- a/net/ipv4/tcp_offload.c
+> > > +++ b/net/ipv4/tcp_offload.c
+> > > @@ -395,9 +395,6 @@ static void tcp4_check_fraglist_gro(struct
+> > > list_head *head, struct sk_buff *skb,
+> > >       struct net *net;
+> > >       int iif, sdif;
+> > >
+> > > -     if (likely(!(skb->dev->features & NETIF_F_GRO_FRAGLIST)))
+> > > -             return;
+> > > -
 > >
-> > what's difference with Add Toradex Capacitive Touch Display 10.1" LVDS V2
+> > Interesting that ipv4 and ipv6 diverge here. Nice to try to make them
+> > more alike.
 > >
-> > why not share one dtso?
+> > >       p =3D tcp_gro_lookup(head, th);
+> > >       if (p) {
+> > >               NAPI_GRO_CB(skb)->is_flist =3D NAPI_GRO_CB(p)-
+> > > >is_flist;
+> > > @@ -430,7 +427,9 @@ struct sk_buff *tcp4_gro_receive(struct
+> > > list_head *head, struct sk_buff *skb)
+> > >       if (!th)
+> > >               goto flush;
+> > >
+> > > -     tcp4_check_fraglist_gro(head, skb, th);
+> > > +     if (unlikely((skb->dev->features & NETIF_F_GRO_FRAGLIST) &&
+> > > +                  !(skb->dev->features & NETIF_F_GRO_HW)))
 > >
-> > Frank
+> > Would it be better to test skb_is_gso(skb) and only skip fraglist GRO
+> > for HW-GRO skbs, rather than disabling it for all skbs?
 >
-> Hi Frank,
->
-> There are two main differences:
->
-> 1. The mezzanine one uses different backlight controll pins, so here we
-> use the 'backlight-mezzanine' node, instead of the 'backlight' one, used
-> in the one without the mezzanine.
->
-> 2. The touchscreen GPIO and interrupt pins are also different with the
-> mezzanine board.
+> Yes, for tethering packets, HW-GRO skbs are aggregated by
+> skb_gro_receive(), while others go through fraglist GRO. However, care
+> must be taken to avoid packets arriving out of order. I will work on
+> it and submit V4.
 
+Oh right.
 
-And there are for imx8mm
-https://lore.kernel.org/imx/20260724-v1-verdin-imx8mm-dtbos-v2-3-9d7988bd76f6@toradex.com/
+As long as the choice is only between fraglist GRO or not fraglist
+(rather than GRO or bypass GRO), it should not introduce any new
+reordering concerns.
 
-https://lore.kernel.org/imx/sr26lfvwasgcosfzcf4ydtwxwjjutlio2yqpgxldatpzjo7e4y@77k7gefnjzvl/
+But the decision cannot be made based on skb_is_gso(skb) of an
+arriving skb. Because when such a HW-GRO skb arrives a SW GRO context
+in fraglist mode may already have been opened, and it is too late to
+convert that to non-fraglist.
 
-Any ways, it is too late for 7.3, we have enough time for 7.4 to discuss
-work on optimization solution.
+So essentially HW-GRO and fraglist are mutually exclusive.
 
-If use nexus connectors, we can share one dtso now if there are not
-clock settings.
+> >
+> > If treating the features as mutually exclusive, another option would
+> > be to replace these datapath checks with disabling one at
+> > configuration
+> > time, in netdev_fix_features.
+> >
+> If V4 work well, there will be no need to check netdev->features.
+> Linux kernel GRO will be more robust and able to handle scenarios
+> where both NETIF_F_GRO_HW and NETIF_F_GRO_FRAGLIST are enabled.
 
-clock patches is close to pick up
-https://lore.kernel.org/all/20260807-schneider-v7-2-rc1-eip201-upstream-v5-1-8785f9531cf0@bootlin.com/
-
-Frank
-
->
-> Leonardo
+What is your plan for v4?
 
