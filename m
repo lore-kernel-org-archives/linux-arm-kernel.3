@@ -4,92 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D389C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 21:00:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1470BC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 21:00:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9zSpGoeWd2078ZF5D4eB7ejyNjP3AScEl712rHsht8A=; b=BXxApcrgE91fQWEphwBMNnMvnB
-	i41jAeA+NBKRnTYRMoEeCnkJ7TxswNeQ2UniQt/vCHtYBXO2ry3mD/BK0q/F/2Fc1mDbpTXjMJT4e
-	VaM1oYOXziPTyb3ZbxiFXnlllbQKQuNYML76jPUrjVEhE8tUvEq/FgQaKDKtYB0VE0TjUhT+ysIfs
-	aoDkbYYcAI2rJgJqTOlBwTLjPUzf3xgwRC+nnolRMSjKKqkOg2kye/RkWXqIKJCJRcKhgyHQAj7ff
-	dT/PnIHIw+ICJc2ba/29arBWTQMO2Ld9y6Osm/C3a/twPKa6z9pd16N+wcOe58gMrHa2eJD+7ZixW
-	uZGcMZng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tvRQMeAfCmjXcZS+zU44bmjL4SnioTG0skf7ZXnNUTk=; b=uFflUL1C5alLLx2QDsfRrfX4vJ
+	P6m+xhG7vpqwAUROqMsAK1qA4x/1FttmgBRIa0Z71Bo04uA9MfgDmCxox8LXIlt8LlUEsOk3jQvTN
+	rTyg33ETJ0KGNBmmIPxpSEDF2en5d2CQIqPA+3H8F9nR8OHgsj7RNtaJMUZHihDVAiOxjsp5ZPwlp
+	YPPKObhrIm97uibMnzqRtF9PBAO3sJxw2K7oOjjBEZFJYMsu/Q6v2RmQQuJwtRiSlb7BIHm2Vdpf9
+	wn0dKjvMOnxUAm2Ma9+5k8LgVg+4/JAgwdztBWbrc+ALmtLuUXN6+ULH9DF6+O0gYhIkOBd7RGVzB
+	jS/iSqQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wucWm-00000001cA0-0K6Q;
-	Thu, 13 Aug 2026 20:59:52 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wucXY-00000001cKm-2wP8;
+	Thu, 13 Aug 2026 21:00:40 +0000
+Received: from mail-yx1-xb12c.google.com ([2607:f8b0:4864:20::b12c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wucWj-00000001c9C-10cs;
-	Thu, 13 Aug 2026 20:59:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1786654311;
-	bh=3jZ3XsTAzI6wMwpfaV96FdPbY4A5ppMLD3qENTSviwI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=pFjnvinLQPgdeVrT70t6L+UDvW+omYwCZDewAVzq7KuRms0aoY/AWSsM8TLIvZFZW
-	 RPhPFR4NHYhrFmu58U7KeQPm+OXDz65neStLl/KzkT0q4FTJljFihK3JQc9jY2Svhw
-	 1O+WhFz0P1HVqtyF2USmdBR5Kwns6jdSSrrRythYXuOLdEqCF7WNq5IvHIUNTOEgEo
-	 dbT1AM95JStchE6bz7a93c69KJCP02pUtQpvo5urmnh8KW/HYHnvUEP3aGEtXp3PE7
-	 wmOVkNLiqVFuB1IBHKwmidmaCNkzK64gNtujkpHtqVix9CYfWCtgyEtAxeypGpGOIq
-	 ye2YNrffmuCEQ==
-Received: from jupiter.universe (unknown [100.64.1.62])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519)
-	(No client certificate requested)
-	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1B72A17E35C8;
-	Thu, 13 Aug 2026 22:51:51 +0200 (CEST)
-Received: by jupiter.universe (Postfix, from userid 1000)
-	id CCBB948007B; Thu, 13 Aug 2026 22:51:49 +0200 (CEST)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Thu, 13 Aug 2026 22:52:19 +0200
-Subject: [PATCH v14 36/38] phy: rockchip: usbdp: Fix power state handling
+	id 1wucXT-00000001cJP-2Hh2
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 13 Aug 2026 21:00:38 +0000
+Received: by mail-yx1-xb12c.google.com with SMTP id 956f58d0204a3-66c70d3abc7so484590d50.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 14:00:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786654834; x=1787259634; darn=lists.infradead.org;
+        h=content-type:in-reply-to:autocrypt:from:content-language:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=tvRQMeAfCmjXcZS+zU44bmjL4SnioTG0skf7ZXnNUTk=;
+        b=Oi8ZVNt6vwJH90Tg9iaHAtf7pZ/zjEjIKmRwKrdOYNXvaIfVpK3pfTfgOLlZOgzwKv
+         I496+x7n6oa8PAHnEMNSVtLihK52eRHMgNskQDSGaSYnW6fPw0REpv9Uz4Avo2TM2SX0
+         oWOzRH94l5vOm487PhHdkgxKmFRNFXc4ljvTqqUxOTWtAZArMlg3Hsb83Hk2gT72/SQ4
+         z61AV0617CZlgMHR56yNnFbZ8IiEq2VbSoZLJYwMXF/lZTEo6SgBGzJGId+cyy76cQhl
+         EnMPcs6qnvCggfTG3DDGMpRttJVIrIzSlW9F+XXXituqA5FBmihRWnP1EH93MZdzdE/6
+         L0rA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786654834; x=1787259634;
+        h=content-type:in-reply-to:autocrypt:from:content-language:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=tvRQMeAfCmjXcZS+zU44bmjL4SnioTG0skf7ZXnNUTk=;
+        b=C42QmK8AKsXOBuxlz0SKAxJ6I5WkizY917AGB67iVMFCr2TtQjoNMAYC3oWwXo5LtP
+         l/bTLYgzURdc7nj1jmURtqsbsmsb2e+j8ghih6VwLkCwWE8Ni489VNStMu73l2oPbmRJ
+         8ylOhjJ13Qe+ZfT+tuStt3HruWRnEDRp4PusWUhTcI/pdml0rGqMyUp0r/fCp1hXsGP+
+         89dsw8lEj0syJDcIrpNQW/1SZ5IpwP6CSVetOgmcCvPiz8ze/m3+9022X4xlrgn+4zkQ
+         Xl8EmObOVDvKuqp6O64UhuzR1vq0WklCVklgaENCTP0+Ek0Mubh9JggIDLL97s0XK8XC
+         k2pg==
+X-Forwarded-Encrypted: i=1; AHgh+Rrsb4qd6Yo9gA3UmXQsZXKfRR5v87MAn+dLEIb/paUwAEXKqlqKVqAWC69nTH/h/8EFHAmx0P/C5GdLpf/qLnEr@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy2T/l2WQR5Q58Z8KeFZE5oBEXPP9a6fWzT844vVm/FQj4rShVj
+	nUZDfCQBfKQTnEQgJaoFyqXquHYe9V4fm51QuS8FHtXyedg08LRQ4sw6
+X-Gm-Gg: AR+sD109u9PklSpjrpOLb5cFdWDa61dn3fh+Zm/l31cLVl5Q0ZzJ4TlIFkUdUua0qpu
+	c/3hnqqOsdqMJPKDB3CvUi+eiSH9FzX0mMzPACeVfFsRM+91SXxuVH+IMF/SRjdkqv5FQfJttZq
+	I+XEULgPqRff8GxMRvInHOOZ4J5z9QcQkHP2p+p+zsYmVyc7jJBfnjAqgm9CZ/zRDcKaH/hYzVZ
+	aAZHDKu4Vh5FGjYJoIWf/KaCY2B3ySooo694gEibSiPn6LIOVxUTwyWsJ7V9anmLiLn0DhXuxJi
+	tTdAvQMlH4Epsv9/PLt7kKhCw/W2BRkjH+nFXh3fWP1LOmUjgE2To76ddxpBIJE9t+UcZoSCH/P
+	QMVw37erFl0Y9xOdjWZRsBwYSMwbLr8cI0V53HdKOlXMtx6KsS3/KvOmdsxkpDVjxHBQnPji9sz
+	Oa40GS96MSuT1guJqF0UUVt/IIGj5mH2TORqc0NWIMMdqw84WK/nSwkvKg1aWGKts=
+X-Received: by 2002:a05:690e:4d2:b0:66a:c376:6f86 with SMTP id 956f58d0204a3-66c72ba12femr447411d50.8.1786654833598;
+        Thu, 13 Aug 2026 14:00:33 -0700 (PDT)
+Received: from [10.138.10.6] ([185.98.168.14])
+        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-66c573c183fsm1372691d50.12.2026.08.13.14.00.31
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 13 Aug 2026 14:00:32 -0700 (PDT)
+Message-ID: <b7e697ee-ce3b-4c81-afb8-00205c2997f3@gmail.com>
+Date: Thu, 13 Aug 2026 17:00:28 -0400
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260813-rockchip-usbdp-cleanup-v14-36-b5ad9c68fa11@collabora.com>
-References: <20260813-rockchip-usbdp-cleanup-v14-0-b5ad9c68fa11@collabora.com>
-In-Reply-To: <20260813-rockchip-usbdp-cleanup-v14-0-b5ad9c68fa11@collabora.com>
-To: Vinod Koul <vkoul@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Heiko Stuebner <heiko@sntech.de>, Frank Wang <frank.wang@rock-chips.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: Andy Yan <andy.yan@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>, 
- Yubing Zhang <yubing.zhang@rock-chips.com>, 
- Alexey Charkov <alchark@flipper.net>, Igor Paunovic <royalnet026@gmail.com>, 
- linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- kernel@collabora.com, devicetree@vger.kernel.org, linux-usb@vger.kernel.org, 
- Sebastian Reichel <sebastian.reichel@collabora.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=8068;
- i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=3jZ3XsTAzI6wMwpfaV96FdPbY4A5ppMLD3qENTSviwI=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGp+LmVHzNWjhv5taA6PKaTaAxRV2aOmyOOUv
- Z3xpWThyQuL84kCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqfi5lAAoJENju1/PI
- O/qasVUP/RgYD8FAVgvNM+5C6XF/naYVIaF9I+BcXdPVXKyO5T1HIaSvH6G7iV8ZaieKgd5V0fO
- 4/Qu37kxRFawvLsFoW2FaWHJ2k8pD36MlzK3nsOT1TK2jPcevhaNJghGit3fw6LltjY1v1sqIyR
- hVnGFUUNjdnvPqhRAxVPUjJteBjVt7dw2s0WohcFjOgiYNrFWFjxJ6qvzQODMp7N1DKNJpo9RUX
- jSWj3YpoxpF0llhJT6NgSKO7v4KkbKtrOZZBNGKln2BKl9R2cFAZP/JHlBVr9jKtUgJb242L86C
- NhXIZ56ukcvkj6U+TdjYnS1HHD1Ic4EEQ6/WcDhCyoMIVqPVHA7TcXV0QunoyzYcISgj8TrgKmm
- wrdQ8G99Ip5Mt+7/lpJYishxcPgyDbsbO044NKl8lcruEaE4az3wyAcsgXH0WUG/pgCbMdgfc8+
- BGH6Hq1LoENLJ4v4IypwymVWphd3pThX5b9ist2QkDJuCwXitVQIvxBHBzqt79G2P71yNNp9K4x
- FY/l4EoihOJSRA175Ar40v1Ego0ooX319iuetD+lM2CbmqwOCz42vN5ShPe4/W1Enhsrf7mgS0/
- hHP+8Lru+me0rB2kwD1HmZBGucd5s2gNINHgoQkXcY6rtLLzUkpJDfuzkS10BUmqYZlvLfih9Yc
- K54PvX++rtq4dCugmwOYw7w==
-X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
- fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] crypto: qce - Replace with stub driver
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: Bartosz Golaszewski <brgl@kernel.org>, linux-crypto@vger.kernel.org,
+ Herbert Xu <herbert@gondor.apana.org.au>, linux-arm-msm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>
+References: <b9b655a9-c683-4c4e-ba0d-f98577dd2912@kernel.org>
+ <20260801162900.GA2021@quark>
+ <e7aeec9b-11aa-4635-bde9-fb8c7ca38260@kernel.org>
+ <20260801171242.GA3567@quark>
+ <CAMRc=McL5QQRk8C8zzkHm+FUj-SAVi5PLJr2pXo8eNpaxXuALg@mail.gmail.com>
+ <20260811224110.GC1905@sol>
+ <CAMRc=MfVqphaVsfcmUXjGmu6m+F6nJYXgAPuTVjZBwFnd48BkA@mail.gmail.com>
+ <bc95e0b0-2cc5-4ad6-a319-ae4e159b92fe@gmail.com>
+ <CAMRc=Mcno_F2UuLXZ3ruaVSbYhssVK90m3KM=+dwskLMSp8TXg@mail.gmail.com>
+ <0d2706c6-79fa-40fc-a24a-6d5ffbf02330@gmail.com>
+ <20260813201019.GA987015@google.com>
+Content-Language: en-US
+From: Demi Marie Obenour <demiobenour@gmail.com>
+Autocrypt: addr=demiobenour@gmail.com; keydata=
+ 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
+ +MYSfkEjBz0E8CLOcAw7JIwAaeBT
+In-Reply-To: <20260813201019.GA987015@google.com>
+Content-Type: multipart/signed; micalg=pgp-sha256;
+ protocol="application/pgp-signature";
+ boundary="------------VV74HMKUvFY0IstpkeEw3GQi"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_135949_455457_0B0A8569 
-X-CRM114-Status: GOOD (  28.90  )
+X-CRM114-CacheID: sfid-20260813_140035_620139_05C1B4C8 
+X-CRM114-Status: GOOD (  22.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,256 +161,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Restructure power state handling by introducing sw_mode in addition
-to the hw_mode field, so that the PHY knows about the currently
-supported modes from the hardware perspective, the current modes
-requested by software and the actual hardware status.
+This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
+--------------VV74HMKUvFY0IstpkeEw3GQi
+Content-Type: multipart/mixed; boundary="------------vXcDquSo5DAmeTNxhw1azXQg";
+ protected-headers="v1"; hp="clear"
+Message-ID: <b7e697ee-ce3b-4c81-afb8-00205c2997f3@gmail.com>
+Date: Thu, 13 Aug 2026 17:00:28 -0400
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] crypto: qce - Replace with stub driver
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: Bartosz Golaszewski <brgl@kernel.org>, linux-crypto@vger.kernel.org,
+ Herbert Xu <herbert@gondor.apana.org.au>, linux-arm-msm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>
+References: <b9b655a9-c683-4c4e-ba0d-f98577dd2912@kernel.org>
+ <20260801162900.GA2021@quark>
+ <e7aeec9b-11aa-4635-bde9-fb8c7ca38260@kernel.org>
+ <20260801171242.GA3567@quark>
+ <CAMRc=McL5QQRk8C8zzkHm+FUj-SAVi5PLJr2pXo8eNpaxXuALg@mail.gmail.com>
+ <20260811224110.GC1905@sol>
+ <CAMRc=MfVqphaVsfcmUXjGmu6m+F6nJYXgAPuTVjZBwFnd48BkA@mail.gmail.com>
+ <bc95e0b0-2cc5-4ad6-a319-ae4e159b92fe@gmail.com>
+ <CAMRc=Mcno_F2UuLXZ3ruaVSbYhssVK90m3KM=+dwskLMSp8TXg@mail.gmail.com>
+ <0d2706c6-79fa-40fc-a24a-6d5ffbf02330@gmail.com>
+ <20260813201019.GA987015@google.com>
+Content-Language: en-US
+From: Demi Marie Obenour <demiobenour@gmail.com>
+Autocrypt: addr=demiobenour@gmail.com; keydata=
+ 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
+ +MYSfkEjBz0E8CLOcAw7JIwAaeBT
+In-Reply-To: <20260813201019.GA987015@google.com>
 
-Now anything updating either the hardware or software state can simply
-update the status field and call rk_udphy_update_power_state().
+--------------vXcDquSo5DAmeTNxhw1azXQg
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 
-This makes it a lot more obvious what is going on and also fixes a few
-potential resource leaks identified by Sashiko as a side-effect. For
-example if USB3 is requested by software while the USB-C is in DP-only
-mode, things are decently handled after this.
+On 8/13/26 16:10, Eric Biggers wrote:
+> On Thu, Aug 13, 2026 at 03:09:36PM -0400, Demi Marie Obenour wrote:
+>>> SM8650 with the QCE is FIPS 140-2 certified and apparently this makes=
 
-Tested-by: Igor Paunovic <royalnet026@gmail.com> # Orange Pi 5 Plus
-Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
----
- drivers/phy/rockchip/phy-rockchip-usbdp.c | 143 +++++++++++++++++++-----------
- 1 file changed, 90 insertions(+), 53 deletions(-)
+>>> a difference. Don't ask me if that makes sense, I don't claim to unde=
+rstand
+>>> the legal aspects of it.
+>>
+>> That sounds like the kind of thing that would cause someone to use
+>> a worse implementation of cryptographic algorithms =F0=9F=99=82.
+>>
+>> For what it is worth, many common uses of kernel cryptography can't
+>> use the QCE.  This notably applies to the CSPRNG (/dev/urandom etc),
+>> storage encryption, and AF_ALG.  Therefore, I expect that anyone who
+>> needs FIPS 140 compliance with Linux needs to ensure that the software=
 
-diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 405b3d943602..e597cdfe8d79 100644
---- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
-+++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-@@ -173,9 +173,10 @@ struct rk_udphy {
- 
- 	/* PHY status management */
- 	bool flip;
--	bool phy_needs_reinit;
-+	bool phy_needs_reinit; /* lane mux changed */
- 	u8 hw_mode; /* modes currently supported by hardware */
--	u8 status;
-+	u8 sw_mode; /* modes currently requested */
-+	u8 status; /* current PHY power state */
- 
- 	/* utilized for USB */
- 	bool hs; /* flag for high-speed */
-@@ -985,70 +986,95 @@ static int rk_udphy_parse_dt(struct rk_udphy *udphy)
- 	return rk_udphy_reset_init(udphy, dev);
- }
- 
--static int rk_udphy_power_on(struct rk_udphy *udphy, u8 mode)
-+static int rk_udphy_update_power_state(struct rk_udphy *udphy)
- {
-+	bool usb3_port_enable;
-+	u8 target_mode;
- 	int ret;
- 
--	if (!(udphy->hw_mode & mode)) {
--		dev_info(udphy->dev, "mode 0x%02x is not support\n", mode);
-+	/*
-+	 * Initialize PHY mode according to the hardware setup (either described
-+	 * in DT or negotiated via the Type-C controller) instead of requesting
-+	 * only the needed PHY side, because that would break the USB/DP data
-+	 * streams when the other PHY is being requested. This is not an issue
-+	 * during the Type-C negotiation as that happens during the hotplug phase
-+	 * and not during normal operation. Also disable everything if the
-+	 * software has not requested anything, as there shouldn't be any active
-+	 * data streams in that case.
-+	 */
-+	target_mode = udphy->hw_mode;
-+	if (udphy->sw_mode == UDPHY_MODE_NONE)
-+		target_mode = UDPHY_MODE_NONE;
-+
-+	usb3_port_enable = !udphy->hs && (target_mode & UDPHY_MODE_USB);
-+
-+	if (!udphy->phy_needs_reinit && udphy->status == target_mode) {
-+		if (udphy->sw_mode & UDPHY_MODE_USB)
-+			rk_udphy_u3_port_disable(udphy, !usb3_port_enable);
- 		return 0;
- 	}
- 
--	if (udphy->status == UDPHY_MODE_NONE) {
--		phy_notify_reset(udphy->phy_u3, PHY_NOTIFY_PRE_RESET);
-+	/* Avoid to re-init disabled PHY */
-+	if (udphy->status == target_mode && target_mode == UDPHY_MODE_NONE)
-+		return 0;
- 
-+	/*
-+	 * Inform DWC3 driver, that we are about to reset the PHY, so that it can
-+	 * assert its PIPE reset lines and avoid DWC3 getting into a buggy state.
-+	 * This is intentionally done for a PHY disable, since that also changes
-+	 * the clocks routed to the PHY.
-+	 */
-+	ret = phy_notify_reset(udphy->phy_u3, PHY_NOTIFY_PRE_RESET);
-+	if (ret)
-+		return ret;
-+
-+	/*
-+	 * Disable USB3 port, which among other things re-routes a DWC3 clock to
-+	 * avoid SErrors when the DWC3 registers are accessed while the PHY is
-+	 * disabled. This is only done, when the DWC3 is running as the accessed
-+	 * GRF registers and in PD_USB.
-+	 */
-+	if (udphy->sw_mode & UDPHY_MODE_USB) {
- 		rk_udphy_u3_port_disable(udphy, true);
- 		udelay(10);
-+	}
- 
-+	if (udphy->status == UDPHY_MODE_NONE) {
-+		/* Power up (incl. clocks) */
- 		ret = rk_udphy_setup(udphy);
- 		if (ret) {
- 			phy_notify_reset(udphy->phy_u3, PHY_NOTIFY_POST_RESET);
- 			return ret;
- 		}
--
--		if (!udphy->hs && udphy->hw_mode & UDPHY_MODE_USB)
--			rk_udphy_u3_port_disable(udphy, false);
--		udphy->phy_needs_reinit = false;
--
--		phy_notify_reset(udphy->phy_u3, PHY_NOTIFY_POST_RESET);
--	} else if (udphy->phy_needs_reinit) {
--		phy_notify_reset(udphy->phy_u3, PHY_NOTIFY_PRE_RESET);
--
--		rk_udphy_u3_port_disable(udphy, true);
--		udelay(10);
--
-+	} else if (target_mode == UDPHY_MODE_NONE) {
-+		/* Power down (incl. clocks) */
-+		rk_udphy_disable(udphy);
-+	} else {
-+		/* Mode change => re-init */
- 		ret = rk_udphy_init(udphy);
- 		if (ret) {
- 			phy_notify_reset(udphy->phy_u3, PHY_NOTIFY_POST_RESET);
- 			return ret;
- 		}
--
--		if (!udphy->hs && udphy->hw_mode & UDPHY_MODE_USB)
--			rk_udphy_u3_port_disable(udphy, false);
--		udphy->phy_needs_reinit = false;
--
--		phy_notify_reset(udphy->phy_u3, PHY_NOTIFY_POST_RESET);
- 	}
- 
--	udphy->status |= mode;
--
--	return 0;
--}
-+	/* Ensure USB3 support is enabled when supported */
-+	if (udphy->sw_mode & UDPHY_MODE_USB)
-+		rk_udphy_u3_port_disable(udphy, !usb3_port_enable);
- 
--static void rk_udphy_power_off(struct rk_udphy *udphy, u8 mode)
--{
--	if (!(udphy->hw_mode & mode)) {
--		dev_info(udphy->dev, "mode 0x%02x is not support\n", mode);
--		return;
--	}
--
--	if (!udphy->status)
--		return;
-+	/*
-+	 * Inform DWC3, that we are done with the reset, so that it can deassert
-+	 * its PIPE reset line. This is sent in pair with a PRE_RESET allowing
-+	 * consumer driver to do paired resource requests (e.g. clocks) in their
-+	 * notification handlers. As we reroute the clocks, its also fine to
-+	 * send this after completely disabling the PHY.
-+	 */
-+	phy_notify_reset(udphy->phy_u3, PHY_NOTIFY_POST_RESET);
- 
--	udphy->status &= ~mode;
-+	udphy->status = target_mode;
-+	udphy->phy_needs_reinit = false;
- 
--	if (udphy->status == UDPHY_MODE_NONE)
--		rk_udphy_disable(udphy);
-+	return 0;
- }
- 
- static int rk_udphy_dp_phy_power_on(struct phy *phy)
-@@ -1057,11 +1083,15 @@ static int rk_udphy_dp_phy_power_on(struct phy *phy)
- 	int ret;
- 
- 	scoped_guard(mutex, &udphy->mutex) {
-+		udphy->sw_mode |= UDPHY_MODE_DP;
-+
- 		phy_set_bus_width(phy, udphy->dp_lanes);
- 
--		ret = rk_udphy_power_on(udphy, UDPHY_MODE_DP);
--		if (ret)
-+		ret = rk_udphy_update_power_state(udphy);
-+		if (ret) {
-+			udphy->sw_mode &= ~UDPHY_MODE_DP;
- 			return ret;
-+		}
- 
- 		rk_udphy_dp_lane_enable(udphy, udphy->dp_lanes);
- 
-@@ -1084,10 +1114,10 @@ static int rk_udphy_dp_phy_power_off(struct phy *phy)
- 
- 	guard(mutex)(&udphy->mutex);
- 
--	rk_udphy_dp_lane_enable(udphy, 0);
--	rk_udphy_power_off(udphy, UDPHY_MODE_DP);
-+	udphy->sw_mode &= ~UDPHY_MODE_DP;
- 
--	return 0;
-+	rk_udphy_dp_lane_enable(udphy, 0);
-+	return rk_udphy_update_power_state(udphy);
- }
- 
- /*
-@@ -1292,16 +1322,24 @@ static const struct phy_ops rk_udphy_dp_phy_ops = {
- static int rk_udphy_usb3_phy_init(struct phy *phy)
- {
- 	struct rk_udphy *udphy = phy_get_drvdata(phy);
-+	int ret;
- 
- 	guard(mutex)(&udphy->mutex);
- 
--	/* DP only or high-speed, disable U3 port */
--	if (!(udphy->hw_mode & UDPHY_MODE_USB) || udphy->hs) {
-+	if (udphy->hs) {
- 		rk_udphy_u3_port_disable(udphy, true);
- 		return 0;
- 	}
- 
--	return rk_udphy_power_on(udphy, UDPHY_MODE_USB);
-+	udphy->sw_mode |= UDPHY_MODE_USB;
-+
-+	ret = rk_udphy_update_power_state(udphy);
-+	if (ret) {
-+		udphy->sw_mode &= ~UDPHY_MODE_USB;
-+		return ret;
-+	}
-+
-+	return 0;
- }
- 
- static int rk_udphy_usb3_phy_exit(struct phy *phy)
-@@ -1310,13 +1348,12 @@ static int rk_udphy_usb3_phy_exit(struct phy *phy)
- 
- 	guard(mutex)(&udphy->mutex);
- 
--	/* DP only or high-speed */
--	if (!(udphy->hw_mode & UDPHY_MODE_USB) || udphy->hs)
-+	if (udphy->hs)
- 		return 0;
- 
--	rk_udphy_power_off(udphy, UDPHY_MODE_USB);
-+	udphy->sw_mode &= ~UDPHY_MODE_USB;
- 
--	return 0;
-+	return rk_udphy_update_power_state(udphy);
- }
- 
- static const struct phy_ops rk_udphy_usb3_phy_ops = {
+>> crypto is certified, as that's what actually gets used in most cases.
+>=20
+> Well there's that, and also the Inline Crypto Engine (which is actually=
 
--- 
-2.53.0
+> being used and is unrelated to QCE) has its own FIPS certification.
+>=20
+> Which upstream kernel feature, if any, is QCE being used with?  I have
+> asked this multiple times and still not gotten an answer.
+Historically AF_ALG has been used to access FIPS-certified crypto
+from userspace, but that no longer can be used with QCE.  Most kernel
+features reject CRYPTO_ALG_ASYNC, CRYPTO_ALG_ALLOCATES_MEMORY, or both.
+If I exclude tests and fallback paths of other drivers, that leaves
+crypto/asymmetric_keys/public_key.c (hashing), BPF, MACsec, OpenVPN
+data channel offload, ecryptfs, Ceph, SMB, IPsec, mac802154, TIPC, TLS,
+and crypto/kpp.c.  AF_ALG only allows offload drivers for cbc(paes),
+which QCE doesn't implement.  QCE is broken with IPsec and probably
+some other networking protocols, as it would wind up taking a mutex
+in softirq context.
 
+Is there anything on that list that you don't plan to convert
+to the crypto library?
+> Does the perceived value perhaps come merely from "offering" FIPS
+> certified cryptography on the system -- then not actually using it in
+> practice?  That can maybe be understandable in some cases, but it's als=
+o
+> not really something that belongs upstream where actual technical merit=
+
+> is expected.  Also, could ICE be enough to check that checkbox?
+
+I agree with all of these points.
+--=20
+Sincerely,
+Demi Marie Obenour (she/her/hers)
+
+--------------vXcDquSo5DAmeTNxhw1azXQg--
+
+--------------VV74HMKUvFY0IstpkeEw3GQi
+Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
+Content-Description: OpenPGP digital signature
+Content-Disposition: attachment; filename="OpenPGP_signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEopQtqVJW1aeuo9/sszaHOrMp8lMFAmp+MGwACgkQszaHOrMp
+8lMutg/7B8gdX1TvVmKM/z92g+DZ5EUqQvQugMMX2Hm5Hapj0zV5f3XpCTx9ilQu
+IoOC/+nzo1rmTjawbSbriqVqzUUFE6E/7TlNOybweN1D238b3B71GysDXdXAoqtK
+FpF12cfj14UNvIHyYOXAC+F6UOPsl7fvdyhTsmgt7u4NBLtCdmWiAAjOsRFo8hcy
+qn8TvX09Aa80S5MNdGX+tyuQKeDnJpMG+Y0+OJP2aDoVvnNP8XIwpymqHjbGP83K
+jNqC7PCAKh7w0GF77zgllOiFjKMBBwKZDHYjm2vuPxvdMI0KkgXxl5PPbYsY0GWM
+54p+dbXH1ketTyhhiMBs1Boe8DtnU4ZztylIu5y3MVDJBYUl9RjPWncXaVtW0MMD
+sKCvK1EZo08ggWHoeB0cMImesx5LiowAcnmoKml94gctWDGAZ1dFcsZt9TlaWguM
+osf7jofxrf+2DT3LCIRP3Evef45yzA3+MbDe1p8G4yD+Fmi3ZXwwNHWhrGCStS+r
+ZBg5kkvH+bddB6U83XWSQ9J9hWQa4Mu3szL+DUh1eu6jwrpw5axSGK2s6ilm8fuR
+VvinREf48xFMhwQ2hKVkWiwKR6EBgiQDFOmKVUokAgShKmEokb3EVrfMgfiXIpCy
+ImAPt5v/QSItBHKTUFAbePfVxmBswlAl0DMIuwG+SE6vSjKpgsE=
+=tY7Q
+-----END PGP SIGNATURE-----
+
+--------------VV74HMKUvFY0IstpkeEw3GQi--
 
