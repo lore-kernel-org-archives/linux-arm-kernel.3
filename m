@@ -4,59 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFB9BC5CFCF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 15:58:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25CC1C5CFCF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 15:59:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X+sf+p3WhWnqM+wowbpZwkUZExGfKoZLqOMvtUH8jQk=; b=Ez9KVJgBahx687hWzmZA0DQxex
-	ZLixGPBEuYadpiPOvS1EHaNTvkbPdWVu7+VfdRg/AEnqGKJ90Rnu5dwyJRHobI9aBZRozoD6C/Tmq
-	QEARWO4lpV9qVV8G9hQIQUYuLENQaR6rwf28aKwP/XvljDHKDrzl2/0WFA3raWRqAUWJw9x2QdD3R
-	bdoXnjkQKZuB/BrEIkbuznWFC444LnymLnnBTnv2oygz8GQL7vE8WP2ZjPo9QCh6pTbhSuRcSTPLi
-	zckxitqCEgTt4Ls62+fiiB81MBIZZB2U6cy6UTmTyvAUFyC6HYLSONEO8jEr5Wqw4sFlUfkG6WEdx
-	vPougF9A==;
+	bh=fIfzvbF9lQOS0Q5Mk0PjItDgkSYXNspy5rDBjNN6W9k=; b=T49XHq16tV+WCIXMDTPHHtNVFJ
+	GmbsdCYrWCE47rfx0nq68DpJVPPQ4UUbC+QxMxMgZSs/VUj5UKj/HKBGY3sWMlbG9m3yF5db26AOc
+	7k/55agUGUVBqLNH5OUKnRIZ0OPt5qXJb+8TwNs7wL/j+9N7gTsx9JnYWlvawARYYic6bJGGcKzEx
+	Ij//d5l2FkW/noK9tEflgEsOuVnmnsXCLv9hpLb/Ajqr5tUeS4jMl58UttJTWQ9R6bHuqO/VTJnfD
+	CJa9DZMnhXl3ynnaATharswaGpw/JrzIY5hXUA60baf9A3p0+NNvCFcl3UxW2vsdx1gMd1xKgvcEj
+	Werhy9cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuXoj-000000015gh-1zKO;
-	Thu, 13 Aug 2026 15:58:05 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wuXpy-000000015tj-39PK;
+	Thu, 13 Aug 2026 15:59:22 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuXoh-000000015gT-2yLm
+	id 1wuXpx-000000015tb-3ZT5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 15:58:03 +0000
+	Thu, 13 Aug 2026 15:59:21 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C2C6D60A69;
-	Thu, 13 Aug 2026 15:58:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD4221F000E9;
-	Thu, 13 Aug 2026 15:58:00 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5B12E40A66;
+	Thu, 13 Aug 2026 15:59:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD41C1F000E9;
+	Thu, 13 Aug 2026 15:59:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786636682;
-	bh=X+sf+p3WhWnqM+wowbpZwkUZExGfKoZLqOMvtUH8jQk=;
+	s=k20260515; t=1786636761;
+	bh=fIfzvbF9lQOS0Q5Mk0PjItDgkSYXNspy5rDBjNN6W9k=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=Hp9DucV7OGLG9m/FudPQWPZAS8FQEfKoOcVhBywLxXt2TMkJ8qskyGU0U2f8bvJo5
-	 8vcoabbgKXod/KTWP4b7H4Uh3W5COSWeAZAeOapWrAuHt+vCoeSGvyOeSk/2hhxk68
-	 Dcb7j/eDAnqPvku+ZYZ5J8Gvlcyq2AJ3WRbq7tEBzxs6A6y9f2WtC2muZVhgE7o84p
-	 QU12XP4scz6PGeizQzxMiTy4MjJRZ1cfzWw7zdcPhWpcnwsxpLtuVGfPtQBD/3Nmv1
-	 yRsPbJlObOy2CcU3gUlXPljOfebCE5EuZ9ZiJzik/MNnNbKZL8OkVXvde/AUfIrCBU
-	 Z3f+INhJswJIA==
-Date: Fri, 14 Aug 2026 00:57:58 +0900
+	b=loRIf+WM5aGb+iZmBh4a4ZGJh0XZzoZiI4pi2FvbRyZ6bABBtjcnpLF5ex387T6VW
+	 97SM3IAr2cfhNhGLc19jJpHk73j2lrfIvsLe1Rk7hdjOKNy7aAAPN4pDH2+5xfJrOv
+	 dAMQcjXpSKaezNIcQsDsLBqF2u39DnxgeD4HWzEMAH0QbWXk1vfpQmw33ToTZnaqd4
+	 /V+9nObkCtU/RwiMUYHnFh7nritvnSAgd7tDT0KU7jL9svqwYo2x88cZymvkNZhUEu
+	 9GQi08VlhucwLAu8sPkD/ZaYtujC0So/e0LK3hMoBxUlbD1FB9oXwCcTq4+z7y0Gpz
+	 yVcMtMsV4E+QQ==
+Date: Fri, 14 Aug 2026 00:59:16 +0900
 From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
 To: Hongyan Xia <hongyan.xia@transsion.com>
 Cc: Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Jiazi Li
- <jiazi.li@transsion.com>, Pu Hu <hupu@transsion.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Nathan Chancellor
+ <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, Bill
+ Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, Jiazi
+ Li <jiazi.li@transsion.com>, Pu Hu <hupu@transsion.com>,
  "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
  "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [RFC PATCH v2 1/4] arm64/entry: Make
- debug_exception_enter/exit() noinstr
-Message-Id: <20260814005758.c8cc04d276a0f82689ccddca@kernel.org>
-In-Reply-To: <c3a90368dd6c096af9d918e036a27728696fb8a4.1786603168.git.hongyan.xia@transsion.com>
+ <linux-arm-kernel@lists.infradead.org>, "llvm@lists.linux.dev"
+ <llvm@lists.linux.dev>
+Subject: Re: [RFC PATCH v2 2/4] arm64/debug: Make the Kprobe functions
+ noinstr
+Message-Id: <20260814005916.78060337f26a550bb792e1f7@kernel.org>
+In-Reply-To: <f9ec50138a7022b8d83bf3ce8e55534202e17e55.1786603168.git.hongyan.xia@transsion.com>
 References: <cover.1786603168.git.hongyan.xia@transsion.com>
-	<c3a90368dd6c096af9d918e036a27728696fb8a4.1786603168.git.hongyan.xia@transsion.com>
+	<f9ec50138a7022b8d83bf3ce8e55534202e17e55.1786603168.git.hongyan.xia@transsion.com>
 X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 Mime-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
@@ -75,90 +78,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 13 Aug 2026 06:49:27 +0000
+On Thu, 13 Aug 2026 06:49:42 +0000
 Hongyan Xia <hongyan.xia@transsion.com> wrote:
 
 > From: Hongyan Xia <hongyan.xia@transsion.com>
 > 
-> Commit 879a6754d3d11e30af24b7dc486f561510d62641 ran into a crash because
-> debug_exception_enter/exit() triggered page faults caused by perf dwarf
-> call graph tracing. That patch was a band-aid on top.
+> The Kprobe debug exception path must be run with extra care. NOKPROBE
+> isn't sufficient, as other instrumentation like ftrace still opens a can
+> of worms that is very complex to deal with.
 > 
-> Instead of trying to band-aid all possible paths that can happen during
-> instrumentation or perf tracing, simply force-inline these functions and
-> use the notrace variant of preempt handling to avoid all the complexity.
+> Mark the three main Kprobe entry points noinstr, as well as the debug
+> exception paths that lead to and exit from these entry points. Note that
+> noinstr attribute is stronger and can safely replace NOKPROBE and
+> __kprobe modifiers.
 > 
-> Drop the RCU_LOCKDEP_WARN(): arm64_enter_el1_dbg() runs first and
-> enters NMI context via ct_nmi_enter(), so RCU is always watching by the
-> time debug_exception_enter() runs.
+> Also mark esr_brk_comment() __always_inline, as clang does not
+> reliably inline plain static inline functions into noinline (noinstr)
+> callers such as call_el1_break_hook().
 > 
-> Also mark __preempt_count_add/sub() __always_inline so the preempt
-> count updates fold into the noinstr callers instead of becoming
-> outlined calls to instrumentable text.
 
-Looks good to me as a kprobe maintainer.
+Looks good to me.
 
 Reviewed-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
 
-Thanks,
+Thank you,
 
-> 
 > Signed-off-by: Hongyan Xia <hongyan.xia@transsion.com>
 > ---
->  arch/arm64/include/asm/preempt.h |  4 ++--
->  arch/arm64/kernel/entry-common.c | 13 ++++---------
->  2 files changed, 6 insertions(+), 11 deletions(-)
+>  arch/arm64/include/asm/esr.h       | 2 +-
+>  arch/arm64/include/asm/kprobes.h   | 9 +++------
+>  arch/arm64/kernel/debug-monitors.c | 6 ++----
+>  arch/arm64/kernel/probes/kprobes.c | 6 +++---
+>  4 files changed, 9 insertions(+), 14 deletions(-)
 > 
-> diff --git a/arch/arm64/include/asm/preempt.h b/arch/arm64/include/asm/preempt.h
-> index 932ea4b62042..326f221c3f56 100644
-> --- a/arch/arm64/include/asm/preempt.h
-> +++ b/arch/arm64/include/asm/preempt.h
-> @@ -41,14 +41,14 @@ static inline bool test_preempt_need_resched(void)
->  	return !current_thread_info()->preempt.need_resched;
+> diff --git a/arch/arm64/include/asm/esr.h b/arch/arm64/include/asm/esr.h
+> index f816f5d77f1a..a75bfdb7e5fe 100644
+> --- a/arch/arm64/include/asm/esr.h
+> +++ b/arch/arm64/include/asm/esr.h
+> @@ -437,7 +437,7 @@
+>  #ifndef __ASSEMBLER__
+>  #include <asm/types.h>
+>  
+> -static inline unsigned long esr_brk_comment(unsigned long esr)
+> +static __always_inline unsigned long esr_brk_comment(unsigned long esr)
+>  {
+>  	return esr & ESR_ELx_BRK64_ISS_COMMENT_MASK;
+>  }
+> diff --git a/arch/arm64/include/asm/kprobes.h b/arch/arm64/include/asm/kprobes.h
+> index 35ce2c94040e..a694f7d34f45 100644
+> --- a/arch/arm64/include/asm/kprobes.h
+> +++ b/arch/arm64/include/asm/kprobes.h
+> @@ -48,11 +48,8 @@ void __kprobes *trampoline_probe_handler(struct pt_regs *regs);
+>  
+>  #endif /* CONFIG_KPROBES */
+>  
+> -int __kprobes kprobe_brk_handler(struct pt_regs *regs,
+> -				 unsigned long esr);
+> -int __kprobes kprobe_ss_brk_handler(struct pt_regs *regs,
+> -				 unsigned long esr);
+> -int __kprobes kretprobe_brk_handler(struct pt_regs *regs,
+> -				 unsigned long esr);
+> +int noinstr kprobe_brk_handler(struct pt_regs *regs, unsigned long esr);
+> +int noinstr kprobe_ss_brk_handler(struct pt_regs *regs, unsigned long esr);
+> +int noinstr kretprobe_brk_handler(struct pt_regs *regs, unsigned long esr);
+>  
+>  #endif /* _ARM_KPROBES_H */
+> diff --git a/arch/arm64/kernel/debug-monitors.c b/arch/arm64/kernel/debug-monitors.c
+> index 29307642f4c9..5cf4fb8ddf83 100644
+> --- a/arch/arm64/kernel/debug-monitors.c
+> +++ b/arch/arm64/kernel/debug-monitors.c
+> @@ -207,7 +207,7 @@ void do_el1_softstep(unsigned long esr, struct pt_regs *regs)
+>  }
+>  NOKPROBE_SYMBOL(do_el1_softstep);
+>  
+> -static int call_el1_break_hook(struct pt_regs *regs, unsigned long esr)
+> +static int noinstr call_el1_break_hook(struct pt_regs *regs, unsigned long esr)
+>  {
+>  	if (esr_brk_comment(esr) == BUG_BRK_IMM)
+>  		return bug_brk_handler(regs, esr);
+> @@ -245,7 +245,6 @@ static int call_el1_break_hook(struct pt_regs *regs, unsigned long esr)
+>  
+>  	return DBG_HOOK_ERROR;
+>  }
+> -NOKPROBE_SYMBOL(call_el1_break_hook);
+>  
+>  /*
+>   * We have already unmasked interrupts and enabled preemption
+> @@ -261,14 +260,13 @@ void do_el0_brk64(unsigned long esr, struct pt_regs *regs)
+>  	send_user_sigtrap(TRAP_BRKPT);
 >  }
 >  
-> -static inline void __preempt_count_add(int val)
-> +static __always_inline void __preempt_count_add(int val)
+> -void do_el1_brk64(unsigned long esr, struct pt_regs *regs)
+> +void noinstr do_el1_brk64(unsigned long esr, struct pt_regs *regs)
 >  {
->  	u32 pc = READ_ONCE(current_thread_info()->preempt.count);
->  	pc += val;
->  	WRITE_ONCE(current_thread_info()->preempt.count, pc);
+>  	if (call_el1_break_hook(regs, esr) == DBG_HOOK_HANDLED)
+>  		return;
+>  
+>  	die("Oops - BRK", regs, esr);
+>  }
+> -NOKPROBE_SYMBOL(do_el1_brk64);
+>  
+>  #ifdef CONFIG_COMPAT
+>  void do_bkpt32(unsigned long esr, struct pt_regs *regs)
+> diff --git a/arch/arm64/kernel/probes/kprobes.c b/arch/arm64/kernel/probes/kprobes.c
+> index 4e0efad5caf2..0e66abf9958e 100644
+> --- a/arch/arm64/kernel/probes/kprobes.c
+> +++ b/arch/arm64/kernel/probes/kprobes.c
+> @@ -350,7 +350,7 @@ int __kprobes kprobe_fault_handler(struct pt_regs *regs, unsigned int fsr)
+>  	return 0;
 >  }
 >  
-> -static inline void __preempt_count_sub(int val)
-> +static __always_inline void __preempt_count_sub(int val)
+> -int __kprobes
+> +int noinstr
+>  kprobe_brk_handler(struct pt_regs *regs, unsigned long esr)
 >  {
->  	u32 pc = READ_ONCE(current_thread_info()->preempt.count);
->  	pc -= val;
-> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
-> index ceb4eb11232a..d5c1d6defe29 100644
-> --- a/arch/arm64/kernel/entry-common.c
-> +++ b/arch/arm64/kernel/entry-common.c
-> @@ -292,20 +292,15 @@ static __always_inline void fpsimd_syscall_exit(void)
->   * accidentally schedule in exception context and it will force a warning
->   * if we somehow manage to schedule by accident.
->   */
-> -static void debug_exception_enter(struct pt_regs *regs)
-> +static __always_inline void debug_exception_enter(struct pt_regs *regs)
->  {
-> -	preempt_disable();
-> -
-> -	/* This code is a bit fragile.  Test it. */
-> -	RCU_LOCKDEP_WARN(!rcu_is_watching(), "exception_enter didn't work");
-> +	preempt_disable_notrace();
+>  	struct kprobe *p, *cur_kprobe;
+> @@ -394,7 +394,7 @@ kprobe_brk_handler(struct pt_regs *regs, unsigned long esr)
+>  	return DBG_HOOK_HANDLED;
 >  }
-> -NOKPROBE_SYMBOL(debug_exception_enter);
 >  
-> -static void debug_exception_exit(struct pt_regs *regs)
-> +static __always_inline void debug_exception_exit(struct pt_regs *regs)
+> -int __kprobes
+> +int noinstr
+>  kprobe_ss_brk_handler(struct pt_regs *regs, unsigned long esr)
 >  {
-> -	preempt_enable_no_resched();
-> +	preempt_enable_no_resched_notrace();
+>  	struct kprobe_ctlblk *kcb = get_kprobe_ctlblk();
+> @@ -413,7 +413,7 @@ kprobe_ss_brk_handler(struct pt_regs *regs, unsigned long esr)
+>  	return DBG_HOOK_ERROR;
 >  }
-> -NOKPROBE_SYMBOL(debug_exception_exit);
 >  
->  UNHANDLED(el1t, 64, sync)
->  UNHANDLED(el1t, 64, irq)
+> -int __kprobes
+> +int noinstr
+>  kretprobe_brk_handler(struct pt_regs *regs, unsigned long esr)
+>  {
+>  	if (regs->pc != (unsigned long)__kretprobe_trampoline)
 > -- 
 > 2.47.3
 > 
