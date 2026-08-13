@@ -4,62 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D048EC5CFEB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 06:50:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88773C5CFEB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 06:50:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bi8JANOgLxs5xInmNcIsw1Pu2PyS3DSLV+30DqMtpsM=; b=XmepeEluMVNCkU1V9y/DaYwlzE
-	wfc0BnRDZvUOeDaa+e8tiPkQ6tlKw6Wrpq/QhgK3QZIZpkW2Vze8LJCxLe331+c7XLRtFttNQ59+O
-	ucGotIiq6bgBJV/wy6blfCooIQR+mhkEHRv5nDLsrt2RzHteRPMJ4Qksm8XMjYzvIqahOHmY14EsZ
-	+VgSE8w2+NfUsVX5Ai6rpPikQGQi4UkOTFOGP7GPdTmzzJb0MQZlFRGgr/g5KZHEWfA4M/G6kP5fZ
-	J41Pi1UUFQWjjLuqsjr0vR6Cc7mty+WMO5JAtSnAQ+u2fHUQnIvLst6CpTotCWLtOt4S/r8fQTqE3
-	uZH1psGQ==;
+	bh=JBypZx28DGH1xHAdRgF/GPZt1kfDgjeZrLUDThEoBnQ=; b=Wb2O/nzLDrYukdxoht0Pclyvfq
+	7qsvRfZk5/FrD7oUPiaGhNG8VoVY0uaQFlYlujQ3hUJpazGgSIGLEhKrbvdp1z+X9sid9G7lzYVxi
+	Fg7OfwTNXy1EeVkW8NZy2H6EiMFw97l74jDVtJstqVylcuw5wPO5ejox+z4gu3UZD19plWKG3sASO
+	c3b7LdipBaUV/d6tuzsSF9uGY+9Oo+5U6q6uDdu6YmzJOagK4zD+eVOsWPC1MFmUoVJ87hpE6B57k
+	szMxHLNkKqtS4j6oUkUfpBCyJ47wnfLs6rJml1YkEdlJcpsqkiIzyuDxXTBnDpgf1N8SOM+xn8dA6
+	AaJTRXrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuPGO-0000000HWMJ-2n6Y;
+	id 1wuPGO-0000000HWM4-29jX;
 	Thu, 13 Aug 2026 06:50:04 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuPGA-0000000HWG6-2Mng
+	id 1wuPGA-0000000HWFv-1W9K
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 13 Aug 2026 06:49:50 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3F8F144020;
+	by sea.source.kernel.org (Postfix) with ESMTP id 061D74350C;
 	Thu, 13 Aug 2026 06:49:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01C8B1F00ADF;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B399D1F00AC4;
 	Thu, 13 Aug 2026 06:49:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786603790;
-	bh=bi8JANOgLxs5xInmNcIsw1Pu2PyS3DSLV+30DqMtpsM=;
+	s=k20260515; t=1786603789;
+	bh=JBypZx28DGH1xHAdRgF/GPZt1kfDgjeZrLUDThEoBnQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=neGyp4u+YLVE4HABA9HaV4tNSyG2JxRxbut8qrRY20DW9eBQz5vxqsBOzWmyGfmMz
-	 SD2A/qbTej9LcHnNZVax9hBxTCdKDKB/QzlLLZ6I2eSiI7Mv/K0ZvKPFTN+h0E7/CS
-	 EOGv2YUomqXCHoI/kPew4ywApT2SkL+ti5P6QAN3kVsv3jxGumybD/lKjtR8csTbmH
-	 a8xh/mdYhEvGI9+boYeMSNhYdVQ51iS2zQrdfy7LWz9YYMdpu0/7+gKf/oUIUEgZOU
-	 fvVHDDlKqCbNF7VnCG/opckNDmPpxaCR8Z0Z5cL4xR845oJraPqc5AuJbk2CiFwUn2
-	 jPi4n8saUsJBw==
+	b=X/vtw0oWy9/2x0AvPu5sBingZREkmoMrDXIxHyckkdhGlKIbCN0vtGsLCbO4jEiRO
+	 GQfoMDm0UTAgTqN9HoG3Rd1vgY3jT6i0qQd7D3pwxrNqvAfxz2E2+dZx5tgqMAlJdp
+	 Sek42X/EGho9OGfqL+r3g2CguGibQIA5ZCrBGHyxo4BFyKAidIFcm0uKDR/VxA3XDZ
+	 QTtiFz0Jsq94+4oWA+oFVNHleQvoNOllqjTpyRlO7R2Mm2gmixF7CeK8ssytkrJxer
+	 kZ3ed0+G6pwvLo2CPBPA8bt9q+ZDZWlOhZ4i0bvKEHqstvXt1EQ8X/jY59j6Wqf+bp
+	 pt1eB/BjWnRtg==
 From: Oliver Upton <oupton@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Marc Zyngier <maz@kernel.org>
+To: Marc Zyngier <maz@kernel.org>,
+	Karl Mehltretter <kmehltretter@gmail.com>
 Cc: Oliver Upton <oupton@kernel.org>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Wei-Lin Chang <weilin.chang@arm.com>,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: Correctly cap TLBI Range to the architural limit
-Date: Wed, 12 Aug 2026 23:49:45 -0700
-Message-ID: <178660378192.666424.18260188450907943902.b4-ty@kernel.org>
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Andre Przywara <andre.przywara@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] KVM: arm64: Preserve GPRs for AArch32 CP64 reads generating an UNDEF
+Date: Wed, 12 Aug 2026 23:49:44 -0700
+Message-ID: <178660378174.666424.3801842450908120016.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260810170616.746100-1-maz@kernel.org>
-References: <20260810170616.746100-1-maz@kernel.org>
+In-Reply-To: <20260802182222.2239-1-kmehltretter@gmail.com>
+References: <20260802182222.2239-1-kmehltretter@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -77,23 +76,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 10 Aug 2026 18:06:16 +0100, Marc Zyngier wrote:
-> TLB Invalidation by Range has a fairly powerful way of encoding pretty
-> large ranges in a small number of bits. This range can be based on an
-> arbitrary VA, which means it is pretty easy for a guest to generate an
-> overflow should the hypervisor be naive enough to add the range to the
-> base...
+On Sun, 02 Aug 2026 20:22:22 +0200, Karl Mehltretter wrote:
+> kvm_handle_cp_64() only seeds params.regval for writes. If a CP64 read is
+> decoded but UNDEFs, emulate_cp() still returns handled and the caller
+> writes params.regval back to Rt/Rt2.
 > 
-> Make sure the range is capped to the limit dictated by the address bit
-> that determines the VA range. For an IPA invalidation, this is further
-> corrected down the line to ignore the upper range.
+> This can happen for PMU counter read accesses generating an UNDEF. KVM
+> injects the exception into the guest, so the MRRC GPRs must remain
+> unchanged.
 > 
 > [...]
 
 Applied to next, thanks!
 
-[1/1] KVM: arm64: Correctly cap TLBI Range to the architural limit
-      https://git.kernel.org/kvmarm/kvmarm/c/69a598288195
+[1/1] KVM: arm64: Preserve GPRs for AArch32 CP64 reads generating an UNDEF
+      https://git.kernel.org/kvmarm/kvmarm/c/47746d4b7436
 
 --
 Best,
