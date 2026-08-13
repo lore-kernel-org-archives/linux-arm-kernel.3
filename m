@@ -4,74 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 284C0C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 04:12:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07D5EC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 04:20:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=PywpkLD/oK1Z9y/cQpHPBpVaVV8KdAM+xgRBTiR0rcM=; b=yxmQfeAIftcQidzVIg4TyDXEdB
-	u267M4jGn+r/Egex8Z1xQNPUMx05dNTHWZ19qV2ZEHXa+KizPGyKK3BVzsIxmgMBeMlnTSl7xSByc
-	ZQ9ZNv+aFc0sp1YZwByi5wuoeuVcDphnSE7K/zD1vnws/k3AvkhzzDokOCEPxo/6YMol8xENhIjsC
-	scGJZIb5BAvoeDcxbkQKsNpzfv4bquORWJrmkHou7Ng4HZgHfUrLJisplqDmq/YHKsFv1hoRQUYlp
-	wMnREu1mJzZ4+2lPkZaWiSdxvkpOWTVRrsYcR1maTtAOu3IVlq6m+HLbdC7Oqfw5rLoSb2D/zk8Jh
-	MkyFTiRA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qvgR15Tx+UTRmIkTVdFC4whcGk/0e9sve+h3BkqQWSE=; b=1QE9UKNJXc/l+ey7HFogen3wTK
+	mXe1L2qk6qqzr4Vk2IyoAJW49GOHZ/7gOC+bs7I7cvCJh992UmQ/l3q/Zkv/d9Z2N9CrSTAV6xvsR
+	v57HEtRJ9Si1RPCE5RF98wxY6oNtHjO2ApzUI4qg0JjnOICW5rGcchYj44/dpHBDn+LEdJNOYMQcj
+	FX7NYRJgZ3VF5o8v9zGDiqmUM/Lh+sMfXUk48js9wi9P7WBW1OgVsW4Zb+Xg3YTdMT1lEkspQyxro
+	1JP8TNqn/hnbt0VvaLZhEZoGIyBBLOwC2jQrlNzm/14Qz3yKmF/5GBFW6jvVB5NmLVT8NZBDDdbf/
+	Ff1axdyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuMo5-0000000HLOt-2nSp;
-	Thu, 13 Aug 2026 04:12:41 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1wuMvh-0000000HLmA-1Wu8;
+	Thu, 13 Aug 2026 04:20:33 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuMo2-0000000HLO9-3axN;
-	Thu, 13 Aug 2026 04:12:39 +0000
-X-UUID: 35317be496cd11f1afed4741b24580c9-20260812
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=PywpkLD/oK1Z9y/cQpHPBpVaVV8KdAM+xgRBTiR0rcM=;
-	b=ZNv1PL5Bum9X+i4486S4XhVSPkkwZ7BKS51pFbOOUadoPJOXhRfO51cxB9ZiW8Db6PRLVHWhvpx9J0i1tjVtIbC5UKu7uuA5foD42W+wZ3CGqw6qrnMs7Z6izAO25JhHMISieMcyuSGfyfndanJy3VULunhF4DMVd7Z5WnGPVrI=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.19,REQID:3875c131-cebc-4f40-942e-28f242c2c8f1,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:7db8b62,CLOUDID:316d6ce2-71f1-405e-92eb-6802d6af74fd,B
-	ulkID:nil,BulkQuantity:0,SF:102|836|865|888|898,TC:-5,Content:0|15|50|99,E
-	DM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0,OSA:0,
-	AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 35317be496cd11f1afed4741b24580c9-20260812
-Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw01.mediatek.com
-	(envelope-from <ot_zexin.wang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 808255996; Wed, 12 Aug 2026 21:12:33 -0700
-Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Thu, 13 Aug 2026 12:12:30 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Thu, 13 Aug 2026 12:12:29 +0800
-From: Zexin Wang <ot_zexin.wang@mediatek.com>
-To: Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck
-	<linux@roeck-us.net>, Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-CC: <light.chen@mediatek.com>, <Fred-WY.Chen@mediatek.com>,
-	<Yt.Hsieh@mediatek.com>, Zexin Wang <ot_zexin.wang@mediatek.com>,
-	<linux-watchdog@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
-Subject: [PATCH v3] watchdog: sbsa_gwdt: add early_enable module parameter
-Date: Thu, 13 Aug 2026 12:12:18 +0800
-Message-ID: <20260813041228.23084-1-ot_zexin.wang@mediatek.com>
-X-Mailer: git-send-email 2.46.0
+	id 1wuMvf-0000000HLli-0bAn
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 13 Aug 2026 04:20:32 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2cca0c5799eso21097075ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 21:20:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786594830; x=1787199630; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=qvgR15Tx+UTRmIkTVdFC4whcGk/0e9sve+h3BkqQWSE=;
+        b=NHionqdJCBs/SpLtg0uygFyO/nWzZ2Hn503jnLKUFgRpFTk3LB/Yzi9KAHTtefSG3e
+         flV/n9UrvEvCvQYiWuDhVWyNqCpVf6ANSMNay5R5S/THO7J1nphFof3HP2Kz3Ffx0BVk
+         SUvVGmEPZjTH1+wZ+T+P93dIsjiotvDEAzWyLX65non5IjgVMt3MQP2zyi/8izYkgvhg
+         byCFK3MqdMpCPpxPaJ7shZYmG57VA/ER1/cmMeNgwxKjjhg4Ukh4Tw3j5S0A6MK+vUtZ
+         XLiGlJl/W3twhUb4/OLKJDoILaXdh1793GhJaFsEgzH34X5peY385tC+36pgLsFG9GJl
+         5XEw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786594830; x=1787199630;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=qvgR15Tx+UTRmIkTVdFC4whcGk/0e9sve+h3BkqQWSE=;
+        b=I9fiW3uYESAcwaDYAknDmjubsd0D0TSWTwV02r1gDQdqP7k6wjTKDEbnI4kDQwuw4t
+         qIoil0+VMLxWnMqkOousZ+a+zgYmF4V/MA9RN7s2krYE+oGJNomVNZHYTNDoZBu3G0Cv
+         Z+snTabwWkzIwOXIT70XtXkHC8i/c/smcjxPpxXwjM6DYaZ0SCLh21M6d1p1Op1dpTFi
+         UCzesB5a1wN7qVwgHyF1UduaxqnLa84ac1D9s4hhPQqg7T6KdOUeZ0xV4XOh06HAQyjA
+         hJfYw9glBDzjMYgfaWxHHM99i9g//VYGSI+OVU0h0h6H/v0loVZHdzIp4L8iZUkQbInk
+         kmGA==
+X-Forwarded-Encrypted: i=1; AHgh+RpYx3VktHBLl7JjRk/1wUZ3c8te4LCGL6DJLZ/SqcS1h5z3l+sFQeue0s1xSbGDo5YIBDNw4MhkJEYOEPl3R5G6@lists.infradead.org
+X-Gm-Message-State: AOJu0YxoK+g2i0AKYG/yMOBRYy+oeD2p4Wt3OUqnjH46+7tMsNnktc4e
+	d6l16Hp6xYbJoSWsk2sDbbSLkhvphmqMc1gfGrSTT/o25vNBQ7/qckjI
+X-Gm-Gg: AR+sD12T123lCEFE3Y7h9FN6lPPODrSh4Gy6GW490QFQUKPGpzvEP8UmQAhAfewvttb
+	gt8PrkCfHw097s0CYs+bZQPP0GS8oXXkNti1IvAq524j7kK4mcrmHkDS1nHArViGETDXD1+/CiM
+	lIIFjYxQ94umd/YUL1uRkK2KEy3WKdlhWq6es8QmYnoLccFpRz4aI+0P74Yoma7xUBcB+hUtdMZ
+	24zvzJ6FfmLnPSkMHAjqwAmtiDiXhRHtth+PP4tJMzjyrgjYG5gH+r1qX+rjd+56iJp+hyh0VDT
+	GQr9ddlvymLO2AFuq2RagLxuXSFPJmgX56UJ9Q1tJ6BxQX+V0Z4Q8HUDkTi/BKAxK99pw06Ypk4
+	3dpOQWX+ndWP5omblnOontHlLnUJtO9MPGOPZexgXr1osV5rsVS7en+VpVSpwYU1GBZzPzm5TFX
+	ML9dfQCRFZZntuFgDoFT5smN8YZtZZ2FJpWYYgAnrLkBnusNI8HMjUx5tPhxvKYNPfa0F8CL2nD
+	0tov/uhmFpGGO/VyJq2Qi7NRAlMkokuYaqhpdY5l9agel0HS/Uke4IE4mKvORzMMfXwGNSambw1
+	ME8f
+X-Received: by 2002:a17:90a:ec8f:b0:38e:485c:ebd3 with SMTP id 98e67ed59e1d1-3931e291d2dmr3936264a91.15.1786594830016;
+        Wed, 12 Aug 2026 21:20:30 -0700 (PDT)
+Received: from phuc-desktop.. ([183.91.15.56])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3931cd468cesm1700084a91.7.2026.08.12.21.20.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 12 Aug 2026 21:20:29 -0700 (PDT)
+From: phucduc.bui@gmail.com
+To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Michal Simek <michal.simek@amd.com>
+Cc: linux-arm-msm@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	bui duc phuc <phucduc.bui@gmail.com>
+Subject: [PATCH v2 1/2] net: xilinx: axienet: Propagate errors from optional IRQ lookup
+Date: Thu, 13 Aug 2026 11:20:11 +0700
+Message-ID: <20260813042012.17631-1-phucduc.bui@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_211238_912187_434ACEAA 
-X-CRM114-Status: GOOD (  19.03  )
+X-CRM114-CacheID: sfid-20260812_212031_189009_97C2B3B7 
+X-CRM114-Status: GOOD (  13.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,114 +105,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On SBSA platforms using standard UEFI firmware (such as EDK II), the
-watchdog timer is often enabled during early boot stages but explicitly
-disabled by the firmware before handing over control to the OS (e.g.,
-during ExitBootServices). This is done to prevent unintended resets
-while the OS is loading, assuming the OS watchdog driver will take over.
+From: bui duc phuc <phucduc.bui@gmail.com>
 
-However, this leaves a protection gap. If the system hangs between the
-firmware handover and the userspace watchdog daemon startup, the hardware
-watchdog will not fire to recover the system. For safety-critical systems
-that require continuous hardware watchdog protection from the earliest
-possible moment, this gap is problematic.
+platform_get_irq_optional() returns a positive IRQ number on success or
+a negative error code on failure. For an optional IRQ, -ENXIO indicates
+that no optional IRQ is available, while other errors should be propagated.
 
-Add an 'early_enable' module parameter to allow the kernel driver to
-re-enable the watchdog immediately during probe if it was left disabled
-by the firmware. By setting the WDOG_HW_RUNNING status bit, the watchdog
-core is instructed that the hardware is active. As a result, the core's
-pre-userspace handler (controlled by 'handle_boot_enabled') will
-automatically issue periodic keepalives until userspace opens the device.
+Propagate all error codes returned by platform_get_irq_optional() other
+than -ENXIO.
 
-This bridges the protection gap seamlessly without requiring firmware
-modifications and without risking unintended resets during kernel boot.
+Another call to platform_get_irq_optional() in the same function already
+handles the return value this way. Apply the same error handling to this
+call site for consistency.
 
-The parameter defaults to false to preserve the traditional behavior.
-
-Signed-off-by: Zexin Wang <ot_zexin.wang@mediatek.com>
+Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
 ---
-Changes in v3:
-- Fix indentation of `early_enable` in watchdog-parameters.rst to ensure
-  it renders as a separate parameter rather than part of `nowayout`'s
-  description.
+ drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-Changes in v2:
-- Rename `force_enable` to `early_enable` as suggested by Guenter.
-- Update commit message to explain the UEFI handover gap motivation.
-- Add documentation for the new parameter.
-
- .../watchdog/watchdog-parameters.rst          |  2 ++
- drivers/watchdog/sbsa_gwdt.c                  | 23 +++++++++++++++++--
- 2 files changed, 23 insertions(+), 2 deletions(-)
-
-diff --git a/Documentation/watchdog/watchdog-parameters.rst b/Documentation/watchdog/watchdog-parameters.rst
-index 502cb6adbeda..348229ffcb43 100644
---- a/Documentation/watchdog/watchdog-parameters.rst
-+++ b/Documentation/watchdog/watchdog-parameters.rst
-@@ -515,6 +515,8 @@ sbsa_gwdt:
-     nowayout:
- 	Watchdog cannot be stopped once started
- 	(default=kernel config parameter)
-+    early_enable:
-+	Watchdog is started on module insertion (default=0)
- 
- -------------------------------------------------
- 
-diff --git a/drivers/watchdog/sbsa_gwdt.c b/drivers/watchdog/sbsa_gwdt.c
-index e04d42cc7774..ed913be3d1cb 100644
---- a/drivers/watchdog/sbsa_gwdt.c
-+++ b/drivers/watchdog/sbsa_gwdt.c
-@@ -122,6 +122,11 @@ MODULE_PARM_DESC(nowayout,
- 		 "Watchdog cannot be stopped once started (default="
- 		 __MODULE_STRING(WATCHDOG_NOWAYOUT) ")");
- 
-+static bool early_enable;
-+module_param(early_enable, bool, 0);
-+MODULE_PARM_DESC(early_enable,
-+		 "Watchdog is started on module insertion (default=0)");
-+
- /*
-  * Arm Base System Architecture 1.0 introduces watchdog v1 which
-  * increases the length watchdog offset register to 48 bits.
-@@ -296,6 +301,7 @@ static int sbsa_gwdt_probe(struct platform_device *pdev)
- 	struct sbsa_gwdt *gwdt;
- 	int ret, irq;
- 	u32 status;
-+	bool early_action;
- 
- 	gwdt = devm_kzalloc(dev, sizeof(*gwdt), GFP_KERNEL);
- 	if (!gwdt)
-@@ -386,14 +392,27 @@ static int sbsa_gwdt_probe(struct platform_device *pdev)
- 	 */
- 	sbsa_gwdt_set_timeout(wdd, wdd->timeout);
- 
-+	early_action = early_enable && !(status & SBSA_GWDT_WCS_EN);
-+	if (early_action) {
-+		sbsa_gwdt_start(wdd);
-+		set_bit(WDOG_HW_RUNNING, &wdd->status);
-+		dev_info(dev, "Watchdog early enabled.\n");
-+	}
-+
- 	watchdog_stop_on_reboot(wdd);
- 	ret = devm_watchdog_register_device(dev, wdd);
--	if (ret)
-+	if (ret) {
-+		dev_err(dev, "Failed to register watchdog: %d\n", ret);
-+		if (early_action) {
-+			clear_bit(WDOG_HW_RUNNING, &wdd->status);
-+			sbsa_gwdt_stop(wdd);
-+		}
- 		return ret;
-+	}
- 
- 	dev_info(dev, "Initialized with %ds timeout @ %u Hz, action=%d.%s\n",
- 		 wdd->timeout, gwdt->clk, action,
--		 status & SBSA_GWDT_WCS_EN ? " [enabled]" : "");
-+		 watchdog_hw_running(wdd) ? " [enabled]" : "");
- 
- 	return 0;
- }
+diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+index fcf517069d16..d23e9796725d 100644
+--- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
++++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+@@ -2957,12 +2957,16 @@ static int axienet_probe(struct platform_device *pdev)
+ 			lp->tx_irq = irq_of_parse_and_map(np, 0);
+ 			of_node_put(np);
+ 			lp->eth_irq = platform_get_irq_optional(pdev, 0);
++			if (lp->eth_irq < 0 && lp->eth_irq != -ENXIO)
++				return lp->eth_irq;
+ 		} else {
+ 			/* Check for these resources directly on the Ethernet node. */
+ 			lp->dma_regs = devm_platform_get_and_ioremap_resource(pdev, 1, NULL);
+ 			lp->rx_irq = platform_get_irq(pdev, 1);
+ 			lp->tx_irq = platform_get_irq(pdev, 0);
+ 			lp->eth_irq = platform_get_irq_optional(pdev, 2);
++			if (lp->eth_irq < 0 && lp->eth_irq != -ENXIO)
++				return lp->eth_irq;
+ 		}
+ 		if (IS_ERR(lp->dma_regs)) {
+ 			dev_err(&pdev->dev, "could not map DMA regs\n");
 -- 
-2.45.2
+2.43.0
 
 
