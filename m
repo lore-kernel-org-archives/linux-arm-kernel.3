@@ -4,104 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36A0CC5CFEB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 15:12:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BE07C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 15:16:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
-	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d1VN5J3PqyqZfjhRbif8FIhRVduCGFV2/xR1rtZPKpg=; b=eLwhp1xg8w8cRKV2ymYqRreqLr
-	QBMx+aEEA4lyQR4BmTsmBZzEkau3cZl9C1V6hYBk3vz0YDh96JaaLqnLJ8FTvIOciujsZWUaQE6Nc
-	I2jU2QSdY/Du3PQuVMtAv5II3nbKxsQq+SN46BM0/8UOelqFgnj06tQgdhbZ+YDja1EP7pQ/f6RIK
-	uwLklZ18yymgbqTJ+7Y0iUZXMRXl/n2iiaSjmarp7snni78iyb6A/fD2R2nMtmffiiY2Z2mX1kl5S
-	hXEYl2wspxABIytVJH+hIqUPREqQWUCqkN4OGMH+v0TpoaULt84YEReQ4g+9LWM+gcisbWCXo06s0
-	zo4qEJ4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=W0lMzYnjz5fw9H0XA6YeKyIueK8wflCLPk3st2klDDQ=; b=DE6/iLqwW6Oo4y9sAIn6nTfU1J
+	hGCASv16NFhA0aDYuSVy876A9zLkp932DPkEfFh4VvMT9GYq0UAzyOEu4pkfnMwRcThS1YZa08pB1
+	hlUrHG1qJxB4JzXZ89FGIy3/jC0TB41Iep2DqRxiosEhm1FoSwh791a3uXn6tIuSrRzwk8uOwuiSJ
+	CPTtvLdTLi98bz+ootm4KigHWfT1I/+dLsgP+TCFNzNfiig9jG3b0E6BkoZd13mT2nD5rQf0QAHIz
+	H6PgstjSXWACC4lY1U9/JwYO74hpePYbIN1ENR5UowJnW54GRztOzmyJX2vqM7iaKZReB123d64Uv
+	+deS0JqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuX6q-00000000vzP-0XJE;
-	Thu, 13 Aug 2026 15:12:44 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1wuXAd-00000000wV2-2lZQ;
+	Thu, 13 Aug 2026 15:16:39 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuX6l-00000000vy5-2ZJQ
+	id 1wuXAZ-00000000wUQ-1bSF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 15:12:42 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-49557167508so268525e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 08:12:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=9elements.com; s=google; t=1786633958; x=1787238758; darn=lists.infradead.org;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=d1VN5J3PqyqZfjhRbif8FIhRVduCGFV2/xR1rtZPKpg=;
-        b=cndoClCaflbTp6fdAgqP3+JjunukYsjmQJml/we5Y11ljCiuh0tr/Io0g6SGIv8spS
-         7MNUpVwri6HFJcGvAjZEAwcdimHWb6tBte4zd5K3wvZ0OAH3kIz6wWNAc4kE3J3XMld7
-         S5Wp8qvdCbaJggCHwJ5Qnoim7P3t+8HdX92U62XXfU0HqvtEYzON/gbZdAKw2dvefpuZ
-         PMejDXkUfC9a9rvuYJpxobvsf0kJdkIqvDfNVm4kO8KfUAQxZ/7b2pLYXFfPIX+Zhank
-         P8hn4sFK9WfZz2B9aGq+97I0VTj1l+pc1w7I86zCLWKxFOfx+2e5ZUsJnJVvi7LD3yQQ
-         cg+Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786633958; x=1787238758;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=d1VN5J3PqyqZfjhRbif8FIhRVduCGFV2/xR1rtZPKpg=;
-        b=NKOuoPPleyyWqpm6tyl8TpHgvMOJ9wwJPbgM4RF4Zyt1+vI7WR9Wr1O+PJeZr+DwUe
-         vfi/GexQlq/vxGKAVZPS5mHHP1VS4oef3fgG7j6CjjbIiojiZgUw+FiGZj9sKniG2+fa
-         EQvaB7foIGpnzgklRAx9opJBSppxHBhdrWl/HzlbUwJvStvif5oT843reVrJz9WsoM4I
-         ntO8qv5cZU/lJevVfC+KU66dM35P0wkTHwnVZyaK28IRErk2yfbcfFx6M94toiJszev9
-         HhutCIRbSvPzFRCz5stP+05DdbuJEDXMcxrITbf+pqZvad33KRt7Qdr9Eu2FN+u6luf8
-         1VfA==
-X-Forwarded-Encrypted: i=1; AHgh+RpaY3wUPJjJs3vz7RU1Ex0nRvU+dt52aVnwsqNmRbEgta53I58acqXbxF6eV3G4NxrxCi2Jdyeo7TNsagAqOjzO@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw3VQgDZ2kRR1fMutGaiC33d+cFgFqRVqVRBoANdZytlX9gY/m4
-	JTsMDXuhFKIG7u99WworOH3ooRYHE3A10EGypnVjMBpHv9fl1HQpPr6GOVn5dcw5hnA=
-X-Gm-Gg: AR+sD12Oj/bIjHcic1kQQ4zlQXQYivHKVosCIimviNCSkugB4Nhjb719D07goe5qg82
-	7f3FZmewL/0z7UXBo39smC7G4QSeFr58G2ortAfhjZ7WVKhxBMMe7bFHKHinOr1Nf56y8W9UU19
-	PXpBsCutqaTNL2ZjWgwkM6XAJ+br1cgdlm9+7ug2nmkuVkmw27mVubLGLzNUtQNs/mBJIlSS5h9
-	Hi4abkdEHCchFDMvleJO91nyTFI4nS1pDfkUCdbIvTrjH58j4GHmkDtqVjzvnD4c4o3NePRiPnX
-	aPHX95q5VK9/FY6RAlTmvv9GQWUeDfm2CnaHKW5wwQG0YV5Yq+g5Y3YryGboSJPqu1IAUoFA6+8
-	a312bvqCmAK7zckfHdX3rBIJ6qORfegs1yV+he0j8fwzTEhB8E5rULkDN8zZkkSHXyTI0u9edbu
-	2y9zLIV2RoZEy+gPrJ2KhidDCK2w/VTb1JH871oTx8Ce5jnwg6rXunjwllHWVSSdK+ZGQyyUuGB
-	7ICeg==
-X-Received: by 2002:a05:600c:c054:b0:499:7aa7:eaa7 with SMTP id 5b1f17b1804b1-499821fa293mr61233085e9.15.1786633957761;
-        Thu, 13 Aug 2026 08:12:37 -0700 (PDT)
-Received: from white-mocha.local ([2a01:599:447:e518:cc7c:e59e:1489:db94])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49982121649sm66878705e9.1.2026.08.13.08.12.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Aug 2026 08:12:37 -0700 (PDT)
+	Thu, 13 Aug 2026 15:16:37 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9A34360A72;
+	Thu, 13 Aug 2026 15:16:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 499931F000E9;
+	Thu, 13 Aug 2026 15:16:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786634194;
+	bh=W0lMzYnjz5fw9H0XA6YeKyIueK8wflCLPk3st2klDDQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Qirkgpb27JCfuQCAyjUT16RnAV0o9CsPspRxFy8xhk4l1xe85bBlkq5b3w4AegFOY
+	 zyqs2TH4cSQg9CaPvMuU1Dyz7cUX3r2QvKGB9ngJPDP0MCj0EB0Os3f3lDxlFeETsN
+	 VQp4FZLbREM5tY+qwIY2GMdn4Hn/yd14SaW77609D3h6N0VCtBEdFwHjebEsaxK9/f
+	 rxf9AQQ0NuSy0sF07+799OHfJiyD8KITCYfXf7Rn22YQ+TLJGihC44iuf8jh4/EqKf
+	 Zm2wwZB+G2ri9GiHH88hV3+yLkvUaQthqHlDqppDaCC93uIHjOEBClsfuk13/SH4rJ
+	 JYYGOsmRCP2cA==
+Date: Thu, 13 Aug 2026 16:16:14 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	Steffen Eiden <seiden@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Fuad Tabba <fuad.tabba@linux.dev>, 
+	Shen Yongchao <grayhat@foxmail.com>, Karl Mehltretter <kmehltretter@gmail.com>, 
+	stable@vger.kernel.org
+Subject: Re: [PATCH] KVM: arm64: nv: Fix life cycle of the nested_mmus array
+Message-ID: <an3e_kikHdHDVcdm@lucifer>
+References: <20260811122057.754772-1-maz@kernel.org>
+ <anx6Wa5i1M2hidVK@gremlin>
+ <86zeyqys55.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v5 00/15] ARM: dts: aspeed: anacapa: restructure
- devicetree for development-phase
-From: Tan Siewert <tan.siewert@9elements.com>
-To: Colin Huang <u8813345@gmail.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
- Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
- colin.huang2@amd.com, Conor Dooley <conor.dooley@microchip.com>, 
- Carl Lee <carl.lee@amd.com>, Rex Fu <rex.fu.amd@gmail.com>, 
- Andy Chung <Andy.Chung@amd.com>, Peter Shen <peter.shen@amd.com>, 
- Tan Siewert <tan.siewert@9elements.com>
-In-Reply-To: <20260813-anacapa-devlop-phase-devicetree-v5-0-c7058f63dc67@gmail.com>
-References: <20260813-anacapa-devlop-phase-devicetree-v5-0-c7058f63dc67@gmail.com>
-Date: Thu, 13 Aug 2026 17:12:23 +0200
-Message-Id: <178663394346.25776.3034382955561000147.b4-review@b4>
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1786633956; l=966;
- i=tan.siewert@9elements.com; s=20260527; h=from:subject:message-id;
- bh=5nv+Mr9p5XaUi062nk/bzZw3jZRcU/o4Y1TWhXSnZQQ=;
- b=ixzRg0WlxQZmgEqHtR0ys1/8RqBVI0WxN6HGIy9/D2QEYFaW0DgxzfXMucvcSaQRuLtVu2tFD
- m+urC0SrqcpAbEpCpR5K/W3yetTllGyFJL3w5MUH2QxUVs6XbsOQVnp
-X-Developer-Key: i=tan.siewert@9elements.com; a=ed25519;
- pk=ORQd/zQf+LsAvJGXP1CjQwVO6t6iEOGq/eGUsmRVTG4=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_081239_673475_AD8C593E 
-X-CRM114-Status: GOOD (  12.87  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <86zeyqys55.wl-maz@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,28 +74,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/08/2026 13:59, Colin Huang wrote:
-> This series refactors the Anacapa BMC devicetree layout to better support
-> development-phase hardware revisions (EVT1/EVT2/DVT) while keeping a platform
-> entrypoint.
-> 
-> Signed-off-by: Colin Huang <u8813345@gmail.com>
-> ---
-> Changes in v5:
-> - Remove redundant vhub pinctrl-names
-> - Use default SPI2 memory mapping
-> - Fix dt-check-style strict violations
-> - Add Acked-by from Conor Dooley
-> - Sort compatible strings in alphabetical order
-> - More commit message for ARM: dts: aspeed: anacapa: Add EVT1 devicetree and point wrapper to it.
-> - Update commit message to describe both LPDB and RPDB GPIO expanders
-> - Link to v4: https://lore.kernel.org/r/20260805-anacapa-devlop-phase-devicetree-v4-0-5d67e0efa6c5@gmail.com
+On Thu, Aug 13, 2026 at 04:08:54PM +0100, Marc Zyngier wrote:
+> On Wed, 12 Aug 2026 15:05:21 +0100,
+> "Lorenzo Stoakes (ARM)" <ljs@kernel.org> wrote:
+> >
+> > On Tue, Aug 11, 2026 at 01:20:57PM +0100, Marc Zyngier wrote:
+> > > The nested_mmus array holds the shadow page tables that are used when
+> > > a guest is running a nested context. These structures are allocated on
+> > > VCPU_INIT for whole guest, which implies that they may have to be
+> > > relocated as the array grows.
+> > >
+> > > Should a VCPU_INIT occur whilst a vcpu is actively running an L2 and
+> > > that the allocation requires relocation, that vcpu will still be
+> > > running with a pointer to the previous structure, which will have been
+> > > freed.
+> > >
+> > > Fix this by turning the array of structures to an array of pointers,
+> > > which is now allocated at VM creation, sized to the absolute maximum
+> > > that KVM can handle.
+> > >
+> > > In turn, each VCPU_INIT contributes S2_MMU_PER_VCPU to the pool. No
+> > > reallocation is ever performed, and the life cycle of each object is
+> > > much clearer:
+> > >
+> > > - the nested_mmus array is allocated in kvm_init_nested(), and freed
+> > >   in kvm_arch_destroy_vm()
+> > >
+> > > - s2_mmu structures are allocated in kvm_vcpu_init_nested(), and freed
+> > >   on kvm_arch_flush_shadow_all()
+> > >
+> > > Finally, the freeing of vcpu->arch.vncr_array is made consistent
+> > > rather than being done on some failure paths, but not others.
+> > >
+> > > Fixes: 4f128f8e1aaa ("KVM: arm64: nv: Support multiple nested Stage-2 mmu structures")
+> > > Reported-by: Shen Yongchao <grayhat@foxmail.com>
+> > > Reported-by: Karl Mehltretter <kmehltretter@gmail.com>
+> > > Suggested-by: Karl Mehltretter <kmehltretter@gmail.com>
+> > > Link: https://lore.kernel.org/r/20260803224405.41468-1-kmehltretter@gmail.com
+> > > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> >
+> > This addresses the same kind of stuff I had a couple of patches in my
+> > series for :>)
+> >
+> > I think there are still some problems with it, see below.
+> >
+> > Also I attach my original patch for the UAF below in case it's useful! I
+> > had another for the init stuff, will reply with that separately also :)
+> >
+> > > Cc: stable@vger.kernel.org
+> > > ---
+> > >
+> > > Notes:
+> > >     Sending this as a first class patch, since the other approaches were even
+> > >     uglier than this one. I'm still displeased with kvm_arch_flush_shadow_all(),
+> > >     but that's a step in the direction of tightening it:
+> >
+>
+> [...]
+>
+> > > @@ -1316,16 +1308,15 @@ void kvm_nested_s2_flush(struct kvm *kvm)
+> > >
+> > >  void kvm_arch_flush_shadow_all(struct kvm *kvm)
+> > >  {
+> > > -	int i;
+> > > -
+> > > -	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
+> > > -		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
+> > > +	for (int i = kvm->arch.nested_mmus_size - 1; i >= 0; i--) {
+> > > +		struct kvm_s2_mmu *mmu = kvm->arch.nested_mmus[i];
+> > >
+> > >  		if (!WARN_ON(atomic_read(&mmu->refcnt)))
+> > >  			kvm_free_stage2_pgd(mmu);
+> > > +
+> > > +		if ((i % S2_MMU_PER_VCPU) == 0)
+> > > +			kvfree(mmu);
+> >
+> > Hmm I think that this can still be referenced if a concurrent e.g. mmu notifier
+> > thread doing S2 nested teardown is referencing it?
+>
+> Yes, but that's a separate fix, as per the notes above.
 
-Errors that were introduced in previous commits of the same series should be
-fixed up instead of adding more patches...
+OK fair enough, missed that!
 
-Tan
+>
+> > Maybe defer this to kvm_arch_destroy_vm() also?
+>
+> Sort off. I think we need two separate things here:
+>
+> - In this particular callback, keep the tearing down of the shadow
+>   S2s. They need to be emptied (after all, that's what the callback is
+>   about), but the s2_mmu structures still need to exist, just as the
+>   one that is embedded in the kvm structure doesn't disappear from
+>   under our feet.
 
--- 
-Tan Siewert <tan.siewert@9elements.com>
+Yes that makes sense.
+
+>
+> - in kvm_arch_destroy_vm(), free the suckers, because that's the only
+>   safe point to do so.
+
+Yes, absolutely.
+
+>
+> >
+> > >  	}
+> > > -	kvfree(kvm->arch.nested_mmus);
+> > > -	kvm->arch.nested_mmus = NULL;
+> > >  	kvm->arch.nested_mmus_size = 0;
+> >
+> > This is racey (concurrent S2 teardown again) and should be
+> > done with the kvm->mmu_lock held I think.
+> >
+> > In my original patch (see below) I simply did:
+> >
+> > 	/* We may be raced by concurrent S2 teardown. */
+> > 	scoped_guard(write_lock, &kvm->mmu_lock)
+> > 		kvm->arch.nested_mmus_size = 0;
+>
+> As explained above, I don't think this is the place to free the S2
+> MMUs at all.
+
+Ah I guess you would need to keep the nested_mmus_size around anyway if you
+want to individually free the mmus, makes sense.
+
+>
+> I'll prepare some additional fixes for that.
+
+Cool, feel free to cc- me on those would be happy to help with review +
+this is all helpful for learning more about the subsystem :)
+
+>
+> Thanks,
+>
+> 	M.
+>
+> --
+> Without deviation from the norm, progress is not possible.
+
+--
+Cheers, Lorenzo
 
