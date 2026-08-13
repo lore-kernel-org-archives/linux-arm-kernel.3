@@ -4,99 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B806C5AC67
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 05:58:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF52BC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 06:03:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+7PeLXe+ue8rItbBi6+JlGfhsV/36WDiPAKPGI7m+do=; b=3ZPV9N6+orUQcmq0SroIunubIq
-	CcCgSCjpKpwsgEiGA5q3/ro+a1AHWRm4lqyv9UTvPDnWG4a+vWQzzxvFOf23w/+tZJkxMijfWCSEZ
-	QnhuWTWqAcmGF5LoB1NSrxk3W+dZLYZK5NexGArcN9A3cgfBbDNjkb0dwehanuSeChrRhD1Y+QMVK
-	S2rVtwdJBa5EFwSqVDBJf0MXFa3rD7OWneLVatq/FrJU57Jj8ND9n9Q7FlO4Pks1QZSlQK8cyFCrn
-	2AzwJv0LwY2Ohb1GzKzLwKqTT4A0X2kNxU004JaMThRCiNxrbAXIjZBC1JTRdzJVYZmOl+7LoP709
-	k5LL7WZQ==;
+	bh=Ns4GoDNqcj/9AON25YCP9GahdV/I2v0GEJ5Utg1AonY=; b=2cXPqYA+jD3RuHfNwzX+pIIx8u
+	i1CeWZ5s6cLNfiyMpJKGHQdyPPuabh7IB80lHSqfFgF1i8DrIfKraIQVWkDfuT6y3rI1tBaph2w6J
+	q3FlFeD6Asxx9XUmV8yMc9tHBEU2MXJxDesyhcyezNYVpJmbexiog+pW0R3V+PJ0dnKNl6O6eI9bw
+	b7/8Cty68rqQJfY5QR5RxORr7m7Nnk59dtErluiepDcdY27MhCGTHkXjmOL/VlWJ+FzbAHRnKOQar
+	Z0Fyx/hYDsYz5R/AAnlCX2QEEqjMjil/ps1PszcEBkmFTiA/3E0W0q3MNmxCKUp5xn/JV7q/JTSEz
+	oB+w3E5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuORv-0000000HS8I-1z4o;
-	Thu, 13 Aug 2026 05:57:55 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuORs-0000000HS7w-3hxG
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 05:57:54 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-495757ccbc1so2598395e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 22:57:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786600671; x=1787205471; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=+7PeLXe+ue8rItbBi6+JlGfhsV/36WDiPAKPGI7m+do=;
-        b=UZ537i4ZntiAO2eNWzgEwIOrD3+WnuquYPcAb7TwQ5ymRmbatfCcXWIbKgc8wmS5qD
-         NVoFgYCd0OST5ZSkn+hioIBJLnXHKqg4PsnTOj+vZQYn36zUItK2LP/mohcvDvGyCQNS
-         5AZZCY+oy8HpXslpxnp7hVuCskcsf6zrxmckxi+oovVvaagcZcpaad8PugaxM4u6cLg9
-         HV+2m4YEYZCgvE41joedINmlJwRKjoo2aLXz/C4+c6/qs8sRtr4EwwKPXIgnHKe7Sm9u
-         sXXv8IyGvhSR5V+ww6lxvde94+6AthivlRlm14OuTMgQvAtkq8J0ECQwET+g5PoMSwVE
-         cUHg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786600671; x=1787205471;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=+7PeLXe+ue8rItbBi6+JlGfhsV/36WDiPAKPGI7m+do=;
-        b=ALs7kpekvlEFwY/KE4vNyZZSg6bLagSA+Fn5kYWihc5A1XLaJVYDI7N8QnyJavAsJG
-         erBMJeD8XbsB58nTncGz6EhwxkRX2zm4R40nemCXKojSbnHhIRhqhj1GdeQhMTB0v2zj
-         0gTU3EZkWQpYh18vdkhfePgD72k/vXXMma5jAqGDHuszTtxdWK95iFnCFzbkWlC05EjS
-         zFl+l6BocNbS2Ja7kq3DapQV1JiF/3a2M43oeB9qTa1VIAsKhs65qJKR73lbDD+V+rzB
-         yjOEXyawYGiSgD1505g0uVKnDYC5Bf+qSWkbJgQXifWbY/4AMfkkDEasAP0HZJmW6jer
-         pGrA==
-X-Forwarded-Encrypted: i=1; AHgh+RqReuwRyoeruNjqRLsIoivTscPVHXYpCJmD7ztaJumDk5N/DRUkbrpcTAwjuJpOZpAwvV5xUkalzjMfPwQHMWq1@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx4tVl2ie46tfWt3klC5Rcza46/wy1qCkOwTCJ+SjBra/iR+UTv
-	xzxFF0CXbyAh7LwBXzZUStMrhc6zCNP05Bjo2CGvjVvjUT+XnA396ohJ9XALNoce
-X-Gm-Gg: AR+sD100iqX6BoxVIhiJzxE+/VqthQGIzFqG2S5afTadco12s/sFw8VuutRknxsOUgd
-	dC/48D8+b3uW6HEJsFbLK2lctlsFUexNu3Pok3/lOJpecMZBBhykwp1hH0IXR2TYLTiFLk+Upn3
-	ULEJGsXUXfp+r5LkG7OovJAbF77K+7+2FCRy2cIy7sL+mlsDoaSKmxTYvLtIr7VkS08neHRPsQk
-	tev5xjvj3/IGIrpldILPvnvICNlWjjbMnIy7Zo0QK/XOj+NHLeD983yEmrg4l2PFsKiRkY4/D52
-	bbnEGdSjKJtbR5/ltqdEkThC3ZmRYn0+ibDayjSX3W2PJqpfi/eMOwXqztoV2OSeS3ySFz9Jf9A
-	OBEmt/WoKJtxRDt3x4MoBNLpVNUG+Qxdioa+wOi0HXo1z0hP8Qoe46WdDuzFw/yLW6JNZYqqJ/n
-	jgOyezRXbRmqgr7FVxDmSFdhv0/SXWKDfbpwwr+853OjZ9KM+TikJpTcYpTZ10gojmB+hLwnAQL
-	QAIDYdrD9mmZ7AAmGRKqBujwylZAzR+oBuVTEx9Ga0nDX+pW4DqTBVAtXVCNTj9wdk9522yIOM/
-	Rb2RHe1k52MS3tVgrXgIAHROCiDV8RIvGhUyjlK0dlhQaW/OjYtuJ7O/UIhSp7z/6kY=
-X-Received: by 2002:a05:600c:190f:b0:499:484a:98e7 with SMTP id 5b1f17b1804b1-4998218e63dmr29591735e9.14.1786600670592;
-        Wed, 12 Aug 2026 22:57:50 -0700 (PDT)
-Received: from MacBook-Pro-von-Karl (dynamic-2a02-3100-9c79-1f01-1565-573d-10dc-99f9.310.pool.telefonica.de. [2a02:3100:9c79:1f01:1565:573d:10dc:99f9])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4998216cf70sm28991305e9.12.2026.08.12.22.57.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Aug 2026 22:57:49 -0700 (PDT)
-Date: Thu, 13 Aug 2026 07:57:48 +0200
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oupton@kernel.org>, kvmarm@lists.linux.dev, 
-	Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Shuah Khan <shuah@kernel.org>, Eric Auger <eric.auger@redhat.com>, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [RFC PATCH 1/2] KVM: arm64: vgic-v3: Roll back failed
- redistributor region setup
-Message-ID: <an1cYl928Fue-z3s@gmail.com>
-References: <cover.1786344511.git.kmehltretter@gmail.com>
- <4e00fc25aa61ec52e6ef033a53588ce3f5550982.1786344511.git.kmehltretter@gmail.com>
- <86tsp2139b.wl-maz@kernel.org>
- <anotFcOP0kcQJwrA@gmail.com>
- <86jypv1lxo.wl-maz@kernel.org>
+	id 1wuOXM-0000000HSMO-0KVc;
+	Thu, 13 Aug 2026 06:03:32 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wuOXI-0000000HSLn-0yta;
+	Thu, 13 Aug 2026 06:03:30 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 27767153B;
+	Wed, 12 Aug 2026 23:03:23 -0700 (PDT)
+Received: from localhost (a085714.arm.com [10.164.19.28])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5B05F3F632;
+	Wed, 12 Aug 2026 23:03:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1786601007; bh=urvzQP14xjouAFJaMxm1KkmF2FK+YkPxtlg+0tmM3dk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FCmrH71a8GibDaT/4TzLpR5i+19TJkV8Y7yUEveP9J/tnpZ41lNWsq0jvpmBepdWh
+	 3M9emmtusN3STsiD2oIUPfk8jrriw7cyAgWrBFzUsYOHmzUnSzzBNBDES9ShVkwlc0
+	 +Kv5zwJCzOVfLHIcWwsl8hCWFk4UC3OStKBDaUuE=
+Date: Thu, 13 Aug 2026 11:33:23 +0530
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: linux-mm@kvack.org, akpm@linux-foundation.org, 
+	Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, 
+	Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>, 
+	WANG Xuerui <kernel@xen0n.name>, linux-alpha@vger.kernel.org, linux-snps-arc@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org, 
+	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
+	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, linux-sh@vger.kernel.org, 
+	sparclinux@vger.kernel.org, linux-um@lists.infradead.org, linux-arch@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [RFC V2 6/6] mm: Drop pxd_ERROR()
+Message-ID: <2ys7apbnfuj3ugfoqgbptgej3jjcyfpmdgbv6qbxupmwg6mefc@h5p33ua2nzlu>
+References: <20260811042119.3652929-1-anshuman.khandual@arm.com>
+ <20260811042119.3652929-7-anshuman.khandual@arm.com>
+ <1fb9ed88-67d0-4ac1-878d-0dc8e1135d19@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <86jypv1lxo.wl-maz@kernel.org>
+In-Reply-To: <1fb9ed88-67d0-4ac1-878d-0dc8e1135d19@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_225752_962518_280DA100 
-X-CRM114-Status: GOOD (  16.52  )
+X-CRM114-CacheID: sfid-20260812_230328_346729_A58E2C1B 
+X-CRM114-Status: GOOD (  18.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,33 +78,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 12, 2026 at 02:57:07PM +0100, Marc Zyngier wrote:
-> On Mon, 10 Aug 2026 22:22:37 +0100,
-> Karl Mehltretter <kmehltretter@gmail.com> wrote:
-> > Is this closer to what you had in mind?
+On Wed, Aug 12, 2026 at 01:33:14PM +0200, David Hildenbrand (Arm) wrote:
+> On 8/11/26 06:21, Anshuman Khandual wrote:
+> > pxd_ERROR() has been used in generic mm just to print the page table entry
+> > in pxd_clear_bad() before clearing those out with pxd_clear() later. These
+> > pxd_ERROR() macros have been provided by all platforms which basically did
+> > the same thing.
+> > 
+> > Make pxd_clear_bad() use recently added ptval_to_str() instead for printing
+> > page table entries thus completely dropping dependency on platform provided
+> > pxd_ERROR() macros which can then be dropped off. First move all required
+> > helpers in core MM into a header file which could then be used else where.
+> > 
 > 
-> No. I want *all* RDs to be gone on failure, and the next successful
-> registration to result in all possible RDs to be matched against a
-> vcpu if there are enough of them. Effectively an atomic behaviour from
-> the PoV of userspace.
+> It might make sense to split this patch further up to ease review:
 > 
-> See the patch below for what I came up with.
+> Patch 1) provide ptval_to_str() a header.
 > 
+> Patch 2) Stop using pxd_ERROR() and friends in common code, converting to
+> pteval_to_str()
+> 
+> Patch 3) Remove now unused pxd_ERROR() and friends from arch code.
 
-Understood. I believe your sketch needs two small adjustments:
+Sure but the intiial platform changes which now use ptval_to_str() as well
+will probably come after the Patch (2) but before the Patch (3).
 
-free_index must be incremented before kvm_io_bus_register_dev().
-If registration fails, the current vCPU already has an RD assignment, but
-there is otherwise no increment for the teardown path to undo.
+> 
+> ...
+> > +static inline void
+> > +ptval_bytes_to_hex_str(char *buf, size_t buf_size, const void *entry, size_t entry_size)
+> > +{
+> > +	if (WARN_ON_ONCE(buf_size < entry_size * 2 + 1)) {
+> > +		snprintf(buf, buf_size, "overflow");
+> > +		return;
+> > +	}
+> > +
+> > +	switch (entry_size) {
+> > +	case sizeof(u32):
+> > +		snprintf(buf, buf_size, "%08x", *(const u32 *)entry);
+> > +		break;
+> > +	case sizeof(u64):
+> > +		snprintf(buf, buf_size, "%016llx", *(const u64 *)entry);
+> > +		break;
+> > +#if defined(__SIZEOF_INT128__)
+> > +	case sizeof(u128):
+> > +		snprintf(buf, buf_size, "%016llx%016llx",
+> > +			 (unsigned long long)(*(const u128 *)entry >> 64),
+> > +			 (unsigned long long)*(const u128 *)entry);
+> > +		break;
+> > +#endif
+> > +	default:
+> > +		snprintf(buf, buf_size, "unsupported");
+> > +		break;
+> > +	}
+> > +}
+> 
+> Why not leave ptval_bytes_to_hex_str() in the C file for less churn for now?
 
-The garbage collection in vgic_v3_free_redist_region() should remain.
-VM teardown frees the regions before unregistering the RD iodevs, so
-removing it would leave rdreg pointers referring to freed regions.
+Agreed - will change.
 
-Does that look OK to you? If so, I could include both in v2.
-I'll also split the selftest change and have it check only the
-final state after the retry.
+> 
+> -- 
+> Cheers,
+> 
+> David
 
-Thanks,
-Karl
+Thanks for the review.
 
