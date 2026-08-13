@@ -4,105 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24D72C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 06:41:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EE01C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 06:42:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yNedPTBM0QaEAffSIPmHfR2JW1hntmhMUuPBtLmfSRI=; b=17wChW+SsRW2tECsLGE2/7a+Xy
-	H04XUkzhX+GZdVvBM/etJ2n1qji0jO8OdY1PB9sVIZZ+5q6OgAXIe4bKXQsmtHyRjcvaD29ybDVjz
-	zsYopbqmWr+gA6K+hHSmnGrrY1p93S+Y3c0PCR3xkgxDkT/ofpJ6V8nHnI3epBwp214YT6CdwoaFb
-	YeBkbUtilpisPtq6+/ucNNHEUvWTyNe4eNADg8+uTi8Un6BXiTeRZlxqWTQYkse7S2ruR8E4cHooA
-	34pTne03rWe23sCvSVcWpdbnwru1LGw/ZeOJgwXH9xPhr5ZE/FTITPpYZ82xL/1q+R3QF28qDb9Kn
-	DdfKzN/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Gb9MsvAU21XMuxBAL1AnROv8wUcrBW21oBvrQrAmcYU=; b=sk5sRv+53RJ/C3PWZfS86capHU
+	zbELLCwoG777Z5EQFB4JbANtdDUeleVAkqoUgxrJp4mouuWSPfDRLuLZHb/ZK9vPA0B4C506jWVxE
+	KlNBCG01gFPde/9CKc8YLdImPQRimFLtgLc+09dmtX68a17Qq87Gi09qrp1IAD1hYSxNN3ZSdCtUT
+	116B7Uln6W98HFAr4nmXOf7GcB7m4KgICuaK/sU0/lCxxu3h3ai9KGlgy+m6wGWkW0hqTGFyX05zY
+	bsOL6Tqp+yE/x/JkeovLKdm/9HiFMhDkiMIfMI2qfad7uLVyVJtSsNM4ktvSIdAbaRNFeFudZB/Ij
+	125P7jzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuP8K-0000000HUuf-3Z5L;
-	Thu, 13 Aug 2026 06:41:44 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wuP99-0000000HV3N-1Gnu;
+	Thu, 13 Aug 2026 06:42:35 +0000
+Received: from mail-pg1-x548.google.com ([2607:f8b0:4864:20::548])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuP8J-0000000HUuZ-0fNi
+	id 1wuP97-0000000HV2b-19TN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 06:41:43 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E6A4443D10;
-	Thu, 13 Aug 2026 06:41:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51A141F000E9;
-	Thu, 13 Aug 2026 06:41:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786603302;
-	bh=yNedPTBM0QaEAffSIPmHfR2JW1hntmhMUuPBtLmfSRI=;
-	h=Date:Subject:To:References:From:In-Reply-To;
-	b=L0sbCblUKhnN2QHTDhExySGl/q8zR3daX4ERhD2V/Q8lXl+lkJrF6bQt5+gpD8ov/
-	 ba8B7jZXOpGjmSwMVbMEerZHeWNIojWOO4eCSQZ70uqrHSuzGh86FCm5mmDep9q2bD
-	 woJYkR3p2GrO82NybxO0b5+eVWr7otvDh7gaLS0sqOodUX0AXJI/UtHIuYWAm2Uov2
-	 AGi3HLXCAXaNu4N2Q3QJP+hSnMuNlFbI2NZgJpyr+qfx+sDgKeuMAmzurrfswyxp0V
-	 MRt7P24pLAmNaowQ8skzfbpa7U3AQBKhB9Ip4u8PbmRL9VBOqf+bN+q2JN0Qes5H3U
-	 m16xDYfCfA+AA==
-Message-ID: <71aeba36-260f-4461-abf6-f59c31d1f106@kernel.org>
-Date: Thu, 13 Aug 2026 08:41:35 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 13/19] dt-bindings: dma: ti: Add K3 BCDMA V2
-To: Sai Sree Kartheek Adivi <s-adivi@ti.com>, peter.ujfalusi@gmail.com,
- vigneshr@ti.com, vkoul@kernel.org, Frank.Li@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, nm@ti.com, ssantosh@kernel.org,
- dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- r-sharma3@ti.com, gehariprasath@ti.com
-References: <20260810151423.1948224-1-s-adivi@ti.com>
- <20260810151423.1948224-14-s-adivi@ti.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20260810151423.1948224-14-s-adivi@ti.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	Thu, 13 Aug 2026 06:42:34 +0000
+Received: by mail-pg1-x548.google.com with SMTP id 41be03b00d2f7-cbb6433e9d4so2306925a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 23:42:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1786603352; x=1787208152; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Gb9MsvAU21XMuxBAL1AnROv8wUcrBW21oBvrQrAmcYU=;
+        b=ZxQJJ/PkILO/4oxvPPWKY+nBoch8YBAfT/RGly+5J87dTJ3nO+GqV+uwr5CONfAbRF
+         zLnUKZF8U5je4pMNivmMsmfYPmM2soopvvIOrRQp9tKX/oxPJ2X6J1OZ7MkDE7UdE7QP
+         /w98ptUA3Vp2ExwWrGp2lGZpkQOj4BvuOq5YUyGNZlJz3xMc7FoBlDhxtQ6E5SOR4cuj
+         rwDDa78Ye0ZKtr5IHCNATb3L1GL7sozyy5ezbns8ENTFWj5qM7bq3q5S3+hHC+FsePm+
+         WTUNWlDSygfqor/wRMXA710QiCPdTiE9z/XbhSLubcmb3ZCpA5KC/8HOoihMZ3sYIjC+
+         RfnQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786603352; x=1787208152;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Gb9MsvAU21XMuxBAL1AnROv8wUcrBW21oBvrQrAmcYU=;
+        b=NnjehbNI1VhSicYATbCt98GfqEhREf+4dck2uwzV4ki15k7c/wjJuU3dGQv9qvBJ1g
+         /g4yGvmlTtKAwzklCDFYc8frEqK+PjhKhqGDhVqMLmh2GHaYdqDI1MzlOR7NQoCIC0Zr
+         HC1PbeHD6jwUck1ZiJ/IYAcgEotxOb1BpHW5bJcdl0ih9HvA6N+M3KRTucVeeGoHsC2m
+         RqKFyM3owhrf2Bpa2ZaRzJkNP9OINMLm0l4OPxXLJ934mWnL39+YSKIQ49qhYsWjUAJI
+         A0m3ToFhBrqOGhOgBnSxCnG53+dc/MJwWvNpzxSoFM58jOZkr/aIWwmFfyNU5izcBGYT
+         q1Xw==
+X-Gm-Message-State: AOJu0YzI7fUhDQwG8p0FzHV9f8NaeD+LF7A7MzYrVNg/+3+PCr7OjAVF
+	mKJJonJs3mwpgw1ecNLMUZW4BFeLjbxEjJDUCBB0aCqg2lpjbR6fgnVNyHta9R5ssDS3xakH9df
+	MkkdqorXPqg==
+X-Received: from dlbcm34.prod.google.com ([2002:a05:7022:68a2:b0:13f:c741:a50b])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:1602:b0:3b4:8f18:33a
+ with SMTP id adf61e73a8af0-3cc54f4d129mr5116115637.1.1786603351538; Wed, 12
+ Aug 2026 23:42:31 -0700 (PDT)
+Date: Wed, 12 Aug 2026 23:42:26 -0700
+In-Reply-To: <20260813052419.2770841-1-irogers@google.com>
+Mime-Version: 1.0
+References: <20260813052419.2770841-1-irogers@google.com>
+X-Mailer: git-send-email 2.55.0.691.gc56d675ccc-goog
+Message-ID: <20260813064228.2799872-1-irogers@google.com>
+Subject: [PATCH v8 0/2] perf: Add Raspberry Pi AXI PMU driver
+From: Ian Rogers <irogers@google.com>
+To: irogers@google.com, linux-perf-users@vger.kernel.org, 
+	linux-rpi-kernel@lists.infradead.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	mark.rutland@arm.com, u.kleine-koenig@baylibre.com, will@kernel.org
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260812_234233_321528_6A8370AD 
+X-CRM114-Status: GOOD (  11.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,20 +90,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/08/2026 17:14, Sai Sree Kartheek Adivi wrote:
-> New binding document for Texas Instruments K3 Block Copy DMA (BCDMA) V2.
-> 
-> BCDMA V2 is introduced as part of AM62L.
-> 
-> Signed-off-by: Sai Sree Kartheek Adivi <s-adivi@ti.com>
-> ---
->  .../bindings/dma/ti/ti,am62l-dmss-bcdma.yaml  | 211 ++++++++++++++++++
->  1 file changed, 211 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/dma/ti/ti,am62l-dmss-bcdma.yaml
-> 
+This patch series adds an uncore Performance Monitoring Unit (PMU) driver
+for Broadcom AXI system and VideoCore VPU performance monitors found on
+Raspberry Pi SoCs (BCM2835 through BCM2712 / Raspberry Pi 1 through 5).
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Motivation & Background
+=======================
+Currently, Linux lacks a standard perf-API compatible driver for the
+Broadcom AXI performance counter blocks on Raspberry Pi platforms. Prior
+out-of-tree vendor solutions relied on custom debugfs nodes and ad-hoc
+kthreads, preventing integration with standard Linux perf tooling.
 
-Best regards,
-Krzysztof
+This driver implements standard `struct pmu` hardware uncore callbacks
+under `drivers/perf/`, exposing human-readable sysfs event aliases, unit
+scaling (`Bytes`), and bus filtering directly to user space.
+
+Key Architectural Improvements & Features
+=========================================
+1. Standard Linux Perf Integration:
+   - Exposes uncore AXI interconnect events via sysfs boundaries.
+   - Supports event sampling and hardware counter accumulation,
+     automatically managing 31-bit hardware counter wraparound.
+
+2. CPU Hotplug Support (`cpuhp`):
+   - Registers dynamic CPU hotplug notifiers (`CPUHP_AP_ONLINE_DYN`).
+   - Automatically migrates PMU context to an online CPU core when a
+     designated CPU goes offline, avoiding stale uncore state.
+
+3. Hybrid Memory-Mapped & Mailbox Work Queue Architecture:
+   - System Monitor (MMIO): Performs fast atomic-safe memory reads
+     directly mapped over ARM physical memory space.
+   - VPU Monitor (Mailbox IPC): For Broadcom BCM2835-BCM2711 platforms,
+     VideoCore VPU monitor IPC calls are offloaded to process context via
+     a dedicated workqueue (`vpu_work`) and serialized.
+
+4. PREEMPT_RT & Safety Hardening:
+   - Uses HRTIMER_MODE_REL_SOFT for timer callbacks to execute in softirq
+     context, avoiding local hard interrupt nesting priority deadlocks.
+
+5. SoC Generation Support:
+   - Patch 1 adds core driver support for Broadcom BCM2835-BCM2711.
+   - Patch 2 expands support for Broadcom BCM2712 (Raspberry Pi 5).
+
+Changes in v8
+=============
+- Fully transitioned locking architecture from 'spinlock_t' globally to
+  'raw_spinlock_t' to mathematically guarantee fastpath safety against
+  "scheduling while atomic" crashes during PREEMPT_RT deployment where
+  the perf core unconditionally disables hard IRQs prior to PMU callbacks.
+- Re-architected 'RPI_AXI_PMU_TIMER_INTERVAL' significantly downward from
+  2000ms natively to 100ms. This acts as a structural baseline compromise
+  that prevents excessive VideoCore Mailbox IPC context-switch wakeovers
+  on older Pi 1/2 boards, while safely minimizing uncollected residuals
+  causing 0-byte dropouts during time multiplexing/undersubscribed traces.
+- Enforced strict 100-column sysfs string macro breakages globally.
+- Added proper .scale and .unit bytes aliases across all AXI transaction
+  events.
+- Fixed a fatal use-after-free initialization race condition catching cases
+  where cpuhp_state instances were registered prior to the PMU backend,
+  which allowed concurrent CPU hotplug migrations to panic aggressively
+  against unregistered core structures.
+
+Ian Rogers (2):
+  perf: Add Raspberry Pi BCM2835 AXI PMU driver
+  perf: Add Raspberry Pi 5 (BCM2712) AXI PMU support
+
+ drivers/perf/rpi_axi_pmu.c | 2884 ++++++++++++++++++++++++++++++++++++
+ 1 file changed, 2884 insertions(+)
+ create mode 100644 drivers/perf/rpi_axi_pmu.c
+
+-- 
+2.47.0
 
