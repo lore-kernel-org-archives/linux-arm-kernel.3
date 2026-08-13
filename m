@@ -4,95 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10A2FC5CFCF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 00:47:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAFB0C5AD5A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 00:51:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9BsxTIcePTgkc+qhqyMPuO3rIwVn2+yc4KgD+VvA3wo=; b=1ZrCvWR50+JlLydCaDxsTcRB4j
-	JnjkdElzLhtpQBhb+y6qLkLFtJbd9n27W8raIUiBRT57ECqp1nd43zbuZ+HsTedvmBm0EhfRSslTE
-	3p+nH4zlsy9r3CyU7TrabyI9i8hsl+tbHSp1LEEi2cjxkUroeplAr0RFIEzEjgQKqpd5pXbqkY6ZF
-	/EZ4bp2cZ+vTeU1ctEK1b+6gqSJMwYz9BH+4d0H0QGOmOxyxcSs7erNRN75POUkc5ZpYUOZtbQ6BV
-	M4bpHCVeheq1Y3fk1fYczsitsm2oBlq5gyiVjZQ/Rn5i0PTd1bwpqnl2mbzgvfF4NjDrijFQ4D9J5
-	3ft6LB0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yirCD5X6JRo6FnvaQn8dOoocTC1WS5mRd3Z8F+DJEGI=; b=YuUULHSaijQaIZr6wIIZvTp1cs
+	NSD8Zn5rXiIPU7xbthad7LfD2gFp6eRU6A+VXiH/l2d87I1Pq5apzSJQ9zFwMm0+IWMzNQvo+dO9k
+	3j/zcrDke3oNI23qpO311GR/mXYcnaXrVfQUpMuTgTudYxE2v6+MjJxuYo5fqQfV6zz4uFHbyLFPA
+	aIvwg92+gOkZB/sTxj9aa2JoTpuX8Gi0dl0F8/tjezCJqvtrikh1PuQuK9F/ESmiZrNwLFARPcvag
+	Cm/J/PtfAHSe3QHoIRDS1JQ3walvh5h/nVV2iycymhJP0/8m0aEdBKII0V3xFLVntNkPd+gYuPTIn
+	X39sPwcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuJbS-0000000HDPS-2daw;
-	Thu, 13 Aug 2026 00:47:26 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	id 1wuJez-0000000HDfW-0Mc7;
+	Thu, 13 Aug 2026 00:51:05 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuJbP-0000000HDOi-3wkd
+	id 1wuJey-0000000HDfP-27dh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 00:47:25 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-38e42560ebcso1464200a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Aug 2026 17:47:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786582042; x=1787186842; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=9BsxTIcePTgkc+qhqyMPuO3rIwVn2+yc4KgD+VvA3wo=;
-        b=WN60Y06hjVq6ckfiT3k0Hd7fC/R+IpKebXROATxiRZCgeK9sY8/iDfQ4JL/eMpv+qp
-         vy8/wpcCgwLFJuiRcym313Yj/2qUthJHnAPkENGUeZvmXTe5YXikKax6RKb2M2XphRcx
-         jp7H0IDCJKUtWyurOV8ifd2VDOFY/6N4APCcCchJlEAt4erwsO5BYUo/M/JOVaG1r6Ds
-         9p0qTOzil4cOVMVcHYIhRx+eA8ynvWi+5TdkAOH+4XSlaRwIfa5as7hmeZSOgUaSiN4O
-         54MLT9PKuXT5k+Tky//GPzIWJy9gnsI9hDYF+EnjgFUZ+S/LUE/x0Yyei1c2kKEnA/VA
-         ickA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786582042; x=1787186842;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=9BsxTIcePTgkc+qhqyMPuO3rIwVn2+yc4KgD+VvA3wo=;
-        b=r5FYOvIbggfC3iyw1EZqLE9NKZ4NuJZGzbmVs+xUf3+R9AjTezaynZ3VY9JbWjLKmC
-         64JMj4pB7+fqB/LlOpD+Mln9mi79d5xeUsREk25uZCkz7nXLXb2euf+9Pl6Aw/NK4yPP
-         sO5T5Enpp2eO2Xs7pCKX+cNs+bkAV39R5uk69h6SAGhvFMqeRitm9mqiR3iyTxkdvjDj
-         FoSvG61eXxYzCFtbyYc2bakVVja+DIa+Sic3ZUF0023NLsV84EqFl6QeKXz8ep/5SE/S
-         jWk1maIH76UMD6FCc6ZVywvELFVXM50Zp1y+Nj1KJWuvkfsnSz0Ah7f1VDFRaNReiLPA
-         iRIg==
-X-Forwarded-Encrypted: i=1; AHgh+RqHjQNGVUxpndeypNSEY9BSIqTKud8bJrRS3WaHBJWjSSBBcoH463DapCfd24yVSYmtmMHha8EWNkjv249OWPMV@lists.infradead.org
-X-Gm-Message-State: AOJu0YzQ+R7ethT5sniEheTKsrWYYv1oMoWNIUDD9MfsrHEd5zJ1FTFM
-	ISQaGzu8d9wFpueki0zd4BOATOcmFuMFAAehKx4RhfQp48R7BhRvx6Mn
-X-Gm-Gg: AR+sD13ZK7gcE6RrY7k+bHBto/D7wkCvubsbqwoVQfd8znUfkBJ6DOUHIY78g/ZCwG7
-	h1kPkZDh9S6NGQN1pBNdCcsMjmrWwYuEBjRho7j6ppAxJ/Qqqz5YsCuVsPycYVp/UYJSG5ZkXS/
-	kLViRucF0bQSW6aaKxEkfPLLZbxNg17kqiKzooyFUTDUga6nzLoC2ZoCXvn1/IHAhMmcU9vqZDb
-	aIqCjRXqikqHAMTqVOPSBMK5JQcENQBdfPZnotmWwbdJarA5nTTR5PgTaqRkbeJAEVIfGNcCwqh
-	NE22P7SxVowL5CIFVNRgaHRUSjn3wRY9AJtJrRwhtEu8oTaEL59Pc91IurWGyqEjukEq/lE+lp3
-	00nHcW0nL+4vFBlUYC4NqKGgKRz4zeo9bRUkwqoBOh435kk2Uhxs6dhngOqiNcZfYeWu8LuBK4a
-	xuKizIW8qTD4hjibdi6i/VecBqi8JCLfWGzAbZXjmavFocFVcTz3p+5iNoQwrhC0jQ5WScCoujL
-	8tvpr3Bwn0AUYpxHKft7tqr7vxWBg==
-X-Received: by 2002:a17:90b:4b92:b0:37f:e1b6:4c7d with SMTP id 98e67ed59e1d1-3931e079c22mr1944443a91.6.1786582042327;
-        Wed, 12 Aug 2026 17:47:22 -0700 (PDT)
-Received: from google.com ([2a00:79e0:2ebe:8:8656:b5a6:1038:61b9])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-31ebf732166sm1762331eec.18.2026.08.12.17.47.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Aug 2026 17:47:21 -0700 (PDT)
-Date: Wed, 12 Aug 2026 17:47:18 -0700
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Mark Brown <broonie@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Benson Leung <bleung@chromium.org>, 
-	Tzung-Bi Shih <tzungbi@kernel.org>, Jiri Kosina <jikos@kernel.org>, 
-	Andi Shyti <andi.shyti@kernel.org>, linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, chrome-platform@lists.linux.dev, linux-input@vger.kernel.org, 
-	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Subject: Re: [PATCH v4 2/9] Input: elan_i2c - sort include statements
-Message-ID: <an0UEY6gigYTWFLW@google.com>
-References: <20260811122011.3539250-1-wenst@chromium.org>
- <20260811122011.3539250-3-wenst@chromium.org>
+	Thu, 13 Aug 2026 00:51:04 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id CD6D5439C2;
+	Thu, 13 Aug 2026 00:51:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF0131F000E9;
+	Thu, 13 Aug 2026 00:51:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786582263;
+	bh=yirCD5X6JRo6FnvaQn8dOoocTC1WS5mRd3Z8F+DJEGI=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=lCq9pPB1LayH5HtbYkpt4oX+TiDhrC2ZJv8lbWaZJ7i7gw/4l82h1cydXjhWWHJpA
+	 q+WYj4ve6Hg/HclNwhCB3+IQdvRfBtRePYCyn3PVkc6brvbQIyEQFMSlfGvhao9CEJ
+	 7+6mayWRKkUtsbi9a4EJSlCHrpfiNe5Jt6/yZ1mGTYHcA1qIFNwI3A8N0Ow7IGVzmn
+	 zCvSBSGGmpbaFetVsHP7EkJUW87yT2Qt7/bpQceb91yJDBk5+cHgxdQm5ausQf2ipE
+	 fnvyt1qQr4pbN5nafhEJuG6wEB97q/VdibcN/shcIt3KjCJDQXwdlQCTpmU2gOG0Fm
+	 O2lcfHXSZMAUg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 19913380CED0;
+	Thu, 13 Aug 2026 00:50:20 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260811122011.3539250-3-wenst@chromium.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_174723_983525_72E373EC 
-X-CRM114-Status: GOOD (  10.65  )
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net] net: ethernet: ti: am65-cpsw-nuss: Fix port_id
+ extraction
+ from SRC TAG
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <178658221863.2168272.12259674468445322692.git-patchwork-notify@kernel.org>
+Date: Thu, 13 Aug 2026 00:50:18 +0000
+References: <20260807111738.2055900-1-s-vadapalli@ti.com>
+In-Reply-To: <20260807111738.2055900-1-s-vadapalli@ti.com>
+To: Siddharth Vadapalli <s-vadapalli@ti.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, c-vankar@ti.com, horms@kernel.org,
+ vadim.fedorenko@linux.dev, v-singh1@ti.com, nm@ti.com,
+ daniel.zahka@gmail.com, nora.schiffer@ew.tq-group.com, oss@vassilevski.com,
+ grygorii.strashko@ti.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ srk@ti.com
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,14 +78,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 11, 2026 at 08:20:02PM +0800, Chen-Yu Tsai wrote:
-> Sort the include statements before adding new ones in the next change.
+Hello:
+
+This patch was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
+
+On Fri, 7 Aug 2026 16:47:37 +0530 you wrote:
+> On the packet reception path, the ID of the MAC Port on which the packet
+> was received, is embedded in the RX DMA Descriptor's metadata. The ID is
+> extracted using the helper function cppi5_desc_get_tags_ids() which fills
+> in the 16-bit Source Tag into the 'port_id' variable. However, it is only
+> the lower 8-bits of the 16-bit Source Tag that represent the MAC Port ID,
+> while the upper 8-bits are Hardware-Reserved and carry an arbitrary value.
+> With the existing logic, sporadic kernel crash is observed due to the
+> subsequent driver code accessing out-of-bound memory because of an invalid
+> port_id.
 > 
-> Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+> [...]
 
-Applied, thank you.
+Here is the summary with links:
+  - [net] net: ethernet: ti: am65-cpsw-nuss: Fix port_id extraction from SRC TAG
+    https://git.kernel.org/netdev/net/c/36a05d282007
 
+You are awesome, thank you!
 -- 
-Dmitry
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
