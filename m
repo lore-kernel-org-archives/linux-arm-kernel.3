@@ -4,59 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA2CDC5CFEB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 12:47:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 107DDC5CFCF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 12:47:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HslpzYipd5w0ihr49lUzliJQ81tnrOcg0pHtnDU5NeU=; b=IRrywNmAp/Qb26Xc7nYLggeb2v
-	tXHjsmau3JNT9GR1UTSEegGLaCG0LIdm091+/J+p+tyTAAFoQGiDDWrDhM18+0OPIbKzexs/gROgh
-	PSsVReo7wipn4qyDCgvYTwatdJdU7vHlgT05gKxZZy52a1erkbcg0YVwV5ki41TuaN5FYjot10kbp
-	hG2jZ4WgV7Sf2MlcD6iwDwYRk44d1yJRF+AiT4o60bmR0lllY9FffTL5Epi4T8E3A5sibVv06QoW0
-	vMg+h/k0oPtYe4efxMtRo0tMCFPnvLhZX83x3Jk0XHEMX/pvzdwej9iAbV4PSx5JJdlZgI4h6ToZ4
-	OVw4E9ww==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bDDEzoWoa5gtdZT0dCTU0c/kQctboPT+cAXv3Hf+2Gc=; b=I4bDjOA65GbORbj3pwXhCPNaPi
+	ccoKkiqt5m+8B/7dvb8M/99e/Q2VUfn6WLqv8CJceBQUkvps4GPlr4grFD0o0nxAlrMdKSdgcqjAe
+	SA29Lpi1E1jIX88QWjFguLpqGz/benRlLga/r5gv3KPPsaa1MJBN+HTlJ2VaDWrDCQ/wKgY9A+96t
+	sbi2002OxygPedbHXVdYtgekBrHqWJ0wX/94OeOK3xPdduZ7buXZTj5dUYIU4Kdx9fG2Dq+dS2ZtK
+	a58buMHPvSIW2FXKeYOvamRS3wbreAaLiWVfy/hNAxgsNwIt15sxiguIxb8QIu4fLTNn2VBC89Tcv
+	E6TiY6Hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuUq9-00000000g7T-2q3L;
+	id 1wuUq9-00000000g7P-2Uq5;
 	Thu, 13 Aug 2026 12:47:21 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuUq8-00000000g76-0mW5
+	id 1wuUq7-00000000g75-361f
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 12:47:20 +0000
+	Thu, 13 Aug 2026 12:47:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 36018600AD;
+	by sea.source.kernel.org (Postfix) with ESMTP id 1B5FA40467;
 	Thu, 13 Aug 2026 12:47:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id D320FC19425;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id E3CF9C2BCF7;
 	Thu, 13 Aug 2026 12:47:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1786625238;
-	bh=VpG4nwidpgDqllXzLatya6ZM559BrQia13sMRj/SAJg=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=Ej7xMUSkdsrv3rN1FW/I1G1+LpYjrMyJOoM4LJtNrrgIhuehsWLxYS2C5GLKM1pdD
-	 GCDpY0v8AYj5XEgwuowg129R9QveG8hHi2K5SI0iecFseQfYJsyU2GXoj8i+8Sdx41
-	 +Ki5hWJsieAbD3xBWue3wZCGpUMHjMNhO7trrjO7BRwMOg5e7urIKlnsuCRSD28OoR
-	 OMto5MA01w97hcSQhK6yjDLgrej63hQT+GES6xFZwWMZOiMd2I1etqDFqdl5uswr6G
-	 NZ5VdvQqezpBIM6/PLqZZ30tqvuhJ4hCmmc43h+u57w902i5g+4S7Sv0LosTUFXsyf
-	 SKIkIKNyW4t3A==
+	bh=n7IVb6P0SS6aP6osC/nBykNSX6nP62U+SXlK9oPNqXU=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=YkIJT07Gng0CI7nmRkmGQZuDRu4wHmBhshprD3U8G5gtdniuae4HLQGPDoU7Gm5gw
+	 N5auJIU7ASJ/fJd8jkmnH9SmDPJO67Pd0onSe5qmb2ETWwKO51axE0ZI3Isma3xiHx
+	 AvJUrdczqxetXHNPvlArn4R+XCRUX1i0/vkAffgAhPx5cv74HR88U3Nd3NepQr9/I8
+	 WXcXxrsvd5gBJhb5/HhgvRYXiQziIHwhrAsO4mQKXQMeO8VZi3Yvhs0ud/YDZsmxRO
+	 QwDeGMcRC7uvLMMiC0F9VjLvUMwXpTCJhBo7cpKLA2MCSK88NVXlvX45aTRfV1nH2W
+	 c0V12JSyYir/Q==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id AAD3EC5CFEB;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C4B40C5DF66;
 	Thu, 13 Aug 2026 12:47:18 +0000 (UTC)
 From: Junrui Luo via B4 Relay <devnull+moonafterrain.outlook.com@kernel.org>
-Subject: [PATCH 0/2] coresight: etm-perf: fix resume AUX leak and
- exclude_kernel bypass
-Date: Thu, 13 Aug 2026 20:47:15 +0800
-Message-Id: <20260813-coresight-fixes-v1-0-7411a73cd496@outlook.com>
+Date: Thu, 13 Aug 2026 20:47:17 +0800
+Subject: [PATCH 2/2] coresight: etm-perf: reject events that exclude both
+ kernel and user space
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIANO8fWoC/x3LSwqAMAwA0atI1hZiFX9XERfSxDabKo2IULy7x
- eVjmAzKSVhhrjIkvkXliAVNXYELW/RshIrBou1xbFrjjsQqPlxml4fVDDQhoe2QaINynYn/UKZ
- lfd8PGvv9s2EAAAA=
-X-Change-ID: 20260813-coresight-fixes-7d90d0240dda
+Message-Id: <20260813-coresight-fixes-v1-2-7411a73cd496@outlook.com>
+References: <20260813-coresight-fixes-v1-0-7411a73cd496@outlook.com>
+In-Reply-To: <20260813-coresight-fixes-v1-0-7411a73cd496@outlook.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
  Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>, 
  Leo Yan <leo.yan@arm.com>, 
@@ -67,13 +65,13 @@ Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org, Junrui Luo <moonafterrain@outlook.com>, 
  Yuhao Jiang <danisjiang@gmail.com>, stable@vger.kernel.org
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1493;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2362;
  i=moonafterrain@outlook.com; h=from:subject:message-id;
- bh=VpG4nwidpgDqllXzLatya6ZM559BrQia13sMRj/SAJg=;
- b=kA0DAAoWceg4UIuO8EAByyZiAGp9vNSjHQlEcb9EjdLpv+Fnx2ZHfkz4l9Q3T+XGlV9mSIcAh
- Yh1BAAWCgAdFiEEx3DS9jhNtC20TLRjceg4UIuO8EAFAmp9vNQACgkQceg4UIuO8EDvZwEAnaw5
- wS8HmZVvjl7Z/YhUflgIhG8lLALa73Cq983JJgIA/2r6v15+IanMe3rftVpzLwidlGuVhwgCozh
- ut7ZF6/kO
+ bh=+tTlNVRe/rbkdxYJBnqH+Npz+BDYLaVAW6dG0DYxOHA=;
+ b=owJ4nJvAy8zAJVb4wiKgu++DA+NptSSGrNo9V/8qvdfao3WvtOtYdOAkb6uwnkvsZyatrJ4vd
+ rCYbatm74yOUhYGMS4GWTFFluMFl75Z+G7R3eKzJRlmDisTyBAGLk4BmIhJECPDgc9vbmQpNtmJ
+ XTD+v6jq2sPba0Imm7hN2/zNkvN825NyVoZ/RjNW9jxpMdl84rbL75Dmz9v09B4ufSz9eJNcXlz
+ q3EcmTAC2ok/O
 X-Developer-Key: i=moonafterrain@outlook.com; a=openpgp;
  fpr=C770D2F6384DB42DB44CB46371E838508B8EF040
 X-Endpoint-Received: by B4 Relay for moonafterrain@outlook.com/default with
@@ -94,40 +92,64 @@ Reply-To: moonafterrain@outlook.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Two independent fixes for coresight-etm-perf.c, both tagged for stable.
+From: Junrui Luo <moonafterrain@outlook.com>
 
-Patch 1: etm_event_start() shares one error label between the initial
-start and the PERF_EF_RESUME path. Taking it on resume skips
-fail_end_stop, leaving the AUX transaction from the earlier successful
-start outstanding while the event is marked PERF_HES_STOPPED.
-etm_event_stop() then returns early, so the AUX handle, the sink, the
-remaining path elements and the trace ID are all leaked.
+etm_event_init() validates only attr.type, so a cs_etm event can be
+opened with both attr.exclude_kernel and attr.exclude_user set. Both
+config parsers assign rather than OR the mode bits, so
+ETM_MODE_EXCL_KERN is discarded and only ETM_MODE_EXCL_USER survives.
+A request to exclude the kernel therefore programs the tracer to
+exclude user space and trace the kernel instead.
 
-Patch 2: etm_event_init() accepts events with both attr.exclude_kernel
-and attr.exclude_user set. Neither config parser ORs the mode bits, so
-ETM_MODE_EXCL_KERN is overwritten by ETM_MODE_EXCL_USER and the tracer
-is programmed to trace the kernel instead. perf_event_open() skips
-perf_allow_kernel() when attr.exclude_kernel is set, so an unprivileged
-caller can reach this.
+config->mode has several downstream consumers -- on ETMv4 the TRCVICTLR
+ViewInst filter and the FEAT_TRF controls that exist to backstop it, on
+ETMv3 the address comparator access type -- and they all derive that
+same configuration from it. Since perf_event_open() skips
+perf_allow_kernel() when attr.exclude_kernel is set, this potentially
+lets an unprivileged user collect an instruction trace of kernel
+execution in a per-task event's AUX buffer. The existing guards do not
+catch it: etm4_config_trace_mode() warns on the combination but is
+reachable only from sysfs, and the early return in
+etm_config_trace_mode() can never fire because mode never holds both
+bits.
 
-Build tested for arm64. I have no CoreSight hardware, so neither fix has
-been exercised at runtime.
+Reject the combination in etm_event_init(), covering both tracer
+generations at the single perf entry point.
 
+Fixes: 882d5e112491 ("coresight: etm3x: implementing perf_enable/disable() API")
+Reported-by: Yuhao Jiang <danisjiang@gmail.com>
+Assisted-by: Claude:claude-opus-5
+Cc: stable@vger.kernel.org
 Signed-off-by: Junrui Luo <moonafterrain@outlook.com>
 ---
-Junrui Luo (2):
-      coresight: etm-perf: don't leak the AUX handle on failed resume
-      coresight: etm-perf: reject events that exclude both kernel and user space
+ drivers/hwtracing/coresight/coresight-etm-perf.c | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
- drivers/hwtracing/coresight/coresight-etm-perf.c | 20 ++++++++++++++++++--
- 1 file changed, 18 insertions(+), 2 deletions(-)
----
-base-commit: f5bbbfec59b4e2fb7520a91de3df8a6174325d6a
-change-id: 20260813-coresight-fixes-7d90d0240dda
+diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
+index af0295eab143..9cc93d48e970 100644
+--- a/drivers/hwtracing/coresight/coresight-etm-perf.c
++++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
+@@ -185,6 +185,17 @@ static int etm_event_init(struct perf_event *event)
+ 		goto out;
+ 	}
+ 
++	/*
++	 * Excluding both kernel and user space is not a configuration the
++	 * tracers can express: etm_parse_event_config() and
++	 * etm4_parse_event_config() overwrite ETM_MODE_EXCL_KERN with
++	 * ETM_MODE_EXCL_USER, which ends up tracing the kernel instead.
++	 */
++	if (event->attr.exclude_kernel && event->attr.exclude_user) {
++		ret = -EINVAL;
++		goto out;
++	}
++
+ 	ret = etm_addr_filters_alloc(event);
+ 	if (ret)
+ 		goto out;
 
-Best regards,
 -- 
-Junrui Luo <moonafterrain@outlook.com>
+2.51.2
 
 
 
