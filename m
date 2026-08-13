@@ -4,117 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0AE2C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 09:25:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03C78C5CFDB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 09:26:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jpvdp1bc4LLxoPVnfFYuFbRFCE9DF8NtLiVPn6mdj/U=; b=lTmS+YQ7cNunQKnZtfg+mSEohy
-	/m+uIQj5rcrLhY28Q1FncuBIKdmF8E9Izlmzd7xMehf2NvlX+auW1T5wV6B1vfPOtjxXVTCiI1TKc
-	uTi8sBVA3NiQLT0ZUYBMm5uvPj/2HLYwmDFIlFgU4pMwNTUA7gIfRYfxsIslrW1RhCM72g16P9zlG
-	2uLFLZv/jfWLNaEoFWDnWSVeCNKp49FFxYpqzCb0Taxqm7dl0/JvEshRBo7F8Qq8n6TO+8SXi7J8M
-	A6X3NmtOAiFI1MEQbDaGjjvnsKzossDen9usr6bI3CMCuuBJUT7AEeLq3yt7S0InH74pEPhmhAVzf
-	jW0fzpvg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IPz+pRNv6M2Bl3l0XU+3yKO/cuTqG+5OunpOwazZoio=; b=e9Tam1duH0XL1Ztv6lLS8tYvA5
+	0exvKZx3p4W9xnOXRDA53R3wboHP1VNy7Qpn9AptmQZlpS5mPGDRq0pjZzsW6tmG4xgv85gmjWeNl
+	qxSAo0pn2Fh+XaX9JhfL47d9dPlG2pMiYhJycnM5/+uJ18cM4lLWwrJ/0pidoW7Rey4QiliDVZb4z
+	T2YOEbBzD5ocsuv35+8ojY2DouEJUFgyIhBjICaskAMIy/4KXlnKQSZ+Tf8XdG5HqpFP/YEJBJs3G
+	sO5YmQuRMtkGAkZPIgfa84pG7LNPse1OPBoWlno4/A32LtO8LMHttoohBVQ58MFCCJ05cqZ9b5RK9
+	9gJsp1+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuRgm-00000000I2c-3aQ2;
-	Thu, 13 Aug 2026 09:25:28 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wuRi4-00000000IHX-1xtB;
+	Thu, 13 Aug 2026 09:26:48 +0000
+Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuRgl-00000000I2D-01ts;
-	Thu, 13 Aug 2026 09:25:27 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7175C414E1;
-	Thu, 13 Aug 2026 09:25:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A42A01F000E9;
-	Thu, 13 Aug 2026 09:25:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786613126;
-	bh=Jpvdp1bc4LLxoPVnfFYuFbRFCE9DF8NtLiVPn6mdj/U=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=lJhWSloGJ1u+LtQxvq9O3fRlKPoTjA7cLUjBQhjGXWxYlmYu3So5fp7G0pSV5TOYj
-	 ThpiD1SdNG/Jev1rVG1PSrak9y/Z53I8mSC+y8ljgtOmea+8wI27ynmKyu92DQODl/
-	 GcgrkYdrPlpN8eqwtipklJBr0jQqGIzYQ4WItUny4mpq3XkVcBjZcxbdtkXCjZJZFB
-	 zH4K3REBD3IEW40bl210ynTu+J4ysAVHlsyhY4ijzfAjDyGIJwc4xIKuiK2OSyVoG+
-	 i4rJI6MoaBKx4Rxsw3AgN/HSaH+NMeMQ6uflVY2pvJgR2UD8YPc2P4arbMPMkhfSbV
-	 ZXv9bfZur20gA==
-Message-ID: <85bb8b2b-3d84-4ad1-af41-497d265a704b@kernel.org>
-Date: Thu, 13 Aug 2026 11:25:18 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/5] dt-bindings: phy: Add PHY_TYPE_DSI and
- PHY_TYPE_CSI definitions
-To: =?UTF-8?B?5qWK5pm65oiQ?= <jason98166@gmail.com>
-Cc: Sebastian Reichel <sebastian.reichel@collabora.com>,
- Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+	id 1wuRi1-00000000IH2-1miJ
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 13 Aug 2026 09:26:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=ew.tq-group.com; s=default2602; h=Content-Type:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=IPz+pRNv6M2Bl3l0XU+3yKO/cuTqG+5OunpOwazZoio=; b=nKP72OPTQMRqcB57kmWSrGWTPj
+	esmryEFUibscPV2WL4LQE/LUfZ7EGKiutgMKBrrTAw5Pq3Uc8DXXtwU79wtvhDpTm1AA/nnzyw/RE
+	1qNnrFopYMghltvOCStmG6zSNtEts0rTgQXJtWJICX88j4x0JJt9Cao1vKCerX8ilg7PVrjDlqs6B
+	3Y5xoCiRLZ75fZWuKzkUE0an5ELxFy1MgnIYvk1CwTA9oWDP3JbCFVZ8VzIbsbS/Fr8cBq0enY7QK
+	i904iLYNM0Gv0aQ7CXWk6fUBbSX8pjk5tiIhU1Q5ajJ2wPMXxXJR3dd9SJg805E52gv57qEfwGwLX
+	Us7ErV7g==;
+Received: from sslproxy01.your-server.de ([78.46.139.224])
+	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1wuROI-000EhZ-0C;
+	Thu, 13 Aug 2026 11:06:22 +0200
+Received: from localhost ([127.0.0.1])
+	by sslproxy01.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1wuROH-000CPn-1b;
+	Thu, 13 Aug 2026 11:06:21 +0200
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Francesco Dolcini <francesco@dolcini.it>,
+ Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Guochun Huang <hero.huang@rock-chips.com>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Michael Riesch <michael.riesch@collabora.com>,
- Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
- linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260810-dcphy-rx-v1-v3-0-a2d25c29adfc@gmail.com>
- <20260810-dcphy-rx-v1-v3-1-a2d25c29adfc@gmail.com>
- <20260812-refreshing-rampant-gecko-b38ef9@quoll>
- <CAPwA33KM-sWkPVrP1h+swLinvrCZHzxPeS7h25KEO87Q_6WZuA@mail.gmail.com>
- <an0FMnDSWbud8hPc@venus>
- <CAPwA33+7k7HMC7ezwH+MGn64iRHT6tVNK55t6gaC0nkkqWoE4w@mail.gmail.com>
- <20260813-imposing-cunning-raven-fcad40@quoll>
- <CAPwA33L-x=H+FU6-c9A8uKqhKbsfxcAJaaG49rUfnjvWk0f5mA@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <CAPwA33L-x=H+FU6-c9A8uKqhKbsfxcAJaaG49rUfnjvWk0f5mA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ Francesco Dolcini <francesco.dolcini@toradex.com>,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 1/4] dt-bindings: lcdif: Add endpoint bus-width property
+Date: Thu, 13 Aug 2026 11:06:20 +0200
+Message-ID: <4870648.tdWV9SEqCh@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <cf1e1514-fb92-46cd-95a3-9c857bf08f66@kernel.org>
+References: <20260812132954.148571-1-francesco@dolcini.it> <7661119.LvFx2qVVIh@steina-w>
+ <cf1e1514-fb92-46cd-95a3-9c857bf08f66@kernel.org>
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
+X-Virus-Scanned: Clear (ClamAV 1.4.3/28091/Thu Aug 13 08:25:54 2026)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260813_022645_571952_158FE859 
+X-CRM114-Status: GOOD (  21.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,16 +94,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/08/2026 10:40, 楊智成 wrote:
-> I am sorry about this. Since It's my first time to commit patch to the
-> kernel, I want to make sure my code and reply is correct,
-> so I actually paste my reply to AI before I send, let AI to rewrite my
-> words. I will fix my approach, and make sure V4 and afterward work
+Am Donnerstag, 13. August 2026, 11:03:06 CEST schrieb Krzysztof Kozlowski:
+> On 13/08/2026 10:56, Alexander Stein wrote:
+> > Am Donnerstag, 13. August 2026, 10:34:02 CEST schrieb Francesco Dolcini:
+> >> On Thu, Aug 13, 2026 at 10:10:43AM +0200, Krzysztof Kozlowski wrote:
+> >>> On Wed, Aug 12, 2026 at 03:29:49PM +0200, Francesco Dolcini wrote:
+> >>>> From: Francesco Dolcini <francesco.dolcini@toradex.com>
+> >>>>
+> >>>> The DPI output of the LCD interface can be configured with a bus wid=
+th
+> >>>> of 16, 18, or 24 bits. Introduce a bus-width property to the output
+> >>>> endpoint, specifying the number of parallel RGB bits connected.
+> >>>>
+> >>>> Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+> >>>> ---
+> >>>> v3: use video-interfaces.yaml
+> >>>> v2: use the common bus-width property instead of the legacy interfac=
+e-pix-fmt
+> >>>> ---
+> >>>>  Documentation/devicetree/bindings/display/fsl,lcdif.yaml | 9 ++++++=
++++
+> >>>>  1 file changed, 9 insertions(+)
+> >>>>
+> >>>> diff --git a/Documentation/devicetree/bindings/display/fsl,lcdif.yam=
+l b/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
+> >>>> index 2dd0411ec651..1f3daf002707 100644
+> >>>> --- a/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
+> >>>> +++ b/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
+> >>>> @@ -71,6 +71,15 @@ properties:
+> >>>>      $ref: /schemas/graph.yaml#/properties/port
+> >>>>      description: The LCDIF output port
+> >>>> =20
+> >>>> +    properties:
+> >>>> +      endpoint:
+> >>>> +        $ref: /schemas/media/video-interfaces.yaml
+> >>>
+> >>> This won't work, you need to test your DTS. The port schema does not
+> >>> allow video-interfaces properties. You need port-base, like in every
+> >>> other case.
+> >>
+> >> Thanks for the review Krzysztof
+> >>
+> >> Given my testing was not ok, and I am not sure what I did wrong exactly
+> >> on my tests, is this the change I should do?
+>=20
+> Yes
+>=20
+> >>
+> >> diff --git a/Documentation/devicetree/bindings/display/fsl,lcdif.yaml =
+b/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
+> >> index 1f3daf002707..89cea0c14cf1 100644
+> >> --- a/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
+> >> +++ b/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
+> >> @@ -68,7 +68,8 @@ properties:
+> >>      maxItems: 1
+> >> =20
+> >>    port:
+> >> -    $ref: /schemas/graph.yaml#/properties/port
+> >> +    $ref: /schemas/graph.yaml#/$defs/port-base
+> >> +    unevaluatedProperties: false
+> >>      description: The LCDIF output port
+> >=20
+> > With that change:
+> > Tested-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+>=20
+> Please do not. Build testing is not testing (in the meaning of
+> "Tested-by" tag), otherwise where is Rob's tested-by tag for all the
+> patches he build tested?
 
-This was beyond LLM language translation and correction, but rather LLM
-prompts and chat history. I have no interests in talking through a proxy
-with someone's LLM.
+Well, I tested this on actual hardware, see patch 2. But then this
+is irrelevant for for dt-bindings. So let's go with:
+Acked-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 
-Best regards,
-Krzysztof
+Thanks and best regards,
+Alexander
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
+
+
 
