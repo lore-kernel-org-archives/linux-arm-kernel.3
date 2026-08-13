@@ -4,143 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6EF7C5CFEB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 06:55:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96B84C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 06:56:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MqnFcCPU5nyeHnq8r7sNlx2vP289bsZxtgsHMThdXUI=; b=UxUwoL5SjXzCupr4woFL8JNyQm
-	wanTRzUIvVqgZ6YQnBMgeBzadZb5KzOis9WKvvVfC43L/JkGtQxCNhTlyQEx0w238dpSelLyOUzyd
-	j4KWI+7THw296uhyQIlOlo/zS4TAe0j8m9sLtaNJyRAcTekf25kOaz+FsNNBFH0qFPpBJNVYkS5jH
-	CJQqWavfsq0IrsJoEM5XNY41STSGYN2JXdJXz5cVb8TyBeTP2SFHm+yPy0OAWnxRpKi8S6MQ/Za1Y
-	GjF688ozLU68o+1HDxMpMhJO8M7QcKQ1uHGHZWNUUfwl1RKOM+MnvQdaGdtWvCnt9tiFAYn/27VZs
-	RI0eMWgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WxECHrk5N+6VKRjb6JwANtWNbMJTOEoyGwahKsJUuKg=; b=xDgWWixFwdWjQG8/vyHNIksJPl
+	om/dlACHyGtt9y+2WzzB9+fy6U8rJhH9P3XwcBl53mQjVDbWhYkY97iYKU/7HCwkOonI81PxOUpAt
+	eBdKpUsk/90UhAnI9Ij9xEoYUrmPZP2SxPj2xuL1emBGqNc/utt4OuZwkzAEo5b6/FGx+wYE+H/Ae
+	bIS9fO15A6P0rmPGRCDrXgMUqoKRJbpbwriaFlletoKIHmy2LccSpZmZeNuYLfYFuLM6VAAc40T/Q
+	zDGuh8vJ2nQzohuLC+KWylK/05eeIDocMknDJDjQX6NNQkqtpmhU10QdesnCAMWe5NZvW3DlYeNtU
+	GWYwAiGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuPL0-0000000HXb5-0mLD;
-	Thu, 13 Aug 2026 06:54:50 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1wuPMl-0000000HY2i-1jcp;
+	Thu, 13 Aug 2026 06:56:39 +0000
+Received: from mail-japanwestazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c406::3] helo=OS8PR02CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuPKx-0000000HXY2-2DVp
+	id 1wuPMh-0000000HY21-1beF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 06:54:48 +0000
+	Thu, 13 Aug 2026 06:56:37 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ix4W8DMYW1sm/DK+rurdVAw0lfImOJv4yemHA5PE+bYtqie5tDAonC1rMbxu8IJoitD2vcFVQvkfPDJHYSXBBflM8OlhMTvXfoVL0a+aQrDFlD41xVPhshdwpwi7yUSpSBJtgOPVg1dko7N0Ni1r0FixN6GWMdTDAnjT+GnuaSFZJAEOo7S/H9TIWlsO+2Ex8KfXe95iYfZIbCVNNUI3bLa2ezZIG4IRFNGbmknqYkKnwXcBsME1NkepavDlxwayrbgvjUq5xgWo3WL85B41cjGJHj/ZoWD+w4aXnnNnJeXX8AD3Pfy/so/jMaiNGeAOFXyb1rfSrDBUlMh+Vmud3Q==
+ b=UmfTbRucYs5udGbdHs9T9Itx439gwzvNqQ9NsJA5M1Bv0ZPwTKRol3E3EiW/CZ8ApyQSOaCcfaQ55iVHglmnu3C1GqBmP5bIEinokS5GATfeijDakiLNyulp6DdT8LbwvztpJ9rNQ4wYbOyyuscI+lu+N60xMVE/f98v7Zkmz407NFJJpQ2jBR42TzmZxkXEEAr7RMubq1cXv1oTqxrwGGHbb2U4uRU5XreHWJPZRwfrL89UgPUSRC4jly5JKtGgUf/Dn97Mni9jX+Ing+M/X+4c3s6M2/PdUmWpnU3svIQHgUcqf3ZsDln2jCh+zY5iirdYZVJ3yG/d5wfPFPl+NA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MqnFcCPU5nyeHnq8r7sNlx2vP289bsZxtgsHMThdXUI=;
- b=gXfRCtz8+9UmKjMxHSSRgiW+18WtOErSgM5sJua8DZn5266HKigG8Bwuyw0UIHEetISaisUtAzh6XaGB/UQ9SL258cYzEXHwx1wweW10JqJ5Ese/Ho8z7wzSZZsUkDeOeoXSsJkMg/Lgm+TgEEsCMb8+NcO01lHMUP1EfiSN/5JvNKY2zvDGdW+PAqiL+Wr4R1I0BP7LqxeXl/30IZiOViQLoeNIdIewFBYTfGe25fBUt91GWyeTVJf/4FmDbcyd0Lq+ZZFKCVvMZKo+w5dyp/TDwxHN1Ye5rUT1QN8/DjRjpxvOz3Dv+7znVUQ0K9ABJifIGJSTaiACDGSxhP310w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=MqnFcCPU5nyeHnq8r7sNlx2vP289bsZxtgsHMThdXUI=;
- b=iRVcZbWE9L/xveUqDvsntgRn2Ro7czF0odY3O84E4z2vmUstP6ooWEDYYZs+bdHeiWl8To3zxwL+fcQlCm7L6/RJQxeHE7Bv7nqLCZ/8X9Js6MjDpKGSBlr+4gix+K7vo7lVoUeJ+oGX3nLaSX3ZtUE1sdo5rVkZDpKHJigRGVlAvPoGBnzbUBZA0fOMyCdtMBUs1kplPrhvp0j34Q3me/68ecenqmGtzdKX3Grqaxe3dnn7HCQlktbIET9pWhYcZaY68ajo9NpT7Or3yxOnoGvHu50OekmmfPJ+UQb82HJAEbM8xRUTOWRfVh5QuO0kiP6PjVKkYSOSilGmGMgwMA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB9351.eurprd04.prod.outlook.com (2603:10a6:102:2b6::17)
- by VI2PR04MB10644.eurprd04.prod.outlook.com (2603:10a6:800:276::13) with
+ bh=WxECHrk5N+6VKRjb6JwANtWNbMJTOEoyGwahKsJUuKg=;
+ b=pC9xsajfC8On4C4IEVFyppqnnReKtWfyEuttpACAkUd9ytdi5G+uXfCGat0yRgmApZPRhL/Loc3PTsgmrVuHsE8ySF1J8vXvI8mv9cRy1xV+W+aJvjJVhK2mYxuy6pgKqgc9k1KCwTh734fv/MBCJnrg+0jd1q9NcBDCp6pLp33/8umesQM+CB62P5nvz4R04v8sdz5mTXZPq5PS1eYPbuuNRKvLS2/DnzJ3dQgUTpQG/6pa2O7AnM92PC+9cDRg1p+8SWr5HnnavZ562dAn0ScosQ7fyiSYszpwLHzX1LYJTtMJufEVaZhazmI9TajWiLPxmmu4LL+mtLxV9qoTOA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=cixtech.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from SG2PR02CA0131.apcprd02.prod.outlook.com (2603:1096:4:188::6) by
+ KL1PR06MB6988.apcprd06.prod.outlook.com (2603:1096:820:11b::13) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.14; Thu, 13 Aug
- 2026 06:54:42 +0000
-Received: from PAXPR04MB9351.eurprd04.prod.outlook.com
- ([fe80::1058:a430:52c1:5aa]) by PAXPR04MB9351.eurprd04.prod.outlook.com
- ([fe80::1058:a430:52c1:5aa%6]) with mapi id 15.21.0315.012; Thu, 13 Aug 2026
- 06:54:42 +0000
-From: shengjiu.wang@oss.nxp.com
-To: lgirdwood@gmail.com,
-	broonie@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	Frank.Li@nxp.com,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	shawnguo@kernel.org,
-	linux-sound@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	shengjiu.wang@gmail.com,
-	Xiubo.Lee@gmail.com,
-	nicoleotsuka@gmail.com,
-	perex@perex.cz,
-	tiwai@suse.com,
-	linuxppc-dev@lists.ozlabs.org
-Cc: Shengjiu Wang <shengjiu.wang@nxp.com>
-Subject: [PATCH v4 5/5] ASoC: fsl_easrc: expose individual DAIs per conversion path
-Date: Thu, 13 Aug 2026 15:00:20 +0800
-Message-Id: <20260813070020.719810-6-shengjiu.wang@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260813070020.719810-1-shengjiu.wang@oss.nxp.com>
-References: <20260813070020.719810-1-shengjiu.wang@oss.nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI1PR02CA0051.apcprd02.prod.outlook.com
- (2603:1096:4:1f5::6) To PAXPR04MB9351.eurprd04.prod.outlook.com
- (2603:10a6:102:2b6::17)
+ 2026 06:56:00 +0000
+Received: from OSA0EPF000000C7.apcprd02.prod.outlook.com
+ (2603:1096:4:188:cafe::84) by SG2PR02CA0131.outlook.office365.com
+ (2603:1096:4:188::6) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.315.14 via Frontend Transport; Thu,
+ 13 Aug 2026 06:55:59 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ OSA0EPF000000C7.mail.protection.outlook.com (10.167.240.53) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.339.3 via Frontend Transport; Thu, 13 Aug 2026 06:55:58 +0000
+Received: from gchen (unknown [172.20.64.84])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 868CE427CEEC;
+	Thu, 13 Aug 2026 14:55:57 +0800 (CST)
+Date: Thu, 13 Aug 2026 06:55:56 +0000
+From: Guomin chen <guomin.chen@cixtech.com>
+To: kr494167@gmail.com
+Cc: jassisinghbrar@gmail.com, gary.yang@cixtech.com,
+	fugang.duan@cixtech.com, cix-kernel-upstream@cixtech.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Surendra Singh Chouhan <kr494167@gmail.com>
+Subject: Re: [PATCH v2 2/2] mailbox: cix: fix DT property name string typo
+ and use dev_err_probe()
+Message-ID: <an1qfDuK4J1MAOXE@gchen>
+References: <20260812084742.22081-1-kr494167@gmail.com>
+ <20260812100623.36939-1-kr494167@gmail.com>
+ <20260812100623.36939-2-kr494167@gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260812100623.36939-2-kr494167@gmail.com>
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9351:EE_|VI2PR04MB10644:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1fa06a19-5f03-4ea3-d00a-08def907c0a3
+X-MS-TrafficTypeDiagnostic: OSA0EPF000000C7:EE_|KL1PR06MB6988:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2162a8ea-c579-4ee0-8705-08def907ee43
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|7416014|366016|19092799006|1800799024|921020|6133799003|22082099003|18002099003|56012099006|11063799006|10067099003;
-X-Microsoft-Antispam-Message-Info: EumMkXFMHwz3ALYJCciA0AnQaj9DCGZQofBW55IZsrT4VZEMBZn14ws/X3CVU0NKQGLer5LOsAl/i/IjMQ7dZonnDyTVbZ22Ua1uWPLgPacpHp4EjWGI5uisR/mH1XThsw3lZTuo/hxwkWEmFAGuqWz5uX7KSZDzgzvOzxfxJ2qlUc6OEULtr/1u0TG3F9Gc3UQZsIsCDlTrqn3qsLFym71H6SsdKHdGqgGHU5cKvvsqbWkVDHc6jF/CmHoUXzyfJ/MlbPiBA+tgbtXnSZjN19flpQjbFsZKiiABbFSOMZkYJLrpDVOi7AlLe2cbEob/9bW/CAILUy3Q6+z2MGarHkFVJms95PSau92yXYhD5i+zPwg93dk5bL4rmM+mVhE2PzvJqt8PCBsOGgGTq0kneMfCWY05bRYx2djKDScGeZ/P9c2RCaUVrYcsklKw+Gy/GdTBLkPNg8rMGERU7MkhPF0a/ieMH7zDxrH62M1E+irMpITsnwhuvQu1Rk1oh7pmVFdo0lBdwZDycIoYSDiW2T66lTjbiNFHrlN4gYZBq2+QTw39EE3SPUk80jMQJCrp64JL53AMa/pTp5JiCfCJ7Qj23TDuv6RAAI11hkcu4v1kB/yC/e8xbtrP5sifxJiTPGvZFHmLzQvNtvO0Az3f6RUhCdV22pAnnKrDPWoWFF0s+Dk6bwKnHgOsqAHGs5X5WqXT3R/W2so10PpvujFYow==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9351.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(366016)(19092799006)(1800799024)(921020)(6133799003)(22082099003)(18002099003)(56012099006)(11063799006)(10067099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|1800799024|36860700016|23010399003|22082099003|18002099003|56012099006|10067099003|4143699003;
+X-Microsoft-Antispam-Message-Info: E+n9jGpOW7hthR8fEO1NPH3FvhR/c2l6pC2dm3NThF+ladB0cRrRnvMWdnpYuDNCqkSNSRqga66FqVakAXdCQGCcfDibrVj8uLgIfiWC0NHT6JMRjwHgzGWulZs/Mk4j/rnqlQBcRU9RhQCxQecFO2n2YMk4aZQgf7DaAZFaPeoVyWpgAzlvDTBsY3Nj7QtBFtU2dMMmaDbWYsQT4bmiN2DxLOkkD8z7sokPPA1RKtQQR+7JV8IeHtQ7dkaI2ZHWXcRZW/fGDloYX/R2UZtkAnwO+GpdQLoV1GWUaOVx2ZffBpDq3CuKBGKzUtQOVvbZi4b4eqkcfX8L9G9+Q1RA/5d/YQ9oCVsPBJ0BxAGfIa/JXp61ZybSODmUnjSuXIGrMqrmaO8Eun76IQwUbVD8HJuU2i9WDd8mcFZaqPNkddgq0BtNk0YyU0n80ICdeAnH7kBgQqlDuCkJAL7Ps6jSxPW72od82lqh5F1nUMkfXXN/gpENTMJnEyXOcjJmrklfAQPu5pN568rl0kjhaoyPybjWDADekjVf+bhzKsyy0ZuQADi8/H0HKYxAWCD8wcqIviCB0mpxzw44SZymHGoHCfwW1milJ3VbBJ1H0RrTJHMc5Rab6UnzaB8/4HQ82k1cyOUMiW1sKV9HK/B7xsM0J8/n2//BeTO/OGejT5deWnbolQiIXoug2FRZ9ylqiVwC
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(1800799024)(36860700016)(23010399003)(22082099003)(18002099003)(56012099006)(10067099003)(4143699003);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?FQY1JAXHaQf+w+lnbvIRjCtqYOHPqbyC7UKVTLn08NU5rEGoQNLTHXmE0Zqn?=
- =?us-ascii?Q?iKlC2yeexPAmP6z39rdDUNLS/nBpMZz+vq2xvcjhd+lsQMVmrdkJ4HfgBpGz?=
- =?us-ascii?Q?PCcNbUZMdusveyKztbtUvktHB5WOfrqy5ua4Kcp+z4knZTl+d7BvHkdPtp3T?=
- =?us-ascii?Q?18RXcEIa9Xe1S1fODS6YyiTY9U2LnVEm9mCLnAY3iYm1ReQzTP1HxbXHHF7V?=
- =?us-ascii?Q?ozOGtZRZk4LWWqdkJMPmgrR+8RvctO8HfjQBTU8vIaqO+X7cA9iYn5ok1YIU?=
- =?us-ascii?Q?/JGoFfIbYHXcnf17rLRINEBCJFMBYg7gNYidHqkZX11IdOAR6ODoY0un0z5B?=
- =?us-ascii?Q?SxMnyjXR4/gtQ3ljm8EY7TMjnzjj8MIEF0LF6bC9WJBEZU6Lhr0Oakp3nRU+?=
- =?us-ascii?Q?55pJ4tV9X8ha7z2h+iuGjkenJfobgEyvdA/Giey3aY9TMkwoqL31+K3vcPTm?=
- =?us-ascii?Q?+ZTHzfT61FfZixcQC78Z/1NMq2g0ltl1nik9VCV5083HnkSKvdrDJh6aqwTi?=
- =?us-ascii?Q?/hhMOliAeLkvwuSVJx38U4odtICAUH5U4VsZLPaeo0CXdLFA1gqPOYM6uoDi?=
- =?us-ascii?Q?S4xML2jalWcxFy5F3pqXfd2spbrQtTMojYpp6CxjMlSmpCDTjzBDdVoBloti?=
- =?us-ascii?Q?trRgCEMJPNh+rrrvtXFj/nxbkQsOOZzfNbRMwxKfX4bfTnEB3p9EVhk5B9/K?=
- =?us-ascii?Q?h42JsxfBQhozfjngEjZeBwb/INZFkeV4DM4ExehWgd/qk1vzkXyrlixxDTmG?=
- =?us-ascii?Q?JYmNqdMfvyogFfmUuCoUj1DK7W0PVVlmg7rdLnuWoRVs7LBiza0ULx6/r4L0?=
- =?us-ascii?Q?7Y94bAsERTIlU1XDTpm3CI1WvvIx1lXCGV0iJybcRYv0m0swmLdCoZDkaFoC?=
- =?us-ascii?Q?jZzelOobfIpWalBg+KViEjKYmpgF5Zzu8/3RUW0t3XKAv25gyXx3NNDnLCAI?=
- =?us-ascii?Q?wN+Z7H7gL6pWm/yj+L3i5SrC+Y2+m3JzZ1GGth9K8zVE/ae+r1i/kerfIgpK?=
- =?us-ascii?Q?YZ62wemuEEkaLchEAChxwbYXvuEhUTAWPfuYA+0uyrUMGz4FTde81FHQn94O?=
- =?us-ascii?Q?9TKMls6NJ5hobrOw8Z6vZ7Pf8RKrItVutaFt/pjgFMmImPqL/sATnoe3QuMH?=
- =?us-ascii?Q?Kjjng6EhNjOwjePm9+ZSr/6fyx8Z58fA8FsbNHXrgYhZU++1anKRdqccUb3K?=
- =?us-ascii?Q?LNvLOmzoRxxDJL8rELpyS3ew6P7aAaXlDgd+oC0sQ7YvbRUlgRw+lKszDseI?=
- =?us-ascii?Q?ileJP9juZs51gBB+SbW5FCMetGvEaJh5bgTXLZfRSWWwc0DMw3aJxrSSJjWW?=
- =?us-ascii?Q?d+B2pagezEXUmyRMsF7hlizAw1MODOCG3VveBiO6gKFV80WifC8sOvjPN/63?=
- =?us-ascii?Q?Gss2FbqI4pjFnuN2VKMykZoUf48tEds4MEVOd2owcVuhaxie4nAU1GmWPPE+?=
- =?us-ascii?Q?6LT06eXUEO/73X5MjdeVlmp3DPJMySvzQniKFy/zQnVLi1+e9OPYL2KXoanp?=
- =?us-ascii?Q?xkh6mBGTwZbIaFcBiL1fZSdpSyLEVF1Z2GOkdMRS5UlFb/EXQ59iZ+AnD0jI?=
- =?us-ascii?Q?SpCE7EQmj5zOIG4tkdesS7O2J/sUwz0vzFCvm6kgY3gM7i3vte73Ko3pzLgH?=
- =?us-ascii?Q?3htbjEsGVYiwleaZAADqy8xvwvpxaTI/U0BP/IsrSA4+hY5rhS4dbZRGDidf?=
- =?us-ascii?Q?O/cyywScO7PtYBOT+xPT89WGosU5CwXTYUJKXgb/FvkzE6H+TBHr0f0tWkAL?=
- =?us-ascii?Q?W0ClQErGhMFi1ZOv/JSGHUABUjTtXytv8ZlVQdHmmBB4I5hTdd1U?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1fa06a19-5f03-4ea3-d00a-08def907c0a3
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9351.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Aug 2026 06:54:42.6988
+X-MS-Exchange-AntiSpam-MessageData-0: Jbd2an9U8rwbZyJEOqlxeNqUTxk1O8kI6Y4ZGKxh52wPfXLHcvHAG6GHLEvO1/m7nYZavX4J5i918PnUNyrjpQQ4zVg066YZOLgqW6oZ0OMK4ddPRNU3X9yozPoAsEraTQKI4NbbtXuUFqu0i66/SyfHbrF63BJ559KzkRO4lTxpXaikV+8Xn7Y/yHko64Ruu8OcJJ9NpIeVsvuS6T/tBOxXrj0dJNh6KoqF/8i1t6rKY9+BSGzWuEqZ/f5RnN4fPbdzTkE7u/4arRynOp7ag1yOZ2hG6Df4FxhA9RtbMuG64GmeWM3YffUSVuyU/7rJWzhE2Ly52IfQUpj02KR0yqie6rvbUGbUQ5iurXXQLFMHQb+4PLPVdjsxfiCZ7TQmxJ7kSmIE7S9nt1scwpKcGNfpH0euD+cKHBEHG6TPpMpN8e3eYJXU4ubVr4dB+z31
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Aug 2026 06:55:58.8430
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: HmsJEV8X/ib17efdqp47Jyy/Ok1bAaxqhmDnEM1dSNM2JMSNebV9dDrLGqdhLXXymzfj9QoDfbvG47iJSByxdNiMTxa8rzzkE0laVzt9YXs/suFlFNFSUClMGEvk0i0w
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10644
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2162a8ea-c579-4ee0-8705-08def907ee43
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: OSA0EPF000000C7.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR06MB6988
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260812_235447_593908_CD029BE5 
-X-CRM114-Status: GOOD (  14.26  )
+X-CRM114-CacheID: sfid-20260812_235635_428501_72688752 
+X-CRM114-Status: GOOD (  19.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,166 +116,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Shengjiu Wang <shengjiu.wang@nxp.com>
+On Wed, Aug 12, 2026 at 03:36:23PM +0530, kr494167@gmail.com wrote:
+> [Some people who received this message don't often get email from kr494167@gmail.com. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+> 
+> EXTERNAL EMAIL
+> 
+> From: Surendra Singh Chouhan <kr494167@gmail.com>
+> 
+> cix_mbox_probe() logged property error messages referencing
+> "cix,mbox_dir" (with an underscore) instead of the actual DT property
+> string "cix,mbox-dir".
+> 
+> Fix the DT property string in error log messages and convert probe error
+> paths to dev_err_probe().
+> 
+> Signed-off-by: Surendra Singh Chouhan <kr494167@gmail.com>
+> ---
+>  drivers/mailbox/cix-mailbox.c | 16 ++++++----------
+>  1 file changed, 6 insertions(+), 10 deletions(-)
+> 
+> diff --git a/drivers/mailbox/cix-mailbox.c b/drivers/mailbox/cix-mailbox.c
+> index 615218c69eeb..fb5d7641ba90 100644
+> --- a/drivers/mailbox/cix-mailbox.c
+> +++ b/drivers/mailbox/cix-mailbox.c
+> @@ -585,19 +585,15 @@ static int cix_mbox_probe(struct platform_device *pdev)
+>         if (priv->irq < 0)
+>                 return priv->irq;
+> 
+> -       if (device_property_read_string(dev, "cix,mbox-dir", &dir_str)) {
+> -               dev_err(priv->dev, "cix,mbox_dir property not found\n");
+> -               return -EINVAL;
+> -       }
+> +       if (device_property_read_string(dev, "cix,mbox-dir", &dir_str))
+> +               return dev_err_probe(dev, -EINVAL, "cix,mbox-dir property not found\n");
+> 
+>         if (!strcmp(dir_str, "tx"))
+>                 priv->dir = 0;
+>         else if (!strcmp(dir_str, "rx"))
+>                 priv->dir = 1;
+> -       else {
+> -               dev_err(priv->dev, "cix,mbox_dir=%s is not expected\n", dir_str);
+> -               return -EINVAL;
+> -       }
+> +       else
+> +               return dev_err_probe(dev, -EINVAL, "cix,mbox-dir=%s is not expected\n", dir_str);
+> 
+>         cix_mbox_init(priv);
+> 
+> @@ -611,9 +607,9 @@ static int cix_mbox_probe(struct platform_device *pdev)
+>         platform_set_drvdata(pdev, priv);
+>         ret = devm_mbox_controller_register(dev, &priv->mbox);
+>         if (ret)
+> -               dev_err(dev, "Failed to register mailbox %d\n", ret);
+> +               return dev_err_probe(dev, ret, "Failed to register mailbox\n");
+> 
+> -       return ret;
+> +       return 0;
+>  }
+>
+Reviewed-by: Guomin Chen <Guomin.Chen@cixtech.com>
 
-The i.MX EASRC hardware supports four independent conversion contexts
-(A, B, C, D). The driver previously registered a single DAI with generic
-stream names "ASRC-Playback" and "ASRC-Capture", which prevents
-multiple independent conversion paths from being used simultaneously.
-
-Replace the single fsl_easrc_dai instance with an array of four DAI
-drivers to allow up to four independent conversion paths to be active
-at the same time:
-
-  easrc-0 -- ASRC-Playback / ASRC-Capture (backward compatible)
-  easrc-1 -- ASRC1-Playback / ASRC1-Capture
-  easrc-2 -- ASRC2-Playback / ASRC2-Capture
-  easrc-3 -- ASRC3-Playback / ASRC3-Capture
-
-easrc-0 retains the original generic stream names to preserve backward
-compatibility with existing machine drivers and board configurations.
-Each DAI retains the same channel, rate and format capabilities as the
-original, including IEC958 subframe support on the capture side. Update
-the devm_snd_soc_register_component() call to register all four DAIs.
-
-Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
----
- sound/soc/fsl/fsl_easrc.c | 112 +++++++++++++++++++++++++++++++-------
- 1 file changed, 92 insertions(+), 20 deletions(-)
-
-diff --git a/sound/soc/fsl/fsl_easrc.c b/sound/soc/fsl/fsl_easrc.c
-index d23ee482924b..2ac062083782 100644
---- a/sound/soc/fsl/fsl_easrc.c
-+++ b/sound/soc/fsl/fsl_easrc.c
-@@ -1589,27 +1589,99 @@ static const struct snd_soc_dai_ops fsl_easrc_dai_ops = {
- 	.hw_free	= fsl_easrc_hw_free,
- };
- 
--static struct snd_soc_dai_driver fsl_easrc_dai = {
--	.playback = {
--		.stream_name = "ASRC-Playback",
--		.channels_min = 1,
--		.channels_max = 32,
--		.rate_min = 8000,
--		.rate_max = 768000,
--		.rates = SNDRV_PCM_RATE_KNOT,
--		.formats = FSL_EASRC_FORMATS,
-+static struct snd_soc_dai_driver fsl_easrc_dai[] = {
-+	{
-+		.name = "easrc-0",
-+		.playback = {
-+			.stream_name = "ASRC-Playback",
-+			.channels_min = 1,
-+			.channels_max = 32,
-+			.rate_min = 8000,
-+			.rate_max = 768000,
-+			.rates = SNDRV_PCM_RATE_KNOT,
-+			.formats = FSL_EASRC_FORMATS,
-+		},
-+		.capture = {
-+			.stream_name = "ASRC-Capture",
-+			.channels_min = 1,
-+			.channels_max = 32,
-+			.rate_min = 8000,
-+			.rate_max = 768000,
-+			.rates = SNDRV_PCM_RATE_KNOT,
-+			.formats = FSL_EASRC_FORMATS |
-+				   SNDRV_PCM_FMTBIT_IEC958_SUBFRAME_LE,
-+		},
-+		.ops = &fsl_easrc_dai_ops,
- 	},
--	.capture = {
--		.stream_name = "ASRC-Capture",
--		.channels_min = 1,
--		.channels_max = 32,
--		.rate_min = 8000,
--		.rate_max = 768000,
--		.rates = SNDRV_PCM_RATE_KNOT,
--		.formats = FSL_EASRC_FORMATS |
--			   SNDRV_PCM_FMTBIT_IEC958_SUBFRAME_LE,
-+	{
-+		.name = "easrc-1",
-+		.playback = {
-+			.stream_name = "ASRC1-Playback",
-+			.channels_min = 1,
-+			.channels_max = 32,
-+			.rate_min = 8000,
-+			.rate_max = 768000,
-+			.rates = SNDRV_PCM_RATE_KNOT,
-+			.formats = FSL_EASRC_FORMATS,
-+		},
-+		.capture = {
-+			.stream_name = "ASRC1-Capture",
-+			.channels_min = 1,
-+			.channels_max = 32,
-+			.rate_min = 8000,
-+			.rate_max = 768000,
-+			.rates = SNDRV_PCM_RATE_KNOT,
-+			.formats = FSL_EASRC_FORMATS |
-+				   SNDRV_PCM_FMTBIT_IEC958_SUBFRAME_LE,
-+		},
-+		.ops = &fsl_easrc_dai_ops,
-+	},
-+	{
-+		.name = "easrc-2",
-+		.playback = {
-+			.stream_name = "ASRC2-Playback",
-+			.channels_min = 1,
-+			.channels_max = 32,
-+			.rate_min = 8000,
-+			.rate_max = 768000,
-+			.rates = SNDRV_PCM_RATE_KNOT,
-+			.formats = FSL_EASRC_FORMATS,
-+		},
-+		.capture = {
-+			.stream_name = "ASRC2-Capture",
-+			.channels_min = 1,
-+			.channels_max = 32,
-+			.rate_min = 8000,
-+			.rate_max = 768000,
-+			.rates = SNDRV_PCM_RATE_KNOT,
-+			.formats = FSL_EASRC_FORMATS |
-+				   SNDRV_PCM_FMTBIT_IEC958_SUBFRAME_LE,
-+		},
-+		.ops = &fsl_easrc_dai_ops,
-+	},
-+	{
-+		.name = "easrc-3",
-+		.playback = {
-+			.stream_name = "ASRC3-Playback",
-+			.channels_min = 1,
-+			.channels_max = 32,
-+			.rate_min = 8000,
-+			.rate_max = 768000,
-+			.rates = SNDRV_PCM_RATE_KNOT,
-+			.formats = FSL_EASRC_FORMATS,
-+		},
-+		.capture = {
-+			.stream_name = "ASRC3-Capture",
-+			.channels_min = 1,
-+			.channels_max = 32,
-+			.rate_min = 8000,
-+			.rate_max = 768000,
-+			.rates = SNDRV_PCM_RATE_KNOT,
-+			.formats = FSL_EASRC_FORMATS |
-+				   SNDRV_PCM_FMTBIT_IEC958_SUBFRAME_LE,
-+		},
-+		.ops = &fsl_easrc_dai_ops,
- 	},
--	.ops = &fsl_easrc_dai_ops,
- };
- 
- static const struct snd_soc_component_driver fsl_easrc_component = {
-@@ -2234,7 +2306,7 @@ static int fsl_easrc_probe(struct platform_device *pdev)
- 	regcache_cache_only(easrc->regmap, true);
- 
- 	ret = devm_snd_soc_register_component(dev, &fsl_easrc_component,
--					      &fsl_easrc_dai, 1);
-+					      fsl_easrc_dai, ARRAY_SIZE(fsl_easrc_dai));
- 	if (ret) {
- 		dev_err(dev, "failed to register ASoC DAI\n");
- 		goto err_pm_disable;
--- 
-2.34.1
-
+Best regards,
+Guomin Chen
 
