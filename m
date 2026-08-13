@@ -4,80 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AFE3C5CFDB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 10:11:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5916C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 10:13:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1GUvy4NsSEhlxO1mGSlkQ8deO2KrloNrrXAd8AHoYE8=; b=vEFWyNXgl1aTXvaGv81OvlXPG2
-	QuMRzBR3rkfZmMDq1FfjaiJcEJdcFQdop36yOecHurc5ke0f+50jJEU6sIPoD8rLat4qQ8LCOcVqm
-	97p5E47YvtnehEgsclxU/v4TwtW3UdIVPwnSCuRQc9Yi1g1fk3tm2WvWH0jhHaiEhpT10tPaomjQI
-	Q1B02uNw+jzRCcLlhpQ//ZdvkjD1CMdA1Pfnb9gcH33ORc+bK94HPDJf/zB6GkuGw882pOHwr0b7H
-	nzDLKcpn7sD2IwbM2VijqRiE/Zfqa+DFbHRYD61oKP9GZCSMb7EmUK7AB39eJs7lj7Vw9ak08FAtb
-	XY5lo9lg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OvZxXgWwlw9mSCW44p+jCE5q4lBZ+vVfSoXZPbAhS0M=; b=4CcRVbY9SlBv+EqhRJFK6n5Wk0
+	GkBJZKEelIF1e7DjcxTS1qe/nMlifuOBcNwleFhOr8yQ8vsaRLRfc9eI4ZMAQix78u0N+y/WTxn0W
+	+ak23IxJ/BLMzA6Gkj7iZbQ6+/wdDTpRX+sNKsegAUStXxqL+7HtWT4ynynlV/EnSRBqbM7lcJKK1
+	DiQKgucnvDYGReKdSErBmnt/BYFQR6ckgttQsq0xkc0iN820VWoRqwEpKDKDlSQi+XUnO5Lg17odC
+	7P0GlgLUV4oKu6zxdzB41jVaGaikJo2UzoQdgs4ifUEb862aeZRL90RapNwPNW3Cr5wEwNv84aseH
+	urSJ9xpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuSP3-00000000Qge-1DDA;
-	Thu, 13 Aug 2026 10:11:13 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wuSRX-00000000R57-3MWg;
+	Thu, 13 Aug 2026 10:13:47 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuSP2-00000000QgH-0Ygn
+	id 1wuSRV-00000000R3t-0V7m
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 10:11:12 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8E7AA600AF;
-	Thu, 13 Aug 2026 10:11:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71B2B1F000E9;
-	Thu, 13 Aug 2026 10:11:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786615871;
-	bh=1GUvy4NsSEhlxO1mGSlkQ8deO2KrloNrrXAd8AHoYE8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Uh72INHK/sIbkNYsIDOPjGO143EsGaQlP7xQY3AROGkJGS0/0IdBYQHDCvp1O5oM8
-	 oaoI+ZDz/JHZS+7HYo6heMzXrWDq3R9JoHYsJ+6PH8z7UlLt+2dRJCIX8KLOxLsE0W
-	 RPhMJleW/O0L2O3kGBOy6PqG73URg60mJM5eCvmmpoypJbq06/4eW3EI2a/z9Ibg1G
-	 NgEF8AnsHzQ0yR4Ii3p1AGmKDV//SqJRsEYIo5folawdWjVa7go7BlIMYzhtzP3KtN
-	 8LOjezI5ivbdQCFV5ug5X9NRpIeTcTNM/Ry1xf1ieV5i3viFeT1+G6zHTi0twu/0TX
-	 kdMpVTQo5iiHQ==
-Date: Thu, 13 Aug 2026 11:11:03 +0100
-From: Will Deacon <will@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev, Marc Zyngier <maz@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>
-Subject: Re: [PATCH v16 07/45] arm64: mm: Handle Granule Protection Faults
- (GPFs)
-Message-ID: <an2YN7kxB7bjCd2s@willie-the-truck>
-References: <20260803134403.80630-1-steven.price@arm.com>
- <20260803134403.80630-8-steven.price@arm.com>
- <ans1ZSwMEKeT9Gfz@arm.com>
- <d4bdecca-517a-4b4b-bf67-cef6b09bc8c1@arm.com>
- <7d4e5920-aa20-40cd-954e-037631bd0d6c@quicinc.com>
- <anx6YbPMVz3OlpA5@arm.com>
+	Thu, 13 Aug 2026 10:13:46 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-47fe76491b8so151581f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 03:13:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786616023; x=1787220823; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=OvZxXgWwlw9mSCW44p+jCE5q4lBZ+vVfSoXZPbAhS0M=;
+        b=oEJeJqk5xKAjD2uo6LaEG9ffUrlm1dBYqJ9/SB4wN5BfmkWn3mtVi3haPwyhx+/vx9
+         dfJgZqkERg7tXxrTk9yF/BRCcvapWvpki4iJ3lz6+Li5CH1+WUzqIBrxib/bKHJn7tPc
+         zQwW4jeyInnbX+WYQGyIxFPwTFmlxuAWDsnqeFmbRxc/aSJZlcMixR0cHsR0vXECPHtT
+         cAF9LoVU6ocRwC2SR9mTTWp9yJlJscyENEZevDtaHVKVfwsxmp/EE5b6aLl2pgrctiMW
+         8WMJaFxsxEop5EMbgVu5O0CRAN0QWH+lgJlJsL4S39vAE9JjRo7tqWyHKRtz9Kf3ivwv
+         Vz+Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786616023; x=1787220823;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=OvZxXgWwlw9mSCW44p+jCE5q4lBZ+vVfSoXZPbAhS0M=;
+        b=CYl/T+RCCd+bSzEHBFhhYoQNG7oEF7s6GpEq4PAkOmelCgowwwByrpAmESBHMFb8iW
+         elWrQTR57L/WyiLu9aDA/yyp/ouH3x0+noxkSk6zs2r6Ha3MuLsgZr7KVb5lDJEBNaCK
+         f6lfdgzWGr2N5srjaEJnTrILuARFwkNDpGBMSKKPJwPiCBMA69EKCRLTAoMLB911JiCZ
+         L7BU0ZAhgIhI7X/7gd9K6KLYccHWQauNroYg4TPjcdJvgcJAGXEyLTicWsrfz21rLJ60
+         7UF+pKE5NYa0fZak2cC5CAObiyXRbbdoSBcmLG0tZVHe1lzgCjMR0TPCmqYyEZxPrDI6
+         pJTA==
+X-Forwarded-Encrypted: i=1; AHgh+Roh/up9hH+WUiJULGeBpFVIypUsQKGDbSdRrcG5eRpwnoTMWdQbJac+lyfH3mxUuBmijsGp6DPoGBSVDRlIAO6R@lists.infradead.org
+X-Gm-Message-State: AOJu0YwWUjseJ3tUOkmgKkYEIRYixzCq9tchvE8ztO19Eha6BqqsjQqJ
+	TieTo4FsCRLUuLxBF8//IE1EziBtl5oQ4GcjvlFxgpUSZEjtiTNxM8jl
+X-Gm-Gg: AR+sD10B5NwjUyj141L25HeOIUsyvipGzgtPe+w6fqqeOjhGSJR1ehQfDmFLYuqYsUq
+	RXvAXOP/9jw/SrDiWrL2L+hZb/n5J7fyPOV7/0jMNdApf2enZbNDsoJVbWg7MXVGAo1k3HRwW+j
+	1O8+Zf8YKvbsLXkIHeBfCBBoko3rmz+rQvFT0BhrxGAdh7iTzpssCcaTG65GZ7WB+bfCOkZmrBS
+	8gzWbILCQmi/B6EGU9E+7RY9+05Bjv0nccetWcZVWLs0momUx/CVmkSVw8J/6BPNQfKjr0hxIhY
+	HkK/KFD2jBkmhbO5EPfWeZilv0vGFHIqJnMlnTP0ECEVptqpa9x3tRDS+3ETuzWmcnpM/Up5J0V
+	HE2OUOI8ixCPrEr+fxyGSZBPYQMaCYtO8wFQ7dsZ1Gqi2jH3ltRfAsRuSH4NPMFmqwbxMJ7bx+X
+	ocoKSsr6hVQdOBW1zfPpFxvfQJwYhfjRYicK2CazG4kdh7eZnU1RFGV0SLVExwg5EPl/suf83xG
+	90FQRBuQketir1xpvAbLOM2yaUJCeiQmjTF095xUtdG0/11GTx1ezGOKewUmo/uVGt/9KfGVS8F
+	ZMby
+X-Received: by 2002:a05:600c:b93:b0:499:59da:12b9 with SMTP id 5b1f17b1804b1-499825cefdcmr25741845e9.0.1786616022989;
+        Thu, 13 Aug 2026 03:13:42 -0700 (PDT)
+Received: from OrangePi5-Plus.BB-HOME (20014C4E1B911C009377EE8DF6D0A1C2.dsl.pool.telekom.hu. [2001:4c4e:1b91:1c00:9377:ee8d:f6d0:a1c2])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49981abd6desm59541945e9.0.2026.08.13.03.13.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 13 Aug 2026 03:13:42 -0700 (PDT)
+From: Igor Paunovic <royalnet026@gmail.com>
+To: Sandy Huang <hjc@rock-chips.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>
+Cc: Igor Paunovic <royalnet026@gmail.com>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Alexey Charkov <alchark@flipper.net>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	dri-devel@lists.freedesktop.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] drm/rockchip: vop2: Scale the AXI clock to the bandwidth the mode needs
+Date: Thu, 13 Aug 2026 12:13:00 +0200
+Message-ID: <20260813101307.10945-1-royalnet026@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260813100027.349761F000E9@smtp.kernel.org>
+References: <20260813094614.9072-1-royalnet026@gmail.com> <20260813100027.349761F000E9@smtp.kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <anx6YbPMVz3OlpA5@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260813_031345_211463_8FCB24A7 
+X-CRM114-Status: GOOD (  17.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,38 +116,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 12, 2026 at 02:51:29PM +0100, Catalin Marinas wrote:
-> On Wed, Aug 12, 2026 at 06:12:09PM +0530, Pavan Kondeti wrote:
-> > There is a valid case for fixup_exception() to be needed here in GPF
-> > handling.
-> > 
-> > -000 |load_unaligned_zeropad(inline)
-> > -000 |hash_name(inline)
-> > -000 |link_path_walk()
-> > -001 |path_lookupat()
-> > -002 |filename_lookup()
-> > -003 |vfs_statx()
-> > -004 |vfs_fstatat()
-> > 
-> > We observed this in Android running Gunyah when the page is mapped in
-> > EL1 but unmapped at EL2. path_lookupat() can actually handle this
-> > via fixup_exeption() when a word load crosses the page boundary.
-> > However, Gunyah injects a Synchronous External Abort and we have
-> > a downstream patch [1] that adds fixup_exception() in do_sea(). pKVM
-> > injects [2] such faults back to EL1 and fixup_exception() is taken care.
-> 
-> Ah, good point, completely forgot about load_unaligned_zeropad(). Since
-> we don't unmap the linear map for delegated pages, we'll need the
-> fixup_exception(). And I guess warning in this case is not desirable
-> either. We could limit it to EX_TYPE_KACCESS_ERR_ZERO and
-> EX_TYPE_LOAD_UNALIGNED_ZEROPAD, though not sure it's worth it.
+The review bot found three things on v2 and all three are right. I am
+answering rather than sending a v3 straight away, because the fix for
+the two High ones is a single change that touches a file shared by
+every Rockchip SoC, and I would rather ask about that than guess.
 
-Alternatively, I think the series to unmap guest memory from the linear
-map would solve that for gmem:
+Both High findings come from the same shortcut. v2 keeps the
+requirement in a global atomic state object, which I still think is the
+right container, but it applies the rate from vop2_crtc_atomic_enable()
+and _disable() rather than from the commit tail:
 
-https://lore.kernel.org/all/20260410151746.61150-1-kalyazin@amazon.com/
+  - Out of order commits. Two non-blocking commits on different CRTCs
+    share only the private object, and nothing orders them, so a commit
+    that took its snapshot before another CRTC raised the rate can land
+    after it and lower it again.
 
-but I can't tell whether that's still being actively pursued.
+  - Multi-CRTC disable. atomic_disable() runs once per CRTC, and the
+    first one already sees a state in which every participating CRTC is
+    off, so the rate drops while the others are still scanning out and
+    waiting for dsp_hold_completion.
 
-Will
+vc4 solves both of these for its core clock, and what I did was take
+half of that pattern instead of all of it:
+
+  - vc4_atomic_commit_setup() records a pending commit per channel in
+    the private state and the next commit waits on it with
+    drm_crtc_commit_wait(). That is the ordering v2 has no equivalent
+    of.
+
+  - vc4_atomic_commit_tail() holds max(old, new) for the length of the
+    commit and only drops to the new rate after
+    drm_atomic_helper_wait_for_flip_done(). That is exactly the window
+    the second finding describes.
+
+Hence the question. Doing the same in rockchip means adding both
+.atomic_commit_setup and .atomic_commit_tail to
+rockchip_mode_config_helpers in rockchip_drm_fb.c, which today carries
+only .atomic_commit_tail = drm_atomic_helper_commit_tail_rpm and is
+shared by every SoC this driver supports, VOP as well as VOP2. The
+commit tail would be a thin wrapper around the rpm helper with the
+clock work on either side of it, and both hooks would do nothing on
+anything that is not RK3588.
+
+Is that acceptable, or would you rather this stayed inside vop2 in some
+other shape? I am happy to write it either way, but I would rather find
+that out before than after.
+
+The Medium finding needs no discussion: if
+drm_atomic_private_obj_init() fails, the jump to err_crtcs does not
+undo rockchip_rgb_init(). It is also new in this patch, since before it
+nothing after rockchip_rgb_init() could fail, so it is mine and it will
+be fixed in the next version whatever shape the rest takes.
+
+Igor
 
