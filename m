@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D68AC5DF67
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 17:06:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B23A9C5CFCF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 17:06:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PT2ri8aRhgjrTVSTpNbQtsdRkL9ZTdzAq1eD0J7E/1k=; b=igKquEYNtzR9+5UrNAylzAsYE3
-	0JSSDBLKN5yg46ryi+sXWsNB0ltmQmtDqPkLByfxQQ+SR9cxehx7NZOKOYe18sZPDXqiXGqWXsDr6
-	BJZEfUrvsNAtLudwIhK7z4Xz/Yz+8VNm/GeOl6RjCcIhJZr4fTmh8uGItdlGPXwGFBQMLlxpHAaPa
-	P9SwaPTuticcbjOTU66XFwJ0qfnCPPa24arAeZb0d40b9MtLfoSEABnzHfJkPUl+3HCcZfUMxnPw3
-	TupfydmXmBJ6i2my0zlUp3AfAzeuRSzn3G6EPUC/l62g25Bab4idGZdQoJh7+3gNepvZV76nikVCq
-	g5+2uLRA==;
+	bh=jpaakGs2Tf7xeoHHoL80KxzX2+hb3XlzydpXYC2fGY4=; b=Y1mmtQeJrUqHJNcpKSbpK7KQzu
+	Gx8NxR7FX3zwQlPJCJaIxd7s5uJtpItYjmMX1UDfraYDZGFPyOAHmkXyRFNkHqE4yrPh9puWUzbVU
+	rEgXguCe/TRzcMG+N4zwqljWGBwJiLSLIbY14PuyGxBajZyHDNeWk2OTvytCxxLUV+8WMvv5DokHB
+	pDKhu1qSyWsy2ZBRhSoZSV0vN3Rs+Kcl797BGgtjNtBHP1Wo51hNe9W8gwC2U7H3lYp/n/b+fg2CT
+	hV1SxRhDblLf6d7ovaIOWT6gmbOY4ahQnCnLtXqisbxUuTFUGtiL4PnLoonGi9kRKy8oYsxQczjxx
+	G6JwPFzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuYsa-00000001ExE-3s35;
-	Thu, 13 Aug 2026 17:06:08 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1wuYsj-00000001F3P-0t3A;
+	Thu, 13 Aug 2026 17:06:17 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuYsW-00000001Erv-0WrD
+	id 1wuYsg-00000001F1h-2Y4q
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 17:06:05 +0000
+	Thu, 13 Aug 2026 17:06:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1786640763;
+	s=mimecast20190719; t=1786640773;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=PT2ri8aRhgjrTVSTpNbQtsdRkL9ZTdzAq1eD0J7E/1k=;
-	b=e/EmQM6zEa9F17ma4BE0xl27Qx3gYjLpX3rLGUDonl2UpDVzQbOcaJ/FVQvG8m7h232k8P
-	KL5Oi4Eq/pQkO2ZFyUVJQe+eJ2OBk2qNbAeCQCxwFZXg0HLmXfIqWSKzx4ecGDiAKPrE3N
-	NYlJHN5XHPXGqdFrcAxNq+RpzfptWSM=
+	bh=jpaakGs2Tf7xeoHHoL80KxzX2+hb3XlzydpXYC2fGY4=;
+	b=E+nw+FCibry7vtKeWCK6SyzXYvoDZnyHah90MuAK4nf+2ME5TlTVpCQetpUqjpBuTOHWz5
+	jHE9h1PgJvfTx2Gb3BFX7wnFZbXKeMmmMqDE29aKC/VB9/E8a0eDXAfn6dwNIhs8/ABRl/
+	XLHKgcmCjp+Ca7FQD0NJ9nSuH3J5kUw=
 Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-670-wSnG0OpgNy-hiywKDHrLxQ-1; Thu,
- 13 Aug 2026 13:05:58 -0400
-X-MC-Unique: wSnG0OpgNy-hiywKDHrLxQ-1
-X-Mimecast-MFC-AGG-ID: wSnG0OpgNy-hiywKDHrLxQ_1786640753
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-689-wBrpiqygOMm-ilyseSAiJg-1; Thu,
+ 13 Aug 2026 13:06:10 -0400
+X-MC-Unique: wBrpiqygOMm-ilyseSAiJg-1
+X-Mimecast-MFC-AGG-ID: wBrpiqygOMm-ilyseSAiJg_1786640766
 Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id BD6931955DC9;
-	Thu, 13 Aug 2026 17:05:53 +0000 (UTC)
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id EA6521955F3F;
+	Thu, 13 Aug 2026 17:06:05 +0000 (UTC)
 Received: from wsxc.redhat.com (unknown [10.96.134.24])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 2F3A4195608A;
-	Thu, 13 Aug 2026 17:05:40 +0000 (UTC)
+	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 375D4195608A;
+	Thu, 13 Aug 2026 17:05:53 +0000 (UTC)
 From: Ricardo Robaina <rrobaina@redhat.com>
 To: audit@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
@@ -98,20 +98,20 @@ Cc: paul@paul-moore.com,
 	peterz@infradead.org,
 	luto@kernel.org,
 	Ricardo Robaina <rrobaina@redhat.com>
-Subject: [PATCH 10/13] sh: pass all six syscall args to audit_syscall_entry()
-Date: Thu, 13 Aug 2026 14:03:00 -0300
-Message-ID: <be964ca4e6854db2a66cbba4af1ff2fdd769e752.1786626275.git.rrobaina@redhat.com>
+Subject: [PATCH 11/13] sparc64: pass all six syscall args to audit_syscall_entry()
+Date: Thu, 13 Aug 2026 14:03:01 -0300
+Message-ID: <fc2810a850a8bf343b7ad7ae9caf3da57e1f41ec.1786626275.git.rrobaina@redhat.com>
 In-Reply-To: <cover.1786626275.git.rrobaina@redhat.com>
 References: <cover.1786626275.git.rrobaina@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
-X-Mimecast-MFC-PROC-ID: iJNb8AWmLIDlMoorftAJ3K4U-_H7eiuv4ly4wRBPIUg_1786640753
+X-Mimecast-MFC-PROC-ID: o-nGlVllIBJbrKmJcBauwG5OOrDxzbbixhjIWx1S8B8_1786640766
 X-Mimecast-Originator: redhat.com
 Content-Transfer-Encoding: 8bit
 content-type: text/plain; charset="US-ASCII"; x-default=true
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_100604_238493_E97BB343 
-X-CRM114-Status: UNSURE (   9.41  )
+X-CRM114-CacheID: sfid-20260813_100615_153762_A67D6332 
+X-CRM114-Status: UNSURE (   9.33  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -128,27 +128,27 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Update the audit_syscall_entry() call to forward the 5th and 6th
-syscall arguments (regs[0], regs[1]) now that the audit core logs
+syscall arguments (UREG_I4, UREG_I5) now that the audit core logs
 all six.
 
 Signed-off-by: Ricardo Robaina <rrobaina@redhat.com>
 ---
- arch/sh/kernel/ptrace_32.c | 3 ++-
+ arch/sparc/kernel/ptrace_64.c | 3 ++-
  1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/arch/sh/kernel/ptrace_32.c b/arch/sh/kernel/ptrace_32.c
-index 06f765d71a29..3efefd67b457 100644
---- a/arch/sh/kernel/ptrace_32.c
-+++ b/arch/sh/kernel/ptrace_32.c
-@@ -467,7 +467,8 @@ asmlinkage long do_syscall_trace_enter(struct pt_regs *regs)
- 		trace_sys_enter(regs, regs->regs[0]);
+diff --git a/arch/sparc/kernel/ptrace_64.c b/arch/sparc/kernel/ptrace_64.c
+index 9fc67fa9336f..d0ad3200d789 100644
+--- a/arch/sparc/kernel/ptrace_64.c
++++ b/arch/sparc/kernel/ptrace_64.c
+@@ -1100,7 +1100,8 @@ asmlinkage int syscall_trace_enter(struct pt_regs *regs)
  
- 	audit_syscall_entry(regs->regs[3], regs->regs[4], regs->regs[5],
--			    regs->regs[6], regs->regs[7]);
-+			    regs->regs[6], regs->regs[7],
-+			    regs->regs[0], regs->regs[1]);
+ 	audit_syscall_entry(regs->u_regs[UREG_G1], regs->u_regs[UREG_I0],
+ 			    regs->u_regs[UREG_I1], regs->u_regs[UREG_I2],
+-			    regs->u_regs[UREG_I3]);
++			    regs->u_regs[UREG_I3], regs->u_regs[UREG_I4],
++			    regs->u_regs[UREG_I5]);
  
- 	return 0;
+ 	return ret;
  }
 -- 
 2.55.0
