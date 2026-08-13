@@ -4,129 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85D68C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 16:41:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F4D4C5DF67
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 16:44:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8wetiKKRPwZIQ9CgcD7hZzm3kXBrGLzLEkKMIaO7axU=; b=mIKtm0ll2nSnLQcCkf/w6d4FGT
-	vAsehr2u4u9Z57I/yPTk1tCRFsW0czJInpsKiYIzNSHOIETkK1Ghka8psHEW3oeio0qFd+YlUn+mN
-	ELO+isih7MfsdfXFH9FQQLyvNKaEl2B8+ZZh4Z6E/IBdqct4OrtfJaMBxG6HLOEEbv1NuU6r8+Byt
-	TpyZ4ZAPfmpXaDXA9d/sVsJisXYRdxstfVQ/7LzghR8l7UiW/vB3nVpKNYfmN28w/oQQr6mT7yT3A
-	SEL0PV01ZfwVMsrBmWHkdGwmErNgjz7uEL5X/c58BNxPUZI5KXWlIeqrjw2XIUnLtmm6M5YUH+NIc
-	vYwMAfIw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uzP4xqIsstfeVL1p2BEayzggpWH6XvsfreBjrDZxCS8=; b=WyvUBl3iTr93UEcXgS7X6Vri9S
+	LRS2QrTOhoGofLqIj6Jk4p3HVpXn92cpo0G86TQmisfqxxk7Squk+Z+sWE5y6odE4H6mySg4s/Kss
+	U3A57UHpDYRgZnzzD4Wn5veJeZBfxP4TShXBIvgh5m5wW1CIomhG/TypIMEq8H8mHCMzfQxdcMdLs
+	0DaBxiSrtJ8FUwqyMB53CpeCvODcIuGsjoGskQPiOi+kcf4L6Q/bd+9F19f0BMQCfmALSrQXUvdLN
+	DBajCLpFC9t1zi5196Ujq/poOa83MbKeygifSxglY0i3atmVumpF1gOVpI/N9y9T/BpkjXPhL9wGY
+	xTIEzU6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuYUM-00000001BQ4-2XcC;
-	Thu, 13 Aug 2026 16:41:06 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1wuYXU-00000001BoW-40Yz;
+	Thu, 13 Aug 2026 16:44:20 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuYUJ-00000001BPb-383A
+	id 1wuYXS-00000001Bnd-3J5e
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 16:41:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=P1S1SDtRSgI4HXoFyhDFXuYaLH2etcId9YqLxdCgfdes4X5GT9jyxvaqvb2xCOwlmc7PN365C+5Nivwsv0z8XwzR0KncXKp9l+imfQP2ay6KVZqvdv9QhAzgFgjADn+T4GYjqNSJj7dKhE4vYdN9vMRdO7xlDfmWIEgxRUVwCuSk3UM3dVGZ5dcCOaMg0d1Pt34wCGrdll7keB+O3bGp+/X6nwriHIXDcEWZtw8T/0enGyO609LJtwoX8y22h4c0UtK/5NI5NU+vvvNfYWO+441pd35dMOz1VC7fiBsheul8iL5OEMmU4qFnxYgbWgZJ2oEiu4oHMqHlzvzz4WbWWw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=8wetiKKRPwZIQ9CgcD7hZzm3kXBrGLzLEkKMIaO7axU=;
- b=ukHHCS3X9DiGZ8fQDkUU5dHtAoLtOKkp13LstSF+hiQH6djU0i1gt0b97iy6kOxwuyOYpJ483q5NhK6wGzRDj1jQORx2SYld7fEQU44+LS+28s+wCnN9GzEJ6dSfTzG8PQ7f4fAw7BQfWmUm7uGlrJxpcVybfIzqtw8uog8cV1h7wCfeoqlsk7zacGkRoGcCqYf739Mn1EWBvK5mIy0fFQ+biO8rCxDQi7MhaBQj2x3qipXy212/HGV3U0JqeiQz/pvD4x9CqIUVgBZeRE239ePk6mTVp+Oyf7jKuse4OHnI5EeEDA40QXy9NbdS5AQjZSXsjXe27btQ0Ft8ANlXpw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=8wetiKKRPwZIQ9CgcD7hZzm3kXBrGLzLEkKMIaO7axU=;
- b=FYeM5d5AIQhU1pvaSJdYxcaQGPvUBVP+xEn0SKTaOsXR4290vjQ3CJg7s6jXPVaZZ++ztGjG5RCYpD0S7xdP6h3dBoxZJp2IEPSqiehf8hjWqqgmtpIyFReyHkGD90KaxLE+AT4TIItrqUeknOn1z3DXd6u93X9RPXaH6j+DamYrkuuHqCYKO3mPr1PVpS0XrDLkRMGNE+dGsLk/LtnuhfTeQNx5kFSH25+vK7MQCaa0pObjOPFCzZqX2XEX56+YXaF++su+7tRXaK/qIRottmsOCA12gpJXeuas/9Oe6UTZUGvgdcOP6vL/XKl1rstLkKaObKxa/IwDmH9KrNpU9w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from DU4PR04MB11791.eurprd04.prod.outlook.com (2603:10a6:10:623::11)
- by DU0PR04MB9659.eurprd04.prod.outlook.com (2603:10a6:10:320::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.25; Thu, 13 Aug
- 2026 16:40:59 +0000
-Received: from DU4PR04MB11791.eurprd04.prod.outlook.com
- ([fe80::11ca:6b74:3234:d7de]) by DU4PR04MB11791.eurprd04.prod.outlook.com
- ([fe80::11ca:6b74:3234:d7de%5]) with mapi id 15.21.0315.014; Thu, 13 Aug 2026
- 16:40:59 +0000
-Date: Thu, 13 Aug 2026 11:40:52 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Linkai Gong <gonglinkai@kylinos.cn>
-Cc: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Shawn Guo <shawnguo@kernel.org>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] firmware: imx: dsp: fix mailbox channel leak on
- kasprintf failure
-Message-ID: <an3zlEsHUnFbjQsD@SMW015318>
-References: <20260813095818.2275666-1-gonglinkai@kylinos.cn>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260813095818.2275666-1-gonglinkai@kylinos.cn>
-X-ClientProxiedBy: PH7PR17CA0027.namprd17.prod.outlook.com
- (2603:10b6:510:323::13) To DU4PR04MB11791.eurprd04.prod.outlook.com
- (2603:10a6:10:623::11)
+	Thu, 13 Aug 2026 16:44:20 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-473987fc217so602f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 09:44:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786639457; x=1787244257; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=uzP4xqIsstfeVL1p2BEayzggpWH6XvsfreBjrDZxCS8=;
+        b=Z+RHoj39xYpSNmC6rhyrpygnHex3xIoXGHXWm383NtOUGpUrDYlUxF5m4QJyjo6jId
+         2sTHJ1Z6/DfPT7vp3uC+fCSM2VljNVnKwMJtm2W/77ORwiyAZM2PzUEFf7jkENLTG8Sr
+         tDmEoQEr5fRLn6rRiejDBnRsnKWfcNWtSB1YjQ9MuiIIi1hLFYjuNL687XQw5N2xvOto
+         7ziMzTIMwQv8KZiWCjEjq08VwYuxmxGNJl7gNGn06pDrsYBHqbRMjwZqCIDNaWV5uILH
+         mq1BdA7AZEgwaI0HjF7jQi92hIN+UJyiIxRoFpIFGM4Rtl3rFv4gvo1zflSDIopzZctL
+         r5bg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786639457; x=1787244257;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=uzP4xqIsstfeVL1p2BEayzggpWH6XvsfreBjrDZxCS8=;
+        b=EmMwqumOAgirMeiocdJl54tYQSUvUgX2zOecTC4GAco0JhZZbQokm2RboiJV6rbrSQ
+         cmHn+8bbFsJJYbJ+g7HcD4MoVLnFZoJJesHSQj/dGxGN9CrN/eiabYFBl1MfiQ23Pp6O
+         akxgn1JIc2eVdxVNuy7JxoA3lOCDpOwiiSk/vMIhqUUi4x0pCU2zpprhmJGOShUHVGjN
+         qvMa/w/ebaPxmRRDXZpcckdfjXQkGDqkDzNE0yNUw4/SPh4mhOeBqJU1v+ahSsL04Kx0
+         BqhgIg6eHSTsX+7FVP98QsljCjJJJd9VzJUNqrjC11ScfgtpCs7L/U2Or3eVLTqLCiPY
+         XFJQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rqkac+2D7q9WjGQNzH511eOQhhC+Byh9VRr3qCv8FBADa0LYcvfjT0bCmuy8HxWwOdWEk19Gdno5FK7YqDIO2j8@lists.infradead.org
+X-Gm-Message-State: AOJu0YzVp8DPWoxYmtzQVC/E8B2wXzzdxSS5q2tBRUaMhGMC/v6rZFo3
+	gv6Z8d7SEsAntVmp6h7ipqnFZr+Sz84m9nb/Tg/bicrJpVY2GgzYqbBh
+X-Gm-Gg: AR+sD13TV6qA+8Upx2DRPtd3MU6cXFZhOpGc9pF5GXWy/wrRZkz/s9YhTjxO4sgZUar
+	3f9ctnScsYeT8/4xOB6filY5J3ECYglvUK7Z9gX7wqllaGvtA33D4xbfUpXfZ9bAgLfQ97dSl/g
+	9WG5/hlMghfbZxRrD3NXpoaQSpzwHKLSB9WKdqvZ4xMFLdGY4OHMiLsGvu7RJ40KCKTuuTWO6Ck
+	lK2anxN4VUiYKigHqKJUBL/0Cz+fCyldvtdQTZpVNUfD5oAdtQ95hwmgRYsEXiL/qOhMdF8NBgG
+	bXvmn9m+haP76V4qPXO9O6/ls/RHVtyynE5Wz594HU+KV+O0MmX3l3HPqBHQChLF6ZdGUPdmRZt
+	CQ0HsVJP9hkcGEzbeb9sGTmb4dl+Pul1Y9wCeaUSiK+99Gm9EbvMFb6tHrk73xZrBJgAreiQl88
+	cLtZXXvyl6xr7HDLiPZe8DV8nS2HrCpxsjH5BFMVFIE58kb9rWpK1gkZc4/X4FCeu/yx8Cf1toF
+	S67/3JXnhXg/VluRIt9oWrN8p+hsBb96WlxsNH1+Vyd1MQtupa9vCxvTvLCWkX8lRzPlE4Y284m
+X-Received: by 2002:a05:6000:1aca:b0:481:3db3:8eb with SMTP id ffacd0b85a97d-48159edffe0mr5610370f8f.1.1786639456881;
+        Thu, 13 Aug 2026 09:44:16 -0700 (PDT)
+Received: from OrangePi5-Plus.BB-HOME (20014C4E1B911C00586200462B420123.dsl.pool.telekom.hu. [2001:4c4e:1b91:1c00:5862:46:2b42:123])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4815f2b1d90sm603116f8f.22.2026.08.13.09.44.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 13 Aug 2026 09:44:16 -0700 (PDT)
+From: Igor Paunovic <royalnet026@gmail.com>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Igor Paunovic <royalnet026@gmail.com>,
+	Sandy Huang <hjc@rock-chips.com>,
+	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Andy Yan <andyshrk@163.com>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	kernel@collabora.com,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 00/14] Support 10-bit YUV422 and 8/10-bit YUV420 color format on DW HDMI QP
+Date: Thu, 13 Aug 2026 18:43:51 +0200
+Message-ID: <20260813164356.9625-1-royalnet026@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260709-dw-hdmi-qp-yuv-v3-0-a4a982a9f2e7@collabora.com>
+References: <20260709-dw-hdmi-qp-yuv-v3-0-a4a982a9f2e7@collabora.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU4PR04MB11791:EE_|DU0PR04MB9659:EE_
-X-MS-Office365-Filtering-Correlation-Id: 63f18994-5565-4a3c-c4fb-08def959a734
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|366016|376014|23010399003|56012099006|10067099003|11063799006|3023799007|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: IKaT0cFWS/mFzl3st+PP/l3uhuZ8G73yV1dSW/sN6AmwndAiSCSquHqM7572ejGRJ7+zUiGbldmgWpugZ7n4CME6aVN+mfvxl6KqV+KISHOzTEa7hefxsvTJ4CD3A4XsHXaWsiAtbTUuetOSJ4inUoqC6lPBEJoW4o4Z7KpsMgdOgIJ+MkOfKVizVQ7ytQc0Yr0CfKopL/vl8SCDJZrK8g1ZIoIOiVZPmzzlLl0e1Q1mV3ehT0leyYsexqgv8AR3SdPqg+2g4v1zRBQa5FSzHHkMOh2l04JCl4sicHOMbQFTauaBacfQAjS47Y1ldkunL24RfdurfY8rmYTYoOVT7RJ9IOcqTMJjcrTtQ0qBfM6tjgXpQZiyc4A61ty0LuHRy1j1FwGRHioP4/3ygiO4euxwp2EsjH4jdiuPaEcpnxEd2DeJ7+5QmMd8SgBDw1C2vbEnfp1v3S9MQMiQXEmY8kFHGDUqoMYHAHdqhWZSam0XWkFvAkuqNP8a79VfzCnHepUCGAPgHS5Osr0H5V53vK9i/qzazrQc0cL0vpK6PlQVbf2At8Ef0+Q89GxqXBTqKXOUvRPcmTXG2MlKSeyfdqLTdD1sqoVVt1wkZknj7c/kE9I0zWn1B59WDtL9e6HHmD3eeBkv7a++8ijxr7aSRoeflIMQT2RjoG2a60jfkN0=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU4PR04MB11791.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(366016)(376014)(23010399003)(56012099006)(10067099003)(11063799006)(3023799007)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Zgbbfycx0FzLoJuurzsOvgixDFtLWb1FhFPyPGcORoGpU4f24REM0RiaG3R5?=
- =?us-ascii?Q?FSqB4vJd4c8JrDTYIvZPNcYhTd8Yb4fkmbeI9x59Dm6ZiD6C6h/kvKqFz4rW?=
- =?us-ascii?Q?IWwfSypU6OR4rBnyHpTA033yRRb118/UDjtz4tpi2TLARaXnHsEoQ5IKc49L?=
- =?us-ascii?Q?Odn8YEvQ704+4MnvVKUeKm41Us0PAEsCZpd5IEl+8Hpz2pun/E8qIZMLoN0u?=
- =?us-ascii?Q?qvSQc5PDdDz+5iI46/OufU9fAIXI8uZxpoKBeqSoJjHFTh9HU7+WXg/gHzV3?=
- =?us-ascii?Q?2nRdUlGhAsdDj/rId/ksb3UnwyhyLjsEfgl2ZCQKbU3CyPAAIu86sa7vQcAL?=
- =?us-ascii?Q?GjJy2e7GB171FP+Xn6763uYbQyk5bI9UKSNIkvAdCtLhtmNkXdcHFw5rYYx1?=
- =?us-ascii?Q?l6e3uATuzCzBKAR0j5oHnVyftv9AC3Y9MzYEIno0pruAxv9sd/WBVkuog2pi?=
- =?us-ascii?Q?w+d/EKeDEdOb7YOZ9RafmEjjU0GthEwFyl1HRlWSxDBwofgVwBcTsAK6aKSm?=
- =?us-ascii?Q?LQGJWtMKQlpwWkE2z9o2Fda697jc18vdjflo88heTHhx3ZWb6AvPH91Hysy5?=
- =?us-ascii?Q?RaN9Ywgd+OE8V4vxY4ntm/B3k2oympHAxCTg9qNALNAXgTpdeyxmfh2fVlCV?=
- =?us-ascii?Q?RlwpiJCjJfdhOeH+vQXBno0T526J1vyDtn+lQKHONq1PDmKrg41/keURzFVg?=
- =?us-ascii?Q?2vB73Px2gVHTFF+aGqDDV6pdifk21c0VB9h5FN/eReuzi5TiV5/KWEdN8K6H?=
- =?us-ascii?Q?8nKWlscOwR+8PmNElEOCG9PZq09u8jjoQieTptiK05Ircoc7VoyhJvfRtvLm?=
- =?us-ascii?Q?qTCzzvbFhxm5Vmmw4dGCyESL2eemR6G5VVY9Jj7rBCR2B5aWl0NKFOV4Znki?=
- =?us-ascii?Q?spd1Tz2Dx73SXnlPUNrKlaWd/GpEWrfSHqJC1V/dmNZUY5seRiN9yezCZiUb?=
- =?us-ascii?Q?/Hp71KZbvblt9Fflv1+1PPv6LYrlozNYoYj9l7eUQCJ03nC3HN+QTbk3myvX?=
- =?us-ascii?Q?audTCl00NO+nupc7tGNU0ZXd5QF6xFpTiurO52vJyR+GJFcj3JYTKqGMS6QH?=
- =?us-ascii?Q?X0mtRgPqJQXLjRnlPbA5AqjedP4kwRkB7MuR16eanQ5EDQZMguh0nI0NEK3q?=
- =?us-ascii?Q?wopfsa1mYgUP88xcsQAvBYcQ6mq1tYViJHgYCnhWx8wgnPoiWQJvh/Hs596i?=
- =?us-ascii?Q?/qygLc7OThmHTd9AxGdaHvSjF1F5NoYZggpattdjNU1CwDV6iAL9zMLD8ccL?=
- =?us-ascii?Q?7hnUuc3jv0Owo354K/RCPdTYmLavleFJGBMPKsS7jA5CSaGb3lbJJ7nQ+ulg?=
- =?us-ascii?Q?ztjLxEuTw08fIlnU818oSmzduEiz96aNbtQEIRHCm/01wYuyH9PkBLIEH910?=
- =?us-ascii?Q?UsQAIovoQ2rzpM9Ppx3dxdb54uJVDOf8bMUHloV/G/F7NXMKf18MamxjIcJO?=
- =?us-ascii?Q?YREV/98dYq3Nn5ruVUZbIWiPvO2+Z0nHjJVabRigsKW46FQNk5rX/wMHDmEB?=
- =?us-ascii?Q?vButBAYT/1ZAbYeC5Ctz3uZRJI18GlkYxcYel+SlUvRPu2IZADxI4u5CvPM9?=
- =?us-ascii?Q?m7snrp0I2a9HotElkbgPzw6wzIov2l++a6EOU06yTI1/qUj25xB3EKebztiz?=
- =?us-ascii?Q?UuO6HjIyIM5ZsWJYyBGLGwR82xRpbYNhYpRQJc2suBpPkWuV7OlOhSRQjtTn?=
- =?us-ascii?Q?3QAqC+FKj8zD9ICjKeA2uDwtX3amgVyJhGrZFREfpk6NbM2nm+O73PXb1W1C?=
- =?us-ascii?Q?UZ8u82NoN2+PQWODiEssULXVPGp3jTg1jKYFnn6IJcMqPJ0MKsNs?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 63f18994-5565-4a3c-c4fb-08def959a734
-X-MS-Exchange-CrossTenant-AuthSource: DU4PR04MB11791.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Aug 2026 16:40:58.8793
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: O/mFbFp45ZrVxATejO70nl/9yQzvRMXzn7syyOCEd5wxnbCpXldgMxxJChiBATXZsQIRxFZoyRl+DoyWOMPwSoDo3ZysHd6bWH1JLqNLTyFjeHscoF7ye7S04oKAaTdn
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR04MB9659
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_094103_791883_DACDDF03 
-X-CRM114-Status: GOOD (  16.51  )
+X-CRM114-CacheID: sfid-20260813_094418_876016_B63991C2 
+X-CRM114-Status: GOOD (  12.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,39 +125,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 13, 2026 at 05:58:18PM +0800, Linkai Gong wrote:
-> [You don't often get email from gonglinkai@kylinos.cn. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
->
-> If kasprintf() fails while setting up mailbox channels, already
-> requested channels from earlier iterations were never freed. Route
-> the failure through the existing cleanup path.
->
-> Fixes: ffbf23d50353 ("firmware: imx: Add DSP IPC protocol interface")
-> Signed-off-by: Linkai Gong <gonglinkai@kylinos.cn>
-> ---
+Hi Cristian,
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+I tested this series on an RK3588 (Orange Pi 5 Plus) with a sink that
+actually needs it: a Sony TV with a 256-byte HDMI 1.4 EDID -- max TMDS
+clock 300 MHz, no HF-VSDB and no SCDC, and 4K above 30 Hz offered only
+through the YCbCr 4:2:0 Video Data Block (VIC 96/97/101/102). Without
+YUV420 output this display has had no 4K mode above 30 Hz on the
+Rockchip HDMI path.
 
->  drivers/firmware/imx/imx-dsp.c | 6 ++++--
->  1 file changed, 4 insertions(+), 2 deletions(-)
-> diff --git a/drivers/firmware/imx/imx-dsp.c b/drivers/firmware/imx/imx-dsp.c
-> index ed79e823157a..7e3f45ddf0c1 100644
-> --- a/drivers/firmware/imx/imx-dsp.c
-> +++ b/drivers/firmware/imx/imx-dsp.c
-> @@ -99,8 +99,10 @@ static int imx_dsp_setup_channels(struct imx_dsp_ipc *dsp_ipc)
->                 else
->                         chan_name = kasprintf(GFP_KERNEL, "rxdb%d", i - 2);
->
-> -               if (!chan_name)
-> -                       return -ENOMEM;
-> +               if (!chan_name) {
-> +                       ret = -ENOMEM;
-> +                       goto out;
-> +               }
->
->                 dsp_chan = &dsp_ipc->chans[i];
->                 dsp_chan->name = chan_name;
-> --
-> 2.25.1
->
+Base: drm-misc-next dc2f9f7fed1a ("drm/komeda: Set display/writeback
+clone masks"), with the dw-dp v11 and usbdp v13 series applied, plus
+three local patches: board DT changes enabling USB-C DP Alt Mode and
+pinning the VP2 dclk to V0PLL (DisplayPort side only; HDMI ran on VP0
+from the HDMI PHY PLL), and CLOCK_ALLOW_WRITE_DEBUGFS for unrelated
+clock experiments. On top of that, the samsung-hdptx clock fixes v6
+[1] as the runtime dependency noted in your cover letter, then this
+series.
+
+Results on the HDMI-A-1 connector:
+
+- The connector now lists 3840x2160 at 60/59.94/50 and 4096x2160 at
+  60/50 for the first time on this setup, and 3840x2160@60 shows a
+  stable picture.
+
+- The negotiated wire format matches expectations
+  (/sys/kernel/debug/dri/0/state):
+
+    output_format=YUV 4:2:0
+    output_bpc=8
+    tmds_char_rate=297000000
+
+  and clk_summary agrees: clk_hdmiphy_pixel0 = dclk_vop0 = 297 MHz,
+  just under the sink's 300 MHz ceiling.
+
+- Cycling 60 -> 30 -> 60 -> 50 -> 60 re-synced cleanly every time,
+  with no errors in the kernel log and the VOP interrupt rate at the
+  expected per-frame values throughout (no underrun storms).
+
+To be explicit about the scope, three things were not covered: 10-bit
+output in either format (this sink's 300 MHz TMDS limit rules out
+10-bit 4:2:0 at 4K, and my compositor cannot force an output format
+to exercise 10-bit 4:2:2 -- I can retest with modetest from a console
+if that would be useful), and the 4096-wide modes were only verified
+in the mode list.
+
+For the series as tested above:
+
+Tested-by: Igor Paunovic <royalnet026@gmail.com>
+
+[1] https://lore.kernel.org/all/20260811-hdptx-clk-fixes-v6-0-75bca0ee5753@collabora.com/
+
+Thanks,
+Igor
 
