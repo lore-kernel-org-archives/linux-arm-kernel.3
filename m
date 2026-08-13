@@ -4,89 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E82EC5CFDB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 11:10:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7816C5CFDB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 11:10:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qEhbAdeBtYd8Pzzm6iRICcp6vTdyVfBx3PFK2vEBGKU=; b=VLBu5HZBdBM1xVKQZQc1zGEV/s
-	+XwmCMa3aaMa3HPmLhpU2izEDdG3+nHLQ/+bjB4zR++b9jDfUU8yamtgU9tcq8Nlj83Jtjc1tci03
-	m+XYrViNQzJNcFK1dyJOqF97ZAE22IsdUChW3MMfNHdzMZSCBJ5HJNL12QIyjya1FKHzoPEhDXnOY
-	RNgfx2Mw6cH4uFI7s+OF8yeadVrr0amQQUEECOP/4vVRBGY72sy/7d4psQRLHAqSKmjqFw4ZXiKXc
-	LISTIosTcCiT2g2m9egeSwP78B1pkXHBh7B3MDl1wk/j2doFOvb7WoMdF8ceHfWc8ObfJrrhMX8OF
-	XMJy3a1g==;
+	bh=TPEMR8s91oCRNTEPx4cjBv4/QdcijBwc2O/2txPE2jQ=; b=aOUfgm/dDc+cwga21flutAN10/
+	opI/TkdUtukxcgOuXLMlmOZ+KGC/xnM4Dm8lLFFszR3bK7kyxL51/qmD8OMEF4GjjbTlUc4S69Hjw
+	zKQwUJeF6AN+EWtUWeTS4lL772IfvTzmLW740oYwK52vZWsLgGHZLfVEDw7B7YYl7IVTFWUwWqkOp
+	thM1bM188eQ00RwfWXOHR6vPMa+s+1i6RCanXHwNJjFrmOplxrtzBL4M1Lc8O213d3plLF/sB3OsD
+	BV3RP5i3l9hKYNF6rkKyAcIm+od5WXwgYmQsq5lgm2xeF4rmvvHIJn5KlFEaInHfTEFoOjm5mkdBQ
+	bf2m04JQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuTJx-00000000Wvy-0L4E;
-	Thu, 13 Aug 2026 11:10:01 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1wuTKW-00000000Wzv-0xHp;
+	Thu, 13 Aug 2026 11:10:36 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuTJu-00000000WvL-2tfG
+	id 1wuTKT-00000000WzG-2EyP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 11:10:00 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2cee9b74ee1so4600885ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 04:09:58 -0700 (PDT)
+	Thu, 13 Aug 2026 11:10:34 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-38759bcd877so754026a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 04:10:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786619397; x=1787224197; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1786619433; x=1787224233; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=qEhbAdeBtYd8Pzzm6iRICcp6vTdyVfBx3PFK2vEBGKU=;
-        b=bqHgc9iMpVPKh8CJJhzJGpHRaxgHH+V0nOB/l+q3lsIJKA/8pXa65IQrkU8TMu6xLo
-         kAAwCjWpX59RB+6YCT/bG0MensfmkbtNpaQm5s9uUaTS0VhctQf5pBDOG8gJVb2YMtDz
-         W3PXuLbXOzp8CpWuGLdmw9GFsqGV3YqIcVanhNmXLTzlNi2fXFasOpIs723gBryS5qAk
-         v09iwFqxOg+4TEeqVqVYMswpQ3Iz5TG92Bml/GkCZAIX3h8Y/GWWMepGkncROVXRst8O
-         NBPhLKWyVwwjuwSut4ognL66c94A6VUQ7I/AEb7IoISEK2OMF79xkpgAzqIb5MaOV5M6
-         kfPg==
+        bh=TPEMR8s91oCRNTEPx4cjBv4/QdcijBwc2O/2txPE2jQ=;
+        b=TqIJcQf8meSsf9d+mOk0VZkhZ0bBtKODcvlmgLBXigjpNURN6Y9nlN5mMO1Rx0W4QY
+         zxTISLRzFp4Umkn3Z4IVt30BISFUne1akwr4agfJq+gvt+2ceU+OCSqCemaxt3PbMPUF
+         m9WPTV4tD6hyyKBMwiebcHrrEKvYNC/hjrNjriD0k9dE9uI6vtjPj0uhmGNX2rRCGj9A
+         9fz5QOa6Wpeb9AwxperjlxJwge5PAGoOzB9rrWc0eX8dQe3d7Np1WQPoz7zbeCZFfbxU
+         y1Hyu9Z/vkVeJBm0qJW1u3syvp49u6r6JwRZB00DGZyFKoUO0a1Nb/CPvpAI4Fr78Baz
+         5xZg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786619397; x=1787224197;
+        d=1e100.net; s=20251104; t=1786619433; x=1787224233;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=qEhbAdeBtYd8Pzzm6iRICcp6vTdyVfBx3PFK2vEBGKU=;
-        b=qTaygB2BQHm1qAz4RG3k0NwcmbEPNwa9oogT8JT5Aw+1CbbrbaR/ecUHwJQDLIWhky
-         UR6SkC7Cz7iwXCKoxZNArgw5kdWLHfAt51U9tO2yZvcPocxLu75qLN9QGvSgF3VimgPG
-         vWVB1LLv5sZUMmuBZHHa4rIPIu+v8Dv6wR2rfi1B+0w6Agbf98XWoApvg1a+Hj/+p83U
-         2BR8Vqj5opyJqorl2n1wVlmW4/V+8m4ZY9DRrPYQSavdQ15VM/yR9zjrQbG2bIRf+iOj
-         kiQeriT+mMDBWzMpnafxamJnPS//O4pjF4uaV238vAmapGEtRl3irW0OsdpBDT2lxAgk
-         N3gA==
-X-Forwarded-Encrypted: i=1; AHgh+Rr1hrU8YBkL01avHXvzF1j+Pl7+325yWRelXwclRqtHO1t58DfdzI7A64CyvFSAet6qMZIESJoMsjXyqT0Ki2xU@lists.infradead.org
-X-Gm-Message-State: AOJu0YzhVWPPLySBc81P0uIkN1XPKRBTrrBMpZkX47q6rQBOu1IPsBqy
-	M6Hg8F3NZjCmGyCGBskBo0Cm6RnrArQqEwDpYcR9WO8EVXaZ1e4rVqVi
-X-Gm-Gg: AR+sD13JjvhlOVzWyVjf9qXt18sawMt0vdy7ap+tJcW5enm03xzY/kbPj/84Smvd0L9
-	SH+HEWGqKwBXiN7RYwP9I+AvEW31sd0g6VBCE83bpzx4XH73SLPIhLTwUP1mDvI9U9kYX2NOOGT
-	X3LjMYT9XKAkh1NRnJi620T3I/pqGd6OAN1izDLsbaocNPW1BwXyIqRZ7X2ZDT/ddgbbFVHIxpJ
-	8FWUeWiPr3+0ze+OyTQiWQSvDHNLFTiog7n1q7ExuxM8Alsc4A1a6y9gIRf/g92PM5Lj7umBSNQ
-	QvUZiw+Swj/CVampFA21ssV24xWI9KlHLPInrgMdV/M5gs+wZw3oNSkgwXoIoi9MOjgc0fabg/9
-	khvrc7C9NjDZtDDuJzUkX22eslYPFk8Cf3Hgn73+L/IITMLLSrKdyeXg3ih/K8DKXjLyX72ABEQ
-	TldLHp7iEaCJzVcD+VTs/Z59+neHJ7KHsVtybIPDfsUvyyRkdWeIiOXS3hwM4SitgkHuF1O6FpE
-	meKbIjVL6NYw9kiWXHwWXf37IvZJ2MB4Of6MB3CjBYmbwbuHLYprDmbPIX/CTmaXd5zcdpu54mP
-	rxI=
-X-Received: by 2002:a17:90b:53cb:b0:381:1c96:829b with SMTP id 98e67ed59e1d1-3931e0241cemr6358795a91.3.1786619397312;
-        Thu, 13 Aug 2026 04:09:57 -0700 (PDT)
+        bh=TPEMR8s91oCRNTEPx4cjBv4/QdcijBwc2O/2txPE2jQ=;
+        b=E2LIwGtIlSkbgG8tgpNDB1Qv9Asx9YnfxIsY4VHzZb3RJy3L7M3kDsYdgwN2vvabbx
+         ziCVGUnL7XLYjziYRmU7GmkWE/igEWUJiFv3jVF9a+HMXnXiZv8qgYh1d+9zNC0zXtjc
+         tpf3tZDYTD45G7CA2cIWf4WLSvs1h+/qxWPeZpw9yagETwNXZ+k8q+2D3gYxnf7ICENr
+         Z2NQyKyqvkvDmrkS+sBOHEfWIyT2sonA/6Tr0a7Se44lf2gGDoXa/H8Wfi8Ao+MNx5kr
+         Q/zJbbiuJfCI91uAydJJthL1F9AY+VYfrjB4S+6vOfSWxx8v2vvtZuJUFn59XaOgUjH8
+         iWow==
+X-Gm-Message-State: AOJu0YxDLDlPuGxm4q7n0SAnSJenMX1dEXVkA9S6Fy564RJceYIW3bft
+	cj6xhffvhTRZNMCaBeXSkATy4Fo5IWN9Vd8UC+Wwwio7VUB5WyWH2tCAVRrAmp6s
+X-Gm-Gg: AR+sD12v+wa5QeIuKAMe85uzWXnElTd5W3e4h82RBb4KbKcpWj5bAFpSnzXPyNlbuCA
+	SbLL4trlfPArKe3oE+SXzeTKks8tUZse+L86Jif1/rH6vOGYt7ab4ci4QoJWAYlMqql4ZAzyeGU
+	l5tdB9Wa/3FsoweEsECd0fpmWJlb/wmt1yRMEmWPj9hDhVQCDIGKnnL83lyI9IefuC8UvHq55Fr
+	9IPaIQmFwJOlwXRiqQ+cipdUyPCqSvBiNqWVt4R8HEK7Jnm6GRLw6YKBsGsW8FTc1iS1GccRi7v
+	78WE42GjdRMY1QIIkrVaNGi8+RTzMBU4w5O3wxUL0/ux6xegLvJKJfblMSRW8UrGTyWX9i+sqzB
+	06/y5OgbfqKpvyXF5p76f61RR42d7ifo54ZGG2tly4lGrtaPxVlk/LM4wFv4KJBGkUWyCB4aoRv
+	WEU7TQWhZqLqzjZ91yEfXPEeeV03ldUO+qqihZa3mmwizypTWearoOACE+tdAsQFN1oTZrf9stX
+	JWZuSdUA8Adelz46g9giLlOwQzt1O4bd5v59DtO3TDt4NV/sZuD4InWrb7osNINjxS3Vx9SNR7J
+	k+J2SYIhO4zN
+X-Received: by 2002:a17:90b:4a10:b0:37f:be6c:f3f2 with SMTP id 98e67ed59e1d1-3931dfe0fdemr4953305a91.2.1786619432138;
+        Thu, 13 Aug 2026 04:10:32 -0700 (PDT)
 Received: from localhost.localdomain ([2406:7400:94:ab62:887d:e555:df21:3318])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1412da7d3cfsm10442224c88.15.2026.08.13.04.09.53
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1412d8bd946sm8358848c88.5.2026.08.13.04.10.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Aug 2026 04:09:56 -0700 (PDT)
+        Thu, 13 Aug 2026 04:10:31 -0700 (PDT)
 From: Manush Prajwal <manushprajwal555@gmail.com>
-To: Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
+To: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org,
 	Manush Prajwal <manushprajwal555@gmail.com>
-Subject: [PATCH] pinctrl: imx1-core: fix device_node refcount leak
-Date: Thu, 13 Aug 2026 16:39:38 +0530
-Message-ID: <20260813110938.1512-1-manushprajwal555@gmail.com>
+Subject: [PATCH] bus: arm-cci: fix device_node refcount leak in cci_probe_ports()
+Date: Thu, 13 Aug 2026 16:40:14 +0530
+Message-ID: <20260813111014.895-1-manushprajwal555@gmail.com>
 X-Mailer: git-send-email 2.46.2.windows.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_040958_749564_AD51AB3A 
-X-CRM114-Status: GOOD (  12.96  )
+X-CRM114-CacheID: sfid-20260813_041033_574846_AAFFC48E 
+X-CRM114-Status: GOOD (  12.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,45 +96,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-imx1_pinctrl_dt_is_flat_functions() iterates child and grandchild
-device nodes with for_each_child_of_node() but returns early from
-inside both loops without dropping the reference the iterator holds
-on the current node. Since the function returns a bool rather than a
-node, there is no legitimate reason to keep the reference: call
-of_node_put() on both loop variables before the early returns.
-
-Found by inspection; the sibling helper in pinctrl-imx.c avoids this
-by using for_each_child_of_node_scoped() instead.
+When the number of matching child nodes reaches nb_cci_ports,
+cci_probe_ports() breaks out of the for_each_available_child_of_node()
+loop without releasing the reference held on the current node. Every
+other exit from this loop iteration either continues (handled by the
+iterator) or stores the node into ports[i].dn; this early break is the
+only path that drops the last handle to the node without a matching
+of_node_put(). Add it before the break.
 
 Signed-off-by: Manush Prajwal <manushprajwal555@gmail.com>
 ---
- drivers/pinctrl/freescale/pinctrl-imx1-core.c | 9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
+ drivers/bus/arm-cci.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/pinctrl/freescale/pinctrl-imx1-core.c b/drivers/pinctrl/freescale/pinctrl-imx1-core.c
-index b7bd4ef9c0..fa8f6a7e03 100644
---- a/drivers/pinctrl/freescale/pinctrl-imx1-core.c
-+++ b/drivers/pinctrl/freescale/pinctrl-imx1-core.c
-@@ -551,12 +551,17 @@ static bool imx1_pinctrl_dt_is_flat_functions(struct device_node *np)
- 	struct device_node *pinctrl_np;
+diff --git a/drivers/bus/arm-cci.c b/drivers/bus/arm-cci.c
+index 7f2baf0571..5ab3d74c9a 100644
+--- a/drivers/bus/arm-cci.c
++++ b/drivers/bus/arm-cci.c
+@@ -461,8 +461,10 @@ static int cci_probe_ports(struct device_node *np)
  
- 	for_each_child_of_node(np, function_np) {
--		if (of_property_present(function_np, "fsl,pins"))
-+		if (of_property_present(function_np, "fsl,pins")) {
-+			of_node_put(function_np);
- 			return true;
+ 		i = nb_ace + nb_ace_lite;
+ 
+-		if (i >= nb_cci_ports)
++		if (i >= nb_cci_ports) {
++			of_node_put(cp);
+ 			break;
 +		}
  
- 		for_each_child_of_node(function_np, pinctrl_np) {
--			if (of_property_present(pinctrl_np, "fsl,pins"))
-+			if (of_property_present(pinctrl_np, "fsl,pins")) {
-+				of_node_put(pinctrl_np);
-+				of_node_put(function_np);
- 				return false;
-+			}
- 		}
- 	}
- 
+ 		if (of_property_read_string(cp, "interface-type",
+ 					&match_str)) {
 -- 
 2.46.2.windows.1
 
