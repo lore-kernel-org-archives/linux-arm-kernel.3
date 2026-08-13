@@ -4,73 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7391EC5CFDB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 21:35:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10CB6C5DF6A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 22:07:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T/fpsiyFB9X5GjYqnpYmGfRoMhMa23+uX4rHc6F+FvE=; b=HnLAej2/DxZWj1vZTkrBsr4GMX
-	MPQMTNJR7xXbRTzXopLE6BChKdl1h2TJLoNGKhq5A8K+nq9MeTLaife6a6QzhySy+Hupp9YveGxjv
-	fHttpltW9eWFcKkMfnGaWSSMMxZ3dcGQ4PmmqagQkweNuqa/6MsHWq3BTfaKbmdsBgFRDOi5RFjEX
-	Iq95895Pm6ys8FSyLLmUNNDgJ9ySKUiZi3A/8ihFaLezS7QBr7m8ylbR1kAs2fo3Y/faEBWAekk51
-	v+31DDhyF55Y06ny3suYg1FSoPXHuXVAD4tQJZp8Cvdwa9yrifcLylZp22KYj55FVvj/WC3ocgcAV
-	aF6CD21g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qRmz8k6sXK/ER/gcHUFE4e0+JlpkSGRojfQ+9B7tXcE=; b=m3M7YQUq5w+RhOKyoatitqeYwd
+	s5TB7xBqXCGuYT+zvLsTKpn1tmdcJWNPut7b7CEMn4aq2mojsHiJfTFp5Fu/wSPyT2oAQZsHmM2J4
+	rLgU+XPzJBk1rcaTq53uD9fksAzZDdeANm3wMlWMbr7QBAfj50CKVJK5oYBO1Cw+Vu2K3hy7cDHbS
+	ce7RNNeMKFvgVxgf46R6MmGlN1FlRjr2SOV+fiJg4eln/rtWgIVvt6LjerN0A/Vl46TuHoMySNdEg
+	LOi+TJsMN7jzSBrF0H/DCgCJ2omZpPf/Ag22fDO/OhOTUIXLaVnTAlLpQKS0lmifDSli5qhA+cC1Q
+	SqoYEf6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wud4e-00000001ec0-3KHV;
-	Thu, 13 Aug 2026 21:34:52 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wudZg-00000001gDI-3Q4K;
+	Thu, 13 Aug 2026 22:06:56 +0000
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wud4d-00000001ebs-1eYo
+	id 1wudZd-00000001gAp-3T8E
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 21:34:51 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7831D600AF;
-	Thu, 13 Aug 2026 21:34:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBB641F000E9;
-	Thu, 13 Aug 2026 21:34:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786656890;
-	bh=T/fpsiyFB9X5GjYqnpYmGfRoMhMa23+uX4rHc6F+FvE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=JNmRDUEDF1ldVZW35B1Fn5gnZje8hF8uc4NH9KRb9t24bVfP3SmaMjIc2N3DENhh/
-	 WlsjqrCpjCahx7wpIHgOGt8Dp90I8Nd4UjQeYP+Pdi6wg2jLADl/l4j53gLihVG0a+
-	 Gzoq/hPuJFr/WXNnD+lBUn28oghif8pNKN8ZlMCtMYaDr1DyW/9JrsryBspF9+y9Lo
-	 HZ1OMDt3LXvrIb7mNDY8I7y8PWE1RqxwdADMZPH8XrrDa+qEVwg4Ks0X4+MO4dLTY0
-	 dLH3MUkS47jhCiekmJNoPuvZWTdjHmM+ZMCWF8L8DerYmOwcwf/NoHqklotlPNcImc
-	 pycJXXBLQzm6A==
-Date: Thu, 13 Aug 2026 21:34:48 +0000
-From: Eric Biggers <ebiggers@kernel.org>
-To: Demi Marie Obenour <demiobenour@gmail.com>
-Cc: Bartosz Golaszewski <brgl@kernel.org>, linux-crypto@vger.kernel.org,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>
-Subject: Re: [PATCH] crypto: qce - Replace with stub driver
-Message-ID: <20260813213448.GB987015@google.com>
-References: <e7aeec9b-11aa-4635-bde9-fb8c7ca38260@kernel.org>
- <20260801171242.GA3567@quark>
- <CAMRc=McL5QQRk8C8zzkHm+FUj-SAVi5PLJr2pXo8eNpaxXuALg@mail.gmail.com>
- <20260811224110.GC1905@sol>
- <CAMRc=MfVqphaVsfcmUXjGmu6m+F6nJYXgAPuTVjZBwFnd48BkA@mail.gmail.com>
- <bc95e0b0-2cc5-4ad6-a319-ae4e159b92fe@gmail.com>
- <CAMRc=Mcno_F2UuLXZ3ruaVSbYhssVK90m3KM=+dwskLMSp8TXg@mail.gmail.com>
- <0d2706c6-79fa-40fc-a24a-6d5ffbf02330@gmail.com>
- <20260813201019.GA987015@google.com>
- <b7e697ee-ce3b-4c81-afb8-00205c2997f3@gmail.com>
+	Thu, 13 Aug 2026 22:06:55 +0000
+Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-6a156627e22so2528409a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 15:06:52 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1786658811; cv=none;
+        d=google.com; s=arc-20260327;
+        b=RCLkMFQPm4A9FHZYS5K/Pt9muDlLWOuBbWp3lm2mULiHb/fsQ3rEPcAs0++o4NMSYs
+         iYB7nPlQB4xZX+PLpwiTl2IWGiusOjcqQTaH1Me0nzwU/O9+P9cB+H7Sh/pXwhPZMBFN
+         f+PeF0hcSHMb2SGzr70L7jKUeyuUxczsbPW8XWWCcDmJ2CvkUalGurBGzaVQH12WbSpO
+         xnejP2bmsGigUhgxsbRC18Q/uztkOZC0t206F2YJvKViBkydQcuoPjN0sLT20mat5n0v
+         GtZx5VGrzNR+mM/g8NZXOFH1udz921cX9/n+7J17EvwMNDRIO6B41zQH8bz807OvGn+I
+         8ikQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=qRmz8k6sXK/ER/gcHUFE4e0+JlpkSGRojfQ+9B7tXcE=;
+        fh=CSSC+kL6+MWvQlyjvZrMWoFiaEjHuyLcD3apR4hTYms=;
+        b=neKD/xJbom5oTgAStdYL1hxTrp6gu7gfNgrACD7MBvxVZj1mX2z9urp1uKQqx63gGc
+         N4DvLnnRnSE3/QFdjAVxvAtOxvlaZiWsGAb0p4Kfbja/OyI/Frs3vICDtuEZT0EhDVSO
+         2t6pmGd4lCvTiiyVE58zQnhE0sEXE2QgMRHK5P5rdboIfbztrMm9x0FcrDV/ifHfQaUd
+         bCSeFys2/JRxcTAr8lWvKP8rzNOK7Yt57TqLuzojAWrgeAkB+M+oDIfdy8z1y91q0OK5
+         CboNoFY6WcPumT7bdQMrcDCFMK7RWNVVPu39dJ3Ba73/Kg4qlyv2uSANSO6Ldye/ORoK
+         ZUIg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786658811; x=1787263611; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=qRmz8k6sXK/ER/gcHUFE4e0+JlpkSGRojfQ+9B7tXcE=;
+        b=PnzjsGr9kE0zRWULtRGnSG1Zg13G60l2h5vD4z2D3h/U5u1H4B+saJMxDbpi0bJ5ob
+         7Vg/RFOUtVB1zOzXjTYfo+NDHVYHvZ2IVxe+/XGV1GwAz7ksHkxDsUfCQ9N89euSVHoh
+         nGVDjjCUbnoCcOXjSDizwljmUInslzpHeGKO7fs13ZbxFAjwLpE1ealY2y3z5bc0W6GY
+         cmcsH17pOk/m6ZvEsSHGGSkpg6csOZvlLPKs6fzwxgJbHFEC0+JPRCm8REXfaRR218Po
+         x/VDvlogVarLo274TGoPBZkXeWt6jD+Ku69/wDJ+LphwD0f4BXwaabTchAZ5GINfhsTf
+         MJLQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786658811; x=1787263611;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=qRmz8k6sXK/ER/gcHUFE4e0+JlpkSGRojfQ+9B7tXcE=;
+        b=RBQoZdhtvLvjmuOO5v3LNQo4k/QW1XEDfAegEFw7low1GahOec+yMm2HNs816BiCz6
+         eo9D4fJ5wK0k6GjgoGOlKs30N5iC9NvTKTF9NinaA2o0+tktpNZ7Cnu/HVKrjFIXhzj5
+         pHsxY4gKcHva1ZyBNePtHYRKms8/z/DdDAIxz2u/9vlpcd6DAXgLDhYw7u6ZiWHuMeVO
+         Znd4IVrC5Mzk4zleUUtfsCDiO2nD3phAIMIHzRLN5jFH2rJKbWwe40WDCD/D/qYzSQw6
+         AG2Orw8pVJzleXVQRmsXmw/jSl8XglgnXrCK8kAeOv0wXDa7E7OEoqCGeV8OS5+7lLm/
+         zg8A==
+X-Forwarded-Encrypted: i=1; AHgh+RpigCSrHfTeGWPbZgu2GoALIxqOADFeu7AllFWjBzZZyHV5N7o/z4IFpwJOxrdua/PeolmexGzjlZq+uwcAKZrT@lists.infradead.org
+X-Gm-Message-State: AOJu0YwaBeUYdb2zOOXzZNUTsaPUydyIbDuJ6fr7SX91WeBmFZu49oRY
+	5TZDdXEzeBrycz9kE7W4OToVfO0aoQ+kbuCa8OiMCWfoSjJNtkxfaj4V6BxZJArZ4bFsYroxYs7
+	6AfkIRSmsGXDjucbX/K1kXvfsPQM2s1c=
+X-Gm-Gg: AR+sD13B7v39n+xcZcAdj7miASL486rZCf0dfE0Ol9E9W8hrf5k4Lxu0dSVRl3SYRjv
+	uN3JHEm1hZqmDJ4TIlwhz0IWdBIrUCmsfuWEdAaoxGwUW9jwOerCrx/+qXiR9k3fv9v3WfZCEVU
+	AIJEt/nLoOuvsOTIrhCNzyyi8eHlQ1t2xAHJcC2J0+uQC7ka3x8XZYL99HK4osOYJPt5tun+bDz
+	bIr5W6CAXRkKo052R+P47LBj6HT8cyCVYmtP2t1Kn1XfZOp4VvzENz+15xhb3X5Tz+Hsdv4UwC1
+	hUXNMjIXvfzIKTetF2B+1o1iyTv9dUbekIxyTWgduJqAoXVUQ6LAi5KjRb7O6puFpH0kC5AwwlY
+	/EYkaj/npUCrQq8dpTb1Qaq4J4N7WuWzU2wYKOe8MAnbl3Ed144Cy9BOkKCEKKTTs53C+4/YFd5
+	j2iLIDuVcCMtLpJzL1HMd1ADWR/9s4gAheZFEg25crc0ODbF4s+u9QF0JPs5E6NucrRQ==
+X-Received: by 2002:a05:6402:5415:b0:6a0:de1e:c4c4 with SMTP id
+ 4fb4d7f45d1cf-6a38af28b64mr579658a12.10.1786658811142; Thu, 13 Aug 2026
+ 15:06:51 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <b7e697ee-ce3b-4c81-afb8-00205c2997f3@gmail.com>
+References: <20260304041602.7539-1-rosenp@gmail.com> <e46362c2-085d-4083-96a3-3e289553d1e2@web.de>
+In-Reply-To: <e46362c2-085d-4083-96a3-3e289553d1e2@web.de>
+From: Rosen Penev <rosenp@gmail.com>
+Date: Thu, 13 Aug 2026 15:06:39 -0700
+X-Gm-Features: AUfX_mxxbLVhx8tsxha-zvWQSeZmObFIhjixo3B6Lj81UBPnX02Dtw-Ochv0CiU
+Message-ID: <CAKxU2N8t5cEuEPUwVTU3Z3rpT9VufjUzenVxdNerVxgBoa_nsA@mail.gmail.com>
+Subject: Re: [PATCH] phy: uniphier-usb3: no devm for nvmem_cell_get
+To: Markus Elfring <Markus.Elfring@web.de>
+Cc: linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org, 
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, 
+	Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>, 
+	Masami Hiramatsu <mhiramat@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Vinod Koul <vkoul@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260813_150653_888678_60BBFB06 
+X-CRM114-Status: GOOD (  11.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,55 +123,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 13, 2026 at 05:00:28PM -0400, Demi Marie Obenour wrote:
-> On 8/13/26 16:10, Eric Biggers wrote:
-> > On Thu, Aug 13, 2026 at 03:09:36PM -0400, Demi Marie Obenour wrote:
-> >>> SM8650 with the QCE is FIPS 140-2 certified and apparently this makes
-> >>> a difference. Don't ask me if that makes sense, I don't claim to understand
-> >>> the legal aspects of it.
-> >>
-> >> That sounds like the kind of thing that would cause someone to use
-> >> a worse implementation of cryptographic algorithms 🙂.
-> >>
-> >> For what it is worth, many common uses of kernel cryptography can't
-> >> use the QCE.  This notably applies to the CSPRNG (/dev/urandom etc),
-> >> storage encryption, and AF_ALG.  Therefore, I expect that anyone who
-> >> needs FIPS 140 compliance with Linux needs to ensure that the software
-> >> crypto is certified, as that's what actually gets used in most cases.
-> > 
-> > Well there's that, and also the Inline Crypto Engine (which is actually
-> > being used and is unrelated to QCE) has its own FIPS certification.
-> > 
-> > Which upstream kernel feature, if any, is QCE being used with?  I have
-> > asked this multiple times and still not gotten an answer.
-> Historically AF_ALG has been used to access FIPS-certified crypto
-> from userspace, but that no longer can be used with QCE.  Most kernel
-> features reject CRYPTO_ALG_ASYNC, CRYPTO_ALG_ALLOCATES_MEMORY, or both.
-> If I exclude tests and fallback paths of other drivers, that leaves
-> crypto/asymmetric_keys/public_key.c (hashing), BPF, MACsec, OpenVPN
-> data channel offload, ecryptfs, Ceph, SMB, IPsec, mac802154, TIPC, TLS,
-> and crypto/kpp.c.  AF_ALG only allows offload drivers for cbc(paes),
-> which QCE doesn't implement.  QCE is broken with IPsec and probably
-> some other networking protocols, as it would wind up taking a mutex
-> in softirq context.
-
-It's a far more narrow list than even that.  asymmetric_keys uses the
-shash API, so it cannot use QCE.  BPF crypto uses the lskcipher API, so
-it cannot use QCE.  MACsec uses AES-GCM which QCE driver doesn't have.
-OpenVPN uses AES-GCM or ChaCha20Poly1305, neither of which the QCE
-driver has.  The non-legacy Ceph protocol uses AES-GCM, which again the
-QCE driver doesn't have.  IPsec does decryption in softirq context,
-which the QCE driver doesn't support.  QCE driver does not implement kpp
-algorithms.  SMB, TIPC, TLS, all usually use AES-GCM as well.  Until
-just a couple months ago ksmbd crashed if passed an async algorithm,
-which proves it was never used with QCE.  There is really not much left,
-maybe ecryptfs AES-CBC file contents encryption?  But even for that the
-cra_priority makes it not actually used.
-
-But we are going into the weeds here with trying to theorize some way
-the code could theoretically be reached.  It seems it's really just not.
-Or at least if there is a use it is not upstream and/or is not actually
-the appropriate code to be using.
-
-- Eric
+On Thu, Aug 13, 2026 at 2:44=E2=80=AFAM Markus Elfring <Markus.Elfring@web.=
+de> wrote:
+>
+> > There is absolutely no reason to extend the lifetime of nvmem_cell_get
+> > to after removal of the driver. Use and free right after use.
+>
+> How do you think about to increase the application of scope-based resourc=
+e management?
+I don't really like it.
+>
+> Regards,
+> Markus
 
