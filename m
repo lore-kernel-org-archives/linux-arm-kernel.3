@@ -4,136 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B9A9C5CFEB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 11:27:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A794AC5CFDB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 11:33:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mg7P5WsXCOzHmfh+hsg5xbi6IkMZi823F1yoqXSLszw=; b=0JyZo9NTXtO6GsRkaOHhwJpfLZ
-	ByFD2KRVB74AE/kLTak+8rFDY0YzK6iJrD+YJHYkBuvp9AzVyeJc+CMCok2BLDAnYSVD0Ssevv1Y/
-	oV8N5djnaTbNvN7OfGt3DQi0NtWPDvj1gO0UOJMnYIlCb8YL6tfnz/PJP4UkfgojZAYyeT/HVIhXQ
-	+8pFCdI0AYYeU/Yx8B71tjtJZ1DfOFcvS3dKyYqpm0zB4ni5W/8/GaGyRPA0ys30aBeZ+XMb87xql
-	D+Bbzqv+VqnrAEizVLzBaoqhIjlQJx3frQdUlD9urjeBTTdAa9ZZh5ypiffaybdttyKvLoUgrq24X
-	WhFpIaNQ==;
+	bh=YZnmnlHOIAnwAFNNa9mq1vsRvjLPPK8mfvrGHyS9lec=; b=RnbS9BkGq3PQUhKqgWKbwjFRwL
+	WtHWynuj0dtj11kRHX8P1ppWCtOwXsKVRDsV7/01KmHaS0+E+6nj3EjUd8RhR6kHicU5gLx6trTGS
+	aDfdECyYiP5JK9bzhGqPOFWQc6qeSYpFjJCeaXHD1ETHl94b2SJL797C03G3I5bQSTMtav9FQSwnQ
+	krq1zHJ4Xp6x34Miw4YUE85WhymFlxGG4wXTVTnRrwLEl13YkO6OqyWBYnVpz7u9DdTsp0+y+CIaG
+	duNQs9zm2QAiZ8mWN3rq4kkJSE8vHiIWlv9d8t4dUfqBstGYNXm9plNH9/XP7WvM77VGnwQL6Ikjo
+	VzlF1T+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuTax-00000000Y4q-370f;
-	Thu, 13 Aug 2026 11:27:35 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1wuTgm-00000000YSa-24G8;
+	Thu, 13 Aug 2026 11:33:36 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuTav-00000000Y4T-2MO0
+	id 1wuTgi-00000000YR2-2sqm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 11:27:34 +0000
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67D992U71820708;
-	Thu, 13 Aug 2026 11:27:21 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=mg7P5W
-	sXCOzHmfh+hsg5xbi6IkMZi823F1yoqXSLszw=; b=ss2wDRbKe6cAcWjKlykf/Z
-	9Z7+52ixIM5YdF4DX8vFilB5rIeU7XihBeaCICQN/QSWvUXlZWPWcWWN7DZffdMm
-	gn7JkSegJjUttRW4dTVuuLPEupSdCnsJiZ9DcTNjvpUaKOEGoeiSS6vg4VJmV9W8
-	N/V4FQleydb4KXEqwSI+JQnjzZ5OVy4EHaFlb/2Oci9HGUfDfuim505+stjEzWXt
-	oAeoBziF4Lfh7px/HSn/j753BX+3mVb6ddmsMIMS0JtW3X6cIGny0kmuOzh3uxG7
-	2MT5K93XVNfnUARxSx3D/T3NzsoH9RVBi+GOT5bhnTAHOAGQ5yoy+6y7RElaLdjA
-	==
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fwvp36mct-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 13 Aug 2026 11:27:20 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 67DBQmae014472;
-	Thu, 13 Aug 2026 11:27:19 GMT
-Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4fxh0gjne0-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 13 Aug 2026 11:27:19 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
-	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 67DBRFpA51380728
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 13 Aug 2026 11:27:15 GMT
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id A1B4F20043;
-	Thu, 13 Aug 2026 11:27:15 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 381A720040;
-	Thu, 13 Aug 2026 11:27:15 +0000 (GMT)
-Received: from [9.224.77.173] (unknown [9.224.77.173])
-	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Thu, 13 Aug 2026 11:27:15 +0000 (GMT)
-Message-ID: <b91acaef-f82c-455e-8b02-6eaea7e1f4f9@linux.ibm.com>
-Date: Thu, 13 Aug 2026 13:27:14 +0200
+	Thu, 13 Aug 2026 11:33:32 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id D09A7600AD;
+	Thu, 13 Aug 2026 11:33:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A806E1F00A3A;
+	Thu, 13 Aug 2026 11:33:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786620811;
+	bh=YZnmnlHOIAnwAFNNa9mq1vsRvjLPPK8mfvrGHyS9lec=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=E4bxJHRsLsz6zpf5Oxm7P7oWjuQ/dqRV85N8xf466bioJ6cZ0WSlA1vp2RyRp1ccb
+	 UuBWbNEOMuDXOBj8JEUoWhIJxdbDBKIjKqq0gYHL0/Vgzd7i7ppXapFjqZ8uU+tKAi
+	 K34G90mW1HxGrIgOFZFmHpe9phvE7/z9obvJeuuLkoTvs35/eRbAqj8AN1vyqfTSTR
+	 CAJq9adnvXAgRukfjoyI1EYhF9XHolu27WlCAzzmFvgNYYI+xzOiYopMp/F6RxG2RE
+	 ZjZikkNIglLLiliS+0dsYDpTGZ8qJrX9uHW4dZ0A0qnNic8O+PWy+5gNVrGZaNcvy8
+	 bkoN6nau5Vd7g==
+From: Sudeep Holla <sudeep.holla@kernel.org>
+Date: Thu, 13 Aug 2026 12:32:56 +0100
+Subject: [PATCH v3 1/9] firmware: arm_scmi: Set fwnode for the generated
+ SCMI platform device
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 00/33] KVM: s390: Introduce arm64 KVM
-To: Marc Zyngier <maz@kernel.org>, Steffen Eiden <seiden@linux.ibm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Friedrich Welter
- <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Nico Boehr <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Sean Christopherson <seanjc@google.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik
- <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-References: <20260812153631.3376090-1-seiden@linux.ibm.com>
- <867blu1ecv.wl-maz@kernel.org>
-Content-Language: en-US
-From: Christian Borntraeger <borntraeger@linux.ibm.com>
-In-Reply-To: <867blu1ecv.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Authority-Analysis: v=2.4 cv=AMtp2X5w c=1 sm=1 tr=0 ts=6a7daa19 cx=c_pps
- a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
- a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VnNF1IyMAAAA:8
- a=b1A7PHJKwOOjf_JuNJkA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-GUID: zMBoPD5SC923-_QfaxeXCs-q1IKN7f7z
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODEzMDA3NyBTYWx0ZWRfXyMGgs+XRx/8e
- UwEsRJlppKGx0euHj10QxfLn55x6nwDbFXqKAQ14XSRFuZoCehEM8DCe4d5F+KJ2+hJn1xUqep0
- PS11MeDzBzauI4vKyR2c4cgmrvxAHU/8IpiHQJ2BytWyyzPGKjCrjfsU1Az2TOrurU+ed1Fg1ha
- K9sTWE0haH6eLD2dQie3TrY4vdO7XAVJfBcYjnHF4NncqmwXSOwh3QFSj6t47IHTQ+Kw763YLY3
- fSi9E1ZMV7urHwyo/GH21hlZmsvu0yfpH66ZA0s2vLzwyKNDnEvhplDucbDyvqkQl5y1CvzcIxX
- TEPezRVsXvhHQPs9+AqCShe7ZtUKba/mBqN1Pnwzh54lpN3JRwy519DYhrqEjtHrJJhoO3v7hL6
- fCXZWlnaCYASdeYlNHOAShmDJ3CLrJFS1vOrO0XgNi44m0K3XduMq5DI5QibyRIsIP6fgVMSc9k
- jYfd+CyB9J6NRjWsbzA==
-X-Proofpoint-ORIG-GUID: YBJx0nVdiloQFoRHZEOu5X1RtnVPgUG3
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODEzMDA3NyBTYWx0ZWRfX4j0qn2/Z+1Co
- sJUJn7YLl413mGTOREkg+qaF8kL0krJU3HcrLtV8HxFYwwHGfurRhSplNrwMYN1/Rti4jlZTsop
- g8JNIcFQ3eesXN+9XjVonNwHZ1OxUTk=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-13_03,2026-08-12_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 adultscore=0 lowpriorityscore=0 clxscore=1015
- priorityscore=1501 impostorscore=0 phishscore=0 spamscore=0 bulkscore=0
- malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2608130077
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_042733_729136_3A1087AD 
-X-CRM114-Status: GOOD (  13.20  )
+Message-Id: <20260813-acpi_scmi_pcc-v3-1-cb6b88b4ebb3@kernel.org>
+References: <20260813-acpi_scmi_pcc-v3-0-cb6b88b4ebb3@kernel.org>
+In-Reply-To: <20260813-acpi_scmi_pcc-v3-0-cb6b88b4ebb3@kernel.org>
+To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ kernel-team@meta.com
+Cc: Cristian Marussi <cristian.marussi@arm.com>, 
+ Breno Leitao <leitao@debian.org>
+X-Mailer: b4 0.15.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,25 +71,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add a call to device_set_node() in the SCMI probe helper to associate
+generated SCMI platform device with the firmware node of its supplier
+transport device.
 
+This complements device_set_of_node_from_dev() and ensures that
+firmware node information is propagated correctly for both Device Tree
+and non-DT (e.g. ACPI) based systems.
 
-Am 13.08.26 um 12:53 schrieb Marc Zyngier:
-> On Wed, 12 Aug 2026 16:35:56 +0100,
-> Steffen Eiden <seiden@linux.ibm.com> wrote:
->>
->> Introduce arm-on-s390. Enable KVM-accelerated ARM CPU virtualisation on s390.
-> 
-> [...]
-> 
->> Based on next-20260811.
-> 
-> Please don't do that. -next isn't a reliable base for *anything*. For
-> all I know, half of what's in -next is broken and will never be
-> merged. This makes the whole thing untestable.
+Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
+---
+ drivers/firmware/arm_scmi/common.h | 1 +
+ 1 file changed, 1 insertion(+)
 
-that was my fault since I asked Steffen for that as I wanted to have the s390
-move clean on top of kvms390/next + s390/next.
-We will switch to -rc release tags in the future.
+diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
+index fe8c22cfb9f7..cc7d11c3c1f3 100644
+--- a/drivers/firmware/arm_scmi/common.h
++++ b/drivers/firmware/arm_scmi/common.h
+@@ -650,6 +650,7 @@ static int __tag##_probe(struct platform_device *pdev)			       \
+ 	}								       \
+ 									       \
+ 	device_set_of_node_from_dev(&spdev->dev, dev);			       \
++	device_set_node(&spdev->dev, dev_fwnode(dev));			       \
+ 									       \
+ 	strans.supplier = supplier;					       \
+ 	memcpy(&strans.desc, &(__desc), sizeof(strans.desc));		       \
 
-Sorry for the trouble.
+-- 
+2.43.0
+
 
