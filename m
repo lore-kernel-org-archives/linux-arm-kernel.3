@@ -4,101 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ED98C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 09:27:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A608C5CFDB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 09:27:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hsFxZ3Ixcxao/UXVeMngQAQyl2hgDxb8MfUV5pS9FUs=; b=MJ2wY6R0LuBcq5BhnSHp77P091
-	P8yrtJ/QryfFAKAdjVfRocW8C0tdOydhOeT+aOCGwrPxF7S/LMaBbkH8K6zdWwwb8UwCDl0IQdfcE
-	cC/shKjncg8YOnWjfXMkaobENyHJ4cIkwCHZcrimfYrLUZFbv84R/sz/GqwwS1g60e6/SzPtXezxY
-	ozzGroS3RGVyPGWMecyliNCU1Z3PX2hpGnNumtOe3ozHmfDS0uIkc74VQN6bgfcQFg8JqT1d2DBaR
-	e5mPs5/fVosQ2HBo1RNjEI3aSJ0PW6s3WKGTumuhOHXoZSo1mJNOdKNxbbr+FYWXJIRZ2aZqxXIxq
-	itFnyQMQ==;
+	bh=c8K+15YOUpp/urrn1ei3bbHIw6RB2VLNWq7MiAQhpqc=; b=H9hcLvbTT3lmqK+0I4bKQEz6La
+	nd8oXzFn5GOwb6q70MS2aoIcgsbEltHii5QiZMRDvj/x5050EbhOQH7lruIXmahp7/MvGgcunmYT5
+	vnVzI5BYiRZKvpd/6iO1SZYncpGYxF70uufRAzyFYhfwHJbA+oSvsthixbsQ2ECKJopugi9N1eTVk
+	yMEIWsOhOcDOlkBiN9c/cHEhlGWVvQm6UAMv2OOQCj3c2YdeJivxgx/h0bw6C8FZILNNSngVVPUo1
+	msqqa/4URlyhPR7HRGoQjMwcRoXwCvP4k1F5MVPPV9JZiU8mVABfHJe8/r8E7ylc+c9UH14/ncaCN
+	nFN1pwkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuRiW-00000000IRw-3V03;
-	Thu, 13 Aug 2026 09:27:16 +0000
+	id 1wuRik-00000000IXk-09xY;
+	Thu, 13 Aug 2026 09:27:30 +0000
 Received: from flow-b7-smtp.messagingengine.com ([202.12.124.142])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuRiS-00000000IPy-2JP4;
-	Thu, 13 Aug 2026 09:27:15 +0000
-Received: from phl-compute-12.internal (phl-compute-12.internal [10.202.2.52])
-	by mailflow.stl.internal (Postfix) with ESMTP id C088513002E3;
-	Thu, 13 Aug 2026 05:27:10 -0400 (EDT)
+	id 1wuRih-00000000IWM-32g0;
+	Thu, 13 Aug 2026 09:27:28 +0000
+Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
+	by mailflow.stl.internal (Postfix) with ESMTP id BCBB013002E3;
+	Thu, 13 Aug 2026 05:27:26 -0400 (EDT)
 Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-12.internal (MEProxy); Thu, 13 Aug 2026 05:27:11 -0400
+  by phl-compute-05.internal (MEProxy); Thu, 13 Aug 2026 05:27:27 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
 	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
 	:from:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm1; t=1786613230; x=
-	1786616830; bh=hsFxZ3Ixcxao/UXVeMngQAQyl2hgDxb8MfUV5pS9FUs=; b=X
-	wk8AWY8y35vFRSuC0ov4nAO2Q2loXiexbgX7ejR4U7I7ayhSOnWRtCRvqtVkMqCt
-	NouaXTbR1h7dbbLl2V5tF8dn2dqWA0SELOs15A5AktZjwZi0+5XIwrBSlu/3FsXV
-	i+r/16Riveo7a8euMTs4OyINO4YhS1ZNn1to4VmG3BnR8uQ1ppBIhaG+BH/6JXos
-	clLt90XpluD8XIVWvMKLX/hJQJIlHQ1vVv4qi/yQkNREj83lXosfpb9QKzjMRgDI
-	vi0umdk+QjLUCr/eD+yi/DoOL24V7uXymAxQ+lNL4e+sf67RZYWes+j8eSOWFS0M
-	iYcNjLrOPe0boUhK3n/Gw==
+	:reply-to:subject:subject:to:to; s=fm1; t=1786613246; x=
+	1786616846; bh=c8K+15YOUpp/urrn1ei3bbHIw6RB2VLNWq7MiAQhpqc=; b=J
+	chNOQX7cEmymzrAnkJA7lvWYy1imq69zWuKIU7V8Kk/eTo76f1c03s45OJRKvbui
+	R2VskZjmr2BLe0AcOBEQnvlcDD2ViT8fRBOm1WlBOTL2p6jEfPlmNyWS414C4yHk
+	iyfoxHkqHNqCue0zm1Lw41EPUGG5h9lJChx+YZ9wJqdjINC+cS1lOgJtQ3pibKOP
+	ea5rgROYnBq36uImEwpUb1rbaCwnVB66WSWqSDTe3p3aDKrTjcMNOyGWUAw6ZOFp
+	wyBojU6Jnb979ghWWqtN8Lrg0OBYbvyl5MBpOclsoWFpEXHDRHMiIroZ1BR0fvKX
+	l6LH43UN88W4zASBXj2jQ==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:date:date:feedback-id:feedback-id:from:from
 	:in-reply-to:in-reply-to:message-id:mime-version:references
 	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm3; t=1786613230; x=1786616830; bh=h
-	sFxZ3Ixcxao/UXVeMngQAQyl2hgDxb8MfUV5pS9FUs=; b=Q/9SiPgSDD5isYTw/
-	kl2IM8TDJ7SyZd4QGFYywlNOQsHuUbdiqPGmnlXeeTmqAs8rTERrfXHcgk7fa5vL
-	eXyz4MpWlEe46/+Nf88v5J9aNZT7ow5exUvmXSCY5S6Iy0cdaz7YprPjB4V3xX5B
-	PelCSqOkY1wgBaupp9rY31nAvUwsBI83HZHxTpHMRJSjmSz6P21lBFC1CLkeKng3
-	TJfGld6jMDu8s14NO7IpAsrKUkWD8Ic8I8d4DhWJrLwEVfi9OzCdC8Q0i/nGjBvo
-	y9VoYyhw0kH4bkDEdB8LYbxwlAGDQ2Ahl/Kv0RWLAo5gLGIamEIQFJWl15jo4Dy7
-	vMvvw==
-X-ME-Sender: <xms:7I19akugtWEUS6DPZSDisOQRe96mDrKGSRwGSSLpHU9mPMxRqN6LfQ>
-    <xme:7I19apqy7lkyKCGEQIpAznxs8-WiSiQ653uMatsa-uUM2gfrkNbPU37rn1DxhNKmd
-    NzzA1SKwKlns-bCz8jYD4057WoB2KLJ01qq4CuiwrAkxUySaVPEIxA>
-X-ME-Received: <xmr:7I19arUpi3rN-uvQmTa8xKsdhGw3uLMw323IJf2e4O1hfND1WsjrSbM-xH7VcXGWOmVvUj5i8g>
-X-ME-Proxy-Cause: dmFkZTFvkSju2jPjsNthsipJjLLcKiFKo2iZfGlFycdFk+MydEAZMZ8gLXf+IJPcsUPR7q
-    8Lu23Zv43b+dFbQ7TjLTmPjFPmS1byNHUQMmyTnEfd3+zp8aMAPcQyxqEG2X7Wh9zAGCZO
-    ASfeTun9KO56biKJV5zVg16tsQhRU+6nbKkIbeQQqpYAylrTOrls7RmnSCLmRbmc2VPoBx
-    vZ1P4cH26vteFh0edZtGGFBd7vW83H5gdsKKOvjG4hwjTKUneZFr39S9vg1vWvHxW1qTXR
-    zUPf2/JEHD3iDaAfdm0gPNK5y+li0Yp5cV+EPNl29rBRAnACwpAGVl/KnlQtSLM0ttX4J2
-    l/am9K2O25bP9VtmYiIW+Ly6VtUhOdy3nwxs4s4paixrmj2wHjw6niht4buWZq5Asathg6
-    Dbkf3vfYVYIuGsr8OqC4kUSpHnopYqD2B1I1lcBGxFLDwkMzgVNIl9UwDGwBGLeAOHbbt/
-    zrpjS30/nQOBC9mfp6MZRGCNVf5ooC5X9K42rk+Wn7kUL8YNSHsfX23UoiiyVImXKYepqA
-    LZeamRMgClsJiboYwdWqADPrqjEP8BIGfaM/h0cYcfyyurW+EBHPTe3j+7YPmX4UWiLHUV
-    sZPMA1wA7khI+wfKRscvUa0o9jFbm+dsi+zz5LhEmixxzjFL1pi6+NaQzMhg
-X-ME-Proxy: <xmx:7I19ah3mDQBzGkzh83Ngyq0CwEggQu3-m416weoqLJgBeoWeIZD-0A>
-    <xmx:7I19agtMs8Kw7___d7YWK26zmLpWguftRWXsk323Xw3tnFevElH6PQ>
-    <xmx:7I19apUVspdMaNcCZmZAF7KafA8U57BSQJkiVPsBIr8lCXH1si_pfQ>
-    <xmx:7I19aowpXoGEJ410Ikjp4fuTgN7RDhSF8iOoY5aS8sVi7eLE0WCFNg>
-    <xmx:7o19aidqPjfiTHJjLmdGvpruDWgk2Cs0qwl36P7cxE5EfU3kKVTnsL4k>
+	:x-me-sender:x-sasl-enc; s=fm3; t=1786613246; x=1786616846; bh=c
+	8K+15YOUpp/urrn1ei3bbHIw6RB2VLNWq7MiAQhpqc=; b=jEpgy3wTLbg+/gDI5
+	mUdvggjWKy6dyYlYxQGxRMXJRm+2t48ub18tUm0YShpuE6Bx4nen971VB4xEFBEW
+	ksB+EOqcEym9p0Vcj43YqHYmWdfwNIx7BBn5WHY0tbiuHtoCRcWs4q+CKpL5+84P
+	ibQ2CG90ADyWsH0NmyMHIimYlGu1faJxqRLCZwUWYWhNsPnR05jhN+8vc5vXTJ63
+	/NgHYSa151nwHuYKOTbiPuk46j9g2+mQqRyLUOMjB6uI8GKOVkDomXutzohb5SCY
+	eKVRiiM2Mt4HXGXZESlun93gkkcABA+Pp6ZlxjQyWwI+JyLZAeyZKbHxNc11HIeV
+	Nk+YA==
+X-ME-Sender: <xms:_o19atKDrgbiDyHeg4Dq8gSr4IB1dYjlvJ_hJVlhql_XpiTTIUMsTA>
+    <xme:_o19aigYuxWhvVLo6jCySzHSQ187dEvsEROWcPAw30KOmfg3c1ybLiA0Nj9dad4I0
+    oSXi9yLwxMcPpf9wzdnoBjPvb890VgnTaPW56tk2F8cBmaMaUJZunA>
+X-ME-Received: <xmr:_o19auN2PB2eZ01dHarhyxttOujtwYUhFzXwr0CT8lcFi6LQsX_UvwlMsUDhNWAxG5waLz4QpQ>
+X-ME-Proxy-Cause: dmFkZTFuCr/cvrFkRUf8ITKF+H2T3+BzZRnX5rHf6gKXH/26Iw/KHABBcdjKQe2rhLwLS5
+    TaMb0vpJrni78/UwkRMYpJ9Y7lQ366meAvyCdu0npRBw9/+Ng04388nGiPzu/U5RcyuVkR
+    w/TOPVCwMsGrhPKD7nbP8LRzzGM0lbM3SZ8Ad5ojSL3i2CqcoeXL16oisQiBvGK1YuUf6e
+    uoh2BP8y5PIY0wC8ImE4FS2TzpbIDM0wVbhBoSSlu3QbvNxjHls85NMxx2CqVfR97FxXk3
+    CFEuyzwYAZcFXpoBx7S62xcdOaonv+ExSnsiZJRLGbhC1b6pOSRjs7Svo+R2b3hKW9mKY8
+    ff8adf94ky3Th4lwWzeN9rVN55lR5BCN83BH2XboF0N0hZPmGbtSUFymvQ9zOQSbsyWIY/
+    VDSff9/Gv2k8R7aiIKcxzGoPdcyKPUC+M8cBRvv+AW4DoQtwpG+SsVojaMPy7fMH/FIPMl
+    mZxut+vppC3vo4kSlJSoZydKFkphNdd4tT0rDuKywn9VOAC8GEQVPx/Zwn3hOWuKanX1PH
+    xqSJxuTSd2tXlkqtzwj6toj9LsJnGXtnEsfIvn3BKNMmmp5W9VoltkjE598mu+iCaf3XFX
+    g4HHN+v62CHSn+Qs6deFpLqNDHGdTqLBwdYYs1lLVuMqbNth2db31JjdXpzw
+X-ME-Proxy: <xmx:_o19at4OC3XLjAlWPr4JsaetVpAuO-lO-YS8tr-SF4S1slG89839SQ>
+    <xmx:_o19alnOZdx7cPWnK9N8eq_ZFexjF4V8AxzqAxonshU04tsDQWgJ6A>
+    <xmx:_o19atKbSmTfla4cszXQQNGEOxmVYe6F_Ti2K1o_nwP5UdwY0UE4Iw>
+    <xmx:_o19atSmUDcAgqSYh74X3ZEJHbmjqeroQGjGFhedL5RY7fFathqyBQ>
+    <xmx:_o19ak1HWZygJY6_xiu1kRMZibI8SVyxZkx-BTKgTZrxH4wDTjTJxPEe>
 Feedback-ID: i7a5e4b5f:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 13 Aug 2026 05:27:01 -0400 (EDT)
+ 13 Aug 2026 05:27:15 -0400 (EDT)
 From: Jiaxing Hu <gahing@gahingwoo.com>
-To: royalnet026@gmail.com
-Cc: tomeu@tomeuvizoso.net,
-	heiko@sntech.de,
-	chaoyi.chen@rock-chips.com,
-	alchark@flipper.net,
-	dri-devel@lists.freedesktop.org,
+To: diederik@cknow-tech.com
+Cc: heiko@sntech.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	joro@8bytes.org,
+	will@kernel.org,
+	robin.murphy@arm.com,
+	tomeu@tomeuvizoso.net,
+	royalnet026@gmail.com,
+	iommu@lists.linux.dev,
+	devicetree@vger.kernel.org,
 	linux-rockchip@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Jiaxing Hu <gahing@gahingwoo.com>
-Subject: Re: [PATCH v7 08/10] accel/rocket: add RK3576 NPU (RKNN) support
-Date: Thu, 13 Aug 2026 21:26:56 +1200
-Message-ID: <20260813092656.2568538-1-gahing@gahingwoo.com>
+Subject: Re: [PATCH v7 04/10] dt-bindings: iommu: rockchip: allow the RK3576 NPU MMU clock set
+Date: Thu, 13 Aug 2026 21:27:11 +1200
+Message-ID: <20260813092711.2568595-1-gahing@gahingwoo.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260812124850.6597-1-royalnet026@gmail.com>
-References: <20260812094106.1391698-1-gahing@gahingwoo.com> <20260812094106.1391698-9-gahing@gahingwoo.com> <20260812124850.6597-1-royalnet026@gmail.com>
+In-Reply-To: <DKMWKH7ECZZM.3GL6MUEUO2Q1N@cknow-tech.com>
+References: <20260812094106.1391698-1-gahing@gahingwoo.com> <20260812094106.1391698-5-gahing@gahingwoo.com> <DKMWKH7ECZZM.3GL6MUEUO2Q1N@cknow-tech.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_022713_042484_2DFF2F5A 
-X-CRM114-Status: GOOD (  22.94  )
+X-CRM114-CacheID: sfid-20260813_022727_813723_E871E3E6 
+X-CRM114-Status: UNSURE (   7.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,74 +120,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Igor,
+Hi Diederik,
 
-Thank you for the run, and for reading the patch rather than only
-testing it. Both of your points are right and both are fixed for v8.
-I am answering your 1/10 question here as well so it stays in one
-place.
+You are right, and worse than that, this is the same thing you asked
+for on v6 and I told you it was fixed.
 
-> That is the v6 comment for the poll.
+My reply then said v7 would carry a compatible of its own and pin each
+side with an allOf. It does not. What v7 actually contains is a
+minItems of 2 and three descriptions ending in "RK3576 NPU MMUs only",
+which is a comment, not a schema, and it leaves both of the cases you
+name allowed: an rk3568-iommu with five clocks, and an RK3576 NPU MMU
+with two. I do not have an explanation for the gap between what I said
+and what I sent, only the fix.
 
-Yes, and it should not have shipped. The cover letter withdraws the
-premise that comment states, the patch under it deletes the machinery
-it describes, and it has no code beneath it at all. It is gone in v8.
+v8 does what you and the bot asked for the first time. The MMU nodes
+get their own compatible,
 
-For the record on how it survived: it was fixed in my tree the day the
-correction went to the list and the fix never made it into the series I
-formatted. That is the second time a fix has existed here and not
-reached what I sent, so I now diff the posted patches against the tree
-before sending rather than trusting that they match.
+    compatible = "rockchip,rk3576-npu-iommu", "rockchip,rk3568-iommu";
 
-> It would sit more naturally in 1/10, which already touches that
-> function, or in a patch of its own.
+the enum gains it, and an allOf pins both sides so neither can borrow
+the other's clock set:
 
-A patch of its own, placed after 1/10 rather than before it. 1/10 is a
-fix with a Fixes tag that someone may want to backport, and it should
-stay the smallest thing that fixes the bug. Refactoring the function
-first would put the backport on top of a restructure it does not need.
-So v8 is 1/10 unchanged, then the extraction on its own, then the
-RK3576 patch with no shared-path changes left in it.
+    allOf:
+      - if:
+          properties:
+            compatible:
+              contains:
+                const: rockchip,rk3576-npu-iommu
+        then:
+          properties:
+            clocks:
+              minItems: 5
+              maxItems: 5
+            clock-names:
+              items:
+                - const: aclk
+                - const: iface
+                - const: npu
+                - const: aclk_cbuf
+                - const: hclk_cbuf
+        else:
+          properties:
+            clocks:
+              maxItems: 2
+            clock-names:
+              maxItems: 2
 
-> would a synchronize_irq(core->irq) before the guard in
-> rocket_reset() be worth having as well?
+so every existing devicetree keeps exactly two clocks and only the new
+compatible may have five. The ", RK3576 NPU MMUs only" wording goes
+away with it, since the schema then says it.
 
-I think yes, and before the guard is the only place it can go. The
-handler takes job_lock, so calling it inside the scoped_guard would
-wait for a handler that is waiting for the lock we hold. Before the
-guard nothing is held, and both callers, the timedout_job callback and
-reset_work, are process context, so it is safe there.
+The DTS patch changes with it, since v7's NPU MMU nodes use the plain
+rockchip,rk3576-iommu string.
 
-It also closes exactly the window you describe rather than a different
-one. drm_sched_stop() stops the scheduler and returns; a threaded
-handler already running is untouched by it, and the comment sitting
-above that code says "Remaining interrupts have been handled", which is
-the assumption your reading breaks. synchronize_irq() makes that
-sentence true instead of hopeful.
+I will not claim it is fixed this time until the patch is in front of
+you.
 
-What it does not do is stop a handler that has already read
-in_flight_job from finishing its work on a job the reset is about to
-drop. That one wants the check and the write to be one step under the
-lock, which is what 1/10 does. The two changes are complementary and I
-will send them as such, with the comment reworded to say what is
-actually guaranteed.
-
-Your RK3588 numbers are also the only evidence anyone has that 1/10
-costs nothing on the path it protects, since I cannot run three cores
-here. Carrying the tag to v8:
-
-  Tested-by: Igor Paunovic <royalnet026@gmail.com> # RK3588, three cores
-
-One piece of news from the userspace side, since you run MobileNet
-through Teflon yourself. As of today the whole of MobileNet V1 runs on
-the RK3576 with the open stack: 995 of its 1001 outputs land within one
-count of the CPU reference, against 1001 channels of zero in every run
-before this. The kernel side of that is this series unchanged; what
-moved was four Mesa faults, the last of which was a coefficient buffer
-whose second operand has to be 16 byte aligned, which is why every
-layer whose output channel count was not a multiple of eight came back
-empty.
-
-Thanks again,
+Thanks for catching it twice,
 Jiaxing
 
