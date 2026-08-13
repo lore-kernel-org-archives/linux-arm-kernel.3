@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EA1BC5CFCF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 15:29:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DB72C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 15:29:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z9AHnt/qAuj3d21YfYVQleWfUbYDuJAIMx2XgoXQLJs=; b=1YVdY8jzE72CGdiHpAQ51rkqDX
-	HEl68SvUVtNmRwb385413sO106Ktk9uDQDLOtbqusT7lfbfxM7fyzg3VXfxpjHyKl5NzgDNj5fBWV
-	J3dFvVzMJkAkEUMBkQ5JT8Plqor9XQKs5r6D8oo50sqjZ0AIO/WlEtlWP8k5cKI9PdzYC9waGgxjk
-	HeiNOXtUliGMcM+7D0qmD0FpOvSk5RFSB49GQeJHjjprV8g1HpwrcUI+uIDT6eRa/sFabTzCVHe8t
-	xh5f1hxjt6U+4hVGJziXwbQ+340oc9mb865pQ8bfMjP3KxQWV3dYcWmw1W0WNliUgX0QELBl91jhT
-	SCIa3Cyw==;
+	bh=iJNC4/SfEazjb1pmB+M17Oo02RDXxWo5vZsdoA6/knI=; b=GaFQpFrcYqOrgd7mBeg6om3tcL
+	m4d5Sb5bdNJQiog0QkQ1BpTwDyBJTADG4Qs9BWswbQqioPrSkuVT5RaFPKUAA6ZBtkQCMKclgI1xC
+	qJAxbddgNCcn9jAM9UVibOh8JkkTeU4rNGrw8odlOD3qgPVIsD1ek1bj/5/tCF0wczrdq0ty4fHJI
+	7DxskHZFXx4XkNoVpIua+NAdmpvdh57jwNrj62oak3ZVUOsLmw/PsFP/NPo1YVEPn8TatmhSTXAhZ
+	BphcLGZ10l97LcJ2d58WQDMHs5JE3jbTUR+PxPX+SRNMWOzBURFlWYOKtmtgEnw3v3SW7is/3Beaw
+	ADvHOT0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuXMh-000000011dN-36ZJ;
-	Thu, 13 Aug 2026 15:29:09 +0000
+	id 1wuXN6-000000011mN-0TXi;
+	Thu, 13 Aug 2026 15:29:32 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuXMe-000000011a7-3fBs
+	id 1wuXMu-000000011ih-3VEC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 15:29:06 +0000
+	Thu, 13 Aug 2026 15:29:24 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A53021576;
-	Thu, 13 Aug 2026 08:28:56 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ECFD31756;
+	Thu, 13 Aug 2026 08:29:14 -0700 (PDT)
 Received: from [10.1.25.28] (e122027.cambridge.arm.com [10.1.25.28])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CE4323F632;
-	Thu, 13 Aug 2026 08:28:56 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CA5E33F632;
+	Thu, 13 Aug 2026 08:29:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786634940; bh=qx6brozNBeh7/y5FVrlrm44UKU9NnyTcp3Fzu62bncE=;
+	t=1786634958; bh=XiCbGqpOXXJXofURPwtzJHhcISrABgmJajxK9Ioz9y4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=sAMWfFvJcAMMbsVIdYXF4AHelg8coQX/75cj2gaMrDnQgHTaiozoU4qrQtyqz0sIN
-	 wTyQG8mr55x3kblByeYOhJPjgaktX+xgJuoBSorZNKEJj+klMnnp0qL/x00chZ/J+w
-	 WnZpf1t3nYT75VqnvhFlXNj0rYkAp3W2wPiSQvGs=
-Message-ID: <d107e4bc-dc60-42e3-bfbd-05544f02f207@arm.com>
-Date: Thu, 13 Aug 2026 15:38:16 +0100
+	b=Wz4RW0h79cKIdIsdDbdMd8NGAcegqk85VdY1+tdw4yN8gzlnr05Af5QUdIpck76X6
+	 zeiPKM1/qTYrljz4IWISGzv11YICemYUYPJ+cHWftg4mGDfdsKJeLy8eqrrAWIx1MC
+	 Ojrc6+AQac06tJK3Wqj+8qD9p2CTw3puSp/Cy5KE=
+Message-ID: <a36e83e2-8f26-4d68-9b5e-756ca8740abf@arm.com>
+Date: Thu, 13 Aug 2026 15:38:26 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v16 17/45] KVM: arm64: CCA: Tear down RTTs
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, Alper Gun <alpergun@google.com>
+Subject: Re: [PATCH v16 21/45] KVM: arm64: CCA: Handle realm enter/exit
+To: Kohei Enju <enju.kohei@fujitsu.com>
 Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
  Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
  Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
- <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
- Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
  Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
  Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
- Emi Kisanuki <fj0570is@fujitsu.com>, Vishal Annapurve
- <vannapurve@google.com>, WeiLin.Chang@arm.com,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
  Lorenzo Pieralisi <lpieralisi@kernel.org>
 References: <20260803134403.80630-1-steven.price@arm.com>
- <20260803134403.80630-18-steven.price@arm.com>
- <CABpDEun3NPr7Na85pmOvdfYQ1DB-2nCcocsyDESXM15bzJU1og@mail.gmail.com>
- <c1f0aad2-33cb-4dab-b54d-d09998fed36e@arm.com>
- <73a03e76-10b1-4e05-b9ea-a2f3b5dc6b3e@arm.com>
+ <20260803134403.80630-22-steven.price@arm.com>
+ <anl7EwU9jSig-uQs@FCCLS0092175.localdomain>
 From: Steven Price <steven.price@arm.com>
 Content-Language: en-GB
-In-Reply-To: <73a03e76-10b1-4e05-b9ea-a2f3b5dc6b3e@arm.com>
+In-Reply-To: <anl7EwU9jSig-uQs@FCCLS0092175.localdomain>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_082905_094677_0904182D 
-X-CRM114-Status: GOOD (  22.91  )
+X-CRM114-CacheID: sfid-20260813_082920_961753_11C5FF24 
+X-CRM114-Status: GOOD (  26.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,119 +86,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/08/2026 15:51, Suzuki K Poulose wrote:
+On 10/08/2026 09:03, Kohei Enju wrote:
+> On 08/03 14:43, Steven Price wrote:
+>> Entering a realm is done using a SMC call to the RMM. On exit the
+>> exit-codes need to be handled slightly differently to the normal KVM
+>> path so define our own functions for realm enter/exit and hook them
+>> in if the guest is a realm guest.
 > 
+> Hi Steven,
 > 
-> On 04/08/2026 13:16, Suzuki K Poulose wrote:
->> Hi there
->>
->> On 03/08/2026 23:29, Alper Gun wrote:
->>> On Mon, Aug 3, 2026 at 6:45 AM Steven Price <steven.price@arm.com>
->>> wrote:
->>>> [...]
->>>> +static void realm_unmap_stage2(struct kvm *kvm)
->>>> +{
->>>> +       struct realm *realm = &kvm->arch.realm;
->>>> +
->>>> +       lockdep_assert_held(&kvm->arch.config_lock);
->>>> +
->>>> +       if (realm->stage2_unmapped)
->>>> +               return;
->>>> +
->>>> +       write_lock(&kvm->mmu_lock);
->>>> +       kvm_stage2_unmap_range(&kvm->arch.mmu, 0,
->>>> +                              BIT(realm->ia_bits - 1), true);
->>>> +       write_unlock(&kvm->mmu_lock);
->>>> +
->>>> +       realm->stage2_unmapped = true;
->>>> +}
->>>> +
->>>> +int kvm_realm_teardown_stage2(struct kvm *kvm)
->>>> +{
->>>> +       lockdep_assert_held(&kvm->arch.config_lock);
->>>> +
->>>> +       realm_unmap_stage2(kvm);
->>>> +       return realm_destroy_rtts(kvm);
->>>> +}
->>>
->>> Hi Steven,
->>>
->>> I noticed a warning in dmesg when destroying a realm:
->>>
->>>    [  158.533495] Call trace:
->>>    [  158.535927]  kvm_destroy_realm+0x208/0x218
->>>    [  158.540356]  kvm_arch_destroy_vm+0xc8/0xd8
->>>    [  158.544439]  kvm_put_kvm+0x324/0x4b0
->>>    [  158.548002]  kvm_vm_stats_release+0x1c/0x38
->>
->> Thanks for the report and the detailed analysis.
->>
->>>
->>> I traced this and found the following:
->>>
->>> At this point, calling realm_destroy_rtts() may fail destroying the RTTs
->>> because RECs are still active and the Realm is not terminated, but the
+> I found that when the host kernel is booting with pseudo-NMI enabled
+> (irqchip.gicv3_pseudo_nmi=1), Realm VMs fail boot successfully and the
+> watchdog reports RCU stalls and soft lockups.
 > 
-> May be we should bail out early in the realm_map_ipa() based on the
-> state of the Realm (i.e. state != ACTIVE). But looking at this
-> I see that we serialize the state of the realm using the config_lock,
-> which is a bit odd.
-
-Bailing out early in realm_map_ipa() if the VM isn't ACTIVE makes sense,
-I'm not sure if it's truly necessary but it's a good defensive check.
-
->>> walk finishes and still sets realm->rtts_destroyed = true.
->>>
->>> Later, kvm_destroy_realm() calls rmi_realm_terminate() and then calls
->>> realm_destroy_rtts(kvm) again. But because realm->rtts_destroyed is
->>> already
->>> set to true, it exits early without tearing down the RTTs.
->>>
->>> Consequently, rmi_realm_destroy() is invoked while the RTT tables still
->>> exist in RMM, which fails and triggers WARN_ON(rmi_realm_destroy).
->>>
->>> The fix I used was to remove realm_destroy_rtts() from
->>> kvm_realm_teardown_stage2():
->>> --- a/arch/arm64/kvm/rmi.c
->>> +++ b/arch/arm64/kvm/rmi.c
->>> @@ -434,7 +434,7 @@ int kvm_realm_teardown_stage2(struct kvm *kvm)
->>>    lockdep_assert_held(&kvm->arch.config_lock);
->>>
->>>    realm_unmap_stage2(kvm);
->>> - return realm_destroy_rtts(kvm);
->>> + return 0;
->>>   }
->>>
->>> I think we don't need RTT destruction here as it will be handled
->>> cleanly in
->>> kvm_destroy_realm() later.
-
-Ack - yes this is now unnecessary. Thanks for tracking this down.
-
->> That sounds sensible to me, I will take a look and fix it locally for
->> the next version.
+> After some investigations, I confirmed that arch_timer interrupts
+> are not being delivered to some CPUs. This appears to be because PMR is
+> 000000c0 (GICV3_PRIO_IRQ), as shown below:
 > 
-> On a second look, I think the rtts_destroyed flag may not be saving us
-> much. If the RTTs are destroyed, we should complete the second round
-> fairly easily.
+>   [  248.769692] pmr: 000000c0
+> 
+> For normal VMs, KVM opens PMR before entering the guest, because having
+> IRQs masked via PMR when entering the guest means the GIC will not
+> signal the CPU of interrupts of lower priority, and in the worst case
+> a guest exit may never occur.
+> (See __kvm_vcpu_run in arch/arm64/kvm/hyp/vhe/switch.c)
+> 
+> [  248.756980] rcu: INFO: rcu_preempt detected stalls on CPUs/tasks:
+> [  248.758649] rcu:     3-...0: (113 ticks this GP) idle=d2ec/1/0x4000000000000000 softirq=1631/1633 fqs=297
+> [  248.759413] rcu:     4-...0: (7 ticks this GP) idle=b77c/1/0x4000000000000000 softirq=1589/1589 fqs=297
+> [  248.760101] rcu:     (detected by 7, t=6003 jiffies, g=4553, q=86 ncpus=8)
+> [  248.760731] Sending NMI from CPU 7 to CPUs 3:
+> [  248.766814] NMI backtrace for cpu 3
+> [  248.768285] CPU: 3 UID: 0 PID: 387 Comm: kvm-vcpu-0 Not tainted 7.2.0-rc2-00267-g7326f0114689 #238 PREEMPT(lazy)
+> [  248.768681] Hardware name: QEMU QEMU Virtual Machine, BIOS unknown 02/02/2022
+> [  248.768936] pstate: 61402009 (nZCv daif +PAN -UAO -TCO +DIT -SSBS BTYPE=--)
+> [  248.769021] pc : kvm_rec_enter+0xa0/0xb8
+> [  248.769585] lr : kvm_rec_enter+0x24/0xb8
+> [  248.769655] sp : ffff800084943830
+> [  248.769692] pmr: 000000c0
+> [  248.769757] x29: ffff800084943830 x28: ffff0000079c6c00 x27: 0000000000000000
+> [  248.770441] x26: 0000000000000000 x25: 0000000000000000 x24: 0000000000000000
+> [  248.770536] x23: 0000000080000000 x22: 0000000000000001 x21: 0000000049d99000
+> [  248.770590] x20: 0000000049d9a000 x19: ffff00000e018000 x18: 0000000000000000
+> [  248.770647] x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
+> [  248.770756] x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
+> [  248.770863] x11: 0000000000000000 x10: 0000000000000000 x9 : ffff8000812ab1bc
+> [  248.771018] x8 : 0000000000000000 x7 : 0000000000000020 x6 : 0000000000000080
+> [  248.771123] x5 : 0000000000000004 x4 : 0000000000000040 x3 : 0000000000000000
+> [  248.771172] x2 : 0000000000000000 x1 : 0000000000000000 x0 : 0000000000000000
+> [  248.771385] Call trace:
+> [  248.771612]  kvm_rec_enter+0xa0/0xb8 (P)
+> [  248.771757]  kvm_arm_vcpu_enter_exit+0x8c/0x218
+> [  248.771796]  kvm_arch_vcpu_ioctl_run+0x274/0x890
+> [  248.771843]  kvm_vcpu_ioctl+0x180/0xb50
+> [  248.771883]  __arm64_sys_ioctl+0xb4/0x118
+> [  248.771920]  invoke_syscall.constprop.0+0xb8/0x120
+> [  248.771954]  do_el0_svc+0x48/0xc8
+> [  248.771982]  el0_svc+0x48/0x280
+> [  248.772012]  el0t_64_sync_handler+0xa0/0xe8
+> [  248.772041]  el0t_64_sync+0x1ac/0x1b0
+> [...]
+> 
+>> [...]
+>> +int noinstr kvm_rec_enter(struct kvm_vcpu *vcpu)
+>> +{
+>> +	struct realm_rec *rec = &vcpu->arch.rec;
+>> +	int ret;
+>> +
+>> +	ret = rmi_rec_enter(rec->rec_phys, rec->run_phys);
+>> +	if (!ret)
+>> +		load_realm_timer_state(vcpu);
+>> +
+>> +	return ret;
+>> +}
+> 
+> In my testing environment, adding local_daif_mask/restore() in line with
+> __kvm_vcpu_run() fixes the issue, and Realm VMs successfully boot
+> without RCU stalls or soft lockups.
 
-Agreed, I think dropping rtts_destroyed makes sense - it's not actually
-helping and it's making the code confusing.
+Hi Kohei,
+
+Thanks for the detailed investigation.
+
+> However, I'm not sure if we can safely call local_daif_mask/restore()
+> here, bacause they call trace_hardirqs_off/on(), which presumably cannot
+> be called from noinstr context.
+> 
+> For reference, the VHE hyp path seems to call local_daif_mask/restore()
+> from noinstr context, but I'm not sure why this is considered safe:
+>   noinstr kvm_arm_vcpu_enter_exit()
+>     kvm_call_hyp_ret(__kvm_vcpu_run, vcpu) <- normal function call for VHE
+>       local_daif_mask()
+>         trace_hardirqs_off()
+>       local_daif_restore()
+>         trace_hardirqs_off/on()
+
+Yes I'm not sure if there's an existing VHE bug there. But it's only if
+CONFIG_TRACE_IRQFLAGS is enabled, so perhaps no-one has noticed?
+
+> The following change works in my test environment.
+> Any thoughts on the issue and the proposed fix?
+
+Your proposed fix looks like it matches the VHE behaviour, so I'll go
+for that. If there's an existing VHE bug then hopefully the below will
+work after the fix for that too.
 
 Thanks,
 Steve
 
-> Suzuki
+> diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
+> index c242dfc2c7a6..dd7cb2d7db88 100644
+> --- a/arch/arm64/kvm/rmi.c
+> +++ b/arch/arm64/kvm/rmi.c
+> @@ -1307,7 +1307,13 @@ int noinstr kvm_rec_enter(struct kvm_vcpu *vcpu)
+>         struct realm_rec *rec = &vcpu->arch.rec;
+>         int ret;
 > 
->>
->>
->> Thanks
->> Suzuki
->>
->>>
->>> Thanks,
->>> Alper
->>
+> +       local_daif_mask();
+> +       pmr_sync();
+> +
+>         ret = rmi_rec_enter(rec->rec_phys, rec->run_phys);
+> +
+> +       local_daif_restore(DAIF_PROCCTX_NOIRQ);
+> +
+>         if (!ret)
+>                 load_realm_timer_state(vcpu);
 > 
+> Thanks,
+> Kohei
 
 
