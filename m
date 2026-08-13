@@ -4,122 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 503C8C5DF6A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 17:03:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDEEAC5CFCF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 17:04:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O0R61zjWUTurQMHCBx90mBngFiHKUFz6PlFvhbFHzjI=; b=SYmZmYRblYOQyL88bOmZOElmHQ
-	OKSdwQjNdKKk54D6HChlNQ16TnCKR8B7TFbt8rjpnLMsFFSKjxvfnWVY9YcP/ThoGnqn59c03R76D
-	im3FSEEZrQmWaWJeDUWaqJmYQMYKFENFst9vJdrY3rv+8TvCyTPSehOGm1hqKmTghO4pIyAcxIi/4
-	Vt/0tNsRHYVkIWg/dYg8U34Fs8KjhA55Q7VlTxrMl0AoDSXTjU7qJwCoMCz/cFfc3j5yx4PYPX7CG
-	lD5ma0AqDTTC4Ww9L+C9wBp6nKa07oHTVu36kS02bu7e/ueqTi/Wk1VF5ZKluV/eheJWrTmzapyJL
-	B+SLbWMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=o+r4ruNkApE26fuyn6KtkFW0QuXubfwA1Uwqu5ezEYw=; b=hWsEWwtZYYtZoEEtlrO7YzRo7o
+	DLH6LAmsTOHIZScJrkgmUtB6bKQMkyO72b4J09hvO/Ef8amwbOufIdHjRESI89I/Hzqm6H6qMm1Mx
+	caC07Gqvdw1p9T60tOpxLVNndjWZ8YERu4jPF1L+LPdh+p03dlXv15Ft08Em4EmeUPTUzQcXqaLON
+	ljwVN27DHLpVm6WgLoAdfNYkbXvu4WKXScLZWHRvRvhsYfvs/ub+tIRa00MxMabLXBnU5E17/LLfa
+	zYcw/pVeK9hCI51BO8O9RsCUkTc8pXVSuRj6qIlPNdAHs3D6hhfKatEz330l31N1NQr7a2Gjb2bHf
+	Ygu3fSMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuYpN-00000001DZh-2Uip;
-	Thu, 13 Aug 2026 17:02:49 +0000
-Received: from mail-southcentralusazlp170130001.outbound.protection.outlook.com ([2a01:111:f403:c10c::1] helo=SA9PR02CU001.outbound.protection.outlook.com)
+	id 1wuYqb-00000001DqB-09xX;
+	Thu, 13 Aug 2026 17:04:05 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuYpL-00000001DYy-1L8e
+	id 1wuYqa-00000001Dpu-0B4U
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 13 Aug 2026 17:04:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=content-type:Content-Transfer-Encoding
+	:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=o+r4ruNkApE26fuyn6KtkFW0QuXubfwA1Uwqu5ezEYw=; b=iHgnmYdZmCoZTJmyP22dA+pl9z
+	kO6eBPkvYDA9Sc/n5qFWbFUaTNW0SOtBr+2mYOMHpWbWhTsk32az9JS8Yb2XGRQJdLrldo5G1iQo0
+	PsfLS1wm7sF8lu8En+KP/9msU+yj7rprXySPqTr3ptWnhxp0qMIL8mFuuIUgWwhXfLCAR1p9yqJGm
+	K50NSM/z6ig3TDJiwVaOtQS6Rq3fwkAm9c+x8cqFOiy6mdC4AGjMgleIrd3CKqAo2Q+yl/zAu2TPO
+	Ij8F+yZkzgGoBCuv0Ntrsk/11215fjHhHgB+AGJw9u2hgBWx4JBWXDXpzjKGUkMLys4pt2Lfhl80J
+	TGFf/DFQ==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wuYqW-0000000GMNT-47Q6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 17:02:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=diEUeGY1EplqbRU6y/p9OfEokK/Wfb8wxIfUqTOHRzde2U2B/EWL4fpQa0Suuej54/FNMEu1fTxfnlP3U7i2r+AWx678s2QV90NQ9YyAymOspB6Sho96a9oTePe+NL/fM9W/lO+IoKdUAHGfpFv3yP2TegyDIBYoUpabItGHM8jNFcdvZ1NKL+XJzBlO/2zl3jAhnFUv3/1FZ9nrhGFBZebsB5X2Vlh8tULOjrFs9s19MUjx2HFpF+9et13PxJyU/wsfmxx0PFTeJZ+1lcvSf3K4vVxXk58Plz0+qVXG/wG/M1v/3qIrDTTwJqpNueB0YAYA8TIxwtih398cHBEaRg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=O0R61zjWUTurQMHCBx90mBngFiHKUFz6PlFvhbFHzjI=;
- b=VUBlH+qYXzXTcl7KuB84wVu1P3Wz+WDq3XLLB5l1v5SBdENI4YWCrUyPHoV93r0CIgwD2nFRrjii27Xzy1oZcBkaDDKlLiMzGrUqJ1l8ZrAcqIKDMFF05LOTauzxwStvICsKmQa15k66P+djI8pAl8bS6KS6+srfdncn2SSlHnO1VCIGa5ktauSHEDnWp/iL1zL0b4+cK3nEvOfoUNfzudayvQD5Tq7yTFO0dogy1MSHe46RaHSrFAB8VivuOderNut6mwzNcKJFLN4ycZxWibWUYQUoHMSnFG2k6KUItQ4O3HdPh53aBIk+SQBSNlUzGFie6Qd3aTmuF13elJSnZQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=oracle.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=O0R61zjWUTurQMHCBx90mBngFiHKUFz6PlFvhbFHzjI=;
- b=d5qpBcyY+ytqn2dhL75a23aHIV4PkZjQX2tvpr9cvYFQ3R2Hy3osd6mx2GeGGQJsLK3NXVtGV5iJ66Y9sMO/fMv4wfMLbEXkMkS3YjcSU/9IDSsf1/amvBW4iKzDaiSSTpv9TjhIjVGV9y5ybQ3TH79yXBkeG8t4jjqlw5Qpbwl6vwalOsulNnwMBpi/K3mNxtvrOpiGrr5Zw2azMSZtDsavEmxIRQ8HQkJMLaJNiGIyOTid/WiFuzEjOBXaoI+aqVfvbDqlNndfF06usUrUvzBJt1OwqNH91kG20NP8/ofuN8CXmEx3xuteP2lBh0Z6iGfmFbAN5kahaTATQWMSuQ==
-Received: from CH0PR03CA0037.namprd03.prod.outlook.com (2603:10b6:610:b3::12)
- by CH0PR12MB8577.namprd12.prod.outlook.com (2603:10b6:610:18b::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.14; Thu, 13 Aug
- 2026 17:02:33 +0000
-Received: from DM2PEPF00003FC5.namprd04.prod.outlook.com
- (2603:10b6:610:b3:cafe::40) by CH0PR03CA0037.outlook.office365.com
- (2603:10b6:610:b3::12) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.315.15 via Frontend Transport; Thu,
- 13 Aug 2026 17:02:33 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- DM2PEPF00003FC5.mail.protection.outlook.com (10.167.23.23) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.339.3 via Frontend Transport; Thu, 13 Aug 2026 17:02:33 +0000
-Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Thu, 13 Aug
- 2026 10:02:09 -0700
-Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46; Thu, 13 Aug 2026 10:02:08 -0700
-Received: from build-bwicaksono-noble-20260804.internal (10.127.8.11) by
- mail.nvidia.com (10.126.190.181) with Microsoft SMTP Server id 15.2.2562.46
- via Frontend Transport; Thu, 13 Aug 2026 10:02:08 -0700
-From: Besar Wicaksono <bwicaksono@nvidia.com>
-To: <john.g.garry@oracle.com>, <will@kernel.org>, <james.clark@linaro.org>,
-	<mike.leach@linaro.org>, <leo.yan@linux.dev>, <mark.rutland@arm.com>,
-	<alexander.shishkin@linux.intel.com>, <jolsa@kernel.org>,
-	<irogers@google.com>, <adrian.hunter@intel.com>, <peterz@infradead.org>,
-	<mingo@redhat.com>, <acme@kernel.org>, <namhyung@kernel.org>
-CC: <linux-tegra@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-perf-users@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<tmakin@nvidia.com>, <vsethi@nvidia.com>, <rwiley@nvidia.com>,
-	<skelley@nvidia.com>, <rajjoshi@nvidia.com>, <treding@nvidia.com>,
-	<jonathanh@nvidia.com>, <mochs@nvidia.com>, <sauravsc@amazon.com>, "Besar
- Wicaksono" <bwicaksono@nvidia.com>
-Subject: [PATCH 2/2] perf vendor events arm64: Fix Tegra410 Olympus event 0x0197
-Date: Thu, 13 Aug 2026 17:01:55 +0000
-Message-ID: <20260813170155.1156593-3-bwicaksono@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260813170155.1156593-1-bwicaksono@nvidia.com>
-References: <20260813170155.1156593-1-bwicaksono@nvidia.com>
+	Thu, 13 Aug 2026 17:04:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1786640632;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=o+r4ruNkApE26fuyn6KtkFW0QuXubfwA1Uwqu5ezEYw=;
+	b=eqF4E3rlChrkjxhnQisxeT+20S/JS82/qBo7exxK60UT4btO44O3f4fX3yK+iPB/tOCsc4
+	OAEs+TorHlywhBU83PoGFcLBjMNj3sS1K+MolATAvDwAwmEeG823lQE8vjgF4ti1SHr3yw
+	9MdICWj7oOA5cc66I3UpUPQk1Vogtno=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1786640640;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=o+r4ruNkApE26fuyn6KtkFW0QuXubfwA1Uwqu5ezEYw=;
+	b=RTeSphyEY6eU+svwX1IbJ94rW6ADXQ7gnTpM4YwItvOaY/f0Zm1H2d6D2mi6kdjCoJUQ8o
+	RLr343MbLvl9FtyG3HArNG4uQr9oYmunsb2QsmVhTdSEO2nl8+RvNZKouS+mOFT4h4Ngv8
+	dODyot7SXCedo9pq71fvpQEn0cqA/gk=
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-551-3v5IuKYOPO-SU8jOK2nwmw-1; Thu,
+ 13 Aug 2026 13:03:46 -0400
+X-MC-Unique: 3v5IuKYOPO-SU8jOK2nwmw-1
+X-Mimecast-MFC-AGG-ID: 3v5IuKYOPO-SU8jOK2nwmw_1786640620
+Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 63C311800650;
+	Thu, 13 Aug 2026 17:03:36 +0000 (UTC)
+Received: from wsxc.redhat.com (unknown [10.96.134.24])
+	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 6F76A195608A;
+	Thu, 13 Aug 2026 17:03:19 +0000 (UTC)
+From: Ricardo Robaina <rrobaina@redhat.com>
+To: audit@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-alpha@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org,
+	linux-mips@vger.kernel.org,
+	linux-openrisc@vger.kernel.org,
+	linux-parisc@vger.kernel.org,
+	linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	linux-um@lists.infradead.org,
+	bpf@vger.kernel.org
+Cc: paul@paul-moore.com,
+	eparis@redhat.com,
+	sgrubb@redhat.com,
+	oleg@redhat.com,
+	richard.henderson@linaro.org,
+	mattst88@gmail.com,
+	linmag7@gmail.com,
+	linux@armlinux.org.uk,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	guoren@kernel.org,
+	monstr@monstr.eu,
+	tsbogend@alpha.franken.de,
+	jonas@southpole.se,
+	stefan.kristiansson@saunalahti.fi,
+	shorne@gmail.com,
+	James.Bottomley@HansenPartnership.com,
+	deller@gmx.de,
+	ysato@users.sourceforge.jp,
+	dalias@libc.org,
+	glaubitz@physik.fu-berlin.de,
+	davem@davemloft.net,
+	andreas@gaisler.com,
+	richard@nod.at,
+	anton.ivanov@cambridgegreys.com,
+	johannes@sipsolutions.net,
+	chris@zankel.net,
+	jcmvbkbc@gmail.com,
+	tglx@kernel.org,
+	peterz@infradead.org,
+	luto@kernel.org,
+	Ricardo Robaina <rrobaina@redhat.com>
+Subject: [PATCH 00/13] audit: log all six syscall arguments in the SYSCALL record
+Date: Thu, 13 Aug 2026 14:02:50 -0300
+Message-ID: <cover.1786626275.git.rrobaina@redhat.com>
 MIME-Version: 1.0
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
+X-Mimecast-MFC-PROC-ID: tfksju2adsckDoMFi_yZyAPGEkyBRQH5ZxIimjDj3zA_1786640620
+X-Mimecast-Originator: redhat.com
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM2PEPF00003FC5:EE_|CH0PR12MB8577:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0ef40ab9-6d35-4204-fb3e-08def95caafb
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|23010399003|376014|7416014|82310400026|921020|6133799003|10067099003|56012099006|11063799006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: LHlrfeku/6aqet3ly5Vi5ng13FCHpIQy5lG2WeZY1Q0nJSL2annLXV59rI+7A8k8E+S3q/4Sv0a0nji7AopQpHIX+aoEETgDCYNrzFwRgc349qtu3syQhfPiIE/Tz8n9qc4kZ6PYTzL7pZHEPx5NfCYcPpXPpL/M5u8FChV1CUby6EMvUZaK/EnLABKsc5Dg4RXF+Y7UUo/Ydku3t0coU1cxuzDcXQupy5vv1EhP2evNVQIQY29fWYO+C1XIDIePv8pTirrdtxyYjnhSgIdzRXF3VNWKoBjUzd75GMwM8Y7xeLBoFaJheJduT/dKpf5svpJZyIWht2668Ykmc1n/dnIGUCrPORbMroXvP0xivUAhOquUP9SuV9LWHyxvUqb7axlZMev2yuWybtOFrZAchsalV/URsfFAARz1kPJCPIkn7q/8D+WUSoYTymBHEjnX3CqWIZGnnbYwPIMgzDzQ8GS/kq8FcQPAaQ1iFPRNeUydXIUywvt/LdeqtvTQb4DmvRyBl4CPqiPd0V7ak4E6s1Vz3Tdn21wA4JsX5J5jxwRBzt2mb+TrUYbFcaXirWP8tktoXe0v1txZQKIuaOQp2Ij9TuNrYbxeZ38d7ZrDnCF+xnqvyKOFyoiu5A5SVzAcljDNavYm62lvQ17QhH0fV22zfZOjOl6xAWlR9K14Dz57tZlqx1LRNqMP0yPGXv4P7kA5K7WNfuMpEtDlWkSdZtMBmCh1D0JBJWlc2DS6Vc3k8E+6sPChDQdvx1waI+Uw
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(23010399003)(376014)(7416014)(82310400026)(921020)(6133799003)(10067099003)(56012099006)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: vQjVy6RVu4cLW2zc5g08BRwg2nFxSy35pZrpKxVdJAbAIx1j+6IHfUr2zQf5pY3gD6hXjQXuh/MhmZO9T0AzGhpA5S+QUih/zgvZrNJJY2GzzZcs4lwaGM7zdfH/uXCNdRDjhGCCAPGVTTT93vZs0FbUIUElC3o+SbBuEPFZRf0XZHmkQRGQAyknA/CnYXoy0Sm8SyL6pf6V6bDlguIE3GQiH0W7djlXj7P5vbNT2uLRtTArdiGflyyv7Ddmr+Mn5f2vJKgwModUIdkEEqRSUr8laA8puzkzuVuWzB9I//G57srYQGRnhq/1kdKcvoTB2eUzBei0FwU9xb/sl4BzmDaxZgqyhZNk8FK3/cAHpOcYDuPdDbKOd14S5l6kaDYjGymNILBJ9+eTb0bDNbpxAQZSAcyCiZ2BIIvn1eu6xm/2jiJy8ijKFT8YVjK35gUT
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Aug 2026 17:02:33.2772
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0ef40ab9-6d35-4204-fb3e-08def95caafb
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: DM2PEPF00003FC5.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR12MB8577
+content-type: text/plain; charset="US-ASCII"; x-default=true
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_100247_362505_B05F3F32 
-X-CRM114-Status: UNSURE (   9.28  )
+X-CRM114-CacheID: sfid-20260813_180401_243053_12E1318C 
+X-CRM114-Status: UNSURE (   7.75  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -135,41 +148,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The name and description for NVIDIA Tegra410 Olympus implementation-defined
-event 0x0197 incorrectly indicate a TXREQ limit between one quarter and
-one half. Correct them to describe a TXREQ limit below one half.
+The SYSCALL record currently logs only four of the six syscall
+arguments (a0-a3), silently discarding the remaining two. This
+leads to the need for auxiliary records when audit-relevant
+data lands in the 5th or 6th argument of a syscall.
 
-Fixes: 86ff690f45cc ("perf vendor events arm64: Add Tegra410 Olympus PMU events")
-Signed-off-by: Besar Wicaksono <bwicaksono@nvidia.com>
----
- tools/perf/pmu-events/arch/arm64/nvidia/t410/misc.json | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+This series extends the SYSCALL record to log all six arguments,
+by adding arguments a4 and a5 inline within the existing record.
 
-diff --git a/tools/perf/pmu-events/arch/arm64/nvidia/t410/misc.json b/tools/perf/pmu-events/arch/arm64/nvidia/t410/misc.json
-index 8ff87d844e52..e1b45cc33b18 100644
---- a/tools/perf/pmu-events/arch/arm64/nvidia/t410/misc.json
-+++ b/tools/perf/pmu-events/arch/arm64/nvidia/t410/misc.json
-@@ -316,8 +316,8 @@
-     },
-     {
-         "EventCode": "0x0197",
--        "EventName": "TXREQ_LIMIT_1QUARTER_CYCLES",
--        "PublicDescription": "Number of cycles in which the dynamic TXREQ limit is between 1/4 of the L2_TQ_SIZE and 1/2 of the L2_TQ_SIZE."
-+        "EventName": "TXREQ_LIMIT_BELOW_HALF_CYCLES",
-+        "PublicDescription": "Number of cycles in which the dynamic TXREQ limit is between 0 and 1/2 of the L2_TQ_SIZE."
-     },
-     {
-         "EventCode": "0x019d",
-@@ -517,7 +517,7 @@
-     {
-         "EventCode": "0x01cc",
-         "EventName": "TXREQ_LIMIT_COUNT_CYCLES",
--        "PublicDescription": "This event increments by the dynamic TXREQ value, in each cycle.\nThis is a companion event of TXREQ_LIMIT_MAX_CYCLES, TXREQ_LIMIT_3QUARTER_CYCLES, TXREQ_LIMIT_HALF_CYCLES, and TXREQ_LIMIT_1QUARTER_CYCLES."
-+        "PublicDescription": "This event increments by the dynamic TXREQ value, in each cycle.\nThis is a companion event of TXREQ_LIMIT_MAX_CYCLES, TXREQ_LIMIT_3QUARTER_CYCLES, TXREQ_LIMIT_HALF_CYCLES, and TXREQ_LIMIT_BELOW_HALF_CYCLES."
-     },
-     {
-         "EventCode": "0x01ce",
+The audit testsuite runs successfully:
+
+ # make test
+ make -C tests test
+ chmod +x */test
+ Running as   user    root
+        with context unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+        on   system  Fedora
+
+ amcast_joinpart/test ................. ok   
+ backlog_wait_time_actual_reset/test .. ok   
+ bpf/test ............................. ok   
+ coredump/test ........................ ok   
+ exec_execve/test ..................... ok   
+ exec_name/test ....................... ok     
+ fanotify/test ........................ ok   
+ field_compare/test ................... ok     
+ file_create/test ..................... ok   
+ file_delete/test ..................... ok   
+ file_permission/test ................. ok   
+ file_rename/test ..................... ok   
+ filter_device/test ................... ok     
+ filter_exclude/test .................. ok     
+ filter_exit/test ..................... ok   
+ filter_inode/test .................... ok   
+ filter_saddr_fam/test ................ ok   
+ filter_sessionid/test ................ ok   
+ io_uring/test ........................ ok   
+ login_tty/test ....................... ok   
+ lost_reset/test ...................... ok   
+ netfilter_pkt/test ................... ok     
+ signal/test .......................... ok   
+ syscalls_file/test ................... ok   
+ syscall_module/test .................. ok   
+ syscall_socketcall/test .............. ok   
+ time_change/test ..................... ok     
+ user_msg/test ........................ ok   
+ All tests successful.
+ Result: PASS
+
+Ricardo Robaina (13):
+  audit: log all six syscall arguments in the SYSCALL record
+  alpha: pass all six syscall args to audit_syscall_entry()
+  arm: pass all six syscall args to audit_syscall_entry()
+  arm64: pass all six syscall args to audit_syscall_entry()
+  csky: pass all six syscall args to audit_syscall_entry()
+  microblaze: pass all six syscall args to audit_syscall_entry()
+  mips: pass all six syscall args to audit_syscall_entry()
+  openrisc: pass all six syscall args to audit_syscall_entry()
+  parisc: pass all six syscall args to audit_syscall_entry()
+  sh: pass all six syscall args to audit_syscall_entry()
+  sparc64: pass all six syscall args to audit_syscall_entry()
+  um: pass all six syscall args to audit_syscall_entry()
+  xtensa: pass all six syscall args to audit_syscall_entry()
+
+ arch/alpha/kernel/ptrace.c      |  3 ++-
+ arch/arm/kernel/ptrace.c        |  2 +-
+ arch/arm64/kernel/ptrace.c      |  3 ++-
+ arch/csky/kernel/ptrace.c       |  3 ++-
+ arch/microblaze/kernel/ptrace.c |  3 ++-
+ arch/mips/kernel/ptrace.c       | 11 ++++++++---
+ arch/openrisc/kernel/ptrace.c   |  3 ++-
+ arch/parisc/kernel/ptrace.c     |  7 +++++--
+ arch/sh/kernel/ptrace_32.c      |  3 ++-
+ arch/sparc/kernel/ptrace_64.c   |  3 ++-
+ arch/um/kernel/ptrace.c         |  4 +++-
+ arch/xtensa/kernel/ptrace.c     |  3 ++-
+ include/linux/audit.h           | 11 +++++++----
+ include/linux/entry-common.h    |  3 ++-
+ include/uapi/linux/audit.h      |  2 ++
+ kernel/audit.h                  |  2 +-
+ kernel/auditfilter.c            |  2 ++
+ kernel/auditsc.c                | 31 ++++++++++++++++++++-----------
+ 18 files changed, 67 insertions(+), 32 deletions(-)
+
 -- 
-2.43.0
+2.55.0
 
 
