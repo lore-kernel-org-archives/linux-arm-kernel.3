@@ -4,118 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8B6EC5DF69
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 19:08:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC472C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 19:08:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=knHPZ2hqDlF6r7lICpyiSankCSnQUl1ZecmnK0yjr1w=; b=cicfbRy5EQFkhSrC04T8n8SR95
-	ntxZYaKkDKwnDdXvKaEeB6DOuueaViCU5b9gY6HNZpPJn/XXyIwLLZ+ChUXY2SYVSToFD/Lenbqxb
-	cHdt8Ogk7yNu1vh6Dx/le5tN2PgmDF6HpQmoCiViGZiYHu21iTyEah77dG0OW433BFIL/PA1ODe+n
-	xyYa8RuIKk7HV/XFd6bfsjcD9WFy8IFR/nBwOgPgYMfI98O78e3qeTMh3Cs5D1YVoJxqEf42hl2b9
-	E2y1pR4w+O1MAx/c9EgCZsrEo8NkpfjdAL7TChNGcjIGU6NQK5JRGIZVojMnjHJReIswsFsAWLnCR
-	UD7LgqNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kw7FoD+bzLFhraFxvPfr1StE5DODuuLr8Azjhw6HlYE=; b=2uPg5oD2XKNvmMvbllS9dMfBgz
+	omEHSEmLkombz+ln4GUIJHQ1suUQ5PiuRyqNurBjEykfGRmWfQMoROxYjdChALhs4gjOWWBEoUaVm
+	/NNSraH3ip8A8boUahIqDs5ifbV3FZKnHT64+kYYYpbbeUSivYaPzlquDcrgAPkQ/HojHNq7YS+5r
+	5TYo/xKEKIJWeFBD+oRtlf/4Ldr56CjnE3cjp9YaVZhdIZPITMJvv6eEM5vXDB5Tc2BCFoqs7apfJ
+	XEEz87o8LnI53aeeaZ2ul807YWzAHCImmSZaGmgEU1plr5Gi6MZHQmErwflr8t+p4BxUFl2IkWx/M
+	XiAVJ0vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuamh-00000001QLY-0ai2;
-	Thu, 13 Aug 2026 19:08:11 +0000
-Received: from mail-pj2-x06.google.com ([2607:f8b0:4864:39::6])
+	id 1wuamy-00000001QRR-1xSM;
+	Thu, 13 Aug 2026 19:08:28 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuama-00000001QJX-3fb2
+	id 1wuamr-00000001QNX-0igx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 19:08:06 +0000
-Received: by mail-pj2-x06.google.com with SMTP id 98e67ed59e1d1-38f25802c19so74407a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 12:08:04 -0700 (PDT)
+	Thu, 13 Aug 2026 19:08:22 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-47df6a5655aso9713f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 12:08:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786648084; x=1787252884; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=knHPZ2hqDlF6r7lICpyiSankCSnQUl1ZecmnK0yjr1w=;
-        b=ioGvaU82zBDHtJGBCxnWr6Cr0aTvxtBua3kWHGYsFES/GxInA9JpcOeFpWVEfouclu
-         DsqDuwlCqSUNdRVX2+NZE/49hE0ZhFyY0yPUIufBTDucOU9DGtrkxE3iGwMphYml8Cx1
-         gRp6SnHu/dQUJRFY8tvN+choG8ArLfGwpD3S8Dp/iGXN6xCEWtLABwlC17cIhpixqHp+
-         JHLDamvjAc1k+aC8jZPaXhhyEZMNfqiVF/iETZ5DZ4+wofHKdlAXpmAnw9HdaCY7yszB
-         66KhzR16iyP7C6lHJFPohXUvUhEy/LTuMkhMD2LCFCEdkDBVjYwp3owzJ+/cXmdu0/j5
-         68Lg==
+        d=gmail.com; s=20251104; t=1786648097; x=1787252897; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=kw7FoD+bzLFhraFxvPfr1StE5DODuuLr8Azjhw6HlYE=;
+        b=CaEQsEyxNawkcWOT4ZOFFBP8Tl2XGhzSX7wOm3yr3tbU5qwmGxnO8uGa/FtgnMW3EK
+         kSSarNmiN+nk41EBC0Rm0u7pQ5Mr4k3bBUYI+nCfaKuXLTKaQSBSATQIX/Hwi2m3mKP/
+         nYGCAZGCza7nUUtRRTaxuHXgBreMtm8jYtJsrO7sAvpBJoLdPT0zzJfrzDzjAkTOG8c8
+         oYekoYXKTwBQUOuUwidO7C0T/QqcxKwvaVjPxxEpyN3L+TifY38zD9asmRgbUhSD6fg8
+         /jyjQCARCuTwjsKr2GeTFxmKLRFg2e1pN5h+rbq+JclZM3DXGRTcW+LDWPGnLGaJmz6E
+         ahjw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786648084; x=1787252884;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=knHPZ2hqDlF6r7lICpyiSankCSnQUl1ZecmnK0yjr1w=;
-        b=ZXOUWWyBVQa0ognyHX40T9cm8/NMpK74ZLq7V/Is2tt529Vd4vy2eASL22ARhgCvi2
-         pON0RW4TzWpB2EDrHf1rlNdxq+qUDUYYJVCcK74PLt7HkmWW4JmNLFQiqiWkHCWrsphV
-         pFoSH5Sqlk0L+JGZc6T+tQ2r9wgkekCPCMa2OSc5dY7b2SQR8jKdOoNMAq3z1IOOjw/k
-         mYq8v1+acZCntrGySgR1rGfdTl5RCBHId0IxpTdnQP5B8DYqkCGhf6/xP7m7+RwYMT+W
-         yT8SFYClhyFWlmEVh9UWbEFRnxUePRsX5CsAQDF6UJSNyKVT/CZ49eYXbeVuhvI4TgXL
-         7vYw==
-X-Forwarded-Encrypted: i=1; AHgh+RoK3eNmHuxLLEI1k6QAsa5tJrN2wuA9/g0n+l5sH3UTPtIk/+5rDRCCQfQ+FAhba59ojyig2FxirEZqQ5DaoUwB@lists.infradead.org
-X-Gm-Message-State: AOJu0YzLj6OYR4upHc7jhYaDvLs/SugCD/IIESpZX0fmkYznsyZoJJZZ
-	uU+LHMVxMQYO1T8PP+3Q4WaU+PD5iWN9v+5kcUNTscL2lQ7YymkgpiYx
-X-Gm-Gg: AR+sD13v6zwL45+VWRIDZM0rrUZJN/L7n/BZIJ/pnlXyLpQDAXYNi+IlLHRsTF27bmo
-	wLkyDOdml8KPwUzJcsTXMDzTl0XXR6eDKEtzeUhyhTU2GQVsLVgoO/aVqnRZV46jHd2MYhukmXt
-	gwzCwYYn95eixYBe73waTBgld/qj2RTSSyKxChnHVbJmAyaTbc//CaDnvFmIpjQuwHmVvuL6n8X
-	+A6a/Mvmn28KfAgBN3vQIXvAIuc8EgOE3OypfVVj59BD5Zzw4aNn+2ax/BRMuNc1gMJXIOOLSgB
-	TLG8xu/Asw8ZUkBKYXtC9cTkWx8fgGRaSfK2ZH797Vrk/Upyn/ohZYL0n3v2PpTZLhPTHLkkOPI
-	bc4jmTFE542t3EFb2Qw+rf5PJzmZywokuq+M4+4aTo6euupQ3M0kJDmXfalHESfPnvxexuW7Nbc
-	gvivIWeM2aLSmQlr1hU1iDjwgFHzOZ7saQQcW5gi7WFKbl7fkb4FLpAw==
-X-Received: by 2002:a17:90a:da8f:b0:380:21b7:e727 with SMTP id 98e67ed59e1d1-3933b95e327mr167852a91.14.1786648083852;
-        Thu, 13 Aug 2026 12:08:03 -0700 (PDT)
-Received: from localhost ([2a03:2880:2ff:4c::])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3931cf25e5dsm4535692a91.17.2026.08.13.12.08.03
+        d=1e100.net; s=20251104; t=1786648097; x=1787252897;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=kw7FoD+bzLFhraFxvPfr1StE5DODuuLr8Azjhw6HlYE=;
+        b=CA25MrX2LPGAuBexG9c/R3ofB9gkw6/h0L4sskhnlvJOLy59GMcu4uMX5mqFdu5hnW
+         1QWxIxDUEnYc3547dCuyiUFo+423z4sLGJnujL7I8UsD2E+VID4yb+y+XvQ6kVlRpRtp
+         L2vREubsIdOARdXi3g4UuIdnmqloefPUuiX7t0Yz6hRjAtQaEaNwqkuzO8GTjquiSDCY
+         cN9wgNSsCS1YEGU/xkOrKvX68YiuWPpHeMSQpdLLOugA+0L3X5WJssCbVOJEaNavVZmW
+         WLSdgdP07SK49kHuyO8PNpxkpEFdds3pY1BzJYz8czG5OJr+BLExBHAdWcSxv8im/ERp
+         JSwQ==
+X-Forwarded-Encrypted: i=1; AHgh+RrdewGG752RMKUB8KDHqSkn06ZYl2qTADxNCVwYM+fK/VghCGAhFWBmGspfJ15r4LhYntQxg9aSIBJMxhHU2bFn@lists.infradead.org
+X-Gm-Message-State: AOJu0YwbzR6hrsbChV1COc8S7MBVDRBYFQjjUYUi/ZUI4vQ47a7YV4kx
+	BDPtrmwhmPPU8f9cMN0vXIbr+tVZ6PaiKRniECNIliEQue76jADrSHQ0xA3OvA==
+X-Gm-Gg: AR+sD11wtMr2rFnHvXyzAkYZBVNZQ80ZrW9Y9p06rCVIl88P8PGKjZ3oUUMWA6NWNF6
+	y3dZCVu+Wvbr+MgAVXFFNKoTuniwqWdfvmakS1LBLoP0hP43TbxSdwQWnkhxebxyv10NoCXD+m4
+	DnsiLBzf9Fi2g8yHE6V5BYkQOmBVIYrfnIDS4cRwPUqxpTLF5uMjDCaFC0hKAxjHKmzwJUbs9cj
+	TgrTRulleTx2tOODBR/9kZDwKV1PFmUsDQyVbNKG5BJQbzQTE1H0Bs2rXo8Z5KhBOSaVd0hoPkT
+	vmiWa47Duzrm1TjD5X3zXCdypXW1ANb7vjTl/3MCKfzRFWhgzgi8YUIIEX0TGfSIcfViYPUjiZZ
+	nyaBQMWS9pERKsEGE0SnXasKzc9HqpnjPn49nGwfu7VLoFIs6jpWrjrNWkpwytzSZmIEkTMiHWt
+	rF/ypQBwONMIK1G4o7YhpJ+I1htZ1/DN3t58Kq2w5nSFaRM8gY
+X-Received: by 2002:a05:6000:1446:b0:47f:959f:d5e with SMTP id ffacd0b85a97d-481606984d0mr345336f8f.0.1786648097563;
+        Thu, 13 Aug 2026 12:08:17 -0700 (PDT)
+Received: from skbuf ([86.127.220.200])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4815f2cd7ecsm1427509f8f.36.2026.08.13.12.08.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Aug 2026 12:08:03 -0700 (PDT)
-From: Stanislav Fomichev <sdf.kernel@gmail.com>
-X-Google-Original-From: Stanislav Fomichev <sdf@fomichev.me>
-To: netdev@vger.kernel.org
-Cc: davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	anthony.l.nguyen@intel.com,
-	przemyslaw.kitszel@intel.com,
-	andrew+netdev@lunn.ch,
-	saeedm@nvidia.com,
-	tariqt@nvidia.com,
-	mbloch@nvidia.com,
-	maxime.chevallier@bootlin.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	aleksander.lobakin@intel.com,
-	horms@kernel.org,
-	magnus.karlsson@intel.com,
-	maciej.fijalkowski@intel.com,
-	sdf@fomichev.me,
-	ast@kernel.org,
-	daniel@iogearbox.net,
-	hawk@kernel.org,
-	john.fastabend@gmail.com,
-	witu@nvidia.com,
-	martin.lau@kernel.org,
-	yoong.siang.song@intel.com,
-	rohan.g.thomas@intel.com,
-	intel-wired-lan@lists.osuosl.org,
-	linux-kernel@vger.kernel.org,
-	linux-rdma@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	bpf@vger.kernel.org,
-	leon@kernel.org
-Subject: [PATCH net v2 2/3] xsk: honor XDP_TX_METADATA in zero-copy path
-Date: Thu, 13 Aug 2026 12:07:59 -0700
-Message-ID: <20260813190800.222527-3-sdf@fomichev.me>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260813190800.222527-1-sdf@fomichev.me>
-References: <20260813190800.222527-1-sdf@fomichev.me>
+        Thu, 13 Aug 2026 12:08:16 -0700 (PDT)
+Date: Thu, 13 Aug 2026 22:08:13 +0300
+From: Vladimir Oltean <olteanv@gmail.com>
+To: Semih Baskan <strst.gs@gmail.com>
+Cc: =?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <zajec5@gmail.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Jonas Gorski <jonas.gorski@gmail.com>, netdev@vger.kernel.org,
+	Hauke Mehrtens <hauke@hauke-m.de>,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	bcm-kernel-feedback-list@broadcom.com,
+	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>
+Subject: Re: [PATCH V3 1/4 net] net: dsa: b53: deal with Northstar devices
+ using CPU port 5 or 7
+Message-ID: <20260813190813.63fjmjmciry6ubaf@skbuf>
+References: <20260812132755.32585-1-zajec5@gmail.com>
+ <CAAsRjRn4Pfv3LzQtVbeBzw49fN3Fk+M4JGwKkKq6pvo5Uk-fpQ@mail.gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAAsRjRn4Pfv3LzQtVbeBzw49fN3Fk+M4JGwKkKq6pvo5Uk-fpQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_120804_925513_F3DC7D95 
-X-CRM114-Status: GOOD (  16.77  )
+X-CRM114-CacheID: sfid-20260813_120821_275756_C59350ED 
+X-CRM114-Status: GOOD (  15.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,209 +114,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The zero-copy path reads TX metadata whenever the UMEM has metadata space,
-even if the descriptor does not set XDP_TX_METADATA. Pass descriptor
-options through the metadata helpers and ignore metadata unless the option
-is set.
+On Thu, Aug 13, 2026 at 01:53:56PM +0300, Semih Baskan wrote:
+> With all three CPU ports enabled, GMNGCFG ends up in dual IMP mode
+> (0xc2 read back). In that mode a tagged frame whose VID is missing
+> from the VLAN table is delivered to no CPU port at all: an 8021q
+> upper on a standalone port receives 0 of 7 tagged probes, whether
+> the port 5 conduit is up or down. With port 8 as the only enabled
+> CPU port in the DT, where GMNGCFG reads 0b10, the same frames were
+> delivered. So the preferred CPU port alone does not revive
+> standalone 8021q uppers on DTs that enable all three ports.
+> 
+> The same effect touches 4/4: the R8000 today has ports 5 and 7
+> disabled, the single IMP configuration, and enabling them lands the
+> switch in dual IMP mode through the same driver path. If its switch
+> behaves like this BCM53011, standalone 8021q uppers on the R8000
+> stop receiving with 4/4 applied.
 
-This does not fix the existing per-WQE metadata handling for mlx5 MPWQEs.
-Only the descriptor that starts a session passes through
-xsk_tx_metadata_request() and configures offload state shared by the batch.
-Metadata on descriptors joining an open session is therefore not validated
-and does not configure its requested offloads. In addition, a non-NULL
-metadata pointer from such a descriptor is treated as a timestamp
-completion request even when XDP_TXMD_FLAGS_TIMESTAMP is not set, so its
-metadata union can be overwritten with an unrequested timestamp. Fixing
-mixed metadata states within one MPWQE requires a separate change.
+Where is the code that configures this GMNGCFG register?
 
-Fixes: 48eb03dd2630 ("xsk: Add TX timestamp and TX checksum offload support")
-Reviewed-by: Alexander Lobakin <aleksander.lobakin@intel.com>
-Signed-off-by: Stanislav Fomichev <sdf@fomichev.me>
----
- drivers/net/ethernet/intel/igc/igc_main.c     |  3 ++-
- .../ethernet/mellanox/mlx5/core/en/xsk/tx.c   |  2 +-
- .../net/ethernet/stmicro/stmmac/stmmac_main.c |  3 ++-
- include/net/libeth/xsk.h                      |  2 +-
- include/net/xdp_sock_drv.h                    | 22 +++++++++++--------
- include/net/xsk_buff_pool.h                   |  3 ++-
- net/xdp/xsk_buff_pool.c                       |  7 ++++--
- 7 files changed, 26 insertions(+), 16 deletions(-)
+> On the RT-N18U the boot firmware provisions a MAC only for gmac0,
+> so gmac2 comes up with a random MAC and the bridge inherits it,
+> changing per boot.
 
-diff --git a/drivers/net/ethernet/intel/igc/igc_main.c b/drivers/net/ethernet/intel/igc/igc_main.c
-index 39043d8ca1bf..59067939a586 100644
---- a/drivers/net/ethernet/intel/igc/igc_main.c
-+++ b/drivers/net/ethernet/intel/igc/igc_main.c
-@@ -3074,7 +3074,8 @@ static void igc_xdp_xmit_zc(struct igc_ring *ring)
- 		olinfo_status = xdp_desc.len << IGC_ADVTXD_PAYLEN_SHIFT;
- 
- 		dma = xsk_buff_raw_get_dma(pool, xdp_desc.addr);
--		meta = xsk_buff_get_metadata(pool, xdp_desc.addr);
-+		meta = xsk_buff_get_metadata(pool, xdp_desc.addr,
-+					     xdp_desc.options);
- 		xsk_buff_raw_dma_sync_for_device(pool, dma, xdp_desc.len);
- 		bi = &ring->tx_buffer_info[ntu];
- 
-diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en/xsk/tx.c b/drivers/net/ethernet/mellanox/mlx5/core/en/xsk/tx.c
-index 3d19dad8f868..d194eeddd7b5 100644
---- a/drivers/net/ethernet/mellanox/mlx5/core/en/xsk/tx.c
-+++ b/drivers/net/ethernet/mellanox/mlx5/core/en/xsk/tx.c
-@@ -99,7 +99,7 @@ bool mlx5e_xsk_tx(struct mlx5e_xdpsq *sq, unsigned int budget)
- 		xdptxd.dma_addr = xsk_buff_raw_get_dma(pool, desc.addr);
- 		xdptxd.data = xsk_buff_raw_get_data(pool, desc.addr);
- 		xdptxd.len = desc.len;
--		meta = xsk_buff_get_metadata(pool, desc.addr);
-+		meta = xsk_buff_get_metadata(pool, desc.addr, desc.options);
- 
- 		xsk_buff_raw_dma_sync_for_device(pool, xdptxd.dma_addr, xdptxd.len);
- 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index a71f0df26378..62de03e65a90 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -2719,7 +2719,8 @@ static bool stmmac_xdp_xmit_zc(struct stmmac_priv *priv, u32 queue, u32 budget)
- 
- 		tx_desc = stmmac_get_tx_desc(priv, tx_q, entry);
- 		dma_addr = xsk_buff_raw_get_dma(pool, xdp_desc.addr);
--		meta = xsk_buff_get_metadata(pool, xdp_desc.addr);
-+		meta = xsk_buff_get_metadata(pool, xdp_desc.addr,
-+					     xdp_desc.options);
- 		xsk_buff_raw_dma_sync_for_device(pool, dma_addr, xdp_desc.len);
- 
- 		/* To return XDP buffer to XSK pool, we simple call
-diff --git a/include/net/libeth/xsk.h b/include/net/libeth/xsk.h
-index 5dcc0d7f65b7..a452b7828ce4 100644
---- a/include/net/libeth/xsk.h
-+++ b/include/net/libeth/xsk.h
-@@ -196,7 +196,7 @@ __libeth_xsk_xmit_fill_buf_md(const struct xdp_desc *xdesc,
- 	struct libeth_xdp_tx_desc desc;
- 	struct xdp_desc_ctx ctx;
- 
--	ctx = xsk_buff_raw_get_ctx(sq->pool, xdesc->addr);
-+	ctx = xsk_buff_raw_get_ctx(sq->pool, xdesc->addr, xdesc->options);
- 	desc = (typeof(desc)){
- 		.addr	= ctx.dma,
- 		__libeth_xdp_tx_len(xdesc->len),
-diff --git a/include/net/xdp_sock_drv.h b/include/net/xdp_sock_drv.h
-index b344789f5df8..d94aeb506379 100644
---- a/include/net/xdp_sock_drv.h
-+++ b/include/net/xdp_sock_drv.h
-@@ -240,6 +240,7 @@ static inline void *xsk_buff_raw_get_data(struct xsk_buff_pool *pool, u64 addr)
-  * xsk_buff_raw_get_ctx - get &xdp_desc context
-  * @pool: XSk buff pool desc address belongs to
-  * @addr: desc address (from userspace)
-+ * @options: desc options (from userspace)
-  *
-  * Wrapper for xp_raw_get_ctx() to be used in drivers, see its kdoc for
-  * details.
-@@ -248,9 +249,9 @@ static inline void *xsk_buff_raw_get_data(struct xsk_buff_pool *pool, u64 addr)
-  * pointer, if it is present (initialized to %NULL otherwise).
-  */
- static inline struct xdp_desc_ctx
--xsk_buff_raw_get_ctx(const struct xsk_buff_pool *pool, u64 addr)
-+xsk_buff_raw_get_ctx(const struct xsk_buff_pool *pool, u64 addr, u32 options)
- {
--	return xp_raw_get_ctx(pool, addr);
-+	return xp_raw_get_ctx(pool, addr, options);
- }
- 
- #define XDP_TXMD_FLAGS_VALID ( \
-@@ -318,18 +319,20 @@ xsk_tx_metadata_request(const struct xsk_buff_pool *pool,
- }
- 
- static inline struct xsk_tx_metadata *
--__xsk_buff_get_metadata(const struct xsk_buff_pool *pool, void *data)
-+__xsk_buff_get_metadata(const struct xsk_buff_pool *pool, void *data,
-+			unsigned int options)
- {
--	if (!pool->tx_metadata_len)
-+	if (!pool->tx_metadata_len || !(options & XDP_TX_METADATA))
- 		return NULL;
- 
- 	return data - pool->tx_metadata_len;
- }
- 
- static inline struct xsk_tx_metadata *
--xsk_buff_get_metadata(struct xsk_buff_pool *pool, u64 addr)
-+xsk_buff_get_metadata(struct xsk_buff_pool *pool, u64 addr, u32 options)
- {
--	return __xsk_buff_get_metadata(pool, xp_raw_get_data(pool, addr));
-+	return __xsk_buff_get_metadata(pool, xp_raw_get_data(pool, addr),
-+				       options);
- }
- 
- static inline void xsk_buff_dma_sync_for_cpu(struct xdp_buff *xdp)
-@@ -510,7 +513,7 @@ static inline void *xsk_buff_raw_get_data(struct xsk_buff_pool *pool, u64 addr)
- }
- 
- static inline struct xdp_desc_ctx
--xsk_buff_raw_get_ctx(const struct xsk_buff_pool *pool, u64 addr)
-+xsk_buff_raw_get_ctx(const struct xsk_buff_pool *pool, u64 addr, u32 options)
- {
- 	return (struct xdp_desc_ctx){ };
- }
-@@ -530,13 +533,14 @@ xsk_tx_metadata_request(const struct xsk_buff_pool *pool,
- }
- 
- static inline struct xsk_tx_metadata *
--__xsk_buff_get_metadata(const struct xsk_buff_pool *pool, void *data)
-+__xsk_buff_get_metadata(const struct xsk_buff_pool *pool, void *data,
-+			unsigned int options)
- {
- 	return NULL;
- }
- 
- static inline struct xsk_tx_metadata *
--xsk_buff_get_metadata(struct xsk_buff_pool *pool, u64 addr)
-+xsk_buff_get_metadata(struct xsk_buff_pool *pool, u64 addr, u32 options)
- {
- 	return NULL;
- }
-diff --git a/include/net/xsk_buff_pool.h b/include/net/xsk_buff_pool.h
-index 2bb1d122b1bc..a7df573784fd 100644
---- a/include/net/xsk_buff_pool.h
-+++ b/include/net/xsk_buff_pool.h
-@@ -154,7 +154,8 @@ struct xdp_desc_ctx {
- 	struct xsk_tx_metadata *meta;
- };
- 
--struct xdp_desc_ctx xp_raw_get_ctx(const struct xsk_buff_pool *pool, u64 addr);
-+struct xdp_desc_ctx xp_raw_get_ctx(const struct xsk_buff_pool *pool, u64 addr,
-+				   u32 options);
- 
- static inline dma_addr_t xp_get_dma(struct xdp_buff_xsk *xskb)
- {
-diff --git a/net/xdp/xsk_buff_pool.c b/net/xdp/xsk_buff_pool.c
-index 78c14f106395..9d2d94f1fb75 100644
---- a/net/xdp/xsk_buff_pool.c
-+++ b/net/xdp/xsk_buff_pool.c
-@@ -763,6 +763,7 @@ EXPORT_SYMBOL(xp_raw_get_dma);
-  * xp_raw_get_ctx - get &xdp_desc context
-  * @pool: XSk buff pool desc address belongs to
-  * @addr: desc address (from userspace)
-+ * @options: desc options (from userspace)
-  *
-  * Helper for getting desc's DMA address and metadata pointer, if present.
-  * Saves one call on hotpath and double calculation of the actual address.
-@@ -771,14 +772,16 @@ EXPORT_SYMBOL(xp_raw_get_dma);
-  * Return: new &xdp_desc_ctx struct containing desc's DMA address and metadata
-  * pointer, if it is present (initialized to %NULL otherwise).
-  */
--struct xdp_desc_ctx xp_raw_get_ctx(const struct xsk_buff_pool *pool, u64 addr)
-+struct xdp_desc_ctx xp_raw_get_ctx(const struct xsk_buff_pool *pool, u64 addr,
-+				   u32 options)
- {
- 	struct xdp_desc_ctx ret;
- 
- 	addr = __xp_raw_get_addr(pool, addr);
- 
- 	ret.dma = __xp_raw_get_dma(pool, addr);
--	ret.meta = __xsk_buff_get_metadata(pool, __xp_raw_get_data(pool, addr));
-+	ret.meta = __xsk_buff_get_metadata(pool, __xp_raw_get_data(pool, addr),
-+					   options);
- 
- 	return ret;
- }
--- 
-2.53.0-Meta
-
+In the previous version, Rafał included a patch so that gmac2 uses the
+same MAC address as gmac0. Is this better?
+https://lore.kernel.org/netdev/20260811193658.14304-2-zajec5@gmail.com/
 
