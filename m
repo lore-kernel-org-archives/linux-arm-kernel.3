@@ -4,92 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBC9EC5CFCF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 15:43:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41149C5CFCF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 15:53:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JjmvO0/8z0Ky0cbqYz65H+qVZdA1pLokllKhuMy7Skk=; b=pUPlCSAEkjHKo6zdVgRhvq564v
-	VyApODwsc9k7s+DIUWjDb0S+qcIz9FNpL3j60GZnG9D/qwPRt+kN7WZbPLobJNmivRBVxQA3DDTpU
-	CyqHWBp0GQngbDGDa3R3B7oGU0E4/TQNXq6DAXajrLwUXZ7wiy3sSZccZcrMPgdzjkyVnPe4RL3OK
-	KkmcmbM9HehqP3CitL5QEMRLYZkjSVupcqCwxoHbOHj7/BvgT14gzLOHoCDYI45j4qnfeKNQz6jL0
-	zZRx0FNN0RVmdSAhGBG9jB2SDjZIVQYADCbWF7y85F6i4t1dP9BZilkEDHIaP7CHCK4BX2u8IoYwk
-	uPE6Wd7w==;
+	bh=pojo/5ihe+x3tRo9VM4Cq8odA8bQ3ul0KyDtov7i6YE=; b=YM8q8KSUVLCHFQroMrLpIBExi4
+	Ppm5eMGkbqaLMRdDm+To4nn0irRUjyNUdTTRbO+5MhcIRBvu0Gjjj2F0Zyf1w9i2nDisIqIkaaFqh
+	A+sWVH1F8ciggrzzryXp+Y9ZxRFlZfk0FXhOwBAfE4gwh+L7KlHH1jjQ73ZAZhLW5bF7L8+eHC5OX
+	HpKfgY/PJWJlP3RWqRXh5HZDIVqygVlF6B3vWqcgO2EbGH66G1YRpX6ndvKQZpn+ypl/p+sSSe8yx
+	jRDgiOvSHvWwQRN3DuiyPQJ+M3zfjyW5mdwCoIfk04AOc7tywv3mIJTjGQjHTMWyZTISTyindSc8N
+	3sWUIxuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuXan-000000013ys-2aYw;
-	Thu, 13 Aug 2026 15:43:41 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1wuXk0-000000015Hm-3lyJ;
+	Thu, 13 Aug 2026 15:53:12 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuXal-000000013y4-059s
+	id 1wuXjz-000000015HZ-1Qzl
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 15:43:40 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-38dc4553f62so3126310a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 08:43:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786635818; x=1787240618; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=JjmvO0/8z0Ky0cbqYz65H+qVZdA1pLokllKhuMy7Skk=;
-        b=J/4svLxu9dy+NqkKPSRBMadyDlh4H+k82ezlALYnlSnJ1znzePW+CEs6eYTaGBbsjp
-         HVEVlU8RGU43xmEDIcVYqUQYil09Ja1WXpmaDe/WdeX7TRmnt4XHECMAD/+g7yFgI5PO
-         OrEWQw23o07Mz4/Fn7w5V2tKWLCug4VlZLiPv/4ClcbnqNgJ63sjguctxEYt0SdyrIjZ
-         WgANkvWq4Vt5FSJpaDebcZj8S3tKAM5C6R331g8e7imp7PTCBpEe+uu4AAuKeGI5Dz5X
-         87N9+8WAsE1hOgUvVhG+H9qN7Do9Nw+5g2UAx8rVn1u2ukpExzefDLnFBB/PBnfAuRgq
-         x8Ow==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786635818; x=1787240618;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=JjmvO0/8z0Ky0cbqYz65H+qVZdA1pLokllKhuMy7Skk=;
-        b=dqgtFC7EjTGYMdbqeQIP9vHAMbrC4FgIMvlIO4TORmayXCGBwUbj12BTMRTLjy9+hS
-         JKCOF662k57b9Ktg/0+Yck1aSEGYMBlfFiyU51hY5gwEdxPF9eIBNOeSkUwbR4uU4eQu
-         7Oh6WaQVaU5DaaShgDHaMoRhOm9P2NKwq4xRivsRnXWbMb71Bke6IIJBPi+yGF0q2LGo
-         4AMxxsh+WhcLFg5yWi9t+xNA1iYkQbczf9PCkFuBFVQnipZ9LPx/ZgTigFABkUygD4Mg
-         9IfCAedA4YARIqdvfWFrHNxkhQpEiP1BK/ddBIRYEEr7RTjwst4OAiJsm2bVOMcRZurj
-         eORA==
-X-Forwarded-Encrypted: i=1; AHgh+RoPcdP5qJQRfojJvIL1qMF6oMXo9xp6pxj4KiSUZ8FPwGdg2HbgibWE7EzUuAByfhdvkZ0UCuJfiMDoS092tRBF@lists.infradead.org
-X-Gm-Message-State: AOJu0YwBF8+/Ojn8rwmq7VDKMObkPXq/UCmM4Pe3ILG3cgZTF1JNB5FX
-	yDqQ3Ry9dak0gynj5CclxoNMi/6f+u7jGQwiebO+qiYDulAhp3HcuXjG
-X-Gm-Gg: AR+sD13S+PvBBd22O+RBuZZquJyfIn6h3MtMH1w3/XaHMCL8uNBfMAPru/XVSwj1YsG
-	4+CMCU/nbW8Zw+X6IDIQeW4cHaoLkmn6ZZ7c/uazuyqlZMU5ZX81miKsFfvusKfiePbb03aoiTi
-	+cgAsurvf7YEGctTlbuW3eNgZLOZFnNRcV4fVufofsigQ8sVzEXQPtkGfqa+xlBNw2Edb06s2zB
-	m9B+o9LkpukIRKtveHlSzMEzzBAwQlrdkVHcof5z6Ul+JsjnpEOMLGS6uYqzIiplF3ZwlxMExgr
-	0dejint4sOqAASlXkm1WvAEKndUdsLk3JH25e1mVFd14Gat+k83oJSzlV5l4Gsf2aIGO3177WWR
-	lJwNApmbm6GWJ7OGCSd7OVrq5L0Hek8X5S0VBW8HK66QB49Hhh15dFsvrVx7M4mnaOyh1QQW8Og
-	oatVkve4x3PRUETOYHvOG+XeLiWeUURHPCfMZY3WTWiA0UC3w+gYCMDLQqZR0fENuqZeQ=
-X-Received: by 2002:a17:90b:3843:b0:38e:1497:af5b with SMTP id 98e67ed59e1d1-3931dffc226mr7907538a91.1.1786635817974;
-        Thu, 13 Aug 2026 08:43:37 -0700 (PDT)
-Received: from leonardoc-nb ([179.160.38.252])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3931dadc0f4sm1600312a91.2.2026.08.13.08.43.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Aug 2026 08:43:36 -0700 (PDT)
-Date: Thu, 13 Aug 2026 12:43:29 -0300
-From: Leonardo Costa <leoreis.costa@gmail.com>
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de, 
-	festevam@gmail.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Leonardo Costa <leonardo.costa@toradex.com>
-Subject: Re: [PATCH 6/6] arm64: dts: freescale: imx8mp-verdin: Add Mezzanine
- with Toradex Display 10.1" LVDS V2
-Message-ID: <rglymw6p4c65yoqz3pjn6e6nq7cil2fa7m7dqghshgdpavby7d@kyza3ceavq6z>
-References: <20260813133335.1941580-1-leoreis.costa@gmail.com>
- <20260813133335.1941580-7-leoreis.costa@gmail.com>
- <an3brO5COdw_F76m@SMW015318>
+	Thu, 13 Aug 2026 15:53:11 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 63B9B61882;
+	Thu, 13 Aug 2026 15:53:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2CB821F000E9;
+	Thu, 13 Aug 2026 15:53:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786636390;
+	bh=pojo/5ihe+x3tRo9VM4Cq8odA8bQ3ul0KyDtov7i6YE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=aQanQO+DNNS5jcSgP9fd7qtYMs2Pe1fwqXr8IVo5Xg/278WctdtrgvZH2RFhMI2Bq
+	 Vys2IlJu8+7RNtHd9GFVY+iZtms6peyf+l/QcBbZgx/Gm3BTqPPiHZEo/kXxrgWzjc
+	 WPKT8cX+3DYFceElFmHFZIFbijDudJoKEGdVCgg1z/3Ww3hasXEtRaTKqzUh6T49L1
+	 l5Fp3Rmmm5lqxD6u+u+N1Z/74u6iRNy/pJlQxMxwykGwK1H8NEM2EOdkTtEiNyGyBX
+	 1vA0PYo89Qz1l11NYxjnK0oo7Jnwel+/2VO2EbK3Q1rMaEkOPDQRJhJZ535zBUTP1q
+	 fYS8OJRhxBvHg==
+Date: Thu, 13 Aug 2026 08:53:07 -0700
+From: Josh Poimboeuf <jpoimboe@kernel.org>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Mark Rutland <mark.rutland@arm.com>, Mark Brown <broonie@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>
+Subject: Re: [PATCH 1/2] arm64: module: Emit BTI veneers for cross-section
+ calls
+Message-ID: <an3kKsTNAYjbDIRH@jpoimboe>
+References: <20260812162058.612202-4-ardb@kernel.org>
+ <20260812162058.612202-5-ardb@kernel.org>
+ <anzo2Q-TxbB0PUhi@jpoimboe>
+ <ba248b4e-958d-4eef-bb66-22a737a6412d@app.fastmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <an3brO5COdw_F76m@SMW015318>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_084339_060375_353B6031 
-X-CRM114-Status: GOOD (  15.27  )
+In-Reply-To: <ba248b4e-958d-4eef-bb66-22a737a6412d@app.fastmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,38 +74,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 13, 2026 at 09:58:52AM -0500, Frank Li wrote:
-> On Thu, Aug 13, 2026 at 10:33:35AM -0300, Leonardo Costa wrote:
-> > From: Leonardo Costa <leonardo.costa@toradex.com>
+On Thu, Aug 13, 2026 at 09:34:44AM +0300, Ard Biesheuvel wrote:
+> 
+> On Thu, 13 Aug 2026, at 00:52, Josh Poimboeuf wrote:
+> > On Wed, Aug 12, 2026 at 06:21:00PM +0200, Ard Biesheuvel wrote:
+> >> The compiler is permitted to omit BTI landing pads from static functions
+> >> that never have their address taken, but are only called directly, even
+> >> if those calls originate from other code sections.
+> >> 
+> >> This means that calls into a module's .text section from .init.text,
+> >> which may need to be routed via a PLT if .text is out of direct
+> >> branching range, may result in BTI exceptions due to the indirect calls
+> >> performed by the PLT veneers. (Note that calls to .init.text from .text
+> >> are not allowed.)
+> >> 
+> >> The 'solution' is to emit yet another veneer - this is what the ELF
+> >> psABI for AArch64 mandates in this case.
+> >> 
+> >> So derive an upper bound for the number of veneers that may be needed in
+> >> the core module region to ensure that any call from init code that ends
+> >> up needing a PLT can be directed at a veneer with a BTI landing pad, and
+> >> allocate the additional space.
+> >> 
+> >> Then, emit these veneers as needed, i.e., only when emitting a PLT entry
+> >> for a call from an init code section to a normal code section in the
+> >> same module. In practice, this only occurs when a module's .init.text
+> >> happens to be allocated far away from its .text section, which might
+> >> happen when the initial 128M 'near' module region runs out of space
+> >> between allocating the core module and allocating its init region.
+> >> 
+> >> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+> >> ---
+> >>  arch/arm64/Kconfig                  |   2 -
+> >>  arch/arm64/include/asm/module.h     |  12 ++
+> >>  arch/arm64/include/asm/module.lds.h |   3 +
+> >>  arch/arm64/kernel/module-plts.c     | 128 +++++++++++++++++++-
+> >>  4 files changed, 138 insertions(+), 7 deletions(-)
+> >> 
+> >> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> >> index b3afe0688919..25fa80b5591d 100644
+> >> --- a/arch/arm64/Kconfig
+> >> +++ b/arch/arm64/Kconfig
+> >> @@ -2114,8 +2114,6 @@ config ARM64_BTI_KERNEL
+> >>  	depends on CC_HAS_BRANCH_PROT_PAC_RET_BTI
+> >>  	# https://gcc.gnu.org/bugzilla/show_bug.cgi?id=94697
+> >>  	depends on !CC_IS_GCC || GCC_VERSION >= 100100
+> >> -	# https://gcc.gnu.org/bugzilla/show_bug.cgi?id=106671
+> >> -	depends on !CC_IS_GCC
 > >
-> > Add a device tree overlay enabling the Toradex Capacitive Touch Display
-> > 10.1" LVDS V2 on the Verdin Development Board with Verdin iMX8M Plus
-> > Mezzanine expansion board. The panel connects via the i.MX8M Plus LCDIF
-> > on the Mezzanine LVDS interface (J10). The panel is an Opto Logic
-> > SCX1001511GGC49 10.1" WXGA TFT LCD LVDS and the touch input is provided
-> > by an ILITEK ILI251x capacitive touch controller.
+> > This doesn't work for livepatch though, and removing the "depends on
+> > !CC_IS_GCC" is a livepatch regression as it broadly increases the
+> > likelihood of ARM64_BTI_KERNEL (default y) getting enabled.
 > >
-> > Link: https://developer.toradex.com/hardware/accessories/displays/capacitive-touch-display-101inch-lvds
-> > Link: https://developer.toradex.com/hardware/verdin-som-family/add-ons/verdin-imx8m-plus-mezzanine
-> > Signed-off-by: Leonardo Costa <leonardo.costa@toradex.com>
-> > ---
+> > So "livepatch broken on arm64 clang 21+" now becomes "livepatch broken 
+> > on arm64".
+> >
 > 
-> what's difference with Add Toradex Capacitive Touch Display 10.1" LVDS V2
+> ... when kernel mode BTI is enabled.
 > 
-> why not share one dtso?
+> I have no insight into which pieces of livepatch for arm64 are actually
+> upstream. Is it just the tooling that is missing? In this case, though,
+> I think HAVE_LIVEPATCH should depend on !ARM64_BTI_KERNEL, rather than
+> the other way around. I can add that in v2.
+
+So arm64 has supported livepatch since HAVE_LIVEPATCH was introduced
+with fd1e0fd71f65 ("arm64: Implement HAVE_LIVEPATCH").
+
+The only production tooling for arm64 livepatch is out-of-tree, though
+it's possible to create some rudimentary livepatches in tree (see
+samples/livepatch).
+
+Though I think klp-build for arm64 is solid and ready to be merged soon.
+
+> > So either ARM64_BTI_KERNEL needs to depend on !LIVEPATCH (which will
+> > keep BTI disabled for most distros), or we need a different approach
+> > which uses __vmalloc_node_range() to allocate a veneer within 128MB of
+> > the target.  I can try to write that up.
+> >
 > 
-> Frank
+> Yes. Or pre-allocate some space in vmlinux for this purpose. I suppose
+> we might just use -fpatchable-function-entry for this, and add one
+> additional NOP to vmlinux for livepatch kernels, so that a landing pad
+> can be patched in as needed. AFAIR the ftrace code already deals with
+> the BTI landing pads gracefully.
 
-Hi Frank,
+It looked to me like ftrace is using RET instead of BR, which I proposed
+to do in the veneer, but Will objected:
 
-There are two main differences:
+  https://lore.kernel.org/ed4fe1f95071897859ec7fbe9176246cbd4962bf.1786138806.git.jpoimboe@kernel.org
 
-1. The mezzanine one uses different backlight controll pins, so here we
-use the 'backlight-mezzanine' node, instead of the 'backlight' one, used
-in the one without the mezzanine.
+I have a patch using __vmalloc_node_range() to allocate the 2nd veneer
+near the target, which seems to work fine, I'll post it later.
 
-2. The touchscreen GPIO and interrupt pins are also different with the
-mezzanine board.
+> > vmlinux text size > 128MB?
+> >
+> > The linker adds veneers for that case, but doesn't make them
+> > BTI-friendly unless GNU_PROPERTY_AARCH64_FEATURE_1_BTI is set on *all*
+> > .o files, which is not currently happening for .S files.
+> >
+> 
+> I think we should fix that.
+> 
+> > And when I force that bit with "-z force-bti" on a 700MB text
+> > allyesconfig vmlinux with 22k linker-created veneers, it's crashes the
+> > GNU linker :-/
+> >
+> > Seems kernel BTI is borked all around...
+> 
+> allyesconfig is useful, but it is not a configuration that is expected
+> to boot successfully. But it certainly shouldn't crash the linker, so
+> this is something we should report to the binutils folks.
 
-Leonardo
+Yeah, working on reporting that now, I have a couple of small
+reproducers.  The crash isn't specific to allyesconfig though.  It
+doesn't like the use of PROVIDE() in linker scripts, apparently...
+
+-- 
+Josh
 
