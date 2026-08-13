@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EC5EC5AC67
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 08:36:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 528A6C5AC67
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 08:36:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ux55P/eUqyNIOwazmon9Wlp3z9i89MIzAhLzSAAm5IY=; b=tFTiL9H4tIF24umjtEo5aEK9Mv
-	in3WG18cRJrFOSAE/iniBi++HSMJ031kv7PhRADq7ncuFb0SZNvcjvLJwvZtMdyrscDEvOcwRgfZk
-	CvJmvBNAyuUzccD+tJg8fSSUSxH6+JAaqe1mO4SmM1Uctqg+TdIWMAk51gyQz7UMPt5ykPjkcCKts
-	QalNLrtr08V95B2LLPl6o0+Md9j0WnlE9OlTib0+iTwwxw02jyzpovVXHdojx6FL9FnP8fVtt5ARA
-	Lga4HHju3ISeDLK3wq6Vuu9uwLJRPgsw91Lmx/1QHNLoGGt5Zj5TOVF2fBW27cHTICA7oL3D65ZYI
-	lZcx4sRQ==;
+	bh=FLNBnsANrTUMdnBcC9IapvMl8huqE7Ah/L99fobP8RQ=; b=NZou3Kgvk/vqwro/yBdpoW+tvg
+	1PXtvxzllW7RFX502dJ8NEpd7GuvFsym/LnwN/SJ/r19npfX7nL2G2aNkZMX+97Qm7dfNElJ3jlIr
+	BNE/gUfqi0X8FD220rM0J0xYOZdpRP8y6g5i3wKVklap7LwHDyAPWqtKzGCLsFT/CPRVOYOV0aLPI
+	DSD0PPF3qXCx6GhyUBTaEKSHYCH7Rjb7+yA/N3lbq6BX7Nxx2eOJfVX6Uw4Z0LOBSZFfagP053neV
+	mOcnykUA67vCtdFEb5vgxTQCblVFQz4dyZ6UiG8SRty50HkksooU9X+9q4SHX/vGdmPriniYvZiBc
+	qS4YO63g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuQvN-00000000AB6-1rib;
-	Thu, 13 Aug 2026 08:36:29 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1wuQvT-00000000AL9-3p8k;
+	Thu, 13 Aug 2026 08:36:35 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuQvC-000000009v7-07Lx
+	id 1wuQvO-00000000ABO-3lIZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 08:36:21 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-496b7622a83so2760635e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 01:36:17 -0700 (PDT)
+	Thu, 13 Aug 2026 08:36:34 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-49554ebb87dso16941715e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 01:36:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786610176; x=1787214976; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1786610189; x=1787214989; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=Ux55P/eUqyNIOwazmon9Wlp3z9i89MIzAhLzSAAm5IY=;
-        b=YsKKKsNDpqwynUD6hkDeehoQtwo48hzzmtZtBDj7HJ1e0WDz1NKzzIqvV6TjAOL/kc
-         fqqO5QeT1AJ/j2ddZs+p7D/SiAvIrFJd9MrnTN1klUm04oq/1j8c5wazbzSVzdqaTBXr
-         in1bsbh2ByKx5gd2NwfjPQphQwqm63BoMp+/0ETaR6KYxOoBzRIxMM/yxruXVUtoDGWh
-         r5Dov8OMOz7VQsBtu/N2q0W6Gaz0vi1WDNHbUkkbn4kUNqYpl1mP/HgXMV9CcbRA4iTF
-         Ayi5io0VVPI4TflkAWrodc24+r4xDxZRKfrvb1Nu2FIvaH5pI9FKrglR2Gj94EfJeH2R
-         pEeg==
+        bh=FLNBnsANrTUMdnBcC9IapvMl8huqE7Ah/L99fobP8RQ=;
+        b=svh0FR0c0LDc+Jixueenbv9Rey7g/k80dA6RniRljKVvuIuftps+UI8oZcsukUmKa9
+         MCVK460GQXc5I5aezNE3+lBRRZsJ1owtZBnWPok12yTqZoNkn7FsMdBfAPvlNRqFWV/H
+         I0nANSZ7OETmCV3/lv8ZnOuC/FY9rYewAkCLHcWcxfdLkEk3Tzix89uBgo0tTqHXS6ii
+         cgmHQYSm3lP8/QiGQs/Isow5XqRCfjXxXIYi/A5vGXCQXjJ+I+YtpXO58y7tFk/knCxb
+         wTj82sM31a5L4g72IgEA/KcVFdc0vH+TkqfjaVMYkW0JTwcyadcHC+JRouVTV5ifEvfn
+         /dqw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786610176; x=1787214976;
+        d=1e100.net; s=20251104; t=1786610189; x=1787214989;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to:content-type;
-        bh=Ux55P/eUqyNIOwazmon9Wlp3z9i89MIzAhLzSAAm5IY=;
-        b=QMyUvZ5jGxkOhqJjusFUXMYLnEiOg/kbe+Ejr7qxawTxrHGrr7VACoy+13mg1GFmV4
-         CI7YI+22ODUneR9TSg6NCuhW8mg2Hr3rAQKu81giFuaQTp46IpG6Mrk5QPdDddeO/nJj
-         q2h+FjmAyrUvo7SQaXnYuRY2Fl29fXGQP93Nhcbkb2Ay7QqlVBppiIUc7BTbx+6JVzyZ
-         1xeC9rGBgIgnzYtrCPuVXKyQCkn1BeMJa28cht6LirSALtfHrhapt53xlnnJPIV6It7k
-         Qy301Igq9Bl7olNKSvPR1IXSXxBCSGtb/MmX8YA2FNo8I64Trp5u796zYK2ceH6ua8O3
-         c6Tw==
-X-Forwarded-Encrypted: i=1; AHgh+Rq5iU1bbs4iOw0Pvjx2vXhZIzHM2ADUMQ0hzWMLLebMbirzEsu1WmIpCZhglbh3s0V9T1llQpIskFRFiNc6s63w@lists.infradead.org
-X-Gm-Message-State: AOJu0YyWWB3QLhm3K91bBMXHyBqPzIgX2RlAe2lUxjMARTh3BGQBnUZA
-	lNPpyRfhauEIA5w3kjd9Tj9txGp5aToM8hu7Pznbx2TtxEATQp2xj7mu
-X-Gm-Gg: AR+sD12JenKbsun6nW3KbGIz2a+yjyXakS37Gssmo2BxcgoTHAHFa0EV/v7xhkbEYxx
-	e90vLVujCkQrFe28OBjfTYK6I08iX8I92gWyjif1lv0ZN4MfEU5qpvIbuVyDfkjX53nXR/AtH7G
-	QA7XOv63AbTjLgYmgsv70N4T3AWK3YwIm94rhqFnh80JIFWlZifhuFsAP6G5jyCOc6lrpV+DRcv
-	qnaSYzRkIwbgmE1q8DJ0s/7oWFpdIBDbbGDA6+0R3dehafp5G/RT6qHjosEafrmLe3Qr1maJu+y
-	p88v88rE7cn1DB3IxKCl2IWE/m7gI5g+/47Nd+MXsiP6B9hVVysIxxCFfIAgAQz04yNJO5gPoS2
-	Nq95MMc04dSDeAUpbzUFJ18kWYg0kFWJ1SekYDgB4Oy2OSgFCfGwsHG8AbsFRod4IurSd3oVQU+
-	d7hqDcHYOz2swRpi0pFWl9KJDUXgk/BUFD2j638NlDoavYQJqj/YrbBxE2XnSfyDR7dW7bqD9SS
-	IV4oav9IpvCCH2TlHoEMj3G4X+CT3CbBbgEgAT1vhVDMVZ35ZUpZ9tS0vgj
-X-Received: by 2002:a05:600c:3143:b0:499:795a:c5fc with SMTP id 5b1f17b1804b1-499821c5aeemr43594435e9.7.1786610176041;
-        Thu, 13 Aug 2026 01:36:16 -0700 (PDT)
+        bh=FLNBnsANrTUMdnBcC9IapvMl8huqE7Ah/L99fobP8RQ=;
+        b=NT7AcNcAbmoXzLDMuQVrsCHpz3hyV1fPaOKi+4RB602aeSLf9YLfij/k2QKCVQVmEW
+         PkOShvR6svX/IDWPPhc5tETvM9dqU0YSyWFfKGXaUqKes3Dw+MdT8SnPPK6BZ+ebuX3K
+         w6P2bSUivrfYvJoObh9p5GOp3gRyp3I9F02c96Qqgg6FeFm8FEgz2rqab29gGkgHQp7p
+         1EbJNNEB5cZmB2nkYU96HqVV4uDiXAvdfTzUqslSJosC3n6kRpe+AQq8yZ+s7Ihr8C2T
+         JlwZ7X54GeC1OIRDAxuUwcJW377eodnc3l9HygBIgNaYSWyKqyNX+mO0jQlcRnEWYe+G
+         X2WQ==
+X-Forwarded-Encrypted: i=1; AHgh+RrRo0lRfY4qLJy81M1/eP73SnEDU0SDOuF0DKgiE9+UOXZsZtcic9OGd/TCQBWyEWqV0obie+Y6WVP1uifd6L6l@lists.infradead.org
+X-Gm-Message-State: AOJu0YxrcMFpht2Pr171Eu6jMliWBmnSxh8HLjr4fXOl6t8qRPAkDkvZ
+	ySc3rmvn+Ry1AMrCHfzekK62vmWwfrghnC5ERsG7VIUipuVfEC4njiIg
+X-Gm-Gg: AR+sD10l8Kub9qvbv715J0LSAbHW+xLGEzhhtEtFZnNYqjjsvedbwgtkutJluQOh3c+
+	0VR/JlJOQP6QomiyFUXpJ7Ib0EkxPdOy7wlxcm78q0/eTjIuHeLPFlQn1MTXcC/dm5OZN1fK5Oo
+	h7JGV6U7+npFBZVzwhBKgOF9UDgAV4MPYVOYrVFK/AmD4BBrAdKDj0EhSzNqi0k0pB6w2zZETZ/
+	n54uhs+DfqdH54iEzByFc3EnzsUwCAzp4Ph0COilrWVsewZpmPE4lFoxiEH0NKIT5mZZeoJwx+g
+	Pd1da6Yq03al+QeSeVc3wKxTJYdvAvdu2jJy3AYsO4aIyIwy9bH8nJy+A7suA3tCnYvKNnUuA27
+	RjI5Q0w7S7dFtmdPTdIUk1fjwPU1/ZWm/ZkFc/Ib6jKJwMZCch82sjCi12GOIaIw5D4dZhBLZsf
+	uBFXqjzCVewAQb5h7U4J0K5RZAz2DdoKWi/hasALGABeRDihDU5jz57psEmesqn+pLsppfNwHzV
+	5yNuzf37VgDOZQPOi21m6Nz4NQw20gYz5lrde4Zf6Q/y5ln
+X-Received: by 2002:a05:600c:8010:b0:495:4749:16a7 with SMTP id 5b1f17b1804b1-499821d2047mr36584565e9.14.1786610170310;
+        Thu, 13 Aug 2026 01:36:10 -0700 (PDT)
 Received: from Ansuel-XPS24.localdomain (host-87-20-3-207.retail.telecomitalia.it. [87.20.3.207])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4998216d082sm45804425e9.13.2026.08.13.01.36.14
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4998216d082sm45804425e9.13.2026.08.13.01.36.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Aug 2026 01:36:15 -0700 (PDT)
+        Thu, 13 Aug 2026 01:36:09 -0700 (PDT)
 From: Christian Marangi <ansuelsmth@gmail.com>
 To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -99,17 +99,17 @@ To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
 	llvm@lists.linux.dev
-Subject: [PATCH v14 12/12] net: airoha: add phylink support
-Date: Thu, 13 Aug 2026 10:35:17 +0200
-Message-ID: <20260813083536.970196-13-ansuelsmth@gmail.com>
+Subject: [PATCH v14 10/12] dt-bindings: net: pcs: Document support for Airoha Ethernet PCS
+Date: Thu, 13 Aug 2026 10:35:15 +0200
+Message-ID: <20260813083536.970196-11-ansuelsmth@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260813083536.970196-1-ansuelsmth@gmail.com>
 References: <20260813083536.970196-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_013618_147912_A9E7D911 
-X-CRM114-Status: GOOD (  27.27  )
+X-CRM114-CacheID: sfid-20260813_013631_010592_9BD53B63 
+X-CRM114-Status: GOOD (  15.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,374 +124,287 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add phylink support for each GDM port. For GDM1 add the internal interface
-mode as the only supported mode. For GDM2/3/4 add the required
-configuration of the PCS to make the external PHY or attached SFP cage
-work.
+Document support for Airoha Ethernet PCS for AN7581 SoC.
 
-These needs to be defined in the GDM port node using the pcs-handle
-property.
+Airoha AN7581 SoC expose multiple Physical Coding Sublayer (PCS) for
+the various Serdes port supporting different Media Independent Interface
+(10BASE-R, USXGMII, 2500BASE-X, 1000BASE-X, SGMII).
 
-Update and provide a .get/set_link_ksettings function that use phylink
-for ethtool OPs now that we fully support phylink.
+This follow the new PCS provider with the use of #pcs-cells property.
 
 Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 ---
- drivers/net/ethernet/airoha/Kconfig       |   2 +
- drivers/net/ethernet/airoha/airoha_eth.c  | 199 +++++++++++++++++++++-
- drivers/net/ethernet/airoha/airoha_eth.h  |   5 +
- drivers/net/ethernet/airoha/airoha_regs.h |  12 ++
- 4 files changed, 215 insertions(+), 3 deletions(-)
+ .../bindings/net/pcs/airoha,pcs.yaml          | 261 ++++++++++++++++++
+ 1 file changed, 261 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/net/pcs/airoha,pcs.yaml
 
-diff --git a/drivers/net/ethernet/airoha/Kconfig b/drivers/net/ethernet/airoha/Kconfig
-index 1f6640a15fc9..5c54a07d2a76 100644
---- a/drivers/net/ethernet/airoha/Kconfig
-+++ b/drivers/net/ethernet/airoha/Kconfig
-@@ -20,6 +20,8 @@ config NET_AIROHA
- 	depends on NET_DSA || !NET_DSA
- 	select NET_AIROHA_NPU
- 	select PAGE_POOL
-+	select PCS_AIROHA
-+	select PHYLINK
- 	help
- 	  This driver supports the gigabit ethernet MACs in the
- 	  Airoha SoC family.
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 64619e9a704d..c3827bf9791b 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -6,6 +6,7 @@
- #include <linux/of.h>
- #include <linux/of_net.h>
- #include <linux/of_reserved_mem.h>
-+#include <linux/pcs/pcs.h>
- #include <linux/platform_device.h>
- #include <linux/tcp.h>
- #include <linux/u64_stats_sync.h>
-@@ -1915,10 +1916,18 @@ static int airoha_dev_open(struct net_device *netdev)
- 	struct airoha_qdma *qdma;
- 	int err;
- 
-+	err = phylink_of_phy_connect(dev->phylink, netdev->dev.of_node, 0);
-+	if (err) {
-+		netdev_err(netdev, "could not attach PHY: %d\n", err);
-+		return err;
-+	}
+diff --git a/Documentation/devicetree/bindings/net/pcs/airoha,pcs.yaml b/Documentation/devicetree/bindings/net/pcs/airoha,pcs.yaml
+new file mode 100644
+index 000000000000..9c1d116c1b01
+--- /dev/null
++++ b/Documentation/devicetree/bindings/net/pcs/airoha,pcs.yaml
+@@ -0,0 +1,261 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/net/pcs/airoha,pcs.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+	phylink_start(dev->phylink);
++title: Airoha Ethernet PCS and Serdes
 +
- 	netif_tx_start_all_queues(netdev);
- 	err = airoha_set_vip_for_gdm_port(dev, true);
- 	if (err)
--		return err;
-+		goto err_phy_stop;
- 
- 	qdma = airoha_qdma_deref(dev);
- 	if (netdev_uses_dsa(netdev))
-@@ -1938,6 +1947,13 @@ static int airoha_dev_open(struct net_device *netdev)
- 				    pse_port);
- 
- 	return 0;
++maintainers:
++  - Christian Marangi <ansuelsmth@gmail.com>
 +
-+err_phy_stop:
-+	netif_tx_stop_all_queues(netdev);
-+	phylink_stop(dev->phylink);
-+	phylink_disconnect_phy(dev->phylink);
++description:
++  Airoha AN7581 SoC expose multiple Physical Coding Sublayer (PCS) for
++  the various Serdes port supporting different Media Independent Interface
++  (10BASE-R, USXGMII, 2500BASE-X, 1000BASE-X, SGMII).
 +
-+	return err;
- }
- 
- static int airoha_dev_stop(struct net_device *netdev)
-@@ -1945,6 +1961,8 @@ static int airoha_dev_stop(struct net_device *netdev)
- 	struct airoha_gdm_dev *dev = netdev_priv(netdev);
- 	struct airoha_gdm_port *port = dev->port;
- 
-+	phylink_stop(dev->phylink);
++properties:
++  compatible:
++    enum:
++      - airoha,an7581-pcs-eth
++      - airoha,an7581-pcs-pon
++      - airoha,an7581-pcs-pcie
++      - airoha,an7581-pcs-usb
 +
- 	netif_tx_disable(netdev);
- 	airoha_set_vip_for_gdm_port(dev, false);
- 
-@@ -1954,6 +1972,9 @@ static int airoha_dev_stop(struct net_device *netdev)
- 		airoha_set_gdm_port_fwd_cfg(dev->eth,
- 					    REG_GDM_FWD_CFG(port->id),
- 					    FE_PSE_PORT_DROP);
++  reg:
++    minItems: 6
++    maxItems: 15
 +
-+	phylink_disconnect_phy(dev->phylink);
++  reg-names:
++    minItems: 6
++    maxItems: 15
 +
- 	return 0;
- }
- 
-@@ -2509,6 +2530,24 @@ airoha_ethtool_get_rmon_stats(struct net_device *netdev,
- 	} while (u64_stats_fetch_retry(&dev->stats.syncp, start));
- }
- 
-+static int
-+airoha_ethtool_get_link_ksettings(struct net_device *netdev,
-+				  struct ethtool_link_ksettings *cmd)
-+{
-+	struct airoha_gdm_dev *dev = netdev_priv(netdev);
++  airoha,scu:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description: phandle to the SCU node required to configure
++      the serdes line to the correct interface mode.
 +
-+	return phylink_ethtool_ksettings_get(dev->phylink, cmd);
-+}
++  phys:
++    maxItems: 1
 +
-+static int
-+airoha_ethtool_set_link_ksettings(struct net_device *netdev,
-+				  const struct ethtool_link_ksettings *cmd)
-+{
-+	struct airoha_gdm_dev *dev = netdev_priv(netdev);
++  "#pcs-cells": true
 +
-+	return phylink_ethtool_ksettings_set(dev->phylink, cmd);
-+}
++required:
++  - compatible
++  - reg
++  - reg-names
++  - "#pcs-cells"
 +
- static int airoha_qdma_set_chan_tx_sched(struct net_device *netdev,
- 					 int channel, enum tx_sched_mode mode,
- 					 const u16 *weights, u8 n_weights)
-@@ -3353,7 +3392,8 @@ static const struct ethtool_ops airoha_ethtool_ops = {
- 	.get_drvinfo		= airoha_ethtool_get_drvinfo,
- 	.get_eth_mac_stats      = airoha_ethtool_get_mac_stats,
- 	.get_rmon_stats		= airoha_ethtool_get_rmon_stats,
--	.get_link_ksettings	= phy_ethtool_get_link_ksettings,
-+	.get_link_ksettings	= airoha_ethtool_get_link_ksettings,
-+	.set_link_ksettings	= airoha_ethtool_set_link_ksettings,
- 	.get_link		= ethtool_op_get_link,
- };
- 
-@@ -3409,6 +3449,155 @@ bool airoha_is_valid_gdm_dev(struct airoha_eth *eth,
- 	return false;
- }
- 
-+/* Nothing to do in MAC, everything is handled in PCS */
-+static void airoha_mac_config(struct phylink_config *config, unsigned int mode,
-+			      const struct phylink_link_state *state)
-+{
-+}
++allOf:
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - airoha,an7581-pcs-eth
++              - airoha,an7581-pcs-pon
 +
-+static void airoha_mac_link_up(struct phylink_config *config, struct phy_device *phy,
-+			       unsigned int mode, phy_interface_t interface,
-+			       int speed, int duplex, bool tx_pause, bool rx_pause)
-+{
-+	struct airoha_gdm_dev *dev = container_of(config, struct airoha_gdm_dev,
-+						  phylink_config);
-+	struct airoha_gdm_port *port = dev->port;
-+	struct airoha_eth *eth = dev->eth;
-+	u32 frag_size_tx, frag_size_rx;
++    then:
++      properties:
++        reg:
++          items:
++            - description: PCS MAC reg
++            - description: HSGMII AN reg
++            - description: HSGMII PCS reg
++            - description: MULTI SGMII reg
++            - description: USXGMII reg
++            - description: HSGMII rate adaption reg
++            - description: PCS Analog register
++            - description: PCS PMA (Physical Medium Attachment) register
 +
-+	/* TX/RX frag is configured only for GDM4 */
-+	if (port->id != AIROHA_GDM4_IDX)
-+		return;
++        reg-names:
++          items:
++            - const: pcs_mac
++            - const: hsgmii_an
++            - const: hsgmii_pcs
++            - const: multi_sgmii
++            - const: usxgmii
++            - const: hsgmii_rate_adp
++            - const: pcs_ana
++            - const: pcs_pma
 +
-+	switch (speed) {
-+	case SPEED_10000:
-+	case SPEED_5000:
-+		frag_size_tx = 8;
-+		frag_size_rx = 8;
-+		break;
-+	case SPEED_2500:
-+		frag_size_tx = 2;
-+		frag_size_rx = 1;
-+		break;
-+	default:
-+		frag_size_tx = 1;
-+		frag_size_rx = 0;
-+		break;
-+	}
++        phys: false
 +
-+	mutex_lock(&port->link_lock);
++        "#pcs-cells":
++          const: 0
 +
-+	/* Configure TX/RX frag based on speed */
-+	if (dev->nbq == 1) {
-+		airoha_fe_rmw(eth, REG_FE_GDM4_TMBI_FRAG,
-+			      GDM4_SGMII1_TX_FRAG_SIZE_MASK,
-+			      FIELD_PREP(GDM4_SGMII1_TX_FRAG_SIZE_MASK,
-+					 frag_size_tx));
++      required:
++        - airoha,scu
 +
-+		airoha_fe_rmw(eth, REG_FE_GDM4_RMBI_FRAG,
-+			      GDM4_SGMII1_RX_FRAG_SIZE_MASK,
-+			      FIELD_PREP(GDM4_SGMII1_RX_FRAG_SIZE_MASK,
-+					 frag_size_rx));
-+	} else {
-+		airoha_fe_rmw(eth, REG_FE_GDM4_TMBI_FRAG,
-+			      GDM4_SGMII0_TX_FRAG_SIZE_MASK,
-+			      FIELD_PREP(GDM4_SGMII0_TX_FRAG_SIZE_MASK,
-+					 frag_size_tx));
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: airoha,an7581-pcs-pcie
 +
-+		airoha_fe_rmw(eth, REG_FE_GDM4_RMBI_FRAG,
-+			      GDM4_SGMII0_RX_FRAG_SIZE_MASK,
-+			      FIELD_PREP(GDM4_SGMII0_RX_FRAG_SIZE_MASK,
-+					 frag_size_rx));
-+	}
++    then:
++      properties:
++        reg:
++          items:
++            - description: PCS MAC 0 reg
++            - description: HSGMII AN 0 reg
++            - description: HSGMII PCS 0 reg
++            - description: MULTI SGMII 0 reg
++            - description: USXGMII 0 reg
++            - description: HSGMII rate adaption 0 reg
++            - description: PCS MAC 1 reg
++            - description: HSGMII AN 1 reg
++            - description: HSGMII PCS 1 reg
++            - description: MULTI SGMII 1 reg
++            - description: USXGMII 1 reg
++            - description: HSGMII rate adaption 1 reg
++            - description: PCS Analog register
++            - description: PCS PMA (Physical Medium Attachment) 0 register
++            - description: PCS PMA (Physical Medium Attachment) 1 register
 +
-+	mutex_unlock(&port->link_lock);
-+}
++        reg-names:
++          items:
++            - const: pcs_mac0
++            - const: hsgmii_an0
++            - const: hsgmii_pcs0
++            - const: multi_sgmii0
++            - const: usxgmii0
++            - const: hsgmii_rate_adp0
++            - const: pcs_mac1
++            - const: hsgmii_an1
++            - const: hsgmii_pcs1
++            - const: multi_sgmii1
++            - const: usxgmii1
++            - const: hsgmii_rate_adp1
++            - const: pcs_ana
++            - const: pcs_pma0
++            - const: pcs_pma1
 +
-+/* Nothing to do in MAC, everything is handled in PCS */
-+static void airoha_mac_link_down(struct phylink_config *config, unsigned int mode,
-+				 phy_interface_t interface)
-+{
-+}
++        phys: false
 +
-+static const struct phylink_mac_ops airoha_phylink_ops = {
-+	.mac_config = airoha_mac_config,
-+	.mac_link_up = airoha_mac_link_up,
-+	.mac_link_down = airoha_mac_link_down,
-+};
++        "#pcs-cells":
++          const: 1
 +
-+static int airoha_fill_available_pcs(struct phylink_config *config,
-+				     struct phylink_pcs **available_pcs,
-+				     unsigned int num_possible_pcs)
-+{
-+	struct device *dev = config->dev;
++      required:
++        - airoha,scu
 +
-+	return fwnode_phylink_pcs_parse(dev_fwnode(dev), available_pcs,
-+					num_possible_pcs);
-+}
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: airoha,an7581-pcs-usb
 +
-+static int airoha_setup_phylink(struct net_device *netdev)
-+{
-+	struct airoha_gdm_dev *dev = netdev_priv(netdev);
-+	struct device_node *np = netdev->dev.of_node;
-+	struct airoha_gdm_port *port = dev->port;
-+	struct phylink_config *config;
-+	phy_interface_t phy_mode;
-+	struct phylink *phylink;
-+	int err;
++    then:
++      properties:
++        reg:
++          items:
++            - description: PCS MAC reg
++            - description: HSGMII AN reg
++            - description: HSGMII PCS reg
++            - description: MULTI SGMII reg
++            - description: HSGMII rate adaption reg
++            - description: PCS Analog register
 +
-+	err = of_get_phy_mode(np, &phy_mode);
-+	if (err) {
-+		dev_err(&netdev->dev, "incorrect phy-mode\n");
-+		return err;
-+	}
++        reg-names:
++          items:
++            - const: pcs_mac
++            - const: hsgmii_an
++            - const: hsgmii_pcs
++            - const: multi_sgmii
++            - const: hsgmii_rate_adp
++            - const: pcs_ana
 +
-+	config = &dev->phylink_config;
-+	config->dev = &netdev->dev;
-+	config->type = PHYLINK_NETDEV;
++        airoha,scu: false
 +
-+	/*
-+	 * GDM1 only supports internal for Embedded Switch
-+	 * and doesn't require a PCS.
-+	 */
-+	if (port->id == AIROHA_GDM1_IDX) {
-+		config->mac_capabilities = MAC_ASYM_PAUSE | MAC_SYM_PAUSE |
-+					   MAC_10000FD;
++        "#pcs-cells":
++          const: 0
 +
-+		__set_bit(PHY_INTERFACE_MODE_INTERNAL,
-+			  config->supported_interfaces);
-+	} else {
-+		config->mac_capabilities = MAC_ASYM_PAUSE | MAC_SYM_PAUSE |
-+					   MAC_10 | MAC_100 | MAC_1000 |
-+					   MAC_2500FD | MAC_5000FD | MAC_10000FD;
++      required:
++        - phys
 +
-+		config->num_possible_pcs = fwnode_phylink_pcs_count(dev_fwnode(config->dev));
-+		config->fill_available_pcs = airoha_fill_available_pcs;
++additionalProperties: false
 +
-+		__set_bit(PHY_INTERFACE_MODE_SGMII,
-+			  config->supported_interfaces);
-+		__set_bit(PHY_INTERFACE_MODE_1000BASEX,
-+			  config->supported_interfaces);
-+		__set_bit(PHY_INTERFACE_MODE_2500BASEX,
-+			  config->supported_interfaces);
-+		__set_bit(PHY_INTERFACE_MODE_10GBASER,
-+			  config->supported_interfaces);
-+		__set_bit(PHY_INTERFACE_MODE_USXGMII,
-+			  config->supported_interfaces);
++examples:
++  - |
++    #include <dt-bindings/phy/phy.h>
 +
-+		phy_interface_copy(config->pcs_interfaces,
-+				   config->supported_interfaces);
-+	}
++    pcs@1fa08000 {
++      compatible = "airoha,an7581-pcs-pon";
++      reg = <0x1fa08000 0x1000>,
++            <0x1fa80000 0x60>,
++            <0x1fa80a00 0x164>,
++            <0x1fa84000 0x450>,
++            <0x1fa85900 0x338>,
++            <0x1fa86000 0x300>,
++            <0x1fa8a000 0x1000>,
++            <0x1fa8b000 0x1000>;
++      reg-names = "pcs_mac", "hsgmii_an", "hsgmii_pcs",
++                  "multi_sgmii", "usxgmii",
++                  "hsgmii_rate_adp", "pcs_ana", "pcs_pma";
 +
-+	phylink = phylink_create(config, of_fwnode_handle(np),
-+				 phy_mode, &airoha_phylink_ops);
-+	if (IS_ERR(phylink))
-+		return PTR_ERR(phylink);
++      airoha,scu = <&scuclk>;
++      #pcs-cells = <0>;
++    };
 +
-+	dev->phylink = phylink;
++    pcs@1fa09000 {
++      compatible = "airoha,an7581-pcs-eth";
++      reg = <0x1fa09000 0x1000>,
++            <0x1fa70000 0x60>,
++            <0x1fa70a00 0x164>,
++            <0x1fa74000 0x450>,
++            <0x1fa75900 0x338>,
++            <0x1fa76000 0x300>,
++            <0x1fa7a000 0x1000>,
++            <0x1fa7b000 0x1000>;
++      reg-names = "pcs_mac", "hsgmii_an", "hsgmii_pcs",
++                  "multi_sgmii", "usxgmii",
++                  "hsgmii_rate_adp", "pcs_ana", "pcs_pma";
 +
-+	return 0;
-+}
++      airoha,scu = <&scuclk>;
++      #pcs-cells = <0>;
++    };
 +
- static int airoha_alloc_gdm_device(struct airoha_eth *eth,
- 				   struct airoha_gdm_port *port,
- 				   int nbq, struct device_node *np)
-@@ -3474,7 +3663,7 @@ static int airoha_alloc_gdm_device(struct airoha_eth *eth,
- 	dev->nbq = nbq;
- 	port->devs[index] = dev;
- 
--	return 0;
-+	return airoha_setup_phylink(netdev);
- }
- 
- static int airoha_alloc_gdm_port(struct airoha_eth *eth,
-@@ -3510,6 +3699,7 @@ static int airoha_alloc_gdm_port(struct airoha_eth *eth,
- 
- 	port->id = id;
- 	spin_lock_init(&port->stats_lock);
-+	mutex_init(&port->link_lock);
- 	eth->ports[p] = port;
- 
- 	err = airoha_metadata_dst_alloc(port);
-@@ -3706,6 +3896,8 @@ static int airoha_probe(struct platform_device *pdev)
- 			netdev = netdev_from_priv(dev);
- 			if (netdev->reg_state == NETREG_REGISTERED)
- 				unregister_netdev(netdev);
-+			if (dev->phylink)
-+				phylink_destroy(dev->phylink);
- 			of_node_put(netdev->dev.of_node);
- 		}
- 		airoha_metadata_dst_free(port);
-@@ -3744,6 +3936,7 @@ static void airoha_remove(struct platform_device *pdev)
- 
- 			netdev = netdev_from_priv(dev);
- 			unregister_netdev(netdev);
-+			phylink_destroy(dev->phylink);
- 			of_node_put(netdev->dev.of_node);
- 		}
- 		airoha_metadata_dst_free(port);
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-index fa9a8edce22f..83daec003257 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.h
-+++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -595,6 +595,9 @@ struct airoha_gdm_dev {
- 	 * QDMA migration.
- 	 */
- 	spinlock_t txq_lock[AIROHA_NUM_NETDEV_TX_RINGS];
++    pcs@1fa04000 {
++      compatible = "airoha,an7581-pcs-pcie";
++      reg = <0x1fa04000 0x1000>,
++            <0x1fa50000 0x60>,
++            <0x1fa50a00 0x164>,
++            <0x1fa54000 0x450>,
++            <0x1fa55900 0x338>,
++            <0x1fa56000 0x300>,
++            <0x1fa05000 0x1000>,
++            <0x1fa60000 0x60>,
++            <0x1fa60a00 0x164>,
++            <0x1fa64000 0x450>,
++            <0x1fa65900 0x338>,
++            <0x1fa66000 0x300>,
++            <0x1fa5a000 0x1000>,
++            <0x1fa5b000 0x1000>,
++            <0x1fa5c000 0x1000>;
++      reg-names = "pcs_mac0", "hsgmii_an0", "hsgmii_pcs0",
++                  "multi_sgmii0", "usxgmii0",
++                  "hsgmii_rate_adp0",
++                  "pcs_mac1", "hsgmii_an1", "hsgmii_pcs1",
++                  "multi_sgmii1", "usxgmii1",
++                  "hsgmii_rate_adp1",
++                  "pcs_ana", "pcs_pma0", "pcs_pma1";
 +
-+	struct phylink *phylink;
-+	struct phylink_config phylink_config;
- };
- 
- struct airoha_gdm_port {
-@@ -604,6 +607,8 @@ struct airoha_gdm_port {
- 
- 	/* protect concurrent hw_stats accesses */
- 	spinlock_t stats_lock;
-+	/* protect concurrent GDM4 register access */
-+	struct mutex link_lock;
- 
- 	struct metadata_dst *dsa_meta[AIROHA_MAX_DSA_PORTS];
- };
-diff --git a/drivers/net/ethernet/airoha/airoha_regs.h b/drivers/net/ethernet/airoha/airoha_regs.h
-index 442b48c9b991..4ea89057b560 100644
---- a/drivers/net/ethernet/airoha/airoha_regs.h
-+++ b/drivers/net/ethernet/airoha/airoha_regs.h
-@@ -357,6 +357,18 @@
- #define IP_FRAGMENT_PORT_MASK		GENMASK(8, 5)
- #define IP_FRAGMENT_NBQ_MASK		GENMASK(4, 0)
- 
-+#define REG_FE_GDM4_TMBI_FRAG		0x2028
-+#define GDM4_SGMII1_TX_WEIGHT_MASK	GENMASK(31, 26)
-+#define GDM4_SGMII1_TX_FRAG_SIZE_MASK	GENMASK(25, 16)
-+#define GDM4_SGMII0_TX_WEIGHT_MASK	GENMASK(15, 10)
-+#define GDM4_SGMII0_TX_FRAG_SIZE_MASK	GENMASK(9, 0)
++      airoha,scu = <&scuclk>;
++      #pcs-cells = <1>;
++    };
 +
-+#define REG_FE_GDM4_RMBI_FRAG		0x202c
-+#define GDM4_SGMII1_RX_WEIGHT_MASK	GENMASK(31, 26)
-+#define GDM4_SGMII1_RX_FRAG_SIZE_MASK	GENMASK(25, 16)
-+#define GDM4_SGMII0_RX_WEIGHT_MASK	GENMASK(15, 10)
-+#define GDM4_SGMII0_RX_FRAG_SIZE_MASK	GENMASK(9, 0)
++    pcs@1fa07000 {
++      compatible = "airoha,an7581-pcs-usb";
++      reg = <0x1fa07000 0x1000>,
++            <0x1fa90000 0x60>,
++            <0x1fa90a00 0x164>,
++            <0x1fa94000 0x450>,
++            <0x1fa96000 0x300>,
++            <0x1fa9a000 0x600>;
++      reg-names = "pcs_mac", "hsgmii_an", "hsgmii_pcs",
++                  "multi_sgmii", "hsgmii_rate_adp","pcs_ana";
 +
- #define REG_MC_VLAN_EN			0x2100
- #define MC_VLAN_EN_MASK			BIT(0)
- 
++      phys = <&usb0_phy PHY_TYPE_USB3>;
++
++      #pcs-cells = <0>;
++    };
 -- 
 2.53.0
 
