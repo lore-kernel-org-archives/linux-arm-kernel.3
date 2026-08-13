@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5504FC5CFDB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 08:01:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94B36C5CFDB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 08:01:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xx36mDPNFgstttg20qSUlurhDbVJ78nN9n4MYm6WP0k=; b=v06tqG1SLdrAUl0mPwuz8q5Eem
-	S5Cu6awfWh9aXb4RopHxDhstk1knWR2pQ3dUCDtT4YJhigHiGDe6ZAQaqyWe3fYxH3CZ3sCqKbNR9
-	EEGk3acZpXvlGJJ6tZMNTvIOWqvfOhIgx7Mdg6hqeXbia+1Ru5GtLRoeIuamCO/0nOG8L18+XwVoi
-	WPG2sdXlAlCJwLxgxHMxxVSqpKvDYpokMghvLv3FWX5ri19g+NBTwpvWnd9H5BaGVBtQRfH4hzash
-	ktsELc7cgEKpXJzIIJsNKVq5wLWZQ2ukCyR58X2B4hJ+49Kf1bBuNkqe9BCAkS0Lym7BfofVvV9TH
-	DbQ2vLig==;
+	bh=zj84OFZz5gnRYignK4t6ga1YzryGPYdWrXYJ76F0Jgc=; b=gmnj/c8Mb9xTzEfMxVvw0bkAdi
+	nKpyMdZf49inqmHTNCETwtvH3tCIEqMU4t1lLukP695vBNdzC3w1mY0qyUJNrB5SYkTlVYQHkZ1ou
+	nsMmb9juwohlGUBdJD6MBMizewt2rMZT3aeZXMs1i9wFZhIVusdNdwKUUj/gN8YO4uIE9c+uz07kA
+	L50GSDXCYFnH5G9A8fTHGdJe8O7zOMBNtOFmGlW3ubdnSv8fpAkrYDR87pCRaLvUnwIqaAsAUZrvJ
+	1JyND8JxSfJD3oYCRPMAEwriEKLLitBO+MGpW+mrtcXY20qlP9pbBduPLpLFjAsKHzmxpjNb1ErYF
+	pfB4HKaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuQN2-000000004Er-3dom;
-	Thu, 13 Aug 2026 08:01:00 +0000
+	id 1wuQNA-000000004IW-0VnT;
+	Thu, 13 Aug 2026 08:01:08 +0000
 Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuQN0-000000004C1-1ys1
+	id 1wuQN6-000000004Ga-3obQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 08:00:59 +0000
+	Thu, 13 Aug 2026 08:01:06 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 06AE71A15EF;
-	Thu, 13 Aug 2026 08:00:57 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 74CAC1A15F0;
+	Thu, 13 Aug 2026 08:01:03 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id CF57F602B8;
-	Thu, 13 Aug 2026 08:00:56 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3CFA211C4DA93;
-	Thu, 13 Aug 2026 10:00:51 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 49918602B8;
+	Thu, 13 Aug 2026 08:01:03 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 81A9511C4DA8E;
+	Thu, 13 Aug 2026 10:00:56 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1786608052; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1786608058; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=xx36mDPNFgstttg20qSUlurhDbVJ78nN9n4MYm6WP0k=;
-	b=bwAboqmHaigF17vxw6fNyWDm2Xf5/hEIncR+VdBQqhYrOUVg+J3C8/87O81nBcLVwLjxGr
-	sFJYDpBjyD2Qmk/IUgj9YZvs7NeCTzIHxZ/7zNgbiqNOvDkGaeQh83OvwL+RmKUbvWcKjv
-	zUEL+XQt72bPRJ0SalMB9LGv3N+blRnHwv7rz+tDZ+985cySpRdhmXpimW89ce25FPjA2Q
-	pblHlQr3yl4yA4Bu5FFKjw+lQTypgxHAuSQCoUSQDdsuNGehu8KwX76CGAYgyIsqwnTVR6
-	rFlEWgmy/ZJ0aR2pvPHHYGGygLf7BnXYqoNCxyIkeVU00KV5FHqWq4zAWcxwZQ==
+	bh=zj84OFZz5gnRYignK4t6ga1YzryGPYdWrXYJ76F0Jgc=;
+	b=1dB4TCyirgki1jlciw49iYZSNvLXgM7koNktnDBZ611HsvioCX0gRZAiKyKx9a40KIbJC/
+	JHoUGwNV77a/Vw4/88K5I9nyU3kzvgsfoaS1T/ffkUBxx7FBsnUqSIquXB8VoJs5mQZSSC
+	dEoBEQXLKsZ60ZbvnkGixXC6XTgWl8jepBtTD8WaCxi6M97cmLaCQqSo/K9pQhKxuRrrho
+	4MlCbI1EMeH/Bg7VnRS8D5+BqfWOQesZ92bar/EEMS9eJ29+AFcZZzoTmHrs4oUlmQo8WX
+	p+7WJGxXy5fBaSATaYUFno78WuIdzSmPXx4eQPfMbac+8F8LrjETyusVy2zmDg==
 From: Miquel Raynal <miquel.raynal@bootlin.com>
-Date: Thu, 13 Aug 2026 10:00:24 +0200
-Subject: [PATCH 4/5] spi: ma35d1-qspi: Add DTR support
+Date: Thu, 13 Aug 2026 10:00:25 +0200
+Subject: [PATCH 5/5] spi: ma35d1-qspi: Use the existing update helper
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260813-perso-ma35d1-upstream-qspi-v1-4-b217b9870eb1@bootlin.com>
+Message-Id: <20260813-perso-ma35d1-upstream-qspi-v1-5-b217b9870eb1@bootlin.com>
 References: <20260813-perso-ma35d1-upstream-qspi-v1-0-b217b9870eb1@bootlin.com>
 In-Reply-To: <20260813-perso-ma35d1-upstream-qspi-v1-0-b217b9870eb1@bootlin.com>
 To: Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
@@ -62,8 +62,9 @@ Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
 X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_010058_663487_6814D0D7 
-X-CRM114-Status: GOOD (  13.95  )
+X-CRM114-CacheID: sfid-20260813_010105_096212_733CCA89 
+X-CRM114-Status: UNSURE (   9.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,148 +79,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The controller has DTR support, a bit must be set for it. The behaviour
-is interesting though, as the speed won't improve when enabled. This is
-because there seems to be an internal divisor (/2) which keeps the rate
-equal when DTR is enabled. As a result, this commit also doubles the
-target bus speed, which in practice does not happen. This way, there is
-a real gain:
+Read modify writes are already covered by a local helper, so use it.
 
-Before:
-$ flash_speed /dev/mtd0 -dc10
-eraseblock write speed is 1000 KiB/s
-[...]
-eraseblock read speed is 1199 KiB/s
-[...]
-
-After:
-$ flash_speed /dev/mtd0 -dc10
-eraseblock write speed is 985 KiB/s
-[...]
-eraseblock read speed is 1540 KiB/s
-[...]
+No functional change.
 
 Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 ---
- drivers/spi/spi-ma35d1-qspi.c | 27 +++++++++++++++++++--------
- 1 file changed, 19 insertions(+), 8 deletions(-)
+ drivers/spi/spi-ma35d1-qspi.c | 15 ++++++++-------
+ 1 file changed, 8 insertions(+), 7 deletions(-)
 
 diff --git a/drivers/spi/spi-ma35d1-qspi.c b/drivers/spi/spi-ma35d1-qspi.c
-index 027a9433f2b1..9965a11573d8 100644
+index 9965a11573d8..7f938d0c6f1f 100644
 --- a/drivers/spi/spi-ma35d1-qspi.c
 +++ b/drivers/spi/spi-ma35d1-qspi.c
-@@ -31,6 +31,7 @@
- #define NUVOTON_QSPI_RX_OFFSET		0x30 /* Data Receive Register, RO */
- 
- /* QSPI Control Register bit masks */
-+#define NUVOTON_QSPI_CTL_DTREN_MASK	BIT(23) /* DTR I/O Mode Enable */
- #define NUVOTON_QSPI_CTL_QUADIOEN_MASK	BIT(22) /* Quad I/O Mode Enable */
- #define NUVOTON_QSPI_CTL_DUALIOEN_MASK	BIT(21) /* Dual I/O Mode Enable */
- #define NUVOTON_QSPI_CTL_DATDIR_MASK	BIT(20) /* Data Port Direction Control */
-@@ -131,7 +132,7 @@ static int nuvoton_qspi_reset_fifo(struct nuvoton_qspi *qspi)
- 					 1, NUVOTON_QSPI_TIMEOUT_US);
- }
- 
--static int nuvoton_qspi_set_speed(struct spi_device *spi, u32 speed_hz)
-+static int nuvoton_qspi_set_speed(struct spi_device *spi, u32 speed_hz, bool dtr)
+@@ -115,10 +115,11 @@ static int nuvoton_qspi_reset_fifo(struct nuvoton_qspi *qspi)
  {
- 	struct nuvoton_qspi *qspi = spi_controller_get_devdata(spi->controller);
- 	unsigned long clk_rate;
-@@ -143,6 +144,10 @@ static int nuvoton_qspi_set_speed(struct spi_device *spi, u32 speed_hz)
- 	if (!speed_hz)
- 		return -EINVAL;
+ 	u32 val;
  
-+	/* Experimentally, when enabling DTR the frequency is cut in half */
-+	if (dtr)
-+		speed_hz *= 2;
-+
- 	if (qspi->speed_hz == speed_hz)
- 		return 0;
+-	val = nuvoton_qspi_read(qspi, NUVOTON_QSPI_FIFOCTL_OFFSET);
+-	val |= NUVOTON_QSPI_FIFOCTL_TXRST_MASK |
+-	       NUVOTON_QSPI_FIFOCTL_RXRST_MASK;
+-	nuvoton_qspi_write(qspi, val, NUVOTON_QSPI_FIFOCTL_OFFSET);
++	nuvoton_qspi_update_bits(qspi, NUVOTON_QSPI_FIFOCTL_OFFSET,
++				 NUVOTON_QSPI_FIFOCTL_TXRST_MASK |
++				 NUVOTON_QSPI_FIFOCTL_RXRST_MASK,
++				 NUVOTON_QSPI_FIFOCTL_TXRST_MASK |
++				 NUVOTON_QSPI_FIFOCTL_RXRST_MASK);
  
-@@ -215,16 +220,19 @@ static int nuvoton_qspi_setup_transfer(struct spi_device *spi, u8 bpw)
- static int nuvoton_qspi_configure_bus(struct spi_device *spi,
- 				      unsigned int buswidth,
- 				      enum spi_mem_data_dir dir,
--				      u32 speed_hz)
-+				      u32 speed_hz, bool dtr)
- {
- 	struct nuvoton_qspi *qspi = spi_controller_get_devdata(spi->controller);
- 	u32 ctl = 0;
- 	int ret;
+ 	/*
+ 	 * Give the controller a short time to latch the FIFO reset request
+@@ -356,9 +357,9 @@ static int nuvoton_qspi_hw_init(struct nuvoton_qspi *qspi)
+ 				 NUVOTON_QSPI_CTL_LSB_MASK,
+ 				 NUVOTON_QSPI_CTL_TXNEG_MASK);
  
--	ret = nuvoton_qspi_set_speed(spi, speed_hz);
-+	ret = nuvoton_qspi_set_speed(spi, speed_hz, dtr);
- 	if (ret)
- 		return ret;
+-	val = nuvoton_qspi_read(qspi, NUVOTON_QSPI_CTL_OFFSET);
+-	nuvoton_qspi_write(qspi, val | NUVOTON_QSPI_CTL_SPIEN_MASK,
+-			   NUVOTON_QSPI_CTL_OFFSET);
++	nuvoton_qspi_update_bits(qspi, NUVOTON_QSPI_CTL_OFFSET,
++				 NUVOTON_QSPI_CTL_SPIEN_MASK,
++				 NUVOTON_QSPI_CTL_SPIEN_MASK);
  
-+	if (dtr)
-+		ctl |= NUVOTON_QSPI_CTL_DTREN_MASK;
-+
- 	if (buswidth == 4)
- 		ctl |= NUVOTON_QSPI_CTL_QUADIOEN_MASK;
- 	else if (buswidth == 2)
-@@ -234,6 +242,7 @@ static int nuvoton_qspi_configure_bus(struct spi_device *spi,
- 		ctl |= NUVOTON_QSPI_CTL_DATDIR_MASK;
- 
- 	nuvoton_qspi_update_bits(qspi, NUVOTON_QSPI_CTL_OFFSET,
-+				 NUVOTON_QSPI_CTL_DTREN_MASK |
- 				 NUVOTON_QSPI_CTL_QUADIOEN_MASK |
- 				 NUVOTON_QSPI_CTL_DUALIOEN_MASK |
- 				 NUVOTON_QSPI_CTL_DATDIR_MASK, ctl);
-@@ -470,7 +479,7 @@ static int nuvoton_qspi_mem_exec_op(struct spi_mem *mem,
- 		cmd[i] = op->cmd.opcode >> (8 * (op->cmd.nbytes - i - 1));
- 
- 	ret = nuvoton_qspi_configure_bus(spi, op->cmd.buswidth, SPI_MEM_DATA_OUT,
--					 op->max_freq);
-+					 op->max_freq, op->cmd.dtr);
- 	if (ret)
- 		goto out_deassert_cs;
- 
-@@ -483,7 +492,7 @@ static int nuvoton_qspi_mem_exec_op(struct spi_mem *mem,
- 			addr[i] = op->addr.val >> (8 * (op->addr.nbytes - i - 1));
- 
- 		ret = nuvoton_qspi_configure_bus(spi, op->addr.buswidth, SPI_MEM_DATA_OUT,
--						 op->max_freq);
-+						 op->max_freq, op->addr.dtr);
- 		if (ret)
- 			goto out_deassert_cs;
- 
-@@ -494,7 +503,7 @@ static int nuvoton_qspi_mem_exec_op(struct spi_mem *mem,
- 
- 	if (op->dummy.nbytes) {
- 		ret = nuvoton_qspi_configure_bus(spi, op->dummy.buswidth, SPI_MEM_DATA_OUT,
--						 op->max_freq);
-+						 op->max_freq, op->dummy.dtr);
- 		if (ret)
- 			goto out_deassert_cs;
- 
-@@ -505,7 +514,7 @@ static int nuvoton_qspi_mem_exec_op(struct spi_mem *mem,
- 
- 	if (op->data.nbytes) {
- 		ret = nuvoton_qspi_configure_bus(spi, op->data.buswidth, op->data.dir,
--						 op->max_freq);
-+						 op->max_freq, op->data.dtr);
- 		if (ret)
- 			goto out_deassert_cs;
- 
-@@ -531,6 +540,7 @@ static const struct spi_controller_mem_ops nuvoton_qspi_mem_ops = {
- 
- static const struct spi_controller_mem_caps nuvoton_qspi_mem_caps = {
- 	.per_op_freq = true,
-+	.dtr = true,
- };
- 
- static int nuvoton_qspi_transfer_one(struct spi_controller *ctlr,
-@@ -567,7 +577,8 @@ static int nuvoton_qspi_transfer_one(struct spi_controller *ctlr,
- 			buswidth = 2;
- 	}
- 
--	ret = nuvoton_qspi_configure_bus(spi, buswidth, dir, xfer->speed_hz);
-+	ret = nuvoton_qspi_configure_bus(spi, buswidth, dir, xfer->speed_hz,
-+					 xfer->dtr_mode);
- 	if (ret)
- 		return ret;
- 
+ 	ret = readl_poll_timeout(qspi->regs + NUVOTON_QSPI_STATUS_OFFSET, val,
+ 				 (val & NUVOTON_QSPI_STATUS_SPIENSTS_MASK),
 
 -- 
 2.54.0
