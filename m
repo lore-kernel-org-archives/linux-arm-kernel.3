@@ -4,108 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A608C5CFDB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 09:27:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 862F7C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 09:28:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c8K+15YOUpp/urrn1ei3bbHIw6RB2VLNWq7MiAQhpqc=; b=H9hcLvbTT3lmqK+0I4bKQEz6La
-	nd8oXzFn5GOwb6q70MS2aoIcgsbEltHii5QiZMRDvj/x5050EbhOQH7lruIXmahp7/MvGgcunmYT5
-	vnVzI5BYiRZKvpd/6iO1SZYncpGYxF70uufRAzyFYhfwHJbA+oSvsthixbsQ2ECKJopugi9N1eTVk
-	yMEIWsOhOcDOlkBiN9c/cHEhlGWVvQm6UAMv2OOQCj3c2YdeJivxgx/h0bw6C8FZILNNSngVVPUo1
-	msqqa/4URlyhPR7HRGoQjMwcRoXwCvP4k1F5MVPPV9JZiU8mVABfHJe8/r8E7ylc+c9UH14/ncaCN
-	nFN1pwkw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sz2GhH9CorHZJAm1J5Dom7Bt4omfMF6eFOTXBf/ebF8=; b=OAARwYBhHYTSUFRQ6+hSZYDGkk
+	H+och0WJYPlauwk3XACrNA4JItxc59WTLdBhJ31kg+BBaCU5pSAlIQfr5LAeTsO+Aj3xPhfD/AW2O
+	nsI9l4OMdccUGxqwItLN16JapdAhI9qd/SWPG1/RsqrGXLon0awZKZbaJWQHCL7VcgSAi8ZrlQ3xl
+	KikpQI429eB998auXUQy+eq3LtdkvDNQQTmXlsxpIpq5k8dwbqI53LyPvQwxGaTZ+Vpfz+vDomgie
+	sLv/wYAN60w3vRxxq2bZc5jo07Ht9wL15P9pBsuJDxV//gitQvxkoFsUw3tt0bBFcH2Q1BJRzsOqH
+	pQdY1ovw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuRik-00000000IXk-09xY;
-	Thu, 13 Aug 2026 09:27:30 +0000
-Received: from flow-b7-smtp.messagingengine.com ([202.12.124.142])
+	id 1wuRk1-00000000Iv3-1VfQ;
+	Thu, 13 Aug 2026 09:28:49 +0000
+Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuRih-00000000IWM-32g0;
-	Thu, 13 Aug 2026 09:27:28 +0000
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailflow.stl.internal (Postfix) with ESMTP id BCBB013002E3;
-	Thu, 13 Aug 2026 05:27:26 -0400 (EDT)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-05.internal (MEProxy); Thu, 13 Aug 2026 05:27:27 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
-	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
-	:from:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm1; t=1786613246; x=
-	1786616846; bh=c8K+15YOUpp/urrn1ei3bbHIw6RB2VLNWq7MiAQhpqc=; b=J
-	chNOQX7cEmymzrAnkJA7lvWYy1imq69zWuKIU7V8Kk/eTo76f1c03s45OJRKvbui
-	R2VskZjmr2BLe0AcOBEQnvlcDD2ViT8fRBOm1WlBOTL2p6jEfPlmNyWS414C4yHk
-	iyfoxHkqHNqCue0zm1Lw41EPUGG5h9lJChx+YZ9wJqdjINC+cS1lOgJtQ3pibKOP
-	ea5rgROYnBq36uImEwpUb1rbaCwnVB66WSWqSDTe3p3aDKrTjcMNOyGWUAw6ZOFp
-	wyBojU6Jnb979ghWWqtN8Lrg0OBYbvyl5MBpOclsoWFpEXHDRHMiIroZ1BR0fvKX
-	l6LH43UN88W4zASBXj2jQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm3; t=1786613246; x=1786616846; bh=c
-	8K+15YOUpp/urrn1ei3bbHIw6RB2VLNWq7MiAQhpqc=; b=jEpgy3wTLbg+/gDI5
-	mUdvggjWKy6dyYlYxQGxRMXJRm+2t48ub18tUm0YShpuE6Bx4nen971VB4xEFBEW
-	ksB+EOqcEym9p0Vcj43YqHYmWdfwNIx7BBn5WHY0tbiuHtoCRcWs4q+CKpL5+84P
-	ibQ2CG90ADyWsH0NmyMHIimYlGu1faJxqRLCZwUWYWhNsPnR05jhN+8vc5vXTJ63
-	/NgHYSa151nwHuYKOTbiPuk46j9g2+mQqRyLUOMjB6uI8GKOVkDomXutzohb5SCY
-	eKVRiiM2Mt4HXGXZESlun93gkkcABA+Pp6ZlxjQyWwI+JyLZAeyZKbHxNc11HIeV
-	Nk+YA==
-X-ME-Sender: <xms:_o19atKDrgbiDyHeg4Dq8gSr4IB1dYjlvJ_hJVlhql_XpiTTIUMsTA>
-    <xme:_o19aigYuxWhvVLo6jCySzHSQ187dEvsEROWcPAw30KOmfg3c1ybLiA0Nj9dad4I0
-    oSXi9yLwxMcPpf9wzdnoBjPvb890VgnTaPW56tk2F8cBmaMaUJZunA>
-X-ME-Received: <xmr:_o19auN2PB2eZ01dHarhyxttOujtwYUhFzXwr0CT8lcFi6LQsX_UvwlMsUDhNWAxG5waLz4QpQ>
-X-ME-Proxy-Cause: dmFkZTFuCr/cvrFkRUf8ITKF+H2T3+BzZRnX5rHf6gKXH/26Iw/KHABBcdjKQe2rhLwLS5
-    TaMb0vpJrni78/UwkRMYpJ9Y7lQ366meAvyCdu0npRBw9/+Ng04388nGiPzu/U5RcyuVkR
-    w/TOPVCwMsGrhPKD7nbP8LRzzGM0lbM3SZ8Ad5ojSL3i2CqcoeXL16oisQiBvGK1YuUf6e
-    uoh2BP8y5PIY0wC8ImE4FS2TzpbIDM0wVbhBoSSlu3QbvNxjHls85NMxx2CqVfR97FxXk3
-    CFEuyzwYAZcFXpoBx7S62xcdOaonv+ExSnsiZJRLGbhC1b6pOSRjs7Svo+R2b3hKW9mKY8
-    ff8adf94ky3Th4lwWzeN9rVN55lR5BCN83BH2XboF0N0hZPmGbtSUFymvQ9zOQSbsyWIY/
-    VDSff9/Gv2k8R7aiIKcxzGoPdcyKPUC+M8cBRvv+AW4DoQtwpG+SsVojaMPy7fMH/FIPMl
-    mZxut+vppC3vo4kSlJSoZydKFkphNdd4tT0rDuKywn9VOAC8GEQVPx/Zwn3hOWuKanX1PH
-    xqSJxuTSd2tXlkqtzwj6toj9LsJnGXtnEsfIvn3BKNMmmp5W9VoltkjE598mu+iCaf3XFX
-    g4HHN+v62CHSn+Qs6deFpLqNDHGdTqLBwdYYs1lLVuMqbNth2db31JjdXpzw
-X-ME-Proxy: <xmx:_o19at4OC3XLjAlWPr4JsaetVpAuO-lO-YS8tr-SF4S1slG89839SQ>
-    <xmx:_o19alnOZdx7cPWnK9N8eq_ZFexjF4V8AxzqAxonshU04tsDQWgJ6A>
-    <xmx:_o19atKbSmTfla4cszXQQNGEOxmVYe6F_Ti2K1o_nwP5UdwY0UE4Iw>
-    <xmx:_o19atSmUDcAgqSYh74X3ZEJHbmjqeroQGjGFhedL5RY7fFathqyBQ>
-    <xmx:_o19ak1HWZygJY6_xiu1kRMZibI8SVyxZkx-BTKgTZrxH4wDTjTJxPEe>
-Feedback-ID: i7a5e4b5f:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 13 Aug 2026 05:27:15 -0400 (EDT)
-From: Jiaxing Hu <gahing@gahingwoo.com>
-To: diederik@cknow-tech.com
-Cc: heiko@sntech.de,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	joro@8bytes.org,
-	will@kernel.org,
-	robin.murphy@arm.com,
-	tomeu@tomeuvizoso.net,
-	royalnet026@gmail.com,
-	iommu@lists.linux.dev,
+	id 1wuRjz-00000000ItN-0sXU
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 13 Aug 2026 09:28:48 +0000
+Received: from francesco-nb.. (2-224-16-253.ip168.fastwebnet.it [2.224.16.253])
+	by mail11.truemail.it (Postfix) with ESMTPA id D154F22BAB;
+	Thu, 13 Aug 2026 11:28:43 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1786613325;
+	bh=sz2GhH9CorHZJAm1J5Dom7Bt4omfMF6eFOTXBf/ebF8=; h=From:To:Subject;
+	b=BqFAE/+fkKTb78o7jZ4tie+P3k7tEu1xQh07b86U7VnWI6/rXAu3EUlmZKlt7cWjl
+	 2lyE3qSb3SvbvylX8ClXA08rMVEQGc84jZz4reJbXjCgD3bzd+A9BM0IoYuD+fVR1Z
+	 iowGGy+Mh/iBuVViO15kU74vFAtLAwZmbJrlHuiLjw0nWX4OFEZY6NU3cNAashGm8S
+	 1M5FIXh/mERE3zGoLrG4yYLXlpBa+rmeQ0f+RU8lztIV03GPaU3HDLXd45HuukuDsZ
+	 9Q8JTMbUXZiE4Y00mccoS/0orUXeeb/wrmO5WiM342vBXMG2C/46eSzcfKFosWz9Rm
+	 qTey1Lf7KcJJQ==
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Marek Vasut <marex@denx.de>,
+	Stefan Agner <stefan@agner.ch>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
+	dri-devel@lists.freedesktop.org,
 	devicetree@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Jiaxing Hu <gahing@gahingwoo.com>
-Subject: Re: [PATCH v7 04/10] dt-bindings: iommu: rockchip: allow the RK3576 NPU MMU clock set
-Date: Thu, 13 Aug 2026 21:27:11 +1200
-Message-ID: <20260813092711.2568595-1-gahing@gahingwoo.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <DKMWKH7ECZZM.3GL6MUEUO2Q1N@cknow-tech.com>
-References: <20260812094106.1391698-1-gahing@gahingwoo.com> <20260812094106.1391698-5-gahing@gahingwoo.com> <DKMWKH7ECZZM.3GL6MUEUO2Q1N@cknow-tech.com>
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v4 0/4] drm: mxsfb: Support LCDIF interface bus width
+Date: Thu, 13 Aug 2026 11:28:30 +0200
+Message-ID: <20260813092836.38367-1-francesco@dolcini.it>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_022727_813723_E871E3E6 
-X-CRM114-Status: UNSURE (   7.66  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260813_022847_418264_8255C107 
+X-CRM114-Status: GOOD (  10.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,62 +83,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Diederik,
+From: Francesco Dolcini <francesco.dolcini@toradex.com>
 
-You are right, and worse than that, this is the same thing you asked
-for on v6 and I told you it was fixed.
+The width of the physical LCDIF output bus can differ from the input bus
+format advertised by the downstream panel or bridge.
 
-My reply then said v7 would carry a compatible of its own and pin each
-side with an allOf. It does not. What v7 actually contains is a
-minItems of 2 and three descriptions ending in "RK3576 NPU MMUs only",
-which is a comment, not a schema, and it leaves both of the cases you
-name allowed: an rk3568-iommu with five clocks, and an RK3576 NPU MMU
-with two. I do not have an explanation for the gap between what I said
-and what I sent, only the fix.
+Such a distinction is required when the LCDIF bus width does not match the
+width of the downstream display interface. For example, an 18-bit or
+16-bit LCDIF bus can drive a 24-bit display by wiring the available color
+bits to the appropriate display inputs. Configuring LCDIF solely from the
+display's 24-bit format in this case selects the wrong LCD_DATABUS_WIDTH
+mode, changing the color-bit assignment on the LCD_DATA pins and resulting
+in incorrect colors.
 
-v8 does what you and the bot asked for the first time. The MMU nodes
-get their own compatible,
+Use the common OF graph endpoint bus-width property to describe the width
+of the physical LCDIF output bus. Make the mxsfb driver derive the
+corresponding media bus format from this property and use it in preference
+to the format reported by the downstream display. When the property is
+absent, the existing behavior is preserved.
 
-    compatible = "rockchip,rk3576-npu-iommu", "rockchip,rk3568-iommu";
+Set the endpoint bus width for the Colibri iMX6ULL and Colibri iMX7 boards,
+which route an 18-bit LCD interface.
 
-the enum gains it, and an allOf pins both sides so neither can borrow
-the other's clock set:
+v4:
+ - use /schemas/graph.yaml#/$defs/port-base
+ - add r-b and t-b tags
+v3: https://lore.kernel.org/all/20260812132954.148571-1-francesco@dolcini.it/
+ - use video-interfaces.yaml
+v2: https://lore.kernel.org/all/20260723093813.180089-1-francesco@dolcini.it/
+ - use the common bus-width property instead of the legacy interface-pix-fmt
+v1: https://lore.kernel.org/all/20260717121847.488148-1-francesco@dolcini.it/
 
-    allOf:
-      - if:
-          properties:
-            compatible:
-              contains:
-                const: rockchip,rk3576-npu-iommu
-        then:
-          properties:
-            clocks:
-              minItems: 5
-              maxItems: 5
-            clock-names:
-              items:
-                - const: aclk
-                - const: iface
-                - const: npu
-                - const: aclk_cbuf
-                - const: hclk_cbuf
-        else:
-          properties:
-            clocks:
-              maxItems: 2
-            clock-names:
-              maxItems: 2
+Francesco Dolcini (4):
+  dt-bindings: lcdif: Add endpoint bus-width property
+  drm: mxsfb: Add optional DPI output bus-width configuration
+  ARM: dts: imx6ull-colibri: Set LCDIF bus-width
+  ARM: dts: imx7-colibri: Set LCDIF bus-width
 
-so every existing devicetree keeps exactly two clocks and only the new
-compatible may have five. The ", RK3576 NPU MMUs only" wording goes
-away with it, since the schema then says it.
+ .../bindings/display/fsl,lcdif.yaml           | 12 +++++++++-
+ .../arm/boot/dts/nxp/imx/imx6ull-colibri.dtsi |  1 +
+ arch/arm/boot/dts/nxp/imx/imx7-colibri.dtsi   |  1 +
+ drivers/gpu/drm/mxsfb/mxsfb_drv.c             | 24 +++++++++++++++++++
+ drivers/gpu/drm/mxsfb/mxsfb_drv.h             |  2 ++
+ drivers/gpu/drm/mxsfb/mxsfb_kms.c             | 12 ++++++++++
+ 6 files changed, 51 insertions(+), 1 deletion(-)
 
-The DTS patch changes with it, since v7's NPU MMU nodes use the plain
-rockchip,rk3576-iommu string.
+-- 
+2.47.3
 
-I will not claim it is fixed this time until the patch is in front of
-you.
-
-Thanks for catching it twice,
-Jiaxing
 
