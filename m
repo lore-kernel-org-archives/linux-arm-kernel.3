@@ -4,114 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69382C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 15:09:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42754C5CFEB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 15:12:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sSfixZQMz0vR8g6mx6GBHkzMd5TjHfFJ5VTa4zkEMgM=; b=oIKiSn9KFBBOae+Qi2xqxLrHjb
-	PCk1imgZi7EKXczyQ1OU9/jlrobuMbCuOIFiieCZRO1gg5hKSmSzCttdqOpH7dT2XULFKyXt5HWCb
-	nq4hciv3tyP4FfI08q2pnGY4/zST9jUcwV/66iGCwS7wwPHHQc2LnwUM5JCn8ekLM5kAfUmvMnDjr
-	NgMHsWS9fd6WrOHWpYyXLz/OfaEacdwj8WyMfLvMHscBy2UD1/hfEYxi4dY2Nl9JPm4WHP8DyHiHr
-	4jo4+3wcoJXE6XQRWeo1g/t/8nth4/r/TjEwdY8Ag3TvxfaHX8ey/I76P0bt1oysqMt8lDtCnc7BN
-	UT31xgCA==;
+	bh=jIiI9SltfPrXcp9GxH8c00S+yO98PCAJKDJI9QVodgA=; b=MMRcYJDXYul6bRbKkaVxVntkZ2
+	BC6BCDj+PX6KV8jaaVBynES8tTXPOZwKsZPBBQL/vwt/FDxDIpX38SHW+RdVJ5n1WkBmNUuyaKbrD
+	R1sGY3poR6zmm9ceA8Or48lB1Hkm2OLrZQiKqvbBH7NtrNcOU1Hid5A7+9R5Pa7U7/ooAhCKoARv+
+	T5DE2tOZXGW1GvUrtlCbavj3yfl4K5xPmw8r0W966Kn2s4tC69uyAQVYWcm3C8LTYOKxO3GJpjmka
+	JV9bq1JGGjdKfNo7hhScI58i1Kh4MKLd5Si99sHvOGVUYFfQs4k5nQmkxalC150elIuWb8nmMz6Og
+	NBm6L+qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuX3g-00000000vUr-1NAI;
-	Thu, 13 Aug 2026 15:09:28 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1wuX6L-00000000vsw-02gO;
+	Thu, 13 Aug 2026 15:12:13 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuX3e-00000000vUI-0EtG
+	id 1wuX6I-00000000vsM-02dn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 15:09:27 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2cfff5f88dbso111935ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 08:09:25 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1786633765; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Zx2F6mGa2H85xLFOQGX5PFP7KiMEhBLwNvpdQH3630/vZLMjVV2oClGorIqr+TBn5I
-         FEVItKSgHtj5f9mQjnnm7GloePSiyLsgel1P+NnqC58HIHVM0XnfWu6wYeHW+I23JekG
-         876C7jzwlMy5I835uC+s70Ou+7QPJ7faCdpk4MZPJoo+ghyH7zIvkDcv5gptIXXQNPim
-         IicSQQBx8mbnJWq2Xl5R4WdNh/qCk/ggrsbXbqFhyaVPWMz5FTcRPTpz56wdKx8u4y6t
-         xiyavYgZ442TgPZMNzVEWtF2WhRskuk9ZUhS03nVnOE4Yhz3tZxw8t3ZN/V50suEMj7w
-         t+yA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=sSfixZQMz0vR8g6mx6GBHkzMd5TjHfFJ5VTa4zkEMgM=;
-        fh=B/yRyZ5VV8llI4jKCjWMipK+OgmGpJfrwCx1KPmG8/0=;
-        b=gVXuTZYGcQ/gseZSlP6ZtCVcZDqDEKSUNX84Q0f/pEckUYQEe1drBsUpmyhWF4bDsa
-         zPLC7lvXBkRH5NOLEwcCNyh0UqbOdaglaKJdtWt11TtxCqj96ykXvo9Tv5IodpT3n661
-         W2DV1Mli5vQ/yL5TRIUuihA2xr0WWImMksVIP1PS2FAloZWIK90fWulXJiweZ3EEaCzU
-         7BW+tioKrYRqIZXuE4DGW2uhLd6GOfBfF2sZpYkJ+/Wg24VUYkCeEr1/+RR4Lay6A0RE
-         UO+7dWiH8+soUpbI4mZSw92/RXdOn0lYVJbOPSbiIutP9WsMQEm4ye9y83973V5iUFfO
-         4FUA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Thu, 13 Aug 2026 15:12:11 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-495509b08ebso48155e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 08:12:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=fooishbar.org; s=google; t=1786633765; x=1787238565; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=sSfixZQMz0vR8g6mx6GBHkzMd5TjHfFJ5VTa4zkEMgM=;
-        b=JQ3xHUJ2zJ0vhtCEB8xNFR2sXV2+Z+oxGorCkoc4ADFWCn/3t6MpJ6j55hpb6ORSp6
-         0Pq+pEJFlqbFhH8dVqaiCRmWKwopVq6nF94J/XWlyDHeKIlrgFkBaUsbZDsIcxuw3YuU
-         KokpQ9o+Mxs1seq7emqc4V+UMlIENPFwQrpuqgf64JnX9G3iBoTSdVr0zDrA99IVpijQ
-         rK1QGg1xp2R1dushFS5GzlC7W3McDLbQ5izmC7HqOVI344PLx6ojaOLc6ck5N3B3vvGL
-         7QosdvWhuD6u+MDBXW0JrR5qY+swZsbTob6SoVs5h3/Ocz3YXsm5nQhxCv4LBhmBsx2h
-         0MDQ==
+        d=google.com; s=20251104; t=1786633928; x=1787238728; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=jIiI9SltfPrXcp9GxH8c00S+yO98PCAJKDJI9QVodgA=;
+        b=DPAo7na9qkmMKBPEJXcKvM03XIDAr4gpcJ1zsgh+O6JQtfwKzT392jkJmlJl9ZbO2h
+         if6nTqfEc9nKrdBX9eeQzQ6WKnZFjhV5zjEm7+FrdJjn6gK0drfE9MiZ9/gSh3I0PhGK
+         ukKE598HebJZOx2decz0S76saxZAEWK5WVq7Aj5RIaEe1QDO8zs9+d4t1hHmh3I+R6Py
+         HDZaqKxllsGOUDeU/+GTZOKtyFLaixL0tmVLDaRA9T5Crl7E1IK1Ib8CcwIsxNquye5u
+         5VxvwsJNAzglecWLGrJyAh3FhJetpK68ZVqhYq+BDUKlVFdp8Od1gtsuj1DF6VHV2gPW
+         Lmdg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786633765; x=1787238565;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=sSfixZQMz0vR8g6mx6GBHkzMd5TjHfFJ5VTa4zkEMgM=;
-        b=bY4bianzsRnzC5ZKyHbTiKHVTiZXNXmdSwN51dP9H3eAILidRrXynAHqyeWld2THNY
-         +G48+MnT9t3M7/6I379RLGGpX2ir+GlpeDwljwvWtjN2yc43XULI/fEiG3TTgd5W72NJ
-         6LwS76PiQgkxlUPRhgy5F8XfymCfQgfBnr2wNMgtJv1B4wFtNoAhp8+o79hIUlCyDrlx
-         Selfb+DDcZZNZyGT1ZkWQ01hMOu2ZxZRcixX82EQNiJCb9QKdReCB8yCsnYDUWZVK/Uq
-         YlpOKgtUx/7Cxs2UA1cXk5o3WP2w8m3GT5MILIQkCE/519qepQruP2CXI//k8P3OSni8
-         TdBw==
-X-Forwarded-Encrypted: i=1; AHgh+RpoPbpLDUqJLeR0Vsm3+ESCX6b5/lwab2rdpoescarytBPtTr7OKaizgWkPdO46at52jb0KLxYTMnrIVeEw3wQE@lists.infradead.org
-X-Gm-Message-State: AOJu0YwNDTHlC9zb0WgDEsKuMpXGyWQ/7jE3MK9TGvAjiMGEPlZGHqE4
-	TOviOEzus9fIYkvNaqOPLMUCOQ3K5uK70Q6tHqxoF0CmCMrSTolNOmutHkw8U+Lhvrtj82pXgF4
-	CMsch4UWI9Zoav5ZmZHS9yl2CIIYa/Ta42Truu+wVlw==
-X-Gm-Gg: AR+sD11mpoRf8/HzKBXL3zpHb1dl0DHV0+nTUSSb4+OqSkQPK9Xt9qqORDQvmtRp/7S
-	ZrLlSNyai2pobVAICnf2M6daOMq2N9TOtdSsbCv1Xc7c6k4eeZt8Be3Clz+8Cpe8+C3VCbmVhkl
-	rhcg7y64hI7ZwVVkEG54L+BbCYYcpiV6+hEH6vYrkjvKVhKiXpaCf1F5IrV2sE04PZy3XkVof3w
-	BVOrmvTaLJLx+z6hbamvpLjPEcu+aE0hUhs9bUWODSho43f/lzFRR/bKSMikK2Smg9bAzM+r7Cr
-	fBfqAuc58/Gkw/jJITp2o+chtuRwYPP4V8idQ6bAqLVF
-X-Received: by 2002:a17:903:2987:b0:2ca:619f:9733 with SMTP id
- d9443c01a7336-2d37e9ae9a8mr80628175ad.17.1786633765124; Thu, 13 Aug 2026
- 08:09:25 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1786633928; x=1787238728;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=jIiI9SltfPrXcp9GxH8c00S+yO98PCAJKDJI9QVodgA=;
+        b=FKNg9sWFux8oyDuP+bCjCXT3aQ/DrCudRHrXm+SAGNasoWc9fWjyBKB7xCl8oW9687
+         MgjL0bUJHyF9ZxdH1e7IzSSe2hZooKGADFS/7RAC/XYu6S+3vG+P0sh6x3I/Tpx0oaC6
+         9QaE4jqM1GnFiD3yjfXN1fJ1W1SbT9BCfeYqINpjCT2c45u71siSv/KmTzgwuMlqqmHh
+         3qA6MR2k2R+AjAg+IcJZymOK/93YdZocy91n1Lmv/IPL5zr9zqQnfrt3pNqsxCJdKrgV
+         iEMJZg8nnJgQjvRM6u5juBFtpaHlZYn2/xdkYFnsoTM4ovXbPLG/iXCXRELhSuGYOqLm
+         Ptdw==
+X-Forwarded-Encrypted: i=1; AHgh+RotNqVsbi+7+uHXzkVJoN4uKRiZIN1wcaXbf2oHwmIKH8MOdovpEWVMyB1tk8Ma4Ysl7hJyoyGjBGFbF+p73/Cl@lists.infradead.org
+X-Gm-Message-State: AOJu0YyU/GWLnDPsyv4SlY7PNhpYMQZxIfmMLumU/MHNyv7bgTQ37iGU
+	uHubqw6AIDW8KNavyLA++++/iDZTe4vy5LuoXSl19ueHHWMOF+eEtlTdXCbKCPl9GxW8SoxvE7P
+	LWLr4lA==
+X-Gm-Gg: AR+sD13qwIZLOt2XeKlgeL53JxSM0HmHAyz7AxcfAPOJaMMjEBCXRy5JRv0PqZOIo4H
+	zfFpZH/aHAv5oDfefKO5rPpKIlCc/jaz4NC0wBX3lcfvtcTfpU/ftztjI060/AfxhsYMxuOesfC
+	Fw2j0h5OqBy1+9P6UTIo+LjgDUlMXQm6Bbdj1mNA7Wtl6JUYZ9iWB0XMnCLaFYlnWngF82UpN4r
+	xn/Rp+qMxKiZxAvEhW8wIyK+tQIiKlIoD6rWxEmfr0lFInCt/M3GPcX06cEhTyioQfWNlX3ytgt
+	6QDq7ZIKar6DFWMzt+xp3LuqdTe2DN1iQ/Hs+DHop4Wk2QGVVpqRrA0/7zQbACJmcbeFshkkW8A
+	8vhV/gAMVwxIIPP5c+3N2dfHtaenKJbkVdUGv3FYo384Rr11tFpRDx+6e47MG9DZHewfPKanqmB
+	YZnI5BuVoDGqJAJmJMVs581ZG1nnt1fEyIfS0OyDxUtGboRiq2iZJSqS50gzEbC+0BJpJtygw7b
+	WTCiT27adMgypbZ/My6NZ2U+0Od0g==
+X-Received: by 2002:a05:600c:6094:b0:499:83b9:4e4d with SMTP id 5b1f17b1804b1-49983b95116mr892995e9.0.1786633927802;
+        Thu, 13 Aug 2026 08:12:07 -0700 (PDT)
+Received: from google.com (250.192.189.35.bc.googleusercontent.com. [35.189.192.250])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4815f2cd7ecsm7938f8f.36.2026.08.13.08.12.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 13 Aug 2026 08:12:06 -0700 (PDT)
+Date: Thu, 13 Aug 2026 15:12:03 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: iommu@lists.linux.dev, "Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Robin Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>,
+	David Matlack <dmatlack@google.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+	Pranjal Shrivastava <praan@google.com>,
+	Samiullah Khawaja <skhawaja@google.com>
+Subject: Re: [PATCH v2 3/8] iommu/arm-smmu-v3: Optimize range invalidation
+ for latency
+Message-ID: <an3ew9xbnLe1dr5g@google.com>
+References: <0-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
+ <3-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
+ <akzm5BoV0rToJ7ij@google.com>
+ <20260708001058.GA422027@nvidia.com>
+ <an3MSKEj7VhT4WkP@google.com>
+ <20260813141320.GF730363@nvidia.com>
 MIME-Version: 1.0
-References: <20260724-scdc-link-health-v9-0-bdda406d016d@collabora.com>
-In-Reply-To: <20260724-scdc-link-health-v9-0-bdda406d016d@collabora.com>
-From: Daniel Stone <daniel@fooishbar.org>
-Date: Thu, 13 Aug 2026 16:09:12 +0100
-X-Gm-Features: AUfX_mwnT8mSX1TxP1zLMIDeonWHO5mTijXRqqeOSADs0LdjYAmb4n0gllJsz2E
-Message-ID: <CAPj87rMNdbzebt0ovJcymRtBNunnQaVx_=aSUbcrXNTEZOPz9g@mail.gmail.com>
-Subject: Re: [PATCH v9 0/5] Add SCDC information to connector debugfs
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Jani Nikula <jani.nikula@linux.intel.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
-	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Luca Ceresoli <luca.ceresoli@bootlin.com>, Hans Verkuil <hverkuil+cisco@kernel.org>, 
-	Chen-Yu Tsai <wens@kernel.org>, Samuel Holland <samuel@sholland.org>, 
-	Dave Stevenson <dave.stevenson@raspberrypi.com>, =?UTF-8?B?TWHDrXJhIENhbmFs?= <mcanal@igalia.com>, 
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, dri-devel@lists.freedesktop.org, 
-	linux-kernel@vger.kernel.org, kernel@collabora.com, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260813141320.GF730363@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_080926_103614_B24D4A53 
-X-CRM114-Status: GOOD (  10.42  )
+X-CRM114-CacheID: sfid-20260813_081210_098806_33EC0A5C 
+X-CRM114-Status: GOOD (  33.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,25 +113,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nicolas,
+On Thu, Aug 13, 2026 at 11:13:20AM -0300, Jason Gunthorpe wrote:
+> 
+> > Sorry I lost track of this thread and I just saw v4.
+> > 
+> > In the mobile space, I haven't seen an SMMUv3 that does not support
+> > RIL.
+> 
+> Oh? That's very surprising, AFAIK none of our embedded chips support it
+> yet.. Even the server chips are only just getting it. Are you sure?
 
-On Fri, 24 Jul 2026 at 15:23, Nicolas Frattaroli
-<nicolas.frattaroli@collabora.com> wrote:
-> HDMI uses the DDC I2C bus for communicating various bits of link status
-> out of band with the actual HDMI video signal. This information can be
-> useful for debugging issues like questionable cables sabotaged by feline
-> teeth, Enthusiast Grade cables made of cow fencing wire, and other such
-> problems that ruin one's media viewing plans.
->
-> Consequently, this series exposes various bits of pertinent information
-> from the SCDC protocol in an HDMI connector's debugfs. To continually
-> poll the link status, userspace can poll the debugfs file.
+Yes, SMMUv3 is getting more and more common in moblie HW (opposed to
+custom SoC IOMMUs). Devices that I have seen in the market in the
+last couple of years have RIL. For example Pixel-10 which is currently
+getting upstreamed. Also, I have a mini desktop with QCOM X1 which
+have RIL.
 
-Pushed now; thanks everyone for review and testing.
+The only SMMUv3 I have seen without RIL, is an old morello board I
+have.
 
-To ssh://ssh.gitlab.freedesktop.org/drm/misc/kernel.git
-   0d46312808f32..9b388fc3d0e63  drm-misc-next -> drm-misc-next
+> 
+> I gather it wasn't even available in ARM IP until recently ish?
+> 
+> > However, I have seen workloads that are really sensitive to translation
+> > latency (display, camera...). And I'd be concerned about those
+> > regressing.
+> 
+> Yes, those exist, but again, they are already facing these problems if
+> running without RIL.
 
-Cheers,
-Daniel
+Yes, but my point is that those typically support RIL and that change
+regresses them.
+
+> 
+> And, for the common case of putting something into a carve out region
+> it is not so likely even an expanded RIL will intersect with a
+> reserved IOVA that has a high alignment.
+
+Not necessarily, those devices can run with a small IOVA space to
+reduce the page table walk length making IOVAs quite close.
+
+> 
+> At least the things we have built are calibrated to handle a TLB
+> reload occasionally. The isochronous TLB's are not even sized to be
+> never-miss for all cases because things like 4k media require such a
+> large amount of IOVA the area cost is too high.
+> 
+> While others can do something else you are reaching into a pretty
+> narrow condition to hit a problem:
+>  - HW that must have a never-miss TLB to work
+
+I am not saying that, but we shouldn't over invalidate TLBs either
+when it is easy to avoid that.
+
+>  - HW that doesn't have a carve out, or has a badly aligned carve out
+
+I do not think a carveout will help. But it's a very strong constraint
+to enforce carveout on all devices specially media which are quite
+complex and composite by nature.
+
+>  - A SMMU that has RIL (non RIL is already worse)
+
+This regression only impacts RIL, otherwise it does not matter.
+
+>  - A non-isochronos workload that regularly exceeds the RIL/single
+>    expansion thresholds
+>  - Unlucky IOVA allocation that places isochronous near other
+>    workloads in the IOVA space.
+> 
+
+It is not just luck, it depends on the IOVA space and access patterns
+of the device.
+
+> > There is a clear trade-off here as you mentioned with TLBI latency,
+> > would it be make sense to make that behviour configurable from a
+> > module param?
+> 
+> I think it makes sense for a driver to indicate to the core code that
+> it needs isochronous and we can do more global things like change how
+> single works as well. Having an isochronous flag on the domain, for
+> example, would be a good overall direction.
+
+But according to what? It makes sense to optimize server chips,
+but that should not cause over-invalidation regressions on other
+hardware.
+
+> 
+> I'm inclined to leave this as is and let someone come with a specific
+> problematic HW, rather that try to badly guess without much
+> information if it might popssibly be a problem.
+> 
+
+It's not really a guess, I mentioned some examples above, that I
+have seen problems of translation latencies on them.
+
+And why not the other way around:
+- Which uses cases can't handle few RIL commands?
+- Why those drivers does not unmap memory with a granule/IOVA fitting
+  to RIL?
+- Why those systems does not use FQ domains in the first place?
+
+Thanks,
+Mostafa
+
+> Then we will know the HW and can mark the driver as I suggest above.
+> 
+> Jason
 
