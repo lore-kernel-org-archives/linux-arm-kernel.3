@@ -4,133 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C5C0C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 16:52:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F8BCC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 17:02:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0ITP6GKQxW6bbG8FtbmtnHFu87zPQthUaNPlr47Ojjc=; b=d+5lWvrv9SPIgau6wtb2PCIp0j
-	ZdlZTsVF+gZZCvoaIf1EQd2COw5WgOZjqi0JuFzEBpSwgd/7FHHI7h8u7vNGWW5JDcA0HjJP7BBfp
-	f5dLZ0FP4JiV+4VSW+EZHVl1y4c5Xe4PusjLB4r04MuDRscFuVz7LhiMjK3gViCLhW6Ad5h04/Vd/
-	jyQ//6HtP8o2IjpFRAQZ+iZo/M3ZfRBI9og/wdBeVcwC/Q5CHLwRnBKAMnySm8G7McMGEGw8P6n7e
-	50ocJyerXhxPrOETi9R6HHNmN9GFQ4UXY4kwwilIWRBzMMsz2h1cdvbTDjPQi3ibE8AFpRcntILHZ
-	GuC3uOAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=X844hANN/nq4cZrXn8srmcUygu9fU94wsVrZNfaNruM=; b=VZJsyRDCfnUH3asYkEwYrkYtyW
+	DVDXdPe/c9HG0EKqiK/HwO/1spoc1BP+Zl9vhD9u8lLPSK7BF9ju5HAyYbtOGivwsucbMCfqMP/tg
+	yvVdKt2VKGMYFeeI7nk4725RT1GDYgIBpmOlh+5rOvTt2+W67D/SPXo382RSCtsNIPi+avrp7Is5D
+	/AOXHuvPOBsB6Ltuob/HlJE+YF8Dw59l0Goj80V+p/2t+IFnRjJJhrPwNtnO8UDMqHE/ke4hqj3p+
+	4NXCktyCxI5oGgykQjPxc0VP3ANfXd8g7xLXVrQTKF/6NTgKo4kdv5MxfgMCR5VUnDE6aVFBAeUPk
+	sw0sEuEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuYfP-00000001CjJ-0hWY;
-	Thu, 13 Aug 2026 16:52:31 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1wuYp1-00000001DSr-1Tfs;
+	Thu, 13 Aug 2026 17:02:27 +0000
+Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuYfN-00000001Ciq-2tgE
+	id 1wuYoy-00000001DSC-2hiN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 16:52:30 +0000
+	Thu, 13 Aug 2026 17:02:26 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BHOpDcmKSs5AjR1/0oPfVaZZHy63yrK/Pd4UFf4IoTXU7DgG03zJr6WizKsqZfj33RIhEwSQ6uGlh9wsrfLNi9wW679r+aMxayVuC+1I3OkVPHJdxE1IJ+wv3JjxZ3+pErOIKpAJZBT+Zwi3S9MDbN07v0TFm0x4lr6cxYbvecAac0zvI35EGJO6VMVMWwXQra8jM2aj7yaG02PAsK/x+uo1knAkyvY7n+3pH6kvNKp+07cfsQnidC8T9W7WcouDmiTUPzItLENPVV7beAP2rPrrvFMgMovokiX1V5pl8TnhNsJIQqFxyMrW6eyefhidHE++QhOThRnWMwxza9z2dg==
+ b=CpkOsOvst5JvLmhL+c+672Q0x5DG50CETf3zvgSmc+aFDuJzu80Th416YVCAbwkA5kQaJUrQxTI4abS4LUrgbAypipZGJBvzg443jDOhMB+q3sAyo+BMs09/6ljPp2k+Opf5Avfv2GiFroOPBJBRoWnbVyT6BZtQLjyO3mDykFEbh1pFAahq6BvSdM61gAcbnWKpjLsvf4C1NRX3bLWjTadXAd1RzeYwlxklaHB5D6MRm3IfWGQCbGeRPleJj9N14xg01dQLaA3vqevIzEe3sGubzQFMpZlwRF3q/tAtejcQ2pG8l7JanHg7aNaSfrh7Ho8YfgwLh2n8Zb2VuOJjyw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0ITP6GKQxW6bbG8FtbmtnHFu87zPQthUaNPlr47Ojjc=;
- b=Oc7XEmiPv7Ec5vVTjUAKvO4G6CeIe6m2tZO/PF55f7lFtff4n9uKyymAYoCcjmfRuFbEND3wxjXLVI6ld/0ALVyGGIeOj4ulNy28RytdYOvlk5z/xkAnI1SynOC26fEw8m6YYeH8nkl9L7ot4HW8kew2obGIaiEGcqjzITwlx4Ka1iEgmNLJlaL/zIyuhUKKBE+Mt+wRVqCanNOHTTipZz002K2LSNqRPlWPPAoq8z3tR+KDiYW21EcOLlombUH7kafSXKBDr7Ivrsn8FZDwu/9C7msWJoHTQdz4aYtyBDsp2BDa91MskMHqUSdNSnG6asDHTvl4gu2Y154yyb8NcQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
+ bh=X844hANN/nq4cZrXn8srmcUygu9fU94wsVrZNfaNruM=;
+ b=GLaPk+QIl1LROIodMSjN63PdaXm8A87Kra9krhiDgwo1qlpSvvNMwSTpqOaR/0FZtjfoTh9Ade8QzEROyU4GCyOd+k6md7hq9LzcuSj5wy18TocFgZROBUwri0F3FcZyQYOerByP9YyCXVTtQnYHm2Io7uVVbwQDzz5AowVWgxLjvZOWeAi7q4ccvimAU9oKQN6zTC2fR54y6YzDvW9HV2+O63sxyfUuDp/ewjxabFbOCsxITN1CMjUbwuakP3wonnrjLF4rvhEqNwKYcqUA1yM+lfUaKbTtBVdRi4OUoRr4AWSOxqtjsr1Q9NEro0GF97sCeJMuHsI23lBKw0evBg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.232) smtp.rcpttodomain=oracle.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0ITP6GKQxW6bbG8FtbmtnHFu87zPQthUaNPlr47Ojjc=;
- b=KE7hGyLVTrruKPKMVEtmQ4IyWt5nJOZ+gxPZO4Ru+L1WROj19RNlyqcLbbbxF2v0AjVtravGxkkvQmTfrPp6mJ1raHqtbXsvQF+/UCcsROn1DuNu3hqlONjhrmTsug7D3rz539BPtrAiwCFTUQCmDtIP/GDSgXCq8nuEJDYc2mc09pwTIAD1eBaprB/fZ4lOxrTZz1uNjQyQROybtC+ZhQH+4nyFd/esO0SbbZ6zO9mk3nPc5m3cmdD0IGDunnxm8qMjHV4fgebz6aY5FSbX6u+P/gnS5eeAPFOf1uBiqdfTtOugM6e47e2ohQ8VTpLxs0KGudcJjOJytjliWFZ3wQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from DU4PR04MB11791.eurprd04.prod.outlook.com (2603:10a6:10:623::11)
- by VI0PR04MB792713.eurprd04.prod.outlook.com (2603:10a6:800:365::6) with
+ bh=X844hANN/nq4cZrXn8srmcUygu9fU94wsVrZNfaNruM=;
+ b=hCuPFy0jQ2kFqIn1NhMdPOYuvpooPAgqadeiN/qkqngMZVuTyVlX5WeTgIYhKdImZZum/YAC8HBbNgBRKYdnMpmj8zNf+VQtPj1Sa2h1gEL02dPbYZlikTf3ezlnqjRMq1hyN/oTd26qCvk2lkCl2ueox8x1FB9PIoyggBvBK1f4pElebgGJsP4aVrROCd4x+2/+AaLoVuFHGwAGbMLIi+AacYqH20Mic9RoFyp2GrCidMj379eeVCro4RAcmcv0qRx0yEcInzbP+o6KhROMPwnp+UE8vF+nWur7TfBcbt6vo99RCQ7HpJJaN+u4yMiV/YVqzJRjn2234YRbeVSA9g==
+Received: from SJ0PR03CA0137.namprd03.prod.outlook.com (2603:10b6:a03:33c::22)
+ by SA1PR12MB6728.namprd12.prod.outlook.com (2603:10b6:806:257::13) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.14; Thu, 13 Aug
- 2026 16:52:24 +0000
-Received: from DU4PR04MB11791.eurprd04.prod.outlook.com
- ([fe80::11ca:6b74:3234:d7de]) by DU4PR04MB11791.eurprd04.prod.outlook.com
- ([fe80::11ca:6b74:3234:d7de%5]) with mapi id 15.21.0315.014; Thu, 13 Aug 2026
- 16:52:24 +0000
-Date: Thu, 13 Aug 2026 11:52:17 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: shengjiu.wang@oss.nxp.com
-Cc: lgirdwood@gmail.com, broonie@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, Frank.Li@nxp.com,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	shawnguo@kernel.org, linux-sound@vger.kernel.org,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	shengjiu.wang@gmail.com, Xiubo.Lee@gmail.com,
-	nicoleotsuka@gmail.com, perex@perex.cz, tiwai@suse.com,
-	linuxppc-dev@lists.ozlabs.org,
-	Shengjiu Wang <shengjiu.wang@nxp.com>
-Subject: Re: [PATCH v4 3/5] ASoC: fsl_asrc/fsl_easrc: move DMA params into
- pair/context struct
-Message-ID: <an32QUTIbtVn1G-I@SMW015318>
-References: <20260813070020.719810-1-shengjiu.wang@oss.nxp.com>
- <20260813070020.719810-4-shengjiu.wang@oss.nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260813070020.719810-4-shengjiu.wang@oss.nxp.com>
-X-ClientProxiedBy: SN6PR2101CA0007.namprd21.prod.outlook.com
- (2603:10b6:805:106::17) To DU4PR04MB11791.eurprd04.prod.outlook.com
- (2603:10a6:10:623::11)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.13; Thu, 13 Aug
+ 2026 17:02:13 +0000
+Received: from SJ1PEPF00001CE9.namprd03.prod.outlook.com
+ (2603:10b6:a03:33c:cafe::81) by SJ0PR03CA0137.outlook.office365.com
+ (2603:10b6:a03:33c::22) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.315.14 via Frontend Transport; Thu,
+ 13 Aug 2026 17:02:13 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.232) by
+ SJ1PEPF00001CE9.mail.protection.outlook.com (10.167.242.25) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.339.3 via Frontend Transport; Thu, 13 Aug 2026 17:02:13 +0000
+Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
+ (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.46; Thu, 13 Aug
+ 2026 10:02:00 -0700
+Received: from drhqmail202.nvidia.com (10.126.190.181) by
+ drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.46; Thu, 13 Aug 2026 10:02:00 -0700
+Received: from build-bwicaksono-noble-20260804.internal (10.127.8.11) by
+ mail.nvidia.com (10.126.190.181) with Microsoft SMTP Server id 15.2.2562.46
+ via Frontend Transport; Thu, 13 Aug 2026 10:01:59 -0700
+From: Besar Wicaksono <bwicaksono@nvidia.com>
+To: <john.g.garry@oracle.com>, <will@kernel.org>, <james.clark@linaro.org>,
+	<mike.leach@linaro.org>, <leo.yan@linux.dev>, <mark.rutland@arm.com>,
+	<alexander.shishkin@linux.intel.com>, <jolsa@kernel.org>,
+	<irogers@google.com>, <adrian.hunter@intel.com>, <peterz@infradead.org>,
+	<mingo@redhat.com>, <acme@kernel.org>, <namhyung@kernel.org>
+CC: <linux-tegra@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-perf-users@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<tmakin@nvidia.com>, <vsethi@nvidia.com>, <rwiley@nvidia.com>,
+	<skelley@nvidia.com>, <rajjoshi@nvidia.com>, <treding@nvidia.com>,
+	<jonathanh@nvidia.com>, <mochs@nvidia.com>, <sauravsc@amazon.com>, "Besar
+ Wicaksono" <bwicaksono@nvidia.com>
+Subject: [PATCH 0/2] perf vendor events arm64: Fix Tegra410 Olympus PMU events
+Date: Thu, 13 Aug 2026 17:01:53 +0000
+Message-ID: <20260813170155.1156593-1-bwicaksono@nvidia.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU4PR04MB11791:EE_|VI0PR04MB792713:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4de6bd55-c99a-448b-dd7d-08def95b3fd8
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00001CE9:EE_|SA1PR12MB6728:EE_
+X-MS-Office365-Filtering-Correlation-Id: 449fa327-0f1f-4e2f-a333-08def95c9ee6
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|19092799006|376014|1800799024|366016|6133799003|10067099003|4143699003|11063799006|22082099003|18002099003|56012099006|3023799007;
-X-Microsoft-Antispam-Message-Info: gh0gKmc4EIVDywIF//jcN+79g3zaTYvPIPujFZSSJT0GnfNs8CYXc+5BXN4PbwA5WaTfsw/g19pnDntG6JZviVO40TgpYdfbGXF8c25j47B1ut+VVNdJyF4IBpU1Bb88Y9rxVxMJvtwXm3bCM7ZZGmrm53lrxmT5bEF/tCp2jxAI62q3YOCGN20GFE3dfBp1jL+Xdy08GcL31AP+axwO9eR86EW7dIZDYoC88+6zGTNn7uWeG5uKdu8RXkLQsoL8orCg/fMgVKH0tc7vg3hYOaVypRYGtXUnM8eKT8fC0ZjeQsMdYQ8susTwntnkI0+gvEWVgOTcje7T07UGGeFCkXjYOae+RZUn0nOWoitWayeai3I2X+T0DGrlXz8TcpO6tf9F8HIv/50gpdxynpPtxFHGhfteWESwwyVNxx8vHKwYmUmE0wKYrbPTOst5Qcm6c4DaQ7Iuz+s4TUUhO7o7IqwmqBBk2tYVzcjSSutcfI2LA5eVL9Dynu3CqKl5i+1VRy6WyPCDqy2HfOKMy8/RPteeN5PWjePP1csDnOZyp4X9zLe5eOUqZxc3Sq01068VdB9JmAelsGK8AfYt8Bat7njDF+qrO5dxtndooevHArgBp+IhYyJ2PhXq7wyT2JnSBrShtYj3oyn9QxgciZkOzwysm/xSxqMOvJyOxp+46Ok=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU4PR04MB11791.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(19092799006)(376014)(1800799024)(366016)(6133799003)(10067099003)(4143699003)(11063799006)(22082099003)(18002099003)(56012099006)(3023799007);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|82310400026|1800799024|36860700016|23010399003|11063799006|56012099006|3023799007|18002099003|10067099003|921020;
+X-Microsoft-Antispam-Message-Info: mW2Qq5BLX8JSrzEdofLhuT/sSZ53xxjxWavdvegJguOYI8l490VuPSRVF7mmUxtirrTl5LgcyiNnhkyqKu+RgXCMnsyGJne6EhOSvJG4QVEzsEQ8KsjldT3leKi3WO9+UgELKlDUUSzB0PmX9kiCptSVIems1mor7E6THfYD0XZ68nrcK/R/Wi47AGGgJPjO1HsjRIaG7HQ7ZUROCBgsAz70PuIqLFNGOjZDXLC3KsZZ8WsXqF7Oo3kp4KsTZTlDM9PMEqQgIvntSblQwHK1QeJvkg/EJll6zupMWpKLCM9re/nBcajyq03OXTeUy1lCrFJG7QihfHSkA2nN5t3/+dp6zqsevP4OflLG7uUvCt4KwObaUWaxnzMxBHG1F9+QvjO/FLstFwn3/nDZHyizYhm1Br8LSaQKCfWo7Kfjirn3etD50mt6G4PGigloG9iYdtNpoP/OfElbFMM9mhIjoLCI/HZmeSak73NUdDuVBIToqMSHe+0UMz/++VTZwi7ttmZMX1J44pczpzymzm3T5wAtiwUOm8FXYVJWjsOEtIUSAUWeoksnI1ZAICECU5STMnGSedbU6jJpuTjezQkSEn92+SQQ3Mp+IKoPp/ZzivT3f6EGIZBswo3mjySq7yrtwKy8ZsZTkQdWRrWhbL6o1bL1xa+gODTTOyqlqDA4vMPzblCtvzebT0BGhNR2YxnZItpD6JvFJdZwqso7ciVImxFYzr+5qZ0BxQNZpLmi0DzPgubc9eiDUwJ/NBT4hBrg
+X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(376014)(82310400026)(1800799024)(36860700016)(23010399003)(11063799006)(56012099006)(3023799007)(18002099003)(10067099003)(921020);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?cI79Eqgv8XkjLOYguBNTpJD1UZN6GbpW4SViPSrXyinvmrkR8o+YrCGcXdNw?=
- =?us-ascii?Q?WCMgXJu4uQKYWkq792tAI9KhJl82VnHZBischqMWGWiu+j4c0fT1sgS2vs1c?=
- =?us-ascii?Q?sKmNCTCyZwhBYvxg7qImPM+05C15J2QSrVVqukf6QW1t9vhEfw5yJqcgd/7k?=
- =?us-ascii?Q?zRFcWZg/T0qjATSIJiSlEeOrbyzGnN4ZupmAxOHx0wYD9qMNtgXClweJUg/t?=
- =?us-ascii?Q?OwKs6aCXAKFEoXpGSf/tXCE7TKytA0vdzSeLZA+3lk2uQAelGn0BxmDw7btf?=
- =?us-ascii?Q?ZoczvnFRpwp3sr2S7EAltEI5jbKuN5OxcabQRpQgZleUmLGz3qQr7DPyWE1d?=
- =?us-ascii?Q?XpAgpcj3NOYRcU6JanJjn+tJE0hZWQ/48DUDV0LKpGbt0JvYD/UD0DiLhBWZ?=
- =?us-ascii?Q?dPPzyTZiaQ/txw5EfaJM8UOwYsZH9VJG9j4gdqYOoR6Xn+z+I4Xr5mcaUfCo?=
- =?us-ascii?Q?nRx6p7OBWOd2Nq0rcVbYF1Ta73l8jiftIMo5qgE7ClLX9rqcrMS/rKImdO6E?=
- =?us-ascii?Q?lKJ2JU8huMUVtBQj2qW0HR1/1pp3/weEDH1nSBEdSHN4xlVzvmMiz9Fr7o6B?=
- =?us-ascii?Q?LYTjweDN1+QWdlPGHvX8pXbaNHik4LrGB9Iv5xsTZ5NDrOIgPyCopv8jggSy?=
- =?us-ascii?Q?sbV5cUjKe/6z5g8MboMc9w4BWSk4l3i1XSAcoFtIbu+hP9rZppYE1dQKSKP6?=
- =?us-ascii?Q?zxbXBpJ6TB5+kHrdZE9hhJKA6qYfqAKvLslqRyOeNbDRe3o9z+90bJoE5T7p?=
- =?us-ascii?Q?NnTelgL6yKkWh3ZWT3HBQSZsEHYHy7Fxx7kwDVTA+r6diHq3QXDwBnjrupLw?=
- =?us-ascii?Q?QJhIz+W3hfE6TnA/8yPxEbQga5gZZtmA/M8EoOs+k86RH0leUpY3wn5i35jl?=
- =?us-ascii?Q?CakgNi+9MRxajUkb3FM4TRAwjC8+KbawMOTzif0yETHRgSeoC2lZXQ4PXcKA?=
- =?us-ascii?Q?/iDz5VZIHnqPmdCLSwlH8xZCDhjLuIlb50NcljsDYRCaII1Ca8dX/e3lsRoA?=
- =?us-ascii?Q?St1Rd6jXqez46pVtXJXTc4pM8vH2SZ8ZKLz18WRPX8xg5UMC0Q1brkKBlwQ8?=
- =?us-ascii?Q?JxeXlYa2l1qQi9oYi05DysPjRrPliav7wj/oJp0690appzs4o+oegx8G0ccP?=
- =?us-ascii?Q?hRd9z24GkgZ7nQmCTQvOLY7eH6XYMLHQMNAX5/gSI+u0LtuLujQ9OUl/3I3i?=
- =?us-ascii?Q?oVWH74BgAWV7n0bN1wCP0AugG5yHO2bnfPzWNDsYf0MZ94Kjj0HsZm9/hPYq?=
- =?us-ascii?Q?ogibggxAsgnj/En5UbHKqkplcuQvKInkl75PlZ4qnZ4T3YnbnRN7UFVzq6U1?=
- =?us-ascii?Q?ZH2kF8XY72JXkgjergk+RSDJWOjdACXiC3BU/0oIYRFzjH6PaHvlvtCd7ztT?=
- =?us-ascii?Q?anoDTpfvjAD2LuQmECYHI7fTuevGFkOEavy6voEvX+m1DeVGI9+kum7Rj8An?=
- =?us-ascii?Q?cD90OC53G1kW1rYxfX3IGd6KkS4vOSGdCfBaDHYnCvINC3Bc/1hKfg/g5aGK?=
- =?us-ascii?Q?ScMo4J8fl0/q4/rltJVkuiwjr0py+uxHSgxEMCO720aclu1m8IiMtdJK/kne?=
- =?us-ascii?Q?TmA1J5JDT+gbzPPBIjvS8VbZWZDu0am8QAkTU9dSSoLou5QuDlpX+oYGb5Vj?=
- =?us-ascii?Q?og5t3LCknhFpmVbEkMBWwBG98BpmyTqsEP0I6G3KbgkqY30gLyiP+6+eNKCW?=
- =?us-ascii?Q?GSr2d/E1GDHXmfU+dzjeAPTn79N6pMh8xHqpboXh/RHfsnND8h0PJa/r2fs8?=
- =?us-ascii?Q?YO/svOqtX2P26+eaOA8o6+QkgGsL5IIbWJU+A7jAZ9/uLFuxIHaY?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4de6bd55-c99a-448b-dd7d-08def95b3fd8
-X-MS-Exchange-CrossTenant-AuthSource: DU4PR04MB11791.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Aug 2026 16:52:24.4790
+X-MS-Exchange-AntiSpam-MessageData-0: 3b4TWKwQpsraS0OGpI6jcDlGYBrORwJlIV/+qb6U2I21gILKJtjRDtW1jProSmODc3gsKRBj4212RuSjsCSdQ64Uk+SUwYYjs18sZ89+NQ1CTn5WLymyNIwhtIJBlS3h/b47pdSIWz907sGZMDqwi2jjZvSU21YFb/oW32QnO9oFaxpn1cg00F4mXnxML7eOTDvFOPCN7fhrPQ4wqHxGQ5YlxcYOGbGvQgFEAe/AT/amD/731Ix9bBsbnZ0CMd8bboK2py/nVXFxZIS+ThzCidLfEH6MsS0paEpFAxhm1vv6LTUwQkgm0jN5SEAgu9D8MKFJejv5ea8vKehNAODPIsM5ubIhliKZdhbAo1T0O/evGdoD1s2tcRPOSMgFb4/zbTwmJJo32/1ZkyZGrC4Ck1PEJy/2FVPwXZ8MlDS932JiBfpBQ7eQ7yhVI93rxGx2
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Aug 2026 17:02:13.1258
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: LeDkrsGyPbVehbr4vPuaPaCIIK/tcejvEdDeUVMCiX8c+FEMYLd5N0miWt2vwxMRkjehmaWd3T/mA3zCS2KLeaeJBiTPsUlNNNucn9s3yTMtU7b3OxKcF4cERIU2O5wE
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB792713
+X-MS-Exchange-CrossTenant-Network-Message-Id: 449fa327-0f1f-4e2f-a333-08def95c9ee6
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00001CE9.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB6728
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_095229_732962_738BDF81 
-X-CRM114-Status: GOOD (  25.59  )
+X-CRM114-CacheID: sfid-20260813_100224_687626_9CE00B37 
+X-CRM114-Status: UNSURE (   6.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,143 +133,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 13, 2026 at 03:00:18PM +0800, shengjiu.wang@oss.nxp.com wrote:
-> From: Shengjiu Wang <shengjiu.wang@nxp.com>
->
-> The shared dma_params_tx/rx fields in struct fsl_asrc were a single
-> instance written by every concurrent fsl_asrc_dma_hw_params() call.
-> With multiple DAIs registered (one per pair/context), parallel stream
-> open+hw_params races would corrupt addr and maxburst for all active
-> streams.
->
-> Fix by moving dma_params into struct fsl_asrc_pair so each pair owns
-> its own copy. Initialise them in fsl_asrc_dma_startup() where
-> the pair is allocated, which makes the per-DAI probe callbacks in
-> fsl_asrc.c and fsl_easrc.c redundant; remove those as well.
->
-> Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
-> ---
+Fix two issues in the NVIDIA Tegra410 Olympus PMU event definitions:
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+  - Correct the swapped MetricGroup assignments for the L1 data and
+    instruction prefetcher metrics.
+  - Correct the name and description of implementation-defined event
+    0x0197.
 
->  sound/soc/fsl/fsl_asrc.c        | 11 -----------
->  sound/soc/fsl/fsl_asrc_common.h |  7 +++----
->  sound/soc/fsl/fsl_asrc_dma.c    | 14 ++++++++++++++
->  sound/soc/fsl/fsl_easrc.c       | 11 -----------
->  4 files changed, 17 insertions(+), 26 deletions(-)
->
-> diff --git a/sound/soc/fsl/fsl_asrc.c b/sound/soc/fsl/fsl_asrc.c
-> index df4817ae91b1..2755ee57c6a1 100644
-> --- a/sound/soc/fsl/fsl_asrc.c
-> +++ b/sound/soc/fsl/fsl_asrc.c
-> @@ -781,18 +781,7 @@ static int fsl_asrc_dai_trigger(struct snd_pcm_substream *substream, int cmd,
->  	return 0;
->  }
->
-> -static int fsl_asrc_dai_probe(struct snd_soc_dai *dai)
-> -{
-> -	struct fsl_asrc *asrc = snd_soc_dai_get_drvdata(dai);
-> -
-> -	snd_soc_dai_init_dma_data(dai, &asrc->dma_params_tx,
-> -				  &asrc->dma_params_rx);
-> -
-> -	return 0;
-> -}
-> -
->  static const struct snd_soc_dai_ops fsl_asrc_dai_ops = {
-> -	.probe		= fsl_asrc_dai_probe,
->  	.startup	= fsl_asrc_dai_startup,
->  	.hw_params	= fsl_asrc_dai_hw_params,
->  	.hw_free	= fsl_asrc_dai_hw_free,
-> diff --git a/sound/soc/fsl/fsl_asrc_common.h b/sound/soc/fsl/fsl_asrc_common.h
-> index c8a1a2b5915d..4e6b00cb5d63 100644
-> --- a/sound/soc/fsl/fsl_asrc_common.h
-> +++ b/sound/soc/fsl/fsl_asrc_common.h
-> @@ -53,6 +53,7 @@ struct fsl_asrc_m2m_cap {
->   * @dma_data: private dma data
->   * @pos: hardware pointer position
->   * @req_dma_chan: flag to release dev_to_dev chan
-> + * @dma_params: DMA parameters for transmit/receive channel
->   * @private: pair private area
->   * @complete: dma task complete
->   * @sample_format: format of m2m
-> @@ -76,6 +77,8 @@ struct fsl_asrc_pair {
->  	unsigned int pos;
->  	bool req_dma_chan;
->
-> +	struct snd_dmaengine_dai_dma_data dma_params;
-> +
->  	void *private;
->
->  	/* used for m2m */
-> @@ -92,8 +95,6 @@ struct fsl_asrc_pair {
->  /**
->   * fsl_asrc: ASRC common data
->   *
-> - * @dma_params_rx: DMA parameters for receive channel
-> - * @dma_params_tx: DMA parameters for transmit channel
->   * @pdev: platform device pointer
->   * @regmap: regmap handler
->   * @paddr: physical address to the base address of registers
-> @@ -128,8 +129,6 @@ struct fsl_asrc_pair {
->   * @private: private data structure
->   */
->  struct fsl_asrc {
-> -	struct snd_dmaengine_dai_dma_data dma_params_rx;
-> -	struct snd_dmaengine_dai_dma_data dma_params_tx;
->  	struct platform_device *pdev;
->  	struct regmap *regmap;
->  	unsigned long paddr;
-> diff --git a/sound/soc/fsl/fsl_asrc_dma.c b/sound/soc/fsl/fsl_asrc_dma.c
-> index 2f662bdf14d0..15f2dccc3584 100644
-> --- a/sound/soc/fsl/fsl_asrc_dma.c
-> +++ b/sound/soc/fsl/fsl_asrc_dma.c
-> @@ -392,6 +392,20 @@ static int fsl_asrc_dma_startup(struct snd_soc_component *component,
->
->  	runtime->private_data = pair;
->
-> +	/*
-> +	 * Point the cpu DAI dma_data at the per-pair params so that
-> +	 * concurrent hw_params calls on different pairs each write to
-> +	 * their own struct and do not race on addr/maxburst.  Use the
-> +	 * per-direction setters so that a concurrent open of the other
-> +	 * direction on the same DAI does not NULL out its pointer.
-> +	 */
-> +	if (tx)
-> +		snd_soc_dai_dma_data_set_playback(snd_soc_rtd_to_cpu(rtd, 0),
-> +						  &pair->dma_params);
-> +	else
-> +		snd_soc_dai_dma_data_set_capture(snd_soc_rtd_to_cpu(rtd, 0),
-> +						 &pair->dma_params);
-> +
->  	/* Request a dummy pair, which will be released later.
->  	 * Request pair function needs channel num as input, for this
->  	 * dummy pair, we just request "1" channel temporarily.
-> diff --git a/sound/soc/fsl/fsl_easrc.c b/sound/soc/fsl/fsl_easrc.c
-> index 77c5009cc01f..d23ee482924b 100644
-> --- a/sound/soc/fsl/fsl_easrc.c
-> +++ b/sound/soc/fsl/fsl_easrc.c
-> @@ -1582,18 +1582,7 @@ static int fsl_easrc_hw_free(struct snd_pcm_substream *substream,
->  	return 0;
->  }
->
-> -static int fsl_easrc_dai_probe(struct snd_soc_dai *cpu_dai)
-> -{
-> -	struct fsl_asrc *easrc = dev_get_drvdata(cpu_dai->dev);
-> -
-> -	snd_soc_dai_init_dma_data(cpu_dai,
-> -				  &easrc->dma_params_tx,
-> -				  &easrc->dma_params_rx);
-> -	return 0;
-> -}
-> -
->  static const struct snd_soc_dai_ops fsl_easrc_dai_ops = {
-> -	.probe		= fsl_easrc_dai_probe,
->  	.startup	= fsl_easrc_startup,
->  	.trigger	= fsl_easrc_trigger,
->  	.hw_params	= fsl_easrc_hw_params,
-> --
-> 2.34.1
->
->
+Patch 1 resends the original patch from Saurav:
+  https://patchwork.kernel.org/project/linux-arm-kernel/patch/20260511210832.91408-1-sauravsc@amazon.com/
+
+Besar Wicaksono (1):
+  perf vendor events arm64: Fix Tegra410 Olympus event 0x0197
+
+Saurav Sachidanand (1):
+  perf vendor events arm64: fix swapped MetricGroup for Tegra410 L1
+    prefetcher metrics
+
+ .../arch/arm64/nvidia/t410/metrics.json       | 28 +++++++++----------
+ .../arch/arm64/nvidia/t410/misc.json          |  6 ++--
+ 2 files changed, 17 insertions(+), 17 deletions(-)
+
+-- 
+2.43.0
+
 
