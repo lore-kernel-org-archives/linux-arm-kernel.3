@@ -4,99 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA0AFC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 09:56:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03832C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 09:57:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IsAhz04z4JOyOzRAwpcE4XqcGtm8zAE8zmEWF6NGCHw=; b=ywWpxrn23HliCBN5JOkM4qj6XZ
-	bg40SN7xeKUPaMc5eT7S8YYNKdszJYNwUddevsVWpOkoys/lxYK/l/M73AAQN/ccN1VNMP62XV+rA
-	d5SFjaNeHxl5BEngIdxZ5wh9Ri/qWUx1F3r5+RSfwcT7ACwBZhrjiprTHJ1fbwzTIo1Wt8sCPzKFf
-	/qZuH4aFQGgGuScIyoH/Vo3WPg03f247j26Rh0QRxzp3q3Un9tYmR/IK27DvnkJg0bFfCTc5764Dv
-	f8ySn2EMxphSmsvJqmMSopvObIvO1QK6rKQBlHPCMhZf9c0GQEWuov0zh/tAQhvti+NaBPeGeTPXd
-	loLlRkLA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Wh9SZNt6ADV51iweiiph0QlthCm6lGBovfUZeQYzB0w=; b=Dwg2WpTrhek1Ya62aFXc51KvJL
+	xYzUZnsoWMaHkWl9N9mMdBmgbE4ZrBfkukP0GWXCwLC809gfrjaoO8i30l/4Ec9NpCWpQ+/EGOpJg
+	GYiD58X5N+QVhBRU13Tneu5mFc6R9mO1f7Jk1TdlhncfW9AF9SxiCda7QchQp9y7BzUREOh4PoCpS
+	QwYwGpROMgc9kETHUvmiRNyh1f9m9Pqc9AFCBtnbD2C+vaBrge54/y+EkFN+E2CKWgriPiVNBsyu0
+	Z7RHRv//aM6F2bTRvIBiwRpNkq8MYGiPV2x5c1mKWnT6eyx1PPNAoAc80FOWAEb8i22l8QvUqdf1G
+	lWKAJhag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuSB1-00000000ONo-0MlK;
-	Thu, 13 Aug 2026 09:56:43 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wuSBU-00000000OTf-1FCB;
+	Thu, 13 Aug 2026 09:57:12 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuSAz-00000000ONH-3zvC
+	id 1wuSBT-00000000OSz-28dj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 09:56:42 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E36E9600AD;
-	Thu, 13 Aug 2026 09:56:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94CD41F000E9;
-	Thu, 13 Aug 2026 09:56:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786615000;
-	bh=IsAhz04z4JOyOzRAwpcE4XqcGtm8zAE8zmEWF6NGCHw=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=CHvYLdEtqJyTYe8V+9uKUglx6hAV77Izcmz/KfrHc5PezB69iysXzbcuPR45KM+j6
-	 5wygXUSO513tUSdDGCLQ1NlwcdG2+ibziRnfIGrgJT30ajeTGGxcZ4swBevHRC0WhV
-	 LspYWILW/000KuXsgqEfm4NF2du2v3zyTdA4RV1sXpfBbrjo6Fc1WS3P+ZFMJzYDy5
-	 GXL0/C9omCKwExiAKALHor+YqFLC01Pkqo2PSKkbs7PEMkwI9vbJsNE2vTA5G7fQkB
-	 697gbftd+2qf5XawHF7BSLRPvbt0sUPuFqmI8efe6NPy6dX6GwNcugt/ajWtJbCUN+
-	 nWmuGbK3yNfxg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wuSAw-0000000FHZg-1nGM;
-	Thu, 13 Aug 2026 09:56:38 +0000
-Date: Thu, 13 Aug 2026 10:56:37 +0100
-Message-ID: <86a4qq1gyy.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Steffen Eiden <seiden@linux.ibm.com>
-Cc: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-s390@vger.kernel.org,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Andreas Grapentin <gra@linux.ibm.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	David Hildenbrand <david@kernel.org>,
-	Friedrich Welter <fritz@linux.ibm.com>,
-	Fuad Tabba <tabba@google.com>,
-	Gautam Gala <ggala@linux.ibm.com>,
-	Hariharan Mari <hari55@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Hendrik Brueckner <brueckner@linux.ibm.com>,
-	Ilya Leoshkevich <iii@linux.ibm.com>,
-	Janosch Frank <frankja@linux.ibm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Nico Boehr <nrb@linux.ibm.com>,
-	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-	Oliver Upton <oupton@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Will Deacon <will@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v6 08/33] KVM: arm64: Use accessor functions for core regs
-In-Reply-To: <20260812153631.3376090-9-seiden@linux.ibm.com>
-References: <20260812153631.3376090-1-seiden@linux.ibm.com>
-	<20260812153631.3376090-9-seiden@linux.ibm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: seiden@linux.ibm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org, agordeev@linux.ibm.com, gra@linux.ibm.com, arnd@arndb.de, catalin.marinas@arm.com, borntraeger@linux.ibm.com, imbrenda@linux.ibm.com, david@kernel.org, fritz@linux.ibm.com, tabba@google.com, ggala@linux.ibm.com, hari55@linux.ibm.com, hca@linux.ibm.com, brueckner@linux.ibm.com, iii@linux.ibm.com, frankja@linux.ibm.com, joey.gouly@arm.com, nrb@linux.ibm.com, oss@nina.schoetterlglausch.eu, oupton@kernel.org, pbonzini@redhat.com, seanjc@google.com, suzuki.poulose@arm.com, svens@linux.ibm.com, Ulrich.Weigand@de.ibm.com, gor@linux.ibm.com, will@kernel.org, yuzenghui@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Thu, 13 Aug 2026 09:57:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4702641944;
+	Thu, 13 Aug 2026 09:57:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 1F1DCC2BCC7;
+	Thu, 13 Aug 2026 09:57:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1786615031;
+	bh=QoMXlPLzALhwByi+1x8x2yYmLLmFtvcOqO7OqLXmh3A=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=WtLOIRNeIk9GweSGMkZBCGV0mLKufRKJCcvPQ4umeCEE8mBcpAlS/g+pwGGrzOsGI
+	 RTNrgpSGGRa2c6JveuSbwymDjKC74v/MqFBc+O160kDb1+lQqwZNXn+xP3z+YPIUML
+	 6L1+R7nHhmFNOz4BB+02mJ1KhA5OagVzOkeqI/bV4zsqYbgkHUtwwYyKtP1eZtlNJD
+	 BDjeC/bV+wlOK7XWY1FitJwY0cEvsZ4rBFUhsW0r5HVcxGJioBIPdOgc8m6YwJ8uIQ
+	 zLxuoVZZodwj2Ny5CCEqrKj/QsE1g9W63e9JPlSZr1XqqN/6OAABOYt2s2GHSgGE3e
+	 zeo32K1f6pwKA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0267EC5CFDB;
+	Thu, 13 Aug 2026 09:57:11 +0000 (UTC)
+From: Long Zhao via B4 Relay <devnull+longzhao.ambarella.com@kernel.org>
+Date: Thu, 13 Aug 2026 17:56:12 +0800
+Subject: [PATCH v3 1/6] dt-bindings: arm: add Ambarella CV75 platforms
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260813-cv75-v3-a-v3-1-cfdd20b1b4dd@ambarella.com>
+References: <20260813-cv75-v3-a-v3-0-cfdd20b1b4dd@ambarella.com>
+In-Reply-To: <20260813-cv75-v3-a-v3-0-cfdd20b1b4dd@ambarella.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Linus Walleij <linusw@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
+ soc@lists.linux.dev, Long Zhao <longzhao@ambarella.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1786615029; l=1828;
+ i=longzhao@ambarella.com; s=20260730; h=from:subject:message-id;
+ bh=afPd4fMvs6m5AADxb0oc6RJxPyKNG50c78xrv0izT2E=;
+ b=FfzHBtNw5HlISmo6udQC4oEZ/SBB5ags05+u2NZV8P60KxB/xQ8mXQqJM1Z7p36HjyPdJEtYF
+ wbyzA21+8RnClLWBe+i2Gfho8WsA5mzaCIRHya4PBYk1J5P6/k3Ld1n
+X-Developer-Key: i=longzhao@ambarella.com; a=ed25519;
+ pk=/xGhPTOX0/eYsyTWzyjjgAIW1Z/YD+IlnOnvcdRozow=
+X-Endpoint-Received: by B4 Relay for longzhao@ambarella.com/20260730 with
+ auth_id=903
+X-Original-From: Long Zhao <longzhao@ambarella.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,107 +87,68 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: longzhao@ambarella.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 12 Aug 2026 16:36:04 +0100,
-Steffen Eiden <seiden@linux.ibm.com> wrote:
-> 
-> Instead of accessing the value directly use assessor function that
+From: Long Zhao <longzhao@ambarella.com>
 
-s/assessor function/accessors/
+Add the Ambarella vendor prefix and CV75 EVK board compatible for the
+initial SoC bring-up.
 
-> abstract the actual location of the register values. Add a helper
-> function to reset fpsimd registers. Enable other KVM implementations to
-> reuse this code.
+Signed-off-by: Long Zhao <longzhao@ambarella.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+---
+ .../devicetree/bindings/arm/ambarella.yaml         | 24 ++++++++++++++++++++++
+ .../devicetree/bindings/vendor-prefixes.yaml       |  2 ++
+ 2 files changed, 26 insertions(+)
 
-to reuse this code by overloading the accessors.
-
-> 
-> No functional changes.
-> 
-> Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
-> ---
->  arch/arm64/include/asm/kvm_emulate.h | 34 ++++++++++++++++++++++++++--
->  arch/arm64/kvm/guest.c               | 16 ++++++-------
->  2 files changed, 40 insertions(+), 10 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-> index 8603766c1b4d..b31d50bdf59e 100644
-> --- a/arch/arm64/include/asm/kvm_emulate.h
-> +++ b/arch/arm64/include/asm/kvm_emulate.h
-> @@ -141,6 +141,31 @@ static __always_inline unsigned long *vcpu_cpsr(const struct kvm_vcpu *vcpu)
->  	return (unsigned long *)&vcpu->arch.ctxt.regs.pstate;
->  }
->  
-> +static __always_inline unsigned long *vcpu_sp_el0(struct kvm_vcpu *vcpu)
-> +{
-> +	return (unsigned long *)&vcpu->arch.ctxt.regs.sp;
-> +}
-> +
-> +static __always_inline u64 *vcpu_sp_el1(struct kvm_vcpu *vcpu)
-> +{
-> +	return __ctxt_sys_reg(&vcpu->arch.ctxt, SP_EL1);
-> +}
-> +
-> +static __always_inline __u128 *vcpu_vreg(struct kvm_vcpu *vcpu, int n)
-> +{
-> +	return &vcpu->arch.ctxt.fp_regs.vregs[n];
-> +}
-> +
-> +static __always_inline __u32 *vcpu_fpsr(struct kvm_vcpu *vcpu)
-> +{
-> +	return &vcpu->arch.ctxt.fp_regs.fpsr;
-> +}
-> +
-> +static __always_inline __u32 *vcpu_fpcr(struct kvm_vcpu *vcpu)
-> +{
-> +	return &vcpu->arch.ctxt.fp_regs.fpcr;
-> +}
-> +
->  static __always_inline bool vcpu_mode_is_32bit(const struct kvm_vcpu *vcpu)
->  {
->  	return !!(*vcpu_cpsr(vcpu) & PSR_MODE32_BIT);
-> @@ -737,6 +762,11 @@ static inline void vcpu_set_hcrx(struct kvm_vcpu *vcpu)
->  	}
->  }
->  
-> +static inline void kvm_reset_fpsimd(struct kvm_vcpu *vcpu)
-> +{
-> +	memset(&vcpu->arch.ctxt.fp_regs, 0, sizeof(vcpu->arch.ctxt.fp_regs));
-> +}
-> +
->  /* Reset a vcpu's core registers. */
->  static inline void kvm_reset_vcpu_core(struct kvm_vcpu *vcpu)
->  {
-> @@ -752,8 +782,8 @@ static inline void kvm_reset_vcpu_core(struct kvm_vcpu *vcpu)
->  	/* Reset core registers */
->  	memset(vcpu_gp_regs(vcpu), 0, sizeof(vcpu_gp_regs(vcpu)));
->  	*vcpu_pc(vcpu) = 0;
-> -	vcpu->arch.ctxt.regs.sp = 0;
-> -	memset(&vcpu->arch.ctxt.fp_regs, 0, sizeof(vcpu->arch.ctxt.fp_regs));
-> +	*vcpu_sp_el0(vcpu) = 0;
-> +	kvm_reset_fpsimd(vcpu);
->  	vcpu->arch.ctxt.spsr_abt = 0;
->  	vcpu->arch.ctxt.spsr_und = 0;
->  	vcpu->arch.ctxt.spsr_irq = 0;
-> diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
-> index b01d6622b872..773f6c8e5026 100644
-> --- a/arch/arm64/kvm/guest.c
-> +++ b/arch/arm64/kvm/guest.c
-> @@ -134,19 +134,19 @@ static void *core_reg_addr(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
->  	     KVM_REG_ARM_CORE_REG(regs.regs[30]):
->  		off -= KVM_REG_ARM_CORE_REG(regs.regs[0]);
->  		off /= 2;
-> -		return &vcpu->arch.ctxt.regs.regs[off];
-> +		return &vcpu_gp_regs(vcpu)[off];
-
-Doesn't this belong to the previous patch?
-
-Thanks,
-
-	M.
+diff --git a/Documentation/devicetree/bindings/arm/ambarella.yaml b/Documentation/devicetree/bindings/arm/ambarella.yaml
+new file mode 100644
+index 000000000000..72946e94fa76
+--- /dev/null
++++ b/Documentation/devicetree/bindings/arm/ambarella.yaml
+@@ -0,0 +1,24 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/arm/ambarella.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Ambarella SoC platforms
++
++maintainers:
++  - Long Zhao <longzhao@ambarella.com>
++
++properties:
++  $nodename:
++    const: "/"
++
++  compatible:
++    oneOf:
++      - description: Ambarella CV75 boards
++        items:
++          - enum:
++              - ambarella,cv75-evk
++          - const: ambarella,cv75
++
++additionalProperties: true
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index 85a27937832e..f48aa6dabbe9 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -112,6 +112,8 @@ patternProperties:
+     description: Amarula Solutions
+   "^amazon,.*":
+     description: Amazon.com, Inc.
++  "^ambarella,.*":
++    description: Ambarella, Inc.
+   "^amcc,.*":
+     description: Applied Micro Circuits Corporation (APM, formally AMCC)
+   "^amd,.*":
 
 -- 
-Without deviation from the norm, progress is not possible.
+2.34.1
+
+
 
