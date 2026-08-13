@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9365C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 17:06:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25461C5CFCF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 17:06:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0X07In1qldTGybmdx53x+y5tR/aR+S5pQLXMdfQFUQ4=; b=yiqy1zSMMt8SykPVm6EjtHRmdu
-	km5dZeRvn+DgKBrXsdrJCjFO6PxJas/ruZBDchOrHnweY99+Bb7lJ9iVNBfw+DnIqPEGRAJzpp2Pa
-	lQHer2SVpvPDhc0bSLm73YHOOb4dj50jmv5cHR1dRq/b/z0R7aIaixzBLfzR3NiM8Oam0EynarzLr
-	Xe/MneLjC3YFLqZKEOzYThQJdBuJo9Us+4Bj6D+q/aStFxhIpuqbja+hmxdgLcIS6xKZjg65l6GyW
-	naA4hO6g7456Viox6NTAMHD8Br8/CWMBFJkFasd8ysOIgX1FQw5XEXqTjFFovAqhQCmtHmqUDYb7V
-	6Y9KF1rg==;
+	bh=9TxFFtT5q6hhEXv1kvzuRF0i2wkqVQa93JW+RoA9mS8=; b=oeQgxm0ZukdAl2D8QbTiZ0BYJ/
+	xTXx2FittewNjtTio74tmWVQbVIyQygHvWhnlqvGxZHvjkyGJHknbJI1SHG6kCGhSf+Q6C97JD+xp
+	DZeJigwYCAkpxwsWsSjHaLsdayhAGlD3R4G0vF5gRVUKFfpRnchznujLJsgjf6esoykvX1B2c64x5
+	kvj7bDkium+qE9Z0VHXd7+0ECoC+pToBulGKnljC/b24DXHthp7jEkfFVpJJf+wrN5HKWAF38BgTm
+	0dUbYCDZZTJM/cjyo5ESkh2x4XQdyWZl3NXslMCRvXcK0mJOibjQnnG7jfUWz34BfbMONk1JIwLHL
+	d0909o+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuYsx-00000001FCp-1v5b;
-	Thu, 13 Aug 2026 17:06:31 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1wuYtA-00000001FJ9-2wuY;
+	Thu, 13 Aug 2026 17:06:44 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuYsu-00000001FB3-32FL
+	id 1wuYt8-00000001FHd-0i34
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 17:06:30 +0000
+	Thu, 13 Aug 2026 17:06:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1786640787;
+	s=mimecast20190719; t=1786640801;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=0X07In1qldTGybmdx53x+y5tR/aR+S5pQLXMdfQFUQ4=;
-	b=D0eqXnS8XkzEcRybZXqxwDffG8ljt/Ig8FBAk97pyRVMBl34WgBTd3NN8d8HtuT3OkeB8r
-	IRe3vceoydRprISe+8ZUPPaDt7K31WTTa+lR1GHWPKgb1qj+ma39+6Z1BiCduYVTeaERSS
-	R7UuSl2Ijg3zCC2bw997d1OfStbKTJk=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+	bh=9TxFFtT5q6hhEXv1kvzuRF0i2wkqVQa93JW+RoA9mS8=;
+	b=N3ku9FKmNTEjNRcBj9t+tI2+1+GU/yic5l1Xq+UorHuwYBwqGu1NxVl/6NcA7Y2HSYk8gX
+	6NSAkZTD+F3qNC5a4pXRGWiquZS6wKMXb3hwNKDXcEPTcfnXm5UkTJ9OgoPLpRWoZ3Aqdc
+	/0gp+7Z8QqKzwN33L34r+H8/zBuGNsc=
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-537-HbeFCVHqOGGW_1hh13qClQ-1; Thu,
- 13 Aug 2026 13:06:23 -0400
-X-MC-Unique: HbeFCVHqOGGW_1hh13qClQ-1
-X-Mimecast-MFC-AGG-ID: HbeFCVHqOGGW_1hh13qClQ_1786640778
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-448-kZvjQ2dNO5aDefn4CIGjPA-1; Thu,
+ 13 Aug 2026 13:06:37 -0400
+X-MC-Unique: kZvjQ2dNO5aDefn4CIGjPA-1
+X-Mimecast-MFC-AGG-ID: kZvjQ2dNO5aDefn4CIGjPA_1786640791
 Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id B963618001E6;
-	Thu, 13 Aug 2026 17:06:18 +0000 (UTC)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 0777C18002C4;
+	Thu, 13 Aug 2026 17:06:31 +0000 (UTC)
 Received: from wsxc.redhat.com (unknown [10.96.134.24])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 7586A195608A;
-	Thu, 13 Aug 2026 17:06:06 +0000 (UTC)
+	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 3411D195608A;
+	Thu, 13 Aug 2026 17:06:18 +0000 (UTC)
 From: Ricardo Robaina <rrobaina@redhat.com>
 To: audit@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
@@ -98,20 +98,20 @@ Cc: paul@paul-moore.com,
 	peterz@infradead.org,
 	luto@kernel.org,
 	Ricardo Robaina <rrobaina@redhat.com>
-Subject: [PATCH 12/13] um: pass all six syscall args to audit_syscall_entry()
-Date: Thu, 13 Aug 2026 14:03:02 -0300
-Message-ID: <c4118be04a7247aca96de49950dd5d866aa352b8.1786626275.git.rrobaina@redhat.com>
+Subject: [PATCH 13/13] xtensa: pass all six syscall args to audit_syscall_entry()
+Date: Thu, 13 Aug 2026 14:03:03 -0300
+Message-ID: <0c7aa94c05b08d959d885b3b0434646a6b2fcfd0.1786626275.git.rrobaina@redhat.com>
 In-Reply-To: <cover.1786626275.git.rrobaina@redhat.com>
 References: <cover.1786626275.git.rrobaina@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
-X-Mimecast-MFC-PROC-ID: Iv5fSoJtVmb6sZ0QQZRX1rMp-Kv_TnreuK1_X1M0PqA_1786640778
+X-Mimecast-MFC-PROC-ID: hGph2JRCFgj49mFL5zpyrpIpF-YH4DYFO4K1j3zt2pE_1786640791
 X-Mimecast-Originator: redhat.com
 Content-Transfer-Encoding: 8bit
 content-type: text/plain; charset="US-ASCII"; x-default=true
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_100628_833775_B4588375 
-X-CRM114-Status: UNSURE (   9.48  )
+X-CRM114-CacheID: sfid-20260813_100642_281470_2E37C892 
+X-CRM114-Status: UNSURE (   9.15  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -128,29 +128,28 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Update the audit_syscall_entry() call to forward the 5th and 6th
-syscall arguments (UPT_SYSCALL_ARG5, UPT_SYSCALL_ARG6) now that
-the audit core logs all six.
+syscall arguments (areg[8], areg[9]) now that the audit core logs
+all six.
 
 Signed-off-by: Ricardo Robaina <rrobaina@redhat.com>
 ---
- arch/um/kernel/ptrace.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ arch/xtensa/kernel/ptrace.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/arch/um/kernel/ptrace.c b/arch/um/kernel/ptrace.c
-index fdbb37b5c399..c597a368592d 100644
---- a/arch/um/kernel/ptrace.c
-+++ b/arch/um/kernel/ptrace.c
-@@ -127,7 +127,9 @@ int syscall_trace_enter(struct pt_regs *regs)
- 			    UPT_SYSCALL_ARG1(&regs->regs),
- 			    UPT_SYSCALL_ARG2(&regs->regs),
- 			    UPT_SYSCALL_ARG3(&regs->regs),
--			    UPT_SYSCALL_ARG4(&regs->regs));
-+			    UPT_SYSCALL_ARG4(&regs->regs),
-+			    UPT_SYSCALL_ARG5(&regs->regs),
-+			    UPT_SYSCALL_ARG6(&regs->regs));
+diff --git a/arch/xtensa/kernel/ptrace.c b/arch/xtensa/kernel/ptrace.c
+index b80d54b2ea34..122a6ffc0757 100644
+--- a/arch/xtensa/kernel/ptrace.c
++++ b/arch/xtensa/kernel/ptrace.c
+@@ -564,7 +564,8 @@ int do_syscall_trace_enter(struct pt_regs *regs)
  
- 	if (test_thread_flag(TIF_SYSCALL_TRACEPOINT))
- 		trace_sys_enter(regs, UPT_SYSCALL_NR(&regs->regs));
+ 	audit_syscall_entry(regs->syscall, regs->areg[6],
+ 			    regs->areg[3], regs->areg[4],
+-			    regs->areg[5]);
++			    regs->areg[5], regs->areg[8],
++			    regs->areg[9]);
+ 	return 1;
+ }
+ 
 -- 
 2.55.0
 
