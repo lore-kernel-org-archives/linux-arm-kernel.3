@@ -4,84 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED95AC5CFDB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 10:26:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 124BFC5CFEB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 10:26:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5PHCW/v+JKvQwWv1NsSjsLXYqOrxgLeGNzW79kSPybs=; b=VI8DS07GXUPAXjv5wkWCVR6hdi
-	IuoRq0HeS/g4ifGpOGxjfgjsgIWpEd/06e2Ty9jC2hEVBw2NRdhnvYytKo/72x5xXteS9EPcJPyEI
-	5KtLZjndvJ1t2lp9ipIIiaqZ9DInzXDVHe3cST6887eKtQbcYkOMrAXHyUQNE5eCmXYkRYESAi3l5
-	mClkZ5Bc50EcTJTtY4kJSuNx7drZC53+LARIuFXDX1IKh6MmhlfkxLrao3/drvcQtpsp479CG9Lje
-	gvVsqLvXZoH3AbkPz2OVZ6TES8QGNoDN7OVB0OqfUE1/oErBOERhIeQ5oWlPbZ+HDtpT0JE334mOr
-	BUKwKbeA==;
+	bh=/0Qu0vwGtAqVL/brCkXgE6uqKeC4NVtshAAbeSU7+aI=; b=Ngdw8BIGjB+cFPHkQr5NiojtL9
+	VMF+SsxbxBIIsYEaRJUc9mNPdQttLKERRimp6Sqm0jAQANKaFeAkyrPsfvvtiJ1+F6H3EWzZY8o+8
+	7wNiWQ7GWpBKV0p+qp9xzZNaRNQAPMNq0wiE+UuBUgDBeHGt3k8IA2KNp6dg3KA9h74w11yg1GnNl
+	JMIHbpVnIDZJ7XuHT3xOmWs6ToQo9yAqDda410MwP+ieXXL88Vv63S5hqwaCYvQMcjA7jSGRG9NbG
+	jNvX/XaGpdIfrgNLTpXOGcj2V6COIXT0y4In1og3IgJwntv0iY+imRb4KV6Zvmj+VC0IomD0X83Io
+	DPjnNAtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuSdQ-00000000TNL-1SxT;
-	Thu, 13 Aug 2026 10:26:04 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuSdP-00000000TMo-0OxH
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 10:26:03 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D347942DDF;
-	Thu, 13 Aug 2026 10:26:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 699F91F000E9;
-	Thu, 13 Aug 2026 10:25:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786616762;
-	bh=5PHCW/v+JKvQwWv1NsSjsLXYqOrxgLeGNzW79kSPybs=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=VjhLqTpmNuACKc18t0b3/0fPvVuC2WT7W8CwhFzRpLuw2RYUAWspOWsTL/3tU9A8m
-	 K3dJxQJG5Xoce+jD9MeNMjg/bjmQfnMci+IwDHfaD7czycm723XOEihrbOaTp+G4Mh
-	 X/aVFs7j7/FCx5FyXGU/cBY1zDI9odFKn2RfiSqxkR6wbxEVsGfQMVDliG2BUwC8fs
-	 vpqvTNHcQSZLnYL4d+oIx8fDqa+CfcjUaM/MsYotAO3++KZNBeGmnOUQEHDvVp2mb/
-	 SheJh4I1cQTHEsVu2ON+AE8ZrEAdcTZGzzk8Mo7fmREXAL2RaktvDcamGxmwgf8iff
-	 tUUlpTFec5SbA==
-From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-To: iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-coco@lists.linux.dev
-Cc: Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	x86@kernel.org,
-	"Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-Subject: [RFC PATCH v2 2/2] dma: swiotlb: Initialize and size shared default pools for memory encryption
-Date: Thu, 13 Aug 2026 15:55:21 +0530
-Message-ID: <20260813102521.1367737-3-aneesh.kumar@kernel.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260813102521.1367737-1-aneesh.kumar@kernel.org>
-References: <20260813102521.1367737-1-aneesh.kumar@kernel.org>
+	id 1wuSdm-00000000TXT-1zVj;
+	Thu, 13 Aug 2026 10:26:26 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wuSdj-00000000TV5-3DWx;
+	Thu, 13 Aug 2026 10:26:25 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 67C49153B;
+	Thu, 13 Aug 2026 03:26:15 -0700 (PDT)
+Received: from [192.168.7.252] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 857E03F632;
+	Thu, 13 Aug 2026 03:26:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1786616779; bh=9rSsdIC/129SZ1WHfCEReTwxxw/QdoL6Qp0KAKAWByI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=t3Bl2ZPsyAgEEtp/RWgJ8wXhch92sf7Fi5Jn2n/O3IysUP737x3khQusWpkRkl6eQ
+	 zgRInDgxOP9mgG2K33Z9LX0OBE6OkE3R/c7KtrhRZ8Lbyh+7Ha8Wxc+nyIspdacYNd
+	 uBFE5ImQ3gH51ksby5neG6vjeN5JuVHGSJHpHE0k=
+Message-ID: <f88baccf-6acb-4ded-a6cd-0d9b69965644@arm.com>
+Date: Thu, 13 Aug 2026 11:26:15 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 0/7] vDSO: Remove CONFIG_GENERIC_GETTIMEOFDAY ifdeffery
+To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
+ Arnd Bergmann <arnd@arndb.de>, Andy Lutomirski <luto@kernel.org>,
+ Thomas Gleixner <tglx@kernel.org>, Nathan Chancellor <nathan@kernel.org>,
+ Nicolas Schier <nsc@kernel.org>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Daniel Lezcano <daniel.lezcano@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>
+Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-kbuild@vger.kernel.org, linux-mips@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+ loongarch@lists.linux.dev
+References: <20260724-vdso-arch-clockmodes-v4-0-ddbe447be860@linutronix.de>
+Content-Language: en-GB
+From: Vincenzo Frascino <vincenzo.frascino@arm.com>
+In-Reply-To: <20260724-vdso-arch-clockmodes-v4-0-ddbe447be860@linutronix.de>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260813_032623_894757_C9EE05E8 
+X-CRM114-Status: GOOD (  12.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,294 +80,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Systems with memory encryption require shared or unencrypted buffers for
-device DMA. Confidential guests may route all DMA through SWIOTLB, making
-the default pool too small for I/O-intensive workloads. Host memory
-encryption also requires a shared default pool when bouncing is needed,
-but does not require the guest sizing policy.
 
-Move the existing x86 sizing policy into the SWIOTLB core. Detect memory
-encryption before allocating the default pool so that it is initialized
-and marked shared even without DMA addressing limitations. Increase the
-pool size to 6% of guest memory, clamped between the default size and
-1 GiB, only for confidential guests.
 
-The core can determine the confidential-computing requirement directly,
-so remove SWIOTLB_INIT_CC_SHARED and its architecture uses. Keep the
-pseries secure-guest setup before swiotlb_init() so that the pool is
-allocated with SWIOTLB_ANY and is not released later.
+On 24/07/2026 14:36, Thomas Weißschuh wrote:
+> Always provide the definitions of the VDSO_CLOCKMODE_* constants and
+> remove some ifdeffery from the clocksource drivers.
+> 
+> Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
+> ---
+> Changes in v4:
+> - Pick up Ack from Mark Zyngier.
+> - Fix '-type d' argument to find.
+> - Link to v3: https://patch.msgid.link/20260722-vdso-arch-clockmodes-v3-0-4c5753191cc4@linutronix.de
+> 
+> Changes in v3:
+> - Update *all* commit messages to the latest logic.
+> - Link to v2: https://patch.msgid.link/20260717-vdso-arch-clockmodes-v2-0-756f5a5d1467@linutronix.de
+> 
+> Changes in v2:
+> - Also drop the IS_ENABLED() logic.
+> - Link to v1: https://patch.msgid.link/20260709-vdso-arch-clockmodes-v1-0-3fd780bbf851@linutronix.de
+> 
+> ---
+> Thomas Weißschuh (7):
+>       kbuild: support generated asm-headers in subdirectories
+>       vDSO: Make clockmode constants available without CONFIG_GENERIC_GETTIMEOFDAY
+>       MIPS: csrc-r4k: Remove CONFIG_GENERIC_GETTIMEOFDAY ifdeffery
+>       clocksource/drivers/mips-gic-timer: Remove CONFIG_GENERIC_GETTIMEOFDAY ifdeffery
+>       clocksource/drivers/arm_arch_timer: Remove CONFIG_GENERIC_GETTIMEOFDAY ifdeffery
+>       clocksource/drivers/timer-riscv: Remove CONFIG_GENERIC_GETTIMEOFDAY ifdeffery
+>       LoongArch: Remove CONFIG_GENERIC_GETTIMEOFDAY ifdeffery
+> 
+>  arch/loongarch/kernel/time.c           |  2 --
+>  arch/mips/kernel/csrc-r4k.c            |  2 --
+>  drivers/clocksource/arm_arch_timer.c   |  4 ----
+>  drivers/clocksource/mips-gic-timer.c   |  2 --
+>  drivers/clocksource/timer-riscv.c      |  4 ----
+>  include/asm-generic/Kbuild             |  1 +
+>  include/asm-generic/vdso/clocksource.h |  0
+>  include/vdso/clocksource.h             |  4 +---
+>  scripts/Makefile.asm-headers           | 11 +++++------
+>  9 files changed, 7 insertions(+), 23 deletions(-)
+> ---
+> base-commit: ecacc9c8d3ed0f63065f4a1e94bfd8bf65a3ffaf
+> change-id: 20260605-vdso-arch-clockmodes-bfcaf9a2c848
+> 
+> Best regards,
+> --  
+> Thomas Weißschuh <thomas.weissschuh@linutronix.de>
+> 
 
-A restricted DMA pool already supplies shared bounce buffers for its
-devices. Record its presence during reserved-memory initialization and
-avoid initializing or marking the default pool as shared solely because
-memory encryption is enabled.
+Thanks for this.
 
-Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
----
- arch/arm64/mm/init.c      |  6 +---
- arch/powerpc/mm/mem.c     |  2 +-
- arch/s390/mm/init.c       |  2 +-
- arch/x86/mm/mem_encrypt.c | 28 ---------------
- include/linux/swiotlb.h   |  2 --
- kernel/dma/swiotlb.c      | 72 +++++++++++++++++++++++++++++----------
- 6 files changed, 57 insertions(+), 55 deletions(-)
+Reviewed-by: Vincenzo Frascino <vincenzo.frascino@arm.com> # for the series.
 
-diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-index 9f5b366d2086..c3188ca878f3 100644
---- a/arch/arm64/mm/init.c
-+++ b/arch/arm64/mm/init.c
-@@ -338,12 +338,8 @@ void __init arch_setup_zero_pages(void)
- void __init arch_mm_preinit(void)
- {
- 	unsigned int flags = SWIOTLB_VERBOSE;
--	/* pKVM uses restricted-dma-pool */
--	bool cc_guest = is_realm_world();
- 
--	if (cc_guest)
--		flags |= SWIOTLB_INIT_CC_SHARED;
--	else if (max_pfn > PFN_DOWN(arm64_dma_phys_limit))
-+	if (max_pfn > PFN_DOWN(arm64_dma_phys_limit))
- 		flags |= SWIOTLB_INIT_ADDRESSING_LIMIT;
- 
- 	swiotlb_init(flags);
-diff --git a/arch/powerpc/mm/mem.c b/arch/powerpc/mm/mem.c
-index f93a89e18498..b77946db3f17 100644
---- a/arch/powerpc/mm/mem.c
-+++ b/arch/powerpc/mm/mem.c
-@@ -297,7 +297,7 @@ void __init arch_mm_preinit(void)
- 		 * devices always need to use the SWIOTLB buffer for DMA
- 		 * even if dma_capable() says otherwise.
- 		 */
--		ppc_swiotlb_flags |= SWIOTLB_INIT_CC_SHARED | SWIOTLB_ANY;
-+		ppc_swiotlb_flags |= SWIOTLB_ANY;
- 	}
- 
- 	/*
-diff --git a/arch/s390/mm/init.c b/arch/s390/mm/init.c
-index 801f8ac95250..ce10292447f1 100644
---- a/arch/s390/mm/init.c
-+++ b/arch/s390/mm/init.c
-@@ -166,7 +166,7 @@ static void __init pv_init(void)
- 	virtio_set_mem_acc_cb(virtio_require_restricted_mem_acc);
- 
- 	/* make sure bounce buffers are shared */
--	swiotlb_init(SWIOTLB_VERBOSE | SWIOTLB_INIT_CC_SHARED);
-+	swiotlb_init(SWIOTLB_VERBOSE);
- 	swiotlb_update_mem_attributes();
- }
- 
-diff --git a/arch/x86/mm/mem_encrypt.c b/arch/x86/mm/mem_encrypt.c
-index 7f17c05a0209..912f22ca838f 100644
---- a/arch/x86/mm/mem_encrypt.c
-+++ b/arch/x86/mm/mem_encrypt.c
-@@ -14,7 +14,6 @@
- #include <linux/mem_encrypt.h>
- #include <linux/virtio_anchor.h>
- 
--#include <asm/iommu.h>
- #include <asm/sev.h>
- 
- /* Override for DMA direct allocation check - ARCH_HAS_FORCE_DMA_UNENCRYPTED */
-@@ -102,9 +101,6 @@ void __init mem_encrypt_init(void)
- 
- void __init mem_encrypt_setup_arch(void)
- {
--	phys_addr_t total_mem = memblock_phys_mem_size();
--	unsigned long size;
--
- 	/*
- 	 * Do RMP table fixups after the e820 tables have been setup by
- 	 * e820__memory_setup().
-@@ -112,33 +108,9 @@ void __init mem_encrypt_setup_arch(void)
- 	if (cc_platform_has(CC_ATTR_HOST_SEV_SNP))
- 		snp_fixup_e820_tables();
- 
--	if (cc_platform_has(CC_ATTR_MEM_ENCRYPT))
--		x86_swiotlb_flags |= SWIOTLB_INIT_CC_SHARED;
--
- 	if (!cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT))
- 		return;
- 
--	/*
--	 * For SEV and TDX, all DMA has to occur via shared/unencrypted pages.
--	 * Kernel uses SWIOTLB to make this happen without changing device
--	 * drivers. However, depending on the workload being run, the
--	 * default 64MB of SWIOTLB may not be enough and SWIOTLB may
--	 * run out of buffers for DMA, resulting in I/O errors and/or
--	 * performance degradation especially with high I/O workloads.
--	 *
--	 * Adjust the default size of SWIOTLB using a percentage of guest
--	 * memory for SWIOTLB buffers. Also, as the SWIOTLB bounce buffer
--	 * memory is allocated from low memory, ensure that the adjusted size
--	 * is within the limits of low available memory.
--	 *
--	 * The percentage of guest memory used here for SWIOTLB buffers
--	 * is more of an approximation of the static adjustment which
--	 * 64MB for <1G, and ~128M to 256M for 1G-to-4G, i.e., the 6%
--	 */
--	size = total_mem * 6 / 100;
--	size = clamp_val(size, IO_TLB_DEFAULT_SIZE, SZ_1G);
--	swiotlb_adjust_size(size);
--
- 	/* Set restricted memory access for virtio. */
- 	virtio_set_mem_acc_cb(virtio_require_restricted_mem_acc);
- }
-diff --git a/include/linux/swiotlb.h b/include/linux/swiotlb.h
-index f0548fb81785..9afb7c9a447a 100644
---- a/include/linux/swiotlb.h
-+++ b/include/linux/swiotlb.h
-@@ -18,8 +18,6 @@ struct scatterlist;
- #define SWIOTLB_ANY	(1 << 1) /* allow any memory for the buffer */
- /* Initialize a default-sized pool for devices with limited DMA addressing. */
- #define SWIOTLB_INIT_ADDRESSING_LIMIT	(1 << 2)
--/* Initialize a shared default pool for confidential-computing systems. */
--#define SWIOTLB_INIT_CC_SHARED		(1 << 3)
- 
- /*
-  * Maximum allowable number of contiguous slabs to map,
-diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
-index dd1bf6c61446..67b57831b4bc 100644
---- a/kernel/dma/swiotlb.c
-+++ b/kernel/dma/swiotlb.c
-@@ -80,6 +80,7 @@ struct io_tlb_slot {
- 
- static bool swiotlb_force_bounce;
- static bool swiotlb_force_disable;
-+static bool restricted_dma_pool_present __initdata;
- 
- #ifdef CONFIG_SWIOTLB_DYNAMIC
- 
-@@ -274,24 +275,15 @@ static void swiotlb_mark_pool_used(struct io_tlb_pool *pool)
- void __init swiotlb_update_mem_attributes(void)
- {
- 	struct io_tlb_pool *mem = &io_tlb_default_mem.defpool;
--	unsigned long bytes;
--
--	/*
--	 * if platform support memory encryption, swiotlb buffers are
--	 * shared by default.
--	 */
--	if (cc_platform_has(CC_ATTR_MEM_ENCRYPT))
--		io_tlb_default_mem.cc_shared = true;
--	else
--		io_tlb_default_mem.cc_shared = false;
- 
- 	if (!mem->nslabs || mem->late_alloc)
- 		return;
--	bytes = PAGE_ALIGN(mem->nslabs << IO_TLB_SHIFT);
- 
- 	if (io_tlb_default_mem.cc_shared) {
- 		int ret;
-+		unsigned long bytes;
- 
-+		bytes = PAGE_ALIGN(mem->nslabs << IO_TLB_SHIFT);
- 		ret = set_memory_decrypted((unsigned long)mem->vaddr,
- 					   bytes >> PAGE_SHIFT);
- 		if (ret) {
-@@ -382,12 +374,54 @@ static void __init *swiotlb_memblock_alloc(unsigned long nslabs,
- 	return tlb;
- }
- 
-+static void __init swiotlb_adjust_cc_attributes(void)
-+{
-+	unsigned long size;
-+	phys_addr_t total_mem = memblock_phys_mem_size();
-+
-+	/* Do not resize for host memory encryption. */
-+	if (!cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT))
-+		return;
-+
-+	/*
-+	 * For SEV and TDX and CCA, all DMA has to occur via
-+	 * shared/unencrypted pages. Kernel uses SWIOTLB to make this
-+	 * happen without changing device drivers. However, depending on
-+	 * the workload being run, the default 64MB of SWIOTLB may not be
-+	 * enough and SWIOTLB may run out of buffers for DMA, resulting in
-+	 * I/O errors and/or performance degradation especially with high
-+	 * I/O workloads.
-+	 *
-+	 * Adjust the default size of SWIOTLB using a percentage of guest
-+	 * memory for SWIOTLB buffers. Also, as the SWIOTLB bounce buffer
-+	 * memory is allocated from low memory, ensure that the adjusted
-+	 * size is within the limits of low available memory.
-+	 *
-+	 * The percentage of guest memory used here for SWIOTLB buffers is
-+	 * more of an approximation of the static adjustment which 64MB for
-+	 * <1G, and ~128M to 256M for 1G-to-4G, i.e., the 6%
-+	 */
-+	size = total_mem * 6 / 100;
-+	size = clamp_val(size, IO_TLB_DEFAULT_SIZE, SZ_1G);
-+	swiotlb_adjust_size(size);
-+
-+	if (!IS_ENABLED(CONFIG_SWIOTLB_DYNAMIC))
-+		pr_info("Consider enabling CONFIG_SWIOTLB_DYNAMIC for memory-encrypted systems\n");
-+}
-+
- static bool __init swiotlb_kmalloc_needs_bounce(void)
- {
- 	return IS_ENABLED(CONFIG_DMA_BOUNCE_UNALIGNED_KMALLOC) &&
- 	       (dma_get_cache_alignment() > 1);
- }
- 
-+static bool __init swiotlb_default_pool_needs_cc_shared(void)
-+{
-+	/* A restricted DMA pool provides the shared buffers instead. */
-+	return cc_platform_has(CC_ATTR_MEM_ENCRYPT) &&
-+	       !restricted_dma_pool_present;
-+}
-+
- static bool __init swiotlb_should_init(unsigned int flags)
- {
- 	if (swiotlb_force_disable)
-@@ -402,11 +436,12 @@ static bool __init swiotlb_should_init(unsigned int flags)
- 	if (swiotlb_force_bounce)
- 		return true;
- 
--	if (flags & SWIOTLB_INIT_CC_SHARED)
-+	if (swiotlb_default_pool_needs_cc_shared())
- 		return true;
- 
- 	return false;
- }
-+
- /*
-  * Statically reserve bounce buffer space and initialize bounce buffer data
-  * structures for the software IO TLB used to implement the DMA API.
-@@ -423,9 +458,6 @@ void __init swiotlb_init_remap(unsigned int flags,
- 	if (!swiotlb_should_init(flags))
- 		return;
- 
--	if (flags & SWIOTLB_INIT_CC_SHARED)
--		io_tlb_default_mem.cc_shared = true;
--
- 	io_tlb_default_mem.force_bounce = swiotlb_force_bounce;
- 
- #ifdef CONFIG_SWIOTLB_DYNAMIC
-@@ -437,9 +469,11 @@ void __init swiotlb_init_remap(unsigned int flags,
- 		io_tlb_default_mem.phys_limit = ARCH_LOW_ADDRESS_LIMIT;
- #endif
- 
--	if (!(flags & (SWIOTLB_INIT_ADDRESSING_LIMIT |
--		       SWIOTLB_INIT_CC_SHARED)) &&
--	    swiotlb_kmalloc_needs_bounce()) {
-+	if (swiotlb_default_pool_needs_cc_shared()) {
-+		io_tlb_default_mem.cc_shared = true;
-+		swiotlb_adjust_cc_attributes();
-+	} else if (!(flags & SWIOTLB_INIT_ADDRESSING_LIMIT) &&
-+		   swiotlb_kmalloc_needs_bounce()) {
- 		/*
- 		 * If no bouncing needed for ZONE_DMA, reduce the swiotlb
- 		 * buffer for kmalloc() bouncing to 1MB per 1GB of RAM.
-@@ -2086,6 +2120,8 @@ static int __init rmem_swiotlb_setup(unsigned long node,
- 	    of_get_flat_dt_prop(node, "no-map", NULL))
- 		return -EINVAL;
- 
-+	restricted_dma_pool_present = true;
-+
- 	pr_info("Reserved memory: created restricted DMA pool at %pa, size %ld MiB\n",
- 		&rmem->base, (unsigned long)rmem->size / SZ_1M);
- 	return 0;
 -- 
-2.43.0
+Regards,
+Vincenzo
 
 
