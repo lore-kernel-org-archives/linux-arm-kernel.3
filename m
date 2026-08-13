@@ -4,103 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B60DC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 19:31:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64313C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 19:37:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ULbcTDnO0AMWuu67LZdQx8/Vu46a5smfVMMhgY9gY0k=; b=bn2n3ygmQ3ef/yvKt+djwckYlJ
-	qKTDIsex9CZCGAOk0P8Vs6In+de8s11HCDI9jcr3R3L0pathLT1U0fIuZ4QPC4R9NXzAVlY5QSKrY
-	8zioQVyHdzES8S4dcjU4SqmltE7/q3C4hmzvKidBVrjRKuL9Iz6ALnnf/6JBUWsBMep+mihMvdRVH
-	oF3AceqovtYFLHhKvE+x7XVD4DlZzQkDAKvvrb1dYvXygjsR97eoma74h66nHvvvcfDnad8mA+weg
-	HHSTk9MfLPpUeAeq9xjSDTQwZFG97c1nTTL+EHVoG98xGk0fvPw2LXLWtkpOAsrZqsrKykeAoSpwv
-	R1lrPJhw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=51c7EGTXWgCerge/+6g5NVFzyP7AuWBklS9kpsuyY74=; b=eTYHzTk7kDFg13qVFmA/QTHhXQ
+	vHEaQs0sejZEzyr3xA2bwFQXmrinwYw7+iozEFDlfWhOpxb/apVDPWuvb8zEZpIlymC2Avahr7xK0
+	/VUxXMbKemmIriEkkQyZesEdSDCqU0KHbxlka98IGavAwnQROFmO20PAjH+Y/dioI3b7V+fcoYypx
+	ckZxJBYjNm5+Hot5zrpa+pos4WpZUIEqOP97jCMdiL84texOU3w7GucH+GlVdjeag+4Cc4EmKfqGi
+	NoIuGcvE3Esejy2SRH3+W8o73hvT6q78mFoWJ8ipUV1FW0Vf8PVY9zvTdkhMp3MrgP2u3W42lkqon
+	GrTdqRjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wub8s-00000001SCn-0jTv;
-	Thu, 13 Aug 2026 19:31:06 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1wubFG-00000001SaX-3r5x;
+	Thu, 13 Aug 2026 19:37:42 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wub8p-00000001SC5-1ovL
+	id 1wubFE-00000001SaC-288u
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 19:31:04 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4953de5be0aso2227375e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 12:31:02 -0700 (PDT)
+	Thu, 13 Aug 2026 19:37:42 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-47f904e80eeso193423f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 12:37:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786649461; x=1787254261; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:subject:cc:to:from:date:message-id:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=ULbcTDnO0AMWuu67LZdQx8/Vu46a5smfVMMhgY9gY0k=;
-        b=SK8g8czU4ukq1Zus1Nr3OBHfaNMh+tuadTT86NTIuPhj1apq5iCXrAxlG6G3e2MQS/
-         1iBjjXI2X/c5YOt9eTy89np1CROeZHnfnUv6hPQWwsrrXSxzuXoLUfmq9+N8DbXMu42D
-         7l3c5yamGV5H3rgUKRoFQHyUaU1aoT2s7N1vB1Mxw6uW1jitLaCMVAtkxVviQULBwRfW
-         lBs9ixbwakwLs5jZHCYbawl6wEB9y7whyaNP+eOWtLAjyZtRIek9av2MarXhz0PFw0Z/
-         h8NpGPu0LGm9V7hHp1TIz83triFm3Z8Xb5NhZSk6BpCLQwoTrUBVa2ytju3RFZNd3A77
-         tFpA==
+        d=gmail.com; s=20251104; t=1786649858; x=1787254658; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=51c7EGTXWgCerge/+6g5NVFzyP7AuWBklS9kpsuyY74=;
+        b=EmZLOk8714FZT/rqxuCL/s8c4objn7NCPA7f3ng2rfnsOaNbm+rjtVm6AIfDOlctfx
+         62xxnZFIv6EkNnA3Fwmyv2Fx2O3jDG4DTyDmIEFaNKl7QVqChWo2GMgVux4vO446BkAb
+         aBtIOAGT4kNRboZ2XuwxPIUXeGBzee9Vc1iaJrpWNKLQZe7Jae/2GkOCsjN7/cXXPVGO
+         4mInh2cZuOcEvJKPlp/MPUfohN0B0nLJ+STleXORRiV+gFo+9ed9TgVVty/ZZZMxFrqG
+         PHo2XZs1EwcqFvep2sSbguLiprHxPzWahYPLZaUsKfeOz1uidaAhwYnC3BqaqbyEij5e
+         BS5w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786649461; x=1787254261;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:subject:cc:to:from:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ULbcTDnO0AMWuu67LZdQx8/Vu46a5smfVMMhgY9gY0k=;
-        b=QI3pB3tBVO4WlwsJolodB0C1FDeKYzigN8kjrS1xrZOfroDNbtFAAQj419BxZ4JULp
-         bDLzPDtzr8jbOr7nKufFJePdk2ysf3jphdjCSFtFftcI/eojrQ9UuGnVokJn7KsTM7dp
-         ppeeW9Ph6207EzSUfchnwCWQiSEbj7KqH7QDn9CpD0udu0xHX5b/I9CevpuqM0n8bYdV
-         8+v+b2xEP0P6av+GX3NMHerwGWsCywmL2f6vSFIWb4h2Jy8V+iDeyI59HxhwewaRjoXU
-         OJRUu1StM1pxsZozkdWjh2T4NKPcp+SDUKuYj5kXrlblhQlO9jXb97BsoPfNlYc0/5uJ
-         MIXw==
-X-Forwarded-Encrypted: i=1; AHgh+RoxtXAfR8kQRFQs3i6uMNKHimRYxkUSvJJDusAPlL7GATDnKUjb98pKlOhQtl9fBuKnZiPyoTAaEn09QnNawGKB@lists.infradead.org
-X-Gm-Message-State: AOJu0YwAzBBKq/8AQYePsqm+u649Sse++Zg7rJU9GRnlqYtwp+Eau9KZ
-	QT98iBulkMQKNRCAdxQPUnARhuW1ROWd4nBey/YaAI9thTnJ5+GwKMVP
-X-Gm-Gg: AR+sD12d/IiCCsPeE7PRA9wibcZUmif8kqwm4Iq5qNnsnwNEr3fnUDiP0UI8DCcZbrU
-	NMrBrlHYdBQw+wOYXZ6duS1EAjGgm4XQoRsrDEMk9CuU2+TgbQZ4e3H92f2oZLxzc60i81Nypeq
-	iWmcttC4ERf7k3Qh9ZC4gNxAGPOVKQZDZ0LHGsyPawtd7sFbCvLqZMv8Dl/uqCEvkU6vjeu/nt7
-	dqyTpQnDiNqIdH85QPA+JdPCilvvSgPLVErq4n7pzrYGgieAy0jqQidMfzToLIA6k7YKZjVsBDN
-	GECp70xQN+jJyDCSwHIysDdnMGcwgB/wWjs2uRITtnfE2B6YbNnkUlQ8A5sIF00jAUc2sMmwt63
-	8U8TQVkOwIg/K+Rnq71nPn08vHg0mthVLmHqwcF+gDG3d7WQCMpqzlsZQwSVTXXEwZeO6iBhfvR
-	11f+kuHlp5HagcmGgqQI+DYy0ldrSR4BKdZYcAYONrtf1gyXUeXXsrVghflBQXwUdmC2+kJERmw
-	bYXwfcUIo1y9MvPNa22VoPiojJeJ66yGkuTx+szIw==
-X-Received: by 2002:a05:600c:3496:b0:493:f318:3bc6 with SMTP id 5b1f17b1804b1-4998796e478mr11165245e9.13.1786649459483;
-        Thu, 13 Aug 2026 12:30:59 -0700 (PDT)
-Received: from Ansuel-XPS. (host-87-20-3-207.retail.telecomitalia.it. [87.20.3.207])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49981b1bd61sm81000835e9.8.2026.08.13.12.30.57
+        d=1e100.net; s=20251104; t=1786649858; x=1787254658;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=51c7EGTXWgCerge/+6g5NVFzyP7AuWBklS9kpsuyY74=;
+        b=JBikTD7gT8dP4Lmmv0qRTViHAxW5WI9KacicoLlTKpgQkCXIVZzwJx8FyBdfs9C6Bt
+         FCBUFp+Wtk+QNCzhDNcVS510LG40xWNx5HTzHqDgQ7mJe18iZcydZRu5FYs6342E9PW+
+         kPRmt1MvQusdhHviu465g4U6RGX/rkZIr/FGfomPg4PsUOwLV7yZXkU6g0xtDycjfHeW
+         NvEcgu0zUZyiMlBNVZ6fpDeK3MTcOCqfVtV7+AUmZfpUS2IqYCPEROewqmuf/FqLD8Mv
+         8+llMtKGD3N7VAlKFvL5J/HT7S2138ZBI48YEBrHcedWWcNw0xlQRT9MXsFj2aBx3ieW
+         80yw==
+X-Forwarded-Encrypted: i=1; AHgh+Rq1LDTqsbBuhUndiRuzDv/MdRYCBIhSzdfI25VfAOmYZ2o+mltLezffaWs9rXGtYDNgpjEu+48Cl3LyCMNRqJgW@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy+ndI5ngjvBsnpfnZZMl9mrtt/C9ZEZdpC4rjS2vsAk2zBgct2
+	gX0H4Tgi2VSi81ZyMz5dN8kIcSdzejnTK7J94idqnk5Z157xMwa6XCeC
+X-Gm-Gg: AR+sD10xh/S3eK6qF5YVXh2FnC37WrD4N+CsEIHFIZ6t9c+SveERqBn4n2eMWx+410P
+	gqcNZU1srr67Uk/3OzXgjJIIWXyhZSPW9Qs0pNrhdo65Gz4czaYXW6CQNR6JtRnmiHDYKdl2bCn
+	sPcCLb6ximFkWAs95KJIAJjSb5nT5V6UAIdBTvgd9r+t/b6WaZT7pfeRXf9JlsVKYXnx1tQSBOS
+	tZN6ki5P+vtm5fHLN/RR4Iks5fHC2VlDIyTt+Y9iRcJoQqd4DqvEMUtgB1mgkLNStkhUuMZDxF9
+	TF8H6ER0QsuKbfL0smGQHTBWqXVE3zZrL0TAaG8OuLwQE3cRNDaV2Jr6OMRXSErSbLEXA+Ut4QB
+	/EixPCkiqpNxnepWsREoNZ9ODjvDYZzcEotgh+z8a+t5JJl4FOUwKEXsJ4h75d3VqweIyIdqhsT
+	Wd4e/adW12UbCVvXv3K9vP1ovkKj15CacCbY+vrdhopiI9GYWubOSp/F5/X0nRPeEE+Q==
+X-Received: by 2002:a05:6000:4a05:b0:45e:f8d0:d22c with SMTP id ffacd0b85a97d-48160761e84mr778789f8f.25.1786649858491;
+        Thu, 13 Aug 2026 12:37:38 -0700 (PDT)
+Received: from deb05.proceq.com ([213.160.61.66])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4815f2b1a91sm1727273f8f.21.2026.08.13.12.37.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Aug 2026 12:30:59 -0700 (PDT)
-Message-ID: <6a7e1b73.e11288f4.1351ae.5625@mx.google.com>
-X-Google-Original-Message-ID: <an4bbqdaa2jS3A7L@Ansuel-XPS.>
-Date: Thu, 13 Aug 2026 21:30:54 +0200
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+        Thu, 13 Aug 2026 12:37:37 -0700 (PDT)
+From: Mehmet Fide <mehmet.fide@gmail.com>
+To: Fabio Estevam <festevam@gmail.com>
+Cc: Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Frank Li <Frank.Li@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Stefan Agner <stefan@agner.ch>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Ryder Lee <ryder.lee@mediatek.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Jianjun Wang <jianjun.wang@mediatek.com>, linux-pci@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v5 2/2] PCI: mediatek-gen3: Add 2-lanes mode support for
- Airoha AN7581
-References: <20260806165334.7328-3-ansuelsmth@gmail.com>
- <20260813170820.GA1143871@bhelgaas>
+	Francesco Dolcini <francesco@dolcini.it>,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Mehmet Fide <mehmet.fide@screeningeagle.com>
+Subject: Re: [PATCH v4 0/4] ARM: dts: vf: Iris carrier board for the Colibri VF50 and VF61
+Date: Thu, 13 Aug 2026 21:37:37 +0200
+Message-ID: <20260813193737.2346630-1-mehmet.fide@gmail.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <CAOMZO5BwLCRd_cTV82J0KgPfSF6_kUKiSUbG-SKxNxiNu0VKOg@mail.gmail.com>
+References: <CAOMZO5BwLCRd_cTV82J0KgPfSF6_kUKiSUbG-SKxNxiNu0VKOg@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260813170820.GA1143871@bhelgaas>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_123103_493673_66BFD488 
-X-CRM114-Status: GOOD (  21.70  )
+X-CRM114-CacheID: sfid-20260813_123740_850369_5B0246CB 
+X-CRM114-Status: UNSURE (   9.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,36 +111,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 13, 2026 at 12:08:20PM -0500, Bjorn Helgaas wrote:
-> On Thu, Aug 06, 2026 at 06:53:32PM +0200, Christian Marangi wrote:
-> > The Airoha AN7581 SoC supports configuring the first PCIe0 lane to 2-lanes
-> > mode (x2 link) by bonding it with the second PCIe lane (PCIe1). This is
-> > done by configuring the PCIe MUX in the SCU register.
-> > 
-> > To correctly configure PCIe0 in x2 link, define in DT the following
-> > additional properties:
-> > 
-> >   - additional reg, 'sec-pcie-mac' for the secondary PCIe.
-> >   - PERSTOUT reset for both main and secondary PCIE0, called 'perstout' and
-> >     'sec-perstout'
-> >   - 'airoha,scu' property to correctly configure the SCU register for the
-> >     PCIe MUX
-> >   - 'num-lanes' set to '2' to enable PCIe0 in x2 link
-> > 
-> > In such configuration the EQ preset are configured to the same values.
-> > 
-> > To permit correct configuration of the PCIe link, additional logic is added
-> > to assert and deassert the PERSTOUT resets. Support of these additional
-> > reset was introduced in Airoha clk driver with commit
-> > 6712f48eb3a1 ("clk: en7523: add support for dedicated PCIe PERSTOUT reset")
-> > and on backporting of this commit also the clk driver change will be
-> > needed.
-> 
-> I don't see 6712f48eb3a1 in upstream or linux-next.  Is this SHA1
-> going to valid if we merge this for v7.3?
+From: Mehmet Fide <mehmet.fide@screeningeagle.com>
 
-I picked that sha1 from the git pull for the staging clk tree.
+A correction on the gpiolib warning I mentioned: it is not a gpio-vf610
+matter after all, so no driver patch from me.
 
--- 
-	Ansuel
+Half of it is already fixed: d761c7e38a00 ("gpiolib: Check
+gc->get_direction() before calling gpiod_get_direction()") in the GPIO
+tree covers the debugfs dump path. The remaining backtrace comes
+through the i2c generic GPIO bus recovery, which calls
+gpiod_get_direction() on any controller without .get_direction(), and
+for that I have sent a gpiolib patch:
+
+  https://lore.kernel.org/all/20260813193715.2346477-1-mehmet.fide@gmail.com/
+
+With both in place, 7.2-rc7 plus this series boots the Colibri VF50 on
+the Iris with a clean log.
+
+Thanks,
+Mehmet
 
