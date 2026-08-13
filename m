@@ -4,64 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6C6FC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 13:34:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AB13C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 13:34:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nSLP590tH+YrdMCZ3ykFZ5UctbQuGnKXxbm3iof4jgE=; b=DqRKZnI2qA03lnxaF5jQ5izJ7e
-	XsvAIfEFPx723nslK6UniX7WEDuEM8GFlASQdwpYZY6m986jPwQqZpECgBvIP8unTtwmrnoYZ8xZ1
-	pt5Sta0k+f+czYsJS/OrMS7Z/R2XnG9nZXX7G6XolYnca9GpqCU2481UzZNsHOTpRvoaGOSnm1/QD
-	GFqnPONIyumLW49kpUbAonM8artDV9+1n5DbI1BUnBub8ATaxarqJxqvblzS77oEnu7rOyc+LnO9D
-	g9a+64gpeZAVy6bBl1e9n+tECfd7dxCKTctcUbA4qDN8rRrU8fo8yAjHF3/fzZdDp0aakZGVmZgGi
-	dSfOuWDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BOTlHuZ+ZwQpxacg2zaGuuKn6PBZaDI340LCQ90ZSUc=; b=JU7Wc+YQnDcuSAuwurksPzdQ3z
+	s4nk2nu3UgHtit5fBTvBJTDSrYR1Ok1b7jCxd/mlzQxWqLqwjqydvFNTQ7BiWPQXMiPNA8Cgj+bTE
+	eqX1lJsQOOPIegp7I9q06y1UqmhnfuCovToi00sEEjCwlU0Ddlm0+hncbskrA36O3IQRuLbnombcB
+	vimZnrITkH6V8LBu7+q+F0q0AYpfKHGzrZrdbSVgQoUGYB2yf7mqyQaolX92lvrmRjym0lFprCCvJ
+	K/xbbBnOZMBGFfDTHsufCt3AIKtDbjHw9V6RPkQRli9D9Iz1kvcsg8mVlGIo9BNcxut0L9zpjmI1V
+	t69v7LGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuVZC-00000000kbS-3PzC;
-	Thu, 13 Aug 2026 13:33:54 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wuVZs-00000000khq-0Lhf;
+	Thu, 13 Aug 2026 13:34:36 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuVZB-00000000kb9-2pEy;
-	Thu, 13 Aug 2026 13:33:53 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B863460A72;
-	Thu, 13 Aug 2026 13:33:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C19A1F000E9;
-	Thu, 13 Aug 2026 13:33:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786628032;
-	bh=nSLP590tH+YrdMCZ3ykFZ5UctbQuGnKXxbm3iof4jgE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=flKOaZplI1eVL+EvOd2ocj5LMKADV1j0JnLCz8Gat5bVdSlkgB2q9ssXUJZizXrXz
-	 rrfDBMm/Fs22loTiue3RGUKHjotJtgtXH2gWJgCfluyEnTrLmCtkuk1wCrwNjUp+gk
-	 3Oo3OSWQxgxbSVdQuCS+49XHH4bYQ957Wn8+W1KSUHf7kMTUsi4vDJE1n7CweiUiEa
-	 Rp+8PtYDCKzarwMz2tka4v1f2zDh5meSrs/J5j7+vGlMWMAykiPvlAhKo29SIjNFe9
-	 JwDrKtBw2e0kp5fjKvferDsaEyNU6/jjU01+EnjABnR0HyCVuT3Ywx23imI42sr+Mu
-	 c+vfOxSy7wR2g==
-Date: Thu, 13 Aug 2026 14:33:48 +0100
-From: Simon Horman <horms@kernel.org>
-To: Vitaliy Sochnev <sochnev.v.74@gmail.com>
-Cc: Lorenzo Bianconi <lorenzo@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	stable@vger.kernel.org,
-	"moderated list:AIROHA ETHERNET DRIVER" <linux-arm-kernel@lists.infradead.org>,
-	"moderated list:AIROHA ETHERNET DRIVER" <linux-mediatek@lists.infradead.org>,
-	"open list:AIROHA ETHERNET DRIVER" <netdev@vger.kernel.org>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH net v2] net: airoha: npu: load the firmware without the
- sysfs fallback
-Message-ID: <20260813133348.GB265046@horms.kernel.org>
-References: <20260811181717.19339-1-sochnev.v.74@gmail.com>
+	id 1wuVZo-00000000khS-3y6b
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 13 Aug 2026 13:34:34 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2ce98cb8165so11687255ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 06:34:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786628071; x=1787232871; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=BOTlHuZ+ZwQpxacg2zaGuuKn6PBZaDI340LCQ90ZSUc=;
+        b=KaO5L1EQaGQY//4HkxYb5v9UOf4YHhNgDchhK0a3uYFuC6X53NXif5psvQqrH1QSdM
+         U+8+r882js8YF4qg5Cnhuw+UAJRnccC0ylwAlkDQzbyZn1Je70bPZZFjSzzllnH6XOCo
+         DlO2Q4v0lScRQoA9TKYUDjRkeGW92IW7oZ6lEei5kYGDO0/LXJ5XWfZmyBlCYUwezT+c
+         qCjzWZBRITepTIy9EsjnY3VSA4yZSfvXwtOYDZFeyLoNSqdFYGrnwRNfvja6uXFCSXfT
+         GzYLxV6aQWx1AhVvhtecQYYYMmvkbt1vM1j8ERwaod6PqSA1zrugHtNMobvfZBWZcbpo
+         Xi4A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786628071; x=1787232871;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=BOTlHuZ+ZwQpxacg2zaGuuKn6PBZaDI340LCQ90ZSUc=;
+        b=YDYnXicNaaKPKottPGZqNCyqTpnZp7GKM2NaHBv3jnhomx3shRdmIU9omIE+dpiLSR
+         pBTdnxsNzOaX4OAdUdJ7uEOJw5FTvlTiec8AQn2h8spKC+mFq7wRQjFR6NcVbvKdO83u
+         +JonVOJo8QsZBZ70195Nk7q6e3lSeQtZqFJsszn9InPmJBMl7TpFQ9QqPqAYHP0GWSBA
+         SlXn0veaZykAx5m8iweh9JNmhvR3XUxiCsj2WOo9J7JEXGPCxIksZ4+BJwHbOAnKypnh
+         p10ycRX77coFJcvQ3jJBlw8qF37bTAGacXF1OXKFpN36hsDcRH3HFeih/e8QiGA9HRP6
+         zXpg==
+X-Forwarded-Encrypted: i=1; AHgh+RrdtvR/BcaHEsLqBNfEr6vvybf8KmL8yb3HAxJk5l80islnXTa9BYkaOJgp9nw+es+AJ1nxZPvn00r37xwOJAjb@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywt9JkIDP30hOUtsRaoXlFQjMEtuYBvlhFMBfXGh2OvzLvcikp6
+	lcDHF0b+cBD4ECWo0AY1Ihvb1ZX99jAAbGfxH1md1wPqszivTYe0krkRwYL/VIuU0KE=
+X-Gm-Gg: AR+sD13D08yanNzrc5U6vASSqha+v6hHLLde1bjDrkJsIQcUSonuHj6fSqUTa2C52S1
+	FfHkM0nfzPmc5It0wfkZLSYB3XC5O1G0NMJK+9uzLVeLUPtaDEyRd695GbmJvaKlNzGVPc1xhJn
+	HZOH4SzdDKYf5KRXdagIcE20NVoFeJaSz+By1aiYELBTCxFTq6xG0eHVwy/evJch8SfF9AhhcT2
+	MXJPd6YmPudYJxpTmQxoQcEcsKQ8qIN5hDjCJUB9cdzj9HRWzbOv2jvb4l4xXCHQ0rpfYW6D+f6
+	JsZMjlvEJfDYSIIilJ2LzaFOuGOnrmJ4ZY2AoNNgFJWEdLEHGbhgNvIrB/qYkHDIKEF3elroy3R
+	5bgxMJqRev6rIU8DpaAmxpcev1hdFqBlnA8U+lV3Pa5aaXxBrRP+3crWFR/oEsCy+BflJIHWsVo
+	IgyjiOhtuyE5KAfxsK3jJ6WWQvWU86cTcVheVI57cfSNj35eBQr5G2IIq/W5gs2v4QolA=
+X-Received: by 2002:a17:902:f64e:b0:2cf:70d2:da7c with SMTP id d9443c01a7336-2d37f77fdfemr72669655ad.12.1786628071272;
+        Thu, 13 Aug 2026 06:34:31 -0700 (PDT)
+Received: from leonardoc-nb ([179.160.38.252])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-31ebc75d891sm8447990eec.5.2026.08.13.06.34.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 13 Aug 2026 06:34:30 -0700 (PDT)
+From: Leonardo Costa <leoreis.costa@gmail.com>
+To: Frank.Li@nxp.com,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Leonardo Costa <leonardo.costa@toradex.com>
+Subject: [PATCH 0/6] arm64: dts: freescale: imx8mp-verdin: Add Toradex Capacitive Touch Display 10.1" LVDS V1 and V2
+Date: Thu, 13 Aug 2026 10:33:29 -0300
+Message-ID: <20260813133335.1941580-1-leoreis.costa@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260811181717.19339-1-sochnev.v.74@gmail.com>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260813_063432_987895_654B21EE 
+X-CRM114-Status: GOOD (  10.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,80 +104,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 11, 2026 at 07:16:59PM +0100, Vitaliy Sochnev wrote:
-> airoha_npu_load_firmware() maps a missing firmware file to -EPROBE_DEFER
-> so that the NPU can be brought up once the rootfs carrying /lib/firmware
-> has been mounted. That mapping holds only as long as request_firmware()
-> reports -ENOENT.
-> 
-> It does not when the sysfs fallback is in play. With
-> CONFIG_FW_LOADER_USER_HELPER_FALLBACK set, or with the fallback armed at
-> runtime through /proc/sys/kernel/firmware_config/force_sysfs_fallback,
-> request_firmware() hands the request to a userspace helper, waits out the
-> full loading_timeout and returns -ETIMEDOUT. The -ENOENT test no longer
-> matches, dev_err_probe() turns the result into a hard failure, and the
-> NPU is left unbound after stalling the boot for 60 seconds:
-> 
->   airoha-npu 1e900000.npu: Direct firmware load for airoha/en7581_npu_rv32.bin failed with error -2
->   airoha-npu 1e900000.npu: Falling back to sysfs fallback for: airoha/en7581_npu_rv32.bin
->   airoha-npu 1e900000.npu: error -ETIMEDOUT: failed to run npu firmware
->   airoha-npu 1e900000.npu: probe with driver airoha-npu failed with error -110
-> 
-> Clearing FW_LOADER_USER_HELPER in the configuration is not a dependable
-> guard against this, because unrelated drivers select it. On the affected
-> build the symbol was turned back on by LEDS_LP55XX_COMMON, even though
-> the platform had explicitly disabled it.
-> 
-> Use request_firmware_direct() instead. It sets FW_OPT_NOFALLBACK_SYSFS,
-> so a missing file is reported as -ENOENT whatever the firmware loader is
-> configured to do, and the deferred probe path works as intended.
-> 
-> Two consequences are worth stating plainly.
-> 
-> The helper is not merely bypassed for the boot-before-rootfs case.
-> fw_run_sysfs_fallback() returns early on FW_OPT_NOFALLBACK_SYSFS, so this
-> driver's firmware requests can no longer be served by a usermode helper
-> at all, including on a system where that is the only delivery route;
-> having no second firmware source, the driver would defer forever there.
-> That is a deliberate trade-off: the -ENOENT to -EPROBE_DEFER mapping was
-> written to wait for a filesystem, and the sysfs helper interface has had
-> no in-tree consumer since udev dropped firmware loading.
-> 
-> request_firmware_direct() also sets FW_OPT_NO_WARN, which drops the only
-> message naming the file that failed to load. Report it from the driver
-> instead, so the name lands in the deferred probe reason and shows up in
-> the "deferred probe pending" line emitted at
-> driver_deferred_probe_timeout. The generic report in airoha_npu_probe()
-> goes away with it, since it would otherwise overwrite that reason with a
-> message naming nothing; of the paths it covered, devm_ioremap_resource()
-> reports itself and the malformed firmware-name property now does too.
-> 
-> Measured on a Nokia XG-040G-MD with FW_LOADER_USER_HELPER=y and
-> FW_LOADER_USER_HELPER_FALLBACK=y forced on, two images from the same
-> tree differing only by this patch:
-> 
->   without:  fallback at 2.477s -> -ETIMEDOUT at 64.555s -> probe failed
->             with -110, preinit at 69.6s, NPU unbound
->   with:     no fallback, NPU fw version 1456.62 at 3.665s, preinit at
->             7.6s
-> 
-> Fixes: 23290c7bc190 ("net: airoha: Introduce Airoha NPU support")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Vitaliy Sochnev <sochnev.v.74@gmail.com>
-> ---
-> v2:
->  - Keep the file name in the diagnostics. request_firmware_direct() also
->    sets FW_OPT_NO_WARN, which dropped the only message naming the file;
->    report it from airoha_npu_load_firmware() through dev_err_probe() so
->    the name lands in the deferred probe reason. Drop the generic report
->    in airoha_npu_probe(), which would overwrite that reason, and give
->    the malformed firmware-name path a message of its own.
->  - Say in the changelog that the usermode helper path is disabled for
->    this driver's requests rather than merely bypassed, and why that
->    trade-off is acceptable.
->  - Both points raised in review of v1:
->    https://lore.kernel.org/netdev/20260807024125.434055-1-sochnev.v.74@gmail.com/
+From: Leonardo Costa <leonardo.costa@toradex.com>
 
-Reviewed-by: Simon Horman <horms@kernel.org>
+This series adds device tree overlays for the Toradex Capacitive Touch
+Display 10.1" LVDS V1 and V2 with the Verdin iMX8M Plus SoM.
+
+The display addition covers two interface types:
+
+- Native LCDIF (LVDS)
+- DSI-to-LVDS adapter based on the SN65DSI84
+
+This change depends on other patch series, and should be applied after
+it:
+
+- https://lore.kernel.org/linux-arm-kernel/20260623195741.495734-1-leoreis.costa@gmail.com/T/#t
+
+  Adds the Toradex Capacitive Touch Display 10.1" LVDS V2 overlays for
+  the Verdin AM62. This series is required because it adds the panel
+  bindings for the display. It is currently in linux-next.
+
+Leonardo Costa (6):
+  arm64: dts: freescale: imx8mp-verdin: Add Toradex Capacitive Touch
+    Display 10.1" LVDS
+  arm64: dts: freescale: imx8mp-verdin: Add Toradex DSI to LVDS adapter
+    with 10.1" display
+  arm64: dts: freescale: imx8mp-verdin: Add Mezzanine with Toradex
+    Display 10.1" LVDS
+  arm64: dts: freescale: imx8mp-verdin: Add Toradex Capacitive Touch
+    Display 10.1" LVDS V2
+  arm64: dts: freescale: imx8mp-verdin: Add Toradex DSI to LVDS adapter
+    with the 10.1" V2 display
+  arm64: dts: freescale: imx8mp-verdin: Add Mezzanine with Toradex
+    Display 10.1" LVDS V2
+
+ arch/arm64/boot/dts/freescale/Makefile        |  31 +++++
+ ...zanine-panel-cap-touch-10inch-lvds-v2.dtso | 107 +++++++++++++++
+ ...mezzanine-panel-cap-touch-10inch-lvds.dtso |  71 ++++++++++
+ ...in-dsi-to-lvds-panel-cap-touch-10inch.dtso |  94 +++++++++++++
+ ...dsi-to-lvds-v2-panel-cap-touch-10inch.dtso | 129 ++++++++++++++++++
+ ...verdin-panel-cap-touch-10inch-lvds-v2.dtso | 118 ++++++++++++++++
+ ...mp-verdin-panel-cap-touch-10inch-lvds.dtso |  95 +++++++++++++
+ 7 files changed, 645 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-verdin-dev-mezzanine-panel-cap-touch-10inch-lvds-v2.dtso
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-verdin-dev-mezzanine-panel-cap-touch-10inch-lvds.dtso
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-verdin-dsi-to-lvds-panel-cap-touch-10inch.dtso
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-verdin-dsi-to-lvds-v2-panel-cap-touch-10inch.dtso
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-verdin-panel-cap-touch-10inch-lvds-v2.dtso
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mp-verdin-panel-cap-touch-10inch-lvds.dtso
 
 
