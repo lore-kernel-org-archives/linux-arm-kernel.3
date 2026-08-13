@@ -4,71 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB196C5DF64
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 15:21:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5EE2C5CFEB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 15:25:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vj2aplK/oUo9hSpQNH7wLI2I/wsmkTDmpNxHdOQtIj0=; b=XS1gW7QdZ9PHkIt1fRslOtrofW
-	SJ8yxS6+OXzji/e6+SKMB8kAUNJORNuOUD/9A2UdxSnAs58Pfu0wgHEqH/McswtnYF4ZPEIXeH4/t
-	mFIqGva2JN69kqGk6rmMxTw65ILyOseMaWr9348u/87rAHewUTYNR9ZcdziJCAT4yF31WV8CEkKI9
-	HiD9ZDR3lrOoqeav6xhkK2LA90OCxDR6QoJqilWeTiu4pesVpPLInuhyj01hzvt3MVx2MyhApWEoI
-	EfwET7S8udxU88S+hts/dr1Y4p0SkW9Qaa6HUZjHRykR5LcsQOnhTB0vVfe2AfI/5sdkjnlq27col
-	BGBPirrw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sYSZsb+cjRbFmXXNbYjzkQ1QslgmWjmFaOwQT/Bodys=; b=rw9RTVRXdJIDKwXhQOZAEtgPtx
+	ojsbimkfa/Ktk1ThMydQpEFCYEZdI4j+VM36mj7QpP+y2aaVHFbFq9vEooCH+btQovc8hY4ACYGqg
+	SIfFSFVP0cPgOPSIoscQs55yBRP/LrxUA0az6mfAVY+5J2kQPXD1okgIGJWqSbmTiFDkq6riWk5i9
+	lWa9NYNzGT1ZvlDtdzpEAR6luKoNket9SR9SvChKFGZpFuHY3IfZLLp8D6vSDd39jvBOqTSjNy+8H
+	4AMC2Jc6DTqgVACX5VZ+rL/+TSWbbVt9X62euRF52oTk9mhCwv83u2LtBu0NmJMJuQj8W/KJkmeXZ
+	C4u9RpcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuXFN-00000000zCp-45ch;
-	Thu, 13 Aug 2026 15:21:33 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1wuXIu-000000010Fg-3tTf;
+	Thu, 13 Aug 2026 15:25:12 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuXEy-00000000yTQ-0COm;
-	Thu, 13 Aug 2026 15:21:23 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 550D44E4120A;
-	Thu, 13 Aug 2026 15:21:06 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 22776602B8;
-	Thu, 13 Aug 2026 15:21:06 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4530D11C4E07A;
-	Thu, 13 Aug 2026 17:21:03 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1786634465; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=Vj2aplK/oUo9hSpQNH7wLI2I/wsmkTDmpNxHdOQtIj0=;
-	b=I3+ZT4GkLHuP/FZAHFSktYP+roYkUMlc17MRs9NHG/881a7fmX8QNMmwT6VmdjJ0W5d4bB
-	CL2ykNTh3aVJWJGVpNHaOYzSTGqhhPfIe96lofIB87g8fr3z/gU3PjBh1eZ9HA/BdL7UAD
-	Q1KPDQFDFQB4OGxx/jLxQT+ox5IqRSqkUaooLLemcB+NCUKncA9Lgw5fF2r9XKvWtaKhoj
-	hfneKvKZM+C83zVbWNmEhzcmZtEIxuRlp7+9OSdUXSsKeTqvBXFRs6aVpQLhMKG3RCoeGD
-	pzYjz8lgPWnh55WwZMIjV0O+Iw4+1mb891XjU7TY1eEZB6GPdNEAOTW7K7Kxew==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-Date: Thu, 13 Aug 2026 17:19:21 +0200
-Subject: [PATCH v3 21/23] mtd: spi-nor: winbond: Add support for W25Q02RV-M
+	id 1wuXIs-000000010FM-1IGB
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 13 Aug 2026 15:25:10 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 13C2D411E4;
+	Thu, 13 Aug 2026 15:25:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB5061F00A3A;
+	Thu, 13 Aug 2026 15:25:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786634710;
+	bh=sYSZsb+cjRbFmXXNbYjzkQ1QslgmWjmFaOwQT/Bodys=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=DtHjOlome/8+yJItZ5HleqQ3D66/ETJ8PcGfxGsTSbeiumeS56uVSXNvlSESZFbyO
+	 SEskx2Na3oQn7YaPvQro11zSK+5ApidXqIwe/Y4z2KqZJYOnrPqodxxxfTfvbK7sJy
+	 jxRl6VaeUF2y1SLA0h5jBmxJGGqey3HwMzD6tZgr175eLZR3PNxiLmorWyyAdW5uoA
+	 ZQ6WO5KKUsH5VxjNuW6pMzjQzRDYT/RfipINQwgcuk9rX/Y845xbp7UM83XJGPo6an
+	 1F5ofQlQjzEcPK6YMpBZm7dD6sbIuQFUW2Be8nbUaZydB8ketke7dHd8eVZPIN0+RE
+	 q/pGAp/pvbZUA==
+Date: Thu, 13 Aug 2026 16:24:49 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Wei-Lin Chang <weilin.chang@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Fuad Tabba <tabba@google.com>, Joey Gouly <joey.gouly@arm.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Jintack Lim <jintack.lim@linaro.org>, 
+	Christoffer Dall <christoffer.dall@linaro.org>, Christoffer Dall <christoffer.dall@arm.com>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org
+Subject: Re: [PATCH 1/2] KVM: arm64: Fix spurious warning for benign stage 2
+ teardown race
+Message-ID: <an3gqCJ1fzloWB_N@lucifer>
+References: <20260812-kvm-arm-nested-virt-fix-v1-0-4ad883f1b6a5@kernel.org>
+ <20260812-kvm-arm-nested-virt-fix-v1-1-4ad883f1b6a5@kernel.org>
+ <qfhlmmidzdmmsfopfhxpddgwa7nob45jwgb6sabskawaxtox7i@mnxplk3zn34k>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260813-winbond-v7-1-spi-nor-rv-addition-v3-21-b637cf120d5c@bootlin.com>
-References: <20260813-winbond-v7-1-spi-nor-rv-addition-v3-0-b637cf120d5c@bootlin.com>
-In-Reply-To: <20260813-winbond-v7-1-spi-nor-rv-addition-v3-0-b637cf120d5c@bootlin.com>
-To: Pratyush Yadav <pratyush@kernel.org>, Michael Walle <mwalle@kernel.org>, 
- Takahiro Kuwano <takahiro.kuwano@infineon.com>, 
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
- Nicolas Ferre <nicolas.ferre@microchip.com>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>
-Cc: Steam Lin <STLin2@winbond.com>, Hsin-Yi Wang <hsinyi@chromium.org>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
- Miquel Raynal <miquel.raynal@bootlin.com>
-X-Mailer: b4 0.14.3
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_082108_433954_F58B4E3C 
-X-CRM114-Status: GOOD (  13.76  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <qfhlmmidzdmmsfopfhxpddgwa7nob45jwgb6sabskawaxtox7i@mnxplk3zn34k>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,286 +77,209 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There is an ID collision with the chip of same density from the JV
-family. Both chips are very similar in practice, it is mostly a matter
-of electrical differences (mostly power consumption being lower).
+On Thu, Aug 13, 2026 at 12:20:43AM +0100, Wei-Lin Chang wrote:
+> Hi Lorenzo,
+>
+> Thanks for the detailed analysis!
 
-As a significant difference, RV chips identify themselves as supporting
-the new SFDP (rev F) field which forces an alternate write SR2
-opcode (0x31).
+You're welcome :)
 
-Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
----
-+ cat /sys/bus/spi/devices/spi0.0/spi-nor/jedec_id
-ef7022
-+ cat /sys/bus/spi/devices/spi0.0/spi-nor/manufacturer
-winbond
-+ xxd -p /sys/bus/spi/devices/spi0.0/spi-nor/sfdp
-534644500a0101ff00080117800000ff84010102e00000ffffffffffffff
-ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
-ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
-ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
-ffffffffffffffffe520fbffffffff7f44eb086b083b42bbfeffffffffff
-0000ffff44eb0c200f5210d800001602a60081e214dde9e378477a757a75
-f7a4d55c39f66dffe970f9a50000000000002c0c000000006655ffff0f00
-0000060d44bd27ed080dffffffffff8a00fe21ffdcff
-+ sha256sum /sys/bus/spi/devices/spi0.0/spi-nor/sfdp
-fe929abb1ba38dd6a8668200051298a8140bfeb56bd6d58f56b86b074a150f12  /sys/bus/spi/devices/spi0.0/spi-nor/sfdp
-+ cat /sys/kernel/debug/spi-nor/spi0.0/capabilities
-Supported read modes by the flash
- 1S-1S-1S
-  opcode	0x13
-  mode cycles	0
-  dummy cycles	0
- 1S-1S-2S
-  opcode	0x3c
-  mode cycles	0
-  dummy cycles	8
- 1S-2S-2S
-  opcode	0xbc
-  mode cycles	2
-  dummy cycles	2
- 1S-1S-4S
-  opcode	0x6c
-  mode cycles	0
-  dummy cycles	8
- 1S-4S-4S
-  opcode	0xec
-  mode cycles	2
-  dummy cycles	4
- 4S-4S-4S
-  opcode	0xec
-  mode cycles	2
-  dummy cycles	4
+>
+> I can follow what's happening from the report, but one thing I don't
+> get:
+>
+> On Wed, Aug 12, 2026 at 02:31:20PM +0100, Lorenzo Stoakes (ARM) wrote:
+> > A batch of kernel warnings were triggered in the L0 host kernel when using
+> > kvmtool to experiment with nested virtualisation.
+> >
+> > The issue was observed on an M2 macbook pro with 24 GiB of RAM running
+> > asahi linux 7.1.6-400.asahi.fc44.aarch64+16k with 16 KiB page size.
+> >
+> > The bug is confirmed to exist in mainline and does not appear to be
+> > impacted by any downstream patches carried by asahi.
+> >
+> > kvmtool was used to establish an L1 guest with 8 CPUs and 8 GiB of RAM.
+> >
+> > kvmtool was then run again within the L1 guest to establish an L2 guest
+> > with 4 CPUs and 4 GiB of RAM.
+> >
+> > Then it was run again to establish another inner guest with 2 CPUs and 2
+> > GiB of RAM at L3.
+> >
+> > Both the L2 and L3 guests were then exited and another L2 guest was
+> > established with the same characteristics.
+> >
+> > Sufficient memory pressure was present in the L0 host to trigger indirect
+> > reclaim, waking kcompactd up and triggering migration.
+> >
+> > Shortly afterwards the L2 guest was stopped, at which point three warnings
+> > were observed in the L0 host in quick succession with the second and the
+> > third occurring 114us and 189us after the first, respectively.
+> >
+> > In each case the call trace was the same:
+> >
+> > WARNING: arch/arm64/kvm/mmu.c:336 at __unmap_stage2_range+0x64/0x80,
+> > CPU#5: kcompactd0/66
+> > ...
+> > __unmap_stage2_range (arch/arm64/kvm/mmu.c:335 (discriminator 3)) (P)
+> > kvm_stage2_unmap_range (arch/arm64/kvm/mmu.c:346)
+> > kvm_nested_s2_unmap (arch/arm64/kvm/nested.c:1168 (discriminator 14))
+> > kvm_unmap_gfn_range (arch/arm64/kvm/mmu.c:2416)
+> > kvm_mmu_notifier_invalidate_range_start (arch/arm64/kvm/../../../virt/kvm/kvm_main.c:718 ...)
+> > mn_hlist_invalidate_range_start (mm/mmu_notifier.c:525)
+> > __mmu_notifier_invalidate_range_start (mm/mmu_notifier.c:580)
+> > try_to_migrate_one (./include/linux/mmu_notifier.h:478 ./include/linux/mmu_notifier.h:471 mm/rmap.c:2459)
+> > rmap_walk_anon (mm/rmap.c:3001)
+> > rmap_walk (mm/rmap.c:3106 mm/rmap.c:3101)
+> > try_to_migrate (mm/rmap.c:2774)
+> > migrate_folio_unmap (mm/migrate.c:1330 (discriminator 3))
+> > migrate_pages_batch (mm/migrate.c:1909)
+> > migrate_pages_sync (mm/migrate.c:2026)
+> > migrate_pages (mm/migrate.c:2135)
+> > compact_zone (mm/compaction.c:2663)
+> > compact_node (mm/compaction.c:2932)
+> > kcompactd (mm/compaction.c:3230)
+> > kthread (kernel/kthread.c:436)
+> > ret_from_fork (arch/arm64/kernel/entry.S:858)
+> >
+> > Analysing this:
+> >
+> > try_to_migrate() performs the first part of migration on a folio -
+> > establishing migration entries in all page tables mapping it - calling
+> > try_to_migrate_one() for each VMA the folio is mapped in.
+> >
+> > Immediately prior to installing the migration entry, try_to_migrate_one()
+> > calls mmu_notifier_invalidate_range_start() to signal to notifiers that the
+> > existing page table entry is about to be unmapped.
+> >
+> > Since this range happened to contain folios used by the virtual machine
+> > (given its memory consumption this was highly likely to be a target) this
+> > in turn triggers arm64 kvm code via an MMU notifier:
+> >
+> > mmu_notifier_invalidate_range_start()
+> >   -> ... -> kvm_mmu_notifier_invalidate_range_start()
+> >     -> kvm_mmu_unmap_gfn_range()
+> >       -> kvm_unmap_gfn_range()
+> >         -> kvm_nested_s2_unmap()
+> >           -> kvm_stage2_unmap_range()
+> >             -> __unmap_stage2_range()
+> >                -> stage2_apply_range()
+> >        	       <- -EINVAL, triggering a WARN_ON()
+> >
+> > Since commit ec14c272408a ("KVM: arm64: nv: Unmap/flush shadow stage 2 page
+> > tables") kvm_unmap_gfn_range() invokes kvm_nested_s2_unmap() which takes
+> > the rather drastic step of evicting the entirety of the stage 2 shadow page
+> > tables for each nested guest:
+> >
+> > 	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
+> > 		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
+> >
+> > 		if (kvm_s2_mmu_valid(mmu))
+> > 			kvm_stage2_unmap_range(mmu, 0, kvm_phys_size(mmu), may_block);
+> > 	}
+> >
+> > This will iterate through every valid MMU.
+> >
+> > mmu_notifier_invalidate_range_start() sets the MMU_NOTIFIER_RANGE_BLOCKABLE
+> > flag when signalling notifiers, so may_block is true here.
+> >
+> > __unmap_stage2_range() wraps invocation of stage2_apply_range() in a
+> > WARN_ON():
+> >
+> > 	WARN_ON(stage2_apply_range(mmu, start, end, KVM_PGT_FN(kvm_pgtable_stage2_unmap),
+> > 				   may_block));
+> >
+> > Which is precisely the triggered warning and means stage2_apply_range() is
+> > returning an error.
+> >
+> > In arm64 return values are stored in the x0 register and in each splat w0
+> > (since it's a 32-bit value) is 0xffffffea which, by two's complement, is
+> > -0b00010110 or -EINVAL.
+> >
+> > The only way in which stage2_apply_range() can return an error is if either
+> > the passed in walk function (kvm_pgtable_stage2_unmap()) returns an error
+> > or mmu->pgt is NULL:
+> >
+> > 	static int stage2_apply_range(...)
+> > 	{
+> > 		do {
+> > 			struct kvm_pgtable *pgt = mmu->pgt;
+> > 			if (!pgt)
+> > 				return -EINVAL;
+> >
+> > 			next = stage2_range_addr_end(addr, end);
+> > 			ret = fn(pgt, addr, next - addr);
+> > 			if (ret)
+> > 				break;
+> > 			if (resched && next != end)
+> > 				cond_resched_rwlock_write(&kvm->mmu_lock);
+> > 		} while (addr = next, addr != end);
+> >
+> > 		return ret;
+> > 	}
+> >
+> > This loop is batched by stage2_range_addr_end() at the granularity of
+> > kvm_granule_size(KVM_PGTABLE_MIN_BLOCK_LEVEL), which for a 16 KiB page size
+> > kernel is 32 MiB.
+> >
+> > kvm_pgtable_stage2_unmap() only returns an error if
+> > kvm_pgtable_walk_begin() or _kvm_pgtable_walk() return an error. On arm64
+> > the former doesn't ever do so, and the latter only returns -EINVAL if
+> > either pgd is NULL (we gate that already) or an invalid pgt->start_level is
+> > specified (not the case).
+> >
+> > So the cause of the warning is that mmu->pgt is NULL here.
+> >
+> > This field is protected by kvm->mmu_lock, but after each invocation of the
+> > walk function, if the end of the range has not yet been reached, the lock
+> > is dropped.
+> >
+> > This is done by calling cond_resched_rwlock_write() which drops
+> > kvm->mmu_lock when yielding the time slice before reacquiring it upon being
+> > scheduled again:
+> >
+> > 		if (resched && next != end)
+> > 			cond_resched_rwlock_write(&kvm->mmu_lock);
+> >
+> > Note that resched = may_block here and is always true for these walks.
+> >
+> > This points to something else racing this code to clearing the pgt, and
+> > brings us back to the observation above that the issue occurs when tearing
+> > down the L2 guest.
+> >
+> > Upon L0's userspace mm_struct teardown, stage 2 mappings for IPAs mapped by
 
-Supported page program modes by the flash
- 1S-1S-1S
-  opcode	0x12
- 1S-1S-4S
-  opcode	0x34
-+ cat /sys/kernel/debug/spi-nor/spi0.0/params
-name		(null)
-id		ef 70 22 00 00 00
-size		256 MiB
-write size	1
-page size	256
-address nbytes	4
-flags		HAS_SR_TB | 4B_OPCODES | HAS_4BAIT | HAS_LOCK | HAS_SR_TB_BIT6 | HAS_4BIT_BP | SOFT_RESET | NO_WP | HAS_SR2_CMP_BIT6
+s/L0/L2/
 
-opcodes
- read		0xec
-  dummy cycles	6
- erase		0xdc
- program	0x34
- 8D extension	repeat
+> > the guest are unmapped via mmu notifier:
+> >
+> > exit_mm()
+> >   -> mmput()
+> >     -> __mmput()
+> >       -> exit_mmap()
+> >         -> mmu_notifier_release()
+> > 	  -> ... -> kvm_mmu_notifier_release()
+> >             -> kvm_flush_shadow_all()
+> >               -> kvm_arch_flush_shadow_all()
+> > 	        -> kvm_free_stage2_pgd()
+> > 		  -> [ acquire kvm->mmu_lock for write ]
+> > 		  -> mmu->pgt = NULL [ among other tasks ]
+> > 		  -> [ release kvm->mmu_lock for write ]
+>
+> You mentioned stopping the L2 VM only, which means L1 is still running.
+> Why would the L0 userspace mm_struct get torn down if L1 is still live?
+> What did I miss?
 
-protocols
- read		1S-4S-4S
- write		1S-1S-4S
- register	1S-1S-1S
+Ah yeah this is a mistake sorry :) It should say L2 teardown.
 
-erase commands
- 21 (4.00 KiB) [1]
- dc (64.0 KiB) [3]
- c7 (256 MiB)
+The stuff relevant to L0 is the MMU notifier bit.
 
-sector map
- region (in hex)   | erase mask | overlaid
- ------------------+------------+---------
- 00000000-0fffffff |     [   3] | no
+>
+> Thanks,
+> Wei-Lin Chang
+>
+> [...]
 
-locked sectors
- region (in hex)   | status   | #sectors
- ------------------+----------+---------
- 00000000-0fffffff | unlocked | 4096
-+ dd 'if=/dev/urandom' 'of=./spi_test' 'bs=1M' 'count=2'
-[   11.527038] random: crng init done
-2+0 records in
-2+0 records out
-+ mtd_debug erase /dev/mtd0 0 2097152
-Erased 2097152 bytes from address 0x00000000 in flash
-+ mtd_debug read /dev/mtd0 0 2097152 spi_read
-Copied 2097152 bytes from address 0x00000000 in flash to spi_read
-+ hexdump spi_read
-0000000 ffff ffff ffff ffff ffff ffff ffff ffff
-*
-0200000
-+ sha256sum spi_read
-4bda3a28f4ffe603c0ec1258c0034d65a1a0d35ab7bd523a834608adabf03cc5  spi_read
-+ mtd_debug write /dev/mtd0 0 2097152 spi_test
-Copied 2097152 bytes from spi_test to address 0x00000000 in flash
-+ mtd_debug read /dev/mtd0 0 2097152 spi_read
-Copied 2097152 bytes from address 0x00000000 in flash to spi_read
-+ sha256sum spi_read spi_test
-32e1a8def4cf674413ff0b7a2738e704f03f7bddcaf7ee2d320ab83aa7bf813e  spi_read
-32e1a8def4cf674413ff0b7a2738e704f03f7bddcaf7ee2d320ab83aa7bf813e  spi_test
-+ mtd_debug erase /dev/mtd0 0 2097152
-Erased 2097152 bytes from address 0x00000000 in flash
-+ mtd_debug read /dev/mtd0 0 2097152 spi_read
-Copied 2097152 bytes from address 0x00000000 in flash to spi_read
-+ sha256sum spi_read spi_test
-4bda3a28f4ffe603c0ec1258c0034d65a1a0d35ab7bd523a834608adabf03cc5  spi_read
-32e1a8def4cf674413ff0b7a2738e704f03f7bddcaf7ee2d320ab83aa7bf813e  spi_test
-+ mtd_debug info /dev/mtd0
-mtd.type = MTD_NORFLASH
-mtd.flags = MTD_CAP_NORFLASH
-mtd.size = 268435456 (256M)
-mtd.erasesize = 65536 (64K)
-mtd.writesize = 1
-mtd.oobsize = 0
-regions = 0
-
-+ alias 'show_sectors=grep -A4 "locked sectors" /sys/kernel/debug/spi-nor/spi0.0/params'
-+ flash_lock -u /dev/mtd0
-+ flash_lock -i /dev/mtd0
-Device: /dev/mtd0
-Start: 0
-Len: 0x10000000
-Lock status: unlocked
-Return code: 0
-+ mtd_debug erase /dev/mtd0 0 2097152
-Erased 2097152 bytes from address 0x00000000 in flash
-+ mtd_debug write /dev/mtd0 0 2097152 spi_test
-Copied 2097152 bytes from spi_test to address 0x00000000 in flash
-+ mtd_debug read /dev/mtd0 0 2097152 spi_read
-Copied 2097152 bytes from address 0x00000000 in flash to spi_read
-+ sha256sum spi_read spi_test
-32e1a8def4cf674413ff0b7a2738e704f03f7bddcaf7ee2d320ab83aa7bf813e  spi_read
-32e1a8def4cf674413ff0b7a2738e704f03f7bddcaf7ee2d320ab83aa7bf813e  spi_test
-+ grep -A4 'locked sectors' /sys/kernel/debug/spi-nor/spi0.0/params
-locked sectors
- region (in hex)   | status   | #sectors
- ------------------+----------+---------
- 00000000-0fffffff | unlocked | 4096
-+ flash_lock -l /dev/mtd0
-+ flash_lock -i /dev/mtd0
-Device: /dev/mtd0
-Start: 0
-Len: 0x10000000
-Lock status: locked
-Return code: 1
-+ mtd_debug erase /dev/mtd0 0 2097152
-Erased 2097152 bytes from address 0x00000000 in flash
-+ mtd_debug read /dev/mtd0 0 2097152 spi_read
-Copied 2097152 bytes from address 0x00000000 in flash to spi_read
-+ sha256sum spi_read spi_test
-32e1a8def4cf674413ff0b7a2738e704f03f7bddcaf7ee2d320ab83aa7bf813e  spi_read
-32e1a8def4cf674413ff0b7a2738e704f03f7bddcaf7ee2d320ab83aa7bf813e  spi_test
-+ dd 'if=/dev/urandom' 'of=./spi_test2' 'bs=1M' 'count=2'
-2+0 records in
-2+0 records out
-+ mtd_debug write /dev/mtd0 0 2097152 spi_test2
-Copied 2097152 bytes from spi_test2 to address 0x00000000 in flash
-+ mtd_debug read /dev/mtd0 0 2097152 spi_read2
-Copied 2097152 bytes from address 0x00000000 in flash to spi_read2
-+ sha256sum spi_read spi_read2 spi_test spi_test2
-32e1a8def4cf674413ff0b7a2738e704f03f7bddcaf7ee2d320ab83aa7bf813e  spi_read
-32e1a8def4cf674413ff0b7a2738e704f03f7bddcaf7ee2d320ab83aa7bf813e  spi_read2
-32e1a8def4cf674413ff0b7a2738e704f03f7bddcaf7ee2d320ab83aa7bf813e  spi_test
-4b1329df073cd497567d8cb6878aa20af6af71df98cc7c445d31a69eaf0d69f1  spi_test2
-+ grep -A4 'locked sectors' /sys/kernel/debug/spi-nor/spi0.0/params
-locked sectors
- region (in hex)   | status   | #sectors
- ------------------+----------+---------
- 00000000-0fffffff |   locked | 4096
-+ flash_lock -u /dev/mtd0
-+ cat /sys/class/mtd/mtd0/size
-+ size=268435456
-+ cat /sys/class/mtd/mtd0/erasesize
-+ bs=65536
-+ grep unlocked /sys/kernel/debug/spi-nor/spi0.0/params
-+ sed -e 's/.*unlocked | //'
-+ nsectors=4096
-+ ss=65536
-+ bps=1
-+ flash_lock -u /dev/mtd0
-+ flash_lock -l /dev/mtd0 268304384 2
-+ grep -A4 'locked sectors' /sys/kernel/debug/spi-nor/spi0.0/params
-locked sectors
- region (in hex)   | status   | #sectors
- ------------------+----------+---------
- 00000000-0ffdffff | unlocked | 4094
- 0ffe0000-0fffffff |   locked | 2
-+ flash_lock -u /dev/mtd0 268304384 1
-+ grep -A4 'locked sectors' /sys/kernel/debug/spi-nor/spi0.0/params
-locked sectors
- region (in hex)   | status   | #sectors
- ------------------+----------+---------
- 00000000-0ffeffff | unlocked | 4095
- 0fff0000-0fffffff |   locked | 1
-+ flash_lock -u /dev/mtd0
-+ flash_lock -l /dev/mtd0 260046848 128
-+ grep -A4 'locked sectors' /sys/kernel/debug/spi-nor/spi0.0/params
-locked sectors
- region (in hex)   | status   | #sectors
- ------------------+----------+---------
- 00000000-0f7fffff | unlocked | 3968
- 0f800000-0fffffff |   locked | 128
-+ flash_lock -u /dev/mtd0
-+ flash_lock -l /dev/mtd0 0 2
-+ grep -A4 'locked sectors' /sys/kernel/debug/spi-nor/spi0.0/params
-locked sectors
- region (in hex)   | status   | #sectors
- ------------------+----------+---------
- 00000000-0001ffff |   locked | 2
- 00020000-0fffffff | unlocked | 4094
-+ flash_lock -u /dev/mtd0 65536 1
-+ grep -A4 'locked sectors' /sys/kernel/debug/spi-nor/spi0.0/params
-locked sectors
- region (in hex)   | status   | #sectors
- ------------------+----------+---------
- 00000000-0000ffff |   locked | 1
- 00010000-0fffffff | unlocked | 4095
-+ all_but_one=4095
-+ flash_lock -u /dev/mtd0
-+ flash_lock -l /dev/mtd0 65536 4095
-+ grep -A4 'locked sectors' /sys/kernel/debug/spi-nor/spi0.0/params
-locked sectors
- region (in hex)   | status   | #sectors
- ------------------+----------+---------
- 00000000-0000ffff | unlocked | 1
- 00010000-0fffffff |   locked | 4095
-+ flash_lock -u /dev/mtd0 65536 1
-+ grep -A4 'locked sectors' /sys/kernel/debug/spi-nor/spi0.0/params
-locked sectors
- region (in hex)   | status   | #sectors
- ------------------+----------+---------
- 00000000-0001ffff | unlocked | 2
- 00020000-0fffffff |   locked | 4094
-+ flash_lock -u /dev/mtd0
-+ flash_lock -l /dev/mtd0 0 4095
-+ grep -A4 'locked sectors' /sys/kernel/debug/spi-nor/spi0.0/params
-locked sectors
- region (in hex)   | status   | #sectors
- ------------------+----------+---------
- 00000000-0ffeffff |   locked | 4095
- 0fff0000-0fffffff | unlocked | 1
-+ flash_lock -u /dev/mtd0 268304384 1
-+ grep -A4 'locked sectors' /sys/kernel/debug/spi-nor/spi0.0/params
-locked sectors
- region (in hex)   | status   | #sectors
- ------------------+----------+---------
- 00000000-0ffdffff |   locked | 4094
- 0ffe0000-0fffffff | unlocked | 2
----
- drivers/mtd/spi-nor/winbond.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/mtd/spi-nor/winbond.c b/drivers/mtd/spi-nor/winbond.c
-index 8bcfc63a75f3..6ad7d4a7da8d 100644
---- a/drivers/mtd/spi-nor/winbond.c
-+++ b/drivers/mtd/spi-nor/winbond.c
-@@ -393,7 +393,7 @@ static const struct flash_info winbond_nor_parts[] = {
- 		.flags = SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB | SPI_NOR_TB_SR_BIT6 |
- 			 SPI_NOR_4BIT_BP | SPI_NOR_HAS_CMP,
- 	}, {
--		/* W25Q02JV-M */
-+		/* W25Q02JV-M, W25Q02RV-M */
- 		.id = SNOR_ID(0xef, 0x70, 0x22),
- 		.flags = SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB | SPI_NOR_TB_SR_BIT6 |
- 			 SPI_NOR_4BIT_BP | SPI_NOR_HAS_CMP,
-
--- 
-2.54.0
-
+--
+Cheers, Lorenzo
 
