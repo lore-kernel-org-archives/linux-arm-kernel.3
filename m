@@ -4,77 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20690C5CFCF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 16:05:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCB06C5CFCF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 16:06:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4CcnZ2KFgh7hkbDfH6sn+2MKaA4mEkDbq8zL1Hsfs7M=; b=VAS5pyVLT4ItxwAxbExJDAu+MQ
-	OBBg5ILcXZ7Hut0k6PApwbKrZJ0ofkszmVL9hNkceCzjSSeOQ7m3WDGt0ifnJhK+lZL3OBEA/0hEF
-	pDCqyLoU/rbz25QSaXkTiEHqqq/GYWjjcrQiElWnCf1WKz6rIl1zoRoQ5AN7YVWrk9/gzGkPA3HlI
-	sLrb3MLVcxncFAKLiVZtwnIkgPWF/US3VcLiAF+enVZOp4hZulNeSOh2mjGCtjP1WhgOU/bLdyW8A
-	35ww1UbyuRsiW65bZiC/pzAu/CQsKFXbY6efnVjkiZ6Rb1A9sKTSxylgHYpxkbM8flly1NnvKyx5E
-	KNdtXgtg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hz4biOvRgNuFda4LA0X5Y+ky3s3LWtizWjSf/l2wN/4=; b=kDtOwZk45Spr0VVtdwX/50OVBJ
+	C+SubjTA4f3Xx0JkALKZVMvZryc0cJyLm/Y0yN+Bpbf2P/X9XAJYeKKM69BPiRpJbkvMxvguBjSOy
+	69a2mss4bLJvMPyQsNtIAPd9IZNcGH1v7LNw0qWPQF0Ms26WS11wvVg2IEidwG18ErZz/tYsWz1t5
+	uvQuZyiW/4wqG3IE0cfM3UVUZiBVRSZp4bJnUNBt0CaAE225DyuhF95A3Fpeq262MEEsRjsxNjnTm
+	/D/ICjuX1tY79i/KaNep0JEY0gqm2qoInB1yBC6GElw7/mOTUIm47RtwnCNR096sCXm/2qEwGa/iO
+	PmNV/sxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuXwB-000000016mw-1wgi;
+	id 1wuXwF-000000016pd-2jPf;
+	Thu, 13 Aug 2026 16:05:51 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wuXwA-000000016mE-0ogI;
 	Thu, 13 Aug 2026 16:05:47 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuXw8-000000016lc-4BPt
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 16:05:46 +0000
-Received: from localhost.localdomain (unknown [111.196.241.250])
-	by APP-01 (Coremail) with SMTP id qwCowAAX7O9V631qIEh7BQ--.56475S2;
-	Fri, 14 Aug 2026 00:05:41 +0800 (CST)
-From: Pengpeng Hou <pengpeng@iscas.ac.cn>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Shameer Kolothum <skolothumtho@nvidia.com>,
-	Joerg Roedel <jroedel@suse.de>,
-	linux-acpi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Pengpeng Hou <pengpeng@iscas.ac.cn>
-Subject: [PATCH v2 2/2] ACPI: IORT: validate RMR node array extents
-Date: Fri, 14 Aug 2026 00:05:40 +0800
-Message-ID: <20260813160540.72395-1-pengpeng@iscas.ac.cn>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20260813160118.69153-1-pengpeng@iscas.ac.cn>
-References: <20260813160118.69153-1-pengpeng@iscas.ac.cn>
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 539FC1576;
+	Thu, 13 Aug 2026 09:05:40 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 815B43F66F;
+	Thu, 13 Aug 2026 09:05:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1786637144; bh=GdOVLavtixtz+bwc773F7iXmbQhbVm7TNS88fVv9av4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NvzpgAY1Qf9f/5pkj2ip0dskQnm1FKdRNqgDA2KzDQwfoIxhbdoZ2807TR5WYZ1IT
+	 9ms3QyyBXSoensTxvyvQMH8eGt5xKglWWxw74Ab4YnC9jgNv2p1XDtMn/4aFB0Wfeg
+	 gLO3nGrAGuMfrvC9hd/oTCG3w5V710ykuOrhfJUA=
+Date: Thu, 13 Aug 2026 17:05:37 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: will@kernel.org, akpm@linux-foundation.org, baoquan.he@linux.dev,
+	rppt@kernel.org, pasha.tatashin@soleen.com, pratyush@kernel.org,
+	thuth@redhat.com, mark.rutland@arm.com, jic23@kernel.org,
+	james.morse@arm.com, ardb@kernel.org, leitao@debian.org,
+	yeoreum.yun@arm.com, sourabhjain@linux.ibm.com, robh@kernel.org,
+	kees@kernel.org, coxu@redhat.com, makb@juniper.net,
+	piliu@redhat.com, graf@amazon.com, ebiggers@kernel.org,
+	jbouron@amazon.com, bgwin@google.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kexec@lists.infradead.org
+Subject: Re: [PATCH v2 5/5] arm64: crash: Add crash hotplug support
+Message-ID: <an3rUZ7rd1mQH0Gz@arm.com>
+References: <20260729031235.2840255-1-ruanjinjie@huawei.com>
+ <20260729031235.2840255-6-ruanjinjie@huawei.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: qwCowAAX7O9V631qIEh7BQ--.56475S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxJw1UGF15uFWkZF4xGrW7urg_yoW5CFykpF
-	4DGry5Aws5JF12grWSv3Z5AFWYqw1kGrWakrZa93yqyFn0yrnIya109FyY9F15JFW8ua1x
-	Krs8tFW7CF1DZrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9F14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
-	6r4UJwA2z4x0Y4vEx4A2jsIE14v26r1j6r4UM28EF7xvwVC2z280aVCY1x0267AKxVW8JV
-	W8Jr1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_JF0_Jw1lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
-	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x
-	0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2
-	zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF
-	4lIxAIcVC0I7IYx2IY6xkF7I0E14v26F4j6r4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_
-	JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcS
-	sGvfC2KfnxnUUI43ZEXa7VUbtxhJUUUUU==
-X-Originating-IP: [111.196.241.250]
-X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260729031235.2840255-6-ruanjinjie@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_090545_407456_DBA20F3C 
-X-CRM114-Status: GOOD (  11.87  )
+X-CRM114-CacheID: sfid-20260813_090546_336874_EA19EFB2 
+X-CRM114-Status: GOOD (  19.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,108 +76,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-IORT RMR nodes carry offsets and counts for reserved-memory descriptors and
-ID mappings.  iort_node_get_rmr_info() trusts both arrays and later loops
-over the firmware counts without proving that either array fits in the
-containing node.
+Hi Jinjie,
 
-Require the fixed RMR payload, then validate each non-empty array with
-checked multiplication and subtraction-based bounds before constructing
-an element pointer.  Keep the helpers under CONFIG_IOMMU_API with their
-users.
+On Wed, Jul 29, 2026 at 11:12:35AM +0800, Jinjie Ruan wrote:
+> +/**
+> + * update_crash_elfcorehdr() - Recreate the elfcorehdr and replace it with old
+> + *			       elfcorehdr in the kexec segment array.
+> + * @image: the active struct kimage
+> + */
+> +static void update_crash_elfcorehdr(struct kimage *image)
+> +{
+> +	void *elfbuf = NULL, *old_elfcorehdr;
+> +	unsigned long mem, memsz;
+> +	unsigned long elfsz = 0;
+> +
+> +	/*
+> +	 * Create the new elfcorehdr reflecting the changes to CPU and/or
+> +	 * memory resources.
+> +	 */
+> +	if (crash_prepare_headers(true, &elfbuf, &elfsz, NULL)) {
+> +		pr_err("unable to create new elfcorehdr");
+> +		goto out;
+> +	}
+> +
+> +	/*
+> +	 * Obtain address and size of the elfcorehdr segment, and
+> +	 * check it against the new elfcorehdr buffer.
+> +	 */
+> +	mem = image->segment[image->elfcorehdr_index].mem;
+> +	memsz = image->segment[image->elfcorehdr_index].memsz;
+> +	if (elfsz > memsz) {
+> +		pr_err("update elfcorehdr elfsz %lu > memsz %lu",
+> +			elfsz, memsz);
+> +		goto out;
+> +	}
+> +
+> +	/*
+> +	 * Copy new elfcorehdr over the old elfcorehdr at destination.
+> +	 */
+> +	old_elfcorehdr = phys_to_virt(mem);
+> +
+> +	/*
+> +	 * Temporarily invalidate the crash image while the
+> +	 * elfcorehdr is updated.
+> +	 */
+> +	xchg(&kexec_crash_image, NULL);
+> +	memcpy(old_elfcorehdr, elfbuf, elfsz);
+> +	dcache_clean_inval_poc((unsigned long)old_elfcorehdr,
+> +			       (unsigned long)(old_elfcorehdr + elfsz));
+> +	xchg(&kexec_crash_image, image);
+> +	pr_debug("updated elfcorehdr\n");
+> +
+> +out:
+> +	vfree(elfbuf);
+> +}
+> +
+> +/**
+> + * arch_crash_handle_hotplug_event() - Handle hotplug elfcorehdr changes
+> + * @image: a pointer to kexec_crash_image
+> + * @arg: struct memory_notify handler for memory hotplug case and
+> + *       NULL for CPU hotplug case.
+> + *
+> + * Update the kdump image based on the type of hotplug event:
+> + * - CPU add and remove: No action is needed.
+> + * - Memory add/remove: Update the elfcorehdr to reflect the current memory layout.
+> + *
+> + * Prepare the new elfcorehdr and replace the existing elfcorehdr.
+> + */
+> +void arch_crash_handle_hotplug_event(struct kimage *image, void *arg)
+> +{
+> +	if (image->hp_action == KEXEC_CRASH_HP_ADD_CPU ||
+> +	    image->hp_action == KEXEC_CRASH_HP_REMOVE_CPU)
+> +		return;
+> +
+> +	update_crash_elfcorehdr(image);
+> +}
 
-Fixes: 491cf4a6735a ("ACPI/IORT: Add support to retrieve IORT RMR reserved regions")
-Assisted-by: Codex:gpt-5
-Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
----
- drivers/acpi/arm64/iort.c | 53 +++++++++++++++++++++++++++++++++++++++
- 1 file changed, 53 insertions(+)
+Looking at powerpc, they pass the arg down to update_crash_elfcorehdr()
+to handle the memory hot-unplug case. It looks like the notifier is
+called before the memblock_remove(), so the update above will still
+count the memory being removed.
 
-diff --git a/drivers/acpi/arm64/iort.c b/drivers/acpi/arm64/iort.c
-index 101d54eec544..17d904f4c1ee 100644
---- a/drivers/acpi/arm64/iort.c
-+++ b/drivers/acpi/arm64/iort.c
-@@ -15,6 +15,7 @@
- #include <linux/iommu.h>
- #include <linux/kernel.h>
- #include <linux/list.h>
-+#include <linux/overflow.h>
- #include <linux/pci.h>
- #include <linux/platform_device.h>
- #include <linux/slab.h>
-@@ -962,6 +963,48 @@ void acpi_configure_pmsi_domain(struct device *dev)
- }
- 
- #ifdef CONFIG_IOMMU_API
-+static bool iort_node_array_valid(struct acpi_iort_node *node, u32 offset,
-+				  u32 count, size_t elem_size,
-+				  size_t min_offset, const char *name)
-+{
-+	size_t bytes;
-+
-+	/* An empty array has no elements to access, regardless of its offset. */
-+	if (!count)
-+		return true;
-+
-+	if (!offset || offset < min_offset || offset > node->length) {
-+		pr_err(FW_BUG "Invalid %s offset in IORT node %p\n", name,
-+		       node);
-+		return false;
-+	}
-+
-+	if (check_mul_overflow(count, elem_size, &bytes) ||
-+	    bytes > node->length - offset) {
-+		pr_err(FW_BUG "Invalid %s array in IORT node %p\n", name,
-+		       node);
-+		return false;
-+	}
-+
-+	return true;
-+}
-+
-+static bool iort_rmr_node_valid(struct acpi_iort_node *node)
-+{
-+	struct acpi_iort_rmr *rmr;
-+
-+	if (node->length < sizeof(*node) + sizeof(*rmr)) {
-+		pr_err(FW_BUG "Truncated RMR node in IORT table\n");
-+		return false;
-+	}
-+
-+	rmr = (struct acpi_iort_rmr *)node->node_data;
-+	return iort_node_array_valid(node, rmr->rmr_offset, rmr->rmr_count,
-+				     sizeof(struct acpi_iort_rmr_desc),
-+				     sizeof(*node) + sizeof(*rmr),
-+				     "RMR descriptor");
-+}
-+
- static void iort_rmr_free(struct device *dev,
- 			  struct iommu_resv_region *region)
- {
-@@ -1152,12 +1195,22 @@ static void iort_node_get_rmr_info(struct acpi_iort_node *node,
- 	u32 num_sids = 0;
- 	int i;
- 
-+	if (!iort_rmr_node_valid(node))
-+		return;
-+
- 	if (!node->mapping_offset || !node->mapping_count) {
- 		pr_err(FW_BUG "Invalid ID mapping, skipping RMR node %p\n",
- 		       node);
- 		return;
- 	}
- 
-+	if (!iort_node_array_valid(node, node->mapping_offset,
-+				   node->mapping_count,
-+				   sizeof(struct acpi_iort_id_mapping),
-+				   sizeof(*node) + sizeof(*rmr),
-+				   "ID mapping"))
-+		return;
-+
- 	rmr = (struct acpi_iort_rmr *)node->node_data;
- 	if (!rmr->rmr_offset || !rmr->rmr_count)
- 		return;
+There are a few Sashiko comments as well, though some might be about
+existing issues (it would be nice to have them fixed ;)).
+
 -- 
-2.50.1 (Apple Git-155)
-
+Catalin
 
