@@ -4,95 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36378C5CFDB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 09:30:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92135C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 09:33:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=EDSkPuqhX2mTjBU0NGJ0mhlqwLsfOa/ZlZKhNfqTkIE=; b=F+GELppLfZK7JmnKFOwXgUe92B
-	ZLOA8LqGUUBrhTUlc1JNv7hzKiKErat71LYcjMB+7IlLGuDd2RKjtzgDieh5nkzazCiPS+RRbTm+K
-	CqmCQ7/2ashaHG8S4PDxI4AkhoxQG2tA9BUAklmVkNaCR1LoSEmPwwWeiSNtXixLLBazr9KnNdcjc
-	adfcAdTs9GFjP0zx1LjfwOenTHc6NJ5mtesKWxXRe0YVXW5BWp9n4pAFyOFFH3wi+WrCGEWgXzRfB
-	ysMaE4waeSZoeqhkX+jHy/qt3LO2iZ7bpRtt7AkGbMdJGEgp9o5ABaouuiyOlsiOss9sjq7xIFcch
-	pclsmXgw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LxMU8Wh5IEENDMpZo4oo0mR+i7a46pl2E7NjfryRXQ8=; b=383rGdGUxDc5tW158J8ZzwhP67
+	Dg9Tx6LpdrzroJ8/n7IFY7EZSNSeaIJRJuVqkSJ/bt7HPwXYdYhW0mCVtmpgwfsEF7Aw1LMiOfo9C
+	8od5zQMzmCG0+eBvGEMO+d1X+55wYCJt+Z0lsCFypFJU+3Gu1n+x/i2l0JFHTTwOKiMh8EU3/yghu
+	Pd1QUbUBm/a9BxAfD7iAV2u/QqmNd4JFvvtf6dE5Yw6lc5M1PPBuRFUc/Ght7CPzTnh1KTTAtGHXC
+	kGCn2RJuNUZxrOHJaSqb0s3yG2k8rOl7IXI+mWFBNnV4W5U08uYagQK89dQC5R0XvNQWl3jafiKaD
+	CXRHeQyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuRl5-00000000JVu-4C7r;
-	Thu, 13 Aug 2026 09:29:56 +0000
-Received: from mail2.dspace.de ([80.228.58.149] helo=mail.dspace.de)
+	id 1wuRoD-00000000KBc-3dbL;
+	Thu, 13 Aug 2026 09:33:09 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuRl1-00000000JQh-3XCO
+	id 1wuRoC-00000000KBV-3Ivo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 09:29:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=dspace.de; i=@dspace.de; q=dns/txt; s=dkim1;
-  t=1786613391;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=EDSkPuqhX2mTjBU0NGJ0mhlqwLsfOa/ZlZKhNfqTkIE=;
-  b=BgULA1IDX56xhH93oGlp1Jz8vvzJF7u1KjvBnwTE4rzo13J1xvJPIDRe
-   Cm0ja+K8EjaAdRIq4pnc8rlAV2S9tQlUpPyNMaiKOVTwZCsZ6kugmYAfT
-   euMhzFYcWJeSk8x6a2lNpLBb39fPD15aTn2f9Rhl4M+mGO1AIzzjI3vxU
-   s=;
-X-CSE-ConnectionGUID: 4pMY4SRqRjO/kfYRxSLhhg==
-X-CSE-MsgGUID: UQ4DYQivQVqB0KVExOVYiQ==
-X-IronPort-AV: E=Sophos;i="6.25,221,1779141600"; 
-   d="scan'208";a="4838231"
-Received: from unknown (HELO Z1-1000) ([10.1.1.222])
-  by mail.dspace.de with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 13 Aug 2026 11:29:45 +0200
-Received: from VM-Z1-1000-LIVE.dspace.de (localhost [127.0.0.1])
-	by Z1-1000 (Postfix) with ESMTP id F32AB60038;
-	Thu, 13 Aug 2026 11:29:44 +0200 (CEST)
-Received: from exchange.dspace.de (EX-DE-PAD-SE.dspace.de [10.100.196.14])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by Z1-1000 (Postfix) with ESMTPS id DC3CF60036;
-	Thu, 13 Aug 2026 11:29:44 +0200 (CEST)
-Received: from PascalKW11-NB.dspace.de (10.183.71.218) by
- EX-DE-PAD-SE.dspace.de (10.100.196.14) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Thu, 13 Aug 2026 11:29:43 +0200
-From: Pascal Kneuper <PKneuper@dspace.de>
-To: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com
-CC: rmk+kernel@armlinux.org.uk, maxime.chevallier@bootlin.com,
-	0x1207@gmail.com, si.yanteng@linux.dev, larysa.zaremba@intel.com,
-	aleksander.lobakin@intel.com, netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Pascal Kneuper <PKneuper@dspace.de>,
-	Daniel Baldin <DBaldin@dspace.de>
-Subject: [PATCH net] net: stmmac: restore NET_IP_ALIGN in the non-XDP RX
- path
-Date: Thu, 13 Aug 2026 11:29:23 +0200 (CEST)
-Message-ID: <20260813092923.284285-1-PKneuper@dspace.de>
-X-Mailer: git-send-email 2.47.3
-MIME-Version: 1.0
-Content-Type: text/plain
-X-Originating-IP: [10.183.71.218]
-X-ClientProxiedBy: EX-DE-PAD-SE.dspace.de (10.100.196.14) To
- EX-DE-PAD-SE.dspace.de (10.100.196.14)
-X-C2ProcessedOrg: 563f5800-21cf-4d8d-8aed-fddd1469e4ee
-Content-Transfer-Encoding: quoted-printable
-X-TBoneOriginalFrom: Pascal Kneuper <PKneuper@dspace.de>
-X-TBoneOriginalTo: andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com
-X-TBoneOriginalCC: rmk+kernel@armlinux.org.uk, maxime.chevallier@bootlin.com,
-	0x1207@gmail.com, si.yanteng@linux.dev, larysa.zaremba@intel.com,
-	aleksander.lobakin@intel.com, netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Pascal Kneuper <PKneuper@dspace.de>,
-	Daniel Baldin <DBaldin@dspace.de>
-X-TBoneDomainSigned: false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_022952_648308_49E940FB 
-X-CRM114-Status: GOOD (  22.10  )
+	Thu, 13 Aug 2026 09:33:08 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id CA754600C3;
+	Thu, 13 Aug 2026 09:33:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CC271F000E9;
+	Thu, 13 Aug 2026 09:33:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786613587;
+	bh=LxMU8Wh5IEENDMpZo4oo0mR+i7a46pl2E7NjfryRXQ8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=HjIuT5uPEzbtrapTnOryZUgB/anrlIB0mDwEFOBe2JspqtXYBOpqTUziewIegCUcq
+	 z5/1zVk7Olqz5KNZ4V6vFk4w+2ed/IzjWAtcCefJFHbig5FQ7+TLSW1MNksvLgnZ/q
+	 xvyD4+z02nim3gZ2D0YsV0b16hq/2Lv+4njWZtN49B2H+7TYHtNqovnqP4zEZg1mp+
+	 N5i09/N8k0LpFf9sUrr2N/avdp7T7Exfq29CkXZBKU063rAl3DkfkcoQfBmuGjNmbv
+	 bSix7SMa3EghI/NpfqzmdwNTbygyZqaEeToVdub5WIWdSOuePQlXLuhmtg3L3kPkaB
+	 /9FCpf1I8xiRw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wuRo9-0000000FGvb-1YDY;
+	Thu, 13 Aug 2026 09:33:05 +0000
+Date: Thu, 13 Aug 2026 10:33:04 +0100
+Message-ID: <86cxvm1i27.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Steffen Eiden <seiden@linux.ibm.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-s390@vger.kernel.org,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Andreas Grapentin <gra@linux.ibm.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	David Hildenbrand <david@kernel.org>,
+	Friedrich Welter <fritz@linux.ibm.com>,
+	Fuad Tabba <tabba@google.com>,
+	Gautam Gala <ggala@linux.ibm.com>,
+	Hariharan Mari <hari55@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Hendrik Brueckner <brueckner@linux.ibm.com>,
+	Ilya Leoshkevich <iii@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Nico Boehr <nrb@linux.ibm.com>,
+	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+	Oliver Upton <oupton@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Will Deacon <will@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v6 06/33] arm64: sysreg: Convert SPSR_ELx to automatic register generation
+In-Reply-To: <20260812153631.3376090-7-seiden@linux.ibm.com>
+References: <20260812153631.3376090-1-seiden@linux.ibm.com>
+	<20260812153631.3376090-7-seiden@linux.ibm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: seiden@linux.ibm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org, agordeev@linux.ibm.com, gra@linux.ibm.com, arnd@arndb.de, catalin.marinas@arm.com, borntraeger@linux.ibm.com, imbrenda@linux.ibm.com, david@kernel.org, fritz@linux.ibm.com, tabba@google.com, ggala@linux.ibm.com, hari55@linux.ibm.com, hca@linux.ibm.com, brueckner@linux.ibm.com, iii@linux.ibm.com, frankja@linux.ibm.com, joey.gouly@arm.com, nrb@linux.ibm.com, oss@nina.schoetterlglausch.eu, oupton@kernel.org, pbonzini@redhat.com, seanjc@google.com, suzuki.poulose@arm.com, svens@linux.ibm.com, Ulrich.Weigand@de.ibm.com, gor@linux.ibm.com, will@kernel.org, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,309 +111,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix an alignment exception panic on ARM32+stmmac in the non-XDP RX path.
+On Wed, 12 Aug 2026 16:36:02 +0100,
+Steffen Eiden <seiden@linux.ibm.com> wrote:
+> 
+> Convert SPSR_EL{1, 2, 12} to automatic register generation as per
+> DDIO616 2026-06. No functional change.
+> 
+> Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
+> ---
+>  arch/arm64/include/asm/sysreg.h |  3 ---
+>  arch/arm64/tools/sysreg         | 48 +++++++++++++++++++++++++++++++++
+>  2 files changed, 48 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+> index 4bfdac9401bd..1aa601c95188 100644
+> --- a/arch/arm64/include/asm/sysreg.h
+> +++ b/arch/arm64/include/asm/sysreg.h
 
-Since the non-XDP RX path was converted to zero-copy, the page pool page
-is handed to the stack directly as the skb head, and the offset the DMA
-engine writes at is what determines the alignment of the packet headers.
+[...]
 
-Before the conversion the payload was copied into an skb obtained from
-napi_alloc_skb(), which reserves NET_SKB_PAD + NET_IP_ALIGN. The
-conversion moved the headroom into stmmac_rx_offset() but only carried
-over NET_SKB_PAD, so on architectures where NET_IP_ALIGN is 2 the IP
-header now lands misaligned.
+> +Enum	4:0	M
+> +	0b0000	EL0
+> +	0b0100	EL1t
+> +	0b0101	EL1h
+> +	0b1000	EL2t
+> +	0b1001	EL2h
 
-On ARM32 this is fatal, because ldm and ldrd trap on unaligned addresses
-even when CONFIG_HAVE_EFFICIENT_UNALIGNED_ACCESS is set.
+I think you need to be consistent with the way you represent things,
+as you are mixing two representations:
 
-Any received echo request panics the machine, e.g:
+- either you have a separate M[4] representing PSTATE.nRW, and then
+  the M[3-0] enum is a 4 bit field (and for simplicity you only
+  describe the AArch64 ELs including EL3[th], which are missing here)
 
-  Unhandled fault: alignment exception (0x001) at 0x81873062
-  Internal error: : 1 [#1] SMP ARM
-  Hardware name: Altera SOCFPGA Arria10
-  PC is at icmp_echo+0x38/0xa8
-  LR is at icmp_rcv+0x22c/0x370
-  Call trace:
-   icmp_echo from icmp_rcv+0x22c/0x370
-   icmp_rcv from ip_protocol_deliver_rcu+0x2c/0x224
-   ip_protocol_deliver_rcu from ip_local_deliver+0xc8/0x1a0
-   ip_local_deliver from ip_sublist_rcv_finish+0x3c/0x50
-   ip_sublist_rcv_finish from ip_list_rcv_finish+0x110/0x118
-   ip_list_rcv_finish from ip_list_rcv+0xc8/0xdc
-   ip_list_rcv from __netif_receive_skb_list_core+0x170/0x1c0
-   ...
-   napi_complete_done from stmmac_napi_poll_rx+0xcb0/0x1030
-  Code: e24dd068 e59020a0 e28dc010 e0822001 (e8920003)
-  Kernel panic - not syncing: Fatal exception in interrupt
+- or M is a 5 bit field and, and you represent everything as a 5 bit
+  enum, providing all the AArch32 modes and EL3.
 
-Fix by adding NET_IP_ALIGN back to the RX offset, which restores the
-alignment the stack used to get.
+The former matches the JSON, the latter is closer to the
+representation in older versions of the ARM ARM.
 
-Note that commit a955318fe67e ("stmmac: align RX buffers") made a similar
-change in 2021 and was reverted by commit 12d125b4574b ("stmmac: Revert
-"stmmac: align RX buffers"") because it caused packet corruption. That
-patch raised the offset from 0 without adjusting the buffer size
-accounting, so the DMA engine could write past the end of the RX buffers.
-Commit df542f669307 ("net: stmmac: Switch to zero-copy in non-XDP RX
-path") since derives the page pool allocation from stmmac_rx_offset(), so
-the extra bytes are accounted for.
+Pick one, stick to it.
 
-Fixes: df542f669307 ("net: stmmac: Switch to zero-copy in non-XDP RX path=
-")
-Cc: Daniel Baldin <DBaldin@dspace.de>
-Assisted-by: GitHub-Copilot-CLI:claude-opus-5
-Signed-off-by: Pascal Kneuper <PKneuper@dspace.de>
----
+Thanks,
 
-We hit a reproducible panic on 6.18 on an ARM32 board with DWMAC1000 caus=
-ed
-by a regression from the zero-copy RX rework. Any incoming ping kills the
-machine:
+	M.
 
-[   19.402031] 8<--- cut here ---
-[   19.405088] Unhandled fault: alignment exception (0x001) at 0x81873062
-[   19.411587] [81873062] *pgd=3D0181141e(bad)
-[   19.415587] Internal error: : 1 [#1] SMP ARM
-[   19.419838] Modules linked in: mod_dsproc(O) mod_dsnsm(O) mod_dscma(O)
-[   19.426351] CPU: 0 UID: 0 PID: 0 Comm: swapper/0 Tainted: G           =
-O        6.18.37-rt6 #2 PREEMPT
-[   19.437089] Tainted: [O]=3DOOT_MODULE
-[   19.440559] Hardware name: Altera SOCFPGA Arria10
-[   19.445239] PC is at icmp_echo+0x38/0xa8
-[   19.449153] LR is at icmp_rcv+0x22c/0x370
-[   19.453145] pc : [<80874f44>]    lr : [<8087522c>]    psr: 40070113
-[   19.459382] sp : 8100fc00  ip : 8100fc10  fp : 8100fd08
-[   19.464581] r10: 00000000  r9 : 93476380  r8 : 00000000
-[   19.469779] r7 : 80e89900  r6 : 80e89900  r5 : 93476380  r4 : 93e3e900
-[   19.476275] r3 : 00000000  r2 : 81873062  r1 : 00000062  r0 : 93e3e900
-[   19.482770] Flags: nZcv  IRQs on  FIQs on  Mode SVC_32  ISA ARM  Segme=
-nt user
-[   19.489873] Control: 10c5387d  Table: 13fb004a  DAC: 00000055
-[   19.495590] Register r0 information: slab skbuff_head_cache start 93e3=
-e900 pointer offset 0 size 184
-[   19.504694] Register r1 information: non-paged memory
-[   19.509725] Register r2 information: non-slab/vmalloc memory
-[   19.515359] Register r3 information: NULL pointer
-[   19.520041] Register r4 information: slab skbuff_head_cache start 93e3=
-e900 pointer offset 0 size 184
-[   19.529140] Register r5 information: slab kmalloc-128 start 93476380 p=
-ointer offset 0 size 128
-[   19.537721] Register r6 information: non-slab/vmalloc memory
-[   19.543354] Register r7 information: non-slab/vmalloc memory
-[   19.548986] Register r8 information: NULL pointer
-[   19.553668] Register r9 information: slab kmalloc-128 start 93476380 p=
-ointer offset 0 size 128
-[   19.562249] Register r10 information: NULL pointer
-[   19.567017] Register r11 information: non-slab/vmalloc memory
-[   19.572736] Register r12 information: non-slab/vmalloc memory
-[   19.578455] Process swapper/0 (pid: 0, stack limit =3D 0x(ptrval))
-[   19.584434] Stack: (0x8100fc00 to 0x81010000)
-[   19.588773] fc00: 00000000 ffffffea 00000000 00000000 00000000 0000000=
-2 81873062 80779c30
-[   19.596913] fc20: 00000000 00000000 00000000 00000000 93e3e900 0000000=
-0 b81b3d0a 93e3e900
-[   19.605053] fc40: 93476380 80e89900 80e89900 00000000 93476380 0000000=
-0 8100fd08 80779d8c
-[   19.613192] fc60: 93e3e900 93476380 93e3e900 8087522c 80a7e794 93e3e90=
-0 80e06a38 80e89900
-[   19.621331] fc80: 00000000 93476380 00000000 8082c0e4 811521c0 9353915=
-c 93e3e900 80e89900
-[   19.629471] fca0: 00000000 93e3e900 8100fcd8 8082c3a4 8100fcd8 8100fcd=
-8 00000000 8082b2f8
-[   19.637610] fcc0: 8100fd08 8100fd08 8100fd08 8082ba4c 80e89900 98973c0=
-a 8100fcd8 8100fcd8
-[   19.645750] fce0: 93e3e900 93e3e900 8100fd48 81bc8000 80e89900 8100fd4=
-8 81bc8000 8100fd08
-[   19.653889] fd00: 80e89900 8082c598 8100fd08 8100fd08 8100fd3c 81bc938=
-8 80e06f00 8082c4d0
-[   19.662029] fd20: 8100fd48 81bc8000 00000000 80e06f00 81bc8000 8079ba6=
-4 81bc9388 00000000
-[   19.670168] fd40: 81bc9388 80e06f00 8100fd48 8100fd48 00000000 0000000=
-0 81bc9388 81bc9388
-[   19.678307] fd60: 8100fd8c 00000000 80e08040 80e896e8 81bc8580 8079bfe=
-0 81bc9328 93e3e900
-[   19.686447] fd80: 8100fd80 8100fd80 00000000 81bc9328 00000008 807d3e0=
-0 81bc9388 00000488
-[   19.694586] fda0: 81bc9300 00000000 00000001 81bcb580 ffffffff 8079c1d=
-4 93e3e900 0000003c
-[   19.702726] fdc0: 81bcb580 0000003b 81bc8580 00000000 00000488 0000000=
-1 81bc8580 000000c8
-[   19.710865] fde0: 81bcb580 806b3680 00000400 00007e83 8132af80 0000000=
-0 81bc8680 81b64000
-[   19.719004] fe00: 00002824 00000000 00000001 000000c8 00000001 0000000=
-1 00000040 0000003c
-[   19.727144] fe20: 00000008 98044760 81bcb140 000000c8 0000003c 0000000=
-2 00000000 00000001
-[   19.735283] fe40: 00000000 00000000 80e7ee58 00001000 00000000 0000000=
-1 0000003c 81bc9300
-[   19.743422] fe60: 00000002 8187307c 00000040 80e09778 80e7cae0 97c331c=
-0 81873040 8187307c
-[   19.751562] fe80: 81873040 81873000 81bc86c0 20070193 00001000 0000000=
-0 81bc8580 98044740
-[   19.759701] fea0: 98044760 80e08040 80e04f30 00000001 00000040 81bc930=
-0 8100ff07 00000000
-[   19.767840] fec0: 8100ff10 80e03d40 16ee6000 8079c2d0 81bc8580 0000000=
-0 00000004 81bc9300
-[   19.775980] fee0: 0000012c 8100ff08 fffbb7ec 8079c534 97c346c0 80d4e6c=
-0 8100ff18 80e08040
-[   19.784119] ff00: 81bcb000 00bc8580 8100ff08 8100ff08 8100ff10 8100ff1=
-0 00000004 97c36d00
-[   19.792259] ff20: 20070193 00000003 97c30090 801bc02c 00000000 801aaf9=
-8 97c2ff40 8193eb80
-[   19.800398] ff40: 813cd46c 813cd46c 00000000 0000001e 8100ffd0 801846e=
-c 00000000 97c2ff4c
-[   19.808537] ff60: 00000001 0000001e 80e7c470 00000004 00000008 80e0308=
-c 80e08040 00000101
-[   19.816677] ff80: 40000003 0000000c 80e03080 8012f47c 9c80210c 8100ffd=
-0 80e03080 8100ff90
-[   19.824816] ffa0: 80d49208 00000005 00000000 80d4ca40 80d4ca40 fffbb7e=
-b 80e03d40 04200002
-[   19.832956] ffc0: 9c80210c 80e7c474 80e08040 ffffffff 80e01f7c 97fff19=
-b 80e08040 80baf400
-[   19.841095] ffe0: 80e01f40 8012f740 8096f200 60070013 ffffffff 8012fa4=
-c 8096f200 8094326c
-[   19.849232] Call trace:
-[   19.849238]  icmp_echo from icmp_rcv+0x22c/0x370
-[   19.856356]  icmp_rcv from ip_protocol_deliver_rcu+0x2c/0x224
-[   19.862085]  ip_protocol_deliver_rcu from ip_local_deliver+0xc8/0x1a0
-[   19.868502]  ip_local_deliver from ip_sublist_rcv_finish+0x3c/0x50
-[   19.874659]  ip_sublist_rcv_finish from ip_list_rcv_finish+0x110/0x118
-[   19.881162]  ip_list_rcv_finish from ip_list_rcv+0xc8/0xdc
-[   19.886627]  ip_list_rcv from __netif_receive_skb_list_core+0x170/0x1c=
-0
-[   19.893219]  __netif_receive_skb_list_core from netif_receive_skb_list=
-_internal+0x1b0/0x298
-[   19.901535]  netif_receive_skb_list_internal from napi_complete_done+0=
-xfc/0x1cc
-[   19.908813]  napi_complete_done from stmmac_napi_poll_rx+0xcb0/0x1030
-[   19.915234]  stmmac_napi_poll_rx from __napi_poll.constprop.0+0x2c/0x1=
-80
-[   19.921910]  __napi_poll.constprop.0 from net_rx_action+0x110/0x284
-[   19.928151]  net_rx_action from handle_softirqs+0xf0/0x238
-[   19.933619]  handle_softirqs from __irq_exit_rcu+0xbc/0x130
-[   19.939170]  __irq_exit_rcu from irq_exit+0x8/0x10
-[   19.943944]  irq_exit from call_with_stack+0x18/0x20
-[   19.948897]  call_with_stack from __irq_svc+0x6c/0x94
-[   19.953932] Exception stack(0x80e01f48 to 0x80e01f90)
-[   19.958960] 1f40:                   00000003 00000001 80e01f80 4000000=
-0 80e04f10 00000000
-[   19.967100] 1f60: 80e08040 80e04f50 97fff19b 00000000 80baf400 80e07d6=
-c 16ee6000 80e01f98
-[   19.975238] 1f80: 8096ebb4 8096f200 60070013 ffffffff
-[   19.980266]  __irq_svc from default_idle_call+0x2c/0x30
-[   19.985472]  default_idle_call from do_idle+0x8c/0xf4
-[   19.990504]  do_idle from cpu_startup_entry+0x28/0x2c
-[   19.995535]  cpu_startup_entry from kernel_init+0x0/0x12c
-[   20.000910]  kernel_init from start_kernel+0x624/0x634
-[   20.006041] Code: e24dd068 e59020a0 e28dc010 e0822001 (e8920003)
-[   20.012106] ---[ end trace 0000000000000000 ]---
-[   20.016702] Kernel panic - not syncing: Fatal exception in interrupt
-[   20.023063] ---[ end Kernel panic - not syncing: Fatal exception in in=
-terrupt ]---
-
-Decoding the last few instructions:
-
-  e59020a0    ldr r2, [r0, #0xa0]   ; r0 =3D skb, +0xa0 =3D skb->head
-  e0822001    add r2, r2, r1        ; r1 =3D 0x62 =3D skb->transport_head=
-er
-  e8920003    ldm r2, {r0, r1}      ; <-- faults
-
-That is in icmp_echo(), where the struct icmphdr contains a __be32,
-so it has alignment 4. On ARMv7 ldm and ldrd always trap on unaligned add=
-resses;
-it looks like they are not covered by CONFIG_HAVE_EFFICIENT_UNALIGNED_ACC=
-ESS.
-
-From the register dump skb->head is 0x81873000 (page aligned) and
-skb->transport_header is 0x62 =3D 98:
-
-  64 (NET_SKB_PAD) + 14 (ethernet) + 20 (IP) =3D 98    98 % 4 =3D=3D 2
-
-ARM32 has NET_IP_ALIGN=3D2, and the headers should have
-landed at:
-
-  66 (NET_SKB_PAD + NET_IP_ALIGN) + 14 + 20 =3D 100    100 % 4 =3D=3D 0
-
-So the driver is handing the stack packets whose headers are 2 bytes
-off.
-
-This seems to have been introduced by:
-
-  df542f669307 ("net: stmmac: Switch to zero-copy in non-XDP RX path")
-
-Before that commit the payload was copied into an skb from napi_alloc_skb=
-(),
-which reserves NET_SKB_PAD + NET_IP_ALIGN, so the DMA buffer offset had n=
-othing
-to do with header alignment. After it, the page pool page *is* the skb he=
-ad:
-
-  skb =3D napi_build_skb(page_address(buf->page), rx_q->napi_skb_frag_siz=
-e);
-  head_pad_len =3D ctx.xdp.data - ctx.xdp.data_hard_start;
-  skb_reserve(skb, head_pad_len);
-
-head_pad_len is just buf->page_offset, i.e. stmmac_rx_offset(), i.e. the =
-offset
-the DMA engine writes at. The same commit changed stmmac_rx_offset() from=
- 0 to
-NET_SKB_PAD, and I think the NET_IP_ALIGN part was simply lost in the
-conversion, since it used to come in implicitly via napi_alloc_skb().
-
-Fix by adding NET_IP_ALIGN in stmmac_rx_offset.
-
-I found while researching this that essentially the same one-liner was tr=
-ied
-before and did not end well:
-
-  a955318fe67e ("stmmac: align RX buffers")                    [v5.14-rc1=
-]
-  12d125b4574b ("stmmac: Revert \"stmmac: align RX buffers\"")   [v5.14]
-
-In 2021 stmmac_rx_offset() returned 0 for the non-XDP case, and that patc=
-h
-jumped it straight to NET_SKB_PAD + NET_IP_ALIGN, without touching any of=
- the
-buffer size accounting. That accounting problem no longer exists, because
-df542f669307 fixed it as a side effect of needing a correctly sized page =
-for
-napi_build_skb():
-
-  dma_buf_sz_pad =3D stmmac_rx_offset(priv) + dma_conf->dma_buf_sz +
-                   SKB_DATA_ALIGN(sizeof(struct skb_shared_info));
-  num_pages =3D DIV_ROUND_UP(dma_buf_sz_pad, PAGE_SIZE);
-  pp_params.order =3D order_base_2(num_pages);
-  rx_q->napi_skb_frag_size =3D num_pages * PAGE_SIZE;
-
-The allocation is now derived from stmmac_rx_offset() instead of being
-independent of it, so the two extra bytes are accounted for automatically=
-.
-
-Test setup:
-
-  SoC        Intel/Altera Arria 10 SoC, armv7l
-  MAC        DWMAC1000, Synopsys ID 0x37, User ID 0x10
-  Kernel     6.18.37 + PREEMPT_RT
-
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/=
-net/ethernet/stmicro/stmmac/stmmac_main.c
-index a71f0df263785..2a57415be25cf 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -1529,7 +1529,7 @@ static unsigned int stmmac_rx_offset(struct stmmac_=
-priv *priv)
- 	if (stmmac_xdp_is_enabled(priv))
- 		return XDP_PACKET_HEADROOM;
-=20
--	return NET_SKB_PAD;
-+	return NET_SKB_PAD + NET_IP_ALIGN;
- }
-=20
- static int stmmac_set_bfsize(int mtu)
---=20
-2.47.3
-
+-- 
+Without deviation from the norm, progress is not possible.
 
