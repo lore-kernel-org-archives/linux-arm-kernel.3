@@ -4,99 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E648DC5CFDB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 09:03:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43D5AC5CFDB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 09:03:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wjd617Zp3GVZXC6g1tCVr9c7LfRH3yKbPRrmHeFigCQ=; b=qrU1JxvQTaom/cKXOaC/gar1Pa
-	xG5uh37KbqudIWDACql4kc0yNXYCFBXk+teQ0GTI5KLLccB09UkcHmPdLrKE+rg7pVf5rQw2erIXr
-	myRObZG7qPNpc2z+o9cJO7ppi2qxjIQU2rxgBYorZkOoxuL1Cvh8SI5P6jvhPWR1uPj6I0B/OY3mk
-	JvQOlrctswEQYfOxv0Q8PojECE/tXZWcYVWrn+QFVkStRKUrkJW8poQXTrQzNgeec2YL9MOncOQ3M
-	7mamtbIAk/71cL5oLMGzfv+Ou735Rb3A2/8qJ7UwBBsqDoW5AybBQkr9r4GiajoPYDt9Z4UJwF8ho
-	pzgghG2Q==;
+	bh=LIUCyI1DmaIJkYpbNrBXxcSosIT/TqoljgTn7CMHNp0=; b=tiBpGiusZSW5bai3cWkR6jV75B
+	YxyBDjWOQTJPY3AmLJ1kj9soW6uNvQhXnAd0MzzujZ4FFHu3AAcdbBjEszxLV8VP1tGhPftAzna3C
+	86ouyJSn+3u3lAQZb09ZTS3fjstUbCrNRNAnNyHwJGCeQO7I9EoLQuY2EbyVbk7XT5Rk+51lvtaUM
+	3VAVdggbB7mQ01p3pu4ZjHxs72NIlGxEbXjy9lT6/qBfL7r8W1dfnjBzb/QY0BjXwO5d+ZJPiTyU/
+	YBsRHI/99NT+4eBHdIRYYO5nM3IUF74By1fOHh97X76iJDctcyHifjZqhJxUwkPy/fwJIjx46b1AD
+	12PHhqeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuRL3-00000000Ei1-2nUR;
-	Thu, 13 Aug 2026 09:03:01 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1wuRLK-00000000Ekl-3HCW;
+	Thu, 13 Aug 2026 09:03:18 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuRL0-00000000EhB-3H19
+	id 1wuRLK-00000000Ekd-0qs2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 09:02:59 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-47de008b020so414038f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 02:02:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1786611777; x=1787216577; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Wjd617Zp3GVZXC6g1tCVr9c7LfRH3yKbPRrmHeFigCQ=;
-        b=UUXgYzyeagNqes/HqeNUabvvHlHv1Ock6mF5Fh1T0XF0dixGsEdO7Jlda+c3SYmPEh
-         F3RvT3vyLwbuvGLX/q2Ns0zkRITkBtIDij1jm52traOdtzna5QrvA5V2LRn63s7o/SV/
-         OQle62Haf+IqXap9J39JTBV47CaXFnPccy/k0q4iv/zoDLQ8/rYUX0VOV/gFn1xcpf2q
-         33EGPYa4D5XJn19jQK36cJT463NwNblr9M6xMSsjQhdWNiFwK1JB3c+gvCzPCwGXSH0N
-         FArHECPex3Gfgvl9Vk1dLftpq7oCIeFTo4YJAHw2aELVuFjvJTA+HVVbt0VpofGb6O48
-         4GxA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786611777; x=1787216577;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Wjd617Zp3GVZXC6g1tCVr9c7LfRH3yKbPRrmHeFigCQ=;
-        b=p4h9wNZcFyMiPgvrhBV92OhW5js5hFErwQdgGy0PSsGU6IpuYZd/8UPb1Nq3CVWKUf
-         0PeDtY42bMCpscj5meQnsT1ELOEfFLbhx6qrbsgyjhYejfyT+6PSA5Z+O3mqfpEq22Bz
-         gJfzUDEooWbI/QnooQV+YFZx/oZLq5K/pR9Pn+X1wrTcUvt24PP4wcr7QsxkmR46X2rt
-         qSxn/RTmzHDTwWqUhoxzYnK4A1378MdelAMgohKxfiPEouxjxi3VdOsGYjizHXZmDhvl
-         rEWc9C9GlteKgx/P4dKNJCkixL1gFhYac+qo0K1ZBnRby9Alh2Y+SuNc0N3JpYIkiXAV
-         UOgA==
-X-Forwarded-Encrypted: i=1; AHgh+RqxQUT63GAnCitur7c9OYd8R7Ri2rROTx3GjTw4mzCUJY8XRLuEvnxxZyVgfh81i99ZywNONcKk/cAvH5SAM4RA@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzou38Yrn6ALm2AbGqmbf6qksBgNnaATRpamKudp8Zxrdx/z6IG
-	moBrDGYlM/2lANNRqwjjRF6UlTkZtlY2AuBtoZ5ibFKdTOsHtX4rltby3uFqvTGesOg=
-X-Gm-Gg: AR+sD12K6QGfDTvN3Rdk5T+wsp1QzgFPfXRrvJ5LBHVbaMjK1Ryih2luBauv5Yu4slo
-	v7TBPyi4ej+yMuND2LEXWC9yB8SbFYUuguhjohZ/tVtHnIC4XzZKbGmsXRWWezmbGLsRJUhhu1U
-	8nngzyjTyjfZw2u7U7ZoyQC01weel7ORPNKOvDeAWPCHvrnLCHbpMKBD9DgMcp30rBdImh5rIvj
-	QzyE2CtuXACA1plpm/v/yQhGAVPq/HRs8jF/eDXzz2sWhKAKCZXs3SUXKNsLOHLduYN48Kgc+g+
-	pMYoolSHLodfJYkgwQTe1n1Liimkq4MoTM9K5Au52BXlI+GZWfT7VtpGU9Np6WaVLu0RwH2vF52
-	mZ87vYyjXMzH9Ld80LoRfcRZlrwnkoheyiNywvBK9U7LJD+qGJvPk7iiSLa5AMAFvTiDX8SQiGb
-	G0XXKDJOa8v811pJLYXETmcrcBV5Hl2J3xf34WggBscCn2LmXt9d/rrNTtXID17IYMMdQ=
-X-Received: by 2002:a05:6000:4108:b0:47f:8b0f:7172 with SMTP id ffacd0b85a97d-4815a4f9996mr4834711f8f.6.1786611776521;
-        Thu, 13 Aug 2026 02:02:56 -0700 (PDT)
-Received: from [192.168.1.3] ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4815a4fa54asm4815600f8f.0.2026.08.13.02.02.55
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 13 Aug 2026 02:02:55 -0700 (PDT)
-Message-ID: <282d74a4-a83f-404a-885e-5321299d9379@linaro.org>
-Date: Thu, 13 Aug 2026 10:02:54 +0100
+	Thu, 13 Aug 2026 09:03:18 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 96D81600AD;
+	Thu, 13 Aug 2026 09:03:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FDD51F000E9;
+	Thu, 13 Aug 2026 09:03:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786611797;
+	bh=LIUCyI1DmaIJkYpbNrBXxcSosIT/TqoljgTn7CMHNp0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=Ht27A/7P5ZRM0WD78BiwoVAkJUPSuCeoGk/qSh0fAfqEDbt6ctl9oMyLiVF+Hun6i
+	 XBqb5L1d73+0Cn+G1v0VIGTcNlz5xvFMWiWsCohYJVc4/XJc8Xh7l6sUzxw7R/PAjt
+	 Y6RtJsaWMb1C++ybFL5QSiIfsymIDEOnqI9nwfaqg/uK5YXCY2vrYQJeNgtXJ1q1vv
+	 8OXR8rI41EOJsFLvcm8diDqtBsp0ZxlQwm6Tc+h1kTRZUQIBa701J1lUls8D3fM7MG
+	 nqW1qR8oD9I9Mnj5MU89/8czjzmiUK5gxy93eSDIn+Ph79+rwLbYJd9/1sBkxDSaI+
+	 eM12gI05bVh0w==
+Message-ID: <cf1e1514-fb92-46cd-95a3-9c857bf08f66@kernel.org>
+Date: Thu, 13 Aug 2026 11:03:06 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/8] coresight: tmc-etr: Don't stop Perf cleanup for
- active sysfs reads
-To: Leo Yan <leo.yan@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
- <mike.leach@arm.com>, Suyash Mahar <smahar@meta.com>,
- Yeoreum Yun <yeoreum.yun@arm.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Qi Liu
- <liuqi115@huawei.com>, Junhao He <hejunhao3@huawei.com>,
- coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Jonathan Cameron <jic23@kernel.org>,
- sashiko-bot <sashiko-bot@kernel.org>
-References: <20260728-james-cs-multiple-per-threads-v3-0-6aee7579f1dc@linaro.org>
- <20260728-james-cs-multiple-per-threads-v3-1-6aee7579f1dc@linaro.org>
- <20260812164532.GA313579@e132581.arm.com>
+Subject: Re: [PATCH v3 1/4] dt-bindings: lcdif: Add endpoint bus-width
+ property
+To: Alexander Stein <alexander.stein@ew.tq-group.com>,
+ Francesco Dolcini <francesco@dolcini.it>
+Cc: Marek Vasut <marex@denx.de>, Stefan Agner <stefan@agner.ch>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ Francesco Dolcini <francesco.dolcini@toradex.com>,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org
+References: <20260812132954.148571-1-francesco@dolcini.it>
+ <20260813-classy-boa-of-apotheosis-57207e@quoll>
+ <20260813083402.GA19687@francesco-nb> <7661119.LvFx2qVVIh@steina-w>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20260812164532.GA313579@e132581.arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <7661119.LvFx2qVVIh@steina-w>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_020258_861525_14B5B871 
-X-CRM114-Status: GOOD (  38.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,125 +128,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 12/08/2026 17:45, Leo Yan wrote:
-> On Tue, Jul 28, 2026 at 04:00:13PM +0100, James Clark wrote:
->> The linked fixes commit deliberately allows reads of an old sysfs buffer
->> while in Perf mode because they are separate software buffers. However
->> it didn't modify tmc_disable_etr_sink() to match this relaxation. The
->> result is that when a Perf event ends while the sysfs buffer is being
->> read, clean up will be skipped.
+On 13/08/2026 10:56, Alexander Stein wrote:
+> Am Donnerstag, 13. August 2026, 10:34:02 CEST schrieb Francesco Dolcini:
+>> On Thu, Aug 13, 2026 at 10:10:43AM +0200, Krzysztof Kozlowski wrote:
+>>> On Wed, Aug 12, 2026 at 03:29:49PM +0200, Francesco Dolcini wrote:
+>>>> From: Francesco Dolcini <francesco.dolcini@toradex.com>
+>>>>
+>>>> The DPI output of the LCD interface can be configured with a bus width
+>>>> of 16, 18, or 24 bits. Introduce a bus-width property to the output
+>>>> endpoint, specifying the number of parallel RGB bits connected.
+>>>>
+>>>> Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+>>>> ---
+>>>> v3: use video-interfaces.yaml
+>>>> v2: use the common bus-width property instead of the legacy interface-pix-fmt
+>>>> ---
+>>>>  Documentation/devicetree/bindings/display/fsl,lcdif.yaml | 9 +++++++++
+>>>>  1 file changed, 9 insertions(+)
+>>>>
+>>>> diff --git a/Documentation/devicetree/bindings/display/fsl,lcdif.yaml b/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
+>>>> index 2dd0411ec651..1f3daf002707 100644
+>>>> --- a/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
+>>>> +++ b/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
+>>>> @@ -71,6 +71,15 @@ properties:
+>>>>      $ref: /schemas/graph.yaml#/properties/port
+>>>>      description: The LCDIF output port
+>>>>  
+>>>> +    properties:
+>>>> +      endpoint:
+>>>> +        $ref: /schemas/media/video-interfaces.yaml
+>>>
+>>> This won't work, you need to test your DTS. The port schema does not
+>>> allow video-interfaces properties. You need port-base, like in every
+>>> other case.
 >>
->> Fix it by ignoring the sysfs_reading flag unless the active session is
->> a sysfs one.
+>> Thanks for the review Krzysztof
+>>
+>> Given my testing was not ok, and I am not sure what I did wrong exactly
+>> on my tests, is this the change I should do?
+
+Yes
+
+>>
+>> diff --git a/Documentation/devicetree/bindings/display/fsl,lcdif.yaml b/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
+>> index 1f3daf002707..89cea0c14cf1 100644
+>> --- a/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
+>> +++ b/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
+>> @@ -68,7 +68,8 @@ properties:
+>>      maxItems: 1
+>>  
+>>    port:
+>> -    $ref: /schemas/graph.yaml#/properties/port
+>> +    $ref: /schemas/graph.yaml#/$defs/port-base
+>> +    unevaluatedProperties: false
+>>      description: The LCDIF output port
 > 
-> I am not clear why this is relevant to per-thread mode, maybe it would
-> be clear for me after reading other patches.
-> 
+> With that change:
+> Tested-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 
-It's because we have to track the enable and disable state accurately so 
-that we can drop the reference to the session ID's task and PID on 
-disable. Sashiko sees that we already don't track it properly so we 
-don't handle the newly added references properly either.
+Please do not. Build testing is not testing (in the meaning of
+"Tested-by" tag), otherwise where is Rob's tested-by tag for all the
+patches he build tested?
 
-I can mention that in the commit message.
-
-> For this patch self, I think the issue comes from the sink buffer's life
-> time - SYSFS mode's buffer has longer life time than a sysfs session,
-> it is designed to allow reading sysfs trace data after the sysfs
-> session, or even during a perf session. So the code gets complex for
-> handling these cases.
-
-Yep, plus the fact that we added ETR_MODE_RESRV which also shares the 
-same backing memory between sysfs and Perf and didn't take any of this 
-into account, pre-sashiko :)
-
-> 
-> I really think we should have a correct life time (or state machine)
-> for sysfs buffer, something like:
-> 
->    Operations                        |  ETR sysfs buffer state machine
->    ----------------------------------+-----------------------------------------
->                                      |  INVALID: Init state, buffer unallocated
->    echo 1 > .../tmc_etr0/enable_sink |  READY: user can read zeroed data
->    echo 1 > .../etm0/enable_source   |  BUSY: user cannot read as hardware is
->                                      |        writing data to buffer
->    echo 0 > .../etm0/enable_source   |  READY: trace is stopped, user can read
->                                      |         trace data
->    echo 0 > .../tmc_etr0/enable_sink |  INVALID: buffer has been released
-> 
-> With the state machine's help, we might even don't need to bother what
-> the sink device's mode is.
-> 
-
-I think this is basically the same as now but more explicit. At the 
-moment the same state is represented by the refcount, mode, 
-sysfs_reading, and len fields. I can try the state machine and see if it 
-improves things. There was one complication to work around where open() 
-and read() are separate calls, which is what lead me to use the len = 0 
-hack in the first place, but it might be fine, I just have to make 
-read() check the INVALID state too.
-
->> When sysfs and Perf share the same memory in ETR_MODE_RESRV mode, a new
->> Perf session needs to overwrite an old inactive sysfs session by zeroing
->> len. This avoids sysfs from reading stale data because it has a separate
->> set of offsets in its etr_buf struct, even if that's backed by the same
->> memory as the Perf one.
-> 
-> This can be naturally resolved if we have a state machine above?
-> 
-
-Naturally resolved in what way though? There are only two options: you 
-either block new Perf sessions indefinitely until sysfs has disabled 
-_and_ read. Or, you erase the sysfs data when a Perf session starts and 
-don't block. I chose the second one.
-
-This will always be a special case for ETR_MODE_RESRV over the other modes.
-
-> [...]
-> 
->> +static bool tmc_perf_sysfs_shared(struct tmc_drvdata *drvdata,
->> +				  struct etr_buf *perf_buf)
->> +{
->> +	/* In ETR_MODE_RESRV mode, sysfs and Perf share the same memory. */
->> +	return perf_buf &&
->> +	       drvdata->sysfs_buf &&
->> +	       drvdata->sysfs_buf->mode == ETR_MODE_RESRV &&
->> +	       perf_buf->mode == ETR_MODE_RESRV;
->> +}
->> +
->>   static int tmc_enable_etr_sink_perf(struct coresight_device *csdev,
->>   				    struct coresight_path *path)
->>   {
->> @@ -1772,6 +1782,18 @@ static int tmc_enable_etr_sink_perf(struct coresight_device *csdev,
->>   		goto unlock_out;
->>   	}
->>   
->> +	/*
->> +	 * Don't use if it's shared and being read by sysfs. Sysfs may only
->> +	 * start reading (the cleared zero length buffer) after the first
->> +	 * tmc_enable_etr_sink_perf(), which changes the result of this check,
->> +	 * so it should only be done once.
->> +	 */
->> +	if ((drvdata->sysfs_reading &&
->> +	     tmc_perf_sysfs_shared(drvdata, etr_perf->etr_buf))) {
->> +		rc = -EBUSY;
->> +		goto unlock_out;
->> +	}
-> 
-> This is quite tricky. If someone reads the sysfs entry in the middle of
-> a perf session, and the traced task is migrated to a different CPU or
-> wakes up, the sink device may need to be re-enabled, however the sink
-> enabling could fail due to the concurrent sysfs read here.
-
-I think that's fine? There's no other way to do it is there? We do the 
-same -EBUSY for incompatible per-thread sessions that migrate to a CPU 
-with a shared sink. This only impacts ETR_MODE_RESRV anyway, are we 
-really worried about concurrent use in that niche mode?
-
-> 
-> Thanks,
-> Leo
-
+Best regards,
+Krzysztof
 
