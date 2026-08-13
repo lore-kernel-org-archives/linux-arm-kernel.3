@@ -4,65 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE9A6C5CFDB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 11:12:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B9A9C5CFEB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 11:27:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=osfGB4V80VKvLfFCPsJwLjnIi4GjyoqwiUXnW25KK1E=; b=w8dPVz4N0HDcXWbQDFiZy67Wb8
-	Ec69ZaUgrg+G9AvVUKYG7VfsEGbn990RQY6FqGnY5Ib4ItvAyAf6/kD9lfYyHD0M74E+8zCy/vBm1
-	wXwm2ZJgqFz4UrWVdeUQWA43MD/UhAX2YJ4y1jbPUHN1vVpjTmgzEzPoT1g8JfPxf2TcvKwJEFF1H
-	JYpuJRSrK4pwFrml25He6tEw3jsfRWMeo8OfyW3eQE6d57yTYAsxG/9QQZIc+ToR+VGm/iXzfXEsJ
-	wHdIndbmzmbVisntCWbn+ZKTOYU9cv61+lFnbzCVFuD5JE1oSi+jf2My8L6TRz9scJ0DqIya+LYkn
-	Ji4wcp8Q==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mg7P5WsXCOzHmfh+hsg5xbi6IkMZi823F1yoqXSLszw=; b=0JyZo9NTXtO6GsRkaOHhwJpfLZ
+	ByFD2KRVB74AE/kLTak+8rFDY0YzK6iJrD+YJHYkBuvp9AzVyeJc+CMCok2BLDAnYSVD0Ssevv1Y/
+	oV8N5djnaTbNvN7OfGt3DQi0NtWPDvj1gO0UOJMnYIlCb8YL6tfnz/PJP4UkfgojZAYyeT/HVIhXQ
+	+8pFCdI0AYYeU/Yx8B71tjtJZ1DfOFcvS3dKyYqpm0zB4ni5W/8/GaGyRPA0ys30aBeZ+XMb87xql
+	D+Bbzqv+VqnrAEizVLzBaoqhIjlQJx3frQdUlD9urjeBTTdAa9ZZh5ypiffaybdttyKvLoUgrq24X
+	WhFpIaNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuTMi-00000000XFD-1zV1;
-	Thu, 13 Aug 2026 11:12:52 +0000
-Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
+	id 1wuTax-00000000Y4q-370f;
+	Thu, 13 Aug 2026 11:27:35 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuTMe-00000000XEC-3T1P
+	id 1wuTav-00000000Y4T-2MO0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 11:12:50 +0000
-Received: from francesco-nb.. (2-224-16-253.ip168.fastwebnet.it [2.224.16.253])
-	by mail11.truemail.it (Postfix) with ESMTPA id C8ADD1FB7C;
-	Thu, 13 Aug 2026 13:12:44 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1786619565;
-	bh=osfGB4V80VKvLfFCPsJwLjnIi4GjyoqwiUXnW25KK1E=; h=From:To:Subject;
-	b=OL8nQyU6eW1VGtokO9JM5dUzFbKSBDS1C/SwW8MmQ4Bd/LrJm1GBIwT5eD6aGdund
-	 huWiC8qyL91088VySFQHFy7POlYeQvI9MTEQWz9ls9bpNMXgsCxkAc2Kp/NoqoOBqd
-	 5UqugZTZNfVNNzDP3V8364a2TFBHkaLqSV6ICuvwI+1iKWeAP7HjMy2CvICaw5M29a
-	 cUW3791+vdWpjAmflFf6f0n803Q6CoIzTP7UZalsP1QkFGetaIsAuHDEQwIEXJJga9
-	 NYOENrbha24PkMuxB6sUgFKLiW3+C5/PVd5I0HNtPmraLCcs/VDhbRtJLzxD0tv9uf
-	 PHdh19FCaTrjQ==
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Nishanth Menon <nm@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Judith Mendez <jm@ti.com>,
-	Moteen Shah <m-shah@ti.com>,
-	stable@vger.kernel.org
-Subject: [PATCH v1] arm64: dts: ti: k3-am62-verdin: Set MMC clock pins as OUTPUT
-Date: Thu, 13 Aug 2026 13:12:36 +0200
-Message-ID: <20260813111238.56892-1-francesco@dolcini.it>
-X-Mailer: git-send-email 2.47.3
+	Thu, 13 Aug 2026 11:27:34 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67D992U71820708;
+	Thu, 13 Aug 2026 11:27:21 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=mg7P5W
+	sXCOzHmfh+hsg5xbi6IkMZi823F1yoqXSLszw=; b=ss2wDRbKe6cAcWjKlykf/Z
+	9Z7+52ixIM5YdF4DX8vFilB5rIeU7XihBeaCICQN/QSWvUXlZWPWcWWN7DZffdMm
+	gn7JkSegJjUttRW4dTVuuLPEupSdCnsJiZ9DcTNjvpUaKOEGoeiSS6vg4VJmV9W8
+	N/V4FQleydb4KXEqwSI+JQnjzZ5OVy4EHaFlb/2Oci9HGUfDfuim505+stjEzWXt
+	oAeoBziF4Lfh7px/HSn/j753BX+3mVb6ddmsMIMS0JtW3X6cIGny0kmuOzh3uxG7
+	2MT5K93XVNfnUARxSx3D/T3NzsoH9RVBi+GOT5bhnTAHOAGQ5yoy+6y7RElaLdjA
+	==
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fwvp36mct-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 13 Aug 2026 11:27:20 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 67DBQmae014472;
+	Thu, 13 Aug 2026 11:27:19 GMT
+Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4fxh0gjne0-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 13 Aug 2026 11:27:19 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
+	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 67DBRFpA51380728
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 13 Aug 2026 11:27:15 GMT
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id A1B4F20043;
+	Thu, 13 Aug 2026 11:27:15 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 381A720040;
+	Thu, 13 Aug 2026 11:27:15 +0000 (GMT)
+Received: from [9.224.77.173] (unknown [9.224.77.173])
+	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Thu, 13 Aug 2026 11:27:15 +0000 (GMT)
+Message-ID: <b91acaef-f82c-455e-8b02-6eaea7e1f4f9@linux.ibm.com>
+Date: Thu, 13 Aug 2026 13:27:14 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 00/33] KVM: s390: Introduce arm64 KVM
+To: Marc Zyngier <maz@kernel.org>, Steffen Eiden <seiden@linux.ibm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter
+ <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Sean Christopherson <seanjc@google.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik
+ <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+References: <20260812153631.3376090-1-seiden@linux.ibm.com>
+ <867blu1ecv.wl-maz@kernel.org>
+Content-Language: en-US
+From: Christian Borntraeger <borntraeger@linux.ibm.com>
+In-Reply-To: <867blu1ecv.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Authority-Analysis: v=2.4 cv=AMtp2X5w c=1 sm=1 tr=0 ts=6a7daa19 cx=c_pps
+ a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
+ a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VnNF1IyMAAAA:8
+ a=b1A7PHJKwOOjf_JuNJkA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-GUID: zMBoPD5SC923-_QfaxeXCs-q1IKN7f7z
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODEzMDA3NyBTYWx0ZWRfXyMGgs+XRx/8e
+ UwEsRJlppKGx0euHj10QxfLn55x6nwDbFXqKAQ14XSRFuZoCehEM8DCe4d5F+KJ2+hJn1xUqep0
+ PS11MeDzBzauI4vKyR2c4cgmrvxAHU/8IpiHQJ2BytWyyzPGKjCrjfsU1Az2TOrurU+ed1Fg1ha
+ K9sTWE0haH6eLD2dQie3TrY4vdO7XAVJfBcYjnHF4NncqmwXSOwh3QFSj6t47IHTQ+Kw763YLY3
+ fSi9E1ZMV7urHwyo/GH21hlZmsvu0yfpH66ZA0s2vLzwyKNDnEvhplDucbDyvqkQl5y1CvzcIxX
+ TEPezRVsXvhHQPs9+AqCShe7ZtUKba/mBqN1Pnwzh54lpN3JRwy519DYhrqEjtHrJJhoO3v7hL6
+ fCXZWlnaCYASdeYlNHOAShmDJ3CLrJFS1vOrO0XgNi44m0K3XduMq5DI5QibyRIsIP6fgVMSc9k
+ jYfd+CyB9J6NRjWsbzA==
+X-Proofpoint-ORIG-GUID: YBJx0nVdiloQFoRHZEOu5X1RtnVPgUG3
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODEzMDA3NyBTYWx0ZWRfX4j0qn2/Z+1Co
+ sJUJn7YLl413mGTOREkg+qaF8kL0krJU3HcrLtV8HxFYwwHGfurRhSplNrwMYN1/Rti4jlZTsop
+ g8JNIcFQ3eesXN+9XjVonNwHZ1OxUTk=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-13_03,2026-08-12_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 adultscore=0 lowpriorityscore=0 clxscore=1015
+ priorityscore=1501 impostorscore=0 phishscore=0 spamscore=0 bulkscore=0
+ malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2608130077
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_041249_040498_89E44F75 
-X-CRM114-Status: UNSURE (   8.12  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260813_042733_729136_3A1087AD 
+X-CRM114-Status: GOOD (  13.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,52 +148,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Francesco Dolcini <francesco.dolcini@toradex.com>
 
-MMC clock pins must be configured as OUTPUT-only per TRM [0] with
-receiver disabled (RXACTIVE bit = 0). Change MMC CLK pins from
-PIN_INPUT to PIN_OUTPUT to match documentation.
 
-Link: https://www.ti.com/lit/pdf/spruiv7 Rev. C: Table 12-246. MMCSDi I/O Signals [0]
-Fixes: 316b80246b16 ("arm64: dts: ti: add verdin am62")
-Cc: stable@vger.kernel.org
-Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
----
- arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+Am 13.08.26 um 12:53 schrieb Marc Zyngier:
+> On Wed, 12 Aug 2026 16:35:56 +0100,
+> Steffen Eiden <seiden@linux.ibm.com> wrote:
+>>
+>> Introduce arm-on-s390. Enable KVM-accelerated ARM CPU virtualisation on s390.
+> 
+> [...]
+> 
+>> Based on next-20260811.
+> 
+> Please don't do that. -next isn't a reliable base for *anything*. For
+> all I know, half of what's in -next is broken and will never be
+> merged. This makes the whole thing untestable.
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi b/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi
-index e97b2b047d10..895b1b7dcac7 100644
---- a/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi
-@@ -573,7 +573,7 @@ AM62X_IOPAD(0x15c, PIN_INPUT, 0)  /* (AB22) MDIO0_MDIO */ /* ETH_1_MDIO, SODIMM
- 	pinctrl_sdhci0: main-mmc0-default-pins {
- 		pinctrl-single,pins = <
- 			AM62X_IOPAD(0x220, PIN_INPUT,        0) /*  (Y3) MMC0_CMD  */
--			AM62X_IOPAD(0x218, PIN_INPUT,        0) /* (AB1) MMC0_CLK  */
-+			AM62X_IOPAD(0x218, PIN_OUTPUT,       0) /* (AB1) MMC0_CLK  */
- 			AM62X_IOPAD(0x214, PIN_INPUT,        0) /* (AA2) MMC0_DAT0 */
- 			AM62X_IOPAD(0x210, PIN_INPUT_PULLUP, 0) /* (AA1) MMC0_DAT1 */
- 			AM62X_IOPAD(0x20c, PIN_INPUT_PULLUP, 0) /* (AA3) MMC0_DAT2 */
-@@ -589,7 +589,7 @@ AM62X_IOPAD(0x1f8, PIN_INPUT_PULLUP, 0) /* (AC2) MMC0_DAT7 */
- 	pinctrl_sdhci1: main-mmc1-default-pins {
- 		pinctrl-single,pins = <
- 			AM62X_IOPAD(0x23c, PIN_INPUT,        0) /* (A21) MMC1_CMD  */ /* SODIMM 74 */
--			AM62X_IOPAD(0x234, PIN_INPUT,        0) /* (B22) MMC1_CLK  */ /* SODIMM 78 */
-+			AM62X_IOPAD(0x234, PIN_OUTPUT,       0) /* (B22) MMC1_CLK  */ /* SODIMM 78 */
- 			AM62X_IOPAD(0x230, PIN_INPUT,        0) /* (A22) MMC1_DAT0 */ /* SODIMM 80 */
- 			AM62X_IOPAD(0x22c, PIN_INPUT,        0) /* (B21) MMC1_DAT1 */ /* SODIMM 82 */
- 			AM62X_IOPAD(0x228, PIN_INPUT,        0) /* (C21) MMC1_DAT2 */ /* SODIMM 70 */
-@@ -601,7 +601,7 @@ AM62X_IOPAD(0x224, PIN_INPUT,        0) /* (D22) MMC1_DAT3 */ /* SODIMM 72 */
- 	pinctrl_sdhci2: main-mmc2-default-pins {
- 		pinctrl-single,pins = <
- 			AM62X_IOPAD(0x120, PIN_INPUT, 0) /* (C24) MMC2_CMD   */ /* WiFi_SDIO_CMD   */
--			AM62X_IOPAD(0x118, PIN_INPUT, 0) /* (D25) MMC2_CLK   */ /* WiFi_SDIO_CLK   */
-+			AM62X_IOPAD(0x118, PIN_OUTPUT,0) /* (D25) MMC2_CLK   */ /* WiFi_SDIO_CLK   */
- 			AM62X_IOPAD(0x114, PIN_INPUT, 0) /* (B24) MMC2_DAT0  */ /* WiFi_SDIO_DATA0 */
- 			AM62X_IOPAD(0x110, PIN_INPUT, 0) /* (C25) MMC2_DAT1  */ /* WiFi_SDIO_DATA1 */
- 			AM62X_IOPAD(0x10c, PIN_INPUT, 0) /* (E23) MMC2_DAT2  */ /* WiFi_SDIO_DATA2 */
--- 
-2.47.3
+that was my fault since I asked Steffen for that as I wanted to have the s390
+move clean on top of kvms390/next + s390/next.
+We will switch to -rc release tags in the future.
 
+Sorry for the trouble.
 
