@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35329C5CFCF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 16:11:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB7CBC5CFCF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 16:11:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=REc2CNetkw/IR0cYYmcVDcXvVokY9XmMkULq1ud2MQc=; b=SKvV1L5H9Mtwkp8J/5pD3abXNA
-	wZkLgTpAAl3UFDWxNUA9/CO3mNFt+fRoHrT6qs4RSYcN/ATcdaRhyLAr1l9v4GeuUS58HmgXfwVRF
-	Nb7oN6zurUHuTHdqcZUUpz9yA9mEekC3+Cvo9vGMTzCXhM5zwBxxXvRbkhXwCSze3aw72TY4gzdUL
-	kdhacJ9jiWNDURL7o1RVDcZ0MS94giuCmVldt8Xpv8UzKsvPOHa+gz5VEjf81rZGKwadr+6tmsFzV
-	vUyI+EEbwNFBXgUdqFvVJ7gBiKhKPFFa0KdIr8ETe6UgBlSQQ/srcYiXl5QacrFeRXMh4i4Y6nSVp
-	yvuFUSrw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WAHvpFbJ0JtpWCk4HMUeYX5OKhCmyGZq7qNeYbuxFvs=; b=iU00WDLk4Ky6pcok9cvJ1dGmhZ
+	u6p768C41EUmr9Gm2dLPD6qSd0JRsbQy7NmwuRcG2Y7hZafBZvY7cRNZDElx5N4YPXZJaqYEEe88s
+	Z/cF1wySzad69FLTK8SV2jc3qVJn7OUqeOdYP5Ln/ssvy9vav+YPKhQwOhc//IrBVJPTLaPMqLsY9
+	L0DyuntlUEKcNII3uKovOh/e3n4f8rROxPww9v/i59rloaAhCefpbKSq3LndxE8N8liEYSaukV6rC
+	4TwTYoM7nRlIfkhK8fcMts1TvvEGE7VNJezqzYJsdJEdVAkkQBworfTNQgbyvNJhpIQ5wVnP4Ot7y
+	zduzXvYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuY1L-000000017YS-1Z90;
-	Thu, 13 Aug 2026 16:11:07 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1wuY1O-000000017Zv-23OZ;
+	Thu, 13 Aug 2026 16:11:10 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuY1J-000000017XM-1Eus
+	id 1wuY1K-000000017XP-0LqY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 16:11:06 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-47f633e6058so2491f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 09:11:04 -0700 (PDT)
+	Thu, 13 Aug 2026 16:11:07 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-49800c6a846so886615e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 09:11:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786637463; x=1787242263; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=REc2CNetkw/IR0cYYmcVDcXvVokY9XmMkULq1ud2MQc=;
-        b=tBomVFRbGHz5LfzxSt6iUtbN1W96PY1uztE4iKXxEhbwjfFwOGd2LY2UAficMN/C5p
-         Ks+QbRMrbBySH13oZkyoK2PRQW4a2I/b+zQrTBSKHAY5lrgv5iEiF+dvZLlVDcqL2Hw0
-         BHHZNYYXTdRMS84d0GW8QAfMC7ti3SJZnlYK1WUhWWFe9duCZTEGAgejid5wadOmpzP9
-         XsmryCuHWdC4fL2bLyLjNF1o5xrvSRlKPfiTmgwR3pSZuchAAapTtDj1A6S+dCkOR+Fk
-         zn3UkjgERx5DIQBcmmvfgrBVqzNLQN4Gnd3kpT2fZU0UF6MpI4+wdf2z2swHvZDirJkb
-         n8AQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786637463; x=1787242263;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1786637464; x=1787242264; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=REc2CNetkw/IR0cYYmcVDcXvVokY9XmMkULq1ud2MQc=;
-        b=LRBmwHq0TxQz1PuR7ug/7Q1ITb9MnuRs3KykfAIGbH5rO/FWGZuRmFqoRNdR/bAAM/
-         iAMVFoFpFngp1OX6Le31oK75yuVmLDA3njF8DZaekpHh6Ok1Zy0bRzQ2D6LEMmJwGJ63
-         RaMH4PQ+LVbhZiSyF/+uYNggWCqQGY2BrJPThx3AmdmytLrcquOIGf5mWgiQ6xu9pr5e
-         s4U19SpjyGFSLmCA/7AG9PdAlgnWzSzztySFPN0Qy5nM3zNKrSOZtnd1CFjvyu2514N+
-         RTU3RWGZwteL7xTMCrJ0Utv+3Lx2EbXaIoxNbjb5PWItxbm3EEU0rb87ybjh0w1Mt86K
-         ET3Q==
-X-Forwarded-Encrypted: i=1; AHgh+Rpmwg2pfnIediJOn3pOO2ZnTOzXPL62gC73PcQWshRS1V7E8KHyl783gVuojVrIfTxs+6wNz9BLnlVElogYsGYM@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywf+2duNvD708MSfR+OicaZamHsE9CdXJQEGgZ5NkKU7nouaWJS
-	ctqheUl4FiP7IqhClcRo+5k5fJ9+FTp9EuEsNQ5/79wGDGz1JTgwZ/ib
-X-Gm-Gg: AR+sD10ws6gZb+KUJDxfap5mYUIylBENK8IurAlwDA3cWZweKkJhcuWvD09RgGA7q/0
-	S/8nVOUsMrwW4o7ULfU0SsuFHWmA2qcMGyHD9JyefQewRH9/+5Pwz9y4T9yVP6+MX/eKuGfEpsn
-	RLvAP8JkoG0Q1v9OOdv4rEkibv5nlZnW2u2dgZuTUUZkEnus8dgU2AEiCZJM/bOh9RYLZn0hzn/
-	y4+NDrvwYJc1piXr+5Dekufk/0teNY35i9k9kDXbAX5byxCmhjGaAp6lyghFlG3kUK/9m/lnu0H
-	r0YFQoiTFTAEWW1DKgvEg8QNV7jANEO/W7Mchs1AjRx2VwWxcl1cdkmvEkeMLmNf8+YyOpndsxc
-	jYvDUoLGlLOukRn4NhD0dskiE3TV+WAtit8hUw+mOSv45fSpexYd6p9kmc7DGGmtWq3LiouWZAP
-	4aUwxBX/ulKcXSUVe0kF+yZTYCTRPs6ZltbdBgIv+ayKmztVc5HTEPnYQwYmKF1Air+3LXIYr9o
-	vf0
-X-Received: by 2002:a5d:5f56:0:b0:461:e27d:5690 with SMTP id ffacd0b85a97d-4815a0414f0mr9891561f8f.26.1786637463204;
-        Thu, 13 Aug 2026 09:11:03 -0700 (PDT)
+        bh=WAHvpFbJ0JtpWCk4HMUeYX5OKhCmyGZq7qNeYbuxFvs=;
+        b=hTig56AC4cgh/ST+iQWOcBmXvaFpuJwUS81yd+DPZhZAJiFT1sOQc1y1AcJWQNWKpm
+         KUmrc33o9mCneuk7hbt/YschVwlS3w7pJoJ3zDB5QeR/i5A0o3hXkDXhk3hzvpEME2WP
+         oPoo/N+q+I+VGkCdRbyJchW94uBGW5Sugt1P+VPuhZydrfkNm6MTg28mfybh2qJT8sbA
+         S1i3fsxiCljTl4ahQ9opuR04hHJ6N/XDg+WRUq6DfM9DxWTukpzYxtZqEK8R9Jlzla3p
+         E25ifYnRajL5iaKd6h0l80g4SIWNLJKMoHGsanggp4n5Vf+ZmwvzhDouUqwCiLBBilHV
+         cI4Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786637464; x=1787242264;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=WAHvpFbJ0JtpWCk4HMUeYX5OKhCmyGZq7qNeYbuxFvs=;
+        b=JnAA1cj5PSSCf1Xu/N+G51Z6nGcInRSiLAAiLH6ZtDCWfUklypuvLjZrt2Mu4MTSa2
+         R2CJmCHLffJwhFn5IiJSgNgk+S22gQhyzbwMqQWljVB7nAGfb/MJKm/F3t56mCwLdtwF
+         vDsBdWyqTl0Nv1QJOTsp6/ovop+ofOUQBpPx6c2lHcXJ2hNMoB56XHDDKg3XMpuFr80j
+         EVLxMGDbAzc3AmhZ5VJ0dYhsLavxLvnUe6Nax2KjornPYt/Ys+NElFfvZSLcDL7EKR6O
+         /06DxxgsIZGO/w8/xN6EWRR8hzrj8kCxjZOXD3pf8FdYw7HyFoyYj/jLXsFaEw39CTfH
+         ojfQ==
+X-Forwarded-Encrypted: i=1; AHgh+RovyPI+OLoYOCuHDyDrafpxh6JUUpgR3wPuB1mAhZRJmOskF/PEvjgZXVmf8I9etJSgiY+4GynmNFtnHieN7ZVI@lists.infradead.org
+X-Gm-Message-State: AOJu0YzoBOass6H/uXTO2VyU+POOjVvqqYQ5E1pFZ/eoNem41hCTlcyc
+	UuHdqEDSeY8bBUFCwI3tgs+V8b1hkSNHmW7Y8oMv5h9N9Nn+NF/+24jY
+X-Gm-Gg: AR+sD12RawKmaK0MM21MsdmlvRDrH47LI88TOWXK3AySAUtNDFtYw7p26w0dwPQUFh0
+	ETRhspADm15H/E20R+j3inIfB8iLjKK3MOSVnpPZUHnZ5hQ9yHIvbXWVgMe1Kn0KwVBWpyJ6P2C
+	HX2S/HAsh5uMJo0FE6onsYnvaxn3DoU2om0h8iZyeV14X6Hq1JM5RAFN80aV0M9Ch+58pCeq8OQ
+	moK5TcRg3l4Onk56azInR4w+Ub1YL16G4Ph6wxaPVFPQq3yxSdo50IgFhOiTsRIphErMQJQ11AV
+	34DOOlJiMKa9OXDZNS1NE28TTRzdznFLMK7tmzn4kL+qLVN/S4Z2y0+Nuy0/yq3SqxZD8KxvJqF
+	2fwFWGZp4g4NDR9ud7Oa2P2pxpFLYzGqxim8EBtVfL2mWOxbOAgluFF2gEfu3rrMu71bo10p9Lz
+	1WDwvO403HJhBSAR5iLldfmQBI9M9LrAHldmXJgyQDtG37SohPjNYmPV6pOt/jLYdlFg==
+X-Received: by 2002:a05:600c:3b88:b0:499:7aa8:bd09 with SMTP id 5b1f17b1804b1-499821880edmr89033725e9.4.1786637464204;
+        Thu, 13 Aug 2026 09:11:04 -0700 (PDT)
 Received: from deb05.proceq.com ([213.160.61.66])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4815f21a24esm449409f8f.11.2026.08.13.09.11.02
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4815f21a24esm449409f8f.11.2026.08.13.09.11.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Aug 2026 09:11:02 -0700 (PDT)
+        Thu, 13 Aug 2026 09:11:03 -0700 (PDT)
 From: Mehmet Fide <mehmet.fide@gmail.com>
 To: Shawn Guo <shawnguo@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>
@@ -85,15 +85,17 @@ Cc: Frank Li <Frank.Li@nxp.com>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Mehmet Fide <mehmet.fide@screeningeagle.com>
-Subject: [PATCH v4 0/4] ARM: dts: vf: Iris carrier board for the Colibri VF50 and VF61
-Date: Thu, 13 Aug 2026 18:10:57 +0200
-Message-ID: <20260813161101.2274327-1-mehmet.fide@gmail.com>
+Subject: [PATCH v4 1/4] ARM: dts: vf-colibri: apply the EXT_IO pin group
+Date: Thu, 13 Aug 2026 18:10:58 +0200
+Message-ID: <20260813161101.2274327-2-mehmet.fide@gmail.com>
 X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260813161101.2274327-1-mehmet.fide@gmail.com>
+References: <20260813161101.2274327-1-mehmet.fide@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_091105_352167_23EA34F0 
-X-CRM114-Status: GOOD (  15.96  )
+X-CRM114-CacheID: sfid-20260813_091106_129964_5D06B141 
+X-CRM114-Status: GOOD (  11.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,51 +112,41 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Mehmet Fide <mehmet.fide@screeningeagle.com>
 
-This adds a device tree for the Toradex Iris carrier board carrying the
-Vybrid Colibri modules, plus two small preparatory patches for the
-module-level dtsi that the i.MX Colibri variants already had.
+pinctrl_gpio_ext describes the three Colibri EXT_IO pins, but no node
+references it, so the pin controller never applies it and the pads keep
+whatever mux and bias they came up with. It is the only pin group in the
+Vybrid Colibri device trees that is defined and never used.
 
-Everything was tested on a Colibri VF50 on an Iris V1.1 running 6.18.
+The three pins are GPIOs on gpio2 and belong to no device, so hog the
+group on that controller. Referencing it from &iomuxc would work too, but
+the pin controller would then depend on one of its own children, which
+fw_devlink reports as a dependency cycle.
 
-Changes in v4:
-- gpio-line-names packed four per line (Frank Li)
-- keep the EXT_IO pin group applied next to the carrier hog group
-  instead of overwriting pinctrl-0 in the Iris dtsi, verified in
-  pinmux-pins on hardware (Sashiko review)
-- enable pwm0/pwm1 like the evaluation board does, so the dts matches
-  the commit message; both chips register on hardware (Sashiko review)
-- the compatibles keep their hyphens; Krzysztof asked for hyphens in
-  every newly introduced compatible in the v2 review
+Signed-off-by: Mehmet Fide <mehmet.fide@screeningeagle.com>
+---
+ arch/arm/boot/dts/nxp/vf/vf-colibri.dtsi | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-Changes in v3, following Krzysztof's review:
-- fold the Iris compatibles into the existing -on-eval enum entries
-- use hyphens in the newly introduced compatibles
-- drop the fixed 5V regulator that only fed the VBUS regulator
-- sent as a fresh thread instead of in reply to v2
-
-Changes in v2:
-- add the dt-bindings patch for the new compatibles
-- describe the USB host VBUS regulator instead of hogging USBH_PEN
-
-Mehmet Fide (4):
-  ARM: dts: vf-colibri: apply the EXT_IO pin group
-  ARM: dts: vf-colibri: name the SODIMM gpio lines
-  dt-bindings: arm: fsl: add the Colibri VF50 and VF61 on Iris
-  ARM: dts: vf: add Iris carrier board support for Colibri VF50 and VF61
-
- .../devicetree/bindings/arm/fsl.yaml          |  12 +-
- arch/arm/boot/dts/nxp/vf/Makefile             |   2 +
- arch/arm/boot/dts/nxp/vf/vf-colibri-iris.dtsi | 126 ++++++++++++++++++
- arch/arm/boot/dts/nxp/vf/vf-colibri.dtsi      |  56 ++++++++
- .../boot/dts/nxp/vf/vf500-colibri-iris.dts    |  14 ++
- .../boot/dts/nxp/vf/vf610-colibri-iris.dts    |  14 ++
- 6 files changed, 220 insertions(+), 4 deletions(-)
- create mode 100644 arch/arm/boot/dts/nxp/vf/vf-colibri-iris.dtsi
- create mode 100644 arch/arm/boot/dts/nxp/vf/vf500-colibri-iris.dts
- create mode 100644 arch/arm/boot/dts/nxp/vf/vf610-colibri-iris.dts
-
-
-base-commit: 3d6d817622b0a9721e3cc404df3469171582be13
+diff --git a/arch/arm/boot/dts/nxp/vf/vf-colibri.dtsi b/arch/arm/boot/dts/nxp/vf/vf-colibri.dtsi
+index 98f9ee1b0030..74afc7b0d74b 100644
+--- a/arch/arm/boot/dts/nxp/vf/vf-colibri.dtsi
++++ b/arch/arm/boot/dts/nxp/vf/vf-colibri.dtsi
+@@ -170,6 +170,15 @@ &usbphy1 {
+ 	status = "okay";
+ };
+ 
++&gpio2 {
++	/*
++	 * EXT_IO_0..2 belong to no device, so hog the pin group here rather
++	 * than on the pin controller, which would depend on its own child.
++	 */
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_gpio_ext>;
++};
++
+ &iomuxc {
+ 	pinctrl_flexcan0: can0grp {
+ 		fsl,pins = <
 -- 
 2.54.0
 
