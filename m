@@ -4,73 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A534EC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 13:07:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34D1FC5CFEB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Aug 2026 13:17:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2V4LbzxXVRL8YYXBVPJDpy9FMQZDKpcQI4DTiuPtGRM=; b=RSSe+89yJhMLVKwUVVc84Dxq2E
-	3ORrWIijY16KXY8YyVSYPRnMWcqflpiVuH5lpjCK6zie6Ce/TLcWAmVnk89nZPFf0lM2nd1n6kIrq
-	g7lP2MqbjijHYHWYiR93vrpcgnq2x0HHb8CBtaEtRWPd/fUtQPnSqty+HWcwOI6iHHikPsW176pHF
-	5gQLEdyaZLZT2Pi88dGwsHRi4i9MopNdp/2GIMPu8ck85q8bRBHGgzSzSyxB7VeKADVGK57pckLEv
-	hIoElBZU3eyl3TZZ/uiVV7YZp2ZWlbDhzA6VmzVFcHeGT7+4p4dm8+uOPIoDTlNjsg2vzpcbjihSs
-	NURi4z/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8mQnIEe7HU7U+Yjdi1mxEOy4hS9STWinUy4KDR49dMM=; b=oMvpPzz6rQfI1oLpMgcyo8FkHY
+	AS3NJ8zll7xrdmkoCjEP8jwYtfcdJMPAOjFPDoL1Bk3m6EjH26Hu+xwrfNkQTwi4kzc2Ft8RsmSOK
+	+l4pLdhLpPtz6Kx1uQiOkYGDLwoftc8pB/CuWuxtn1Me1NDAX6khRifxBCyP/aknEQ8SxQma3wCkk
+	hoN3xfo5P7CTdA1N/oIY9nUS1z5xqcLeF/EWRkC/PFRvd+1uDlm6Dnr79//FT4yE0O0uy9NaOEXaA
+	YrO4w3fRvdzHVxNQSwdPQ/nlN7h+29AUde2vrt7Rx6mNZ+wKGUV6PxsLq8nxcFYtOQTrOv6VP4rpB
+	biRRfLHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuV9j-00000000i33-00Gw;
-	Thu, 13 Aug 2026 13:07:35 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wuVJF-00000000j2H-0Ksn;
+	Thu, 13 Aug 2026 13:17:25 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuV9h-00000000i2g-14YA
+	id 1wuVJE-00000000j23-156f
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Aug 2026 13:07:33 +0000
+	Thu, 13 Aug 2026 13:17:24 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6DBC2600AD
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 13:07:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 282741F00ACA
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 13:07:32 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id AB42441FF6
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 13:17:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63F601F00A3D;
+	Thu, 13 Aug 2026 13:17:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786626452;
-	bh=2V4LbzxXVRL8YYXBVPJDpy9FMQZDKpcQI4DTiuPtGRM=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=GUpPSu/UDE/kbIl3BJ/RVc2zcO5J8CXe7S3g8U/E8CFRWUd65fm/utkAv0QMeMT/p
-	 ZJ+7U+K0KRvX3PZ+OV3qYDcot7EpMx9kYntOvtt+M6Iid5u0EFHTuO5EsNFunUFP//
-	 /qW1GGzsH9GSd8aw+b4QB5vHcbgK2eDWQ+UZasKjtJxB5WwtIU0V3IHs0gRki6spxI
-	 sd92oaskWHWei4+MpVeTLqmf+wWeJq/EHfT0tSATMu8panJoqzOrUaNkPG7BvBrfPh
-	 QrB8jSJOiGkZi3bVCoPkfwUpPOXY+mPxGL5bg/I5NiWMbUtn6KrpkkW1OV8ktNJzo/
-	 A683Pjtj8eBog==
-Received: by mail-lj1-f171.google.com with SMTP id 38308e7fff4ca-39c7fd21b63so17820201fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Aug 2026 06:07:32 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RrNw4GxgBbkDu+1/+ih+V/oTjgrk7lU8lqrdxcI3qB43QjvnEioVjiOvAjrOvI3FFx6f9ToKVZnDLsGqz89vvRa@lists.infradead.org
-X-Gm-Message-State: AOJu0YzdFtXRYg2rEUlGm4IzV/Ch8U31S8bGb70S3JQCiJPaPhRx4Z4q
-	5NNOmSTKSx3DFV9T+HRwAMPMh4tYOLKYO3CsBRMizPubqFCZIOTE7IF+1wBOenAVvZLlvBNdWMk
-	cK4sJ0nJqClkOp9v7I6UWt+wBylto9ofXHOsGD5zpjA==
-X-Received: by 2002:a05:651c:43ce:10b0:39c:6d1f:2f13 with SMTP id
- 38308e7fff4ca-3a11a5d087dmr5683661fa.13.1786626450893; Thu, 13 Aug 2026
- 06:07:30 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 13 Aug 2026 08:07:28 -0500
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 13 Aug 2026 08:07:28 -0500
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260813-cv75-v3-b-v3-2-1d82e18da09b@ambarella.com>
+	s=k20260515; t=1786627043;
+	bh=8mQnIEe7HU7U+Yjdi1mxEOy4hS9STWinUy4KDR49dMM=;
+	h=From:To:Cc:Subject:Date;
+	b=TsN9OenatxZpleQYx5LTNI4U21Whv1wJ98RbXeSTZF2fi1lv+Z4bQmogXxYNhqcIr
+	 Y29E5ahteklZ2QOj35gl1AmdpsZEVlGKB/g0901j9U0IvaxIv6ya72gurz9qyGMylS
+	 eH6ldYnggdT8+BqvvSQ5Thv4EByPh6jp9SyZG49LpnnYm9BJNQr4Eycq2gVqkXNiXr
+	 rSp4w1xEPpbeFuE4WoIJtP/ajYPOkAqqRs960XyfOWcZYDKeVnM4oGVSdBxo6M2eSJ
+	 HN46yQN9iaOh02eDl+uRnyv1w64cu4yAwavM7H3dILb+5mXcaBkKQ6pWDwjULRP+1U
+	 bl/i4FIAyqcag==
+From: Will Deacon <will@kernel.org>
+To: kvmarm@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org,
+	Will Deacon <will@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Marc Zyngier <maz@kernel.org>
+Subject: [PATCH] KVM: arm64: Avoid mismatched accesses to 'struct kvm_nvhe_init_params'
+Date: Thu, 13 Aug 2026 14:17:16 +0100
+Message-ID: <20260813131717.5885-1-will@kernel.org>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-References: <20260813-cv75-v3-b-v3-0-1d82e18da09b@ambarella.com> <20260813-cv75-v3-b-v3-2-1d82e18da09b@ambarella.com>
-Date: Thu, 13 Aug 2026 08:07:28 -0500
-X-Gmail-Original-Message-ID: <CAMRc=McWBqz3YyN8GUMLd6aZjvZ=wT2y6oUu81MgrpR-Dc4hWQ@mail.gmail.com>
-X-Gm-Features: AUfX_mxQDHzznFCPjAFUr94xSbRi553VA-Ghe8BBzZsDyOuS_FyJt3JeSHnfmKY
-Message-ID: <CAMRc=McWBqz3YyN8GUMLd6aZjvZ=wT2y6oUu81MgrpR-Dc4hWQ@mail.gmail.com>
-Subject: Re: [PATCH v3 2/3] gpio: pl061: add Ambarella CV75 register layout variant
-To: longzhao@ambarella.com
-Cc: Long Zhao via B4 Relay <devnull+longzhao.ambarella.com@kernel.org>, linux-gpio@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Linus Walleij <linusw@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Bartosz Golaszewski <brgl@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,17 +68,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 13 Aug 2026 12:19:37 +0200, Long Zhao via B4 Relay
-<devnull+longzhao.ambarella.com@kernel.org> said:
-> From: Long Zhao <longzhao@ambarella.com>
->
-> Extend gpio-pl061 with a per-variant register layout so the Ambarella
-> CV75 GPIO banks can reuse the PL061 driver instead of a duplicate.
->
-> Signed-off-by: Long Zhao <longzhao@ambarella.com>
-> ---
+When running with hVHE enabled, ___kvm_hyp_init() calls
+__kvm_init_el2_state() on the CPU initialisation path during onlining
+and resume from suspend.
 
-Devicetree bindings and driver code should be modified in separate patches.
+In order to avoid clobbering the link register across this call, it is
+stashed away in the 'tmp' member of 'struct kvm_nvhe_init_params',
+however this save/restore operation is performed with the stage-1 MMU
+disabled at EL2 and therefore gives rise to coherency problems because
+the field is not aligned or padded to the CWG. For example, a cacheable
+write to a physically-adjacent structure sharing the same cacheline
+could lead to an eviction and subsequent write-back, overwriting the
+saved LR while the incoming CPU is executing __kvm_init_el2_state().
 
-Bartosz
+Save the lr in far_el2 and remove the 'tmp' member from
+'struct kvm_nvhe_init_params' altogether.
+
+Cc: Oliver Upton <oupton@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>
+Fixes: afa9b48f327c ("KVM: arm64: Shave a few bytes from the EL2 idmap code")
+Signed-off-by: Will Deacon <will@kernel.org>
+---
+ arch/arm64/include/asm/kvm_asm.h   |  1 -
+ arch/arm64/kernel/asm-offsets.c    |  1 -
+ arch/arm64/kvm/hyp/nvhe/hyp-init.S | 11 +++++++----
+ 3 files changed, 7 insertions(+), 6 deletions(-)
+
+diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
+index 043495f7fc78..dae9b1d34c8a 100644
+--- a/arch/arm64/include/asm/kvm_asm.h
++++ b/arch/arm64/include/asm/kvm_asm.h
+@@ -214,7 +214,6 @@ struct kvm_nvhe_init_params {
+ 	unsigned long hcr_el2;
+ 	unsigned long vttbr;
+ 	unsigned long vtcr;
+-	unsigned long tmp;
+ };
+ 
+ /*
+diff --git a/arch/arm64/kernel/asm-offsets.c b/arch/arm64/kernel/asm-offsets.c
+index b6367ff3a49c..9c853ed3ceab 100644
+--- a/arch/arm64/kernel/asm-offsets.c
++++ b/arch/arm64/kernel/asm-offsets.c
+@@ -124,7 +124,6 @@ int main(void)
+   DEFINE(NVHE_INIT_HCR_EL2,	offsetof(struct kvm_nvhe_init_params, hcr_el2));
+   DEFINE(NVHE_INIT_VTTBR,	offsetof(struct kvm_nvhe_init_params, vttbr));
+   DEFINE(NVHE_INIT_VTCR,	offsetof(struct kvm_nvhe_init_params, vtcr));
+-  DEFINE(NVHE_INIT_TMP,		offsetof(struct kvm_nvhe_init_params, tmp));
+ #endif
+ #ifdef CONFIG_CPU_PM
+   DEFINE(CPU_CTX_SP,		offsetof(struct cpu_suspend_ctx, sp));
+diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-init.S b/arch/arm64/kvm/hyp/nvhe/hyp-init.S
+index 89cb553be1e5..0b3e0b28dfc7 100644
+--- a/arch/arm64/kvm/hyp/nvhe/hyp-init.S
++++ b/arch/arm64/kvm/hyp/nvhe/hyp-init.S
+@@ -106,16 +106,19 @@ SYM_CODE_START_LOCAL(___kvm_hyp_init)
+ 	and	x2, x1, x2
+ 	cbz	x2, 1f
+ 
+-	// hVHE: Replay the EL2 setup to account for the E2H bit
+-	// TPIDR_EL2 is used to preserve x0 across the macro maze...
++	/*
++	 * hVHE: Replay the EL2 setup to account for the E2H bit
++	 * TPIDR_EL2 and FAR_EL2 are used to preserve x0 and LR across
++	 * the macro maze...
++	 */
+ 	isb
+ 	msr	tpidr_el2, x0
+-	str	lr, [x0, #NVHE_INIT_TMP]
++	msr	far_el2, lr
+ 
+ 	bl	__kvm_init_el2_state
+ 
++	mrs	lr, far_el2
+ 	mrs	x0, tpidr_el2
+-	ldr	lr, [x0, #NVHE_INIT_TMP]
+ 
+ 1:
+ 	ldr	x1, [x0, #NVHE_INIT_TPIDR_EL2]
+-- 
+2.55.0.691.gc56d675ccc-goog
+
 
