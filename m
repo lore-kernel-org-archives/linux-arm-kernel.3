@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46915C5CFCF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 17:30:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8337BC5CFC1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 17:34:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yvClwBTIkwbzpc1ZISy4fKz4vP2gx5oJjAuJRzNM9lg=; b=xmg+MOYIGMEVUV0mTCDyHKRqBl
-	2Xki6VHDkirFA9Z1Hbe0CN6s56WQifgv9rvQpACeYLF0+TTHBcMO1DLZYanCJXtkbCTEsHYMT8zxB
-	Aix29OLyNSzZTPeVa3qRkfFeKNY/+UNhmaS8aDsR08jh0HxiGLL48gWB7uninQ7eoxwr9Dq6edUa0
-	AeCACZev8rmESCl+nVomAAd9AqyJ4gYo1asQwpQHjDZI4sueOUQgbD30TZ9QwMBYyh37/Py/rQSsk
-	kN/Sy6FGA3fONhGjdy1P6GaPCBk7nJs9jswEjO20qgnfH41ou62Qna1jot3AsC1BlFlcRPICj/hGc
-	Ug6Rkdkg==;
+	bh=H24ZRelcLqUPv7V5dnsfABF8idbNok51QAO8v9aIS+k=; b=wNKf8Q1JrGfEPIvPaw1/VRkRP2
+	H+ufXcsi+UJSeYuidwGCwewn7DAw7ZodEUBdPuD6gx9s2y6NmvO1e5TaI+ny+KIjnNJhe139xW2jc
+	HEe98qY3M0mJ5VbR/9XY3pXDquVRJ+jANuqbrlVow9dZySkJ+mHaeug3K1huRFKc5YQ3+aExLs7BU
+	QKuS8xJS79EP4IpSNhlKbY+dSkL4LzODQAaqdjW4gw97cPICl5LM7L3vQCDh2yFpGLPu0bZU30VZ3
+	PokH13WpSOoI8DzFpmeGZMghgpVnx5pU7BctK5oGleP54Fo8vdNYWLlwW/nUsxed/ttO2tF0gtaTV
+	MjajoQdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuvjk-00000002zg2-1Pp5;
-	Fri, 14 Aug 2026 17:30:32 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuvjf-00000002zfQ-2SP0
+	id 1wuvnv-0000000302g-3stu;
+	Fri, 14 Aug 2026 17:34:51 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wuvns-0000000302G-2wlr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Aug 2026 17:30:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1786728628; x=1818264628;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=BNptNXeW8m7e3RgY9Oc6vxp2cYfhqigMEmkq59/6RNU=;
-  b=J3De48F+5F76BVtIeT76oTUbB8dtm4lhfIsiRGBQU8r+aVkWoNpYGDj3
-   n7COll3yeIT1UBt8eREOxtqyywsEhE5fvFuayrxc+oT1SE8xDiHtbaVe3
-   F3v9Q5Oat6gk63Jps/U+/2G9lIzsMicOww7jFv6kKnnMqIhkZQdkUcidm
-   CHZUwAPaqMy8moX+0i3NIZJaCL6HGBsd8YpIWZuXhvRsYVAZT2VzZEYTO
-   IDJv9pdWVxb2IgA4ehfLMN1QgUotmPCdvziu56vCShIah8riR4Ntpn1FL
-   A9+JUXn3Syu0Gr0CiszaOSu/Dhpu8/lEBeRgz4Ma11tc+ffUPz0DuPSSa
-   w==;
-X-CSE-ConnectionGUID: JIvn7Lf6R26gn7o6A8c83g==
-X-CSE-MsgGUID: EQUY5HQNRCSUkM3xuyIyUg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11875"; a="98669003"
-X-IronPort-AV: E=Sophos;i="6.25,222,1779174000"; 
-   d="scan'208";a="98669003"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Aug 2026 10:30:27 -0700
-X-CSE-ConnectionGUID: qbSh3vsJS0Wh5AFcpl5o1A==
-X-CSE-MsgGUID: ON7jX+dvTDaq+C0NrZW8HQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,222,1779174000"; 
-   d="scan'208";a="268133972"
-Received: from lkp-server01.sh.intel.com (HELO 6eda058d650d) ([10.239.97.150])
-  by orviesa004.jf.intel.com with ESMTP; 14 Aug 2026 10:30:24 -0700
-Received: from kbuild by 6eda058d650d with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1wuvjZ-00000000Zhm-3Rnv;
-	Fri, 14 Aug 2026 17:30:21 +0000
-Date: Sat, 15 Aug 2026 01:30:15 +0800
-From: kernel test robot <lkp@intel.com>
-To: Rosen Penev <rosenp@gmail.com>, linux-rtc@vger.kernel.org
-Cc: oe-kbuild-all@lists.linux.dev,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCHv2] rtc: stmp3xxx: use devm_platform_ioremap_resource()
-Message-ID: <202608150130.OdnZnae5-lkp@intel.com>
-References: <20260728005303.574936-1-rosenp@gmail.com>
+	Fri, 14 Aug 2026 17:34:49 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7D9611516;
+	Fri, 14 Aug 2026 10:34:42 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3CB4D3F66F;
+	Fri, 14 Aug 2026 10:34:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1786728886; bh=u3T9edAxlh7yKorxUAb9VAjz6kQdSTTbvHmmGeDDHoU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ppm7pmp8E9oVikMGpVoQQWvjA2spsMWcUEwM5vXpRx2erTjnP16IFLrGmEifQQ7DC
+	 8sLEvBHanZyBCAqJAEiPNurm8WKYBKyyxL14TwTjEu5odWeJbfPbCk4dKh+9cwcRrg
+	 SHpUIcPXbrmDNJK4N0VK054T4ts//EmbcSpr6RgI=
+Date: Fri, 14 Aug 2026 18:34:39 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
+	Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>, Jason Gunthorpe <jgg@ziepe.ca>,
+	Mostafa Saleh <smostafa@google.com>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
+Subject: Re: [RFC PATCH v2 2/2] dma: swiotlb: Initialize and size shared
+ default pools for memory encryption
+Message-ID: <an9RrwoaAsqJQ2vN@arm.com>
+References: <20260813102521.1367737-1-aneesh.kumar@kernel.org>
+ <20260813102521.1367737-3-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260728005303.574936-1-rosenp@gmail.com>
+In-Reply-To: <20260813102521.1367737-3-aneesh.kumar@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260814_103027_685683_A1E72EC1 
-X-CRM114-Status: GOOD (  21.49  )
+X-CRM114-CacheID: sfid-20260814_103448_822851_D345FA98 
+X-CRM114-Status: GOOD (  33.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,167 +91,172 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rosen,
+On Thu, Aug 13, 2026 at 03:55:21PM +0530, Aneesh Kumar K.V (Arm) wrote:
+> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
+> index 9f5b366d2086..c3188ca878f3 100644
+> --- a/arch/arm64/mm/init.c
+> +++ b/arch/arm64/mm/init.c
+> @@ -338,12 +338,8 @@ void __init arch_setup_zero_pages(void)
+>  void __init arch_mm_preinit(void)
+>  {
+>  	unsigned int flags = SWIOTLB_VERBOSE;
+> -	/* pKVM uses restricted-dma-pool */
+> -	bool cc_guest = is_realm_world();
+>  
+> -	if (cc_guest)
+> -		flags |= SWIOTLB_INIT_CC_SHARED;
+> -	else if (max_pfn > PFN_DOWN(arm64_dma_phys_limit))
+> +	if (max_pfn > PFN_DOWN(arm64_dma_phys_limit))
+>  		flags |= SWIOTLB_INIT_ADDRESSING_LIMIT;
+>  
+>  	swiotlb_init(flags);
 
-kernel test robot noticed the following build errors:
+This looks fine. As I mentioned on patch 1, we might as well move this
+hunk over there and avoid the flag definition.
 
-[auto build test ERROR on abelloni/rtc-next]
-[also build test ERROR on linus/master v7.2-rc7 next-20260813]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+> @@ -102,9 +101,6 @@ void __init mem_encrypt_init(void)
+>  
+>  void __init mem_encrypt_setup_arch(void)
+>  {
+> -	phys_addr_t total_mem = memblock_phys_mem_size();
+> -	unsigned long size;
+> -
+>  	/*
+>  	 * Do RMP table fixups after the e820 tables have been setup by
+>  	 * e820__memory_setup().
+> @@ -112,33 +108,9 @@ void __init mem_encrypt_setup_arch(void)
+>  	if (cc_platform_has(CC_ATTR_HOST_SEV_SNP))
+>  		snp_fixup_e820_tables();
+>  
+> -	if (cc_platform_has(CC_ATTR_MEM_ENCRYPT))
+> -		x86_swiotlb_flags |= SWIOTLB_INIT_CC_SHARED;
+> -
+>  	if (!cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT))
+>  		return;
+>  
+> -	/*
+> -	 * For SEV and TDX, all DMA has to occur via shared/unencrypted pages.
+> -	 * Kernel uses SWIOTLB to make this happen without changing device
+> -	 * drivers. However, depending on the workload being run, the
+> -	 * default 64MB of SWIOTLB may not be enough and SWIOTLB may
+> -	 * run out of buffers for DMA, resulting in I/O errors and/or
+> -	 * performance degradation especially with high I/O workloads.
+> -	 *
+> -	 * Adjust the default size of SWIOTLB using a percentage of guest
+> -	 * memory for SWIOTLB buffers. Also, as the SWIOTLB bounce buffer
+> -	 * memory is allocated from low memory, ensure that the adjusted size
+> -	 * is within the limits of low available memory.
+> -	 *
+> -	 * The percentage of guest memory used here for SWIOTLB buffers
+> -	 * is more of an approximation of the static adjustment which
+> -	 * 64MB for <1G, and ~128M to 256M for 1G-to-4G, i.e., the 6%
+> -	 */
+> -	size = total_mem * 6 / 100;
+> -	size = clamp_val(size, IO_TLB_DEFAULT_SIZE, SZ_1G);
+> -	swiotlb_adjust_size(size);
+> -
+>  	/* Set restricted memory access for virtio. */
+>  	virtio_set_mem_acc_cb(virtio_require_restricted_mem_acc);
+>  }
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Rosen-Penev/rtc-stmp3xxx-use-devm_platform_ioremap_resource/20260814-172225
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/abelloni/linux.git rtc-next
-patch link:    https://lore.kernel.org/r/20260728005303.574936-1-rosenp%40gmail.com
-patch subject: [PATCHv2] rtc: stmp3xxx: use devm_platform_ioremap_resource()
-config: alpha-allmodconfig (https://download.01.org/0day-ci/archive/20260815/202608150130.OdnZnae5-lkp@intel.com/config)
-compiler: alpha-linux-gcc (GCC) 16.1.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260815/202608150130.OdnZnae5-lkp@intel.com/reproduce)
+Credit to claude, it noticed a slight change in behaviour for x86 w.r.t.
+the crash kernel reservation. crash_low_size_default() reads the swiotlb
+size but the resizing now happens after arch_reserve_crashkernel().
+Maybe not an issue.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202608150130.OdnZnae5-lkp@intel.com/
+Alternatively, we could build the sizing logic into
+swiotlb_size_or_default() but I haven't checked whether we have the
+right information when this function is called.
 
-All errors (new ones prefixed by >>):
+> @@ -382,12 +374,54 @@ static void __init *swiotlb_memblock_alloc(unsigned long nslabs,
+>  	return tlb;
+>  }
+>  
+> +static void __init swiotlb_adjust_cc_attributes(void)
+> +{
+> +	unsigned long size;
+> +	phys_addr_t total_mem = memblock_phys_mem_size();
+> +
+> +	/* Do not resize for host memory encryption. */
+> +	if (!cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT))
+> +		return;
+> +
+> +	/*
+> +	 * For SEV and TDX and CCA, all DMA has to occur via
+> +	 * shared/unencrypted pages. Kernel uses SWIOTLB to make this
+> +	 * happen without changing device drivers. However, depending on
+> +	 * the workload being run, the default 64MB of SWIOTLB may not be
+> +	 * enough and SWIOTLB may run out of buffers for DMA, resulting in
+> +	 * I/O errors and/or performance degradation especially with high
+> +	 * I/O workloads.
+> +	 *
+> +	 * Adjust the default size of SWIOTLB using a percentage of guest
+> +	 * memory for SWIOTLB buffers. Also, as the SWIOTLB bounce buffer
+> +	 * memory is allocated from low memory, ensure that the adjusted
+> +	 * size is within the limits of low available memory.
+> +	 *
+> +	 * The percentage of guest memory used here for SWIOTLB buffers is
+> +	 * more of an approximation of the static adjustment which 64MB for
+> +	 * <1G, and ~128M to 256M for 1G-to-4G, i.e., the 6%
+> +	 */
+> +	size = total_mem * 6 / 100;
+> +	size = clamp_val(size, IO_TLB_DEFAULT_SIZE, SZ_1G);
+> +	swiotlb_adjust_size(size);
+> +
+> +	if (!IS_ENABLED(CONFIG_SWIOTLB_DYNAMIC))
+> +		pr_info("Consider enabling CONFIG_SWIOTLB_DYNAMIC for memory-encrypted systems\n");
 
-   drivers/rtc/rtc-stmp3xxx.c: In function 'stmp3xxx_rtc_probe':
->> drivers/rtc/rtc-stmp3xxx.c:253:9: error: 'irq_alarm' undeclared (first use in this function)
-     253 |         irq_alarm = platform_get_irq(pdev, 0);
-         |         ^~~~~~~~~
-   drivers/rtc/rtc-stmp3xxx.c:253:9: note: each undeclared identifier is reported only once for each function it appears in
+I agree with Michael, let's drop this pr_info().
 
+> +}
+> +
+>  static bool __init swiotlb_kmalloc_needs_bounce(void)
+>  {
+>  	return IS_ENABLED(CONFIG_DMA_BOUNCE_UNALIGNED_KMALLOC) &&
+>  	       (dma_get_cache_alignment() > 1);
+>  }
+>  
+> +static bool __init swiotlb_default_pool_needs_cc_shared(void)
+> +{
+> +	/* A restricted DMA pool provides the shared buffers instead. */
+> +	return cc_platform_has(CC_ATTR_MEM_ENCRYPT) &&
+> +	       !restricted_dma_pool_present;
+> +}
 
-vim +/irq_alarm +253 drivers/rtc/rtc-stmp3xxx.c
+I don't think restricted_dma_pool_present should change the cc_shared
+attribute. The rmem pool is all about sizing the swiotlb, not disabling
+sharing.
 
-   243	
-   244	static int stmp3xxx_rtc_probe(struct platform_device *pdev)
-   245	{
-   246		struct stmp3xxx_rtc_data *rtc_data;
-   247		void __iomem *io;
-   248		u32 rtc_stat;
-   249		u32 pers0_set, pers0_clr;
-   250		u32 crystalfreq = 0;
-   251		int err;
-   252	
- > 253		irq_alarm = platform_get_irq(pdev, 0);
-   254		if (irq_alarm < 0)
-   255			return irq_alarm;
-   256	
-   257		io = devm_platform_ioremap_resource(pdev, 0);
-   258		if (IS_ERR(io))
-   259			return PTR_ERR(io);
-   260	
-   261		rtc_data = devm_kzalloc(&pdev->dev, sizeof(*rtc_data), GFP_KERNEL);
-   262		if (!rtc_data)
-   263			return -ENOMEM;
-   264	
-   265		rtc_data->io = io;
-   266	
-   267		rtc_stat = readl(rtc_data->io + STMP3XXX_RTC_STAT);
-   268		if (!(rtc_stat & STMP3XXX_RTC_STAT_RTC_PRESENT)) {
-   269			dev_err(&pdev->dev, "no device onboard\n");
-   270			return -ENODEV;
-   271		}
-   272	
-   273		platform_set_drvdata(pdev, rtc_data);
-   274	
-   275		/*
-   276		 * Resetting the rtc stops the watchdog timer that is potentially
-   277		 * running. So (assuming it is running on purpose) don't reset if the
-   278		 * watchdog is enabled.
-   279		 */
-   280		if (readl(rtc_data->io + STMP3XXX_RTC_CTRL) &
-   281		    STMP3XXX_RTC_CTRL_WATCHDOGEN) {
-   282			dev_info(&pdev->dev,
-   283				 "Watchdog is running, skip resetting rtc\n");
-   284		} else {
-   285			err = stmp_reset_block(rtc_data->io);
-   286			if (err) {
-   287				dev_err(&pdev->dev, "stmp_reset_block failed: %d\n",
-   288					err);
-   289				return err;
-   290			}
-   291		}
-   292	
-   293		/*
-   294		 * Obviously the rtc needs a clock input to be able to run.
-   295		 * This clock can be provided by an external 32k crystal. If that one is
-   296		 * missing XTAL must not be disabled in suspend which consumes a
-   297		 * lot of power. Normally the presence and exact frequency (supported
-   298		 * are 32000 Hz and 32768 Hz) is detectable from fuses, but as reality
-   299		 * proves these fuses are not blown correctly on all machines, so the
-   300		 * frequency can be overridden in the device tree.
-   301		 */
-   302		if (rtc_stat & STMP3XXX_RTC_STAT_XTAL32000_PRESENT)
-   303			crystalfreq = 32000;
-   304		else if (rtc_stat & STMP3XXX_RTC_STAT_XTAL32768_PRESENT)
-   305			crystalfreq = 32768;
-   306	
-   307		of_property_read_u32(pdev->dev.of_node, "stmp,crystal-freq",
-   308				     &crystalfreq);
-   309	
-   310		switch (crystalfreq) {
-   311		case 32000:
-   312			/* keep 32kHz crystal running in low-power mode */
-   313			pers0_set = STMP3XXX_RTC_PERSISTENT0_XTAL32_FREQ |
-   314				STMP3XXX_RTC_PERSISTENT0_XTAL32KHZ_PWRUP |
-   315				STMP3XXX_RTC_PERSISTENT0_CLOCKSOURCE;
-   316			pers0_clr = STMP3XXX_RTC_PERSISTENT0_XTAL24MHZ_PWRUP;
-   317			break;
-   318		case 32768:
-   319			/* keep 32.768kHz crystal running in low-power mode */
-   320			pers0_set = STMP3XXX_RTC_PERSISTENT0_XTAL32KHZ_PWRUP |
-   321				STMP3XXX_RTC_PERSISTENT0_CLOCKSOURCE;
-   322			pers0_clr = STMP3XXX_RTC_PERSISTENT0_XTAL24MHZ_PWRUP |
-   323				STMP3XXX_RTC_PERSISTENT0_XTAL32_FREQ;
-   324			break;
-   325		default:
-   326			dev_warn(&pdev->dev,
-   327				 "invalid crystal-freq specified in device-tree. Assuming no crystal\n");
-   328			fallthrough;
-   329		case 0:
-   330			/* keep XTAL on in low-power mode */
-   331			pers0_set = STMP3XXX_RTC_PERSISTENT0_XTAL24MHZ_PWRUP;
-   332			pers0_clr = STMP3XXX_RTC_PERSISTENT0_XTAL32KHZ_PWRUP |
-   333				STMP3XXX_RTC_PERSISTENT0_CLOCKSOURCE;
-   334		}
-   335	
-   336		writel(pers0_set, rtc_data->io + STMP3XXX_RTC_PERSISTENT0 +
-   337				STMP_OFFSET_REG_SET);
-   338	
-   339		writel(STMP3XXX_RTC_PERSISTENT0_ALARM_EN |
-   340				STMP3XXX_RTC_PERSISTENT0_ALARM_WAKE_EN |
-   341				STMP3XXX_RTC_PERSISTENT0_ALARM_WAKE | pers0_clr,
-   342			rtc_data->io + STMP3XXX_RTC_PERSISTENT0 + STMP_OFFSET_REG_CLR);
-   343	
-   344		writel(STMP3XXX_RTC_CTRL_ONEMSEC_IRQ_EN |
-   345				STMP3XXX_RTC_CTRL_ALARM_IRQ_EN,
-   346			rtc_data->io + STMP3XXX_RTC_CTRL + STMP_OFFSET_REG_CLR);
-   347	
-   348		rtc_data->rtc = devm_rtc_allocate_device(&pdev->dev);
-   349		if (IS_ERR(rtc_data->rtc))
-   350			return PTR_ERR(rtc_data->rtc);
-   351	
-   352		err = devm_request_irq(&pdev->dev, irq_alarm,
-   353				stmp3xxx_rtc_interrupt, 0, "RTC alarm", &pdev->dev);
-   354		if (err)
-   355			return err;
-   356	
-   357		rtc_data->rtc->ops = &stmp3xxx_rtc_ops;
-   358		rtc_data->rtc->range_max = U32_MAX;
-   359	
-   360		err = devm_rtc_register_device(rtc_data->rtc);
-   361		if (err)
-   362			return err;
-   363	
-   364		stmp3xxx_wdt_register(pdev);
-   365		return 0;
-   366	}
-   367	
+Thinking some more, if other archs don't like rmem pool influencing the
+default swiotlb size, we could add a flag (SWIOTLB_SKIP_IF_RMEM_POOL or
+some better name). But only if people dislike the heuristics.
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+> @@ -437,9 +469,11 @@ void __init swiotlb_init_remap(unsigned int flags,
+>  		io_tlb_default_mem.phys_limit = ARCH_LOW_ADDRESS_LIMIT;
+>  #endif
+>  
+> -	if (!(flags & (SWIOTLB_INIT_ADDRESSING_LIMIT |
+> -		       SWIOTLB_INIT_CC_SHARED)) &&
+> -	    swiotlb_kmalloc_needs_bounce()) {
+> +	if (swiotlb_default_pool_needs_cc_shared()) {
+> +		io_tlb_default_mem.cc_shared = true;
+> +		swiotlb_adjust_cc_attributes();
+> +	} else if (!(flags & SWIOTLB_INIT_ADDRESSING_LIMIT) &&
+> +		   swiotlb_kmalloc_needs_bounce()) {
+
+I think at a high level, we need (i.e. separate attributed from sizing):
+
+	if (cc_platform_has(CC_ATTR_MEM_ENCRYPT))
+		io_tlb_default_mem.cc_shared = true;
+
+	if (cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT)) {
+		if (!restricted_dma_pool_present)
+			swiotlb_adjust_cc_size();	/* 6%, clamped */
+	} else if (!(flags & SWIOTLB_INIT_ADDRESSING_LIMIT) &&
+		   swiotlb_kmalloc_needs_bounce()) {
+		swiotlb_shrink_for_kmalloc();		/* 1MB per 1GB */
+	}
+
+-- 
+Catalin
 
