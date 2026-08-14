@@ -4,70 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37A50C5CFCF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 16:58:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFC6CC5CFC1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 17:00:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c+gXlhA8nFVi0NTGWLJwhB1fUYYRId0D+GL6W0Xogjo=; b=NBqm8dBP5tAar3BwOjVBeJuPWc
-	R8h9lmXkG39vUf9aBwhhnKaWpeQ+gVMQ8Vn5anEJ6ao25y/Hwvc0w++K9cm6y0COjo9BzeScBx023
-	jNfGq97OG140BoFIbV73xswUJd4SIe9jYxlrxEzMb8nlZQmrWv8RII7rELc/j5D+RjP32VTeu4Z5F
-	2TwYGqJtbCKS2mQJd/X51KajkwgNSOn0oL9S9q1K6ION2HdrR7Bl/sQQlwsWNCzdNW/cfde44eMTF
-	xfpoRbsxYfJn1aCKhbbDvEe2xznf98iRgDTNS2Ye13fhF1BJFRl5QDah0qZUGUptuvYfvLRwYvqSu
-	hdgIUDyw==;
+	bh=5h8TZyTAoXCJSe2JoTmpCYR1pmYfom6HhzPNs541mqc=; b=cf94RtjEB10SAnErx5z7Pj5pVi
+	v3GzN3xqmbgLa7MAjRNQz4/eugfDeNrrdhHeL3b8xIfOvvTbUrx1mI/a7XWCqShvR1AJ0BZ86OeRe
+	VAmDsCkvLsDlQev0kRtkWrTXGsROwmvWRGYfKKk0Cx98+VAtSyCWlJ62ZCh4FfC29ke7HXCQd0TyC
+	uT6bjdC0OWyEkBTxNeD3qEdbnxVLFaYZmC41X8euDUks4e6VlGWPa8RIsoE84pac+DY9Aq1LUmhKw
+	HiznNrpJbxoTQgIciMB9mbRGpzmg50OX+ijafn6RILyv/NZ8pvsfFjUbvD1lzp9ZnG8wb7HPOMth8
+	yHjmEa9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuvEt-00000002wuL-0tz5;
-	Fri, 14 Aug 2026 16:58:39 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuvEq-00000002wtw-1bKm
+	id 1wuvGW-00000002x2S-2KuK;
+	Fri, 14 Aug 2026 17:00:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wuvGV-00000002x2F-2QIC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Aug 2026 16:58:38 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0C0AB1596;
-	Fri, 14 Aug 2026 09:58:30 -0700 (PDT)
-Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D3EA93F632;
-	Fri, 14 Aug 2026 09:58:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786726713; bh=uBllJ/kQ24Mxwc6aiM69olWJy5qFzkEa5b9PK//GgIk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mfRdwd/UvqFh9+V93kh2ouAmmKKGikyurMG1NoN0DOeCELs0Uhk8AGUhZ8KxNZYS5
-	 P8r9ARNTgRz8q4re45FPgr+v1iwq0wgBSqd1Wi+k5lIvZTCK5zHP8PtUxwtizBw+1S
-	 V27T4NZ2Qbw72uJNefKwKwVh4c4R+JX1dX/9Sl4E=
-Date: Fri, 14 Aug 2026 17:58:29 +0100
-From: Alexandru Elisei <alexandru.elisei@arm.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: David Hildenbrand <david.hildenbrand@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>, pbonzini@redhat.com,
-	kvm@vger.kernel.org, maz@kernel.org, oupton@kernel.org,
-	joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, fuad.tabba@linux.dev
-Subject: Re: [RFC PATCH 0/3] KVM: Dirty page logging for guest_memfd-only
- memslots
-Message-ID: <an9JNUln8dKaidQc@raptor>
-References: <ak0ziUcCXUlDdcla@google.com>
- <ak-EKSslAz1uqEtv@J2N7QTR9R3>
- <ak_wC4Q-mQe14DI8@google.com>
- <alDI1b8fC99SG4_a@J2N7QTR9R3>
- <a127176a-1722-460c-aa84-754e1d343f53@arm.com>
- <an3sEiQlIuGEjUur@raptor>
- <b6080c23-a2a8-4bc5-b3bd-982bd766c648@arm.com>
- <an5UJ4S_P1LUFmzD@google.com>
- <487aa57c-72ad-453b-971d-ca24a8380429@arm.com>
- <an8SOvLybeilzCEU@google.com>
+	Fri, 14 Aug 2026 17:00:19 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9284260A77;
+	Fri, 14 Aug 2026 17:00:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1039E1F000E9;
+	Fri, 14 Aug 2026 17:00:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786726818;
+	bh=5h8TZyTAoXCJSe2JoTmpCYR1pmYfom6HhzPNs541mqc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=iYr4Y5Eh/+tycun1pMxUojBy/q6lPiP/keXRcHaBSkCOTsADvBhLlq+k7j88jjymh
+	 DDXubt+0LZkSN6Z13OvJ3eigY9EN1hRhm0cim5eRZrl2weUSwJc/Sb35LlzlPTOOKF
+	 Piycj7xXDFFeH49JTzrBnCtj1kvrd11LTxepjpWutUfA//aO4mCWwS807TwQzvsOOq
+	 S7JaEOBq8CgJ8mrw0eBmcaAr/7wSxTYrVWUjv1yv9JF89Mn2z5yZDKFPsNgusYJsMH
+	 rXsgxwZBSLlIydhx3Np+3edmXbhgfv+Hmg0esZ2rRDRS/VjQuGFDxrgntyW5z8Ld+3
+	 UHJTvK91M4aTA==
+Date: Fri, 14 Aug 2026 18:00:01 +0100
+From: Simon Horman <horms@kernel.org>
+To: phucduc.bui@gmail.com
+Cc: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Michal Simek <michal.simek@amd.com>, linux-arm-msm@vger.kernel.org,
+	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] net: xilinx: axienet: Propagate errors from
+ optional IRQ lookup
+Message-ID: <20260814170001.GQ265046@horms.kernel.org>
+References: <20260813042012.17631-1-phucduc.bui@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <an8SOvLybeilzCEU@google.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260814_095836_606163_51121008 
-X-CRM114-Status: GOOD (  30.47  )
+In-Reply-To: <20260813042012.17631-1-phucduc.bui@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,75 +74,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On Fri, Aug 14, 2026 at 06:03:54AM -0700, Sean Christopherson wrote:
-> On Fri, Aug 14, 2026, David Hildenbrand wrote:
-> > We have a hardware feature that requires pages to always be mapped into S2. Some
-> > things I had in mind:
-> > 
-> > 1) Page migration would not be a problem as long as hardware could be paused
-> >    while migrating (e.g., kick all vCPUs). I doubt someone would implement that
-> >    right now,  but you could consider it an implementation detail that page
-> >    migration cannot be supported right now.
-> > 
-> > 2) Newer hardware could mitigate this problem, allowing the feature to support
-> >    pages temporarily being unmapped from S2.
-> > 
-> > 3) Disallowing page migration is really just one implication of "pages must
-> >    always be mapped into S2".
-> > 
-> > So what we really want is "if feature X is enabled and hardware requires it,
-> > always keep pages mapped into S2, which currently implies that page migration
-> > cannot be supported."
-> > 
-> > Which isn't all that different to "if a confidential VM is run on current TDX
-> > hardware, always keep pages mapped into S2, which currently implies that page
-> > migration cannot be supported."
-> > 
-> > So I was wondering whether the flow could be:
-> > 
-> > User space enabled CPU feature for VM -> KVM knows that current hardware
-> > requires for that CPU feature to have S2 always mapped -> KVM tells guest_memfd
-> > that S2 must be always mapped / disables page migration.
+On Thu, Aug 13, 2026 at 11:20:11AM +0700, phucduc.bui@gmail.com wrote:
+> From: bui duc phuc <phucduc.bui@gmail.com>
 > 
-> I'm a-ok with adding a flag to guest_memfd to communicate whether or not page
-> migration is allowed, because guest_memfd needs to actively support page migration.
+> platform_get_irq_optional() returns a positive IRQ number on success or
+> a negative error code on failure. For an optional IRQ, -ENXIO indicates
+> that no optional IRQ is available, while other errors should be propagated.
 > 
-> I'm not ok adding a flag telling guest_memfd that memory must always be mapped
-> in S2, because guest_memfd doesn't care.  E.g. KVM doesn't yet support page
-> migration for SNP, but SNP tracks page ownership in an out-of-band table and so
-> KVM can map/unmap all guest memory from S2 at will.
+> Propagate all error codes returned by platform_get_irq_optional() other
+> than -ENXIO.
 > 
-> > That would be in contrast to user space having to guess that page migration on
-> > the current hardware with the current guest_memfd implementation does not
-> > support page migration, to then disable exactly that.
-> > 
-> > Does that explanation makes sense? I don't know the exact mechanism to do that,
-> > but that's just my high-level thinking.
+> Another call to platform_get_irq_optional() in the same function already
+> handles the return value this way. Apply the same error handling to this
+> call site for consistency.
+
+It would be useful to explain how this problem was discovered,
+and what testing the patch has seen. Please add an Assisted-by
+tag if appropriate.
+
+Link: https://docs.kernel.org/process/coding-assistants.html
+
 > 
-> Yes, I'm supportive of KVM expressing to guest_memfd that page migration isn't
-> supported by the VM.  I'm only objecting to expressing that memory must stay
-> mapped in S2, because guest_memfd doesn't care *why* page migration is or isn't
-> supported/allowed by a particular VM.
+> Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
+> ---
+>  drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 4 ++++
+>  1 file changed, 4 insertions(+)
+> 
+> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> index fcf517069d16..d23e9796725d 100644
+> --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> @@ -2957,12 +2957,16 @@ static int axienet_probe(struct platform_device *pdev)
+>  			lp->tx_irq = irq_of_parse_and_map(np, 0);
+>  			of_node_put(np);
+>  			lp->eth_irq = platform_get_irq_optional(pdev, 0);
+> +			if (lp->eth_irq < 0 && lp->eth_irq != -ENXIO)
+> +				return lp->eth_irq;
+>  		} else {
+>  			/* Check for these resources directly on the Ethernet node. */
+>  			lp->dma_regs = devm_platform_get_and_ioremap_resource(pdev, 1, NULL);
+>  			lp->rx_irq = platform_get_irq(pdev, 1);
+>  			lp->tx_irq = platform_get_irq(pdev, 0);
+>  			lp->eth_irq = platform_get_irq_optional(pdev, 2);
+> +			if (lp->eth_irq < 0 && lp->eth_irq != -ENXIO)
+> +				return lp->eth_irq;
+>  		}
 
-My naive contribution is this idea I had:
+The same check seems to have been added to both arms of the if/else
+condition. So it seems to me that it could be moved out of that condition.
 
-1. Userspace queries support in KVM for feature xyz by checking the
-capability KVM_CAP_xyz.
+I would suggest placing it below the existing rx_irq/tx_irq condition
+which appears a few lines below this hunk so that those and
+dma_regs errors are still propagated.
 
-2. Userspace knows that for feature xyz to work correctly, it is required
-that memory remains mapped at stage 2.
-
-3. Userspace creates a guest_memfd instance with the right combination of
-flags set and _unset_ for feature xyz to work correctly - i.e, to keep
-memory mapped at stage 2.
-
-For this to work, new guest_memfd features that might lead to memory being
-unmapped are enabled via a flag, and KVM keeps memory mapped at stage 2 by
-default, to maintain compatibility with an userspace not updated for the
-new features/flags.
-
-Thanks,
-Alex
+>  		if (IS_ERR(lp->dma_regs)) {
+>  			dev_err(&pdev->dev, "could not map DMA regs\n");
+> -- 
+> 2.43.0
+> 
 
