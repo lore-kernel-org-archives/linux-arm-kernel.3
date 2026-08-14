@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E399C5CFC1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 22:25:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46351C5CFC1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 22:25:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Plrr8k8PwbP0asNK8PLRLisKRR82MlkAeS358DI6Z6Y=; b=PTW+pJXrzfv4M3WXcOf5PMRaSg
-	MBp7SFpmVZJ4yBTX44P2jPevSHAeudXKbGKW5wg8mWM+qheilwlBgCNeYAvbXZc0urkPHGAqFNPPm
-	ahMy38PjBe3zPkolJiNODPRPYlBxYy+ttwl7lIDcXmoo1e3/CEEUlT6casJqFUijrT8oHYWS/MEaS
-	CzZoONfGY2AnAymRJtbziCEjh1Irwt2uK+IGpusNDIGhCsZtAg9TMeCk7VYFLLfqYD9Q6LKHXR15T
-	gJQignROLycJoOhkJ4eCYlRyJXeEYxvG/8g0AUisBPEIEP9xmRRRMb6QwgdpRqiqVxjDmEJCBVnly
-	67ronCGg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NvLNxlmMyt+cxE5XosXfxUx14GRFshdQalaes2tE9kU=; b=SwIuX2vJKxOCAWvRKVqW8qfUOh
+	X16KfkE/nYrMwaqSVnqTPY5ILo7EUmO8BG+60Zs3tTKUYIF3RezyK1+5SUDx+8PWk5mc0KM/Wortj
+	Z5e8Foc0CTEfZI2DEBjctO7dzkLTMKYAoj/FJc6eUImYaU8s3Sxu16i5jlrZMMzmTZRy4TOG5z0Wn
+	JCZuIGdFQbOBN7H2uW/v8O0uoyowUucht7TVui8l71Q3rB3h8IXe+VgJKxppPyeHmMuCpGcc6fgis
+	z0CzkKXvPjopGWH/NGmw+vNRnzWhqN+fOxFJHjmZB6bBOdV5pTd5Uu7K5O2PfTWoV/JUgcNarKBT8
+	IvAc1r7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wv0LF-00000003GT0-3acM;
-	Fri, 14 Aug 2026 22:25:33 +0000
+	id 1wv0LK-00000003GU5-3yDW;
+	Fri, 14 Aug 2026 22:25:38 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wv0L9-00000003GS8-23GE
+	id 1wv0LC-00000003GSf-3lZ9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Aug 2026 22:25:29 +0000
+	Fri, 14 Aug 2026 22:25:34 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 54F181BCA;
-	Fri, 14 Aug 2026 15:25:21 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DAC6B1CDD;
+	Fri, 14 Aug 2026 15:25:24 -0700 (PDT)
 Received: from workstation-e142269.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 091D93F632;
-	Fri, 14 Aug 2026 15:25:21 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 93FB83F632;
+	Fri, 14 Aug 2026 15:25:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786746325; bh=6/V4aV3g0qBuiI8PmXGjHqwJRwdTQPSXQ+huEkBWn6M=;
-	h=From:To:Cc:Subject:Date:From;
-	b=gkLremvsiYLZ1ce5HKb0X2QbVeMJPn/ITko7pdh9kZC0H1Cz7GK6xNHbQ3Rz3126P
-	 Xf3PwClxmIjqS3PmDICtaH2bKpYMGPT5omfmhabRR6lgmnBBv+4/LuEfnnJKFmPUh+
-	 t5ITEnbKscduYz0JubZxreNQV9q/7x9w5ikpMGt4=
+	t=1786746328; bh=W5P8QTaXkp+Wayx8mSPrX6v9guhFOjhs2fEdIvE2d+I=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=P875o408mULJ47Elq+B1BKlLtQSMKs0kL/5VA2/wPLn+jp5uHbbdiUQJA1T3Ko90A
+	 t8UttLJy2+zW+9H8GIUZdEB2BXXm3ytXaXMZ7PfEUryUDv4BD7t6HlVToJ0P+GUjGZ
+	 aWEjVrr9leBaf+80MjWemSkbyIGa8ZOJK8rSFGQM=
 From: Wei-Lin Chang <weilin.chang@arm.com>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
@@ -63,15 +63,17 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	Vincent Donnefort <vdonnefort@google.com>,
 	Sebastian Ene <sebastianene@google.com>,
 	Wei-Lin Chang <weilin.chang@arm.com>
-Subject: [PATCH v3 0/2] arm64: ptdump flush fixes
-Date: Fri, 14 Aug 2026 23:24:56 +0100
-Message-ID: <20260814222458.584906-1-weilin.chang@arm.com>
+Subject: [PATCH v3 1/2] arm64: ptdump: Make note_page_flush() range aware
+Date: Fri, 14 Aug 2026 23:24:57 +0100
+Message-ID: <20260814222458.584906-2-weilin.chang@arm.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260814222458.584906-1-weilin.chang@arm.com>
+References: <20260814222458.584906-1-weilin.chang@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260814_152527_701335_011DBBA7 
-X-CRM114-Status: GOOD (  13.40  )
+X-CRM114-CacheID: sfid-20260814_152533_045788_D641AA85 
+X-CRM114-Status: GOOD (  17.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,66 +88,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+note_page_flush() calls note_page() with addr == 0 and level == -1 to
+dump the last row of a ptdump. addr == 0 (1 << 64 wrapped around)
+renders a huge region with enormous size for address spaces with
+IA bits < 64. For example the stage-2 page tables and the EFI runtime
+page table.
 
-This series fixes two problems around ptdumps:
+More importantly, the last region of the address space and everything
+after the address space up to 1 << 64 are merged into one row of
+output. If the last region within the address space is valid, it will
+appear to remain valid up to 1 << 64 with the same attributes.
 
-1. note_page_flush(), which flushes out the last row of ptdumps, does
-   not account for address spaces that have IA < 64. Other than making
-   the last region extremely huge, the attributes of the last region
-   within the address spaces appear to extend all the way to 1 << 64.
+Currently only the EFI runtime ptdump is affected by this, but KVM will
+soon fix its stage-2 ptdump by using note_page_flush(). Here is an
+example of an EFI runtime ptdump (last row):
 
-2. KVM/arm64's stage-2 ptdump missed calling note_page_flush().
+0x0000008000000000-0x0000000000000000   17179868672G PGD
 
-To address Will's comment [1], I have created an end_address field for
-struct ptdump_pg_state, and initialized it with the end address of the
-ptdumps. It follows the same convention as the last range->end:
-exclusive end, except for the case where the address space ends at
-1 << 64. In that case it is set as ULONG_MAX.
+With this patch:
 
-Caching the end address avoids duplicating the range iteration in
-note_page_flush(), at the cost of duplicating state in ptdump_pg_state.
+0x0000008000000000-0x0001000000000000      261632G PGD
 
-Series is based on v7.2-rc5.
+To fix this, cache the end address of a ptdump in ptdump_pg_state so
+note_page_flush() can call the final note_page() with the correct end
+address.
 
-* Changes from v2:
-
-  - Instead of scanning ptdump_state.range[] to find the end address,
-    cache the end address in a new field end_address when we initialize
-    struct ptdump_pg_state.
-
-  - Adjust KVM's struct ptdump_pg_state initialization so it uses
-    end_address instead of ptdump_state.range[].
-
-  - Collected Reviewed-by and Tested-by from Dev, thanks!
-
-  - v2: https://lore.kernel.org/r/20260724185431.2990395-1-weilin.chang@arm.com/
-
-* Changes from v1:
-
-  - Instead of manually calling note_page() for flushing, fix
-    note_page_flush() so that it ends the ptdump at the end of the
-    address space.
-
-  - Changed the start address of the second marker to ULONG_MAX for KVM
-    ptdump, so we don't output extra marker names, and advance past the
-    end of the marker array.
-
-  - v1: https://lore.kernel.org/r/20260717231233.2299068-1-weilin.chang@arm.com/
-
-Thanks!
-
-[1]: https://lore.kernel.org/r/anXFo-igVdqrCogQ@willie-the-truck/
-
-Wei-Lin Chang (2):
-  arm64: ptdump: Make note_page_flush() range aware
-  KVM: arm64: ptdump: Flush the last region
-
+Fixes: 9d80448ac92b ("efi/arm64: Add debugfs node to dump UEFI runtime page tables")
+Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+---
  arch/arm64/include/asm/ptdump.h |  2 ++
- arch/arm64/kvm/ptdump.c         | 11 +++++++----
  arch/arm64/mm/ptdump.c          | 14 +++++++++++++-
- 3 files changed, 22 insertions(+), 5 deletions(-)
+ 2 files changed, 15 insertions(+), 1 deletion(-)
 
+diff --git a/arch/arm64/include/asm/ptdump.h b/arch/arm64/include/asm/ptdump.h
+index 5b374a6ab34a..1b743de7d89e 100644
+--- a/arch/arm64/include/asm/ptdump.h
++++ b/arch/arm64/include/asm/ptdump.h
+@@ -52,6 +52,8 @@ struct ptdump_pg_state {
+ 	const struct addr_marker *marker;
+ 	const struct mm_struct *mm;
+ 	unsigned long start_address;
++	/* exclusive end, ULONG_MAX represents an end at 1 << 64 */
++	unsigned long end_address;
+ 	int level;
+ 	ptval_t current_prot;
+ 	bool check_wx;
+diff --git a/arch/arm64/mm/ptdump.c b/arch/arm64/mm/ptdump.c
+index 1c20144700d7..eab400e744d9 100644
+--- a/arch/arm64/mm/ptdump.c
++++ b/arch/arm64/mm/ptdump.c
+@@ -278,9 +278,19 @@ void note_page_pgd(struct ptdump_state *pt_st, unsigned long addr, pgd_t pgd)
+ 
+ void note_page_flush(struct ptdump_state *pt_st)
+ {
++	struct ptdump_pg_state *st = container_of(pt_st, struct ptdump_pg_state, ptdump);
++	unsigned long end = st->end_address;
+ 	pte_t pte_zero = {0};
+ 
+-	note_page(pt_st, 0, -1, pte_val(pte_zero));
++	/*
++	 * Address spaces that end at 1 << 64 have end_address == ULONG_MAX,
++	 * but note_page() expects the exclusive end. In this case adjust end
++	 * to the wraparound value 0.
++	 */
++	if (end == ULONG_MAX)
++		end = 0;
++
++	note_page(pt_st, end, -1, pte_val(pte_zero));
+ }
+ 
+ static void arm64_ptdump_walk_pgd(struct ptdump_state *st, struct mm_struct *mm)
+@@ -303,6 +313,7 @@ void ptdump_walk(struct seq_file *s, struct ptdump_info *info)
+ 		.marker = info->markers,
+ 		.mm = info->mm,
+ 		.pg_level = &kernel_pg_levels[0],
++		.end_address = end,
+ 		.level = -1,
+ 		.ptdump = {
+ 			.note_page_pte = note_page_pte,
+@@ -344,6 +355,7 @@ bool ptdump_check_wx(void)
+ 			{ -1, NULL},
+ 		},
+ 		.pg_level = &kernel_pg_levels[0],
++		.end_address = ~0UL,
+ 		.level = -1,
+ 		.check_wx = true,
+ 		.ptdump = {
 -- 
 2.43.0
 
