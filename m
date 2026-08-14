@@ -4,71 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00473C5CFC1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 11:38:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98387C5CFDB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 11:44:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VxlozOHTV0l7kH01VkY8gMQr+CBC1D950EXG7JLaJQA=; b=49JShk6v3w9ms/46Ai/uurwK5g
-	llr6hFAtoUtHPA68O076j9t+MwwBIajacxQMcy99cEhQGz/eIwSPOnIbjUDaEDY29XqYOhBuNwxvq
-	rRfCj23ROUKdE3kea+u4BJ6TTYf5fbJ73DLXwsr8gH13UTkR0Ym1NPLFesw8d1R9YhypwjGM8UnLs
-	tzizMJjivZJaqsoUB6Ca3EXunyqCAUpXvN4URTXdqgn//qedzZX5guD1LF/N13wWQq7/YVgi7ONck
-	AuSbSS2SfQ4cGY2GlACBufvdGbdgr7dKlvsJQxJs1Y6DPy0XN4CxtxXi9K5oHdRLvHhTIhmAAZkrV
-	q94i4m1Q==;
+	bh=6NSKeVHpKMlrgd5XGjdCINGiyAv0DgmCBlJEfaodfrE=; b=3Mj940EbGtKFMsoNE44zPWNL7m
+	5VAF2JIpKOJwAwp9D7QZDJ/wv/1i63waRpJjNCgDz0mWU1iZE5/OXyKXu8c6ygI9+2beIxuABPi70
+	V9LpBRCy0JOL7U3M3MikRxie4IUU99tv4jbWNXHcG3//bsTyan6pLqVYnBbDCXn5H3MXC8ygkFqS9
+	0d3Mk78bxFTwYfEy4rZdYpSvc8TDxEAfds7BTbrn8Ua/kb1mpO7+xb40KIjybyO6z8hxA+Z/bAo70
+	ghH1/aDG9vTVKoMwyXQ7O7V2WtL+dRagGK7uJ7CZOXWtX+5p7EpaYc2of9cWaBozv+fncBORaFRCO
+	1C1km50Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuqEl-00000002bFw-3WCz;
-	Fri, 14 Aug 2026 11:38:11 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wuqKs-00000002bU8-2x5C;
+	Fri, 14 Aug 2026 11:44:30 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuqEl-00000002bFn-13Vp;
-	Fri, 14 Aug 2026 11:38:11 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 40C85600C3;
-	Fri, 14 Aug 2026 11:38:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F16A1F00A3F;
-	Fri, 14 Aug 2026 11:38:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786707490;
-	bh=VxlozOHTV0l7kH01VkY8gMQr+CBC1D950EXG7JLaJQA=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=KepxzxOdSYKlibc5rEqXOGzBXVMFs1aQ1AWkQvi595DOpbfObOGWdjN1Mc78QnPxf
-	 CV6LbtEgYVhqByWeVVFCwzbE+vyfMQUqNunj2/5vGwu1hFYOwZHh43k67r52FshhyS
-	 FVwAoFhKIxCB9dYoLpCWOs0dh/il8BKHZAPgpAWboFG+BfaHSEfwyyjhca3erZarrB
-	 ymKGZb5iU0F+Vu+ZyEW9p4NUHFUEYDmTEjt79GSDWwVSKJTkub9/jb70BeNbGtQXTJ
-	 wM5jHPePD3YVU8y8V3hwuHP6NFTP3rXTC8OrMmO2RuJXFgfiZPWwr92Vs1XIZzi+Bk
-	 7Kqrz048g5HMw==
-From: Mark Brown <broonie@kernel.org>
-To: Nicolas Frattaroli <frattaroli.nicolas@gmail.com>, 
- Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
- Takashi Iwai <tiwai@suse.com>, Heiko Stuebner <heiko@sntech.de>, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
- linux-rockchip@lists.infradead.org, phucduc.bui@gmail.com
-Cc: linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org
-In-Reply-To: <20260806052136.21034-1-phucduc.bui@gmail.com>
-References: <20260806052136.21034-1-phucduc.bui@gmail.com>
-Subject: Re: [PATCH 00/14] ASoC: rockchip: Simplify probe error handling
-Message-Id: <178663242938.110398.4616104123339333100.b4-ty@b4>
-Date: Thu, 13 Aug 2026 15:47:09 +0100
+	id 1wuqKp-00000002bTk-2KiF
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 14 Aug 2026 11:44:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=eVOi6DZ5uMNWMjbQJvHuay3iYhj24wcjYgzpdcM5KgLOjQp3fA6ts/EVB+tcUDQFCiXdRn54wZEDqxynBVVNBUAzIsghk13LylU6pyFN9nzqup3Ea0bGp9I1dXLy/d3VpqD/Nwr8B5GDGjAyUdhQEN4AcqKbAOmgdvWH4MOP4YXNX2wIKx8EIyoi3+8gukBXF+U4cUiQFvc7DJg8vdeDPUmVGc/HnH8Xr3e0/F3JcpXWLqi6zVxQVN3+5JZyOsB8wUNK6uK9BQZExfmUnXB0msviJgjsbpk5Ce8pAjE46CZZEy/efKGYT5bYX4dTrzIwgEQieS3gD4bZ6M2vfhmwkg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6NSKeVHpKMlrgd5XGjdCINGiyAv0DgmCBlJEfaodfrE=;
+ b=Ge5cO+zRmud+Iwd7hIEtyVGiisGJCrE2eIBxFW2pbpcu+GW8Pj72F1W42l4YAChxeyfjOvm3Iid7qWS3ENZIEB5MRwbZln3wsPoYSuFSI7t653+PpRaNWMTBPJJUgqE2o4khEBy+igT11f1CrL647PJhP4dMuMsNbaunqvwApMPa5APC4tNo4yXaCsRgNrkrx1HNvCItvxGBpHpHRHVbv90UHRflPDoaEUzhIq6UMrYKIXjIOwJUFzeaxBRTjDPXyJ4tK35H7fzHaLSxlCy9K6QjSSWIZDipcfc7A2UOJv6EptZKuZjBuKp6ENfdE9ctpRPVKhk/KdeVbZJl2MUCTA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.60) smtp.rcpttodomain=gmail.com smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6NSKeVHpKMlrgd5XGjdCINGiyAv0DgmCBlJEfaodfrE=;
+ b=lYgkHPpkYOCUL8SUHHWOl3yuS6d+ukgLM8m8ZZ9PE8xaXHuP4YKJZ3yOXta3R7UztQupFnIWKaVTUdZKnCC7qMMRTgxdkSLNw7AN4jGu69MZFPDSQLmfdpwAOdx2B+loUhyLfit6rXPdGz5ljctaxPxBIsIhg5aauZuUB21tPKHeltzzzk9O5CryRA9jpTKO1faa7t++ZOIESMLNFN6424lb0L6fUAUbooGQzc79/rQwQAf/Me8x2CeF35vD4Ln4OrUQ4DrvLT6TrCsOxsFCgZWSsuLeMEC6k6gzXiPSEGzHcizlwkJteOtvPGIveIJNfyR/vXmSFi0ijFeihvbZTg==
+Received: from AM8P189CA0019.EURP189.PROD.OUTLOOK.COM (2603:10a6:20b:218::24)
+ by AMCPR10MB992216.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:783::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.16; Fri, 14 Aug
+ 2026 11:44:21 +0000
+Received: from AM3PEPF00009B9B.eurprd04.prod.outlook.com
+ (2603:10a6:20b:218:cafe::99) by AM8P189CA0019.outlook.office365.com
+ (2603:10a6:20b:218::24) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.315.15 via Frontend Transport; Fri,
+ 14 Aug 2026 11:44:21 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.60; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.60) by
+ AM3PEPF00009B9B.mail.protection.outlook.com (10.167.16.20) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.339.3 via Frontend Transport; Fri, 14 Aug 2026 11:44:21 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
+ (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Fri, 14 Aug
+ 2026 13:49:17 +0200
+Received: from [10.48.86.103] (10.48.86.103) by STKDAG1NODE2.st.com
+ (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Fri, 14 Aug
+ 2026 13:44:19 +0200
+Message-ID: <a9038d8a-cc47-4c06-8e52-0e645d2e1d23@foss.st.com>
+Date: Fri, 14 Aug 2026 13:44:19 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3083; i=broonie@kernel.org;
- h=from:subject:message-id; bh=X+bkHMIykGMfgTnFl5dYB3gFs/d1nAs0ablI5dIyuq4=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqfv4dF0ELklDTaytUOl3gquXr3axUlVMYXBwQo
- 1zxlqyUExOJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCan7+HQAKCRAk1otyXVSH
- 0GiuB/4+eK/zn9anwX0PkYIkZrXfGhmYu9bJt/AudK1M4kG6Hscfr/jvlLrncqp0ySlP4PrVWZo
- y19XgIcfarO6vNf9pESDLYcK4TbEopvlwz1AimPqRRjFMUDVapCXMcA2XASw/JgwQ1HEHNB2hKW
- xRQMiNQe4DPLp6npE4yZVxMDChCMHuleA2qEGbioQGc+8dEDyzN0CkIJPa3koXXXMgai0SnIkc+
- lK/1rNPaXlqCdq/oCr0xhi5kVmMQH1lla/liD6ajFrGVQU/Xj3Bz22rRhLfv2Stqed1Y28Tt/bn
- NZhofyWyJK5k3oUKIBtzLsE6J4ZHJy9BNEnSUeWuMxAD2tW1
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] crypto: stm32/cryp: fix autosuspend cleanup during
+ teardown
+To: Guangshuo Li <lgs201920130244@gmail.com>, Herbert Xu
+	<herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+	<alexandre.torgue@foss.st.com>, Thorsten Blum <thorsten.blum@linux.dev>, Kees
+ Cook <kees@kernel.org>, Colin Ian King <colin.i.king@gmail.com>,
+	"lionel.debieve@st.com" <lionel.debieve@st.com>,
+	<linux-crypto@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+CC: <stable@vger.kernel.org>
+References: <20260808093623.2744314-1-lgs201920130244@gmail.com>
+Content-Language: en-US
+From: Maxime MERE <maxime.mere@foss.st.com>
+In-Reply-To: <20260808093623.2744314-1-lgs201920130244@gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.48.86.103]
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
+ (10.75.128.133)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM3PEPF00009B9B:EE_|AMCPR10MB992216:EE_
+X-MS-Office365-Filtering-Correlation-Id: 511cee6a-4e8d-4609-ef73-08def9f96194
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|82310400026|376014|36860700016|1800799024|7416014|10067099003|56012099006|11063799006|18002099003|22082099003|921020;
+X-Microsoft-Antispam-Message-Info: 7RwLAZrhEEwcUJN1rMb6Ac6RCHB9577url9Ewg8rloBD+WIMFFPFvj+tCbbTrGxdMpWa2WTlpDvXajW02rAWKCoKXuGLzil8E3A/uhYby2MGlBH0zBbNFIIohd7SKop9KeNTXBk/3nEdW6tV0KcCkQqfQKYuse9ysKXWkpz8qIaoiBv3oxMKmaV1pZzti+Yw5zd4I3v7Ls467X/pOeLZgT/r3vruCSW3QkFL48yFNtkyIADlz5W4ygVaXrOryESXcBHAKq4+fEZpUpEXSmqm7/PvD6rkcEGIvay0AzOWh31kkDVSJz4p/tH7VKlYrq8kdrDxBiLhYyhWZE1N87BeyFOV4Ij+y7Q1lgzq4CYhl+IwtiVFh0jRlDu6SRwjeo9bsilBpA0SLN9Ho8CML0DzZy9buDk0Xi7WwjuindqYy0Y+O6lN4Y/90TlURQjmIjnWytn0qMijWPrYzzveI2XdKz+Jfc7Gkkc9eon51paNjjWq3W57mF72LqzaxmqCHtFYZSO2Xt3XIKRHBYPUSmvPKP8AnYtXmczZhJSaDFg0rWvuhuCXb6smwLjuoyJtR8ffzDi4iX2oaGHeVDbhupFzbo3uzVN9StTO94WaYs8WmHLWVTEnkgdKaq/3vae9xjUxhHnrbAZCzViUh+khYjxnbOldxaq4Q+oPLHcdkpknIU6fc4VNncsKBVaiNwsl4AHg1lSJaYLY2eQJATFNwUjliDk5KKHm1aSL3vLCeroNJwiKmQxsbTUw0ouqCfaH46cV
+X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(376014)(36860700016)(1800799024)(7416014)(10067099003)(56012099006)(11063799006)(18002099003)(22082099003)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: JLxAM44Jgc998VwK1Xyzi/9DQHQQd3KGcabyByKzAf5VeE2hQVEXC8P1NDfGjd27dFGqcRruTAyZ882f7oyIX7T3mgkMGnT2ke4zHrcDu2hmGHUNpipU8vYH79Xbqe6nZQZ/w0dHg8XrkZfxuD+i5jO03XkSNJs/5R2j+qFrJuTGHOPb1EZ+ClWn1YozYd2KIvTOhk8Tln3BWLtXtya2NAuGZTrCxX8fSy/7XHEOToqAkqbVZRqM4RTWlqBF2gC1rh4SOdsuOHw+xKfBWZjRaS20dtV1SC6cWZHswyyvtX07eSJgQwkOTg5vqQToUwapcvUMSz2d3euETQUB2A9SXUZAFOVt6wNO5PvFxpgBiKur5pxavci1rWzCCDrG/pZ9ZLKwl4BnBMj864c0sg1ijxSHx4RYAah8NYSdYkXQGkWbwsMnYkGMizHxway/wGUk
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Aug 2026 11:44:21.1672
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 511cee6a-4e8d-4609-ef73-08def9f96194
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: AM3PEPF00009B9B.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMCPR10MB992216
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260814_044427_895881_EC47032A 
+X-CRM114-Status: GOOD (  14.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,69 +133,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 06 Aug 2026 12:21:22 +0700, phucduc.bui@gmail.com wrote:
-> ASoC: rockchip: Simplify probe error handling
+
+
+On 8/8/26 11:36, Guangshuo Li wrote:
+> stm32_cryp_probe() calls pm_runtime_use_autosuspend(), but neither the
+> probe failure path nor stm32_cryp_remove() calls the matching
+> pm_runtime_dont_use_autosuspend() before disabling runtime PM.
 > 
-> From: bui duc phuc <phucduc.bui@gmail.com>
+> If the autosuspend delay is set to a negative value while autosuspend
+> is enabled, the runtime PM core increments usage_count to prevent
+> runtime suspend. Without calling pm_runtime_dont_use_autosuspend()
+> during teardown, this reference is not dropped and usage_count remains
+> unbalanced.
 > 
-> Hi all,
+> Add the missing pm_runtime_dont_use_autosuspend() calls to both the
+> probe failure and remove paths before disabling runtime PM.
 > 
-> This series simplifies probe error handling across Rockchip ASoC drivers.
+> This issue was found by manual code inspection.
 > 
-> [...]
+> Fixes: 65f9aa36ee47 ("crypto: stm32/cryp - Add power management support")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
+> ---
+>   drivers/crypto/stm32/stm32-cryp.c | 2 ++
+>   1 file changed, 2 insertions(+)
+> 
+> diff --git a/drivers/crypto/stm32/stm32-cryp.c b/drivers/crypto/stm32/stm32-cryp.c
+> index b79877099942..74f6e329b1fa 100644
+> --- a/drivers/crypto/stm32/stm32-cryp.c
+> +++ b/drivers/crypto/stm32/stm32-cryp.c
+> @@ -2691,6 +2691,7 @@ static int stm32_cryp_probe(struct platform_device *pdev)
+>   		dma_release_channel(cryp->dma_lch_out);
+>   err_dma:
+>   err_rst:
+> +	pm_runtime_dont_use_autosuspend(dev);
+>   	pm_runtime_disable(dev);
+>   	pm_runtime_put_noidle(dev);
+>   
+> @@ -2722,6 +2723,7 @@ static void stm32_cryp_remove(struct platform_device *pdev)
+>   	if (cryp->dma_lch_out)
+>   		dma_release_channel(cryp->dma_lch_out);
+>   
+> +	pm_runtime_dont_use_autosuspend(cryp->dev);
+>   	pm_runtime_disable(cryp->dev);
+>   	pm_runtime_put_noidle(cryp->dev);
+>   
 
-Applied to
+Reviewed-by: Maxime Méré <maxime.mere@foss.st.com>
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.3
+Cheers,
 
-Thanks!
-
-[01/14] ASoC: rockchip: rk3288_hdmi_analog: Drop redundant probe error messages
-        https://git.kernel.org/broonie/sound/c/931f4a1223e1
-[02/14] ASoC: rockchip: rk3288_hdmi_analog: Use dev_err_probe() for error handling
-        https://git.kernel.org/broonie/sound/c/06f5854050f5
-[03/14] ASoC: rockchip: rockchip_i2s: Use dev_err_probe() for error handling
-        https://git.kernel.org/broonie/sound/c/b5e4b1159743
-[04/14] ASoC: rockchip: rockchip_i2s: Drop redundant probe error messages
-        https://git.kernel.org/broonie/sound/c/c1bf7ae0c87a
-[05/14] ASoC: rockchip: rockchip_i2s: Propagate -EPROBE_DEFER from devm_pinctrl_get()
-        https://git.kernel.org/broonie/sound/c/be4f82d15235
-[06/14] ASoC: rockchip: i2s-tdm: Inline PTR_ERR() in dev_err_probe()
-        https://git.kernel.org/broonie/sound/c/334d5ea7582b
-[07/14] ASoC: rockchip: i2s-tdm: Drop redundant probe error messages
-        https://git.kernel.org/broonie/sound/c/9fea4805ed95
-[08/14] ASoC: rockchip: rockchip_max98090: Drop redundant probe error messages
-        https://git.kernel.org/broonie/sound/c/de983524dcbe
-[09/14] ASoC: rockchip: rockchip_pdm: Drop redundant probe error messages
-        https://git.kernel.org/broonie/sound/c/7d3f7eb890f1
-[10/14] ASoC: rockchip: rockchip_rt5645: Drop redundant probe error messages
-        https://git.kernel.org/broonie/sound/c/b300f1313b00
-[11/14] ASoC: rockchip: rockchip_sai: Propagate -EPROBE_DEFER from IRQ lookup
-        https://git.kernel.org/broonie/sound/c/c97bdbf862c6
-[12/14] ASoC: rockchip: rockchip_sai: Return the original error code
-        https://git.kernel.org/broonie/sound/c/7a2229ef7cdb
-[13/14] ASoC: rockchip: rockchip_sai: Drop redundant probe error messages
-        https://git.kernel.org/broonie/sound/c/26c9632c33f7
-[14/14] ASoC: rockchip: spdif: Return the original error code
-        https://git.kernel.org/broonie/sound/c/5784ef446847
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+Maxime
 
