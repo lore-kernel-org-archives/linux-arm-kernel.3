@@ -4,49 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC34AC5CFC1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 09:46:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3A9CC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 09:47:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Subject:To:From:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Cc:Subject:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KPg8nILUcOooqlBYT8gSbRBkSFUAig//QvA2dFcQs9E=; b=DnZAH8VIFzq+GSKsoXF542vvq2
-	GuNbj0caiW/byomWrkkftpbX5+J8/6Kxrf2QV1kmL3puETwCbHKyVzpRxn8xHjrFak6GfVAkwFJ8s
-	9Y7YXRQ17YbHefrr1hR2paG9EEvXXK4HLAI1C15cCDeN4cIOBJztwwx/eHz3sDdukG/QZzUwrUwuL
-	AXNE2fai0mkTnDMc1kPwINCFL2xNRHDzRGCUpGKNbP4fITtt9S5opi+06X5NPCyOXqDsljsVaS1ow
-	KDiLMgQ+Uau55oSG2QxYbb+ISWxwSTF3iru+Hg9lNJPP0GXR9vR24SYSvhzCxbstuE5qCvHa8OJlc
-	szsTMkbw==;
+	bh=0AZFghz+RNQCbq2ZIEb8z7RSEcxe+KsWfb8rITQo3NQ=; b=1JaJxFF2gu90iYo5s0yTyGsTk4
+	LaAze1FJpPg4EqOU3GvbpwIKMlNEeR7VQsGXa7bz+ZR32C/COdC2jQx3ghABkQr/wu/5ldJiPxHkr
+	XtLYaXTAdjEFmYnIwdhdQ0qPJ1uIYGDSVu0MXpe/aU+Wpav2qev0k8jUkuzcnm/Vs0m0x5xJMBimJ
+	3tWyVewSMTc+CR+Ta02x+rkrkIjfpr7lgjMkvqWar1xK3GSxxsORF36P0tzJW+3WBY6H3l+Bv3Vef
+	7WZiNxXhGg8a6qrZbzxZO7Vltk+j79K1PdcHYt9BEUzfZdw8LwWi8cwNtbWngM0qAxbV8Z2zWNZSC
+	OpvE/+1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuoUp-00000002Qu8-3SEh;
-	Fri, 14 Aug 2026 09:46:39 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wuoV8-00000002R1v-0eJg;
+	Fri, 14 Aug 2026 09:46:58 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuoUo-00000002QtQ-2Au2;
-	Fri, 14 Aug 2026 09:46:38 +0000
+	id 1wuoV6-00000002R1K-0ka8;
+	Fri, 14 Aug 2026 09:46:56 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with UTF8SMTP id 33E734357A;
-	Fri, 14 Aug 2026 09:46:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 890321F000E9;
-	Fri, 14 Aug 2026 09:46:37 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with UTF8SMTP id 9E3C760204;
+	Fri, 14 Aug 2026 09:46:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id C948B1F000E9;
+	Fri, 14 Aug 2026 09:46:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786700798;
-	bh=KPg8nILUcOooqlBYT8gSbRBkSFUAig//QvA2dFcQs9E=;
-	h=Date:Cc:From:To:Subject:References:In-Reply-To;
-	b=OoyYCZhovfVfwLEBh1P8QJ08ZdIQuVp9B3+bg6n3fdLTVpjkNeTux1fr+SAZeozkw
-	 NKtluWWONlhHdev/1bXs5NWxVfgT2CiygN+2nKcZ5nPfRL798Jpq40gZMRD52aW0TQ
-	 jrwacuYdHsqsgC4qZfGULVdCMFmDiEfzEDA9s3SJ4ZDu2dM1Uqjw6l1LEeJ0BW7m2V
-	 xCbe2Y+oesaf8qAlujQWEHI9Ji0oTG/GdTIXixzLXnWkD2Ddmwqw1ULWY6RdtO7/mI
-	 Gch1NGITt0oNSPk+gLlNCUgjbrhVkZ5auJ2ld+lJLOjPvoHPA1ZXIOEVScQSnJbK75
-	 MomlPbZ2Xqqog==
+	s=k20260515; t=1786700815;
+	bh=0AZFghz+RNQCbq2ZIEb8z7RSEcxe+KsWfb8rITQo3NQ=;
+	h=Date:Subject:Cc:From:To:References:In-Reply-To;
+	b=FS/lIb9pReWZN+TBA9qUqNXEeoyBSx11+UkZvshZV3Cv/XOvCuwib9zn3PVyDW1/9
+	 X3iRNEvnNmQEXwIJWkdzIDezyGojOIBRPUFbnXC03aE5IF9ZtnMVnX1ppkpbRBF9E6
+	 GumPsLr2iIE+Ci7x7VR1i5RKsg9Gei1WvYx0DLx48dTi68L1PpISOKHRZzgUKXIhNN
+	 Y8wDzt22pWopz0wslvEt+ydn3aa9PNwmX5PolYOGM4vvWpusk24yvz4aJJE0DukW89
+	 Sm7ds2t0gUcjtjqlq8GN40H5A3QujKevyn4AWA4FVJEtLTJIy+3Ar+XAWE/brBo9EN
+	 qEVZ8tNZpf3SQ==
 Mime-Version: 1.0
 Content-Type: multipart/signed;
- boundary=f335931778a6064751da4e78495df9e32cacdc8b42157fcea702eb3bb32b;
+ boundary=6d7a27eaea88826756201dafa9b49ce1dd6f000b339f2049eee656850130;
  micalg=pgp-sha384; protocol="application/pgp-signature"
-Date: Fri, 14 Aug 2026 11:46:34 +0200
-Message-Id: <DKOKKLO117YI.2IPV0PKS6CVRE@kernel.org>
+Date: Fri, 14 Aug 2026 11:46:51 +0200
+Message-Id: <DKOKKTM4UCIG.14QV6331B2K7U@kernel.org>
+Subject: Re: [PATCH v3 10/23] mtd: spi-nor: winbond: Add support for
+ W25Q64RV-Q/N
 Cc: "Steam Lin" <STLin2@winbond.com>, "Hsin-Yi Wang" <hsinyi@chromium.org>,
  "Thomas Petazzoni" <thomas.petazzoni@bootlin.com>,
  <linux-mtd@lists.infradead.org>, <linux-arm-kernel@lists.infradead.org>,
@@ -59,11 +61,9 @@ To: "Miquel Raynal" <miquel.raynal@bootlin.com>, "Pratyush Yadav"
  "Alexandre Belloni" <alexandre.belloni@bootlin.com>, "Claudiu Beznea"
  <claudiu.beznea@tuxon.dev>, "Jonathan Corbet" <corbet@lwn.net>, "Shuah
  Khan" <skhan@linuxfoundation.org>
-Subject: Re: [PATCH v3 09/23] mtd: spi-nor: winbond: Add support for
- W25Q32RV-Q/N
 X-Mailer: aerc 0.20.0
-References: <20260813-winbond-v7-1-spi-nor-rv-addition-v3-0-b637cf120d5c@bootlin.com> <20260813-winbond-v7-1-spi-nor-rv-addition-v3-9-b637cf120d5c@bootlin.com>
-In-Reply-To: <20260813-winbond-v7-1-spi-nor-rv-addition-v3-9-b637cf120d5c@bootlin.com>
+References: <20260813-winbond-v7-1-spi-nor-rv-addition-v3-0-b637cf120d5c@bootlin.com> <20260813-winbond-v7-1-spi-nor-rv-addition-v3-10-b637cf120d5c@bootlin.com>
+In-Reply-To: <20260813-winbond-v7-1-spi-nor-rv-addition-v3-10-b637cf120d5c@bootlin.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,7 +78,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---f335931778a6064751da4e78495df9e32cacdc8b42157fcea702eb3bb32b
+--6d7a27eaea88826756201dafa9b49ce1dd6f000b339f2049eee656850130
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset=UTF-8
 
@@ -96,17 +96,17 @@ On Thu Aug 13, 2026 at 5:19 PM CEST, Miquel Raynal wrote:
 Reviewed-by: Michael Walle <mwalle@kernel.org>
 
 
---f335931778a6064751da4e78495df9e32cacdc8b42157fcea702eb3bb32b
+--6d7a27eaea88826756201dafa9b49ce1dd6f000b339f2049eee656850130
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iKgEABMJADAWIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCan7j+hIcbXdhbGxlQGtl
-cm5lbC5vcmcACgkQEic87j4CH/jYbQF/TlNR5jmMAcwBFgrD65LTnNg2qfV4cgd7
-sSkbOdDlnSLIK+BeoaAbR86FYl5gcLpCAX4k6yZ9bp5elJBfReMrm1P9Xdh0CEiJ
-05jGwFtBCW/DsXwizrF5Jswovtk114ijAUw=
-=TL/8
+iKgEABMJADAWIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCan7kCxIcbXdhbGxlQGtl
+cm5lbC5vcmcACgkQEic87j4CH/iQhQF8Dq0tnx9H3Tajs78NLFbZ6ehFxTFzeQVV
+wHXTXMvleJrsJjYRFYlSCT3a6sd4lWUwAYCrA5ptxBmrpjFIMiwHNB91GFyHB/1x
+WCnpHPFLC7pb0UwBhbLXY8gO2kf2+GTyeig=
+=vSOF
 -----END PGP SIGNATURE-----
 
---f335931778a6064751da4e78495df9e32cacdc8b42157fcea702eb3bb32b--
+--6d7a27eaea88826756201dafa9b49ce1dd6f000b339f2049eee656850130--
 
