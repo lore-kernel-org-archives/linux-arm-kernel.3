@@ -4,130 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 757C9C5CFC1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 21:00:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BC0DC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 21:01:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9dAStj+yBFxT0WSlnFCF1yO3ETomsTMKWvNY2BbT0sw=; b=TYKc7M4/YVaVRXoI7TYR+bAMPF
-	qFgiN0VQ2bo98OW52uIInrv7a23q+vLqnvCzUTZcUUqvCoZ8yAgCbgzr/V/hscVJFm5jFpPrRun7E
-	1BZ/LlWoCY7HaWI4V7pnASI+6+IePG1KJUebbNxz8B56h4Fv3hIz7boi6F6W1ob+xHE5VLH90ukg3
-	qE3zrKQM52ZHkYgQRYBw9kD5Y6QBpIzHPvHUqnyH8RRljFkDAdakk11EDFUYiNqSKCBEPbV2jxQve
-	W5/Uz7wvTkaCkMqRIIPdacQmvpXt4XF1xGuPPUlxpJCboT6guNeZcg+xrqjOpdkTz2OpiCLwitTq/
-	ogYSWtWA==;
+	bh=DYuMpnr3KSC7nQvSYxrDe2V0WmDtuzggqBjS2om2eUA=; b=mdG8rpolFH/I+gq5gyXpJbc/9Y
+	o3NYX0+5n74hN+QHiN1JXZMs2VHKq/7p4CYbCewR604eydNdfyzY2EYBphwb9/geBasglDcI2z2CQ
+	mVagU6yMUraLRuCUTLSDYBZoX1d2g+sgWkmbhFRli2Fmqj2icynN1/0HFS6lmo3sr2eCdVKJI8o39
+	ovyIEt8N6tR8t4nrzRGmxqOqUF21c54cO4qSZO2SBtOXgYzNBgv98Ntp8jMad5euoTXED29Ye5BpY
+	MeTgXL9BagSoripqgXbSkIS3uzz18if/UjLSEQyw9+/2xe747KH3w1f+r1jWQgiR6KJ5h30ZpNP68
+	8LB8+x+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuz13-00000003Bjt-0pUN;
-	Fri, 14 Aug 2026 21:00:37 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1wuz1V-00000003BoR-2QwR;
+	Fri, 14 Aug 2026 21:01:05 +0000
+Received: from mail-ej1-x647.google.com ([2a00:1450:4864:20::647])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuz11-00000003BjY-1btZ
+	id 1wuz1T-00000003Bmi-1UwX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Aug 2026 21:00:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jTMfIi1QYFFJePUjD+9A9ZuIaE7K+IEUEpJGd4NcQWaJsHzUbu1iZyvIG/BqK7Nv/wCXeC4+c6+fWzg0fCWdCt7G73ga5myu7q3hoCGkXMrin/IFyGjCdvtxCiKTr6sqFBlM/EwUVIrVnlXZULIIGqfIXFRIA3kHvnuDZv4wE+9h3AIXhtFPEECmnsa+hVtHwGNUA3SiRHTbfEwRmov2veShPepIo8HaFeaeoIZOFeEUNHJC8TsH1+X/3J8hg9xXClcbOfWnnZ5rZ7xNrgvs6+cGrL7QhJSq5NvCfDg/Q8OYlqu9xOP264tgJ+4SsXsWaU3uL6I2rcHMhzzO5+KYnw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=9dAStj+yBFxT0WSlnFCF1yO3ETomsTMKWvNY2BbT0sw=;
- b=aP9fT2aApjNvLMTRlYbqJB3fKHiWheW0tSsRLLV/fK7RPVeIJUzHO9pFK1L3LRkBBPw8Eodif2ww6ZSzLjVFQA3jyftKP3GNIc1doYxLaI2CUmQSv86Tul5uBBT4JnB085TNr+deAk6Ad+k3HaopHjnItkm3bMUJ7vSqfZXqBdaj41noNDVoxxrngiyfbZ7hdNttFcQYX8+82NMg4DN+Hr9pRrHcNzL+0+GA8rXRHNYOkkd/KrtLqgrUppNWDuzSf3u+3mMWfaiabHJzcdOJHayH2atD3MAnOG2v+TNs+H8VWKGZ8+u17xH3XKkg2eoMYoEmu9DVVRxlGqg9knLmqA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=9dAStj+yBFxT0WSlnFCF1yO3ETomsTMKWvNY2BbT0sw=;
- b=e2elMv3wu3l25IQE/jopDFgPXAK3byjglfdmRxOugxzT/eNzNCFcO/UUCm2K0iMbyJTy7cAWwnFgSNoRspLZk66BP8JIRRJCDLKdtzoyR5UEYBx2xvHgmnsXEiSwllt4+Rh0dj+MaKSobN6+UqiIN9AvBNCDTfjzrrs6kBh4j3TrF1SQeJOttBsDxINEsYFyAFIPqfIrYIfu7OE7I0J3i770WHs7b0iOJgZ2+75ppF9OuaG4N89PI845mIBdJVd4zMRT60jwcvX5QXJ2KFEdDkLbLwCfISCd1lXWAyhTdQ1qVRS1rK6f6vBdb19gpST1FZsIeYwbRWBBqX+M9W1/eQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by ZR6PR04MB993147.eurprd04.prod.outlook.com (2603:10a6:910:e1::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.16; Fri, 14 Aug
- 2026 21:00:30 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0315.014; Fri, 14 Aug 2026
- 21:00:30 +0000
-Date: Fri, 14 Aug 2026 17:00:21 -0400
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Chaithanya Lagisetty <nagachaithanya9911@gmail.com>
-Cc: Vinod Koul <vkoul@kernel.org>, dmaengine@vger.kernel.org,
-	Frank Li <Frank.Li@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Maxime Ripard <mripard@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] dmaengine: sun6i: fix use-after-free in descriptor error
- path
-Message-ID: <an-B5SdpGfsJoudH@lizhi-Precision-Tower-5810>
-References: <20260810102044.1725649-1-nagachaithanya9911@gmail.com>
- <an9nNnRMAzhHcjlS@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <an9nNnRMAzhHcjlS@lizhi-Precision-Tower-5810>
-X-ClientProxiedBy: SN7PR18CA0002.namprd18.prod.outlook.com
- (2603:10b6:806:f3::25) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|ZR6PR04MB993147:EE_
-X-MS-Office365-Filtering-Correlation-Id: c9622263-7029-49fe-2d60-08defa4712db
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|23010399003|7416014|1800799024|366016|10067099003|4143699003|11063799006|56012099006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: 83U57skLoJHHhD5aWLClcg9gn+d6ZyTBchI9agRkD60A9j0nuvAPJe8gV9PSBgnjUTEY+hZtReyqx2lnYzOGeTK3vg7z9OU0EXyVipGhnoGOyrQ9NN8/kmlIOH4Ua/AQbTaiAPQET0BrCFZFhFtnnw1fF5tHpP9utIoX9eYNsimqFxf/UD5RaLH+mNs1bHJZEW+5biNOZdvhpIvdDysfd3R2PR8NoI8+WgIV3sdypjx2iudz97SEMnJ7tIu0rq5UYeTr5VoqsuGxZ0noMZBxEZ1C374Knpz6GYwtBVWqMt1ADbJwHzXrjlKWK+JlOMIiQDSMGop0grNCrJFlGweLIds6faDFWqMV9hPiWrxpIqxkb4AHVDDchSFJ93JhIad2sCiKQmlgRro97wg8m0562SX/GVVfcdFDxX3SoT5v3yeyHu19El41SRdGI0I5dVcll/xPXP9iXq59h4Gci8PYo+XjrK76NKaMZRjVYCToCQ/aakVKo/aA6BQ5604uRTm6ci1pvD2dqLohp+VaQDaoTHrEpbEJcgmpVDFL5C+LwfJ+C9BHDAo0GsXrSzVmlJcRpBUyXiNYyljZZ4LOFr/pwRb12Uz/9C5iHbsiwgwBQPNDzUchoZJNTyFFWTP/mRDemE3LzUPzk+rCEQTRZEMgO7Q818vHTyYGEm3mRxLhdqE=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(23010399003)(7416014)(1800799024)(366016)(10067099003)(4143699003)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?a58D4RhMKLbqh20/MQf46r+XRDO1QsCm+1raBIvq/mS26qf/LjT2qOrlDGUv?=
- =?us-ascii?Q?jRPvd2FJ50eftnEfVvHZBvRH8WPKG0jflao6D7Z0lZCGDV+VPOV7BvOAeGYa?=
- =?us-ascii?Q?TZnPYHA8X1hHm4waV9k+qACK6uvqTpFxGLUiLs7sNJpDgebtVN052WdHdGZ7?=
- =?us-ascii?Q?bLnPXUHg+jDdnnMBChawNTyrIw5zr8SpvRh4Y+b4Pvw1sx19w4iO45dMOg0E?=
- =?us-ascii?Q?6z5YTiVo9BiQlzeCZfObiAzTSXiqfzbydkdk/W1j7T9+EAQETgxgEymn5MCJ?=
- =?us-ascii?Q?OLax9Kov88FsE0u221EXhKLt8KGjZJGHP3scJYf70J42JBCLOPKAD3HsxIxi?=
- =?us-ascii?Q?9I1osXOrRuc0JrYON9pxMcS53xV/lfDbbFTCHTBsGaeENbqSPU8j5SfMzO9k?=
- =?us-ascii?Q?WVrsFIfSnIjbfw2c8b9HhTopdWVnux9IsNvaPDX+t5rzlXIoX6TXxqI5irdL?=
- =?us-ascii?Q?5EVptk1YqXgJBajlASqIvJS1F8AuDTMapFA/lbhJ6beCheT2d/3MvbRYcdqd?=
- =?us-ascii?Q?JSKr8PyLAtxOPLDXrHPguwsd38iF8zODOXyrkC1N/XfOQ5iARRDRO00W5dPT?=
- =?us-ascii?Q?5XwVaGE0n9Qrdo4aICJMOezT9EWIKcoFJLE8U3ETMQC6hIxbtGHrpjHxSnWa?=
- =?us-ascii?Q?tBZI4K0l0JYXA2hkJGP24yRjqKfnfmnRBHLPT/4BgcZlAywkxthfFPFPp2k4?=
- =?us-ascii?Q?7JKhkKvuPQlmSWweqbM4XWLS7l5h5EntfVbooqHr02nbv+1kxbtP3Exto+jb?=
- =?us-ascii?Q?1P6pDfUvjm1Hk3IVKFYzL+OFbD2auCxvPCSij3RlT6lR/tN3Q5OWbH+pxkBS?=
- =?us-ascii?Q?tFms0G7GDiLHgM3TWeeSLWdUMjlOx2D0EF8k9kRk3UyCrGgV4Z/slwKL403r?=
- =?us-ascii?Q?AsnrEAWxBoprPXP39CFrjoccz0xG2da6Aa+aIhHO5BpwUP+newNx/QR2O7aj?=
- =?us-ascii?Q?hEuuPL205bbBy/7ueCVQ7fkgEeEBP3/W7y+B3FX05Fppn+pI06r0WUcpoIQh?=
- =?us-ascii?Q?Vjaafd5GbsTNOnNf4kziY3HZtLMs6pHdG3gjcU9iAWZ7ZAV0Y/UKqrpPyAlI?=
- =?us-ascii?Q?9LEX2HmInFho6mvfAke3/miY/D9XuZ5ZPYwRgPIwg2MRoFQa2WftJn5OeZpr?=
- =?us-ascii?Q?rlzwz3vB9KvBzsHZPTjsFG+Z6khcTL8nIEa0jWdhNIo1vLA9yVuAl5nPQlSZ?=
- =?us-ascii?Q?Fq8wZqQneyO6hJS/wYusVLFPOk9x1JIBd1PkLNpjqNkN0E+W5GPAjn8LHt3v?=
- =?us-ascii?Q?4uXQ1cI70QMRc66IOhQNOqtKO7K5OyUfo/Uh2ATIW0g9vWvbOYNGa1P6FJ4Q?=
- =?us-ascii?Q?pVqz34IIcueQ9vYsbuXM9Bqzr+LoQ27tTz7ag4Pdze3z4t9IABxUN9vQVp05?=
- =?us-ascii?Q?gBIoxuKBxt8tXhQljDuQc6jJqlDrjJAnP2EMTaoJGUjkjb10ouYQQqY75w0F?=
- =?us-ascii?Q?29ZXLd0tJzBFdSzGEpl1GcVPYuNtYMGE+cdLO6s5PW/dw2MmPYoE6pKjTw5Q?=
- =?us-ascii?Q?YxPS8LGWFuiydT3pAC2QZ4CzICGY5meemuDaOwseU2fEJQnld7sBsy8Bl7dx?=
- =?us-ascii?Q?2T/IytfErkLgdlmHD6i2Y7gEBPScnmcS9J1YXr4BQsDpn6VcCDOFRiPVg5xP?=
- =?us-ascii?Q?RjP3TWv2yv4i3lvQpF52ir2iyEnc0gnfE5aYzLqjHN5E0aUn175Ns7EV+xjf?=
- =?us-ascii?Q?AIEVo22R3hQ08Qj0vSiS1ZswdgRXPF7OYSb83lhaXZeoLvJd+ezkHAr4ZPBw?=
- =?us-ascii?Q?fiesq/TcmTCHVCCwH3+aJzAydhFWFwOB8ueF4/TUrCoCvyDG5/rM?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c9622263-7029-49fe-2d60-08defa4712db
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Aug 2026 21:00:30.0971
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: UywrAKgNy+FC9ui7PvDfjCsu2ncPr+JDXimhnxtj425qPGdTfj3CGYFB2rRmIljOjIkwSsvUQWf5saJmZVu5dUZ/iiokOgYSPp+kZcKe2dNrAQfi8xv5BIT9XlZ8jkaS
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZR6PR04MB993147
+	Fri, 14 Aug 2026 21:01:04 +0000
+Received: by mail-ej1-x647.google.com with SMTP id a640c23a62f3a-c1f472eaafbso230900766b.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 14:01:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1786741261; x=1787346061; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=DYuMpnr3KSC7nQvSYxrDe2V0WmDtuzggqBjS2om2eUA=;
+        b=sR5rqvZmKxzFReW0fvXwFweY4zyeekKTD5D4pgQdy9iABc8saqxmKnmOKYOCEwnmfv
+         6qfjhtwD/GxERToBX0Cfj8V2G/v8IKi7ZSyMYUzVO81yDQ1S5LDhtazSWQlGH2lsUvUO
+         2aJEf90i1iUUiUY8JA40yZubrPBCdo5gknM9Gqlv1j92gds39vvgLE5hPjvOPV+yS42z
+         e07fNl832Iwr5RyDiEliANFVfD1veWm8/oVQTPuhkPDVb9jAmCTdIg68shwWLnWyP2ur
+         KF0KShXQKm+We1+g7SOmosSZiJMx9L8koXS+ZGxtUnjp7LAG4AVvDAV7XQK/6Z/93r+4
+         KIEg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786741261; x=1787346061;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=DYuMpnr3KSC7nQvSYxrDe2V0WmDtuzggqBjS2om2eUA=;
+        b=PXq1XRAVr999Sf1mOHNy10lfPTn1Se7VnIkFJIQpyV085AszSFkbQ7ESVoDJns1jmf
+         AT2LClH1j0QoAoulev0kNsXxdFpG1xrxiqplhFeZ+X/bryOnsSgFqduTq5zjWOC8RvE9
+         cxB7nisjCYp6q/SKdMuw2r77fDcVaTe3CedDkIsAs/bhKwo5c1h8xrGiMI6rslEMWRTW
+         rkouAov3nL6I7tuOl6K3XfOrHjmQ5cVHFTbTX/UHhZShCiu8tGbSx9U6bb8dHommbGUN
+         igCQfdf9zNSer6j4AHgX3QABBhlKwsPJUalkMb8X8c3gDZhCOggtXmAv2COAbwzWtZnD
+         wzYA==
+X-Gm-Message-State: AOJu0Yz6kVpYihbCamLU6rAeMEjwkDqw3vuKEPW3J8o4VV0Zgv3DBhtD
+	0AdECt3Jy4XcikoVndvDJ1bmA2aPGl4uKF8QcAbqdFfPvhxJYt7eNFpBRSQQrn97N/6lWVkISPp
+	rNNhTJsg6U04C2T92YQ==
+X-Received: from edgd22-n1.prod.google.com ([2002:a05:6402:a516:10b0:6a0:d334:54e7])
+ (user=tarunsahu job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:907:e15b:20b0:c21:3c4e:cb9d with SMTP id a640c23a62f3a-c213c4ecd42mr205334666b.14.1786741260571;
+ Fri, 14 Aug 2026 14:01:00 -0700 (PDT)
+Date: Fri, 14 Aug 2026 21:00:55 +0000
+In-Reply-To: <20260814210057.4102768-1-tarunsahu@google.com>
+Mime-Version: 1.0
+References: <20260814210057.4102768-1-tarunsahu@google.com>
+X-Mailer: git-send-email 2.55.0.691.gc56d675ccc-goog
+Message-ID: <20260814210057.4102768-2-tarunsahu@google.com>
+Subject: [PATCH v3 1/3] ARM: locomo: use put_device() on device_register() failure
+From: Tarun Sahu <tarunsahu@google.com>
+To: helgaas@kernel.org, dmatlack@google.com, 
+	Nicholas Piggin <npiggin@gmail.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	sourabhjain@linux.ibm.com, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+	Pasha Tatashin <pasha.tatashin@soleen.com>, Russell King <linux@armlinux.org.uk>, radheys@amd.com, 
+	skhawaja@google.com, djeffery@redhat.com, Geoff Levand <geoff@infradead.org>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>
+Cc: linux-arm-kernel@lists.infradead.org, souravsgl@google.com, 
+	linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+	driver-core@lists.linux.dev, Tarun Sahu <tarunsahu@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260814_140035_434995_ED4285D8 
-X-CRM114-Status: GOOD (  19.98  )
+X-CRM114-CacheID: sfid-20260814_140103_399385_514B603E 
+X-CRM114-Status: GOOD (  13.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,87 +95,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 14, 2026 at 03:06:30PM -0400, Frank Li wrote:
-> On Mon, Aug 10, 2026 at 10:20:44AM +0000, Chaithanya Lagisetty wrote:
-> > The err_lli_free cleanup loops in sun6i_dma_prep_slave_sg() and
-> > sun6i_dma_prep_dma_cyclic() free each LLI node with dma_pool_free()
-> > and then dereference the freed node to obtain v_lli_next and
-> > p_lli_next for the next loop iteration.
-> >
-> > Save the next pointers before freeing, matching the pattern already used
-> > in sun6i_dma_free_desc().
-> >
-> > Fixes: 9aa48806edb8 ("dmaengine: sun6i: Do not use virt_to_phys")
-> > Signed-off-by: Chaithanya Lagisetty <nagachaithanya9911@gmail.com>
-> > ---
->
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+As per device_register() function kernel documentation says "even
+when device_register return error always use put_device() instead
+of kfree()"
 
-Drop review-by, I prefer use below method to fix
+Fix such instance in locomo driver by replacing direct kfree(dev)
+with put_device(&dev->dev) when device_register() returns an error.
 
-https://patchwork.kernel.org/project/linux-dmaengine/patch/20260727061142.44195-1-zenghongling@kylinos.cn/
+Signed-off-by: Tarun Sahu <tarunsahu@google.com>
+Reviewed-by: Sourabh Jain <sourabhjain@linux.ibm.com>
+---
+ arch/arm/common/locomo.c | 13 ++++++-------
+ 1 file changed, 6 insertions(+), 7 deletions(-)
 
-Frank
->
-> >  drivers/dma/sun6i-dma.c | 18 ++++++++++++------
-> >  1 file changed, 12 insertions(+), 6 deletions(-)
-> >
-> > diff --git a/drivers/dma/sun6i-dma.c b/drivers/dma/sun6i-dma.c
-> > index f47a326dd7ff..2439fa6564f2 100644
-> > --- a/drivers/dma/sun6i-dma.c
-> > +++ b/drivers/dma/sun6i-dma.c
-> > @@ -720,10 +720,10 @@ static struct dma_async_tx_descriptor *sun6i_dma_prep_slave_sg(
-> >  	struct sun6i_dma_dev *sdev = to_sun6i_dma_dev(chan->device);
-> >  	struct sun6i_vchan *vchan = to_sun6i_vchan(chan);
-> >  	struct dma_slave_config *sconfig = &vchan->cfg;
-> > -	struct sun6i_dma_lli *v_lli, *prev = NULL;
-> > +	struct sun6i_dma_lli *v_lli, *v_next, *prev = NULL;
-> >  	struct sun6i_desc *txd;
-> >  	struct scatterlist *sg;
-> > -	dma_addr_t p_lli;
-> > +	dma_addr_t p_lli, p_next;
-> >  	u32 lli_cfg;
-> >  	int i, ret;
-> >
-> > @@ -789,8 +789,11 @@ static struct dma_async_tx_descriptor *sun6i_dma_prep_slave_sg(
-> >
-> >  err_lli_free:
-> >  	for (p_lli = txd->p_lli, v_lli = txd->v_lli; v_lli;
-> > -	     p_lli = v_lli->p_lli_next, v_lli = v_lli->v_lli_next)
-> > +	     p_lli = p_next, v_lli = v_next) {
-> > +		v_next = v_lli->v_lli_next;
-> > +		p_next = v_lli->p_lli_next;
-> >  		dma_pool_free(sdev->pool, v_lli, p_lli);
-> > +	}
-> >  	kfree(txd);
-> >  	return NULL;
-> >  }
-> > @@ -806,9 +809,9 @@ static struct dma_async_tx_descriptor *sun6i_dma_prep_dma_cyclic(
-> >  	struct sun6i_dma_dev *sdev = to_sun6i_dma_dev(chan->device);
-> >  	struct sun6i_vchan *vchan = to_sun6i_vchan(chan);
-> >  	struct dma_slave_config *sconfig = &vchan->cfg;
-> > -	struct sun6i_dma_lli *v_lli, *prev = NULL;
-> > +	struct sun6i_dma_lli *v_lli, *v_next, *prev = NULL;
-> >  	struct sun6i_desc *txd;
-> > -	dma_addr_t p_lli;
-> > +	dma_addr_t p_lli, p_next;
-> >  	u32 lli_cfg;
-> >  	unsigned int i, periods = buf_len / period_len;
-> >  	int ret;
-> > @@ -870,8 +873,11 @@ static struct dma_async_tx_descriptor *sun6i_dma_prep_dma_cyclic(
-> >
-> >  err_lli_free:
-> >  	for (p_lli = txd->p_lli, v_lli = txd->v_lli; v_lli;
-> > -	     p_lli = v_lli->p_lli_next, v_lli = v_lli->v_lli_next)
-> > +	     p_lli = p_next, v_lli = v_next) {
-> > +		v_next = v_lli->v_lli_next;
-> > +		p_next = v_lli->p_lli_next;
-> >  		dma_pool_free(sdev->pool, v_lli, p_lli);
-> > +	}
-> >  	kfree(txd);
-> >  	return NULL;
-> >  }
-> > --
-> > 2.43.0
-> >
+diff --git a/arch/arm/common/locomo.c b/arch/arm/common/locomo.c
+index 55e360452828..0f6689d343b0 100644
+--- a/arch/arm/common/locomo.c
++++ b/arch/arm/common/locomo.c
+@@ -223,10 +223,8 @@ locomo_init_one_child(struct locomo *lchip, struct locomo_dev_info *info)
+ 	int ret;
+ 
+ 	dev = kzalloc_obj(struct locomo_dev);
+-	if (!dev) {
+-		ret = -ENOMEM;
+-		goto out;
+-	}
++	if (!dev)
++		return -ENOMEM;
+ 
+ 	/*
+ 	 * If the parent device has a DMA mask associated with it,
+@@ -255,10 +253,11 @@ locomo_init_one_child(struct locomo *lchip, struct locomo_dev_info *info)
+ 
+ 	ret = device_register(&dev->dev);
+ 	if (ret) {
+- out:
+-		kfree(dev);
++		put_device(&dev->dev);
++		return ret;
+ 	}
+-	return ret;
++
++	return 0;
+ }
+ 
+ #ifdef CONFIG_PM
+-- 
+2.55.0.691.gc56d675ccc-goog
+
 
