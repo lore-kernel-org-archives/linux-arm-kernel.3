@@ -4,128 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48AD2C5CFC1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 14:49:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F233C5CFCF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 15:16:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hZI7F6uyjrD+VDfh2+PVfI26GweaET/FuBxmu1TP3BE=; b=rUO/wj39ZSLy/NMhoOvjQcDAK6
-	GtdYGZ2+96aj6eppAbuGWucr4yXgeIwRh/DmyGJXRSgkKl/yQAbbjNWxtRfU/Q9n06Gz4SpGpkNvc
-	o8fn9bU1oyjy3V73vmZzkXW3khJ6zZ4ubI+Ne/VP/D8nkR7qOuazTg+u5p4+cENdECqBPQOTeaJAO
-	L/3O4z2BjAGYtuvrScaw1oiI7Mdynh+5wIgFdYRGuU3OZuJ6rFAM0Z0fWdeW5ctRKRrbtk6kdg3ql
-	XBlbVljGcbWj9XmopOcuW3083c8ntsHXvZREaXh+FVD/CPDqJh1qyWGEIDB+NPsYBSsP9HjLRKED6
-	A66AQKvg==;
+	bh=kyE9VpOdIdaJ4nhDgsqi8sGDrAQp14puQ8jsBWnSrk4=; b=AvUj5TvlsQ1P97g1nYE0vTwCqV
+	yM4XUSTaLgdc4DQhKtPQCMEaVY65cCZ/15PmedyRrRmX1tNza4P7hgdjIgFSl71Wfj0D/fS1H+GAV
+	otaNvDIoS8AejJUJrm7ug0YhMkn3CP86GETPJTbz712rsCYMQmayroEeD9Ymh1/W31Rc0NyhJ6OIp
+	J1VwGZAi6rO3QZn6zaxHWnHZ58WEz6ZtX5tQkC4wYnCGAtCLx33AfOh1nSMjlI3jZJZDHjcIlXu6p
+	aKWYxUGnImdpPriZEXiLv3UYRNDDx3NXKdsLfqn8dHB7ce6w6UjtScb/cFE1YCVz9jZTMPMWxfIFi
+	xM7yR4kQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wutDN-00000002opU-0ZTH;
-	Fri, 14 Aug 2026 14:48:57 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1wuteB-00000002qXc-016n;
+	Fri, 14 Aug 2026 15:16:39 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wutDK-00000002oot-2AXR
+	id 1wute8-00000002qXG-2Xh4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Aug 2026 14:48:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QOY4jwUPY9GrudFD+bO7R5MvoWMv9x//gfsL0xzKj30Uv2OTR1fzAXkDlh9uqvIkasbOT29k1nBVYtOVDBsltzfOs2bAmx+6EVHgXEFbO/Pe1hTcByr8Nu6qDBN/S+jxqkp225nNnDtTJtfDMkdG2Jk8XmlXt6YWSIPrMt/4842P+Ib3gE7uDdtS9mwwgdVjvSC2YR78uUaks3FUleBAkDpsyvrR36BxxP6z9eO9H+zfDBM2+tFMQEcayH8f6dXXITm4OwXDOGkrbMa8D91br+vONS6k2BoqX8YfZtU3MOq704zWeL+Xc1AI7J5KBJu7GQE/AY5jPie32dl4eBoUkQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hZI7F6uyjrD+VDfh2+PVfI26GweaET/FuBxmu1TP3BE=;
- b=rbJ4DE5yCGE3OVVDhY9E9RuiTyzku388s8W2s/3j/+E3K3XmwlLRK9sEFyBUBsK5BI6OFsazTnr/KRm58HvJZ7/iFiNlMlRXSDINlf+1hpWlWYJBM77W+M5NUyribEieZXCKAYheUYaBstVNQFBKbnc2ZntyQWnE9Gl1OIihIeu9TsJexHGYW0O/HoRFTbOTr+7MyEMGTx99XSjOSvg9e9uFz5hEmYMN4yPk+5+ezmB5svij2p0n4cE838R06xKTJchDB1+Owbb2gJ/Mn2g3K2zDj1A8g56qNt6fPCLWidvaNmQuvLSPiVlRukbxj2i8mPzaBtOIBgVgiDp6frUbMA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hZI7F6uyjrD+VDfh2+PVfI26GweaET/FuBxmu1TP3BE=;
- b=tTHLGDhFJQEuO7tKx4ACUJiDNhtlzSFlQ7AuLcap1oGAZS+75Ewf+FwUxeV/eitW0RddU0AlbOEHEBJUPSB4JK9rhwcTGiW92CXGzRSJjjVcgAzsVhhWeWRiD3vtoJM9MTNWVDSUVHMothsudwrwIAlRAykp2to6i/3wBUzH2ahSL9CLSoV7uWDIHOmFhGZwrP0KhaBPVAqrRIHhK/lplPXLI+P5prh/BjhnVFX89GJ9b4tp+4q4WTqjp/UKxdYlAbpre7hrRXNITRk+ChIoI3CUvXUamudfvgTFwmqU8wPIk87qMpHEocwTdp3kKgroStmwlHUHWMw2B1PvJ3dJLw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DB9PR04MB8364.eurprd04.prod.outlook.com (2603:10a6:10:24c::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.15; Fri, 14 Aug
- 2026 14:48:44 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0315.014; Fri, 14 Aug 2026
- 14:48:44 +0000
-Date: Fri, 14 Aug 2026 09:48:35 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Christian Lugnberg <christian.lugnberg@soundtrack.io>
-Cc: vkoul@kernel.org, Frank.Li@kernel.org, wens@kernel.org,
-	jernej.skrabec@gmail.com, samuel@sholland.org,
-	dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v2 2/2] dmaengine: sun6i: fix undefined behaviour in
- sun6i_dma_tx_status
-Message-ID: <an8qwzz8rYHRDwWr@SMW015318>
-References: <20260814142708.79120-1-christian.lugnberg@soundtrack.io>
- <20260814142708.79120-3-christian.lugnberg@soundtrack.io>
+	Fri, 14 Aug 2026 15:16:37 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67EDx0i11852415
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 15:16:34 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=kyE9VpOdIdaJ4nhDgsqi8sGD
+	rAQp14puQ8jsBWnSrk4=; b=l2X/4kUCbRyW2naU8380mUkZRR7Ih7negTrhzcMO
+	yO7pLFlYCLpT0U9KsQTB31rtB6qOAlOQ7tXmjr0frq3MhmYKk6QHtKK/50Kbqzjg
+	GiQw2kKgjku0JBKi+OZS3Cq/Ynq4h6KmUjAMcP4sjne9TDOGPK5sNWX/FyGKJ2Y7
+	SIuHlKEB1zWI39oSGe3/1Sk7fC76Ecp1snprsFR9kFyxK/HZdhOmKSykVqFCsEu1
+	M8DJmwSZ6W/rRlf/Uwi6OHIffgtEmAdiOFIlO6HN+5SBb1OZAHEeduzf2jXrE8om
+	rl6zCiFQTmuraJo6WGhom0/f1uPa0hf/WjjHEagZCSpQLA==
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g20639g1a-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 15:16:34 +0000 (GMT)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-51c26012cd0so11325441cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 08:16:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1786720594; x=1787325394; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=kyE9VpOdIdaJ4nhDgsqi8sGDrAQp14puQ8jsBWnSrk4=;
+        b=hvetv3qJRT0IYoKXyhFC+g4XDywUVlfrbMIrZevr/HbyFnwcyxMVKIQuJufbRDzBKI
+         rH9UnCJowLZxi/onnS145CIXhDdiJiTzPiRUU7fRo5qRbFOSXkmDMiFd3HwahAdQ5p3X
+         WEXkKvPqPEaAL8QaOm2O1oheHy4qO5KkG6sYpJ8uuM+f74Ye/TGDCG9V9s3dSb7P5ZRy
+         XrFivG9D35p2iFQaKASHBuFTC4kZ8a+1ksePtFd48UfgngqrM0PAy4uZi55CAPQakToD
+         r4RIZQB6IexuazJWpgF/9EfYI2gxZ0ClzwQm6UI1zoie76Mqeo6fyJkM4r+4mrllCH10
+         +hBA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786720594; x=1787325394;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=kyE9VpOdIdaJ4nhDgsqi8sGDrAQp14puQ8jsBWnSrk4=;
+        b=k2p48W4xuI96xIgSTtC0AhtnsHfVucY+NYIXk+s1trlxkW+b7p8aF0wG1Uzd3kSKkd
+         NkvNkGCV2Kx78KN5+a8t/reBJ4NbcgC6absRxvQSVqRcBngSSI5+UZI0tijTDApDWTwg
+         OEkSYZsgzJQC+rsrWOGtzZ6boGaFYsYTkK/8OKHjGi0vepw1JwD6mJXYBqWGFDqz5AtA
+         5RS4LzJW7lUJSD4tv6i3N5C32rWKYhOmfs5ktbNU99PiDHx2LSxtIOLHSEUml4ZsOU5R
+         H4DmvaRXEYHNn5QtWgihcITxjcl0ntIIf++4ClHpngvG2E8cTSexqKKlmklIMMmbWFBQ
+         pNGw==
+X-Forwarded-Encrypted: i=1; AHgh+RrW8lXQsmaSHiGAgm5hqQstSkfMqEMvA3AX6l+rb/2ORC+5QchURPEcv46gYYw8bbp2K6Qb341yXxTckzMdq18h@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxrvh5IfMrOIiVTt3MRk+F7AttfzFmpcIj0GfwZS1blLnZeYO//
+	1IWm/g98Nripc4iIbebS31zYRvO/zZOiOXeMVGxSbTSE2lECmVh5FhVebOrcQm/RjyqbGrqI7pG
+	wgaA31KMmrdFY0gNXtztBggLtHYWXrHyIPyM1mVGmuuAV+eoY5YLt81c34tLmHWYlI7vswZiLbH
+	/5WA==
+X-Gm-Gg: AR+sD112xmaAUIydpaJNwdxEWPy0rxjYMU8yAA2tnlUGU2Xy/BAXN7eFIpr39Mq2wh8
+	wXSluF5Ht/ZqccwE5suGS7TW43Yw8JmUdA+KhSpz0XIa8lCEebxVPb3Fy2RBlUxi9xLUvLhpU93
+	+Z4tDyLYEyn4JkLzd4fqJEsHTXa9l1rZHA1meN4GxPhR93gwCLgS6z97rOO6gbl9w2lXnIYLBqQ
+	SxRwJrDclhX+uC1HVmbnXKNA/lcJ9mTFCalxE74m6uA4yZwY42GOsNfSFSu+Kf0vWvwTXLY71uY
+	+bquKAvSCgEOBDsdmR8qdjXriHmU1/1XYXmtPBVv8NwMBehJccSzI5xGTga3EGzpCJSYv5HzvDJ
+	DY6bWGZKsRsxo8M9zyFZNURNn4OMJ1xtEESQYbtlNX0mDZPI001TQ3JLRjYWondFdB8m392mM0n
+	Q=
+X-Received: by 2002:ac8:580f:0:b0:519:efea:cf41 with SMTP id d75a77b69052e-52d85431a8fmr70899641cf.28.1786720593203;
+        Fri, 14 Aug 2026 08:16:33 -0700 (PDT)
+X-Received: by 2002:ac8:580f:0:b0:519:efea:cf41 with SMTP id d75a77b69052e-52d85431a8fmr70897581cf.28.1786720592234;
+        Fri, 14 Aug 2026 08:16:32 -0700 (PDT)
+Received: from leviathan ([2a0d:3344:316:5100:f22f:74ff:fe21:6f68])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4815f2c1307sm9145087f8f.27.2026.08.14.08.16.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 14 Aug 2026 08:16:31 -0700 (PDT)
+Date: Fri, 14 Aug 2026 16:16:28 +0100
+From: Leif Lindholm <leif.lindholm@oss.qualcomm.com>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: linux-efi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
+        loongarch@lists.linux.dev
+Subject: Re: [PATCH 2/3] efi: Pass EFI boot memmap struct address to core
+ kernel
+Message-ID: <an8xTBiCy_PEuwZi@leviathan>
+References: <20260813074506.643472-5-ardb@kernel.org>
+ <20260813074506.643472-7-ardb@kernel.org>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260814142708.79120-3-christian.lugnberg@soundtrack.io>
-X-ClientProxiedBy: SA9PR13CA0019.namprd13.prod.outlook.com
- (2603:10b6:806:21::24) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DB9PR04MB8364:EE_
-X-MS-Office365-Filtering-Correlation-Id: 87a3af1b-b58b-4068-7fad-08defa13235a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|19092799006|1800799024|376014|7416014|56012099006|10067099003|18002099003|11063799006|4143699003|22082099003;
-X-Microsoft-Antispam-Message-Info: XGuvYB00U+LQ2/HuACCyXhMhJWmwaolB0ftQHfj8unUew1VOOTZ8zQwreEOZNjYv22GZ2GEyQi/OdEnmt3eHWqEphkJ2C9vFfA8wxRmbMJujHeJUio2VYgo4sOwxP17MY59QEvvhXVyp4YRmOlVWuI0tCoyHwNUmDlzw2KHyDY1rMSZpyC+/QxPn1ARnzEbn5ImSBCXYgk7JmKUqKPclfpKxMzs/RtnX+4D1RD4QxiRpaFAcb7no3YyBHx27yDnLWdGVgHcczkbpPp2T0ai/U7gT+hQX4pYYZYFPNEckq7yOzHpMidDj29IO4I1dJRkMIyCvRV2XSVyfft6vymB1jFteF7HSGvh6EoRkuqDIzeVy3EkvNGDq2HlqyGYCEJ5EBfb5YQF+MMFba8RVkm1pnwzl4TQSDux/CDUnWAL44KT9LW0YuLf5FnwG620NIhObxDaxlRuMsWJVKD2PkisZEd1cx2q7jIqHrZqaug8s7ZMOoT3de7xsK4fjoGAlFF4WWuvmMv3aqfHZeAQx9ChimkpVHl2E/xJA58gRx5rP8iZoqFZScM1PrKoH9xqSJvwKW2B4fNg3QedsEAZsPXar2hhg2T+/EJp1E/vJzLdf3s6bwnTG0czUerC0Pc8FjyaK1nQkhbMmAZ1cZtpe1udgHriZyVWHqRMjrSGGdJl6Na8=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(19092799006)(1800799024)(376014)(7416014)(56012099006)(10067099003)(18002099003)(11063799006)(4143699003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?tqP/LJpFnlIj6P3rv6Ft3JeI/BvOCdiPUlkUocVUbtps9ij/3AMfAVf/aERc?=
- =?us-ascii?Q?Wp08x5+3Ny14r452OKgHSKIJRb/1sfxwCy/DkcRXljJRURKfVNIUEx31AgFz?=
- =?us-ascii?Q?74VrphmCbZG2OOcOtxDtMQNBUj4qCblZPRDMpLOvlL443qjR2iAgPzNaVgA1?=
- =?us-ascii?Q?sr6OZbMujprQDEG62F0wwJ434imDnfR1LdHyii2vzrCCDlDEzFCQr1j2bRFv?=
- =?us-ascii?Q?9j7buKDlmNMO+D2ZXTRUbuPEFhG+UnasjIHwKifaNlggMnyKY+ozg0DEerur?=
- =?us-ascii?Q?vFHmgaiSfq3Ubjs31o2TtNsglnmjSu3WswXN8CwDaDXfPCKQgy1FP2nJXxZ1?=
- =?us-ascii?Q?aoZPw1K2gumF3zmy9QZyxIreRcdf0E7yG1aE8Hh/aIr8mMHQUjlt4s+no99F?=
- =?us-ascii?Q?V9mp4PTNF3HpANR8Gj5heyrs87tAH6aMvo43OnY+YigaQHNQznNv6mnqCQLQ?=
- =?us-ascii?Q?N1w83XJVKc4FXZpU/aW9yNGg9lYM/p+v387PYAUFw9rr9HwY/RrKArgOTfm4?=
- =?us-ascii?Q?3I9q9G7vod+XpcUJO0kVwDgRPSJHfNIHMjxX74tYFniGWyjWWtIycMoR9Yj8?=
- =?us-ascii?Q?ZxXSdvDzSIWBu55BEoda/BYnx7bqymU8LOvgmWhHHj8A/Gj+y+XavZ6G6c3x?=
- =?us-ascii?Q?KBDjHEb8efGSOKN4oZi48ZProy8yP5NhJbQlp6Kp/3n2vIhtWoxJQuBC23iB?=
- =?us-ascii?Q?ws1THKmOfdtfdCP8CVJ1vhox38A2Cb7SYriT2jnxnCQa0QGer5pdmzvyMLUr?=
- =?us-ascii?Q?fJCA4fcY8Vlf92igzlaRQi2UotA2E7RMAgRAuVBu4r99ZaEny/E9DIHMehjR?=
- =?us-ascii?Q?w5WL5HXj/AnhO+yldgSzSUEk/13YO4GfCyKwRpoujYLPBVM4a872NgIY/5gx?=
- =?us-ascii?Q?FfH3ZIGHk/APaYlpE+6WIEGaINlgJ4nfBevGDhj3ICdeuz0b0iWSNn4f+Qfv?=
- =?us-ascii?Q?O3uZ4pivnEPpT6arjQ1ilEiV0amjvRGVRCKsVrZM0+qP8Crl0bYghd0M4f52?=
- =?us-ascii?Q?Ux+KwXxfSGgzOaBc/fj5JcCaXXB+cEJBsAyrOXOrBUPY77KQf8WS79yRaNu2?=
- =?us-ascii?Q?LHMwRFPvpf+Fm4CaVzasnHLfMpYpLJnX83UnpAVLukvdViL0c0uh8XkDWQo1?=
- =?us-ascii?Q?WbeYClM6SsyRs5XOP9STY+xndrkfL1zpMw5zyTeVfg6p8jP+xyOoQUe+Hutx?=
- =?us-ascii?Q?ZHsC5TLOGHQHuKzvmrRHplQ/AuH3Wq+mcY2rbmgESmBY6MR6oQeR+0uAaIR9?=
- =?us-ascii?Q?WokVf9D5bz6aOa60Fh9HGL4ydNLalIiCoEx9kqQuJzKoPqKvJSvBNj51RRBA?=
- =?us-ascii?Q?XsP4edHc7ZKvRBq/kRawX0sc1JMqY8+mt+ZZafBWpXEeyJ7ZIkCR4qy/syOr?=
- =?us-ascii?Q?1Rtm94lmV1Grp7WDMjxMsJLwsm0svDMoQ1kYndI0a4L4KmwaeP4jROJ/954m?=
- =?us-ascii?Q?CdErNu6vPXUBL0lIg4kK+dXF/+MQpREvaVvOCrdCFEYp3FJn9CE3fEz18TVQ?=
- =?us-ascii?Q?kjENWWH2E0V52EZ3vrTUIfAGLOGjzP+YPU/gIY6ZcmLpKYWCSL6ZtKb1XD2b?=
- =?us-ascii?Q?kdr8x546r+3ruZnWKoh5jJKWkG2BXTwSmFNPG7uEUc1FFQgL58kU4Y3Trxc2?=
- =?us-ascii?Q?2x2lmii3YE1MvED1IlBp/XpEL05N/rx1ut2JL1TNjuS0uuaA7Dnlq0E0xWa+?=
- =?us-ascii?Q?DVPSIuSizfZ+D29BqBFcXncy8ZuU5MpxeQoxDW+/IQiNPfOIA1z0fbQeJdyg?=
- =?us-ascii?Q?ejdxU1mMLrM8rdS+w/EFbbnCqI/mq6X976rY+LOdwkNrpYOS6XyM?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 87a3af1b-b58b-4068-7fad-08defa13235a
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Aug 2026 14:48:44.0173
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: i9SsWsmWzAs267JB/U9snT0RgpKmLdLQhZgT0ZlPJpvY1lDuVoO2WK7UpdYZsw3x+QYPIYq36apsMKVxV7Ul+IiFiHiIIEnXqzP1JTbo5C+CRP8nZPRvwbLU3pYxDyo7
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8364
+In-Reply-To: <20260813074506.643472-7-ardb@kernel.org>
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODE0MDExNiBTYWx0ZWRfX0BlkkUdeIZKD
+ VVyRF/VPFNNS4McLKl+g23vp1h2nrn9z1bdXTXG+oEZxOqgt9yBwtzYtdmc36XRTYncsyPt/wxO
+ 64os7BJzFrZv59i158Sp0mh3rZ1saFQ=
+X-Authority-Analysis: v=2.4 cv=Z/Hc2nRA c=1 sm=1 tr=0 ts=6a7f3152 cx=c_pps
+ a=JbAStetqSzwMeJznSMzCyw==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22 a=VwQbUJbxAAAA:8
+ a=7pfS4neli2E25kVr3iQA:9 a=CjuIK1q_8ugA:10 a=uxP6HrT_eTzRwkO_Te1X:22
+X-Proofpoint-ORIG-GUID: Xsp8YCztAICeCJpWd4tzfSflKO-HQmJW
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODE0MDExNiBTYWx0ZWRfXxlrBjuswseWk
+ Il432kXrFUDyWTMei9MaRR8eFfFN7SavESOMVopME0ZHnG7lds/rYgOCQ1y3X7Mos9Uc3Zui9PK
+ BSEBvdmtVX583fr0pC3SiYJ4fCo/IdJJv0jf9H1VJ49xlLqyp7UVL3YWRm1aHJ6iLB+f2xm31PL
+ +ync7lkosFhvYhlP0JA+MfIvn86nxekzxdd3Izo4gNRfYNisAiSybCwFYFbj8UFb7Zj6ukDHgCV
+ Uib1xJL8WwMlEKe3wSyrooG58inwGEGlEN2ZTEf7iu4qppn/5rQNE9KwWR4n6S0Clc+wqMvo7Vm
+ MXiXw2fpQFfKy7zJ70sGNLLr1bKimNJKnUvbe3uXBhH3VuRWpUs08FfmVgAysJbFLe24trfYhDq
+ /9h4vccWqyrxUfqX1J/zOS1gwFLrGDzXb47XQux+DqsWK7rhkkoGSbyjpT+X2i+OleQ/jRHTuYq
+ jwmzwMI6SpErOHWq/Gw==
+X-Proofpoint-GUID: Xsp8YCztAICeCJpWd4tzfSflKO-HQmJW
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-14_05,2026-08-12_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 phishscore=0 priorityscore=1501 adultscore=0
+ lowpriorityscore=0 bulkscore=0 malwarescore=0 clxscore=1011 spamscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2608140116
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260814_074854_563161_70CE89BB 
-X-CRM114-Status: GOOD (  21.98  )
+X-CRM114-CacheID: sfid-20260814_081636_793022_536FCD83 
+X-CRM114-Status: GOOD (  38.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,66 +149,259 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 14, 2026 at 04:21:11PM +0200, Christian Lugnberg wrote:
-> [You don't often get email from christian.lugnberg@soundtrack.io. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
->
-> sun6i_dma_tx_status() calls vchan_find_desc() to look up the virtual
-> descriptor for a given cookie, before checking whether the pointer
-> vd is NULL:
->
->     vd = vchan_find_desc(&vchan->vc, cookie);
->     txd = to_sun6i_desc(&vd->tx);   /* vd may be NULL here */
->
->     if (vd) {
->         for (lli = txd->v_lli; ...)
->
-> vchan_find_desc() returns NULL when the descriptor has already been
-> completed or is in-flight on a physical channel and no longer present
-> in the virtual channel's descriptor list. When vd is NULL,
-> to_sun6i_desc() is called unconditionally on &vd->tx before the NULL
-> check, which is undefined behaviour. Move the call inside the if (vd)
-> guard to ensure it is only reached with a valid pointer.
->
->     vd = vchan_find_desc(&vchan->vc, cookie);
->     if (vd) {
->         struct sun6i_desc *txd = to_sun6i_desc(&vd->tx);
->         for (lli = txd->v_lli; ...)
->
-> Fixes: 555859308723 ("dmaengine: sun6i: Add driver for the Allwinner A31 DMA controller")
-> Cc: stable@vger.kernel.org
-> Assisted-by: Claude:claude-sonnet-4-6
-> Signed-off-by: Christian Lugnberg <christian.lugnberg@soundtrack.io>
+On Thu, Aug 13, 2026 at 09:45:09 +0200, Ard Biesheuvel wrote:
+> The EFI stub already passes a struct efi_boot_memmap populated with the
+> information of the EFI memory map as a configuration table, and so
+> passing the physical address, size, descriptor size and descriptor
+> version via 4 different DT properties is kind of redundant.
+> 
+> Instead, pass the physical address of this struct in memory so that the
+> kernel can just retrieve the values directly.
+> 
+> Unfortunately, the scheme with four separate properties is boot ABI for
+> Xen, and so this needs to remain supported.
+
+To clarify, you mean boot ABI when running under Xen?
+
+> But for the EFI stub itself,
+> this is just an internal ABI that can be modified.
+
+Hmm...
+
+So this leaves only three properties that cannot be derived from the
+System Table:
+- The System Table address itself
+- kaslr-seed
+- bootargs
+
+The latter two could also be given the config table treatment.
+
+Is it time to update the boot ABI to say x0 will hold the physical
+address of "device tree blob (dtb) or EFI System Table in system RAM"?
+They can be distinguished by 0xd00dfeed / "IBI SYST".
+
+The use of a generated DT when none was provided by firmware has led
+to both confusion and shenanigans, and might be nice to get rid of?
+
+Either way, it would be nice to get rid of all four of the
+linux,uefi-mmap nodes if they're now completely redundant.
+
+Minor bikeshedding below.
+
+> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 > ---
+>  Documentation/arch/arm/uefi.rst    | 10 +----
+>  drivers/firmware/efi/fdtparams.c   | 39 ++++++++++++++++---
+>  drivers/firmware/efi/libstub/fdt.c | 40 ++------------------
+>  3 files changed, 37 insertions(+), 52 deletions(-)
+> 
+> diff --git a/Documentation/arch/arm/uefi.rst b/Documentation/arch/arm/uefi.rst
+> index 2b7ad9bd7cd2..c19cf3720f27 100644
+> --- a/Documentation/arch/arm/uefi.rst
+> +++ b/Documentation/arch/arm/uefi.rst
+> @@ -54,17 +54,9 @@ Name                        Type     Description
+>  ==========================  ======   ===========================================
+>  linux,uefi-system-table     64-bit   Physical address of the UEFI System Table.
+>  
+> -linux,uefi-mmap-start       64-bit   Physical address of the UEFI memory map,
+> +linux,uefi-boot-memmap      64-bit   Physical address of a struct efi_boot_memmap
+>                                       populated by the UEFI GetMemoryMap() call.
+>  
+> -linux,uefi-mmap-size        32-bit   Size in bytes of the UEFI memory map
+> -                                     pointed to in previous entry.
+> -
+> -linux,uefi-mmap-desc-size   32-bit   Size in bytes of each entry in the UEFI
+> -                                     memory map.
+> -
+> -linux,uefi-mmap-desc-ver    32-bit   Version of the mmap descriptor format.
+> -
+>  kaslr-seed                  64-bit   Entropy used to randomize the kernel image
+>                                       base address location.
+>  
+> diff --git a/drivers/firmware/efi/fdtparams.c b/drivers/firmware/efi/fdtparams.c
+> index b815d2a754ee..a54a76a6aaeb 100644
+> --- a/drivers/firmware/efi/fdtparams.c
+> +++ b/drivers/firmware/efi/fdtparams.c
+> @@ -10,22 +10,30 @@
+>  
+>  #include <linux/unaligned.h>
+>  
+> +#include <asm/early_ioremap.h>
+> +
+>  enum {
+>  	SYSTAB,
+> +	MEMMAP,
+> +#ifdef CONFIG_XEN
+>  	MMBASE,
+>  	MMSIZE,
+>  	DCSIZE,
+>  	DCVERS,
+> +#endif
+>  
+>  	PARAMCOUNT
+>  };
+>  
+>  static __initconst const char name[][22] = {
+>  	[SYSTAB] = "System Table         ",
+> +	[MEMMAP] = "Boot Memory Map      ",
+> +#ifdef CONFIG_XEN
+>  	[MMBASE] = "MemMap Address       ",
+>  	[MMSIZE] = "MemMap Size          ",
+>  	[DCSIZE] = "MemMap Desc. Size    ",
+>  	[DCVERS] = "MemMap Desc. Version ",
+> +#endif
+>  };
+>  
+>  static __initconst const struct {
+> @@ -49,10 +57,7 @@ static __initconst const struct {
+>  		.path = "/chosen",
+>  		.params = {	//  <-----------26----------->
+>  			[SYSTAB] = "linux,uefi-system-table",
+> -			[MMBASE] = "linux,uefi-mmap-start",
+> -			[MMSIZE] = "linux,uefi-mmap-size",
+> -			[DCSIZE] = "linux,uefi-mmap-desc-size",
+> -			[DCVERS] = "linux,uefi-mmap-desc-ver",
+> +			[MEMMAP] = "linux,uefi-boot-memmap",
+>  		}
+>  	}
+>  };
+> @@ -84,17 +89,20 @@ static int __init efi_get_fdt_prop(const void *fdt, int node, const char *pname,
+>  u64 __init efi_get_fdt_params(struct efi_memory_map_data *mm)
+>  {
+>  	const void *fdt = initial_boot_params;
+> -	unsigned long systab;
+> +	unsigned long systab, memmap;
+>  	int i, j, node;
+>  	struct {
+>  		void	*var;
+>  		int	size;
+>  	} target[] = {
+>  		[SYSTAB] = { &systab,		sizeof(systab) },
+> +		[MEMMAP] = { &memmap,		sizeof(memmap) },
+> +#ifdef CONFIG_XEN
+>  		[MMBASE] = { &mm->phys_map,	sizeof(mm->phys_map) },
+>  		[MMSIZE] = { &mm->size,		sizeof(mm->size) },
+>  		[DCSIZE] = { &mm->desc_size,	sizeof(mm->desc_size) },
+>  		[DCVERS] = { &mm->desc_version,	sizeof(mm->desc_version) },
+> +#endif
+>  	};
+>  
+>  	BUILD_BUG_ON(ARRAY_SIZE(target) != ARRAY_SIZE(name));
+> @@ -115,6 +123,9 @@ u64 __init efi_get_fdt_params(struct efi_memory_map_data *mm)
+>  		for (j = 0; j < ARRAY_SIZE(target); j++) {
+>  			const char *pname = dt_params[i].params[j];
+>  
+> +			if (pname[0] == '\0')
+> +				continue;
+> +
+>  			if (!efi_get_fdt_prop(fdt, node, pname, name[j],
+>  					      target[j].var, target[j].size))
+>  				continue;
+> @@ -123,8 +134,24 @@ u64 __init efi_get_fdt_params(struct efi_memory_map_data *mm)
+>  			pr_err("Can't find property '%s' in DT!\n", pname);
+>  			return 0;
+>  		}
+> -		if (dt_params[i].paravirt)
+> +		if (IS_ENABLED(CONFIG_XEN) && dt_params[i].paravirt) {
+>  			set_bit(EFI_PARAVIRT, &efi.flags);
+> +		} else {
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+This condition branch doesn't in fact have anything to do with the fdt.
+Should it still live in fdtparams.c?
 
->  drivers/dma/sun6i-dma.c | 3 +--
->  1 file changed, 1 insertion(+), 2 deletions(-)
->
-> diff --git a/drivers/dma/sun6i-dma.c b/drivers/dma/sun6i-dma.c
-> index 04fe1f5042e9..7704b016aed8 100644
-> --- a/drivers/dma/sun6i-dma.c
-> +++ b/drivers/dma/sun6i-dma.c
-> @@ -981,7 +981,6 @@ static enum dma_status sun6i_dma_tx_status(struct dma_chan *chan,
->         struct sun6i_pchan *pchan = vchan->phy;
->         struct sun6i_dma_lli *lli;
->         struct virt_dma_desc *vd;
-> -       struct sun6i_desc *txd;
->         enum dma_status ret;
->         unsigned long flags;
->         size_t bytes = 0;
-> @@ -993,9 +992,9 @@ static enum dma_status sun6i_dma_tx_status(struct dma_chan *chan,
->         spin_lock_irqsave(&vchan->vc.lock, flags);
->
->         vd = vchan_find_desc(&vchan->vc, cookie);
-> -       txd = to_sun6i_desc(&vd->tx);
->
->         if (vd) {
-> +               struct sun6i_desc *txd = to_sun6i_desc(&vd->tx);
->                 for (lli = txd->v_lli; lli != NULL; lli = lli->v_lli_next)
->                         bytes += lli->len;
->         } else if (!pchan || !pchan->desc) {
-> --
-> 2.54.0 (Apple Git-156)
->
+/
+    Leif
+
+> +			struct efi_boot_memmap *bm;
+> +
+> +			bm = early_memremap_ro(memmap, sizeof(*bm));
+> +			if (!bm) {
+> +				pr_err("Cannot remap EFI boot memory map\n");
+> +				return 0;
+> +			}
+> +
+> +			mm->phys_map		= memmap + sizeof(*bm);
+> +			mm->size		= bm->map_size;
+> +			mm->desc_size		= bm->desc_size;
+> +			mm->desc_version	= bm->desc_ver;
+> +
+> +			early_memunmap(bm, sizeof(*bm));
+> +		}
+>  		return systab;
+>  	}
+>  notfound:
+> diff --git a/drivers/firmware/efi/libstub/fdt.c b/drivers/firmware/efi/libstub/fdt.c
+> index 23b3543d3041..417b1344bdd8 100644
+> --- a/drivers/firmware/efi/libstub/fdt.c
+> +++ b/drivers/firmware/efi/libstub/fdt.c
+> @@ -32,7 +32,6 @@ static efi_status_t update_fdt(void *orig_fdt, unsigned long orig_fdt_size,
+>  {
+>  	int node, num_rsv;
+>  	int status;
+> -	fdt32_t fdt_val32;
+>  	fdt64_t fdt_val64;
+>  
+>  	/* Do some checks on provided FDT, if it exists: */
+> @@ -102,21 +101,7 @@ static efi_status_t update_fdt(void *orig_fdt, unsigned long orig_fdt_size,
+>  
+>  	fdt_val64 = cpu_to_fdt64(U64_MAX); /* placeholder */
+>  
+> -	status = fdt_setprop_var(fdt, node, "linux,uefi-mmap-start", fdt_val64);
+> -	if (status)
+> -		goto fdt_set_fail;
+> -
+> -	fdt_val32 = cpu_to_fdt32(U32_MAX); /* placeholder */
+> -
+> -	status = fdt_setprop_var(fdt, node, "linux,uefi-mmap-size", fdt_val32);
+> -	if (status)
+> -		goto fdt_set_fail;
+> -
+> -	status = fdt_setprop_var(fdt, node, "linux,uefi-mmap-desc-size", fdt_val32);
+> -	if (status)
+> -		goto fdt_set_fail;
+> -
+> -	status = fdt_setprop_var(fdt, node, "linux,uefi-mmap-desc-ver", fdt_val32);
+> +	status = fdt_setprop_var(fdt, node, "linux,uefi-boot-memmap", fdt_val64);
+>  	if (status)
+>  		goto fdt_set_fail;
+>  
+> @@ -148,33 +133,14 @@ static efi_status_t update_fdt_memmap(void *fdt, struct efi_boot_memmap *map)
+>  {
+>  	int node = fdt_path_offset(fdt, "/chosen");
+>  	fdt64_t fdt_val64;
+> -	fdt32_t fdt_val32;
+>  	int err;
+>  
+>  	if (node < 0)
+>  		return EFI_LOAD_ERROR;
+>  
+> -	fdt_val64 = cpu_to_fdt64((unsigned long)map->map);
+> -
+> -	err = fdt_setprop_inplace_var(fdt, node, "linux,uefi-mmap-start", fdt_val64);
+> -	if (err)
+> -		return EFI_LOAD_ERROR;
+> -
+> -	fdt_val32 = cpu_to_fdt32(map->map_size);
+> -
+> -	err = fdt_setprop_inplace_var(fdt, node, "linux,uefi-mmap-size", fdt_val32);
+> -	if (err)
+> -		return EFI_LOAD_ERROR;
+> -
+> -	fdt_val32 = cpu_to_fdt32(map->desc_size);
+> -
+> -	err = fdt_setprop_inplace_var(fdt, node, "linux,uefi-mmap-desc-size", fdt_val32);
+> -	if (err)
+> -		return EFI_LOAD_ERROR;
+> -
+> -	fdt_val32 = cpu_to_fdt32(map->desc_ver);
+> +	fdt_val64 = cpu_to_fdt64((unsigned long)map);
+>  
+> -	err = fdt_setprop_inplace_var(fdt, node, "linux,uefi-mmap-desc-ver", fdt_val32);
+> +	err = fdt_setprop_inplace_var(fdt, node, "linux,uefi-boot-memmap", fdt_val64);
+>  	if (err)
+>  		return EFI_LOAD_ERROR;
+>  
+> -- 
+> 2.47.3
+> 
 
