@@ -4,113 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEC26C5CFC1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 07:41:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CD58C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 07:47:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W4o1ZmlBfyrCH3y2jdCkwEByqgWhppc/8xEUvhcD0rE=; b=EGofTeuvKwdlwN9NmaNzU1dTqX
-	r4kVipcSFN7M86ELj7bNQuV83TxzbMnV/kwo1eihJO/hXqgidmvRnKYZfgeFAMUiRTUq7UHeF4XKa
-	ZwyCdHxLetKPna1UAp9r+fX1vRahJuLeUSNEQ5hvga4CgfygmOXxi4yFfpFG4jEmiLUTiZwXFRQTT
-	oNQcS16R+ApYaf9PTNH8ZZ5vL9RPZsICstjHh7MeWm17Lh9EMD/LBNKp3/ThXQ+CJ6gyTYQNOyxQo
-	FoD8KnoN0UEPinA99K9tQkFeeKWtyZUGD3kA8AOeSZpsMKJJ79TPVOcA0QsAZc8rdeXSbQTyhO7DI
-	19Q+IEcw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+wlLfGsWdr8phAtVLv97nZ0UPHdHbGHGBacvXoI9xCQ=; b=Pe/xwsDDoY/Qu7knizoztfJsX6
+	5TKb2IWZ75MC+BDztPM2OUnkm8O/FOaCIIRZw/TIjNxpgQmITyyUt9JsYbI3dscZEFSoGKJSjRMiB
+	XimV+QHJ8TmTmHDHBxVPN1UpIdOutB3Qtf8LZNki/HEmPnQXQ0PEqpsU2u03DLO71VisK+xFESqmO
+	SfOxZ+CuP79R9YI7wfjvrCvzYX2HV2QNpSZh7OcZp+XRsg7tV/NCdCwKFHDU5KSfktYfIwC5CHhu5
+	rirmEdNtQqFgXBgxsJEou6yJUwiheCHi7B5oHTA2D0XSRNsmsMkLpMpUnkDvL80/bGeGMlhgCDmn0
+	MssKyPpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wumXY-00000002CHe-3sp0;
-	Fri, 14 Aug 2026 07:41:21 +0000
-Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
+	id 1wumd8-00000002CjY-2AfR;
+	Fri, 14 Aug 2026 07:47:06 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wumXW-00000002CHG-0mYG
+	id 1wumd6-00000002Cip-3n2M
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Aug 2026 07:41:19 +0000
-Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-3811f512167so881516a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 00:41:17 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1786693277; cv=none;
-        d=google.com; s=arc-20260327;
-        b=XRwq0eouDsPuQwJxEb2nPAFqqjkam5dVeNaQQgW2Ku2QJW+Sh5Nda8CzbemVV1A6aB
-         AikB58IXPtZkLAPz8QT6/mP8m8/mZZA8plNliGvU4q1Tp8zn3nZP4ojzZ74g2+8ONU0C
-         r+duqXtllaUVbhwp1+84HMRpcTR2qB1gEjR+Jk4d4Ul+RxK3Xo0YZRUVdNiDOOqe0u5Z
-         Na5Mwfa+QYyaWsl62eyu+BjMt1pdOAr8nrGxUSsFc9/+dtzoeNxr15JTvRIDnSvkmOC4
-         02EASYl37gJ/nKjYEhkSBPXLcZekY+QUTVwJ1eiIFWpo1N/jmVvmuypyH/hQpU/e5rBi
-         /7SA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=W4o1ZmlBfyrCH3y2jdCkwEByqgWhppc/8xEUvhcD0rE=;
-        fh=uNhe1U3yPpzmCWjZe+LhMTLQ6aldNa/6VNpqojpCdxQ=;
-        b=icR3tMFLuJDdNadaciE15kMLBHReqQTHXKbZIhVrbLmbt21CFNus9ZIh0TfiHSV2ZW
-         xskMpZTEzYHqI1rtgthgb61UogYRjHzTMMjQf2Vjwj+UF8WdZpvw5M6DC9AYNbdltN6m
-         L1v5qmwbV7ylF0QaEaX9OUQ6WNNQTrbT+OXMsm5/7Bsz2DdIGZ4KENC9xdCnELDeVRFn
-         6bJ23s0B5WhFJvjMH78Z/eCf4Nv31j+1rVmILdX15PK+5JLCTv3HTpik41kOp0jvsnzZ
-         229s/BP6z5Rx6Q8EWBsoPB7pU0Xqascd88YP/lwD1Ud74UlcRGnu64CA6Q+50N6uyWOB
-         fDLg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Fri, 14 Aug 2026 07:47:06 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4953de5be0aso5251255e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 00:47:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786693277; x=1787298077; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=W4o1ZmlBfyrCH3y2jdCkwEByqgWhppc/8xEUvhcD0rE=;
-        b=O9mSu3DRTmrnV0buF8GY2oVlIHzM+fAnWGb4xclWCZdWS61929de8XckHGX3dhNnmT
-         6hQxjKi5CtRpKQsi0D3VPwvjkf5Qw72jydaUyJytU9FWyRyMMJpVjO9LGqrYWNA6YHqy
-         GnjLsG11DHFlon+SafbO6zdfFYYLXj8Hk0VR1v4ykbiBoE1NbRAqrgTpE9ztL46iLgXt
-         ATyca/034NTM13QiJb+ydWdGBMqEVEUo5fV1Mppk6yEsn5miQElP0ICrArJxwIpaWR8B
-         dcOaLoguu0Si4W+tOKZP3IWxzgoTnOGsVC4t2WcaR6YH1BcKs0Iqr6nqQNjvhrDmZNKJ
-         Nf0A==
+        d=gmail.com; s=20251104; t=1786693623; x=1787298423; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=+wlLfGsWdr8phAtVLv97nZ0UPHdHbGHGBacvXoI9xCQ=;
+        b=Hd82nhsfQ5L9mt34RsClyGmf52bq4TeX/SCKCNOyhcIdiaNU2ak5IoO4AGXqmh2gez
+         wW5JleDJqyRzfBK7IgDLlJgCQYUq92F3Lc8CzhZtDlfYhHs9IpD1Ndmd6Yt4ikkzMVdF
+         C4BKZ6B7sRvyU0xjdYDhr1aUKh3yLC1x/hWjSVH8Wr8WZkyb0OSovo4nzpO2EIe1wEJP
+         eKLEHfUoWB87g2ign8MMKZ9Jpjxj5CYainFHkz8xD/HHK4rhHIraYsnZnlblBDfxYESE
+         EjVtDTs/cPyHw3bGuG+fiLwPePOtoDKJOzuQQa2m8P08Hxb+yJBWbeRhV678Ujlz2LW9
+         Pk4w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786693277; x=1787298077;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=W4o1ZmlBfyrCH3y2jdCkwEByqgWhppc/8xEUvhcD0rE=;
-        b=Fx1xZZsC9HiNIt5okw7RxoqBk1T1KLbO8D3UqhSxKrGjJ66rTLimNymXp2sZUaDG1o
-         wiegkM3zAMyGkVEPI1vY4AMojCWwZHpniLLSXAr4kGTcWO8Zu3brkv+oBcSyZwA4X+ab
-         WUictetcJeXYDSXEonrqqKLt0hzXatL24WSIQ47Es4Btek93a9MN3nJOLx6X9A6T0OaG
-         /EDsiuA1vxjzuwuhtpLrCmy0gov092DOA9UtyfdvKGALZKReHg518xaYCT01RevFz4M1
-         pQB6tsK0YJZR368blhrSetzk1t1j7+bxcIwP0QceOAKC2IGZj8+6k5H04cXuEFP7Kvvx
-         hkBw==
-X-Forwarded-Encrypted: i=1; AHgh+RrwV6/DGgohIA3Dt6wRmoIKGacB5GL1byVlKrCTAuqyHS7QnMFf2YhGeFvoDC+1jvArUH1141oYVNL7xI/ZDC8A@lists.infradead.org
-X-Gm-Message-State: AOJu0YzP55tsPgryD/yUZHAAE1/WHYt1g20wSthrvDk0VZB6M+C+oXkm
-	Jv5da5O34zftyMJNemUv9cXr1R4txNcNPydE5ilVetodWLUahWokOD5SKtN3IlrwLDyBXqpBKSN
-	DiG5xVs0RvqBpqkTjMAd2/aWJ3qiU2RM=
-X-Gm-Gg: AR+sD12riH3Q7VkNSBhKGEZ/3aIokgl+9y+JkknGpbbE363UMOvlXM1qhG+HoQPgW79
-	DLwe56MmH73YSwJnveq3h/YHnC28PzhnG6RwfmUs0mcb6ScIj7rkBWVIu9I4x44OimJpWNuWeZT
-	X2w4H39dPmLhCsX8+2fkkwjukI9nAQBv9g1E/9Jf9on9mQselvF1ICkCYmQpFW5kcxQ4qyR/+b3
-	sjmEHN+4ib22K95RRJ2mjpWngMuKdd86RjLDqfFONRTWtw0jBxRORMal+6OHtFzyaXwlUwIRf5f
-	COfbwG7h7fXcQPK57oAkMX1lz8mPOcRTfxo7t2HJhJNxkw==
-X-Received: by 2002:a17:90b:3d8b:b0:38e:1497:af5b with SMTP id
- 98e67ed59e1d1-3933b77ece8mr4578497a91.1.1786693276690; Fri, 14 Aug 2026
- 00:41:16 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1786693623; x=1787298423;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=+wlLfGsWdr8phAtVLv97nZ0UPHdHbGHGBacvXoI9xCQ=;
+        b=awMuknCAGnqydyvXvRXLPwmGOQJpZtp8RRMCMOE7xfdHY2dx6RVaa6GqARqHaUnBIm
+         5KmfIOpwchkrUusiIbweS27zMrBTSBYYG8V2lovYGq8wxkIJAvhdDs6qeNEL336UJiDD
+         BNcbv/nOKSOTuZVoTerTfwmlehQBlnsVxdgwNjDFUYGtTHvYS8racyh7hlbSnOqSthkq
+         eGMTRpJVI5zMqzg8J8KBx0ZefRSx5Qrj35TU7b9mxKbmP/lvnrzP/gdjgFMxGm7Dus/6
+         v8D10livdjcncXdPsMrWwE0J74262gkq4uvpu9mFuIlNv48ojfvlNJrv1Gy6SPE157yG
+         SX/g==
+X-Forwarded-Encrypted: i=1; AHgh+Roq4AIpq6dOKWjijHFjTc9nMZZPVOgWIvY+G4VqCUXYKiHyisO/0Ka3AOHb8Qo8ZRcX8C0/xl+wm7Dlb+OAx1JF@lists.infradead.org
+X-Gm-Message-State: AOJu0YwFza8bPFlH1j9AoIZdM6HxQVD2T0TNybBDJq3uVyFUj1mKSlDh
+	GhIufWXnnckOifGaLaEGquVpEKVCqvbSOtIYafd+2f3eruzsDzrUMBH6
+X-Gm-Gg: AR+sD12uImXEShqlNtQItqaWaZRRnIy2pP5JCLVvZMNovAXRTZx1QM7iYYwiGtPssKh
+	+0Mb5mZJpvSb4ifN484LlAGz9CiyfHPJQ2zdhqjKhB9P5uRYXfaRg5V5/Ko7L3sYFl2ljo5tnDY
+	tMCztjOc6RLGenfxI9oYrGb5yRUO6B4cNcTi12RVZphcYXZ2Td+q+jIc60RyhC77IipTwvSBr9j
+	fxUdhukogI6p6BwvAllzH+n/c1Pr7b+FdWlzXzgSFDnnNhZxasE3dbh6JkYPsrQJ5jk/B+AJMfs
+	8D8/zip4YHBzadTKUw8OlWIEXUdwbhte5nNHEC8Wsgpb1KaeL4B685iEC9fxn3pIKDX6GItfDFE
+	evwiME/wc0lvSmM9La0Vd/kivbOY5gJccWwSn2x9sFqKguHSrjdDymtLVbryyVFr/fJq5yyCTCz
+	9ZoH6tbm474L9IzSCcbIAf2s/8hmaf/kLfHSA5uJmvo7sGgs5h4x00DCs0qcsM78CeAQ==
+X-Received: by 2002:a05:600c:3496:b0:493:f318:3bc6 with SMTP id 5b1f17b1804b1-4998796e478mr55812165e9.13.1786693622590;
+        Fri, 14 Aug 2026 00:47:02 -0700 (PDT)
+Received: from deb05.proceq.com ([213.160.61.66])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-499899b5f86sm8172825e9.5.2026.08.14.00.47.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 14 Aug 2026 00:47:01 -0700 (PDT)
+From: Mehmet Fide <mehmet.fide@gmail.com>
+To: Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>
+Cc: Frank Li <Frank.Li@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Stefan Agner <stefan@agner.ch>,
+	Fabio Estevam <festevam@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Francesco Dolcini <francesco@dolcini.it>,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Mehmet Fide <mehmet.fide@screeningeagle.com>
+Subject: [PATCH v5 0/4] ARM: dts: vf: Iris carrier board for the Colibri VF50 and VF61
+Date: Fri, 14 Aug 2026 09:46:56 +0200
+Message-ID: <20260814074700.2491256-1-mehmet.fide@gmail.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-References: <20260813070020.719810-1-shengjiu.wang@oss.nxp.com>
- <20260813070020.719810-2-shengjiu.wang@oss.nxp.com> <20260814-lean-classy-hyrax-60aab2@quoll>
-In-Reply-To: <20260814-lean-classy-hyrax-60aab2@quoll>
-From: Shengjiu Wang <shengjiu.wang@gmail.com>
-Date: Fri, 14 Aug 2026 15:41:01 +0800
-X-Gm-Features: AUfX_mxVp0mCUmIh3cD49Kgp4iw4sN-NjfTifnUiJEeotRXNzWAYJPCWyxB1G3Y
-Message-ID: <CAA+D8AOdF08PyOqQX6HTz-bWZmyB0bmKoW2DxYtnGS3g72aWrA@mail.gmail.com>
-Subject: Re: [PATCH v4 1/5] ASoC: dt-bindings: fsl,imx-asrc: update port
- binding to support multiple paths
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: shengjiu.wang@oss.nxp.com, lgirdwood@gmail.com, broonie@kernel.org, 
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, Frank.Li@nxp.com, 
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
-	shawnguo@kernel.org, linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Xiubo.Lee@gmail.com, nicoleotsuka@gmail.com, 
-	perex@perex.cz, tiwai@suse.com, linuxppc-dev@lists.ozlabs.org, 
-	Shengjiu Wang <shengjiu.wang@nxp.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260814_004118_228737_3FEAC268 
-X-CRM114-Status: GOOD (  12.77  )
+X-CRM114-CacheID: sfid-20260814_004704_960569_243D5188 
+X-CRM114-Status: GOOD (  17.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,28 +107,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 14, 2026 at 3:21=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.or=
-g> wrote:
->
-> On Thu, Aug 13, 2026 at 03:00:16PM +0800, shengjiu.wang@oss.nxp.com wrote=
-:
-> > From: Shengjiu Wang <shengjiu.wang@nxp.com>
-> >
-> > The i.MX ASRC hardware supports up to three conversion pairs (A, B, C).
->
-> Each one or only the newest? You will be getting the same questions.
+From: Mehmet Fide <mehmet.fide@screeningeagle.com>
 
-Each one.
+This adds a device tree for the Toradex Iris carrier board carrying the
+Vybrid Colibri modules, plus two small preparatory patches for the
+module-level dtsi that the i.MX Colibri variants already had.
 
-Best regards
-Shengjiu Wang
+Tested on a Colibri VF50 on an Iris V1.1, most recently on 7.2-rc7
+plus this series.
 
->
-> > The existing binding exposed only a single generic audio-graph port,
-> > which cannot represent independent conversion paths when multiple pairs
-> > are in use simultaneously.
->
-> Best regards,
-> Krzysztof
->
+Changes in v5:
+- drop the kernel version from the test description in patch 4
+  (Krzysztof)
+- collect the Reviewed-by tags
+
+Changes in v4:
+- gpio-line-names packed four per line (Frank Li)
+- keep the EXT_IO pin group applied next to the carrier hog group
+  instead of overwriting pinctrl-0 in the Iris dtsi, verified in
+  pinmux-pins on hardware (Sashiko review)
+- enable pwm0/pwm1 like the evaluation board does; both chips
+  register on hardware (Sashiko review)
+- the compatibles keep their hyphens; Krzysztof asked for hyphens in
+  every newly introduced compatible in the v2 review
+
+Changes in v3, following Krzysztof's review:
+- fold the Iris compatibles into the existing -on-eval enum entries
+- use hyphens in the newly introduced compatibles
+- drop the fixed 5V regulator that only fed the VBUS regulator
+- sent as a fresh thread instead of in reply to v2
+
+Changes in v2:
+- add the dt-bindings patch for the new compatibles
+- describe the USB host VBUS regulator instead of hogging USBH_PEN
+
+Good old times indeed. You did this job before me and pulled me into
+Linux in the first place, so having these patches reviewed by you
+closes a nice circle. I seem to be following your path in every
+detail by now, the hairline included. The tiny board is still out
+there measuring every day. Thanks for the reviews!
+
+Mehmet Fide (4):
+  ARM: dts: vf-colibri: apply the EXT_IO pin group
+  ARM: dts: vf-colibri: name the SODIMM gpio lines
+  dt-bindings: arm: fsl: add the Colibri VF50 and VF61 on Iris
+  ARM: dts: vf: add Iris carrier board support for Colibri VF50 and VF61
+
+ .../devicetree/bindings/arm/fsl.yaml          |  12 +-
+ arch/arm/boot/dts/nxp/vf/Makefile             |   2 +
+ arch/arm/boot/dts/nxp/vf/vf-colibri-iris.dtsi | 126 ++++++++++++++++++
+ arch/arm/boot/dts/nxp/vf/vf-colibri.dtsi      |  56 ++++++++
+ .../boot/dts/nxp/vf/vf500-colibri-iris.dts    |  14 ++
+ .../boot/dts/nxp/vf/vf610-colibri-iris.dts    |  14 ++
+ 6 files changed, 220 insertions(+), 4 deletions(-)
+ create mode 100644 arch/arm/boot/dts/nxp/vf/vf-colibri-iris.dtsi
+ create mode 100644 arch/arm/boot/dts/nxp/vf/vf500-colibri-iris.dts
+ create mode 100644 arch/arm/boot/dts/nxp/vf/vf610-colibri-iris.dts
+
+
+base-commit: 3d6d817622b0a9721e3cc404df3469171582be13
+-- 
+2.54.0
+
 
