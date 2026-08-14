@@ -4,106 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 460D6C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 08:46:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4892C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 08:48:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ctpNRt4aHSt0ZiBATXpNUnAiZyBx5JbaM34XCPkr8lI=; b=iR6oIPCKyMmW0a2SPqAyCqt59k
-	I3g4Dp1srTHLoC+uohDhGemC9B6tPOfmy9sRjtLk5LOqbcQRGbzPrmAS3GhjjAL78N2AjrRxqWkqP
-	7ic8i91rUiyF/4GLwrR6b6XJ8AaQ6ikRc+YTnads7CoN6Hm0na+wQu4Ba8dz12AF5bspH2SCUnXZO
-	xRJ/GeQ0/bptxd365YQwkTX5UTIMtBe+OwfZkOLPGlNq8KbAwP5WZULHn9lwFVOytt5palLQe7s5R
-	IJcLhHcbbrtj6+Drq+xvM3IsQWzzyRzxsNBqBCyeUON4vvU9F6TPjALmzR9YdQw/Bsc08XPb77Iy/
-	ykCPd04g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uGQwL5UZJipKTW+qGKPo+sHQSdOsrhX2bDvlMA/o8tk=; b=cBrEqvaDHjrWzxGSnH+eWqXO5k
+	A1urzMzbliqvxgMh60ngJmrR2FE5kQwM3G03s8dulkph001cLGheNGWvUOsU+q/bFjBW46rxiw89T
+	IANU/bNselKt3/rPKLOr9VMPzv3gFKcb93Un0g3kHcEfJdbMXkWJN900jkgHn5nLH0s+nyhQ5Dlqs
+	t68B+iCRMFqzU6VNPM1UMO+tiKHE5XUcs0hyiIMjEziNnmVzKEKDidZ+56ZexyeEBWGbriF5g1ThY
+	wZeZCy3Oe1qkUhOEpvU7akZ1hSnZWYKBBSR/EOPIolgK2sx1WyZL9mnGIsTA5SepVIdYK2GzY+OdH
+	BmIJN+OA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wunYF-00000002JNo-0HmJ;
-	Fri, 14 Aug 2026 08:46:07 +0000
-Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
+	id 1wunaq-00000002Jiv-2CRQ;
+	Fri, 14 Aug 2026 08:48:48 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wunY8-00000002JLn-2M5l
+	id 1wunap-00000002Jij-34sf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Aug 2026 08:46:01 +0000
-Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-c2020421077so138077366b.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 01:45:59 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1786697158; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Ym+hKqEA1xFtvlSGq+V1/1vecNvLgGc2YyMX+ey2K/nt8FHOdcZvrMjtb+SRRle7CP
-         cXGkyJrtlgoXjZUQRPwGEyocDmLx16U48iTQhHqA2V582y6u63b7bgUnTPsQ1GwURMNX
-         AynqG187Ek+PnZtpa7MrjxayJRmZoZdQKgosLk3HGlGGarawYL3UfAZBhS+InJNJ89F4
-         LJCWnpUfTW8LUDCPWAB0XZcXBlxa3K5ljI+TDIknPUQq0l23LKmlqfZq5MXzhdC4VIYE
-         QgXOKPLYLjI93vA39PQHIiIYYNuuIJd5ibzb4lnbPAFpU5yXTxmTEK406BmWeQxNQbM0
-         qJ+w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=ctpNRt4aHSt0ZiBATXpNUnAiZyBx5JbaM34XCPkr8lI=;
-        fh=xbYdcbFuoSKOLfTkIedpm+nJf0duWNq+G89cLkU6Jfg=;
-        b=kGCOwryWW1g4FveNw4WTjwPk9nHJQdI7NKtsToo3v14qXKgBPiFtsERw+V97/FCqG/
-         tbZ3jkdV6FBUOWVrTnY/VVXv1yeg3KrDJ6L/K7qgqBBBztWtaVId5tTXNK8Bpo/jFbmU
-         yJehT8vKOvGhKqgvdnqiUj6cSbpVuIvBIvYB9l6MUEbDzyMV/sQMpLf41OXwlHY2Rvua
-         R/n8vIsK52HK95P8cRZy7WAhkrubfBqdP14AN9tWAU2Vf3+Q6OnnxEBftTyvSjWPiOpO
-         vxTWMIw+E2MTlvjm7RTLyaVEpY0W0ZzVQBH/JQss/gcXMykZ2+991p5s+sVQDy/Uxh4F
-         JHAQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786697158; x=1787301958; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=ctpNRt4aHSt0ZiBATXpNUnAiZyBx5JbaM34XCPkr8lI=;
-        b=B/4/YNJc2ljBvDWOvr+Wxf9ec1hh+9G0gwUKC4eMKUsgFQhXkJGrsnjPUytGkG0r7x
-         a29rda/l7earguA5pC/esNEdVp1qbKNjmwGQrb7iGGXDEY+MCIYQUacZ4N65vQYJQK1r
-         uJQixZ+xHPQ6+SwgwRX/LPHUTS1G+tNXagLv2CWc+Q19a/12coFJT64D9nx7SexXL+C2
-         vKY9tVUgsOagHDr9M7/K9DifnU2i+5mKmd/ncBvVghU4CCtYOTiQ5POrjPHOKa89sDVV
-         O27dsN9Oc3zbvvY32mJRvwtzbPdZSyKMgnXo0+A4S2qe21wCba7uqJmwR6/uKqBxLW1j
-         qW9A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786697158; x=1787301958;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ctpNRt4aHSt0ZiBATXpNUnAiZyBx5JbaM34XCPkr8lI=;
-        b=GOjX0j60BMynGYRLeoWcp02E9uI0Rh6664v2KHAgh7qG66vFsd+zijCRE5wrJDoxhJ
-         bzU9ydJgC7WFOuvO7UqGPKYy3QzweAqMz41qHtjcXMzaBzFkxhAdpRPCrEJVsujN0PG8
-         Fr+xaTE29NPl2v7dKdYcs1LZ8wHp18KzYiJP03FvoOTrr/DQIes90AesLRuiQdIu4/f+
-         m9mk+5R6RVyY5FdHQgOTNHqjHg2FHdWVOA9zOoYzBDKfYH/x5BcVXiU2cOs9pzjRbM8n
-         mFFCo6OxkYEWhhUdHk/FeFYB2A8BiNiLnPMBuZCUgH7lKPF0/zrkWz18oj5yCVVZ8u5l
-         qJtA==
-X-Forwarded-Encrypted: i=1; AHgh+RrcJH6MV1vRq+COQe7vVG+enkjDp4JzcCg1MkOwXXsD+1kEZ42dko7HyXvx+rLnFzP/Lb0b7TXd6HSc4VfgVt2b@lists.infradead.org
-X-Gm-Message-State: AOJu0YzElDB6BR6SClvjuj8O1GUyR7kGt8k8DjAXOXcgQDYQVL+eL3t+
-	dgQBMT5JAuJlE4VPaxjURLSc1l6q5BIZshvt6MZafree5/Bm/e0HfpTS1NuOKbKX72vDB/KqmmO
-	wlTScCBNKrKqztZpd0LKI6ZvBHp7N3Zo=
-X-Gm-Gg: AR+sD10HPgY1vAQ0aXkJAFWxtPU66spHZLeXThor6l0zn/LtGtfziJRH4T18WxYIiwc
-	t9WsxD66l2y2NLJz9PCW9IDcrWjv1ReZDSBHNy4d/lOOXIZ49SlD8LbPCTk07ZgYVv8qzyHdweF
-	GKyF9/aG2XhsOj8bmKJojVtY7ssjkvKAhmiypnUL1zUwFBQFbeK29mWVRW4zl7QMuMWQp2p4fMx
-	3ToviJ+3POAGn4v7up9ThPYtEvSUiMUP30P9CvS48WvMeexm+8uhpR4vBS4nGQ/+OGBHIYE6Ehd
-	aIs3F58ZBFD3+v+O62MsieQxJPx2/T1iI2IE74JJcPFXj4SdSo+UsVmKAvQlzZVc0FZOM0ItBhM
-	x6eQxTFn3Q3pXcskiwpmsouwzQiQ3hg==
-X-Received: by 2002:a17:907:c10:b0:c20:899:b8bc with SMTP id
- a640c23a62f3a-c2129ac0d66mr200128566b.6.1786697157566; Fri, 14 Aug 2026
- 01:45:57 -0700 (PDT)
+	Fri, 14 Aug 2026 08:48:47 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id D448F600AD;
+	Fri, 14 Aug 2026 08:48:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A11C21F000E9;
+	Fri, 14 Aug 2026 08:48:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786697326;
+	bh=uGQwL5UZJipKTW+qGKPo+sHQSdOsrhX2bDvlMA/o8tk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=bGUhbdfvvAyZ041IRQFT3yaniWAfDI6dXKx46SzgRufqkn0S6nPYrFxuivv+st59Z
+	 GTaziv7CJYxzm91Hna08972IcnR1hf5Kr6yF/KfslD3Ze3LEc77GQC2OJSk5hp8VM2
+	 KLlr+9DDUHDSGmAtrDYic7l2itUh+mio8Tw1SSzHJxIsIKi9w3EnLlr4lZ9V9u6+y/
+	 4TyP8rYO8EybgfqPlubbVMf+8rAR7HO9uRKU57g5HJPYIYI1ekq0F1Uwo4m1EnjzsW
+	 /nMCBP/AOnj2T/C6d1IkiT28NVTMCQoCl4Q2gqSpPzeWdKutby+ara4wQyZd2rZTa3
+	 HOLXqPHI5CJwg==
+Date: Fri, 14 Aug 2026 09:48:39 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Yao Yuan <yaoyuan@linux.alibaba.com>
+Cc: Wei-Lin Chang <weilin.chang@arm.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oupton@kernel.org>, Fuad Tabba <tabba@google.com>, Joey Gouly <joey.gouly@arm.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Jintack Lim <jintack.lim@linaro.org>, 
+	Christoffer Dall <christoffer.dall@arm.com>, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH 1/2] KVM: arm64: Fix spurious warning for benign stage 2
+ teardown race
+Message-ID: <an7Tk0qrCM84zS54@gremlin>
+References: <20260812-kvm-arm-nested-virt-fix-v1-0-4ad883f1b6a5@kernel.org>
+ <20260812-kvm-arm-nested-virt-fix-v1-1-4ad883f1b6a5@kernel.org>
+ <qfhlmmidzdmmsfopfhxpddgwa7nob45jwgb6sabskawaxtox7i@mnxplk3zn34k>
+ <an3gqCJ1fzloWB_N@lucifer>
+ <v3vgnteumpaxbgqjtfwoilcbwpwohfci3uwu4ooykls6zjwjwe@rukbigno2m5o>
 MIME-Version: 1.0
-References: <20260809152813.585797-1-pawlik.dan@gmail.com> <20260813180532.3683abc7@kernel.org>
-In-Reply-To: <20260813180532.3683abc7@kernel.org>
-From: Daniel Pawlik <pawlik.dan@gmail.com>
-Date: Fri, 14 Aug 2026 10:45:45 +0200
-X-Gm-Features: AUfX_mxwIf5bn2G0UM-Vi351-EpN5XsVbICk5ppLvaZ8AB0iHOEQezLAyICIB24
-Message-ID: <CALC2ApjREyeKcddOx0TP2AghDs2BVKY6xD6mU6ToSOk2MQ4cqw@mail.gmail.com>
-Subject: Re: [PATCH v6] net: airoha: npu: use coherent DMA for mailbox messages
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: netdev@vger.kernel.org, lorenzo@kernel.org, win847@gmail.com, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260814_014600_664881_95AF8132 
-X-CRM114-Status: GOOD (  22.07  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <v3vgnteumpaxbgqjtfwoilcbwpwohfci3uwu4ooykls6zjwjwe@rukbigno2m5o>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,87 +78,246 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Kuba,
-
-Thanks for the feedback.
-
-You were right to question the coherent bounce - it likely masked a SWIOTLB
-path rather than fixing the underlying issue.
-
-I tried your suggestion on Gemtek W1700K (EN7581 + MT7996, Quantum Fiber):
-per-core cacheline-aligned bounce buffer at probe, map
-ALIGN(len, SMP_CACHE_BYTES) with DMA_BIDIRECTIONAL, mailbox length register
-still uses the original len.
-
-Results on kernel 6.18.44:
-
-    airoha-npu 1e900000.npu: NPU fw version: 0.1111
-    mt7996e 0000:01:00.0: NPU version: 0.1111
-
-With 6f884eb alone this board reads 0.0 (mailbox DONE succeeds). The
-streaming bounce fix survives two cold reboots; PPE offload comes up
-normally. Boot log shows SWIOTLB active (2MB bounce buffer).
-
-I am withdrawing the coherent approach from v6 and sending v7 as a new
-thread with the aligned streaming bounce instead. Happy to gather
-dma-ranges / device DMA mask data from W1700K if that helps on the
-platform side.
-
-Thanks,
-Daniel
-
-
-pt., 14 sie 2026 o 03:05 Jakub Kicinski <kuba@kernel.org> napisa=C5=82(a):
->
-> On Sun,  9 Aug 2026 17:28:13 +0200 Daniel Pawlik wrote:
-> > Commit 6f884eb87a79 ("net: airoha: Fix DMA direction for NPU mailbox
-> > buffer") switched airoha_npu_send_msg() to DMA_BIDIRECTIONAL so
-> > non-coherent CPUs invalidate caches before reading NPU GET responses.
+On Fri, Aug 14, 2026 at 03:18:42PM +0800, Yao Yuan wrote:
+> On Thu, Aug 13, 2026 at 04:24:49PM +0800, Lorenzo Stoakes (ARM) wrote:
+> > On Thu, Aug 13, 2026 at 12:20:43AM +0100, Wei-Lin Chang wrote:
+> > > Hi Lorenzo,
+> > >
+> > > Thanks for the detailed analysis!
 > >
-> > On EN7581 + MT7996 that change regresses probe: the mailbox completes
-> > successfully, but WLAN_FUNC_GET_WAIT_NPU_VERSION still reads as 0.0 and
-> > mt76 never binds NPU offload. Healthy boards report 0.1111.
->
-> This sounds very odd. Is the DMA API broken on the platforms you are
-> testing? The code looks correct as is.
->
-> FWIW here's what GPT suggests:
->
->   Indeed, HEAD^ uses the DMA API correctly:
->   DMA_BIDIRECTIONAL map/unmap must make the NPU response visible to the C=
-PU.
->
->   The important wrinkle is that, on arm64, these small kzalloc() buffers =
-are
->   forced through SWIOTLB when mapped bidirectionally. DMA_TO_DEVICE did n=
-ot
->   bounce them. HEAD switches to coherent memory and therefore bypasses SW=
-IOTLB
->   entirely. That suggests the actual problem is one of:
->
->   - SWIOTLB memory is outside the NPU=E2=80=99s real DMA aperture.
->   - The platform=E2=80=99s dma-ranges/DMA mask does not describe that ape=
-rture.
->   - SWIOTLB copyback or cache handling is broken.
->
->   Using coherent memory for a mailbox is reasonable, but this patch masks=
- that
->   underlying problem rather than explaining it. Before accepting it, I wo=
-uld
->   test a cacheline-aligned, rounded-size streaming buffer with
->   DMA_BIDIRECTIONAL, while programming the original payload length into t=
-he
->   mailbox. If that works, it strongly implicates the SWIOTLB/platform set=
-up.
->
-> We can take a revert of the patch under Fixes if it's urgent.
-> The real fix requires a deeper investigation.
-> --
-> pw-bot: cr
+> > You're welcome :)
+> >
+> > >
+> > > I can follow what's happening from the report, but one thing I don't
+> > > get:
+> > >
+> > > On Wed, Aug 12, 2026 at 02:31:20PM +0100, Lorenzo Stoakes (ARM) wrote:
+> > > > A batch of kernel warnings were triggered in the L0 host kernel when using
+> > > > kvmtool to experiment with nested virtualisation.
+> > > >
+> > > > The issue was observed on an M2 macbook pro with 24 GiB of RAM running
+> > > > asahi linux 7.1.6-400.asahi.fc44.aarch64+16k with 16 KiB page size.
+> > > >
+> > > > The bug is confirmed to exist in mainline and does not appear to be
+> > > > impacted by any downstream patches carried by asahi.
+> > > >
+> > > > kvmtool was used to establish an L1 guest with 8 CPUs and 8 GiB of RAM.
+> > > >
+> > > > kvmtool was then run again within the L1 guest to establish an L2 guest
+> > > > with 4 CPUs and 4 GiB of RAM.
+> > > >
+> > > > Then it was run again to establish another inner guest with 2 CPUs and 2
+> > > > GiB of RAM at L3.
+> > > >
+> > > > Both the L2 and L3 guests were then exited and another L2 guest was
+> > > > established with the same characteristics.
+> > > >
+> > > > Sufficient memory pressure was present in the L0 host to trigger indirect
+> > > > reclaim, waking kcompactd up and triggering migration.
+> > > >
+> > > > Shortly afterwards the L2 guest was stopped, at which point three warnings
 
+So TL;DR - correction is to say L0 here, no change elsewhere.
 
+> > > > were observed in the L0 host in quick succession with the second and the
+> > > > third occurring 114us and 189us after the first, respectively.
+> > > >
+> > > > In each case the call trace was the same:
+> > > >
+> > > > WARNING: arch/arm64/kvm/mmu.c:336 at __unmap_stage2_range+0x64/0x80,
+> > > > CPU#5: kcompactd0/66
+> > > > ...
+> > > > __unmap_stage2_range (arch/arm64/kvm/mmu.c:335 (discriminator 3)) (P)
+> > > > kvm_stage2_unmap_range (arch/arm64/kvm/mmu.c:346)
+> > > > kvm_nested_s2_unmap (arch/arm64/kvm/nested.c:1168 (discriminator 14))
+> > > > kvm_unmap_gfn_range (arch/arm64/kvm/mmu.c:2416)
+> > > > kvm_mmu_notifier_invalidate_range_start (arch/arm64/kvm/../../../virt/kvm/kvm_main.c:718 ...)
+> > > > mn_hlist_invalidate_range_start (mm/mmu_notifier.c:525)
+> > > > __mmu_notifier_invalidate_range_start (mm/mmu_notifier.c:580)
+> > > > try_to_migrate_one (./include/linux/mmu_notifier.h:478 ./include/linux/mmu_notifier.h:471 mm/rmap.c:2459)
+> > > > rmap_walk_anon (mm/rmap.c:3001)
+> > > > rmap_walk (mm/rmap.c:3106 mm/rmap.c:3101)
+> > > > try_to_migrate (mm/rmap.c:2774)
+> > > > migrate_folio_unmap (mm/migrate.c:1330 (discriminator 3))
+> > > > migrate_pages_batch (mm/migrate.c:1909)
+> > > > migrate_pages_sync (mm/migrate.c:2026)
+> > > > migrate_pages (mm/migrate.c:2135)
+> > > > compact_zone (mm/compaction.c:2663)
+> > > > compact_node (mm/compaction.c:2932)
+> > > > kcompactd (mm/compaction.c:3230)
+> > > > kthread (kernel/kthread.c:436)
+> > > > ret_from_fork (arch/arm64/kernel/entry.S:858)
+> > > >
+> > > > Analysing this:
+> > > >
+> > > > try_to_migrate() performs the first part of migration on a folio -
+> > > > establishing migration entries in all page tables mapping it - calling
+> > > > try_to_migrate_one() for each VMA the folio is mapped in.
+> > > >
+> > > > Immediately prior to installing the migration entry, try_to_migrate_one()
+> > > > calls mmu_notifier_invalidate_range_start() to signal to notifiers that the
+> > > > existing page table entry is about to be unmapped.
+> > > >
+> > > > Since this range happened to contain folios used by the virtual machine
+> > > > (given its memory consumption this was highly likely to be a target) this
+> > > > in turn triggers arm64 kvm code via an MMU notifier:
+> > > >
+> > > > mmu_notifier_invalidate_range_start()
+> > > >   -> ... -> kvm_mmu_notifier_invalidate_range_start()
+> > > >     -> kvm_mmu_unmap_gfn_range()
+> > > >       -> kvm_unmap_gfn_range()
+> > > >         -> kvm_nested_s2_unmap()
+> > > >           -> kvm_stage2_unmap_range()
+> > > >             -> __unmap_stage2_range()
+> > > >                -> stage2_apply_range()
+> > > >        	       <- -EINVAL, triggering a WARN_ON()
+> > > >
+> > > > Since commit ec14c272408a ("KVM: arm64: nv: Unmap/flush shadow stage 2 page
+> > > > tables") kvm_unmap_gfn_range() invokes kvm_nested_s2_unmap() which takes
+> > > > the rather drastic step of evicting the entirety of the stage 2 shadow page
+> > > > tables for each nested guest:
+> > > >
+> > > > 	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
+> > > > 		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
+> > > >
+> > > > 		if (kvm_s2_mmu_valid(mmu))
+> > > > 			kvm_stage2_unmap_range(mmu, 0, kvm_phys_size(mmu), may_block);
+> > > > 	}
+> > > >
+> > > > This will iterate through every valid MMU.
+> > > >
+> > > > mmu_notifier_invalidate_range_start() sets the MMU_NOTIFIER_RANGE_BLOCKABLE
+> > > > flag when signalling notifiers, so may_block is true here.
+> > > >
+> > > > __unmap_stage2_range() wraps invocation of stage2_apply_range() in a
+> > > > WARN_ON():
+> > > >
+> > > > 	WARN_ON(stage2_apply_range(mmu, start, end, KVM_PGT_FN(kvm_pgtable_stage2_unmap),
+> > > > 				   may_block));
+> > > >
+> > > > Which is precisely the triggered warning and means stage2_apply_range() is
+> > > > returning an error.
+> > > >
+> > > > In arm64 return values are stored in the x0 register and in each splat w0
+> > > > (since it's a 32-bit value) is 0xffffffea which, by two's complement, is
+> > > > -0b00010110 or -EINVAL.
+> > > >
+> > > > The only way in which stage2_apply_range() can return an error is if either
+> > > > the passed in walk function (kvm_pgtable_stage2_unmap()) returns an error
+> > > > or mmu->pgt is NULL:
+> > > >
+> > > > 	static int stage2_apply_range(...)
+> > > > 	{
+> > > > 		do {
+> > > > 			struct kvm_pgtable *pgt = mmu->pgt;
+> > > > 			if (!pgt)
+> > > > 				return -EINVAL;
+> > > >
+> > > > 			next = stage2_range_addr_end(addr, end);
+> > > > 			ret = fn(pgt, addr, next - addr);
+> > > > 			if (ret)
+> > > > 				break;
+> > > > 			if (resched && next != end)
+> > > > 				cond_resched_rwlock_write(&kvm->mmu_lock);
+> > > > 		} while (addr = next, addr != end);
+> > > >
+> > > > 		return ret;
+> > > > 	}
+> > > >
+> > > > This loop is batched by stage2_range_addr_end() at the granularity of
+> > > > kvm_granule_size(KVM_PGTABLE_MIN_BLOCK_LEVEL), which for a 16 KiB page size
+> > > > kernel is 32 MiB.
+> > > >
+> > > > kvm_pgtable_stage2_unmap() only returns an error if
+> > > > kvm_pgtable_walk_begin() or _kvm_pgtable_walk() return an error. On arm64
+> > > > the former doesn't ever do so, and the latter only returns -EINVAL if
+> > > > either pgd is NULL (we gate that already) or an invalid pgt->start_level is
+> > > > specified (not the case).
+> > > >
+> > > > So the cause of the warning is that mmu->pgt is NULL here.
+> > > >
+> > > > This field is protected by kvm->mmu_lock, but after each invocation of the
+> > > > walk function, if the end of the range has not yet been reached, the lock
+> > > > is dropped.
+> > > >
+> > > > This is done by calling cond_resched_rwlock_write() which drops
+> > > > kvm->mmu_lock when yielding the time slice before reacquiring it upon being
+> > > > scheduled again:
+> > > >
+> > > > 		if (resched && next != end)
+> > > > 			cond_resched_rwlock_write(&kvm->mmu_lock);
+> > > >
+> > > > Note that resched = may_block here and is always true for these walks.
+> > > >
+> > > > This points to something else racing this code to clearing the pgt, and
+> > > > brings us back to the observation above that the issue occurs when tearing
+> > > > down the L2 guest.
+> > > >
+> > > > Upon L0's userspace mm_struct teardown, stage 2 mappings for IPAs mapped by
+> >
+> > s/L0/L2/
+> >
+> > > > the guest are unmapped via mmu notifier:
+> > > >
+> > > > exit_mm()
+> > > >   -> mmput()
+> > > >     -> __mmput()
+> > > >       -> exit_mmap()
+> > > >         -> mmu_notifier_release()
+> > > > 	  -> ... -> kvm_mmu_notifier_release()
+> > > >             -> kvm_flush_shadow_all()
+> > > >               -> kvm_arch_flush_shadow_all()
+> > > > 	        -> kvm_free_stage2_pgd()
+> > > > 		  -> [ acquire kvm->mmu_lock for write ]
+> > > > 		  -> mmu->pgt = NULL [ among other tasks ]
+> > > > 		  -> [ release kvm->mmu_lock for write ]
+> > >
+> > > You mentioned stopping the L2 VM only, which means L1 is still running.
+> > > Why would the L0 userspace mm_struct get torn down if L1 is still live?
+> > > What did I miss?
+> >
+> > Ah yeah this is a mistake sorry :) It should say L2 teardown.
+> >
+> > The stuff relevant to L0 is the MMU notifier bit.
+>
+> Hi Lorenzo,
+>
+> Still have question w/ your above addtional information:
+>
+> The trace is observed on L0, means the exit_mm() path should
+> also happens on L0 to race w/ the
+> mmu_notifier_invalidate_range_start() path, but how this is
+> triggred by L2 teardown, IIUC the L2 teardown triggers the
+> exit_mm() path on L1, not on L0. The L1 is still alive thus
+> the qemu/kvmtool process on L0 which hold all L1/L2/L3 is
+> still alive yet. Please correct me if anything I missed
+> here.
+
+OK so - I confused myself here :)
+
+The underlying issue here is that I am working back from a situation where
+I can't quite recall what I did, but am rather reconstructing it based on
+what was observed.
+
+And you're right - this stack makes no sense for an L2 VM being torn down,
+rather only the L0 being torn down.
+
+So clearly this is what I did, and the correction should be to say this at
+the start of the commit message.
+
+(The truth of what happened was rather more button-mashy and 'oh what?'
+than it appears ;)
+
+Sorry for the confusion!
+
+>
+> >
+> > >
+> > > Thanks,
+> > > Wei-Lin Chang
+> > >
+> > > [...]
 
 --
-Z powa=C5=BCaniem,
-Daniel Pawlik
+Cheers, Lorenzo
 
