@@ -4,95 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AA8BC5CFCF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 14:27:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4C0FC5CFCF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 14:31:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t8f5UJCABHvmBw6dzoHdGzw6KbaLnhVEoCCS6jqmRT4=; b=WIM6MBjUgHZWpDO6UZCcehWu7F
-	FOYNAAB0QdXDwGrsUEozALOMX63viM9Lsyrdu8vFEQqTefdu1d92JdWdh7jvdpcGahNkkWy88JD2R
-	dKJPYX/4seOO1k/4tZWY5tptsLHkeXq+uaZK89vh8ZOvypBmh75slGGQNLQdYq0pj77E5b3H68hHV
-	P24WFl4ZrbzVuWRKiJV00MesKsg0Zw6md72myxY6WVzPXFbtU06xiYh5W1FaiG+nnfQ9TZ72v7uS/
-	uPAySIlOoVz6lPTEevsTVjDfWL6wM1A4sA/jMnOqIvYnrWLbFZx1LTVv6B3iOQJOWgPC8OT1m0RYn
-	7y8sqACA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OcLA+9NxXaZ0Z8qAWG9RrfMqZWDWTvs48FyXhXFFOCg=; b=iLmNq8bIA8s35cdEm5v7+hdJHd
+	kww3ard0tmPcYX3qXqxQlFSE6+hlRL/Yr5wcp8LX2ay2DuzjTXKIb3pKfBTVjNXYBvd2IoBuiRPlP
+	q+xmwr9WFJTM4J+RwAVtEVSATUF5na7CeY9i4p8bSr3x7mPuDRYtSbVoY5le4nJttY9In5VZV0Asc
+	8KFKok5SjkSEY61l+XO4xY1zspvSO7HlwzUdQya1u62sfsXJh+9Dd+OoITZpqo4uoKhTUVdStrAO3
+	fnDu14b/1wjMp+7wXCnGRwRCeYFSlr/MIAaganjGes3Rel5A3TDE0J5v67sR2k56vWgh+YuL1KEhi
+	XZii3QXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wusst-00000002n8n-0pYG;
-	Fri, 14 Aug 2026 14:27:47 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	id 1wuswm-00000002nTk-2XVg;
+	Fri, 14 Aug 2026 14:31:48 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wussn-00000002n6r-3TVX
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Aug 2026 14:27:45 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-69a33fb0031so149972a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 07:27:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=soundtrack.io; s=google; t=1786717660; x=1787322460; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=t8f5UJCABHvmBw6dzoHdGzw6KbaLnhVEoCCS6jqmRT4=;
-        b=F74yIkr7Z+lSFTOnIJ5+BtZs9alEjeZUZjcVgKwOabfFZOAF91cQhvX42HVUFbzg5n
-         GHLSbk8CSC1kP/r8Knhg9R3Y6+LMEeV+uzGvzO6uSP2+Ve/a/zz6qklLK1pH5Q/s5cOm
-         U+izpkFvnRmbea2FVAcipDezJBejAWweS4lyVqX46XJszfeNpex3OMohT4hvwC94/YfJ
-         0IVhNE26CorcGfHLG6DdBG2ya3XUo0swTjwQxI6nIA8zrX7FEabu01763RtzU5MS5ztb
-         IaBFdFTTXPmNE8u+UEn7YlQQ/wVkuZG8G3SglS/vKx0ia53AiXK/xrS1rOpzec2511uC
-         g2PA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786717660; x=1787322460;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=t8f5UJCABHvmBw6dzoHdGzw6KbaLnhVEoCCS6jqmRT4=;
-        b=hAyuXtiyuL5Gf/c6d9EJEGawwkh/fwiXv7kLx6RirRENUn/tW+cAkMGruO6EqlYcvw
-         F98/CmHR5m7vZUcedxH+Dw4YGQASTwC67H1kgI4y9DLFIKUKl+NAHGAUVPiVTQXRn1oZ
-         LWSaEPztG6muxEyQtuY+Iq95Py4Co/mrXHejsEyzau8PVlYs487cucMAJQBn0kAYIauS
-         zpCQ6rv5A20eyyom5KppRdqsbVxg4alYfE/YCwsMDo9Gw+5leFictby+jeZfL590e+rE
-         PK6Yrc472j4PQcWD+UdE4m1D7JhIPhj3XVwIGPB1K3y7NTpLph8wgBrKgQnKNnXikDeD
-         xs3g==
-X-Forwarded-Encrypted: i=1; AHgh+RqPewfOPXaMHKhhvtCnRVvW6fJkzklALtIx/I6tZg2sYWAwrBOA5PtG/QHT+CaKoB/rmZSQSFJo5COYFEMeIXxw@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/wy+XQtBMf9tOTfaJsB7OBCITh5zOiw8q/LbzZA5VO/GkfP9a
-	Wxlar8wAkotDSpQScjdnFVALBMFR6IVuZI95IzhK7NeEkZ9eH/tHneD74EyNQGnTPu4=
-X-Gm-Gg: AR+sD13FH32jq04xyK+eUUrGTzQHpHzaUsalVYX0vOeilDIYj2zfgLSL20U7BugLKKI
-	Yv1GSCLNE2LFCvBrGXBpWP9IIiNKlVBB80ah63v3DgoJ8OmQuKyHua6UiXrkkVyqX/2I52T3SRp
-	GUfALZ157P/77dKRoYWZ2/6s10LcygiuqfVWL+TJbIiZ8JiT3IgwTzLC8VJQa8TKfaHKEgBCnBP
-	ckbkYiFNhDMtzGVPEJiuz3NuB3s9u85erIZC6atT5ycovdmoAGz1poH+YSMkaYptFGdsz6Eouxu
-	FDhWfbusvZyJZDisDVhXYmY1WhmN5JLdUu+GLU5avXth4TQ21fOnRiPa4OiU1EnU7367qP0n1nk
-	JrAKWGVVtazPTI9UXSEeswNddEwGgVXL6VtydDrzJpbQFcorxM6aF1BSUwy0eLAcnzgWTUGSBei
-	ukd3itpqOmsD7+Hdqw1q8SUwRf6S2YF1cxTx6Pde+D5oEtv5W86ncu7NokphqgyMb4oJ2hL7M9m
-	3zhFCmVKvfsg0NjPVqlgRRbk+GWL2sRknqmfHl4l/8nXmR8ab9u67Oyeg==
-X-Received: by 2002:a17:907:9403:b0:c1c:4ae9:b935 with SMTP id a640c23a62f3a-c212a22e029mr175852366b.3.1786717659858;
-        Fri, 14 Aug 2026 07:27:39 -0700 (PDT)
-Received: from Christians-MBP (31-209-40-223.cust.bredband2.com. [31.209.40.223])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c21234c45ffsm106308866b.19.2026.08.14.07.27.38
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 14 Aug 2026 07:27:39 -0700 (PDT)
-From: Christian Lugnberg <christian.lugnberg@soundtrack.io>
-To: vkoul@kernel.org
-Cc: Frank.Li@kernel.org,
-	wens@kernel.org,
-	jernej.skrabec@gmail.com,
-	samuel@sholland.org,
-	dmaengine@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Christian Lugnberg <christian.lugnberg@soundtrack.io>,
-	stable@vger.kernel.org
-Subject: [PATCH v2 2/2] dmaengine: sun6i: fix undefined behaviour in sun6i_dma_tx_status
-Date: Fri, 14 Aug 2026 16:21:11 +0200
-Message-ID: <20260814142708.79120-3-christian.lugnberg@soundtrack.io>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260814142708.79120-1-christian.lugnberg@soundtrack.io>
-References: <20260814142708.79120-1-christian.lugnberg@soundtrack.io>
+	id 1wuswk-00000002nTI-2eQT;
+	Fri, 14 Aug 2026 14:31:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1786717902;
+	bh=OcLA+9NxXaZ0Z8qAWG9RrfMqZWDWTvs48FyXhXFFOCg=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=pfUKVYmbkxlA+SMcEC8ybrcIQqZtCcqxkwdD4V+FUYhiI2NHNLPCg+n18pYPmf7CN
+	 g6CISMdt6CDVXaBKviCpMUoXDjyx6YdG3u/oSCsc4SSXvioxGl0ADHjxP7apIUmz6W
+	 8EIZDrCsa3vR1aq9Ot2u8zgQ2jZFh0GjiHZFxPHcU3Ymc2kUvXNiNoqEnnXqLxiai6
+	 UqjulyZxOj3rl6/shuSU0DLi3oUNlIs0RKMXKcOfgn1jthZdJS/GvZjtKLwHmKEByF
+	 GrWyw2zbA8vVSoY/ffcom4AJCqtOTVO7nWjCyaFQt8/lN64ighUUkHTqh9qQVFH756
+	 UZZI+qsDcohRQ==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id EB00617E07B5;
+	Fri, 14 Aug 2026 16:31:38 +0200 (CEST)
+Message-ID: <dcb6ecbd6184c01861c7d36068abb266df4587c5.camel@collabora.com>
+Subject: Re: [PATCH v6 01/14] media: mediatek: vcodec: support vcp
+ architecture
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Kyrie Wu =?UTF-8?Q?=28=E5=90=B4=E6=99=97=29?= <Kyrie.Wu@mediatek.com>, 
+ "fshao@chromium.org"	 <fshao@chromium.org>, Yunfei Dong
+ =?UTF-8?Q?=28=E8=91=A3=E4=BA=91=E9=A3=9E=29?=	 <Yunfei.Dong@mediatek.com>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,  "fanwu01@zju.edu.cn"	
+ <fanwu01@zju.edu.cn>, "jacopo.mondi@ideasonboard.com"	
+ <jacopo.mondi@ideasonboard.com>, "haoxiang_li2024@163.com"	
+ <haoxiang_li2024@163.com>, "tfiga@chromium.org" <tfiga@chromium.org>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Andrew-CT Chen =?UTF-8?Q?=28=E9=99=B3=E6=99=BA=E8=BF=AA=29?=	
+ <Andrew-CT.Chen@mediatek.com>, "linux-media@vger.kernel.org"	
+ <linux-media@vger.kernel.org>, "ribalda@chromium.org"
+ <ribalda@chromium.org>,  "wenst@chromium.org"	 <wenst@chromium.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
+ "linux-kernel@vger.kernel.org"	 <linux-kernel@vger.kernel.org>,
+ "kees@kernel.org" <kees@kernel.org>,  "rongqianfeng@vivo.com"	
+ <rongqianfeng@vivo.com>, Irui Wang =?UTF-8?Q?=28=E7=8E=8B=E7=91=9E=29?=	
+ <Irui.Wang@mediatek.com>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>, 
+ "linux-mediatek@lists.infradead.org"	 <linux-mediatek@lists.infradead.org>,
+ Tiffany Lin =?UTF-8?Q?=28=E6=9E=97=E6=85=A7=E7=8F=8A=29?=	
+ <tiffany.lin@mediatek.com>, "p.zabel@pengutronix.de"
+ <p.zabel@pengutronix.de>,  "benjamin.gaignard@collabora.com"	
+ <benjamin.gaignard@collabora.com>, "matthias.bgg@gmail.com"	
+ <matthias.bgg@gmail.com>, "mchehab@kernel.org" <mchehab@kernel.org>, 
+ "sebastian.fricke@collabora.com"	 <sebastian.fricke@collabora.com>,
+ "robh@kernel.org" <robh@kernel.org>, 
+ "linux-arm-kernel@lists.infradead.org"	
+ <linux-arm-kernel@lists.infradead.org>, 
+ "laurent.pinchart+renesas@ideasonboard.com"	
+ <laurent.pinchart+renesas@ideasonboard.com>, "hverkuil+cisco@kernel.org"	
+ <hverkuil+cisco@kernel.org>
+Cc: "sakari.ailus@linux.intel.com" <sakari.ailus@linux.intel.com>
+Date: Fri, 14 Aug 2026 10:31:37 -0400
+In-Reply-To: <44d9ec5c5f856b378f745fae8bd60aa4730df044.camel@mediatek.com>
+References: <20260720012056.1026551-1-kyrie.wu@mediatek.com>
+		 <20260720012056.1026551-2-kyrie.wu@mediatek.com>
+		 <c3abd49fc12e8cfab6993feb60b361ba07b6fb7d.camel@collabora.com>
+		 <275503aae6ff76a4c186efe665acf996dec9229d.camel@mediatek.com>
+		 <c8ab26c2edfa4ee4fbbb83faf5f54547f252464f.camel@collabora.com>
+	 <44d9ec5c5f856b378f745fae8bd60aa4730df044.camel@mediatek.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-1Pa9FEAnN6BDVnhiPDGq"
+User-Agent: Evolution 3.60.2 (3.60.2-1.fc44) 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260814_072741_885334_3858EC06 
-X-CRM114-Status: GOOD (  15.11  )
+X-CRM114-CacheID: sfid-20260814_073146_835593_3B8DE3EE 
+X-CRM114-Status: GOOD (  18.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,60 +121,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-sun6i_dma_tx_status() calls vchan_find_desc() to look up the virtual
-descriptor for a given cookie, before checking whether the pointer
-vd is NULL:
 
-    vd = vchan_find_desc(&vchan->vc, cookie);
-    txd = to_sun6i_desc(&vd->tx);   /* vd may be NULL here */
+--=-1Pa9FEAnN6BDVnhiPDGq
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-    if (vd) {
-        for (lli = txd->v_lli; ...)
+Le vendredi 14 ao=C3=BBt 2026 =C3=A0 02:38 +0000, Kyrie Wu (=E5=90=B4=E6=99=
+=97) a =C3=A9crit=C2=A0:
+> On Tue, 2026-08-11 at 16:22 -0400, Nicolas Dufresne wrote:
+> > Hi Kyrie,
+> >=20
+> > Le lundi 10 ao=C3=BBt 2026 =C3=A0 03:05 +0000, Kyrie Wu (=E5=90=B4=E6=
+=99=97) a =C3=A9crit=C2=A0:
+> > > I agree. Since the platform data is introduced in the MT8189 patch
+> > > series, I will move fw_type to the platform data and make
+> > > mtk_vcodec_dec_get_chip_name() derive the chip identifier from it
+> > > in
+> > > the MT8189 series.
+> >=20
+> > I'm not sure I have captured the plan correctly. Would you mind
+> > clarifying ?
+> >=20
+> > Nicolas
+>=20
+> Hi Nicolas,
+>=20
+> Sorry, my previous reply was unclear.
+>=20
+> The platform-data refactoring will be included in the next revision of
+> the MT8189 series. That series depends on the updated MT8196 encoder
+> series, so I need to wait for the new MT8196 encoder revision to be
+> posted before I can rebase and send the updated MT8189 series.
+>=20
+> In the updated MT8189 series, `fw_type` and the chip identifier will be
+> set in the platform data for each compatible, rather than being derived
+> by probing DT properties. Consequently, the DT-property-based selection
+> shown in this patch will be removed.
+>=20
+> I will make this dependency explicit in the cover letter. Sorry again
+> for not explaining the plan clearly.
 
-vchan_find_desc() returns NULL when the descriptor has already been
-completed or is in-flight on a physical channel and no longer present
-in the virtual channel's descriptor list. When vd is NULL,
-to_sun6i_desc() is called unconditionally on &vd->tx before the NULL
-check, which is undefined behaviour. Move the call inside the if (vd)
-guard to ensure it is only reached with a valid pointer.
+Thanks, this will be helpful to handle follow-up series.
 
-    vd = vchan_find_desc(&vchan->vc, cookie);
-    if (vd) {
-        struct sun6i_desc *txd = to_sun6i_desc(&vd->tx);
-        for (lli = txd->v_lli; ...)
+Nicolas
 
-Fixes: 555859308723 ("dmaengine: sun6i: Add driver for the Allwinner A31 DMA controller")
-Cc: stable@vger.kernel.org
-Assisted-by: Claude:claude-sonnet-4-6
-Signed-off-by: Christian Lugnberg <christian.lugnberg@soundtrack.io>
----
- drivers/dma/sun6i-dma.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+>=20
+> Best regards,
+> Kyrie
 
-diff --git a/drivers/dma/sun6i-dma.c b/drivers/dma/sun6i-dma.c
-index 04fe1f5042e9..7704b016aed8 100644
---- a/drivers/dma/sun6i-dma.c
-+++ b/drivers/dma/sun6i-dma.c
-@@ -981,7 +981,6 @@ static enum dma_status sun6i_dma_tx_status(struct dma_chan *chan,
- 	struct sun6i_pchan *pchan = vchan->phy;
- 	struct sun6i_dma_lli *lli;
- 	struct virt_dma_desc *vd;
--	struct sun6i_desc *txd;
- 	enum dma_status ret;
- 	unsigned long flags;
- 	size_t bytes = 0;
-@@ -993,9 +992,9 @@ static enum dma_status sun6i_dma_tx_status(struct dma_chan *chan,
- 	spin_lock_irqsave(&vchan->vc.lock, flags);
- 
- 	vd = vchan_find_desc(&vchan->vc, cookie);
--	txd = to_sun6i_desc(&vd->tx);
- 
- 	if (vd) {
-+		struct sun6i_desc *txd = to_sun6i_desc(&vd->tx);
- 		for (lli = txd->v_lli; lli != NULL; lli = lli->v_lli_next)
- 			bytes += lli->len;
- 	} else if (!pchan || !pchan->desc) {
--- 
-2.54.0 (Apple Git-156)
+--=-1Pa9FEAnN6BDVnhiPDGq
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
 
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCan8myQAKCRDZQZRRKWBy
+9AjrAP47W1O0MlybGV5nddQLSeB987/IQrb90AsBaMHCuSPMNwEAqHnDqWue4hCg
+bIF5omk88zNifV9lAU/7JgU1KPCuiAU=
+=bcq9
+-----END PGP SIGNATURE-----
+
+--=-1Pa9FEAnN6BDVnhiPDGq--
 
