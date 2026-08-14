@@ -4,84 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3F15C5CFC1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 21:01:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70498C5CFC1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 21:09:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7b9OMXuv3ZP+H19/AmnDH9qKEt9RkVpbpVuxQpQ0/a8=; b=EBbucKMpXQ7eTTWOfUFznIcXkN
-	OwqzidgD6QTeXHs4TmosINwxAzyE/59+uA68kkUk+YruBW+6WMjvGhoY/4zaQjiVBHrGucOHXTdlp
-	Ky3XPDwVceR58EQUHab9G8ifPGdik6HY8GX28bNgRtXrb95fS802vDvYx5h/JiRKeLqNii58A9uI5
-	OHQVob8aU1RLUnj9oBqZDH4sWnTjsv2e30mIOI9557U63+V8dU3+zX/p3Z9vdfzgf4dODTKuxph5Y
-	LnJvCERY5YpGRvRI+LjVwTxP4tL9FKAnNA+FsBbk1G/l9DxrgAyRrI/ItrC3mEBcZixkPcoYGdW2O
-	AZwNvA/A==;
+	bh=c3OrTmWY1Ck+Vy86RwaLUhvqd/Uu9Ap85AYROFbXkK8=; b=yNR9xt9w01aPEWRBEmsSAfp9cd
+	6kHrHfn6TXWqflivNWqdcgphv3KwvOvegrSMwnuX+6la7g2RhQx8/IduzwGZ4g1Rc2h6d8iakGeWU
+	mJ/r170gzw2zYWUaO1KwoSUFsfOwIIPyWd6yAu4imdssyo6roh8TffuEJbqIkmH5krvCalISacIKj
+	oxQ4BbYGIFN92j9uq3MCWokSlMSecVyQqTn+PMCsyvd9w+PrrUMqAHDkdwI3HOAQjUq7h5aUakLWI
+	inANaU7w5KD1Sxc8rCxjbSQLyRuVXvjndJNFV26c9yh29LAbxGeCLNOCPousfyKEOHfpMuubVLQy/
+	mxIzIScw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuz1d-00000003Bqg-2uXN;
-	Fri, 14 Aug 2026 21:01:13 +0000
-Received: from mail-ed1-x545.google.com ([2a00:1450:4864:20::545])
+	id 1wuz9E-00000003CPM-2uMB;
+	Fri, 14 Aug 2026 21:09:04 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuz1V-00000003Bn8-0HMs
+	id 1wuz9C-00000003COr-19y4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Aug 2026 21:01:06 +0000
-Received: by mail-ed1-x545.google.com with SMTP id 4fb4d7f45d1cf-6a3899d74c5so1504001a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 14:01:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1786741262; x=1787346062; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=7b9OMXuv3ZP+H19/AmnDH9qKEt9RkVpbpVuxQpQ0/a8=;
-        b=UC+mupr5NWeQLOFb5a0Tiq1oHc79VmLkfcmrCieugzU+ihplgEUXxXPQ171oc02dY/
-         8JwGMz6rZCSsHoltLKcJLhbMtpkbt8w2WzyxdwSrlST4at4uZMA84zoiPBKVmzPxwoh7
-         BxCBPDF3lW7//0T+fSO2xcqcM+CuOv2n5RpfQwANQpNP+uJrujjGmxDKg9UwskX3WzrG
-         Pa2McwrpFms3h7L7MEGYjLfFeW5Oo473Ljlfh6ih9NAyr8vMbAw9J+z2YctK56YZWsxF
-         vxfmqBsDxVYFzNzdZk8JpsyxRkIsi9c7XGQpN5Ygpf1tNVbS2FRsLxCRFFHLzauaA4PF
-         Zorw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786741262; x=1787346062;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=7b9OMXuv3ZP+H19/AmnDH9qKEt9RkVpbpVuxQpQ0/a8=;
-        b=EH7Z9nUMcaQu+Ret7Bl+/326nTrAP7jo3yKxyG/NJp2Kx/D+oIYc2Z2/N8P1cYygQ8
-         GdC7WS4h0QASRFDEOzn5zQY+hMLnekSZsA7NXBj1BYeapGNYkc8YY4l+OdF5bEGCwSMs
-         BYl/CSn15sT4SnyRYXdwCRUwurUTMpsprJWlZYjVAuhH3axZxihI5WxV6iF1+osA8CRM
-         gE8zuBCLiyu1HxnqGrIdJCLi9Eg6qDZs8Yuw2IQWvGG57ozpjAAXGVJ3OjasyYHVh01H
-         4YnehiHiDy6PZG4VOebJ9wgaAcUgmJFMqcOtRyYxjicuzYlEeNgmgMTxur8i5XXprHax
-         uEFw==
-X-Gm-Message-State: AOJu0YwDMQhQ9hFdwVeIEzpQER3zVqBzUe14/HKiWRsVEmrhsaZQ1cwc
-	mCNA2QbVA86Zk+A95bRBtA4vjLeqPmVqhECYDeanVdIvqoqtvZndhVd+gzoRPiJf9yMOTAYxOBS
-	Fd5WX0cm2FRNvSDjHIA==
-X-Received: from ejcfz27.prod.google.com ([2002:a17:907:959b:b0:c09:e2fc:4344])
- (user=tarunsahu job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:907:a606:b0:c1c:2007:298e with SMTP id a640c23a62f3a-c212a208e62mr387287766b.24.1786741261643;
- Fri, 14 Aug 2026 14:01:01 -0700 (PDT)
-Date: Fri, 14 Aug 2026 21:00:56 +0000
-In-Reply-To: <20260814210057.4102768-1-tarunsahu@google.com>
-Mime-Version: 1.0
-References: <20260814210057.4102768-1-tarunsahu@google.com>
-X-Mailer: git-send-email 2.55.0.691.gc56d675ccc-goog
-Message-ID: <20260814210057.4102768-3-tarunsahu@google.com>
-Subject: [PATCH v3 2/3] firmware/edd: use kobject_put() on edd_device_register()
- failure
-From: Tarun Sahu <tarunsahu@google.com>
-To: helgaas@kernel.org, dmatlack@google.com, 
-	Nicholas Piggin <npiggin@gmail.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	sourabhjain@linux.ibm.com, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
-	Pasha Tatashin <pasha.tatashin@soleen.com>, Russell King <linux@armlinux.org.uk>, radheys@amd.com, 
-	skhawaja@google.com, djeffery@redhat.com, Geoff Levand <geoff@infradead.org>, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>
-Cc: linux-arm-kernel@lists.infradead.org, souravsgl@google.com, 
-	linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
-	driver-core@lists.linux.dev, Tarun Sahu <tarunsahu@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Fri, 14 Aug 2026 21:09:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=G82/EOcTBLDhUyZJsDbsjeBJn0IWn0/zAq1sVhio+SVEG22U61T5416YoFe/noWdHXHDW+2Bp4XpHw5o1sznTMWkqCi+sAIhN0kLfNiIJ2NAvxvvL+gTLvfu2x0OpuXirGnvdLD7JVitEvRfYQj/tj9CgHzpYVVLqV7g5Ru5xgQAFCaF3IvSlx/yfUzY9aYV5H46AB8z7747V14Ek9NXV+oN3lXRotxiFv5DmCoyMfIaLuD+plNOFIIXWtCLU30FmNx1rAM+fGDQg5OzDY0kXNlBUVCzT0jlkZhmkCAnn2WOD9Vry8iRKhGW5UJsOfLs+lYjsmQF+Y/RPULGEUfhnQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=c3OrTmWY1Ck+Vy86RwaLUhvqd/Uu9Ap85AYROFbXkK8=;
+ b=GatjpDaWStkhld3GCvC9Cy6OCOTymf08jXP2afxmRMBaEE+jpI9OdbSHSX/FazHWWvTi86mosvFIQwdf7fRZtMMdtEMERi0UknKHRA7x4hAmJ71/At6M7D6Hhlb922ZaGrBqsGZXV/WMUTqOKlqb3+N9NfoSPT06zRxhsAqUh8UlZoRbal3wi/6xCf+jkITFykqWVQ2hFGOLQNb8Oy7rb1euL/ZfO4vJGinaAL1D3LI1LgyPQRy0Yr9efwMwe3kTzuaak8E6TCfy0IZx0MODq9B9OHM+/ispitBq0GI79iJBsoM11hBPjOnbxasqYZ0GDLlbYktE/xZMAqXyiSE0dw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=c3OrTmWY1Ck+Vy86RwaLUhvqd/Uu9Ap85AYROFbXkK8=;
+ b=tABFdQ9r2Ps+0aOCC5ApvuBgqWBxZcTOtCnCGe9x2LszXMENSen8VSZyCcuxmzX7Z3UBwRoTqhwogwn6J3BWUd6qcdkF7gdzNmz4jT2HlFFcTiSfrR/0KjqZPw4WuMxqbH4YFbxTDPO5+y22KiAHMKJqwyHAQzQRofxOfWW/gTTvmCROGb4L19w+Zn/9WJONJYPj737JOWiKswSMWn+067RGHIzEzJOGZQZGfxT50V2UTTgkpDxSRi0loViZDz4G+C7lmaSR4qVfQtQ2IzG1Czr+hlSFP7Vg5grmhJwnQkRwIZY/gmpUmg1kNIz6tzG8eGF66rzQLPDSLgo6Tda0ag==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AM7PR04MB7159.eurprd04.prod.outlook.com (2603:10a6:20b:111::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.16; Fri, 14 Aug
+ 2026 21:08:57 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0315.014; Fri, 14 Aug 2026
+ 21:08:57 +0000
+Date: Fri, 14 Aug 2026 17:08:50 -0400
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Rosen Penev <rosenp@gmail.com>
+Cc: dmaengine@vger.kernel.org,
+	Ludovic Desroches <ludovic.desroches@microchip.com>,
+	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+	"moderated list:MICROCHIP AT91 DMA DRIVERS" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCHv2] dmaengine: at_hdmac: use more devm in _probe
+Message-ID: <an-D4k84MUptmfkF@lizhi-Precision-Tower-5810>
+References: <20260724225720.43410-1-rosenp@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260724225720.43410-1-rosenp@gmail.com>
+X-ClientProxiedBy: PH0PR07CA0050.namprd07.prod.outlook.com
+ (2603:10b6:510:e::25) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM7PR04MB7159:EE_
+X-MS-Office365-Filtering-Correlation-Id: e4771837-bc6b-4a5f-8610-08defa484104
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|19092799006|1800799024|376014|6133799003|56012099006|10067099003|11063799006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: lzjVctALNVRcHgP3R0uSGfuXZSnjV2HDC8Lagzx6CCh93LHEec0dKh18uaNSKgju+bh72HCkGckQGG44b8q7PSvCGwFFswliP1e3m/QLvXDPeHNED2HVD7k+sxwQE9mxvu28UgNBUWrI1E/ezTFFGXOQ2fNyE4sBbWvA59ev5+mWmcp/51tUExJpSUFB8w+sTICtJPmpmd03cPSgPoGS4WqrLjOoRNT2NSqiTwkXOhJjR78KS5+iCVB2QhbpXLz+y4Q4tNeJ4IIp4DTCB01gcKwFBEkwe/gQF9Z7vJo4rbHxBEG61pltDKa/NSWfrhGSL9AT/yJHO7FA66WhDH1J47G5wS9nGm87DzheITTp7c+5VvvWf7PTuNXmVsctR+7uzgQ5RoCXRNIlywkrg+wAIokCXiz7EtFUKPBHzh+TrTLV0Q3GN6q8YM0noKNmRFUwGAUSXpny+ItClyUAm1bcx2v2robRlmyih7oTJFyNVrTvcD1b65IUnGwGRxSsLLLe3rbi/cRjjqR+bc5N3JYWim13n/FPRfChFcOzayIsp+dMlRJCd9sHEwr8xpDBYDn/2PorPoHQ1TLr8Mkcm3ApHQ4iuaUPikWnFhnjXYmaLa4Qe3PK6ybZkv2PlI+v2fc5v/VMUAecMj6ERmA8/38VPxJsbVicv1qDlSVcqqZIyd4=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(19092799006)(1800799024)(376014)(6133799003)(56012099006)(10067099003)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?HOZzuW0MCZWWzqb5Agj+3KxvGhOEP1Gp9Qs6g6gOEaY6oY5nIckpxNB5S/OJ?=
+ =?us-ascii?Q?ReHLgEwGT7kNEIpMVFWyE35jjvoQ/KvK8rGLIeFs8WD6dGFKeLv5h+ts1o5n?=
+ =?us-ascii?Q?Wdy5kFQEN/CP/qmX3AO3Qmr5AGv/6rg5+Lq01pT5gykZhSmcPwj4dKHOQASk?=
+ =?us-ascii?Q?C55Y1eAOlWIJTDgpF8ceKHKF6XSqhGIyRikfOYeSyJgLntU3Z7Ht8rFxZbZe?=
+ =?us-ascii?Q?MoCkcJwTKHRPudMED2CWbQ7ShCSHVzwoyK47CFULb3Vn3ySu273MFqIbbg++?=
+ =?us-ascii?Q?j1/mH7J10svAD73PqxAY8vPNrcoI6ALmi3cJClE2I09nFzBq+wNRtDC6VYoF?=
+ =?us-ascii?Q?60XlY9oGcRvG+vBi7jvKXSyENKj68zxh2Wu+QBjagwpIK6sVCH9wuaoJNWyC?=
+ =?us-ascii?Q?T0OJiD6q5wOQ1nBZV8AbyvnQY8/HGq/FxBqmJBLK+GZCzFK6pDprn8I5/jwY?=
+ =?us-ascii?Q?n5RgaMBB86Vsmf0n+RjoeXPCejEob8pB8n9LnOLtgwiHxzkqNxX/ngPZ2/7O?=
+ =?us-ascii?Q?YKZmGzCn5HFQTfkQpRRDOgA+NGwlfM6tYGXkYz9umJdU9uNF2S6vHzJGaoxk?=
+ =?us-ascii?Q?DR4sJNEuwrUL+Gt1eXYUhjSPwPK3gd62IJwcehWv1x+v/1z4XDkBDkAbTlO5?=
+ =?us-ascii?Q?HBCyVv2YJIbvsvOIJ4+Pjc9wzdIBM0hqMr5xfPxhCesFq3Zdxwe6zHpvea9h?=
+ =?us-ascii?Q?nga9SXJYeDOMveNF9bQ2Pq6GT9jjfYqBjN6+YVkJElTI1lbrCD5xW0eMS4Tl?=
+ =?us-ascii?Q?DzTbxEOzIY4xCsFKAW/s8d6ouea3tWTRKVIen7cngyTqLe1G4l8b5VgZFb5c?=
+ =?us-ascii?Q?5J3BIuysZngi/GaZAlcyF5IDVVdYsSUIOYNCM54pXi6XUR4U0h834z9ThyMo?=
+ =?us-ascii?Q?v2Toofmlu1hUJjHmMyeMifohqH+2Rqw7Ua8+g7a7NYM8pKC2voVsgcrd4qBW?=
+ =?us-ascii?Q?FjdKNyAu/PFd6pMVbnM5jLN1/lDiX7wvUx/68OwqFt6t0wH8PQIBnO1KyTPk?=
+ =?us-ascii?Q?0yQ67cjCOsrSUxMXJgrPe585IYaR7OWc/lZCAiCoRSVsQkdi6DjwD5S4cC/p?=
+ =?us-ascii?Q?3+Ak6s6lYSXC/guCoAMsvDho/ZU8pRjInf0TZ09Wdj1y24oG+STW23UDnIlr?=
+ =?us-ascii?Q?nP2VT5isXVDZiBaOnXPOa/DXrpZejzK2BjBUzD3wiVVscTYOyXepkiepcZU4?=
+ =?us-ascii?Q?m+Q1sz5A45maE+wFte8udAon7t3LFSFU7N0Fm9deqyvKDfJUTCwhNfSIrY2q?=
+ =?us-ascii?Q?H9pXCDQ6IesvMcGzLUI0Oj16VX+HfsMuXrcHogHEx7db1PWYPivd6gTtFy8R?=
+ =?us-ascii?Q?7Y60CCscCmjEezZqLoDlWjpE4eFlW66Lqbc/d/4zY9+QnRFlclJGLXAad1cE?=
+ =?us-ascii?Q?FPB0nYqHDUtFXdwylJ9ZlALLjhyn6n6WisnYWZDFvDDUbV37H5RP2+y1iYXk?=
+ =?us-ascii?Q?Zh2/UflvB/+BO4c3Iih0HQpfEWoN6OI05R82EryInzKLZvls9o9UUYxMnQ5K?=
+ =?us-ascii?Q?4E1gsXTJyLjOVzpQOwj/qTjX079mhgT/bK2J9A+ws3+vqxqIbt/z2HF9phVX?=
+ =?us-ascii?Q?+wlJ8r3zDK2YdFLFONn3yWeSpcM3NBm9urNRkPKMCGDEiOTwXRz+DwWQMqC4?=
+ =?us-ascii?Q?u4FUj9l9If7LpZI0M7AadHZIrX93otqRBbrVJdEwPYn97JqeQognLg5o97hC?=
+ =?us-ascii?Q?AenwE4+F69Ymn2Ty8aphxSNW0vQg4Qel6e3jrsr/BZlz3hHlTBDzyTJgUKOt?=
+ =?us-ascii?Q?bjbuW6xVhqB+hbKazNsc/d8XNCZqzyQHHk6sOx5AfYBCXdUH4Dt0?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e4771837-bc6b-4a5f-8610-08defa484104
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Aug 2026 21:08:57.0519
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: T3UKkGH5STyVLOk/vCpKM129a/bNNMI2vxCXGf4g4IAGwsAy48+7p8zh75BH2UnhWEbPJ3TmOoZEFYvsCUEoXWhGyPlXSzZ8bLXfxuPM/EsunFoGKF7RMn0uF1N5mdC3
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB7159
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260814_140105_109277_87EB66FA 
-X-CRM114-Status: GOOD (  12.25  )
+X-CRM114-CacheID: sfid-20260814_140902_326021_49F115A3 
+X-CRM114-Status: GOOD (  20.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,37 +138,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As per koject_init_and_add() function kernel document, even if this
-function returns error kobject_put must be used instead of kfree.
+On Fri, Jul 24, 2026 at 03:57:20PM -0700, Rosen Penev wrote:
+> As devm is already used in _probe, complete the conversion so that
+> everything unwinds in proper order.
+>
 
-When edd_device_register() fails after initializing the kobject with
-kobject_init_and_add(), calling kfree(edev) directly bypasses the
-kobject release callback (edd_release) and leaks the allocated kobject
-resources.
+Thank for. suggest commit message
 
-Fix this by replacing direct kfree(edev) with kobject_put(&edev->kobj) on
-registration failure.
+dmaengine: at_hdmac: use devm APIs in probe()
 
-Signed-off-by: Tarun Sahu <tarunsahu@google.com>
-Reviewed-by: Sourabh Jain <sourabhjain@linux.ibm.com>
----
- drivers/firmware/edd.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Convert resource allocation and setup in probe() to use devm-managed APIs.
+Simplify the error handling path and removes explicit cleanup code.
 
-diff --git a/drivers/firmware/edd.c b/drivers/firmware/edd.c
-index f980c5b56858..763e7b16d517 100644
---- a/drivers/firmware/edd.c
-+++ b/drivers/firmware/edd.c
-@@ -748,7 +748,7 @@ edd_init(void)
- 
- 		rc = edd_device_register(edev, i);
- 		if (rc) {
--			kfree(edev);
-+			kobject_put(&edev->kobj);
- 			goto out;
- 		}
- 		edd_devices[i] = edev;
--- 
-2.55.0.691.gc56d675ccc-goog
-
+Frank
+> Assisted-by: opencode:big-pickle
+> Signed-off-by: Rosen Penev <rosenp@gmail.com>
+> ---
+>  v2: remove list_del
+>  drivers/dma/at_hdmac.c | 50 ++++++++++--------------------------------
+>  1 file changed, 11 insertions(+), 39 deletions(-)
+>
+> diff --git a/drivers/dma/at_hdmac.c b/drivers/dma/at_hdmac.c
+> index e5b30a57c477..f16cf29ca548 100644
+> --- a/drivers/dma/at_hdmac.c
+> +++ b/drivers/dma/at_hdmac.c
+> @@ -1980,40 +1980,34 @@ static int __init at_dma_probe(struct platform_device *pdev)
+>  	atdma->dma_device.cap_mask = plat_dat->cap_mask;
+>  	atdma->all_chan_mask = (1 << plat_dat->nr_channels) - 1;
+>
+> -	atdma->clk = devm_clk_get(&pdev->dev, "dma_clk");
+> +	atdma->clk = devm_clk_get_enabled(&pdev->dev, "dma_clk");
+>  	if (IS_ERR(atdma->clk))
+>  		return PTR_ERR(atdma->clk);
+>
+> -	err = clk_prepare_enable(atdma->clk);
+> -	if (err)
+> -		return err;
+> -
+>  	/* force dma off, just in case */
+>  	at_dma_off(atdma);
+>
+> -	err = request_irq(irq, at_dma_interrupt, 0, "at_hdmac", atdma);
+> +	err = devm_request_irq(&pdev->dev, irq, at_dma_interrupt, 0, "at_hdmac", atdma);
+>  	if (err)
+> -		goto err_irq;
+> +		return err;
+>
+>  	platform_set_drvdata(pdev, atdma);
+>
+>  	/* create a pool of consistent memory blocks for hardware descriptors */
+> -	atdma->lli_pool = dma_pool_create("at_hdmac_lli_pool",
+> +	atdma->lli_pool = dmam_pool_create("at_hdmac_lli_pool",
+>  					  &pdev->dev, sizeof(struct at_lli),
+>  					  4 /* word alignment */, 0);
+>  	if (!atdma->lli_pool) {
+>  		dev_err(&pdev->dev, "Unable to allocate DMA LLI descriptor pool\n");
+> -		err = -ENOMEM;
+> -		goto err_desc_pool_create;
+> +		return -ENOMEM;
+>  	}
+>
+>  	/* create a pool of consistent memory blocks for memset blocks */
+> -	atdma->memset_pool = dma_pool_create("at_hdmac_memset_pool",
+> +	atdma->memset_pool = dmam_pool_create("at_hdmac_memset_pool",
+>  					     &pdev->dev, sizeof(int), 4, 0);
+>  	if (!atdma->memset_pool) {
+>  		dev_err(&pdev->dev, "No memory for memset dma pool\n");
+> -		err = -ENOMEM;
+> -		goto err_memset_pool_create;
+> +		return -ENOMEM;
+>  	}
+>
+>  	/* clear any pending interrupt */
+> @@ -2080,10 +2074,10 @@ static int __init at_dma_probe(struct platform_device *pdev)
+>  	  dma_has_cap(DMA_SLAVE, atdma->dma_device.cap_mask)  ? "slave " : "",
+>  	  plat_dat->nr_channels);
+>
+> -	err = dma_async_device_register(&atdma->dma_device);
+> +	err = dmaenginem_async_device_register(&atdma->dma_device);
+>  	if (err) {
+>  		dev_err(&pdev->dev, "Unable to register: %d.\n", err);
+> -		goto err_dma_async_device_register;
+> +		return err;
+>  	}
+>
+>  	/*
+> @@ -2092,27 +2086,15 @@ static int __init at_dma_probe(struct platform_device *pdev)
+>  	 * dma_request_channel().
+>  	 */
+>  	if (pdev->dev.of_node) {
+> -		err = of_dma_controller_register(pdev->dev.of_node,
+> +		err = devm_of_dma_controller_register(&pdev->dev, pdev->dev.of_node,
+>  						 at_dma_xlate, atdma);
+>  		if (err) {
+>  			dev_err(&pdev->dev, "could not register of_dma_controller\n");
+> -			goto err_of_dma_controller_register;
+> +			return err;
+>  		}
+>  	}
+>
+>  	return 0;
+> -
+> -err_of_dma_controller_register:
+> -	dma_async_device_unregister(&atdma->dma_device);
+> -err_dma_async_device_register:
+> -	dma_pool_destroy(atdma->memset_pool);
+> -err_memset_pool_create:
+> -	dma_pool_destroy(atdma->lli_pool);
+> -err_desc_pool_create:
+> -	free_irq(platform_get_irq(pdev, 0), atdma);
+> -err_irq:
+> -	clk_disable_unprepare(atdma->clk);
+> -	return err;
+>  }
+>
+>  static void at_dma_remove(struct platform_device *pdev)
+> @@ -2121,22 +2103,12 @@ static void at_dma_remove(struct platform_device *pdev)
+>  	struct dma_chan		*chan, *_chan;
+>
+>  	at_dma_off(atdma);
+> -	if (pdev->dev.of_node)
+> -		of_dma_controller_free(pdev->dev.of_node);
+> -	dma_async_device_unregister(&atdma->dma_device);
+> -
+> -	dma_pool_destroy(atdma->memset_pool);
+> -	dma_pool_destroy(atdma->lli_pool);
+> -	free_irq(platform_get_irq(pdev, 0), atdma);
+>
+>  	list_for_each_entry_safe(chan, _chan, &atdma->dma_device.channels,
+>  			device_node) {
+>  		/* Disable interrupts */
+>  		atc_disable_chan_irq(atdma, chan->chan_id);
+> -		list_del(&chan->device_node);
+>  	}
+> -
+> -	clk_disable_unprepare(atdma->clk);
+>  }
+>
+>  static void at_dma_shutdown(struct platform_device *pdev)
+> --
+> 2.55.0
+>
 
