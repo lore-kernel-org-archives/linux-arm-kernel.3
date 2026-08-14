@@ -4,140 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D17BC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 07:18:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CD89C5CFC1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 07:19:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NN7madMarZWpnWu8DCZpqQiB8rMa6STvPZwYESJw72k=; b=k3NdMo1ghZnDif2nMTPi/Vhuzr
-	f9NX6/w/yGC0wqIqMyS3cJ4Bn646pDOJ54IP7h2uF/WXvfi/pIXqCuRuLNOErvj2dIpoNgi2DBWbc
-	d2UWwAtgYztnVdOv4EKco/1gjVYwVk9NBXzccPrsmmh7Ojqva1Soa7g66Qw4Zcs4pfN5ERE09gOZk
-	3tfQ1UMHRL4+N99K2IhKEjpx0HX9+WMLF7qT0UdFxPa72dx17u0ykmRHUxqD6g5cQQ5T46BIZYl7P
-	y2JSMyWX8KBMdWFpLvHWnBgQMvgc4u+czNsWbDy+26jueagW/ohwKIK6KYzvuoeBLgUcRl1mkhFGQ
-	tBwmb1TA==;
+	bh=c6S5VaAkAZXn4sFLjHeqvaxpJlJzr1GA23OPYsB5cBI=; b=PhS682yci/JZZYuHvIf7DzjYUH
+	RYP+g5+e9yCfs/0WxyLBNQct0G7Gi5gDeu9XsbZc9kueY95ux9juy3w/3nNIzFpbxY5qhYMtf1PNL
+	PhkykDO0WxsafAqcG3mzjxXkDjbB94Dy2l0HSQVRZug4vAyR7lTvPPcAIil59T2MXIHBHCK3hNgPN
+	dLhlRwE4iZZRskGFCu5R3Y7MVBO/rOyDN55f9cDqsxfoLHOgqb9mE24wXOW1GLA4fK0LMrdpNV4hM
+	ewnlkYrsxbQvyf0xa4O2Lvpdf7/F1F/rRVXmxXJHZTxNIUotNTmcFKS0X/mi4ECgzotESj8nrUimN
+	WcSUaIkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wumBM-000000026Ob-3TEz;
-	Fri, 14 Aug 2026 07:18:24 +0000
-Received: from mail-westus3azon11021091.outbound.protection.outlook.com ([40.107.208.91] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1wumBr-000000026Uq-0Jw9;
+	Fri, 14 Aug 2026 07:18:55 +0000
+Received: from out30-100.freemail.mail.aliyun.com ([115.124.30.100])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wumBK-000000026Nl-1f0C
+	id 1wumBn-000000026SM-05gd
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Aug 2026 07:18:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UsTcms83Pvtk+vqwdRU0PGjcki+Oqlh6dTxyY5oMdOSiNcH2at97Gza7EcZJbGye5rs4CnrDyHI3yM9QN2h8qj2DDqSommQkfAhWRrbYzcOTIa5LKUnp5eRRM3RFmBMzyvHHeNmQ9RfALKPF1ZufCJaQ3ziUDZRPLgtXpTdJ/teWbWSMRXync3p3iMt+7MWxeana5Cjlv0gDyLJ5p6R4HySxslCXY8ngzWpBRz1RI4Po0uuT9S1gU0IGHE8EBA65U2dRwn0faVI3D0gXOSo64aTJrzcotGwXx/J1ruGAluZD2rTXzJnUkk51/Xl5Bde28OL7y+eTv0/FYs8GWSJQiw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NN7madMarZWpnWu8DCZpqQiB8rMa6STvPZwYESJw72k=;
- b=IBUn5iqzpipFZjY7TiaGUFaFU5kU354YVM/PBpEhULRfJSz2U3dlyQN5hmWDdbFfGnJd+pzNjs+BcGZ8wOawK2ZBRL07ZiL0jD6WJHJBekX7tJjGqpk92SRcbL7rFraZLorkR+t+Q/HOSYbmmMxcT0wZU/6kFEgbYCDLpcOE6R3Re0h9+PpfJGfh5wKb8QB0uIVGVlHG2RvqNjAG/qHTKs64cEFekDnTtJPDQE1aqxIL4BHQX4W3g4b+C+yRz2e78xp5qeGr5Kq4foWWD64zli0+AcVG/9QYpSdewhq9EEGM3lG58zzZfikvGb14gk4GlH76phW4XHglnu1dsHA3vw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=axiado.com; dmarc=pass action=none header.from=axiado.com;
- dkim=pass header.d=axiado.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NN7madMarZWpnWu8DCZpqQiB8rMa6STvPZwYESJw72k=;
- b=qjS6N7LDKvXvAn4RH2l1ZgGP9OnjAN5HequZxOHTmshTugpC1oET8UVJkcb51VCs5fQzFPNXt27uBY3eFmMQWOJEIKBr00qQBy89EHlf55JsWwv7RsQZWj/DnmTRHOmaHDV9iFLL2ysQRzwS1M2o51e+845hYE95EHo18aZ9XabD8rMI3J6zRfnBJgBmNt+JBLWv8JVluucfD6Bhgj2uzaVKD6GzxI8FIVo6NnCUn9iSIAwoHm/jV5gq0wNwbpRUcDT6jvtBGgQscawFqoyqM9/m9wGauB/pwDFSUkV9y2BbObU6xilojdE3oH3OS55r/9MF365KlxkCIRJ5Ejvg/A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=axiado.com;
-Received: from DM4PR18MB4144.namprd18.prod.outlook.com (2603:10b6:5:38b::8) by
- DS4PPF8B721DA48.namprd18.prod.outlook.com (2603:10b6:f:fc00::aae) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.15; Fri, 14 Aug
- 2026 07:18:17 +0000
-Received: from DM4PR18MB4144.namprd18.prod.outlook.com
- ([fe80::cb97:ca8a:e55a:b11]) by DM4PR18MB4144.namprd18.prod.outlook.com
- ([fe80::cb97:ca8a:e55a:b11%6]) with mapi id 15.21.0315.011; Fri, 14 Aug 2026
- 07:18:17 +0000
-Message-ID: <25314ace-34b6-4c4b-ace5-9d89ca01271a@axiado.com>
-Date: Fri, 14 Aug 2026 09:18:12 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/2] dt-bindings: pwm: add Axiado AX3000 PWM
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Akhila Kavi <akavi@axiado.com>, Prasad Bolisetty <pbolisetty@axiado.com>,
- =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>,
- linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260811-axiado-ax3000-pwm-v3-0-6ceaccd812cf@axiado.com>
- <20260811-axiado-ax3000-pwm-v3-1-6ceaccd812cf@axiado.com>
- <20260812-fearless-antelope-of-might-cf3eff@quoll>
-Content-Language: en-GB
-From: Petar Stepanovic <pstepanovic@axiado.com>
-In-Reply-To: <20260812-fearless-antelope-of-might-cf3eff@quoll>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: AS4P190CA0065.EURP190.PROD.OUTLOOK.COM
- (2603:10a6:20b:656::10) To DM4PR18MB4144.namprd18.prod.outlook.com
- (2603:10b6:5:38b::8)
+	Fri, 14 Aug 2026 07:18:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1786691924; h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type;
+	bh=c6S5VaAkAZXn4sFLjHeqvaxpJlJzr1GA23OPYsB5cBI=;
+	b=vtTe/A8tgMMPwSULSa28g9UPDaZYWEbI9gYRtWR1nWklcmlYaw8yAdclRmI8na+7aPc5Nox/BAGiSh21A15CCAlYqtBQLJdMVHzomUhEbeWF1F4svlyyBa+c2GOkkdr0bADtQ/E/9cxc64zQEgcn074EevvNhSr9Abzz+D1i0DM=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R581e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033032089153;MF=yaoyuan@linux.alibaba.com;NM=1;PH=DS;RN=18;SR=0;TI=SMTPD_---0X8wZbHN_1786691923;
+Received: from localhost(mailfrom:yaoyuan@linux.alibaba.com fp:SMTPD_---0X8wZbHN_1786691923 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Fri, 14 Aug 2026 15:18:43 +0800
+Date: Fri, 14 Aug 2026 15:18:42 +0800
+From: Yao Yuan <yaoyuan@linux.alibaba.com>
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: Wei-Lin Chang <weilin.chang@arm.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oupton@kernel.org>, Fuad Tabba <tabba@google.com>, Joey Gouly <joey.gouly@arm.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Jintack Lim <jintack.lim@linaro.org>, 
+	Christoffer Dall <christoffer.dall@linaro.org>, Christoffer Dall <christoffer.dall@arm.com>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org
+Subject: Re: [PATCH 1/2] KVM: arm64: Fix spurious warning for benign stage 2
+ teardown race
+Message-ID: <v3vgnteumpaxbgqjtfwoilcbwpwohfci3uwu4ooykls6zjwjwe@rukbigno2m5o>
+References: <20260812-kvm-arm-nested-virt-fix-v1-0-4ad883f1b6a5@kernel.org>
+ <20260812-kvm-arm-nested-virt-fix-v1-1-4ad883f1b6a5@kernel.org>
+ <qfhlmmidzdmmsfopfhxpddgwa7nob45jwgb6sabskawaxtox7i@mnxplk3zn34k>
+ <an3gqCJ1fzloWB_N@lucifer>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM4PR18MB4144:EE_|DS4PPF8B721DA48:EE_
-X-MS-Office365-Filtering-Correlation-Id: fc0edf00-b88c-4fed-601e-08def9d43647
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|376014|1800799024|6133799003|22082099003|18002099003|4143699003|56012099006|10067099003|3023799007;
-X-Microsoft-Antispam-Message-Info: ItMXf+qZhutK0SP/paCqdpeeIyJIjH4VcIl46eARruCfQ4KOkwXONALuM7izlNK1hwkuinq5lOB+/ittXonRmjUSQV0kqrmsr4rHSQ2jt9NcYlZh6KQCsnqKuw28p6jrtRvNyfOOq8ZyKrlk65mbeL16xQQpKHbfs8AFcrZaYs9y5Uj5LzVQB4i4dvtx+MB23P+wUxUuh8IzEQtGjCsx+taiNzc14wMfzD57bjdGRzwXRmW1RHok+69LyMy5terNuRerv+w2sTJAqTLQgdJtilAhm63hOsVXGe1LdOpLAKZjA5HcYb82j/DOW90PGjFSeQMfkdAMNQoVIJXx3InXSUdxylgMZgHWhSzTOmqkSffJpPbC/FK1FN1+4jin8jERY98vGkzbDOW9nD+RLBTcff2Frs/QuQLdtcMnsaOwjvm+pXcNZIAsE9UcfuD/cse5nURyZN6ck81RpmWBZ6JD0kNKmzhdmOWqduPNZepCgeLVyXJzgF6JeRcTJISM764MHUjsLkdLRy2yh3agDkQsa3SFUFdCELV9P+ydsGYjrSa36JsAIF0tgaHkAq5Slf0IpGOCylmJ4NojYt8C8cDoxBN5Fd90+c7ALogQbUre0kA=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR18MB4144.namprd18.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(376014)(1800799024)(6133799003)(22082099003)(18002099003)(4143699003)(56012099006)(10067099003)(3023799007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Z3diRzRBNVJIMDVaUzZZelZuU29pWTNOelY1cXQwbFNlVXFOSGFRa3UvWUgr?=
- =?utf-8?B?OVFVaE9ha1U0b1UzYWpadlRBTjc2Rk0zOVdGQm1RRm9GN2F0YUJGdXFGZFdS?=
- =?utf-8?B?L0Y2UkU2b080QzljVU00aHpqM3dsOXdzWVZFdlBwMThUeW1vNDFCcUZVbnhV?=
- =?utf-8?B?OG5lcUdENVRWeWkyZ1RQSVlJZTM0RGo0QXZBME1oZHV2ekQ2RUtIL0FOdUxH?=
- =?utf-8?B?TWU4eC9Lb3lYRVgrQW53dVlOUjAvR1JoUzZmNGhtd00weDFMMWgxSDROVjlR?=
- =?utf-8?B?Rnk5TVpPUE10Wk1xc281ZEdYRm1ZVnEwc09mR3k0NWRKcTJybnVHcmxvN0JT?=
- =?utf-8?B?MEhEdnlyUVFxcktRSUJtNFd4T2RMN25XNkE2ZEhjYm55aitrS3lYeVQ5SXJZ?=
- =?utf-8?B?SFMxZlMxZUo0Q3VUNFphQk4xNXFIWG53SW8xd3dGbzluYXlPQ2t2UnpOQW40?=
- =?utf-8?B?UEgrSEdoekZhN1ZMc1Q1MXE5dW51QjFpSXUrbkkwUm9VNnNTMHBXK004OXVY?=
- =?utf-8?B?akZWUHdIT1F5VGRWdU50NVVhZ1RjcDZiZHRJVzJVamJBOGJxTHY0YUhYdkkr?=
- =?utf-8?B?bHB2WXR6M0xaeTdTdVZGcWpwSzRHcXUxSG14QXdGZE1xN1ZzRkgwNlhlcWNQ?=
- =?utf-8?B?Y3hEN2xmQkZVSWVSTjhlaTgyeEd3UXliUDYwc1R5Wm9kd1hSQkt6NVZ2eXZ0?=
- =?utf-8?B?anJPSnhCdXhjZnczTjMwakZKR1UxK0puTFRNUHdKNWpjUHdManRMQWF3Y1dx?=
- =?utf-8?B?YVAzQTdFM0pZWHNSM3hDZ0JXVktMaHIwQkx4TDBoa2QrMyt0NDZhaURYTjFo?=
- =?utf-8?B?cWYyR2ErRUxXK1daWWZ1RnZFRWdTY2xCQnZTTnYreXJsRzRCKzR6c2NSODBF?=
- =?utf-8?B?anJ0bXpTQm1FQUJ0aWlMUGxvS1dvN0x1ZnJhSERoY2R1ZisyRk92SXlIZUtL?=
- =?utf-8?B?VXU0R0ltNGovMFFHRUI4cHdNOC83YjJkaFhSa1BtajJRcHNLMzVQOU43TnlJ?=
- =?utf-8?B?LzVLMkk3YkEzQXpxS1ZIQVdGMlNLdnZuZUN2RWxCdWRodmJSWnB2RlZoaDh1?=
- =?utf-8?B?ZTd5QWZHc3oyRG9qb1VvMWI0VmFCOGZXNGpzQjlMZXNrWm9mZlFDUzdnS1BU?=
- =?utf-8?B?U2dqSk9DOXFhMXg0RlhWaTI5OWRGQkNHUmNtSWFzNlB4Y1ZrR1BxS2hxaDNv?=
- =?utf-8?B?akRFdXoyZitJamVoKzJGaVlkYVFPV096NTRFOVd0Z1g2M3R1TE13SHFkaE8r?=
- =?utf-8?B?aU1sa0JKNFI2SWk5OUhJOWFGc3hTenByVHV5YlI4YUJvSzg0OWN3RU9lRUNh?=
- =?utf-8?B?cXI1L01GZ1F5djBUOC9hQ2hsVGY2NEJjRU5aVWxLTEd6QkRoVmplQ3p6bS9Z?=
- =?utf-8?B?azdLR0d2blViQ0pOUFFPUjlKZ2RBVHNlemZHd2JtRGNvcURwZmxZQnpLVGFW?=
- =?utf-8?B?VFpLMW1LVEFDaFlsWjR6RXd6SC84ZndrejZUSDhXcmJTN2VGcFVCRW5MU3pV?=
- =?utf-8?B?NVBMSlRzaWRNNmRoWjNZMVQrQUhYaHQ3VXVsTmhYWjVGM0hFbUVEcDMzSWdO?=
- =?utf-8?B?YW9nME1WN0Z1a3lVa2k4dk9VbE5KbXdsdnAzYXRBK0xBTUlmeTNTbHNGWU9B?=
- =?utf-8?B?Yml3alFWTzNMMXFEaCtDdldJamtlVVVJeVVPQ2Q5dlo5ZUw0dnpPeEhMYUkx?=
- =?utf-8?B?TTVaQ2FHSzVxSHlDZFNnN2hoZ056R2NNNEV0QlMyeHRQUjNqRXhuYkZFUFky?=
- =?utf-8?B?cUwyWnVQb2F6bk1ENFBUVU42NElsblBxTGNQejdFOC8rck1OYVJaYVcwUDRx?=
- =?utf-8?B?c0VRcjhicTdzMFBNRGlodDFHMHlTRnhXL2ZGNXJBRVBEN0FvdlZ3Tis0djNt?=
- =?utf-8?B?MkM5a0o1Z1FUdVprZ05VL2dEbjBHSFNVQWVhSGNXVmJvN0xrdERwUndwcDlM?=
- =?utf-8?B?MzJKWGtKZDgyejhwSTBJK3NiVE8wQU1yV2Y2eHhoeERSYmRmZjVNeDA5SG4v?=
- =?utf-8?B?UHlTdEpuYjczMTA0R3ZMUUhLUXQ1bzFxdjdaeG85eEFDRDVrQWFnd0liYVJZ?=
- =?utf-8?B?aGhKZTh3WXBRTHIzUURVUkNBM1Fvam9vL0pjbExTSFc2ZXE5WWlBV0N4d2tt?=
- =?utf-8?B?TThqcUdwbDE2clJSSWVCNkFUVlBEZmNCc2dGeW02TVhJWFFRTGtMNHFaNE84?=
- =?utf-8?B?Sk1jcnovU2FXZUdjbVdmSmgvOGhEUDlibDd0cXVnb1BEcWNKdHVuZDAzYmFI?=
- =?utf-8?B?RTFGSHhjR3NsTEhQdXRCWjRUQi9VWmdscnErd1RYSnlQZ05LUmxYRDQxWnNy?=
- =?utf-8?B?Z2Q1cmxOQnRqenh6L3hlQTI2d3htcGtpY3duN203SnRYOFBxZWcxUT09?=
-X-OriginatorOrg: axiado.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: fc0edf00-b88c-4fed-601e-08def9d43647
-X-MS-Exchange-CrossTenant-AuthSource: DM4PR18MB4144.namprd18.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Aug 2026 07:18:17.3981
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ho36GtEVMEnxAiTSMK0uYYObPSMpJFvvZr6J4NbUVv8inTdAL6iNUkXBZSIFqMhzXXDx3X0ZIHFSRZzxkaQcEw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS4PPF8B721DA48
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <an3gqCJ1fzloWB_N@lucifer>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260814_001822_452517_31F60551 
-X-CRM114-Status: GOOD (  29.63  )
+X-CRM114-CacheID: sfid-20260814_001851_731098_7EB78B7A 
+X-CRM114-Status: GOOD (  45.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,99 +75,224 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On 8/12/2026 1:16 PM, Krzysztof Kozlowski wrote:
-> On Tue, Aug 11, 2026 at 02:01:50AM -0700, Petar Stepanovic wrote:
->> The Axiado AX3000 and AX3005 SoCs include PWM controllers that can be
->> used to generate configurable PWM output signals.
->>
->> Signed-off-by: Petar Stepanovic <pstepanovic@axiado.com>
->> ---
->>  .../devicetree/bindings/pwm/axiado,ax3000-pwm.yaml | 53 ++++++++++++++++++++++
->>  MAINTAINERS                                        |  8 ++++
->>  2 files changed, 61 insertions(+)
->>
-> Where did you explain reason to drop the tag?
+On Thu, Aug 13, 2026 at 04:24:49PM +0800, Lorenzo Stoakes (ARM) wrote:
+> On Thu, Aug 13, 2026 at 12:20:43AM +0100, Wei-Lin Chang wrote:
+> > Hi Lorenzo,
+> >
+> > Thanks for the detailed analysis!
 >
-> <form letter>
-> This is a friendly reminder during the review process.
+> You're welcome :)
 >
-> It looks like you received a tag and forgot to add it.
+> >
+> > I can follow what's happening from the report, but one thing I don't
+> > get:
+> >
+> > On Wed, Aug 12, 2026 at 02:31:20PM +0100, Lorenzo Stoakes (ARM) wrote:
+> > > A batch of kernel warnings were triggered in the L0 host kernel when using
+> > > kvmtool to experiment with nested virtualisation.
+> > >
+> > > The issue was observed on an M2 macbook pro with 24 GiB of RAM running
+> > > asahi linux 7.1.6-400.asahi.fc44.aarch64+16k with 16 KiB page size.
+> > >
+> > > The bug is confirmed to exist in mainline and does not appear to be
+> > > impacted by any downstream patches carried by asahi.
+> > >
+> > > kvmtool was used to establish an L1 guest with 8 CPUs and 8 GiB of RAM.
+> > >
+> > > kvmtool was then run again within the L1 guest to establish an L2 guest
+> > > with 4 CPUs and 4 GiB of RAM.
+> > >
+> > > Then it was run again to establish another inner guest with 2 CPUs and 2
+> > > GiB of RAM at L3.
+> > >
+> > > Both the L2 and L3 guests were then exited and another L2 guest was
+> > > established with the same characteristics.
+> > >
+> > > Sufficient memory pressure was present in the L0 host to trigger indirect
+> > > reclaim, waking kcompactd up and triggering migration.
+> > >
+> > > Shortly afterwards the L2 guest was stopped, at which point three warnings
+> > > were observed in the L0 host in quick succession with the second and the
+> > > third occurring 114us and 189us after the first, respectively.
+> > >
+> > > In each case the call trace was the same:
+> > >
+> > > WARNING: arch/arm64/kvm/mmu.c:336 at __unmap_stage2_range+0x64/0x80,
+> > > CPU#5: kcompactd0/66
+> > > ...
+> > > __unmap_stage2_range (arch/arm64/kvm/mmu.c:335 (discriminator 3)) (P)
+> > > kvm_stage2_unmap_range (arch/arm64/kvm/mmu.c:346)
+> > > kvm_nested_s2_unmap (arch/arm64/kvm/nested.c:1168 (discriminator 14))
+> > > kvm_unmap_gfn_range (arch/arm64/kvm/mmu.c:2416)
+> > > kvm_mmu_notifier_invalidate_range_start (arch/arm64/kvm/../../../virt/kvm/kvm_main.c:718 ...)
+> > > mn_hlist_invalidate_range_start (mm/mmu_notifier.c:525)
+> > > __mmu_notifier_invalidate_range_start (mm/mmu_notifier.c:580)
+> > > try_to_migrate_one (./include/linux/mmu_notifier.h:478 ./include/linux/mmu_notifier.h:471 mm/rmap.c:2459)
+> > > rmap_walk_anon (mm/rmap.c:3001)
+> > > rmap_walk (mm/rmap.c:3106 mm/rmap.c:3101)
+> > > try_to_migrate (mm/rmap.c:2774)
+> > > migrate_folio_unmap (mm/migrate.c:1330 (discriminator 3))
+> > > migrate_pages_batch (mm/migrate.c:1909)
+> > > migrate_pages_sync (mm/migrate.c:2026)
+> > > migrate_pages (mm/migrate.c:2135)
+> > > compact_zone (mm/compaction.c:2663)
+> > > compact_node (mm/compaction.c:2932)
+> > > kcompactd (mm/compaction.c:3230)
+> > > kthread (kernel/kthread.c:436)
+> > > ret_from_fork (arch/arm64/kernel/entry.S:858)
+> > >
+> > > Analysing this:
+> > >
+> > > try_to_migrate() performs the first part of migration on a folio -
+> > > establishing migration entries in all page tables mapping it - calling
+> > > try_to_migrate_one() for each VMA the folio is mapped in.
+> > >
+> > > Immediately prior to installing the migration entry, try_to_migrate_one()
+> > > calls mmu_notifier_invalidate_range_start() to signal to notifiers that the
+> > > existing page table entry is about to be unmapped.
+> > >
+> > > Since this range happened to contain folios used by the virtual machine
+> > > (given its memory consumption this was highly likely to be a target) this
+> > > in turn triggers arm64 kvm code via an MMU notifier:
+> > >
+> > > mmu_notifier_invalidate_range_start()
+> > >   -> ... -> kvm_mmu_notifier_invalidate_range_start()
+> > >     -> kvm_mmu_unmap_gfn_range()
+> > >       -> kvm_unmap_gfn_range()
+> > >         -> kvm_nested_s2_unmap()
+> > >           -> kvm_stage2_unmap_range()
+> > >             -> __unmap_stage2_range()
+> > >                -> stage2_apply_range()
+> > >        	       <- -EINVAL, triggering a WARN_ON()
+> > >
+> > > Since commit ec14c272408a ("KVM: arm64: nv: Unmap/flush shadow stage 2 page
+> > > tables") kvm_unmap_gfn_range() invokes kvm_nested_s2_unmap() which takes
+> > > the rather drastic step of evicting the entirety of the stage 2 shadow page
+> > > tables for each nested guest:
+> > >
+> > > 	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
+> > > 		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
+> > >
+> > > 		if (kvm_s2_mmu_valid(mmu))
+> > > 			kvm_stage2_unmap_range(mmu, 0, kvm_phys_size(mmu), may_block);
+> > > 	}
+> > >
+> > > This will iterate through every valid MMU.
+> > >
+> > > mmu_notifier_invalidate_range_start() sets the MMU_NOTIFIER_RANGE_BLOCKABLE
+> > > flag when signalling notifiers, so may_block is true here.
+> > >
+> > > __unmap_stage2_range() wraps invocation of stage2_apply_range() in a
+> > > WARN_ON():
+> > >
+> > > 	WARN_ON(stage2_apply_range(mmu, start, end, KVM_PGT_FN(kvm_pgtable_stage2_unmap),
+> > > 				   may_block));
+> > >
+> > > Which is precisely the triggered warning and means stage2_apply_range() is
+> > > returning an error.
+> > >
+> > > In arm64 return values are stored in the x0 register and in each splat w0
+> > > (since it's a 32-bit value) is 0xffffffea which, by two's complement, is
+> > > -0b00010110 or -EINVAL.
+> > >
+> > > The only way in which stage2_apply_range() can return an error is if either
+> > > the passed in walk function (kvm_pgtable_stage2_unmap()) returns an error
+> > > or mmu->pgt is NULL:
+> > >
+> > > 	static int stage2_apply_range(...)
+> > > 	{
+> > > 		do {
+> > > 			struct kvm_pgtable *pgt = mmu->pgt;
+> > > 			if (!pgt)
+> > > 				return -EINVAL;
+> > >
+> > > 			next = stage2_range_addr_end(addr, end);
+> > > 			ret = fn(pgt, addr, next - addr);
+> > > 			if (ret)
+> > > 				break;
+> > > 			if (resched && next != end)
+> > > 				cond_resched_rwlock_write(&kvm->mmu_lock);
+> > > 		} while (addr = next, addr != end);
+> > >
+> > > 		return ret;
+> > > 	}
+> > >
+> > > This loop is batched by stage2_range_addr_end() at the granularity of
+> > > kvm_granule_size(KVM_PGTABLE_MIN_BLOCK_LEVEL), which for a 16 KiB page size
+> > > kernel is 32 MiB.
+> > >
+> > > kvm_pgtable_stage2_unmap() only returns an error if
+> > > kvm_pgtable_walk_begin() or _kvm_pgtable_walk() return an error. On arm64
+> > > the former doesn't ever do so, and the latter only returns -EINVAL if
+> > > either pgd is NULL (we gate that already) or an invalid pgt->start_level is
+> > > specified (not the case).
+> > >
+> > > So the cause of the warning is that mmu->pgt is NULL here.
+> > >
+> > > This field is protected by kvm->mmu_lock, but after each invocation of the
+> > > walk function, if the end of the range has not yet been reached, the lock
+> > > is dropped.
+> > >
+> > > This is done by calling cond_resched_rwlock_write() which drops
+> > > kvm->mmu_lock when yielding the time slice before reacquiring it upon being
+> > > scheduled again:
+> > >
+> > > 		if (resched && next != end)
+> > > 			cond_resched_rwlock_write(&kvm->mmu_lock);
+> > >
+> > > Note that resched = may_block here and is always true for these walks.
+> > >
+> > > This points to something else racing this code to clearing the pgt, and
+> > > brings us back to the observation above that the issue occurs when tearing
+> > > down the L2 guest.
+> > >
+> > > Upon L0's userspace mm_struct teardown, stage 2 mappings for IPAs mapped by
 >
-> If you do not know the process, here is a short explanation:
-> Please add Acked-by/Reviewed-by/Tested-by tags when posting new
-> versions of patchset, under or above your Signed-off-by tag, unless
-> patch changed significantly (e.g. new properties added to the DT
-> bindings). Tag is "received", when provided in a message replied to you
-> on the mailing list. Tools like b4 can help here. However, there's no
-> need to repost patches *only* to add the tags. The upstream maintainer
-> will do that for tags received on the version they apply.
+> s/L0/L2/
 >
-> Please read:
-> https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/submitting-patches.rst#L577
+> > > the guest are unmapped via mmu notifier:
+> > >
+> > > exit_mm()
+> > >   -> mmput()
+> > >     -> __mmput()
+> > >       -> exit_mmap()
+> > >         -> mmu_notifier_release()
+> > > 	  -> ... -> kvm_mmu_notifier_release()
+> > >             -> kvm_flush_shadow_all()
+> > >               -> kvm_arch_flush_shadow_all()
+> > > 	        -> kvm_free_stage2_pgd()
+> > > 		  -> [ acquire kvm->mmu_lock for write ]
+> > > 		  -> mmu->pgt = NULL [ among other tasks ]
+> > > 		  -> [ release kvm->mmu_lock for write ]
+> >
+> > You mentioned stopping the L2 VM only, which means L1 is still running.
+> > Why would the L0 userspace mm_struct get torn down if L1 is still live?
+> > What did I miss?
 >
-> If a tag was not added on purpose, please state in the patch changelog
-> or cover letter why and what changed.
-> </form letter>
+> Ah yeah this is a mistake sorry :) It should say L2 teardown.
+>
+> The stuff relevant to L0 is the MMU notifier bit.
 
-The tag was dropped because I changed the compatible schema after your
-review to express AX3005 compatibility using the AX3000 fallback. I
-described the binding change in the changelog, but I did not explicitly
-state that this was the reason for dropping your Reviewed-by tag. I will
-make that clear in the next version.
+Hi Lorenzo,
 
-After checking your DTS101 presentation again, I found that my case is
-better represented by the fallback-compatible example, where the more
-specific compatible is followed by the fallback compatible.
+Still have question w/ your above addtional information:
 
-The second AX3000 entry is a typo; it should be AX3005 followed by
-AX3000 as the fallback. I will fix it and validate the DTS against the
-updated binding.
-
-So the resulting binding will be:
-
-compatible:
-oneOf:
-   - const: axiado,ax3000-pwm
-   - items:
-       - const: axiado,ax3005-pwm
-       - const: axiado,ax3000-pwm
+The trace is observed on L0, means the exit_mm() path should
+also happens on L0 to race w/ the
+mmu_notifier_invalidate_range_start() path, but how this is
+triggred by L2 teardown, IIUC the L2 teardown triggers the
+exit_mm() path on L1, not on L0. The L1 is still alive thus
+the qemu/kvmtool process on L0 which hold all L1/L2/L3 is
+still alive yet. Please correct me if anything I missed
+here.
 
 >
->> diff --git a/Documentation/devicetree/bindings/pwm/axiado,ax3000-pwm.yaml b/Documentation/devicetree/bindings/pwm/axiado,ax3000-pwm.yaml
->> new file mode 100644
->> index 000000000000..7297abccbc24
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/pwm/axiado,ax3000-pwm.yaml
->> @@ -0,0 +1,53 @@
->> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/pwm/axiado,ax3000-pwm.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: Axiado AX3000 PWM controller
->> +
->> +maintainers:
->> +  - Petar Stepanovic <pstepanovic@axiado.com>
->> +  - Akhila Kavi <akavi@axiado.com>
->> +  - Prasad Bolisetty <pbolisetty@axiado.com>
->> +
->> +description:
->> +  The Axiado PWM controller found on the AX3000 and AX3005 SoCs.
->> +
->> +allOf:
->> +  - $ref: pwm.yaml#
->> +
->> +properties:
->> +  compatible:
->> +    oneOf:
->> +      - const: axiado,ax3000-pwm
->> +      - items:
->> +          - const: axiado,ax3000-pwm
-> So 3000 is listed twice. You need to test your DTS.
-
-Best regards,
-Petar
-
+> >
+> > Thanks,
+> > Wei-Lin Chang
+> >
+> > [...]
+>
+> --
+> Cheers, Lorenzo
 
