@@ -4,126 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC300C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 18:21:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71878C5CFC1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 18:38:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TccS7vtFjF83ovJqvdhyn56FhL/Sf2imqI8U2Bv3hq4=; b=HnPlMr/SSv7S2vigU7ZfkIzwcW
-	BAkOYJQ2V8F7iCUgSdULEbPX9KLwddk3rmpXt1hhi4xomOpIi2w592LsBa3+q+F1szPYb/dlayQ9x
-	GVdLCTLgNYIl4zzTW9LWzngrSwrhDrGCMZb/5VGmVTG/JdzVDMrP95znhanv6eAaKImpVyuNWxyvz
-	40sFyP2yTGCjMHTHwPSFBL1niOzX7S9+cfHfGmw8z/HO5yh9rJsW1jBwvxJPYpV0zrWtVqMLo7s65
-	nYBGE8WQPx4DUsOsMUPUFql/SPxmKOkBPRHEnCKgAa+TPPnBRkr5XNYM0FQHQ2miGZ8o4YX3T8JTC
-	2P8asjdA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=h3Bw7xg93wntK2DGSQ+p1dtb5GSU+jYFMAY4ihssDQ0=; b=2L2WXYVuekta1hUM9xKr3lfUIs
+	Y56orNObVC596FFeVsTU9Oh5WZNn3Ec61eCAHDxTBCmxY7IM3FFQHH33nK+l0gsQTGwglBqP/Xnx2
+	BbchMAmq9H//367nVVJVsbqM9TbdLYG11HrBybiiuB/dWGe2/UJtCQwME7N+2Aff3QPcRg0GVuQrW
+	x2BpVx5SsbMu+mOmkx5WIlmV2Hp3yDUTMnOQm3yTXy1jvd8hmeFamYPTWEO/XBgXx5Knu8Ot1l+5m
+	2T+ip2ZcvOhYeUnahq33l2pgCD6D56+ZKk+fGj/XPOgA8/LGixnT0UcuME08cG91OUItgiL1teup/
+	uqtjmuLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuwXG-0000000324n-2seM;
-	Fri, 14 Aug 2026 18:21:42 +0000
-Received: from mail-northeuropeazon11010046.outbound.protection.outlook.com ([52.101.84.46] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1wuwmr-000000033Gt-3p1p;
+	Fri, 14 Aug 2026 18:37:49 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuwXE-0000000324P-28OK
+	id 1wuwmp-000000033G4-2Gf4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Aug 2026 18:21:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=e0UiCebbYbW1WJIyQe0Q9Yy7Ai+jKgJywejFkJC+Tg0DOVjAa0KMtD76yBpoZm6KVAol4beCVRFhQDjQEUfG7gpjWqbYdnRsLI8XWvfZoHHrLgCs6YdwWtyFTwOX6vYgByC6PeyzVEGksW6HKRgTfAgav5ZyqHTPowyuOBXmwPhhDC2d09B+7Lm4ZSVE3SC12/aJ6oLbkU1etBSRIv0aKv/rXnNoSsDp5EsW8qLZCPtGDF0SX0oHJF/3nnmUngBjlzK/+h1QlgXlAX2FkkHfSqH4GSIRknWJ782rhlGwdCPLKzZgFLr2zER8Uqahjd4eQx/LKHs5BethKEV/UNrl6A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=TccS7vtFjF83ovJqvdhyn56FhL/Sf2imqI8U2Bv3hq4=;
- b=XoR+I+YFjdKXUztTxVaw8HRxlLnpdFRXqun8MheO1KUemBKp0tObOdnootKkbVM2P1rwhHoLgCXybVccFyJx1M/MC3AxvS4deurCcf7Dqtq5C7hJ/1TLoV/6QvD5Y1vLdVb7NwKWFcqJnowDdfMkA2qRWNR/xVQLD/2lxoKE1a7NhwLm/oj4dB9vm8xtXBS/zNSLhKPdURsScFO9Af7FGHHEyrOSZVQyxjzv6Z9jss/zHVlF2jqfKC7+xYMfSdoz0QPBVDeYXavQNjbiMBJY+2QRXTst8gDkUkDMkYIMoDJMno/GHcUqvUd9F26LDJZ951zUbKM4cc4dB7AIxmSi1A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=TccS7vtFjF83ovJqvdhyn56FhL/Sf2imqI8U2Bv3hq4=;
- b=URz9bRkcTILYwrXqMW2/OwX8qcXroOkSehTn9xrA6QKES8FyOpYKv4yE6coz2DHG4wZKIv6AOe/w/gd4uArjd4GTzNm3BfI6Nf0VmCo88QPuCGQeoLRH4pQjZe41cAir6IdSx1Q7HeWbdcRhNYvNEanRQdAdBQNv4sgL0lQi2KYr0KVYV3f6jHcbZmvBLM2hu/EJ518pIGHDo0i8g1XD9WCYr4J2j871gH5z5Sd5ApZwGV+Xs8qxPx6dmDUNrMKv5AjWzJLXRf79uisMpFLXoY0fMOUVDcQVvN0IW7PRsKByXSFdCBTys6juYSuh3C9VYUq1qqDVA7aWMlMisNu5dQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AM0PR04MB7186.eurprd04.prod.outlook.com (2603:10a6:208:193::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.12; Fri, 14 Aug
- 2026 18:21:35 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0315.014; Fri, 14 Aug 2026
- 18:21:35 +0000
-Date: Fri, 14 Aug 2026 13:21:26 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Golla Nagendra <nagendra.golla@amd.com>
-Cc: vkoul@kernel.org, Frank.Li@kernel.org, michal.simek@amd.com,
-	dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, git@amd.com
-Subject: Re: [PATCH V2 3/8] dmaengine: zynqmp_dma: Fix chan probe/remove
- error handling
-Message-ID: <an9cphTED65aN5u_@SMW015318>
-References: <20260814045616.1661199-1-nagendra.golla@amd.com>
- <20260814045616.1661199-4-nagendra.golla@amd.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260814045616.1661199-4-nagendra.golla@amd.com>
-X-ClientProxiedBy: PH2PEPF0000384F.namprd17.prod.outlook.com
- (2603:10b6:518:1::71) To DU4PR04MB11791.eurprd04.prod.outlook.com
- (2603:10a6:10:623::11)
+	Fri, 14 Aug 2026 18:37:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1786732666;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=h3Bw7xg93wntK2DGSQ+p1dtb5GSU+jYFMAY4ihssDQ0=;
+	b=dEjNr+kqcTQa4PanpFJwe29bl/HNlhQJOnyoF9JXiIL0h7v9LaWGUm+gIWEDp70ijzx/rh
+	QaiSALCOTy5Bxp4ZH6bb2rYfI9QCpzAW8qwNzXN+EkiFA8ivqBm2zrIwTKd7CmbtY9Pd0V
+	XugY+zbmWbjoNP5880LIpMxX73I6GYg=
+Received: from mail-ed1-f71.google.com (mail-ed1-f71.google.com
+ [209.85.208.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-270-GBw3tQLyM0qr54KgLXjSGA-1; Fri, 14 Aug 2026 14:37:43 -0400
+X-MC-Unique: GBw3tQLyM0qr54KgLXjSGA-1
+X-Mimecast-MFC-AGG-ID: GBw3tQLyM0qr54KgLXjSGA_1786732662
+Received: by mail-ed1-f71.google.com with SMTP id 4fb4d7f45d1cf-6a171a3be39so1461238a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 11:37:42 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786732662; x=1787337462;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=h3Bw7xg93wntK2DGSQ+p1dtb5GSU+jYFMAY4ihssDQ0=;
+        b=QD4feiQAR4tZEDtPhbTi0JsHPkB/8FulEpHpEM5oOXETKlZJuyshmxZIA3BU0Um2bu
+         zKp8050IwDUrIi4iEyl/kEc4kpg4QgPqtBAJYiCmXfSHNhIFeNcd/mZVEKOW3Dw0gdX2
+         r4igb3aiIZ8vMd0RSOmM0g1BZ8rtuW/tU7XX59b8uU4bk0P4xrnsyRijQfdMLOQ2rIaj
+         Fj5UtV7kVr9YurwyLbEj1Lj4xupUV6NhWi7YKb68FdxfKJr5t/xpRWBbQ485BHons1sc
+         UT9y7q9tVBgd5nodI2PHHl55cu8dBco1oyAl+BGBD/FvyVn5fkuH3Z3ff2VLBIaIj13Z
+         +mxg==
+X-Forwarded-Encrypted: i=1; AHgh+Rpk1Ap9205iTNYNNkAE+rx+C/x5x3wIUIxcRyVCoTZi8Cpsi/ZtbEXUC3DFSKWC/WlT5slP22HvKb+Hq87B+1Y7@lists.infradead.org
+X-Gm-Message-State: AOJu0YwtB+0elOcedorlKXcVulpiIJJ8TOjf0TxrvlOxAWBphzWi/jdL
+	Pk9LHNlZwLC4Z9eAIx+2Pjyn6TQVhl9vrK/CpWw/009lhuAqrbnn9Sz+Bwx08Jn+eR+XFFyukvo
+	UICI61tFrjA9StTPatApeklYnT3y9osdSJxIVBm07tYf1OO0LGQx1pYGU+GmhVo/dLIktczFyCF
+	YCo5EKuu2RYbjJTBv5scIeC7xHBaoLBA5+i1dq3cFgx++NUuOkYCI=
+X-Gm-Gg: AR+sD12GAyrb72igspj7W4HnVzZE326f9nKPTK3laBEs3z4rhekXf6xZf1UpxAmmDoE
+	wqyACQy/6xhTu3lETmNbq98leO1q7q6udhEUrtqxe2lsOPkXgdTbauldLYM7RrUwtHcjldwngWA
+	jJcL7txTcfRMHshpyQ1ni5Vk02Jgc9hD2zDNQIh0klVBmcZ7gtePl/ck7RTqgxrT43kvAF/yr04
+	6ix9zXhFwJktVhk74JXtrtUwmyskYpMzy0UfTr0oSv6Zg==
+X-Received: by 2002:a17:907:1c94:b0:c20:87f9:875a with SMTP id a640c23a62f3a-c212a23ba41mr343801966b.30.1786732661694;
+        Fri, 14 Aug 2026 11:37:41 -0700 (PDT)
+X-Received: by 2002:a17:907:1c94:b0:c20:87f9:875a with SMTP id
+ a640c23a62f3a-c212a23ba41mr343797466b.30.1786732661284; Fri, 14 Aug 2026
+ 11:37:41 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM0PR04MB7186:EE_
-X-MS-Office365-Filtering-Correlation-Id: fd90d50d-995f-4de4-21e9-08defa30df09
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|376014|23010399003|18002099003|22082099003|56012099006|4143699003|10067099003|11063799006|6133799003;
-X-Microsoft-Antispam-Message-Info: w3ECw5mzDK4FVWt92MFJdZPZNdnXsydF/DGb3iADRO9BHxdXwgzJ4jzY80+tlC/zUgnWT/4N+5efpH2mO8kh9YwnN+tF269U/QeQ60/ykHhcb4ewd+Od//hUc3+pju+lwfqxtDncLBvVl2ZAVSkdNK4CCORahm4JYCFKpS1/++ZfGPAkilZUl0UqdMt6vlQ6ij1QstTphe5G6RtQR+DqDoe+CpC7f7dAkejgeUYsSrP0AVsHR/1v+CSM0oPe3mwpcWCF/Gr9wByRqc10GRj0mIA5cO0gLgL7jzo8jYXWR1sp9qBqAsI0tWkxKnXmJGYQQf2OroowXlEo58ed9JK3A8lnJBDs/D4ySxJfJP9iHw7XTIxefoTfkux4omrw5yyyud/VSuwlRdZC5FhS3vajJVg6qc4A8cL2BPZLrZb03c91d37eRJX7Uq+xCALMUktDth5F5luefDgnhybv8N1qaVOSL+CfQ7xsVK4/NW85THHemisB6FEUkX9wWRpCcw3GWjM25qqKFBNwKLjeamrhu77R5xasZ0PIINCiP31o45YCdAzt9RBotL8z6AtxldGnX9ymnVCFqGIgHb+bPjN7/hX+XBPMP28JqUw+ALhQlIyGwntc4ElHe3/VXrOSqCsngvXTvFlLm7Z1hWbEaQvb8kpBVG5oMLawaBauq8QKtEM=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(376014)(23010399003)(18002099003)(22082099003)(56012099006)(4143699003)(10067099003)(11063799006)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?cciWLBTnwHhXiMXqyzWnKAv4yML3x4v0uQHZU88IENVrCs8eQDfQDg9qWCMP?=
- =?us-ascii?Q?Ms4ObTbLLneEkD1YPShi3GO+/dC9ZGY2WJveMguFjZ5vPfSz0BDfY4CZ1M5k?=
- =?us-ascii?Q?kms0SsDvwg/QjS/SJW+Z1wMBC6UBDN7pjC/xOLAhAGtSba4mXk362lvNBIph?=
- =?us-ascii?Q?hZxCZWtGTSkl2WeOt4CLPqXN3rQ+32T8NwIBfeRAsAjl5ZT++uGlqfwRxNZa?=
- =?us-ascii?Q?4hUO4+9sZk6EII6U9p7RiLULTcJvoiax5k370Vfpo0PzsnfJGKB5dD/U96qS?=
- =?us-ascii?Q?DtCRTvw9vVg+PHu0JEWoy1zygP78mcT/zd6pzXOKDFgWjKG7T3bJXA8r6hiz?=
- =?us-ascii?Q?8zDcGqYPDsDeLIqs4u7RH2m/kiqPlK/qeg1ku5wbVYExmSPUoUzJq6RMaVKc?=
- =?us-ascii?Q?dG0YDqDubLtBWoESU01B6t1nErzeXFUNK8QqLr8aOJRkDUipaFdYKHRcK1i3?=
- =?us-ascii?Q?0m38J10GBeoGp+n9uDimGNGTfYdy4mXJb/w/r7YP7iJu4s6H+Spf8KJC+gQB?=
- =?us-ascii?Q?jCLa2ljjAzjBGcgKKBc10EUk61tR+I08MiSMfxjOm+ZZpur+PviSP+nRVXTM?=
- =?us-ascii?Q?HdLmLLV/CemOUlwX5UhvYkTDJJQn1CBn7pwNoBeWrhgenZfaI3KFmE9oMYiX?=
- =?us-ascii?Q?A4npkMjnlZA2wNcT0w8tWS+Z9tcZlNuTz0E2iWwTrJrUyXFKTXc3c2CoaXJv?=
- =?us-ascii?Q?4EdLOxgJ/lv4kArUkkt1qeXSHir0LboBsoi+ryRZnxppN0NtCMUGRcxLvKcN?=
- =?us-ascii?Q?+EscbBusu3mRdmYm3tz5ZunfWMsui3Q2SqqCahCEpdWYhWMgto1Q7RE0uz/f?=
- =?us-ascii?Q?ZBk0jN8C9fnKS5kNiTlN9+ZbOnlwTUermiBeWAlQfbjRAUTa6ovKCy92Tu8l?=
- =?us-ascii?Q?81GtaTxSE5RxcWAu3pwjaL+c2HS2Bkzjp223g9wI33xGvdAQRJYsroFCPKam?=
- =?us-ascii?Q?vAi7QYVlyS0UxqSBWymIcQImcjF/0ehT9iT0Icpy1gAEiKGcT+sjOF+Ub+Fd?=
- =?us-ascii?Q?QT/ZNv9ZjjwcMI12rjSRjMhXHjzkKVnkZnozQzTNAeg6/V3z16IcGj3nzf8f?=
- =?us-ascii?Q?4zVpcym16smW2DWqe1FLe5jiQWXi0kHDWnxiL8fNryzcIdaSvuevGnx1mjhk?=
- =?us-ascii?Q?FUC+0X5IKfgyvai7I7avlWz8CxQneh8AWddwI0tYKPbblyFWfnAZdm/MeZ8Q?=
- =?us-ascii?Q?kvWDTRwYsk8IgldI51A6vG4GhpWyTuW62y/pNn/e22PhqThEa5pu039sn3Ce?=
- =?us-ascii?Q?w9rur51Zknz2lp9x7/HJMbhe+tRwCqBJCeUsL8CqljbYOBeZWJa3veKmc1RB?=
- =?us-ascii?Q?2FRmAJnuxA9BN64/6K3qqEyw/Dx15BxjCzWnuFaItthWfs+hx/fh4KPllOd9?=
- =?us-ascii?Q?7GUSmxdGJOT57VP36EhUhdCi9KBzD4DAs4ivK0TXGLHoKbQ/Wjq7xxMl+mbu?=
- =?us-ascii?Q?UHCyI2akAU8n4XHAv0l4auHi4nTxnzSLNdPBywe/nX7U6rV5UzTQnV55Ju0h?=
- =?us-ascii?Q?Dna4WAz6Dxu+PhJwI5VNnCVY1FxvJdKzJ9Ed8upor53nDoLutbyIguJbNKKt?=
- =?us-ascii?Q?HWuuTB/28xdgE8gRs515piLsv4fhtH3Qn8JhFxYzsW7jfCszS5J0O/z/OZDJ?=
- =?us-ascii?Q?KIkSSjILGelxtarnoTMmUHsj2cpEaySxCOwqFkbBbSvBIvbUgtcwgT2bE0Ri?=
- =?us-ascii?Q?m1KWCAzgASsZIcvOkTq786gQ71MQ/IVTmuBDuYLhlXVz0xjUhjF9ZDkLSeFf?=
- =?us-ascii?Q?qwRo2TclydFV7LPH+IGRgbhreB+mpTHelyew3GdyMcncGwgaDNGP?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: fd90d50d-995f-4de4-21e9-08defa30df09
-X-MS-Exchange-CrossTenant-AuthSource: DU4PR04MB11791.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Aug 2026 18:21:35.0919
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: rNS5miciUj/ZpEHPjP8lRd/hQQ3pUriPPvL7W/DhnUia/hrNc18uw99GDYiAwA2IcZRRAA5FbH2YFvyzOPsbbH0iH6yal5oTQpV0AldD0JLAv6yYfsCZnQnv8FMg8cPO
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB7186
+References: <cover.1786626275.git.rrobaina@redhat.com> <an7Udt-luZfJO71U@willie-the-truck>
+In-Reply-To: <an7Udt-luZfJO71U@willie-the-truck>
+From: Ricardo Robaina <rrobaina@redhat.com>
+Date: Fri, 14 Aug 2026 15:37:30 -0300
+X-Gm-Features: AUfX_mwn2tCHNr249W_00_JVZBPk2OAqZsqdPsMuBo2JtJrJsV0GhfYgrjHGFrM
+Message-ID: <CAABTaaCcyTLV5TdmzZfpP6LMV+5GeCKqotPoJrb0u9n0h-TaHQ@mail.gmail.com>
+Subject: Re: [PATCH 00/13] audit: log all six syscall arguments in the SYSCALL record
+To: Will Deacon <will@kernel.org>
+Cc: audit@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-csky@vger.kernel.org, linux-mips@vger.kernel.org, 
+	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org, 
+	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, 
+	linux-um@lists.infradead.org, bpf@vger.kernel.org, paul@paul-moore.com, 
+	eparis@redhat.com, sgrubb@redhat.com, oleg@redhat.com, 
+	richard.henderson@linaro.org, mattst88@gmail.com, linmag7@gmail.com, 
+	linux@armlinux.org.uk, catalin.marinas@arm.com, guoren@kernel.org, 
+	monstr@monstr.eu, tsbogend@alpha.franken.de, jonas@southpole.se, 
+	stefan.kristiansson@saunalahti.fi, shorne@gmail.com, 
+	James.Bottomley@hansenpartnership.com, deller@gmx.de, 
+	ysato@users.sourceforge.jp, dalias@libc.org, glaubitz@physik.fu-berlin.de, 
+	davem@davemloft.net, andreas@gaisler.com, richard@nod.at, 
+	anton.ivanov@cambridgegreys.com, johannes@sipsolutions.net, chris@zankel.net, 
+	jcmvbkbc@gmail.com, tglx@kernel.org, peterz@infradead.org, luto@kernel.org
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: zkL4tGrwWJRuDN7WLM50b-zHOMs7tq_NtH_Pf2ZLNjE_1786732662
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260814_112140_558085_50E2903F 
-X-CRM114-Status: GOOD (  24.12  )
+X-CRM114-CacheID: sfid-20260814_113747_646573_42147B09 
+X-CRM114-Status: GOOD (  16.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,118 +119,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 14, 2026 at 10:26:11AM +0530, Golla Nagendra wrote:
-> Keep the real platform_get_irq() error by returning ret directly, stage
-> IRQ setup via a local ret variable, and assign chan->irq only after
-> devm_request_irq() succeeds.
+On Fri, Aug 14, 2026 at 5:40=E2=80=AFAM Will Deacon <will@kernel.org> wrote=
+:
 >
-> Initialize chan->irq to -1 and initialize chan->common.device_node
-> before it may be touched by teardown. In channel remove, free IRQ only
-> for valid IRQ numbers and delete the channel node only when it is linked.
+> On Thu, Aug 13, 2026 at 02:02:50PM -0300, Ricardo Robaina wrote:
+> > The SYSCALL record currently logs only four of the six syscall
+> > arguments (a0-a3), silently discarding the remaining two. This
+> > leads to the need for auxiliary records when audit-relevant
+> > data lands in the 5th or 6th argument of a syscall.
+> >
+> > This series extends the SYSCALL record to log all six arguments,
+> > by adding arguments a4 and a5 inline within the existing record.
+> >
+> > The audit testsuite runs successfully:
+> >
+> >  # make test
+> >  make -C tests test
+> >  chmod +x */test
+> >  Running as   user    root
+> >         with context unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1=
+023
+> >         on   system  Fedora
+> >
+> >  amcast_joinpart/test ................. ok
+> >  backlog_wait_time_actual_reset/test .. ok
+> >  bpf/test ............................. ok
+> >  coredump/test ........................ ok
+> >  exec_execve/test ..................... ok
+> >  exec_name/test ....................... ok
+> >  fanotify/test ........................ ok
+> >  field_compare/test ................... ok
+> >  file_create/test ..................... ok
+> >  file_delete/test ..................... ok
+> >  file_permission/test ................. ok
+> >  file_rename/test ..................... ok
+> >  filter_device/test ................... ok
+> >  filter_exclude/test .................. ok
+> >  filter_exit/test ..................... ok
+> >  filter_inode/test .................... ok
+> >  filter_saddr_fam/test ................ ok
+> >  filter_sessionid/test ................ ok
+> >  io_uring/test ........................ ok
+> >  login_tty/test ....................... ok
+> >  lost_reset/test ...................... ok
+> >  netfilter_pkt/test ................... ok
+> >  signal/test .......................... ok
+> >  syscalls_file/test ................... ok
+> >  syscall_module/test .................. ok
+> >  syscall_socketcall/test .............. ok
+> >  time_change/test ..................... ok
+> >  user_msg/test ........................ ok
+> >  All tests successful.
+> >  Result: PASS
+> >
+> > Ricardo Robaina (13):
+> >   audit: log all six syscall arguments in the SYSCALL record
+> >   alpha: pass all six syscall args to audit_syscall_entry()
+> >   arm: pass all six syscall args to audit_syscall_entry()
+> >   arm64: pass all six syscall args to audit_syscall_entry()
+> >   csky: pass all six syscall args to audit_syscall_entry()
+> >   microblaze: pass all six syscall args to audit_syscall_entry()
+> >   mips: pass all six syscall args to audit_syscall_entry()
+> >   openrisc: pass all six syscall args to audit_syscall_entry()
+> >   parisc: pass all six syscall args to audit_syscall_entry()
+> >   sh: pass all six syscall args to audit_syscall_entry()
+> >   sparc64: pass all six syscall args to audit_syscall_entry()
+> >   um: pass all six syscall args to audit_syscall_entry()
+> >   xtensa: pass all six syscall args to audit_syscall_entry()
 >
-> Register the channel node only after successful IRQ setup. On channel
-> probe failure in zynqmp_dma_probe(), route cleanup through the existing
-> free_chan_resources teardown path.
+> Could audit make use of syscall_get_arguments() instead?
 >
-> Fixes: b0cc417c1637 ("dmaengine: Add Xilinx zynqmp dma engine driver support")
-> Signed-off-by: Golla Nagendra <nagendra.golla@amd.com>
-> ---
+> Will
+>
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Hi Will,
 
-> changes in v2:
-> - Reworked probe failure cleanup to use the existing free_chan_resources teardown path instead of adding direct tasklet kill in the outer probe failure block
-> - Kept IRQ/list initialization and channel registration ordering fixes in this patch
-> ---
->  drivers/dma/xilinx/zynqmp_dma.c | 28 +++++++++++++++++-----------
->  1 file changed, 17 insertions(+), 11 deletions(-)
->
-> diff --git a/drivers/dma/xilinx/zynqmp_dma.c b/drivers/dma/xilinx/zynqmp_dma.c
-> index b7c561280694..22b517c57003 100644
-> --- a/drivers/dma/xilinx/zynqmp_dma.c
-> +++ b/drivers/dma/xilinx/zynqmp_dma.c
-> @@ -205,7 +205,7 @@ struct zynqmp_dma_desc_sw {
->   * @desc_pool_p: Physical allocated descriptor base
->   * @desc_free_cnt: Descriptor available count
->   * @dev: The dma device
-> - * @irq: Channel IRQ
-> + * @irq: Linux IRQ number, or -1 when not registered
->   * @is_dmacoherent: Tells whether dma operations are coherent or not
->   * @tasklet: Cleanup work after irq
->   * @idle : Channel status;
-> @@ -896,10 +896,11 @@ static void zynqmp_dma_chan_remove(struct zynqmp_dma_chan *chan)
->  	if (!chan)
->  		return;
->
-> -	if (chan->irq)
-> +	if (chan->irq >= 0)
->  		devm_free_irq(chan->zdev->dev, chan->irq, chan);
->  	tasklet_kill(&chan->tasklet);
-> -	list_del(&chan->common.device_node);
-> +	if (!list_empty(&chan->common.device_node))
-> +		list_del(&chan->common.device_node);
->  }
->
->  /**
-> @@ -915,13 +916,14 @@ static int zynqmp_dma_chan_probe(struct zynqmp_dma_device *zdev,
->  	struct zynqmp_dma_chan *chan;
->  	struct device_node *node = pdev->dev.of_node;
->  	const struct zynqmp_dma_config *match_data;
-> -	int err;
-> +	int err, ret;
->
->  	chan = devm_kzalloc(zdev->dev, sizeof(*chan), GFP_KERNEL);
->  	if (!chan)
->  		return -ENOMEM;
->  	chan->dev = zdev->dev;
->  	chan->zdev = zdev;
-> +	chan->irq = -1;
->
->  	chan->regs = devm_platform_ioremap_resource(pdev, 0);
->  	if (IS_ERR(chan->regs))
-> @@ -954,22 +956,26 @@ static int zynqmp_dma_chan_probe(struct zynqmp_dma_device *zdev,
->  	INIT_LIST_HEAD(&chan->pending_list);
->  	INIT_LIST_HEAD(&chan->done_list);
->  	INIT_LIST_HEAD(&chan->free_list);
-> +	INIT_LIST_HEAD(&chan->common.device_node);
->
->  	dma_cookie_init(&chan->common);
->  	chan->common.device = &zdev->common;
-> -	list_add_tail(&chan->common.device_node, &zdev->common.channels);
-> -
->  	zynqmp_dma_init(chan);
-> -	chan->irq = platform_get_irq(pdev, 0);
-> -	if (chan->irq < 0)
-> -		return -ENXIO;
-> -	err = devm_request_irq(&pdev->dev, chan->irq, zynqmp_dma_irq_handler, 0,
-> +	ret = platform_get_irq(pdev, 0);
-> +	if (ret < 0)
-> +		return ret;
-> +
-> +	err = devm_request_irq(&pdev->dev, ret, zynqmp_dma_irq_handler, 0,
->  			       "zynqmp-dma", chan);
->  	if (err)
->  		return err;
->
-> +	chan->irq = ret;
-> +
->  	chan->desc_size = sizeof(struct zynqmp_dma_desc_ll);
->  	chan->idle = true;
-> +	list_add_tail(&chan->common.device_node, &zdev->common.channels);
-> +
->  	return 0;
->  }
->
-> @@ -1134,7 +1140,7 @@ static int zynqmp_dma_probe(struct platform_device *pdev)
->  	ret = zynqmp_dma_chan_probe(zdev, pdev);
->  	if (ret) {
->  		dev_err_probe(&pdev->dev, ret, "Probing channel failed\n");
-> -		goto err_disable_pm;
-> +		goto free_chan_resources;
->  	}
->
->  	p->dst_addr_widths = BIT(zdev->chan->bus_width / 8);
-> --
-> 2.44.4
->
+Thanks for reviewing this patch. Yes, I think so. I'll fix that in the v2.
+
+Thanks,
+-Ricardo
+
 
