@@ -4,84 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C46FC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 19:11:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69A43C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 19:12:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TFEy1Pzzmf9oV8+r6B/Uh7d0hODw3XhZm9afSq3e+o8=; b=dKiYec9OYxuu/SSiMx5N49QZ7i
-	wzl2saFUYxQ2G4oapveXRpCCBjV2BX5Kl9Q/rYFnjTrs4kQ42IeQUaD4bj/2Fozw8j0eZcBG0oFow
-	AL8F6appZSuwn3SmawD6k/xVBYnZQGCmnmCwuFFs/+fk1xTbSV4gSGBGvt2SGjYlayT4fILKYFss+
-	NrzGr4lGSZEXBkJ2LOl+cVxtjYH8JTTF9XlRsj5ZaJZngtQJgsQz98YXOU0zw8dXePODELpLb7CgR
-	xmg0wpMXCBxCXhStUyh9+dijWrZh62aEBkx/P8DcGIk9K7iOqCTOZNypeME5L4zNyaW/AMtSreTdU
-	CkehbHcg==;
+	bh=0Kj1XzaSx60wd/EWSGfJNg5MAZkwm1MmqAXTaN39Wmk=; b=jma+7MRcd1q/zhU2UMFEBxsq6U
+	JsXnQqjX1Rn4uaYfKl7IOVc8m4RlrJ+FP5L94lnYXshT0/lQvzpyLyhgQ+z1kmqy+lmBx6IRzZ9VH
+	KTlnaHQpPwJ7RI4pKi3AuKgICD/4OZ4nVeJDfJeGqhPCV5nfIUq2mSWC1IIRg4938wb2maN3cfimM
+	ppPdx2KIVywUb5YnvOQtQXFAkWpUc5wqtDjirIUQu6pYN0GFSlasLVsdJse2c4jtmRCkL9g7f9T9x
+	5S3yDXh+dtfL5UdkGq7Inm20b/EgcRc6TwgwluWTVlVZMLwRJUW1Y4xqvPxvHuQH6Bx4g/xjxmP7F
+	ZUxPoM7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuxJ7-000000034wz-3eYJ;
-	Fri, 14 Aug 2026 19:11:09 +0000
-Received: from mail-pg1-x548.google.com ([2607:f8b0:4864:20::548])
+	id 1wuxKc-0000000355s-0CYd;
+	Fri, 14 Aug 2026 19:12:42 +0000
+Received: from mail-northeuropeazon11012038.outbound.protection.outlook.com ([52.101.66.38] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuxJ4-000000034wc-1FhW
+	id 1wuxKa-0000000355J-2TJs
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Aug 2026 19:11:07 +0000
-Received: by mail-pg1-x548.google.com with SMTP id 41be03b00d2f7-cb6cf425e86so1683279a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 12:11:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1786734664; x=1787339464; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=TFEy1Pzzmf9oV8+r6B/Uh7d0hODw3XhZm9afSq3e+o8=;
-        b=P30UOMRKYlXrIGyOo02XNKV+uUVK3sCQxL5Pz2sYBv/i4Kb2xutti4p2GqjVH0C14l
-         yIKBjs24Jgb9zV8qBOrL4bhNKRf5poHNk27Xq4hz0vX+dxL+RlnGf34wdPb7xl3EsrLE
-         oIoPKf+G4aEEgURlqfxdjzvkicQjDmpsBNgafeD5pHyRP2uTw7i+i5IM55zYLmI7RRoi
-         qoo0nI/Oqx56wmlcZyAAjTvqblv/e08ns0F0FwDvzWV9k7O0voDfLkqvd1vtdY7o66Jx
-         1tpowSIZF+UtNQLKEEzzzfNG4GsdGSgsqakKTcKrOtFDRV2dRbwXuXiBxG9EH4ScBGac
-         tKiA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786734664; x=1787339464;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=TFEy1Pzzmf9oV8+r6B/Uh7d0hODw3XhZm9afSq3e+o8=;
-        b=ovQvxU5nmKJXvJVaGHCb4XfFVFdgBr00yt+LWmZZlhf2MT+ndBM0M8agsUyqRLru7w
-         6fYvrUjqjHeD5z8U+ber8OG/vpl3dXuEs9UrjTGOnf+SqxER2cgJqfPH5snJ7XadzWui
-         ikzKTNL5+VOCDrNEyt6InpxADp+c29P856fC2yVv9Kc6QeGyNwWWWFXAqyu+t1tUwdq/
-         +eIB7sMwo+bAHMYAoLSFmaFdq3qwI4TEr3h+ByE+jx4IfjMWXUUUWX/9YHjez5qaIU8+
-         hmUr0CdSDLwZTrsz8aQyM8do50MMNy0CPdVCpMiQmNDdg1tRg+LKviHdGjd47AOtsFMy
-         bqkw==
-X-Forwarded-Encrypted: i=1; AHgh+RolTRHRrQ51xgnKQRxTC75pdZCRZ5zUrcaCM64Ox3jXf9YoxI/wk+UtpPA0SfQbTJVpY8T+ukMspoUtUjRtV4bs@lists.infradead.org
-X-Gm-Message-State: AOJu0YyEe3/EMpZ8XyI9e9H7gHURAiqXUjFGvYlQ3qFntZpvs1JaKrtf
-	LNY/HQEH+4XKutn4mnPdLHvBsQeiMwpZXQpvsL06e0CXYKVP+TUMnbdPZlwHoTUYurASq60GqAE
-	KDJtxaA==
-X-Received: from pfbkr10.prod.google.com ([2002:a05:6a00:4b4a:b0:848:569f:3464])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:4004:b0:847:99bb:b6d8
- with SMTP id d2e1a72fcca58-84fde251c75mr9480785b3a.26.1786734664084; Fri, 14
- Aug 2026 12:11:04 -0700 (PDT)
-Date: Fri, 14 Aug 2026 12:11:03 -0700
-In-Reply-To: <an9JNUln8dKaidQc@raptor>
-Mime-Version: 1.0
-References: <ak-EKSslAz1uqEtv@J2N7QTR9R3> <ak_wC4Q-mQe14DI8@google.com>
- <alDI1b8fC99SG4_a@J2N7QTR9R3> <a127176a-1722-460c-aa84-754e1d343f53@arm.com>
- <an3sEiQlIuGEjUur@raptor> <b6080c23-a2a8-4bc5-b3bd-982bd766c648@arm.com>
- <an5UJ4S_P1LUFmzD@google.com> <487aa57c-72ad-453b-971d-ca24a8380429@arm.com>
- <an8SOvLybeilzCEU@google.com> <an9JNUln8dKaidQc@raptor>
-Message-ID: <an9oR3dBVgFs7j7q@google.com>
-Subject: Re: [RFC PATCH 0/3] KVM: Dirty page logging for guest_memfd-only memslots
-From: Sean Christopherson <seanjc@google.com>
-To: Alexandru Elisei <alexandru.elisei@arm.com>
-Cc: David Hildenbrand <david.hildenbrand@arm.com>, Mark Rutland <mark.rutland@arm.com>, pbonzini@redhat.com, 
-	kvm@vger.kernel.org, maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com, 
-	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	fuad.tabba@linux.dev
-Content-Type: text/plain; charset="us-ascii"
+	Fri, 14 Aug 2026 19:12:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=j7FrX+0yeplqUHPESF0B0Rn3RO+WvQURsWtLFboSAieBQ5KhMlWzcWoQK8YcE27eKe4vy1YHTTr+XXrokYqM8eJ1xu7uibucee65ZcJPfaR8od0ZeoaaNtSDHJiJRKDNYZTzWeEMJxda3wR4q8UCsxTy3S1VaakBZQK53GaSDlsEelxCVZwIb2uiJ+YROBr6n7gpq5A9oRsDu+xXzb+YGDKMT3Kq6Lb+MT8O7hMos6rrpl+XrqWbjHqZ87IbwJ+krIIPk6NoqtAeDo9yhVnQU6Ryc7OH8eZFn+hZBAj9Oc21GfV8xnKMM2/bbhDIhFcoXfE+30/TBymaibM4G8pYHg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=0Kj1XzaSx60wd/EWSGfJNg5MAZkwm1MmqAXTaN39Wmk=;
+ b=YNRHLeVZ7hdk2dxFRjbX54Pg8WLaK6Uj4FVGNdKzuawTn4IkgwMvZCcxYI2qaIxaoFS4BMke4u99n5wDCAN10vZFD3XF8R0c0J2EVxPyiSqexsz0r7nzDh9hdQLiq39rYLuKegVdnB7X5O8HyqKvW1l3BW8ZYqsE75BPzJK7cg2RQsAqXrjGKAi7KEryYxaZSvWS+s68AiIBsF7IB89Aq8qWTRXFnmXLtbNN7OGi6eyPa6MPz/GANBBAcfZDJnlfZdbEZsyaIJJx7qQrtGJfGANBxTBssdwic+yx6i+NjHPkyjMaSJAau707yYVxVWMnTKe/5qnDsnurXT3J0LRcRQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0Kj1XzaSx60wd/EWSGfJNg5MAZkwm1MmqAXTaN39Wmk=;
+ b=sOihlhYOaxv+I54nXdSdy78XiFe8sZeiCH5xX8SKwAQ+ikobqQ06U2BzzTrGplJEE8y1kkgqbpyVhwn0YD4d+0+v7rPwCwg4XdEaOIew+t2vrsZejdGXc9nTXd0ojHO6x1Ym/FHXhlAwxokCH75zzp89giWCpuzO6HOIEyOf/ZivEPvQLJl5qm9LN5oQ9IXxXWHXKpI2pdyqYqxWI5r68Gf73oEVtXtlVH0FySVqXZZdGgX/0gUOfHq1pLqYaymc8lwg7XdI83FfjHPv8IDwaoCQLMIw7ze1Vx9rg92miG2t224ZUmvWeixPIgP+ZGFkxKiRIlLz7mvhu3lnjZnQjg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by VI0PR04MB10949.eurprd04.prod.outlook.com (2603:10a6:800:26c::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.16; Fri, 14 Aug
+ 2026 19:12:34 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0315.014; Fri, 14 Aug 2026
+ 19:12:34 +0000
+Date: Fri, 14 Aug 2026 15:12:25 -0400
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Guangshuo Li <lgs201920130244@gmail.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+	Michal Simek <michal.simek@amd.com>,
+	Abin Joseph <abin.joseph@amd.com>,
+	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Kees Cook <kees@kernel.org>,
+	Kedareswara rao Appana <appana.durga.rao@xilinx.com>,
+	dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] dmaengine: xilinx: zynqmp_dma: fix autosuspend cleanup
+ during teardown
+Message-ID: <an9omZerM77tgWXJ@lizhi-Precision-Tower-5810>
+References: <20260808115228.2798481-1-lgs201920130244@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260808115228.2798481-1-lgs201920130244@gmail.com>
+X-ClientProxiedBy: PH7P221CA0002.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:32a::13) To DU4PR04MB11791.eurprd04.prod.outlook.com
+ (2603:10a6:10:623::11)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI0PR04MB10949:EE_
+X-MS-Office365-Filtering-Correlation-Id: bd828f1f-9555-41c0-6ad3-08defa37feda
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|366016|376014|23010399003|1800799024|19092799006|56012099006|10067099003|11063799006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: o1u2mUXmWvzexsYmY7sZBnw4o0YAU00ZnQ99O0x90UJS6/zS7FbQ/yyhQlWbxeL3h4+z8Wcd8xBhI7JvJcPbaPmovMWWrTPFaYMkddaGB4mp8tsoWezlp4FrLwyRSrWlvNhE7y2aLJYFFfsg1oOtgThg9cJzOXGXdcIMWUkDEzvnwRL2VyLgX3JxdxOsdYZ4uj6Zv6wqpFxHYMIVmHCpM1F1COyp2lCsaGhMiwVX3jp2NMDqgcRyhYZxJZBp3TbtwIIVbRmPeokbMoATuncusQaFfDGJ5viO383Lt19nocDfBn7E/miksN+eA+AmCLMAtE9jqhN5f4WMOSLfI2XER9bgZC+xzLwInxMjd3BBfd48pEr8J6kcWLPqngtqNOUNYFIzpy6cVBadAQ14mCOzUrrja3yBpS4o/X7Pp21XvLQMdehXlvc8OjH1EpEUGxpfdOWxynsHiozloVtsvj8BwRQeANMw5dVWYu2MzxVpEj9XIETv3IY/2vOPPMilXZMxVKXcf/hEVu2NvM51YYIsN0Lj7CVDqVG8aQj7QSsqQ/om90HjXwy6jIUXr/1vioPpMETpY363eDc5D9Abj8VGLNERBS7SjhfALYWAE26axB+6rdnAmLa+Oyg3cz1oH4ldRd5xgEIYCvdXXZGwEx2fyrMR5jLkv0LM84WG2UlusmQ=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(376014)(23010399003)(1800799024)(19092799006)(56012099006)(10067099003)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?FOqq61Ukq7MCuWhKn2jsjGch85oRrvnTklt0qXGJmNv2RD59w9jgA7jpp2ZK?=
+ =?us-ascii?Q?LxlrWCuGkrT8GFOG90sT5vbP08zEZs4RoKdNEZlPmPsspZ6FYV+3mdKY0cgb?=
+ =?us-ascii?Q?iWR4EiF+le6jzE5Ya2X1SXR+4kHV9xpLHP+vJrDPKmQmlKp02WEVhhF2KPIk?=
+ =?us-ascii?Q?NAZwOzOiAh1M/OqcdDi33zH5f3/iHVqzrFJX2HwUED5X4lHuJ8nfyJeOEcnF?=
+ =?us-ascii?Q?Znna7hFQxLtBv6FfAeLqkoYWgVUrkxl/AWB5fNLG6CYofnVidGlzMfR9fWoV?=
+ =?us-ascii?Q?vc5wqel+4eO1e+qGFPaAPAU9ItUVxpuNNRQJTP6kjqrntPNFPi51he76hHbq?=
+ =?us-ascii?Q?f0TxhjLlDMpZnKKWzdDpCAEJOAxlR5C/wFpppA/zuqcmS6RUzCtd5njKe8+x?=
+ =?us-ascii?Q?VAk/TRaOVgH40hd9mylFU/SQIX9CRH8iS4jVtvXPAn6fn/5UIV9ItyK3qPPl?=
+ =?us-ascii?Q?swKbV1vG1PnX3Dg85ivSXvwDUwcbpkt0Lcz1O8LLO2jmB11Zk9UO9UaZiUtH?=
+ =?us-ascii?Q?yknGnXUGrLgLVfej2hOtAEftbbWbTqltjRTNjdtzldQTIEbnz3+zOk2W/RPk?=
+ =?us-ascii?Q?MDz8d5ceJzj8/YYR4Jea2mQ97zsKujTi5ggX4dBKx/QjCbQnlNpSMrfNmsUJ?=
+ =?us-ascii?Q?SkZEUOZu8xoYq5vPzBInQceC0osOjcondBYaDXGGgSJEF4IOLEOB456uv25j?=
+ =?us-ascii?Q?KxGUhAYooSTR3d/Rf3UQ9CcB81iqTbBzJS43jLCL2YtMPDGttgxZeea1jjnm?=
+ =?us-ascii?Q?lh1fYrfRQ1C9ShiEJ6VmTkpWypBXpZ8IpTxt59Inw07ZhbHnUU0NWfAOvRw3?=
+ =?us-ascii?Q?uKQ/AsWXXOq4dXpysjBJkufuDXHeGcbP6wqteCleT7Ac5X9Ae3hFkMVVPf97?=
+ =?us-ascii?Q?C6ko7Oosr5NHrEpx0jygRaUnLmCTNIalF2ATs1/FQqQ6zYd4zVvkUAXm9DmK?=
+ =?us-ascii?Q?rHU4NhyU9THCsczKIrOctC+pP2Nv0Cj7nRxCgnqLsukQf4aqNlGNNKs+b0g+?=
+ =?us-ascii?Q?mJnq+Cio6jkYbYtVvg+d8yr1XIbYxGYq4Kr5HQBxmFryjvpe0sed8VOyDoTT?=
+ =?us-ascii?Q?/qOe4OMGwRzTw+evC0j0x9sgeZ9sZnlli1gnXReupvo8R6d/z7SoV4ASNRbN?=
+ =?us-ascii?Q?tJ6L/Vxd76o/LECknZOeMcvGr8ngZZJ5NolRoiFPtqcnoTsWKiBsZUvier3a?=
+ =?us-ascii?Q?DjoAFbRbCfSbeT9MZ35DbZjGH1tl/c8WahQzVQh3trqCTVmS2SD84jxKzrp4?=
+ =?us-ascii?Q?QxX5FngxYxQep778AaVY3cTgPZ8xLi7QwZQ/SZCCx+AkzXTA2ikQyzVS3Ytm?=
+ =?us-ascii?Q?fdUNdCAvNLU0reG2/MHqhGnjhnyLELel7E0QP2fC6EVxBVOZCNVBwnrDBUU3?=
+ =?us-ascii?Q?Y5PTSi61D0eNdxpqQ3XvcUNwecfmbTjej6NUFD3KJQntHa6FLgiXzLuRPgzz?=
+ =?us-ascii?Q?NuCMGMgOmYhx+HekeRLti6gHxfRDTm7M5wycs52dfQlx2xVdkfIVayQFGAS7?=
+ =?us-ascii?Q?q/vR8NjirY973K4PoZdRmgUH2oB0lpnQ7662GlzPJj0H2lEeFNAdBqi4eHHG?=
+ =?us-ascii?Q?9W5srdpO9mZd54hlZDHpFneaoP9Xbz/gZP6ua9Ny/Jm6jQGXp4QHcn3WrsZA?=
+ =?us-ascii?Q?1UvIHWocpjqEE+4zMepiYW2Pv5DDpQW/6JuNgScWUyb/YnuiZA+DI88JPC7W?=
+ =?us-ascii?Q?dyZpbddhUmsgjxXBXDJRf0W9Qk+Y/5Z5JXNy3sW/SIrj3XJiUkKRzLprcyBk?=
+ =?us-ascii?Q?UqWsSKvLYDfRgQdqc4xoGhE7r8MBAEYl9G+ipFQgECJRyGUS1rtG?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: bd828f1f-9555-41c0-6ad3-08defa37feda
+X-MS-Exchange-CrossTenant-AuthSource: DU4PR04MB11791.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Aug 2026 19:12:34.7507
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: akVn0N2oYafUvYhbD2RqR1LD/ZdlqRFkwIZr/z6ayf3D70T+RMEBph0nkTU2HHs/5kj8+HNPptRV6V9FXFSAhSarFZFSLCnm/2o3FL6Atrw2DfkivHcQHxwc3D7Br8Mp
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10949
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260814_121106_344363_4603B09F 
-X-CRM114-Status: GOOD (  18.14  )
+X-CRM114-CacheID: sfid-20260814_121240_638723_F11E1A8B 
+X-CRM114-Status: GOOD (  23.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,35 +143,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 14, 2026, Alexandru Elisei wrote:
-> On Fri, Aug 14, 2026 at 06:03:54AM -0700, Sean Christopherson wrote:
-> > Yes, I'm supportive of KVM expressing to guest_memfd that page migration isn't
-> > supported by the VM.  I'm only objecting to expressing that memory must stay
-> > mapped in S2, because guest_memfd doesn't care *why* page migration is or isn't
-> > supported/allowed by a particular VM.
-> 
-> My naive contribution is this idea I had:
-> 
-> 1. Userspace queries support in KVM for feature xyz by checking the
-> capability KVM_CAP_xyz.
-> 
-> 2. Userspace knows that for feature xyz to work correctly, it is required
-> that memory remains mapped at stage 2.
-> 
-> 3. Userspace creates a guest_memfd instance with the right combination of
-> flags set and _unset_ for feature xyz to work correctly - i.e, to keep
-> memory mapped at stage 2.
-> 
-> For this to work, new guest_memfd features that might lead to memory being
-> unmapped are enabled via a flag, and KVM keeps memory mapped at stage 2 by
-> default, to maintain compatibility with an userspace not updated for the
-> new features/flags.
+On Sat, Aug 08, 2026 at 07:52:28PM +0800, Guangshuo Li wrote:
+> zynqmp_dma_probe() calls pm_runtime_use_autosuspend(), but its failure
+> paths and zynqmp_dma_remove() do not call the matching
+> pm_runtime_dont_use_autosuspend().
+>
+> If the autosuspend delay is set to a negative value while autosuspend
+> is enabled, the runtime PM core increments usage_count to prevent
+> runtime suspend. Without calling pm_runtime_dont_use_autosuspend()
+> during teardown, this reference is not dropped and usage_count remains
+> unbalanced.
+>
+> The documentation for pm_runtime_use_autosuspend() also notes that it
+> is important to undo it with pm_runtime_dont_use_autosuspend() at
+> driver exit time, unless runtime PM was initially enabled with
+> devm_pm_runtime_enable().
+>
+> Add the missing pm_runtime_dont_use_autosuspend() calls to the probe
+> failure and remove paths.
+>
+> This issue was found by manual code inspection.
+>
+> Fixes: 64c6f7da8c2c ("dmaengine: zynqmp_dma: Add runtime pm support")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
+> ---
+>  drivers/dma/xilinx/zynqmp_dma.c | 6 +++++-
+>  1 file changed, 5 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/dma/xilinx/zynqmp_dma.c b/drivers/dma/xilinx/zynqmp_dma.c
+> index f6a812e49ddc..635c3f6cc5c2 100644
+> --- a/drivers/dma/xilinx/zynqmp_dma.c
+> +++ b/drivers/dma/xilinx/zynqmp_dma.c
+> @@ -1116,8 +1116,10 @@ static int zynqmp_dma_probe(struct platform_device *pdev)
+>  	}
+>  	if (!pm_runtime_enabled(zdev->dev)) {
+>  		ret = zynqmp_dma_runtime_resume(zdev->dev);
+> -		if (ret)
+> +		if (ret) {
+> +			pm_runtime_dont_use_autosuspend(zdev->dev);
 
-Probably?  It's impossible to know what the exact flows will look like, but the
-common theme for everything will be "don't break userspace".
+Please use devm_runtime_enable() to fix this problem, auto tear down already
+include it
 
-We might make guest_memfd page migration opt-in, but if all of the incompatible
-setups can enumerate their existence prior to creating guest_memfd files, we may
-handle it all automatically, e.g. enable page migration by default, but disable
-it if a TDX, SNP, pKVM, or SPE-capable VM is detected.
+static void pm_runtime_disable_action(void *data)
+{
+	pm_runtime_dont_use_autosuspend(data);
+	pm_runtime_disable(data);
+}
+
+Frank
+
+>  			return ret;
+> +		}
+>  	}
+>
+>  	ret = zynqmp_dma_chan_probe(zdev, pdev);
+> @@ -1152,6 +1154,7 @@ static int zynqmp_dma_probe(struct platform_device *pdev)
+>  err_disable_pm:
+>  	if (!pm_runtime_enabled(zdev->dev))
+>  		zynqmp_dma_runtime_suspend(zdev->dev);
+> +	pm_runtime_dont_use_autosuspend(zdev->dev);
+>  	pm_runtime_disable(zdev->dev);
+>  	return ret;
+>  }
+> @@ -1172,6 +1175,7 @@ static void zynqmp_dma_remove(struct platform_device *pdev)
+>  	zynqmp_dma_chan_remove(zdev->chan);
+>  	if (pm_runtime_active(zdev->dev))
+>  		zynqmp_dma_runtime_suspend(zdev->dev);
+> +	pm_runtime_dont_use_autosuspend(zdev->dev);
+>  	pm_runtime_disable(zdev->dev);
+>  }
+>
+> --
+> 2.43.0
+>
 
