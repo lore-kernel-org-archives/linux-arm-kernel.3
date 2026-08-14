@@ -4,140 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00085C5CFC1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 12:34:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B140DC5CFDB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 12:38:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xSjKu0tZim2N+2GIaQI772fd6wGj2gCouyn9Jr5PcCU=; b=ha3JJlZMsm/1UaJlK3E9WDWWTY
-	ZXI6rIbKYsh/rKf98ibi3U+iHEzqGd77UgWHSTaYEBBAKfWMdU3bHaExZDI0xGWFTGGBZ8St/vxIJ
-	tMZ/OerwI82k/WWmAckdgZIzUtnW0RQ4lSmlQUP9AXauVawKb5luSjXX+Nq/yHzNCmZdV29CCcO4n
-	ow6GF677T9rS9hCCsuOOS8ckoizuR4KyzJHHcYEy5y/Vu5nqEm+cNeEZ4BdEpT0+RKl5y08hsFhOa
-	jo644xvFn77DiGzFbdYS2LNC9vLFBX/QMHAWW7UMq38T+BzFKIfILEl4I1Al+7y22E9HdcTLrOGP1
-	+o9Ahs+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z+bad5oyeWP0/0ZF4aAZkwQilG4UExN8XIo8ZjKwl5Y=; b=ltVR6dAOSnBQk8uOaN9K8HwiQa
+	gl+4b7VX3+LFrrRCru8Z3VquZ8dKtDhGwqwCNj0VWIKamWxBg5L3gdLSFg47hfIrR86J2kEHE7qmR
+	6BJhI3TMv0FY4OO+pxisAuNeeqvr46svSZ4gbZrh/jAKxL9Qksf+ErgIvBf0pldkIASW765PEeBp7
+	4FRrqB2a2/F92y6+MIuJPgCkzpuj25CyRrq4gosozbRaUR4EJVE3nFKXx8ZPbhFzRZ69IvfJmb9F6
+	PAXCJCuMN7/zgp/cwvEj+psffRd3H6t4eaiMaA88K3xap/gOYTxOZBSKzNpoX9PvvQqX6Iwaa3Kpw
+	6A/Xbldg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wur7F-00000002eh1-2li8;
-	Fri, 14 Aug 2026 12:34:29 +0000
-Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
+	id 1wurB2-00000002f36-12u4;
+	Fri, 14 Aug 2026 12:38:24 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wur7C-00000002egF-3eME
+	id 1wurAz-00000002f2d-1JyL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Aug 2026 12:34:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IzKxpD1A2om4l8IqsFFD3X5xBae/BMBi/rdbP1HJA7Bb99BxisNSQhZQDFwGkWC8Sy9VPspmprL6+yJxND9SsX+UmyIC6kvumkYEL1V+BKpHoBe+9ITClAyTqMw/3yGBQ1U6VxOkR9A4kydtiRZiOKJ8omZ4rpJAF4qeMzI0ar2As7irJhDre53NIexrlpJnfMbjl9e0FuAZsUOjV4dSvF84Rohue0bt97QL/dguLq04YUukzywy9RR5oE8XDOKvzMgdH0BoR1vOsVigFnijC0OtQcl2PoPZj7ibpcJzRn5c5vskWUh8uFHD7NoQd1ZsFwDBaXcCAeoB6B/CJ25Wsw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xSjKu0tZim2N+2GIaQI772fd6wGj2gCouyn9Jr5PcCU=;
- b=FwbFdNRlAYJ7h9Fg002pyFpKKTFeHY6keARzt0iW0Xf2TFHmYftff2H+EFcZX3tsk3gOzHE/yOMzhrfU3T6nfbYr3sBaQNVTPG9GzAEYJxCMxISpHrqNnCdN9AVdV6EDaIr7xnJMJ0fsbW7sBLgavDYBlX2KnW3SNTJKL/imTFxZwvnJcENbmknotYvLp/f2a76pC3J7dMAH7DUGzSXR7pIfsUvwN4Fa9INOtCCMl8h4KoVQqaC5logzU9bLfMI9rq+NRjFTH283tlXK84ecjFjiyJut7TS4RopUCXQpE/Kr9qJudDWlsCLAUHnj4fSln9NmI7na9EObpK39Sg+AEQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xSjKu0tZim2N+2GIaQI772fd6wGj2gCouyn9Jr5PcCU=;
- b=j8DxAdhFr2pgciIkZHmj25T7ZJ3Oh/7yH+n/WwkaMOg8WTzoFPg5lN51f5006rlrFyECHSiKf3E6bNoEjyYl+XPl6Yacx1dyhGgPz8KpFuetaGNQxuqL9XN0pB052rxNh4zLtgQHg7ENjAsZKVZlMFkiePsb0wx1kdDh7J56JRCVN1IfrEMQDHMTcO7RjD9c7NaCIrKxjJ1YhiChoYcp6x/E6eS07bOljkCKtICvY5mp/6KUu44ynMs3iO72iD4JXwmt4EroL1QQHLeqlz2FHxOeUisIK7TQgPU/zu4DGMPwEhDilD83MN8ztvOzxmqD9AVhHEDp11P0mZ0+N64IhQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by PH7PR12MB7115.namprd12.prod.outlook.com (2603:10b6:510:1ee::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.13; Fri, 14 Aug
- 2026 12:34:19 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0315.014; Fri, 14 Aug 2026
- 12:34:18 +0000
-Date: Fri, 14 Aug 2026 09:34:17 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Will Deacon <will@kernel.org>
-Cc: Robin Murphy <robin.murphy@arm.com>,
-	Mostafa Saleh <smostafa@google.com>, iommu@lists.linux.dev,
-	"Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Jean-Philippe Brucker <jpb@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	David Matlack <dmatlack@google.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
-	Pranjal Shrivastava <praan@google.com>,
-	Samiullah Khawaja <skhawaja@google.com>
-Subject: Re: [PATCH v2 3/8] iommu/arm-smmu-v3: Optimize range invalidation
- for latency
-Message-ID: <20260814123417.GB510472@nvidia.com>
-References: <0-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
- <3-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
- <akzm5BoV0rToJ7ij@google.com>
- <20260708001058.GA422027@nvidia.com>
- <an3MSKEj7VhT4WkP@google.com>
- <20260813141320.GF730363@nvidia.com>
- <an3ew9xbnLe1dr5g@google.com>
- <1791d7da-ecd9-4475-8f27-c8857477b442@arm.com>
- <20260813180102.GH730363@nvidia.com>
- <an7UNAA1WlEXG23-@willie-the-truck>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <an7UNAA1WlEXG23-@willie-the-truck>
-X-ClientProxiedBy: MN0PR03CA0024.namprd03.prod.outlook.com
- (2603:10b6:208:52f::32) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	Fri, 14 Aug 2026 12:38:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1786711099;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=z+bad5oyeWP0/0ZF4aAZkwQilG4UExN8XIo8ZjKwl5Y=;
+	b=C0Eu2TbGQ2WaDn7hUNWM6VjteePfTHgWyVENsUQrFJnnRbxL45oeAjbjUUKBO/2ZpU1yNe
+	PsdIwaRZ8bG8lrTW0eu0DQIbdVv3GIUKEkMYu3B4U0Mb/KIJr7C6xyR9SfJcDFIN04z8vq
+	/jr5O+C2XgJJ6pwnlQ/hf4F6KjcT1ZI=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-696-So-emCqJNx-jt5pE3mY47w-1; Fri, 14 Aug 2026 08:36:46 -0400
+X-MC-Unique: So-emCqJNx-jt5pE3mY47w-1
+X-Mimecast-MFC-AGG-ID: So-emCqJNx-jt5pE3mY47w_1786711005
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-4954c2d4081so8732435e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 05:36:46 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786711005; x=1787315805;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:content-language:subject:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=z+bad5oyeWP0/0ZF4aAZkwQilG4UExN8XIo8ZjKwl5Y=;
+        b=lDTyIK6x70O7N1d003VhCNxK1WNsstTnbmHxdegqnBrz/4bU4UDAIoDsebLBHpoaYS
+         GpwUR8spGucjJl3ZGZ9lY4Z7uyCsBlM+yPWqVsjr1P2+6978NP3YslWJL38e4bXiflyC
+         pkjUJ4PW9M2TRBXyxiGtBPvoqWxWpTnLvSEra0WEJrODmPZR1SJvP8/WGcbVFyn2lCJ8
+         gBeAN3Un5N7KDf4w3Eq2grCRVUgRgEZvnMQH8w1QPMUufbA69isPWE6dVUV5qdm8IlWD
+         RM6UO3msrvv8QbqF29QmWaF+AGv/HKdvREMCEN8IqB9TmHm4w8v6GZK3trN0fU6dkcyU
+         aHzA==
+X-Forwarded-Encrypted: i=1; AHgh+RpONjCd+fVGcLs/0tC3dJdgEBBvvhJfCH0wpMONv5LslTf0XbfoEIYEfGvS8eWayCc/yBxLy6s08xJkJoHfk6s7@lists.infradead.org
+X-Gm-Message-State: AOJu0YzwDXeVNwINtzzGfc+XfxabE5KIOAu5Io2wafkYE/aDC/sFnJ+8
+	bC1cw8SnnNQH9No0uTEv3vJwjU4fu3FARBBXFOplqaCUIWsF7QRhoQ7WqnjhugzSvy7wLA6/Cmo
+	il754whXw0FTWIWPyzgjz5e2E1jryK7aqC2USObNYW3HwqlcpNIhJOzIuUO9A1obNsYkp0TXvfm
+	/bO9PYbn7t
+X-Gm-Gg: AR+sD13LbKBHcpAgU8aYUHDsaiDQx2KuJ11scN31CN8xqyQq9jwiC/tlL0iw28sW1DG
+	cwFbaFi668yFbtrKPwO7h/Bu9IP8OUuVDiPyWLf+ac6HBbWlTnb91QlQ8N8xKNAD4qflviCDqb/
+	K+pXlKBF9CB/yH205x+A3BtPmVbBhd3Etj8IcF3I7MZDM85iRk3tAfGvn0KaPiYuPwfnmypTI2v
+	CAEn3UC5pnYt+xXeffdPLGC8+0Ztuac/gnxPTP7fbboaC7agV9w2N/ULln0VK0/5GlbKyuHlw4C
+	SlI6iROSGf2DcAUbxPpnomn6nRwsFlSF8/aGeED6R+dNlWRBIiOZJlTKsFG73fYp9kFuA6MsB5j
+	yWkdBy9wixbkg4IY0qLLEER7Y8gWpYDYHLGVFDYzL+8U=
+X-Received: by 2002:a05:600c:3e15:b0:498:ee7:e407 with SMTP id 5b1f17b1804b1-49987999622mr78582885e9.17.1786711005067;
+        Fri, 14 Aug 2026 05:36:45 -0700 (PDT)
+X-Received: by 2002:a05:600c:3e15:b0:498:ee7:e407 with SMTP id 5b1f17b1804b1-49987999622mr78582165e9.17.1786711004715;
+        Fri, 14 Aug 2026 05:36:44 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:f0e:9070:527b:9dff:feef:3874? ([2a01:e0a:f0e:9070:527b:9dff:feef:3874])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49989ae96c1sm25906085e9.12.2026.08.14.05.36.43
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 14 Aug 2026 05:36:44 -0700 (PDT)
+Message-ID: <0ce5e496-a067-48fd-80d2-94fe9981d505@redhat.com>
+Date: Fri, 14 Aug 2026 14:36:42 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|PH7PR12MB7115:EE_
-X-MS-Office365-Filtering-Correlation-Id: 113d4640-44f9-49ed-4253-08defa005c11
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|23010399003|56012099006|22082099003|18002099003|4143699003|10067099003|11063799006;
-X-Microsoft-Antispam-Message-Info: fuSzhryuyh45v/Ti+6xx+7SP3c5fLxwWySHLIHY7ykp413hm4Gv5hJ5yq/zMPtO5Ol0lVMrhf+Fc8O37avlea33LeOxLO4UAAMfyfPFTKXRojYJEhS2wLQxMAg2dR5/SMaKjB6U28hZO6N6iao4qh+GRss+jFYgDlVCiJr1kTKoI04V73YFhfIHAN3Ccej4MJhTdaFTU1Yte/nSQ6PkN/IgiocMmXXsQSbGdhEfpI6Jz2J2NaQYMfruMqb3kPIMEmGazla8xEygrRjy2ICboV8xt/f8nkr6tUMdqnE0ewGRQBgF5T8xdWQCAre5dJU2qF38ysqz2/lAW9SZdzPFEg3ypk1Nqu4XTsNYaBh2sGCPVieXzI1ZGCgCMMODQeiIF7eVt6NVXrGK14qxEbWA9zzPrRIC6z87P+SkNHb5UvQE/alaKmBy+Pz2ZgqNGqUngiQTiE168aVKwuB4h1KLPc2qhgK3qt68Q3JTpLK98vACUM6qafbvxR1Vmc7eV6YCiQW4GnhvMh0hjZm0JrKPLHF/C90u4vFe7pqo8fLftnYwWngEh0b3/EuvvfroxfaHoJ2Taa97nJfOaz7CSo7A4XUwtYeVI6/B5KktenOHNgXsAXp5+ZXNyUOW8JpUsR41ApoCopFd+dSbaLa8p+KuHlXLIUrPyHzICtNB8esjI1tk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(23010399003)(56012099006)(22082099003)(18002099003)(4143699003)(10067099003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?tysjeNRnEh+37l/CGO7Zff28GaF79zwEj/ddjahWVLFRx0DSMYBfvWwzHGWq?=
- =?us-ascii?Q?4+o8QrXT0nsjuiTEowxQY0J2PvVWOleAHzVH1Dz+/6QNoIOFKbfgHKChoL8K?=
- =?us-ascii?Q?g4HkNefSenX/60vFNt50lbth0OhU3h8H6qS75x7fc1yaQR7T+Hmx1AyS9H1L?=
- =?us-ascii?Q?Pm5k56bToB24+PeyXiJxmSmXOxQIBWrJN/MfFe6WZ2lWPbfdfiYuSpU/JWTS?=
- =?us-ascii?Q?h6Eh2w225Jx+odKWZSi6GDgqH2a2qJMMwZpwbelPtJeTu0qccdVyi01e/eV6?=
- =?us-ascii?Q?qTyHWFfXaOK+/AuhntzJ6NRIDM2zUBHxLeshOUlFtNl+nCrx6jFUe1tZg2BG?=
- =?us-ascii?Q?vGpFnWJ84jOIJboapf0QOvVq2BOfirCxTFaFgn6Cr2X9UJQYJ3cmekVUpyqH?=
- =?us-ascii?Q?6/dZXV/iy2B6NgmUPv9YeptDH0c8HFHa7VcMRJ3qBBfbhYjiS81NeLluR9xU?=
- =?us-ascii?Q?0U6YZ8L5Ao9ZC0K7LSmarivMg7hl/MhU/ssP6HId6nmqlm0mcP028osa8jm3?=
- =?us-ascii?Q?44i+eX+FEjNV1xgVQ5SbMf20T06n1t4KYzw+6xdbtS+ZJTppgSZ6/fjK1PVh?=
- =?us-ascii?Q?rau8lX8L1RjGt3Jpew8wAPQWE9WzDuFSo1+3H6+KlZUrhG7Fazn7fhPyiCIj?=
- =?us-ascii?Q?KfBjNUFTjEGMeFb4WVHjtMyyCuO5F3nYZvDGRVRx4MLlHui+FrNpjzvDkvbA?=
- =?us-ascii?Q?Jg5AiHkRqxCojT2xsl2sDkWr0LTxgh6/kHUgVwPLosqrtGJ4Io3qAwpZobl+?=
- =?us-ascii?Q?KvRRpPRxP7TWkX1iJn644PruZIyIVqlDoyRJ0iVkiMD1rc8FvcS1MtzCzhjs?=
- =?us-ascii?Q?YLiNQrNXTh/YqtK+qbZxnT5OWydTa3EpIAF7ySQaaQfOnmxKZzvfZr19rkeV?=
- =?us-ascii?Q?yw853fpJV23Zqp9VUmYWvshbCk7PnMbv+gkP9J8Stp3lZV/q3cIdJTLiyIuf?=
- =?us-ascii?Q?Z44T8Wk05EFBCrB88/9dig9yFAz4QI3AVT8+gXmrfXcxCLnOtlXa0RIf5js5?=
- =?us-ascii?Q?tMimxpFoVKN0JPlZbdhUAcv2jhp0DL88wlo87esZFjoTei8C9ZwqhoLNIb4E?=
- =?us-ascii?Q?DRGAHbDw4Xmez1fqMovzdFUmr3Dg5XYgb4idl2UW6HrBW+oLK7lTNSPLs1wO?=
- =?us-ascii?Q?qE5i07gtYffPOHBJVWw3pPBx+J4ZyYmvT1E3zA59P4lCQJzUsV4Gl7WzkWcY?=
- =?us-ascii?Q?bVT3r5YVOBQZl8uougzPPr+17JzPDKpo6q543x4RDWGUYF4cJc56yp/Os4ta?=
- =?us-ascii?Q?Dk8l8J2eyPEgEvOxbFlL1Ds0NAp8Il5TffIs4yV6mqefpYFFnxFxUfT3w3S/?=
- =?us-ascii?Q?dzubi8u6+/5zOCRqxIRPt9THDPWec8nIa7UgoGIXBNRqJsMi4F+mas/acafO?=
- =?us-ascii?Q?ibvMht0aO9MefG8jmH+osPnLKJiJJsDwNcBrJOGk5ttrT5IckX/w8kxxe+Lq?=
- =?us-ascii?Q?18e9+/CyROq3QYV5DQMkJjLIvhrvHHXYdMRRYfY1yXEIRS6j0hcSJQpaxbmP?=
- =?us-ascii?Q?LtJ0OaSmSmIkxxaCFVk35/GimQBXdZ2mNyFR6+P6d2yIoG/QqiJLBvw3wv0M?=
- =?us-ascii?Q?B3YT0K1F0V3ihxPP5YJTydtMRp2Ed3hMFqgmTz+5nbuFPGC4yP3GbThFibRf?=
- =?us-ascii?Q?+ShBlNjdjqA2ZhOipfmbjG5VXgN5rjx9vYMmK4gDBdrXpnwcUDC5hJqo+sQd?=
- =?us-ascii?Q?bKBYvQr+dTDErdBsN7hQMkyi1k7k1IUf44CuVSut2KtH7if6oJd7vT9QaiV2?=
- =?us-ascii?Q?8u47BrtOJg=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 113d4640-44f9-49ed-4253-08defa005c11
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Aug 2026 12:34:18.7833
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: b3HZWRfhhbEDytInwYSZ5lYWDh1VLsKAcIJ22g+4WAZrJ4f/00aVddjpMK+Gu6C7
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB7115
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/4] KVM: arm64: vgic-its: Don't dereference a NULL
+ collection on ITT save
+To: Fuad Tabba <fuad.tabba@linux.dev>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oupton@kernel.org>
+Cc: Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>,
+ Sascha Bischoff <sascha.bischoff@arm.com>,
+ Sebastian Ene <sebastianene@google.com>, kvmarm@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260807104102.2410744-1-fuad.tabba@linux.dev>
+ <20260807104102.2410744-2-fuad.tabba@linux.dev>
+From: Eric Auger <eauger@redhat.com>
+In-Reply-To: <20260807104102.2410744-2-fuad.tabba@linux.dev>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: h5T2WCLTEkrulk1LnfhHxJDd-6eD35WMgpaUAsBzGwM_1786711005
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260814_053426_930251_70DA5AAA 
-X-CRM114-Status: GOOD (  13.40  )
+X-CRM114-CacheID: sfid-20260814_053821_439638_0F77E004 
+X-CRM114-Status: GOOD (  21.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,33 +118,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 14, 2026 at 09:39:16AM +0100, Will Deacon wrote:
+Hi Fuad,
 
-> > Let me try it, it seems like it would make everyone happy.
+On 8/7/26 12:40 PM, Fuad Tabba wrote:
+> MAPC with V=0 drops ite->collection but leaves the ITE on the device's
+> ITT list, and vgic_its_save_ite() dereferences it unconditionally. A
+> guest that issues MAPD, MAPTI and then MAPC(V=0) therefore oopses the
+> host when the VMM issues KVM_DEV_ARM_ITS_SAVE_TABLES to migrate it.
+Thank you for fixing this bug!
+> That sequence is UNPREDICTABLE per the architecture, but KVM already
+> handles the resulting state in the translate, MOVI and DISCARD paths.
+Maybe: "its_is_collection_mapped() already checks the collection is non
+null in translate, movi and discard"
 > 
-> I was planning to reply yesterday saying something like "Robin previously
-> mentioned this one neat trick...", but I didn't get round to it. So yeah,
-> if we can implement that, I think we can have one range invalidation
-> algorithm to rule them all.
+> Save a zeroed entry, which vgic_its_restore_ite() reads back as
+> invalid. Skipping the ITE instead would leave the ITT slot holding
+> whatever is in guest memory, and restore rejects an entry naming a
+> collection the restored collection table does not have.
+> 
+> Fixes: eff484e0298da ("KVM: arm64: vgic-its: ITT save and restore")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+> ---
+>  arch/arm64/kvm/vgic/vgic-its.c | 8 ++++++++
+>  1 file changed, 8 insertions(+)
+> 
+> diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
+> index 36ab3e4929154..ed281fbf008b9 100644
+> --- a/arch/arm64/kvm/vgic/vgic-its.c
+> +++ b/arch/arm64/kvm/vgic/vgic-its.c
+> @@ -2119,6 +2119,14 @@ static int vgic_its_save_ite(struct vgic_its *its, struct its_device *dev,
+>  	u32 next_offset;
+>  	u64 val;
+>  
+> +	/*
+> +	 * MAPC with V=0 keeps the ITEs mapped but drops their collection,
+> +	 * and with it the ICID. Save a zeroed entry, which the restore path
+> +	 * reads back as invalid.
+in
 
-I'm working through it and unfortunately it brings back the CONT
-errata issue. This version nicely solves that errata because there is
-one RIL that always spans any CONT group.
+https://lore.kernel.org/all/CA+EHjTymdanCKoQO3ATmUZ=7Ph2wv4ES8SfkSsTgmOYAYBWayQ@mail.gmail.com/
 
-When we have two RIL it becomes problematic as we can no longer
-guarentee that a single RIL fully spans an entire CONT.
+you also mentionned this can also happen on clearing
+GITS_BASER<coll>.Valid clear. So maybe don't specifically focus on MAPC
+in in the comment.
 
-I'm also wondering if we are even OK with this errata today? The
-current RIL algorithm also does not guarentee the split up RILs will
-cover every CONT. This will happen to be true if the input range has
-certain properties but I have no idea if the SVA path or even the
-proposed CONT iopgtable change guarentees that.
 
-Certainly iommupt will not.
+> +	 */
+> +	if (!ite->collection)
+> +		return vgic_its_write_entry_lock(its, gpa, 0ULL, ite);
+I would rather squash 4/4 here to emphasize we are unlinking that entry
+from the scan chain.
 
-So, if we disable CONT and SVA if this errata is present would anyone
-object?
+Besides I also wonder if we should directly remove those entries from
+the &device->itt_head on MAPC and GITS_BASER<coll>.Valid reset.
 
-Jason
+Thanks
+
+Eric>  	next_offset = compute_next_eventid_offset(&dev->itt_head, ite);
+>  	val = ((u64)next_offset << KVM_ITS_ITE_NEXT_SHIFT) |
+>  	       ((u64)ite->irq->intid << KVM_ITS_ITE_PINTID_SHIFT) |
 
 
