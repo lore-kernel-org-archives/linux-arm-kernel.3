@@ -4,140 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B4E5C5CFC1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 13:08:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 004C6C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 13:14:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kbJJpr4rkyYotMnK1F95Vk0BhiGVos9NhaAtR+rC6GU=; b=1giZaJbRNuHR65f2WJb8ZVlGTK
-	Hha/OdVunuPCNRn6YyihC+st+takJ5DnyLcVwhjXap44jhdAUK6Go3ToloAFzvkMHCESZfUuS5zU/
-	V30LSSSnUPOv37uXDhh0KwFmdEika+n8o6jxqPXVlsXOM6kw6DG3OVR9g4Zi0dGo+8TPSjKMrS+j5
-	0XHnJwxuxTwJDGHvGgw+sxBg3AsXKDmkkmMbSjnwEHyzuEJax3Js/tzaiPyNVPF35BQi+KvYFEusR
-	aA/XVNPrgC8NVXQjOMmsLgRDmOFIo9Pa9UlwuUzyX1lbekmwWNsHC97u2jMZPH5s3MusQTn4TwIBs
-	u3kjB/Mw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=NLH7Xmd1zNbIyVGn5V1KyBpmu9YhPaZ2W9vJmT8n4bU=; b=IkjntiQRvJRn2Jm7nby4ndDrqy
+	AI6Dn4uLE2sGSQPVcJegkfb1BGE5jxJaYhyFPCZYO/TzGZI3798deT0NbiY9ohiLjgjcRdPwDfM3l
+	xz+JQa/mubv9+4iJXpfg+MFbx1xgSsKmGZaT+lWPMWC+8vdJRxvxM4/SbG9U0GiellqS3CvqUz2Bw
+	2/KntEsZIfEJ5wbkhfZSbiAOS8HfRifi5WftNznpgW4Mp8kySvGBbQmUHjiDZgd6l5xJxouQQgx2v
+	ob24bYYSzWEN/HaSeUjBJ87i7LgAx2fztckPdY0zTZiMbFMcUW5gD6AgxnWIAozbIh4VdoSm58sMk
+	4CoB2Fsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wure1-00000002h2L-0Gxn;
-	Fri, 14 Aug 2026 13:08:21 +0000
-Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1wurjs-00000002hTl-3YYs;
+	Fri, 14 Aug 2026 13:14:24 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wurdx-00000002h1x-3DGm
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Aug 2026 13:08:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YhrkyqoHpm/QhGuXK+SkNNGlkwoKunkbWHBQkkNiXYI221lGyy5p9ntlOiCX85iaYDxSCcI5IlBg2NkwiUogMnH7N8T9slr1rwFAJ9v/S0obAZe/FxH8ZbazXXEeT8w4eWe3qY1mjVbr13/wZv45LokxmeRBw2dvBkXZ3ZG+vYCmyIN7bt+Clqw2/SJMQA5OtK33CvTvemo0wVhYEVzLWtSnHBVtfRQSS8YTBsH/wPonBSVvKt8HNUcOet1TaFSKW3syiT53mh2i44Tu6ETDLOcnU0elEsGV6B6jiCBDCfc2+gqMuynhRGlUf7TXsP8sQsfuZ50rlOT5X1sSjg6okw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kbJJpr4rkyYotMnK1F95Vk0BhiGVos9NhaAtR+rC6GU=;
- b=BdORp3teDg9pK8l7bxrTVJZBB+ohud4xJO/3m5FscPXXJTlOU5lenJcWyxdC0oBvNkJfsbt5+VXHLAJhzC1FgkXpx9TsQK9EUT/eGmmFUs3VIRQz8d+NX1IVM/61ty/rgQ8iIDuc6jUqSzRmov2ghAqkvBTTcUPwghe72Mz2q3I3lQYIBx3C7fiR0AHWMCdPkYbdKBbvl+GQGcExVibeirO+zH2YW9XK+3foHSQ7DKfsbMyf21DZOJLaUOVB+qKFQPhSY6jddId4BdZq2W3CwOg/1fPNpSXe1vTPqZg1PGUxCGAUB1EIwdws+guUREHVZiae3w/XHdP5i0ql3L96wQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kbJJpr4rkyYotMnK1F95Vk0BhiGVos9NhaAtR+rC6GU=;
- b=1lnlV9eEGbr7IZa6eKp9s8dqkrWT35JH0A1q2YpgYhbCWCyAR3XUrOKguRFsHuyP8n94mHGX4y06EX7b9hpaxktVej5Md+8tPjr14ZkcXiieqPjC/AT9B1zmaYL7mFYMnwZjKcfLkSGK1yEwa/f3qA7gk04PqtYlv8JwPQormt8=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from PH7PR12MB8156.namprd12.prod.outlook.com (2603:10b6:510:2b5::10)
- by SA3PR12MB8761.namprd12.prod.outlook.com (2603:10b6:806:312::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.13; Fri, 14 Aug
- 2026 13:08:07 +0000
-Received: from PH7PR12MB8156.namprd12.prod.outlook.com
- ([fe80::770:345e:ed50:cb0d]) by PH7PR12MB8156.namprd12.prod.outlook.com
- ([fe80::770:345e:ed50:cb0d%6]) with mapi id 15.21.0315.014; Fri, 14 Aug 2026
- 13:08:05 +0000
-Message-ID: <1ec0e56f-6e00-4eb8-ba40-767b74cc7856@amd.com>
-Date: Fri, 14 Aug 2026 18:37:54 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 02/20] net: xilinx: tsn: add TSN endpoint wrapper driver
-To: Jakub Kicinski <kuba@kernel.org>, nagadheeraj.rottela@amd.com
-Cc: srinivas.neeli@amd.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, richardcochran@gmail.com, michal.simek@amd.com,
- andrew@lunn.ch, olteanv@gmail.com, horms@kernel.org, linux@armlinux.org.uk,
- netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- git-dev@amd.com
-References: <20260807104431.157230-3-nagadheeraj.rottela@amd.com>
- <20260808194817.132469-1-kuba@kernel.org>
-Content-Language: en-US
-From: "Neeli, Srinivas" <srneeli@amd.com>
-In-Reply-To: <20260808194817.132469-1-kuba@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: PN3PR01CA0145.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:c01:c8::23) To PH7PR12MB8156.namprd12.prod.outlook.com
- (2603:10b6:510:2b5::10)
+	id 1wurjr-00000002hTP-0Wfz;
+	Fri, 14 Aug 2026 13:14:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7688A43566;
+	Fri, 14 Aug 2026 13:14:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 4F7B2C2BCB9;
+	Fri, 14 Aug 2026 13:14:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1786713262;
+	bh=SehANLEi1AhnebfTL1kjlO9MbWFqPE1U/G9I2+q8iqs=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=por2zTBMLibZcg4USnC89ZsLcBriS53gQfOjGVBSgXR8XfNxPZ40hTCGfTgCwxb+T
+	 qmaIt/siez/re03IegYooGWBV9Dzw6A0a2XLJhaUZse9y9YczqyTXpa2y3J6G6hMLJ
+	 VC0z4QcLyIxoMJ48eJkTpb+vNf7a5T9M7thxxuePeBXiRoaQx4TZ3NwC/pPnI0nm6q
+	 hrtfe3U4vjr+eyZr/s3tYzZvc7cF7LMROI4m6VlYrjuAWvU2cGujD0v+3ln+3eta8w
+	 XqE2Rb1q1YqY1uCNYcl/9uOM/v1tCuj5uploimcBpeUxCjXzjazJ4mrvmEnQvF+b8h
+	 loV25GCyLoqJQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2A47FC5B572;
+	Fri, 14 Aug 2026 13:14:22 +0000 (UTC)
+From: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
+Date: Fri, 14 Aug 2026 16:13:52 +0300
+Subject: [PATCH] dt-bindings: input: mediatek,mt6779-keypad: add mt6572
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH7PR12MB8156:EE_|SA3PR12MB8761:EE_
-X-MS-Office365-Filtering-Correlation-Id: 44d45baa-9f4b-442a-8e84-08defa051366
-X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|23010399003|366016|22082099003|18002099003|56012099006|6133799003|5023799004|11063799006|10067099003|4143699003;
-X-Microsoft-Antispam-Message-Info: jN8MDAADPIQVEsM4zciceOtJ96BFlKQBigDXFOaqwSMnBRYLwyG8R9XBvpfD0KVYgdL3O0m6Ap+oebqzwML8BPQ7B/yDf66ruEvcw2iV66QmSGA/OdxpwtZnA1zS2RfkLAhsJAZeVftM8HjDrE0IwWeYGP+ljhs7QKVZD/yMiA39Bva4NoXGqYstKraZ16WWXmGyOSNBpPdsFP7oxbwXcwvqfdhx7B2/TnNkAHMvLDCLEtQjtsYeDEnThi2682FbIHHxyNH4sGrTyN1d1c1SRErBCdfUTpEOoNsYk0a8sXZOHz4k3JN8MPy2fkmApO0ShZF0er06oxa1P8vOrESAozQvLGb0JXJeQM7mfT3GIVppJZIaeHAYF48QuTpl2dW6Huw4mrPUaXHChxHJGAfCRCsGzTJNN3PYikWHZ6miH9ujXe6BsikHcSiUl65K5rYWrGtxVyqCvIvVfcH1hFes23cZqLzSAAseCLMjZN+ZgX3fiSAh2scIBQwx89MWzPP3WRRBDi0yJH2848cn81lRazgG+J3WSZ+lKjb/7xoHvXhFlLSxmGDsFF1OoHm/AoSPiwRv/uWu79Oo1zJzB4e573Nxlp74EgckQ6j9VYsqlZqSFQEciJB0r6klw6LaUUXwzrw30lswOsDSpGc1uFT/abAY6OAFUG/tX68GDVevpNk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR12MB8156.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(23010399003)(366016)(22082099003)(18002099003)(56012099006)(6133799003)(5023799004)(11063799006)(10067099003)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cGRqekwrY1FaRDR1WTJKREtURVZZUEZ6di9LWG8xVUJPamJ4WUpyU0dGdTZj?=
- =?utf-8?B?dmFnSE40Vkp3VmFxRGdudzhFS1NuRCt4eEZQQ2x2SGM5UHNGRWtDZUpNM1gz?=
- =?utf-8?B?SDdSYTJHRm9mL3V1anFyTmJ5bFhGQWxkaC9tSis5Vjk0NHh0dEhOVVh6ejZh?=
- =?utf-8?B?cWRGeFpYOFlCdU52QnBoNEZqbXZCdVkybDlWSEJzZG5HQzBnbkQwbkVYT2Jj?=
- =?utf-8?B?cUNJY0RndFRIeFhpZDQxc2dUVmJXNndYNGpaN1VvSm9iVkVseFBsalpGMWxw?=
- =?utf-8?B?RHI5cjBPa1laWnlRZC8xOGpQTjg3b3JmQ25QellmUVFlYVVYRWdxMkhnaFlr?=
- =?utf-8?B?V0JCYWRWMy9TdmRKYWpGL29ESzU4cVIyaSs2ZmdjaGJva0pDME5Ga21mQ3B6?=
- =?utf-8?B?TWZ4V25Xc3BlNUpadzNwNFNCZ0kxV01yTGtzN1NCUVZKa09aNWxLc1I2Ly9J?=
- =?utf-8?B?Z2tnbEpxa0xhWEFhVkVIOElhNVNvSHNqY1ROUG9rNDBZV2l0aEczTlRCZ0Nu?=
- =?utf-8?B?OFZRcFBpZWhkaFIzUFJZV2tDeHRreDJyb1lHTHJPYi9wS3JDS2NBTHNBZGxG?=
- =?utf-8?B?NGV3MWY3VXdpNXc4M25mNHNXa0xRMGZ3aEFsM3U5UG1veFoxTk1qZWltRVN6?=
- =?utf-8?B?MVpGQTJoanVZWWVFUmdQM0lQd2JZaktDd2lFd0lBOVZ5QjMrMmYyVWVwZlZD?=
- =?utf-8?B?ZVNvdUpBZzZaM2ZLaW9NamJZcS9HWStWN0FDZFdJNGlGRmFCVGQ3OHhWZFEy?=
- =?utf-8?B?eVlRNUdGTFVrZ05uNHV4SDNaOUNCbnk0R3A0eXhZZzFldjF5S0NycU9kUW1N?=
- =?utf-8?B?M0VsaHRIVzBNL25KVlJXUEVLTmhlYjVkK1RKcklOU2EvMWVqV2ptK0VvRm5N?=
- =?utf-8?B?QjNsa0ZyNmZOdy90TThtUGM3aC9vaXkxTTJIUlRIdWdtN0N0UEk3aGY0MTNB?=
- =?utf-8?B?Tmc2UXNEUnhGV1VHQ01oejF4ZFRUeDVwc2tLV0paWnJMTjZJZEpCNUNaRjc4?=
- =?utf-8?B?TTdvUmxkamxXL0RURTlBSkR3NGN5S0I1UzhET1dDeDlZWVhHbmQxREdacWs5?=
- =?utf-8?B?dGZ4NEpyQmlFeS8rN3ZWMTBtNFNGRkd6VnRmU21oRmo3V3JMcmJITDNtWGk0?=
- =?utf-8?B?VG5VWUl2bHVLd2dSd3YxcHVURnRBR0ZPSGhVTG1CNGFBZStqWWVRTDhNeHdE?=
- =?utf-8?B?aitEUlYvUFNkeENMOWRtR3A2cnlhNnVvQUVYekRDZUY1RERGS0R3UkRZSDhx?=
- =?utf-8?B?dkFEc2tCeEduTEZ3emQ1OWxka1NxN1NFL0NjbzA4RThQejJGMFdZOUpoeW1R?=
- =?utf-8?B?a2FMMXV1ckFzTUpwdVNsSEZ1SW52NmZDMjArblhNR2szNENJWDJPLzRRbXRl?=
- =?utf-8?B?TU5WaTdhSVpQWU05NUs1UW80dERkcGxFaWJCYmw2NXh5VHE2V3JmZlFyVWJX?=
- =?utf-8?B?bWVmUkltdktET3d5cFZqemlJVDBZaDhhNXJnN1NuaVN4Q3lUR0x4RVN0SXor?=
- =?utf-8?B?T0tXQVFVSUlHSGpCY1BDRVAyU2RwY2xKVmQ3Snk4VGFNeDduNHNZOFg3b0lG?=
- =?utf-8?B?bHZabXNyUXRXMWNJNEx6YldibkhOTzhIUjJFNFFSTHZvVDZSWjRJbnE3UlV3?=
- =?utf-8?B?UFpIMXhlSDRDdWdVOTE2Q0pGdXg0dkFwdVNSYjRuTDgxVTJUdHppczFlL0c3?=
- =?utf-8?B?TkF1dWNHVGxBbDEyNnA0bzBNZ3BSaVBVenRKLzA1enJiSno3akdWZXZlTnBz?=
- =?utf-8?B?aG9aeDkwY0lBSUJib3Z4dFJRZ2c1U25BaDZ5Q0ZuLzdQUExCaEU0WmtOUUdj?=
- =?utf-8?B?aGp1YVVGbXpON2RBVzRJNzYvTWN6WlVrS3VLdDd5Wm81TUJmYXNuNjRzN09I?=
- =?utf-8?B?RWhwVWhJbFZGYUw5dThVaFhuRDFQTGhIRE8ySnFCUlYvZEg1UDVmeE1YNzFp?=
- =?utf-8?B?VldTYzVCd0dGNXk4d1l6SWlJRGhaaXZKdkJXcUpBTEswZ3NjOUZTLzRscjUw?=
- =?utf-8?B?K2pzQkl1c21NaWl3dm1ESU52NEI0K3F0RXJyTkt5dDBsTCtsWi85TG5vOGhY?=
- =?utf-8?B?MkVEWHQ5L21rcEQ0SklyZXh6NWlMd1REdi81ZW5HZThsVTZTbHpDUzB5Um5y?=
- =?utf-8?B?bDc1NGhRMU9EMFIxa2JOalVwd2RUTkY5T1BIM0d1OUliVDRqWlREMzJQVmRD?=
- =?utf-8?B?NFdzSU5KaDJtYTJQVVZiYlNiREhlY3VVcE9oQ0FRN3ArMVkyT2tObnRSajRW?=
- =?utf-8?B?SFprcUdMeEg5TGZPQkxRWnJTdVc0cVp6dzd0SnJlejhQZ204UUMycVMzTGdx?=
- =?utf-8?B?UGplQ001cjFlS1V5ZXJIQ3lRdWVVenZoNDlZdHV2cEZDZW02aCttdz09?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 44d45baa-9f4b-442a-8e84-08defa051366
-X-MS-Exchange-CrossTenant-AuthSource: PH7PR12MB8156.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Aug 2026 13:08:05.4257
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: EkbOe/C8F2O/IE71sdbxKCd6Geb/XQMrEWGoczBLcpwMEan3VDItcIihYgftyFwo
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR12MB8761
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260814_060817_894573_AA4C96C3 
-X-CRM114-Status: GOOD (  37.45  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260814-6572-dt-keypad-v1-1-2ceff2373211@protonmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDC0MTXTNTcyPdlBLd7NTKgsQUXaM0QwNDS4NUA4skAyWgpoKi1LTMCrC
+ B0bEQfnFpUlZqcgnIFKXaWgCOtcbzcgAAAA==
+X-Change-ID: 20260814-6572-dt-keypad-2f10190e08b0
+To: Mattijs Korpershoek <mkorpershoek@kernel.org>, 
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-input@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, Roman Vivchar <rva333@protonmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1786713259; l=1041;
+ i=rva333@protonmail.com; s=20260510; h=from:subject:message-id;
+ bh=dnFCakk4vuGhlPYs5js9z6YmW0GnQtXr03hvBnhKxc0=;
+ b=n5oqb/qqHWnBuYOLTPzQm8tLKvcunF+q145rv7u6gZq2JHxvdLiDZCezeD+FxS7AWq7o+O9F0
+ jNVhnoo38TAD3bJqDh5TZBqVx6BwcorClnTnwfd24kRG74EOJNUf32w
+X-Developer-Key: i=rva333@protonmail.com; a=ed25519;
+ pk=zww/nWjBGoQ4POXCG0BV6fx2iuXK6jx77rsKPA5YK5Y=
+X-Endpoint-Received: by B4 Relay for rva333@protonmail.com/20260510 with
+ auth_id=777
+X-Original-From: Roman Vivchar <rva333@protonmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,171 +86,40 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: rva333@protonmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: Roman Vivchar <rva333@protonmail.com>
 
-On 8/9/2026 1:18 AM, Jakub Kicinski wrote:
-> This is an AI-generated review of your patch. The human sending this
-> email has considered the AI review valid, or at least plausible.
-> ---
-> net: xilinx: tsn: add TSN endpoint wrapper driver
->
-> Adds a thin wrapper platform driver for the Xilinx TSN Endpoint Ethernet
-> MAC IP node, along with a new Kconfig symbol and Makefile under
-> drivers/net/ethernet/xilinx/tsn/. The wrapper enables the six IP-wide
-> clocks and then populates the sub-nodes so each can bind to its own driver.
->
-> A few questions below, all fairly minor.
->
->> diff --git a/drivers/net/ethernet/xilinx/tsn/Kconfig b/drivers/net/ethernet/xilinx/tsn/Kconfig
->> new file mode 100644
->> index 000000000000..45af4d3f10e6
->> --- /dev/null
->> +++ b/drivers/net/ethernet/xilinx/tsn/Kconfig
->> @@ -0,0 +1,15 @@
->> +# SPDX-License-Identifier: GPL-2.0-only
->> +#
->> +# Xilinx TSN device configuration
->> +#
->> +
->> +config XILINX_TSN
->> +	tristate "Xilinx TSN Ethernet driver"
->> +	depends on OF && HAS_IOMEM
-> [Severity: Low]
-> Should this depend on OF_ADDRESS rather than OF && HAS_IOMEM?
->
-> The only functional statement in tsn_ip_probe() is:
->
-> 	return devm_of_platform_populate(dev);
->
-> and in include/linux/of_platform.h the real implementation is compiled
-> only under CONFIG_OF_ADDRESS; otherwise the inline stub is:
->
-> 	static inline int devm_of_platform_populate(struct device *dev)
-> 	{
-> 		return -ENODEV;
-> 	}
->
-> OF && HAS_IOMEM does not imply OF_ADDRESS, per drivers/of/Kconfig:
->
-> 	config OF_ADDRESS
-> 		def_bool y
-> 		depends on !SPARC && (HAS_IOMEM || UML)
->
-> sparc selects OF and provides HAS_IOMEM, and NET_VENDOR_XILINX has no
-> architecture dependency, so XILINX_TSN is selectable there with
-> OF_ADDRESS=n.
->
-> In that configuration tsn_ip_probe() still runs devm_kzalloc(),
-> devm_clk_bulk_get() and clk_bulk_prepare_enable() for all six clocks and
-> registers the disable action, and then returns -ENODEV, so the driver can
-> never bind and no sub-node device is created. The clocks are unwound by
-> devres, so nothing leaks, but the whole driver is dead code in that
-> configuration.
->
-> This also stays as is through the end of the series, where the symbol is
-> still "depends on OF && HAS_IOMEM" plus "depends on XILINX_DMA", and
-> XILINX_DMA only has "depends on HAS_IOMEM".
->
->> +	help
->> +	  This driver supports the AMD/Xilinx Time-Sensitive Networking
->> +	  (TSN) Endpoint Ethernet MAC IP. It provides the wrapper device
->> +	  and the endpoint MAC that connects the IP to the host CPU. The
->> +	  three-port switch is supported by NET_DSA_XILINX_TSN.
-> [Severity: Low]
-> The help text describes "the endpoint MAC that connects the IP to the host
-> CPU" and refers the reader to NET_DSA_XILINX_TSN, but at this commit the
-> symbol only builds xilinx_tsn_main.o (clock enable plus
-> devm_of_platform_populate()) and no NET_DSA_XILINX_TSN symbol exists in the
-> tree yet.
->
-> Both do appear later in the same series: the end-of-series Makefile has
->
-> 	xilinx_tsn-y := xilinx_tsn_main.o xilinx_tsn_ep.o
->
-> with &xlnx_tsn_ep_driver registered from xilinx_tsn_main.c, and
-> NET_DSA_XILINX_TSN is added in drivers/net/dsa/xilinx/Kconfig.
->
-> Since the text only appears in prose and not in a select or depends on,
-> there is no build effect; would it be worth wording the help text so it
-> matches what this commit actually builds, or is the forward reference
-> intentional for the series?
->
->> +
->> +	  If unsure, say N.
-> [ ... ]
->
->> diff --git a/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_main.c b/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_main.c
->> new file mode 100644
->> index 000000000000..1ef1b0c2ee6e
->> --- /dev/null
->> +++ b/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_main.c
->> @@ -0,0 +1,105 @@
-> [ ... ]
->
->> +static int tsn_ip_probe(struct platform_device *pdev)
->> +{
->> +	struct device *dev = &pdev->dev;
->> +	struct xlnx_tsn_ip *w;
->> +	int ret;
->> +
->> +	w = devm_kzalloc(dev, sizeof(*w), GFP_KERNEL);
->> +	if (!w)
->> +		return -ENOMEM;
->> +
->> +	for (int i = 0; i < TSN_NUM_CLOCKS; i++)
->> +		w->clks[i].id = tsn_clk_names[i];
->> +
->> +	ret = devm_clk_bulk_get(dev, TSN_NUM_CLOCKS, w->clks);
->> +	if (ret)
->> +		return dev_err_probe(dev, ret, "failed to get clocks\n");
->> +
->> +	ret = clk_bulk_prepare_enable(TSN_NUM_CLOCKS, w->clks);
->> +	if (ret)
->> +		return dev_err_probe(dev, ret, "failed to enable clocks\n");
->> +
->> +	ret = devm_add_action_or_reset(dev, tsn_clk_bulk_disable, w);
->> +	if (ret)
->> +		return ret;
->> +
->> +	return devm_of_platform_populate(dev);
->> +}
-> [Severity: Low]
-> Is there a consumer for xlnx,num-priorities anywhere?
->
-> Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml
-> lists it in the top-level required block for this same node:
->
-> 	required:
-> 	  - compatible
-> 	  - reg
-> 	  - clocks
-> 	  - clock-names
-> 	  - xlnx,num-priorities
-> 	  - ranges
->
-> tsn_ip_probe() is the only driver binding
-> "xlnx,tsn-endpoint-ethernet-mac-3.0", and it only fills clks[].id and
-> calls devm_clk_bulk_get(), clk_bulk_prepare_enable() and
-> devm_of_platform_populate(). Grepping for num-priorities or
-> num_priorities at the end of the series finds hits only inside the YAML
-> itself plus unrelated fsl-mc and xe files.
->
-> So device tree authors must supply the property to pass dt_binding_check
-> while nothing reads it. Would it make sense to drop it from required
-> until a driver actually uses it?
-    yes, num-priorities has no user yet. But it's mandatory, and the driver
-   should validate it against the TX channel count, which I missed. I'll add
-   that in next version, read num-priorities at probe and bail out if it 
-doesn't equal the
-   number of TX channels.
-I will address remaining  comments in next version.
+Add a compatible string for the mt6572 keypad, that is compatible with
+mt6779.
 
-Thanks
-Srinivas Neeli
->
-> [ ... ]
+Signed-off-by: Roman Vivchar <rva333@protonmail.com>
+---
+ Documentation/devicetree/bindings/input/mediatek,mt6779-keypad.yaml | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/Documentation/devicetree/bindings/input/mediatek,mt6779-keypad.yaml b/Documentation/devicetree/bindings/input/mediatek,mt6779-keypad.yaml
+index 914dd3283df3..20fa41f691ed 100644
+--- a/Documentation/devicetree/bindings/input/mediatek,mt6779-keypad.yaml
++++ b/Documentation/devicetree/bindings/input/mediatek,mt6779-keypad.yaml
+@@ -26,6 +26,7 @@ properties:
+       - const: mediatek,mt6779-keypad
+       - items:
+           - enum:
++              - mediatek,mt6572-keypad
+               - mediatek,mt6873-keypad
+               - mediatek,mt8183-keypad
+               - mediatek,mt8365-keypad
+
+---
+base-commit: 8cd9520d35a6c38db6567e97dd93b1f11f185dc6
+change-id: 20260814-6572-dt-keypad-2f10190e08b0
+
+Best regards,
+--  
+Roman Vivchar <rva333@protonmail.com>
+
 
 
