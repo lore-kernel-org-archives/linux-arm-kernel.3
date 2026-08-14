@@ -4,129 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AD57C5CFC1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 22:57:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB674C5CFC1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 22:59:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ELtl4sHgY9Ch4KYBqdzaGVJ+wwPAgLu5Sies0dF8+Lg=; b=TMIMMIcSKfkHyOFBB3tAlqHICy
-	3S29YrLS3F4J2F78ttoXnWpqG4GxPJuv0Eedr+JNtfXPJoEE0vKOOW1CW2mireqZuNnW4xgvyN/3Q
-	N3d+a1bTiVr5nm7FDTCn0Kqe/RMhZ8XNWcXtgXY0H9S4uENLrsmtYvmvl/RKE/kTGuaWwokeRQ6Ld
-	Lksc7hBP1k8JHZhJjqFWcjFbzoOMq6UylU/H379TMW3ooQWMhSZAjGS4++nF1W6VJB+I0BmoSa19w
-	5Mlf5zeVkg0PjsVzYSYaX9SJmD2uAPezErL5Y4jXJA2u2uCahO2msZNu4Hh6Ad9cHlzyOztVy3UX7
-	y9JioEOw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GFMyEhDW4bvFif6qLOHnrHmnWRiIQ8epg8yOJqyNpxc=; b=gRMXcTVpyD6B66hqBYDNsq+Mvi
+	FDaDfC3onotJi0GHa06Unij20DQHSzFU6ibyN4ZUJUtD3x/l8z544IwyT1maCGnnhUxgLAZYj8bj1
+	4hW3ea1o+ivPEOTZx5pg0FwWu7b/BFcH1JH5UoT2hsA3ec1HWhQ00GszyGfATlb69qdESwv+jPrrf
+	GBODlHRa9hz3akir+W+SfeQD8lAwKqc7Y8H74EwDeGrr0ZppSC0xNRyONf6LJom70Kwv8h166IFwt
+	aPcFoLrlr0YpIKUM/oEesoRXW/PNz9IRXZeXQmJvFvD47bGrJl5MI2GaOlyWPtKsLRkRK64qYXrKh
+	vmdogLLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wv0qJ-00000003HjP-0WWG;
-	Fri, 14 Aug 2026 22:57:39 +0000
-Received: from mout02.posteo.de ([185.67.36.66])
+	id 1wv0rk-00000003IDE-37iH;
+	Fri, 14 Aug 2026 22:59:08 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wv0qF-00000003HdE-25n9
+	id 1wv0rj-00000003ID4-1A3X
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Aug 2026 22:57:37 +0000
-Received: from submission (posteo.de [185.67.36.169]) 
-	by mout02.posteo.de (Postfix) with ESMTPS id AFBF7240103
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 15 Aug 2026 00:57:23 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.de;
-	s=1984.8680eb; t=1786748243;
-	bh=ELtl4sHgY9Ch4KYBqdzaGVJ+wwPAgLu5Sies0dF8+Lg=;
-	h=From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:To:Cc:Autocrypt:OpenPGP:From;
-	b=m6gaEXKhmbzkJ32hjRXBkvvFig7J2Gq37zUoCdDies49dvbOHv3pt1kxTUyES8Vh/
-	 hOUhEvV9jldAX62dJFow1WgVv9Jpe6BHbis9tkdUURaK6bxV4RYBnw13M1rKuzgdPe
-	 iyuBlcD9XISqvjzylN222QDQpp0TjLneekyO3iu51gBJtQqtg1x+mObo46ggY88L30
-	 BAfKgft1VoNYbpF7D2zSfp/MWLs38SwuSOI78NP6uvsz4iE0e+BD9gWDdZyaV8pNZd
-	 LosfDQMFCFs6b/OoGM+1ZSYuVDdmpAfOGktdi1xff7CyYXEjh70fL4Vxv5bHTkwD3Z
-	 gt47X3VQHpO4A==
-Received: from customer (localhost [127.0.0.1])
-	by submission (posteo.de) with ESMTPSA id 4hMHg54W7Nz6twh;
-	Sat, 15 Aug 2026 00:57:21 +0200 (CEST)
-From: Markus Probst <markus.probst@posteo.de>
-Date: Fri, 14 Aug 2026 22:57:22 +0000
-Subject: [PATCH v4 1/6] dt-bindings: rtc: Add pinctrl for S35390A
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260815-rtc_s35390a_int1-v4-1-3133309c365f@posteo.de>
-References: <20260815-rtc_s35390a_int1-v4-0-3133309c365f@posteo.de>
-In-Reply-To: <20260815-rtc_s35390a_int1-v4-0-3133309c365f@posteo.de>
-To: Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <uwe@kleine-koenig.org>, 
- Andrew Lunn <andrew@lunn.ch>, Gregory Clement <gregory.clement@bootlin.com>, 
- Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, 
- Michael Langer <michael.brainbug.langer@googlemail.com>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- Linus Walleij <linusw@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-gpio@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Markus Probst <markus.probst@posteo.de>
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4267;
- i=markus.probst@posteo.de; h=from:subject:message-id;
- bh=/RN4bcc6JZOueMRQ2yaP4BUuLLpjTzlr7/VSEGCklNo=;
- b=owEBiQJ2/ZANAwAIATR2H/jnrUPSAcsmYgBqf51OOC9f7OA6Yy08EXeeDGyakKXsTeUAuDei/
- ll6SUbyjeaJAk8EAAEIADkWIQSCdBjE9KxY53IwxHM0dh/4561D0gUCan+dThsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDIACgkQNHYf+OetQ9LpGA//UI67yXvk3jLQDj4rwYyAt/z6elGc3AZ
- A2G9wRlM8ArL4L8XYncIeBmuJaovZoVBwcsxcVG51Ih9kjLCn7RPQZizFSw1P7Io0UsI0gPyW8K
- qrskLApmZeYzlKGx1/I5iZ9wk/XDcCQbgsGsoBSksxeOzsqWc/bt6ib8Ol4AHReLbfixEcUCpel
- uVBedhfwyxOqaEmLVxXosnWHCNpniXM4Kc+g/jlBkd5V9fsFGUXOorQy8vWyuIpGGo9cL+tulPe
- KaGzK2RMIxzUGlhNou0ihrPQRrmOg8t7xdb0lqRGDJWrx19zs+oKOsreUVSBjxBHpSID8vftH/N
- 0tz/Iw+fojX6tWC5Ex38R2d0b+e0RxLaZ7ykfBhnEzZ0mJP8UCNRO8ta40psgnZZ5VjnA3A8LaY
- vO3I21HUZsJmEkGH1AHK1xA2QhatMkwAjnrRdMYcCRCgcou5i8TZfadQUZCWp/WsJmK1VTa3IA/
- /lXjRZdDrE3mgG+kEQVHZIkXMgX4xEiNVKcGGXU9KExl3V8z4YcdVexKUOP5IBF8XtI7ULz/eUf
- iSbW1h1lS5J5z2zjh67A8dUmG/X7qTJg8pLzjmz3KwMNt4U0WIuvmKMsw0wiRMrKOkfv5ioW8Sa
- norcqppjnkYdKyBVXPfieYKX587SiPZAR1eNvcXRFs/OobRD2DvQ=
-X-Developer-Key: i=markus.probst@posteo.de; a=openpgp;
- fpr=827418C4F4AC58E77230C47334761FF8E7AD43D2
-Autocrypt: addr=markus.probst@posteo.de; prefer-encrypt=mutual;
-  keydata=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
-  aBeNN4ijKZchBXHPgVx+YtWRHfcm4l8=
-OpenPGP: url=https://posteo.de/keys/markus.probst@posteo.de.asc; preference=encrypt
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260814_155735_859388_2796773C 
-X-CRM114-Status: GOOD (  15.72  )
+	Fri, 14 Aug 2026 22:59:07 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3536360008;
+	Fri, 14 Aug 2026 22:59:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DFB8B1F000E9;
+	Fri, 14 Aug 2026 22:59:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786748344;
+	bh=GFMyEhDW4bvFif6qLOHnrHmnWRiIQ8epg8yOJqyNpxc=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc;
+	b=NZ678rqfzIFy2XU7bawtM7T03MEmjy/CiNZM/Db1tYxAQjNkhFWPF8IfqgJddhtvh
+	 7KCZIo/czaQKcbwWqqUI+98pcIh02bwVeki0AKMRue3GDFSAbDkuO+wh6ASjxogCIT
+	 gjMIM71L42EhCOtXBQt/tcxmm337b/xHf45RbFtA+ERubLhcS8XUzliyHEuv7EboMp
+	 XQz3HPPNjo9rP1p6jqoJi59t7nh4mvJNWt+Yyfc5ZAiNG/1vtkcLh/tf4tKRBwvk3t
+	 jjUhHPGggZjpcOPKwIgfAb3tDu9rzLpL3HGp34CeiLz3GLQeSFQCHk6EWPQ7HDND1m
+	 25xuxp1HCB9zA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 1971E3924460;
+	Fri, 14 Aug 2026 22:58:20 +0000 (UTC)
+Subject: Re: [GIT PULL] pmdomain fixes for v7.2-rc8
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <20260814141504.127436-1-ulf.hansson@oss.qualcomm.com>
+References: <20260814141504.127436-1-ulf.hansson@oss.qualcomm.com>
+X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
+X-PR-Tracked-Message-Id: <20260814141504.127436-1-ulf.hansson@oss.qualcomm.com>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/linux-pm.git tags/pmdomain-v7.2-rc2-2
+X-PR-Tracked-Commit-Id: 090a95dbe13df9965279b588d97eda134831769c
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: a823c9da52b2cf81e2203870d758871470b3bcfc
+Message-Id: <178674829900.3991221.293792173327152525.pr-tracker-bot@kernel.org>
+Date: Fri, 14 Aug 2026 22:58:19 +0000
+To: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
+Cc: Linus <torvalds@linux-foundation.org>, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, Ulf Hansson <ulf.hansson@oss.qualcomm.com>, linux-arm-kernel@lists.infradead.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,157 +74,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Synology NAS devices use the output pin for interrupt signal 1 to wake up
-the system.
+The pull request you sent on Fri, 14 Aug 2026 16:15:04 +0200:
 
-Move devicetree bindings for sii,s35390a into its own file.
-Add necessary properties to configure the individual pins via pinctrl,
-which allows the interrupt signal 1 to be used for wakeup alarm.
+> git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/linux-pm.git tags/pmdomain-v7.2-rc2-2
 
-Signed-off-by: Markus Probst <markus.probst@posteo.de>
----
- .../devicetree/bindings/rtc/sii,s35390a.yaml       | 111 +++++++++++++++++++++
- .../devicetree/bindings/rtc/trivial-rtc.yaml       |   3 -
- 2 files changed, 111 insertions(+), 3 deletions(-)
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/a823c9da52b2cf81e2203870d758871470b3bcfc
 
-diff --git a/Documentation/devicetree/bindings/rtc/sii,s35390a.yaml b/Documentation/devicetree/bindings/rtc/sii,s35390a.yaml
-new file mode 100644
-index 000000000000..d9da3abbbd51
---- /dev/null
-+++ b/Documentation/devicetree/bindings/rtc/sii,s35390a.yaml
-@@ -0,0 +1,111 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/rtc/sii,s35390a.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: S-35390A 2-WIRE REAL-TIME CLOCK
-+
-+maintainers:
-+  - Alexandre Belloni <alexandre.belloni@bootlin.com>
-+
-+description:
-+  The S-35390A is a CMOS 2-wire real-time clock IC which operates with the
-+  very low current consumption in the wide range of operation voltage.
-+
-+allOf:
-+  - $ref: rtc.yaml#
-+
-+properties:
-+  compatible:
-+    const: sii,s35390a
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    minItems: 1
-+    maxItems: 2
-+    description: Supports up to 2 interrupt lines via the INT1 and INT2 pins.
-+
-+  wakeup-parent: true
-+
-+  wakeup-source: true
-+
-+  "#clock-cells":
-+    const: 1
-+
-+patternProperties:
-+  "^pins":
-+    type: object
-+    patternProperties:
-+      "-pins$":
-+        type: object
-+        properties:
-+          pins:
-+            $ref: /schemas/pinctrl/pinmux-node.yaml#/properties/pins
-+            minItems: 1
-+            items:
-+              enum:
-+                - int1
-+                - int2
-+
-+          function:
-+            $ref: /schemas/types.yaml#/definitions/string
-+            description: |
-+              Pin function:
-+              - ignore:  Preserve the previous state.
-+              - disable: Disable pin output.
-+              - wakeup:  Output wakes up the system.
-+              - clock:   Output clock pulse.
-+              - pmin1:   Minute periodical output with 50% duty.
-+              - pmin2:   Minute periodical output L for 7.81 ms.
-+                         Can only be used with pin int1.
-+            enum:
-+              - ignore
-+              - disable
-+              - wakeup
-+              - clock
-+              - pmin1
-+              - pmin2
-+
-+        required:
-+          - pins
-+          - function
-+
-+        additionalProperties: false
-+
-+    additionalProperties: false
-+
-+required:
-+  - compatible
-+  - reg
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    i2c {
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+
-+        rtc@30 {
-+            compatible = "sii,s35390a";
-+            reg = <0x30>;
-+            pinctrl-0 = <&rtc_pins_default>;
-+            pinctrl-names = "default";
-+
-+            wakeup-parent = <&int>;
-+
-+            rtc_pins_default: pins {
-+              int1-pins {
-+                pins = "int1";
-+                function = "wakeup";
-+              };
-+              int2-pins {
-+                pins = "int2";
-+                function = "disable";
-+              };
-+            };
-+        };
-+    };
-diff --git a/Documentation/devicetree/bindings/rtc/trivial-rtc.yaml b/Documentation/devicetree/bindings/rtc/trivial-rtc.yaml
-index f4d0eed98a08..7b3f682ef4d5 100644
---- a/Documentation/devicetree/bindings/rtc/trivial-rtc.yaml
-+++ b/Documentation/devicetree/bindings/rtc/trivial-rtc.yaml
-@@ -81,8 +81,6 @@ properties:
-       - ricoh,rv5c386
-       # I2C bus SERIAL INTERFACE REAL-TIME CLOCK IC
-       - ricoh,rv5c387a
--      # 2-wire CMOS real-time clock
--      - sii,s35390a
-       # ST SPEAr Real-time Clock
-       - st,spear600-rtc
-       # VIA/Wondermedia VT8500 Real-time Clock
-@@ -105,5 +103,4 @@ required:
-   - reg
- 
- additionalProperties: false
--
- ...
+Thank you!
 
 -- 
-2.54.0
-
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
