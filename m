@@ -4,68 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76A24C5CFCF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 02:04:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A6DAC5CFCF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 02:26:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i0GveM913yNieNQlwzfbV2Ur/22VUi/L//5uORRBYR4=; b=MfMwvZabON0ygNUUjT3m4zkUXO
-	6gbmZYyFcRTMyXB8nkKRLcGLR59JCgqCB18JeIgPkVtfPu6OOgsiEUZguoVQbfoWD/miDKNK0F2x1
-	LIZPzeTWaX5AScsnJoBK1yr4s4gR9jPKqDXPMemF/apU+qpzG9n87Pfa8LJdCur+u4gpPw3p/WGI7
-	/G9MGFEPfzLV/DqQluoWeZwDQBnKqrXnYGvzRIBujbi6888dAL5EZefZmdVFMA3jNLPxZMEdNqUIx
-	QGqIZzJwO8tWGBtJVtXOQBZUXsuXoFV6EP8zsW1Wf2i+X+p9X6x1RHSbiuF6HFTLuTboWsUv3IJeI
-	slkqfCCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=SpaWK3PMgcYH23+PvWVnfKngFcknKMSYOQ44ycpckiU=; b=DaoWAosCh7B0ckNgyopyhnXYPM
+	/uWqAtva/vFlVddN3ZaM0TBcEnjG5lGPxSD4WJUqRRU/o8SXrM9b6ZttoOytXvK4kZhZsz9TEms7K
+	GQgGx8kSzdRKwSEXpT3bSW6d1+uYxlDzw/fKavxzV1i4D9XSpxPJIKITbt+8PW2ISqNXeR7RDYoeM
+	aUWrm9v7Cu07RRKdlrf4Wuj0EDyZIRpgmrjnMy3XfkIMqFmqPkg492S4KbrHoSCI0ZE0Pa0anLE/1
+	fa3TBvB0Ii0ln74Inv7sGxvNO9vcS3daa3dDiadDKp/f36+2fof/ByzQf5S5q2Oj/gszCJiXDZtUg
+	b9Ftw3zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuhHK-00000001pdB-3IJM;
-	Fri, 14 Aug 2026 02:04:14 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wuhc9-00000001qt9-2vnF;
+	Fri, 14 Aug 2026 02:25:45 +0000
+Received: from smtpbg151.qq.com ([18.169.211.239])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuhHJ-00000001pcz-1cuD
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Aug 2026 02:04:13 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 01CBC408AD;
-	Fri, 14 Aug 2026 02:04:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73C611F000E9;
-	Fri, 14 Aug 2026 02:04:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786673052;
-	bh=i0GveM913yNieNQlwzfbV2Ur/22VUi/L//5uORRBYR4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=AlNB+gklfdvt+kF/Xfx+X74t8uOMr8fDwY7pvZaGNm6pU5QPbUEzi13v/QW7tK9vR
-	 5YU4Et0xiFHSSV97rX59idXOo1iaS7DNL3NfmQXmlKS64C9oNtYAR4WBwN8wv3RdjM
-	 yHBiuEjgIzzCRHrG2sRQ5lbvxvTVFrOAGnHafuIbGBnz2i3ml0QV+YumZ1UDwR1RvN
-	 40cCQwMlq9mXLYF4XIoQfEhInd64TtpVqzdaT9zetQAo9Ae7RtDNFM3lydW7IdgssI
-	 rZVxa/c47ZxuUf32px7CVLOKE/QJ7gPcr6vikL5h/d4wzez8JZgefCQn+LiNuyunL5
-	 GaHeGrDM35smQ==
-From: Jakub Kicinski <kuba@kernel.org>
-To: christophe.roullier@foss.st.com
-Cc: Jakub Kicinski <kuba@kernel.org>,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	rmk+kernel@armlinux.org.uk,
-	maxime.chevallier@bootlin.com,
-	vladimir.oltean@nxp.com,
-	netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
+	id 1wuhc7-00000001qsN-0Lrs;
+	Fri, 14 Aug 2026 02:25:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
+	s=altu2504; t=1786674317;
+	bh=SpaWK3PMgcYH23+PvWVnfKngFcknKMSYOQ44ycpckiU=;
+	h=From:To:Subject:Date:Message-Id;
+	b=hdckW7UAV4Iea2Y1GIXYUrE26Ga2o83CuWof38xJmmtePG3Y4RsJj4I6e4aY5Dmz+
+	 AEetLUh8LbGeSXNlWrXnDbr9Vw54bOKBvsyK5r+xa1d1hQfFIuz/T/xL35GO2sCAGy
+	 F7g7M3DLex4mohGdd7yFqn2Dt0NXlNMNCEdPtS9s=
+X-QQ-mid: esmtpgz13t1786674307t22da9b14
+X-QQ-Originating-IP: iWvQqUUAJ0olDn2cJBrjkWIkUI5jcT0zB2IYDBxM4EQ=
+Received: from DESKTOP-8BT1A2O.localdomain ( [58.22.7.114])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 14 Aug 2026 10:25:05 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 7059625967644421893
+From: Chaoyi Chen <kernel@airkyi.com>
+To: Tomeu Vizoso <tomeu@tomeuvizoso.net>,
+	Oded Gabbay <ogabbay@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Jeff Hugo <jeff.hugo@oss.qualcomm.com>
+Cc: linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-rockchip@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [net-next,PATCH 1/1] net: stmmac: Fix manage error case during stmmac_dvr_probe
-Date: Thu, 13 Aug 2026 19:02:36 -0700
-Message-ID: <20260814020235.2839045-2-kuba@kernel.org>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260810150749.458682-2-christophe.roullier@foss.st.com>
-References: <20260810150749.458682-2-christophe.roullier@foss.st.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Subject: [PATCH 0/4] accel/rocket: resource leak and stability improvements
+Date: Fri, 14 Aug 2026 10:24:49 +0800
+Message-Id: <20260814022453.437-1-kernel@airkyi.com>
+X-Mailer: git-send-email 2.17.1
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpgz:airkyi.com:qybglogicsvrgz:qybglogicsvrgz6b-0
+X-QQ-XMAILINFO: NpzNf8JHXbEIlAFPEbZYU4ptVzMIIqoPmuPJZdM1OdVokxE3XKynoNBh
+	K0JGxDK7C4DcEG6F5kV7uLo3Y/gKHDiCnmaCamAWk1ETvR/SqPgkK40wYeOJHl4L5tt1mne
+	StFzDdUz/0GZwz10s8zGeWQI9Qpjd6qt7RIR20Xtr7vIN9nGNMwASS4nSHxKMeNk/uVtF9O
+	Wegn9ZCVPmmEhjGuuYbT2IbJ9BFtJfwUBsCm21czOeFgzyYgAZrZujA5RFvr7/0dvvAB1RD
+	f/5ssLliyHIsSg69t9TTL4la7riK2Tzx6GU4cGWIO29nKsGVqgw7LgPMQAtiyYwMFK2fr48
+	WZ0iuW4Irztla+hJ9xUlYWP2+jVrb5xzr/dKrkcgoWFG0zHPgJezFPSycdTAK13T1CoOEyK
+	GkYorjoWsJtnD8sgdT8SBu5xaAoch1gbaLDUJx17cRLuPgRKe/QTyky24HjA1ijYTSr/hZn
+	oFlzpBuNJGj9ZMXDzcpOESzQv4eWqd9pcVVCjoGC8/b46mgJ2Sk2WnX/o7gS3+wO34P4aOf
+	o4rHh5MMO6kt/uAFV/9jZfUxBqNdIN0X9S3HzwERfqHDci83Pen2j23Y8LsErg899N2Guit
+	pET5HDVIRcl2xvoOZ2CsGJcUIFFR1yBaT8blQ9f5Aaz5MlQH/c31xPYAa3TAz7KNZo3wDIW
+	LFfp/yET6c3WdfXWxYX3lM+L04QNkfO8heM8avf5owerZoT380MGRyAT9ZF1n+VOMRD/0M1
+	OI8bSQyO06hXljbzovPRFIzu5ClpfIa1F6T3jJwz1klTWWWtWC5N3gBb18CwXHP/WtOn7ot
+	eQvfKxGNLqB7E9htZO+7kfsSSXIel+vUU5ONNZnBL7MZlDNOQjIi1pq5adL9i5MokddQPE8
+	fgQVyqBPgI/uyYeOtFBV17RMWm2DfuP/SAZV25MSaP6eB8A6cTSCyT284fDPtXAbPQk6eNK
+	TRJaIUBKlPcudnbAj2r9YSTY+Bh5+yGwvTb005/JcjW/5SjjfD8xdWtuH95KedgTPZYY=
+X-QQ-XMRINFO: MPJ6Tf5t3I/ylTmHUqvI8+Wpn+Gzalws3A==
+X-QQ-RECHKSPAM: 0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260813_192543_586795_DD217510 
+X-CRM114-Status: UNSURE (   8.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,96 +92,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi!
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 
-Please see the AI-generated review of your patch below.
+Hi,
 
-If what the AI suggests (flipping the order) is correct -
-we definitely need a comment on this, 'cause it's counter-intuitive.
----
-net: stmmac: Fix manage error case during stmmac_dvr_probe
+This series fixes rocket driver handling on certain error paths to
+avoid unexpected resource leaks and panics.
 
-The probe error path starting at the error_mdio_register label in
-__stmmac_dvr_probe() did not undo the runtime PM setup done just before
-stmmac_mdio_register(). This patch adds a put and a disable of runtime PM
-to that label.
+Chaoyi Chen (4):
+  accel/rocket: Fix the IOMMU domain leak in rocket_ioctl_create_bo
+  accel/rocket: Fix the panic in rocket_iommu_domain_put when the domain
+    is NULL
+  accel/rocket: Fix the extra iommu_group_get call in
+    rocket_job_handle_irq
+  MAINTAINERS: accel/rocket: Add rockchip mail list for rocket
 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index b2b7d0242dd3c..37d06fc6dba47 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -8080,6 +8080,8 @@ static int __stmmac_dvr_probe(struct device *device,
->  error_pcs_setup:
->  	stmmac_mdio_unregister(ndev);
->  error_mdio_register:
-> +	pm_runtime_put_sync(device);
-> +	pm_runtime_disable(device);
+ MAINTAINERS                       | 1 +
+ drivers/accel/rocket/rocket_drv.c | 3 ++-
+ drivers/accel/rocket/rocket_gem.c | 2 ++
+ drivers/accel/rocket/rocket_job.c | 2 +-
+ 4 files changed, 6 insertions(+), 2 deletions(-)
 
-[Severity: High]
-Should the order of these two calls be swapped, as in stmmac_dvr_remove()?
-
-As written, pm_runtime_put_sync() runs while runtime PM is still enabled
-and the status is RPM_ACTIVE (set earlier in __stmmac_dvr_probe() by
-pm_runtime_get_noresume() / pm_runtime_set_active() / pm_runtime_enable()).
-There is no ->runtime_idle callback and no autosuspend in this driver:
-
-drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c:
-	SET_RUNTIME_PM_OPS(stmmac_runtime_suspend, stmmac_runtime_resume, NULL)
-
-so dropping the usage count to zero synchronously runs
-stmmac_runtime_suspend() -> stmmac_bus_clks_config(priv, false):
-
-	} else {
-		clk_disable_unprepare(plat_dat->stmmac_clk);
-		clk_disable_unprepare(plat_dat->pclk);
-		if (plat_dat->clks_config)
-			plat_dat->clks_config(plat_dat->bsp_priv, enabled);
-	}
-
-But pm_runtime_set_active() is only bookkeeping - runtime PM never took a
-clock reference of its own. stmmac_clk and pclk were prepared/enabled once
-in stmmac_probe_config_dt(), and devm_stmmac_probe_config_dt() registered
-the devres action that disables them again:
-
-drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c:devm_stmmac_remove_config_dt() {
-	clk_disable_unprepare(plat->stmmac_clk);
-	clk_disable_unprepare(plat->pclk);
-	...
-}
-
-Can this lead to a double clk_disable_unprepare() when probe unwinds?  The
-new put gates the clocks, then the error propagates out and the glue driver
-error path plus devres unwinding disable the same clocks again, for example
-in dwmac-imx:
-
-	ret = stmmac_pltfr_probe(pdev, plat_dat, &stmmac_res);
-	if (ret)
-		imx_dwmac_clks_config(dwmac, false);
-
-which would hit the clk core warnings in clk_core_disable()
-("%s already disabled") and clk_core_unprepare() ("%s already unprepared"),
-with a panic on panic_on_warn systems.  25 glue drivers reference
-stmmac_pltfr_pm_ops, so the same callback applies broadly.
-
-Is this reachable in practice?  stmmac_mdio_register() returns -ENODEV on
-the "No PHY found" path, and stmmac_pcs_setup(), stmmac_phylink_setup(),
-stmmac_register_devlink() and register_netdev() all fall through to this
-same label.
-
-A related question: since the clocks are now gated for the rest of the
-teardown, is it still safe for the plat_dat->exit() callback invoked by
-stmmac_dvr_probe() on failure to touch MAC registers?
-
-Would the following match the existing convention in stmmac_dvr_remove(),
-which disables first and then uses a put that cannot invoke
-->runtime_suspend, leaving the clocks on for the platform/devres teardown?
-
-	pm_runtime_disable(device);
-	pm_runtime_put_noidle(device);
-
->  	stmmac_napi_del(ndev);
->  error_hw_init:
->  	destroy_workqueue(priv->wq);
 -- 
-pw-bot: cr
+2.53.0
+
 
