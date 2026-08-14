@@ -4,123 +4,200 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26BAEC5CFCF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 02:31:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 513D0C5CFCF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 02:38:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dIgSLregNr2fYwEjLwaPm1ysOKaZ+mvb7rcmx/nVi70=; b=CVaiDWalvlxU9RrzHK7zE+BkY1
-	yeIVF2nI/4/n2+cpt5TrKRlMl82f9i2MgFoolbnOjpr24dSzBEvkcHJw65z01jhCClr38TlZieowY
-	u370j2t3slfcPlenDWeW0WQYKS/ufLsW9RgbHQDPU4rmcBJKfTrq4QonmDj+YBSQe1J348SysAqyE
-	G67KnCvTYdNYP7pX80hzNNDZW3ubui9IMuCLvN/ujmGpYsikw35HXP6OTuofw9ff63Y0gT8O058jI
-	IdsBUkFz10++3dwyLj9t1R+4wYRepwFvPhuTDfqzEEIxu7J4i7lky3lT+48Ea1jmBorp5HWo68+Fy
-	XP6AepRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9XM8Z7x61AnXGh1vq+gbbqN3WO6mbYDulO6kq9LqxFc=; b=drSwvjgmAE5mEfaavO5wpivlUF
+	uPwI932LWTg8j8XvNEpbTBgkc6b5K+iM+vnqkbL19m4wBpGW8v0HaE/Phm73WAKZRy+/JkWD7WPAY
+	bHcIFScOaSHj9RP4/RQr49E4efjPV8oBvjqH6OceOk33CMiaTM62/zHi8QVPnvsriKlYgXFbU3mki
+	YX1O8Ae5dE/6QZ5boSQHqugsc3N0h/SfEJJLVZkWl0Kx7oEnrhgfF5o7+JoJtDcwGh+DkuW/AiFAe
+	OFiOo6IRKli4vQky5ywqbARMsRl89e18Oar/HOn9TXKwX80gwGyUaypSDS9r6bW5Ptkj1PPcUxJrv
+	bp29bLIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuhh4-00000001rgy-2TJ1;
-	Fri, 14 Aug 2026 02:30:50 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1wuhoN-00000001sBI-39mY;
+	Fri, 14 Aug 2026 02:38:24 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuhh0-00000001rfx-3poF
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Aug 2026 02:30:49 +0000
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67E1W2cT3892807;
-	Fri, 14 Aug 2026 02:30:23 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=dIgSLr
-	egNr2fYwEjLwaPm1ysOKaZ+mvb7rcmx/nVi70=; b=sxJAcQvx6kCe10SGRNPQba
-	nqsdd/HDBvKRw9q6sVtofPSBSgsAbc0dr8Jl9CmTBm8xxFX8G8wqm7kejqQR8vjH
-	foQQtx+LW1wCXEeiTRYDr/8t0mulKn7t9L+IY1DJ32KJdzQkIPHVA3pJLWp2GJEv
-	sw6NCmD25SfYY4bAy1EP7oU5f80e3aaWOhu/BcZn+UdPhZLr/GDclQTxOG1KkrG7
-	EhUslukKy9E/kmsvUi7d3FnWOcW8dQ6HZNSvL6nH2paHXDIUAEuL5g3SI4WklOiS
-	BYjeNzaNGYP8DYuBfQd7ZnYGMM8tGEcszPGGrhBvbxUQilv/zQaH1swGm3JP666w
-	==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fwvp39qee-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 14 Aug 2026 02:30:23 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 67E2QGCP018288;
-	Fri, 14 Aug 2026 02:30:22 GMT
-Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4fxfsk5gyj-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 14 Aug 2026 02:30:22 +0000 (GMT)
-Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
-	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 67E2UK2W30409460
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 14 Aug 2026 02:30:20 GMT
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 244E12004B;
-	Fri, 14 Aug 2026 02:30:20 +0000 (GMT)
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 6E2B620040;
-	Fri, 14 Aug 2026 02:30:14 +0000 (GMT)
-Received: from [9.39.17.52] (unknown [9.39.17.52])
-	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 14 Aug 2026 02:30:14 +0000 (GMT)
-Message-ID: <5b6fd32e-037a-42b4-b9e9-bb0503561781@linux.ibm.com>
-Date: Fri, 14 Aug 2026 08:00:12 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/3] powerpc/ps3: use put_device() on device_register()
- failure in ps3_system_bus_device_register
-To: Tarun Sahu <tarunsahu@google.com>,
-        "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Russell King <linux@armlinux.org.uk>,
-        Geoff Levand <geoff@infradead.org>,
-        Michael Ellerman <mpe@ellerman.id.au>, djeffery@redhat.com,
-        Nicholas Piggin <npiggin@gmail.com>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: linux-arm-kernel@lists.infradead.org, dmatlack@google.com,
-        Pasha Tatashin <pasha.tatashin@soleen.com>, souravsgl@google.com,
-        skhawaja@google.com, linux-kernel@vger.kernel.org,
-        driver-core@lists.linux.dev, linuxppc-dev@lists.ozlabs.org
-References: <20260813095421.1700945-1-tarunsahu@google.com>
- <20260813095421.1700945-4-tarunsahu@google.com>
+	id 1wuhoK-00000001sAl-2yyr;
+	Fri, 14 Aug 2026 02:38:21 +0000
+X-UUID: 340b0c00978911f1afed4741b24580c9-20260813
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=9XM8Z7x61AnXGh1vq+gbbqN3WO6mbYDulO6kq9LqxFc=;
+	b=Cfhn2HtEA0+hf2XmsHzZXZ9Oyhv91z1ClMlS5ZFfNGqMQqkt8oMTaobSL/ry1DjBKnprymmZ6p3i9/ERnKwZ3O1eixpjd03YEgT962LIVz83AhBgdwbhOuVdKg4wO1BEraU/reHmrlFn02Us7LDvHTe0ZCcF9bHM62a9ZMC8BA8=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:a581c48e-5a4a-4275-b056-baf0506ef81a,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:7db8b62,CLOUDID:cbc1b094-30ec-4a0e-a534-3a2c77ce0b67,B
+	ulkID:nil,BulkQuantity:0,SF:80|81|82|83|102|110|111|136|836|865|888|898,TC
+	:-5,Content:0|15|50|99,EDM:-3|-100,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:
+	nil,BEC:-1,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC
+	:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 340b0c00978911f1afed4741b24580c9-20260813
+Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw01.mediatek.com
+	(envelope-from <kyrie.wu@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 2129074128; Thu, 13 Aug 2026 19:38:16 -0700
+Received: from mtkmbs10n2.mediatek.inc (172.21.101.183) by
+ mtkmbs11n2.mediatek.inc (172.21.101.187) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Fri, 14 Aug 2026 10:38:13 +0800
+Received: from SG2PR04CU010.outbound.protection.outlook.com (172.21.101.237)
+ by mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Fri, 14 Aug 2026 10:38:13 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XVnGQXCOOZIYU+dEbvXYyoZok5l3wN6zYIBILg2Jfy7K19o3di8YqvHw14z9Kl7IebxuGcuUPZYqAtC4C71gE1M43uXhG16fAVWDwK7uvldUu04lQLI+JsgJGZke49335Lest+lupWPyK+xXtbjDvWoimaiNLUToLfpIkBz/A3Aa9f4KIlS0RITmpxWRl3vnk4hIB6sQr9CIpc+QEiWSIV+VMajSWNw3V6Z2uFEjk+r/zKEeWc3HzHT6UkTNWCmfb759aOOvHWFKGwivm3Et5N/4hRzkvOIU03Ny4IFIhyCy73O9ElpkEqBlYmpPvzlmWjVV7XZmy+Sw/FfdUyfj3w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9XM8Z7x61AnXGh1vq+gbbqN3WO6mbYDulO6kq9LqxFc=;
+ b=J2lG5Qr7XZbxbNyCOl6mc9W+nKvH+KPD4NlmN/Li10Em7Dzg35SfhNluNB+FcICFv3PdbC71ztE2wlVslyRl3DbW/ypb3B5L9GLvHXSQDhmudzehwn+ROLeGK+ssnfsMr4AIMnffd+JGAl9GJsTa2RyoM0WYUrfquO7peaqmtpJmkRyI7gbckZzXq2BwT4+ZDEmol+mEtU6Ke9nAIdoOEXNNvVV4LsR5bQXowkf1I+2lOzQoBBhTHt4OTEkQLirt+bGa2PibyO0+FQCWUdC/r2MoBBeAgsSoyDMrHQWrwR1FyGwVgr+aKSxY/xEfXTJXncw7sHxEYwh7uMzVzwvQ8A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
+ dkim=pass header.d=mediatek.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9XM8Z7x61AnXGh1vq+gbbqN3WO6mbYDulO6kq9LqxFc=;
+ b=sCCZbaTn9ikNDELp3kFCEJGhlkztKycW/6SmyzOigfdRy3S2rdw4Js0Av2vnln8Wb3zMQ2Zi7TQLCIY1vBz7a+OAyYABnfyTWIs/ybd5DdbWPf/6SF5OX4AbiDk6ODaFI6B6YhpfUrvEQes9j+vmomrm7M4G+WNQ/Ue4laj93fo=
+Received: from KL1PR03MB6197.apcprd03.prod.outlook.com (2603:1096:820:90::5)
+ by TY1PPF4A10620CF.apcprd03.prod.outlook.com (2603:1096:408::a51) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.13; Fri, 14 Aug
+ 2026 02:38:09 +0000
+Received: from KL1PR03MB6197.apcprd03.prod.outlook.com
+ ([fe80::6c6:8246:f9fa:d89d]) by KL1PR03MB6197.apcprd03.prod.outlook.com
+ ([fe80::6c6:8246:f9fa:d89d%5]) with mapi id 15.21.0315.012; Fri, 14 Aug 2026
+ 02:38:08 +0000
+From: =?utf-8?B?S3lyaWUgV3UgKOWQtOaZlyk=?= <Kyrie.Wu@mediatek.com>
+To: "fshao@chromium.org" <fshao@chromium.org>,
+	=?utf-8?B?WXVuZmVpIERvbmcgKOiRo+S6kemjnik=?= <Yunfei.Dong@mediatek.com>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>, "fanwu01@zju.edu.cn"
+	<fanwu01@zju.edu.cn>, "jacopo.mondi@ideasonboard.com"
+	<jacopo.mondi@ideasonboard.com>, "haoxiang_li2024@163.com"
+	<haoxiang_li2024@163.com>, "tfiga@chromium.org" <tfiga@chromium.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	=?utf-8?B?QW5kcmV3LUNUIENoZW4gKOmZs+aZuui/qik=?=
+	<Andrew-CT.Chen@mediatek.com>, "linux-media@vger.kernel.org"
+	<linux-media@vger.kernel.org>, "ribalda@chromium.org" <ribalda@chromium.org>,
+	"wenst@chromium.org" <wenst@chromium.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "kees@kernel.org" <kees@kernel.org>,
+	"rongqianfeng@vivo.com" <rongqianfeng@vivo.com>,
+	=?utf-8?B?SXJ1aSBXYW5nICjnjovnkZ4p?= <Irui.Wang@mediatek.com>,
+	=?utf-8?B?S3lyaWUgV3UgKOWQtOaZlyk=?= <Kyrie.Wu@mediatek.com>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+	=?utf-8?B?VGlmZmFueSBMaW4gKOael+aFp+ePiik=?= <tiffany.lin@mediatek.com>,
+	"p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+	"benjamin.gaignard@collabora.com" <benjamin.gaignard@collabora.com>,
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>, "mchehab@kernel.org"
+	<mchehab@kernel.org>, "sebastian.fricke@collabora.com"
+	<sebastian.fricke@collabora.com>, "robh@kernel.org" <robh@kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+	"laurent.pinchart+renesas@ideasonboard.com"
+	<laurent.pinchart+renesas@ideasonboard.com>, "hverkuil+cisco@kernel.org"
+	<hverkuil+cisco@kernel.org>, "nicolas.dufresne@collabora.com"
+	<nicolas.dufresne@collabora.com>
+CC: "sakari.ailus@linux.intel.com" <sakari.ailus@linux.intel.com>
+Subject: Re: [PATCH v6 01/14] media: mediatek: vcodec: support vcp
+ architecture
+Thread-Topic: [PATCH v6 01/14] media: mediatek: vcodec: support vcp
+ architecture
+Thread-Index: AQHdF+Y7RSrzq5sjDEOtpJV5U92T/rZ2XuOAgCBbTwCAArQ6AIADjaeA
+Date: Fri, 14 Aug 2026 02:38:08 +0000
+Message-ID: <44d9ec5c5f856b378f745fae8bd60aa4730df044.camel@mediatek.com>
+References: <20260720012056.1026551-1-kyrie.wu@mediatek.com>
+	 <20260720012056.1026551-2-kyrie.wu@mediatek.com>
+	 <c3abd49fc12e8cfab6993feb60b361ba07b6fb7d.camel@collabora.com>
+	 <275503aae6ff76a4c186efe665acf996dec9229d.camel@mediatek.com>
+	 <c8ab26c2edfa4ee4fbbb83faf5f54547f252464f.camel@collabora.com>
+In-Reply-To: <c8ab26c2edfa4ee4fbbb83faf5f54547f252464f.camel@collabora.com>
+Accept-Language: en-US
 Content-Language: en-US
-From: Sourabh Jain <sourabhjain@linux.ibm.com>
-In-Reply-To: <20260813095421.1700945-4-tarunsahu@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Authority-Analysis: v=2.4 cv=AMtp2X5w c=1 sm=1 tr=0 ts=6a7e7dbf cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
- a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VnNF1IyMAAAA:8
- a=1XWaLZrsAAAA:8 a=n3Y_rXsrvEagZGvLPyQA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-GUID: z2GAf6TahFsdZej1SvZngaYtlb-Fq6Ap
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODE0MDAxNSBTYWx0ZWRfX3S4+lINbmaWN
- JULXBrqFKQI3VokWQXKOMi7Njj3iDtiZl8Fxfq84Q2M2Q2BIksq3EMWr6OpqHfNhRpJ8sXwrVd9
- VKrCd07RthHMo7M6lTRivUtgfHR4xKI7VILXQ43p73mjJq1Z9Z14IOWDEskJwlEJkQJNPxKjxsl
- AU2J69Ktwi1R1JZYD34WNnrJ4n5EqlEqCqoQP9KHnvXcLTOFGDJDWPfJyRK34bMWk4fJ1KACHfp
- hTo9IU4Ck9gDmjkR7WPIzf5KXfT4V5zKQPkxFvI07ovxtEtz+m3o2fa8RDHc3c5/mSuV1yvA+Ne
- lx93VTNNiO+qkD9JZC+K56NIJW0yoZQ7qM2V4kFd9SYDw7VCc6bz9qSrEtX3//N6fZ9U7yJvex7
- Hm8baxg7/VQ/lAM7HtPaAyr5BkJGiGajw0qmSvUYHJCLdW0QmUuY83wRqh9b87FCu1XjT3xJ0NE
- ilAjundE8PGT2uUOS8g==
-X-Proofpoint-ORIG-GUID: AT5Rq_PBXSS0X67XNK0UT2Fpaszq8ck5
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODE0MDAxNSBTYWx0ZWRfXyXi9L/ayC78u
- HWC799RPx6HfZxhenXGMamJ6YQVPnaWY95Fq7q5bqH4WSJRbC7B8abqQz/sEONYSQBx9A1hDVUz
- Ktd1b7BmJZ3onRlB9mXI4d/yTCogJI4=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-14_01,2026-08-12_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 adultscore=0 lowpriorityscore=0 clxscore=1011
- priorityscore=1501 impostorscore=0 phishscore=0 spamscore=0 bulkscore=0
- malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2608140015
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mediatek.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: KL1PR03MB6197:EE_|TY1PPF4A10620CF:EE_
+x-ms-office365-filtering-correlation-id: 2d57c370-8c94-4c23-1b53-08def9ad13b3
+x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|23010399003|921020|22082099003|18002099003|38070700021|11063799006|4143699003|56012099006|10067099003;
+x-microsoft-antispam-message-info: AY0fdD18Q5uMQvWisX6BlNVLOGHyDjxjcHWEvFcbMEvdOMRLV0qO3om/Ic9MmSVpyIVwTDfH7cuPScRlc6sZ3oFkouYbcy6YovlJmmdZoLTRy3GpNIonbHQoq0Nvrzm5309+945HfuLcQruK25rPgYL1EzT30AsacXaJjp3PYTncgXW64WiXZRfUYLfKlUun+9YcbLXCF7oGzjotsYJ/WmYQQZk0+SQLw7IwKeLMb/LsnieIbjjh3HL7WbeB/j/Lx3sQ3XLbrOBXSZZxVx3VpLWbdHpcrMo0DIDFclenCxyek1Ca77HmcquYuZsaDbjIxWQ17v00ni8oFA9ZAuGEHAWoYGkJkQmy0+oyJbjoMWnwYmRa+xKBndGUcdFPbj6MIDEoVMeFgf8rz6/ViIg/ZnL6NQp9yrihJGlFwyNR9wEq+R2tRcHoirzI3kYqea/gLGPs6iW/z/hd9IuW1wspKgDKh3ZCr2DiYNjAAPVwHqX0eh2C8+5thQl+1dcytvTOHuatntGArsrvsgTSuLvhATTF1jl3PlyP9ztzDa6vxR3aiKK6g1Hnly+Etbo2QxwzgXpzMNlFsWcQ4j+eHH0Ga7P7Iwx/G4++9soZoQB5uOTpAXnTI1mPJeblDhSieX5MFIDOCLzBy5BaeSJ/5Atxz1EqPi3Nru29Cudkfwqweg12gyu3Fm+bmwFAuB2Kdek/bGpeTXHyxq08kA6KCgcJRHvu7rapbepVLBK7zppdAdFvrlfS5WAp1a/CznY9wfDE
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB6197.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(23010399003)(921020)(22082099003)(18002099003)(38070700021)(11063799006)(4143699003)(56012099006)(10067099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?YlhQQlVxOEM5Qzc4a2Fjek5MQll6N3VZTFN6ZDQyd2pMbmEvR3N2MHVKVmc0?=
+ =?utf-8?B?VGNKVWQ2T2FoSHZ1NkN6VnFheURYY05qQnF5aFNyQ250TDZIb3pQSVY5RU4v?=
+ =?utf-8?B?cXg5bzNWZjU5WXVKc3p0U3N2R2NGKzFKanYzb3hyU0s5MnF2Mmk0Ty9uVVVH?=
+ =?utf-8?B?cTFTMUxncURqQXpoYUNLSk1QNlMxYlpOUkdLUll2WnFacnY2Z3ZSQ1ZjRVgx?=
+ =?utf-8?B?RDJ6WmFYTE13Y1Y0NVFzK05zTEFmUFBXSU5CcjZ1ZDVhNm9ETlV0OGlzUisr?=
+ =?utf-8?B?dkZqQ0xTTkp2bHVkb3N4OFBmYllPcTVsZnJ1WlFiR1lwNTdxYXNjREVpTzA4?=
+ =?utf-8?B?TnAwYzVBV2RxMVZzYktCS0c2TG9FWEN5N1lXTGlPYmdrd2krWmd5UndzeXFu?=
+ =?utf-8?B?ZExjTmJ4NUNDQzdOZmd2MWMwQmNDRGxqdkc4YS9Sc2pwTnVMZ0xtSUpyMEsx?=
+ =?utf-8?B?a3k1WXJpY25BNy9DMW9qNEIrYXdyVmEwRHR0NXA5RTNObithajMxNXVCaG1n?=
+ =?utf-8?B?SEl6b1lxVDJ1aWwwQ2ZIc3AyUWtMb290U2tOQzk2bFBzZFhvYjdNY1FTQ0Vk?=
+ =?utf-8?B?NTJ5cHdyNzJDK2ZRMFlTVjlsaTNMeG5oRlI3OE9NNmM4VWRGbENndld0MFR1?=
+ =?utf-8?B?dGVQbC8wYW5CZi8wekpEbGhIbHBYMmNZQ0V2dkx4Q1lVSVhLa1dwYzdnYXY5?=
+ =?utf-8?B?eWJsWUhvU1E3NjFVQWZTaTRpWjJVRm1jZGZ1US93eDBzZENiTHFSNEUwSFYz?=
+ =?utf-8?B?Tm82R0tWOTBHbVpwd20zd05FT2ZoZldMUmJkMEFsaGNDVGpGUVhHQWdieEJS?=
+ =?utf-8?B?dGVlTndGckNpcVVqcXFOT21BWEQyekxiZVRMem4zaGZmZGZyNk54MXJCTGJS?=
+ =?utf-8?B?MWttTWVHMkhISEt0bWdteTJwQVcyVUJIWWsrZ0JFOEh5WmMxNWFMOU4vZHc5?=
+ =?utf-8?B?TFhmc3pRbERxR3dzUWYvbzJPM2hIekx6U2xkdnZEUVIzdmJOMWR2T1ZaMURB?=
+ =?utf-8?B?aDIxcHFTVmNwVWFBY2RQbWxsSVI3Ny9YY3dmaEtUNzdzdjBDQy9aN0dsenhs?=
+ =?utf-8?B?Wk5MT0lWK00xbzlMeWpGNW5rVEkvaGFaTGt3enBjbFl3SW4vNUtFZlBvQ2tL?=
+ =?utf-8?B?eVhVcGRaRUo5N3phekp5TUp4MFBLK1dyb2JxRVVZaGJRR1E5VG9EWGNiZk5n?=
+ =?utf-8?B?V3NMTG5JdHlkN2M3MVpzekM5eHBDSVFGOC9Cd1lFSUprYmxLREc2ditaNWd2?=
+ =?utf-8?B?Z2JGbmFhZnRlU016RDl4ZjJZS3poa2ZCazlnTXQwYStGRm80NFZSMjZtd01I?=
+ =?utf-8?B?cVNMSndSK1lEdWZmV0Ixc0NMR0tQV1hWbVJzYndqZzlLbGJuTUtDQ0htU2VY?=
+ =?utf-8?B?NUdBVEVjc0tPT2hVVC9rbU5mQzJwWUhJVTIveGFBRm9CRFkrbXQ1NFNYK3dq?=
+ =?utf-8?B?TFh6SGgrNitDVERNQjkveHNmZFpiaTFleGtNZ0ViSzI2WHg4bXFiS3lmd1JO?=
+ =?utf-8?B?WjJQMElTazdaOXIvWkJpcGlYK1ltRUtBN1J1NC9xVk01NTF3WU03dHRYdkRy?=
+ =?utf-8?B?OFpTUEdETVZLb245YkNLb0VtVlVtRmxwcGdxcnJmbUFlRWpLOFFsN29oNmFt?=
+ =?utf-8?B?ZlF6TFVPTmN1UWdaQlgzc2p1RmRERWlyazVGU0pWeEtmU3VqbVdOZ3lCWkY3?=
+ =?utf-8?B?UTBFM0xrcStqZnNEMU9xSEpSbGxmcFhLemcycGJmVDZWdCs4dXNmMGpnSUZQ?=
+ =?utf-8?B?K0Y2dlhrU01CV2ZMcSs0aTlQUjVxWW5aZ21Wd1hGbld0QTVrVVF5Zkh0YVZx?=
+ =?utf-8?B?QytHSjVVeXBLYlJvNFAvbkxScEd1YzVnNmNCZGV0L2dPNmpzY3R2cURJazRV?=
+ =?utf-8?B?VFJLbkw1Ry9DdFpFUysvVTZTM3dETWFyQTUxc3hQZ3FFK2xUSm9UcTUxTXJD?=
+ =?utf-8?B?YlpLOVpvVkEzb1lsRmFacHVzaFZzOUlMMmFvQVkxWTN5NXhPbHJ1ajQ2S01T?=
+ =?utf-8?B?VmRhRjBBS0pMYktFVHlLemdtazdNR3d3eElwYXdVd1dTS0N5SDljc0tzTzRj?=
+ =?utf-8?B?Q0QyN2pKL2pFNzVQOXhRY0VjYnJmRnhTWVRSbll6SW5ZZU5kQURDcE9aT29R?=
+ =?utf-8?B?SWFqMlROdjBuS0pQSVhlUHBtOWZCTFZIdWlhVnFXVjVRZTdvL3d5Q1FsdzZs?=
+ =?utf-8?B?QlgzUHM2eG5GRHR1cmd3ai9hRmVsZW1TYmhJcFBhNWpUTzBDRFJjV1RydzRB?=
+ =?utf-8?B?R0NiYXFNVEJXWERnek1YaTljb3BPcmRqK2lYaTFhelc4L1p3cHVmc24ydWdW?=
+ =?utf-8?B?WDFoTVVKTmFhY1d3U2t0R1V3bFhqQisrV0NyNURMTld5UDBuT0dRQT09?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <B05F64F98359964CA402D33E032A606E@apcprd03.prod.outlook.com>
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+X-Exchange-RoutingPolicyChecked: rqXs83zJp7ZOPqoSVe0M/u2JyuVTjRoIIr1Wf2uX9co8cKOOsmGSOTw+SvEzi6emyRtfIY25f3DJ7sZ/yVm179qjX8Uo5P7f7eJJnXJ4Kg5kM9p9G8chKZCnHWeRIJd5qq4nnsF8mul8sDLYjClTlM8UjabIQ3ZuwFGsLa7HPaJ7czNA01W5E6WEySJtE71jnmYLKEaev9uSaDW+GqajLGwer3ozCuexDm+zGVv5jfqaYD0YAs/jUmab+61ywN2c65lPJyFugIURMqKs1IQgNbxTsweub5VEcR/kyWYiuej63Zct7kXa3LlLN+x8mI4mYRLP+rD0h6c2m3jUDkjUOg==
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB6197.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2d57c370-8c94-4c23-1b53-08def9ad13b3
+X-MS-Exchange-CrossTenant-originalarrivaltime: 14 Aug 2026 02:38:08.7883
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: bAvTGo3B60y9QNk7ovpsRwyKcyjIhvHcmbUtcFGsmypKzCOQUK9HbZVZCGczEz+U/m6XbLk9eyFiDYhLn45Oow==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY1PPF4A10620CF
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_193047_126612_739B221D 
-X-CRM114-Status: GOOD (  21.25  )
+X-CRM114-CacheID: sfid-20260813_193820_770108_7F1FED9A 
+X-CRM114-Status: GOOD (  14.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,266 +212,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 13/08/26 15:24, Tarun Sahu wrote:
-> When device_register() fails, calling put_device() ensures that the
-> device reference count drops to 0, which invokes the release callback
-> ps3_system_bus_release_device() to cleanly free the device and its
-> associated driver core resources.
-
-Yes, since the PS3 device has a release function, put_device() should be
-used instead of manually freeing the memory, as described in 
-device_register().
-
-Changes look good to me. Feel free to add:
-Reviewed-by: Sourabh Jain <sourabhjain@linux.ibm.com>
-
->
-> Signed-off-by: Tarun Sahu <tarunsahu@google.com>
-> ---
->   arch/powerpc/platforms/ps3/device-init.c | 83 ++++++++++++++----------
->   arch/powerpc/platforms/ps3/system-bus.c  |  2 +
->   2 files changed, 52 insertions(+), 33 deletions(-)
->
-> diff --git a/arch/powerpc/platforms/ps3/device-init.c b/arch/powerpc/platforms/ps3/device-init.c
-> index 9109c218a060..8d0c77db1764 100644
-> --- a/arch/powerpc/platforms/ps3/device-init.c
-> +++ b/arch/powerpc/platforms/ps3/device-init.c
-> @@ -90,14 +90,12 @@ static int __init ps3_register_lpm_devices(void)
->   	if (result) {
->   		pr_debug("%s:%d ps3_system_bus_device_register failed\n",
->   			__func__, __LINE__);
-> -		goto fail_register;
-> +		return result;
->   	}
->   
->   	pr_debug(" <- %s:%d\n", __func__, __LINE__);
->   	return 0;
->   
-> -
-> -fail_register:
->   fail_rights:
->   fail_read_repo:
->   	kfree(dev);
-> @@ -121,6 +119,12 @@ static int __init ps3_setup_gelic_device(
->   		struct ps3_dma_region d_region;
->   	} *p;
->   
-> +	/*
-> +	 * ps3_system_bus_release_device() calls kfree(&p->dev).
-> +	 * dev must be at offset 0 so kfree() frees outer p.
-> +	 */
-> +	BUILD_BUG_ON(offsetof(struct layout, dev) != 0);
-> +
->   	pr_debug(" -> %s:%d\n", __func__, __LINE__);
->   
->   	BUG_ON(repo->bus_type != PS3_BUS_TYPE_SB);
-> @@ -164,13 +168,12 @@ static int __init ps3_setup_gelic_device(
->   	if (result) {
->   		pr_debug("%s:%d ps3_system_bus_device_register failed\n",
->   			__func__, __LINE__);
-> -		goto fail_device_register;
-> +		return result;
->   	}
->   
->   	pr_debug(" <- %s:%d\n", __func__, __LINE__);
->   	return result;
->   
-> -fail_device_register:
->   fail_dma_init:
->   fail_find_interrupt:
->   	kfree(p);
-> @@ -192,6 +195,12 @@ static int __init ps3_setup_uhc_device(
->   	u64 bus_addr;
->   	u64 len;
->   
-> +	/*
-> +	 * ps3_system_bus_release_device() calls kfree(&p->dev).
-> +	 * dev must be at offset 0 so kfree() frees outer p.
-> +	 */
-> +	BUILD_BUG_ON(offsetof(struct layout, dev) != 0);
-> +
->   	pr_debug(" -> %s:%d\n", __func__, __LINE__);
->   
->   	BUG_ON(repo->bus_type != PS3_BUS_TYPE_SB);
-> @@ -252,13 +261,12 @@ static int __init ps3_setup_uhc_device(
->   	if (result) {
->   		pr_debug("%s:%d ps3_system_bus_device_register failed\n",
->   			__func__, __LINE__);
-> -		goto fail_device_register;
-> +		return result;
->   	}
->   
->   	pr_debug(" <- %s:%d\n", __func__, __LINE__);
->   	return result;
->   
-> -fail_device_register:
->   fail_mmio_init:
->   fail_dma_init:
->   fail_find_reg:
-> @@ -291,6 +299,12 @@ static int __init ps3_setup_vuart_device(enum ps3_match_id match_id,
->   		struct ps3_system_bus_device dev;
->   	} *p;
->   
-> +	/*
-> +	 * ps3_system_bus_release_device() calls kfree(&p->dev).
-> +	 * dev must be at offset 0 so kfree() frees outer p.
-> +	 */
-> +	BUILD_BUG_ON(offsetof(struct layout, dev) != 0);
-> +
->   	pr_debug(" -> %s:%d: match_id %u, port %u\n", __func__, __LINE__,
->   		match_id, port_number);
->   
-> @@ -308,15 +322,10 @@ static int __init ps3_setup_vuart_device(enum ps3_match_id match_id,
->   	if (result) {
->   		pr_debug("%s:%d ps3_system_bus_device_register failed\n",
->   			__func__, __LINE__);
-> -		goto fail_device_register;
-> +		return result;
->   	}
->   	pr_debug(" <- %s:%d\n", __func__, __LINE__);
->   	return 0;
-> -
-> -fail_device_register:
-> -	kfree(p);
-> -	pr_debug(" <- %s:%d fail\n", __func__, __LINE__);
-> -	return result;
->   }
->   
->   static int ps3_setup_storage_dev(const struct ps3_repository_device *repo,
-> @@ -327,6 +336,12 @@ static int ps3_setup_storage_dev(const struct ps3_repository_device *repo,
->   	u64 port, blk_size, num_blocks;
->   	unsigned int num_regions, i;
->   
-> +	/*
-> +	 * ps3_system_bus_release_device() calls kfree(&p->sbd).
-> +	 * sbd must be at offset 0 so kfree() frees outer p.
-> +	 */
-> +	BUILD_BUG_ON(offsetof(struct ps3_storage_device, sbd) != 0);
-> +
->   	pr_debug(" -> %s:%u: match_id %u\n", __func__, __LINE__, match_id);
->   
->   	result = ps3_repository_read_stor_dev_info(repo->bus_index,
-> @@ -395,13 +410,12 @@ static int ps3_setup_storage_dev(const struct ps3_repository_device *repo,
->   	if (result) {
->   		pr_debug("%s:%u ps3_system_bus_device_register failed\n",
->   			 __func__, __LINE__);
-> -		goto fail_device_register;
-> +		return result;
->   	}
->   
->   	pr_debug(" <- %s:%u\n", __func__, __LINE__);
->   	return 0;
->   
-> -fail_device_register:
->   fail_read_region:
->   fail_find_interrupt:
->   	kfree(p);
-> @@ -445,6 +459,12 @@ static int __init ps3_register_sound_devices(void)
->   		struct ps3_mmio_region m_region;
->   	} *p;
->   
-> +	/*
-> +	 * ps3_system_bus_release_device() calls kfree(&p->dev).
-> +	 * dev must be at offset 0 so kfree() frees outer p.
-> +	 */
-> +	BUILD_BUG_ON(offsetof(struct layout, dev) != 0);
-> +
->   	pr_debug(" -> %s:%d\n", __func__, __LINE__);
->   
->   	p = kzalloc_obj(*p);
-> @@ -461,15 +481,10 @@ static int __init ps3_register_sound_devices(void)
->   	if (result) {
->   		pr_debug("%s:%d ps3_system_bus_device_register failed\n",
->   			__func__, __LINE__);
-> -		goto fail_device_register;
-> +		return result;
->   	}
->   	pr_debug(" <- %s:%d\n", __func__, __LINE__);
->   	return 0;
-> -
-> -fail_device_register:
-> -	kfree(p);
-> -	pr_debug(" <- %s:%d failed\n", __func__, __LINE__);
-> -	return result;
->   }
->   
->   static int __init ps3_register_graphics_devices(void)
-> @@ -479,6 +494,12 @@ static int __init ps3_register_graphics_devices(void)
->   		struct ps3_system_bus_device dev;
->   	} *p;
->   
-> +	/*
-> +	 * ps3_system_bus_release_device() calls kfree(&p->dev).
-> +	 * dev must be at offset 0 so kfree() frees outer p.
-> +	 */
-> +	BUILD_BUG_ON(offsetof(struct layout, dev) != 0);
-> +
->   	pr_debug(" -> %s:%d\n", __func__, __LINE__);
->   
->   	p = kzalloc_obj(struct layout);
-> @@ -495,16 +516,11 @@ static int __init ps3_register_graphics_devices(void)
->   	if (result) {
->   		pr_debug("%s:%d ps3_system_bus_device_register failed\n",
->   			__func__, __LINE__);
-> -		goto fail_device_register;
-> +		return result;
->   	}
->   
->   	pr_debug(" <- %s:%d\n", __func__, __LINE__);
->   	return 0;
-> -
-> -fail_device_register:
-> -	kfree(p);
-> -	pr_debug(" <- %s:%d failed\n", __func__, __LINE__);
-> -	return result;
->   }
->   
->   static int __init ps3_register_ramdisk_device(void)
-> @@ -514,6 +530,12 @@ static int __init ps3_register_ramdisk_device(void)
->   		struct ps3_system_bus_device dev;
->   	} *p;
->   
-> +	/*
-> +	 * ps3_system_bus_release_device() calls kfree(&p->dev).
-> +	 * dev must be at offset 0 so kfree() frees outer p.
-> +	 */
-> +	BUILD_BUG_ON(offsetof(struct layout, dev) != 0);
-> +
->   	pr_debug(" -> %s:%d\n", __func__, __LINE__);
->   
->   	p = kzalloc_obj(struct layout);
-> @@ -530,16 +552,11 @@ static int __init ps3_register_ramdisk_device(void)
->   	if (result) {
->   		pr_debug("%s:%d ps3_system_bus_device_register failed\n",
->   			__func__, __LINE__);
-> -		goto fail_device_register;
-> +		return result;
->   	}
->   
->   	pr_debug(" <- %s:%d\n", __func__, __LINE__);
->   	return 0;
-> -
-> -fail_device_register:
-> -	kfree(p);
-> -	pr_debug(" <- %s:%d failed\n", __func__, __LINE__);
-> -	return result;
->   }
->   
->   /**
-> diff --git a/arch/powerpc/platforms/ps3/system-bus.c b/arch/powerpc/platforms/ps3/system-bus.c
-> index 0537a678a32f..0918c74d3e19 100644
-> --- a/arch/powerpc/platforms/ps3/system-bus.c
-> +++ b/arch/powerpc/platforms/ps3/system-bus.c
-> @@ -774,6 +774,8 @@ int ps3_system_bus_device_register(struct ps3_system_bus_device *dev)
->   	pr_debug("%s:%d add %s\n", __func__, __LINE__, dev_name(&dev->core));
->   
->   	result = device_register(&dev->core);
-> +	if (result)
-> +		put_device(&dev->core);
->   	return result;
->   }
->   
-
+T24gVHVlLCAyMDI2LTA4LTExIGF0IDE2OjIyIC0wNDAwLCBOaWNvbGFzIER1ZnJlc25lIHdyb3Rl
+Og0KPiBIaSBLeXJpZSwNCj4gDQo+IExlIGx1bmRpIDEwIGFvw7t0IDIwMjYgw6AgMDM6MDUgKzAw
+MDAsIEt5cmllIFd1ICjlkLTmmZcpIGEgw6ljcml0wqA6DQo+ID4gSSBhZ3JlZS4gU2luY2UgdGhl
+IHBsYXRmb3JtIGRhdGEgaXMgaW50cm9kdWNlZCBpbiB0aGUgTVQ4MTg5IHBhdGNoDQo+ID4gc2Vy
+aWVzLCBJIHdpbGwgbW92ZSBmd190eXBlIHRvIHRoZSBwbGF0Zm9ybSBkYXRhIGFuZCBtYWtlDQo+
+ID4gbXRrX3Zjb2RlY19kZWNfZ2V0X2NoaXBfbmFtZSgpIGRlcml2ZSB0aGUgY2hpcCBpZGVudGlm
+aWVyIGZyb20gaXQNCj4gPiBpbg0KPiA+IHRoZSBNVDgxODkgc2VyaWVzLg0KPiANCj4gSSdtIG5v
+dCBzdXJlIEkgaGF2ZSBjYXB0dXJlZCB0aGUgcGxhbiBjb3JyZWN0bHkuIFdvdWxkIHlvdSBtaW5k
+DQo+IGNsYXJpZnlpbmcgPw0KPiANCj4gTmljb2xhcw0KDQpIaSBOaWNvbGFzLA0KDQpTb3JyeSwg
+bXkgcHJldmlvdXMgcmVwbHkgd2FzIHVuY2xlYXIuDQoNClRoZSBwbGF0Zm9ybS1kYXRhIHJlZmFj
+dG9yaW5nIHdpbGwgYmUgaW5jbHVkZWQgaW4gdGhlIG5leHQgcmV2aXNpb24gb2YNCnRoZSBNVDgx
+ODkgc2VyaWVzLiBUaGF0IHNlcmllcyBkZXBlbmRzIG9uIHRoZSB1cGRhdGVkIE1UODE5NiBlbmNv
+ZGVyDQpzZXJpZXMsIHNvIEkgbmVlZCB0byB3YWl0IGZvciB0aGUgbmV3IE1UODE5NiBlbmNvZGVy
+IHJldmlzaW9uIHRvIGJlDQpwb3N0ZWQgYmVmb3JlIEkgY2FuIHJlYmFzZSBhbmQgc2VuZCB0aGUg
+dXBkYXRlZCBNVDgxODkgc2VyaWVzLg0KDQpJbiB0aGUgdXBkYXRlZCBNVDgxODkgc2VyaWVzLCBg
+ZndfdHlwZWAgYW5kIHRoZSBjaGlwIGlkZW50aWZpZXIgd2lsbCBiZQ0Kc2V0IGluIHRoZSBwbGF0
+Zm9ybSBkYXRhIGZvciBlYWNoIGNvbXBhdGlibGUsIHJhdGhlciB0aGFuIGJlaW5nIGRlcml2ZWQN
+CmJ5IHByb2JpbmcgRFQgcHJvcGVydGllcy4gQ29uc2VxdWVudGx5LCB0aGUgRFQtcHJvcGVydHkt
+YmFzZWQgc2VsZWN0aW9uDQpzaG93biBpbiB0aGlzIHBhdGNoIHdpbGwgYmUgcmVtb3ZlZC4NCg0K
+SSB3aWxsIG1ha2UgdGhpcyBkZXBlbmRlbmN5IGV4cGxpY2l0IGluIHRoZSBjb3ZlciBsZXR0ZXIu
+IFNvcnJ5IGFnYWluDQpmb3Igbm90IGV4cGxhaW5pbmcgdGhlIHBsYW4gY2xlYXJseS4NCg0KQmVz
+dCByZWdhcmRzLA0KS3lyaWUNCg==
 
