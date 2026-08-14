@@ -4,82 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E48F7C5DF69
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 04:57:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4118CC5DF6A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 04:57:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FD95NEgSPfRUx4uogB4xp9929ZyFC+gQ+3iUJOuVITY=; b=pmXeLoEtWJULJyiis+Ucct/cKP
-	AHeEhezdT+eGE3MvzK3LqG2WmQ/fKPdaNKroI/nNVdlkQRn0NsrZyJ3QbAFMw6tsDmOP1yPmH5lwF
-	Vhg3n3Y5vhm9U7TkEAvVaMKRIRwZCvpmhMVwpTmyCLbHx5aF1ejV08QXxy+Y4VSaGKdCE2XecRHqm
-	Az6FYvhyY7vIqvCDDSlxMN5VQG/5voST4bY+Jwnz6g3WUV4a23MNh2RyoQM5wOpFjkSBQDyDs2mae
-	KAg1NfFUpjSZe3BvRp36tmoC+Jpi133bzRIQpS+bS8k/bj8KYrbNiEd/pq2LP/6HMdKT5ZdST3yfW
-	Qi2sDAEQ==;
+	bh=jvm1Wke/S0GmURkJ31/52raMZhorVEqB9/iGa0DqSA4=; b=u/vUsUTMq+y6THmGAHh3T4JyrI
+	EkTTG7mP+TuhiBLyfn1kFl6EtEENus2kyZ3NLpZ7HDhW+SIYSsJszenXtFocFhglbccf24NmsCdXl
+	URL/l2mPNS1WSYm7oboooDLN9tYW6pgu9rk4YEhluFCq951z+6iXa+eQATer/QhXJ4I/XzAILt0FW
+	gBTmLLqDqS6y4BtzYLCKd2Q1+gCWxdb1D8JpFqnkNjGau28p65cp+g+RcWGVNSgTUZrsbSZieJB8K
+	Ln0IdBmrOVL8qspQoHuo5Y8u9QZr4oDEycioLr18cdU/IW6/fcrhx5v83PKX77fW2UypXLXQuo/nY
+	gGOpNyCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wujyL-00000001wwc-2Vzo;
+	id 1wujyL-00000001wx8-3Mg6;
 	Fri, 14 Aug 2026 04:56:49 +0000
-Received: from mail-southcentralusazlp170130001.outbound.protection.outlook.com ([2a01:111:f403:c10c::1] helo=SA9PR02CU001.outbound.protection.outlook.com)
+Received: from mail-centralusazon11010066.outbound.protection.outlook.com ([52.101.61.66] helo=DM1PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wujyE-00000001wuE-1yAi
+	id 1wujyE-00000001wuF-2P0q
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Aug 2026 04:56:46 +0000
+	Fri, 14 Aug 2026 04:56:48 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=t+nyb/9So5PfxWCVYN79I2xgTPU9tAh9oJwYvxQn/96OSGu6DCq1ZdpfunhB/ttqJKy0ethRbs3L+I2YO2IWjOswZpO8df7h+lepOAlBEMKYy8I3ykJepn9X/iJfUlaFlRVE6xVh5H0OYWkjUojH26/6Kuec9aGUcenixFVqAT7mQugEFi69+jNyuAhne0Wf6ClFQVoDag2CPQDRvTcvUQ34N1d9wECZ+RsNud2AT61YdUyESqDejG5yVU9Zhq+JBZi1qC+v/Od6d9OTRhPudOH9mTZ7e/n7SexBwNi0TASMkkqRxerkdYopQok6tA3kYo+NHrEYcE/r5FcbROXi5A==
+ b=kwfZM3xCKy6DgCxDOgNf63yeuU9ihjc4RZrdTNu6E/fANvDos9YxWV9Hvd1TVauu40WvD3ur223aLVGbb8khSaGLaqH94wZqeotVJ8OTdGZ+F9wtEXpY+7ZNyUCLwGvehOVZKnvaqM7JgR+z8ZiiHxig+q74Fg0tB1o0Cbcl8ioz5v2b7jfZJttueMzaf4CvI+sYBff8G9RejznYOSIXwzwxicFXD44Xv/z7fDy13/P7CKFouAM+0ihvy9qRtL+0b2ZaZrLEu++zIdB7kl96wDte8VsYNS5x11DkuJxcAKCPnCV2XE1KVKJcpkP+EKixyyAx3T6tJSEejlgSavW/sA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=FD95NEgSPfRUx4uogB4xp9929ZyFC+gQ+3iUJOuVITY=;
- b=PcUNf554Dkv1M2lZ+x+FrFQ4XMGPSE1snfa6v/whl4lS6uy+fYPJ6sjRe0wZa6eKlWUSOpRpAyuhDy9e78JOKrRr/vzvQKH05TCWQ1A6s2hXNTz8GouoGXCxaWKf/iIT6XfIDibVJNzSVhtQSBr9H21GDnb39FW4qzj59qxOfjlNtJfzBFbnbyS7/hx0KjF2MfX7t3u+RHPMTtw0wXh3Mi8PAlx5Ph7l2fps7a/dOkDrLNDmBJbFa34kMOHmWZn4F+oPWru8wTzy/Ap06+pgLt9xNHEKIqWVpzjjmeId2Wb5mToj6Zedg0ovGe11GQin/euOgX1w/HOH1g0HEo94zA==
+ bh=jvm1Wke/S0GmURkJ31/52raMZhorVEqB9/iGa0DqSA4=;
+ b=W3BnHcTvj7SHWUrtGdr0Iz9zN0gbYNGE9Nqj8lALkB93E5wmZZLFFTGxTVgR6StQwnBmtHiPiLKgvJbCgYdvr/+tEes8XOSS8wXe+VWoFcKYKQnNQpco5X5xYuJpMrGy/MPjMh42R+5pyQ29ipybEIAAIDCrTC3oGcNYfvklJi/WpTrCNs6HXFwODCX+NqEtpW01XOyPXPfm3btjrTN5ytoeCM0zL8tBMf9kPUYmanYS7K2Jwyq6OLqhbhAkDwEGGZ4AFVE2ALWxwzcsgNSOJYsTBz84gE/sxxRLYVCo1YHA/5vv07vk+80o0k0im6ZtgUUNOA473OQNJRLKRylIeA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
  (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=FD95NEgSPfRUx4uogB4xp9929ZyFC+gQ+3iUJOuVITY=;
- b=4BqSdTQQlOR3iIY7LUz2Kfu3iPdTLWEeVj0gutmdQFQrjNZYqEbwgSZ/wOZL8yY2Maw7Ef+7EJvAXKLP73MZ7xhvd481Sg9VQhvgSU3+g6OAefAoZga7iYek/81qeAaFeMPEXG5Uddbpa5EMtr0ht802oHCn4RZyQW4I3trj1Cs=
-Received: from BN0PR08CA0012.namprd08.prod.outlook.com (2603:10b6:408:142::34)
- by MW4PR12MB7031.namprd12.prod.outlook.com (2603:10b6:303:1ef::6) with
+ bh=jvm1Wke/S0GmURkJ31/52raMZhorVEqB9/iGa0DqSA4=;
+ b=m6mHrvjPVc6LzbCR8oIej/1ElFVE4/aBIoUKvBIwFSQ67neiC0TJsjPMWpyVDrZykmDz2Nw7mCVhWYgoFNFmTJssx0TxB5gIh/aoVHeHrLpeJZbfm+hvpRad4YqXzGVig7gns2dL+JEDi0j2ogqs3wLwrhvcD44pPQ/dpDJwNsQ=
+Received: from CH3P220CA0012.NAMP220.PROD.OUTLOOK.COM (2603:10b6:610:1e8::32)
+ by LV3PR12MB9165.namprd12.prod.outlook.com (2603:10b6:408:19f::10) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.11; Fri, 14 Aug
- 2026 04:56:35 +0000
-Received: from BN2PEPF000044A0.namprd02.prod.outlook.com
- (2603:10b6:408:142:cafe::19) by BN0PR08CA0012.outlook.office365.com
- (2603:10b6:408:142::34) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.315.15 via Frontend Transport; Fri,
- 14 Aug 2026 04:56:34 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.16; Fri, 14 Aug
+ 2026 04:56:36 +0000
+Received: from CH3PEPF00000012.namprd21.prod.outlook.com
+ (2603:10b6:610:1e8:cafe::67) by CH3P220CA0012.outlook.office365.com
+ (2603:10b6:610:1e8::32) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.315.16 via Frontend Transport; Fri,
+ 14 Aug 2026 04:56:36 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
  smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
 Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
  165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- BN2PEPF000044A0.mail.protection.outlook.com (10.167.243.151) with Microsoft
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ CH3PEPF00000012.mail.protection.outlook.com (10.167.244.117) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.339.3 via Frontend Transport; Fri, 14 Aug 2026 04:56:34 +0000
-Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ 15.21.339.0 via Frontend Transport; Fri, 14 Aug 2026 04:56:36 +0000
+Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 13 Aug
- 2026 23:56:33 -0500
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb10.amd.com
- (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 23:56:36 -0500
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb09.amd.com
+ (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 13 Aug
- 2026 23:56:32 -0500
+ 2026 23:56:35 -0500
 Received: from xhdappanad40.xilinx.com (10.180.168.240) by satlexmb08.amd.com
  (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.45 via Frontend
- Transport; Thu, 13 Aug 2026 23:56:30 -0500
+ Transport; Thu, 13 Aug 2026 23:56:32 -0500
 From: Golla Nagendra <nagendra.golla@amd.com>
 To: <vkoul@kernel.org>, <Frank.Li@kernel.org>, <michal.simek@amd.com>
 CC: <dmaengine@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>, <git@amd.com>, <nagendra.golla@amd.com>
-Subject: [PATCH V2 3/8] dmaengine: zynqmp_dma: Fix chan probe/remove error handling
-Date: Fri, 14 Aug 2026 10:26:11 +0530
-Message-ID: <20260814045616.1661199-4-nagendra.golla@amd.com>
+Subject: [PATCH V2 4/8] dmaengine: zynqmp_dma: Fix stale kerneldoc comments
+Date: Fri, 14 Aug 2026 10:26:12 +0530
+Message-ID: <20260814045616.1661199-5-nagendra.golla@amd.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260814045616.1661199-1-nagendra.golla@amd.com>
 References: <20260814045616.1661199-1-nagendra.golla@amd.com>
@@ -88,28 +88,28 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN2PEPF000044A0:EE_|MW4PR12MB7031:EE_
-X-MS-Office365-Filtering-Correlation-Id: d9839df1-9569-4aa1-4456-08def9c06a5c
+X-MS-TrafficTypeDiagnostic: CH3PEPF00000012:EE_|LV3PR12MB9165:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9e0213ab-490c-4f21-adf0-08def9c06b74
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|23010399003|36860700016|376014|6133799003|56012099006|10067099003|11063799006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: gzS3flSh6v2sWaP/60kzPgNGYoBdWE3XV2ekMUgFpxZpuwGMQ/ohlkt7vA6xU6nN9YGQa9RBbE1WPG376juD+EFfYFMUgcgDH3Pp4A0Qgrs9XKIpea/AiK3ppJ2yoCcSKqyGInVwdTRFp9at+01mojXvo0MFE0SHdyrx+oV0FaCZbQbJj5/T50uyLVGxm1SyYZ6BNdLTyOPviyqhQpU/fiKCK31ZZ2OPjMbNVRPNaj5hyY8PdgntamETUaXlUz9MiWhLRReVSnLC6BLDzFoz6Fae7dyGbBSu3hgqwh7tyfBFSQOUeJi+HU6/mLkHXNCSYosjX4Enq65LkfQET0s1ZyYgNcNNrbM7i3NgzhHVnDzTfL/sLi6SrA2tbovfhX3RIkec0ZDR/5qu9xaR9XGIkXPLkM0FvT8wFXru5jz7mTytQbncfdT2/c5AFGWxjfVRSBkVaMNXPQZ45W/B4LB9vdqzw5TrkrcthZ0fCl5HoMod2VEJDQCWjP2ppqP+eqR1FdybVuKL1PkQvXXaJqK/7aydnajj8grHXHHCTFGDilPndcBmH/EwdU1s7pccjiydU3AJlqcoPNi2XfAvBqyonMyl1DednyKI8WDpDbPHXf3hpmm48FsYErOVsH7M528jUtjK1/dp7PQ4XZVhTNSdKsixbTBnkiP6ebjHIIE2omMLZNNJzMIWfFvQLsupBsuh6bEajc8iToSkE8bxKHLVdg==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(23010399003)(36860700016)(376014)(6133799003)(56012099006)(10067099003)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|23010399003|376014|36860700016|22082099003|18002099003|56012099006|5023799004|11063799006|10067099003;
+X-Microsoft-Antispam-Message-Info: S6A8/RjudkN+Wjzp43XglBpDQVTfeooCtoq0FzJfUtnQCkz4Xfb4UgxEajsPnnl2yoM5tnvT8zGa0DVDQ5/ITXefXfOA8Jj2p2NB6l9B/tEtn2VRKgrVLBquApMYjAIH3ewgm/a4vgjM/NkKgx1KmykYwarZaqa3z2gog2ZZLpya72ctIegH3hUfvgYUBk+fQvUPws5wsSmjht8KtBlwNWDK4asPTp7jkJ2VWcoeBX/u4+crE5HrZiuC2G9c4qtbsxMtcq6oRhuIFGXolSETMQTJ1z0xs2lpe0SQvmtM93Jqn9KZLFOa+uxWMkLXEHHdvzuM93SADxiyKd0dPA74g/WhUXAwDOuqnY8oQ0CPf2HZoaiAAIj10JYPxxdgNjLQ78ruen3VG5sFk+4DOfwmMV9Bhhq8tjunuLxk8Z0H83HZvAW8ANhOmd/+pt9ZQAf2cPD3PWc8TcX+DmEnHDC/PhVps/ANRimFPRy9C3FpqPMuCGRg4CVRtoVt6wWIxfiraE/CWfzt8vyfH63xht7Aqq6CaAo7OmCtuFK4vgxxDsH1OKY7/K2xr2otpDCddhdWwvm8OKwlOCpVdP4Lh+n6bEDcq2RnuepvtN+SJuPzZar00Kq4elQz0x84r3YKRmfhf34tWUZ47tgHGLhzxIGT5hFq9GUM50XxcnO8IY5yuaxuIav7pHpZwiYZcwJJBpEkpImys6s2BD18GRjfnlrOCw==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(23010399003)(376014)(36860700016)(22082099003)(18002099003)(56012099006)(5023799004)(11063799006)(10067099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: s7aAN05sJ6u5vew//Ye1uqW+Bv9H80cGi3VWXebBRrqOANO/oC5gAx5Xff174uKQgJ4JEkmrASsbm3+pJLQhMPcbVfPEop/Y1hghXtiZVvi0Lnx+whQ2/L1ugbJjq5rhRMU+9jMD00JC5wWWg4tbHHOIIYlZCbH6kaNDd6vINBL6GFPDmHiGRyoe0BJjHwJ9er6P6vaeJ3kYCTAz3quTDTVbiiJg9y3M5qPePlYwCR/VAuLYeDnLFPtY/pdbQdsxKwPIVaF5MIzOe914U80J2Ibb8yfyZY3d/5EyWuvETN1ZiDztL0hjM8FJ4mVanL4OA+mWzIZhSeUTUjJRpp2VL3zZJYVq5C21WRVT9yyVanHYjk6//EOCKjOZePE98AL7pfWV2Seili6/+FdfrWv2LJyk5GlGAJ7423H7lH1GqyWBOm3rZHDLMsk2eAWqMSNU
+X-MS-Exchange-AntiSpam-MessageData-0: Rql0xvFaOn4R3rIlpkzqkmE4g2+re6X9VtAd/49E8rzbIDHRP9pjp3uIprjOVs84FxGwrpmsT4XHmm16d04SSd8Emi8IYi5lUyGKg08DMNSzCPHdUPvrkePQAtZUzkVF1ieHL6/yAUrkonLFg0bd4bz58QV1b/bO3hCCWnYMUX05ewpSGEX2ysg6ancswtLsvzHc0m8kIDHEDTx3PsRWLD2X47Do7Z78mrPzzd9eQQIT8xZ3vQq7KUkCNdMfTdMHICqwoKJ25ftECLKAbntJpcSkm20RLk9Rkw57azUGUx8Kw6Hpywe21KrY7qhpGSei2zh415M+nXrjQVNFx56qkv0ZLiUPlA2c1ZAbr/8SNR+ws7T26TOqQWfB1274f9KKjInZTz34WF4sNx39jSFbK7HIM0udEs1VqNLNPLR3OHHZq+QcIVtH4oIcIeurODJy
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Aug 2026 04:56:34.6232
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Aug 2026 04:56:36.4475
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: d9839df1-9569-4aa1-4456-08def9c06a5c
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9e0213ab-490c-4f21-adf0-08def9c06b74
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF000044A0.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH3PEPF00000012.namprd21.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB7031
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR12MB9165
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_215645_520811_AD1D8A81 
-X-CRM114-Status: GOOD (  17.23  )
+X-CRM114-CacheID: sfid-20260813_215645_524773_DE5A9645 
+X-CRM114-Status: GOOD (  13.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,113 +124,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Keep the real platform_get_irq() error by returning ret directly, stage
-IRQ setup via a local ret variable, and assign chan->irq only after
-devm_request_irq() succeeds.
+Correct kerneldoc comments that no longer matched the code.
 
-Initialize chan->irq to -1 and initialize chan->common.device_node
-before it may be touched by teardown. In channel remove, free IRQ only
-for valid IRQ numbers and delete the channel node only when it is linked.
-
-Register the channel node only after successful IRQ setup. On channel
-probe failure in zynqmp_dma_probe(), route cleanup through the existing
-free_chan_resources teardown path.
-
-Fixes: b0cc417c1637 ("dmaengine: Add Xilinx zynqmp dma engine driver support")
 Signed-off-by: Golla Nagendra <nagendra.golla@amd.com>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 ---
-changes in v2:
-- Reworked probe failure cleanup to use the existing free_chan_resources teardown path instead of adding direct tasklet kill in the outer probe failure block
-- Kept IRQ/list initialization and channel registration ordering fixes in this patch
+Changes in V2:
+- No Change
 ---
- drivers/dma/xilinx/zynqmp_dma.c | 28 +++++++++++++++++-----------
- 1 file changed, 17 insertions(+), 11 deletions(-)
+ drivers/dma/xilinx/zynqmp_dma.c | 13 ++++++-------
+ 1 file changed, 6 insertions(+), 7 deletions(-)
 
 diff --git a/drivers/dma/xilinx/zynqmp_dma.c b/drivers/dma/xilinx/zynqmp_dma.c
-index b7c561280694..22b517c57003 100644
+index 22b517c57003..a2fbefbb43b6 100644
 --- a/drivers/dma/xilinx/zynqmp_dma.c
 +++ b/drivers/dma/xilinx/zynqmp_dma.c
-@@ -205,7 +205,7 @@ struct zynqmp_dma_desc_sw {
-  * @desc_pool_p: Physical allocated descriptor base
-  * @desc_free_cnt: Descriptor available count
-  * @dev: The dma device
-- * @irq: Channel IRQ
-+ * @irq: Linux IRQ number, or -1 when not registered
+@@ -208,7 +208,7 @@ struct zynqmp_dma_desc_sw {
+  * @irq: Linux IRQ number, or -1 when not registered
   * @is_dmacoherent: Tells whether dma operations are coherent or not
   * @tasklet: Cleanup work after irq
-  * @idle : Channel status;
-@@ -896,10 +896,11 @@ static void zynqmp_dma_chan_remove(struct zynqmp_dma_chan *chan)
- 	if (!chan)
- 		return;
- 
--	if (chan->irq)
-+	if (chan->irq >= 0)
- 		devm_free_irq(chan->zdev->dev, chan->irq, chan);
- 	tasklet_kill(&chan->tasklet);
--	list_del(&chan->common.device_node);
-+	if (!list_empty(&chan->common.device_node))
-+		list_del(&chan->common.device_node);
+- * @idle : Channel status;
++ * @idle: Channel status
+  * @desc_size: Size of the low level descriptor
+  * @err: Channel has errors
+  * @bus_width: Bus width
+@@ -435,7 +435,7 @@ zynqmp_dma_get_descriptor(struct zynqmp_dma_chan *chan)
  }
  
  /**
-@@ -915,13 +916,14 @@ static int zynqmp_dma_chan_probe(struct zynqmp_dma_device *zdev,
- 	struct zynqmp_dma_chan *chan;
- 	struct device_node *node = pdev->dev.of_node;
- 	const struct zynqmp_dma_config *match_data;
--	int err;
-+	int err, ret;
- 
- 	chan = devm_kzalloc(zdev->dev, sizeof(*chan), GFP_KERNEL);
- 	if (!chan)
- 		return -ENOMEM;
- 	chan->dev = zdev->dev;
- 	chan->zdev = zdev;
-+	chan->irq = -1;
- 
- 	chan->regs = devm_platform_ioremap_resource(pdev, 0);
- 	if (IS_ERR(chan->regs))
-@@ -954,22 +956,26 @@ static int zynqmp_dma_chan_probe(struct zynqmp_dma_device *zdev,
- 	INIT_LIST_HEAD(&chan->pending_list);
- 	INIT_LIST_HEAD(&chan->done_list);
- 	INIT_LIST_HEAD(&chan->free_list);
-+	INIT_LIST_HEAD(&chan->common.device_node);
- 
- 	dma_cookie_init(&chan->common);
- 	chan->common.device = &zdev->common;
--	list_add_tail(&chan->common.device_node, &zdev->common.channels);
--
- 	zynqmp_dma_init(chan);
--	chan->irq = platform_get_irq(pdev, 0);
--	if (chan->irq < 0)
--		return -ENXIO;
--	err = devm_request_irq(&pdev->dev, chan->irq, zynqmp_dma_irq_handler, 0,
-+	ret = platform_get_irq(pdev, 0);
-+	if (ret < 0)
-+		return ret;
-+
-+	err = devm_request_irq(&pdev->dev, ret, zynqmp_dma_irq_handler, 0,
- 			       "zynqmp-dma", chan);
- 	if (err)
- 		return err;
- 
-+	chan->irq = ret;
-+
- 	chan->desc_size = sizeof(struct zynqmp_dma_desc_ll);
- 	chan->idle = true;
-+	list_add_tail(&chan->common.device_node, &zdev->common.channels);
-+
- 	return 0;
+- * zynqmp_dma_free_descriptor - Issue pending transactions
++ * zynqmp_dma_free_descriptor - Return a descriptor to the free pool
+  * @chan: ZynqMP DMA channel pointer
+  * @sdesc: Transaction descriptor pointer
+  */
+@@ -617,7 +617,6 @@ static void zynqmp_dma_start_transfer(struct zynqmp_dma_chan *chan)
+ 	zynqmp_dma_start(chan);
  }
  
-@@ -1134,7 +1140,7 @@ static int zynqmp_dma_probe(struct platform_device *pdev)
- 	ret = zynqmp_dma_chan_probe(zdev, pdev);
- 	if (ret) {
- 		dev_err_probe(&pdev->dev, ret, "Probing channel failed\n");
--		goto err_disable_pm;
-+		goto free_chan_resources;
- 	}
+-
+ /**
+  * zynqmp_dma_chan_desc_cleanup - Cleanup the completed descriptors
+  * @chan: ZynqMP DMA channel
+@@ -908,7 +907,7 @@ static void zynqmp_dma_chan_remove(struct zynqmp_dma_chan *chan)
+  * @zdev: Driver specific device structure
+  * @pdev: Pointer to the platform_device structure
+  *
+- * Return: '0' on success and failure value on error
++ * Return: 0 on success and negative error code on failure
+  */
+ static int zynqmp_dma_chan_probe(struct zynqmp_dma_device *zdev,
+ 			   struct platform_device *pdev)
+@@ -1042,11 +1041,11 @@ static int __maybe_unused zynqmp_dma_runtime_suspend(struct device *dev)
+ }
  
- 	p->dst_addr_widths = BIT(zdev->chan->bus_width / 8);
+ /**
+- * zynqmp_dma_runtime_resume - Runtime suspend method for the driver
++ * zynqmp_dma_runtime_resume - Runtime resume method for the driver
+  * @dev:	Address of the device structure
+  *
+- * Put the driver into low power mode.
+- * Return: 0 always
++ * Enable device clocks.
++ * Return: 0 on success and failure value on error
+  */
+ static int __maybe_unused zynqmp_dma_runtime_resume(struct device *dev)
+ {
 -- 
 2.44.4
 
