@@ -4,66 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4892C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 08:48:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8E90C5CFC1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 08:51:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uGQwL5UZJipKTW+qGKPo+sHQSdOsrhX2bDvlMA/o8tk=; b=cBrEqvaDHjrWzxGSnH+eWqXO5k
-	A1urzMzbliqvxgMh60ngJmrR2FE5kQwM3G03s8dulkph001cLGheNGWvUOsU+q/bFjBW46rxiw89T
-	IANU/bNselKt3/rPKLOr9VMPzv3gFKcb93Un0g3kHcEfJdbMXkWJN900jkgHn5nLH0s+nyhQ5Dlqs
-	t68B+iCRMFqzU6VNPM1UMO+tiKHE5XUcs0hyiIMjEziNnmVzKEKDidZ+56ZexyeEBWGbriF5g1ThY
-	wZeZCy3Oe1qkUhOEpvU7akZ1hSnZWYKBBSR/EOPIolgK2sx1WyZL9mnGIsTA5SepVIdYK2GzY+OdH
-	BmIJN+OA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=GVRImTDaZs6cs5rh3bC1e77VibQeuPdYT8n/nwR/meA=; b=d615n0LmagZEqH
+	pXHBm6Txsrt8XLcCYbRlL4UX31/1VVzpG3WUh+pxjBphoa3mQLrsREt0Ij/mH+rH7Nov6x7VLgaRm
+	J7BCKLz15ho5t9OYV5tB5vn+gtMNrioKtnFLjjbyM9fcbGqNwyu8S9ick+Z0qkT0TxoHS6XfD9nHy
+	k4mPUL9V0qVWaxyj+xcZJXno+oNnB8qP1PvRnSMtLW9Ryrsp8uYok0HoyVVekkoZ/z0RuTljam8D3
+	Xbutuv5mKC0h17UA9fgem+Stwg0FQAUNsoFo56KE4hMHQ47vk9ZKCHF/dVbhw0KePms24Iqfdkthm
+	JQEFFEsBh0v32tl3COzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wunaq-00000002Jiv-2CRQ;
-	Fri, 14 Aug 2026 08:48:48 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wundR-00000002JzD-3drZ;
+	Fri, 14 Aug 2026 08:51:30 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wunap-00000002Jij-34sf
+	id 1wundO-00000002Jxz-0zQu
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Aug 2026 08:48:47 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D448F600AD;
-	Fri, 14 Aug 2026 08:48:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A11C21F000E9;
-	Fri, 14 Aug 2026 08:48:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786697326;
-	bh=uGQwL5UZJipKTW+qGKPo+sHQSdOsrhX2bDvlMA/o8tk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=bGUhbdfvvAyZ041IRQFT3yaniWAfDI6dXKx46SzgRufqkn0S6nPYrFxuivv+st59Z
-	 GTaziv7CJYxzm91Hna08972IcnR1hf5Kr6yF/KfslD3Ze3LEc77GQC2OJSk5hp8VM2
-	 KLlr+9DDUHDSGmAtrDYic7l2itUh+mio8Tw1SSzHJxIsIKi9w3EnLlr4lZ9V9u6+y/
-	 4TyP8rYO8EybgfqPlubbVMf+8rAR7HO9uRKU57g5HJPYIYI1ekq0F1Uwo4m1EnjzsW
-	 /nMCBP/AOnj2T/C6d1IkiT28NVTMCQoCl4Q2gqSpPzeWdKutby+ara4wQyZd2rZTa3
-	 HOLXqPHI5CJwg==
-Date: Fri, 14 Aug 2026 09:48:39 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Yao Yuan <yaoyuan@linux.alibaba.com>
-Cc: Wei-Lin Chang <weilin.chang@arm.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oupton@kernel.org>, Fuad Tabba <tabba@google.com>, Joey Gouly <joey.gouly@arm.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Jintack Lim <jintack.lim@linaro.org>, 
-	Christoffer Dall <christoffer.dall@arm.com>, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH 1/2] KVM: arm64: Fix spurious warning for benign stage 2
- teardown race
-Message-ID: <an7Tk0qrCM84zS54@gremlin>
-References: <20260812-kvm-arm-nested-virt-fix-v1-0-4ad883f1b6a5@kernel.org>
- <20260812-kvm-arm-nested-virt-fix-v1-1-4ad883f1b6a5@kernel.org>
- <qfhlmmidzdmmsfopfhxpddgwa7nob45jwgb6sabskawaxtox7i@mnxplk3zn34k>
- <an3gqCJ1fzloWB_N@lucifer>
- <v3vgnteumpaxbgqjtfwoilcbwpwohfci3uwu4ooykls6zjwjwe@rukbigno2m5o>
+	Fri, 14 Aug 2026 08:51:28 +0000
+Date: Fri, 14 Aug 2026 10:51:18 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1786697481;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=GVRImTDaZs6cs5rh3bC1e77VibQeuPdYT8n/nwR/meA=;
+	b=Ol815WhQ6JnzXMGAYywjq9AyasEVlbbLbEw38nKeKXE5qCHE2T58DWCpFs3xPEmF8rQbNI
+	9UTUaxkYxdSqMzv61/aeJEc/l/RP2UHi9M8emW5t0wmy1dc37InCmat1bbqouW9sBrP3Jc
+	hdTm/z7NjucvP7SG/te1SpHxDXhgKZ2g0YOkA3Uzhuv/v0AgQ28foEo51ig6cO+osb/oyH
+	LiYAg/9YhUmwKzO4Rg6YoN78JRWYTEQo+KHie3+jw0Q/fKg+RqbXQ15zYkKoKE8NM7onKe
+	WjBPpJm+lPfMj12ZbBqNudjg7ADrJjcsh7Q4rTVhcuAF7w7+oXEM0HdA/u9Ufg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1786697481;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=GVRImTDaZs6cs5rh3bC1e77VibQeuPdYT8n/nwR/meA=;
+	b=C4OcThFk7xmv/cu7KFw4W9DLDTGOj2lKXa52tH+vvetyG6iwEJozfD1iDDfNcTPpbbgGGN
+	cdO2nn8s6pTUvhAA==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-rt-devel@lists.linux.dev, linux-perf-users@vger.kernel.org,
+	loongarch@lists.linux.dev
+Subject: [PATCH v2] ARM, ARM64, LONGARCH: Delay HW BP notification to
+ task_work()
+Message-ID: <20260814085118.OPEA_Ssn@linutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <v3vgnteumpaxbgqjtfwoilcbwpwohfci3uwu4ooykls6zjwjwe@rukbigno2m5o>
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260814_015126_416030_DA06075A 
+X-CRM114-Status: GOOD (  18.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,249 +72,252 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>, Russell King <linux@armlinux.org.uk>, "Luis Claudio R. Goncalves" <lgoncalv@redhat.com>, Catalin Marinas <catalin.marinas@arm.com>, James Clark <james.clark@linaro.org>, Huacai Chen <chenhuacai@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>, Steven Rostedt <rostedt@goodmis.org>, Oleg Nesterov <oleg@redhat.com>, Alexander Shishkin <alexander.shishkin@linux.intel.com>, Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, Jiri Olsa <jolsa@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Waiman Long <longman@redhat.com>, WANG Xuerui <kernel@xen0n.name>, Will Deacon <will@kernel.org>, Clark Williams <clrkwllms@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 14, 2026 at 03:18:42PM +0800, Yao Yuan wrote:
-> On Thu, Aug 13, 2026 at 04:24:49PM +0800, Lorenzo Stoakes (ARM) wrote:
-> > On Thu, Aug 13, 2026 at 12:20:43AM +0100, Wei-Lin Chang wrote:
-> > > Hi Lorenzo,
-> > >
-> > > Thanks for the detailed analysis!
-> >
-> > You're welcome :)
-> >
-> > >
-> > > I can follow what's happening from the report, but one thing I don't
-> > > get:
-> > >
-> > > On Wed, Aug 12, 2026 at 02:31:20PM +0100, Lorenzo Stoakes (ARM) wrote:
-> > > > A batch of kernel warnings were triggered in the L0 host kernel when using
-> > > > kvmtool to experiment with nested virtualisation.
-> > > >
-> > > > The issue was observed on an M2 macbook pro with 24 GiB of RAM running
-> > > > asahi linux 7.1.6-400.asahi.fc44.aarch64+16k with 16 KiB page size.
-> > > >
-> > > > The bug is confirmed to exist in mainline and does not appear to be
-> > > > impacted by any downstream patches carried by asahi.
-> > > >
-> > > > kvmtool was used to establish an L1 guest with 8 CPUs and 8 GiB of RAM.
-> > > >
-> > > > kvmtool was then run again within the L1 guest to establish an L2 guest
-> > > > with 4 CPUs and 4 GiB of RAM.
-> > > >
-> > > > Then it was run again to establish another inner guest with 2 CPUs and 2
-> > > > GiB of RAM at L3.
-> > > >
-> > > > Both the L2 and L3 guests were then exited and another L2 guest was
-> > > > established with the same characteristics.
-> > > >
-> > > > Sufficient memory pressure was present in the L0 host to trigger indirect
-> > > > reclaim, waking kcompactd up and triggering migration.
-> > > >
-> > > > Shortly afterwards the L2 guest was stopped, at which point three warnings
+Waiman, Luis, Ada reported that HW breakpoints on ARM64 trigger
+"sleeping while atomic" warnings on PREEMPT_RT. The hardware event is
+delivered with disabled interrupts and perf intrastrucure expects
+disabled interrupts while the overflow callback is invoked.
 
-So TL;DR - correction is to say L0 here, no change elsewhere.
+The callback then sends a SIGTRAP signal for which it acquires
+sighand_struct::siglock, a spinlock_t which becomes a sleeping lock and
+must not be acquired in atomic context.
 
-> > > > were observed in the L0 host in quick succession with the second and the
-> > > > third occurring 114us and 189us after the first, respectively.
-> > > >
-> > > > In each case the call trace was the same:
-> > > >
-> > > > WARNING: arch/arm64/kvm/mmu.c:336 at __unmap_stage2_range+0x64/0x80,
-> > > > CPU#5: kcompactd0/66
-> > > > ...
-> > > > __unmap_stage2_range (arch/arm64/kvm/mmu.c:335 (discriminator 3)) (P)
-> > > > kvm_stage2_unmap_range (arch/arm64/kvm/mmu.c:346)
-> > > > kvm_nested_s2_unmap (arch/arm64/kvm/nested.c:1168 (discriminator 14))
-> > > > kvm_unmap_gfn_range (arch/arm64/kvm/mmu.c:2416)
-> > > > kvm_mmu_notifier_invalidate_range_start (arch/arm64/kvm/../../../virt/kvm/kvm_main.c:718 ...)
-> > > > mn_hlist_invalidate_range_start (mm/mmu_notifier.c:525)
-> > > > __mmu_notifier_invalidate_range_start (mm/mmu_notifier.c:580)
-> > > > try_to_migrate_one (./include/linux/mmu_notifier.h:478 ./include/linux/mmu_notifier.h:471 mm/rmap.c:2459)
-> > > > rmap_walk_anon (mm/rmap.c:3001)
-> > > > rmap_walk (mm/rmap.c:3106 mm/rmap.c:3101)
-> > > > try_to_migrate (mm/rmap.c:2774)
-> > > > migrate_folio_unmap (mm/migrate.c:1330 (discriminator 3))
-> > > > migrate_pages_batch (mm/migrate.c:1909)
-> > > > migrate_pages_sync (mm/migrate.c:2026)
-> > > > migrate_pages (mm/migrate.c:2135)
-> > > > compact_zone (mm/compaction.c:2663)
-> > > > compact_node (mm/compaction.c:2932)
-> > > > kcompactd (mm/compaction.c:3230)
-> > > > kthread (kernel/kthread.c:436)
-> > > > ret_from_fork (arch/arm64/kernel/entry.S:858)
-> > > >
-> > > > Analysing this:
-> > > >
-> > > > try_to_migrate() performs the first part of migration on a folio -
-> > > > establishing migration entries in all page tables mapping it - calling
-> > > > try_to_migrate_one() for each VMA the folio is mapped in.
-> > > >
-> > > > Immediately prior to installing the migration entry, try_to_migrate_one()
-> > > > calls mmu_notifier_invalidate_range_start() to signal to notifiers that the
-> > > > existing page table entry is about to be unmapped.
-> > > >
-> > > > Since this range happened to contain folios used by the virtual machine
-> > > > (given its memory consumption this was highly likely to be a target) this
-> > > > in turn triggers arm64 kvm code via an MMU notifier:
-> > > >
-> > > > mmu_notifier_invalidate_range_start()
-> > > >   -> ... -> kvm_mmu_notifier_invalidate_range_start()
-> > > >     -> kvm_mmu_unmap_gfn_range()
-> > > >       -> kvm_unmap_gfn_range()
-> > > >         -> kvm_nested_s2_unmap()
-> > > >           -> kvm_stage2_unmap_range()
-> > > >             -> __unmap_stage2_range()
-> > > >                -> stage2_apply_range()
-> > > >        	       <- -EINVAL, triggering a WARN_ON()
-> > > >
-> > > > Since commit ec14c272408a ("KVM: arm64: nv: Unmap/flush shadow stage 2 page
-> > > > tables") kvm_unmap_gfn_range() invokes kvm_nested_s2_unmap() which takes
-> > > > the rather drastic step of evicting the entirety of the stage 2 shadow page
-> > > > tables for each nested guest:
-> > > >
-> > > > 	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
-> > > > 		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
-> > > >
-> > > > 		if (kvm_s2_mmu_valid(mmu))
-> > > > 			kvm_stage2_unmap_range(mmu, 0, kvm_phys_size(mmu), may_block);
-> > > > 	}
-> > > >
-> > > > This will iterate through every valid MMU.
-> > > >
-> > > > mmu_notifier_invalidate_range_start() sets the MMU_NOTIFIER_RANGE_BLOCKABLE
-> > > > flag when signalling notifiers, so may_block is true here.
-> > > >
-> > > > __unmap_stage2_range() wraps invocation of stage2_apply_range() in a
-> > > > WARN_ON():
-> > > >
-> > > > 	WARN_ON(stage2_apply_range(mmu, start, end, KVM_PGT_FN(kvm_pgtable_stage2_unmap),
-> > > > 				   may_block));
-> > > >
-> > > > Which is precisely the triggered warning and means stage2_apply_range() is
-> > > > returning an error.
-> > > >
-> > > > In arm64 return values are stored in the x0 register and in each splat w0
-> > > > (since it's a 32-bit value) is 0xffffffea which, by two's complement, is
-> > > > -0b00010110 or -EINVAL.
-> > > >
-> > > > The only way in which stage2_apply_range() can return an error is if either
-> > > > the passed in walk function (kvm_pgtable_stage2_unmap()) returns an error
-> > > > or mmu->pgt is NULL:
-> > > >
-> > > > 	static int stage2_apply_range(...)
-> > > > 	{
-> > > > 		do {
-> > > > 			struct kvm_pgtable *pgt = mmu->pgt;
-> > > > 			if (!pgt)
-> > > > 				return -EINVAL;
-> > > >
-> > > > 			next = stage2_range_addr_end(addr, end);
-> > > > 			ret = fn(pgt, addr, next - addr);
-> > > > 			if (ret)
-> > > > 				break;
-> > > > 			if (resched && next != end)
-> > > > 				cond_resched_rwlock_write(&kvm->mmu_lock);
-> > > > 		} while (addr = next, addr != end);
-> > > >
-> > > > 		return ret;
-> > > > 	}
-> > > >
-> > > > This loop is batched by stage2_range_addr_end() at the granularity of
-> > > > kvm_granule_size(KVM_PGTABLE_MIN_BLOCK_LEVEL), which for a 16 KiB page size
-> > > > kernel is 32 MiB.
-> > > >
-> > > > kvm_pgtable_stage2_unmap() only returns an error if
-> > > > kvm_pgtable_walk_begin() or _kvm_pgtable_walk() return an error. On arm64
-> > > > the former doesn't ever do so, and the latter only returns -EINVAL if
-> > > > either pgd is NULL (we gate that already) or an invalid pgt->start_level is
-> > > > specified (not the case).
-> > > >
-> > > > So the cause of the warning is that mmu->pgt is NULL here.
-> > > >
-> > > > This field is protected by kvm->mmu_lock, but after each invocation of the
-> > > > walk function, if the end of the range has not yet been reached, the lock
-> > > > is dropped.
-> > > >
-> > > > This is done by calling cond_resched_rwlock_write() which drops
-> > > > kvm->mmu_lock when yielding the time slice before reacquiring it upon being
-> > > > scheduled again:
-> > > >
-> > > > 		if (resched && next != end)
-> > > > 			cond_resched_rwlock_write(&kvm->mmu_lock);
-> > > >
-> > > > Note that resched = may_block here and is always true for these walks.
-> > > >
-> > > > This points to something else racing this code to clearing the pgt, and
-> > > > brings us back to the observation above that the issue occurs when tearing
-> > > > down the L2 guest.
-> > > >
-> > > > Upon L0's userspace mm_struct teardown, stage 2 mappings for IPAs mapped by
-> >
-> > s/L0/L2/
-> >
-> > > > the guest are unmapped via mmu notifier:
-> > > >
-> > > > exit_mm()
-> > > >   -> mmput()
-> > > >     -> __mmput()
-> > > >       -> exit_mmap()
-> > > >         -> mmu_notifier_release()
-> > > > 	  -> ... -> kvm_mmu_notifier_release()
-> > > >             -> kvm_flush_shadow_all()
-> > > >               -> kvm_arch_flush_shadow_all()
-> > > > 	        -> kvm_free_stage2_pgd()
-> > > > 		  -> [ acquire kvm->mmu_lock for write ]
-> > > > 		  -> mmu->pgt = NULL [ among other tasks ]
-> > > > 		  -> [ release kvm->mmu_lock for write ]
-> > >
-> > > You mentioned stopping the L2 VM only, which means L1 is still running.
-> > > Why would the L0 userspace mm_struct get torn down if L1 is still live?
-> > > What did I miss?
-> >
-> > Ah yeah this is a mistake sorry :) It should say L2 teardown.
-> >
-> > The stuff relevant to L0 is the MMU notifier bit.
->
-> Hi Lorenzo,
->
-> Still have question w/ your above addtional information:
->
-> The trace is observed on L0, means the exit_mm() path should
-> also happens on L0 to race w/ the
-> mmu_notifier_invalidate_range_start() path, but how this is
-> triggred by L2 teardown, IIUC the L2 teardown triggers the
-> exit_mm() path on L1, not on L0. The L1 is still alive thus
-> the qemu/kvmtool process on L0 which hold all L1/L2/L3 is
-> still alive yet. Please correct me if anything I missed
-> here.
+Delay the event callback until the return to userland.
+Add perf_arch_hwbp_notify(), a generic perf callback which delayes the
+actual callback invocation to task_work_add() callback. This callback
+invokes the architecture defines callback arch_hwbp_send_sig().
+This requires struct callback_head and the functions require
+ARCH_NEED_PERF_HW_NOTIF to be defined.
 
-OK so - I confused myself here :)
+This was reported against ARM64. ARM and LongARCH follow the same
+pattern are also converted.
 
-The underlying issue here is that I am working back from a situation where
-I can't quite recall what I did, but am rather reconstructing it based on
-what was observed.
+Reported-by: Luis Claudio R. Goncalves <lgoncalv@redhat.com>
+Reported-by: Waiman Long <longman@redhat.com>
+Closes: https://lore.kernel.org/all/aho0eqjMESuHxECr@redhat.com/
+Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+---
 
-And you're right - this stack makes no sense for an L2 VM being torn down,
-rather only the L0 being torn down.
+v1=E2=80=A6v2: https://lore.kernel.org/all/20260713144939.FuCj9yvZ@linutron=
+ix.de/
+ - sashiko complained that a memory breakpoint might trigger several
+   times before a signal is sent if the syscall touches the memory (via
+   get_user()) more than once before returning back. This would lead to
+   list corruption in task_work_add(). To handle this, there is now a
+   variable which is set via xchg before task_work_add() and cleared
+   after the signal has been sent.
 
-So clearly this is what I did, and the correction should be to say this at
-the start of the commit message.
+ arch/arm/include/asm/hw_breakpoint.h       |  1 +
+ arch/arm/kernel/ptrace.c                   |  6 ++---
+ arch/arm64/include/asm/hw_breakpoint.h     |  1 +
+ arch/arm64/kernel/ptrace.c                 |  6 ++---
+ arch/loongarch/include/asm/hw_breakpoint.h |  1 +
+ arch/loongarch/kernel/ptrace.c             |  6 ++---
+ include/linux/hw_breakpoint.h              |  3 +++
+ include/linux/perf_event.h                 |  4 ++++
+ kernel/events/core.c                       | 26 ++++++++++++++++++++++
+ 9 files changed, 42 insertions(+), 12 deletions(-)
 
-(The truth of what happened was rather more button-mashy and 'oh what?'
-than it appears ;)
+diff --git a/arch/arm/include/asm/hw_breakpoint.h b/arch/arm/include/asm/hw=
+_breakpoint.h
+index e7f9961c53b2d..5b3a373348ff5 100644
+--- a/arch/arm/include/asm/hw_breakpoint.h
++++ b/arch/arm/include/asm/hw_breakpoint.h
+@@ -7,6 +7,7 @@
+ struct task_struct;
+=20
+ #ifdef CONFIG_HAVE_HW_BREAKPOINT
++#define ARCH_NEED_PERF_HW_NOTIF
+=20
+ struct arch_hw_breakpoint_ctrl {
+ 		u32 __reserved	: 9,
+diff --git a/arch/arm/kernel/ptrace.c b/arch/arm/kernel/ptrace.c
+index 7951b2c06fec6..1650f12a04702 100644
+--- a/arch/arm/kernel/ptrace.c
++++ b/arch/arm/kernel/ptrace.c
+@@ -347,9 +347,7 @@ static long ptrace_hbp_idx_to_num(int idx)
+ /*
+  * Handle hitting a HW-breakpoint.
+  */
+-static void ptrace_hbptriggered(struct perf_event *bp,
+-				     struct perf_sample_data *data,
+-				     struct pt_regs *regs)
++void arch_hwbp_send_sig(struct perf_event *bp)
+ {
+ 	struct arch_hw_breakpoint *bkpt =3D counter_arch_bp(bp);
+ 	long num;
+@@ -424,7 +422,7 @@ static struct perf_event *ptrace_hbp_create(struct task=
+_struct *tsk, int type)
+ 	attr.bp_type	=3D type;
+ 	attr.disabled	=3D 1;
+=20
+-	return register_user_hw_breakpoint(&attr, ptrace_hbptriggered, NULL,
++	return register_user_hw_breakpoint(&attr, perf_arch_hwbp_notify, NULL,
+ 					   tsk);
+ }
+=20
+diff --git a/arch/arm64/include/asm/hw_breakpoint.h b/arch/arm64/include/as=
+m/hw_breakpoint.h
+index bd81cf17744af..58befb79c885c 100644
+--- a/arch/arm64/include/asm/hw_breakpoint.h
++++ b/arch/arm64/include/asm/hw_breakpoint.h
+@@ -124,6 +124,7 @@ extern void hw_breakpoint_pmu_read(struct perf_event *b=
+p);
+ extern int hw_breakpoint_slots(int type);
+=20
+ #ifdef CONFIG_HAVE_HW_BREAKPOINT
++#define ARCH_NEED_PERF_HW_NOTIF
+ extern void hw_breakpoint_thread_switch(struct task_struct *next);
+ extern void ptrace_hw_copy_thread(struct task_struct *task);
+ #else
+diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
+index 4d08598e2891d..df6122779ada6 100644
+--- a/arch/arm64/kernel/ptrace.c
++++ b/arch/arm64/kernel/ptrace.c
+@@ -168,9 +168,7 @@ void ptrace_disable(struct task_struct *child)
+ /*
+  * Handle hitting a HW-breakpoint.
+  */
+-static void ptrace_hbptriggered(struct perf_event *bp,
+-				struct perf_sample_data *data,
+-				struct pt_regs *regs)
++void arch_hwbp_send_sig(struct perf_event *bp)
+ {
+ 	struct arch_hw_breakpoint *bkpt =3D counter_arch_bp(bp);
+ 	const char *desc =3D "Hardware breakpoint trap (ptrace)";
+@@ -312,7 +310,7 @@ static struct perf_event *ptrace_hbp_create(unsigned in=
+t note_type,
+ 	attr.bp_type	=3D type;
+ 	attr.disabled	=3D 1;
+=20
+-	bp =3D register_user_hw_breakpoint(&attr, ptrace_hbptriggered, NULL, tsk);
++	bp =3D register_user_hw_breakpoint(&attr, perf_arch_hwbp_notify, NULL, ts=
+k);
+ 	if (IS_ERR(bp))
+ 		return bp;
+=20
+diff --git a/arch/loongarch/include/asm/hw_breakpoint.h b/arch/loongarch/in=
+clude/asm/hw_breakpoint.h
+index 5faa97a87a9e2..2b51922eb5492 100644
+--- a/arch/loongarch/include/asm/hw_breakpoint.h
++++ b/arch/loongarch/include/asm/hw_breakpoint.h
+@@ -120,6 +120,7 @@ void breakpoint_handler(struct pt_regs *regs);
+ void watchpoint_handler(struct pt_regs *regs);
+=20
+ #ifdef CONFIG_HAVE_HW_BREAKPOINT
++#define ARCH_NEED_PERF_HW_NOTIF
+ extern void ptrace_hw_copy_thread(struct task_struct *task);
+ extern void hw_breakpoint_thread_switch(struct task_struct *next);
+ #else
+diff --git a/arch/loongarch/kernel/ptrace.c b/arch/loongarch/kernel/ptrace.c
+index be38430f7e280..1d5e05a70b8d3 100644
+--- a/arch/loongarch/kernel/ptrace.c
++++ b/arch/loongarch/kernel/ptrace.c
+@@ -384,9 +384,7 @@ static int lbt_set(struct task_struct *target,
+ /*
+  * Handle hitting a HW-breakpoint.
+  */
+-static void ptrace_hbptriggered(struct perf_event *bp,
+-				struct perf_sample_data *data,
+-				struct pt_regs *regs)
++void arch_hwbp_send_sig(struct perf_event *bp)
+ {
+ 	int i;
+ 	struct arch_hw_breakpoint *bkpt =3D counter_arch_bp(bp);
+@@ -479,7 +477,7 @@ static struct perf_event *ptrace_hbp_create(unsigned in=
+t note_type,
+ 	attr.bp_type	=3D type;
+ 	attr.disabled	=3D 1;
+=20
+-	bp =3D register_user_hw_breakpoint(&attr, ptrace_hbptriggered, NULL, tsk);
++	bp =3D register_user_hw_breakpoint(&attr, perf_arch_hwbp_notify, NULL, ts=
+k);
+ 	if (IS_ERR(bp))
+ 		return bp;
+=20
+diff --git a/include/linux/hw_breakpoint.h b/include/linux/hw_breakpoint.h
+index db199d653dd1a..bb4c1064a103d 100644
+--- a/include/linux/hw_breakpoint.h
++++ b/include/linux/hw_breakpoint.h
+@@ -85,6 +85,9 @@ extern int register_perf_hw_breakpoint(struct perf_event =
+*bp);
+ extern void unregister_hw_breakpoint(struct perf_event *bp);
+ extern void unregister_wide_hw_breakpoint(struct perf_event * __percpu *cp=
+u_events);
+ extern bool hw_breakpoint_is_used(void);
++extern void arch_hwbp_send_sig(struct perf_event *bp);
++extern void perf_arch_hwbp_notify(struct perf_event *bp, struct perf_sampl=
+e_data *data,
++				  struct pt_regs *regs);
+=20
+ extern int dbg_reserve_bp_slot(struct perf_event *bp);
+ extern int dbg_release_bp_slot(struct perf_event *bp);
+diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
+index 48d851fbd8ea5..45c8391975007 100644
+--- a/include/linux/perf_event.h
++++ b/include/linux/perf_event.h
+@@ -215,6 +215,10 @@ struct hw_perf_event {
+=20
+ 	/* Last sync'ed generation of filters */
+ 	unsigned long			addr_filters_gen;
++#ifdef ARCH_NEED_PERF_HW_NOTIF
++	struct callback_head		arch_hw_notif;
++	int				arch_hw_notif_busy;
++#endif
+=20
+ /*
+  * hw_perf_event::state flags; used to track the PERF_EF_* state.
+diff --git a/kernel/events/core.c b/kernel/events/core.c
+index ba5bd6a78fe7b..1ca91208e1524 100644
+--- a/kernel/events/core.c
++++ b/kernel/events/core.c
+@@ -13338,6 +13338,28 @@ static void account_event(struct perf_event *event)
+ 	account_pmu_sb_event(event);
+ }
+=20
++#ifdef ARCH_NEED_PERF_HW_NOTIF
++static void perf_arch_hwbp_send_sig(struct callback_head *head)
++{
++	struct perf_event *bp;
++
++	bp =3D container_of(head, struct perf_event, hw.arch_hw_notif);
++	arch_hwbp_send_sig(bp);
++	xchg_relaxed(&bp->hw.arch_hw_notif_busy, 0);
++	put_event(bp);
++}
++
++void perf_arch_hwbp_notify(struct perf_event *bp, struct perf_sample_data =
+*data,
++			   struct pt_regs *regs)
++{
++	if (WARN_ON_ONCE(!atomic_long_inc_not_zero(&bp->refcount)))
++		return;
++	if (xchg_relaxed(&bp->hw.arch_hw_notif_busy, 1) ||
++	    WARN_ON_ONCE(task_work_add(current, &bp->hw.arch_hw_notif, TWA_RESUME=
+)))
++		put_event(bp);
++}
++#endif
++
+ /*
+  * Allocate and initialize an event structure
+  */
+@@ -13443,6 +13465,10 @@ perf_event_alloc(struct perf_event_attr *attr, int=
+ cpu,
+ 	}
+=20
+ 	if (overflow_handler) {
++#ifdef ARCH_NEED_PERF_HW_NOTIF
++		if (overflow_handler =3D=3D perf_arch_hwbp_notify)
++			init_task_work(&event->hw.arch_hw_notif, perf_arch_hwbp_send_sig);
++#endif
+ 		event->overflow_handler	=3D overflow_handler;
+ 		event->overflow_handler_context =3D context;
+ 	} else if (is_write_backward(event)){
+--=20
+2.55.0
 
-Sorry for the confusion!
-
->
-> >
-> > >
-> > > Thanks,
-> > > Wei-Lin Chang
-> > >
-> > > [...]
-
---
-Cheers, Lorenzo
 
