@@ -4,161 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0987EC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 08:46:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 460D6C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 08:46:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EVIasMr6ok/pt36pC50hDKA8cdlBEv5jazPUbRxQ61M=; b=WE+GHHJ75htdRp0eJs1dvUO3mf
-	79DHOH6mgoU26FeFD8H5E1BJ/pHkoWTIDK7YL0tEKuz7Ahlua9CjIPDhD8qoQRaChY7WkV2vzKLM6
-	XOXZiNZAOsDgJBC161S2tG/uHdfiQ7pibYVXPs9RYZppKhHeWTcGW4CYiIkICTbs7NcMT9t8UI4Sx
-	Wp766cn/8/quQUuRNMpiZwhvKgAtU69RUsPhYIiWKHCoPLxM60iBACOg3tisl9+YNSPl6Lqt0h5Jw
-	GMkYjpIuni6UNJJnP3A7ljOFidKtsxBWMGPtmyjkb3jqEurwBVXHwXV51UceYVr9Q6KvtVmgLVokJ
-	630NtF1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ctpNRt4aHSt0ZiBATXpNUnAiZyBx5JbaM34XCPkr8lI=; b=iR6oIPCKyMmW0a2SPqAyCqt59k
+	I3g4Dp1srTHLoC+uohDhGemC9B6tPOfmy9sRjtLk5LOqbcQRGbzPrmAS3GhjjAL78N2AjrRxqWkqP
+	7ic8i91rUiyF/4GLwrR6b6XJ8AaQ6ikRc+YTnads7CoN6Hm0na+wQu4Ba8dz12AF5bspH2SCUnXZO
+	xRJ/GeQ0/bptxd365YQwkTX5UTIMtBe+OwfZkOLPGlNq8KbAwP5WZULHn9lwFVOytt5palLQe7s5R
+	IJcLhHcbbrtj6+Drq+xvM3IsQWzzyRzxsNBqBCyeUON4vvU9F6TPjALmzR9YdQw/Bsc08XPb77Iy/
+	ykCPd04g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wunY3-00000002JLO-3aVP;
-	Fri, 14 Aug 2026 08:45:55 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wunYF-00000002JNo-0HmJ;
+	Fri, 14 Aug 2026 08:46:07 +0000
+Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wunY0-00000002JKv-2n5A
+	id 1wunY8-00000002JLn-2M5l
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Aug 2026 08:45:54 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67E7fPMU678180
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 08:45:52 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=EVIasMr6ok/pt36pC50hDKA8
-	cdlBEv5jazPUbRxQ61M=; b=ADAGnN/knxZwKwlqppLvR3DFXAywgoljCOl+bDim
-	5OT8g8p1fI+jfG4Tv7QmaNjNoeROItyK5SqhEbWTo+zwlTjzwWTP3rVzs7ks7eIY
-	a9/wsuMj/CE+x6BLqTjGCH8HL1HkoDlnDzR10GS+cDQhgoiRg3jkBzXjfZSAJ8kG
-	+fjd4JynOdTTM2sRCQ1iC9vxldRXmga4ert1Llf1Nf4q2HqFf6ttwkmJ21iRqLLv
-	+Bv1jYNq+LORKb8xk1UyJBCgl4rnQTu0k4KEDFcJ70xHPUngeLqlZrjkMMvD0PbN
-	dCCT9KOOgCVVZF9bS+tojskYCm9xmevmrwLRAEJpHfgm3g==
-Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com [209.85.215.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g1v8prup9-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 08:45:51 +0000 (GMT)
-Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-cb5cc1e139bso548135a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 01:45:51 -0700 (PDT)
+	Fri, 14 Aug 2026 08:46:01 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-c2020421077so138077366b.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 01:45:59 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1786697158; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Ym+hKqEA1xFtvlSGq+V1/1vecNvLgGc2YyMX+ey2K/nt8FHOdcZvrMjtb+SRRle7CP
+         cXGkyJrtlgoXjZUQRPwGEyocDmLx16U48iTQhHqA2V582y6u63b7bgUnTPsQ1GwURMNX
+         AynqG187Ek+PnZtpa7MrjxayJRmZoZdQKgosLk3HGlGGarawYL3UfAZBhS+InJNJ89F4
+         LJCWnpUfTW8LUDCPWAB0XZcXBlxa3K5ljI+TDIknPUQq0l23LKmlqfZq5MXzhdC4VIYE
+         QgXOKPLYLjI93vA39PQHIiIYYNuuIJd5ibzb4lnbPAFpU5yXTxmTEK406BmWeQxNQbM0
+         qJ+w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=ctpNRt4aHSt0ZiBATXpNUnAiZyBx5JbaM34XCPkr8lI=;
+        fh=xbYdcbFuoSKOLfTkIedpm+nJf0duWNq+G89cLkU6Jfg=;
+        b=kGCOwryWW1g4FveNw4WTjwPk9nHJQdI7NKtsToo3v14qXKgBPiFtsERw+V97/FCqG/
+         tbZ3jkdV6FBUOWVrTnY/VVXv1yeg3KrDJ6L/K7qgqBBBztWtaVId5tTXNK8Bpo/jFbmU
+         yJehT8vKOvGhKqgvdnqiUj6cSbpVuIvBIvYB9l6MUEbDzyMV/sQMpLf41OXwlHY2Rvua
+         R/n8vIsK52HK95P8cRZy7WAhkrubfBqdP14AN9tWAU2Vf3+Q6OnnxEBftTyvSjWPiOpO
+         vxTWMIw+E2MTlvjm7RTLyaVEpY0W0ZzVQBH/JQss/gcXMykZ2+991p5s+sVQDy/Uxh4F
+         JHAQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1786697151; x=1787301951; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+        d=gmail.com; s=20251104; t=1786697158; x=1787301958; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=EVIasMr6ok/pt36pC50hDKA8cdlBEv5jazPUbRxQ61M=;
-        b=Rn8WvMHOM9pvVUx2bHX3w3FBha3bSMZ75F2d761P+F76xGqbWq4hjyaPfXl5d62yjX
-         TfaNk8k+lGJJXmqNREA1I5jOLQvMkmLfUIfoUxtzcPpIsLqqSiSo9u5T7d6qj24BvUVj
-         fn4/AS9WxCPIyn6qJ75xu+PX0TA0Z72+mLll+M1wfR3qvdJKKbOWKzyftH2QowYP22GR
-         mfs6a1qTin2rt15EyqoHwaTp8iUe958SIT//mLlUPEyZmpYY9aq6gIEMfL/rJ4ihhwgY
-         wW4Sw2yZLmcxGGDNYRNK7AzmnzDa8EbAiSIEhM+j0t+eo9gjfXPgW739LnUjOJBHBVht
-         pEFg==
+        bh=ctpNRt4aHSt0ZiBATXpNUnAiZyBx5JbaM34XCPkr8lI=;
+        b=B/4/YNJc2ljBvDWOvr+Wxf9ec1hh+9G0gwUKC4eMKUsgFQhXkJGrsnjPUytGkG0r7x
+         a29rda/l7earguA5pC/esNEdVp1qbKNjmwGQrb7iGGXDEY+MCIYQUacZ4N65vQYJQK1r
+         uJQixZ+xHPQ6+SwgwRX/LPHUTS1G+tNXagLv2CWc+Q19a/12coFJT64D9nx7SexXL+C2
+         vKY9tVUgsOagHDr9M7/K9DifnU2i+5mKmd/ncBvVghU4CCtYOTiQ5POrjPHOKa89sDVV
+         O27dsN9Oc3zbvvY32mJRvwtzbPdZSyKMgnXo0+A4S2qe21wCba7uqJmwR6/uKqBxLW1j
+         qW9A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786697151; x=1787301951;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20251104; t=1786697158; x=1787301958;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=EVIasMr6ok/pt36pC50hDKA8cdlBEv5jazPUbRxQ61M=;
-        b=B9RwwbUEWZZ99FABaKoY2U6pbvOX/iogn13uV/3VLnje+Nb3254FTISoc2Vj8IkqX8
-         8vmKwGxHw+JM2kQAMV8mps20R3tSV6XAqtNvJkPrzbXLXcviGv5hvtVeamj2avWHLcDb
-         clp9T71eRPvAcTIHKO2pCffoqegy7j74+QpCoLvkxYRD1vqq/Uuqx8g3ddo+KQhaCGkv
-         LYmSBRnHr4Spoy/0ZqN0HEr1ld/ax4CuTON/1c9Ln/nGabGbNUeE7p1uxo8Kn4c7jqi8
-         akXfaUEK4QKAdh3riGN9gQMHkhxmehCTeUDqwFnBGPQ3vxsTsOL096hZ1bkB3DdGf1/j
-         f/xQ==
-X-Forwarded-Encrypted: i=1; AHgh+RpPSXINoBYNgPKQOyjO3IL6K3wFCYAumw9IqWq3hA8sLsifk9vGe7RSmbhtnxIzvWVXbfQfq0HE9dOvkSuOQT3e@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxw8t1orE0d8lKkrJfy+/1qDkeALBd16v852pUiSA6V8CYwux97
-	4bRiHlqSPLo9cYnh01rTgaQk08HUz48bBW9rTYbqJKu078V26jPmse1tLx2iPgDM3kFTz+srnBq
-	M4EZO5UJa39Q7ZvJb9BTRWJuswzI1DBTMi94MWom/Q3WBTZHlS4/oSGUYbcjUjM3lhzYgq8xdL7
-	5u/YS+M5I60bMu
-X-Gm-Gg: AR+sD10wSjwgAs6whwr0CC12aPiSBJnq94dKIxiutnprae5GP/Nk6g7HGUXRxxhHbXn
-	r3j4VMRdsRWA/PuOHo75rn1WrCHj3rMbXcfm0KIh2Zs8Vx4SrTkcrUwYj6H9ewf3EJSxv64Qwl4
-	TcXuWmuTFFSB5BwakKt1Kw7I6dzux4P1o9jSpyjKiiINh5GAcTz6BRKE0ESL9bCrJ1RR4JXKIpO
-	zj/G5BjvBBr/A3PwD8Q+RC78VFG8h8KPTpWNVX8PGryPm8bl0oNIBIi2xOCXploHLCmaC8uOTYj
-	lA6CKpujcycrZizOMEUJwksZ2wmqfw+35YPgW3stUoJlv/lEzqDPzYmMvbGodeHRp6jgLEnGSsj
-	7mU3EDDIG0hO7dFfkz9Fv8rmJyUCT0Sc+Og==
-X-Received: by 2002:a05:6a20:430d:b0:3c3:bbe6:95de with SMTP id adf61e73a8af0-3cc71d533c0mr4527078637.6.1786697150993;
-        Fri, 14 Aug 2026 01:45:50 -0700 (PDT)
-X-Received: by 2002:a05:6a20:430d:b0:3c3:bbe6:95de with SMTP id adf61e73a8af0-3cc71d533c0mr4527037637.6.1786697150586;
-        Fri, 14 Aug 2026 01:45:50 -0700 (PDT)
-Received: from hu-pkondeti-hyd.qualcomm.com ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-320e9df03d4sm1808869eec.15.2026.08.14.01.45.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 14 Aug 2026 01:45:50 -0700 (PDT)
-Date: Fri, 14 Aug 2026 14:15:39 +0530
-From: Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>
-To: Will Deacon <will@kernel.org>
-Cc: Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
-        kvmarm@lists.linux.dev, Marc Zyngier <maz@kernel.org>,
-        James Morse <james.morse@arm.com>,
-        Oliver Upton <oliver.upton@linux.dev>,
-        Zenghui Yu <yuzenghui@huawei.com>,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        Joey Gouly <joey.gouly@arm.com>,
-        Alexandru Elisei <alexandru.elisei@arm.com>,
-        Christoffer Dall <christoffer.dall@arm.com>,
-        Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
-        Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-        Gavin Shan <gshan@redhat.com>,
-        Shanker Donthineni <sdonthineni@nvidia.com>,
-        Alper Gun <alpergun@google.com>,
-        "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-        Emi Kisanuki <fj0570is@fujitsu.com>,
-        Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>
-Subject: Re: [PATCH v16 07/45] arm64: mm: Handle Granule Protection Faults
- (GPFs)
-Message-ID: <5b557560-7664-4336-9e5f-86de8dcd6d90@quicinc.com>
-References: <20260803134403.80630-1-steven.price@arm.com>
- <20260803134403.80630-8-steven.price@arm.com>
- <ans1ZSwMEKeT9Gfz@arm.com>
- <d4bdecca-517a-4b4b-bf67-cef6b09bc8c1@arm.com>
- <7d4e5920-aa20-40cd-954e-037631bd0d6c@quicinc.com>
- <anx6YbPMVz3OlpA5@arm.com>
- <an2YN7kxB7bjCd2s@willie-the-truck>
- <8db602b8-7fd3-4c11-8fbd-3b8251648eb8@quicinc.com>
- <an3ihGk3znnk8TWV@willie-the-truck>
+        bh=ctpNRt4aHSt0ZiBATXpNUnAiZyBx5JbaM34XCPkr8lI=;
+        b=GOjX0j60BMynGYRLeoWcp02E9uI0Rh6664v2KHAgh7qG66vFsd+zijCRE5wrJDoxhJ
+         bzU9ydJgC7WFOuvO7UqGPKYy3QzweAqMz41qHtjcXMzaBzFkxhAdpRPCrEJVsujN0PG8
+         Fr+xaTE29NPl2v7dKdYcs1LZ8wHp18KzYiJP03FvoOTrr/DQIes90AesLRuiQdIu4/f+
+         m9mk+5R6RVyY5FdHQgOTNHqjHg2FHdWVOA9zOoYzBDKfYH/x5BcVXiU2cOs9pzjRbM8n
+         mFFCo6OxkYEWhhUdHk/FeFYB2A8BiNiLnPMBuZCUgH7lKPF0/zrkWz18oj5yCVVZ8u5l
+         qJtA==
+X-Forwarded-Encrypted: i=1; AHgh+RrcJH6MV1vRq+COQe7vVG+enkjDp4JzcCg1MkOwXXsD+1kEZ42dko7HyXvx+rLnFzP/Lb0b7TXd6HSc4VfgVt2b@lists.infradead.org
+X-Gm-Message-State: AOJu0YzElDB6BR6SClvjuj8O1GUyR7kGt8k8DjAXOXcgQDYQVL+eL3t+
+	dgQBMT5JAuJlE4VPaxjURLSc1l6q5BIZshvt6MZafree5/Bm/e0HfpTS1NuOKbKX72vDB/KqmmO
+	wlTScCBNKrKqztZpd0LKI6ZvBHp7N3Zo=
+X-Gm-Gg: AR+sD10HPgY1vAQ0aXkJAFWxtPU66spHZLeXThor6l0zn/LtGtfziJRH4T18WxYIiwc
+	t9WsxD66l2y2NLJz9PCW9IDcrWjv1ReZDSBHNy4d/lOOXIZ49SlD8LbPCTk07ZgYVv8qzyHdweF
+	GKyF9/aG2XhsOj8bmKJojVtY7ssjkvKAhmiypnUL1zUwFBQFbeK29mWVRW4zl7QMuMWQp2p4fMx
+	3ToviJ+3POAGn4v7up9ThPYtEvSUiMUP30P9CvS48WvMeexm+8uhpR4vBS4nGQ/+OGBHIYE6Ehd
+	aIs3F58ZBFD3+v+O62MsieQxJPx2/T1iI2IE74JJcPFXj4SdSo+UsVmKAvQlzZVc0FZOM0ItBhM
+	x6eQxTFn3Q3pXcskiwpmsouwzQiQ3hg==
+X-Received: by 2002:a17:907:c10:b0:c20:899:b8bc with SMTP id
+ a640c23a62f3a-c2129ac0d66mr200128566b.6.1786697157566; Fri, 14 Aug 2026
+ 01:45:57 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <an3ihGk3znnk8TWV@willie-the-truck>
-X-Authority-Analysis: v=2.4 cv=K4MS2SWI c=1 sm=1 tr=0 ts=6a7ed5bf cx=c_pps
- a=Oh5Dbbf/trHjhBongsHeRQ==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=kj9zAlcOel0A:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
- a=VwQbUJbxAAAA:8 a=vggBfdFIAAAA:8 a=KKAkSRfTAAAA:8 a=oGdhJ8GHBgxCdCDN5qoA:9
- a=CjuIK1q_8ugA:10 a=_Vgx9l1VpLgwpw_dHYaR:22 a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODE0MDA2NiBTYWx0ZWRfXwPlAutnqxU9W
- 53TWCJKF856zI5/eEDdRJ4Py95ylE8ORpxsSsbSO8WvuxECbFiuy4yHPuBqrTaMeLtstE109aa5
- EuA0T8Mwwfht4JOqNORdpofiJWeNAoYCwpQ6U+U75AbZ+XiTINMAR8cKMHrCIlx78C+AvlL665P
- sH5NLrhoFkEdTXbxOhAp446uHUiJLnf+Cf+r9x6oLuEE6e78bbAekEWoHJP092QQsV1sMcxuyA/
- I9+C2TqSzRZDD0AQyxWaIsmUv5ieVoTILbpgvicoNsCSNMZktC6WTA9EBlTvM6wNp9n3BruWCjm
- 8/eq5rHD3wCJAVe7ya/vZSoNyGailpfgc8NNhnSNEWtLgL1fI9Sijm+feTtaY6CEZG9PQuRTkV9
- QJNhnVwq5fnvh0iMOpH1oDQgQCfMXzyxEehyGgnt7hUnvxd0rECD8VURtyEJxJ58V7sdVCCZXtV
- n4rVMHq3D0WnQzhdE/g==
-X-Proofpoint-GUID: r6J7-mx8uEkqHUrP5Pc-wtDfM6oUoAFU
-X-Proofpoint-ORIG-GUID: r6J7-mx8uEkqHUrP5Pc-wtDfM6oUoAFU
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODE0MDA2NiBTYWx0ZWRfX6cvZQpMSqz6+
- sf2TdLztARQyR08Rdm7WucTAJyqrWJhXVNLl4gkSrjYrbBWKpGueTwm9Zu4OXS9/XKVY7+DksLe
- JNX+d0jNQI9I3Cbgh5D4U2L3oPFjNY8=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-14_03,2026-08-12_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 suspectscore=0 phishscore=0 priorityscore=1501 lowpriorityscore=0
- spamscore=0 adultscore=0 clxscore=1015 malwarescore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608140066
+References: <20260809152813.585797-1-pawlik.dan@gmail.com> <20260813180532.3683abc7@kernel.org>
+In-Reply-To: <20260813180532.3683abc7@kernel.org>
+From: Daniel Pawlik <pawlik.dan@gmail.com>
+Date: Fri, 14 Aug 2026 10:45:45 +0200
+X-Gm-Features: AUfX_mxwIf5bn2G0UM-Vi351-EpN5XsVbICk5ppLvaZ8AB0iHOEQezLAyICIB24
+Message-ID: <CALC2ApjREyeKcddOx0TP2AghDs2BVKY6xD6mU6ToSOk2MQ4cqw@mail.gmail.com>
+Subject: Re: [PATCH v6] net: airoha: npu: use coherent DMA for mailbox messages
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: netdev@vger.kernel.org, lorenzo@kernel.org, win847@gmail.com, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260814_014552_711588_E4C2ACDC 
-X-CRM114-Status: GOOD (  29.39  )
+X-CRM114-CacheID: sfid-20260814_014600_664881_95AF8132 
+X-CRM114-Status: GOOD (  22.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,57 +118,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 13, 2026 at 04:28:04PM +0100, Will Deacon wrote:
-> On Thu, Aug 13, 2026 at 07:40:41PM +0530, Pavan Kondeti wrote:
-> > On Thu, Aug 13, 2026 at 11:11:03AM +0100, Will Deacon wrote:
-> > > On Wed, Aug 12, 2026 at 02:51:29PM +0100, Catalin Marinas wrote:
-> > > > On Wed, Aug 12, 2026 at 06:12:09PM +0530, Pavan Kondeti wrote:
-> > > > > There is a valid case for fixup_exception() to be needed here in GPF
-> > > > > handling.
-> > > > > 
-> > > > > -000 |load_unaligned_zeropad(inline)
-> > > > > -000 |hash_name(inline)
-> > > > > -000 |link_path_walk()
-> > > > > -001 |path_lookupat()
-> > > > > -002 |filename_lookup()
-> > > > > -003 |vfs_statx()
-> > > > > -004 |vfs_fstatat()
-> > > > > 
-> > > > > We observed this in Android running Gunyah when the page is mapped in
-> > > > > EL1 but unmapped at EL2. path_lookupat() can actually handle this
-> > > > > via fixup_exeption() when a word load crosses the page boundary.
-> > > > > However, Gunyah injects a Synchronous External Abort and we have
-> > > > > a downstream patch [1] that adds fixup_exception() in do_sea(). pKVM
-> > > > > injects [2] such faults back to EL1 and fixup_exception() is taken care.
-> > > > 
-> > > > Ah, good point, completely forgot about load_unaligned_zeropad(). Since
-> > > > we don't unmap the linear map for delegated pages, we'll need the
-> > > > fixup_exception(). And I guess warning in this case is not desirable
-> > > > either. We could limit it to EX_TYPE_KACCESS_ERR_ZERO and
-> > > > EX_TYPE_LOAD_UNALIGNED_ZEROPAD, though not sure it's worth it.
-> > > 
-> > > Alternatively, I think the series to unmap guest memory from the linear
-> > > map would solve that for gmem:
-> > > 
-> > > https://lore.kernel.org/all/20260410151746.61150-1-kalyazin@amazon.com/
-> > > 
-> > 
-> > Thanks Will for sharing this information.
-> > 
-> > There are use cases outside gmem like FF-A lend to Secure Partition.
-> > we may not be enforcing all such memory to be unmapped at EL1, correct?
-> 
-> If you leave the cacheable linear alias of memory intact across an
-> NS -> S transition, then you're in for a bad time [1].
-> 
-> Will
-> 
-> [1] https://lore.kernel.org/all/20221114110329.68413-1-manivannan.sadhasivam@linaro.org/
+Hi Kuba,
 
-Thanks for the reply. In the above case, XPU does not like the speculative fetches. I am
-not sure if there is a hard requirement for unmap of FF_A memory lent to secure
-partition managed under Root with GPT.
+Thanks for the feedback.
+
+You were right to question the coherent bounce - it likely masked a SWIOTLB
+path rather than fixing the underlying issue.
+
+I tried your suggestion on Gemtek W1700K (EN7581 + MT7996, Quantum Fiber):
+per-core cacheline-aligned bounce buffer at probe, map
+ALIGN(len, SMP_CACHE_BYTES) with DMA_BIDIRECTIONAL, mailbox length register
+still uses the original len.
+
+Results on kernel 6.18.44:
+
+    airoha-npu 1e900000.npu: NPU fw version: 0.1111
+    mt7996e 0000:01:00.0: NPU version: 0.1111
+
+With 6f884eb alone this board reads 0.0 (mailbox DONE succeeds). The
+streaming bounce fix survives two cold reboots; PPE offload comes up
+normally. Boot log shows SWIOTLB active (2MB bounce buffer).
+
+I am withdrawing the coherent approach from v6 and sending v7 as a new
+thread with the aligned streaming bounce instead. Happy to gather
+dma-ranges / device DMA mask data from W1700K if that helps on the
+platform side.
 
 Thanks,
-Pavan
+Daniel
+
+
+pt., 14 sie 2026 o 03:05 Jakub Kicinski <kuba@kernel.org> napisa=C5=82(a):
+>
+> On Sun,  9 Aug 2026 17:28:13 +0200 Daniel Pawlik wrote:
+> > Commit 6f884eb87a79 ("net: airoha: Fix DMA direction for NPU mailbox
+> > buffer") switched airoha_npu_send_msg() to DMA_BIDIRECTIONAL so
+> > non-coherent CPUs invalidate caches before reading NPU GET responses.
+> >
+> > On EN7581 + MT7996 that change regresses probe: the mailbox completes
+> > successfully, but WLAN_FUNC_GET_WAIT_NPU_VERSION still reads as 0.0 and
+> > mt76 never binds NPU offload. Healthy boards report 0.1111.
+>
+> This sounds very odd. Is the DMA API broken on the platforms you are
+> testing? The code looks correct as is.
+>
+> FWIW here's what GPT suggests:
+>
+>   Indeed, HEAD^ uses the DMA API correctly:
+>   DMA_BIDIRECTIONAL map/unmap must make the NPU response visible to the C=
+PU.
+>
+>   The important wrinkle is that, on arm64, these small kzalloc() buffers =
+are
+>   forced through SWIOTLB when mapped bidirectionally. DMA_TO_DEVICE did n=
+ot
+>   bounce them. HEAD switches to coherent memory and therefore bypasses SW=
+IOTLB
+>   entirely. That suggests the actual problem is one of:
+>
+>   - SWIOTLB memory is outside the NPU=E2=80=99s real DMA aperture.
+>   - The platform=E2=80=99s dma-ranges/DMA mask does not describe that ape=
+rture.
+>   - SWIOTLB copyback or cache handling is broken.
+>
+>   Using coherent memory for a mailbox is reasonable, but this patch masks=
+ that
+>   underlying problem rather than explaining it. Before accepting it, I wo=
+uld
+>   test a cacheline-aligned, rounded-size streaming buffer with
+>   DMA_BIDIRECTIONAL, while programming the original payload length into t=
+he
+>   mailbox. If that works, it strongly implicates the SWIOTLB/platform set=
+up.
+>
+> We can take a revert of the patch under Fixes if it's urgent.
+> The real fix requires a deeper investigation.
+> --
+> pw-bot: cr
+
+
+
+--
+Z powa=C5=BCaniem,
+Daniel Pawlik
 
