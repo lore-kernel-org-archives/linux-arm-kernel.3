@@ -4,56 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B804C5DF66
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 01:05:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04B96C5CFCF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 01:16:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7iUYHczkM8ggxniKLtcHr2bhd+vgzUTFNILXhpxAeg8=; b=XD5xsPpzWCDYgcw0ryuowV7VcU
-	jpn+EI3XJ83om+yTIufj+wPj19FUIPkx+66nj86yQuQ8ZR/4OM+8Dn4oAKbWmbHZcy7hlUhC/36Jp
-	XIHtEXCK8i2Bnm2t+9XiT0CMPrN0ZfuuKB1lEspvNXsK0QR6D3T0fxqDlOSUPYdfAnfIMugyXstMV
-	kj3a9IiQKcp3ovDobo3xJQxJl7qVdQt56Vk5rkdnNJKrB81eMNsxBWPyT9mBF+81gobyxbLCtPoOF
-	e6dz+/vet+6pEZvFKawRC2aKpb48g//dNObTrkIqRB2mSK/4M3QvYB/RxoLhY9+6RYMUNDh0TCqys
-	jhdvnODQ==;
+	bh=xaqTDDrnpKGWx+l1h+fUl97CPMUm+8Ht+uaiucS3/dQ=; b=q9MlDHZmpziCfQc1ZVDyhXP9aN
+	oVauGpAaXKwvtPbW2bdfzroWUUCk4z0qGKodBVdA9Zx1rtgmzFqtOtsIh14fViasz6u4oA2gXDfNT
+	zD2/r0KHpeNzRrkuwS/gcY9ooJSVcgAgakgP3uITU8xxBckdi0DazjvphrdlaamrM7F68dt9iddCt
+	tDWqzXrS5iv5WGiyDMXl8FPkPj1FDGPWfKbZTephOGvYGz+gp37SD0Y4hJX8gCAqO2qwqkGcuB9CC
+	a9eONic4MSnboXtj8df934Ex6dajA4jpbLI5eNNdS0mE4rNAStgQoEeIKH2kxksN6OZjIHm+Y4Xh4
+	iG5zRbYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wugMZ-00000001mf3-0u8u;
-	Fri, 14 Aug 2026 01:05:35 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wugX1-00000001nBq-0zD7;
+	Fri, 14 Aug 2026 01:16:23 +0000
+Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wugMY-00000001meh-0SIN;
-	Fri, 14 Aug 2026 01:05:34 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 194F5600AF;
-	Fri, 14 Aug 2026 01:05:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9816F1F000E9;
-	Fri, 14 Aug 2026 01:05:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786669532;
-	bh=7iUYHczkM8ggxniKLtcHr2bhd+vgzUTFNILXhpxAeg8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=V8tUtPQGR/8qdh+OMCCst5huDIIjOuZs9sMrFEUBobOgVgae+xOGmnr4iEzixXvx7
-	 ySTDeV7Jm2KpgIb4NMmwfTuahMybH8nE66j1DV/F/aao6QQ7bG3IgZW+DABwsiOj7m
-	 T8uw/pWPbOQGaUQV0q/l0QaYK607AUv0TW3UTWR9OeVBRxRM/UOcAA6LkFU/wbqlm9
-	 /ri0kHam+z7lHH6tAygaIiKMdQuAwMd6op3Hc25wScEs1lI/UiQBZy5Ff83D1vDGz9
-	 TvrtwjevLo925327sxFkp2fJOaOubz98nl4Krbclx3zk6hZhSGrOEF0kFDxcfbx74Y
-	 eF3MbIr99njJQ==
-Date: Thu, 13 Aug 2026 18:05:32 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Daniel Pawlik <pawlik.dan@gmail.com>
-Cc: netdev@vger.kernel.org, lorenzo@kernel.org, win847@gmail.com,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v6] net: airoha: npu: use coherent DMA for mailbox
- messages
-Message-ID: <20260813180532.3683abc7@kernel.org>
-In-Reply-To: <20260809152813.585797-1-pawlik.dan@gmail.com>
-References: <20260809152813.585797-1-pawlik.dan@gmail.com>
+	id 1wugWv-00000001nB6-2iOp;
+	Fri, 14 Aug 2026 01:16:20 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=xaqTDDrnpKGWx+l1h+fUl97CPMUm+8Ht+uaiucS3/dQ=;
+	b=mflgm/SJEFWTm7QId0SN+rFG7pHOZIJLNok3nfujlNgdELL/0SveikjSn6UBgeA+pZh1iDink
+	hJsz2QDHHU5t2TTpUKNRiv/+Og+6MDIxx776LEp2/0ensfarZHXa+RwZfEQ34EBKU+Ax6jKEYi6
+	yY6hIS1GXAkEIT0eM6fuN44=
+Received: from mail.maildlp.com (unknown [172.19.163.200])
+	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4hLkYJ3flvzmVX8;
+	Fri, 14 Aug 2026 09:05:24 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 983D14055B;
+	Fri, 14 Aug 2026 09:16:02 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Fri, 14 Aug 2026 09:15:59 +0800
+Message-ID: <64f3a67a-51c6-4c01-a23b-301b619f2884@huawei.com>
+Date: Fri, 14 Aug 2026 09:15:58 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/5] arm64: crash: Add crash hotplug support
+To: Catalin Marinas <catalin.marinas@arm.com>
+CC: <will@kernel.org>, <akpm@linux-foundation.org>, <baoquan.he@linux.dev>,
+	<rppt@kernel.org>, <pasha.tatashin@soleen.com>, <pratyush@kernel.org>,
+	<thuth@redhat.com>, <mark.rutland@arm.com>, <jic23@kernel.org>,
+	<james.morse@arm.com>, <ardb@kernel.org>, <leitao@debian.org>,
+	<yeoreum.yun@arm.com>, <sourabhjain@linux.ibm.com>, <robh@kernel.org>,
+	<kees@kernel.org>, <coxu@redhat.com>, <makb@juniper.net>, <piliu@redhat.com>,
+	<graf@amazon.com>, <ebiggers@kernel.org>, <jbouron@amazon.com>,
+	<bgwin@google.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <kexec@lists.infradead.org>
+References: <20260729031235.2840255-1-ruanjinjie@huawei.com>
+ <an3Xe_5-B4qdiN8o@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <an3Xe_5-B4qdiN8o@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260813_181618_404815_0110D31B 
+X-CRM114-Status: GOOD (  13.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,43 +84,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun,  9 Aug 2026 17:28:13 +0200 Daniel Pawlik wrote:
-> Commit 6f884eb87a79 ("net: airoha: Fix DMA direction for NPU mailbox
-> buffer") switched airoha_npu_send_msg() to DMA_BIDIRECTIONAL so
-> non-coherent CPUs invalidate caches before reading NPU GET responses.
->=20
-> On EN7581 + MT7996 that change regresses probe: the mailbox completes
-> successfully, but WLAN_FUNC_GET_WAIT_NPU_VERSION still reads as 0.0 and
-> mt76 never binds NPU offload. Healthy boards report 0.1111.
 
-This sounds very odd. Is the DMA API broken on the platforms you are
-testing? The code looks correct as is.
 
-FWIW here's what GPT suggests:
+在 2026/8/13 22:40, Catalin Marinas 写道:
+> On Wed, Jul 29, 2026 at 11:12:30AM +0800, Jinjie Ruan wrote:
+>> When CPU or memory hotplug events occur, the elfcorehdr in the kdump
+>> image becomes stale, potentially leading to incomplete crash dumps.
+>>
+>> Currently, userspace udev rules reload the entire kdump image upon such
+>> events, which is inefficient and leaves kdump inactive for a long time.
+>>
+>> Commit 247262756121 ("crash: add generic infrastructure for crash hotplug
+>> support") introduced a kernel mechanism to update only the elfcorehdr.
+>> This patch set implements crash hotplug support for arm64.
+>>
+>> As Baoquan suggested, it also addresses and fixes several
+>> pre-existing code issues and Sashiko AI review findings extracted
+>> from the previous patch set.
+>>
+>> The major improvements and fixes included in this series are:
+>> - Fix several memory leaks for arm64.
+>> - Simplify arm64 load_other_segments().
+>> - Implement infrastructure for arm64 crash memory hotplug support.
+>>
+>> This patch set is rebased on liveupdate/crashkernel-cma.
+>>
+>> Link: https://lore.kernel.org/all/20260601094805.2928614-1-ruanjinjie@huawei.com/
+> 
+> Is there any dependency for the first 3 patches on the above branch?
 
-  Indeed, HEAD^ uses the DMA API correctly:
-  DMA_BIDIRECTIONAL map/unmap must make the NPU response visible to the CPU.
+Hi Catalin,
 
-  The important wrinkle is that, on arm64, these small kzalloc() buffers are
-  forced through SWIOTLB when mapped bidirectionally. DMA_TO_DEVICE did not
-  bounce them. HEAD switches to coherent memory and therefore bypasses SWIO=
-TLB
-  entirely. That suggests the actual problem is one of:
+The first three patches have no dependencies, only the last two patches
+have dependencies
 
-  - SWIOTLB memory is outside the NPU=E2=80=99s real DMA aperture.
-  - The platform=E2=80=99s dma-ranges/DMA mask does not describe that apert=
-ure.
-  - SWIOTLB copyback or cache handling is broken.
+> Patches 2/3 look like fixes and they depend on patch 1. Not sure about
+> cc stable, maybe patch 2.
 
-  Using coherent memory for a mailbox is reasonable, but this patch masks t=
-hat
-  underlying problem rather than explaining it. Before accepting it, I would
-  test a cacheline-aligned, rounded-size streaming buffer with
-  DMA_BIDIRECTIONAL, while programming the original payload length into the
-  mailbox. If that works, it strongly implicates the SWIOTLB/platform setup.
+Yes, you are right! The cc stable label has been added to patch 2 and
+patch 3, I think both of them are needed.
 
-We can take a revert of the patch under Fixes if it's urgent.
-The real fix requires a deeper investigation.
---=20
-pw-bot: cr
+> 
+> [...]
+> 
+>> Jinjie Ruan (5):
+>>   kexec: Extract kexec_free_segment_cma() from kimage_free_cma()
+>>   arm64: kexec_file: Fix CMA page leaks in segment placement retry loops
+>>   arm64: kexec_file: Fix image->elf_headers memory leak in retry loop
+>>   arm64: kexec_file: Simplify load_other_segments()
+>>   arm64: crash: Add crash hotplug support
+> 
+
 
