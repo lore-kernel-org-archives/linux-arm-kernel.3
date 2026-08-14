@@ -4,70 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F898C5CFC1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 08:04:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D793C5CFC1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 08:12:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4GtjVz8aSkcV8b91bhUSgFtXdsgsr8VDTaF8d3s/S3I=; b=EPD2zUEYYiBw53yFIOwvasZWMz
-	VmTuBvVsxtkPk1cn7qe/VQBwjOjFB0tS4H0Jn/whAMqP8nO2I10PbXiMmoUOifiIpTYD0CLRAgiSI
-	atIea91uiZa5nBYeiQ+cgEVQp1cmpZoWf5O9SkGQabNWjpWyTIMaO8EG7hjuvE/h93N2RZ35uE5XR
-	1pHzWKclcBLXQRyRtCtgrhNn+kbDtnlQDk0H6PRtNvm/f5hniYsSMH12vtP/iX33Ttmb6zfmgcDUo
-	PNftvvr4EUFXrXstlPaoJpt7+8kOUWkhy90MsrUEAgxZNFWlMIBcIrlczrA9bchT0J5gUWUe9kPnV
-	lGgXJ5/w==;
+	bh=N9rgzWOT5ERO/iBAjWJm0I+ZwZbpkreU6DGPLtd6BSk=; b=nntl+kqODXkYC9RtkbZP5kMM+B
+	oNR6aRqIIojr3AASuWRxerzq7jBQsTr2/P3g+FBXuooeq5B2g/jv7JmKL7lSkDj7LFcXiRv+rcklx
+	9En7OMfIeqsFb+09ICjnExez/H1joRaDxmqWT/7Ymzjg/vy6v1+xitP0ye4b2puG0h1GhueUKflf/
+	WfreG27cu1RuITYYB8m7Bde80UEcDrE9F3wLpv6tDkb9/vmLI7O9JpP2N07P0ZVZN/wALVUfPkVwN
+	yqw0tW/tnIdROd/NEkVC0V1rG3NgCgEKzFcG5KYe3OHw7gwgG15mHUD1mAAx46wLwV4vTfrv+l7fN
+	/W+Nz3vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wumtz-00000002FJ9-14vA;
-	Fri, 14 Aug 2026 08:04:31 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wun1u-00000002Fm9-0G92;
+	Fri, 14 Aug 2026 08:12:42 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wumty-00000002FIj-1xQp
+	id 1wun1r-00000002FlN-1iYE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Aug 2026 08:04:30 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C9714409FB
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 08:04:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE3601F000E9
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 08:04:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786694669;
-	bh=4GtjVz8aSkcV8b91bhUSgFtXdsgsr8VDTaF8d3s/S3I=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=EgDCmVTd+nFlCcoWLX1CowPzRJTPj7xD/6ijFoL0MQqHLVeKRF4A2fli3yami7BR2
-	 Sr6IdOjib8bFJxzomPosLHtV0EYwbHi9MQnMr9PR1MttWcAkcf3Q+gF3U/0BRAzUNN
-	 +9SJifjUswN2fD0lS3lc7O3vjhfnKL9j7sChv2jU+sn8gOhx40en2EaWXobpBrEIku
-	 L0Vpz3hYnkLxu3Lv8Zvt2w/RhHNtG8VXcZG4YE1gkdj8krbwCUNd4OibMXhYWA7IIN
-	 n1hsCeIQNpLFlLGor9T6MNwh5cnm0waDTQ+Dg+3EmyyTseHUVHQMx/LbWJqdNuVv/+
-	 regfGSWNlzsYg==
-Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-5aeb24c0807so512078e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 01:04:29 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RobxObn+gk8/W/neM8HjWawcJZuKdJPRUdAE4tQY2LIbo0TLCUEXoMsIpV9we9WdsRYaI3HsOmU9IwTtobGkhJ2@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz7NYVZ7ABHFAQC4s4CAW5YgYsotJL61GSHWlX2zyWAqhAck76L
-	wdo8DQQ+6lYPL1c+/Tt0eoCiW41E1+u4nMLYJgcJmHzYLRCGXl8SdW2FgemLdope6KvhUtnRp3v
-	8XnfLu70JbnneNfpZzHZy5+AxbkxGSsM=
-X-Received: by 2002:a05:6512:ac4:b0:5ae:bc40:46de with SMTP id
- 2adb3069b0e04-5b4591a3437mr500240e87.54.1786694668515; Fri, 14 Aug 2026
- 01:04:28 -0700 (PDT)
+	Fri, 14 Aug 2026 08:12:40 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67E81YX9533164;
+	Fri, 14 Aug 2026 08:12:22 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=N9rgzW
+	OT5ERO/iBAjWJm0I+ZwZbpkreU6DGPLtd6BSk=; b=hFG4W94UBsN52vAbWS5Nf2
+	Ref6hvaNWO/L1Lq/dWJmz+ZWEm7Gd6MydV9JPD2WuLtKdeH/oUhAf5SdXObMzuRd
+	0o5ixw3TZiUhim8WVPAo4Q41xGQnD5K1d8UfYY/zRA7QKNYCUar++31RVBSYiSkV
+	UhwTpKa4sUJNhHyjv9u14bsnoRVT0iYGogEMtrrkVG8fUfxnIVS3VYM/j0g6DxtL
+	vmxyfP7cZqBjJ+plZhQJMh4zRZ4VAgKQtX+aEQY1g3fUzy7MlKWZ0fQrSTdyY0HV
+	Utvngi22TNe4HDHbeWevauayz8KEqNIHavIg2CBOJF0WpguM0aYaJmM0DpyNVUcw
+	==
+Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fwvq9uu82-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 14 Aug 2026 08:12:21 +0000 (GMT)
+Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma11.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 67E8BeoK002250;
+	Fri, 14 Aug 2026 08:12:21 GMT
+Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
+	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4g1rpv98gp-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 14 Aug 2026 08:12:20 +0000 (GMT)
+Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
+	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 67E8CJ7u50856226
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 14 Aug 2026 08:12:19 GMT
+Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 10D4720043;
+	Fri, 14 Aug 2026 08:12:19 +0000 (GMT)
+Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id A776420040;
+	Fri, 14 Aug 2026 08:12:15 +0000 (GMT)
+Received: from [9.123.14.142] (unknown [9.123.14.142])
+	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Fri, 14 Aug 2026 08:12:15 +0000 (GMT)
+Message-ID: <ce787895-e2f1-4e32-b2c7-737e26c862f9@linux.ibm.com>
+Date: Fri, 14 Aug 2026 13:42:14 +0530
 MIME-Version: 1.0
-References: <20260812-sync_a4-v1-1-b7279c26e2bc@amlogic.com>
-In-Reply-To: <20260812-sync_a4-v1-1-b7279c26e2bc@amlogic.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Fri, 14 Aug 2026 10:04:16 +0200
-X-Gmail-Original-Message-ID: <CAD++jLm=bW+fFgwjYjUyKAenY-QkxZQxrRcYQKfank-ZNcVr2Q@mail.gmail.com>
-X-Gm-Features: AcwNN1UyDExcAOXw8J37R-EEDNTfffTGz3BzYB-AtaE8hWwAMb7QYzUfCwaWE8Y
-Message-ID: <CAD++jLm=bW+fFgwjYjUyKAenY-QkxZQxrRcYQKfank-ZNcVr2Q@mail.gmail.com>
-Subject: Re: [PATCH] pinctrl: meson: sync some modify from A4
-To: xianwei.zhao@amlogic.com
-Cc: Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, linux-gpio@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/3] firmware/edd: use kobject_put() on
+ edd_device_register() failure
+To: Tarun Sahu <tarunsahu@google.com>,
+        "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Russell King <linux@armlinux.org.uk>,
+        Geoff Levand <geoff@infradead.org>,
+        Michael Ellerman <mpe@ellerman.id.au>, djeffery@redhat.com,
+        Nicholas Piggin <npiggin@gmail.com>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: linux-arm-kernel@lists.infradead.org, dmatlack@google.com,
+        Pasha Tatashin <pasha.tatashin@soleen.com>, souravsgl@google.com,
+        skhawaja@google.com, linux-kernel@vger.kernel.org,
+        driver-core@lists.linux.dev, linuxppc-dev@lists.ozlabs.org
+References: <20260813095421.1700945-1-tarunsahu@google.com>
+ <20260813095421.1700945-3-tarunsahu@google.com>
+Content-Language: en-US
+From: Sourabh Jain <sourabhjain@linux.ibm.com>
+In-Reply-To: <20260813095421.1700945-3-tarunsahu@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-GUID: iGVBPvI2HEE-VIn2U7aVn8Ny_U0OIQGn
+X-Authority-Analysis: v=2.4 cv=PbDPQChd c=1 sm=1 tr=0 ts=6a7ecde6 cx=c_pps
+ a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
+ a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=1XWaLZrsAAAA:8
+ a=VnNF1IyMAAAA:8 a=6E-QQtZnqdiRGRPtamYA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODE0MDA2MSBTYWx0ZWRfX3Rxe6UtmOwff
+ goAzMiubQh1Cio/v7ELBpgC3WTABtPfcrjunBOXc8C83RbP8IOh+i17WGszVRe/Y/wCGlJ6vbaO
+ PS0NtEV9JnagKpSL7nyIVmg/FmDflAZCDV76Nks1P4An+ikcVG01d7pOsOPK9sW/sZfwfvn6gML
+ dUUx3jgv0U0DY5AOPjOWa3nuk4TTaGzwZ4ZXtEMXsr4wwS+chWpWJBBd/CfV4TJ6CVY0j8EPn+F
+ QBqqd6esCnJXDefihis/OMaJfQpGZJJlau6ZuPXlgUPjVsdKV1kRfi3++LKGJgujYV0ohLAVlOa
+ g47y0uHa/qdmp7m/D2fIN03Gmxlor+L1sHbJLzCRMiGEl2KLnUYG5HRpLitS66m2YrKTs5Y51+t
+ +DChXn3p1mVN1LJgVZSF8KJOqtSrYpG9q9e4JX15cjpQBJW9kBXvL2i8leG8nqsXZbkQkdahP7b
+ O7+3+zt/hBJbsTRCbqw==
+X-Proofpoint-ORIG-GUID: CVJL8JRRoyCQS4Lz7jYUsO5wrEkc1bn_
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODE0MDA2MSBTYWx0ZWRfX18EkSN8NZslK
+ 7eNIj1Khe3FkPY1SKh+NnYwA/6UDwi0c421Cw1G45+U53760sTDpI+FjmXRs03/zYnZv5yfwj0R
+ 0xJ5Tq+EWLvK68LICgJsfttEuEfL9NE=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-14_03,2026-08-12_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 bulkscore=0 impostorscore=0 malwarescore=0 adultscore=0
+ clxscore=1015 priorityscore=1501 suspectscore=0 phishscore=0
+ lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2608140061
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260814_011239_467807_234A63E7 
+X-CRM114-Status: GOOD (  18.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,21 +135,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 12, 2026 at 12:22=E2=80=AFPM Xianwei Zhao via B4 Relay
-<devnull+xianwei.zhao.amlogic.com@kernel.org> wrote:
 
-> From: Xianwei Zhao <xianwei.zhao@amlogic.com>
->
-> Set the drive strength before enabling the output to avoid enabling
-> the output with an unintended drive strength.
->
-> Also return the actual output enable state from
-> PIN_CONFIG_OUTPUT_ENABLE instead of always reporting it as enabled.
->
-> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
 
-Applied this patch as well.
+On 13/08/26 15:24, Tarun Sahu wrote:
+> When edd_device_register() fails after initializing the kobject with
+> kobject_init_and_add(), calling kfree(edev) directly bypasses the
+> kobject release callback (edd_release) and leaks the allocated kobject
+> resources.
+>
+> Fix this by replacing direct kfree(edev) with kobject_put(&edev->kobj) on
+> registration failure.
+>
+> Signed-off-by: Tarun Sahu <tarunsahu@google.com>
+> ---
+>   drivers/firmware/edd.c | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/firmware/edd.c b/drivers/firmware/edd.c
+> index f980c5b56858..763e7b16d517 100644
+> --- a/drivers/firmware/edd.c
+> +++ b/drivers/firmware/edd.c
+> @@ -748,7 +748,7 @@ edd_init(void)
+>   
+>   		rc = edd_device_register(edev, i);
+>   		if (rc) {
+> -			kfree(edev);
+> +			kobject_put(&edev->kobj);
 
-Yours,
-Linus Walleij
+The EDD device is registered with a ktype that has a release function, 
+so it is
+better to call kobject_put() to release edev instead of freeing the 
+memory manually.
+
+Changes look good to me. Feel free to add:
+Reviewed-by: Sourabh Jain <sourabhjain@linux.ibm.com>
+
+
+>   			goto out;
+>   		}
+>   		edd_devices[i] = edev;
+
 
