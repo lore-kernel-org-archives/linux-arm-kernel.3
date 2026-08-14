@@ -4,69 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BC0DC5B572
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B88F4C5CFC1
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 21:01:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DYuMpnr3KSC7nQvSYxrDe2V0WmDtuzggqBjS2om2eUA=; b=mdG8rpolFH/I+gq5gyXpJbc/9Y
-	o3NYX0+5n74hN+QHiN1JXZMs2VHKq/7p4CYbCewR604eydNdfyzY2EYBphwb9/geBasglDcI2z2CQ
-	mVagU6yMUraLRuCUTLSDYBZoX1d2g+sgWkmbhFRli2Fmqj2icynN1/0HFS6lmo3sr2eCdVKJI8o39
-	ovyIEt8N6tR8t4nrzRGmxqOqUF21c54cO4qSZO2SBtOXgYzNBgv98Ntp8jMad5euoTXED29Ye5BpY
-	MeTgXL9BagSoripqgXbSkIS3uzz18if/UjLSEQyw9+/2xe747KH3w1f+r1jWQgiR6KJ5h30ZpNP68
-	8LB8+x+g==;
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=CpRLa2s9CCSXq/nY6RLLua2/DfHcY8vtQRcWiuG8yfo=; b=vDeN9FRBmA1TG8oPCZxstSu996
+	NnUJ26mN1dfyK8CPXx4CB7KjLrTueh4X07j1eZU5UO+45HbslEx1A84pCrerKGKWO9ln558igNlPx
+	LkymBBU86uyAmwfaB1S1LHuOyz1x5oFfGkYqpj2YNA4z64W8co7rW4M4+9GCrb5+X9kMTuLu1llQS
+	tjGcU4Kz2yVD0+GbXsb5qlvURJZE0n22H/YboQRxuS04qHz4E8YyfBuhtxAb+H1s/5uxnJgXkw0Yr
+	zcd4x2XsgKKjuOeT6zmzp9YJH9d89SDCcHiE0s3M9yfaqxpoCgss4HJNrfOjbtRX3r/GaRNJNVXav
+	QgYz7ITw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuz1V-00000003BoR-2QwR;
+	id 1wuz1V-00000003Bo9-1urr;
 	Fri, 14 Aug 2026 21:01:05 +0000
-Received: from mail-ej1-x647.google.com ([2a00:1450:4864:20::647])
+Received: from mail-ej1-x648.google.com ([2a00:1450:4864:20::648])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuz1T-00000003Bmi-1UwX
+	id 1wuz1S-00000003BmN-2Ekf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Aug 2026 21:01:04 +0000
-Received: by mail-ej1-x647.google.com with SMTP id a640c23a62f3a-c1f472eaafbso230900766b.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 14:01:02 -0700 (PDT)
+	Fri, 14 Aug 2026 21:01:03 +0000
+Received: by mail-ej1-x648.google.com with SMTP id a640c23a62f3a-c15ce19923fso108463466b.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 14:01:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1786741261; x=1787346061; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=DYuMpnr3KSC7nQvSYxrDe2V0WmDtuzggqBjS2om2eUA=;
-        b=sR5rqvZmKxzFReW0fvXwFweY4zyeekKTD5D4pgQdy9iABc8saqxmKnmOKYOCEwnmfv
-         6qfjhtwD/GxERToBX0Cfj8V2G/v8IKi7ZSyMYUzVO81yDQ1S5LDhtazSWQlGH2lsUvUO
-         2aJEf90i1iUUiUY8JA40yZubrPBCdo5gknM9Gqlv1j92gds39vvgLE5hPjvOPV+yS42z
-         e07fNl832Iwr5RyDiEliANFVfD1veWm8/oVQTPuhkPDVb9jAmCTdIg68shwWLnWyP2ur
-         KF0KShXQKm+We1+g7SOmosSZiJMx9L8koXS+ZGxtUnjp7LAG4AVvDAV7XQK/6Z/93r+4
-         KIEg==
+        d=google.com; s=20251104; t=1786741260; x=1787346060; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=CpRLa2s9CCSXq/nY6RLLua2/DfHcY8vtQRcWiuG8yfo=;
+        b=MUQlym31Oy5kDPbV5kNeSICR7wMax6uPlwawxlgVflNJehIUykauAhaaYQn+D5qKu2
+         kodDG6SHdWt7raTiH6TzbouiGXfqDpu4J2zeuwqZQxzSpahSc8EI9c8+hkbOt1vpcjPN
+         xEO2oP3nRaJohdrsl09U1mq2tskUq5ogxokQ7Uss+LPSqdPh9nE2LeqnuoKMVY3NjjJ9
+         16tMzhmNAMmY9BzGjW+U1J4P4DZD6elgSIs0NOpmZp06btS89izNVK7VywNlkh/HhhOf
+         jOi0Xxw8eh4B9HKPoBauSHHtdMGCnjj9OCxKv+HvxsxQ2WtBay7ZNPF5S+tkaPK+2ey7
+         D5oA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786741261; x=1787346061;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=DYuMpnr3KSC7nQvSYxrDe2V0WmDtuzggqBjS2om2eUA=;
-        b=PXq1XRAVr999Sf1mOHNy10lfPTn1Se7VnIkFJIQpyV085AszSFkbQ7ESVoDJns1jmf
-         AT2LClH1j0QoAoulev0kNsXxdFpG1xrxiqplhFeZ+X/bryOnsSgFqduTq5zjWOC8RvE9
-         cxB7nisjCYp6q/SKdMuw2r77fDcVaTe3CedDkIsAs/bhKwo5c1h8xrGiMI6rslEMWRTW
-         rkouAov3nL6I7tuOl6K3XfOrHjmQ5cVHFTbTX/UHhZShCiu8tGbSx9U6bb8dHommbGUN
-         igCQfdf9zNSer6j4AHgX3QABBhlKwsPJUalkMb8X8c3gDZhCOggtXmAv2COAbwzWtZnD
-         wzYA==
-X-Gm-Message-State: AOJu0Yz6kVpYihbCamLU6rAeMEjwkDqw3vuKEPW3J8o4VV0Zgv3DBhtD
-	0AdECt3Jy4XcikoVndvDJ1bmA2aPGl4uKF8QcAbqdFfPvhxJYt7eNFpBRSQQrn97N/6lWVkISPp
-	rNNhTJsg6U04C2T92YQ==
-X-Received: from edgd22-n1.prod.google.com ([2002:a05:6402:a516:10b0:6a0:d334:54e7])
+        d=1e100.net; s=20251104; t=1786741260; x=1787346060;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=CpRLa2s9CCSXq/nY6RLLua2/DfHcY8vtQRcWiuG8yfo=;
+        b=gVtC7ULohQgOti86zqsKAOzRPLd4IzjXI0N5C8Zxt5i9R9OA502BY5/ykSs6tKJGW2
+         bywM8J7uVIP+hT7ALedRCMm/t6A6sYEx/5TY4gMzbVSDBFbROzwZaAD9Lw83AyLUhGQ7
+         0sCI9S3Do1qFF5uTqjTZdPZXf7fdONeYaB2ot5WoQ73OATk/PTfkIUW7yOqHZeuIwKHj
+         /d7fA4Ij2VWULfAr9tCtXp4H8RnKYb//jSEtjiIFvVtvZ1oyof68JtT8qNzjfDOE4ESS
+         junxruwEcoagLNKrKdDQGM+jAhOLxLPOf1p2rmnGcu3TR47cKLX+da6x9hNBcWuku9nQ
+         gvyA==
+X-Gm-Message-State: AOJu0YwExvIHK9pO5PKAoSUUks7XcrQn76+ivMDz6/Uv756Zdh6PTrzN
+	wGpnIMx8GxhKY8SrPct6od2IzdT67C6j0DHnRCm1vl3xA9OqvyN/FymGjgTkOnQjI7DD+DsN2aK
+	c7mOBOGSuQFccOp/kIA==
+X-Received: from ejzu7.prod.google.com ([2002:a17:906:c407:b0:c1f:4de4:c4c7])
  (user=tarunsahu job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:907:e15b:20b0:c21:3c4e:cb9d with SMTP id a640c23a62f3a-c213c4ecd42mr205334666b.14.1786741260571;
- Fri, 14 Aug 2026 14:01:00 -0700 (PDT)
-Date: Fri, 14 Aug 2026 21:00:55 +0000
-In-Reply-To: <20260814210057.4102768-1-tarunsahu@google.com>
+ 2002:a17:907:960b:b0:c1c:28e5:652e with SMTP id a640c23a62f3a-c212a228bbfmr401758866b.25.1786741259490;
+ Fri, 14 Aug 2026 14:00:59 -0700 (PDT)
+Date: Fri, 14 Aug 2026 21:00:54 +0000
 Mime-Version: 1.0
-References: <20260814210057.4102768-1-tarunsahu@google.com>
 X-Mailer: git-send-email 2.55.0.691.gc56d675ccc-goog
-Message-ID: <20260814210057.4102768-2-tarunsahu@google.com>
-Subject: [PATCH v3 1/3] ARM: locomo: use put_device() on device_register() failure
+Message-ID: <20260814210057.4102768-1-tarunsahu@google.com>
+Subject: [PATCH v3 0/3] Convert manual kfree(dev) to put_device()
 From: Tarun Sahu <tarunsahu@google.com>
 To: helgaas@kernel.org, dmatlack@google.com, 
 	Nicholas Piggin <npiggin@gmail.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
@@ -79,8 +76,8 @@ Cc: linux-arm-kernel@lists.infradead.org, souravsgl@google.com,
 	driver-core@lists.linux.dev, Tarun Sahu <tarunsahu@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260814_140103_399385_514B603E 
-X-CRM114-Status: GOOD (  13.01  )
+X-CRM114-CacheID: sfid-20260814_140102_581055_B30CFBE8 
+X-CRM114-Status: GOOD (  10.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,51 +92,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As per device_register() function kernel documentation says "even
-when device_register return error always use put_device() instead
-of kfree()"
+Hello,
 
-Fix such instance in locomo driver by replacing direct kfree(dev)
-with put_device(&dev->dev) when device_register() returns an error.
+As per the kernel-doc guidelines, Devices that are tried to register
+with device_register or to add using device_add, must use put_device
+on their failure path (not kfree). This series contains 3 patches
+for updating such instances. Same for kobject_init_and_add or
+kobject_add, call kobject_put instead of kfree in case of error.
 
-Signed-off-by: Tarun Sahu <tarunsahu@google.com>
-Reviewed-by: Sourabh Jain <sourabhjain@linux.ibm.com>
----
- arch/arm/common/locomo.c | 13 ++++++-------
- 1 file changed, 6 insertions(+), 7 deletions(-)
+V3<-V1
+1. Updated the commit msg of each patch to mention about the kernel-doc
+   guidelines.
 
-diff --git a/arch/arm/common/locomo.c b/arch/arm/common/locomo.c
-index 55e360452828..0f6689d343b0 100644
---- a/arch/arm/common/locomo.c
-+++ b/arch/arm/common/locomo.c
-@@ -223,10 +223,8 @@ locomo_init_one_child(struct locomo *lchip, struct locomo_dev_info *info)
- 	int ret;
- 
- 	dev = kzalloc_obj(struct locomo_dev);
--	if (!dev) {
--		ret = -ENOMEM;
--		goto out;
--	}
-+	if (!dev)
-+		return -ENOMEM;
- 
- 	/*
- 	 * If the parent device has a DMA mask associated with it,
-@@ -255,10 +253,11 @@ locomo_init_one_child(struct locomo *lchip, struct locomo_dev_info *info)
- 
- 	ret = device_register(&dev->dev);
- 	if (ret) {
-- out:
--		kfree(dev);
-+		put_device(&dev->dev);
-+		return ret;
- 	}
--	return ret;
-+
-+	return 0;
- }
- 
- #ifdef CONFIG_PM
+V2 <- V1
+1. Removed patch [1] as it is part of another series [2] already.
+
+[1]: https://lore.kernel.org/all/20260810162814.1398016-4-tarunsahu@google.com/
+[2]: https://lore.kernel.org/all/20260724171945.2812749-5-shubhrajyoti.datta@amd.com/
+
+Tarun Sahu (3):
+  ARM: locomo: use put_device() on device_register() failure
+  firmware/edd: use kobject_put() on edd_device_register() failure
+  powerpc/ps3: use put_device() on device_register() failure in
+    ps3_system_bus_device_register
+
+ arch/arm/common/locomo.c                 | 13 ++--
+ arch/powerpc/platforms/ps3/device-init.c | 83 ++++++++++++++----------
+ arch/powerpc/platforms/ps3/system-bus.c  |  2 +
+ drivers/firmware/edd.c                   |  2 +-
+ 4 files changed, 59 insertions(+), 41 deletions(-)
+
+
+base-commit: ddca0cd800962b4121e5f2633005167bb6216175
 -- 
 2.55.0.691.gc56d675ccc-goog
 
