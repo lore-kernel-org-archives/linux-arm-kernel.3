@@ -4,107 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71878C5CFC1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 18:38:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44331C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 18:54:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h3Bw7xg93wntK2DGSQ+p1dtb5GSU+jYFMAY4ihssDQ0=; b=2L2WXYVuekta1hUM9xKr3lfUIs
-	Y56orNObVC596FFeVsTU9Oh5WZNn3Ec61eCAHDxTBCmxY7IM3FFQHH33nK+l0gsQTGwglBqP/Xnx2
-	BbchMAmq9H//367nVVJVsbqM9TbdLYG11HrBybiiuB/dWGe2/UJtCQwME7N+2Aff3QPcRg0GVuQrW
-	x2BpVx5SsbMu+mOmkx5WIlmV2Hp3yDUTMnOQm3yTXy1jvd8hmeFamYPTWEO/XBgXx5Knu8Ot1l+5m
-	2T+ip2ZcvOhYeUnahq33l2pgCD6D56+ZKk+fGj/XPOgA8/LGixnT0UcuME08cG91OUItgiL1teup/
-	uqtjmuLg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3rLGBlGlLklVE9Jy75IvX9umgOpni/fGEHbBpcfgO4c=; b=vrtzRn9ZaPvgFIE4p5bJZ6MZDp
+	5jS7nNJaocLb7qtWvMRrHNyQYH3RwQoInDioyiT6qZI2r3xnm5vQwFgi2mPpCTAaMqykKvUDmAFjn
+	wVqsSRQCYk4lkClKt147P7yKD6vODV5MWeFav4hC159ib3ZY6WiSWVTjJtXYUqXNgiRLsGlI4cQmn
+	i/NXx5DiAsrbU1wfxTYexbH9f+lOo5gD8WxXBJVAVRc2+Yd6fT51XDQ5Y2Ug6WnTuhYTwa2HKZFGs
+	6wGrTLXCuScKSQ1ShKrluc0bCsIROcjRK+4DZdF2mRAv0xxVQlDNfjFGoBjaWf5wSb3X2xj1bBUUb
+	ZToz+ITA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuwmr-000000033Gt-3p1p;
-	Fri, 14 Aug 2026 18:37:49 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1wux2k-000000033qx-0zyz;
+	Fri, 14 Aug 2026 18:54:14 +0000
+Received: from mail-northeuropeazon11012025.outbound.protection.outlook.com ([52.101.66.25] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuwmp-000000033G4-2Gf4
+	id 1wux2f-000000033qR-2YoO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Aug 2026 18:37:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1786732666;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=h3Bw7xg93wntK2DGSQ+p1dtb5GSU+jYFMAY4ihssDQ0=;
-	b=dEjNr+kqcTQa4PanpFJwe29bl/HNlhQJOnyoF9JXiIL0h7v9LaWGUm+gIWEDp70ijzx/rh
-	QaiSALCOTy5Bxp4ZH6bb2rYfI9QCpzAW8qwNzXN+EkiFA8ivqBm2zrIwTKd7CmbtY9Pd0V
-	XugY+zbmWbjoNP5880LIpMxX73I6GYg=
-Received: from mail-ed1-f71.google.com (mail-ed1-f71.google.com
- [209.85.208.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-270-GBw3tQLyM0qr54KgLXjSGA-1; Fri, 14 Aug 2026 14:37:43 -0400
-X-MC-Unique: GBw3tQLyM0qr54KgLXjSGA-1
-X-Mimecast-MFC-AGG-ID: GBw3tQLyM0qr54KgLXjSGA_1786732662
-Received: by mail-ed1-f71.google.com with SMTP id 4fb4d7f45d1cf-6a171a3be39so1461238a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 11:37:42 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786732662; x=1787337462;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=h3Bw7xg93wntK2DGSQ+p1dtb5GSU+jYFMAY4ihssDQ0=;
-        b=QD4feiQAR4tZEDtPhbTi0JsHPkB/8FulEpHpEM5oOXETKlZJuyshmxZIA3BU0Um2bu
-         zKp8050IwDUrIi4iEyl/kEc4kpg4QgPqtBAJYiCmXfSHNhIFeNcd/mZVEKOW3Dw0gdX2
-         r4igb3aiIZ8vMd0RSOmM0g1BZ8rtuW/tU7XX59b8uU4bk0P4xrnsyRijQfdMLOQ2rIaj
-         Fj5UtV7kVr9YurwyLbEj1Lj4xupUV6NhWi7YKb68FdxfKJr5t/xpRWBbQ485BHons1sc
-         UT9y7q9tVBgd5nodI2PHHl55cu8dBco1oyAl+BGBD/FvyVn5fkuH3Z3ff2VLBIaIj13Z
-         +mxg==
-X-Forwarded-Encrypted: i=1; AHgh+Rpk1Ap9205iTNYNNkAE+rx+C/x5x3wIUIxcRyVCoTZi8Cpsi/ZtbEXUC3DFSKWC/WlT5slP22HvKb+Hq87B+1Y7@lists.infradead.org
-X-Gm-Message-State: AOJu0YwtB+0elOcedorlKXcVulpiIJJ8TOjf0TxrvlOxAWBphzWi/jdL
-	Pk9LHNlZwLC4Z9eAIx+2Pjyn6TQVhl9vrK/CpWw/009lhuAqrbnn9Sz+Bwx08Jn+eR+XFFyukvo
-	UICI61tFrjA9StTPatApeklYnT3y9osdSJxIVBm07tYf1OO0LGQx1pYGU+GmhVo/dLIktczFyCF
-	YCo5EKuu2RYbjJTBv5scIeC7xHBaoLBA5+i1dq3cFgx++NUuOkYCI=
-X-Gm-Gg: AR+sD12GAyrb72igspj7W4HnVzZE326f9nKPTK3laBEs3z4rhekXf6xZf1UpxAmmDoE
-	wqyACQy/6xhTu3lETmNbq98leO1q7q6udhEUrtqxe2lsOPkXgdTbauldLYM7RrUwtHcjldwngWA
-	jJcL7txTcfRMHshpyQ1ni5Vk02Jgc9hD2zDNQIh0klVBmcZ7gtePl/ck7RTqgxrT43kvAF/yr04
-	6ix9zXhFwJktVhk74JXtrtUwmyskYpMzy0UfTr0oSv6Zg==
-X-Received: by 2002:a17:907:1c94:b0:c20:87f9:875a with SMTP id a640c23a62f3a-c212a23ba41mr343801966b.30.1786732661694;
-        Fri, 14 Aug 2026 11:37:41 -0700 (PDT)
-X-Received: by 2002:a17:907:1c94:b0:c20:87f9:875a with SMTP id
- a640c23a62f3a-c212a23ba41mr343797466b.30.1786732661284; Fri, 14 Aug 2026
- 11:37:41 -0700 (PDT)
+	Fri, 14 Aug 2026 18:54:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=HEdRvsPQdYiQp/EH0h751+72F6rXdi18SRCpnrcRrh7MBa+96l6pQuVkCg+ghy71YPZxyAw+xKl1ujXJOtZ7cCFBiwGLDQd6bvc22aH9Rm1D2U+yFHTBRx1eFoVfwSE1wZGkIYGriskVfLpSn8L2dVtyPD4/pOQ1jQNVJB4Lnfo1v3X2gIsctrLZOxbxVn39HaSMBATdHyk2urR8pboFSY5t7aosGm0rC6WNOjlosPf5Huh47/hrZHlV3FfmzzhPbG2q69QF65WH8SANL6MLlHVu+GImefjbrrYpSvZPvXBeo56/jc+JtVNvAhPV8c5fnZzzREMBLJOwyOpXeylaiA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3rLGBlGlLklVE9Jy75IvX9umgOpni/fGEHbBpcfgO4c=;
+ b=mgcr4QTUbkekN71PQOsJ1x2OuUpP/BgmGx7tXGBm9k9biGsse+CPqG3EDHe+Kvz+1tGp84C59H9nERgK4+ZJte+l7F3Vgepw5HlzYhiJ6JKkbcUae1LkYl7OxzXNuvz7RNWLtlS2+jh1JFRb6LRFGBrKTPrJ5VLGPXs98ZAvfbBT441uGan6sxIw7jElaj7MdCEd+iOgdcZUEe3I2xrgMlnZn8o8rP8Ygpj8KvYtCJh9qMNh+IA14suzymK4NZTUfZWn1navuNXOHO/jJhRp8wjCEGLBQ3e7uGtq1af+bUHPRWSlYv+zS627SzOPG0ThGJPO7BU9uRPkPU4f+v5WNg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3rLGBlGlLklVE9Jy75IvX9umgOpni/fGEHbBpcfgO4c=;
+ b=b87OsxjQn9Fe2d+mFA36dGCbg33YsrX7I0NbEPJyKrfuHHH7zRA0WCa73wnSlBwfBUaHxnl+ete3EjSQB4+pznxU4S61t8leLWHQHofpw52+ANIMpumYwa4OaYa0WhQqXVxbcjEZlFlytrJNwJewhTsMjuCnk9A0TRiqCNRVOOoD51NwaPFY82ZaGnJIZV54CJaGOHXrvZ1+gQ4HQbjMKx2xfmP6+xB6V8mJp3HEIUu6ePlAST5u7uQ9+eAgspZxQud7Ei0jt1kLCLqYVERxTKx4DJiWUzvQr6OruwOjeoRFHQwJHG9Y+UmAuV4FeQGBUPkOX/zNHIEhuBFa7yWucw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by GV1PR04MB9118.eurprd04.prod.outlook.com (2603:10a6:150:25::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.16; Fri, 14 Aug
+ 2026 18:54:04 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0315.014; Fri, 14 Aug 2026
+ 18:54:04 +0000
+Date: Fri, 14 Aug 2026 14:53:56 -0400
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Sasha Finkelstein <k@chaosmail.tech>
+Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
+	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Martin =?utf-8?Q?Povi=C5=A1er?= <povik+lin@cutebit.org>,
+	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 2/2] dmaengine: apple-admac: Add M3 generation ADMACs
+Message-ID: <an9kRPppZmUFH5uJ@lizhi-Precision-Tower-5810>
+References: <20260812-t603x-admac-v3-0-d1f137f803e1@chaosmail.tech>
+ <20260812-t603x-admac-v3-2-d1f137f803e1@chaosmail.tech>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260812-t603x-admac-v3-2-d1f137f803e1@chaosmail.tech>
+X-ClientProxiedBy: SA9PR10CA0023.namprd10.prod.outlook.com
+ (2603:10b6:806:a7::28) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-References: <cover.1786626275.git.rrobaina@redhat.com> <an7Udt-luZfJO71U@willie-the-truck>
-In-Reply-To: <an7Udt-luZfJO71U@willie-the-truck>
-From: Ricardo Robaina <rrobaina@redhat.com>
-Date: Fri, 14 Aug 2026 15:37:30 -0300
-X-Gm-Features: AUfX_mwn2tCHNr249W_00_JVZBPk2OAqZsqdPsMuBo2JtJrJsV0GhfYgrjHGFrM
-Message-ID: <CAABTaaCcyTLV5TdmzZfpP6LMV+5GeCKqotPoJrb0u9n0h-TaHQ@mail.gmail.com>
-Subject: Re: [PATCH 00/13] audit: log all six syscall arguments in the SYSCALL record
-To: Will Deacon <will@kernel.org>
-Cc: audit@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-csky@vger.kernel.org, linux-mips@vger.kernel.org, 
-	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org, 
-	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, 
-	linux-um@lists.infradead.org, bpf@vger.kernel.org, paul@paul-moore.com, 
-	eparis@redhat.com, sgrubb@redhat.com, oleg@redhat.com, 
-	richard.henderson@linaro.org, mattst88@gmail.com, linmag7@gmail.com, 
-	linux@armlinux.org.uk, catalin.marinas@arm.com, guoren@kernel.org, 
-	monstr@monstr.eu, tsbogend@alpha.franken.de, jonas@southpole.se, 
-	stefan.kristiansson@saunalahti.fi, shorne@gmail.com, 
-	James.Bottomley@hansenpartnership.com, deller@gmx.de, 
-	ysato@users.sourceforge.jp, dalias@libc.org, glaubitz@physik.fu-berlin.de, 
-	davem@davemloft.net, andreas@gaisler.com, richard@nod.at, 
-	anton.ivanov@cambridgegreys.com, johannes@sipsolutions.net, chris@zankel.net, 
-	jcmvbkbc@gmail.com, tglx@kernel.org, peterz@infradead.org, luto@kernel.org
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: zkL4tGrwWJRuDN7WLM50b-zHOMs7tq_NtH_Pf2ZLNjE_1786732662
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GV1PR04MB9118:EE_
+X-MS-Office365-Filtering-Correlation-Id: d05d55ac-5cde-432f-7dd7-08defa356923
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|19092799006|376014|1800799024|7416014|56012099006|10067099003|3023799007|18002099003|4143699003|11063799006|5023799004|22082099003;
+X-Microsoft-Antispam-Message-Info: pvWoyKSxWGuPtaH4KU5KMqr1d5LYnf+v+X7pCfMOw1OAnLn0H+l8SnAQe/Bawg2qlnYhDadhBBKcqIJD3fDnPGz150nZveszoDLZKvvMreKSfZVG58TC0ydaBN6fxnIyp7xKFOEnrlcin+XOCrLJG8FfkVCyHabRe3CXiszzMsI9jCq2j2zI2yzXgAQtNxWUzeqKT6ZCkVzKFsO7zem9154SEg1A5tLLw9nMGyNBUQAt7ICuthjCeBTQB2hCaZyGmTeFIJqQTxjlTXJzMIAUMKVj0iZMda9SZnmumPz7CFS38rYm5dJ1HhZKewrcReoKN/pLF5wIjy5yO0rx8BIURpZ0f6Rj6g/wRNZ5s4TBPm+jAx58oFoLqeoutIqiCbkSIAGj4jBKjFQEpbPM54FJtiAGwEvjmvuRvhjViONu4w8abqAIUJbzJLV+WG4eBS9eDBRc80lXz7wpDs7Ug/pp2uKkzZPkAAlGESxqiTPlZyTlsmk02o9SSlgFQ52jSHjx3xWuFD+9xMpVCBwMmYWBnUZtF06puINFXBKvEPLBzkGNMa0GKi8YLT4WJ5VuoTysLpSGsNvdZ3cCXK5u/PsEho5/bVcrW/9R2zuHAzzp8uLEFgHfaM+/oXFQDF5GkfmxYoCg6HfXElzTvQMUuo3rRxQ+y9pAmG/46V/YpsdeivY=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(19092799006)(376014)(1800799024)(7416014)(56012099006)(10067099003)(3023799007)(18002099003)(4143699003)(11063799006)(5023799004)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?mgoY71fCwKJLJZtkr6tbPTh5UHRE4Xg/t9tTN9SdYF25UeGXZ8BD3saBjoo/?=
+ =?us-ascii?Q?GxdoJs+iIQxWSa6Pe+6JIrIsJFP34BqwS096sbK9T2oytdHy63KaOabgFO8V?=
+ =?us-ascii?Q?oMC2W3LYHkx9lcvgPxuOi/dKRy0UV5nqUSO8yAcyeE5/MqweXUTvy5Y9GvYF?=
+ =?us-ascii?Q?EKZzkqA2w6t76RZwwrE1DA3xE+D41OnrgXCbgYcFPcsjrS1VfF5CadyPZnl0?=
+ =?us-ascii?Q?jgHTM6S49k3hxvahdLhPHxGOXyM5IZkwARSirFbWG7xgiIame2fxDk3zbci6?=
+ =?us-ascii?Q?nZQPr2BW9YfL/xxUHnwOtIhx3v7j7lILJVL+N/DJ73TWzhbX6Sp3Nk+DmfRZ?=
+ =?us-ascii?Q?BrSNYOO4yyyTsbOPz6Mu6T04xUNItxwOL2jZ7+z+ubTPpf1HnIYhKuAQpKt4?=
+ =?us-ascii?Q?9C95KcCKlsqw10ZKJsB2LCp7SfQGOYjGOPFi3bHWZf5e3wQ+zheMhHPqJWy7?=
+ =?us-ascii?Q?Z++21IVVerYECKoFBArmJ2SO3dwzvy+HHAAevy7kIcw/l4iSKwN8a4HRQjbd?=
+ =?us-ascii?Q?ez7NF2NhLj78niWK2vUVpzewwYeiIG8QUQR9kUNeibxGHmuFK+zilbJ6SesY?=
+ =?us-ascii?Q?HeNeTa76Xx4mVysM5d2b4q42eGo+1itnOlDE5gEBepKTp9D99CKXV2ZENB7x?=
+ =?us-ascii?Q?XoomOlrxkO+9oChdyvFkkPNzSyrw2mXyySC3zj8Hvps530ZH/7DsZ/m3kyIm?=
+ =?us-ascii?Q?2ybTntoefTrct1De5Dro4TfGPdTSWVGYB8rW25Xc1PKo7KVeNgvKXneMZOvh?=
+ =?us-ascii?Q?I9COvzUAAmzi7LaitRfVtD+z0VmON+xHIVVyYRm2XGqT6TZnn1NkkrOoE5Tn?=
+ =?us-ascii?Q?BAREIMSiAmp6sAYQax6xHshS89ZIuX2rsC88+EXEz7OVW2AQpTSWFmHXeucJ?=
+ =?us-ascii?Q?deXDzNZhzCUQnIf1M8Cwuwu7BB7oMKHxm4Gx/u5QWinHpIEa1N+Yvz8DV8tC?=
+ =?us-ascii?Q?vnhyRa5SOoFseva9TSneXAk4ImXSfe9LbklwAcKZzB/a2nxYpoCT0Y5Mmbye?=
+ =?us-ascii?Q?xQjLnIi+CykP94F1eWwIsdplJlcS8w1envpgKSxFNwQoyYwhgnRWuHsBehBX?=
+ =?us-ascii?Q?D7BYmE7z7iNz76k8/zXPqk7CzFIeQzFXrYFrtr1Ugq4traj1AQQImcmtPNO1?=
+ =?us-ascii?Q?e10qIVhj5mN6huZ43Iuif+2NXthQZpbu7NOq4SPxzb6m+A+QLhQIfwDOiRJF?=
+ =?us-ascii?Q?wOPUpCLCn4/7ZW4MTEyXpOzT9znMl7x2MtXbZNhZpq2QtGboh4DugowOd7YC?=
+ =?us-ascii?Q?qtUtkEMagNgoRPYMSDZ53GnHLjb21dAeq/34nk1+IruXxR8CQMe1wG16+kVR?=
+ =?us-ascii?Q?Kf1TQmHoiXSVPq+MAO6lJMeWCChrx5tvLv7qLn3LY3YQ3C7Ncz+JoCj7IQ7U?=
+ =?us-ascii?Q?sWiyjM9N0PJJFCn29iqXPfVnyrU8PF/lt0wr1v4Lecbo/2G5dYet2Bjpv5RI?=
+ =?us-ascii?Q?SY+9JuvoMaxvWW8YuOZaFUMAnBP6rKXJp0S/SQK6469dYAVuZO2sC3qUtGrS?=
+ =?us-ascii?Q?ies7DUUip7MRAuyjX84pZweUVTCe2p7vGTWtfi4+wMfsA1BMTRL7j7Ax6Sqz?=
+ =?us-ascii?Q?+O2TNVTyVC6Oj1Q+2Z+ivkjc4FuIcDnUKj9JqArFol03mt6q64Xd93q4KHRQ?=
+ =?us-ascii?Q?PpLxkRO8BQgC42gZ5pYeNQEjdoUGQjdxNoWex0Y3FefFA3rp7nymE/b8/nAv?=
+ =?us-ascii?Q?f/nA1qSK4WCXx3ko00BqJInETrhHqelleUo6rWh9NQjzmfUXna1geQc23WqS?=
+ =?us-ascii?Q?dTE6qxBJ/2guJGzhkh79p5Rn8NXHY4C5+EXRdrQ5v9Hbtxc0WuM9?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d05d55ac-5cde-432f-7dd7-08defa356923
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Aug 2026 18:54:03.9974
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: OkRvjINOLAy0VLW3/voZDaA7oS/jIVRXpk0iXFIVT9lMdx626IhKjC06hBqfHD17N1DIZkY81BJ4yDmOe2stvBA3H7or9dKQ6kJ4Ons98+/LLx0Tz8xRItva69EiHjzt
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB9118
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260814_113747_646573_42147B09 
-X-CRM114-Status: GOOD (  16.26  )
+X-CRM114-CacheID: sfid-20260814_115409_656946_35D37048 
+X-CRM114-Status: GOOD (  21.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,84 +143,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 14, 2026 at 5:40=E2=80=AFAM Will Deacon <will@kernel.org> wrote=
-:
+On Wed, Aug 12, 2026 at 11:26:34AM +0200, Sasha Finkelstein wrote:
+> The admacs present on t8122 and t603x SoCs need additional writes in
+> order to operate correctly. The exact purpose of this register
+> is unknown
 >
-> On Thu, Aug 13, 2026 at 02:02:50PM -0300, Ricardo Robaina wrote:
-> > The SYSCALL record currently logs only four of the six syscall
-> > arguments (a0-a3), silently discarding the remaining two. This
-> > leads to the need for auxiliary records when audit-relevant
-> > data lands in the 5th or 6th argument of a syscall.
-> >
-> > This series extends the SYSCALL record to log all six arguments,
-> > by adding arguments a4 and a5 inline within the existing record.
-> >
-> > The audit testsuite runs successfully:
-> >
-> >  # make test
-> >  make -C tests test
-> >  chmod +x */test
-> >  Running as   user    root
-> >         with context unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1=
-023
-> >         on   system  Fedora
-> >
-> >  amcast_joinpart/test ................. ok
-> >  backlog_wait_time_actual_reset/test .. ok
-> >  bpf/test ............................. ok
-> >  coredump/test ........................ ok
-> >  exec_execve/test ..................... ok
-> >  exec_name/test ....................... ok
-> >  fanotify/test ........................ ok
-> >  field_compare/test ................... ok
-> >  file_create/test ..................... ok
-> >  file_delete/test ..................... ok
-> >  file_permission/test ................. ok
-> >  file_rename/test ..................... ok
-> >  filter_device/test ................... ok
-> >  filter_exclude/test .................. ok
-> >  filter_exit/test ..................... ok
-> >  filter_inode/test .................... ok
-> >  filter_saddr_fam/test ................ ok
-> >  filter_sessionid/test ................ ok
-> >  io_uring/test ........................ ok
-> >  login_tty/test ....................... ok
-> >  lost_reset/test ...................... ok
-> >  netfilter_pkt/test ................... ok
-> >  signal/test .......................... ok
-> >  syscalls_file/test ................... ok
-> >  syscall_module/test .................. ok
-> >  syscall_socketcall/test .............. ok
-> >  time_change/test ..................... ok
-> >  user_msg/test ........................ ok
-> >  All tests successful.
-> >  Result: PASS
-> >
-> > Ricardo Robaina (13):
-> >   audit: log all six syscall arguments in the SYSCALL record
-> >   alpha: pass all six syscall args to audit_syscall_entry()
-> >   arm: pass all six syscall args to audit_syscall_entry()
-> >   arm64: pass all six syscall args to audit_syscall_entry()
-> >   csky: pass all six syscall args to audit_syscall_entry()
-> >   microblaze: pass all six syscall args to audit_syscall_entry()
-> >   mips: pass all six syscall args to audit_syscall_entry()
-> >   openrisc: pass all six syscall args to audit_syscall_entry()
-> >   parisc: pass all six syscall args to audit_syscall_entry()
-> >   sh: pass all six syscall args to audit_syscall_entry()
-> >   sparc64: pass all six syscall args to audit_syscall_entry()
-> >   um: pass all six syscall args to audit_syscall_entry()
-> >   xtensa: pass all six syscall args to audit_syscall_entry()
+> Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
+> ---
+>  drivers/dma/apple-admac.c | 23 +++++++++++++++++++++++
+>  1 file changed, 23 insertions(+)
 >
-> Could audit make use of syscall_get_arguments() instead?
+> diff --git a/drivers/dma/apple-admac.c b/drivers/dma/apple-admac.c
+> index 14a5ee14a481..fd6236c7c024 100644
+> --- a/drivers/dma/apple-admac.c
+> +++ b/drivers/dma/apple-admac.c
+> @@ -39,10 +39,14 @@
 >
-> Will
+>  #define FLAG_DESC_NOTIFY	BIT(16)
 >
+> +#define T8122_UNK_28_VAL	0x200000
+> +
+>  #define REG_TX_START		0x0000
+>  #define REG_TX_STOP		0x0004
+>  #define REG_RX_START		0x0008
+>  #define REG_RX_STOP		0x000c
+> +#define REG_UNK_28		0x0028
+> +#define REG_UNK_2C		0x002c
+>  #define REG_IMPRINT		0x0090
+>  #define REG_TX_SRAM_SIZE	0x0094
+>  #define REG_RX_SRAM_SIZE	0x0098
+> @@ -127,6 +131,7 @@ struct admac_data {
+>  	struct mutex cache_alloc_lock;
+>  	struct admac_sram txcache, rxcache;
+>
+> +	bool set_unk28;
 
-Hi Will,
+const struct admac_hw *drvdata;
 
-Thanks for reviewing this patch. Yes, I think so. I'll fix that in the v2.
+So needn't copy set_unk28 to here, in case need more quirk in future
 
-Thanks,
--Ricardo
+Frank
 
+>  	int irq;
+>  	int irq_index;
+>  	int nchannels;
+> @@ -147,6 +152,10 @@ struct admac_tx {
+>  	struct list_head node;
+>  };
+>
+> +struct admac_hw {
+> +	bool set_unk28;
+> +};
+> +
+>  static int admac_alloc_sram_carveout(struct admac_data *ad,
+>  				     enum dma_transfer_direction dir,
+>  				     u32 *out)
+> @@ -747,6 +756,11 @@ static int admac_device_config(struct dma_chan *chan,
+>  	u32 bus_width = readl_relaxed(ad->base + REG_BUS_WIDTH(adchan->no)) &
+>  		~(BUS_WIDTH_WORD_SIZE | BUS_WIDTH_FRAME_SIZE);
+>
+> +	if (ad->set_unk28) {
+> +		writel_relaxed(T8122_UNK_28_VAL, ad->base + REG_UNK_28);
+> +		writel_relaxed(T8122_UNK_28_VAL, ad->base + REG_UNK_2C);
+> +	}
+> +
+>  	switch (is_tx ? config->dst_addr_width : config->src_addr_width) {
+>  	case DMA_SLAVE_BUSWIDTH_1_BYTE:
+>  		wordsize = 1;
+> @@ -805,6 +819,7 @@ static int admac_probe(struct platform_device *pdev)
+>  	struct device_node *np = pdev->dev.of_node;
+>  	struct admac_data *ad;
+>  	struct dma_device *dma;
+> +	const struct admac_hw *hw;
+>  	int nchannels;
+>  	int err, irq, i;
+>
+> @@ -822,6 +837,9 @@ static int admac_probe(struct platform_device *pdev)
+>  	ad->dev = &pdev->dev;
+>  	ad->nchannels = nchannels;
+>  	mutex_init(&ad->cache_alloc_lock);
+> +	hw = of_device_get_match_data(&pdev->dev);
+> +	if (hw)
+> +		ad->set_unk28 = hw->set_unk28;
+>
+>  	/*
+>  	 * The controller has 4 IRQ outputs. Try them all until
+> @@ -935,7 +953,12 @@ static void admac_remove(struct platform_device *pdev)
+>  	reset_control_rearm(ad->rstc);
+>  }
+>
+> +static const struct admac_hw admac_t8122_hw = {
+> +	.set_unk28 = true,
+> +};
+> +
+>  static const struct of_device_id admac_of_match[] = {
+> +	{ .compatible = "apple,t8122-admac", .data = &admac_t8122_hw },
+>  	{ .compatible = "apple,t8103-admac", },
+>  	{ .compatible = "apple,admac", },
+>  	{ }
+>
+> --
+> 2.55.0
+>
 
