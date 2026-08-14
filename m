@@ -4,72 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04B96C5CFCF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 01:16:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70803C5DF66
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 01:18:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xaqTDDrnpKGWx+l1h+fUl97CPMUm+8Ht+uaiucS3/dQ=; b=q9MlDHZmpziCfQc1ZVDyhXP9aN
-	oVauGpAaXKwvtPbW2bdfzroWUUCk4z0qGKodBVdA9Zx1rtgmzFqtOtsIh14fViasz6u4oA2gXDfNT
-	zD2/r0KHpeNzRrkuwS/gcY9ooJSVcgAgakgP3uITU8xxBckdi0DazjvphrdlaamrM7F68dt9iddCt
-	tDWqzXrS5iv5WGiyDMXl8FPkPj1FDGPWfKbZTephOGvYGz+gp37SD0Y4hJX8gCAqO2qwqkGcuB9CC
-	a9eONic4MSnboXtj8df934Ex6dajA4jpbLI5eNNdS0mE4rNAStgQoEeIKH2kxksN6OZjIHm+Y4Xh4
-	iG5zRbYw==;
+	bh=3dtL6bOxO5qHs+QF6jriizna7ttJ8SGK3f5tUylWokY=; b=Rl7IKolSRoGaysG1vQ5mRXeyk1
+	KdyiceUw/LPMuQSix5YfRj1Up6P0FikbNuAas4qYvuBH+OSeCw9h8xb/VIl7g7Y5+lrd4DS0hnRz0
+	1e9LJwtUvYlf4uZxFrmfMpH12znIzy+SsOVXFgdo/OQ2m/atEDZg5aEZxwJXpDmQP4FmzitCeg5sN
+	Y2h8YgLXQq8Trf0JgdeSXyOh3OImdWcNG1kj++J2GV/9ure+dOm2TeaCl5ik+ET1QGNR4Xhu6MEfd
+	iY23BVTzK3VGv3ifjfJAPzmOOb/65xYzY+AQ8IuaUYuv9sS4zl9ghAAAv/AP72gBG8KrjFe8+uOQF
+	bBY8W2dQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wugX1-00000001nBq-0zD7;
-	Fri, 14 Aug 2026 01:16:23 +0000
-Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
+	id 1wugYs-00000001nQx-2JWg;
+	Fri, 14 Aug 2026 01:18:18 +0000
+Received: from mail-m25479.xmail.ntesmail.com ([103.129.254.79])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wugWv-00000001nB6-2iOp;
-	Fri, 14 Aug 2026 01:16:20 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=xaqTDDrnpKGWx+l1h+fUl97CPMUm+8Ht+uaiucS3/dQ=;
-	b=mflgm/SJEFWTm7QId0SN+rFG7pHOZIJLNok3nfujlNgdELL/0SveikjSn6UBgeA+pZh1iDink
-	hJsz2QDHHU5t2TTpUKNRiv/+Og+6MDIxx776LEp2/0ensfarZHXa+RwZfEQ34EBKU+Ax6jKEYi6
-	yY6hIS1GXAkEIT0eM6fuN44=
-Received: from mail.maildlp.com (unknown [172.19.163.200])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4hLkYJ3flvzmVX8;
-	Fri, 14 Aug 2026 09:05:24 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 983D14055B;
-	Fri, 14 Aug 2026 09:16:02 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 14 Aug 2026 09:15:59 +0800
-Message-ID: <64f3a67a-51c6-4c01-a23b-301b619f2884@huawei.com>
-Date: Fri, 14 Aug 2026 09:15:58 +0800
+	id 1wugYp-00000001nQA-2GBA;
+	Fri, 14 Aug 2026 01:18:17 +0000
+Received: from [172.16.12.90] (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 49ef6fdfd;
+	Fri, 14 Aug 2026 09:18:03 +0800 (GMT+08:00)
+Message-ID: <8d521014-3202-4f62-ba1a-ebe126506048@rock-chips.com>
+Date: Fri, 14 Aug 2026 09:18:01 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/5] arm64: crash: Add crash hotplug support
-To: Catalin Marinas <catalin.marinas@arm.com>
-CC: <will@kernel.org>, <akpm@linux-foundation.org>, <baoquan.he@linux.dev>,
-	<rppt@kernel.org>, <pasha.tatashin@soleen.com>, <pratyush@kernel.org>,
-	<thuth@redhat.com>, <mark.rutland@arm.com>, <jic23@kernel.org>,
-	<james.morse@arm.com>, <ardb@kernel.org>, <leitao@debian.org>,
-	<yeoreum.yun@arm.com>, <sourabhjain@linux.ibm.com>, <robh@kernel.org>,
-	<kees@kernel.org>, <coxu@redhat.com>, <makb@juniper.net>, <piliu@redhat.com>,
-	<graf@amazon.com>, <ebiggers@kernel.org>, <jbouron@amazon.com>,
-	<bgwin@google.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <kexec@lists.infradead.org>
-References: <20260729031235.2840255-1-ruanjinjie@huawei.com>
- <an3Xe_5-B4qdiN8o@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <an3Xe_5-B4qdiN8o@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+Subject: Re: [PATCH v2] drm/rockchip: vop2: Scale the AXI clock to the
+ bandwidth the mode needs
+To: Igor Paunovic <royalnet026@gmail.com>, Sandy Huang <hjc@rock-chips.com>,
+ Heiko Stuebner <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>
+Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Alexey Charkov <alchark@flipper.net>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ dri-devel@lists.freedesktop.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260813094614.9072-1-royalnet026@gmail.com>
+ <20260813100027.349761F000E9@smtp.kernel.org>
+ <20260813101307.10945-1-royalnet026@gmail.com>
+Content-Language: en-US
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <20260813101307.10945-1-royalnet026@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-HM-Tid: 0a9ffdd8f94d03a7kunm270703397b358
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZSBpIVh5MSEJCH00eQx4aSlYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
+	9PT0hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=jy6NpMPIEbDZlGuNoX291gdYX0VQAcedLCzPYKreLEEpWtqzIYmDm0pR0//ONnM54d4pMnpnGBoyvyiHJ5BPbJ13C2dSPm2V1dB7rQI+u5nFnOKVqmuCURDhrQfFdoMoI6oh1VncTFxhFe76lXnVXqMeRS3loQA0rLwFLLGC+6o=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=3dtL6bOxO5qHs+QF6jriizna7ttJ8SGK3f5tUylWokY=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_181618_404815_0110D31B 
-X-CRM114-Status: GOOD (  13.73  )
+X-CRM114-CacheID: sfid-20260813_181816_131185_E498B6E0 
+X-CRM114-Status: GOOD (  25.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,55 +80,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Igor,
 
-
-在 2026/8/13 22:40, Catalin Marinas 写道:
-> On Wed, Jul 29, 2026 at 11:12:30AM +0800, Jinjie Ruan wrote:
->> When CPU or memory hotplug events occur, the elfcorehdr in the kdump
->> image becomes stale, potentially leading to incomplete crash dumps.
->>
->> Currently, userspace udev rules reload the entire kdump image upon such
->> events, which is inefficient and leaves kdump inactive for a long time.
->>
->> Commit 247262756121 ("crash: add generic infrastructure for crash hotplug
->> support") introduced a kernel mechanism to update only the elfcorehdr.
->> This patch set implements crash hotplug support for arm64.
->>
->> As Baoquan suggested, it also addresses and fixes several
->> pre-existing code issues and Sashiko AI review findings extracted
->> from the previous patch set.
->>
->> The major improvements and fixes included in this series are:
->> - Fix several memory leaks for arm64.
->> - Simplify arm64 load_other_segments().
->> - Implement infrastructure for arm64 crash memory hotplug support.
->>
->> This patch set is rebased on liveupdate/crashkernel-cma.
->>
->> Link: https://lore.kernel.org/all/20260601094805.2928614-1-ruanjinjie@huawei.com/
+On 8/13/2026 6:13 PM, Igor Paunovic wrote:
+> The review bot found three things on v2 and all three are right. I am
+> answering rather than sending a v3 straight away, because the fix for
+> the two High ones is a single change that touches a file shared by
+> every Rockchip SoC, and I would rather ask about that than guess.
 > 
-> Is there any dependency for the first 3 patches on the above branch?
-
-Hi Catalin,
-
-The first three patches have no dependencies, only the last two patches
-have dependencies
-
-> Patches 2/3 look like fixes and they depend on patch 1. Not sure about
-> cc stable, maybe patch 2.
-
-Yes, you are right! The cc stable label has been added to patch 2 and
-patch 3, I think both of them are needed.
-
+> Both High findings come from the same shortcut. v2 keeps the
+> requirement in a global atomic state object, which I still think is the
+> right container, but it applies the rate from vop2_crtc_atomic_enable()
+> and _disable() rather than from the commit tail:
 > 
-> [...]
+>   - Out of order commits. Two non-blocking commits on different CRTCs
+>     share only the private object, and nothing orders them, so a commit
+>     that took its snapshot before another CRTC raised the rate can land
+>     after it and lower it again.
 > 
->> Jinjie Ruan (5):
->>   kexec: Extract kexec_free_segment_cma() from kimage_free_cma()
->>   arm64: kexec_file: Fix CMA page leaks in segment placement retry loops
->>   arm64: kexec_file: Fix image->elf_headers memory leak in retry loop
->>   arm64: kexec_file: Simplify load_other_segments()
->>   arm64: crash: Add crash hotplug support
+>   - Multi-CRTC disable. atomic_disable() runs once per CRTC, and the
+>     first one already sees a state in which every participating CRTC is
+>     off, so the rate drops while the others are still scanning out and
+>     waiting for dsp_hold_completion.
+> 
+> vc4 solves both of these for its core clock, and what I did was take
+> half of that pattern instead of all of it:
+> 
+>   - vc4_atomic_commit_setup() records a pending commit per channel in
+>     the private state and the next commit waits on it with
+>     drm_crtc_commit_wait(). That is the ordering v2 has no equivalent
+>     of.
+> 
+>   - vc4_atomic_commit_tail() holds max(old, new) for the length of the
+>     commit and only drops to the new rate after
+>     drm_atomic_helper_wait_for_flip_done(). That is exactly the window
+>     the second finding describes.
+> 
+> Hence the question. Doing the same in rockchip means adding both
+> .atomic_commit_setup and .atomic_commit_tail to
+> rockchip_mode_config_helpers in rockchip_drm_fb.c, which today carries
+> only .atomic_commit_tail = drm_atomic_helper_commit_tail_rpm and is
+> shared by every SoC this driver supports, VOP as well as VOP2. The
+> commit tail would be a thin wrapper around the rpm helper with the
+> clock work on either side of it, and both hooks would do nothing on
+> anything that is not RK3588.
+>
+
+As you said, placing it in atomic_commit_tail is precisely because
+atomic_flush is insufficient to handle multiple CRTC cases. 
+So it's okay for me. Let's see if others have any comments. 
+
+> Is that acceptable, or would you rather this stayed inside vop2 in some
+> other shape? I am happy to write it either way, but I would rather find
+> that out before than after.
+> 
+> The Medium finding needs no discussion: if
+> drm_atomic_private_obj_init() fails, the jump to err_crtcs does not
+> undo rockchip_rgb_init(). It is also new in this patch, since before it
+> nothing after rockchip_rgb_init() could fail, so it is mine and it will
+> be fixed in the next version whatever shape the rest takes.
+> 
+> Igor
+> 
 > 
 
+-- 
+Best, 
+Chaoyi
 
