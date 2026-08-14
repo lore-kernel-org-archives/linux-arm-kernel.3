@@ -4,72 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60036C5CFCF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 20:17:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B960AC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 20:37:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K6tKc6Z28OzPDiujW0hEkp7xKryH9fQ7JBGmFv2ZkPg=; b=FFBT85OigQDe/wgNJ6u4+i2BaH
-	Pcc7q+WY/HSVgC12GA048lzZ1F769/5XXojicf5btX4WrzijhBFYuCLZhG22HrZvfG6HPb3TBd9/H
-	2PN6gPTr0APd/ttrqoVCup2bEFSfBsVJdpBQ/KMewf0CzFHf2mWPC1a0jEOdQqVdnkteTzNU2MszW
-	HPMA26jhnMURz798NMyakDiuFs1AnjB93Tv3S8suCemJGoHKrRwZuGupTGKKmefCs5xTv4nDf+GnO
-	zv9kAg30lv+Q4RymRNnswLey70do9WT+9qGuodJ0CWqzZMB9aIFK2kQmSCl2Ujb52+Pnv5JmPvGaL
-	yum0gwFQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HkwKjhSBsyXHCMEk0wHtGPYai7M4BNZChhD9iC4BYz8=; b=SWL3aRbVZY0bs1msRRHXyRW0Mc
+	PIK0qv4iuGyO46F8hCp7/3Z5btToZ7rCn9oKblU5iT8zuPzXRA9WRo5U2xoJH164DF+Y806Nm/LWT
+	zwh/R4Bl1t7XDyJX8MX7NzN7iOVDl6Xh6ZDRiS6Guq/pu2cRk7OOmo1ldu8L6YZmxbDmnStXbYQ1d
+	h7zDEw8ZLCTosq+BwKX43rRtM6mpzQxR3tOkZm6XJpbfEgTzfIOmNXoCPTIuLr12iVUQG2wCIGfM/
+	2EnExScQywv4t7RVZDeh0VKsiGKsi9Gqi1ovlzBpY+FlFgmD7UHuNKgeoQJVVogun40WNG478rry9
+	0J340OBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuyKn-000000038Ht-18SG;
-	Fri, 14 Aug 2026 20:16:57 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wuyen-000000039Mu-3Tua;
+	Fri, 14 Aug 2026 20:37:37 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuyKi-000000038Gl-0EIr
+	id 1wuyek-000000039K6-1bbR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Aug 2026 20:16:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3F36F600AF;
-	Fri, 14 Aug 2026 20:16:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id DCDEFC2BCF6;
-	Fri, 14 Aug 2026 20:16:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1786738610;
-	bh=XfOxtLqm+gTaszkcqBFfA+yichex03j+Zn51l2FB75A=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=sx6iy5xjJCRiOo0GUqnLsxAZ6VNrFdnYE786CUnOFElvGfO/ob/msGvKhfV7AvugK
-	 Sf/3FvIWeBpenuN0TkJTHq+aIA8YziT90m7ewRKcfyG3mkh/KglcnZkitRxq9f4Tc2
-	 My9nZXgNcn52rWpmi9J0tiUSUNFo9SZ/jUUObt6PuG8chRl0l2jGtaF+Bciesy2rV4
-	 LMZK1Bg/PyOhZ3HNsh7/MY1Oasrc10Z2DEXmwEEG83VhdYuLYAQOpoDjJicoCrOgh4
-	 DgdkmfR+wvBCfzFCv+C4khsxkSigCxJUicFAH1ILU+i08uQai2gOGJV9qGlpO1bLZE
-	 9GqZMmtDaBPWA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id BEC67C5CFC1;
-	Fri, 14 Aug 2026 20:16:50 +0000 (UTC)
-From: Roland Dreier via B4 Relay <devnull+rolanddreier.rivian.com@kernel.org>
-Date: Fri, 14 Aug 2026 20:15:33 +0000
-Subject: [PATCH 1/2] firmware: arm_scmi: Protect xfer->async_done with
- xfer->lock
+	Fri, 14 Aug 2026 20:37:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1786739853;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=HkwKjhSBsyXHCMEk0wHtGPYai7M4BNZChhD9iC4BYz8=;
+	b=DGLrcmV1tNRdUl0BgAzodmykX0eu3r/ceLQ1OcMkUbGEZkvC9+mltNFH1zxWdKT+Nc5LjY
+	lmwCw6c1LRHaTWYecIxqyL2IQl8NSR1JIJ3GAjNEGadU97Kk16KY6dI9O6ITQpJJVkX/BN
+	+iCSPISbvMH6tj8mBxfavmBRWXxAeLo=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-678-ryFPgAHQPDmJvJtUq0HEYQ-1; Fri,
+ 14 Aug 2026 16:35:59 -0400
+X-MC-Unique: ryFPgAHQPDmJvJtUq0HEYQ-1
+X-Mimecast-MFC-AGG-ID: ryFPgAHQPDmJvJtUq0HEYQ_1786739756
+Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id C000E18004BB;
+	Fri, 14 Aug 2026 20:35:56 +0000 (UTC)
+Received: from GoldenWind.lan (unknown [10.22.64.233])
+	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id DBB83197751E;
+	Fri, 14 Aug 2026 20:35:53 +0000 (UTC)
+From: Lyude Paul <lyude@redhat.com>
+To: dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org,
+	freedreno@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	nouveau@lists.freedesktop.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-hyperv@vger.kernel.org,
+	linux-sunxi@lists.linux.dev,
+	asahi@lists.linux.dev,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-samsung-soc@vger.kernel.org,
+	linux-amlogic@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	intel-gfx@lists.freedesktop.org,
+	linux-aspeed@lists.ozlabs.org,
+	linux-rockchip@lists.infradead.org,
+	linux-tegra@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-mips@vger.kernel.org,
+	amd-gfx@lists.freedesktop.org,
+	spice-devel@lists.freedesktop.org,
+	intel-xe@lists.freedesktop.org,
+	imx@lists.linux.dev
+Subject: [PATCH 2/5] drm/vblank: Remove drm->num_crtcs
+Date: Fri, 14 Aug 2026 16:35:30 -0400
+Message-ID: <20260814203542.1405135-3-lyude@redhat.com>
+In-Reply-To: <20260814203542.1405135-1-lyude@redhat.com>
+References: <20260814203542.1405135-1-lyude@redhat.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260814-scmi-async-done-race-v1-1-335b163d77ee@rivian.com>
-References: <20260814-scmi-async-done-race-v1-0-335b163d77ee@rivian.com>
-In-Reply-To: <20260814-scmi-async-done-race-v1-0-335b163d77ee@rivian.com>
-To: Sudeep Holla <sudeep.holla@kernel.org>, 
- Cristian Marussi <cristian.marussi@arm.com>
-Cc: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1786738610; l=9843;
- i=rolanddreier@rivian.com; s=20260814; h=from:subject:message-id;
- bh=KwnqXNyT6Amma15ZNEtaoQkZXX80va0zk2YGE2S3CtM=;
- b=OvOwIEoLb6m3ktIPx8G0AaYkYWUS/gxsFOqerimJi/1sCeP2XOL5lJIoYIxbSo2ExYbxi7IMQ
- 6jihaGXyNaDC4J7zfmhBLRpRMnCdhSBdlbKPZ2TiAwjtGjPjrZA/mrD
-X-Developer-Key: i=rolanddreier@rivian.com; a=ed25519;
- pk=C7SBXsDIlarq7BpINqyDL67XV/AGNqNt09NCCpFcExk=
-X-Endpoint-Received: by B4 Relay for rolanddreier@rivian.com/20260814 with
- auth_id=952
-X-Original-From: Roland Dreier <rolanddreier@rivian.com>
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
+X-Mimecast-MFC-PROC-ID: H4wabXKsUnQqMMLZIV9FsrBMesGHesz3cxXB18B7uKQ_1786739756
+X-Mimecast-Originator: redhat.com
+Content-Transfer-Encoding: 8bit
+content-type: text/plain; charset="US-ASCII"; x-default=true
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260814_133734_581427_723BB98B 
+X-CRM114-Status: GOOD (  19.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,251 +102,259 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: rolanddreier@rivian.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Roland Dreier <rolanddreier@rivian.com>
+While working on the Rust bindings for KMS, I asked myself "why does
+drm_vblank_init() need the number of CRTCs with vblank support passed to
+it?".
 
-Asynchronous SCMI commands are completed by a delayed response. The RX
-path signals the response with complete(xfer->async_done). Unlike
-xfer->done, xfer->async_done is a pointer to a completion owned by
-whoever is waiting for the delayed response, and it stays valid only for
-as long as that waiter is still waiting.  In do_xfer_with_response() it
-is a DECLARE_COMPLETION_ONSTACK() in the caller's stack frame.
+After some digging, I noticed the reason and it's silly and likely a
+holdover from the pre-KMS days. We actually have ended up with two
+different variables that claim to track the number of CRTCs a KMS device
+has:
 
-Nothing serialises the RX path against a waiter that gives up on a
-timeout. scmi_msg_response_validate() does read xfer->async_done
-under xfer->lock, and documents that as a requirement, but the lock is
-dropped again before scmi_handle_response() dereferences the pointer,
-and neither the arming nor the disarming side takes it at all. So a
-delayed response arriving just as the wait times out can be signalled
-on a completion that is already gone:
+- dev->num_crtcs: Setup -from- drm_vblank_init(), meaning it's 0 if the
+  driver has no vblank support.
+- dev->mode_config.num_crtc: The correct one
 
-  waiter                                RX path (IRQ context)
-  ------                                ---------------------
-  do_xfer_with_response():
-    xfer->async_done = &async_response
-    do_xfer(xfer)
-    wait_for_completion_timeout(xfer->async_done, tmo)
-    /* returns 0, gives up */
-                                        /* response receive interrupt */
-                                        scmi_handle_response():
-                                          scmi_xfer_command_acquire()
-                                            lock xfer->lock
-                                            validate: async_done != NULL
-                                            unlock xfer->lock
-    xfer->async_done = NULL
-    return -ETIMEDOUT
-    /* async_response goes out of scope */
-                                          complete(xfer->async_done)
+There's no real need for this and it's probably confusing, and it's quite
+easy to just drop this variable and convert everything over to
+mode_config.num_crtc. So, let's do that with the following coccinelle
+patch:
 
-That last complete() has two possible bad outcomes: it either dereferences
-the NULL just stored by the waiter or - if that store is not yet visible
-on the RX CPU - it takes a lock and writes to a stack frame that the
-waiter maybe has already returned from.
+  virtual patch
 
-Fix this by making xfer->lock cover xfer->async_done end-to-end. Add
-helpers to arm and disarm it under the lock, use them on both the regular
-and the raw paths, and have the RX path read and signal the completion
-under that same lock. A waiter that is timing out then either completes
-its disarm before the RX path looks, in which case the delayed response is
-dropped, or blocks in the disarm until the RX path is done with the
-completion, in which case the completion is still alive.
+  @depends on patch@
+  struct drm_device *dev;
+  @@
 
-Account for the dropped case with a new "delayed_response_dropped"
-debugfs counter to make it visible if this ever happens.
+  - dev->num_crtcs
+  + dev->mode_config.num_crtc
 
-Fixes: 58ecdf03dbb9 ("firmware: arm_scmi: Add support for asynchronous commands and delayed response")
-Signed-off-by: Roland Dreier <rolanddreier@rivian.com>
+Signed-off-by: Lyude Paul <lyude@redhat.com>
+Assisted-by: Coccinelle
 ---
- drivers/firmware/arm_scmi/common.h    | 23 +++++++++++++++++++++++
- drivers/firmware/arm_scmi/driver.c    | 35 ++++++++++++++++++++++++++++++-----
- drivers/firmware/arm_scmi/protocols.h |  9 ++++++---
- drivers/firmware/arm_scmi/raw_mode.c  |  4 ++--
- 4 files changed, 61 insertions(+), 10 deletions(-)
+ drivers/gpu/drm/drm_vblank.c                | 23 ++++++++++-----------
+ drivers/gpu/drm/gma500/psb_irq.c            |  4 ++--
+ drivers/gpu/drm/radeon/atombios_crtc.c      |  4 ++--
+ drivers/gpu/drm/radeon/radeon_legacy_crtc.c |  4 ++--
+ drivers/gpu/drm/vc4/vc4_kms.c               |  4 ++--
+ include/drm/drm_device.h                    |  3 ---
+ 6 files changed, 19 insertions(+), 23 deletions(-)
 
-diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
-index b9723c105fc1..fc2f69bcebff 100644
---- a/drivers/firmware/arm_scmi/common.h
-+++ b/drivers/firmware/arm_scmi/common.h
-@@ -282,6 +282,28 @@ static inline bool is_polling_enabled(struct scmi_chan_info *cinfo,
- 		is_transport_polling_capable(desc);
- }
+diff --git a/drivers/gpu/drm/drm_vblank.c b/drivers/gpu/drm/drm_vblank.c
+index d317148af8cb3..c6f61a39b5d16 100644
+--- a/drivers/gpu/drm/drm_vblank.c
++++ b/drivers/gpu/drm/drm_vblank.c
+@@ -398,7 +398,7 @@ u64 drm_vblank_count(struct drm_device *dev, unsigned int pipe)
+ 	struct drm_vblank_crtc *vblank = drm_vblank_crtc(dev, pipe);
+ 	u64 count;
  
-+/**
-+ * scmi_xfer_async_response_arm  - Arm the delayed response completion
-+ *
-+ * @xfer: A reference to the xfer to arm
-+ * @async_done: The completion to signal upon reception of a delayed response,
-+ *		or NULL to disarm @xfer.
-+ */
-+static inline void scmi_xfer_async_response_arm(struct scmi_xfer *xfer,
-+						struct completion *async_done)
-+{
-+	unsigned long flags;
-+
-+	spin_lock_irqsave(&xfer->lock, flags);
-+	xfer->async_done = async_done;
-+	spin_unlock_irqrestore(&xfer->lock, flags);
-+}
-+
-+static inline void scmi_xfer_async_response_disarm(struct scmi_xfer *xfer)
-+{
-+	scmi_xfer_async_response_arm(xfer, NULL);
-+}
-+
- void scmi_xfer_raw_put(const struct scmi_handle *handle,
- 		       struct scmi_xfer *xfer);
- struct scmi_xfer *scmi_xfer_raw_get(const struct scmi_handle *handle);
-@@ -303,6 +325,7 @@ enum debug_counters {
- 	RESPONSE_OK,
- 	NOTIFICATION_OK,
- 	DELAYED_RESPONSE_OK,
-+	DELAYED_RESPONSE_DROPPED,
- 	XFERS_RESPONSE_TIMEOUT,
- 	XFERS_RESPONSE_POLLED_TIMEOUT,
- 	RESPONSE_POLLED_OK,
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index 3e0d975ec94c..5c295bdc15ca 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -1063,6 +1063,28 @@ static inline void scmi_xfer_command_release(struct scmi_info *info,
- 	__scmi_xfer_put(&info->tx_minfo, xfer);
- }
+-	if (drm_WARN_ON(dev, pipe >= dev->num_crtcs))
++	if (drm_WARN_ON(dev, pipe >= dev->mode_config.num_crtc))
+ 		return 0;
  
-+/**
-+ * scmi_xfer_async_response_complete  - Signal a received delayed response
-+ *
-+ * @xfer: A reference to the xfer whose delayed response was received
-+ *
-+ * Return: True if a completion was still armed on @xfer and has been
-+ *	   signalled, false if a timed-out waiter had already disarmed it.
-+ */
-+static bool scmi_xfer_async_response_complete(struct scmi_xfer *xfer)
-+{
-+	unsigned long flags;
-+	struct completion *async_done;
-+
-+	spin_lock_irqsave(&xfer->lock, flags);
-+	async_done = xfer->async_done;
-+	if (async_done)
-+		complete(async_done);
-+	spin_unlock_irqrestore(&xfer->lock, flags);
-+
-+	return !!async_done;
-+}
-+
- static inline void scmi_clear_channel(struct scmi_info *info,
- 				      struct scmi_chan_info *cinfo)
- {
-@@ -1166,8 +1188,10 @@ static void scmi_handle_response(struct scmi_chan_info *cinfo,
+ 	count = atomic64_read(&vblank->count);
+@@ -558,7 +558,6 @@ int drm_vblank_init(struct drm_device *dev, unsigned int num_crtcs)
+ 		return -ENOMEM;
  
- 	if (xfer->hdr.type == MSG_TYPE_DELAYED_RESP) {
- 		scmi_clear_channel(info, cinfo);
--		complete(xfer->async_done);
--		scmi_inc_count(info->dbg, DELAYED_RESPONSE_OK);
-+		if (scmi_xfer_async_response_complete(xfer))
-+			scmi_inc_count(info->dbg, DELAYED_RESPONSE_OK);
-+		else
-+			scmi_inc_count(info->dbg, DELAYED_RESPONSE_DROPPED);
- 	} else {
- 		complete(&xfer->done);
- 		scmi_inc_count(info->dbg, RESPONSE_OK);
-@@ -1509,7 +1533,7 @@ static int do_xfer_with_response(const struct scmi_protocol_handle *ph,
- 	int ret, timeout = msecs_to_jiffies(SCMI_MAX_RESPONSE_TIMEOUT);
- 	DECLARE_COMPLETION_ONSTACK(async_response);
+ 	dev->has_hw_vblank = true;
+-	dev->num_crtcs = num_crtcs;
  
--	xfer->async_done = &async_response;
-+	scmi_xfer_async_response_arm(xfer, &async_response);
+ 	for (i = 0; i < num_crtcs; i++) {
+ 		struct drm_vblank_crtc *vblank = drm_vblank_crtc(dev, i);
+@@ -645,7 +644,7 @@ void drm_calc_timestamping_constants(struct drm_crtc *crtc,
+ 	if (!drm_dev_has_vblank(dev))
+ 		return;
+ 
+-	if (drm_WARN_ON(dev, pipe >= dev->num_crtcs))
++	if (drm_WARN_ON(dev, pipe >= dev->mode_config.num_crtc))
+ 		return;
+ 
+ 	/* Valid dotclock? */
+@@ -729,7 +728,7 @@ drm_crtc_vblank_helper_get_vblank_timestamp_internal(
+ 	int vpos, hpos, i;
+ 	int delta_ns, duration_ns;
+ 
+-	if (pipe >= dev->num_crtcs) {
++	if (pipe >= dev->mode_config.num_crtc) {
+ 		drm_err(dev, "Invalid crtc %u\n", pipe);
+ 		return false;
+ 	}
+@@ -970,7 +969,7 @@ static u64 drm_vblank_count_and_time(struct drm_device *dev, unsigned int pipe,
+ 	u64 vblank_count;
+ 	unsigned int seq;
+ 
+-	if (drm_WARN_ON(dev, pipe >= dev->num_crtcs)) {
++	if (drm_WARN_ON(dev, pipe >= dev->mode_config.num_crtc)) {
+ 		*vblanktime = 0;
+ 		return 0;
+ 	}
+@@ -1227,7 +1226,7 @@ int drm_vblank_get(struct drm_device *dev, unsigned int pipe)
+ 	if (!drm_dev_has_vblank(dev))
+ 		return -EINVAL;
+ 
+-	if (drm_WARN_ON(dev, pipe >= dev->num_crtcs))
++	if (drm_WARN_ON(dev, pipe >= dev->mode_config.num_crtc))
+ 		return -EINVAL;
+ 
+ 	spin_lock_irqsave(&dev->vbl_lock, irqflags);
+@@ -1266,7 +1265,7 @@ void drm_vblank_put(struct drm_device *dev, unsigned int pipe)
+ 	struct drm_vblank_crtc *vblank = drm_vblank_crtc(dev, pipe);
+ 	int vblank_offdelay = vblank->config.offdelay_ms;
+ 
+-	if (drm_WARN_ON(dev, pipe >= dev->num_crtcs))
++	if (drm_WARN_ON(dev, pipe >= dev->mode_config.num_crtc))
+ 		return;
+ 
+ 	if (drm_WARN_ON(dev, atomic_read(&vblank->refcount) == 0))
+@@ -1355,7 +1354,7 @@ void drm_crtc_vblank_off(struct drm_crtc *crtc)
+ 	ktime_t now;
+ 	u64 seq;
+ 
+-	if (drm_WARN_ON(dev, pipe >= dev->num_crtcs))
++	if (drm_WARN_ON(dev, pipe >= dev->mode_config.num_crtc))
+ 		return;
  
  	/*
- 	 * Delayed responses should not be polled, so an async command should
-@@ -1521,7 +1545,7 @@ static int do_xfer_with_response(const struct scmi_protocol_handle *ph,
+@@ -1496,7 +1495,7 @@ void drm_crtc_vblank_on_config(struct drm_crtc *crtc,
+ 	unsigned int pipe = drm_crtc_index(crtc);
+ 	struct drm_vblank_crtc *vblank = drm_crtc_vblank_crtc(crtc);
  
- 	ret = do_xfer(ph, xfer);
- 	if (!ret) {
--		if (!wait_for_completion_timeout(xfer->async_done, timeout)) {
-+		if (!wait_for_completion_timeout(&async_response, timeout)) {
- 			dev_err(ph->dev,
- 				"timed out in delayed resp(caller: %pS)\n",
- 				(void *)_RET_IP_);
-@@ -1531,7 +1555,7 @@ static int do_xfer_with_response(const struct scmi_protocol_handle *ph,
- 		}
+-	if (drm_WARN_ON(dev, pipe >= dev->num_crtcs))
++	if (drm_WARN_ON(dev, pipe >= dev->mode_config.num_crtc))
+ 		return;
+ 
+ 	spin_lock_irq(&dev->vbl_lock);
+@@ -1555,7 +1554,7 @@ static void drm_vblank_restore(struct drm_device *dev, unsigned int pipe)
+ 	u32 cur_vblank, diff = 1;
+ 	u32 max_vblank_count = drm_max_vblank_count(dev, pipe);
+ 
+-	if (drm_WARN_ON(dev, pipe >= dev->num_crtcs))
++	if (drm_WARN_ON(dev, pipe >= dev->mode_config.num_crtc))
+ 		return;
+ 
+ 	assert_spin_locked(&dev->vbl_lock);
+@@ -1788,7 +1787,7 @@ int drm_wait_vblank_ioctl(struct drm_device *dev, void *data,
+ 		pipe = pipe_index;
  	}
  
--	xfer->async_done = NULL;
-+	scmi_xfer_async_response_disarm(xfer);
- 	return ret;
- }
+-	if (pipe >= dev->num_crtcs)
++	if (pipe >= dev->mode_config.num_crtc)
+ 		return -EINVAL;
  
-@@ -2989,6 +3013,7 @@ static const char * const dbg_counter_strs[] = {
- 	"response_ok",
- 	"notification_ok",
- 	"delayed_response_ok",
-+	"delayed_response_dropped",
- 	"xfers_response_timeout",
- 	"xfers_response_polled_timeout",
- 	"response_polled_ok",
-diff --git a/drivers/firmware/arm_scmi/protocols.h b/drivers/firmware/arm_scmi/protocols.h
-index 15ad5162e37a..8583159059e6 100644
---- a/drivers/firmware/arm_scmi/protocols.h
-+++ b/drivers/firmware/arm_scmi/protocols.h
-@@ -100,7 +100,10 @@ struct scmi_msg_hdr {
-  *	message. If request-ACK protocol is used, we can reuse the same
-  *	buffer for the rx path as we use for the tx path.
-  * @done: command message transmit completion event
-- * @async_done: pointer to delayed response message received event completion
-+ * @async_done: pointer to delayed response message received event completion,
-+ *		or NULL when no delayed response is expected. Protected by
-+ *		@lock, since the completion is owned by the waiter and can
-+ *		vanish once the wait times out.
-  * @pending: True for xfers added to @pending_xfers hashtable
-  * @node: An hlist_node reference used to store this xfer, alternatively, on
-  *	  the free list @free_xfers or in the @pending_xfers hashtable
-@@ -121,7 +124,7 @@ struct scmi_msg_hdr {
-  *	    - SCMI_XFER_SENT_OK -> SCMI_XFER_DRESP_OK
-  *	      (Missing synchronous response is assumed OK and ignored)
-  * @flags: Optional flags associated to this xfer.
-- * @lock: A spinlock to protect state and busy fields.
-+ * @lock: A spinlock to protect state, busy and async_done fields.
-  * @priv: A pointer for transport private usage.
-  */
- struct scmi_xfer {
-@@ -147,7 +150,7 @@ struct scmi_xfer {
- #define SCMI_XFER_IS_CHAN_SET(x)	\
- 	((x)->flags & SCMI_XFER_FLAG_CHAN_SET)
- 	int flags;
--	/* A lock to protect state and busy fields */
-+	/* A lock to protect state, busy and async_done fields */
- 	spinlock_t lock;
- 	void *priv;
- };
-diff --git a/drivers/firmware/arm_scmi/raw_mode.c b/drivers/firmware/arm_scmi/raw_mode.c
-index 1f6e51670208..8751cff5fa4e 100644
---- a/drivers/firmware/arm_scmi/raw_mode.c
-+++ b/drivers/firmware/arm_scmi/raw_mode.c
-@@ -346,7 +346,7 @@ scmi_xfer_raw_waiter_get(struct scmi_raw_mode_info *raw, struct scmi_xfer *xfer,
+ 	vblank = drm_vblank_crtc(dev, pipe);
+@@ -1931,7 +1930,7 @@ bool drm_handle_vblank(struct drm_device *dev, unsigned int pipe)
+ 	if (drm_WARN_ON_ONCE(dev, !drm_dev_has_vblank(dev)))
+ 		return false;
  
- 		if (async) {
- 			reinit_completion(&rw->async_response);
--			xfer->async_done = &rw->async_response;
-+			scmi_xfer_async_response_arm(xfer, &rw->async_response);
- 		}
+-	if (drm_WARN_ON(dev, pipe >= dev->num_crtcs))
++	if (drm_WARN_ON(dev, pipe >= dev->mode_config.num_crtc))
+ 		return false;
  
- 		rw->cinfo = cinfo;
-@@ -361,7 +361,7 @@ static void scmi_xfer_raw_waiter_put(struct scmi_raw_mode_info *raw,
- 				     struct scmi_xfer_raw_waiter *rw)
- {
- 	if (rw->xfer) {
--		rw->xfer->async_done = NULL;
-+		scmi_xfer_async_response_disarm(rw->xfer);
- 		rw->xfer = NULL;
+ 	spin_lock_irqsave(&dev->event_lock, irqflags);
+diff --git a/drivers/gpu/drm/gma500/psb_irq.c b/drivers/gpu/drm/gma500/psb_irq.c
+index c224c7ff353ce..f0b234a84bd55 100644
+--- a/drivers/gpu/drm/gma500/psb_irq.c
++++ b/drivers/gpu/drm/gma500/psb_irq.c
+@@ -292,7 +292,7 @@ void gma_irq_postinstall(struct drm_device *dev)
+ 	PSB_WVDC32(dev_priv->vdc_irq_mask, PSB_INT_ENABLE_R);
+ 	PSB_WVDC32(0xFFFFFFFF, PSB_HWSTAM);
+ 
+-	for (i = 0; i < dev->num_crtcs; ++i) {
++	for (i = 0; i < dev->mode_config.num_crtc; ++i) {
+ 		if (dev->vblank[i].enabled)
+ 			gma_enable_pipestat(dev_priv, i, PIPE_VBLANK_INTERRUPT_ENABLE);
+ 		else
+@@ -350,7 +350,7 @@ void gma_irq_uninstall(struct drm_device *dev)
+ 
+ 	PSB_WVDC32(0xFFFFFFFF, PSB_HWSTAM);
+ 
+-	for (i = 0; i < dev->num_crtcs; ++i) {
++	for (i = 0; i < dev->mode_config.num_crtc; ++i) {
+ 		if (dev->vblank[i].enabled)
+ 			gma_disable_pipestat(dev_priv, i, PIPE_VBLANK_INTERRUPT_ENABLE);
  	}
+diff --git a/drivers/gpu/drm/radeon/atombios_crtc.c b/drivers/gpu/drm/radeon/atombios_crtc.c
+index 2fc0334e0d6c5..054a24376aee0 100644
+--- a/drivers/gpu/drm/radeon/atombios_crtc.c
++++ b/drivers/gpu/drm/radeon/atombios_crtc.c
+@@ -277,14 +277,14 @@ void atombios_crtc_dpms(struct drm_crtc *crtc, int mode)
+ 		if (ASIC_IS_DCE3(rdev) && !ASIC_IS_DCE6(rdev))
+ 			atombios_enable_crtc_memreq(crtc, ATOM_ENABLE);
+ 		atombios_blank_crtc(crtc, ATOM_DISABLE);
+-		if (dev->num_crtcs > radeon_crtc->crtc_id)
++		if (dev->mode_config.num_crtc > radeon_crtc->crtc_id)
+ 			drm_crtc_vblank_on(crtc);
+ 		radeon_crtc_load_lut(crtc);
+ 		break;
+ 	case DRM_MODE_DPMS_STANDBY:
+ 	case DRM_MODE_DPMS_SUSPEND:
+ 	case DRM_MODE_DPMS_OFF:
+-		if (dev->num_crtcs > radeon_crtc->crtc_id)
++		if (dev->mode_config.num_crtc > radeon_crtc->crtc_id)
+ 			drm_crtc_vblank_off(crtc);
+ 		if (radeon_crtc->enabled)
+ 			atombios_blank_crtc(crtc, ATOM_ENABLE);
+diff --git a/drivers/gpu/drm/radeon/radeon_legacy_crtc.c b/drivers/gpu/drm/radeon/radeon_legacy_crtc.c
+index a1054c8094d46..954a877b1fad2 100644
+--- a/drivers/gpu/drm/radeon/radeon_legacy_crtc.c
++++ b/drivers/gpu/drm/radeon/radeon_legacy_crtc.c
+@@ -334,14 +334,14 @@ static void radeon_crtc_dpms(struct drm_crtc *crtc, int mode)
+ 									 RADEON_CRTC_DISP_REQ_EN_B));
+ 			WREG32_P(RADEON_CRTC_EXT_CNTL, crtc_ext_cntl, ~(mask | crtc_ext_cntl));
+ 		}
+-		if (dev->num_crtcs > radeon_crtc->crtc_id)
++		if (dev->mode_config.num_crtc > radeon_crtc->crtc_id)
+ 			drm_crtc_vblank_on(crtc);
+ 		radeon_crtc_load_lut(crtc);
+ 		break;
+ 	case DRM_MODE_DPMS_STANDBY:
+ 	case DRM_MODE_DPMS_SUSPEND:
+ 	case DRM_MODE_DPMS_OFF:
+-		if (dev->num_crtcs > radeon_crtc->crtc_id)
++		if (dev->mode_config.num_crtc > radeon_crtc->crtc_id)
+ 			drm_crtc_vblank_off(crtc);
+ 		if (radeon_crtc->crtc_id)
+ 			WREG32_P(RADEON_CRTC2_GEN_CNTL, mask, ~(RADEON_CRTC2_EN | mask));
+diff --git a/drivers/gpu/drm/vc4/vc4_kms.c b/drivers/gpu/drm/vc4/vc4_kms.c
+index b17e73bce3841..8f08567d28fc6 100644
+--- a/drivers/gpu/drm/vc4/vc4_kms.c
++++ b/drivers/gpu/drm/vc4/vc4_kms.c
+@@ -936,7 +936,7 @@ static int vc4_pv_muxing_atomic_check(struct drm_device *dev,
+ 	 * If the layout changes and doesn't give us that in the future,
+ 	 * we will need to have something smarter, but it works so far.
+ 	 */
+-	sorted_crtcs = kmalloc_objs(*sorted_crtcs, dev->num_crtcs);
++	sorted_crtcs = kmalloc_objs(*sorted_crtcs, dev->mode_config.num_crtc);
+ 	if (!sorted_crtcs)
+ 		return -ENOMEM;
  
-
+@@ -946,7 +946,7 @@ static int vc4_pv_muxing_atomic_check(struct drm_device *dev,
+ 
+ 	sort(sorted_crtcs, i, sizeof(*sorted_crtcs), cmp_vc4_crtc_hvs_output, NULL);
+ 
+-	for (i = 0; i < dev->num_crtcs; i++) {
++	for (i = 0; i < dev->mode_config.num_crtc; i++) {
+ 		struct vc4_crtc_state *old_vc4_crtc_state, *new_vc4_crtc_state;
+ 		struct drm_crtc_state *old_crtc_state, *new_crtc_state;
+ 		struct vc4_crtc *vc4_crtc;
+diff --git a/include/drm/drm_device.h b/include/drm/drm_device.h
+index 2df08c756afd3..2a9115da90ae7 100644
+--- a/include/drm/drm_device.h
++++ b/include/drm/drm_device.h
+@@ -340,9 +340,6 @@ struct drm_device {
+ 	 */
+ 	spinlock_t event_lock;
+ 
+-	/** @num_crtcs: Number of CRTCs on this device */
+-	unsigned int num_crtcs;
+-
+ 	/** @mode_config: Current mode config */
+ 	struct drm_mode_config mode_config;
+ 
 -- 
-2.54.0
-
+2.55.0
 
 
