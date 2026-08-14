@@ -4,66 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41B69C5CFCF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 18:04:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8BEFC5CFC1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 18:05:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lJGYR95OzBj8QQrlKrddVqSXRN2vXQMzoaoigQ4hsXo=; b=WOz5YTqPYD76ah92qckbpynzlm
-	5grbsuDYIliiL9Gb8YuYlFxCnGWDmKiD3M7wlj3tdP8Pas38n6J4mzjM/MGZN4oSs8HluROOS+3CW
-	fjVX62bTFxn9ZIDQJowRNHX9GANA2wNobNYcMDGndzvrDNRjHCGK8KtO3I0Y1GHg4xA0cU0OeIVdA
-	jkfIqxpqXvSarcymFHDyLwEwDT3NGEvad4XCgTxVrL9I4oa83uY+Qxds79wK6HHCaoOMmbr6fQG58
-	pisZxnnerwaBxOiDvegb9eeOsf0aU6b4x2QRJ9qYt5DmPtWSPtOLUjNMgiBtYhoIVnL/be2EZ+7JK
-	UXgUyA/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mI5zeet+gBSiudx0x2vL4qWV0S+lI4JZhzArM16nmM0=; b=lCoaAEaiqN5A4+rcuIYxuTyTmX
+	HjqHcQ2LQ30+t7HuJAp7FPrQaDheqxcJSFJ78Fd8twduiy9JVGnqHPPo6mEMSEkAQ9hCwIs1tFC+H
+	bDRJK0uCVvzcnfcgYIqpzEh18dWpxmsAmNIaMzb3oTF9qpXSzl97FIqdexXSzs9O837kLd9Y4MzRQ
+	OwGFhse+ZxJbAW8xyiMFteY0AtSUgHP+pnxEL4b0yfGlFzg0Tk7yYq2ZlfBPwAXy1thEXuZJkozJR
+	SNhGUWumJPXxaYX+NzvOz1LlQQkHZtAWeuhUhDF2iM3dMSOHEpOqkDslrn20h506c5uS4PWG6BFk8
+	7uYejqdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuwGP-000000031ED-3cdl;
-	Fri, 14 Aug 2026 18:04:17 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wuwGz-000000031IE-01OU;
+	Fri, 14 Aug 2026 18:04:53 +0000
+Received: from mail-yw1-x1132.google.com ([2607:f8b0:4864:20::1132])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuwGO-000000031E5-06qh
+	id 1wuwGw-000000031Hj-2HfL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Aug 2026 18:04:16 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 122D360008;
-	Fri, 14 Aug 2026 18:04:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A4081F000E9;
-	Fri, 14 Aug 2026 18:04:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786730654;
-	bh=lJGYR95OzBj8QQrlKrddVqSXRN2vXQMzoaoigQ4hsXo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Jubd+W1NfLbtm6lAdMzClqirXNT6srtJHwF3bT3W3ckPhpJ9UESTWVxCB29x4ZPL6
-	 uILMjE3VnYiLS0JnIvquRq/8A96z4UAS33vieWjkGE3tRzSZqCqQV2qPKmlBri0kOQ
-	 ZKkrI6zT5HtNmJMnbdQSV9GGc81InAaSpdqwD8FB0xWMV6CLoaxhydpnP07yd1DAuD
-	 bKGKc3Ws9DgmTQ+yrZfV0jkOKTNr7R/Ux1aciFjPxUAUSQBUy6fZ6XZ2OX40zocjFE
-	 qZcHdlAiP+bVfGMfISAddMV6i6GbhvOqprelXrjq486McTmoeANEiMssh6dXm0Akwo
-	 rEPqjJEuGZCMg==
-Date: Fri, 14 Aug 2026 13:04:13 -0500
-From: Rob Herring <robh@kernel.org>
-To: "Neeli, Srinivas" <srneeli@amd.com>
-Cc: Jakub Kicinski <kuba@kernel.org>, nagadheeraj.rottela@amd.com,
-	srinivas.neeli@amd.com, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@google.com, pabeni@redhat.com, krzk+dt@kernel.org,
-	conor+dt@kernel.org, richardcochran@gmail.com, michal.simek@amd.com,
-	andrew@lunn.ch, olteanv@gmail.com, horms@kernel.org,
-	linux@armlinux.org.uk, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, git-dev@amd.com
-Subject: Re: [PATCH 01/20] dt-bindings: net: add Xilinx TSN Endpoint Ethernet
- MAC
-Message-ID: <20260814180413.GF1981719-robh@kernel.org>
-References: <20260807104431.157230-2-nagadheeraj.rottela@amd.com>
- <20260808194815.132344-1-kuba@kernel.org>
- <ba624013-e8e2-4262-a451-650c29dc6b8f@amd.com>
+	Fri, 14 Aug 2026 18:04:52 +0000
+Received: by mail-yw1-x1132.google.com with SMTP id 00721157ae682-81ed2a06b9eso12002787b3.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 11:04:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=nexthop.ai; s=google; t=1786730689; x=1787335489; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=mI5zeet+gBSiudx0x2vL4qWV0S+lI4JZhzArM16nmM0=;
+        b=ZbCJQ2IDk1ApjUNorgPFsgoa6QIlFuNOB84ZnQ2B7lJ25ComlmRvVZriFD8QrrQCGw
+         XCACXu9a+kedvm9/6UtGefSu/10777NKV060wsl6TdtQE16TqSqeuBH3EUtza0xXl7HN
+         fYo6H6E/jHOVoCquOIZV78zCJTcaALOr4lCQbEM7IV2LpaJ5HrXjay8BNFcEGBoNP2tM
+         NoD+02bospZSltoyDP7BoBJXnE8hymVZ/Gcu9HcZ0fe6I7xw9UWK61e2awgX6+dUA+/n
+         IviPvee0vWs5QybNnRa8u3AFL2wfi7++wRq65B1HQL2/FiB+27uXgufBZffyocNkp9Ii
+         jhIw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786730689; x=1787335489;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=mI5zeet+gBSiudx0x2vL4qWV0S+lI4JZhzArM16nmM0=;
+        b=eJgl+BDZv4+A9sIm4REMTxRaOrXrfDZlBpTNJ+UYxQt8Ads2gXbTCH43lX2WAm4Y1j
+         IBvdqK6lV56hnuyK3XD3UbVo2Qr0Uduw9AIZSYfJTqHDQBeo7tpdvl5yxgiTls+d+J4L
+         2ybEs0j4TdAEJdht6rEuohaom8Q0hTNHplawFB21XR9zdh2ZsjDY6j2VuWf8U1D+ljaG
+         3/5dIHpLj1hEV4SSG6hSuEnlLe/QsSfHJVUVnWxFY8V0HgOWvgzpcLWKrjvyc7JShmWe
+         QSyJS4kOay3fkScsejfyg2E7knqmt4VQ+X6xRl3TCjXshVGSI+VZaGKNd6bVWctb1Idl
+         cSmQ==
+X-Gm-Message-State: AOJu0YwdDBSyk7lwSxp2wLaquEp++OFeS9RmEXods5v08x38DmrrHvTV
+	Nd53jkUAubdx6ICyprV7fn6SMELJnYpmErkaPhfi9o5I0l3Z947i2XMXEkZ3+VECy90=
+X-Gm-Gg: AR+sD10+IbVALUoTGCVrNW41Aqe3+0jynddbSJyWuY4iv4VcqrkiMIZ+ZrVmo20mVEg
+	p0TliqJf24PdWdJHUxc9O1M7HBWxzoQlkxu0EPOlzBryufFSL9pqF7Q7/n2n0nYN5IzSJRWS6MY
+	kbMbnrsNDiALcJ2gRVWvQi5fCBKiJ4j+05cLactkpBUtJvZcTSKuNrTPBClT0UY5lVmMi2/1C5V
+	I2Gjo3ROmqjl9LUEMTLDXE6XOXjicIltgCIgGZnVFTilxDdbGMmyvTNMDjIPD2grcXyKU6Ai4+E
+	x9Nfo9FaRh6b5XYHvnOvX8Y65tLLQPsrJP2F7HCBpv+Y3gTcFzzEYEGxyLcbX6juKE4El3+PciU
+	LChKik6/oKCcKG9r09doc8ljBCnqjmwmdr4iyQp8ki6CGQbeJ1zeyNye/WBX4ghAuQvsl4MC1/a
+	OUQ9Evwate9dMXzdPMFHPwNVmybW57BBooAwpe+l8GTafLnlAlWHe4RpHKj34Bw+DbSEauKmC+K
+	5M=
+X-Received: by 2002:a05:690c:c3bb:b0:812:be92:6ea6 with SMTP id 00721157ae682-837124e6359mr23590307b3.28.1786730688893;
+        Fri, 14 Aug 2026 11:04:48 -0700 (PDT)
+Received: from [127.0.0.2] ([50.145.100.174])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-836c38a6f52sm16030937b3.48.2026.08.14.11.04.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 14 Aug 2026 11:04:47 -0700 (PDT)
+From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
+Date: Fri, 14 Aug 2026 11:04:45 -0700
+Subject: [PATCH v2] i2c: xiic: restore runtime PM teardown in remove to fix
+ clk WARN flood
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <ba624013-e8e2-4262-a451-650c29dc6b8f@amd.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260814-i2c-xiic-restore-runtime-pm-teardown-v2-1-7ae5d0c30ff2@nexthop.ai>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/5WOTQ6CMBBGr2K6dkw7JqCuvIdh0Z9BxoSWtAUxh
+ LtL8QQuX/LlvW8RiSJTErfDIiJNnDj4DfB4ELbT/knAbmOBEit5UWdgtDAzW4iUcogEcfSZe4K
+ hh0w6uvD24JzURjmDVqLYVEOkluc982h+nEbzIpuLuyw6LrbP/mNSZfdnclKgQFLtWoOyqq/y7
+ mnOXRhOmkWzrusXmG0wgesAAAA=
+X-Change-ID: 20260813-i2c-xiic-restore-runtime-pm-teardown-dd0ab1db2c02
+To: Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>, 
+ Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Abdurrahman Hussain <abdurrahman@nexthop.ai>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1786730686; l=2172;
+ i=abdurrahman@nexthop.ai; s=20260510; h=from:subject:message-id;
+ bh=GnYmCwQgQCpd5MzyBxd1AugHi3QfIrsoUxrijxoLXTI=;
+ b=l9OeeV4dVLTJ+bgHuE/r1D5jfYkVCkfb0Y+shzLfB/PdbNOK6DSZD+rDjM1otPTZRlFd8ZyJK
+ UgJGjl2kcC4AleJYd1OTjPXd1CBglegsNByDqcLLtn3wh+XDB+FTlaL
+X-Developer-Key: i=abdurrahman@nexthop.ai; a=ed25519;
+ pk=omTm9cCAbO0ZhS32aKfJDKue0W3sQGpG9ub5eYHif8I=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260814_110450_605658_E512C5C5 
+X-CRM114-Status: GOOD (  12.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,150 +111,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 14, 2026 at 03:59:27PM +0530, Neeli, Srinivas wrote:
-> Hi Jakub,
-> 
-> On 8/9/2026 1:18 AM, Jakub Kicinski wrote:
-> > This is an AI-generated review of your patch. The human sending this
-> > email has considered the AI review valid, or at least plausible.
-> > ---
-> > dt-bindings: net: add Xilinx TSN Endpoint Ethernet MAC
-> > 
-> > This adds a new binding for the Xilinx TSN Endpoint Ethernet MAC IP,
-> > describing a wrapper node that owns the six IP clocks and
-> > xlnx,num-priorities, plus an endpoint MAC child and a three-port switch
-> > child.  A MAINTAINERS entry is added for the new file.
-> > 
-> > A few questions about the schema below.
-> > 
-> > > diff --git a/Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml b/Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml
-> > > new file mode 100644
-> > > index 000000000000..00f52b7b623c
-> > > --- /dev/null
-> > > +++ b/Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml
-> > > @@ -0,0 +1,343 @@
-> > [ ... ]
-> > 
-> > > +properties:
-> > > +  compatible:
-> > > +    const: xlnx,tsn-endpoint-ethernet-mac-3.0
-> > > +
-> > > +  reg:
-> > > +    maxItems: 1
-> > [Severity: Low]
-> > Should the wrapper node have a reg at all?  It is listed in the top-level
-> > required list alongside ranges, and in the example the two describe the
-> > same window:
-> > 
-> >      reg = <0x80040000 0x40000>;
-> >      ranges = <0x0 0x80040000 0x40000>;
-> > 
-> > Every child window (mac1 0x0+0x14000, ep-mac 0x16000+0xa000, mac2
-> > 0x20000+0x14000, switch 0x38000+0x8000) falls inside the parent's own
-> > reg.
-> > 
-> > The commit message says the wrapper only owns the six shared clocks and
-> > xlnx,num-priorities, and the wrapper driver in this series never maps
-> > that region:
-> > 
-> > drivers/net/ethernet/xilinx/tsn/xilinx_tsn_main.c:tsn_ip_probe() {
-> >      ...
-> >      ret = devm_clk_bulk_get(dev, TSN_NUM_CLOCKS, w->clks);
-> >      ...
-> >      return devm_of_platform_populate(dev);
-> > }
-> > 
-> > Would it be cleaner for a bus node that translates its children through
-> > ranges to either drop reg or describe only a wrapper-private register
-> > block that no child window overlaps?
-> Thanks. We would prefer to keep reg as a required property of the wrapper,
-> for two reasons.
-> 
-> First, reg describes the whole TSN IP register window, which is a hardware
-> property of the IP, and ranges translates the child offsets within it. The
-> child windows do not fully cover the IP window, mac1, ep-mac, mac2 and the
-> switch fabric account for 232 KB of the 256 KB window, leaving 24 KB
-> unmapped by any child (0x14000..0x16000 and 0x34000..0x38000). That reserved
-> space is where the IP places top-level registers that are not owned by any
-> child node.
+The devres conversion dropped the remove-time runtime PM trailer
+(pm_runtime_disable + pm_runtime_set_suspended +
+pm_runtime_dont_use_autosuspend). devm_pm_runtime_enable's release
+action then calls pm_runtime_dont_use_autosuspend() while runtime PM
+is still enabled, triggering an immediate runtime suspend: the suspend
+callback clk_disable()s the clock that the devm_clk_get_enabled()
+release is about to clk_disable_unprepare(), and every device teardown
+WARNs in clk_core_disable() ("clkN already disabled").
 
-Why not describe those 2 ranges in reg? Otherwise, you are mapping the 
-child addresses twice potentially.
+Restore the trailer: with runtime PM disabled and the state forced to
+suspended before devres runs, the suspend callback cannot fire and the
+clock enable count stays balanced.
 
-> Second, we intend to use that space. A planned use is a wrapper-level
-> build/configuration register that tells software which sub-blocks the IP
-> instantiates, so the wrapper can decide which children to populate. For
-> example, an endpoint-only build has no switch block, and the wrapper would
-> read that register to skip the switch node instead of relying on the child
-> nodes alone. That register lives in the wrapper window, not in any child, so
-> the wrapper needs its own reg to reach it.
-> 
-> Because reg is in the required list, making it optional later and then
-> requiring it again would be an ABI change. Keeping it required now avoids
-> that
-> churn once the wrapper starts reading its own register. The wrapper driver
-> in
-> this series does not map reg yet, which is a driver limitation rather than a
-> reason to drop the hardware description.
+Fixes: 50c63491ff26 ("i2c: xiic: switch to devres managed APIs")
+Signed-off-by: Abdurrahman Hussain <abdurrahman@nexthop.ai>
+---
+Changes in v2:
+- Move the Signed-off-by into the commit message proper; v1 had it below
+  the '---' cutter line where it would be dropped on apply (Andy).
+- Link to v1: https://patch.msgid.link/20260813-i2c-xiic-restore-runtime-pm-teardown-v1-1-0e7dfb206790@nexthop.ai
 
-If there are registers outside of the child nodes, then absolutely you 
-should have 'reg'. But please describe what registers and functionality 
-are there.
+To: Michal Simek <michal.simek@amd.com>
+To: Andi Shyti <andi.shyti@kernel.org>
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+To: Abdurrahman Hussain <abdurrahman@nexthop.ai>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-i2c@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+---
+ drivers/i2c/busses/i2c-xiic.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-[...]
+diff --git a/drivers/i2c/busses/i2c-xiic.c b/drivers/i2c/busses/i2c-xiic.c
+index 3e7735e1dae0..89636ca36915 100644
+--- a/drivers/i2c/busses/i2c-xiic.c
++++ b/drivers/i2c/busses/i2c-xiic.c
+@@ -1545,6 +1545,9 @@ static void xiic_i2c_remove(struct platform_device *pdev)
+ 		xiic_deinit(i2c);
+ 
+ 	pm_runtime_put_sync(dev);
++	pm_runtime_disable(dev);
++	pm_runtime_set_suspended(dev);
++	pm_runtime_dont_use_autosuspend(dev);
+ }
+ 
+ static const struct dev_pm_ops xiic_dev_pm_ops = {
 
-> > > +      mdio-mac1:
-> > > +        $ref: /schemas/net/mdio.yaml#
-> > > +        description:
-> > > +          MDIO bus controller for MAC1. Registers reside inside the mac1
-> > > +          reg-names window.
-> > > +        unevaluatedProperties: false
-> > > +
-> > > +      mdio-mac2:
-> > > +        $ref: /schemas/net/mdio.yaml#
-> > > +        description:
-> > > +          MDIO bus controller for MAC2. Registers reside inside the mac2
-> > > +          reg-names window.
-> > > +        unevaluatedProperties: false
-> > [Severity: Low]
-> > This isn't a bug, but the child node names contradict the $nodename
-> > patterns of the generic schemas this binding references.
-> > 
-> > mdio.yaml documents:
-> > 
-> >      pattern: '^mdio(-(bus|external))?(@.+|-([0-9]+))?$'
-> > 
-> > and -mac1 / -mac2 matches none of the allowed suffixes (-bus, -external,
-> > @<addr>, -<digits>).  Similarly the patternProperties key "^ep-mac@"
-> > forces names like the example's ep-mac@16000, while
-> > ethernet-controller.yaml documents:
-> > 
-> >      pattern: "^ethernet(@.*)?$"
-> > 
-> > Other in-tree bindings that $ref mdio.yaml for a child use a conforming
-> > name (qca8k.yaml, realtek.yaml, renesas,rzn1-a5psw.yaml,
-> > renesas,etheravb.yaml, faraday,ftgmac100.yaml, microchip,lan7800.yaml).
-> > Would mdio@<offset> (or mdio-0 / mdio-1) and ethernet@<offset> work here
-> > instead?
-> > 
-> > Related: the mdio-mac<N> nodes carry no reg, so nothing in DT locates the
-> > MDIO block inside the parent mac1/mac2 window.  The offset is instead
-> > hard-coded in the driver added later in this series:
-> > 
-> > drivers/net/dsa/xilinx/xilinx_tsn.h:
-> >      #define TSN_MDIO_MC_OFFSET		0x00000500
-> > 
-> > Could the buses be described as mdio@500 with a reg so the offset comes
-> > from DT?
->  Thanks, accepted. In next version renames ep-mac@ to ethernet@ and
-> mdio-mac1/mdio-mac2 to
->   mdio-1/mdio-2 to match the referenced schemas. The MDIO registers sit at a
->   fixed offset inside the per-MAC window the driver already maps and have no
->   standalone address, so the mdio-1/2 nodes keep that form without a reg
->   rather than mdio@500.
+---
+base-commit: d58772d8520c7ef247c4b95c9bd76d3a25da9ff5
+change-id: 20260813-i2c-xiic-restore-runtime-pm-teardown-dd0ab1db2c02
 
-If there is a register address associated with them, then using that is 
-strongly preferred over mdio-N.
+Best regards,
+--  
+Abdurrahman Hussain <abdurrahman@nexthop.ai>
 
-Rob
 
