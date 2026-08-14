@@ -4,63 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CD89C5CFC1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 07:19:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17526C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 07:20:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c6S5VaAkAZXn4sFLjHeqvaxpJlJzr1GA23OPYsB5cBI=; b=PhS682yci/JZZYuHvIf7DzjYUH
-	RYP+g5+e9yCfs/0WxyLBNQct0G7Gi5gDeu9XsbZc9kueY95ux9juy3w/3nNIzFpbxY5qhYMtf1PNL
-	PhkykDO0WxsafAqcG3mzjxXkDjbB94Dy2l0HSQVRZug4vAyR7lTvPPcAIil59T2MXIHBHCK3hNgPN
-	dLhlRwE4iZZRskGFCu5R3Y7MVBO/rOyDN55f9cDqsxfoLHOgqb9mE24wXOW1GLA4fK0LMrdpNV4hM
-	ewnlkYrsxbQvyf0xa4O2Lvpdf7/F1F/rRVXmxXJHZTxNIUotNTmcFKS0X/mi4ECgzotESj8nrUimN
-	WcSUaIkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=a98GTpOYg7G/88XXQaE/FeVPX7tgu9SzhOpcp0Zwo7Y=; b=NSk6Oyh/ztDZW+ezmKQoy8gP+Y
+	+CiUceHjgyUs96PKKzGCySz+nAObBA6XGsvjOjaePX0JmHkgut9Hx8nlfhsBo1zUYa95upCYvsAPM
+	ELh2zRnfkN9Pxh3vBnjWteNqTfwpqGZlPgYbKttC0J1SV3Uwuf/Id2Z3/A/gYz5X0Soxt1lGymOGI
+	9AC1XGAqnTQ6fSwWy2KJCWpoJUWPBUD8OVzsa2BJMc4vLi9On5XmC2UK06gf3Da6LIM7xbrQKB36r
+	oQ1BWG9x2ioaeOHiwgzymp7ImmAQk/PkmW2cqpaYMueCM+G5tEg9XT/P0ORUuLNOlsWztz9hhdJMk
+	s/WbrahA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wumBr-000000026Uq-0Jw9;
-	Fri, 14 Aug 2026 07:18:55 +0000
-Received: from out30-100.freemail.mail.aliyun.com ([115.124.30.100])
+	id 1wumDZ-000000026n5-1quR;
+	Fri, 14 Aug 2026 07:20:41 +0000
+Received: from mail-francesouthazon11011000.outbound.protection.outlook.com ([40.107.130.0] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wumBn-000000026SM-05gd
+	id 1wumDU-000000026mF-3o9T
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Aug 2026 07:18:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1786691924; h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type;
-	bh=c6S5VaAkAZXn4sFLjHeqvaxpJlJzr1GA23OPYsB5cBI=;
-	b=vtTe/A8tgMMPwSULSa28g9UPDaZYWEbI9gYRtWR1nWklcmlYaw8yAdclRmI8na+7aPc5Nox/BAGiSh21A15CCAlYqtBQLJdMVHzomUhEbeWF1F4svlyyBa+c2GOkkdr0bADtQ/E/9cxc64zQEgcn074EevvNhSr9Abzz+D1i0DM=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R581e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033032089153;MF=yaoyuan@linux.alibaba.com;NM=1;PH=DS;RN=18;SR=0;TI=SMTPD_---0X8wZbHN_1786691923;
-Received: from localhost(mailfrom:yaoyuan@linux.alibaba.com fp:SMTPD_---0X8wZbHN_1786691923 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Fri, 14 Aug 2026 15:18:43 +0800
-Date: Fri, 14 Aug 2026 15:18:42 +0800
-From: Yao Yuan <yaoyuan@linux.alibaba.com>
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Wei-Lin Chang <weilin.chang@arm.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oupton@kernel.org>, Fuad Tabba <tabba@google.com>, Joey Gouly <joey.gouly@arm.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Jintack Lim <jintack.lim@linaro.org>, 
-	Christoffer Dall <christoffer.dall@linaro.org>, Christoffer Dall <christoffer.dall@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	stable@vger.kernel.org
-Subject: Re: [PATCH 1/2] KVM: arm64: Fix spurious warning for benign stage 2
- teardown race
-Message-ID: <v3vgnteumpaxbgqjtfwoilcbwpwohfci3uwu4ooykls6zjwjwe@rukbigno2m5o>
-References: <20260812-kvm-arm-nested-virt-fix-v1-0-4ad883f1b6a5@kernel.org>
- <20260812-kvm-arm-nested-virt-fix-v1-1-4ad883f1b6a5@kernel.org>
- <qfhlmmidzdmmsfopfhxpddgwa7nob45jwgb6sabskawaxtox7i@mnxplk3zn34k>
- <an3gqCJ1fzloWB_N@lucifer>
+	Fri, 14 Aug 2026 07:20:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Mb738Ma8FeSSd0vYGg1UQkC61/ADQjrj3F9/wHapkY+IGjc+HsnDFKFwo8lmXXjgFW1pKB38jaxPgXXTjxK3LiUA817nGEgmvyZomzyhjhIczMue89L5XMniGwSQA+tKd5n07Cs5USFp5KLfFNFJtCkAuiNwOMUtA4TyPXZV5vIXXy0N2EJEY3Ywr1kL4ghmYVQHGwILDbT7B9VBv8MEeusjidBD7eICTwrbpOSfkvi5COGvkuSj7LXiJUfxu3qWdriKWblrkk96DPn0afbg4Y8MdZ5JnWpfsD+C3xVTUjZekhvHnrCWtMIyPIloY4LpVtLFcsbzmgfQ1M9TeHV9mQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=a98GTpOYg7G/88XXQaE/FeVPX7tgu9SzhOpcp0Zwo7Y=;
+ b=A33J4H2o/E/GCe9bhJzPsf8WuziLS3/tsjTkpI/AOkIafwfqC96gyYokNUhIov7e80GJHg1/I2R6nZxYOLYBtr1n21PN7Q4BJa4oFpUC4HJzsZQL6ewvHZqWuRD2PEZHtTMtlrPdhWGZuFxcx3q60mubFO+/3scpwKC4E63F+ppXHZUrOyiC1oB+lIUk0JcN/6K5bZn9CKhKvtOjbx85yRyH7D8OQ5a6Bj9tCJ3u6HCb5l90WJgDnD13RBdN7kMAMl4scIO7QL+j6d2AMZGhQ+MdkmWiXS5jl1EsAK7o+IcH8r5YONKCbTB1dPF13QYb57Ph9RgZ7iiPxaUHNGZiHg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=a98GTpOYg7G/88XXQaE/FeVPX7tgu9SzhOpcp0Zwo7Y=;
+ b=Nx9CLbTtk/5hhrNBdtn1YY1QEPx3eNyoFPc/wjtEi05YYsL1fXslxMk1nRQRxRrvCaEKOzMCRwLVWicERAd5uL1Z9ZN0fqBlRopUiAbUczkg9UaDSoBh9ShIIAffH1wAGIV1QkU/I8kkNoDh9t24NwiKxVitbha94kE5sNkrjfiD0f6UoGFhofbCM41FydcmT9iJaFIIuJZGZxmxWOOre6MRJLba+PsT9S9E0kZ6WkTojlYtYpHlMVOFD5lXApoWutX9B0QdtVQvP3kXMqcV6NffZ6li2vBEh5TpfGx8vRPor32VL5S8IDqDjjWwVRvWwTziBS5BDvXA2bnseL4LqA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GVXPR04MB10021.eurprd04.prod.outlook.com
+ (2603:10a6:150:112::20) by AMDPR04MB11650.eurprd04.prod.outlook.com
+ (2603:10a6:20b:716::18) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.15; Fri, 14 Aug
+ 2026 07:20:30 +0000
+Received: from GVXPR04MB10021.eurprd04.prod.outlook.com
+ ([fe80::d247:853:3e16:1994]) by GVXPR04MB10021.eurprd04.prod.outlook.com
+ ([fe80::d247:853:3e16:1994%5]) with mapi id 15.21.0315.014; Fri, 14 Aug 2026
+ 07:20:29 +0000
+From: Chancel Liu <chancel.liu@oss.nxp.com>
+To: Frank.Li@nxp.com,
+	s.hauer@pengutronix.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	imx@lists.linux.dev
+Cc: kernel@pengutronix.de,
+	festevam@gmail.com,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 00/17] arm64: dts: Add MQS1 sound card support for i.MX9 EVK platforms
+Date: Fri, 14 Aug 2026 16:20:04 +0900
+Message-ID: <20260814072022.4064009-1-chancel.liu@oss.nxp.com>
+X-Mailer: git-send-email 2.50.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SEWP216CA0065.KORP216.PROD.OUTLOOK.COM
+ (2603:1096:101:2ba::17) To GVXPR04MB10021.eurprd04.prod.outlook.com
+ (2603:10a6:150:112::20)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <an3gqCJ1fzloWB_N@lucifer>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GVXPR04MB10021:EE_|AMDPR04MB11650:EE_
+X-MS-Office365-Filtering-Correlation-Id: bd5e498e-4378-44cb-02d2-08def9d484fc
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|23010399003|366016|19092799006|3023799007|56012099006|10067099003|11063799006|18002099003;
+X-Microsoft-Antispam-Message-Info: w0eMIOekIf+zvXKlM2o+SkV2KlgMs4Y0PrTu1Y8MSyvWrUPO5P3Trclkg/RnNu4B6+5Nw375ZUg+F5Gd1EVsdf4I8Ei1oaRSpTwGHnulZPGMy/HDvrt95Qk6FvtAv1dmfPxuThSAsTOP9AyJpNNkVp9frPS7ptuBJKrCS9PlLX3jNXn+DQGjImdF9+QRUPjMctmW7wL2fDYqOiTKv6p9ITofia2zSRlKMf8WtUPJoppDdhjbSxwUq2NlQfyMzhKMs8F6cnSX4jbbLv0SKC45tdh3BvE2peTn+H6Bd4mOZgRFDoegoJSxdpPCovDeNszFYeU3E9wFx/Acs2qKYWOY3Eour18XgD1WC4LrrcAfQGS8eXcTxcEw5gS/Zj90FFvx8B+9BUPyUiQoWFlW0Fsin/iHGnTgc9bpwWgw43Bqh+4rrWMJWU8yTP9lTvGj1qy97UyGxqceuLmGurCdX25utRZ0782euJVcP8+fzPjKa3HTUA3r/3kDUX/UgRQks/3ft/KvLKWe9OJAEKqnQIBMPKTFXhiXVwdxhX8ScST5a0Da8hm9XxGhCTn++yTEAmK4a/0YjFlajwF4GYui2YhTrqog3EfgGa3psucSz8Diwu4otuQ6AkTM9cYcnlYkOlgpn6N6XtUGWaZaDCwaSP/953+xCQbgIbM+UiJW8CrzQOI=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB10021.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(23010399003)(366016)(19092799006)(3023799007)(56012099006)(10067099003)(11063799006)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?kEKKHgoh18QkfYXCzHFlLt0ffJMwg1pRxmSRNxYv5T4LI1G2vx/BtrtVM+81?=
+ =?us-ascii?Q?W9taHJYDGxzVeJ4gYUAbV8K2qQraKxyzCqMr5mLNrNGfIolpiLbPCj7juCWU?=
+ =?us-ascii?Q?3PN0evrGX099jp/P7WZtQQX3D5bZMt2eJhKHXmJLUshBJb81HRdMa9BtLiTF?=
+ =?us-ascii?Q?2zBEI/dt8a9CI/+YU5zTnx+QeuQ2/do1plzowyNQ3ZP9CurY+zx0x97WWJlR?=
+ =?us-ascii?Q?Ioxp61AkfWDQKiwoscD68CWlYSiP7PkdmwJiJ06gnhq04AlEkzq35bF7Mi+m?=
+ =?us-ascii?Q?R18Icxk1dTWutJ7W+JzYjqM9FAjJXL86mMocBev2ttJw/G15t+RtwKPxoNxZ?=
+ =?us-ascii?Q?GqfApR2DJPI2p8B1s1pw6CgkRQsPOErEbwWfaE57ttVHK0i3cqjg0ZedTXgI?=
+ =?us-ascii?Q?eYSYFKBu7uohHLnN0qs1oxfYIaSha5dMgwVd9MTelFyJkV6/8gzWZjr1ruq1?=
+ =?us-ascii?Q?CXiTkIcRN0h/Rb0k35hzyl/0KuFnazqLm4zQTpvmFDC7l3sEhhT66pRQbRkZ?=
+ =?us-ascii?Q?ROc4emaCdv/K5p7cKCcuQhTXf7sOM87NjFhX2xRRA4XnqtefMcvBerQQ4dIL?=
+ =?us-ascii?Q?RWAhNB32U9jAAcpPPj6s9Z6uPKLqWTl7cc6N31o2qgvITl7MdgbupOl82BHa?=
+ =?us-ascii?Q?cy5EVtC7HEKYdyIyKqygMC+2B6ALpW4T7XN2tDSMvXnMOXQYdsLNzTPQlmD4?=
+ =?us-ascii?Q?CF1/8M04OZ/6sMWuVDvPX7uMsv7MPZsUiL+u8on2c9hukumY9m/cL+YXEMGE?=
+ =?us-ascii?Q?Wg2wxfVlnCUE7TqiMny5jNCe7D9eJ2eM7Ky8jFJ4ncQ3M9wzNEzuIFnmwe+6?=
+ =?us-ascii?Q?zJJMNwr2D1fjWeqBYDKmXsN1yVutBcighlQx0w+CtGP6uiaYpuRRD9CCiEyY?=
+ =?us-ascii?Q?jXlJ+eR+F0LBZoLUIA0r998l/CJHQ+sTB5Cp8Lu4FkwLJJVsmOWYwFb6LqKa?=
+ =?us-ascii?Q?FD8OZuHxJO/dialHVK1ckQ0TlvMgEsDJCScVVLYEduKsQOKdyRrIHAeGdbla?=
+ =?us-ascii?Q?prauG9SWmS3qhRdadGAWtTu0TMssBrGNFLaAOzGYLMRzOlcyVTF7faEUHmlx?=
+ =?us-ascii?Q?EGo0QfCcRHLm+OEKW5tyZeH3R07DArQTggwcS5VwGOKGOrGryRrZ16UkXIYf?=
+ =?us-ascii?Q?NPO2yqq+snlWXZa4kCpg4yzN9OzR5CpbU0RamPS1SEU18jUxn08bMzrTn/nk?=
+ =?us-ascii?Q?HjVDWAHBF8HpQIxqp6OcEnbfLO/LG09NetunwdxYR0WhmGSCZPx/fncDS9Wd?=
+ =?us-ascii?Q?Kyc9iHdtDqV80VdjVT2rgRybd6bro9J2hNlbwMJCLdsCbpodchimBdj1lNHz?=
+ =?us-ascii?Q?z55kkIzBYWsw4WCYPcRN5xS0einVecnd9L1oSeuw08S58Yp4iKOvnFHdbnpB?=
+ =?us-ascii?Q?3zIRapr48UXl73o2bihcTiezJT5ZSb+lI3acQBektr4zrLDjDbEha8cDep3s?=
+ =?us-ascii?Q?HxhBIwADxI9/wfMT/Xk0TQYNARkQbxnnyIM8HPjQs3vbCD8uEn6DQXzp9Yce?=
+ =?us-ascii?Q?52xhekO7XrucgjUXskfR45OWSU8Nxmkp408/LGt4DlxKtTeqlLJTYckt+UKl?=
+ =?us-ascii?Q?DXy8Qs5DxGX3WQKYGqvcrfl8UrBcLv3VDcZ/MKTKlxS3oLgL+26n9wmiw2cY?=
+ =?us-ascii?Q?9f+dlG43t+zr2qB/LKN/v/cppPP5xKkyKyrgHfZNJYXr6otDoulqkoLtpYua?=
+ =?us-ascii?Q?cniKUwW8qjbewi0LQFsFVBH7vgtzd/nRlMi4rG3OiU3rYRRz3jdmxBRP1YWx?=
+ =?us-ascii?Q?nI9W5wSOTIh43w9NRpI3LCWfpB+NmUPdzjOvHrPwBot6seoINhXw?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: bd5e498e-4378-44cb-02d2-08def9d484fc
+X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB10021.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Aug 2026 07:20:29.8420
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 7zag2tf6IVvfhjJJ3MvCf5yolVDrrCZgg3ptVvoF09wJ57TZiBvDTGLjrcXvoLuV8kMv28spm7CVFhs+mJ0QIs5l1L2x8bKWDdgAazSvJuV/jliPLG0yTtcZ3bZ6ObMi
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMDPR04MB11650
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260814_001851_731098_7EB78B7A 
-X-CRM114-Status: GOOD (  45.56  )
+X-CRM114-CacheID: sfid-20260814_002036_968833_992B61DA 
+X-CRM114-Status: GOOD (  10.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,224 +142,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 13, 2026 at 04:24:49PM +0800, Lorenzo Stoakes (ARM) wrote:
-> On Thu, Aug 13, 2026 at 12:20:43AM +0100, Wei-Lin Chang wrote:
-> > Hi Lorenzo,
-> >
-> > Thanks for the detailed analysis!
->
-> You're welcome :)
->
-> >
-> > I can follow what's happening from the report, but one thing I don't
-> > get:
-> >
-> > On Wed, Aug 12, 2026 at 02:31:20PM +0100, Lorenzo Stoakes (ARM) wrote:
-> > > A batch of kernel warnings were triggered in the L0 host kernel when using
-> > > kvmtool to experiment with nested virtualisation.
-> > >
-> > > The issue was observed on an M2 macbook pro with 24 GiB of RAM running
-> > > asahi linux 7.1.6-400.asahi.fc44.aarch64+16k with 16 KiB page size.
-> > >
-> > > The bug is confirmed to exist in mainline and does not appear to be
-> > > impacted by any downstream patches carried by asahi.
-> > >
-> > > kvmtool was used to establish an L1 guest with 8 CPUs and 8 GiB of RAM.
-> > >
-> > > kvmtool was then run again within the L1 guest to establish an L2 guest
-> > > with 4 CPUs and 4 GiB of RAM.
-> > >
-> > > Then it was run again to establish another inner guest with 2 CPUs and 2
-> > > GiB of RAM at L3.
-> > >
-> > > Both the L2 and L3 guests were then exited and another L2 guest was
-> > > established with the same characteristics.
-> > >
-> > > Sufficient memory pressure was present in the L0 host to trigger indirect
-> > > reclaim, waking kcompactd up and triggering migration.
-> > >
-> > > Shortly afterwards the L2 guest was stopped, at which point three warnings
-> > > were observed in the L0 host in quick succession with the second and the
-> > > third occurring 114us and 189us after the first, respectively.
-> > >
-> > > In each case the call trace was the same:
-> > >
-> > > WARNING: arch/arm64/kvm/mmu.c:336 at __unmap_stage2_range+0x64/0x80,
-> > > CPU#5: kcompactd0/66
-> > > ...
-> > > __unmap_stage2_range (arch/arm64/kvm/mmu.c:335 (discriminator 3)) (P)
-> > > kvm_stage2_unmap_range (arch/arm64/kvm/mmu.c:346)
-> > > kvm_nested_s2_unmap (arch/arm64/kvm/nested.c:1168 (discriminator 14))
-> > > kvm_unmap_gfn_range (arch/arm64/kvm/mmu.c:2416)
-> > > kvm_mmu_notifier_invalidate_range_start (arch/arm64/kvm/../../../virt/kvm/kvm_main.c:718 ...)
-> > > mn_hlist_invalidate_range_start (mm/mmu_notifier.c:525)
-> > > __mmu_notifier_invalidate_range_start (mm/mmu_notifier.c:580)
-> > > try_to_migrate_one (./include/linux/mmu_notifier.h:478 ./include/linux/mmu_notifier.h:471 mm/rmap.c:2459)
-> > > rmap_walk_anon (mm/rmap.c:3001)
-> > > rmap_walk (mm/rmap.c:3106 mm/rmap.c:3101)
-> > > try_to_migrate (mm/rmap.c:2774)
-> > > migrate_folio_unmap (mm/migrate.c:1330 (discriminator 3))
-> > > migrate_pages_batch (mm/migrate.c:1909)
-> > > migrate_pages_sync (mm/migrate.c:2026)
-> > > migrate_pages (mm/migrate.c:2135)
-> > > compact_zone (mm/compaction.c:2663)
-> > > compact_node (mm/compaction.c:2932)
-> > > kcompactd (mm/compaction.c:3230)
-> > > kthread (kernel/kthread.c:436)
-> > > ret_from_fork (arch/arm64/kernel/entry.S:858)
-> > >
-> > > Analysing this:
-> > >
-> > > try_to_migrate() performs the first part of migration on a folio -
-> > > establishing migration entries in all page tables mapping it - calling
-> > > try_to_migrate_one() for each VMA the folio is mapped in.
-> > >
-> > > Immediately prior to installing the migration entry, try_to_migrate_one()
-> > > calls mmu_notifier_invalidate_range_start() to signal to notifiers that the
-> > > existing page table entry is about to be unmapped.
-> > >
-> > > Since this range happened to contain folios used by the virtual machine
-> > > (given its memory consumption this was highly likely to be a target) this
-> > > in turn triggers arm64 kvm code via an MMU notifier:
-> > >
-> > > mmu_notifier_invalidate_range_start()
-> > >   -> ... -> kvm_mmu_notifier_invalidate_range_start()
-> > >     -> kvm_mmu_unmap_gfn_range()
-> > >       -> kvm_unmap_gfn_range()
-> > >         -> kvm_nested_s2_unmap()
-> > >           -> kvm_stage2_unmap_range()
-> > >             -> __unmap_stage2_range()
-> > >                -> stage2_apply_range()
-> > >        	       <- -EINVAL, triggering a WARN_ON()
-> > >
-> > > Since commit ec14c272408a ("KVM: arm64: nv: Unmap/flush shadow stage 2 page
-> > > tables") kvm_unmap_gfn_range() invokes kvm_nested_s2_unmap() which takes
-> > > the rather drastic step of evicting the entirety of the stage 2 shadow page
-> > > tables for each nested guest:
-> > >
-> > > 	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
-> > > 		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
-> > >
-> > > 		if (kvm_s2_mmu_valid(mmu))
-> > > 			kvm_stage2_unmap_range(mmu, 0, kvm_phys_size(mmu), may_block);
-> > > 	}
-> > >
-> > > This will iterate through every valid MMU.
-> > >
-> > > mmu_notifier_invalidate_range_start() sets the MMU_NOTIFIER_RANGE_BLOCKABLE
-> > > flag when signalling notifiers, so may_block is true here.
-> > >
-> > > __unmap_stage2_range() wraps invocation of stage2_apply_range() in a
-> > > WARN_ON():
-> > >
-> > > 	WARN_ON(stage2_apply_range(mmu, start, end, KVM_PGT_FN(kvm_pgtable_stage2_unmap),
-> > > 				   may_block));
-> > >
-> > > Which is precisely the triggered warning and means stage2_apply_range() is
-> > > returning an error.
-> > >
-> > > In arm64 return values are stored in the x0 register and in each splat w0
-> > > (since it's a 32-bit value) is 0xffffffea which, by two's complement, is
-> > > -0b00010110 or -EINVAL.
-> > >
-> > > The only way in which stage2_apply_range() can return an error is if either
-> > > the passed in walk function (kvm_pgtable_stage2_unmap()) returns an error
-> > > or mmu->pgt is NULL:
-> > >
-> > > 	static int stage2_apply_range(...)
-> > > 	{
-> > > 		do {
-> > > 			struct kvm_pgtable *pgt = mmu->pgt;
-> > > 			if (!pgt)
-> > > 				return -EINVAL;
-> > >
-> > > 			next = stage2_range_addr_end(addr, end);
-> > > 			ret = fn(pgt, addr, next - addr);
-> > > 			if (ret)
-> > > 				break;
-> > > 			if (resched && next != end)
-> > > 				cond_resched_rwlock_write(&kvm->mmu_lock);
-> > > 		} while (addr = next, addr != end);
-> > >
-> > > 		return ret;
-> > > 	}
-> > >
-> > > This loop is batched by stage2_range_addr_end() at the granularity of
-> > > kvm_granule_size(KVM_PGTABLE_MIN_BLOCK_LEVEL), which for a 16 KiB page size
-> > > kernel is 32 MiB.
-> > >
-> > > kvm_pgtable_stage2_unmap() only returns an error if
-> > > kvm_pgtable_walk_begin() or _kvm_pgtable_walk() return an error. On arm64
-> > > the former doesn't ever do so, and the latter only returns -EINVAL if
-> > > either pgd is NULL (we gate that already) or an invalid pgt->start_level is
-> > > specified (not the case).
-> > >
-> > > So the cause of the warning is that mmu->pgt is NULL here.
-> > >
-> > > This field is protected by kvm->mmu_lock, but after each invocation of the
-> > > walk function, if the end of the range has not yet been reached, the lock
-> > > is dropped.
-> > >
-> > > This is done by calling cond_resched_rwlock_write() which drops
-> > > kvm->mmu_lock when yielding the time slice before reacquiring it upon being
-> > > scheduled again:
-> > >
-> > > 		if (resched && next != end)
-> > > 			cond_resched_rwlock_write(&kvm->mmu_lock);
-> > >
-> > > Note that resched = may_block here and is always true for these walks.
-> > >
-> > > This points to something else racing this code to clearing the pgt, and
-> > > brings us back to the observation above that the issue occurs when tearing
-> > > down the L2 guest.
-> > >
-> > > Upon L0's userspace mm_struct teardown, stage 2 mappings for IPAs mapped by
->
-> s/L0/L2/
->
-> > > the guest are unmapped via mmu notifier:
-> > >
-> > > exit_mm()
-> > >   -> mmput()
-> > >     -> __mmput()
-> > >       -> exit_mmap()
-> > >         -> mmu_notifier_release()
-> > > 	  -> ... -> kvm_mmu_notifier_release()
-> > >             -> kvm_flush_shadow_all()
-> > >               -> kvm_arch_flush_shadow_all()
-> > > 	        -> kvm_free_stage2_pgd()
-> > > 		  -> [ acquire kvm->mmu_lock for write ]
-> > > 		  -> mmu->pgt = NULL [ among other tasks ]
-> > > 		  -> [ release kvm->mmu_lock for write ]
-> >
-> > You mentioned stopping the L2 VM only, which means L1 is still running.
-> > Why would the L0 userspace mm_struct get torn down if L1 is still live?
-> > What did I miss?
->
-> Ah yeah this is a mistake sorry :) It should say L2 teardown.
->
-> The stuff relevant to L0 is the MMU notifier bit.
+From: Chancel Liu <chancel.liu@nxp.com>
 
-Hi Lorenzo,
+MQS (Medium Quality Sound) is an internal audio DAC available on multiple
+NXP i.MX9 SoCs. On EVK boards, the MQS output pins are typically shared
+with other peripherals (CAN, PDM microphone, etc.), so enabling MQS
+requires switching board-level pin muxes and disabling the conflicting
+device.
 
-Still have question w/ your above addtional information:
+This series adds MQS1 sound card support across the following platforms:
+  - i.MX91 11x11 EVK
+  - i.MX93 11x11 EVK
+  - i.MX93 14x14 EVK
+  - i.MX943 EVK
+  - i.MX95 15x15 EVK
+  - i.MX952 EVK
 
-The trace is observed on L0, means the exit_mm() path should
-also happens on L0 to race w/ the
-mmu_notifier_invalidate_range_start() path, but how this is
-triggred by L2 teardown, IIUC the L2 teardown triggers the
-exit_mm() path on L1, not on L0. The L1 is still alive thus
-the qemu/kvmtool process on L0 which hold all L1/L2/L3 is
-still alive yet. Please correct me if anything I missed
-here.
+Chancel Liu (17):
+  arm64: dts: imx91_93_common: Add clock and sound-dai-cells properties
+    for MQS
+  arm64: dts: imx91-11x11-evk: Add board muxes to select between PDM and
+    MQS1
+  arm64: dts: imx91-11x11-evk: Add pinmux and mark conflicting devices
+    for MQS1
+  arm64: dts: imx93-11x11-evk: Add board muxes to select between PDM and
+    MQS1
+  arm64: dts: imx93-11x11-evk: Add pinmux and mark conflicting devices
+    for MQS1
+  arm64: dts: imx93-14x14-evk: Add board muxes to select between
+    FlexCAN1 and MQS1
+  arm64: dts: imx93-14x14-evk: Add pinmux and mark conflicting devices
+    for MQS1
+  arm64: dts: imx94: Add clock and sound-dai-cells properties for MQS1
+  arm64: dts: imx943-evk: Add board muxes to select between CAN1/PDM and
+    MQS1/MIC
+  arm64: dts: imx943-evk: Add pinmux and mark conflicting devices for
+    MQS1
+  arm64: dts: imx95: Add clock and sound-dai-cells properties for MQS1
+  arm64: dts: imx95-15x15-evk: Add board muxes to select between PDM and
+    MQS1
+  arm64: dts: imx95-15x15-evk: Add pinmux and mark conflicting devices
+    for MQS1
+  arm64: dts: imx952: Add AONMIX MQS device node
+  arm64: dts: imx952-evk: Add board muxes to select between CAN1/PDM
+  arm64: dts: imx952-evk: Add pinmux and mark conflicting devices for
+    MQS1
+  arm64: dts: fsl: Add DT overlay to build MQS1 sound cards on i.MX9
+    platforms
 
->
-> >
-> > Thanks,
-> > Wei-Lin Chang
-> >
-> > [...]
->
-> --
-> Cheers, Lorenzo
+ arch/arm64/boot/dts/freescale/Makefile        | 12 ++++
+ arch/arm64/boot/dts/freescale/imx9-mqs.dtso   | 54 ++++++++++++++
+ .../boot/dts/freescale/imx91-11x11-evk.dts    | 41 ++++++++++-
+ .../boot/dts/freescale/imx91_93_common.dtsi   |  6 ++
+ .../boot/dts/freescale/imx93-11x11-evk.dts    | 41 ++++++++++-
+ .../boot/dts/freescale/imx93-14x14-evk.dts    | 50 ++++++++++++-
+ arch/arm64/boot/dts/freescale/imx94.dtsi      |  3 +
+ arch/arm64/boot/dts/freescale/imx943-evk.dts  | 70 +++++++++++++-----
+ .../boot/dts/freescale/imx95-15x15-evk.dts    | 42 ++++++++++-
+ arch/arm64/boot/dts/freescale/imx95.dtsi      |  3 +
+ arch/arm64/boot/dts/freescale/imx952-evk.dts  | 71 ++++++++++++++-----
+ arch/arm64/boot/dts/freescale/imx952.dtsi     |  8 +++
+ 12 files changed, 358 insertions(+), 43 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx9-mqs.dtso
+
+--
+2.50.1
+
 
