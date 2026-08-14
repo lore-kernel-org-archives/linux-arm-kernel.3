@@ -4,79 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B77E4C5CFC1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 16:15:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C46A4C5CFCF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 16:15:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ANRY6z832Ro79eJkIpumMqXKf2RRmUpXrfx0OSabUaQ=; b=l0vvGDYtvK9ObdhCXD9e2eVyU/
-	LDY6P+tOFxWuZmsdkS5p0q4uA9Bij2kv5+QLveOxMBqG1rUEUyenGxhT5J6MJarnmECi2PScVau5T
-	YHAPhOIMPCb00x4PgPQBkpp7X1TEhEvNcfco9YnoAC0XpCBYU8vXD7HK6XjrBk+g3c2G5rojm9pRv
-	bz+OHBFRf5qKgvk2oHqJQOw5J82+z5CSBrpVubMGhKyhQ0yzrvILlND6TTWX7dqQH7bNCj8oxfQsz
-	3zAc1xRFz5nVhAsUZF0esecs0zGLZMWNl+57bqvmktTbADtFs8DuPmn+1j6CNNOHKzc8QKJsUfEhJ
-	o5H/ub5w==;
+	bh=XI9+EGkuGODUHnoPhTZyUJtRwVkpUWiqN+luTTD5pBY=; b=KyesQ1ztZ1KVCT0HI6E+UwamZR
+	pax82w9bbeTlJsR2074acuKlBNR7vsII7Oy+MLCfGtzX40NMr/y0NAzu2gqtgmRitRcANxmlFfsX5
+	N++H39yOF2E9oefMQtQ1Sq/sbr4lPvMkBOuUo0wq2BerIqPr8kztKIWqZbnmovz8m49crflboaO71
+	F8q4i5ToKO9epnFANMWIELWfg+u57wRogkK8UzAWL0Xef924mOvDCpd/09I+OvBRif3pdlpqXij2y
+	HlYJMc8Isuo+kTx0cVIWCwtrYhz6yNUnfhLKLUnXbJCvrGATKhuow2tpYRNs/ocb15NfgWI21AS+z
+	hzsU15ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuuZ9-00000002uNn-1OiJ;
-	Fri, 14 Aug 2026 16:15:31 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuuZ7-00000002uNN-2D9Z
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Aug 2026 16:15:30 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 435B01596;
-	Fri, 14 Aug 2026 09:15:21 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0879C3F632;
-	Fri, 14 Aug 2026 09:15:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786724125; bh=CDXQA+EPdlI0BbPlq/PGU1VNQn7L/CNo5Id1Sf3ism8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cbfJLndhxTyrWoqa7N0FvMI7C5ellZPkmqibKvH/xugi4DkwGUR8MXxECibikKhHA
-	 r2peZGXac4kfP7Iq+wBnj49hJv4z1WzdVYAlmECjmYuTAyTPTllk67UYCjRBKitdio
-	 +Xjl6D4uqfp94Fg6zciUVaBL+LX0gfOk2Ey1b8pE=
-Date: Fri, 14 Aug 2026 17:15:18 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
-	Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>, Jason Gunthorpe <jgg@ziepe.ca>,
-	Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
-Subject: Re: [RFC PATCH v2 1/2] dma: swiotlb: Centralize default pool
- initialization and sizing
-Message-ID: <an8_FvcdI01XmVXs@arm.com>
-References: <20260813102521.1367737-1-aneesh.kumar@kernel.org>
- <20260813102521.1367737-2-aneesh.kumar@kernel.org>
-MIME-Version: 1.0
+	id 1wuuZO-00000002uQF-1olO;
+	Fri, 14 Aug 2026 16:15:46 +0000
+Received: from mail-northeuropeazon11012068.outbound.protection.outlook.com ([52.101.66.68] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wuuZM-00000002uOr-2Ehv;
+	Fri, 14 Aug 2026 16:15:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dMwf73WRT2o6vvMyS57Cn5DD1RsV7G97PIMWi6ofHv5nazAr59Vcqzxr7r0tFky38v+14gdk6qbSE0RxNSQu24VFq30EYE7CT+eEj+x/qacKf8mDpu2PmEwhg7BQHgKfKYPl8K6Sjnb/V+bXTJ1q/ulPSF8u51meIa91dVZgLqfvyMFxdAW2JTeD/tIXxnxGfzlPt83qytoT8h61hSTBifkmbMUtYRpWXsnvAAZsmRMy17i3UwqL9s3N1DNnsBJgXamQl+K9unj9eBL4AQj4GPOBJd4YbD4rdhpgi7Vx3/N0pxfE8t7JnYF+0VdhB7gV/4erD8kbjdP4/4XckfCLWw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=XI9+EGkuGODUHnoPhTZyUJtRwVkpUWiqN+luTTD5pBY=;
+ b=Kmznjg5WciNQfJ6gg4Ef5iEc3Lq2wt3M4JkqMedEHaXAa+VNUYkg0+S8aJNqSCxG24UROBZpLZJU/e4nchpFQc4F8iN+FCleWjL1Gcdi5ls+QGgPzS4tIa3+jh92JDACd+yB8qE8oYxYJRFHbjLhrZSw3eNGWnBy4DgL5wLNKqbWeLmk+C7fO9E/8Y6GuMbWuVuAr/7sJzXKmnbWNk451q27IVeUbXn7Phr84IDAPgUQawwdftZp+tXcP3cIqk8lP0yYGrcafCzYbUqwasabnULd7ez5cFfDZkVcn1DOm7Mm4E/qp3eksNxz28hAjo9TgZM7UQFOt39s2VWBlg3MZw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=XI9+EGkuGODUHnoPhTZyUJtRwVkpUWiqN+luTTD5pBY=;
+ b=Tpv6KW56mf8SQazu3qrswyx8wJ5teGEyR+GvbmKcC8WidgGa9A6/VRccIGbmEQatLfzJRwTkB4B6VVFduuWXWallE23Ds4wAxnGmRYFgri9c6aE7xwxAvHQrhsHX8JJQfKA0MNfpyvI81L2EXgl2NUNtQGvesSQyBELl/+8D1FXc2dwOcRQ1AOHkbK3bfuRj/92gNbZNEDIcy1DMsxHXJyCQ9ErPb1JZt0f+tFH+ZjnlaafND79Cf/EuRexZ0uWp2X6+0glbT70qW5rnXt9n3GE35wyYeYZt2TwAXjkS0O+bznQMukCi215w+C3WK2s3wwD2Y0HzAz/mTJmKizXojw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DU4PR04MB11791.eurprd04.prod.outlook.com (2603:10a6:10:623::11)
+ by DU2PR04MB8808.eurprd04.prod.outlook.com (2603:10a6:10:2e3::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.15; Fri, 14 Aug
+ 2026 16:15:38 +0000
+Received: from DU4PR04MB11791.eurprd04.prod.outlook.com
+ ([fe80::11ca:6b74:3234:d7de]) by DU4PR04MB11791.eurprd04.prod.outlook.com
+ ([fe80::11ca:6b74:3234:d7de%5]) with mapi id 15.21.0315.014; Fri, 14 Aug 2026
+ 16:15:38 +0000
+Date: Fri, 14 Aug 2026 11:15:24 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>,
+	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
+	Paul Cercueil <paul@crapouillou.net>,
+	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
+	Binbin Zhou <zhoubinbin@loongson.cn>,
+	Patrice Chotard <patrice.chotard@foss.st.com>,
+	=?iso-8859-1?Q?Am=E9lie?= Delaunay <amelie.delaunay@foss.st.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Ludovic Desroches <ludovic.desroches@microchip.com>,
+	Viresh Kumar <vireshk@kernel.org>,
+	Keguang Zhang <keguang.zhang@gmail.com>,
+	Andreas =?iso-8859-1?Q?F=E4rber?= <afaerber@suse.de>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Kelvin Cao <kelvin.cao@microchip.com>,
+	Logan Gunthorpe <logang@deltatee.com>,
+	Laxman Dewangan <ldewangan@nvidia.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	linux-arm-kernel@lists.infradead.org, dmaengine@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-mips@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-trace-kernel@vger.kernel.org, linux-tegra@vger.kernel.org,
+	linux-actions@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	imx@lists.linux.dev, Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH 1/2] dmaengine: use dma_chan_name() helper to get
+ per-channel device name
+Message-ID: <an8_HLw4qZX-tjlj@SMW015318>
+References: <20260812-dma-chan_dev-rename-v1-0-a67131f7d5c2@nxp.com>
+ <20260812-dma-chan_dev-rename-v1-1-a67131f7d5c2@nxp.com>
+ <an7L5D_9aGMkLiEw@ashevche-desk.local>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260813102521.1367737-2-aneesh.kumar@kernel.org>
+In-Reply-To: <an7L5D_9aGMkLiEw@ashevche-desk.local>
+X-ClientProxiedBy: SA1PR02CA0021.namprd02.prod.outlook.com
+ (2603:10b6:806:2cf::20) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU4PR04MB11791:EE_|DU2PR04MB8808:EE_
+X-MS-Office365-Filtering-Correlation-Id: ebf17e81-b88a-477f-fec7-08defa1f46cc
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|23010399003|19092799006|56012099006|10067099003|4143699003|11063799006|18002099003|22082099003|41080700001;
+X-Microsoft-Antispam-Message-Info: zURzL9v6A9f6KIUoq5g1a4q1ZmEzyQFtRyCsz8JE7hKxZ5Xr/aibw2+cnq6MautbTEXCWkfrW0yfLIo7QaM+HB4IeQeosaCm1JIaS5FmH6vZr+5cdWm/Tf7em5IyvTF7t6NTpvrwr0Oyq0LcLBuP3D1gWoW3kMgYBL5S/KPegtSyoUFnWMpK96/wULINSOxhOJ/vaEv55LoNqQ+/UwEijhTem6ReqXF7bT/2+70lt3FzFFVsKVNgFCrJKXOrqmFASy90Hkk9r9HRIWgg7fkMqsXWxAnOKmkoe6l2QGjmJd9K4+35Nol+XzA8egbb6E6gthO8vTTE9zlP1NCzlsGJD5nTEXOVLakMlir3vnGB+IcMws37XeXH8mXyG4KYOJ8LFfJlwhmAN6LWhlbab08sVkaGgwtQMu9Wt92dYGKYdHo/F3THhruWYYI8Ou/ZobxhVeZpl8qJWJwzy8OeMJKZM3zFOKws7ciwOX3LkVGB1xEZ+5kCvBDaGG1luReyBJS1MloyaZ5itbyzlYI0++qUtw8ZrwBtnshD50k/EoKMdYgeQeBUTW0PoGEC+i8lKzw/8wns8DW7fnPiOZe4U046fd1gChRXfRP22fZHUUSvEZxBw0bugHvswRneBJOjYrUwq/6D4jfm00D6wgAbjQ93Mtd44yTc/K73JcPfSUOwDmDLE42a2nQEB6NebSvQRO87+HI8jSKTq95jdNfi0QL0/A==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU4PR04MB11791.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(23010399003)(19092799006)(56012099006)(10067099003)(4143699003)(11063799006)(18002099003)(22082099003)(41080700001);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?8JV9LihFf7dDvzzMRhpOTraxqIZd6jsFiEncjaJPBN+PqTho9Ovdnw3RjtJk?=
+ =?us-ascii?Q?5w8HLZZeOLGEQZn+2p/cgF6osl36VLtq0SOXcS4Lv6RJ6zZ/Qs/oGkZcdK+H?=
+ =?us-ascii?Q?PkrxOzpehWrWex2K2Ib2YcPVDo58rGaGCMuvy/GCjU160Fi7oTjRzbrfxHpR?=
+ =?us-ascii?Q?TZ+f9kUgqgm2Bztw98HJeWjEiFtT3YlGQUJ1Bapk7/V7yYbIqFqL3ef76/kV?=
+ =?us-ascii?Q?XBOCKsD4+X9+zXuLcAafxfMhvQWyLv7Qvxfyl8JLNjIjQmUszYef21kYb5wp?=
+ =?us-ascii?Q?IKmPxxWek+fQyvYuap7NjWLCutxvKLY+ipSCV96oM5aHMdIIh7cDmS6xktMU?=
+ =?us-ascii?Q?3y55sSko6Ex+1stCoB2QcBUQFXkVUjjkwn4jXVZ49jqsRq1IA/ECyzr5ej+I?=
+ =?us-ascii?Q?CYHbn4EMGGf891MiFRnSkcp4A2GPUk2AjeAVOTwb06R8ida9fEcG19UaeXDl?=
+ =?us-ascii?Q?adrFbQwA3BUSLHb/c7gqPlOGOrugpUBXc2+bwjn1AtyIqJN8Ne4kAgMNy1c5?=
+ =?us-ascii?Q?WSu8EnjfPNOI/CmeGFub7CQ46FzrFdhRWl72Gv5abn0DttSAdeg98bMHgT2I?=
+ =?us-ascii?Q?RLXROh/O0b8w6h0ALyeGc2s/imAGjhhK2IN9/kQabmgOtxk7UvXJOhio+pwc?=
+ =?us-ascii?Q?wg2JATpT3jRuiXYYW894GRxNy1QeJtM0CG9do1ut4fAj4YEApqtHiB5SfptO?=
+ =?us-ascii?Q?wD7rwOUBIv7OyabyTChrljrEw+Vrc4oMnvaujPNXzMeP8/VizUvrh7ekyLfc?=
+ =?us-ascii?Q?+nbsPd7oKqV3hsgjjA/BEU8wwA0ezTA85IkQB4PS4T8pqkxhu3h3knKknnak?=
+ =?us-ascii?Q?xw3Kj/YrXTfnasAEdWQbHeVgYN88My4H489pRLQoFovhp2J1vQ6aRRLcrmfW?=
+ =?us-ascii?Q?ZVAuzhe5VUG0V5YTGfWKRD5r+xowhr0Akzc88XNHII4w9B7MKFdteZBxSqPb?=
+ =?us-ascii?Q?w8+5cy5v7q9tCtT+rblgVCEUOaO0Qsw7BWxVMmpNK9awadrXR4J1tf7RxTB2?=
+ =?us-ascii?Q?brrNHeSzTbsLx0VJgypzj+IIahXhNGoxgs6JOjt86nViPfqHG9GyEIUDMTc5?=
+ =?us-ascii?Q?YWpjdMrZdG0fh2ZRiKBgwKmpLBIOzoWXjED4V/c1Bo6bZBFsYZfwuH88QZWz?=
+ =?us-ascii?Q?XD+rEo3TkaXvIzGQeBOMrk2+M9hYrVVj89hPBPFf787j8e7oR2Q2zxChQVEC?=
+ =?us-ascii?Q?SmHUdEQLCfY43idHMd6lctTUZMMslVKQogNvVJG6gf4MnF0TdGmi6UCMna4K?=
+ =?us-ascii?Q?fiRkietoL9E0wrRed+H6rlhKEM6qy8dGgODdzUzXgtE9ht3qpsUXarB37fFL?=
+ =?us-ascii?Q?6ALIBddzW6IG8iA/aG7F6yR6ZPp0eXco21zmIwHi8LcbeMdCNsz2JxhJRHhX?=
+ =?us-ascii?Q?AqQbyt+Ek7pJbqXeq10Bd0cxaTQ2v272F0b3tSaHHoJI3zSJE3R0anqc/ME4?=
+ =?us-ascii?Q?ZKMK0WRJR3kb4Fd+U9bI396aj350Rk0HDt9/1/UZcMLN/alIfibFrW3gaYkL?=
+ =?us-ascii?Q?bHctrfmumvlz9vGCyE5mjMbjq+IU+OvNrPFXDv9updsliQUahAelv6qsdyK7?=
+ =?us-ascii?Q?P32nwkGvJN3Wj2bOp7Tt4MvvtUl+++B9pQjJz3u1wFDIazNJ0NM0ENJMqzeX?=
+ =?us-ascii?Q?yS0cLy+IbxLVY6rS592Nz4WptD8PSNjHkrWfBgwgth2fYuVxgzXg/6DdlfIi?=
+ =?us-ascii?Q?fbXrGeIKsVwilPKm7n4gpRnM8f6hOH2tU2TnMQrJewBFpQQJhUgKwm8fczZZ?=
+ =?us-ascii?Q?YgvlTzdjhTu+/YLO5F1OQVFbClw6S831T9Xk6dGaP35Vuc0O2q2j?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ebf17e81-b88a-477f-fec7-08defa1f46cc
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Aug 2026 16:15:38.0159
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: CVtX7IctrHaTzlLiVYjqvwy5KRqaGlLp5Fi0qzjYbXlttoLmIvkYYWcaAOezIA+VrwK1dBkGqnamzWqj9p9+2FYvdWA7LrsJ7gstbGrcLXcMtPwXOJU+UpSAz2VVoq5a
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8808
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260814_091529_648034_CCF8BDE0 
-X-CRM114-Status: GOOD (  28.40  )
+X-CRM114-CacheID: sfid-20260814_091544_586479_FA2C03D8 
+X-CRM114-Status: GOOD (  14.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,106 +170,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 13, 2026 at 03:55:20PM +0530, Aneesh Kumar K.V (Arm) wrote:
-> The addressing_limited argument to swiotlb_init() no longer describes
-> all the reasons why a default swiotlb pool may be needed. Confidential
-> computing systems need a shared pool even without addressing limitations,
-> while some systems need a smaller pool for bouncing unaligned kmalloc
-> buffers.
-> 
-> Replace the argument with SWIOTLB_INIT_ADDRESSING_LIMIT and
-> SWIOTLB_INIT_CC_SHARED reason flags, and add swiotlb_should_init() to
-> determine whether initialization is required for limited DMA addressing,
-> confidential-computing shared DMA, unaligned kmalloc bouncing, or
-> swiotlb=force.
-> 
-> Have architectures report addressing-limit and confidential-computing
-> requirements before swiotlb_init(). Mark CC pools shared before their
-> memory attributes are updated, and keep both addressing-limited and
-> CC-shared pools at their normal size instead of applying the reduced
-> kmalloc-only sizing policy.
-> 
-> Move the reduced kmalloc-bounce sizing policy from arm64 and RISC-V into
-> the SWIOTLB core. This keeps architecture code responsible for reporting
-> why a pool is needed while centralizing initialization and sizing
-> decisions.
-> 
-> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
-> ---
->  arch/arm/mm/init.c                   |  6 +++-
->  arch/arm64/mm/init.c                 | 18 ++++------
->  arch/loongarch/kernel/setup.c        |  2 +-
->  arch/mips/cavium-octeon/dma-octeon.c |  2 +-
->  arch/mips/loongson64/dma.c           |  2 +-
->  arch/mips/sibyte/common/dma.c        |  2 +-
->  arch/powerpc/kernel/dma-swiotlb.c    |  4 ++-
->  arch/powerpc/mm/mem.c                | 15 +++++++-
->  arch/powerpc/platforms/pseries/svm.c | 10 ------
->  arch/powerpc/sysdev/fsl_pci.c        |  1 +
->  arch/riscv/mm/init.c                 | 18 +++-------
->  arch/s390/mm/init.c                  |  2 +-
->  arch/x86/include/asm/iommu.h         |  2 ++
->  arch/x86/kernel/amd_gart_64.c        |  1 +
->  arch/x86/kernel/pci-dma.c            | 17 +++++----
->  arch/x86/mm/mem_encrypt.c            |  4 +++
->  include/linux/swiotlb.h              | 12 ++++---
->  kernel/dma/swiotlb.c                 | 52 ++++++++++++++++++++++++----
->  18 files changed, 109 insertions(+), 61 deletions(-)
-> 
-> diff --git a/arch/arm/mm/init.c b/arch/arm/mm/init.c
-> index 0cc1bf04686d..aca97a4e5dcd 100644
-> --- a/arch/arm/mm/init.c
-> +++ b/arch/arm/mm/init.c
-> @@ -223,7 +223,11 @@ static inline void poison_init_mem(void *s, size_t count)
->  void __init arch_mm_preinit(void)
->  {
->  #ifdef CONFIG_ARM_LPAE
-> -	swiotlb_init(max_pfn > arm_dma_pfn_limit, SWIOTLB_VERBOSE);
-> +	unsigned int flags = SWIOTLB_VERBOSE;
-> +
-> +	if (max_pfn > arm_dma_pfn_limit)
-> +		flags |= SWIOTLB_INIT_ADDRESSING_LIMIT;
-> +	swiotlb_init(flags);
->  #endif
->  
->  #ifdef CONFIG_SA1111
-> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-> index e308a7cabd12..9f5b366d2086 100644
-> --- a/arch/arm64/mm/init.c
-> +++ b/arch/arm64/mm/init.c
-> @@ -338,19 +338,15 @@ void __init arch_setup_zero_pages(void)
->  void __init arch_mm_preinit(void)
->  {
->  	unsigned int flags = SWIOTLB_VERBOSE;
-> +	/* pKVM uses restricted-dma-pool */
-> +	bool cc_guest = is_realm_world();
->  
-> -	if (max_pfn <= PFN_DOWN(arm64_dma_phys_limit)) {
-> -		/*
-> -		 * If no bouncing needed for ZONE_DMA, reduce the swiotlb
-> -		 * buffer for kmalloc() bouncing to 1MB per 1GB of RAM.
-> -		 */
-> -		unsigned long size =
-> -			DIV_ROUND_UP(memblock_phys_mem_size(), 1024);
-> -
-> -		swiotlb_adjust_size(min(swiotlb_size_or_default(), size));
-> -	}
-> +	if (cc_guest)
-> +		flags |= SWIOTLB_INIT_CC_SHARED;
-> +	else if (max_pfn > PFN_DOWN(arm64_dma_phys_limit))
-> +		flags |= SWIOTLB_INIT_ADDRESSING_LIMIT;
->  
-> -	swiotlb_init(true, flags);
-> +	swiotlb_init(flags);
+On Fri, Aug 14, 2026 at 11:03:48AM +0300, Andy Shevchenko wrote:
+> On Wed, Aug 12, 2026 at 05:24:08PM -0400, Frank.Li@oss.nxp.com wrote:
+>
+> > Use the existing dma_chan_name() helper to obtain the per-channel device
+> > name instead of open-coding: dev_name(chan->dev->device) /
+> > dev_name(chan2dev())
+> >
+> > Simplify the code and improve consistency.
+> >
+> > No functional change intended.
+>
+> ...
+>
+> >  		ret = devm_request_irq(dev, lchan->irq, loongson2_cmc_dma_chan_irq, IRQF_SHARED,
+> > -				       dev_name(chan2dev(lchan)), lchan);
+> > +				       dma_chan_name(&lchan->vchan.chan), lchan);
+>
+> Depending on the amount of users (and I expect there is a number), I would
+> expect specific API for virt-dma case.
 
-I like the idea of more flags than the boolean for address limit.
-However, depending on when such patch would go in (presumably on top of
-what's currently in -next), we may not need the SWIOTLB_INIT_CC_SHARED
-at all here just to remove it in the second patch. I think we have all
-the information available already.
+Make sense, I consider it before. Let's wait for while for patch2's comments
 
-Other than that, it looks fine to me. If you repost at -rc1, hopefully
-Sashiko will manage to apply it.
-
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+Frank
+>
+> >  		if (ret)
+> >  			return ret;
+>
+> --
+> With Best Regards,
+> Andy Shevchenko
+>
+>
 
