@@ -4,66 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13B4CC5CFC1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 09:42:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0554C5CFC1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 09:42:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Cc:Subject:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N9DHnRo6Yl7zS695EjdQJ7W6XFMnCyJt1gS3f3MuikU=; b=z0McNuWK0/K/vKCUjZ39b5O3+m
-	iDCw8yT5f1fqcueduOyGdVJJg7yc1kdZxDu5vClKwPzCqJRo+2/3CBRzObPxz3xUJVhfIZtlGBDLq
-	QVnEKn9OAFXo11iL3v03duPLoAYFnKmcomfZN3ChA3BE+JiQzhaSpUPr+XPFZgseWrhj6wRxAyUVG
-	EjroLWYhDqOcIasgZLaX7NomzZpq2K4JOJy8sd90H9qqraWLjYqitO93qT9qDiQM6nTEqlbu5vG26
-	NAhKFkAlN+wwcMMvQqq8eyIlkkx/0CdbXNHA3LaF66caFC4y/CM8jEiQepYHxsiW01rNOGsFTah86
-	U3ohlutw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ETFfzivBomCCDCyrbe6+6aUhyVBv4jXv02doewEomfk=; b=cd1lPWEU2RHrWGSB08+xwgVbGA
+	6tnynAFP04YHjAfYxP7W8/am5pBhZDBwjwqG1/JAmBDP+ylhrIB65DkG9/iOG1U8O1RI1rAB8mXGT
+	VyxGd3W1mFv0b3Dx4JL59yNDwzfbt/63CN3YFdO1DvFSMFLjIga1CzJQzczhXXtmlJ1xnaz2lMlKT
+	2PUJIUcFkg25WYYiblPEgTEuXjBKKiqDimApK9x2BWDaPOkQYCnD9g44SZWFMtDN/MbLFQ1Xyeiy/
+	I5eBp93bRo+TukNJrIcJJ4JvL1QUr0fJJH905NmCXI1D85KxDswGEsfuBmyXavBWk27IdvnOMxXKL
+	lKWH3Chg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuoQO-00000002PuR-1x2m;
-	Fri, 14 Aug 2026 09:42:04 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wuoQx-00000002Q6y-3PpK;
+	Fri, 14 Aug 2026 09:42:39 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuoQM-00000002Ptw-3wTw;
-	Fri, 14 Aug 2026 09:42:03 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with UTF8SMTP id 5C90F407B9;
-	Fri, 14 Aug 2026 09:42:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id BCC871F000E9;
-	Fri, 14 Aug 2026 09:42:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786700522;
-	bh=N9DHnRo6Yl7zS695EjdQJ7W6XFMnCyJt1gS3f3MuikU=;
-	h=Date:Subject:Cc:From:To:References:In-Reply-To;
-	b=AscQCVUdc5l7JMtPnrPXsYTnyuYJ77X4Pi0M7lK/FU/5REzCyVYW/WlALQO2YlJ9d
-	 vbWzjH8PLFYTrRIV/fEYyaquOhckTiNi7b3sdKTYah14BjyC5torpD+RPThtAo3DtK
-	 90qjLc214UZN5b80KurI2Chimnuft2b1YQA/Hm5RkBmwrBnSfYJ6OaQD4qZztkFhVD
-	 6VI5ETwVY1dVZTbp8wzIsv02E9bm8mdjFLYkO0MkHzEpXXIPcmIL7ELLnstvvLRBRn
-	 PwkQ+W3YHR5LlRJrd3dL0vOxtQ4kJQDfeL/Ft9G4HuatKvdd1onDZoEWcRqk4U0Z01
-	 Fsiiz+kcxm6dA==
-Mime-Version: 1.0
-Content-Type: multipart/signed;
- boundary=56b1efb9786cb175d1e918947477c6cfc72c594e2777dc786a0b72fca243;
- micalg=pgp-sha384; protocol="application/pgp-signature"
-Date: Fri, 14 Aug 2026 11:41:58 +0200
-Message-Id: <DKOKH2Z53AWN.16GH2NERDWLJ0@kernel.org>
-Subject: Re: [PATCH v3 07/23] mtd: spi-nor: Move the SFDP header structure
- to a C header
-Cc: "Steam Lin" <STLin2@winbond.com>, "Hsin-Yi Wang" <hsinyi@chromium.org>,
- "Thomas Petazzoni" <thomas.petazzoni@bootlin.com>,
- <linux-mtd@lists.infradead.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>
-From: "Michael Walle" <mwalle@kernel.org>
-To: "Miquel Raynal" <miquel.raynal@bootlin.com>, "Pratyush Yadav"
- <pratyush@kernel.org>, "Takahiro Kuwano" <takahiro.kuwano@infineon.com>,
- "Richard Weinberger" <richard@nod.at>, "Vignesh Raghavendra"
- <vigneshr@ti.com>, "Nicolas Ferre" <nicolas.ferre@microchip.com>,
- "Alexandre Belloni" <alexandre.belloni@bootlin.com>, "Claudiu Beznea"
- <claudiu.beznea@tuxon.dev>, "Jonathan Corbet" <corbet@lwn.net>, "Shuah
- Khan" <skhan@linuxfoundation.org>
-X-Mailer: aerc 0.20.0
-References: <20260813-winbond-v7-1-spi-nor-rv-addition-v3-0-b637cf120d5c@bootlin.com> <20260813-winbond-v7-1-spi-nor-rv-addition-v3-7-b637cf120d5c@bootlin.com>
-In-Reply-To: <20260813-winbond-v7-1-spi-nor-rv-addition-v3-7-b637cf120d5c@bootlin.com>
+	id 1wuoQv-00000002Q4x-0mS7
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 14 Aug 2026 09:42:38 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2cf6d65d8a7so10955765ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 02:42:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786700556; x=1787305356; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=ETFfzivBomCCDCyrbe6+6aUhyVBv4jXv02doewEomfk=;
+        b=h7Gx++zj62qgc/qr7qMjnf1d+juml+RUH0A2kkIfbuxMF+c+/VyJgfMzX0lrD6f5yR
+         JS/W/tucjr7jFfhoeJt4zttn+cYlKf48CbiA+YUkEtpvr8Le8T0Hc/+c7ZfM9jF3tVqB
+         lpvdI9xLdrsfeVtPJVYTTovg6FyPF2+TmohIT4EO/y0ii8/GZJUksOaYkxQ5fQQGpCo8
+         JKsVz0IFgZooXp5CCrW3glkWdoTYiRPgOEcqc1zR2CUxEYk8xW6VQ+Q0FUwN/7M8nQUn
+         Pl6ZZa5za/FVGS/iIm6yFDAn4vcRIMXSyQRCDUL7T+x6RO/wZ3zmffxBQR6LFA8/BNJ6
+         riXQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786700556; x=1787305356;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ETFfzivBomCCDCyrbe6+6aUhyVBv4jXv02doewEomfk=;
+        b=Rhapjjj7YUqI7Yz9nSC2UtyxNf+fbx35HxjTpXd5JuFj6Pv897j5Q2QQ7lBKzfrvNa
+         c8ooY7876f4SSxdAOvORHNb7/k+XvWqc41a6WOe9mokYxg2hECryZTECJpQ5VC/3WcjT
+         mYjQ8qUQ9vfn2qdyr6ha9Kh1TX+wtRZ9rAHmEWUhvzdUnrPvcKNzm7BN2iuEpYeyLhJW
+         ozUMYI9/7fWoKdqXRN6d8k+HWc992T/suu13szHp2ZQPllYymKvGhc/4gan4oM2ePyBa
+         KiCeziKAT42i/6I/g4pxAfdgo9jU32Cyu9h2oIBMlymiXm75jM0jb7jtFoXhishzzNm8
+         9+Ug==
+X-Forwarded-Encrypted: i=1; AHgh+RqKKIg8/sMwrC8P/26HHsvyzTsY2RYgk/+kNytT6IMzpcRkAewSUFlZf3k/Brws852nQvCKpA3MQq1/PFRa8skV@lists.infradead.org
+X-Gm-Message-State: AOJu0YzdNUJT+u1BRiG3uXqG3TL7HHDx+mduTjDOikafxpaX71ruDzoo
+	j/EztfKnQ8OjS18jON8CTaVKYmSC0ES0dOFLKjhQ5vXsICrKMhX7tEu/
+X-Gm-Gg: AR+sD12AdXxaw4vDRU6seUnfKn8PyQmTN8MxmvS54dNEUpUOmhXiM0yP3Wne2cKRB1H
+	GwjfwOHYGVE9W6a2WAUj5oxHcPSMYAMlD3D3X6/ffrRmYpCCwE7lIwXskuszK7+rSoj22UguxMU
+	rfQe3aaY/sqIOcM9mEXoYa3kTaQNG/lBf6+NYurDvDWp3Twhc2Pgq1KhgD0RxAJa1ah39+ICSyX
+	IoNrLyl7P/6A1M24DRj8eCCA6fTnaeMBvrGZEblrSkXTObMF7EDWYbEXonzVWhr/dqOTNq/5oVw
+	mEo/lIelTlheRPF+xtIwno+7NjTznCY8PFeR8zH5JFDxlk8kSIpQxFNzusmLiQahb2zuH+48isB
+	xgIzltrnlGJ4wCLtNYjBGJU9qMTcfzeLZhE83iUwkCmu+TMU8lzhw9kREuwXYZup/tfxrKX42wK
+	Nxi2dS2wT3bqvRuMWY0QZpBrEBNKjTnhD4/c+2FpvrwtwaBBQFZLk3CtcrRPmV61b4eLh8cmlCR
+	htuBpCeUQhpcD0qD3yhCLhJPqXq158yk1qLAVmznX75R2BWG8vyXegHDtcPimePl18K2PwtogrM
+	ERRm
+X-Received: by 2002:a17:903:1a08:b0:2d3:7887:7e7f with SMTP id d9443c01a7336-2d3b0c5de30mr56550695ad.11.1786700556062;
+        Fri, 14 Aug 2026 02:42:36 -0700 (PDT)
+Received: from phuc-desktop.. ([183.91.15.56])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d3ae7c067asm7446345ad.28.2026.08.14.02.42.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 14 Aug 2026 02:42:35 -0700 (PDT)
+From: phucduc.bui@gmail.com
+To: Mark Brown <broonie@kernel.org>,
+	Jerome Brunet <jbrunet@baylibre.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	linux-sound@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	bui duc phuc <phucduc.bui@gmail.com>
+Subject: [PATCH 1/2] ASoC: meson: aiu: Drop redundant probe error messages
+Date: Fri, 14 Aug 2026 16:42:10 +0700
+Message-ID: <20260814094211.25151-1-phucduc.bui@gmail.com>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260814_024237_226384_2F22BFB7 
+X-CRM114-Status: GOOD (  12.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,32 +107,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---56b1efb9786cb175d1e918947477c6cfc72c594e2777dc786a0b72fca243
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+From: bui duc phuc <phucduc.bui@gmail.com>
 
-On Thu Aug 13, 2026 at 5:19 PM CEST, Miquel Raynal wrote:
-> The sfdp_header structure is currently defined in sfdp.c, whereas the
-> sfdp_parameter_header structure is defined in sfdp.h. In order to ease
-> the reuse of this structure outside of the sfdp.c file, move this
-> structure to the sfdp C header (.h).
->
-> Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
+The functions called here don't log the error themselves, but the
+error is already reported deeper in the call chain, so the dev_err()
+calls are redundant and can be removed.
 
-Reviewed-by: Michael Walle <mwalle@kernel.org>
+Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
+---
+ sound/soc/meson/aiu.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
+diff --git a/sound/soc/meson/aiu.c b/sound/soc/meson/aiu.c
+index 2668646e3597..2ba61e2f703a 100644
+--- a/sound/soc/meson/aiu.c
++++ b/sound/soc/meson/aiu.c
+@@ -242,12 +242,12 @@ static int aiu_clk_get(struct device *dev)
+ 	ret = aiu_clk_bulk_get(dev, aiu_i2s_ids, ARRAY_SIZE(aiu_i2s_ids),
+ 			       &aiu->i2s);
+ 	if (ret)
+-		return dev_err_probe(dev, ret, "Can't get the i2s clocks\n");
++		return ret;
+ 
+ 	ret = aiu_clk_bulk_get(dev, aiu_spdif_ids, ARRAY_SIZE(aiu_spdif_ids),
+ 			       &aiu->spdif);
+ 	if (ret)
+-		return dev_err_probe(dev, ret, "Can't get the spdif clocks\n");
++		return ret;
+ 
+ 	return ret;
+ }
+-- 
+2.43.0
 
---56b1efb9786cb175d1e918947477c6cfc72c594e2777dc786a0b72fca243
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iKgEABMJADAWIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCan7i5hIcbXdhbGxlQGtl
-cm5lbC5vcmcACgkQEic87j4CH/ijBwGAnJR5F5WVhkrlmwqZ34C5fE4gUtbSczOg
-hqFYERO7W3dNtZvMO6Se+c5+CO+4jH36AYD65O7dGrHfzrgJZYra9srRZes9Q6n1
-v5MnhOMlNomR4XY1C3WPNOi4Kp5YEs5Pwvc=
-=dKdU
------END PGP SIGNATURE-----
-
---56b1efb9786cb175d1e918947477c6cfc72c594e2777dc786a0b72fca243--
 
