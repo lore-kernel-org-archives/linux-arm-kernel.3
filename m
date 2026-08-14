@@ -4,129 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8B2EC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 21:35:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42647C5CFCF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 21:58:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZBZ/nS042ZaIvzqg1RsCrcgKVEnfSEHJrVD/siZDQzg=; b=lbcFKqVo6kQnUPPTMecCGG6m4y
-	rmuX9HJM6FG/7JlWkscRUBXZmRPwi9H+GJNxSbmDc+kldl4xDt44QjMDoBNBgxt7C+P4k4+1EB/X9
-	Bi0IC2sWXkHs5Eh+fWdKRIzY/FGXLE10Edwg9CkDGwvsqbv/tZaMQgyJUza9hpZl0/K00ATK6wq2a
-	8X1bjNk9fhldU6V5vLGqG3lAtGOG7E5aeUX4vgGUM7ccCrquzD2pqiZNHO5g4jzwwvo+NSsOQPeqv
-	jzpyriMUHI784BR0R2gjUH+k5UJpQhDq7wwgsqzJLEcefn+DQ+irxME+Y1ozjHzkfnGsIcXjtOm4z
-	3/owC9hw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q/erZy2n38i8Q19od1dHI45fS0KoMtthuq5RrnDN/Dg=; b=ABJfP5deUbRtQGOjiSgLF9HYO0
+	9PMuQnbDWp3+m/S3S0vqltuYDY6zdKo/Z7Fy0N8Xo0egHKhOGp2hn5WTLaI4SH6pNepripOtQptEt
+	vC7Ns054NIevuqNdGQKUMVEhzgsfemmOb1e5iqi2zqM6hojwgbw0BpEzHhsXZG6iDxRVQMaIRmklU
+	OCHrfXDAQP7KYWnyEV2KFdJ/zvola07M9L5Ogz2QtzD5jQIIJ02Y3bZLRtoqsNA29aEJxKzB61xHz
+	d3iWEh4c/fYhNJFQ5FawQ6f1gw3MFy4P/sWiYVqtUqj5whyAdTMc7cCvBLTrOBG3gxs4ahib2KCj1
+	3utWRz4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuzZA-00000003E4s-3zYs;
-	Fri, 14 Aug 2026 21:35:53 +0000
-Received: from mail-francesouthazon11011003.outbound.protection.outlook.com ([40.107.130.3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1wuzuQ-00000003Ezn-0Bar;
+	Fri, 14 Aug 2026 21:57:50 +0000
+Received: from mail-qt1-x833.google.com ([2607:f8b0:4864:20::833])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuzZ8-00000003E47-0mWL
+	id 1wuzuN-00000003EzP-2yyU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Aug 2026 21:35:51 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=g2cfpukCYipeoj7hKCLITf1tq/7BU1FEKpF5FuOTQ44qPEfKFQr7+deFXqyY9BVrHJ9OJRQ+xcG4RTShgHjERfYsSDVr5djO4Q5uhTyRW6ANfdMk/F4Bdg9xrROPxFw/agogqVsmh933z93T+/+VYH85HgGAI5jZZXyzQDLWxgpOUR9IYpGJZb3QXs2DbPfpzVxvWJb4vEvIjOdIVI3nOSTbr8Sw0WsasXU1RRVchh5urlgjlB5iWybZZmbf2oLPRIcgDFR/0wsSN5WcONPCzY8FG4XFRg5odN/biJCLnV4/qsiLi1FnXghX590yIvdYAV1KWpVPHksE7cvyytqbVw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZBZ/nS042ZaIvzqg1RsCrcgKVEnfSEHJrVD/siZDQzg=;
- b=CF5t7fKnNYwCetn+KO3vhhzetBgGYT/ZjHfH6YpAVzlP2j7ybBtFo+UlNjMOF/o+y2J5KkEjek44KRNsS+bOv9VI+Pbe5I77EhjOSS+IJn3ilkc1gBkzMC1XTqvaSHSk5JzgIj/2IJxUjn5GQXq7LvhmXSlSsdHFVuu3UfCweJcS99fJhF4JfzFu75aTn3Ko0DbiUUf12OuWde6u1fDJtmvSCIJd9yMmQu/2PxJWz6BSZPqjCvg/KtQmVnV2J8qee6oz+50G6tSHAleCsGgvntHjhpt0QYvtDj3XU7khS/QQOkPs2HpU8+iDXThWpd6+5oG4ad+a2wcY8SXJcbKulQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ZBZ/nS042ZaIvzqg1RsCrcgKVEnfSEHJrVD/siZDQzg=;
- b=QHjZa+T8fV821WyCZW8ogqEf6MqrPFBPT/asjmO9cyKs8ugtWkBV2z2TUis7XBdE+4gQx5/pz3+WCbGSMyKIIneQ9QZtw2JWQavmdXhVBxhFFV6UB18+WgiO3/vDFpEnqFNIbMWoY+7t+BH24fhsj7UQpEwq9U/OY9OMyOu+2F21UaIsB2fmCfDlVVwnPJDxlhnG0q0AmwokuzHFJMR2gRGtHAYwqEWvkBKYbc7T7+gtd1P9Z3C7RDHWFecb76NvekfEPi+RoXvl8vY3o9J7cKmN4++CLYOU0dTKkqvnuJBgcWgl9jStkg6SxF9DMub1qdsehKOQj0n6D4OuDrkAzg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DB8PR04MB6908.eurprd04.prod.outlook.com (2603:10a6:10:116::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.16; Fri, 14 Aug
- 2026 21:35:44 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0315.014; Fri, 14 Aug 2026
- 21:35:44 +0000
-Date: Fri, 14 Aug 2026 17:35:36 -0400
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Sai Sree Kartheek Adivi <s-adivi@ti.com>
-Cc: peter.ujfalusi@gmail.com, vigneshr@ti.com, vkoul@kernel.org,
-	Frank.Li@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, nm@ti.com, ssantosh@kernel.org,
-	dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	r-sharma3@ti.com, gehariprasath@ti.com
-Subject: Re: [PATCH v8 03/19] dmaengine: ti: k3-udma: move structs and enums
- to header file
-Message-ID: <an-KKKzOHbfpRu18@lizhi-Precision-Tower-5810>
-References: <20260810151423.1948224-1-s-adivi@ti.com>
- <20260810151423.1948224-4-s-adivi@ti.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260810151423.1948224-4-s-adivi@ti.com>
-X-ClientProxiedBy: SA0PR11CA0078.namprd11.prod.outlook.com
- (2603:10b6:806:d2::23) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Fri, 14 Aug 2026 21:57:49 +0000
+Received: by mail-qt1-x833.google.com with SMTP id d75a77b69052e-51c10ed63c0so364101cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 14:57:47 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1786744666; cv=none;
+        d=google.com; s=arc-20260327;
+        b=JfW+APUXQ7H9/Eo2azef0aiWpeNeOSgLoaNKi8s5FMwrMtg9k38u35+nP2yHjo2Z1w
+         GFWgm7puIlSP2Ou+/ZAy3RhYEPFDebiKBIsy8HzU+OHoy3fqMVaNffmKZaLWDjV/0sQv
+         GZVFjN/hbflGHduAjC0WbM8TNx8IXhd83rXUa1op1uU2HYZVIpSJsImdR9NUsEN8jGEA
+         ipsrXXDBC5JVwYl2jE7qxXoHEtvYJ9y8NWP7Lul+lUZzdTWvkaRAdlvznOqlBfcj6QXp
+         UxOklDOthwkqtIrx1hTAfITWNbYA1pHvmNoR6sc5QfDsh5OULmfeEkTR9l5+yvhJPtmm
+         EGiA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=q/erZy2n38i8Q19od1dHI45fS0KoMtthuq5RrnDN/Dg=;
+        fh=l1oB6kgXn/W1rLesm1T9kDeCm2sd3YejMkLd3O9u/Jk=;
+        b=eCjLXBMQ98gRdtUeTb8yRlqaeyIMNq3qhyMTchmbUd4svMyd5QVpz2L81epeZeG/wH
+         wUkZg2M+L2scGKEctSNoN3gwM23FrivFOD7K2OBly+rwIOk2uW/cFAWZcQwqZpbQBkXv
+         fXG8MoqBbBrV7YOry+V1iltP02V6pAAhqR+9b6s3ZDJIFNg7DVZhmnB8wkmmUINxLD09
+         uBOpEMrX4iffF5sB6/lvOvOC4hHinQqKsnmE6G6GnOdN8AKEyIJRAhRhyWYMP0HLmYhG
+         oSeHRqzw4zkbJZJCqOGS332f/ZUUcftVy0AT+xBYP1/SezX/anUTPjsWUr/IbWCAjVNU
+         7B9A==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1786744666; x=1787349466; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=q/erZy2n38i8Q19od1dHI45fS0KoMtthuq5RrnDN/Dg=;
+        b=Ed5WffccBzcCu7+RcHiCWdDyEEsvTc5R1njP0TabgfOKBAPsDRfH45VOdmOCrHBuIF
+         pMe/7jEGXneDKKRLEi0NCcCqvdohK/D/7cPbQ2rJIWopHU1Bia3UH1Ph8rMeeoJiZg3X
+         tbco4tVDUeiK16A8X9yem276ShiH0PGHCHLTlYXzU5i8RSTfwikbjQY2rf1AU1K+C/Ey
+         RUtMTQoo0DG2UqyFWqs5VGN+CnqXHWVr20PhLpyXglIjUOsHGshFOCXdJn1z2r32vaHs
+         h5g01+0uouTbuKTYjv9u4rgmtIztkp5oH75VzpJcHI/uw2IycCg26IeqEeRsGF73VGTK
+         0meQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786744666; x=1787349466;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=q/erZy2n38i8Q19od1dHI45fS0KoMtthuq5RrnDN/Dg=;
+        b=mkHi+ZFJv4uXOTBFKyFISwjjy0kHU76jhCQw+7fnGWK0s6qLsOmCz+EHEFvqSip94Q
+         gE/nNQeCUhGnyLcG0dSYgNBele1TyGydmN8X/gi363uFhniWqIGXuWv7ydoyxfuyd1kM
+         y7etsStMQMRsGxPODNVHUthqjbXCLCwtO5aMJcYhZZfggu4rTzIo//IGAWCH435cgVFt
+         eTczyeUMQB4UtoTvur65rz2AOjnZ00szc5JSBxQiTPw5l+5qx1TnneXG0iO2Qwq38dEC
+         jrdXYYZkyNmeJeb9TNsX015IH+aVzbu8pkSUXSYms9/Rs/6CutRjT/rZBc3o3+rVaKFl
+         dKtA==
+X-Forwarded-Encrypted: i=1; AHgh+Rqh3ka2JxXOVeq8okmMCeo89nTtVC69ws8zhELiTcF21Sv/0pBueqfgDf7Dg9Xczod0MyYoANaDpD6QgQv9slzw@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz1wEeJXG4bvwo0hhUZ0NtRbXm/+Rt6fhJvr2AvO8S4kUGy/eQf
+	tcCegJDNdn43PxP95H2FuDaI4XKrM1LBomJoZ1Y2YzZucvba3td8XGPbJoFaQYMgFOAmDzODIwp
+	5ZHMMa9+U+f2iBYlI0uHrKwEaiUNJKxaUk5Y4eE4i
+X-Gm-Gg: AR+sD10+sVkbkiHwhzxPmGe3iT7O2CNSWDsnQPxwOFm5yCJoQeA4PLNTh7m2eC7/xyo
+	KeEou/1+mcVBkOac4lQswlR8a1l+c+hg1zz6QO9veLa7YUIMUwDS/1KFqTUOv9MBlrjsSfhCQY6
+	Yypx54+p1rFKTLL0u6GvyBNriq+kgfk/2EmB5gs80MvRDi46fMUUCi6Pk/3lTGrxZAxOB+nCP65
+	si7qvFQ4b1iI5WBxpXOPSbUpXrfdH/F/Hxyx2WEbo8HR0WqBlfNTxo5pxkwVeP6Cr6m+1d1/iX7
+	MPtG0BIPhVn6CuPChSaInMo3lIlSR+CxbmjM9qJLo5PahaCU3C9K
+X-Received: by 2002:ac8:5e4e:0:b0:517:5e32:2d14 with SMTP id
+ d75a77b69052e-52d84770c21mr23823461cf.10.1786744665581; Fri, 14 Aug 2026
+ 14:57:45 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DB8PR04MB6908:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8b41fb15-087c-4f72-aea3-08defa4bfeed
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|376014|7416014|19092799006|22082099003|18002099003|56012099006|3023799007|6133799003|4143699003|11063799006|10067099003;
-X-Microsoft-Antispam-Message-Info: qHEAh/QnzZ38oQ2Tpug2fldzon/hpJGIBLQ/+B3iu959vA12j56wsin16k7jbUeeDJ/9GcONAUxknbHYlfyx88NWibP1I0YL2+Sndn6RauSP8Bk5mnslJmyu74mPWq9DAXTbvGPajzALNmI4IOymCujQM3i+FPR95b9U6PUHY4n56tZ3QAEcyEE+/fBhml9ZsdX5uwOrtW2wHa8G/BEOm27R72ZFG0lF3db8QD+aeE1bHzgm5LE//MLxRQntLo6WZ7ykPbKfKy3ourzRMYtlUZiDwY5KLEd4LTRFHHuxOzvJzSddprUMLsa2gLCP9YPCiOWcKTiJc383WvOh63kLMlOqsLvP1qXBZgvoM/i+2Vhc4ceVTZH3AN170Om6F4pOp5tcBGDCErX8Kw2St2P8zgFrHJ+lsL2Ki5Nnd4Nk/U6UJ7qmwb+j1btj0ZzrvJrUxsihybLoODO01KLOUFgTi4g6wVcgbWMtzKw5Zk+s+C/hwJdmFYyX0pxNvPM/XrYWHvhI22iXYzpmp/E9MgQ2eWjfkJNyWPHdGSf01AXzYpRKsc3g8FDhMl0/yvYSiHaAt+b8RuCvaCxihWZYt5sFz4rHLyLsuOrwyhG8l8EIVYCnYVjUh8/p6y/gkh9lAUpYea5KGR6q5Wjx6ehWyhSnsL3P6ezwTj5Qp6ggY2yOT3M=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(376014)(7416014)(19092799006)(22082099003)(18002099003)(56012099006)(3023799007)(6133799003)(4143699003)(11063799006)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?otsLhEAggWRskJr4WgDrXvnVhXxMzyyjpJXD9J3zhrfwSFiUKLdRXKUV+DjE?=
- =?us-ascii?Q?ZorXPkJ9WufW0IvC7PnS/AuUec+ggFndvV+LqaIeN9xlEKwjmsu2NWU9GVO9?=
- =?us-ascii?Q?Fznj04gBAxU4HvIagGGvo0l9l2S1U2OpVnIWucrQ824CNyvsGO/cDZVCzT4e?=
- =?us-ascii?Q?P2OFO12xikcMsmMmBDWioB+cx6UCdb5I6Id9ND/Z3l1wqlduf5mwdlaJTo3i?=
- =?us-ascii?Q?DTWjK2rJHm2+LUU4vQUofycMn7UvkjoSubVwOD7UmNrMoZH39eAvY6c4qtzG?=
- =?us-ascii?Q?psYLxAjM1g3YkpPIz4Cgg+ZKZ0pW9FroAKH/jwbqUa7gx7F9DSoyXzQMUcqu?=
- =?us-ascii?Q?qgMnNr8kEye2xiZ8RFFoVUh3hIsA1cHIRgfNMJhFUSLz0MDZH6xKZvr58p/8?=
- =?us-ascii?Q?R4MWL81tuMuj4JHrXeu6HX+0lfKmr/fzGBLhh7iIit7lUTPd8M2NozvHUh8K?=
- =?us-ascii?Q?OjtSqWVMjMveYultiVxWv7tRvvpVXeGIGN0HwSXXdRvgD5pHFYgZ4ngn0Rxl?=
- =?us-ascii?Q?RwflME5PjBIKatF7+oMlv5HlyU0WdwPU5RmLtXF1Pj20vgWnv1iMqWbKIrQx?=
- =?us-ascii?Q?q0KnqfWVpEtC/nnTdDb3egL0X5n/fFFtpUb1CgV9Z6Wyp4ZOIixMyvfgBQsx?=
- =?us-ascii?Q?kWW1W9k9qRUzPJrC/ss0TntIb3emzo5QMfhzRBsjInOPzQ4drA+xcABA59SC?=
- =?us-ascii?Q?GkEbZb2AoxUaFcGu4FXzhbQyH/gxKoWjQFNxMvwvT+5b2OiHCiH+Ao0cXPXB?=
- =?us-ascii?Q?TyqBud/vbJ96GOS5JjyaKFMfX501NvvK9BU2YB7vyxUN14hVqYH5gwxmnjck?=
- =?us-ascii?Q?JPtqbgFgvyaTYcaofVSwR5UrdK/Y5pvZJrBUNumF0KEgXY2pOWkm5vfXUNM8?=
- =?us-ascii?Q?938tbHoAGBjT63FRo7I8co92UomZcWjJf0jIMa2uD4qUKKaIG+wqyHjnPYq+?=
- =?us-ascii?Q?ELz585PgioLbmc8bANgjlGr4A2n+Cg7BW2HNG+Hmtvsaa8Y/OTAPq+Spd3+Q?=
- =?us-ascii?Q?XGYXumsE8Gn5y4aQsYvhl43P+Son3tY02AJMenYGnFoYBVToNwFuiWMAN1yS?=
- =?us-ascii?Q?rZrjTMXCRCEqi/Y/nDOocOEJ6b7CRlM9hDa0WtCwS2cRhTKX3BJ5PXmW8qdR?=
- =?us-ascii?Q?UgY2flF9Np1306Aa+dWrqkr3oMOX636Pb+HzhfBztd4k4rCTwJHsHsGsj+qj?=
- =?us-ascii?Q?BP/R42gzybXw3OqOCRb2KJoWMT1H9AZ2EQ4w/mw9b0qtlbW6MvS374mNyGQV?=
- =?us-ascii?Q?4HJ71YlP1wh/iQQ6k8Zjkzd9yxlCkdG9hRmiqmoc8BBmAwSf8ee7mVBWtAUd?=
- =?us-ascii?Q?z3LqPzWfEAAVzhsWnK3FPPdinX6GiG0pDCzU35D5Z9FBd8iuW3SndVMbn5ix?=
- =?us-ascii?Q?HP2CUNwEqI2VfXZSR+b67Lo0ZcShV2xBgq+uazJZLJgz112SJkQD19iAA6+X?=
- =?us-ascii?Q?YYtQLV86lgkxID0X5ENOAnBmXm2dVAbwrjDfE68pIOTtNEE87DGP1y6uxhLC?=
- =?us-ascii?Q?B3r1UssNrDXZ+y11iekTrmXRdDhnLS7A2xPOR4ldw8i05X6ewJhcMh2F/p76?=
- =?us-ascii?Q?J5P+HWT54O68TwZicX1CHmL/e9ufvZINzzisKS6hB+TELIPsD/iyqTQceYsP?=
- =?us-ascii?Q?gJkBRRob7NcjYmEp4daHKhsPZ36UvSQzym6svpORxPpyp+FI5rSTlZypO6T7?=
- =?us-ascii?Q?22HXJN/kam2GlDufl+/3Hw1SLs/BQ/ZU4qSoKNZEBYzRUKyO7yvYSznrm4vi?=
- =?us-ascii?Q?lks9PEZr0ZqRHbdATf7Y9uii82eLKMxZXuJF1ovr31meIepgT8Qp?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8b41fb15-087c-4f72-aea3-08defa4bfeed
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Aug 2026 21:35:44.1215
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: F57E5R50mh0HOQjgpNMy+tedPT9iBpPNtChS8w0zPEfJT+3pIh0f4zYMdo15AyIMCHfpD1HJxzb9eypU2+CPSNCxrFIjOPvQjeQHTFCm78iZLVoGekahiyCcgffC+Kt7
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB6908
+References: <20260804-iommu_contig_hint-v4-1-d7a47ed5db98@oss.qualcomm.com>
+In-Reply-To: <20260804-iommu_contig_hint-v4-1-d7a47ed5db98@oss.qualcomm.com>
+From: Daniel Mentz <danielmentz@google.com>
+Date: Fri, 14 Aug 2026 14:57:34 -0700
+X-Gm-Features: AUfX_mw13XLnJC6leTXSRX-bWXhXBbTh-sh7eRo2QsAUaW0Ge3uaaXn1mQEwLlI
+Message-ID: <CAE2F3rB7zpPFfC376mP=god9HWRmKOaQUEgPVzKScxS12pZrvQ@mail.gmail.com>
+Subject: Re: [PATCH v4] iommu/io-pgtable-arm: Add support for contiguous hint bit
+To: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
+Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+	"Joerg Roedel (AMD)" <joro@8bytes.org>, linux-arm-msm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Prakash Gupta <prakash.gupta@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260814_143550_392985_E6C21E93 
-X-CRM114-Status: GOOD (  19.27  )
+X-CRM114-CacheID: sfid-20260814_145748_051006_89EDB211 
+X-CRM114-Status: GOOD (  27.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,603 +119,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 10, 2026 at 08:43:57PM +0530, Sai Sree Kartheek Adivi wrote:
-> Move struct and enum definitions in k3-udma.c to k3-udma.h header file
-> for better separation and reuse.
->
-> Signed-off-by: Sai Sree Kartheek Adivi <s-adivi@ti.com>
-> ---
+On Mon, Aug 3, 2026 at 11:19=E2=80=AFPM Vijayanand Jitta
+<vijayanand.jitta@oss.qualcomm.com> wrote:
+> +static unsigned long arm_lpae_get_cont_sizes(struct io_pgtable_cfg *cfg)
+> +{
+> +       unsigned long pg_size, blk_size, l1_blk_size, cont_sizes =3D 0;
+> +       unsigned long cont_leaf_size, cont_blk_size, cont_l1_blk_size;
+> +       int pg_shift, bits_per_level;
+> +
+> +       if (!cfg->pgsize_bitmap || (cfg->quirks & IO_PGTABLE_QUIRK_ARM_NO=
+_CONT_HINT))
+> +               return 0;
+> +
+> +       pg_shift =3D __ffs(cfg->pgsize_bitmap);
+> +       bits_per_level =3D pg_shift - ilog2(sizeof(arm_lpae_iopte));
+> +       pg_size =3D 1UL << pg_shift;
+> +       blk_size =3D pg_size << bits_per_level;
+> +       l1_blk_size =3D blk_size << bits_per_level;
+> +
+> +       cont_leaf_size =3D arm_lpae_num_cont(pg_size) * pg_size;
+> +       if ((cfg->pgsize_bitmap & pg_size) &&
+> +           arm_lpae_cont_size_fits(cfg, cont_leaf_size))
+> +               cont_sizes |=3D cont_leaf_size;
+> +
+> +       if (cfg->pgsize_bitmap & blk_size) {
+> +               cont_blk_size =3D arm_lpae_num_cont(blk_size) * blk_size;
+> +               if (arm_lpae_cont_size_fits(cfg, cont_blk_size))
+> +                       cont_sizes |=3D cont_blk_size;
+> +       }
+> +
+> +       /*
+> +        * l1_blk_size is only set in pgsize_bitmap if level-1 blocks are
+> +        * supported for this granule (not 16K/64K, per
+> +        * arm_lpae_restrict_pgsizes()), so no extra gating is needed her=
+e.
+> +        */
+> +       if (cfg->pgsize_bitmap & l1_blk_size) {
+> +               cont_l1_blk_size =3D arm_lpae_num_cont(l1_blk_size) * l1_=
+blk_size;
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Our AI model is saying that this might overflow cont_l1_blk_size on 32
+bit platforms i.e. 16 * 1G doesn't fit into a 32 bit type. It says
+that cont_l1_blk_size will be truncated to 0, and
+arm_lpae_cont_size_fits() then calls ilog2(0) which is undefined.
 
->  drivers/dma/ti/k3-udma.c | 259 +-------------------------------------
->  drivers/dma/ti/k3-udma.h | 265 +++++++++++++++++++++++++++++++++++++++
->  2 files changed, 266 insertions(+), 258 deletions(-)
->
-> diff --git a/drivers/dma/ti/k3-udma.c b/drivers/dma/ti/k3-udma.c
-> index a066862e2c699..ce706033143ad 100644
-> --- a/drivers/dma/ti/k3-udma.c
-> +++ b/drivers/dma/ti/k3-udma.c
-> @@ -24,8 +24,8 @@
->  #include <linux/workqueue.h>
->  #include <linux/completion.h>
->  #include <linux/soc/ti/k3-ringacc.h>
-> -#include <linux/soc/ti/ti_sci_protocol.h>
->  #include <linux/soc/ti/ti_sci_inta_msi.h>
-> +#include <linux/soc/ti/ti_sci_protocol.h>
->  #include <linux/dma/k3-event-router.h>
->  #include <linux/dma/ti-cppi5.h>
->
-> @@ -33,28 +33,6 @@
->  #include "k3-udma.h"
->  #include "k3-psil-priv.h"
->
-> -struct udma_static_tr {
-> -	u8 elsize; /* RPSTR0 */
-> -	u16 elcnt; /* RPSTR0 */
-> -	u16 bstcnt; /* RPSTR1 */
-> -};
-> -
-> -struct udma_chan;
-> -
-> -enum k3_dma_type {
-> -	DMA_TYPE_UDMA = 0,
-> -	DMA_TYPE_BCDMA,
-> -	DMA_TYPE_PKTDMA,
-> -};
-> -
-> -enum udma_mmr {
-> -	MMR_GCFG = 0,
-> -	MMR_BCHANRT,
-> -	MMR_RCHANRT,
-> -	MMR_TCHANRT,
-> -	MMR_LAST,
-> -};
-> -
->  static const char * const mmr_names[] = {
->  	[MMR_GCFG] = "gcfg",
->  	[MMR_BCHANRT] = "bchanrt",
-> @@ -62,234 +40,6 @@ static const char * const mmr_names[] = {
->  	[MMR_TCHANRT] = "tchanrt",
->  };
->
-> -struct udma_tchan {
-> -	void __iomem *reg_rt;
-> -
-> -	int id;
-> -	struct k3_ring *t_ring; /* Transmit ring */
-> -	struct k3_ring *tc_ring; /* Transmit Completion ring */
-> -	int tflow_id; /* applicable only for PKTDMA */
-> -
-> -};
-> -
-> -#define udma_bchan udma_tchan
-> -
-> -struct udma_rflow {
-> -	int id;
-> -	struct k3_ring *fd_ring; /* Free Descriptor ring */
-> -	struct k3_ring *r_ring; /* Receive ring */
-> -};
-> -
-> -struct udma_rchan {
-> -	void __iomem *reg_rt;
-> -
-> -	int id;
-> -};
-> -
-> -struct udma_oes_offsets {
-> -	/* K3 UDMA Output Event Offset */
-> -	u32 udma_rchan;
-> -
-> -	/* BCDMA Output Event Offsets */
-> -	u32 bcdma_bchan_data;
-> -	u32 bcdma_bchan_ring;
-> -	u32 bcdma_tchan_data;
-> -	u32 bcdma_tchan_ring;
-> -	u32 bcdma_rchan_data;
-> -	u32 bcdma_rchan_ring;
-> -
-> -	/* PKTDMA Output Event Offsets */
-> -	u32 pktdma_tchan_flow;
-> -	u32 pktdma_rchan_flow;
-> -};
-> -
-> -struct udma_match_data {
-> -	enum k3_dma_type type;
-> -	u32 psil_base;
-> -	bool enable_memcpy_support;
-> -	u32 flags;
-> -	u32 statictr_z_mask;
-> -	u8 burst_size[3];
-> -	struct udma_soc_data *soc_data;
-> -};
-> -
-> -struct udma_soc_data {
-> -	struct udma_oes_offsets oes;
-> -	u32 bcdma_trigger_event_offset;
-> -};
-> -
-> -struct udma_hwdesc {
-> -	size_t cppi5_desc_size;
-> -	void *cppi5_desc_vaddr;
-> -	dma_addr_t cppi5_desc_paddr;
-> -
-> -	/* TR descriptor internal pointers */
-> -	void *tr_req_base;
-> -	struct cppi5_tr_resp_t *tr_resp_base;
-> -};
-> -
-> -struct udma_rx_flush {
-> -	struct udma_hwdesc hwdescs[2];
-> -
-> -	size_t buffer_size;
-> -	void *buffer_vaddr;
-> -	dma_addr_t buffer_paddr;
-> -};
-> -
-> -struct udma_tpl {
-> -	u8 levels;
-> -	u32 start_idx[3];
-> -};
-> -
-> -struct udma_dev {
-> -	struct dma_device ddev;
-> -	struct device *dev;
-> -	void __iomem *mmrs[MMR_LAST];
-> -	const struct udma_match_data *match_data;
-> -	const struct udma_soc_data *soc_data;
-> -
-> -	struct udma_tpl bchan_tpl;
-> -	struct udma_tpl tchan_tpl;
-> -	struct udma_tpl rchan_tpl;
-> -
-> -	size_t desc_align; /* alignment to use for descriptors */
-> -
-> -	struct udma_tisci_rm tisci_rm;
-> -
-> -	struct k3_ringacc *ringacc;
-> -
-> -	struct work_struct purge_work;
-> -	struct list_head desc_to_purge;
-> -	spinlock_t lock;
-> -
-> -	struct udma_rx_flush rx_flush;
-> -
-> -	int bchan_cnt;
-> -	int tchan_cnt;
-> -	int echan_cnt;
-> -	int rchan_cnt;
-> -	int rflow_cnt;
-> -	int tflow_cnt;
-> -	unsigned long *bchan_map;
-> -	unsigned long *tchan_map;
-> -	unsigned long *rchan_map;
-> -	unsigned long *rflow_gp_map;
-> -	unsigned long *rflow_gp_map_allocated;
-> -	unsigned long *rflow_in_use;
-> -	unsigned long *tflow_map;
-> -
-> -	struct udma_bchan *bchans;
-> -	struct udma_tchan *tchans;
-> -	struct udma_rchan *rchans;
-> -	struct udma_rflow *rflows;
-> -
-> -	struct udma_chan *channels;
-> -	u32 psil_base;
-> -	u32 atype;
-> -	u32 asel;
-> -};
-> -
-> -struct udma_desc {
-> -	struct virt_dma_desc vd;
-> -
-> -	bool terminated;
-> -
-> -	enum dma_transfer_direction dir;
-> -
-> -	struct udma_static_tr static_tr;
-> -	u32 residue;
-> -
-> -	unsigned int sglen;
-> -	unsigned int desc_idx; /* Only used for cyclic in packet mode */
-> -	unsigned int tr_idx;
-> -
-> -	u32 metadata_size;
-> -	void *metadata; /* pointer to provided metadata buffer (EPIP, PSdata) */
-> -
-> -	unsigned int hwdesc_count;
-> -	struct udma_hwdesc hwdesc[];
-> -};
-> -
-> -enum udma_chan_state {
-> -	UDMA_CHAN_IS_IDLE = 0, /* not active, no teardown is in progress */
-> -	UDMA_CHAN_IS_ACTIVE, /* Normal operation */
-> -	UDMA_CHAN_IS_TERMINATING, /* channel is being terminated */
-> -};
-> -
-> -struct udma_tx_drain {
-> -	struct delayed_work work;
-> -	ktime_t tstamp;
-> -	u32 residue;
-> -};
-> -
-> -struct udma_chan_config {
-> -	bool pkt_mode; /* TR or packet */
-> -	bool needs_epib; /* EPIB is needed for the communication or not */
-> -	u32 psd_size; /* size of Protocol Specific Data */
-> -	u32 metadata_size; /* (needs_epib ? 16:0) + psd_size */
-> -	u32 hdesc_size; /* Size of a packet descriptor in packet mode */
-> -	bool notdpkt; /* Suppress sending TDC packet */
-> -	int remote_thread_id;
-> -	u32 atype;
-> -	u32 asel;
-> -	u32 src_thread;
-> -	u32 dst_thread;
-> -	enum psil_endpoint_type ep_type;
-> -	bool enable_acc32;
-> -	bool enable_burst;
-> -	enum udma_tp_level channel_tpl; /* Channel Throughput Level */
-> -
-> -	u32 tr_trigger_type;
-> -	unsigned long tx_flags;
-> -
-> -	/* PKDMA mapped channel */
-> -	int mapped_channel_id;
-> -	/* PKTDMA default tflow or rflow for mapped channel */
-> -	int default_flow_id;
-> -
-> -	enum dma_transfer_direction dir;
-> -};
-> -
-> -struct udma_chan {
-> -	struct virt_dma_chan vc;
-> -	struct dma_slave_config	cfg;
-> -	struct udma_dev *ud;
-> -	struct device *dma_dev;
-> -	struct udma_desc *desc;
-> -	struct udma_desc *terminated_desc;
-> -	struct udma_static_tr static_tr;
-> -	char *name;
-> -
-> -	struct udma_bchan *bchan;
-> -	struct udma_tchan *tchan;
-> -	struct udma_rchan *rchan;
-> -	struct udma_rflow *rflow;
-> -
-> -	bool psil_paired;
-> -
-> -	int irq_num_ring;
-> -	int irq_num_udma;
-> -
-> -	bool cyclic;
-> -	bool paused;
-> -
-> -	enum udma_chan_state state;
-> -	struct completion teardown_completed;
-> -
-> -	struct udma_tx_drain tx_drain;
-> -
-> -	/* Channel configuration parameters */
-> -	struct udma_chan_config config;
-> -	/* Channel configuration parameters (backup) */
-> -	struct udma_chan_config backup_config;
-> -
-> -	/* dmapool for packet mode descriptors */
-> -	bool use_dma_pool;
-> -	struct dma_pool *hdesc_pool;
-> -
-> -	u32 id;
-> -};
-> -
->  static inline struct udma_dev *to_udma_dev(struct dma_device *d)
+> +               if (arm_lpae_cont_size_fits(cfg, cont_l1_blk_size))
+> +                       cont_sizes |=3D cont_l1_blk_size;
+> +       }
+> +
+> +       return cont_sizes;
+> +}
+[...]
+> @@ -660,6 +829,8 @@ static size_t __arm_lpae_unmap(struct arm_lpae_io_pgt=
+able *data,
 >  {
->  	return container_of(d, struct udma_dev, ddev);
-> @@ -4073,13 +3823,6 @@ static struct platform_driver udma_driver;
->  static struct platform_driver bcdma_driver;
->  static struct platform_driver pktdma_driver;
+>         arm_lpae_iopte pte;
+>         struct io_pgtable *iop =3D &data->iop;
+> +       size_t block_size =3D ARM_LPAE_BLOCK_SIZE(lvl, data);
+> +       int num_cont =3D arm_lpae_num_cont(block_size);
+>         int i =3D 0, num_entries, max_entries, unmap_idx_start;
 >
-> -struct udma_filter_param {
-> -	int remote_thread_id;
-> -	u32 atype;
-> -	u32 asel;
-> -	u32 tr_trigger_type;
-> -};
-> -
->  static bool udma_dma_filter_fn(struct dma_chan *chan, void *param)
->  {
->  	struct udma_chan_config *ucc;
-> diff --git a/drivers/dma/ti/k3-udma.h b/drivers/dma/ti/k3-udma.h
-> index 750720cd06911..11d08adb0d69f 100644
-> --- a/drivers/dma/ti/k3-udma.h
-> +++ b/drivers/dma/ti/k3-udma.h
-> @@ -6,7 +6,16 @@
->  #ifndef K3_UDMA_H_
->  #define K3_UDMA_H_
+>         /* Something went horribly wrong and we ran out of page table */
+> @@ -674,10 +845,22 @@ static size_t __arm_lpae_unmap(struct arm_lpae_io_p=
+gtable *data,
+>                 return 0;
+>         }
 >
-> +#include <linux/dmaengine.h>
->  #include <linux/soc/ti/ti_sci_protocol.h>
-> +#include <linux/dma/ti-cppi5.h>
-> +#include <linux/completion.h>
-> +#include <linux/workqueue.h>
-> +#include <linux/spinlock.h>
-> +#include <linux/ktime.h>
+> +       /*
+> +        * Normalize an exact whole-CONT-group request down to the
+> +        * equivalent block_size/pgcount, mirroring __arm_lpae_map().
+> +        */
+> +       if (!(data->iop.cfg.quirks & IO_PGTABLE_QUIRK_ARM_NO_CONT_HINT) &=
+&
+> +           num_cont > 1 && size =3D=3D block_size * num_cont) {
+> +               pgcount *=3D num_cont;
+> +               size =3D block_size;
+> +       }
 > +
-> +#include "../virt-dma.h"
-> +#include "k3-psil-priv.h"
+>         /* If the size matches this level, we're in the right place */
+> -       if (size =3D=3D ARM_LPAE_BLOCK_SIZE(lvl, data)) {
+> +       if (size =3D=3D block_size) {
+> +               size_t cont_size =3D num_cont * block_size;
+> +
+>                 max_entries =3D arm_lpae_max_entries(unmap_idx_start, dat=
+a);
+> -               num_entries =3D min_t(int, pgcount, max_entries);
+> +               num_entries =3D min_t(size_t, pgcount, max_entries);
 >
->  /* Global registers */
->  #define UDMA_REV_REG			0x0
-> @@ -164,6 +173,7 @@ struct udma_dev;
->  struct udma_tchan;
->  struct udma_rchan;
->  struct udma_rflow;
-> +struct udma_chan;
+>                 /* Find and handle non-leaf entries */
+
+This comment is no longer accurate. The handling now extends beyond
+non-leaf entries.
+
+>                 for (i =3D 0; i < num_entries; i++) {
+> @@ -687,6 +870,40 @@ static size_t __arm_lpae_unmap(struct arm_lpae_io_pg=
+table *data,
+>                                 break;
+>                         }
 >
->  enum udma_rm_range {
->  	RM_RANGE_BCHAN = 0,
-> @@ -186,6 +196,261 @@ struct udma_tisci_rm {
->  	struct ti_sci_resource *rm_ranges[RM_RANGE_LAST];
->  };
->
-> +struct udma_static_tr {
-> +	u8 elsize; /* RPSTR0 */
-> +	u16 elcnt; /* RPSTR0 */
-> +	u16 bstcnt; /* RPSTR1 */
-> +};
+> +                       /*
+> +                        * A real CONT group must always be invalidated a=
+s a
+> +                        * unit, so reject an unmap that splits one. Chec=
+k the
+> +                        * PTE's own CONT bit rather than the caller's si=
+ze,
+> +                        * since a legitimate unmap can span multiple pri=
+or
+> +                        * iommu_map() calls and its size alone doesn't s=
+ay how
+> +                        * the underlying PTEs were grouped. Only the fir=
+st and
+> +                        * last entries can straddle a group boundary; an
+> +                        * interior CONT-tagged entry's group is necessar=
+ily
+> +                        * fully covered by this unmap, since groups can'=
+t
+> +                        * overlap without also covering everything betwe=
+en
+> +                        * them.
+> +                        */
+> +                       if (pte & ARM_LPAE_PTE_CONT) {
+> +                               bool ok =3D true;
 > +
-> +enum k3_dma_type {
-> +	DMA_TYPE_UDMA = 0,
-> +	DMA_TYPE_BCDMA,
-> +	DMA_TYPE_PKTDMA,
-> +};
+> +                               if (i =3D=3D 0)
+> +                                       ok =3D ok && IS_ALIGNED(iova, con=
+t_size);
+> +                               if (i =3D=3D num_entries - 1)
+> +                                       ok =3D ok && IS_ALIGNED(iova + (i=
+ + 1) * block_size,
+> +                                                             cont_size);
 > +
-> +enum udma_mmr {
-> +	MMR_GCFG = 0,
-> +	MMR_BCHANRT,
-> +	MMR_RCHANRT,
-> +	MMR_TCHANRT,
-> +	MMR_LAST,
-> +};
+> +                               /*
+> +                                * Stop short of this entry instead of re=
+turning
+> +                                * 0: entries before i may already have h=
+ad
+> +                                * non-leaf sub-tables torn down above, s=
+o the
+> +                                * caller needs the real unmapped count, =
+and the
+> +                                * loop exit below still clears/gathers e=
+ntries
+> +                                * [0, i) correctly.
+> +                                */
+> +                               if (WARN_ON_ONCE(!ok))
+
+Consider aligning with the following WARN_ONCE in the same function:
+
+WARN_ONCE(true, "Unmap of a partial large IOPTE is not allowed");
+
+> +                                       break;
+
+I think this behavior is inconsistent: when a problem is detected at
+the beginning of the unmap range, you return without modifying the
+table, whereas if it's detected at the end, the code proceeds with
+unmapping and leaves the table misconfigured. Could these checks be
+performed before entering the loop?
+
+> +                       }
 > +
-> +struct udma_filter_param {
-> +	int remote_thread_id;
-> +	u32 atype;
-> +	u32 asel;
-> +	u32 tr_trigger_type;
-> +};
-> +
-> +struct udma_tchan {
-> +	void __iomem *reg_rt;
-> +
-> +	int id;
-> +	struct k3_ring *t_ring; /* Transmit ring */
-> +	struct k3_ring *tc_ring; /* Transmit Completion ring */
-> +	int tflow_id; /* applicable only for PKTDMA */
-> +
-> +};
-> +
-> +#define udma_bchan udma_tchan
-> +
-> +struct udma_rflow {
-> +	int id;
-> +	struct k3_ring *fd_ring; /* Free Descriptor ring */
-> +	struct k3_ring *r_ring; /* Receive ring */
-> +};
-> +
-> +struct udma_rchan {
-> +	void __iomem *reg_rt;
-> +
-> +	int id;
-> +};
-> +
-> +struct udma_oes_offsets {
-> +	/* K3 UDMA Output Event Offset */
-> +	u32 udma_rchan;
-> +
-> +	/* BCDMA Output Event Offsets */
-> +	u32 bcdma_bchan_data;
-> +	u32 bcdma_bchan_ring;
-> +	u32 bcdma_tchan_data;
-> +	u32 bcdma_tchan_ring;
-> +	u32 bcdma_rchan_data;
-> +	u32 bcdma_rchan_ring;
-> +
-> +	/* PKTDMA Output Event Offsets */
-> +	u32 pktdma_tchan_flow;
-> +	u32 pktdma_rchan_flow;
-> +};
-> +
-> +struct udma_match_data {
-> +	enum k3_dma_type type;
-> +	u32 psil_base;
-> +	bool enable_memcpy_support;
-> +	u32 flags;
-> +	u32 statictr_z_mask;
-> +	u8 burst_size[3];
-> +	struct udma_soc_data *soc_data;
-> +};
-> +
-> +struct udma_soc_data {
-> +	struct udma_oes_offsets oes;
-> +	u32 bcdma_trigger_event_offset;
-> +};
-> +
-> +struct udma_hwdesc {
-> +	size_t cppi5_desc_size;
-> +	void *cppi5_desc_vaddr;
-> +	dma_addr_t cppi5_desc_paddr;
-> +
-> +	/* TR descriptor internal pointers */
-> +	void *tr_req_base;
-> +	struct cppi5_tr_resp_t *tr_resp_base;
-> +};
-> +
-> +struct udma_rx_flush {
-> +	struct udma_hwdesc hwdescs[2];
-> +
-> +	size_t buffer_size;
-> +	void *buffer_vaddr;
-> +	dma_addr_t buffer_paddr;
-> +};
-> +
-> +struct udma_tpl {
-> +	u8 levels;
-> +	u32 start_idx[3];
-> +};
-> +
-> +struct udma_dev {
-> +	struct dma_device ddev;
-> +	struct device *dev;
-> +	void __iomem *mmrs[MMR_LAST];
-> +	const struct udma_match_data *match_data;
-> +	const struct udma_soc_data *soc_data;
-> +
-> +	struct udma_tpl bchan_tpl;
-> +	struct udma_tpl tchan_tpl;
-> +	struct udma_tpl rchan_tpl;
-> +
-> +	size_t desc_align; /* alignment to use for descriptors */
-> +
-> +	struct udma_tisci_rm tisci_rm;
-> +
-> +	struct k3_ringacc *ringacc;
-> +
-> +	struct work_struct purge_work;
-> +	struct list_head desc_to_purge;
-> +	spinlock_t lock;
-> +
-> +	struct udma_rx_flush rx_flush;
-> +
-> +	int bchan_cnt;
-> +	int tchan_cnt;
-> +	int echan_cnt;
-> +	int rchan_cnt;
-> +	int rflow_cnt;
-> +	int tflow_cnt;
-> +	unsigned long *bchan_map;
-> +	unsigned long *tchan_map;
-> +	unsigned long *rchan_map;
-> +	unsigned long *rflow_gp_map;
-> +	unsigned long *rflow_gp_map_allocated;
-> +	unsigned long *rflow_in_use;
-> +	unsigned long *tflow_map;
-> +
-> +	struct udma_bchan *bchans;
-> +	struct udma_tchan *tchans;
-> +	struct udma_rchan *rchans;
-> +	struct udma_rflow *rflows;
-> +
-> +	struct udma_chan *channels;
-> +	u32 psil_base;
-> +	u32 atype;
-> +	u32 asel;
-> +};
-> +
-> +struct udma_desc {
-> +	struct virt_dma_desc vd;
-> +
-> +	bool terminated;
-> +
-> +	enum dma_transfer_direction dir;
-> +
-> +	struct udma_static_tr static_tr;
-> +	u32 residue;
-> +
-> +	unsigned int sglen;
-> +	unsigned int desc_idx; /* Only used for cyclic in packet mode */
-> +	unsigned int tr_idx;
-> +
-> +	u32 metadata_size;
-> +	void *metadata; /* pointer to provided metadata buffer (EPIP, PSdata) */
-> +
-> +	unsigned int hwdesc_count;
-> +	struct udma_hwdesc hwdesc[];
-> +};
-> +
-> +enum udma_chan_state {
-> +	UDMA_CHAN_IS_IDLE = 0, /* not active, no teardown is in progress */
-> +	UDMA_CHAN_IS_ACTIVE, /* Normal operation */
-> +	UDMA_CHAN_IS_TERMINATING, /* channel is being terminated */
-> +};
-> +
-> +struct udma_tx_drain {
-> +	struct delayed_work work;
-> +	ktime_t tstamp;
-> +	u32 residue;
-> +};
-> +
-> +struct udma_chan_config {
-> +	bool pkt_mode; /* TR or packet */
-> +	bool needs_epib; /* EPIB is needed for the communication or not */
-> +	u32 psd_size; /* size of Protocol Specific Data */
-> +	u32 metadata_size; /* (needs_epib ? 16:0) + psd_size */
-> +	u32 hdesc_size; /* Size of a packet descriptor in packet mode */
-> +	bool notdpkt; /* Suppress sending TDC packet */
-> +	int remote_thread_id;
-> +	u32 atype;
-> +	u32 asel;
-> +	u32 src_thread;
-> +	u32 dst_thread;
-> +	enum psil_endpoint_type ep_type;
-> +	bool enable_acc32;
-> +	bool enable_burst;
-> +	enum udma_tp_level channel_tpl; /* Channel Throughput Level */
-> +
-> +	u32 tr_trigger_type;
-> +	unsigned long tx_flags;
-> +
-> +	/* PKDMA mapped channel */
-> +	int mapped_channel_id;
-> +	/* PKTDMA default tflow or rflow for mapped channel */
-> +	int default_flow_id;
-> +
-> +	enum dma_transfer_direction dir;
-> +};
-> +
-> +struct udma_chan {
-> +	struct virt_dma_chan vc;
-> +	struct dma_slave_config	cfg;
-> +	struct udma_dev *ud;
-> +	struct device *dma_dev;
-> +	struct udma_desc *desc;
-> +	struct udma_desc *terminated_desc;
-> +	struct udma_static_tr static_tr;
-> +	char *name;
-> +
-> +	struct udma_bchan *bchan;
-> +	struct udma_tchan *tchan;
-> +	struct udma_rchan *rchan;
-> +	struct udma_rflow *rflow;
-> +
-> +	bool psil_paired;
-> +
-> +	int irq_num_ring;
-> +	int irq_num_udma;
-> +
-> +	bool cyclic;
-> +	bool paused;
-> +
-> +	enum udma_chan_state state;
-> +	struct completion teardown_completed;
-> +
-> +	struct udma_tx_drain tx_drain;
-> +
-> +	/* Channel configuration parameters */
-> +	struct udma_chan_config config;
-> +	/* Channel configuration parameters (backup) */
-> +	struct udma_chan_config backup_config;
-> +
-> +	/* dmapool for packet mode descriptors */
-> +	bool use_dma_pool;
-> +	struct dma_pool *hdesc_pool;
-> +
-> +	u32 id;
-> +};
-> +
->  /* Direct access to UDMA low lever resources for the glue layer */
->  int xudma_navss_psil_pair(struct udma_dev *ud, u32 src_thread, u32 dst_thread);
->  int xudma_navss_psil_unpair(struct udma_dev *ud, u32 src_thread,
-> --
-> 2.54.0
+>                         if (!iopte_leaf(pte, lvl, iop->fmt)) {
+>                                 __arm_lpae_clear_pte(&ptep[i], &iop->cfg,=
+ 1);
 >
 
