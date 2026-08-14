@@ -4,127 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 482CDC5CFC1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 20:50:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05429C5CFCF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 20:56:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SvM6fOgchV80jwV+RxJPPaeKQNkVBK9dIejN1NLhoEE=; b=StecDbj8IGrL8MDQh8hTdKu8Wo
-	gothRM9shv1LrodYMdJ172w2ONJHU6Qsfjn+Oqpz43NuvupWbpBui+lPcTmKIogobcrjLvh1BwBVi
-	aTSvTdBeo9YPYmzOFbo881QkhdYcjvEbQkR8rrnZBZYSSaPdBoNI6VVVnWXKEmaUovd251FssNoln
-	W6Zs9XAYB+0KeKvPPOtdSwcFxry9sm4xbla6M31m1ofqWdPN/kv4zxmGLmbMPCIBf2+wrBD7z/uHK
-	fndYfQdEejiZDAW0psRjex5YA0rQASKVOVl0sdf8CBDPprZ+9cam+8Cn0qL7gxl8iLBLhy71FXoxN
-	Xw5KD5lw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=r5Y6mvwj3GDfaz1b69DVL8jE0Eg17I3eO1sqFwFDyY0=; b=XSnPwq2xH6Wkk8Hx2eQscdxt97
+	+Hqjjq5c0cWFZ4kGatwouR9UCIOlv9PUCtrAQDY1+ksj86p+7M0G1CosQlxIyH1KGeiW9QVFNF+Lq
+	cwyXzp0ngca8xdnsSllJTBWxc40JrHHu2Bd7+44PjtYBvIvdxGSnmzIxTeSoZlUj3bjBexdQ4v92F
+	92M5Qn5gIdzoM6VniW/q7zFgGGLswYys36Pm2bdL8/Sffg2Neid4+EGuVIC3pyJHIhsEq+q0s+WdZ
+	2G5W3BZJ5pw5ozgN6jh4Sw56f/wR1BFrnOgualQmzed8+JnksX2uqV0SGhNUgHjMINsaNRt0Qp9on
+	YeRlOELQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuyrE-00000003Azm-1bhF;
-	Fri, 14 Aug 2026 20:50:28 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1wuywZ-00000003BGD-0eFS;
+	Fri, 14 Aug 2026 20:55:59 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuyrC-00000003AzO-0CLf
+	id 1wuywX-00000003BFn-03w9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Aug 2026 20:50:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UHDLopqzqjk6OhsHz47At1oiaNLWYK+F8y8+BgBKhar3f9KoNekie+RdeKvBa8NVZz8Y7bsuIrzDsArhapM92OF/TKx3vKAse9tYkOwof25UpJLOZihZ/E160DxX+5oYV+ryf4zPGiE191AUyYEIjQlgVk7qFBoZlOz9quoWZkD+9yQE8cSAJ4z5VzhdggK1652WvKlNvEB7aiuvllv4fqQIy+i2cxaA/Q9WU19E/awSWGlUPCw62UFKdl9YlLOBt9s9iuSueUpURHPLzvKZtpB14Dz4TCbcbSwZf5+ha1Ck9mH4O3fp056gr03f/kYw/ooyrJ/FKDC9VIUq07SLFw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=SvM6fOgchV80jwV+RxJPPaeKQNkVBK9dIejN1NLhoEE=;
- b=vn4s91azKApun2OHszC9JX1v5tVMpGgxHEhKUXZKHod77aV6sgrLSEFHQssrCk/t/AAbiGaJ5bQyLSZIChWbpCTKkk9EvvsSNBZ21/n3ZIjC/A/Svzrbuf4v/Qiru04QWKLTIwRAS94HVwEjmVtCbqnaExJ2h69MZgqxAQZwLZii39rmwF43lJgnf2NxsdCR5DSNE2QZMLSo/7k9NS8Ucz4z7izKVVVV59x7Fo35sffg2/Fc4jnVGkA44yXebwkdXqirmJL8LLKKeBHOGLdAIFogrZYJSbxzoRgSbtQ+sAWqBVjk/sJC++izujDDrwl+cz6kASYcpsNU6bqYSFHULw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=SvM6fOgchV80jwV+RxJPPaeKQNkVBK9dIejN1NLhoEE=;
- b=F/l3zrRpgcGaDvbpJXQ4aig6O+UjXIljbZhCXkplStd4V9jEBbcJaEB+PnNnOfYRPjXjJ+s+HHbnlq8nOhzPVitZQH8eqp/xQTMJ715gVVOt5P2KWuUacVTTTBSGk3kmUsyPjQQjEdxh7did1kXI8uU+xzFx/9LT1ZmdcI/gpWZKpPeSokeCCRWrofmS1Bo8e6D8oCNA3jM1YYDoAcfXoZq1KcuJJW/YyAuRrhsnbYBEohzls0MriSq+UULZ1FfxWaL7ja8q1ozdfVL3OCc+GNyAvjPxEmTwVo9r4ibi4V1WHuS3xXEPjEXbHjXh6Qv4tNpG02/YNgl0c4vDHHNq4w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AM7PR04MB6904.eurprd04.prod.outlook.com (2603:10a6:20b:106::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.16; Fri, 14 Aug
- 2026 20:50:21 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0315.014; Fri, 14 Aug 2026
- 20:50:21 +0000
-Date: Fri, 14 Aug 2026 16:50:13 -0400
-From: Frank Li <Frank.li@oss.nxp.com>
-To: manushprajwal <manushprajwal555@gmail.com>
-Cc: Frank Li <Frank.Li@nxp.com>, Dong Aisheng <aisheng.dong@nxp.com>,
-	Fabio Estevam <festevam@gmail.com>, Jacky Bai <ping.bai@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Linus Walleij <linusw@kernel.org>, linux-gpio@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2] pinctrl: imx1-core: fix device_node refcount leak
-Message-ID: <an9_haXPyNHTPbDU@lizhi-Precision-Tower-5810>
-References: <20260814190527.969-1-manushprajwal555@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260814190527.969-1-manushprajwal555@gmail.com>
-X-ClientProxiedBy: PH0PR07CA0078.namprd07.prod.outlook.com
- (2603:10b6:510:f::23) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Fri, 14 Aug 2026 20:55:58 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-381b831d535so2303006a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 13:55:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786740956; x=1787345756; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=r5Y6mvwj3GDfaz1b69DVL8jE0Eg17I3eO1sqFwFDyY0=;
+        b=LDI82oQTh+t5DFNRu/SVwpYGP+uxUeIXt7aMJlnsA9H1OEd9oDbZ2IRk+PaUIIlRqH
+         vC6l0qNTj44ObOjvMjZaf+/UBC6PYij8RdiqEqFAFrosNq+hXz3KUfCUkKmvZ2Jc+oLn
+         3KB2eAln8yAnwTxLb5a1EafHOFCytNZovdoZ7WiBa9qevTXq1r59DefFKEAOroTdKzqT
+         oIvYSrx2Mio5eFv5BV03raWm+xZ/lgwpr/eSRSR5eRppJ8/7hqzW8sRu0S13QFOlKaob
+         PHcPzROIxp+anPpVSPBl+gNQ62HthavG0HJbVkK/ec1Mxldkr4LiwWoedxc3FPeQzEG7
+         ktiA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786740956; x=1787345756;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=r5Y6mvwj3GDfaz1b69DVL8jE0Eg17I3eO1sqFwFDyY0=;
+        b=CKR+fRaM1g8rcRLh3+DssW9AovdSHJkXpshiQ2nK45x6KpVGA+Vjb7C/z1PIfUPel2
+         rBvTLsWHLe6BLWw+qRQFFTsszrIDaiuAQdY4/w2Opru8D+/OsoFKI7qHKUHHGV3UL5Vv
+         SqOyr22Ob+YYp4OMisKRsjw3cmzrC0ObVc4XUIEro0peY4v1flnYrhBVhlkMbhVVyb/T
+         Fe8X+rTxnzDAwWitX/WG5/j1+lcS32rQexsaHlb99UXdOj/IX0UWRZ8SsnUs709E/Ci2
+         UOjSpRNhBn/HWHTLt7X05HAPIeyIVxqf4nlgF5MuscsLNT1wmzbqWA1wpcV2ZwxaY/Xh
+         G4Og==
+X-Forwarded-Encrypted: i=1; AHgh+RpVbx3S4PS3wGrucFgryiZgDDzodLqa83JIop8Dd2gc67OF4Uao8Z0hILwDQz+98h7soW7yvTqPHd8QQND6yDFj@lists.infradead.org
+X-Gm-Message-State: AOJu0YyLndyQqfMXXr+u/UUtHVuh2j11t6uSko7jx4be04Uq32nY5/Yj
+	ixAIivkdINBvTQIj1gFwvh339Pi4HPWy492L3HkQ5tyDON0F6aLS2EGx/P7QlQ==
+X-Gm-Gg: AR+sD12rJnnC2cchWbausm15ErprsxghOoFlVVtG73l4AcFlik9sZtWqFg+bDOUcaUj
+	028lSZzWzLET08WOl3xsjzOnHRuIZvqC33DnW7M4F8fd6hkxVWx5LpVjtEs5SA4twVOLTZSm9/A
+	JQ6+BFm4EllYh3MsAV3Sya6XX8DtxxI9NBKcG4Rs/L6a57Jpr0WJJNw/0eFCpEce2a37akVHA+b
+	fTDzcV+D2SFiZl32XpBlhDqypCUywLoi/rfq55a0Opt3+IuBuBkc1mkv/lP93MYh7Bv7P837BWW
+	xvd1uQesotB1R/7k71ED/zdYoMtANIX0cJSMIm69hwsvcnN1f+DkGMQO3KA+oVbKE31RM9zGI9G
+	lytQ7m4+O0EYs4M1xCy47apuHJT8ag7VUfc/4T0wa3mKUNEuS2+3H84euZHKPQLxDX1dScqjFQ3
+	mi6BvCrvzie7pXaiMyFatYYve5GmPvUMGOwmZ9nh5uXFLtX/jCn/AvET6/4IwDMm4jxF/cRKihz
+	cb9gbnSbyvOo5O7u2sv6jSticq+N3Yv6V4F6Zbt+KjcM9LSUK0EOCOObHfuezrbEcZNA3pQsiz6
+	h3hqGkJYY2jkF+Uwd85bshWww9DewVaXAMtYxX2F9/tvRAJ6
+X-Received: by 2002:a17:90b:4405:b0:381:792d:f993 with SMTP id 98e67ed59e1d1-3933b8c4cf1mr8467756a91.17.1786740956014;
+        Fri, 14 Aug 2026 13:55:56 -0700 (PDT)
+Received: from ryzen.lan ([2601:644:8000:7a86::e34])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-394ea96c7fcsm4107294a91.3.2026.08.14.13.55.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 14 Aug 2026 13:55:55 -0700 (PDT)
+From: Rosen Penev <rosenp@gmail.com>
+To: linux-sunxi@lists.linux.dev
+Cc: Jassi Brar <jassisinghbrar@gmail.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	linux-kernel@vger.kernel.org (open list:MAILBOX API),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Allwinner sunXi SoC support)
+Subject: [PATCHv2] mailbox: sun6i: modernize probe and convert to fully managed
+Date: Fri, 14 Aug 2026 13:55:53 -0700
+Message-ID: <20260814205553.39894-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM7PR04MB6904:EE_
-X-MS-Office365-Filtering-Correlation-Id: 75f11ba8-557d-4cf7-ca70-08defa45a7dd
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|23010399003|376014|1800799024|366016|6133799003|10067099003|11063799006|56012099006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: /Qssk6DKIrE6yxFlVOpUy+CJbBdsTvSRovbiMUEF+V1V/jOApMs/aGFlzoh7RPipQg3mJJCJsJ2BBUSeqxjaffVG6g8OUhtWunFPH5LRumdYcZKotCrQJGSZm+N11hkVs78qBVusL4FGVWEun0U/h/9vFzHOIEczb1jdoSI3smBS3RmBzxDHZ+trmYqScBOMZHML0jHa2tZVHx2S5BQsystu4ZuhKfbZQV8L6ffmCjeBXkM6wUJpRp3TiJpqjeTqMqbNl5rfeHwZGtTEYfWvsSdEpQULljyB/FkDVm+t3W1vGUhEvkSEDx0SFWAfVDEy95PJxTe3lb/9YO55mLSKmjwldIWAtMtFGRNO9qX9nNPe7jZ11yK5O+uroG0n0L16BI0bs0PM4Tg/wStyk/VrWTUyfd+L6f7pblOhIsVOAa7tGrnAIUeGmp9slu/XCg/+ECqG/FJvHyKVH6dkvOsR7qZ0+NGCV6H1shqiSM9azEhobP6LuN1HN5xp7Sl2qH3U2G5u8XXsh4uzuefjJvRgqrU+ldpcnT0iMNvW6DlZvMSYVfC48pKvCfQthTSO1q4XknwdLQMuRC2V1cHtHmwANoUgxBXFeml3CExI0LJEo2hRRzJ4szDTXpjgcp3UlVbXevS1HcSU5fMGAwA9JaQzaNB7Jxw+clm3aLddCkZgmoA=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(376014)(1800799024)(366016)(6133799003)(10067099003)(11063799006)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?EJ41UHDkjbVu8MrxrWa5sOiEVsWRlQpRS0l+Sg7Mm04m7VpggmxuzP/OkN1R?=
- =?us-ascii?Q?cF/NUkr/3dtWSojjHqgyTfoaMsiQ3JCgt8wRVBgWp4eTNzye9cGlVyxK+le9?=
- =?us-ascii?Q?Bs8HfAcD2AzCR7sTdTZeD0QhT4ZfIwKNQfp9I9JaakNnPYjs6mjOzamzkKeX?=
- =?us-ascii?Q?eBix9/JVdyIBhcmvy/fsQ5nscGbvGzq015CkZ6hyS+DS9f8GvQaIcQUoD0qQ?=
- =?us-ascii?Q?ytclbkTW+iFRZyp1LBzWTbBGBX7h4UF/nfwseaKbgf67Ih+w+siYsg3G4Zvh?=
- =?us-ascii?Q?PJvrctgcs+KDdqN4vN5xjW7vSmJyugP646FvplVQfug7wdAdZHTveyIVyYjr?=
- =?us-ascii?Q?V1bjzUdrdAAfcHgjlysgVvQ6sW34W4RkO3sN+VbIkNx4zVITEM9Z8Lq+bFbZ?=
- =?us-ascii?Q?KIKR8CryieC31c/V9hd4JVbKDvKVzQs8XzhaQnMBvokSX4x2oPuRnp2cSDfg?=
- =?us-ascii?Q?Sb7xsRet3crWTD6eA9ZWFc1QtzNIc65dxy8Wz+6NNv7wcD8Wj4ookP8yq9Ad?=
- =?us-ascii?Q?620CFOM37s0CiRl5xywswo44BgQbhHC9aNLm6hbuGeON6/snyRMNT7pztYao?=
- =?us-ascii?Q?GMDQBSWcXzRXpAzFoGKIWMLMayngGRNb90gV4ZI7TVY9lZfP1pVMBvu+8zpU?=
- =?us-ascii?Q?hHxHi8sZ8WzADm5sDiJI8s3uPCBfizuEhi1duUMa3YsLOUDK8rAYFKhg9ga5?=
- =?us-ascii?Q?cST9Fx3ows/7cQZ+tCRxP9E89GR1Oq7tRfu7+h4VRgFp5gNKhFvb4ogQRYew?=
- =?us-ascii?Q?I+PomI3q+Y3R7hgJnd0BqoAUNsyDCKLOTviCpgvmSL2cUOw2OaovWHKGGj/4?=
- =?us-ascii?Q?mide/raThQRpgtR/cUoR4s8/8LNk1zlUAZKqbHboW4tTYMNCNO3s5P/3z4Iw?=
- =?us-ascii?Q?LoyTBfc0HotqQurqxWjl9WIEF/Zcqa8zeDGXjhiw21vbtsxncD+2M012egIm?=
- =?us-ascii?Q?VqtxkKmBdBq1vZ16NjNvlHR8zgjPhrpOEWX91QCtHPVjwRmlJR5VViyvmA7w?=
- =?us-ascii?Q?sCnCUDiE7DiXXsDLfDqgoR5gBBW+Bh+yDCtyTIxdPzdyLr6gP7CUVgXesp/A?=
- =?us-ascii?Q?B6Jj7JpKIP6vx/tAxolYw9TrDzh4+p077Wvyb82cW59czgYsuEL34JkjDix5?=
- =?us-ascii?Q?zW2zPh6YSUcoRLaS3/KPSMcCsRfIkkbFZaMvUtNKXsSGubwxWB6lKONNoSVA?=
- =?us-ascii?Q?n+4AnztbxqhZsfXAe9eJlD2b+Xs7vkUUl/yVtnfERmjZRNDRRyKBzCtcbtpE?=
- =?us-ascii?Q?Khlab5gWbTRCx8eVXG3pKlRvaXCCgS5qpEHTQrggAhzdz8shI0GMR3OUWiL4?=
- =?us-ascii?Q?O37pMDm7/rnjZANTyyMo+BxqDlY8Mauy/o+D9efsGd1qrmBniRk49tYcM4Y7?=
- =?us-ascii?Q?dLKZBP7EGTNKhvRk4+a6iGUDsIQryAp87iLCiu8yvDWYMScqggnyM3M6h9HP?=
- =?us-ascii?Q?2ZrG4EO78uGs6IXgU91FSUZcESHhoJvcw2b5xSg3BRARv4ED1/6D2rquMkIc?=
- =?us-ascii?Q?POlxRZw62HQkNmal2vFXs/pW8zlqj8FbX9WJggzMwaj+ars4HhuGbolXRwf5?=
- =?us-ascii?Q?3TNu+CVheP5NN7USGX0E/Z4KhdRmtvfs3vJPtNFsKfGovejCzWbLI61m1pH4?=
- =?us-ascii?Q?ZLY/k5pVbrn4AIZ3wsVQtOBrxuZvtlHURRspoMNVcwgDrvCpe8eWqyuPauHH?=
- =?us-ascii?Q?PCuYgCiwgIuBGLFEoauCWC6aaZZKxDHHe1knEadXlZR79QCXRO7xPqxI/QEx?=
- =?us-ascii?Q?m8PjwgifZBfIU6mB2XhE9uhFXD8uGN2HeXYtVSy1v+Pq/ZBmfDyU?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 75f11ba8-557d-4cf7-ca70-08defa45a7dd
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Aug 2026 20:50:21.0480
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 0+SLlO+4SUq5fy+bRZfgw6nFZ/amOOw0G/1BS1CwdZAqO8ThEF+YyFCgOOgNkb+YgtQiGhA0bLoEYswlk/qegc+JDa+9kcHcBW59pyBQVOh+c/PSo/vDFTrt7u75ZuQi
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB6904
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260814_135026_122566_A194CB50 
-X-CRM114-Status: GOOD (  17.13  )
+X-CRM114-CacheID: sfid-20260814_135557_061306_8190D15D 
+X-CRM114-Status: GOOD (  17.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,51 +101,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 15, 2026 at 12:35:27AM +0530, manushprajwal wrote:
-> From: Manush Prajwal <manushprajwal555@gmail.com>
->
-> imx1_pinctrl_dt_is_flat_functions() iterated child and grandchild
-> device nodes with for_each_child_of_node() but returned early from
-> inside both loops without dropping the reference the iterator held on
-> the current node.
->
-> Rework both loops around for_each_child_of_node_scoped() instead of
-> adding manual of_node_put() calls, matching the sibling helper in
-> pinctrl-imx.c and imx1_pinctrl_parse_dt() in this same file, which
-> already use the scoped variant.
->
-> Signed-off-by: Manush Prajwal <manushprajwal555@gmail.com>
-> ---
+Replace irq_of_parse_and_map() with platform_get_irq() and move both
+IRQ and MMIO resource acquisition to the top of probe, before any
+allocations, for early error exit.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Switch from devm_clk_get() + clk_prepare_enable() to
+devm_clk_get_enabled(), which combines both operations and registers
+devres callbacks for automatic disable/unprepare on unbind. This
+eliminates the manual err_disable_unprepare error path and the
+remove callback entirely.
 
-> v2: Use for_each_child_of_node_scoped() instead of manual of_node_put()
->     calls, per Frank Li's review.
->
->  drivers/pinctrl/freescale/pinctrl-imx1-core.c | 7 ++-----
->  1 file changed, 2 insertions(+), 5 deletions(-)
->
-> diff --git a/drivers/pinctrl/freescale/pinctrl-imx1-core.c b/drivers/pinctrl/freescale/pinctrl-imx1-core.c
-> index b7bd4ef9c0..fa8f6a7e03 100644
-> --- a/drivers/pinctrl/freescale/pinctrl-imx1-core.c
-> +++ b/drivers/pinctrl/freescale/pinctrl-imx1-core.c
-> @@ -547,14 +547,11 @@
->   */
->  static bool imx1_pinctrl_dt_is_flat_functions(struct device_node *np)
->  {
-> -	struct device_node *function_np;
-> -	struct device_node *pinctrl_np;
-> -
-> -	for_each_child_of_node(np, function_np) {
-> +	for_each_child_of_node_scoped(np, function_np) {
->  		if (of_property_present(function_np, "fsl,pins"))
->  			return true;
->
-> -		for_each_child_of_node(function_np, pinctrl_np) {
-> +		for_each_child_of_node_scoped(function_np, pinctrl_np) {
->  			if (of_property_present(pinctrl_np, "fsl,pins"))
->  				return false;
->  		}
-> --
-> 2.46.2.windows.1
+Use devm_mbox_controller_register() for devres-managed controller
+registration, and drop the remove callback and platform_set_drvdata()
+which are no longer needed.
+
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
+---
+ v2: fix compilation
+ drivers/mailbox/sun6i-msgbox.c | 62 ++++++++++------------------------
+ 1 file changed, 18 insertions(+), 44 deletions(-)
+
+diff --git a/drivers/mailbox/sun6i-msgbox.c b/drivers/mailbox/sun6i-msgbox.c
+index 6ba6920f4645..3b838f6c837a 100644
+--- a/drivers/mailbox/sun6i-msgbox.c
++++ b/drivers/mailbox/sun6i-msgbox.c
+@@ -198,7 +198,17 @@ static int sun6i_msgbox_probe(struct platform_device *pdev)
+ 	struct mbox_chan *chans;
+ 	struct reset_control *reset;
+ 	struct sun6i_msgbox *mbox;
++	void __iomem *regs;
+ 	int i, ret;
++	int irq;
++
++	irq = platform_get_irq(pdev, 0);
++	if (irq < 0)
++		return irq;
++
++	regs = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(regs))
++		return PTR_ERR(regs);
+ 
+ 	mbox = devm_kzalloc(dev, sizeof(*mbox), GFP_KERNEL);
+ 	if (!mbox)
+@@ -211,24 +221,18 @@ static int sun6i_msgbox_probe(struct platform_device *pdev)
+ 	for (i = 0; i < NUM_CHANS; ++i)
+ 		chans[i].con_priv = mbox;
+ 
+-	mbox->clk = devm_clk_get(dev, NULL);
++	mbox->clk = devm_clk_get_enabled(dev, NULL);
+ 	if (IS_ERR(mbox->clk)) {
+ 		ret = PTR_ERR(mbox->clk);
+ 		dev_err(dev, "Failed to get clock: %d\n", ret);
+ 		return ret;
+ 	}
+ 
+-	ret = clk_prepare_enable(mbox->clk);
+-	if (ret) {
+-		dev_err(dev, "Failed to enable clock: %d\n", ret);
+-		return ret;
+-	}
+-
+ 	reset = devm_reset_control_get_exclusive(dev, NULL);
+ 	if (IS_ERR(reset)) {
+ 		ret = PTR_ERR(reset);
+ 		dev_err(dev, "Failed to get reset control: %d\n", ret);
+-		goto err_disable_unprepare;
++		return ret;
+ 	}
+ 
+ 	/*
+@@ -242,25 +246,17 @@ static int sun6i_msgbox_probe(struct platform_device *pdev)
+ 	ret = reset_control_deassert(reset);
+ 	if (ret) {
+ 		dev_err(dev, "Failed to deassert reset: %d\n", ret);
+-		goto err_disable_unprepare;
++		return ret;
+ 	}
+ 
+-	mbox->regs = devm_platform_ioremap_resource(pdev, 0);
+-	if (IS_ERR(mbox->regs)) {
+-		ret = PTR_ERR(mbox->regs);
+-		dev_err(dev, "Failed to map MMIO resource: %d\n", ret);
+-		goto err_disable_unprepare;
+-	}
++	mbox->regs = regs;
+ 
+ 	/* Disable all IRQs for this end of the msgbox. */
+ 	writel(0, mbox->regs + LOCAL_IRQ_EN_REG);
+ 
+-	ret = devm_request_irq(dev, irq_of_parse_and_map(dev->of_node, 0),
+-			       sun6i_msgbox_irq, 0, dev_name(dev), mbox);
+-	if (ret) {
+-		dev_err(dev, "Failed to register IRQ handler: %d\n", ret);
+-		goto err_disable_unprepare;
+-	}
++	ret = devm_request_irq(dev, irq, sun6i_msgbox_irq, 0, dev_name(dev), mbox);
++	if (ret)
++		return ret;
+ 
+ 	mbox->controller.dev           = dev;
+ 	mbox->controller.ops           = &sun6i_msgbox_chan_ops;
+@@ -271,29 +267,8 @@ static int sun6i_msgbox_probe(struct platform_device *pdev)
+ 	mbox->controller.txpoll_period = 5;
+ 
+ 	spin_lock_init(&mbox->lock);
+-	platform_set_drvdata(pdev, mbox);
+-
+-	ret = mbox_controller_register(&mbox->controller);
+-	if (ret) {
+-		dev_err(dev, "Failed to register controller: %d\n", ret);
+-		goto err_disable_unprepare;
+-	}
+-
+-	return 0;
+-
+-err_disable_unprepare:
+-	clk_disable_unprepare(mbox->clk);
+-
+-	return ret;
+-}
+-
+-static void sun6i_msgbox_remove(struct platform_device *pdev)
+-{
+-	struct sun6i_msgbox *mbox = platform_get_drvdata(pdev);
+ 
+-	mbox_controller_unregister(&mbox->controller);
+-	/* See the comment in sun6i_msgbox_probe about the reset line. */
+-	clk_disable_unprepare(mbox->clk);
++	return devm_mbox_controller_register(dev, &mbox->controller);
+ }
+ 
+ static const struct of_device_id sun6i_msgbox_of_match[] = {
+@@ -308,7 +283,6 @@ static struct platform_driver sun6i_msgbox_driver = {
+ 		.of_match_table = sun6i_msgbox_of_match,
+ 	},
+ 	.probe = sun6i_msgbox_probe,
+-	.remove = sun6i_msgbox_remove,
+ };
+ module_platform_driver(sun6i_msgbox_driver);
+ 
+-- 
+2.55.0
+
 
