@@ -4,99 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5CCDC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 07:47:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEA67C5CFC1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 07:50:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RIqdTr996wJo+UifSFBeRBtaPyx9vS29M6BGDKsTkQw=; b=NGhJMH0vxLN2i4lyDhw5hOb1nO
-	1oz4n6KxMH6IYjmzetOaPn7paH44v97aENwGjSK961iv7TER5ALmew3zRJnwMRseA0oqVQP0LGkah
-	Gk3Lf2FLecBrqXa/9m5HEBCaOasBnZoqcEaMZIQQZvXDkiOzTZI3YmyChzaPL51hM1Rh3tn1DoIzu
-	+yJMESR01XCIFrAjC9fK79rDs+IfYhfpnPzstg1l8XSRmBJB8Pk9X+qfDemiL+wsWewTn3/Rgmuxm
-	v8kbvz7gmFsg+rmUwXhgcwQU1UcswW4vdAJTt0yfhs1mIOiUMkGrRNeU9lMnUO7JFqtSPDT7dQ8lB
-	trEHWM0Q==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mL4j5vM5lGTNjWISMmnHoD354a3SrDw7wyh5Y5wrwvM=; b=LZDTtp3NG4cpkqH4Fu29xlLqqP
+	FQ7TrPh2w4P1SWi0UNKqh3gjzbgAnhwX/nEfjiGH1i8r9fkOt6tXdOeBYKHpCDkCjbN2wVUu0Z3OT
+	pchsgDWT87YweADP0yxeyNUsk6CKYfjOV2g4cLsB4s+uMA/IpK/BVxcEpXeBgjxwQwaz4GGXOCYxI
+	HsPBzGPcPbvGVMNuWj17I+FzXt4W7qB45AHNB1yWRyuB2okWDNyzPQPY2HoRim+ROemJO5WcYi9e+
+	hnHdk9qW0XKdzK3T+sU9INS1D1ZYc74y46TsgJ+B8a4tIzAf6+ky+yKKuF31QlQs43dZsVRKZmLbE
+	mU0LMc4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wumdN-00000002CsK-0nsb;
-	Fri, 14 Aug 2026 07:47:21 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1wumgN-00000002DMI-3WE9;
+	Fri, 14 Aug 2026 07:50:27 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wumdB-00000002CkG-1qkX
+	id 1wumgJ-00000002DLh-17bw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Aug 2026 07:47:10 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4954f5e8020so3708305e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 00:47:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786693627; x=1787298427; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=RIqdTr996wJo+UifSFBeRBtaPyx9vS29M6BGDKsTkQw=;
-        b=dGZyqTiJ6nmTVGnwgE7zEhTa2WCkQ7BbloVDFRtC3X1kaR9gvUxo5wJensA5xaK4+O
-         274A3EGtMMAbCbEAix83t74ehNzL0x1xLqkZdyUHEANooFsEU97ujnXrWqPzpTnxAcq8
-         PC6YtPk47Agm5ypK/MF+UNXWuh3EUPBk/kTmwfxw21YjJDhpVDtlgG8EljJtO1NcpzDf
-         HBtd1+Bb/ekKsiP30yscADV7k+doxiJllEZQGClLjF+tC5wn6nQfSHaoyN3ZkglMViRf
-         RP7tp/EdJLfBFO/aWOwZIAYQEqVj2AWJaJHZhfDxEMhWT30JdoFdTqRoB1Dape3A2gbA
-         mk6g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786693627; x=1787298427;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=RIqdTr996wJo+UifSFBeRBtaPyx9vS29M6BGDKsTkQw=;
-        b=tA82GuAdwjIMjkQAd+WEwQ9JYcoMxRaqHSErf/QMzuRnwFGaRDdfBUv76biw15LGdo
-         B3FTSMk2rCqsffLBKCdc2Okacn7eU5gAIjdqszN9DZqVx71e1gLsl78aMj7wRB7h/iHa
-         Rxu0q43jgzzR0VfumI10krMwjYpkse4jzywzrKeCRzesaQ8+wpwqfeMr6jrX2m6JVE4a
-         K+uHrVqR07O8pT0cpn+D7676ZkF9JFLCXiDmKXwpi+1P8fAeDkDe5mrUY/+OjWLOJzWl
-         MR5IG3ahhaZc5h2xDe6gUPJbBWygPbk3Q3ESuLbO2IlB+drZXneT2UDNANqUYbMnsfa/
-         rQ9Q==
-X-Forwarded-Encrypted: i=1; AHgh+RosBSj9PU8bS0gPmyqxDiE56ykU8K66l2KjV659+nYjI2ZVHsQlP9fXCmzG9eCvCdjOwz96GPzZCRBIozmAZV8M@lists.infradead.org
-X-Gm-Message-State: AOJu0YydiGrHWJfhBFI3edGSrkqZh1klUGAq2n3NbEQovwt+XkleRLHC
-	NlufAmUYVMOfhEWHi9f6IrIUBr52ZKptOBB4kEWTOdnOuz9liYSRIxug
-X-Gm-Gg: AR+sD105sMyijpcUpYrdI7r8VsjFL7KRD0xNUn3BR6gODBAZ63D4zUAwAW6nC3ZMX6x
-	Qho8XmiB9BoCd2gCjrYjNdhs78LP08UDsw/QoSIzQRUI86gZkdW/CRIkYvszuoGU810zdvXKzQv
-	PzhxalXrYejfdny1+7iiI6RX7/68yOPBbWc8iSjiyU/HGCniBzxiHu3wxnbd8cVv9/oC0Rwn46K
-	JZ6cccj2BXYqEAvHwXZ2n6JAu8BybBqd77AG85wfYkWLD12kxKdRv7NDw/WAqMmncM7vsmz+cOh
-	n7MXuMuZ8gMOrQuNoCH4hEyp6ASNV7pApdK5JJsjehbpaYwgRZoVChNOIl1wVBDiNtmcFSlCPLi
-	ehalkdhKgd9uwSIcgkHRPJHHRPkxQjDS3P5CBlixL2iotyy5vvz20CctTIlr13RqQwhFq7avQrx
-	kaMc2GBPT/NGl6zabWcDWjr49iGQ/t4wiE+MOG88m7gIK4rQzwYYy+PZuNbvK+hcAxyw==
-X-Received: by 2002:a05:600c:4003:b0:495:3de8:33a6 with SMTP id 5b1f17b1804b1-4998798db40mr40704255e9.16.1786693627220;
-        Fri, 14 Aug 2026 00:47:07 -0700 (PDT)
-Received: from deb05.proceq.com ([213.160.61.66])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-499899b5f86sm8172825e9.5.2026.08.14.00.47.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 14 Aug 2026 00:47:06 -0700 (PDT)
-From: Mehmet Fide <mehmet.fide@gmail.com>
-To: Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Stefan Agner <stefan@agner.ch>,
-	Fabio Estevam <festevam@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Francesco Dolcini <francesco@dolcini.it>,
+	Fri, 14 Aug 2026 07:50:26 +0000
+Received: from localhost.localdomain (unknown [111.196.241.250])
+	by APP-01 (Coremail) with SMTP id qwCowAC3ie2xyH5q21KeBQ--.63393S2;
+	Fri, 14 Aug 2026 15:50:10 +0800 (CST)
+From: Pengpeng Hou <pengpeng@iscas.ac.cn>
+To: Eddie James <eajames@linux.ibm.com>,
+	Ninad Palsule <ninad@linux.ibm.com>
+Cc: Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Ryan Chen <ryan_chen@aspeedtech.com>,
+	Billy Tsai <billy_tsai@aspeedtech.com>,
+	linux-fsi@lists.ozlabs.org,
 	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	devicetree@vger.kernel.org,
+	linux-aspeed@lists.ozlabs.org,
 	linux-kernel@vger.kernel.org,
-	Mehmet Fide <mehmet.fide@screeningeagle.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: [PATCH v5 4/4] ARM: dts: vf: add Iris carrier board support for Colibri VF50 and VF61
-Date: Fri, 14 Aug 2026 09:47:00 +0200
-Message-ID: <20260814074700.2491256-5-mehmet.fide@gmail.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260814074700.2491256-1-mehmet.fide@gmail.com>
-References: <20260814074700.2491256-1-mehmet.fide@gmail.com>
+	Pengpeng Hou <pengpeng@iscas.ac.cn>
+Subject: [PATCH v2] fsi: aspeed: publish cfam_reset through driver groups
+Date: Fri, 14 Aug 2026 15:50:08 +0800
+Message-ID: <20260814075008.9031-1-pengpeng@iscas.ac.cn>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: qwCowAC3ie2xyH5q21KeBQ--.63393S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxGF47XFW7XrWUur1kGFW8Xrb_yoW5uF4kpa
+	97WFWYgr48Gr1fJayDJan2v3WF9w4rtrWUGr4fKw1S9asxAa4YqryxtrWIvF1xZFWrCF15
+	Jr1Dt3yUuF4kZr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9Y14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
+	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
+	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
+	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
+	n2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7x
+	kEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E
+	67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCw
+	CI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1x
+	MIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCT
+	nIWIevJa73UjIFyTuYvjfUonmRUUUUU
+X-Originating-IP: [111.196.241.250]
+X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260814_004709_529543_AF436630 
-X-CRM114-Status: GOOD (  24.52  )
+X-CRM114-CacheID: sfid-20260814_005024_355739_C04856F1 
+X-CRM114-Status: GOOD (  14.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,228 +85,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Mehmet Fide <mehmet.fide@screeningeagle.com>
+The cfam_reset attribute currently gets created manually while probe is
+still initializing the master. Its store callback expects device drvdata
+and the master's mutex to be ready, and manual publication also requires
+matching cleanup on every later failure and remove path.
 
-The Iris is a small off-the-shelf carrier board for the Colibri
-family. Describe what the board itself provides: Ethernet, one USB
-host and one OTG port, the pin header UARTs, i2c with the carrier
-RTC on it, the PWM pins on the X16 header, SPI and the microSD slot.
-The host port gets its VBUS through a regulator on SODIMM 129, and
-the two GPIOs that turn the RS232 transceivers on, SODIMM 102 and
-104, are hogged. The touchscreen is an add-on rather than part of
-the board, so it is left out.
+Expose the attribute through the driver's default groups instead. The
+driver core publishes those groups only after probe succeeds. Hide the
+attribute when the optional reset GPIO is unavailable, while retaining
+probe deferral and other GPIO acquisition errors.
 
-This describes an Iris V1.1. A V2.0 carries the same signals on the
-same pins; what it adds, and what this does not describe, is the
-regulator on SODIMM 100 that can cut power to the uSD slot.
-
-Tested on a Colibri VF50 on an Iris V1.1: Ethernet at
-100Mbps/Full, a USB dongle enumerating once the VBUS regulator is in
-place, the RTC read back over i2c0, all three UARTs, the SPI
-controller registering, both PWM chips registering, the microSD
-slot, the EXT_IO pin group still applied next to the carrier hog
-group, and both hogs holding their pins.
-
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Signed-off-by: Mehmet Fide <mehmet.fide@screeningeagle.com>
+Fixes: 4a851d714eade ("fsi: aspeed: Support CFAM reset GPIO")
+Assisted-by: Codex:gpt-5
+Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
 ---
- arch/arm/boot/dts/nxp/vf/Makefile             |   2 +
- arch/arm/boot/dts/nxp/vf/vf-colibri-iris.dtsi | 126 ++++++++++++++++++
- .../boot/dts/nxp/vf/vf500-colibri-iris.dts    |  14 ++
- .../boot/dts/nxp/vf/vf610-colibri-iris.dts    |  14 ++
- 4 files changed, 156 insertions(+)
- create mode 100644 arch/arm/boot/dts/nxp/vf/vf-colibri-iris.dtsi
- create mode 100644 arch/arm/boot/dts/nxp/vf/vf500-colibri-iris.dts
- create mode 100644 arch/arm/boot/dts/nxp/vf/vf610-colibri-iris.dts
+Changes since v1: https://lore.kernel.org/all/20260615065944.34767-1-pengpeng@iscas.ac.cn/
+- replace manual sysfs publication with driver-core groups and is_visible()
+- preserve optional-GPIO and probe-deferral error semantics
+- remove manual sysfs unwind paths
 
-diff --git a/arch/arm/boot/dts/nxp/vf/Makefile b/arch/arm/boot/dts/nxp/vf/Makefile
-index 0a4a7f9dd43e..47be8bc318e2 100644
---- a/arch/arm/boot/dts/nxp/vf/Makefile
-+++ b/arch/arm/boot/dts/nxp/vf/Makefile
-@@ -1,8 +1,10 @@
- # SPDX-License-Identifier: GPL-2.0
- dtb-$(CONFIG_SOC_VF610) += \
- 	vf500-colibri-eval-v3.dtb \
-+	vf500-colibri-iris.dtb \
- 	vf610-bk4.dtb \
- 	vf610-colibri-eval-v3.dtb \
-+	vf610-colibri-iris.dtb \
- 	vf610m4-colibri.dtb \
- 	vf610-cosmic.dtb \
- 	vf610m4-cosmic.dtb \
-diff --git a/arch/arm/boot/dts/nxp/vf/vf-colibri-iris.dtsi b/arch/arm/boot/dts/nxp/vf/vf-colibri-iris.dtsi
-new file mode 100644
-index 000000000000..36e34dd766ae
---- /dev/null
-+++ b/arch/arm/boot/dts/nxp/vf/vf-colibri-iris.dtsi
-@@ -0,0 +1,126 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
-+/*
-+ * Copyright 2026 Mehmet Fide
-+ *
-+ * Toradex Iris carrier board V1.1, common part for Colibri VF50 and VF61.
-+ *
-+ * The Colibri modules are pin compatible, so the carrier signals sit on the
-+ * same SODIMM pins as they do for the i.MX modules, whose Iris device trees
-+ * are already upstream. The two SODIMM pins below are taken from the Colibri
-+ * VFxx datasheet (102 -> PTA12 -> PORT0[5], 104 -> PTD28 -> PORT2[2]).
-+ *
-+ * An Iris V2.0 carries the same signals on the same pins, so everything here
-+ * works on it as well. What it adds is a regulator on SODIMM 100 that can cut
-+ * power to the uSD slot, which this file does not describe.
-+ */
+The probe/publication ordering was reviewed statically; no Aspeed FSI
+hardware test was performed.
+
+ drivers/fsi/fsi-master-aspeed.c | 38 ++++++++++++++++++++++++---------
+ 1 file changed, 28 insertions(+), 10 deletions(-)
+
+diff --git a/drivers/fsi/fsi-master-aspeed.c b/drivers/fsi/fsi-master-aspeed.c
+index aa1380cdff33..ac05e1a263ac 100644
+--- a/drivers/fsi/fsi-master-aspeed.c
++++ b/drivers/fsi/fsi-master-aspeed.c
+@@ -464,26 +464,42 @@ static ssize_t cfam_reset_store(struct device *dev, struct device_attribute *att
+ 
+ static DEVICE_ATTR(cfam_reset, 0200, NULL, cfam_reset_store);
+ 
++static umode_t fsi_master_aspeed_attr_is_visible(struct kobject *kobj,
++						 struct attribute *attr, int n)
++{
++	struct fsi_master_aspeed *aspeed = dev_get_drvdata(kobj_to_dev(kobj));
 +
-+/ {
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
++	if (!aspeed || !aspeed->cfam_reset_gpio)
++		return 0;
 +
-+	reg_usbh_vbus: regulator-usbh-vbus {
-+		compatible = "regulator-fixed";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_usbh1_reg>;
-+		regulator-name = "VCC_USB[1-4]";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		gpio = <&gpio2 19 GPIO_ACTIVE_LOW>;	/* SODIMM 129, USBH_PEN */
-+	};
++	return attr->mode;
++}
++
++static struct attribute *fsi_master_aspeed_attrs[] = {
++	&dev_attr_cfam_reset.attr,
++	NULL,
 +};
 +
-+&gpio0 {
-+	/*
-+	 * The RS232 transceivers on the carrier are switched on by these two
-+	 * lines. Delete the hog to turn a transceiver off from userspace.
-+	 * The pin group belongs to the gpio controller rather than to iomuxc,
-+	 * which would depend on its own child and log a dependency cycle.
-+	 */
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_iris_uart1_tx_on>;
-+
-+	uart1-tx-on-hog {
-+		gpio-hog;
-+		gpios = <5 GPIO_ACTIVE_HIGH>;	/* SODIMM 102 */
-+		output-high;
-+	};
++static const struct attribute_group fsi_master_aspeed_group = {
++	.attrs = fsi_master_aspeed_attrs,
++	.is_visible = fsi_master_aspeed_attr_is_visible,
 +};
 +
-+&gpio2 {
-+	pinctrl-names = "default";
-+	/* keep the EXT_IO group from vf-colibri.dtsi alongside ours */
-+	pinctrl-0 = <&pinctrl_gpio_ext>, <&pinctrl_iris_uart25_tx_on>;
-+
-+	uart25-tx-on-hog {
-+		gpio-hog;
-+		gpios = <2 GPIO_ACTIVE_HIGH>;	/* SODIMM 104 */
-+		output-high;
-+	};
++static const struct attribute_group *fsi_master_aspeed_groups[] = {
++	&fsi_master_aspeed_group,
++	NULL,
 +};
 +
-+&iomuxc {
-+	pinctrl_iris_uart1_tx_on: irisuart1txongrp {
-+		fsl,pins = <
-+			VF610_PAD_PTA12__GPIO_5		0x22ef
-+		>;
-+	};
-+
-+	pinctrl_iris_uart25_tx_on: irisuart25txongrp {
-+		fsl,pins = <
-+			VF610_PAD_PTD28__GPIO_66	0x22ef
-+		>;
-+	};
-+};
-+
-+/* Colibri SSP, on the extension connector */
-+&dspi1 {
-+	status = "okay";
-+};
-+
-+&esdhc1 {
-+	status = "okay";
-+};
-+
-+&fec1 {
-+	status = "okay";
-+};
-+
-+&pwm0 {
-+	status = "okay";
-+};
-+
-+&pwm1 {
-+	status = "okay";
-+};
-+
-+&i2c0 {
-+	status = "okay";
-+
-+	/* M41T0M6 real time clock on the carrier */
-+	rtc@68 {
-+		compatible = "st,m41t0";
-+		reg = <0x68>;
-+	};
-+};
-+
-+&uart0 {
-+	status = "okay";
-+};
-+
-+&uart1 {
-+	status = "okay";
-+};
-+
-+&uart2 {
-+	status = "okay";
-+};
-+
-+&usbdev0 {
-+	status = "okay";
-+};
-+
-+&usbh1 {
-+	vbus-supply = <&reg_usbh_vbus>;
-+	status = "okay";
-+};
-diff --git a/arch/arm/boot/dts/nxp/vf/vf500-colibri-iris.dts b/arch/arm/boot/dts/nxp/vf/vf500-colibri-iris.dts
-new file mode 100644
-index 000000000000..aa91537cab37
---- /dev/null
-+++ b/arch/arm/boot/dts/nxp/vf/vf500-colibri-iris.dts
-@@ -0,0 +1,14 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
-+/*
-+ * Copyright 2026 Mehmet Fide
-+ */
-+
-+/dts-v1/;
-+#include "vf500-colibri.dtsi"
-+#include "vf-colibri-iris.dtsi"
-+
-+/ {
-+	model = "Toradex Colibri VF50 on Iris Carrier Board";
-+	compatible = "toradex,vf500-colibri-vf50-on-iris", "toradex,vf500-colibri_vf50",
-+		     "fsl,vf500";
-+};
-diff --git a/arch/arm/boot/dts/nxp/vf/vf610-colibri-iris.dts b/arch/arm/boot/dts/nxp/vf/vf610-colibri-iris.dts
-new file mode 100644
-index 000000000000..7db5aa490966
---- /dev/null
-+++ b/arch/arm/boot/dts/nxp/vf/vf610-colibri-iris.dts
-@@ -0,0 +1,14 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
-+/*
-+ * Copyright 2026 Mehmet Fide
-+ */
-+
-+/dts-v1/;
-+#include "vf610-colibri.dtsi"
-+#include "vf-colibri-iris.dtsi"
-+
-+/ {
-+	model = "Toradex Colibri VF61 on Iris Carrier Board";
-+	compatible = "toradex,vf610-colibri-vf61-on-iris", "toradex,vf610-colibri_vf61",
-+		     "fsl,vf610";
-+};
+ static int setup_cfam_reset(struct fsi_master_aspeed *aspeed)
+ {
+ 	struct device *dev = aspeed->dev;
+ 	struct gpio_desc *gpio;
+-	int rc;
+ 
+ 	gpio = devm_gpiod_get_optional(dev, "cfam-reset", GPIOD_OUT_LOW);
+ 	if (IS_ERR(gpio))
+ 		return PTR_ERR(gpio);
+-	if (!gpio)
+-		return 0;
+ 
+ 	aspeed->cfam_reset_gpio = gpio;
+-
+-	rc = device_create_file(dev, &dev_attr_cfam_reset);
+-	if (rc) {
+-		devm_gpiod_put(dev, gpio);
+-		return rc;
+-	}
+-
+ 	return 0;
+ }
+ 
+@@ -573,6 +589,7 @@ static int fsi_master_aspeed_probe(struct platform_device *pdev)
+ 	rc = setup_cfam_reset(aspeed);
+ 	if (rc) {
+ 		dev_err(&pdev->dev, "CFAM reset GPIO setup failed\n");
++		goto err_release;
+ 	}
+ 
+ 	writel(0x1, aspeed->base + OPB_CLK_SYNC);
+@@ -664,6 +681,7 @@ static struct platform_driver fsi_master_aspeed_driver = {
+ 	.driver = {
+ 		.name		= "fsi-master-aspeed",
+ 		.of_match_table	= fsi_master_aspeed_match,
++		.dev_groups	= fsi_master_aspeed_groups,
+ 	},
+ 	.probe	= fsi_master_aspeed_probe,
+ 	.remove = fsi_master_aspeed_remove,
 -- 
-2.54.0
+2.50.1 (Apple Git-155)
 
 
