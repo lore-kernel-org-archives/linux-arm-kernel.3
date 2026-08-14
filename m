@@ -4,96 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2973EC5CFCF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 17:46:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62E84C5CFC1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 17:48:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i1r2xPJfkJhEKLocmkcDET9WPaG8FwcMD2/2OeeTJFY=; b=wiLz663zQVBcf+QnIl8TFdvh2P
-	ehSYE06t2y3rMfuPZ6BwyEhS/I2G9zIz/ZhnlVkxLnfeplHlAuZehniNFYu+MhLxHKDOoZ0Odm+j+
-	XVUYSf4/KP093iLF6dreNQ9V5G1ll8LCHhaObCN08Pg9bxD2hau0laW2TX5VEyRKD8YSPFLWs3vUM
-	1euGTSJSRIoAMTq6nXnyG2t6KkfKqIecWXVB75QDcgCaffsawfjQ/l/IICvYf9AejP9FCmoLGtZBv
-	d5VVI1IfEDw0XqWC3kMOWfQ+/AeDrPJwHu/SwCKaNwxZx3MVUygRlu/bdq5QBbAJbG+j6GTHsPa6E
-	3PxfQNBA==;
+	bh=biJ/DQuiYKHHaopOS5tcrTFcArghckA/BOZQbRQ38T4=; b=Ulu8X8/pF9SO7CUeDVNzVTL8dr
+	TzDMKywFyvUY1/aD4dIa/8u1AwIMu1sGlMR0n8Qw9lgYDAgZGAR3yvlrs4BKWHuPmY58VJsRSr0eb
+	gGvofu1sVIuexR1pPmqBA7dF5HnxWv3IV0Av7tnPIi9OsIlyGmfNMMgyBsn6mjTnHyPCxtcE5wSpU
+	4O/rMAp+RDJ06WUhvSGONz+A1IbEYhFTNdi4nvzh+yLOmJiSDD+XApO0a3hSxEuu6FY224ygGD/Wl
+	+q2d1one3L66Om/Hx+jEP/8AsfL+K5K5ZF/iNJ9cLPTOgzGlyswceRiHLaTGwiHSwSGxfIBaoI+na
+	dHedELWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuvzC-000000030Th-3sHk;
-	Fri, 14 Aug 2026 17:46:30 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1wuw1G-000000030bf-0xwk;
+	Fri, 14 Aug 2026 17:48:38 +0000
+Received: from mail-westus3azlp170100009.outbound.protection.outlook.com ([2a01:111:f403:c107::9] helo=PH7PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuvzA-000000030Su-336A
+	id 1wuw1D-000000030bL-3e4e
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Aug 2026 17:46:29 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-47fe377a217so825103f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 10:46:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786729586; x=1787334386; darn=lists.infradead.org;
-        h=content-type:mime-version:references:in-reply-to:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=i1r2xPJfkJhEKLocmkcDET9WPaG8FwcMD2/2OeeTJFY=;
-        b=NYjsuojqx/awVlXbWQbx9+J4VzNwpm33lIIZSm9klGKXxTs7rkW+7ZiCPwm7edOO3v
-         PVP7lX5oFjLVNqOammhF8IHQ4/kuv3e6pOGz/t1d9OyYibIasdzJKvJU3BD7nCIRTRP5
-         JKzmLn60vkAKmLCGY7eKHz3Z0wmSVgehr+BFXyQpzPuJkkTau0wm+YupktMzd6cZkndG
-         dryOLsn+CIn9vh8t7B2TH97tPc3PuGpI+l1IIxO6yLK2odZLW/w3+B3low7S1MtsQDQj
-         TZB805SyMDpm5ZDb0AKF825I++uOgj0TB+ixaTRAe4NZCJPCkFRn8RUECqiJ5ncQUVyp
-         TjZg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786729586; x=1787334386;
-        h=content-type:mime-version:references:in-reply-to:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=i1r2xPJfkJhEKLocmkcDET9WPaG8FwcMD2/2OeeTJFY=;
-        b=ETNLgOZFskM8XcyUjMgP5ZSyv7qs2m5fPt/nNZ4uBYYhxDidyjhdIn9y1NJtfnNr8z
-         c/Htf9xAnYiRxGcgmykk+85Ga+IhHQIpm+7YaB1M+IDzZqukfgJzyPK7z8kSbFEJHu1e
-         QogSxtWZ/D9HCAEpTXs1j1XHCRPYd9NL7fSW4VKUeS1j9FKtPQZ7ldo1OOdgx2Q6eL2W
-         tIrO4n9vtKR2KD3dtP2Is5vrl7VcJI1DiQkjCGwecJdUN6ZUPwUwp0r4ZoKyjIGt2eiA
-         4oI5XGfxWtAhS4pS4RBQR1Ddt3xG0WmpdmJXlqUHHxhVDfAacTbi5Qn4Bo4VCajI71IJ
-         +E9w==
-X-Forwarded-Encrypted: i=1; AHgh+RpnfDvm82OeCpfEejWP0KzBwf+mAUJSZTXtH18oApU9fTZlfbrVeNTTyUsRTy/2biGN/YH5Xq4vZQZZKnxPU57Z@lists.infradead.org
-X-Gm-Message-State: AOJu0YwVEREx3rLvITYxIISdNl2BXdTF2rxQv/p4Ekn+9bJN7/siKUvw
-	ueVIYe+yje20VL+jNbXgoe3V6Jp2tVzK3IXO7YD7q6YjUkZQk4OeDurU
-X-Gm-Gg: AR+sD10N9kHNwy2bM7Ms7hBuh4WPxn3QiSW2Xhxs7KhHmbRJRr2agJimfTs/RwmHM7d
-	YiFIwDvksurPAer7AizBiBqDsR8zaZERA31m3afFjqJoFNGTjDEGhIUbWtms6kmw4mTzl5DUenQ
-	RTNK2dgKYz/K9fO/7jwj13YEQxe7OyWdyzflsuKXuq80ONim35i0UGmfZXS6f0WQ95PVS/qs1yN
-	l1oy3xMK0XSX5yg0HikPGUMn9zB1d+F6SLVoXbsvJF6AZ4VBqvSuErWUJEw5rQmSRAV5A861TUO
-	xAwlgihrEFgtF+7kNRzndFXAbqEQIi7AVdzK17Idl4QJQBoeifQ5HhDgb67rReSspHs1xzd/QDb
-	fe/iZMiDJfyTjuH2EOiGkA6Y2saGnaW/eokmd0YZL3e6Xbdn5kfhr8CTCQB085aZAwB0Fdn0KmV
-	ln9W6O8P517clMdpdm4+Oqe1q4BQknR2VjapaV/rCtKX9wbRNVHzVixYJ1OA+7+7sI3kfkqxpeb
-	RsqDwZs8Xo=
-X-Received: by 2002:a05:6000:2087:b0:47f:96e6:70a with SMTP id ffacd0b85a97d-481606bcec4mr8999132f8f.0.1786729586010;
-        Fri, 14 Aug 2026 10:46:26 -0700 (PDT)
-Received: from strix.localnet ([197.250.226.224])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4815f219d3dsm10124274f8f.14.2026.08.14.10.46.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 14 Aug 2026 10:46:24 -0700 (PDT)
-From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
-To: Lee Jones <lee@kernel.org>
-Cc: Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, Brian Masney <bmasney@redhat.com>,
- Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Russell King <linux@armlinux.org.uk>, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
- mfd@lists.linux.dev
-Subject: Re: [PATCH v10 04/12] mfd: zx297520v3: Add a clock and reset MFD driver
-Date: Fri, 14 Aug 2026 20:46:11 +0300
-Message-ID: <gxF9XGmoS_qmWIfVagXDVQ@gmail.com>
-In-Reply-To: <20260812131503.GR1072730@google.com>
-References: <20260810-zx29clk-v10-0-63846490712c@gmail.com>
- <20260810-zx29clk-v10-4-63846490712c@gmail.com>
- <20260812131503.GR1072730@google.com>
+	Fri, 14 Aug 2026 17:48:37 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=hNo0Rm/0b4saepZ7Wy8i29IprutlJURC371qcZu5QlUPuXyPbJr4d1D4bQGmWaYgJwp3zmcY+oYweiYbCKK2yZT2YoNum4VDvZow35GDBNPVlwGk0mC0YHeftBagwuHQNb3Fsa9KqS1J1WZ5Vrt+E5Fdd0CQEUuQOqlugqoCBWOC6i1NRUOYRrvMvmDRCE5ZOkGeOMVqnWWM9u6LtEcTJ7RUe3YUF5iOQLOCQT6a35Lw1qEP5Hv0P9Ldy2w1Z1HEQ20CrotVQJXc5gMv6URQ3NlPhvvZIi6+Y7mmvp0cLFU+Xb7C/1CND7xALKjO5cRYyMoz2oXE/dWDD8oo8h0fDA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=biJ/DQuiYKHHaopOS5tcrTFcArghckA/BOZQbRQ38T4=;
+ b=ylKBuDmPBUZdO3UX3kFoIZqRyJcNtPVRCSk2zeUHsS/CzguHAJTIK0Y5yeLyReqoJ77BYoBixloiK8RQJXxE689pcHQdcDF0eeLig6IPjEMSKJvgIC0aG0Vu81UlLAJX3bWt12E7neEF5z9rJFmGeVuaTsQ1a+aS92CelVSUN4emE4a9aQBsDkr1pp6LGD92Ftl7973/jh5curyrCNqEgDMTUoF1VEustCNVqBYC0xc2OKYv+ILUm0gzfecZux1l9ITjp59W92YBtBpdXIGaz6J+T0ux1vnaV1hznLiThpWwyqTsSW8ytKJZgNnYUMQlSsuU1iGsG5lqZ0LiAyh9tg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=biJ/DQuiYKHHaopOS5tcrTFcArghckA/BOZQbRQ38T4=;
+ b=XWbHc3XTwCY0JX6TRBQ9IHblBvhlUmadHkdrCw5uewDQlR53091D3/4K37yCVWWuzrQNRruRXg+ZWN60senhv8LbJ8x6jY0sRQdjPozdsPJ5I2ZDzplJ/8no/u39DRZAqNj1ZFc0xSJ3qw9PaOyW8OpqU0NggGBLE4Os1kc5r74Mxmn/h8d1g9uclgIK+Pe8RKZZpI+lt14QQM4g4uAup52507oMp+d96uzICyJ/GmfqPIl9H2hhNrHpCLS1pTiQZRbt+BMOrSnV/f1hX/c3cIts3+YEwmgajdlniQ9FCIeHElq/rPfmkkR40eYvF9G+y8VR13uK1rN5fWYv8mvvNg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by DSWPR12MB999175.namprd12.prod.outlook.com (2603:10b6:8:36f::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.25; Fri, 14 Aug
+ 2026 17:48:27 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0315.014; Fri, 14 Aug 2026
+ 17:48:26 +0000
+Date: Fri, 14 Aug 2026 14:48:25 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Dmitry Malkin <dma@nebius.com>
+Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+	Joerg Roedel <joro@8bytes.org>, Nicolin Chen <nicolinc@nvidia.com>,
+	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"regressions@lists.linux.dev" <regressions@lists.linux.dev>,
+	"stable@vger.kernel.org" <stable@vger.kernel.org>
+Subject: Re: [RFC PATCH] iommu/arm-smmu-v3: Allow nested attach for PCI
+ bridges without vDEVICE
+Message-ID: <20260814174825.GC510472@nvidia.com>
+References: <PA1P190MB25578C482C8A3B06A4DCC6FDDBDA2@PA1P190MB2557.EURP190.PROD.OUTLOOK.COM>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <PA1P190MB25578C482C8A3B06A4DCC6FDDBDA2@PA1P190MB2557.EURP190.PROD.OUTLOOK.COM>
+X-ClientProxiedBy: BN9PR03CA0372.namprd03.prod.outlook.com
+ (2603:10b6:408:f7::17) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="nextParthu9EI7NhQy6giXCUf6L9sg";
- micalg="pgp-sha256"; protocol="application/pgp-signature"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|DSWPR12MB999175:EE_
+X-MS-Office365-Filtering-Correlation-Id: 013abad3-3b92-41eb-33a7-08defa2c3e65
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|1800799024|366016|22082099003|18002099003|11063799006|10067099003|56012099006|6133799003;
+X-Microsoft-Antispam-Message-Info: BIZ7FZPhdIcU3ZI7posFwFhs54Hd6y4OzeRG6U1RjkMuLz3nxzYeks08HzUHQA1N9BvhMfiqbhqTbqxVC32zG5eUXecWGVno2Zpn5rxwgG4p1ELHPtljWzYwUqpoV6sl7XDZKZfjA3u9T9lDDyBWPQD0Zn2abAR4cyJMEWpDfp2lmcYaks9T8Ff6+5HIHlX2XHM7+C0jG1JF9DAI4aNZg+hhPAiZqpy1Wjem8TOGHHi500odJjcWKa4tMzLo/BfG8OmxZorXzku2yGhjXZiMtDEP6kmwiGk1ivqWrG7Wji5KhtcT1Cgtl93fAuIbSe7Mx6XQzPapQfYqb/tcXHg7+Dg3fYHogbvFLhdKLxtXkjsMYZ7zp3n1T+JmlUk3GCWBe7B0oyl/b3GdlUlgqDC4DKlhwO0m8mM+Sjq1/2Fr6vvkQ4rJPDT5tkLGmu5nrwKv0xbjAgKNZgil2FZQ9mUm3rmEII6/WBmxOSt6CifFisaNTK2E7eYD7S3216rUzRE1TsW6klRL+mHGpqHlAJBNR6OZV3IzWg298ihE5M9LiCV8FN8FXlqcxzlfNftJKjS1szH4w5pyZ+SRpNfcNDIfU6aAY46weF1Hj2mcHyppywaLI/xtYFMe0n7tvhXMGOzkoR9JSQ4TdOjDDEwNh04sts4Oaa8Me2GBLnIUIqbFzEg=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(1800799024)(366016)(22082099003)(18002099003)(11063799006)(10067099003)(56012099006)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Jq0QIT0cUYLP9QXzGoFW6YP1XwHR1dJrj4z09vys9jkOjJ4mDnh2gOvtieSQ?=
+ =?us-ascii?Q?cePuiCktWg12WAQ4k/l3NC1pQZTErH8Rsjk58Lxqt1RIN1UPvJcThJA1FOSG?=
+ =?us-ascii?Q?ThH0nwMVhzvjHnDxQ8/FjoyPQVIXuNE+oUi1OHYCB48Oizati+5dj/WNBG8K?=
+ =?us-ascii?Q?mNIAu74cKyIseymKqAVmXp65zi6juI667JzD2KAWU/mIKEuSEjYxH3VRp7sb?=
+ =?us-ascii?Q?IwcivMZlu7z8LrIJCuJc2MbqyfD0hkrpQdsgxZvBAAl7SVtOoGAAjuensEpg?=
+ =?us-ascii?Q?oyGaOqA5/1/r+2e5Y3PaJHhFBj0pubgtxrdm8PV+PyHSy3zv4mDUF9Ug9ADY?=
+ =?us-ascii?Q?PHD7dyb3o9fukArvyvbKi44m7eAlV2oQOcNjB31R9qwuqN1te/HBDJTogTjB?=
+ =?us-ascii?Q?NEyaZVAv65NKxWjP35aeDN7kRL4tQiDWTdYOD3K48B5nGW2d15w3oJYcYqiU?=
+ =?us-ascii?Q?SRrmw1WNsD4yzuzP0u/BSLqG37FhFb1GwQxeFonRWORnQINwfCxfJIv5CKiH?=
+ =?us-ascii?Q?w9p0mG+qq7XbfW4+wLUqaL5klEc8qOV6gk2Y9f0hz4rEJE6/1ed4j3MCiRwq?=
+ =?us-ascii?Q?gsGXnYCxPcnL73vAz+WWnEHmQ+FIl7T/nLXW0EP2AGP3s93boKkNYACB9PFS?=
+ =?us-ascii?Q?AGLebm4XzTvFmbQgX8/bq2ANCmLRMya+SyMCSUKmt23wHxCpYSlewfzgFNQx?=
+ =?us-ascii?Q?aZGuU8XYUHKFbpJmCH+Sdjvdv0NllQtIRcMehEp5L/XZxYNCsiSAlBDqJMjg?=
+ =?us-ascii?Q?bo+dnX2s1V24EBMwB5BXfMwbgJkK4Hq03oQ0MbMA9Jf8uHq1CKtUOMVG9zRs?=
+ =?us-ascii?Q?80Jzt+2nFtYyj8PN43nSyPmAmIhfZ0pOrcI08MNvzuM/gmvFqUzmRpIIFL23?=
+ =?us-ascii?Q?gZYN2Oe2Nx4xQ27MCUAlAgncUMcixnITzLb6FSsJSF7ElkdokPaH7yYGZMkZ?=
+ =?us-ascii?Q?GbE7rfzdR384bnEiucm6pu2PDN7r+TLIYg3IhbtSfpohYxAmQeH0+lm9vLsD?=
+ =?us-ascii?Q?nV9otf3US4h0kRleMAgq/VMHLoCHm2D/Dn7dM0TbWKu9iTTghYS8377nc6Cn?=
+ =?us-ascii?Q?8NFiiDmi4k/TVJ3x9s93yShcROtd6ltfiHmCJ/XKkp43ndJv4IggCxZ+amCh?=
+ =?us-ascii?Q?Xm5IzWhIkyxQ6Ia9L47Jf5tMXM9/EMBrirXPXA9pi3MrUlLht6GvQ0U7Q4B8?=
+ =?us-ascii?Q?CbO5NZrQ7Iy2tWglXIZG58zI5wdxBgkni0m5Qu3g+AETUnCazdQLIBAPd1uK?=
+ =?us-ascii?Q?8HxkVRknlq/rUhrbm1SlyuQvIxst7ElHNYyK8IiBdK228SRj40Jb6njs9gfa?=
+ =?us-ascii?Q?A8YRFOK5NGFBuK6B18yGFDlQn1EZAVSq64HRz+DWX85749E+ZhD1wrdCeTU5?=
+ =?us-ascii?Q?FUFNVFZ1Dtcy8x+5qNlefVxeGVJwEZBxN/0xPWVCxxr2W6qcDR3RM6KviW/n?=
+ =?us-ascii?Q?rKsjQe5fIa6cS9UIVrDo+RQkjwnNbaLYUjEMrmF+x4mHAgW46MTJ5YD45FPO?=
+ =?us-ascii?Q?mmN0brkSZsIwU7zdR2bVX0nM6wPTHDz40GzTmFQuIdZs5pKDrYkQtRdrHC39?=
+ =?us-ascii?Q?dZfpizunr+0DrK0mG2UYjdWaX/3u/p8UsRyQr0Y8cZwn+A75u9Z3qWaRffS3?=
+ =?us-ascii?Q?QD+c3QlNY0n5HBWV5NfTOSM3pRgU+87MZelNAyOVqw7I/MkyXHa5N1vtAmc1?=
+ =?us-ascii?Q?SdAvm111P+tfuYaulWhwIPZ4UpXbI5HOZPZ3AmFoi1szzrG75v3OTwV8dzI8?=
+ =?us-ascii?Q?TTCsV1qbRA=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 013abad3-3b92-41eb-33a7-08defa2c3e65
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Aug 2026 17:48:26.6970
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 0UPUoHeXZGr3T2C459xHNIXylBreD/0jcI92fEmCNVwkkB1S0NQMQYnHiiHtdrBa
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DSWPR12MB999175
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260814_104628_793729_1B89FD86 
-X-CRM114-Status: GOOD (  20.39  )
+X-CRM114-CacheID: sfid-20260814_104835_936578_98C9BD8A 
+X-CRM114-Status: GOOD (  13.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,109 +141,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---nextParthu9EI7NhQy6giXCUf6L9sg
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
-From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
-To: Lee Jones <lee@kernel.org>
-Date: Fri, 14 Aug 2026 20:46:11 +0300
-Message-ID: <gxF9XGmoS_qmWIfVagXDVQ@gmail.com>
-In-Reply-To: <20260812131503.GR1072730@google.com>
-MIME-Version: 1.0
+On Fri, Aug 14, 2026 at 10:07:09AM +0000, Dmitry Malkin wrote:
+> IOMMU groups can contain passed-through endpoints and host PCI bridges.
+> QEMU creates vDEVICEs for the endpoints, but not for bridges that are
+> not visible to the guest.
 
-Hi,
+But why exactly do you have pci bridges in your groups? That isn't
+entirely normal?
 
-Thanks for your feedback!
+> Since f0ea207ed781 ("iommu/arm-smmu-v3: Introduce struct
+> arm_smmu_vmaster"), group-wide translated-domain attachment therefore
+> fails when the first bridge is visited:
+> 
+>   pcieport 0009:00:00.0:
+>     missing vDEVICE association for translated nested domain:
+>     cfg=5 ret=-2
+> 
+>   vfio-pci 0009:03:00.0:
+>     VFIO_DEVICE_ATTACH_IOMMUFD_PT attach failed for pt_id 19: -ENOENT
+> 
+> The same configuration worked with Linux 6.14.
 
-Am Mittwoch, 12. August 2026, 16:15:03 Ostafrikanische Zeit schrieb Lee Jon=
-es:
-> > +config MFD_ZTE_ZX297520V3_CRM
-> > +	tristate "ZTE zx297520v3 Clock and Reset Manager"
-> > +	depends on ARCH_ZTE || COMPILE_TEST
-> > +	select MFD_CORE
-> > +	select REGMAP_MMIO
->=20
-> Is this used?
+Hmm, but without a viommu we shouldn't have this vmaster stuff
+activating in the first place, I thought? 
 
-Thinking about it: Not in the way the build system cares, so I'll remove it.
++               if (new_domain->type == IOMMU_DOMAIN_NESTED) {
++                       ret = arm_smmu_attach_prepare_vmaster(
++                               state, to_smmu_nested_domain(new_domain));
 
-The MFD child drivers call device_node_to_regmap(dev->parent->of_node), so =
-a=20
-MMIO regmap gets constructed for the MFD parent. But since the calls are in=
-=20
-the child drivers, REGMAP_MMIO shouldn't be needed to build and run this=20
-particular driver, and the child drivers enable REGMAP_MMIO on their own.
+That should only be happening if the VMM is setting up vIOMMU.
 
+And vIOMMU wasn't supported in 6.14, so if it "worked" the VMM was
+doing something quite different - not seeing this as a regression
 
-> > + * Copyright (C) 2026 Stefan D=C3=B6singer
->=20
-> Personal copyright, are you sure?
->=20
-> Is that okay with ZTE?
+If viommu should support multi-device groups, I'm not sure. I want to
+know why you even have multi-device groups in the first place because
+that is not normal at all.
 
-I'm not affiliated with them. This work is my personal hobby project to hav=
-e=20
-some fun and learn things.
-
-I'm not copying code from their kernel dumps either, the quality of the=20
-drivers there is pretty atrocious.
-
-If ZTE wants to have copyright of the upstream drivers I won't stop them fr=
-om=20
-doing the work themselves :-)
-
-> > +enum zx297520v3_parent_type {
-> > +      ZX297520V3_INVALID =3D 0,
-> > +      ZX297520V3_TOPCRM,
-> > +      ZX297520V3_MATRIXCRM,
-> > +      ZX297520V3_LSPCRM,
->=20
-> None of these are readable.  I suggest you improve the nomenclature.
-
-I saw that most existing drivers use "undecorated" device names, i.e.=20
-"TOPCRM", "MATRIXCRM", "LSPCRM" in this driver's case. I am concerned that=
-=20
-"TOPCRM" is generic enough that a (future) global header might define a mac=
-ro=20
-or enum value with that name, so I opted to semi-namespace them with the So=
-C=20
-name.
-
-=46ollowing the example of max*.c, what do you think of TYPE_TOPCRM,=20
-TYPE_MATRIXCRM etc?
-
-The rest of your comments are clear to me, I'll implement them in the next=
-=20
-submission.
-
-Cheers,
-Stefan
-
---nextParthu9EI7NhQy6giXCUf6L9sg
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part.
-Content-Transfer-Encoding: 7Bit
-
------BEGIN PGP SIGNATURE-----
-
-iQJPBAABCAA5FiEEQxb0tqoFWyeVMl1sPRO8yFRPGiIFAmp/VGMbFIAAAAAABAAO
-bWFudTIsMi41KzEuMTIsMiwyAAoJED0TvMhUTxoiPokP/iptbRf3/QgYkQF1HNMx
-5pOuSmrcFnzvT8WG+mpgA+2uorsOmUfPhxRF+BA9CgOgazibEyWWETdrkvPHy+/f
-See03pTw5mH4LSt90AOqFDCck47OmmAfzY3AP48o61IR47EiB5eFxf0r1S35tYuE
-ms1C/2a98Rw60mw+eFUz3iBHWOI5fX2+DXZjOaEf/Q7d5KsZyiHOg5QUop8bsmCh
-YRKrMdRwLIbT8nZQyEwLiMJlFGvzdDrZc2Vo39rsPFrRjP+FZGvUc7YIymjWXYi0
-m/GfFV6RQSmxxph+zLCnYfoG2MeHDc+ihgBRACTeYXy3B6FbOUNVfsCB3ENvw/4K
-P+OhBdxhxSIswe5KMDR1zUAeCQfNCsnrzXlLyhMxuFm1VwgzA/DJOucR96rj69hl
-Cne8/8AqirlMgKLNek1Fsze0DkKuxOLMsrDVHYTvlMMt/giA0EtsoQT9iNp7z0Q0
-/dqmTve95/f18m4sorji135TkTiEpmYTdtn1FZVY/2/aUD4z907S7mAomm7kYviq
-jIesXSWzh9SFfRugYKDWsk9AqiP7Av77bafFuLzpgQ5MBnsDPpYTdCZR0ngLaP3F
-phrCAX4IayRFni2+kBYkRMgaGosJolehc+mC04px0CwobqERnJGQGlVbRvuPYVJv
-jL7hUaUKDj90M7cPPNEtjQf9
-=kRv0
------END PGP SIGNATURE-----
-
---nextParthu9EI7NhQy6giXCUf6L9sg--
-
-
-
+Jason
 
