@@ -4,129 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA2B6C5CFC1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 14:15:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EAA7C5CFC1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 14:16:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Grmji2USRcszlNMGFmSZZQXZx3yzhaErBDzhawXe400=; b=z16XuTJNOdlvOZ31wqOHNvsDk7
-	fJwZIEF3V0ZuJFs4xG2TxYX/f3h2blMyPvqUfiHPM+G+PeK66CW5bQAs5lg7yuBrfbNO1xudXtAak
-	vvQ4OD82roWMv2B13rpTnYRJ4Vy9sKMrtqgtTHFdN4Kec2ZSyNhR7v2QbH0caGiHbXCd3vXYUQwMD
-	ZCQi+NvEBrJYE1j5q9S188JI6dpdNd3afPm9KBF7v89TOHcIbFWgg/7riqdphFc611YBnW87L+/sl
-	aaQt9MIDZFjj0va4sPGXfD5w7OF53r4WLyakrIRPkNAZREPqYBuEQuSVajtJJf54trIByqJsp+gxw
-	cmhyllmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rH19XpzJqW08+W7mG+VpaQ4KF0ayb7gJPWy2w+2WSfo=; b=LvroYf8jr/i6dDR5hSdIsJObX4
+	ujt0Cq8X4gLAd9lRiC8TxxNFHkU0AoM48kZDc1VbcI7i8QqjZcS7XJ38Vtg22d0CdUfEqHaUg90vx
+	Hj0HHU6JPSXj0aG30taaCf8m1xQlM+ksz5OTMwrizISfbdvWjZILMPwYvrUcSyX3+YW8Drk6Yn9kU
+	QIvREHIWRc7bJtGw6Ah9A5mv+M3ZFmqZu9uWUfuv1qSpKymZRkRfJqiPohBxWpfDs2Sqa6bhXsX20
+	gVUArdAuUlgcW9mqCYc4sLTZBFhRtlbNX8zePaZXM3Shm0+xz3Cpax1BwQcUgDdfrwDPq9fro4peh
+	qV8MHblA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wusgx-00000002m7W-2MKG;
-	Fri, 14 Aug 2026 14:15:27 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wushQ-00000002mCu-3IBW;
+	Fri, 14 Aug 2026 14:15:56 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wusgv-00000002m5X-2lJ4
+	id 1wushO-00000002mCA-29rT
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Aug 2026 14:15:26 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67EDxVbh695191
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 14:15:11 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=qcppdkim1; bh=Grmji2USRcszlNMGFmSZZQXZx3yzhaErBDz
-	hawXe400=; b=JNeFBHDVyR88UCXquPbhGQ29nrAOjhomQ5p5W2AXHDgJIorQ4/0
-	ctk3Y0zxb42OhBlwKhjfJgguvDC/Lm5Hzh/rwytjWFSL7szsgn4fv7dfnOhEUzJh
-	uPzr66DzdoBZr4rniRGWOdlVr+M4NVviGAZyvwSCmNgrydYYTYZPBgQHMW2lSUrB
-	+NX1rsEaJnrSLHZ9NWpY1xU6tXREL71HNIqq0Qe9f3qFlNy8s1MUzPP11W/VRNaf
-	8wORhIW82uvm0cX16+YPMAG7N+oFKyMdmfBUYwlL+4jEX5iSwVe1FNxAfLns/pl8
-	S8m/FSLFieV6cDIY52RYaLyWjFURrB5NdPQ==
-Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g1hgy4rec-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 14:15:10 +0000 (GMT)
-Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-51c0e702df8so14393971cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 07:15:10 -0700 (PDT)
+	Fri, 14 Aug 2026 14:15:55 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2d3b440b97aso89735ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 07:15:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1786716910; x=1787321710; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Grmji2USRcszlNMGFmSZZQXZx3yzhaErBDzhawXe400=;
-        b=XQ4oWf+JJ7LvtRuzVvPf+MtWHsrBpEfHf7H4IkEIvMIhpszpZ8EVBHTzOycYzNrWPZ
-         0WrGixDgvF4MQvCS/0NKwcxczjVhufJdm9lh3gwlKUdot8IFbykHEnLJHJ6x/wSa1+mN
-         XUymD5Wk2SXX+vrVuzmKg34X5Br/uJwpmVYt7rEeIX/L1mMsXaYwo7mfl7FwW+G6PdBH
-         cJLfOE1kqfJe3JqzoguQh/BDLPJ3545eKwmmPbcT+nWv9KcF0h2UVm4ibYLfyMtKVWmd
-         NGpFf7NlL5pJ01N3MBOxgPS6G9wt4nEkB9FwfrQ+RCX9lZLXu+wr5Lq1IQSO3m7Dzmgu
-         XXfg==
+        d=google.com; s=20251104; t=1786716953; x=1787321753; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=rH19XpzJqW08+W7mG+VpaQ4KF0ayb7gJPWy2w+2WSfo=;
+        b=RJYAqBxLapo1h0MAuioCsASr+ai9wz6xJTjpXf+8bp2W32Hbm6jWHXGKyjZ1v9uc3q
+         4kECF0kISzMZ0+nLIZt/NFe79tyRX0Gi7ilbp1Nz9byh46bKn0IP1XmrxAHg62j2xRZX
+         IDfwQlw+LrJcf4JvdGJF1shTRT/NLEBEY+NSk0qwlB1wVHNz54oe8lTBVLdKK9EPbwfD
+         nTDQMJGq/PRC4+3iYouiAgr6oRw3bRPnmNDJ7F6Em1TBhczgUYV3y0gVpQtDVVv2miQf
+         uBPjkg0wbtJyTrbw6q+qfWRewJwoXcNZyiNdzbWDq8WLu5Z5vDm+TUGIl2kgY0AId5eQ
+         Egkg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786716910; x=1787321710;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Grmji2USRcszlNMGFmSZZQXZx3yzhaErBDzhawXe400=;
-        b=c+TT8TuO5mHiPuOA2ejiZH775GX1GYXDdSZ5yvtqHcM0y7mYF3gLtw0lbiItME2eg1
-         Zoc0rvmXn0hLJVKaWCACznDFDKzCYnqGF9J6rlUPfEez1+gnRl+iTkHSObN+I8ssbNQG
-         y9FbEQUAs5ghrAhSN4ZZCOc7QTeBhL8GuOkrp9zDBhvPCfDeJyyfa84aWNFvelT5+2ZW
-         claEPhXAO8Le3GnG07thHTpD1p3cdHg7L0IWYPj/WrmhAnMJ8dG3CQQBW2cbP7FJnLRS
-         uL6TiW7tQSjh6n8+q42+iXZiltjmnXmmzknJtK+DbgzU7Eplbe1iubPK5ZXhhLNJ9UbZ
-         3n6A==
-X-Forwarded-Encrypted: i=1; AHgh+RqBcMsbDWls+N/MigwG8nCLrpfV6027pc0UYInOWg+CU+G1h9sipzQChWk7MarvPcQSxNPmNJm8yegTOBL/RTez@lists.infradead.org
-X-Gm-Message-State: AOJu0YxEtay6sZTQ3jHFw0581MN7oVNb8GZAO+i3HSe1tCZkQcqey1ip
-	xi7opw48BS6mPLtTKlvUtyhqPNejyrhFwy1nGbgnA87BVMeTyOBqAMJKs9fQboAsut8H8siyCMN
-	d95Nra3llF7PeJf/3tgFHYMrTMUY8EUlS/SSr2dqMX2RO5ileivPVmoSttz5A1wII1GIYKs1A70
-	ez2k+wTPt3iw==
-X-Gm-Gg: AR+sD12vq/91pDCI7fkCX01Jm6ER4GytzfvawP4PaimvxvGvfAY/dBPUvxnU0pg3hia
-	VWEIpCfEKpGMkdaElaNYCQA+WVIKYyE1FqRnT8+xcn8PZVn02VzroH89/LOmhzsioMHFtXi+WNE
-	5vKxmTJ2I7RZUYdvwQytjz7AfVDoQoW2++ouLbT7OjCmpIzJ0QSX2Xvy9aO/VjBPICxAHk0dbvc
-	Tnd0ZWrWfBIt8JGvnilFUAK200T4B83/LDiSOhhqeeSvPunzQ+MtXaKFVICfHGME7CEXLssRzCH
-	B0esc/Wqgyda2I6fledNTb5Xln1ZANEkJkAYdogmoOU252YLB3BfDZ+gUIQ5DAfXOkIGKQTpnDx
-	lxU0pXONR/tdKgAYRU9SfF1q86IXvVivJbl392HDBBRPoyKkZ7PF3Ja3u0Q==
-X-Received: by 2002:a05:622a:410d:b0:52d:7b88:dbdd with SMTP id d75a77b69052e-52d85488733mr74097941cf.31.1786716910144;
-        Fri, 14 Aug 2026 07:15:10 -0700 (PDT)
-X-Received: by 2002:a05:622a:410d:b0:52d:7b88:dbdd with SMTP id d75a77b69052e-52d85488733mr74096981cf.31.1786716909699;
-        Fri, 14 Aug 2026 07:15:09 -0700 (PDT)
-Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c2123821bfasm107533666b.51.2026.08.14.07.15.06
+        d=1e100.net; s=20251104; t=1786716953; x=1787321753;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=rH19XpzJqW08+W7mG+VpaQ4KF0ayb7gJPWy2w+2WSfo=;
+        b=RgFtapsapfhaR98M+a0Tud3O+DUe6TGOVEatmg1MVhHlZ/wxgzJ+eVUUE+QrBhjyqS
+         EJ+5oJjfPkSBTJb2gYCm6M6wYZP5A9yJF78SVYhZL2dxzD/fA5nahPo2khIo3zDDT0f0
+         JROSyWRC9kalwCHNXH1PQTF9ukgwWGwhVeVsb7Z3KobT3f4AZV08tgmwgT5Nj60dwLrF
+         1xJUnwAGbyMZYGZC3AnyNCT44RysgHIp2W6ipY3kbtN8aJUHeIE013nLZ+EQHN8twnKb
+         I4U3eCpdgQzP85Eq3ApJoKa6yln/NV8TyXwo2kGgP0EToLItraqiwvYcIdfHNPiXEbhV
+         0r/A==
+X-Forwarded-Encrypted: i=1; AHgh+Rp5iP/PfFRjyTbbrMTODIXSnP5vBfoW+lqRtP8CxTugt3V1TPCdMOIWhTETV2b0Xm7zbmfYDSKQGx1Tp2qJwrNI@lists.infradead.org
+X-Gm-Message-State: AOJu0YyCdgj9CLAc+yN5P7a8+BFPXPo9hNZER7zgFiOz33pOsmKsbF5l
+	D3vB6QG2k82lEwULyNFDDwu7aaVtk28Ww6eBJCbGclcrg4y+g8TmIuVWX/EBiLnxtptYxk5qwLQ
+	t3RJJ3w==
+X-Gm-Gg: AR+sD12ROXbAinVSxRMZXTZEUF4DC0TDHzxPZxKEeT0GyHNlcdHZ/0c0QYtsCNLxvF2
+	4xQ0+9R50oWeFhkBjB8gT0s99c6QaJCcYSn5q4EAaAVDA68sjr4FmkxBFQk8Vh8djGivC3bjqEB
+	EgYbEsxQYSR5UeN1sIuOV+flGYV8sM/yuIeGiWjKK+QOHiEzhfGqGPfH2fFYGI+U0qgdEY2TVc0
+	t2ir+of2gyic2tC0v9w37gZ00ukRdZ+nKHBAWUdBT/PlIlmNbZGayrb9zIlHM7jCxW1X8iqXVPk
+	u15BDgRUtegA3q9Rq86C7q80uMHZYG6/AbaIlV/i7Yx2sBB7wk9VHRuIMhdKXsCYVsvoE8pLS9D
+	Vq1RGsHZiIwwkU2Rh1xyPglhh5BN1M/vwQYlKpAg9P36mJs9G/VcevidPdFQGmH8qkTCvBTRETh
+	8S+2epvsMa7Da3AS6Hor6939WD6lYaWKY645fnLJvetmDK7/ytXk4IenyJ8Ur0AufCefLyoFCa/
+	zNo47GSFZ8VopbF75MCAw+OSqGaF2W2Nw==
+X-Received: by 2002:a17:903:15c8:b0:2ca:6bf:5bac with SMTP id d9443c01a7336-2d3af24fa75mr9130205ad.8.1786716952002;
+        Fri, 14 Aug 2026 07:15:52 -0700 (PDT)
+Received: from google.com (21.168.124.34.bc.googleusercontent.com. [34.124.168.21])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8517d223f8csm551513b3a.35.2026.08.14.07.15.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 14 Aug 2026 07:15:07 -0700 (PDT)
-From: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
-To: Linus <torvalds@linux-foundation.org>, linux-pm@vger.kernel.org,
-        linux-kernel@vger.kernel.org
-Cc: Ulf Hansson <ulf.hansson@oss.qualcomm.com>,
-        linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL] pmdomain fixes for v7.2-rc8
-Date: Fri, 14 Aug 2026 16:15:04 +0200
-Message-ID: <20260814141504.127436-1-ulf.hansson@oss.qualcomm.com>
-X-Mailer: git-send-email 2.43.0
+        Fri, 14 Aug 2026 07:15:50 -0700 (PDT)
+Date: Fri, 14 Aug 2026 14:15:45 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Dmitry Malkin <dma@nebius.com>
+Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+	Joerg Roedel <joro@8bytes.org>, Nicolin Chen <nicolinc@nvidia.com>,
+	Jason Gunthorpe <jgg@nvidia.com>,
+	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"regressions@lists.linux.dev" <regressions@lists.linux.dev>,
+	"stable@vger.kernel.org" <stable@vger.kernel.org>
+Subject: Re: [RFC PATCH] iommu/arm-smmu-v3: Allow nested attach for PCI
+ bridges without vDEVICE
+Message-ID: <an8jEbT9pAUYfsvR@google.com>
+References: <PA1P190MB25578C482C8A3B06A4DCC6FDDBDA2@PA1P190MB2557.EURP190.PROD.OUTLOOK.COM>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODE0MDEwOCBTYWx0ZWRfX2jJNk1fxJKXJ
- 8cvf4hGL3gZZtlNJxCsSKAcDwMk73gCCF/JtvUGA/Th10KzbZTcnqO+uMcKPqepSb7DqlwIW1B6
- TA+o6Bi7Qp7bDtupOQ+miC4InYLROEIySAM/sPb5F1GQ6Th+B0W7ysqJHKdNZV3NsO3ORRXbUjs
- OFkX+LMAwT5Go+hF6mxtEkobDQgUAcDI69+NwLczDZQxOvhulE9uGki7YCEs6+GrVU5BxAy+ytP
- dfhIyJeDOs0XQBejk29E1ehCA708s3KxW4x2gLTg3QN8MoxQZ1el4tJJAeTkT7e28PgKWGYNDq1
- rIwa1Gx1fzvFdbiLk8H+3FyczDZxYnZGCetIYzye4l3c5eiLBCFIVpLil1kqvfLOPEdJ7J8cvdv
- 2JnZzNGIj86+WUjCklm9rcapc2rsLELt1okvYBGr5gZTuQ6vBb8BC/j19FfTFgpEmQHhrMelRSS
- /jJwakLehNEQtqAMMSA==
-X-Authority-Analysis: v=2.4 cv=AaSB2XXG c=1 sm=1 tr=0 ts=6a7f22ee cx=c_pps
- a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=h7aNHqOhPKB91FvYUefsSA==:17
- a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22 a=VwQbUJbxAAAA:8
- a=eqoPJbdPTMY7M5JGM9oA:9 a=dawVfQjAaf238kedN5IG:22
-X-Proofpoint-ORIG-GUID: Yut9lRfdOr9e20llL0fsL6V2CMKB2HQa
-X-Proofpoint-GUID: Yut9lRfdOr9e20llL0fsL6V2CMKB2HQa
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODE0MDEwOCBTYWx0ZWRfXxM5oTL3dDKQS
- sfLc8wSK5CrfNdTosa4nPOKAyTAYoMe0FthILZMa1sGSobPE/D4Xjh3mXUB3arUMenyfWMKRMHd
- w2D1JYwKLgoUBUs+fALSljF9PTWMpQ0=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-14_05,2026-08-12_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 malwarescore=0 clxscore=1015 priorityscore=1501 spamscore=0
- impostorscore=0 suspectscore=0 bulkscore=0 lowpriorityscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608140108
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <PA1P190MB25578C482C8A3B06A4DCC6FDDBDA2@PA1P190MB2557.EURP190.PROD.OUTLOOK.COM>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260814_071525_819696_D5000ED2 
-X-CRM114-Status: GOOD (  12.72  )
+X-CRM114-CacheID: sfid-20260814_071554_582673_61311B2C 
+X-CRM114-Status: GOOD (  19.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,61 +108,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Linus,
+On Fri, Aug 14, 2026 at 10:07:09AM +0000, Dmitry Malkin wrote:
 
-Here's a pull-request with a couple of pmdomain fixes intended for v7.2-rc8.
-Details about the highlights are as usual found in the signed tag.
+Hi Dmitry,
 
-Please pull this in!
+[...]
 
-Kind regards
-Ulf Hansson
+> ---
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c | 13 +++++++++++++
+>  1 file changed, 13 insertions(+)
+> 
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
+> @@ -5,6 +5,8 @@
+>  
+>  #include <uapi/linux/iommufd.h>
+>  
+> +#include <linux/pci.h>
+> +
+>  #include "arm-smmu-v3.h"
+>  
+>  void *arm_smmu_hw_info(struct device *dev, u32 *length,
+> @@ -118,6 +120,17 @@ int arm_smmu_attach_prepare_vmaster(struct arm_smmu_attach_state *state,
+>  		if (cfg == STRTAB_STE_0_CFG_ABORT ||
+>  		    cfg == STRTAB_STE_0_CFG_BYPASS)
+>  			return 0;
+> +		/*
+> +		 * Group-wide domain attachment also visits host PCI bridges. Such a
+> +		 * bridge is not exposed to the VM and therefore has no virtual SID.
+> +		 */
+> +		if (dev_is_pci(state->master->dev) &&
+> +		    pci_is_bridge(to_pci_dev(state->master->dev))) {
+> +			dev_info_ratelimited(state->master->dev,
+> +					     "skipping vDEVICE requirement for translated nested domain: cfg=%u ret=%d\n",
+> +					     cfg, ret);
+> +			return 0;
+> +		}
+>  		return ret;
+>  	}
 
 
-The following changes since commit a4876f11aa1d076802676e23f8af500706e780e3:
+I agree that this is needed for old bridges. However, should this check
+actually live higher up in IOMMUFD? Instead of the SMMU driver deciding
+to bypass the error, what if iommufd itself intercepts the vDEVICE 
+mapping failure during the group iteration? If IOMMUFD sees that the 
+device lacking a vDEVICE is an IOMMU group alias/bridge, it could 
+explicitly tell the underlying driver to proceed with a NULL vmaster?
 
-  pmdomain: mediatek: Fix possible nullptr KP in HWV cleanup/on-check (2026-07-13 12:42:17 +0200)
+Also, regarding RID aliasing: while it's true the host bridge doesn't 
+need a vDEVICE for its own host-consumed DMAs (like AER/PME), are we
+confident this won't break guest-injected events if the bridge aliases
+the downstream endpoint's traffic? For e.g. if the "real" endpoint's
+traffic is aliased to the bridge's RID and the bridge has no vmaster,
+won't we lose the ability to inject IO Page faults into the guest?
 
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/linux-pm.git tags/pmdomain-v7.2-rc2-2
-
-for you to fetch changes up to 090a95dbe13df9965279b588d97eda134831769c:
-
-  pmdomain: mediatek: mfg: initialize prev_o in mtk_mfg_attach_dev() (2026-08-12 11:09:12 +0200)
-
-----------------------------------------------------------------
-pmdomain providers:
- - arm: Don't treat performance state 0 as an error
- - mediatek: Fix mt8183 hang on boot
- - mediatek: Fix potential null pointer dereference
- - mediatek: Prevent using uninitialized data
- - mediatek: Avoid setting RTFF's CLK_DIS before NRESTORE
- - qcom: Add missing MXC and MMCX power domains for Eliza
-
-----------------------------------------------------------------
-Abel Vesa (1):
-      pmdomain: qcom: rpmhpd: Add missing MXC and MMCX power domains for Eliza
-
-AngeloGioacchino Del Regno (1):
-      pmdomains: mediatek: Avoid setting RTFF's CLK_DIS before NRESTORE
-
-Dmitry Osipenko (1):
-      pmdomain: mediatek: Fix mt8183 hang on boot
-
-Guangshuo Li (1):
-      pmdomain: mediatek: fix remaining %pOF after of_node_put()
-
-Karl Mehltretter (1):
-      pmdomain: mediatek: mfg: initialize prev_o in mtk_mfg_attach_dev()
-
-Praveen Talari (1):
-      pmdomain: arm: Fix -EINVAL from scmi_pd_set_perf_state() on state 0
-
- drivers/pmdomain/arm/scmi_perf_domain.c       |  2 +-
- drivers/pmdomain/mediatek/mt8183-pm-domains.h |  7 +++++--
- drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c  |  2 +-
- drivers/pmdomain/mediatek/mtk-pm-domains.c    | 30 +++++++++++++--------------
- drivers/pmdomain/qcom/rpmhpd.c                |  4 ++++
- 5 files changed, 26 insertions(+), 19 deletions(-)
+Thanks,
+Praan
 
