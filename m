@@ -4,55 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D754CC5DF66
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 02:56:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC348C5CFC1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 03:25:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
-	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3IinE3EERWc6yXCwpp37aOo5C9ONkNdTpErOyVloYGc=; b=Hb257DOBAyH4srHpfj2VKLJehs
-	HVLENmnI4tVc45ZgqLe7SNWwIWk+3vmJih1IfDdlt+T49hAQzbRDSZAgmF1TMExZADC47bIT3o9+b
-	BIuKGJLfxD/aBK8lVOahsITpuIxxr9nTPTWJVuDOHMd8MhziMeeiF1HqkuU/9mUlrZDWRZXho6srn
-	QRqw1OX5Tzq3T6gnb908sf+uYAS/Y9nBDf+k0tUSx0R7F4IF2cXya2Ym6ca4rFqUU2RTeOF8opTiQ
-	TamLFD6PqJUEjgyy7nzAJoSQXn68eQogmIaiwKnZ4nPdN1ZR+tB7VxdJvfsD4GYLUBqLKdt5bJeSL
-	ncjK02kQ==;
+	bh=y7mkYw3MhVvZznrtz4d6TGUxxwBotmFtBYc81IbTb0g=; b=d3ZXVpMIUxdKxWmEoiZjz+keKa
+	uLUkg18rywV0vO0bJDY19jM6cQ0Pz+QX/uzFY2Tq27Na2nW5mw6BLzWFw8YQGf/aNYCu1i1JB/OjH
+	RKkMPieHnkqml68DBidM69edXzbwnyYYe1OzbdexpiNEup5wo36euBIFRiR52G8kqpJBA6NOHJM8P
+	4UmQlV9A1NUEpRyFopMaiSguweIX+1qPPlfq3meTIBYKApb5Ang7RgpUGcNGZCv1XrIEXugu6GCdX
+	+LhcUhBGqWnC+p5iyRnT/IJIhDJ2U+QKFZ0kxRW+PItqoI8yU47qQJTbTbQXDYXMBN28ZNOYKv3jd
+	Gh2x+ejw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wui65-00000001sfw-3Nmn;
-	Fri, 14 Aug 2026 02:56:41 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wuiXg-00000001tss-1WW0;
+	Fri, 14 Aug 2026 03:25:12 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wui63-00000001sfc-2Bi2;
-	Fri, 14 Aug 2026 02:56:39 +0000
+	id 1wuiXe-00000001tsV-1fli
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 14 Aug 2026 03:25:11 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A09DF600AD;
-	Fri, 14 Aug 2026 02:56:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A0A21F000E9;
-	Fri, 14 Aug 2026 02:56:38 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BE81740D6E;
+	Fri, 14 Aug 2026 03:25:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1B5E1F000E9;
+	Fri, 14 Aug 2026 03:25:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786676198;
-	bh=3IinE3EERWc6yXCwpp37aOo5C9ONkNdTpErOyVloYGc=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date;
-	b=YcgdltNi7kBCdNeGX06oUPdWsCvrcKvmYudlZeddfwNmGgulDsMTEK5+OaCKD/36n
-	 nzpUi1ohZ7Gc0IwleRuC0WXsnFZG6qjs33RRiJUkw5VwHdzON42W4J3Ghl3w0ji3lh
-	 4UYjfP2ctz+lh9qzBRLn1+Mwa+8LnRqW0SD1l863JdCubWOsLTLOsz9X8eKCw89QRL
-	 s4PokuVjhO+D1jpBwCI/hW4RAEa0UncMpKxijJW18we4+6b5Vmb1ncVk+It8QaZu4O
-	 xeoNr3iUbLX+f9XIW1198Lwip4xmnzi4rHCwQLVn641vmEaN4v+Nz7q0vgYLIt69L4
-	 I10EhEOcNoPlg==
+	s=k20260515; t=1786677909;
+	bh=y7mkYw3MhVvZznrtz4d6TGUxxwBotmFtBYc81IbTb0g=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=RGSR6aXo1jDngPqEJfL+/IGOmZkLbTGR2b3y10vC9VhRt5s/VnrjSZubjyTwBSTaX
+	 nNTXxzs5Zlg3LS3kfoMsSThNNG3ELVbnPSSpFR7L8/0Q6kfMFAaSUGlHDAueqn0MCy
+	 BxraMzy7gXOauYYAnU/72DZVBKAIGuKA6jRpI2p8a9HEZwTTX1Mphey5yEGv2CXOoF
+	 BuJ9AjmbWEmHEaqWiJeGarp8YR+bVimaf6ica02KscgUEZ8i5Ru1w+dg8yxDPml8ow
+	 uW4yU4B9QPQkoM2apZ3ELwTNK2qWLCt4PjmF6ZYvtjK8noSZwPVQeAd7dMvHxlh1OH
+	 rc01Puez3vihg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 56A613810900;
+	Fri, 14 Aug 2026 03:24:25 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20260801195540.235298-2-krzysztof.kozlowski@oss.qualcomm.com>
-References: <20260801195540.235298-2-krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH] dt-bindings: clock: Correct white-space style
-From: Stephen Boyd <sboyd@kernel.org>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-To: Alexandre Torgue <alexandre.torgue@foss.st.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Bartosz Golaszewski <brgl@kernel.org>, Brian Masney <bmasney@redhat.com>, Conor Dooley <conor+dt@kernel.org>, Gabriel Fernandez <gabriel.fernandez@foss.st.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, Matthias Brugger <matthias.bgg@gmail.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Michael Turquette <mturquette@baylibre.com>, Rob Herring <robh@kernel.org>, Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com
-Date: Thu, 13 Aug 2026 19:56:36 -0700
-Message-ID: <178667619639.5897.18080046231006197967@lazor>
-User-Agent: alot/0.12
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next v2] net: stmmac: intel: Add missing
+ pci_free_irq_vectors() calls
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <178667786389.3150297.7630316511132151539.git-patchwork-notify@kernel.org>
+Date: Fri, 14 Aug 2026 03:24:23 +0000
+References: <20260810-flo-net-stmmac-default-affinity-core-v2-1-d2105780b8ca@siemens.com>
+In-Reply-To: <20260810-flo-net-stmmac-default-affinity-core-v2-1-d2105780b8ca@siemens.com>
+To: Florian Bezdeka <florian.bezdeka@siemens.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+ alexandre.torgue@foss.st.com, boon.leong.ong@intel.com,
+ weifeng.voon@intel.com, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,13 +76,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Krzysztof Kozlowski (2026-08-01 12:55:41)
-> Correct a few white-space issues, like double space after '=3D' or before
-> bracket '{' characters, which will be flagged by dt-check-style.  No
-> functional changes.
->=20
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> ---
+Hello:
 
-Applied to clk-next
+This patch was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
+
+On Mon, 10 Aug 2026 15:19:17 +0200 you wrote:
+> The IRQ vectors allocated in stmmac_config_multi_msi() or
+> stmmac_config_single_msi() where never explicitly cleaned up. As
+> pcim_enable_device() is used, all sorts of other functions are switched
+> to managed mode. The missing cleanup here isn't actually missing, it's
+> buried in the depths of PCI code.
+> 
+> But: There are some ongoing activities to remove that cleanup magic.
+> See the linked discussions below.
+> 
+> [...]
+
+Here is the summary with links:
+  - [net-next,v2] net: stmmac: intel: Add missing pci_free_irq_vectors() calls
+    https://git.kernel.org/netdev/net-next/c/a7c44619c697
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
