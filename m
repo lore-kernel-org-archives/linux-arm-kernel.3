@@ -4,79 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8337BC5CFC1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 17:34:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2973EC5CFCF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 17:46:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H24ZRelcLqUPv7V5dnsfABF8idbNok51QAO8v9aIS+k=; b=wNKf8Q1JrGfEPIvPaw1/VRkRP2
-	H+ufXcsi+UJSeYuidwGCwewn7DAw7ZodEUBdPuD6gx9s2y6NmvO1e5TaI+ny+KIjnNJhe139xW2jc
-	HEe98qY3M0mJ5VbR/9XY3pXDquVRJ+jANuqbrlVow9dZySkJ+mHaeug3K1huRFKc5YQ3+aExLs7BU
-	QKuS8xJS79EP4IpSNhlKbY+dSkL4LzODQAaqdjW4gw97cPICl5LM7L3vQCDh2yFpGLPu0bZU30VZ3
-	PokH13WpSOoI8DzFpmeGZMghgpVnx5pU7BctK5oGleP54Fo8vdNYWLlwW/nUsxed/ttO2tF0gtaTV
-	MjajoQdA==;
+	bh=i1r2xPJfkJhEKLocmkcDET9WPaG8FwcMD2/2OeeTJFY=; b=wiLz663zQVBcf+QnIl8TFdvh2P
+	ehSYE06t2y3rMfuPZ6BwyEhS/I2G9zIz/ZhnlVkxLnfeplHlAuZehniNFYu+MhLxHKDOoZ0Odm+j+
+	XVUYSf4/KP093iLF6dreNQ9V5G1ll8LCHhaObCN08Pg9bxD2hau0laW2TX5VEyRKD8YSPFLWs3vUM
+	1euGTSJSRIoAMTq6nXnyG2t6KkfKqIecWXVB75QDcgCaffsawfjQ/l/IICvYf9AejP9FCmoLGtZBv
+	d5VVI1IfEDw0XqWC3kMOWfQ+/AeDrPJwHu/SwCKaNwxZx3MVUygRlu/bdq5QBbAJbG+j6GTHsPa6E
+	3PxfQNBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuvnv-0000000302g-3stu;
-	Fri, 14 Aug 2026 17:34:51 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuvns-0000000302G-2wlr
+	id 1wuvzC-000000030Th-3sHk;
+	Fri, 14 Aug 2026 17:46:30 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wuvzA-000000030Su-336A
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Aug 2026 17:34:49 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7D9611516;
-	Fri, 14 Aug 2026 10:34:42 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3CB4D3F66F;
-	Fri, 14 Aug 2026 10:34:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786728886; bh=u3T9edAxlh7yKorxUAb9VAjz6kQdSTTbvHmmGeDDHoU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ppm7pmp8E9oVikMGpVoQQWvjA2spsMWcUEwM5vXpRx2erTjnP16IFLrGmEifQQ7DC
-	 8sLEvBHanZyBCAqJAEiPNurm8WKYBKyyxL14TwTjEu5odWeJbfPbCk4dKh+9cwcRrg
-	 SHpUIcPXbrmDNJK4N0VK054T4ts//EmbcSpr6RgI=
-Date: Fri, 14 Aug 2026 18:34:39 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
-	Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>, Jason Gunthorpe <jgg@ziepe.ca>,
-	Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
-Subject: Re: [RFC PATCH v2 2/2] dma: swiotlb: Initialize and size shared
- default pools for memory encryption
-Message-ID: <an9RrwoaAsqJQ2vN@arm.com>
-References: <20260813102521.1367737-1-aneesh.kumar@kernel.org>
- <20260813102521.1367737-3-aneesh.kumar@kernel.org>
+	Fri, 14 Aug 2026 17:46:29 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-47fe377a217so825103f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 10:46:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786729586; x=1787334386; darn=lists.infradead.org;
+        h=content-type:mime-version:references:in-reply-to:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=i1r2xPJfkJhEKLocmkcDET9WPaG8FwcMD2/2OeeTJFY=;
+        b=NYjsuojqx/awVlXbWQbx9+J4VzNwpm33lIIZSm9klGKXxTs7rkW+7ZiCPwm7edOO3v
+         PVP7lX5oFjLVNqOammhF8IHQ4/kuv3e6pOGz/t1d9OyYibIasdzJKvJU3BD7nCIRTRP5
+         JKzmLn60vkAKmLCGY7eKHz3Z0wmSVgehr+BFXyQpzPuJkkTau0wm+YupktMzd6cZkndG
+         dryOLsn+CIn9vh8t7B2TH97tPc3PuGpI+l1IIxO6yLK2odZLW/w3+B3low7S1MtsQDQj
+         TZB805SyMDpm5ZDb0AKF825I++uOgj0TB+ixaTRAe4NZCJPCkFRn8RUECqiJ5ncQUVyp
+         TjZg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786729586; x=1787334386;
+        h=content-type:mime-version:references:in-reply-to:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=i1r2xPJfkJhEKLocmkcDET9WPaG8FwcMD2/2OeeTJFY=;
+        b=ETNLgOZFskM8XcyUjMgP5ZSyv7qs2m5fPt/nNZ4uBYYhxDidyjhdIn9y1NJtfnNr8z
+         c/Htf9xAnYiRxGcgmykk+85Ga+IhHQIpm+7YaB1M+IDzZqukfgJzyPK7z8kSbFEJHu1e
+         QogSxtWZ/D9HCAEpTXs1j1XHCRPYd9NL7fSW4VKUeS1j9FKtPQZ7ldo1OOdgx2Q6eL2W
+         tIrO4n9vtKR2KD3dtP2Is5vrl7VcJI1DiQkjCGwecJdUN6ZUPwUwp0r4ZoKyjIGt2eiA
+         4oI5XGfxWtAhS4pS4RBQR1Ddt3xG0WmpdmJXlqUHHxhVDfAacTbi5Qn4Bo4VCajI71IJ
+         +E9w==
+X-Forwarded-Encrypted: i=1; AHgh+RpnfDvm82OeCpfEejWP0KzBwf+mAUJSZTXtH18oApU9fTZlfbrVeNTTyUsRTy/2biGN/YH5Xq4vZQZZKnxPU57Z@lists.infradead.org
+X-Gm-Message-State: AOJu0YwVEREx3rLvITYxIISdNl2BXdTF2rxQv/p4Ekn+9bJN7/siKUvw
+	ueVIYe+yje20VL+jNbXgoe3V6Jp2tVzK3IXO7YD7q6YjUkZQk4OeDurU
+X-Gm-Gg: AR+sD10N9kHNwy2bM7Ms7hBuh4WPxn3QiSW2Xhxs7KhHmbRJRr2agJimfTs/RwmHM7d
+	YiFIwDvksurPAer7AizBiBqDsR8zaZERA31m3afFjqJoFNGTjDEGhIUbWtms6kmw4mTzl5DUenQ
+	RTNK2dgKYz/K9fO/7jwj13YEQxe7OyWdyzflsuKXuq80ONim35i0UGmfZXS6f0WQ95PVS/qs1yN
+	l1oy3xMK0XSX5yg0HikPGUMn9zB1d+F6SLVoXbsvJF6AZ4VBqvSuErWUJEw5rQmSRAV5A861TUO
+	xAwlgihrEFgtF+7kNRzndFXAbqEQIi7AVdzK17Idl4QJQBoeifQ5HhDgb67rReSspHs1xzd/QDb
+	fe/iZMiDJfyTjuH2EOiGkA6Y2saGnaW/eokmd0YZL3e6Xbdn5kfhr8CTCQB085aZAwB0Fdn0KmV
+	ln9W6O8P517clMdpdm4+Oqe1q4BQknR2VjapaV/rCtKX9wbRNVHzVixYJ1OA+7+7sI3kfkqxpeb
+	RsqDwZs8Xo=
+X-Received: by 2002:a05:6000:2087:b0:47f:96e6:70a with SMTP id ffacd0b85a97d-481606bcec4mr8999132f8f.0.1786729586010;
+        Fri, 14 Aug 2026 10:46:26 -0700 (PDT)
+Received: from strix.localnet ([197.250.226.224])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4815f219d3dsm10124274f8f.14.2026.08.14.10.46.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 14 Aug 2026 10:46:24 -0700 (PDT)
+From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
+To: Lee Jones <lee@kernel.org>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Brian Masney <bmasney@redhat.com>,
+ Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Russell King <linux@armlinux.org.uk>, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
+ mfd@lists.linux.dev
+Subject: Re: [PATCH v10 04/12] mfd: zx297520v3: Add a clock and reset MFD driver
+Date: Fri, 14 Aug 2026 20:46:11 +0300
+Message-ID: <gxF9XGmoS_qmWIfVagXDVQ@gmail.com>
+In-Reply-To: <20260812131503.GR1072730@google.com>
+References: <20260810-zx29clk-v10-0-63846490712c@gmail.com>
+ <20260810-zx29clk-v10-4-63846490712c@gmail.com>
+ <20260812131503.GR1072730@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260813102521.1367737-3-aneesh.kumar@kernel.org>
+Content-Type: multipart/signed; boundary="nextParthu9EI7NhQy6giXCUf6L9sg";
+ micalg="pgp-sha256"; protocol="application/pgp-signature"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260814_103448_822851_D345FA98 
-X-CRM114-Status: GOOD (  33.81  )
+X-CRM114-CacheID: sfid-20260814_104628_793729_1B89FD86 
+X-CRM114-Status: GOOD (  20.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,172 +108,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 13, 2026 at 03:55:21PM +0530, Aneesh Kumar K.V (Arm) wrote:
-> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-> index 9f5b366d2086..c3188ca878f3 100644
-> --- a/arch/arm64/mm/init.c
-> +++ b/arch/arm64/mm/init.c
-> @@ -338,12 +338,8 @@ void __init arch_setup_zero_pages(void)
->  void __init arch_mm_preinit(void)
->  {
->  	unsigned int flags = SWIOTLB_VERBOSE;
-> -	/* pKVM uses restricted-dma-pool */
-> -	bool cc_guest = is_realm_world();
->  
-> -	if (cc_guest)
-> -		flags |= SWIOTLB_INIT_CC_SHARED;
-> -	else if (max_pfn > PFN_DOWN(arm64_dma_phys_limit))
-> +	if (max_pfn > PFN_DOWN(arm64_dma_phys_limit))
->  		flags |= SWIOTLB_INIT_ADDRESSING_LIMIT;
->  
->  	swiotlb_init(flags);
+--nextParthu9EI7NhQy6giXCUf6L9sg
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
+From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
+To: Lee Jones <lee@kernel.org>
+Date: Fri, 14 Aug 2026 20:46:11 +0300
+Message-ID: <gxF9XGmoS_qmWIfVagXDVQ@gmail.com>
+In-Reply-To: <20260812131503.GR1072730@google.com>
+MIME-Version: 1.0
 
-This looks fine. As I mentioned on patch 1, we might as well move this
-hunk over there and avoid the flag definition.
+Hi,
 
-> @@ -102,9 +101,6 @@ void __init mem_encrypt_init(void)
->  
->  void __init mem_encrypt_setup_arch(void)
->  {
-> -	phys_addr_t total_mem = memblock_phys_mem_size();
-> -	unsigned long size;
-> -
->  	/*
->  	 * Do RMP table fixups after the e820 tables have been setup by
->  	 * e820__memory_setup().
-> @@ -112,33 +108,9 @@ void __init mem_encrypt_setup_arch(void)
->  	if (cc_platform_has(CC_ATTR_HOST_SEV_SNP))
->  		snp_fixup_e820_tables();
->  
-> -	if (cc_platform_has(CC_ATTR_MEM_ENCRYPT))
-> -		x86_swiotlb_flags |= SWIOTLB_INIT_CC_SHARED;
-> -
->  	if (!cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT))
->  		return;
->  
-> -	/*
-> -	 * For SEV and TDX, all DMA has to occur via shared/unencrypted pages.
-> -	 * Kernel uses SWIOTLB to make this happen without changing device
-> -	 * drivers. However, depending on the workload being run, the
-> -	 * default 64MB of SWIOTLB may not be enough and SWIOTLB may
-> -	 * run out of buffers for DMA, resulting in I/O errors and/or
-> -	 * performance degradation especially with high I/O workloads.
-> -	 *
-> -	 * Adjust the default size of SWIOTLB using a percentage of guest
-> -	 * memory for SWIOTLB buffers. Also, as the SWIOTLB bounce buffer
-> -	 * memory is allocated from low memory, ensure that the adjusted size
-> -	 * is within the limits of low available memory.
-> -	 *
-> -	 * The percentage of guest memory used here for SWIOTLB buffers
-> -	 * is more of an approximation of the static adjustment which
-> -	 * 64MB for <1G, and ~128M to 256M for 1G-to-4G, i.e., the 6%
-> -	 */
-> -	size = total_mem * 6 / 100;
-> -	size = clamp_val(size, IO_TLB_DEFAULT_SIZE, SZ_1G);
-> -	swiotlb_adjust_size(size);
-> -
->  	/* Set restricted memory access for virtio. */
->  	virtio_set_mem_acc_cb(virtio_require_restricted_mem_acc);
->  }
+Thanks for your feedback!
 
-Credit to claude, it noticed a slight change in behaviour for x86 w.r.t.
-the crash kernel reservation. crash_low_size_default() reads the swiotlb
-size but the resizing now happens after arch_reserve_crashkernel().
-Maybe not an issue.
+Am Mittwoch, 12. August 2026, 16:15:03 Ostafrikanische Zeit schrieb Lee Jon=
+es:
+> > +config MFD_ZTE_ZX297520V3_CRM
+> > +	tristate "ZTE zx297520v3 Clock and Reset Manager"
+> > +	depends on ARCH_ZTE || COMPILE_TEST
+> > +	select MFD_CORE
+> > +	select REGMAP_MMIO
+>=20
+> Is this used?
 
-Alternatively, we could build the sizing logic into
-swiotlb_size_or_default() but I haven't checked whether we have the
-right information when this function is called.
+Thinking about it: Not in the way the build system cares, so I'll remove it.
 
-> @@ -382,12 +374,54 @@ static void __init *swiotlb_memblock_alloc(unsigned long nslabs,
->  	return tlb;
->  }
->  
-> +static void __init swiotlb_adjust_cc_attributes(void)
-> +{
-> +	unsigned long size;
-> +	phys_addr_t total_mem = memblock_phys_mem_size();
-> +
-> +	/* Do not resize for host memory encryption. */
-> +	if (!cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT))
-> +		return;
-> +
-> +	/*
-> +	 * For SEV and TDX and CCA, all DMA has to occur via
-> +	 * shared/unencrypted pages. Kernel uses SWIOTLB to make this
-> +	 * happen without changing device drivers. However, depending on
-> +	 * the workload being run, the default 64MB of SWIOTLB may not be
-> +	 * enough and SWIOTLB may run out of buffers for DMA, resulting in
-> +	 * I/O errors and/or performance degradation especially with high
-> +	 * I/O workloads.
-> +	 *
-> +	 * Adjust the default size of SWIOTLB using a percentage of guest
-> +	 * memory for SWIOTLB buffers. Also, as the SWIOTLB bounce buffer
-> +	 * memory is allocated from low memory, ensure that the adjusted
-> +	 * size is within the limits of low available memory.
-> +	 *
-> +	 * The percentage of guest memory used here for SWIOTLB buffers is
-> +	 * more of an approximation of the static adjustment which 64MB for
-> +	 * <1G, and ~128M to 256M for 1G-to-4G, i.e., the 6%
-> +	 */
-> +	size = total_mem * 6 / 100;
-> +	size = clamp_val(size, IO_TLB_DEFAULT_SIZE, SZ_1G);
-> +	swiotlb_adjust_size(size);
-> +
-> +	if (!IS_ENABLED(CONFIG_SWIOTLB_DYNAMIC))
-> +		pr_info("Consider enabling CONFIG_SWIOTLB_DYNAMIC for memory-encrypted systems\n");
+The MFD child drivers call device_node_to_regmap(dev->parent->of_node), so =
+a=20
+MMIO regmap gets constructed for the MFD parent. But since the calls are in=
+=20
+the child drivers, REGMAP_MMIO shouldn't be needed to build and run this=20
+particular driver, and the child drivers enable REGMAP_MMIO on their own.
 
-I agree with Michael, let's drop this pr_info().
 
-> +}
-> +
->  static bool __init swiotlb_kmalloc_needs_bounce(void)
->  {
->  	return IS_ENABLED(CONFIG_DMA_BOUNCE_UNALIGNED_KMALLOC) &&
->  	       (dma_get_cache_alignment() > 1);
->  }
->  
-> +static bool __init swiotlb_default_pool_needs_cc_shared(void)
-> +{
-> +	/* A restricted DMA pool provides the shared buffers instead. */
-> +	return cc_platform_has(CC_ATTR_MEM_ENCRYPT) &&
-> +	       !restricted_dma_pool_present;
-> +}
+> > + * Copyright (C) 2026 Stefan D=C3=B6singer
+>=20
+> Personal copyright, are you sure?
+>=20
+> Is that okay with ZTE?
 
-I don't think restricted_dma_pool_present should change the cc_shared
-attribute. The rmem pool is all about sizing the swiotlb, not disabling
-sharing.
+I'm not affiliated with them. This work is my personal hobby project to hav=
+e=20
+some fun and learn things.
 
-Thinking some more, if other archs don't like rmem pool influencing the
-default swiotlb size, we could add a flag (SWIOTLB_SKIP_IF_RMEM_POOL or
-some better name). But only if people dislike the heuristics.
+I'm not copying code from their kernel dumps either, the quality of the=20
+drivers there is pretty atrocious.
 
-> @@ -437,9 +469,11 @@ void __init swiotlb_init_remap(unsigned int flags,
->  		io_tlb_default_mem.phys_limit = ARCH_LOW_ADDRESS_LIMIT;
->  #endif
->  
-> -	if (!(flags & (SWIOTLB_INIT_ADDRESSING_LIMIT |
-> -		       SWIOTLB_INIT_CC_SHARED)) &&
-> -	    swiotlb_kmalloc_needs_bounce()) {
-> +	if (swiotlb_default_pool_needs_cc_shared()) {
-> +		io_tlb_default_mem.cc_shared = true;
-> +		swiotlb_adjust_cc_attributes();
-> +	} else if (!(flags & SWIOTLB_INIT_ADDRESSING_LIMIT) &&
-> +		   swiotlb_kmalloc_needs_bounce()) {
+If ZTE wants to have copyright of the upstream drivers I won't stop them fr=
+om=20
+doing the work themselves :-)
 
-I think at a high level, we need (i.e. separate attributed from sizing):
+> > +enum zx297520v3_parent_type {
+> > +      ZX297520V3_INVALID =3D 0,
+> > +      ZX297520V3_TOPCRM,
+> > +      ZX297520V3_MATRIXCRM,
+> > +      ZX297520V3_LSPCRM,
+>=20
+> None of these are readable.  I suggest you improve the nomenclature.
 
-	if (cc_platform_has(CC_ATTR_MEM_ENCRYPT))
-		io_tlb_default_mem.cc_shared = true;
+I saw that most existing drivers use "undecorated" device names, i.e.=20
+"TOPCRM", "MATRIXCRM", "LSPCRM" in this driver's case. I am concerned that=
+=20
+"TOPCRM" is generic enough that a (future) global header might define a mac=
+ro=20
+or enum value with that name, so I opted to semi-namespace them with the So=
+C=20
+name.
 
-	if (cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT)) {
-		if (!restricted_dma_pool_present)
-			swiotlb_adjust_cc_size();	/* 6%, clamped */
-	} else if (!(flags & SWIOTLB_INIT_ADDRESSING_LIMIT) &&
-		   swiotlb_kmalloc_needs_bounce()) {
-		swiotlb_shrink_for_kmalloc();		/* 1MB per 1GB */
-	}
+=46ollowing the example of max*.c, what do you think of TYPE_TOPCRM,=20
+TYPE_MATRIXCRM etc?
 
--- 
-Catalin
+The rest of your comments are clear to me, I'll implement them in the next=
+=20
+submission.
+
+Cheers,
+Stefan
+
+--nextParthu9EI7NhQy6giXCUf6L9sg
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part.
+Content-Transfer-Encoding: 7Bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iQJPBAABCAA5FiEEQxb0tqoFWyeVMl1sPRO8yFRPGiIFAmp/VGMbFIAAAAAABAAO
+bWFudTIsMi41KzEuMTIsMiwyAAoJED0TvMhUTxoiPokP/iptbRf3/QgYkQF1HNMx
+5pOuSmrcFnzvT8WG+mpgA+2uorsOmUfPhxRF+BA9CgOgazibEyWWETdrkvPHy+/f
+See03pTw5mH4LSt90AOqFDCck47OmmAfzY3AP48o61IR47EiB5eFxf0r1S35tYuE
+ms1C/2a98Rw60mw+eFUz3iBHWOI5fX2+DXZjOaEf/Q7d5KsZyiHOg5QUop8bsmCh
+YRKrMdRwLIbT8nZQyEwLiMJlFGvzdDrZc2Vo39rsPFrRjP+FZGvUc7YIymjWXYi0
+m/GfFV6RQSmxxph+zLCnYfoG2MeHDc+ihgBRACTeYXy3B6FbOUNVfsCB3ENvw/4K
+P+OhBdxhxSIswe5KMDR1zUAeCQfNCsnrzXlLyhMxuFm1VwgzA/DJOucR96rj69hl
+Cne8/8AqirlMgKLNek1Fsze0DkKuxOLMsrDVHYTvlMMt/giA0EtsoQT9iNp7z0Q0
+/dqmTve95/f18m4sorji135TkTiEpmYTdtn1FZVY/2/aUD4z907S7mAomm7kYviq
+jIesXSWzh9SFfRugYKDWsk9AqiP7Av77bafFuLzpgQ5MBnsDPpYTdCZR0ngLaP3F
+phrCAX4IayRFni2+kBYkRMgaGosJolehc+mC04px0CwobqERnJGQGlVbRvuPYVJv
+jL7hUaUKDj90M7cPPNEtjQf9
+=kRv0
+-----END PGP SIGNATURE-----
+
+--nextParthu9EI7NhQy6giXCUf6L9sg--
+
+
+
 
