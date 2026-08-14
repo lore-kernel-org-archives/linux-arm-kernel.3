@@ -4,82 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1849DC5CFCF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 04:57:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB1D9C5CFCF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 04:57:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2w83qc5TmicNhbJwH3LL3cy3JhQtxVsFPjPDQ5bffRY=; b=Ozn8dTKOfIoMoh4REN1q6qvyKR
-	0657F2lyJinVRLDHKM6/uyJYTVzbWkLPKfm3Tb4I7EnYOxrePz/R9zKFfXKrYo/Bq3gL7+pnHVTkN
-	QXy1NAcSEEl51usGteuh/Y8schENQIoc7fTHYXGSznjawS6J/Ry7mtmEH2gjWnhKDFXJh3clrsGCs
-	9Kr0xMQSmicEKKi+CYMpKXV+1LMm6zRWKjJYwfC+goJKBEdL4KrZR/QBwCd1yy4gmed7dvB6qAlFX
-	nJq8Byd6Jgv1gXTSeao0kvc4NMV7s/Br3wjttRXXkeq/nlpMiGv+qtB6TXbXJ8DaLWgi3nR8/nehf
-	9Mpj/Leg==;
+	bh=UKEQlEwZMjKmYBgoCBXyrvg9G6ParjLNFQ61kbn3HyI=; b=FmdEZrqxgFYk2DTDrhPEzlG4YW
+	wQ73s6ldFwrRJdPEH+jT3YVt3X8quBmfM+k5pPRlyswvW6MsuDJ7I183uWW9xddVt4ocRWqZljcaA
+	8prtLuhb9MkbxYJwzg+xuXlxkFFu27GpFuj4OF+KPLtgAnKSc7+bB+2u/ecoi5W22KDTXbVTmIBMx
+	BwFzsp46pgjW9zAJKSSc9VnsNvGp6AWWQSW8H1s6rvIhq+L5g0o2upb5S7Avv8nu0JtoyLch/y8e5
+	stQiyHfRN4gzUfREPH3talHaKjMm7LZtyx/QAuKZQ/CL0aZazgqMiLPw+0CA4qnB7kCmziJPcTYGA
+	dUzBAXbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wujya-00000001x5s-094W;
-	Fri, 14 Aug 2026 04:57:04 +0000
-Received: from mail-westus3azon11010022.outbound.protection.outlook.com ([52.101.201.22] helo=PH7PR06CU001.outbound.protection.outlook.com)
+	id 1wujyZ-00000001x4W-03SR;
+	Fri, 14 Aug 2026 04:57:03 +0000
+Received: from mail-centralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c111::5] helo=DM1PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wujyT-00000001x1B-0b14
+	id 1wujyM-00000001wwb-13qr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Aug 2026 04:56:58 +0000
+	Fri, 14 Aug 2026 04:56:53 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=b+++EnExHYS3l6saQqoqav+Hvachw9ESZEU2fr8vhHiXbhs9ZknH9XGA+gaaq3WugaZe3w7UCwkkrIPjgWxJapekSwfOGJIMow8FcEFIwuyevrfdTDFaLcmynoOjI/U5yktjMj3ioGAb/YczGPK8MUrMAKR4RJPtE9/tlNAGmoocdFJfFt7EKZn47Ivbm1gnbXZvL9Xyfrh9WP9HYBEusPH5ZsJ1fuMCLPOMIt/c9XNwV0ibYhIHHsmf3t5GdPIOh/vs7Xl4XwKv18vxkilLkWJj4mW6UeCyUagFGScI2RZNLxNMCGiFnq5XTbto4uJRxPJJrNjO1WzTCyvYco2I4Q==
+ b=edAokBGtySjYmALgeGbzpL/I3euI+PAeJbCTdX4sLqgdqdbFzK4EDOUxPaxnEMhK7B6N5hGBwF8RFJJnVIpAQj3XBAIUrrYqQ9+GM9Vh5P1FNs0vs1J2vCYWV7U5aInuUbLDhj03vNSFGNylvKICmhwcIfgwt7XoDbg2t88xV7JWL2oJG+1STQ8Krxl72d6DGQ1z4H89Vmn3NOMKPCfE7ke0ereraf589j8eJ+8KJWUru/vcownlrkA1M4Yexk05XKdgKwI/mTs2sm6UxqSzX6IT/YI6U3MKqPcsUjQ3u5F8aewLfCfSZosIeS0lnrnvtzaCRNMmXPvMzNJy5zwUrw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2w83qc5TmicNhbJwH3LL3cy3JhQtxVsFPjPDQ5bffRY=;
- b=XZeqg0BWAvCVTc0RjHoPf8kw4WPwA8MC5d5SxA5mfe4iT3nMD4FAaG9k4kBwmbvet9WUA2d7rbVLOkD8cx4C7X96dOT8RoTIqyvlLHYeAFwwQ9Q5ECw32YmgzzAMntaumeylQE4Hfp0hKoM+JTCXerJqYP8uHuhEUyHtz1ZPgsoAshrzzwNFzNJC3n2DT1y9A994akiG3nLbwvDhEp+orIdkCfYBo3xeElPyl6GKQ1YooRf6rgmGe/H30KDaNzKROmnXRPLYyncjhw0mDvq8j2nTUdmGuvvLsFRJSoY1AyBtpiKZ3ZXgaeoNxywaD2b+1JieWy3ajQhCJmAbtUP1NA==
+ bh=UKEQlEwZMjKmYBgoCBXyrvg9G6ParjLNFQ61kbn3HyI=;
+ b=DTLDrpYbXCgn1TV4DAlty0VHe64Czk51rQAstQNqTVNPI/Pn/0CNfynAV5ql8iTdfPkr9s9oTuAEvOVwLHs663ovXmd4FpUQNf7jn61ZABcwz/Ip+BxMVHARzUiiYaBoFwsRfFHQ10Oo9cYIWiVKiiXJ+sAivqsBc41gxe8conFBh6H8iXIFqe/rAce/O+e0c0F5nj9ZBwSeZR26r3qXAnHwgD1KDC5vSNwywc633RDLFw724+BJQUdpnz0rFLXX56zyLKF5kJ2cJjsqYKfq0OiLM0VrEzmxX0Q/ic0ccnhfvqfDJie+WetAttdNjALk+CKAR7CgqIbT51M1PysgZQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
  (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2w83qc5TmicNhbJwH3LL3cy3JhQtxVsFPjPDQ5bffRY=;
- b=AZZPP7YDSedK00d+RNO+S7D9HRN1kKkecmJk4lSZ/nLXanFo7+W6m9xJUrO6dtL1amy55PcPyUoM1s0SMN7SX7+ytCL13ncxt+Ih1bfrQPjAAjDWWfFYP/E1MTLDIrWlTqWfAMfmbdGDaX0Sh+Sjm6jbxxkFJtUxRfi6w1/IEv4=
-Received: from BN9PR03CA0399.namprd03.prod.outlook.com (2603:10b6:408:111::14)
- by PH7PR12MB6933.namprd12.prod.outlook.com (2603:10b6:510:1b7::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.14; Fri, 14 Aug
- 2026 04:56:44 +0000
-Received: from BN2PEPF000044A4.namprd02.prod.outlook.com
- (2603:10b6:408:111:cafe::68) by BN9PR03CA0399.outlook.office365.com
- (2603:10b6:408:111::14) with Microsoft SMTP Server (version=TLS1_3,
+ bh=UKEQlEwZMjKmYBgoCBXyrvg9G6ParjLNFQ61kbn3HyI=;
+ b=AMFTL2aB5f6332v/psJKTYxTPiRhCg5tyB3QiPikSci+vV15uL9TOcbvTpFvkhbsC6YvHrFKCGQe3ITuGmqjejyy0etY7j5lYWELKYi7GcMJcky+yK2aFv3TaMBuMYwhVRtQK6B/su7mnqGyMBGrhUKbyKJFFkeCRS912xI7WbQ=
+Received: from DS1P222CA0004.NAMP222.PROD.OUTLOOK.COM (2603:10b6:8:454::6) by
+ CH2PR12MB4118.namprd12.prod.outlook.com (2603:10b6:610:a4::23) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.315.15; Fri, 14 Aug 2026 04:56:42 +0000
+Received: from CH3PEPF00000013.namprd21.prod.outlook.com
+ (2603:10b6:8:454:cafe::83) by DS1P222CA0004.outlook.office365.com
+ (2603:10b6:8:454::6) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.315.15 via Frontend Transport; Fri,
- 14 Aug 2026 04:56:44 +0000
+ 14 Aug 2026 04:56:42 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
  smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
 Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
  165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- BN2PEPF000044A4.mail.protection.outlook.com (10.167.243.155) with Microsoft
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ CH3PEPF00000013.mail.protection.outlook.com (10.167.244.118) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.339.3 via Frontend Transport; Fri, 14 Aug 2026 04:56:44 +0000
-Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ 15.21.339.0 via Frontend Transport; Fri, 14 Aug 2026 04:56:42 +0000
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 13 Aug
- 2026 23:56:43 -0500
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb10.amd.com
- (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Thu, 13 Aug
- 2026 23:56:43 -0500
+ 2026 23:56:40 -0500
 Received: from xhdappanad40.xilinx.com (10.180.168.240) by satlexmb08.amd.com
  (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.45 via Frontend
- Transport; Thu, 13 Aug 2026 23:56:41 -0500
+ Transport; Thu, 13 Aug 2026 23:56:38 -0500
 From: Golla Nagendra <nagendra.golla@amd.com>
 To: <vkoul@kernel.org>, <Frank.Li@kernel.org>, <michal.simek@amd.com>
 CC: <dmaengine@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>, <git@amd.com>, <nagendra.golla@amd.com>
-Subject: [PATCH V2 7/8] dmaengine: zynqmp_dma: Reject zero-length memcpy transfers
-Date: Fri, 14 Aug 2026 10:26:15 +0530
-Message-ID: <20260814045616.1661199-8-nagendra.golla@amd.com>
+Subject: [PATCH V2 6/8] dmaengine: zynqmp_dma: Use of_dma_is_coherent for dma-coherent
+Date: Fri, 14 Aug 2026 10:26:14 +0530
+Message-ID: <20260814045616.1661199-7-nagendra.golla@amd.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260814045616.1661199-1-nagendra.golla@amd.com>
 References: <20260814045616.1661199-1-nagendra.golla@amd.com>
@@ -88,28 +83,28 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN2PEPF000044A4:EE_|PH7PR12MB6933:EE_
-X-MS-Office365-Filtering-Correlation-Id: aa71fa25-09ea-4b9a-12f5-08def9c0700e
+X-MS-TrafficTypeDiagnostic: CH3PEPF00000013:EE_|CH2PR12MB4118:EE_
+X-MS-Office365-Filtering-Correlation-Id: cc12e42b-2160-44b8-0b0b-08def9c06efb
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|82310400026|23010399003|36860700016|22082099003|18002099003|56012099006|10067099003|11063799006;
-X-Microsoft-Antispam-Message-Info: Xsrc17x6uLIEdMSQqbNPNY57bS9g4MYy53wa9wcfZVOtzQjyCUxQTZUNbNvQboMH5eRZytnarFim1tu8DOVLQ6l5JloLC1SBFr4v/bnncNeRbgV9y4HmG7igeZjDZ2DZSqHOYAXdnUT6aWa5hIyjdzyN4mhSgZZ5rTZlQ6H7ipK0kr4l5iQnnblDWdn76gq3evwnRmJZBom0QSNkEm1LxeJqGsg8DfiSAKwbmNJFnapBSijIDpA8EciD+Lco0ANApoxbzkdQqhKQi9pPBWliUEDkmFws+bMDDBhwlsZhey04Hd2itbCfK9erk/u0YgJdxw84HnbXdJA/ivfvl1opIyFI3VZaE+exRsADzaospLfoIJv6EXjX6Cp4cVvkp8A9SX/LNAGOw4uvwq3Cs03BBRmPKO6GyUG+URYb8eQrpw7iLockA2S4AMpDTf6Zk38TYrO+cGDnmr1btLUAmrCTzH0JyVQ90xDRwLATRfh7FDEMQbmEyLkZxabwcIHYnPSGqoRFEoWrJEBTUFTf5LWp3tllbfyeAddzC3wzHsyrw+qn/5tDVdg5y/GTajPPSMgA3+oG2CceYGQsGT4KsSLaLstEEjURzFlV7w739kHGp5e1Zxu1K+bBAP1Iy7OTWkeE29/h+a+7zDShxrvSTvy+Ts6AzGl6docbUjLpwmMdFQx6pULmgVx0GIv3TdZXHw4JrbNzFQkIGZCJbJwPrGWSag==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(82310400026)(23010399003)(36860700016)(22082099003)(18002099003)(56012099006)(10067099003)(11063799006);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700016|23010399003|1800799024|82310400026|10067099003|11063799006|56012099006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: pkT6inmWZy2cvHeAileYEubkGLoCXM99lYtOwB5ak+CXMFWjuTUihYvS+Wn5z2LOBkoo0IWUqAQwMmMAWc6Au5Pv0MSL2pbUvMi+4l/hljGkK7Nj6pE/Lru+yd0KZkxtc8ECClfKcPoJ9sUdCbOAWarxe7o06T6Haoqh3IV/3L7RTE3K2yaUuc3KbdblXaEVRUpLaDf2P8B+To6eMZlNJWGFwEpU25JVNjUSP5Mu6tSDRWKS15a+S9vuw7F0CHu4p/48BYvS/HqK/Vo+ykIcLcZBeJ5r90KbY04ckrrHEyxGr/QHCDTwbJK+URuvyVeN/6AxJ+jgs9yUNx7U7RyA02W/f9GrWEknbJUxaWACH+MKTSdhx1MWH4fTHNUAsVOJ1IY0i6jojaqfWvyW9lTdEsl71q4xXZ+iWn19IOmKdqRrSZe0uhnJOqJasJOwXW0kGltKPNVBNlROJ2jJil9YR6/5issBnl7t6UcaDyGpapmwp01U/Vpp22UEm/nzZeatk0K7bQp33QnNgtJi8ivdU1dQ4j0tpAsmSpS8Io3bEwdK1UsA2osFcO8J3KIuJphl+dXfgtoGT/4E7NwUS5eOqENiQfQnoPzzjX4S+Pxpri6KaoGLhf1N4/63kfDfX54LOuCsE6T3VJLt8Wm1MIAg+NEtc3crJKedQwz1iz/2l1uvwMtrEnkpvgU85OYBdAs73edsELPdJnQvvrlOlt1wSg==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700016)(23010399003)(1800799024)(82310400026)(10067099003)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: NF9vQuWIvLQwRQXD5XbLaDXjYYSiINk/Oy3A11aFWl5ZqpKai464VjXDypUCJFHUIXBZtfo4uOSco8aQw1sbc6DqvXOizh/LE4P6mFPb4PneLHERB8V5NOKzpfe8ht8Q3nWtyCYjENRqEsm7Hodz1o8g1Y0yLe+BdnB0drmxaj+T/s0cS9asgdvvBOyexcEpCPusfYldw4UvswcSETp08OBtaCRhN5+Hni28+E0g9SFyT1CDfFh8FIM37bPcdc795FuK1l8Y+QVUs9wmTd7dG14yBHy/i2RKADeRt6L8gaxioeCwvWea4KhQ9HnQdtWQndXl9gd0Gy6e+jW7ZTHhEhEdfbAWRFeV3CZubbQSiI+QEBQh91DEXg7Zf/5tWX4qMtqP3OU9A8oQAieiY1ZZqxa9BGUI8e2zwLFM9Trogz7Gbuyiyo8Ifb/xxjTfFJat
+X-MS-Exchange-AntiSpam-MessageData-0: mBJqZF7hi5cL9jRAua7SA64d6poKpcwuo48hPbLLcQRZjwtnx3cfiqyIABWQY1O8j0y5GEBMiGqLTcaNPB9Ym2wKQtPI3n4TuiX4aVxyQ403IXivAs2eAJ/9AqpDZjtfWAPyytiIKBXBjkZVORuxc/6kxDpr5GddwNd2kuvQyAyw+usS+Q5eKcdGmLw0eI0rus7gmXgX4XGj7Q2oojSeZVYscJVRZhrhBw6CKJTwtoPUCaJSKg7gi5Pgp7J/wVikz4PPPcMSj5SzXibZXJ3c6sQClzDbYthp1W6dR4x2Jf2bHhQH0TLPg7UgGHw0IpWhVy5GHFTXVUT3OPqqzw6gTpmVblBK8R/+Kiz8jnmslCrv4kLXBrQrdzo/Ejq+HahvaZpYyJb++x7YnNEbnQm/QpU8bDJ/SqTDhhP7FQMJnDWFMH9JnuY01vw9pAYc2nrQ
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Aug 2026 04:56:44.1756
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Aug 2026 04:56:42.3621
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: aa71fa25-09ea-4b9a-12f5-08def9c0700e
+X-MS-Exchange-CrossTenant-Network-Message-Id: cc12e42b-2160-44b8-0b0b-08def9c06efb
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF000044A4.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH3PEPF00000013.namprd21.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB6933
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR12MB4118
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260813_215657_187838_95A960CF 
-X-CRM114-Status: GOOD (  11.42  )
+X-CRM114-CacheID: sfid-20260813_215650_301316_8A73F752 
+X-CRM114-Status: GOOD (  11.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,41 +119,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Zero-length prep_memcpy() needlessly consumed a descriptor slot. Reject
-zero-length memcpy at prep time and document the behaviour.
+Use of_dma_is_coherent() instead of parsing the common dma-coherent
+device-tree property directly.
 
 Signed-off-by: Golla Nagendra <nagendra.golla@amd.com>
 ---
-Changes in V2:
-- No change
+changes in v2:
+- Added as a dedicated patch based on review feedback to use of_dma_is_coherent() 
+  for the common dma-coherent property
 ---
- drivers/dma/xilinx/zynqmp_dma.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ drivers/dma/xilinx/zynqmp_dma.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/dma/xilinx/zynqmp_dma.c b/drivers/dma/xilinx/zynqmp_dma.c
-index 194abfd6cb25..921d3d9f6ed6 100644
+index 5e81e0d950e8..194abfd6cb25 100644
 --- a/drivers/dma/xilinx/zynqmp_dma.c
 +++ b/drivers/dma/xilinx/zynqmp_dma.c
-@@ -837,7 +837,8 @@ static void zynqmp_dma_synchronize(struct dma_chan *dchan)
-  * @len: Transfer length
-  * @flags: transfer ack flags
-  *
-- * Return: Async transaction descriptor on success and NULL on failure
-+ * Return: Async transaction descriptor on success and NULL on failure or
-+ *	   zero length transfer
-  */
- static struct dma_async_tx_descriptor *zynqmp_dma_prep_memcpy(
- 				struct dma_chan *dchan, dma_addr_t dma_dst,
-@@ -852,6 +853,9 @@ static struct dma_async_tx_descriptor *zynqmp_dma_prep_memcpy(
+@@ -12,6 +12,7 @@
+ #include <linux/io.h>
+ #include <linux/module.h>
+ #include <linux/of.h>
++#include <linux/of_address.h>
+ #include <linux/of_dma.h>
+ #include <linux/platform_device.h>
+ #include <linux/slab.h>
+@@ -947,7 +948,7 @@ static int zynqmp_dma_chan_probe(struct zynqmp_dma_device *zdev,
+ 	if (match_data)
+ 		chan->irq_offset = match_data->offset;
  
- 	chan = to_chan(dchan);
- 
-+	if (!len)
-+		return NULL;
-+
- 	desc_cnt = DIV_ROUND_UP(len, ZYNQMP_DMA_MAX_TRANS_LEN);
- 
- 	spin_lock_irqsave(&chan->lock, irqflags);
+-	chan->is_dmacoherent =  of_property_read_bool(node, "dma-coherent");
++	chan->is_dmacoherent = of_dma_is_coherent(node);
+ 	zdev->chan = chan;
+ 	tasklet_setup(&chan->tasklet, zynqmp_dma_do_tasklet);
+ 	spin_lock_init(&chan->lock);
 -- 
 2.44.4
 
