@@ -4,95 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7DF2C5CFDB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 13:30:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95BC4C5CFDB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 13:39:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ctx57rLzTDeEjtgOib9aUyoQxqr6yVBe4ltDl2pGqk0=; b=aJln8f3Kv25Wmz4EhB0cri3Xkg
-	MG4IngNZjXidFOeRTWsGGZEcoX9YXPpxZF33SSBYgNku5t+SMp+5/SLiHp50w9EB9v8deYjzG9Lr2
-	YoU/AfgEdLMVVXRqch4ERHh9RS/UxFjOuqUwY9zEjSYwLmMu6ei9ff1y3QRWcCUYmn/VXom8njl0c
-	iFhaL+9BkbhnTPoOphwFx9ZqGH9LAYxvs8Uy3oIUv5+Ch9wyyCSq0NUlx4A1/5MgU98uSKbC2ScXK
-	WbrYrO83rzMlahzwfZ/7V5+T1VaaHi4+Sc1p9zKdi7f2W+gxBc7POlw7gX+Zc7+UnQmrlUoD+TP/5
-	aI7BpKVw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=si0qdL0+WRVmcaDS3m3V+/d5WwTk85WNRswe6KdeyhE=; b=uQPbQqShuOwgDDaBqpEQm+dAOt
+	O37WihFOTCC/wNn19ZAeXSodyirj9csvK73TY8PXIyiQHl2GIVk1k6BbZv73uou7wTkWdJxM8nNkF
+	YO3wmaTA9B7EN0YVeKpP1pUbOHq2gQjidqoc3BIadaPtiZ+Brfobycc2Kl1FduCMGVYaAwE8g9uWZ
+	8o4I/oUXOjsL2H/Hq6x4nJIeQZryCbZiwi4QApDPuavNMdrDXMvdRgS8DCY3MDB37fnmxgR9yMBGQ
+	gf11mML4aLwYmvGlKJnquehkcR04F3YjQyRMJBqBgQYdQiYNsUNRSxk6gCIySipX+yjwNDlhJ8TwS
+	C4k1ALAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuryn-00000002im9-0pLX;
-	Fri, 14 Aug 2026 13:29:49 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
+	id 1wus8G-00000002jVG-0e3b;
+	Fri, 14 Aug 2026 13:39:36 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuryk-00000002ikh-2mYB
+	id 1wus8D-00000002jUh-1xh4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Aug 2026 13:29:47 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-6a18af264f9so209995a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 06:29:46 -0700 (PDT)
+	Fri, 14 Aug 2026 13:39:34 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-38e42560ebcso858235a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 06:39:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=soundtrack.io; s=google; t=1786714185; x=1787318985; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Ctx57rLzTDeEjtgOib9aUyoQxqr6yVBe4ltDl2pGqk0=;
-        b=lLijs7QAPta0iEA9GNtL51lzGbPTQTvUpCcJj137LPliLIF0Z85L1hYlYH+7gERgCQ
-         0WNXJvndsHRZM6ryntRWvY2p2z8qnZ6lFgtaXZ2UPY3WbdCTEHIGy/ziTwIcLgjLDI9a
-         IVVHriv3j3XH5+hrMWoErgqgsEsQg87u5dDG8t+yVeCWU+YfdHriSB+AZltSdEoEA6hQ
-         D/Z9ezEWWKIYJj0ithzD6FJduCzmHaB8m2jLwWlyFTbA3zro3UbmuJqA5oCe2ZmjZuov
-         SbL2abDial9W1bufExpNHmffqFX2tFjLlUnCpzRvCOY45iuV1diK9Tj/I0vDrRyIEqHi
-         mpmQ==
+        d=gmail.com; s=20251104; t=1786714773; x=1787319573; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=si0qdL0+WRVmcaDS3m3V+/d5WwTk85WNRswe6KdeyhE=;
+        b=cjKczEB/ByxBcxw+3Cb8GikqUZc7Tr/PDjSoY5aLmmhrde45v760Y3f6Kl8wEzDrWs
+         XRL4BJCBu+oh+lxKpBiA5kbXHTd7CAMFQyV1l9NaInj2L8UsiK8e0QzudOVZCgHasj23
+         336CrQz01BDVXOnATgAoAJYP3QjqpsGyoTrqkbG0Pyh07ethfHn+uDNGFwX+paKlaptg
+         Rh/KAawiu6hZkJu2ILAxaBNTtdNd2cpvHXQ/XAy3CbIVKU6D+TMWHVHzkfR5ZF6QpUOp
+         Pv/dzMUyCGNIFCyOlRX3QDOGxM3gx7rLBjXrerhLGdcF6wdHBj0myZgK4pazU1HdjPgN
+         n5PA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786714185; x=1787318985;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Ctx57rLzTDeEjtgOib9aUyoQxqr6yVBe4ltDl2pGqk0=;
-        b=dzBr16Vw9TneJL37Iesoyfd/r6uGMRg+V5+jCXaL7Jbcw9XvO7IJ9/E+dEEz/wqvBB
-         Tn3Nfo2xWLKh+urwIeBwtMP92OstIGXWMGGAq3mN/JLRWTXetMhpGJsgBltKNNYiijt6
-         fNaLCymsnvc9ExVEgui0I6qTLoayelcu+/el9YD/YnoNUJwdLyxbx3XOVhc7H+g3oN3F
-         X4cC+u9xEuz/5CgEYakGu84BUpK2Go0m7kHpnL4HXl7DTK2e/CeyXozgfSEfl7kBxm1Z
-         EslhatXDZZi6zGO1r7iyWCRslu2FCA5KHsMu6W0gSkoyCCsiXTJbAU9r7yUqtp3Cm7GW
-         ToXQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rp1CW2O1hxjV1pm6Ag9UrefDFtPmXG5DZCTWd1mGevld5Vbuj+GErYj/D740P3VPUUfUhThNuf8u7yZQUuaLxGl@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzm3y2QhXNokQJiCZ/IND1clB0m+mSc/BHLMaNBQ3Z20dfYoecG
-	pJn8mF3H51ld/AlsXzpJMtBxIf+y/tRf1+MQ/qhSDYl7THW1NGUOjJgXCfCjOGA652g=
-X-Gm-Gg: AR+sD10TFcoLwPoRYMzV7L4bMSgu83GhTVwTzKSDkcyZZFZoadLDkbZDPj6lN4e0oKw
-	nxaxzKL0pna8/EdcFOBuAan8EODMLMKsb3rfVCNZGwxWnYKQEjwI9QdfEUPNWBSpn7GyO8+biIV
-	D6b8vx8s20JQm9UL9BAU15lOJztWd9apYCs09kHWmo2mI8fKOXD7dJ0fgQrH8xOGUSfUSOi/Hqc
-	m2HWeRHeOfRdcdCFx/2feOwUSBy2T+BM7NdfIdHwdE3I33MPukkD1s+6VIGXw+B2VQj4GLmNCZp
-	F1H3SbZvBrVchlGTOWYK/JTGLmdi1opdQFnpERF2FR2N90vzSI/HJbOKC3cZpPvIIb3XyyCx7QA
-	PWPCTVd6P8NXhaj/Qk9lPfaavKHutSqRX4QvSXTuORjZ5W2zlTYvGgRWPDaQoC0qu1eFcD/ROIx
-	e/tcTa1yM4yBaPXN25L6pD9AuDHlO98p1hUYENjG5Wos0/fz61yxJIT5oof3LGh4EDdN3BJbYJ9
-	Fs09HKN5xQ3hJBdqm6Z82AGCO8Q5vpvtygOFDMos0J+bKuMH20gAsgHrHsk5ZAD9QLj
-X-Received: by 2002:a05:6402:3881:b0:6a1:faeb:c519 with SMTP id 4fb4d7f45d1cf-6a38a97752amr1392217a12.3.1786714184680;
-        Fri, 14 Aug 2026 06:29:44 -0700 (PDT)
-Received: from Christians-MBP (31-209-40-223.cust.bredband2.com. [31.209.40.223])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a38c9d5eb2sm841941a12.5.2026.08.14.06.29.42
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 14 Aug 2026 06:29:44 -0700 (PDT)
-From: Christian Lugnberg <christian.lugnberg@soundtrack.io>
-To: vkoul@kernel.org
-Cc: Frank.Li@kernel.org,
-	wens@kernel.org,
-	jernej.skrabec@gmail.com,
-	samuel@sholland.org,
-	dmaengine@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
+        d=1e100.net; s=20251104; t=1786714773; x=1787319573;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=si0qdL0+WRVmcaDS3m3V+/d5WwTk85WNRswe6KdeyhE=;
+        b=USi+2VEskc3E2BW5uddbtAmxYBrho7gXdcLN7Q8hedAhslZXSoopSgLnYzXoo476HI
+         xHO6RzTHjuVftzw3ow4MAWadzr1C6SFOtaaA6XdVybJXt19jnGzVXRfUDIt0kuYfOUlY
+         pI1W+WWfosVUtrL7F/17ctZzGtL4dSJdV3oPWduvlmHYLT9RfRYJ5H3KcokaFq1HOO/T
+         zgKaIdfMOPK8bPGYNmNncEWduR3KcQ2tPLXyZxoYDxAJwiFhJIHfa9rYZiRHSyUrXNTu
+         lj3BZXDNpF9GcU0GpsnSMbeVOwIqD/3QAEwteHaJX9Jls4C/e6SeQOi/jtBX6JeI1bd4
+         AdjA==
+X-Gm-Message-State: AOJu0Yx11pNEDB1kZR+LcW7ujA1z11iXVlMsD3tAd5OXzUVV7OKd4jhP
+	NxLFDyKBvGkrNMBpt2Fb9El4PEDBWSA/KjwPhZSjRPmq6Bs6gEQNDh63
+X-Gm-Gg: AR+sD11xHMK2LCJh61wPRaeVSTO2eF/iKA/Uq0EmrFnV5EoD+IWyx+wqHy7qLgZOdz0
+	AgX8QLgO4yc0CxgaFkHJaXQOjQW8CG122zGR8/N3ynl1LpViF4Pa0MEhuGFdJ7xvl92uKjzKV/H
+	jd3suY6T31a+rDlOik2H8BAGOsXiSoT9kpFMAkJjGtfG+wxK804mzF46KzfbK9Ao6hmkDMK9LF5
+	KbgXz5xQGjnleYfepL4ooOdfuLc6XK+JeaNafMBof7C04VwEKk2EoRFWbWvOX2oqduE0uYxvGca
+	D6KVFT7+0GgOG/mRpJZMKUrMIZ8ypdfUFdOP9vlr0nM5zMi4xg9j+O9yinEuWAW0YmlS6G8ip2/
+	zBQTTAFhAeRQqo4DkuOpQ6T00JzBc1M04OrfSzvf0ywBxjk6m8xv/CHeRgNoiUkWWI1UqF9gHF2
+	JKRuJgdm8ycjHLAWrOVkIRcwhkEmRbcrgHPdYTX3R9uMKPaO0l7cK+P6wWqYCOiNQlKTeVSRJcc
+	0lpsO3L
+X-Received: by 2002:a17:90b:448c:b0:38e:6dd:a9ad with SMTP id 98e67ed59e1d1-3933b52354emr5655567a91.0.1786714772510;
+        Fri, 14 Aug 2026 06:39:32 -0700 (PDT)
+Received: from haichao.tail057a43.ts.net ([2001:da8:e000:1206:e9af:7c0e:be31:2c3f])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-394eaca8e4fsm2767080a91.12.2026.08.14.06.39.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 14 Aug 2026 06:39:32 -0700 (PDT)
+From: Ruoyu Wang <ruoyuw560@gmail.com>
+To: Shuai Xue <xueshuai@linux.alibaba.com>,
+	Jing Zhang <renyu.zj@linux.alibaba.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Yunhui Cui <cuiyunhui@bytedance.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Christian Lugnberg <christian.lugnberg@soundtrack.io>,
-	stable@vger.kernel.org
-Subject: [PATCH 2/2] dmaengine: sun6i: fix null pointer dereference in sun6i_dma_tx_status
-Date: Fri, 14 Aug 2026 15:28:30 +0200
-Message-ID: <20260814132906.70322-3-christian.lugnberg@soundtrack.io>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260814132906.70322-1-christian.lugnberg@soundtrack.io>
-References: <20260814132906.70322-1-christian.lugnberg@soundtrack.io>
+	Ruoyu Wang <ruoyuw560@gmail.com>
+Subject: [PATCH] perf/dwc_pcie: Fix PCI device reference leak in probe
+Date: Fri, 14 Aug 2026 21:39:25 +0800
+Message-ID: <20260814133925.1385687-1-ruoyuw560@gmail.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260814_062946_747967_269FD08A 
-X-CRM114-Status: GOOD (  15.49  )
+X-CRM114-CacheID: sfid-20260814_063933_510764_1F11B282 
+X-CRM114-Status: GOOD (  13.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,62 +101,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-sun6i_dma_tx_status() calls vchan_find_desc() to look up the virtual
-descriptor for a given cookie, then unconditionally dereferences the
-result via to_sun6i_desc() before checking whether the pointer is NULL:
+pci_get_domain_bus_and_slot() returns a referenced PCI device. When the
+subsequent RAS DES capability lookup fails, dwc_pcie_pmu_probe() returns
+-ENODEV without releasing that reference. Repeated failed probes can
+therefore keep the PCI device allocated after removal.
 
-    vd = vchan_find_desc(&vchan->vc, cookie);
-    txd = to_sun6i_desc(&vd->tx);   /* vd may be NULL here */
+Move the existing pci_dev_put() immediately after capability discovery
+so the temporary lookup reference is released on both success and
+failure paths.
 
-    if (vd) {
-        for (lli = txd->v_lli; ...)
+This issue was found by a static analysis checker and confirmed by
+manual source review.
 
-vchan_find_desc() returns NULL when the descriptor has already been
-completed or is in-flight on a physical channel and no longer present
-in the virtual channel's descriptor list. Dereferencing NULL via
-to_sun6i_desc() in that case is undefined behaviour and will oops on
-any architecture that faults on NULL pointer access.
-
-Move the to_sun6i_desc() call inside the if (vd) block so it is only
-reached when vd is known to be non-NULL:
-
-    vd = vchan_find_desc(&vchan->vc, cookie);
-    if (vd) {
-        struct sun6i_desc *txd = to_sun6i_desc(&vd->tx);
-        for (lli = txd->v_lli; ...)
-
-Fixes: 555859308723 ("dmaengine: sun6i: Add driver for the Allwinner A31 DMA controller")
-Cc: stable@vger.kernel.org
-Assisted-by: Claude:claude-sonnet-4-6
-Signed-off-by: Christian Lugnberg <christian.lugnberg@soundtrack.io>
+Fixes: 7f35b429802a ("perf/dwc_pcie: fix duplicate pci_dev devices")
+Signed-off-by: Ruoyu Wang <ruoyuw560@gmail.com>
 ---
- drivers/dma/sun6i-dma.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+ drivers/perf/dwc_pcie_pmu.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/dma/sun6i-dma.c b/drivers/dma/sun6i-dma.c
-index 04fe1f5042e9..7704b016aed8 100644
---- a/drivers/dma/sun6i-dma.c
-+++ b/drivers/dma/sun6i-dma.c
-@@ -981,7 +981,6 @@ static enum dma_status sun6i_dma_tx_status(struct dma_chan *chan,
- 	struct sun6i_pchan *pchan = vchan->phy;
- 	struct sun6i_dma_lli *lli;
- 	struct virt_dma_desc *vd;
--	struct sun6i_desc *txd;
- 	enum dma_status ret;
- 	unsigned long flags;
- 	size_t bytes = 0;
-@@ -993,9 +992,9 @@ static enum dma_status sun6i_dma_tx_status(struct dma_chan *chan,
- 	spin_lock_irqsave(&vchan->vc.lock, flags);
+diff --git a/drivers/perf/dwc_pcie_pmu.c b/drivers/perf/dwc_pcie_pmu.c
+index 5385401fa9cf6..baa736fd9a6ef 100644
+--- a/drivers/perf/dwc_pcie_pmu.c
++++ b/drivers/perf/dwc_pcie_pmu.c
+@@ -710,10 +710,10 @@ static int dwc_pcie_pmu_probe(struct platform_device *plat_dev)
+ 	}
  
- 	vd = vchan_find_desc(&vchan->vc, cookie);
--	txd = to_sun6i_desc(&vd->tx);
+ 	vsec = dwc_pcie_des_cap(pdev);
++	pci_dev_put(pdev);
+ 	if (!vsec)
+ 		return -ENODEV;
  
- 	if (vd) {
-+		struct sun6i_desc *txd = to_sun6i_desc(&vd->tx);
- 		for (lli = txd->v_lli; lli != NULL; lli = lli->v_lli_next)
- 			bytes += lli->len;
- 	} else if (!pchan || !pchan->desc) {
+-	pci_dev_put(pdev);
+ 	name = devm_kasprintf(&plat_dev->dev, GFP_KERNEL, "dwc_rootport_%x", sbdf);
+ 	if (!name)
+ 		return -ENOMEM;
 -- 
-2.54.0 (Apple Git-156)
+2.51.0
 
 
