@@ -4,116 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC3BAC5CFC1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 14:11:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47FBDC5CFC1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 14:14:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:Subject:References:In-Reply-To:Message-ID:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a6Tr53R1oyo5DF6Qa5INdwaCZq7w4p85RVWoodqQmV8=; b=tfwbC0gPcyb6pcvvskEG/UFoux
-	CB/FmvqtUmk5c504s0aRsK/jQXiISxbxX5frghhtv0lury2jMhRju3/RMWd/zbDseOQCwqUAmGf1B
-	AcwUewNw2n//uV/5eA1B6EM7RxfL4KSKZq2/v8SSVzNL76dhRZ+NDL8tIUN9yRbV4Pdqj3avyQo+s
-	Jw5mkWMLwwvhUocZTsjM8V/2/9L2/1ZBeSqh6Gy29uyiTVbdXmOHmMsH4O+Pr3JL/UvNmnNQhqlI0
-	5v38/rAgtaiBKxw9k6jMaVhhmSSW5jkcoQ87wdjJuqhj19nRAH6dQ6eFCsPCwRZXpiz/UZfEJ6kyL
-	M36tbkiQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+bcbWdhEjG87MX2EDCpS7KjqQqoX5OV3WWLuViRbRgg=; b=AyI0JQSc8ZoYFOfJ08HcgwGY9i
+	DH3Ahwp+Y4jaevNdRJYeG9dazbfUZWOtYM01ciK69tKQxoowhPNaJXcA5frgJyb2gta0v7iTjn2u0
+	sLx5+m/FcLACr7oCfOSm7d2Ul1KxTR2XNtbhj+c26kDqlWQxCb4JOB8l9f1Ih8lTTaeMHK6I698JI
+	Bc2yCynfUWDJ+AzSqhk47BmOT8nrE8LjJiwfADnB8SZE+ncPhSPGN+Lve4hpJTqkqWUNsVfFZzttc
+	prUXQouxTaTSTSsGeYlwAnScWQEOLclottE0QyogrSYhVvh6yr3qGtzB082xg5SBkrB+q+UKw2pLe
+	QktaTipw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wusd3-00000002lWA-36tY;
-	Fri, 14 Aug 2026 14:11:25 +0000
-Received: from mail-yw1-x112c.google.com ([2607:f8b0:4864:20::112c])
+	id 1wusfU-00000002lnn-1Bxq;
+	Fri, 14 Aug 2026 14:13:56 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wusd1-00000002lVA-28LI
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Aug 2026 14:11:24 +0000
-Received: by mail-yw1-x112c.google.com with SMTP id 00721157ae682-836c43641baso16350437b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 07:11:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786716681; x=1787321481; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:subject
-         :references:in-reply-to:message-id:cc:to:from:date:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=a6Tr53R1oyo5DF6Qa5INdwaCZq7w4p85RVWoodqQmV8=;
-        b=Pq1DWYXcXaxWjxHLzhkiXdpz7uNtS4nWGYHIYJ7waa0wikhwPIOyPvp7WkiqBMOSeG
-         wHpMjmNQ0s/Y7J4u8c4S7r1eCHpMuFoxj0uKyGZufQfrXpLNG86EEOqkFaTqF/Gj86rI
-         QUCJmzzwovb6+zmoxeWASyE17pNIhc9HegcfhvZqTMtdFWBZQ1C1RSWZyhUC0f2bDhsh
-         hkuJlQ6ueXaVhpIENybWwM0MAuf57xeId0tcFYOb0FiP1aOxQVRo8va1RTSuKPZKhSXw
-         OlAT6nZEelyyF1z72uW0f+oKBTprdHSFLsQj1UZKNC1OemulaQDUKwp/P5QFO38982B3
-         X3ZA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786716681; x=1787321481;
-        h=content-transfer-encoding:content-type:mime-version:subject
-         :references:in-reply-to:message-id:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=a6Tr53R1oyo5DF6Qa5INdwaCZq7w4p85RVWoodqQmV8=;
-        b=Cn+KMRzylBgOrSu6jp5iRgScYoKq/km0G+oiEvebnwOmaI4ayjnqdUbgyY7sZAjh05
-         OQvVx4AuqCoO1JMDN3F6A3iqllWwBKBU6BNpEtF3HdKV6E11iHxXVidN8pwRLT8/ZBK3
-         lcVSOUfFVLxlbkbjcGac6jAEeQU+bW2pkBPVl6NWJ+trlRjzmB04Ii//UXiVYTUon85R
-         +ZtE/QJ2cbBMwpH+p4KHJqW+r/LJaG83OKJUq3qgZnbeT/vSWdM1+I8cUfC4sUVDKn8l
-         K8AQa2AKv4DwUUWcbrEFn9o09pF8tbeGt3Jm4W7hgb72fPhFTXmeeOH5U0a+Vgy6DV4c
-         3mSA==
-X-Forwarded-Encrypted: i=1; AHgh+RpzeiXoZDoSrJ0EK2LOAnirju8lFVHEFfzZII5Pg5k4Mjgthm4vpfl+AjMLYogEeOuU1WYTi13rLnymiBPBPs/J@lists.infradead.org
-X-Gm-Message-State: AOJu0YyVEOQxTvGIUqNLIAshMyVXA5D33zQ3CsuGYGME7w1Y0TjZdz1L
-	Oj9yEtyqMGXJN8TJ8sdJ4sWCSwz7oOIVSc104kkZmGFbsHtdL+QzSikQ
-X-Gm-Gg: AR+sD11680SY3432pw535+DQYkyrNlrkusN0Au7Wz2+Jz1VmXowX3NxE6fpYN16WSlX
-	dLjMDC+dQ7ETKN4tP2Vwv/ns6ooNOauLJhPM+d7hB1+J/bf5Mb3QH5vzpzdQI5/c1yqzsHAxgC1
-	HDUqdKzh0k38M1rosnfDNJnFVvVfby4vFrHB3oEtYDVUzSYP9KtpbJSiwzeLDeMQWPfYoQKpIE4
-	UTxgIVJQsIeOizmMkO9QowXXB0cdeySELktYxlSjcJqcUlGCUPNjzj317bEhBMDeQWg830D5LYe
-	gel+47igdVrRMroBdfAzXZG+jNPW1TWcq9o8utZ7UmSAs8myD7T0MVlBGAwRTLn9qdkNbBkKWMA
-	XrEz/mC8jwdSGMWyjydsZQh98ZCh7/dRd9itmIOXnO0OZgJ6LmjOLwuLDbm+LUsD28wQgW+qZ0u
-	fHiOF9JLFM87tIkbr9ar2l7eFFqF0asX5tk7abSzozvdWkann9ecPXvdnSilgyhLjFte8m/EQdR
-	HZdAu97gm2EEUynMcj2WLwATrgrroSvlO6G8tu/sJjESY0=
-X-Received: by 2002:a05:690e:1c0a:b0:66c:4163:c4e6 with SMTP id 956f58d0204a3-66c72c75dc1mr2777139d50.26.1786716681408;
-        Fri, 14 Aug 2026 07:11:21 -0700 (PDT)
-Received: from gmail.com (250.4.48.34.bc.googleusercontent.com. [34.48.4.250])
-        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-66c79390cd0sm895319d50.19.2026.08.14.07.11.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 14 Aug 2026 07:11:19 -0700 (PDT)
-Date: Fri, 14 Aug 2026 10:11:19 -0400
-From: Willem de Bruijn <willemdebruijn.kernel@gmail.com>
-To: =?UTF-8?B?Wmhhb3BpbmcgU2h1ICjoiJLlj6zlubMp?= <Zhaoping.Shu@mediatek.com>, 
- "willemdebruijn.kernel@gmail.com" <willemdebruijn.kernel@gmail.com>
-Cc: "kuniyu@google.com" <kuniyu@google.com>, 
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>, 
- "imv4bel@gmail.com" <imv4bel@gmail.com>, 
- "eilaimemedsnaimel@gmail.com" <eilaimemedsnaimel@gmail.com>, 
- "alice@isovalent.com" <alice@isovalent.com>, 
- =?UTF-8?B?SFcgSGUgKOS9leS8nyk=?= <HW.He@mediatek.com>, 
- =?UTF-8?B?SGFpanVuIExpdSAo5YiY5rW35YabKQ==?= <haijun.liu@mediatek.com>, 
- =?UTF-8?B?SXZlbiBZYW5nICjpmLPlhYkp?= <Iven.Yang@mediatek.com>, 
- "horms@kernel.org" <horms@kernel.org>, 
- "kuba@kernel.org" <kuba@kernel.org>, 
- =?UTF-8?B?WGlheXUgWmhhbmcgKOW8oOWkj+Wuhyk=?= <Xiayu.Zhang@mediatek.com>, 
- "pabeni@redhat.com" <pabeni@redhat.com>, 
- "edumazet@google.com" <edumazet@google.com>, 
- "willemb@google.com" <willemb@google.com>, 
- "netdev@vger.kernel.org" <netdev@vger.kernel.org>, 
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
- =?UTF-8?B?TGFtYmVydCBXYW5nICjnjovkvJ8p?= <Lambert.Wang@mediatek.com>, 
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>, 
- "davem@davemloft.net" <davem@davemloft.net>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- "sd@queasysnail.net" <sd@queasysnail.net>, 
- "ncardwell@google.com" <ncardwell@google.com>
-Message-ID: <willemdebruijn.kernel.82fd3c4505e2@gmail.com>
-In-Reply-To: <ddb39bf238a544cb5c8a178dd0fc6e5cb682bbb1.camel@mediatek.com>
-References: <20260813014056.160533-1-zhaoping.shu@mediatek.com>
- <willemdebruijn.kernel.1372b82f50882@gmail.com>
- <0e1f71c4417099399eda78fd2a082b2444e42af9.camel@mediatek.com>
- <CAF=yD-+AF1aW5D5H_QPKE1yxyU2wLxOmT8c2Fm4CJsPY=BjW-g@mail.gmail.com>
- <ddb39bf238a544cb5c8a178dd0fc6e5cb682bbb1.camel@mediatek.com>
-Subject: Re: [PATCH net v3] net: gro: Fix nesting of TCP GSO SKBs in
- skb_gro_receive_list()
-Mime-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260814_071123_560177_FDDEB808 
-X-CRM114-Status: GOOD (  32.39  )
+	id 1wusfS-00000002ln6-3CaR;
+	Fri, 14 Aug 2026 14:13:54 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 141C242EAB;
+	Fri, 14 Aug 2026 14:13:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D8171F00ADB;
+	Fri, 14 Aug 2026 14:13:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786716834;
+	bh=+bcbWdhEjG87MX2EDCpS7KjqQqoX5OV3WWLuViRbRgg=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=VRIsCI+wsyEJPBVrNxqIkYblBa0FJMS39qhQqpJVSpaa68D+KRJoneTkVv9Wg01nK
+	 +qyA6K77Yht+pbPVqui1YNP/9292nCif/6kF7yvT7ne4ZGaV6FExvwv2owHiZxFx5q
+	 AEjiFLNWibXageWnmRHWprOz+aGcR64gT2twrAWt8V39APc24rl5j/PAdRmEiGCxDw
+	 ZRr5tYhhaknltz5tF5igLnjglzhmOsgkf6d4b75sTSgxlMUYuFNNduZ++JCsD+JT4C
+	 IutIJIsr13BP1wADQsVBbyYSSvKbDW8cvFSskjxprq4txm+DsrUeK8Kkv0V0LnjKw3
+	 x5P5qtohP3Tog==
+From: Pratyush Yadav <pratyush@kernel.org>
+To: Mukesh Pilaniya <mpilaniy@redhat.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,  Will Deacon
+ <will@kernel.org>,  Mark Rutland <mark.rutland@arm.com>,  Huacai Chen
+ <chenhuacai@kernel.org>,  WANG Xuerui <kernel@xen0n.name>,  Paul Walmsley
+ <pjw@kernel.org>,  Palmer Dabbelt <palmer@dabbelt.com>,  Albert Ou
+ <aou@eecs.berkeley.edu>,  Alexandre Ghiti <alex@ghiti.fr>,  Andrew Morton
+ <akpm@linux-foundation.org>,  Baoquan He <baoquan.he@linux.dev>,  Mike
+ Rapoport <rppt@kernel.org>,  Pasha Tatashin <pasha.tatashin@soleen.com>,
+  Pratyush Yadav <pratyush@kernel.org>,  Tao Liu <ltao@redhat.com>,
+  Philipp Rudo <prudo@redhat.com>,  linux-arm-kernel@lists.infradead.org,
+  linux-kernel@vger.kernel.org,  loongarch@lists.linux.dev,
+  linux-riscv@lists.infradead.org,  kexec@lists.infradead.org
+Subject: Re: [PATCH] kexec: return -ENOEXEC from image probe functions on
+ mismatch
+In-Reply-To: <20260813-mpilaniy-v1-1-777d4d0e30f7@redhat.com> (Mukesh
+	Pilaniya's message of "Thu, 13 Aug 2026 12:36:29 +0530")
+References: <20260813-mpilaniy-v1-1-777d4d0e30f7@redhat.com>
+Date: Fri, 14 Aug 2026 16:13:49 +0200
+Message-ID: <2vxzv79c23j6.fsf@kernel.org>
+User-Agent: Gnus/5.13 (Gnus v5.13)
+MIME-Version: 1.0
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,93 +78,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > > > Would it be better to test skb_is_gso(skb) and only skip fraglist
-> > > > GRO
-> > > > for HW-GRO skbs, rather than disabling it for all skbs?
-> > > 
-> > > Yes, for tethering packets, HW-GRO skbs are aggregated by
-> > > skb_gro_receive(), while others go through fraglist GRO. However,
-> > > care
-> > > must be taken to avoid packets arriving out of order. I will work
-> > > on
-> > > it and submit V4.
-> > 
-> > Oh right.
-> > 
-> > As long as the choice is only between fraglist GRO or not fraglist
-> > (rather than GRO or bypass GRO), it should not introduce any new
-> > reordering concerns.
-> > 
-> > But the decision cannot be made based on skb_is_gso(skb) of an
-> > arriving skb. Because when such a HW-GRO skb arrives a SW GRO context
-> > in fraglist mode may already have been opened, and it is too late to
-> > convert that to non-fraglist.
-> > 
-> > So essentially HW-GRO and fraglist are mutually exclusive.
-> > 
-> > > > 
-> > > > If treating the features as mutually exclusive, another option
-> > > > would
-> > > > be to replace these datapath checks with disabling one at
-> > > > configuration
-> > > > time, in netdev_fix_features.
-> > > > 
-> > > 
-> > > If V4 work well, there will be no need to check netdev->features.
-> > > Linux kernel GRO will be more robust and able to handle scenarios
-> > > where both NETIF_F_GRO_HW and NETIF_F_GRO_FRAGLIST are enabled.
-> > 
-> > What is your plan for v4?
-> Based on kernel 7.2.0.rc7 code:
-> Add logic in tcp4/6_check_fraglist_gro() as follow:
-> if an arriving skb is the first packet in the GRO list.
-> 	NAPI_GRO_CB(skb)->is_flist = !sk && !skb_is_gso(skb);
-> 
-> /*
-> * Otherwise, the arriving skb is not the first packet, which means
-> * that struct sk_buff *p exists.
-> */
-> if (!skb_is_gso(skb) || !NAPI_GRO_CB(p)->is_flist) {
-> 	/* Aggregate the skb using p's GRO method. */
-> 	NAPI_GRO_CB(skb)->is_flist = NAPI_GRO_CB(p)->is_flist;
-> } else {
-> 	NAPI_GRO_CB(skb)->is_flist = 0;
-> 	/* Flush p and start a new GRO list using the non-fraglist
-> method. */
-> }
-> 
-> Another code change in
-> tcp_gro_receive() {
-> 	...
-> 	if (unlikely(NAPI_GRO_CB(p)->is_flist)) {
-> 		...
-> 		/* if aggregate method changed, flush current gro list
-> */
-> 		flush |= NAPI_GRO_CB(skb)->is_flist != NAPI_GRO_CB(p)-
-> >is_flist;
-> 		if (flush || skb_gro_receive_list())
-> 			...
-> 	}
-> }
-> 
-> After this change:
-> - NETIF_F_GRO_HW and NETIF_F_GRO_FRAGLIST are no longer mutually
-> exclusive.
-> - In tethering scenarios, TCP fraglist GRO applies only to consecutive
-> non-GSO skbs(!skb_is_gso(skb)).
->   others will adopt skb_gro_receive() path.
-> 
-> Please provide some suggestions on the changes above. Should I prepare
-> V4 patch based on these changes?
+On Thu, Aug 13 2026, Mukesh Pilaniya wrote:
 
-Thanks. This sounds good to me.
+> Several kexec_file_load() image probe functions return -EINVAL when
+> they do not recognize the image format.  A probe function that rejects
+> an image should return -ENOEXEC to indicate that the image is not a
+> recognized executable format.  -EINVAL implies a problem with the
+> syscall parameters, not with image recognition.
+>
+> kexec_image_probe_default() iterates through registered loaders and
+> returns the last probe's error code to the caller.  That error
+> propagates as the kexec_file_load() return value to userspace.
+> Returning -EINVAL from a probe when no loader matches is semantically
+> incorrect and misleads userspace about the nature of the failure.
+>
+> Return -ENOEXEC from all probe functions and their helpers when the
+> image format is not recognized.
 
-The risk is that GRO might be less effective at coalescing, if HW-GRO
-and non HW-GRO packets alternate regularly.
+Sounds fine in principle but can you please also share what the real
+problem you face is and how changing these return codes helps? These
+error codes are uAPI and while we _can_ change them as long as we don't
+break something, there should be a clear motivation for doing so.
 
-The alternative to make HW-GRO and fraglist GRO mutually exclusive
-does not have that problem, but on the flipside cannot use the fraglist
-optimization (esp for forwarding path).
+[...]
 
-So no free lunch. Either works.
+-- 
+Regards,
+Pratyush Yadav
 
