@@ -4,128 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B39DFC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 19:15:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0BEEC5CFC1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 19:20:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
 	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y/p0wzOXAOOuCXGBb8sadiAlrfLrUESYFCKs83aXYAw=; b=pIXKwW6ADHJg9knO+Q+dUatOVA
-	VnHkMs4zNK0VttJTxAT+n+yk+S3zKi1947svDZ6r/BWsqbPuHZSN6JZ8Tp+bSyGBRQlsLHixKqegL
-	R/7KX3BW2JQo14ki3P/V/p2hjwgIoAE5qaIPcmu62kzSUgzhS9bdXDpeWs0kLliG4PSstHxAc4WXd
-	NDxUlYGQB6ZSNFwOt0ZoCCy43DbTcA1UAG7SQErNwC++w8JqBIirTCNfTMSDhtLCWGaq63qPpeKY4
-	klDcckktXqNG/Ibt+q2YFQ4JFGIdnuugTQOOC1WhY5V4d5ynRqDr0tO1V+nMLdUqSRNmTOxP2KvAj
-	xYNBWiUA==;
+	bh=ml4nFFPO4E1DRPtyQK31bvAG+DqqBMl5o3+Nm/A8ZXo=; b=GKIjoSKbmRDZSOsUoOeLhnpbex
+	efC6Y+Iv2bfH74s3fjW7gQgB9/mzHX9k8+/uzgryBUJodjR8S6oscmdAJwbiwHSRZF+THaKSLeLwa
+	VlqZ88DBrvSErWSkmr5+g5Ylp+pJl+rF0Qza2veBpNaVboa6iKteNLbJqZlq+UzeURHSKCIgNGWtJ
+	6/4VNBxP8GdJkNzC3lHGo40ML4g+x3jirutLaCZKHLzaItzSzGNdGMgABuU30bB0D/M7x64xctVeS
+	CxVHVsInVQJ8674TAl0Q6vlO0kRGgjXtV5cHfizcmpy8MArDkWuVAtc6J6/Y2B9r8lwsoT1ncLlKi
+	smzNy/iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuxN6-000000035Mi-1uwr;
-	Fri, 14 Aug 2026 19:15:16 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1wuxRh-000000035h2-0SvL;
+	Fri, 14 Aug 2026 19:20:01 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuxN4-000000035M6-1LJD
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Aug 2026 19:15:15 +0000
+	id 1wuxRe-000000035ga-3mM0;
+	Fri, 14 Aug 2026 19:20:00 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PaGRD3a6ONX6MaPHvp/9E2xqS7iI2jklGlsClLrYIhmm6ipaCAkC9QWLBRnXsWch9fkVxpZpI4SmiK5DXLKhpNKhs5pz/XSHpMJPj3ckwGA7OlHYRyAQRVz0+AM+S3g8haxCEVsvwbxQfzRHVRrEDCHbjte1Mxo4oRWhGouKqBtuo1zvD8TceRsUM05xIa7ey/Coe0domjAwteqh1186EjO8G44V++kHnVWeoKcB6LjMdvQB5EJzrT2Ye8KHHgaGc8EiYNrzmt/YG5jToEPsONxcjA+k3YwJOILRn9UX90tNNCLXOVbP2Ox1xeuQef+08u9/iymbbXSBE8yEmLdl3A==
+ b=XyvFCfv9YWMlOXxBJnkGgcPykuj9tZGgY19/JnUeADLcLao1HV9rtngVozmqWxYWi6VHk5PLrceZC+vr++lppAq7wh52ZVtsZ76qfMnEItI3C9FhrLl94Jd/qMA2moVUfhnV4I7H3wp+o8Xg4+8fl0MbZWsP9r6+UiucPx0goTl2svJ05X5KdLyyz3DTzAYl65Vp+jeQoD8k6bt5EESuKb2PdtHiRSSmTgLRcOzfU8RUKweLTUVqRYeQ7GhM8yd3Fz8fLacJ7n/90nweiV6y1ClLkQpvIeaywaPwFdgeg+uiSap6NXCG7YLEQMVrpxxVU+Wy37rkvvUIlYgCDgA+RQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Y/p0wzOXAOOuCXGBb8sadiAlrfLrUESYFCKs83aXYAw=;
- b=uT1tQ/1e2K2/QbqwQzs3PQLYL3kP5W2lwTIpjscAqSU74eMyAk28ZVGHkLT7BvOJaFU0V7UJOo/AzKK5ByjpdB6ODy+m+N+WawNm8ItTWR9qP+GBTPKbkeJ8gbqUJaIOsQ8nNPopO2RT03zcnsvIQuxmFktHUAwTXgWwZxsf+lBK55dOD2/rGjBZyZrXfHS5VEwPY2/u9zhwy8D/hAb9O2UhffNvFwhMF85xpWks8MXkQAP8bc1SEshtky6GJFbeHWqstWlnfm02MRvAakiwCT9n4KcZodpvgAt4s6YCnve9y6r4U4/I+o1bcMnzXy34ZeW6GFq8OlANjJSbshX5mg==
+ bh=ml4nFFPO4E1DRPtyQK31bvAG+DqqBMl5o3+Nm/A8ZXo=;
+ b=a/DGIcVXZMHwHrqtyYgyJduZhKAaf4Fa43THI+QR81lxXiKYMlcR8RJldcQh4+vD2HJQGsstJF/o7xXjlBR/W+/8RE4UKnsCtqAWfC/FI0b/DHQGDBO4I5SAq2jm6QQ0L4qW30TgbpyjTFcagBjupe1Tdkvqc1zW/+GZuojnXsvYopFjZhYrAA9HTYdRf4R9x+vF91e2Nj9eZUAvKDKJ1BjdIz4NMF+HzFJc4XK1cDTxA5ifGVcMsB7CPOnZbUbGtg+clrLCdK6Hiw51QaLQBdUXcknUz6ckcB7mpeBSkBKoRCOSwlCv51NfL8uyemwzgY34tMO8nVJT8z4oSpX2+w==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
  dkim=pass header.d=oss.nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
  s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Y/p0wzOXAOOuCXGBb8sadiAlrfLrUESYFCKs83aXYAw=;
- b=s1V9v+z579+Kz4s9ULIR98SBA8/v/3c2yR0HxKCnf/x4/6AVOPg1NT04tf1HSt2nmJUP94FMpBbtdsk9seO5xipoHSnQmg1+G7pZIVAXgwHI0DuwU1Kp8sUrXj8LImnFVDrojBpGaOj7Swjha/wNR3W7uEDkOMi/aq5zN2v2BMHTk21+CuQQ+vqaOeVcGF2lINtFPnaNoQkP+BvsWZioXTNi7ivInDedsnl4vK2SylnX8jcc0RBNf/4hifNkCICvl+OLyGN0qac7z5+HTAuPbxT4SrvHxICEh4dSySZ88cZI9s8nYvDogeC8VDUZGPLkm4yHHE82ZnUQYgwl5lWUcg==
+ bh=ml4nFFPO4E1DRPtyQK31bvAG+DqqBMl5o3+Nm/A8ZXo=;
+ b=al6eJknOA4T6MjLp148cI7MgrjLQGIIcG5IJM0XqXwVRRd7mfv++r+lfOETC6ssn+O6l6fhFcmq6gKAZU4LW54n1D6BJvGzUqwP729/YIohc3YIc0Q8GXXeVffrvQgp06LVkki6lIBtmkJHg+KN0rOMec4svGJPURvQrkcOo0krANtib63RukV/552hyPCBf/Ru9Ie8hzJ65ulQOwyO8/vvle9j3PoAJO2uWZhP3jVb22g96Wf/nRTAzGqZrhZKXLucRfrILSrgq5NBCkivVj9yo1RXH98i7MTNbGtuOSaxSvRNU1lVyfsfo2ZZFijnA8/qNx4GxM4N+DFWOdKuhsQ==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=oss.nxp.com;
 Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by VI0PR04MB11865.eurprd04.prod.outlook.com (2603:10a6:800:2f8::16) with
+ by DBBPR04MB7996.eurprd04.prod.outlook.com (2603:10a6:10:1e3::11) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.15; Fri, 14 Aug
- 2026 19:15:06 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.16; Fri, 14 Aug
+ 2026 19:19:54 +0000
 Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
  ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
  ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0315.014; Fri, 14 Aug 2026
- 19:15:06 +0000
-Date: Fri, 14 Aug 2026 15:14:58 -0400
+ 19:19:54 +0000
+Date: Fri, 14 Aug 2026 15:19:46 -0400
 From: Frank Li <Frank.li@oss.nxp.com>
-To: Guangshuo Li <lgs201920130244@gmail.com>
-Cc: Sinan Kaya <okaya@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+To: Myeonghun Pak <mhun512@gmail.com>
+Cc: Sean Wang <sean.wang@mediatek.com>, Vinod Koul <vkoul@kernel.org>,
 	Frank Li <Frank.Li@kernel.org>,
-	Andy Shevchenko <andy.shevchenko@gmail.com>,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] dmaengine: qcom: hidma: fix autosuspend cleanup during
- teardown
-Message-ID: <an9pMnafob9F-Ry_@lizhi-Precision-Tower-5810>
-References: <20260808112551.2786782-1-lgs201920130244@gmail.com>
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Ijae Kim <ae878000@gmail.com>
+Subject: Re: [PATCH v2 RESEND] dmaengine: mediatek: hsdma: fix runtime PM
+ leak on init failure
+Message-ID: <an9qUnMZ7_iRTwY2@lizhi-Precision-Tower-5810>
+References: <aj1RSj5ZXvc-9yu7@lizhi-Precision-Tower-5810>
+ <20260804153924.49627-1-mhun512@gmail.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260808112551.2786782-1-lgs201920130244@gmail.com>
-X-ClientProxiedBy: PH5P222CA0009.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:510:34b::14) To GV2PR04MB11799.eurprd04.prod.outlook.com
+In-Reply-To: <20260804153924.49627-1-mhun512@gmail.com>
+X-ClientProxiedBy: PH7P220CA0137.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:327::22) To GV2PR04MB11799.eurprd04.prod.outlook.com
  (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI0PR04MB11865:EE_
-X-MS-Office365-Filtering-Correlation-Id: bba1ec0e-c779-4b60-d8fe-08defa385985
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DBBPR04MB7996:EE_
+X-MS-Office365-Filtering-Correlation-Id: 785f92de-aaf6-4075-6380-08defa390559
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|23010399003|7416014|19092799006|366016|56012099006|11063799006|10067099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: si/k6qlOBIv61Rn1Raw/CRx+abhFeM4UzA3ne/xT+rxTfwDk+hwCTm3R5hUaFc9u7w9WxULpMVZCQriLuiI241cwOMdBnJBy44hRHiedEeBssQU3S/hRN+DWzsjyc8jfEjYwMpvzoYymB8/9GAqGxJ88TB5CeFh+B+g756/lCewLWqlouZqqq/bvJhNV8DB48BrYWjEJhLkkgq7h+StX3yrh957Fq3wPbLejKsXdY1bv0XCRjbMI1EiABVbs25/ftQtx6X4zLw2256yF/5wYfCnv5RpszbbGLxvDbTdRygObgeKw6NCfmgdjvbVbzEdSq62O02586mrirdpzPGwXi3YCDspMXqPZ+iBnyu6Tat3cvljPeDHG55R8C68GXCjUN2ysKw11eciNqTFhvH2QzvE2Wiv9i5JPPSyk5CIP0NyhzEpZsHW8gp5eQfeTv3o/vEYSqyxSEzqPtct/mB3FUFMuRvgI4zBYfPpNz1Eu8yah/VT8PZjgaMcA1DjqcaLPNqHRNB7PIfF7endEOuF6rrwA3neN57wp9I+vYnB/5m+wDCZ9eREYzAGrDTxSpZRGFuPdcHJvRpyA6fWaNLJXxGL8+8qoheqPqSueya9sYZTjfmeqx4Z1BJ4Y6b2SMG3YzXG4GyfKh/br8XI/MFTJu/X+PGFcAOPQGhk/+BQl+tg=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(23010399003)(7416014)(19092799006)(366016)(56012099006)(11063799006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|23010399003|366016|19092799006|56012099006|10067099003|11063799006|4143699003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 6bow7FiMO90jOV/wY5kt17SkbxIkLOmN958BIvAc2awlvcBp1bLaLxGNou+JmWYb/vkJLxJIcq/ujyUDDQgwzTuVWFGQzKVgQO3t3P1Givg6qhdFxrODLtWUoX7TpREP/Sb+YHL7eJl19nl0suInq9af8CgaQWRYf3nbjNTYq8KPEe6nawEZw92LWy1D9PINGaLTjZuIrtw9x6JVpCKjCdNaCsBAGK0iOGbZDlyJvYklEEduV5lwc1uW3mQxT8YWNdBttURDkP5PUwQFiEgy0W7OK8jWfECGgh7dW6sCdxLZGiAS6nWZ4PLPTE7fQ1blffPRHXz1p2gLRf/lue/49txNBXWTHv1u5kZqcfwGoVWO/bSvpFWZtP/tEnU4HT40eJUCPkOTuESDxrw1CaWRk8rArGzcXCtjr4VTKgXLUPwA8wbtxru1W7i3cmbC/m0E7rMso9jsIhQ6pvzFym7X83qAjwibWnsc2pzABPuZNdmi2Pw+zgDIsm59keV/mcF3x7ZGTjcPK2mAJd7aLXgthuSEwQHOPYl+rdxjJOSzOJyWr/0FZQhUQ/Qb8YB5h1DS8YxDWt2uHxEnUP2kCPA17SpA2oNOXGsNlyYBVMAHShK3CjgiGzuUDZ6xlnurNncdbsgq1EAsx1V7ubBSry/FdHX3LJ7K/rbOpaPqUAAcDN8=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(23010399003)(366016)(19092799006)(56012099006)(10067099003)(11063799006)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?7bJ9IzypGUCPZavwC+SF0TKmzpgnXAlFm9MmfGdBzdP9xHDN+MBIIlnPwhfw?=
- =?us-ascii?Q?zgW1q0N/qlT28HVLlkclrLzf4y1rZfI+1tNJbmcpn7//aS5NfEDj/B864teV?=
- =?us-ascii?Q?F2ENCh67YfyWFFPaaSgqM12BqgcFeOnyprZleYK+Pp+ptTV5jW5l2DcKEB78?=
- =?us-ascii?Q?BoXawKKOLu4WQ3OF08LNDaZTf3Kv1nCY5bjWpXywyKTE80cJn1p3CxPj0L/I?=
- =?us-ascii?Q?GUZT5wrLYtgGIP8srDvLAQoJ7HIk+Fb+RwNbomOY3paotsBtKBRKHSCJWfP4?=
- =?us-ascii?Q?3YhJnrCy/ITuOfGlhI51yPS9rnp6pzfzgzieVPipAFC++P0LouF2Q9degsCl?=
- =?us-ascii?Q?iX5GpBxMUQzpt7/N3BMbDZdvakAo+t6OV5Rxydsn6imC7PfIEqGbsDOBGaKj?=
- =?us-ascii?Q?8tR1TpsnacLlO4/XAgeQ8Qk5Pk7sSo7OS3Svk3fF0Uqe5CweIjAF4bsXbj9F?=
- =?us-ascii?Q?KiLuq+IqQJzdn3leE+t9+aGtPCDj6/Bl2IiAEag21JgAB4vdwc1xqTQihij+?=
- =?us-ascii?Q?mPYu4XFF9CVEoT2eIyAbFWIa/P+v5iyHDzCSn9ld5eA6PahYLROGTJbH2Oi2?=
- =?us-ascii?Q?XXfvcEgoiIZGXBW2m2d6CC4thyBtUeeECigB/sNA8GQcINtQTvKIAN21iTOl?=
- =?us-ascii?Q?mKOOnnINqwq/zf+R+1/BL7BQr9pyQB4vkC8cWDZKzb4f0cIUYDf50ll7oki5?=
- =?us-ascii?Q?P77vzIBe/ogD+znzLTFeEOGe0B8VCiIPqYFUqHk4kluJ+n1ivH0bZl71rCcf?=
- =?us-ascii?Q?HzPN+SqdNMGUj3EfWO7DySFusB9yEzVGDktasGWmUFrfEhHZu/+MLrC/4Iyl?=
- =?us-ascii?Q?pKhnWf1puFvhz/75Pz7Dk/p4pcF6ZducJayn5kDI3nJngDWXZ3F76Cvott8V?=
- =?us-ascii?Q?UjaKtwpnTPh56c1ajLB4CVK17YWL7NFn3h6iozilKWLSJ2K3mrOhNy7hMfof?=
- =?us-ascii?Q?tbNSEyvIST3M1sp9vKgORDUbFSf/9nhin3KrrHniQpaIP2E3lDWtW0oP8yk8?=
- =?us-ascii?Q?PlzRnd+mxYosoPVGLIGEFaIUFORTfVqljITr4ZAoO/0K6ENHPyAy9AVMiiLb?=
- =?us-ascii?Q?utoIdTDCCVWPvdWN34wreRGFoCgI8IPzrnpS4CzZI0e1B6jLR6VqacSUNRHm?=
- =?us-ascii?Q?bzLRJrxThTsBzyDgcbfUFoOFXgUoRzWrtwOPr+EYczqWnkrmXfD9sSI/kxGo?=
- =?us-ascii?Q?6FPnihasCCbXSxmIUce0O6rpVKbQIAEpUv2OZhBfkx1S0Cnj20wMWRfCco6U?=
- =?us-ascii?Q?DLa4pRDTZiVQXJ+ngGqHsy7zbHcoMLaKBAaTquLgCAP9CqRjEcAP5RuHO05f?=
- =?us-ascii?Q?/v31vXkQUI0mmhVPDUqr1Hd2dwdvCq04HRG+2nsL/eAxfGVcJ3i3dofaoMgQ?=
- =?us-ascii?Q?H6YiL3NMaBoAQ/Oux4iWfwPmQpMtrUkYSVdhDl0t2xClg34c85uKTsERnqiC?=
- =?us-ascii?Q?G906/48/Bw5GCQad20KVQJnljCs1vNdrjUMmMuk4URRpU/vhm/pDpcRbRZ4a?=
- =?us-ascii?Q?SuJ4tQbrGdWqlKPDlpDWjCZx2l293/jpaUHzQOoW2GtB2WrBAGzlVxquYKVq?=
- =?us-ascii?Q?wI113ol3D3Gru5+FDP129HCfw9qJZugSpFLNhMhv9YX5Gr3wFXElf9psdvey?=
- =?us-ascii?Q?IaTOER7j65sO0S2CThk9KoNh3zo/pO8mTaBfBL0ApzGovs+t1fbxUJkFc49i?=
- =?us-ascii?Q?CLFnbycvUfgQUXyJfxCfbyEynWC9Jrem/+xFDVjsQnQjsuvunBHuVjc60lkc?=
- =?us-ascii?Q?7ZLcyFdRy9NmRWoUCl7kpqS5hsZdFbwwcumg5jizJieeMJ8DiKap?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?E6sZ2PjP/nLnSgLcMfJ5wUlIUw3cXi/7A6doB4V9xHJz8CHjS8tXB6vjPzOk?=
+ =?us-ascii?Q?9uAXuXFf+++sFpPiiuFWhzzkuihHwsgbAPL90EF7B/zWUK+3sHLusKZz+zac?=
+ =?us-ascii?Q?QlQTl047+tf58Sjy5upmodbJRK2rVsxbvRghs9V3StWabYm8Yq5Yn8NjwZPi?=
+ =?us-ascii?Q?LHWEShOKSAnfCDfzoMEuWTPBsKpPZ0gJZppdvUlNLT3bN8lOyWM16COGl4bz?=
+ =?us-ascii?Q?+iqaJVhtQlz5VeJ3DNDbdLpbHwUzcbA6QNZFaUXMuEp+KV0BYbS3E1L1+r3L?=
+ =?us-ascii?Q?E3wwVGAzb3WZgvRIXylzwCR1LNx1D1w0YgFPNEun30Fp+B+ODDIK6gpW5yLI?=
+ =?us-ascii?Q?n7m3aZHG0K20Ao33f5Csl/OxHS3ZgPioyft7Pzyn3mICd5c20MkXrUu0sKJo?=
+ =?us-ascii?Q?IBN4EOIrm1CDLAK5cLjRkEhduqyvN9zmsKe4+6ynGdabnqnuEnoGM8RHu3ZD?=
+ =?us-ascii?Q?1Qr6UnZ4dvv92FZPFIpeFaveJSNh70eBmdA0FzXFNUkHR0oI5tLjZJ//AB9l?=
+ =?us-ascii?Q?77NUAeQeX9aQYhmDOUXUNQdoKS7B3UNHCUcH5KbUyYEWhTkHh+xZ33YAo/NX?=
+ =?us-ascii?Q?1z5PpWUvjZc4WpxR9qtV1ioXvACud6xEI6Wrt67SdOlY9WVFmT4MyYN93VsE?=
+ =?us-ascii?Q?B/eRRV/DZ1wRZFVV3VWqeMAtE8T2KLKFjMXOW76cR9FJs5JGLEsRkxyMnD7L?=
+ =?us-ascii?Q?mh3c8n2fdSu7GU05XGPv59OgpKQgMYnsXfnaMtjiQO2TpXDTBE9h6HaRZ3sa?=
+ =?us-ascii?Q?jJM/+ObC/16oUkJidBoi5WEnnzqxOeZnyztFY5EphzA+O45llF1r0/3i19b9?=
+ =?us-ascii?Q?2Ce8T7Gaf6Y2+E9ECe4ooqsEH8Sb6y8SIAvjlVnpMFSMpeg7QkoLXVnpTV2O?=
+ =?us-ascii?Q?lKsHxzzlxUFl1LqP9S/PxGoniEOuefHQdKQQoMMDTXwBvwZlkJ/xDfBlunya?=
+ =?us-ascii?Q?0nOyvt6Fcmv5MxLwq7KoHvbwfSUg0b2syDDffed8ZRKUuT/QcqWEKAlZVf+H?=
+ =?us-ascii?Q?+BCvOJWPSPfof6NaaGL4OUYgc4Qe9fOYMCpXMziif2GL40r6lb/TQT2e9HaK?=
+ =?us-ascii?Q?YTKv7mnWpqay+Hw2ESMOIm5JGC1pjmKjrzAobJnl0SsA5TgxvNUETUb7k1DF?=
+ =?us-ascii?Q?wLCau2pkwMDu3A2kzKXJfRAiUacjoI/TWqo7NEMbV/qL7zmO1SkrQFg9lanG?=
+ =?us-ascii?Q?eIbUrIhMipook2Msu968ldBeB4fqvw/H5lrRKALZf7LnAF/5tB9eB6mSOj77?=
+ =?us-ascii?Q?BJiSnCjpBeJX3KIIbL3BnE4oekOYv6qxf37h+g57Efxt7fzz30QKzHFsT9ry?=
+ =?us-ascii?Q?r21hx9Z7g06k52qEVuFLgmjkqtZZL5wagFrM+YJwnN9RXCHpthymmMYZcLRm?=
+ =?us-ascii?Q?MtNRbqnhyYbCoY2GIjFKrOtZmKTd4xO+ymhUUkt3TqnQ/cT2kCHxAwjGWUwU?=
+ =?us-ascii?Q?fNtQmfmpBXwCbRWol2cqDToUfYKjSV3jnIpPelWAcAnB9aRiXf2PcXOxtKIu?=
+ =?us-ascii?Q?8gLhPiFhw22b5HFsWXUMszFjEUs0RuVF0SK+TLR//Mw33m1BTAeC1Kwyjd3B?=
+ =?us-ascii?Q?iVua8TZJ4sFCMfIJ43JMmFtPnwFYqBmmchJw54lm3wIUs5lVvBo3+pu9nkQF?=
+ =?us-ascii?Q?GpOKR5bycWVebpuX75sdJIu+UqeGGsW65uimf55JpOyhIt8gOwWbBMVzo+oQ?=
+ =?us-ascii?Q?egaDZGVdFkOTcVq3TAj8M7nDv9AT7kvqzEq98dkXwXEcMS+dzw4AmhMUYu1H?=
+ =?us-ascii?Q?ifrSq5I0ccClY4uS6o/ZAMbAZ7lkoCWIv6Wv2X4MCnPa55jAOHf7?=
 X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: bba1ec0e-c779-4b60-d8fe-08defa385985
+X-MS-Exchange-CrossTenant-Network-Message-Id: 785f92de-aaf6-4075-6380-08defa390559
 X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Aug 2026 19:15:06.1844
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Aug 2026 19:19:54.4680
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ulcC/47ZJCSGGoUy+jMGJelqpQlgyIF1vCSYIDcvn0b5QDxHqztDKDz6zYMrrGkHE6VLkg2o6vgx/nxuLR2UnEiN3Bzl8ExjCG/xzkyOAhC2MwrgBbvmmQfEujVgBgOT
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB11865
+X-MS-Exchange-CrossTenant-UserPrincipalName: fdUwU39x3+JZ6suoLeov4Pp+3xcx6yErG9PIR1a53RD7Z1DvSH22oxaBrQB5dFFjkzRAj63Oqw0QeumV5bASdQ7CK/3jpTV9O2HtTeo3rOMg4LI+92p2o8WsTZb/mpTw
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7996
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260814_121514_372945_F30CE39B 
-X-CRM114-Status: GOOD (  18.21  )
+X-CRM114-CacheID: sfid-20260814_121958_973521_01758D1E 
+X-CRM114-Status: GOOD (  21.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,58 +141,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 08, 2026 at 07:25:51PM +0800, Guangshuo Li wrote:
-> hidma_probe() calls pm_runtime_use_autosuspend(), but neither the probe
-> failure path nor hidma_remove() calls the matching
-> pm_runtime_dont_use_autosuspend() before disabling runtime PM.
+On Wed, Aug 05, 2026 at 12:39:24AM +0900, Myeonghun Pak wrote:
+> mtk_hsdma_hw_init() enables runtime PM and gets a runtime PM reference
+> before enabling the HSDMA clock. It currently ignores failures from
+> pm_runtime_get_sync(); if runtime resume fails, the usage count remains
+> held. If clk_prepare_enable() then fails, the usage count remains held.
 >
-> If the autosuspend delay is set to a negative value while autosuspend
-> is enabled, the runtime PM core increments usage_count to prevent
-> runtime suspend. Without calling pm_runtime_dont_use_autosuspend()
-> during teardown, this reference is not dropped and usage_count remains
-> unbalanced.
+> Use devm_pm_runtime_enable() to manage runtime PM enablement, and use
+> pm_runtime_resume_and_get() so resume failures do not leak the usage count.
+> If clk_prepare_enable() fails after a successful runtime resume, drop the
+> runtime PM reference before returning.
 >
-> Add the missing pm_runtime_dont_use_autosuspend() calls to both the
-> probe failure and remove paths before disabling runtime PM.
+> The probe path also ignores the return value from mtk_hsdma_hw_init(), so a
+> failed hardware init can continue as a successful probe. Propagate
+> mtk_hsdma_hw_init() failures from probe, while keeping a separate unwind
+> label so mtk_hsdma_hw_deinit() is only called after hardware init succeeds.
 >
-> This issue was found by manual code inspection.
+> Fixes: 548c4597e984 ("dmaengine: mediatek: Add MediaTek High-Speed DMA controller for MT7622 and MT7623 SoC")
+> Co-developed-by: Ijae Kim <ae878000@gmail.com>
+> Signed-off-by: Ijae Kim <ae878000@gmail.com>
+> Signed-off-by: Myeonghun Pak <mhun512@gmail.com>
 
+Please don't post new patch to old email thread.
 
-I seen many similar patches to fix similar problem for difference DMA
-engineer driver.
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-Please use devm_runtime_pm_enable() to fix it.
-
-Frank
 >
-> Fixes: 67a2003e0607 ("dmaengine: add Qualcomm Technologies HIDMA channel driver")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
 > ---
->  drivers/dma/qcom/hidma.c | 2 ++
->  1 file changed, 2 insertions(+)
+> Changes in v2:
+> - Use devm_pm_runtime_enable() for runtime PM enablement.
+> - Drop manual pm_runtime_disable() calls from init/deinit paths.
 >
-> diff --git a/drivers/dma/qcom/hidma.c b/drivers/dma/qcom/hidma.c
-> index c939635be21d..78fd765c81e4 100644
-> --- a/drivers/dma/qcom/hidma.c
-> +++ b/drivers/dma/qcom/hidma.c
-> @@ -893,6 +893,7 @@ static int hidma_probe(struct platform_device *pdev)
->  		hidma_free(dmadev);
->  bailout:
->  	pm_runtime_put_sync(&pdev->dev);
-> +	pm_runtime_dont_use_autosuspend(&pdev->dev);
->  	pm_runtime_disable(&pdev->dev);
->  	return rc;
+>  drivers/dma/mediatek/mtk-hsdma.c | 26 +++++++++++++++++++-------
+>  1 file changed, 19 insertions(+), 7 deletions(-)
+>
+> diff --git a/drivers/dma/mediatek/mtk-hsdma.c b/drivers/dma/mediatek/mtk-hsdma.c
+> index a43412ff5e..27cb370106 100644
+> --- a/drivers/dma/mediatek/mtk-hsdma.c
+> +++ b/drivers/dma/mediatek/mtk-hsdma.c
+> @@ -848,17 +848,27 @@ static int mtk_hsdma_hw_init(struct mtk_hsdma_device *hsdma)
+>  {
+>  	int err;
+>
+> -	pm_runtime_enable(hsdma2dev(hsdma));
+> -	pm_runtime_get_sync(hsdma2dev(hsdma));
+> +	err = devm_pm_runtime_enable(hsdma2dev(hsdma));
+> +	if (err)
+> +		return err;
+> +
+> +	err = pm_runtime_resume_and_get(hsdma2dev(hsdma));
+> +	if (err < 0)
+> +		return err;
+>
+>  	err = clk_prepare_enable(hsdma->clk);
+>  	if (err)
+> -		return err;
+> +		goto err_put_pm;
+>
+>  	mtk_dma_write(hsdma, MTK_HSDMA_INT_ENABLE, 0);
+>  	mtk_dma_write(hsdma, MTK_HSDMA_GLO, MTK_HSDMA_GLO_DEFAULT);
+>
+>  	return 0;
+> +
+> +err_put_pm:
+> +	pm_runtime_put_sync(hsdma2dev(hsdma));
+> +
+> +	return err;
 >  }
-> @@ -930,6 +931,7 @@ static void hidma_remove(struct platform_device *pdev)
 >
->  	dev_info(&pdev->dev, "HI-DMA engine removed\n");
->  	pm_runtime_put_sync_suspend(&pdev->dev);
-> +	pm_runtime_dont_use_autosuspend(&pdev->dev);
->  	pm_runtime_disable(&pdev->dev);
+>  static int mtk_hsdma_hw_deinit(struct mtk_hsdma_device *hsdma)
+> @@ -868,7 +878,6 @@ static int mtk_hsdma_hw_deinit(struct mtk_hsdma_device *hsdma)
+>  	clk_disable_unprepare(hsdma->clk);
+>
+>  	pm_runtime_put_sync(hsdma2dev(hsdma));
+> -	pm_runtime_disable(hsdma2dev(hsdma));
+>
+>  	return 0;
 >  }
+> @@ -983,7 +992,9 @@ static int mtk_hsdma_probe(struct platform_device *pdev)
+>  		goto err_unregister;
+>  	}
 >
+> -	mtk_hsdma_hw_init(hsdma);
+> +	err = mtk_hsdma_hw_init(hsdma);
+> +	if (err)
+> +		goto err_free;
+>
+>  	err = devm_request_irq(&pdev->dev, hsdma->irq,
+>  			       mtk_hsdma_irq, 0,
+> @@ -991,7 +1002,7 @@ static int mtk_hsdma_probe(struct platform_device *pdev)
+>  	if (err) {
+>  		dev_err(&pdev->dev,
+>  			"request_irq failed with err %d\n", err);
+> -		goto err_free;
+> +		goto err_deinit;
+>  	}
+>
+>  	platform_set_drvdata(pdev, hsdma);
+> @@ -1000,8 +1011,9 @@ static int mtk_hsdma_probe(struct platform_device *pdev)
+>
+>  	return 0;
+>
+> -err_free:
+> +err_deinit:
+>  	mtk_hsdma_hw_deinit(hsdma);
+> +err_free:
+>  	of_dma_controller_free(pdev->dev.of_node);
+>  err_unregister:
+>  	dma_async_device_unregister(dd);
 > --
-> 2.43.0
->
+> 2.47.1
 
