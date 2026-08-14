@@ -4,93 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94012C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 20:38:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33304C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 20:44:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7DQ4nf+95lxxCyeXlQluZ5aYB65vN06yEt0kwS5XVm0=; b=AlrccvoGJzu5fXAGfiwKQ5XEIL
-	8c8QKYYcLelShGBfveMNM9PxdFsx/c6mXJMhmI78mthtE5Qr0+WeT/qZbiyLotVxf/9z6gOpg/iwo
-	uN/WD2PAaS5lNSTiGVNOzmIBMsS6ROoeZeGOrT+Z/BYY69hIYkfJeEuD7bD2EFVMwCFKNhYFomhdJ
-	Qnbqkbxk6buzTwSBljvgkj8hTqakC4gAGMaC9WPDppaD7wAQHxeRjA+9gP9Dpsj025kPPIm/w9nzi
-	En1MIjk3lbRjIx5hDYlQKA+kV1ULLzSjtnoOWzxzxbFE1Hy66BqDpglrshmTGKqTc6cjsiK335f22
-	avPohUSw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1hCeXpXWagan4BjDtqiET2IflYSGY8D9XYFgH0KLPyE=; b=rlRq6oeHd51Ncg52+oE39QIF4g
+	nGnLTUQ9qf7GBYvghneR5EG69y6jWgPq6PVo6zq0BTOwipnKqD9mwggEkA1AxJWfDssm6T+lrsjb1
+	syAPIUIk1ei6DcgF/iwEvsy89KRO/lQaAAabu6tJcQ97Lny2FyNFsea2y1uQIruLoHwIY/qKkmK6+
+	x0ucM8NgvUuq4jf0fuxHGfpi/cHg0z0d8NKT1zVAW8quRcZZB9nx4N8rk/ZXf8wHJPHExyqy2BLxJ
+	uhlLa/fwRmb0gPg2q7ojb6WtYuwra41L/0dAVnnohvayMGLEvjTH0UaHmI/1K7U8P8HieCnb65wYQ
+	j5HpFZVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuyfM-000000039qR-2sl3;
-	Fri, 14 Aug 2026 20:38:12 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1wuylW-00000003AW6-2Hvf;
+	Fri, 14 Aug 2026 20:44:34 +0000
+Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuyfC-000000039ey-0IVa
+	id 1wuylU-00000003AVk-1Aza
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Aug 2026 20:38:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1786739881;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=7DQ4nf+95lxxCyeXlQluZ5aYB65vN06yEt0kwS5XVm0=;
-	b=hiqJrHh3KzRm/yoKXb+7KWByHpXSVc41s9zRkr72ILUwhkWX0cuNWmDHIHrOYEauPjsxB+
-	aMtBiDteKGOAXc5pFh9aTo008vTSWubffFq2o3w1Hv1LETTzjQ4ivNyWRvbc1dXNSn7lew
-	TNzFjk9rvop5K20unEIKmdiD7msgLpE=
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-621--afNOZ18M7u6NuaSwdfBlg-1; Fri,
- 14 Aug 2026 16:36:03 -0400
-X-MC-Unique: -afNOZ18M7u6NuaSwdfBlg-1
-X-Mimecast-MFC-AGG-ID: -afNOZ18M7u6NuaSwdfBlg_1786739760
-Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 64B3C18002C0;
-	Fri, 14 Aug 2026 20:36:00 +0000 (UTC)
-Received: from GoldenWind.lan (unknown [10.22.64.233])
-	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id F08D2197750F;
-	Fri, 14 Aug 2026 20:35:56 +0000 (UTC)
-From: Lyude Paul <lyude@redhat.com>
-To: dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org,
-	freedreno@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	nouveau@lists.freedesktop.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-hyperv@vger.kernel.org,
-	linux-sunxi@lists.linux.dev,
-	asahi@lists.linux.dev,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-samsung-soc@vger.kernel.org,
-	linux-amlogic@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	intel-gfx@lists.freedesktop.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-rockchip@lists.infradead.org,
-	linux-tegra@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-mips@vger.kernel.org,
-	amd-gfx@lists.freedesktop.org,
-	spice-devel@lists.freedesktop.org,
-	intel-xe@lists.freedesktop.org,
-	imx@lists.linux.dev
-Subject: [PATCH 3/5] drm/vblank: Remove num_crtcs argument from drm_vblank_init()
-Date: Fri, 14 Aug 2026 16:35:31 -0400
-Message-ID: <20260814203542.1405135-4-lyude@redhat.com>
-In-Reply-To: <20260814203542.1405135-1-lyude@redhat.com>
-References: <20260814203542.1405135-1-lyude@redhat.com>
+	Fri, 14 Aug 2026 20:44:33 +0000
+Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-38e69bdb0fcso1271538a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 13:44:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786740271; x=1787345071; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=1hCeXpXWagan4BjDtqiET2IflYSGY8D9XYFgH0KLPyE=;
+        b=FufwsbZqcSPe+IwIOo+B83uayOLqYb5SrrFN1W7AbHBtBI0yh0wjLECiPhMBHcU3rK
+         IolmCALQkIU3uEYX382A/UXfbyZQW3j9Ios8acZXqnIfMLuhEnPm2rZsL1Lyfm92hcnp
+         fwPRAV6qwAE7xtSc6dtMDH66z9Sde8NJ61kc3CdtvVUPZRHHap4HW4VVaNy0IuWgn00m
+         wTHgkpR6bSao08QhUthBY2HFGV8Y1G4sKbPKu8udqTurmKUwGEd900sUvbyvjcCi5zcm
+         pvWrKlGRA3xjRawhkxZ9tLsHx7EDE/k6o5JVemaNubOW5+X0nAD1PQ7E9MVcyq7FISzs
+         CPmA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786740271; x=1787345071;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=1hCeXpXWagan4BjDtqiET2IflYSGY8D9XYFgH0KLPyE=;
+        b=YQ5mnfF4vZlA0xtho7yr9WCW0V84Vsq1ykLh4tCyIlj9xXWUhaMR7lrIxh/YwPYW7S
+         liLA61Wjzo3fZlvDAG7pafb6rlu7H75WJzrY9vvL62vsMwBUqlX1DsoHoS2MW4OYtBej
+         LUmivPjIjtFgpw1ch4g9f4KPdn1G2QiMfoa90Wg8aU2VqNUXrP4L/iuQycOQOAtZ+SDy
+         zaqnI/lpaNnovL+YXP4Xt5+NskF/bM4m3zt6hlU/WBlwOG5f5rQ3Z2B0ytQnxzIsE93j
+         QWhL6+gJAVTlu2RBKrN/A5Sod+EGSSyMmm+8eQuH1+XqnYJr3M6u3XUCVuE8HYsqNOB1
+         AAjQ==
+X-Forwarded-Encrypted: i=1; AHgh+RoU4opWrCl1rHYy55+ublaUgZyXIyUjbkcLqVZ6RzHdXaayJeHGjWtAd5AWiACufW8w++O41DuGNtNMmGzoFV7x@lists.infradead.org
+X-Gm-Message-State: AOJu0YziYPdnUq/nCNPWWJiGDRm7jFVB7TyDdR+sKLjOHtv+YDtgyWNu
+	TCj8L6LbmGD8I+Ng4yeXY1io3vXU71VUW6riNF3+Ye7JMA6jNnOKVcOW
+X-Gm-Gg: AR+sD1150mOj3cKyiiJu/Z6Nc6onW64KEemFEP/d8CRJQAzILQukovleZcXlemh1icr
+	Vlww7rYq3Ei5l0BdJVox8oJxHMa4zMlMeOT9/M+BO8PuYlQ+niD0no4zpwcomwaj2pHGBwnbFon
+	NRj5k/moiTCKkjInYjrg0oPNCEritypXcowfwhWUHG4ufY9dUGUWfJKNuF0GwOydV6xAQZ0jfXt
+	OKsKGMoNo70wqfA9hc1e1tpSeNIutYAfIL2mKOzyPoE9Sn+t8SRYuSx09qkdRhJNhCXzu34q+F3
+	Kbws0WJAnjlYBqaDKsH6PsmQBMNQCnn1taoTdBzRB1XOrBm8Y/yBAmNdA5Ce4Dj//8FNGart8AU
+	QXclqsYuWj3oQhRGisdRcwVsGgl3M2LztTOKe6R8A/RCnCuV73CsRYzD/b6nn5fED02nNtCsiOd
+	cEV8scFqBLKh4hMEVzpTuZsl0qi/vroMLxgiRqLtMfHi0fUEIOWwXbOur50/uxVDvVlOrmwaDtx
+	RGHc+W5+S/sn9UgL22knK7OyEghUvw/k51MtQpOu+tRXwsWP9BGIjb4CXwpQjqr7jao4bUrux0Z
+	u5q0Fwp+Q2khRStbv+4IO2JeRd6wcWDvHFUidtg=
+X-Received: by 2002:a17:90b:5803:b0:38f:18f9:785 with SMTP id 98e67ed59e1d1-3933cb3b889mr10137670a91.8.1786740271075;
+        Fri, 14 Aug 2026 13:44:31 -0700 (PDT)
+Received: from ryzen.lan ([2601:644:8000:7a86::e34])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3933b71e1f9sm1574288a91.3.2026.08.14.13.44.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 14 Aug 2026 13:44:30 -0700 (PDT)
+From: Rosen Penev <rosenp@gmail.com>
+To: linux-sound@vger.kernel.org
+Cc: Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Michal Simek <michal.simek@amd.com>,
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/ZYNQ ARCHITECTURE),
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCHv3] ASoC: xilinx: formatter_pcm: use more devm in probe
+Date: Fri, 14 Aug 2026 13:44:28 -0700
+Message-ID: <20260814204428.37786-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
-X-Mimecast-MFC-PROC-ID: o5QY2c10smAt8wE2RQ4T0QHppai2m1TD_7j9juVD1wE_1786739760
-X-Mimecast-Originator: redhat.com
 Content-Transfer-Encoding: 8bit
-content-type: text/plain; charset="US-ASCII"; x-default=true
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260814_133802_272419_ACD1A3F2 
-X-CRM114-Status: GOOD (  24.21  )
+X-CRM114-CacheID: sfid-20260814_134432_344027_3D4578E0 
+X-CRM114-Status: GOOD (  17.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,910 +103,167 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As it turns out: the entire reason we ever asked for the number of CRTCs as
-a parameter for drm_vblank_init() is because that function was previously
-in charge of setting up the legacy drm_device.num_crtcs variable, which
-itself was also used to keep track of whether or not drm_vblank_init() was
-called. And, that number was kept in addition to a properly maintained
-drm_device->mode_config.num_crtc.
+Use devm_clk_get_enabled() to let the clock be enabled automatically
+and cleaned up on unbind, dropping the manual clk_prepare_enable() and
+clk_disable_unprepare() calls in probe and remove. As a result, move the
+clk struct member into probe, which is the only place it's used.
 
-Now that we've removed that legacy variable entirely, let's stop requiring
-the num_crtc argument for drm_vblank_init() entirely. The main motivation
-for this is the fact that at the moment, we've had to workaround this
-oddity in the Rust kernel bindings for a few reasons:
+Simplify the probe error paths by returning directly instead of
+jumping to clk_err, and use devm_snd_soc_register_component() return
+value directly. Also remove error message from ioremap as it throws one
+itself. Same with devm_request_irq().
 
-* We can't know the number of CRTCs until they've all been created, which
-  meant that we had to keep track of that.
-* Additionally, we also had to keep track of which CRTCs did and did not
-  have vblank support. This is especially silly, because I am not aware of
-  any physical hardware that only supports vblank interrupts on certain
-  heads - and I can't think of any reasonable explanation for any hardware
-  manufacturer making a design choice like that.
-* This also implies that drivers could, with the current C API, register
-  that they have a different number of CRTCs then they have actually
-  created. This appears to be an edge case that could easily lead to UB
-  since it's not obvious and as such has likely never really been tested.
-  And we can't have that in Rust!
-
-While the last point could technically still be an issue if a driver
-doesn't fill out the vblank handling callbacks for all CRTCs, this is a
-good start at cleaning this strange behavior up.
-
-So, just get rid of this parameter entirely and start using the DRM's
-internal count of CRTCs. We apply this change across the tree using this
-coccinelle patch:
-
-  virtual patch
-
-  @depends on patch@
-  expression dev;
-  @@
-
-  - drm_vblank_init(dev, ...)
-  + drm_vblank_init(dev)
-
-And then fixup some of the funky whitespace errors that introduces by hand.
-
-Signed-off-by: Lyude Paul <lyude@redhat.com>
-Assisted-by: Coccinelle
+Assisted-by: opencode:deepseek-v4-flash-free
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
+Reviewed-by: Michal Simek <michal.simek@amd.com>
+Reviewed-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
 ---
- drivers/gpu/drm/adp/adp_drv.c                       | 2 +-
- drivers/gpu/drm/amd/amdgpu/amdgpu_vkms.c            | 2 +-
- drivers/gpu/drm/amd/amdgpu/dce_v10_0.c              | 2 +-
- drivers/gpu/drm/amd/amdgpu/dce_v6_0.c               | 2 +-
- drivers/gpu/drm/amd/amdgpu/dce_v8_0.c               | 2 +-
- drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c   | 2 +-
- drivers/gpu/drm/arm/display/komeda/komeda_kms.c     | 2 +-
- drivers/gpu/drm/arm/hdlcd_drv.c                     | 2 +-
- drivers/gpu/drm/arm/malidp_drv.c                    | 2 +-
- drivers/gpu/drm/armada/armada_drv.c                 | 2 +-
- drivers/gpu/drm/aspeed/aspeed_gfx_drv.c             | 2 +-
- drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.c        | 2 +-
- drivers/gpu/drm/drm_vblank.c                        | 6 +++---
- drivers/gpu/drm/exynos/exynos_drm_drv.c             | 2 +-
- drivers/gpu/drm/fsl-dcu/fsl_dcu_drm_drv.c           | 2 +-
- drivers/gpu/drm/gma500/psb_drv.c                    | 2 +-
- drivers/gpu/drm/hisilicon/hibmc/hibmc_drm_drv.c     | 2 +-
- drivers/gpu/drm/hisilicon/kirin/kirin_drm_drv.c     | 2 +-
- drivers/gpu/drm/hyperv/hyperv_drm_modeset.c         | 2 +-
- drivers/gpu/drm/i915/display/intel_display_driver.c | 3 +--
- drivers/gpu/drm/imx/dc/dc-kms.c                     | 2 +-
- drivers/gpu/drm/imx/dcss/dcss-kms.c                 | 2 +-
- drivers/gpu/drm/imx/ipuv3/imx-drm-core.c            | 2 +-
- drivers/gpu/drm/imx/lcdc/imx-lcdc.c                 | 2 +-
- drivers/gpu/drm/ingenic/ingenic-drm-drv.c           | 2 +-
- drivers/gpu/drm/kmb/kmb_drv.c                       | 2 +-
- drivers/gpu/drm/logicvc/logicvc_mode.c              | 2 +-
- drivers/gpu/drm/loongson/lsdc_drv.c                 | 2 +-
- drivers/gpu/drm/mcde/mcde_drv.c                     | 2 +-
- drivers/gpu/drm/mediatek/mtk_drm_drv.c              | 2 +-
- drivers/gpu/drm/meson/meson_drv.c                   | 2 +-
- drivers/gpu/drm/msm/msm_kms.c                       | 2 +-
- drivers/gpu/drm/mxsfb/lcdif_drv.c                   | 2 +-
- drivers/gpu/drm/mxsfb/mxsfb_drv.c                   | 2 +-
- drivers/gpu/drm/nouveau/nouveau_display.c           | 2 +-
- drivers/gpu/drm/omapdrm/omap_drv.c                  | 2 +-
- drivers/gpu/drm/pl111/pl111_drv.c                   | 2 +-
- drivers/gpu/drm/qxl/qxl_display.c                   | 2 +-
- drivers/gpu/drm/radeon/radeon_irq_kms.c             | 2 +-
- drivers/gpu/drm/renesas/rcar-du/rcar_du_kms.c       | 2 +-
- drivers/gpu/drm/renesas/rz-du/rzg2l_du_kms.c        | 2 +-
- drivers/gpu/drm/renesas/shmobile/shmob_drm_drv.c    | 2 +-
- drivers/gpu/drm/rockchip/rockchip_drm_drv.c         | 2 +-
- drivers/gpu/drm/sprd/sprd_drm.c                     | 2 +-
- drivers/gpu/drm/sti/sti_compositor.c                | 2 +-
- drivers/gpu/drm/stm/ltdc.c                          | 2 +-
- drivers/gpu/drm/sun4i/sun4i_drv.c                   | 2 +-
- drivers/gpu/drm/tegra/drm.c                         | 2 +-
- drivers/gpu/drm/tidss/tidss_kms.c                   | 2 +-
- drivers/gpu/drm/tilcdc/tilcdc_drv.c                 | 2 +-
- drivers/gpu/drm/tiny/bochs.c                        | 2 +-
- drivers/gpu/drm/tiny/cirrus-qemu.c                  | 2 +-
- drivers/gpu/drm/tve200/tve200_drv.c                 | 2 +-
- drivers/gpu/drm/vc4/vc4_kms.c                       | 2 +-
- drivers/gpu/drm/verisilicon/vs_drm.c                | 2 +-
- drivers/gpu/drm/virtio/virtgpu_display.c            | 2 +-
- drivers/gpu/drm/vkms/vkms_drv.c                     | 3 +--
- drivers/gpu/drm/vmwgfx/vmwgfx_vkms.c                | 2 +-
- drivers/gpu/drm/xlnx/zynqmp_kms.c                   | 2 +-
- include/drm/drm_vblank.h                            | 2 +-
- 60 files changed, 62 insertions(+), 64 deletions(-)
+ v3: rebase.
+ v2: add signed-off-by. Further clean up some stuff.
+ sound/soc/xilinx/xlnx_formatter_pcm.c | 71 ++++++++-------------------
+ 1 file changed, 20 insertions(+), 51 deletions(-)
 
-diff --git a/drivers/gpu/drm/adp/adp_drv.c b/drivers/gpu/drm/adp/adp_drv.c
-index ce9dd6222634d..cc1ed68806cf1 100644
---- a/drivers/gpu/drm/adp/adp_drv.c
-+++ b/drivers/gpu/drm/adp/adp_drv.c
-@@ -444,7 +444,7 @@ static int adp_setup_mode_config(struct adp_drv_private *adp)
- 	if (IS_ERR(adp->connector))
- 		return PTR_ERR(adp->connector);
- 
--	ret = drm_vblank_init(drm, drm->mode_config.num_crtc);
-+	ret = drm_vblank_init(drm);
- 	if (ret < 0) {
- 		drm_err(drm, "failed to initialize vblank");
- 		return ret;
-diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_vkms.c b/drivers/gpu/drm/amd/amdgpu/amdgpu_vkms.c
-index 170adaf7e76ab..79aaa9d8fcdaf 100644
---- a/drivers/gpu/drm/amd/amdgpu/amdgpu_vkms.c
-+++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_vkms.c
-@@ -413,7 +413,7 @@ static int amdgpu_vkms_sw_init(struct amdgpu_ip_block *ip_block)
- 			return r;
- 	}
- 
--	r = drm_vblank_init(adev_to_drm(adev), adev->mode_info.num_crtc);
-+	r = drm_vblank_init(adev_to_drm(adev));
- 	if (r)
- 		return r;
- 
-diff --git a/drivers/gpu/drm/amd/amdgpu/dce_v10_0.c b/drivers/gpu/drm/amd/amdgpu/dce_v10_0.c
-index f2977fe6d8242..649d331973280 100644
---- a/drivers/gpu/drm/amd/amdgpu/dce_v10_0.c
-+++ b/drivers/gpu/drm/amd/amdgpu/dce_v10_0.c
-@@ -2809,7 +2809,7 @@ static int dce_v10_0_sw_init(struct amdgpu_ip_block *ip_block)
- 	/* XXX: can this be enabled for DC? */
- 	adev_to_drm(adev)->vblank_disable_immediate = true;
- 
--	r = drm_vblank_init(adev_to_drm(adev), adev->mode_info.num_crtc);
-+	r = drm_vblank_init(adev_to_drm(adev));
- 	if (r)
- 		return r;
- 
-diff --git a/drivers/gpu/drm/amd/amdgpu/dce_v6_0.c b/drivers/gpu/drm/amd/amdgpu/dce_v6_0.c
-index c68de0fe1d7d3..d82272ca3b33d 100644
---- a/drivers/gpu/drm/amd/amdgpu/dce_v6_0.c
-+++ b/drivers/gpu/drm/amd/amdgpu/dce_v6_0.c
-@@ -2759,7 +2759,7 @@ static int dce_v6_0_sw_init(struct amdgpu_ip_block *ip_block)
- 	/* XXX: can this be enabled for DC? */
- 	adev_to_drm(adev)->vblank_disable_immediate = true;
- 
--	r = drm_vblank_init(adev_to_drm(adev), adev->mode_info.num_crtc);
-+	r = drm_vblank_init(adev_to_drm(adev));
- 	if (r)
- 		return r;
- 
-diff --git a/drivers/gpu/drm/amd/amdgpu/dce_v8_0.c b/drivers/gpu/drm/amd/amdgpu/dce_v8_0.c
-index c3906270f25ef..76d6db1959643 100644
---- a/drivers/gpu/drm/amd/amdgpu/dce_v8_0.c
-+++ b/drivers/gpu/drm/amd/amdgpu/dce_v8_0.c
-@@ -2728,7 +2728,7 @@ static int dce_v8_0_sw_init(struct amdgpu_ip_block *ip_block)
- 	/* XXX: can this be enabled for DC? */
- 	adev_to_drm(adev)->vblank_disable_immediate = true;
- 
--	r = drm_vblank_init(adev_to_drm(adev), adev->mode_info.num_crtc);
-+	r = drm_vblank_init(adev_to_drm(adev));
- 	if (r)
- 		return r;
- 
-diff --git a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
-index 38cffe1279896..07b83584c7a9d 100644
---- a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
-+++ b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
-@@ -893,7 +893,7 @@ static int amdgpu_dm_init(struct amdgpu_device *adev)
- 	adev_to_drm(adev)->mode_config.cursor_width = adev->dm.dc->caps.max_cursor_size;
- 	adev_to_drm(adev)->mode_config.cursor_height = adev->dm.dc->caps.max_cursor_size;
- 
--	if (drm_vblank_init(adev_to_drm(adev), adev->dm.display_indexes_num)) {
-+	if (drm_vblank_init(adev_to_drm(adev))) {
- 		drm_err(adev_to_drm(adev),
- 		"failed to initialize vblank for display support.\n");
- 		goto error;
-diff --git a/drivers/gpu/drm/arm/display/komeda/komeda_kms.c b/drivers/gpu/drm/arm/display/komeda/komeda_kms.c
-index faa8b041373a7..02e7037c9b46e 100644
---- a/drivers/gpu/drm/arm/display/komeda/komeda_kms.c
-+++ b/drivers/gpu/drm/arm/display/komeda/komeda_kms.c
-@@ -297,7 +297,7 @@ struct komeda_kms_dev *komeda_kms_attach(struct komeda_dev *mdev)
- 	if (err)
- 		goto cleanup_mode_config;
- 
--	err = drm_vblank_init(drm, kms->n_crtcs);
-+	err = drm_vblank_init(drm);
- 	if (err)
- 		goto cleanup_mode_config;
- 
-diff --git a/drivers/gpu/drm/arm/hdlcd_drv.c b/drivers/gpu/drm/arm/hdlcd_drv.c
-index 81d45f2dd6a70..f353406d0f7fd 100644
---- a/drivers/gpu/drm/arm/hdlcd_drv.c
-+++ b/drivers/gpu/drm/arm/hdlcd_drv.c
-@@ -275,7 +275,7 @@ static int hdlcd_drm_bind(struct device *dev)
- 
- 	pm_runtime_enable(dev);
- 
--	ret = drm_vblank_init(drm, drm->mode_config.num_crtc);
-+	ret = drm_vblank_init(drm);
- 	if (ret < 0) {
- 		DRM_ERROR("failed to initialise vblank\n");
- 		goto err_vblank;
-diff --git a/drivers/gpu/drm/arm/malidp_drv.c b/drivers/gpu/drm/arm/malidp_drv.c
-index 23fa942ae4bbe..96df6790444fe 100644
---- a/drivers/gpu/drm/arm/malidp_drv.c
-+++ b/drivers/gpu/drm/arm/malidp_drv.c
-@@ -849,7 +849,7 @@ static int malidp_bind(struct device *dev)
- 	if (ret < 0)
- 		goto irq_init_fail;
- 
--	ret = drm_vblank_init(drm, drm->mode_config.num_crtc);
-+	ret = drm_vblank_init(drm);
- 	if (ret < 0) {
- 		DRM_ERROR("failed to initialise vblank\n");
- 		goto vblank_fail;
-diff --git a/drivers/gpu/drm/armada/armada_drv.c b/drivers/gpu/drm/armada/armada_drv.c
-index cae25ad66c749..3638b13d0cee9 100644
---- a/drivers/gpu/drm/armada/armada_drv.c
-+++ b/drivers/gpu/drm/armada/armada_drv.c
-@@ -122,7 +122,7 @@ static int armada_drm_bind(struct device *dev)
- 	if (ret)
- 		goto err_kms;
- 
--	ret = drm_vblank_init(&priv->drm, priv->drm.mode_config.num_crtc);
-+	ret = drm_vblank_init(&priv->drm);
- 	if (ret)
- 		goto err_comp;
- 
-diff --git a/drivers/gpu/drm/aspeed/aspeed_gfx_drv.c b/drivers/gpu/drm/aspeed/aspeed_gfx_drv.c
-index d4577663a1f0e..ba78695d1015c 100644
---- a/drivers/gpu/drm/aspeed/aspeed_gfx_drv.c
-+++ b/drivers/gpu/drm/aspeed/aspeed_gfx_drv.c
-@@ -205,7 +205,7 @@ static int aspeed_gfx_load(struct drm_device *drm)
- 	if (ret < 0)
- 		return ret;
- 
--	ret = drm_vblank_init(drm, 1);
-+	ret = drm_vblank_init(drm);
- 	if (ret < 0) {
- 		dev_err(drm->dev, "Failed to initialise vblank\n");
- 		return ret;
-diff --git a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.c b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.c
-index 2f41bce574dc5..1a5f273527bb4 100644
---- a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.c
-+++ b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.c
-@@ -867,7 +867,7 @@ static int atmel_hlcdc_dc_load(struct drm_device *dev)
- 
- 	pm_runtime_enable(dev->dev);
- 
--	ret = drm_vblank_init(dev, 1);
-+	ret = drm_vblank_init(dev);
- 	if (ret < 0) {
- 		drm_err(dev, "failed to initialize vblank\n");
- 		goto err_periph_clk_disable;
-diff --git a/drivers/gpu/drm/drm_vblank.c b/drivers/gpu/drm/drm_vblank.c
-index c6f61a39b5d16..17283e8920378 100644
---- a/drivers/gpu/drm/drm_vblank.c
-+++ b/drivers/gpu/drm/drm_vblank.c
-@@ -536,18 +536,18 @@ static void drm_vblank_init_release(struct drm_device *dev, void *ptr)
- /**
-  * drm_vblank_init - initialize vblank support
-  * @dev: DRM device
-- * @num_crtcs: number of CRTCs supported by @dev
-  *
-- * This function initializes vblank support for @num_crtcs display pipelines.
-+ * This function initializes vblank support for display pipelines.
-  * Cleanup is handled automatically through a cleanup function added with
-  * drmm_add_action_or_reset().
-  *
-  * Returns:
-  * Zero on success or a negative error code on failure.
-  */
--int drm_vblank_init(struct drm_device *dev, unsigned int num_crtcs)
-+int drm_vblank_init(struct drm_device *dev)
- {
- 	int ret;
-+	unsigned int num_crtcs = dev->mode_config.num_crtc;
- 	unsigned int i;
- 
- 	spin_lock_init(&dev->vbl_lock);
-diff --git a/drivers/gpu/drm/exynos/exynos_drm_drv.c b/drivers/gpu/drm/exynos/exynos_drm_drv.c
-index 9ee30086879f9..42c6053cdc9ec 100644
---- a/drivers/gpu/drm/exynos/exynos_drm_drv.c
-+++ b/drivers/gpu/drm/exynos/exynos_drm_drv.c
-@@ -273,7 +273,7 @@ static int exynos_drm_bind(struct device *dev)
- 	if (ret)
- 		goto err_mode_config_cleanup;
- 
--	ret = drm_vblank_init(drm, drm->mode_config.num_crtc);
-+	ret = drm_vblank_init(drm);
- 	if (ret)
- 		goto err_unbind_all;
- 
-diff --git a/drivers/gpu/drm/fsl-dcu/fsl_dcu_drm_drv.c b/drivers/gpu/drm/fsl-dcu/fsl_dcu_drm_drv.c
-index 3bbfc1b56a655..39768565b437e 100644
---- a/drivers/gpu/drm/fsl-dcu/fsl_dcu_drm_drv.c
-+++ b/drivers/gpu/drm/fsl-dcu/fsl_dcu_drm_drv.c
-@@ -122,7 +122,7 @@ static int fsl_dcu_load(struct drm_device *dev, unsigned long flags)
- 			return dev_err_probe(dev->dev, ret, "failed to enable pixclk\n");
- 	}
- 
--	ret = drm_vblank_init(dev, dev->mode_config.num_crtc);
-+	ret = drm_vblank_init(dev);
- 	if (ret < 0) {
- 		dev_err(dev->dev, "failed to initialize vblank\n");
- 		goto done_vblank;
-diff --git a/drivers/gpu/drm/gma500/psb_drv.c b/drivers/gpu/drm/gma500/psb_drv.c
-index d17cb5b4a4bf2..bef32d29046df 100644
---- a/drivers/gpu/drm/gma500/psb_drv.c
-+++ b/drivers/gpu/drm/gma500/psb_drv.c
-@@ -364,7 +364,7 @@ static int psb_driver_load(struct drm_device *dev, unsigned long flags)
- 	acpi_video_register();
- 
- 	/* Setup vertical blanking handling */
--	ret = drm_vblank_init(dev, dev_priv->num_pipe);
-+	ret = drm_vblank_init(dev);
- 	if (ret)
- 		goto out_err;
- 
-diff --git a/drivers/gpu/drm/hisilicon/hibmc/hibmc_drm_drv.c b/drivers/gpu/drm/hisilicon/hibmc/hibmc_drm_drv.c
-index 4d85c89f3f882..8f622732830e6 100644
---- a/drivers/gpu/drm/hisilicon/hibmc/hibmc_drm_drv.c
-+++ b/drivers/gpu/drm/hisilicon/hibmc/hibmc_drm_drv.c
-@@ -398,7 +398,7 @@ static int hibmc_load(struct drm_device *dev)
- 	if (ret)
- 		goto err;
- 
--	ret = drm_vblank_init(dev, dev->mode_config.num_crtc);
-+	ret = drm_vblank_init(dev);
- 	if (ret) {
- 		drm_err(dev, "failed to initialize vblank: %d\n", ret);
- 		goto err;
-diff --git a/drivers/gpu/drm/hisilicon/kirin/kirin_drm_drv.c b/drivers/gpu/drm/hisilicon/kirin/kirin_drm_drv.c
-index 8a11c2df5b886..617d8884ef649 100644
---- a/drivers/gpu/drm/hisilicon/kirin/kirin_drm_drv.c
-+++ b/drivers/gpu/drm/hisilicon/kirin/kirin_drm_drv.c
-@@ -181,7 +181,7 @@ static int kirin_drm_kms_init(struct drm_device *dev,
- 	}
- 
- 	/* vblank init */
--	ret = drm_vblank_init(dev, dev->mode_config.num_crtc);
-+	ret = drm_vblank_init(dev);
- 	if (ret) {
- 		DRM_ERROR("failed to initialize vblank.\n");
- 		goto err_unbind_all;
-diff --git a/drivers/gpu/drm/hyperv/hyperv_drm_modeset.c b/drivers/gpu/drm/hyperv/hyperv_drm_modeset.c
-index 1855749c1e41f..99833f5ce3610 100644
---- a/drivers/gpu/drm/hyperv/hyperv_drm_modeset.c
-+++ b/drivers/gpu/drm/hyperv/hyperv_drm_modeset.c
-@@ -330,7 +330,7 @@ int hv_drm_mode_config_init(struct hv_drm_device *hv)
- 		return ret;
- 	}
- 
--	ret = drm_vblank_init(dev, 1);
-+	ret = drm_vblank_init(dev);
- 	if (ret)
- 		return ret;
- 
-diff --git a/drivers/gpu/drm/i915/display/intel_display_driver.c b/drivers/gpu/drm/i915/display/intel_display_driver.c
-index bb5301b90231a..501a4bc9dfd50 100644
---- a/drivers/gpu/drm/i915/display/intel_display_driver.c
-+++ b/drivers/gpu/drm/i915/display/intel_display_driver.c
-@@ -217,8 +217,7 @@ int intel_display_driver_probe_noirq(struct intel_display *display)
- 	intel_bw_init_hw(display);
- 
- 	if (HAS_DISPLAY(display)) {
--		ret = drm_vblank_init(display->drm,
--				      INTEL_NUM_PIPES(display));
-+		ret = drm_vblank_init(display->drm);
- 		if (ret)
- 			goto cleanup_opregion;
- 	}
-diff --git a/drivers/gpu/drm/imx/dc/dc-kms.c b/drivers/gpu/drm/imx/dc/dc-kms.c
-index 0f8cfaf4c4d15..fbff307c87240 100644
---- a/drivers/gpu/drm/imx/dc/dc-kms.c
-+++ b/drivers/gpu/drm/imx/dc/dc-kms.c
-@@ -118,7 +118,7 @@ int dc_kms_init(struct dc_drm_device *dc_drm)
- 			return ret;
- 	}
- 
--	ret = drm_vblank_init(drm, DC_DISPLAYS);
-+	ret = drm_vblank_init(drm);
- 	if (ret) {
- 		dev_err(drm->dev, "failed to init vblank support: %d\n", ret);
- 		return ret;
-diff --git a/drivers/gpu/drm/imx/dcss/dcss-kms.c b/drivers/gpu/drm/imx/dcss/dcss-kms.c
-index 7c5a6e2bc89ac..d3b9d69254273 100644
---- a/drivers/gpu/drm/imx/dcss/dcss-kms.c
-+++ b/drivers/gpu/drm/imx/dcss/dcss-kms.c
-@@ -129,7 +129,7 @@ struct dcss_kms_dev *dcss_kms_attach(struct dcss_dev *dcss)
- 
- 	dcss_kms_mode_config_init(kms);
- 
--	ret = drm_vblank_init(drm, 1);
-+	ret = drm_vblank_init(drm);
- 	if (ret)
- 		goto cleanup_mode_config;
- 
-diff --git a/drivers/gpu/drm/imx/ipuv3/imx-drm-core.c b/drivers/gpu/drm/imx/ipuv3/imx-drm-core.c
-index 51a0ec0432484..53ea896d53353 100644
---- a/drivers/gpu/drm/imx/ipuv3/imx-drm-core.c
-+++ b/drivers/gpu/drm/imx/ipuv3/imx-drm-core.c
-@@ -233,7 +233,7 @@ static int imx_drm_bind(struct device *dev)
- 	if (ret)
- 		goto err_kms;
- 
--	ret = drm_vblank_init(drm, MAX_CRTC);
-+	ret = drm_vblank_init(drm);
- 	if (ret)
- 		goto err_kms;
- 
-diff --git a/drivers/gpu/drm/imx/lcdc/imx-lcdc.c b/drivers/gpu/drm/imx/lcdc/imx-lcdc.c
-index c67fe80b8115e..cc2a2c386730a 100644
---- a/drivers/gpu/drm/imx/lcdc/imx-lcdc.c
-+++ b/drivers/gpu/drm/imx/lcdc/imx-lcdc.c
-@@ -435,7 +435,7 @@ static int imx_lcdc_probe(struct platform_device *pdev)
- 	if (ret < 0)
- 		return dev_err_probe(drm->dev, ret, "Cannot setup simple display pipe\n");
- 
--	ret = drm_vblank_init(drm, drm->mode_config.num_crtc);
-+	ret = drm_vblank_init(drm);
- 	if (ret < 0)
- 		return dev_err_probe(drm->dev, ret, "Failed to initialize vblank\n");
- 
-diff --git a/drivers/gpu/drm/ingenic/ingenic-drm-drv.c b/drivers/gpu/drm/ingenic/ingenic-drm-drv.c
-index 738a80b2550ff..4e17f5707e708 100644
---- a/drivers/gpu/drm/ingenic/ingenic-drm-drv.c
-+++ b/drivers/gpu/drm/ingenic/ingenic-drm-drv.c
-@@ -1348,7 +1348,7 @@ static int ingenic_drm_bind(struct device *dev, bool has_components)
- 		goto err_drvdata;
- 	}
- 
--	ret = drm_vblank_init(drm, 1);
-+	ret = drm_vblank_init(drm);
- 	if (ret) {
- 		dev_err(dev, "Failed calling drm_vblank_init()\n");
- 		goto err_drvdata;
-diff --git a/drivers/gpu/drm/kmb/kmb_drv.c b/drivers/gpu/drm/kmb/kmb_drv.c
-index 7c2eb1152fc2f..6026702fa31f9 100644
---- a/drivers/gpu/drm/kmb/kmb_drv.c
-+++ b/drivers/gpu/drm/kmb/kmb_drv.c
-@@ -191,7 +191,7 @@ static int kmb_setup_mode_config(struct drm_device *drm)
- 	ret = kmb_dsi_encoder_init(drm, kmb->kmb_dsi);
- 	/* Set the CRTC's port so that the encoder component can find it */
- 	kmb->crtc.port = of_graph_get_port_by_id(drm->dev->of_node, 0);
--	ret = drm_vblank_init(drm, drm->mode_config.num_crtc);
-+	ret = drm_vblank_init(drm);
- 	if (ret < 0) {
- 		drm_err(drm, "failed to initialize vblank\n");
- 		pm_runtime_disable(drm->dev);
-diff --git a/drivers/gpu/drm/logicvc/logicvc_mode.c b/drivers/gpu/drm/logicvc/logicvc_mode.c
-index 3cf04b70bd271..9b67f12f32757 100644
---- a/drivers/gpu/drm/logicvc/logicvc_mode.c
-+++ b/drivers/gpu/drm/logicvc/logicvc_mode.c
-@@ -36,7 +36,7 @@ int logicvc_mode_init(struct logicvc_drm *logicvc)
- 	uint32_t preferred_depth;
- 	int ret;
- 
--	ret = drm_vblank_init(drm_dev, mode_config->num_crtc);
-+	ret = drm_vblank_init(drm_dev);
- 	if (ret) {
- 		drm_err(drm_dev, "Failed to initialize vblank\n");
- 		return ret;
-diff --git a/drivers/gpu/drm/loongson/lsdc_drv.c b/drivers/gpu/drm/loongson/lsdc_drv.c
-index 3fd828d23271c..19a7e98e6cd04 100644
---- a/drivers/gpu/drm/loongson/lsdc_drv.c
-+++ b/drivers/gpu/drm/loongson/lsdc_drv.c
-@@ -296,7 +296,7 @@ static int lsdc_pci_probe(struct pci_dev *pdev, const struct pci_device_id *ent)
- 	drmm_kms_helper_poll_init(ddev);
- 
- 	if (loongson_vblank) {
--		ret = drm_vblank_init(ddev, descp->num_of_crtc);
-+		ret = drm_vblank_init(ddev);
- 		if (ret)
- 			return ret;
- 
-diff --git a/drivers/gpu/drm/mcde/mcde_drv.c b/drivers/gpu/drm/mcde/mcde_drv.c
-index 53275b575f0cb..f94750d93fd55 100644
---- a/drivers/gpu/drm/mcde/mcde_drv.c
-+++ b/drivers/gpu/drm/mcde/mcde_drv.c
-@@ -174,7 +174,7 @@ static int mcde_modeset_init(struct drm_device *drm)
- 	mode_config->min_height = 1;
- 	mode_config->max_height = 1080;
- 
--	ret = drm_vblank_init(drm, 1);
-+	ret = drm_vblank_init(drm);
- 	if (ret) {
- 		dev_err(drm->dev, "failed to init vblank\n");
- 		return ret;
-diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.c b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-index c86a3f54f35bc..40b3877350fd9 100644
---- a/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-+++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-@@ -574,7 +574,7 @@ static int mtk_drm_kms_init(struct drm_device *drm)
- 	 */
- 	dma_set_max_seg_size(dma_dev, UINT_MAX);
- 
--	ret = drm_vblank_init(drm, MAX_CRTC);
-+	ret = drm_vblank_init(drm);
- 	if (ret < 0)
- 		goto err_component_unbind;
- 
-diff --git a/drivers/gpu/drm/meson/meson_drv.c b/drivers/gpu/drm/meson/meson_drv.c
-index 49ff9f1f16d32..d87a91135ecb3 100644
---- a/drivers/gpu/drm/meson/meson_drv.c
-+++ b/drivers/gpu/drm/meson/meson_drv.c
-@@ -262,7 +262,7 @@ static int meson_drv_bind_master(struct device *dev, bool has_components)
- 
- 	priv->vsync_irq = platform_get_irq(pdev, 0);
- 
--	ret = drm_vblank_init(drm, 1);
-+	ret = drm_vblank_init(drm);
- 	if (ret)
- 		goto free_canvas_vd1_2;
- 
-diff --git a/drivers/gpu/drm/msm/msm_kms.c b/drivers/gpu/drm/msm/msm_kms.c
-index e5d0ea6294484..23f0f2a25ea68 100644
---- a/drivers/gpu/drm/msm/msm_kms.c
-+++ b/drivers/gpu/drm/msm/msm_kms.c
-@@ -317,7 +317,7 @@ int msm_drm_kms_init(struct device *dev, const struct drm_driver *drv)
- 		sched_set_fifo(ev_thread->worker->task);
- 	}
- 
--	ret = drm_vblank_init(ddev, ddev->mode_config.num_crtc);
-+	ret = drm_vblank_init(ddev);
- 	if (ret < 0) {
- 		DRM_DEV_ERROR(dev, "failed to initialize vblank\n");
- 		goto err_msm_uninit;
-diff --git a/drivers/gpu/drm/mxsfb/lcdif_drv.c b/drivers/gpu/drm/mxsfb/lcdif_drv.c
-index e2173c4d6fc28..7fa1591a74bdd 100644
---- a/drivers/gpu/drm/mxsfb/lcdif_drv.c
-+++ b/drivers/gpu/drm/mxsfb/lcdif_drv.c
-@@ -175,7 +175,7 @@ static int lcdif_load(struct drm_device *drm)
- 		return ret;
- 	}
- 
--	ret = drm_vblank_init(drm, drm->mode_config.num_crtc);
-+	ret = drm_vblank_init(drm);
- 	if (ret < 0) {
- 		dev_err(drm->dev, "Failed to initialise vblank\n");
- 		return ret;
-diff --git a/drivers/gpu/drm/mxsfb/mxsfb_drv.c b/drivers/gpu/drm/mxsfb/mxsfb_drv.c
-index 8b4a500347fbd..87d38a84ed169 100644
---- a/drivers/gpu/drm/mxsfb/mxsfb_drv.c
-+++ b/drivers/gpu/drm/mxsfb/mxsfb_drv.c
-@@ -257,7 +257,7 @@ static int mxsfb_load(struct drm_device *drm,
- 		goto err_vblank;
- 	}
- 
--	ret = drm_vblank_init(drm, drm->mode_config.num_crtc);
-+	ret = drm_vblank_init(drm);
- 	if (ret < 0) {
- 		dev_err(drm->dev, "Failed to initialise vblank\n");
- 		goto err_vblank;
-diff --git a/drivers/gpu/drm/nouveau/nouveau_display.c b/drivers/gpu/drm/nouveau/nouveau_display.c
-index d71dcfc6ee66b..9305876bdad33 100644
---- a/drivers/gpu/drm/nouveau/nouveau_display.c
-+++ b/drivers/gpu/drm/nouveau/nouveau_display.c
-@@ -713,7 +713,7 @@ nouveau_display_create(struct drm_device *dev)
- 	drm_mode_config_reset(dev);
- 
- 	if (dev->mode_config.num_crtc) {
--		ret = drm_vblank_init(dev, dev->mode_config.num_crtc);
-+		ret = drm_vblank_init(dev);
- 		if (ret)
- 			goto vblank_err;
- 
-diff --git a/drivers/gpu/drm/omapdrm/omap_drv.c b/drivers/gpu/drm/omapdrm/omap_drv.c
-index 92d6a1f9c0a1a..aad57533780cd 100644
---- a/drivers/gpu/drm/omapdrm/omap_drv.c
-+++ b/drivers/gpu/drm/omapdrm/omap_drv.c
-@@ -731,7 +731,7 @@ static int omapdrm_init(struct omap_drm_private *priv, struct device *dev)
- 	}
- 
- 	/* Initialize vblank handling, start with all CRTCs disabled. */
--	ret = drm_vblank_init(ddev, priv->num_pipes);
-+	ret = drm_vblank_init(ddev);
- 	if (ret) {
- 		dev_err(priv->dev, "could not init vblank\n");
- 		goto err_cleanup_modeset;
-diff --git a/drivers/gpu/drm/pl111/pl111_drv.c b/drivers/gpu/drm/pl111/pl111_drv.c
-index 8ec659b3c08eb..e20a63ad1a0e1 100644
---- a/drivers/gpu/drm/pl111/pl111_drv.c
-+++ b/drivers/gpu/drm/pl111/pl111_drv.c
-@@ -175,7 +175,7 @@ static int pl111_modeset_init(struct drm_device *dev)
- 		return ret;
- 
- 	if (!priv->variant->broken_vblank) {
--		ret = drm_vblank_init(dev, 1);
-+		ret = drm_vblank_init(dev);
- 		if (ret != 0) {
- 			drm_err(dev, "Failed to init vblank\n");
- 			goto out_bridge;
-diff --git a/drivers/gpu/drm/qxl/qxl_display.c b/drivers/gpu/drm/qxl/qxl_display.c
-index 7f4178800afd7..0ed93be0439f1 100644
---- a/drivers/gpu/drm/qxl/qxl_display.c
-+++ b/drivers/gpu/drm/qxl/qxl_display.c
-@@ -1304,7 +1304,7 @@ int qxl_modeset_init(struct qxl_device *qdev)
- 
- 	qxl_display_read_client_monitors_config(qdev);
- 
--	ret = drm_vblank_init(&qdev->ddev, qxl_num_crtc);
-+	ret = drm_vblank_init(&qdev->ddev);
- 	if (ret)
- 		return ret;
- 
-diff --git a/drivers/gpu/drm/radeon/radeon_irq_kms.c b/drivers/gpu/drm/radeon/radeon_irq_kms.c
-index 839d619e5602b..e6880d3f665ee 100644
---- a/drivers/gpu/drm/radeon/radeon_irq_kms.c
-+++ b/drivers/gpu/drm/radeon/radeon_irq_kms.c
-@@ -314,7 +314,7 @@ int radeon_irq_kms_init(struct radeon_device *rdev)
- 	/* Disable vblank irqs aggressively for power-saving */
- 	rdev_to_drm(rdev)->vblank_disable_immediate = true;
- 
--	r = drm_vblank_init(rdev_to_drm(rdev), rdev->num_crtc);
-+	r = drm_vblank_init(rdev_to_drm(rdev));
- 	if (r) {
- 		return r;
- 	}
-diff --git a/drivers/gpu/drm/renesas/rcar-du/rcar_du_kms.c b/drivers/gpu/drm/renesas/rcar-du/rcar_du_kms.c
-index 9228a7ad0dfa4..c9e29da53d056 100644
---- a/drivers/gpu/drm/renesas/rcar-du/rcar_du_kms.c
-+++ b/drivers/gpu/drm/renesas/rcar-du/rcar_du_kms.c
-@@ -888,7 +888,7 @@ int rcar_du_modeset_init(struct rcar_du_device *rcdu)
- 	 * Initialize vertical blanking interrupts handling. Start with vblank
- 	 * disabled for all CRTCs.
- 	 */
--	ret = drm_vblank_init(dev, rcdu->num_crtcs);
-+	ret = drm_vblank_init(dev);
- 	if (ret < 0)
- 		return ret;
- 
-diff --git a/drivers/gpu/drm/renesas/rz-du/rzg2l_du_kms.c b/drivers/gpu/drm/renesas/rz-du/rzg2l_du_kms.c
-index 87f171145a230..497f3891c586a 100644
---- a/drivers/gpu/drm/renesas/rz-du/rzg2l_du_kms.c
-+++ b/drivers/gpu/drm/renesas/rz-du/rzg2l_du_kms.c
-@@ -430,7 +430,7 @@ int rzg2l_du_modeset_init(struct rzg2l_du_device *rcdu)
- 	 * Initialize vertical blanking interrupts handling. Start with vblank
- 	 * disabled for all CRTCs.
- 	 */
--	ret = drm_vblank_init(dev, rcdu->num_crtcs);
-+	ret = drm_vblank_init(dev);
- 	if (ret < 0)
- 		return ret;
- 
-diff --git a/drivers/gpu/drm/renesas/shmobile/shmob_drm_drv.c b/drivers/gpu/drm/renesas/shmobile/shmob_drm_drv.c
-index 2f31822b22458..713a1abb364b9 100644
---- a/drivers/gpu/drm/renesas/shmobile/shmob_drm_drv.c
-+++ b/drivers/gpu/drm/renesas/shmobile/shmob_drm_drv.c
-@@ -228,7 +228,7 @@ static int shmob_drm_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
--	ret = drm_vblank_init(ddev, 1);
-+	ret = drm_vblank_init(ddev);
- 	if (ret < 0) {
- 		dev_err(&pdev->dev, "failed to initialize vblank\n");
- 		return ret;
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_drv.c b/drivers/gpu/drm/rockchip/rockchip_drm_drv.c
-index 3099408e9d050..6e14c3832abff 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_drv.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_drv.c
-@@ -186,7 +186,7 @@ static int rockchip_drm_bind(struct device *dev)
- 	if (ret)
- 		goto err_unbind_all;
- 
--	ret = drm_vblank_init(drm_dev, drm_dev->mode_config.num_crtc);
-+	ret = drm_vblank_init(drm_dev);
- 	if (ret)
- 		goto err_iommu_cleanup;
- 
-diff --git a/drivers/gpu/drm/sprd/sprd_drm.c b/drivers/gpu/drm/sprd/sprd_drm.c
-index c2fd5380a834f..a49247a6cc25d 100644
---- a/drivers/gpu/drm/sprd/sprd_drm.c
-+++ b/drivers/gpu/drm/sprd/sprd_drm.c
-@@ -89,7 +89,7 @@ static int sprd_drm_bind(struct device *dev)
- 	}
- 
- 	/* vblank init */
--	ret = drm_vblank_init(drm, drm->mode_config.num_crtc);
-+	ret = drm_vblank_init(drm);
- 	if (ret) {
- 		drm_err(drm, "failed to initialize vblank.\n");
- 		goto err_unbind_all;
-diff --git a/drivers/gpu/drm/sti/sti_compositor.c b/drivers/gpu/drm/sti/sti_compositor.c
-index 8c529b0cca8b4..5478826aeb420 100644
---- a/drivers/gpu/drm/sti/sti_compositor.c
-+++ b/drivers/gpu/drm/sti/sti_compositor.c
-@@ -145,7 +145,7 @@ static int sti_compositor_bind(struct device *dev,
- 		}
- 	}
- 
--	drm_vblank_init(drm_dev, crtc_id);
-+	drm_vblank_init(drm_dev);
- 
- 	return 0;
- }
-diff --git a/drivers/gpu/drm/stm/ltdc.c b/drivers/gpu/drm/stm/ltdc.c
-index 8818dcf98da79..1e8ac7bbbea5c 100644
---- a/drivers/gpu/drm/stm/ltdc.c
-+++ b/drivers/gpu/drm/stm/ltdc.c
-@@ -2076,7 +2076,7 @@ int ltdc_load(struct drm_device *ddev)
- 		goto err;
- 	}
- 
--	ret = drm_vblank_init(ddev, NB_CRTC);
-+	ret = drm_vblank_init(ddev);
- 	if (ret) {
- 		drm_err(ddev, "Failed calling drm_vblank_init()\n");
- 		goto err;
-diff --git a/drivers/gpu/drm/sun4i/sun4i_drv.c b/drivers/gpu/drm/sun4i/sun4i_drv.c
-index e9baca360160b..b74ab1bcb41ee 100644
---- a/drivers/gpu/drm/sun4i/sun4i_drv.c
-+++ b/drivers/gpu/drm/sun4i/sun4i_drv.c
-@@ -95,7 +95,7 @@ static int sun4i_drv_bind(struct device *dev)
- 	}
- 
- 	/* drm_vblank_init calls kcalloc, which can fail */
--	ret = drm_vblank_init(drm, drm->mode_config.num_crtc);
-+	ret = drm_vblank_init(drm);
- 	if (ret)
- 		goto unbind_all;
- 
-diff --git a/drivers/gpu/drm/tegra/drm.c b/drivers/gpu/drm/tegra/drm.c
-index 324480c87fb1f..d5fe8f35107e9 100644
---- a/drivers/gpu/drm/tegra/drm.c
-+++ b/drivers/gpu/drm/tegra/drm.c
-@@ -1241,7 +1241,7 @@ static int host1x_drm_probe(struct host1x_device *dev)
- 	/* syncpoints are used for full 32-bit hardware VBLANK counters */
- 	drm->max_vblank_count = 0xffffffff;
- 
--	err = drm_vblank_init(drm, drm->mode_config.num_crtc);
-+	err = drm_vblank_init(drm);
- 	if (err < 0)
- 		goto hub;
- 
-diff --git a/drivers/gpu/drm/tidss/tidss_kms.c b/drivers/gpu/drm/tidss/tidss_kms.c
-index 70c14c3be10d5..8b45ac6a5e704 100644
---- a/drivers/gpu/drm/tidss/tidss_kms.c
-+++ b/drivers/gpu/drm/tidss/tidss_kms.c
-@@ -289,7 +289,7 @@ int tidss_modeset_init(struct tidss_device *tidss)
- 	if (ret)
- 		return ret;
- 
--	ret = drm_vblank_init(ddev, tidss->num_crtcs);
-+	ret = drm_vblank_init(ddev);
- 	if (ret)
- 		return ret;
- 
-diff --git a/drivers/gpu/drm/tilcdc/tilcdc_drv.c b/drivers/gpu/drm/tilcdc/tilcdc_drv.c
-index 1d6c9a423a410..37508fcd261c0 100644
---- a/drivers/gpu/drm/tilcdc/tilcdc_drv.c
-+++ b/drivers/gpu/drm/tilcdc/tilcdc_drv.c
-@@ -405,7 +405,7 @@ static int tilcdc_pdev_probe(struct platform_device *pdev)
- 		goto unregister_cpufreq_notif;
- 	}
- 
--	ret = drm_vblank_init(ddev, 1);
-+	ret = drm_vblank_init(ddev);
- 	if (ret < 0) {
- 		drm_err(ddev, "failed to initialize vblank\n");
- 		goto unregister_cpufreq_notif;
-diff --git a/drivers/gpu/drm/tiny/bochs.c b/drivers/gpu/drm/tiny/bochs.c
-index e2d957e51505c..36196682ace2f 100644
---- a/drivers/gpu/drm/tiny/bochs.c
-+++ b/drivers/gpu/drm/tiny/bochs.c
-@@ -677,7 +677,7 @@ static int bochs_kms_init(struct bochs_device *bochs)
- 	drm_connector_attach_edid_property(connector);
- 	drm_connector_attach_encoder(connector, encoder);
- 
--	ret = drm_vblank_init(dev, 1);
-+	ret = drm_vblank_init(dev);
- 	if (ret)
- 		return ret;
- 
-diff --git a/drivers/gpu/drm/tiny/cirrus-qemu.c b/drivers/gpu/drm/tiny/cirrus-qemu.c
-index 075221b431d37..d6730763acade 100644
---- a/drivers/gpu/drm/tiny/cirrus-qemu.c
-+++ b/drivers/gpu/drm/tiny/cirrus-qemu.c
-@@ -501,7 +501,7 @@ static int cirrus_pipe_init(struct cirrus_device *cirrus)
- 	if (ret)
- 		return ret;
- 
--	ret = drm_vblank_init(dev, 1);
-+	ret = drm_vblank_init(dev);
- 	if (ret)
- 		return ret;
- 
-diff --git a/drivers/gpu/drm/tve200/tve200_drv.c b/drivers/gpu/drm/tve200/tve200_drv.c
-index 8d0e7c7c82e84..f41748436ac5a 100644
---- a/drivers/gpu/drm/tve200/tve200_drv.c
-+++ b/drivers/gpu/drm/tve200/tve200_drv.c
-@@ -120,7 +120,7 @@ static int tve200_modeset_init(struct drm_device *dev)
- 	dev_info(dev->dev, "attached to panel %s\n",
- 		 dev_name(panel->dev));
- 
--	ret = drm_vblank_init(dev, 1);
-+	ret = drm_vblank_init(dev);
- 	if (ret) {
- 		dev_err(dev->dev, "failed to init vblank\n");
- 		goto out_bridge;
-diff --git a/drivers/gpu/drm/vc4/vc4_kms.c b/drivers/gpu/drm/vc4/vc4_kms.c
-index 8f08567d28fc6..2c1c479494b12 100644
---- a/drivers/gpu/drm/vc4/vc4_kms.c
-+++ b/drivers/gpu/drm/vc4/vc4_kms.c
-@@ -1151,7 +1151,7 @@ int vc4_kms_load(struct drm_device *dev)
- 	/* Set support for vblank irq fast disable, before drm_vblank_init() */
- 	dev->vblank_disable_immediate = true;
- 
--	ret = drm_vblank_init(dev, dev->mode_config.num_crtc);
-+	ret = drm_vblank_init(dev);
- 	if (ret < 0) {
- 		dev_err(dev->dev, "failed to initialize vblank\n");
- 		return ret;
-diff --git a/drivers/gpu/drm/verisilicon/vs_drm.c b/drivers/gpu/drm/verisilicon/vs_drm.c
-index fd259d53f49f1..3e4944eb745c4 100644
---- a/drivers/gpu/drm/verisilicon/vs_drm.c
-+++ b/drivers/gpu/drm/verisilicon/vs_drm.c
-@@ -121,7 +121,7 @@ int vs_drm_initialize(struct vs_dc *dc, struct platform_device *pdev)
- 		vdrm->crtcs[i] = crtc;
- 	}
- 
--	ret = drm_vblank_init(drm, dc->identity.display_count);
-+	ret = drm_vblank_init(drm);
- 	if (ret)
- 		return ret;
- 
-diff --git a/drivers/gpu/drm/virtio/virtgpu_display.c b/drivers/gpu/drm/virtio/virtgpu_display.c
-index 44ffffec550fd..971c5a7424b37 100644
---- a/drivers/gpu/drm/virtio/virtgpu_display.c
-+++ b/drivers/gpu/drm/virtio/virtgpu_display.c
-@@ -381,7 +381,7 @@ int virtio_gpu_modeset_init(struct virtio_gpu_device *vgdev)
- 	for (i = 0 ; i < vgdev->num_scanouts; ++i)
- 		vgdev_output_init(vgdev, i);
- 
--	ret = drm_vblank_init(vgdev->ddev, vgdev->num_scanouts);
-+	ret = drm_vblank_init(vgdev->ddev);
- 	if (ret)
- 		return ret;
- 
-diff --git a/drivers/gpu/drm/vkms/vkms_drv.c b/drivers/gpu/drm/vkms/vkms_drv.c
-index 5a640b531d88f..5a830cee7fe9b 100644
---- a/drivers/gpu/drm/vkms/vkms_drv.c
-+++ b/drivers/gpu/drm/vkms/vkms_drv.c
-@@ -192,8 +192,7 @@ int vkms_create(struct vkms_config *config)
- 		goto out_devres;
- 	}
- 
--	ret = drm_vblank_init(&vkms_device->drm,
--			      vkms_config_get_num_crtcs(config));
-+	ret = drm_vblank_init(&vkms_device->drm);
- 	if (ret) {
- 		DRM_ERROR("Failed to vblank\n");
- 		goto out_devres;
-diff --git a/drivers/gpu/drm/vmwgfx/vmwgfx_vkms.c b/drivers/gpu/drm/vmwgfx/vmwgfx_vkms.c
-index 7b8163b5e5014..22601060727fb 100644
---- a/drivers/gpu/drm/vmwgfx/vmwgfx_vkms.c
-+++ b/drivers/gpu/drm/vmwgfx/vmwgfx_vkms.c
-@@ -212,7 +212,7 @@ vmw_vkms_init(struct vmw_private *vmw)
- 
- 	ret = kstrtobool(buffer, &vmw->vkms_enabled);
- 	if (!ret && vmw->vkms_enabled) {
--		ret = drm_vblank_init(&vmw->drm, VMWGFX_NUM_DISPLAY_UNITS);
-+		ret = drm_vblank_init(&vmw->drm);
- 		vmw->vkms_enabled = (ret == 0);
- 	}
- 
-diff --git a/drivers/gpu/drm/xlnx/zynqmp_kms.c b/drivers/gpu/drm/xlnx/zynqmp_kms.c
-index d5f9224505655..c5209df46afe5 100644
---- a/drivers/gpu/drm/xlnx/zynqmp_kms.c
-+++ b/drivers/gpu/drm/xlnx/zynqmp_kms.c
-@@ -504,7 +504,7 @@ int zynqmp_dpsub_drm_init(struct zynqmp_dpsub *dpsub)
- 	drm->mode_config.max_width = ZYNQMP_DISP_MAX_WIDTH;
- 	drm->mode_config.max_height = ZYNQMP_DISP_MAX_HEIGHT;
- 
--	ret = drm_vblank_init(drm, 1);
-+	ret = drm_vblank_init(drm);
- 	if (ret)
- 		return ret;
- 
-diff --git a/include/drm/drm_vblank.h b/include/drm/drm_vblank.h
-index 2fcef9c0f5b1b..d78f40d3a85be 100644
---- a/include/drm/drm_vblank.h
-+++ b/include/drm/drm_vblank.h
-@@ -285,7 +285,7 @@ struct drm_vblank_crtc {
+diff --git a/sound/soc/xilinx/xlnx_formatter_pcm.c b/sound/soc/xilinx/xlnx_formatter_pcm.c
+index 3d6f1e4046d8..5f63fb28ea5f 100644
+--- a/sound/soc/xilinx/xlnx_formatter_pcm.c
++++ b/sound/soc/xilinx/xlnx_formatter_pcm.c
+@@ -82,7 +82,6 @@ struct xlnx_pcm_drv_data {
+ 	int mm2s_irq;
+ 	struct snd_pcm_substream *play_stream;
+ 	struct snd_pcm_substream *capture_stream;
+-	struct clk *axi_clk;
+ 	unsigned int sysclk;
  };
  
- struct drm_vblank_crtc *drm_crtc_vblank_crtc(struct drm_crtc *crtc);
--int drm_vblank_init(struct drm_device *dev, unsigned int num_crtcs);
-+int drm_vblank_init(struct drm_device *dev);
- bool drm_dev_has_vblank(const struct drm_device *dev);
- u64 drm_crtc_vblank_count(struct drm_crtc *crtc);
- u64 drm_crtc_vblank_count_and_time(struct drm_crtc *crtc,
+@@ -596,30 +595,19 @@ static int xlnx_formatter_pcm_probe(struct platform_device *pdev)
+ 	u32 val;
+ 	struct xlnx_pcm_drv_data *aud_drv_data;
+ 	struct device *dev = &pdev->dev;
++	struct clk *axi_clk;
++
++	axi_clk = devm_clk_get_enabled(dev, "s_axi_lite_aclk");
++	if (IS_ERR(axi_clk))
++		return dev_err_probe(dev, PTR_ERR(axi_clk), "failed to get s_axi_lite_aclk");
+ 
+ 	aud_drv_data = devm_kzalloc(dev, sizeof(*aud_drv_data), GFP_KERNEL);
+ 	if (!aud_drv_data)
+ 		return -ENOMEM;
+ 
+-	aud_drv_data->axi_clk = devm_clk_get(dev, "s_axi_lite_aclk");
+-	if (IS_ERR(aud_drv_data->axi_clk)) {
+-		ret = PTR_ERR(aud_drv_data->axi_clk);
+-		dev_err(dev, "failed to get s_axi_lite_aclk(%d)\n", ret);
+-		return ret;
+-	}
+-	ret = clk_prepare_enable(aud_drv_data->axi_clk);
+-	if (ret) {
+-		dev_err(dev,
+-			"failed to enable s_axi_lite_aclk(%d)\n", ret);
+-		return ret;
+-	}
+-
+ 	aud_drv_data->mmio = devm_platform_ioremap_resource(pdev, 0);
+-	if (IS_ERR(aud_drv_data->mmio)) {
+-		dev_err(dev, "audio formatter ioremap failed\n");
+-		ret = PTR_ERR(aud_drv_data->mmio);
+-		goto clk_err;
+-	}
++	if (IS_ERR(aud_drv_data->mmio))
++		return PTR_ERR(aud_drv_data->mmio);
+ 
+ 	val = readl(aud_drv_data->mmio + XLNX_AUD_CORE_CONFIG);
+ 	if (val & AUD_CFG_MM2S_MASK) {
+@@ -628,7 +616,7 @@ static int xlnx_formatter_pcm_probe(struct platform_device *pdev)
+ 					       XLNX_MM2S_OFFSET);
+ 		if (ret) {
+ 			dev_err(dev, "audio formatter reset failed\n");
+-			goto clk_err;
++			return ret;
+ 		}
+ 		xlnx_formatter_disable_irqs(aud_drv_data->mmio +
+ 					    XLNX_MM2S_OFFSET,
+@@ -636,17 +624,14 @@ static int xlnx_formatter_pcm_probe(struct platform_device *pdev)
+ 
+ 		aud_drv_data->mm2s_irq = platform_get_irq_byname(pdev,
+ 								 "irq_mm2s");
+-		if (aud_drv_data->mm2s_irq < 0) {
+-			ret = aud_drv_data->mm2s_irq;
+-			goto clk_err;
+-		}
++		if (aud_drv_data->mm2s_irq < 0)
++			return aud_drv_data->mm2s_irq;
++
+ 		ret = devm_request_irq(dev, aud_drv_data->mm2s_irq,
+ 				       xlnx_mm2s_irq_handler, 0,
+ 				       "xlnx_formatter_pcm_mm2s_irq", aud_drv_data);
+-		if (ret) {
+-			dev_err(dev, "xlnx audio mm2s irq request failed\n");
+-			goto clk_err;
+-		}
++		if (ret)
++			return ret;
+ 	}
+ 	if (val & AUD_CFG_S2MM_MASK) {
+ 		aud_drv_data->s2mm_presence = true;
+@@ -654,7 +639,7 @@ static int xlnx_formatter_pcm_probe(struct platform_device *pdev)
+ 					       XLNX_S2MM_OFFSET);
+ 		if (ret) {
+ 			dev_err(dev, "audio formatter reset failed\n");
+-			goto clk_err;
++			return ret;
+ 		}
+ 		xlnx_formatter_disable_irqs(aud_drv_data->mmio +
+ 					    XLNX_S2MM_OFFSET,
+@@ -662,34 +647,20 @@ static int xlnx_formatter_pcm_probe(struct platform_device *pdev)
+ 
+ 		aud_drv_data->s2mm_irq = platform_get_irq_byname(pdev,
+ 								 "irq_s2mm");
+-		if (aud_drv_data->s2mm_irq < 0) {
+-			ret = aud_drv_data->s2mm_irq;
+-			goto clk_err;
+-		}
++		if (aud_drv_data->s2mm_irq < 0)
++			return aud_drv_data->s2mm_irq;
++
+ 		ret = devm_request_irq(dev, aud_drv_data->s2mm_irq,
+ 				       xlnx_s2mm_irq_handler, 0,
+ 				       "xlnx_formatter_pcm_s2mm_irq",
+ 				       aud_drv_data);
+-		if (ret) {
+-			dev_err(dev, "xlnx audio s2mm irq request failed\n");
+-			goto clk_err;
+-		}
++		if (ret)
++			return ret;
+ 	}
+ 
+ 	dev_set_drvdata(dev, aud_drv_data);
+ 
+-	ret = devm_snd_soc_register_component(dev, &xlnx_asoc_component,
+-					      NULL, 0);
+-	if (ret) {
+-		dev_err(dev, "pcm platform device register failed\n");
+-		goto clk_err;
+-	}
+-
+-	return 0;
+-
+-clk_err:
+-	clk_disable_unprepare(aud_drv_data->axi_clk);
+-	return ret;
++	return devm_snd_soc_register_component(dev, &xlnx_asoc_component, NULL, 0);
+ }
+ 
+ static void xlnx_formatter_pcm_remove(struct platform_device *pdev)
+@@ -706,8 +677,6 @@ static void xlnx_formatter_pcm_remove(struct platform_device *pdev)
+ 
+ 	if (ret)
+ 		dev_err(&pdev->dev, "audio formatter reset failed\n");
+-
+-	clk_disable_unprepare(adata->axi_clk);
+ }
+ 
+ static const struct of_device_id xlnx_formatter_pcm_of_match[] = {
 -- 
 2.55.0
 
