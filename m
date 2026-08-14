@@ -4,92 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08986C5CFC1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 17:57:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41B69C5CFCF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 18:04:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CCsfE2oeXgk17KlO6HGMktCK5aeGy+7VHisTD9GROeU=; b=46atOJajNe1+BLvBxKeJ94dWqC
-	hB1YT+9v/t36rCd+sutBIxGAE4t/slc/1A7IaMc68QiXBEfn+9Jx7TYsN6QjV7pGWvqcFAAyzGRqg
-	3EGL/fUp7XLb3n9C01mtoj3N44IkeDhWcJ8lByot0+Nlnl17P3mmb7Z6isxdYRuDkncRaCGkSIpC+
-	8kTQzU7jOPRqADarBkPknRaO6HxSN7oxKjotlgrafzQUBueo3kNAcMK0jocumShrVKAkgWXGYLIkc
-	ig5jfwcffFWwiPGV6GwR1sdiQlQFnZKSOFChqFF5pYZlW85qsP1GaRiZR1ymsTk6rl8szpU/OF85B
-	E0MDYleA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lJGYR95OzBj8QQrlKrddVqSXRN2vXQMzoaoigQ4hsXo=; b=WOz5YTqPYD76ah92qckbpynzlm
+	5grbsuDYIliiL9Gb8YuYlFxCnGWDmKiD3M7wlj3tdP8Pas38n6J4mzjM/MGZN4oSs8HluROOS+3CW
+	fjVX62bTFxn9ZIDQJowRNHX9GANA2wNobNYcMDGndzvrDNRjHCGK8KtO3I0Y1GHg4xA0cU0OeIVdA
+	jkfIqxpqXvSarcymFHDyLwEwDT3NGEvad4XCgTxVrL9I4oa83uY+Qxds79wK6HHCaoOMmbr6fQG58
+	pisZxnnerwaBxOiDvegb9eeOsf0aU6b4x2QRJ9qYt5DmPtWSPtOLUjNMgiBtYhoIVnL/be2EZ+7JK
+	UXgUyA/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuw9a-000000030zI-0evj;
-	Fri, 14 Aug 2026 17:57:14 +0000
-Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
+	id 1wuwGP-000000031ED-3cdl;
+	Fri, 14 Aug 2026 18:04:17 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wuw9X-000000030yx-3wwI
+	id 1wuwGO-000000031E5-06qh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Aug 2026 17:57:13 +0000
-Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-38759bcd877so1718109a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 10:57:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=nexthop.ai; s=google; t=1786730231; x=1787335031; darn=lists.infradead.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:content-transfer-encoding:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=CCsfE2oeXgk17KlO6HGMktCK5aeGy+7VHisTD9GROeU=;
-        b=dpzhgy5hMYd5dCqOba1jkUuMki8d+pqDW9DWuazPsrdv89gkOD6srzbNq0lBy4ybAC
-         s3XHtkmtDeszd/iK+LTVHcVyr+SSB2NWy5rSnLEesPLmz39/eKyodh6K4dkPiMd6d9c8
-         Cjqo147b93ST9vuYvwcZFR4p8bhKqOj+neyiJWiqh4sWAORlld5OYt3K2q9+gjl8zGQS
-         dY/Ujo+zH2sPS5MkBMNXPZlc9CQdy9rx9hyPgXMX4Zw593dVpLojQ7XnJ6nR7TtXa3W9
-         wQFLrGQARYl9llata0ADKsBWx4ubrCiadiPja0xFUeeWWauBWOs6otNvDjBeJURKSdJZ
-         2x0Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786730231; x=1787335031;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:content-transfer-encoding:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=CCsfE2oeXgk17KlO6HGMktCK5aeGy+7VHisTD9GROeU=;
-        b=IAB/0oAzyJTwxlMmBLC6PUbKwnuDfA0etNpdt+yjKrKF8YbNMdzpbBy1/sOOP5Ok//
-         dbVP+fU5Z1NMjHs7hJijKCCtX4+4hirNv3MfWOh/ykMHo/svS05S9/tnvd+2kvnAljZp
-         n60mO8ccMob9Xj/cgOkKYXqiFtraDVqs6xRi9dFK5te44885LHsC6pRs/s2YsA4yWO24
-         zUCPMqfYNI4jGc5SE0b/2VFawgBz1x9hWOpvE1dwXAwlln4vMLrzeJwPMygdBfqUjw95
-         kmM+oi/RPLC//MLMn6uE1zL4spksFp4TonOMM2SVTaHg1zQfZ6E22j8aLjMKH6Luhuuv
-         FcQA==
-X-Forwarded-Encrypted: i=1; AHgh+RrViQCsq0HeGT2ilo2h7neoLmrNQc0WVMFoTqyQCBbQFwXTIdBoMUT4Iqi/vsXcvoX3esXcIGSD3hmfKQPPZWkr@lists.infradead.org
-X-Gm-Message-State: AOJu0YxgdDhWhnWCdb9iFqYd2ArnR6x2x2dvV8tZ4VqQF6RdIAEWrZEy
-	wJCHrc9gfsdItRU/0G3u7lb59zZQvJvT7BhCZtNteQXZ1Ardon6ndr1+DANdToJfiubqkPYIW8I
-	q/UNX8V4=
-X-Gm-Gg: AR+sD11hEuEdCeIcUJkp4y3pV+U8nS3zubGuv267SGua23G3jQAqAz4Ri+5vH2XaErf
-	fgCY5/u05ZRwByJnmSi7p0gCLNu4c5l8xGy2X24j7i1evr6ft4t8+pe3HzCl3mPELDWUNRMt0qw
-	+k8cPfu/jo49HuCCxCDdPwTCHxhCyqcRJvUjYV99eRYFwNtRyAzJmMr69uZvmpdPXvetu/jkXYL
-	oKXD28kiTZDeHTdjTZBsQ784KMxX7HTfirOSHTM0K3YIciHdooAIe6RRuMz1u1DhpSE+sgztFwW
-	C6U8LymVVqkpDdsF8QmwAbDiAS7tZsy2/TrMF2N8JkktWbCAcd1WLl15t1/T3BWHQ9nBpzZefbP
-	y4MheWJURwd5S8HAudDzjUNKnvGszvmzdoo8D+D8XJcQp7MWgF/zBUp+CXPsQ4Ib5UDi//o9Br6
-	isLQEnOueBJ/hGaJX677AbDvkHZZfT40dXKw/XzV1piGVK/xKMBMRDA3j8p0/8FvNHoxk/pJE=
-X-Received: by 2002:a17:90b:528f:b0:381:cef1:11ac with SMTP id 98e67ed59e1d1-3933e5d202amr8549727a91.10.1786730230603;
-        Fri, 14 Aug 2026 10:57:10 -0700 (PDT)
-Received: from localhost ([50.145.100.174])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-320d5bdc5c4sm6924004eec.5.2026.08.14.10.57.09
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 14 Aug 2026 10:57:09 -0700 (PDT)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Fri, 14 Aug 2026 10:57:08 -0700
-Message-Id: <DKOV07N5ZCM9.1ZUFFUNICUUFG@nexthop.ai>
-Cc: "Michal Simek" <michal.simek@amd.com>, "Andi Shyti"
- <andi.shyti@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-i2c@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] i2c: xiic: restore runtime PM teardown in remove to fix
- clk WARN flood
-From: "Abdurrahman Hussain" <abdurrahman@nexthop.ai>
-To: "Andy Shevchenko" <andriy.shevchenko@intel.com>, "Abdurrahman Hussain"
- <abdurrahman@nexthop.ai>
-X-Mailer: aerc 0.21.0
-References: <20260813-i2c-xiic-restore-runtime-pm-teardown-v1-1-0e7dfb206790@nexthop.ai> <an7gLYzltJgjIUNQ@ashevche-desk.local>
-In-Reply-To: <an7gLYzltJgjIUNQ@ashevche-desk.local>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260814_105711_996498_EB812329 
-X-CRM114-Status: GOOD (  10.64  )
+	Fri, 14 Aug 2026 18:04:16 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 122D360008;
+	Fri, 14 Aug 2026 18:04:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A4081F000E9;
+	Fri, 14 Aug 2026 18:04:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786730654;
+	bh=lJGYR95OzBj8QQrlKrddVqSXRN2vXQMzoaoigQ4hsXo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Jubd+W1NfLbtm6lAdMzClqirXNT6srtJHwF3bT3W3ckPhpJ9UESTWVxCB29x4ZPL6
+	 uILMjE3VnYiLS0JnIvquRq/8A96z4UAS33vieWjkGE3tRzSZqCqQV2qPKmlBri0kOQ
+	 ZKkrI6zT5HtNmJMnbdQSV9GGc81InAaSpdqwD8FB0xWMV6CLoaxhydpnP07yd1DAuD
+	 bKGKc3Ws9DgmTQ+yrZfV0jkOKTNr7R/Ux1aciFjPxUAUSQBUy6fZ6XZ2OX40zocjFE
+	 qZcHdlAiP+bVfGMfISAddMV6i6GbhvOqprelXrjq486McTmoeANEiMssh6dXm0Akwo
+	 rEPqjJEuGZCMg==
+Date: Fri, 14 Aug 2026 13:04:13 -0500
+From: Rob Herring <robh@kernel.org>
+To: "Neeli, Srinivas" <srneeli@amd.com>
+Cc: Jakub Kicinski <kuba@kernel.org>, nagadheeraj.rottela@amd.com,
+	srinivas.neeli@amd.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+	edumazet@google.com, pabeni@redhat.com, krzk+dt@kernel.org,
+	conor+dt@kernel.org, richardcochran@gmail.com, michal.simek@amd.com,
+	andrew@lunn.ch, olteanv@gmail.com, horms@kernel.org,
+	linux@armlinux.org.uk, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, git-dev@amd.com
+Subject: Re: [PATCH 01/20] dt-bindings: net: add Xilinx TSN Endpoint Ethernet
+ MAC
+Message-ID: <20260814180413.GF1981719-robh@kernel.org>
+References: <20260807104431.157230-2-nagadheeraj.rottela@amd.com>
+ <20260808194815.132344-1-kuba@kernel.org>
+ <ba624013-e8e2-4262-a451-650c29dc6b8f@amd.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <ba624013-e8e2-4262-a451-650c29dc6b8f@amd.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,32 +78,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri Aug 14, 2026 at 2:30 AM PDT, Andy Shevchenko wrote:
-> On Thu, Aug 13, 2026 at 02:06:40PM -0700, Abdurrahman Hussain wrote:
->> The devres conversion dropped the remove-time runtime PM trailer
->> (pm_runtime_disable + pm_runtime_set_suspended +
->> pm_runtime_dont_use_autosuspend). devm_pm_runtime_enable's release
->> action then calls pm_runtime_dont_use_autosuspend() while runtime PM
->> is still enabled, triggering an immediate runtime suspend: the suspend
->> callback clk_disable()s the clock that the devm_clk_get_enabled()
->> release is about to clk_disable_unprepare(), and every device teardown
->> WARNs in clk_core_disable() ("clkN already disabled").
->>=20
->> Restore the trailer: with runtime PM disabled and the state forced to
->> suspended before devres runs, the suspend callback cannot fire and the
->> clock enable count stays balanced.
->>=20
->> Fixes: 50c63491ff26 ("i2c: xiic: switch to devres managed APIs")
->> ---
->
-> ^^^ Something went wrong. The SoB must be part of the official commit mes=
-sage.
-> Putting it under the cutter '---' line makes it disappear.
+On Fri, Aug 14, 2026 at 03:59:27PM +0530, Neeli, Srinivas wrote:
+> Hi Jakub,
+> 
+> On 8/9/2026 1:18 AM, Jakub Kicinski wrote:
+> > This is an AI-generated review of your patch. The human sending this
+> > email has considered the AI review valid, or at least plausible.
+> > ---
+> > dt-bindings: net: add Xilinx TSN Endpoint Ethernet MAC
+> > 
+> > This adds a new binding for the Xilinx TSN Endpoint Ethernet MAC IP,
+> > describing a wrapper node that owns the six IP clocks and
+> > xlnx,num-priorities, plus an endpoint MAC child and a three-port switch
+> > child.  A MAINTAINERS entry is added for the new file.
+> > 
+> > A few questions about the schema below.
+> > 
+> > > diff --git a/Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml b/Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml
+> > > new file mode 100644
+> > > index 000000000000..00f52b7b623c
+> > > --- /dev/null
+> > > +++ b/Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml
+> > > @@ -0,0 +1,343 @@
+> > [ ... ]
+> > 
+> > > +properties:
+> > > +  compatible:
+> > > +    const: xlnx,tsn-endpoint-ethernet-mac-3.0
+> > > +
+> > > +  reg:
+> > > +    maxItems: 1
+> > [Severity: Low]
+> > Should the wrapper node have a reg at all?  It is listed in the top-level
+> > required list alongside ranges, and in the example the two describe the
+> > same window:
+> > 
+> >      reg = <0x80040000 0x40000>;
+> >      ranges = <0x0 0x80040000 0x40000>;
+> > 
+> > Every child window (mac1 0x0+0x14000, ep-mac 0x16000+0xa000, mac2
+> > 0x20000+0x14000, switch 0x38000+0x8000) falls inside the parent's own
+> > reg.
+> > 
+> > The commit message says the wrapper only owns the six shared clocks and
+> > xlnx,num-priorities, and the wrapper driver in this series never maps
+> > that region:
+> > 
+> > drivers/net/ethernet/xilinx/tsn/xilinx_tsn_main.c:tsn_ip_probe() {
+> >      ...
+> >      ret = devm_clk_bulk_get(dev, TSN_NUM_CLOCKS, w->clks);
+> >      ...
+> >      return devm_of_platform_populate(dev);
+> > }
+> > 
+> > Would it be cleaner for a bus node that translates its children through
+> > ranges to either drop reg or describe only a wrapper-private register
+> > block that no child window overlaps?
+> Thanks. We would prefer to keep reg as a required property of the wrapper,
+> for two reasons.
+> 
+> First, reg describes the whole TSN IP register window, which is a hardware
+> property of the IP, and ranges translates the child offsets within it. The
+> child windows do not fully cover the IP window, mac1, ep-mac, mac2 and the
+> switch fabric account for 232 KB of the 256 KB window, leaving 24 KB
+> unmapped by any child (0x14000..0x16000 and 0x34000..0x38000). That reserved
+> space is where the IP places top-level registers that are not owned by any
+> child node.
 
-My bad,
+Why not describe those 2 ranges in reg? Otherwise, you are mapping the 
+child addresses twice potentially.
 
-Let me fix it and send v2
+> Second, we intend to use that space. A planned use is a wrapper-level
+> build/configuration register that tells software which sub-blocks the IP
+> instantiates, so the wrapper can decide which children to populate. For
+> example, an endpoint-only build has no switch block, and the wrapper would
+> read that register to skip the switch node instead of relying on the child
+> nodes alone. That register lives in the wrapper window, not in any child, so
+> the wrapper needs its own reg to reach it.
+> 
+> Because reg is in the required list, making it optional later and then
+> requiring it again would be an ABI change. Keeping it required now avoids
+> that
+> churn once the wrapper starts reading its own register. The wrapper driver
+> in
+> this series does not map reg yet, which is a driver limitation rather than a
+> reason to drop the hardware description.
 
-Thanks,
-Abdurrahman
+If there are registers outside of the child nodes, then absolutely you 
+should have 'reg'. But please describe what registers and functionality 
+are there.
+
+[...]
+
+> > > +      mdio-mac1:
+> > > +        $ref: /schemas/net/mdio.yaml#
+> > > +        description:
+> > > +          MDIO bus controller for MAC1. Registers reside inside the mac1
+> > > +          reg-names window.
+> > > +        unevaluatedProperties: false
+> > > +
+> > > +      mdio-mac2:
+> > > +        $ref: /schemas/net/mdio.yaml#
+> > > +        description:
+> > > +          MDIO bus controller for MAC2. Registers reside inside the mac2
+> > > +          reg-names window.
+> > > +        unevaluatedProperties: false
+> > [Severity: Low]
+> > This isn't a bug, but the child node names contradict the $nodename
+> > patterns of the generic schemas this binding references.
+> > 
+> > mdio.yaml documents:
+> > 
+> >      pattern: '^mdio(-(bus|external))?(@.+|-([0-9]+))?$'
+> > 
+> > and -mac1 / -mac2 matches none of the allowed suffixes (-bus, -external,
+> > @<addr>, -<digits>).  Similarly the patternProperties key "^ep-mac@"
+> > forces names like the example's ep-mac@16000, while
+> > ethernet-controller.yaml documents:
+> > 
+> >      pattern: "^ethernet(@.*)?$"
+> > 
+> > Other in-tree bindings that $ref mdio.yaml for a child use a conforming
+> > name (qca8k.yaml, realtek.yaml, renesas,rzn1-a5psw.yaml,
+> > renesas,etheravb.yaml, faraday,ftgmac100.yaml, microchip,lan7800.yaml).
+> > Would mdio@<offset> (or mdio-0 / mdio-1) and ethernet@<offset> work here
+> > instead?
+> > 
+> > Related: the mdio-mac<N> nodes carry no reg, so nothing in DT locates the
+> > MDIO block inside the parent mac1/mac2 window.  The offset is instead
+> > hard-coded in the driver added later in this series:
+> > 
+> > drivers/net/dsa/xilinx/xilinx_tsn.h:
+> >      #define TSN_MDIO_MC_OFFSET		0x00000500
+> > 
+> > Could the buses be described as mdio@500 with a reg so the offset comes
+> > from DT?
+>  Thanks, accepted. In next version renames ep-mac@ to ethernet@ and
+> mdio-mac1/mdio-mac2 to
+>   mdio-1/mdio-2 to match the referenced schemas. The MDIO registers sit at a
+>   fixed offset inside the per-MAC window the driver already maps and have no
+>   standalone address, so the mdio-1/2 nodes keep that form without a reg
+>   rather than mdio@500.
+
+If there is a register address associated with them, then using that is 
+strongly preferred over mdio-N.
+
+Rob
 
