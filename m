@@ -4,65 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F7EFC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 00:22:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE6B6C5DF66
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Aug 2026 01:05:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BTbUb3MX/t95fArHVnY9sL9y9W4mR5L77BDPM1oB7qQ=; b=B2aQzp18ewWpnnxQ1lvSUgWkkg
-	zNNMLqae+W7UeVMdNQv7HyfG6Mt0+pYWGhwPK5jiTwetA37Fbg3KlG8STjFn9FD5hRQaFv742BPAz
-	aZqGAqBOTS3VDrqYHuIuox3F4/6uR3kqIly+DyTvXdk3Dd9h0pG4hf2MYNdzdgRt/huoDnCsTB1U5
-	NKqP1z5R60lr763lmmRufJ7DIJttMlYVmRC8caZ/WF9P1DBALVp/RzI7qhghKpxVUjbBomIBHDC3J
-	utZjiQ8lPHM00fYTgmDhebVKM48TDAoQHQtOXS8GIP7QPugda+D33zK7fUuOWVp8T5/hUX3gytH3d
-	sVF0a2LQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TT05+eZvnl5IBQfZnSST+h2fyoBIVNsLiOILRTEq5Ks=; b=K+bD/8i8cKjbTbf44FduKeDqtL
+	zHvCwAIeSid8LHQwrsrMUCBZEvdGNAu/QIFEDgVzoJqe8VF1mpox3KxKgdS7aY4Gr5jcsxueS+M8C
+	LbDI7d7jXie7RJeo10ZKPX1Pn7b3cMM5jBxW7a1NX4mR3MNZ4wTM8DoVMESVsIQYXSma09eleLlhx
+	bl4yeJmTL20ej4NdeFuXz0nFpRqoiaT+A1GkKfjPo5BURQB4CO/6zWH7Dc6WrwBCjFnEmJdu0r2EG
+	Z2zCZzKebVWyvx+DQV2Q5UBuNqDb48zZDQqzhQNhORhdPDnmwnEJm4orakNxZ6B4Yj6tIu1dki3hf
+	gwVh3Nwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wufgO-00000001lfU-2XAF;
-	Fri, 14 Aug 2026 00:22:00 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wugMD-00000001mco-49zE;
+	Fri, 14 Aug 2026 01:05:14 +0000
+Received: from esa8.hc1455-7.c3s2.iphmx.com ([139.138.61.253])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wufgN-00000001lfO-0Ubw
+	id 1wugMA-00000001mcJ-1PPj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Aug 2026 00:21:59 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1A15F4191C;
-	Fri, 14 Aug 2026 00:21:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CB151F000E9;
-	Fri, 14 Aug 2026 00:21:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786666918;
-	bh=BTbUb3MX/t95fArHVnY9sL9y9W4mR5L77BDPM1oB7qQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=lFf6wNbIA/mnWUXJe1uFMLtsfn4y468vV0gNvVxUpMCSEGA8fHpTo6txg1pamW6ry
-	 b9HPp+slKWH+Z5KjcerTk1o5WOX0NqWhvsTtB1HYxFV2+bLTmjxWILX53YV5etkJm8
-	 vA2KPQwTj5TPDteIuY7PWWwxDOFIUJq2ZUGUUbw172YVxXzhsLrFRfQtHeylQMuBoe
-	 U4BNYfhuyYYCjbzgzal6NktxNcWYtEZ5sQl+acgvhqno2t5YtDki7jE2HzOXWouzMC
-	 HcQ1R10LRncJKDLDcWmVpdAX4ihrWabBwsmI8VPeyoIJYM/TzXs+t+inKH/I6GTy4s
-	 vqn/OguKOFv4Q==
-Date: Thu, 13 Aug 2026 17:21:56 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Maxime
- Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH net-next v2] net: stmmac: improve TSO/GSO queue
- selection
-Message-ID: <20260813172156.0243cb7a@kernel.org>
-In-Reply-To: <an4qzUrK62-rN7Q6@lore-qca>
-References: <20260808-stmmac_select_queue-tso-fix-v2-1-67175b29772e@oss.qualcomm.com>
-	<anybM_3Rdg8X8CMs@lore-qca>
-	<20260812161038.5602eac9@kernel.org>
-	<an4qzUrK62-rN7Q6@lore-qca>
+	Fri, 14 Aug 2026 01:05:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1786669510; x=1818205510;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=sffRl33pdGL49NgPZjdmSfcZBvI4FnHLaHvcv+SvHnw=;
+  b=jVW+tMAz93AgfWBy0zXNZaPDfyxqLuCTNleZ+U+EoUhOTcMCKuRgXCkX
+   zUTJfyIITU7z2tj/C3yGavfzsxCwcesAG3SDD99Pb0CvhFuurQ+HQkqQk
+   ViKR+2wq84DELPHQGw5WALzrXKI/uBVtiYkaIjbkSeRX8O9hJcZcUpQNo
+   IQ/gtf7zMybrhMhkVNli8NE1sCegvjjlsrCBSJWOJCykvMoKTqsUVUV+a
+   VilbVgYLZDKqOPm3WmpXWNu51P3Wv7RcZa92bZkDgtyhjn2ltfUCJokiM
+   SHX1uD3hK29jN5C8IToQ1OHZN7FYKmkb//wDysafIaypeWhoetDWDor/t
+   A==;
+X-CSE-ConnectionGUID: 8RI2F/eBQ7aLLyW0xl1nyg==
+X-CSE-MsgGUID: Dk1GQMdoRYifqiZA8L566Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11874"; a="238891466"
+X-IronPort-AV: E=Sophos;i="6.25,222,1779116400"; 
+   d="scan'208";a="238891466"
+Received: from gmgwuk01.global.fujitsu.com ([172.187.114.235])
+  by esa8.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Aug 2026 10:05:05 +0900
+Received: from az2uksmgm1.o.css.fujitsu.com (unknown [10.151.22.198])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by gmgwuk01.global.fujitsu.com (Postfix) with ESMTPS id 6A4081C1C730
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 01:05:05 +0000 (UTC)
+Received: from az2nlsmom1.o.css.fujitsu.com (unknown [10.150.26.198])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2uksmgm1.o.css.fujitsu.com (Postfix) with ESMTPS id 1BA6B829CE0
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 01:05:05 +0000 (UTC)
+Received: from sm-arm-grace07 (unknown [10.124.178.20])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2nlsmom1.o.css.fujitsu.com (Postfix) with ESMTPS id 39E82826FD3;
+	Fri, 14 Aug 2026 01:04:59 +0000 (UTC)
+Date: Fri, 14 Aug 2026 10:04:57 +0900
+From: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+To: Wei-Lin Chang <weilin.chang@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>, Fuad Tabba <tabba@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>
+Subject: Re: [PATCH v5 2/6] KVM: arm64: nv: Introduce guest stage-2 tracking
+ structures
+Message-ID: <an5puT6fe3lOMY4Q@sm-arm-grace07>
+References: <20260810205038.118843-1-weilin.chang@arm.com>
+ <20260810205038.118843-3-weilin.chang@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260810205038.118843-3-weilin.chang@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260813_180511_059419_66780682 
+X-CRM114-Status: GOOD (  31.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,47 +103,196 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 13 Aug 2026 22:36:29 +0200 Lorenzo Bianconi wrote:
-> On Aug 12, Jakub Kicinski wrote:
-> > On Wed, 12 Aug 2026 18:11:31 +0200 Lorenzo Bianconi wrote: =20
-> > > please drop this version, I will post v3 to fix some pending issues. =
-=20
-> >=20
-> > FTR Russell was trying to fix TSO in this driver too, before giving up
-> > (on us?). The direction he was following of clearing the TSO caps in
-> > ndo_features_check and letting the stack GSO instead of all the weird
-> > hacks this driver has seemed much more sane. But maybe I'm missing
-> > something TBS specific here  =20
->=20
-> thx for the pointers. I reviewed Russell's commits and I guess we have two
-> options here:
->=20
-> - manages all the TSO/GSO checks in ndo_features_check() (stmmac_features=
-_check())
->   and disable TSO/GSO if the selected queue does not support checksum off=
-load
->   or it has TBS enabled. In this case I guess we can drop ndo_select_queu=
-e()
->   callback completely (it does not make sense to me to always use queue 0=
- for
->   TSO/GSO packets, e.g. it does not allow proper mqprio offload).
->   Please note this approach would introduce some performance regressions =
-with
->   respect of the previous implementation.
-> - implements TSO/GSO checks in ndo_select_queue() callback
->   (stmmac_select_queue()) in order to keep TSO/GSO enabled if the selected
->   queue supports it and at the same time do not always use queue 0 for TS=
-O/GSO
->   packets (proper qdisc offload). Please note this is patch I am proposin=
-g.
->=20
-> What do you think?
+On Mon, Aug 10, 2026 at 09:50:34PM +0100, Wei-Lin Chang wrote:
+> In order to avoid unmapping all shadow stage-2 mappings when KVM
+> receives a MMU notifier unmap call, we have to keep track of the
+> canonical IPA -> nested IPA relationship of the shadow mappings
+> created. This essentially means tracking the guest's stage-2.
+> 
+> To do this, represent each mapping by struct kvm_guest_s2_mapping. It
+> stores the mapping's canonical IPA range and the nested IPA range using
+> two interval tree nodes. Both nodes will be inserted into their
+> respective interval trees called guest_s2_mappings. The canonical IPA
+> ranges will be stored in the tree within the canonical MMU, and the
+> nested IPA ranges will be stored in the corresponding nested MMU's tree.
+> 
+> For example:
+> 
+> struct kvm_guest_s2_mapping mapping1, mapping2;
+> 
+>     ---------------------> mapping2.canonical
+>     |                      mapping1.canonical
+>     |                          ^   (both stored in canonical mmu's tree)
+>     |                          |
+> --*****-----------------------*****----------- CIPA
+>    \\\\\                      |||||                  mapping1.nested_mmu
+>     \\\\\                     \\\\\                            |
+>      \\\\\                     \\\\\                           v
+> ------\\\\\---------------------*****--------- NIPA #1 (nested mmu #1)
+>        \\\\\                      |
+>         \\\\\                     -> mapping1.nested
+>          \\\\\                       (stored in nested mmu #1's tree)
+>           \\\\\
+> -----------*****------------------------------ NIPA #2 (nested mmu #2)
+>              |                                                 ^
+>              -> mapping2.nested                                |
+>                 (stored in nested mmu #2's tree)   mapping2.nested_mmu
+> 
+> Using the trees we can look up nodes in either of the IPA spaces, and
+> for each node, find the corresponding range in the other IPA space from
+> the other node in the enclosing kvm_guest_s2_mapping.
+> 
+> Define kvm_guest_s2_mapping and the interval tree here. Guest stage-2
+> mapping tracking will come in subsequent patches.
+> 
+> Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+> ---
+>  arch/arm64/include/asm/kvm_host.h | 17 +++++++++++++++++
+>  arch/arm64/kvm/mmu.c              | 30 ++++++++++++++++++++++++++++++
+>  arch/arm64/kvm/nested.c           |  1 +
+>  3 files changed, 48 insertions(+)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index bae2c4f92ef5..0695c4ef93f1 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -14,6 +14,7 @@
+>  #include <linux/arm-smccc.h>
+>  #include <linux/bitmap.h>
+>  #include <linux/types.h>
+> +#include <linux/interval_tree.h>
+>  #include <linux/jump_label.h>
+>  #include <linux/kvm_types.h>
+>  #include <linux/maple_tree.h>
+> @@ -150,6 +151,16 @@ struct kvm_vmid {
+>  	atomic64_t id;
+>  };
+>  
+> +/*
+> + * Record of a guest stage-2 mapping, storing canonical and nested IPA
+> + * ranges. Both ranges have the same size.
+> + */
+> +struct kvm_guest_s2_mapping {
+> +	struct interval_tree_node canonical;
+> +	struct interval_tree_node nested;
+> +	struct kvm_s2_mmu *nested_mmu;
+> +};
 
-I don't know this driver, or how it's used.
+Is this to be used for normal (L1) guests? I guess this series is for
+shadow stage 2 unmapping optimization, so not sure.
 
-=46rom the commit message it sounds like "if the packet wants TSO and=20
-the queue has a scheduler enabled - take the packet to another queue".
-Presumably you know why the TBS is enabled and whether the packet
-should or should not be going to that queue in the first place if
-you're sending the patch? What is the use case?
+Thanks,
+Itaru.
+
+> +
+>  struct kvm_s2_mmu {
+>  	struct kvm_vmid vmid;
+>  
+> @@ -227,6 +238,9 @@ struct kvm_s2_mmu {
+>  	 */
+>  	bool	pending_unmap;
+>  
+> +	/* Guest s2 mapping records indexed in this MMU's IPA space. */
+> +	struct rb_root_cached guest_s2_mappings;
+> +
+>  	/*
+>  	 *  0: Nobody is currently using this, check vttbr for validity
+>  	 * >0: Somebody is actively using this.
+> @@ -326,6 +340,9 @@ struct kvm_arch {
+>  	size_t nested_mmus_size;
+>  	int nested_mmus_next;
+>  
+> +	/* Guest s2 tracking trees access serialization. */
+> +	spinlock_t guest_s2_tracking_lock;
+> +
+>  	/* Interrupt controller */
+>  	struct vgic_dist	vgic;
+>  
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index 336dd8f7e8ab..59b4f583240e 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -7,6 +7,7 @@
+>  #include <linux/acpi.h>
+>  #include <linux/mman.h>
+>  #include <linux/kvm_host.h>
+> +#include <linux/interval_tree.h>
+>  #include <linux/io.h>
+>  #include <linux/hugetlb.h>
+>  #include <linux/sched/signal.h>
+> @@ -1033,6 +1034,8 @@ int kvm_init_stage2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu, unsigned long t
+>  
+>  	mmu->pgd_phys = __pa(pgt->pgd);
+>  
+> +	mmu->guest_s2_mappings = RB_ROOT_CACHED;
+> +
+>  	if (kvm_is_nested_s2_mmu(kvm, mmu))
+>  		kvm_init_nested_s2_mmu(mmu);
+>  
+> @@ -1122,10 +1125,32 @@ void stage2_unmap_vm(struct kvm *kvm)
+>  	srcu_read_unlock(&kvm->srcu, idx);
+>  }
+>  
+> +static void guest_s2_tracking_destroy(struct kvm_s2_mmu *mmu,
+> +				      struct rb_root_cached *tree)
+> +{
+> +	struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
+> +	struct kvm_guest_s2_mapping *mapping;
+> +	struct interval_tree_node *node;
+> +
+> +	while ((node = interval_tree_iter_first(tree, 0, ULONG_MAX))) {
+> +		interval_tree_remove(node, tree);
+> +
+> +		if (!kvm_is_nested_s2_mmu(kvm, mmu)) {
+> +			mapping = container_of(node, struct kvm_guest_s2_mapping,
+> +					       canonical);
+> +			/* The canonical MMU is destroyed after the nested MMUs. */
+> +			kfree(mapping);
+> +		}
+> +
+> +		cond_resched();
+> +	}
+> +}
+> +
+>  void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu)
+>  {
+>  	struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
+>  	struct kvm_pgtable *pgt = NULL;
+> +	struct rb_root_cached mappings_tree;
+>  
+>  	write_lock(&kvm->mmu_lock);
+>  	pgt = mmu->pgt;
+> @@ -1138,12 +1163,17 @@ void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu)
+>  	if (kvm_is_nested_s2_mmu(kvm, mmu))
+>  		kvm_init_nested_s2_mmu(mmu);
+>  
+> +	mappings_tree = mmu->guest_s2_mappings;
+> +	mmu->guest_s2_mappings = RB_ROOT_CACHED;
+> +
+>  	write_unlock(&kvm->mmu_lock);
+>  
+>  	if (pgt) {
+>  		kvm_stage2_destroy(pgt);
+>  		kfree(pgt);
+>  	}
+> +
+> +	guest_s2_tracking_destroy(mmu, &mappings_tree);
+>  }
+>  
+>  static void hyp_mc_free_fn(void *addr, void *mc)
+> diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+> index dfb96edbdc43..744aacba61ae 100644
+> --- a/arch/arm64/kvm/nested.c
+> +++ b/arch/arm64/kvm/nested.c
+> @@ -49,6 +49,7 @@ void kvm_init_nested(struct kvm *kvm)
+>  	kvm->arch.nested_mmus = NULL;
+>  	kvm->arch.nested_mmus_size = 0;
+>  	atomic_set(&kvm->arch.vncr_map_count, 0);
+> +	spin_lock_init(&kvm->arch.guest_s2_tracking_lock);
+>  }
+>  
+>  static int init_nested_s2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu)
+> -- 
+> 2.43.0
+> 
 
