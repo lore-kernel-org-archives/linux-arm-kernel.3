@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FC20C5DF6A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 04:46:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B95CC5AD5A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 04:46:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9wCRQs/DtGwKuk6KFB2dJnmuHFc0uK43X388YUJ5gCg=; b=Ft8P/Uv1z37KW83lMCB9SAf7zk
-	Rohv0jUKCZX3XMTekbxc7PPhcysQMZJf6U6c8S/ChVgOKeJJV0wqBhGnmKJls4etp3OrdUiEiXyYh
-	DyQo2ckSFheAinowpJkVY6jBmEce576VFL/NjJBPhChHBtEB6eap+UGeZV7cbu5wIHPXaJZxTzD+u
-	UDomCBO1PbLEd2tORlg7dQapgFJHaawauXHhPB8ESKt1y45DdEYJN99WJX4kLTWwvcwk0VQIATYEq
-	ypPUURHH0giHHMa1bnm915vkD6Ul3VaRob/2CGUlITOSyPyoWaWBDVmaEAUnccawDrugeIX/O/9/G
-	AKeMdb8A==;
+	bh=fT44iHwShZYqHlrkVVc92252zfcCjw/uJmqte3KuCwo=; b=NvBzuqIWNCIsKO2MfHTCA1wLIo
+	Ujass/fXqydPD2T6RMVQq/HJpObTVB66KaW0ETCa+ZWM8G5WYpvCCu42f/srBeh/aNn7IITxPAoRP
+	xSWAmwbuu81znKJybqCSqAdTYXjehyxrKtyM1u2tQ4rZlFCiCaTzg0gLDl0iZ4pNkVsC2a53kEz+p
+	U46MP7WXajdYUXin+GUr113Hyw+x9JvTRuyUnPj67Jr99b98LknQsaG6sEk/PUhENgek52bC5QO9R
+	9IHcaNMaDKJndoE51NpRj4AtvxCfIPE4LkL/RTEQz8uEERCHPvBI2arPjebZNO3WEqDFWeu+6HhqM
+	+lBSOJ6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wv6HV-00000003V58-1Ioh;
-	Sat, 15 Aug 2026 04:46:05 +0000
+	id 1wv6HV-00000003V6m-4A9g;
+	Sat, 15 Aug 2026 04:46:06 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wv6HD-00000003Uyu-3ymK
+	id 1wv6HG-00000003Uzo-0WQO
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Aug 2026 04:45:48 +0000
+	Sat, 15 Aug 2026 04:45:51 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 673CE61838;
-	Sat, 15 Aug 2026 04:45:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 818D51F000E9;
-	Sat, 15 Aug 2026 04:45:46 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 91D6360DC0;
+	Sat, 15 Aug 2026 04:45:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7BBF1F000E9;
+	Sat, 15 Aug 2026 04:45:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786769147;
-	bh=9wCRQs/DtGwKuk6KFB2dJnmuHFc0uK43X388YUJ5gCg=;
+	s=k20260515; t=1786769149;
+	bh=fT44iHwShZYqHlrkVVc92252zfcCjw/uJmqte3KuCwo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=lFh6UQXUzmVr9Vh0yo33HvQJWaCYguigFZnKEJ6gy8qQcxVVhEHMrSt3D5nHMBXhj
-	 ziSGYXNNHUpWD02KsjtZnxulTClP4rxAmCYvn9vsyiN25thRAJkSix/BPFZZCA3Y4K
-	 splzGd/7Y+gu1zAU631JCcwOOeyLGLtmLyUCS/LcxUQ+WZkIwXwuSklVNccvOdcyKS
-	 irrARnSVAYrDtQbNlNx9VZy3X7NR31bGM7T54umCH6EOpNSvwUO/nVebNBxIlRFeKL
-	 bM164ghDz+oP9T108vpl+4HGurwA56HUFY8dgIcogYbROdMj025CYjK8xwLL5AypzP
-	 ZKw+MIJAwi6Og==
+	b=Hj47LVxoYM8DunlTEHRgvNdzoKlQ7WASQfHhhJxWXwHqpoDHdGy8+S3dlLQrhl38/
+	 0o4HXCx9MeNuPPOObGDj4hFfRORTpVhf8bLYkjiTwoKbSJSuhCL3/2jkR8GhuqQID5
+	 VX/xhmWTvAlNwYUtWswI/ij5FKVKt7ADbeD9nFzZupC5RNROOcOGlqgwqExuc3ad3l
+	 1x3YhLIQQw76MIKoVvc17QYWvZtRQ1kX6vvOg8tjkzHKYHyqjMS43qtP4sPqpFBYEz
+	 2/Ci+FiD/VvFcpkBSOijf1Xt1/kn98tzhfhxNVRG4AOafoWw9dP9JKfpDV6ndYoXpq
+	 qCbdH7LWCgvfA==
 From: Josh Poimboeuf <jpoimboe@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>
@@ -59,9 +59,9 @@ Cc: linux-kernel@vger.kernel.org,
 	Kees Cook <kees@kernel.org>,
 	Nathan Chancellor <nathan@kernel.org>,
 	linux-toolchains@vger.kernel.org
-Subject: [PATCH 06/12] arm64/bti: Add link error for large kernels with BTI and livepatch
-Date: Fri, 14 Aug 2026 21:45:23 -0700
-Message-ID: <42ba934395666a29186dad1c072381a64712268b.1786768375.git.jpoimboe@kernel.org>
+Subject: [PATCH 09/12] efi/libstub: Preserve the GNU property note
+Date: Fri, 14 Aug 2026 21:45:26 -0700
+Message-ID: <0445b20df50894615ada70abb1e6238f33c78a2e.1786768375.git.jpoimboe@kernel.org>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <cover.1786768375.git.jpoimboe@kernel.org>
 References: <cover.1786768375.git.jpoimboe@kernel.org>
@@ -81,63 +81,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A livepatch module uses klp relocations to reference static functions in
-vmlinux.  If the livepatch module is placed at an address far away from
-vmlinux, it needs PLT veneers to call those functions.
+With "-z force-bti" the linker warns (or errors with CONFIG_WERROR) for
+every libstub object:
 
-With BTI enabled, the veneers' indirect branch targets need a BTI
-landing pad, which not all functions have starting with Clang 21 (and
-for all versions of GCC).
+  warning: BTI is required by -z force-bti, but this input object file lacks the necessary property note.
 
-In such cases the module loader attempts to allocate a page close to the
-target for emitting a second veneer which has the landing pad along with
-a direct branch to the target.
+On arm64 the EFI stub is part of vmlinux, so its objects are annotated
+as __init at the section level by running objcopy with
+--prefix-alloc-sections=.init.  That has the side effect of renaming
+.note.gnu.property to .init.note.gnu.property, which LLD ignores,
+resulting in the BTI bit getting removed.
 
-That page has to come from either the region below _text or the region
-above _end, as there's no way to allocate memory in the middle of the
-vmlinux image.  For a target near the end of a >128MB text region
-there's no address space below _text within branch range at all, leaving
-only whatever room happens to remain above _end after rodata, data and
-bss.
+That's only a problem for toolchains which advertise the branch
+protection features solely through .note.gnu.property.  GCC 16 and Clang
+20 also record them in .ARM.attributes, which objcopy leaves alone, but
+older compilers emit only the note.
 
-If the branch target is out of range from any available free pages, the
-livepatch module load fails with -ENOEXEC and a "no address space within
-branch range" error.
+Rename the section back to its original name so the linker sees it, and
+so the generic NOTES macro can discard it.  objcopy applies
+--rename-section before --prefix-alloc-sections regardless of their
+order on the command line, so this needs a second objcopy invocation
+rather than another flag on the existing one.
 
-Add an assertion so it fails the build instead.  Only count the module
-region below _text; counting the space above _end would make a text size
-limit depend on the size of rodata, data and bss, and doesn't help
-unless text is bigger than the rest of the image.  The span is _text to
-_etext rather than __exittext_end, as init and exit text are freed
-before any module loads and can't be klp targets.
+RISC-V and LoongArch apply the same .init prefix, so key the rename off
+that rather than on arm64 alone.  Neither emits .note.gnu.property
+today, and renaming a section which isn't present is a no-op, so this
+changes nothing for them for now, but it prevents a future silent
+failure mode.
 
-Distro kernels don't seem to come close to hitting the 128MB text mark,
-so this should hopefully be more of a safety backstop than something
-people are actually hitting.
+The note is still stripped by --remove-section=.note.gnu.property, so
+this change is inert until that section removal goes away in a
+subsequent patch.
 
 Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
 ---
- arch/arm64/kernel/vmlinux.lds.S | 7 +++++++
- 1 file changed, 7 insertions(+)
+ drivers/firmware/efi/libstub/Makefile | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kernel/vmlinux.lds.S b/arch/arm64/kernel/vmlinux.lds.S
-index 3a88da9212831..f5bd5ad24e19f 100644
---- a/arch/arm64/kernel/vmlinux.lds.S
-+++ b/arch/arm64/kernel/vmlinux.lds.S
-@@ -419,6 +419,13 @@ ASSERT(__hyp_bss_start == __bss_start, "HYP and Host BSS are misaligned")
-     defined(CONFIG_CC_OMITS_BTI_LANDING_PADS) && !defined(CONFIG_LD_HAS_BTI_STUBS)
- ASSERT(__exittext_end - _text <= SZ_128M, "Kernel text too big for BTI")
- #endif
+diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
+index 77a2b2d74f3f6..b1c95f69e807d 100644
+--- a/drivers/firmware/efi/libstub/Makefile
++++ b/drivers/firmware/efi/libstub/Makefile
+@@ -155,6 +155,12 @@ STUBCOPY_FLAGS-$(CONFIG_LOONGARCH)	+= --prefix-alloc-sections=.init \
+ 					   --prefix-symbols=__efistub_
+ STUBCOPY_RELOC-$(CONFIG_LOONGARCH)	:= R_LARCH_MARK_LA
+ 
++# --prefix-alloc-sections=.init also renames .note.gnu.property, which the
++# linker then ignores, dropping the branch protection properties.  Rename it
++# back on any architecture which applies the prefix.
++STUBCOPY_RENAME-y = $(if $(findstring --prefix-alloc-sections,$(STUBCOPY_FLAGS-y)), \
++		      --rename-section .init.note.gnu.property=.note.gnu.property)
 +
-+#if defined(CONFIG_ARM64_BTI_KERNEL) && !defined(CONFIG_COMPILE_TEST) &&	\
-+    defined(CONFIG_CC_OMITS_BTI_LANDING_PADS) && defined(CONFIG_LIVEPATCH)
-+ASSERT(_etext - _text <= SZ_128M - PAGE_SIZE,
-+       "Kernel text too big for BTI live patching")
-+#endif
-+
- /*
-  * If padding is applied before .head.text, virt<->phys conversions will fail.
-  */
+ $(obj)/%.stub.o: $(obj)/%.o FORCE
+ 	$(call if_changed,stubcopy)
+ 
+@@ -171,4 +177,5 @@ quiet_cmd_stubcopy = STUBCPY $@
+ 		echo "$@: absolute symbol references not allowed in the EFI stub" >&2; \
+ 		/bin/false;						\
+ 	fi;								\
+-	$(OBJCOPY) $(STUBCOPY_FLAGS-y) $< $@
++	$(OBJCOPY) $(STUBCOPY_FLAGS-y) $< $@				\
++	$(if $(STUBCOPY_RENAME-y),; $(OBJCOPY) $(STUBCOPY_RENAME-y) $@)
 -- 
 2.55.0
 
