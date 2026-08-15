@@ -4,69 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C7FAC5AD5A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 13:46:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1748C5DF6A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 13:50:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=go/eYuP/hBU+1cLaNH68/DGdvYHCC5EzNmzy94qfIaA=; b=0XuIiXqTe8ssH7rooGup1Wk4rY
-	8aAN0Dde9jdd9FSSgB5St4D37XvPknAbRn6UMpMS8lbenM011JxHifcJF0sJBaGGyU5DYM3KYCU5x
-	8tSSLMTpOmHLw9Gav8elJGXmjJ6o9zkQWZjGBHxVUwG++U1Jt9K1IGBF/5ruMcT8GidvV8273ba48
-	IYbZwXxV4Cbq5izaBr53zzPLphE1jzmbX1GXPSdvwVgF9Hw0l9f0KIYJIlnDPTODGnWsci6LQ4NsM
-	ljv44/Av/o7rSvZ1eSvbzgpwLW8wEt1rNoVnvlAcHllO+M+rQjdXC7ZutjkwDwmZCscsXMgZY9Z30
-	yfkbSTlw==;
+	bh=ouaHJhplnHCADze6y8BxHpbB8lgiZlHM7mqdl+IZ2ZY=; b=NBnzsptWSg8u7mGtCHALF1q2a4
+	MPqRARCo/wKLgOoHavnzO3uVEN989cyjgtUOmkcSDjetcOyGnPUiY3+I89AZiiw13Dz9ez+k4xEUy
+	vAM8fQLuSYyXd/xzPJv4WfPKfcqfVX/oOUCn94/qTyYHmu2JplrIAoA0DHCsPYc7UqOz9fJV3yi+c
+	R61qut5UoniK/QwTUN7HSpc5wCHN7r+RpBle9LPFefajGj0RMXWaTalhzJRkZidKjZ5UVOadia+0C
+	MXtlp6fIa5Jd6F7u5RNEM4VaSu/3QpoIx/45r4QA7yV+xEdWZjQyVT052KDaDX47vXlqv64y9qSOf
+	DvScrbQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvEiC-00000003rG4-0mZH;
-	Sat, 15 Aug 2026 13:46:12 +0000
+	id 1wvElp-00000003rRX-0lsW;
+	Sat, 15 Aug 2026 13:49:57 +0000
 Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvEi7-00000003rFj-3kMX
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Aug 2026 13:46:11 +0000
+	id 1wvEll-00000003rR3-2P4B;
+	Sat, 15 Aug 2026 13:49:55 +0000
 Received: from localhost.localdomain (unknown [111.196.241.250])
-	by APP-05 (Coremail) with SMTP id zQCowAC36EKYbYBqXVLRBQ--.59368S2;
-	Sat, 15 Aug 2026 21:46:01 +0800 (CST)
+	by APP-05 (Coremail) with SMTP id zQCowADnUDt9boBqQGPRBQ--.3894S2;
+	Sat, 15 Aug 2026 21:49:50 +0800 (CST)
 From: Pengpeng Hou <pengpeng@iscas.ac.cn>
-To: mmayer@broadcom.com,
-	Krzysztof Kozlowski <krzk@kernel.org>
+To: bin.liu@mediatek.com,
+	Mauro Carvalho Chehab <mchehab@kernel.org>
 Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Nicolas Dufresne <nicolas@ndufresne.ca>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Hans Verkuil <hverkuil@kernel.org>,
+	Irui Wang <irui.wang@mediatek.com>,
+	Kyrie Wu <kyrie.wu@mediatek.com>,
+	linux-media@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] memory: brcmstb_dpfe: validate firmware section sizes
-Date: Sat, 15 Aug 2026 21:45:59 +0800
-Message-ID: <20260815134559.47888-1-pengpeng@iscas.ac.cn>
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH v3] media: mediatek: jpeg: retry HW selection after successful wait
+Date: Sat, 15 Aug 2026 21:49:49 +0800
+Message-ID: <20260815134949.49042-1-pengpeng@iscas.ac.cn>
 X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowAC36EKYbYBqXVLRBQ--.59368S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxJryfJr1UKF4DuF4rXw4xWFg_yoW8Kw17pF
-	45CFyaqr4UJrZ5trZFywnxuay5Gws3Jay2gFyUCa9Yvrnxur1kAFy8KrW5urWrKr95Aw13
-	XF1DJr1xCas3ArJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUkC14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+X-CM-TRANSID: zQCowADnUDt9boBqQGPRBQ--.3894S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7Aw4rWFW8ury5ury8XFykuFg_yoW5JFW5pr
+	WYg39I9rW8KrsFgrW8Aa17ZFy5Gr1rCF4xGrn8Zw4xA3yaqF1DJw1UAa40qFWxAr12kay3
+	JF1Fg393AFWjyFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9214x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
 	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVWxJr
-	0_GcWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lc7CjxVAaw2AFwI0_
-	JF0_Jw1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67
-	AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r126r1DMIIY
-	rxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14
-	v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8
-	JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfUOgAwDU
-	UUU
+	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
+	6r4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Cr
+	1j6rxdM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj
+	6xIIjxv20xvE14v26r126r1DMcIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr
+	0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E
+	8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFV
+	Cjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWl
+	x4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1I6r
+	4UMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWxJVW8Jr1lIxAIcVCF04k26cxKx2IYs7xG6r1j
+	6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYx
+	BIdaVFxhVjvjDU0xZFpf9x0JUL0edUUUUU=
 X-Originating-IP: [111.196.241.250]
 X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260815_064608_338821_DA015B22 
-X-CRM114-Status: GOOD (  13.51  )
+X-CRM114-CacheID: sfid-20260815_064954_325664_24949DE9 
+X-CRM114-Status: UNSURE (   9.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,65 +87,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The firmware header is read before the image has been shown to contain a
-complete header. In addition, the final size check adds two
-firmware-provided u32 section lengths before comparing the result with
-fw->size, so the addition can wrap.
+wait_event_interruptible_timeout() returns a positive value when its
+condition becomes true before the timeout. mtk_jpegdec_worker() treats
+every nonzero result as a failure, so a normal decoder wakeup finishes
+the mem2mem job as though no hardware became available.
 
-Reject images shorter than the fixed header and checksum before reading
-the header. Then derive the available payload length with subtraction and
-require the two declared sections to fill it exactly.
+Handle interrupted waits and exhausted timeout retries separately, and
+retry hardware selection after a successful wakeup. Increment the retry
+count only for actual timeouts. The encoder uses
+wait_event_interruptible(), whose successful return is zero, so its
+existing check is correct; leave that separate no-timeout policy
+unchanged.
 
-Fixes: 2f330caff577 ("memory: brcmstb: Add driver for DPFE")
-
+Fixes: dedc21500334 ("media: mtk-jpegdec: add jpeg decode worker interface")
 Assisted-by: Codex:gpt-5
 Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
 ---
-Changes since v1: https://lore.kernel.org/all/20260706092223.78541-1-pengpeng@iscas.ac.cn/
-- explain why the early fixed-header check is not redundant
-- replace the overflowing addition with an exact payload check
-- disclose the use of Codex
+Changes since v2:
+https://lore.kernel.org/all/20260720115322.89784-1-pengpeng@iscas.ac.cn/
+- add the Fixes tag
+- revalidate the decoder-only change against current mainline
+- add the required coding-assistant attribution
 
- drivers/memory/brcmstb_dpfe.c | 17 +++++++++--------
- 1 file changed, 9 insertions(+), 8 deletions(-)
+Changes since v1:
+https://lore.kernel.org/all/20260625003142.99598-1-pengpeng@iscas.ac.cn/
+- split interrupted waits, timeout exhaustion and successful wakeups
+- use distinct diagnostics and explain why the encoder path is unchanged
 
-diff --git a/drivers/memory/brcmstb_dpfe.c b/drivers/memory/brcmstb_dpfe.c
-index 08d9e05b1b33..121d1a0580dd 100644
---- a/drivers/memory/brcmstb_dpfe.c
-+++ b/drivers/memory/brcmstb_dpfe.c
-@@ -518,9 +518,15 @@ static int __verify_firmware(struct init_data *init,
- 			     const struct firmware *fw)
- {
- 	const struct dpfe_firmware_header *header = (void *)fw->data;
--	unsigned int dmem_size, imem_size, total_size;
-+	unsigned int dmem_size, imem_size;
- 	bool is_big_endian = false;
- 	const u32 *chksum_ptr;
-+	size_t payload_size;
+ drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c | 12 +++++++++---
+ 1 file changed, 9 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+index d147ec483081..9634c95aaada 100644
+--- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
++++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+@@ -1697,9 +1697,15 @@ static void mtk_jpegdec_worker(struct work_struct *work)
+ 		ret = wait_event_interruptible_timeout(jpeg->hw_wq,
+ 						       atomic_read(&jpeg->hw_rdy) > 0,
+ 						       MTK_JPEG_HW_TIMEOUT_MSEC);
+-		if (ret != 0 || (i++ > MTK_JPEG_MAX_RETRY_TIME)) {
+-			dev_err(jpeg->dev, "%s : %d, all HW are busy\n",
+-				__func__, __LINE__);
++		if (ret < 0) {
++			dev_err(jpeg->dev, "decoder HW wait interrupted: %d\n",
++				ret);
++			v4l2_m2m_job_finish(jpeg->m2m_dev, ctx->fh.m2m_ctx);
++			return;
++		}
 +
-+	if (fw->size < sizeof(*header) + sizeof(*chksum_ptr))
-+		return ERR_INVALID_SIZE;
-+
-+	payload_size = fw->size - sizeof(*header) - sizeof(*chksum_ptr);
- 
- 	if (header->magic == DPFE_BE_MAGIC)
- 		is_big_endian = true;
-@@ -539,13 +545,8 @@ static int __verify_firmware(struct init_data *init,
- 	if ((dmem_size % sizeof(u32)) != 0 || (imem_size % sizeof(u32)) != 0)
- 		return ERR_INVALID_SIZE;
- 
--	/*
--	 * The header + the data section + the instruction section + the
--	 * checksum must be equal to the total firmware size.
--	 */
--	total_size = dmem_size + imem_size + sizeof(*header) +
--		sizeof(*chksum_ptr);
--	if (total_size != fw->size)
-+	/* The data and instruction sections must fill the payload exactly. */
-+	if (dmem_size > payload_size || imem_size != payload_size - dmem_size)
- 		return ERR_INVALID_SIZE;
- 
- 	/* The checksum comes at the very end. */
++		if (!ret && i++ > MTK_JPEG_MAX_RETRY_TIME) {
++			dev_err(jpeg->dev, "all decoder HW are busy\n");
+ 			v4l2_m2m_job_finish(jpeg->m2m_dev, ctx->fh.m2m_ctx);
+ 			return;
+ 		}
+
+base-commit: dac3e89a2c90c2feeb471e1f22a2512ad424b792
 -- 
 2.50.1 (Apple Git-155)
 
