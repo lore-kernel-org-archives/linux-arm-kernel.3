@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DEE4C5DF6A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E65BCC5DF6E
 	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 04:46:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R3oqNhtnQI75A62nrc5sYJescYksDNsRXLkbblCYMfE=; b=LCPzT5eYYk4OO3JuLT9F3x+7zW
-	Xtr+xefW0zLr12iQ4QvmhxLsmBMmBu/qETwVf3T76tQAUpBSgE2qmdrttMjiBrMZbAQfLtfVugxy9
-	Ff1ddZmhtzjHD4VnwQX4oBRXddJDRGMnTDoJi1xqCtuBesxhYcLRdCi0OLcqVisS7aXRXsSQuMpuO
-	1x4EFuRMFS7SPq0rToQyQN17qbvyFhxJvKFh6cqR1YH5GlXHEoMNATQjjWVEebv+mD8xNi19znbFZ
-	61bZIhJXuA+Id+d0cqHNUFEay6I6Ao1ULvszFo2T9zBfUKMjTTw5h4Xr9f4bYC3YCVXYmm3qxbzoY
-	FFv140ZA==;
+	bh=AdWP5M8fepkFBrH2JRckg07b+cTfpP4Tn08yEnDUFpM=; b=2Yi7WhDDofvwwaWJS+iDwARYSj
+	zRPEdUxqU8t1nX1fvJdPNKlGzUfN6SVIj/t/GiMnMjzN/H6SYXuJ0UdP6JIyiouEIvHFuOlQLrm3b
+	JW+Vzo5nlZVwT/Y59xFUl4N6jPkpJQXvCXfGBbvtU1wqkD33NsRlfRmFcAKGceA9+cN6vWT7V35Pb
+	qtjTrB3gylw7rZiuwS6YmrslgViBW1V2gAiu6kmYRTHpjat7oHaxiOQ9mIhtvll6NVhJgCjhVVeKx
+	aoCJH/bM7F9swaOvy1JB26mULhKOQaYW5DsTET3vVylPcmjKOdVvVLot1A/B3rt3XDcdwJcTRHFdN
+	nUeYhVzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wv6HV-00000003V4j-0jkq;
+	id 1wv6HV-00000003V4R-08sF;
 	Sat, 15 Aug 2026 04:46:05 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wv6HD-00000003Uyh-0njz
+	id 1wv6HC-00000003Uxt-0PGQ
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Aug 2026 04:45:47 +0000
+	Sat, 15 Aug 2026 04:45:46 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A239961836;
-	Sat, 15 Aug 2026 04:45:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C86CB1F00A3A;
+	by tor.source.kernel.org (Postfix) with ESMTP id 2EE4E60A92;
 	Sat, 15 Aug 2026 04:45:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 516991F00A3D;
+	Sat, 15 Aug 2026 04:45:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786769146;
-	bh=R3oqNhtnQI75A62nrc5sYJescYksDNsRXLkbblCYMfE=;
+	s=k20260515; t=1786769144;
+	bh=AdWP5M8fepkFBrH2JRckg07b+cTfpP4Tn08yEnDUFpM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=UEATv1utOClInMq4xd8E4cl9UaZzYIMx4dig53D9/aqDvPh5XkWV36YCQqtyfvKO2
-	 ANe5wOkYtUBbPsD1BaOzq1YD7yYWE2EbkBi4MaoJNWQ1FxjcIEvHe5mFQYVGJjX8en
-	 vJ8FN2j5djwmLDO5ywRzrm/ZD0RVgULoSApMTpb9ocdnkQHJ7XoJ+H1qAITAKKTsoF
-	 vXM2aaW6iA/YzlayaeSEXLWIMKvPbGluWfH6fhfCxsHHozJjlmw02Cats99vvOSdRW
-	 lnk3YN6C+XffzTecYKRp1NxMnJy4Yabs5jBSg8/CbHoE9sbRv9CUU+ilWR0HaOPq9z
-	 9O/dDDc5t+NpA==
+	b=jtzxYTp79rvJ3tknzX5+zQxTKPH9Krwr573PMHQgZmdpOlgg1GNO3F1eDmEWlY6Rr
+	 uoFCFPKhT7degHBRC2iEFsXSzeNaWB6mNK5RzFeSxHdY82X7XFH/7P/9XMzziK4nFZ
+	 TR4lKjtMB62iLTvWr0SVkW0BrTAvZpw5XZxj5pfAweHVY3J+vXsgyqrBfQN7xnAx27
+	 f7AUPu0KQ99r09GW/ASY+Ur9x9d5CXnehRTfU4/dqsdoxII1oPK6ihz9wsABReEs1D
+	 gXjdyOT5UeAOSjZAq/P6iZb7frRN7sdRnfZ8ZYoLAIYmvbITLZwsEBgsTXpBcRkVxT
+	 P79oyiedVRzeg==
 From: Josh Poimboeuf <jpoimboe@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>
@@ -59,9 +59,9 @@ Cc: linux-kernel@vger.kernel.org,
 	Kees Cook <kees@kernel.org>,
 	Nathan Chancellor <nathan@kernel.org>,
 	linux-toolchains@vger.kernel.org
-Subject: [PATCH 05/12] arm64/bti: Add link error for large kernels with BTI and unsupported toolchains
-Date: Fri, 14 Aug 2026 21:45:22 -0700
-Message-ID: <8932e59a4f6e8383f37078dada1f23639b85a035.1786768375.git.jpoimboe@kernel.org>
+Subject: [PATCH 03/12] arm64/bti: Fix BTI linker failures with long branches into .idmap.text
+Date: Fri, 14 Aug 2026 21:45:20 -0700
+Message-ID: <a9662e64de17882d2ef2401bad0d8172ef48bc4b.1786768375.git.jpoimboe@kernel.org>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <cover.1786768375.git.jpoimboe@kernel.org>
 References: <cover.1786768375.git.jpoimboe@kernel.org>
@@ -87,56 +87,151 @@ targets need a BTI landing pad, which not all functions have starting
 with Clang 21 (and for all versions of GCC).
 
 In such cases the linker can emit a second veneer close to the target
-which has the landing pad along with a direct branch to the target.
-However, that's currently not being done, so GCC and Clang 21+ are
-broken with BTI on large kernels.
+which has the landing pad along with a direct branch to the target.  But
+a long branch to .idmap.text never gets one because it's missing the
+executable section flag.
 
-Only newer linkers have proper support for adding the second veneer,
-starting with binutils 2.42 and LLVM 20.
+With the LLVM linker, it's a silent failure, presumably only discovered
+by a BTI exception at runtime.  With the GNU linker it's even worse, as
+it dereferences the missing stub/veneer group entry and seg faults (this
+was how I discovered it).
 
-Only allow a large kernel with the right combination of compiler and
-linker.
+Make sure the section is executable by adding the "x" flag to all the
+creators of the input section.
 
+Also manually add "bti c" to primary_entry() and enter_vhe(), otherwise
+the linker-generated veneer page pushes the .idmap.text past its
+asserted 4KB size:
+
+  ld.bfd: ID map text too big or misaligned
+
+Link: https://sourceware.org/bugzilla/show_bug.cgi?id=34525
 Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
 ---
- arch/arm64/Kconfig              | 7 +++++++
- arch/arm64/kernel/vmlinux.lds.S | 5 +++++
- 2 files changed, 12 insertions(+)
+ arch/arm64/kernel/cpu-reset.S | 2 +-
+ arch/arm64/kernel/head.S      | 7 ++++---
+ arch/arm64/kernel/hyp-stub.S  | 1 +
+ arch/arm64/kernel/sleep.S     | 2 +-
+ arch/arm64/mm/proc.S          | 8 ++++----
+ 5 files changed, 11 insertions(+), 9 deletions(-)
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index b3afe0688919b..2687b71438661 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -2123,6 +2123,13 @@ config ARM64_BTI_KERNEL
- 	  is enabled and the system supports BTI all kernel code including
- 	  modular code must have BTI enabled.
+diff --git a/arch/arm64/kernel/cpu-reset.S b/arch/arm64/kernel/cpu-reset.S
+index c87445dde6745..9943a7c70f6b0 100644
+--- a/arch/arm64/kernel/cpu-reset.S
++++ b/arch/arm64/kernel/cpu-reset.S
+@@ -14,7 +14,7 @@
+ #include <asm/virt.h>
  
-+config CC_OMITS_BTI_LANDING_PADS
-+	def_bool !CC_IS_CLANG || CLANG_VERSION >= 210000
-+
-+config LD_HAS_BTI_STUBS
-+	def_bool (LD_IS_BFD && LD_VERSION >= 24200) || \
-+		 (LD_IS_LLD && LLD_VERSION >= 200000)
-+
- config CC_HAS_BRANCH_PROT_PAC_RET_BTI
- 	# GCC 9 or later, clang 8 or later
- 	def_bool $(cc-option,-mbranch-protection=pac-ret+leaf+bti)
-diff --git a/arch/arm64/kernel/vmlinux.lds.S b/arch/arm64/kernel/vmlinux.lds.S
-index af1d720209764..3a88da9212831 100644
---- a/arch/arm64/kernel/vmlinux.lds.S
-+++ b/arch/arm64/kernel/vmlinux.lds.S
-@@ -414,6 +414,11 @@ ASSERT((__entry_tramp_text_end - __entry_tramp_text_start) <= 3*PAGE_SIZE,
- #ifdef CONFIG_KVM
- ASSERT(__hyp_bss_start == __bss_start, "HYP and Host BSS are misaligned")
- #endif
-+
-+#if defined(CONFIG_ARM64_BTI_KERNEL) && !defined(CONFIG_COMPILE_TEST) && \
-+    defined(CONFIG_CC_OMITS_BTI_LANDING_PADS) && !defined(CONFIG_LD_HAS_BTI_STUBS)
-+ASSERT(__exittext_end - _text <= SZ_128M, "Kernel text too big for BTI")
-+#endif
+ .text
+-.pushsection    .idmap.text, "a"
++.pushsection    .idmap.text, "ax"
+ 
  /*
-  * If padding is applied before .head.text, virt<->phys conversions will fail.
+  * cpu_soft_restart(el2_switch, entry, arg0, arg1, arg2)
+diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
+index 87a822e5c4ca8..541721488bef9 100644
+--- a/arch/arm64/kernel/head.S
++++ b/arch/arm64/kernel/head.S
+@@ -71,7 +71,7 @@
+ 
+ 	__EFI_PE_HEADER
+ 
+-	.section ".idmap.text","a"
++	.section ".idmap.text","ax"
+ 
+ 	/*
+ 	 * The following callee saved general purpose registers are used on the
+@@ -83,6 +83,7 @@
+ 	 *  x21        primary_entry() .. start_kernel()        FDT pointer passed at boot in x0
+ 	 */
+ SYM_CODE_START(primary_entry)
++	bti	c
+ 	bl	record_mmu_state
+ 	bl	preserve_boot_args
+ 
+@@ -251,7 +252,7 @@ SYM_FUNC_END(__primary_switched)
+  * end early head section, begin head code that is also used for
+  * hotplug and needs to have the same protections as the text region
   */
+-	.section ".idmap.text","a"
++	.section ".idmap.text","ax"
+ 
+ /*
+  * Starting from EL2 or EL1, configure the CPU to execute at the highest
+@@ -455,7 +456,7 @@ SYM_FUNC_END(set_cpu_boot_mode_flag)
+  * Checks if the selected granule size is supported by the CPU.
+  * If it isn't, park the CPU
+  */
+-	.section ".idmap.text","a"
++	.section ".idmap.text","ax"
+ SYM_FUNC_START(__enable_mmu)
+ 	mrs	x3, ID_AA64MMFR0_EL1
+ 	ubfx	x3, x3, #ID_AA64MMFR0_EL1_TGRAN_SHIFT, 4
+diff --git a/arch/arm64/kernel/hyp-stub.S b/arch/arm64/kernel/hyp-stub.S
+index 37c6976e44a4c..5f9c5ffb4afc1 100644
+--- a/arch/arm64/kernel/hyp-stub.S
++++ b/arch/arm64/kernel/hyp-stub.S
+@@ -167,6 +167,7 @@ SYM_CODE_END(__finalise_el2)
+ 	.pushsection	.idmap.text, "ax"
+ 
+ SYM_CODE_START_LOCAL(enter_vhe)
++	bti	c
+ 	// Invalidate TLBs before enabling the MMU
+ 	tlbi	vmalle1
+ 	dsb	nsh
+diff --git a/arch/arm64/kernel/sleep.S b/arch/arm64/kernel/sleep.S
+index f093cdf71be11..dfb5b8bc8cdb5 100644
+--- a/arch/arm64/kernel/sleep.S
++++ b/arch/arm64/kernel/sleep.S
+@@ -97,7 +97,7 @@ SYM_FUNC_START(__cpu_suspend_enter)
+ 	ret
+ SYM_FUNC_END(__cpu_suspend_enter)
+ 
+-	.pushsection ".idmap.text", "a"
++	.pushsection ".idmap.text", "ax"
+ SYM_CODE_START(cpu_resume)
+ 	mov	x0, xzr
+ 	bl	init_kernel_el
+diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
+index 22866b49be372..b8ff93c748bf1 100644
+--- a/arch/arm64/mm/proc.S
++++ b/arch/arm64/mm/proc.S
+@@ -175,7 +175,7 @@ alternative_else_nop_endif
+ SYM_FUNC_END(cpu_do_resume)
+ #endif
+ 
+-	.pushsection ".idmap.text", "a"
++	.pushsection ".idmap.text", "ax"
+ 
+ .macro	__idmap_cpu_set_reserved_ttbr1, tmp1, tmp2
+ 	adrp	\tmp1, reserved_pg_dir
+@@ -211,7 +211,7 @@ SYM_FUNC_ALIAS(__pi_idmap_cpu_replace_ttbr1, idmap_cpu_replace_ttbr1)
+ #define KPTI_NG_PTE_FLAGS	(PTE_ATTRINDX(MT_NORMAL) | PTE_TYPE_PAGE | \
+ 				 PTE_AF | PTE_SHARED | PTE_UXN | PTE_WRITE)
+ 
+-	.pushsection ".idmap.text", "a"
++	.pushsection ".idmap.text", "ax"
+ 
+ 	.macro	pte_to_phys, phys, pte
+ 	and	\phys, \pte, #PTE_ADDR_LOW
+@@ -438,7 +438,7 @@ SYM_FUNC_END(idmap_kpti_install_ng_mappings)
+ 	.popsection
+ #endif
+ 
+-	.pushsection ".idmap.text", "a"
++	.pushsection ".idmap.text", "ax"
+ SYM_TYPED_FUNC_START(wait_linear_map_split_to_ptes)
+ 	/* Must be same registers as in idmap_kpti_install_ng_mappings */
+ 	swapper_ttb	.req	x3
+@@ -479,7 +479,7 @@ SYM_FUNC_END(wait_linear_map_split_to_ptes)
+  * Output:
+  *	Return in x0 the value of the SCTLR_EL1 register.
+  */
+-	.pushsection ".idmap.text", "a"
++	.pushsection ".idmap.text", "ax"
+ SYM_FUNC_START(__cpu_setup)
+ 	tlbi	vmalle1				// Invalidate local TLB
+ 	dsb	nsh
 -- 
 2.55.0
 
