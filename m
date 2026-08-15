@@ -4,102 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03730C5AD5A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 18:54:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E8C7C5AD5A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 18:57:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=scx0Qdehm+JoDmYbuGUcU99Hdy043v059tiOWEC5ibo=; b=y+Vf5tQOiFUuGYsHUKQiCRtK5T
-	oeOF8zmOFBYeYgu1DJEBG3tnFwsQu5qHFuxnvHv6KZOejAKvltQEaYezxin+2oTg0h3phClohDPDe
-	ly/BlYgdBi63ymBNZL9sKzv4yQN7dkVeCrurYCJdXyoJ2XmfmqkawEC2iO4/V+14hpcl3g0S5TOeN
-	sb0KCP6qQqOkeFkH6vO6mWn22p9WKMTmv6tSWf+ZgIQJEPqLKbSQr+QTHd0SBl9Ggb/Marn8YPTi3
-	mBK9E0B5v5OjLx0/kOX9GmTmICXYUcbwOkOqS+F9rO3JpooZpkVjCfx4ZM+LdZxBgM/+sLAhFLHxu
-	7txa8UWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cLQgMJZ7qnH5wLoYqijNKlZhPRcRBbKGvpe7JT4LVTA=; b=vgnJDgi/SWZvLPmGaZvVeM10bz
+	0kcxtubrUTfoq+osZ9tKlGuIT6yM8/d0rSssS4hOfrg5R7nwidicGIaXok2ROXxfuBj/HTJROMfUm
+	asLyqXe+15wrTpLQ+2P8oTPMwm5EH3+tOfon0nj7REvWaEaRAIl8rVFz+DqTj0exAG6KfDZB7rpzU
+	x9kT6lMn3Dd81oQ0THFSAfz4ymZKWCsPQdyUugNZm/1PnzqZxzx8acxETHudPSs93KrtHjFWfanrD
+	KeWwZT29bi8aLsOE9dCWc1rKbFfUwZGYSsGJohC/OPaYEEz1gBA38sj4sddAgSLms5pQh4MDXy1e0
+	dxQzpX6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvJW0-00000004601-2PIL;
-	Sat, 15 Aug 2026 18:53:56 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1wvJZg-000000046Iy-452e;
+	Sat, 15 Aug 2026 18:57:44 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvJVx-000000045yr-3eRD
+	id 1wvJZf-000000046Io-2uKX
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Aug 2026 18:53:55 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2d027b7c8easo4663415ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 15 Aug 2026 11:53:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786820033; x=1787424833; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=scx0Qdehm+JoDmYbuGUcU99Hdy043v059tiOWEC5ibo=;
-        b=oy3dkFKrMvCpsRouelcGuG8Ov+p/UqmMMaFw4VX+NisZLuO5ZBD5QHgQVJRq0azVN4
-         7B/ah8TE+Zd0gl89oWY5lqWFB8FY40kaSped0Z3ejxv+mSmKHQ05dQPho4zjIb/3IjIj
-         ucgtXAlfRuqFqoAlX896bUgPf4ssixoiL/EImAksINXhJ4p7hFzyx2FWguR3S2FHvzSQ
-         QQPXA7CnjA/GQGqDq6Wc6k9T6InPnBJJkhBMgGiYAKuOKC2ppNfqEna0CEzmgUY1AIwN
-         H6ZwAV42GuVm/H7/UEg7qMBd6JvoVjXyyPcN1KuaamxtA5ObucZOYVWLl8sVOBukzYUz
-         Su0A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786820033; x=1787424833;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=scx0Qdehm+JoDmYbuGUcU99Hdy043v059tiOWEC5ibo=;
-        b=KZ4bIuoUca3+iD+Dv3R3VOxX1u3nSMolevjiwNiu2awjzzBXmsDb2PX6ntnnarwmPq
-         10gSTNKK5kPScNeqkncukSH2x8OnM14heIYHiYFWSAobuisx2Wm/U4vEsr/pSmwuICam
-         NakRAWklxZDv4L9x0oYkJvIBbMloxCHJscbUiBSltnRwog5jgqZz1ehOp5HexBEnKDP8
-         via+nEsTYRWylVTjyyinGFuIz+Foh4+WClq6TqIuHzViPLoRrerd+HbHuzBXSpls+AAq
-         1j1ygUfCFB2cE2yuxZ/LJEzKB7Nk9FYmrf+JGU8YFSHA6kr4UtjxgIm1ytkeMVwwe7Tw
-         UvXQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rp3dO3usatZp7LXzPTaE8faXhQ+s3IE36VsrH5V2ft/QHFULH4EvaJ3iZjCUKk2xQQIGyAaMO4wTAN7PIFplZ0g@lists.infradead.org
-X-Gm-Message-State: AOJu0YyLg2QPsCGTxGNiSnLnnoniWjEJ/9YMxBxztSeV8VHmhgl35ASl
-	9fX+F3ELs08WbjUFYvhjKYqkBiyUCLjyHqSKbApV00UF4M7hMJON9P5O
-X-Gm-Gg: AR+sD12mbFSteSDI6EaRSsS1VXPk/K+UFqROeBdNBLNwiaqz/FRjLxDzSW3Rpsx66Ec
-	BpjVfa4JcGJb4tZs9wRQXbffMkQF+Fe9Q9fqDSkAoEjsf2wgaK9fP0/CLY6VbzRTyPsezdIz+wg
-	cLpcEYds7Bw8paknp/1ZNAUV1vWDMKBSqD9Sqvi4x9ZhNjTjvfhDG3Ff/EkKnujdyfG68xt5J6E
-	pM2RUqoYTaF14kydHvZoMSfWBTv5ddpDeqqaUfs6yCyk0Jk0P9nB9KGJS/CrEgvHGmUSLmLnIGg
-	tXNJKzLN3AtyTCBQbAkL5U7UqrJgHDRD0GD3/uTM6h1mwQ6GplGwq3vYfamS/wcFrYVQbASGVGw
-	0G4FqJSTt/8xDKNtkijOgkSmsEsBMZXOwggmLm+FbEeen4NtApPLIt9sd3QUGxWqC90RcWxlBO3
-	awA0t7kgJKFHoVspUhJ0jNFr3z8OgZaTJCAUF5QFm7PtNGYR14V0hIvtB3OI58G3zMrI5J/A4T
-X-Received: by 2002:a17:903:1b2b:b0:2ca:de3:15eb with SMTP id d9443c01a7336-2d3b0739429mr113633465ad.0.1786820033065;
-        Sat, 15 Aug 2026 11:53:53 -0700 (PDT)
-Received: from [10.112.173.252] ([2409:40c2:505d:7e1:7f19:edf4:38f3:dccf])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-320d61e5cdfsm19289125eec.12.2026.08.15.11.53.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 15 Aug 2026 11:53:52 -0700 (PDT)
-From: Bhargav Joshi <j.bhargav.u@gmail.com>
-Date: Sun, 16 Aug 2026 00:23:00 +0530
-Subject: [PATCH v2 2/2] dt-bindings: mfd: ti,keystone-devctrl: Convert to
- DT schema
+	Sat, 15 Aug 2026 18:57:43 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id F17B04398C;
+	Sat, 15 Aug 2026 18:57:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF9611F000E9;
+	Sat, 15 Aug 2026 18:57:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786820262;
+	bh=cLQgMJZ7qnH5wLoYqijNKlZhPRcRBbKGvpe7JT4LVTA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=hLVS2htWqLJ5MvFYiOttx0lg2QZpf3PJv8nCEkD30sbNXKgFUnBN89t0mTJhDnLwx
+	 6afjE4m5BBNR+Hq0DdokfIDUHetpkxeaPLIFxlt6afZgM37mgtw49tvEpZLFo8Hv73
+	 zALCMqJxvqTBCGNWdSCl/+iG+5cjll82SYz49Vkt2yL9AeyImuUmFyn25AVvLYn3jq
+	 o3WPl/uVc7fgMOaIi1qLsWlztu/ZQO+QeaS+QixxA4rck7ufOf1f0h2xJIRMASAAlA
+	 DVpAtvBUsqRHHal0LBVAdITb5FoRG05/pLJT73tTggnl3fG1wMh95EEBKmFLTNLADB
+	 Emwd50OrO6WGw==
+Date: Sat, 15 Aug 2026 11:57:40 -0700
+From: Josh Poimboeuf <jpoimboe@kernel.org>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, live-patching@vger.kernel.org, Song Liu <song@kernel.org>, 
+	Miroslav Benes <mbenes@suse.cz>, Petr Mladek <pmladek@suse.com>, 
+	Joe Lawrence <joe.lawrence@redhat.com>, Mark Rutland <mark.rutland@arm.com>, 
+	Mark Brown <broonie@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
+	Kees Cook <kees@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
+	linux-toolchains@vger.kernel.org
+Subject: Re: [PATCH 02/12] arm64/module: Fix BTI exceptions caused by omitted
+ landing pads in Clang 21
+Message-ID: <aoCu66bx1Qg14-uD@jpoimboe>
+References: <cover.1786768375.git.jpoimboe@kernel.org>
+ <2ff1b2482406c61ca5979d6284ba5f948a3fbc20.1786768375.git.jpoimboe@kernel.org>
+ <6bc20c00-21a9-4315-8ec3-33c7ad6ae95f@app.fastmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260816-ti-keystone-devctrl-v2-2-5ab1e13c15c1@gmail.com>
-References: <20260816-ti-keystone-devctrl-v2-0-5ab1e13c15c1@gmail.com>
-In-Reply-To: <20260816-ti-keystone-devctrl-v2-0-5ab1e13c15c1@gmail.com>
-To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Ivan Khoronzhuk <ivan.khoronzhuk@ti.com>, Nishanth Menon <nm@ti.com>, 
- Santosh Shilimkar <ssantosh@kernel.org>
-Cc: mfd@lists.linux.dev, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, goledhruva@gmail.com, m-chawdhry@ti.com, 
- daniel.baluta@gmail.com, simona.toaca@nxp.com, j.bhargav.u@gmail.com, 
- linux-arm-kernel@lists.infradead.org
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1786819992; l=4318;
- i=j.bhargav.u@gmail.com; h=from:subject:message-id;
- bh=TsN72N+hkJvAQl8CkzfNLqHYseFH06ElrzzP5rsMKyw=;
- b=uRDyzbTCz1K4RRIHatznqaz/5k5+xEFzai99gT93Mq+Cp0RJx/rmAguaVj44/UvC4HPJH6ZdE
- GazBrxm4IOmDlc1kGO5wAAksx7T9oivA7w+dnDpNtcpJ93ud+lzg5GJ
-X-Developer-Key: i=j.bhargav.u@gmail.com; a=ed25519;
- pk=IqNDwUZKECEA+n8wXctFLBbYL9NhFstZNbOznm/nX1k=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260815_115354_094121_1840C4C0 
-X-CRM114-Status: GOOD (  15.97  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <6bc20c00-21a9-4315-8ec3-33c7ad6ae95f@app.fastmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,143 +77,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the Texas Instruments Keystone Device State Control binding from
-legacy text format to DT schema.
+On Sat, Aug 15, 2026 at 12:56:11PM +0300, Ard Biesheuvel wrote:
+> Hi Josh,
+> 
+> On Sat, 15 Aug 2026, at 07:45, Josh Poimboeuf wrote:
+> > The following BTI exception was seen when loading a livepatch module:
+> >
+> >   Internal error: Oops - BTI: 0000000036000001 [#1]  SMP
+> >   pstate: 634004c9 (nZCv daIF +PAN -UAO +TCO +DIT -SSBS BTYPE=jc)
+> >   pc : kill_orphaned_pgrp+0x0/0x150
+> >   lr : do_exit+0x498/0xaf0 [livepatch_combined]
+> >
+> > The problem is that the patch module's do_exit() is branching to a
+> > static function in vmlinux using a module PLT veneer (indirect branch),
+> > but the target function doesn't have a BTI landing pad.
+> >
+> > Clang 21+ omits the landing pad for static functions which can only be
+> > reached by a direct branch.  But livepatch modules use klp relocations
+> > to reference arbitrary kernel symbols, and with
+> > CONFIG_RANDOMIZE_MODULE_REGION_FULL the module is far enough away that
+> > every call to vmlinux needs a PLT.
+> >
+> > Note this problem is actually not specific to livepatch.  It's possible
+> > for any module's .init section to be allocated > 128MB away from its
+> > .text section.  So calls from .init to .text via a PLT can trigger a BTI
+> > exception when the target function doesn't have a landing pad.
+> >
+> > GCC has always omitted the landing pad when possible, so kernel BTI is
+> > already considered incompatible with GCC since commit c0a454b9044f
+> > ("arm64/bti: Disable in kernel BTI when cross section thunks are
+> > broken").
+> >
+> > When missing landing pads are detected, allocate a page close to the
+> > target which can be used to hold BTI veneers which receive PLT veneer
+> > indirect branches and direct branch to the final target:
+> >
+> 
+> This does not work for cross-section calls from .init.text to .text.
+> 
+> If .init.text is far away from .text, it is likely because .text
+> ended up in the 128M 'near' module region, and .init.text did not.
+> (They tend to end up in direct branching range of each otherwise.)
+> 
+> Given that the module init code is typically small, I don't think
+> it is safe to assume that allocating a single page close enough to
+> .text is going to be possible if allocating the space for .init.*
+> was not.
+> 
+> IOW, the fix I proposed for cross-section calls is still needed
+> with this approach.
 
-During the conversion, the following updates were made:
-- Add "simple-mfd" to compatibles matching existing dts usage.
-- Add required bus properties #address-cells, #size-cells, and ranges
-  which were missing in text binding.
-- Document child nodes gpio, interrupt-controller, and reset-controller.
+But the BTI veneer page is allocated from a *256MB* window, of which the
+near region is only a 128MB subset.
 
-Signed-off-by: Bhargav Joshi <j.bhargav.u@gmail.com>
----
-Note: Running dt_binding_check on patch will yield a warning for
-'ti,keystone-reset' in the example block. The YAML conversion patch for
-that child node is already in progress here:
-https://lore.kernel.org/linux-devicetree/20260813-ti-keystone-reset-v1-1-189389503324@gmail.com/
----
- .../bindings/mfd/ti,keystone-devctrl.yaml          | 84 ++++++++++++++++++++++
- .../bindings/mfd/ti-keystone-devctrl.txt           | 19 -----
- 2 files changed, 84 insertions(+), 19 deletions(-)
+There is a theoretical case where the 256MB window around the target is
+completely full without any fragmentation, but I would think that there
+would almost always be some fragmentation.  If that window is modules
+stacked together, most modules have at least .init.plt and .init.text,
+and many have .init.data.
 
-diff --git a/Documentation/devicetree/bindings/mfd/ti,keystone-devctrl.yaml b/Documentation/devicetree/bindings/mfd/ti,keystone-devctrl.yaml
-new file mode 100644
-index 000000000000..dd73b62357ca
---- /dev/null
-+++ b/Documentation/devicetree/bindings/mfd/ti,keystone-devctrl.yaml
-@@ -0,0 +1,84 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/mfd/ti,keystone-devctrl.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Texas Instruments Keystone Device State Control
-+
-+maintainers:
-+  - Ivan Khoronzhuk <ivan.khoronzhuk@ti.com>
-+
-+description:
-+  The Keystone II devices have a set of registers that are used to control the
-+  status of its peripherals. This node is intended to allow access to this
-+  functionality.
-+
-+properties:
-+  compatible:
-+    items:
-+      - const: ti,keystone-devctrl
-+      - const: syscon
-+      - const: simple-mfd
-+
-+  reg:
-+    maxItems: 1
-+
-+  "#address-cells":
-+    const: 1
-+
-+  "#size-cells":
-+    const: 1
-+
-+  ranges: true
-+
-+patternProperties:
-+  "^gpio@[0-9a-f]+$":
-+    type: object
-+    description: Keystone DSP GPIO controller
-+
-+  "^interrupt-controller@[0-9a-f]+$":
-+    type: object
-+    description: Keystone DSP to ARM interrupt controller
-+
-+  "^reset-controller@[0-9a-f]+$":
-+    type: object
-+    description: Keystone reset controller
-+
-+required:
-+  - compatible
-+  - reg
-+  - "#address-cells"
-+  - "#size-cells"
-+  - ranges
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+
-+    device-state-control@2620000 {
-+        compatible = "ti,keystone-devctrl", "syscon", "simple-mfd";
-+        reg = <0x02620000 0x1000>;
-+        #address-cells = <1>;
-+        #size-cells = <1>;
-+        ranges = <0x0 0x02620000 0x1000>;
-+
-+        interrupt-controller@2a0 {
-+            compatible = "ti,keystone-irq";
-+            reg = <0x2a0 0x4>;
-+            interrupts = <GIC_SPI 4 IRQ_TYPE_EDGE_RISING>;
-+            interrupt-controller;
-+            #interrupt-cells = <1>;
-+            ti,syscon-dev = <&devctrl 0x2a0>;
-+        };
-+
-+        reset-controller@328 {
-+            compatible = "ti,keystone-reset";
-+            reg = <0x328 0x10>;
-+            ti,syscon-pll = <&pllctrl 0xe4>;
-+            ti,syscon-dev = <&devctrl 0x328>;
-+            ti,wdt-list = <0>;
-+        };
-+    };
-diff --git a/Documentation/devicetree/bindings/mfd/ti-keystone-devctrl.txt b/Documentation/devicetree/bindings/mfd/ti-keystone-devctrl.txt
-deleted file mode 100644
-index 71a1f5963936..000000000000
---- a/Documentation/devicetree/bindings/mfd/ti-keystone-devctrl.txt
-+++ /dev/null
-@@ -1,19 +0,0 @@
--* Device tree bindings for Texas Instruments keystone device state control
--
--The Keystone II devices have a set of registers that are used to control
--the status of its peripherals. This node is intended to allow access to
--this functionality.
--
--Required properties:
--
--- compatible:		"ti,keystone-devctrl", "syscon"
--
--- reg:			contains offset/length value for device state control
--			registers space.
--
--Example:
--
--devctrl: device-state-control@02620000 {
--	compatible = "ti,keystone-devctrl", "syscon";
--	reg = <0x02620000 0x1000>;
--};
+Right now it needs two pages (because of the default guard page) but we
+could maybe fall back to VM_NO_GUARD in case of emergency.
 
 -- 
-2.55.0
-
+Josh
 
