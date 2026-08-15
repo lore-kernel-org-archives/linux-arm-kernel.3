@@ -4,66 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21326C5CFC1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 01:45:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1138FC5AD5A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 03:12:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RwpxIv3nPzVp7IdhrXTbkAlkt9OeIpd/r2hKdRXlQds=; b=UxEbn+jiBwXWgWshQCLXWaBy+L
-	rhNFvoRKib2GWfYosgyuzvAXA2MnBgvnjC9jTU+DD8oRufdqgN1joHiDoHZzHdircdo1CDATBWHNw
-	Icx2GMz+pUvZme5j3X0EtVFukYxMdBDtCN3aMzjKui+H5N0kdJpLP9tyzw4b4JJznK5edrts1AoO5
-	fPUh6PEH+/Gsp4ZM5jC9xLCuz0jS+VJQd4AeshhVsn1601a58OQ+NoTkTBQbFQ+aL0KgWzE6ghMYW
-	T116VeoOgfbPX1SlgxOjuHyDmotke3cjV8bubo+L7+K4a1B+iG4UI0xCsVQQEeJV1jr7E3RHIRQWk
-	d4VE9JYQ==;
+	bh=kA/r/VQ4oatiVrzWTgockk3L+gnj8KfRxkcgdbcdrgY=; b=RBWcix6x6yDmMd41TBDBPuAT8G
+	GmRg8xFzesBp7htL08hzrOmJ994wZ+6pkxqfv0z5VqdP3UydFLarrZaZtgfsxdEq04HT7231ytbzL
+	joK+X8UFOkD1AFsi4gQt5pZ22dSAWBj0C2H4+pfe+UamRIBH4/OmcHf6HRFhlqs/yffBBtmcSwNX9
+	3kiVnWMFYhkOCwRhSiVRaDdqdjLI0hapw9gWUmAslSuozNtudKebBlMlZHPr7xoKvo7ctAPHwwxa6
+	5UNemPUSA6K7DgPUgcndlWUVlkOd04O1bQS8y1jOx2wU0OTaSrR9dpJ9cER52SjzRux3yxAdzQ5uG
+	Mr36maaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wv3SV-00000003NTf-36zu;
-	Sat, 15 Aug 2026 01:45:15 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wv4oz-00000003Qy3-3ZiQ;
+	Sat, 15 Aug 2026 03:12:33 +0000
+Received: from flow-a1-smtp.messagingengine.com ([103.168.172.136])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wv3SU-00000003NTM-1HRg
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Aug 2026 01:45:14 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5D98760008;
-	Sat, 15 Aug 2026 01:45:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D57231F000E9;
-	Sat, 15 Aug 2026 01:45:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786758313;
-	bh=RwpxIv3nPzVp7IdhrXTbkAlkt9OeIpd/r2hKdRXlQds=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=Eyiii193R1Y3nDPGd5lAubhDZwisGRqllhijW8eNf4IBR9s+HRa6LlyNCNwFHBX5x
-	 FsiTN5oY0v22DZ9OCDB/hbHmUqHL36GMRXOH+YJpkwk/CM3f4KO01hPAWIpoFEldWm
-	 uWrtfHX/RfBNLN2LTtfgMlvUT92BCERuQlRfCOrcz7vcmPSiV8Enc/uEAqMMKzDTiL
-	 g27p6Cv46RjZx7GnmLm+sxhuVJs3sRYvoI2g0lqpNfeyYc9jarpw4IKvS30gtp573G
-	 YFB8lDRH3OrIBw+yClAa9ZCpbJqRHlruraxf8tkPVebVcM2c5rKHnhSxvRF5DPv8dJ
-	 OLu7Yn0i+mLZQ==
-Date: Sat, 15 Aug 2026 02:44:57 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: Uwe =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <u.kleine-koenig@baylibre.com>,
- Dileep Kumar Nagavarapu <DileepKumar.Nagavarapu@amd.com>, David Lechner
- <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy
- Shevchenko <andy@kernel.org>, Michal Simek <michal.simek@amd.com>, Conall
- O'Griofa <conall.ogriofa@amd.com>, linux-iio@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- git@amd.com, Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
-Subject: Re: [PATCH v3 3/6] iio: adc: xilinx-xadc: Split driver into core
- and platform files
-Message-ID: <20260815024457.39f531d1@jic23-huawei>
-In-Reply-To: <ann-96_VVW6mGzJX@ashevche-desk.local>
-References: <20260729125455.95893-1-DileepKumar.Nagavarapu@amd.com>
-	<20260729125455.95893-4-DileepKumar.Nagavarapu@amd.com>
-	<amuqm5qdzXqKutPS@monoceros>
-	<ann-96_VVW6mGzJX@ashevche-desk.local>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	id 1wv4ow-00000003QxX-2Xdn;
+	Sat, 15 Aug 2026 03:12:32 +0000
+Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
+	by mailflow.phl.internal (Postfix) with ESMTP id 15BC31380143;
+	Fri, 14 Aug 2026 23:12:29 -0400 (EDT)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-06.internal (MEProxy); Fri, 14 Aug 2026 23:12:29 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
+	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
+	:from:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=fm1; t=1786763549; x=
+	1786767149; bh=kA/r/VQ4oatiVrzWTgockk3L+gnj8KfRxkcgdbcdrgY=; b=m
+	y+xzyu4XGxX89R9BPPH2r4HycR70j72NO71yUVejjsHNMmKT5UL+vXJBvPPABrFI
+	DZ1eZw+/hbZVPNYnLWrzAsnEM2/tA9cnNCjVB34vi7aGqniZJP8DkwTnopj31VBj
+	Jm5iskOZEEPZOaG5yjMYIt1t+mIhH7jD9Y8lzwOAYjws0xErS+8Dp5WO4W7perv/
+	ZJj6WkUWlKYMMkfzhQoeTeoTRtNwFb3E4H8FuduD8sqviA+RHZ0pSpHzBfa3jR25
+	lxWdwD+va6lXl/5D3ogHwG8/oHEuBr7mUyXaBpSt6nawDOImb4+sx4fX/RbavKIP
+	aqu5Rj/XI827ApovwrNgQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
+	:x-me-sender:x-sasl-enc; s=fm3; t=1786763549; x=1786767149; bh=k
+	A/r/VQ4oatiVrzWTgockk3L+gnj8KfRxkcgdbcdrgY=; b=TLr3AkZPdY1OSoYux
+	mu86NASV1gS2/ZY4RmxJGG1Bf3X/63sJN7tuNPiac5PtSUyuDEXgDni4VZEGDd1H
+	Yb3Lr3tNa0umwZDk2De1bZ38EjatGPw3P1u3JDvFz0LfdASrTO3BIXUfKQQuAB/l
+	wT1tyqQEwtzBguK46ho2JOVJixtPzWOesGbXApnstbue/dvCFdQBtvQP7e6UcVsJ
+	b/ub7FEs94cNDBWunsQqR7HHGxkRUPLanPWEcN/T/bTUm/Y2dmOEArG+DBJKu+Np
+	uikDoGNwJvXvn+PclRm05aRIGno08p7vud9EcuW0iW19bortLKKEYvgO9QFkDNVS
+	GOzbg==
+X-ME-Sender: <xms:G9l_atKqXN089uuc6PNCPQY4pqgYsjI9YAnsvbC_gq73ROTqDomP5w>
+    <xme:G9l_ahV499lvGE4mbeyLIEDOAUBWI0ERKewzCHtk-PHAKu3OtvZtnNWL84eMafRDG
+    j5Z8OE7is4g_msWNziX-B10efBMMrH4hRKjoK1v7SzM163CRjPjsA>
+X-ME-Received: <xmr:G9l_ahTBF5ecTZlYho-xfQHpaYU9hvezcQ3c5Nld3aNnaaAhaGYRQsjry4p6FP4F453DnqHVeg>
+X-ME-Proxy-Cause: dmFkZTFZ5VqGgVICYTHgTtgPrQBIUDcIY34EnsjaahPws85NFbLnwUfD1zbYJtwkWFhAbF
+    HcEX6DZFoTadXmZS8lVH1Tr+kZuEtjBy9n9AjLXYP6roYnZ4WYXyKIp7H3Iw8JSmbqjdeu
+    0BhtvY0WwoH7RH0iz5lKnB/p+pS7FrKo/2mGKz2Q9uTQ1xWFxFgunu51D0VyP/UgSD+YD2
+    eoAndAFcFCAyWlmHfbbBbXgoRQjaUWm5pKlLeXk18SfETRE7XCZl09NNoPcpGTzV5gSOjk
+    7mS93aRmO0qga0dLfv1I1FU9xNoxqWv5uKsjO7BqSmgv1j5yzTEF7qxKvzWNC+X9+ciIiF
+    4DUQfYxRUwooKhtfQB5lGeFzULhZAOx0V14mWgYRkQu3Rpuk/U58PMru+A/6p4epiyOayi
+    UQkykI/88SZIMap43nC97DadGZbFdKNZ5HPknw0+2u3/WQ7GENBzOvR8xKyRLMTu7uBl/w
+    I5aChnxRLrdAW4kCkYgT+MlAU1pDOzjOzHeVweFnroj7GljzoYNrxQ2nfDPKkh4LBYjuIS
+    7PAAQCu7fyCs6SIn73iKCN5j4pjX8CBqt2LuZoQjGjm4yO7PlDgxuhEYTDH0gshXWoRy6l
+    XHA5f2cY7xKXYkRy8k6ZyomlUnnKgr/DQ1Me7m02dLLDHKcNCqZWiujqjBpQ
+X-ME-Proxy: <xmx:G9l_apCzfWUYyiIGRuUth_2Nwj8yinkNMeWTNTGe9WreFd1_Iphgkg>
+    <xmx:G9l_agIY54UB27FMmg6hlqIUcW2cF6QGLKEgyUkntKqyePcleommWQ>
+    <xmx:G9l_asDXs3eVJ_ewV-xQnBk3wgOQ7-B4XZqr0mz5x8zMeU7WixsjSw>
+    <xmx:G9l_att3NMC9WKzrQkuO5SeUU_nEa-BY7qARs0Ty1sPZm9bP3YEjJw>
+    <xmx:HNl_ajoJMhXzR-fmcQXQ87wbYsdYgSOQUWjf-adPSS_AxjgAY2Sho3t5>
+Feedback-ID: i7a5e4b5f:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
+ 14 Aug 2026 23:12:23 -0400 (EDT)
+From: Jiaxing Hu <gahing@gahingwoo.com>
+To: royalnet026@gmail.com
+Cc: tomeu@tomeuvizoso.net,
+	heiko@sntech.de,
+	chaoyi.chen@rock-chips.com,
+	alchark@flipper.net,
+	dri-devel@lists.freedesktop.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Jiaxing Hu <gahing@gahingwoo.com>
+Subject: Re: [PATCH v7 08/10] accel/rocket: add RK3576 NPU (RKNN) support
+Date: Sat, 15 Aug 2026 15:12:19 +1200
+Message-ID: <20260815031219.3860651-1-gahing@gahingwoo.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260814110841.11238-1-royalnet026@gmail.com>
+References: <20260812094106.1391698-1-gahing@gahingwoo.com> <20260812094106.1391698-9-gahing@gahingwoo.com> <20260814110841.11238-1-royalnet026@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260814_201231_116808_36683463 
+X-CRM114-Status: GOOD (  11.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,29 +113,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 10 Aug 2026 19:40:23 +0300
-Andy Shevchenko <andriy.shevchenko@intel.com> wrote:
+Hi Igor,
 
-> On Thu, Jul 30, 2026 at 09:52:24PM +0200, Uwe Kleine-K=C3=B6nig wrote:
-> > On Wed, Jul 29, 2026 at 06:24:52PM +0530, Dileep Kumar Nagavarapu wrote=
-: =20
->=20
-> ...
->=20
-> > > +#include <linux/mod_devicetable.h> =20
-> >=20
-> > I wonder why so many people recently add <linux/mod_devicetable.h> in
-> > their patches. Is there some tool that suggests that? =20
->=20
-> My bet that this is AI agent suggestion based on the previous numerous
-> recommendations to include it.
+Thank you. This is the column I cannot produce, and it settles the
+question it was aimed at.
 
-Given the number of years I asked for rather than of.h / acpi.h there
-is probably plenty of training data - which was nice until Uwe tidied
-this all up.
+First, what you were comparing against has moved. The RK3576 collapse
+from operator 4 with maxdiff 255 is gone; four Mesa faults came out
+between that mail and yours. Against the same simulation RK3576 now
+reads 21/64 md 13, 18/128 md 14, 9/128 md 13, 4/128 md 23 and 7/128
+md 10 at operators 3 to 7, which is the simulation exactly, and
+MobileNet end to end is 1000 of 1001 outputs within one count of the
+CPU. So the thing your run was built to characterise no longer exists,
+and your table is measuring something else.
 
-Jonathan
+That something is worth a note, and I do not have an explanation for it.
+From operator 4 on RK3588 sits below the simulation where RK3576 now
+sits on it, 8 of 128 against 18 at operator 4 and 20 of 256 against 36
+at operator 8, with a few hundred elements per surface already off by 1
+to 4 at operators 0 to 3.
 
->=20
+My first thought was that this is my Mesa tree rather than your silicon,
+since you ran upstream and four fixes are not posted yet. Checking it
+before writing it: three of those four are not gated on the SoC, but
+none of them bite at MobileNet's channel counts.
 
+  the CBUF row cost fires when ceil(ic/16) is 3 modulo 4, which is 33 to
+  48 or 97 to 112 input channels. MobileNet has 3, 32, 64, 128, 256,
+  512 and 1024, so 1, 2, 4, 8, 16, 32 and 64 atoms. Never 3.
+
+  the output channel pair rounding fires on an odd count, and the
+  coefficient operand alignment on a count that is not a multiple of 8.
+  In this model that is only operator 28, the 1001 channel classifier,
+  which is past the end of your table.
+
+  the fourth, the tiled 1x1 weight layout, is inside the RK3576 path.
+
+So my hypothesis does not survive its own arithmetic and I am not going
+to send it as one. Operators 4 to 26 on your board are unexplained by
+anything I have, which means either RK3588's own path carries a rounding
+difference RK3576 does not, or my simulation is closer to RK3576 than to
+the hardware in general because that is the chip I tuned it against. The
+second is the more likely and the less flattering.
+
+If you ever want to close it, the cheapest probe is operator 28 rather
+than any of the ones you ran: 1001 output channels is odd AND not a
+multiple of 8, so it is the one operator in this model where two of my
+unposted fixes would change anything on RK3588. On RK3576 without them
+it came back an empty convolution.
+
+One more thing, since it cuts against my own earlier note: operator 3
+scoring identically on both chips retires the suspicion in my round 104
+write-up that its asymmetric stride 2 padding was the first RK3576
+divergence. It was not, on either SoC.
+
+Jiaxing
 
