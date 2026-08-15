@@ -4,94 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECB53C5AD5A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 03:22:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EB85C5DF6A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 04:46:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ye0y0tRevzSPz6VhXI7jbdhAlgjaMxZeRJ9jaKbqMD8=; b=ghxs8/3cx7W8Vwc5ZWmaypGex8
-	uHdfwH9nHVN09qqBXYbZpygvDC4XQbK5KVybuTRrtex9x1EFFUvDciH6HVaC6zgrdvhK8hzr/2Lp0
-	sxelfCr1tuMANSu7k/J2rYOegHq138t1zfFHcaHLR6faE7jGMGyZ4sBbmtntBKnJpj98T5nhmU3zY
-	ZZj04EjEx8Dt+38bWg4uqDwxe7e9Ea1NUH1tdmDZHrD+GsNOlXcy+aH/k5v7tGeH+z3m4OPhxMXIa
-	3G0ZxgDCxvRrHfjG+YcMBLVLyZYLs5S6BOwFTBdBRMlrxBff080cCLXZXqzUxBaEAnyc2DCkNK5q3
-	WS0iYsOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Nh6+iOz6P0x9Gy9tGfnUR7uYUyFR6FMVvpIxe/ECC8E=; b=c13O1PaGHYYLKD6Xj6McsdCxYJ
+	z3x4uwyiJzkeB5vMoZa4kMhpGWtR21OuyvTW/jerNaWhzHhgQfsvqSdXicHvWsIbNnWWpl5NAdS30
+	/Rti/M3JLO8Gh5h1maBeN60U538HIacOspHJQ5VRmrUam8xHnbx+0/aFCsJNIxXfmEAT0fBC8l9e3
+	ArZEBhYqriA6x2d7iFwy2ZAgUpjYRWEoFXYekB3as3ddbKn/HK+3VNodIQk9o53PZTk9A6dfnFsDV
+	3+ZgGc5N1UpLbsqPMwmS3wkxZeeEwmpuYwXmH1PAAmhlZzSixloqnqMC3DaZkDxfD/z3GMioQrOWz
+	Tj2LafGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wv4yh-00000003RiY-4A8x;
-	Sat, 15 Aug 2026 03:22:36 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1wv6HC-00000003UyG-0sIU;
+	Sat, 15 Aug 2026 04:45:46 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wv4yf-00000003Ri5-47sN
+	id 1wv6HA-00000003Uxr-24N1
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Aug 2026 03:22:35 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-471eeac43bfso1480341f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 20:22:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786764151; x=1787368951; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Ye0y0tRevzSPz6VhXI7jbdhAlgjaMxZeRJ9jaKbqMD8=;
-        b=DMeBK63DHNsCJ1BRD0waXT3w9Y4SKByTRYW0lc0AxO+THfLfE8asPb1WrVw7XnLtLM
-         mdsr6oTgUkGwE4cm5B3jNHEVwnXJA8Nh1CcekofxRl2qVqgJrIeoVAnRsCjMKRYJD1jW
-         Wi0+OwG37KDSRlnahorEs2oLk75JG+aQl+yraE+SMkEALRHXM78Jf1fhLa0IL8rHWMXW
-         HyMLqys6VXSnWty0pgBNuh695yYkdWKcPLTx8/Cwq86Ai2AoidIw0Cob+8NoUcVXWxFZ
-         sXvWQteIcdRacsVJnOc/7tOdjm2ICtDGIggFf1aPmx66jMWAWNgJWn/X77fcHbTWjGyW
-         Zt+Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786764151; x=1787368951;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Ye0y0tRevzSPz6VhXI7jbdhAlgjaMxZeRJ9jaKbqMD8=;
-        b=QxM1xXNcAgKH8DtPpT4bglmPHRYuJm+HCKe8S+cBbF00LUTOy4YR5SHgvGTj2FHQKy
-         nrtt9Khqv3EatY3imCCbAoi/QpA5NYdT4jffkr0DAoVU8P5ehVVtoyoOy9XSNnO3zc/d
-         tfAT/1CbyaA4Ob+rFf1USnMD52nDixht8UgMFVfxYALW+FthHRNIK2QlfzQ2nQltb5nm
-         CkMYAxnQXi7vX7Fm5Ii/yIX+WxJnb/WcrT8Bgfzi5jjHyTus+WRy9IJJ0wy3pDEdpfL9
-         kw33cMqeFRRdOm8G/owb9XHK2A0lfcibuZS1Oi+aylNcw561MUXHvGccVOrHtujx70yR
-         j4PQ==
-X-Forwarded-Encrypted: i=1; AHgh+RrLEuV/47B2qmPd1nX21sL+e1aj2bL3OEHFaiw5nsc5wGkNZla7DIzHdXEB7teyDTNp7CeIXSgGK13xkv9dYi8d@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx9HAQRzf330iwW5mcBhTd+IG4UKjlLchBTqBKoyRcnW43UFU0r
-	VDlC2HKWNXpQbtRvo7JqhOLdSyUoPB9lXdhDFcbZX/fmszPontL1ZYfO
-X-Gm-Gg: AR+sD13WT69JNR+uldrg9iCoMuaIEbGkdGKXa+MLWEcgrvjp3Wgr2Q+D8X+VjWFKipd
-	HxtGNvXk2ZzhGrdWKuy94FzX/WQ6mR8aMdXc2gSywqFSa/ReKkLaUe6OvIV87AQsUfm9O4BaWrs
-	c21BpVTe0pSUYuJHoQQDoJC2FGpAqxTxExkMXgfADGwLci9Emw6CVpVn/t1wGRaJdaGQeiVEaGC
-	lnANH0K4SlXs47FnVu+bDQLEpaOITTrAxSDx4PvKuxNMW+/We9xWjL6OAqHu53cvhwVH1kkDhv3
-	rv2cn6n7myBPsj2VOMDg5EEtWCaDK5hZBu8nQqxgG9aD2lI52mkco+hW46d8uUKIb8m8BE9r2F8
-	S1Zl+fJs0zL2Z7mJF3YkMEpMjzePFV2gKr30/NikWgs6Bs/ai6x4eHwUnF8VKO+Uh+SmibD/yPI
-	LSM41BQejdngtGyq8H+zASc3HJF6N+iTEh3A0VWMfdP9TlfRfhDdMtR6HtbFgWuPEW2h+3Z/zMK
-	/Rq2O+muFyC2rq9XznYmuSIU/V7mZyVQPKefTjtDNchNscZrIjZblbBE89glPh+Weu6e8Vw1RR/
-	YDK+kWmTmXtwSTpLL3t/Txux5k06pBKJIHSKB/e1+IrTVD+bUqikwre1GDSo7mqy0A==
-X-Received: by 2002:a05:6000:dc6:b0:47f:7964:9887 with SMTP id ffacd0b85a97d-481607aafc9mr10977350f8f.25.1786764151253;
-        Fri, 14 Aug 2026 20:22:31 -0700 (PDT)
-Received: from unknown748F3CBA5068 (dynamic-2a02-3100-aecb-d601-fc34-eb31-14a1-3704.310.pool.telefonica.de. [2a02:3100:aecb:d601:fc34:eb31:14a1:3704])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4815f2c07d2sm13323196f8f.30.2026.08.14.20.22.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 14 Aug 2026 20:22:29 -0700 (PDT)
-Date: Sat, 15 Aug 2026 05:22:27 +0200
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	Steffen Eiden <seiden@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Fuad Tabba <fuad.tabba@linux.dev>, ljs@kernel.org, 
-	Shen Yongchao <grayhat@foxmail.com>, Wei-Lin Chang <weilin.chang@arm.com>, stable@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] KVM: arm64: nv: Fix life cycle of the nested_mmus
- array
-Message-ID: <an_ZDzaiPxhrp9zs@gmail.com>
-References: <20260814103230.858578-1-maz@kernel.org>
- <20260814103230.858578-2-maz@kernel.org>
+	Sat, 15 Aug 2026 04:45:45 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 44C5443FBE;
+	Sat, 15 Aug 2026 04:45:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96D691F00ADE;
+	Sat, 15 Aug 2026 04:45:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786769144;
+	bh=Nh6+iOz6P0x9Gy9tGfnUR7uYUyFR6FMVvpIxe/ECC8E=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=eXcvx5u77fONLhKjmIiOZseXPxSjRgqbh6+vfvoRJ92yY8GBN4XJLYjLJatsvP9Ts
+	 6IgmA35bg8PJJt5DD3QYgUURx270joU7X+roBR7AfWoqgXJBcrtsdLFu9Di+TPfEy3
+	 24zTxMFe+XPMOWciZB2PrRvGRsPcPGx02DONPb3VoWovtpotahF8l5CAwsDdUFvNHQ
+	 VCxKU4L7p3L28IoslkLXlfSKWn+8O6p9341gD/Yv+zNOtuPmZL2UhBPGVdk7qfHhOe
+	 GNGDQnfrzY+OjWUxghNT0MKCXQe0G7u07N8c7sK/fIOO0lb90CQR6/qeivzQZf8O/a
+	 SQSVTkhmEOB6w==
+From: Josh Poimboeuf <jpoimboe@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: linux-kernel@vger.kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	live-patching@vger.kernel.org,
+	Song Liu <song@kernel.org>,
+	Miroslav Benes <mbenes@suse.cz>,
+	Petr Mladek <pmladek@suse.com>,
+	Joe Lawrence <joe.lawrence@redhat.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mark Brown <broonie@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Kees Cook <kees@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	linux-toolchains@vger.kernel.org
+Subject: [PATCH 02/12] arm64/module: Fix BTI exceptions caused by omitted landing pads in Clang 21
+Date: Fri, 14 Aug 2026 21:45:19 -0700
+Message-ID: <2ff1b2482406c61ca5979d6284ba5f948a3fbc20.1786768375.git.jpoimboe@kernel.org>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <cover.1786768375.git.jpoimboe@kernel.org>
+References: <cover.1786768375.git.jpoimboe@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260814103230.858578-2-maz@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260814_202234_030539_E6872034 
-X-CRM114-Status: GOOD (  10.39  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,23 +81,285 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 14, 2026 at 11:32:29AM +0100, Marc Zyngier wrote:
-> +int kvm_init_nested(struct kvm *kvm)
->  {
-> -	kvm->arch.nested_mmus = NULL;
-> +	kvm->arch.nested_mmus = kvmalloc_array(KVM_MAX_VCPUS * S2_MMU_PER_VCPU,
-> +					       sizeof(struct s2_mmu *),
-> +					       GFP_KERNEL_ACCOUNT);
+The following BTI exception was seen when loading a livepatch module:
 
-better: sizeof(struct kvm_s2_mmu *) or sizeof(*kvm->arch.nested_mmus) 
+  Internal error: Oops - BTI: 0000000036000001 [#1]  SMP
+  pstate: 634004c9 (nZCv daIF +PAN -UAO +TCO +DIT -SSBS BTYPE=jc)
+  pc : kill_orphaned_pgrp+0x0/0x150
+  lr : do_exit+0x498/0xaf0 [livepatch_combined]
 
-> +			return ret;
-> +		}
-> +		
-> +		guard(write_lock)(&kvm->mmu_lock);
+The problem is that the patch module's do_exit() is branching to a
+static function in vmlinux using a module PLT veneer (indirect branch),
+but the target function doesn't have a BTI landing pad.
 
-tabs in the empty line.
+Clang 21+ omits the landing pad for static functions which can only be
+reached by a direct branch.  But livepatch modules use klp relocations
+to reference arbitrary kernel symbols, and with
+CONFIG_RANDOMIZE_MODULE_REGION_FULL the module is far enough away that
+every call to vmlinux needs a PLT.
 
-Thanks,
-Karl
+Note this problem is actually not specific to livepatch.  It's possible
+for any module's .init section to be allocated > 128MB away from its
+.text section.  So calls from .init to .text via a PLT can trigger a BTI
+exception when the target function doesn't have a landing pad.
+
+GCC has always omitted the landing pad when possible, so kernel BTI is
+already considered incompatible with GCC since commit c0a454b9044f
+("arm64/bti: Disable in kernel BTI when cross section thunks are
+broken").
+
+When missing landing pads are detected, allocate a page close to the
+target which can be used to hold BTI veneers which receive PLT veneer
+indirect branches and direct branch to the final target:
+
+	bti	c
+	b	<target>
+
+Fixes: fd1e0fd71f65 ("arm64: Implement HAVE_LIVEPATCH")
+Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
+---
+ arch/arm64/include/asm/module.h |   5 +
+ arch/arm64/kernel/module-plts.c | 186 ++++++++++++++++++++++++++++++++
+ 2 files changed, 191 insertions(+)
+
+diff --git a/arch/arm64/include/asm/module.h b/arch/arm64/include/asm/module.h
+index fb9b88eebeb15..f705cbec4463f 100644
+--- a/arch/arm64/include/asm/module.h
++++ b/arch/arm64/include/asm/module.h
+@@ -13,10 +13,15 @@ struct mod_plt_sec {
+ 	int			plt_max_entries;
+ };
+ 
++struct bti_veneer_page;
++
+ struct mod_arch_specific {
+ 	struct mod_plt_sec	core;
+ 	struct mod_plt_sec	init;
+ 
++	/* for CONFIG_ARM64_BTI_KERNEL */
++	struct bti_veneer_page	*bti_veneers;
++
+ 	/* for CONFIG_DYNAMIC_FTRACE */
+ 	struct plt_entry	*ftrace_trampolines;
+ 	struct plt_entry	*init_ftrace_trampolines;
+diff --git a/arch/arm64/kernel/module-plts.c b/arch/arm64/kernel/module-plts.c
+index 7afd370da9f48..4ba31e336deb6 100644
+--- a/arch/arm64/kernel/module-plts.c
++++ b/arch/arm64/kernel/module-plts.c
+@@ -3,12 +3,18 @@
+  * Copyright (C) 2014-2017 Linaro Ltd. <ard.biesheuvel@linaro.org>
+  */
+ 
++#define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
++
+ #include <linux/elf.h>
+ #include <linux/ftrace.h>
+ #include <linux/kernel.h>
+ #include <linux/module.h>
+ #include <linux/moduleloader.h>
++#include <linux/slab.h>
+ #include <linux/sort.h>
++#include <linux/vmalloc.h>
++#include <asm/cpufeature.h>
++#include <asm/text-patching.h>
+ 
+ static struct plt_entry __get_adrp_add_pair(u64 dst, u64 pc,
+ 					    enum aarch64_insn_register reg)
+@@ -66,6 +72,180 @@ static bool plt_entries_equal(const struct plt_entry *a,
+ 	       (q + aarch64_insn_adrp_get_offset(le32_to_cpu(b->adrp)));
+ }
+ 
++/*
++ * The compiler may omit a function's BTI landing pad if it's a static function
++ * with no pointers referencing it.  That breaks two cases where a PLT might be
++ * needed to call such a function:
++ *
++ *   1) module cross-section call (e.g., .init to .text)
++ *
++ *   2) livepatch module using a klp relocation
++ *
++ * Fix up such cases with a second veneer which lives close to the target.
++ */
++struct bti_veneer {
++	__le32	bti_c;
++	__le32	b;
++};
++
++struct bti_veneer_page {
++	struct bti_veneer_page	*next;
++	struct bti_veneer	*veneers;
++	unsigned int		used;
++};
++
++#define BTI_VENEERS_PER_PAGE	(PAGE_SIZE / sizeof(struct bti_veneer))
++
++static bool plt_target_has_landing_pad(u64 target)
++{
++	u32 insn;
++
++	if (!system_supports_bti_kernel())
++		return true;
++
++	if (aarch64_insn_read((void *)target, &insn))
++		return true;
++
++	if (!aarch64_insn_is_hint(insn))
++		return false;
++
++	switch (insn & 0xFE0) {
++	case AARCH64_INSN_HINT_BTIC:
++	case AARCH64_INSN_HINT_BTIJ:
++	case AARCH64_INSN_HINT_BTIJC:
++	case AARCH64_INSN_HINT_PACIASP:
++	case AARCH64_INSN_HINT_PACIBSP:
++		return true;
++	}
++
++	return false;
++}
++
++static void *bti_veneer_vmalloc(u64 start, u64 end, gfp_t gfp)
++{
++	pgprot_t prot = __pgprot(pgprot_val(PAGE_KERNEL_ROX) | PTE_MAYBE_GP);
++
++	return __vmalloc_node_range(PAGE_SIZE, PAGE_SIZE, PAGE_ALIGN(start),
++				    ALIGN_DOWN(end, PAGE_SIZE), gfp, prot,
++				    VM_FLUSH_RESET_PERMS, NUMA_NO_NODE,
++				    __builtin_return_address(0));
++}
++
++static bool bti_veneer_in_range(const struct bti_veneer *veneer, u64 target)
++{
++	s64 offset = (s64)target - (s64)&veneer->b;
++
++	return offset >= -SZ_128M && offset < SZ_128M;
++}
++
++static struct bti_veneer_page *bti_veneer_page_alloc(struct module *mod,
++						     u64 target)
++{
++	struct bti_veneer_page *page;
++	void *p;
++
++	/*
++	 * vmalloc allocates at the lowest free address in the given range, so
++	 * try the range above the target first so it will be as close as
++	 * possible, making it more likely to be reusable for other targets in
++	 * the same object.
++	 */
++	p = bti_veneer_vmalloc(target, target + SZ_128M,
++			       GFP_KERNEL | __GFP_NOWARN);
++	if (!p)
++		p = bti_veneer_vmalloc(target - SZ_128M, target,
++				       GFP_KERNEL | __GFP_NOWARN);
++	if (!p) {
++		pr_err("%s: no address space within branch range of %pS for a BTI veneer\n",
++		       mod->name, (void *)target);
++		return NULL;
++	}
++
++	/* Don't leave unused slots executable */
++	aarch64_insn_set(p, AARCH64_BREAK_FAULT, PAGE_SIZE);
++
++	page = kzalloc_obj(*page, GFP_KERNEL);
++	if (!page) {
++		vfree(p);
++		return NULL;
++	}
++
++	page->veneers = p;
++	page->next = mod->arch.bti_veneers;
++	mod->arch.bti_veneers = page;
++
++	return page;
++}
++
++static u64 module_emit_bti_veneer(struct module *mod, u64 target)
++{
++	struct bti_veneer_page *page;
++	struct bti_veneer *veneer, insns;
++	u32 insn;
++
++	/* Look for an existing veneer for the target */
++	for (page = mod->arch.bti_veneers; page; page = page->next) {
++		for (unsigned int i = 0; i < page->used; i++) {
++			s32 offset;
++
++			veneer = &page->veneers[i];
++			insn = le32_to_cpu(veneer->b);
++			offset = aarch64_get_branch_offset(insn);
++
++			if ((u64)&veneer->b + offset == target)
++				return (u64)veneer;
++		}
++	}
++
++	/* Look for a free slot in range of the target */
++	for (page = mod->arch.bti_veneers; page; page = page->next) {
++		if (page->used == BTI_VENEERS_PER_PAGE)
++			continue;
++
++		veneer = &page->veneers[page->used];
++		if (bti_veneer_in_range(veneer, target))
++			goto emit;
++	}
++
++	page = bti_veneer_page_alloc(mod, target);
++	if (!page)
++		return 0;
++
++	veneer = &page->veneers[0];
++
++emit:
++	insn = aarch64_insn_gen_branch_imm((u64)&veneer->b, target,
++					   AARCH64_INSN_BRANCH_NOLINK);
++	if (WARN_ON(insn == AARCH64_BREAK_FAULT))
++		return 0;
++
++	insns.bti_c = cpu_to_le32(aarch64_insn_gen_hint(AARCH64_INSN_HINT_BTIC));
++	insns.b	    = cpu_to_le32(insn);
++
++	if (!aarch64_insn_copy(veneer, &insns, sizeof(insns))) {
++		pr_err("%s: failed to write BTI veneer for %pS\n",
++		       mod->name, (void *)target);
++		return 0;
++	}
++
++	page->used++;
++
++	return (u64)veneer;
++}
++
++void module_arch_cleanup(struct module *mod)
++{
++	struct bti_veneer_page *page, *next;
++
++	for (page = mod->arch.bti_veneers; page; page = next) {
++		next = page->next;
++		vfree(page->veneers);
++		kfree(page);
++	}
++
++	mod->arch.bti_veneers = NULL;
++}
++
+ u64 module_emit_plt_entry(struct module *mod, Elf64_Shdr *sechdrs,
+ 			  void *loc, const Elf64_Rela *rela,
+ 			  Elf64_Sym *sym)
+@@ -77,6 +257,12 @@ u64 module_emit_plt_entry(struct module *mod, Elf64_Shdr *sechdrs,
+ 	int j = i - 1;
+ 	u64 val = sym->st_value + rela->r_addend;
+ 
++	if (!plt_target_has_landing_pad(val)) {
++		val = module_emit_bti_veneer(mod, val);
++		if (!val)
++			return 0;
++	}
++
+ 	if (is_forbidden_offset_for_adrp(&plt[i].adrp))
+ 		i++;
+ 
+-- 
+2.55.0
+
 
