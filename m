@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23B4CC5AD5A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 16:27:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97BF7C5CFDB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 16:27:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/7rlTdXPQx8KtQhzgq3ccigzE8IVB9jSLAgF9XPuDuY=; b=WCr7vxI3NgcIHeHrjPzeqa6CHV
-	ZxkOW9AgRcOlwyyN84pcdCDiJQrgJrzbZwtUBXMt5/DNAZ4mW6oMiOZdCBREWOXhy1KniQHAdaJ6M
-	+kPKo1Ujtht0ZMlgWvcKbnLWS3j3iQw9d+JVk7/W6jHUE0+nCFXK+Rs8F6lh6PEC88u9IWDTXDtXp
-	RK4Nde3QsuY12/emJ0+reZZM549vHhZxN9hhfiu2cX3omwRTi7Su8WISGo0+O6RXKSCM+cnD8Yfvv
-	or8oYuZwv+81CZlqxF/RYfELIM5Q7fiGSocH3AwgeXN0V3UfVQNYf0YeSKyjMDRg/7tlPorRjZvXs
-	5ne1eEGw==;
+	bh=u0aZhTYimAntKdzPJKS6oC7Sa1HRLwmKSoA78yTWTLs=; b=iX/jdMUU47BmQWETWf26zzblKC
+	affg/VC0t6NMgz4sXtlLJa0DcbzkemGNcbSyl7v00Ar0rwEAF3NR+0n3BwtgMW8lSvwb2HUtwAJgd
+	WGQEnE+/ACLk/GqNi3dVLbmgi5lGSpFZ3g+TQVNnjuu07iQJbiW2LPRZgZRi1HlMR8ZQP9c3xlisg
+	y/gPC5BZQLcatr1L1qRHl6W6sRTWpsKDQsHYtarbGof5F2g6S1Waoymqzx3YpfZmt4oIEPMEjSW38
+	S3zIyuwJrd6iyja8sTu3wbPDJt6y3jsFGUSkruxEXhWwoVQZUbIsP/MjE8XnA79lITuA6Judqdena
+	nXBP9aag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvHEF-00000003wbx-0KA8;
-	Sat, 15 Aug 2026 16:27:27 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	id 1wvHEa-00000003wgt-0pJR;
+	Sat, 15 Aug 2026 16:27:48 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvHED-00000003wbA-0D6M
+	id 1wvHEX-00000003wfT-0RfE
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Aug 2026 16:27:26 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-38101f85591so2856498a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 15 Aug 2026 09:27:24 -0700 (PDT)
+	Sat, 15 Aug 2026 16:27:46 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2d5655cc850so1051465ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 15 Aug 2026 09:27:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786811244; x=1787416044; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1786811264; x=1787416064; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=/7rlTdXPQx8KtQhzgq3ccigzE8IVB9jSLAgF9XPuDuY=;
-        b=plwz5Qy6OF5p1b3yQx4pXDvzNR1c/Hh1UzU/aXRiKGebwkU9CVjaCjNDI/efwnKxpA
-         x9q8Ew7DvHOVjI6sZ1IWBEPeBBSM1JjktiuY3p6M7LSL9YXNsN1tFf+hzPWdsclW4/NR
-         IVi1AScurbJbwhpYkTR0GnjSK6I9pRIbWT2bGUiD3SBsqzNfxLsO57GVEotyZFuct5gJ
-         k1fXKhM1z9r2MkvzsXP04UtmKCuJ1ImUM1wcu++DhYBheDZ9O0WpHar318rKhR6DZUIr
-         5/kNSSsKbnx+J5+JJyOHbuRq0N6bn6DGqZwKeW2hMH017IXwy5w8U16sz82tct0BkKD/
-         O17g==
+        bh=u0aZhTYimAntKdzPJKS6oC7Sa1HRLwmKSoA78yTWTLs=;
+        b=T9OdPluinPXw0cEg4ognUu9OM1qQxZ3bLAW3pJKg37jmFMhpCAzmkMELXm5K1MJ1wV
+         k6OcLFRQ4ryA7OajYZLqPI1A/4IJf8b0oyZwJjJmNV3a7EZAsaDSt7eTnJiqqmTOWAYb
+         5KkRW7gw4/k3s9kbpSG7/rqMzWVqfPQA0qBbiFy9aTMEjrkVJZHASWPd536y8rE+5mwe
+         BpYx6mkCTR6M5NZnr3rFiPrRV0qkB0sXPC+3NUMF5Xqv3DJRiG9mozv7Q5lgw1he+z2Y
+         IOK5GzYeCOsf00x5hUqz6p5hUUd0oTpjFcumtjSTqdBuvv0gXvMFLtOLUBEXlamdHmL7
+         /Swg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786811244; x=1787416044;
+        d=1e100.net; s=20251104; t=1786811264; x=1787416064;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=/7rlTdXPQx8KtQhzgq3ccigzE8IVB9jSLAgF9XPuDuY=;
-        b=kHjXdwdSH03Ualnh7alKRhVzd+/tcyxYsnLKggbBXNXq3Zubb+3NzjAbl8KT92BUET
-         YDtaHogk966EcRt0vKJsJrjyE5KnKQ1Y459P5vVU7gt0qS6/Pqrk0ZITotBPBe3nXPkh
-         r/cAZfPq8stK3DF+of1oTvGoyoaIVHWvxp6JrBl2UDV8rsCFkt3Ig6QuNzecKDQecq+G
-         bgomX9xi8y9xyGLML/rKda6qfl1BbHUxAzYZvJymQtyxAPD/jW4Ip7so4C56b6jbDkrA
-         OPQUaFOlklX0egViO+Li7vpbhOX888/J9Nn61grXYoZLcr93GCCEVUkJHtzEJY9qcEwk
-         Y5LA==
-X-Forwarded-Encrypted: i=1; AHgh+RpOvegoTJXH/N0dWczfJoCn0hZBJSxGbAHK8VQ0cmwZR8F/8IzicarWT5CePc3CsVNVo62ptOCs1tXAmyoqmrc9@lists.infradead.org
-X-Gm-Message-State: AOJu0YzN/PilkTSc/Vrp5MNo4A6sLvsBroQ3fF4KZtrbQCAieRlHG0VP
-	rsQU1JI/1pWTxGaAPxmBhNmODNPhdF0Agz8rBdHiu+LPsNUfis4H/s/4T9cTBf8q
-X-Gm-Gg: AR+sD13diro5B4T0/5BFL8oKUr1dG51iDU8Qc6e5jxuxq+Xg8VHsOqjqBaYEsua0jQn
-	Rovdj2ARNLVtdaL+y5oKNmycP8zuB17PtawG12zF9u6jxaMkJV4ITiznVI7V9JBNsB6EZf7AF+v
-	D8tVqO6dcHrSzXCetNbzCkvB52tkvJsJjn0ofNPZLGfdJbD8zIWV3yyc/Noz+9omw6+5PVrQLu9
-	Ts/9eCJdpE822S+qovCcVnVsX1phYU5/ZqCDpzhIGwSNFqST18TumMZ7GF59M2rRu7X9U6T4bE3
-	PkbskHUAC6sJOIfZMfpVv8Am8MabTtnFulX0XSKXJwzsv0wnJmaEJyg2/XenTlS+HEXWrye0b9s
-	aYFefNrlmmWyouRpBLAvGaroNZUATWdc0GYZAUdPyqQJUESQtStU6Mu/zY2RkIjDADUP92Hq3Ov
-	kl8tbxyX2c4EltQk+j47CF9JVEKycpwPo+aWxPDpoTaB2EwaOtDUdRkQc/RDcD8sRBtugMXVutb
-	uKlJeDo1rzNrfRfyW+m9pmi+qSxC1xE
-X-Received: by 2002:a17:90b:37c3:b0:390:84db:888e with SMTP id 98e67ed59e1d1-3933afb4ba2mr11298200a91.7.1786811244193;
-        Sat, 15 Aug 2026 09:27:24 -0700 (PDT)
+        bh=u0aZhTYimAntKdzPJKS6oC7Sa1HRLwmKSoA78yTWTLs=;
+        b=nGLkwIT5mFsn9cKV8338A61YjmRwH35NsN3+ima5Y5BNrH9gZIyrp9UxSKjsKIGQBg
+         D8/rHPzL93DHVKqahId3zwdX8h1mYdcYAMcrAKMIvDmARcaim8cU+tcV/DRwQtd9rBzU
+         dVZNhs+JeWTIFIcgTMt4091+x3k5WSPxJ9uKulkRRzHLUHlMhAEUOgVYoyF/R2McwTiI
+         zAzon7ouIe42a5KdyBdjFsnb7lImrgKVx29/tnWdHxwBggX73ZymanAhHpf9DGLwNv+n
+         RpWAPYGUsZgqlk9D6/iNovvo9ej7wijNmZVdjprsb8wzb4Ymrl2Umw/RT/0pKKdS0jvd
+         hb2g==
+X-Forwarded-Encrypted: i=1; AHgh+RoFb/6eNQTDVitbDO0QqEzyYNU4jolAaLMuhmX2HrcopZk2f3dNbynRI4xoYVjS0QSeAS/QMexp+xrIN6RNz63P@lists.infradead.org
+X-Gm-Message-State: AOJu0YzZnlVE7v2bX9EHGdxG/tSml3UFWCwRSJ/n6q+FwD3yCjfFsXVh
+	U79ijEwNVTTKvBLXFbaFrMoz0M5EuwUFnvgsVCcg7mJ/WCNfSK6AAVsC
+X-Gm-Gg: AR+sD10ZQNCRh3ad0xaXVlY6YzEJgMfubFJY90CPs/dlJ/0XcyVBJ3rfbi3oazHbSGb
+	2lpMtaItqP2B4qL+sLL0uQu7mi1ppW8U4hDAHHXJSuVuFD/AyBz9GCL01ZXEboHv6AKW5XReH8I
+	fLXATTbpTHDhBmfpKftc415ZPBE7MI1U2HvVOoovXysYRh307bj3wPfa6HnaCRnBQ1aeUj537Fl
+	rQmzZqbqJaw8lT30RHfql2+G6G5nprfENMgxpYb12eUpjpGyDuKj2dmgKzvFSd9ckSQBX7haR3B
+	sdtAPvSwUxNsnqSkGzj9KQfSoxmPgJwiLiIVTZ1ql6UYlOHGBxh6To2PIlbCMGzXbl8pAwtv/dK
+	3qbuFVYAvwl0b0+V6KZaI7Ppp1qjZjBDpw/ZBev7NmrI8ANusjVy8MPKzz68MIMKJZPcMbW2541
+	yAAQq8v/NB4pdDyMMxlDoq3JEjA2UeMkTisgF9o2NaVJkHMc0Ns9lJ8hye3v10zQ+qK+ev9CGHI
+	mgqV7VUMkuYV9Jgx/Y4V35GMAp6vml+
+X-Received: by 2002:a05:6a21:7111:b0:3b1:882a:607b with SMTP id adf61e73a8af0-3cc71d24898mr16890086637.22.1786811264197;
+        Sat, 15 Aug 2026 09:27:44 -0700 (PDT)
 Received: from Ubuntu.. ([49.43.242.113])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-141387ed5b1sm36427232c88.8.2026.08.15.09.27.20
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-141387ed5b1sm36427232c88.8.2026.08.15.09.27.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 15 Aug 2026 09:27:23 -0700 (PDT)
+        Sat, 15 Aug 2026 09:27:43 -0700 (PDT)
 From: Manish Baing <manishbaing2789@gmail.com>
 To: perex@perex.cz,
 	tiwai@suse.com,
@@ -81,17 +81,17 @@ Cc: linux-sound@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	manishbaing2789@gmail.com,
 	Sashiko AI <sashiko-bot@kernel.org>
-Subject: [PATCH 1/2] ASoC: sound: atmel: ac97c: Fix IRQ handler null pointer dereference
-Date: Sat, 15 Aug 2026 16:27:05 +0000
-Message-ID: <20260815162707.353893-2-manishbaing2789@gmail.com>
+Subject: [PATCH 2/2] ASoC: atmel: ac97c: Fix use-after-free on driver teardown
+Date: Sat, 15 Aug 2026 16:27:06 +0000
+Message-ID: <20260815162707.353893-3-manishbaing2789@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260815162707.353893-1-manishbaing2789@gmail.com>
 References: <20260815162707.353893-1-manishbaing2789@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260815_092725_138020_F9A4B118 
-X-CRM114-Status: GOOD (  15.25  )
+X-CRM114-CacheID: sfid-20260815_092745_147323_D45C903E 
+X-CRM114-Status: GOOD (  13.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,14 +106,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In atmel_ac97c_probe(), request_irq() is called before ioremap().
-If an interrupt fires immediately, the handler atmel_ac97c_interrupt()
-will attempt to dereference chip->regs via ac97c_readl(), leading to
-a null pointer dereference and kernel panic.
+In atmel_ac97c_remove() and the probe error path, the driver disables
+clocks and unmaps memory before freeing the IRQ. If a stray interrupt
+fires during this window, the handler will attempt to access unmapped
+memory or unclocked hardware, resulting in a kernel panic.
 
-Move request_irq() to the end of the probe function, after memory
-is mapped and clocks are enabled, ensuring the hardware is fully
-ready before interrupts are serviced.
+Reorder the teardown sequence to call free_irq() first, adhering to
+the standard reverse-initialization order.
 
 Running make W=1 returns no errors. I was unable to test the patch
 because I do not have the hardware. The issue was flagged by the
@@ -124,38 +123,49 @@ Reported-by: Sashiko AI <sashiko-bot@kernel.org>
 
 Signed-off-by: Manish Baing <manishbaing2789@gmail.com>
 ---
- sound/atmel/ac97c.c | 11 ++++++-----
- 1 file changed, 6 insertions(+), 5 deletions(-)
+ sound/atmel/ac97c.c | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
 
 diff --git a/sound/atmel/ac97c.c b/sound/atmel/ac97c.c
-index e394205f469b..205475157e72 100644
+index 205475157e72..24a27e67f15f 100644
 --- a/sound/atmel/ac97c.c
 +++ b/sound/atmel/ac97c.c
-@@ -733,11 +733,6 @@ static int atmel_ac97c_probe(struct platform_device *pdev)
- 
- 	chip = get_chip(card);
- 
--	retval = request_irq(irq, atmel_ac97c_interrupt, 0, "AC97C", chip);
--	if (retval) {
--		dev_dbg(&pdev->dev, "unable to request irq %d\n", irq);
--		goto err_request_irq;
--	}
- 	chip->irq = irq;
- 
- 	spin_lock_init(&chip->lock);
-@@ -785,6 +780,12 @@ static int atmel_ac97c_probe(struct platform_device *pdev)
- 		goto err_ac97_bus;
- 	}
- 
-+	retval = request_irq(irq, atmel_ac97c_interrupt, 0, "AC97C", chip);
-+	if (retval) {
-+		dev_dbg(&pdev->dev, "unable to request irq %d\n", irq);
-+		goto err_request_irq;
-+	}
-+
+@@ -789,7 +789,7 @@ static int atmel_ac97c_probe(struct platform_device *pdev)
  	retval = snd_card_register(card);
  	if (retval) {
  		dev_dbg(&pdev->dev, "could not register sound card\n");
+-		goto err_ac97_bus;
++		goto err_snd_card_register;
+ 	}
+ 
+ 	platform_set_drvdata(pdev, card);
+@@ -799,11 +799,12 @@ static int atmel_ac97c_probe(struct platform_device *pdev)
+ 
+ 	return 0;
+ 
++err_snd_card_register:
++	free_irq(irq, chip);
+ err_ac97_bus:
++err_request_irq:
+ 	iounmap(chip->regs);
+ err_ioremap:
+-	free_irq(irq, chip);
+-err_request_irq:
+ 	snd_card_free(card);
+ err_snd_card_new:
+ 	clk_disable_unprepare(pclk);
+@@ -841,10 +842,10 @@ static void atmel_ac97c_remove(struct platform_device *pdev)
+ 	ac97c_writel(chip, COMR, 0);
+ 	ac97c_writel(chip, MR,   0);
+ 
++	free_irq(chip->irq, chip);
+ 	clk_disable_unprepare(chip->pclk);
+ 	clk_put(chip->pclk);
+ 	iounmap(chip->regs);
+-	free_irq(chip->irq, chip);
+ 
+ 	snd_card_free(card);
+ }
 -- 
 2.43.0
 
