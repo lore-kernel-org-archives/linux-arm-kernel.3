@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2FFDC5CFC1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 18:37:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02018C5DF70
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 18:37:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oEzEGuKVBmKn0q5GrvNh9KNUIxv2F39c0d27ohIdSdI=; b=Z4T9pbYca8XiApwXNRbQ5QUjDW
-	tOaUZSr1P898cpiVh+EVLIQw5lnu/Z6cBDKXbIp2W9Z/coXQW/QF+4nWt/8SR7d6z4d4kIXgCLSS8
-	wdOisbcfAnod09brJlDznCmiX4j9dYHyDBTZTQURBpUDLcPHDXfjoOJeBAU143Y9mlANqq3Dc4/5y
-	W5Fb4LFOTdOraOuG9V9zoetO6Uf8dyvBho/SbXfqUwluv3v22ksOgJ1cxif2kN4arrg5xQdJ0EgSv
-	vGzUYmbaSLZIFgVr1F0j39+mhbyPHOoQ//aI7dRFMsDYlW5GMbQw8sBb9/iXUu9SaCPsuEZa1apaY
-	/w7ppToQ==;
+	bh=Bs9U17BdOCVa9r+RE8shAPRL7++S4+JfheFTJBOlRU8=; b=BaFewzDQSI+6oV9JIanXKxrM43
+	kvypaK1lAZfbIrEAmfLVbcdpTSUkYTm/owodB23KUYXSbt4ZBOQ58G0WENcybZEAn75K0nA5qTZ3p
+	s12zLvZYdq00eoq3j+KhXdjQOvtE6XgsJi5QeR5mOOhGFwRZ3wIEwYkGsQAehU0ICnvoh4V8U5sa7
+	Ur1dndo+hmRqUQ1MkqoAwNIYZD0aYfPG8ikEemn/dDyTEIy6g7v2gCUxukRmufvTc2gL1YtWDxIi8
+	NAZyKiN37pXmFAjmXBtpR5GGEWusoMD6WgkKWBl1T0GkxsdFBLeSjY2HzYUbqy+rtLoYrHiLbUqFP
+	yecutzNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvJG9-000000043zu-1aTa;
-	Sat, 15 Aug 2026 18:37:33 +0000
+	id 1wvJGD-0000000444k-28oH;
+	Sat, 15 Aug 2026 18:37:37 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvJFy-000000043mR-0W9f
+	id 1wvJG3-000000043sX-2iGv
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Aug 2026 18:37:23 +0000
+	Sat, 15 Aug 2026 18:37:33 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 23E021650;
-	Sat, 15 Aug 2026 11:37:17 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 689D71D34;
+	Sat, 15 Aug 2026 11:37:21 -0700 (PDT)
 Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 227E03F632;
-	Sat, 15 Aug 2026 11:37:17 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 646833F632;
+	Sat, 15 Aug 2026 11:37:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786819041; bh=ZtgS40uF/wgB27liLkwuh3136G4ru6yNWhpfvgHLxYk=;
+	t=1786819045; bh=u+iCe7VDsM0O2SVmwo5C7DY2fR/FA5mGRrm9lPyhUY4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=oeb63nJLNSCZMt1jQI+QO42Ib5LuKZMj/jv3PY8NumByYwyj2hKUyKbfOj/+wdW+U
-	 Wl2kmgFSPy6VTkEUOEHiR7Pq3PZbGOThDvNpS4GCRnrorIdvnSjQ15K/1e2MtJldKv
-	 YHKy7kvYqM6SQrEZzmyGUHnTUOufulWsdDJbuyo0=
+	b=A4PyjoxAlLgFR3Kflkngn2n4DjNea9dQpN5BbLrWMeN9PWcI/BIBgV4MxHTx6rl2p
+	 bCvPSF8b1alCD3GMkXPl0e+Xk4BRe7AiNmphfAyS0VbjeXtj0RcQTha4ISoviKH/5C
+	 FdMr+CwGf7T1RHgu5oOzaLWu+xVkjMQF3wvJHlnw=
 From: Cristian Marussi <cristian.marussi@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -64,17 +64,17 @@ Cc: sudeep.holla@kernel.org,
 	usama.arif@linux.dev,
 	kernel-team@meta.com,
 	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [PATCH v9 13/24] firmware: arm-scmi: Add telemetry generic event support
-Date: Sat, 15 Aug 2026 19:35:41 +0100
-Message-ID: <20260815183552.3250194-14-cristian.marussi@arm.com>
+Subject: [PATCH v9 14/24] firmware: arm_scmi: Add Telemetry generation counter event
+Date: Sat, 15 Aug 2026 19:35:42 +0100
+Message-ID: <20260815183552.3250194-15-cristian.marussi@arm.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260815183552.3250194-1-cristian.marussi@arm.com>
 References: <20260815183552.3250194-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260815_113722_272550_5814797E 
-X-CRM114-Status: GOOD (  17.14  )
+X-CRM114-CacheID: sfid-20260815_113728_489892_C7BCB41E 
+X-CRM114-Status: GOOD (  17.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,234 +89,167 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support to allow SCMI driver users to subscribe/unsubscribe to specific
-Telemetry  abstract (non protocol) events.
-
-This enables SCMI drivers to subscribe to available events by registering
-an eventfd context that the core SCMI stack will use as a signalling
-mechanisms.
+Add a per-instance generation counter to track configuration changes which
+uses the common telemetry events framework.
 
 Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 ---
-v8 --> v9
- - add a TLM_EVT_DUMMY placeholder (waiting for more events later on..)
+v6 --> v7
+ - use new Generic event mechanism based on EventFD instead of WaitQ
+v5 --> v6
+ - add relese semantic to the atomic set of the generation counter
+ - use new eventfd_ctx common event logic
 ---
- drivers/firmware/arm_scmi/telemetry.c | 100 ++++++++++++++++++++++++++
- include/linux/scmi_protocol.h         |  16 +++++
- 2 files changed, 116 insertions(+)
+ drivers/firmware/arm_scmi/telemetry.c | 44 +++++++++++++++++++++++++++
+ include/linux/scmi_protocol.h         |  6 ++--
+ 2 files changed, 48 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/firmware/arm_scmi/telemetry.c b/drivers/firmware/arm_scmi/telemetry.c
-index 78120236340c..2f74143467cf 100644
+index 2f74143467cf..8a0cd7f08231 100644
 --- a/drivers/firmware/arm_scmi/telemetry.c
 +++ b/drivers/firmware/arm_scmi/telemetry.c
-@@ -12,6 +12,7 @@
- #include <linux/completion.h>
- #include <linux/err.h>
- #include <linux/delay.h>
-+#include <linux/eventfd.h>
- #include <linux/io.h>
- #include <linux/limits.h>
- #include <linux/minmax.h>
-@@ -479,6 +480,11 @@ enum de_state {
- 	ENA_MAX
- };
+@@ -24,6 +24,7 @@
+ #include <linux/string.h>
+ #include <linux/uuid.h>
+ #include <linux/xarray.h>
++#include <linux/wait.h>
  
-+struct telemetry_event {
-+	struct eventfd_ctx *ctx;
-+	struct list_head item;
-+};
-+
- struct telemetry_info {
- 	bool streaming_mode;
- 	unsigned int num_shmti;
-@@ -503,6 +509,9 @@ struct telemetry_info {
- 	struct list_head free_des;
- 	struct list_head fcs_des;
- 	struct scmi_telemetry_info info;
-+	/* Mutex to protect access to @events */
-+	struct mutex events_mtx;
-+	struct list_head events[SCMI_TLM_EVT_MAX];
- 	struct notifier_block telemetry_nb;
- 	atomic_t rinfo_initializing;
- 	struct completion rinfo_initdone;
-@@ -522,6 +531,21 @@ static int scmi_telemetry_shmti_scan(struct telemetry_info *ti,
- static inline void scmi_telemetry_uuid_link(struct telemetry_de *tde,
- 					    struct telemetry_uuid *uuid);
+ #include "protocols.h"
+ #include "notify.h"
+@@ -33,6 +34,7 @@
+ /* Updated only after ALL the mandatory features for that version are merged */
+ #define SCMI_PROTOCOL_SUPPORTED_VERSION		0x10000
  
-+static int scmi_telemetry_event_signal(struct telemetry_info *ti,
-+				       enum scmi_telemetry_event type)
-+{
-+	struct telemetry_event *evt;
-+
-+	if (type >= SCMI_TLM_EVT_MAX)
-+		return -EINVAL;
-+
-+	guard(mutex)(&ti->events_mtx);
-+	list_for_each_entry(evt, &ti->events[type], item)
-+		eventfd_signal(evt->ctx);
-+
-+	return 0;
-+}
-+
- static inline void
- scmi_telemetry_de_state_update(struct telemetry_info *ti, enum de_state state,
- 			       bool *current_state, const bool next_state)
-@@ -3173,6 +3197,54 @@ static int scmi_telemetry_reset(const struct scmi_protocol_handle *ph)
- 	return ret;
- }
++#define SCMI_TLM_GENERATION_ONE		(SCMI_TLM_GENERATION_INVALID + 1U)
+ #define SCMI_TLM_TDCF_MAX_RETRIES	5
  
-+static int scmi_telemetry_event_subscribe(const struct scmi_protocol_handle *ph,
-+					  enum scmi_telemetry_event type,
-+					  struct eventfd_ctx *ctx)
-+{
-+	struct telemetry_info *ti = ph->get_priv(ph);
-+	struct telemetry_event *evt;
-+
-+	if (type >= SCMI_TLM_EVT_MAX)
-+		return -EINVAL;
-+
-+	evt = kzalloc_obj(*evt);
-+	if (!evt)
-+		return -ENOMEM;
-+
-+	evt->ctx = ctx;
-+	guard(mutex)(&ti->events_mtx);
-+	list_add(&evt->item, &ti->events[type]);
-+
-+	trace_scmi_tlm_access(0, "TLM_EVT_SUBS", 0, 0);
-+
-+	return 0;
-+}
-+
-+static int scmi_telemetry_event_unsubscribe(const struct scmi_protocol_handle *ph,
-+					    enum scmi_telemetry_event type,
-+					    struct eventfd_ctx *ctx)
-+{
-+	struct telemetry_info *ti = ph->get_priv(ph);
-+	struct telemetry_event *evt, *n;
-+
-+	if (type >= SCMI_TLM_EVT_MAX)
-+		return -EINVAL;
-+
-+	guard(mutex)(&ti->events_mtx);
-+	list_for_each_entry_safe(evt, n, &ti->events[type], item) {
-+		if (evt->ctx == ctx) {
-+			list_del(&evt->item);
-+			kfree(evt);
-+
-+			trace_scmi_tlm_access(0, "TLM_EVT_UNSUBS", 0, 0);
-+
-+			break;
-+		}
-+	}
-+
-+	return 0;
-+}
-+
- static const struct scmi_telemetry_proto_ops tlm_proto_ops = {
- 	.info_get = scmi_telemetry_info_get,
- 	.de_lookup = scmi_telemetry_de_lookup,
-@@ -3184,6 +3256,8 @@ static const struct scmi_telemetry_proto_ops tlm_proto_ops = {
- 	.des_bulk_read = scmi_telemetry_des_bulk_read,
- 	.des_sample_get = scmi_telemetry_des_sample_get,
- 	.reset = scmi_telemetry_reset,
-+	.event_subscribe = scmi_telemetry_event_subscribe,
-+	.event_unsubscribe = scmi_telemetry_event_unsubscribe,
- };
- 
- static bool
-@@ -3572,6 +3646,9 @@ static int scmi_telemetry_instance_init(struct telemetry_info *ti)
- 	if (ret)
- 		return ret;
- 
-+	for (int i = 0; i < SCMI_TLM_EVT_MAX; i++)
-+		INIT_LIST_HEAD(&ti->events[i]);
-+	mutex_init(&ti->events_mtx);
- 	atomic_set(&ti->des_enabled[ENA_STATE], 0);
- 	atomic_set(&ti->des_enabled[ENA_TSTAMP], 0);
- 	/* Setup resources lazy initialization */
-@@ -3653,10 +3730,33 @@ static int scmi_telemetry_protocol_init(const struct scmi_protocol_handle *ph)
+ #define SCMI_TLM_DE_IMPL_NUM_DWORDS	4
+@@ -690,6 +692,35 @@ scmi_telemetry_tde_cache_lookup(struct telemetry_de *tde,
  	return 0;
  }
  
-+static int scmi_telemetry_protocol_deinit(const struct scmi_protocol_handle *ph)
++static inline void __scmi_telemetry_generation_set(struct telemetry_info *ti,
++						   unsigned int new)
 +{
-+	struct telemetry_info *ti = ph->get_priv(ph);
++	int ret;
 +
-+	//TODO maybe better on general cleanup
++	atomic_set_release(&ti->info.generation, new);
 +
-+	guard(mutex)(&ti->events_mtx);
-+	/* Clear any residual events */
-+	for (int type = 0; type < SCMI_TLM_EVT_MAX; type++) {
-+		struct telemetry_event *evt, *n;
-+
-+		list_for_each_entry_safe(evt, n, &ti->events[type], item) {
-+			dev_warn(ti->ph->dev,
-+				 "Found UN-SUBSCRIBED event type %d!\n", type);
-+			list_del(&evt->item);
-+			kfree(evt);
-+		}
-+	}
-+
-+	return 0;
++	ret = scmi_telemetry_event_signal(ti, SCMI_TLM_EVT_GENERATION);
++	if (ret)
++		dev_warn_once(ti->ph->dev,
++			      "Could NOT signal telemetry event %d\n",
++			      SCMI_TLM_EVT_GENERATION);
 +}
 +
- static const struct scmi_protocol scmi_telemetry = {
- 	.id = SCMI_PROTOCOL_TELEMETRY,
- 	.owner = THIS_MODULE,
- 	.instance_init = &scmi_telemetry_protocol_init,
-+	.instance_deinit = &scmi_telemetry_protocol_deinit,
- 	.ops = &tlm_proto_ops,
- 	.events = &tlm_protocol_events,
- 	.supported_version = SCMI_PROTOCOL_SUPPORTED_VERSION,
++static inline void scmi_telemetry_generation_update(struct telemetry_info *ti)
++{
++	unsigned int next;
++
++	/* Wrap around skipping invalid generation 0 */
++	next = (atomic_read(&ti->info.generation) + 1) ?: SCMI_TLM_GENERATION_ONE;
++
++	__scmi_telemetry_generation_set(ti, next);
++}
++
++static inline void scmi_telemetry_generation_reset(struct telemetry_info *ti)
++{
++	__scmi_telemetry_generation_set(ti, SCMI_TLM_GENERATION_ONE);
++}
++
+ struct scmi_tlm_de_priv {
+ 	struct telemetry_info *ti;
+ 	void *next;
+@@ -2475,6 +2506,8 @@ static int __scmi_telemetry_state_set(const struct scmi_protocol_handle *ph,
+ 						       tstamp_enabled_state,
+ 						       *tstamp);
+ 
++		/* A local change can have an impact anyway */
++		scmi_telemetry_generation_update(ti);
+ 		return 0;
+ 	}
+ 
+@@ -2536,6 +2569,9 @@ static int __scmi_telemetry_state_set(const struct scmi_protocol_handle *ph,
+ 
+ 	ph->xops->xfer_put(ph, t);
+ 
++	if (!ret)
++		scmi_telemetry_generation_update(ti);
++
+ 	return ret;
+ }
+ 
+@@ -2705,6 +2741,9 @@ scmi_telemetry_collection_configure(const struct scmi_protocol_handle *ph,
+ 
+ 	ph->xops->xfer_put(ph, t);
+ 
++	if (!ret)
++		scmi_telemetry_generation_update(ti);
++
+ 	return ret;
+ }
+ 
+@@ -3189,6 +3228,9 @@ static int scmi_telemetry_reset(const struct scmi_protocol_handle *ph)
+ 		struct telemetry_info *ti = ph->get_priv(ph);
+ 
+ 		scmi_telemetry_local_resources_reset(ti);
++		/* Reset generation now that server has been reset */
++		scmi_telemetry_generation_reset(ti);
++
+ 		/* NO need to lookup the initial state we have just reset all */
+ 	}
+ 
+@@ -3649,6 +3691,8 @@ static int scmi_telemetry_instance_init(struct telemetry_info *ti)
+ 	for (int i = 0; i < SCMI_TLM_EVT_MAX; i++)
+ 		INIT_LIST_HEAD(&ti->events[i]);
+ 	mutex_init(&ti->events_mtx);
++	/* Generation counter init */
++	atomic_set(&ti->info.generation, SCMI_TLM_GENERATION_ONE);
+ 	atomic_set(&ti->des_enabled[ENA_STATE], 0);
+ 	atomic_set(&ti->des_enabled[ENA_TSTAMP], 0);
+ 	/* Setup resources lazy initialization */
 diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
-index 2d571c78613b..06591b27f365 100644
+index 06591b27f365..83ab8edc0b13 100644
 --- a/include/linux/scmi_protocol.h
 +++ b/include/linux/scmi_protocol.h
-@@ -11,6 +11,7 @@
- #include <linux/bitfield.h>
- #include <linux/bitops.h>
- #include <linux/device.h>
-+#include <linux/eventfd.h>
- #include <linux/notifier.h>
- #include <linux/types.h>
- #include <linux/uuid.h>
-@@ -994,6 +995,11 @@ struct scmi_telemetry_de_sample {
- 	unsigned long long val;
+@@ -891,6 +891,7 @@ enum scmi_telemetry_collection {
+ 	SCMI_TLM_SINGLE_READ,
  };
  
-+enum scmi_telemetry_event {
-+	SCMI_TLM_EVT_DUMMY,
-+	SCMI_TLM_EVT_MAX,
-+};
-+
- /**
-  * struct scmi_telemetry_proto_ops - represents the various operations provided
-  *	by SCMI Telemetry Protocol
-@@ -1017,6 +1023,10 @@ struct scmi_telemetry_de_sample {
++#define SCMI_TLM_GENERATION_INVALID	0U
+ #define SCMI_TLM_GRP_INVALID		0xFFFFFFFF
+ 
+ struct scmi_telemetry_intervals {
+@@ -986,6 +987,7 @@ struct scmi_telemetry_info {
+ 	bool enabled;
+ 	bool notif_enabled;
+ 	enum scmi_telemetry_collection current_mode;
++	atomic_t generation;
+ };
+ 
+ struct scmi_telemetry_de_sample {
+@@ -996,7 +998,7 @@ struct scmi_telemetry_de_sample {
+ };
+ 
+ enum scmi_telemetry_event {
+-	SCMI_TLM_EVT_DUMMY,
++	SCMI_TLM_EVT_GENERATION,
+ 	SCMI_TLM_EVT_MAX,
+ };
+ 
+@@ -1022,11 +1024,11 @@ enum scmi_telemetry_event {
+  *		    the ones belonging to a specific group when provided.
   *		    This causes an immediate update platform-side of all the
   *		    enabled DEs.
-  * @reset: reset configuration and telemetry data.
-+ * @event_subscribe: subscribe to the specified event @type using the provided
-+ *		     @eventfd_ctx.
-+ * @event_unsubscribe: unsubscribe to the specified event @type the previously
-+ *		       registered @eventfd_ctx.
+- * @reset: reset configuration and telemetry data.
+  * @event_subscribe: subscribe to the specified event @type using the provided
+  *		     @eventfd_ctx.
+  * @event_unsubscribe: unsubscribe to the specified event @type the previously
+  *		       registered @eventfd_ctx.
++ * @reset: reset configuration and telemetry data.
   */
  struct scmi_telemetry_proto_ops {
  	const struct scmi_telemetry_info __must_check *(*info_get)
-@@ -1044,6 +1054,12 @@ struct scmi_telemetry_proto_ops {
- 	int __must_check (*des_sample_get)(const struct scmi_protocol_handle *ph,
- 					   int grp_id, int *num_samples,
- 					   struct scmi_telemetry_de_sample *samples);
-+	int (*event_subscribe)(const struct scmi_protocol_handle *ph,
-+			       enum scmi_telemetry_event type,
-+			       struct eventfd_ctx *ctx);
-+	int (*event_unsubscribe)(const struct scmi_protocol_handle *ph,
-+				 enum scmi_telemetry_event type,
-+				 struct eventfd_ctx *ctx);
- 	int (*reset)(const struct scmi_protocol_handle *ph);
- };
- 
 -- 
 2.54.0
 
