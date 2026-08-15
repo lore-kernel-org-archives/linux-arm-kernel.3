@@ -4,95 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7EFCC5AD5A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 13:06:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C7FAC5AD5A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 13:46:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6TunZ6T1253lLJ2+HTnnlCLT2K1O14zopzv5ooYmm6w=; b=T/H+aN7OXQx2/8ZyqnscJedtFc
-	mhWr8j/bcq2wYreVmZM7ffxPVX8I/LXvYSarth/oJZUWN8MmecKU2kmlDdQZzbMYwJEP5Fhu//qjx
-	5tQ5sjqUgzkci0bbGDbGUlIgs919yYvrxxmWLdp22m+AjLgoBIcoBW9/ABZRRDY0G/SHjv1NnQco4
-	vCmMg+mRBT+IFfvpwDtzCnnyibI8O7U3aZqXsAKZ3FRcR4YBJ/bXhGRlUeJz5otQqYIoizepmistw
-	SIJUSHDmHutK47Fq7HY6DT0adqSS6SPjDKGgrkB9bHlca7Ghb6D+pxIdYIzFRY86wj5pXtr4oyDDQ
-	nBfvcQSQ==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=go/eYuP/hBU+1cLaNH68/DGdvYHCC5EzNmzy94qfIaA=; b=0XuIiXqTe8ssH7rooGup1Wk4rY
+	8aAN0Dde9jdd9FSSgB5St4D37XvPknAbRn6UMpMS8lbenM011JxHifcJF0sJBaGGyU5DYM3KYCU5x
+	8tSSLMTpOmHLw9Gav8elJGXmjJ6o9zkQWZjGBHxVUwG++U1Jt9K1IGBF/5ruMcT8GidvV8273ba48
+	IYbZwXxV4Cbq5izaBr53zzPLphE1jzmbX1GXPSdvwVgF9Hw0l9f0KIYJIlnDPTODGnWsci6LQ4NsM
+	ljv44/Av/o7rSvZ1eSvbzgpwLW8wEt1rNoVnvlAcHllO+M+rQjdXC7ZutjkwDwmZCscsXMgZY9Z30
+	yfkbSTlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvE5V-00000003q4I-0Wfz;
-	Sat, 15 Aug 2026 13:06:13 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1wvEiC-00000003rG4-0mZH;
+	Sat, 15 Aug 2026 13:46:12 +0000
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvE5N-00000003q3W-2qRE
+	id 1wvEi7-00000003rFj-3kMX
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Aug 2026 13:06:06 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-47fe45db360so225750f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 15 Aug 2026 06:06:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786799163; x=1787403963; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=6TunZ6T1253lLJ2+HTnnlCLT2K1O14zopzv5ooYmm6w=;
-        b=BFb2iufjJ9seCefnC33vQ4eI+g4uCSILyHabck4q82KrJ1i3xi4wm3u7oT/CgqjzHp
-         cG9JIDi29oDpyK83eo0teZZQG90442/OCCvUoPtYz06PcSoUdOLRMSOk76jhvbtiXf0R
-         s4pjCvmK+U9iBeNYLGqL3zKN5GNDxOKlupK256C+9fhX17c3V5GK8kjaEAszIO5eO64P
-         0KjbE8kk+lYXNkwlzJ6vE8GENgOlQNntXPa6BzdvEvcVYLkFxfac/V50SoXw58sR96X3
-         HYguj6LLGv4XAwoGxNc9IB82VNx+iCnYTF3C5xDe0+vEOywMueblpvFpC+yjj71rRlq1
-         Ndtg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786799163; x=1787403963;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=6TunZ6T1253lLJ2+HTnnlCLT2K1O14zopzv5ooYmm6w=;
-        b=WoegWtEm/jBtkV7gRLKAjsuGiBJnzklw7wyQViNQVoyr9IAnd3pXbfpq62ZRpiqDBe
-         2gExGYIFB430TdF/e1YQRZlseMGvrNGzH+1vQlQWGLMzuS9UaHNp+DEGAAiggmnDIrE2
-         HtPUwC4cvD42drnbn/v2HLyTBnuf6E5zMhj8GjbPEherETjbsu7PO+GaXt17QNWL30f0
-         ImiScNpDVCcYIvfGJ+MUgS35z8syvWjQgUc5cFAhMK4kB5mLcyrrGhTmYqSZEZUHoKBs
-         9iInrXgb5ZBqRIhsHa1FAUAfebZsx5/0IxVjCmRxIyIdSiueYAVQq5j2OGGGSXwyaSQ3
-         hGBA==
-X-Forwarded-Encrypted: i=1; AHgh+Ro9JN5NsMmyry0R7AbYKkaIh3dZBhEzrKkEb1G+fg0bZbjhlfyi4noTCq2+arC+FaFf7tiaOZXvrR2VQwRSF1e6@lists.infradead.org
-X-Gm-Message-State: AOJu0YwiKJd9dQszlR5CsiXfLnCxUfW2mKopyATYjt4H3aoIH+cu6a3W
-	oh1Nfk+uk5kkeRsyUzkda57RQYmh446i2lSSxT5CWrb1/gazD20qB5SViO+S4g==
-X-Gm-Gg: AR+sD11ReJm8kjk7Bxwvc2D0IAJ8YB5qFfUagUqGlOe/t/IIsKhe3goKzPktn8K/tFM
-	gRFsVjWvpYpdXuk6ir/qGIyqje+RRINr621Lafl0oKt+cANyv92j9LTFbeRtNPYn9Z8csaJo+b5
-	amJiVVicyUtbzssL7YyeO7qsLdTsIIGn5kfz6Uubj5GaSN4GtRVnEekrJzGbrIMvX7ysYZahJE1
-	J33CPD8wlBqz9b1teBvzKQ84qWcrNvo42MlAY1uY5eQu2yoVN85CXOAM2Om/MkM9jqFTT4D4d+s
-	RQsFU3Llzp39JgADiBFJPGGNMp0ifAYT8Gpi1HZ21GdYj1qkS4d9PuS6yGad3w2v5fhIWL7yGAT
-	GkDQJr9Tng9pclla9/wAarL6cIwKzx+Rv7mpKuwyGq6ccLFBirXTsOaI3yx1pk+KvRgq/b0Iryx
-	djplwhUzAwNgqWAdls6zpApE6C0Jqzae4K4SbPL6U0/Waxu9lRR2X4qG7xhyPaEFECMpLRR269e
-	6THFlSu6+CteIqwJF8eFJY756TgSosHeY+QSYDCgg2fpI+Az9rouqVzbX/rCO2IaKU+tQife9hh
-	qI4=
-X-Received: by 2002:a05:600c:354f:b0:495:650b:4c61 with SMTP id 5b1f17b1804b1-499879690acmr87570305e9.3.1786799163529;
-        Sat, 15 Aug 2026 06:06:03 -0700 (PDT)
-Received: from OrangePi5-Plus.BB-HOME (20014C4E1B932600BF05B505F15B0ECC.dsl.pool.telekom.hu. [2001:4c4e:1b93:2600:bf05:b505:f15b:ecc])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4999130d9a4sm59398995e9.15.2026.08.15.06.06.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 15 Aug 2026 06:06:03 -0700 (PDT)
-From: Igor Paunovic <royalnet026@gmail.com>
-To: Jiaxing Hu <gahing@gahingwoo.com>
-Cc: Igor Paunovic <royalnet026@gmail.com>,
-	Tomeu Vizoso <tomeu@tomeuvizoso.net>,
-	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	Alexey Charkov <alchark@flipper.net>,
-	dri-devel@lists.freedesktop.org,
-	linux-rockchip@lists.infradead.org,
+	Sat, 15 Aug 2026 13:46:11 +0000
+Received: from localhost.localdomain (unknown [111.196.241.250])
+	by APP-05 (Coremail) with SMTP id zQCowAC36EKYbYBqXVLRBQ--.59368S2;
+	Sat, 15 Aug 2026 21:46:01 +0800 (CST)
+From: Pengpeng Hou <pengpeng@iscas.ac.cn>
+To: mmayer@broadcom.com,
+	Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 08/10] accel/rocket: add RK3576 NPU (RKNN) support
-Date: Sat, 15 Aug 2026 15:05:53 +0200
-Message-ID: <20260815130556.68876-1-royalnet026@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260815031219.3860651-1-gahing@gahingwoo.com>
-References: <20260812094106.1391698-1-gahing@gahingwoo.com> <20260812094106.1391698-9-gahing@gahingwoo.com> <20260814110825.14893-1-royalnet026@gmail.com> <20260815031219.3860651-1-gahing@gahingwoo.com>
+Subject: [PATCH v2] memory: brcmstb_dpfe: validate firmware section sizes
+Date: Sat, 15 Aug 2026 21:45:59 +0800
+Message-ID: <20260815134559.47888-1-pengpeng@iscas.ac.cn>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: zQCowAC36EKYbYBqXVLRBQ--.59368S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxJryfJr1UKF4DuF4rXw4xWFg_yoW8Kw17pF
+	45CFyaqr4UJrZ5trZFywnxuay5Gws3Jay2gFyUCa9Yvrnxur1kAFy8KrW5urWrKr95Aw13
+	XF1DJr1xCas3ArJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUkC14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVWxJr
+	0_GcWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lc7CjxVAaw2AFwI0_
+	JF0_Jw1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67
+	AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r126r1DMIIY
+	rxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14
+	v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8
+	JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfUOgAwDU
+	UUU
+X-Originating-IP: [111.196.241.250]
+X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260815_060605_741621_5FB44B1B 
-X-CRM114-Status: GOOD (  14.15  )
+X-CRM114-CacheID: sfid-20260815_064608_338821_DA015B22 
+X-CRM114-Status: GOOD (  13.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,64 +81,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jiaxing,
+The firmware header is read before the image has been shown to contain a
+complete header. In addition, the final size check adds two
+firmware-provided u32 section lengths before comparing the result with
+fw->size, so the addition can wrap.
 
-Here is operator 28 on RK3588, and it changes the picture: it is not an
-empty convolution here, and once the reference is right it is the
-cleanest operator in the whole model.
+Reject images shorter than the fixed header and checksum before reading
+the header. Then derive the available payload length with subtraction and
+require the two declared sections to fill it exactly.
 
-Setup as before - same board, same upstream Mesa at bf70ab68a21, none of
-your four unposted fixes, ROCKET_SEED=7, model truncated the same way as
-the table (subgraph output repointed to the operator's output tensor,
-here the 1x1x1001 BiasAdd). One change to disclose: the kernel moved
-from 7.2.0-rc6 to 7.2.0-rc7 as my daily since the table. The rc6 run also
-had my devfreq patches in the rocket driver; this rc7 rocket has no
-devfreq node registered, so it runs like yours does. Before running
-operator 28 I re-ran operators 0-4 as a control and all five reproduce
-the published column exactly (32/32 md 1, 28/32 md 3, 22/64 md 6, 21/64
-md 13, 8/128 md 15), so neither the kernel change nor the devfreq
-difference moves these numbers.
+Fixes: 2f330caff577 ("memory: brcmstb: Add driver for DPFE")
 
-Scored exactly the way perch.py scores, operator 28 reads:
+Assisted-by: Codex:gpt-5
+Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
+---
+Changes since v1: https://lore.kernel.org/all/20260706092223.78541-1-pengpeng@iscas.ac.cn/
+- explain why the early fixed-header check is not redundant
+- replace the overflowing addition with an exact payload check
+- disclose the use of Codex
 
-  674/1001 channels match, maxdiff 29
-  NOT empty: only 36 of 1001 channels sit at the output zero point,
-  71 distinct output values, min 37, max 117 (zp = 66)
+ drivers/memory/brcmstb_dpfe.c | 17 +++++++++--------
+ 1 file changed, 9 insertions(+), 8 deletions(-)
 
-But that maxdiff 29 is the reference, not the hardware. perch.py scores
-against max(cpu, zp), which is right for operators 0-26 with their fused
-ReLU6 - the hardware really does floor those at the zero point. Operator
-28 has no fused activation (it is the logits BiasAdd), and RK3588 does
-not floor it: the raw CPU output has 362 channels below the zero point
-(down to 37) and the NPU follows them down instead of clamping.
+diff --git a/drivers/memory/brcmstb_dpfe.c b/drivers/memory/brcmstb_dpfe.c
+index 08d9e05b1b33..121d1a0580dd 100644
+--- a/drivers/memory/brcmstb_dpfe.c
++++ b/drivers/memory/brcmstb_dpfe.c
+@@ -518,9 +518,15 @@ static int __verify_firmware(struct init_data *init,
+ 			     const struct firmware *fw)
+ {
+ 	const struct dpfe_firmware_header *header = (void *)fw->data;
+-	unsigned int dmem_size, imem_size, total_size;
++	unsigned int dmem_size, imem_size;
+ 	bool is_big_endian = false;
+ 	const u32 *chksum_ptr;
++	size_t payload_size;
++
++	if (fw->size < sizeof(*header) + sizeof(*chksum_ptr))
++		return ERR_INVALID_SIZE;
++
++	payload_size = fw->size - sizeof(*header) - sizeof(*chksum_ptr);
+ 
+ 	if (header->magic == DPFE_BE_MAGIC)
+ 		is_big_endian = true;
+@@ -539,13 +545,8 @@ static int __verify_firmware(struct init_data *init,
+ 	if ((dmem_size % sizeof(u32)) != 0 || (imem_size % sizeof(u32)) != 0)
+ 		return ERR_INVALID_SIZE;
+ 
+-	/*
+-	 * The header + the data section + the instruction section + the
+-	 * checksum must be equal to the total firmware size.
+-	 */
+-	total_size = dmem_size + imem_size + sizeof(*header) +
+-		sizeof(*chksum_ptr);
+-	if (total_size != fw->size)
++	/* The data and instruction sections must fill the payload exactly. */
++	if (dmem_size > payload_size || imem_size != payload_size - dmem_size)
+ 		return ERR_INVALID_SIZE;
+ 
+ 	/* The checksum comes at the very end. */
+-- 
+2.50.1 (Apple Git-155)
 
-Against the raw, unclamped CPU output:
-
-  seed 7: 1001/1001 channels within 1, maxdiff 1 (708 exact, 293 off
-          by one)
-  seed 8: 1001/1001 within 1, maxdiff 1
-  three seed-7 runs byte-identical
-
-So on RK3588 with upstream Mesa, 1001 output channels - odd AND not a
-multiple of 8 - come out clean without either of your unposted fixes.
-Whatever those two fixes change, this SoC's path does not need it for
-correctness at this operator. It may be worth re-scoring your RK3576
-operator 28 against the unclamped CPU as well before reading its "empty
-convolution" - if RK3576 also skips the floor on a no-activation conv,
-the max(cpu, zp) reference alone moves several hundred channels.
-
-Two small notes for reproduction: perch.py prints the headline and then
-crashes on this operator at its spatial-profile section (got[1:-1,1:-1]
-on a 1x1 surface is empty) - the numbers above it are unaffected. And I
-find it a nice detail that my board reads md 23 at operator 26, yet
-after the CPU average-pool the classifier lands within 1 of the CPU -
-the pooling averages the deep-layer noise away, which fits your 1000 of
-1001 end-to-end result.
-
-This reply was prepared with the help of Claude (Anthropic). The board,
-the runs and the numbers are mine, and each number above comes from a
-run on this machine today.
-
-Best regards,
-Igor
 
