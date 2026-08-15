@@ -4,104 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AD06C5AD5A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 18:13:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E109DC5AD5A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 18:36:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V91oZrI/zJYRrYjWs8UIHznDrCj9rfvAd4MAMUD9J1o=; b=CJgsQ11BffCvje5O+aFfUNg1mE
-	2GoNDM25VhihdZ4i+yVAHRwNLFVWJ7pj4WCurmFg2xxtph/43WE0DiZGtIPJ/PUJOg9dRP0wirBt6
-	B1Lh0HjmSozj7xxazRLbg3HJHN2OwxrlNREOWHGkMkJMlAVZ8Qa4mjARe4qqAwq9bsSi/kE3JQZvl
-	u7+Rk1UpPZaT2pw2UWX0u0cfyoYPQgOuUALtx68nzgQ3CjAgWoxag8tx+VYPiUAUvFErX6zKGfjPq
-	giSMAzxXYfwO9VnL/oTVux4qA9KQjOUptuP87GMJp3H8mns7/8KNCpdJ/1dj8uq3zEy1denWcP0ex
-	975C3S6g==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+VVW2QIta70Tn7EVp8nsqF1Zkc7WlyIqb5gr7+dnDGk=; b=JUDZBNTEDyfQ5+eHOerBasELnS
+	qPlj5VTKeyw9N+zdsMpn3J2Cc14kH2yyPzABwPEbV85xG4BL2ZdisXlvSDaL2B1+LiwF4Dt5varsp
+	SKJFTm+iDrnSHd3w/grd+rzFxPGSQYO3AzmZDL5xHIoZmEwbIkG4xzXrgpP9jt+3ric2i+RT1anSD
+	c8AMgEsWAgZbw2gSdi6FGpV2xHzrYSPhElYscRurbKEXS4VlItNh8PVQC6SJOcFImUJWpRKkazb+/
+	+M8yzRBwPOZqv7eNZGalRVWQygRWyV5MjSh3lFpK2FUo0hIlK5l4EpBs9GBBBc44QF+8u8+WkixjE
+	J7QnrMOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvIt3-000000041jG-3WyA;
-	Sat, 15 Aug 2026 18:13:41 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvIt1-000000041i5-1iyW
+	id 1wvJF9-000000043DU-2Aut;
+	Sat, 15 Aug 2026 18:36:31 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wvJF5-000000043Ch-0aKB
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Aug 2026 18:13:40 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-39266382df6so1715786a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 15 Aug 2026 11:13:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786817618; x=1787422418; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=V91oZrI/zJYRrYjWs8UIHznDrCj9rfvAd4MAMUD9J1o=;
-        b=El46Rd04EtxZcGibwuLULFoZ4qLKkURUkcGpnfAeS06ui9KErL98jDGvk5Vpcny+TF
-         hHJZDOJqb/qg0CGafga5f9e21IajObXgFQeUi7WdNtknhFyVqqKryubkv5CSC55Mf7QN
-         Q9rxrZlCxNdltc/HsccIvzX0K0Fyzmj7ZwUDuKby1RdB6W5s1etKb90fOroBv+y4FrWx
-         KTg3Z94kq6nH8kFqi0v0yTq5jOl7TE/HVRmUV0euhgDxdm3VzK4ogY/cK/WWgvaBL0Uv
-         jIq7T//eSPY6izNTh/C6CUuwNYr3jEXY9XyORgDJSYm9B+LzcoZB86wqpX1LM5LMjhiU
-         NirQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786817618; x=1787422418;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=V91oZrI/zJYRrYjWs8UIHznDrCj9rfvAd4MAMUD9J1o=;
-        b=HSiZDwjEKkYXO7f5kTO57jcFHMvIkeaPMSopocw1jl/AU9XXNfYHkF7meSuKotkvWZ
-         iqk0YPsB99ti3SE6RGuCBJ5UcuEkcnp5ohTdy1Q9nSlw5/a+e0YpHdO+nhNnneDxz9rW
-         1VwOry/4NWLYKvs5ry03J+X7l5ztCGowK57Qdunygg7JFnFMZDMMNQ7SS3HHi6E+Tb2d
-         SUPzvb6pxDS3xjuDoVYjST0MrKLaPjm0AJFk9x0x8s5FIun/8euLBwcQFjlMwH4kdioh
-         fCTNaqhz9AgOmiu+qo0yM2mFSogXy2r5L1RvnVr0bX9JO0DYPCqaJEIc0HOvN86Uyqk9
-         7Deg==
-X-Forwarded-Encrypted: i=1; AHgh+RrQCE9dkm3amG2dipQG/7ZXlJ4DZhl0JQjR7wQyL3NJX+hT2fb4pFa+nm/++85yxQp9JbQGuJ17M/dz537LrmtY@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzbd4LpBryyUTTPJd6U0++DSCf7wZveanTaJUe5QFsww9wkGb8K
-	kL2lQIlLJbx7aDhKJ1eLQDQ0sJez4wHOm/JJnhDwhEXGsszBE6nhQlvN
-X-Gm-Gg: AR+sD10mRbFE+YWDNABGDF/tglx3Mk8erVWfyRDd8qO67MrXT6rMN0Se0ZiecZOXvM3
-	SSZbtrCTyIkNxX2g2M3Kq5FItNaxgF69xNDSbiai003pePUNFlAsj1pv581OszZ74dqkI/VgZGY
-	tKJZAfA8yFFVcQeQV/x8cdETpsflVC+//xid2pFOb+tpHmseLa5NKiUG5NvxTzmRPeuTKQOwJ8c
-	qQNL88Xq8tQNmVfS53Pog2tvwIvpsB8eMsD7Ycbzgr+xSLKvrNy+OMgXvgFtz80ZMfmwU7JzzPu
-	LWkMgogfoNS5P8+/GUSwBee6A0VcHf2U6MhMXg9/TSLnL2bxORWWI8Kg1M7dizK3TlkA53FCAwc
-	++1dmEwmdgQDJYj16jvszmZdzVwSjfnOfzZV12qN4H2kX9z8eph6tu68howVlgXHCNuvxcgKJM2
-	7tPhKubjWeTVVy7xCLjU9n6HuA/KGWi3tv69xN+Jany0M+7Nr7MaUbNAu9smFZHPKMLf4wG6J58
-	BhnOV9g0bbfJjD865oierMykNg=
-X-Received: by 2002:a17:90b:1b05:b0:380:873:49cb with SMTP id 98e67ed59e1d1-3933baa0d6amr14788639a91.21.1786817618461;
-        Sat, 15 Aug 2026 11:13:38 -0700 (PDT)
-Received: from localhost.localdomain ([240a:4280:4800:6ace:25e8:2607:e94d:caaf])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-394eb7539d3sm7304254a91.15.2026.08.15.11.13.30
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sat, 15 Aug 2026 11:13:36 -0700 (PDT)
-From: Liu Zhenlong <dragonliu2018@gmail.com>
-To: andi.shyti@kernel.org,
-	chris.packham@alliedtelesis.co.nz,
-	jochen@scram.de,
-	maddy@linux.ibm.com,
-	vz@mleia.com,
-	piotr.wojtaszczyk@timesys.com
-Cc: mpe@ellerman.id.uk,
-	npiggin@gmail.com,
-	chleroy@kernel.org,
-	grant.likely@secretlab.ca,
-	neelegup@linux.vnet.ibm.com,
-	benh@kernel.crashing.org,
-	wsa@kernel.org,
-	stigge@antcom.de,
-	linux-i2c@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
+	Sat, 15 Aug 2026 18:36:29 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 07EF81595;
+	Sat, 15 Aug 2026 11:36:20 -0700 (PDT)
+Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D536D3F632;
+	Sat, 15 Aug 2026 11:36:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1786818983; bh=jcSKboQq/rAUzIHA2aBM+GbSF16zmXEoiCdoBJjGNDc=;
+	h=From:To:Cc:Subject:Date:From;
+	b=eagvWYMSBgUUkl9yDHr97Yo5blKwkiO4udN3CCH80tECPrZStc2PwUagyX0zQgGL5
+	 gN3flh6RZ3CSNs6lLLoYbgZHVCjg//tp3wCECaNTWHtntjf7q0hvok1uMASkkYN6DC
+	 p3YWFOuM1ybkmqVOm1KeFnWncYFMWMz1QI/WwPx4=
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Liu Zhenlong <dragonliu2018@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH 5/5] i2c: pnx: fix device_node refcount leak in i2c_pnx_probe()/i2c_pnx_remove()
-Date: Sun, 16 Aug 2026 02:12:04 +0800
-Message-ID: <20260815181204.2321-6-dragonliu2018@gmail.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260815181204.2321-1-dragonliu2018@gmail.com>
-References: <20260815181204.2321-1-dragonliu2018@gmail.com>
+	arm-scmi@vger.kernel.org,
+	linux-doc@vger.kernel.org
+Cc: sudeep.holla@kernel.org,
+	james.quinlan@broadcom.com,
+	f.fainelli@gmail.com,
+	vincent.guittot@linaro.org,
+	etienne.carriere@st.com,
+	peng.fan@oss.nxp.com,
+	michal.simek@amd.com,
+	d-gole@ti.com,
+	jic23@kernel.org,
+	elif.topuz@arm.com,
+	lukasz.luba@arm.com,
+	philip.radford@arm.com,
+	david@kernel.org,
+	souvik.chakravarty@arm.com,
+	leitao@kernel.org,
+	kas@kernel.org,
+	puranjay@kernel.org,
+	usama.arif@linux.dev,
+	kernel-team@meta.com,
+	Cristian Marussi <cristian.marussi@arm.com>
+Subject: [PATCH v9 00/23] Introduce SCMI Telemetry support
+Date: Sat, 15 Aug 2026 19:35:28 +0100
+Message-ID: <20260815183552.3250194-1-cristian.marussi@arm.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260815_111339_451575_E5FB1C41 
-X-CRM114-Status: GOOD (  15.47  )
+X-CRM114-CacheID: sfid-20260815_113627_368459_057C769C 
+X-CRM114-Status: GOOD (  30.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,92 +87,331 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-i2c_pnx_probe() calls of_node_get() to take an extra reference on the
-platform device's of_node when assigning it to the adapter device, but
-none of the probe error paths nor i2c_pnx_remove() drops it.
+Hi all,
 
-device_release() does not call of_node_put() and i2c_adapter_dev_release()
-only completes a struct, so the extra reference is never released, leaking
-the device_node on every probe failure and every adapter removal.
+[TLDR Summary]
+ [V9 highlights]
+ - V9 goes further in addressing Sashiko v8 and human reviewer reports, but
+   there are still outstanding reports to address
+ - V9 also performs an ABI rework of the all the _LIST IOCTLs parameters:
+   all such IOCTLs have been ported to use the scmi_tlm_batch container,
+   instead of a number of custom container structs, so as to reduce code
+   and data duplication
+ - V9 STLM tool is functional but still to be improved in terms of
+   usability as a testing tool, particularly regarding outputs
 
-Add the matching of_node_put() to all probe error paths (the three early
-return paths before clk_prepare_enable(), and the out_clock label which
-covers the wait_reset(), platform_get_irq(), devm_request_irq() and
-i2c_add_numbered_adapter() failure paths; dev is devm_kzalloc'ed so
-adapter.dev.of_node is NULL and of_node_put() is a no-op when CONFIG_OF
-is not set) and to i2c_pnx_remove().
+ [V10 TODO (getting merge-able)]
+  - Address the remaining outstanding Sashiko/reviewers issues
+  - [ABI]: more DOCS and examples
 
-In i2c_pnx_remove(), i2c_del_adapter() clears adap->dev with memset()
-at the end (commit bd4bc3dbded9 ("i2c: Clear i2c_adapter.dev on adapter
-removal")), which zeroes adap->dev.of_node before of_node_put() runs.
-Cache the pointer before calling i2c_del_adapter(), the same approach
-used in i2c-mux (i2c_mux_del_adapters) and mtd (commit 56570bdad5e3
-("mtd: core: Fix refcount error in del_mtd_device()")).
+The upcoming SCMI v4.0 specification [0] introduces a new SCMI protocol
+dedicated to System Telemetry.
 
-Compile-tested with gcc on arm64 defconfig using COMPILE_TEST; no
-hardware available for runtime testing.
+In a nutshell, the SCMI Telemetry protocol allows an agent to discover at
+runtime the set of Telemetry Data Events (DEs) available on a specific
+platform and provides the means to configure the set of DEs that a user is
+interested into, while reading them back using the collection method that
+is deeemed more suitable for the usecase at hand. (...amongst the various
+possible collection methods allowed by SCMI specification)
 
-Fixes: b41a216dafe4 ("i2c: Add device tree support to i2c-pnx.c")
-Cc: stable@vger.kernel.org
-Assisted-by: Claude:claude-opus-5
-Signed-off-by: Liu Zhenlong <dragonliu2018@gmail.com>
+Without delving into the gory details of the whole SCMI Telemetry protocol
+let's just say that the SCMI platform/server firmware advertises a number
+of Telemetry Data Events, each one identified by a 32bit unique ID, and an
+SCMI agent/client, like Linux, can discover them and read back at will the
+associated data value in a number of ways.
+
+Data collection is mainly intended to happen on demand via shared memory
+areas exposed by the platform firmware, discovered dynamically via SCMI
+Telemetry and accessed by Linux on-demand, but some DE can also be reported
+via SCMI Notifications asynchronous messages or via direct dedicated
+FastChannels (another kind of SCMI memory based access): all of this
+underlying mechanism is anyway hidden to the user since it is mediated by
+the kernel driver which will return the proper data value when queried.
+
+Anyway, the set of well-known architected DE IDs defined by the spec is
+limited to a dozen IDs, which means that the vast majority of DE IDs are
+customizable per-platform: as a consequence, though, the same ID, say
+'0x1234', could represent completely different things on different systems.
+
+Precise definitions and semantic of such custom Data Event IDs are out of
+the scope of the SCMI Telemetry specification and of this implementation:
+they are supposed to be provided using some kind of JSON-like description
+file that will have to be consumed by a userspace tool which would be
+finally in charge of making sense of the set of available DEs.
+
+IOW, in turn, this means that even though the DEs enumerated via SCMI come
+with some sort of topological and qualitative description provided by the
+protocol (like unit of measurements, name, topology info etc), kernel-wise
+we CANNOT be completely sure of "what is what" without being fed-back some
+sort of information about the DEs by the afore mentioned userspace tool.
+
+For these reasons, currently this series does NOT attempt to register any
+of these DEs with any of the usual in-kernel subsystems (like HWMON, IIO,
+PERF etc), simply because we cannot be sure which DE is suitable, or even
+desirable, for a given subsystem. This also means there are NO in-kernel
+users of these Telemetry data events as of now.
+
+So, while we do not exclude, for the future, to feed/register some of the
+discovered DEs to/with some of the above mentioned Kernel subsystems, as
+of now we have ONLY modeled a custom userspace API to make SCMI Telemetry
+available to userspace tools.
+
+With V5 we adopted a pure chardev/IOCTL ABI approach, refining the IOCTL
+based interface already present with the previous FS-based ABI.
+
+INTERFACES
+
+For each discovered SCMI Instance a character device named tlm_<N> is
+created under /dev/scmi/ subtree.
+
+The IOCTL interface described at 'include/uapi/linux/scmi.h' is made
+available to enumerate and configure Telemetry resources: Telemetry data
+can be collected using a few different IOCTls, depending on the required
+granularity.
+
+Alternatively it is possible to obtain a list of the file descriptors
+referencing directly the underlying SCMI Telemetry SHMTI memory areas and
+implement in user space an SCMI Telemetry parser accessing directly the
+SHMTI, while staying in compliance with the SCMI TDCF format.
+
+NOTE THAT from v3 onwards the firmware interface level NOW supports ONLY
+the latest SCMI v4.0 specification [0].
+
+Based on V7.2-rc6, tested on an emulated setup.
+
+This series is available also at [1].
+
+If you still reading...any feedback welcome :P
+
+Thanks,
+Cristian
+
 ---
- drivers/i2c/busses/i2c-pnx.c | 15 ++++++++++++---
- 1 file changed, 12 insertions(+), 3 deletions(-)
+v8 --> v9
+ - [SYS/TLM] reworked ANON fds processing to delay fd_install to the very
+   last moment when failure is no more possible
+ - [SYS/TLM] reworked cdev and data lifecycle to cleanly handle driver
+   unbind while chardev fds are open, avoiding any devres allocation
+ - [SYS/TLM] added sensible upper-bounds checks on allocations
+ - [SYS/TLM] used kvmalloc and friends all over when allocation sizes
+   originates from userspace or FW
+ - [SYS/TLM] reworked BATCH helpers to support batch.items=0
+ - [SYS/TLM] reworked ALL the _LIST IOCTLs to use scmi_tlm_batch container
+   and related helpers
+ - [SYS/TLM] support 0-items IOCTL idiom
+ - [ABI] dropped custom container structure in favour of scmi_tlm_batch for
+   all of the _LIST IOCVTLs
+ - [TLM] use kvzalloc when size is potentially important
+ - [TLM] avoid NULL deref on DBG
+ - [TLM] removed initial state lookup on RESET
+ - [TLM] fix notification payload boundary and wraps checks
+ - [TLM] added check on unexpected shorter reply on simpl reads
+ - [TLM] use non-LE accessors when appropriate for payloads
+ - [TLM] converted a few macros to inlines
+ - [TLM] fix DE offsest boundary check logic
+ - [TLM] bail out if SHMTI not 32-bit aligned
+ - [TLM] warn if SHMTI not 64-bit aligned
+ - [DRV] added non-devres protocol operations helpers
+v7 --> v8
+ - Rebased on v7.2-rc6
+ - [SYS/TLM] refatcor batched IOCTLs handling
+ - [SYS/TLM] use array_size to check for overflows all over
+ - [SYS/TLM] add upper bounds checks for batched IOCTL
+ - [ABI] fix wrong strcut in SCMI_TLM_BATCH_READ
+ - [ABI] move a few IOCTLs to be _IOW only
+ - [TLM] reworked locking around TDCF lines tracking
+ - [TLM] add proper barriers to TDE/UUID binding process
+ - [TLM] update tde->sid on SCAN_UPDATE too
+ - [TLM] check wrap-arounds on shmti_de_offset manipulation
+ - [TLM] remove .all_disable telemetry_operation since unused
+ - [TLM] add WARN on if a valid SHMTI ID is reported o
+         enabling a FastChannel/DE
+ - [TLM] add more safeguards and checks to SHMTI_OVERFLOWS
+ - [TLM] fix UUIDs copy and allocation
+ - [TLM] fix UUID reference store and cleanup
+ - [TLM] add proper msg boundary parsing checks on DE_DESCRIPTION multipart
+ - [TLM] add proper cleanup/rollback on groups_init err_path
+ - [TLM] update num_des_tstamp ONLY after a DE is successfully initialized
+ - [TLM] proper cleanup tde during tde_put (preserving info/mutex bits)
+ - [TLM] add membarriers in enumerate resources
+ - [TLM] add a check and a warn on SHMTI phys_addr alignment
+ - [TLM] use proper FTRACE helpers for variable strings
+v6 --> v7
+ - [ABI] IOCTL EVENTS support: GENERATION COUNTER (stlm monitor)
+ - [ABI] expose DE tracking: UUID/SHMTI/OFFS
+ - [ABI] IOCTL BATCHED DE_CFG
+ - [ABI] added per-DE IOCTL BATCH status
+ - [ABI] new ABI feats flags
+ - [ABI] improved description in Doxygen docs
+ - [ABI] added reserved space to grow
+ - [STLM] added new ABI feats support (generation, UUIDs, location...)
+ - [SYS/TLM] fixed module_init error path
+ - [SYS/TLM] fixed interval DISCRETE flags reporting
+ - [SYS/TLM] check open FMODE before executing a config change 
+ - [SYS/TLM] fixing DEs data cleanup on RESET
+ - [SYS/TLM] added _RAW helpers to handle non-MMIO TDCF-like accesses
+   (like Notification payload)
+ - [SYS/TLM] added UUID rescan logic at DE enable, when DE/UUID association
+ - [TLM] reworked UUID internal handling (endianity) and use uuid_t type
+ - [TLM] added generic Telemetry protocol support for events subscription
+   unknown
+ - residual sparse fixes
+v5 --> v6
+ - rebased on v7.2-rc4
+ - fixed a lot of Sashiko complains
+ - fixed ABI issues reported by review (Fayssal)
+ - added IOCTL TLM_RESET
+ - added ABI versioning
+ - added compat_ioctl support
+ - use a new IOCTL magic name
+ - better handling of UUID endianity
+ - reworked all bounds checks in UAPI implementation
+ - reject oversized SHMTI mmap request
+ - refined 'stlm' testing tool to be more interactive and to
+   exercise the full spectrum of IOCTLs ('stlm -h' is your manual
+   for now :P)
+ - fully reworked per-protocol notification handling
+ - dropped the last bit of human readable data attached to the
+   chardev .read
+v4 --> v5
+ - rebased on v7.2-rc1
+ - dropped FileSystem based driver
+ - introduced a new simple chardev SCMI driver using Telemetry
+ - reworked/reviewed the v4 IOCTLs based UAPI
+ - UAPI: better struct alignment and comments
+ - UAI: Removed flexible array members
+ - UAPI: make SCMI Telemetry protocol stack completely independent from
+ 	 uapi defs
+ - UAPI: new ioctls support to enable RAW mmap direct access to SCMI SHMTI
+ 	 areas from userspace
+ - added new ABI Documentation
+ - added new SCMI core facility to lookup the current SCMI instance ID
+v3 --> v4
+ - rebased on v7.1-rc7
+ - updatded doc to detail Concurrency model
+ - bail out on FW_BUG errors
+ - make all_des_enable/all_des_tstamp_enable entry readable
+ - refactored access to TDE values
+ - refactored common accessors for tlm_priv (FIX WARN on kfree)
+ - make all files by default world readable and user writable (if needed)
+ - added uid/god/umask mount options (and docs)
+ - added generation counter to aid spotting config changes (and docs)
+ - added DebugFS configurable support to debug/dump SHMTI areas (and docs)
+ - hide FS entries when NOT supported (like des_simple_sample_read)
+ - fixed output format of des/<NNN>/value to -> <TS> <VALUE>
+ - renamed top-dir by_components to by-components
+ - add a .remove method to SCMI System Telemetry Driver
+ - use kzalloc_obj
+V2 --> V3
+ - rebased on v7.0-rc5
+ - ported the firmware interface to SCMI v4.0 BETA
+ - split the SCMI protocol layer in a lot of small patches
+ - completd filesystem and ABI documentation
+ - renamed components subtree to by_components
+ - fixed uninitialized var in scmi_telemetry_de_subdir_symlink
+ - renamd tstamp_exp to tstamp_rate
+ - swap logic in scmi_telemetry_initial_state_lookup
+ - use memcpy_from_le32 where required
+ - changed a dfew dev_err into Telemetry traces
+ - define and use new helper scmi_telemetry_de_unlink
+ - simplify a few assignments with ternary ops
+ - added a missing __mmust_check on the internal SCMI API
+ - reworked and clarified de_data_read returned errno:
+ 	ENODATA vs EINVAL vs ENODEV/ENOENT
+ - removed some risky/unneeded devres allocations
+ - various checkpatch fixes
+ - reworked and clarified usage of traces in Telemetry
+ - added the missing DT binding for protocol 0x1B
+ - split out unrelated change around notification from patch
+   adding support for protocol internal notifier
+ - more comments
 
-diff --git a/drivers/i2c/busses/i2c-pnx.c b/drivers/i2c/busses/i2c-pnx.c
-index 8daa0008bd05..0b6c144d9a21 100644
---- a/drivers/i2c/busses/i2c-pnx.c
-+++ b/drivers/i2c/busses/i2c-pnx.c
-@@ -644,20 +644,26 @@ static int i2c_pnx_probe(struct platform_device *pdev)
- 	}
- #endif
- 	alg_data->clk = devm_clk_get(&pdev->dev, NULL);
--	if (IS_ERR(alg_data->clk))
-+	if (IS_ERR(alg_data->clk)) {
-+		of_node_put(alg_data->adapter.dev.of_node);
- 		return PTR_ERR(alg_data->clk);
-+	}
- 
- 	snprintf(alg_data->adapter.name, sizeof(alg_data->adapter.name),
- 		 "%s", pdev->name);
- 
- 	/* Register I/O resource */
- 	alg_data->ioaddr = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
--	if (IS_ERR(alg_data->ioaddr))
-+	if (IS_ERR(alg_data->ioaddr)) {
-+		of_node_put(alg_data->adapter.dev.of_node);
- 		return PTR_ERR(alg_data->ioaddr);
-+	}
- 
- 	ret = clk_prepare_enable(alg_data->clk);
--	if (ret)
-+	if (ret) {
-+		of_node_put(alg_data->adapter.dev.of_node);
- 		return ret;
-+	}
- 
- 	freq = clk_get_rate(alg_data->clk);
- 
-@@ -707,14 +713,17 @@ static int i2c_pnx_probe(struct platform_device *pdev)
- 
- out_clock:
- 	clk_disable_unprepare(alg_data->clk);
-+	of_node_put(alg_data->adapter.dev.of_node);
- 	return ret;
- }
- 
- static void i2c_pnx_remove(struct platform_device *pdev)
- {
- 	struct i2c_pnx_algo_data *alg_data = platform_get_drvdata(pdev);
-+	struct device_node *node = alg_data->adapter.dev.of_node;
- 
- 	i2c_del_adapter(&alg_data->adapter);
-+	of_node_put(node);
- 	clk_disable_unprepare(alg_data->clk);
- }
- 
+V1 --> V2
+ - rebased on v6.19-rc3
+ - harden TDCF shared memory areas accesses by using proper accessors
+ - reworked protocol resources lifecycle to allow lazy enumeration
+ - using NEW FS mount API
+ - reworked FS inode allocation to use a std kmem_cache
+ - fixed a few IOCTLs support routine to support lazy enumeration
+ - added (RFC) a new FS lazy mount option to support lazily population of
+   some subtrees of the FS (des/ groups/ components/)
+ - reworked implementation of components/ alternative FS view to use
+   symlinks instead of hardlinks
+ - added a basic simple (RFC) testing tool to exercise UAPI ioctls interface
+ - hardened Telmetry protocol and driver to support partial out-of-spec FW
+   lacking some cmds (best effort)
+ - reworked probing races handling
+ - reviewed behaviour on unmount/unload
+ - added support for Boot_ON Telemetry by supporting SCMI Telemetry cmds:
+   + DE_ENABLED_LIST
+   + CONFIG_GET
+ - added FS and ABI docs
+
+RFC --> V1
+---
+ - moved from SysFS/chardev to a full fledged FS
+ - added support for SCMI Telemetry BLK timestamps
+
+[0]: https://developer.arm.com/documentation/den0056/f/?lang=en
+[1]: https://git.kernel.org/pub/scm/linux/kernel/git/cris/linux.git/log/?h=scmi_telemetry_ng_V9
+
+
+Cristian Marussi (24):
+  firmware: arm_scmi: Add new SCMIv4.0 error codes definitions
+  firmware: arm_scmi: Allow registration of unknown-size events/reports
+  firmware: arm_scmi: Introduce protocol instance notifiers
+  dt-bindings: firmware: arm,scmi: Add support for telemetry protocol
+  include: trace: Add Telemetry trace events
+  firmware: arm_scmi: Add basic Telemetry support
+  firmware: arm_scmi: Add support to parse SHMTIs areas
+  firmware: arm_scmi: Add Telemetry configuration operations
+  firmware: arm_scmi: Add Telemetry DataEvent read capabilities
+  firmware: arm_scmi: Add support for Telemetry reset
+  firmware: arm_scmi: Add Telemetry notification support
+  firmware: arm_scmi: Add support for boot-on Telemetry
+  firmware: arm-scmi: Add telemetry generic event support
+  firmware: arm_scmi: Add Telemetry generation counter event
+  firmware: arm_scmi: Add common per-protocol debugfs support
+  firmware: arm_scmi: Add Telemetry debugfs SHMTI dump support
+  firmware: arm_scmi: Add Telemetry debugfs ABI documentation
+  firmware: arm_scmi: Expose per-instance identifier
+  firmware: arm_scmi: Add un-managed methods to get/put protocols
+    operations
+  uapi: Add ARM SCMI Telemetry definitions
+  firmware: arm_scmi: Add System Telemetry driver
+  docs: ioctl-number: Add SCMI Ioctls
+  [RFC] Documentation: Add SCMI System Telemetry documentation
+  [RFC] tools/scmi: Add SCMI Telemetry testing tool
+
+ Documentation/ABI/testing/debugfs-scmi        |   22 +
+ .../bindings/firmware/arm,scmi.yaml           |    8 +
+ Documentation/userspace-api/index.rst         |    1 +
+ .../userspace-api/ioctl/ioctl-number.rst      |    1 +
+ Documentation/userspace-api/stlm.rst          |  148 +
+ MAINTAINERS                                   |    1 +
+ drivers/firmware/arm_scmi/Kconfig             |   24 +
+ drivers/firmware/arm_scmi/Makefile            |    3 +-
+ drivers/firmware/arm_scmi/common.h            |   28 +
+ drivers/firmware/arm_scmi/driver.c            |  166 +-
+ drivers/firmware/arm_scmi/notify.c            |   58 +-
+ drivers/firmware/arm_scmi/notify.h            |    8 +-
+ drivers/firmware/arm_scmi/protocols.h         |   17 +
+ .../firmware/arm_scmi/scmi_system_telemetry.c | 1567 +++++++
+ drivers/firmware/arm_scmi/telemetry.c         | 3904 +++++++++++++++++
+ include/linux/scmi_protocol.h                 |  266 +-
+ include/trace/events/scmi.h                   |   45 +
+ include/uapi/linux/scmi.h                     |  474 ++
+ tools/testing/scmi/Makefile                   |   25 +
+ tools/testing/scmi/stlm.c                     | 1382 ++++++
+ 20 files changed, 8117 insertions(+), 31 deletions(-)
+ create mode 100644 Documentation/userspace-api/stlm.rst
+ create mode 100644 drivers/firmware/arm_scmi/scmi_system_telemetry.c
+ create mode 100644 drivers/firmware/arm_scmi/telemetry.c
+ create mode 100644 include/uapi/linux/scmi.h
+ create mode 100644 tools/testing/scmi/Makefile
+ create mode 100644 tools/testing/scmi/stlm.c
+
 -- 
-2.55.0
+2.54.0
 
 
