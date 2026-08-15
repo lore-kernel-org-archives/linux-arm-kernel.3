@@ -4,62 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 971A4C5AD5A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 06:41:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54005C5AD5A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 06:52:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9z2qn67pe6YPBBwZWIDspdJmI/DndbUzteSlOzwSGK8=; b=FAVUK3hKp6ku59TZDuVzr6tNBc
-	xb0ZhO+oppcOPrcl+TYFk73uzy6EHqimEZ+EGpT/4iwGugg5SeHMhM1FVC5IoYqSspZGYvHRAwqY3
-	98UsZz2vzyCJLy5jt7Wg85eoqmURfbIW5O7uYHUL0Wtdlsp7Ylgz8v3Uc0Ap4rb6gUypQWHTaKGl4
-	Vl0I/keAsSsU497tg8vpoRtXVoyhVPFufQneKPbVkb+wS9q3aNpc0fbzklq7keybH2k76g0tc0q2B
-	DYpEIiQV7Yp+6V3Njq/ssV6OPZufPEhq12/iYecCNHaq0E4vRAaWeG7uS7BMyOtziz77Zf590Q8uv
-	89gVAwTQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SOO4PTBjIrBj1DLwftmnetVO7a1uDaMSF8dYKtQH0zQ=; b=fl+5Zffd99IBAqNJLSLv3hmg1j
+	485mHnpbEdo6kvLTgcxRv7wfgkl4G5gcqxTtloqdl7v/z9ZdLiWHpPUcT9mbsZ4fOugrfhoBSZQCb
+	cDQGMZ4hz8ZwwC3W/5TVLLTK1+IG1zdZzvoayaKKrrVlBSVc44pjtZpGF+Rq6jVLi/F46dBtD4Ecd
+	r1ReeMMKlC/p0F605hpsd+iQpZUYn2oykfQoFlT4HHxDejbWrg+5GdpDjEwJjUEIb70hrVA+B/y0d
+	npkKyF7sVwCPk2j9z3y6sXS0R2UzYPP+eyxgW7Sk1pWKmtljgz61qWLWPULp0DjA7Dyn47fEO7xSM
+	YCG2oLWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wv85Q-00000003auI-1DxF;
-	Sat, 15 Aug 2026 06:41:44 +0000
+	id 1wv8G0-00000003bLo-0yrw;
+	Sat, 15 Aug 2026 06:52:40 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wv85O-00000003au9-1lOY
+	id 1wv8Fy-00000003bLg-3i4f
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Aug 2026 06:41:42 +0000
+	Sat, 15 Aug 2026 06:52:38 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D1F6C41873;
-	Sat, 15 Aug 2026 06:41:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEF001F000E9;
-	Sat, 15 Aug 2026 06:41:33 +0000 (UTC)
-From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-To: Bjorn Helgaas <bhelgaas@google.com>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Thierry Reding <thierry.reding@gmail.com>, 
- Jonathan Hunter <jonathanh@nvidia.com>, 
- Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>, 
- Hou Zhiqiang <Zhiqiang.Hou@nxp.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- =?utf-8?q?Pali_Roh=C3=A1r?= <pali@kernel.org>, 
- Michal Simek <michal.simek@amd.com>, Kevin Xie <kevin.xie@starfivetech.com>, 
- Aksh Garg <a-garg7@ti.com>, Thierry Reding <thierry.reding@kernel.org>
-Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Thierry Reding <treding@nvidia.com>, 
- Manikanta Maddireddy <mmaddireddy@nvidia.com>
-In-Reply-To: <20260814-tegra264-pcie-v10-0-05d08c592b05@nvidia.com>
+	by sea.source.kernel.org (Postfix) with ESMTP id 0146541356;
+	Sat, 15 Aug 2026 06:52:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3C401F000E9;
+	Sat, 15 Aug 2026 06:52:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786776757;
+	bh=SOO4PTBjIrBj1DLwftmnetVO7a1uDaMSF8dYKtQH0zQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=G82hCjGqOgxpxNBebL1MWeSdMBlWcWVqL6adEDg7CdG8GxfnpFKa0Q4r5rJSOQoDI
+	 tfCV/pIkdlTK+zPm2hJeVxOlFAtH59aX78g+x6rUELzzlXjKHUxPXBMOI+zf/CxPcw
+	 5C7iYHM4wKtugqDLvkWCvYLok8HC9ZAE7RSqFVpOVsd3DvFnPyJHLjQoG12b9Am1HY
+	 YVAbcS6owau8a4cLSz5+nVR2PfcAZwa2u5MCRNvQgHGB+P4Ju1gCEeGyIovRCWbchk
+	 GEIhhZM8nErP1gs4ipZ+s4Lx/n6/bDmF/VFW+WPlrjCnuxAR2ukGYZp9+UmLELA05V
+	 RahRwOSEPQNbw==
+Date: Sat, 15 Aug 2026 08:52:26 +0200
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Thierry Reding <thierry.reding@kernel.org>
+Cc: Bjorn Helgaas <bhelgaas@google.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Thierry Reding <thierry.reding@gmail.com>, 
+	Jonathan Hunter <jonathanh@nvidia.com>, Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>, 
+	Hou Zhiqiang <Zhiqiang.Hou@nxp.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+	Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>, Michal Simek <michal.simek@amd.com>, 
+	Kevin Xie <kevin.xie@starfivetech.com>, Aksh Garg <a-garg7@ti.com>, linux-pci@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Thierry Reding <treding@nvidia.com>, 
+	Manikanta Maddireddy <mmaddireddy@nvidia.com>
+Subject: Re: [PATCH v10 3/5] PCI: tegra: Add Tegra264 support
+Message-ID: <ajpntb2f62mpevhofuv2mdpgsktzp6gwcvu2euka7qu2n3f7at@fp3q5fowyvgg>
 References: <20260814-tegra264-pcie-v10-0-05d08c592b05@nvidia.com>
-Subject: Re: (subset) [PATCH v10 0/5] PCI: tegra: Add Tegra264 support
-Message-Id: <178677609346.498308.4041265473685850703.b4-ty@b4>
-Date: Sat, 15 Aug 2026 08:41:33 +0200
+ <20260814-tegra264-pcie-v10-3-05d08c592b05@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.15.2
+In-Reply-To: <20260814-tegra264-pcie-v10-3-05d08c592b05@nvidia.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,32 +79,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Fri, 14 Aug 2026 17:38:54 +0200, Thierry Reding wrote:
-> this series adds support for the PCIe controllers found on the Tegra264
-> SoC. There are six instances, one of which is for internal purposes only
-> and the other five are general purpose.
+On Fri, Aug 14, 2026 at 05:38:57PM +0200, Thierry Reding wrote:
+> From: Thierry Reding <treding@nvidia.com>
 > 
-> The first patch tweaks the DT bindings slightly to avoid new DT compiler
-> warnings that slipped through because they are now disabled by default
-> (-Wno-unit_address_vs_reg). The second patch references PCIe root port
-> bindings from the controller bindings, which will allow using the
-> standard WAKE# handling, among other things.
+> Add a driver for the PCIe controller found on NVIDIA Tegra264 SoCs. The
+> driver is very small, with its main purpose being to set up the address
+> translation registers and then creating a standard PCI host using ECAM.
 > 
-> [...]
+> Signed-off-by: Manikanta Maddireddy <mmaddireddy@nvidia.com>
+> Signed-off-by: Thierry Reding <treding@nvidia.com>
 
-Applied, thanks!
+This s-o-b chain is cobbled.
 
-[1/5] dt-bindings: pci: tegra264: Strictly distinguish C0 from C1-C5
-      commit: ba28f970791de8cf1bb352489a37307815d943d8
-[2/5] dt-bindings: pci: tegra264: Switch to PCIe root port bindings
-      commit: 66305010e3dbf9c27cb0abaa4726ccee5041f9ed
-[3/5] PCI: tegra: Add Tegra264 support
-      commit: f7349d6951ce4f21fe3c910a8ca93fabdd79c059
+1. If Thierry is the Author, and if Manikanda co-developed the patch, then there
+should be a Co-developed-by tag for Manikanda.
 
-Best regards,
+2. If Manikanda is the author of this patch and if Thierry is just sending it
+along, then the authorship belongs to Manikanda.
+
+I've applied this patch based on (1):
+https://git.kernel.org/pub/scm/linux/kernel/git/pci/pci.git/commit/?h=controller/tegra264&id=d56131f7a401841c09b6611402a8d2e795da3a6b
+
+If that is not correct, please let me know, I'll ammend it.
+
+- Mani
+
 -- 
 மணிவண்ணன் சதாசிவம்
-
-
 
