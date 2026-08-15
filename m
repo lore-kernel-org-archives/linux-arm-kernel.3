@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A54DC5DF67
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AC56C5CFC1
 	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 23:28:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,33 +12,33 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rQqiSZO3fx3adtnIdc5I/MvS+K6iENknw9kqrM50+do=; b=SDzFjplDjTP5M9SRCsk1QezBmw
-	XKDXcDe77+ZUk+LYHkXCSfonQuB2AaUeYv+0ycMVy4DAWPUguJv6hEMTYfJDD3zEZ49zQQpjENj0e
-	KQk+woKURYjPzXME4hJExzNvRA68us75x4tu2V5nhnmGZAT+b3XfO1MENC8B36MK+EZEsyEq2LK64
-	0tuUSUrC7GZfIZi2+3aWA6jNTbUul/8sb0QI1jxsbQHrwBavu5eLMCVHtQxO2ftR3IDeNn+xx2rxv
-	725J3349I/dyMKZ5APdCPIFoWHXKNEZUpMY5AMR3WnVfr8vzzWVXEW+bKBzv73P5gHf8/Cs/c2k5Y
-	GAPKuiGQ==;
+	bh=Bs9U17BdOCVa9r+RE8shAPRL7++S4+JfheFTJBOlRU8=; b=WtPy54LfPd2rv4+ikFdjcYy77o
+	MWdSRY5Kouip75ZX2TtqFbYaYmldDq+OMyDu+WpVOEwsM7wts4186wgxKHYvFpAwZg1EKdRq7pCwX
+	hn7XKzo52iQGwM9ftI1No6PyY9fyVJXfMqAw7oVYEpsPGxEtT2EG2Bv+jBwq9ZOWgNOGCufn23ECy
+	3Am6VKDgdSOvey05uopUoILfPljIyUf1VzQrqY9rFAcedH6wO/pXZk8UWbmtF/mhvtDGoffML3n1H
+	j2yTXwsPzEAvnlHbt+I9Oy9qPdU77ZXimkojiEjnDckbytSFfUxErnr8/ZgxFtWZHvQOx1Yet+OrV
+	98I7BJOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvNnB-00000004I4Z-1Xs1;
-	Sat, 15 Aug 2026 23:27:57 +0000
+	id 1wvNn9-00000004I26-46Rd;
+	Sat, 15 Aug 2026 23:27:55 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvNn0-00000004HsW-3NFo
+	id 1wvNmi-00000004HdF-41Ms
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Aug 2026 23:27:50 +0000
+	Sat, 15 Aug 2026 23:27:36 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 588B21595;
-	Sat, 15 Aug 2026 16:27:42 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 48A331596;
+	Sat, 15 Aug 2026 16:27:24 -0700 (PDT)
 Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BC9B73F673;
-	Sat, 15 Aug 2026 16:27:42 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E1BB03F673;
+	Sat, 15 Aug 2026 16:27:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786836466; bh=yDbtMu1UCmtAu3x4JWy7C1qq5hS+guw+bfiIhkUrmcs=;
+	t=1786836448; bh=u+iCe7VDsM0O2SVmwo5C7DY2fR/FA5mGRrm9lPyhUY4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=pi/w3afzR4WgBPCjIZAJzM8GjOt5BQOLSnZOzyo94zROnSFLuk9AigrglUBQeyPwk
-	 j4xDYtDA1hQVR3JHGGndtsIA5OlpSvPE4YOiFoyW2jtVA6nWyF2lGK3R5ewYSzdUMx
-	 2E37opXlUoIuAcmG4M1yw8DL72gqsBBiBqMG9v14=
+	b=jp5pATEkgDddM0ERm1s172f8nWtFTLhuyaLIH7++Xfw/eLCfc9JuQYpIOvX3XpCYA
+	 jtE2pu6LG5fHaMoZPDMjborWAegCQUSwMCNGuNX/Fr5ri+r9GUsXxYQB8fAe55Xp0e
+	 J41wO3x5yELvy7V3jHMXNbgeZgGzzXsmpTOhNWpw=
 From: Cristian Marussi <cristian.marussi@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -64,17 +64,17 @@ Cc: sudeep.holla@kernel.org,
 	usama.arif@linux.dev,
 	kernel-team@meta.com,
 	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [PATCH v10 19/24] firmware: arm_scmi: Add un-managed methods to get/put protocols operations
-Date: Sun, 16 Aug 2026 00:25:59 +0100
-Message-ID: <20260815232604.3730754-20-cristian.marussi@arm.com>
+Subject: [PATCH v10 14/24] firmware: arm_scmi: Add Telemetry generation counter event
+Date: Sun, 16 Aug 2026 00:25:54 +0100
+Message-ID: <20260815232604.3730754-15-cristian.marussi@arm.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260815232604.3730754-1-cristian.marussi@arm.com>
 References: <20260815232604.3730754-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260815_162747_619619_ED6CD376 
-X-CRM114-Status: GOOD (  12.74  )
+X-CRM114-CacheID: sfid-20260815_162729_094630_1780CFD6 
+X-CRM114-Status: GOOD (  17.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,105 +89,167 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a couple of simple common methods to be able to manually get and put
-protocol operations to address situation in which devres managed methods
-cannot be used.
+Add a per-instance generation counter to track configuration changes which
+uses the common telemetry events framework.
 
 Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 ---
- drivers/firmware/arm_scmi/driver.c | 39 ++++++++++++++++++++++++++++++
- include/linux/scmi_protocol.h      |  7 ++++++
- 2 files changed, 46 insertions(+)
+v6 --> v7
+ - use new Generic event mechanism based on EventFD instead of WaitQ
+v5 --> v6
+ - add relese semantic to the atomic set of the generation counter
+ - use new eventfd_ctx common event logic
+---
+ drivers/firmware/arm_scmi/telemetry.c | 44 +++++++++++++++++++++++++++
+ include/linux/scmi_protocol.h         |  6 ++--
+ 2 files changed, 48 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index e02b4bfb4e4d..fd17adeed2d9 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -2570,6 +2570,31 @@ scmi_devm_protocol_get(struct scmi_device *sdev, u8 protocol_id,
- 	return pi->proto->ops;
+diff --git a/drivers/firmware/arm_scmi/telemetry.c b/drivers/firmware/arm_scmi/telemetry.c
+index 2f74143467cf..8a0cd7f08231 100644
+--- a/drivers/firmware/arm_scmi/telemetry.c
++++ b/drivers/firmware/arm_scmi/telemetry.c
+@@ -24,6 +24,7 @@
+ #include <linux/string.h>
+ #include <linux/uuid.h>
+ #include <linux/xarray.h>
++#include <linux/wait.h>
+ 
+ #include "protocols.h"
+ #include "notify.h"
+@@ -33,6 +34,7 @@
+ /* Updated only after ALL the mandatory features for that version are merged */
+ #define SCMI_PROTOCOL_SUPPORTED_VERSION		0x10000
+ 
++#define SCMI_TLM_GENERATION_ONE		(SCMI_TLM_GENERATION_INVALID + 1U)
+ #define SCMI_TLM_TDCF_MAX_RETRIES	5
+ 
+ #define SCMI_TLM_DE_IMPL_NUM_DWORDS	4
+@@ -690,6 +692,35 @@ scmi_telemetry_tde_cache_lookup(struct telemetry_de *tde,
+ 	return 0;
  }
  
-+/**
-+ * scmi_protocol_operations_get  - UnManaged get protocol operations
-+ *
-+ * @handle: A reference to the SCMI platform instance.
-+ * @protocol_id: The protocol being released.
-+ * @ph: A pointer reference used to pass back the associated protocol handle.
-+ */
-+static const void __must_check *
-+scmi_protocol_operations_get(const struct scmi_handle *handle, u8 protocol_id,
-+			     struct scmi_protocol_handle **ph)
++static inline void __scmi_telemetry_generation_set(struct telemetry_info *ti,
++						   unsigned int new)
 +{
-+	struct scmi_protocol_instance *pi;
++	int ret;
 +
-+	if (!ph)
-+		return ERR_PTR(-EINVAL);
++	atomic_set_release(&ti->info.generation, new);
 +
-+	pi = scmi_get_protocol_instance(handle, protocol_id);
-+	if (IS_ERR(pi))
-+		return pi;
-+
-+	*ph = &pi->ph;
-+
-+	return pi->proto->ops;
++	ret = scmi_telemetry_event_signal(ti, SCMI_TLM_EVT_GENERATION);
++	if (ret)
++		dev_warn_once(ti->ph->dev,
++			      "Could NOT signal telemetry event %d\n",
++			      SCMI_TLM_EVT_GENERATION);
 +}
 +
- /**
-  * scmi_devm_protocol_acquire  - Devres managed helper to get hold of a protocol
-  * @sdev: A reference to an scmi_device whose embedded struct device is to
-@@ -2626,6 +2651,18 @@ static void scmi_devm_protocol_put(struct scmi_device *sdev, u8 protocol_id)
- 	WARN_ON(ret);
++static inline void scmi_telemetry_generation_update(struct telemetry_info *ti)
++{
++	unsigned int next;
++
++	/* Wrap around skipping invalid generation 0 */
++	next = (atomic_read(&ti->info.generation) + 1) ?: SCMI_TLM_GENERATION_ONE;
++
++	__scmi_telemetry_generation_set(ti, next);
++}
++
++static inline void scmi_telemetry_generation_reset(struct telemetry_info *ti)
++{
++	__scmi_telemetry_generation_set(ti, SCMI_TLM_GENERATION_ONE);
++}
++
+ struct scmi_tlm_de_priv {
+ 	struct telemetry_info *ti;
+ 	void *next;
+@@ -2475,6 +2506,8 @@ static int __scmi_telemetry_state_set(const struct scmi_protocol_handle *ph,
+ 						       tstamp_enabled_state,
+ 						       *tstamp);
+ 
++		/* A local change can have an impact anyway */
++		scmi_telemetry_generation_update(ti);
+ 		return 0;
+ 	}
+ 
+@@ -2536,6 +2569,9 @@ static int __scmi_telemetry_state_set(const struct scmi_protocol_handle *ph,
+ 
+ 	ph->xops->xfer_put(ph, t);
+ 
++	if (!ret)
++		scmi_telemetry_generation_update(ti);
++
+ 	return ret;
  }
  
-+/**
-+ * scmi_protocol_operations_put  - UnManaged gut protocol operations
-+ *
-+ * @handle: A reference to the SCMI platform instance.
-+ * @protocol_id: The protocol being released.
-+ */
-+static void scmi_protocol_operations_put(const struct scmi_handle *handle,
-+					 u8 protocol_id)
-+{
-+	scmi_protocol_release(handle, protocol_id);
-+}
-+
- /**
-  * scmi_is_transport_atomic  - Method to check if underlying transport for an
-  * SCMI instance is configured as atomic.
-@@ -3340,6 +3377,8 @@ static int scmi_probe(struct platform_device *pdev)
- 	handle->devm_protocol_acquire = scmi_devm_protocol_acquire;
- 	handle->devm_protocol_get = scmi_devm_protocol_get;
- 	handle->devm_protocol_put = scmi_devm_protocol_put;
-+	handle->protocol_get = scmi_protocol_operations_get;
-+	handle->protocol_put = scmi_protocol_operations_put;
- 	handle->is_transport_atomic = scmi_is_transport_atomic;
+@@ -2705,6 +2741,9 @@ scmi_telemetry_collection_configure(const struct scmi_protocol_handle *ph,
  
- 	/* Setup all channels described in the DT at first */
+ 	ph->xops->xfer_put(ph, t);
+ 
++	if (!ret)
++		scmi_telemetry_generation_update(ti);
++
+ 	return ret;
+ }
+ 
+@@ -3189,6 +3228,9 @@ static int scmi_telemetry_reset(const struct scmi_protocol_handle *ph)
+ 		struct telemetry_info *ti = ph->get_priv(ph);
+ 
+ 		scmi_telemetry_local_resources_reset(ti);
++		/* Reset generation now that server has been reset */
++		scmi_telemetry_generation_reset(ti);
++
+ 		/* NO need to lookup the initial state we have just reset all */
+ 	}
+ 
+@@ -3649,6 +3691,8 @@ static int scmi_telemetry_instance_init(struct telemetry_info *ti)
+ 	for (int i = 0; i < SCMI_TLM_EVT_MAX; i++)
+ 		INIT_LIST_HEAD(&ti->events[i]);
+ 	mutex_init(&ti->events_mtx);
++	/* Generation counter init */
++	atomic_set(&ti->info.generation, SCMI_TLM_GENERATION_ONE);
+ 	atomic_set(&ti->des_enabled[ENA_STATE], 0);
+ 	atomic_set(&ti->des_enabled[ENA_TSTAMP], 0);
+ 	/* Setup resources lazy initialization */
 diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
-index a85c00bf72f2..11ed0b95536e 100644
+index 06591b27f365..83ab8edc0b13 100644
 --- a/include/linux/scmi_protocol.h
 +++ b/include/linux/scmi_protocol.h
-@@ -1137,6 +1137,9 @@ struct scmi_notify_ops {
-  * @devm_protocol_get: devres managed method to acquire a protocol and get specific
-  *		       operations and a dedicated protocol handler
-  * @devm_protocol_put: devres managed method to release a protocol
-+ * @protocol_get: unmanaged method to acquire a protocol and get specific
-+ *		  operations and a dedicated protocol handler
-+ * @protocol_put: unmanaged method to release a protocol
-  * @is_transport_atomic: method to check if the underlying transport for this
-  *			 instance handle is configured to support atomic
-  *			 transactions for commands.
-@@ -1159,6 +1162,10 @@ struct scmi_handle {
- 		(*devm_protocol_get)(struct scmi_device *sdev, u8 proto,
- 				     struct scmi_protocol_handle **ph);
- 	void (*devm_protocol_put)(struct scmi_device *sdev, u8 proto);
-+	const void __must_check *
-+		(*protocol_get)(const struct scmi_handle *handle, u8 proto,
-+				struct scmi_protocol_handle **ph);
-+	void (*protocol_put)(const struct scmi_handle *handle, u8 proto);
- 	bool (*is_transport_atomic)(const struct scmi_handle *handle,
- 				    unsigned int *atomic_threshold);
- 	const struct scmi_notify_ops *notify_ops;
+@@ -891,6 +891,7 @@ enum scmi_telemetry_collection {
+ 	SCMI_TLM_SINGLE_READ,
+ };
+ 
++#define SCMI_TLM_GENERATION_INVALID	0U
+ #define SCMI_TLM_GRP_INVALID		0xFFFFFFFF
+ 
+ struct scmi_telemetry_intervals {
+@@ -986,6 +987,7 @@ struct scmi_telemetry_info {
+ 	bool enabled;
+ 	bool notif_enabled;
+ 	enum scmi_telemetry_collection current_mode;
++	atomic_t generation;
+ };
+ 
+ struct scmi_telemetry_de_sample {
+@@ -996,7 +998,7 @@ struct scmi_telemetry_de_sample {
+ };
+ 
+ enum scmi_telemetry_event {
+-	SCMI_TLM_EVT_DUMMY,
++	SCMI_TLM_EVT_GENERATION,
+ 	SCMI_TLM_EVT_MAX,
+ };
+ 
+@@ -1022,11 +1024,11 @@ enum scmi_telemetry_event {
+  *		    the ones belonging to a specific group when provided.
+  *		    This causes an immediate update platform-side of all the
+  *		    enabled DEs.
+- * @reset: reset configuration and telemetry data.
+  * @event_subscribe: subscribe to the specified event @type using the provided
+  *		     @eventfd_ctx.
+  * @event_unsubscribe: unsubscribe to the specified event @type the previously
+  *		       registered @eventfd_ctx.
++ * @reset: reset configuration and telemetry data.
+  */
+ struct scmi_telemetry_proto_ops {
+ 	const struct scmi_telemetry_info __must_check *(*info_get)
 -- 
 2.54.0
 
