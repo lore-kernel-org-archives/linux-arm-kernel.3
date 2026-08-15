@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A673C5DF67
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 23:28:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8532C5CFC1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 23:28:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oRTkLzTaNmQySCPmIJwFLxfSD8rcmznIss2Qjp1XmhA=; b=pB2oDz1GI1rhHiytzjhgG+sgIK
-	GJ0vABvPdROsEqJriZribxa/N0tuauFARHBHOgrhoLsmJf6dnXD+aX0WLLqa9OuwrO9BCkyNacURq
-	RMBQvTFFMT8fULJY7JxxWL4cF3KWSX6fNJxT5AsRDwYI7+hnlqpQTU2+NCdK6ISNyOrqaIkOb2eaY
-	AZQ2v4tFZ3ln0sWYDEZzrxEMefuQxGLnMzYRpVY1WKQbhEx9+0y8JESe0uwM9RwjlfCQ6uhY5WiuV
-	/6o4iw0VGBllsH3Qf44ebFkDCLcWMkP4kFVJeHrCYaY8YQqhCTiLTJPfOYqIkAY+Vr719EsbwEv4W
-	COmmoEHA==;
+	bh=lRnq8xn3osjOLzjht7yBtOjXcQdgxiD/8meySy4Nfac=; b=L2Js/7TNFkbe3ZGWrnfT/7e1oM
+	JktOBn8+Rp/VDDAJiF/SepH9KOw0/zzjDDh3n3Dl/6fTpuo2DPW4X/SuiaSuK64UBNDA88550xU5o
+	5PoYbKDrobvMu+zNhByzCKPvI9bzk7SOTAwhMwHkwPF8VyGT3j/hRxmOC02j3dswCzTYTEFKz6yTd
+	6lOWaMmZR9jJSOa8NfAuHW8Rki/eddeKIVbfW/yoO7QOXtLDUHRaBtzs20XERTpCo4chXDg+y3ajC
+	t/RhFGj4gzLpLD5tmRNMHcIBo2sWoQu8eopjdAuMb8LKPd21gwO3I66vjTNjpzaaYg/+5hR35Eg0v
+	b9pn3q2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvNnA-00000004I2j-14rx;
-	Sat, 15 Aug 2026 23:27:56 +0000
+	id 1wvNne-00000004IZ9-3ZbB;
+	Sat, 15 Aug 2026 23:28:26 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvNmm-00000004Hhm-3rhe
+	id 1wvNn4-00000004Hxe-2Zzb
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Aug 2026 23:27:37 +0000
+	Sat, 15 Aug 2026 23:28:01 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D244E15A1;
-	Sat, 15 Aug 2026 16:27:27 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0061E1596;
+	Sat, 15 Aug 2026 16:27:46 -0700 (PDT)
 Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 800B13F673;
-	Sat, 15 Aug 2026 16:27:28 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8D7063F673;
+	Sat, 15 Aug 2026 16:27:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786836451; bh=3fkAZARt8MdSf+AQMuRYhq+hNyqusV91Aa5I4Luf8C0=;
+	t=1786836469; bh=bvMviIfKEGzHTG5YbfSdzmfVamzDlLAFr2QG9qhfrcE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ndWjc2vFj7wLVPcr3ivj7X7gnB2TpgvJrYnwdeCquj2Ct8T8IXxOZiPVJwuP7lU3q
-	 fTdboAnDI4ckCGAh1zQ7HcYmAMTpHuYPn6WL574XNG1jhfBCrETgmHNyPH8U58OAb8
-	 zXqAvoNqnQ1DnYcOT4oRjnmgun0VDv81dc7PGgm8=
+	b=YCNlC0CasBeMb0CeZKMOpOhwckW2yEReJQ8+Angjh5P8CWNxGhdPlFlmTW63FLzW7
+	 KXsSUb9s0BuEodbZHXpJwg3WSm0TysEfjVqzvbeF3y13qOqfDIhs8x2kv7zSoLOKLu
+	 5Eaz+JqphZjn8C0vOa9+/FJtPWWi/xpJFLZytW0k=
 From: Cristian Marussi <cristian.marussi@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -64,17 +64,17 @@ Cc: sudeep.holla@kernel.org,
 	usama.arif@linux.dev,
 	kernel-team@meta.com,
 	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [PATCH v10 15/24] firmware: arm_scmi: Add common per-protocol debugfs support
-Date: Sun, 16 Aug 2026 00:25:55 +0100
-Message-ID: <20260815232604.3730754-16-cristian.marussi@arm.com>
+Subject: [PATCH v10 20/24] uapi: Add ARM SCMI Telemetry definitions
+Date: Sun, 16 Aug 2026 00:26:00 +0100
+Message-ID: <20260815232604.3730754-21-cristian.marussi@arm.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260815232604.3730754-1-cristian.marussi@arm.com>
 References: <20260815232604.3730754-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260815_162735_684533_4C58A67C 
-X-CRM114-Status: GOOD (  21.40  )
+X-CRM114-CacheID: sfid-20260815_162751_874946_A4B2B89B 
+X-CRM114-Status: GOOD (  30.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,226 +89,554 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allow interested SCMI protocols to register their own specific debugfs
-entries under a common per-instance and per-protocol subtree rooted
-at /sys/kernel/debug/scmi/<N>/protocols/<PROTO_ID>/
-
-Expose a helper to enable protocol initialization code to get access to
-such per-protocol/per-instance dentries in order to be able to install
-their own dedicated debugfs entries.
-
-Per-protocol debugfs support is configurable and default off.
+Add a number of structures and ioctls definitions used by the ARM
+SCMI Telemetry protocol.
 
 Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 ---
 v8 --> v9
- - avoid NULL deref on DBG cleanup path
+ - Simplified ABI related to _LIST IOCTL, substituting all custom
+   container structures in favour of the usage of scmi_tlm_batch,
+   i.e. dropping:
+   - scmi_tlm_des_list
+   - scmi_tlm_uuid_list
+   - scmi_tlm_grps_list
+   - scmi_tlm_shmtis_list
+ - Updated related _LIST documentation
+v7 --> v8
+ - Fixes for some Sashiko issues on v7
+  - fix typos and wrong struct reference in SCMI_TLM_BATCH_READ
+  - move a couple of IOCTL to be _IOW
+  - add a few more comments on usage and behaviour of BATCH ops
+v6 --> v7
+ - added per-DE UUID/SID/OFFS
+ - IOCTL EVENTS: generation counter
+ - generic BATCH support (scmi_tlm_batch)
+ - BATCH READ with perf-DE status
+ - BATCH DE GET/SET CONFIG
+ - added reserved fields for grow
+ - added more ABI features flags
+ - better Doxygen desciption for IN/OUT params
 v5 --> v6
- - bail out of dentry_get helper when SCMI debug susbsytem failed to init
- - remove stale SCMI protocol operations
- - add a preoper clean up of debugfs when protocol init fails
+ - Fixed interval exp to be __s32 as documented
+ - Using a more unique name for IOCTL MAGIC define
+ - Renamed a few IOCTLs to be consistent
+ - redefine primary UUID as an array of u8
+ - add GET_ABI_INFO to gather ABI version and instance info
+ - add RESET support
+ - fixed typos in kdoc
+v4 --> v5
+ - Added more structure padding
+ - Removed frowned upon flexible array in favour of u64 pointers to external
+   userspace provided buffer
+ - Added UAPI support to access SHMTIs from userspace
+ - Cleaned up Doxygen
+v2 --> v3
+ - Change tstamp_exp tp ts_rate
+ - renamed num -> num_intervals in scmi_tlm_interval
+ - added padding in scmi_tlm_de_sample to avoid packing issues on 32bit
+v1 --> v2
+ - Added proper __counted_by marks
+ - Fixed a few dox comments
+ - Renamed reserved[] fields to pad[]
 ---
- drivers/firmware/arm_scmi/Kconfig     | 14 +++++++++++
- drivers/firmware/arm_scmi/common.h    |  2 ++
- drivers/firmware/arm_scmi/driver.c    | 35 +++++++++++++++++++++++++--
- drivers/firmware/arm_scmi/protocols.h |  6 +++++
- include/linux/scmi_protocol.h         |  1 -
- 5 files changed, 55 insertions(+), 3 deletions(-)
+ MAINTAINERS               |   1 +
+ include/uapi/linux/scmi.h | 474 ++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 475 insertions(+)
+ create mode 100644 include/uapi/linux/scmi.h
 
-diff --git a/drivers/firmware/arm_scmi/Kconfig b/drivers/firmware/arm_scmi/Kconfig
-index 783c24a20e29..f506c4d1d96a 100644
---- a/drivers/firmware/arm_scmi/Kconfig
-+++ b/drivers/firmware/arm_scmi/Kconfig
-@@ -69,6 +69,20 @@ config ARM_SCMI_DEBUG_COUNTERS
- 	  such useful debug counters. This can be helpful for debugging and
- 	  SCMI monitoring.
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 8014b9f8253e..a3d62c38f4fb 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -26311,6 +26311,7 @@ F:	drivers/regulator/scmi-regulator.c
+ F:	drivers/reset/reset-scmi.c
+ F:	include/linux/sc[mp]i_protocol.h
+ F:	include/trace/events/scmi.h
++F:	include/uapi/linux/scmi.h
+ F:	include/uapi/linux/virtio_scmi.h
  
-+config ARM_SCMI_DEBUG_PROTOCOLS
-+	bool "Enable SCMI protocols debug"
-+	select ARM_SCMI_NEED_DEBUGFS
-+	depends on DEBUG_FS
-+	default n
-+	help
-+	  Enables per-protocol specific debug features, where available.
-+	  When provided, such per-protocol debugfs entries are grouped
-+	  inside a common a subtree named by the protocol number and rooted
-+	  under a per-instance 'protocols' directory.
+ SYSTEM CONTROL MANAGEMENT INTERFACE (SCMI) i.MX Extension Message Protocol drivers
+diff --git a/include/uapi/linux/scmi.h b/include/uapi/linux/scmi.h
+new file mode 100644
+index 000000000000..10eece02e4d9
+--- /dev/null
++++ b/include/uapi/linux/scmi.h
+@@ -0,0 +1,474 @@
++/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
++/*
++ * Copyright (C) 2026 ARM Ltd.
++ */
++#ifndef _UAPI_LINUX_SCMI_H
++#define _UAPI_LINUX_SCMI_H
 +
-+	  Such per-protocol entries subtree structure is freely defined
-+	  within the related protocol code.
++/*
++ * Userspace interface SCMI Telemetry
++ */
 +
- config ARM_SCMI_QUIRKS
- 	bool "Enable SCMI Quirks framework"
- 	depends on JUMP_LABEL || COMPILE_TEST
-diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
-index e0a2549423ee..f78a9ec8a8c3 100644
---- a/drivers/firmware/arm_scmi/common.h
-+++ b/drivers/firmware/arm_scmi/common.h
-@@ -322,6 +322,7 @@ enum debug_counters {
- /**
-  * struct scmi_debug_info  - Debug common info
-  * @top_dentry: A reference to the top debugfs dentry
-+ * @protos: A reference to the top debugfs protocols subdirectory
-  * @name: Name of this SCMI instance
-  * @type: Type of this SCMI instance
-  * @is_atomic: Flag to state if the transport of this instance is atomic
-@@ -329,6 +330,7 @@ enum debug_counters {
-  */
- struct scmi_debug_info {
- 	struct dentry *top_dentry;
-+	struct dentry *protos;
- 	const char *name;
- 	const char *type;
- 	bool is_atomic;
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index c2fe984f0b47..39940086a143 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -18,6 +18,7 @@
- 
- #include <linux/bitmap.h>
- #include <linux/cleanup.h>
-+#include <linux/dcache.h>
- #include <linux/debugfs.h>
- #include <linux/device.h>
- #include <linux/export.h>
-@@ -101,6 +102,8 @@ struct scmi_xfers_info {
-  *			has completed.
-  * @ph: An embedded protocol handle that will be passed down to protocol
-  *	initialization code to identify this instance.
-+ * @dbg: An optional reference to this protocol top debugfs directory; it will
-+ *	 be automatically recursively removed on protocol de-initialization.
-  *
-  * Each protocol is initialized independently once for each SCMI platform in
-  * which is defined by DT and implemented by the SCMI server fw.
-@@ -115,6 +118,7 @@ struct scmi_protocol_instance {
- 	unsigned int			version;
- 	unsigned int			negotiated_version;
- 	struct scmi_protocol_handle	ph;
-+	struct dentry			*dbg;
- };
- 
- #define ph_to_pi(h)	container_of(h, struct scmi_protocol_instance, ph)
-@@ -2093,6 +2097,25 @@ static void scmi_common_fastchannel_db_ring(struct scmi_fc_db_info *db)
- 		SCMI_PROTO_FC_RING_DB(64);
- }
- 
-+static struct dentry *
-+scmi_debugfs_proto_dentry_get(const struct scmi_protocol_handle *ph)
-+{
-+	struct scmi_protocol_instance *pi = ph_to_pi(ph);
-+	struct scmi_info *info = handle_to_scmi_info(pi->handle);
++#include <linux/ioctl.h>
++#include <linux/types.h>
 +
-+	if (!IS_ENABLED(CONFIG_ARM_SCMI_DEBUG_PROTOCOLS) || !info->dbg)
-+		return ERR_PTR(-ENODEV);
++#define SCMI_TLM_ABI_VERSION_V1			1
++#define SCMI_TLM_CURRENT_ABI_VERSION		SCMI_TLM_ABI_VERSION_V1
++#define SCMI_TLM_DE_IMPL_UUID_SZ		16
 +
-+	if (!pi->dbg) {
-+		char proto_dir[8];
++#define SCMI_TLM_SHMTI_ID_INVALID		0xFFFFFFFF
 +
-+		snprintf(proto_dir, 8, "0x%02X", pi->proto->id);
-+		pi->dbg = debugfs_create_dir(proto_dir, info->dbg->protos);
-+	}
++/**
++ * struct scmi_tlm_abi_info - Basic information on the ABI/instance
++ *
++ * SCMI Telemetry characteristics like number of DEs, Groups, Intervals and
++ * SHMTIs are statically determined by the platform and do not change within
++ * one boot/session; they are reported here so that they can be used to properly
++ * size the requests on other IOCTLs, without having to discover dynamically
++ * those sizes by issuing a zero-sized IOCTL request at first.
++ *
++ * @size: sizeof this structure - IN
++ * @abi_version: ABI Version - OUT
++ * @abi_features: ABI capabilities bitmap - OUT
++ * @primary_de_impl_version: SCMI Telemetry DE implementation revision - OUT
++ * @num_des: Number of defined DEs - OUT
++ * @num_groups: Number of defined DEs groups - OUT
++ * @num_intervals: Number of available update intervals (instance-level) - OUT
++ * @num_shmtis: Number of discovered SHMTI areas - OUT
++ * @features: Instance specific SCMI feature-support bitmap - OUT
++ * @reserved: Some room for future expansion without the need to resize.
++ *	      Must be zero.
++ *
++ * Used by:
++ *	RW - SCMI_TLM_GET_ABI_INFO
++ */
++struct scmi_tlm_abi_info {
++	__u32 size;
++	__u32 abi_version;
++	__u32 abi_features;
++#define SCMI_TLM_ABI_FEAT_RESET				(1 << 0)
++#define SCMI_TLM_ABI_FEAT_EVENT				(1 << 1)
++#define SCMI_TLM_ABI_FEAT_UUID_LIST			(1 << 2)
++#define SCMI_TLM_ABI_FEAT_BATCH_STATE			(1 << 3)
++#define SCMI_TLM_ABI_FEAT_BATCHED_CFG			(1 << 4)
++#define SCMI_TLM_ABI_FEAT_DE_TRACKING			(1 << 5)
++	__u8 primary_de_impl_version[SCMI_TLM_DE_IMPL_UUID_SZ];
++	__u32 num_des;
++	__u32 num_groups;
++	__u32 num_intervals;
++	__u32 num_shmtis;
++	__u32 features;
++#define SCMI_TLM_SCMI_SUPPORT_RESET			(1 << 0)
++#define SCMI_TLM_SCMI_SUPPORT_SINGLE_SAMPLE		(1 << 1)
++#define SCMI_TLM_SCMI_SUPPORT_GROUP_CONFIG		(1 << 2)
++#define SCMI_TLM_SCMI_SUPPORT_UPDATE_NOTIFICATION	(1 << 3)
++	__u64 reserved;
++};
 +
-+	return pi->dbg;
-+}
++/**
++ * struct scmi_tlm_update_interval  - Update interval descriptor
++ *
++ * @secs: integer representing seconds - OUT
++ * @exp: signed integer representing the base 10 exponent used as a multiplier
++ *	 with @secs to represent the interval - OUT
++ *
++ * The resulting update interval is calculated as: <secs> * 10 ^ <exp>
++ */
++struct scmi_tlm_update_interval {
++	__u32 secs;
++	__s32 exp;
++};
 +
- static const struct scmi_proto_helpers_ops helpers_ops = {
- 	.extended_name_get = scmi_common_extended_name_get,
- 	.get_max_msg_size = scmi_common_get_max_msg_size,
-@@ -2103,6 +2126,7 @@ static const struct scmi_proto_helpers_ops helpers_ops = {
- 	.protocol_msg_check = scmi_protocol_msg_check,
- 	.fastchannel_init = scmi_common_fastchannel_init,
- 	.fastchannel_db_ring = scmi_common_fastchannel_db_ring,
-+	.debugfs_proto_dentry_get = scmi_debugfs_proto_dentry_get,
- };
- 
- /**
-@@ -2288,12 +2312,12 @@ scmi_alloc_init_protocol_instance(struct scmi_info *info,
- 	/* proto->init is assured NON NULL by scmi_protocol_register */
- 	ret = pi->proto->instance_init(&pi->ph);
- 	if (ret)
--		goto clean;
-+		goto clean_dbg;
- 
- 	ret = idr_alloc(&info->protocols, pi, proto->id, proto->id + 1,
- 			GFP_KERNEL);
- 	if (ret != proto->id)
--		goto clean;
-+		goto clean_dbg;
- 
- 	/*
- 	 * Warn but ignore events registration errors since we do not want
-@@ -2314,6 +2338,8 @@ scmi_alloc_init_protocol_instance(struct scmi_info *info,
- 
- 	return pi;
- 
-+clean_dbg:
-+	debugfs_remove_recursive(pi->dbg);
- clean:
- 	/* Take care to put the protocol module's owner before releasing all */
- 	scmi_protocol_put(proto);
-@@ -2429,6 +2455,8 @@ void scmi_protocol_release(const struct scmi_handle *handle, u8 protocol_id)
- 	if (refcount_dec_and_test(&pi->users)) {
- 		void *gid = pi->gid;
- 
-+		debugfs_remove_recursive(pi->dbg);
++/**
++ * struct scmi_tlm_config  - Whole instance or group configuration
++ *
++ * @enable: Get/Set Telemetry enabled state for the whole instance or the
++ *	    group specified in @grp_id - IN/OUT
++ * @t_enable: Get/Set timestamp state for the group specified in @grp_id - IN/OUT
++ * @flags: Bitmask to represent special characteristics - IN
++ * @pad: Padding fields to enforce alignment
++ * @grp_id: Identifier of the target group upon which this configuration will
++ *	    be applied: ignored if not marked as a group in @flags - IN/OUT
++ * @active: Get/Set currently active update interval for the whole instance
++ *	    or the group specified in @grp_id - IN/OUT
++ * @reserved: Some room for future expansion. Must be zero.
++ *
++ * Used by:
++ *	RW - SCMI_TLM_GET_CFG
++ *	WO - SCMI_TLM_SET_CFG
++ */
++struct scmi_tlm_config {
++	__u8 enable;
++	__u8 t_enable;
++	__u8 flags;
++#define SCMI_TLM_CONFIG_GROUP		(1 << 0)
++#define SCMI_TLM_CONFIG_FLAGS		(SCMI_TLM_CONFIG_GROUP)
++#define SCMI_TLM_CONFIG_IS_GROUP(f)	((f) & SCMI_TLM_CONFIG_GROUP)
++	__u8 pad;
++	__u32 grp_id;
++	struct scmi_tlm_update_interval active;
++	__u64 reserved;
++};
 +
- 		if (pi->proto->events)
- 			scmi_deregister_protocol_events(handle, protocol_id);
- 
-@@ -3151,6 +3179,9 @@ static struct scmi_debug_info *scmi_debugfs_common_setup(struct scmi_info *info)
- 	if (IS_ENABLED(CONFIG_ARM_SCMI_DEBUG_COUNTERS))
- 		scmi_debugfs_counters_setup(dbg, trans);
- 
-+	if (IS_ENABLED(CONFIG_ARM_SCMI_DEBUG_PROTOCOLS))
-+		dbg->protos = debugfs_create_dir("protocols", top_dentry);
++/**
++ * struct scmi_tlm_intervals  - Update intervals descriptor
++ *
++ * @grp_id: Identifier of the target group upon which this configuration
++ *	    will be applied: ignored if not marked as a group in @flags - IN
++ * @flags: Bitmask to represent special characteristics. When the interval
++ *	   is NOT marked as SCMI_TLM_INTERV_DISCRETE, @intervals will
++ *	   contain a triplet: min/max/step - OUT
++ * @pad: Padding fields to enforce alignment
++ * @num_intervals: Number of entries of @intervals. On input this represents the
++ *		   size of @intervals, while on output carries the effective
++ *		   number of entries filled-in - IN/OUT
++ * @pad2: Padding fields to enforce alignment
++ * @reserved: Some room for future expansion. Must be zero.
++ * @intervals: A pointer to an array of struct scmi_tlm_update_interval - IN/OUT
++ *
++ * Used by:
++ *	RW - SCMI_TLM_GET_INTRVS
++ */
++struct scmi_tlm_intervals {
++	__u32 grp_id;
++	__u8 flags;
++#define SCMI_TLM_INTERV_GROUP		(1 << 0)
++#define SCMI_TLM_INTERV_DISCRETE	(1 << 1)
++#define SCMI_TLM_INTERV_FLAGS					\
++	(SCMI_TLM_INTERV_GROUP | SCMI_TLM_INTERV_DISCRETE)
++#define SCMI_TLM_INTERV_IS_GROUP(f)	((f) & SCMI_TLM_INTERV_GROUP)
++	__u8 pad[3];
++	__u32 num_intervals;
++	__u32 pad2;
++	__u64 reserved;
++#define SCMI_TLM_UPDATE_INTVL_SEGMENT_LOW	0
++#define SCMI_TLM_UPDATE_INTVL_SEGMENT_HIGH	1
++#define SCMI_TLM_UPDATE_INTVL_SEGMENT_STEP	2
++	__u64 intervals;
++};
 +
- 	dbg->top_dentry = top_dentry;
- 
- 	if (devm_add_action_or_reset(info->dev,
-diff --git a/drivers/firmware/arm_scmi/protocols.h b/drivers/firmware/arm_scmi/protocols.h
-index 1f9925b8f495..04e196a9fbf4 100644
---- a/drivers/firmware/arm_scmi/protocols.h
-+++ b/drivers/firmware/arm_scmi/protocols.h
-@@ -11,6 +11,7 @@
- 
- #include <linux/bitfield.h>
- #include <linux/completion.h>
-+#include <linux/debugfs.h>
- #include <linux/device.h>
- #include <linux/errno.h>
- #include <linux/kernel.h>
-@@ -284,6 +285,9 @@ struct scmi_fc_info {
-  *		      gathering FC descriptions from the SCMI platform server.
-  * @fastchannel_db_ring: A common helper to ring a FC doorbell.
-  * @get_max_msg_size: A common helper to get the maximum message size.
-+ * @debugfs_proto_dentry_get: A common helper to get a per-protocol debugfs top
-+ *			      directory to use as a root. It will be
-+ *			      recursively removed on protocol de-initialization.
-  */
- struct scmi_proto_helpers_ops {
- 	int (*extended_name_get)(const struct scmi_protocol_handle *ph,
-@@ -307,6 +311,8 @@ struct scmi_proto_helpers_ops {
- 				 u32 *rate_limit);
- 	void (*fastchannel_db_ring)(struct scmi_fc_db_info *db);
- 	int (*get_max_msg_size)(const struct scmi_protocol_handle *ph);
-+	struct dentry *(*debugfs_proto_dentry_get)
-+		(const struct scmi_protocol_handle *ph);
- };
- 
- /**
-diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
-index 83ab8edc0b13..037b486dc873 100644
---- a/include/linux/scmi_protocol.h
-+++ b/include/linux/scmi_protocol.h
-@@ -1156,7 +1156,6 @@ struct scmi_handle {
- 	void (*devm_protocol_put)(struct scmi_device *sdev, u8 proto);
- 	bool (*is_transport_atomic)(const struct scmi_handle *handle,
- 				    unsigned int *atomic_threshold);
--
- 	const struct scmi_notify_ops *notify_ops;
- };
- 
++/**
++ * struct scmi_tlm_de_config  - DE configuration
++ *
++ * This descriptor is used directly by the aggregate SCMI_TLM_GET_ALL_CFG and
++ * SCMI_TLM_SET_ALL_CFG IOCTLs, or embedded into an @scmi_tlm_batch request for
++ * SCMI_TLM_GET_DE_CFG and SCMI_TLM_SET_DE_CFG IOCTLs.
++ *
++ * @id: Identifier of the DE, ignored by SCMI_TLM_GET/SET_ALL_CFG - IN
++ * @enable: Get/Set the enabled state of this single DE or the cumulative ALL
++ *	    state - IN/OUT
++ * @t_enable: Get/Set the timestamp state of this single DE (if supported) or
++ *	      the cumulative ALL state - IN/OUT
++ * @sid: An integer representing the SHMTI ID that contains this DE. Valid
++ *	 ONLY when the related DE is enabled - OUT
++ * @offset: An integer representing the offset in the SHMTI @sid that identifies
++ *	    the start of the TDCF DataLine containing this DE.
++ *	    Valid ONLY when the related DE is enabled - OUT
++ * @pad: Padding fields to enforce alignment
++ * @uuid: An array containing the UUID, in BigEndian format, associated to
++ *	  this DE. Valid ONLY when the related DE is enabled: this UUID can
++ *	  be the primary UUID or one of the secondary UUIDs if any exist.
++ *	  Note that this UUID/DE association is permanent within the same
++ *	  boot/session - OUT
++ * @reserved: Some room for future expansion. Must be zero.
++ *
++ * Used by:
++ *	RW - SCMI_TLM_GET_ALL_CFG
++ *	RW - SCMI_TLM_SET_ALL_CFG
++ *	RW - SCMI_TLM_GET_DE_CFG (within a BATCH)
++ *	RW - SCMI_TLM_SET_DE_CFG (within a BATCH)
++ */
++struct scmi_tlm_de_config {
++	__u32 id;
++	__u32 enable;
++	__u32 t_enable;
++	__u32 sid;
++	__u32 offset;
++	__u32 pad;
++	__u8 uuid[SCMI_TLM_DE_IMPL_UUID_SZ];
++	__u64 reserved;
++};
++
++/**
++ * struct scmi_tlm_de_info  - DataEvent Descriptor
++ *
++ * @id: DE identifier - IN/OUT
++ * @grp_id: Identifier of the group which this DE belongs to; valid only if
++ *	    this DE is marked as belonging to a group in @flags - IN/OUT
++ * @data_sz: DE data size in bytes - OUT
++ * @type: DE type - OUT
++ * @unit: DE unit of measurements - OUT
++ * @unit_exp: Power-of-10 multiplier for DE unit - OUT
++ * @ts_rate: Clock rate in kHz used to generate the DE timestamp - OUT
++ * @instance_id: DE instance ID - OUT
++ * @compo_instance_id: DE component instance ID - OUT
++ * @compo_type: Type of component which is associated to this DE - OUT
++ * @persistent: Data value for this DE survives reboot (non-cold ones) - OUT
++ * @flags: Bitmask to represent special characteristics - IN
++ * @pad: Padding fields to enforce alignment
++ * @pad2: Padding fields to enforce alignment
++ * @name: Name of this DE - OUT
++ * @reserved: Some room for future expansion. Must be zero.
++ *
++ * Used to get the full description of a DE: it reflects DE Descriptors
++ * definitions in SCMI V4.0 specification at 3.12.4.6.
++ *
++ * Used by:
++ *	RW - SCMI_TLM_GET_DE_INFO
++ *	RW - SCMI_TLM_GET_DE_LIST (within a BATCH)
++ */
++struct scmi_tlm_de_info {
++	__u32 id;
++	__u32 grp_id;
++	__u32 data_sz;
++	__u32 type;
++	__u32 unit;
++	__s32 unit_exp;
++	__u32 ts_rate;
++	__u32 instance_id;
++	__u32 compo_instance_id;
++	__u32 compo_type;
++	__u8 persistent;
++	__u8 flags;
++#define SCMI_TLM_DEINFO_GROUP		(1 << 0)
++#define SCMI_TLM_DEINFO_FLAGS		(SCMI_TLM_DEINFO_GROUP)
++#define SCMI_TLM_DEINFO_HAS_GROUP(f)	((f) & SCMI_TLM_DEINFO_GROUP)
++	__u8 pad[2];
++	__u32 pad2;
++	__u8 name[16];
++	__u64 reserved;
++};
++
++/**
++ * struct scmi_tlm_de_sample - A DataEvent reading
++ *
++ * @id: DE identifier - IN
++ * @pad: Padding fields to enforce alignment.
++ * @tstamp: DE reading timestamp (0 if timestamp NOT supported) - OUT
++ * @val: Reading of the DE data value - OUT
++ *
++ * Used by:
++ *	RW - SCMI_TLM_DE_READ
++ */
++struct scmi_tlm_de_sample {
++	__u32 id;
++	__u32 pad;
++	__u64 tstamp;
++	__u64 val;
++};
++
++/**
++ * struct scmi_tlm_data_read - Bulk read of a number of DataEvents
++ *
++ * @grp_id: Optional group ID number, ignored if not marked as a group request
++ *	    in @flags and not supported by SCMI_TLM_BATCH_READ - IN
++ * @flags: Bitmask to represent special characteristics - IN
++ * @pad: Padding fields to enforce alignment
++ * @pad2: Padding fields to enforce alignment
++ * @num_samples: Number of entries in @samples. In input represents the size of
++ *		 @samples, while in output carries the effective number of items
++ *		 filled-in  - IN/OUT
++ * @samples: A reference to an array of struct scmi_tlm_de_sample containing
++ *	     an entry for each DE - IN/OUT
++ *
++ * Used by:
++ *	RW - SCMI_TLM_SINGLE_READ
++ *	RW - SCMI_TLM_BULK_READ
++ */
++struct scmi_tlm_data_read {
++	__u32 grp_id;
++	__u8 flags;
++#define SCMI_TLM_READ_GROUP		(1 << 0)
++#define SCMI_TLM_READ_FLAGS		(SCMI_TLM_READ_GROUP)
++#define SCMI_TLM_READ_IS_GROUP(f)	((f) & SCMI_TLM_READ_GROUP)
++	__u8 pad[3];
++	__u32 pad2;
++	__u32 num_samples;
++	__u64 samples;
++};
++
++/**
++ * struct scmi_tlm_batch  - A wrapper structure for BATCH operations
++ *
++ * This structure is used as an opaque container for a set of objects of the
++ * same kind: it is used by a number of different IOCTLs and it is up to the
++ * specific IOCTL implementation to enforce a proper upper-bound on
++ * @num_items.
++ *
++ * The @states field is optional and when it is NULL it is up to the specific
++ * IOCTL implementation to decide which policy to enforce in case of failures
++ * in the middle of the batch processing: as of now each BATCHED IOCTLs fails
++ * as a whole as soon as one of the batched requests fails, without any kind
++ * of roll-back of the successful requests.
++ *
++ * When this container structure is used as parameter for one the _LIST
++ * IOCTLs listed below, @states is ignored in any case, and the @num_items
++ * field can be set to zero in input to query the system about the maximum
++ * number of available resources.
++ * Note that this idiomatic query-style is made available as an alternative
++ * usage pattern, but all of those total resources information are usually
++ * statically defined within the same session/boot and available by other
++ * means (IOCTLs).
++ *
++ * The field @item_sz MUST match the expected payload size for the specific
++ * IOCTL and it is supposed to be meaningfully set ALSO when @num_items is
++ * zero.
++ *
++ * @num_items: Number of items in @items and @states - IN/OUT
++ * @item_sz: Size of a single item contained in @items - IN
++ * @reserved: Some room for future expansion. Must be zero.
++ * @states: An optional  reference to an arrays of s32 items representing the
++ *	    outcome of the requests for each single item in @items: these are
++ *	    ordered in the same order as the @items. - OUT
++ * @items: A reference to an array of batched requests - IN/OUT
++ *
++ * Used by:
++ *	RW - SCMI_TLM_BATCH_READ
++ *	RW - SCMI_TLM_GET_DE_CFG
++ *	RW - SCMI_TLM_SET_DE_CFG
++ *	RW - SCMI_TLM_GET_DE_LIST
++ *	RW - SCMI_TLM_GET_UUID_LIST
++ *	RW - SCMI_TLM_GET_GRP_LIST
++ *	RW - SCMI_TLM_GET_SHMTI_LIST
++ *
++ */
++struct scmi_tlm_batch {
++	__u32 num_items;
++	__u32 item_sz;
++	__u64 reserved;
++	__u64 states;
++	__u64 items;
++};
++
++/**
++ * struct scmi_tlm_grp_info  - Group info descriptor
++ *
++ * @grp_id: Group ID number - IN
++ * @num_des: Number of DEs part of this group - OUT
++ * @num_intervals: Number of update intervals supported. Zero if group does not
++ *		   support per-group update interval configuration. - OUT
++ * @pad: Padding fields to enforce alignment
++ * @reserved: Some room for future expansion. Must be zero.
++ *
++ * Used by:
++ *	RW - SCMI_TLM_GET_GRP_INFO
++ *	RW - SCMI_TLM_GET_GRP_LIST (within a BATCH)
++ */
++struct scmi_tlm_grp_info {
++	__u32 grp_id;
++	__u32 num_des;
++	__u32 num_intervals;
++	__u32 pad;
++	__u64 reserved;
++};
++
++/**
++ * struct scmi_tlm_grp_desc  - Group descriptor
++ *
++ * @grp_id: Group ID number - IN
++ * @num_des: Number of DEs composing this group. In input represents the size
++ *	      of @composing_des, while in output carries the effective number
++ *	      of items filled-in - IN/OUT
++ * @composing_des: A reference to an array of __u32 elements containing the
++ *		   DataEvent IDs composing this group. - IN/OUT
++ * @reserved: Some room for future expansion. Must be zero.
++ *
++ * Used by:
++ *	RW - SCMI_TLM_GET_GRP_DESC
++ */
++struct scmi_tlm_grp_desc {
++	__u32 grp_id;
++	__u32 num_des;
++	__u64 composing_des;
++	__u64 reserved;
++};
++
++/**
++ * struct scmi_tlm_shmti_info  - SHMTI descriptor
++ *
++ * @sid: SHMTI ID - IN
++ * @fd: Associated opened file descriptor to use for mmap - OUT
++ * @len: Size of the SHMTI to be used with mmap on this SHMTI - OUT
++ * @offset: Offset in the mmap where the specified SHMTI start - OUT
++ * @reserved: Some room for future expansion. Must be zero.
++ *
++ * Used by:
++ *	RW - SCMI_TLM_GET_SHMTI_LIST (within a BATCH)
++ */
++struct scmi_tlm_shmti_info {
++	__u32 sid;
++	__u32 fd;
++	__u32 len;
++	__u32 offset;
++	__u64 reserved;
++};
++
++/**
++ * struct scmi_tlm_uuid  - UUID descriptor
++ *
++ * @bytes: An array of bytes containing the UUID in BigEndian order as
++ *	  per RFC 9562. - OUT
++ *
++ * Used by:
++ *	RW - SCMI_TLM_GET_UUID_LIST (within a BATCH)
++ */
++struct scmi_tlm_uuid {
++	__u8 bytes[SCMI_TLM_DE_IMPL_UUID_SZ];
++};
++
++/**
++ * struct scmi_tlm_event  - Event descriptor
++ *
++ * @type: Type of Telemetry event to subscribe/unsubscribe - IN
++ * @efd: An integer representing an open eventfd file descriptor, which will
++ *	 be used to signal the subscribed event. - IN
++ * @cookie: An integer used to represent a subscrition request: ONLY positive
++ *          values represents valid subscription.
++ *          On a new subscription this must be set to zero in input, to signify
++ *          that a new request is being made: if the subscription was
++ *          successful a positive integer is returned.
++ *          When, instead, @cookie is set to a positive integer in input, it
++ *          is interpreted as a reference to an existing subscription to be
++ *          cancelled.
++ * @pad: Padding fields to enforce alignment
++ * @reserved: Some room for future expansion. Must be zero.
++ *
++ * Used by:
++ *	SCMI_TLM_EVENT_SUBSCRIBE
++ */
++struct scmi_tlm_event {
++#define SCMI_TLM_EVT_GENERATION		0x0U
++#define SCMI_TLM_EVT_LAST		(SCMI_TLM_EVT_GENERATION)
++	__u32 type;
++	__u32 efd;
++	__u32 cookie;
++	__u32 pad;
++	__u64 reserved;
++};
++
++#define SCMI_TLM_IOCTL_MAGIC 0xF1
++
++#define SCMI_TLM_GET_ABI_INFO	_IOWR(SCMI_TLM_IOCTL_MAGIC, 0x00, struct scmi_tlm_abi_info)
++#define SCMI_TLM_GET_CFG	_IOWR(SCMI_TLM_IOCTL_MAGIC, 0x01, struct scmi_tlm_config)
++#define SCMI_TLM_SET_CFG	_IOW(SCMI_TLM_IOCTL_MAGIC, 0x02, struct scmi_tlm_config)
++#define SCMI_TLM_GET_INTRVS	_IOWR(SCMI_TLM_IOCTL_MAGIC, 0x03, struct scmi_tlm_intervals)
++#define SCMI_TLM_GET_DE_CFG	_IOWR(SCMI_TLM_IOCTL_MAGIC, 0x04, struct scmi_tlm_batch)
++#define SCMI_TLM_SET_DE_CFG	_IOWR(SCMI_TLM_IOCTL_MAGIC, 0x05, struct scmi_tlm_batch)
++#define SCMI_TLM_GET_DE_INFO	_IOWR(SCMI_TLM_IOCTL_MAGIC, 0x06, struct scmi_tlm_de_info)
++#define SCMI_TLM_GET_DE_LIST	_IOWR(SCMI_TLM_IOCTL_MAGIC, 0x07, struct scmi_tlm_batch)
++#define SCMI_TLM_DE_READ	_IOWR(SCMI_TLM_IOCTL_MAGIC, 0x08, struct scmi_tlm_de_sample)
++#define SCMI_TLM_GET_ALL_CFG	_IOWR(SCMI_TLM_IOCTL_MAGIC, 0x09, struct scmi_tlm_de_config)
++#define SCMI_TLM_SET_ALL_CFG	_IOW(SCMI_TLM_IOCTL_MAGIC, 0x0A, struct scmi_tlm_de_config)
++#define SCMI_TLM_GET_GRP_LIST	_IOWR(SCMI_TLM_IOCTL_MAGIC, 0x0B, struct scmi_tlm_batch)
++#define SCMI_TLM_GET_GRP_INFO	_IOWR(SCMI_TLM_IOCTL_MAGIC, 0x0C, struct scmi_tlm_grp_info)
++#define SCMI_TLM_GET_GRP_DESC	_IOWR(SCMI_TLM_IOCTL_MAGIC, 0x0D, struct scmi_tlm_grp_desc)
++#define SCMI_TLM_SINGLE_READ	_IOWR(SCMI_TLM_IOCTL_MAGIC, 0x0E, struct scmi_tlm_data_read)
++#define SCMI_TLM_BULK_READ	_IOWR(SCMI_TLM_IOCTL_MAGIC, 0x0F, struct scmi_tlm_data_read)
++#define SCMI_TLM_BATCH_READ	_IOWR(SCMI_TLM_IOCTL_MAGIC, 0x10, struct scmi_tlm_batch)
++#define SCMI_TLM_GET_SHMTI_LIST	_IOWR(SCMI_TLM_IOCTL_MAGIC, 0x11, struct scmi_tlm_batch)
++#define SCMI_TLM_RESET		_IO(SCMI_TLM_IOCTL_MAGIC,   0x12)
++#define SCMI_TLM_GET_UUID_LIST	_IOWR(SCMI_TLM_IOCTL_MAGIC, 0x13, struct scmi_tlm_batch)
++#define SCMI_TLM_EVENT_SUBSCRIBE	\
++	_IOWR(SCMI_TLM_IOCTL_MAGIC, 0x14, struct scmi_tlm_event)
++
++#endif /* _UAPI_LINUX_SCMI_H */
 -- 
 2.54.0
 
