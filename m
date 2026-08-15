@@ -4,73 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E111C5AD5A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 11:22:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ECC8C5AD5A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 11:28:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=QirL5FKN/2t0jHFpC8PFoZ9D0UWW7b92xqp9wz3wT6w=; b=cIjuRSBsDlzkP9
-	HQKYcde3ir+xSPs6EXwD6Q2huIOYtpRRaSQpCsdLc185tblgLCqtBB9jgeXkgAnc/bw702xdA4AMx
-	MjGcjf4FdhvLvmkInraAg+QdqPRU+41Y2zavtilTSh39MrqK0XXw5mxZ3RfgULM1Ir9y+HPOxtdgk
-	xg208WqLD4cjgDDSV5ke3Bi8TP3DzXK77AYkeV/tfRTvhfJDyGnw+j63MErEB1fEpjE1y9LRPQTyf
-	BQpXhnYn5nkTPZFisZav4SmBEAuY+OVq5QkQHkDvGu93nKxykClH9WJhnPZoKOc1In66bSkqc79J4
-	8on+KrTXxwtF+I7khE5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ugvf8a5SmwQNPVwzIXcq8c6ETBDk4V2dnKiIGUlaOno=; b=G192Hy3SguJRDIvZCNurAL+z+5
+	gZcMkNPE2l89HUv7cGeD7mg+0U5HnQt5I9PdGx9kuWhV9gpWx6Iuru6YtRbJXsFhwzYD3XvbXCA8v
+	smO6+13qNvKLw9tGXj8V+JAlhaR+MMvSP20JUBSlXm5c/H+wcJMlzaB+uC/d48ONQyCTzfP9TvqVY
+	xq5yg55vl0M2B531C5wB4V5kADO/+Id2mWhy5xsBMh1UTwOZQZXneN59wQE/RQ1BNAjNt6OXi80nb
+	uLg5cdILHJs5WwkHsq7u3y7l9sLO27lwDKN9RRdUOs4Mh1qNnynT4ye0RCzQlAwJHuKChNbfGH3is
+	z8oGzJwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvBpu-00000003kkY-401H;
-	Sat, 15 Aug 2026 10:41:58 +0000
-Received: from chaosmail.tech ([77.81.229.115])
+	id 1wvCYv-00000003mnH-2jF9;
+	Sat, 15 Aug 2026 11:28:29 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvBpr-00000003kjT-1310
+	id 1wvCYu-00000003mnA-2PiF
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Aug 2026 10:41:57 +0000
-Received: by chaosmail.tech (Postfix) id E76F91C975B;
-	Sat, 15 Aug 2026 10:41:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chaosmail.tech;
-	s=mail; t=1786790509;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=QirL5FKN/2t0jHFpC8PFoZ9D0UWW7b92xqp9wz3wT6w=;
-	b=r40Fx8CybGZdbtQlvJRS6vqtk2xzQheD4l/LpCrZyn48Axr/ykokbCq6XEWwqvXa2TCSfa
-	WRc4uSrmENuRLgmoc5K1Gag/XsOxKMpqxwVb73JD3/cAnwzXzoSizHBnzjZ0fZJqfqcMWY
-	am1qIpPkLGarTKdUSNVYe83UzlWnFEs=
-From: Sasha Finkelstein <k@chaosmail.tech>
-Subject: [PATCH v4 0/2] dmaengine: apple-admac: Add support for M3
- generation
-Date: Sat, 15 Aug 2026 12:41:37 +0200
-Message-Id: <20260815-t603x-admac-v4-0-1149e342dcb0@chaosmail.tech>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/23Oyw6CMBAF0F8hXVvTTstDV/6HcdHHIDUChiLBE
- P7dFhdKZHmTO+fORDx2Dj05JhPpcHDetU0IcpcQU6nmitTZkAkwyFgOKe0zJkaqbK0MVVyzXIE
- xOpUkXDw6LN24aOfLJ/unvqHpIxEblfN9272WuYHH3rY8cMpopqRFw0CUDE7hm9bXyt33PZqKR
- H6AX+CwBiAAKDVonRklU9wExBcoOKwBEQDLSy7ysmAC+R8wz/MbdjY47j8BAAA=
-X-Change-ID: 20260725-t603x-admac-a1b07a2ccb54
-To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
- Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- =?utf-8?q?Martin_Povi=C5=A1er?= <povik+lin@cutebit.org>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- dmaengine@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Sasha Finkelstein <k@chaosmail.tech>, 
- Joshua Peisach <jpeisach@ubuntu.com>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1786790508; l=1308;
- i=k@chaosmail.tech; s=20241124; h=from:subject:message-id;
- bh=gUpTW8ChxtDggBwLocbC7PiTUaahIfyT04dtaB20q38=;
- b=tozvc+d4nHbhxUlhjey4KOadNqu1jnonm2ocdhCV+Q1b6haoJDrrIhCERmWAOKiupWpcgCkAa
- frU50DS+KzrCJr+XP6KJwk609S+xThfBfJwqXB2BR2xs8eSMutsdO4m
-X-Developer-Key: i=k@chaosmail.tech; a=ed25519;
- pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260815_034155_786771_F8608E9B 
-X-CRM114-Status: UNSURE (   9.02  )
-X-CRM114-Notice: Please train this message.
+	Sat, 15 Aug 2026 11:28:28 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3183B40270;
+	Sat, 15 Aug 2026 11:28:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02FBC1F000E9;
+	Sat, 15 Aug 2026 11:28:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786793307;
+	bh=ugvf8a5SmwQNPVwzIXcq8c6ETBDk4V2dnKiIGUlaOno=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=CRJRjVg3NUqrkqQiGfAVCAtwKQ5OuVVtQ+u+34yUYNcRErmuaTv/LFbD6Tea62s2m
+	 TtXf3fTfl1Zf/Sh242quswPihP6K5Qmc/lGTzySiRKtWlQfJXPYb/KDhVKPhxXvzld
+	 +KePBRCjBFmRux/wFxGEm8yRwh5xPjhQ3AKCqOs9IVWwmGYVGWvOGGhHbNHIuWdPOF
+	 C3jKKOfncFKFnp7z5G3Qh/3fXb6d2wyvFZQNIxH2tIoZ2nv9iabjRkSNy7x6NPz89i
+	 AECB7W2RA7fNfm9lPWyGV+xle+JB9kERgLDbiWb/X7XLVqLULvoRBoXI0PIkryvqcL
+	 kVLYVQ88BgtBQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wvCYq-0000000Fsrq-3AfX;
+	Sat, 15 Aug 2026 11:28:24 +0000
+Date: Sat, 15 Aug 2026 12:28:23 +0100
+Message-ID: <86v79bzkq0.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Wei-Lin Chang <weilin.chang@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	"Mike Rapoport (Microsoft)" <rppt@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	"David Hildenbrand (Arm)" <david@kernel.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Dev Jain <dev.jain@arm.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Matt Fleming <matt@codeblueprint.co.uk>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Sebastian Ene <sebastianene@google.com>
+Subject: Re: [PATCH v3 1/2] arm64: ptdump: Make note_page_flush() range aware
+In-Reply-To: <20260814222458.584906-2-weilin.chang@arm.com>
+References: <20260814222458.584906-1-weilin.chang@arm.com>
+	<20260814222458.584906-2-weilin.chang@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: weilin.chang@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, oupton@kernel.org, tabba@google.com, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, rppt@kernel.org, ryan.roberts@arm.com, david@kernel.org, anshuman.khandual@arm.com, dev.jain@arm.com, ardb@kernel.org, mark.rutland@arm.com, matt@codeblueprint.co.uk, vdonnefort@google.com, sebastianene@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,41 +100,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ADMACs present in M3 series devices (t8122 and t603x SoCs) need
-additional register writes in order to function correctly. Add a new
-compatible chain for those, and change the driver to do the write.
+On Fri, 14 Aug 2026 23:24:57 +0100,
+Wei-Lin Chang <weilin.chang@arm.com> wrote:
+> 
+> note_page_flush() calls note_page() with addr == 0 and level == -1 to
+> dump the last row of a ptdump. addr == 0 (1 << 64 wrapped around)
+> renders a huge region with enormous size for address spaces with
+> IA bits < 64. For example the stage-2 page tables and the EFI runtime
+> page table.
+> 
+> More importantly, the last region of the address space and everything
+> after the address space up to 1 << 64 are merged into one row of
+> output. If the last region within the address space is valid, it will
+> appear to remain valid up to 1 << 64 with the same attributes.
+> 
+> Currently only the EFI runtime ptdump is affected by this, but KVM will
+> soon fix its stage-2 ptdump by using note_page_flush(). Here is an
+> example of an EFI runtime ptdump (last row):
+> 
+> 0x0000008000000000-0x0000000000000000   17179868672G PGD
+> 
+> With this patch:
+> 
+> 0x0000008000000000-0x0001000000000000      261632G PGD
+> 
+> To fix this, cache the end address of a ptdump in ptdump_pg_state so
+> note_page_flush() can call the final note_page() with the correct end
+> address.
+> 
+> Fixes: 9d80448ac92b ("efi/arm64: Add debugfs node to dump UEFI runtime page tables")
+> Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+> ---
+>  arch/arm64/include/asm/ptdump.h |  2 ++
+>  arch/arm64/mm/ptdump.c          | 14 +++++++++++++-
+>  2 files changed, 15 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/include/asm/ptdump.h b/arch/arm64/include/asm/ptdump.h
+> index 5b374a6ab34a..1b743de7d89e 100644
+> --- a/arch/arm64/include/asm/ptdump.h
+> +++ b/arch/arm64/include/asm/ptdump.h
+> @@ -52,6 +52,8 @@ struct ptdump_pg_state {
+>  	const struct addr_marker *marker;
+>  	const struct mm_struct *mm;
+>  	unsigned long start_address;
+> +	/* exclusive end, ULONG_MAX represents an end at 1 << 64 */
+> +	unsigned long end_address;
+>  	int level;
+>  	ptval_t current_prot;
+>  	bool check_wx;
+> diff --git a/arch/arm64/mm/ptdump.c b/arch/arm64/mm/ptdump.c
+> index 1c20144700d7..eab400e744d9 100644
+> --- a/arch/arm64/mm/ptdump.c
+> +++ b/arch/arm64/mm/ptdump.c
+> @@ -278,9 +278,19 @@ void note_page_pgd(struct ptdump_state *pt_st, unsigned long addr, pgd_t pgd)
+>  
+>  void note_page_flush(struct ptdump_state *pt_st)
+>  {
+> +	struct ptdump_pg_state *st = container_of(pt_st, struct ptdump_pg_state, ptdump);
+> +	unsigned long end = st->end_address;
+>  	pte_t pte_zero = {0};
+>  
+> -	note_page(pt_st, 0, -1, pte_val(pte_zero));
+> +	/*
+> +	 * Address spaces that end at 1 << 64 have end_address == ULONG_MAX,
+> +	 * but note_page() expects the exclusive end. In this case adjust end
+> +	 * to the wraparound value 0.
+> +	 */
+> +	if (end == ULONG_MAX)
+> +		end = 0;
+> +
+> +	note_page(pt_st, end, -1, pte_val(pte_zero));
+>  }
+>  
+>  static void arm64_ptdump_walk_pgd(struct ptdump_state *st, struct mm_struct *mm)
+> @@ -303,6 +313,7 @@ void ptdump_walk(struct seq_file *s, struct ptdump_info *info)
+>  		.marker = info->markers,
+>  		.mm = info->mm,
+>  		.pg_level = &kernel_pg_levels[0],
+> +		.end_address = end,
+>  		.level = -1,
+>  		.ptdump = {
+>  			.note_page_pte = note_page_pte,
+> @@ -344,6 +355,7 @@ bool ptdump_check_wx(void)
+>  			{ -1, NULL},
+>  		},
+>  		.pg_level = &kernel_pg_levels[0],
+> +		.end_address = ~0UL,
 
-To simplify the merge strategy, the device tree entries will be sent
-in a future patch series.
+nit: shouldn't this be ULONG_MAX instead? Yes, this is the same thing,
+but it doesn't hurt to match the documentation.
 
-Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
----
-Changes in v4:
-- Use the entire hw data struct
-- Link to v3: https://patch.msgid.link/20260812-t603x-admac-v3-0-d1f137f803e1@chaosmail.tech
+Thanks,
 
-Changes in v3:
-- Use t8013 hw data as default
-- Link to v2: https://patch.msgid.link/20260729-t603x-admac-v2-0-e4b2bb6ca45e@chaosmail.tech
+	M.
 
-Changes in v2:
-- Typo fix
-- Link to v1: https://patch.msgid.link/20260725-t603x-admac-v1-0-6a4dec023f02@chaosmail.tech
-
----
-Sasha Finkelstein (2):
-      dt-bindings: dma: apple,admac: Add M3 generation ADMACs
-      dmaengine: apple-admac: Add M3 generation ADMACs
-
- Documentation/devicetree/bindings/dma/apple,admac.yaml | 10 ++++++++--
- drivers/dma/apple-admac.c                              | 24 ++++++++++++++++++++++++
- 2 files changed, 32 insertions(+), 2 deletions(-)
----
-base-commit: 0ce37745d4bfbc493f718169c3974898ffec8ee7
-change-id: 20260725-t603x-admac-a1b07a2ccb54
-
-Best regards,
---  
-Sasha Finkelstein <k@chaosmail.tech>
-
+-- 
+Without deviation from the norm, progress is not possible.
 
