@@ -4,73 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5F8CC5CFC1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 00:19:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8A8CC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 00:55:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WLvPD2Xvd2OCDWk0LusvK3Ba5zPp1t8KCpjF4I/EHLY=; b=mJCvffUw4wYoX681X8p9ol0V1b
-	U2h6eAGH05BWJU865n7YEJOHLpe7IjtTl9gV4Pbpx7Ykzy7GK/bL+9OI287uQs25MfrTGbyqdnYDp
-	uq/GMfzgD90vrbxaO02wOLa/kbwHICT89weDz0UEC824AKSL/q5fQ+3xnC4R0E+8p7kZlMv9O63Vh
-	XgUvrgf8+RTlhMbW3iD4anar/SQPnlgDsqkGHQzLlyR4x0ZD19WBh+3vARN3mGVcaf62Kjou9k13h
-	+OFm+Cvb+mKpxUAaglVlJ9PSyHPSgzrlrfGuc6hgHd/Kc8zBAAIblb9l5krCPHoE0TsTfGp7vf11p
-	Gma6oZxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YP5w1TR+MGgkl02qn/UbwcANepbuHsH+to8TLiuTSp4=; b=ceajpzKP1WD+xNXuDiIXwuUxrQ
+	FXOjKEczV6LMI+Pp5IZgbq2piXlXwV48fKcVbaV3V1ZR0waXQH16/7U5UvM9WNhN21lAKhbsdgHAB
+	4RrvCXJJGZW2DdukYF/qi6OQqANBOsNJ2ruWL+8lOcZQy1tgk5T7qDMIIGGRnXEkypJEGFgqa3FZP
+	E1x8sqBRHQUkUCEQupizp9+mdTQK9qZDLAwzpTLCj+xK4LXKXs5gf2Qi3cUaPQrIKfqb4//rK2z5e
+	DTukXS/tV+QhRjnE0266nyGTvCWF24NZ5SryFneOHq8mc/y9eQK1dAgdquVHUjq/l5n2mHaSBlyMd
+	jxYKCFGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wv273-00000003L1x-3q1X;
-	Sat, 15 Aug 2026 00:19:01 +0000
-Received: from out-218.mta1.migadu.com ([2001:41d0:203:375::da] helo=mta1.migadu.com)
+	id 1wv2gH-00000003LoH-1oKC;
+	Sat, 15 Aug 2026 00:55:25 +0000
+Received: from lab.riabenko.com ([185.143.146.30])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wv270-00000003L1Z-2Ux4
+	id 1wv2gE-00000003Lnq-2nhz
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Aug 2026 00:19:00 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=HlDIpqm069G70cSVX9IpKdU7viVskBXwDZemew5s+u8=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1786753130; v=1; x=1787357930;
- b=X0ucCcTd3ytsyYvJohDIZie4uVrtcbkRiBw/wT6ofliYsbE+aQC0DQe2PPseNYk6qeu3ZPEt
- 54Hg39MBkJckXWQRHIPNy6H5CGL4Jav633QJCyl2uyM9Vdw3kkpCAQtOuLYkSttM4UsJMIyBRH5
- I/v0LuZOJRSLuL4iaOOKTv+8=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: from mail-lf1-f46.google.com (209.85.167.46)
-	by smtp.migadu.com with ESMTPS id 45cc349fef6a3fe0;
-	Sat, 15 Aug 2026 00:18:40 +0000
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f46.google.com with SMTP id 2adb3069b0e04-5b2a73da7e1so15009e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 17:18:40 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RrbP1jbrtnFPy4ElAKrPuYHizfkepSqZ7y5A+zYoXKLxYRRLvp4V+2pYdmjCZMPj9lNjfsmvyXMiEtY0zLz/M3N@lists.infradead.org
-X-Gm-Message-State: AOJu0YxRxOJv+lbPPp1DpzjZalAlrFhhSEOjrNXri0AFZFYfPPU8A7tL
-	+xxl8wWs2DNa4OpZ/DWmDx9WpXB9YYrB8DBaYRiOqHGJa9GiUayk+SUDZqOIc2QM4xHyObxSbgt
-	UFAgEK8VvLyOjPCUU8djOzSIFKO19n6YeyDoZKh8D
-X-Received: by 2002:a05:6512:1092:b0:5ae:a4e8:47be with SMTP id
- 2adb3069b0e04-5b45975c815mr305656e87.7.1786753119575; Fri, 14 Aug 2026
- 17:18:39 -0700 (PDT)
+	Sat, 15 Aug 2026 00:55:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=riabenko.com; s=selector; h=Content-Transfer-Encoding:MIME-Version:
+	Message-ID:Date:Subject:Cc:To:From:From:Sender:Reply-To:Subject:Date:
+	Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=YP5w1TR+MGgkl02qn/UbwcANepbuHsH+to8TLiuTSp4=; b=WRugtcH3kXqgQsyTCbhPlTXgTw
+	vy6nCgC1LcOrJpc8huuWJ4ucGyx5oiywy41amkJI92D+X0O9+A57+x+JViCd2yLNPF/d7nLJz1OS3
+	a3RjgwZ31Rgn0zOu/RiTNp6QEq/bJbXhi7uaIgE+iAq0fuUvlrS0fdLKOGnwer3Iq697JftTuMvnp
+	dGVdKr0W5uqaOb0vsAXSYrJSgGA3Ma6ABqRpA9L5f6cfZseL7A6ekVOOaRGOyBZveJFacDN9egZtX
+	5OVRCa+QdHpJCEc2xuUM20Z0HLRm3Yj1i6ksy+b3uoVBNd1tLetb0+BwZxzRiGo+viXOfOH2jvVbi
+	A7WCDFhg==;
+Received: from librecmc.lan ([192.168.10.1] helo=desk.lan)
+	by mini.riabenko.com with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <roman@riabenko.com>)
+	id 0005MW-000000004B7-1ITa;
+	Sat, 15 Aug 2026 03:55:07 +0300
+From: Roman Riabenko <roman@riabenko.com>
+To: wens@kernel.org,
+	jernej.skrabec@gmail.com,
+	samuel@sholland.org
+Cc: andre.przywara@arm.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	Roman Riabenko <roman@riabenko.com>
+Subject: [PATCH] arm64: dts: allwinner: sun50i-a64-olinuxino: Add RX delay
+Date: Sat, 15 Aug 2026 03:53:16 +0300
+Message-ID: <20260815005316.28998-1-roman@riabenko.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-References: <20260807104102.2410744-1-fuad.tabba@linux.dev>
- <20260807104102.2410744-2-fuad.tabba@linux.dev> <0ce5e496-a067-48fd-80d2-94fe9981d505@redhat.com>
-In-Reply-To: <0ce5e496-a067-48fd-80d2-94fe9981d505@redhat.com>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Sat, 15 Aug 2026 02:18:03 +0200
-X-Gmail-Original-Message-ID: <CA+EHjTzsCgBbaJQpv1ne-0Xo_3wdwv-R1RWMabdLxiMjMh4peA@mail.gmail.com>
-X-Gm-Features: AUfX_mxLSNC5ubSrnmPIZs7wo8JAHvSfgoxf3yq_YIzru-oTtZpAGPxeJWhZIZ0
-Message-ID: <CA+EHjTzsCgBbaJQpv1ne-0Xo_3wdwv-R1RWMabdLxiMjMh4peA@mail.gmail.com>
-Subject: Re: [PATCH v2 1/4] KVM: arm64: vgic-its: Don't dereference a NULL
- collection on ITT save
-To: Eric Auger <eauger@redhat.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>, 
-	Sascha Bischoff <sascha.bischoff@arm.com>, Sebastian Ene <sebastianene@google.com>, 
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260814_171858_918397_42DD6E54 
-X-CRM114-Status: GOOD (  29.95  )
+X-CRM114-CacheID: sfid-20260814_175522_699845_61CE6C35 
+X-CRM114-Status: UNSURE (   8.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,93 +82,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Eric,
+The Ethernet on Olimex A64-OlinuXino computers requires an RX delay
+greater than 0. If the value is not set or is 0, packet loss in the
+downlink direction is severe enough to interfere with downloads and
+disrupt software installation.
 
-On Fri, 14 Aug 2026 at 14:36, Eric Auger <eauger@redhat.com> wrote:
->
-> Hi Fuad,
->
-> On 8/7/26 12:40 PM, Fuad Tabba wrote:
-> > MAPC with V=0 drops ite->collection but leaves the ITE on the device's
-> > ITT list, and vgic_its_save_ite() dereferences it unconditionally. A
-> > guest that issues MAPD, MAPTI and then MAPC(V=0) therefore oopses the
-> > host when the VMM issues KVM_DEV_ARM_ITS_SAVE_TABLES to migrate it.
-> Thank you for fixing this bug!
-> > That sequence is UNPREDICTABLE per the architecture, but KVM already
-> > handles the resulting state in the translate, MOVI and DISCARD paths.
-> Maybe: "its_is_collection_mapped() already checks the collection is non
-> null in translate, movi and discard"
+The range of acceptable values is wide. The vendor has been applying
+200 ps in its downstream DTs since 2021. This patch matches that
+common practice.
 
-Agreed, that's more accurate. This went into kvmarm/next on the 8th
-[1], so it's the comment rather than the commit message I can still
-fix.
+Signed-off-by: Roman Riabenko <roman@riabenko.com>
+---
+ arch/arm64/boot/dts/allwinner/sun50i-a64-olinuxino.dts | 1 +
+ 1 file changed, 1 insertion(+)
 
-...
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a64-olinuxino.dts b/arch/arm64/boot/dts/allwinner/sun50i-a64-olinuxino.dts
+index fd3794678c33..6c8b79c257b9 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-a64-olinuxino.dts
++++ b/arch/arm64/boot/dts/allwinner/sun50i-a64-olinuxino.dts
+@@ -106,6 +106,7 @@ &emac {
+ 	phy-handle = <&ext_rgmii_phy>;
+ 	phy-supply = <&reg_dcdc1>;
+ 	allwinner,tx-delay-ps = <600>;
++	allwinner,rx-delay-ps = <200>;
+ 	status = "okay";
+ };
+ 
+-- 
+2.54.0
 
-> > diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
-> > index 36ab3e4929154..ed281fbf008b9 100644
-> > --- a/arch/arm64/kvm/vgic/vgic-its.c
-> > +++ b/arch/arm64/kvm/vgic/vgic-its.c
-> > @@ -2119,6 +2119,14 @@ static int vgic_its_save_ite(struct vgic_its *its, struct its_device *dev,
-> >       u32 next_offset;
-> >       u64 val;
-> >
-> > +     /*
-> > +      * MAPC with V=0 keeps the ITEs mapped but drops their collection,
-> > +      * and with it the ICID. Save a zeroed entry, which the restore path
-> > +      * reads back as invalid.
-> in
->
-> https://lore.kernel.org/all/CA+EHjTymdanCKoQO3ATmUZ=7Ph2wv4ES8SfkSsTgmOYAYBWayQ@mail.gmail.com/
->
-> you also mentionned this can also happen on clearing
-> GITS_BASER<coll>.Valid clear. So maybe don't specifically focus on MAPC
-> in in the comment.
-
-Yes, and the BASER case is the one that justifies the check: MAPC(V=0)
-is UNPREDICTABLE, so it could be answered by dropping the ITEs, while
-clearing GITS_BASER<coll>.Valid on a disabled ITS cannot. The comment
-names only the case that doesn't. I'll send a patch on top to reword
-it.
-
->
->
-> > +      */
-> > +     if (!ite->collection)
-> > +             return vgic_its_write_entry_lock(its, gpa, 0ULL, ite);
-> I would rather squash 4/4 here to emphasize we are unlinking that entry
-> from the scan chain.
-
-1/4 has Cc: stable and 4/4 isn't a fix, so I kept them apart. 4/4
-doesn't make the write unnecessary either: an orphaned ITE with no
-valid predecessor is read directly, regardless of the offsets.
-
-> Besides I also wonder if we should directly remove those entries from
-> the &device->itt_head on MAPC and GITS_BASER<coll>.Valid reset.
-
-For MAPC(V=0) I think it works, and it would stop the event slot being
-wedged: an orphaned ITE today can't be DISCARD-ed or remapped with
-MAPTI. But the ITT entry has to be zeroed with it, the way DISCARD
-does, or an earlier save's entry stays in the slot and restore fails
-find_collection() on the destination. Oliver suggested the same on v1
-[2].
-
-That pairing is what makes me doubt the BASER reset. There we would be
-zeroing every ITE of every mapped device from the GITS_BASER write
-handler, which is an unbounded number of guest memory writes on a
-register access, and unlike MAPC(V=0) that write isn't UNPREDICTABLE
-to begin with.
-
-Cheers,
-/fuad
-
-[1] https://lore.kernel.org/all/178621413198.380376.1272590130654213471.b4-ty@kernel.org/
-[2] https://lore.kernel.org/all/anQQ3dcbk72N1g1a@kernel.org/
-
-> Thanks
->
-> Eric>   next_offset = compute_next_eventid_offset(&dev->itt_head, ite);
-> >       val = ((u64)next_offset << KVM_ITS_ITE_NEXT_SHIFT) |
-> >              ((u64)ite->irq->intid << KVM_ITS_ITE_PINTID_SHIFT) |
->
 
