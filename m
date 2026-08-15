@@ -4,60 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBE27C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 01:21:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21326C5CFC1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 01:45:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e1GbwJutY4GdWm624xBCw3VzOLuvHYbs0MQRC3ke+iI=; b=SbVzxPw6Muvo7yqArEEf1FkGwh
-	2Ky01OYxeonPZHXmZrkqvE4OPBV7xqYvu29Le6E8+yK2733xICAnk6mGVvZFswQ5NUyqK4EU8rjVt
-	FDtf9zkt6tAORAkYCSr61imyw7bgakkZlsRycObtnVBP/Qq8fmfJR2CECtTYnNA4C+LtWgKgsTNSw
-	FFV+gACDQSrHwTM2bTukc7ocgeKu/4jaOen8/hVHg2gQ5ETwo4exW0MedBr2tAl7FFZum2U62MYXw
-	9NH1408SW02FR6cRQOScd49y4Fh8UDLbLP6pTlUqgyUJSy1n+xiKe/MMzOBNsMgMo5/8Gz1pbZqTW
-	X3dbc1ug==;
+	bh=RwpxIv3nPzVp7IdhrXTbkAlkt9OeIpd/r2hKdRXlQds=; b=UxEbn+jiBwXWgWshQCLXWaBy+L
+	rhNFvoRKib2GWfYosgyuzvAXA2MnBgvnjC9jTU+DD8oRufdqgN1joHiDoHZzHdircdo1CDATBWHNw
+	Icx2GMz+pUvZme5j3X0EtVFukYxMdBDtCN3aMzjKui+H5N0kdJpLP9tyzw4b4JJznK5edrts1AoO5
+	fPUh6PEH+/Gsp4ZM5jC9xLCuz0jS+VJQd4AeshhVsn1601a58OQ+NoTkTBQbFQ+aL0KgWzE6ghMYW
+	T116VeoOgfbPX1SlgxOjuHyDmotke3cjV8bubo+L7+K4a1B+iG4UI0xCsVQQEeJV1jr7E3RHIRQWk
+	d4VE9JYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wv34o-00000003Mfk-2KBH;
-	Sat, 15 Aug 2026 01:20:46 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wv3SV-00000003NTf-36zu;
+	Sat, 15 Aug 2026 01:45:15 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wv34n-00000003Mfb-3XRV;
-	Sat, 15 Aug 2026 01:20:45 +0000
+	id 1wv3SU-00000003NTM-1HRg
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 15 Aug 2026 01:45:14 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2B6C542AE7;
-	Sat, 15 Aug 2026 01:20:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB7FA1F000E9;
-	Sat, 15 Aug 2026 01:20:41 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5D98760008;
+	Sat, 15 Aug 2026 01:45:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D57231F000E9;
+	Sat, 15 Aug 2026 01:45:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786756845;
-	bh=e1GbwJutY4GdWm624xBCw3VzOLuvHYbs0MQRC3ke+iI=;
+	s=k20260515; t=1786758313;
+	bh=RwpxIv3nPzVp7IdhrXTbkAlkt9OeIpd/r2hKdRXlQds=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=O2+Kfnd97Q/YA1Em578zO+4kBFdO/77iJ2SeVvuaxxOSzFIACMcDaloxuvktQITr8
-	 1e2nAq0RFNaiWgjlPsmAVeAAJJPBCUDrC134SZ0q46jzS/MfmWy2QgMZyf4VjfEZcG
-	 HWVOaNS9J04tpNMgxRiNdCscPqJKxF/wgGDvs2oqUwwAMk2znlVluIzU2od9jC/0Z0
-	 Fkzgcg+Amk7f+ABEdv8mrDYnCkhjWJ1RymAdIM0pT4QRnebe0W25xN9EOpcmRfya4p
-	 g2c51qwMQLRgMmlThdm6rsk9FMygyh3F7D4kH3XACnpU6c49fJP2soPl2CVkxBbQRH
-	 +2G6rnQowHWLQ==
-Date: Sat, 15 Aug 2026 02:20:36 +0100
+	b=Eyiii193R1Y3nDPGd5lAubhDZwisGRqllhijW8eNf4IBR9s+HRa6LlyNCNwFHBX5x
+	 FsiTN5oY0v22DZ9OCDB/hbHmUqHL36GMRXOH+YJpkwk/CM3f4KO01hPAWIpoFEldWm
+	 uWrtfHX/RfBNLN2LTtfgMlvUT92BCERuQlRfCOrcz7vcmPSiV8Enc/uEAqMMKzDTiL
+	 g27p6Cv46RjZx7GnmLm+sxhuVJs3sRYvoI2g0lqpNfeyYc9jarpw4IKvS30gtp573G
+	 YFB8lDRH3OrIBw+yClAa9ZCpbJqRHlruraxf8tkPVebVcM2c5rKHnhSxvRF5DPv8dJ
+	 OLu7Yn0i+mLZQ==
+Date: Sat, 15 Aug 2026 02:44:57 +0100
 From: Jonathan Cameron <jic23@kernel.org>
-To: Vladislav Leonov <vlad@zlab.su>
-Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
- <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Heiko Stuebner
- <heiko@sntech.de>, Simon Glass <sjg@chromium.org>,
- linux-iio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] iio: adc: rockchip_saradc: Add support for RV1106
-Message-ID: <20260815022036.7c47585e@jic23-huawei>
-In-Reply-To: <20260810090826.146758-1-vlad@zlab.su>
-References: <20260714131631.v2.1.0b846080833e4b836793c43fc26d1c6d817cf9b4@changeid>
-	<20260810090826.146758-1-vlad@zlab.su>
+To: Andy Shevchenko <andriy.shevchenko@intel.com>
+Cc: Uwe =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <u.kleine-koenig@baylibre.com>,
+ Dileep Kumar Nagavarapu <DileepKumar.Nagavarapu@amd.com>, David Lechner
+ <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy
+ Shevchenko <andy@kernel.org>, Michal Simek <michal.simek@amd.com>, Conall
+ O'Griofa <conall.ogriofa@amd.com>, linux-iio@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ git@amd.com, Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
+Subject: Re: [PATCH v3 3/6] iio: adc: xilinx-xadc: Split driver into core
+ and platform files
+Message-ID: <20260815024457.39f531d1@jic23-huawei>
+In-Reply-To: <ann-96_VVW6mGzJX@ashevche-desk.local>
+References: <20260729125455.95893-1-DileepKumar.Nagavarapu@amd.com>
+	<20260729125455.95893-4-DileepKumar.Nagavarapu@amd.com>
+	<amuqm5qdzXqKutPS@monoceros>
+	<ann-96_VVW6mGzJX@ashevche-desk.local>
 X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,103 +78,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 10 Aug 2026 12:08:26 +0300
-Vladislav Leonov <vlad@zlab.su> wrote:
+On Mon, 10 Aug 2026 19:40:23 +0300
+Andy Shevchenko <andriy.shevchenko@intel.com> wrote:
 
-> The Successive Approximation ADC (SARADC) in RV1106 uses the v2
-> controller and supports:
-> - 10-bit resolution
-> - Up to 1MS/s sampling rate
-> - 2 single-ended input channels
-> 
-> "dt-bindings: iio: adc: rockchip-saradc: Add RV1106 compatible"
-> documents "rockchip,rv1106-saradc" as falling back to
-> "rockchip,rk3588-saradc" (see Link below). The two IP blocks are not
-> equivalent, though: per the RV1106 TRM v0.3, chapter 20 (SAR-ADC),
-> RV1106 only has 2 channels at 10-bit resolution, versus 8 channels
-> at 12-bit on RK3588. Without a dedicated match entry, the driver
-> binds via the fallback compatible and uses the RK3588 channel table,
-> which reports 8 channels instead of 2, and an in_voltage_scale that
-> is off by exactly 4x (4096 vs 1024 full-scale).
-> 
-> Add a dedicated compatible/data pair for RV1106 with the correct
-> 2-channel, 10-bit layout.
-> 
-> Tested on a custom RV1106-based board, with:
-> 
->   &saradc {
-> 	vref-supply = <&vcc_saradc>; /* 1.8V fixed regulator */
-> 	status = "okay";
->   };
-> 
-> Before this patch:
->   # ls /sys/bus/iio/devices/iio:device0/in_voltage*_raw | wc -l
->   8
->   # cat /sys/bus/iio/devices/iio:device0/in_voltage_scale
->   0.439453125
-> 
-> After this patch:
->   # ls /sys/bus/iio/devices/iio:device0/in_voltage*_raw | wc -l
->   2
->   # cat /sys/bus/iio/devices/iio:device0/in_voltage_scale
->   1.757812500
-> 
-> Link: https://lore.kernel.org/all/20260714131631.v2.1.0b846080833e4b836793c43fc26d1c6d817cf9b4@changeid/
-> Signed-off-by: Vladislav Leonov <vlad@zlab.su>
+> On Thu, Jul 30, 2026 at 09:52:24PM +0200, Uwe Kleine-K=C3=B6nig wrote:
+> > On Wed, Jul 29, 2026 at 06:24:52PM +0530, Dileep Kumar Nagavarapu wrote=
+: =20
+>=20
+> ...
+>=20
+> > > +#include <linux/mod_devicetable.h> =20
+> >=20
+> > I wonder why so many people recently add <linux/mod_devicetable.h> in
+> > their patches. Is there some tool that suggests that? =20
+>=20
+> My bet that this is AI agent suggestion based on the previous numerous
+> recommendations to include it.
 
-Hi Vladislav,
-
-Could you also send a fix for the dt-binding as it clearly
-shouldn't claim the fallback compatible!
-
-Whilst I can see why you did here, in general don't reply
-to an existing series when sending a new one.  Your link tag
-is sufficient to associate the two.
-
-I'll give this a little longer on list to let other comment, but
-looks good to me.
-
-Thanks,
+Given the number of years I asked for rather than of.h / acpi.h there
+is probably plenty of training data - which was nice until Uwe tidied
+this all up.
 
 Jonathan
 
-> ---
->  drivers/iio/adc/rockchip_saradc.c | 16 ++++++++++++++++
->  1 file changed, 16 insertions(+)
-> 
-> diff --git a/drivers/iio/adc/rockchip_saradc.c b/drivers/iio/adc/rockchip_saradc.c
-> index 0f0bf2906af0..5c45fae11890 100644
-> --- a/drivers/iio/adc/rockchip_saradc.c
-> +++ b/drivers/iio/adc/rockchip_saradc.c
-> @@ -348,6 +348,19 @@ static const struct rockchip_saradc_data rk3588_saradc_data = {
->  	.read = rockchip_saradc_read_v2,
->  };
->  
-> +static const struct iio_chan_spec rockchip_rv1106_saradc_iio_channels[] = {
-> +	SARADC_CHANNEL(0, "adc0", 10),
-> +	SARADC_CHANNEL(1, "adc1", 10),
-> +};
-> +
-> +static const struct rockchip_saradc_data rv1106_saradc_data = {
-> +	.channels = rockchip_rv1106_saradc_iio_channels,
-> +	.num_channels = ARRAY_SIZE(rockchip_rv1106_saradc_iio_channels),
-> +	.clk_rate = 1000000,
-> +	.start = rockchip_saradc_start_v2,
-> +	.read = rockchip_saradc_read_v2,
-> +};
-> +
->  static const struct of_device_id rockchip_saradc_match[] = {
->  	{
->  		.compatible = "rockchip,saradc",
-> @@ -370,6 +383,9 @@ static const struct of_device_id rockchip_saradc_match[] = {
->  	}, {
->  		.compatible = "rockchip,rk3588-saradc",
->  		.data = &rk3588_saradc_data,
-> +	}, {
-> +		.compatible = "rockchip,rv1106-saradc",
-> +		.data = &rv1106_saradc_data,
->  	},
->  	{ }
->  };
+>=20
 
 
