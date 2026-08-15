@@ -4,70 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8A8CC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 00:55:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBE27C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 01:21:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=YP5w1TR+MGgkl02qn/UbwcANepbuHsH+to8TLiuTSp4=; b=ceajpzKP1WD+xNXuDiIXwuUxrQ
-	FXOjKEczV6LMI+Pp5IZgbq2piXlXwV48fKcVbaV3V1ZR0waXQH16/7U5UvM9WNhN21lAKhbsdgHAB
-	4RrvCXJJGZW2DdukYF/qi6OQqANBOsNJ2ruWL+8lOcZQy1tgk5T7qDMIIGGRnXEkypJEGFgqa3FZP
-	E1x8sqBRHQUkUCEQupizp9+mdTQK9qZDLAwzpTLCj+xK4LXKXs5gf2Qi3cUaPQrIKfqb4//rK2z5e
-	DTukXS/tV+QhRjnE0266nyGTvCWF24NZ5SryFneOHq8mc/y9eQK1dAgdquVHUjq/l5n2mHaSBlyMd
-	jxYKCFGQ==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e1GbwJutY4GdWm624xBCw3VzOLuvHYbs0MQRC3ke+iI=; b=SbVzxPw6Muvo7yqArEEf1FkGwh
+	2Ky01OYxeonPZHXmZrkqvE4OPBV7xqYvu29Le6E8+yK2733xICAnk6mGVvZFswQ5NUyqK4EU8rjVt
+	FDtf9zkt6tAORAkYCSr61imyw7bgakkZlsRycObtnVBP/Qq8fmfJR2CECtTYnNA4C+LtWgKgsTNSw
+	FFV+gACDQSrHwTM2bTukc7ocgeKu/4jaOen8/hVHg2gQ5ETwo4exW0MedBr2tAl7FFZum2U62MYXw
+	9NH1408SW02FR6cRQOScd49y4Fh8UDLbLP6pTlUqgyUJSy1n+xiKe/MMzOBNsMgMo5/8Gz1pbZqTW
+	X3dbc1ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wv2gH-00000003LoH-1oKC;
-	Sat, 15 Aug 2026 00:55:25 +0000
-Received: from lab.riabenko.com ([185.143.146.30])
+	id 1wv34o-00000003Mfk-2KBH;
+	Sat, 15 Aug 2026 01:20:46 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wv2gE-00000003Lnq-2nhz
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Aug 2026 00:55:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=riabenko.com; s=selector; h=Content-Transfer-Encoding:MIME-Version:
-	Message-ID:Date:Subject:Cc:To:From:From:Sender:Reply-To:Subject:Date:
-	Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=YP5w1TR+MGgkl02qn/UbwcANepbuHsH+to8TLiuTSp4=; b=WRugtcH3kXqgQsyTCbhPlTXgTw
-	vy6nCgC1LcOrJpc8huuWJ4ucGyx5oiywy41amkJI92D+X0O9+A57+x+JViCd2yLNPF/d7nLJz1OS3
-	a3RjgwZ31Rgn0zOu/RiTNp6QEq/bJbXhi7uaIgE+iAq0fuUvlrS0fdLKOGnwer3Iq697JftTuMvnp
-	dGVdKr0W5uqaOb0vsAXSYrJSgGA3Ma6ABqRpA9L5f6cfZseL7A6ekVOOaRGOyBZveJFacDN9egZtX
-	5OVRCa+QdHpJCEc2xuUM20Z0HLRm3Yj1i6ksy+b3uoVBNd1tLetb0+BwZxzRiGo+viXOfOH2jvVbi
-	A7WCDFhg==;
-Received: from librecmc.lan ([192.168.10.1] helo=desk.lan)
-	by mini.riabenko.com with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <roman@riabenko.com>)
-	id 0005MW-000000004B7-1ITa;
-	Sat, 15 Aug 2026 03:55:07 +0300
-From: Roman Riabenko <roman@riabenko.com>
-To: wens@kernel.org,
-	jernej.skrabec@gmail.com,
-	samuel@sholland.org
-Cc: andre.przywara@arm.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	Roman Riabenko <roman@riabenko.com>
-Subject: [PATCH] arm64: dts: allwinner: sun50i-a64-olinuxino: Add RX delay
-Date: Sat, 15 Aug 2026 03:53:16 +0300
-Message-ID: <20260815005316.28998-1-roman@riabenko.com>
-X-Mailer: git-send-email 2.54.0
+	id 1wv34n-00000003Mfb-3XRV;
+	Sat, 15 Aug 2026 01:20:45 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2B6C542AE7;
+	Sat, 15 Aug 2026 01:20:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB7FA1F000E9;
+	Sat, 15 Aug 2026 01:20:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786756845;
+	bh=e1GbwJutY4GdWm624xBCw3VzOLuvHYbs0MQRC3ke+iI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=O2+Kfnd97Q/YA1Em578zO+4kBFdO/77iJ2SeVvuaxxOSzFIACMcDaloxuvktQITr8
+	 1e2nAq0RFNaiWgjlPsmAVeAAJJPBCUDrC134SZ0q46jzS/MfmWy2QgMZyf4VjfEZcG
+	 HWVOaNS9J04tpNMgxRiNdCscPqJKxF/wgGDvs2oqUwwAMk2znlVluIzU2od9jC/0Z0
+	 Fkzgcg+Amk7f+ABEdv8mrDYnCkhjWJ1RymAdIM0pT4QRnebe0W25xN9EOpcmRfya4p
+	 g2c51qwMQLRgMmlThdm6rsk9FMygyh3F7D4kH3XACnpU6c49fJP2soPl2CVkxBbQRH
+	 +2G6rnQowHWLQ==
+Date: Sat, 15 Aug 2026 02:20:36 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Vladislav Leonov <vlad@zlab.su>
+Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Heiko Stuebner
+ <heiko@sntech.de>, Simon Glass <sjg@chromium.org>,
+ linux-iio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] iio: adc: rockchip_saradc: Add support for RV1106
+Message-ID: <20260815022036.7c47585e@jic23-huawei>
+In-Reply-To: <20260810090826.146758-1-vlad@zlab.su>
+References: <20260714131631.v2.1.0b846080833e4b836793c43fc26d1c6d817cf9b4@changeid>
+	<20260810090826.146758-1-vlad@zlab.su>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260814_175522_699845_61CE6C35 
-X-CRM114-Status: UNSURE (   8.28  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,33 +72,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Ethernet on Olimex A64-OlinuXino computers requires an RX delay
-greater than 0. If the value is not set or is 0, packet loss in the
-downlink direction is severe enough to interfere with downloads and
-disrupt software installation.
+On Mon, 10 Aug 2026 12:08:26 +0300
+Vladislav Leonov <vlad@zlab.su> wrote:
 
-The range of acceptable values is wide. The vendor has been applying
-200 ps in its downstream DTs since 2021. This patch matches that
-common practice.
+> The Successive Approximation ADC (SARADC) in RV1106 uses the v2
+> controller and supports:
+> - 10-bit resolution
+> - Up to 1MS/s sampling rate
+> - 2 single-ended input channels
+> 
+> "dt-bindings: iio: adc: rockchip-saradc: Add RV1106 compatible"
+> documents "rockchip,rv1106-saradc" as falling back to
+> "rockchip,rk3588-saradc" (see Link below). The two IP blocks are not
+> equivalent, though: per the RV1106 TRM v0.3, chapter 20 (SAR-ADC),
+> RV1106 only has 2 channels at 10-bit resolution, versus 8 channels
+> at 12-bit on RK3588. Without a dedicated match entry, the driver
+> binds via the fallback compatible and uses the RK3588 channel table,
+> which reports 8 channels instead of 2, and an in_voltage_scale that
+> is off by exactly 4x (4096 vs 1024 full-scale).
+> 
+> Add a dedicated compatible/data pair for RV1106 with the correct
+> 2-channel, 10-bit layout.
+> 
+> Tested on a custom RV1106-based board, with:
+> 
+>   &saradc {
+> 	vref-supply = <&vcc_saradc>; /* 1.8V fixed regulator */
+> 	status = "okay";
+>   };
+> 
+> Before this patch:
+>   # ls /sys/bus/iio/devices/iio:device0/in_voltage*_raw | wc -l
+>   8
+>   # cat /sys/bus/iio/devices/iio:device0/in_voltage_scale
+>   0.439453125
+> 
+> After this patch:
+>   # ls /sys/bus/iio/devices/iio:device0/in_voltage*_raw | wc -l
+>   2
+>   # cat /sys/bus/iio/devices/iio:device0/in_voltage_scale
+>   1.757812500
+> 
+> Link: https://lore.kernel.org/all/20260714131631.v2.1.0b846080833e4b836793c43fc26d1c6d817cf9b4@changeid/
+> Signed-off-by: Vladislav Leonov <vlad@zlab.su>
 
-Signed-off-by: Roman Riabenko <roman@riabenko.com>
----
- arch/arm64/boot/dts/allwinner/sun50i-a64-olinuxino.dts | 1 +
- 1 file changed, 1 insertion(+)
+Hi Vladislav,
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a64-olinuxino.dts b/arch/arm64/boot/dts/allwinner/sun50i-a64-olinuxino.dts
-index fd3794678c33..6c8b79c257b9 100644
---- a/arch/arm64/boot/dts/allwinner/sun50i-a64-olinuxino.dts
-+++ b/arch/arm64/boot/dts/allwinner/sun50i-a64-olinuxino.dts
-@@ -106,6 +106,7 @@ &emac {
- 	phy-handle = <&ext_rgmii_phy>;
- 	phy-supply = <&reg_dcdc1>;
- 	allwinner,tx-delay-ps = <600>;
-+	allwinner,rx-delay-ps = <200>;
- 	status = "okay";
- };
- 
--- 
-2.54.0
+Could you also send a fix for the dt-binding as it clearly
+shouldn't claim the fallback compatible!
+
+Whilst I can see why you did here, in general don't reply
+to an existing series when sending a new one.  Your link tag
+is sufficient to associate the two.
+
+I'll give this a little longer on list to let other comment, but
+looks good to me.
+
+Thanks,
+
+Jonathan
+
+> ---
+>  drivers/iio/adc/rockchip_saradc.c | 16 ++++++++++++++++
+>  1 file changed, 16 insertions(+)
+> 
+> diff --git a/drivers/iio/adc/rockchip_saradc.c b/drivers/iio/adc/rockchip_saradc.c
+> index 0f0bf2906af0..5c45fae11890 100644
+> --- a/drivers/iio/adc/rockchip_saradc.c
+> +++ b/drivers/iio/adc/rockchip_saradc.c
+> @@ -348,6 +348,19 @@ static const struct rockchip_saradc_data rk3588_saradc_data = {
+>  	.read = rockchip_saradc_read_v2,
+>  };
+>  
+> +static const struct iio_chan_spec rockchip_rv1106_saradc_iio_channels[] = {
+> +	SARADC_CHANNEL(0, "adc0", 10),
+> +	SARADC_CHANNEL(1, "adc1", 10),
+> +};
+> +
+> +static const struct rockchip_saradc_data rv1106_saradc_data = {
+> +	.channels = rockchip_rv1106_saradc_iio_channels,
+> +	.num_channels = ARRAY_SIZE(rockchip_rv1106_saradc_iio_channels),
+> +	.clk_rate = 1000000,
+> +	.start = rockchip_saradc_start_v2,
+> +	.read = rockchip_saradc_read_v2,
+> +};
+> +
+>  static const struct of_device_id rockchip_saradc_match[] = {
+>  	{
+>  		.compatible = "rockchip,saradc",
+> @@ -370,6 +383,9 @@ static const struct of_device_id rockchip_saradc_match[] = {
+>  	}, {
+>  		.compatible = "rockchip,rk3588-saradc",
+>  		.data = &rk3588_saradc_data,
+> +	}, {
+> +		.compatible = "rockchip,rv1106-saradc",
+> +		.data = &rv1106_saradc_data,
+>  	},
+>  	{ }
+>  };
 
 
