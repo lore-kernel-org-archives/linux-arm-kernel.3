@@ -4,62 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F91BC5DF67
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 16:01:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA94AC5AD5A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 16:27:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c5lAbQnPcXApM8835iE9HIiKmxCrViQ7fRtEowToby0=; b=CKBNg9RTnKQmFJbjl+oW3IEBaH
-	pDln2vwSSMQZXRi/locUJTRI+AzdRWL6YDpp+0Shj+7hR2EQwiJA88elob0fZbDW7vDrii+GxDubo
-	X7Hw6Gjsih9kLZyv43t9Wqf1DWo0iF2gIhFQv3aHfvW7vDn+4hew+droBaOPzFOah336E4twsVEf6
-	RgAaifPo4SJr2feePmlayiRXgy30nOozivt3x4A01KJHkuxukirTpmYA45J1DZclavCSHqpg4gPaP
-	4HeS9O9EdbiPSw6/w0Cu15ukyqMZyohyaCRrMQNmu17WK3/gbVT62IpWL9vF57blMG7Z5r04n5Kh3
-	+ACTRtKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9w74tm65Ydq9yULfUeCQRvZJJ2X0p9Cgc3vMQMzjE18=; b=EyyFLDpQznAEU0PYpLUQW15t9r
+	EoPck0YClEMLTVBwlSgeu23mIk1G/0FqZtOnU3DENjtZwH4410dkM95J+nB3yycANw+thNoLA+P46
+	1ZFc9PzCxH7nzMaAZNP1mIh5H13pbfl9tpxAl/53RxP3lr8BGLmQZzS/8+5xBoGGXgF77j+SLmFBg
+	ifLzlJrkHVxJdH1hM87Vnk717+G+gFMYkp0UIeWYbsHvMUx1H3w0Z9qpfIWTxM2nprno8HEzy8xj7
+	CozL5emujrlBsG+iDuTiJoAMnnDMjLen+4qT29aDlQC6NdOouefS6O77whJLzUZu8G80Ld///qHRj
+	td80e8Tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvGoX-00000003vkY-0GsW;
-	Sat, 15 Aug 2026 16:00:53 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wvHE9-00000003waT-3ay6;
+	Sat, 15 Aug 2026 16:27:21 +0000
+Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvGoW-00000003vkR-12jp
+	id 1wvHE7-00000003wa7-1lbY
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Aug 2026 16:00:52 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4F6A54085A;
-	Sat, 15 Aug 2026 16:00:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D4491F000E9;
-	Sat, 15 Aug 2026 16:00:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786809651;
-	bh=c5lAbQnPcXApM8835iE9HIiKmxCrViQ7fRtEowToby0=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc;
-	b=kv2mv3/6809FcHe9aNwO0UuIfOyh58KCgtqdAZF3bT04vYCKorAH24bUm5az22AZM
-	 cYdz5pYqbqFFxAjVbsBOHcj4BEMbdicP+XlkDfNZknKZmpgniXDQBCGlTMC98H8+Db
-	 7uJbFA/tW+9DrQIs5qF6gyqNFzseSo18oNixeQWvmunUslepDbRCf7MG0//qUOzooH
-	 bh1XVQkjAMlMcpnRW5aKC7d0PnE29hyksAMIfSmSc9UYpOg3/XjxruRetMPBrG7jXR
-	 HjX1Ly3shcsJW8/PXx7V5QRFleQvzvAud6LXrcnG5vK4HIwvHcRATFTWJmUf8dAfEz
-	 9HqWjgO25UrSQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id DDD863924A48;
-	Sat, 15 Aug 2026 16:00:05 +0000 (UTC)
-Subject: Re: [GIT PULL] SoC fixes for 7.2, part 3
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <308796e0-962b-4e8f-bd2a-af5be9cf15a9@app.fastmail.com>
-References: <308796e0-962b-4e8f-bd2a-af5be9cf15a9@app.fastmail.com>
-X-PR-Tracked-List-Id: <soc.lists.linux.dev>
-X-PR-Tracked-Message-Id: <308796e0-962b-4e8f-bd2a-af5be9cf15a9@app.fastmail.com>
-X-PR-Tracked-Remote: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-fixes-7.2-3
-X-PR-Tracked-Commit-Id: e36c0670d5ebebd7dba493f14966051f354fbb34
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: 3eb40771c00a8488fa6ed2cc1fe203477908bf38
-Message-Id: <178680960474.22095.2957894126110984585.pr-tracker-bot@kernel.org>
-Date: Sat, 15 Aug 2026 16:00:04 +0000
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+	Sat, 15 Aug 2026 16:27:20 +0000
+Received: by mail-pg1-x531.google.com with SMTP id 41be03b00d2f7-c9cf07d2df6so1189578a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 15 Aug 2026 09:27:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786811238; x=1787416038; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=9w74tm65Ydq9yULfUeCQRvZJJ2X0p9Cgc3vMQMzjE18=;
+        b=GyxIK6JzIQ7n+Qti83BG6bfv8RsoR9fU7lOV61DCSUrfg8SdPqS5SMYDCZrDB+BncW
+         gtxEZRAFKge9noEcdqzrRHl60tR3SbQ8I/+JywFQdayXRN55c7qP22XfRrRI9f0TryiU
+         jv9HcZ93xpU9QzW4jldV5hwaDfnt3REt+J1lJs6Jpqs1HdUn9FKSP0RzWiSayZrUcF/H
+         cYUqlQ1HvYOxIrPwIHe5wAhquy+QrM14q+XjDsh2ndoOhggGcA70ipV5+Z81gCSFwfhR
+         XBXQsh00cIYAVZKwOC35KM0d8knf5y5ptrTaYXUZlwNRIJp0/E/Gv9BqStu5GFpZFBLt
+         lWgg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786811238; x=1787416038;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=9w74tm65Ydq9yULfUeCQRvZJJ2X0p9Cgc3vMQMzjE18=;
+        b=M/u0blH5JC/HBO19QRFvFp8dJSrheEmnkXlFfrukH/hDhUBXZzTwovK8l2mkMsV6ky
+         y/xspKpSjTSOlm9aLYYKp8V1gvpHCSxKhzBY0lwKS2wBWVUjVkZDNIvjDvvZ4qWrv4hL
+         ZNXwHhHefcFOGKIXf6N+4nGWjFqmQpqwWYAiWS6ej6pFzyBakUDCC08kOdnRxPSeqk9d
+         qbHL+anqU9lBvnh4mBaXf/qQNOuV5SZizN6wkN1NXMGtUGucZdTAYzIcWUiMiklhhDPA
+         RNG542PAHxA8MKjGBlxininsIol9ydwaESaryZ+gqnwdJvTTwVqJ4015hh+ItJuSKMhr
+         6ptw==
+X-Forwarded-Encrypted: i=1; AHgh+RqPoETZdXsjCLr/i8psNHTgFRrLDtuHBYbBQuKCvNSBU/nFWdsIKLYvt7LWgPKse0XMv9CL2ZTFIu2EaqHP2NJU@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy5ylxS0ie1Rm5xMug2OBEzExth7dmdL30U6DwmqNln6UdVfljg
+	m8I/m2yfDBo6nhx7F2DKTICsaUJ4RGafLyodp7E4eyP2baR5j8rxMw4h
+X-Gm-Gg: AR+sD12PounJTJGrlt6wyGSfmq6zy8pcHMnj+e/ls1HovhqL5ravygSCPzufvvp95hE
+	X/UIAGqL44cSNTr42ySik/kc/oOiXhR8gLlrJrUqd8aoZWfArc4skmLDOHyTgBQmSgaQgIXg24F
+	cYfqoQikLxkdablsGMgUAZodYo1nz/7R/axDr1cvgTi8UoXIj8CKwR5gWPv9OX1NtTOG7/bE/gY
+	9mHpY0K8V3fdj/KfenJmQo9JfyTlOl8r/UoQyVjxdQR0aASZYpT61UbrcQh2PUH4QFj+4tzKHPx
+	FgH0LkoEfROIGvmpw0kVsg8OcLOTPPkLhY8mvhnGhpII7Gk2KlGrn8RqGg894uqGbrNpCe9GtWJ
+	7XO8it1vlKC/exWKstDwdmYdKoueJeaYFpnZviUJ/ESMzSSEWWy4zNFpZ2RsKbdDTdBKLINKbyd
+	e7nbdomAXuJFc+PTRPgrw87LxNol36t9aZgUGDU3kxNF+4YwmEZ3J8JSojrPohkKTAoJZ7F4A6f
+	G7lnaYT+CXHdExLLtd3C7mWLCNAQ1cv
+X-Received: by 2002:a05:6a20:c88a:b0:3c3:7891:6523 with SMTP id adf61e73a8af0-3cc71de5b92mr17397279637.34.1786811237526;
+        Sat, 15 Aug 2026 09:27:17 -0700 (PDT)
+Received: from Ubuntu.. ([49.43.242.113])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-141387ed5b1sm36427232c88.8.2026.08.15.09.27.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 15 Aug 2026 09:27:16 -0700 (PDT)
+From: Manish Baing <manishbaing2789@gmail.com>
+To: perex@perex.cz,
+	tiwai@suse.com,
+	nicolas.ferre@microchip.com,
+	alexandre.belloni@bootlin.com,
+	claudiu.beznea@tuxon.dev
+Cc: linux-sound@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	manishbaing2789@gmail.com
+Subject: [PATCH 0/2] ASoC: atmel: ac97c: Fix IRQ handling sequences
+Date: Sat, 15 Aug 2026 16:27:04 +0000
+Message-ID: <20260815162707.353893-1-manishbaing2789@gmail.com>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260815_092719_460806_08849889 
+X-CRM114-Status: UNSURE (   9.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,16 +103,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Sat, 15 Aug 2026 10:15:49 +0200:
+This series addresses two hardware initialization and teardown issues in
+the atmel_ac97c driver flagged by the Sashiko AI bot.
+The original report can be found here:
+https://sashiko.dev/#/patchset/20260530052812.115994-1-manishbaing2789@gmail.com?part=1
 
-> https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-fixes-7.2-3
+- Patch 1 moves request_irq() to the end of probe to prevent a null pointer
+  dereference if an interrupt fires early.
+- Patch 2 reorders the teardown sequence to free the IRQ before disabling
+  clocks and unmapping memory, preventing a use-after-free.
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/3eb40771c00a8488fa6ed2cc1fe203477908bf38
+I do not have the physical hardware to test these changes, However, my manual 
+analysis indicates these are valid bugs, and the series compiles cleanly with W=1.
 
-Thank you!
+Manish Baing (2):
+  ASoC: sound: atmel: ac97c: Fix IRQ handler null pointer dereference
+  ASoC: atmel: ac97c: Fix use-after-free on driver teardown
+
+ sound/atmel/ac97c.c | 20 +++++++++++---------
+ 1 file changed, 11 insertions(+), 9 deletions(-)
 
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+2.43.0
+
 
