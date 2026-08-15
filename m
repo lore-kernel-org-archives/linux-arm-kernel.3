@@ -4,141 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD429C5CFC1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 00:05:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5F8CC5CFC1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 00:19:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wm38srSWvKn2bZKU8bOM9GSw2Dzk+DbCISm+8uNzNSs=; b=eR9PrEjQ5YvyrLh9VR/q5PBfR9
-	3qEX8/1AMeuYGjgdqNZi8INoXcBMqA06amm7Tr9p+4f9bZhgqBYE37J1ayJiybSbFvXSusR9bhsAO
-	k7S2/4rzaLqCjgArGP7SeX/fG1n1+yftpMrNNo1ioRJFy41SkKAit+/zSTCJOKKCnHEhKLu+bxome
-	/D3SUVihkOSDRt9+fo64sZYCvYBT14CB7qM/v2/2Z8kRyPVjVfXhNRofgWCEfhcJq7rhXRxzyZedC
-	/49X++EMUkL6l4h+i5Ios/xP3gFqFegD63oHRS/asojLj0oTji5KpI9HvrU6T/T+xNV/Edh15cVPb
-	NdvrJCcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WLvPD2Xvd2OCDWk0LusvK3Ba5zPp1t8KCpjF4I/EHLY=; b=mJCvffUw4wYoX681X8p9ol0V1b
+	U2h6eAGH05BWJU865n7YEJOHLpe7IjtTl9gV4Pbpx7Ykzy7GK/bL+9OI287uQs25MfrTGbyqdnYDp
+	uq/GMfzgD90vrbxaO02wOLa/kbwHICT89weDz0UEC824AKSL/q5fQ+3xnC4R0E+8p7kZlMv9O63Vh
+	XgUvrgf8+RTlhMbW3iD4anar/SQPnlgDsqkGHQzLlyR4x0ZD19WBh+3vARN3mGVcaf62Kjou9k13h
+	+OFm+Cvb+mKpxUAaglVlJ9PSyHPSgzrlrfGuc6hgHd/Kc8zBAAIblb9l5krCPHoE0TsTfGp7vf11p
+	Gma6oZxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wv1u4-00000003KKD-1esU;
-	Sat, 15 Aug 2026 00:05:36 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wv273-00000003L1x-3q1X;
+	Sat, 15 Aug 2026 00:19:01 +0000
+Received: from out-218.mta1.migadu.com ([2001:41d0:203:375::da] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wv1u1-00000003KJm-3Rvi
+	id 1wv270-00000003L1Z-2Ux4
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Aug 2026 00:05:35 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67ENCJlc3031545
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 15 Aug 2026 00:05:30 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	Wm38srSWvKn2bZKU8bOM9GSw2Dzk+DbCISm+8uNzNSs=; b=nuFpVb8CQWDeyhlA
-	pAP2xpJr1+3+OjI7sIeieVMfYiJS+3Ocqf+IGGwKmeDd3xXDfvLnG7ObH0+XRnjz
-	AOq7WGSmj/ueMbJDFJJJqxPD/CQXZ4WfdcKt/xfgIYoicBF5PYKFUmKxAXcEhAOZ
-	GLzY89HnwSdHNYZjHdxPX75iObP06fXDayZASjhikV8SkJ1eqqyI1rDw3rJtwQLT
-	WwMPDMzZq2MRZaoaMlAC4BAKdBLaiYCSNLOcP7HLcPXFhKQPTMAfjFvZ57C2KsrV
-	e1ik3K9NRhdF3DRa2r6dHepGkkMuu3yNpQ1+w3iVZgRk/20F5wizrog3aUDNVWZT
-	Dc62xw==
-Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g29k48vj0-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 15 Aug 2026 00:05:30 +0000 (GMT)
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-38dc085b0a7so2693240a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 17:05:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1786752330; x=1787357130; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Wm38srSWvKn2bZKU8bOM9GSw2Dzk+DbCISm+8uNzNSs=;
-        b=c5Ns7NLogTM6GdGN8XT6iS2RkPhOuay+LgtCV0Vg27Qumjau91rXkX867b3l6yKJz8
-         HOM0Hic+Bdr9zQAhihz9VsYDhe7Fqmpdhovto62Hm5BsDW37UdvwgvuJrvXQqqo2BKQK
-         L6OmLc9UcStTLOJ+laCUG9rXJGurAydkdqpWta9kBGy7a4q9f2wX7E10YK5ugzvdHtHT
-         JYgg1+4tb2mWTn2oHWl1J+PJFEq65ODccb40LWq1b8QkHFMmWFhj0IaCOKQySmeyExlK
-         hzFgCNTLsqNBIL2Np4owWNh17WXaap6LrVU6u/jDCm9nK4Mo+0ONRxHFIeSaUiF7RsUr
-         L6sA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786752330; x=1787357130;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Wm38srSWvKn2bZKU8bOM9GSw2Dzk+DbCISm+8uNzNSs=;
-        b=GArFSBQao60VhEJaG3BgvvyKYLyWLVN6CGIMxt2cZ6zXU5PhMVZAZRS6WFedyJVVcW
-         xtXBfqMEn9eAueEhDVVYtSL/kK6yd+MnMvJp6Ms0BspZ45IBHr4sKwfmmQ5KEZ04e/Xl
-         TE1cymm305wQLzg+xq4w+MEP9AG3QG+YWJPPe13ZlDd3oril2l8tgfcaP5RzysO23pAT
-         ckVzqApIlnSmqA1a5omFvvDSCykpN4IyXH9ADhh6IE7rmhT2cPJljXl+m6A8JUi3T5XO
-         UN98ww6xncUssMK6udwf2Bna/unPiUTo1awpBwOqtOy5MbF3JP5ReLahjvxMW1UuQX1N
-         l1ZQ==
-X-Forwarded-Encrypted: i=1; AHgh+RrA1MD7H+BOgLw3gciLGb216wLeCDlEmqar755mnSJJF4cOvHzWL/ouwLXZGYFRp5J9/ytqrW6xMGxTFVvnuGmf@lists.infradead.org
-X-Gm-Message-State: AOJu0YzTdRPwYk/UZRbEugFqHxiMPvr47hJTwcv41h5CPYc1GSwgqCeC
-	fi3hW1miItv6C51i/m0U9U4pLoRHz9ui2CjqImciH0fsalm8pwx2xkNlQ/83blkso9yRyyiIjYC
-	wy+8/T1vGxxMFNowGbWX3SoSfAGtXC4XNPNYbvIYrulsUr5XQpMrIrZcgDsDJavLe3IQ48m0CB+
-	13nQ==
-X-Gm-Gg: AR+sD11HJqYbbkeWSTdMKquyZ6Kcn1gcA5tnWJ2HFOya9m28I6q8eAmm6eDQ+BlrpIN
-	Sc7d9MSeW0pbCxfWFn7Ej6ciLbaHI38gM+Ai0BiHmcvUkgX9L6f+OxTCBNJsbH11W4+q4VXtuX8
-	darRMwdGhynZtL7trgl+ulg8C29dd8EZs/iyRlhbMSBR3CMoHC9mqaXXduThdzUUhd2NIkZY/q/
-	Mdgl6TEBDrPd5PGGsqEvicLx6CTO2as8PmtXPtw3WMVaPx+MCZ7sr6tqX1yrS4+0seEmFBmMUQi
-	z0ZmEqbCReWnplPtWLtr0v/Iv6bpFh3oyEr07OT0H1wunNw+2JcUrCxJLBEO1nCuvCIlJd+hi01
-	6d2zQxeJmeMf80J8QMtcE03KGChZV9RYk
-X-Received: by 2002:a17:90b:4f:b0:38e:ad9d:1161 with SMTP id 98e67ed59e1d1-3933b833613mr11780605a91.0.1786752329672;
-        Fri, 14 Aug 2026 17:05:29 -0700 (PDT)
-X-Received: by 2002:a17:90b:4f:b0:38e:ad9d:1161 with SMTP id 98e67ed59e1d1-3933b833613mr11780507a91.0.1786752329180;
-        Fri, 14 Aug 2026 17:05:29 -0700 (PDT)
-Received: from [192.168.4.152] ([172.59.161.148])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-141387ed5b1sm21430800c88.8.2026.08.14.17.05.28
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 14 Aug 2026 17:05:28 -0700 (PDT)
-Message-ID: <56107a6d-962d-4508-a1d3-7a6e9e2af887@oss.qualcomm.com>
-Date: Fri, 14 Aug 2026 17:05:27 -0700
+	Sat, 15 Aug 2026 00:19:00 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=HlDIpqm069G70cSVX9IpKdU7viVskBXwDZemew5s+u8=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1786753130; v=1; x=1787357930;
+ b=X0ucCcTd3ytsyYvJohDIZie4uVrtcbkRiBw/wT6ofliYsbE+aQC0DQe2PPseNYk6qeu3ZPEt
+ 54Hg39MBkJckXWQRHIPNy6H5CGL4Jav633QJCyl2uyM9Vdw3kkpCAQtOuLYkSttM4UsJMIyBRH5
+ I/v0LuZOJRSLuL4iaOOKTv+8=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: from mail-lf1-f46.google.com (209.85.167.46)
+	by smtp.migadu.com with ESMTPS id 45cc349fef6a3fe0;
+	Sat, 15 Aug 2026 00:18:40 +0000
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f46.google.com with SMTP id 2adb3069b0e04-5b2a73da7e1so15009e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Aug 2026 17:18:40 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RrbP1jbrtnFPy4ElAKrPuYHizfkepSqZ7y5A+zYoXKLxYRRLvp4V+2pYdmjCZMPj9lNjfsmvyXMiEtY0zLz/M3N@lists.infradead.org
+X-Gm-Message-State: AOJu0YxRxOJv+lbPPp1DpzjZalAlrFhhSEOjrNXri0AFZFYfPPU8A7tL
+	+xxl8wWs2DNa4OpZ/DWmDx9WpXB9YYrB8DBaYRiOqHGJa9GiUayk+SUDZqOIc2QM4xHyObxSbgt
+	UFAgEK8VvLyOjPCUU8djOzSIFKO19n6YeyDoZKh8D
+X-Received: by 2002:a05:6512:1092:b0:5ae:a4e8:47be with SMTP id
+ 2adb3069b0e04-5b45975c815mr305656e87.7.1786753119575; Fri, 14 Aug 2026
+ 17:18:39 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] pinctrl: scmi: Replace get function and group info
- with generic callbacks
-To: Cristian Marussi <cristian.marussi@arm.com>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>, Linus Walleij
- <linusw@kernel.org>,
-        arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20260731-scmi-pinctrl-generics-v1-0-8affd2b79a6b@oss.qualcomm.com>
- <an7RL_mTsznZjeIQ@pluto>
-Content-Language: en-US
-From: Alex Tran <alex.tran@oss.qualcomm.com>
-In-Reply-To: <an7RL_mTsznZjeIQ@pluto>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODE0MDE4NSBTYWx0ZWRfX5PM3g/kAmJ4j
- wNI06Xu1IKUwub2Jh/3BUHF7t3H/UjBLM0HkFgymemYg7M70/WzjAxSEm0dRKnDL2w2hIhO3yKe
- ZeGhOkJx+lADHQwvvSteZAyRwlbyevY=
-X-Authority-Analysis: v=2.4 cv=R6Mz39RX c=1 sm=1 tr=0 ts=6a7fad4a cx=c_pps
- a=0uOsjrqzRL749jD1oC5vDA==:117 a=QQ+fG4gAsU/2tVdSCsf/ug==:17
- a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
- a=2icmqZXXVlfet6DyCXwA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=mQ_c8vxmzFEMiUWkPHU9:22
-X-Proofpoint-GUID: sNrvho9YLNyvBK1UYfp6F7VX-JetsVNA
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODE0MDE4NSBTYWx0ZWRfX9Tf2ZnfZdiVn
- 7gXLKInhxZSrJ4hdXP+o0R2d60diZiWfIJb6uuoP0ovsY6snccFRagk1k71CucpVeuYQr15qGzv
- i1hTgEL9BIonQlCxbCHnhd7BZTNEZ7nOJXhGQZ/t5GnwYkasZlVRFMtfWpdkpm9JhvVsAazPyvb
- NjDWm+97UDw7APWeGlc477pUfm1nFLkzqd1ebMdHJBEhO35uU3qzUzVfFvC6TDAkX2CObFdiztp
- WJfEnIV71KQY03uwLbT8mdoLxSQk2mhkU3e6VX/AB0mzsJ5hXA8OgjOEX0MLqtHI9sHftFTJFmq
- Pv/9CgzAIm38o9YT05FjIm0Gxnlg5GapKmNnrdJBYq3tdydWfrTC7V4jAMrRJnXW2EGvhCwysZy
- sgK3L6zLeBW6hCb9iM/38lBU0KtUKnufc9EygwEHnZ4oNiLUw428/Np5CQK3eENRHQX3yAWIFPA
- mcNNEG3+nfKCM5ZCbOw==
-X-Proofpoint-ORIG-GUID: sNrvho9YLNyvBK1UYfp6F7VX-JetsVNA
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-14_08,2026-08-12_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 priorityscore=1501 lowpriorityscore=0 phishscore=0 bulkscore=0
- impostorscore=0 clxscore=1015 spamscore=0 malwarescore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608140185
+References: <20260807104102.2410744-1-fuad.tabba@linux.dev>
+ <20260807104102.2410744-2-fuad.tabba@linux.dev> <0ce5e496-a067-48fd-80d2-94fe9981d505@redhat.com>
+In-Reply-To: <0ce5e496-a067-48fd-80d2-94fe9981d505@redhat.com>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Sat, 15 Aug 2026 02:18:03 +0200
+X-Gmail-Original-Message-ID: <CA+EHjTzsCgBbaJQpv1ne-0Xo_3wdwv-R1RWMabdLxiMjMh4peA@mail.gmail.com>
+X-Gm-Features: AUfX_mxLSNC5ubSrnmPIZs7wo8JAHvSfgoxf3yq_YIzru-oTtZpAGPxeJWhZIZ0
+Message-ID: <CA+EHjTzsCgBbaJQpv1ne-0Xo_3wdwv-R1RWMabdLxiMjMh4peA@mail.gmail.com>
+Subject: Re: [PATCH v2 1/4] KVM: arm64: vgic-its: Don't dereference a NULL
+ collection on ITT save
+To: Eric Auger <eauger@redhat.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>, 
+	Sascha Bischoff <sascha.bischoff@arm.com>, Sebastian Ene <sebastianene@google.com>, 
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260814_170533_989072_CA81DFED 
-X-CRM114-Status: GOOD (  12.12  )
+X-CRM114-CacheID: sfid-20260814_171858_918397_42DD6E54 
+X-CRM114-Status: GOOD (  29.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,34 +85,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Hi Alex,
+Hi Eric,
+
+On Fri, 14 Aug 2026 at 14:36, Eric Auger <eauger@redhat.com> wrote:
 >
-> I gave it a go at this series on an emulated setup and with these
-> changes I get:
+> Hi Fuad,
 >
-> root@deb-guest:~# modprobe pinctrl-scmi
-> [   15.329932] scmi-pinctrl scmi_dev.4: error -EINVAL: Failed to register functions
-> [   15.330259] scmi-pinctrl scmi_dev.4: probe with driver scmi-pinctrl failed with error -22
+> On 8/7/26 12:40 PM, Fuad Tabba wrote:
+> > MAPC with V=0 drops ite->collection but leaves the ITE on the device's
+> > ITT list, and vgic_its_save_ite() dereferences it unconditionally. A
+> > guest that issues MAPD, MAPTI and then MAPC(V=0) therefore oopses the
+> > host when the VMM issues KVM_DEV_ARM_ITS_SAVE_TABLES to migrate it.
+> Thank you for fixing this bug!
+> > That sequence is UNPREDICTABLE per the architecture, but KVM already
+> > handles the resulting state in the translate, MOVI and DISCARD paths.
+> Maybe: "its_is_collection_mapped() already checks the collection is non
+> null in translate, movi and discard"
+
+Agreed, that's more accurate. This went into kvmarm/next on the 8th
+[1], so it's the comment rather than the commit message I can still
+fix.
+
+...
+
+> > diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
+> > index 36ab3e4929154..ed281fbf008b9 100644
+> > --- a/arch/arm64/kvm/vgic/vgic-its.c
+> > +++ b/arch/arm64/kvm/vgic/vgic-its.c
+> > @@ -2119,6 +2119,14 @@ static int vgic_its_save_ite(struct vgic_its *its, struct its_device *dev,
+> >       u32 next_offset;
+> >       u64 val;
+> >
+> > +     /*
+> > +      * MAPC with V=0 keeps the ITEs mapped but drops their collection,
+> > +      * and with it the ICID. Save a zeroed entry, which the restore path
+> > +      * reads back as invalid.
+> in
 >
-> ...not debugged any further.
+> https://lore.kernel.org/all/CA+EHjTymdanCKoQO3ATmUZ=7Ph2wv4ES8SfkSsTgmOYAYBWayQ@mail.gmail.com/
 >
-> Thanks,
-> Cristian
-Hi Cristian,
+> you also mentionned this can also happen on clearing
+> GITS_BASER<coll>.Valid clear. So maybe don't specifically focus on MAPC
+> in in the comment.
 
-I've tested this series on sa8797p hardware and did not experience any issues
+Yes, and the BASER case is the one that justifies the check: MAPC(V=0)
+is UNPREDICTABLE, so it could be answered by dropping the ITEs, while
+clearing GITS_BASER<coll>.Valid on a disabled ITS cannot. The comment
+names only the case that doesn't. I'll send a patch on top to reword
+it.
 
-with registering functions during probe. Can you provide me with the pin
+>
+>
+> > +      */
+> > +     if (!ite->collection)
+> > +             return vgic_its_write_entry_lock(its, gpa, 0ULL, ite);
+> I would rather squash 4/4 here to emphasize we are unlinking that entry
+> from the scan chain.
 
-topology of your emulated setup? I have a hunch that the topology may
+1/4 has Cc: stable and 4/4 isn't a fix, so I kept them apart. 4/4
+doesn't make the write unnecessary either: an orphaned ITE with no
+valid predecessor is read directly, regardless of the offsets.
 
-contain a function with 0 groups which is why -EINVAL is being returned.
+> Besides I also wonder if we should directly remove those entries from
+> the &device->itt_head on MAPC and GITS_BASER<coll>.Valid reset.
 
-The previous pinctrl_scmi_get_function_groups callback considered a function
+For MAPC(V=0) I think it works, and it would stop the event slot being
+wedged: an orphaned ITE today can't be DISCARD-ed or remapped with
+MAPTI. But the ITT entry has to be zeroed with it, the way DISCARD
+does, or an earlier save's entry stays in the slot and restore fails
+find_collection() on the destination. Oliver suggested the same on v1
+[2].
 
-with no groups invalid.
+That pairing is what makes me doubt the BASER reset. There we would be
+zeroing every ITE of every mapped device from the GITS_BASER write
+handler, which is an unbounded number of guest memory writes on a
+register access, and unlike MAPC(V=0) that write isn't UNPREDICTABLE
+to begin with.
 
-Best,
-Alex
+Cheers,
+/fuad
 
+[1] https://lore.kernel.org/all/178621413198.380376.1272590130654213471.b4-ty@kernel.org/
+[2] https://lore.kernel.org/all/anQQ3dcbk72N1g1a@kernel.org/
+
+> Thanks
+>
+> Eric>   next_offset = compute_next_eventid_offset(&dev->itt_head, ite);
+> >       val = ((u64)next_offset << KVM_ITS_ITE_NEXT_SHIFT) |
+> >              ((u64)ite->irq->intid << KVM_ITS_ITE_PINTID_SHIFT) |
+>
 
