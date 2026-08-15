@@ -4,72 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26329C5CFC1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 19:42:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8F83C5CFC1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 19:53:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RixPhJk+gYVryfYGhQfLmx60drwk5C34W1B3mP3kFkk=; b=gaO2ovnerMtjWHOW0+HMk1oT5o
-	8vlJ4aqh4p2Waa80ndhBwpew6MRfmoXLsCKlnGHYuofkome59aND//JNc5fFHfVDctF292BiQBZZv
-	N164uP3/sYNStmg4w+EGJpHiFpVu+jVTbfD2BTlgGza7p61W2K0BZ+RnxHxCzyJNKi6yxlLnPnbTp
-	aGwUmBWEIMgwh7FkoEWauO8AARBoV2JylnHqFAjGOlQcN9QZ2gxEg+Z6KyfBgqbToU+R60mKUnBGl
-	LV93yURvII5NaOkdNpvHbEU3h0vbcMwA3mM5JU2l4furgOyWV8zkAVcwmRhR9jA4oa3xZT9iU9UVJ
-	rr7Zwt+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Eq2RtujxGrJTIGd3DVkk78kzCYiIFx37waJS5UewyY4=; b=RHwMEq+47oH+mi3DsFonHnBr98
+	LvpOwzcZd0lhDcyE+pBkh/EgG9j0Zv0f40c3/X5BdNoiahMxNw3b8YSHE0/7q3E3MXEkDIfsdOuS5
+	jG0Dfa7/J4aBtFCOv4GwORpqbwxq7/fafOP6sLLDjhJWwAY03q4uuD96iJUSk/JeWqI+7NaP+ecwy
+	UTG1jQFxqyLUgld3ZKQ87uODo41PSX7LSWFIjWDR0GFUNXw2+D97LcR5m7LCuY4v/OegW9t7rSFWN
+	/kco95wgSceALz+W8VYZcbwa+ZR0s/HvzL7tmi/UjWymjy0eAfVuYv4aJ1rBMTMFhdievLUN4JDpi
+	C15vYPJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvKGl-000000048rL-3Bd0;
-	Sat, 15 Aug 2026 19:42:15 +0000
-Received: from mgamail.intel.com ([198.175.65.10])
+	id 1wvKQw-000000049WB-3oeU;
+	Sat, 15 Aug 2026 19:52:46 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvKGi-000000048qs-1hYk
+	id 1wvKQv-000000049W5-2keF
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Aug 2026 19:42:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1786822933; x=1818358933;
-  h=date:from:to:cc:subject:message-id;
-  bh=FwYVoP/09leCO0hIOwAJYeqyf0gOUUkfhS0A8HX2bnc=;
-  b=klXx3TfkEWk3zmwTOWr/Bbr8ZemejwxJC0X1T6MZxn8SSaix76nMM1mf
-   79JfnjMhFVh+UdZwskkXN52qOPZVgNNEhToptpQzP6xxGiqYD+5Pn1jIM
-   qHD6vVVuNZW309Sr+21uDDN1BPnhfBwfnA70NDJjeodEi5KJRaHX5LYOx
-   oUeclggXON3eHLPD1ASirasKjm17siGFbp722566rKnvGHyWueAn6QitK
-   1uwoRJabUAasMG/UUJTHCb/9oMKHHM5i/OW0xW1IFE6/jPLVzVIeg0nNY
-   rppY6PaHG0lRwQTwA8y362ywzUQt+pFk/IrRZ4kTE83HWzaBMi5hCE7KB
-   A==;
-X-CSE-ConnectionGUID: H+UboGDrTkesu/vJ6KbkhQ==
-X-CSE-MsgGUID: Wpu4ZIttTnehEWYiumgapQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11876"; a="104742897"
-X-IronPort-AV: E=Sophos;i="6.25,225,1779174000"; 
-   d="scan'208";a="104742897"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Aug 2026 12:42:11 -0700
-X-CSE-ConnectionGUID: 5YJPer3NT0qHsMqithKPXg==
-X-CSE-MsgGUID: ln7oeZNyTpmaQn7rjHz+bQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,225,1779174000"; 
-   d="scan'208";a="288002194"
-Received: from lkp-server01.sh.intel.com (HELO 6eda058d650d) ([10.239.97.150])
-  by fmviesa002.fm.intel.com with ESMTP; 15 Aug 2026 12:42:09 -0700
-Received: from kbuild by 6eda058d650d with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1wvKGc-00000000cS6-2ajv;
-	Sat, 15 Aug 2026 19:42:06 +0000
-Date: Sun, 16 Aug 2026 03:41:31 +0800
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:board-remove 40/217] arch/arm/kernel/process.c:379:5:
- warning: no previous prototype for function 'arch_setup_additional_pages'
-Message-ID: <202608160341.2pHIQyJL-lkp@intel.com>
-User-Agent: s-nail v14.9.25
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260815_124212_531025_F3D8FEAC 
-X-CRM114-Status: UNSURE (   9.33  )
-X-CRM114-Notice: Please train this message.
+	Sat, 15 Aug 2026 19:52:45 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9A40960052;
+	Sat, 15 Aug 2026 19:52:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B38E71F000E9;
+	Sat, 15 Aug 2026 19:52:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786823564;
+	bh=Eq2RtujxGrJTIGd3DVkk78kzCYiIFx37waJS5UewyY4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=EYVc7dIkz8sAGGnIifOr7xcYSgycnMye4jiiP11Hr7c1BQBb3L07YlIzSFIt0D8Sh
+	 LleR6bQftlhHsbF0iBXN+WAAKwOVt0nIBddZo74lSopOf1tMeh3oX73IKsm3Wrsn7G
+	 JX4RvkdUAU8S1s3bZ2DX7Jbo1nl1Rp41kZQY7nnLH5SxmEjm3/1cYGWogWpRCx8Jk7
+	 KnU9mfFSXAic3PLY1/I5h8Fm4cHGVt0MLLMvCqqj/dZAYxAqjQY5seTx+txR4UKrXt
+	 cD+1nOpQItDhVsC8bXS0YQOUxp0zue/ukMunnWD5RSCz4+WzFgAdyMvE2M0vyjQcb9
+	 wfY1XMXfm+1aw==
+Date: Sat, 15 Aug 2026 20:52:38 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Varshini Rajendran <varshini.rajendran@microchip.com>
+Cc: <ehristev@kernel.org>, <dlechner@baylibre.com>, <nuno.sa@analog.com>,
+ <andy@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+ <conor+dt@kernel.org>, <nicolas.ferre@microchip.com>,
+ <alexandre.belloni@bootlin.com>, <claudiu.beznea@tuxon.dev>,
+ <srini@kernel.org>, <marcelo.schmitt@analog.com>, <radu.sabau@analog.com>,
+ <joshua.crofts1@gmail.com>, <jorge.marques@analog.com>,
+ <Jonathan.Santos@analog.com>, <jishnu.prakash@oss.qualcomm.com>,
+ <antoniu.miclaus@analog.com>, <duje@dujemihanovic.xyz>,
+ <mazziesaccount@gmail.com>, <linux-iio@vger.kernel.org>,
+ <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v6 02/17] nvmem: add DEFINE_FREE for nvmem_cell_put
+ cleanup
+Message-ID: <20260815205238.6fbfb2f8@jic23-huawei>
+In-Reply-To: <20260806074024.531259-3-varshini.rajendran@microchip.com>
+References: <20260806074024.531259-1-varshini.rajendran@microchip.com>
+	<20260806074024.531259-3-varshini.rajendran@microchip.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,42 +80,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git board-remove
-head:   057394422bc04420585b2790b230d8a1f350ace8
-commit: 99feea9e164dc7bec620cd48078d1c6ec0bdadc4 [40/217] ARM: remove remaining nommu support
-config: arm-orion5x_defconfig (https://download.01.org/0day-ci/archive/20260816/202608160341.2pHIQyJL-lkp@intel.com/config)
-compiler: clang version 21.1.8 (https://github.com/llvm/llvm-project 2078da43e25a4623cab2d0d60decddf709aaea28)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260816/202608160341.2pHIQyJL-lkp@intel.com/reproduce)
+On Thu, 6 Aug 2026 13:10:09 +0530
+Varshini Rajendran <varshini.rajendran@microchip.com> wrote:
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202608160341.2pHIQyJL-lkp@intel.com/
+> Add cleanup.h helper for nvmem_cell_put() to enable automatic resource
+> cleanup using __free(nvmem_cell_put) annotation.
+> 
+> Use IS_ERR_OR_NULL() since nvmem_cell_get() can return error pointers,
+> and passing an ERR_PTR to nvmem_cell_put() would cause issues.
+> 
+> Signed-off-by: Varshini Rajendran <varshini.rajendran@microchip.com>
+> ---
 
-All warnings (new ones prefixed by >>):
+Srinivas, if you are happy with this header addition please could
+I have an Ack to take this through the IIO tree?  If it's useful
+for other series, I can provide an immutable branch that you can
+pull into the nvmem tree.  I'll probably spin one of those on rc1
+once available anyway just in case someone else needs it later
+in the cycle.
 
->> arch/arm/kernel/process.c:379:5: warning: no previous prototype for function 'arch_setup_additional_pages' [-Wmissing-prototypes]
-     379 | int arch_setup_additional_pages(struct linux_binprm *bprm, int uses_interp)
-         |     ^
-   arch/arm/kernel/process.c:379:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
-     379 | int arch_setup_additional_pages(struct linux_binprm *bprm, int uses_interp)
-         | ^
-         | static 
-   1 warning generated.
+No huge rush - just good to keep this moving!
+
+Jonathan
 
 
-vim +/arch_setup_additional_pages +379 arch/arm/kernel/process.c
+>  include/linux/nvmem-consumer.h | 3 +++
+>  1 file changed, 3 insertions(+)
+> 
+> diff --git a/include/linux/nvmem-consumer.h b/include/linux/nvmem-consumer.h
+> index 34c0e58dfa26..5315bd862f5f 100644
+> --- a/include/linux/nvmem-consumer.h
+> +++ b/include/linux/nvmem-consumer.h
+> @@ -9,6 +9,7 @@
+>  #ifndef _LINUX_NVMEM_CONSUMER_H
+>  #define _LINUX_NVMEM_CONSUMER_H
+>  
+> +#include <linux/cleanup.h>
+>  #include <linux/err.h>
+>  #include <linux/errno.h>
+>  #include <linux/notifier.h>
+> @@ -243,6 +244,8 @@ static inline struct nvmem_device *nvmem_device_find(void *data,
+>  
+>  #endif /* CONFIG_NVMEM */
+>  
+> +DEFINE_FREE(nvmem_cell_put, struct nvmem_cell *, if (!IS_ERR_OR_NULL(_T)) nvmem_cell_put(_T))
+> +
+>  #if IS_ENABLED(CONFIG_NVMEM) && IS_ENABLED(CONFIG_OF)
+>  struct nvmem_cell *of_nvmem_cell_get(struct device_node *np,
+>  				     const char *id);
 
-02e0409a65560d Nathan Lynch 2014-09-22  378  
-48be69a026b2c1 Russell King 2013-07-24 @379  int arch_setup_additional_pages(struct linux_binprm *bprm, int uses_interp)
-
-:::::: The code at line 379 was first introduced by commit
-:::::: 48be69a026b2c17350a5ef18a1959a919f60be7d ARM: move signal handlers into a vdso-like page
-
-:::::: TO: Russell King <rmk+kernel@arm.linux.org.uk>
-:::::: CC: Russell King <rmk+kernel@arm.linux.org.uk>
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
