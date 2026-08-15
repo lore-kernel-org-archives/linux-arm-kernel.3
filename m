@@ -4,90 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 804A0C5CFC1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 21:13:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E96E9C5CFC1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 21:50:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9SLTJcm5n+Gs4MvyDRaD5ZUNP0VQqMVi7H7DWoQkAZE=; b=1HXwY/NaUwel15OH0AABpEebkG
-	93QcZzzkkxXjJuNlCVlDuQwwQMPei0IfevuJArY1YAShvmi+kudhBVIwC7DXpYQO7hTEoEVG4Ji3h
-	JUhL4HybQlXPDUBi3LoSOIDTJlGOCmUhU58xLhZ8OIf4Xw2XAEscR3XXYvUDnN7IzhXLOn37FtGeI
-	Q+pcjsPbTW80RoQhREkIo8r8uMsmdymv4Lui84X9VsyLP5Uip+ZJUJqXv/68K0jMTrnbSBG1bUp31
-	JqYGgolvfe084dEXpjZOcqNGsT3xEQrCwzW0/1XTaYVBHoZLq7GnMbVZXFyubrTP/Avqqhi8rHjxt
-	rRmwAEpA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=flOU+GsPnkJk4hfwQBm4GqfM22X6Dcnmn1YJIc77Kh8=; b=YUr4MMfoGWQ4Vb
+	HY0lRjKQssfDwMqqW7MJigoLsslaqbb7trt0YtiZBAn95RwSzDdg+ZnU3wTnyrmQR5XkeGOqQ3ZLz
+	EO7Bgj9UphbltnwNf6tgJl2uGK5t8aYefE1Q0OAuyz2JbJ1wTp4ez++f4NSoBzs+mByDlGOnpovYp
+	NiJPJopoWytvoLvXmplaZGiMqqw6laU2lqp8j0U8m9kNQb/8ClCKmxl0+QR9ExLa0Fto3/2IoHBAn
+	SQ8DPzdoYgFMdm/hqoh3GWXd6ZbcGu6a/3V3UQxfNBTsK35TC3kiMKuIcfGogA+PaZAqjNkD17jms
+	GaisPpOaqyow6fqg2bbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvLh0-00000004CMi-1o3C;
-	Sat, 15 Aug 2026 21:13:26 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1wvMGV-00000004DKL-1CRW;
+	Sat, 15 Aug 2026 21:50:07 +0000
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvLgy-00000004CMA-0B8Q
+	id 1wvMGT-00000004DJs-18bC
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Aug 2026 21:13:25 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-4799b3f7c83so1535244f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 15 Aug 2026 14:13:23 -0700 (PDT)
+	Sat, 15 Aug 2026 21:50:06 +0000
+Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-38f0f3c8da5so303919a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 15 Aug 2026 14:50:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786828402; x=1787433202; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=9SLTJcm5n+Gs4MvyDRaD5ZUNP0VQqMVi7H7DWoQkAZE=;
-        b=KhYkeoNQF8SEo9w7UnQ50rh226qYBodE1MJF3LX0k3NmggcFbFNpgWaHa2uquI4/Wh
-         FuwQI90P0xUdcoVmkhVqnJb/WFhHPPBMFiYbyWbhNZ0awszGpg30TsfUD6d0HI7ywx+u
-         Oq+9Rv39o9aayqf49hWsGhXRl0OwDkOKd9EtcBkRryzk5LNNqcHouoF2kfR+pFLMbKNn
-         Q6ocWLNdQiu5XJkLEQ8drczlXSSYgHsFqPBk+2n01gIwDelXEZ/FOQ12N+5V1aIq9e1M
-         8Cq1FpNJ1aoEB2ti3vW6ohqTpE6lTy9LV3K3+pvyWppBuPxikwkbQtbBGROb9cTqFxCb
-         6dyA==
+        d=gmail.com; s=20251104; t=1786830604; x=1787435404; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=flOU+GsPnkJk4hfwQBm4GqfM22X6Dcnmn1YJIc77Kh8=;
+        b=kS41LzNekZqEPcv875XY0I1T6zqv9mvTiXHzqtyUu8IqnO/zowwCohK8DmMrO+90bU
+         vajIRluxxIoKCZKxqL6Q0o3zhksG5qkLYu9xdoVsDch4Bs3i7JcetDgUyqLdlkuypp4e
+         vuqKK02AVYLXIj7cypI3nXWj5Cyj/yL6IvoYdoYfbTemvckJ6oUb3IqCv6Eh2SVxiHQ6
+         mvRPSTtI40EsVW2BCdTzqEqsZvyhVSTzzeXsWIFu85RqAcNhzlmAZgr8SldobGSp80Hw
+         mFx7uMrpVRoUOOhXh7cquPJXF3bK0g9EVb7AyXga8svQTLlYqrT9oRSTSnE2AYELUh/e
+         KDtw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786828402; x=1787433202;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=9SLTJcm5n+Gs4MvyDRaD5ZUNP0VQqMVi7H7DWoQkAZE=;
-        b=OO2dO2WeOQRktukF3T4+vVWEvxuOEysbpViBUjSU5M4KiMibCQ9y8EInc4noNooiFh
-         kccmHICwcL5eugKGSH2INUmGgs0r/kFLbL6AQOiNRdl7zEGmJQ3zw+pyorNrpUNkUSdD
-         TTppUubjd7N4nfxQG7kY120yPvyE+Qag/qfYt20NeobWais7tMBgy9H1xiW+5EOdq4vz
-         P7eHiJO7C65hwSukx+wSnT7/e/Jytu3IZh4gwL5y2wY1u+qKjOpOu/abNAQ/feTzsxBA
-         holFD31LSPZTJGhoiNB02T3DVmJyvTMLavpqq/M7mGbJbhL/f0ICRxfjf7fmEWJtLKyY
-         ZHzg==
-X-Forwarded-Encrypted: i=1; AHgh+RqnPBsC0ij/eler2gYilAqyAFQDLCJ3KE7708IzEjACPyFe7y7sDeel12utA92APOweOqodV0CSRpVZz0VSsHL/@lists.infradead.org
-X-Gm-Message-State: AOJu0YwbmSyHMpJyg94Pf1NbuJZ5sl4w9x0XwVWdPMnKPicc3hCqulPQ
-	17sE+4/PEAM3NIvtG+944cuXnf266bvQaqZZfmzKvFtI1izTUiBXC+OA73QJxZ7z
-X-Gm-Gg: AR+sD11CjQ4DbwkB+2/kXXHlWQFTfS40jrfBYmpj0SZGJnuNFQbwXAFyFlSo5Nhf154
-	AzblSJHF3bRtb+UUWFrK667WbKMZFzSWG5xqo7jkcye15HGLO9TbsuWE0i2kDng8WjvFc0oNV62
-	Y2EpQCqkNJnPB6rXwSz11zH7NoXYItlQ07IZCySJ6WMrupL9kd+7FajVmvC35FyO3YF60vvto9f
-	f9I97LJ4W3matHRpcHXsy1qNaRbkz4BZu/29eyLBMLQ3NiOqtkgx7Um8RC3G04nbW+FQ2U1ln2R
-	2N/il4FjDjMeynXMjwpt4mE33dRy2zZV16uuE05XJbc4n17K4pqnGJ7GwCD5UfyRXY+xQI34qFA
-	HUa0KAoETbxlSn9PwI1TqT7EOvsrMk4c4nffRYIu7EV/xDcLUXsqY9goqf1YJR9b9hvW+DEqPtO
-	9YHWntuG19AZlQpkH/eDdz0WuVWJ/7CBwocWlmp7ElCCPPddFQaisTrCewF/kZSPN02jIhN41nr
-	ziu5zI0wvhVcN7Dv9fo5WJd8UPlCph5CFuWAgsNQa0I0qhqlIyhTbZfQwW/rqSPTMnaQMpm1JQj
-	tyMm7MoI1eMVXfJhQWbluRWAIAC0kUOqR5HAcDP8KvX0bFoqRwRuLuh8IIwEGEOkpmYm
-X-Received: by 2002:a05:6000:2a89:b0:47f:93b4:2def with SMTP id ffacd0b85a97d-481607b5671mr19216866f8f.28.1786828401869;
-        Sat, 15 Aug 2026 14:13:21 -0700 (PDT)
-Received: from localhost.localdomain (dynamic-2a02-3100-aecb-d601-fc34-eb31-14a1-3704.310.pool.telefonica.de. [2a02:3100:aecb:d601:fc34:eb31:14a1:3704])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4815f21a068sm19113272f8f.12.2026.08.15.14.13.20
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sat, 15 Aug 2026 14:13:21 -0700 (PDT)
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: Karl Mehltretter <kmehltretter@gmail.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	David Hildenbrand <david@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64: mm: Walk page tables with interrupts disabled in show_pte()
-Date: Sat, 15 Aug 2026 23:13:16 +0200
-Message-Id: <20260815211316.974-1-kmehltretter@gmail.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+        d=1e100.net; s=20251104; t=1786830604; x=1787435404;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=flOU+GsPnkJk4hfwQBm4GqfM22X6Dcnmn1YJIc77Kh8=;
+        b=KSz1cpl1pns1xAB88wRdE/AbmE8N+XoET6qUVJwL8J+SvMhxVEjbKgFBc0I8/zEWDl
+         9jy4L+rexffQUjs0TZVzTiQyX+pdCIz3QY7bRKQ9D3pXpYHwgh7NAdnQeD8hjbvD6sCc
+         ZBvSvVRpE48s+jpsKW6yQ3oenkOjdcT7EPhkMFtU3BJuxCJtjA9hXz0bJTfFiIzzEPww
+         yBOefWJ1FGA6womezTFR7LZoaGE9NFNNjlk6AwsXrbYIdbDt7G/YZb7tgJEeish2mqd7
+         hE4jge56aDEA7DYHV/Z/U6mXVUJtuJj8awIhTe47jRRsZzQaDRcy9zKGolh1JuuFhxqe
+         Y0og==
+X-Forwarded-Encrypted: i=1; AHgh+RrqTVxeGKFlEM/zyJu4xEAbWo8f8EZ6YH1KegQwPtHqzPGJOFbSSAoFIeRFcHcEYxDux+X0Dpo5JxiGe8Lw+mGl@lists.infradead.org
+X-Gm-Message-State: AOJu0YzM0cxnCw+W/kDaxGBoOyN635N462xlZ8STjVl66YySiu/SJ3N2
+	pVxUxORndv5upaOh0/6XPmtEb1le+BqDN9LQX2pcBgVCtfkBsibVJC3j
+X-Gm-Gg: AR+sD12UJCkWPxe6b7lQT98c8JBjfKhp26EJdExGNdrT7tidg0M/KaCAUDUW480WlRa
+	3P00preoQVXUttGpU+DXrH9xyAFJ1yy9SW/Hvz1bY/fCXZJQLSnIgHEr9Hu4VMve5awMkWCv1y9
+	MRdePeWVYuPv0pYT9sguJeVafuT/aDEdNI51UO5PBrgzufgamPhdcJkySvK5Jr9yw6B4vBZ5ifK
+	vBykffVmIPoqNnUGqDs07NgDfcMTk6lbiRecHhxr8f/Cme4XhU8zzTB2d9wfM1aRr4D1uvkxjY0
+	HrcTFARXJhgcOkbsTaVa9CFvajV0z+Gl+3aHovRTyqoZiI7U0YrrVtUgX1rSz9lGnFH4o85eoSR
+	fEMHBDuYMtQW+Oudrz+5wlIwGtFNGuCDfCmd+T3gM8J7ExpvvR3uE5odXFNXzp/GSafoW1/NAq3
+	uAFptF6P80hrc2HvkZ8pJ5PfdWMQTQ6BIcb4J5phoYWtUWgh7typpeN+RkqRKDAF9+4t7g22a7V
+	nsGDEsP8GdYsENa
+X-Received: by 2002:a17:90b:2e4f:b0:38e:ab3f:2c99 with SMTP id 98e67ed59e1d1-3933b871cecmr11796551a91.2.1786830604335;
+        Sat, 15 Aug 2026 14:50:04 -0700 (PDT)
+Received: from [10.112.173.252] ([2409:40c2:505d:7e1:7f19:edf4:38f3:dccf])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-141388b2554sm33541829c88.14.2026.08.15.14.49.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 15 Aug 2026 14:50:03 -0700 (PDT)
+From: Bhargav Joshi <j.bhargav.u@gmail.com>
+Subject: [PATCH 0/2] spi: davinci: Convert bindings to dt-schema and clean
+ up DTS
+Date: Sun, 16 Aug 2026 03:19:30 +0530
+Message-Id: <20260816-ti-davinci-spi-v1-0-a7f57dfd5262@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x2MwQqAIBAFfyX23IJJLNKvRIfMrd7FQiMC6d+Tm
+ NMcZgplTdBMQ1Mo6Y2MI1bp2oaWfY6bMkJ1ssaKcZ3wBQ7zjbiA8wlW6bXivHihGp1JVzz/cJz
+ e9wOTgHJiYAAAAA==
+X-Change-ID: 20260816-ti-davinci-spi-e64e4e48b6b6
+To: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, 
+ Nishanth Menon <nm@ti.com>, Santosh Shilimkar <ssantosh@kernel.org>
+Cc: linux-spi@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ goledhruva@gmail.com, m-chawdhry@ti.com, daniel.baluta@gmail.com, 
+ simona.toaca@nxp.com, j.bhargav.u@gmail.com
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1786830590; l=1098;
+ i=j.bhargav.u@gmail.com; h=from:subject:message-id;
+ bh=4VCb5hbd5FtPxnayyr+BaRBuN+DJl3M/be9Ng6hw8io=;
+ b=L5/ERK4hd8yvnG2dq35TqIPDWaNtOiDPSanlrZvZNIE1G6J7s74R8qtuhTEQORm+zHOyL+lpA
+ IdfmRSWsfg1BzuE0e8IZSLENqEcuIzeUUlI2+Gz8efUOUOgvZJUYOXk
+X-Developer-Key: i=j.bhargav.u@gmail.com; a=ed25519;
+ pk=IqNDwUZKECEA+n8wXctFLBbYL9NhFstZNbOznm/nX1k=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260815_141324_100009_2EDB0759 
-X-CRM114-Status: GOOD (  12.35  )
+X-CRM114-CacheID: sfid-20260815_145005_322744_8BE79691 
+X-CRM114-Status: GOOD (  11.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,53 +115,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-show_pte() walks the page tables locklessly and can run with interrupts
-enabled, so a concurrent teardown (e.g. munmap() in another thread of
-the faulting mm) can free a table page from under it. Dereferencing the
-freed page can fault again or print garbage in the oops report.
+This series converts the TI DaVinci/Keystone SPI controller device tree
+bindings from the legacy text format to DT schema. 
 
-arm64 selects MMU_GATHER_RCU_TABLE_FREE, and the documented protection
-for lockless walkers is disabling interrupts, as gup_fast() does. That
-holds off the RCU-deferred table frees and, unlike rcu_read_lock(),
-also blocks the IPI-based synchronisation (tlb_remove_table_sync_one())
-that khugepaged collapse uses before reusing a table.
+- Patch 1 removes the obsolete property `ti,davinci-spi-num-cs` from
+  keystone-k2l.dtsi, as the driver uses the standard `num-cs` property.
+- Patch 2 Converts ti,davinci-spi from text to DT schema.
 
-Use guard(irqsave)() around the complete walk. This does not make the
-diagnostic output a consistent snapshot, but prevents it from
-dereferencing a released page-table page.
-
-Fixes: 1d18c47c735e ("arm64: MMU fault handling and page table management")
-Assisted-by: Codex:gpt-5.6-sol
-Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+Signed-off-by: Bhargav Joshi <j.bhargav.u@gmail.com>
 ---
-Testing: QEMU arm64 virt guest, 2 vCPUs, debug_pagealloc=on. A racing
-page-table unmap triggered a nested fault in the walk without this
-patch, none with it.
+Bhargav Joshi (2):
+      ARM: dts: ti: keystone-k2l: Remove obsolete ti,davinci-spi-num-cs property
+      dt-bindings: spi: ti,davinci-spi: convert to DT schema
 
- arch/arm64/mm/fault.c | 3 +++
- 1 file changed, 3 insertions(+)
+ .../devicetree/bindings/spi/spi-davinci.txt        | 100 -----------------
+ .../bindings/spi/spi-peripheral-props.yaml         |   1 +
+ .../spi/ti,davinci-spi-peripheral-props.yaml       |  25 +++++
+ .../devicetree/bindings/spi/ti,davinci-spi.yaml    | 118 +++++++++++++++++++++
+ arch/arm/boot/dts/ti/keystone/keystone-k2l.dtsi    |   9 --
+ 5 files changed, 144 insertions(+), 109 deletions(-)
+---
+base-commit: 3eb40771c00a8488fa6ed2cc1fe203477908bf38
+change-id: 20260816-ti-davinci-spi-e64e4e48b6b6
 
-diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-index 0b52557652be6..b173eebd3cd19 100644
---- a/arch/arm64/mm/fault.c
-+++ b/arch/arm64/mm/fault.c
-@@ -16,6 +16,7 @@
- #include <linux/mm.h>
- #include <linux/hardirq.h>
- #include <linux/init.h>
-+#include <linux/irqflags.h>
- #include <linux/kasan.h>
- #include <linux/kprobes.h>
- #include <linux/uaccess.h>
-@@ -151,6 +152,8 @@ static void show_pte(unsigned long addr)
- 		return;
- 	}
- 
-+	guard(irqsave)();
-+
- 	pr_alert("%s pgtable: %luk pages, %llu-bit VAs, pgdp=%016lx\n",
- 		 mm == &init_mm ? "swapper" : "user", PAGE_SIZE / SZ_1K,
- 		 vabits_actual, mm_to_pgd_phys(mm));
+Best regards,
 -- 
-2.53.0
+Bhargav
+
 
