@@ -4,65 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E8C7C5AD5A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 18:57:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26329C5CFC1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 19:42:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cLQgMJZ7qnH5wLoYqijNKlZhPRcRBbKGvpe7JT4LVTA=; b=vgnJDgi/SWZvLPmGaZvVeM10bz
-	0kcxtubrUTfoq+osZ9tKlGuIT6yM8/d0rSssS4hOfrg5R7nwidicGIaXok2ROXxfuBj/HTJROMfUm
-	asLyqXe+15wrTpLQ+2P8oTPMwm5EH3+tOfon0nj7REvWaEaRAIl8rVFz+DqTj0exAG6KfDZB7rpzU
-	x9kT6lMn3Dd81oQ0THFSAfz4ymZKWCsPQdyUugNZm/1PnzqZxzx8acxETHudPSs93KrtHjFWfanrD
-	KeWwZT29bi8aLsOE9dCWc1rKbFfUwZGYSsGJohC/OPaYEEz1gBA38sj4sddAgSLms5pQh4MDXy1e0
-	dxQzpX6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RixPhJk+gYVryfYGhQfLmx60drwk5C34W1B3mP3kFkk=; b=gaO2ovnerMtjWHOW0+HMk1oT5o
+	8vlJ4aqh4p2Waa80ndhBwpew6MRfmoXLsCKlnGHYuofkome59aND//JNc5fFHfVDctF292BiQBZZv
+	N164uP3/sYNStmg4w+EGJpHiFpVu+jVTbfD2BTlgGza7p61W2K0BZ+RnxHxCzyJNKi6yxlLnPnbTp
+	aGwUmBWEIMgwh7FkoEWauO8AARBoV2JylnHqFAjGOlQcN9QZ2gxEg+Z6KyfBgqbToU+R60mKUnBGl
+	LV93yURvII5NaOkdNpvHbEU3h0vbcMwA3mM5JU2l4furgOyWV8zkAVcwmRhR9jA4oa3xZT9iU9UVJ
+	rr7Zwt+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvJZg-000000046Iy-452e;
-	Sat, 15 Aug 2026 18:57:44 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wvKGl-000000048rL-3Bd0;
+	Sat, 15 Aug 2026 19:42:15 +0000
+Received: from mgamail.intel.com ([198.175.65.10])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvJZf-000000046Io-2uKX
+	id 1wvKGi-000000048qs-1hYk
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Aug 2026 18:57:43 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id F17B04398C;
-	Sat, 15 Aug 2026 18:57:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF9611F000E9;
-	Sat, 15 Aug 2026 18:57:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786820262;
-	bh=cLQgMJZ7qnH5wLoYqijNKlZhPRcRBbKGvpe7JT4LVTA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=hLVS2htWqLJ5MvFYiOttx0lg2QZpf3PJv8nCEkD30sbNXKgFUnBN89t0mTJhDnLwx
-	 6afjE4m5BBNR+Hq0DdokfIDUHetpkxeaPLIFxlt6afZgM37mgtw49tvEpZLFo8Hv73
-	 zALCMqJxvqTBCGNWdSCl/+iG+5cjll82SYz49Vkt2yL9AeyImuUmFyn25AVvLYn3jq
-	 o3WPl/uVc7fgMOaIi1qLsWlztu/ZQO+QeaS+QixxA4rck7ufOf1f0h2xJIRMASAAlA
-	 DVpAtvBUsqRHHal0LBVAdITb5FoRG05/pLJT73tTggnl3fG1wMh95EEBKmFLTNLADB
-	 Emwd50OrO6WGw==
-Date: Sat, 15 Aug 2026 11:57:40 -0700
-From: Josh Poimboeuf <jpoimboe@kernel.org>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, live-patching@vger.kernel.org, Song Liu <song@kernel.org>, 
-	Miroslav Benes <mbenes@suse.cz>, Petr Mladek <pmladek@suse.com>, 
-	Joe Lawrence <joe.lawrence@redhat.com>, Mark Rutland <mark.rutland@arm.com>, 
-	Mark Brown <broonie@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Kees Cook <kees@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
-	linux-toolchains@vger.kernel.org
-Subject: Re: [PATCH 02/12] arm64/module: Fix BTI exceptions caused by omitted
- landing pads in Clang 21
-Message-ID: <aoCu66bx1Qg14-uD@jpoimboe>
-References: <cover.1786768375.git.jpoimboe@kernel.org>
- <2ff1b2482406c61ca5979d6284ba5f948a3fbc20.1786768375.git.jpoimboe@kernel.org>
- <6bc20c00-21a9-4315-8ec3-33c7ad6ae95f@app.fastmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <6bc20c00-21a9-4315-8ec3-33c7ad6ae95f@app.fastmail.com>
+	Sat, 15 Aug 2026 19:42:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1786822933; x=1818358933;
+  h=date:from:to:cc:subject:message-id;
+  bh=FwYVoP/09leCO0hIOwAJYeqyf0gOUUkfhS0A8HX2bnc=;
+  b=klXx3TfkEWk3zmwTOWr/Bbr8ZemejwxJC0X1T6MZxn8SSaix76nMM1mf
+   79JfnjMhFVh+UdZwskkXN52qOPZVgNNEhToptpQzP6xxGiqYD+5Pn1jIM
+   qHD6vVVuNZW309Sr+21uDDN1BPnhfBwfnA70NDJjeodEi5KJRaHX5LYOx
+   oUeclggXON3eHLPD1ASirasKjm17siGFbp722566rKnvGHyWueAn6QitK
+   1uwoRJabUAasMG/UUJTHCb/9oMKHHM5i/OW0xW1IFE6/jPLVzVIeg0nNY
+   rppY6PaHG0lRwQTwA8y362ywzUQt+pFk/IrRZ4kTE83HWzaBMi5hCE7KB
+   A==;
+X-CSE-ConnectionGUID: H+UboGDrTkesu/vJ6KbkhQ==
+X-CSE-MsgGUID: Wpu4ZIttTnehEWYiumgapQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11876"; a="104742897"
+X-IronPort-AV: E=Sophos;i="6.25,225,1779174000"; 
+   d="scan'208";a="104742897"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Aug 2026 12:42:11 -0700
+X-CSE-ConnectionGUID: 5YJPer3NT0qHsMqithKPXg==
+X-CSE-MsgGUID: ln7oeZNyTpmaQn7rjHz+bQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,225,1779174000"; 
+   d="scan'208";a="288002194"
+Received: from lkp-server01.sh.intel.com (HELO 6eda058d650d) ([10.239.97.150])
+  by fmviesa002.fm.intel.com with ESMTP; 15 Aug 2026 12:42:09 -0700
+Received: from kbuild by 6eda058d650d with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wvKGc-00000000cS6-2ajv;
+	Sat, 15 Aug 2026 19:42:06 +0000
+Date: Sun, 16 Aug 2026 03:41:31 +0800
+From: kernel test robot <lkp@intel.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:board-remove 40/217] arch/arm/kernel/process.c:379:5:
+ warning: no previous prototype for function 'arch_setup_additional_pages'
+Message-ID: <202608160341.2pHIQyJL-lkp@intel.com>
+User-Agent: s-nail v14.9.25
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260815_124212_531025_F3D8FEAC 
+X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,68 +84,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 15, 2026 at 12:56:11PM +0300, Ard Biesheuvel wrote:
-> Hi Josh,
-> 
-> On Sat, 15 Aug 2026, at 07:45, Josh Poimboeuf wrote:
-> > The following BTI exception was seen when loading a livepatch module:
-> >
-> >   Internal error: Oops - BTI: 0000000036000001 [#1]  SMP
-> >   pstate: 634004c9 (nZCv daIF +PAN -UAO +TCO +DIT -SSBS BTYPE=jc)
-> >   pc : kill_orphaned_pgrp+0x0/0x150
-> >   lr : do_exit+0x498/0xaf0 [livepatch_combined]
-> >
-> > The problem is that the patch module's do_exit() is branching to a
-> > static function in vmlinux using a module PLT veneer (indirect branch),
-> > but the target function doesn't have a BTI landing pad.
-> >
-> > Clang 21+ omits the landing pad for static functions which can only be
-> > reached by a direct branch.  But livepatch modules use klp relocations
-> > to reference arbitrary kernel symbols, and with
-> > CONFIG_RANDOMIZE_MODULE_REGION_FULL the module is far enough away that
-> > every call to vmlinux needs a PLT.
-> >
-> > Note this problem is actually not specific to livepatch.  It's possible
-> > for any module's .init section to be allocated > 128MB away from its
-> > .text section.  So calls from .init to .text via a PLT can trigger a BTI
-> > exception when the target function doesn't have a landing pad.
-> >
-> > GCC has always omitted the landing pad when possible, so kernel BTI is
-> > already considered incompatible with GCC since commit c0a454b9044f
-> > ("arm64/bti: Disable in kernel BTI when cross section thunks are
-> > broken").
-> >
-> > When missing landing pads are detected, allocate a page close to the
-> > target which can be used to hold BTI veneers which receive PLT veneer
-> > indirect branches and direct branch to the final target:
-> >
-> 
-> This does not work for cross-section calls from .init.text to .text.
-> 
-> If .init.text is far away from .text, it is likely because .text
-> ended up in the 128M 'near' module region, and .init.text did not.
-> (They tend to end up in direct branching range of each otherwise.)
-> 
-> Given that the module init code is typically small, I don't think
-> it is safe to assume that allocating a single page close enough to
-> .text is going to be possible if allocating the space for .init.*
-> was not.
-> 
-> IOW, the fix I proposed for cross-section calls is still needed
-> with this approach.
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git board-remove
+head:   057394422bc04420585b2790b230d8a1f350ace8
+commit: 99feea9e164dc7bec620cd48078d1c6ec0bdadc4 [40/217] ARM: remove remaining nommu support
+config: arm-orion5x_defconfig (https://download.01.org/0day-ci/archive/20260816/202608160341.2pHIQyJL-lkp@intel.com/config)
+compiler: clang version 21.1.8 (https://github.com/llvm/llvm-project 2078da43e25a4623cab2d0d60decddf709aaea28)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260816/202608160341.2pHIQyJL-lkp@intel.com/reproduce)
 
-But the BTI veneer page is allocated from a *256MB* window, of which the
-near region is only a 128MB subset.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202608160341.2pHIQyJL-lkp@intel.com/
 
-There is a theoretical case where the 256MB window around the target is
-completely full without any fragmentation, but I would think that there
-would almost always be some fragmentation.  If that window is modules
-stacked together, most modules have at least .init.plt and .init.text,
-and many have .init.data.
+All warnings (new ones prefixed by >>):
 
-Right now it needs two pages (because of the default guard page) but we
-could maybe fall back to VM_NO_GUARD in case of emergency.
+>> arch/arm/kernel/process.c:379:5: warning: no previous prototype for function 'arch_setup_additional_pages' [-Wmissing-prototypes]
+     379 | int arch_setup_additional_pages(struct linux_binprm *bprm, int uses_interp)
+         |     ^
+   arch/arm/kernel/process.c:379:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
+     379 | int arch_setup_additional_pages(struct linux_binprm *bprm, int uses_interp)
+         | ^
+         | static 
+   1 warning generated.
 
--- 
-Josh
+
+vim +/arch_setup_additional_pages +379 arch/arm/kernel/process.c
+
+02e0409a65560d Nathan Lynch 2014-09-22  378  
+48be69a026b2c1 Russell King 2013-07-24 @379  int arch_setup_additional_pages(struct linux_binprm *bprm, int uses_interp)
+
+:::::: The code at line 379 was first introduced by commit
+:::::: 48be69a026b2c17350a5ef18a1959a919f60be7d ARM: move signal handlers into a vdso-like page
+
+:::::: TO: Russell King <rmk+kernel@arm.linux.org.uk>
+:::::: CC: Russell King <rmk+kernel@arm.linux.org.uk>
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
