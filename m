@@ -4,95 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A998C5AD5A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 07:25:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3036BC5DF67
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 08:16:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d81zRYCsqoH4yC+fFuwiOVWQ7sGjNnHCn37vF9eBXco=; b=RBfMFhOzHAtKFOW617EqEnc6fi
-	XIxIX9WDrmKQ1KaaIpKuP8b1x3JlbPyajCk9Q7i1f7KzbQ9LlEdBjW0i/l+rS4HECwrfcB2Z/JeUs
-	vphakInQ2cXaa896Crq+mN8QBUiDPnc7VAMNo4V2WOAuiNbKxHfCpO3IhxJBOKx60mqivLb0iChWp
-	Dz4MEAwF2ueNBQCcGy9P5Dm5z1U5Upkx/faEBkISCcHI9hoxV6HiGZbRFiAQIa66uNpTJWoEzJR0t
-	yZ5r4HZlB4xZXr4s0OHlY88lfpfCD3ib4nkV4dtJBbImDUKDuomYyxgPjRq7YhJqmMFkMeC2RuvAT
-	iBqpSauQ==;
+	Content-Type:Subject:Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uTXfL04+7M6PFf6QMhYjfaRkbYuuslMVuPfvHfO9194=; b=hhhb/kdjscqhoByt+Ccpm9ZdPF
+	keOeWXjcbJmvGX8RwOxVFyjkclgNHnd3U/ayJ0/KzSzHdZJctaiuAJ+ablWVqaBenB/aaHfczns4f
+	RgoMhQd7iUfvT40mePKtKx4qZlT3gdTmaawmoa04pckNEj7uMLxJwAOgQkh/GAjskX+sqSw77tvME
+	XUksYAO5UPE3CZK33Nu2btBzcU/pi0QCXsztn4preHse9y0L7wU2IrFv5qjgnT2NzgdsK5ZvTQikQ
+	xzTvpMKOiukzYXAnEJGLuWhTLNdgepumlqnkBAtBswtjxnTo2ah4LJZ/8ej/xJKBX9Q7p+d0HQu45
+	W73TGMwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wv8l0-00000003cOX-1cT0;
-	Sat, 15 Aug 2026 07:24:42 +0000
-Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
+	id 1wv9Yh-00000003ecw-356X;
+	Sat, 15 Aug 2026 08:16:03 +0000
+Received: from fhigh-b4-smtp.messagingengine.com ([202.12.124.155])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wv8kx-00000003cOD-4C2j
+	id 1wv9Ye-00000003ecT-3LFH
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Aug 2026 07:24:41 +0000
-Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-3856d6fbcb3so1587503a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 15 Aug 2026 00:24:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786778678; x=1787383478; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=d81zRYCsqoH4yC+fFuwiOVWQ7sGjNnHCn37vF9eBXco=;
-        b=X3yWltWt6/w8PUr50uyBOqEAiLS/+RhraEtozGTy1HFTOTqQ2aXGqhN0zBWsb0FCb7
-         Y/g1iG0c++bQ0gCN8ACuLZLkw/4RhTCwFwUeS98sZ7uKPiPzmtaKtBBgspWTylojy4dC
-         lPs6Jhfbc2LDG4mge74NxmzeS8nPZTb0AVGkvQb1D6inHxLHVZuDQ8u8moY4vQpP2bW9
-         CeqMa3p8Ov56+/aS4c/7syOlxma3jw8OCm7eyz9zokA26LvdyDi3Xj/dI6Hn1V7bci4t
-         rBgLNVRYpuOdCCvZyOM3B+DUnBn0VgDKJL5kT1jJpQC7bxjMIf6e5P9oKuyiKog278Yj
-         PtYw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786778678; x=1787383478;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=d81zRYCsqoH4yC+fFuwiOVWQ7sGjNnHCn37vF9eBXco=;
-        b=JAf5Nb/EuVTR5XMmHEVeGsnJbiA56M0tLYc+XePsulO2jrkktZVvuPbXHkZCG00J8P
-         gf8/D8Sc67+uGesBnf7lBYImY2NrLduKUwKeJ0lblmDb2h/Ac0fV4GTMgkK96yMdXlTY
-         zmgdUF5UmZWibOwsP0pe9/rJZtq736TM237iKbxK/r95G9YKNo9NGUVju6Z2WoxnRsf8
-         ZR/DhNByJk61XlB9GHz0ORw3bPo+cRzmtijy1v594pVktzIesQsiyAAE8XgaON7BncnI
-         tYFrzfWVDdms9d/n/uc+lJdz+lPg3zCPct+PwC8DScN0fE7TASNQHbnfkhsO7vwE/sDx
-         n0hg==
-X-Forwarded-Encrypted: i=1; AHgh+RpMQ5hS6ebt5018d42jEAxVtzQqfqvVe/4p4d2gJL8bl1Xas4OyMPHIGrb4sJhwFK3Td9Vy0Q6GSjH+bxhG5Sjd@lists.infradead.org
-X-Gm-Message-State: AOJu0YwC/Ystxmiib806+DvyENkWxlC1gr/EPmVuRQZ+9/rH305ys2qU
-	9MdTk7eK68nTX8mhVt+Zu+2Spzqn6ZP/Y2ug0Z1F9W2VlAvFQntmx6s1
-X-Gm-Gg: AR+sD101+e50oBumeHyiesBkUK26HqL0fIb7GM4q50qbmxbjM8lOocmdnhGKvQ6wmhw
-	K5h/XwiBTWeJVkamrzhZc9ilnisyvg10QJ/ruK4BDmY00C0swUiStzUcVWg+Qcuv+NoLurBZfvW
-	15sOVipf8YLl94dUR6jez1nI+K7pZr+ZTKYlyNB3hS4fBvVKY/l2fG5ZUZp/WQN6X8a1550uK8/
-	2GxnDFACF2R71LqpcjYI1LVUI4pSEvHBXc6s8sRSNF5M/YReecg14JurcBfCB/zrkbVUmwqq8GT
-	VU5er52SjqPuzVAe6Xj+F3P+ce6jw6I6b65QGUFDLTqQvmHHBGkimN5WxyO8M5o97DiXH8gcVRN
-	D8LD+QmhkQ2eEflQP9V2+XAvxKLHD4stP8WIXhP4efmxmxeRtMH7dabKKpokWmcHv71EGRM78am
-	MrO2+lO3rPIPjLI9OZFtq8jiHoUpUkv8cqO/n5pcyKfp8vvYpIXYavpUgixIcx1POdKQmREv9BQ
-	RYacA3Fa1Wy
-X-Received: by 2002:a17:90a:da8f:b0:380:21b7:e727 with SMTP id 98e67ed59e1d1-3933b95e327mr12509086a91.14.1786778678185;
-        Sat, 15 Aug 2026 00:24:38 -0700 (PDT)
-Received: from amd.ban-spse ([165.204.217.251])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-141387ed5b1sm27142118c88.8.2026.08.15.00.24.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 15 Aug 2026 00:24:37 -0700 (PDT)
-From: Chaithanya Lagisetty <nagachaithanya9911@gmail.com>
-To: frank.li@oss.nxp.com
-Cc: Frank.Li@kernel.org,
-	vkoul@kernel.org,
-	wens@kernel.org,
-	jernej.skrabec@gmail.com,
-	samuel@sholland.org,
-	mripard@kernel.org,
-	dmaengine@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] dmaengine: sun6i: fix use-after-free in descriptor error path
-Date: Sat, 15 Aug 2026 07:24:17 +0000
-Message-ID: <20260815072417.2636042-1-nagachaithanya9911@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <an-B5SdpGfsJoudH@lizhi-Precision-Tower-5810>
-References: <an-B5SdpGfsJoudH@lizhi-Precision-Tower-5810>
+	Sat, 15 Aug 2026 08:16:02 +0000
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id AED0E7A01A8;
+	Sat, 15 Aug 2026 04:15:55 -0400 (EDT)
+Received: from ams-imap-03 ([10.64.2.23])
+  by ams-compute-02.internal (MEProxy); Sat, 15 Aug 2026 04:15:56 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:message-id:mime-version:reply-to
+	:subject:subject:to:to; s=fm2; t=1786781754; x=1786868154; bh=uT
+	XfL04+7M6PFf6QMhYjfaRkbYuuslMVuPfvHfO9194=; b=NOyELDQ7sV4fP2vUzc
+	bWu78TVLDS/1DX2bPr5CAwxzJgAHjy3O192dbBxhqr/tX6jrSirZt2cZ3jhHPo55
+	tSK8Deu8fJTZg0umd2UJ5gelrp/9uJFm/LzHAT3r+NyTWmjCfsHRDcMxasrY/xie
+	Vr3S6Eyupj0t532dMSctzAoXMuze+RsKkQYMDQeafqSsiGZ/rMUr+dJ2uPge4od7
+	/1e+KOFVS2RZGU+4O4MKpj28REVx6+0liZ/MKClIYmE1om/MOqLZ3IpTHQC4Vx78
+	/fUMlx4XDTaVFI4u1FefZSgCyrq9M72drOkaMO0/7JDC9SMaB0I0uGjtwIbRVue+
+	sh9A==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm3; t=1786781754; x=1786868154; bh=uTXfL04+7M6PFf6QMhYjfaRkbYuu
+	slMVuPfvHfO9194=; b=mA8zKdcwi6KE7MPz1ezb/wyKgl91c3AB9HbfVExl76pD
+	F5+a+RHqjnpMZSM1ZVwXvSyhKGPLfKqD2GkTGxP4PNQy0VhiNtSQdULCW8QOCbZZ
+	5DQxrm2+JKcEuK9LDeOGkGB6XjvqsFio1bLnAg4gtCmh/e4KyatxllmxUesnD3De
+	OvKPF3DibaZ2LEqZGaNKiAx7K/XVtZ3ICCytqFz8kAPGHkBYItbhbQiGZotKcv5l
+	FocKpI7aeUjYtKDOBVPIYgS7O2akijDtK/jU9wJdM3h9Vhoe9JUh9acROEuyjlSa
+	we8un8KCxRyL89H2Z1kYEXp3Cl26Jd38cuPvDwtqQg==
+X-ME-Sender: <xms:NSCAag85bDLDwXahzSMwCpI9Oy3v-vmxDJqD_kbI9TC_iiJLgmPcpQ>
+    <xme:NSCAajiZuirQN-OzFh4MC2_-IOiu1CQ_PrNLA6Cxv-TXMvIhW8k4NXI2h4sgBVpKZ
+    PNzhciKGmbxel0YlxvwlTslixEhaNZW4VrEEfACdGMOfrukbklLa6I>
+X-ME-Proxy-Cause: dmFkZTGUT+E/IH3S8Sa45nnjiVsqDd16e+pbPfxGZnjdGaokIbfIpSQJW0WNC5YwDiTrd1
+    uEBsptyMk9ouzswyZPBagl0pd8MzKTpRVMfLQDYNY7qQHbdYW7r9Vp6q3WLifz2tOZLxZX
+    m9+tspUe0zXc9H3ENZVZy2GGNjERoqCQdFwfUqk5gJ4vT66O7KeXZxnSeUk20+V0XJa44i
+    hQSnWgNAdihi2DFhAUjjt7oi2ptEU6Gmmo//+ALWiYQ6mWsfEwkynpzv1YdvOUDH7fRvyY
+    jxADPlU2Jsvoze4VyYEUsepuWSxJwhGTO5+casTMDJ5gIi1sIkM4rHsVG59h4jGz4WKnAv
+    qbRD0Uz7KifKHfKj96kZpD8oGG5oLlIpO666xgznJyZW7VpEWw5HDX9PFe68wK5b6/BFwp
+    nDrzTSZwzGJrxodiZIG4G3g3TD921wJ6CqTrColZSkxBMjFUJm0e9Wqxe45Mio5iawM2Fk
+    m0IR1aGdyTxqq1U9jcd1rnVG2aoEFe1WRI1TkhODjIrSsugQohZe9ASuX1NZfSLNdKR4vr
+    IS9VXHjUJbZ6HaGvXNzoBcWvjMfljiKw8evACQ+7aZkSYJaxEHDslF5P4po9P4GGmwJDlw
+    nmBagjVoHwMljC6iq4J1OxshHzwHTfp89xXddxByTUmQLoC2YPiPRZ1+bvwQ
+X-ME-Proxy: <xmx:NyCAaioHKYVf-h4EryngrxJj4_LUzoLbEpewTCLzvHTRUxu8YTJJ1A>
+    <xmx:NyCAanivzLBmE3aqCr77njkxDfrdFgJ5Y3k51J3h2vkx3cu8S48ZYw>
+    <xmx:NyCAavgYf6LlHD1rJfOldt9gNWY_oLS3puSxXOOHkMjFrXGotNnMRQ>
+    <xmx:NyCAatibzfrPIonDaj88miIzC5EKyAl-vjBFMppMvnXcFFPXOTivLw>
+    <xmx:OiCAanwdiPZE4sVJVvDBeiQh2k4bRlnlXZBZvu641DTXG0sk5-Upnm8g>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id C21CC32A006F; Sat, 15 Aug 2026 04:15:49 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Date: Sat, 15 Aug 2026 10:15:49 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Linus Torvalds" <torvalds@linux-foundation.org>
+Cc: soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Message-Id: <308796e0-962b-4e8f-bd2a-af5be9cf15a9@app.fastmail.com>
+Subject: [GIT PULL] SoC fixes for 7.2, part 3
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260815_002440_038397_73C5468D 
-X-CRM114-Status: UNSURE (   8.46  )
+X-CRM114-CacheID: sfid-20260815_011601_161064_359A28DD 
+X-CRM114-Status: UNSURE (   6.52  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -108,19 +105,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 14, 2026 at 05:00:21PM -0400, Frank Li wrote:
-> Drop review-by, I prefer use below method to fix
->
-> https://patchwork.kernel.org/project/linux-dmaengine/patch/20260727061142.44195-1-zenghongling@kylinos.cn/
+The following changes since commit db2ddb87143519e20a95aa36c60b36107b736a58:
 
-Thanks Frank, agreed. Hongling Zeng's series is the better fix since it
-reuses the existing sun6i_dma_free_desc() helper instead of open-coding
-the save-next-pointer logic in each error path, and it removes the
-duplicated cleanup loops entirely.
+  Linux 7.2-rc7 (2026-08-09 14:54:50 -0700)
 
-Please drop this patch in favour of that series; no v2 needed from my
-side.
+are available in the Git repository at:
 
-Thanks,
-Chaithanya
+  https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-fixes-7.2-3
+
+for you to fetch changes up to e36c0670d5ebebd7dba493f14966051f354fbb34:
+
+  Merge tag 'tegra-for-7.2-arm64-dt-fixes-v2' of git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux into arm/fixes (2026-08-10 09:38:36 +0200)
+
+----------------------------------------------------------------
+SoC fixes for 7.2, part 3
+
+These are three last-minute fixes for the 7.2 release,
+though nothing alarming:
+
+ - one error handling fix for optee firmware
+ - incorrect i2c data for the apple M3 that was added in 7.2
+ - a boot time warning fix for nvidia tegra
+
+----------------------------------------------------------------
+Arnd Bergmann (3):
+      Merge tag 'optee-fix-for-v7.2' of git://git.kernel.org/pub/scm/linux/kernel/git/jenswi/linux-tee into arm/fixes
+      Merge tag 'apple-soc-fixes-7.2' of https://git.kernel.org/pub/scm/linux/kernel/git/sven/linux into arm/fixes
+      Merge tag 'tegra-for-7.2-arm64-dt-fixes-v2' of git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux into arm/fixes
+
+Jon Hunter (1):
+      arm64: tegra: Add EL2 virtual timer interrupt for Tegra194
+
+Michael Reeves (1):
+      arm64: dts: apple: t8122: Fix I2C resources
+
+Mostafa Saleh (1):
+      optee: ffa: Add NULL check in optee_ffa_lend_protmem
+
+ arch/arm64/boot/dts/apple/t8122.dtsi     | 30 +++++++++++++++---------------
+ arch/arm64/boot/dts/nvidia/tegra194.dtsi |  2 ++
+ drivers/tee/optee/ffa_abi.c              |  3 +++
+ 3 files changed, 20 insertions(+), 15 deletions(-)
 
