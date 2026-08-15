@@ -4,93 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 142D3C5CFDB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 15:17:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E874EC5CFDB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Aug 2026 15:28:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=UM/qY+57O2WGKIidD8uuvpNNv07GGWbHqFgymg7+PkQ=; b=ohLrlUy0dzNRTnfjSJoR9gcuGe
-	srY8QMYPpOsfzIVFUqo7rlQHc/fW7u7HFl9Bbxds5XtXuUrTQFpZNVUI9yWhLo8Sj9SGEjgjeDWEz
-	6PZOFOPf1Z8ihaMYVtQEOqJxFZT8SoeoRA5gmqusFenWj2eTiDvj8fGzpcfdf7sfc569Xbhvvw+VM
-	d3a8j392X8LHxblAPDHFos8bhs7ZdJyv9ROTe6BCgpSN+JIIVWs8/rK//778V+tnuWvBU/kKB+wHb
-	P0TeFSMXAcXNuy3Y+/imCJC2lqQDnSUMlpjOtqEOl8aiMWaRRslFDrNk92sBaZ5j23Tydgu3ef2nt
-	9oJj2DDw==;
+	bh=VIGYBxx3euzCMRtT0VmyBTeKi/RO8C4HV/kmXozWY7E=; b=aI1hkEPfA6v+twESQTg8aMJwNX
+	nCrhJg0A2ZC76CmFVfUU7rzBRjJp2JTa1paclDyxUYfw8F7gXh80v6QHA0D8D0C4XQrDZ8aefgZ5B
+	glzw3F2CCCDmR8YFohsX3ZInrfr5vpnUyISGAlzVWFJ50D8j4BQfSZ/sW8FtN/P7A2e9aHp5wef6x
+	V8JzlFewOznpDLoQ8eLaBGXuSDeLT4kd3doB1Z3IAEQywZKzOvajBtYIbvUOzDr4wwBvOh4WKycaN
+	kyCo0kF3k2truQ4D/P5GfST505+DYRbCpX/rpQWUnoa6ou6b7Ln7yKoEu6iGvrA26CQh7Uy4eGxk8
+	G+iy2K2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvG8a-00000003uK2-118l;
-	Sat, 15 Aug 2026 15:17:32 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1wvGJF-00000003ujF-1shK;
+	Sat, 15 Aug 2026 15:28:33 +0000
+Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvG8X-00000003uJW-2wlY
+	id 1wvGJB-00000003uit-1b14
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Aug 2026 15:17:31 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2caced6038eso22631475ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 15 Aug 2026 08:17:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786807048; x=1787411848; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=UM/qY+57O2WGKIidD8uuvpNNv07GGWbHqFgymg7+PkQ=;
-        b=EQLGH49aOpR7ycpARZ66TsohL/O2Wz/nUH9oOLsBGDOocQnN4P0CH4JQhzJVAkLXps
-         dg0cmK8A68SGVaJENnrFW/DqKhYsQWaZOmem5kiuXdpF2PuIk8nM6YilbfNpX06X3Bj6
-         nby4M2bh6OEMpqL/rJXmatGI9iIr4DWlozFusxpwt+yTy3oXvML2x7shj9XdJWFc7izm
-         WWTxGF7SsMfniJrAiuyD7sitX7iKQ8DcJHsModzwxLv6CpWLNyMekw+jZvYlDjQ8UWh9
-         yZxg2gT9LJK0xBj5vgmOaQPUWbxm1o/rTnCB7e23EZqZfRq4A+wk19Ujo92r6e+8fQGI
-         l8Uw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786807048; x=1787411848;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=UM/qY+57O2WGKIidD8uuvpNNv07GGWbHqFgymg7+PkQ=;
-        b=cNCKAly2Ao5bO7eLheguHjSmQpLNuoi1Y7wi919zrHjBoErG6pkAEoEL+PiMVGqtYQ
-         k/AjsBY1+UjdO6KMvXPAviABb3dEryWUI/cXK6cMiaLstaWXxLrMXziiBfcPi4HCF43H
-         dich1YQiXYDJb8xGBSt0EsRP1ga1W+YZk8QCxX5WpxIOaaCU7toNNUMOT0aJrJm3P/mm
-         bVTYDweLx+MWfU1qNd0cM/1ocaSpqarHg5Vi3maffpSR5ls3du04BpojsaBJ5NPpTKFW
-         Sgj7u1iek9K27cTBR8QaQ+adRNVncyEV+GGJGvcNSP4CfmlMkn5TouwttF3qglcjevuC
-         ZRLA==
-X-Forwarded-Encrypted: i=1; AHgh+Rqk7NGB7LboTyEp4QtPN988DainrFiQrMvbft1lGXHqbYPwH+PnSp+3w1PvFUZPoy0UyFmkadfnOMGHdXitwipN@lists.infradead.org
-X-Gm-Message-State: AOJu0YxHehuVilgoYNcHDz3YfQisJGpiBcIskk1RDErn3C0Aii+T00cA
-	LgelecGqG7U0eFHE+ZdM6uUNsYYTofDv/HYeZ0onXSJ4LASgORwh4Wh7
-X-Gm-Gg: AR+sD12pjX+wSD1HrXSSGcIab9/SjKTrNBNihR6rcYDW5Pc0rqfyKeVTexCAQqHd7j9
-	iw+4rZyKJj1EZT9lOE73EwAWXbBPKKHVbVYF8/qWMaZ+VG6m8oWhMUOujuFehWQRrxNb+wHsm/w
-	jgp2jrjwsoBxMDrYk0sNhoim/U1s3MwVAQvuHjtv2/XfIqOfsaiS06MvaCl8MN00EFf61IW2Te6
-	L3WAOSmHTMYyFXUxkfc1zz2YmzhreZ+QVtAi0+yM3DH4GBBdVOZUKjGvPZAAenlpR7QmfSansTg
-	Mr0VDanxB5h2ndYx7BsvfdbvWgRbrW9KWWVjC6dpoIpMBmZP4SGjCpHT8FcdI1AbM7NZKAJTOgg
-	7ZLWNquxhrIxsU0bhGzmrRT9HSS1cAnfHKBFJjtJKG7DAj0bS+T5z4WcpevJaGzlik1Wp9fLCkQ
-	iFE1gjzpoOy3MC3R4FRnpDXpWNjQZQS18+0sn9LYU/df01RA+x9op8GRaBWO8cNeuq4gVeuuxqp
-	kuIgizLMg==
-X-Received: by 2002:a17:903:15c3:b0:2cf:b9f9:18bb with SMTP id d9443c01a7336-2d3afdacabfmr116123305ad.4.1786807047906;
-        Sat, 15 Aug 2026 08:17:27 -0700 (PDT)
-Received: from haichao.tail057a43.ts.net ([2001:da8:e000:1206:5225:2a2e:8e7c:13a7])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d3aeb88bddsm19887805ad.63.2026.08.15.08.17.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 15 Aug 2026 08:17:26 -0700 (PDT)
-From: Ruoyu Wang <ruoyuw560@gmail.com>
-To: Andi Shyti <andi.shyti@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Marek Vasut <marex@denx.de>,
-	Wolfram Sang <wsa@kernel.org>
-Cc: linux-i2c@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Ruoyu Wang <ruoyuw560@gmail.com>
-Subject: [PATCH v2] i2c: mxs: fix DMA channel leak on probe error
-Date: Sat, 15 Aug 2026 23:17:20 +0800
-Message-ID: <20260815151720.3757460-1-ruoyuw560@gmail.com>
-X-Mailer: git-send-email 2.51.0
+	Sat, 15 Aug 2026 15:28:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:
+	Cc:To:From:From:Reply-To; bh=VIGYBxx3euzCMRtT0VmyBTeKi/RO8C4HV/kmXozWY7E=; b=
+	naGFWC8KHfoTEn2VTHYt0rrLxZT9j1CWE5TvBGDhR0jAouU/fZUcIW5yOKa1cWt8wGnvI8uqa7JAE
+	kwGmr7tl8cSwLoC++A8dzILBHSGCz9E925ax74YX3sjBcH9ayNvUGnLHUYEfIzDzUK1+CurgWJCLV
+	5X4Kd2ThHu5R3FMcp//KFT2aO6jdiJpWbETUNnb+3DxActkqvUw1phbk+8jWV4sOVZSqMcO445FOr
+	Aj2eY6peqiUA30e+L1ZJPBVwibZZl4y48j9Bko6GraKpYqeUoDh6MpXHS6kmwcWWz45G+eocihuKu
+	yXjhB/Y19T6EUVHZVcGX0MkUu6etZS0jHg==;
+Received: from [179.135.28.2] (helo=localhost)
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_SECP256R1__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
+	id 1wvGJ1-002cMn-AO; Sat, 15 Aug 2026 17:28:19 +0200
+From: "Guilherme G. Piccoli" <gpiccoli@igalia.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: catalin.marinas@arm.com,
+	will@kernel.org,
+	mark.rutland@arm.com,
+	robin.murphy@arm.com,
+	gshan@redhat.com,
+	kernel-dev@igalia.com,
+	kernel@gpiccoli.net,
+	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+	Mark Brown <broonie@kernel.org>,
+	Ryan Houdek <sonicadvance1@gmail.com>
+Subject: [PATCH] arm64/kernel: Expose the running CPU of a native task in TPIDRRO_EL0
+Date: Sat, 15 Aug 2026 12:19:32 -0300
+Message-ID: <20260815152759.2046231-1-gpiccoli@igalia.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260815_081729_748551_1E10D75D 
-X-CRM114-Status: GOOD (  14.84  )
+X-CRM114-CacheID: sfid-20260815_082829_427104_B1FBDE49 
+X-CRM114-Status: GOOD (  24.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,57 +74,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-mxs_i2c_probe() requests an exclusive DMA channel before resetting the
-controller and registering the I2C adapter. If either later operation
-fails, probe returns without releasing the channel because the remove
-callback is not invoked after a failed probe.
+The register TPIDRRO_EL0 has 2 meanings / usages today, depending on
+the mode userspace is running:
 
-Use devm_dma_request_chan() so the device core releases the channel on
-probe failure and driver detach. Remove the manual release from the
-remove callback because the channel is now device-managed.
+- For native/arm64 mode, this register is always 0 from the userspace
+  perspective. In the kernel, it is used during ventry (entry.S) as
+  a scratch register, related to KPTI (stashes x30 in fact).
 
-This issue was found by a static analysis checker and confirmed by
-manual source review.
+- For 32-bit compat tasks, this register holds the TLS userspace pointer,
+  and is not used for KPTI or anything else in entry.S. This is ABI and
+  userspace can count on having a valid TLS pointer there.
 
-Fixes: 62885f59a261 ("MXS: Implement DMA support into mxs-i2c")
-Assisted-by: unnamed:claude-opus-4.8 typestate
-Signed-off-by: Ruoyu Wang <ruoyuw560@gmail.com>
+Happens that other operating systems follow a similar approach than 32-bit
+compat mode, even for arm64: in both Windows[0] and MacOS (xnu/darwin)[1],
+this register is used to hold the running CPU of the current task, hence
+offering a very fast / non-syscall way for a given task to figure its
+running CPU id.
 
+Given that we are zeroing this register on Linux for arm64 native tasks,
+we hereby propose the change of doing the same as other OSes. The use
+cases for this are related to gaming on Linux. We have mainly two
+distinct, yet related, cases for this change:
+
+- Windows can run natively on arm64. So, arm64 native applications could
+  run on Linux through the usage of Wine. But...these applications easily
+  could attempt a read to this register to perform operations related to
+  their running CPUs. As Wine cannot ever trap a register read, these
+  apps would be deemed broken / incompatible with Linux.
+
+- Emulation SW like FEX would greatly benefit from this feature. They
+  could use this register to compose the emulation of the x86 RDTSCP
+  instruction for example.
+
+Not only the specific cases above, but this is useful for regular native
+arm64 applications as a way of fast introspection, more or less like
+vDSO getcpu() approach but with way less code and supported by the ARM
+specification[2].
+
+Care is taken on the implementation to avoid messing with the 32-bit
+compat case. This was tested both for native 64-bit applications and
+32-bit compat TLS reads in a rpi3 HW.
+
+[0] https://learn.microsoft.com/en-us/cpp/build/arm64-windows-abi-conventions?view=msvc-170#system-registers
+[1] https://github.com/apple-oss-distributions/xnu/blob/main/osfmk/arm64/cswitch.s#L170 (set_thread_registers macro)
+[2] https://support.arm.com/documentation/ddi0601/2026-06/AArch64-Registers/TPIDRRO-EL0--EL0-Read-Only-Software-Thread-ID-Register
+
+Assisted-by: LLM
+Cc: Mark Brown <broonie@kernel.org>
+Cc: Ryan Houdek <sonicadvance1@gmail.com>
+Signed-off-by: Guilherme G. Piccoli <gpiccoli@igalia.com>
 ---
-Changes in v2:
-- Use devm_dma_request_chan() instead of explicit error unwinding.
-- Remove the now-redundant manual release in remove().
-- Add the Assisted-by tag.
 
-v1: https://lore.kernel.org/r/20260814134033.1386874-1-ruoyuw560@gmail.com/
----
- drivers/i2c/busses/i2c-mxs.c | 5 +----
- 1 file changed, 1 insertion(+), 4 deletions(-)
 
-diff --git a/drivers/i2c/busses/i2c-mxs.c b/drivers/i2c/busses/i2c-mxs.c
-index 4e07babea9c3f4..eee4fdcd9df31a 100644
---- a/drivers/i2c/busses/i2c-mxs.c
-+++ b/drivers/i2c/busses/i2c-mxs.c
-@@ -839,7 +839,7 @@ static int mxs_i2c_probe(struct platform_device *pdev)
- 	}
+Hi folks, thanks in advance for your reviews and suggestions!
+
+I would like to specially highlight the very interesting work from Mark Brown
+adding a vDSO getcpu() to Linux/arm64, which seemed quite complete at V3:
+https://lore.kernel.org/r/20200819121318.52158-1-broonie@kernel.org/
+
+At the same time that vDSO is pretty nifty (and common) as a means of
+optimizing the applications' getcpu() operation, I think worth to clarify this
+is not exactly the goal of this patch. In other words, the patch does indeed
+benefit that use case, but our main concern is the compatibility of Windows
+ARM64 native applications running through Wine on Linux, and the potential
+of x86 direct emulation on ARM64 (or other architecture combinations). The
+goal **is** to have the register TPIDRRO_EL0 holding the current task's CPU.
+
+Some prior discussion about this is at MLs too, from 2020, but led to nowhere:
+https://lore.kernel.org/r/20200601070311.GA8601@willie-the-truck/
+
+I would like to also mention that I'm in no way an expert on arm64 architecture,
+hence I relied in studying the code and "pair-programming" with LLM in order
+to validate my ideas and patches. Hence, I appreciate extra care on review
+since I might be missing some relevant corner case, and if that's the case,
+my apologies in advance for the extra burden.
+Cheers,
+
+Guilherme
+
+
+ arch/arm64/kernel/entry.S   | 19 +++++++++++++++++++
+ arch/arm64/kernel/process.c |  8 ++++++--
+ 2 files changed, 25 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
+index e0db14e9c843..fe42dfc4f4f1 100644
+--- a/arch/arm64/kernel/entry.S
++++ b/arch/arm64/kernel/entry.S
+@@ -409,6 +409,25 @@ alternative_else_nop_endif
  
- 	/* Setup the DMA */
--	i2c->dmach = dma_request_chan(dev, "rx-tx");
-+	i2c->dmach = devm_dma_request_chan(dev, "rx-tx");
- 	if (IS_ERR(i2c->dmach)) {
- 		return dev_err_probe(dev, PTR_ERR(i2c->dmach),
- 				     "Failed to request dma\n");
-@@ -877,9 +877,6 @@ static void mxs_i2c_remove(struct platform_device *pdev)
+ 	msr	elr_el1, x21			// set up the return data
+ 	msr	spsr_el1, x22
++
++	/*
++	 * Save the CPU number into tpidrro_el0 before returning to EL0:
++	 *
++	 * For native tasks, we stash the running CPU of the task in the
++	 * tpidrro_el0 register; at this moment, tsk is valid and we're
++	 * almost ready to get back to EL0. For the 32-bit compat tasks,
++	 * tpidrro_el0 carries the TLS pointer and must survive every kernel
++	 * exit intact - so we test TIF_32BIT and skip the write accordingly.
++	 */
++
++	.if	\el == 0
++	ldr	w0, [tsk, #TSK_TI_FLAGS]
++	tbnz	w0, #TIF_32BIT, .Lskip_tpidrro_\@
++	ldr	w0, [tsk, #TSK_TI_CPU]
++	msr	tpidrro_el0, x0
++.Lskip_tpidrro_\@:
++	.endif
++
+ 	ldp	x0, x1, [sp, #16 * 0]
+ 	ldp	x2, x3, [sp, #16 * 1]
+ 	ldp	x4, x5, [sp, #16 * 2]
+diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
+index 581f80e9b9b7..80c2d9cdedd8 100644
+--- a/arch/arm64/kernel/process.c
++++ b/arch/arm64/kernel/process.c
+@@ -533,8 +533,12 @@ static void tls_thread_switch(struct task_struct *next)
  
- 	i2c_del_adapter(&i2c->adapter);
+ 	if (is_compat_thread(task_thread_info(next)))
+ 		write_sysreg(next->thread.uw.tp_value, tpidrro_el0);
+-	else
+-		write_sysreg(0, tpidrro_el0);
++
++	/*
++	 * About the native/64-bit case: notice we don't need to update
++	 * tpidrro_el0 here, since it is refreshed at every EL1->EL0
++	 * transition at kernel exit.
++	 */
  
--	if (i2c->dmach)
--		dma_release_channel(i2c->dmach);
--
- 	writel(MXS_I2C_CTRL0_SFTRST, i2c->regs + MXS_I2C_CTRL0_SET);
- }
- 
+ 	write_sysreg(*task_user_tls(next), tpidr_el0);
+ 	if (system_supports_tpidr2())
 -- 
-2.51.0
+2.50.1
 
 
