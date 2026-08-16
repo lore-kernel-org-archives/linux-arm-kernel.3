@@ -4,73 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FB1AC5DF66
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Aug 2026 08:27:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7497DC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Aug 2026 09:32:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9+vPTjH1obZclMWELJOWZqt0EDF9+G4mhLL+jRsCQSs=; b=WLyvxJKTUjGUB3asmrM713JrH1
-	JBTWQyrW2EX2HPfcHYIMKxuJVVgVO+3hLWVbEnX6LgukxFYVPouJvGfIPkgzZgl95238BLWZXd/Zs
-	3DGElY0t9h90N3t89TZUViNGTmV7bAYt4Pj32riKx3M7yJlfFAI86hbPSQffaAt13RiViM1N3aP14
-	vUo5gddHmOZtLD8B+8s5dJs9w7xb41yT5Xyv4pivrPD3JU/T9ZFfZnel7dsDC9KrYjsKC9ZaHWUyl
-	FoihvpowdEbWEWGNco7Bku5+2+fulVdHR93lnH37FLMgrx2unRc3LRpBTbYODBD1dcUSTQVjMvjEb
-	vIs0T1LA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/g/TWas5mLMhJmlRENB0C8fXjTmRLTEFaiwfEEjjFJ0=; b=B5G3k+Sz3Sjp8PvD6qQ7t1grFA
+	koeTY0P2GKJkw2x9mk616YoPli5j5d9rO4AYWzpcz4VS31gOD90m8iipYB/tpGlO9S/Eqlq4RDvAK
+	UeSrSSjPd8rr1d6txb23baah/zeGLwXxP3tRE4Hvn/N/OLijvlJpgdYCfpJEKpwbpnpaCUjHuwhz2
+	ubAJ+SsXXVcAUWrZ4mAeETIgvDA4THFFqcVXWHP1YHlXqHjZfRnnAXlJLvvNgbFjCUtDC8CIp/9Fx
+	twet+nhR+SaUOGU6yC535GqBJygeD/KVnn1JFxVq4nQPhp7/jcmG7a+G3snoBoSnPupMFJps1ztFa
+	SBe6xQ+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvWCy-00000004aM4-0zxy;
-	Sun, 16 Aug 2026 08:27:08 +0000
-Received: from mout.web.de ([212.227.15.14])
+	id 1wvXEF-00000004cCl-0BCR;
+	Sun, 16 Aug 2026 09:32:31 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvWCu-00000004aLS-3RP4
+	id 1wvXEB-00000004cCI-15xu
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 16 Aug 2026 08:27:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1786868815; x=1787473615; i=markus.elfring@web.de;
-	bh=9+vPTjH1obZclMWELJOWZqt0EDF9+G4mhLL+jRsCQSs=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
-	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 cc:content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=PRCYFGJR6o3y9Zr1Le9tU0IwBcpNPter7jgcS0ApF+N3vV++v/uOeJUno6axuutp
-	 zxikOGlY83t1iC+d09p2iAMwbI1mJORvoruf7tQofQZiv49JDYll/btkySUCd9fZk
-	 pUAa2bhv8w/Lbv7E3kmKeOQjAohaSwPw0XskVB1/+GM5VSnIFemrwew/7Rpg1HCQQ
-	 sKqm4v7U2979huqGf8zWiIpMZ9CduHM07GFLW8h/LRnS7T3N3+38mp/kV0ZJJ7a8r
-	 +ISXPUOrFyCKvQvnOSM8wQk08j7s8ZqazRKaLCqNxLHm1asedbkYu/3yrei339siS
-	 fMIuhg9Q7h89KROnxQ==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from client.hidden.invalid by smtp.web.de (mrweb005
- [213.165.67.108]) with ESMTPSA (Nemesis) id 1MMY1D-1xEQES1E8d-00XDVO; Sun, 16
- Aug 2026 10:26:55 +0200
-Message-ID: <0abb2aab-4752-478d-bb53-c5a84fd6ba2d@web.de>
-Date: Sun, 16 Aug 2026 10:26:39 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: Ruoyu Wang <ruoyuw560@gmail.com>, linux-perf-users@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Jing Zhang
- <renyu.zj@linux.alibaba.com>, Mark Rutland <mark.rutland@arm.com>,
- Shuai Xue <xueshuai@linux.alibaba.com>, Will Deacon <will@kernel.org>,
- Yunhui Cui <cuiyunhui@bytedance.com>
-Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org
-References: <20260814133925.1385687-1-ruoyuw560@gmail.com>
-Subject: Re: [PATCH] perf/dwc_pcie: Fix PCI device reference leak in probe
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <20260814133925.1385687-1-ruoyuw560@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:AN9KRgw7WBdzhd4V1Yts84ypyr8SzdQBkP8+Zmg8KKnfhYg7NUx
- oVRyV55S/wXlRRvgzDkR9HnBKgU04+7rd7K66rH4fb0BThRIS3u3EEsvHIPpMafzK97X42s
- 4+Hb+quNAI7Tva/MiQV1jBn+1i7Q6TgvxD4oy07TVwriGxLtWCkdZQz54fA6CKOJociv/dr
- u80CJgi5i+bEBsB8SFPnQ==
-UI-OutboundReport: notjunk:1;M01:P0:41aGIEboJ+4=;rM22lVxXhlCCUJrairY+GoBsWpe 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 U+O11Vw==
+	Sun, 16 Aug 2026 09:32:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1786872747; x=1818408747;
+  h=date:from:to:cc:subject:message-id;
+  bh=StQmV5OrVMenz39D8q13bAe7PQZjTUbCu7bUqGAXJwc=;
+  b=ijL++oQT49DOZGD7tMdK2oOq21T3qWacng/zneY6Co7I273c7wtntU11
+   gzo3hT4/gvfiYTYXN5+jB+1njlg5PU4Fjac7ecMuE2Yq5Xr7faKP4dYBc
+   NlY0CXQLeGPfdD59g7qOGqmiUt0VBssOpyj9vmClQRH8bRgb/txU0yJ8+
+   TV8LYvdO8lZWfe/VPV/TTe0SGvNfePBSlC3Ei27U6hNXFCNQl0a2pl0WU
+   0W1M54oZjlu1rQlt/NmUi8/mtU1X+wpZ1FeTLjl4fVJd0fgvlpXD1PRRc
+   7j+x4yYUEPakPYL/fWSbHsDEUaKUFTTm2z0jLUynWQM8TccTG8cB5Rr7m
+   w==;
+X-CSE-ConnectionGUID: 3ShMDyDMTg+urGBUb+c+KA==
+X-CSE-MsgGUID: lgS3Uyv9TJ+IaBpr4JVXAg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11876"; a="110163587"
+X-IronPort-AV: E=Sophos;i="6.25,226,1779174000"; 
+   d="scan'208";a="110163587"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Aug 2026 02:32:25 -0700
+X-CSE-ConnectionGUID: Je2ryJCdSMyTjSLsKQtoGQ==
+X-CSE-MsgGUID: CgtSzv6dQ5u2EktFcogRmA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,226,1779174000"; 
+   d="scan'208";a="268487655"
+Received: from lkp-server01.sh.intel.com (HELO 6eda058d650d) ([10.239.97.150])
+  by orviesa004.jf.intel.com with ESMTP; 16 Aug 2026 02:32:24 -0700
+Received: from kbuild by 6eda058d650d with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wvXE5-00000000cqI-2Hl0;
+	Sun, 16 Aug 2026 09:32:21 +0000
+Date: Sun, 16 Aug 2026 17:31:21 +0800
+From: kernel test robot <lkp@intel.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ arm@kernel.org
+Subject: [soc:board-remove 114/217]
+ drivers/regulator/da9055-regulator.c:77:26: error: field 'reg_rselect' has
+ incomplete type
+Message-ID: <202608161718.qy3xohxH-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260816_012705_234031_4331DB9F 
-X-CRM114-Status: UNSURE (   4.96  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260816_023227_392121_57229020 
+X-CRM114-Status: GOOD (  17.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,16 +84,303 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=E2=80=A6
-> Move the existing pci_dev_put() immediately after capability discovery
-> so the temporary lookup reference is released on both success and
-> failure paths.
-=E2=80=A6
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git board-remove
+head:   057394422bc04420585b2790b230d8a1f350ace8
+commit: 158b19afd623da6a93d8ac59dd4aeefe48fa2085 [114/217] mfd: da9055: remove pdata based probing
+config: alpha-allyesconfig (https://download.01.org/0day-ci/archive/20260816/202608161718.qy3xohxH-lkp@intel.com/config)
+compiler: alpha-linux-gcc (GCC) 16.1.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260816/202608161718.qy3xohxH-lkp@intel.com/reproduce)
 
-How do you think about to apply the attribute =E2=80=9C__free(pci_dev_put)=
-=E2=80=9D?
-https://elixir.bootlin.com/linux/v7.2-rc7/source/include/linux/pci.h#L1269
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202608161718.qy3xohxH-lkp@intel.com/
 
-Regards,
-Markus
+All errors (new ones prefixed by >>):
+
+>> drivers/regulator/da9055-regulator.c:77:26: error: field 'reg_rselect' has incomplete type
+      77 |         enum gpio_select reg_rselect;
+         |                          ^~~~~~~~~~~
+   drivers/regulator/da9055-regulator.c: In function 'da9055_regulator_set_voltage_sel':
+>> drivers/regulator/da9055-regulator.c:208:39: error: 'NO_GPIO' undeclared (first use in this function)
+     208 |         if (regulator->reg_rselect == NO_GPIO) {
+         |                                       ^~~~~~~
+   drivers/regulator/da9055-regulator.c:208:39: note: each undeclared identifier is reported only once for each function it appears in
+   drivers/regulator/da9055-regulator.c: In function 'da9055_regulator_set_suspend_voltage':
+   drivers/regulator/da9055-regulator.c:248:39: error: 'NO_GPIO' undeclared (first use in this function)
+     248 |         if (regulator->reg_rselect == NO_GPIO) {
+         |                                       ^~~~~~~
+   drivers/regulator/da9055-regulator.c: In function 'da9055_suspend_enable':
+   drivers/regulator/da9055-regulator.c:269:39: error: 'NO_GPIO' undeclared (first use in this function)
+     269 |         if (regulator->reg_rselect == NO_GPIO)
+         |                                       ^~~~~~~
+   drivers/regulator/da9055-regulator.c: In function 'da9055_suspend_disable':
+   drivers/regulator/da9055-regulator.c:282:39: error: 'NO_GPIO' undeclared (first use in this function)
+     282 |         if (regulator->reg_rselect == NO_GPIO)
+         |                                       ^~~~~~~
+   drivers/regulator/da9055-regulator.c: In function 'da9055_gpio_init':
+>> drivers/regulator/da9055-regulator.c:466:42: error: 'pdata' undeclared (first use in this function); did you mean '_data'?
+     466 |                 regulator->reg_rselect = pdata->reg_rsel[id];
+         |                                          ^~~~~
+         |                                          _data
+   drivers/regulator/da9055-regulator.c:417:33: warning: parameter 'id' set but not used [-Wunused-but-set-parameter=]
+     417 |                             int id)
+         |                             ~~~~^~
+   In file included from include/uapi/linux/posix_types.h:5,
+                    from include/uapi/linux/types.h:14,
+                    from include/linux/types.h:5,
+                    from include/linux/kcsan-checks.h:14,
+                    from include/asm-generic/barrier.h:17,
+                    from arch/alpha/include/asm/barrier.h:21,
+                    from arch/alpha/include/asm/rwonce.h:10,
+                    from include/linux/compiler.h:369,
+                    from include/linux/build_bug.h:5,
+                    from include/linux/container_of.h:5,
+                    from include/linux/list.h:5,
+                    from include/linux/module.h:12,
+                    from drivers/regulator/da9055-regulator.c:9:
+   drivers/regulator/da9055-regulator.c: In function 'da9055_regulator_probe':
+>> include/linux/stddef.h:8:14: error: passing argument 4 of 'da9055_gpio_init' makes integer from pointer without a cast [-Wint-conversion]
+       8 | #define NULL ((void *)0)
+         |              ^~~~~~~~~~~
+         |              |
+         |              void *
+   drivers/regulator/da9055-regulator.c:534:64: note: in expansion of macro 'NULL'
+     534 |         ret = da9055_gpio_init(&pdev->dev, regulator, &config, NULL, pdev->id);
+         |                                                                ^~~~
+   drivers/regulator/da9055-regulator.c:417:33: note: expected 'int' but argument is of type 'void *'
+     417 |                             int id)
+         |                             ~~~~^~
+>> drivers/regulator/da9055-regulator.c:534:15: error: too many arguments to function 'da9055_gpio_init'; expected 4, have 5
+     534 |         ret = da9055_gpio_init(&pdev->dev, regulator, &config, NULL, pdev->id);
+         |               ^~~~~~~~~~~~~~~~                                       ~~~~~~~~
+   drivers/regulator/da9055-regulator.c:414:12: note: declared here
+     414 | static int da9055_gpio_init(struct device *dev,
+         |            ^~~~~~~~~~~~~~~~
+   drivers/regulator/da9055-regulator.c: In function 'da9055_suspend_disable':
+   drivers/regulator/da9055-regulator.c:287:1: warning: control reaches end of non-void function [-Wreturn-type]
+     287 | }
+         | ^
+   drivers/regulator/da9055-regulator.c: In function 'da9055_suspend_enable':
+   drivers/regulator/da9055-regulator.c:274:1: warning: control reaches end of non-void function [-Wreturn-type]
+     274 | }
+         | ^
+
+
+vim +/reg_rselect +77 drivers/regulator/da9055-regulator.c
+
+f6130be652d0b4f Ashish Jangam       2012-11-01   72  
+f6130be652d0b4f Ashish Jangam       2012-11-01   73  struct da9055_regulator {
+f6130be652d0b4f Ashish Jangam       2012-11-01   74  	struct da9055 *da9055;
+dfa9e708c63e783 Krzysztof Kozlowski 2024-09-09   75  	const struct da9055_regulator_info *info;
+f6130be652d0b4f Ashish Jangam       2012-11-01   76  	struct regulator_dev *rdev;
+f6130be652d0b4f Ashish Jangam       2012-11-01  @77  	enum gpio_select reg_rselect;
+f6130be652d0b4f Ashish Jangam       2012-11-01   78  };
+f6130be652d0b4f Ashish Jangam       2012-11-01   79  
+f6130be652d0b4f Ashish Jangam       2012-11-01   80  static unsigned int da9055_buck_get_mode(struct regulator_dev *rdev)
+f6130be652d0b4f Ashish Jangam       2012-11-01   81  {
+f6130be652d0b4f Ashish Jangam       2012-11-01   82  	struct da9055_regulator *regulator = rdev_get_drvdata(rdev);
+dfa9e708c63e783 Krzysztof Kozlowski 2024-09-09   83  	const struct da9055_regulator_info *info = regulator->info;
+f6130be652d0b4f Ashish Jangam       2012-11-01   84  	int ret, mode = 0;
+f6130be652d0b4f Ashish Jangam       2012-11-01   85  
+f6130be652d0b4f Ashish Jangam       2012-11-01   86  	ret = da9055_reg_read(regulator->da9055, info->mode.reg);
+f6130be652d0b4f Ashish Jangam       2012-11-01   87  	if (ret < 0)
+f6130be652d0b4f Ashish Jangam       2012-11-01   88  		return ret;
+f6130be652d0b4f Ashish Jangam       2012-11-01   89  
+f6130be652d0b4f Ashish Jangam       2012-11-01   90  	switch ((ret & info->mode.mask) >> info->mode.shift) {
+f6130be652d0b4f Ashish Jangam       2012-11-01   91  	case DA9055_BUCK_MODE_SYNC:
+f6130be652d0b4f Ashish Jangam       2012-11-01   92  		mode = REGULATOR_MODE_FAST;
+f6130be652d0b4f Ashish Jangam       2012-11-01   93  		break;
+f6130be652d0b4f Ashish Jangam       2012-11-01   94  	case DA9055_BUCK_MODE_AUTO:
+f6130be652d0b4f Ashish Jangam       2012-11-01   95  		mode = REGULATOR_MODE_NORMAL;
+f6130be652d0b4f Ashish Jangam       2012-11-01   96  		break;
+f6130be652d0b4f Ashish Jangam       2012-11-01   97  	case DA9055_BUCK_MODE_SLEEP:
+f6130be652d0b4f Ashish Jangam       2012-11-01   98  		mode = REGULATOR_MODE_STANDBY;
+f6130be652d0b4f Ashish Jangam       2012-11-01   99  		break;
+f6130be652d0b4f Ashish Jangam       2012-11-01  100  	}
+f6130be652d0b4f Ashish Jangam       2012-11-01  101  
+f6130be652d0b4f Ashish Jangam       2012-11-01  102  	return mode;
+f6130be652d0b4f Ashish Jangam       2012-11-01  103  }
+f6130be652d0b4f Ashish Jangam       2012-11-01  104  
+f6130be652d0b4f Ashish Jangam       2012-11-01  105  static int da9055_buck_set_mode(struct regulator_dev *rdev,
+f6130be652d0b4f Ashish Jangam       2012-11-01  106  					unsigned int mode)
+f6130be652d0b4f Ashish Jangam       2012-11-01  107  {
+f6130be652d0b4f Ashish Jangam       2012-11-01  108  	struct da9055_regulator *regulator = rdev_get_drvdata(rdev);
+dfa9e708c63e783 Krzysztof Kozlowski 2024-09-09  109  	const struct da9055_regulator_info *info = regulator->info;
+f6130be652d0b4f Ashish Jangam       2012-11-01  110  	int val = 0;
+f6130be652d0b4f Ashish Jangam       2012-11-01  111  
+f6130be652d0b4f Ashish Jangam       2012-11-01  112  	switch (mode) {
+f6130be652d0b4f Ashish Jangam       2012-11-01  113  	case REGULATOR_MODE_FAST:
+f6130be652d0b4f Ashish Jangam       2012-11-01  114  		val = DA9055_BUCK_MODE_SYNC << info->mode.shift;
+f6130be652d0b4f Ashish Jangam       2012-11-01  115  		break;
+f6130be652d0b4f Ashish Jangam       2012-11-01  116  	case REGULATOR_MODE_NORMAL:
+f6130be652d0b4f Ashish Jangam       2012-11-01  117  		val = DA9055_BUCK_MODE_AUTO << info->mode.shift;
+f6130be652d0b4f Ashish Jangam       2012-11-01  118  		break;
+f6130be652d0b4f Ashish Jangam       2012-11-01  119  	case REGULATOR_MODE_STANDBY:
+f6130be652d0b4f Ashish Jangam       2012-11-01  120  		val = DA9055_BUCK_MODE_SLEEP << info->mode.shift;
+f6130be652d0b4f Ashish Jangam       2012-11-01  121  		break;
+f6130be652d0b4f Ashish Jangam       2012-11-01  122  	}
+f6130be652d0b4f Ashish Jangam       2012-11-01  123  
+f6130be652d0b4f Ashish Jangam       2012-11-01  124  	return da9055_reg_update(regulator->da9055, info->mode.reg,
+f6130be652d0b4f Ashish Jangam       2012-11-01  125  				 info->mode.mask, val);
+f6130be652d0b4f Ashish Jangam       2012-11-01  126  }
+f6130be652d0b4f Ashish Jangam       2012-11-01  127  
+f6130be652d0b4f Ashish Jangam       2012-11-01  128  static unsigned int da9055_ldo_get_mode(struct regulator_dev *rdev)
+f6130be652d0b4f Ashish Jangam       2012-11-01  129  {
+f6130be652d0b4f Ashish Jangam       2012-11-01  130  	struct da9055_regulator *regulator = rdev_get_drvdata(rdev);
+dfa9e708c63e783 Krzysztof Kozlowski 2024-09-09  131  	const struct da9055_regulator_info *info = regulator->info;
+f6130be652d0b4f Ashish Jangam       2012-11-01  132  	int ret;
+f6130be652d0b4f Ashish Jangam       2012-11-01  133  
+f6130be652d0b4f Ashish Jangam       2012-11-01  134  	ret = da9055_reg_read(regulator->da9055, info->volt.reg_b);
+f6130be652d0b4f Ashish Jangam       2012-11-01  135  	if (ret < 0)
+f6130be652d0b4f Ashish Jangam       2012-11-01  136  		return ret;
+f6130be652d0b4f Ashish Jangam       2012-11-01  137  
+f6130be652d0b4f Ashish Jangam       2012-11-01  138  	if (ret >> info->volt.sl_shift)
+f6130be652d0b4f Ashish Jangam       2012-11-01  139  		return REGULATOR_MODE_STANDBY;
+f6130be652d0b4f Ashish Jangam       2012-11-01  140  	else
+f6130be652d0b4f Ashish Jangam       2012-11-01  141  		return REGULATOR_MODE_NORMAL;
+f6130be652d0b4f Ashish Jangam       2012-11-01  142  }
+f6130be652d0b4f Ashish Jangam       2012-11-01  143  
+f6130be652d0b4f Ashish Jangam       2012-11-01  144  static int da9055_ldo_set_mode(struct regulator_dev *rdev, unsigned int mode)
+f6130be652d0b4f Ashish Jangam       2012-11-01  145  {
+f6130be652d0b4f Ashish Jangam       2012-11-01  146  	struct da9055_regulator *regulator = rdev_get_drvdata(rdev);
+dfa9e708c63e783 Krzysztof Kozlowski 2024-09-09  147  	const struct da9055_regulator_info *info = regulator->info;
+f6130be652d0b4f Ashish Jangam       2012-11-01  148  	struct da9055_volt_reg volt = info->volt;
+f6130be652d0b4f Ashish Jangam       2012-11-01  149  	int val = 0;
+f6130be652d0b4f Ashish Jangam       2012-11-01  150  
+f6130be652d0b4f Ashish Jangam       2012-11-01  151  	switch (mode) {
+f6130be652d0b4f Ashish Jangam       2012-11-01  152  	case REGULATOR_MODE_NORMAL:
+f6130be652d0b4f Ashish Jangam       2012-11-01  153  	case REGULATOR_MODE_FAST:
+f6130be652d0b4f Ashish Jangam       2012-11-01  154  		val = DA9055_LDO_MODE_SYNC;
+f6130be652d0b4f Ashish Jangam       2012-11-01  155  		break;
+f6130be652d0b4f Ashish Jangam       2012-11-01  156  	case REGULATOR_MODE_STANDBY:
+f6130be652d0b4f Ashish Jangam       2012-11-01  157  		val = DA9055_LDO_MODE_SLEEP;
+f6130be652d0b4f Ashish Jangam       2012-11-01  158  		break;
+f6130be652d0b4f Ashish Jangam       2012-11-01  159  	}
+f6130be652d0b4f Ashish Jangam       2012-11-01  160  
+f6130be652d0b4f Ashish Jangam       2012-11-01  161  	return da9055_reg_update(regulator->da9055, volt.reg_b,
+f6130be652d0b4f Ashish Jangam       2012-11-01  162  				 1 << volt.sl_shift,
+f6130be652d0b4f Ashish Jangam       2012-11-01  163  				 val << volt.sl_shift);
+f6130be652d0b4f Ashish Jangam       2012-11-01  164  }
+f6130be652d0b4f Ashish Jangam       2012-11-01  165  
+f6130be652d0b4f Ashish Jangam       2012-11-01  166  static int da9055_regulator_get_voltage_sel(struct regulator_dev *rdev)
+f6130be652d0b4f Ashish Jangam       2012-11-01  167  {
+f6130be652d0b4f Ashish Jangam       2012-11-01  168  	struct da9055_regulator *regulator = rdev_get_drvdata(rdev);
+dfa9e708c63e783 Krzysztof Kozlowski 2024-09-09  169  	const struct da9055_regulator_info *info = regulator->info;
+f6130be652d0b4f Ashish Jangam       2012-11-01  170  	struct da9055_volt_reg volt = info->volt;
+f6130be652d0b4f Ashish Jangam       2012-11-01  171  	int ret, sel;
+f6130be652d0b4f Ashish Jangam       2012-11-01  172  
+f6130be652d0b4f Ashish Jangam       2012-11-01  173  	/*
+f6130be652d0b4f Ashish Jangam       2012-11-01  174  	 * There are two voltage register set A & B for voltage ramping but
+f6130be652d0b4f Ashish Jangam       2012-11-01  175  	 * either one of then can be active therefore we first determine
+f6130be652d0b4f Ashish Jangam       2012-11-01  176  	 * the active register set.
+f6130be652d0b4f Ashish Jangam       2012-11-01  177  	 */
+f6130be652d0b4f Ashish Jangam       2012-11-01  178  	ret = da9055_reg_read(regulator->da9055, info->conf.reg);
+f6130be652d0b4f Ashish Jangam       2012-11-01  179  	if (ret < 0)
+f6130be652d0b4f Ashish Jangam       2012-11-01  180  		return ret;
+f6130be652d0b4f Ashish Jangam       2012-11-01  181  
+f6130be652d0b4f Ashish Jangam       2012-11-01  182  	ret &= info->conf.sel_mask;
+f6130be652d0b4f Ashish Jangam       2012-11-01  183  
+f6130be652d0b4f Ashish Jangam       2012-11-01  184  	/* Get the voltage for the active register set A/B */
+f6130be652d0b4f Ashish Jangam       2012-11-01  185  	if (ret == DA9055_REGUALTOR_SET_A)
+f6130be652d0b4f Ashish Jangam       2012-11-01  186  		ret = da9055_reg_read(regulator->da9055, volt.reg_a);
+f6130be652d0b4f Ashish Jangam       2012-11-01  187  	else
+f6130be652d0b4f Ashish Jangam       2012-11-01  188  		ret = da9055_reg_read(regulator->da9055, volt.reg_b);
+f6130be652d0b4f Ashish Jangam       2012-11-01  189  
+f6130be652d0b4f Ashish Jangam       2012-11-01  190  	if (ret < 0)
+f6130be652d0b4f Ashish Jangam       2012-11-01  191  		return ret;
+f6130be652d0b4f Ashish Jangam       2012-11-01  192  
+f6130be652d0b4f Ashish Jangam       2012-11-01  193  	sel = (ret & volt.v_mask);
+f6130be652d0b4f Ashish Jangam       2012-11-01  194  	return sel;
+f6130be652d0b4f Ashish Jangam       2012-11-01  195  }
+f6130be652d0b4f Ashish Jangam       2012-11-01  196  
+f6130be652d0b4f Ashish Jangam       2012-11-01  197  static int da9055_regulator_set_voltage_sel(struct regulator_dev *rdev,
+f6130be652d0b4f Ashish Jangam       2012-11-01  198  					    unsigned int selector)
+f6130be652d0b4f Ashish Jangam       2012-11-01  199  {
+f6130be652d0b4f Ashish Jangam       2012-11-01  200  	struct da9055_regulator *regulator = rdev_get_drvdata(rdev);
+dfa9e708c63e783 Krzysztof Kozlowski 2024-09-09  201  	const struct da9055_regulator_info *info = regulator->info;
+f6130be652d0b4f Ashish Jangam       2012-11-01  202  	int ret;
+f6130be652d0b4f Ashish Jangam       2012-11-01  203  
+f6130be652d0b4f Ashish Jangam       2012-11-01  204  	/*
+f6130be652d0b4f Ashish Jangam       2012-11-01  205  	 * Regulator register set A/B is not selected through GPIO therefore
+f6130be652d0b4f Ashish Jangam       2012-11-01  206  	 * we use default register set A for voltage ramping.
+f6130be652d0b4f Ashish Jangam       2012-11-01  207  	 */
+f6130be652d0b4f Ashish Jangam       2012-11-01 @208  	if (regulator->reg_rselect == NO_GPIO) {
+f6130be652d0b4f Ashish Jangam       2012-11-01  209  		/* Select register set A */
+f6130be652d0b4f Ashish Jangam       2012-11-01  210  		ret = da9055_reg_update(regulator->da9055, info->conf.reg,
+f6130be652d0b4f Ashish Jangam       2012-11-01  211  					info->conf.sel_mask, DA9055_SEL_REG_A);
+f6130be652d0b4f Ashish Jangam       2012-11-01  212  		if (ret < 0)
+f6130be652d0b4f Ashish Jangam       2012-11-01  213  			return ret;
+f6130be652d0b4f Ashish Jangam       2012-11-01  214  
+f6130be652d0b4f Ashish Jangam       2012-11-01  215  		/* Set the voltage */
+369cf602f364a60 Axel Lin            2012-11-20  216  		return da9055_reg_update(regulator->da9055, info->volt.reg_a,
+369cf602f364a60 Axel Lin            2012-11-20  217  					 info->volt.v_mask, selector);
+f6130be652d0b4f Ashish Jangam       2012-11-01  218  	}
+f6130be652d0b4f Ashish Jangam       2012-11-01  219  
+f6130be652d0b4f Ashish Jangam       2012-11-01  220  	/*
+f6130be652d0b4f Ashish Jangam       2012-11-01  221  	 * Here regulator register set A/B is selected through GPIO.
+f6130be652d0b4f Ashish Jangam       2012-11-01  222  	 * Therefore we first determine the selected register set A/B and
+f6130be652d0b4f Ashish Jangam       2012-11-01  223  	 * then set the desired voltage for that register set A/B.
+f6130be652d0b4f Ashish Jangam       2012-11-01  224  	 */
+f6130be652d0b4f Ashish Jangam       2012-11-01  225  	ret = da9055_reg_read(regulator->da9055, info->conf.reg);
+f6130be652d0b4f Ashish Jangam       2012-11-01  226  	if (ret < 0)
+f6130be652d0b4f Ashish Jangam       2012-11-01  227  		return ret;
+f6130be652d0b4f Ashish Jangam       2012-11-01  228  
+f6130be652d0b4f Ashish Jangam       2012-11-01  229  	ret &= info->conf.sel_mask;
+f6130be652d0b4f Ashish Jangam       2012-11-01  230  
+f6130be652d0b4f Ashish Jangam       2012-11-01  231  	/* Set the voltage */
+f6130be652d0b4f Ashish Jangam       2012-11-01  232  	if (ret == DA9055_REGUALTOR_SET_A)
+369cf602f364a60 Axel Lin            2012-11-20  233  		return da9055_reg_update(regulator->da9055, info->volt.reg_a,
+369cf602f364a60 Axel Lin            2012-11-20  234  					 info->volt.v_mask, selector);
+f6130be652d0b4f Ashish Jangam       2012-11-01  235  	else
+369cf602f364a60 Axel Lin            2012-11-20  236  		return da9055_reg_update(regulator->da9055, info->volt.reg_b,
+369cf602f364a60 Axel Lin            2012-11-20  237  					 info->volt.v_mask, selector);
+f6130be652d0b4f Ashish Jangam       2012-11-01  238  }
+f6130be652d0b4f Ashish Jangam       2012-11-01  239  
+f6130be652d0b4f Ashish Jangam       2012-11-01  240  static int da9055_regulator_set_suspend_voltage(struct regulator_dev *rdev,
+f6130be652d0b4f Ashish Jangam       2012-11-01  241  						int uV)
+f6130be652d0b4f Ashish Jangam       2012-11-01  242  {
+f6130be652d0b4f Ashish Jangam       2012-11-01  243  	struct da9055_regulator *regulator = rdev_get_drvdata(rdev);
+dfa9e708c63e783 Krzysztof Kozlowski 2024-09-09  244  	const struct da9055_regulator_info *info = regulator->info;
+f6130be652d0b4f Ashish Jangam       2012-11-01  245  	int ret;
+f6130be652d0b4f Ashish Jangam       2012-11-01  246  
+f6130be652d0b4f Ashish Jangam       2012-11-01  247  	/* Select register set B for suspend voltage ramping. */
+f6130be652d0b4f Ashish Jangam       2012-11-01  248  	if (regulator->reg_rselect == NO_GPIO) {
+f6130be652d0b4f Ashish Jangam       2012-11-01  249  		ret = da9055_reg_update(regulator->da9055, info->conf.reg,
+f6130be652d0b4f Ashish Jangam       2012-11-01  250  					info->conf.sel_mask, DA9055_SEL_REG_B);
+f6130be652d0b4f Ashish Jangam       2012-11-01  251  		if (ret < 0)
+f6130be652d0b4f Ashish Jangam       2012-11-01  252  			return ret;
+f6130be652d0b4f Ashish Jangam       2012-11-01  253  	}
+f6130be652d0b4f Ashish Jangam       2012-11-01  254  
+6b1f8a45666877d Axel Lin            2012-11-27  255  	ret = regulator_map_voltage_linear(rdev, uV, uV);
+f6130be652d0b4f Ashish Jangam       2012-11-01  256  	if (ret < 0)
+f6130be652d0b4f Ashish Jangam       2012-11-01  257  		return ret;
+f6130be652d0b4f Ashish Jangam       2012-11-01  258  
+369cf602f364a60 Axel Lin            2012-11-20  259  	return da9055_reg_update(regulator->da9055, info->volt.reg_b,
+369cf602f364a60 Axel Lin            2012-11-20  260  				 info->volt.v_mask, ret);
+f6130be652d0b4f Ashish Jangam       2012-11-01  261  }
+f6130be652d0b4f Ashish Jangam       2012-11-01  262  
+f6130be652d0b4f Ashish Jangam       2012-11-01  263  static int da9055_suspend_enable(struct regulator_dev *rdev)
+f6130be652d0b4f Ashish Jangam       2012-11-01  264  {
+f6130be652d0b4f Ashish Jangam       2012-11-01  265  	struct da9055_regulator *regulator = rdev_get_drvdata(rdev);
+dfa9e708c63e783 Krzysztof Kozlowski 2024-09-09  266  	const struct da9055_regulator_info *info = regulator->info;
+f6130be652d0b4f Ashish Jangam       2012-11-01  267  
+f6130be652d0b4f Ashish Jangam       2012-11-01  268  	/* Select register set B for voltage ramping. */
+f6130be652d0b4f Ashish Jangam       2012-11-01 @269  	if (regulator->reg_rselect == NO_GPIO)
+f6130be652d0b4f Ashish Jangam       2012-11-01  270  		return da9055_reg_update(regulator->da9055, info->conf.reg,
+f6130be652d0b4f Ashish Jangam       2012-11-01  271  					info->conf.sel_mask, DA9055_SEL_REG_B);
+f6130be652d0b4f Ashish Jangam       2012-11-01  272  	else
+f6130be652d0b4f Ashish Jangam       2012-11-01  273  		return 0;
+f6130be652d0b4f Ashish Jangam       2012-11-01  274  }
+f6130be652d0b4f Ashish Jangam       2012-11-01  275  
+
+:::::: The code at line 77 was first introduced by commit
+:::::: f6130be652d0b4fbf710d83a816298c007e59ed1 regulator: DA9055 regulator driver
+
+:::::: TO: Ashish Jangam <ashish.jangam@kpitcummins.com>
+:::::: CC: Mark Brown <broonie@opensource.wolfsonmicro.com>
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
