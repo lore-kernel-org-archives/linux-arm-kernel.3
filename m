@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36BB9C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Aug 2026 05:14:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FB1AC5DF66
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Aug 2026 08:27:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=M82D34oiwV0L0zCDg+OkJBW0cHsmS0isVdxCKtN2KqI=; b=EyiJM2U/35l9ve4pabU6bL4zYE
-	kuObHdyIC897AYBi0B9k35RIU0dq1Clqwpugz4LITb6M/3QOp+BKaOJ+sOdwKyeRB1O547pQger1P
-	oRtrc3CaRovlHg96G6iC5zg3Y2eXB/cr/H3uKeToGBHSvvl1LGBDFvyOyj5ISFtKDvr7bmFawGJtS
-	ojy+KnUQKTDW3va7TLKonXgonZRGpVW2r4avvUaCRnKzcBttMjtlK+pPvbI6FUW81ySDsmi9Ljrb5
-	efx+VbBdh9GgNXveL60DnMwF/zctWAJ6S1AQLrhaqfS4Z3wMLLENEpv8VI8Ia2k3Ruf58tR5Itj3/
-	bblvg8VQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9+vPTjH1obZclMWELJOWZqt0EDF9+G4mhLL+jRsCQSs=; b=WLyvxJKTUjGUB3asmrM713JrH1
+	JBTWQyrW2EX2HPfcHYIMKxuJVVgVO+3hLWVbEnX6LgukxFYVPouJvGfIPkgzZgl95238BLWZXd/Zs
+	3DGElY0t9h90N3t89TZUViNGTmV7bAYt4Pj32riKx3M7yJlfFAI86hbPSQffaAt13RiViM1N3aP14
+	vUo5gddHmOZtLD8B+8s5dJs9w7xb41yT5Xyv4pivrPD3JU/T9ZFfZnel7dsDC9KrYjsKC9ZaHWUyl
+	FoihvpowdEbWEWGNco7Bku5+2+fulVdHR93lnH37FLMgrx2unRc3LRpBTbYODBD1dcUSTQVjMvjEb
+	vIs0T1LA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvTCQ-00000004TWn-3cy0;
-	Sun, 16 Aug 2026 05:14:22 +0000
-Received: from mgamail.intel.com ([198.175.65.16])
+	id 1wvWCy-00000004aM4-0zxy;
+	Sun, 16 Aug 2026 08:27:08 +0000
+Received: from mout.web.de ([212.227.15.14])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvTCN-00000004TWT-3mKo
+	id 1wvWCu-00000004aLS-3RP4
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 16 Aug 2026 05:14:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1786857260; x=1818393260;
-  h=date:from:to:cc:subject:message-id;
-  bh=inbctEE0XMBWG3f8oPtrwPXoYHg69K3P0uxeGVhQA74=;
-  b=Cr71rfM9aiXfF2+EkJGH3md9H38t/k9Y9is4EbwvVjgvb6CSE1mIazhg
-   YItEn3Wd5e8o/cE6WTAdrntqhmutrzocMLbbAzh/YtXBqMrTc5crIs0iR
-   ozDVvyKbZqo8tn0x8Sekq9D9GNZlO/2WmkTQKpYoT3JG4/rTzYEpIShHH
-   2d9/FjQOUsCzAtGqHErRJJs62oxBlabvzKT+mQZ3XsEE1fFKaRQmLYb7C
-   3ydV1E9EAxgQCFSUbKCgWV8nNU3mFFTU/BYek0B6tnXkvwZgjXw4VFPdP
-   /HnwTQhgIAqAuK3d+eO2aqde1EtAX3P5Xu3jxyb40p8IFrs7Zo54gOZYc
-   w==;
-X-CSE-ConnectionGUID: DoppmuBlRVKojYNqYThWfg==
-X-CSE-MsgGUID: Ep9WXTi9TriAGqbDGrU6HA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11876"; a="87582419"
-X-IronPort-AV: E=Sophos;i="6.25,226,1779174000"; 
-   d="scan'208";a="87582419"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Aug 2026 22:14:18 -0700
-X-CSE-ConnectionGUID: f7TzvS00TSGqSEJL49PqHg==
-X-CSE-MsgGUID: WIA6ymUWR8WKcvjCzZoiEA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,226,1779174000"; 
-   d="scan'208";a="268449292"
-Received: from lkp-server01.sh.intel.com (HELO 6eda058d650d) ([10.239.97.150])
-  by orviesa004.jf.intel.com with ESMTP; 15 Aug 2026 22:14:17 -0700
-Received: from kbuild by 6eda058d650d with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1wvTCI-00000000ckI-0YjN;
-	Sun, 16 Aug 2026 05:14:14 +0000
-Date: Sun, 16 Aug 2026 13:13:33 +0800
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- arm@kernel.org
-Subject: [soc:board-remove 138/217]
- sound/soc/ti/omap-twl4030.c:138:38: warning: unused variable 'dapm'
-Message-ID: <202608161230.gHZiOn8j-lkp@intel.com>
-User-Agent: s-nail v14.9.25
+	Sun, 16 Aug 2026 08:27:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1786868815; x=1787473615; i=markus.elfring@web.de;
+	bh=9+vPTjH1obZclMWELJOWZqt0EDF9+G4mhLL+jRsCQSs=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
+	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=PRCYFGJR6o3y9Zr1Le9tU0IwBcpNPter7jgcS0ApF+N3vV++v/uOeJUno6axuutp
+	 zxikOGlY83t1iC+d09p2iAMwbI1mJORvoruf7tQofQZiv49JDYll/btkySUCd9fZk
+	 pUAa2bhv8w/Lbv7E3kmKeOQjAohaSwPw0XskVB1/+GM5VSnIFemrwew/7Rpg1HCQQ
+	 sKqm4v7U2979huqGf8zWiIpMZ9CduHM07GFLW8h/LRnS7T3N3+38mp/kV0ZJJ7a8r
+	 +ISXPUOrFyCKvQvnOSM8wQk08j7s8ZqazRKaLCqNxLHm1asedbkYu/3yrei339siS
+	 fMIuhg9Q7h89KROnxQ==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from client.hidden.invalid by smtp.web.de (mrweb005
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1MMY1D-1xEQES1E8d-00XDVO; Sun, 16
+ Aug 2026 10:26:55 +0200
+Message-ID: <0abb2aab-4752-478d-bb53-c5a84fd6ba2d@web.de>
+Date: Sun, 16 Aug 2026 10:26:39 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+To: Ruoyu Wang <ruoyuw560@gmail.com>, linux-perf-users@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, Jing Zhang
+ <renyu.zj@linux.alibaba.com>, Mark Rutland <mark.rutland@arm.com>,
+ Shuai Xue <xueshuai@linux.alibaba.com>, Will Deacon <will@kernel.org>,
+ Yunhui Cui <cuiyunhui@bytedance.com>
+Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org
+References: <20260814133925.1385687-1-ruoyuw560@gmail.com>
+Subject: Re: [PATCH] perf/dwc_pcie: Fix PCI device reference leak in probe
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20260814133925.1385687-1-ruoyuw560@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:AN9KRgw7WBdzhd4V1Yts84ypyr8SzdQBkP8+Zmg8KKnfhYg7NUx
+ oVRyV55S/wXlRRvgzDkR9HnBKgU04+7rd7K66rH4fb0BThRIS3u3EEsvHIPpMafzK97X42s
+ 4+Hb+quNAI7Tva/MiQV1jBn+1i7Q6TgvxD4oy07TVwriGxLtWCkdZQz54fA6CKOJociv/dr
+ u80CJgi5i+bEBsB8SFPnQ==
+UI-OutboundReport: notjunk:1;M01:P0:41aGIEboJ+4=;rM22lVxXhlCCUJrairY+GoBsWpe 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 U+O11Vw==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260815_221420_032303_F3AFC73E 
-X-CRM114-Status: UNSURE (   9.88  )
+X-CRM114-CacheID: sfid-20260816_012705_234031_4331DB9F 
+X-CRM114-Status: UNSURE (   4.96  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,69 +85,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git board-remove
-head:   057394422bc04420585b2790b230d8a1f350ace8
-commit: f6d934b99b4df95800d72522490f3d30d4c16ef1 [138/217] ASoC: omap-twl4030: remove platform_data based probe
-config: alpha-allyesconfig (https://download.01.org/0day-ci/archive/20260816/202608161230.gHZiOn8j-lkp@intel.com/config)
-compiler: alpha-linux-gcc (GCC) 16.1.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260816/202608161230.gHZiOn8j-lkp@intel.com/reproduce)
+=E2=80=A6
+> Move the existing pci_dev_put() immediately after capability discovery
+> so the temporary lookup reference is released on both success and
+> failure paths.
+=E2=80=A6
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202608161230.gHZiOn8j-lkp@intel.com/
+How do you think about to apply the attribute =E2=80=9C__free(pci_dev_put)=
+=E2=80=9D?
+https://elixir.bootlin.com/linux/v7.2-rc7/source/include/linux/pci.h#L1269
 
-All warnings (new ones prefixed by >>):
-
-   sound/soc/ti/omap-twl4030.c: In function 'omap_twl4030_init':
->> sound/soc/ti/omap-twl4030.c:138:38: warning: unused variable 'dapm' [-Wunused-variable]
-     138 |         struct snd_soc_dapm_context *dapm = snd_soc_card_to_dapm(card);
-         |                                      ^~~~
-
-
-vim +/dapm +138 sound/soc/ti/omap-twl4030.c
-
-bd0b286e838ef1 sound/soc/omap/omap-twl4030.c Peter Ujfalusi     2012-12-31  134  
-bd0b286e838ef1 sound/soc/omap/omap-twl4030.c Peter Ujfalusi     2012-12-31  135  static int omap_twl4030_init(struct snd_soc_pcm_runtime *rtd)
-bd0b286e838ef1 sound/soc/omap/omap-twl4030.c Peter Ujfalusi     2012-12-31  136  {
-0596f70069bb5a sound/soc/omap/omap-twl4030.c Lars-Peter Clausen 2014-05-19  137  	struct snd_soc_card *card = rtd->card;
-42e142c842cb9c sound/soc/ti/omap-twl4030.c   Kuninori Morimoto  2025-11-11 @138  	struct snd_soc_dapm_context *dapm = snd_soc_card_to_dapm(card);
-bd0b286e838ef1 sound/soc/omap/omap-twl4030.c Peter Ujfalusi     2012-12-31  139  	struct omap_twl4030 *priv = snd_soc_card_get_drvdata(card);
-bd0b286e838ef1 sound/soc/omap/omap-twl4030.c Peter Ujfalusi     2012-12-31  140  	int ret = 0;
-bd0b286e838ef1 sound/soc/omap/omap-twl4030.c Peter Ujfalusi     2012-12-31  141  
-1b8a62937e0b23 sound/soc/ti/omap-twl4030.c   Linus Walleij      2023-09-26  142  	/*
-1b8a62937e0b23 sound/soc/ti/omap-twl4030.c   Linus Walleij      2023-09-26  143  	 * This is a bit of a hack, but the GPIO is optional so we
-1b8a62937e0b23 sound/soc/ti/omap-twl4030.c   Linus Walleij      2023-09-26  144  	 * only want to add the jack detection if the GPIO is there.
-1b8a62937e0b23 sound/soc/ti/omap-twl4030.c   Linus Walleij      2023-09-26  145  	 */
-1b8a62937e0b23 sound/soc/ti/omap-twl4030.c   Linus Walleij      2023-09-26  146  	if (of_property_present(card->dev->of_node, "ti,jack-det-gpio")) {
-1b8a62937e0b23 sound/soc/ti/omap-twl4030.c   Linus Walleij      2023-09-26  147  		hs_jack_gpios[0].gpiod_dev = card->dev;
-1b8a62937e0b23 sound/soc/ti/omap-twl4030.c   Linus Walleij      2023-09-26  148  		hs_jack_gpios[0].idx = 0;
-bd0b286e838ef1 sound/soc/omap/omap-twl4030.c Peter Ujfalusi     2012-12-31  149  
-19aed2d6cdb72a sound/soc/ti/omap-twl4030.c   Akihiko Odaki      2022-04-08  150  		ret = snd_soc_card_jack_new_pins(rtd->card, "Headset Jack",
-19aed2d6cdb72a sound/soc/ti/omap-twl4030.c   Akihiko Odaki      2022-04-08  151  						 SND_JACK_HEADSET,
-19aed2d6cdb72a sound/soc/ti/omap-twl4030.c   Akihiko Odaki      2022-04-08  152  						 &priv->hs_jack, hs_jack_pins,
-da21cf6d652836 sound/soc/omap/omap-twl4030.c Lars-Peter Clausen 2015-03-04  153  						 ARRAY_SIZE(hs_jack_pins));
-bd0b286e838ef1 sound/soc/omap/omap-twl4030.c Peter Ujfalusi     2012-12-31  154  		if (ret)
-bd0b286e838ef1 sound/soc/omap/omap-twl4030.c Peter Ujfalusi     2012-12-31  155  			return ret;
-bd0b286e838ef1 sound/soc/omap/omap-twl4030.c Peter Ujfalusi     2012-12-31  156  
-bd0b286e838ef1 sound/soc/omap/omap-twl4030.c Peter Ujfalusi     2012-12-31  157  		ret = snd_soc_jack_add_gpios(&priv->hs_jack,
-bd0b286e838ef1 sound/soc/omap/omap-twl4030.c Peter Ujfalusi     2012-12-31  158  					     ARRAY_SIZE(hs_jack_gpios),
-bd0b286e838ef1 sound/soc/omap/omap-twl4030.c Peter Ujfalusi     2012-12-31  159  					     hs_jack_gpios);
-bd0b286e838ef1 sound/soc/omap/omap-twl4030.c Peter Ujfalusi     2012-12-31  160  		if (ret)
-bd0b286e838ef1 sound/soc/omap/omap-twl4030.c Peter Ujfalusi     2012-12-31  161  			return ret;
-bd0b286e838ef1 sound/soc/omap/omap-twl4030.c Peter Ujfalusi     2012-12-31  162  	}
-bd0b286e838ef1 sound/soc/omap/omap-twl4030.c Peter Ujfalusi     2012-12-31  163  
-bd0b286e838ef1 sound/soc/omap/omap-twl4030.c Peter Ujfalusi     2012-12-31  164  	return ret;
-bd0b286e838ef1 sound/soc/omap/omap-twl4030.c Peter Ujfalusi     2012-12-31  165  }
-bd0b286e838ef1 sound/soc/omap/omap-twl4030.c Peter Ujfalusi     2012-12-31  166  
-
-:::::: The code at line 138 was first introduced by commit
-:::::: 42e142c842cb9c7dbde569ff137974e76d1a0e67 ASoC: ti: omap-twl4030: convert to snd_soc_dapm_xxx()
-
-:::::: TO: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
-:::::: CC: Mark Brown <broonie@kernel.org>
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Regards,
+Markus
 
