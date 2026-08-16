@@ -4,109 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C24C4C5DF66
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Aug 2026 20:25:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE35AC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Aug 2026 20:36:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pG9a6R2lI8zBUJdzvIIYffn5eO9OTw8/lShO/60FBpw=; b=Iq8AL5gC7q2balRViKEpA2vjyr
-	xSSjnBplKs//MVEWmsV7AuU3A9OIT1n4/ZEFhC0R5TpwRX+AprT3eqQX6/jkDxaWpjK8Y5uOC0vjo
-	2F/ZcsYV6IVc6u92AnD5xyU1hCmxOaER2A+C8Ffy91Sp37QTD8UbFILDAC3Mgl0uBuVyW7Ty6JXzh
-	bM8WqsPL6nZHWDM8WuCObsOsoLYGuZngsAuXjRUXl8SuP6Pm6QhDOG3i+OfhKkI/Uks53O7ASRQ6i
-	XuDxJkiz2Az7bTqUy6gPvFfPnN+pOPBEGlej86s7s02IcUcFd6Uv6kDSbWFC+WXrmTxrUbJ4o+QSA
-	GoW1W2og==;
+	bh=4Z+kPSmsB7rQaR0LkAkEYzUoOZvOc60lKGr4z1NusVs=; b=qrb03QWrv6v+NgA7RR2lY3LfPV
+	EnCaxDCtYOejPsPsF+NVTGL6Vu02UTN/S9nAa5tzbGvxcA33IRn8RMpQkTVdESlaHMnWxJxgtoYVo
+	/Boww/srmqvLnhzqE0GCH//wQi0/2QJyDxI/38QYFlaM1/MuB/6TyRkxq5DLVisHI6JRFuK1Fqgy0
+	WYlrmsh3YSpCRf0ZWV3Jco1RpVb4D400FAZaHmhPHHAmCpiwjOtXHN7LNUf8bfCmBbaLGo75tAwDV
+	Rpk3jsG1VVCK5oEwcYnh6WVSno2Sh8dyFDXyf2gPm+hovs0dMJFgW1mSS/oY5OBf9QOlyOWn7y6QW
+	sFg6WLEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvhQ4-000000054RG-24vD;
-	Sun, 16 Aug 2026 20:25:24 +0000
-Received: from mail-yx1-xb12e.google.com ([2607:f8b0:4864:20::b12e])
+	id 1wvhaV-000000054oS-2U14;
+	Sun, 16 Aug 2026 20:36:11 +0000
+Received: from mout.gmx.net ([212.227.17.21])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvhQ1-000000054QZ-2oO2
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 16 Aug 2026 20:25:22 +0000
-Received: by mail-yx1-xb12e.google.com with SMTP id 956f58d0204a3-669bcef451aso285693d50.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 16 Aug 2026 13:25:21 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1786911920; cv=none;
-        d=google.com; s=arc-20260327;
-        b=nGBAOCqRPc1AFbQiZ3/VSVT8RKfUY3FbfdrRXCCGpYYZd9+zmEHslo0CknOQfPtDSm
-         u71qkl0zYGGy6bcJEeHD2C439ASJMuQHfgCPSxBiGRCDk6nb8elc4VONA95zr6yZALh0
-         uI+Zg+dMRxW4hhgQg/2mCnxfNPsL6FngqkBgtTzxtqx9K4bWhoyoyHB62fM9tpkiU3Rk
-         o+hl+3VZtTF6kZCjvNLOMgTovIvTaw4FZt4Nj3Ae7iRPY2c1inF99Dw2YGYUIFkc6Bjz
-         yguRPIMRWC0ePsRBpB9l3k29nq+FEOa7PQCPLCHdsP/HxkzeMYYjjLG3Sp1bEilryC6B
-         08Jw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=pG9a6R2lI8zBUJdzvIIYffn5eO9OTw8/lShO/60FBpw=;
-        fh=yvQPddtK8l/7LORd94l8HpbSI82q/r0+QeZw3kYXkHs=;
-        b=dQAJJZTXR1OUbrklB3pVDyaz+8t8ZVZ0nCU888DR0278DOVZsihIVTcNuPVUsU6Rss
-         AOO+/8YsAebsSo/V9CaQzsHR7ofV5MZNi+vP6rTZClB8qCkQWNr0pzzFMJFk+nx40FaT
-         VZ102Kb1K7UVxmuNRG3jcOBv9fl3JZvfzcGj4ljeQqdn1pJEWfeCp71jvYvyn7RTWZ1+
-         eh2yXv+tnvixLrY81CT/qzxGCJgMUzH7KQ7Nd6t75SjtUnZ/VyeefdEazoplMGt+cTcK
-         YViSIY0Vv6lF3WA3tU9PcmoxCQ1BG401nNOdL/aRHIoFYz6zB2YZ346jYU7W6W2JeZd4
-         rH6w==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786911920; x=1787516720; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=pG9a6R2lI8zBUJdzvIIYffn5eO9OTw8/lShO/60FBpw=;
-        b=h0qUwzLEGYS2NB/4zroLbzS26PtcVyIHTGWOV7fYLkrysj+D9ckk5NXXZmRfWpJ345
-         LtxQag0PEue5tZjescwA3HxEOL9gzULIPsl3GrVsNr3RUuK1zY392u3m2sUpmXq8leIr
-         l1AYbkBFA/o9NKlaZltXExvbqAp+2uUZf3jeejHw24agRdM2N5uBhYTfrAUqUt7XuLgB
-         tk+RVG2SCpuqEnOr1mZynR6TVPVtrgyImMk2wEScaH+ft0hCYUfUN4fAscxGBC47B6Dj
-         +mswPXtDAVSTaEk/QDNI9cDNRGtCnV2IWN3cpkj95SqLobRpQtQGD+DDH3DXC6tZrQjQ
-         Oczw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786911920; x=1787516720;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=pG9a6R2lI8zBUJdzvIIYffn5eO9OTw8/lShO/60FBpw=;
-        b=SwAICzo+b1HOtMJ2Eh/GIqSW8enBe2frj29XGbkHNLAaAj8LirtHkCxPP01+H8bjdl
-         4WlqK3uS2O5jX8N1SWwNcTZ2qBdEn+PgLHJdpYEna35wqEAMKT52eoyhslXBFKsFEnbs
-         izEzzuFfXt8ztPGvc2/TjJUDt7TWOCHyuhwG1XOVg/ay7iit5WKLzKDfCg4NqFzyxYn5
-         H/67e2C+xCpXFinqQyKaYFq60WprPPUIi4n8+cOHOUs9MVuIkMlTyvVQbcwjHNph7iG2
-         OJUUJHVc6TbZCYQ+RyAzU2ZzcF5SZAPYtovaRrWYl+O0ENZx2xmpnek8F4qQyXiu7uMu
-         0Nww==
-X-Forwarded-Encrypted: i=1; AHgh+RqEeDC5Gztb9dTHsGmi6UwYM+XXNz+N+NkAWLVUNJMRXRfijHcF/2R4IoV2lDfvdI8yKmrOMgaiMpC2G9L1frVF@lists.infradead.org
-X-Gm-Message-State: AOJu0YwwZVuQJ1hr/MW5q3KuQUsF6UZ1ZwKTNfgRejm5UGM2kwSOXadb
-	BuAm/RdY4hbMiidoTt8YCm7Hl8J+9owFuYWvNf/c9ISn/3XY5VKCAEhC3k4yFHI4hGYUcuEHbo4
-	66rhDcw7+6qLUB+F9eXkYF5Crs8ZjlBA=
-X-Gm-Gg: AR+sD11AQj/1EqZ3kyOBYiVA5+1hDcMcovNxKvh+GymNVFY6LzILWDrLvrXBaU6bMYe
-	ZA0UdaML8FruwV237RoKVQ1xYDUOVVq1s5KZSa6HMbmVWXYTdMG7yNpL4ubbLLaRkNxcjM7zVLc
-	cZcz77T0T1D/3v7aJSvSojW3t1D2UaVvR1Fmvs3cO68g8guGg1hTvoFpkDGTPo9u/eAnv2EPX5y
-	P2+r4uo7gmS29+Hx9UzntZZgsaKPqt5n5rqlat2Y0/oXSKwKVUkCzUsGL+ZFjd+sJ3eZeqDGNWY
-	Lh8ueO0YUSsSFgLuoww2go0XDa9lHePAHGfnHrqaSsjodQ7a/dQgXPOI4oBJPt1BwVGgcbra6vu
-	l
-X-Received: by 2002:a05:690c:6d89:b0:820:100e:1abb with SMTP id
- 00721157ae682-83713764b12mr81554827b3.4.1786911920200; Sun, 16 Aug 2026
- 13:25:20 -0700 (PDT)
+	id 1wvhaS-000000054ny-3dCv;
+	Sun, 16 Aug 2026 20:36:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1786912557; x=1787517357; i=wahrenst@gmx.net;
+	bh=4Z+kPSmsB7rQaR0LkAkEYzUoOZvOc60lKGr4z1NusVs=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=JWCkdfL74AkNlLjjJCOCzkki03z4p+ANoukrjo0SdI3QqC+jhR88YPr2DY3Ryyao
+	 339NolqbTU5GcqpwyX19AxDLY53YqK34AJApqnOfQi9YaUOzHLPETJhmmoTe/ee8m
+	 faLv0uqznLb8FDWaihGnPIN2dyjCPxUA+CsSOv8LJfd+E53wSmAkYjKF7foaSoIfB
+	 xr5/ksShk6zZeGSssUVBDZ/3rYLGYOOkRCJjjQJ34rLET/dp3SgmGBqo14MQlrH7S
+	 j0Pqkqug/jKuQ3vXAfiMLNwpnBK/FtopjGoSBpnsamEMnQDrSmkd+FRDKM2M4psEN
+	 6ha35PuQrtYKyzcgCQ==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from client.hidden.invalid by mail.gmx.net (mrgmx105
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1MPXhK-1xHCU326YE-00UbXn; Sun, 16
+ Aug 2026 22:35:57 +0200
+Message-ID: <87f2ee85-e53b-4154-ad5e-60a00b2bdf39@gmx.net>
+Date: Sun, 16 Aug 2026 22:35:53 +0200
 MIME-Version: 1.0
-References: <CAEWPSH54fhzKEYR1cgTskNgKryDEMaZOY1y5aFdKQQyzfKbYfg@mail.gmail.com>
- <20260816195837.497735-1-gahing@gahingwoo.com>
-In-Reply-To: <20260816195837.497735-1-gahing@gahingwoo.com>
-From: Igor Paunovic <royalnet026@gmail.com>
-Date: Sun, 16 Aug 2026 22:25:07 +0200
-X-Gm-Features: AcwNN1Wl390p4y87UVjUoqPILRXDJMOlLHfhAU7h4LLl0DQ3-Pk8Q_Wr5x1SlpE
-Message-ID: <CAEWPSH7ETfw2TDjUfOvcVtDm19FC43x2vP=Lh7m+XPOGptnPWA@mail.gmail.com>
-Subject: Re: [PATCH v7 08/10] accel/rocket: add RK3576 NPU (RKNN) support
-To: Jiaxing Hu <gahing@gahingwoo.com>
-Cc: tomeu@tomeuvizoso.net, heiko@sntech.de, chaoyi.chen@rock-chips.com, 
-	alchark@flipper.net, dri-devel@lists.freedesktop.org, 
-	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 4/4] ARM: dts: bcm2835: Add the V3D reset line
+To: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
+ Maxime Ripard <mripard@kernel.org>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui
+ <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+Cc: kernel-dev@igalia.com, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260816-vc4-reset-control-v1-0-896444373716@igalia.com>
+ <20260816-vc4-reset-control-v1-4-896444373716@igalia.com>
+Content-Language: en-US
+From: Stefan Wahren <wahrenst@gmx.net>
+Autocrypt: addr=wahrenst@gmx.net; keydata=
+ xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
+ IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
+ NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
+ JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
+ TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
+ f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
+ V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
+ aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
+In-Reply-To: <20260816-vc4-reset-control-v1-4-896444373716@igalia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:qC/mBbUnVev17g1kNFkKIAZrHsgTwMNst/nFJnL0zbKjCS/VawN
+ J1P7OlPfwCSYfQNJ1TBZkc91aq8wD99QF4V4dh2XC7OOSlL6AxcJVRDdACct0R8PzbedENu
+ NaSt+fa+NMoxOG5fC1FTMo2OnX6jXcORhtNb6wEqqApoQs1b8xFa2RbiajkLjx0HsoJ50Hh
+ OUGr1JrcNRvGPcHLoH1hA==
+UI-OutboundReport: notjunk:1;M01:P0:mpbwnKgEcwY=;fw0KO+K1nA25K+eoarwzzOrLgvF 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 G309up8duU1PTQtoWaf5i+XtVWrs=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260816_132521_735106_64D0F8F6 
-X-CRM114-Status: GOOD (  34.31  )
+X-CRM114-CacheID: sfid-20260816_133609_201010_313F8947 
+X-CRM114-Status: GOOD (  12.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,128 +100,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jiaxing,
-
-Your conv2d-cal result made me curious whether the clamp is a property of
-the RKNN output stage in general, so I built the same shape here: 1x1
-conv, 64 input channels, 8x8 surface, uint8, out_zp 128, no fused
-activation - and compared against both references. On RK3588 the answer
-is the opposite of yours.
-
-  output channels    vs raw CPU              vs max(cpu, out_zp)
-   56                56 of 56 (47 exact)      0 of 56
-  128               128 of 128 (113 exact)    6 of 128
-
-Maxdiff against the raw reference is 1 in both cases; against the clamped
-reference it is 128. Where the raw reference falls below the zero point,
-the hardware output spans 0..127 rather than sitting at 128, and only
-0.6-0.8% of hardware values land exactly on the zero point, which is
-about what the distribution gives you by chance.
-
-So RK3588 does not clamp at the output zero point, and the clamp you are
-seeing is not something the DPU output stage does everywhere. That is one
-more thing it is not, and I think it is the expensive one to rule out by
-inspection.
-
-Three controls, since a "hardware equals CPU" result is exactly what a
-silent delegate fallback would also produce:
-
-  - the per-core NPU interrupt counters advance by one per run, so the
-    job did reach the hardware
-  - 15 of the 128 channels differ from the CPU by one, which a CPU
-    fallback could not produce - it would be bit-identical
-  - 46% (oc=3D128) and 59% (oc=3D56) of the raw reference lies below the ze=
-ro
-    point, so there was something for a clamp to remove
-
-One thing I cannot tell from here: whether the difference is the silicon
-or the userspace path. My runs are upstream Mesa main with no RK3576
-patches, and yours are your working tree, so the two differ in more than
-the SoC. If you still have the RK3576 board on a stock upstream Mesa, the
-same shape there would separate those two explanations - and if it turns
-out to be userspace rather than silicon, that is a much easier bug to
-find than a hardware one.
-
-Yes to the 88 and 120 sweep on RK3576, and thank you for offering it. If
-the toggle follows the same rule at those counts I can re-run the RK3588
-side with the forced constant for symmetry, so we would have both forms
-on both SoCs at four channel counts.
-
-Best regards,
-Igor
-
-
-On Sun, Aug 16, 2026 at 9:58=E2=80=AFPM Jiaxing Hu <gahing@gahingwoo.com> w=
-rote:
+Am 16.08.26 um 16:05 schrieb Ma=C3=ADra Canal:
+> The PM block exposes a reset line for the V3D block, which the vc4 drive=
+r
+> uses to reset the GPU when recovering from a hang instead of forcing its
+> power domain down. Wire it up in the shared V3D node, covering BCM2835,
+> BCM2836 and BCM2837.
 >
-> Hi Igor,
+> BCM2711 already describes the same reset line for its V3D node.
 >
-> You are right that it is fitted, and decoding it against registers.xml wa=
-s
-> worth more than the fit was. I had been treating those two words as opaqu=
-e
-> constants and comparing predicates, when the thing that varies is one bit=
-.
+> Signed-off-by: Ma=C3=ADra Canal <mcanal@igalia.com>
+Reviewed-by: Stefan Wahren <wahrenst@gmx.net>
+> ---
+>   arch/arm/boot/dts/broadcom/bcm2835-common.dtsi | 1 +
+>   1 file changed, 1 insertion(+)
 >
-> Your reading also named an experiment I had never run. Every measurement =
-this
-> board has produced was of the value my predicate happens to emit, so 16 a=
-nd 41
-> output channels had only ever run with SIZE_E_2 0, and 56, 64 and 128 onl=
-y with
-> 1. The cell nobody had filled in was SIZE_E_2 1 at the small counts. Forc=
-ing
-> the constant fills it.
+> diff --git a/arch/arm/boot/dts/broadcom/bcm2835-common.dtsi b/arch/arm/b=
+oot/dts/broadcom/bcm2835-common.dtsi
+> index 1e76b290510d..39eea8ce1058 100644
+> --- a/arch/arm/boot/dts/broadcom/bcm2835-common.dtsi
+> +++ b/arch/arm/boot/dts/broadcom/bcm2835-common.dtsi
+> @@ -139,6 +139,7 @@ v3d: v3d@7ec00000 {
+>   			compatible =3D "brcm,bcm2835-v3d";
+>   			reg =3D <0x7ec00000 0x1000>;
+>   			interrupts =3D <1 10>;
+> +			resets =3D <&pm BCM2835_RESET_V3D>;
+>   		};
+>  =20
+>   	};
 >
->   output channels    predicate     forced SIZE_E_2 1
->    16                16 of 16      NPU job timed out, 0 of 16
->    41                41 of 41      0 of 41
->    56                56 of 56      56 of 56
->   128              128 of 128    128 of 128
->
-> So each form fails on the shapes the other handles, which makes it a two =
-sided
-> measurement rather than the one sided fit it started as. Taken with your =
-RK3588
-> result, RK3588 does not need the toggle and RK3576 does, and what the tog=
-gle
-> selects is SIZE_E_2 rather than anything about the channel count as such.=
- I
-> will write it that way, as the field with a reason, rather than as a modu=
-lo or
-> a parity of something.
->
-> The other bits you flagged I cannot defend yet. RGP_CNTER 8, OW_SRC 1 and=
- the
-> two in the reserved range came from vendor captures and have never been v=
-aried
-> one at a time. That is a sweep this board can run and I will do it before=
- the
-> Mesa series goes out, since a value nobody can explain is a value nobody =
-should
-> be asked to review.
->
-> On the unclamped reference, thank you for using it. It changed what I tho=
-ught I
-> had here as well. The clamp is only free where the quantised output range
-> starts at zero, and on a middle zero point layer it rewrites about half t=
-he
-> surface. conv2d-cal is out_zp 128 with no fused activation, and against t=
-he
-> unclamped output it is 0 of 128 channels rather than 128 of 128, with the
-> hardware equal to max(cpu, out_zp) to within one everywhere. Where that c=
-lamp
-> comes from is still open. It is not the output offset, not the BS block, =
-not
-> any register in the stream, and not the coefficient records, all four mea=
-sured
-> rather than argued.
->
-> If you want another shape, an output channel count of 88 or 120 on RK3576=
- would
-> tell us whether the toggle follows the same rule up there, and those are =
-exactly
-> the counts you already have on the other SoC.
->
-> Jiaxing
+
 
