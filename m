@@ -4,93 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0323DC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Aug 2026 13:50:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACE88C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Aug 2026 14:06:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6bMpbO3p3Ie0JM1f8TUuUkmgYOGktAPmGuPKMuLa1Ak=; b=RGC9682r26qL7HFuPU8KH44f6w
-	PEYvOwLBHUI6pYHvuPRxW9zMKn3nFmWYSsdDs94n1sy5tE56+KaZVQ0dNSl/i5EBMS/a4FOQs9SpA
-	iHohufFsVynEeB6mRjx0zdv7lGr6CObzUkiC3mgDFExC81TyBS1j7J7jbkGKvUPRDH+XmQFnqzTuc
-	n+ReosYvdjQWJCgg3ipCLBd1BWpmW1ddN4kzNPA0lAiNr0My+uzsFtp6qxDBo/Ts8BHpHLGNfJpwD
-	z4FChH7KZ7RlnV3Kt//AdnBFcb7VT14AgH9p0BICYxoEHtTrKIz8dJYDt8smCH1zlWwELXJt4SFLm
-	4vUNrpig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=6U+o+LtByJrl528SG+t8HUNDNoQonun4hjUClgQ20+A=; b=zpdjvjagH06yGf
+	SBv95Ml9h3lxu4NuFFeofZOZ7JUqyEyOHWCBxAQKYY9sqT77nLc3tJ9l8srVNHPuiGJJHMVCIuu4J
+	sBG8NgrFyWrh7O/qH5jL/l2x9ZMTbiSNFPIYOA7gHXZr0jnJu5/zpVybyDbQMAaZ7QA7pZ/Iy80rP
+	3eGDFxMISiBvclvVsqHy6tVJNVKk6pHlTBye4tIyPv4rGyH6MC94XKN7894UNh70ssFRG8SA0TI/T
+	MD+kszkjZl7d5MBQgKHWUTbEPipFU7G6u82jcyAqWdgw18lMR+h+hBXejwsdGC8sjU7+EsKTvNtIw
+	8pUQDJKWQgRfeqIx5wFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvbFs-00000004nv8-1a4v;
-	Sun, 16 Aug 2026 13:50:28 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wvbUw-00000004oJp-428R;
+	Sun, 16 Aug 2026 14:06:02 +0000
+Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvbFq-00000004nv0-3vqr
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 16 Aug 2026 13:50:26 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4ECB942AEF;
-	Sun, 16 Aug 2026 13:50:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 289B01F00A3D;
-	Sun, 16 Aug 2026 13:50:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786888226;
-	bh=6bMpbO3p3Ie0JM1f8TUuUkmgYOGktAPmGuPKMuLa1Ak=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=LLe5eSX/OtIlslSu25l2QcM66K13mAUI1ttKpXMgRZolVF+fqa3abNHzhs7PpiDfA
-	 DK0V8689KrEDCFic0Wmn5FDamwLSrYdKAv2EBoWi+JJy73tikKMYaM3vWDfb+r2Wtb
-	 VX7fELsZbtIu6ddqVhvDJvlhQArHCCPVTjIJhqTiVQCvIZKChmgsrfCUcOjIAv509w
-	 SQAKQ2vedGUV5TAWPJ0iVG/8AweyRYbEIPas5X1tzZGSsPXHIeYeXabMWlIjlfkGht
-	 sDFnXyeZ4+z/87m1deZMwtCrh1EdW6BPBwefSD+uXhtS2n93dgMX8Bwj8ebxgomUUC
-	 c19jlYMFiL5kA==
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfauth.ams.internal (Postfix) with ESMTP id A31FC1980076;
-	Sun, 16 Aug 2026 09:50:23 -0400 (EDT)
-Received: from ams-imap-11 ([10.64.2.31])
-  by ams-compute-02.internal (MEProxy); Sun, 16 Aug 2026 09:50:23 -0400
-X-ME-Sender: <xms:HMCBaj8MmMMSM58_TpHgEg_r7Q-W3boY-6Pb3O_fV8ICFKBaguNcbQ>
-    <xme:HMCBaqikYKq0Jot5Qcl4cJC7bj8YiUJjBwUGNtbLNF-cSb9ddjhpclAQwFqDP46Ap
-    fEqWelQenpulXCu4p_hk22L7cRnqKO-jrLbanmBOsXnyLMmYE8F5r0>
-X-ME-Proxy-Cause: dmFkZTGb1X/WDK3B1kqNVZGgj/Uja1AIyRukPn9r3LxdoFoCkzeogKnu9BXt+J4uE5f6IW
-    33jKuRNDYbGZ1lad8kIBDDo8kmT5yelgcZ53lgX6Fbba6LNgzIXNgO4poFZtknzTVXxT4l
-    pA51DZGD0rpQIf+6zm9vJQ7BpIOTTUf+OGTmUFhChQE/OtXChK+7BrUzllPQlVg7c9EWEd
-    993hVi6pYHuikNet4kyAMWu/OcesyaDBnnXe8BUazHHlFC+AY0NSuaylojhuXit5beDxcV
-    RzNt0wfiQGmjoBI46hncd2GcvwVMEjaY6nqOcUGyQKtzJvkbh+R+QVHBIhApgHN6Qq4mdR
-    D/RU7VnSakaRkBviGFoQKe/ZvewjP+fJl/SnFTZENgF3xo1ihweVWSq8epC4EMz8qfbopZ
-    w+8D+G03l1HlrwuUdMLMmeS36zPzUeEoip96avFS2+hs4tJ2uCIgELyl+n1ej8YZWWB8Td
-    UhTXGxm0jRaadZhwVFhL2kixUvoDUY1LOH/xJovO9H8JFbkrk05wx3jHOWzvp3Zh4lPUnK
-    hi+Gyi7HGwpnanHLnMRKeU4Sszf0VbB39fBTvQWlnYw6e+XHVlqqwgjG0/U0in/wMPvMzB
-    VR6ZmVQzMJML+i2LYQ3GV6LwA2BFMs6X+LBa1uDFBrTfNSaJ7wyV+0iWHU1Q
-X-ME-Proxy: <xmx:H8CBarB1K6QZX9hNSZOzbVwQ_ZEJuZrRIIIvms9oOVwP7gCP6Zpgyw>
-    <xmx:H8CBaq6H4-FWY6Ow6kWIdR7Eb_55AWDcIygFTBiOi_GWhR2eVAmlLA>
-    <xmx:H8CBavFWLmJ7YizIYEbIKAvgHrHk5d3VYpB67D-H-p1LwNZy5hgOgA>
-    <xmx:H8CBatQIPNBcSZiEHxmRZdyg3gDXNi88QDevf1Gbvl35kHgL-m2uwg>
-    <xmx:H8CBahdAm3MwCJb5BWJya7mpu4UU81ztFnMSHSkz5SFRvmnMNdKSeedi>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id B6073F80070; Sun, 16 Aug 2026 09:50:20 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1wvbUs-00000004oIj-2Avv;
+	Sun, 16 Aug 2026 14:06:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Cc:To:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Message-Id:Date:Subject:From:From:Reply-To;
+	bh=6U+o+LtByJrl528SG+t8HUNDNoQonun4hjUClgQ20+A=; b=hdeUW5EkSbGSgYO3JiAViGaGrC
+	BNGthEErlBOewtNFYcBGxwo8QZLFy8dU0+XCH8WEVAOsFACT0N4D8xTA+Oe5xd8m5jCHGSC8ry/6u
+	IDnSKTSm38ph4M7xqC6hm4yKywduZb5UIIGMZJ7ezGzY7GVAW+bLEBrpJlv5/QdlVm6CindxRrWck
+	a62amdxfglGpESQhOlSuWPW89lyLyGEcVbv7IXPeQDkgExEGgZA6yWegjCuqW7KesYyoq+DgqdYqh
+	SQzgxkdXmFmTma3krC2gnA6K8xBZ7jtBSh8R/z0jQ7vr6Js4e+0CI0SaLZJdDxVP12W7vxRxGnghH
+	t6eFaHfA==;
+Received: from [179.105.94.163] (helo=[10.0.0.1])
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
+	id 1wvbUj-002tuI-O1; Sun, 16 Aug 2026 16:05:50 +0200
+From: =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
+Subject: [PATCH 0/4] drm/vc4: Reset the V3D block through the reset
+ controller
+Date: Sun, 16 Aug 2026 11:05:39 -0300
+Message-Id: <20260816-vc4-reset-control-v1-0-896444373716@igalia.com>
 MIME-Version: 1.0
-Date: Sun, 16 Aug 2026 16:49:59 +0300
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Will Deacon" <will@kernel.org>
-Cc: "Josh Poimboeuf" <jpoimboe@kernel.org>,
- "Catalin Marinas" <catalin.marinas@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, live-patching@vger.kernel.org,
- "Song Liu" <song@kernel.org>, "Miroslav Benes" <mbenes@suse.cz>,
- "Petr Mladek" <pmladek@suse.com>, "Joe Lawrence" <joe.lawrence@redhat.com>,
- "Mark Rutland" <mark.rutland@arm.com>, "Mark Brown" <broonie@kernel.org>,
- "Nick Desaulniers" <ndesaulniers@google.com>, "Kees Cook" <kees@kernel.org>,
- "Nathan Chancellor" <nathan@kernel.org>, linux-toolchains@vger.kernel.org
-Message-Id: <6c7153d7-67d1-46ce-afb0-688fca871c66@app.fastmail.com>
-In-Reply-To: <aoGFxycNrA0p-H4T@willie-the-truck>
-References: <cover.1786768375.git.jpoimboe@kernel.org>
- <2ff1b2482406c61ca5979d6284ba5f948a3fbc20.1786768375.git.jpoimboe@kernel.org>
- <6bc20c00-21a9-4315-8ec3-33c7ad6ae95f@app.fastmail.com>
- <aoGFxycNrA0p-H4T@willie-the-truck>
-Subject: Re: [PATCH 02/12] arm64/module: Fix BTI exceptions caused by omitted landing
- pads in Clang 21
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MwQpAQBRG4VfRXbvFkPAqsmDmxy3N6I6k5N1Nl
+ t/inIciVBCpzx5SXBIl+IQyz8huk1/B4pLJFKYp2tLwZWtWRJxsgz817GydWyrM7dSho9QdikX
+ u/zmM7/sBVsH7F2MAAAA=
+X-Change-ID: 20260812-vc4-reset-control-cddf3eb8a9e9
+To: Maxime Ripard <mripard@kernel.org>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+ Stefan Wahren <wahrenst@gmx.net>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+Cc: kernel-dev@igalia.com, dri-devel@lists.freedesktop.org, 
+ devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2340; i=mcanal@igalia.com;
+ h=from:subject:message-id; bh=fCR0DhMM/c4JoZx1VI8ywyO79TCxSceFBK4cwUgoVk0=;
+ b=owEBbQGS/pANAwAKAT/zDop2iPqqAcsmYgBqgcO4kEdNiHpKBu/9hcn2xxZAN+OUwb/oj6Ase
+ 5eS9azUrwyJATMEAAEKAB0WIQT45F19ARZ3Bymmd9E/8w6Kdoj6qgUCaoHDuAAKCRA/8w6Kdoj6
+ qpNSB/41kda5XFtrP1Y7QQRulv5vHOaUp+qWemo/JFfnlmpCmF8MPtaqIzatSvXrtvJwIkoty0U
+ z3LPRMIrEL1WUFZz7PUcFon6XP2LVeciB2ODQoUCXAW7NdV/O4hYgjyuOBgQIRZthAcCxlYAzhT
+ lIyqwQA4jGAPJit422r/YQ5VaceaL5Bqjt/4Sj+bSw1YKoWFmtFOjsHo12o10hKJYzsLKr4L74e
+ FXaiA0+QMv9t4IN0LPs3K7qGztzTMxO/67+ILY+8jdsp+2CGGeyjlJDcLk+FyVRuJBQ3ey39cg7
+ lyf2ryMNUG3WCJWDj4ld0xZucAgdNed47yi0TFGOCCnkaMkS
+X-Developer-Key: i=mcanal@igalia.com; a=openpgp;
+ fpr=F8E45D7D0116770729A677D13FF30E8A7688FAAA
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260816_070558_873767_33144563 
+X-CRM114-Status: GOOD (  12.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,124 +93,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+vc4_reset() recovers a hung GPU by dropping the runtime PM usage count to
+zero so that the V3D power domain goes down, and then taking it again.
+Forcing the count to zero only works if the driver knows exactly how many
+references it holds, which is why vc4 unconventionaly wraps every
+pm_runtime_get_sync() call in a private refcount and mutex, making the
+code cumbersome.
 
+The BCM2835 PM block has exposed a reset line for the V3D block since
+commit 670c672608a1 ("soc: bcm: bcm2835-pm: Add support for power domains
+under a new binding."), added for exactly this reason, but vc4 never
+picked it up. This series switches vc4 over to it and drops the private
+refcount, leaving vc4_v3d_pm_get/put() as plain runtime PM wrappers.
 
-On Sun, 16 Aug 2026, at 12:41, Will Deacon wrote:
-> Hi Josh, Ard,
->
-> On Sat, Aug 15, 2026 at 12:56:11PM +0300, Ard Biesheuvel wrote:
->> On Sat, 15 Aug 2026, at 07:45, Josh Poimboeuf wrote:
->> > The following BTI exception was seen when loading a livepatch module:
->> >
->> >   Internal error: Oops - BTI: 0000000036000001 [#1]  SMP
->> >   pstate: 634004c9 (nZCv daIF +PAN -UAO +TCO +DIT -SSBS BTYPE=jc)
->> >   pc : kill_orphaned_pgrp+0x0/0x150
->> >   lr : do_exit+0x498/0xaf0 [livepatch_combined]
->> >
->> > The problem is that the patch module's do_exit() is branching to a
->> > static function in vmlinux using a module PLT veneer (indirect branch),
->> > but the target function doesn't have a BTI landing pad.
->> >
->> > Clang 21+ omits the landing pad for static functions which can only be
->> > reached by a direct branch.  But livepatch modules use klp relocations
->> > to reference arbitrary kernel symbols, and with
->> > CONFIG_RANDOMIZE_MODULE_REGION_FULL the module is far enough away that
->> > every call to vmlinux needs a PLT.
->> >
->> > Note this problem is actually not specific to livepatch.  It's possible
->> > for any module's .init section to be allocated > 128MB away from its
->> > .text section.  So calls from .init to .text via a PLT can trigger a BTI
->> > exception when the target function doesn't have a landing pad.
->> >
->> > GCC has always omitted the landing pad when possible, so kernel BTI is
->> > already considered incompatible with GCC since commit c0a454b9044f
->> > ("arm64/bti: Disable in kernel BTI when cross section thunks are
->> > broken").
->> >
->> > When missing landing pads are detected, allocate a page close to the
->> > target which can be used to hold BTI veneers which receive PLT veneer
->> > indirect branches and direct branch to the final target:
->> >
->> 
->> This does not work for cross-section calls from .init.text to .text.
->> 
->> If .init.text is far away from .text, it is likely because .text
->> ended up in the 128M 'near' module region, and .init.text did not.
->> (They tend to end up in direct branching range of each otherwise.)
->> 
->> Given that the module init code is typically small, I don't think
->> it is safe to assume that allocating a single page close enough to
->> .text is going to be possible if allocating the space for .init.*
->> was not.
->> 
->> IOW, the fix I proposed for cross-section calls is still needed
->> with this approach.
->
-> Sorry to jump in here, but I couldn't figure out a better place to get
-> involved as we have a few threads on this now.
->
-> Overall, it seems to me like there are three cases we need to consider
-> for re-enabling BTI in the kernel:
->
-> 1. A cross-section call that spans beyond the 128M range and therefore
->    needs a veneer. I think the static linker should resolve this, probably
->    by emitting a second veneer with the landing pad. Do we know if LLD
->    gets this right?
->
+The reset line is optional, so device trees that do not describe one keep
+working: they get the driver-side recovery in vc4_irq_reset() while the
+hardware is left untouched. Of the two in-tree platforms,
 
-There are two variants here:
+  1. BCM2835 gains the property in PATCH 4.
+  2. Cygnus has no V3D power domain to begin with, so the power-cycle
+     only ever gated its clock there.
 
-A cross-section call .init.text to .text that spans beyond the 128M range:
+PATCH 1 is an independent cleanup. "brcm,vc4-v3d" was never documented
+and was never used by any in-tree device tree, so it is a candidate for
+removal on its own. It can be dropped from the series if it turns out
+to be contentious.
 
-1a. inside vmlinux, which should be dealt with by the linker, but which might
-be unreliable in practice due to the lack of BTI annotations in asm files,
-missing exec permissions on ELF sections etc. This is addressed by this series,
-but is only an issue for unusually large kernel images (e.g., allyesconfig).
+This series was tested on the Raspberry Pi 3B and 3B+.
 
-1b. inside a module, which the toolchains's static linker cannot be expected to
-deal with, given that modules are not fully linked executables. Therefore, the
-module loader should deal with this, which is what my patch [0] implements. Note
-that this only occurs when .init.text ends up far away from the .text section of
-the same module, which occurs rarely in practice.
+Best regards,
+- Maíra
 
-> 2. Calls from modules to exported symbols that end up going via a PLT
->    due to module placement. Exported symbols shouldn't be static, so we
->    should have the correct BTI landing pad in this case (and if we don't,
->    we should fix EXPORT_SYMBOL() to add it).
->
+---
+Maíra Canal (4):
+      drm/vc4: Drop the undocumented brcm,vc4-v3d compatible
+      dt-bindings: display: bcm2835-v3d: Add an optional reset line
+      drm/vc4: Use the reset controller to recover from a GPU hang
+      ARM: dts: bcm2835: Add the V3D reset line
 
-This is not an issue today as far as I am aware.
+ .../bindings/display/brcm,bcm2835-v3d.yaml         |  3 ++
+ arch/arm/boot/dts/broadcom/bcm2835-common.dtsi     |  1 +
+ drivers/gpu/drm/vc4/vc4_drv.c                      |  1 -
+ drivers/gpu/drm/vc4/vc4_drv.h                      | 13 ++++---
+ drivers/gpu/drm/vc4/vc4_gem.c                      | 40 +++++++++++++---------
+ drivers/gpu/drm/vc4/vc4_irq.c                      |  7 ++--
+ drivers/gpu/drm/vc4/vc4_v3d.c                      | 37 +++++++-------------
+ 7 files changed, 51 insertions(+), 51 deletions(-)
+---
+base-commit: 09b47186a4164f3aaa3591313f80794443117342
+change-id: 20260812-vc4-reset-control-cddf3eb8a9e9
 
-> 3. The livepatch case where a module appears to branch directly to
->    static functions in the kernel. For this, I frankly think we should
->    either make in-kernel BTI depend on !LIVEPATCH _or_ pass some compiler
->    option (tbd) when livepatch is enabled so that we get landing pads
->    for static functions (which is what I believe Clang/GCC used to do?).
->
-
-The livepatch practice of lifting code out of vmlinux at function
-granularity and copying it into KLP modules in order to patch a running
-kernel is so far removed from the typical usage expected by the toolchain
-that it is justified to treat it as a separate case. Working with the
-compiler folks to allow this optimization to be disabled would be one way
-to deal with this (and disabling kernel mode BTI for compilers that do
-not implement it)
-
-That said, my patch [0] only fixes case 1b., which is quite rare in 
-practice, and could perhaps be eliminated entirely if we manage to tweak
-the module loader so that it always allocates .text and .init.text from
-the same region. (I haven't checked whether this is feasible at all tbh)
-
-If we decide that the KLP case is worth fixing too, and tweaking the module
-loader is impractical, I think we should rely on the same logic for case 1b
-(I mistakenly thought that it doesn't work for that case but Josh pointed
-out that the 256M allocation window around the branch target should be
-large enough to ensure that a veneer can be allocated within direct
-branching range)
-
-Whatever we end up doing, we might still consider my approach as a temp
-solution that can be backported if desired.
-
-
-[0] https://lore.kernel.org/linux-arm-kernel/20260812162058.612202-4-ardb@kernel.org/
 
