@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 242D7C5DF66
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Aug 2026 11:00:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D423C5DF66
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Aug 2026 11:00:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0zXvRlHUb1dGVaacwG9Y/iGMhzo5Pl/L8wZbO2uLtAc=; b=sAdUubIzJJl6XjhIM7Q939nV3j
-	UARqFGL1EMlN/RtG9h+KHMw3XZ0kF1bAZHZBXeICgRD8IAm07x1AQ8Ih1XThV8JSn0DSJhbEehSpE
-	+SQC2Fnq8zngNvfwGUTnrose5RkFZ6wXUhbpaHTubZSEXXZ6+XGocoXZYxpX/ATu8yh4INJOlCr0p
-	p0qSvf5HR2NXAoq1lHoY1GmH+/GgOW4f6M735luwPfPw50dADo7ghxVKOfZQggMUOe1ncP/SgVt3n
-	Zsi3Sapv6PFvBus6GLE8SvYTodVKsLKuGTdsrPllHCv2MGUXBZdMS29Rt+9XCmI7ABXnaSdOux/28
-	dRyrQbmQ==;
+	bh=gy2s2udgAuUOuqiiG581Z7vL2dnOoGEiogGjehxnVAI=; b=Y8Jc6n+RyOGjH9mazhicENWu/T
+	4OPe1NzLnLWs7spBKCMtVpubrsgfVNdZU/+ULNHfLZUaWoMfyEojEq2FCxxaz81NArFN5n8Tv54D9
+	ytc3g+R39wu9voXAPdlxGGmrdwiz+QouER//Hb3282p1XkHLuD2I9q+XW/L7zBBIWmTfojBErQdtH
+	ZG4XQXou4CiYgQMGuqSTGaGOk2C0oC4lZvCkKL6pzwIsXds/XAwJ7i0ZX7H0GIC3GqY57gQoYcZT/
+	31i9a2iZfmIE9BWGt72s03Xk+Ae4KwH5kuoWpP2eKsleYvGkqO5eyU91GX8ZHM307gJxhHLxY/2/e
+	87aAiIPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvYau-00000004fgP-1VqA;
-	Sun, 16 Aug 2026 11:00:00 +0000
+	id 1wvYb3-00000004fnB-2ZTD;
+	Sun, 16 Aug 2026 11:00:11 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvYas-00000004ffk-3t7d;
-	Sun, 16 Aug 2026 10:59:59 +0000
+	id 1wvYb2-00000004flG-0lKZ;
+	Sun, 16 Aug 2026 11:00:08 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5D59860055;
+	by tor.source.kernel.org (Postfix) with ESMTP id 99CE3600E2;
+	Sun, 16 Aug 2026 11:00:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90DB71F00A3A;
 	Sun, 16 Aug 2026 10:59:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9C301F000E9;
-	Sun, 16 Aug 2026 10:59:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786877998;
-	bh=0zXvRlHUb1dGVaacwG9Y/iGMhzo5Pl/L8wZbO2uLtAc=;
+	s=k20260515; t=1786878007;
+	bh=gy2s2udgAuUOuqiiG581Z7vL2dnOoGEiogGjehxnVAI=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=BxkOfn6VXnfpjzEv/q4Dlg5AnuN8R3AjObhLqH0Nhb8Qm+HMlKpfhw7MlM7pUcjpx
-	 j094iQDlHr8uFSOixHJALZDscK3HM5dSJjMTUZJSzGsE08HWLOUuOiScutS8UdHYdx
-	 jTRJq/AyQbxDXEqaKgGOqCLlryQeICddB3wgdUNgRhhhw5CfvMk9L+Ot1f/ozzREIb
-	 pduODEEIbS3L4UslReNxhI00hG/eu7x1ASfbqfi1c6Z+g+iXDQzIKXWBBFNaoU/pxl
-	 5cmOMyKyPQBHzXHaWoFhw7byGMNzbh2WO3UiuFJSgyZSqt30xw1gIJC5WER1i8Dt3B
-	 Mh8FSD60GW7qg==
+	b=lhcayokEj43ho0cwYwXSsPkKuYBPIh9x6hGmG7ih3uLsYURAu3S/D5HPbKqADyg3G
+	 Pn/qo1s8e+YdNqNPYFYKLnk3uW+Qxcn4pjWu+rILw26T1RvSQ9uzDkgh8ZGk5iaXjp
+	 23V5pkiCv2OtGtQldL3UnMXwFTy1HAwZq3MNoDc0AVt84RmjXctY3LEIz5jZ/Nyfz7
+	 CisMqAS9gASEjwdc+fUzDeXAsec3VmceqO25xO+htrehQM6I7hJXZYjTU5GAos6kla
+	 Bpmwk7AT9oICEYNjyjibk/sz26kXrKCZIv0ddB9GkmW6oMBTDXpZ32LXrEpJqOT6bW
+	 vt3YeZwG5M/tg==
 From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-Date: Sun, 16 Aug 2026 13:59:25 +0300
-Subject: [PATCH 2/6] mm/vmalloc: set area's page_order after allocation
- succeeds
+Date: Sun, 16 Aug 2026 13:59:26 +0300
+Subject: [PATCH 3/6] mm/vmalloc: constify vm parameter of
+ get_vm_area_page_order()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260816-execmem-set-vm-perms-v0-2-v1-2-90944a3ad43f@kernel.org>
+Message-Id: <20260816-execmem-set-vm-perms-v0-2-v1-3-90944a3ad43f@kernel.org>
 References: <20260816-execmem-set-vm-perms-v0-2-v1-0-90944a3ad43f@kernel.org>
 In-Reply-To: <20260816-execmem-set-vm-perms-v0-2-v1-0-90944a3ad43f@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>
@@ -91,58 +91,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-__vmalloc_area_node() calls set_vm_area_page_order() to set area's
-page_order before actually allocating pages to populate the area.
+get_vm_area_page_order() and vm_area_page_order() do not need to modify
+struct vm_struct passed to them.
 
-If allocation of large pages in HUGE_VMAP case fails midway, this leaves
-the area with elevated page_order throughout the cleanup path.
-
-There is no actual issue with this because the only place that currently
-relies on area->page_order on the cleanup path is the loop calculating
-the direct map alias range in vm_reset_perms() and it anyway skips
-unpopulated pages.
-
-But having set_vm_area_page_order() in the middle of __vmalloc_area_node()
-makes things very obscure, hard to reason about and error prone against
-future changes of the cleanup path.
-
-Move the call to set_vm_area_page_order() after __vmalloc_area_node()
-succeeded where page order is guaranteed.
+Constify the parameter.
 
 Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 ---
- mm/vmalloc.c | 11 +++++++++--
- 1 file changed, 9 insertions(+), 2 deletions(-)
+ mm/vmalloc.c | 4 ++--
+ mm/vmalloc.h | 2 +-
+ 2 files changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-index 22566e0b6e38..6822f0fe9583 100644
+index 6822f0fe9583..fc7993db4152 100644
 --- a/mm/vmalloc.c
 +++ b/mm/vmalloc.c
-@@ -3901,8 +3901,7 @@ static void *__vmalloc_area_node(struct vm_struct *area, gfp_t gfp_mask,
- 		goto fail;
- 	}
+@@ -3124,7 +3124,7 @@ EXPORT_SYMBOL(vm_map_ram);
  
--	set_vm_area_page_order(area, page_shift - PAGE_SHIFT);
--	page_order = vm_area_page_order(area);
-+	page_order = page_shift - PAGE_SHIFT;
+ static struct vm_struct *vmlist __initdata;
  
- 	/*
- 	 * High-order nofail allocations are really expensive and
-@@ -4106,6 +4105,14 @@ void *__vmalloc_node_range_noprof(unsigned long size, unsigned long align,
- 	if (!ret)
- 		goto fail;
+-static inline unsigned int vm_area_page_order(struct vm_struct *vm)
++static inline unsigned int vm_area_page_order(const struct vm_struct *vm)
+ {
+ #ifdef CONFIG_HAVE_ARCH_HUGE_VMALLOC
+ 	return vm->page_order;
+@@ -3133,7 +3133,7 @@ static inline unsigned int vm_area_page_order(struct vm_struct *vm)
+ #endif
+ }
  
-+	/*
-+	 * Set area->page_order once it's known exactly that the order of the
-+	 * pages the area contains.
-+	 * Even if we succeeded to partially populate the area with large pages,
-+	 * still treat the area as populated with order-0 pages.
-+	 */
-+	set_vm_area_page_order(area, shift - PAGE_SHIFT);
-+
- 	/*
- 	 * Mark the pages as accessible, now that they are mapped.
- 	 * The condition for setting KASAN_VMALLOC_INIT should complement the
+-unsigned int get_vm_area_page_order(struct vm_struct *vm)
++unsigned int get_vm_area_page_order(const struct vm_struct *vm)
+ {
+ 	return vm_area_page_order(vm);
+ }
+diff --git a/mm/vmalloc.h b/mm/vmalloc.h
+index 8866ddcff668..211869f36509 100644
+--- a/mm/vmalloc.h
++++ b/mm/vmalloc.h
+@@ -12,7 +12,7 @@ void __init vmalloc_init(void);
+ int __must_check vmap_pages_range_noflush(unsigned long addr, unsigned long end,
+ 		pgprot_t prot, struct page **pages,
+ 		unsigned int page_shift, gfp_t gfp_mask);
+-unsigned int get_vm_area_page_order(struct vm_struct *vm);
++unsigned int get_vm_area_page_order(const struct vm_struct *vm);
+ #else
+ static inline void vmalloc_init(void) {}
+ 
 
 -- 
 2.53.0
