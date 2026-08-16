@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 577B2C5DF6D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE92FC5B572
 	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Aug 2026 19:42:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,63 +12,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p8nmwxeGtmUEsI+0IQq59S0kaD/GAoU83KLqHgNb9Mo=; b=LXdgEOMcI0dy0O7To+ToObWOG5
-	TLMYBFhCuzwsSFkLAeBIJOwn5G6W03m/i83HC9d8A3FhxEh8G0IHa3zO4c588ML9zdXS+zRkIFEo8
-	wGGCeRS73mUA+W4ChB0iixCUCHNyYQsowGTQPM5z6/bYxxjUSzMlkwIaO6LNEzxgkKZ1i/y2Yee1b
-	aAga6a1tMOSZG63UI0Xb/izZ++FWm6Uan0v24gfdZ1DfU8R3je77RZXhuoRjerVnhfi4HIWo/epzt
-	/D8DOIZZ99B5TYdt4TevwK2i5hZUVGHf8Lm4rAXRqdEy2YRgg5+JzUKw46g/XZp0rJmIqGRWRTAYM
-	EshfIAOQ==;
+	bh=saCtLctEFieimkjt5839av7kQUg1qO8hSvOYlxjvmVA=; b=IWrGIa4NXt4YPVg06bqi9iZ1qY
+	6/7Vsp53X9wio/DZHu3sK0Cct5pl8OFSe/jJsOSYL3Zjz+8Qb2HKzU+7CFhfKWmFjSsFHVFU2BHwJ
+	6U/0BqT0j90vgnR63zBx2/1sPEK+Cyrm10hm5rFisPFNqJ/PbMt1yHDk+Dx9FqlsPo/ZbWIg/XEpV
+	IGF2mZVJN0wF1J+oQCsGJxf7JdxQtaspMsdUUGTbK2VfCa7w/hEMPR8t6GsEVgbz39ryRbBOfYard
+	VvpS18wi5s/bZYL00BJZSGxAStw19pL3UvI4yf8RXO/cX0+EEa0sxyfrpEqneClk37fJPPD48QA2G
+	Nd2Xk/VA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvgkK-000000052AN-3QZy;
-	Sun, 16 Aug 2026 19:42:16 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1wvgkL-000000052BC-0syz;
+	Sun, 16 Aug 2026 19:42:17 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvgkE-0000000525F-1EcY
+	id 1wvgkH-0000000526f-0fZj
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 16 Aug 2026 19:42:12 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-47f92e3c14bso2216108f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 16 Aug 2026 12:42:09 -0700 (PDT)
+	Sun, 16 Aug 2026 19:42:14 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-495590dde14so33790845e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 16 Aug 2026 12:42:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786909329; x=1787514129; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1786909331; x=1787514131; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=p8nmwxeGtmUEsI+0IQq59S0kaD/GAoU83KLqHgNb9Mo=;
-        b=k6yOsI1Ec1c3qhZb0k82hAAu6hYJ6OnGPC7YzKLTgLonK/ehpIojczT7fiDubex6mL
-         bF6CiTsRsuoZyJcw7fGKJb6Nt/78QWHMHHqkgknpN0bAOEJO0BP5gNibzTA16mHtzzlO
-         zp3qotJOoE7VZRd2aofLudWuV8hY6/8gCIrcljByqiAnNrfDUasWn0KVX5v5yh0YOJN2
-         5yOnrPa6FuoaMZ0oJ4abo+hzFMs1kUEQciGREv7UtxuQxEfBDWeTMOpVrs6SZf3LH8mC
-         2U1HCOba1UWDS7ni6lBmQSX0SaaVALs6nUa/hzmYocNtjyFfryHL5dQusOSyyzPTiyg0
-         bB3g==
+        bh=saCtLctEFieimkjt5839av7kQUg1qO8hSvOYlxjvmVA=;
+        b=kK3A6mIFtXXKbVA3pNvMrrcAjFutH6dBhj7v2fwj93ssh49XrG5ZO7GiUsOG4stpP4
+         bWnZqNhY2VxrWPf/IEWjaP3VPYbkA0Uj4QaK8GWIAu+qIwM8zfmHPJREkUnae9J0nEmV
+         MOqaiMb0HPTXT6bE1xvBFihDb9M4Sj6DVtI6a+WjJ3znA+v+VhVz69B4EG43SR33wqNu
+         ZVPV7KhK8nQsQMbpoOYjGe/yq+bGDu1mDAmD5ARpRy2lDpBzJUnEMq89aB8BHDlbgnI7
+         9rtx/M8txuqg/bNmuW0Cx3Vp4bBJ//00782WSrutxbOGxBEX5Tspc7tVd2Tr5TwQI3RP
+         U5og==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786909329; x=1787514129;
+        d=1e100.net; s=20251104; t=1786909331; x=1787514131;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=p8nmwxeGtmUEsI+0IQq59S0kaD/GAoU83KLqHgNb9Mo=;
-        b=b4l8yPRNV7yJ8jT0YMr7slhh6FR/6Gc9RMJ3pbQF7SG3Lh+tu9E26OIbR4RxYLByVo
-         p/yleTQ923e8evaKJUDcW3M/Ra5YgPItkUUtxbByh4IKSNuDzAPySDcLlwF8B4CSqN1Z
-         Pc8SlhQmLIshUBKesrJMgCggS6gOmH1lK8iRw4FQSDjxymbZ1hD5vxREBv4uYPOaBXgp
-         wv0XcyIZ6dtsqjWfgHL+DDXyK5Ie/0KklnCiHjdxiaahCTEP5cy9SU6LrEv9+8U671Lw
-         AO4m2dau18kJhZz6QnhVtQvLV40wF2HJstkmFHKlfW7ynPaC+o3f8dmALzHpzUaMROI1
-         G6HA==
-X-Forwarded-Encrypted: i=1; AHgh+RqlEsN2M/M0RxUVEQOK/nAubZatlThsqMVMivKsPjd8uLfN25OpmYVsUWec4NNagMwOqZwurpoWYI7i1SUhvF2H@lists.infradead.org
-X-Gm-Message-State: AOJu0YxMLx+vmdzD1l8mS+oItFKmEmRjDfKmSe4SNCBb6CAmLba6EKjg
-	lFH9Wr8nIaJndkfQz3Wi3SMlpRHJRRWTEUCOMM9l9wTC0GMZtZfMsFxQ
-X-Gm-Gg: AR+sD11Ze6ph51skWC2bgHLhu1+pAlmDsKjVMbqtVwk8max65klVKH3c9yLhNjOzLPl
-	TYfC+5sp8hE9KlPuO8WDf01EjV0jAb1i04Gq1Gx//iQ4Cc/1Dv/L5jiHrBXrBtPYWHPDMnMwzJg
-	E8NxNKM9bXtNI+4jid1cCJcRsR/kHxT9fl3bmqS85bMe/AkUSjp1QYI48KpD+DDkmiLSYzuyWU5
-	Gyu3GtWXhuvTgFWGpSajjtwIClMvY1Agwzk8fV43ytoCSYT7eV6qCpzDeYk0Q8oXkPHz8Wv3bBv
-	xJQv4THGvS5RCwVvwRJmGoyaQXdCkwDiulvom2Pe5dIfvqTAGzlyKpjoH74gyKy0YDoZ1Ke2kPb
-	SqPTjJ6krcbQBRQqfHAiRSw+Yt1s1HMRWZgu/TstJh7x6p780nGIzN4PszkB/da36TtXko3Twv1
-	GIr+eAwM9Oyqzisc/5v9lOtPwOQwrew9M1Z9zZCDP/MajOoaUxG0Ddvg==
-X-Received: by 2002:a05:600c:3596:b0:499:8ed2:8234 with SMTP id 5b1f17b1804b1-4998ed286c1mr202943995e9.0.1786909328685;
-        Sun, 16 Aug 2026 12:42:08 -0700 (PDT)
+        bh=saCtLctEFieimkjt5839av7kQUg1qO8hSvOYlxjvmVA=;
+        b=jgr2RY0hYYhWb3V2sd55FTvDQLLb0gOk+O3BKUF2K7S9IzyXGhEOAza13AbeDFcr+h
+         UM9N6Y3FXJEoup2WzcZQic89ndZ9+YxNNbxCNSuuFOOqQybVCQmFZwS+F2roRFoC9sHn
+         yBrj+wo2z0v+h/3CGSEHZc8p+z0Kg24JuLUQXMAHwsOpRHyIp1tctR+cZNyUMw1VH/SF
+         1PSRB6h7EozuZzQXoTgNoFIWy20lxC3vZV6LZ92HnO8NqoL5Pciy0bKGlCRQmUdIftuA
+         4Z0tvE/etXJsAI19MbuLKRQ5RAzvQYBKTnLaUKqdqIH1ubuOHYalO9osm7ts6jk/i+5u
+         9vDQ==
+X-Forwarded-Encrypted: i=1; AHgh+RpBsROs8JZtwPOFO8/DbKY23297CrMrTKj6MpYxtrelLz0gNBp7w1a5dT6pnXWWnvsEcm/vMATwhCmBXghUhgbj@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQwhdrf31EVRwKqgVD7vccl23q38GbFJyIYYFCWpQt/eMIzad3
+	uCjHExL9xfaQTfpJdP2QlJPQ2trXqBWEbmOFGkZ678JO8aVVlDrWCIQy
+X-Gm-Gg: AR+sD123b9JvWsmbohVXcEBErIGxlKtOxBJDFU7l0+/vRcuGSH1Jirkp7F8rTevZURP
+	ahXOkBg4zmGb8P2scKho3IfjCB195uoFZFKwUd6bIZlE7bqJxE2EzrW50Xi3nMr+9fKDX7csusf
+	mcxxFm8LGvylEbmtBWtwCbn8aKeqoAD1tR8NmPnpFWhEx4xWt6NYADpp9PrPf9NZNzNdDbgD9Ny
+	cC0DogCVLIOJiUJ8xmYstdP8HoNTKQB6JICgCI3FNgACoIWi8VyXumYJ8g/NCmauvNqUmbEMOC+
+	mqjpP7GmG7tvUW2LGNV3nAy9WncYhKlDclgEZhzgQoQfeTtqXuo6DB/7Ucj9bfwCuBY7Tn0saY7
+	O+yR+JetXZKveh96c9rG7nzCJ8Bj5SqjXd5VP0yfvFjF5VIz6cBkjKIaijAB1FGE7LlmGpVwj7a
+	zyeC2fzroQo04225Do+1Q5ht9AmUKo3aZUy9qKv5x6Ckp5Tyzohzm1Tg==
+X-Received: by 2002:a05:600c:4754:b0:499:7e2b:8e5 with SMTP id 5b1f17b1804b1-4999a2f9ec3mr21366645e9.5.1786909331392;
+        Sun, 16 Aug 2026 12:42:11 -0700 (PDT)
 Received: from olympus.. ([2a0a:ef40:f1b:d401:2e0:4cff:fe68:285])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49996106c6esm100527875e9.5.2026.08.16.12.42.08
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49996106c6esm100527875e9.5.2026.08.16.12.42.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 16 Aug 2026 12:42:08 -0700 (PDT)
+        Sun, 16 Aug 2026 12:42:10 -0700 (PDT)
 From: Dawid Olesinski <dawidro@gmail.com>
 To: Herbert Xu <herbert@gondor.apana.org.au>,
 	"David S . Miller" <davem@davemloft.net>,
@@ -87,9 +87,9 @@ Cc: Diederik de Haas <diederik@cknow-tech.com>,
 	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Dawid Olesinski <dawidro@gmail.com>
-Subject: [PATCH v3 3/4] arm64: dts: rockchip: Add crypto node to rk356x-base
-Date: Sun, 16 Aug 2026 20:39:46 +0100
-Message-ID: <20260816194112.552100-4-dawidro@gmail.com>
+Subject: [PATCH v3 4/4] arm64: dts: rockchip: Add crypto node to rk3588-base
+Date: Sun, 16 Aug 2026 20:39:47 +0100
+Message-ID: <20260816194112.552100-5-dawidro@gmail.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260816194112.552100-1-dawidro@gmail.com>
 References: <20260708175837.1718437-1-dawidro@gmail.com>
@@ -97,8 +97,8 @@ References: <20260708175837.1718437-1-dawidro@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260816_124210_360945_C0C10C65 
-X-CRM114-Status: GOOD (  12.19  )
+X-CRM114-CacheID: sfid-20260816_124213_403056_88AE695C 
+X-CRM114-Status: GOOD (  13.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,11 +114,19 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Add the device tree node for the V2 cryptographic hardware accelerator
-on RK356x SoCs (RK3566, RK3568).
+on RK3588.
 
-The IP block sits in the non-secure peripheral domain. Its three clocks
-(core, aclk, hclk) and reset line are accessible directly through the
-main non-secure CRU, so no firmware intermediary is required.
+On RK3588 the crypto IP sits inside the secure domain controlled by
+SECURECRU, a register bank that is exclusively accessible to the
+TrustZone firmware (TF-A). Linux must therefore obtain its clocks and
+reset line through the ARM SCMI interface provided by the firmware
+rather than mapping the CRU registers directly. Attempting direct MMIO
+access to SECURECRU from the non-secure world triggers an asynchronous
+bus fault.
+
+The interrupt uses the four-cell GICv3 format as required by the RK3588
+GIC node definition (the fourth cell is the CPU affinity/partition
+specifier; 0 means no affinity constraint).
 
 The node is disabled by default; board files that wish to use hardware
 crypto offload must enable it.
@@ -129,31 +137,31 @@ Signed-off-by: Dawid Olesinski <dawidro@gmail.com>
 Tested-by: Diederik de Haas <diederik@cknow-tech.com>  # Quartz64-B,
 NanoPi R5S, NanoPC-T6 LTS
 ---
- arch/arm64/boot/dts/rockchip/rk356x-base.dtsi | 11 +++++++++++
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 11 +++++++++++
  1 file changed, 11 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-index 64bdd8b7754b..8b88d6de18c2 100644
---- a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-@@ -1111,6 +1111,17 @@ sdhci: mmc@fe310000 {
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+index 4fb8888c281c..980c345a5de0 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
+@@ -2249,6 +2249,17 @@ sdhci: mmc@fe2e0000 {
  		status = "disabled";
  	};
  
-+	crypto: crypto@fe380000 {
-+		compatible = "rockchip,rk3568-crypto";
-+		reg = <0x0 0xfe380000 0x0 0x2000>;
-+		interrupts = <GIC_SPI 4 IRQ_TYPE_LEVEL_HIGH>;
-+		clocks = <&cru CLK_CRYPTO_NS_CORE>, <&cru ACLK_CRYPTO_NS>,
-+			 <&cru HCLK_CRYPTO_NS>;
++	crypto: crypto@fe370000 {
++		compatible = "rockchip,rk3588-crypto", "rockchip,rk3568-crypto";
++		reg = <0x0 0xfe370000 0x0 0x2000>;
++		interrupts = <GIC_SPI 209 IRQ_TYPE_LEVEL_HIGH 0>;
++		clocks = <&scmi_clk SCMI_CRYPTO_CORE>, <&scmi_clk SCMI_ACLK_SECURE_NS>,
++			 <&scmi_clk SCMI_HCLK_SECURE_NS>;
 +		clock-names = "core", "aclk", "hclk";
-+		resets = <&cru SRST_CRYPTO_NS_CORE>;
++		resets = <&scmi_reset SCMI_SRST_CRYPTO_CORE>;
 +		reset-names = "core";
 +	};
 +
- 	/*
- 	 * Testing showed that the HWRNG found in RK3566 produces unacceptably
- 	 * low quality of random data, so the HWRNG isn't enabled for all RK356x
+ 	rng@fe378000 {
+ 		compatible = "rockchip,rk3588-rng";
+ 		reg = <0x0 0xfe378000 0x0 0x200>;
 -- 
 2.47.3
 
