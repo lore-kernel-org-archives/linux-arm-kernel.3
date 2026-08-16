@@ -4,100 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4B30C5DF66
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Aug 2026 19:59:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03DF1C5DF66
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Aug 2026 20:04:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XnBStf3gY35JgbeiLlY3OyQBN22mjeVyLGOlqZ8Olm0=; b=F2uMD6vMR3CVeSfd/PCAsYGVYE
-	dY9xpkFXi4ER9B82LG7md0nYsclsQsNy+Ad3sg1tYiBkf7/6W+Dg1Y+X5U/Pkaw9voSyJvwi5A0f6
-	7zxR+7VW4njsHmRJECTHohwuvCKdkrjy+fQdbsuYFkWfGfL4JoKQKcRRmGvCKvWM/Mrs1OE7cJfPK
-	vbiM0NpmWj5BeaaY2a0V+HmLQA+FDRBth8GwCiDec+8hrALiAC9Mwte2Y9zZzv1dn8fyDbUgZ1fP0
-	prp90uB77sXzUCIIFMTiPjSCbgDvfj1gxxjcAGtn2ZHSOybooTYN1x9AjnUYiJMSqaW7Qgn79VmbJ
-	+Hsj8GVA==;
+	bh=0Q+In85KJcx2q9yxNMIL3sT8YnPE2GKRoiwmStkQcPQ=; b=SDO0W4diYN9YEiqJTdPU8mzP10
+	RLGLO/dFHN6T3qJAeKdteIPe5svvouC8Po1Jt5KP5X9tPtsffB6Y2xFzfEp9Yug0r7rH2rI7aReqH
+	VCcbJCbBIFqmI0d7imCVKYXziMMjwyETeacFInn65U8BpZAdCosQMDJiAoaZXRjN7UVCH4OCndr1H
+	yNYnTtfHk4dMYF5gjgMtb80kn3BogR8HOGkjz7xWSOQQ9i5vaVm3KBlYqAC8hoeE0TJY+7tm9g0FE
+	ZRgfuvyoP7zqRjS/WFJCuV75gw1HPtBeWs1yjJvomFcOYrDS1W7V1vIzcXTTtCbT4H0CnqbHtFNhN
+	pVbj2TGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvh0J-0000000539B-2xZF;
-	Sun, 16 Aug 2026 19:58:47 +0000
-Received: from flow-b1-smtp.messagingengine.com ([202.12.124.136])
+	id 1wvh5i-000000053MP-1gWA;
+	Sun, 16 Aug 2026 20:04:22 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvh0H-0000000538n-1ODT;
-	Sun, 16 Aug 2026 19:58:47 +0000
-Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
-	by mailflow.stl.internal (Postfix) with ESMTP id D959E13002F3;
-	Sun, 16 Aug 2026 15:58:43 -0400 (EDT)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-06.internal (MEProxy); Sun, 16 Aug 2026 15:58:44 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
-	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
-	:from:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm2; t=1786910323; x=
-	1786913923; bh=XnBStf3gY35JgbeiLlY3OyQBN22mjeVyLGOlqZ8Olm0=; b=A
-	v7Tesgu9KkldXPQiDym0PZqnbClXw4HR/76tMtifOgpm3PxQ2jIS7MSBxxwrSDsM
-	kGC+Ku0h2W+bOd7LMayA0jz+OCLzV9YKIJYCOCFAyEV06ew0XeS1RKuqcszcvxtW
-	StXw0FlGBHFOJh/tsFiGyFXJtNdOpM7W6bP3uuqkfRjQ4+PmK1XCyaQlmO1mZcq0
-	aiqdkY5Ex0yU12p+VXA8N0wL617CiEnFKxnzQG03T/LJG6PJPP6yeArLlghnkmMV
-	15hdeqD7WryIElretzrb0gB1NsVFr/v6wIu+6Nal4qVXlQZ48TCY8gc8VWpLyKcJ
-	k6LEE0wO29McilmNHD6Cg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm3; t=1786910323; x=1786913923; bh=X
-	nBStf3gY35JgbeiLlY3OyQBN22mjeVyLGOlqZ8Olm0=; b=R3JewFILGvZjSj+9X
-	jU7efgOYjE9AiSf70wqr3iqnTlZuZgy28ljQ/RJDGkHpBjNgguVBq3swfLcAZgZ/
-	g5Rl7Bdvh6phHDb3xgq3RUCQCXHPeYUvLNfOQBU4N7E0/+TZdUt+4ujhhM9oJgT6
-	wHgrujhc6ZwtAdS/SwpgAs70rWXa37HRi6h2s4YIna1yyQF5h4dHUMnFacfhzUmM
-	MB6B+wP9QrF4jYWDCybM4gbA3Orja5BD+pdgE01vruZ/BdveDNgZPJbgQruamien
-	N/nGQXCLnekXnrersn+8AiZ5GEDfoGfzxLj92cyTs5CYVFxm2ZkT54yHejpY3H/I
-	bBd6g==
-X-ME-Sender: <xms:cxaCalrKA_EFNYHkr5PAX2Lu_aGKB1rN4UhwviaA_v0JA8jbg-5odw>
-    <xme:cxaCav0U1F-cpevEUC8ie0AkNeWK5uGT89ZP8MlSNgeyZBL_VM7pdtBGcLk7N5Gu5
-    sNQqh9fu_vFPNQwjSPkiS81750QVihmC-XccO_-WyUBqwJXhVHRzUiV>
-X-ME-Received: <xmr:cxaCatz_3qD7zxzycAcwO_WM6VC98ocj4vLrkGEhsRIn2MRuVfqeMQs1rNYtk7vb52rEPQcV-A>
-X-ME-Proxy-Cause: dmFkZTEdlirJvxcfGQ+WBsgr+9hxCRNQxQEcOKrpxNyi8WDOAmXAzN11cnXB8HJmbqFqBS
-    xtc1oy/Jvg5YFuB5a7cM1vsDrKjpvdxzHL6eKsttkvr9s9qnCehwuQTpcvoXKqfspIfa41
-    MbiEjZ/21VO49M+isqQxz7pPASLn515eeGV7RKRRWuUUpFxIxSGHJj5mAR7awOxSxLW7SH
-    cVURYyNhn4osDEuqsFDw3SRG9pRa7ZHB4foIEOnpWn1jjexsF7hLjKSn8/ETyRaaurqTEr
-    GoOKat559S2zZQp5qGm+OAZRKYj/jLwCA3ic+UZsN91e8thYkAa9MjE+dp9RFBpM0UTcLE
-    Jualy7VLSaJv/6beoFPaIdHkpHfFnr+SYl17ZX8EQH71m8HlmWHiFRJVW67ofJWnhbOET4
-    RGoeLRm4c14OiQnLxgJ0xDORcWxXh/NfS8395LJ4FYRSrLz7WsCfzcHrqMEn12oAJrwWmI
-    cwyyzHGhvsVD9nLE2g2W++fdrJFetqqGM0pFnGIrFjy8tqhZwuqBYl2mx+rfP3Wi3W9KxP
-    wBmv4wn5jr9gs6un++qLKuXf545nFNI+rcPO3bKMHQW3n/Iqpc5WclTDM/7OhZIZDlB79V
-    askSqi8M032Jc3s12ziNS6JfshhQCnj773P5fQqZMD1DwR03Ya7TawCXfXfA
-X-ME-Proxy: <xmx:cxaCargeG-LqeC9k-KyXokMlhG5cJjKWK7nMnO_4rdV8bai8aMW9gw>
-    <xmx:cxaCagqoE3ylQ0UZMlNjGBwYGHxyjjW1Nlc75MD-EIATG3Z3X_HCVw>
-    <xmx:cxaCaihbdAlK49ddmJ7Yo5sVosQzCDk1jt8BKKNn74GVqvSgE3A4rg>
-    <xmx:cxaCaiPbGxljNVevn3sws6NPuDfAezQdtMh0tXpx0ba6gX-hudrybQ>
-    <xmx:cxaCamIPlp7D9jLXir41S3bfCEN_jPhrVybyr9xNbCqZEuTAYhmyZrEf>
-Feedback-ID: i7a5e4b5f:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
- 16 Aug 2026 15:58:40 -0400 (EDT)
-From: Jiaxing Hu <gahing@gahingwoo.com>
-To: royalnet026@gmail.com
-Cc: tomeu@tomeuvizoso.net,
-	heiko@sntech.de,
-	chaoyi.chen@rock-chips.com,
-	alchark@flipper.net,
-	dri-devel@lists.freedesktop.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 08/10] accel/rocket: add RK3576 NPU (RKNN) support
-Date: Mon, 17 Aug 2026 07:58:37 +1200
-Message-ID: <20260816195837.497735-1-gahing@gahingwoo.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <CAEWPSH54fhzKEYR1cgTskNgKryDEMaZOY1y5aFdKQQyzfKbYfg@mail.gmail.com>
-References: <CAEWPSH54fhzKEYR1cgTskNgKryDEMaZOY1y5aFdKQQyzfKbYfg@mail.gmail.com>
+	id 1wvh5h-000000053MH-1RD7
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 16 Aug 2026 20:04:21 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5411F6013A;
+	Sun, 16 Aug 2026 20:04:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 534CD1F000E9;
+	Sun, 16 Aug 2026 20:04:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786910660;
+	bh=0Q+In85KJcx2q9yxNMIL3sT8YnPE2GKRoiwmStkQcPQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=ipvXQ6IQh+JW23GdsFHHX3LneRHRtIEFO8Xs3ByKgJjFgAk+zUKdMrzR5AcBgDnUw
+	 sRKblBLwtcz06ZWwId5nsuWd9vNMF8oykvugaC/EWarfj7qxxecPfA/hu6oxvFWQtU
+	 IaMcNXTAfOCRCQieSJUpgMXhx3RWnnCVGOk0hhX+V5OJz91lIWbpM30xo/MeeOYjFq
+	 XOTBHFdSnUhD+IECzNjiME2rDJVnGuySKQj9G3aA/xFqB35ewvoL13ycwSnwHhijtH
+	 HZbv3UDs7LD8CQ0gDxw5rShtC0bY2qbnHmACrJ0SgC2rV4HhtS4QvuicMwtRFXvHtc
+	 GTNdcJfz3utfA==
+Date: Sun, 16 Aug 2026 21:04:14 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Kaustabh Chakraborty <kauschluss@disroot.org>
+Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, Alim
+ Akhtar <alim.akhtar@samsung.com>, linux-iio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
+Subject: Re: [PATCH v4 0/3] Add Sharp GP2AP070S Proximity Driver and enable
+ it in Galaxy J6 (j6lte)
+Message-ID: <20260816210414.6ce52946@jic23-huawei>
+In-Reply-To: <20260807-gp2ap070s-v4-0-74f6a67b6272@disroot.org>
+References: <20260807-gp2ap070s-v4-0-74f6a67b6272@disroot.org>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260816_125845_850816_DF4D4F4E 
-X-CRM114-Status: GOOD (  14.15  )
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,50 +75,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Igor,
+On Fri, 07 Aug 2026 01:18:40 +0530
+Kaustabh Chakraborty <kauschluss@disroot.org> wrote:
 
-You are right that it is fitted, and decoding it against registers.xml was
-worth more than the fit was. I had been treating those two words as opaque
-constants and comparing predicates, when the thing that varies is one bit.
+> Sharp GP2AP070S is a promixity sensor (NOT an ambient light sensor) in
+> mobile devices. This sensor chip is found in mobile devices, including
+> (but perhaps not limited to) Samsung Galaxy J6 (codename: j6lte).
+> 
+> To the best of my knowledge, there's no public documentation available
+> for this device. [1] is a downstream kernel implementation, which has
+> been the single source for developing this driver. Some bits have also
+> been stolen from existing GP2AP* drivers available in iio/light.
+> 
+> The last patch in this series touches the device tree sources to add the
+> light sensor node in j6lte. This needs to be accepted into next only
+> when the former patches are in next.
+> 
+> [1] https://github.com/Exynos7870/android_kernel_samsung_universal7870/blob/lineage-16.0/drivers/sensors/gp2ap070s.c
+> 
+> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+Make sure to take a look at sashiko feedback.
+https://sashiko.dev/#/patchset/20260807-gp2ap070s-v4-0-74f6a67b6272%40disroot.org
 
-Your reading also named an experiment I had never run. Every measurement this
-board has produced was of the value my predicate happens to emit, so 16 and 41
-output channels had only ever run with SIZE_E_2 0, and 56, 64 and 128 only with
-1. The cell nobody had filled in was SIZE_E_2 1 at the small counts. Forcing
-the constant fills it.
+regcache flat is very rarely the write option.  maple is fine for even small
+sets of registers and avoids some pitfalls (I'm not sure the exact issue
+sashiko is calling out is real - I haven't checked)
 
-  output channels    predicate     forced SIZE_E_2 1
-   16                16 of 16      NPU job timed out, 0 of 16
-   41                41 of 41      0 of 41
-   56                56 of 56      56 of 56
-  128              128 of 128    128 of 128
+The timestamp skid thing isn't important (though it is correct) so
+I'd ignore that one. However it's point that you might as well
+do the work in a non threaded interrupt is valid given the simplicity.
 
-So each form fails on the shapes the other handles, which makes it a two sided
-measurement rather than the one sided fit it started as. Taken with your RK3588
-result, RK3588 does not need the toggle and RK3576 does, and what the toggle
-selects is SIZE_E_2 rather than anything about the channel count as such. I
-will write it that way, as the field with a reason, rather than as a modulo or
-a parity of something.
 
-The other bits you flagged I cannot defend yet. RGP_CNTER 8, OW_SRC 1 and the
-two in the reserved range came from vendor captures and have never been varied
-one at a time. That is a sweep this board can run and I will do it before the
-Mesa series goes out, since a value nobody can explain is a value nobody should
-be asked to review.
+Calling regmap_reinit_cache() seems illogical even if not wrong
+on a teardown that is about to wipe out the regmap.
 
-On the unclamped reference, thank you for using it. It changed what I thought I
-had here as well. The clamp is only free where the quantised output range
-starts at zero, and on a middle zero point layer it rewrites about half the
-surface. conv2d-cal is out_zp 128 with no fused activation, and against the
-unclamped output it is 0 of 128 channels rather than 128 of 128, with the
-hardware equal to max(cpu, out_zp) to within one everywhere. Where that clamp
-comes from is still open. It is not the output offset, not the BS block, not
-any register in the stream, and not the coefficient records, all four measured
-rather than argued.
+I didn't look at the dtsi comments.
 
-If you want another shape, an output channel count of 88 or 120 on RK3576 would
-tell us whether the toggle follows the same rule up there, and those are exactly
-the counts you already have on the other SoC.
 
-Jiaxing
+
+> ---
+> Changes in v4:
+> - Clarify non-mandatory vled-supply commit message (Krzysztof Kozlowski)
+> - Simplify driver probe return paths (David Lechner)
+> - Rephrase fsleep() usage to use unit macros (David Lechner)
+> - Use regmap_reinit_cache() instead of regcache_mark_dirty() (David Lechner)
+> - Use regmap_assign_bits() instead on branch on regmap_{set,clear}_bits()
+>   (David Lechner)
+> - Drop redundant explicit cast to u16 (David Lechner)
+> - Replace (1 << 16) with macrofied BIT(16) (David Lechner)
+> - Add max_register to regmap config (David Lechner)
+> - Add upper byte register for proximity distance volatile registers (Sashiko)
+> - Return 0 instead of IIO_VAL_INT in iio config write calls (Sashiko)
+> - Add REGCACHE_FLAT to regmap (Sashiko)
+> - Link to v3: https://patch.msgid.link/20260731-gp2ap070s-v3-0-d1f5cecf9fe7@disroot.org
+> 
+> Changes in v3:
+> - Revoke stale patches sent erroneously, v2 changelog applies
+> - Link to v2: https://patch.msgid.link/20260731-gp2ap070s-v2-0-1bdfee07d5ea@disroot.org
+> 
+> Changes in v2:
+> - Reshuffle and add missing header inclusions (Joshua Crofts)
+> - Add missing regulators in driver and dt-schema
+>   (Joshua Crofts, Jonathan Cameron)
+> - Rename and rearrange register addresses, masks and values (Jonathan Cameron)
+> - Use regmap_get_device() for carrying dev pointer (Jonathan Cameron)
+> - Use FIELD_GET() instead of !! (Jonathan Cameron)
+> - Drop unused i2c_set_clientdata() (Jonathan Cameron)
+> - Use fsleep() instead of usleep_range() (Jonathan Cameron)
+> - Check if proximity-near-level is available before reading its value
+>   (Jonathan Cameron)
+> - Drop redundant dev_err_probe() from devm_request_threaded_irq()
+>   (Joshua Crofts)
+> - Use mutex guards for guarding concurrent read/write calls (Sashiko)
+> - Add reset chip action on removal (Sashiko)
+> - Ensure input value in iio_write_event_value() is 16-bit (Sashiko)
+> - Use regmap_bulk_*() instead of regmap_raw_*() (Jonathan Cameron)
+> - Hint volatile registers for regmap (Jonathan Cameron)
+> - Link to v1: https://patch.msgid.link/20260723-gp2ap070s-v1-0-b8ca3a4c10dd@disroot.org
+> 
+> ---
+> Kaustabh Chakraborty (3):
+>       dt-bindings: iio: proximity: add Sharp GP2AP070S proximity sensor
+>       iio: proximity: add driver for Sharp GP2AP070S proximity sensor
+>       arm64: dts: exynos7870-j6lte: add Sharp GP2AP070S proximity sensor
+> 
+>  .../bindings/iio/proximity/sharp,gp2ap070s.yaml    |  60 +++
+>  arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts    |  55 ++-
+>  drivers/iio/proximity/Kconfig                      |  11 +
+>  drivers/iio/proximity/Makefile                     |   1 +
+>  drivers/iio/proximity/gp2ap070s.c                  | 491 +++++++++++++++++++++
+>  5 files changed, 616 insertions(+), 2 deletions(-)
+> ---
+> base-commit: 290aaf24a551d5a0dce037e3fab30820f9113a10
+> change-id: 20260723-gp2ap070s-f7e0120970a5
+> 
+> Best regards,
+> --  
+> Kaustabh Chakraborty <kauschluss@disroot.org>
+> 
+
 
