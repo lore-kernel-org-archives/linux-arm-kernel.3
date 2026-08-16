@@ -4,58 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 425B1C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Aug 2026 16:14:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA7D9C5DF6D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Aug 2026 16:37:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8FzcQCi1kf4udGDFr4XJawlSQdg+Dyp4fWZ2yxvZv04=; b=cDT7VEzuj22Zg3BMY153wv6L0y
-	d85ujcsijK4m8UDrr8rbC+uK/D4imZSEJqE7G3+vT4EA/gnTXG8T7aIe0kdfvE/WcgYWKTxK7f5iN
-	EFVAHOwA9ApJbdgy1bWAt7WE31GCImcPe50txQ61CRo01uH5SYoYxUCcsh/BnIhhXKDwgggwHZGhg
-	2TkprxUo/cCCFAUjW5myNWRMtTEJVM9N9UoweZmvcW2H8zIsY5k+Ges/CrpAmIoSqNoRR35Wd+Xda
-	FxuMkZLhweYiHOhoc+vBvHg5WVD8HFy/GMurqwvldTgdahqe1w67/QYaS8DXLeQIakbarvdcCDYtd
-	iJdu1KeQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9+YIHxqjmqGI2SfqyqOm1ATS0+Iqsj6aJ9vTZbp1m5w=; b=mWCwc45PIQ6SP3fLFGyHsWmJgy
+	/NLzynGMeVmvp7UI+eqEnZKCFpbrR8qGASc2C8hzPtKIuPTvuxbtkMZ11KLNfQAL/aOO9yDNBl0aV
+	PvLd0df4BNGGKOFzdy+lyK/KSU+c7KxMHpy0+4vaeEbgOv9+w2G61rpC0qH5YeKrdkWYE97h1CR4p
+	LjmaCEcm+6pJYwEy0gByhEfIiCjuvSTlbe4WYClJerTve+qoDNRzu7CpXwFLQg3v+IxpIQB0umczW
+	Z+j0rZIJqPRgEnmuvs7RnppNZ26CFq8fibsyH9lD16SAPNGZt1gF4b+wXrxbIZk68L3XrDR8DxH/M
+	+tsEGwqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvdV0-00000004t17-3kzk;
-	Sun, 16 Aug 2026 16:14:14 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wvdr9-00000004tuS-0Enn;
+	Sun, 16 Aug 2026 16:37:07 +0000
+Received: from mgamail.intel.com ([192.198.163.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvdUz-00000004t0z-1puy
+	id 1wvdr6-00000004tty-0Dpj
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 16 Aug 2026 16:14:13 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 78C9160120;
-	Sun, 16 Aug 2026 16:14:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90D601F000E9;
-	Sun, 16 Aug 2026 16:14:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786896852;
-	bh=8FzcQCi1kf4udGDFr4XJawlSQdg+Dyp4fWZ2yxvZv04=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=CiVLWG1CLQhBlHniVTcRtmVj6G6mUEPTCGxcohj8XLdJ0s+EdAiNYCfheFKU1goEC
-	 DW75yWyEHwP9siwH8fOyz7bhqr/wg0l6648OlcLiXRkQA35x+nqJDZ9bth4IfXBwFK
-	 I+AO6MFZdes3jVCSybv/0juZ4rQqWOpY/VHpMVsoS6YYNCNG8WED+6GQi656DC+UEK
-	 2XpupU5Vcny9oqC8vM7GTAxYu42Y6fd5PnXlK4wdMqqsT8clnx3hN82agXNqvqFqC6
-	 n+toUybwFi7mHjFzeozbAkSUx8wGpZMbiMLlhy/1tiVyYlxYaYAm+sQkgRBBoXpxRe
-	 Ix2mt4koenpPw==
-Date: Sun, 16 Aug 2026 18:14:08 +0200
-From: Andi Shyti <andi.shyti@kernel.org>
-To: Abdurrahman Hussain <abdurrahman@nexthop.ai>
-Cc: Michal Simek <michal.simek@amd.com>, 
-	Andy Shevchenko <andriy.shevchenko@intel.com>, linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] i2c: xiic: restore runtime PM teardown in remove to
- fix clk WARN flood
-Message-ID: <aoHf6UDxD68YxLYm@zenone.zhora.eu>
-References: <20260814-i2c-xiic-restore-runtime-pm-teardown-v2-1-7ae5d0c30ff2@nexthop.ai>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260814-i2c-xiic-restore-runtime-pm-teardown-v2-1-7ae5d0c30ff2@nexthop.ai>
+	Sun, 16 Aug 2026 16:37:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1786898224; x=1818434224;
+  h=date:from:to:cc:subject:message-id;
+  bh=LUT1X5gNR2zGDfqYMkVCXmcxX/qUeGz6V976KRKVfRY=;
+  b=MGNzomsX5BMGQHWjA88H1ckpnvUOd2230HJJrU/3iUGJszzfofyE/d/y
+   +B4S3hUph7cSvVjsBdsf42xhm8xs4kFdnAbdIgXUHV9ehYs7FirKb43/h
+   BVnl1GKO5Cv//ij5sb00Bu3spo6s5USnn+SgLIB6+6UZbJw5yiFXQERx2
+   PdkoeCF6Es6CWK3Yp1lyRb8yLKbc8baCHoBaaU7zfL21AN3jDG9BQC/vA
+   R9r5XBGXwRpJo4WqF1+8VdaS7+EF67sbKESM94dU/kPS2o36GiG3JLhYC
+   8c3AAU75Xmp1P1sj/l1c0eTOvxoh2LBjB7nYPgQa/ogxEXILGP1fw5yds
+   A==;
+X-CSE-ConnectionGUID: N72ecGC3T4KHoUJaC1H8Cw==
+X-CSE-MsgGUID: 9TVzFKaKQx2YgvwTNCzytA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11877"; a="91204014"
+X-IronPort-AV: E=Sophos;i="6.25,227,1779174000"; 
+   d="scan'208";a="91204014"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Aug 2026 09:37:02 -0700
+X-CSE-ConnectionGUID: TOdTP/B7TzyXdNk/171kAg==
+X-CSE-MsgGUID: Zer9avPYT1Sp+4uQ96tO4w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,227,1779174000"; 
+   d="scan'208";a="264747119"
+Received: from lkp-server01.sh.intel.com (HELO 6eda058d650d) ([10.239.97.150])
+  by orviesa007.jf.intel.com with ESMTP; 16 Aug 2026 09:37:00 -0700
+Received: from kbuild by 6eda058d650d with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wvdr0-00000000d0M-1OwO;
+	Sun, 16 Aug 2026 16:36:58 +0000
+Date: Mon, 17 Aug 2026 00:36:43 +0800
+From: kernel test robot <lkp@intel.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ arm@kernel.org
+Subject: [soc:board-remove 154/217] drivers/mfd/max8925-i2c.c:146:9:
+ error: 'ret' undeclared; did you mean 'net'?
+Message-ID: <202608170025.qu8rAquT-lkp@intel.com>
+User-Agent: s-nail v14.9.25
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260816_093704_137043_43D77F0F 
+X-CRM114-Status: GOOD (  13.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,69 +83,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Abdurrahman,
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git board-remove
+head:   057394422bc04420585b2790b230d8a1f350ace8
+commit: a4e72f5a88a6efa6a9edbb7e22c08bb45fd91940 [154/217] mfd: max8925: remove platform data probing
+config: alpha-allyesconfig (https://download.01.org/0day-ci/archive/20260817/202608170025.qu8rAquT-lkp@intel.com/config)
+compiler: alpha-linux-gcc (GCC) 16.1.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260817/202608170025.qu8rAquT-lkp@intel.com/reproduce)
 
-On Fri, Aug 14, 2026 at 11:04:45AM -0700, Abdurrahman Hussain wrote:
-> The devres conversion dropped the remove-time runtime PM trailer
-> (pm_runtime_disable + pm_runtime_set_suspended +
-> pm_runtime_dont_use_autosuspend). devm_pm_runtime_enable's release
-> action then calls pm_runtime_dont_use_autosuspend() while runtime PM
-> is still enabled, triggering an immediate runtime suspend: the suspend
-> callback clk_disable()s the clock that the devm_clk_get_enabled()
-> release is about to clk_disable_unprepare(), and every device teardown
-> WARNs in clk_core_disable() ("clkN already disabled").
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202608170025.qu8rAquT-lkp@intel.com/
 
-isn't devm_pm_runtime_set_active_enabled() calling
-pm_runtime_disable() + pm_runtime_set_suspended() + 
-pm_runtime_dont_use_autosuspend() at teardown?
+All errors (new ones prefixed by >>):
 
-Thanks,
-Andi
+   drivers/mfd/max8925-i2c.c: In function 'max8925_probe':
+>> drivers/mfd/max8925-i2c.c:146:9: error: 'ret' undeclared (first use in this function); did you mean 'net'?
+     146 |         ret = of_property_read_u32(np, "maxim,tsc-irq", &chip->tsc_irq);
+         |         ^~~
+         |         net
+   drivers/mfd/max8925-i2c.c:146:9: note: each undeclared identifier is reported only once for each function it appears in
+>> drivers/mfd/max8925-i2c.c:146:36: error: 'np' undeclared (first use in this function); did you mean 'up'?
+     146 |         ret = of_property_read_u32(np, "maxim,tsc-irq", &chip->tsc_irq);
+         |                                    ^~
+         |                                    up
+   In file included from include/linux/device.h:15,
+                    from include/linux/platform_device.h:13,
+                    from drivers/mfd/max8925-i2c.c:10:
+>> drivers/mfd/max8925-i2c.c:148:25: error: 'dev' undeclared (first use in this function); did you mean 'cdev'?
+     148 |                 dev_err(dev, "Not found maxim,tsc-irq property\n");
+         |                         ^~~
+   include/linux/dev_printk.h:110:25: note: in definition of macro 'dev_printk_index_wrap'
+     110 |                 _p_func(dev, fmt, ##__VA_ARGS__);                       \
+         |                         ^~~
+   drivers/mfd/max8925-i2c.c:148:17: note: in expansion of macro 'dev_err'
+     148 |                 dev_err(dev, "Not found maxim,tsc-irq property\n");
+         |                 ^~~~~~~
+   drivers/mfd/max8925-i2c.c:137:29: warning: unused variable 'node' [-Wunused-variable]
+     137 |         struct device_node *node = client->dev.of_node;
+         |                             ^~~~
 
-> Restore the trailer: with runtime PM disabled and the state forced to
-> suspended before devres runs, the suspend callback cannot fire and the
-> clock enable count stays balanced.
-> 
-> Fixes: 50c63491ff26 ("i2c: xiic: switch to devres managed APIs")
-> Signed-off-by: Abdurrahman Hussain <abdurrahman@nexthop.ai>
-> ---
-> Changes in v2:
-> - Move the Signed-off-by into the commit message proper; v1 had it below
->   the '---' cutter line where it would be dropped on apply (Andy).
-> - Link to v1: https://patch.msgid.link/20260813-i2c-xiic-restore-runtime-pm-teardown-v1-1-0e7dfb206790@nexthop.ai
-> 
-> To: Michal Simek <michal.simek@amd.com>
-> To: Andi Shyti <andi.shyti@kernel.org>
-> To: Andy Shevchenko <andriy.shevchenko@intel.com>
-> To: Abdurrahman Hussain <abdurrahman@nexthop.ai>
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-i2c@vger.kernel.org
-> Cc: linux-kernel@vger.kernel.org
-> ---
->  drivers/i2c/busses/i2c-xiic.c | 3 +++
->  1 file changed, 3 insertions(+)
-> 
-> diff --git a/drivers/i2c/busses/i2c-xiic.c b/drivers/i2c/busses/i2c-xiic.c
-> index 3e7735e1dae0..89636ca36915 100644
-> --- a/drivers/i2c/busses/i2c-xiic.c
-> +++ b/drivers/i2c/busses/i2c-xiic.c
-> @@ -1545,6 +1545,9 @@ static void xiic_i2c_remove(struct platform_device *pdev)
->  		xiic_deinit(i2c);
->  
->  	pm_runtime_put_sync(dev);
-> +	pm_runtime_disable(dev);
-> +	pm_runtime_set_suspended(dev);
-> +	pm_runtime_dont_use_autosuspend(dev);
->  }
->  
->  static const struct dev_pm_ops xiic_dev_pm_ops = {
-> 
-> ---
-> base-commit: d58772d8520c7ef247c4b95c9bd76d3a25da9ff5
-> change-id: 20260813-i2c-xiic-restore-runtime-pm-teardown-dd0ab1db2c02
-> 
-> Best regards,
-> --  
-> Abdurrahman Hussain <abdurrahman@nexthop.ai>
-> 
+
+vim +146 drivers/mfd/max8925-i2c.c
+
+   133	
+   134	static int max8925_probe(struct i2c_client *client)
+   135	{
+   136		struct max8925_chip *chip;
+   137		struct device_node *node = client->dev.of_node;
+   138		int tsc_irq;
+   139	
+   140		chip = devm_kzalloc(&client->dev,
+   141				    sizeof(struct max8925_chip), GFP_KERNEL);
+   142		if (chip == NULL)
+   143			return -ENOMEM;
+   144	
+   145		/* parse DT to get platform data */
+ > 146		ret = of_property_read_u32(np, "maxim,tsc-irq", &chip->tsc_irq);
+   147		if (ret) {
+ > 148			dev_err(dev, "Not found maxim,tsc-irq property\n");
+   149			return -EINVAL;
+   150		}
+   151	
+   152		chip->i2c = client;
+   153		chip->dev = &client->dev;
+   154		i2c_set_clientdata(client, chip);
+   155		mutex_init(&chip->io_lock);
+   156	
+   157		chip->rtc = i2c_new_dummy_device(chip->i2c->adapter, RTC_I2C_ADDR);
+   158		if (IS_ERR(chip->rtc)) {
+   159			dev_err(chip->dev, "Failed to allocate I2C device for RTC\n");
+   160			return PTR_ERR(chip->rtc);
+   161		}
+   162		i2c_set_clientdata(chip->rtc, chip);
+   163	
+   164		chip->adc = i2c_new_dummy_device(chip->i2c->adapter, ADC_I2C_ADDR);
+   165		if (IS_ERR(chip->adc)) {
+   166			dev_err(chip->dev, "Failed to allocate I2C device for ADC\n");
+   167			i2c_unregister_device(chip->rtc);
+   168			return PTR_ERR(chip->adc);
+   169		}
+   170		i2c_set_clientdata(chip->adc, chip);
+   171	
+   172		device_init_wakeup(&client->dev, 1);
+   173	
+   174		max8925_device_init(chip, tsc_irq);
+   175	
+   176		return 0;
+   177	}
+   178	
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
