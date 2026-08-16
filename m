@@ -4,102 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AB6BC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Aug 2026 21:56:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A394FC5DF66
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Aug 2026 22:02:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O180+pg027B8ZaRGPW3uwegO/XOQQBIPH2jwBsrM9lU=; b=TyBke7tFANQ0WykuF0ud/GbEXx
-	hQ6AEHjhcrlCQoi5sJfDmRkQ3ln4DSycz05RzswuRHpNi/oCG7WxIE9ETBKzvHaDyidavDsy3FsFZ
-	W2aKtSihb2hZpPWerPANkmf5yCRzMGI+JkUChI8Z3AqSVj4JOKfVOpyT7JcTL4a8cMHIWYnpxZg2R
-	RW5Z7x3UgKjijcNkBsnKXEtp7CEqi1OnmZgteWDRtr51ohK/ciis9PPlVpP3mjAVByN4CE8DIp+dr
-	jbX0Lw0ao0vCBgYBj10na+FJKBcRwqdLk9qo7XE/+Ft21Xgb3ai9Fl5JWr8YznnpqMnMJ7oGf8Ayj
-	2DZJpHdA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4ypNYetkXLMCgzOOJWnxrc0Mupc0mbGLRNdy1n8UW94=; b=T52uiSgfftHR2EkEZ708+ZIx+1
+	Lw7kggJ4lKTAwkYiEvi3YdbS5qnRqu3OTvt09FoM5keoN+EbZhQMk6eZtI2jVVUoux7ZOIqjuh57L
+	cUwosYSBXn55Warc2uWQVIKk9VwIkA0XANQCBXoS+FJsVn9aJ9+Ezv89DiKEoyaruRIcFtNUMNDHT
+	W2k+6GdMIt1sEXDJ9Iw+ZMhl8kYVL0wBALywHdAv39mVwPYrC2Kw2BtWiw+34eZbXjDaSQJ4Y5ZtS
+	6kxviNUe6IqeoqyG+V7lWOZqiyUJtwGWdlhJoyHru2PZFYNKQKcF1QVTgdLcbhzwqxPlP9rh6RbFY
+	sCwuStsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wviq4-000000058aG-1SdS;
-	Sun, 16 Aug 2026 21:56:20 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1wvivV-000000058sc-43H0;
+	Sun, 16 Aug 2026 22:01:57 +0000
+Received: from esa7.hc1455-7.c3s2.iphmx.com ([139.138.61.252])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wviq1-000000058Zd-2gUk
+	id 1wvivS-000000058sA-2qjo
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 16 Aug 2026 21:56:19 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2d03fcd26a6so4511465ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 16 Aug 2026 14:56:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786917377; x=1787522177; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=O180+pg027B8ZaRGPW3uwegO/XOQQBIPH2jwBsrM9lU=;
-        b=nkmxBk6grNXnYFosmRfdVfJZJUFdckopxFdSAsIdywtzOYQaK0xDNgHUVxw7nAXMRB
-         UdlGnBYbUReSLv66w36lOIADyhneullIff5oYVXOozV2n2edP4wilDn1doRgVjsXTif0
-         gWGvRK5JjdsY/u3D3yU759/gCFRL+n8pkF95aSi08MkrSt2tn9QD+hXaeCtg7gWW7p89
-         PP5X1WFRdAxAk9EJUDBUNyI0l9ERHw1X9Z2y1pD71K/wVMUKLR4TDmiQv6CTqwt9HmMg
-         OlH9Vgxjc4BTkf/G90SWmKUd3SIAdfxtAQuoO5HJlsin7Hr2pFN5G1TkQb9eNiAvlwpO
-         i7dg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786917377; x=1787522177;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=O180+pg027B8ZaRGPW3uwegO/XOQQBIPH2jwBsrM9lU=;
-        b=iN/9E8dwypbONySgS6tZQd9ZfXMoR32kjv2bM7Jdh0R8BBf7JVWHRemZvhjfle9BMI
-         LD8905jaB50Md8LIKgrsTNvWoo/+QWjUXoq0X1E/9m41cagbzc3nvQez+QRXL6efVRut
-         Y2Ye9Co9ImVgUEF/E5G2zez02fKlzNEAU2YdOyfdR2jiu6XJCc7STGTS0vJ6BAGItqAq
-         zUW8SlsvDb/I1/ZA+V2d3WQ8SuGo977uDm708UMw9rPAfgD5Cuw2l+9JUXFo2KdHs+Di
-         auCeHuPNp4bzoFr7Mgx1Y5dCKSQ0V5OyvzYonlFj0ARbk/5QC60iW5JTEx07j1C1GwH3
-         E9oA==
-X-Forwarded-Encrypted: i=1; AHgh+RoAurvq+Z537dX49xgc6+GItEeSaZ/HUL4IInoFtDsSj7EpVSHpQ+Yp3FYG68VpnIccXtCMdMv1SvH0UMcZrm0U@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzl7aGWceCfeyEi83gaKhF8v9R4gDIuL7BQPNMqCToYRMbgfU2L
-	m0om3LEoEVsI2bzwvtT/TkWUN2yPSP/ECYdzft6hQKWRrzQgh8ak/WKc
-X-Gm-Gg: AR+sD13MjasMN7v9wRz6X5Lk+xxqkCk34VBsvcGvUpO4Tcq0ZWeQlcEIIsqwHAbPz/P
-	qkbZfHgtJX/Pg07b128jDTqvhD4qd+8QG0Or00cEfSwD3LBcFrVz8Y0zgQpVt8Cvv1ejHY3BOcc
-	xVeq3RLgAjwSBoRlVgySBB9G9eOpALKoH7E10FSpqc2/LRjAo+F9t5JQwsqVmJcf3LKMhhnfKNF
-	uhD551DXciL2vxT/Urm/HO6vMrp5T5ohyh7GycqsZYNm2xA89neIFE9wg8/aGqQr7pxCaQeUaMM
-	Ph74nsc2x8LKL+QjeHuivvBxULDBL9Tmlp1lotCs5VHjM92XAp3mDujqZAQb6d7Be1HmROlZ2j2
-	xFfTNVEca2/f1MHvNGGviu+2O9ibvL3CtOVQORqWxuqS9BUZD9Mx9hTKYFdU2Qi/YS5Lm/l+AEZ
-	gvYVzPRT9yZT2NgbtNxoi7qRKK1NPjmEI6cX70XmfQoRloTjIylDYN0JFuxtPFm2tlerBQbI6gv
-	A==
-X-Received: by 2002:a17:90b:35c4:b0:38e:91a8:fb85 with SMTP id 98e67ed59e1d1-3933b8c4c87mr15487152a91.3.1786917376578;
-        Sun, 16 Aug 2026 14:56:16 -0700 (PDT)
-Received: from [10.112.173.252] ([2409:40c2:504e:1c5e:cbdf:b953:2369:869e])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-320d60eb8eesm30168318eec.10.2026.08.16.14.56.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 16 Aug 2026 14:56:16 -0700 (PDT)
-From: Bhargav Joshi <j.bhargav.u@gmail.com>
-Date: Mon, 17 Aug 2026 03:25:26 +0530
-Subject: [PATCH v3 2/2] dt-bindings: spi: ti,davinci-spi: convert to DT
- schema
+	Sun, 16 Aug 2026 22:01:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1786917714; x=1818453714;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=pVjiwzYXzj3mUBgzqtSSepmjg4P1MZh72aHgeka8p1w=;
+  b=tNEaeQafuG+A+kEqNvW09DnKKqlLaCB3H6/zZ/lZ28c9v+BhPToaPZDK
+   gEg/0XURAzPSdnLkB8I+qFaYNKtEaiTAb5FF+E5ZMtTB0Gvvi7HeV/ZbD
+   +Ov4Lt+1iGnKHMXW4j69CTmRvMHuQJ+37BhoeoilZLVO1APwuGytKxOBn
+   lpQT/052EIV6gB2vbCBbhK2a52Jv5a7qZIgyJB9dS/ImuW5znSmP43Ppd
+   qa+P2miK32xQyJwIWrHXh0cm2dKTeK4M1ds4JqXgmw4xwg6WtVsUyUWC0
+   hmQ8fmn54nKN+ysb08QzDSG6FTL6z71lKlH2MY3tAyCsQcMVlxFetwnYY
+   g==;
+X-CSE-ConnectionGUID: mpgM387YQCyKwwnEZgDfBQ==
+X-CSE-MsgGUID: ckq1AV6qRQyb5kC8Knqi4A==
+X-IronPort-AV: E=McAfee;i="6800,10657,11877"; a="230215717"
+X-IronPort-AV: E=Sophos;i="6.25,227,1779116400"; 
+   d="scan'208";a="230215717"
+Received: from gmgwuk01.global.fujitsu.com ([172.187.114.235])
+  by esa7.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Aug 2026 07:01:50 +0900
+Received: from az2uksmgm3.o.css.fujitsu.com (unknown [10.151.22.200])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by gmgwuk01.global.fujitsu.com (Postfix) with ESMTPS id 22A09C015BB
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 16 Aug 2026 22:01:50 +0000 (UTC)
+Received: from az2uksmom3.o.css.fujitsu.com (unknown [10.151.22.205])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2uksmgm3.o.css.fujitsu.com (Postfix) with ESMTPS id D0BB4C170A5
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 16 Aug 2026 22:01:49 +0000 (UTC)
+Received: from sm-arm-grace07 (unknown [10.124.178.20])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2uksmom3.o.css.fujitsu.com (Postfix) with ESMTPS id 46B28100008B;
+	Sun, 16 Aug 2026 22:01:45 +0000 (UTC)
+Date: Mon, 17 Aug 2026 07:01:42 +0900
+From: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+To: Wei-Lin Chang <weilin.chang@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>, Fuad Tabba <tabba@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Lorenzo Stoakes <ljs@kernel.org>
+Subject: Re: [PATCH v5 2/6] KVM: arm64: nv: Introduce guest stage-2 tracking
+ structures
+Message-ID: <aoIzRuS6OSP68nHl@sm-arm-grace07>
+References: <20260810205038.118843-1-weilin.chang@arm.com>
+ <20260810205038.118843-3-weilin.chang@arm.com>
+ <an5puT6fe3lOMY4Q@sm-arm-grace07>
+ <y6gzme4o5lsitrjb5bua6vhloypeoluchcmi3ndlvl4e6t6od7@vgkqqf75i25e>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260817-ti-davinci-spi-v3-2-23844cfb5e6a@gmail.com>
-References: <20260817-ti-davinci-spi-v3-0-23844cfb5e6a@gmail.com>
-In-Reply-To: <20260817-ti-davinci-spi-v3-0-23844cfb5e6a@gmail.com>
-To: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, 
- Nishanth Menon <nm@ti.com>, Santosh Shilimkar <ssantosh@kernel.org>
-Cc: linux-spi@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- goledhruva@gmail.com, m-chawdhry@ti.com, daniel.baluta@gmail.com, 
- simona.toaca@nxp.com, j.bhargav.u@gmail.com
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1786917340; l=9742;
- i=j.bhargav.u@gmail.com; h=from:subject:message-id;
- bh=/zVpg1CccNxq2uZbj+73+VsP1dk+Mxi9XXjr+VzDYGI=;
- b=ZliuSqiZHLfwNTHgXM1xP7wJBe0D+XLjexZuqtkvFbJgWUR8nOfdQl5N/B//QqumPoZbyENqv
- Svaujf+lZgYC9AKThC3jLG1nMm1efu9I/AT9OPu8NjvmMbhrgilNANN
-X-Developer-Key: i=j.bhargav.u@gmail.com; a=ed25519;
- pk=IqNDwUZKECEA+n8wXctFLBbYL9NhFstZNbOznm/nX1k=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <y6gzme4o5lsitrjb5bua6vhloypeoluchcmi3ndlvl4e6t6od7@vgkqqf75i25e>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260816_145617_699357_0BE508DD 
-X-CRM114-Status: GOOD (  25.84  )
+X-CRM114-CacheID: sfid-20260816_150155_301862_57A8F299 
+X-CRM114-Status: GOOD (  29.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,304 +105,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the TI DaVinci/Keystone SPI controller binding from text format
-to DT schema.
+On Fri, Aug 14, 2026 at 11:42:24AM +0100, Wei-Lin Chang wrote:
+> Hi,
+> 
+> On Fri, Aug 14, 2026 at 10:04:57AM +0900, Itaru Kitayama wrote:
+> > On Mon, Aug 10, 2026 at 09:50:34PM +0100, Wei-Lin Chang wrote:
+> > > In order to avoid unmapping all shadow stage-2 mappings when KVM
+> > > receives a MMU notifier unmap call, we have to keep track of the
+> > > canonical IPA -> nested IPA relationship of the shadow mappings
+> > > created. This essentially means tracking the guest's stage-2.
+> > > 
+> > > To do this, represent each mapping by struct kvm_guest_s2_mapping. It
+> > > stores the mapping's canonical IPA range and the nested IPA range using
+> > > two interval tree nodes. Both nodes will be inserted into their
+> > > respective interval trees called guest_s2_mappings. The canonical IPA
+> > > ranges will be stored in the tree within the canonical MMU, and the
+> > > nested IPA ranges will be stored in the corresponding nested MMU's tree.
+> > > 
+> > > For example:
+> > > 
+> > > struct kvm_guest_s2_mapping mapping1, mapping2;
+> > > 
+> > >     ---------------------> mapping2.canonical
+> > >     |                      mapping1.canonical
+> > >     |                          ^   (both stored in canonical mmu's tree)
+> > >     |                          |
+> > > --*****-----------------------*****----------- CIPA
+> > >    \\\\\                      |||||                  mapping1.nested_mmu
+> > >     \\\\\                     \\\\\                            |
+> > >      \\\\\                     \\\\\                           v
+> > > ------\\\\\---------------------*****--------- NIPA #1 (nested mmu #1)
+> > >        \\\\\                      |
+> > >         \\\\\                     -> mapping1.nested
+> > >          \\\\\                       (stored in nested mmu #1's tree)
+> > >           \\\\\
+> > > -----------*****------------------------------ NIPA #2 (nested mmu #2)
+> > >              |                                                 ^
+> > >              -> mapping2.nested                                |
+> > >                 (stored in nested mmu #2's tree)   mapping2.nested_mmu
+> > > 
+> > > Using the trees we can look up nodes in either of the IPA spaces, and
+> > > for each node, find the corresponding range in the other IPA space from
+> > > the other node in the enclosing kvm_guest_s2_mapping.
+> > > 
+> > > Define kvm_guest_s2_mapping and the interval tree here. Guest stage-2
+> > > mapping tracking will come in subsequent patches.
+> > > 
+> > > Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+> > > ---
+> 
+> [...]
+> 
+> > >  
+> > > +/*
+> > > + * Record of a guest stage-2 mapping, storing canonical and nested IPA
+> > > + * ranges. Both ranges have the same size.
+> > > + */
+> > > +struct kvm_guest_s2_mapping {
+> > > +	struct interval_tree_node canonical;
+> > > +	struct interval_tree_node nested;
+> > > +	struct kvm_s2_mmu *nested_mmu;
+> > > +};
+> > 
+> > Is this to be used for normal (L1) guests? I guess this series is for
+> > shadow stage 2 unmapping optimization, so not sure.
+> 
+> Sorry I don't totally understand your question. Yes this series is
+> optimizing cases where a GPA (L1's PA) range have to be unmapped, from
+> an MMU notifier unmap call.
+> 
+> When we want to unmap a GPA range, the corresponding L2PAs must also be
+> unmapped from the shadow page tables. Before this series there is no way
+> of knowing what L2PAs are affected, so the code just calls
+> kvm_nested_s2_unmap() to unmap all shadow mappings.
+> 
+> Each struct kvm_guest_s2_mapping instance keeps one L1PA <-> L2PA
+> mapping record. For example:
+> 
+> canonical (L1PA space): [x, x+4K)  <- node stored in canonical MMU tree
+> nested (L2PA space):    [y, y+4K)  <- node stored in nested MMU tree
+> 
+> Does this make sense?
 
-Changes during the conversion:
-- Create a separate ti,davinci-spi-peripheral-props.yaml schema to
-  properly define the ti,spi-wdelay peripheral property.
-- Add missing dmas and dma-names properties.
-- Add constraints to ti,spi-wdelay based on the 6-bit width
-  of the SPIFMTn.WDELAY hardware register field.
+Yes, makes sense. I was mostly wondering about the sturct name,
+kvm_guest_s2_mapping you introduced, since this is only needed for a guest 
+acting as a hypervisor. No strong opinion.
 
-Signed-off-by: Bhargav Joshi <j.bhargav.u@gmail.com>
----
- .../devicetree/bindings/spi/spi-davinci.txt        | 100 -----------------
- .../bindings/spi/spi-peripheral-props.yaml         |   1 +
- .../spi/ti,davinci-spi-peripheral-props.yaml       |  25 +++++
- .../devicetree/bindings/spi/ti,davinci-spi.yaml    | 124 +++++++++++++++++++++
- 4 files changed, 150 insertions(+), 100 deletions(-)
+Thanks,
+Itaru.
 
-diff --git a/Documentation/devicetree/bindings/spi/spi-davinci.txt b/Documentation/devicetree/bindings/spi/spi-davinci.txt
-deleted file mode 100644
-index f012888656ec..000000000000
---- a/Documentation/devicetree/bindings/spi/spi-davinci.txt
-+++ /dev/null
-@@ -1,100 +0,0 @@
--Davinci SPI controller device bindings
--
--Links on DM:
--Keystone 2 - https://www.ti.com/lit/ug/sprugp2a/sprugp2a.pdf
--dm644x - https://www.ti.com/lit/ug/sprue32a/sprue32a.pdf
--OMAP-L138/da830 - http://www.ti.com/lit/ug/spruh77a/spruh77a.pdf
--
--Required properties:
--- #address-cells: number of cells required to define a chip select
--	address on the SPI bus. Should be set to 1.
--- #size-cells: should be zero.
--- compatible:
--	- "ti,dm6441-spi" for SPI used similar to that on DM644x SoC family
--	- "ti,da830-spi" for SPI used similar to that on DA8xx SoC family
--	- "ti,keystone-spi" for SPI used similar to that on Keystone2 SoC
--		family
--- reg: Offset and length of SPI controller register space
--- num-cs: Number of chip selects. This includes internal as well as
--	GPIO chip selects.
--- ti,davinci-spi-intr-line: interrupt line used to connect the SPI
--	IP to the interrupt controller within the SoC. Possible values
--	are 0 and 1. Manual says one of the two possible interrupt
--	lines can be tied to the interrupt controller. Set this
--	based on a specific SoC configuration.
--- interrupts: interrupt number mapped to CPU.
--- clocks: spi clk phandle
--          For 66AK2G this property should be set per binding,
--          Documentation/devicetree/bindings/clock/ti,sci-clk.yaml
--
--SoC-specific Required Properties:
--
--The following are mandatory properties for Keystone 2 66AK2G SoCs only:
--
--- power-domains:	Should contain a phandle to a PM domain provider node
--			and an args specifier containing the SPI device id
--			value. This property is as per the binding,
--
--Optional:
--- cs-gpios: gpio chip selects
--	For example to have 3 internal CS and 2 GPIO CS, user could define
--	cs-gpios = <0>, <0>, <0>, <&gpio1 30 0>, <&gpio1 31 0>;
--	where first three are internal CS and last two are GPIO CS.
--
--Optional properties for slave devices:
--SPI slave nodes can contain the following properties.
--Not all SPI Peripherals from Texas Instruments support this.
--Please check SPI peripheral documentation for a device before using these.
--
--- ti,spi-wdelay : delay between transmission of words
--	(SPIFMTn.WDELAY, SPIDAT1.WDEL) must be specified in number of SPI module
--	clock periods.
--
--	delay = WDELAY * SPI_module_clock_period + 2 * SPI_module_clock_period
--
--Below is timing diagram which shows functional meaning of
--"ti,spi-wdelay" parameter.
--
--             +-+ +-+ +-+ +-+ +-+                           +-+ +-+ +-+
--SPI_CLK      | | | | | | | | | |                           | | | | | |
--  +----------+ +-+ +-+ +-+ +-+ +---------------------------+ +-+ +-+ +-
--
--SPI_SOMI/SIMO+-----------------+                           +-----------
--  +----------+ word1           +---------------------------+word2
--             +-----------------+                           +-----------
--                                          WDELAY
--                                <-------------------------->
--
--Example of a NOR flash slave device (n25q032) connected to DaVinci
--SPI controller device over the SPI bus.
--
--spi0:spi@20bf0000 {
--	#address-cells			= <1>;
--	#size-cells			= <0>;
--	compatible			= "ti,dm6446-spi";
--	reg				= <0x20BF0000 0x1000>;
--	num-cs				= <4>;
--	ti,davinci-spi-intr-line	= <0>;
--	interrupts			= <338>;
--	clocks				= <&clkspi>;
--
--	flash: flash@0 {
--		#address-cells = <1>;
--		#size-cells = <1>;
--		compatible = "st,m25p32";
--		spi-max-frequency = <25000000>;
--		reg = <0>;
--		ti,spi-wdelay = <8>;
--
--		partition@0 {
--			label = "u-boot-spl";
--			reg = <0x0 0x80000>;
--			read-only;
--		};
--
--		partition@1 {
--			label = "test";
--			reg = <0x80000 0x380000>;
--		};
--	};
--};
-diff --git a/Documentation/devicetree/bindings/spi/spi-peripheral-props.yaml b/Documentation/devicetree/bindings/spi/spi-peripheral-props.yaml
-index 880a9f624566..cb5d608998e1 100644
---- a/Documentation/devicetree/bindings/spi/spi-peripheral-props.yaml
-+++ b/Documentation/devicetree/bindings/spi/spi-peripheral-props.yaml
-@@ -155,5 +155,6 @@ allOf:
-   - $ref: fsl,dspi-peripheral-props.yaml#
-   - $ref: samsung,spi-peripheral-props.yaml#
-   - $ref: nvidia,tegra210-quad-peripheral-props.yaml#
-+  - $ref: ti,davinci-spi-peripheral-props.yaml#
- 
- additionalProperties: true
-diff --git a/Documentation/devicetree/bindings/spi/ti,davinci-spi-peripheral-props.yaml b/Documentation/devicetree/bindings/spi/ti,davinci-spi-peripheral-props.yaml
-new file mode 100644
-index 000000000000..1060f176c6cb
---- /dev/null
-+++ b/Documentation/devicetree/bindings/spi/ti,davinci-spi-peripheral-props.yaml
-@@ -0,0 +1,25 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/spi/ti,davinci-spi-peripheral-props.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: TI DaVinci/Keystone SPI Peripheral Properties
-+
-+maintainers:
-+  - Bartosz Golaszewski <brgl@kernel.org>
-+
-+description:
-+  Peripheral-specific properties for SPI devices attached to a TI
-+  DaVinci/Keystone SPI controller.
-+
-+properties:
-+  ti,spi-wdelay:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    minimum: 0
-+    maximum: 63
-+    description:
-+      delay between transmission of words (SPIFMTn.WDELAY, SPIDAT1.WDEL)
-+      must be specified in number of SPI module clock periods.
-+
-+additionalProperties: true
-diff --git a/Documentation/devicetree/bindings/spi/ti,davinci-spi.yaml b/Documentation/devicetree/bindings/spi/ti,davinci-spi.yaml
-new file mode 100644
-index 000000000000..5bf74f3ca588
---- /dev/null
-+++ b/Documentation/devicetree/bindings/spi/ti,davinci-spi.yaml
-@@ -0,0 +1,124 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/spi/ti,davinci-spi.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: TI DaVinci/Keystone SPI Controller
-+
-+maintainers:
-+  - Bartosz Golaszewski <brgl@kernel.org>
-+
-+properties:
-+  compatible:
-+    oneOf:
-+      - enum:
-+          - ti,da830-spi
-+          - ti,keystone-spi
-+          - ti,dm6441-spi
-+      - items:
-+          - const: ti,keystone-spi
-+          - const: ti,dm6441-spi
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  clocks:
-+    maxItems: 1
-+
-+  power-domains:
-+    maxItems: 1
-+    description:
-+      Should contain a phandle to a PM domain provider node
-+      and an args specifier containing the SPI device id
-+      value.
-+
-+  num-cs:
-+    minimum: 1
-+    default: 1
-+    description:
-+      Number of chip selects supported by the controller. This
-+      includes both internal and GPIO chip selects.
-+
-+  ti,davinci-spi-intr-line:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    enum: [0, 1]
-+    description:
-+      Interrupt line used to connect the SPI IP to the interrupt
-+      controller within the SoC.  The SPI peripheral can route its
-+      interrupt output to one of two lines (INT0 or INT1). Set
-+      this based on the SoC-specific wiring to the interrupt
-+      controller.
-+
-+  dmas:
-+    items:
-+      - description: RX DMA channel
-+      - description: TX DMA channel
-+
-+  dma-names:
-+    items:
-+      - const: rx
-+      - const: tx
-+
-+  "#address-cells":
-+    const: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - clocks
-+  - ti,davinci-spi-intr-line
-+  - num-cs
-+  - "#address-cells"
-+  - "#size-cells"
-+
-+allOf:
-+  - $ref: spi-controller.yaml#
-+  - if:
-+      properties:
-+        compatible:
-+          const: ti,keystone-spi
-+    then:
-+      required:
-+        - power-domains
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    spi@20bf0000 {
-+        compatible = "ti,keystone-spi","ti,dm6441-spi";
-+        reg = <0x20bf0000 0x1000>;
-+        num-cs = <4>;
-+        ti,davinci-spi-intr-line = <0>;
-+        interrupts = <338>;
-+        clocks = <&clkspi>;
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+
-+        flash@0 {
-+            compatible = "jedec,spi-nor";
-+            spi-max-frequency = <25000000>;
-+            reg = <0>;
-+            ti,spi-wdelay = <8>;
-+        };
-+    };
-+
-+  - |
-+    spi@41000 {
-+        compatible = "ti,da830-spi";
-+        reg = <0x41000 0x1000>;
-+        num-cs = <6>;
-+        ti,davinci-spi-intr-line = <1>;
-+        interrupts = <20>;
-+        dmas = <&edma0 14 0>, <&edma0 15 0>;
-+        dma-names = "rx", "tx";
-+        clocks = <&psc0 4>;
-+        power-domains = <&psc0 4>;
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+    };
-
--- 
-2.55.0
-
+> 
+> Thanks,
+> Wei-Lin Chang
+> 
+> > 
+> > Thanks,
+> > Itaru.
+> > 
+> 
+> [...]
 
