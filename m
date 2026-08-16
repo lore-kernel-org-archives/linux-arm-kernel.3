@@ -4,63 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03DF1C5DF66
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Aug 2026 20:04:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8696FC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Aug 2026 20:12:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:Cc:To:From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0Q+In85KJcx2q9yxNMIL3sT8YnPE2GKRoiwmStkQcPQ=; b=SDO0W4diYN9YEiqJTdPU8mzP10
-	RLGLO/dFHN6T3qJAeKdteIPe5svvouC8Po1Jt5KP5X9tPtsffB6Y2xFzfEp9Yug0r7rH2rI7aReqH
-	VCcbJCbBIFqmI0d7imCVKYXziMMjwyETeacFInn65U8BpZAdCosQMDJiAoaZXRjN7UVCH4OCndr1H
-	yNYnTtfHk4dMYF5gjgMtb80kn3BogR8HOGkjz7xWSOQQ9i5vaVm3KBlYqAC8hoeE0TJY+7tm9g0FE
-	ZRgfuvyoP7zqRjS/WFJCuV75gw1HPtBeWs1yjJvomFcOYrDS1W7V1vIzcXTTtCbT4H0CnqbHtFNhN
-	pVbj2TGg==;
+	bh=59q2Ntm8hDDix7OEi6C849TzgoK31CLh4d49tbHdyzE=; b=DTxPoqnblyehVyICtusv0vg7pY
+	4b1lrZSbKSxJUiVUifGe9tK1W6PCZA9gZLJN/XvVXjdcJXYFCmXwFaejF7Yd7hGhTav9VMrITWAl8
+	toeclw0WXiLKFoKlx36agZ6YqV+iwQe1UwO9dklfQfI8SInkXZ/L/GTtbdWMdcElYuNUcekAb5hMd
+	MNkRWskzyWEU70/kBpPUUKrcA8SzP4Eo14bC9rU/gYKPcfyQ3eK/Bk8hpR/I2xBDhns8WknrLbAd6
+	m5YH4rUAczRKMgKQ0tAtIXXj+FAXt4pWIGOu6UTgX7SmzuWvEM6Ec0yIXwEMhmBFgcet6KP67mUod
+	qW6yZtjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvh5i-000000053MP-1gWA;
-	Sun, 16 Aug 2026 20:04:22 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wvhCw-000000053YA-0GHu;
+	Sun, 16 Aug 2026 20:11:50 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvh5h-000000053MH-1RD7
+	id 1wvhCt-000000053XV-09M4
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 16 Aug 2026 20:04:21 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5411F6013A;
-	Sun, 16 Aug 2026 20:04:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 534CD1F000E9;
-	Sun, 16 Aug 2026 20:04:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786910660;
-	bh=0Q+In85KJcx2q9yxNMIL3sT8YnPE2GKRoiwmStkQcPQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=ipvXQ6IQh+JW23GdsFHHX3LneRHRtIEFO8Xs3ByKgJjFgAk+zUKdMrzR5AcBgDnUw
-	 sRKblBLwtcz06ZWwId5nsuWd9vNMF8oykvugaC/EWarfj7qxxecPfA/hu6oxvFWQtU
-	 IaMcNXTAfOCRCQieSJUpgMXhx3RWnnCVGOk0hhX+V5OJz91lIWbpM30xo/MeeOYjFq
-	 XOTBHFdSnUhD+IECzNjiME2rDJVnGuySKQj9G3aA/xFqB35ewvoL13ycwSnwHhijtH
-	 HZbv3UDs7LD8CQ0gDxw5rShtC0bY2qbnHmACrJ0SgC2rV4HhtS4QvuicMwtRFXvHtc
-	 GTNdcJfz3utfA==
-Date: Sun, 16 Aug 2026 21:04:14 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Kaustabh Chakraborty <kauschluss@disroot.org>
-Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
- <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, Alim
- Akhtar <alim.akhtar@samsung.com>, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
-Subject: Re: [PATCH v4 0/3] Add Sharp GP2AP070S Proximity Driver and enable
- it in Galaxy J6 (j6lte)
-Message-ID: <20260816210414.6ce52946@jic23-huawei>
-In-Reply-To: <20260807-gp2ap070s-v4-0-74f6a67b6272@disroot.org>
-References: <20260807-gp2ap070s-v4-0-74f6a67b6272@disroot.org>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
-MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+	Sun, 16 Aug 2026 20:11:48 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2cf452def93so29217615ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 16 Aug 2026 13:11:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=nexthop.ai; s=google; t=1786911106; x=1787515906; darn=lists.infradead.org;
+        h=in-reply-to:references:subject:cc:to:from:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=59q2Ntm8hDDix7OEi6C849TzgoK31CLh4d49tbHdyzE=;
+        b=Uw7Bf2H2c0wwJzbjOBAqEOkPQtBdTINzdkObjQIEKIsw+q300iBmuKEQL4bLwQLyFv
+         IBdFXuoOTwxVOjg1L6BwOPk5NrBccnHXZVEqe+2/oZmYkgrFhRJU6b0pEXY/5b7Bmj2h
+         kKVuzZdSA8tcJvbuDg6yAS5VwytPUY63tkxC4zEenrao2e/N0TwGmzqiARvDhuV6t9ag
+         6of4NIozA9rnZ3b1hT+4pP8JgsJ9OtSepVBR1CYxHMYrTR+6e9uW0ibzKVVJexS9tx32
+         EMkytCAelEIVNWLdbk8ZsmaHPEt5aCfVUEsfzQnNUCmXebGxq6W5EWysyXqPFrfebBXh
+         m0RQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786911106; x=1787515906;
+        h=in-reply-to:references:subject:cc:to:from:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=59q2Ntm8hDDix7OEi6C849TzgoK31CLh4d49tbHdyzE=;
+        b=sdHCQqU6SCyPnFHFg1D+qC3zqOcQqNauQ4OaiRmTLO+Bu2Jxylm4rA8AdDclXOD5Wp
+         LFV60UFR7hr9aAhPOf3gi58H4Fr8vIRUmGshfOKjSGp+Apt/0odF7RJFUxEnaOkhkDFE
+         guHCXSuzHeJ6743XV0AhjDaftp9DmkrMQYiD36F9WzstaB/nipge+bu+5enGUGiN/nkf
+         smWYhQFWmESP016xCBQTW3NTd/JJmZ13VV+Jd6EL6YqcZ+ABDqm6NPynHUndpNGRdKJm
+         4rzvIANj4p4J1uSaANxr8k6GwYJtUA/IkfosJEJwEw8dR6yKUvGUkLLODwCONbZ6B2AD
+         CyGA==
+X-Forwarded-Encrypted: i=1; AHgh+RoJ6aVM3BoN8T1QAzwiLE5aHVbJqUrCevxqcPRw/+Ane1fjI7kOe5P8F5dQmjsOUdQEImQg64AYLP+Wrc/ewOuV@lists.infradead.org
+X-Gm-Message-State: AOJu0YySdzLwrvQJGV/bWrhrbh9aWnggduWYJYkA5TfkXKzpstulqjDA
+	L90RckY7TwPmG/vuglXewMsJ/WWIWe73/qfu91wpsiehfQ/tdZAkTqpNhoAxmn1+KKc=
+X-Gm-Gg: AR+sD13kubkHR0o6P7L0rZklICfdIL6GZ+ISI8xJcr05apXYyWFbv1M3ByLZUjM+EU6
+	FAurDYC+yjdhUZwuDq8zL01g1buFqrT3nTwR1Ox58+4TBSPpqJelk221jzJJx4QwY/i8XNUSSnU
+	MU8CewdG4aIhHMn2l0VqYTrjvmzZBPmPT3jaZRhyJ+T+G/Ia4hdZhRjvURx2XAaBFZz+NkPbbn6
+	MpQcTWTRMk0p0Y8T8gIyO0VNiLP0hZJB4Q8cZuv2Id0gUJjIOjZPmohWUZMmKxefQS0eLQO+ll0
+	GRWiBflyoTwCbW2hHeLjRlmCGcCcgz9ViDlKbd76flJ3G0j3B+fZkWrbTsE+jgILI8ZpyCyaNvi
+	wDg+XdP5w+dDXKwuflDadZpNrpByEeHknjRd6NqGHfnOsrTOPE3m8gkeF2hS9mR48BjIwafNqCM
+	9HL8ASEs19qWA6wgbg76prO4Fxl5J6BV7xJDZZSgU05nn8JHWPahkmesco8h8n
+X-Received: by 2002:a17:902:ec83:b0:2d3:7122:833 with SMTP id d9443c01a7336-2d37f7c3e97mr280281825ad.15.1786911105661;
+        Sun, 16 Aug 2026 13:11:45 -0700 (PDT)
+Received: from localhost ([50.145.100.174])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-320d5bd9679sm30354640eec.3.2026.08.16.13.11.44
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 16 Aug 2026 13:11:44 -0700 (PDT)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Sun, 16 Aug 2026 13:11:44 -0700
+Message-Id: <DKQN4CNOESWV.2XRL8DIC87HYA@nexthop.ai>
+From: "Abdurrahman Hussain" <abdurrahman@nexthop.ai>
+To: "Andi Shyti" <andi.shyti@kernel.org>, "Abdurrahman Hussain"
+ <abdurrahman@nexthop.ai>
+Cc: "Michal Simek" <michal.simek@amd.com>, "Andy Shevchenko"
+ <andriy.shevchenko@intel.com>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-i2c@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2] i2c: xiic: restore runtime PM teardown in remove to
+ fix clk WARN flood
+X-Mailer: aerc 0.21.0
+References: <20260814-i2c-xiic-restore-runtime-pm-teardown-v2-1-7ae5d0c30ff2@nexthop.ai> <aoHf6UDxD68YxLYm@zenone.zhora.eu>
+In-Reply-To: <aoHf6UDxD68YxLYm@zenone.zhora.eu>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260816_131147_091612_30B8303D 
+X-CRM114-Status: GOOD (  11.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,103 +103,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 07 Aug 2026 01:18:40 +0530
-Kaustabh Chakraborty <kauschluss@disroot.org> wrote:
+On Sun Aug 16, 2026 at 9:14 AM PDT, Andi Shyti wrote:
+> Hi Abdurrahman,
+>
 
-> Sharp GP2AP070S is a promixity sensor (NOT an ambient light sensor) in
-> mobile devices. This sensor chip is found in mobile devices, including
-> (but perhaps not limited to) Samsung Galaxy J6 (codename: j6lte).
-> 
-> To the best of my knowledge, there's no public documentation available
-> for this device. [1] is a downstream kernel implementation, which has
-> been the single source for developing this driver. Some bits have also
-> been stolen from existing GP2AP* drivers available in iio/light.
-> 
-> The last patch in this series touches the device tree sources to add the
-> light sensor node in j6lte. This needs to be accepted into next only
-> when the former patches are in next.
-> 
-> [1] https://github.com/Exynos7870/android_kernel_samsung_universal7870/blob/lineage-16.0/drivers/sensors/gp2ap070s.c
-> 
-> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
-Make sure to take a look at sashiko feedback.
-https://sashiko.dev/#/patchset/20260807-gp2ap070s-v4-0-74f6a67b6272%40disroot.org
+Hi Andi,
 
-regcache flat is very rarely the write option.  maple is fine for even small
-sets of registers and avoids some pitfalls (I'm not sure the exact issue
-sashiko is calling out is real - I haven't checked)
+On Sun, Aug 16, 2026 at 06:14:08PM +0200, Andi Shyti wrote:
+> isn't devm_pm_runtime_set_active_enabled() calling
+> pm_runtime_disable() + pm_runtime_set_suspended() +
+> pm_runtime_dont_use_autosuspend() at teardown?
 
-The timestamp skid thing isn't important (though it is correct) so
-I'd ignore that one. However it's point that you might as well
-do the work in a non threaded interrupt is valid given the simplicity.
+It does call all three, but the ordering defeats it, in two places:
 
+1. Within the helper's own release, pm_runtime_disable_action() calls
+   pm_runtime_dont_use_autosuspend() *before* pm_runtime_disable() --
+   i.e. while runtime PM is still enabled.
 
-Calling regmap_reinit_cache() seems illogical even if not wrong
-on a teardown that is about to wipe out the regmap.
+2. devres is LIFO, and devm_clk_get_enabled() is registered before
+   devm_pm_runtime_set_active_enabled() in probe(), so the clock's
+   clk_disable_unprepare() release runs *after* the runtime-PM releases.
 
-I didn't look at the dtsi comments.
+pm_runtime_put_sync() in remove() leaves the device RPM_ACTIVE with the
+autosuspend timer armed: rpm_idle() falls through to
+rpm_suspend(RPM_AUTO), the delay hasn't expired, so it just re-arms the
+timer -- runtime_status stays ACTIVE and the clock stays enabled.
 
+Then the devres teardown runs. pm_runtime_dont_use_autosuspend() clears
+use_autosuspend; update_autosuspend() takes the else branch and calls
+rpm_idle(RPM_AUTO), but now pm_runtime_autosuspend_expiration() returns
+0, so rpm_suspend() no longer defers and suspends immediately --
+xiic_i2c_runtime_suspend() clk_disable()s the clock, all while runtime
+PM is still enabled. A moment later, further down the LIFO chain,
+devm_clk_get_enabled()'s release does clk_disable_unprepare() on the
+already-disabled clock and clk_core_disable() WARNs, once per device.
 
+Calling pm_runtime_disable() in remove(), before any devres release
+runs, closes that window: with runtime PM disabled the helper's
+dont_use_autosuspend() can no longer trigger a suspend, so the clock
+stays enabled and the clk release balances it cleanly.
 
-> ---
-> Changes in v4:
-> - Clarify non-mandatory vled-supply commit message (Krzysztof Kozlowski)
-> - Simplify driver probe return paths (David Lechner)
-> - Rephrase fsleep() usage to use unit macros (David Lechner)
-> - Use regmap_reinit_cache() instead of regcache_mark_dirty() (David Lechner)
-> - Use regmap_assign_bits() instead on branch on regmap_{set,clear}_bits()
->   (David Lechner)
-> - Drop redundant explicit cast to u16 (David Lechner)
-> - Replace (1 << 16) with macrofied BIT(16) (David Lechner)
-> - Add max_register to regmap config (David Lechner)
-> - Add upper byte register for proximity distance volatile registers (Sashiko)
-> - Return 0 instead of IIO_VAL_INT in iio config write calls (Sashiko)
-> - Add REGCACHE_FLAT to regmap (Sashiko)
-> - Link to v3: https://patch.msgid.link/20260731-gp2ap070s-v3-0-d1f5cecf9fe7@disroot.org
-> 
-> Changes in v3:
-> - Revoke stale patches sent erroneously, v2 changelog applies
-> - Link to v2: https://patch.msgid.link/20260731-gp2ap070s-v2-0-1bdfee07d5ea@disroot.org
-> 
-> Changes in v2:
-> - Reshuffle and add missing header inclusions (Joshua Crofts)
-> - Add missing regulators in driver and dt-schema
->   (Joshua Crofts, Jonathan Cameron)
-> - Rename and rearrange register addresses, masks and values (Jonathan Cameron)
-> - Use regmap_get_device() for carrying dev pointer (Jonathan Cameron)
-> - Use FIELD_GET() instead of !! (Jonathan Cameron)
-> - Drop unused i2c_set_clientdata() (Jonathan Cameron)
-> - Use fsleep() instead of usleep_range() (Jonathan Cameron)
-> - Check if proximity-near-level is available before reading its value
->   (Jonathan Cameron)
-> - Drop redundant dev_err_probe() from devm_request_threaded_irq()
->   (Joshua Crofts)
-> - Use mutex guards for guarding concurrent read/write calls (Sashiko)
-> - Add reset chip action on removal (Sashiko)
-> - Ensure input value in iio_write_event_value() is 16-bit (Sashiko)
-> - Use regmap_bulk_*() instead of regmap_raw_*() (Jonathan Cameron)
-> - Hint volatile registers for regmap (Jonathan Cameron)
-> - Link to v1: https://patch.msgid.link/20260723-gp2ap070s-v1-0-b8ca3a4c10dd@disroot.org
-> 
-> ---
-> Kaustabh Chakraborty (3):
->       dt-bindings: iio: proximity: add Sharp GP2AP070S proximity sensor
->       iio: proximity: add driver for Sharp GP2AP070S proximity sensor
->       arm64: dts: exynos7870-j6lte: add Sharp GP2AP070S proximity sensor
-> 
->  .../bindings/iio/proximity/sharp,gp2ap070s.yaml    |  60 +++
->  arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts    |  55 ++-
->  drivers/iio/proximity/Kconfig                      |  11 +
->  drivers/iio/proximity/Makefile                     |   1 +
->  drivers/iio/proximity/gp2ap070s.c                  | 491 +++++++++++++++++++++
->  5 files changed, 616 insertions(+), 2 deletions(-)
-> ---
-> base-commit: 290aaf24a551d5a0dce037e3fab30820f9113a10
-> change-id: 20260723-gp2ap070s-f7e0120970a5
-> 
-> Best regards,
-> --  
-> Kaustabh Chakraborty <kauschluss@disroot.org>
-> 
+You're right that set_suspended() and dont_use_autosuspend() are then
+redundant with the helper -- pm_runtime_disable() is the only call that
+has to happen early. So for v3 I'll drop those two and keep just
+pm_runtime_disable() (with a short comment, and the full reasoning in
+the commit log). Does that work for you?
 
+Thanks,
+Abdurrahman
 
