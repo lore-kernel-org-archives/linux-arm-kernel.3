@@ -4,94 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8A0EC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Aug 2026 19:00:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5004C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Aug 2026 19:37:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nNF0ZohFHrdNjPFvzMMf9M0Qx1wQqpUmQ72xm+Xx+Js=; b=DRf1+n3ve8jZF+psV3+jlWX4TE
-	pOM/I4qTRXnRug+yV+yoF4v+Ri3HVxWAJ7IvOo7oBS+6y9x1IIFlylZz2sUItvzbjsZAkcKHjLUf0
-	h7pq2jb6l04RnB8QzHV8mfYcw8ooLVPZ11pnJoJFv+UKZJGR8bAZJxaeQRCb/BehGJoScwjNn4JCI
-	Xq0hoP5+Fl1U2hcQZ2BdFITC7nNmW6HYCRGaplBqYneyXCo91xfe3pJvLt673qvIWXgzno9mhKgUb
-	Pr6HDIKFX4KuGPXkL6+daIKgNMIyRd1lAig4ngpDN4212gBRZX6TXUeDtSZapCmQb4gC3AxiKDn9i
-	dhxJ3NNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JQgLSG4YvoZaXajqXQOdtfedfHyyujRBI6cJxUYlHN0=; b=YL28IfzcgXWw4cXuv0zXsANVDL
+	pgvRIGDJlhc8h1lUv2FQfS2CvkCvoJmxjomXdfJD/F+vZVIjA+UF8j12XLDDrwnM6LruBctSaE8Cf
+	4ZYehgNen/Iof6taEjK+osDECfv+0U+nY1y1hdpQUCVV9ShVWhsdGInzNGGfJrDFkadP3aUzmoEvg
+	DU84UV59qPwGqlK+a0GEK9UNTGucSscG8QUgV+7h9wz2D+uPpV2Ab1y1IygKogJ5gBy99Ek4mpCaw
+	9gT4O7ROcP1cqMcbusTPu/JjvKYYW27Wop9y/NwR726aeQsWLM2mSeBsGnYIGhq6DxyCowgEUSUzv
+	davWaXPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvg5V-000000050L2-1kEI;
-	Sun, 16 Aug 2026 19:00:05 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1wvgfj-000000051nn-0JxS;
+	Sun, 16 Aug 2026 19:37:31 +0000
+Received: from mgamail.intel.com ([192.198.163.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvg5T-000000050I6-0jGO
+	id 1wvgfg-000000051nS-3Qsr
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 16 Aug 2026 19:00:04 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4954f5e8020so13536725e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 16 Aug 2026 12:00:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786906800; x=1787511600; darn=lists.infradead.org;
-        h=content-type:content-transfer-encoding:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=nNF0ZohFHrdNjPFvzMMf9M0Qx1wQqpUmQ72xm+Xx+Js=;
-        b=flWxOrA3d00LuXT165aUXT/ZlGOBrhWZ5UOA+g9z1g9+le51pFfY1cQAxQW2fAdkvD
-         o6ACQ54rJRRisbRPWvTH21AQfm47HlSP902mnIgNIRgJvwkexnMUmuINLdDxpFtuTkqR
-         GvnyGcb4cSt7ZpX8Ouy2LrifhnntEr4/z2GgF9d4rYSvjC1d+corYyYYGiQz7hMayGMn
-         CZpW6kqVNS7D1LsT0SPtBmPdzJHwJckFlYYlWZ1AGPqsFZlA84DOrnLbpUJ7KI8HAcOz
-         +v/ua3CHnDbJKhQhjCjVYakAJf75SXBO9SV9QCJAyfzaHvXbHu1egjTaHGC5rTcZmoUD
-         MQhA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786906800; x=1787511600;
-        h=content-type:content-transfer-encoding:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=nNF0ZohFHrdNjPFvzMMf9M0Qx1wQqpUmQ72xm+Xx+Js=;
-        b=hbZj+R3AnSttY8+6QSEa6MEZpTLas/6fNQ42U8NrNh37tgvKt1SBoy9ShMEZmKeEtI
-         nl47NGRt8ecVADNsYDBTXOY7OYDv6OqZZ4t3pSYPCr/ohUb68y8qo17DYvGfpwFZNbOk
-         rDF9AwYfR763h6Qh4dpit7W1yoMtZlvh2NvE0ougBNTPG4bTugABdCPP1bTvN74tXBzZ
-         YYgM2aH+orHTd1DXIC9G7jgl6S/jAqIaXr3gVZIVOnnX70goAe5NVph5tMC4M6HP1Eul
-         EmBT+uRyToHrivXyfBhlwlklU+YIc521dThoSyzjrHlaYLtK+ZzkceMeBmS5INkjyStQ
-         jA2g==
-X-Forwarded-Encrypted: i=1; AHgh+RqdB2PJ/ywkw779SvIAQE20y/qSVwzwMO4QbWgaEmB1lVk6nKmt+JJSpgGnDoI+Cb97fjAMRYYsbpxjZntaUoKc@lists.infradead.org
-X-Gm-Message-State: AOJu0YxFUqdd3GmmD6U+0dH3BR9V/pZkZb51dAxRb+vkHxEkkCgcXrol
-	iAzHfNmI9hIXockHyFldgEu28GtZIlZLGSlS6QaFOj9rXQKblSvq8bT8pQnqCw==
-X-Gm-Gg: AR+sD13CJPlPPWr1hAgd3tTcMyI/G9AuWSnU+1/VUjr2V654xW8uXP/8Gl6qbQyU1We
-	161wjkQlCAqnVV54pkE04ziyW3UWObSqSwaLJWGSGiYBg6uQeIgJRaaYNtMeheqpDJxGjbHlk6L
-	wXp/xUlHuRO907XgStMHjQcG5Z7Utv7/0XY+fehSR820FSaere3gk+AuVnKtXXkMb5UCR7bvmKW
-	quuok8gNUQdAukuQGYXOqJuSsg3ofnoe4HUZgMqRh5ZGeoiMwdpJ/13kQDlfGSLBMCkNGTOuNIa
-	8HRSi4r3I8Wnjt0MuFF2DfqkxTfE3sMiEKdP4T67dnlZPo3kXMu2rglsxSZIAXIg6pnzoQxV0Y+
-	6Eb1ZP5kyw15IX6xWjwyKW3jX2Vr6kJL/5BXtrQ4IkmNV113V6J7m6qCunKRto3IAr2p7TvOF1F
-	EkyAFfx2DflriFW31nFqc2/2/0YpibA9Mi7G6kXPKiVdQfw6Rzi9SL9mnIzaBPR8NsjRF+W+soP
-	8HR2Jb29wCzPiW3nvRGZXG8SixdiEXvjUiD6wQtuZVvnXl65FnWbNS4DA/3nO0Xw2DgO+Qw9LxK
-	/+RtLqE7r/UgnlAYh1peWml3VCMLnaLiR6E2pyX4pSr7SfLrqTwVnRhyggZw2B7DZoP6kDJe7p1
-	9/5O2qmoGNF23rhyRB5+Q5pc7puafa3L+FGgTBKsq0I91oUbvH4Fq656hicaT5QsYBdVSIuTpFG
-	9umKB8GJGmCKCr3+8O/JwBQco=
-X-Received: by 2002:a05:600c:1c21:b0:499:90f3:13b8 with SMTP id 5b1f17b1804b1-49990f315e9mr145661775e9.12.1786906800076;
-        Sun, 16 Aug 2026 12:00:00 -0700 (PDT)
-Received: from jernej-laptop.localnet (APN-122-100-59-gprs.simobil.net. [46.122.100.59])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49996100184sm105325425e9.1.2026.08.16.11.59.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 16 Aug 2026 11:59:59 -0700 (PDT)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: wens@kernel.org, samuel@sholland.org, Roman Riabenko <roman@riabenko.com>
-Cc: andre.przywara@arm.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- Roman Riabenko <roman@riabenko.com>
-Subject: Re: [PATCH] arm64: dts: allwinner: sun50i-a64-olinuxino: Add RX delay
-Date: Sun, 16 Aug 2026 20:59:57 +0200
-Message-ID: <n0N02vZgTVK3duHBgrvA0w@gmail.com>
-In-Reply-To: <20260815005316.28998-1-roman@riabenko.com>
-References: <20260815005316.28998-1-roman@riabenko.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+	Sun, 16 Aug 2026 19:37:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1786909049; x=1818445049;
+  h=date:from:to:cc:subject:message-id;
+  bh=CnrXjJZl16h6sjUMPByZym1rW8nYJW7wjfR5SUt/PRM=;
+  b=Br3pHgN6MrbPWxiIoNvrrdxMD8yzIg11jD/dt6fFibPHZECTg9iJ28dB
+   VNC1WBDlVfif0fXcHq6TS8gn62PUiRso2cU2nLVYQ/OIWdy0W3MlBVvuG
+   +FhpUItrUYKZQccoLTCp4X+OZKnJqKiEpbXP1AG70TC6Ijodg5PPivAqw
+   dC4WKr15ie4gtGSiOiW/Wc83lTrkD8nKq1ciYXsn2RkxdaP2lNOFqv7gH
+   n7QsdtfdKbS7wrT+JsITBUy2wVYn+jzvDdV8PTyhTM/S3emyVsgvrBUP/
+   FiMLxjvaRLaNJdRVfT/6TNFXxZo82eXj+zoaCG0t50DO6Z/RhABm8VAgy
+   w==;
+X-CSE-ConnectionGUID: /7fcb4QYTwCoUQRIWKiOhA==
+X-CSE-MsgGUID: ckBGk1DAR8ymEkrcMkoSCw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11877"; a="91208663"
+X-IronPort-AV: E=Sophos;i="6.25,227,1779174000"; 
+   d="scan'208";a="91208663"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Aug 2026 12:37:28 -0700
+X-CSE-ConnectionGUID: nV8t2L3DSi6j4jrufTn84Q==
+X-CSE-MsgGUID: owRCc+OeTo2RcLT492OThw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,227,1779174000"; 
+   d="scan'208";a="264766524"
+Received: from lkp-server01.sh.intel.com (HELO 6eda058d650d) ([10.239.97.150])
+  by orviesa007.jf.intel.com with ESMTP; 16 Aug 2026 12:37:26 -0700
+Received: from kbuild by 6eda058d650d with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wvgfb-00000000d4f-2vG8;
+	Sun, 16 Aug 2026 19:37:23 +0000
+Date: Mon, 17 Aug 2026 03:36:52 +0800
+From: kernel test robot <lkp@intel.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ arm@kernel.org
+Subject: [soc:board-remove 114/217]
+ drivers/regulator/da9055-regulator.c:534:15: error: too many arguments to
+ function 'da9055_gpio_init'
+Message-ID: <202608170503.dqOGRyEa-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260816_120003_242253_6B09817D 
-X-CRM114-Status: UNSURE (   8.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260816_123728_902162_F50B01EB 
+X-CRM114-Status: GOOD (  17.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,23 +84,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne sobota, 15. avgust 2026 ob 02:53:16 Srednjeevropski poletni =C4=8Das je=
- Roman Riabenko napisal(a):
-> The Ethernet on Olimex A64-OlinuXino computers requires an RX delay
-> greater than 0. If the value is not set or is 0, packet loss in the
-> downlink direction is severe enough to interfere with downloads and
-> disrupt software installation.
->=20
-> The range of acceptable values is wide. The vendor has been applying
-> 200 ps in its downstream DTs since 2021. This patch matches that
-> common practice.
->=20
-> Signed-off-by: Roman Riabenko <roman@riabenko.com>
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git board-remove
+head:   057394422bc04420585b2790b230d8a1f350ace8
+commit: 158b19afd623da6a93d8ac59dd4aeefe48fa2085 [114/217] mfd: da9055: remove pdata based probing
+config: i386-allmodconfig (https://download.01.org/0day-ci/archive/20260817/202608170503.dqOGRyEa-lkp@intel.com/config)
+compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260817/202608170503.dqOGRyEa-lkp@intel.com/reproduce)
 
-Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202608170503.dqOGRyEa-lkp@intel.com/
 
-Best regards,
-Jernej
+All errors (new ones prefixed by >>):
+
+   drivers/regulator/da9055-regulator.c:77:26: error: field 'reg_rselect' has incomplete type
+      77 |         enum gpio_select reg_rselect;
+         |                          ^~~~~~~~~~~
+   drivers/regulator/da9055-regulator.c: In function 'da9055_regulator_set_voltage_sel':
+   drivers/regulator/da9055-regulator.c:208:39: error: 'NO_GPIO' undeclared (first use in this function)
+     208 |         if (regulator->reg_rselect == NO_GPIO) {
+         |                                       ^~~~~~~
+   drivers/regulator/da9055-regulator.c:208:39: note: each undeclared identifier is reported only once for each function it appears in
+   drivers/regulator/da9055-regulator.c: In function 'da9055_regulator_set_suspend_voltage':
+   drivers/regulator/da9055-regulator.c:248:39: error: 'NO_GPIO' undeclared (first use in this function)
+     248 |         if (regulator->reg_rselect == NO_GPIO) {
+         |                                       ^~~~~~~
+   drivers/regulator/da9055-regulator.c: In function 'da9055_suspend_enable':
+   drivers/regulator/da9055-regulator.c:269:39: error: 'NO_GPIO' undeclared (first use in this function)
+     269 |         if (regulator->reg_rselect == NO_GPIO)
+         |                                       ^~~~~~~
+   drivers/regulator/da9055-regulator.c: In function 'da9055_suspend_disable':
+   drivers/regulator/da9055-regulator.c:282:39: error: 'NO_GPIO' undeclared (first use in this function)
+     282 |         if (regulator->reg_rselect == NO_GPIO)
+         |                                       ^~~~~~~
+   drivers/regulator/da9055-regulator.c: In function 'da9055_gpio_init':
+   drivers/regulator/da9055-regulator.c:466:42: error: 'pdata' undeclared (first use in this function); did you mean '_data'?
+     466 |                 regulator->reg_rselect = pdata->reg_rsel[id];
+         |                                          ^~~~~
+         |                                          _data
+   drivers/regulator/da9055-regulator.c:417:33: warning: parameter 'id' set but not used [-Wunused-but-set-parameter]
+     417 |                             int id)
+         |                             ~~~~^~
+   In file included from include/uapi/linux/posix_types.h:5,
+                    from include/uapi/linux/types.h:14,
+                    from include/linux/types.h:5,
+                    from include/linux/kasan-checks.h:5,
+                    from include/asm-generic/rwonce.h:26,
+                    from ./arch/x86/include/generated/asm/rwonce.h:1,
+                    from include/linux/compiler.h:369,
+                    from include/linux/build_bug.h:5,
+                    from include/linux/container_of.h:5,
+                    from include/linux/list.h:5,
+                    from include/linux/module.h:12,
+                    from drivers/regulator/da9055-regulator.c:9:
+   drivers/regulator/da9055-regulator.c: In function 'da9055_regulator_probe':
+   include/linux/stddef.h:8:14: error: passing argument 4 of 'da9055_gpio_init' makes integer from pointer without a cast [-Wint-conversion]
+       8 | #define NULL ((void *)0)
+         |              ^~~~~~~~~~~
+         |              |
+         |              void *
+   drivers/regulator/da9055-regulator.c:534:64: note: in expansion of macro 'NULL'
+     534 |         ret = da9055_gpio_init(&pdev->dev, regulator, &config, NULL, pdev->id);
+         |                                                                ^~~~
+   drivers/regulator/da9055-regulator.c:417:33: note: expected 'int' but argument is of type 'void *'
+     417 |                             int id)
+         |                             ~~~~^~
+>> drivers/regulator/da9055-regulator.c:534:15: error: too many arguments to function 'da9055_gpio_init'
+     534 |         ret = da9055_gpio_init(&pdev->dev, regulator, &config, NULL, pdev->id);
+         |               ^~~~~~~~~~~~~~~~
+   drivers/regulator/da9055-regulator.c:414:12: note: declared here
+     414 | static int da9055_gpio_init(struct device *dev,
+         |            ^~~~~~~~~~~~~~~~
+   drivers/regulator/da9055-regulator.c: In function 'da9055_suspend_enable':
+   drivers/regulator/da9055-regulator.c:274:1: warning: control reaches end of non-void function [-Wreturn-type]
+     274 | }
+         | ^
+   drivers/regulator/da9055-regulator.c: In function 'da9055_suspend_disable':
+   drivers/regulator/da9055-regulator.c:287:1: warning: control reaches end of non-void function [-Wreturn-type]
+     287 | }
+         | ^
 
 
+vim +/da9055_gpio_init +534 drivers/regulator/da9055-regulator.c
+
+   510	
+   511	static int da9055_regulator_probe(struct platform_device *pdev)
+   512	{
+   513		struct regulator_config config = { };
+   514		struct da9055_regulator *regulator;
+   515		struct da9055 *da9055 = dev_get_drvdata(pdev->dev.parent);
+   516		int ret, irq;
+   517	
+   518		regulator = devm_kzalloc(&pdev->dev, sizeof(struct da9055_regulator),
+   519					 GFP_KERNEL);
+   520		if (!regulator)
+   521			return -ENOMEM;
+   522	
+   523		regulator->info = find_regulator_info(pdev->id);
+   524		if (regulator->info == NULL) {
+   525			dev_err(&pdev->dev, "invalid regulator ID specified\n");
+   526			return -EINVAL;
+   527		}
+   528	
+   529		regulator->da9055 = da9055;
+   530		config.dev = da9055->dev;
+   531		config.driver_data = regulator;
+   532		config.regmap = da9055->regmap;
+   533	
+ > 534		ret = da9055_gpio_init(&pdev->dev, regulator, &config, NULL, pdev->id);
+   535		if (ret < 0)
+   536			return ret;
+   537	
+   538		regulator->rdev = devm_regulator_register(&pdev->dev,
+   539							  &regulator->info->reg_desc,
+   540							  &config);
+   541		if (IS_ERR(regulator->rdev)) {
+   542			dev_err(&pdev->dev, "Failed to register regulator %s\n",
+   543				regulator->info->reg_desc.name);
+   544			return PTR_ERR(regulator->rdev);
+   545		}
+   546	
+   547		/* Only LDO 5 and 6 has got the over current interrupt */
+   548		if (pdev->id == DA9055_ID_LDO5 || pdev->id ==  DA9055_ID_LDO6) {
+   549			irq = platform_get_irq_byname(pdev, "REGULATOR");
+   550			if (irq < 0)
+   551				return irq;
+   552	
+   553			ret = devm_request_threaded_irq(&pdev->dev, irq, NULL,
+   554							da9055_ldo5_6_oc_irq,
+   555							IRQF_TRIGGER_HIGH |
+   556							IRQF_ONESHOT |
+   557							IRQF_PROBE_SHARED,
+   558							pdev->name, regulator);
+   559			if (ret != 0) {
+   560				if (ret != -EBUSY) {
+   561					dev_err(&pdev->dev,
+   562					"Failed to request Regulator IRQ %d: %d\n",
+   563					irq, ret);
+   564					return ret;
+   565				}
+   566			}
+   567		}
+   568	
+   569		platform_set_drvdata(pdev, regulator);
+   570	
+   571		return 0;
+   572	}
+   573	
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
