@@ -4,143 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6B3FC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Aug 2026 10:55:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFAF0C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Aug 2026 10:59:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m3tSoyW+LYT3gQQDJzJYCtIi3L/NAx18SaVD//CZMb8=; b=hfUgGi9pz0Or2Ee2ddySfTYdHM
-	mG8mP+z8JNq0UezwKSgmTpCuM4CFqxUjrOphX4xuT9FZ8/ydPDhGZSh04CkGIfVhJPvA0KC5D29jJ
-	sBG4yIKvzFNASVADPxo4XXIasTCJVuJIqnOAsm4yQAEmUXLcrGpgUDFM8sQmffTCc6vEnZNZkU5ty
-	t7JGU8fL53zi+pAjrQU2wfKIBpVf72oTNQnfyEqFqaCXWzE31OAQ3MkhemtabGTivDevMmYb+lloC
-	+LuAZoPmqqGicePV1sMfRI2uNO/WPb3nDag+qkXLK7E7BOmYqunUBXzih8zXPX3IFgBOCFcczO/FE
-	tlIgYMEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=EZMPuLn9lWRyJJinQ2c8b4OBBKHlDa+Kb1vfYZjvPU0=; b=td3V+uvOShJXMv
+	TzyIKXbktnAS2i6bE0hSbyjw8GgKIKrHROy46H67/7JVvnygBsFqp0uq2zOti3zpU3Mq+fZAUyyU9
+	UxeZGlnkbVlAKvLSlb0o/DQEx96t3ybZrZY/ZkPifopDvnYKcwCGnzrs31wpP91wfyjN0rNlwtxqD
+	OesZxFF35a+uIZ6wTHP97kcBtNdoORD5tMzlJP/3LOZxMR8hgLuO+CN93kCRq8sCgCUPqWhNjzg29
+	6jZwu1F4Fyd7OwDhnbOiV12kGZVMVw13KbWJg8ecmDCd7eSHqB7MHJpdt+tJhY9Kv7sD6cXMOSBml
+	rmA7+nWdZSUvBZR6OE/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvYWi-00000004fNx-1WBV;
-	Sun, 16 Aug 2026 10:55:40 +0000
-Received: from mail-germanywestcentralazon11022093.outbound.protection.outlook.com ([40.107.149.93] helo=FR5P281CU006.outbound.protection.outlook.com)
+	id 1wvYac-00000004fai-3WS7;
+	Sun, 16 Aug 2026 10:59:42 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvYWf-00000004fNZ-0pDk
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 16 Aug 2026 10:55:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Q0tAC/hRFD1jIaCksk6vfrtdAJakgEPYYKrIKrlwPpVTgzl2EXKLFpX3THLZbMdYCddndd0fGbpoES1QnJm1BRRGZnbEitDYQP6R1SvZwaZ9USRS6AOrG2p90yvjE4SRp4W8PAtlymKo6ScTJRMbwR+3ssm1kv7ZoF8whNLJ3PTJbXyockC224ixElCtJ+EKYs9LIOSDumExn01CKd4hcJ5bJDKzm1yT/TrWkOAxBtMAQc/VpY8A1kDqyVHC8fywwKY1wwrUjySCMkmS6Vq96DJUaco5ngbd0ifAqm+JQi1gxNJJv+wBipkkE1WWNNG/cdaAjTV8bP1xFURmf1BYnw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=m3tSoyW+LYT3gQQDJzJYCtIi3L/NAx18SaVD//CZMb8=;
- b=h01cbilMzx/NcRtVC+/9Op5hZhZ7G6jE8N3EuxvulvanBhQdp0oTzRL5+hT7DzXgegzokvOWWPS8K7ddahjiRr8q6bAU6lzOCrgXVhwao0PMGY6BXncZC7MHxDNKFFeF2xg6LmDp0c6gHeA0ed514JZRxqyYUan3IOULyzW8YqTcu+7qx+uSuIDObVeduyNyng3F9FuEQ6Ul8i9DK7NehiYsFZ6HPuoC6OUyA+DhY0g+5Z+TppsklUueFi6ANGTwAInGPnv0thL9if5Ngwygogj5mxU1hDdQusgYjp0PvXSaR5aRkL/62wPBzBf42aHC3SyJ43ldF0MiKpKnhEJjWw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=siewert.io; dmarc=pass action=none header.from=siewert.io;
- dkim=pass header.d=siewert.io; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=siewert.io;
-Received: from FR3PPFB3D0CF1D2.DEUP281.PROD.OUTLOOK.COM (2603:10a6:d18:2::182)
- by BE1P281MB2467.DEUP281.PROD.OUTLOOK.COM (2603:10a6:b10:6e::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.17; Sun, 16 Aug
- 2026 10:55:26 +0000
-Received: from FR3PPFB3D0CF1D2.DEUP281.PROD.OUTLOOK.COM
- ([fe80::aa8e:db31:b886:2365]) by FR3PPFB3D0CF1D2.DEUP281.PROD.OUTLOOK.COM
- ([fe80::aa8e:db31:b886:2365%7]) with mapi id 15.21.0315.016; Sun, 16 Aug 2026
- 10:55:26 +0000
-Message-ID: <4e653068-5ef1-47db-8e4e-3b535751e47f@siewert.io>
-Date: Sun, 16 Aug 2026 12:55:24 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/2] ARM: dts: aspeed: add asrock x470d4u bmc
-To: Zev Weiss <zev@bewilderbeest.net>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
- Andrew Jeffery <andrew@codeconstruct.com.au>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- linux-kernel@vger.kernel.org
-References: <20260812-ts-x470d4u-v3-0-c8e266f1663b@siewert.io>
- <20260812-ts-x470d4u-v3-2-c8e266f1663b@siewert.io>
- <8b7dcb07-2dfd-425f-8ff3-06114e45c676@hatter.bewilderbeest.net>
-Content-Language: en-GB
-From: Tan Siewert <tan@siewert.io>
-Autocrypt: addr=tan@siewert.io; keydata=
- xjMEXY4MwBYJKwYBBAHaRw8BAQdAdDPxHO4UUyhKcZXkztTv4iVAbjk/+F8ayCYnegO4q4zN
- HFRhbiBTaWV3ZXJ0IDx0YW5Ac2lld2VydC5pbz7ClAQTFgoAPBYhBJ1bd8XzFb0F9Kx5LnjQ
- kBYSrhG1BQJnqiY3AhsDBQkSJuqzBAsJCAcEFQoJCAUWAgMBAAIeBQIXgAAKCRB40JAWEq4R
- tbtDAQDyPybWLk2EYMeY+vv/WID8hk18+jp3fZCNp9aJp9GkJwD9GeQNvCO1LPDUjkMQqf8d
- DgMM9pmsvbJUFfViYbflbQ7OOARdjgzAEgorBgEEAZdVAQUBAQdAjtzTYeMaO9yG3M1uBtQy
- JB57UJXf+m+mNDhWkOY69DADAQgHwn4EGBYKACYCGwwWIQSdW3fF8xW9BfSseS540JAWEq4R
- tQUCZk72AwUJEibqwwAKCRB40JAWEq4RtUkGAP0R8RmddZqdGdqdod1MkVXpw/z5OOptToXf
- za1W8nsGmgEA5gvQzkN1LJ8oP9LB8YGAmJt82tPvJCmi4WzesI53kQY=
-In-Reply-To: <8b7dcb07-2dfd-425f-8ff3-06114e45c676@hatter.bewilderbeest.net>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: FR4P281CA0048.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:cc::15) To FR3PPFB3D0CF1D2.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d18:2::182)
+	id 1wvYab-00000004faW-3ZyT;
+	Sun, 16 Aug 2026 10:59:41 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5C8B060055;
+	Sun, 16 Aug 2026 10:59:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A78C61F000E9;
+	Sun, 16 Aug 2026 10:59:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786877980;
+	bh=EZMPuLn9lWRyJJinQ2c8b4OBBKHlDa+Kb1vfYZjvPU0=;
+	h=From:Subject:Date:To:Cc;
+	b=mQiCOZPM10WFNlwj6S+/etLcOZ5lICzoIZa7PUr5atzrLfNCvr7yIRbgAh4jotlxM
+	 5JyYhCmGz/YoEQDsBDLbHt0Y3c6AmaQ8D8x/q9pWH75AG7Ru5Mgprs/KNnXKyqaBsL
+	 ejEpD2MHgWO73u0i3IFYum3fH4NH4kLKFKL5lO5dSr8ry9s8ne7h/aTShk4Y6Vpn7i
+	 5CuWmafPB+x4jOqhGz0dGaKnl/EFmtwKu92IwkMy/uGbXJ4TNzKbV8gfkMfk2nTONT
+	 mXjoku8XZsHQEWPnLFJuHj0gUgLc1MIXrDVZ1zTgt+/HzmRe1K+5BFceKLBRkqx4gB
+	 ukxJvdpWvHM9g==
+From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+Subject: [PATCH 0/6] arch, mm/execmem: resolve confusion about
+ set_direct_map_valid_noflush()
+Date: Sun, 16 Aug 2026 13:59:23 +0300
+Message-Id: <20260816-execmem-set-vm-perms-v0-2-v1-0-90944a3ad43f@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: FR3PPFB3D0CF1D2:EE_|BE1P281MB2467:EE_
-X-MS-Office365-Filtering-Correlation-Id: d091bf97-7505-4c0a-a0a8-08defb84e0d1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|23010399003|18002099003|22082099003|56012099006|4143699003|10067099003;
-X-Microsoft-Antispam-Message-Info: 8yzS4LDNJoPn3i4GeYGtnqV4XkB5cJuHRy9h1XddKVDpsDprlmaoqh3VNGuvAJnrbjERGoLlkDSHWQgL/rTDSKr6obCG52uhYLQU0NqW+BLIfLhBibRBF/BRnABFC122LXCM6Iim4whpdERtwefYjfOXog7hlxuI7hz6NXqa5tgTpKsDl03ZnSKat8xq/lBvzGuBQWzVlqtzN1/yNEpPW0PDE7IS1peQuWoZB8Lw9bQmUUsCZKGHgOj/e5wi3bwLE92O/2AmWn+Sa69f92n8BB7okY1W2y8T+10mzGrhKuHWLvSK4oqH1LAR6J+KwPAx7nYXPQhFw8qaDHk4DTh9aI0XrpXjgcrmv3jmD+uBsCSCf7739I+ptZGG3QDZZYmKzP9GhtySGi16KKhdfncARj/4azqBQWnktsmKvsYaKpMYP5yhEtWP0Ro/POUkCqQvWKEX8iMaVqFJWJfquTw/uyLsdiuV64nrKqnOX3qlpRqqB2sDf1jViIDDk0E9kEzWptQc9zjTycFDsQJHX/uLgUr7kQGAyAXX8UlPiJ6gl5H7doGcPqVguE9nLkJNHsMcCiFEsWEG670coQANER8zi0kWOY3t7aBIAfoxMMkHeYvZS2TV2kLOIZ4YDf0xhODGrbw2fuyjjhG1x6lnOcalYz+armTUKP7CThWIq0+EBg0=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:FR3PPFB3D0CF1D2.DEUP281.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(23010399003)(18002099003)(22082099003)(56012099006)(4143699003)(10067099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?d1VGMmoxWEx0bDhYQll1eUNTdERMZWpUUEoxSCtySTdlRUxkYW0ycnlTUFJZ?=
- =?utf-8?B?Tit5dy9uR2VzdFM3UE5taloxd0NUWjJIVnZWMlJkbjM1dzc0eTc3cDF5cE1Y?=
- =?utf-8?B?NGhDVWxhQ1NiQnRsdmo0c1FtT3BENHgrVlg5WmZRTWQ3OHZCaWJId0FYNHNC?=
- =?utf-8?B?U2JKTENabUo4UVVhTWY4RnV5ZWt6MFdMRThPNUZzK0JLWWNxRWZBNWVuczBS?=
- =?utf-8?B?anZadGVkbTRvTHRBL3VjdDhaUkx0SkJkR0Z3bXVKcXVsRGI0M1VOQ1pVUlI0?=
- =?utf-8?B?Um5vTDRKdXMrdE0ySmk5czRIeDRvUmdrcTU3NVBlRFplM2RMRkUrOUJrMDRW?=
- =?utf-8?B?Y0NSbXJ3aXdKOUNaM1FkaWhOakp2aVlCU24rV0VVVlAwckR6T1pTaGVncUJk?=
- =?utf-8?B?SGxQOUtoNUk1Mlc0TC9wMHJlS3prTnE4ejlLdVFqU3RQMjlROTZCZTBPN0h3?=
- =?utf-8?B?Q2pja3VJRnhlYVplTm40U2Z0V1JnR0ZYZlRvK0FlTnF6M2FZZ1RXdUZ2Tk1V?=
- =?utf-8?B?OFQwQStnbjFlN2krR3hoVlhqVUsybnBlZlhjbzU0alFQL1pTVC9IY3NrOHFQ?=
- =?utf-8?B?OHk3MytLNHlvMFVQeUgwQzJYN3QyZW5VaTBJZldNRCsreTFyR3UzZUQ3TC96?=
- =?utf-8?B?aHFoQ3VDTWVDa1AxcjVzSWdjY3dBMkNCVGtGbTFZd2orc3kxK1lhSEV1eS84?=
- =?utf-8?B?TVdhRjA1bmVSRnNkTkNMaG9hSHhzQjh4d1lnV2cvVmhtdklxL1BiU0tvU2Ir?=
- =?utf-8?B?UGRxMGNJdnhxS2FFc2xlLzgwN0VHbjQwZTVOUVllRy9qYklnNVpDKzZ6bzJS?=
- =?utf-8?B?MDRuc3NlcmdObTlJOS9SNTZZLzhEcDdScmV5ZzRUN3pWME0wNWJiN0UrNGQx?=
- =?utf-8?B?bkpaUU1GSkNzRDlSbEd4NWlNWG9mTU9vSUp1VU5XT1dwNFJFMEV1enEyRkVU?=
- =?utf-8?B?N01WRzJLOC9tcWVISEMyQ2lyTVVmMUh6TDRhT1d3c004NHdHWGRrWXd2dWZ3?=
- =?utf-8?B?UitodVdXRTRkNFZEby80cWpTR2ptZVp2M2JHdlU5RVY3R203a29UcnNza29o?=
- =?utf-8?B?VEdlTWZrc0JDdWdFb3daVXpKdElnVTgzbVo1aWRSUUx2SzlRVXZJaXdzbzVa?=
- =?utf-8?B?eDVqL05JT1lQMFBjeFVWci9vRnpVbm5JbDVKVjk5NVBxd3Q5ZkU5REN2UHZ4?=
- =?utf-8?B?cGhnaEVlMzFrV0ZubzdOZkppWjhFQkc5Q3RtQ2VNR3ZRQmlBaFlzdWQ2QVd5?=
- =?utf-8?B?ZXJNampPSDRtMXQyeG5qZnFDWDRXN251V1k5ZnJOTzhsQnR0c3U2alU0dEtT?=
- =?utf-8?B?bTlUdnJ6dG5wcmxCbUQrd2hYSStPajZmcDVkdFNTVUdXS09GeE84TnI5d1k2?=
- =?utf-8?B?SEFlZE9aL0NydUg4SE1jMlNNclhBTytTYWFyWDJ3ZGxxZnEzRTVRc1BFMzMw?=
- =?utf-8?B?TVliakg3UmRJSEFacFhJdklyc0FxcTFIZ0ZvTVJMdWxMTURnRmFMQ2hvcjd0?=
- =?utf-8?B?eXowMUFjYmRqRlBhRHgxQXdIaE1nVTE3UlRaT2VJWG4rSjVoZGVqRDRBOWVF?=
- =?utf-8?B?OVJ2MVlET04wajRIaG9adWQrSFhWVHJ3c3N5aGQvSTlvbHVJRGRRU1UzRmov?=
- =?utf-8?B?cld2MmFNRUkralluOW5tcFlsbWJwZlR0TkV1eFdSYUJhMzkwWXAySkN0MUIx?=
- =?utf-8?B?QVhCZFd2OXdYVE5jVlJiQ3YyYVZlSGhxcENydVFSclNsRkZ4bXVwajhWbjRJ?=
- =?utf-8?B?ak9lRWYrZjRqY3hpam5ocHM2d1R4WC9iL0hpRDJaemtiY3djSCsyay93a1Bo?=
- =?utf-8?B?N1lZN1NYc2RudDNtLzZ6SjRIZWRac09nMmg4UXYyQWVibFVEejloWkx4V3Fj?=
- =?utf-8?B?YXE3WlNjekx1UXpGMGRSZk5SOVZMbWthME1aY2lNWDR6bXdPS0pIbHV6Ynl4?=
- =?utf-8?B?VGJFdjR6dnNTR1B1aVQwTlZick52Q01DNWpFdjlPQndqK0VPeGcwZkVvZXRl?=
- =?utf-8?B?Zk1HczRrNmVpcDNNMURSaGFhTEtxV05sbW1SWnQwUWp2U1lUUzRQRHdjKzVX?=
- =?utf-8?B?NFhianV4c3o5WHhkaWlSZ3hCbUQvbFRBRTFsYnRZMmZuTW1mSXJZbzR5ei9B?=
- =?utf-8?B?aXFmNWhud0pqMENxeEpENGErSlJLOENEUzk5SHJYSEgxWE5xdWR0SWxBd1JV?=
- =?utf-8?B?MTQ3NWZ1Z0hXZmRSeEhuRkU4cm9jTzZWQjVQYm5uV3V1eEllS0tRbFZHRWlC?=
- =?utf-8?B?WHhUVmlFRGZxc0Z3RzA2TlFLWDlsY0M0SVRqNTA1STZKdHhxc2RhcmhiUmpU?=
- =?utf-8?Q?p/cIpq0oeu26BXm+2E?=
-X-OriginatorOrg: siewert.io
-X-MS-Exchange-CrossTenant-Network-Message-Id: d091bf97-7505-4c0a-a0a8-08defb84e0d1
-X-MS-Exchange-CrossTenant-AuthSource: FR3PPFB3D0CF1D2.DEUP281.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Aug 2026 10:55:26.1124
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: e8b4abbe-444b-4835-b8fd-87ac97451a7e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: oZygdE7uUyLOM2sIJEYRCvm/rUix9KkKQG8E115rYl+K4Q0PDuSIF/asORPLJ0GY
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BE1P281MB2467
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260816_035537_244254_1E52AD92 
-X-CRM114-Status: GOOD (  17.98  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWM0QqDMBAEf0XuuUc1iJX+SulDkq41pRclF0UQ/
+ 11tH2fZmZUUKUDpXqyUMAcNQzyguhTkexvf4PA6mExpmrKtGsYCLxBWZJ6FRyRRnks27Cza+mb
+ rrqk7OvwxoQvLr/14/lkn94HPZ/B8OKtgl2z0/TmJDFmuIjxFzdZ9Qdu2A009wYShAAAA
+X-Change-ID: 20260816-execmem-set-vm-perms-v0-2-bae847a4f64f
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: =?utf-8?q?Adrian_Barna=C5=9B?= <abarnas@google.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexander Gordeev <agordeev@linux.ibm.com>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Andy Lutomirski <luto@kernel.org>, Borislav Petkov <bp@alien8.de>, 
+ Brendan Jackman <brendan.jackman@linux.dev>, 
+ Catalin Marinas <catalin.marinas@arm.com>, 
+ Christian Borntraeger <borntraeger@linux.ibm.com>, 
+ Dave Hansen <dave.hansen@linux.intel.com>, 
+ David Hildenbrand <david@kernel.org>, 
+ Gerald Schaefer <gerald.schaefer@linux.ibm.com>, 
+ Heiko Carstens <hca@linux.ibm.com>, Huacai Chen <chenhuacai@kernel.org>, 
+ Ingo Molnar <mingo@redhat.com>, Len Brown <lenb@kernel.org>, 
+ Mike Rapoport <rppt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Paul Walmsley <pjw@kernel.org>, Pavel Machek <pavel@kernel.org>, 
+ Peter Zijlstra <peterz@infradead.org>, "H. Peter Anvin" <hpa@zytor.com>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Ryan Roberts <ryan.roberts@arm.com>, Sven Schnelle <svens@linux.ibm.com>, 
+ Thomas Gleixner <tglx@kernel.org>, Uladzislau Rezki <urezki@gmail.com>, 
+ Vasily Gorbik <gor@linux.ibm.com>, WANG Xuerui <kernel@xen0n.name>, 
+ Will Deacon <will@kernel.org>, x86@kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-mm@kvack.org, linux-pm@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+ loongarch@lists.linux.dev
+X-Mailer: b4 0.17-dev
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,89 +93,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Zev,
+Recent discussion about implementation of execmem's ROX caches on arm64
+revealed a confusion about how set_direct_map_valid_noflush()
+implemented on different architectures.
 
-Many thanks for your review!
+On arm64 it sets or clears the PTE_VALID bit marking a PTE as present or
+not present.
 
-On 16.08.26 06:49, Zev Weiss wrote:
-> On Wed, Aug 12, 2026 at 01:28:27PM PDT, Tan Siewert wrote:
->> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-x470d4u- 
->> data64.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-x470d4u- 
->> data64.dts
->> new file mode 100644
->> index 000000000000..6f11aeab087c
->> --- /dev/null
->> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-x470d4u-data64.dts
->> @@ -0,0 +1,15 @@
->> +// SPDX-License-Identifier: GPL-2.0+
->> +
->> +#include "aspeed-bmc-asrock-x470d4u.dts"
->> +
->> +/ {
->> +    compatible = "asrock,x470d4u-data64-bmc", "aspeed,ast2500";
->> +    model = "Asrock Rack X470D4U-series BMC (64MB store)";
-> 
-> Nit: for consistency with how they spell it, and (at least *most* of) 
-> the other aspeed-bmc-asrock-*.dts files, I'd suggest "ASRock" instead of 
-> "Asrock".  (And IMO s/store/flash/ would be a touch clearer.)
-> 
+On other architectures it's a range version of
+set_direct_map_invalid_noflush() and set_direct_map_default_noflush()
 
-Agreed on both, will fix it in v4.
+Unlike arm64::set_direct_map_valid_noflush(),
+set_direct_map_default_noflush() not only marks PTE as present, but also
+sets its default protection mode.
 
-> Also, looks like the other nearby DTS files pretty consistently have 
-> compatible & model in the opposite order, so matching that might be nice 
-> too.
+Other than that, initial design of execmem ROX caches didn't rely on
+restoration of large mappings that's now available on x86, but
+completely removed the memory allocated for the ROX cache from the
+direct map to ensure that large mappings are not split. This precluded
+usage of VM_FLUSH_RESET_PERMS for the ROX cache allocations and required
+execmem to implement manipulation of the direct map alias.
 
-This is something that was reported by `scripts/dtc/dt-style-check 
---mode strict`. Depending on how much time I have next week I'll look 
-into fixing the dtc offsenses for arm/dts/aspeed (tho that'd come from 
-my employer email).
+Current implementation of ROX caches does not remove the direct map
+alias but simply calls set_memory_rox() that updates the permissions in
+both vmalloc address space and the direct map and relies on
+collapse_large_pages() in x86 CPA to keep large mappings.
 
-> 
->> +};
->> +
->> +&fmc {
->> +    flash@0 {
->> +        /delete-node/partitions;
->> +#include "openbmc-flash-layout-64.dtsi"
->> +    };
->> +};
->> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-x470d4u.dts b/ 
->> arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-x470d4u.dts
->> new file mode 100644
->> index 000000000000..80fb2b7c1e0c
->> --- /dev/null
->> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-x470d4u.dts
-> 
-> <snip>
-> 
->> +
->> +    fan@3 {
->> +        /* FAN4 (6-pin) */
->> +        reg = <0x03>;
->> +        aspeed,fan-tach-ch = /bits/ 8 <0x03 0x0b>;
->> +    };
->> +
->> +    fan@4 {
->> +        /* FAN5 (6-pin) */
->> +        reg = <0x04>;
->> +        aspeed,fan-tach-ch = /bits/ 8 <0x04 0x0d>;
->> +    };
->> +
->> +    fan@5 {
->> +        /* FAN6 (6-pin) */
->> +        reg = <0x05>;
->> +        aspeed,fan-tach-ch = /bits/ 8 <0x05 0x0e>;
->> +    };
->> +};
-> 
-> Just to confirm, skipping channel 0xc here is intentional I assume? 
-> (Most other related platforms have them contiguously numbered, but not 
-> all, so another slight oddity wouldn't be too shocking.)
+This allow using VM_FLUSH_RESET_PERMS for execmem ROX cache allocations
+with small adjustments to set_direct_map APIs and vmalloc::reset_perms()
+behaviour: adding number of pages parameter to set_direct_map APIs and
+making resetting of the direct map permissions in vmalloc VMAP_HUGE
+friendly.
 
-The skip is intentional. That is what I found out during reverse 
-engineering the SDR file in the vendor firmware.
+Implement these adjustments, make execmem always use
+VM_FLUSH_RESET_PERMS and revert set_direct_map_valid_noflush() changes.
 
-Cheers,
-Tan
+[1] https://lore.kernel.org/all/20260611130144.1385343-4-abarnas@google.com
+
+---
+Mike Rapoport (Microsoft) (6):
+      set_memory: add number of pages parameter to set_direct_map APIs
+      mm/vmalloc: set area's page_order after allocation succeeds
+      mm/vmalloc: constify vm parameter of get_vm_area_page_order()
+      mm/vmalloc: make set_area_direct_map HUGE_VMAP friendly
+      mm/execmem: use VM_FLUSH_RESET_PERMS for ROX cache allocations
+      Revert "arch: introduce set_direct_map_valid_noflush()"
+
+ arch/arm64/include/asm/set_memory.h     |  5 ++--
+ arch/arm64/mm/pageattr.c                | 24 ++++---------------
+ arch/loongarch/include/asm/set_memory.h |  5 ++--
+ arch/loongarch/mm/pageattr.c            | 27 ++++-----------------
+ arch/riscv/include/asm/set_memory.h     |  5 ++--
+ arch/riscv/mm/pageattr.c                | 23 ++++--------------
+ arch/s390/include/asm/set_memory.h      |  5 ++--
+ arch/s390/mm/pageattr.c                 | 20 ++++------------
+ arch/x86/include/asm/set_memory.h       |  5 ++--
+ arch/x86/mm/pat/set_memory.c            | 16 ++++---------
+ include/linux/set_memory.h              | 12 ++++------
+ kernel/power/snapshot.c                 |  4 ++--
+ mm/execmem.c                            | 42 ++++++---------------------------
+ mm/secretmem.c                          |  6 ++---
+ mm/vmalloc.c                            | 31 ++++++++++++++++--------
+ mm/vmalloc.h                            |  2 +-
+ 16 files changed, 68 insertions(+), 164 deletions(-)
+---
+base-commit: 1029098ee3275ea5b78e329ce132262affa2f8cc
+change-id: 20260816-execmem-set-vm-perms-v0-2-bae847a4f64f
+
+--
+Sincerely yours,
+Mike.
+
 
