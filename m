@@ -4,108 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A91CC5DF66
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Aug 2026 18:54:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8A0EC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Aug 2026 19:00:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K87DdrzV6T05ieuNKPZOU2wz5knyEjMGfCEK8pz9YqE=; b=LKF40zBYcrjQXIBLackEgvJTKW
-	pIGtmPtHrTbHYRODOp6GCkbIvC13io/Fa9U0v5YLLMM90TCnTOZiyOeJy1o6KwxNpAJchoGQdTd9i
-	yCN49qcxjPE2wS7IhXM1beBc3Uwn5X8p/4tnf9a5+KaKPsyqQJmr+Nd4j5x/Ko9s/uD+iCSz8jirY
-	g0Z5l2xOiJqOU3DP7fjcSb0H3qS4ReS1QrJmrVaLt/kZAZZeFQwGHP2+XOvMyICNi1ZSIG5GeXaZr
-	7RPCW9CU8ZJ+Y0fH5ek9Pjn0leMJswD9ntVi5uMWbmJ0ddfbpSLoEHN9E+d4gRpaVNhcOWcL+moRg
-	50TG9JXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nNF0ZohFHrdNjPFvzMMf9M0Qx1wQqpUmQ72xm+Xx+Js=; b=DRf1+n3ve8jZF+psV3+jlWX4TE
+	pOM/I4qTRXnRug+yV+yoF4v+Ri3HVxWAJ7IvOo7oBS+6y9x1IIFlylZz2sUItvzbjsZAkcKHjLUf0
+	h7pq2jb6l04RnB8QzHV8mfYcw8ooLVPZ11pnJoJFv+UKZJGR8bAZJxaeQRCb/BehGJoScwjNn4JCI
+	Xq0hoP5+Fl1U2hcQZ2BdFITC7nNmW6HYCRGaplBqYneyXCo91xfe3pJvLt673qvIWXgzno9mhKgUb
+	Pr6HDIKFX4KuGPXkL6+daIKgNMIyRd1lAig4ngpDN4212gBRZX6TXUeDtSZapCmQb4gC3AxiKDn9i
+	dhxJ3NNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvfzr-00000005026-1zyu;
-	Sun, 16 Aug 2026 18:54:15 +0000
-Received: from mail-yx1-xb12b.google.com ([2607:f8b0:4864:20::b12b])
+	id 1wvg5V-000000050L2-1kEI;
+	Sun, 16 Aug 2026 19:00:05 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvfzp-0000000501L-0rfA
+	id 1wvg5T-000000050I6-0jGO
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 16 Aug 2026 18:54:14 +0000
-Received: by mail-yx1-xb12b.google.com with SMTP id 956f58d0204a3-664ae043b7fso358619d50.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 16 Aug 2026 11:54:12 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1786906451; cv=none;
-        d=google.com; s=arc-20260327;
-        b=DK3DSuJVFfXukpe1UxenvUXs2FGA3CfO7ZGqdQrcp6rSUZ5Urcke1Zt6VDSFkSJCvD
-         qUeNuNSsWf/m3Y5QckLUUcdNNlkMCf9gSnSgEF6noax1UO0Rq9eBvHVJ0fsgFCU5xCIX
-         GWAzlQ9ImR3ICdC0lmnVayy94j3FJ4I5R4F8Eh/NU7NG+2IPmhy7KAGnE9106jfY5DaH
-         4cMQfimsyFbGDxd9vhG3g+ft4Nb6P7hezucN7p58DDL9W9Qjo3a5jl/NBzuvLpBkXnjF
-         73KCQv/zKa3/+xUQUAFihsPH4sVFkPKGqN3X7JkQ8cIJvomShas61pkS8GO3loay1KCs
-         39/g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=K87DdrzV6T05ieuNKPZOU2wz5knyEjMGfCEK8pz9YqE=;
-        fh=lbn+sHrgStq7HjZt+OL55iCwttwvSLchkhqT9Bdegog=;
-        b=rFgmNcSoqDwzb/msgRtyMEts+CXAY86vDdoq4IL6E2NtV17P0elZwpeLuqucCg14UG
-         R/dJzxuwJX9FlYZl9Ishc8REdooEtJ6wcUid8NlYvcsWqlGBclwuEM0htA31wZ9UO5U2
-         EvtFJL59cg3EgstRA8MaD5hq12QQaUdGhsj9vPiQBdEtYJRtmyWjOA2S2OANXu14kv93
-         7CfZiLVasYS48h3OZYBhsWhfzWc4HFX58c9+0EaYheZJ8O7m5EctSYrMWHh9VKweQkwO
-         Yog+XGv0kmYKJA67724oFKrjjr6fOPPr79R7wUJegIRnNeuJBCS6ZQbcUruqrWPd2n1Q
-         iahQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Sun, 16 Aug 2026 19:00:04 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4954f5e8020so13536725e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 16 Aug 2026 12:00:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786906451; x=1787511251; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+        d=gmail.com; s=20251104; t=1786906800; x=1787511600; darn=lists.infradead.org;
+        h=content-type:content-transfer-encoding:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=K87DdrzV6T05ieuNKPZOU2wz5knyEjMGfCEK8pz9YqE=;
-        b=XibtJhHE4RdBUpLdlBB0yzkCMbvhBVcgHwUIOZSfzXWEwWOKTKyNhsf/GqGLl/e7DV
-         FI+N0RJl8Ux+8D+EKKI/jwWTcAGlw34hhUL2cg761AFAX7T8EX812zXVNKYxUek0d1m+
-         Gt5RdyQdbBkgJ7xkR05RYTyjfzX/87YtOVo2sB8ti6X6ymNbqbXqzzpuntha6h0vvGJz
-         tA/2+mQA5aoVzlCXy7K+Rcuddxh+ejNUaOmnqPYSIwquq7gYRint7lSKPfP1X74he2ml
-         3aC5t8RcKO343Oq3298ueW+NOuuV/jvfAkzBXYY+KKVAtJNV/mv7SZEC/G84triFGTO7
-         S8gA==
+        bh=nNF0ZohFHrdNjPFvzMMf9M0Qx1wQqpUmQ72xm+Xx+Js=;
+        b=flWxOrA3d00LuXT165aUXT/ZlGOBrhWZ5UOA+g9z1g9+le51pFfY1cQAxQW2fAdkvD
+         o6ACQ54rJRRisbRPWvTH21AQfm47HlSP902mnIgNIRgJvwkexnMUmuINLdDxpFtuTkqR
+         GvnyGcb4cSt7ZpX8Ouy2LrifhnntEr4/z2GgF9d4rYSvjC1d+corYyYYGiQz7hMayGMn
+         CZpW6kqVNS7D1LsT0SPtBmPdzJHwJckFlYYlWZ1AGPqsFZlA84DOrnLbpUJ7KI8HAcOz
+         +v/ua3CHnDbJKhQhjCjVYakAJf75SXBO9SV9QCJAyfzaHvXbHu1egjTaHGC5rTcZmoUD
+         MQhA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786906451; x=1787511251;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
+        d=1e100.net; s=20251104; t=1786906800; x=1787511600;
+        h=content-type:content-transfer-encoding:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=K87DdrzV6T05ieuNKPZOU2wz5knyEjMGfCEK8pz9YqE=;
-        b=s1mJ9jR74WrUHpjjSxKPpzkb6rRbPiFUL663ZIGHRssLnQ+ur9nNVk9NVqKlGYFye8
-         WG9H9vi0Bev2xou67WlBdLgO3I9D6Ce4f9vC50Jg6UlOsFeimC8mwVZBvENI74Mbg9cz
-         roCYbOq5BmklvnQ8KWOokfFzGJvvWQDuOps9uId0YRgKzEREF3ekGh3DGkEOKpMGEzGG
-         wZ3NbmbvB/Y0z5PQR0VR/DoYny0r4+hhuP/p7DkxxRG2MTHwGqgA8EEd9XGhnYqR7nzE
-         ZxUK1WIrDJ8q09LDHmUO69QIwVaH7jOSph43UnyqFF4QdETkBzIJNtmXWmrt7NDw9MJa
-         iyYA==
-X-Forwarded-Encrypted: i=1; AHgh+Rp490cC1K+Og1rgQ2XElGKx0+825M3INK4lZJq2kW3WLlrYxrTly/eXYKWYDcH85nIXz8KG5ulDnxvZZ0Ihd5ML@lists.infradead.org
-X-Gm-Message-State: AOJu0YydiuC7ArU/R/HJQ8bGtl9z7frgeMHMdaheZrKQd7eCI22iMOPj
-	QxxL5pvWvIGpVak6uDBBV8As3hQPDNZcgwANiSpKosy1PD4VLrarAMuiQLZ/Md0iIgRxdYzBVNT
-	qV36YXEMxtywOehtZaWUZN09sQeghivg=
-X-Gm-Gg: AR+sD11tl/oLNiH2GueJiXkUDIPR8cyiz4ilkNxwqvjU2IBba0MlYMMoyuYZHHGP8LT
-	k3tBQLh8btKYEncHt3YjI+CIAA2jFylvCBDxBZAhPd2/Nz3/PlM1Kf6D0a9+i0CK6wZqkSk9+d5
-	X0neKpWtAdLjZ1iXfW4mJLKHYO03xupNsgmqKVwZ225H+UtDFCayiKyv/eeOmGxC+k8plzySR+j
-	1OYthO3YhU3Z4N4OvK/OUcvDleYxs1lPCpteqokod0qJKD3/9tq4keti0GvkvOEyx3uUkJzZyYD
-	WPRrH2RY6bfL+1Fwh/UL9++WCgxXgDgOwElJvpOtRsl18cEN4SrLs46i2N0vLM/FpGyLq6GnD+9
-	M
-X-Received: by 2002:a53:d004:0:b0:668:6e5:16d9 with SMTP id
- 956f58d0204a3-66c72cbb9c8mr4687899d50.2.1786906451288; Sun, 16 Aug 2026
- 11:54:11 -0700 (PDT)
+        bh=nNF0ZohFHrdNjPFvzMMf9M0Qx1wQqpUmQ72xm+Xx+Js=;
+        b=hbZj+R3AnSttY8+6QSEa6MEZpTLas/6fNQ42U8NrNh37tgvKt1SBoy9ShMEZmKeEtI
+         nl47NGRt8ecVADNsYDBTXOY7OYDv6OqZZ4t3pSYPCr/ohUb68y8qo17DYvGfpwFZNbOk
+         rDF9AwYfR763h6Qh4dpit7W1yoMtZlvh2NvE0ougBNTPG4bTugABdCPP1bTvN74tXBzZ
+         YYgM2aH+orHTd1DXIC9G7jgl6S/jAqIaXr3gVZIVOnnX70goAe5NVph5tMC4M6HP1Eul
+         EmBT+uRyToHrivXyfBhlwlklU+YIc521dThoSyzjrHlaYLtK+ZzkceMeBmS5INkjyStQ
+         jA2g==
+X-Forwarded-Encrypted: i=1; AHgh+RqdB2PJ/ywkw779SvIAQE20y/qSVwzwMO4QbWgaEmB1lVk6nKmt+JJSpgGnDoI+Cb97fjAMRYYsbpxjZntaUoKc@lists.infradead.org
+X-Gm-Message-State: AOJu0YxFUqdd3GmmD6U+0dH3BR9V/pZkZb51dAxRb+vkHxEkkCgcXrol
+	iAzHfNmI9hIXockHyFldgEu28GtZIlZLGSlS6QaFOj9rXQKblSvq8bT8pQnqCw==
+X-Gm-Gg: AR+sD13CJPlPPWr1hAgd3tTcMyI/G9AuWSnU+1/VUjr2V654xW8uXP/8Gl6qbQyU1We
+	161wjkQlCAqnVV54pkE04ziyW3UWObSqSwaLJWGSGiYBg6uQeIgJRaaYNtMeheqpDJxGjbHlk6L
+	wXp/xUlHuRO907XgStMHjQcG5Z7Utv7/0XY+fehSR820FSaere3gk+AuVnKtXXkMb5UCR7bvmKW
+	quuok8gNUQdAukuQGYXOqJuSsg3ofnoe4HUZgMqRh5ZGeoiMwdpJ/13kQDlfGSLBMCkNGTOuNIa
+	8HRSi4r3I8Wnjt0MuFF2DfqkxTfE3sMiEKdP4T67dnlZPo3kXMu2rglsxSZIAXIg6pnzoQxV0Y+
+	6Eb1ZP5kyw15IX6xWjwyKW3jX2Vr6kJL/5BXtrQ4IkmNV113V6J7m6qCunKRto3IAr2p7TvOF1F
+	EkyAFfx2DflriFW31nFqc2/2/0YpibA9Mi7G6kXPKiVdQfw6Rzi9SL9mnIzaBPR8NsjRF+W+soP
+	8HR2Jb29wCzPiW3nvRGZXG8SixdiEXvjUiD6wQtuZVvnXl65FnWbNS4DA/3nO0Xw2DgO+Qw9LxK
+	/+RtLqE7r/UgnlAYh1peWml3VCMLnaLiR6E2pyX4pSr7SfLrqTwVnRhyggZw2B7DZoP6kDJe7p1
+	9/5O2qmoGNF23rhyRB5+Q5pc7puafa3L+FGgTBKsq0I91oUbvH4Fq656hicaT5QsYBdVSIuTpFG
+	9umKB8GJGmCKCr3+8O/JwBQco=
+X-Received: by 2002:a05:600c:1c21:b0:499:90f3:13b8 with SMTP id 5b1f17b1804b1-49990f315e9mr145661775e9.12.1786906800076;
+        Sun, 16 Aug 2026 12:00:00 -0700 (PDT)
+Received: from jernej-laptop.localnet (APN-122-100-59-gprs.simobil.net. [46.122.100.59])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49996100184sm105325425e9.1.2026.08.16.11.59.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 16 Aug 2026 11:59:59 -0700 (PDT)
+From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: wens@kernel.org, samuel@sholland.org, Roman Riabenko <roman@riabenko.com>
+Cc: andre.przywara@arm.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ Roman Riabenko <roman@riabenko.com>
+Subject: Re: [PATCH] arm64: dts: allwinner: sun50i-a64-olinuxino: Add RX delay
+Date: Sun, 16 Aug 2026 20:59:57 +0200
+Message-ID: <n0N02vZgTVK3duHBgrvA0w@gmail.com>
+In-Reply-To: <20260815005316.28998-1-roman@riabenko.com>
+References: <20260815005316.28998-1-roman@riabenko.com>
 MIME-Version: 1.0
-References: <20260815130556.68876-1-royalnet026@gmail.com> <20260816041233.3566625-1-gahing@gahingwoo.com>
-In-Reply-To: <20260816041233.3566625-1-gahing@gahingwoo.com>
-From: Igor Paunovic <royalnet026@gmail.com>
-Date: Sun, 16 Aug 2026 20:53:59 +0200
-X-Gm-Features: AcwNN1Uh4_l9nX5DwMZE2uVyBVHcgamwlhxHxsLdAI4oiEGskahB9NDY4Ow6O_8
-Message-ID: <CAEWPSH54fhzKEYR1cgTskNgKryDEMaZOY1y5aFdKQQyzfKbYfg@mail.gmail.com>
-Subject: Re: [PATCH v7 08/10] accel/rocket: add RK3576 NPU (RKNN) support
-To: Jiaxing Hu <gahing@gahingwoo.com>
-Cc: tomeu@tomeuvizoso.net, heiko@sntech.de, chaoyi.chen@rock-chips.com, 
-	alchark@flipper.net, dri-devel@lists.freedesktop.org, 
-	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260816_115413_301882_0A30E650 
-X-CRM114-Status: GOOD (  26.51  )
+X-CRM114-CacheID: sfid-20260816_120003_242253_6B09817D 
+X-CRM114-Status: UNSURE (   8.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,116 +106,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jiaxing,
+Dne sobota, 15. avgust 2026 ob 02:53:16 Srednjeevropski poletni =C4=8Das je=
+ Roman Riabenko napisal(a):
+> The Ethernet on Olimex A64-OlinuXino computers requires an RX delay
+> greater than 0. If the value is not set or is 0, packet loss in the
+> downlink direction is severe enough to interfere with downloads and
+> disrupt software installation.
+>=20
+> The range of acceptable values is wide. The vendor has been applying
+> 200 ps in its downstream DTs since 2021. This patch matches that
+> common practice.
+>=20
+> Signed-off-by: Roman Riabenko <roman@riabenko.com>
 
-I ran the discriminating counts on RK3588. Details below, but first a
-source-level observation that changes what my result can tell you.
-
-Neither mesa-25.3.0 nor current main contains the modulo form in
-rkt_regcmd.c. In both, BS_OW_CFG (0x4050) is emitted conditionally on
-operation->depthwise only, with no dependence on output channel count:
-
-    if (operation->depthwise) {
-       EMIT(REG_DPU_BS_OW_CFG, DPU_BS_OW_CFG_SIZE_E_2(3) |
-                               DPU_BS_OW_CFG_SIZE_E_1(3) |
-                               DPU_BS_OW_CFG_SIZE_E_0(3));   /* 0x36c */
-    } else {
-       EMIT(REG_DPU_BS_OW_CFG, DPU_BS_OW_CFG_SIZE_E_2(1) |
-                               DPU_BS_OW_CFG_SIZE_E_1(1) |
-                               DPU_BS_OW_CFG_SIZE_E_0(1));   /* 0x124 */
-    }
-
-(mesa-25.3.0, src/gallium/drivers/rocket/rkt_regcmd.c around line 234;
-unchanged in main as of 26.1-branchpoint.)
-
-So I take it the (oc % 32) expression is from one of your 102 commits,
-fitted from vendor captures? That would also explain the extra bits in
-your two constants: decoded against registers.xml, 0x80011111 vs
-0x80011011 differ only in bit 8, which is the LSB of SIZE_E_2 (bits
-8-10). Your working-at-56 form has SIZE_E_2=3D1 and the failing form has
-SIZE_E_2=3D0 - and upstream's non-depthwise value always has SIZE_E_2=3D1.
-The three data points are consistent with SIZE_E_2 being what matters,
-rather than the modulo-vs-parity predicate as such. Your values also
-carry RGP_CNTER=3D8 (bit 31), OW_SRC=3D1 (bit 0) and bits 12/16 in the
-reserved range, which upstream never sets; if those came from a vendor
-capture it may be worth checking which of them RK3576 actually needs.
-
-Now the measurement. My runs are with upstream Mesa (main,
-26.1-branchpoint-5505, clean checkout), i.e. the constant 0x124 form,
-on RK3588 with the in-tree rocket driver (7.2-rc7, rockchip-devel
-base). Standalone minimal models: CONV_2D 1x1, 64 input channels, 8x8
-surface, uint8 asymmetric quantisation in the mobilenet style, output
-zero point 0 so the hardware's clamp-at-zp cannot mask anything:
-
-  1x1 conv, 64 in, 56 out:   56/56 channels within +/-1 (47
-bit-exact), maxdiff 1
-  1x1 conv, 64 in, 88 out:   88/88 channels within +/-1 (81
-bit-exact), maxdiff 1
-  1x1 conv, 64 in, 120 out:  120/120 channels within +/-1 (106
-bit-exact), maxdiff 1
-
-Reference is the raw CPU implementation per channel (not clamped to the
-zero point - same lesson as operator 28). No channel had a constant
-reference, so the matches are computed rather than trivial, and no
-channel sat pinned at the output zero point. The three jobs also
-happened to land one per NPU core (per-core IRQ counters went 0->1),
-so the result is not specific to a single core.
-
-Since upstream emits the same word for every oc, a
-clean result at 56/88/120 says RK3588 does not need an oc-dependent
-toggle at 0x4050 at all, at least for these shapes - which is the third
-possibility your two forms could not distinguish. It does not tell us
-which of your two fitted forms is closer to what RK3576 wants, but it
-does suggest comparing your fitted values against the field composition
-above rather than as opaque constants.
-
-Happy to run other shapes if that helps narrowing it down.
+Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
 Best regards,
-Igor
+Jernej
 
 
-On Sun, Aug 16, 2026 at 6:12=E2=80=AFAM Jiaxing Hu <gahing@gahingwoo.com> w=
-rote:
->
-> Hi Igor,
->
-> Thank you for running it, and for the unclamped reference.
->
-> Your 1001 does not discriminate between the two forms, which I should hav=
-e said
-> when I described them. DIV_ROUND_UP(1001,16) is 63, odd, so the parity fo=
-rm
-> gives 0x80011011 there and so does oc % 32. They differ only where a coun=
-t is a
-> multiple of neither 32 nor 16. On RK3576 the failing one was 56, and 88 o=
-r 120
-> would do as well. So your clean result rules nothing out, and I am not re=
-ading
-> it as support either way.
->
-> On my side that register turned out to be the whole of it. A 1x1 layer wi=
-th 56
-> output channels had timed out in every round it ever ran, 32 of 56, and w=
-ith
-> the parity form it is 56 of 56 every channel correct, with the old form
-> reproducing the timeout in the same log.
->
-> You are right about perch.py and there were three of them rather than one=
-. The
-> inner maxdiff, the interior statistics and the raw row dump all assume a
-> surface with an interior, and all three raise on a 1x1x1001 classifier af=
-ter
-> the useful lines have printed. Fixed here, and checked on the host at 1x1=
-x1001,
-> 5x5x8 and 56x56x64 before flashing, which is a check I should have been r=
-unning
-> all along.
->
-> And I will re-score operator 28 against the unclamped output. The max(cpu=
-, zp)
-> reference does move channels that are not wrong, and reading an empty
-> convolution off it is the kind of mistake I would rather not make twice.
->
-> Jiaxing
 
