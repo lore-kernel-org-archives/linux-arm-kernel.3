@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45952C5DF70
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Aug 2026 21:39:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9620CC5DF66
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Aug 2026 21:39:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8hmtfOL27pdP3gIcKVEn5KQYTM4Wl55vR9a4nrxZqs0=; b=4/2cTM0IJUPvyScFrpKDEd/ELG
-	cPanoIXpOWOcEOvgxK+8CiHpUx5R9PWSexRmCjbYqTqzKEPFDCphNxCcenM4/aebkmMkXFtfheD4v
-	viIfTnm8984WDDWQECICg0gm5R295GfMe25gemq4qmzWwKMwkGKeAB/OR6ZK4tRbKt7snIQzPumNm
-	XF5f+2hc1y3Sjgc3VzpnW26XhzNorrhWhceeji89t5p/uIDgMoRIj1QlngteivyD2zo37x20DFJzZ
-	pqc5evwQi8xafg8QuksF3vk91OqNdr3p+VyeFdn0KsOwDq5GXw609nZG3YVe0bP7qeiLv0xB5tvSs
-	uOBaMMdA==;
+	bh=Q9gDiM6QYxKqsu9piMSKyZoacoS5srL/I072hg/wVSw=; b=o4L+82XW5Z65gs9RrldwmEwPHm
+	7yLN/yPRfRwXRP4yMDMn71SJeiAC8BoL8leyIeNZbZCpC0/uHxb66kGzib4X/RQFKTdvU1VjOqsCb
+	1B5tZBq1OfMh+iSCEZSL8veIXBpeXMkb/cem+KXHgcLu3DgqdOm7rMwbP2FiRp2/90larrVpsY4aE
+	QW1DAfSafhmsqmup2YLHU8qnxJqnJ/HB66nbP8jciPPMWRwU2nc21TPwxYTECEKUKy0H1BTDWasF4
+	bcyBJB3PDTA3FLdEtKkMFpol+wz+HW2yN7qhPGl9Wd/Y4Kq9HVSp6K2S/McF8x59zwZv5yLESgj69
+	UXHln1+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wviZx-000000057QF-3E0g;
-	Sun, 16 Aug 2026 21:39:41 +0000
+	id 1wvia4-000000057VG-1cx4;
+	Sun, 16 Aug 2026 21:39:48 +0000
 Received: from mx.nabladev.com ([178.251.229.89])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wviZv-000000057Mq-0Xak;
-	Sun, 16 Aug 2026 21:39:40 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 28CF511C1F3;
-	Sun, 16 Aug 2026 23:39:32 +0200 (CEST)
+	id 1wvia1-000000057S8-0bNB;
+	Sun, 16 Aug 2026 21:39:46 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 81DE511C1F8;
+	Sun, 16 Aug 2026 23:39:37 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1786916373; h=from:subject:date:message-id:to:cc:mime-version:
+	s=dkim; t=1786916378; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=8hmtfOL27pdP3gIcKVEn5KQYTM4Wl55vR9a4nrxZqs0=;
-	b=YqU+CDwL76yPkmUXDi4CsuZ+KSVMQ/GB1bZA82mG/TFqhuSI8bkWEyAz03Xm7mh62oAJJP
-	+2d8bofpJYNABaSGNrFjuYOpmK0V90GFDTWTFZ/tEblEXDuCwZZ1JNFSz6aiax0gFXx3uK
-	Ygee1ULP00ACKFHhuKwH04oOWdxJjuVVHXtCXN1oOape/gSJjmxTUSNlFGMbIqjDsFBU1V
-	V1DEAFqytu8eo5hzJg+AnFDT+i+qwa7Nybxn1VSOxUavnyn+aMUSld9UJthaqvwwtfvsAH
-	EMO37tbqrQzvzEEHoyBwMVS/74z1jimWnW575qL8jRmM3XQqHpqJxOl0uOAytw==
+	bh=Q9gDiM6QYxKqsu9piMSKyZoacoS5srL/I072hg/wVSw=;
+	b=JREXHs+O5VqJVUtcQDAD8mewPHR0G15PUgucUQkeebLlgllxiG0zrNrcCsShLMdr8EsSXN
+	sUUuORcEQFBQaMbuByzxm2ZLB4FwKjoUFO+3eEu9dw+gjueNAO+kkfEcC5KZthuOzlXahJ
+	lMC3aW3WZPyYB9hjqoueze8VPvuX/TGcsu5RqoFxpbhoh3OkRDvKWQMunWW2lj4yN4CovT
+	UFtv4AsTWx4zxynMTW0acRtNLcQn+cdKeEIsJH5OXDbGxafen1aKLFvnELsMpANBPBxGjg
+	c6wnRpl4Kx0Fp7Y8QAgr69/yemFDoUwuLKNX79FNhyOh7GZQUdGcEi6/eh9mlA==
 From: Marek Vasut <marex@nabladev.com>
 To: linux-usb@vger.kernel.org
 Cc: Marek Vasut <marex@nabladev.com>,
@@ -60,9 +60,9 @@ Cc: Marek Vasut <marex@nabladev.com>,
 	linux-kernel@vger.kernel.org,
 	linux-phy@lists.infradead.org,
 	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH v2 6/9] usb: dwc3: dwc3-generic-plat: Add ST STM32MP2 DWC3 xHCI USB controller glue
-Date: Sun, 16 Aug 2026 23:37:08 +0200
-Message-ID: <20260816213849.1044073-7-marex@nabladev.com>
+Subject: [PATCH v2 7/9] dt-bindings: arm: stm32: Switch st,stm32mp23/25-syscfg into simple-mfd
+Date: Sun, 16 Aug 2026 23:37:09 +0200
+Message-ID: <20260816213849.1044073-8-marex@nabladev.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260816213849.1044073-1-marex@nabladev.com>
 References: <20260816213849.1044073-1-marex@nabladev.com>
@@ -70,8 +70,9 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260816_143939_468946_602B585B 
-X-CRM114-Status: GOOD (  12.94  )
+X-CRM114-CacheID: sfid-20260816_143945_456086_DA7384DD 
+X-CRM114-Status: UNSURE (   8.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,9 +87,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ST STM32MP2 SoC contains one instance of DWC3 USB controller with
-glue logic wrapper around it controlled by syscon. Extend the generic
-DWC3 platform driver with ST STM32MP2 glue logic specifics.
+The st,stm32mp23-syscfg and st,stm32mp25-syscfg can have subnodes, which
+represent the USB 2.0 FEMTO-PHY. Turn the syscfg into "simple-mfd" so the
+PHYs would get populated by the OS.
 
 Signed-off-by: Marek Vasut <marex@nabladev.com>
 ---
@@ -114,86 +115,31 @@ Cc: linux-phy@lists.infradead.org
 Cc: linux-stm32@st-md-mailman.stormreply.com
 Cc: linux-usb@vger.kernel.org
 ---
-V2: No change
+V2: New patch
 ---
- drivers/usb/dwc3/dwc3-generic-plat.c | 44 ++++++++++++++++++++++++++++
- 1 file changed, 44 insertions(+)
+ .../devicetree/bindings/arm/stm32/st,stm32-syscon.yaml     | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/usb/dwc3/dwc3-generic-plat.c b/drivers/usb/dwc3/dwc3-generic-plat.c
-index ca69ac0eb07ce..0946ed61647b6 100644
---- a/drivers/usb/dwc3/dwc3-generic-plat.c
-+++ b/drivers/usb/dwc3/dwc3-generic-plat.c
-@@ -22,6 +22,12 @@
- #define EIC7700_HSP_AXI_LP_XM_CSYSREQ	BIT(0)
- #define EIC7700_HSP_AXI_LP_XS_CSYSREQ	BIT(16)
+diff --git a/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml b/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
+index 95d2319afe235..ef640443dd239 100644
+--- a/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
++++ b/Documentation/devicetree/bindings/arm/stm32/st,stm32-syscon.yaml
+@@ -22,11 +22,12 @@ properties:
+               - st,stm32mp151-pwr-mcu
+               - st,stm32mp157-syscfg
+               - st,stm32mp21-syscfg
+-              - st,stm32mp23-syscfg
+-              - st,stm32mp25-syscfg
+           - const: syscon
+       - items:
+-          - const: st,stm32-tamp
++          - enum:
++              - st,stm32-tamp
++              - st,stm32mp23-syscfg
++              - st,stm32mp25-syscfg
+           - const: syscon
+           - const: simple-mfd
  
-+#define STM32MP2_USB3DRCR_HOST_PORT_POWER_CONTROL_PRESENT	BIT(0)
-+#define STM32MP2_USB3DRCR_OVRCUR_POLARITY			BIT(1)
-+#define STM32MP2_USB3DRCR_VBUSEN_POLARITY			BIT(2)
-+#define STM32MP2_USB3DRCR_USB2ONLYH				BIT(3)
-+#define STM32MP2_USB3DRCR_USB2ONLYD				BIT(4)
-+
- struct dwc3_generic {
- 	struct device		*dev;
- 	struct dwc3		dwc;
-@@ -85,6 +91,38 @@ static int dwc3_spacemit_k1_init(struct dwc3_generic *dwc3g)
- 	return 0;
- }
- 
-+static int dwc3_stm32mp25_init(struct dwc3_generic *dwc3g)
-+{
-+	struct device *dev = dwc3g->dev;
-+	bool ovrcur_polarity_low = device_property_read_bool(dev, "st,ovrcur-active-low");
-+	bool prt_pwr_ctrl = device_property_read_bool(dev, "st,enable-port-power-control");
-+	bool usb2only_conf = device_property_match_string(dev, "phy-names", "usb3-phy") < 0;
-+	bool vbusen_polarity_low = device_property_read_bool(dev, "st,vbusen-active-low");
-+	struct regmap *regmap;
-+	u32 drcr;
-+
-+	regmap = syscon_regmap_lookup_by_phandle_args(dev->of_node, "st,syscfg", 1, &drcr);
-+	if (IS_ERR(regmap))
-+		return dev_err_probe(dev, PTR_ERR(regmap), "No st,syscfg phandle specified\n");
-+
-+	return regmap_update_bits(regmap, drcr,
-+				  STM32MP2_USB3DRCR_HOST_PORT_POWER_CONTROL_PRESENT |
-+				  STM32MP2_USB3DRCR_OVRCUR_POLARITY |
-+				  STM32MP2_USB3DRCR_VBUSEN_POLARITY |
-+				  STM32MP2_USB3DRCR_USB2ONLYD |
-+				  STM32MP2_USB3DRCR_USB2ONLYH,
-+				  FIELD_PREP(STM32MP2_USB3DRCR_HOST_PORT_POWER_CONTROL_PRESENT,
-+					     prt_pwr_ctrl) |
-+				  FIELD_PREP(STM32MP2_USB3DRCR_OVRCUR_POLARITY,
-+					     ovrcur_polarity_low) |
-+				  FIELD_PREP(STM32MP2_USB3DRCR_VBUSEN_POLARITY,
-+					     vbusen_polarity_low) |
-+				  FIELD_PREP(STM32MP2_USB3DRCR_USB2ONLYD,
-+					     !!usb2only_conf) |
-+				  FIELD_PREP(STM32MP2_USB3DRCR_USB2ONLYH,
-+					     !!usb2only_conf));
-+}
-+
- static int dwc3_generic_probe(struct platform_device *pdev)
- {
- 	const struct dwc3_generic_config *plat_config;
-@@ -231,12 +269,18 @@ static const struct dwc3_generic_config eic7700_dwc3 =  {
- 	.properties = DWC3_DEFAULT_PROPERTIES,
- };
- 
-+static const struct dwc3_generic_config stm32mp25_dwc3 =  {
-+	.init = dwc3_stm32mp25_init,
-+	.properties = DWC3_DEFAULT_PROPERTIES,
-+};
-+
- static const struct of_device_id dwc3_generic_of_match[] = {
- 	{ .compatible = "spacemit,k1-dwc3", &spacemit_k1_dwc3},
- 	{ .compatible = "spacemit,k3-dwc3", },
- 	{ .compatible = "fsl,ls1028a-dwc3", &fsl_ls1028_dwc3},
- 	{ .compatible = "eswin,eic7700-dwc3", &eic7700_dwc3},
- 	{ .compatible = "starfive,jhb100-dwc3", },
-+	{ .compatible = "st,stm32mp25-dwc3", &stm32mp25_dwc3 },
- 	{ /* sentinel */ }
- };
- MODULE_DEVICE_TABLE(of, dwc3_generic_of_match);
 -- 
 2.53.0
 
