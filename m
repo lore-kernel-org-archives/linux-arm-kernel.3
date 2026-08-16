@@ -4,67 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8563C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Aug 2026 10:42:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6B3FC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Aug 2026 10:55:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fnn+sn/viviSJMIrXgo/zR8sy63zVOzZqPp+tjXwopE=; b=QbA310nD0VHhj0LSFkkKuCdTSn
-	yxC1ecgsyNOucAn9sSY79rQme6FdUKEmCFu90DFH1KZTE697jZDA1k7zwYE4WsdnOA2nv9U9Yg329
-	emoU+7D4k6UxdooSPnKVyqM0YS9ZHSF9aIpHf2qTvn4GVfQ00V98fr91vAsvbp1BAfEORWy/F+N2+
-	3t7YIMMDcyUB8J431k+4Bua7NCg0KyRl4tZxb/1eLJBX03QPaty7W+cmU/ecFjOXQQkoS2zyW2Omm
-	QtDT8drWx4LdXr94FFYBnJx6VO27mqz4sOYgm8Obrw33SxJJY9Bn6YW/ntZNL/+kgxnJ0htblbBQE
-	b4EZEeeg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=m3tSoyW+LYT3gQQDJzJYCtIi3L/NAx18SaVD//CZMb8=; b=hfUgGi9pz0Or2Ee2ddySfTYdHM
+	mG8mP+z8JNq0UezwKSgmTpCuM4CFqxUjrOphX4xuT9FZ8/ydPDhGZSh04CkGIfVhJPvA0KC5D29jJ
+	sBG4yIKvzFNASVADPxo4XXIasTCJVuJIqnOAsm4yQAEmUXLcrGpgUDFM8sQmffTCc6vEnZNZkU5ty
+	t7JGU8fL53zi+pAjrQU2wfKIBpVf72oTNQnfyEqFqaCXWzE31OAQ3MkhemtabGTivDevMmYb+lloC
+	+LuAZoPmqqGicePV1sMfRI2uNO/WPb3nDag+qkXLK7E7BOmYqunUBXzih8zXPX3IFgBOCFcczO/FE
+	tlIgYMEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvYJm-00000004ebJ-3Hm0;
-	Sun, 16 Aug 2026 10:42:18 +0000
-Received: from chaosmail.tech ([77.81.229.115])
+	id 1wvYWi-00000004fNx-1WBV;
+	Sun, 16 Aug 2026 10:55:40 +0000
+Received: from mail-germanywestcentralazon11022093.outbound.protection.outlook.com ([40.107.149.93] helo=FR5P281CU006.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvYJc-00000004eWz-16Zn
+	id 1wvYWf-00000004fNZ-0pDk
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 16 Aug 2026 10:42:11 +0000
-Received: by chaosmail.tech (Postfix) id 9ABBD1C9BF6;
-	Sun, 16 Aug 2026 10:26:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chaosmail.tech;
-	s=mail; t=1786875998;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Fnn+sn/viviSJMIrXgo/zR8sy63zVOzZqPp+tjXwopE=;
-	b=b764sOIzKjmLeM1TUpPcwl+EfeIGpGCltdu2CgXIwFrvg8QPaWkjmng/KnoDnXDYsBz+hG
-	mQr4qxkz8LKNyNazn+yNpvXQ8gAf9ngSxkI7DQHNk1h8/dpDg33hEkUGqnY1p6GVq6YGJ+
-	Hyf5evVrFUmuTtwhPDdvIs1o4GGDro8=
-From: Sasha Finkelstein <k@chaosmail.tech>
-Date: Sun, 16 Aug 2026 12:26:26 +0200
-Subject: [PATCH v6 6/6] spmi: apple: Add interrupt functionality
+	Sun, 16 Aug 2026 10:55:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Q0tAC/hRFD1jIaCksk6vfrtdAJakgEPYYKrIKrlwPpVTgzl2EXKLFpX3THLZbMdYCddndd0fGbpoES1QnJm1BRRGZnbEitDYQP6R1SvZwaZ9USRS6AOrG2p90yvjE4SRp4W8PAtlymKo6ScTJRMbwR+3ssm1kv7ZoF8whNLJ3PTJbXyockC224ixElCtJ+EKYs9LIOSDumExn01CKd4hcJ5bJDKzm1yT/TrWkOAxBtMAQc/VpY8A1kDqyVHC8fywwKY1wwrUjySCMkmS6Vq96DJUaco5ngbd0ifAqm+JQi1gxNJJv+wBipkkE1WWNNG/cdaAjTV8bP1xFURmf1BYnw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=m3tSoyW+LYT3gQQDJzJYCtIi3L/NAx18SaVD//CZMb8=;
+ b=h01cbilMzx/NcRtVC+/9Op5hZhZ7G6jE8N3EuxvulvanBhQdp0oTzRL5+hT7DzXgegzokvOWWPS8K7ddahjiRr8q6bAU6lzOCrgXVhwao0PMGY6BXncZC7MHxDNKFFeF2xg6LmDp0c6gHeA0ed514JZRxqyYUan3IOULyzW8YqTcu+7qx+uSuIDObVeduyNyng3F9FuEQ6Ul8i9DK7NehiYsFZ6HPuoC6OUyA+DhY0g+5Z+TppsklUueFi6ANGTwAInGPnv0thL9if5Ngwygogj5mxU1hDdQusgYjp0PvXSaR5aRkL/62wPBzBf42aHC3SyJ43ldF0MiKpKnhEJjWw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=siewert.io; dmarc=pass action=none header.from=siewert.io;
+ dkim=pass header.d=siewert.io; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=siewert.io;
+Received: from FR3PPFB3D0CF1D2.DEUP281.PROD.OUTLOOK.COM (2603:10a6:d18:2::182)
+ by BE1P281MB2467.DEUP281.PROD.OUTLOOK.COM (2603:10a6:b10:6e::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.17; Sun, 16 Aug
+ 2026 10:55:26 +0000
+Received: from FR3PPFB3D0CF1D2.DEUP281.PROD.OUTLOOK.COM
+ ([fe80::aa8e:db31:b886:2365]) by FR3PPFB3D0CF1D2.DEUP281.PROD.OUTLOOK.COM
+ ([fe80::aa8e:db31:b886:2365%7]) with mapi id 15.21.0315.016; Sun, 16 Aug 2026
+ 10:55:26 +0000
+Message-ID: <4e653068-5ef1-47db-8e4e-3b535751e47f@siewert.io>
+Date: Sun, 16 Aug 2026 12:55:24 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/2] ARM: dts: aspeed: add asrock x470d4u bmc
+To: Zev Weiss <zev@bewilderbeest.net>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+ linux-kernel@vger.kernel.org
+References: <20260812-ts-x470d4u-v3-0-c8e266f1663b@siewert.io>
+ <20260812-ts-x470d4u-v3-2-c8e266f1663b@siewert.io>
+ <8b7dcb07-2dfd-425f-8ff3-06114e45c676@hatter.bewilderbeest.net>
+Content-Language: en-GB
+From: Tan Siewert <tan@siewert.io>
+Autocrypt: addr=tan@siewert.io; keydata=
+ xjMEXY4MwBYJKwYBBAHaRw8BAQdAdDPxHO4UUyhKcZXkztTv4iVAbjk/+F8ayCYnegO4q4zN
+ HFRhbiBTaWV3ZXJ0IDx0YW5Ac2lld2VydC5pbz7ClAQTFgoAPBYhBJ1bd8XzFb0F9Kx5LnjQ
+ kBYSrhG1BQJnqiY3AhsDBQkSJuqzBAsJCAcEFQoJCAUWAgMBAAIeBQIXgAAKCRB40JAWEq4R
+ tbtDAQDyPybWLk2EYMeY+vv/WID8hk18+jp3fZCNp9aJp9GkJwD9GeQNvCO1LPDUjkMQqf8d
+ DgMM9pmsvbJUFfViYbflbQ7OOARdjgzAEgorBgEEAZdVAQUBAQdAjtzTYeMaO9yG3M1uBtQy
+ JB57UJXf+m+mNDhWkOY69DADAQgHwn4EGBYKACYCGwwWIQSdW3fF8xW9BfSseS540JAWEq4R
+ tQUCZk72AwUJEibqwwAKCRB40JAWEq4RtUkGAP0R8RmddZqdGdqdod1MkVXpw/z5OOptToXf
+ za1W8nsGmgEA5gvQzkN1LJ8oP9LB8YGAmJt82tPvJCmi4WzesI53kQY=
+In-Reply-To: <8b7dcb07-2dfd-425f-8ff3-06114e45c676@hatter.bewilderbeest.net>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: FR4P281CA0048.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:cc::15) To FR3PPFB3D0CF1D2.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d18:2::182)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260816-t603x-spmi-v6-6-c5ab87aa447b@chaosmail.tech>
-References: <20260816-t603x-spmi-v6-0-c5ab87aa447b@chaosmail.tech>
-In-Reply-To: <20260816-t603x-spmi-v6-0-c5ab87aa447b@chaosmail.tech>
-To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
- Neal Gompa <neal@gompa.dev>, Stephen Boyd <sboyd@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- Sasha Finkelstein <k@chaosmail.tech>, Alba Mendez <me@alba.sh>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1786875992; l=11043;
- i=k@chaosmail.tech; s=20241124; h=from:subject:message-id;
- bh=6TU+MwrLfTiyBv4VeYrsCfpmcIubiyjlPuis5CkV52c=;
- b=vnDn6/EDvGG0uB65rIdeUu9zfk+fhDo2otfSFOOBVRnz+T8xcFzdSVJlz45wYUxMDYJlQRMRY
- BxFUT/uXnIKBerCf3IfVReqNfMvqW2cb2L+YbJ2HuwKblFqpJSzauh3
-X-Developer-Key: i=k@chaosmail.tech; a=ed25519;
- pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: FR3PPFB3D0CF1D2:EE_|BE1P281MB2467:EE_
+X-MS-Office365-Filtering-Correlation-Id: d091bf97-7505-4c0a-a0a8-08defb84e0d1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|23010399003|18002099003|22082099003|56012099006|4143699003|10067099003;
+X-Microsoft-Antispam-Message-Info: 8yzS4LDNJoPn3i4GeYGtnqV4XkB5cJuHRy9h1XddKVDpsDprlmaoqh3VNGuvAJnrbjERGoLlkDSHWQgL/rTDSKr6obCG52uhYLQU0NqW+BLIfLhBibRBF/BRnABFC122LXCM6Iim4whpdERtwefYjfOXog7hlxuI7hz6NXqa5tgTpKsDl03ZnSKat8xq/lBvzGuBQWzVlqtzN1/yNEpPW0PDE7IS1peQuWoZB8Lw9bQmUUsCZKGHgOj/e5wi3bwLE92O/2AmWn+Sa69f92n8BB7okY1W2y8T+10mzGrhKuHWLvSK4oqH1LAR6J+KwPAx7nYXPQhFw8qaDHk4DTh9aI0XrpXjgcrmv3jmD+uBsCSCf7739I+ptZGG3QDZZYmKzP9GhtySGi16KKhdfncARj/4azqBQWnktsmKvsYaKpMYP5yhEtWP0Ro/POUkCqQvWKEX8iMaVqFJWJfquTw/uyLsdiuV64nrKqnOX3qlpRqqB2sDf1jViIDDk0E9kEzWptQc9zjTycFDsQJHX/uLgUr7kQGAyAXX8UlPiJ6gl5H7doGcPqVguE9nLkJNHsMcCiFEsWEG670coQANER8zi0kWOY3t7aBIAfoxMMkHeYvZS2TV2kLOIZ4YDf0xhODGrbw2fuyjjhG1x6lnOcalYz+armTUKP7CThWIq0+EBg0=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:FR3PPFB3D0CF1D2.DEUP281.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(23010399003)(18002099003)(22082099003)(56012099006)(4143699003)(10067099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?d1VGMmoxWEx0bDhYQll1eUNTdERMZWpUUEoxSCtySTdlRUxkYW0ycnlTUFJZ?=
+ =?utf-8?B?Tit5dy9uR2VzdFM3UE5taloxd0NUWjJIVnZWMlJkbjM1dzc0eTc3cDF5cE1Y?=
+ =?utf-8?B?NGhDVWxhQ1NiQnRsdmo0c1FtT3BENHgrVlg5WmZRTWQ3OHZCaWJId0FYNHNC?=
+ =?utf-8?B?U2JKTENabUo4UVVhTWY4RnV5ZWt6MFdMRThPNUZzK0JLWWNxRWZBNWVuczBS?=
+ =?utf-8?B?anZadGVkbTRvTHRBL3VjdDhaUkx0SkJkR0Z3bXVKcXVsRGI0M1VOQ1pVUlI0?=
+ =?utf-8?B?Um5vTDRKdXMrdE0ySmk5czRIeDRvUmdrcTU3NVBlRFplM2RMRkUrOUJrMDRW?=
+ =?utf-8?B?Y0NSbXJ3aXdKOUNaM1FkaWhOakp2aVlCU24rV0VVVlAwckR6T1pTaGVncUJk?=
+ =?utf-8?B?SGxQOUtoNUk1Mlc0TC9wMHJlS3prTnE4ejlLdVFqU3RQMjlROTZCZTBPN0h3?=
+ =?utf-8?B?Q2pja3VJRnhlYVplTm40U2Z0V1JnR0ZYZlRvK0FlTnF6M2FZZ1RXdUZ2Tk1V?=
+ =?utf-8?B?OFQwQStnbjFlN2krR3hoVlhqVUsybnBlZlhjbzU0alFQL1pTVC9IY3NrOHFQ?=
+ =?utf-8?B?OHk3MytLNHlvMFVQeUgwQzJYN3QyZW5VaTBJZldNRCsreTFyR3UzZUQ3TC96?=
+ =?utf-8?B?aHFoQ3VDTWVDa1AxcjVzSWdjY3dBMkNCVGtGbTFZd2orc3kxK1lhSEV1eS84?=
+ =?utf-8?B?TVdhRjA1bmVSRnNkTkNMaG9hSHhzQjh4d1lnV2cvVmhtdklxL1BiU0tvU2Ir?=
+ =?utf-8?B?UGRxMGNJdnhxS2FFc2xlLzgwN0VHbjQwZTVOUVllRy9qYklnNVpDKzZ6bzJS?=
+ =?utf-8?B?MDRuc3NlcmdObTlJOS9SNTZZLzhEcDdScmV5ZzRUN3pWME0wNWJiN0UrNGQx?=
+ =?utf-8?B?bkpaUU1GSkNzRDlSbEd4NWlNWG9mTU9vSUp1VU5XT1dwNFJFMEV1enEyRkVU?=
+ =?utf-8?B?N01WRzJLOC9tcWVISEMyQ2lyTVVmMUh6TDRhT1d3c004NHdHWGRrWXd2dWZ3?=
+ =?utf-8?B?UitodVdXRTRkNFZEby80cWpTR2ptZVp2M2JHdlU5RVY3R203a29UcnNza29o?=
+ =?utf-8?B?VEdlTWZrc0JDdWdFb3daVXpKdElnVTgzbVo1aWRSUUx2SzlRVXZJaXdzbzVa?=
+ =?utf-8?B?eDVqL05JT1lQMFBjeFVWci9vRnpVbm5JbDVKVjk5NVBxd3Q5ZkU5REN2UHZ4?=
+ =?utf-8?B?cGhnaEVlMzFrV0ZubzdOZkppWjhFQkc5Q3RtQ2VNR3ZRQmlBaFlzdWQ2QVd5?=
+ =?utf-8?B?ZXJNampPSDRtMXQyeG5qZnFDWDRXN251V1k5ZnJOTzhsQnR0c3U2alU0dEtT?=
+ =?utf-8?B?bTlUdnJ6dG5wcmxCbUQrd2hYSStPajZmcDVkdFNTVUdXS09GeE84TnI5d1k2?=
+ =?utf-8?B?SEFlZE9aL0NydUg4SE1jMlNNclhBTytTYWFyWDJ3ZGxxZnEzRTVRc1BFMzMw?=
+ =?utf-8?B?TVliakg3UmRJSEFacFhJdklyc0FxcTFIZ0ZvTVJMdWxMTURnRmFMQ2hvcjd0?=
+ =?utf-8?B?eXowMUFjYmRqRlBhRHgxQXdIaE1nVTE3UlRaT2VJWG4rSjVoZGVqRDRBOWVF?=
+ =?utf-8?B?OVJ2MVlET04wajRIaG9adWQrSFhWVHJ3c3N5aGQvSTlvbHVJRGRRU1UzRmov?=
+ =?utf-8?B?cld2MmFNRUkralluOW5tcFlsbWJwZlR0TkV1eFdSYUJhMzkwWXAySkN0MUIx?=
+ =?utf-8?B?QVhCZFd2OXdYVE5jVlJiQ3YyYVZlSGhxcENydVFSclNsRkZ4bXVwajhWbjRJ?=
+ =?utf-8?B?ak9lRWYrZjRqY3hpam5ocHM2d1R4WC9iL0hpRDJaemtiY3djSCsyay93a1Bo?=
+ =?utf-8?B?N1lZN1NYc2RudDNtLzZ6SjRIZWRac09nMmg4UXYyQWVibFVEejloWkx4V3Fj?=
+ =?utf-8?B?YXE3WlNjekx1UXpGMGRSZk5SOVZMbWthME1aY2lNWDR6bXdPS0pIbHV6Ynl4?=
+ =?utf-8?B?VGJFdjR6dnNTR1B1aVQwTlZick52Q01DNWpFdjlPQndqK0VPeGcwZkVvZXRl?=
+ =?utf-8?B?Zk1HczRrNmVpcDNNMURSaGFhTEtxV05sbW1SWnQwUWp2U1lUUzRQRHdjKzVX?=
+ =?utf-8?B?NFhianV4c3o5WHhkaWlSZ3hCbUQvbFRBRTFsYnRZMmZuTW1mSXJZbzR5ei9B?=
+ =?utf-8?B?aXFmNWhud0pqMENxeEpENGErSlJLOENEUzk5SHJYSEgxWE5xdWR0SWxBd1JV?=
+ =?utf-8?B?MTQ3NWZ1Z0hXZmRSeEhuRkU4cm9jTzZWQjVQYm5uV3V1eEllS0tRbFZHRWlC?=
+ =?utf-8?B?WHhUVmlFRGZxc0Z3RzA2TlFLWDlsY0M0SVRqNTA1STZKdHhxc2RhcmhiUmpU?=
+ =?utf-8?Q?p/cIpq0oeu26BXm+2E?=
+X-OriginatorOrg: siewert.io
+X-MS-Exchange-CrossTenant-Network-Message-Id: d091bf97-7505-4c0a-a0a8-08defb84e0d1
+X-MS-Exchange-CrossTenant-AuthSource: FR3PPFB3D0CF1D2.DEUP281.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Aug 2026 10:55:26.1124
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: e8b4abbe-444b-4835-b8fd-87ac97451a7e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: oZygdE7uUyLOM2sIJEYRCvm/rUix9KkKQG8E115rYl+K4Q0PDuSIF/asORPLJ0GY
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BE1P281MB2467
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260816_034208_499108_06404557 
-X-CRM114-Status: GOOD (  25.53  )
+X-CRM114-CacheID: sfid-20260816_035537_244254_1E52AD92 
+X-CRM114-Status: GOOD (  17.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,368 +155,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Alba Mendez <me@alba.sh>
+Hi Zev,
 
-Add support for interrupts sent by slave devices and use IRQ for
-RX FIFO if possible, as that IRQ fires as soon as the reply is
-available, which is usually takes a few us instead of the 10ms sleep
-interval for polling.
+Many thanks for your review!
 
-Signed-off-by: Alba Mendez <me@alba.sh>
-Reviewed-by: Janne Grunau <j@jannau.net>
-Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
----
- drivers/spmi/Kconfig                 |   3 +-
- drivers/spmi/spmi-apple-controller.c | 257 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-
- 2 files changed, 258 insertions(+), 2 deletions(-)
+On 16.08.26 06:49, Zev Weiss wrote:
+> On Wed, Aug 12, 2026 at 01:28:27PM PDT, Tan Siewert wrote:
+>> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-x470d4u- 
+>> data64.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-x470d4u- 
+>> data64.dts
+>> new file mode 100644
+>> index 000000000000..6f11aeab087c
+>> --- /dev/null
+>> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-x470d4u-data64.dts
+>> @@ -0,0 +1,15 @@
+>> +// SPDX-License-Identifier: GPL-2.0+
+>> +
+>> +#include "aspeed-bmc-asrock-x470d4u.dts"
+>> +
+>> +/ {
+>> +    compatible = "asrock,x470d4u-data64-bmc", "aspeed,ast2500";
+>> +    model = "Asrock Rack X470D4U-series BMC (64MB store)";
+> 
+> Nit: for consistency with how they spell it, and (at least *most* of) 
+> the other aspeed-bmc-asrock-*.dts files, I'd suggest "ASRock" instead of 
+> "Asrock".  (And IMO s/store/flash/ would be a touch clearer.)
+> 
 
-diff --git a/drivers/spmi/Kconfig b/drivers/spmi/Kconfig
-index a80cf4047b86..7243863a09b4 100644
---- a/drivers/spmi/Kconfig
-+++ b/drivers/spmi/Kconfig
-@@ -13,7 +13,8 @@ if SPMI
- 
- config SPMI_APPLE
- 	tristate "Apple SoC SPMI Controller platform driver"
--	depends on ARCH_APPLE || COMPILE_TEST
-+	select IRQ_DOMAIN_HIERARCHY
-+	depends on ARCH_APPLE || (COMPILE_TEST && 64BIT)
- 	help
- 	  If you say yes to this option, support will be included for the
- 	  SPMI controller present on many Apple SoCs, including the
-diff --git a/drivers/spmi/spmi-apple-controller.c b/drivers/spmi/spmi-apple-controller.c
-index fabccd25aa0d..2390174452ab 100644
---- a/drivers/spmi/spmi-apple-controller.c
-+++ b/drivers/spmi/spmi-apple-controller.c
-@@ -13,11 +13,17 @@
- 
- #include <linux/bitfield.h>
- #include <linux/bits.h>
-+#include <linux/completion.h>
-+#include <linux/interrupt.h>
- #include <linux/io.h>
- #include <linux/iopoll.h>
-+#include <linux/irq.h>
-+#include <linux/irqchip/chained_irq.h>
-+#include <linux/irqdomain.h>
- #include <linux/module.h>
- #include <linux/mutex.h>
- #include <linux/platform_device.h>
-+#include <linux/spinlock.h>
- #include <linux/spmi.h>
- 
- /* SPMI Controller Registers */
-@@ -26,6 +32,13 @@
- #define SPMI_RSP_REG 0x8
- #define SPMI_ACT_REG 0xa4
- 
-+#define SPMI_IRQ_MASK_BASE 0x20
-+#define SPMI_IRQ_ACK_BASE 0x60
-+#define SPMI_NUM_PERIPHERAL_IRQS 256
-+#define SPMI_NUM_IRQS (SPMI_NUM_PERIPHERAL_IRQS + 32)
-+
-+#define SPMI_IRQ_NOTIFY 256
-+
- /* SPMI_RSP_REG reply word */
- #define SPMI_REPLY_FRAME_PARITY_STATUS GENMASK(31, 16)
- #define SPMI_REPLY_ACK BIT(15)
-@@ -41,6 +54,12 @@
- struct apple_spmi {
- 	void __iomem *regs;
- 	struct mutex fifo_lock;
-+	struct completion fifo_rx;
-+	struct irq_domain *irqd;
-+	raw_spinlock_t irq_mask_lock;
-+	DECLARE_BITMAP(irq_mask_cache, SPMI_NUM_PERIPHERAL_IRQS);
-+	int irq;
-+	bool notify_irq;
- 	bool prev_fail;
- };
- 
-@@ -48,6 +67,56 @@ struct apple_spmi {
- 	readl_poll_timeout((spmi)->regs + (reg), (val), (cond), \
- 			   REG_POLL_INTERVAL_US, REG_POLL_TIMEOUT_US)
- 
-+static void apple_spmi_irq_ack_raw(struct apple_spmi *spmi, u32 irq)
-+{
-+	u32 __iomem *reg = spmi->regs + SPMI_IRQ_ACK_BASE + (irq / 32) * 4;
-+
-+	writel(BIT(irq % 32), reg);
-+}
-+
-+static void apple_spmi_irq_mask_raw(struct apple_spmi *spmi, u32 irq)
-+{
-+	u32 __iomem *reg = spmi->regs + SPMI_IRQ_MASK_BASE + (irq / 32) * 4;
-+
-+	writel(readl(reg) & ~BIT(irq % 32), reg);
-+}
-+
-+static void apple_spmi_irq_unmask_raw(struct apple_spmi *spmi, u32 irq)
-+{
-+	u32 __iomem *reg = spmi->regs + SPMI_IRQ_MASK_BASE + (irq / 32) * 4;
-+
-+	writel(readl(reg) | BIT(irq % 32), reg);
-+}
-+
-+static void apple_spmi_irq_ack(struct irq_data *d)
-+{
-+	struct apple_spmi *spmi = irq_data_get_irq_chip_data(d);
-+
-+	apple_spmi_irq_ack_raw(spmi, d->hwirq);
-+}
-+
-+static void apple_spmi_irq_mask(struct irq_data *d)
-+{
-+	struct apple_spmi *spmi = irq_data_get_irq_chip_data(d);
-+	unsigned long flags;
-+
-+	raw_spin_lock_irqsave(&spmi->irq_mask_lock, flags);
-+	apple_spmi_irq_mask_raw(spmi, d->hwirq);
-+	clear_bit(d->hwirq, spmi->irq_mask_cache);
-+	raw_spin_unlock_irqrestore(&spmi->irq_mask_lock, flags);
-+}
-+
-+static void apple_spmi_irq_unmask(struct irq_data *d)
-+{
-+	struct apple_spmi *spmi = irq_data_get_irq_chip_data(d);
-+	unsigned long flags;
-+
-+	raw_spin_lock_irqsave(&spmi->irq_mask_lock, flags);
-+	set_bit(d->hwirq, spmi->irq_mask_cache);
-+	apple_spmi_irq_unmask_raw(spmi, d->hwirq);
-+	raw_spin_unlock_irqrestore(&spmi->irq_mask_lock, flags);
-+}
-+
- static inline u32 apple_spmi_pack_cmd(u8 opc, u8 sid, u16 param)
- {
- 	return opc | sid << 8 | (u32)param << 16 | (1 << 15);
-@@ -60,7 +129,19 @@ static int apple_spmi_wait_rx_not_empty(struct spmi_controller *ctrl)
- 	int ret;
- 	u32 status;
- 
--	ret = poll_reg(spmi, SPMI_STATUS_REG, status, !(status & SPMI_RX_FIFO_EMPTY));
-+	if (spmi->notify_irq) {
-+		ret = wait_for_completion_timeout(&spmi->fifo_rx,
-+			usecs_to_jiffies(REG_POLL_TIMEOUT_US));
-+		if (!ret)
-+			ret = -ETIMEDOUT;
-+		else if (readl(spmi->regs + SPMI_STATUS_REG) & SPMI_RX_FIFO_EMPTY)
-+			ret = -EIO;
-+		else
-+			ret = 0;
-+	} else {
-+		ret = poll_reg(spmi, SPMI_STATUS_REG, status, !(status & SPMI_RX_FIFO_EMPTY));
-+	}
-+
- 	if (ret) {
- 		spmi->prev_fail = true;
- 		dev_err(&ctrl->dev,
-@@ -84,8 +165,10 @@ static int spmi_raw_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid, u16 param,
- 
- 	if (spmi->prev_fail) {
- 		writel(SPMI_ACT_FIFO_FLUSH, spmi->regs + SPMI_ACT_REG);
-+		apple_spmi_irq_ack_raw(spmi, SPMI_IRQ_NOTIFY);
- 		spmi->prev_fail = false;
- 	}
-+	reinit_completion(&spmi->fifo_rx);
- 
- 	writel(spmi_cmd, spmi->regs + SPMI_CMD_REG);
- 
-@@ -188,6 +271,167 @@ static int spmi_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid)
- 	return -EINVAL;
- }
- 
-+static int apple_spmi_irq_set_type(struct irq_data *d, unsigned int type)
-+{
-+	/* all interrupts have MSI semantics */
-+	return type == IRQ_TYPE_EDGE_RISING ? 0 : -EINVAL;
-+}
-+
-+static struct irq_chip apple_spmi_irq_chip = {
-+	.name = "apple_spmi",
-+	.irq_mask = apple_spmi_irq_mask,
-+	.irq_unmask = apple_spmi_irq_unmask,
-+	.irq_ack = apple_spmi_irq_ack,
-+	.irq_set_type = apple_spmi_irq_set_type,
-+	.flags = IRQCHIP_ONESHOT_SAFE,
-+};
-+
-+static int apple_spmi_irq_domain_map(struct irq_domain *irqd,
-+					unsigned int irq, irq_hw_number_t hw)
-+{
-+	irq_domain_set_info(irqd, irq, hw, &apple_spmi_irq_chip, irqd->host_data,
-+				handle_edge_irq, NULL, NULL);
-+	return 0;
-+}
-+
-+static int apple_spmi_irq_domain_translate(struct irq_domain *irqd,
-+					struct irq_fwspec *fwspec,
-+					unsigned long *hwirq,
-+					unsigned int *type)
-+{
-+	u32 *args = fwspec->param;
-+
-+	if (fwspec->param_count != 2)
-+		return -EINVAL;
-+
-+	if (args[0] >= SPMI_NUM_PERIPHERAL_IRQS)
-+		return -EINVAL;
-+	*hwirq = args[0];
-+	*type = args[1] & IRQ_TYPE_SENSE_MASK;
-+	return 0;
-+}
-+
-+static int apple_spmi_irq_domain_alloc(struct irq_domain *irqd, unsigned int virq,
-+				unsigned int nr_irqs, void *arg)
-+{
-+	unsigned int type = IRQ_TYPE_NONE;
-+	struct irq_fwspec *fwspec = arg;
-+	irq_hw_number_t hwirq;
-+	int i, ret;
-+
-+	ret = apple_spmi_irq_domain_translate(irqd, fwspec, &hwirq, &type);
-+	if (ret)
-+		return ret;
-+
-+	if (hwirq + nr_irqs > SPMI_NUM_PERIPHERAL_IRQS)
-+		return -EINVAL;
-+
-+	for (i = 0; i < nr_irqs; i++) {
-+		ret = apple_spmi_irq_domain_map(irqd, virq + i, hwirq + i);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static void apple_spmi_irq_domain_free(struct irq_domain *irqd, unsigned int virq,
-+				unsigned int nr_irqs)
-+{
-+	int i;
-+
-+	for (i = 0; i < nr_irqs; i++) {
-+		struct irq_data *d = irq_domain_get_irq_data(irqd, virq + i);
-+
-+		irq_set_handler(virq + i, NULL);
-+		irq_domain_reset_irq_data(d);
-+	}
-+}
-+
-+static const struct irq_domain_ops apple_spmi_irq_domain_ops = {
-+	.translate	= apple_spmi_irq_domain_translate,
-+	.alloc		= apple_spmi_irq_domain_alloc,
-+	.free		= apple_spmi_irq_domain_free,
-+};
-+
-+static void apple_spmi_irq_handler(struct irq_desc *desc)
-+{
-+	struct apple_spmi *spmi = irq_desc_get_handler_data(desc);
-+	struct irq_chip *chip = irq_desc_get_chip(desc);
-+	bool handled = false;
-+	unsigned long val, offset, bit;
-+
-+	chained_irq_enter(chip, desc);
-+	val = readl(spmi->regs + SPMI_IRQ_ACK_BASE + (SPMI_IRQ_NOTIFY / 32) * 4);
-+	if (val & BIT(SPMI_IRQ_NOTIFY % 32)) {
-+		apple_spmi_irq_ack_raw(spmi, SPMI_IRQ_NOTIFY);
-+		complete(&spmi->fifo_rx);
-+		handled = true;
-+	}
-+
-+	for (offset = 0; offset < SPMI_NUM_PERIPHERAL_IRQS / 8; offset += sizeof(val)) {
-+		val = readq(spmi->regs + SPMI_IRQ_ACK_BASE + offset);
-+		/**
-+		 * because of other masters in the bus, we're going to get a multitude of
-+		 * interrupts we're not interested in. irq_resolve_mapping isn't very
-+		 * optimized for the nonexistent path, so instead we mask with (a locally
-+		 * cached version of) the IRQ mask
-+		 */
-+		val &= spmi->irq_mask_cache[offset / sizeof(val)];
-+		for_each_set_bit(bit, &val, 64) {
-+			generic_handle_domain_irq(spmi->irqd, offset * 8 + bit);
-+			handled = true;
-+		}
-+	}
-+	if (!handled)
-+		handle_bad_irq(desc);
-+	chained_irq_exit(chip, desc);
-+}
-+
-+static void apple_spmi_teardown_irq(void *data)
-+{
-+	struct apple_spmi *spmi = data;
-+
-+	for (size_t offset = 0; offset < SPMI_NUM_IRQS / 8; offset += 4)
-+		writel(0, spmi->regs + SPMI_IRQ_MASK_BASE + offset);
-+
-+	synchronize_irq(spmi->irq);
-+	irq_set_chained_handler_and_data(spmi->irq, NULL, NULL);
-+}
-+
-+static int apple_spmi_init_irq(struct platform_device *pdev,
-+			       struct apple_spmi *spmi, int irq)
-+{
-+	int ret;
-+	struct irq_domain_info info = {
-+		.fwnode		= pdev->dev.fwnode,
-+		.hwirq_max	= ~0U,
-+		.ops		= &apple_spmi_irq_domain_ops,
-+		.host_data	= spmi,
-+	};
-+
-+	raw_spin_lock_init(&spmi->irq_mask_lock);
-+
-+	for (size_t offset = 0; offset < SPMI_NUM_IRQS / 8; offset += 4) {
-+		writel(0, spmi->regs + SPMI_IRQ_MASK_BASE + offset);
-+		writel(U32_MAX, spmi->regs + SPMI_IRQ_ACK_BASE + offset);
-+	}
-+
-+	spmi->irqd = devm_irq_domain_instantiate(&pdev->dev, &info);
-+	if (IS_ERR(spmi->irqd))
-+		return PTR_ERR(spmi->irqd);
-+
-+	ret = devm_add_action(&pdev->dev, apple_spmi_teardown_irq, spmi);
-+	if (ret)
-+		return ret;
-+
-+	irq_set_chained_handler_and_data(spmi->irq, apple_spmi_irq_handler, spmi);
-+	apple_spmi_irq_unmask_raw(spmi, SPMI_IRQ_NOTIFY);
-+	spmi->notify_irq = true;
-+
-+	return 0;
-+}
-+
- static int apple_spmi_probe(struct platform_device *pdev)
- {
- 	struct apple_spmi *spmi;
-@@ -200,6 +444,8 @@ static int apple_spmi_probe(struct platform_device *pdev)
- 
- 	spmi = spmi_controller_get_drvdata(ctrl);
- 	mutex_init(&spmi->fifo_lock);
-+	init_completion(&spmi->fifo_rx);
-+	platform_set_drvdata(pdev, spmi);
- 
- 	spmi->regs = devm_platform_ioremap_resource(pdev, 0);
- 	if (IS_ERR(spmi->regs))
-@@ -211,6 +457,15 @@ static int apple_spmi_probe(struct platform_device *pdev)
- 	ctrl->write_cmd = spmi_write_cmd;
- 	ctrl->cmd = spmi_cmd;
- 
-+	spmi->irq = platform_get_irq_optional(pdev, 0);
-+	if (spmi->irq < 0 && spmi->irq != -ENXIO)
-+		return spmi->irq;
-+	if (spmi->irq >= 0) {
-+		ret = apple_spmi_init_irq(pdev, spmi, spmi->irq);
-+		if (ret)
-+			return ret;
-+	}
-+
- 	ret = devm_spmi_controller_add(&pdev->dev, ctrl);
- 	if (ret)
- 		return dev_err_probe(&pdev->dev, ret,
+Agreed on both, will fix it in v4.
 
--- 
-2.55.0
+> Also, looks like the other nearby DTS files pretty consistently have 
+> compatible & model in the opposite order, so matching that might be nice 
+> too.
 
+This is something that was reported by `scripts/dtc/dt-style-check 
+--mode strict`. Depending on how much time I have next week I'll look 
+into fixing the dtc offsenses for arm/dts/aspeed (tho that'd come from 
+my employer email).
+
+> 
+>> +};
+>> +
+>> +&fmc {
+>> +    flash@0 {
+>> +        /delete-node/partitions;
+>> +#include "openbmc-flash-layout-64.dtsi"
+>> +    };
+>> +};
+>> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-x470d4u.dts b/ 
+>> arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-x470d4u.dts
+>> new file mode 100644
+>> index 000000000000..80fb2b7c1e0c
+>> --- /dev/null
+>> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-x470d4u.dts
+> 
+> <snip>
+> 
+>> +
+>> +    fan@3 {
+>> +        /* FAN4 (6-pin) */
+>> +        reg = <0x03>;
+>> +        aspeed,fan-tach-ch = /bits/ 8 <0x03 0x0b>;
+>> +    };
+>> +
+>> +    fan@4 {
+>> +        /* FAN5 (6-pin) */
+>> +        reg = <0x04>;
+>> +        aspeed,fan-tach-ch = /bits/ 8 <0x04 0x0d>;
+>> +    };
+>> +
+>> +    fan@5 {
+>> +        /* FAN6 (6-pin) */
+>> +        reg = <0x05>;
+>> +        aspeed,fan-tach-ch = /bits/ 8 <0x05 0x0e>;
+>> +    };
+>> +};
+> 
+> Just to confirm, skipping channel 0xc here is intentional I assume? 
+> (Most other related platforms have them contiguously numbered, but not 
+> all, so another slight oddity wouldn't be too shocking.)
+
+The skip is intentional. That is what I found out during reverse 
+engineering the SDR file in the vendor firmware.
+
+Cheers,
+Tan
 
