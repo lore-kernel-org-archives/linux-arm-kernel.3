@@ -4,79 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F24CEC5DF79
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Aug 2026 14:06:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EED9C5DF70
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Aug 2026 14:22:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BgltKba5DUL8ktAPlC2pa1q04TIfIhh7EmL3+FTkAf4=; b=ODLMJgOLLUj0axCVmpgZj9KvuQ
-	tlQCg1zPMXO5l38cf4wCrktM2GeUlrvXB4JXjxc0bHByoRMz8KKdEHQ+Dtew1n6tutmGRi7VsmIWB
-	Hw68vhcr0VyIw7NrRA3bFRImXVEfojp/tUbbgEVLN5c9Jk1r9ZoWdZL5YrEnOWiy4bNGFBH3Fe4xV
-	3ZvhU0h12trullAal7f2G0ztA69ctAaUE+nMjvgaVP4NmOmdoslSizwAnCAYh3PP5KOtHcgNlDShr
-	7MdlTSlJMdd6bjrFQZ7ehOflwGO/JG4s+YqVisrDDsWxLT+Jy4g6xscGhQP438kPzvUYS9h6wKSHt
-	aLH4Rzeg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=XsGCXFozT69ITA4eF1crVo3PlInrHxlGF6a27uOAn/o=; b=IZVbsDjoUt5SU4NURn/zrDMYaD
+	kt4FpRkMJYd4VfzAcApiwtnCWfeRhlQjRMVbek/JYWDEYk7/lib3EirPQl61BzwM9i5Wrc8bW2e+L
+	QjZOk9t+BghLokz2epSjZ7v7ctze8MJc35Xd1a28kUUIQv4vcCOlCNddGjW9p8q3sILG+UW7zuV8S
+	jGJkuZA8MvgXG4Y/J29y+mUm/15UqVG9+u8j2Uhx6VbhlZfp+9FVj/FD8h+gSEI2vDkO9zIvKOZOw
+	67/g+AwuIzVxye26Evfpd9ph6U6ACHiZNHZB0G3Jk6V33kE6Ul2eOtJcvw12GZ0jrkGawDhOZcqTW
+	leBXTjmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvbVB-00000004oPq-2fFc;
-	Sun, 16 Aug 2026 14:06:17 +0000
-Received: from fanzine2.igalia.com ([213.97.179.56])
+	id 1wvbl4-00000004pNO-0pVW;
+	Sun, 16 Aug 2026 14:22:42 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvbV7-00000004oMu-2Xaa;
-	Sun, 16 Aug 2026 14:06:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Cc:To:Message-Id:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Subject:Date:From:From:Reply-To;
-	bh=BgltKba5DUL8ktAPlC2pa1q04TIfIhh7EmL3+FTkAf4=; b=O6KFrZkLlE7jBnqfe8TMorQFKC
-	3BwOFaXOFtvQ+uu/8ykRAUksJM/5b10/JStYcFb8FXH5RcAvT/AJcByzhOWfGul8sTCa9tq0zFUtd
-	vy8iIKtCzcVQLk4o28kT6+YHg04ScgsstpTKxE0rlatuR+RX+n3L4Wk5EkGQu6DSl5MA6/LcJjoLe
-	0xVum/KfQtm+UPIe0FymIKAiODaPy9BnoZ66KNFMGr2MTEH48tagvSe6RudPwPZebMf+djzzFoiOo
-	5Fz33k2881HRmsDBwAb6MkQUKFr1+bFkgBggCi+qcq1FJSOl6IqIQDkPuV0mZ1ove3J2CnjEtIcoP
-	GVAoUDGg==;
-Received: from [179.105.94.163] (helo=[10.0.0.1])
-	by fanzine2.igalia.com with esmtpsa 
-	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
-	id 1wvbV5-002tuI-Eb; Sun, 16 Aug 2026 16:06:11 +0200
-From: =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
-Date: Sun, 16 Aug 2026 11:05:43 -0300
-Subject: [PATCH 4/4] ARM: dts: bcm2835: Add the V3D reset line
+	id 1wvbl1-00000004pMd-2BY4
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 16 Aug 2026 14:22:41 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2d01663d816so21870735ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 16 Aug 2026 07:22:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786890158; x=1787494958; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=XsGCXFozT69ITA4eF1crVo3PlInrHxlGF6a27uOAn/o=;
+        b=KOZ6h018ZqmDbBYcNxxnx3Eh97z6N6o0DRWn8YJeXPet3QsePX96nnmDaT2KNF0+nW
+         Ar/6bWZpO6jasCbj4SXToWLhJ6g0ebZgjorz2B4gEYRIuY+0cbO0bW17KG5b4WV7OqFw
+         sTcZvY6d9I28GuoUpvYyuyZ/6DwriBySfS8HOJUlgv37lo7XJITNXo5uVQ6IwaEZEqCJ
+         j8Iy7c3cWNrJGUkVbAE5CNhS6CDBwgm9PuQ4NjWdOTdSfku8zlPfN3tMgtiu0S00nMyP
+         nE2t3D/DupbgqaXx0MHYtPMuHjkXsaVqgaSWe9cDKYHSCJBSlksp7nuIqg4bK7TJF2Tk
+         0slQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786890158; x=1787494958;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=XsGCXFozT69ITA4eF1crVo3PlInrHxlGF6a27uOAn/o=;
+        b=Dr3LnI0G2Gn+5yUpGKYCw2UrPmWKOqEndIu597wgB7TA6oHQBFGGSbhFjKnKk7MGn3
+         MfCSKA2fzIpZ+L1SBTlbtzHs6UuxccvxHwSXEfInQLWlHzXBZ3KNdTceUhAZeYQSXFWB
+         WUhFxkESYWEUqkwXLnNHG1VwG6HJ/wnZFbOh8PYmhmc/UqFx9Fo6RlDI/MXcbZWIXf7Y
+         8QHJ1vduY1dDHDyRJKJBb/9pZpYBPdRAvCvRjS8sZQTac8A9xYLXCjgAweGd77ixD/ZZ
+         5nQz8hnNk9AXY+cUcJrBqmH1Bt81KAcj4e5KQUXVJoq3t+Jr1OF6cEpcbAgwgsBSKovy
+         PBiA==
+X-Forwarded-Encrypted: i=1; AHgh+RrsMie/GjL0kiB3yrXuop+yB0Dhz+g8CH3rgpCFEO57NCCEng/YoV6SlY9mPAl80XYHCLGrPVB/OKtzDpwL/1Dw@lists.infradead.org
+X-Gm-Message-State: AOJu0YyzctU+yY+bBzTy/VOjqDDWFce2AFOCLteXXRpCX9lZKPVdPPRC
+	mMLEuzuQ3b1eQo9CFCiuKr+uSI9+7I9P7yDKp7SR8J1aDuLPPTClSgOY
+X-Gm-Gg: AR+sD10ftDI8FBtxN5WNG+tK5EhXkBOD5/yKE0YXveso9WEpVWNnqKS4y1mj8Tc7W7r
+	H56boZe/v7jitrtm95gRbw/p3uzh0ylz/PX9s9h2Rg8uaPwdBCKdWX8gp1hVRxwo5RubATQ5QAm
+	2xizUrDA7cOGi936o7sa1KTCilCETHhtuYRIweDe4gI7ySBRT8Epxpbu8Eo7Ge8GBWRvp68VKgi
+	d7IxhMB1pE2MWTA214zBE2TamRc277q5eM6lNCF5Y9YSRCYugYqXOAim/cmfy/TLQl72PclLawe
+	sLivlGKMeNssLClbFa9jtJhWe3nt7s2KtpGNZ3P0kbv/wqewjnATWoz/kYbOPeoL5izXgqo6gwy
+	5yf7pJNeG9e5nPQiAsGYcMyDNi7AInHw39S4O8ky4FIr+GHeC25GiA6Uqe4tht07MoF79Ktwxz0
+	mVDn5Fiv64b7u8QmEWIMwAHMsdVlCAiK1Quu9ZKoYc75Q4RjV7lBZgrLXbJxGYwUiQr5UA9rXp1
+	44/Oo23brEEp1/WuJI=
+X-Received: by 2002:a17:902:da82:b0:2cc:777f:d67c with SMTP id d9443c01a7336-2d3b0d5ed01mr190367395ad.13.1786890157697;
+        Sun, 16 Aug 2026 07:22:37 -0700 (PDT)
+Received: from kernel.tail6741c6.ts.net ([116.128.244.169])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d3aebc8199sm26102365ad.74.2026.08.16.07.22.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 16 Aug 2026 07:22:36 -0700 (PDT)
+From: Kunwu Chan <kunwu.chan@gmail.com>
+X-Google-Original-From: Kunwu Chan <kunwu.chan@linux.dev>
+To: will@kernel.org,
+	mark.rutland@arm.com,
+	sj@kernel.org,
+	akpm@linux-foundation.org,
+	shuah@kernel.org,
+	kunwu.chan@linux.dev
+Cc: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
+	damon@lists.linux.dev,
+	linux-mm@kvack.org,
+	linux-kselftest@vger.kernel.org,
+	Kunwu Chan <kunwu.chan@gmail.com>
+Subject: [RFC PATCH 0/4] mm/damon/perf: add ARM SPE AUX backend
+Date: Sun, 16 Aug 2026 22:22:17 +0800
+Message-ID: <20260816142222.689624-1-kunwu.chan@linux.dev>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260816-vc4-reset-control-v1-4-896444373716@igalia.com>
-References: <20260816-vc4-reset-control-v1-0-896444373716@igalia.com>
-In-Reply-To: <20260816-vc4-reset-control-v1-0-896444373716@igalia.com>
-To: Maxime Ripard <mripard@kernel.org>, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>, 
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
- Stefan Wahren <wahrenst@gmx.net>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-Cc: kernel-dev@igalia.com, dri-devel@lists.freedesktop.org, 
- devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, 
- =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=923; i=mcanal@igalia.com;
- h=from:subject:message-id; bh=QjW5FtN3UmQIj/so/SS0WHmGYCiNglIrR2CAelpRBHY=;
- b=owEBbQGS/pANAwAKAT/zDop2iPqqAcsmYgBqgcO4ASZcagjs+hTuprttcTy1r7V+HtWoGUMaC
- Ly7M5v7KFeJATMEAAEKAB0WIQT45F19ARZ3Bymmd9E/8w6Kdoj6qgUCaoHDuAAKCRA/8w6Kdoj6
- qmQ+B/wLNmVCbLGXL9JmqNTIEFFxtkm2TnwjaOppIHWi72TV46bzZkiZr/ChdKpjhCn4hmrHesy
- EOUYayq60/CWaBsMmWpmrhoTXAT0Kj2kRXwr/Ln78KapZKmIairNkKrkgOibCrxScqFCmIWSkXh
- etTef9Xp61tYcIiOTGbW0r3jGmwkm4F9YWDC10VqB/EAV5HH4QVDjlBR5gU9cNfM4vEdfV0W6kG
- RxDdKVvY3d7g++xPhaYiAwUu9JSTK6+rbfKsHI4V2D77OV1XfZOB4+lxhrsLImEbXPdIJyd0HJ4
- i+Qsb0Oh2/UqdxDHSCLGHVuIjYejvbG2Gny//QBft5uGm5hW
-X-Developer-Key: i=mcanal@igalia.com; a=openpgp;
- fpr=F8E45D7D0116770729A677D13FF30E8A7688FAAA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260816_070613_649571_7B818212 
-X-CRM114-Status: UNSURE (   9.07  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260816_072239_568699_F7570077 
+X-CRM114-Status: GOOD (  17.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,32 +107,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PM block exposes a reset line for the V3D block, which the vc4 driver
-uses to reset the GPU when recovering from a hang instead of forcing its
-power domain down. Wire it up in the shared V3D node, covering BCM2835,
-BCM2836 and BCM2837.
+From: Kunwu Chan <kunwu.chan@gmail.com>
 
-BCM2711 already describes the same reset line for its V3D node.
+This series adds an AUX trace-buffer backend to the DAMON perf
+observability framework, enabling ARM SPE (Statistical Profiling
+Extension) to deliver hardware-sampled access reports into DAMON's
+existing SPSC report ring.
 
-Signed-off-by: Maíra Canal <mcanal@igalia.com>
----
- arch/arm/boot/dts/broadcom/bcm2835-common.dtsi | 1 +
- 1 file changed, 1 insertion(+)
+Patch 2 touches drivers/perf/arm_spe_pmu.c to expose the PMU matcher.
+This change is tightly coupled with the DAMON AUX backend.  ARM SPE
+PMU driver maintainers only need to review patch 2.
 
-diff --git a/arch/arm/boot/dts/broadcom/bcm2835-common.dtsi b/arch/arm/boot/dts/broadcom/bcm2835-common.dtsi
-index 1e76b290510d..39eea8ce1058 100644
---- a/arch/arm/boot/dts/broadcom/bcm2835-common.dtsi
-+++ b/arch/arm/boot/dts/broadcom/bcm2835-common.dtsi
-@@ -139,6 +139,7 @@ v3d: v3d@7ec00000 {
- 			compatible = "brcm,bcm2835-v3d";
- 			reg = <0x7ec00000 0x1000>;
- 			interrupts = <1 10>;
-+			resets = <&pm BCM2835_RESET_V3D>;
- 		};
- 
- 	};
+This series is based on the Ravi's hardware-sampled access reports 
+branch [1], and depends on the perf AUX kernel-consumer RFC series [2].
+The dependencies is not upstream yet, so this series remains RFC.
+
+Why a dedicated AUX backend
+---------------------------
+ARM SPE and similar PMUs do not deliver samples through the standard
+perf overflow callback.  Instead, they write trace data into an AUX
+buffer managed by the perf core.  The AUX buffer is consumed from
+process context (kdamond) rather than from NMI, so the existing
+overflow-callback path in DAMON cannot be reused.
+
+The backend model adds three operations to the damon_perf_event
+lifecycle: init (allocate the AUX buffer), arm (position the consumer
+cursor), and drain (parse the SPE packet stream and publish reports).
+The backend is selected at event creation time by matching the PMU
+object via its event_init callback.
+
+What the series adds
+--------------------
+Patch 1 introduces the backend operations table, the backend state
+fields in damon_perf_event, and the Kconfig options.  ARM SPE must be
+built into the kernel; the KUnit test option is separate.
+
+Patch 2 is the ARM SPE backend.  It owns a per-CPU AUX buffer,
+decodes the SPE packet stream (the same encoding that perf's
+userspace arm-spe-decoder handles), resolves sampled
+CONTEXTIDR_EL1 values to tgids under RCU, and publishes synthesized
+access reports.  The drain runs before the SPSC ring consumer on
+each monitoring interval, and a final drain after event disable
+ensures no records are lost.  The backend also modifies the ARM SPE
+PMU driver to expose arm_spe_pmu_match() for PMU object matching.
+
+Patch 3 adds byte-exact KUnit tests for the SPE record parser.  The
+tests cover load and store records, timestamp terminators, multiple
+records in one window, PAD and ALIGNMENT packets at both odd and
+aligned positions, extended addresses, bad-packet resynchronization,
+truncated records, and records without a virtual address.  A split-
+record test verifies that a record spanning two AUX snapshots leaves
+the tail unchanged until the terminating packet arrives.
+
+Patch 4 adds a DAMON selftest for the AUX backend.  It checks the
+backend integration, the required AUX-before-ring lifecycle ordering,
+runs the parser KUnit suite through debugfs, and on an ARM SPE system
+creates a live DAMON session with a controlled userspace target,
+verifying positive end-to-end pipeline counters and final
+enqueue/dequeue closure.
+
+Testing
+=======
+Tested on Kunpeng 920 (256 CPUs, ARM SPE, kernel 7.1.0-rc5-mm-new-damon+):
+
+  ARM SPE KUnit (spe_parse_one_record):
+    16 passed, 0 failed, 0 skipped
+    (store record, load record with timestamp, two records, pad-wrapped,
+     alignment at odd/aligned positions, bad packet resync, record without
+     address, events/source/counter, truncated record retained, truncated
+     packet retained, extended address, invalid extended header, pad-only,
+     empty window, split record across two snapshots)
+
+  AUX selftest (damon_perf_aux_test.sh arm_spe_0):
+    SUMMARY: 52 passed, 0 failed, 0 skipped (Overall PASS)
+    callback=58318, valid=58318, enqueue=43390, dequeue=43390,
+    match=34049, update=564
+    final ring closure: enqueue=43390 dequeue=43390
+
+Known limitations
+=================
+- AUX_BACKEND_MAX=4: the AUX backend registration table holds at most 4
+  backend types.  This is a framework limit, not a per-PMU-instance cap.
+
+- ARM SPE must be built into the kernel (ARM_SPE_PMU=y), not as a
+  module, because the backend calls arm_spe_pmu_match() at initcall
+  time.
+
+- The AUX buffer is 2 pages (8 KiB).  The SPE hardware pauses when the
+  non-overwrite ring is full; the drain frees space and re-enables
+  the event.
+
+- CONTEXTIDR_EL1 carries the sampled task's pid, resolved to tgid
+  under RCU.  Records without a valid tgid are dropped.
+
+- This series requires the perf AUX kernel API patches [2] to be applied
+  first.  These patches are not yet upstream and must be reviewed by the
+  perf subsystem maintainers.
+
+References
+==========
+Link [1]: https://github.com/damonitor/linux.git
+          branch: ravi_hw_sampled_access_reports_rfc_v1
+          commit: fd968106e5bf
+
+Link [2]: https://lore.kernel.org/all/20260814144927.489172-1-kunwu.chan@linux.dev/
+          perf AUX kernel API PATCH Series:
+          - perf/core: add AUX buffer ownership for kernel events
+          - perf/core: add AUX ring accessors for kernel consumers
+          - perf/core: add KUnit tests for AUX kernel-consumer API
+          - selftests/perf_events: add userspace AUX regression test
+          - selftests/perf_events: add AUX kernel API selftest script
+
+
+Kunwu Chan (2):
+  mm/damon/perf: introduce AUX backend interface and Kconfig
+  mm/damon/perf: add AUX trace-buffer PMU backend for ARM SPE
+
+Lian Wang (ProcessMission) (2):
+  mm/damon/perf: add KUnit tests for the SPE record parser
+  selftests/damon: add DAMON perf AUX backend test
+
+ drivers/perf/arm_spe_pmu.c                    |   8 +
+ include/linux/damon.h                         |   5 +
+ include/linux/perf/arm_spe_pmu.h              |  11 +
+ mm/damon/Kconfig                              |  28 +
+ mm/damon/core.c                               |  22 +-
+ mm/damon/ops-common.h                         |   6 +-
+ mm/damon/perf/Makefile                        |   5 +
+ mm/damon/perf/aux_backend.c                   | 121 +++++
+ mm/damon/perf/aux_backend.h                   |  72 +++
+ mm/damon/perf/spe_backend.c                   | 479 ++++++++++++++++++
+ mm/damon/perf/spe_parser.h                    | 109 ++++
+ mm/damon/perf/spe_parser_test.c               | 365 +++++++++++++
+ mm/damon/vaddr.c                              |  68 ++-
+ tools/testing/selftests/damon/Makefile        |   1 +
+ .../selftests/damon/damon_perf_aux_test.sh    | 414 +++++++++++++++
+ 15 files changed, 1704 insertions(+), 10 deletions(-)
+ create mode 100644 include/linux/perf/arm_spe_pmu.h
+ create mode 100644 mm/damon/perf/aux_backend.c
+ create mode 100644 mm/damon/perf/aux_backend.h
+ create mode 100644 mm/damon/perf/spe_backend.c
+ create mode 100644 mm/damon/perf/spe_parser.h
+ create mode 100644 mm/damon/perf/spe_parser_test.c
+ create mode 100755 tools/testing/selftests/damon/damon_perf_aux_test.sh
 
 -- 
-2.55.0
+2.43.0
 
 
