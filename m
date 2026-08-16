@@ -4,89 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43A28C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Aug 2026 12:57:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0323DC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Aug 2026 13:50:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CsxiuRuiaXu9QWdEGxKrQ+0iwvXtHK0dR2ygl/r7rJY=; b=M4ommlJ0gtu+yzvRudZjXx+nw6
-	XK4ee9VJtdPrs/97IiAHCLxEJfvYMO2JUEIoZk/zIbiHs3uk9z8UL0uRIqMH/pw53lgw3Bn7RzNlv
-	9MB6x5VN6kCcpvebGHIMcwXpAq2HyppjHQAs1PNspT8hGqSdhOaTlY5r+UJpiuiGXitwXJGRKFi3F
-	wESevtWINmbwEd04rTp1lm7yvqha2khi/+esUkbVvKyNvMIXfeTOT556aM5kcmNrMq7S8XnaGb/xn
-	jxwDYiYNR047r6m4uCBvbYALDezavY8ls0G/kqsMDJsXvIGiohbu15JmJJFlbGWJFRrv0VsEW56IZ
-	sirAJwXA==;
+	bh=6bMpbO3p3Ie0JM1f8TUuUkmgYOGktAPmGuPKMuLa1Ak=; b=RGC9682r26qL7HFuPU8KH44f6w
+	PEYvOwLBHUI6pYHvuPRxW9zMKn3nFmWYSsdDs94n1sy5tE56+KaZVQ0dNSl/i5EBMS/a4FOQs9SpA
+	iHohufFsVynEeB6mRjx0zdv7lGr6CObzUkiC3mgDFExC81TyBS1j7J7jbkGKvUPRDH+XmQFnqzTuc
+	n+ReosYvdjQWJCgg3ipCLBd1BWpmW1ddN4kzNPA0lAiNr0My+uzsFtp6qxDBo/Ts8BHpHLGNfJpwD
+	z4FChH7KZ7RlnV3Kt//AdnBFcb7VT14AgH9p0BICYxoEHtTrKIz8dJYDt8smCH1zlWwELXJt4SFLm
+	4vUNrpig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvaQr-00000004mNO-2Ynf;
-	Sun, 16 Aug 2026 12:57:45 +0000
-Received: from m16.mail.163.com ([220.197.31.4])
+	id 1wvbFs-00000004nv8-1a4v;
+	Sun, 16 Aug 2026 13:50:28 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvaQo-00000004mMq-29dQ;
-	Sun, 16 Aug 2026 12:57:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=CsxiuRuiaXu9QWdEGxKrQ+0iwvXtHK0dR2ygl/r7rJY=; b=A
-	dixgLQ8GC3uzAWJbog6oeDzbXOg+KYg4PYHW9QyWBaYKli3okIqzibs0W1QXzhxA
-	Q91olqreEchq5209hGRHErC1oKiVriA7PfLBJDbwUSmo6WYXpDCH+7+PtWD81twm
-	/OMsWWj33RaVLGV1iBJLWzhDXjVP1nfMThEEp2qdJ0=
-Received: from andyshrk$163.com ( [61.154.14.86] ) by
- ajax-webmail-wmsvr-40-100 (Coremail) ; Sun, 16 Aug 2026 20:56:29 +0800
- (CST)
-X-Originating-IP: [61.154.14.86]
-Date: Sun, 16 Aug 2026 20:56:29 +0800 (CST)
-From: "Andy Yan" <andyshrk@163.com>
-To: "Sebastian Reichel" <sebastian.reichel@collabora.com>
-Cc: "Sandy Huang" <hjc@rock-chips.com>,
-	=?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
-	"Andy Yan" <andy.yan@rock-chips.com>,
-	"Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>,
-	"Maxime Ripard" <mripard@kernel.org>,
-	"Thomas Zimmermann" <tzimmermann@suse.de>,
-	"Andrzej Hajda" <andrzej.hajda@intel.com>,
-	"Neil Armstrong" <neil.armstrong@linaro.org>,
-	"Robert Foss" <rfoss@kernel.org>,
-	"Laurent Pinchart" <Laurent.pinchart@ideasonboard.com>,
-	"Jonas Karlman" <jonas@kwiboo.se>,
-	"Jernej Skrabec" <jernej.skrabec@gmail.com>,
-	"Rob Herring" <robh@kernel.org>,
-	"Krzysztof Kozlowski" <krzk+dt@kernel.org>,
-	"Conor Dooley" <conor+dt@kernel.org>,
-	"David Airlie" <airlied@gmail.com>,
-	"Simona Vetter" <simona@ffwll.ch>,
-	"Dmitry Baryshkov" <dmitry.baryshkov@oss.qualcomm.com>,
-	"Luca Ceresoli" <luca.ceresoli@bootlin.com>,
-	"Philipp Zabel" <p.zabel@pengutronix.de>, devicetree@vger.kernel.org,
-	"Dmitry Baryshkov" <lumag@kernel.org>, linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	"Alexey Charkov" <alchark@flipper.net>,
-	linux-rockchip@lists.infradead.org,
-	"Damon Ding" <damon.ding@rock-chips.com>,
-	Sashiko <sashiko-bot@kernel.org>, kernel@collabora.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re:[PATCH v11 08/21] drm/bridge: synopsys: dw-dp: Free output_fmts
- when none are valid
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
- 20260511(2e539873) Copyright (c) 2002-2026 www.mailtech.cn 163com
-In-Reply-To: <20260806-synopsys-dw-dp-improvements-v11-8-0d508505f383@collabora.com>
-References: <20260806-synopsys-dw-dp-improvements-v11-0-0d508505f383@collabora.com>
- <20260806-synopsys-dw-dp-improvements-v11-8-0d508505f383@collabora.com>
-X-NTES-SC: AL_Qu2TBPSTu0Ej7yOdYekfmUgWjuw/WsG1v/Ul1YBSP556jCrp6yoHelRJMXX9zsmrEg+xlzSHfCNT0M9dRK11eZMXHZfeFpAM1yEHZl4OkKR0hg==
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=UTF-8
+	id 1wvbFq-00000004nv0-3vqr
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 16 Aug 2026 13:50:26 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4ECB942AEF;
+	Sun, 16 Aug 2026 13:50:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 289B01F00A3D;
+	Sun, 16 Aug 2026 13:50:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786888226;
+	bh=6bMpbO3p3Ie0JM1f8TUuUkmgYOGktAPmGuPKMuLa1Ak=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject;
+	b=LLe5eSX/OtIlslSu25l2QcM66K13mAUI1ttKpXMgRZolVF+fqa3abNHzhs7PpiDfA
+	 DK0V8689KrEDCFic0Wmn5FDamwLSrYdKAv2EBoWi+JJy73tikKMYaM3vWDfb+r2Wtb
+	 VX7fELsZbtIu6ddqVhvDJvlhQArHCCPVTjIJhqTiVQCvIZKChmgsrfCUcOjIAv509w
+	 SQAKQ2vedGUV5TAWPJ0iVG/8AweyRYbEIPas5X1tzZGSsPXHIeYeXabMWlIjlfkGht
+	 sDFnXyeZ4+z/87m1deZMwtCrh1EdW6BPBwefSD+uXhtS2n93dgMX8Bwj8ebxgomUUC
+	 c19jlYMFiL5kA==
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfauth.ams.internal (Postfix) with ESMTP id A31FC1980076;
+	Sun, 16 Aug 2026 09:50:23 -0400 (EDT)
+Received: from ams-imap-11 ([10.64.2.31])
+  by ams-compute-02.internal (MEProxy); Sun, 16 Aug 2026 09:50:23 -0400
+X-ME-Sender: <xms:HMCBaj8MmMMSM58_TpHgEg_r7Q-W3boY-6Pb3O_fV8ICFKBaguNcbQ>
+    <xme:HMCBaqikYKq0Jot5Qcl4cJC7bj8YiUJjBwUGNtbLNF-cSb9ddjhpclAQwFqDP46Ap
+    fEqWelQenpulXCu4p_hk22L7cRnqKO-jrLbanmBOsXnyLMmYE8F5r0>
+X-ME-Proxy-Cause: dmFkZTGb1X/WDK3B1kqNVZGgj/Uja1AIyRukPn9r3LxdoFoCkzeogKnu9BXt+J4uE5f6IW
+    33jKuRNDYbGZ1lad8kIBDDo8kmT5yelgcZ53lgX6Fbba6LNgzIXNgO4poFZtknzTVXxT4l
+    pA51DZGD0rpQIf+6zm9vJQ7BpIOTTUf+OGTmUFhChQE/OtXChK+7BrUzllPQlVg7c9EWEd
+    993hVi6pYHuikNet4kyAMWu/OcesyaDBnnXe8BUazHHlFC+AY0NSuaylojhuXit5beDxcV
+    RzNt0wfiQGmjoBI46hncd2GcvwVMEjaY6nqOcUGyQKtzJvkbh+R+QVHBIhApgHN6Qq4mdR
+    D/RU7VnSakaRkBviGFoQKe/ZvewjP+fJl/SnFTZENgF3xo1ihweVWSq8epC4EMz8qfbopZ
+    w+8D+G03l1HlrwuUdMLMmeS36zPzUeEoip96avFS2+hs4tJ2uCIgELyl+n1ej8YZWWB8Td
+    UhTXGxm0jRaadZhwVFhL2kixUvoDUY1LOH/xJovO9H8JFbkrk05wx3jHOWzvp3Zh4lPUnK
+    hi+Gyi7HGwpnanHLnMRKeU4Sszf0VbB39fBTvQWlnYw6e+XHVlqqwgjG0/U0in/wMPvMzB
+    VR6ZmVQzMJML+i2LYQ3GV6LwA2BFMs6X+LBa1uDFBrTfNSaJ7wyV+0iWHU1Q
+X-ME-Proxy: <xmx:H8CBarB1K6QZX9hNSZOzbVwQ_ZEJuZrRIIIvms9oOVwP7gCP6Zpgyw>
+    <xmx:H8CBaq6H4-FWY6Ow6kWIdR7Eb_55AWDcIygFTBiOi_GWhR2eVAmlLA>
+    <xmx:H8CBavFWLmJ7YizIYEbIKAvgHrHk5d3VYpB67D-H-p1LwNZy5hgOgA>
+    <xmx:H8CBatQIPNBcSZiEHxmRZdyg3gDXNi88QDevf1Gbvl35kHgL-m2uwg>
+    <xmx:H8CBahdAm3MwCJb5BWJya7mpu4UU81ztFnMSHSkz5SFRvmnMNdKSeedi>
+Feedback-ID: ice86485a:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id B6073F80070; Sun, 16 Aug 2026 09:50:20 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Message-ID: <136552e4.194d.1a00aa521b3.Coremail.andyshrk@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: ZCgvCgD3HxJ9s4Fq48cyAA--.25348W
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbC7R0HZWqBs32X8QAA3R
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260816_055742_865892_83F5ABB5 
-X-CRM114-Status: UNSURE (   5.81  )
-X-CRM114-Notice: Please train this message.
+Date: Sun, 16 Aug 2026 16:49:59 +0300
+From: "Ard Biesheuvel" <ardb@kernel.org>
+To: "Will Deacon" <will@kernel.org>
+Cc: "Josh Poimboeuf" <jpoimboe@kernel.org>,
+ "Catalin Marinas" <catalin.marinas@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, live-patching@vger.kernel.org,
+ "Song Liu" <song@kernel.org>, "Miroslav Benes" <mbenes@suse.cz>,
+ "Petr Mladek" <pmladek@suse.com>, "Joe Lawrence" <joe.lawrence@redhat.com>,
+ "Mark Rutland" <mark.rutland@arm.com>, "Mark Brown" <broonie@kernel.org>,
+ "Nick Desaulniers" <ndesaulniers@google.com>, "Kees Cook" <kees@kernel.org>,
+ "Nathan Chancellor" <nathan@kernel.org>, linux-toolchains@vger.kernel.org
+Message-Id: <6c7153d7-67d1-46ce-afb0-688fca871c66@app.fastmail.com>
+In-Reply-To: <aoGFxycNrA0p-H4T@willie-the-truck>
+References: <cover.1786768375.git.jpoimboe@kernel.org>
+ <2ff1b2482406c61ca5979d6284ba5f948a3fbc20.1786768375.git.jpoimboe@kernel.org>
+ <6bc20c00-21a9-4315-8ec3-33c7ad6ae95f@app.fastmail.com>
+ <aoGFxycNrA0p-H4T@willie-the-truck>
+Subject: Re: [PATCH 02/12] arm64/module: Fix BTI exceptions caused by omitted landing
+ pads in Clang 21
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,29 +105,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CgpIZWxsbyBTZWJhc3RpYW4sCgpBdCAyMDI2LTA4LTA3IDAxOjAyOjE0LCAiU2ViYXN0aWFuIFJl
-aWNoZWwiIDxzZWJhc3RpYW4ucmVpY2hlbEBjb2xsYWJvcmEuY29tPiB3cm90ZToKPklmIGR3X2Rw
-X2JhbmR3aWR0aF9vaygpIHJldHVybnMgZmFsc2UgZm9yIGFsbCBmb3JtYXRzLCAqbnVtX291dHB1
-dF9mbXRzCj5taWdodCBlbmQgdXAgYmVjb21pbmcgMC4gSW4gdGhpcyBjYXNlIGZ1bmN0aW9ucyBj
-YWxsaW5nIGl0IGFzc3VtZSB0aGF0Cj5ub3RoaW5nIG5lZWRzIHRvIGJlIGZyZWUnZCwgc28gZnJl
-ZSBvdXRwdXRfZm10cyB3aXRoaW4gdGhlIGZ1bmN0aW9uIHRvCj5hdm9pZCBsZWFraW5nIG1lbW9y
-eS4KPgo+Rml4ZXM6IDg2ZWVjYzNhOWMyZSAoImRybS9icmlkZ2U6IHN5bm9wc3lzOiBBZGQgRFcg
-RFBUWCBDb250cm9sbGVyIHN1cHBvcnQgbGlicmFyeSIpCj5SZXBvcnRlZC1ieTogU2FzaGlrbyA8
-c2FzaGlrby1ib3RAa2VybmVsLm9yZz4KPlNpZ25lZC1vZmYtYnk6IFNlYmFzdGlhbiBSZWljaGVs
-IDxzZWJhc3RpYW4ucmVpY2hlbEBjb2xsYWJvcmEuY29tPgoKICBSZXZpZXdlZC1ieTogQW5keSBZ
-YW4gPGFuZHkueWFuQHJvY2stY2hpcHMuY29tPgoKPi0tLQo+IGRyaXZlcnMvZ3B1L2RybS9icmlk
-Z2Uvc3lub3BzeXMvZHctZHAuYyB8IDUgKysrKysKPiAxIGZpbGUgY2hhbmdlZCwgNSBpbnNlcnRp
-b25zKCspCj4KPmRpZmYgLS1naXQgYS9kcml2ZXJzL2dwdS9kcm0vYnJpZGdlL3N5bm9wc3lzL2R3
-LWRwLmMgYi9kcml2ZXJzL2dwdS9kcm0vYnJpZGdlL3N5bm9wc3lzL2R3LWRwLmMKPmluZGV4IDhj
-ZWIxMzlmMWE3Mi4uZDM1ZGNkNGE0MTNmIDEwMDY0NAo+LS0tIGEvZHJpdmVycy9ncHUvZHJtL2Jy
-aWRnZS9zeW5vcHN5cy9kdy1kcC5jCj4rKysgYi9kcml2ZXJzL2dwdS9kcm0vYnJpZGdlL3N5bm9w
-c3lzL2R3LWRwLmMKPkBAIC0xODIwLDYgKzE4MjAsMTEgQEAgc3RhdGljIHUzMiAqZHdfZHBfYnJp
-ZGdlX2F0b21pY19nZXRfb3V0cHV0X2J1c19mbXRzKHN0cnVjdCBkcm1fYnJpZGdlICpicmlkZ2Us
-Cj4gCQlvdXRwdXRfZm10c1tqKytdID0gZm10LT5idXNfZm9ybWF0Owo+IAl9Cj4gCj4rCWlmIChq
-ID09IDApIHsKPisJCWtmcmVlKG91dHB1dF9mbXRzKTsKPisJCW91dHB1dF9mbXRzID0gTlVMTDsK
-PisJfQo+Kwo+IAkqbnVtX291dHB1dF9mbXRzID0gajsKPiAKPiAJcmV0dXJuIG91dHB1dF9mbXRz
-Owo+Cj4tLSAKPjIuNTMuMAo+Cj4KPl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fCj5MaW51eC1yb2NrY2hpcCBtYWlsaW5nIGxpc3QKPkxpbnV4LXJvY2tjaGlw
-QGxpc3RzLmluZnJhZGVhZC5vcmcKPmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4v
-bGlzdGluZm8vbGludXgtcm9ja2NoaXAK
+
+
+On Sun, 16 Aug 2026, at 12:41, Will Deacon wrote:
+> Hi Josh, Ard,
+>
+> On Sat, Aug 15, 2026 at 12:56:11PM +0300, Ard Biesheuvel wrote:
+>> On Sat, 15 Aug 2026, at 07:45, Josh Poimboeuf wrote:
+>> > The following BTI exception was seen when loading a livepatch module:
+>> >
+>> >   Internal error: Oops - BTI: 0000000036000001 [#1]  SMP
+>> >   pstate: 634004c9 (nZCv daIF +PAN -UAO +TCO +DIT -SSBS BTYPE=jc)
+>> >   pc : kill_orphaned_pgrp+0x0/0x150
+>> >   lr : do_exit+0x498/0xaf0 [livepatch_combined]
+>> >
+>> > The problem is that the patch module's do_exit() is branching to a
+>> > static function in vmlinux using a module PLT veneer (indirect branch),
+>> > but the target function doesn't have a BTI landing pad.
+>> >
+>> > Clang 21+ omits the landing pad for static functions which can only be
+>> > reached by a direct branch.  But livepatch modules use klp relocations
+>> > to reference arbitrary kernel symbols, and with
+>> > CONFIG_RANDOMIZE_MODULE_REGION_FULL the module is far enough away that
+>> > every call to vmlinux needs a PLT.
+>> >
+>> > Note this problem is actually not specific to livepatch.  It's possible
+>> > for any module's .init section to be allocated > 128MB away from its
+>> > .text section.  So calls from .init to .text via a PLT can trigger a BTI
+>> > exception when the target function doesn't have a landing pad.
+>> >
+>> > GCC has always omitted the landing pad when possible, so kernel BTI is
+>> > already considered incompatible with GCC since commit c0a454b9044f
+>> > ("arm64/bti: Disable in kernel BTI when cross section thunks are
+>> > broken").
+>> >
+>> > When missing landing pads are detected, allocate a page close to the
+>> > target which can be used to hold BTI veneers which receive PLT veneer
+>> > indirect branches and direct branch to the final target:
+>> >
+>> 
+>> This does not work for cross-section calls from .init.text to .text.
+>> 
+>> If .init.text is far away from .text, it is likely because .text
+>> ended up in the 128M 'near' module region, and .init.text did not.
+>> (They tend to end up in direct branching range of each otherwise.)
+>> 
+>> Given that the module init code is typically small, I don't think
+>> it is safe to assume that allocating a single page close enough to
+>> .text is going to be possible if allocating the space for .init.*
+>> was not.
+>> 
+>> IOW, the fix I proposed for cross-section calls is still needed
+>> with this approach.
+>
+> Sorry to jump in here, but I couldn't figure out a better place to get
+> involved as we have a few threads on this now.
+>
+> Overall, it seems to me like there are three cases we need to consider
+> for re-enabling BTI in the kernel:
+>
+> 1. A cross-section call that spans beyond the 128M range and therefore
+>    needs a veneer. I think the static linker should resolve this, probably
+>    by emitting a second veneer with the landing pad. Do we know if LLD
+>    gets this right?
+>
+
+There are two variants here:
+
+A cross-section call .init.text to .text that spans beyond the 128M range:
+
+1a. inside vmlinux, which should be dealt with by the linker, but which might
+be unreliable in practice due to the lack of BTI annotations in asm files,
+missing exec permissions on ELF sections etc. This is addressed by this series,
+but is only an issue for unusually large kernel images (e.g., allyesconfig).
+
+1b. inside a module, which the toolchains's static linker cannot be expected to
+deal with, given that modules are not fully linked executables. Therefore, the
+module loader should deal with this, which is what my patch [0] implements. Note
+that this only occurs when .init.text ends up far away from the .text section of
+the same module, which occurs rarely in practice.
+
+> 2. Calls from modules to exported symbols that end up going via a PLT
+>    due to module placement. Exported symbols shouldn't be static, so we
+>    should have the correct BTI landing pad in this case (and if we don't,
+>    we should fix EXPORT_SYMBOL() to add it).
+>
+
+This is not an issue today as far as I am aware.
+
+> 3. The livepatch case where a module appears to branch directly to
+>    static functions in the kernel. For this, I frankly think we should
+>    either make in-kernel BTI depend on !LIVEPATCH _or_ pass some compiler
+>    option (tbd) when livepatch is enabled so that we get landing pads
+>    for static functions (which is what I believe Clang/GCC used to do?).
+>
+
+The livepatch practice of lifting code out of vmlinux at function
+granularity and copying it into KLP modules in order to patch a running
+kernel is so far removed from the typical usage expected by the toolchain
+that it is justified to treat it as a separate case. Working with the
+compiler folks to allow this optimization to be disabled would be one way
+to deal with this (and disabling kernel mode BTI for compilers that do
+not implement it)
+
+That said, my patch [0] only fixes case 1b., which is quite rare in 
+practice, and could perhaps be eliminated entirely if we manage to tweak
+the module loader so that it always allocates .text and .init.text from
+the same region. (I haven't checked whether this is feasible at all tbh)
+
+If we decide that the KLP case is worth fixing too, and tweaking the module
+loader is impractical, I think we should rely on the same logic for case 1b
+(I mistakenly thought that it doesn't work for that case but Josh pointed
+out that the 256M allocation window around the branch target should be
+large enough to ensure that a veneer can be allocated within direct
+branching range)
+
+Whatever we end up doing, we might still consider my approach as a temp
+solution that can be backported if desired.
+
+
+[0] https://lore.kernel.org/linux-arm-kernel/20260812162058.612202-4-ardb@kernel.org/
 
