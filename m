@@ -4,103 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3CF6C5DF66
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Aug 2026 10:16:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20024C5DF6E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Aug 2026 10:42:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b4smyzpnVln00Im8G3tqsTx+iL97HQk+6mnv4RbTj6I=; b=shRcxB0d+LHdwcJYUE4AfAeqdQ
-	o3kujmGtYI+SxvQwGpo6CQCuuKtQrmwjLU0kWLKJHJoimTYrynWFCu/0g2D/SUfiTPdSmr0H+/tyz
-	FR3ZvrARChd3NV5cyVjF+YiXXqqd5+BJ9XOxbs5by+qRtVMcEx5MHkdQQtbeq3WmDXvvllnDC15X4
-	3/4Q5XkS6ksrF57sVcJ9XwmgEAB/NwjnxZHnPiAt47WdvDu1YYZmpVSHOAFAmExQmV3dhyx2pBgd3
-	bhTUM2JSwGWJAS1rv5jlc/sMP7m8pR7lZVY2jxLBzm9/8mN6F5WQGUrkjTirXsq/X0bXuMg3olP3R
-	OTADqALg==;
+	bh=VlhlhN6Ao8cxtOBbRD5JaNyRrKmX5FvsiLtDWtyTEJY=; b=2i6bQPw1fRw52WrW3/ouJJvjjj
+	j88cQaN+79Xn7si2bPemz1t7d6WIvKHZJ6sIhS5RjDbMayDpwtAJK4SbmBRF80/7TBATGnJiAZAyC
+	YY+QWfWBKGmS8IU6rSOvXD/4VpjEfPhj9U1DJehR5EjFYuROTkirSGgjtnjYWQxXL2SlbUeO7myoB
+	rvewW8kD6UZFGFxt70MDzYLVh40ARhaS6OcShEaGDPkZlG2Q1D7z0Wg561YGxtFFVBS8l3SfCDqaa
+	jLcWRfxr8FziRunGYM41GIDuRtEIihKtpRyX8kbugK5ltXVT+AZ4u+DrURpCkCSA05rn9U3J9LNyy
+	pcJgxUHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvXug-00000004dkg-28q8;
-	Sun, 16 Aug 2026 10:16:22 +0000
-Received: from fout-b3-smtp.messagingengine.com ([202.12.124.146])
+	id 1wvYJf-00000004eZ2-1SU9;
+	Sun, 16 Aug 2026 10:42:11 +0000
+Received: from chaosmail.tech ([77.81.229.115])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvXud-00000004dju-2Y83
+	id 1wvYJc-00000004eX1-11LV
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 16 Aug 2026 10:16:21 +0000
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfout.stl.internal (Postfix) with ESMTP id 2A13B1D0008F;
-	Sun, 16 Aug 2026 06:16:13 -0400 (EDT)
-Received: from ams-imap-03 ([10.64.2.23])
-  by ams-compute-02.internal (MEProxy); Sun, 16 Aug 2026 06:16:14 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1786875372;
-	 x=1786961772; bh=b4smyzpnVln00Im8G3tqsTx+iL97HQk+6mnv4RbTj6I=; b=
-	lCvMZagGuEbNR/pjLbY/lYJgAoSSuJD90l9XdVjDVbA4JrSdCYHTvNSgVjjjBthq
-	npjE7yQZu88aiGKs2h6RqLU3LLS1Fvsiol8/nidzwAd4qE0WzkWMpEaXhjLDTOBM
-	tzJqLR4Y5U9rkdqkgeCh83IyYp4/vQ7/u45Uc1Ow48QbkdrcxuclpD1fiNmgJtZp
-	ZfWnWC5eU1TQzcaRef+gQRKN3pnEJRus9kYCzc8msYduB6VnDI0q3im161D2GrOo
-	etjoKArKau+h1JaPtZJRax7M/CwXQt2WC/QXvuiLaVaoOjpkJoYq28eSlJx4hnzw
-	cZurPSMwCS+9QLxLfrbKZQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1786875372; x=
-	1786961772; bh=b4smyzpnVln00Im8G3tqsTx+iL97HQk+6mnv4RbTj6I=; b=R
-	f4U8ORWp2dAW9Bn1uYvpAqFTk7uTRYUk2KiZ38MjenySEW7SiDqBCxqyz2bXel1W
-	ZCxZwC9uUY9x5OtrzD6tuUhJm/EXPT6+6jJuxeeIa7vGPU3XlwpFJdLeHwaj9iAr
-	z8yo+W5ajtZQrCqyHecOrRz2pwp6diDN3Pw9zIJsSwhT8wRC7nxJL3hI3QA6WFaV
-	lAivheT2iJpxRJ0Seqr6C4DRnaNGP/Emdia+bVb2h3rUrktwJiHb7FYH04LKSM3W
-	h0bKQhL0nvpbOfV29ZPRDOdrgZM2R97CKxNXxIok0k2xmizVZDuAnqvFx8+1CVDY
-	aOeUA92N8V2WiI/iSq5uw==
-X-ME-Sender: <xms:5I2BakGZTAXNWjrzycq7mZ9wwWaqgKsLPBVKMKQkXUdebdDtf6HORw>
-    <xme:5I2BaoJ6yJSxH02xUFyU3aQjQ8PuczWuZRNfyFtH8FLm4-NzSmYWQ26Z8hdyCBKe3
-    kzZ4YFucEfczaUKTx0hin-2EAvXJAXkSMoivPxlyWLNc5OzNrO1EMbg>
-X-ME-Proxy-Cause: dmFkZTEs37CV2sWl7vX8/MegoKYc/3F3SO7iK024eehlfkxnjLOIzrchvdj35/2XKwD7Lk
-    J3pGIB98Ce9AagWK555Ct7V0OFXbkAK26dRWlmT24K6vy8vX5eM1smu7suKy1ziuCsukpz
-    sMjy2DSHACuS95Ph4PT50bw6TBPPxqFukyp09USb8TGMFjz2eHS1KsmvosZYlUdmZhFYq5
-    YFL5fyB7+bTuKNQQoLVjQUBs/SyoN/3PLWIxAP/UqQXbc64Tueq7axmshph8xYscM16Hx2
-    PuwyloXggPppH/1Coaug6n3DI07sNLfuRNjO6t8yeXdVrmcenckc5tQquySgpw0KoW4uIA
-    1yEZPxbKpT5f/jjrcLyXnOV0clMZslMDcbuTQQlwVWJ8LmiXVr6cSuiO4BgF3Z/Xsm6FbL
-    UWrpvMOKQlYA3V6C0LTRxNVXedBWThJHiHG/tYYO/fOfC91IaCc+fqn/yQroxRs8bWz6wY
-    gRDzAEdgG6NRkqhVHJ/ySfVb8BGEirJAsL4a0dDet8nq7aU4GaKJfga+uqWvXxbYCAM0ze
-    ebdnrWJBMYEB7Sw5KQppxJG4qQF7zG3f57KIcyeslc4uOTGlyFL6CUnj+yVBjQ10bgdAhp
-    aJsisRXxgiOHTu6e4YgkXHDPgjZq/zAD3c+NXTEbKrIM26+XAbmbhH6Ek8Rw
-X-ME-Proxy: <xmx:542Bar2zOFRnMf9EB9lfOMFOnsH9kpqnpD_ezDwPJ6gLBfIWkLJfuw>
-    <xmx:542Bagn1Scux6Cx5B4BUmihaouK99Yj1gc5_gDQtogjdyuiB9icAKA>
-    <xmx:542Bap512UurWCJVSEFlsAM5VH0MJU9vFZB7J-Y5NLQj_pNqVytc2A>
-    <xmx:542BajlUlSrFdF_NxjcINq8N21HWeG-_GP5iVMBT9LbP9iw-c8LuYQ>
-    <xmx:7I2BapqXhY6V7-Os9jSV7Pvfso387fTJF0d404u6lihDSxT46Sws1yYN>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 6A40232A006F; Sun, 16 Aug 2026 06:16:04 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Sun, 16 Aug 2026 10:42:09 +0000
+Received: by chaosmail.tech (Postfix) id 577791C9BC7;
+	Sun, 16 Aug 2026 10:26:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chaosmail.tech;
+	s=mail; t=1786875996;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=VlhlhN6Ao8cxtOBbRD5JaNyRrKmX5FvsiLtDWtyTEJY=;
+	b=Yn3VVeIGk+xGSR3OW8tqF0bn74S5I8aT9B5/wXZP1YXesMUkjOMND0pzrNbEpKvJWzmEkn
+	pbbCkCdDOqENNckZjYMfjQ5uUOOT15rJK0eh6wlcsh7BvDKA+Haw9ikTSwqAjI+nYPTXpv
+	42/Vb+QQZQGI6hhDlGCGH5FBLzf3k7U=
+From: Sasha Finkelstein <k@chaosmail.tech>
+Date: Sun, 16 Aug 2026 12:26:23 +0200
+Subject: [PATCH v6 3/6] spmi: apple: check transaction status
 MIME-Version: 1.0
-X-ThreadId: AwnWr737caCF
-Date: Sun, 16 Aug 2026 12:15:44 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Will Deacon" <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- "Ard Biesheuvel" <ardb@kernel.org>, "Eric Biggers" <ebiggers@kernel.org>,
- "Daniel Borkmann" <daniel@iogearbox.net>,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "Alexei Starovoitov" <ast@kernel.org>, "Oliver Upton" <oupton@kernel.org>,
- "Herbert Xu" <herbert@gondor.apana.org.au>, "Marc Zyngier" <maz@kernel.org>,
- "Linus Walleij" <linusw@kernel.org>
-Message-Id: <b14ee6f2-1b90-4254-822c-ad352646005e@app.fastmail.com>
-In-Reply-To: <aoGHINU1DWOHXgYC@willie-the-truck>
-References: <20260811140132.22778-1-will@kernel.org>
- <6632712f-7782-4580-84c0-62124a016f46@app.fastmail.com>
- <aoGHINU1DWOHXgYC@willie-the-truck>
-Subject: Re: [PATCH 00/12] arm64: Remove unused big-endian support
-Content-Type: text/plain
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20260816-t603x-spmi-v6-3-c5ab87aa447b@chaosmail.tech>
+References: <20260816-t603x-spmi-v6-0-c5ab87aa447b@chaosmail.tech>
+In-Reply-To: <20260816-t603x-spmi-v6-0-c5ab87aa447b@chaosmail.tech>
+To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Neal Gompa <neal@gompa.dev>, Stephen Boyd <sboyd@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ Sasha Finkelstein <k@chaosmail.tech>, Alba Mendez <me@alba.sh>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1786875992; l=2846;
+ i=k@chaosmail.tech; s=20241124; h=from:subject:message-id;
+ bh=EambuisSIw3s+EavjiZydICr5EUeyWSuYrWkUmgadRo=;
+ b=f6jbLR007tDXfUs52TBKTtkZRPN6MUIVcqV8tje9pYJEJamu2RpDt5Gbev1SS0yaPK9W9cXDL
+ NwJhKeLpm2tCUp4yJo8Llj586hUHzCWdtytxyCM3nQKmSJxV0QzavfJ
+X-Developer-Key: i=k@chaosmail.tech; a=ed25519;
+ pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260816_031620_231775_886387D4 
-X-CRM114-Status: GOOD (  20.92  )
+X-CRM114-CacheID: sfid-20260816_034208_477297_62B92F72 
+X-CRM114-Status: GOOD (  11.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,46 +79,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Aug 16, 2026, at 11:47, Will Deacon wrote:
-> On Tue, Aug 11, 2026 at 05:11:47PM +0200, Arnd Bergmann wrote:
->> On Tue, Aug 11, 2026, at 16:01, Will Deacon wrote:
->>
->> My suggestions there was to possibly remove arm32 big-endian mode at
->> the same time as on arm64, but that does feel a little rushed if
->> ixp4xx only has one release of supporting both, and removing be8
->> but leaving be32 for a little while longer is probably not worth it.
->
-> Yeah, maybe give it another LTS on the arm32 side? I think arm64 going
-> first is ok, though.
+From: Alba Mendez <me@alba.sh>
 
-Right, one more LTS for 32-bit is probably good. We'll see how the
-OpenWRT/ixp4xx conversion goes for users.
+Check for parity errors and missing command ACKs.
 
-My feeling so far is that running ixp4xx in LE mode is probably fine
-(there may still be driver bugs), but flashing a running system
-from one mode to the other is a bit risky and BE32 mode makes this
-more confusing the BE8.
+Signed-off-by: Alba Mendez <me@alba.sh>
+Reviewed-by: Janne Grunau <j@jannau.net>
+Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
+---
+ drivers/spmi/spmi-apple-controller.c | 25 ++++++++++++++++++++-----
+ 1 file changed, 20 insertions(+), 5 deletions(-)
 
->> > I've broken this down into fairly coarse chunks, as it seemed a lot
->> > easier to manage than one giant patch (even with the Kconfig being
->> > effectively disabled already) and not all of it is just mindless
->> > deletion. Despite that, I'm anticipating the whole thing going via the
->> > arm64 tree.
->> 
->> I would have done even larger patches, this does already feel fairly
->> fine-grained to me ;-). I had a look at the individual patches to make
->> sure this all makes sense, and I found nothing wrong here.
->
-> If it was just a sed script or similar, I think I'd would've done a giant
-> patch, but some of it is surprisingly error-prone (e.g. when you have a
-> file with a load of '#ifdef CPU_BIG_ENDIAN' and then an '#ifndef
-> CPU_BIG_ENDIAN' hiding in the middle of it all).
+diff --git a/drivers/spmi/spmi-apple-controller.c b/drivers/spmi/spmi-apple-controller.c
+index 15721cb41d5c..b1c127cf5f44 100644
+--- a/drivers/spmi/spmi-apple-controller.c
++++ b/drivers/spmi/spmi-apple-controller.c
+@@ -11,6 +11,8 @@
+  *		spmi-pmic-arb.c Copyright (c) 2021, The Linux Foundation.
+  */
+ 
++#include <linux/bitfield.h>
++#include <linux/bits.h>
+ #include <linux/io.h>
+ #include <linux/iopoll.h>
+ #include <linux/module.h>
+@@ -23,6 +25,12 @@
+ #define SPMI_RSP_REG 0x8
+ #define SPMI_ACT_REG 0xa4
+ 
++/* SPMI_RSP_REG reply word */
++#define SPMI_REPLY_FRAME_PARITY_STATUS GENMASK(31, 16)
++#define SPMI_REPLY_ACK BIT(15)
++#define SPMI_REPLY_SLAVE_ID GENMASK(14, 8)
++#define SPMI_REPLY_CMD GENMASK(7, 0)
++
+ #define SPMI_ACT_FIFO_FLUSH BIT(0)
+ #define SPMI_RX_FIFO_EMPTY BIT(24)
+ 
+@@ -66,7 +74,7 @@ static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
+ {
+ 	struct apple_spmi *spmi = spmi_controller_get_drvdata(ctrl);
+ 	u32 spmi_cmd = apple_spmi_pack_cmd(opc, sid, saddr, len);
+-	u32 rsp;
++	u32 reply, rsp;
+ 	size_t len_read = 0;
+ 	u8 i;
+ 	int ret;
+@@ -82,8 +90,7 @@ static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
+ 	if (ret)
+ 		return ret;
+ 
+-	/* Discard SPMI reply status */
+-	readl(spmi->regs + SPMI_RSP_REG);
++	reply = readl(spmi->regs + SPMI_RSP_REG);
+ 
+ 	/* Read SPMI data reply */
+ 	while (len_read < len) {
+@@ -106,6 +113,10 @@ static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
+ 		spmi->prev_fail = true;
+ 	}
+ 
++	if (~FIELD_GET(SPMI_REPLY_FRAME_PARITY_STATUS, reply) & ((1 << len) - 1)) {
++		dev_err(&ctrl->dev, "some frames failed parity check\n");
++		return -EIO;
++	}
+ 	return 0;
+ }
+ 
+@@ -114,6 +125,7 @@ static int spmi_write_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
+ {
+ 	struct apple_spmi *spmi = spmi_controller_get_drvdata(ctrl);
+ 	u32 spmi_cmd = apple_spmi_pack_cmd(opc, sid, saddr, len);
++	u32 reply;
+ 	size_t i = 0, j;
+ 	int ret;
+ 
+@@ -137,14 +149,17 @@ static int spmi_write_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
+ 	if (ret)
+ 		return ret;
+ 
+-	/* Discard */
+-	readl(spmi->regs + SPMI_RSP_REG);
++	reply = readl(spmi->regs + SPMI_RSP_REG);
+ 
+ 	if (!(readl(spmi->regs + SPMI_STATUS_REG) & SPMI_RX_FIFO_EMPTY)) {
+ 		dev_warn(&ctrl->dev, "FIFO has extra data\n");
+ 		spmi->prev_fail = true;
+ 	}
+ 
++	if (!FIELD_GET(SPMI_REPLY_ACK, reply)) {
++		dev_err(&ctrl->dev, "command not acknowledged\n");
++		return -EIO;
++	}
+ 	return 0;
+ }
+ 
 
-Yes, definitely, I've found out the hard way during other feature
-removal before.
+-- 
+2.55.0
 
-scripts/unifdef.c should be able to help with this, but I never
-remember that this is a thing.
-
-     Arnd
 
