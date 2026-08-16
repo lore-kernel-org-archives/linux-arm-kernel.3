@@ -4,65 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5916C5CFC1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Aug 2026 01:15:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7323AC5CFC1
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Aug 2026 01:43:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JFmGP0VJtabRx/4pFXIvCVtLulMVCbvWMx/1YBF3fdM=; b=Uq815Wj2n+Ac4Q+OM3UFLaxioK
-	sWY1rs7fwAO6xMK4Cyitsr4EYRgSYIVsSggwqAPIbiiD52YMs43ELGEZxSLKCDvyZ2ozZ+WrsFMgB
-	JuQuald+RCBnLzYhtKerS3juwhvh9+8E4jUmraaVgTAAqyipznE27aJWbab0L7PqDBhAYHKVK8OCH
-	If2tGFTfrTcWIvlm35vHRgUXfbFUzI6GlElcU2qETz7a2TZt5fcijRJKScsDX6bqodvQoA3T/0u1T
-	E5JTRJc0h4YlURY1S/O/De+IxwD8MLBuHjMgn1uIYm+QIxB5dR07lgWNlZ2UdmS77MisS0taF3ODH
-	AfvPF7OA==;
+	bh=dVBzPFe0whP78lsDOkJAtpx+rXVWYaUG5slZsC0Fb64=; b=knrmmTVQB1eA2dPTkXkahTianE
+	ZPkB68KJOpIXvdp8eN7Mj/3B/g8HLOnVsGeDDT4VA11obIqfBsmZLUtFhKZdX72wqvLRA5XUulbQv
+	XojKrofz3obDKjSF1qyKObmMC/sUN/BTvMAmHRhScAvC7Q+bRnEK72yGgVJOcE2S0oQtAIa11Kwl1
+	zdN4rwHuVX9MLpAkmPFmOxOYhGp/tuIrPb7l16Qt//SqMTVhtdPV6LOsN7WQEygDOUi0rQC6sobvw
+	fVEM/+Mx4/k7w+aGOwYK2EzHBlBsS6XUr+VobIiBIZLorxIX+rzA2bSmx4oYk4HIMHltutAUiwfD3
+	MlcqMn/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvPTU-00000004N5C-28Ny;
-	Sun, 16 Aug 2026 01:15:44 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wvPts-00000004O8g-1heR;
+	Sun, 16 Aug 2026 01:43:00 +0000
+Received: from out30-113.freemail.mail.aliyun.com ([115.124.30.113])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvPTS-00000004N4y-357k
+	id 1wvPtn-00000004O7l-37HJ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 16 Aug 2026 01:15:42 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id F1DB340BF1;
-	Sun, 16 Aug 2026 01:15:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8EDE21F000E9;
-	Sun, 16 Aug 2026 01:15:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786842941;
-	bh=JFmGP0VJtabRx/4pFXIvCVtLulMVCbvWMx/1YBF3fdM=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=ecs2r+s/2ExFbUc3zmpWPXzsPkwLyD4uyeow+63PNcNBszfM5VPFA6WBJJMlC4rp7
-	 ynZ57pGKuXnY0sVbPgo82340LM0cPyuO1oLQPGJ3OHW0H6LziULspZ/uhVV0WHpy+x
-	 HFNrm5WL8u6JjmvgxP0DXX8EQ8I+ndQjUUTdPxugOSbVpa8I3R0NLchb0C5pykI/Ki
-	 oBF0THPz5kCD0Fbi0NVyEEcuhKDJQJTIQokottACSGek0sOXhAD/jE7JD6ttakrY+3
-	 FDCygu29E7DLsceRzdZJcB4qEJH86FwUeEahAF2oljbNERglR+Q2wMzl3XorOa34Ge
-	 JfaWk5Y2OfXRA==
-Date: Sun, 16 Aug 2026 02:15:39 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: mdshahid03@gmail.com, Andy Shevchenko <andy@kernel.org>, David Lechner
- <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Ray
- Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, Broadcom
- internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Markus
- Elfring <Markus.Elfring@web.de>, Joshua Crofts <joshua.crofts1@gmail.com>,
- linux-iio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 3/3] iio: adc: bcm_iproc_adc: Convert probe error
- handling to dev_err_probe()
-Message-ID: <20260816021539.5f95f403@jic23-huawei>
-In-Reply-To: <anmMmrbhUvtmm5xs@ashevche-desk.local>
-References: <20260806023902.8608-1-mdshahid03@gmail.com>
-	<20260806023902.8608-4-mdshahid03@gmail.com>
-	<anmMmrbhUvtmm5xs@ashevche-desk.local>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	Sun, 16 Aug 2026 01:42:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1786844567; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=dVBzPFe0whP78lsDOkJAtpx+rXVWYaUG5slZsC0Fb64=;
+	b=DgWl2RNZx6ty/p7bifOi6GHSQr53K97G142QSbwmSo+EX8O8n/xAPbCgDXCuU9cltYuVxbp3mWo4o6uuQRvHcZlyxK7pzyz5z7ov7tMeD+StBCnlVLudgm9WGkxSlVGC15ReIznQK1eVPWHtFIxRpcxO7cs/TdunOVRlfCGItwk=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R141e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045098064;MF=xueshuai@linux.alibaba.com;NM=1;PH=DS;RN=8;SR=0;TI=SMTPD_---0X9-u0h6_1786844565;
+Received: from 30.28.192.31(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0X9-u0h6_1786844565 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Sun, 16 Aug 2026 09:42:46 +0800
+Message-ID: <7321c855-08b7-4270-9d98-297a872ad47d@linux.alibaba.com>
+Date: Sun, 16 Aug 2026 09:42:36 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] perf/dwc_pcie: Fix PCI device reference leak in probe
+To: Ruoyu Wang <ruoyuw560@gmail.com>, Jing Zhang
+ <renyu.zj@linux.alibaba.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Yunhui Cui <cuiyunhui@bytedance.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20260814133925.1385687-1-ruoyuw560@gmail.com>
+From: Shuai Xue <xueshuai@linux.alibaba.com>
+In-Reply-To: <20260814133925.1385687-1-ruoyuw560@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260815_184256_504620_B241416A 
+X-CRM114-Status: GOOD (  14.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,69 +68,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 10 Aug 2026 11:32:26 +0300
-Andy Shevchenko <andriy.shevchenko@intel.com> wrote:
 
-> On Thu, Aug 06, 2026 at 08:09:02AM +0530, mdshahid03@gmail.com wrote:
-> 
-> > Replace open-coded dev_err() followed by return with dev_err_probe()
-> > for probe failures that immediately return.
-> > 
-> > Leave error paths that jump to cleanup labels unchanged to reduce code
-> > churn. These paths will be converted separately together with the
-> > planned devm-managed cleanup using devm_add_action_or_reset().  
-> 
-> ...
-> 
-> >  	adc_priv->regmap = syscon_regmap_lookup_by_phandle(pdev->dev.of_node,
-> >  			   "adc-syscon");  
-> 
-> Size note: the above can be also amended (since you have a 'dev') to
-> 
-> 	adc_priv->regmap = syscon_regmap_lookup_by_phandle(dev->of_node,
-> 							   "adc-syscon");
-> 
-> But we can go even further (in a separate patch) and move it to
-> 
-> 	adc_priv->regmap = syscon_regmap_lookup_by_phandle(dev_of_node(dev),
-> 							   "adc-syscon");
-> 
-> ...
-> 
-> >  	adc_priv->adc_clk = devm_clk_get(dev, "tsc_clk");
-> > -	if (IS_ERR(adc_priv->adc_clk)) {
-> > -		dev_err(&pdev->dev,
-> > -			"failed getting clock tsc_clk\n");
-> > -		ret = PTR_ERR(adc_priv->adc_clk);
-> > -		return ret;
-> > -	}
-> > +	if (IS_ERR(adc_priv->adc_clk))
-> > +		return dev_err_probe(dev, PTR_ERR(adc_priv->adc_clk),
-> > +				     "failed getting clock tsc_clk\n");  
-> 
-> >  	ret = clk_prepare_enable(adc_priv->adc_clk);
-> > -	if (ret) {
-> > -		dev_err(&pdev->dev,
-> > -			"clk_prepare_enable failed %d\n", ret);
-> > -		return ret;
-> > -	}
-> > +	if (ret)
-> > +		return dev_err_probe(dev, ret, "failed to enable clock\n");  
-> 
-> This will be less churn if the previous (new) patch will convert this to use
-> devn_clk_get_enabled(). But if Jonathan is okay with this patch as is, you
-> can take my
-> Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
 
-Too much in my backlog for me to keep track so I'll merge what we have
-here and a follow up bit of devm_ work can be a separate series (this
-time - look for similar opportunities if you do similar work
-in future!)
-
-Series applied to the testing branch of iio.git.
-
-Jonathan
-
+On 8/14/26 9:39 PM, Ruoyu Wang wrote:
+> pci_get_domain_bus_and_slot() returns a referenced PCI device. When the
+> subsequent RAS DES capability lookup fails, dwc_pcie_pmu_probe() returns
+> -ENODEV without releasing that reference. Repeated failed probes can
+> therefore keep the PCI device allocated after removal.
 > 
+> Move the existing pci_dev_put() immediately after capability discovery
+> so the temporary lookup reference is released on both success and
+> failure paths.
+> 
+> This issue was found by a static analysis checker and confirmed by
+> manual source review.
+> 
+> Fixes: 7f35b429802a ("perf/dwc_pcie: fix duplicate pci_dev devices")
+> Signed-off-by: Ruoyu Wang <ruoyuw560@gmail.com>
+> ---
+>   drivers/perf/dwc_pcie_pmu.c | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/perf/dwc_pcie_pmu.c b/drivers/perf/dwc_pcie_pmu.c
+> index 5385401fa9cf6..baa736fd9a6ef 100644
+> --- a/drivers/perf/dwc_pcie_pmu.c
+> +++ b/drivers/perf/dwc_pcie_pmu.c
+> @@ -710,10 +710,10 @@ static int dwc_pcie_pmu_probe(struct platform_device *plat_dev)
+>   	}
+>   
+>   	vsec = dwc_pcie_des_cap(pdev);
+> +	pci_dev_put(pdev);
+>   	if (!vsec)
+>   		return -ENODEV;
+>   
+> -	pci_dev_put(pdev);
+>   	name = devm_kasprintf(&plat_dev->dev, GFP_KERNEL, "dwc_rootport_%x", sbdf);
+>   	if (!name)
+>   		return -ENOMEM;
+
+
+Good catch.
+
+Reviewed-by: Shuai Xue <xueshuai@linux.alibaba.com>
+
+Thanks.
+Shuai
 
 
