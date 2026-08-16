@@ -4,53 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACE88C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Aug 2026 14:06:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2860C5DF76
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Aug 2026 14:06:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=6U+o+LtByJrl528SG+t8HUNDNoQonun4hjUClgQ20+A=; b=zpdjvjagH06yGf
-	SBv95Ml9h3lxu4NuFFeofZOZ7JUqyEyOHWCBxAQKYY9sqT77nLc3tJ9l8srVNHPuiGJJHMVCIuu4J
-	sBG8NgrFyWrh7O/qH5jL/l2x9ZMTbiSNFPIYOA7gHXZr0jnJu5/zpVybyDbQMAaZ7QA7pZ/Iy80rP
-	3eGDFxMISiBvclvVsqHy6tVJNVKk6pHlTBye4tIyPv4rGyH6MC94XKN7894UNh70ssFRG8SA0TI/T
-	MD+kszkjZl7d5MBQgKHWUTbEPipFU7G6u82jcyAqWdgw18lMR+h+hBXejwsdGC8sjU7+EsKTvNtIw
-	8pUQDJKWQgRfeqIx5wFA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ySmnWO3XBpCyGmRmqJ/3VJ0DyjSd0CyWUVKuIAJPxQA=; b=SjTO2+7M1TxbSBEKJ8THioqb5V
+	aXgIBPGWm2XUR7tJVpqL1B2wdFwQZPCEAeiFVgRk23BP6DjPLDe4RCesj9WNmROae5zeYM1fTLm4a
+	kn8Tw6Emb/Mt3lrfM0zxSfYcSNfV2RSxbY9X1LDgOGd4HpGS/xNUr3rA88pAgjZMGVexy8tuWH4EP
+	fcdlAeSFl3m6YNFaT5HGlOOyGB5yyiko7oWPUj2OGkxNcTHRDI8f+Fz1bOU5uX29U66eDb/j0UEx5
+	cZTFAmYfGJfU21mIYAT070L1QcxFutuacywQBJ2ZIi6p3VRvey7JzbqJpqyHX5oLYt0LZoy5ARr/q
+	hKbyPsmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvbUw-00000004oJp-428R;
+	id 1wvbUw-00000004oJa-3Y8T;
 	Sun, 16 Aug 2026 14:06:02 +0000
 Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvbUs-00000004oIj-2Avv;
+	id 1wvbUs-00000004oIk-3hzr;
 	Sun, 16 Aug 2026 14:06:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Cc:To:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Message-Id:Date:Subject:From:From:Reply-To;
-	bh=6U+o+LtByJrl528SG+t8HUNDNoQonun4hjUClgQ20+A=; b=hdeUW5EkSbGSgYO3JiAViGaGrC
-	BNGthEErlBOewtNFYcBGxwo8QZLFy8dU0+XCH8WEVAOsFACT0N4D8xTA+Oe5xd8m5jCHGSC8ry/6u
-	IDnSKTSm38ph4M7xqC6hm4yKywduZb5UIIGMZJ7ezGzY7GVAW+bLEBrpJlv5/QdlVm6CindxRrWck
-	a62amdxfglGpESQhOlSuWPW89lyLyGEcVbv7IXPeQDkgExEGgZA6yWegjCuqW7KesYyoq+DgqdYqh
-	SQzgxkdXmFmTma3krC2gnA6K8xBZ7jtBSh8R/z0jQ7vr6Js4e+0CI0SaLZJdDxVP12W7vxRxGnghH
-	t6eFaHfA==;
+	s=20170329; h=Cc:To:Message-Id:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Subject:Date:From:From:Reply-To;
+	bh=ySmnWO3XBpCyGmRmqJ/3VJ0DyjSd0CyWUVKuIAJPxQA=; b=EUeKhmBHdTI3GQh50iJI+1DD3x
+	FdmxLfejc5u1j+gVHq/KAQHeboTMFJLyU9guKoAM+ztORGP5cgvfOGilTWuZ0c8vAlwz5rqKJZPtY
+	3wlYcACMf9od3SHZKIB0cS6xIKLFwDXy0MirLeAqczBYd/o2Abuo514iePwYds1jL2fZzOvS21SbK
+	700ZCbP5kvWhcZPI2o/kCkAFJUaT/vVyBrvQQ80Cd8VdZUJJRSTzht3ui2TyvmR4i3Xu9YB4Kyl05
+	U5cZG5F2jfEtlTvfR8pJ/9hRevYphjN10rxSP59UF7FmuQp9qfxBzVWbPyjZ3EYpq1CZd6RX6EZ9w
+	Dl/5pwCQ==;
 Received: from [179.105.94.163] (helo=[10.0.0.1])
 	by fanzine2.igalia.com with esmtpsa 
 	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
-	id 1wvbUj-002tuI-O1; Sun, 16 Aug 2026 16:05:50 +0200
+	id 1wvbUp-002tuI-9v; Sun, 16 Aug 2026 16:05:55 +0200
 From: =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
-Subject: [PATCH 0/4] drm/vc4: Reset the V3D block through the reset
- controller
-Date: Sun, 16 Aug 2026 11:05:39 -0300
-Message-Id: <20260816-vc4-reset-control-v1-0-896444373716@igalia.com>
+Date: Sun, 16 Aug 2026 11:05:40 -0300
+Subject: [PATCH 1/4] drm/vc4: Drop the undocumented brcm,vc4-v3d compatible
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MwQpAQBRG4VfRXbvFkPAqsmDmxy3N6I6k5N1Nl
- t/inIciVBCpzx5SXBIl+IQyz8huk1/B4pLJFKYp2tLwZWtWRJxsgz817GydWyrM7dSho9QdikX
- u/zmM7/sBVsH7F2MAAAA=
-X-Change-ID: 20260812-vc4-reset-control-cddf3eb8a9e9
+Message-Id: <20260816-vc4-reset-control-v1-1-896444373716@igalia.com>
+References: <20260816-vc4-reset-control-v1-0-896444373716@igalia.com>
+In-Reply-To: <20260816-vc4-reset-control-v1-0-896444373716@igalia.com>
 To: Maxime Ripard <mripard@kernel.org>, 
  Dave Stevenson <dave.stevenson@raspberrypi.com>, 
  Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
@@ -65,20 +62,20 @@ Cc: kernel-dev@igalia.com, dri-devel@lists.freedesktop.org,
  linux-arm-kernel@lists.infradead.org, 
  =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2340; i=mcanal@igalia.com;
- h=from:subject:message-id; bh=fCR0DhMM/c4JoZx1VI8ywyO79TCxSceFBK4cwUgoVk0=;
- b=owEBbQGS/pANAwAKAT/zDop2iPqqAcsmYgBqgcO4kEdNiHpKBu/9hcn2xxZAN+OUwb/oj6Ase
- 5eS9azUrwyJATMEAAEKAB0WIQT45F19ARZ3Bymmd9E/8w6Kdoj6qgUCaoHDuAAKCRA/8w6Kdoj6
- qpNSB/41kda5XFtrP1Y7QQRulv5vHOaUp+qWemo/JFfnlmpCmF8MPtaqIzatSvXrtvJwIkoty0U
- z3LPRMIrEL1WUFZz7PUcFon6XP2LVeciB2ODQoUCXAW7NdV/O4hYgjyuOBgQIRZthAcCxlYAzhT
- lIyqwQA4jGAPJit422r/YQ5VaceaL5Bqjt/4Sj+bSw1YKoWFmtFOjsHo12o10hKJYzsLKr4L74e
- FXaiA0+QMv9t4IN0LPs3K7qGztzTMxO/67+ILY+8jdsp+2CGGeyjlJDcLk+FyVRuJBQ3ey39cg7
- lyf2ryMNUG3WCJWDj4ld0xZucAgdNed47yi0TFGOCCnkaMkS
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1958; i=mcanal@igalia.com;
+ h=from:subject:message-id; bh=nuaMYYTQqhqKJlPaF30SikTyAbBlUrVsMa8qr5TuWQw=;
+ b=owEBbQGS/pANAwAKAT/zDop2iPqqAcsmYgBqgcO4xQgyy+Sd0RwL+2JuA7vOYeeRX5MzP8osz
+ 8qfiCfLgReJATMEAAEKAB0WIQT45F19ARZ3Bymmd9E/8w6Kdoj6qgUCaoHDuAAKCRA/8w6Kdoj6
+ qiG3B/4k2ZV0kbJKQ8+DXSOrcbsRJl4t7l9wsGcIFFXPrnUG0pjHTTFB3E/cGDy55tvX60jAQC7
+ nWuCPpgxp5DLpAJyFLS4sKh3mIpDtUanp8FFtL1SnGukXNC/piw+7zqMq6zFAz9kSTEXIPOXxxq
+ UDCuPO6CA+UISwThAOMYYgMWPC0JQMK8YyvlUki+Re/lbsWzGro5zUj7xYlIyX6ngOg7hJNWrRb
+ cPDnoX78Cr94Rfald1BVdB/64M7i2CncxJvFG8YIN42N6Fq14Qp/RPWP5gI4AMOKrY+r3IZARtW
+ Rm5izgR4NhxHpfWRXgc57zTZG8oTX42qYwyB8adaKgdBdhET
 X-Developer-Key: i=mcanal@igalia.com; a=openpgp;
  fpr=F8E45D7D0116770729A677D13FF30E8A7688FAAA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260816_070558_873767_33144563 
-X-CRM114-Status: GOOD (  12.71  )
+X-CRM114-CacheID: sfid-20260816_070558_921015_E5312F77 
+X-CRM114-Status: GOOD (  11.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,54 +90,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-vc4_reset() recovers a hung GPU by dropping the runtime PM usage count to
-zero so that the V3D power domain goes down, and then taking it again.
-Forcing the count to zero only works if the driver knows exactly how many
-references it holds, which is why vc4 unconventionaly wraps every
-pm_runtime_get_sync() call in a private refcount and mutex, making the
-code cumbersome.
+"brcm,vc4-v3d" is the compatible string V3D support originally shipped
+with in commit d3f5168a0810 ("drm/vc4: Bind and initialize the V3D
+engine."). Commit 90d7116061f8 ("drm/vc4: Recognize a more specific
+compatible string for V3D.") added "brcm,bcm2835-v3d" in v4.6 and kept
+the original one around, because the Raspberry Pi firmware was shipping
+device trees that used it.
 
-The BCM2835 PM block has exposed a reset line for the V3D block since
-commit 670c672608a1 ("soc: bcm: bcm2835-pm: Add support for power domains
-under a new binding."), added for exactly this reason, but vc4 never
-picked it up. This series switches vc4 over to it and drops the private
-refcount, leaving vc4_v3d_pm_get/put() as plain runtime PM wrappers.
+That string was never part of the binding: the documentation added in
+commit 4653f22e9ab0 ("dt-bindings: Add binding docs for V3D.") describes
+only "brcm,bcm2835-v3d", and no upstream device tree has ever used
+"brcm,vc4-v3d": the first in-tree V3D node, from commit 49ac67e0c39c
+("ARM: bcm2835: Add VC4 to the device tree."), already carried the
+specific name. The firmware device trees the compatible was kept for
+predate v4.6, released in 2016.
 
-The reset line is optional, so device trees that do not describe one keep
-working: they get the driver-side recovery in vc4_irq_reset() while the
-hardware is left untouched. Of the two in-tree platforms,
+Drop it from both match tables.
 
-  1. BCM2835 gains the property in PATCH 4.
-  2. Cygnus has no V3D power domain to begin with, so the power-cycle
-     only ever gated its clock there.
-
-PATCH 1 is an independent cleanup. "brcm,vc4-v3d" was never documented
-and was never used by any in-tree device tree, so it is a candidate for
-removal on its own. It can be dropped from the series if it turns out
-to be contentious.
-
-This series was tested on the Raspberry Pi 3B and 3B+.
-
-Best regards,
-- Maíra
-
+Signed-off-by: Maíra Canal <mcanal@igalia.com>
 ---
-Maíra Canal (4):
-      drm/vc4: Drop the undocumented brcm,vc4-v3d compatible
-      dt-bindings: display: bcm2835-v3d: Add an optional reset line
-      drm/vc4: Use the reset controller to recover from a GPU hang
-      ARM: dts: bcm2835: Add the V3D reset line
+ drivers/gpu/drm/vc4/vc4_drv.c | 1 -
+ drivers/gpu/drm/vc4/vc4_v3d.c | 1 -
+ 2 files changed, 2 deletions(-)
 
- .../bindings/display/brcm,bcm2835-v3d.yaml         |  3 ++
- arch/arm/boot/dts/broadcom/bcm2835-common.dtsi     |  1 +
- drivers/gpu/drm/vc4/vc4_drv.c                      |  1 -
- drivers/gpu/drm/vc4/vc4_drv.h                      | 13 ++++---
- drivers/gpu/drm/vc4/vc4_gem.c                      | 40 +++++++++++++---------
- drivers/gpu/drm/vc4/vc4_irq.c                      |  7 ++--
- drivers/gpu/drm/vc4/vc4_v3d.c                      | 37 +++++++-------------
- 7 files changed, 51 insertions(+), 51 deletions(-)
----
-base-commit: 09b47186a4164f3aaa3591313f80794443117342
-change-id: 20260812-vc4-reset-control-cddf3eb8a9e9
+diff --git a/drivers/gpu/drm/vc4/vc4_drv.c b/drivers/gpu/drm/vc4/vc4_drv.c
+index 616caf9d9915..eb859c65a453 100644
+--- a/drivers/gpu/drm/vc4/vc4_drv.c
++++ b/drivers/gpu/drm/vc4/vc4_drv.c
+@@ -279,7 +279,6 @@ static const struct of_device_id vc4_dma_range_matches[] = {
+ 	{ .compatible = "brcm,bcm2835-hvs" },
+ 	{ .compatible = "brcm,bcm2835-v3d" },
+ 	{ .compatible = "brcm,cygnus-v3d" },
+-	{ .compatible = "brcm,vc4-v3d" },
+ 	{}
+ };
+ 
+diff --git a/drivers/gpu/drm/vc4/vc4_v3d.c b/drivers/gpu/drm/vc4/vc4_v3d.c
+index d31b906cb8e7..379ab77243ad 100644
+--- a/drivers/gpu/drm/vc4/vc4_v3d.c
++++ b/drivers/gpu/drm/vc4/vc4_v3d.c
+@@ -531,7 +531,6 @@ static void vc4_v3d_dev_remove(struct platform_device *pdev)
+ const struct of_device_id vc4_v3d_dt_match[] = {
+ 	{ .compatible = "brcm,bcm2835-v3d" },
+ 	{ .compatible = "brcm,cygnus-v3d" },
+-	{ .compatible = "brcm,vc4-v3d" },
+ 	{}
+ };
+ 
+
+-- 
+2.55.0
 
 
