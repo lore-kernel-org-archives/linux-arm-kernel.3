@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF81AC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 07:31:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 747D2C5DF70
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 07:34:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Fd7pzNoHyUBnTjJJpnWRPeGYZJV4vIlYLFWplUVzYY=; b=gXjzP8S25bN376kXpK7iB0uaAR
-	FDadUVyAu7j1SrKSNxlpYIwgv3ISWgJpTgDdWkr6IpNcsSapDVYWKbXi3sNIHJ0yn12hakIKzZgvg
-	L76Ck/NhyUJMiaiUhfDSCOkRoaNFxupRXxsQKx4/KHlEnDn93j8MeQ/gKv2bb/x2vWBnlnPD7A3M9
-	GRiU4XveqKFtygSuT1xDMlmu3w6EAgCkUA2gScst3i7xU/C5k+xPfYaVMBZozptx95LKdfNiyABgW
-	4xxC4DfelGJSwUKpabq/g2kdvUR/iSEVfN90HDIBX25i/3Xbo98Q4JWKxG8hVT80SPf2jHwVaykAT
-	gt9OrIvQ==;
+	bh=OELdZFUCLGwyaUwNs1yktw4XPR6jAfb0Kxz4TG0SrYo=; b=SN5i1hu9TlbsQ5YbKfKRu4YsXn
+	JwS1RB52paU2y3G2yFZZsEaOpDh1gZIXS7NIC0WuqqWV+88cmxAl4JOoHNtqo617vA4HCmv6g8pWW
+	DZtLm8TR/yk1p/xd94sbhQWAygX4IZs58pa0pArrvaS2x2EGiwlKcKUuuXbDpUqVZ3Pam/VDYlf7U
+	i/dHXDbGMG19Z0zo3oGccrsFDC1oNHnIs5t/cm1Mh+LDNRRTGB8Y7U3HjXqOyzmENpKDPuQc5N5ek
+	gjtUj+LV++1Kwpkv1n6BAtZyG56S5z7lZRsIs+iHX9uf5OviYUZFhhj1/R/ImJPlZ6Pfb4HJoNhOF
+	/RRDPkEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvroC-00000005Yen-1nSd;
-	Mon, 17 Aug 2026 07:31:01 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wvrrF-00000005Z6Z-0juB;
+	Mon, 17 Aug 2026 07:34:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvro7-00000005YdU-2pma
+	id 1wvrrD-00000005Z68-0udt
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 07:30:56 +0000
+	Mon, 17 Aug 2026 07:34:07 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1B5964056E;
-	Mon, 17 Aug 2026 07:30:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C62E11F000E9;
-	Mon, 17 Aug 2026 07:30:45 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 907BA43588;
+	Mon, 17 Aug 2026 07:34:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E3C01F000E9;
+	Mon, 17 Aug 2026 07:34:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786951855;
-	bh=+Fd7pzNoHyUBnTjJJpnWRPeGYZJV4vIlYLFWplUVzYY=;
+	s=k20260515; t=1786952046;
+	bh=OELdZFUCLGwyaUwNs1yktw4XPR6jAfb0Kxz4TG0SrYo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=dXsYiIHpunmj7OQ6/Efrvkr4t8pr7EibUF2BO9xuUthST1xV8rGn3eEZGIVWONquD
-	 u4LKNQI+cRdbwZ8dYZA0i1SH56FNvgMvrUHnBgwLMM+ntgEEVb6sUHYoCttdQN0w8I
-	 U2flXA7Hvzrsb4IwUBdz5RS2sa9tYKSW/f2c2SIvnycq8NJTYY6W6h9TyF33c+2qSh
-	 Qbt3HW/6MZWvIwCdiVul2yiaUrgoUwBWOXaIBLg1DtA/U1hVPsPEcGm0xeogI6uEiE
-	 Um5x5p0/DV9qFbsvo6QTCB1pr3HigufgLu5CHVAH2HJ766L/OQLPTZjBgPZThNonjF
-	 Zevt9Y83nwAwQ==
-Date: Mon, 17 Aug 2026 09:30:42 +0200
+	b=ZARyJkKya+vVkGWpoZI+yyEPlL8TLgY+iOHfKRJSoz1bfrDJTiLZCPyoff6mzVlFW
+	 hDdzwqJZSQZTTGJDkPTo3h+/wx38UH4ILx0bkJ4P3LO5ClxEywQFf63yhCl03Jr7CC
+	 oQrZf6q3+HTsu3lwQ/6/l34cujzlpcz016QabvWY3c8Gvs6H0rqBM4fAcaQidLlisv
+	 BBZCr8FwTmb4AwMO4Xriz0SKQjslyUAhN+i05DEnIhXK7uuXwf3njb/J02YqgLhtMd
+	 zyB6NbL401ORr1ekm3RfuWAdJhtdoV5a/Pgo6q8acEfnJ9lu46Wes+/FxLmjvoMZOS
+	 F++3N1P1PI8fw==
+Date: Mon, 17 Aug 2026 09:34:02 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>
 Cc: Bjorn Andersson <andersson@kernel.org>, 
@@ -57,15 +57,14 @@ Cc: Bjorn Andersson <andersson@kernel.org>,
 	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-pm@vger.kernel.org, 
 	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org
-Subject: Re: [PATCH v2 10/15] dt-bindings: clock: qcom: Add Kuno Global Clock
- Controller
-Message-ID: <20260817-speedy-nimble-heron-a4aeeb@quoll>
+Subject: Re: [PATCH v2 14/15] dt-bindings: arm: qcom: Document Kuno IDP board
+Message-ID: <20260817-authentic-watchful-seagull-fd6e3b@quoll>
 References: <20260814-kuno-soc-support-v2-0-3079794f0f73@oss.qualcomm.com>
- <20260814-kuno-soc-support-v2-10-3079794f0f73@oss.qualcomm.com>
+ <20260814-kuno-soc-support-v2-14-3079794f0f73@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260814-kuno-soc-support-v2-10-3079794f0f73@oss.qualcomm.com>
+In-Reply-To: <20260814-kuno-soc-support-v2-14-3079794f0f73@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,14 +79,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 14, 2026 at 01:01:41PM +0530, Hardeep Sharma wrote:
-> Document the Global Clock Controller (GCC) binding and associated
-> clock/reset IDs for the Qualcomm Kuno SoC.
+On Fri, Aug 14, 2026 at 01:01:45PM +0530, Hardeep Sharma wrote:
+> Document the Qualcomm Kuno IDP board and register the "kuno"
+> codename in the SoC naming convention schema.
 > 
 > Signed-off-by: Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>
+> ---
+>  Documentation/devicetree/bindings/arm/qcom-soc.yaml | 4 ++--
+>  Documentation/devicetree/bindings/arm/qcom.yaml     | 5 +++++
+>  2 files changed, 7 insertions(+), 2 deletions(-)
 
-I do not see how you addressed my comments. I should not be needing to
-verify if each one is implemented and then say again the same.
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
 Best regards,
 Krzysztof
