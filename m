@@ -4,72 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B521C5DF7A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 10:53:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41513C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 10:53:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=4gBThyHru0i4E+ZzvCsRvUjwLIOQSie4fEFNF+loR8Q=; b=KeR6iSj7iiNZVk0XjAB9As8rDi
-	yleGBPbu0D56bzUfcdZzEecE/WULp6jplupic/fmAshYTf+lP6EReHa2QWJtj/LPeKMCrzjRYz9e0
-	73bcpWHQw4O9KFmVEDXFgU5C24a6nZ7dGEk7Rz9n2I1KGTKOrM+Lx6KZZ40SNoYGjK2b85igUC5rs
-	kIGs9Jll7kiVPJWW75t/+mxJEcHeomnF1vO801GB/d6a/wU7bdFdENGbsU0a4LlafMpYJTkzE+NHA
-	BITVT2q6zozPnbkhdUKVR0gBaKlXd1xg8oPJwKKK7P4N92k8kFm2Q+JKbeQfprf+7Rq+DbGypls+R
-	oJlJ0D1w==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xzF2gO3yryR4hhBOXhCUkhPNTB2+8HWWPpLokgJWGQA=; b=XrJCkRLz2t5Vpg98c2shzu0VrI
+	rILFQDlJdGBc3A+xqpZ8TTvMphqBDg/HTc25u7RmQ1FACmbb761lz6Eop1v/Kxo8XcsGyA2jeT+TJ
+	w0/pMwFx19ydtAOLBvY0oOrzSVbTpv/fafxJRFu1K/GLboI8/e0DH4/TuDepFBRHIR6ZEvOZMkrFS
+	UnZJNgFywf8dSS2/c3bE5T3ZHzzAJNE28s4LOl88dfIHSAliNIJsD95qgPs5Ca5oFBC+a0do4R8QZ
+	KPPywZxWC2AYTYDks+dx8MuTIHUUBYwFSRymxDfUf5S645WUc5K5Z65qTXQN/a03dSGLtNI1n3uvY
+	F3KK661w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvuxe-00000005y4M-1kh5;
-	Mon, 17 Aug 2026 10:52:58 +0000
-Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
+	id 1wvuxp-00000005y7D-2bO9;
+	Mon, 17 Aug 2026 10:53:09 +0000
+Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvuxc-00000005y40-1QcI
+	id 1wvuxn-00000005y6M-1a19
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 10:52:57 +0000
-Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-84a652535dcso1846972b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 03:52:56 -0700 (PDT)
+	Mon, 17 Aug 2026 10:53:08 +0000
+Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-8486672f03cso3149772b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 03:53:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786963975; x=1787568775; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=4gBThyHru0i4E+ZzvCsRvUjwLIOQSie4fEFNF+loR8Q=;
-        b=Ssvtr4XsN6OWtRCqsZCP4UD9gp2SgkAjDvPTdUoxTsAdmN4d/rmPdM1z6wBhx0xpbo
-         UFUEelIaIaGXju7kJb1sJvaYnn28F3gIZAGbgNS3ObhPczove0rj8GltRSXPTGShg1oP
-         uLgeCTrlorxVnX/lAZW76+mMgjmiqK9/5hjAyAfuf0uNFxzV+zeTkxNHlXEN18sZdjmk
-         93KK02eI7s0yugapLQWFjP1GZg2UOoHPo6tVbRUiYYQ1mXTYE3bZ+I32l95XNd71bUEx
-         WOn0imbBFeqab9R/yfW1FTxwkRC4HFT0e7TF4FH9ocpe5xto26baQuOA07NWT5nulqcg
-         GS4w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786963975; x=1787568775;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1786963986; x=1787568786; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=4gBThyHru0i4E+ZzvCsRvUjwLIOQSie4fEFNF+loR8Q=;
-        b=j7zJ47ayGO5doaefd7HoIbNpJ9Ncs1m9o8Xq2SHSIALus+dK3XCw0oHadMD7enIdr8
-         CH64vmEhB69pLumXemURUwidM/XpXYGAmTHcHI9DkdPTGxocBoHf4KSiRhsT5GT+UjyK
-         boFS91kdkKDtDZDUTm4UWEvDxcMzSpEX70wWDdEEPJjt+8CE3Gp3vSEeAuENq3wKMzEa
-         e7hWa8qeIdMLl8+eRvRkr2vz2rZdRmUCBc3DdqZCrGgHcXkHAoHCeTmpql8pUNTzr6R6
-         FsjeznW9Bu/hdz2drbaIHrDjc1TIjDPhJI1n354ukh6HjwgeHWBeiXl4nOupx1JVYby8
-         2rKA==
-X-Forwarded-Encrypted: i=1; AHgh+RpO/N26ejqxPSK04111cOBl8b4FkH/lFUboqo+CpcA5TBJ0jimsuc/Cp9TB1/7BNBv0tRuwNxQhFglFjVf9RpIN@lists.infradead.org
-X-Gm-Message-State: AOJu0YziTOu9VMqNsrcIm2eEWVBFMQX3sTZQcvSacusxdGFJdqxDaQNO
-	Dst9q6hTJSK2kL/y1UvTrw0PnDQpB70fCj2wcv46gN6AVMNANcWwuNVA
-X-Gm-Gg: AR+sD128fBxiHT1DeI/X6m0yolTHL1cATgLYIqZn3WvtEpXHcLvZApjdPt5hqkmgFHt
-	lwD/RZw8Sa7rL3o3VZnULKhhoBPgd8OZ5S72oYQV+mYB1+/PG6difzjTF5gbGGdpSoSOebuDJbJ
-	El3rcpOcOyELoBxjhv/cSaELj374ql9Skb+xCmrX1YDcd/hojmxiTyEkG0fmfJ8FcYd2C8af38B
-	6Qx025FC3mnrE0UwiwSDJ621Eg9TIpCNoP8rRbnDiaAbgDU/gwdvq4GfjoW5WV22PHD0BXhNA+E
-	EgVY9fUQoc/YYQzcwIMoZUHzIabjgb7qr00Vfa+vxRyaNcMwjfVlyMvm5S4xmHOdbkmU++zAILa
-	5oO35NcOoe08beH6xePdAei8s7rHNCakltAvo3xcqnLdyCP8IPy0JYnEBLxiz3bgk6yzPp92ijP
-	pSW+G2wfBCxua4m4VL3J4DlRqjD1+/9/aGDVSsbyJSFRZ+gDY+tar8L/mSzJ9o0se5Fp5Z8sGlc
-	K44jX0lbtX3/nflgdzaW5zbm6lXTPhTTJmwXGH6+iefj0kVA+2z09f/x4FnI0aMjOVPpW3tZLo5
-	kPPe
-X-Received: by 2002:a05:6a00:b91:b0:851:b03a:fcb with SMTP id d2e1a72fcca58-851b03a12ecmr2971688b3a.14.1786963975460;
-        Mon, 17 Aug 2026 03:52:55 -0700 (PDT)
+        bh=xzF2gO3yryR4hhBOXhCUkhPNTB2+8HWWPpLokgJWGQA=;
+        b=R7ms0YWt5VeskNWqgrlas0l3jwhg5JbyAq6+PE+8+S796U0m+87bR7HPci0v/9DV9R
+         y+9hW7u0XSOJmG3GW82B4m8QemqzRvVw6BeqX9dPWBcsxdeRo9oyRN53xkF0FB0noAuL
+         UBy0Lo9mq1kcmGvER7j3XuruozU+/i1lL8oVnQXs/iVY/hQi1opmwXuyq56MfipFQVs8
+         FVKSf3OVjz6rHZ2vaNxzgtta3CRIH7utDoVc7kR8lU+eNvG0y8nY0j8PMWsvr0rA4kw4
+         lYj40dbGGkEOXswAhTv8m2JT6XW3HXAXc9o/Lf9QtVd3VeZw41sEjZh8tvQ0LCTHzZP6
+         +ELA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786963986; x=1787568786;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=xzF2gO3yryR4hhBOXhCUkhPNTB2+8HWWPpLokgJWGQA=;
+        b=LSM35IKgdcS5EgaKe8Vd6Vt/DGHn8AikfzKDMcqbSHXTSpcTrbXleDAFWIdlytjykQ
+         iR+Mzi1d4lgJ/Z9b/Inxz59J/XSwCG8Lg1z26NSVxfErCXeBlwlGsSJkoRQLx03BBkkH
+         +zjGUQGwQAgxvgKKgMkSvXWhsIIhT+YIWUvVxkecM4fCL0UR0IiknOvKXWq51Zlk8uef
+         ocNCqdQmxhuR52/l6m5hYpqVtnf7VtxW5ycSPCg7MleSINGeD1JBfXc5OHwBZwm3fxnJ
+         KJI3NLiVW7nGMhrkycAhlwgNwgBUiHIydOXyTjRnH7h5yRRdOaSjIf06RQHihhMiM7Cg
+         kwhw==
+X-Forwarded-Encrypted: i=1; AHgh+RrwTI9us5hQVqSoRavf2j+8Ltu3TMFS5rfGxvR/TvDpdiTczbVzH4L1aoccKwYEjCzkTydIxtc3+7TBHvdJnl0M@lists.infradead.org
+X-Gm-Message-State: AOJu0YylhSooDWeGeHEK9SYiT+yMEHLMDmig/TNI+ApyLij8Ql3zZG9Q
+	hZlV0HhKn1NndNFdLDGoRDuluzt1g7U8J+Zwzq+Kb32R86mIyFyfgESw
+X-Gm-Gg: AR+sD13Drd0G4aHWCt04OtmsMIZ1ypt1VYsR2Kg6gPOGNgsHdjINc7zBQD3w6OrRu9+
+	MBrXbjpCOR0J/Uzk8BQyol90VzO2kkeAzPnRiY/bVVE4Aqk5FLHY6oZzwdyDnI9eKhlqExLJJ4z
+	WCfoJP1dJSa7HpkbPWETPdwm8KyYhCgGrUZzEddrCDOo0BEQ/sl34PjvCZ2dLeJeaGIxQ8abVUJ
+	+5SyUQhqrCZ0FWpDaIBjYPQgzu1FcW4u68mN2gMTWO6tooRnX2bfofadqiObOPZl5RLdevItNXA
+	r+aWW2DZuXVfNpWubO3/FUHM96QcRyIGjE7uCIgQR/VKQnmCImqI+T/6WBqjXVDIMz/cCaDi34h
+	r/scxS1MqEx4j1OBPAmvnuAftryUMzAGnZOJeRtDGegEvFy81dSKtgYuwZfLWUN34T22ZmTTYOV
+	blV2e5RfbbGaRwwip3tajfrEz1j7PvVznXESK7sW/RsmEH2eUlRIkxTCU+YumqPU2I09muGu1g/
+	gA+lKh414WcMvHu1qIc2AE4N3kPJkl+cqsMPDfe2Rv2Cwd4G8lYUd98jYX8VhsKk0et6EFHb0lS
+	6n25j1/9j5I0DUxA
+X-Received: by 2002:a05:6a00:10c7:b0:84e:2f2e:8c4b with SMTP id d2e1a72fcca58-84fde2a110fmr19733226b3a.32.1786963986480;
+        Mon, 17 Aug 2026 03:53:06 -0700 (PDT)
 Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-851b401ec98sm354846b3a.6.2026.08.17.03.52.52
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-851b401ec98sm354846b3a.6.2026.08.17.03.53.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Aug 2026 03:52:54 -0700 (PDT)
+        Mon, 17 Aug 2026 03:53:06 -0700 (PDT)
 From: phucduc.bui@gmail.com
 To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -83,15 +84,17 @@ Cc: netdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH v3 1/3] net: xilinx: axienet: Propagate errors from optional IRQ lookup
-Date: Mon, 17 Aug 2026 17:52:39 +0700
-Message-ID: <20260817105241.63345-1-phucduc.bui@gmail.com>
+Subject: [PATCH v3 3/3] net: xilinx: axienet: Propagate errors from platform_get_irq()
+Date: Mon, 17 Aug 2026 17:52:41 +0700
+Message-ID: <20260817105241.63345-3-phucduc.bui@gmail.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260817105241.63345-1-phucduc.bui@gmail.com>
+References: <20260817105241.63345-1-phucduc.bui@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_035256_385343_981E741E 
-X-CRM114-Status: GOOD (  12.50  )
+X-CRM114-CacheID: sfid-20260817_035307_421499_748E3C7F 
+X-CRM114-Status: GOOD (  13.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,35 +111,40 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: bui duc phuc <phucduc.bui@gmail.com>
 
-platform_get_irq_optional() returns a positive IRQ number on success or
-a negative error code on failure. For an optional IRQ, -ENXIO indicates
-that no optional IRQ is available, while other errors should be propagated.
+platform_get_irq() returns a non-zero IRQ number on success and a
+negative error number on failure. Therefore, 0 should not be treated
+as an invalid IRQ number.
 
-Propagate all error codes returned by platform_get_irq_optional() other
-than -ENXIO.
+Propagate the original error code instead of overwriting it with
+-ENOMEM.
 
-Another call to platform_get_irq_optional() in the same function already
-handles the return value this way. Apply the same error handling to this
-call site for consistency.
+Remove the redundant error message since platform_get_irq() already
+reports errors when the IRQ lookup fails.
 
 Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
 ---
- drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-index fcf517069d16..f92951422b2e 100644
+index 50f88a38b6f6..d982ab6f8a4a 100644
 --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
 +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-@@ -2972,6 +2972,8 @@ static int axienet_probe(struct platform_device *pdev)
- 			dev_err(&pdev->dev, "could not determine irqs\n");
- 			return -ENOMEM;
+@@ -2968,10 +2968,10 @@ static int axienet_probe(struct platform_device *pdev)
+ 			dev_err(&pdev->dev, "could not map DMA regs\n");
+ 			return PTR_ERR(lp->dma_regs);
  		}
-+		if (lp->eth_irq < 0 && lp->eth_irq != -ENXIO)
-+			return lp->eth_irq;
+-		if (lp->rx_irq <= 0 || lp->tx_irq <= 0) {
+-			dev_err(&pdev->dev, "could not determine irqs\n");
+-			return -ENOMEM;
+-		}
++		if (lp->rx_irq < 0)
++			return lp->rx_irq;
++		if (lp->tx_irq < 0)
++			return lp->tx_irq;
+ 		if (lp->eth_irq < 0 && lp->eth_irq != -ENXIO)
+ 			return lp->eth_irq;
  
- 		/* Reset core now that clocks are enabled, prior to accessing MDIO */
- 		ret = __axienet_device_reset(lp);
 -- 
 2.43.0
 
