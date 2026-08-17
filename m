@@ -4,128 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24CA9C5DF66
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 14:32:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E191DC5DF66
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 14:52:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D42Ojai7SvRA6BHXsFYvi5v5Vq3oomHgQunJyacFpKI=; b=cPAbyYs5DKYXpqIyAWDuqOt+Um
-	zfpwDEXioRtjmgqaWY5HcR7eBP2nG9kC0rrx6Z2aYX1klVANkcl5VWgcCz68U0YcQL4YjrT+X7qlc
-	eiiHvjgD8ZAKVrCI6DjhEiDxPyhrdx+4gCCjY4ebzt5VoYbvZBolswYnpxOWEmuL1ctoVI/lKYUKO
-	FRQ6bZrQON4g+OOmOXIoTwfcDbMuCC4x55rtCrVYdQ/CbpQWVTf0pcd1JuIXSM7BiFI4acFbaqYTt
-	VdBbTwUx6oklRHe7UmvbE82RZ8Bs7jLVcUgZl2wJFx2WKUGRE6ONd8ezWuzjvlbjN2rgpnmKa7hSX
-	OwDXKsLg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B5AFD1HGl3AuOCDl4IPtIyeqi6YYiPcxPv9BIIKFCA4=; b=YZE9PBx2PS41KiSDZS948bLPNO
+	Z6VECrrmWhlIb4pJ4Jq9Xl2evSSniEFpp5fT517hNddaQJ9iatI26jsmESHF/cFiiE5/mQVdqA423
+	VouKncFZxpIadSQvq8SDmf96YVkFTNv4VvyJFZYr35WA9pMsl/QKmiaTXiUVEytiVhQmcGJO3/HPJ
+	PbBWKsn8l4jKEOP8SrTLUDctZbnb6RAs+h+oGguwDxvHdLurD3NN1/XiGh02wbspyan+qc8tBU45c
+	sN8LpTZh+2ePow9OvQn8rA7Kx/ZE4hzuVgdgpu7CDIbZxZL6O8zygRao8ddGKNO52JMQNEqUDvOWW
+	8CPciARg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvyO6-00000006JBx-1QTv;
-	Mon, 17 Aug 2026 14:32:30 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1wvyhL-00000006LWw-2bBK;
+	Mon, 17 Aug 2026 14:52:23 +0000
+Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvyO3-00000006JBN-1VIO
+	id 1wvyhH-00000006LWC-1oQc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 14:32:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=o2t59hTTX21lL/hrhRKLo08K8Sf165aQEUhcUc+C/Q/vy16Y3DSLpKTlW5pmkb4mQdvsBChyQ9XnHzjeiZzj/YP2fy0TkFs8dq7I8T6ayAqOhYxVA5uMRVj4BbiN9cP8qWprNF7NbT4r+A6akxPyWj7wsEgalKm2JABxjvoFtJyM/4NURv5XKjQowq0gfDl0LNxeHcKEZp5Zkuon3dUwjcrzea5jHLeMP30lf5W3qMsWDUHO7blmN6DpYYesSPEw/BvSoXxKlAQDJQ8sf29nnZG4kX5dVPuNVIIGS4WI1S0swXTtVBJLOKlfdvQG9TqEUq65L3MGt2G8yZXheV2SGQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=D42Ojai7SvRA6BHXsFYvi5v5Vq3oomHgQunJyacFpKI=;
- b=hhm6cNwiwwXHIj4aBxTl9mwK4kpFkRMsdYQR64Kcw51OFbBCznH93T2nbwlBRdV+7wPX+iV14+Cth/mSvMC+nifst9/LReD3el8drVRC8kLk2xZAFpws4Skh+Nhhlr87RtPFcnFiqwtwF8p56IOvKRvFNS/xFytuZo81gk+fm2+ecGzMD2jX1EZorfLPCU911438wZwlQH1ZRiEp4YfkQWn51zBOe5U/KndKkhWOmG63IcqZ6ZBTva5qHI01acfil2ukO47rOd2GehbCkcNTNeqFqhAV8ElzYec/JXgaic8ldzGy67ghMe7/oqm5Bm3nzIQBPX7XWSGcqPXAqWhf9Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=D42Ojai7SvRA6BHXsFYvi5v5Vq3oomHgQunJyacFpKI=;
- b=p/HfsrpD9eSzHWSqJTitNcXs0C/omhZ1am7QBFJuvGASNc1h3vBzQuTy6vztqd2oZUx7t1/GrkAaOeAb1cn8+sma9dkSnscMuK03NFJvChmcJxcc7NDIujY6KFYuEyz0VcRJFhjJ+T9BHe1OmFTg5dFpH9sdBHXycctUpxjCNCIsg9//TD3oSR1oks78azRXXxHb5Iw8LT2lrsZJNZRzbM00lR/V4+YRu5nOiuumF0ln5o+FM40y8uwjw1uJ6/jYmIcCuoNCsao/0ERc/BZkpsjgPCt8kpfBphZcbqZXvwz/z9g51+xpy93FVAH0qdMgxqrhjmt88H0/IpIIyVnKLg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DU4PR04MB12028.eurprd04.prod.outlook.com (2603:10a6:10:63d::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.12; Mon, 17 Aug
- 2026 14:32:21 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0315.016; Mon, 17 Aug 2026
- 14:32:21 +0000
-Date: Mon, 17 Aug 2026 09:32:11 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Christian Lugnberg <christian.lugnberg@soundtrack.io>
-Cc: vkoul@kernel.org, Frank.Li@kernel.org, wens@kernel.org,
-	jernej.skrabec@gmail.com, samuel@sholland.org,
-	dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v3 2/2] dmaengine: sun6i: fix undefined behaviour in
- sun6i_dma_tx_status
-Message-ID: <aoMba8ERfJh4jG4t@SMW015318>
-References: <20260817135723.12807-1-christian.lugnberg@soundtrack.io>
- <20260817135723.12807-3-christian.lugnberg@soundtrack.io>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260817135723.12807-3-christian.lugnberg@soundtrack.io>
-X-ClientProxiedBy: PH7P220CA0180.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:33b::30) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Mon, 17 Aug 2026 14:52:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Content-Transfer-Encoding:Content-Type:From:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:From:Reply-To;
+	bh=B5AFD1HGl3AuOCDl4IPtIyeqi6YYiPcxPv9BIIKFCA4=; b=j00WuvRcV8YpN1DGWnH3bmbYyY
+	7y+w0YT5hbGgz0thMgXEY46qxio8bsv8MSLPVROnZesAZ9uD4W7uGsEEWvVTIE/JwBK8rT2k3P5RX
+	QRWJqnHgHMxdxGD1JplT2dyXsSOcZgP6SyuPPqniuxHuyHehVasyj2gJlfJX2Rzj8HbwsN/MgZBFs
+	r4uoYeWYUJn2hujqTd8zmcFZ1r3vS2Vr+8lQqVHDLMJ7ymSJ0vRAH1d1DburgpgVOJAv2G1H0aQIo
+	K6b2Rs54ynDSh1B2MrhBOUiyt/b0QFcgYvQFIRT8b3EGRp+PpnN+1VNUdV8XYuZytrl5BgF38Shbc
+	aaeeBWoQ==;
+Received: from [179.135.28.2] (helo=[192.168.1.56])
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
+	id 1wvygw-004c4S-44; Mon, 17 Aug 2026 16:51:58 +0200
+Message-ID: <5c95bd13-993f-55be-4aa7-acb990738d91@igalia.com>
+Date: Mon, 17 Aug 2026 11:51:46 -0300
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DU4PR04MB12028:EE_
-X-MS-Office365-Filtering-Correlation-Id: d5e111b8-4ff4-4b16-f675-08defc6c5923
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|376014|366016|7416014|23010399003|10067099003|4143699003|11063799006|22082099003|18002099003|56012099006;
-X-Microsoft-Antispam-Message-Info: w+ZOlhOcJ9KdVNlJVSuJdhLqX0Xsz+RJIeXhUsdMslGULJkamLDFVdqc+FXuT2KUbIPW95RlychkxKsaWoWus2tOyTex2mXQ3VuFZw4MfTr1wK2SFPWX8cGWb/suY44PEMIXMl+g/EXupc79F1MMYdGsfrlD4EHUnLc4ZyJiDanf7NmbKGTqmuWk/ZbExkGISicMzDCaUMMKICRvIsfT7Xzlg9cHxQjjsZBSZKSc4wV/QGnZuFmPxlpcRjfAZBUiQLaaPGSyE8WJpYp4V4fNtuzp37SOpbZaB3iQ6NydLpATzwIK12MEdi57t1CocK/bKPMkXKqoRRw5szy2OWjOGdIcaT7ySk5Y4rEAFV7RMEaV8B/iSjegnkF+Pt1dT/klT/tK8d/yFa8VjHyRky1LWYOw3iu5goUeyz3zrBnNnmV5JCQcGMXV27y200Y4Lwu100fbSfknzwMkUv3aNgtJUjL3y/dJGcwiXDLS1plKn71ToKIA4Nh8rObIZaDBZ3tnYnAtUPFp+4ZbRTfBjK9e8DHw226O/qtnACvaVgU/Bqyn8J2fOXD4HVfEdYz39vkzC8aOL4lqGz04GjlqBTSMTXhWQDsiA/QN9pv1EFSEjYF7mqxmr4CCZ3xqFDa/RVMetWNKzqhOoMh3DnrjTr5FjcXj5VS7w/zps4QfdWwHdok=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(376014)(366016)(7416014)(23010399003)(10067099003)(4143699003)(11063799006)(22082099003)(18002099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?hl7Ecx4/RMZWhrsd9cmIcZaMlDSYJD3zbKGgdnAwrWFQfb72LVe8J5Xfueof?=
- =?us-ascii?Q?lS0vj4NRqG3tLUg+FxFxOqqd/7s6F/y8dNAFX3ew2mljG+bA1aU+jdJgXoYn?=
- =?us-ascii?Q?GNSR0l2kRIPMqmBAYdXTttWh0mhSLu971HoQi4li3yDWTUIrYJiax/MPviQm?=
- =?us-ascii?Q?SzZVZL5i/8CpWj2Lf8TEkRaTm7I+k/fCJtldw7ntYRZCrFb+ZtgCES9ITRNC?=
- =?us-ascii?Q?2bnnLlCa17p6AWyKbfOAaa/qHXz4+1/4fdJCSB8rllWpUnCrJpY06NapoZzr?=
- =?us-ascii?Q?pqUwBUKqRnPEq1ogtd5C7C2fbGylb7oqvak0E3hYsmNrTI5PhXoE7+G6qezW?=
- =?us-ascii?Q?lUZqoYimW9i2lg7z25pKJ9KzMeYY8lFIoACG2HDbsEdQBaxXmIpSwRa7GAPY?=
- =?us-ascii?Q?sd3/paDGJGrErAPEFmdRaejl9B7LuysH3XnTknFO0sNVhhNLip0uPVR+D005?=
- =?us-ascii?Q?jqxesdHcJBGZ3dkh7WVc9P8MI69k7Oy2g5QU4FLji2+rLhcNxKigz4zDfld7?=
- =?us-ascii?Q?3It9M4gvDYf+2nZxVjGaGICIQKbxuOHapDnuy/dDrW7tH9A6pGSaKj4lMxLe?=
- =?us-ascii?Q?Z+vMG/bdTRFNbiWdLCYHkFmbHi7p8asJ/cxVowBQWoaQTLmAVX7InpO8R7KQ?=
- =?us-ascii?Q?/PgmflS5hI1XNuB7Yk2ZBnEPoFsx5HZut1BeysHfEHCf4Qw2DB79IRYsHthg?=
- =?us-ascii?Q?fwV1QLkF8n/GxTW0+/+Psfl1Kv39cLUW5fviSDMr8aIs4HIq7U3jCfPfznSP?=
- =?us-ascii?Q?rGhTCPx1umlCcFt/ktVf2NdNDiIdEKyvLf0BtshltOWnTBPePQWHG5hKwiZj?=
- =?us-ascii?Q?7Ea0TLqbBixgVUzr0uE/c+r5uNdVPLaFuwZ1NpYphqhj8Uuk2wzI+d4SzIeT?=
- =?us-ascii?Q?bDQK79fhDKzqYt3Hx1VHHuKmAws75aw7egkXjC5uvz2QieQtCnt9dfA1lYtj?=
- =?us-ascii?Q?0Ql89Y36sMoiBA+IoVNKbAGsvLQJe8mLi5wlS+zr1SFXYUPzqOMkNJmTfEDS?=
- =?us-ascii?Q?HsEg6iPEBkDlg+MwCx1Ptoa80Wz6L1rzf08zdg/gAZQsFjuUu0KaJAIWXwXi?=
- =?us-ascii?Q?KQcJQ65aS9601jqR2+qLgJlwPTKFAV0qSOaLFgwkirEZ+I32bLXp5Cy1JkoC?=
- =?us-ascii?Q?Oy5fJXSn6ebgb9Kt/TgRhzi2mxPaunm5ALQgzahU8gi2A6ZnNz6pd4kDzv+a?=
- =?us-ascii?Q?ZzwV5TrX2ZSdekDcSYug73ix2xDdEJBTvkfAcJpaXgccOs++Kxja5KTXJjkw?=
- =?us-ascii?Q?lEtaazDodh6gjq0goAV26MSz0qFajICC6QbVUpQOyG8QjkihHzfPZP8Od5mi?=
- =?us-ascii?Q?yJM+pzPNYt6EbTY5B78hOGTsC341RvOEukZfAE9kVulwmrkgyAaguyTHNSL3?=
- =?us-ascii?Q?4KSJFnfZFR6d/874nVQjlBxXslqDRovII9mgHw6LmFGDOxQnvU9d8niikNeR?=
- =?us-ascii?Q?xM3pF3zhbvQclObdYlrVbBapZZj/3GbW2Y14JIXl0fVYY+pmuJ61J2yGF70h?=
- =?us-ascii?Q?LbG6bpKfE+acSqXAz6a/lGeXuFwWKglkWFirUCE5Q73ormbZA8kepdfBSrt9?=
- =?us-ascii?Q?9g0ftJcsY9qUgSZJ4RzfNlipEbOylynyYHAXX9L9vuwIb4qLDPwCT/2j2C/O?=
- =?us-ascii?Q?Mi5irEwIt9YWm5Z/GfFvr43hT17iDHMMpX0tBhdpxkLf6TrBlaSvnLJJaUvE?=
- =?us-ascii?Q?blyJePE6TpwFjdItfxrP8DlUOwSapr80yjKyUnhDZlvf2+R8nS5VJlMXNGSk?=
- =?us-ascii?Q?nJ7+5LPngsEoiLQHDu1ILV8pSOo6odpYXffD5YqhlvVH19HIlPsX?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d5e111b8-4ff4-4b16-f675-08defc6c5923
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Aug 2026 14:32:21.8368
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: QseKwO5xd2+aZDindNUF7pYr902s3XbSickaU/Nu4c1wrm5OIE4nPJoWCfKsC78wm4Cao3HOXTbZC8VqPj6LcK1i6ZlqzwgUnPTLiqB6sdyjstNKM/NgJjYiONWvrM3U
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB12028
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.15.1
+Subject: Re: [PATCH] arm64/kernel: Expose the running CPU of a native task in
+ TPIDRRO_EL0
+Content-Language: en-US
+To: Bradley Morgan <include@grrlz.net>
+Cc: broonie@kernel.org, catalin.marinas@arm.com, gshan@redhat.com,
+ kernel-dev@igalia.com, kernel@gpiccoli.net,
+ linux-arm-kernel@lists.infradead.org, mark.rutland@arm.com,
+ robin.murphy@arm.com, sonicadvance1@gmail.com, will@kernel.org
+References: <404DF303-5478-4B5C-9DE1-3A7B3B3927A5@grrlz.net>
+From: "Guilherme G. Piccoli" <gpiccoli@igalia.com>
+In-Reply-To: <404DF303-5478-4B5C-9DE1-3A7B3B3927A5@grrlz.net>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_073227_399202_8E89219F 
-X-CRM114-Status: GOOD (  20.82  )
+X-CRM114-CacheID: sfid-20260817_075219_480556_2149CA5B 
+X-CRM114-Status: GOOD (  11.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,64 +75,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 17, 2026 at 03:51:23PM +0200, Christian Lugnberg wrote:
-> sun6i_dma_tx_status() calls vchan_find_desc() to look up the virtual
-> descriptor for a given cookie, before checking whether the pointer
-> vd is NULL:
->
->     vd = vchan_find_desc(&vchan->vc, cookie);
->     txd = to_sun6i_desc(&vd->tx);   /* vd may be NULL here */
->
->     if (vd) {
->         for (lli = txd->v_lli; ...)
->
-> vchan_find_desc() returns NULL when the descriptor has already been
-> completed or is in-flight on a physical channel and no longer present
-> in the virtual channel's descriptor list. When vd is NULL,
-> to_sun6i_desc() is called unconditionally on &vd->tx before the NULL
-> check, which is undefined behaviour. Move the call inside the if (vd)
-> guard to ensure it is only reached with a valid pointer.
->
->     vd = vchan_find_desc(&vchan->vc, cookie);
->     if (vd) {
->         struct sun6i_desc *txd = to_sun6i_desc(&vd->tx);
->         for (lli = txd->v_lli; ...)
->
-> Fixes: 555859308723 ("dmaengine: sun6i: Add driver for the Allwinner A31 DMA controller")
-> Cc: stable@vger.kernel.org
-> Assisted-by: Claude:claude-sonnet-4-6
-> Signed-off-by: Christian Lugnberg <christian.lugnberg@soundtrack.io>
-> ---
+On 15/08/2026 13:52, Bradley Morgan wrote:
+> Hi, we meet again, :)
+> 
+> Well, I looked at this assembly code until I was blind,heh, and I
+> couldnt particularly find anything bad about it, well, I know I'll
+> probably get these arm pros saying I'm dumb or something for not 
+> noticing a mistake, but I don't see any mistakes asm side.
+> 
+> 
+> For process.c, I really really like your comment, it's, straight
+> to the point, did your LLM write this, or did you write it?
+> 
+> For your patch;
+> 
+> Reviewed-by: Bradley Morgan <include@grrlz.net>
+> 
+> 
+> Note: I hope I don't get plonked, I couldnt find anything wrong, but who knows
+> Thanks!
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
->  drivers/dma/sun6i-dma.c | 3 +--
->  1 file changed, 1 insertion(+), 2 deletions(-)
->
-> diff --git a/drivers/dma/sun6i-dma.c b/drivers/dma/sun6i-dma.c
-> index 04fe1f5042e9..7704b016aed8 100644
-> --- a/drivers/dma/sun6i-dma.c
-> +++ b/drivers/dma/sun6i-dma.c
-> @@ -981,7 +981,6 @@ static enum dma_status sun6i_dma_tx_status(struct dma_chan *chan,
->  	struct sun6i_pchan *pchan = vchan->phy;
->  	struct sun6i_dma_lli *lli;
->  	struct virt_dma_desc *vd;
-> -	struct sun6i_desc *txd;
->  	enum dma_status ret;
->  	unsigned long flags;
->  	size_t bytes = 0;
-> @@ -993,9 +992,9 @@ static enum dma_status sun6i_dma_tx_status(struct dma_chan *chan,
->  	spin_lock_irqsave(&vchan->vc.lock, flags);
->
->  	vd = vchan_find_desc(&vchan->vc, cookie);
-> -	txd = to_sun6i_desc(&vd->tx);
->
->  	if (vd) {
-> +		struct sun6i_desc *txd = to_sun6i_desc(&vd->tx);
->  		for (lli = txd->v_lli; lli != NULL; lli = lli->v_lli_next)
->  			bytes += lli->len;
->  	} else if (!pchan || !pchan->desc) {
-> --
-> 2.54.0 (Apple Git-156)
->
+Hey Bradley \o
+Thanks for your review.
+
+I wrote the comment myself, but LLM helped me with ping-pong reviews,
+for example, checking corner cases, commenting on potential ideas. For
+example, in a first version I just updated this write_sysreg() to the
+CPU id, but then started to think "why am I doing this if the register
+is updated at every exit?". "Talking" with the LLM gave me confidence to
+suppress this write, due to the reason well explained in the comment heh
+
+Cheers!
 
