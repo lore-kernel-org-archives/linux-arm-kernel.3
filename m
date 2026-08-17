@@ -4,85 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DA0AC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 08:42:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63443C5DF70
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 08:42:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ri4gnJzdgtbwijutHFkiBovuKwGB55QNnr5MBC0/7fs=; b=dXwLfrG/aQ/1jzs/cBW1Ppb+lI
-	7u+h6UlGnJCgOB1GorOv4+97D3eymGmNjV84L2Pe/QQXlwoEuNi1KJqxbPkeaN9VaIgnX3h1Qohx4
-	r9qlNvvMGhNOZhVqUiYoft/dKsTY02Mb4Csg3DRYN1hYbw837YbmDrXrl1hoPHs1lBai1IijVl5SU
-	xvDl3D4ivkW81iVO+FMl5xI3ntWgjO76TjJfVcfxNT9ArIn/vq14G7x4TTlgc+bldxbZtpZy/DwDb
-	M3yImGX9KLP4RLX3k2+WiEFE2RSGhMJTvjPZlRdjx6WAP4HuYG4qn84VtUEHvmNFMC4SoVbH9wUEj
-	kvakxxCA==;
+	bh=mBJHZiui6LC0ZFroetycbP9gbMZ7hcwLvF2peu3oVkk=; b=4+GaWoFYUSoX/4B4oQ5eelP5CA
+	us71Bce6BvM8TNvUtkRB6N6IX1Z4tOeVzkRtuBM6vvEJUjPcI1leFHzBSgraeApMzlKae/XeEKSh/
+	9YmXIO2AO6RBstJfKnhaxCebc+DhGm+8a9aBl9MNsPBvwex2NpQ8YVpmP7tJ/kJLm0UqNB6aEm5II
+	+53VqpRJ1I+WAbw+C/cUnlVrg2c0Eu020oDWbl9qY0ylag9MoUYUAYbJC0UBCXEwXBhplNkgJvti5
+	PTDO0zR0dEFQdwmHxxuAjTUi5p2GIobkSG7qMXg1RBPC6xd2fMhwU9/ixyOpD0PG+lAQSUTXUtRA2
+	dOIXiXtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvsvE-00000005idn-2soP;
-	Mon, 17 Aug 2026 08:42:20 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wvsaV-00000005eWX-1oW3;
+	Mon, 17 Aug 2026 08:20:55 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvsvD-00000005idL-1BOz
+	id 1wvsaO-00000005eOy-25EL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 08:42:19 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5DCEB601DE
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 08:42:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF1371F000E9;
-	Mon, 17 Aug 2026 08:42:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786956138;
-	bh=ri4gnJzdgtbwijutHFkiBovuKwGB55QNnr5MBC0/7fs=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=WIbWipflzvqkALL8MHsg/pt9fGqGve5KsP3jw3A3TepgPImQzJ6Cj0FElbO3t08rX
-	 Zq7AckRc1FcoSN7MCHHINL30iG0Ly7Hm5WZEJTAgverrowrEsg7y28q6YsykSKZIlI
-	 W2iZ1SArcrsPaBeBUb2byLkomqvn0dp0i6ftykfPr6x44I+ybzW2zgEa0g0xpLf8/L
-	 SnNoQobxAtMmsDAdU2xENo05Ozgnrnu+vxOKE7zBOHb1e7R8CFqE0gB8aBFelzYt4g
-	 6KM0e3jVZV/b7fmTS8R3DftsOBUHWlfPVTeu1XCOdIqud6GS/4t/w9m405uyxukbd9
-	 f0q5oG4knJIFw==
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfauth.ams.internal (Postfix) with ESMTP id 4BB9D1980052;
-	Mon, 17 Aug 2026 04:42:16 -0400 (EDT)
-Received: from ams-imap-11 ([10.64.2.31])
-  by ams-compute-02.internal (MEProxy); Mon, 17 Aug 2026 04:42:16 -0400
-X-ME-Sender: <xms:ZcmCaqJRi71k3mjGH9Cla1A5sVb_PU_2-QKTuz8-9-qq9bvYi72Cfw>
-    <xme:ZcmCas8hkHjvNlv0IFtaHd3tE67F-tCxxR82c2pWBhnx6J4PnZ6u2FsMIaIaKUjtv
-    AUS73w0DXV-Jn5NFw3Rl6Hq37ZK-BSy-Qx7YxahcFCW6UQHdGj3hmXE>
-X-ME-Proxy-Cause: dmFkZTGALACgPRXbsmw4UDAcAPrv/ildNadA/tMoTacndsXYRrCyKJ8GplQuvicmAIJHP1
-    KTyoK2GFTmRqUMQPHAEpZpILciSEvLStMZbHw1VoQASIsR8rNVL4jFjE/LrK9oFRm+yKo7
-    VLsyCV8F8waGLR+S/YqD9HET5YJUcgdzq91D8hbzA6S3UYcl3nAFOxEromznTJqx3FpX25
-    vo6/Hd9Vc4N9gU7tNU+60lAAO6+rboZ8FOvcVd9PUgI+6XF1GsaOjxVrTvlMMyj2mF32yQ
-    UtfsNEd10wrUUGwsbymE8heJbZEGOu8x4NvHNkHLzZND2dwv2ff5OYe96lBZ/XUYJZiIfG
-    Zl6ep9iOi+H/Z9kDO/qlefIK9BOFpkNQhwlkWkSzcXbI2f+z21D0G4EAe9oWGFMFnt4TTL
-    kSAS8QYKdKytUiE+3MX0GLi+wGZqLHr6Qfud3PIR4MRm8mFN7EKRZBW2qBPXteb0CBPSNb
-    Loh/6sHnPDTd4bt1Q5OqqnRK65wnh2JlAwPg4czfP8/MwqRlk5adZ2BXXMjBAL5T7xCt/5
-    Ucf2zsXGmKuDGzHrOW2fuHGkdAp4TlzBb4jdGhVjiLZ1jkgY76ASMOZeQX3Yne+DrWdC5M
-    X9YD8neVbIlZQhgkHW79zmgs0+xYZ/HctkaZF9sh3/kBokn+fVcULw3+fvNw
-X-ME-Proxy: <xmx:aMmCamAAgoERI3vtkAG_TzrKeeN0W3Tt_gTqc8S4hADpxIluul4rVQ>
-    <xmx:aMmCahPX3xdiEuGusAEub_QuNcTn_0Z0iWJCQyQ86l_fNNSOIBoYTQ>
-    <xmx:aMmCanx5wkx27wI-whqLTwatVZhs9cRwRimNeC2a0rIvUD3ZpsS0eA>
-    <xmx:aMmCapWBkEA5Xg732XtTnA6YzS5_Gvczaz3bOGWWHcNI6Nx8-4JQVA>
-    <xmx:aMmCahNmKXFUXCFLzbckPrbEh_rgqf1xjbRGac7CZaHR1gLXqIe8zjSS>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id DB124F80070; Mon, 17 Aug 2026 04:42:13 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Mon, 17 Aug 2026 08:20:49 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-47f3b39f2a1so2749518f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 01:20:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786954846; x=1787559646; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=mBJHZiui6LC0ZFroetycbP9gbMZ7hcwLvF2peu3oVkk=;
+        b=eRk8MT87b8Yl6Jc/sAO1ZKexTPvdElosOGEIzuzYRegpLr9Kq2ndHnY2Iopftr9oa+
+         NpkspSQIs4FRMxkaSg/dkaLDoeHS8pU7ObKeSY3fbddJDfJxAi7zIFf6FTnsqYQOMlq6
+         CAdHOsoMNLLGQWgUyg3V9pfm0u0BV31cBIBwogHq9pY1y+fVazvYpIPGKYokiisZ98Ak
+         17mArBtPE0DoKPZR4bu8+nfz7DlTtDYunLyU66ERvZKUKWwlZ+fMUv7b5NTtIvDkgVh1
+         1Q2miItxp4Umnmdj5VqfViSUqi8X2S9Uf0he3gnTtFPvkA8637Pki7+WLpd/G54YpNtU
+         zP5g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786954846; x=1787559646;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=mBJHZiui6LC0ZFroetycbP9gbMZ7hcwLvF2peu3oVkk=;
+        b=Qcg9mTIBB6c059LA13lWL7bYYFCyZqvAa+hGk4YZu5bre0iSROpwrlog1AttJNM4z/
+         I4T8U/c4eherzSTHI32lqu1p3cmxb/Cwt6KcPwgGoujvXQOt1EHcE0rsuonGAkGFE4bI
+         9PIFDfA/e6pixdHIU3++LzIFfwot4FfH85QyEDS+Le2BRVTv0/c+O++8qeqw13hF4wlG
+         KL5WZwuhyGu85T0wjMwXi6KKSIO9HmggpRqs0UUQ1Wpov06mU6UNtcTlUSEXZXtWPsfL
+         JTQeGYLDwqtZC5jjk7YJKQOoVr9jiMx70hMq+MAsTthsTX4lDixsmmitUsheFkY2nigP
+         TWJg==
+X-Forwarded-Encrypted: i=1; AHgh+Rooy9vZ19gc09VxDvUF0cTanXmOCZXkP1VTfGFCEM5Zg6AQwBEoEb1W1oVwIOkh/ynz7IlEHnIDshpbHU+Dq9ZA@lists.infradead.org
+X-Gm-Message-State: AOJu0YxG64ozYsf90buLLYclbAp+nOy6pCEUbNXf2BxytMgXNVdwiEK0
+	PSl37gAYyfzFEXHplnQ7nDqO7VDjhPTEacg0x/87UEYjbjxXagzTynmD
+X-Gm-Gg: AR+sD13PNYAFyz35qKZpc1RsPbeSF6/AaJW97aZnnCbkByRAp7AG+mj7LRNheT0ZF8X
+	9/15hc1+wHg1R7f+xcxZtKM4hei3WDV5MZY8cWxDPnLEU0yzoW6CvIG5py6wFMRn07IO6/iXN43
+	BudrYV8Su+F+fIqpx8KWpy+OSjUVFhvpArlvCb8id4Svq1QrLstSA+La2fru5P7Vb0cIodHNAD3
+	pps7cjiqu8yOTEIRUitqSJF37f+FqxvUsPZWxp9VVtPFPpWGjP+JKXU0fI8kn4jL5rKCYQf9Qz9
+	QyRqJJXJ1jgXQtXYMYENFX2bodfY3ctx0hzGTvHSOUg6uvSYsWUT+fbxsXSVZFfkNSSwk4e9ded
+	D42Fc/QzpVnfqiyiV25uJqcXIi6rp1Y8+01RyfryoeyiwHteOSM3FHHJnzB4ogI5AmTVYSLj0zF
+	9OJ8WAKdhkIwNwoBePhTxqmw4zFJgTwKd0g42XMnGqyEFzX1gD1UaApJ4W0zD9nghs6CdbuB75w
+	wKa1xMCfg5jkFjxDpR8MM6Vj9P5JR5mi7MQ4re5zVUSQ97PHE6C6mF9
+X-Received: by 2002:a7b:c5ce:0:b0:499:726c:d658 with SMTP id 5b1f17b1804b1-499879bb9e5mr253882715e9.19.1786954846434;
+        Mon, 17 Aug 2026 01:20:46 -0700 (PDT)
+Received: from Ansuel-XPS24.localdomain (host-79-40-190-175.business.telecomitalia.it. [79.40.190.175])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4999d078517sm19684195e9.5.2026.08.17.01.20.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Aug 2026 01:20:46 -0700 (PDT)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Christian Marangi <ansuelsmth@gmail.com>,
+	Lee Jones <lee@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Simon Horman <horms@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	netdev@vger.kernel.org,
+	mfd@lists.linux.dev,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net-next v20 02/10] dt-bindings: net: Document support for AN8855 Switch Internal PHY
+Date: Mon, 17 Aug 2026 10:20:23 +0200
+Message-ID: <20260817082034.20326-3-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260817082034.20326-1-ansuelsmth@gmail.com>
+References: <20260817082034.20326-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
-Date: Mon, 17 Aug 2026 11:41:51 +0300
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Leif Lindholm" <leif.lindholm@oss.qualcomm.com>
-Cc: linux-efi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- "Huacai Chen" <chenhuacai@kernel.org>, "WANG Xuerui" <kernel@xen0n.name>,
- loongarch@lists.linux.dev
-Message-Id: <a0d10b63-bf9a-4ad7-a9d8-ab748a9c0c2c@app.fastmail.com>
-In-Reply-To: <an8xTBiCy_PEuwZi@leviathan>
-References: <20260813074506.643472-5-ardb@kernel.org>
- <20260813074506.643472-7-ardb@kernel.org> <an8xTBiCy_PEuwZi@leviathan>
-Subject: Re: [PATCH 2/3] efi: Pass EFI boot memmap struct address to core kernel
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260817_012048_573267_F96C5024 
+X-CRM114-Status: GOOD (  16.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,207 +120,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Document support for AN8855 Switch Internal PHY.
 
-On Fri, 14 Aug 2026, at 18:16, Leif Lindholm wrote:
-> On Thu, Aug 13, 2026 at 09:45:09 +0200, Ard Biesheuvel wrote:
->> The EFI stub already passes a struct efi_boot_memmap populated with the
->> information of the EFI memory map as a configuration table, and so
->> passing the physical address, size, descriptor size and descriptor
->> version via 4 different DT properties is kind of redundant.
->> 
->> Instead, pass the physical address of this struct in memory so that the
->> kernel can just retrieve the values directly.
->> 
->> Unfortunately, the scheme with four separate properties is boot ABI for
->> Xen, and so this needs to remain supported.
->
-> To clarify, you mean boot ABI when running under Xen?
->
+Airoha AN8855 is a 5-port Gigabit Switch that expose the Internal
+PHYs on the MDIO bus.
 
-Yes. We've allowed Xen dom0 to omit the EFI stub entirely, and boot the
-kernel proper in EFI mode, passing the EFI system table and memory map
-addresses via these special DT properties.
+Each PHY might need to be calibrated to correctly work with the
+use of the eFUSE provided by the Switch SoC. This can be enabled by
+defining in the PHY node the NVMEM cell properties.
 
->> But for the EFI stub itself,
->> this is just an internal ABI that can be modified.
->
-> Hmm...
->
-> So this leaves only three properties that cannot be derived from the
-> System Table:
-> - The System Table address itself
-> - kaslr-seed
-> - bootargs
->
-> The latter two could also be given the config table treatment.
->
+Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ .../bindings/net/airoha,an8855-phy.yaml       | 83 +++++++++++++++++++
+ 1 file changed, 83 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/net/airoha,an8855-phy.yaml
 
-The latter two are generic boot ABI for the arm64 kernel, and there
-is no need to treat them differently for EFI boot. Note that we also
-support passing the initrd directly via DT when doing EFI boot, rather
-than via the EFI specific device path.
-
-> Is it time to update the boot ABI to say x0 will hold the physical
-> address of "device tree blob (dtb) or EFI System Table in system RAM"?
-> They can be distinguished by 0xd00dfeed / "IBI SYST".
->
-
-Let's avoid 'boot ABI' here, given that we are talking about an internal
-interface between the EFI stub and the kernel proper.
-
-This internal interface uses DT under the hood, even on ACPI platforms,
-because it simplifies the early boot code. I don't think we should change
-this.
-
-Also, the DT provided by the bootloader (if any) may differ from the one
-passed by the EFI stub, and so discovering the DT from the EFI system
-table is not straight-forward - they are not the same, and making them
-the same may have unintended side effects.
- 
-> The use of a generated DT when none was provided by firmware has led
-> to both confusion and shenanigans, and might be nice to get rid of?
->
-
-I don't disagree with that. But that would imply adding new code to the
-early startup code doing command line parsing and KASLR randomization to
-reason about whether these assets are passed via DT or via some other means.
-
-What would make sense imo is to pass the EFI system table address via X1
-when doing EFI boot, so we don't have to get anything at all from the DT.
-
-> Either way, it would be nice to get rid of all four of the
-> linux,uefi-mmap nodes if they're now completely redundant.
->
-
-Indeed.
-
-> Minor bikeshedding below.
->
->> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
->> ---
->>  Documentation/arch/arm/uefi.rst    | 10 +----
->>  drivers/firmware/efi/fdtparams.c   | 39 ++++++++++++++++---
->>  drivers/firmware/efi/libstub/fdt.c | 40 ++------------------
->>  3 files changed, 37 insertions(+), 52 deletions(-)
->> 
->> diff --git a/Documentation/arch/arm/uefi.rst b/Documentation/arch/arm/uefi.rst
->> index 2b7ad9bd7cd2..c19cf3720f27 100644
->> --- a/Documentation/arch/arm/uefi.rst
->> +++ b/Documentation/arch/arm/uefi.rst
->> @@ -54,17 +54,9 @@ Name                        Type     Description
->>  ==========================  ======   ===========================================
->>  linux,uefi-system-table     64-bit   Physical address of the UEFI System Table.
->>  
->> -linux,uefi-mmap-start       64-bit   Physical address of the UEFI memory map,
->> +linux,uefi-boot-memmap      64-bit   Physical address of a struct efi_boot_memmap
->>                                       populated by the UEFI GetMemoryMap() call.
->>  
->> -linux,uefi-mmap-size        32-bit   Size in bytes of the UEFI memory map
->> -                                     pointed to in previous entry.
->> -
->> -linux,uefi-mmap-desc-size   32-bit   Size in bytes of each entry in the UEFI
->> -                                     memory map.
->> -
->> -linux,uefi-mmap-desc-ver    32-bit   Version of the mmap descriptor format.
->> -
->>  kaslr-seed                  64-bit   Entropy used to randomize the kernel image
->>                                       base address location.
->>  
->> diff --git a/drivers/firmware/efi/fdtparams.c b/drivers/firmware/efi/fdtparams.c
->> index b815d2a754ee..a54a76a6aaeb 100644
->> --- a/drivers/firmware/efi/fdtparams.c
->> +++ b/drivers/firmware/efi/fdtparams.c
->> @@ -10,22 +10,30 @@
->>  
->>  #include <linux/unaligned.h>
->>  
->> +#include <asm/early_ioremap.h>
->> +
->>  enum {
->>  	SYSTAB,
->> +	MEMMAP,
->> +#ifdef CONFIG_XEN
->>  	MMBASE,
->>  	MMSIZE,
->>  	DCSIZE,
->>  	DCVERS,
->> +#endif
->>  
->>  	PARAMCOUNT
->>  };
->>  
->>  static __initconst const char name[][22] = {
->>  	[SYSTAB] = "System Table         ",
->> +	[MEMMAP] = "Boot Memory Map      ",
->> +#ifdef CONFIG_XEN
->>  	[MMBASE] = "MemMap Address       ",
->>  	[MMSIZE] = "MemMap Size          ",
->>  	[DCSIZE] = "MemMap Desc. Size    ",
->>  	[DCVERS] = "MemMap Desc. Version ",
->> +#endif
->>  };
->>  
->>  static __initconst const struct {
->> @@ -49,10 +57,7 @@ static __initconst const struct {
->>  		.path = "/chosen",
->>  		.params = {	//  <-----------26----------->
->>  			[SYSTAB] = "linux,uefi-system-table",
->> -			[MMBASE] = "linux,uefi-mmap-start",
->> -			[MMSIZE] = "linux,uefi-mmap-size",
->> -			[DCSIZE] = "linux,uefi-mmap-desc-size",
->> -			[DCVERS] = "linux,uefi-mmap-desc-ver",
->> +			[MEMMAP] = "linux,uefi-boot-memmap",
->>  		}
->>  	}
->>  };
->> @@ -84,17 +89,20 @@ static int __init efi_get_fdt_prop(const void *fdt, int node, const char *pname,
->>  u64 __init efi_get_fdt_params(struct efi_memory_map_data *mm)
->>  {
->>  	const void *fdt = initial_boot_params;
->> -	unsigned long systab;
->> +	unsigned long systab, memmap;
->>  	int i, j, node;
->>  	struct {
->>  		void	*var;
->>  		int	size;
->>  	} target[] = {
->>  		[SYSTAB] = { &systab,		sizeof(systab) },
->> +		[MEMMAP] = { &memmap,		sizeof(memmap) },
->> +#ifdef CONFIG_XEN
->>  		[MMBASE] = { &mm->phys_map,	sizeof(mm->phys_map) },
->>  		[MMSIZE] = { &mm->size,		sizeof(mm->size) },
->>  		[DCSIZE] = { &mm->desc_size,	sizeof(mm->desc_size) },
->>  		[DCVERS] = { &mm->desc_version,	sizeof(mm->desc_version) },
->> +#endif
->>  	};
->>  
->>  	BUILD_BUG_ON(ARRAY_SIZE(target) != ARRAY_SIZE(name));
->> @@ -115,6 +123,9 @@ u64 __init efi_get_fdt_params(struct efi_memory_map_data *mm)
->>  		for (j = 0; j < ARRAY_SIZE(target); j++) {
->>  			const char *pname = dt_params[i].params[j];
->>  
->> +			if (pname[0] == '\0')
->> +				continue;
->> +
->>  			if (!efi_get_fdt_prop(fdt, node, pname, name[j],
->>  					      target[j].var, target[j].size))
->>  				continue;
->> @@ -123,8 +134,24 @@ u64 __init efi_get_fdt_params(struct efi_memory_map_data *mm)
->>  			pr_err("Can't find property '%s' in DT!\n", pname);
->>  			return 0;
->>  		}
->> -		if (dt_params[i].paravirt)
->> +		if (IS_ENABLED(CONFIG_XEN) && dt_params[i].paravirt) {
->>  			set_bit(EFI_PARAVIRT, &efi.flags);
->> +		} else {
->
-> This condition branch doesn't in fact have anything to do with the fdt.
-> Should it still live in fdtparams.c?
->
-
-I don't follow. The EFI_PARAVIRT flag is set based on whether we are 
-using the generic or the Xen-specific set of DT properties. What would
-be a better place to decide this?
-
+diff --git a/Documentation/devicetree/bindings/net/airoha,an8855-phy.yaml b/Documentation/devicetree/bindings/net/airoha,an8855-phy.yaml
+new file mode 100644
+index 000000000000..d2f86116badf
+--- /dev/null
++++ b/Documentation/devicetree/bindings/net/airoha,an8855-phy.yaml
+@@ -0,0 +1,83 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/net/airoha,an8855-phy.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Airoha AN8855 Switch Internal PHY
++
++maintainers:
++  - Christian Marangi <ansuelsmth@gmail.com>
++
++description: >
++  Airoha AN8855 is a 5-port Gigabit Switch that expose the Internal
++  PHYs on the MDIO bus.
++
++  Each PHY might need to be calibrated to correctly work with the
++  use of the eFUSE provided by the Switch SoC.
++
++allOf:
++  - $ref: ethernet-phy.yaml#
++
++select:
++  properties:
++    compatible:
++      contains:
++        enum:
++          - ethernet-phy-idc0ff.0410
++  required:
++    - compatible
++
++properties:
++  reg:
++    maxItems: 1
++
++  nvmem-cells:
++    items:
++      - description: phandle to SoC eFUSE tx_a
++      - description: phandle to SoC eFUSE tx_b
++      - description: phandle to SoC eFUSE tx_c
++      - description: phandle to SoC eFUSE tx_d
++
++  nvmem-cell-names:
++    items:
++      - const: tx_a
++      - const: tx_b
++      - const: tx_c
++      - const: tx_d
++
++required:
++  - compatible
++  - reg
++
++dependentRequired:
++  nvmem-cells: [ nvmem-cell-names ]
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    mdio {
++        #address-cells = <1>;
++        #size-cells = <0>;
++
++        ethernet-phy@1 {
++            compatible = "ethernet-phy-idc0ff.0410",
++                         "ethernet-phy-ieee802.3-c45";
++
++            reg = <1>;
++        };
++
++        ethernet-phy@2 {
++            compatible = "ethernet-phy-idc0ff.0410",
++                         "ethernet-phy-ieee802.3-c45";
++
++            reg = <2>;
++
++            nvmem-cells = <&shift_sel_port0_tx_a>,
++                          <&shift_sel_port0_tx_b>,
++                          <&shift_sel_port0_tx_c>,
++                          <&shift_sel_port0_tx_d>;
++            nvmem-cell-names = "tx_a", "tx_b", "tx_c", "tx_d";
++        };
++    };
+-- 
+2.53.0
 
 
