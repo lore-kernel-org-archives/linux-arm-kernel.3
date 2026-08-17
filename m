@@ -4,90 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4CCBC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 00:03:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 461E9C5DF66
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 00:39:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=PeWip+HoUsQbRGwZAN+OhPaopG7QLZ1AJBKtn3hmr98=; b=XSPi6KY8rc4roYz0a914EJpLhV
-	SdAaZfVnqXiddgSKnaUXozt3DOUPcHM1HG18UCd0lS80l58g3y9xuWKcO52HjTGGbzZk6oEJ9UgRV
-	wTlShIOGDmNfLmC1jq9PIScS41k7/LAbJFXsIJC7/JUv+QLpgiNlsyOYcfPKiskvAE/4BlF8lta6o
-	Vx5CA4IXpbme2jH60pYpYcTIDoes5lUwi/5VjwEQfotITYqkwBURrQG8m20ZbZDiO3zs/BaO8ggzF
-	4GtFcVSYrLTRmUtmptRaN1ooknBu/v3FaoB7VBMn9xFpXQkdE59udQVFHxZoWrHr8O1rb+TdBsrEN
-	2o+1DFfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FkEbpoYaj8AmQL1n1cxZDG8OTgibwSKiJIDqapThTVY=; b=R/F6hxGo4LxZMckzqp9qrImm+6
+	hVA9FtGs7ElEYcjDsYd4q+JR6OcS9OdEd4rxTi4Peb6XUNUoL4xyCS01rpJyvpGevxmpD5guTQgjg
+	nN0SnpKVV+bwHveDjC6EAqprGcv/Twt6hDfriEebLyybj4dogVNH0p7vJqxAQmyX8ig41i6zYAxmL
+	q7uEcy3ff6HA05xFEb3AKQZIWA/GeLSR+LlnX0g01y8UnB1vSFXBO9AOhCBsJtEpcoo1IffB49mwc
+	Kn2p6fiS7iWi9vECcWJJoCnSafwDEkxeFBQcJyzCLn0AZ1cJxTRb/BxTgqFcammD+uWGNkrj+NArH
+	SvUFZ9AQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvkoN-00000005DF5-0Efy;
-	Mon, 17 Aug 2026 00:02:43 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1wvlNN-00000005E2l-2T9N;
+	Mon, 17 Aug 2026 00:38:53 +0000
+Received: from out30-133.freemail.mail.aliyun.com ([115.124.30.133])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvkoK-00000005DEV-1xzb
+	id 1wvlNI-00000005E23-1HKb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 00:02:41 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4954f5e8020so14077815e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 16 Aug 2026 17:02:39 -0700 (PDT)
+	Mon, 17 Aug 2026 00:38:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786924959; x=1787529759; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=PeWip+HoUsQbRGwZAN+OhPaopG7QLZ1AJBKtn3hmr98=;
-        b=AgCbrBwRGBmeLQQoLzfoBvdMvbsL1k2LBala7GLsWLGH1C+vQ6KOq4rIF1td2y0YDz
-         Sm/xDo4WSbK8BG8suceElNHKvuDkKaBoCoiHUBoWDUjH4swL70fjRvbCDSYB6Ww4UVMO
-         y6gC6NFjI/9adOkIh8f8wNSjP3UvPK+mZ2eej/PdE/glHMwrP3lHD2a48tbZ2CN275FB
-         /GfnfiELSqJpCmAEhKWW1vCuxQUyY15CwVwKlym6viMA8fpUcohLBSnisGftySauMANq
-         B4Fy0Gnnwh3kYhENvwgI3eGUaHBPy8XFjnIINkhJUjc79/JPm9QD6cxEzKActplRRKD/
-         gVBg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786924959; x=1787529759;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=PeWip+HoUsQbRGwZAN+OhPaopG7QLZ1AJBKtn3hmr98=;
-        b=Le+a+vyKV/CBewsIozQVI8Pf6N3sT6658qMMyfH24iLh0z7s/Fxv7We5od5Z3s83GK
-         mseUab0ViY42tThtETs2wX9FS12Ju1nvE/Qw33gKA408jkG5ftOCU0vsSFoXLxjWwEy2
-         4KbB6mbh/q2BV0fCQrwBDJjecKUXsjnWy4Bf9RCdbzyzfFr8kmsHHpS1F3NwAN5FYA56
-         PePw7EOYRraoqNeRiNoIyhKE6namC0k7GNJFHh2rbQFbXLxWWQ86EKSuFvRSA50aL34H
-         OC5lY2Z0X8TD44ZfsGiHi8G9xk7CguvpyjCkcsihYAYGKuAqCSHWWLISBJb7ndJ93k2/
-         2Olw==
-X-Forwarded-Encrypted: i=1; AHgh+RpxdjImlFHssBLabJ+Id94Vd76umMajCqf7UkxOKPzA0XHJawsxSdXimhGdocsQmTmq55U/9nU9D6Zg+L3XzmTR@lists.infradead.org
-X-Gm-Message-State: AOJu0YxIy5nf89jJDHyFFmrs44ZLfGP9SxxzsM+dQig1s7FBK7MtBlDa
-	O18uVWc+zsKuE7vHtTaltOpoJ3Ug3T+gvOwRCq17q2Rla0V2JQ6OlO+M
-X-Gm-Gg: AR+sD11Rf9JglkKln1hq8ph8blNBYy21F1CPIVj41eCTKJBPsUbGbli1uEI1lzT34fN
-	GK8+QKE+CU8L+qxPuXvEd8GPCE23OJRg0CP0nNKKVt/uoMJ59e/wPsjubBvUilm9rqHzDk6IA8Z
-	U3SSk1Zps5kCD0+3N6lLd5JqTxNz19mYIU0+HbWcN6eQae7oiDANtUYjeTTxTsJo/qSQqPzG0Fn
-	rI2fy/wsq0UkMD+cV4+Z2hHv+XaRhjyFfKllwzQahvhrJSHzoskvRPYLxUP1r2XZj/yxKUWZDH+
-	yD41SCMMRCz+S1Tvr/+idJ0sB12l2CX7YXNU03haJkObrVxPLlyqTTDU8OdXvlbM2SSk4BVo1wN
-	ex1grdT3w/CfVpaLcfLaT7QrAgAWGIAhCx59Fx7vA6oDJsYkB4U8P5/YJhvF2oCPv1uvcakKp/N
-	GgZzFD4gHvLd5esTDNsx/biuhCNUerZtOWF8A2xXHKvZsJZJL2nm7z9fPt109bnLHidhxAtogZB
-	WOnaOrph9NbLgW7MFUQXpqtbH9GsyxJaFMjpqESME//mhaolbMEtHGxVfXAENvZYL0sTaZh7q6d
-	p1xHFZk/yUZI+Mise03jQbwyNFpwLBYGJTpPThYmg//GNicf5Dble+M9yfc3RDDYbfI=
-X-Received: by 2002:a05:600c:1c21:b0:499:90f3:13b8 with SMTP id 5b1f17b1804b1-49990f315e9mr158692185e9.12.1786924958419;
-        Sun, 16 Aug 2026 17:02:38 -0700 (PDT)
-Received: from localhost.localdomain (dynamic-2a02-3100-9dc5-9401-09c8-a88d-e919-d148.310.pool.telefonica.de. [2a02:3100:9dc5:9401:9c8:a88d:e919:d148])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4999610e381sm114270165e9.9.2026.08.16.17.02.37
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sun, 16 Aug 2026 17:02:37 -0700 (PDT)
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: Karl Mehltretter <kmehltretter@gmail.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64: compat: Keep alignment address arithmetic 32-bit
-Date: Mon, 17 Aug 2026 02:02:31 +0200
-Message-Id: <20260817000231.21311-1-kmehltretter@gmail.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+	d=linux.alibaba.com; s=default;
+	t=1786927120; h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type;
+	bh=FkEbpoYaj8AmQL1n1cxZDG8OTgibwSKiJIDqapThTVY=;
+	b=x5xtt+BF76VayWkysOGFrVZ2YbbNmRQTS9wVypiekzQ7DEdyax+25tASN8MsnlfXlpEHGWxcRnba//zzDX2OoItHh3Bucs/6qR6yiwJQDmqbVxwMHZBWwkD4F0nFT6UUVXcjGEYRuPvkdRWTwrDR1tEZPBztpa8ocBrDW+yzP3k=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R891e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037009110;MF=yaoyuan@linux.alibaba.com;NM=1;PH=DS;RN=17;SR=0;TI=SMTPD_---0X911f-o_1786927118;
+Received: from localhost(mailfrom:yaoyuan@linux.alibaba.com fp:SMTPD_---0X911f-o_1786927118 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Mon, 17 Aug 2026 08:38:38 +0800
+Date: Mon, 17 Aug 2026 08:38:37 +0800
+From: Yao Yuan <yaoyuan@linux.alibaba.com>
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: Wei-Lin Chang <weilin.chang@arm.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oupton@kernel.org>, Fuad Tabba <tabba@google.com>, Joey Gouly <joey.gouly@arm.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Jintack Lim <jintack.lim@linaro.org>, 
+	Christoffer Dall <christoffer.dall@arm.com>, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH 1/2] KVM: arm64: Fix spurious warning for benign stage 2
+ teardown race
+Message-ID: <dlvicg2jykp4icqkpa7xjm6bmim7sbp7vventkzgoihzpombcc@pemvii5d6qfj>
+References: <20260812-kvm-arm-nested-virt-fix-v1-0-4ad883f1b6a5@kernel.org>
+ <20260812-kvm-arm-nested-virt-fix-v1-1-4ad883f1b6a5@kernel.org>
+ <qfhlmmidzdmmsfopfhxpddgwa7nob45jwgb6sabskawaxtox7i@mnxplk3zn34k>
+ <an3gqCJ1fzloWB_N@lucifer>
+ <v3vgnteumpaxbgqjtfwoilcbwpwohfci3uwu4ooykls6zjwjwe@rukbigno2m5o>
+ <an7Tk0qrCM84zS54@gremlin>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <an7Tk0qrCM84zS54@gremlin>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260816_170240_538775_8D60A9E6 
-X-CRM114-Status: GOOD (  15.98  )
+X-CRM114-CacheID: sfid-20260816_173849_581212_55CA91DD 
+X-CRM114-Status: GOOD (  53.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,147 +76,256 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The compat alignment emulator inherited unsigned long data addresses
-from the 32-bit ARM implementation. On arm64, negating the unsigned int
-transfer size wraps it at 32 bits before it is added to a 64-bit
-address. A decrementing LDM or STM therefore adds nearly 4 GiB instead
-of subtracting its transfer size. The resulting address lies outside
-the compat task's address space, so the access fails and the process
-gets a spurious SIGBUS instead of the fixup.
+On Fri, Aug 14, 2026 at 09:48:39AM +0800, Lorenzo Stoakes (ARM) wrote:
+> On Fri, Aug 14, 2026 at 03:18:42PM +0800, Yao Yuan wrote:
+> > On Thu, Aug 13, 2026 at 04:24:49PM +0800, Lorenzo Stoakes (ARM) wrote:
+> > > On Thu, Aug 13, 2026 at 12:20:43AM +0100, Wei-Lin Chang wrote:
+> > > > Hi Lorenzo,
+> > > >
+> > > > Thanks for the detailed analysis!
+> > >
+> > > You're welcome :)
+> > >
+> > > >
+> > > > I can follow what's happening from the report, but one thing I don't
+> > > > get:
+> > > >
+> > > > On Wed, Aug 12, 2026 at 02:31:20PM +0100, Lorenzo Stoakes (ARM) wrote:
+> > > > > A batch of kernel warnings were triggered in the L0 host kernel when using
+> > > > > kvmtool to experiment with nested virtualisation.
+> > > > >
+> > > > > The issue was observed on an M2 macbook pro with 24 GiB of RAM running
+> > > > > asahi linux 7.1.6-400.asahi.fc44.aarch64+16k with 16 KiB page size.
+> > > > >
+> > > > > The bug is confirmed to exist in mainline and does not appear to be
+> > > > > impacted by any downstream patches carried by asahi.
+> > > > >
+> > > > > kvmtool was used to establish an L1 guest with 8 CPUs and 8 GiB of RAM.
+> > > > >
+> > > > > kvmtool was then run again within the L1 guest to establish an L2 guest
+> > > > > with 4 CPUs and 4 GiB of RAM.
+> > > > >
+> > > > > Then it was run again to establish another inner guest with 2 CPUs and 2
+> > > > > GiB of RAM at L3.
+> > > > >
+> > > > > Both the L2 and L3 guests were then exited and another L2 guest was
+> > > > > established with the same characteristics.
+> > > > >
+> > > > > Sufficient memory pressure was present in the L0 host to trigger indirect
+> > > > > reclaim, waking kcompactd up and triggering migration.
+> > > > >
+> > > > > Shortly afterwards the L2 guest was stopped, at which point three warnings
+>
+> So TL;DR - correction is to say L0 here, no change elsewhere.
+>
+> > > > > were observed in the L0 host in quick succession with the second and the
+> > > > > third occurring 114us and 189us after the first, respectively.
+> > > > >
+> > > > > In each case the call trace was the same:
+> > > > >
+> > > > > WARNING: arch/arm64/kvm/mmu.c:336 at __unmap_stage2_range+0x64/0x80,
+> > > > > CPU#5: kcompactd0/66
+> > > > > ...
+> > > > > __unmap_stage2_range (arch/arm64/kvm/mmu.c:335 (discriminator 3)) (P)
+> > > > > kvm_stage2_unmap_range (arch/arm64/kvm/mmu.c:346)
+> > > > > kvm_nested_s2_unmap (arch/arm64/kvm/nested.c:1168 (discriminator 14))
+> > > > > kvm_unmap_gfn_range (arch/arm64/kvm/mmu.c:2416)
+> > > > > kvm_mmu_notifier_invalidate_range_start (arch/arm64/kvm/../../../virt/kvm/kvm_main.c:718 ...)
+> > > > > mn_hlist_invalidate_range_start (mm/mmu_notifier.c:525)
+> > > > > __mmu_notifier_invalidate_range_start (mm/mmu_notifier.c:580)
+> > > > > try_to_migrate_one (./include/linux/mmu_notifier.h:478 ./include/linux/mmu_notifier.h:471 mm/rmap.c:2459)
+> > > > > rmap_walk_anon (mm/rmap.c:3001)
+> > > > > rmap_walk (mm/rmap.c:3106 mm/rmap.c:3101)
+> > > > > try_to_migrate (mm/rmap.c:2774)
+> > > > > migrate_folio_unmap (mm/migrate.c:1330 (discriminator 3))
+> > > > > migrate_pages_batch (mm/migrate.c:1909)
+> > > > > migrate_pages_sync (mm/migrate.c:2026)
+> > > > > migrate_pages (mm/migrate.c:2135)
+> > > > > compact_zone (mm/compaction.c:2663)
+> > > > > compact_node (mm/compaction.c:2932)
+> > > > > kcompactd (mm/compaction.c:3230)
+> > > > > kthread (kernel/kthread.c:436)
+> > > > > ret_from_fork (arch/arm64/kernel/entry.S:858)
+> > > > >
+> > > > > Analysing this:
+> > > > >
+> > > > > try_to_migrate() performs the first part of migration on a folio -
+> > > > > establishing migration entries in all page tables mapping it - calling
+> > > > > try_to_migrate_one() for each VMA the folio is mapped in.
+> > > > >
+> > > > > Immediately prior to installing the migration entry, try_to_migrate_one()
+> > > > > calls mmu_notifier_invalidate_range_start() to signal to notifiers that the
+> > > > > existing page table entry is about to be unmapped.
+> > > > >
+> > > > > Since this range happened to contain folios used by the virtual machine
+> > > > > (given its memory consumption this was highly likely to be a target) this
+> > > > > in turn triggers arm64 kvm code via an MMU notifier:
+> > > > >
+> > > > > mmu_notifier_invalidate_range_start()
+> > > > >   -> ... -> kvm_mmu_notifier_invalidate_range_start()
+> > > > >     -> kvm_mmu_unmap_gfn_range()
+> > > > >       -> kvm_unmap_gfn_range()
+> > > > >         -> kvm_nested_s2_unmap()
+> > > > >           -> kvm_stage2_unmap_range()
+> > > > >             -> __unmap_stage2_range()
+> > > > >                -> stage2_apply_range()
+> > > > >        	       <- -EINVAL, triggering a WARN_ON()
+> > > > >
+> > > > > Since commit ec14c272408a ("KVM: arm64: nv: Unmap/flush shadow stage 2 page
+> > > > > tables") kvm_unmap_gfn_range() invokes kvm_nested_s2_unmap() which takes
+> > > > > the rather drastic step of evicting the entirety of the stage 2 shadow page
+> > > > > tables for each nested guest:
+> > > > >
+> > > > > 	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
+> > > > > 		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
+> > > > >
+> > > > > 		if (kvm_s2_mmu_valid(mmu))
+> > > > > 			kvm_stage2_unmap_range(mmu, 0, kvm_phys_size(mmu), may_block);
+> > > > > 	}
+> > > > >
+> > > > > This will iterate through every valid MMU.
+> > > > >
+> > > > > mmu_notifier_invalidate_range_start() sets the MMU_NOTIFIER_RANGE_BLOCKABLE
+> > > > > flag when signalling notifiers, so may_block is true here.
+> > > > >
+> > > > > __unmap_stage2_range() wraps invocation of stage2_apply_range() in a
+> > > > > WARN_ON():
+> > > > >
+> > > > > 	WARN_ON(stage2_apply_range(mmu, start, end, KVM_PGT_FN(kvm_pgtable_stage2_unmap),
+> > > > > 				   may_block));
+> > > > >
+> > > > > Which is precisely the triggered warning and means stage2_apply_range() is
+> > > > > returning an error.
+> > > > >
+> > > > > In arm64 return values are stored in the x0 register and in each splat w0
+> > > > > (since it's a 32-bit value) is 0xffffffea which, by two's complement, is
+> > > > > -0b00010110 or -EINVAL.
+> > > > >
+> > > > > The only way in which stage2_apply_range() can return an error is if either
+> > > > > the passed in walk function (kvm_pgtable_stage2_unmap()) returns an error
+> > > > > or mmu->pgt is NULL:
+> > > > >
+> > > > > 	static int stage2_apply_range(...)
+> > > > > 	{
+> > > > > 		do {
+> > > > > 			struct kvm_pgtable *pgt = mmu->pgt;
+> > > > > 			if (!pgt)
+> > > > > 				return -EINVAL;
+> > > > >
+> > > > > 			next = stage2_range_addr_end(addr, end);
+> > > > > 			ret = fn(pgt, addr, next - addr);
+> > > > > 			if (ret)
+> > > > > 				break;
+> > > > > 			if (resched && next != end)
+> > > > > 				cond_resched_rwlock_write(&kvm->mmu_lock);
+> > > > > 		} while (addr = next, addr != end);
+> > > > >
+> > > > > 		return ret;
+> > > > > 	}
+> > > > >
+> > > > > This loop is batched by stage2_range_addr_end() at the granularity of
+> > > > > kvm_granule_size(KVM_PGTABLE_MIN_BLOCK_LEVEL), which for a 16 KiB page size
+> > > > > kernel is 32 MiB.
+> > > > >
+> > > > > kvm_pgtable_stage2_unmap() only returns an error if
+> > > > > kvm_pgtable_walk_begin() or _kvm_pgtable_walk() return an error. On arm64
+> > > > > the former doesn't ever do so, and the latter only returns -EINVAL if
+> > > > > either pgd is NULL (we gate that already) or an invalid pgt->start_level is
+> > > > > specified (not the case).
+> > > > >
+> > > > > So the cause of the warning is that mmu->pgt is NULL here.
+> > > > >
+> > > > > This field is protected by kvm->mmu_lock, but after each invocation of the
+> > > > > walk function, if the end of the range has not yet been reached, the lock
+> > > > > is dropped.
+> > > > >
+> > > > > This is done by calling cond_resched_rwlock_write() which drops
+> > > > > kvm->mmu_lock when yielding the time slice before reacquiring it upon being
+> > > > > scheduled again:
+> > > > >
+> > > > > 		if (resched && next != end)
+> > > > > 			cond_resched_rwlock_write(&kvm->mmu_lock);
+> > > > >
+> > > > > Note that resched = may_block here and is always true for these walks.
+> > > > >
+> > > > > This points to something else racing this code to clearing the pgt, and
+> > > > > brings us back to the observation above that the issue occurs when tearing
+> > > > > down the L2 guest.
+> > > > >
+> > > > > Upon L0's userspace mm_struct teardown, stage 2 mappings for IPAs mapped by
+> > >
+> > > s/L0/L2/
+> > >
+> > > > > the guest are unmapped via mmu notifier:
+> > > > >
+> > > > > exit_mm()
+> > > > >   -> mmput()
+> > > > >     -> __mmput()
+> > > > >       -> exit_mmap()
+> > > > >         -> mmu_notifier_release()
+> > > > > 	  -> ... -> kvm_mmu_notifier_release()
+> > > > >             -> kvm_flush_shadow_all()
+> > > > >               -> kvm_arch_flush_shadow_all()
+> > > > > 	        -> kvm_free_stage2_pgd()
+> > > > > 		  -> [ acquire kvm->mmu_lock for write ]
+> > > > > 		  -> mmu->pgt = NULL [ among other tasks ]
+> > > > > 		  -> [ release kvm->mmu_lock for write ]
+> > > >
+> > > > You mentioned stopping the L2 VM only, which means L1 is still running.
+> > > > Why would the L0 userspace mm_struct get torn down if L1 is still live?
+> > > > What did I miss?
+> > >
+> > > Ah yeah this is a mistake sorry :) It should say L2 teardown.
+> > >
+> > > The stuff relevant to L0 is the MMU notifier bit.
+> >
+> > Hi Lorenzo,
+> >
+> > Still have question w/ your above addtional information:
+> >
+> > The trace is observed on L0, means the exit_mm() path should
+> > also happens on L0 to race w/ the
+> > mmu_notifier_invalidate_range_start() path, but how this is
+> > triggred by L2 teardown, IIUC the L2 teardown triggers the
+> > exit_mm() path on L1, not on L0. The L1 is still alive thus
+> > the qemu/kvmtool process on L0 which hold all L1/L2/L3 is
+> > still alive yet. Please correct me if anything I missed
+> > here.
+>
+> OK so - I confused myself here :)
+>
+> The underlying issue here is that I am working back from a situation where
+> I can't quite recall what I did, but am rather reconstructing it based on
+> what was observed.
+>
+> And you're right - this stack makes no sense for an L2 VM being torn down,
+> rather only the L0 being torn down.
+>
+> So clearly this is what I did, and the correction should be to say this at
+> the start of the commit message.
 
-Using 64-bit addresses also prevents transfer and writeback arithmetic
-from wrapping at the AArch32 address-space boundary.
+Ah I see.  I agree the race is there. Below is just an idea
+in my mind for reproducing this, hope this is helpful to you :-)
 
-Use 32-bit types for emulated data addresses and offsets, and convert
-them with compat_ptr() at the uaccess boundary. This preserves AArch32
-modulo-2^32 address generation for every supported transfer form.
+migratepages (https://man7.org/linux/man-pages/man8/migratepages.8.html) can
+help to trigger the MMU notifier to qemu/kvmtool easily on 2P system, meanwhile
+kill the qemu/kvmtool on L0 to reprouduce the racing. For 1P system kernel has
+numa=fake parameter to generate more NUMAs there.
 
-Fixes: 3fc24ef32d3b ("arm64: compat: Implement misalignment fixups for multiword loads")
-Assisted-by: Codex:gpt-5.6-sol
-Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
----
-Tested:
-  Built a static AArch32 alignment test. It deliberately executes unaligned
-  multiword instructions. A 64-bit BusyBox initramfs runs it on arm64 QEMU
-  and Pi 400, exercising compat_alignment.c.
-
-  On arm64 QEMU and Pi 400, the old kernel gets SIGBUS for ARM LDMDA,
-  STMDA, LDMDB, STMDB, Thumb-2 LDMDB/STMDB, and Thumb-1 PUSH. With this
-  change, all 18 cases pass.
-
-  The LDRD/STRD register-offset wrap test also passes on both arm64
-  targets.
-
-  Native ARM32 QEMU: all runnable cases pass. The high-address wrap probes
-  are skipped because of the 3G/1G user/kernel split.
-
- arch/arm64/kernel/compat_alignment.c | 30 ++++++++++++++++------------
- 1 file changed, 17 insertions(+), 13 deletions(-)
-
-diff --git a/arch/arm64/kernel/compat_alignment.c b/arch/arm64/kernel/compat_alignment.c
-index b68e1d328d4cb..c926041ee97b6 100644
---- a/arch/arm64/kernel/compat_alignment.c
-+++ b/arch/arm64/kernel/compat_alignment.c
-@@ -2,6 +2,7 @@
- // based on arch/arm/mm/alignment.c
- 
- #include <linux/compiler.h>
-+#include <linux/compat.h>
- #include <linux/errno.h>
- #include <linux/kernel.h>
- #include <linux/init.h>
-@@ -41,8 +42,8 @@
- 	(((hi16) & 0xe000) == 0xe000 && ((hi16) & 0x1800))
- 
- union offset_union {
--	unsigned long un;
--	  signed long sn;
-+	u32 un;
-+	s32 sn;
- };
- 
- #define TYPE_ERROR	0
-@@ -51,7 +52,7 @@ union offset_union {
- #define TYPE_DONE	3
- 
- static void
--do_alignment_finish_ldst(unsigned long addr, u32 instr, struct pt_regs *regs,
-+do_alignment_finish_ldst(u32 addr, u32 instr, struct pt_regs *regs,
- 			 union offset_union offset)
- {
- 	if (!LDST_U_BIT(instr))
-@@ -65,7 +66,7 @@ do_alignment_finish_ldst(unsigned long addr, u32 instr, struct pt_regs *regs,
- }
- 
- static int
--do_alignment_ldrdstrd(unsigned long addr, u32 instr, struct pt_regs *regs)
-+do_alignment_ldrdstrd(u32 addr, u32 instr, struct pt_regs *regs)
- {
- 	unsigned int rd = RD_BITS(instr);
- 	unsigned int rd2;
-@@ -85,14 +86,15 @@ do_alignment_ldrdstrd(unsigned long addr, u32 instr, struct pt_regs *regs)
- 	if (load) {
- 		unsigned int val, val2;
- 
--		if (get_user(val, (u32 __user *)addr) ||
--		    get_user(val2, (u32 __user *)(addr + 4)))
-+		if (get_user(val, (u32 __user *)compat_ptr(addr)) ||
-+		    get_user(val2, (u32 __user *)compat_ptr(addr + 4)))
- 			return TYPE_FAULT;
- 		regs->regs[rd] = val;
- 		regs->regs[rd2] = val2;
- 	} else {
--		if (put_user(regs->regs[rd], (u32 __user *)addr) ||
--		    put_user(regs->regs[rd2], (u32 __user *)(addr + 4)))
-+		if (put_user(regs->regs[rd], (u32 __user *)compat_ptr(addr)) ||
-+		    put_user(regs->regs[rd2],
-+			     (u32 __user *)compat_ptr(addr + 4)))
- 			return TYPE_FAULT;
- 	}
- 	return TYPE_LDST;
-@@ -112,10 +114,10 @@ do_alignment_ldrdstrd(unsigned long addr, u32 instr, struct pt_regs *regs)
-  * PU = 10             A                    B
-  */
- static int
--do_alignment_ldmstm(unsigned long addr, u32 instr, struct pt_regs *regs)
-+do_alignment_ldmstm(u32 addr, u32 instr, struct pt_regs *regs)
- {
- 	unsigned int rd, rn, nr_regs, regbits;
--	unsigned long eaddr, newaddr;
-+	u32 eaddr, newaddr;
- 	unsigned int val;
- 
- 	/* count the number of registers in the mask to be transferred */
-@@ -137,7 +139,8 @@ do_alignment_ldmstm(unsigned long addr, u32 instr, struct pt_regs *regs)
- 	     regbits >>= 1, rd += 1)
- 		if (regbits & 1) {
- 			if (LDST_L_BIT(instr)) {
--				if (get_user(val, (u32 __user *)eaddr))
-+				if (get_user(val,
-+					     (u32 __user *)compat_ptr(eaddr)))
- 					return TYPE_FAULT;
- 				if (rd < 15)
- 					regs->regs[rd] = val;
-@@ -152,7 +155,8 @@ do_alignment_ldmstm(unsigned long addr, u32 instr, struct pt_regs *regs)
- 				 * to refer to PC, just add 8 here.
- 				 */
- 				val = (rd < 15) ? regs->regs[rd] : regs->pc + 8;
--				if (put_user(val, (u32 __user *)eaddr))
-+				if (put_user(val,
-+					     (u32 __user *)compat_ptr(eaddr)))
- 					return TYPE_FAULT;
- 			}
- 			eaddr += 4;
-@@ -311,7 +315,7 @@ int do_compat_alignment_fixup(unsigned long addr, struct pt_regs *regs)
- {
- 	union offset_union offset;
- 	unsigned long instrptr;
--	int (*handler)(unsigned long addr, u32 instr, struct pt_regs *regs);
-+	int (*handler)(u32 addr, u32 instr, struct pt_regs *regs);
- 	unsigned int type;
- 	u32 instr = 0;
- 	int isize = 4;
--- 
-2.53.0
-
+>
+> (The truth of what happened was rather more button-mashy and 'oh what?'
+> than it appears ;)
+>
+> Sorry for the confusion!
+>
+> >
+> > >
+> > > >
+> > > > Thanks,
+> > > > Wei-Lin Chang
+> > > >
+> > > > [...]
+>
+> --
+> Cheers, Lorenzo
 
