@@ -4,61 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D6A7C5DF74
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 14:16:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47B9EC5DF66
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 14:16:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NMnB0ARmdP778N6mHAZ1T0Isjzjk4NPT25+O0JS7mqM=; b=FQO2qGgTDdU2g0Wt0rrCB5hlBV
-	26uw78AAxCPxuF4t3DyfMOAQ3m+WGER9JeetKW8aM5onWDSLmc7/h3N50UlDVpzRPE89XKKZPQlUg
-	uOeRn0DM9/nKBF42YrC+0iwvq9kYZzxehDPkfTpc5SsFqC2Izwkp9u1IjSOyabupw7z1fGNEoNtpl
-	N1+b6vJ6IPGKFL9FYCiT8L2my05TMxQogEvhBEVLZy5Qhgnd5iQ8OzHnSn8RvFa1lxtMbL+FJMfOJ
-	ciYHzZ3S1aYzObxfxOwJ1kdiok/KFAOvOYWqw0w6vDc6Y+Q8mFh4ccZyOjde85yVC1J5lmlR1Yayo
-	/OWQFgUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MsP6Tc38zfRk1ICic3b/g7i6fexiTP8WcwXduocKHhI=; b=uhh6grs8A8LkPBsNvuEcR30/xd
+	kpEdZTcFq2A3+CpF+51/o85XUF7XOveUpOzdnwMihbEdASP43UcAUdxlYGZ9JzI5qN04RhJoyQZiv
+	DhfxWvwVuexN/BDt0BztTPiCDTHiBd+9Y5j+qrAI0FAKTQgS4Q3l5hrWhIjF+sgsRHza79sdgjrlX
+	p55BjCyNesvqTLtLJGVPAfKiHgBhWElWqIPEovx9KxsVYLyNaLtrZIpf8Pn/noD9X66PIqxX/y8bs
+	iDnyCk2azD04XSuffL7BT38Dxk5nM2FiM6Vk8pYQxFwoe+ahKgIbu6gVCn8Ak21/o4VS9m2/c81IG
+	6/TiSHYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvy80-00000006HQF-0WYC;
-	Mon, 17 Aug 2026 14:15:52 +0000
-Received: from devianza.investici.org ([198.167.222.108])
+	id 1wvy8P-00000006HVq-12nR;
+	Mon, 17 Aug 2026 14:16:17 +0000
+Received: from out-91.mta0.migadu.com ([2001:41d0:1004:224b::5b] helo=mta0.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvy7x-00000006HPP-0OvD
+	id 1wvy8M-00000006HU1-001q
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 14:15:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=grrlz.net;
-	s=stigmate; t=1786976143;
-	bh=NMnB0ARmdP778N6mHAZ1T0Isjzjk4NPT25+O0JS7mqM=;
-	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
-	b=kpW6BFVzzvYjW2EkZIqfCHXv3Utuu2udlmKuto2Lj5+0+qpBoeGlcKVY6tFHwd9iM
-	 e4F52Q0Yv9Zx99AZKdEGNVJPGbrArWXpxlo8SXTwOdtS8nFHttNoqeD1U+XQX5mCM7
-	 rMwwzW3dpQjxuX548C7hr4hXIkKlgQeTG+3O4QbY=
-Received: from mx2.investici.org (unknown [127.0.0.1])
-	by devianza.investici.org (Postfix) with ESMTP id 4hNvxq3DYpz6vKY;
-	Mon, 17 Aug 2026 14:15:43 +0000 (UTC)
-Received: by mx2.investici.org (Postfix) id 4hNvxq05bRz4y6W;
-	Mon, 17 Aug 2026 14:15:42 +0000 (UTC)
-Date: Mon, 17 Aug 2026 15:15:44 +0100
-From: Bradley Morgan <include@grrlz.net>
-To: Vladimir Murzin <vladimir.murzin@arm.com>, Will Deacon <will@kernel.org>
-CC: Catalin Marinas <catalin.marinas@arm.com>,
- Mark Rutland <mark.rutland@arm.com>,
- Pasha Tatashin <pasha.tatashin@soleen.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- maz@kernel.org, james.morse@arm.com
-Subject: =?US-ASCII?Q?Re=3A_=5BPATCH=5D_arm64=3A_hibernate=3A_pass_H?=
- =?US-ASCII?Q?VC=5FSET=5FVECTORS_args_to_the_resume_hvc?=
-In-Reply-To: <7ca33f92-2ded-4749-ab67-2fb564919b99@arm.com>
-References: <20260809213615.11646-1-include@grrlz.net> <anr28wUlKjci8JPn@willie-the-truck> <463DA5C2-C933-45EC-A200-21AAF6258418@grrlz.net> <anszjQ7jBeYDqesp@willie-the-truck> <7ca33f92-2ded-4749-ab67-2fb564919b99@arm.com>
-Message-ID: <D213053B-2119-4424-93ED-51539317AF1D@grrlz.net>
+	Mon, 17 Aug 2026 14:16:16 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=T8iyjbuVYAvqUViUhRvKQj8eKQSB1E/dq1wYQtEhFKo=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1786976171; v=1; x=1787580971;
+ b=H64DYZL+VtDNMmcEzRbntV/LAawULPIsRQCDV8uLxs6jQmlpLx1Ram226usPE9MiHYe8fr72
+ pLAVMQVmQsqRT7WRWyibxHpep4PhMiVWyepYtWDtgoTZII1RViC+zJlNaNJ97DwVMLjYVevfC7D
+ WiO0pw2YPLtoWJNEvp3dPtXk=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: from mail-lf1-f54.google.com (209.85.167.54)
+	by smtp.migadu.com with ESMTPS id 5b54f67ad1af9138;
+	Mon, 17 Aug 2026 14:16:11 +0000
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-5b2a73da7e1so3569e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 07:16:11 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Rpv4Epceigs+6LI8XYyOa5LK7H2k5uYl9lu8ZJhb+xfUv6SrydUoDax+birSkjJ6ctpMjag35oEpjRaxlTFs7i7@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy0IYJ0M1lCrjR+MNUlDKUANEnRV2bmkGhcIOx2rPy8Zvn5khfm
+	l4u+BdwPtRM747ptgVRcz08Gg+9D2+qg+AZPH4XrRaFCCZwauNCiH8hUnnyJtU2KHxnCo6VILM8
+	fKed/TmFKLeaOC38WGunhafIBM2yHhq4M+gtuYLJS
+X-Received: by 2002:a05:6512:3d1c:b0:5b1:5141:9156 with SMTP id
+ 2adb3069b0e04-5b47084ad85mr12150e87.9.1786976170444; Mon, 17 Aug 2026
+ 07:16:10 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: 8bit
+References: <20260731143541.956291-1-vdonnefort@google.com> <20260731143541.956291-18-vdonnefort@google.com>
+In-Reply-To: <20260731143541.956291-18-vdonnefort@google.com>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Mon, 17 Aug 2026 15:16:00 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTzGbZnz_SdcMvVwwDTTyHbyjAwukK-A90z2oVJtaBGz3g@mail.gmail.com>
+X-Gm-Features: AcwNN1XTayorjSSf4W1Pr0n-dJNWHXveErqutMBS45AHvtcEguOem3CyW-EXrec
+Message-ID: <CA+EHjTzGbZnz_SdcMvVwwDTTyHbyjAwukK-A90z2oVJtaBGz3g@mail.gmail.com>
+Subject: Re: [PATCH v4 17/17] KVM: arm64: Alloc simple_buffer_page using pKVM
+ hyp allocator
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, 
+	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com, 
+	qperret@google.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_071549_428471_F92E8FBC 
-X-CRM114-Status: GOOD (  26.70  )
+X-CRM114-CacheID: sfid-20260817_071614_880741_07C4EF4C 
+X-CRM114-Status: GOOD (  23.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,179 +83,231 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17 August 2026 14:06:20 BST, Vladimir Murzin <vladimir.murzin@arm.com>
-wrote:
->Hi Will,
+On Fri, 31 Jul 2026 at 15:36, Vincent Donnefort <vdonnefort@google.com> wrote:
 >
->On 8/11/26 15:37, Will Deacon wrote:
->> On Tue, Aug 11, 2026 at 01:50:14PM +0100, Bradley Morgan wrote:
->>> On 11 August 2026 11:18:27 BST, Will Deacon <will@kernel.org> wrote:
->>>> [+Maz, Pasha and James]
->>>>
->>>> On Sun, Aug 09, 2026 at 09:36:15PM +0000, Bradley Morgan wrote:
->>>>> swsusp_arch_suspend_exit() reinstalls the restored kernel's hyp stub
->>>>> vectors with an hvc, but never passes the arguments. x0 is not set to
->>>>> HVC_SET_VECTORS and x1 is not set to the vector address, so the stub
->>>>> dispatch falls through and returns without writing vbar_el2. EL2 is
->>>>> left pointing at the trans_pgd copy of the vectors, a page that
->>>>> swsusp_free() releases right after resume.
->>>>>
->>>>> Set the arguments up the same way __hyp_set_vectors() does.
->>>>>
->>>>> Fixes: 788bfdd97434 ("arm64: trans_pgd: hibernate: Add
->>>> trans_pgd_copy_el2_vectors")
->>>>> Cc: stable@vger.kernel.org
->>>>> Signed-off-by: Bradley Morgan <include@grrlz.net>
->>>>> ---
->>>>>  arch/arm64/kernel/hibernate-asm.S | 2 ++
->>>>>  1 file changed, 2 insertions(+)
->>>>>
->>>>> diff --git a/arch/arm64/kernel/hibernate-asm.S
->>>> b/arch/arm64/kernel/hibernate-asm.S
->>>>> index 0e1d9c3c6a93..2baefe7a82d3 100644
->>>>> --- a/arch/arm64/kernel/hibernate-asm.S
->>>>> +++ b/arch/arm64/kernel/hibernate-asm.S
->>>>> @@ -89,6 +89,8 @@ alternative_insn "dc cvau, x4",  "dc civac, x4", 
->>>> ARM64_WORKAROUND_CLEAN_CACHE
->>>>>  	isb
->>>>>  
->>>>>  	cbz	x24, 3f		/* Do we need to re-initialise EL2? */
->>>>> +	mov	x1, x24
->>>>> +	mov	x0, #HVC_SET_VECTORS
->>>>>  	hvc	#0
->>>>>  3:	ret
->>>>>  SYM_CODE_END(swsusp_arch_suspend_exit)
->>>> I'm having a really hard time figuring out what's supposed to be going
->>>> on here!
->>>>
->>>> The original hibernation code added by James in 82869ac57b5d ("arm64:
->>>> kernel: Add support for hibernate/suspend-to-disk") unconditionally
->>>> set the vectors in the exception handler:
->>>>
->>>> +el1_sync:
->>>> +       msr     vbar_el2, x24
->>>> +       eret
->>>> +ENDPROC(el1_sync)
->>>>
->>>> However, it _also_ set the vectors from C code in
->swsusp_arch_resume():
->>>>
->>>> +       if (el2_reset_needed()) {
->>>> +               phys_addr_t el2_vectors = phys_hibernate_exit;  /*
->base */
->>>> +               el2_vectors += hibernate_el2_vectors -
->>>> +                              __hibernate_exit_text_start;     /*
->offset */
->>>> +
->>>> +               __hyp_set_vectors(el2_vectors);
->>>> +       }
->>>>
->>>> Later, Pasha refactored the assembly so that it could be shared with
->>>> kexec in 788bfdd97434 ("arm64: trans_pgd: hibernate: Add
->>>> trans_pgd_copy_el2_vectors"), however this added arguments to the
->>>> exception handler without updating the hypercall on the hibernation
->path.
->>>>
->>>> So I think we need to figure out:
->>>>
->>>> 0. Whether this code is actually broken atm (I have a feeling it might
->>>>   happen to work)
->>> Yes, since 788bfdd97434.
->> Right, but did you manage to reproduce a crash? You're implying that
->this
->> hasn't worked for five years, which makes me wonder why we bother to try
->> to maintain this code!
->> 
->>>> 1. Why the original hibernation code set the vectors twice.
->>> They do different jobs. The C call parks EL2 on the safe page copy
->>> before the restore overwrites the current table. The asm call installs
->>> the final __hyp_stub_vectors afterwards.
->> I think I probably need to spend some time understanding how all this is
->> supposed to work. I can't currently tell how we end up with the stub
->> vectors installed to start with nor why we can't do all this from C
->code.
->> 
+> In protected mode, transition the allocation of the simple_ring_buffer
+> structures from the host to the hypervisor using the new pKVM heap
+> allocator.
 >
->Here is my understanding of how things work. Assuming nVHE mode, we
->restore the previously saved image X from the currently running kernel Y.
->I’ll use the suffixes _X and _Y for addresses belonging to the respective
->images.
+> Previously, the host allocated and donated a contiguous backing memory
+> for these structures. In pKVM the hypervisor can now allocate them
+> dynamically.
 >
->On the resume path, KVM teardown sets VBAR_EL2 to __hyp_stub_vectors_Y.
+> Use the pkvm_call_hyp_req() wrapper in the host to invoke
+> __tracing_load, which automatically handles any top-up requests if the
+> hypervisor runs out of heap memory during allocation.
 >
->swsusp_arch_resume() then temporarily (re)sets VBAR_EL2 to
->trans_pgd_stub_vectors
->while transitioning to image X:
->
->|        if (el2_reset_needed())
->|                __hyp_set_vectors(el2_vectors);
->
->
->Currently, swsusp_arch_suspend_exit() attempts to restore VBAR_EL2 to
->__hyp_stub_vectors_X:
->
->
->|       cbz     x24, 3f         /* Do we need to re-initialise EL2? */
->|       hvc     #0
->
->where x24 is resume_hdr.__hyp_stub_vectors (in other words snapshot of
->__hyp_stub_vectors from image X)
->
->However, that request is ignored, so VBAR_EL2 remains pointing to
->trans_pgd_stub_vectors
->
->We re-enter the kernel X.
->
->During KVM initialisation, we call __hyp_reset_vectors(). This is
->handled by trans_pgd_stub_vectors, but ignored since HVC_RESET_VECTORS
->is not recognised. We then call __hyp_set_vectors(), which is also
->handled by trans_pgd_stub_vectors, but this time VBAR_EL2 get set to
->__kvm_hyp_init_X.
->
->From that point on, __kvm_hyp_init_X handles subsequent HVC calls,
->including the later call that redirects VBAR_EL2 to
->__kvm_hyp_host_vector_X during KVM setup.
->
->The memory containing trans_pgd_stub_vectors is freed later by
->swsusp_free(). That perhaps explains why we do not see any crash.
->
->With the proposed fix, swsusp_arch_suspend_exit() successfully restore
->VBAR_EL2 to __hyp_stub_vectors_X just before we re-enter kernel X, and
->that vector is used for subsequent HVC calls.
->
->__hyp_stub_vectors is similar to trans_pgd_stub_vectors (or another
->way around?) - it handles both HVC_SET_VECTORS and HVC_SOFT_RESTART,
->and ignores HVC_RESET_VECTORS.
->
->So the fix makes sense to me. It also restores clear boundary between
->the temporary resume mechanism and handing control over to the
->restored image.
->
->FWIW,
->
->Reviewed-by: Vladimir Murzin <vladimir.murzin@arm.com>
->
+> Tested-by: Fuad Tabba <fuad.tabba@linux.dev>
+> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-Cheers!
+
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+
+Cheers,
+/fuad
 
 >
->>>> 2. Assuming they only need to be set once, whether we can drop the hvc
->>>>   from the swsusp_arch_suspend_exit assembly code entirely.
->>> No. After the restore vbar_el2 is only writable from EL2, and the
->>> temporary copy cannot stay. swsusp_free() frees it right after resume.
->> Isn't vbar_el2 always only writable from EL2?
->> 
->>>> 3. Whether we can then drop the HVC_SET_VECTORS handling from this set
->>>>   of vectors.
->>>>
->>> No, this hvc uses it, and so does kexec.
->> Where does kexec use it? I could only spot it making use of
->> HVC_SOFT_RESTART.
->> 
->> Will
->> 
+> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> index 9bab1e802281..ec5bb8541ceb 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> @@ -750,7 +750,7 @@ static void handle___tracing_load(struct kvm_cpu_context *host_ctxt)
+>         DECLARE_REG(unsigned long, desc_hva, host_ctxt, 1);
+>         DECLARE_REG(size_t, desc_size, host_ctxt, 2);
 >
+> -       cpu_reg(host_ctxt, 1) = __tracing_load(desc_hva, desc_size);
+> +       errno_to_smccc(__tracing_load(desc_hva, desc_size), host_ctxt);
+>  }
 >
-
-Thanks!
+>  static void handle___tracing_unload(struct kvm_cpu_context *host_ctxt)
+> diff --git a/arch/arm64/kvm/hyp/nvhe/trace.c b/arch/arm64/kvm/hyp/nvhe/trace.c
+> index 96afa3d6de2f..5ff19d210508 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/trace.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/trace.c
+> @@ -4,6 +4,7 @@
+>   * Author: Vincent Donnefort <vdonnefort@google.com>
+>   */
+>
+> +#include <nvhe/alloc.h>
+>  #include <nvhe/clock.h>
+>  #include <nvhe/mem_protect.h>
+>  #include <nvhe/mm.h>
+> @@ -62,18 +63,34 @@ static void __release_host_mem(void *start, u64 size)
+>         WARN_ON(__pkvm_hyp_donate_host(hyp_virt_to_pfn(start), size >> PAGE_SHIFT));
+>  }
+>
+> -static int hyp_trace_buffer_load_bpage_backing(struct hyp_trace_buffer *trace_buffer,
+> -                                              struct hyp_trace_desc *desc)
+> +static int hyp_trace_buffer_alloc_bpages(struct hyp_trace_buffer *trace_buffer,
+> +                                        struct hyp_trace_desc *desc)
+>  {
+> -       void *start = (void *)kern_hyp_va(desc->bpages_backing_start);
+> -       size_t size = desc->bpages_backing_size;
+> +       void *start;
+> +       size_t size;
+>         int ret;
+>
+> -       ret = __admit_host_mem(start, size);
+> -       if (ret)
+> -               return ret;
+> +       if (is_protected_kvm_enabled()) {
+> +               struct ring_buffer_desc *rb_desc;
+> +               int cpu;
+>
+> -       memset(start, 0, size);
+> +               size = 0;
+> +               for_each_ring_buffer_desc(rb_desc, cpu, &desc->trace_buffer_desc)
+> +                       size += rb_desc->nr_page_va * sizeof(struct simple_buffer_page);
+> +
+> +               start = hyp_alloc(size);
+> +               if (!start)
+> +                       return hyp_alloc_errno();
+> +       } else {
+> +               start = (void *)kern_hyp_va(desc->bpages_backing_start);
+> +               size = desc->bpages_backing_size;
+> +
+> +               ret = __admit_host_mem(start, size);
+> +               if (ret)
+> +                       return ret;
+> +
+> +               memset(start, 0, size);
+> +       }
+>
+>         trace_buffer->bpages_backing_start = start;
+>         trace_buffer->bpages_backing_size = size;
+> @@ -81,7 +98,7 @@ static int hyp_trace_buffer_load_bpage_backing(struct hyp_trace_buffer *trace_bu
+>         return 0;
+>  }
+>
+> -static void hyp_trace_buffer_unload_bpage_backing(struct hyp_trace_buffer *trace_buffer)
+> +static void hyp_trace_buffer_free_bpages(struct hyp_trace_buffer *trace_buffer)
+>  {
+>         void *start = trace_buffer->bpages_backing_start;
+>         size_t size = trace_buffer->bpages_backing_size;
+> @@ -89,9 +106,12 @@ static void hyp_trace_buffer_unload_bpage_backing(struct hyp_trace_buffer *trace
+>         if (!size)
+>                 return;
+>
+> -       memset(start, 0, size);
+> -
+> -       __release_host_mem(start, size);
+> +       if (is_protected_kvm_enabled()) {
+> +               hyp_free(start);
+> +       } else {
+> +               memset(start, 0, size);
+> +               __release_host_mem(start, size);
+> +       }
+>
+>         trace_buffer->bpages_backing_start = 0;
+>         trace_buffer->bpages_backing_size = 0;
+> @@ -128,7 +148,7 @@ static void hyp_trace_buffer_unload(struct hyp_trace_buffer *trace_buffer)
+>                 simple_ring_buffer_unload_mm(per_cpu_ptr(trace_buffer->simple_rbs, cpu),
+>                                              __unpin_shared_page);
+>
+> -       hyp_trace_buffer_unload_bpage_backing(trace_buffer);
+> +       hyp_trace_buffer_free_bpages(trace_buffer);
+>  }
+>
+>  static int hyp_trace_buffer_load(struct hyp_trace_buffer *trace_buffer,
+> @@ -143,7 +163,7 @@ static int hyp_trace_buffer_load(struct hyp_trace_buffer *trace_buffer,
+>         if (hyp_trace_buffer_loaded(trace_buffer))
+>                 return -EINVAL;
+>
+> -       ret = hyp_trace_buffer_load_bpage_backing(trace_buffer, desc);
+> +       ret = hyp_trace_buffer_alloc_bpages(trace_buffer, desc);
+>         if (ret)
+>                 return ret;
+>
+> @@ -168,18 +188,16 @@ static bool hyp_trace_desc_is_valid(struct hyp_trace_desc *desc, size_t desc_siz
+>  {
+>         struct ring_buffer_desc *rb_desc;
+>         unsigned int cpu;
+> -       size_t nr_bpages;
+>         void *desc_end;
+>
+>         if (!is_protected_kvm_enabled())
+>                 return true;
+>
+>         /*
+> -        * Both desc_size and bpages_backing_size are untrusted host-provided
+> -        * values. We rely on __pkvm_host_donate_hyp() to enforce their validity.
+> +        * desc_size is an untrusted host-provided value. We rely on
+> +        * __pkvm_host_donate_hyp() to enforce its validity.
+>          */
+>         desc_end = (void *)desc + desc_size;
+> -       nr_bpages = desc->bpages_backing_size / sizeof(struct simple_buffer_page);
+>
+>         if (desc->trace_buffer_desc.nr_cpus != hyp_nr_cpus)
+>                 return false;
+> @@ -197,17 +215,8 @@ static bool hyp_trace_desc_is_valid(struct hyp_trace_desc *desc, size_t desc_siz
+>                 if ((void *)rb_desc + struct_size(rb_desc, page_va, rb_desc->nr_page_va) > desc_end)
+>                         return false;
+>
+> -               /* Overflow bpages backing memory? */
+> -               if (nr_bpages < rb_desc->nr_page_va)
+> -                       return false;
+> -
+> -               if (cpu >= hyp_nr_cpus)
+> -                       return false;
+> -
+>                 if (cpu != rb_desc->cpu)
+>                         return false;
+> -
+> -               nr_bpages -= rb_desc->nr_page_va;
+>         }
+>
+>         return true;
+> diff --git a/arch/arm64/kvm/hyp_trace.c b/arch/arm64/kvm/hyp_trace.c
+> index 2411b4c32932..859a926c815f 100644
+> --- a/arch/arm64/kvm/hyp_trace.c
+> +++ b/arch/arm64/kvm/hyp_trace.c
+> @@ -13,6 +13,7 @@
+>  #include <asm/kvm_host.h>
+>  #include <asm/kvm_hyptrace.h>
+>  #include <asm/kvm_mmu.h>
+> +#include <asm/kvm_pkvm.h>
+>
+>  #include "hyp_trace.h"
+>
+> @@ -157,10 +158,17 @@ static void __unshare_page(unsigned long va)
+>
+>  static int hyp_trace_buffer_alloc_bpages_backing(struct hyp_trace_buffer *trace_buffer, size_t size)
+>  {
+> -       int nr_bpages = (PAGE_ALIGN(size) / PAGE_SIZE) + 1;
+>         size_t backing_size;
+> +       int nr_bpages;
+>         void *start;
+>
+> +       if (is_protected_kvm_enabled()) {
+> +               trace_buffer->desc->bpages_backing_start = 0;
+> +               trace_buffer->desc->bpages_backing_size = 0;
+> +               return 0;
+> +       }
+> +
+> +       nr_bpages = (PAGE_ALIGN(size) / PAGE_SIZE) + 1;
+>         backing_size = PAGE_ALIGN(sizeof(struct simple_buffer_page) * nr_bpages *
+>                                   num_possible_cpus());
+>
+> @@ -176,6 +184,9 @@ static int hyp_trace_buffer_alloc_bpages_backing(struct hyp_trace_buffer *trace_
+>
+>  static void hyp_trace_buffer_free_bpages_backing(struct hyp_trace_buffer *trace_buffer)
+>  {
+> +       if (!trace_buffer->desc->bpages_backing_start)
+> +               return;
+> +
+>         free_pages_exact((void *)trace_buffer->desc->bpages_backing_start,
+>                          trace_buffer->desc->bpages_backing_size);
+>  }
+> @@ -264,7 +275,7 @@ static struct trace_buffer_desc *hyp_trace_load(unsigned long size, void *priv)
+>         if (ret)
+>                 goto err_free_buffer;
+>
+> -       ret = kvm_call_hyp_nvhe(__tracing_load, (unsigned long)desc, desc_size);
+> +       ret = pkvm_call_hyp_req(__tracing_load, (unsigned long)desc, desc_size);
+>         if (ret)
+>                 goto err_unload_pages;
+>
+> --
+> 2.55.0.508.g3f0d502094-goog
+>
 
