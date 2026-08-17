@@ -4,100 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EA1CC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 10:20:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F876C5DF70
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 10:23:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=toFR7CttO5z3jj5XX70w7xnXop6+YeM2N8EtwJ/xROQ=; b=DYHpdoygH3PeAJHGAu/1bFliKo
-	gc3GGyehgS7e/V/SbjLtJqAEFpV2OZ2iVb15OtU+Kn6bmVKS2oS3i5JmSDNQsCtB69Dws4PqFaOY6
-	uLZBE/iEUVRj9/pRyW3J2d3kMiM9iGJW1CK5zQSCGKLCJ/PPCmhkyyfl2y0h1F4X8nN4tyvMoFRv4
-	luhcvEZUqvZkqNKL3rIT1P8ZGhNha018kbbdCotGcGWrsdmVPE+VfJ6IfsgPhfYdCsBS1gvWDO3BC
-	9w0cF/bT96PopgXPDxoPHbUq0JmXkJN9DKLyHXTAm2do4zIFDrOm6Zw/BXsKoDpBTiqCTbvTKeGMn
-	vwYrplbA==;
+	bh=bIl1SuOQpb9zg0Np5Wc9hQemKa4tzr+QCugyijtej2M=; b=iOEDAlxYAnfXlHV9Sdw00TisE6
+	HXW77JXGu28M7UgdcfcHMM0F1OVGIsn/1tFR0lOyeq0rxPDYq8tSsMiUa7meLPAgj3miEnjtIaw76
+	QC5pZBro7GDmOeI2P0FfThmsP4D7mhLme/FgtF0X38PRDMb6nBV1Lm9Uh3fP/HdjyzuL7KLSeEhQo
+	6M0jEMnrwzB/mJekQfD8NFba4O0bFxnQCZUlm+TC0AFwW82z4T3TIXCv1eAjXSRdn/MpsNUw6v1sd
+	XiE1tbUl8h+j2lIuP4sOQ8yyRhaTREi6BW1HrUve1IQfVC9iqZg+ZO5VIDxNkAZbJ8Ocn3/Xdrf0A
+	B4BGCFLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvuSF-00000005u74-2UQx;
-	Mon, 17 Aug 2026 10:20:31 +0000
-Received: from flow-a4-smtp.messagingengine.com ([103.168.172.139])
+	id 1wvuV0-00000005udp-1MHP;
+	Mon, 17 Aug 2026 10:23:22 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvuSD-00000005u5y-0QSk;
-	Mon, 17 Aug 2026 10:20:30 +0000
-Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
-	by mailflow.phl.internal (Postfix) with ESMTP id E5BB21380339;
-	Mon, 17 Aug 2026 06:20:27 -0400 (EDT)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-02.internal (MEProxy); Mon, 17 Aug 2026 06:20:27 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
-	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
-	:from:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm2; t=1786962027; x=
-	1786965627; bh=toFR7CttO5z3jj5XX70w7xnXop6+YeM2N8EtwJ/xROQ=; b=k
-	DorzMwYWQ8UBd9lF3s3l7x240IkaADZR/qmhJImi43reP/RpGw0Lbu8OAq9xnPQJ
-	N7d55p43sb5FzAvi4RbwoUsUNTSgUU/Co47Q72YK1hOBet7Q4mU1gNCLLTihyNCJ
-	P/y6bv2M9o2Z+Pozqojf5zHKPrVMjkhaKa79Jwqr6CZdSQyQp74B5iAIIL7Y7F7k
-	nFTRYUICHD4j4s9McTdyx1bxK7EoxBAMw76vZKD8aJaQylZ/C4xEASxTZx8fR2ym
-	In+qbVeW4qi1/4zE/NhXoiYGdoBkZrt+X8sr6DJfueX0YIVbd2/YQ2oE1CdVupoz
-	17VxenK02M5e5aV243Eww==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm3; t=1786962027; x=1786965627; bh=t
-	oFR7CttO5z3jj5XX70w7xnXop6+YeM2N8EtwJ/xROQ=; b=e3tfk1RbNVgZiG35n
-	O1IDh52BayR9W1ZybJoiZ3gIRPMmNN/ayQ4CH8+Bgk/mAcwTTsZYRR/aF1hKXz88
-	i1xq12MI/QccS5FyR/Y+gJE3Q5tDzBRRVE6rH0XXTfSOEQHmIIUnWRxv/hIkkKDG
-	94GGZgjwvtXFpRGBsOvYRARUeLjlKySU51SOrST8BiKe/U+SnhjlPeua07PMrfaJ
-	VgorMmfxPCdh6SRisZbcKw3JBLrY0Srmz510jZhGNap5koExL/prWg5yGTLuMIyj
-	ZaEGXuHmk3IF/SZsnO/saOKeTlfuxwB+uaWjvB7xfjfEQ3N3hKx2Qv+HRmL55Vuq
-	ESMrQ==
-X-ME-Sender: <xms:a-CCapERq42D396F-WvEVMS96cfIQpAnBdoH8ZhjiBu5uHf62e_z9g>
-    <xme:a-CCamjRvLUwTyKji24L2J8LzcTsf-CZVVrGuhEjG_dLcr-tstYU1q4IasUzwN8WU
-    AuyXDCOX2OinHA8mSW6x4yQMNlkhECJQtanYzgOSUq6NW38-9-cYcYi>
-X-ME-Received: <xmr:a-CCamtb48pTVq1-_GmEXWLUeeCExlicdF9y_ppU39qcTLHc6Gse3F2uDARsa2zbRn7uJMx3Mg>
-X-ME-Proxy-Cause: dmFkZTEav12/xox9dW6FBrGBtqGDntmQw+BK8FNwTWmRZjxu8LmOPvxJLoqU5ERQ2bc4Sh
-    EZTMtc+O1uYQzV11Wxoj4DcdyOim58v1EwZW/KjHoqAFyJ007NUBR20UItdIgPWS9PsXBq
-    pe89jlsR9mJe7k2fRZhSktW/8sOxkpzOe09fjNRCMBiwIlBCHVI5VwWaxGXFrYZdVsWD8T
-    52vMwRkhQIUUgsZdZbEZDtRTbJeWJLpufjCQGCpqCBp5wclqROY2LMMw7OpGz3JD5/Nek5
-    dQqSB/RHcDywRRL7dKDqNv+L32U/Ay+fbsSTUemig8p/3vpdA1ucfND8A/hlnoTuRgaYAs
-    ia75Cchp0mALQLn46Kyahjr00cWOSvN4PUWbMS4ZUD0d7q5xX22cQBTydSFgzjQBnfYhyD
-    TC7Aww6EcaQA9DmAwX1AdDmnHdKv65rcIFjiBijOgxck90DvV3KSAI4UAT6df3la9rS8A+
-    38cOjyG52g/faS8m/k0/X/BQ72gfpc41DePsIED6qD2DLDN7TNZagYSGiPJckbjOjaAJNm
-    gD1p8MNV+iDXIA5UzTTqc1/6bOxxDJomY031pSrkDl61UP/LFvMxFCrRzQdBowoWwZ+hyv
-    EL04bPEmGMesAMuTStxaJrd3yF6LEpoubwOo7Ijdzk3uG2W63mNtaea9UcKg
-X-ME-Proxy: <xmx:a-CCapuUDBoxg3wQqwBDLCTLeE6ojJfspPFPx9t6i-6bXRe3xrrRzQ>
-    <xmx:a-CCarHLEMWt-uZZGYsjvuc3CuDxAgGxZdkCkXbTL-Ar8xC-c5HtBQ>
-    <xmx:a-CCakOTODvED21m5GbAqXQWdXOXa685f0DJXuNxvjFE4f3EBgR2yw>
-    <xmx:a-CCaqIA9LYla2ZnkHi8uK840Ywz6pofG89dde6PybG2zRZz9-jkpg>
-    <xmx:a-CCauVITsaLWtdqyqOfeHeI_8QESZofbuGcX4DUxRTD7NpkHa1RrfwD>
-Feedback-ID: i7a5e4b5f:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
- 17 Aug 2026 06:20:23 -0400 (EDT)
-From: Jiaxing Hu <gahing@gahingwoo.com>
-To: royalnet026@gmail.com
-Cc: tomeu@tomeuvizoso.net,
-	heiko@sntech.de,
-	chaoyi.chen@rock-chips.com,
-	alchark@flipper.net,
-	dri-devel@lists.freedesktop.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 08/10] accel/rocket: add RK3576 NPU (RKNN) support
-Date: Mon, 17 Aug 2026 22:20:21 +1200
-Message-ID: <20260817102021.1226525-1-gahing@gahingwoo.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260817100046.24872-1-royalnet026@gmail.com>
-References: <CAEWPSH7ETfw2TDjUfOvcVtDm19FC43x2vP=Lh7m+XPOGptnPWA@mail.gmail.com> <20260817094544.1159366-1-gahing@gahingwoo.com> <20260817100046.24872-1-royalnet026@gmail.com>
+	id 1wvuUz-00000005ucu-1h5m
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 17 Aug 2026 10:23:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A847160A59;
+	Mon, 17 Aug 2026 10:23:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 46384C2BCFA;
+	Mon, 17 Aug 2026 10:23:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1786962200;
+	bh=MoKFjfCjj7eH3YeKB15VObhOrHj5g0TnVGxnPcj2obA=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=ijOTYxqlES7CyiGN/UDG4YOfRgjY8xfTe4FhTNnmCi5HYwhpHpZy6zaJeLGHRCKKf
+	 XU4krsu9NAKKj8+AFmOmfz/oFpxzdTSYcCSJs21NrjAqjrMAynvyHZ3oLLxI8o5sBC
+	 d2lbJFwzjQVol+djC9S2XnrGkKd1mwFYpl6l5p9oooqWEVNuNC5VhjaOrkbSdZHOXv
+	 13SBQvir4dvEjmU5FWU0RVgILxNz7G23nREKM4Fp0pTIHvFmpRPMn8XnrK+DQa6CGA
+	 QAOP1qMvIoHE/4itOSPg7fFuqoJ+5kLFduv03l/ICQlvOTAvKtvZfJGMdNY2E1bqTA
+	 Gkv4eRN+nKuyg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1ECC1C5DF66;
+	Mon, 17 Aug 2026 10:23:20 +0000 (UTC)
+From: Aiden Isik via B4 Relay <devnull+aidenisik.member.fsf.org@kernel.org>
+Date: Mon, 17 Aug 2026 11:22:53 +0100
+Subject: [PATCH 2/2] watchdog: s3c2410_wdt: Add exynos5515-wdt compatible
+ data
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_032029_239708_E133767A 
-X-CRM114-Status: GOOD (  11.78  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260817-for-next-lucky7-watchdog-v1-2-a14370e20b92@member.fsf.org>
+References: <20260817-for-next-lucky7-watchdog-v1-0-a14370e20b92@member.fsf.org>
+In-Reply-To: <20260817-for-next-lucky7-watchdog-v1-0-a14370e20b92@member.fsf.org>
+To: Wim Van Sebroeck <wim@linux-watchdog.org>, 
+ Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Peter Griffin <peter.griffin@linaro.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-watchdog@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ Aiden Isik <aidenisik+git@member.fsf.org>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1522;
+ i=aidenisik@member.fsf.org; h=from:subject:message-id;
+ bh=+9Y7AuNFAzHe4t85GeL0qqpJDKPFW2rCnQvCFhFMQMk=;
+ b=owEBbQKS/ZANAwAIAUknAbLEetfrAcsmYgBqguEV5hCTkiYzCAuAqaEysF9HeVHLS/kYrXCkl
+ wC0Z2JJs3mJAjMEAAEIAB0WIQSDy8UkXGpc3JNbEaVJJwGyxHrX6wUCaoLhFQAKCRBJJwGyxHrX
+ 6z0CEADqZKi0kxBZdzOSE+sR3Syr4VfVM8atvSQmljPNeD1lGwMeks1nUAbpZZCzC4cPbU5rS6O
+ oQ/3Xq6FOqQPczocNa6ZI6zap4k+ZN7TPV+qtqXBj+urWUxdN3j7YBbCoYReqRc2CpEiadY9M3d
+ XUIu3zxPiR/709eAYCd/A7bn5LWMF5XKXrXOXIVAhDF2fTMfUtrzucC5Gi0m1QkG3hBdzdO6CJ1
+ qPeJEGiwrnaoXGtxLbwgg6PDFCziZLf7ocbYRPhOu8pF0G8eD+9zDwDi0TK6h8zOJqcebRFaVpa
+ nAZnjfjKoH74wsQ4ShxGeYh9kQFIK8Ni0xs25pP4gwQEvg89bPt2IA0vNaFYA8/Zp82FsqyZOvu
+ 4RChbcxj7seuLR2ahHJa2xnFzPsIyVq612kLwUu9OcUQe8nibHKIQasT6eRUH9B9M0AUKpR7B67
+ QzZ56LffaQAW6t/eREhMez+MkH63FiiaQ/43o85xy0vEpZWbqULqCbTWkK50vjFtjJumZo+5fJI
+ 38txH6RHoa65HHWPNVNsf3gIcYAo9Rn1wWQyVIbkCBVToULAqPYWhdR5MNH4sZAwNNkAs1C+17Q
+ 8i9yzt0jZmiwnXkGNjE+0kzruON2kWHPjgPO1YtzcHMRBFZkfRtpqset3Sluz0fPiM0FEXoxL3I
+ sP6B6OPmKqE4+7Q==
+X-Developer-Key: i=aidenisik@member.fsf.org; a=openpgp;
+ fpr=83CBC5245C6A5CDC935B11A5492701B2C47AD7EB
+X-Endpoint-Received: by B4 Relay for aidenisik@member.fsf.org/default with
+ auth_id=956
+X-Original-From: Aiden Isik <aidenisik@member.fsf.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,66 +97,52 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: aidenisik@member.fsf.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Igor,
+From: Aiden Isik <aidenisik@member.fsf.org>
 
-First, I sent you to the wrong counts. The two predicates disagree only
-where oc mod 32 falls between 17 and 31, since modulo true implies parity
-true and never the reverse. At 40 and 72 both forms emit the same word, so
-I withdraw them. By the same arithmetic only 56, 88 and 120 of your eight
-carry any parity versus modulo content. The rest still establish something
-better, that the upstream constant computes whole at five remainders on
-RK3588. Discriminating counts nobody has run are 20, 50, 60, 90 and 114.
+Add driver data for the Exynos5515 SoC's watchdog timer.
 
-Take the code from the merge request rather than my working branch, it has
-no knobs in it.
+Signed-off-by: Aiden Isik <aidenisik+git@member.fsf.org>
+---
+ drivers/watchdog/s3c2410_wdt.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-  https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/43804
+diff --git a/drivers/watchdog/s3c2410_wdt.c b/drivers/watchdog/s3c2410_wdt.c
+index e31f93db0509..7299dfdb0c09 100644
+--- a/drivers/watchdog/s3c2410_wdt.c
++++ b/drivers/watchdog/s3c2410_wdt.c
+@@ -232,6 +232,16 @@ static const struct s3c2410_wdt_variant drv_data_exynos5420 = {
+ 		  QUIRK_HAS_PMU_RST_STAT | QUIRK_HAS_PMU_AUTO_DISABLE,
+ };
+ 
++static const struct s3c2410_wdt_variant drv_data_exynos5515 = {
++	.mask_reset_reg = EXYNOSAUTOV920_CLUSTER0_NONCPU_INT_EN,
++	.mask_bit = 2,
++	.rst_stat_reg = EXYNOS5_RST_STAT_REG_OFFSET,
++	.rst_stat_bit = 24,
++	.quirks = QUIRK_HAS_WTCLRINT_REG | QUIRK_HAS_PMU_MASK_RESET | \
++		  QUIRK_HAS_PMU_RST_STAT | QUIRK_HAS_PMU_AUTO_DISABLE | \
++		  QUIRK_HAS_DBGACK_BIT,
++};
++
+ static const struct s3c2410_wdt_variant drv_data_exynos7 = {
+ 	.disable_reg = EXYNOS5_WDT_DISABLE_REG_OFFSET,
+ 	.mask_reset_reg = EXYNOS5_WDT_MASK_RESET_REG_OFFSET,
+@@ -379,6 +389,8 @@ static const struct of_device_id s3c2410_wdt_match[] = {
+ 	  .data = &drv_data_exynos5250 },
+ 	{ .compatible = "samsung,exynos5420-wdt",
+ 	  .data = &drv_data_exynos5420 },
++	{ .compatible = "samsung,exynos5515-wdt",
++	  .data = &drv_data_exynos5515 },
+ 	{ .compatible = "samsung,exynos7-wdt",
+ 	  .data = &drv_data_exynos7 },
+ 	{ .compatible = "samsung,exynos850-wdt",
 
-  R_DPU(0x4050, (DIV_ROUND_UP(output_channels, FEATURE_ATOMIC_SIZE) & 1)
-                   ? 0x80011011 : 0x80011111);
+-- 
+2.54.0
 
-output_channels is task->output_channels_real, the unpadded count, and
-FEATURE_ATOMIC_SIZE is 16.
 
-Do not put my two words in an RK3588 build. Against registers.xml
-
-  field         upstream 0x124   mine 0x80011111   mine 0x80011011
-  RGP_CNTER            0                8                 8
-  RESERVED_0           0               34                34
-  SIZE_E_2             1                1                 0
-  SIZE_E_1             1                0                 0
-  SIZE_E_0             1                4                 4
-  OW_SRC               0                1                 1
-
-Mine differ from each other in SIZE_E_2 alone and from yours in five
-further fields. Those five are common to both of my words so they do not
-confound an A against B, but none of them has ever run on an RK3588, and
-if both arms fail for that reason the oc 64 control goes down with them.
-
-Use your own constant with bit 8 cleared instead, 0x124 where the
-predicate is true and 0x024 where it is false. That takes SIZE_E_2 from 1
-to 0, the same move my words make. It assumes the three SIZE_E fields move
-independently, which neither of us has shown.
-
-Bit 8 does something on RK3576. The table I sent on the 16th forced
-SIZE_E_2 to 1 with every other field identical, and 16 output channels
-went from 16 of 16 to a job timeout, 41 from 41 of 41 to 0 of 41. Whether
-it is the only field that matters is open, and the sweep I promised before
-the series went out covers RGP_CNTER, OW_SRC and two reserved bits but not
-SIZE_E_1 or SIZE_E_0, which are just as fitted.
-
-Of your three offers the oc 64 control is the one I want, both ways, since
-that is the side I lost. A count at 20 or 60 would be the first
-discriminating point outside 24 modulo 32. And yes to the generator and
-the scorer, the refusal to emit a constant reference channel is a better
-guard than mine.
-
-You are right that none of this touches the timeout. Every modulo run that
-lost channels also raised one, at three counts, and I cannot yet tell
-whether the register causes it or both follow from something else.
-
-Jiaxing
 
