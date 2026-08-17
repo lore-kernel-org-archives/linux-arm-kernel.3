@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D5F1C5DF66
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 13:26:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 089E9C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 13:28:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fBMyNpNHwmcAJxxbYNFl5cMlaifHFY+zDcFEk3Lvf7U=; b=Pfu8ws3ycxTcxCTeXi+O9/406B
-	vZdMwzXmY8/tbVFuXULe/nAay2LzlJ95IoQqkdLFEPFkBqfnD2W865fo8ibVwtv7umex6hGX0fgs4
-	AtMatKvzwPGzWn0Qp7PTMPOY4Kbz7yDKdJgCdrNdUjmNv2QNBJ9rl9cdJz1S5JiR66MJa1B0jb1be
-	uC40oiLEnYANLy/zh3H7dO/8LLUZd87lUX3VNrhMIkRbPACI851TzsibwX/Gfcas4tGlUjkLA8grX
-	eu1FEVTCGXnORmkCOoEc2jmXAktPbgQV2X4CL31d9gO7KC2QS7ApymhZ/8luWpbRegIBkfYzwUPHt
-	l/+rgJUw==;
+	bh=KUdwiuHEFhVhO1itwdFrGoQBICFLjmpZRLXi65Mix+Y=; b=x1KV9wNk4C9d9GfQjcqjevMbkw
+	UGYLHeuXuoISl2nOL+LX6dQoEXZ6OnOty5WX/NJ7XtwBcRhJGjyBtp3EkeiDKTvc3MRRQS3rhlcqr
+	RmrDeX2FrrlE3oGNCfJ4XN/No269TvC6x00DhPrrT67ITw5HtbpxxR4O5G6YaURFGXusXH5VSv+GK
+	HtlKOlYqw0qM4ig42wWS48hC47kJjF58bIRtVrWySCubY2v39vj3IKjbrOmkAqjL9TGJkB4b3MldA
+	NGHcuRE+6QpOtln5LuJ3lSx3gz205Cfax0H8Xhl+OhMjGUp1YIbTOqXsLLG/aLxS8NeME118E9AED
+	Fxk7Up3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvxMN-00000006DfS-0j0H;
-	Mon, 17 Aug 2026 13:26:39 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wvxNf-00000006Dof-1QZU;
+	Mon, 17 Aug 2026 13:27:59 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvxMM-00000006DfE-13Ly
+	id 1wvxNe-00000006DoO-1OJX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 13:26:38 +0000
+	Mon, 17 Aug 2026 13:27:58 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A85B0600AE;
-	Mon, 17 Aug 2026 13:26:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDB0C1F000E9;
-	Mon, 17 Aug 2026 13:26:36 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5626B43548;
+	Mon, 17 Aug 2026 13:27:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA8351F000E9;
+	Mon, 17 Aug 2026 13:27:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786973197;
-	bh=fBMyNpNHwmcAJxxbYNFl5cMlaifHFY+zDcFEk3Lvf7U=;
+	s=k20260515; t=1786973277;
+	bh=KUdwiuHEFhVhO1itwdFrGoQBICFLjmpZRLXi65Mix+Y=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=SYMubkHwKG+UZVAKQMcOhpsGVdwtveItAV4u/nlqT/SfguDWICr2wv1tHV0yDWJvg
-	 FVv0uhobGOneDZtj5bIfQ6NNkd2s7LRGQMy4eHgcRzRuEcqdq05kmiAvL73Iw7gB9s
-	 ZHUfBfh763e+GBH5Z/M/+wziXto0s/kJU7cvBPfNKdCBXyAqJRkSJFd9WepsOiqZ2r
-	 nTBVcC9mU4BKEMd5mmzDOZ7G14tAJeLoSPHt64rbTbAjZ6UEHcNNOm9u99Yl7TKbMq
-	 2HlPlv7E+PCcodB17XNTqC7D+GIBCLZc1rlz+Grzv9fN/UI4vLEgTGA2ci+2ABHEAS
-	 8EQ5QX8ZQoI5Q==
-Date: Mon, 17 Aug 2026 15:26:34 +0200
+	b=bc5HyQYM1Yl/eP6xwJH4ZarKDSSbpcsoeD1ioi6wDfndS/hS1Y9Zk+yG5UxwQ7np1
+	 Zurmh0Uv5ewUTABnmQfBUt/J12Nvb3TiNWBEMpnht3T2IMsivhk6iFBl0LdQpD7AK4
+	 PvCSblTa9E8CKeZbODLUvw6SsbsSUklbZUe2wPKbJnxEi9q2q3dIi/v7hwG4RdsGEF
+	 WJigU2caH1PkHisw6MfOGlinm5qZK9uEn5TTthzJcLwMjyQl/QMzfWsAPNu0SK34wr
+	 kc2MK9xKx6rui4tK0p8jfX8Z+07eRXq2ySrauSloWjItE5oe4PjhcG0sBJs9y5WsPl
+	 Ogqtz5AlvOzBQ==
+Date: Mon, 17 Aug 2026 15:27:54 +0200
 From: Thierry Reding <thierry.reding@kernel.org>
 To: Manivannan Sadhasivam <mani@kernel.org>
 Cc: Bjorn Helgaas <bhelgaas@google.com>, 
@@ -54,18 +54,18 @@ Cc: Bjorn Helgaas <bhelgaas@google.com>,
 	Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>, Michal Simek <michal.simek@amd.com>, 
 	Kevin Xie <kevin.xie@starfivetech.com>, Aksh Garg <a-garg7@ti.com>, linux-pci@vger.kernel.org, 
 	devicetree@vger.kernel.org, linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Thierry Reding <treding@nvidia.com>, 
-	Manikanta Maddireddy <mmaddireddy@nvidia.com>
-Subject: Re: [PATCH v10 3/5] PCI: tegra: Add Tegra264 support
-Message-ID: <aoML05AL1RD-B5sh@orome>
+	linux-arm-kernel@lists.infradead.org, Thierry Reding <treding@nvidia.com>
+Subject: Re: [PATCH v10 2/5] dt-bindings: pci: tegra264: Switch to PCIe root
+ port bindings
+Message-ID: <aoMMInqEdS4MGUfU@orome>
 References: <20260814-tegra264-pcie-v10-0-05d08c592b05@nvidia.com>
- <20260814-tegra264-pcie-v10-3-05d08c592b05@nvidia.com>
- <ajpntb2f62mpevhofuv2mdpgsktzp6gwcvu2euka7qu2n3f7at@fp3q5fowyvgg>
+ <20260814-tegra264-pcie-v10-2-05d08c592b05@nvidia.com>
+ <f2wdbxqudd7kice4fcee4skgwektcftgqvccihi6l47ztwlssg@ufehmcwfwjh7>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="nynx6c75mt7damvo"
+	protocol="application/pgp-signature"; boundary="kwhhjrimcwx56o2n"
 Content-Disposition: inline
-In-Reply-To: <ajpntb2f62mpevhofuv2mdpgsktzp6gwcvu2euka7qu2n3f7at@fp3q5fowyvgg>
+In-Reply-To: <f2wdbxqudd7kice4fcee4skgwektcftgqvccihi6l47ztwlssg@ufehmcwfwjh7>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,65 +81,54 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---nynx6c75mt7damvo
+--kwhhjrimcwx56o2n
 Content-Type: text/plain; protected-headers=v1; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v10 3/5] PCI: tegra: Add Tegra264 support
+Subject: Re: [PATCH v10 2/5] dt-bindings: pci: tegra264: Switch to PCIe root
+ port bindings
 MIME-Version: 1.0
 
-On Sat, Aug 15, 2026 at 08:52:26AM +0200, Manivannan Sadhasivam wrote:
-> On Fri, Aug 14, 2026 at 05:38:57PM +0200, Thierry Reding wrote:
+On Sat, Aug 15, 2026 at 08:28:31AM +0200, Manivannan Sadhasivam wrote:
+> On Fri, Aug 14, 2026 at 05:38:56PM +0200, Thierry Reding wrote:
 > > From: Thierry Reding <treding@nvidia.com>
 > >=20
-> > Add a driver for the PCIe controller found on NVIDIA Tegra264 SoCs. The
-> > driver is very small, with its main purpose being to set up the address
-> > translation registers and then creating a standard PCI host using ECAM.
+> > Switch to using the PCIe root port bindings in preparation for using the
+> > standard WAKE# handling.
 > >=20
-> > Signed-off-by: Manikanta Maddireddy <mmaddireddy@nvidia.com>
 > > Signed-off-by: Thierry Reding <treding@nvidia.com>
 >=20
-> This s-o-b chain is cobbled.
+> For some reason, you just keep missing Rob's R-b tag for this patch:
+> https://lore.kernel.org/all/178594272722.905042.3804777775947567354.robh@=
+kernel.org
 >=20
-> 1. If Thierry is the Author, and if Manikanda co-developed the patch, the=
-n there
-> should be a Co-developed-by tag for Manikanda.
->=20
-> 2. If Manikanda is the author of this patch and if Thierry is just sendin=
-g it
-> along, then the authorship belongs to Manikanda.
->=20
-> I've applied this patch based on (1):
-> https://git.kernel.org/pub/scm/linux/kernel/git/pci/pci.git/commit/?h=3Dc=
-ontroller/tegra264&id=3Dd56131f7a401841c09b6611402a8d2e795da3a6b
->=20
-> If that is not correct, please let me know, I'll ammend it.
+> I'll add it while applying, but please ensure that tags are not missed in=
+ the
+> future.
 
-That looks fine to me. Yes, I should've added the Co-developed-by tag
-=66rom the start.
+Understood, I'll pay more attention to this.
 
-Thanks!
 Thierry
 
---nynx6c75mt7damvo
+--kwhhjrimcwx56o2n
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmqDDAoACgkQ3SOs138+
-s6HYNQ/+MRVadAWWZZEyFF3tB78b26u4o5CGugQ9OntgZaF1GiPQJGTDsK9bfaj7
-A89d3NQN7jW7yfIp0S2l+3meGtQZ15IlBNpyldEsrrOduvOoNKePIJD8WAjT8nBr
-7mJ/MjSmDfsEYrnNzey51AsdtfFtY/I4pYV4Y5F5+/BzOw7FXPUaa3Tp5zyaCpg+
-iODaUeUZFCLHHiB36chlJImWteMbX0ZWXCVkyC7IpWhaneTTf7E7fuhSxBwxksXK
-m7iz6tGrtWO+3I2B6X3RFIN/hDU9uDoEuE+ioolPTPOTE4wZAfGw+vDbR8TpBp7z
-WMPvGUjfZy65Zokyk7QAPkwX5Lx6rs1KwITVK9sRdvNpIK1T6eGvZkY3CQx7Sma+
-ji5l+YzHlimaPf4GdbiSsDiTzoi2rRU3bUYs5e0VSjYy3OXjTFbKwEZZTitWFOEJ
-j1Xo+cJd/yHKOH7/jajGT1oRVAh/4iopWNnfVs/oOqKlqkRJCsvr+CvXuoKeGzv+
-0qSLpLo7GNXZfu1nOQmsO7U7G7g7Op662UBwvSSd4uuVsfZTlzS02Vffcg6Tyy1M
-FplFJYeq99XM25g02rpRzg0a/c4HoAVSS73jtYJT5ff4+qSgsTZcsTFRW9k4xe1z
-vMhAcDy/avLS/bEv1fU7lwhNQRKhzY81jAFO9WGFoNU137Bxyy0=
-=lgnR
+iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmqDDFoACgkQ3SOs138+
+s6HZvxAAuhRhI5oheC9XaqEXYpnP1hc7i+bmTmMgHx3tBcBUww6zCs+JMeL2cY7F
+kJ7m82I/7kFU30Ttyk+HouyfcPyZ1uj6aiP7PHwSty+N+KJRhgMy4/+kUKc3MxZk
+CWO10DCTO6kFdWGmrBI82o6TJ/VPVGkAN46PvKsi5FZE+TDTa5IGfRtRZmMVKTXO
+8qCjR1KK92sc1Tibu95ByDCA3uzLoGtkoj32AqOMfVNRcCTpf/GDWy0/ZCTfPryg
+jzGFCiRIRV3//FAsbQFh2xRrLydUUT1gpDGXOSsKmu/+fyvXTSoP/Q7hJ3nMYEje
+v4GFbgclY3+BR33QPzAIon5Fp/gepYO4w5bha4F+acvKO+ImwMfVLH21lOs1d9Iv
+YSo8c4kNUsnVhgL4XdgIpRhAZGMgPxog7GmGatqf71QLqq6n6DPlNLK7OEt+1uI5
+LbSflXOFlRS4xGTi1SpUnqhS3DwIAhTpubTEqslZkejtktLKRr66z3A9D7TdhOoh
+ZDcePOLZUqEoOHg//GJGfvzVJtYcgTq+v4aruVtFDHD61UMTNNqc5Iy9XsfWtyVQ
+2AAfHOIO/g+zKC16JtXgye1GyOP8BWqe3VA3f48GnDYGYP0rEloqTjIoBDgY3T+U
+14EN7Fw3wPZN4JDKysXD9rq8owQJrj3S3ZfIIAeUbAV28uIRQr8=
+=Cjmd
 -----END PGP SIGNATURE-----
 
---nynx6c75mt7damvo--
+--kwhhjrimcwx56o2n--
 
