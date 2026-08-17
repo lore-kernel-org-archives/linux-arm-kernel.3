@@ -4,108 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 160DEC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 08:21:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 636B7C5CFC1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 08:21:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VO3Z+rfhtP9zPk+uW3S74n4Yp421Xci3iN3KG5FpT1Y=; b=s1xQY/KmvaDBVfd3o2Y9qARSjV
-	Nji3sfcPGJTWrb2E3C3MwGL7pQJTewtk8B+Tp8F3KO7NVboa1nPB2CON1yZhyuaxqcSvCJT12JjaR
-	aiXVTC0EzDIzTbA6bQLi+Jt+shn/cC+MrVLd+yGWyeP9rNB+G9GG5wThl3MQ1tDgxl35FECwgu1BX
-	I+5Bl6FPnhrNg1bjpnGAaUlWKQCEToetKrcwcd453Oc9fRy2L7ELeU0sahG7eIsCxIZ15r0j68/w6
-	IsAZsWY7OOOpCL3hM/0gVZPhbLW7M/K1+0dawj1iXByswl/uDc3AMOkdhpG1IWLoouGGUqIax0VX5
-	jRwB5Yhw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=x1s8IO0Gv34ic+NyjGbuv0eajc3hFNRAjyrWOVejEoE=; b=ZvvqNp6O5vUp3LS0fkQNP0Qsg2
+	jF4EwIUGJTdOiJGYwGnJHYO+l4oAzlmdSCH83INEcmAhG8hvJJFqmKHc6L59c51Ai1COVbRQpKbiJ
+	97P7phiGZrdyr1wmWuPg1VQk6KKcBwwzVlHPkpaLSRnNIokqy9yaM/spmUnGeo6aeKK91PGhuDPXS
+	k33ijizAIG/J6MSWq3yOFVsv3uc1S+ALqNMuqf78Peb9L/2cJ/fixRlSaIRz/fGeZrVxziyDLOVsn
+	8ZmA+tgRmnSwP3V3GOcWVhJRUtP3Mm/CrcOY/GhbKdn9pWd0MnUzK8rFNaD/kfFynaGB3GG0Pen1k
+	PGLk5Qbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvsae-00000005eiY-1CKq;
-	Mon, 17 Aug 2026 08:21:04 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1wvsb8-00000005fIx-2mEz;
+	Mon, 17 Aug 2026 08:21:34 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvsaW-00000005eWI-06QK
+	id 1wvsay-00000005f7p-13B4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 08:20:57 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-49554ebb87dso30397355e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 01:20:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786954854; x=1787559654; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=VO3Z+rfhtP9zPk+uW3S74n4Yp421Xci3iN3KG5FpT1Y=;
-        b=PdxgkuxiwHhTRGeXrnbcmV72K3YrJSFMFgCUfNQ3SHqrVP+WWLZ5Qkg84S/J+aZLNg
-         45bsPTtuZwA+hNin/EMEpG9/yswJcPp+YjqhY08+fmKrn8KzKJOViIMhwpqgjoZvEIpi
-         uEpaEDuyTLNTy6JSl59BudL/mVJ80WANq2RL5cTWAo9knRJ0rWjEi3nfHs3LJyr8fqWQ
-         RXdAwpe8ZEi5g/abePtyNr4URNyQKDyM9gGupIF0hs0+wpwuiifsVmsfjXJh9ypakp7C
-         toSMG7E/q+nhy4g0t4ptAjkNE5pK2diNYclhGuCW5/dPor9ul4Qjo80SQ0jRfFv6X1pL
-         Xtng==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786954854; x=1787559654;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=VO3Z+rfhtP9zPk+uW3S74n4Yp421Xci3iN3KG5FpT1Y=;
-        b=jcQ19Oa0NTdGgOTzHaec0QdpgJYwquEAo3350EqGkRMM76ATE3hVCzX7ysI+MllSVs
-         N4RAhvxACmc/lF2L+zpy4wNMIOc9tmvzX88sb3WgyMAP6QkIfNHu1IuXl+Yt1yrNVTgg
-         xAiprmi6CuTWRHSSgTGnk1+FsB0ghVMw60NlTer/97D24eTMnzbOf0FRhHlKUMfQpHES
-         8FLZyavXAXhge8FM/cMC+/G202qhcMF/WL89Af2xBTUamXCp/Y3i18KK5Zgm29S0urR9
-         Rf9L8zm6bngVsW1oZMh5Pt/u/xNnCBnxds1y8sP+PnT2lVjzuNUEHvlueHte5NCbNOtz
-         dkcg==
-X-Forwarded-Encrypted: i=1; AHgh+RpMFkJXggAY2sO60r6YFIIj12PIxqmTGWRVaqdJK/I6CdQj1chppD040Ml88/ijjDUsntD1H7EEv9Wa5q7ozVlh@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzc/UW4gnug/vy1q9rTUe7iplM0TcAZuZ6pXJNV5JPviwm4INe7
-	mAWLdlJRhZcMLA8im1jUASjoaWP3yThWtHo5MhsF3PzQ8wX3xT6HOyC0
-X-Gm-Gg: AR+sD11F6ZJf1DGE0fN3qZt+1PS17hEO+6+VBBYd3aMRNO6fi1UXDwQ1K5wib8e3Em2
-	o1usDE6IvhiAhJ/iy3bE1FWLpW4Iy6vCz5u8Q9T2w4phFUPWXLQ/+U193GNjnchDIXI8N4iD/Un
-	Z39VLGe91i7ibn5UcO9tSbGZVLqcqP6YBGDrKG2StVi433xBtynXJq4ZGzOnQ7bpCP9/StMk4wU
-	wAE+ez5sqY8JMYdE9OHSYzXtafiDY4Qpy2Y1PwxWjYint4RK4HyHHhpvlpMDnE8Gn6JiimJhM+n
-	VV9CBnIYUkRJMSfGqhoot6jqlLX1fyMcjRq7mRliBLE6VPYgX8ZfKbOAV4z3QGba1em1oN1ZVhH
-	Xd3qrI00Q6Yo/0d8cP9XDjUGjUF58/8LDp2eli4PjkCLtYHBGLXEyTaPYIQtDLfE7KaGl9PFWAP
-	ZkYTqs/vMHXuo3f7LgrlWmSApsxBKhAd0AWLV0zMWHGWm3nuOpSUvQxtAQQumyakiNOSPjc3Ora
-	SHNkODHzwz5AM0NmN7kJjCr0PpXXaXLdrLSSwXsqyxYckGnZk1mFxRZ2vhQQw==
-X-Received: by 2002:a7b:c4d2:0:b0:499:8191:62c7 with SMTP id 5b1f17b1804b1-499879b38dcmr270297735e9.18.1786954853881;
-        Mon, 17 Aug 2026 01:20:53 -0700 (PDT)
-Received: from Ansuel-XPS24.localdomain (host-79-40-190-175.business.telecomitalia.it. [79.40.190.175])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4999d078517sm19684195e9.5.2026.08.17.01.20.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Aug 2026 01:20:53 -0700 (PDT)
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Christian Marangi <ansuelsmth@gmail.com>,
-	Lee Jones <lee@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
+	Mon, 17 Aug 2026 08:21:24 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B59C44023E;
+	Mon, 17 Aug 2026 08:21:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7D621F0155D;
+	Mon, 17 Aug 2026 08:21:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786954883;
+	bh=x1s8IO0Gv34ic+NyjGbuv0eajc3hFNRAjyrWOVejEoE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Tt0kpmoWJircA3aou5fJbNek/4Ftg+oS8Wyls3V/YQsZUP8U2KD4mH7iu9hJWa6i4
+	 LadYIzR19hmaYnCUoif0qj1XCL2z38wHQkbky2X/oi72QcFMPd5ETny+EpPEsEys9o
+	 pIMEouYN3NjXZplLFykLh3iIThgqD+6CeH3Obf+GfFZUkOrugfqWXP4E10XaDBp97U
+	 iOEKf0lJzBmeyQBCwO1+6lqxYoXvB0prr/UzLsXaVUXyNbM1UGO/ql/+izCebLa0zV
+	 t4IswhRpypvWtOB93vmiqF3SMxpQG0Q2wjRr2EKiqNfbxyeom+LwkKoxobFEnn2htQ
+	 MpK7pzXn+KeYw==
+Date: Mon, 17 Aug 2026 09:21:19 +0100
+From: Simon Horman <horms@kernel.org>
+To: Bui Duc Phuc <phucduc.bui@gmail.com>
+Cc: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"Chester A. Unal" <chester.a.unal@arinc9.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Simon Horman <horms@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	netdev@vger.kernel.org,
-	mfd@lists.linux.dev,
-	devicetree@vger.kernel.org,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Michal Simek <michal.simek@amd.com>, linux-arm-msm@vger.kernel.org,
+	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next v20 05/10] net: phy: Add Airoha AN8855 Internal Switch Gigabit PHY
-Date: Mon, 17 Aug 2026 10:20:27 +0200
-Message-ID: <20260817082034.20326-7-ansuelsmth@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260817082034.20326-1-ansuelsmth@gmail.com>
-References: <20260817082034.20326-1-ansuelsmth@gmail.com>
+Subject: Re: [PATCH v2 1/2] net: xilinx: axienet: Propagate errors from
+ optional IRQ lookup
+Message-ID: <20260817082119.GU265046@horms.kernel.org>
+References: <20260813042012.17631-1-phucduc.bui@gmail.com>
+ <20260814170001.GQ265046@horms.kernel.org>
+ <CAABR9nFxfzf8QP-wq5iaJRTL+HG+a+tNqqX2daj-=Cwp46hPJQ@mail.gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_012056_127397_7F348FCD 
-X-CRM114-Status: GOOD (  24.25  )
+In-Reply-To: <CAABR9nFxfzf8QP-wq5iaJRTL+HG+a+tNqqX2daj-=Cwp46hPJQ@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,330 +77,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for Airoha AN8855 Internal Switch Gigabit PHY.
+On Sat, Aug 15, 2026 at 10:13:59AM +0700, Bui Duc Phuc wrote:
+> Hi Simon,
+> 
+> Thank you for you review
+> 
+> >
+> > It would be useful to explain how this problem was discovered,
+> > and what testing the patch has seen. Please add an Assisted-by
+> > tag if appropriate.
+> >
+> > Link: https://docs.kernel.org/process/coding-assistants.html
+> >
+> 
+> Greg Kroah-Hartman previously asked about how this issue was discovered
+> and how the patch was tested, and I provided the details here:
+> 
+> https://lore.kernel.org/all/CAABR9nEfPqXAt8wDo597qDS3b3KMaHeF6-swAFg9RLanapDnBQ@mail.gmail.com/
+> 
+> Regarding AI assistance, I addressed the same question from another
+> maintainer here:
+> 
+> https://lore.kernel.org/all/CAABR9nFgiNv6cnYa3+ZY3KnjbKpcF-JHpZY8TVcR7H40vOoR=Q@mail.gmail.com/
+> 
+> The answers are the same in both cases, so I hope it is okay to refer
+> to those replies
+> rather than repeating the same information here.
 
-This is a simple PHY driver to configure and calibrate the PHY for the
-AN8855 Switch with the use of NVMEM cells.
+Thanks for the clarification.
 
-Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
----
- drivers/net/phy/Kconfig      |   6 +
- drivers/net/phy/Makefile     |   1 +
- drivers/net/phy/air_an8855.c | 275 +++++++++++++++++++++++++++++++++++
- 3 files changed, 282 insertions(+)
- create mode 100644 drivers/net/phy/air_an8855.c
+For future reference, I would suggest including something
+like this in the patch description.
 
-diff --git a/drivers/net/phy/Kconfig b/drivers/net/phy/Kconfig
-index b4ef927fd4a6..b088b7eab0c3 100644
---- a/drivers/net/phy/Kconfig
-+++ b/drivers/net/phy/Kconfig
-@@ -96,6 +96,12 @@ config AIR_AN8801_PHY
- 	help
- 	  Currently supports the Airoha AN8801R PHY.
- 
-+config AIR_AN8855_PHY
-+	tristate "Airoha AN8855 Internal Gigabit PHY"
-+	depends on NVMEM || !NVMEM
-+	help
-+	  Currently supports the internal Airoha AN8855 Switch PHY.
-+
- config AIR_EN8811H_PHY
- 	tristate "Airoha EN8811H 2.5 Gigabit PHY"
- 	select AIR_NET_PHYLIB
-diff --git a/drivers/net/phy/Makefile b/drivers/net/phy/Makefile
-index 25c4a3c2429f..dcbc261e21ef 100644
---- a/drivers/net/phy/Makefile
-+++ b/drivers/net/phy/Makefile
-@@ -31,6 +31,7 @@ obj-$(CONFIG_ADIN_PHY)		+= adin.o
- obj-$(CONFIG_ADIN1100_PHY)	+= adin1100.o
- obj-$(CONFIG_ADIN1140_PHY)	+= adin1140-phy.o
- obj-$(CONFIG_AIR_AN8801_PHY)	+= air_an8801.o
-+obj-$(CONFIG_AIR_AN8855_PHY)	+= air_an8855.o
- obj-$(CONFIG_AIR_EN8811H_PHY)   += air_en8811h.o
- obj-$(CONFIG_AIR_NET_PHYLIB)	+= air_phy_lib.o
- obj-$(CONFIG_AMD_PHY)		+= amd.o
-diff --git a/drivers/net/phy/air_an8855.c b/drivers/net/phy/air_an8855.c
-new file mode 100644
-index 000000000000..bc22256fd5f9
---- /dev/null
-+++ b/drivers/net/phy/air_an8855.c
-@@ -0,0 +1,275 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/*
-+ * Copyright (C) 2024 Christian Marangi <ansuelsmth@gmail.com>
-+ */
-+
-+#include <linux/bitfield.h>
-+#include <linux/module.h>
-+#include <linux/nvmem-consumer.h>
-+#include <linux/of.h>
-+#include <linux/phy.h>
-+
-+#define AN8855_PHY_SELECT_PAGE			0x1f
-+#define   AN8855_PHY_PAGE			GENMASK(2, 0)
-+#define   AN8855_PHY_PAGE_STANDARD		FIELD_PREP_CONST(AN8855_PHY_PAGE, 0x0)
-+#define   AN8855_PHY_PAGE_EXTENDED_1		FIELD_PREP_CONST(AN8855_PHY_PAGE, 0x1)
-+
-+/* MII Registers Page 1 */
-+#define AN8855_PHY_EXT_REG_14			0x14
-+#define   AN8855_PHY_EN_DOWN_SHIFT		BIT(4)
-+
-+/* R50 Calibration regs in MDIO_MMD_VEND1 */
-+#define AN8855_PHY_R50OHM_RSEL_TX_AB		0x174
-+#define AN8855_PHY_R50OHM_RSEL_TX_A_EN		BIT(15)
-+#define AN8855_PHY_R50OHM_RSEL_TX_A		GENMASK(14, 8)
-+#define AN8855_PHY_R50OHM_RSEL_TX_B_EN		BIT(7)
-+#define AN8855_PHY_R50OHM_RSEL_TX_B		GENMASK(6, 0)
-+#define AN8855_PHY_R50OHM_RSEL_TX_CD		0x175
-+#define AN8855_PHY_R50OHM_RSEL_TX_C_EN		BIT(15)
-+#define AN8855_PHY_R50OHM_RSEL_TX_C		GENMASK(14, 8)
-+#define AN8855_PHY_R50OHM_RSEL_TX_D_EN		BIT(7)
-+#define AN8855_PHY_R50OHM_RSEL_TX_D		GENMASK(6, 0)
-+
-+#define AN8855_SWITCH_EFUSE_R50O		GENMASK(30, 24)
-+
-+/* PHY TX PAIR DELAY SELECT Register */
-+#define AN8855_PHY_TX_PAIR_DLY_SEL_GBE		0x013
-+#define   AN8855_PHY_CR_DA_TX_PAIR_DELAY_SEL_A_GBE GENMASK(14, 12)
-+#define   AN8855_PHY_CR_DA_TX_PAIR_DELAY_SEL_B_GBE GENMASK(10, 8)
-+#define   AN8855_PHY_CR_DA_TX_PAIR_DELAY_SEL_C_GBE GENMASK(6, 4)
-+#define   AN8855_PHY_CR_DA_TX_PAIR_DELAY_SEL_D_GBE GENMASK(2, 0)
-+/* PHY ADC Register */
-+#define AN8855_PHY_RXADC_CTRL			0x0d8
-+#define   AN8855_PHY_RG_AD_SAMPLE_PHSEL_A	BIT(12)
-+#define   AN8855_PHY_RG_AD_SAMPLE_PHSEL_B	BIT(8)
-+#define   AN8855_PHY_RG_AD_SAMPLE_PHSEL_C	BIT(4)
-+#define   AN8855_PHY_RG_AD_SAMPLE_PHSEL_D	BIT(0)
-+#define AN8855_PHY_RXADC_REV_0			0x0d9
-+#define   AN8855_PHY_RG_AD_RESERVE0_A		GENMASK(15, 8)
-+#define   AN8855_PHY_RG_AD_RESERVE0_B		GENMASK(7, 0)
-+#define AN8855_PHY_RXADC_REV_1			0x0da
-+#define   AN8855_PHY_RG_AD_RESERVE0_C		GENMASK(15, 8)
-+#define   AN8855_PHY_RG_AD_RESERVE0_D		GENMASK(7, 0)
-+
-+#define AN8855_PHY_ID				0xc0ff0410
-+
-+struct air_an8855_priv {
-+	bool needs_calibration;
-+	u8 calibration_data[4];
-+};
-+
-+static const u8 dsa_r50ohm_table[] = {
-+	127, 127, 127, 127, 127, 127, 127, 127, 127, 127,
-+	127, 127, 127, 127, 127, 127, 127, 126, 122, 117,
-+	112, 109, 104, 101,  97,  94,  90,  88,  84,  80,
-+	78,  74,  72,  68,  66,  64,  61,  58,  56,  53,
-+	51,  48,  47,  44,  42,  40,  38,  36,  34,  32,
-+	31,  28,  27,  24,  24,  22,  20,  18,  16,  16,
-+	14,  12,  11,   9
-+};
-+
-+static int an8855_get_r50ohm_val(struct device *dev, const char *calib_name,
-+				 u8 *dest)
-+{
-+	u32 shift_sel, val;
-+	int ret;
-+	int i;
-+
-+	ret = nvmem_cell_read_u32(dev, calib_name, &val);
-+	if (ret)
-+		return ret;
-+
-+	shift_sel = FIELD_GET(AN8855_SWITCH_EFUSE_R50O, val);
-+	for (i = 0; i < ARRAY_SIZE(dsa_r50ohm_table); i++)
-+		if (dsa_r50ohm_table[i] == shift_sel)
-+			break;
-+
-+	if (i < 8 || i >= ARRAY_SIZE(dsa_r50ohm_table))
-+		*dest = dsa_r50ohm_table[25];
-+	else
-+		*dest = dsa_r50ohm_table[i - 8];
-+
-+	return 0;
-+}
-+
-+static int an8855_probe(struct phy_device *phydev)
-+{
-+	struct device *dev = &phydev->mdio.dev;
-+	struct air_an8855_priv *priv;
-+
-+	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
-+	if (!priv)
-+		return -ENOMEM;
-+
-+	priv->needs_calibration = of_property_present(dev->of_node,
-+						      "nvmem-cells");
-+
-+	if (priv->needs_calibration) {
-+		int ret;
-+
-+		ret = an8855_get_r50ohm_val(dev, "tx_a", &priv->calibration_data[0]);
-+		if (ret)
-+			return ret;
-+
-+		ret = an8855_get_r50ohm_val(dev, "tx_b", &priv->calibration_data[1]);
-+		if (ret)
-+			return ret;
-+
-+		ret = an8855_get_r50ohm_val(dev, "tx_c", &priv->calibration_data[2]);
-+		if (ret)
-+			return ret;
-+
-+		ret = an8855_get_r50ohm_val(dev, "tx_d", &priv->calibration_data[3]);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	phydev->priv = priv;
-+
-+	return 0;
-+}
-+
-+static int an8855_get_downshift(struct phy_device *phydev, u8 *data)
-+{
-+	int val;
-+
-+	val = phy_read_paged(phydev, AN8855_PHY_PAGE_EXTENDED_1, AN8855_PHY_EXT_REG_14);
-+	if (val < 0)
-+		return val;
-+
-+	*data = val & AN8855_PHY_EN_DOWN_SHIFT ? DOWNSHIFT_DEV_DEFAULT_COUNT :
-+						 DOWNSHIFT_DEV_DISABLE;
-+
-+	return 0;
-+}
-+
-+static int an8855_set_downshift(struct phy_device *phydev, u8 cnt)
-+{
-+	u16 ds = cnt != DOWNSHIFT_DEV_DISABLE ? AN8855_PHY_EN_DOWN_SHIFT : 0;
-+
-+	return phy_modify_paged(phydev, AN8855_PHY_PAGE_EXTENDED_1,
-+				AN8855_PHY_EXT_REG_14, AN8855_PHY_EN_DOWN_SHIFT,
-+				ds);
-+}
-+
-+static int an8855_config_init(struct phy_device *phydev)
-+{
-+	struct air_an8855_priv *priv = phydev->priv;
-+	int ret;
-+
-+	/* Enable HW auto downshift */
-+	ret = an8855_set_downshift(phydev, DOWNSHIFT_DEV_DEFAULT_COUNT);
-+	if (ret)
-+		return ret;
-+
-+	if (priv->needs_calibration) {
-+		ret = phy_modify_mmd(phydev, MDIO_MMD_VEND1, AN8855_PHY_R50OHM_RSEL_TX_AB,
-+				     AN8855_PHY_R50OHM_RSEL_TX_A_EN | AN8855_PHY_R50OHM_RSEL_TX_A |
-+				     AN8855_PHY_R50OHM_RSEL_TX_B_EN | AN8855_PHY_R50OHM_RSEL_TX_B,
-+				     AN8855_PHY_R50OHM_RSEL_TX_A_EN |
-+				     FIELD_PREP(AN8855_PHY_R50OHM_RSEL_TX_A,
-+						priv->calibration_data[0]) |
-+				     AN8855_PHY_R50OHM_RSEL_TX_B_EN |
-+				     FIELD_PREP(AN8855_PHY_R50OHM_RSEL_TX_B,
-+						priv->calibration_data[1]));
-+		if (ret)
-+			return ret;
-+		ret = phy_modify_mmd(phydev, MDIO_MMD_VEND1, AN8855_PHY_R50OHM_RSEL_TX_CD,
-+				     AN8855_PHY_R50OHM_RSEL_TX_C_EN | AN8855_PHY_R50OHM_RSEL_TX_C |
-+				     AN8855_PHY_R50OHM_RSEL_TX_D_EN | AN8855_PHY_R50OHM_RSEL_TX_D,
-+				     AN8855_PHY_R50OHM_RSEL_TX_C_EN |
-+				     FIELD_PREP(AN8855_PHY_R50OHM_RSEL_TX_C,
-+						priv->calibration_data[2]) |
-+				     AN8855_PHY_R50OHM_RSEL_TX_D_EN |
-+				     FIELD_PREP(AN8855_PHY_R50OHM_RSEL_TX_D,
-+						priv->calibration_data[3]));
-+		if (ret)
-+			return ret;
-+	}
-+
-+	/* Apply values to reduce signal noise */
-+	ret = phy_modify_mmd(phydev, MDIO_MMD_VEND1, AN8855_PHY_TX_PAIR_DLY_SEL_GBE,
-+			     AN8855_PHY_CR_DA_TX_PAIR_DELAY_SEL_A_GBE |
-+			     AN8855_PHY_CR_DA_TX_PAIR_DELAY_SEL_C_GBE,
-+			     FIELD_PREP(AN8855_PHY_CR_DA_TX_PAIR_DELAY_SEL_A_GBE, 0x4) |
-+			     FIELD_PREP(AN8855_PHY_CR_DA_TX_PAIR_DELAY_SEL_C_GBE, 0x4));
-+	if (ret)
-+		return ret;
-+	ret = phy_set_bits_mmd(phydev, MDIO_MMD_VEND1, AN8855_PHY_RXADC_CTRL,
-+			       AN8855_PHY_RG_AD_SAMPLE_PHSEL_A |
-+			       AN8855_PHY_RG_AD_SAMPLE_PHSEL_C);
-+	if (ret)
-+		return ret;
-+	ret = phy_write_mmd(phydev, MDIO_MMD_VEND1, AN8855_PHY_RXADC_REV_0,
-+			    FIELD_PREP(AN8855_PHY_RG_AD_RESERVE0_A, 0x1));
-+	if (ret)
-+		return ret;
-+	ret = phy_write_mmd(phydev, MDIO_MMD_VEND1, AN8855_PHY_RXADC_REV_1,
-+			    FIELD_PREP(AN8855_PHY_RG_AD_RESERVE0_C, 0x1));
-+	if (ret)
-+		return ret;
-+
-+	return 0;
-+}
-+
-+static int an8855_get_tunable(struct phy_device *phydev,
-+			      struct ethtool_tunable *tuna, void *data)
-+{
-+	switch (tuna->id) {
-+	case ETHTOOL_PHY_DOWNSHIFT:
-+		return an8855_get_downshift(phydev, data);
-+	default:
-+		return -EOPNOTSUPP;
-+	}
-+}
-+
-+static int an8855_set_tunable(struct phy_device *phydev,
-+			      struct ethtool_tunable *tuna, const void *data)
-+{
-+	switch (tuna->id) {
-+	case ETHTOOL_PHY_DOWNSHIFT:
-+		return an8855_set_downshift(phydev, *(const u8 *)data);
-+	default:
-+		return -EOPNOTSUPP;
-+	}
-+}
-+
-+static int an8855_read_page(struct phy_device *phydev)
-+{
-+	return __phy_read(phydev, AN8855_PHY_SELECT_PAGE);
-+}
-+
-+static int an8855_write_page(struct phy_device *phydev, int page)
-+{
-+	return __phy_write(phydev, AN8855_PHY_SELECT_PAGE, page);
-+}
-+
-+static struct phy_driver an8855_driver[] = {
-+{
-+	PHY_ID_MATCH_EXACT(AN8855_PHY_ID),
-+	.name			= "Airoha AN8855 internal PHY",
-+	/* PHY_GBIT_FEATURES */
-+	.flags			= PHY_IS_INTERNAL,
-+	.probe			= an8855_probe,
-+	.config_init		= an8855_config_init,
-+	.soft_reset		= genphy_soft_reset,
-+	.get_tunable		= an8855_get_tunable,
-+	.set_tunable		= an8855_set_tunable,
-+	.suspend		= genphy_suspend,
-+	.resume			= genphy_resume,
-+	.read_page		= an8855_read_page,
-+	.write_page		= an8855_write_page,
-+}, };
-+
-+module_phy_driver(an8855_driver);
-+
-+static struct mdio_device_id __maybe_unused an8855_tbl[] = {
-+	{ PHY_ID_MATCH_EXACT(AN8855_PHY_ID) },
-+	{ }
-+};
-+
-+MODULE_DEVICE_TABLE(mdio, an8855_tbl);
-+
-+MODULE_DESCRIPTION("Airoha AN8855 PHY driver");
-+MODULE_AUTHOR("Christian Marangi <ansuelsmth@gmail.com>");
-+MODULE_LICENSE("GPL");
--- 
-2.53.0
+  Found by manual code inspection.
 
+Others may differ, but I would find that helpful.
+
+> 
+> >
+> > The same check seems to have been added to both arms of the if/else
+> > condition. So it seems to me that it could be moved out of that condition.
+> >
+> > I would suggest placing it below the existing rx_irq/tx_irq condition
+> > which appears a few lines below this hunk so that those and
+> > dma_regs errors are still propagated.
+> >
+> 
+> Previously, I understood that errors should be returned as early as possible.
+> However, with the current implementation, I agree that your approach
+> makes more sense.
+
+Thanks. I agree that early error detection is the norm.
+But as you note, the existing structure is a bit different here.
+
+> I’ll send v3 soon.
+> 
+> Best regards,
+> Phuc
 
