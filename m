@@ -4,131 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE2AFC5DF66
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 16:04:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 805CAC5DF66
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 16:09:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f6XZCWxY1XsBnWhwfRmFDK31ZwbItCUCQVYguDHtG3Y=; b=uHoyv5996KsahPS4PJCMkXnxi6
-	x6nKZa9sYOKOl03X/43VGDpH5ABcKogxYHCZvZmsS5C0itZJszY9Tl7b7zC8/RfK0Hr43wUmP9Q32
-	3ve0XekOdtM687SGBrDoEBaOozvJaDhDRtXtbiPG0UXgT/wT3IpeYRH4iP9oL1BaKzKZOb4Nz2VlR
-	Jgy5UrDYYk568E4ZRPYEylfiWDPjMrZy4lGMa7M0uzRqwsvTDsZnn5AU4ZR+U33rBBITixW2O8/Wf
-	Kjew61nrjlv8zqkFTw/3BTG9E45ppS2+Vb7tLunNiJlNJgXigNZRr+D7+GREA4dG+P9R2Oj5GE0ox
-	Np9hemwg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mUhpdzwt83JAQo5ReLBcjX70G4Xlj7y9/Aum4Qf1/y8=; b=GoqMreu8XolPkopzOWjYGVgvYo
+	j3+ZwbdIR3dWyXgMNSATIpgtOi4LE3Nrkd47mx7y6QiaTQOLWhHNrSWVDa25T7HIAY9J8STK/fXWG
+	KaZBs6udmOWVRxexxAR4qgcSPY2YQJFTyNPDAgrwJT2muFr2jginr6CnZIFPNIZh0PZ69ApnekIA5
+	ylMDYd74GnK69VIPpeHleo04waJN0hRCYWpV+G4zzOhPzIjrPOs+G4gjZIC4kKEr2P7Hg9q0do83h
+	X4BW28XBc063Wwj/SMmOw3FiEP5FTQADdN6KFmzSy8XtvBEre12T3bJoKjp0+9AMJM4Ly1bpuTks7
+	k/aYiF9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvzoU-00000006Tkk-0Twt;
-	Mon, 17 Aug 2026 16:03:50 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1wvzu2-00000006U9c-3NbY;
+	Mon, 17 Aug 2026 16:09:34 +0000
+Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvzoR-00000006TjX-1zM8
+	id 1wvztz-00000006U9F-2i5l
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 16:03:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GTzfTe2v28fboiFMPNdF7neJzlJ/YDNZh37iHImVWbGAeH4APh+NeWuZZpAkF1Cjov7O9Z/fVHpazV0yGNYqCYFC9z+s9gFNSb7j34/3D8xtkM0aTTYPtNzhk07XUiVbHxFoHgF3vGA+YtaoEJOym6jDM8Oi5Otefrsx6iFkiZuajmGbyXgegCSHV30LkKwhPxMhBAbCA3yxcqPEU9nfimw3EwrEoJOnTEtHeah6oT9vRpNTC6RRyOH/zhO8cnYuwm8YCo3b2i+Clr3jPe8o27QkibRsd1DRAaiW0xEkIdwet4cQwcB70JIaAhJus97Zn3dj/PDYBJ0my7dJUH5QPw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=f6XZCWxY1XsBnWhwfRmFDK31ZwbItCUCQVYguDHtG3Y=;
- b=kZMkD4Wy+rcL4EyVtqH6z4DsiAv2GHZFG1XdGZ4I5PzMW9bRbzeH7hkwN/ksfPU8d+bDUDUwpL2bB7xOz70Lz3xdoR+D7QbK8neXCpvsUT5AbX1fHbjcUCBwwlMDXYuR/VADaKRhU7pNxlwEOn/5UvI/fcOF7l0/3EaPC3ke16n/sYEUllXokNAGv2+7PyRbxe0PMkyI+HkxRbrkW1EmZ/gbvrLytzbBZbPq3Nb2afrdLAbIPLlc0IzCKYOxL6reCaz3F61QVKVaF44a0Q9u4XHQIeMTMy+XgFLaux/HkmnmSc0Wrt45bfI/ebMESGMEfizmm0Kd2G/y1ij2LQeYqQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=f6XZCWxY1XsBnWhwfRmFDK31ZwbItCUCQVYguDHtG3Y=;
- b=mp824VsYLoBJOAS8OKTFY6oZwDIu5Nes80KzIX/cQR0/Xe7adDTzVO7oa92pP663Sj/5ZMBAb06Mn4KHwo67daFrr7Pud1GB7eJQlgzZ6DpVgOGMUCUeoyOv0fnmjWLh0p551IRWCKKFT7GmeMTV3JOMDTqBmkTARUxroLWrA39wecG2ZB83w/12OHsdkNl1VX/1dkDBeusjn1bBsKy1SteDjhmNsZ+xa/5DbiCYTqCEBteF+Pv4ics2HZYPJIfnz7ONqp3fh0uIHPSgDxluNLhw0yMZ8uqkqi0+C1Dcs3UEjzP2ZaVRQ1eXxAOA5zOt447xcUkaFFSoO8sDRH8cNQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by PAXPR04MB8719.eurprd04.prod.outlook.com (2603:10a6:102:21e::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.17; Mon, 17 Aug
- 2026 16:03:44 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0315.016; Mon, 17 Aug 2026
- 16:03:44 +0000
-Date: Mon, 17 Aug 2026 11:03:32 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Sasha Finkelstein <k@chaosmail.tech>
-Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
-	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Martin =?utf-8?Q?Povi=C5=A1er?= <povik+lin@cutebit.org>,
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 2/2] dmaengine: apple-admac: Add M3 generation ADMACs
-Message-ID: <aoMw1AkJYMcaOBHH@SMW015318>
-References: <20260815-t603x-admac-v4-0-1149e342dcb0@chaosmail.tech>
- <20260815-t603x-admac-v4-2-1149e342dcb0@chaosmail.tech>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260815-t603x-admac-v4-2-1149e342dcb0@chaosmail.tech>
-X-ClientProxiedBy: PH7P223CA0028.NAMP223.PROD.OUTLOOK.COM
- (2603:10b6:510:338::29) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Mon, 17 Aug 2026 16:09:33 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
+	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 9B97D2021FE;
+	Mon, 17 Aug 2026 18:09:25 +0200 (CEST)
+Received: from dude02.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::28])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <s.hauer@pengutronix.de>)
+	id 1wvztt-001z5B-1l;
+	Mon, 17 Aug 2026 18:09:25 +0200
+Received: from [::1] (helo=dude02.red.stw.pengutronix.de)
+	by dude02.red.stw.pengutronix.de with esmtp (Exim 4.98.2)
+	(envelope-from <s.hauer@pengutronix.de>)
+	id 1wvztt-0000000GIh1-1rnO;
+	Mon, 17 Aug 2026 18:09:25 +0200
+From: Sascha Hauer <s.hauer@pengutronix.de>
+Date: Mon, 17 Aug 2026 18:09:23 +0200
+Subject: [PATCH] dmaengine: pxa: fix double counting of the hw descriptors
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PAXPR04MB8719:EE_
-X-MS-Office365-Filtering-Correlation-Id: 966cc80f-d7fd-48b8-63df-08defc791ccb
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|366016|376014|7416014|19092799006|10067099003|56012099006|3023799007|18002099003|22082099003|4143699003|11063799006|5023799004;
-X-Microsoft-Antispam-Message-Info: S3jM+zN9O9vPlnai/lwVG8JE/OhiTpDU5bYvv1l1ZptA32QhlojG8NYKHs81VFkMpWk92kz+Gmx5By/CGi+ShHb7uxYEZFaj03/BE58c3lYUEtBYr0ZO6PS52598Zsr/f6yKOF0SjV66E2uK6iVl3v8Z//eB0Dlb+qLlpmRexD6SMy1QxrAW/GB+Kf7qlWxQPADNh339qPiysmPWyf6SNScdGJMNYRbJQ4qJ7dxQG26ElCyYQcK2ObEWwLN266xbt4uq/ANjwEa/3/TKnyn30a3NY6FxP/ZzpPfr3N9DdGtO2UEqyrYFQUxnKwzpDf+iAKssZrm6pdMty9qYQ0gvzMsKJp/LDowVCNMTiw5pAaHZaesYzC4DXhUdgPZYzSpjY528H8M5ybGq4cInrdwsmdQl05I+RLjUwVEPpzMd5DLZCeHp/pzzvf2GGgFY8Ho927Bdc4dqG+lanT68yyEz/q1SC3FSrRvMnedl4K0fjTGUetb1UD206as6OEdwxqIZKzc+2CMaJdSc7tqt3eHYCu94MXu2+gj/7RrKE15DqDnSng1vV+W97kfb/2Pjky48xITnPjo/eqkDAwFK7qQtTsZHwu86sOhuzcfOAzguY9iFZaixsJUOKp3QzrSlW4qjQMZ6aF2VKCmiSoZHCyPe9+J/x29bXfTHMIBPR1zz3LQ=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(366016)(376014)(7416014)(19092799006)(10067099003)(56012099006)(3023799007)(18002099003)(22082099003)(4143699003)(11063799006)(5023799004);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?aVJwqkDn2E2d8aIDBz9npPbAuPxoKqAjDmd6tS6+R/allkydfzeOLvA4P1Il?=
- =?us-ascii?Q?i180eG/NBYUkNTwNegPE6yTnvW0ERu2Kbm9am/dKHZ3V+++SWDG18iIZ8UFU?=
- =?us-ascii?Q?P6mkqFspdGukEGRptXluHPYLGR/zUwHEFD4aSXz5o3fSrEpYdXuKigyQKTyw?=
- =?us-ascii?Q?DgpJaarULTzFogoUWMfd+ANTQFrmXP/7Y11yIA/0/wL/0qWfZ9OKufMAGRgi?=
- =?us-ascii?Q?E5jQJCj9rCQdws55Lbip6p6VPtaaEed2M2zUfnNEcdFPypaET/+Wu9H47/l4?=
- =?us-ascii?Q?w65Qz2o0XN3PLhRYqoJnVJKOYggvr+dBdA+kMmCqldkZF7Jyn3b5dk/qOMcH?=
- =?us-ascii?Q?+d1sgfK4YKibbVTyJr7qRKPBYDepFcdaQFrnTmeFWfCi5TIKSK+pgnsBl9dL?=
- =?us-ascii?Q?D0CpGpFD4PSyQmbzBQ8pMFJBSCgoc78P7wXnaq5SGVm18mryEgMdMP6bIfRE?=
- =?us-ascii?Q?kWjJK50T3Ib2s5O3dKg5lTWk808dVp+JGF/OcPj/1SkXQthK4uyp4Y3lwfrE?=
- =?us-ascii?Q?mXWbUFpYdgTHa4jIkjFYxP6vIRaIabXZPF6tKuWFfGguufGyt3VV0suIC31p?=
- =?us-ascii?Q?WZOV5PaLCrzE7PjsYo7nQsWcXrAKcnH/srTiaH63pzKkQi7f4sOjF8dml0AU?=
- =?us-ascii?Q?Tkg+UksnG5kujXGsOzUx9Fpohbn4yPKc9ygWd/HoKAhyEaI+SVBRJcEE3E4k?=
- =?us-ascii?Q?eOL2H7o22bxVG2ODYx/LemS5ZSgIGrLrSoPq5O9qLn6VFJITKtznQWNqtor8?=
- =?us-ascii?Q?4PF1RpVenkpPdE6emIjl7x/kzzdBuJ2Wg7GiEuvA/ciwUWPHw0h/Top64+4i?=
- =?us-ascii?Q?HtYJZMaYav0bpemEA9y6e0G9QV/83asTs0vq9i+LdbUXLyqVZVjxP6072J9H?=
- =?us-ascii?Q?PCf4M6TGgHhhOmLMKqQwaGjwfW2RdOZgSi8gDdOSx89P9r7ikBDoEhbXW6kk?=
- =?us-ascii?Q?XOp/bsjRNMQUlDKSS28dZbM8VkqefKepohkCwGb94tX43sWREAmanBxs7Wh0?=
- =?us-ascii?Q?/d9LA3v8hHOhZbzhloXzD9/HxSRZ+kL4Ro+8iMCVY8OvB1IrVJpP3vFxqWYI?=
- =?us-ascii?Q?v19zv56/juuBP4lsskYMDuuBOrlrlH7dRWQgME2NbLRL0oSfjqClboKstcpX?=
- =?us-ascii?Q?Jo1dFULh1wkoWsqqx2kvvJP3D+bKZD55rIxcSynjvljqMt/RzsklT0kLb+m3?=
- =?us-ascii?Q?7zN6tRStmgs9aZZe/MvftDBvtUmiyUIlPk1UHecEVwmQF/m2tR0fE8ljyiM5?=
- =?us-ascii?Q?UVFTBLejZnw70nFSwQAYQ6pNGgmJqx9BJDuceoqm/MUQJOO2x+kgqA1BGb0C?=
- =?us-ascii?Q?tDTuAtMqKRm4q4ts45weo8Gozwb4yjWdLMb2jx3IjHV28qdpMiCawv3Xg1cz?=
- =?us-ascii?Q?uvkqMze4Vh6cPANapElBG3re1HMQ3wf3Bcj70efXq/BnKZaQiT7gEYl05jOP?=
- =?us-ascii?Q?u7pm8kvKCYLz5r51KcuQEKot7flXiUovjUvXummzP3s2i/hGm+UUkCPx2Ir9?=
- =?us-ascii?Q?ZsWREa8Ta6RS5S+tU/JBXh08ekTysXYwhNH/N2HLJGG0ew5o/J3XEUzTXUrC?=
- =?us-ascii?Q?QFqbvgzy8sjumYw3aKUJvqVCMakGIz4/hy0yo+8oanX67Tor0uxnebHg+M7K?=
- =?us-ascii?Q?7+S+2xMzwd1xBuHvWM7i8xdKNqV2G3igjamwEb2+PQy33kQjSIaiOh7apP/c?=
- =?us-ascii?Q?JyuZGq66J+k5u7L45ZheJ9Og7ciwcs9F5qjthQRmopsuE8mS02kurihBlNgR?=
- =?us-ascii?Q?PU3GED3JiEn3fz+d6lmLzTbByqWINWPNrAVfyA12hwpTf/rngrGi?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 966cc80f-d7fd-48b8-63df-08defc791ccb
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Aug 2026 16:03:44.0365
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: lwY2uyHTqZcs1REDvCIE6W9usv9HznCPAWv/8LnJu01+U7sNB47mcx+iPaQ1Q6+qniFfIsiLg52kMVG7opgEK1mggzN8pofI7NLBougMdBeUxyM50HVzSljz5NJ2g+zx
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8719
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260817-dmaengine-pxa-v1-1-850c215c1196@pengutronix.de>
+X-B4-Tracking: v=1; b=H4sIADIyg2oC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDC0Nz3ZTcxNS89My8VN2CikRdMxNDU6OkJGMTY0NjJaCegqLUtMwKsHn
+ RsbW1ALVd3pRfAAAA
+X-Change-ID: 20260817-dmaengine-pxa-64152bb34313
+To: Daniel Mack <daniel@zonque.org>, 
+ Haojian Zhuang <haojian.zhuang@gmail.com>, 
+ Robert Jarzmik <robert.jarzmik@free.fr>, Vinod Koul <vkoul@kernel.org>, 
+ Frank Li <Frank.Li@kernel.org>, Kees Cook <kees@kernel.org>, 
+ "Gustavo A. R. Silva" <gustavoars@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, dmaengine@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
+ Sascha Hauer <s.hauer@pengutronix.de>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1786982965; l=2267;
+ i=s.hauer@pengutronix.de; s=20230412; h=from:subject:message-id;
+ bh=D9WRnoe4v155Yuh2kUpX0fyEN+hFQCP5ZrigCdKEEeo=;
+ b=AJKvO/QZuJIonFzDi8gj1ix7neC3X40fbm6QZwMVke1PYjFEDVIN7VH8cxTIzDQ8lLPhuVxn6
+ xuXZ3vIU6bLDjMf5VjMVix91xfM12GyXBu4X9HCQIoOflCqLeWdBSv3
+X-Developer-Key: i=s.hauer@pengutronix.de; a=ed25519;
+ pk=4kuc9ocmECiBJKWxYgqyhtZOHj5AWi7+d0n/UjhkwTg=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_090347_516504_D976FD7A 
-X-CRM114-Status: GOOD (  21.38  )
+X-CRM114-CacheID: sfid-20260817_090931_854427_EAD02C9B 
+X-CRM114-Status: GOOD (  10.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,110 +86,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 15, 2026 at 12:41:39PM +0200, Sasha Finkelstein wrote:
-> The admacs present on t8122 and t603x SoCs need additional writes in
-> order to operate correctly. The exact purpose of this register
-> is unknown
+pxad_alloc_desc() was converted from
 
-Nit: miss "." at end of sentense.
+	kzalloc(struct_size(sw_desc, hw_desc, nb_hw_desc), GFP_NOWAIT)
 
->
-> Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
-> ---
+to kzalloc_flex(). hw_desc[] is annotated with __counted_by(nb_desc), so
+__alloc_flex() now initializes sw_desc->nb_desc to nb_hw_desc itself.
+The loop below it still increments nb_desc for every descriptor it
+allocates though, so nb_desc ends up being twice the number of
+descriptors that are actually there.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Drop the now redundant increment. The error path has to set nb_desc to
+the number of descriptors allocated so far, otherwise pxad_free_desc()
+would free entries that were never allocated.
 
->  drivers/dma/apple-admac.c | 24 ++++++++++++++++++++++++
->  1 file changed, 24 insertions(+)
->
-> diff --git a/drivers/dma/apple-admac.c b/drivers/dma/apple-admac.c
-> index 14a5ee14a481..9a1c79c12268 100644
-> --- a/drivers/dma/apple-admac.c
-> +++ b/drivers/dma/apple-admac.c
-> @@ -39,10 +39,14 @@
->
->  #define FLAG_DESC_NOTIFY	BIT(16)
->
-> +#define T8122_UNK_28_VAL	0x200000
-> +
->  #define REG_TX_START		0x0000
->  #define REG_TX_STOP		0x0004
->  #define REG_RX_START		0x0008
->  #define REG_RX_STOP		0x000c
-> +#define REG_UNK_28		0x0028
-> +#define REG_UNK_2C		0x002c
->  #define REG_IMPRINT		0x0090
->  #define REG_TX_SRAM_SIZE	0x0094
->  #define REG_RX_SRAM_SIZE	0x0098
-> @@ -85,6 +89,10 @@
->  struct admac_data;
->  struct admac_tx;
->
-> +struct admac_hw {
-> +	bool set_unk28;
-> +};
-> +
->  struct admac_chan {
->  	unsigned int no;
->  	struct admac_data *host;
-> @@ -127,6 +135,7 @@ struct admac_data {
->  	struct mutex cache_alloc_lock;
->  	struct admac_sram txcache, rxcache;
->
-> +	const struct admac_hw *hw;
->  	int irq;
->  	int irq_index;
->  	int nchannels;
-> @@ -747,6 +756,11 @@ static int admac_device_config(struct dma_chan *chan,
->  	u32 bus_width = readl_relaxed(ad->base + REG_BUS_WIDTH(adchan->no)) &
->  		~(BUS_WIDTH_WORD_SIZE | BUS_WIDTH_FRAME_SIZE);
->
-> +	if (ad->hw->set_unk28) {
-> +		writel_relaxed(T8122_UNK_28_VAL, ad->base + REG_UNK_28);
-> +		writel_relaxed(T8122_UNK_28_VAL, ad->base + REG_UNK_2C);
-> +	}
-> +
->  	switch (is_tx ? config->dst_addr_width : config->src_addr_width) {
->  	case DMA_SLAVE_BUSWIDTH_1_BYTE:
->  		wordsize = 1;
-> @@ -800,11 +814,18 @@ static int admac_device_config(struct dma_chan *chan,
->  	return 0;
->  }
->
-> +static const struct admac_hw admac_base_hw = {};
-> +
-> +static const struct admac_hw admac_t8122_hw = {
-> +	.set_unk28 = true,
-> +};
-> +
->  static int admac_probe(struct platform_device *pdev)
->  {
->  	struct device_node *np = pdev->dev.of_node;
->  	struct admac_data *ad;
->  	struct dma_device *dma;
-> +	const struct admac_hw *hw;
->  	int nchannels;
->  	int err, irq, i;
->
-> @@ -822,6 +843,8 @@ static int admac_probe(struct platform_device *pdev)
->  	ad->dev = &pdev->dev;
->  	ad->nchannels = nchannels;
->  	mutex_init(&ad->cache_alloc_lock);
-> +	hw = of_device_get_match_data(&pdev->dev);
-> +	ad->hw = hw ? hw : &admac_base_hw;
->
->  	/*
->  	 * The controller has 4 IRQ outputs. Try them all until
-> @@ -936,6 +959,7 @@ static void admac_remove(struct platform_device *pdev)
->  }
->
->  static const struct of_device_id admac_of_match[] = {
-> +	{ .compatible = "apple,t8122-admac", .data = &admac_t8122_hw },
->  	{ .compatible = "apple,t8103-admac", },
->  	{ .compatible = "apple,admac", },
->  	{ }
->
-> --
-> 2.55.0
->
+Fixes: 69050f8d6d075 ("treewide: Replace kmalloc with kmalloc_obj for non-scalar types")
+Assisted-by: Claude:claude-opus-5
+Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
+---
+pxad_alloc_desc() was converted from
+
+        kzalloc(struct_size(sw_desc, hw_desc, nb_hw_desc), GFP_NOWAIT)
+
+to kzalloc_flex(). hw_desc[] is annotated with __counted_by(nb_desc), so
+__alloc_flex() now initializes sw_desc->nb_desc to nb_hw_desc itself.
+The loop below it still increments nb_desc for every descriptor it
+allocates though, so nb_desc ends up being twice the number of
+descriptors that are actually there.
+
+Drop the now redundant increment. The error path has to set nb_desc to
+the number of descriptors allocated so far, otherwise pxad_free_desc()
+would free entries that were never allocated.
+---
+ drivers/dma/pxa_dma.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/dma/pxa_dma.c b/drivers/dma/pxa_dma.c
+index fa2ee0b3e09f8..8252d27be8c3c 100644
+--- a/drivers/dma/pxa_dma.c
++++ b/drivers/dma/pxa_dma.c
+@@ -752,10 +752,11 @@ pxad_alloc_desc(struct pxad_chan *chan, unsigned int nb_hw_desc)
+ 			dev_err(&chan->vc.chan.dev->device,
+ 				"%s(): Couldn't allocate the %dth hw_desc from dma_pool %p\n",
+ 				__func__, i, sw_desc->desc_pool);
++			/* Only the descriptors below i have been allocated */
++			sw_desc->nb_desc = i;
+ 			goto err;
+ 		}
+ 
+-		sw_desc->nb_desc++;
+ 		sw_desc->hw_desc[i] = desc;
+ 
+ 		if (i == 0)
+
+---
+base-commit: 8d3ae59288f1e7d58d76558a6ee96d533bc5019f
+change-id: 20260817-dmaengine-pxa-64152bb34313
+
+Best regards,
+-- 
+Sascha Hauer <s.hauer@pengutronix.de>
+
 
