@@ -4,59 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B78F5C5DF70
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 10:17:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27DBFC5DF66
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 10:17:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=WQAyP7uPghjHMlxPMzHy+kXQk9c9O+V+KgiZJfyBzZA=; b=tE8kqax5GP1e2FYY8+qlhjhvL8
-	jwQ0aRMqKqVwLzwxnv24XdKI3fuQXn0oS7cCYZXzl5DNw+YMs7I1VTrzubXTCXStCOMQwhYRwLFRO
-	BxcJ1d+99PtsVVbmTvkxukS6eiGlFeBKHLCP7IDTqyR6QND56YYbPQ0R74FrWcQxOLXWfLcB3Qr5j
-	VzdN/ZwepCH9wpV4Snwb5k6AXaUBKd88PdLslofE7+ILPG4HwX9SyrIb0QcI+IFKFIf3UQ6shP47P
-	BZZ+3kpim+WPW8GX/c0XMOdNneqFTy8S7IbsaxK7W8UrPxdMZNt4GbH66GGFwbqYstwRsRjzbQgvU
-	MOpmk9bQ==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zsyGMoay+ggl6nEW70lnoExQ2NZuc6OEh1AkNHy7V5w=; b=RAO8e13qh6Y6MzmePs8pZJbt67
+	5OkF1WS/8wZlu7Nj5YUoSDUPYrQODt9wMdT0xCxLYt6ntbbYEpIWraD7nIKv4h/iPHmP3E/0qpcbP
+	bEoieALuRuRD9hiBP12k6p9JllsNP4eQ8tmZjsdxEuKCDOJDcW/elx8jxNx+iyupZW1Jk57EW9Sp4
+	WeHWs36GNUnaWrh0hrhoq4/rbDDifGJuioK+LQO3oFv3MBw+uwiz65yliyhrE93TFBKiKT9eECLeH
+	b0xIk8iFOG9ndgr545ixve2N6RfMrCj6crxTJffmwpRs+Ri1PtRJVXpOXF/2EAOqcutIiwrCjDwrV
+	GGjGijYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvuP9-00000005tPJ-216v;
-	Mon, 17 Aug 2026 10:17:19 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wvuPC-00000005tQ4-36fQ;
+	Mon, 17 Aug 2026 10:17:22 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvuP8-00000005tOj-0FAQ
+	id 1wvuP8-00000005tOk-1GqQ
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 17 Aug 2026 10:17:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 77DA2416FC;
+	by sea.source.kernel.org (Postfix) with ESMTP id 98C6243FCE;
 	Mon, 17 Aug 2026 10:17:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 4A316C2BCF4;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 6CB0EC2BCFB;
 	Mon, 17 Aug 2026 10:17:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1786961837;
-	bh=wK06Xs2Ehefp3TZxBkcPfV9xrG3dW+KVswLp5LqL3mc=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=hQYD3L56vVpRmEgsqoWPaICGdfOUyI4lkWSb+x4Fg4zRYET1HKHf6aQWe9F9J3K8D
-	 +b96IkgzWHAz1K/P+MwYpYax2oaCphM9nb/AostssPF7CuJYbOnbeZfz7ch4mO/FdD
-	 d4E946Yv0w1X1ACd7EyLFhzVb/WW2h2Fa9QpAWOIfdI8O5aeMJ5HzJI0UmoSUM+O98
-	 h2P9wPo38/dFlcLUPCnwC2/IWUAjrTQhb370GDKt2gZeEt53qNgRvbNZtTrbQixzTR
-	 07DmsLkYAN9UPyjnVQ36Dstyhzp3lbVgPLcZoAu1A+DAQEI9rGphCOIt4F4ZQugPxz
-	 noDFSF/eMYwhw==
+	bh=GbMCUZxxhLpXXdd2ahJl7MhJJZUncs/29ncV06E5+J4=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=Zq9Iac3cewXL/gtNSvvMVVlZJssW+udDvk+weYFNjArVmfJc4aKH1ojB0FVUaXN0T
+	 ec8vbKLSHfsGGFbUS5pMkIjuKdNnoN3XNYLTlpzwJHxVLY9gEVdm6DhD1WZ7/LsNNI
+	 MKP259m7vz0ubhwJcbSG2cEzlBXRL66iXhodL7rVnr7MmI9QNCn+650Bd1irU2n1NA
+	 g2RA9FwgZdHROvM63PXpGbsrnJybdQdmxBGupt5TiFv+Ih1s5VKmSc5T5ePwwawwKW
+	 swThhPix53vPCfqHWWYdMA6Mg5SLYzedHfSQXeTWyI3J2x9FfPDSqFcoJlEl6RK+8T
+	 2AcpaBxxQn9gg==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 200ECC5DF70;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4C474C5DF66;
 	Mon, 17 Aug 2026 10:17:17 +0000 (UTC)
 From: Aiden Isik via B4 Relay <devnull+aidenisik.member.fsf.org@kernel.org>
-Subject: [PATCH 0/3] clk: samsung: Introduce Exynos5515 clock driver
- support
-Date: Mon, 17 Aug 2026 11:17:04 +0100
-Message-Id: <20260817-for-next-lucky7-clock-v1-0-032e4b229c76@member.fsf.org>
+Date: Mon, 17 Aug 2026 11:17:06 +0100
+Subject: [PATCH 2/3] clk: samsung: clk-pll: Add support for pll_309
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAKDfgmoC/yXMyw6CMBBG4Vchs3YSytX4KoYFHX90hLSmBYMhv
- LsVl9/inI0igiLSJdso4K1RvUswp4zk0bs7WG/JVORFk59NzYMP7LDOPC0yflqWycvIpa1si8Y
- aQUWpfQUMuh7fa/d3XOwTMv9mtO9fH3WFunkAAAA=
-X-Change-ID: 20260815-for-next-lucky7-clock-3b4b7e6b1ce4
+Message-Id: <20260817-for-next-lucky7-clock-v1-2-032e4b229c76@member.fsf.org>
+References: <20260817-for-next-lucky7-clock-v1-0-032e4b229c76@member.fsf.org>
+In-Reply-To: <20260817-for-next-lucky7-clock-v1-0-032e4b229c76@member.fsf.org>
 To: Krzysztof Kozlowski <krzk@kernel.org>, 
  Sylwester Nawrocki <s.nawrocki@samsung.com>, 
  Chanwoo Choi <cw00.choi@samsung.com>, 
@@ -71,21 +68,21 @@ Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
  Aiden Isik <aidenisik+git@member.fsf.org>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1760;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6673;
  i=aidenisik@member.fsf.org; h=from:subject:message-id;
- bh=wK06Xs2Ehefp3TZxBkcPfV9xrG3dW+KVswLp5LqL3mc=;
- b=owEBbQKS/ZANAwAIAUknAbLEetfrAcsmYgBqgt+n7x+JSaql6wYRLNjCbegcsTaeYmm3X/Z3j
- 3dToC00kLKJAjMEAAEIAB0WIQSDy8UkXGpc3JNbEaVJJwGyxHrX6wUCaoLfpwAKCRBJJwGyxHrX
- 61bhD/0c1sO3XsVb6kLHOBkdMv24elZQGjDxSfXbEHMrA3gzRJIhgtAHvhDvTngOU8Yz+lMmLmm
- GrbWgLmltl2heHeVNkjw8r3iSonAsZ8eCXwHjq7vGjLTEH1/sr3aDufT65sBjiuxAuHGf7xwm2H
- JYL8K68pwvsdvyc8YRbVERTx58mpKlhRFVsuHd6A2KZRrq+gat+76lVYSE5Kh5CJY6w1GD5Af9W
- R/n3YUEWpMUf2gSmqsVRmrsPeBckjSnLVLis4r1QVNhaq3uPz6L8xBDZo6EVYKFrS6ExCt3n5Ko
- H3ktnZQ0d/upy5+KcWhh812qRw4FMmzh1AoRXbg6q9QqFF87FRQRJfB/BtbnDopimy2gVih5AtY
- gRQ17r/SsH+jDc3dBEQXLdRHVlo4Os9L7MRvHkuhfrGE+xO902Li1cdXSKrf2mOtfvoEUOj7qcL
- gLOxqru+Jta42VssLOPArOn/TlJ20EQ8QGWm9XRmo7zHFqqRkOaqR8dSt0jrhqfoaCKwJQ3Mfow
- PrJGkskySCzJBiIKBmLz6yeD9k11srtO1xaR9fqCIs60xpp0FstRku0P4Gkz8wXHfe0Sh+im7wt
- KtrjvjS+Zq2I3yS+E/FFahbfm2yxU0cnrmt8Xr7v9UklILmjSShyB074O1BXSnVGY1SQ+JA32kO
- 7xGramGjXU5nZkg==
+ bh=ZEAmFkO+Kj2Xr9987kQ0DFVLYw0y1FU5mSesoCEg7Zk=;
+ b=owEBbQKS/ZANAwAIAUknAbLEetfrAcsmYgBqgt+nZuyPwpaL2xjUJWBSMW/Xre5a+jPvYxDNG
+ ujARNS1YnSJAjMEAAEIAB0WIQSDy8UkXGpc3JNbEaVJJwGyxHrX6wUCaoLfpwAKCRBJJwGyxHrX
+ 68u8D/9ENj8Tn/2On86yphQhsu7ZSYJNHQsJTBwx/KxxSkYJbzdw4ZJ5qXNXMxnvuypxj2VOahF
+ 3+3UN64EcsrKQC3XqbdHw2BkGbpnqk1jAfXwIRzILvae4Vgr2wkWs0+l16fwOljYKuJv7EyVTkK
+ sdUpg8oANj96NskRBxI9p7bgdwHHv0X5gYnof/WGM6rzUKQZ9vfdu2H4o/vMpSOINNrN2ZdXHAC
+ wM9s2s2dTdcGTY6tgJFvtEkh3SpxrMi3hBPcv+TvnVewfcN1mmIU+MIwnRb//y44CliALdwokdB
+ KSgGsiiKLvIgt0t8Ma6LYlcL5sEFvwb6FVgt3gUK3NBTtl9KYnBphZoh/+f4WSkC3cyAR/NMSWy
+ ReYuupZgC68vOgdXJvEKCPvmBiodwGW3K8Gl50haYc7uK68Sjc/VpXwcdEwpSokV4tNbgzBlqUb
+ Be/MRfNLKGvaN4eOnrNmYrx20DnnmyAdCWV3XvsKiS5Yy8r7SbC1l1OF4RDhpqzB1beRkeJp4yO
+ mWr1BUrPvHsYaxOwLpTwfhMoWabdK44dHN42MEbj6ePCI6juqgeZ6rHlD8UTLp2Mtwx0YIFLWEK
+ OP851dPjzwxvYTSr9SbuUDVy5kMi7mor0wGnvJltDVDwg1+3sE4Va447W6Z9e/WJXbaNTk/FqSm
+ IESkbQmlnD4iXuQ==
 X-Developer-Key: i=aidenisik@member.fsf.org; a=openpgp;
  fpr=83CBC5245C6A5CDC935B11A5492701B2C47AD7EB
 X-Endpoint-Received: by B4 Relay for aidenisik@member.fsf.org/default with
@@ -106,51 +103,211 @@ Reply-To: aidenisik@member.fsf.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi there,
+From: Aiden Isik <aidenisik@member.fsf.org>
 
-This patchset introduces clock driver support for the Exynos5515 SoC.
+pll_309 (referred to in the downstream kernel sources as frd_309_rpll) is
+one of two PLLs used in the Exynos5515 SoC. It is an integer/fractional
+PLL with an FVCO of 600-2400MHz.
 
-Currently, the following CMU blocks are defined:
-- CMU_TOP (handles clocks for all child CMU blocks)
-- CMU_PERI (handles clocks for USI, watchdog timer, etc)
-- CMU_FSYS (handles clocks for MMC, USB, etc)
+It has the same locktime (500), and kdiv/mdiv/pdiv/sdiv masks and shifts
+as pll_531x, so it can be handled in exactly the same way.
 
-This driver support makes use of HWACG (hardware automatic clock gating),
-so gates do not need to be manually forced on with CLK_IGNORE_UNUSED or
-CLK_IS_CRITICAL. Rather, the hardware handles the clock gating.
+When defining a PLL, the "con" parameter should be set to the CON3
+register, like this:
 
-Support for more blocks to come as support for the the hardware requiring
-them is added.
-
-I am getting some checkpatch warnings telling me to check the MAINTAINERS
-file, as new files have been added. I am assuming these can be ignored as
-I am not a maintainer, and the whole clock driver and samsung subsystems
-already have maintainers listed.
-
-Kind regards,
-- Aiden Isik
+PLL(pll_309, CLK_FOUT_AUD_PLL, "fout_aud_pll", "oscclk",
+    PLL_LOCKTIME_PLL_AUD, PLL_CON3_PLL_AUD, NULL),
 
 Signed-off-by: Aiden Isik <aidenisik+git@member.fsf.org>
 ---
-Aiden Isik (3):
-      dt-bindings: clock: Add Exynos5515 SoC
-      clk: samsung: clk-pll: Add support for pll_309
-      clk: samsung: Introduce Exynos5515 clock driver
+ drivers/clk/samsung/clk-pll.c | 57 +++++++++++++++++++++++--------------------
+ drivers/clk/samsung/clk-pll.h |  1 +
+ 2 files changed, 32 insertions(+), 26 deletions(-)
 
- .../bindings/clock/samsung,exynos5515-cmu.yaml     |  145 ++
- drivers/clk/samsung/Makefile                       |    1 +
- drivers/clk/samsung/clk-exynos5515.c               | 1485 ++++++++++++++++++++
- drivers/clk/samsung/clk-pll.c                      |   57 +-
- drivers/clk/samsung/clk-pll.h                      |    1 +
- include/dt-bindings/clock/samsung,exynos5515-cmu.h |  191 +++
- 6 files changed, 1854 insertions(+), 26 deletions(-)
----
-base-commit: acde40ba506aae78633e080b5704d33cf4bc13c6
-change-id: 20260815-for-next-lucky7-clock-3b4b7e6b1ce4
+diff --git a/drivers/clk/samsung/clk-pll.c b/drivers/clk/samsung/clk-pll.c
+index e74552846ba3..8b1474aeaf0c 100644
+--- a/drivers/clk/samsung/clk-pll.c
++++ b/drivers/clk/samsung/clk-pll.c
+@@ -28,7 +28,7 @@ struct samsung_clk_pll {
+ 	unsigned short		lock_offs;
+ 	enum samsung_pll_type	type;
+ 	unsigned int		rate_count;
+-	struct samsung_pll_rate_table rate_table[] __counted_by(rate_count);
++	const struct samsung_pll_rate_table *rate_table;
+ };
+ 
+ #define to_clk_pll(_hw) container_of(_hw, struct samsung_clk_pll, hw)
+@@ -1593,32 +1593,35 @@ static void __init _samsung_clk_register_pll(struct samsung_clk_provider *ctx,
+ {
+ 	struct samsung_clk_pll *pll;
+ 	struct clk_init_data init;
+-	unsigned int len = 0;
+-	int ret;
++	int ret, len;
+ 
+-	if (pll_clk->rate_table) {
+-		/* find count of rates in rate_table */
+-		while (pll_clk->rate_table[len].rate != 0)
+-			len++;
+-	}
+-
+-	pll = kzalloc_flex(*pll, rate_table, len);
++	pll = kzalloc_obj(*pll);
+ 	if (!pll) {
+ 		pr_err("%s: could not allocate pll clk %s\n",
+ 			__func__, pll_clk->name);
+ 		return;
+ 	}
+ 
+-	pll->rate_count = len;
+-	if (len)
+-		memcpy(pll->rate_table, pll_clk->rate_table,
+-		       len * sizeof(*pll->rate_table));
+-
+ 	init.name = pll_clk->name;
+ 	init.flags = pll_clk->flags;
+ 	init.parent_names = &pll_clk->parent_name;
+ 	init.num_parents = 1;
+ 
++	if (pll_clk->rate_table) {
++		/* find count of rates in rate_table */
++		for (len = 0; pll_clk->rate_table[len].rate != 0; )
++			len++;
++
++		pll->rate_count = len;
++		pll->rate_table = kmemdup_array(pll_clk->rate_table,
++						pll->rate_count,
++						sizeof(*pll->rate_table),
++						GFP_KERNEL);
++		WARN(!pll->rate_table,
++			"%s: could not allocate rate table for %s\n",
++			__func__, pll_clk->name);
++	}
++
+ 	switch (pll_clk->type) {
+ 	case pll_2126:
+ 		init.ops = &samsung_pll2126_clk_ops;
+@@ -1637,7 +1640,7 @@ static void __init _samsung_clk_register_pll(struct samsung_clk_provider *ctx,
+ 	case pll_a9fracm:
+ 		pll->enable_offs = PLL35XX_ENABLE_SHIFT;
+ 		pll->lock_offs = PLL35XX_LOCK_STAT_SHIFT;
+-		if (!pll->rate_count)
++		if (!pll->rate_table)
+ 			init.ops = &samsung_pll35xx_clk_min_ops;
+ 		else
+ 			init.ops = &samsung_pll35xx_clk_ops;
+@@ -1656,7 +1659,7 @@ static void __init _samsung_clk_register_pll(struct samsung_clk_provider *ctx,
+ 	case pll_0732x:
+ 		pll->enable_offs = PLL0822X_ENABLE_SHIFT;
+ 		pll->lock_offs = PLL0822X_LOCK_STAT_SHIFT;
+-		if (!pll->rate_count)
++		if (!pll->rate_table)
+ 			init.ops = &samsung_pll0822x_clk_min_ops;
+ 		else
+ 			init.ops = &samsung_pll0822x_clk_ops;
+@@ -1666,7 +1669,7 @@ static void __init _samsung_clk_register_pll(struct samsung_clk_provider *ctx,
+ 		break;
+ 	case pll_4502:
+ 	case pll_4508:
+-		if (!pll->rate_count)
++		if (!pll->rate_table)
+ 			init.ops = &samsung_pll45xx_clk_min_ops;
+ 		else
+ 			init.ops = &samsung_pll45xx_clk_ops;
+@@ -1676,7 +1679,7 @@ static void __init _samsung_clk_register_pll(struct samsung_clk_provider *ctx,
+ 	case pll_2650:
+ 		pll->enable_offs = PLL36XX_ENABLE_SHIFT;
+ 		pll->lock_offs = PLL36XX_LOCK_STAT_SHIFT;
+-		if (!pll->rate_count)
++		if (!pll->rate_table)
+ 			init.ops = &samsung_pll36xx_clk_min_ops;
+ 		else
+ 			init.ops = &samsung_pll36xx_clk_ops;
+@@ -1684,7 +1687,7 @@ static void __init _samsung_clk_register_pll(struct samsung_clk_provider *ctx,
+ 	case pll_0831x:
+ 		pll->enable_offs = PLL0831X_ENABLE_SHIFT;
+ 		pll->lock_offs = PLL0831X_LOCK_STAT_SHIFT;
+-		if (!pll->rate_count)
++		if (!pll->rate_table)
+ 			init.ops = &samsung_pll0831x_clk_min_ops;
+ 		else
+ 			init.ops = &samsung_pll0831x_clk_ops;
+@@ -1700,7 +1703,7 @@ static void __init _samsung_clk_register_pll(struct samsung_clk_provider *ctx,
+ 	case pll_4650:
+ 	case pll_4650c:
+ 	case pll_1460x:
+-		if (!pll->rate_count)
++		if (!pll->rate_table)
+ 			init.ops = &samsung_pll46xx_clk_min_ops;
+ 		else
+ 			init.ops = &samsung_pll46xx_clk_ops;
+@@ -1709,29 +1712,30 @@ static void __init _samsung_clk_register_pll(struct samsung_clk_provider *ctx,
+ 		init.ops = &samsung_pll2550x_clk_ops;
+ 		break;
+ 	case pll_2550xx:
+-		if (!pll->rate_count)
++		if (!pll->rate_table)
+ 			init.ops = &samsung_pll2550xx_clk_min_ops;
+ 		else
+ 			init.ops = &samsung_pll2550xx_clk_ops;
+ 		break;
+ 	case pll_2650x:
+-		if (!pll->rate_count)
++		if (!pll->rate_table)
+ 			init.ops = &samsung_pll2650x_clk_min_ops;
+ 		else
+ 			init.ops = &samsung_pll2650x_clk_ops;
+ 		break;
+ 	case pll_2650xx:
+-		if (!pll->rate_count)
++		if (!pll->rate_table)
+ 			init.ops = &samsung_pll2650xx_clk_min_ops;
+ 		else
+ 			init.ops = &samsung_pll2650xx_clk_ops;
+ 		break;
+ 	case pll_531x:
+ 	case pll_4311:
++	case pll_309:
+ 		init.ops = &samsung_pll531x_clk_ops;
+ 		break;
+ 	case pll_1031x:
+-		if (!pll->rate_count)
++		if (!pll->rate_table)
+ 			init.ops = &samsung_pll1031x_clk_min_ops;
+ 		else
+ 			init.ops = &samsung_pll1031x_clk_ops;
+@@ -1739,7 +1743,7 @@ static void __init _samsung_clk_register_pll(struct samsung_clk_provider *ctx,
+ 	case pll_a9fraco:
+ 		pll->enable_offs = PLLA9FRACO_ENABLE_SHIFT;
+ 		pll->lock_offs = PLLA9FRACO_LOCK_STAT_SHIFT;
+-		if (!pll->rate_count)
++		if (!pll->rate_table)
+ 			init.ops = &samsung_a9fraco_clk_min_ops;
+ 		else
+ 			init.ops = &samsung_a9fraco_clk_ops;
+@@ -1758,6 +1762,7 @@ static void __init _samsung_clk_register_pll(struct samsung_clk_provider *ctx,
+ 	if (ret) {
+ 		pr_err("%s: failed to register pll clock %s : %d\n",
+ 			__func__, pll_clk->name, ret);
++		kfree(pll->rate_table);
+ 		kfree(pll);
+ 		return;
+ 	}
+diff --git a/drivers/clk/samsung/clk-pll.h b/drivers/clk/samsung/clk-pll.h
+index d6eb3246611b..2457cf47c109 100644
+--- a/drivers/clk/samsung/clk-pll.h
++++ b/drivers/clk/samsung/clk-pll.h
+@@ -53,6 +53,7 @@ enum samsung_pll_type {
+ 	pll_1031x,
+ 	pll_a9fracm,
+ 	pll_a9fraco,
++	pll_309,
+ };
+ 
+ #define PLL_RATE(_fin, _m, _p, _s, _k, _ks) \
 
-Best regards,
---  
-Aiden Isik <aidenisik@member.fsf.org>
+-- 
+2.54.0
 
 
 
