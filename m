@@ -4,62 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F5E0C5DF66
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 17:33:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94D47C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 17:34:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EbO79SBt1fqQKSNB4+jp3tSRgB259JknfPmG5q55o1U=; b=vzNwU8d6scVgQpDReckgRQQXh1
-	UNQY8oqMFItbbPnrm2xgNwSzJ1DyJ+7uh839k6jFvke0M6KVzr171kUyKXuuGbcev9kl3hkFyYMnE
-	b2u0CoS3iUgnZlpxyUU6P3w6lRSR0r9r1ysHy+d3PB5wx1D4nii6Fo7Uj6wOoxxh0BmjGckpqQJiE
-	kQrvgshNWtmn95+oopdJK76DT6FR0xl6YZyWNv1fF10DqJcakaU6yIeCr1SQpr3cPprRQUF8lrhUk
-	K2D094QSI4O3+puLXbch4lXh/wHlTeCfCViwaPFTawIZqCJvbRji9zSUN3S3CLh1/l8+2U4dCV6UM
-	cCTCD3qw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N/80AwWXrivI+neZRMiIV+d6NMNyflzdEuKzM/Rjq8s=; b=XsYSz7wf3S3W4Ehmqs+KQ+kgtE
+	BfDCxscZBalDLCiGgjrsCqdiywJN8o+YO6tp5cwE+t6pY9L1VY2Vpy+DDD0cDFGkpmapAYhT57hmD
+	BnuM2zaGoHXsBTgzeuY+0gXVQJ20YLEfOmASZCYr2JqHV430P97E026Dj6KTu6E8mag5W60FeX7r9
+	Fdwao7UOdh8sXRk1Z8oxCDAykUvi/WoxRhzaa972/BlFaiD79lB1ltwre/kkzDspxIBjL9PX/+/ol
+	/DJLKHR4yI/EWlk25e2gqbvyLh70CIV1a/9zXRSjt24b92c9g+nQkrlxEKFCwB/O/gEsYsg//gESV
+	H1XfWHXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww1DQ-00000006bNA-29kK;
-	Mon, 17 Aug 2026 17:33:40 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww1DO-00000006bMi-3MR6
+	id 1ww1E9-00000006bVW-2lvR;
+	Mon, 17 Aug 2026 17:34:25 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1ww1E6-00000006bUP-42wc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 17:33:38 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 42F6F40E47;
-	Mon, 17 Aug 2026 17:33:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2AB41F000E9;
-	Mon, 17 Aug 2026 17:33:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786988018;
-	bh=EbO79SBt1fqQKSNB4+jp3tSRgB259JknfPmG5q55o1U=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=PerXsyF5f8Z99E1O/MH92EBezeiHuo2++IAFgfYNvD7F3OEzpcIrAlpU86edyelU0
-	 Ny9fqUX/GijwKkNUR4Xnb8JwqupgeSdTWB/hUnaA7CJ31qRqFaczjMF7XZLaV+jsuU
-	 n5c2BxF71FeWhQiUN9shtog4IQ4r64tJ5kqWg2oB4soBEDTNNqM3QDZKylL7bde5Z4
-	 H06KoCiTY4nvN1a7pyNJkFf8H0JkNpBIe89QOUv7RhtgkYMPgoDlGnkt3apxA65rib
-	 Sp2Qs4COOr08cu2rYW5AkxULK9FfSzNMjGskmSR0h9BxKh/tBEZHHAwjoqJgW+CIJa
-	 akKCkCxlCWexA==
-Date: Mon, 17 Aug 2026 10:33:37 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Kurt Kanzenbach <kurt@linutronix.de>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Maxime
- Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, Lorenzo Bianconi <lorenzo@kernel.org>
-Subject: Re: [PATCH net-next] net: stmmac: stm32: Set TSO/TBS Tx queues
- default settings
-Message-ID: <20260817103337.74c30adc@kernel.org>
-In-Reply-To: <20260812-stm32mp2_txtime-v1-1-f9e2462cc85d@linutronix.de>
-References: <20260812-stm32mp2_txtime-v1-1-f9e2462cc85d@linutronix.de>
+	Mon, 17 Aug 2026 17:34:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A344514BF;
+	Mon, 17 Aug 2026 10:34:16 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7A6483F673;
+	Mon, 17 Aug 2026 10:34:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1786988060; bh=dQHeVJirWd2OT1TdcvEiO5y7O6Dg5Prwr73YHx3YgGA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=o2j6v1+1kEj7SSVM9Z8novRqGeoQKzjTsL/kODG2VHN9wav2fIVvYLOOsBj2gcsay
+	 CORquf427smN+XQJ22xJ1GiiAFsv6aQMXPknWZ3Y2XT7vP+pbPcXpdgPCbLUA9yDAS
+	 bl/pMq5IX9UHlSyIxTvkIItls/szRGWTzY4swwyY=
+Date: Mon, 17 Aug 2026 18:34:16 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: James Houghton <jthoughton@google.com>
+Cc: Will Deacon <will@kernel.org>, Muchun Song <muchun.song@linux.dev>,
+	Oscar Salvador <osalvador@suse.de>,
+	Nikos Nikoleris <nikos.nikoleris@arm.com>,
+	Linu Cherian <linu.cherian@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	David Hildenbrand <david@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Nanyong Sun <sunnanyong@huawei.com>, Yu Zhao <yuzhao@google.com>,
+	Frank van der Linden <fvdl@google.com>,
+	David Rientjes <rientjes@google.com>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org
+Subject: Re: [PATCH 00/18] Another attempt at HVO support on arm64
+Message-ID: <aoNGGKYZrOlaJ4mH@arm.com>
+References: <20260708031129.3503195-1-jthoughton@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260708031129.3503195-1-jthoughton@google.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260817_103423_084385_18FF1052 
+X-CRM114-Status: GOOD (  15.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,16 +78,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 12 Aug 2026 08:28:57 +0200 Kurt Kanzenbach wrote:
-> TSO and TBS cannot coexist. Use the first queue with TSO and the rest for
-> TBS. Tx queues with TBS can support etf qdisc hw offload. This is done
-> similar to dwmac-imx and dwmac-intel.
+Hi James,
 
-Can you explain your use case? And how many queues the device has 
-in total?
+On Wed, Jul 08, 2026 at 03:11:10AM +0000, James Houghton wrote:
+> The following Herd litmus test demonstrates the PTE update routine:
+> 
+>   AArch64 TTDFaultlessUpdate
+>   Variant=vmsa
+>   TTHM=HA
+>   {
+>    uint64_t x=1;
+>    uint64_t y=2;
+>    [PTE(x)]=(oa:PA(x), af:1);
+>    0:X0=PTE(x); 1:X0=PTE(x);
+>    0:X1=x; 1:X1=x;
+>    pteval_t 0:X2=(oa:PA(x), af:0);
+>    pteval_t 0:X3=(oa:PA(y), af:1);
+>   }
+>    P0                | P1             ;
+>    LDR X4,[X0]       | L0:            ;
+>    MOV X5,X4         | LDR X2,[X1]    ;
+>    CAS X4,X2,[X0]    |                ;
+>    DSB ISHST         |                ;
+>    LSR X9,X1,#12     |                ;
+>    TLBI VAALE1IS,X9  |                ;
+>    DSB ISH           |                ;
+>    ISB               |                ;
+>    CAS X2,X3,[X0]    |                ;
+>   exists
+>     0:X5=0:X4 /\ (* First CAS must succeed *)
+>     (fault(P1:L0) \/ ~(1:X2=2 \/ 1:X2=1))
+> 
+>   (* This test should not violate BBM requirements. *)
 
-You say "TSO and TBS cannot coexist" but can any queue on your
-platform be configured to support either feature? If yes why are
-we configuring this statically instead of making appropriate
-configuration based on qdisc or some other uAPI knob?
+We definitely need a clear statement in the Arm ARM around this. As
+already raised in this thread, we can assume that AF=0 entries won't be
+cached in TLB but there's more to the BBM rules. For the dirty bit, we
+have R_SGJBL, we might need something similar for AF in addition to the
+BBM rules update. In theory, I think your approach works but we need the
+memory model experts confirmation and the Arm ARM updated.
+
+I'm not entirely clear what the above litmus test guarantees other than
+not giving a warning. On P1, X2 can be either 1 or 2, otherwise fault
+but that won't happen with HA. I'd rather have something in the 'exists'
+rule explicitly (like a TLB conflict abort; not supported AFAIK but
+maybe that's what fault(P1) was meant to show?).
+
+In addition to the above test, I wonder whether we could have P1 do two
+consecutive reads from [X1] and check the read values. Maybe go through
+a third mapping, OA(z) with AF=0 after the TLBI or just start with AF=0
+on x. Basically any other tests for coherency like read-after-read etc.,
+check that the behaviour is preserved through AF=0 just like going
+through valid=0 with BBM (that's something that should eventually be
+runnable on actual hardware to validate where we won't have a BBM
+warning message).
+
+-- 
+Catalin
 
