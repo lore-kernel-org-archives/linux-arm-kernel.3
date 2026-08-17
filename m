@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA797C5DF7E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 21:14:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2CB4C5DF7F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 21:14:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HnV+KFrsp3EjkzXD0qLhT2V4LnzZvURLkqVx83K91cQ=; b=AtmFzyIPBOxnq71/wLpmNtx2ye
-	5lNckfyszkwdiPYRxvd69CZnbkFQc7yovrelohv7di2i4sQeRSTseNMtjTY+CSfKi3/7aX9mtXSTn
-	SNJGqAL22irbtqZ8rLG1S7QAMhnt0X17QS0QQYpIoshZBBSdwChS36Ipi/HeMnqCZZQzUU7GZ7ab1
-	zNL3RgOiRUY7tj4ET3G1bDWWiZPZ2g6FvtEIHqqesghup01+rcb8Do0Z0BTIb7d72sYErrsAiSNl9
-	+QOP79BLPSPxiPVhwK+5od3C62+X+KYPSD+M+2bqYkRq2XgsuKOcKrCSDjxX+kkez01Ld05B8YTcy
-	95WGbxuw==;
+	bh=aRZFeV5QR5rLZxVBVxUNKNx9erPaKPc4qZpWpRNUFl8=; b=kRZ2KkbBMG6MTqUC+mtZpuu2aR
+	IwgbU8XJssOuEEBdOQWCp40rKumcfevuS8pW1sgLjyjw93RV6XAkHtJUyIeVUiTSymrwI+yUFTKyI
+	wBTaZvdQJjLczrihIYWJDZVyOkt4lMbDuT1Qvs0753fOAXmgFxiMb7LTSa26+xOq+ATeEh9Tjo258
+	u08nrUpbZvQa4HFcO+rH/WFPPQLcQ1Cy/eZFwAOERxR7lU0kaaO+g/fu4hUp7VCdBTFg3UtZ0H/c5
+	0zARMVct+tj1xfn6JCMKxtIQOTzBvoOrRW5MPT//SaslWEyZss5sccy8RsPiZmM5w4x/Xu8H2zFwJ
+	18rre08g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww4ei-00000006oje-2Bmh;
+	id 1ww4ei-00000006oiq-0piJ;
 	Mon, 17 Aug 2026 21:14:04 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww4ef-00000006ohu-2DZR
+	id 1ww4eb-00000006ohJ-49XK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 21:14:01 +0000
+	Mon, 17 Aug 2026 21:13:58 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E3A7260A58;
-	Mon, 17 Aug 2026 21:14:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E06F1F00A3A;
-	Mon, 17 Aug 2026 21:13:59 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B993543FD5;
+	Mon, 17 Aug 2026 21:13:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E38051F000E9;
+	Mon, 17 Aug 2026 21:13:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787001240;
-	bh=HnV+KFrsp3EjkzXD0qLhT2V4LnzZvURLkqVx83K91cQ=;
+	s=k20260515; t=1787001237;
+	bh=aRZFeV5QR5rLZxVBVxUNKNx9erPaKPc4qZpWpRNUFl8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=JR0cIBTrlKwnD0g9VsA9MIfctBPDm8FRHGBltvfeEzpFdTS4FOeLdh0h+P2ONL0iY
-	 nrnnxrGpLIyzJg4JYwMTN2oqD4YITfYSkzyipx2WYkPNZblHRSRpHNnYPxkkHoayXH
-	 8kJ2cK1cGaSvromUi76+brtoh6JgThuIJ4cES/JCV9TYfRAktITpKhw7eCDDVjbv2q
-	 +ZjK6EEHQ3yrxyTeyDudH5Cjh3UGXiLXOed/YYcnEmdiNT6p3x0hYZcChffcwfdA9+
-	 acSJtxfefEEpwOQUs3axKR0Sf3yG5szzgkauQOkcvctHzub3Psy+qnRWqErQ67rvf9
-	 YWYslPkSAVPcw==
+	b=HiAiTxn23arJBmP8+7J8lqVwJTO4Ksmklgs77jNEjw8f2qcR5vZWlwTg3H+U8ZhoG
+	 2TqSThKHL7a8agjktW6gXM3tlf5jQyKvU8PBYIQKYgdCd3BZWXNttCQ0Mcx9nkIuw8
+	 6P4xO2wr/CvpEiagNhydZvTVziF0wTUioktYbdQua/O7RMeEtR0uRieRsI83ktMDak
+	 Qrmnp9wk4fpRMKclEiX9seXccSxJ2LqpRU/s8oaIDv3JkTnTfh/fBf9GYpDkuxckKZ
+	 wQsilg9/iiNpp1GiI5G39Hn8RpfXRm0B9cb6Z0a/Hz1wFewWWkW9l6FKcdtasT9YNx
+	 ar1Xwdr6j9cTg==
 From: Jakub Kicinski <kuba@kernel.org>
 To: jensemil.schulzostergaard@microchip.com
 Cc: Jakub Kicinski <kuba@kernel.org>,
@@ -60,12 +60,12 @@ Cc: Jakub Kicinski <kuba@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH net-next v2 8/9] net: sparx5: add L3 FIB, nexthop and neighbour entry management
-Date: Mon, 17 Aug 2026 14:13:59 -0700
-Message-ID: <20260817211359.3633493-1-kuba@kernel.org>
+Subject: Re: [PATCH net-next v2 6/9] net: sparx5: vcap: add lpm vcap implementation
+Date: Mon, 17 Aug 2026 14:13:56 -0700
+Message-ID: <20260817211356.3633381-1-kuba@kernel.org>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260810-sparx5_l3_routing-v2-8-59e68cc8c8ca@microchip.com>
-References: <20260810-sparx5_l3_routing-v2-8-59e68cc8c8ca@microchip.com>
+In-Reply-To: <20260810-sparx5_l3_routing-v2-6-59e68cc8c8ca@microchip.com>
+References: <20260810-sparx5_l3_routing-v2-6-59e68cc8c8ca@microchip.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -85,500 +85,231 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 This is an AI-generated review of your patch. The human sending this
 email has considered the AI review valid, or at least plausible.
 ---
-net: sparx5: add L3 FIB, nexthop and neighbour entry management
+net: sparx5: vcap: add lpm vcap implementation
 
-This adds the data path for L3 unicast route offload on sparx5: FIB entry
-lifecycle backed by LPM VCAP rules, nexthop group management using either
-inline VCAP actions or the hardware ARP table for ECMP, and neighbour
-entries anchored to router legs.  A few questions about the new code
-below.
+This adds a VCAP_TYPE_LPM instance to the sparx5 and lan969x VCAP instance
+tables and extends the per-vtype switches in sparx5_vcap_impl.c so the LPM
+VCAP reuses the Super VCAP cache, update and move helpers.  On sparx5 the
+IS0 CLM-0 instance drops from two Super VCAP blocks to one to make room.
 
-> diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_router.c b/drivers/net/ethernet/microchip/sparx5/sparx5_router.c
-> index d83cbb84c34e5..6d40d651180e6 100644
-> --- a/drivers/net/ethernet/microchip/sparx5/sparx5_router.c
-> +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_router.c
+A few questions below.
 
-[ ... ]
-
-> @@ -422,43 +715,1041 @@ static struct sparx5_port *sparx5_port_dev_lower_find(struct net_device *dev)
->  	port = sparx5_port_dev_lower_find_rcu(dev);
->  	rcu_read_unlock();
->  
-> -	return port;
-> +	return port;
-> +}
-
-[ ... ]
-
-> +static int
-> +sparx5_rr_nexthop_group_info_init(struct sparx5 *sparx5,
-> +				  struct sparx5_rr_nexthop_group *nh_grp,
-> +				  struct sparx5_rr_fib_info *fi)
-> +{
-> +	unsigned int nhs = sparx5_rr_fib_info_nhs(fi);
-> +	struct sparx5_rr_nexthop_group_info *nhgi;
-> +	struct sparx5_rr_nexthop *nh;
-> +	int err, i;
-> +
-> +	nhgi = kzalloc_flex(*nhgi, nexthops, nhs);
-> +	if (!nhgi)
-> +		return -ENOMEM;
-> +
-> +	nh_grp->nhgi = nhgi;
-> +	nhgi->grp = nh_grp;
-> +	nhgi->atbl_offset_valid = false;
-> +	nhgi->atbl_offset = 0;
-> +	nhgi->count = nhs;
-
-[Severity: High]
-Is nhs bounded on the way in here?  nhgi->count is the u8 __counted_by
-field for the nexthops flex array, and the only size check in the series
-is in sparx5_rr_fib_info_should_offload():
-
-	if (nhs > SPARX5_MAX_ECMP_SIZE)
-		return false;
-
-For the IPv6 append path that check only sees the delta carried by the
-event, never the merged total (see the comment on sparx5_rr_fib6_append()
-below), so repeated "ip -6 route append <prefix> nexthop via <gw>" grows
-fib_entry->fi.fe6_info.nrt6 without limit.
-
-At 256 accumulated nexthops nhgi->count wraps to 0 while the flex array
-was allocated for 256 entries.  Then sparx5_rr_fib_entry_hw_apply() does:
-
-		if (!nhgi->nexthops->gateway) {
-
-which is a nexthops[0] access with __counted_by(count) == 0, i.e. a trap
-on CONFIG_UBSAN_BOUNDS builds, and the ARP programming loop
-"for (i = 0; i < nhgi->count; i++)" writes nothing at all.
-
-> +
-> +	for (i = 0; i < nhgi->count; i++) {
-> +		struct fib_nh_common *fnhc;
-> +
-> +		nh = &nhgi->nexthops[i];
-
-[ ... ]
-
-> +static void sparx5_rr_arp_tbl_hw_addr_apply(struct sparx5 *sparx5,
-> +					    unsigned char mac[ETH_ALEN],
-> +					    u16 evmid, int offset)
-> +{
-> +	u32 mac_msb, mac_lsb;
-> +
-> +	sparx5_rr_split_mac(mac, 32, &mac_msb, &mac_lsb);
-> +
-> +	spx5_rmw(ANA_L3_ARP_CFG_0_MAC_MSB_SET(mac_msb) |
-> +		 ANA_L3_ARP_CFG_0_ARP_VMID_SET(evmid) |
-> +		 ANA_L3_ARP_CFG_0_ARP_ENA_SET(1),
-> +		 ANA_L3_ARP_CFG_0_ARP_ENA |
-> +		 ANA_L3_ARP_CFG_0_ARP_VMID |
-> +		 ANA_L3_ARP_CFG_0_MAC_MSB,
-> +		 sparx5, ANA_L3_ARP_CFG_0(offset));
-> +
-> +	spx5_wr(mac_lsb, sparx5, ANA_L3_ARP_CFG_1(offset));
-> +}
-> +
-> +static void sparx5_rr_arp_tbl_hw_addr_clear(struct sparx5 *sparx5, int offset)
-> +{
-> +	spx5_rmw(ANA_L3_ARP_CFG_0_ARP_ENA_SET(0), ANA_L3_ARP_CFG_0_ARP_ENA,
-> +		 sparx5, ANA_L3_ARP_CFG_0(offset));
-> +}
-
-[Severity: Medium]
-Should the two halves of the MAC be written in the other order here?
-ARP_CFG_0 carries ARP_ENA and MAC_MSB and is written first, while the low
-32 bits only land in ARP_CFG_1 afterwards, so the entry is enabled with
-the new MSB combined with whatever LSB the slot still held.
-
-sparx5_rr_arp_tbl_hw_addr_clear() only clears ARP_ENA and never touches
-ARP_CFG_1, so that leftover LSB belongs to the previous owner of the slot.
-
-When sparx5_rr_nexthop_neigh_update() reprograms a member of a live ECMP
-group (reachable in this commit through
-sparx5_rr_router_leg_destroy() -> sparx5_rr_nexthop_neigh_update()), do
-frames hashing to that member get forwarded with a bogus DMAC of
-new MSB : stale LSB during the window?
-
-The same window also seems to defeat the "zero DMAC means trap" rule: with
-MAC_MSB zeroed and ARP_ENA still 1, a non-zero stale LSB is left in
-ARP_CFG_1, so the frame is forwarded instead of trapped.  Writing
-ARP_CFG_1 before the ARP_CFG_0 write that sets ARP_ENA would close both.
-
-[ ... ]
-
-> +static void
-> +sparx5_rr_fib_entry_offload_mark(struct sparx5 *sparx5,
-> +				 struct sparx5_rr_fib_entry *fib_entry)
-> +{
-> +	bool offload, trap, offload_failed;
-> +
-> +	offload_failed = fib_entry->offload_fail;
-> +	offload = !fib_entry->offload_fail;
-> +	trap = !fib_entry->offload_fail && fib_entry->trap;
-> +
-> +	sparx5_rr_fib_info_offload_mark(sparx5, &fib_entry->fi, offload, trap,
-> +					offload_failed);
-> +}
-
-[Severity: Medium]
-Do the flags published here match what hardware actually does with the
-traffic?
-
-sparx5_rr_fib_entry_hw_apply() sets fib_entry->trap = false for
-SPARX5_RR_FIB_TYPE_UNICAST and then, both for directly connected subnets
-and for gateway nexthops with an unresolved neighbour MAC, installs an LPM
-ARP entry with eth_zero_addr(mac) - which the file header documents as
-"If the DMAC written to HW is all zero, the chip will trap the frame".
-
-So "ip route add 10.0.0.0/24 via 10.1.1.1 dev br0.10" reaches
-sparx5_rr_fib_entry_offload_mark() with offload_fail == false and
-trap == false, and fib_alias_hw_flags_set() publishes RTM_F_OFFLOAD with
-RTM_F_TRAP clear, while every packet is punted to the CPU.  Per the commit
-message that is all gateway routes at this point in the series, since MAC
-resolution only arrives with the next patch.
-
-Going the other way, LOCAL/PROHIBIT/UNREACHABLE set trap = true while
-offload_fail stays false, so those routes are reported as offloaded and
-trapped at the same time.  mlxsw keeps the two mutually exclusive:
-
-drivers/net/ethernet/mellanox/mlxsw/spectrum_router.c:mlxsw_sp_fib4_entry_hw_flags_set() {
-	...
-	fri.offload = should_offload;
-	fri.trap = !should_offload;
-	fri.offload_failed = false;
-	...
-}
-
-The per-nexthop state that would answer this is already tracked in
-sparx5_rr_nexthop_egress_derive():
-
-	nh->trapped = !nh_neigh || is_zero_ether_addr(nh_neigh->hwaddr);
-
-but it is never consulted by the flag computation.  Could nh->trapped feed
-the reported trap flag?
-
-[ ... ]
-
-> +static int
-> +sparx5_rr_fib_entry_update_arp_entry(struct sparx5 *sparx5,
-> +				     struct sparx5_rr_fib_entry *fib_entry,
-> +				     unsigned char mac[ETH_ALEN], u16 evmid)
-> +{
-> +	struct net_device *pdev = sparx5->router->port_dev;
-> +	struct vcap_control *vctrl = sparx5->vcap_ctrl;
-> +	u32 vrule_id = fib_entry->hw_route.vrule_id;
-> +	struct vcap_rule *vrule;
-> +	u32 mac_msb, mac_lsb;
-> +	int err;
-> +
-> +	sparx5_rr_split_mac(mac, 32, &mac_msb, &mac_lsb);
-> +
-> +	vrule = vcap_get_rule(vctrl, vrule_id);
-> +	if (IS_ERR(vrule)) {
-> +		fib_entry->hw_route.vrule_id_valid = false;
-> +		return PTR_ERR(vrule);
-> +	}
-
-[Severity: Medium]
-Is it safe to clear vrule_id_valid on any vcap_get_rule() failure?  The
-lookup can fail on allocation while the rule is still programmed:
-
-drivers/net/ethernet/microchip/vcap/vcap_api.c:vcap_decode_rule() {
-	...
-	ri = vcap_dup_rule(elem, elem->state == VCAP_RS_DISABLED);
-	if (IS_ERR(ri))
-		return ERR_CAST(ri);
-	...
-}
-
-After that, sparx5_rr_fib_entry_destroy() skips vcap_del_rule() because
-vrule_id_valid is false, so does the LPM rule stay in the TCAM matching
-the prefix with a stale action?
-
-Related: this function reads fib_entry->hw_route.vrule_id without ever
-checking hw_route.vrule_id_valid, so a later update can
-vcap_get_rule()/vcap_mod_rule() an id that vcap_alloc_rule() has since
-handed to a different route's (or a neighbour host route's) rule.
-
-> +
-> +	switch (vrule->actionset) {
-> +	case VCAP_AFS_ARP_ENTRY:
-
-[ ... ]
-
-> +	case VCAP_AFS_ARP_PTR:
-> +		/* Convert arp_ptr to arp_entry */
-> +		err = sparx5_rr_lpm_arp_entry_create(sparx5,
-> +						     &fib_entry->key.addr,
-> +						     fib_entry->key.prefix_len,
-> +						     mac, evmid,
-> +						     &fib_entry->hw_route);
-> +		if (err)
-> +			goto free_rule;
-> +
-> +		sparx5_rr_nh_grp_arp_tbl_grp_clear(sparx5, fib_entry->nh_grp);
-> +		err = vcap_del_rule(vctrl, pdev, vrule_id);
-> +		goto free_rule;
-
-[Severity: Medium]
-Should the ARP_PTR rule be deleted before its ARP table entries are
-released?  sparx5_rr_nh_grp_arp_tbl_grp_clear() disables the entries and
-returns the offsets to router->arp_tbl_mask while the ARP_PTR rule is
-still installed, so hardware can keep matching it and dereferencing slots
-that are disabled or already handed to another route.  The replacement
-inline rule is already installed at this point, so deleting the old rule
-first looks safe.
-
-If vcap_del_rule() fails, does that inconsistency become permanent?
-
-[ ... ]
-
-> +static int sparx5_rr_lpm_arp_ptr_create(struct sparx5 *sparx5,
-> +					struct sparx5_iaddr *addr,
-> +					u32 prefix_len, u32 arp_offset_addr,
-> +					u8 ecmp_size,
-> +					struct sparx5_rr_hw_route *hw_route)
-> +{
-
-[ ... ]
-
-> +	err |= vcap_rule_add_action_u32(rule, VCAP_AF_ECMP_CNT, ecmp_size - 1);
-
-[Severity: High]
-Is ecmp_size validated against the width of this action field anywhere?
-VCAP_AF_ECMP_CNT is four bits:
-
-drivers/net/ethernet/microchip/sparx5/sparx5_vcap_ag_api.c {
-	[VCAP_AF_ECMP_CNT] = {
-		.type = VCAP_FIELD_U32,
-		.offset = 14,
-		.width = 4,
-	},
-}
-
-(same width in lan969x_vcap_ag_api.c, documented as W4 in vcap_ag_api.h),
-and neither vcap_rule_add_action() nor the encoder range checks the value.
-
-With 17 accumulated nexthops, ECMP_CNT = 16 & 0xF = 0 and hardware uses a
-single ARP entry for a 17 member group.  With the u8 count wrap described
-above, ecmp_size is 0 here, so ECMP_CNT gets (0 - 1) truncated to 0xF and
-hardware forwards using 16 ARP table slots that this group never
-initialised.
-
-[ ... ]
-
-> +static void sparx5_rr_fib_entry_destroy(struct sparx5 *sparx5,
-> +					struct sparx5_rr_fib_entry *fib_entry)
-> +{
-> +	struct net_device *pdev = sparx5->router->port_dev;
-> +	struct vcap_control *vctrl = sparx5->vcap_ctrl;
-> +
-> +	list_del(&fib_entry->fib_node);
-> +	sparx5_rr_fib_entry_remove(sparx5, fib_entry);
-> +	sparx5_rr_nexthop_group_put(sparx5, fib_entry->nh_grp);
-> +	if (fib_entry->hw_route.vrule_id_valid)
-> +		vcap_del_rule(vctrl, pdev, fib_entry->hw_route.vrule_id);
-> +	sparx5_rr_fib_info_put(&fib_entry->fi);
-> +	kfree(fib_entry);
->  }
-
-[Severity: Medium]
-Same ordering question as the ARP_PTR conversion above:
-sparx5_rr_nexthop_group_put() disables the ARP entries and frees their
-offsets in arp_tbl_mask before vcap_del_rule() removes the LPM rule that
-still points at them.  Would deleting the VCAP rule first avoid the window
-where an installed ARP_PTR rule references reallocated slots?
+> diff --git a/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_vcap_impl.c b/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_vcap_impl.c
+> index 543a1f2bf6bd9..6e6a1f833deac 100644
+> --- a/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_vcap_impl.c
+> +++ b/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_vcap_impl.c
+> @@ -82,4 +82,16 @@ const struct sparx5_vcap_inst lan969x_vcap_inst_cfg[] = {
+>  		.count = 1024,
+>  		.ingress = false,
+>  	},
+> +	{
+> +		.vtype = VCAP_TYPE_LPM,
+> +		.vinst = 0,
+> +		.map_id = 6,
+> +		.lookups = SPARX5_LPM_LOOKUPS,
+> +		.lookups_per_instance = SPARX5_LPM_LOOKUPS,
+> +		.first_cid = SPARX5_VCAP_CID_LPM_L0,
+> +		.last_cid = SPARX5_VCAP_CID_LPM_MAX,
+> +		.blockno = 5,
+> +		.blocks = 1,
+> +		.ingress = true,
+> +	},
+>  };
 
 [Severity: Low]
-Should this path also clear the hardware status flags it published
-earlier?  There is no fib_alias_hw_flags_set()/fib6_info_hw_flags_set()
-call with offload=false, trap=false, offload_failed=false, and
-sparx5_rr_router_deinit() unregisters the FIB notifier and then calls
-sparx5_rr_fib_flush().
+Does the commit message match what happens on lan969x?  The message says:
 
-After a driver unbind or module unload, do the routes that still exist in
-init_net keep advertising RTM_F_OFFLOAD/RTM_F_TRAP in route dumps even
-though their VCAP rules are gone?  mlxsw has
-mlxsw_sp_fib4_entry_hw_flags_clear() and
-mlxsw_sp_fib6_entry_hw_flags_clear() for this.
+    "The LPM VCAP is allocated from the Super VCAP Blocks, which is shared
+     amongst different VCAPs. All blocks are used, so we steal a block from
+     IS0, which had 2 assigned."
 
-[ ... ]
+The lan969x hunk here is purely additive.  Before the patch
+lan969x_vcap_inst_cfg[] used blocks 0-4 (IS2-0 = 0, IS2-1 = 1, IS0-0 = 2,
+IS0-1 = 3, IS0-2 = 4), each with .blocks = 1, and this new entry takes
+block 5 without reducing anything.
 
-> @@ -660,6 +1982,443 @@ static bool sparx5_rr_dev_real_is_vlan_aware(struct net_device *dev)
-> +static bool sparx5_rr_fib_info_should_offload(struct sparx5 *sparx5,
-> +					      struct sparx5_rr_fib_info *fi)
-> +{
-> +	u32 tb_id = sparx5_rr_fib_info_tb_id(fi);
-> +	u8 type = sparx5_rr_fib_info_type(fi);
-> +	int nhs = sparx5_rr_fib_info_nhs(fi);
+So nothing is stolen from IS0 on lan969x, and "all blocks are used" does
+not hold for that platform.  Could the message say where lan969x block 5
+comes from?
 
-[ ... ]
+Related to that: sparx5_vcap_block_alloc() derives the address range
+directly from blockno without ever consulting VCAP_SUPER_CORE_CNT:
 
-> +	if (!(tb_id == RT_TABLE_MAIN ||
-> +	      tb_id == RT_TABLE_LOCAL))
-> +		return false;
+	admin->first_valid_addr = cfg->blockno * SUPER_VCAP_BLK_SIZE;
+	admin->last_used_addr = admin->first_valid_addr +
+		cfg->blocks * SUPER_VCAP_BLK_SIZE;
 
-[ ... ]
+so for lan969x this maps addresses 15360..18431.  Is block 5 actually
+present in the lan969x Super VCAP?  I could not confirm the lan969x core
+count from the tree.
 
-> +	if (nhs > SPARX5_MAX_ECMP_SIZE)
-> +		return false;
-
-[ ... ]
-
-> +static void sparx5_rr_fib4_event_work(struct work_struct *work)
-> +{
-> +	struct sparx5_fib_event_work *fib_work =
-> +		container_of(work, struct sparx5_fib_event_work, work);
-> +	struct sparx5 *sparx5 = fib_work->sparx5;
-> +	int err;
-> +
-> +	mutex_lock(&sparx5->router->lock);
-> +
-> +	switch (fib_work->event) {
-> +	case FIB_EVENT_ENTRY_REPLACE:
-> +		err = sparx5_rr_fib_replace(sparx5, &fib_work->fi);
-> +		if (err)
-> +			dev_warn(sparx5->dev, "FIB replace failed, ip=%pI4l\n",
-> +				 &fib_work->fi.fen4_info.dst);
+> diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.c b/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.c
+> index cf332de6bf736..20450462e2d80 100644
+> --- a/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.c
+> +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.c
+> @@ -54,8 +54,8 @@ const struct sparx5_vcap_inst sparx5_vcap_inst_cfg[] = {
+>  		.lookups_per_instance = SPARX5_IS0_LOOKUPS / 3,
+>  		.first_cid = SPARX5_VCAP_CID_IS0_L0,
+>  		.last_cid = SPARX5_VCAP_CID_IS0_L2 - 1,
+> -		.blockno = 8, /* Maps block 8-9 */
+> -		.blocks = 2,
+> +		.blockno = 8, /* Maps block 8 */
+> +		.blocks = 1,
+>  		.ingress = true,
+>  	},
+>  	{
 
 [Severity: Low]
-Should this be %pI4h rather than %pI4l?  fen4_info.dst is the host order
-fib_trie key - this patch converts it explicitly elsewhere:
+The message also says:
 
-	key->addr.ipv4 = cpu_to_be32(dst);
+    "Since we statically assign blocks, this means IS0 has half the
+     available address space for vcap rules, compared to before."
 
-and
+Is "IS0" the right scope here?  Only the CLM-0 instance changes; CLM-1
+(blocks 6-7) and CLM-2 (blocks 4-5) keep two blocks each, so IS0 loses 1
+of 6 blocks in total.
 
-	fri.dst = cpu_to_be32(fen4_info->dst);
+What actually halves is the address space of chains
+SPARX5_VCAP_CID_IS0_L0..SPARX5_VCAP_CID_IS0_L2 - 1 (1000000-1199999),
+which goes from 6144 to 3072 rule addresses.  Could the message be
+narrowed to that range?
 
-lib/vsprintf.c's ip4_string() treats 'l' as unconditionally little endian
-and 'h' as host order, so %pI4l prints the dotted quad reversed on big
-endian builds.
-
-[ ... ]
-
-> +static int sparx5_rr_fib6_append(struct sparx5 *sparx5,
-> +				 struct sparx5_rr_fib_info *fi)
-> +{
-> +	struct sparx5_rr_fib_entry *fib_entry;
-> +	struct sparx5_rr_fib_key key;
-> +	int err = 0;
-> +
-> +	if (sparx5_rr_fib_info_should_ignore(fi))
-> +		return 0;
-> +
-> +	sparx5_rr_fib_info_to_fib_key(fi, &key);
-> +
-> +	fib_entry = sparx5_rr_fib_entry_lookup(sparx5, &key);
-> +	if (!fib_entry)
-> +		return 0;
-> +
-> +	/* Are we adding new nexthops which can not be offloaded */
-> +	if (!sparx5_rr_fib_info_should_offload(sparx5, fi)) {
-> +		err = -EINVAL;
-> +		goto out_fib_mark_offload;
-> +	}
-> +
-> +	/* Append new rt_arr data to fen6_info rt data */
-> +	err = sparx5_rr_fib_entry_fib_info_add(fib_entry, fi);
-
-[Severity: High]
-Can the merged nexthop count exceed SPARX5_MAX_ECMP_SIZE here?
-sparx5_rr_fib_info_should_offload() is called on the event's fi, whose
-nrt6 is nsiblings + 1 - that is 1 for a plain
-"ip -6 route append <prefix> nexthop via <gw>" - so the
-
-	if (nhs > SPARX5_MAX_ECMP_SIZE)
-		return false;
-
-guard always passes, and sparx5_rr_fib_entry_fib6_info_add() then grows
-f6i->nrt6 to old + new with no limit.
-
-Would checking sparx5_rr_fib_info_nhs(&fib_entry->fi) + nhs against
-SPARX5_MAX_ECMP_SIZE before the append be the right place to bound this?
-
-[ ... ]
-
-> +/* Handle fib events, which manage fib_entries. Called in atomic context, with
-> + * rcu_read_lock().
-> + */
-> +static int sparx5_rr_fib_event(struct notifier_block *nb, unsigned long event,
-> +			       void *ptr)
-> +{
-
-[ ... ]
-
-> +	if (event != FIB_EVENT_ENTRY_REPLACE &&
-> +	    event != FIB_EVENT_ENTRY_DEL &&
-> +	    event != FIB_EVENT_ENTRY_APPEND)
-> +		return NOTIFY_DONE;
+> @@ -124,6 +124,18 @@ const struct sparx5_vcap_inst sparx5_vcap_inst_cfg[] = {
+>  		.count = 12288, /* Addresses according to datasheet */
+>  		.ingress = false,
+>  	},
+> +	{
+> +		.vtype = VCAP_TYPE_LPM,
+> +		.vinst = 0,
+> +		.map_id = 6,
+> +		.lookups = SPARX5_LPM_LOOKUPS,
+> +		.lookups_per_instance = SPARX5_LPM_LOOKUPS,
+> +		.first_cid = SPARX5_VCAP_CID_LPM_L0,
+> +		.last_cid = SPARX5_VCAP_CID_LPM_MAX,
+> +		.blockno = 9,
+> +		.blocks = 1,
+> +		.ingress = true,
+> +	},
+>  };
 
 [Severity: Medium]
-Are FIB rule events intentionally left out?  With this filter,
-FIB_EVENT_RULE_ADD never reaches the driver, and there is no l3mdev/VRF
-check when a leg is admitted:
+This registers chain ids VCAP_CID_PREROUTING_L0 (6000000) through
+SPARX5_VCAP_CID_LPM_MAX (6099999) as an ingress VCAP admin on both
+platforms, but the per-vtype switches in sparx5_tc_flower.c were not
+given a VCAP_TYPE_LPM arm.  Is that intentional?
 
-	return netif_is_bridge_master(vlan_rdev) &&
-	       br_vlan_enabled(vlan_rdev) &&
-	       sparx5_port_dev_lower_find(vlan_rdev);
+Before the patch, sparx5_tc_flower() rejected chain 6000000 because no
+admin matched:
 
-Meanwhile L3 unicast forwarding is enabled unconditionally per leg
-(sparx5_rr_leg_hw_init() sets RLEG_IP4_UC_ENA/RLEG_IP6_UC_ENA, and
-sparx5_rr_router_init() sets ANA_L3_ROUTING_CFG_L3_ENA_MODE plus
-ANA_L3_L3_UC_ENA = ~0) while only RT_TABLE_MAIN/RT_TABLE_LOCAL routes are
-programmed into the single LPM VCAP.
+	admin = vcap_find_admin(vctrl, fco->common.chain_index);
+	if (!admin) {
+		NL_SET_ERR_MSG_MOD(fco->common.extack, "Invalid chain");
 
-So after "ip rule add ... lookup <table>", or with a leg enslaved to a
-VRF, does the kernel use the policy/VRF table while hardware keeps
-forwarding from the main table LPM?  mlxsw watches FIB rule events to
-abort offload in exactly this situation.  If this is a known limitation,
-could the commit message mention it?
+Now the same request resolves to the LPM admin and continues into
+sparx5_tc_flower_replace(), where sparx5_tc_add_rule_counter() falls
+into its default arm:
+
+	default:
+		pr_err("%s:%d: vcap type: %d not supported\n",
+		       __func__, __LINE__, admin->vtype);
+		break;
+
+That arm still returns 0, so does the rule end up being built without a
+counter id?  And for an "action pass" filter, sparx5_tc_set_actionset()
+hits its default arm and returns -EINVAL with a bare pr_err() and no
+extack.  sparx5_tc_action_trap() has no LPM arm either.
+
+So something like:
+
+	tc filter add dev eth0 ingress chain 6000000 protocol ip \
+	    flower dst_ip 10.0.0.0/8 action pass
+
+now reaches those pr_err() calls from a netlink request, unratelimited,
+and reports an opaque -EINVAL.  Should the tc-flower path reject the LPM
+chain explicitly instead?  I checked at 010230ef1142 and VCAP_TYPE_LPM
+never appears in sparx5_tc_flower.c, so nothing later in the series adds
+these arms.
+
+[Severity: Medium]
+This isn't a bug introduced by this patch, but the new entry adds an
+eighth iteration to a loop that leaks on failure.  In
+sparx5_vcap_init(), sparx5->vcap_ctrl = ctrl is stored before the loop
+and an allocation failure just returns:
+
+	admin = sparx5_vcap_admin_alloc(sparx5, ctrl, cfg);
+	if (IS_ERR(admin)) {
+		err = PTR_ERR(admin);
+		pr_err("%s:%d: vcap allocation failed: %d\n", __func__, __LINE__, err);
+		return err;
+	}
+
+ctrl is not freed, mutex_destroy(&ctrl->lock) is not called, and the
+vcap_admin objects already put on ctrl->list (each with three
+STREAMSIZE cache buffers) are not unwound.
+
+The caller cannot clean up either, because cleanup_ports sits below the
+cleanup_vcap label in sparx5_main.c:
+
+	err = sparx5_vcap_init(sparx5);
+	if (err) {
+		dev_err(sparx5->dev, "Failed to initialize VCAP\n");
+		goto cleanup_ports;
+	}
+	...
+	cleanup_vcap:
+		sparx5_vcap_deinit(sparx5);
+	cleanup_ports:
+		sparx5_destroy_netdevs(sparx5);
+
+so sparx5_vcap_deinit() never runs for this failure.  Should the failure
+path unwind the admins allocated so far, or should the goto target be
+cleanup_vcap?
 
 [ ... ]
 
-> @@ -2813,10 +2813,15 @@ int sparx5_rr_router_init(struct sparx5 *sparx5)
->  		 ANA_ACL_VCAP_S2_MISC_CTRL_ACL_RT_SEL, sparx5,
->  		 ANA_ACL_VCAP_S2_MISC_CTRL);
+> @@ -195,6 +213,7 @@ static void _sparx5_vcap_range_init(struct sparx5 *sparx5,
+>  	u32 size = count - 1;
 >  
-> +	r->fib_nb.notifier_call = sparx5_rr_fib_event;
-> +	err = register_fib_notifier(&init_net, &r->fib_nb, NULL, NULL);
-> +	if (err)
-> +		goto err_workqueue_destroy;
+>  	switch (admin->vtype) {
+> +	case VCAP_TYPE_LPM:
+>  	case VCAP_TYPE_IS0:
+>  	case VCAP_TYPE_IS2:
+>  		spx5_wr(VCAP_SUPER_CFG_MV_NUM_POS_SET(0) |
 
 [Severity: Medium]
-Is a dump-abort callback needed as the third argument here?  The initial
-dump is delivered before the block joins the chain, and then:
+This is a pre-existing issue, but the new LPM block now inherits it.
+sparx5_vcap_block_init() calls this helper with one less than the number
+of addresses in the range:
 
-net/core/fib_notifier.c:fib_dump_is_consistent() {
-	...
-	atomic_notifier_chain_unregister(&fn_net->fib_chain, nb);
-	if (cb)
-		cb(nb);
-	return false;
-	...
-}
+	_sparx5_vcap_range_init(sparx5, admin, admin->first_valid_addr,
+				admin->last_valid_addr -
+					admin->first_valid_addr);
 
-With cb == NULL, nothing discards the state built from an aborted pass:
-entries created by sparx5_rr_fib4_event_work()/sparx5_rr_fib6_event_work()
-stay in router->fib_ht/fib_list with live LPM VCAP rules and held
-fib_info/fib6_info references.
+The range is inclusive, as set up in sparx5_vcap_block_alloc():
 
-If a route is deleted during the dump window, it can never get a
-FIB_EVENT_ENTRY_DEL (the block was off the chain then, and the retried
-dump no longer lists it), so does hardware keep forwarding or blackholing
-that prefix until sparx5_rr_router_deinit()?
+	admin->first_valid_addr = cfg->blockno * SUPER_VCAP_BLK_SIZE;
+	admin->last_used_addr = admin->first_valid_addr +
+		cfg->blocks * SUPER_VCAP_BLK_SIZE;
+	admin->last_valid_addr = admin->last_used_addr - 1;
 
-mlxsw passes mlxsw_sp_router_fib_dump_flush and netdevsim passes
-nsim_fib_dump_inconsistent here.  Note that a callback would have to drain
-the ordered workqueue first: sparx5_rr_fib_flush() takes no router->lock,
-which is only safe today because it runs after destroy_workqueue().
+and here size = count - 1 is programmed into VCAP_SUPER_CFG_MV_SIZE, so
+the INITIALIZE shot clears MV_SIZE + 1 == count addresses.
 
->  	r->inetaddr_nb.notifier_call = sparx5_rr_inetaddr_event;
->  	err = register_inetaddr_notifier(&r->inetaddr_nb);
->  	if (err)
-> -		goto err_workqueue_destroy;
-> +		goto err_unreg_fib_notifier;
+That count is an address count is visible from the other user of the same
+callback in vcap_api.c:
+
+	vctrl->ops->init(ri->ndev, admin, ri->addr, ri->size);
+
+where ri->size of 1 erases exactly one address.
+
+Does this leave the address equal to admin->last_valid_addr uninitialized
+at probe, even though it is handed out as a usable rule address?  For the
+LPM instance that would be 30719 on sparx5 and 18431 on lan969x, i.e. a
+row of the longest-prefix-match table used by the router in the later
+"net: sparx5: add L3 FIB, nexthop and neighbour entry management" patch.
+
+Would passing admin->last_valid_addr - admin->first_valid_addr + 1 (or
+cfg->blocks * SUPER_VCAP_BLK_SIZE) be correct here?
 
 [ ... ]
 
