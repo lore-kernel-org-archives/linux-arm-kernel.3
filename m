@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1227AC5DF7D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 21:14:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C838C5DF7E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 21:14:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jBcwTiXG8GYcLFIT6owml6CkINV+t6iQSd/lsiW8fZw=; b=AY4OVuk/s/ZdO1vQt04v1jBQ7a
-	4d+hCl3D1Gm3tb9rBhhbxXQD2v9Sz+i4xGMpKwHkOf8zV1ASPH3/+aTatq4G9/9LcDKbnKCfeJY4w
-	HvysSSEYBodS3PFJOZjsTXE4ktLsXzxcXCuiUbpTJku/l2bAxdTJwg2hnHsbNiTmT8Ek6ga8aHJVQ
-	yjtI9K4ktrRzJBtGsIOyAxVTPi5LgTfj47GaWt1ndJaiLH2Tq6FjcufPqnLTqqeSV9b/Tkawflka7
-	JycGVSgPSeMXMjm138HansJEtQggznP2rSPjKTPWzv2F0s4m8VtmxtrpBVSJ4SZpvozn0SD3RsdgV
-	3C+48egA==;
+	bh=s1Cuv5H4iR10JoyTLdDYm+EiZ/EyrO2G8ZMYUIgGCx0=; b=AItK17COnMxW+90Wr2dqDfD949
+	i4hPXN1fQ3n0TbbFxmEBNXSUwPAiWAOv6cDdIUQo5pon13lOOr0iE8/TsjVLrp8bkevmFAZ9sznTj
+	poZhJtd9tpl1nApTNh5CRU5Sbmf71vot6CxLHthf7tI+ZjppoKblPK7N8GJOfk/MPE4coeA2vIkky
+	WodS7wsAogWHb2TFqud0Z2Nf7/4p3rA/XrUJk6maLqgoBCOMfGe7HW26xvMueXC0DMD4Gp9GkJI3U
+	GCSnHBlhEgSuKpSSVwiCoJOMMCYaZJ1rT3Lac1Fco9leF4U1n83O31kUiAH+pV3BNOfHvOqv9UBmy
+	9oqlwJbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww4ei-00000006ok2-2nW9;
+	id 1ww4ei-00000006oiZ-0F64;
 	Mon, 17 Aug 2026 21:14:04 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww4eh-00000006oi7-0N7m
+	id 1ww4ea-00000006ohC-20eg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 21:14:03 +0000
+	Mon, 17 Aug 2026 21:13:56 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5B42F43FDF;
-	Mon, 17 Aug 2026 21:14:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77A931F000E9;
-	Mon, 17 Aug 2026 21:14:01 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3F8BD43BC1;
+	Mon, 17 Aug 2026 21:13:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E1A81F00A3D;
+	Mon, 17 Aug 2026 21:13:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787001242;
-	bh=jBcwTiXG8GYcLFIT6owml6CkINV+t6iQSd/lsiW8fZw=;
+	s=k20260515; t=1787001236;
+	bh=s1Cuv5H4iR10JoyTLdDYm+EiZ/EyrO2G8ZMYUIgGCx0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=FK8DYUjzFrnGyxxlECafHWHcXPc8N5o0Fy9m/5Pi36vzk4Rg0H7GzsmV3rj7gLcxP
-	 j4QKGJwju1JgLbZ6Gk2Nx1xey2CQyb2uVPNrgG0VopC/B02O8ogWGExM5L5GkDFpgV
-	 JrE2sDEAON+MpHLEA+DsjYoA3HXRTARPB94gKQsJkmZmtVubA+WyfA6XWdXVKe931M
-	 Stwx1gmUbcKu+Utike2YrGE98wW1PncR02Uhlzr1JVDd41pkL5Zn0aCK+/CO/Rok3K
-	 N1TmvHJc5OrdB5S2d8+igMCMbkRhopdOrzU1dq5cNtBz1HpjGCH7Q12+iNkBbta/uR
-	 WHs/LyRRH2k6A==
+	b=FUwI5qawZQayLbI4QekAAwyZr1wHNuVibDV0ET0rMmeHRhp6jvd6P1K4Q7H6imMQz
+	 Q87YzU1o5EujXrh+xmQs+sMoxP379rbTa7fkNjXe7YR/X8naP4EoU0SA8lLcUfjQlj
+	 zTliOM3bywJBdBiN+PIG3fgvWIiQM3XJOZkcD6dAsGUB1RVdKOrnvNMSayQr4/Ga2t
+	 LOYpN9gk2VcTpqPrVH+i9mVi7lGLwpRFLtCKgRN36gVmLUmJA2xo3Iu0eO2ndf0Twf
+	 h2siPx/pdpcwvE0GE4E4UAh93lIwcHF9LjnoNWJIV/CgZXGdprT310XAPVYN8jV3+T
+	 WUhtNbQAcZUxQ==
 From: Jakub Kicinski <kuba@kernel.org>
 To: jensemil.schulzostergaard@microchip.com
 Cc: Jakub Kicinski <kuba@kernel.org>,
@@ -60,12 +60,12 @@ Cc: Jakub Kicinski <kuba@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH net-next v2 9/9] net: sparx5: add neighbour event handling for L3 routing
-Date: Mon, 17 Aug 2026 14:14:00 -0700
-Message-ID: <20260817211400.3633528-1-kuba@kernel.org>
+Subject: Re: [PATCH net-next v2 4/9] net: microchip: vcap: expose helpers in vcap api and update debugfs
+Date: Mon, 17 Aug 2026 14:13:55 -0700
+Message-ID: <20260817211355.3633327-1-kuba@kernel.org>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260810-sparx5_l3_routing-v2-9-59e68cc8c8ca@microchip.com>
-References: <20260810-sparx5_l3_routing-v2-9-59e68cc8c8ca@microchip.com>
+In-Reply-To: <20260810-sparx5_l3_routing-v2-4-59e68cc8c8ca@microchip.com>
+References: <20260810-sparx5_l3_routing-v2-4-59e68cc8c8ca@microchip.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -85,312 +85,135 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 This is an AI-generated review of your patch. The human sending this
 email has considered the AI review valid, or at least plausible.
 ---
-net: sparx5: add neighbour event handling for L3 routing
+net: microchip: vcap: expose helpers in vcap api and update debugfs
 
-This adds a netevent notifier to sparx5 that queues NETEVENT_NEIGH_UPDATE
-events to the router ordered workqueue, where the resolved MAC is written
-into the driver neigh entry and pushed to the hardware ARP table and to
-all linked nexthops. Unreachable neighbours tear down the hardware ARP
-entry and mark the nexthops as unresolved.
+This adds two new client API helpers, vcap_val_add_rule() and
+vcap_rule_mod_action_bit(), renames VCAP_CID_PREROUTING to
+VCAP_CID_PREROUTING_L0 and adds VCAP_USER_L3. The debugfs dump learns
+about the IP4_XIP and IP6_XIP key fields, and the action-field printer
+mask expression is changed to a GENMASK() based form.
 
-> diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_router.c b/drivers/net/ethernet/microchip/sparx5/sparx5_router.c
-> index 6d40d651180e6..5f6add84b0d6c 100644
-> --- a/drivers/net/ethernet/microchip/sparx5/sparx5_router.c
-> +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_router.c
+A couple of questions below.
 
-[ ... ]
-
-> @@ -2419,6 +2430,107 @@ static int sparx5_rr_fib_event(struct notifier_block *nb, unsigned long event,
->  	return NOTIFY_BAD;
+> diff --git a/drivers/net/ethernet/microchip/vcap/vcap_api.c b/drivers/net/ethernet/microchip/vcap/vcap_api.c
+> index 6e1ee15b82b7e..1ad2c44da8bd7 100644
+> --- a/drivers/net/ethernet/microchip/vcap/vcap_api.c
+> +++ b/drivers/net/ethernet/microchip/vcap/vcap_api.c
+> @@ -2389,6 +2389,19 @@ int vcap_add_rule(struct vcap_rule *rule)
 >  }
+>  EXPORT_SYMBOL_GPL(vcap_add_rule);
 >  
-> +static void sparx5_rr_neigh_event_work(struct work_struct *work)
+> +/* Validate and add rule to a VCAP instance */
+> +int vcap_val_add_rule(struct vcap_rule *rule, u16 l3_proto)
 > +{
-> +	struct sparx5_rr_netevent_work *net_work =
-> +		container_of(work, struct sparx5_rr_netevent_work, work);
-> +	unsigned char hwaddr[ETH_ALEN] __aligned(2);
-> +	struct sparx5 *sparx5 = net_work->sparx5;
-> +	struct neighbour *n = net_work->neigh;
-> +	struct sparx5_rr_neigh_key key = { };
-> +	struct sparx5_rr_neigh_entry *entry;
-> +	bool entry_connected;
-> +	u8 nud_state, dead;
+> +	int err;
 > +
-> +	sparx5_rr_nb2neigh_key(n, &key);
+> +	err = vcap_val_rule(rule, l3_proto);
+> +	if (err)
+> +		return err;
 > +
-> +	/* Frames with link-local dip are trapped, so ignore the neighbour. */
-> +	if (key.iaddr.version == SPARX5_IPV6 &&
-> +	    ipv6_addr_type(&key.iaddr.ipv6) & IPV6_ADDR_LINKLOCAL)
-> +		goto out;
+> +	return vcap_add_rule(rule);
+> +}
+> +EXPORT_SYMBOL_GPL(vcap_val_add_rule);
 
 [Severity: Medium]
-Does the comment's justification cover neighbours that are used as
-gateways rather than as destinations?
+This isn't a pattern introduced by this patch (every existing caller
+already does vcap_val_rule() followed by vcap_add_rule() without holding
+vctrl->lock across both), but now that it is packaged as an exported
+helper, is the check-then-act window worth documenting or closing?
 
-The trap rule installed by sparx5_rr_lpm_link_local_create() matches on
-destination fe80::/64 only, and sparx5_rr_fib_info_should_ignore() only
-skips routes whose destination is link-local:
+vcap_val_rule() ends with the capacity test and runs entirely without
+vctrl->lock:
 
-	return fi->version == SPARX5_IPV6 &&
-	       ipv6_addr_type(&fi->fe6_info.rt_arr[0]->fib6_dst.addr) &
-		       (IPV6_ADDR_MULTICAST | IPV6_ADDR_LINKLOCAL);
+	/* Finally check if there is room for the rule in the VCAP */
+	return vcap_rule_space(ri->admin, ri->size);
 
-A route such as "ip -6 route add 2001:db8::/64 via fe80::1 dev vlanX" is
-therefore still offloaded, and sparx5_rr_nexthop_init() sets
-nh->neigh_tbl = &nd_tbl for every AF_INET6 gateway without a link-local
-filter, so sparx5_rr_nexthop_neigh_init() creates a neigh entry for
-fe80::1.
+vcap_rule_space() reads the shared instance state unlocked:
 
-Since this work handler is the only writer of entry->hwaddr, can such a
-nexthop ever obtain a MAC?  sparx5_rr_nexthop_egress_derive() would keep
-nh->trapped set and program the zero MAC, so routes via a link-local
-gateway (including RA-derived default routes) stay trapped to the CPU
-while being reported as offloaded.
-
-> +
-> +	/* If n changes after this read section, we will get another neigh
-> +	 * event, which is processed after the current one.
-> +	 */
-> +	read_lock_bh(&n->lock);
-> +	ether_addr_copy(hwaddr, n->ha);
-> +	nud_state = n->nud_state;
-> +	dead = n->dead;
-> +	read_unlock_bh(&n->lock);
-> +
-> +	mutex_lock(&sparx5->router->lock);
-> +
-> +	entry_connected = nud_state & NUD_VALID && !dead;
-> +	entry = sparx5_rr_neigh_entry_lookup(sparx5, &key);
-> +	if (!entry_connected && !entry)
-> +		goto out_mutex;
-> +
-> +	if (!entry) {
-> +		entry = sparx5_rr_neigh_entry_create(sparx5, &key);
-> +		if (IS_ERR(entry))
-> +			goto out_mutex;
-> +	}
-
-[Severity: Medium]
-With this notifier being the only source of entry->hwaddr, how does an
-already-resolved kernel neighbour get synchronized into a newly created
-driver entry?
-
-sparx5_rr_nexthop_neigh_init() only kicks ARP/NDP when the kernel
-neighbour did not already exist, and never samples n->ha / n->nud_state:
-
-	n = neigh_lookup(nh->neigh_tbl, &nh->gw_addr, dev);
-	if (!n) {
-		n = neigh_create(nh->neigh_tbl, &nh->gw_addr, dev);
-		if (IS_ERR(n))
-			return PTR_ERR(n);
-		/* Start arp process */
-		neigh_event_send(n, NULL);
+	if (admin->last_used_addr - size < admin->first_valid_addr) {
+		...
+		return -ENOSPC;
 	}
 
-For a NUD_PERMANENT neighbour ("ip neigh add <gw> lladdr <mac> nud
-permanent dev vlanX") no further NETEVENT_NEIGH_UPDATE is generated -
-net/core/neighbour.c only emits netevents from __neigh_update(),
-neigh_timer_handler() and neigh_cleanup_and_release(), and permanent
-entries have no timer and are skipped by the GC work.  Does that leave
-entry->hwaddr zero forever, so sparx5_rr_nexthop_egress_derive() keeps
-nh->trapped set while the FIB entry is reported as offloaded?
+vcap_add_rule() then takes the mutex and the append branch of
+vcap_insert_rule() consumes address space without re-testing against
+admin->first_valid_addr:
 
-The same applies when the event arrives before a router leg exists:
-sparx5_rr_neigh_entry_create() returns ERR_PTR(-EINVAL) from
+	ri->addr = vcap_next_rule_addr(admin->last_used_addr, ri);
+	admin->last_used_addr = ri->addr;
 
-	leg = sparx5_rr_leg_find_by_dev(sparx5, key->dev);
-	if (!leg)
-		return ERR_PTR(-EINVAL);
+If two adds to the same VCAP instance interleave between validation and
+insertion on a nearly full instance, can both pass the stale space check
+and the second one push last_used_addr below first_valid_addr, so the
+rule is encoded into addresses owned by another VCAP block instead of
+returning -ENOSPC?
 
-and the event is dropped with no replay when the leg later appears.
+For the users present at this commit I could not construct such an
+interleaving: the L3/LPM adders added later in the series all run from an
+ordered workqueue under sparx5->router->lock, and the TC and matchall
+paths are serialized by rtnl. The one case I could not rule out is a tc
+filter installed directly into the LPM chain range concurrently with a FIB
+work item, since sparx5_tc_flower_replace() resolves the target instance
+purely from the user-supplied chain index:
 
-For comparison, mlxsw_sp_nexthop_neigh_init() reads nud_state/dead under
-n->lock and calls __mlxsw_sp_nexthop_neigh_update() at init time:
+	vrule = vcap_alloc_rule(vctrl, ndev, fco->common.chain_index, VCAP_USER_TC,
+				fco->common.prio, 0);
 
-	read_lock_bh(&n->lock);
-	nud_state = n->nud_state;
-	dead = n->dead;
-	read_unlock_bh(&n->lock);
-	__mlxsw_sp_nexthop_neigh_update(nh, !(nud_state & NUD_VALID && !dead));
-
-> +
-> +	if (entry->connected && entry_connected &&
-> +	    ether_addr_equal(entry->hwaddr, hwaddr))
-> +		goto out_mutex;
-
-[Severity: Medium]
-Can this early exit permanently block a retry after a failed hardware
-write?
-
-sparx5_rr_neigh_entry_update() marks the entry connected before the
-fallible hardware apply and only downgrades the offload marking:
-
-	entry->connected = adding;
-
-	if (adding) {
-		err = sparx5_rr_neigh_entry_hw_apply(sparx5, entry);
-		if (err)
-			offloaded = false;
-
-sparx5_rr_lpm_arp_entry_mod() can fail while the rule keeps the previous
-DMAC:
-
-	vrule = vcap_get_rule(vctrl, vrule_id);
-	if (IS_ERR(vrule))
-		return -EINVAL;
-
-and sparx5_rr_lpm_arp_entry_create() can fail on rule allocation or
-vcap_val_add_rule().
-
-Since the new MAC has already been stored in entry->hwaddr and
-entry->connected is true, every following NUD_VALID confirmation
-(REACHABLE/STALE/DELAY) hits the test above and skips both the LPM/ARP
-update and sparx5_rr_nexthops_update_notify().  For an IP that moves to a
-new MAC (VRRP failover, VM migration), would hardware keep rewriting DMAC
-to the old MAC with no trap and no further retry?
-
-Would keying the skip on hw_route.vrule_id_valid (or propagating the
-error from sparx5_rr_neigh_entry_update()) avoid that?
-
-> +
-> +	ether_addr_copy(entry->hwaddr, hwaddr);
-> +	sparx5_rr_neigh_entry_update(sparx5, entry, entry_connected);
-> +	sparx5_rr_nexthops_update_notify(sparx5, entry, entry_connected);
-> +	if (!entry_connected)
-> +		sparx5_rr_neigh_entry_put(sparx5, entry);
-
-[Severity: High]
-Should the MAC be committed into entry->hwaddr on the disconnect path as
-well?
-
-The kernel does not clear n->ha when a neighbour goes to NUD_FAILED or
-dead - neigh_invalidate() only flushes arp_queue, and neigh->ha is only
-overwritten when a new lladdr is supplied.  So for !entry_connected this
-stores the last, now invalid MAC while entry->connected becomes false, and
-nothing else ever zeroes entry->hwaddr.  sparx5_rr_neigh_entry_put() keeps
-the entry alive while a nexthop still references it.
-
-The only other consumer derives "resolved" purely from the MAC being
-non-zero and ignores entry->connected:
-
-	nh->trapped = !nh_neigh || is_zero_ether_addr(nh_neigh->hwaddr);
-
-	if (nh_neigh) {
-		memcpy(mac, nh_neigh->hwaddr, ETH_ALEN);
-
-On ordinary route churn, sparx5_rr_entry_nexthop_group_update() builds and
-programs the new group before releasing the old one:
-
-	/* Prepare new group in SW representation */
-	new_nh_grp = sparx5_rr_nexthop_group_create(sparx5, fib_entry);
-	...
-	err = sparx5_rr_fib_entry_hw_apply(sparx5, fib_entry);
-	...
-	sparx5_rr_nexthop_group_put(sparx5, old_nh_grp);
-
-so sparx5_rr_nexthop_neigh_init() re-attaches to the surviving entry and
-sparx5_rr_nexthop_egress_derive() then clears nh->trapped and installs the
-dead MAC.  Does that leave traffic forwarded to a host that no longer
-exists instead of trapped, with no path back to trapping since the kernel
-never sees the traffic?
-
-This also seems to differ from the commit message wording "mark linked
-nexthops as unresolved so traffic traps to the CPU".
-
-> +
-> +out_mutex:
-> +	mutex_unlock(&sparx5->router->lock);
-> +out:
-> +	neigh_release(n);
-> +	kfree(net_work);
-> +}
-> +
-> +/* Handle neighbour update events. Used to manage neigh_entries. Called in
-> + * atomic context, with rcu_read_lock().
-> + */
-> +static int sparx5_rr_netevent_event(struct notifier_block *nb,
-> +				    unsigned long event, void *ptr)
-> +{
+Is such a tc configuration rejected somewhere? If not, would holding
+vctrl->lock across validate plus insert, or re-checking vcap_rule_space()
+in the append branch of vcap_insert_rule(), be preferable?
 
 [ ... ]
 
-> +		net_work = kzalloc_obj(*net_work, GFP_ATOMIC);
-> +		if (!net_work)
-> +			return NOTIFY_BAD;
+> diff --git a/drivers/net/ethernet/microchip/vcap/vcap_api_debugfs.c b/drivers/net/ethernet/microchip/vcap/vcap_api_debugfs.c
+> index e0c65c7ab23e1..36150822ce153 100644
+> --- a/drivers/net/ethernet/microchip/vcap/vcap_api_debugfs.c
+> +++ b/drivers/net/ethernet/microchip/vcap/vcap_api_debugfs.c
+> @@ -133,7 +135,12 @@ vcap_debugfs_show_rule_actionfield(struct vcap_control *vctrl,
+>  		out->prf(out->dst, "%d", value[0]);
+>  		break;
+>  	case VCAP_FIELD_U32:
+> -		fmsk = (1 << actionfield[action].width) - 1;
+> +		if (action == VCAP_AF_MAC_LSB || action == VCAP_AF_MAC_MSB) {
+> +			hex = true;
+> +			break;
+> +		}
+> +		fmsk = actionfield[action].width ?
+> +		       GENMASK(actionfield[action].width - 1, 0) : 0;
+>  		val = *(u32 *)value;
+>  		out->prf(out->dst, "%u", val & fmsk);
+>  		break;
 
 [Severity: Low]
-Would NOTIFY_DONE be a better return value here?
+This isn't a bug introduced by this patch, but should the sibling
+key-field printer get the same treatment? vcap_debugfs_show_rule_keyfield()
+in the same file still evaluates the shift first and only repairs the
+value afterwards:
 
-NETEVENT_NEIGH_UPDATE is delivered over the single system-wide atomic
-chain:
+	} else {
+		u32 fmsk = (1 << keyfield[key].width) - 1;
 
-net/core/netevent.c:call_netevent_notifiers() {
-	return atomic_notifier_call_chain(&netevent_notif_chain, val, v);
-}
+		if (keyfield[key].width == 32)
+			fmsk = ~0;
+		out->prf(out->dst, "%u/%u", data->u32.value & fmsk,
+			 data->u32.mask & fmsk);
+	}
 
-and NOTIFY_BAD carries NOTIFY_STOP_MASK, which ends the traversal:
+The printed value is correct because of the width == 32 fixup, but the
+1 << 32 on a signed int has already been evaluated at that point, which
+looks like the same undefined shift the commit message describes fixing
+in the action-field printer.
 
-kernel/notifier.c:notifier_call_chain() {
-	...
-		if (ret & NOTIFY_STOP_MASK)
-			break;
-	...
-}
+This branch is reachable today: VCAP_KF_IP_PAYLOAD_5TUPLE is
+VCAP_FIELD_U32 with width 32 in is0_normal_5tuple_ip4_keyfield for
+sparx5 and lan969x, and in the lan966x is1 keyset, and VCAP_KF_RT_FRMID
+is another W32 U32 key in lan966x is1. None of them are in the %pI4h or
+hex special cases, so dumping a rule carrying one of those keys via the
+VCAP debugfs rule dump would hit the shift with a width of 32. Would
+converting this site to the same GENMASK() form make sense while the
+area is being touched?
 
-So a driver-private GFP_ATOMIC failure suppresses the notification for
-every listener registered after sparx5.  The same idiom exists in
-mlxsw_sp_router_schedule_work(), so this is minor, but the failure looks
-purely local and recoverable here.
-
-> +
-> +		INIT_WORK(&net_work->work, sparx5_rr_neigh_event_work);
-> +		net_work->sparx5 = router->sparx5;
-> +		net_work->neigh = neigh_clone(n);
-> +		net_work->event = event;
-> +		sparx5_rr_schedule_work(router->sparx5, &net_work->work);
-> +
-> +		return NOTIFY_DONE;
-> +	}
-> +
-> +	return NOTIFY_DONE;
-> +};
-> +
-
-[ ... ]
-
-> @@ -2855,6 +2972,8 @@ int sparx5_rr_router_init(struct sparx5 *sparx5)
->  	unregister_inetaddr_notifier(&r->inetaddr_nb);
->  err_unreg_fib_notifier:
->  	unregister_fib_notifier(&init_net, &r->fib_nb);
-> +err_unreg_netevent_notifier:
-> +	unregister_netevent_notifier(&r->netevent_nb);
->  err_workqueue_destroy:
->  	destroy_workqueue(r->sparx5_router_owq);
->  	sparx5_rr_fib_flush(sparx5);
-
-[Severity: Low]
-While looking at this unwind path, the neighbour hashtable is destroyed
-before the legs that own entries in it are flushed:
-
-err_neigh_ht_destroy:
-	rhashtable_destroy(&r->neigh_ht);
-err_blackhole_destroy:
-	sparx5_rr_router_legs_flush(sparx5);
-
-sparx5_rr_router_leg_destroy() walks leg->neigh_list and reaches
-rhashtable_remove_fast() via sparx5_rr_neigh_entry_destroy() ->
-sparx5_rr_neigh_entry_remove(), on a table whose bucket table has already
-been freed.  sparx5_rr_router_deinit() uses the opposite order (legs
-flush, WARN_ON(nelems), then rhashtable_destroy).
-
-The dangerous state does not appear reachable today: neigh entries only
-exist once a device leg exists, and legs are only created from the
-inetaddr/inet6addr handlers registered after register_fib_notifier(),
-which is the only registration here that realistically fails;
-sparx5_rr_netdevice_event() always returns NOTIFY_OK, and the
-inet6addr registrations only fail on duplicate registration.  This
-ordering also comes from the earlier patch in the series that added the
-FIB/nexthop/neighbour entry management, not from this patch, which only
-adds one more producer of neigh entries.  Would it still be worth
-matching the deinit order defensively?
+Reported by an automated review pipeline; both items are pre-existing and
+neither is claimed by the commit message, so they may well be better as
+separate cleanups.
 
