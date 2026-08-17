@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90C52C5DF77
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E3D6C5DF70
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 08:35:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,47 +12,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/T28Dv7KzFFE9nxv/81pMJDpMBM2QOQ+wFzcBBIp92M=; b=Xch1ZQhRJQjqaMXnFclNWcQz+9
-	cZLJTG9diFDUZXskiXgIrDulk406gPEQZfdQrAAmMc9cm3ImGc7zUbSVInQwg8+cjfYxa8k0jjdVa
-	IQApolbuPgCg9XxoP05fOgB2bMSLd/JVMnuYklXUMiBJ1arwa5+SBoEwt2/fHURr6YcC8qgtvekY8
-	hsrF2X/t6i2aPdwfJYCOQCT7cQDiUuSDCtRdZWPHhKxU/SogudNH/KsqdUT6SCHJRV0MMJ1MsIREJ
-	g8AJdNaRZvAU49pT8S3nlp7tVEkMMPe4DH5SRw3Q9JSA7kUqHYzkSPITc1s2N0kw5cfqF31rMFWXA
-	T/HbW+ug==;
+	bh=2i+XMUvEqKzc7yHTfRvhcQY8Gt+wl/MWYpn41allwYo=; b=RQBkcfU+YSG3ZfiLsYaBU+spFD
+	fG3NTk/wQSHwS+pNLLni4T7EI7zCENq9xgD6CD2GiwvYhDZzBVSlXTSEE16ufJ7T8Ycr9ZLuS2XVB
+	rpA7MASvVCT8DSdDJA/cPZr/hnwCvaxJvT8bu1UcaO9QBT3+OH6maZIWgQTz0UOC9mXPVgXgchLYk
+	IcTrlu+w4dW/SKPCpd9zVhn9RKvSQG6HuxT9VZ/2xxzlsT7E0XB/GdZEaBssnWC3ofO+SjMMxQ9TD
+	QmGSbPyDxWrKfy5RTf6FPtnvBMi7phOAqg+oDEqaRA4EwxnoR3sKsSOwBosgvXznNfE7CUW4sWetw
+	IcyVoOJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvsod-00000005hcq-3bt7;
-	Mon, 17 Aug 2026 08:35:31 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wvsoe-00000005hdQ-0Kxy;
+	Mon, 17 Aug 2026 08:35:32 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvsoc-00000005hb5-01Cb
+	id 1wvsoc-00000005hb4-1qOw
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 17 Aug 2026 08:35:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 858A443E49;
+	by tor.source.kernel.org (Postfix) with ESMTP id 8A70360A58;
 	Mon, 17 Aug 2026 08:35:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 657CAC2BD01;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 5752CC2BCF4;
 	Mon, 17 Aug 2026 08:35:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1786955729;
-	bh=oZQvScyA1zqJV4CC6foAQh/CAQe4pGeAga38F8pulH4=;
+	bh=SvjmVxHpX/hgBe0iVy00oZ1C75QjIjSINEhU8j+fUs8=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=flkmgvPKf6e8HzNM4+WwQwHcVfhGNFylRnTCo27QCV3LYHrbVkqu5XzyHwNCrtw6i
-	 t15amFDREAXU7x37GZO/VM3JA07coVx7hY+O/CMJkgrkzfY5Pc94QdjZkllY09XhLq
-	 nE5AqA0wdKw83+NNPux2f8Zb0kbQBZJHNWMQ+t8qFK1Yld1OsCG8nHHHEE4QQ4R8aO
-	 jPGbhad8IiqI+iQ4avyxLgITBIm+toM1uQ3Q/177YXD7aDLFqvd3M2+BEhk1f7j2NB
-	 fpJIEVS56izeFxg80DBdP2LgwDVRZvvwrJit48QK3WfC4h28SMba9oS9vUcOZXDO6z
-	 oWoQO8KNfkRxQ==
+	b=bWA7/VCtwbRYsD6+O8bnlYvM2i4e1iXd2/7e9soZS6i345NgYs025t9H8gM0tRanK
+	 NF+A2ILww07UKgM62ra7piBWwUqpeKsAKMeP5dv5hqgOhqoBkdxGrj4MSK7RCml7Ag
+	 8JLsPkR3ikYcTU0eb2FdF1pw8BKtj1orN5J/dHl64qT8sF0dL7PcJyP3n/f/o85p54
+	 ojzBaunohN2yh+1OrCmQpghFdWqJJbO9XC3+ETYL0jg88hUWhdeqNlYWXOtPPaUyNr
+	 kvEXmU/PPx8fWT1Ee8U2NTEyfNiRYwlNIOQPF0+nMtEWS19OJ2ObL+GAjjVZytfUDj
+	 tzs1Ci816yuwg==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 534E8C5DF70;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4285FC5DF7A;
 	Mon, 17 Aug 2026 08:35:29 +0000 (UTC)
 From: Pankaj Gupta via B4 Relay <devnull+pankaj.gupta.oss.nxp.com@kernel.org>
-Date: Mon, 17 Aug 2026 19:36:05 +0530
-Subject: [PATCH v36 7/7] arm64: dts: imx8ulp: add reserved memory for
- EdgeLock Enclave
+Date: Mon, 17 Aug 2026 19:36:04 +0530
+Subject: [PATCH v36 6/7] arm64: dts: imx8ulp: add secure enclave node
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260817-imx-se-if-v36-7-45c42847bfd8@oss.nxp.com>
+Message-Id: <20260817-imx-se-if-v36-6-45c42847bfd8@oss.nxp.com>
 References: <20260817-imx-se-if-v36-0-45c42847bfd8@oss.nxp.com>
 In-Reply-To: <20260817-imx-se-if-v36-0-45c42847bfd8@oss.nxp.com>
 To: Jonathan Corbet <corbet@lwn.net>, 
@@ -66,11 +65,11 @@ Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
  devicetree@vger.kernel.org, imx@lists.linux.dev, 
  linux-arm-kernel@lists.infradead.org
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1786975564; l=2461;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1786975564; l=1532;
  i=pankaj.gupta@oss.nxp.com; s=20260817; h=from:subject:message-id;
- bh=8LTJ7dQk+ZmHVQUVQ7z2QFEU98qQ6ZendsUWTwEehrU=;
- b=kNn9ncyZJDpBj1uyCMvvkX807Jvm/cy4I27lgIY1p5LnifaDmHYrm+a5GWXYOUBxA9RM8FmB/
- ymYcIipWCUsDME3VniMYbkoR3MSJUt88zHitpeNQEFI8mEAoLbKHRcp
+ bh=Fey7Yf+dWHev0BhTzN9X8KrA/PpJDRs7p80ZHkKltXs=;
+ b=w2GconMBd0dYHTE5ApbdfS96cndjnT9e+BGyG2V/YVY0xKMDWfdvitQ5lILGfSfZXkAzjAZS7
+ braODXjroWhDNUeY70fy9gde1aeSyEflbE+MkBeyA1NfiXWH3KQSfyj
 X-Developer-Key: i=pankaj.gupta@oss.nxp.com; a=ed25519;
  pk=g4ZgzIWbpXnSxRsoH+l6PWLP78a+Mzpl8e6RQe74d5Y=
 X-Endpoint-Received: by B4 Relay for pankaj.gupta@oss.nxp.com/20260817 with
@@ -93,78 +92,55 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Pankaj Gupta <pankaj.gupta@nxp.com>
 
-Reserve 1MB of DDR for the EdgeLock Enclave. The enclave hardware can only
-access DDR in the 0x80000000 - 0xafffffff window, so constrain the pool to
-that range with alloc-ranges and let the kernel choose the placement rather
-than hardcoding an address.
+Add the EdgeLock Enclave (ELE) secure-enclave node to the i.MX8ULP SoC
+dtsi, together with a label for sram@2201f000 that the node references.
 
-Provide this as a shared imx8ulp-firmware.dtsi that also enables the hsm0
-node and wires up its memory-region, so every i.MX8ULP board can bring up
-the enclave with a single include instead of duplicating the reserved
-memory node. Include it from imx8ulp-evk.
+Keep the node disabled in the SoC dtsi so it does not impose a
+reserved-memory requirement on every board. Boards enable the enclave and
+provide its memory-region by including imx8ulp-firmware.dtsi.
 
 Signed-off-by: Pankaj Gupta <pankaj.gupta@nxp.com>
 Reviewed-by: Frank Li <Frank.Li@nxp.com>
 ---
- arch/arm64/boot/dts/freescale/imx8ulp-evk.dts      |  3 ++-
- .../arm64/boot/dts/freescale/imx8ulp-firmware.dtsi | 31 ++++++++++++++++++++++
- 2 files changed, 33 insertions(+), 1 deletion(-)
+ arch/arm64/boot/dts/freescale/imx8ulp.dtsi | 12 ++++++++++--
+ 1 file changed, 10 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts b/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
-index 5dea66c1e7aa..885242fd07ce 100644
---- a/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
-@@ -1,11 +1,12 @@
+diff --git a/arch/arm64/boot/dts/freescale/imx8ulp.dtsi b/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
+index c6d1bb9edf38..38233dd74ee3 100644
+--- a/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
+@@ -1,6 +1,6 @@
  // SPDX-License-Identifier: (GPL-2.0+ OR MIT)
  /*
 - * Copyright 2021 NXP
 + * Copyright 2021, 2025 NXP
   */
  
- /dts-v1/;
+ #include <dt-bindings/clock/imx8ulp-clock.h>
+@@ -153,7 +153,7 @@ sosc: clock-sosc {
+ 		#clock-cells = <0>;
+ 	};
  
- #include "imx8ulp.dtsi"
-+#include "imx8ulp-firmware.dtsi"
+-	sram@2201f000 {
++	sram0: sram@2201f000 {
+ 		compatible = "mmio-sram";
+ 		reg = <0x0 0x2201f000 0x0 0x1000>;
  
- / {
- 	model = "NXP i.MX8ULP EVK";
-diff --git a/arch/arm64/boot/dts/freescale/imx8ulp-firmware.dtsi b/arch/arm64/boot/dts/freescale/imx8ulp-firmware.dtsi
-new file mode 100644
-index 000000000000..e4bc352f68af
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8ulp-firmware.dtsi
-@@ -0,0 +1,31 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright 2025 NXP
-+ *
-+ * Default reserved memory and EdgeLock Enclave (ELE) enablement shared by
-+ * i.MX8ULP boards. Include this from a board dts to bring up the secure
-+ * enclave without having to duplicate the reserved-memory node. The ELE
-+ * hardware can only access DDR in the 0x80000000 - 0xafffffff window, so the
-+ * pool is constrained to that range with alloc-ranges and the kernel is left
-+ * to place the 1 MiB region.
-+ */
+@@ -185,6 +185,14 @@ scmi_sensor: protocol@15 {
+ 				#thermal-sensor-cells = <1>;
+ 			};
+ 		};
 +
-+/ {
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		ele_reserved: ele-reserved {
-+			compatible = "shared-dma-pool";
-+			alloc-ranges = <0 0x80000000 0 0x30000000>;
-+			size = <0 0x100000>;
-+			no-map;
++		hsm0: secure-enclave {
++			compatible = "fsl,imx8ulp-se-ele-hsm";
++			mbox-names = "tx", "rx";
++			mboxes = <&s4muap 0 0>, <&s4muap 1 0>;
++			sram = <&sram0>;
++			status = "disabled";
 +		};
-+	};
-+};
-+
-+&hsm0 {
-+	memory-region = <&ele_reserved>;
-+	status = "okay";
-+};
+ 	};
+ 
+ 	cm33: remoteproc-cm33 {
 
 -- 
 2.43.0
