@@ -4,109 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5318CC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 12:54:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3125C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 12:56:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=heyrqMT9bhKb2iYgMBqnNPSLDsSf0gtkf9pXDJmC29s=; b=BFmIH3SV2IhN+zfqPeJQjqhbKj
-	w5/vOI7dHr1TdatvZDvo1MRp1M0gFucviIwRA+wFusHrcFLHPTqZ9Jhkf7GClfij0UqpBjtsqKzyx
-	VAK63xlp+WcDRgkNrUHrH/x/i+i0NH0MsRsUQRg42J/a9BXmLcDxsrAlMR3wNfYfgl1fQORkKdPFo
-	3Dn0STM5XfkIuXRatVygyyRqoeeLFRy6lM38bY+IlfkRRpMbFjY/hFDKHzuK9c+wsi/s/XqQweuIJ
-	lGw3ARsNKlr7ghIvG1yObkkhqhwPFr1rCEgdcMVIxQkl0U69njcCI4LkHyoicHFI+qiP2wTmCWE9n
-	rCquP7BQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ky3uveSGPqFh3hdLloFreAs447xB4T1sIUwJzQwy+ZY=; b=BX2VQpan5SZnN9BiT7lZ+9NVyZ
+	MwszQJ+/ui5IPzWdayQE7FvFjANHV28HQ8UdtQKH4FOsYClYxg06PbH16UCVrKmU9SyhCt/egIiud
+	p9WWGAtFs+gpvhsHbtZHTmfWPR37NXPZlsX/EWeIT3KiDRpnlMh0H5rV7k124nhZgkLfwYt+g3hAt
+	skbyEzY7BQRR2zbqO2Kas6lFsXqAxv9vWDkNmOLdm7OtJT5w/n64T80VK7XZcISfPuXyMdLRcwNoo
+	I3eOP035ZWKnnYRLfTl4wV2Hl06nqO/DXMa4Y7BmFOa2tLNDDmcKtRQ65dSXAMEn04SrYLVFOFPTL
+	5rNhALPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvwql-00000006A0l-3DF0;
-	Mon, 17 Aug 2026 12:53:59 +0000
-Received: from mail-oa1-x33.google.com ([2001:4860:4864:20::33])
+	id 1wvwsp-00000006AF6-4BAo;
+	Mon, 17 Aug 2026 12:56:08 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvwqk-00000006A00-0gdK
+	id 1wvwso-00000006AEy-3DgC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 12:53:59 +0000
-Received: by mail-oa1-x33.google.com with SMTP id 586e51a60fabf-45e2fd33133so1678852fac.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 05:53:57 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1786971236; cv=none;
-        d=google.com; s=arc-20260327;
-        b=nnnQJXX6N5WBodV82OxD34pnFbB2FTQJTZ6FWWyGPCgNCW/lG3o+gLmGOa5vL5QGWm
-         o56oclV7ezpJPF0G2YEG/yarUcIKEnc4YQZS0aZrDDCop9g3BFWI490auAa0H9Yss5iw
-         VMIVD+K3nWmvfTMdK5cjCFN3V9z7xpCZTD6U+kGgEda+gIw+ZWBz8x/xlJqP9pzV9RBX
-         XIyPeyqz/2TZq/vBPJNkFnF/gpnT9+XiQvKR8MGL3p0MhurRbi6hFebgLWjdeYG/Exrs
-         1MM7rUdKoOA4ERIl25C0KEMFjIIuRgCQN8eh6TA5owd05KhWqLRDjc/YQK1BVWxOgJxC
-         Ejlw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=heyrqMT9bhKb2iYgMBqnNPSLDsSf0gtkf9pXDJmC29s=;
-        fh=yBb7uVI3UKhRH2FAeWnIncih3yFvNcAYGTd8dT81E9A=;
-        b=dWDvgE5tKcAiLd44aInZzwfmMduBAx9ZXvm1j8TYQcjWb1QoSZeyxQYVBjcuMIjWKP
-         6PdCsP78EVd2vAZBLeQk9VkyrUHpfY6A2maUS6B3jLEnnTTm/kOKOn3dIlVWHF0yo/IQ
-         jTPguzvc8B6zLeOCA88ppAuEf7obyyHI6KqW8cN7UtzAW/fASb8gANtoPvKj1UxCC9hg
-         pLlcmkWQ78K4nKjKK32AD3IPaETJyvKQF78gmiddEzj800ahu26M6pcpIIX65DUqpcHH
-         ojZQlJNQnj106+Ucq7Eyx3guHY9mYVZS7f03ayZvFaQ5sJDm/7REDrcHANIb3QKLNoqr
-         9FCQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786971236; x=1787576036; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=heyrqMT9bhKb2iYgMBqnNPSLDsSf0gtkf9pXDJmC29s=;
-        b=B2XyW9k1kqqnmp4bmydpD3xX6Zn4mjJTg45DEepyQdcKcKMK3el+nJ7ePYvOhca8l4
-         QdT9GQ+6suBMtx8SLtJ8IrKLfITqh0PTHa6KML2uWGiF9uynbxwoUursM7fpPIw2fmmb
-         8mSNPKp6uVfU7VMMISsabah2ZdJBHyLYcTooeSGpnFGNj7yu0soVovFuUrXb2SZJz3UH
-         yiPHStZ56ClXqGHEvnrrBUJXbRCmkCnSsiMpwbXwjJBoNDENtbd790tsJl5VDyBSDerJ
-         1qM3R4qHmmRnppC3QStZUIuDqMHI0vmZflZh2FlB4ylWoGdWzZ+QmYQGR6SgTrxgb84r
-         zhhg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786971236; x=1787576036;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=heyrqMT9bhKb2iYgMBqnNPSLDsSf0gtkf9pXDJmC29s=;
-        b=PvCRzOp18jIi9wwOO/CVkSvnZSdbAd+pRsvQGMzqKow6fy5cOQW1V4fpvm/U8vjjZJ
-         MWR1EeumnESe9juX4m5LRzMT/so149hZRZ91tLf1sWN5s0fG51EXGSCx4s+OMqZMKq6V
-         jy2/19OWV92A9pbVCco4oEZqkqsm8i+ALA0UWxK5qxSAvK3vlIZ+2ZYPKWkPTyMEJFYd
-         capthl5co529fPBn4t1yunj2h7QWCe5eWkLLWvN/isa/WgYfM92Vt+VvBfDUEmt1xmvg
-         SrT2VvjdwWmzsBKYK7s0ieMeZhJOFQINUKsAo8CKO9UZmi/dePBdTzdAfbCAYh5WqbVV
-         yzUA==
-X-Forwarded-Encrypted: i=1; AHgh+RqLSXywogIFednAITKuLQcKd6zPhycGlrgsuM79vX/wG+RXHMMX413RUhiuXqjEfONV9fzaRT9Uzy0Guj/xwuTk@lists.infradead.org
-X-Gm-Message-State: AOJu0YyoFD/Kx4aOlDfd7DRYoSE1zYfoD9eQKflys6hGqJ7kMoj/fFvD
-	0O3jOw6gu7FaEvCgl3MYcJ0cM6PGwnaPP/iL5dDVEDX1iWuKQPotRS5PEQLtD7SOms2i3STMwWs
-	1pPhy44OLuKS38nx9ka+phBK7GX4IKX4=
-X-Gm-Gg: AR+sD1195Ib3PHjUQY9VKukpyTh7zAcqM0vsdY/1LY1m4ARh2sAgd3lVIyxJa75WtT/
-	nMtkT2i1oBgr/kuwLGvM1+TOzb24AFBtNyMuRgplLDNt9bcCAwX3u76wvehp/OIoL80Zy5Lmuik
-	8hLs0X+MIAGisSwSaQhPAlAv+EtY8g+s8ZsG3qon2DXOp0y/MUxF1CRILf0jM71by5AkH1jAc3G
-	jgOPApikv2XAFIgluA+8hAFm7ZjsvRNpEwJUC0Prgnf8qPznto8wKjxjC7wnW7n2VIV1XEP3Uf8
-	qKEvsPOWh6oS6ATt/KhYBnIbWOx+cHVJa3OL4acyd02GG5jX2p31dUrn/xoodmCkp/PhADt31/N
-	L0o+qMx1d3AprT5f2vbSnyCfnUVdvb0c1aY7JLWYWhJM0nLJ2RJvTpfs=
-X-Received: by 2002:a05:6870:1406:b0:45e:2d52:abfe with SMTP id
- 586e51a60fabf-45f46d0bf86mr29099fac.21.1786971236153; Mon, 17 Aug 2026
- 05:53:56 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260815152759.2046231-1-gpiccoli@igalia.com> <aoGIEEje1NIMTjyv@willie-the-truck>
- <aoLLf_iZq6DLNpLO@arm.com>
-In-Reply-To: <aoLLf_iZq6DLNpLO@arm.com>
-From: Ryan Houdek <sonicadvance1@gmail.com>
-Date: Mon, 17 Aug 2026 05:53:44 -0700
-X-Gm-Features: AcwNN1VwFBnUMMlGBz82LX73bNnE8excwOst3wTjz9OJH25CB-_0VAvGTPYuTWM
-Message-ID: <CABnRqDfeiop1sG_Eir+yU2o90Q8-caDp-Lj6=aBFqYwiHAhQ-g@mail.gmail.com>
-Subject: Re: [PATCH] arm64/kernel: Expose the running CPU of a native task in TPIDRRO_EL0
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>, "Guilherme G. Piccoli" <gpiccoli@igalia.com>, 
-	linux-arm-kernel@lists.infradead.org, mark.rutland@arm.com, 
-	robin.murphy@arm.com, gshan@redhat.com, kernel-dev@igalia.com, 
-	kernel@gpiccoli.net, Mark Brown <broonie@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_055358_214799_05B61037 
-X-CRM114-Status: GOOD (  24.56  )
+	Mon, 17 Aug 2026 12:56:06 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1B00840926;
+	Mon, 17 Aug 2026 12:56:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D45F91F00A3A;
+	Mon, 17 Aug 2026 12:56:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786971366;
+	bh=ky3uveSGPqFh3hdLloFreAs447xB4T1sIUwJzQwy+ZY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=XKGMjeXUthd6X8HmJdoe8HkeMdmWv+F6y3DQwtNQU9v6QBdrdlVN6XUlwycmHnJRh
+	 MINeB1fyexCteUKbHG0bRD1gDjPgD16neP52Uma2MiatHE/LaIQfwEfhkoA9l/sr8B
+	 RGVpg3xRKcpXjl/e5u0Mnx+P3/5Gw47cHpNfdsmill1dv7NqunnBWP62M9Ww5bb9Kb
+	 mgE6PK8+jD7CTVYPLAZLssLpVwg8og4hKXXujhZ6eds2mowBdNOgY7HMJfTqq8HR8L
+	 niAwhS0RcVg5YW0+Rwzt0JSNH0OsN4l9eKEwRkLbmE78RNvhrKMwFWa9aa4vWe/6Rs
+	 JqIk5aIzDwdmw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wvwsl-0000000GHHS-2byO;
+	Mon, 17 Aug 2026 12:56:03 +0000
+Date: Mon, 17 Aug 2026 13:56:03 +0100
+Message-ID: <86pkzgzz18.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Like Xu <like.xu.linux@gmail.com>
+Cc: Jiaqi Yan <jiaqiyan@google.com>,
+	oupton@kernel.org,
+	sebott@redhat.com,
+	gshan@redhat.com,
+	yuzenghui@huawei.com,
+	rananta@google.com,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	pbonzini@redhat.com,
+	shuah@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1] KVM: selftests: Improve sea_to_user test
+In-Reply-To: <79ec6855-6764-407f-bf46-add1bdf36b69@gmail.com>
+References: <20260130192837.890688-1-jiaqiyan@google.com>
+	<86y0le9cvz.wl-maz@kernel.org>
+	<79ec6855-6764-407f-bf46-add1bdf36b69@gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: like.xu.linux@gmail.com, jiaqiyan@google.com, oupton@kernel.org, sebott@redhat.com, gshan@redhat.com, yuzenghui@huawei.com, rananta@google.com, joey.gouly@arm.com, suzuki.poulose@arm.com, pbonzini@redhat.com, shuah@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,56 +95,190 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 17, 2026 at 1:51=E2=80=AFAM Catalin Marinas <catalin.marinas@ar=
-m.com> wrote:
->
-> On Sun, Aug 16, 2026 at 10:51:12AM +0100, Will Deacon wrote:
-> > On Sat, Aug 15, 2026 at 12:19:32PM -0300, Guilherme G. Piccoli wrote:
-> > > The register TPIDRRO_EL0 has 2 meanings / usages today, depending on
-> > > the mode userspace is running:
-> > >
-> > > - For native/arm64 mode, this register is always 0 from the userspace
-> > >   perspective. In the kernel, it is used during ventry (entry.S) as
-> > >   a scratch register, related to KPTI (stashes x30 in fact).
-> > >
-> > > - For 32-bit compat tasks, this register holds the TLS userspace poin=
-ter,
-> > >   and is not used for KPTI or anything else in entry.S. This is ABI a=
-nd
-> > >   userspace can count on having a valid TLS pointer there.
-> > >
-> > > Happens that other operating systems follow a similar approach than 3=
-2-bit
-> > > compat mode, even for arm64: in both Windows[0] and MacOS (xnu/darwin=
-)[1],
-> > > this register is used to hold the running CPU of the current task, he=
-nce
-> > > offering a very fast / non-syscall way for a given task to figure its
-> > > running CPU id.
-> >
-> > I don't think we should allocate TPIDRRO_EL0 for this as it precludes u=
-s
-> > using it for anything else in the future. If you want the current CPU,
-> > then I think you're better off using either rseq (which I thought could
-> > do this) or looking at reviving the vDSO work you mention (but that has
-> > unresolved limitations iirc).
->
-> Indeed. IIRC glibc already implements getcpu() using rseq.
->
-> --
-> Catalin
+On Mon, 17 Aug 2026 13:34:53 +0100,
+Like Xu <like.xu.linux@gmail.com> wrote:
+> 
+> On 1/31/26 8:37 PM, Marc Zyngier wrote:
+> > On Fri, 30 Jan 2026 19:28:37 +0000,
+> > Jiaqi Yan <jiaqiyan@google.com> wrote:
+> >> 
+> >> Several improvments to the test for KVM_EXIT_ARM_SEA:
+> >> 
+> >> - Refactor run_vm to catch GUEST_FAIL, instead of causing confusing
+> >>    unhandled MMIO kvm exit.
+> >> 
+> >> - Sync far_invalid to guest.
+> >> 
+> >> - Exit test with KSFT_SKIP or KSFT_FAIL when should.
+> >> 
+> >> - Add comment about VM backing memory type.
+> >> 
+> >> Signed-off-by: Jiaqi Yan <jiaqiyan@google.com>
+> >> ---
+> >>   .../testing/selftests/kvm/arm64/sea_to_user.c | 94 +++++++++++--------
+> >>   1 file changed, 53 insertions(+), 41 deletions(-)
+> > 
+> > Overall, this test is still pretty broken.
+> > 
+> > For example, on my Altra box:
+> > 
+> > maz@filthy-habits:~$ ./sea_to_user
+> > Random seed: 0x6b8b4567
+> > # Mapped 0x40000 pages: gva=0x80000000 to gpa=0xff80000000
+> > # Before EINJect: data=0xbaadcafe
+> > # EINJ_GVA=0x81234bad, einj_gpa=0xff81234bad, einj_hva=0xffff41234bad, einj_hpa=0xbad
+> > ok 1 # SKIP EINJ table not available in firmware
+> > 
+> > Well, not quite. EINJ *is* available, it is just that this test,
+> > contrary to *all* the other tests, requires some insanely high
+> > privileges. But the test is making stupid assumption.
+> > 
+> > But that's not all:
+> > 
+> > maz@filthy-habits:~$ sudo ./sea_to_user
+> > Random seed: 0x6b8b4567
+> > # Mapped 0x40000 pages: gva=0x80000000 to gpa=0xff80000000
+> > # Before EINJect: data=0xbaadcafe
+> > # EINJ_GVA=0x81234bad, einj_gpa=0xff81234bad, einj_hva=0xffff41234bad, einj_hpa=0x80041234bad
+> > # echo 0x10 > /sys/kernel/debug/apei/einj/error_type - done
+> > # echo 0x2 > /sys/kernel/debug/apei/einj/flags - done
+> > # echo 0x80041234bad > /sys/kernel/debug/apei/einj/param1 - done
+> > # echo 0xffffffffffffffff > /sys/kernel/debug/apei/einj/param2 - done
+> > # echo 0x1 > /sys/kernel/debug/apei/einj/notrigger - done
+> > sh: 1: echo: echo: I/O error
+> > Bail out! Failed to write EINJ entry: Success (0)
+> > # Totals: pass:0 fail:0 xfail:0 xpass:0 skip:0 error:0
+> > 
+> > Failed? Or Success? Who knows...
+> > 
+> > But frankly, the whole "embedded shell script" is disgusting. What is
+> > wrong with driving the injection from the test itself, rather than
+> > this access()+popen()? popen() itself is a liability (see the man page
+> > for system()), and should never be used for this sort of things.
+> > 
+> >> 
+> >> diff --git a/tools/testing/selftests/kvm/arm64/sea_to_user.c b/tools/testing/selftests/kvm/arm64/sea_to_user.c
+> >> index 573dd790aeb8e..4a3511fa1f940 100644
+> >> --- a/tools/testing/selftests/kvm/arm64/sea_to_user.c
+> >> +++ b/tools/testing/selftests/kvm/arm64/sea_to_user.c
+> >> @@ -12,6 +12,11 @@
+> >>    * including the notrigger feature. Otherwise the test will be skipped.
+> >>    * The under-test platform's APEI should be unable to claim SEA. Otherwise
+> >>    * the test will also be skipped.
+> >> + *
+> >> + * The VM backing memory is tied to HugeTLB 1G hugepage so far. Make sure
+> >> + * there are more than 4 1G hugepage on the system. They can be allocated
+> > 
+> > Why *more than*? Isn't that *at least* instead?
+> > 
+> >> + * at runtime by:
+> >> + *   echo 4 > /sys/kernel/mm/hugepages/hugepages-1048576kB/nr_hugepages
+> >>    */
+> > 
+> > Why can't you provide an adequate diagnostic instead of this stuff:
+> > 
+> > maz@filthy-habits:~$ ./sea_to_user
+> > Random seed: 0x6b8b4567
+> > ==== Test Assertion Failure ====
+> >    include/kvm_syscalls.h:58: mem != MAP_FAILED
+> >    pid=887 tid=887 errno=12 - Cannot allocate memory
+> >       1	0x0000000000405b4f: __kvm_mmap at kvm_syscalls.h:58 (discriminator 3)
+> >       2	 (inlined by) kvm_mmap at kvm_syscalls.h:65 (discriminator 3)
+> >       3	 (inlined by) vm_mem_add at kvm_util.c:1036 (discriminator 3)
+> >       4	0x0000000000402373: vm_create_with_sea_handler at sea_to_user.c:290
+> >       5	 (inlined by) main at sea_to_user.c:336
+> >       6	0x0000ffffb0dc229b: ?? ??:0
+> >       7	0x0000ffffb0dc237b: ?? ??:0
+> >       8	0x00000000004027ef: _start at ??:?
+> >    mmap() failed, rc: -1 errno: 12 (Cannot allocate memory)
+> > 
+> > What is preventing you from not requiring huge pages? And not
+> > requiring 4kB as the base page size?
+> > 
+> > Given how broken this is, I'm likely to disable this test until you
+> > fix it for real.
+> 
+> Pls help review the expect output:
+> 
+> # selftests: kvm: sea_to_user
+> # Random seed: 0x6b8b4567
+> # # Mapped 0x40000 pages: gva=0x80000000 to gpa=0xff80000000
+> # # Before EINJect: data=0xbaadcafe
+> # # EINJ_GVA=0x81234bad, einj_gpa=0xff81234bad,
+> einj_hva=0xffff41234bad, einj_hpa=0x2141234bad
+> # 1..0 # SKIP EINJ debugfs interface not available; run as root with
+> CONFIG_ACPI_APEI_EINJ and firmware EINJ support
+> ok 1 selftests: kvm: sea_to_user # SKIP
+> # 1 skipped test(s) detected.  Consider enabling relevant config
+> options to improve coverage.
+> # Totals: pass:0 fail:0 xfail:0 xpass:0 skip:1 error:0
+> 
+> , and the diff behind:
+> 
+> diff --git a/tools/testing/selftests/kvm/arm64/sea_to_user.c
+> b/tools/testing/selftests/kvm/arm64/sea_to_user.c
+> index a23d74ed45035..7e86cbeb55291 100644
+> --- a/tools/testing/selftests/kvm/arm64/sea_to_user.c
+> +++ b/tools/testing/selftests/kvm/arm64/sea_to_user.c
+> @@ -86,25 +86,32 @@ static u64 translate_hva_to_hpa(unsigned long hva)
+> 
+>  static void write_einj_entry(const char *einj_path, u64 val)
+>  {
+> -	char cmd[256] = {0};
+> -	FILE *cmdfile = NULL;
+> +	char buf[32];
+> +	int fd, len, ret;
+> 
+> -	sprintf(cmd, "echo %#lx > %s", val, einj_path);
+> -	cmdfile = popen(cmd, "r");
+> +	fd = open(einj_path, O_WRONLY);
+> +	if (fd < 0)
+> +		ksft_exit_fail_perror(einj_path);
+> 
+> -	if (pclose(cmdfile) == 0)
+> -		ksft_print_msg("echo %#lx > %s - done\n", val, einj_path);
+> -	else
+> -		ksft_exit_fail_perror("Failed to write EINJ entry");
+> +	len = snprintf(buf, sizeof(buf), "%#lx\n", val);
+> +	ret = write(fd, buf, len);
+> +	if (ret != len)
+> +		ksft_exit_fail_perror(einj_path);
+> +
+> +	close(fd);
+> +	ksft_print_msg("%#lx > %s - done\n", val, einj_path);
+>  }
+> 
+>  static void inject_uer(u64 hpa)
+>  {
+> -	if (access("/sys/firmware/acpi/tables/EINJ", R_OK) == -1)
+> -		ksft_test_result_skip("EINJ table no available in firmware");
+> -
+> +	/*
+> +	 * Reading the ACPI EINJ table requires CAP_SYS_ADMIN, so a plain
+> +	 * access() check gives a false negative for unprivileged runs. Probe
+> +	 * the debugfs EINJ interface instead: it is only present when both
+> +	 * firmware and the kernel EINJ driver support error injection.
+> +	 */
+>  	if (access(EINJ_ETYPE, R_OK | W_OK) == -1)
+> -		ksft_test_result_skip("EINJ module probably not loaded?");
+> +		ksft_exit_skip("EINJ debugfs interface not available;
+> run as root with CONFIG_ACPI_APEI_EINJ and firmware EINJ support\n");
+> 
+>  	write_einj_entry(EINJ_ETYPE, ERROR_TYPE_MEMORY_UER);
+>  	write_einj_entry(EINJ_FLAGS, MASK_MEMORY_UER);
 
-Reading through the full cover, they state clearly that rseq/vdso can't be =
-used,
-since it's ABI and the primary support candidate is Win32 ARM applications
-under WINE on Linux. FEX just happens to get a benefit that it matches some
-edge-case behaviour.
+This seems better, although I still think the access() thing is
+wrong. We should catch errno after the open() and work out what when
+wrong. Also, the dependency on debugfs is really horrible.
 
-ARMv8 was introduced 15 years ago and there hasn't been a found use case
-for this register yet. This sounds as good as any since it also matches ABI=
- for
-compatibility sake. Worst case instead of checking for TIF_32BIT, add some
-prctl flag check with the same cost, allowing another 15 years to find anot=
-her
-use for this register.
+Anyway, since this is an improvement, please post a standalone patch
+that can be reviewed/merged, and add separate patches to check for the
+huge pages.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
