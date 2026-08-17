@@ -4,58 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6C75C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 07:55:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 846F0C5CFC1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 07:57:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RNjpfSmzin3RnkChc90q8nEY8hKPNjfQH6/ZWx+NdXc=; b=Bbspvs+jkJ6Yi1rAMfOuweXU5p
-	5y3CSZAKaYzRCueED7sS8Br4f/VA2tjP97vz8BRHEgrwtg+iTfPpSmazY2x1SY9MMZ+WlCF/gGH2p
-	gieqXHnI/1f1dCCZV5WFY+2+YzEco/QkMgr58il2Dzm57Q+Jkk0bAbpAs/1uqWhRpdYizYItjgHvS
-	AQGQU/p7KxzXwp+ITzJXznVkShKdq3LGm2zlY0oQrCutBz2JiAx3+cu8ufuo9T0Dzudk7DIQhyi5d
-	TWNLH0UlMRjjJL4iRh6AA4LRgip+xVYS31QrxRZZKjc2nQ3SysD4ApF2Ex7vgXyLj9UkCwzVxLNrM
-	KNBViEfg==;
+	bh=DMNyfr+vB6xzROe/nedLxsNSBpjIQIz4TKkDU1bGZHo=; b=lYK5FRxZHMIeIV0H7b0+qLDSrd
+	txhOM7UGn3nhKziG21codAsBYhcxJqvpwslTcUVuILOBoZ+5eN0v7rj9CH5qn5l6CNHEi97yx1gHr
+	CJdMBi8PXQ0v1gMtq+XI36hljVy96s+96sVoyNYN7SkqHQz3QYeJRzyTmUpo7hpTTLhR25trUgius
+	aGQpokxw32cx3StH+P1bpe1DsrnpSV+NqCS/dfndk8h0qqFAgGxJpmnYWGYEJFBRdQswEp3++NuYJ
+	qK05K2KAfYQLu1iNJ1GCQvD6dnOHgcSpRxtp0v/zgGnpfmfSXrDJgiZYCH6SWhwq+FOmELP9Tz3/c
+	VZXcmHAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvsBP-00000005bep-0XTT;
-	Mon, 17 Aug 2026 07:54:59 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wvsDT-00000005bsF-2gHL;
+	Mon, 17 Aug 2026 07:57:07 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvsBK-00000005be3-3Keb;
-	Mon, 17 Aug 2026 07:54:54 +0000
+	id 1wvsDS-00000005bs9-1gNg
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 17 Aug 2026 07:57:06 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C8DA441AEB;
-	Mon, 17 Aug 2026 07:54:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D846E1F000E9;
-	Mon, 17 Aug 2026 07:54:49 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B18A040F2D;
+	Mon, 17 Aug 2026 07:57:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD7681F000E9;
+	Mon, 17 Aug 2026 07:56:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786953292;
-	bh=RNjpfSmzin3RnkChc90q8nEY8hKPNjfQH6/ZWx+NdXc=;
+	s=k20260515; t=1786953425;
+	bh=DMNyfr+vB6xzROe/nedLxsNSBpjIQIz4TKkDU1bGZHo=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=oypufksRQ816F5ciS6TjyLxTWrFjZ2q/0ahuzidm/udX3oPgdR9anETNVX83h31vQ
-	 PG/NHye9X1rch2XouSbb7r8/VTvn3nlfglvCOKtswzpZnKZEGrpNDaOh1SyeBk9m3l
-	 G8CcCYY6GhAymJvvvioWksKE6iTzQbQsVS8Lc4vUpLPw3fHL88oxGt8eQRgDWKGwTo
-	 fqc4B8zENY/F2/3lyBa/UXi3mq88zSCQM68exo4epotO+0H6Lg2WFtnMZt+6TOmBF9
-	 RAi8EwRrRQiCb7ME3wnBisjqFgUQYJXv5uy9m3CEj69HwG1Et/l6V1riSdF7BmJygl
-	 5fyo0L0k/E8jA==
-Message-ID: <caa08751-a578-45d2-bb2e-349ae201d4e2@kernel.org>
-Date: Mon, 17 Aug 2026 09:54:47 +0200
+	b=CooNlyiEalGmVPIJWv/C8yFkh5tMwOfRdK/uE2qlWH7OLngt10rA2rrgWe9b5ZfKE
+	 DYzMVq44G+yRGwv0+NCSuASyuRjhRaLNm1D8ObP0vOKDfRNvprdPQ2XyfdQP7UkvjF
+	 TMl+pIako8NA/XPYlupK59IxE8LF3vlPMuab8lyYOnAbLsW5c4fuah1eJ3SkgoGUwt
+	 3Olwu8AHdcDDRk6Yrx1P8oLjowouycEoKkoYOoud63P39CXo0S7MudZqxRuZyl73x9
+	 gSLLJl1z0U86XgBinQrcyLh6ecuTOnR4YHanOBoG2WZz+dv6eBxMCL1H2CxNa4wmd8
+	 OnKA8UU+AasJA==
+Message-ID: <ffb3ee6f-d414-470c-b509-2800e504ba7d@kernel.org>
+Date: Mon, 17 Aug 2026 09:56:54 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 0/3] perf: Add Raspberry Pi AXI PMU driver
-To: Ian Rogers <irogers@google.com>
-Cc: florian.fainelli@broadcom.com, linux-perf-users@vger.kernel.org,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, pbrobinson@gmail.com
-References: <20260815082048.4043217-1-irogers@google.com>
- <20260815172712.50119-1-irogers@google.com>
- <4998d0ca-eeb0-4b04-b3ac-a1f97c1829f2@kernel.org>
- <CAP-5=fVffrRgO4OM6u=JTEUwBY0np+fUExqOpbiYU1JgyMr7Rw@mail.gmail.com>
- <7cc71fbf-425e-4047-94c5-3f06d3ed8905@kernel.org>
- <CAP-5=fW7yQmH+4+x5QCqr2vO_MNSYuPW4T8X8qTns=GitOUN8w@mail.gmail.com>
+Subject: Re: [PATCH v2 10/15] dt-bindings: clock: qcom: Add Kuno Global Clock
+ Controller
+To: Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
+ Taniya Das <quic_tdas@quicinc.com>, Georgi Djakov <djakov@kernel.org>,
+ Bartosz Golaszewski <brgl@kernel.org>, Linus Walleij <linusw@kernel.org>,
+ Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>,
+ Robert Marko <robimarko@gmail.com>, Guru Das Srinagesh <linux@gurudas.dev>,
+ linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-pm@vger.kernel.org, linux-clk@vger.kernel.org,
+ linux-gpio@vger.kernel.org
+References: <20260814-kuno-soc-support-v2-0-3079794f0f73@oss.qualcomm.com>
+ <20260814-kuno-soc-support-v2-10-3079794f0f73@oss.qualcomm.com>
+ <20260817-speedy-nimble-heron-a4aeeb@quoll>
+ <05c743a3-0111-4b80-be98-b65b3a09ce34@oss.qualcomm.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -101,7 +113,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <CAP-5=fW7yQmH+4+x5QCqr2vO_MNSYuPW4T8X8qTns=GitOUN8w@mail.gmail.com>
+In-Reply-To: <05c743a3-0111-4b80-be98-b65b3a09ce34@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -118,45 +130,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/08/2026 09:46, Ian Rogers wrote:
-> On Mon, Aug 17, 2026 at 12:26 AM Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>
->> On 17/08/2026 08:57, Ian Rogers wrote:
->>> On Sun, Aug 16, 2026 at 11:20 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>>>
->>>> On 15/08/2026 19:27, Ian Rogers wrote:
->>>>> Motivation & Background
->>>>> ==============================
->>>>> Currently, Linux lacks a standard perf-API compatible driver for the
->>>>> Broadcom AXI performance counter blocks on Raspberry Pi platforms. Prior
->>>>> out-of-tree vendor solutions relied on custom debugfs nodes and ad-hoc
->>>>> kthreads, preventing integration with standard Linux perf tooling (`perf stat`,
->>>>> `perf list`, etc.).
->>>>>
->>>>
->>>> Slow down!
->>>>
->>>> One version per 24h in normal cycle, not 13 patchsets in two days! (and
->>>> even rarer during the merge window)
->>>
->>> I'm familiar with perf-tools which was set up to follow BPF's example,
->>> both have -next repos. The -next repos merge into linux-next for
->>> testing. I agree that cherry-picking shouldn't be done straight into a
->>> pull request to Linus. Is there a principle against using -next and
->>> linux-next?
->>
->> How is this relevant? I don't think you read my comment.
+On 17/08/2026 09:54, Hardeep Sharma wrote:
 > 
-> I think I addressed all the points in your email. The -next
-> development is relevant because it directly addresses your point about
-> not sending emails during a merge window. Except when the -next branch
-> is becoming the main branch, merging patches at will is acceptable and
-> you also benefit from the linux-next testing. Not sending patches 5
-> times a year during the two-week merge window, it is nice to think
-> that this timetable fits everybody.
+> On 8/17/2026 1:00 PM, Krzysztof Kozlowski wrote:
+>> On Fri, Aug 14, 2026 at 01:01:41PM +0530, Hardeep Sharma wrote:
+>>> Document the Global Clock Controller (GCC) binding and associated
+>>> clock/reset IDs for the Qualcomm Kuno SoC.
+>>>
+>>> Signed-off-by: Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>
+>> I do not see how you addressed my comments. I should not be needing to
+>> verify if each one is implemented and then say again the same.
+>>
+>> Best regards,
+>> Krzysztof
+> 
+> Hi Krzysztof,
+> 
+>    Apologies — my v1 reply just said "done in v2" without detailing each
+>    point. Both your comments are addressed in v2 patch 10:
+> 
+>    1) Commit-message / binding style consistency:
+>       Reworded to the same form used across the series:
+>       "Document the Global Clock Controller (GCC) binding and associated
+>        clock/reset IDs for the Qualcomm Kuno SoC."
+> 
+>    2) "Not a power domain provider?":
+>       Correct — Kuno GCC has no GDSCs and takes no corner votes. I removed
+>       the power-domains block from the schema entirely, and dropped the
+>       matching power-domains = <&rpmhpd RPMHPD_CX> and
+>       #include <dt-bindings/power/qcom,rpmhpd.h> from the example.
+>       (binding 56 -> 50 lines)
 
-No, next is not relevant, because I am not even speaking about applying
-patches. I explained you the rule of one posting per 24h. Not 5!
+So if it is not a power domain, then why it is now being made a power
+domain (through qcom,gcc.yaml)? You need to disallow properties which
+are not correct for your device. Look at other bindings for clock
+controllers not being power domain providers.
 
 Best regards,
 Krzysztof
