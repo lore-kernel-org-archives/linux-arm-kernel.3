@@ -4,134 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ABF9C5DF66
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 02:24:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04F7DC5DF66
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 02:39:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BQAxvgqjbvX41xUCvUO7mIi6f9RrgIkDc01xplWyZDc=; b=LEN5NsTyzxcSQ6VuckuhvyzQEs
-	9SZyQZcrjhMBs4AenPvdMVehaAGYq+dR81EXJHNm5qWS9ufdSOTs24gLoRhijaTkjTLGTI7j2VxaR
-	k7V3nAQHyXA+TjPZwXJ5jatbTThLFEMzGC0tBQitq1u47vN6VhkwuxUWqSgkxXtI2zEyOeFwJgMLf
-	DQhhW0NdmSf30OWepVRsKKwJMWNtqKiHhjRcIp8qyhcBhrCDyiRdoODX5tRIBoVnPD/2BPeIM032U
-	nc6XVDEWz2B1g4Xpt8+dQ8z8orGjbS+DbpLDPbLZfWyToQzqxVAWBX5cPuhjnVvMi4R8axkcyww5r
-	QcfB2LzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=lhOKwsR5SDq98/XwAqYZPpTbBrVHGuqe8tfzF4XrU+Y=; b=Qg3lEICLtBmpyCiD7RqqfQ1PJ4
+	1vtEqSUNbnqDgZMbAKiQXJafTPKQBZIYm8qeaCG0RqqedF46e2IhZpWymuEoHhDJYUiMOjB/dw/y6
+	U504c4oENl/WucFO3ez9dFjC+Z8RGcf/qLBX8sLyk0wzTgpgaOs0R0L8cbwephdKCOHbc3aiaHYeY
+	jwOl/MYdArpo0oiiTIK+osoPjWwKyeDf+TZI5mEYL2Sf4i+DxGRJ9qRCYFb3kZYEVBTjOfEpe3NQc
+	tKB4xi1xCHR5DElDwi5HGmfZ59oZtRmkbI5cvieSkHfOH3Sl7iCoGYaipo1+EttHG67O2BqPiGW6G
+	EjCzFaSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvn1G-00000005JRh-1Lgu;
-	Mon, 17 Aug 2026 02:24:10 +0000
-Received: from mail-southcentralusazlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c10d::1] helo=SN4PR2101CU001.outbound.protection.outlook.com)
+	id 1wvnFT-00000005KS1-2tiz;
+	Mon, 17 Aug 2026 02:38:51 +0000
+Received: from [216.200.240.184] (helo=mailgw01.mediatek.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvn1D-00000005JPX-228T
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 02:24:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=emsxtG3kD5gH9/Oe0cvKkYe8z4hYMche8t9kre7xAyhlmNBYg8qTig4hZSA7lFE28Hgq9kfu8aA88XMaFOhIIHyiPi6A/xY2NFl/okWpJPQa5AGxMeHeik8OMN0HsbE/A7NLXsDfN7vTAVf+AUaDyaeewlxy7KI2V3voLbbyBXCd/5ZMkDPuTvh3d+xd9+JM8LVHRdN+w1SMXQDrY83vR16E0F0Lixu8mXC88PkfJxGU1aEpyCK3M5qHa6yX+179IXCQqKoreD9E1jed4yTgRMXUPcsuV8Px8WC7sCf92WTW1CXUzvnHTMJ54AOXopykNL79/IxEWyiOVn++7jLJ6g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=BQAxvgqjbvX41xUCvUO7mIi6f9RrgIkDc01xplWyZDc=;
- b=OxXa3NTnbPD3EPqYgy8JpQdI9FgosHldRcKzSDaWI4MZdi5gJHAzBlSu1lq8XvHOVE9Hp3GOzl1lkY/WOVowhAx3LaC5xAXe5xGYvwesw9Zs4uuTaJQ97/U1//OzB+KN4yF0aBls725iKfknGoPm/Sz6QD8ltFLkPzk/jnEka5xP8h2TWnmO+1LbeOIi6vG7hEo27RiXsNuWsNPZcVbDt3rLmoKxYrSEuh8EbmH5bcWCX600AHpowfwv3EjSQ9n7La1AF6Z2fekFhmKKysfzn+nqXZKzlWdkCW7CQiR7iswlKW6N1TRr7Q92CLzlXVUaWLvbOboFc1CY8192+CZMYw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=BQAxvgqjbvX41xUCvUO7mIi6f9RrgIkDc01xplWyZDc=;
- b=eu0HOzh4+86qfbmaXrRmFasinRfuQfs74oFjPpN0WmpBlJyWGtr94Q2/Qdsz4Gv5tQ+FzD7AWPRirm/wLlIMe/Qxk0bDX4g2OSlpq33UjIDJ4FUiH039yXKGe+lYM4mrXDJA4KfvFnzR9HR/z3IIgcrHvxPdn9Kv2NvRlCBx6fvtoEBJV1jzSGLqDq+eE5z7Bh4SaHooooZ7sdZ3sjeI6KgmNC0Tb97eyHJtXs4xvgDvrrl+SpqCsYkN0n+1eRqiMTdCsoYoBGbCFViH14Jot/U7qQGRC3dcJWPqzzdjclNTZDAOaY7iG7CPGjBWUwKwbZ+EZOE0TKEBSemfeYgHzQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CHXPR12MB999244.namprd12.prod.outlook.com
- (2603:10b6:610:2fc::17) by PH8PR12MB7304.namprd12.prod.outlook.com
- (2603:10b6:510:217::20) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.17; Mon, 17 Aug
- 2026 02:23:58 +0000
-Received: from CHXPR12MB999244.namprd12.prod.outlook.com
- ([fe80::168f:599c:f74d:7688]) by CHXPR12MB999244.namprd12.prod.outlook.com
- ([fe80::168f:599c:f74d:7688%4]) with mapi id 15.21.0315.016; Mon, 17 Aug 2026
- 02:23:58 +0000
-From: KobaK <kobak@nvidia.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	Fenghua Yu <fenghuay@nvidia.com>,
-	Tushar Dave <tdave@nvidia.com>,
-	Kai-Heng Feng <kaihengf@nvidia.com>,
-	rupakr@nvidia.com,
-	mohammedk@nvidia.com
-Subject: [RFC PATCH 3/3] selftests: arm64: add arm_cpumod kselftest
-Date: Mon, 17 Aug 2026 10:23:35 +0800
-Message-ID: <20260817022335.3-4-kobak@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260817022335.3-1-kobak@nvidia.com>
-References: <20260817022335.3-1-kobak@nvidia.com>
+	id 1wvnFR-00000005KRC-1BuX;
+	Mon, 17 Aug 2026 02:38:50 +0000
+X-UUID: c35df27099e411f1afed4741b24580c9-20260816
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=lhOKwsR5SDq98/XwAqYZPpTbBrVHGuqe8tfzF4XrU+Y=;
+	b=IiQ5fxPldBGhv23nVcMVb1AWCVfvm/ZV9phPB4iPxleNcUyndQMjaDjULVrUtF8FeLbXnh2u8Oja3pJm9mUQn3FR7QPZ5AHa4QdFTu5zVlr+UODvxuddT6oVtb8lD4RDDY8jEMTAjfPNr/k3ANFNYOX8pN7iqhxHjjgi1obB4s0=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:a03b4179-35c1-4fc5-a7c9-f6887c154202,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:7db8b62,CLOUDID:f66798b3-c700-40ec-9e2b-60285d67984b,B
+	ulkID:nil,BulkQuantity:0,SF:102|836|865|888|898,TC:-5,Content:0|15|50|99,E
+	DM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0,OSA:0,
+	AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: c35df27099e411f1afed4741b24580c9-20260816
+Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw01.mediatek.com
+	(envelope-from <ot_zexin.wang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 758933527; Sun, 16 Aug 2026 19:38:43 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ MTKMBS09N1.mediatek.inc (172.21.101.35) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Mon, 17 Aug 2026 10:38:40 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Mon, 17 Aug 2026 10:38:40 +0800
+From: Zexin Wang <ot_zexin.wang@mediatek.com>
+To: Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck
+	<linux@roeck-us.net>, Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+CC: <light.chen@mediatek.com>, <Fred-WY.Chen@mediatek.com>,
+	<Yt.Hsieh@mediatek.com>, Zexin Wang <ot_zexin.wang@mediatek.com>,
+	<linux-watchdog@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
+Subject: [PATCH v4] watchdog: sbsa_gwdt: add early_enable module parameter
+Date: Mon, 17 Aug 2026 10:37:49 +0800
+Message-ID: <20260817023838.6459-1-ot_zexin.wang@mediatek.com>
+X-Mailer: git-send-email 2.46.0
+MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: KUZPR03CA0004.apcprd03.prod.outlook.com
- (2603:1096:d10:2a::19) To CHXPR12MB999244.namprd12.prod.outlook.com
- (2603:10b6:610:2fc::17)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CHXPR12MB999244:EE_|PH8PR12MB7304:EE_
-X-MS-Office365-Filtering-Correlation-Id: 508df5d7-76b6-449d-ca48-08defc0697db
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016|23010399003|18002099003|22082099003|56012099006|6133799003|11063799006|10067099003;
-X-Microsoft-Antispam-Message-Info: Ku3yOlH19wL8m4hxpcBJnYc5jqtaKmDKlUDBZ4Mp5DSpEPcG0yYC6sUWF3rkj/znHv2dQ1181xhTWIevH67cvQO4sIYlDNLJIxPgDJYC2ZMS5BBqRRMpFa/Icp5eio4Awc7LutpNed6+6AfGwfG0Ljgz0IcyBZEXcEVMhFCztcCq8DQ2Hqz4ZplRCL1a9vylaHycViOYxhXryx5MMl1BzLDLP3eN6p4zX3i6FZr5K/7zJ2BCWfUEc79iXR6L+cRZ+xap8/KDPGIGO0SnqjcZBaZNXNTqwVOGMAWupo12HJda4nRhIFuczfEJl+jtJOa/HXGMtgZ59PH7VTOB6KqMOog1yYXRo/fcHIF5b2Y+8NP8xGtZ9ohgiWnR/7ZPltxrm4pX7btr9vaOik6ndDYu5r/gzY0BHdRXU6fd0/7+ISPiUk/3cwqgaivl/MA+V9LMpz6dOQcpJ6lIyoyokXZQrbwMGKBWOkj0rgSkYQPjbpcthUpgOLIPyXydFLet2cpEQqU+lC1Ynm3gkbA7R3WVYZM/iXOtuUG/m7Fbm1mmpRENZA6lKgErVR8C8wXIrjhHk7jwWXDIA94OWGP4I4kNN2AbHWlbICyIP9jq6qu8nypgtbTI2QXo3FGsimW/0oASTZi1ceNG0d0HSIgb5WdZJmsqLwf6S+17bwW6NNZf8ho=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHXPR12MB999244.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(23010399003)(18002099003)(22082099003)(56012099006)(6133799003)(11063799006)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?pDJesf2RAKomQ3AW+1IHl3N/avMDDMnGvunSeZ3LUobU/h2i6O4s5aq3iGeg?=
- =?us-ascii?Q?APIHfZWjJscC/IKRDq+OKosZHpUetcT7PUpJIbGSSch44atGrU4Dx5YyPkFx?=
- =?us-ascii?Q?vsLwtT23jXtu0XdNaRUFRyh+cA8M1VLg7+bG4DNtM7CfpGTjtFxSU1yu4F5a?=
- =?us-ascii?Q?7uAj23yZJvvBL3UQUXHuVzUlwNIaLKvyNdYl4RPKTau75z8GlMowS3VKJCe1?=
- =?us-ascii?Q?2K2hK5/zkOmaFV46Bec50pN0IahoMyyheuqpqroZacyjd5s9K5iVN4tVQSKv?=
- =?us-ascii?Q?GyAMwqfYiC0MM0EKG9kdsEjJEVFkNQtoOo785QGRRVvCm4jV3JLVStLsHwNp?=
- =?us-ascii?Q?oQB8xeJvAI88y8MwxoMgUAkdfZp4zDbuBKa7BZnZ58RVFLSxAv7R7hd9gvMA?=
- =?us-ascii?Q?3qD125CIYp50vpWbN+NP6ZX3WeHJLh5yTBeseMqQjEhoGUE09+hvU+Ozs1+K?=
- =?us-ascii?Q?2Qf/eJayUMwR4ikatxPlrv2pM2kunvOebJdmIaFn4EPL/MGT0DfibAJaVDpH?=
- =?us-ascii?Q?qnp/sNxADfsoN3cJR2oKGCQOPQ/VUnILhC55YTu9J9v90f8jOZOpGETsbzSi?=
- =?us-ascii?Q?M78OCUKsLoS11t9ABSVTuLqN2YJggmmJwIS39ylF+DA7j1nT/jwvsYi8PN9I?=
- =?us-ascii?Q?y99bcAlN49bpIHoTd3L3w/5cFkArXX7D3og1sW+DBGiGbdxCycqG6QaeAPVv?=
- =?us-ascii?Q?q+HyqtXAmF7lqJBcq7PSeZCzymuh716C6IovUfGHeKoFv7FnMUfYKgT24js5?=
- =?us-ascii?Q?2tMKQbztU74ee24VVhQ4JZNzoUHyt6tEj6ZPC/am17VESN4MGYqZbNQMyzdk?=
- =?us-ascii?Q?BJqIffNnEF9VVZ8tPSeRfMOj9POFWSQSFKDFWqKRhR8Ih2y14LeifobeBa+K?=
- =?us-ascii?Q?NUnyqGYXCXagyeI8K0Ke7nFV9B7/n1VlG/Is9rSKFXbdBUtdVRT3jb7RuKeD?=
- =?us-ascii?Q?ksQV82P3ZYb05903g5CBHQfMC4yBi40AJvrq4p8guk/QL59mJ73sfKJvJxPW?=
- =?us-ascii?Q?zAICNlMv6ps8NKRCWZiqmFUmy0vPuyQHVhAYfVxzv35j3VYSO3LflNfI70kK?=
- =?us-ascii?Q?PjNLHECLn4fxwHJjGiqho3hCs+xPrvn2yd4bGpOp7LkDjt8itsseUgQxnxXJ?=
- =?us-ascii?Q?ufjdc1Ozc5FiYN/0aUL46vdjEVJaC07Tyr6yY47vp2+qpwjVJAVp5tfRG4I7?=
- =?us-ascii?Q?drp9wKoR39He+FvXn68hzWgGcZmm6PPa64Cr866QKfk9rlqoo3ued5vB3nKD?=
- =?us-ascii?Q?q7+Xbgpzrk0G6AFUGNgImOuOCxPUpR+DmvdZmj9rmbuF7X1QGknO/26RXAwU?=
- =?us-ascii?Q?iyvBlqjxZGMv2wcFslTOF40EM+mPxyn5ONxCAnjkJaJVQRnpnlX2oTDii1De?=
- =?us-ascii?Q?BUPCSlA1I+nq3ZXjHhqAiVNftxZtB8YQsfchjJu4lsweTXxkR7PvQlu/+qRM?=
- =?us-ascii?Q?IzDscl+N9SiL/LsUF+Z8f8bOcqqed4xbAlW1JmXWqv8aqFBJA3rwVk1Io46U?=
- =?us-ascii?Q?vbuz7u61Hf1iSsvB+OyP71suVIJK2/kKLIyap/TZUHGe7aUGV017ASiFGyF9?=
- =?us-ascii?Q?IqY659GZwr+ZqsLer1wGqjfBwqVAt3ggooH84F6u8X/VthuvcsMh4t/kO5F/?=
- =?us-ascii?Q?Z4VBd2Fciyz5IVipTbxBponnQGzmLnEkccvbCj2jy8M14frPdmeS9Neyr1Hl?=
- =?us-ascii?Q?1cuKxGGEHpyVMYq8oorvGgkrwZs22FPDNN7y+JG2S0axSfs/wTOL3OSGOmJt?=
- =?us-ascii?Q?ScLhCwYgJQ=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 508df5d7-76b6-449d-ca48-08defc0697db
-X-MS-Exchange-CrossTenant-AuthSource: CHXPR12MB999244.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Aug 2026 02:23:58.3753
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: sNHsraU/6lOvRlj5s1zYp7p6An4bEC5UthxOQbRAX8gd1VnQdfFmAoZVftAGmEu7B/UVo7cH2h+0tA016ZJNnA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB7304
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260816_192407_571696_B3950828 
-X-CRM114-Status: GOOD (  20.45  )
+X-CRM114-CacheID: sfid-20260816_193849_342837_CB31A755 
+X-CRM114-Status: GOOD (  19.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,609 +86,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Koba Ko <kobak@nvidia.com>
+On SBSA platforms using standard UEFI firmware (such as EDK II), the
+watchdog timer is often enabled during early boot stages but explicitly
+disabled by the firmware before handing over control to the OS (e.g.,
+during ExitBootServices). This is done to prevent unintended resets
+while the OS is loading, assuming the OS watchdog driver will take over.
 
-Add a kselftest for the arm_cpumod sysfs ABI. The test loads or reuses the
-module and selects either one target CPU or a snapshot of all online
-CPUs. In single-CPU mode, skip an offline target before module
-validation. Observe the per-CPU online attribute first. If it is absent,
-immediately require the CPU directory to still exist before treating the
-CPU as non-hotpluggable and online. If the attribute exists, it must be
-readable and contain 1.
+However, this leaves a protection gap. If the system hangs between the
+firmware handover and the userspace watchdog daemon startup, the hardware
+watchdog will not fire to recover the system. For safety-critical systems
+that require continuous hardware watchdog protection from the earliest
+possible moment, this gap is problematic.
 
-After module load, recheck the online state before classifying a selected
-CPU without a cpumod directory as an unsupported profile. Fail if the CPU
-went offline or disappeared, log and skip CPUs that remain online without
-a directory, and require at least one selected CPU to expose a supported
-Grace or Vera profile. Return KSFT_SKIP if none do.
+Add an 'early_enable' module parameter to allow the kernel driver to
+re-enable the watchdog immediately during probe if it was left disabled
+by the firmware. By setting the WDOG_HW_RUNNING status bit, the watchdog
+core is instructed that the hardware is active. As a result, the core's
+pre-userspace handler (controlled by 'handle_boot_enabled') will
+automatically issue periodic keepalives until userspace opens the device.
 
-For supported CPUs, recognize the exposed Grace or Vera profile-specific
-layout and validate the matching attributes. Only
-ARM_CPUMOD_EXPECT_PROFILE supplies an external profile expectation.
+This bridges the protection gap seamlessly without requiring firmware
+modifications and without risking unintended resets during kernel boot.
 
-Verify read paths by checking that attributes return decimal values and
-that affected_cpus identifies the current CPU as a decimal CPU number.
-Optional valid-write testing writes each current value back. Optional
-invalid-write testing checks selected out-of-range values and confirms
-that the prior value remains unchanged.
+The parameter defaults to false to preserve the traditional behavior.
 
-Both write paths are opt-in. Valid writeback can alter
-implementation-defined CPU controls; invalid-write checks exercise
-rejection through the same firmware-sensitive interface, but are expected
-not to update state. Cover all-online-CPU mode through
-/sys/devices/system/cpu/online and, when the test loaded the module,
-verify cleanup by removing it and checking that the selected CPU subtrees
-disappear. The test does not offline or online CPUs.
-
-Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
-Reviewed-by: Tushar Dave <tdave@nvidia.com>
-Reviewed-by: Kai-Heng Feng <kaihengf@nvidia.com>
-Signed-off-by: Koba Ko <kobak@nvidia.com>
+Signed-off-by: Zexin Wang <ot_zexin.wang@mediatek.com>
 ---
- tools/testing/selftests/arm64/Makefile        |   2 +-
- .../selftests/arm64/arm_cpumod/Makefile       |   5 +
- .../selftests/arm64/arm_cpumod/arm_cpumod.sh  | 526 ++++++++++++++++++
- 3 files changed, 532 insertions(+), 1 deletion(-)
- create mode 100644 tools/testing/selftests/arm64/arm_cpumod/Makefile
- create mode 100755 tools/testing/selftests/arm64/arm_cpumod/arm_cpumod.sh
+Changes in v4:
+- Remove unnecessary dev_info() log message
+- Remove dev_err() on register failure
+- Remove clear_bit(WDOG_HW_RUNNING) on register failure
 
-diff --git a/tools/testing/selftests/arm64/Makefile b/tools/testing/selftests/arm64/Makefile
-index e456f3b62fa13..0873be5af0369 100644
---- a/tools/testing/selftests/arm64/Makefile
-+++ b/tools/testing/selftests/arm64/Makefile
-@@ -4,7 +4,7 @@
- ARCH ?= $(shell uname -m 2>/dev/null || echo not)
+Changes in v3:
+- Fix indentation of `early_enable` in watchdog-parameters.rst to ensure
+  it renders as a separate parameter rather than part of `nowayout`'s
+  description.
+
+Changes in v2:
+- Rename `force_enable` to `early_enable` as suggested by Guenter.
+- Update commit message to explain the UEFI handover gap motivation.
+- Add documentation for the new parameter.
+
+ .../watchdog/watchdog-parameters.rst          |  2 ++
+ drivers/watchdog/sbsa_gwdt.c                  | 19 +++++++++++++++++--
+ 2 files changed, 19 insertions(+), 2 deletions(-)
+
+diff --git a/Documentation/watchdog/watchdog-parameters.rst b/Documentation/watchdog/watchdog-parameters.rst
+index 502cb6adbeda..348229ffcb43 100644
+--- a/Documentation/watchdog/watchdog-parameters.rst
++++ b/Documentation/watchdog/watchdog-parameters.rst
+@@ -515,6 +515,8 @@ sbsa_gwdt:
+     nowayout:
+ 	Watchdog cannot be stopped once started
+ 	(default=kernel config parameter)
++    early_enable:
++	Watchdog is started on module insertion (default=0)
  
- ifneq (,$(filter $(ARCH),aarch64 arm64))
--ARM64_SUBTARGETS ?= tags signal pauth fp mte bti abi gcs
-+	ARM64_SUBTARGETS ?= tags signal pauth fp mte bti abi gcs arm_cpumod
- else
- ARM64_SUBTARGETS :=
- endif
-diff --git a/tools/testing/selftests/arm64/arm_cpumod/Makefile b/tools/testing/selftests/arm64/arm_cpumod/Makefile
-new file mode 100644
-index 0000000000000..db0341cdbc621
---- /dev/null
-+++ b/tools/testing/selftests/arm64/arm_cpumod/Makefile
-@@ -0,0 +1,5 @@
-+# SPDX-License-Identifier: GPL-2.0
-+
-+TEST_PROGS := arm_cpumod.sh
-+
-+include ../../lib.mk
-diff --git a/tools/testing/selftests/arm64/arm_cpumod/arm_cpumod.sh b/tools/testing/selftests/arm64/arm_cpumod/arm_cpumod.sh
-new file mode 100755
-index 0000000000000..51c620a74c7d4
---- /dev/null
-+++ b/tools/testing/selftests/arm64/arm_cpumod/arm_cpumod.sh
-@@ -0,0 +1,526 @@
-+#!/bin/bash
-+# SPDX-License-Identifier: GPL-2.0-only
-+
-+readonly KSFT_SKIP=4
-+readonly MODULE_NAME="arm_cpumod"
-+readonly CPU_ID="${ARM_CPUMOD_CPU:-0}"
-+readonly MODULE_PATH="${ARM_CPUMOD_KO:-}"
-+readonly ENABLE_WRITES="${ARM_CPUMOD_ENABLE_WRITES:-0}"
-+readonly ENABLE_INVALID_WRITES="${ARM_CPUMOD_ENABLE_INVALID_WRITES:-0}"
-+readonly ALL_CPUS="${ARM_CPUMOD_ALL_CPUS:-0}"
-+readonly EXPECT_PROFILE="${ARM_CPUMOD_EXPECT_PROFILE:-auto}"
-+readonly CPU_ONLINE_PATH="/sys/devices/system/cpu/online"
-+readonly COMMON_ATTRS=(affected_cpus pf_dis pf_mode)
-+readonly COMMON_RW_ATTRS=(pf_dis pf_mode)
-+readonly GRACE_ATTRS=(cbusy_filter_threshold cbusy_filter_window cmc_min_ways)
-+readonly GRACE_RW_ATTRS=(cbusy_filter_threshold cbusy_filter_window cmc_min_ways)
-+readonly VERA_ATTRS=(l2spr_cmc_max_ways)
-+readonly VERA_RW_ATTRS=(l2spr_cmc_max_ways)
-+
-+loaded_by_test=0
-+reused_loaded_module=0
-+detected_profile=""
-+current_cpu="${CPU_ID}"
-+verified_cpus=0
-+CPU_LIST=()
-+
-+log()
-+{
-+	echo "${MODULE_NAME} selftest: $*"
-+}
-+
-+skip()
-+{
-+	log "$*"
-+	exit "${KSFT_SKIP}"
-+}
-+
-+fail()
-+{
-+	log "$*"
-+	exit 1
-+}
-+
-+cpu_dir()
-+{
-+	local cpu="$1"
-+
-+	printf '/sys/devices/system/cpu/cpu%s' "${cpu}"
-+}
-+
-+cpu_is_online()
-+{
-+	local cpu="$1"
-+	local dir="$(cpu_dir "${cpu}")"
-+	local online="${dir}/online"
-+	local value
-+
-+	if [ ! -e "${online}" ]; then
-+		[ -d "${dir}" ] || return 1
-+		return 0
-+	fi
-+
-+	[ -r "${online}" ] || return 1
-+	value=$(cat "${online}") || return 1
-+	[ "${value}" = "1" ]
-+}
-+
-+cpumod_dir()
-+{
-+	local cpu="$1"
-+
-+	printf '%s/cpumod' "$(cpu_dir "${cpu}")"
-+}
-+
-+current_cpumod_dir()
-+{
-+	cpumod_dir "${current_cpu}"
-+}
-+
-+cleanup()
-+{
-+	if [ "${loaded_by_test}" -eq 1 ]; then
-+		rmmod "${MODULE_NAME}" >/dev/null 2>&1 || true
-+	fi
-+}
-+trap cleanup EXIT
-+
-+require_cmd()
-+{
-+	command -v "$1" >/dev/null 2>&1 || skip "missing required command: $1"
-+}
-+
-+module_loaded()
-+{
-+	grep -q "^${MODULE_NAME} " /proc/modules
-+}
-+
-+wait_for_path_state()
-+{
-+	local expect_present="$1"
-+	local target="$2"
-+	local i
-+
-+	for i in $(seq 1 50); do
-+		if [ "${expect_present}" = "present" ]; then
-+			[ -e "${target}" ] && return 0
-+		else
-+			[ ! -e "${target}" ] && return 0
-+		fi
-+		sleep 0.1
-+	done
-+
-+	return 1
-+}
-+
-+read_attr()
-+{
-+	local attr="$1"
-+	local file="$(current_cpumod_dir)/${attr}"
-+	local value
-+
-+	value=$(cat "${file}") || fail "failed to read ${file}"
-+	printf '%s' "${value}"
-+}
-+
-+attr_exists()
-+{
-+	local attr="$1"
-+
-+	[ -f "$(current_cpumod_dir)/${attr}" ]
-+}
-+
-+require_attr_present()
-+{
-+	local attr="$1"
-+
-+	attr_exists "${attr}" || fail "missing sysfs attribute $(current_cpumod_dir)/${attr}"
-+}
-+
-+require_attr_absent()
-+{
-+	local attr="$1"
-+
-+	attr_exists "${attr}" && fail "unexpected sysfs attribute $(current_cpumod_dir)/${attr}"
-+}
-+
-+check_decimal_attr()
-+{
-+	local attr="$1"
-+	local value
-+
-+	value=$(read_attr "${attr}")
-+	case "${value}" in
-+	''|*[!0-9]*)
-+		fail "${attr} returned non-decimal value: ${value}"
-+		;;
-+	esac
-+}
-+
-+expand_online_cpus()
-+{
-+	local cpu_list="$1"
-+	local part
-+	local start
-+	local start_num
-+	local end
-+	local end_num
-+	local cpu
-+	local parts
-+
-+	CPU_LIST=()
-+	IFS=, read -ra parts <<< "${cpu_list}"
-+	for part in "${parts[@]}"; do
-+		part="${part//[[:space:]]/}"
-+		[ -n "${part}" ] || fail "empty CPU range in ${cpu_list}"
-+
-+		if [[ "${part}" == *-* ]]; then
-+			start="${part%-*}"
-+			end="${part#*-}"
-+			[[ "${start}" =~ ^[0-9]+$ ]] || fail "invalid CPU range start: ${part}"
-+			[[ "${end}" =~ ^[0-9]+$ ]] || fail "invalid CPU range end: ${part}"
-+			start_num=$((10#${start}))
-+			end_num=$((10#${end}))
-+			(( start_num <= end_num )) || fail "invalid descending CPU range: ${part}"
-+
-+			for ((cpu = start_num; cpu <= end_num; cpu++)); do
-+				CPU_LIST+=("${cpu}")
-+			done
-+		else
-+			[[ "${part}" =~ ^[0-9]+$ ]] || fail "invalid CPU entry: ${part}"
-+			CPU_LIST+=("$((10#${part}))")
-+		fi
-+	done
-+
-+	[ "${#CPU_LIST[@]}" -gt 0 ] || fail "no online CPUs parsed from ${cpu_list}"
-+}
-+
-+select_cpus()
-+{
-+	if [ "${ALL_CPUS}" = "1" ]; then
-+		[ -r "${CPU_ONLINE_PATH}" ] || skip "missing ${CPU_ONLINE_PATH}"
-+		expand_online_cpus "$(cat "${CPU_ONLINE_PATH}")"
-+	else
-+		cpu_is_online "${CPU_ID}" || \
-+			skip "cpu${CPU_ID} is offline or its online state is unreadable"
-+		CPU_LIST=("${CPU_ID}")
-+	fi
-+}
-+
-+detect_profile()
-+{
-+	local has_grace
-+	local has_vera
-+	local attr
-+	local i
-+	local dir="$(current_cpumod_dir)"
-+
-+	for i in $(seq 1 50); do
-+		has_grace=0
-+		has_vera=0
-+
-+		for attr in "${GRACE_ATTRS[@]}"; do
-+			if attr_exists "${attr}"; then
-+				has_grace=1
-+				break
-+			fi
-+		done
-+
-+		for attr in "${VERA_ATTRS[@]}"; do
-+			if attr_exists "${attr}"; then
-+				has_vera=1
-+				break
-+			fi
-+		done
-+
-+		if [ "${has_grace}" -eq 1 ] && [ "${has_vera}" -eq 1 ]; then
-+			fail "mixed Grace/Vera-specific attributes under ${dir}"
-+		fi
-+
-+		if [ "${has_grace}" -eq 1 ]; then
-+			detected_profile="grace"
-+			break
-+		fi
-+
-+		if [ "${has_vera}" -eq 1 ]; then
-+			detected_profile="vera"
-+			break
-+		fi
-+
-+		sleep 0.1
-+	done
-+
-+	[ -n "${detected_profile}" ] || \
-+		fail "unable to detect Grace or Vera sysfs layout under ${dir}"
-+
-+	if [ "${EXPECT_PROFILE}" != "auto" ] && [ "${EXPECT_PROFILE}" != "${detected_profile}" ]; then
-+		fail "expected ${EXPECT_PROFILE} sysfs layout, detected ${detected_profile}"
-+	fi
-+}
-+
-+check_requirements()
-+{
-+	case "${CPU_ID}" in
-+	''|*[!0-9]*)
-+		fail "ARM_CPUMOD_CPU must be a decimal CPU index"
-+		;;
-+	esac
-+
-+	case "${EXPECT_PROFILE}" in
-+	auto|grace|vera)
-+		;;
-+	*)
-+		fail "ARM_CPUMOD_EXPECT_PROFILE must be auto, grace, or vera"
-+		;;
-+	esac
-+
-+	case "${ENABLE_WRITES}" in
-+	0|1)
-+		;;
-+	*)
-+		fail "ARM_CPUMOD_ENABLE_WRITES must be 0 or 1"
-+		;;
-+	esac
-+
-+	case "${ENABLE_INVALID_WRITES}" in
-+	0|1)
-+		;;
-+	*)
-+		fail "ARM_CPUMOD_ENABLE_INVALID_WRITES must be 0 or 1"
-+		;;
-+	esac
-+
-+	case "${ALL_CPUS}" in
-+	0|1)
-+		;;
-+	*)
-+		fail "ARM_CPUMOD_ALL_CPUS must be 0 or 1"
-+		;;
-+	esac
-+
-+	[ "$(uname -m)" = "aarch64" ] || skip "requires an arm64 host"
-+	[ "$(id -u)" -eq 0 ] || skip "must be run as root"
-+	select_cpus
-+	for current_cpu in "${CPU_LIST[@]}"; do
-+		[ -d "$(cpu_dir "${current_cpu}")" ] || skip "missing CPU directory $(cpu_dir "${current_cpu}")"
-+	done
-+	require_cmd rmmod
-+
-+	if [ -n "${MODULE_PATH}" ]; then
-+		[ -r "${MODULE_PATH}" ] || skip "ARM_CPUMOD_KO is not readable: ${MODULE_PATH}"
-+		require_cmd insmod
-+	else
-+		require_cmd modprobe
-+		modprobe -n "${MODULE_NAME}" >/dev/null 2>&1 || \
-+			skip "set ARM_CPUMOD_KO or install ${MODULE_NAME} into /lib/modules"
-+	fi
-+}
-+
-+load_module()
-+{
-+	if module_loaded; then
-+		if [ -n "${MODULE_PATH}" ]; then
-+			skip "${MODULE_NAME} is already loaded; unload it before using ARM_CPUMOD_KO"
-+		fi
-+
-+		reused_loaded_module=1
-+		log "${MODULE_NAME} already loaded, reusing existing instance"
-+		return 0
-+	fi
-+
-+	if [ -n "${MODULE_PATH}" ]; then
-+		insmod "${MODULE_PATH}" || fail "insmod failed for ${MODULE_PATH}"
-+		module_loaded || fail "${MODULE_NAME} did not appear in /proc/modules after insmod"
-+	else
-+		modprobe "${MODULE_NAME}" || fail "modprobe failed for ${MODULE_NAME}"
-+		module_loaded || skip "${MODULE_NAME} did not appear in /proc/modules after modprobe; built-in or non-unloadable setup is unsupported"
-+	fi
-+
-+	loaded_by_test=1
-+}
-+
-+check_sysfs_layout()
-+{
-+	local attr
-+	local expected_cpu
-+	local value
-+	local dir="$(current_cpumod_dir)"
-+
-+	wait_for_path_state present "${dir}" || \
-+		fail "cpumod sysfs directory did not appear at ${dir}"
-+
-+	for attr in "${COMMON_ATTRS[@]}"; do
-+		require_attr_present "${attr}"
-+	done
-+
-+	detect_profile
-+
-+	case "${detected_profile}" in
-+	grace)
-+		for attr in "${GRACE_ATTRS[@]}"; do
-+			require_attr_present "${attr}"
-+		done
-+		for attr in "${VERA_ATTRS[@]}"; do
-+			require_attr_absent "${attr}"
-+		done
-+		;;
-+	vera)
-+		for attr in "${GRACE_ATTRS[@]}"; do
-+			require_attr_absent "${attr}"
-+		done
-+		for attr in "${VERA_ATTRS[@]}"; do
-+			require_attr_present "${attr}"
-+		done
-+		;;
-+	esac
-+
-+	expected_cpu=$((10#${current_cpu}))
-+	value=$(read_attr affected_cpus)
-+	[ "${value}" = "${expected_cpu}" ] || \
-+		fail "cpu${current_cpu} affected_cpus expected ${expected_cpu}, got ${value}"
-+
-+	for attr in "${COMMON_RW_ATTRS[@]}"; do
-+		check_decimal_attr "${attr}"
-+	done
-+
-+	case "${detected_profile}" in
-+	grace)
-+		for attr in "${GRACE_RW_ATTRS[@]}"; do
-+			check_decimal_attr "${attr}"
-+		done
-+		;;
-+	vera)
-+		for attr in "${VERA_RW_ATTRS[@]}"; do
-+			check_decimal_attr "${attr}"
-+		done
-+		;;
-+	esac
-+}
-+
-+writeback_same_value()
-+{
-+	local attr="$1"
-+	local before
-+	local after
-+
-+	before=$(read_attr "${attr}")
-+	printf '%s\n' "${before}" > "$(current_cpumod_dir)/${attr}" || \
-+		fail "failed to write back cpu${current_cpu}/${attr}=${before}"
-+	after=$(read_attr "${attr}")
-+	[ "${after}" = "${before}" ] || \
-+		fail "cpu${current_cpu}/${attr} changed across writeback: before=${before} after=${after}"
-+}
-+
-+check_writeback_same_value()
-+{
-+	local attr
-+
-+	[ "${ENABLE_WRITES}" = "1" ] || return 0
-+
-+	for attr in "${COMMON_RW_ATTRS[@]}"; do
-+		writeback_same_value "${attr}"
-+	done
-+
-+	case "${detected_profile}" in
-+	grace)
-+		for attr in "${GRACE_RW_ATTRS[@]}"; do
-+			writeback_same_value "${attr}"
-+		done
-+		;;
-+	vera)
-+		for attr in "${VERA_RW_ATTRS[@]}"; do
-+			writeback_same_value "${attr}"
-+		done
-+		;;
-+	esac
-+}
-+
-+check_invalid_write()
-+{
-+	local attr="$1"
-+	local value="$2"
-+	local before
-+	local after
-+	local file="$(current_cpumod_dir)/${attr}"
-+
-+	before=$(read_attr "${attr}")
-+	if printf '%s\n' "${value}" > "${file}" 2>/dev/null; then
-+		fail "cpu${current_cpu}/${attr} accepted invalid value ${value}"
-+	fi
-+	after=$(read_attr "${attr}")
-+	[ "${after}" = "${before}" ] || \
-+		fail "cpu${current_cpu}/${attr} changed after invalid write: before=${before} after=${after}"
-+}
-+
-+check_invalid_writes()
-+{
-+	[ "${ENABLE_INVALID_WRITES}" = "1" ] || return 0
-+
-+	check_invalid_write pf_dis 2
-+	check_invalid_write pf_mode 10
-+	check_invalid_write pf_mode 99
-+
-+	case "${detected_profile}" in
-+	grace)
-+		check_invalid_write cbusy_filter_threshold 4
-+		check_invalid_write cbusy_filter_window 4
-+		check_invalid_write cmc_min_ways 8
-+		;;
-+	vera)
-+		check_invalid_write l2spr_cmc_max_ways 8
-+		;;
-+	esac
-+}
-+
-+check_cpu()
-+{
-+	current_cpu="$1"
-+	detected_profile=""
-+	check_sysfs_layout
-+	log "cpu${current_cpu}: detected ${detected_profile} sysfs layout"
-+	check_writeback_same_value
-+	check_invalid_writes
-+}
-+
-+unload_and_verify_cleanup()
-+{
-+	local cpu
-+	local dir
-+
-+	if [ "${loaded_by_test}" -ne 1 ]; then
-+		log "module was already loaded; leaving it in place and skipping unload cleanup check"
-+		return 0
-+	fi
-+
-+	rmmod "${MODULE_NAME}" || fail "rmmod failed for ${MODULE_NAME}"
-+	loaded_by_test=0
-+	for cpu in "${CPU_LIST[@]}"; do
-+		dir="$(cpumod_dir "${cpu}")"
-+		wait_for_path_state absent "${dir}" || \
-+			fail "${dir} still present after unload"
-+	done
-+}
-+
-+check_requirements
-+load_module
-+for current_cpu in "${CPU_LIST[@]}"; do
-+	if [ ! -d "$(cpumod_dir "${current_cpu}")" ]; then
-+		cpu_is_online "${current_cpu}" || \
-+			fail "cpu${current_cpu} went offline or its online state became unreadable"
-+		log "cpu${current_cpu}: no cpumod directory; unsupported CPU profile, skipping"
-+		continue
-+	fi
-+
-+	check_cpu "${current_cpu}"
-+	verified_cpus=$((verified_cpus + 1))
-+done
-+unload_and_verify_cleanup
-+[ "${verified_cpus}" -gt 0 ] || \
-+	skip "no selected CPU exposes a supported cpumod profile"
-+
-+if [ "${reused_loaded_module}" -eq 1 ]; then
-+	log "PASS verified_cpus=${verified_cpus} expect_profile=${EXPECT_PROFILE} writes=${ENABLE_WRITES} invalid_writes=${ENABLE_INVALID_WRITES} all_cpus=${ALL_CPUS} (reused pre-loaded module; unload cleanup check skipped)"
-+else
-+	log "PASS verified_cpus=${verified_cpus} expect_profile=${EXPECT_PROFILE} writes=${ENABLE_WRITES} invalid_writes=${ENABLE_INVALID_WRITES} all_cpus=${ALL_CPUS}"
-+fi
-+exit 0
+ -------------------------------------------------
+ 
+diff --git a/drivers/watchdog/sbsa_gwdt.c b/drivers/watchdog/sbsa_gwdt.c
+index e04d42cc7774..3c5bfd8641c6 100644
+--- a/drivers/watchdog/sbsa_gwdt.c
++++ b/drivers/watchdog/sbsa_gwdt.c
+@@ -122,6 +122,11 @@ MODULE_PARM_DESC(nowayout,
+ 		 "Watchdog cannot be stopped once started (default="
+ 		 __MODULE_STRING(WATCHDOG_NOWAYOUT) ")");
+ 
++static bool early_enable;
++module_param(early_enable, bool, 0);
++MODULE_PARM_DESC(early_enable,
++		 "Watchdog is started on module insertion (default=0)");
++
+ /*
+  * Arm Base System Architecture 1.0 introduces watchdog v1 which
+  * increases the length watchdog offset register to 48 bits.
+@@ -296,6 +301,7 @@ static int sbsa_gwdt_probe(struct platform_device *pdev)
+ 	struct sbsa_gwdt *gwdt;
+ 	int ret, irq;
+ 	u32 status;
++	bool early_action;
+ 
+ 	gwdt = devm_kzalloc(dev, sizeof(*gwdt), GFP_KERNEL);
+ 	if (!gwdt)
+@@ -386,14 +392,23 @@ static int sbsa_gwdt_probe(struct platform_device *pdev)
+ 	 */
+ 	sbsa_gwdt_set_timeout(wdd, wdd->timeout);
+ 
++	early_action = early_enable && !(status & SBSA_GWDT_WCS_EN);
++	if (early_action) {
++		sbsa_gwdt_start(wdd);
++		set_bit(WDOG_HW_RUNNING, &wdd->status);
++	}
++
+ 	watchdog_stop_on_reboot(wdd);
+ 	ret = devm_watchdog_register_device(dev, wdd);
+-	if (ret)
++	if (ret) {
++		if (early_action)
++			sbsa_gwdt_stop(wdd);
+ 		return ret;
++	}
+ 
+ 	dev_info(dev, "Initialized with %ds timeout @ %u Hz, action=%d.%s\n",
+ 		 wdd->timeout, gwdt->clk, action,
+-		 status & SBSA_GWDT_WCS_EN ? " [enabled]" : "");
++		 watchdog_hw_running(wdd) ? " [enabled]" : "");
+ 
+ 	return 0;
+ }
 -- 
-2.43.0
+2.45.2
 
 
