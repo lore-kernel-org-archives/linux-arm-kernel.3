@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DE1FC5B572
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 768F9C5DF7D
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 21:14:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mm3hvT4aeyyCxbTRBeO5ywVBxWxJNoMgGy+q5pgZHTE=; b=urNFbPRxnV9uZdZHSTRTFCH3Yj
-	DLRyEg7948QC/9x6gXh7JgwnnJxiXbWXvZxeNidAstxNBQpZ4vlwh6F6LxE4xLDZ1tgvOgstRZqwT
-	e09PQJFQOmzBubOmzFqWZfm39+JtrpzrB2vApPN8aRM0ysef5b8rbtdrTahc399zz7MF62iwuw0YV
-	Qg7s9ybY7IRUPp3vD+foEspRMCgGiiiz+j5UQ16HulE4mdCipv4+QsHy+tsCWoG3IN5BtAKtX/a0l
-	I5Ang57Kbhvo4aqcXN/koRIDQRtLgd7RNGbX5SJBcx2mA5FTpM9I6EDaGvJEANW5WUP2L5MF9Qof1
-	TvGPLVKA==;
+	bh=nnxWEUAZfDBtEp1r6V4GV/4y5UUjY6QTewuwXNl2bfA=; b=19/oIu/WMx87OdAJJ6Oi3BDYpC
+	ScrMUrnGoBNbJTSMRLebW8tDt0FM9VYx9pIP5HgnnVA9VZ9opFm70sYSJNG1wnoV1O3dtrr4PNe7p
+	bv0KxYqiFM8/+oiJwXdFxoPOVWjdZwUFB6teVPp8/WxdNVdgri75ZsV4yc7BkOd8qP6bgD/F+/BqL
+	t9AHDAB8D1tVWWo8UKty9inBO2edP3hO588QcQ0vWmFJorTiW3CMIoojniEOU3jzRbBdGmGWCUwOL
+	Q3baouLd0tU30U+M/ViesYgH8jSEMC7epW4a6zxKi1zJXN79cbCo+jzdw6Ga/OfbBOzGj4bdx2rLw
+	laPRHOPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww4eZ-00000006ogt-3TQd;
-	Mon, 17 Aug 2026 21:13:55 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1ww4eh-00000006oiH-3tOn;
+	Mon, 17 Aug 2026 21:14:03 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww4eY-00000006ogf-1YCm
+	id 1ww4eZ-00000006ogm-2CkR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 21:13:54 +0000
+	Mon, 17 Aug 2026 21:13:55 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7C1CA601DE;
-	Mon, 17 Aug 2026 21:13:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A84991F000E9;
-	Mon, 17 Aug 2026 21:13:52 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E55CF42ABA;
+	Mon, 17 Aug 2026 21:13:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1707A1F00A3A;
+	Mon, 17 Aug 2026 21:13:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787001233;
-	bh=mm3hvT4aeyyCxbTRBeO5ywVBxWxJNoMgGy+q5pgZHTE=;
+	s=k20260515; t=1787001234;
+	bh=nnxWEUAZfDBtEp1r6V4GV/4y5UUjY6QTewuwXNl2bfA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=olxO1rMmeg5p8l8iTU8CMNGQJmbsHAYG1h/8MUgHSJPV7Q7h67VFgyqMBLULrmOQe
-	 SoWUzwhwUcpN+RwM/WwmX18Vol1zhao8FcfVpGNUFJtexRjovQXzwG68fSJm1JQGoa
-	 3PxRWtdryDJJREXPP8ZOhNGRspz6qpai5IgoCT+y9e/9IwpgNLIUWfQT02bL5AYUln
-	 cST5apKEmqFnfNQVXU9RFdUzSeRxMzzmAHfDNXrZq8hPYFkEmY8Cu+5FUEpRR1f0RR
-	 N0pkhkOmsPLywQMKH6vYuK4JFReaHbp106dk2eShSiR2aQDnf5kCt/2r0H+iHhk2T0
-	 ahNwmEY267PpQ==
+	b=dZD7ZD5LCMf0q8gFz7SrIp5q9hD7tU/9D24lCiJAh4nhE5XMWJUuWEdiv27XKlQ1m
+	 8lcCqSHrtyT+bFStuuppYTgfARfB01WsGEgIZeDGMGOSOFZReDTI1C0YZMakbYzpzP
+	 AXumDoos4/wgUTWnuh4YHawHvbA/JVtYJ2RC4abklkkn76PdAVthIztdEFnos5vWYU
+	 MPJHO7Wp9XL4DkfXj7eUeZoBuV4AHQim6TJ57QD1WpICigyjQzxWaQitlGYSOHvWjp
+	 P+Pd+byzM6AtLqij2loD52xHE6qWR3MawwI2zVay4lfhls+Og39PBBtICPAm6jSW7S
+	 bYOXDZsV1KROA==
 From: Jakub Kicinski <kuba@kernel.org>
 To: jensemil.schulzostergaard@microchip.com
 Cc: Jakub Kicinski <kuba@kernel.org>,
@@ -60,12 +60,12 @@ Cc: Jakub Kicinski <kuba@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-hardening@vger.kernel.org
-Subject: Re: [PATCH net-next v2 1/9] net: microchip: vcap: fix rule move for rules of coprime size
-Date: Mon, 17 Aug 2026 14:13:33 -0700
-Message-ID: <20260817211333.3633182-1-kuba@kernel.org>
+Subject: Re: [PATCH net-next v2 3/9] net: microchip: vcap: make vcap actionset decoding type_id aware
+Date: Mon, 17 Aug 2026 14:13:53 -0700
+Message-ID: <20260817211353.3633288-1-kuba@kernel.org>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260810-sparx5_l3_routing-v2-1-59e68cc8c8ca@microchip.com>
-References: <20260810-sparx5_l3_routing-v2-1-59e68cc8c8ca@microchip.com>
+In-Reply-To: <20260810-sparx5_l3_routing-v2-3-59e68cc8c8ca@microchip.com>
+References: <20260810-sparx5_l3_routing-v2-3-59e68cc8c8ca@microchip.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -85,107 +85,56 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 This is an AI-generated review of your patch. The human sending this
 email has considered the AI review valid, or at least plausible.
 ---
-net: microchip: vcap: fix rule move for rules of coprime size
+net: microchip: vcap: make vcap actionset decoding type_id aware
 
-This reworks the VCAP rule move logic so that insert and delete compute a
-single uniform address offset, aligned to the LCM of the rule sizes in the
-moved block, instead of per-rule "optimal" offsets. The goal is to keep the
-software rule addresses in sync with what the hardware move command does,
-which becomes necessary once rules of coprime sizes (2 and 3) appear with
-the LPM VCAP.
+This adds a helper, vcap_find_stream_type_id(), that pulls the type_id
+bits out of stream[0] just after the typegroup bits, and uses it in
+vcap_verify_actionstream_actionset() to compare the decoded type_id
+against info->type_id instead of always returning true.  The code change
+itself looks fine; the comment below is only about the commit message.
 
-One question about the delete algorithm description in the changelog.
-
-> On delete:
+> net: microchip: vcap: make vcap actionset decoding type_id aware
 >
-> 1. Initialize HW memory at the deleted rule's addresses before
->    moving, since the moved block may not fully cover them due to
->    padding.
-> 2. Reclaim any padding between rules in the block.
+> When reading a rule back from hardware, decoding has to identify which
+> actionset the rule was written as. The existing logic was only aware of
+> the actionset subword length, which cannot distinguish actionsets that
+> share a subword length but differ in their type_id field. The LPM VCAP
+> added in a following patch introduces this case: ARP_PTR, L3MC_PTR and
+> ARP_ENTRY all occupy one subword and differ only by type_id.
 
 [Severity: Low]
-Is step 2 accurate for the new implementation?  As far as I can tell the
-padding that sits between rules inside the moved block is preserved, not
-reclaimed, because a single offset is applied to every rule in the block:
+Should the sentence "The LPM VCAP added in a following patch introduces
+this case: ARP_PTR, L3MC_PTR and ARP_ENTRY all occupy one subword and
+differ only by type_id" be reworded?
 
-drivers/net/ethernet/microchip/vcap/vcap_api.c:vcap_move_rules_sw() {
-	list_for_each_entry_continue(pos, &admin->rules, list)
-		pos->addr -= move->offset;
-}
+Two details don't seem to match the tree.  First, there is no L3MC_PTR
+symbol anywhere at this commit; grepping for L3MC under
+drivers/net/ethernet/microchip/ only matches the unrelated register name
+GA_ANA_L3_VLAN_ARP_L3MC_STICKY.  The one-subword LPM actionsets that do
+exist are just these two, in sparx5_vcap_ag_api.c:
 
-Since every rule in the block is shifted by the same move->offset, the gaps
-between rules within the block are structurally invariant across the move.
+static const struct vcap_set lpm_actionfield_set[] = {
+	[VCAP_AFS_ARP_PTR] = {
+		.type_id = 0,
+		.sw_per_item = 1,
+		.sw_cnt = 12,
+	},
+	[VCAP_AFS_ARP_ENTRY] = {
+		.type_id = 2,
+		.sw_per_item = 1,
+		.sw_cnt = 12,
+	},
+};
 
-What appears to be reclaimed is the deleted rule's own space plus the
-padding adjacent to its position, and only down to block_lcm granularity.
-In the delete path unaligned_offset is always negative (block_first->addr +
-block_first->size <= ri->addr <= base_addr), so the truncating branch is
-taken in vcap_move_from_block():
+Second, the colliding actionset metadata is not added in a following
+patch; lpm_actionfield_set, lpm_actionfield_set_map and the
+sparx5_vcaps[VCAP_TYPE_LPM] entry that references them are already
+present at this commit, added by the preceding "net: microchip: vcap: add
+lpm vcap to autogen vcap api".  Only the sparx5/lan969x LPM driver
+enablement lands later.
 
-drivers/net/ethernet/microchip/vcap/vcap_api.c:vcap_move_from_block() {
-	unaligned_offset = (block_first->addr + block_first->size) - base_addr;
-	if (unaligned_offset > 0)
-		move->offset =
-			((unaligned_offset + (block_lcm - 1)) / block_lcm) *
-			block_lcm;
-	else
-		move->offset = (unaligned_offset / block_lcm) * block_lcm;
-}
-
-Integer division truncating toward zero leaves up to block_lcm - 1 addresses
-of the gap unreclaimed at the boundary.
-
-Could the changelog wording be adjusted to describe what is actually
-reclaimed, for example the deleted rule's addresses plus adjacent padding,
-rounded down to the block LCM?
-
-> diff --git a/drivers/net/ethernet/microchip/vcap/vcap_api.c b/drivers/net/ethernet/microchip/vcap/vcap_api.c
-> index 788c0728d7636..75c2ca54fddd2 100644
-> --- a/drivers/net/ethernet/microchip/vcap/vcap_api.c
-> +++ b/drivers/net/ethernet/microchip/vcap/vcap_api.c
-
-[ ... ]
-
-> @@ -2106,12 +2108,63 @@ static u32 vcap_set_rule_id(struct vcap_rule_internal *ri)
->  	return ri->data.id;
->  }
->  
-> +static void vcap_move_from_block(u32 base_addr,
-> +				 struct vcap_rule_internal *block_first,
-> +				 struct vcap_rule_internal *block_last,
-> +				 int block_lcm, struct vcap_rule_move *move)
-> +{
-> +	int unaligned_offset;
-> +
-> +	if (!block_first || !block_last)
-> +		return;
-> +
-> +	move->addr = block_last->addr;
-> +	move->count = block_first->addr + block_first->size - block_last->addr;
-> +	/* Integer division rounds toward zero. We want to round toward +inf
-> +	 * for the positive case (insertion) to ensure enough room.
-> +	 */
-> +	unaligned_offset = (block_first->addr + block_first->size) - base_addr;
-> +	if (unaligned_offset > 0)
-> +		move->offset =
-> +			((unaligned_offset + (block_lcm - 1)) / block_lcm) *
-> +			block_lcm;
-> +	else
-> +		move->offset = (unaligned_offset / block_lcm) * block_lcm;
-> +}
-> +
-> +static void vcap_move_rules_sw(struct vcap_admin *admin,
-> +			       struct vcap_rule_internal *pos,
-> +			       struct vcap_rule_move const *move)
-> +{
-> +	if (move->count == 0 || move->offset == 0)
-> +		return;
-> +
-> +	list_for_each_entry_continue(pos, &admin->rules, list)
-> +		pos->addr -= move->offset;
-> +}
-
-[ ... ]
--- 
-pw-bot: cr
+Could the message say the LPM actionset model is added by the preceding
+patch, and drop the L3MC_PTR reference?  The premise that two actionsets
+share sw_per_item = 1 and differ only in type_id does hold, so the change
+itself still looks justified.
 
