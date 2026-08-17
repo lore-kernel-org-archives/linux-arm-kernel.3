@@ -4,109 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06CC4C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 02:57:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E01FC5DF6E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 03:02:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3E9pfv5IoCCsu+3HPCYQctwF4eS0EkJccI7K/G2Hrfc=; b=Z3Nx/zLkWz4WfnpTdBpVgssGy/
-	DX936Yoc7EEyeSY57RXKfs5NrU71tI+nBqizXSbiRmuqvkFwgb/Yqya+OKRzEUQH6l9dXmc9sw5YB
-	q+80P1F/A/x9y2K3SX1nFnm5ENgDFbWPGIMmfy08PhvIK0x17VUK8OFyIl0wXhrAtWKy7FNBaNcqo
-	iQpLspdXeiiRvLr60jfY3aJxBhs2pUxavDg/KGP7va4CvwD9Mtk5yITA6d65un3xuWddlXiQk2gTt
-	UkhI+8qg3oXrjmEwuMHGH3/+MdnyZqMpsRaSMW/sUHyaHdo85SfXPNguq1kcsJOPHwDlIQ0esqPoI
-	5t0P+rxg==;
+	bh=uoPRcyj+hdrIjGKCyD/qLhw7uRyYr6i7kyf8wnqQcfk=; b=ijyDjyorG9oB3LJvfCjhZKwq6r
+	8IrpV5FF2p1eljZvGuay5I/qlP0lzq+Ed+e4DEd/laQ5NuP6JKUOAIr1bOGzy0awkfKCAM4/fHFye
+	ajgKTBFfeSzvS5ppT7AkZUlvQrmpfxf2/jSP8t/c3yfV8wvXtiPUBG+VUXKvuM/BWUTKdYhp+Uysf
+	k3kovJZj+qQVk2eJCkTrotyXjNIE/tHjF2IoORi9m/bJKBRrh6bC1aK5LfqZTw0vo0vnOT6WcK+fb
+	FcUMJzzS8QCKWAHOFg5PBJ2YpVaoytqwURj9obKlYuxCTdWgdrZpQtimixml/dnjoxxDl1xrn8B12
+	INaxSSgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvnXR-00000005LGI-3K7n;
-	Mon, 17 Aug 2026 02:57:25 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1wvncL-00000005LVI-2fhg;
+	Mon, 17 Aug 2026 03:02:29 +0000
+Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvnXP-00000005LFw-1MIx
+	id 1wvncG-00000005LSo-3mI3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 02:57:24 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-49557167508so28978375e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 16 Aug 2026 19:57:22 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1786935441; cv=none;
-        d=google.com; s=arc-20260327;
-        b=MrPPBYg5NZS41lLW3l/pZb433r/Rv5DAbHxynePBZ3sjuFRDjZygDcWEZtuZYzcwoG
-         zEoCpfo4KydFSWdc4m9o1Dzy39tf4br8vLm8c0onwT+XeFIm2euJUDCROoBkP6znViNd
-         g17ygRQNLhvMtjEy4Qq/lYc2Qyh+hRmWRn98t1fjOsgYgqteuZ1eaMmZA3njzn96zoN/
-         oTMaPD3ekodtJBL+7eC6Wd2lfHv/nwLpNwYf6SneYLWbvZZCmpcrOcdNhpMtY1Okdrgo
-         NEIaKdczKT6JkYWNt2VJNxwXfJGyvXcKY2qKrlzvxiTJJUJwfao1QhxHSHxv1UBZzocE
-         I7Qw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=3E9pfv5IoCCsu+3HPCYQctwF4eS0EkJccI7K/G2Hrfc=;
-        fh=4l9oP0nSBGXYUJZc10XaKTZm4a1EvbSpEzmex8mwhIk=;
-        b=oIZc4rzXaKGzKp4/8iWo0bAq1mxDSnX6vP6hKromuyZ124mfTsnqejKu+cPaJuJJSA
-         PKn8Xd3Fpj9qIONKAnGaqBbQGMTj0DoR8+v+uwXr0HMiQ6C6iYQfOLg5SNyayfkXCPVK
-         0w+CGplqGPWE+2MQb7uxabLMM/NX8iyrIk8ZELbRe8lmqg39+UxSpssO8SRP/4zARb6o
-         vn7xKmm9VKY3lqp6+zo39ZtkNj43j/26mRnhQM1LZkETHerTDfPcbxpiamgXEl1g/dig
-         uT/pbDt/7TaRIvK/FefVmvv3k2cmdMZuZm/EcYIXNSG8B9jv1URWc9Kbh/4qejwOaYwZ
-         0Rxw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786935441; x=1787540241; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=3E9pfv5IoCCsu+3HPCYQctwF4eS0EkJccI7K/G2Hrfc=;
-        b=ptTaihBls1UwVujyU4dUuN0/fF/zlo/n3I24QTHzeBZz13d7p+r2Qhh5jNvoZGlsIU
-         MR2ack88YzRoxxkMliv1yKVpqlwBbPOu9FmqA8fqvuevy8NOFKEnuyPUNvGUZ1+LajxG
-         MhwzZ/p1oOERN+uN7h/lkcf4CyH0/Yf8xkRtQReL84nmZIROf7dVJqYINWheFpdukAVH
-         47MjQyJKoUGwsiTdY393nwe1bcfSZIFoX3mvG4uSIORr4FuAWWIIsNTQkNZ/7FWrTVh0
-         V+CXFVhwsxrq+YtiaUgQKKKvpvv9WRcAUJ4ffhjvlHgMv9JD50I3you9kgzW8ObPihI8
-         R2Zw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786935441; x=1787540241;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=3E9pfv5IoCCsu+3HPCYQctwF4eS0EkJccI7K/G2Hrfc=;
-        b=WVGwTvhi9E5BBVXaRm6SOYzVM+ftYHwSMyy6pKeimgVPOVX25Fne7fg3IHNDGe4CWu
-         pdTUxvqoPSCaQEJomVqDF/lo6xtOcxOQHfqSARMV63oy8fhx+oIBP6OUcI68fqQlBete
-         O57x1VqOjJuWdWHU0suYJbNHBCOC1RjZU4K4f5KhTKa4SJ7I4l6mViF7nC7Pxh/UjjT2
-         VGZaExwIxR50XLJiS6vzHwHCn5IJCDOaBO21aIulPti5FWSBlYKr1jw62gypkT4MgOTb
-         mAJVetHD8+fz4OyBbvssoceURp+YF3h27zc1XMDuLM7VwrSZKo12U5UKJ1dht2iYXepR
-         Z+ZQ==
-X-Forwarded-Encrypted: i=1; AHgh+RqhFRKVSGBFpL9/+7sdAlM94mJCzyBdOvtHRPEJdYfTz3jEm6WPuyn3Tqi0tCkpbjHFJpnPjcWmYUu+kiag6daa@lists.infradead.org
-X-Gm-Message-State: AOJu0YxVyKN3NtqRR0dp7RHKjWKuWjNUfkcy/KtDX/YJnLBgz9GOYjvU
-	2KpuAx1tJ21J9QWhIqdmUz2TbJ0AUIunIQiNVVwI0+k7+7Dhj4fUYGMwXZpQIoO960xbM+p/1rT
-	QdU11ktqJaFOurCsUlFVpp4AhBpVdOOg=
-X-Gm-Gg: AR+sD12CAULmQA5DAqKq8jYqZNXaNbOxEDTunYbpKsSoU5CBtpNiTMK4pUDeEhFEPQF
-	2zy17uJQpIygZ9rsRh4cclLfH5NIxNQW1iBZmV2DBKQ6/7yUBSR3AC7haOA5Fm0RoHwhrgtRV5u
-	TKbm56pIWxRW9MtTUmLkA5TyBMx4kqJjtJm4hYvF078/z/h3zV8fISiDTMSmFmFkR7D4XzoaxUt
-	fCDrgCDluhHJrDlP4Xle9f+JwGuxBm1TaiPNC320z1mfjqjEYWqUTZEX1XATQYYIsRydiIPslxQ
-	doKHPi8C9k5v9MwqbDF4omHasp7rhJYHRvtRe742l3XdMrlDyW2Y0qV/IKs1VpbBQH621H+4n+M
-	mrA==
-X-Received: by 2002:a05:600c:4e13:b0:498:11b5:3ff7 with SMTP id
- 5b1f17b1804b1-499879bd2e1mr332951265e9.18.1786935440695; Sun, 16 Aug 2026
- 19:57:20 -0700 (PDT)
+	Mon, 17 Aug 2026 03:02:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DFbCerWAJgMG/14xEbOY03kUv1S7FlTTRTIP5Wecyema9QAw9gnTsF1p+U8kdwMDpHTZ5+Fe+gZ4mmIMzZB5GkcSwo8ygcBYiN+d+UYOxThZXDMc7VB0Q0dJ+AaV00Yp/n+fSeeQ3JDc5EgJxzFsyrsMQDPZUwWKLqhrGkuVjdAziZk7214M3RuVbfElLlhW6AdgDADsHax0CiNV41NjNjH1gaxNWdVs5PJPFZYUJoUW5iXNO0ewjdQWjM3JeTtxXGhRWtOSYE6VvBLAninIlf4Y6ICDBMzOzZHedH3nMyZ5wBeYAHka0ID+mp0ORCJd/eronQbGcBlqy8uttsqaDw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=uoPRcyj+hdrIjGKCyD/qLhw7uRyYr6i7kyf8wnqQcfk=;
+ b=QEvCx3ubPWrimiB0xXPGNFPaoLOC5QF1Y6PVjvPpFVXFNZDJbjKUuqfTjc9mX5e8wIeDoJfu4O2K2srTYW6z/CSAqXk7rUtcuIdRkREimt3Hp8e5XUwTIXV/rooyI291/n+it623cTvizxt+PlCRu/UyhlvwSsL128jHmpHxIGCtcFm/9ee1XOqwCq3Vgbz0YmTKjPYRcOVqyzq9gDaWc0SOs9buBq1emu343pYqFS303UchGqDn7fyIis6NDIbM/tqpMQR37YcAC3yDvltGaimZo+1tur8/fcsqvPcR9kvy7Q3rN2V/Y4P6ztMHYskI9FMrrLMzZtCykdZy7pvAhw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
+ dkim=pass header.d=altera.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=uoPRcyj+hdrIjGKCyD/qLhw7uRyYr6i7kyf8wnqQcfk=;
+ b=vCg3hNcLN3HSzo7mIH7LIocsWkAJIibym9UoQO0AxTwuFNeFG/L1Y7EreAylPcZks5YyhMb6L0IeS4W5aQ8D15PWVTRhf6eIyenLsxSzaWJaWaTxye++F/hOhva3lFlc38TRq1///l5Z2JQHnAoXTkWw76hS9hUwfcxTKSVSI99GsCMNmPi7mMWo2GGMjKHd1AoDCtsCysBCdAPLypACI8nPQzjTnBf4+t7CYFdq1UGy6rti24mayro8wqEfaupqk4BBNg0WCoSun7PPWTJK1h3GBaMDUfE2RmbHN93lVQsYW2jHxkDQiof9N+gJWcHs5qZFJ/rPVjNWzMlETCaAxg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=altera.com;
+Received: from SJ0PR03MB6964.namprd03.prod.outlook.com (2603:10b6:a03:432::18)
+ by LV4PR03MB8355.namprd03.prod.outlook.com (2603:10b6:408:2da::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.17; Mon, 17 Aug
+ 2026 03:02:17 +0000
+Received: from SJ0PR03MB6964.namprd03.prod.outlook.com
+ ([fe80::b965:bfa8:58fb:e775]) by SJ0PR03MB6964.namprd03.prod.outlook.com
+ ([fe80::b965:bfa8:58fb:e775%4]) with mapi id 15.21.0315.016; Mon, 17 Aug 2026
+ 03:02:17 +0000
+From: muhammad.nazim.amirul.nazle.asmade@altera.com
+To: dinguyen@kernel.org,
+	maxime.chevallier@bootlin.com
+Cc: rmk+kernel@armlinux.org.uk,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	robh@kernel.org,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	andrew+netdev@lunn.ch,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v5 1/4] dt-bindings: arm: altera: Add Agilex5 SoCDK TSN Config2 board
+Date: Sun, 16 Aug 2026 20:02:10 -0700
+Message-ID: <20260817030213.6769-2-muhammad.nazim.amirul.nazle.asmade@altera.com>
+X-Mailer: git-send-email 2.43.7
+In-Reply-To: <20260817030213.6769-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
+References: <20260817030213.6769-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SJ0PR05CA0096.namprd05.prod.outlook.com
+ (2603:10b6:a03:334::11) To SJ0PR03MB6964.namprd03.prod.outlook.com
+ (2603:10b6:a03:432::18)
 MIME-Version: 1.0
-References: <20260816142222.689624-1-kunwu.chan@linux.dev> <20260816165630.84808-1-sj@kernel.org>
-In-Reply-To: <20260816165630.84808-1-sj@kernel.org>
-From: KunWu Chan <kunwu.chan@gmail.com>
-Date: Mon, 17 Aug 2026 10:57:09 +0800
-X-Gm-Features: AcwNN1Wv4FilngBM7zb7KtysHXMyaR6NdUjrcCRsxZOtSQWQVLsk7gEZuLi0ywA
-Message-ID: <CAN_Opa-aEvmx7Y0xPXHvhaOurt2-nnDMxLjGaHCdMXDsQC=2Xw@mail.gmail.com>
-Subject: Re: [RFC PATCH 0/4] mm/damon/perf: add ARM SPE AUX backend
-To: SJ Park <sj@kernel.org>
-Cc: will@kernel.org, mark.rutland@arm.com, akpm@linux-foundation.org, 
-	shuah@kernel.org, kunwu.chan@linux.dev, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
-	damon@lists.linux.dev, linux-mm@kvack.org, linux-kselftest@vger.kernel.org, 
-	lianux.mm@gmail.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ0PR03MB6964:EE_|LV4PR03MB8355:EE_
+X-MS-Office365-Filtering-Correlation-Id: bc2a0d7c-eb65-4de2-b3ee-08defc0bf200
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|23010399003|366016|56012099006|10067099003|11063799006|18002099003|22082099003|55112099003;
+X-Microsoft-Antispam-Message-Info: MGyoJU0BM5qCHY5TE+A1kuXTLtZo33kZ6AIUAHtJYMktomUeDocDAj7oga0lKaHirJAN6NoEVCrXzF1jqkN2QlnSP2EFqVAzEXdkO28DeWLGJ90Bydbb1UpmyPg9rgl+nmeZdlx019eCFlcBjpNIzyWlQY5Aqyw8kM3ur1TfjfFL8586uTI9LtXsatDX4ydohTe2m328yRBwy3p3wid3jzZMGjNr/w54uIHtkbzKjBq0LE6KXsKmn/QS2+ktor24aXwfHp9xopDpGM8PVWbZERYXg+lVIjjbl+E7YJQYoIQ5ur9SF5QYO0w+UHHcsxSbodHtUGpZJ9Vt941SyTcQNPpxdHkE7aWC3YrMN0zrP34pIEvkRrBTOKgoE8cvoiLDP0B5zlnQ9WwuDS+xbNQ5W5Fnk9Ii4nCDTgWB3AKQ6ekV7CPC9nia5mittDZeZh7cr8PjQqQyowc4AQdZQOo1Jjqp9mXX4qsOaysQs0MRt4LlxoMa5nDeqdE0A/Et7TAVTBx4xy2Y/hA9dcR1Qtza8U1GFK2BRYZBN9NmcNDvuzylVHV6yqgaSLwOYkU+7DBs7KdgLQTwrGSp465mMMmY3GAkcKCH/48hsDsHX/ypjEsnet56B13lKloo6i8ZvMh13qhT+uHdKij0Vwa5LsJ0FX0INtgwkJDC+Tv3IyQT7sc=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR03MB6964.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(23010399003)(366016)(56012099006)(10067099003)(11063799006)(18002099003)(22082099003)(55112099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?gSidxD9snAHAs/yzhicBI+khqbvdF96+NDBO10HoD00uAC4ttIJbPgeSxtz0?=
+ =?us-ascii?Q?s42uuxC/zL+niqY4O/ZbOt7PiejaNqApxQGQ4NnH0X7taHMd0CrShdizC2C0?=
+ =?us-ascii?Q?15QQCmXt7OWmaObEzWuUVSJI4bbi5AEJYUWYH8X587efLAWlhtTQ5WsjQY7K?=
+ =?us-ascii?Q?zk6KFB20E0bNAQeOK+cM8q8wgZwslynvrauwIJQdbiYuPtYJvEEWPkSk3ouD?=
+ =?us-ascii?Q?fTHQEIsSmVS986ri1iXQ7HXEzM15he/l1FssrxNyoV8+kwQubOVCKOgBhOB5?=
+ =?us-ascii?Q?p8AHS2ORC0Qjcp6ZOWmjYUUyan+TCO/tsHzU8FbTSmm8HhgDGFbJF6sIGPw6?=
+ =?us-ascii?Q?MP4PW6KohxV4/taq2fTUFQU9a6KJfN/UM1cSm4c4T6nd6HhmbyRRKyovU4ht?=
+ =?us-ascii?Q?qj+/fKTfKJLB9PmK9RybCJr0MdHE8bXCPBlzDdgM4OKIo4R9XkRxoJibL3WM?=
+ =?us-ascii?Q?PANqM42dsD2iZP02g5hn6xIs3Y6BRZIZKcB0Wh4uyN5nXmrLdI3HPDUwVLEk?=
+ =?us-ascii?Q?ETnRNEQImkFAYbnaYBvbxTaNq3kfxPoRxPWCMCthfe9GleahaGExUB2/H/X6?=
+ =?us-ascii?Q?Ez5y4cVoG4t0e1xSGixDdX5H7uUmux/B4OGC89iiRREuRL5IeFeptlhtGtl6?=
+ =?us-ascii?Q?Vkymt+0jP1vHUVW6xSyegBooWKETQ1PKIVnh3pI0oUo4AFpIjaM/aYlgOyW2?=
+ =?us-ascii?Q?mcELhc6nmmauCkNu4sQ6mMjAngYG6MKM2VJ8QMpipv20xVSDxGsx6oKKNQFq?=
+ =?us-ascii?Q?bLkNfSvr/qWTJccssgW/IiFQVngwzOuzWvGTKoEsniTJD3DMbZA/Q1QF+L84?=
+ =?us-ascii?Q?MObtiDzDSOLEjsD3tDva5p3rT/IQC93yzHG85N0NYIAVp7YeSZwaZD1mvPP9?=
+ =?us-ascii?Q?FF6WFyGmeZ1ZAWmYcKJgeA4F/x/8B+AeM7SEKyCItjEYsPW6qYbqVRAKY1iu?=
+ =?us-ascii?Q?BNCXwc/CNu/lULXNr6vn/8PzS0QuuNx7rce13YhrzHX2IGxSebrnP4lvGv+J?=
+ =?us-ascii?Q?6sini6eHBBwFkSh5Dy+Zcvr3Xlhgd/X0mMow8pzJZ4fTxB+OaOokVT+0Do92?=
+ =?us-ascii?Q?Jv8VLl4xTpcwxURN0JryfnxE8vC8nMQhm3xj4FvJKnNKWEVdlYOmy9Kt+Wjc?=
+ =?us-ascii?Q?GeZMBiZi+rVd2BJefc+myI9yBVkQ0DjxPIiZsz1f3cTJpuuFQ3rgLIvmdMba?=
+ =?us-ascii?Q?+O1qI/T9TKUKotBQqYVv4aQKKLgUM8WhuK1aWAijvxviRRXsY9v7RWX5PTjA?=
+ =?us-ascii?Q?efrwlRvGtBo9xUWo6Pi+kRU7VODhxc2eVOhKEvreS+X+EdG+0dNFZx7xryfi?=
+ =?us-ascii?Q?UCjJNm7jjXktEgzX2OQp/kIi1LpmiPavGoyymeorpxBaeQNAx1lI9cws8/ai?=
+ =?us-ascii?Q?LhZnSwXfm+THZq1gsqR5CbwB1byHVKW4NAmdy/0K1VFPrq16bN6MWEXEPBe5?=
+ =?us-ascii?Q?gEiyIMKJqGuDBs5SRRRswJe6C2UGoCLnuDFsdqU5AamkgmdqxEt+0ubOmbDL?=
+ =?us-ascii?Q?g/S7jbOtyPfggRyo4M3i1p6KXOUpTR7T8dTNg+11QxanuUQ5c3A+MGJ9nGIf?=
+ =?us-ascii?Q?koS78mqXwripT87JR1qy92I2uHrfWsxuib31tbZBflndDFyB5dNJnixVlyCG?=
+ =?us-ascii?Q?1AncIK3iOrNXiwsGw9574c6zZlDYgf02AVKhfv1KIYrTsW1y2jqk4LlkoIc3?=
+ =?us-ascii?Q?tOhYsz7zvIAiYw796DBM+xlNX/C1eCzkbsMGXvUoALuikK15NbfbSxPCiAxa?=
+ =?us-ascii?Q?8ZLGLLGXv4xxhS9/84k11KZXUsghiiColM4eEl9iCp7uqcMpDMEyo8Dy/+M1?=
+X-MS-Exchange-AntiSpam-MessageData-1: teZwljLCU4oB8g==
+X-OriginatorOrg: altera.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: bc2a0d7c-eb65-4de2-b3ee-08defc0bf200
+X-MS-Exchange-CrossTenant-AuthSource: SJ0PR03MB6964.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Aug 2026 03:02:16.9705
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: fbd72e03-d4a5-4110-adce-614d51f2077a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: FQZy90hdylgK6oSJ+ZDWQCLteKG+Ac1ixyALwSNn86QQ75Qfpf8SIAaKgpQP4b+SApVrWrAJVeuP7TalEc5tJJfSoKIIv48gMqcrtoQWzrBAZjUNts9QxV50+kFCaH7N/SFvVB9BfjYYMRqtFHhPDQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV4PR03MB8355
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260816_195723_412156_94A7CF41 
-X-CRM114-Status: GOOD (  24.71  )
+X-CRM114-CacheID: sfid-20260816_200224_951141_0341659D 
+X-CRM114-Status: UNSURE (   8.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,93 +151,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello SJ,
+From: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
 
-On Mon, Aug 17, 2026 at 12:56=E2=80=AFAM SJ Park <sj@kernel.org> wrote:
->
-> Hello Kunwu,
->
-> On Sun, 16 Aug 2026 22:22:17 +0800 Kunwu Chan <kunwu.chan@gmail.com> wrot=
-e:
->
-> > From: Kunwu Chan <kunwu.chan@gmail.com>
-> >
-> > This series adds an AUX trace-buffer backend to the DAMON perf
-> > observability framework, enabling ARM SPE (Statistical Profiling
-> > Extension) to deliver hardware-sampled access reports into DAMON's
-> > existing SPSC report ring.
->
-> Awesome.  Thank you for making this.  This will make DAMON be more useful=
- on
-> ARM machines.
+Add compatible string for the Intel SoCFPGA Agilex5 SoCDK TSN Config2
+board variant. This board enables gmac1 as a TSN port with an FPGA
+GMII-to-RGMII converter providing the RGMII clock delays.
 
-Thanks for the feedback.
+Signed-off-by: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+---
+v5: No changes from v4.
+v4: Fix wrong email address in Acked-by tag from Krzysztof Kozlowski.
+v3: Add missing Acked-by from Krzysztof Kozlowski inadvertently dropped in v2.
+v2: Replace mac-mode DT property with compatible string detection.
+    Use phy-mode = "rgmii-id" to reflect MAC-side delay handling.
+    Fix Makefile indentation.
 
->
-> >
-> > Patch 2 touches drivers/perf/arm_spe_pmu.c to expose the PMU matcher.
-> > This change is tightly coupled with the DAMON AUX backend.  ARM SPE
-> > PMU driver maintainers only need to review patch 2.
-> >
-> > This series is based on the Ravi's hardware-sampled access reports
-> > branch [1], and depends on the perf AUX kernel-consumer RFC series [2].
-> > The dependencies is not upstream yet, so this series remains RFC.
->
-> Unfortunately I haven't had a time to thoroughly read the dependent patch=
-es.  I
-> believe the basic idea of this patch series is aligned with the ongoing D=
-AMON
-> extension roadmap [1], though.  That is, this series is supposed to be a =
-part
-> of the milestone 3.  We are currently at the near end of milestone 1, and=
- aim
-> to complete milestone 2 by the time around next year's LSFMMBPF.
+ Documentation/devicetree/bindings/arm/altera.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-One clarification on the architecture: the AUX backend is intended as a
-transport/front-end for damon_report_access(), rather than a separate
-reporting path. spe_submit() ultimately calls
-damon_report_access(&report), and the AUX path shares the same SPSC
-report ring and kdamond_check_reported_accesses() consumer with the
-existing overflow-callback path. The main difference is the producer
-context: the overflow path enqueues from NMI context, while the AUX path
-enqueues from kdamond process context.
+diff --git a/Documentation/devicetree/bindings/arm/altera.yaml b/Documentation/devicetree/bindings/arm/altera.yaml
+index 3030cf46fe74..e431469a7175 100644
+--- a/Documentation/devicetree/bindings/arm/altera.yaml
++++ b/Documentation/devicetree/bindings/arm/altera.yaml
+@@ -114,6 +114,7 @@ properties:
+               - intel,socfpga-agilex5-socdk-debug
+               - intel,socfpga-agilex5-socdk-modular
+               - intel,socfpga-agilex5-socdk-nand
++              - intel,socfpga-agilex5-socdk-tsn-cfg2
+           - const: intel,socfpga-agilex5
+ 
+       - description: Agilex72 boards
+-- 
+2.43.7
 
-The perf AUX kernel-consumer API is still an upstream dependency, so there
-is no specific part that needs your review right now. The implementation is
-already functional and tested on Kunpeng 920, and I can rebase and resend
-once the dependency chain is ready and the relevant DAMON infrastructure
-has landed.
-
-Separately, the DAMON perf observability framework
-(CONFIG_DAMON_PERF_OBSERVE) was developed in parallel with the AUX backend
-and is already implemented. It provides the observability infrastructure
-used by both the existing overflow path and the new AUX path, including
-per-CPU pipeline counters, debugfs statistics, and tracepoints. This work i=
-s
-independent of the AUX transport, and I will post it shortly as a standalon=
-e
-series.
-
-Thanks,
-Kunwu
-
->
-> I will hold review of this series for now, and take more time on making
-> milestones 1 and 2 for thier planned delivery timeline.  Sorry for being =
-a
-> bottleneck of your work, and thanks in advance for your patience.
->
-> Please feel free to let me know if you have specific parts that need my r=
-eview
-> right now, though.  Otherwise, please make sure this is aligned with the
-> roadmap until we finish the milestone 2.  I do want ARM SPE support of DA=
-MON.
->
-> [1] https://lore.kernel.org/all/20260525225208.1179-1-sj@kernel.org/
->
->
-> Thanks,
-> SJ
->
-> [...]
 
