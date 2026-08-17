@@ -4,71 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47B9EC5DF66
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 14:16:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B10B6C5DF66
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 14:27:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MsP6Tc38zfRk1ICic3b/g7i6fexiTP8WcwXduocKHhI=; b=uhh6grs8A8LkPBsNvuEcR30/xd
-	kpEdZTcFq2A3+CpF+51/o85XUF7XOveUpOzdnwMihbEdASP43UcAUdxlYGZ9JzI5qN04RhJoyQZiv
-	DhfxWvwVuexN/BDt0BztTPiCDTHiBd+9Y5j+qrAI0FAKTQgS4Q3l5hrWhIjF+sgsRHza79sdgjrlX
-	p55BjCyNesvqTLtLJGVPAfKiHgBhWElWqIPEovx9KxsVYLyNaLtrZIpf8Pn/noD9X66PIqxX/y8bs
-	iDnyCk2azD04XSuffL7BT38Dxk5nM2FiM6Vk8pYQxFwoe+ahKgIbu6gVCn8Ak21/o4VS9m2/c81IG
-	6/TiSHYA==;
+	bh=s5nt5+dz3fYgxJrQN1V9PPkioyCB5RsKUPc/mDhCeQw=; b=JjMq0EiBCxS70McqidP5lRFV8s
+	5ANHRLDAhSg6B9e6ahntebL9PBMz2Z4giVlV9P+vJXtnpTPQ9IxY6bO9WqMB8AcM08jGOmdNbqoNw
+	2oQJghYxdVHUS7XA95bTNqZ0rxMuCGsCZ/iTlx2bATO2H1HBXY9o/Qo5yDJdeRrKP1gXMRAGP1lCD
+	ROu8ZIBN9BnfJYb9J5FHE7M+sLYjDfru7IRc1cPA1I4ky4DlKbgMVHtfcwFpwFlbA+qzImEkVeQ9P
+	aB+aSTviZyAXXCekjCq0etSFrqtixTeeGgyIr9jyGvWhzSV3MCqxev3mI6yWZqPxVbKhVJ6PL+ZwS
+	SZZRQQcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvy8P-00000006HVq-12nR;
-	Mon, 17 Aug 2026 14:16:17 +0000
-Received: from out-91.mta0.migadu.com ([2001:41d0:1004:224b::5b] helo=mta0.migadu.com)
+	id 1wvyIg-00000006IPj-44vy;
+	Mon, 17 Aug 2026 14:26:55 +0000
+Received: from mail-northeuropeazon11020141.outbound.protection.outlook.com ([52.101.84.141] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvy8M-00000006HU1-001q
+	id 1wvyId-00000006IOh-3Tca
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 14:16:16 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=T8iyjbuVYAvqUViUhRvKQj8eKQSB1E/dq1wYQtEhFKo=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1786976171; v=1; x=1787580971;
- b=H64DYZL+VtDNMmcEzRbntV/LAawULPIsRQCDV8uLxs6jQmlpLx1Ram226usPE9MiHYe8fr72
- pLAVMQVmQsqRT7WRWyibxHpep4PhMiVWyepYtWDtgoTZII1RViC+zJlNaNJ97DwVMLjYVevfC7D
- WiO0pw2YPLtoWJNEvp3dPtXk=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: from mail-lf1-f54.google.com (209.85.167.54)
-	by smtp.migadu.com with ESMTPS id 5b54f67ad1af9138;
-	Mon, 17 Aug 2026 14:16:11 +0000
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-5b2a73da7e1so3569e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 07:16:11 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+Rpv4Epceigs+6LI8XYyOa5LK7H2k5uYl9lu8ZJhb+xfUv6SrydUoDax+birSkjJ6ctpMjag35oEpjRaxlTFs7i7@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy0IYJ0M1lCrjR+MNUlDKUANEnRV2bmkGhcIOx2rPy8Zvn5khfm
-	l4u+BdwPtRM747ptgVRcz08Gg+9D2+qg+AZPH4XrRaFCCZwauNCiH8hUnnyJtU2KHxnCo6VILM8
-	fKed/TmFKLeaOC38WGunhafIBM2yHhq4M+gtuYLJS
-X-Received: by 2002:a05:6512:3d1c:b0:5b1:5141:9156 with SMTP id
- 2adb3069b0e04-5b47084ad85mr12150e87.9.1786976170444; Mon, 17 Aug 2026
- 07:16:10 -0700 (PDT)
+	Mon, 17 Aug 2026 14:26:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jOAiuzxwa1cIuvANgRiHhHKWyNY48PR2MrReYAKNbMGdd+Qkhqhv8w9J4Xd4oUp7pVGad86sP3R3SbvERhb4Nvz74qFgMNOM+8Fq5OFOxAamGMe+Df9XdKA2TrfyLNK662fbMtMvmruO/ANsOq0SbmpZCD0yJ/PA0+ZC4/OgnlSVnCZATc8mxQoCpaJ4hceedyA/nb0VTchhxc72SIMXkzS50OwjbxrN048zzQGplRuY0Tz+rk5rmt7qKDc9YYXYyf6RweeqFW5Dv3a2F23AiMOJ+T8zdnyEnPNhltuU72zma9PbvbMEK7q9pcfKLWSw5h9kpRl+VE1cxMn+m9QT6Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=s5nt5+dz3fYgxJrQN1V9PPkioyCB5RsKUPc/mDhCeQw=;
+ b=kI5l/yA61SwOO107OKDUac5SGHkbPkeQy7NtdO15TvQ7itFhWfwzOJB9z/5586cmHqv9o5yxB0UQKN3X0ZU/BPptoQdmjgYWRDdMG1zRNOHs92q8rrBza9Kfr/Z1Zko2v+YkcawPcXuLwaIsEdJyXALstBDgZG8QQwCf1bwBsbhjtq4dt17s1oo5ANtgRk/wAoTVtR1AYfgL3HSqXPupA8gt3Xb8HIP0hSEVbwB4mIDEo453ZP+6O91R1Jvpx7vlKDklT2Z0bgai8LNas5FUBe4ZuUNxdG2xkkB/RXgupKbnGwIv6FgocR53LBNAoC94XLrF9GUDExlKWDLIeTMLeA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nebius.com; dmarc=pass action=none header.from=nebius.com;
+ dkim=pass header.d=nebius.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nebius.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=s5nt5+dz3fYgxJrQN1V9PPkioyCB5RsKUPc/mDhCeQw=;
+ b=gr6iNne0po1Tnqfoa082aKo4ObWDPghymd2b/pr68SPWQKhNc+PMSj2u7I8TcozahK32NOxV/219+SE34QK53jyrJJPIKDoauGiemzyS9PATqoYUrGrpRFnkiQuxvjlY/f92m4R6MrjONvtu8jJSlXpr6ijF8Ko23SZMdcrKnj9/k70xcZm3lJkMb27L8QPOkSlokED5GQQBB10G6gxLRTu868hY3peveCTpNGI0semPTie+tC1MQVJmASvJ2rPxi6JZgk1RVgBpfSDNRCqC6GLUteRJ3CPBpIm9Pr69sI8mDieNjo00s2+yakXJAdDINnyrBky7B23U6HXvfmRISQ==
+Received: from PA1P190MB2557.EURP190.PROD.OUTLOOK.COM (2603:10a6:102:4fb::18)
+ by AM4P190MB2580.EURP190.PROD.OUTLOOK.COM (2603:10a6:20b:6d0::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.17; Mon, 17 Aug
+ 2026 14:26:46 +0000
+Received: from PA1P190MB2557.EURP190.PROD.OUTLOOK.COM
+ ([fe80::d0eb:eb62:7779:c6f0]) by PA1P190MB2557.EURP190.PROD.OUTLOOK.COM
+ ([fe80::d0eb:eb62:7779:c6f0%5]) with mapi id 15.21.0315.016; Mon, 17 Aug 2026
+ 14:26:46 +0000
+From: Dmitry Malkin <dma@nebius.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, Joerg
+ Roedel <joro@8bytes.org>, Nicolin Chen <nicolinc@nvidia.com>,
+	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "regressions@lists.linux.dev"
+	<regressions@lists.linux.dev>, "stable@vger.kernel.org"
+	<stable@vger.kernel.org>, NB-Core Team <NB-CoreTeam@nebius.com>
+Subject: Re: [RFC PATCH] iommu/arm-smmu-v3: Allow nested attach for PCI
+ bridges without vDEVICE
+Thread-Topic: [RFC PATCH] iommu/arm-smmu-v3: Allow nested attach for PCI
+ bridges without vDEVICE
+Thread-Index: AQHdK9Pu+fg3Gt/XVU6V74nnaDIiLLad0o6AgAARZHGAADf9gIAD4JGAgAAmqgCAAC0lAQ==
+Date: Mon, 17 Aug 2026 14:26:46 +0000
+Message-ID: <PA1P190MB255719949EC777E6D2DB2606DBA72@PA1P190MB2557.EURP190.PROD.OUTLOOK.COM>
+References: <PA1P190MB25578C482C8A3B06A4DCC6FDDBDA2@PA1P190MB2557.EURP190.PROD.OUTLOOK.COM>
+ <20260814174825.GC510472@nvidia.com>
+ <PA1P190MB25573D7CFE42EF7DD2A8CDE8DBDA2@PA1P190MB2557.EURP190.PROD.OUTLOOK.COM>
+ <20260814221103.GE510472@nvidia.com>
+ <PA1P190MB2557D53CB7FCB70EB8F79D09DBA72@PA1P190MB2557.EURP190.PROD.OUTLOOK.COM>
+ <20260817114158.GA1175472@nvidia.com>
+In-Reply-To: <20260817114158.GA1175472@nvidia.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nebius.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PA1P190MB2557:EE_|AM4P190MB2580:EE_
+x-ms-office365-filtering-correlation-id: 659e357e-5497-4275-6bf2-08defc6b919b
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|23010399003|366016|10070799003|10067099003|56012099006|11063799006|4143699003|6133799003|22082099003|18002099003|38070700021;
+x-microsoft-antispam-message-info: FJFcgp+1vY9ZC1L3loikKs6UBp8heVHqKcM4jl1hcULtxyM6Pusqu+WQfD9VpBdhnEdLJEVfGnJlNbjAwNO8reYnJpC7OtWI3EV5CE1ngSxEjYhctAWwCA5YgGwl/4PzjZGowuIUI+GXmgpJGDVR6vglfZnx3SrbPfxCQI2lxbXFrCsKO/goYAaSWeB2+KYwC47KILwbEC5ZRztYAMR9ASXEBGLZ2ZAfnIzwRBBYqX/0WeHKWWWNHBm+uhhV+byxBKLE4X2WWQ+u3Vmn2GMjon2/NaFfdp/JLYYCdudA/UE8kHr0yGRIrKBQsYp1Vu0GRWSO9mSBxraCKJKna6DrepJCIAL9mrhx+2LBY0w7XNEf6TErSgmCgq0Njv4JGImFnfuXgRQb7J7uKHzEbo6awah32KEwpmKPqNHDhxlo8zZ1ZX+XuQWmL0iKRXo7UdqRzCO7TWRHp6n9W1JsFo2vlyBmMWAf4FfY0JYns/QVWUbk+/edMSpryfjuHDy9sPraL/Mv4o7xYeAYvqtWFUmKZvgjxA5hxRY4anzMpZ49NU+vc9/sL5qmrU1ITgpUL5JzPDd3rQ3RpHbqsFOYodSXeuebns5rib3Ob6As+MwrHrVg4A3GikGDZZyFLZiSJxxo+OW7bQbwA0TofrxZDYiiJs+dttyw7bruu3xCM/6zIjO+JKJom6Pjgi4N0Ht5sCIIQYHTDt44XlYmkp3BngU0p6jMxVKltfFVt4/vbz9Xpn0=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA1P190MB2557.EURP190.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(23010399003)(366016)(10070799003)(10067099003)(56012099006)(11063799006)(4143699003)(6133799003)(22082099003)(18002099003)(38070700021);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?1F/MVdAQEzhOClPBmdM7QwHIlnaWUMGJlsMJJJJewKhISftzW/h/6RdAze?=
+ =?iso-8859-1?Q?bvyyreI37Qdj9y0Fdz2xB9R0TQ8Xhkkm80fx/CBpbjC2MJMLYCk9E+/rKy?=
+ =?iso-8859-1?Q?13CZkDoymQDItxJhmLUsbZ6QGUGdR/6Izy07n+bs+FJ6tLonbmNI+GGfM7?=
+ =?iso-8859-1?Q?uq6QgMhIVlDSpYzIsW0CHzxkI2OuXT5vwymaIEeUZaAwUDJ0TtjZq/OASS?=
+ =?iso-8859-1?Q?bqxi3DJrisjyxVnmEGhd+O6gtwbpe8fHnA4lGUIdTSeNM31X5Dd01KscE0?=
+ =?iso-8859-1?Q?8zipAtYgUBOCvrRljH6Kr//0g5co52mU2c3B/UK2fi2zeoelozdhdrd2Ox?=
+ =?iso-8859-1?Q?/RY6rKO/ApBKNGYg1VQI83Osi60YMyzqO+vcVaW3CBifRzppKQxPeNps1h?=
+ =?iso-8859-1?Q?XVCch2G78PbsEWR0p+5II3zAt8yX8DBbMFgjYJH3Ixsrpwc2fGe1ubeNqY?=
+ =?iso-8859-1?Q?Y+1SneokSqS/kGic/Sca+GUQlZcUiaEBr5UAmeB76PNvCkm+9HVbK9c8Vq?=
+ =?iso-8859-1?Q?onfhch/xPD41aMP+8gKjvngwq01SICUI/3G53un9PxOmqpg3VtGdx5rDx0?=
+ =?iso-8859-1?Q?UcOAvwOlQNqi+ofDt/72OGItM8+SbjynwI0hzotqn7jNiTv1o6XCo3+U26?=
+ =?iso-8859-1?Q?vtKtjUpi/mdxYS5n7PhfWl8vKZVVTvg3zLDJLO27ycDvVEZSXolOoXy7nE?=
+ =?iso-8859-1?Q?wGjd4/i8WW1/QJX0ikj/ncSU3eHYPjB6Qtjt2nN0BPQG5Ikj/xZCglRwlO?=
+ =?iso-8859-1?Q?zdVaLljsP5SIw1VtXhvL1HGmkBiC30zsBGWrlrefOpVUfBXGBq/NhYOu9/?=
+ =?iso-8859-1?Q?OctHNJtU/DLQCS0PbXTlPNOVUOH/OdD3ZBh+AFBFZK6hYxN0ri5amVEADs?=
+ =?iso-8859-1?Q?ssrA0bAzI/LDOXfdrWfD1jMcQLILtZEniJ/Gl4EZ7s1F3y+eqiS4UhcuMl?=
+ =?iso-8859-1?Q?rnLD+oPCBX8K41PV/Q6W+aZBBhbo5X1dSEpIJ5dIo9a1XrU8H/2+XlnvRr?=
+ =?iso-8859-1?Q?u7KdJegxMd9/DZz4emAWRGXxbW0QuP1V7Z1PEh+CsRddW4Wmqkiiy1k9Ti?=
+ =?iso-8859-1?Q?wERphO7TJjMHmJORAvRRMAOUD1H0+UVDeipk9Dmzlmiw1F8NqIWyRDHzDV?=
+ =?iso-8859-1?Q?LahxuoVYrn+TJGoHJ17XfCIDma0A/u3JKnEO9DyiRJevGziAHijOW2yCUy?=
+ =?iso-8859-1?Q?C19l6YWtT52ulsr1v7oAUbcdlUuN308q6pRJeJyoreK62OPh+RDMDH4xdO?=
+ =?iso-8859-1?Q?MMuC0nkglv78et6paQTG+2Ypcj3Tp07pgG2e6re9Bm+Koa7QiczIJaxFTA?=
+ =?iso-8859-1?Q?sF/yCsHE1AnADf4hjZ9GekwnOUlCOXwOhio7BTquZeGQnmFOsIRFeMKxnp?=
+ =?iso-8859-1?Q?xGQeAo5NHPbGJDNHE3nhy+rX2+29eZZDHBe9onbgdeleMGVl0OELhexNAJ?=
+ =?iso-8859-1?Q?2N6d25Ubp5rWqQnT+4q2xtXApNRT5ddA5QPOTFGVlEJp81jLCuAt/eE0Ah?=
+ =?iso-8859-1?Q?YQ1GjXYMN4WSrYukCUkBD5C4hYyMoS8oYvA1y6RqrrYowL5fLaAT/vDWlr?=
+ =?iso-8859-1?Q?Ks888sZfcmN1F649QGfJefQq36R2hhIK9Bv/yEac15ejATOvtnOkH6w14z?=
+ =?iso-8859-1?Q?nHp+kRFn9HEu4SBYcRaROsbO1Og7I9DlC83mDs8L2iLdmUUFW6NInVc7Ng?=
+ =?iso-8859-1?Q?Mpui3jZLEDwu+vZaRUkvzluGyuMR31n8+OGRwYPD9mGREPa2ecdXlCsfCv?=
+ =?iso-8859-1?Q?G4dS5GV63p9WNg8JMg9Qb+lOyW4xVtGXtr13yPij1Co/s61BECWxDEjnnB?=
+ =?iso-8859-1?Q?JGRwTxmiYyvW5pPpg9b0q2v+BoUjT3KMWig+JhHdX3a738lrQDo5?=
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-References: <20260731143541.956291-1-vdonnefort@google.com> <20260731143541.956291-18-vdonnefort@google.com>
-In-Reply-To: <20260731143541.956291-18-vdonnefort@google.com>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Mon, 17 Aug 2026 15:16:00 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTzGbZnz_SdcMvVwwDTTyHbyjAwukK-A90z2oVJtaBGz3g@mail.gmail.com>
-X-Gm-Features: AcwNN1XTayorjSSf4W1Pr0n-dJNWHXveErqutMBS45AHvtcEguOem3CyW-EXrec
-Message-ID: <CA+EHjTzGbZnz_SdcMvVwwDTTyHbyjAwukK-A90z2oVJtaBGz3g@mail.gmail.com>
-Subject: Re: [PATCH v4 17/17] KVM: arm64: Alloc simple_buffer_page using pKVM
- hyp allocator
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, 
-	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com, 
-	qperret@google.com
-Content-Type: text/plain; charset="UTF-8"
+X-OriginatorOrg: nebius.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PA1P190MB2557.EURP190.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: 659e357e-5497-4275-6bf2-08defc6b919b
+X-MS-Exchange-CrossTenant-originalarrivaltime: 17 Aug 2026 14:26:46.7211
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 4eb23c52-f3a5-49bc-b555-0b061267a984
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: pTjhtX9PJS98Kvm0w7uHsqKrDbTPxM79EgvzezZ07B/Lb/7LDQ/mZ1XBhq8RmIee
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM4P190MB2580
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_071614_880741_07C4EF4C 
-X-CRM114-Status: GOOD (  23.50  )
+X-CRM114-CacheID: sfid-20260817_072652_044263_C8029CE8 
+X-CRM114-Status: UNSURE (   6.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,231 +154,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 31 Jul 2026 at 15:36, Vincent Donnefort <vdonnefort@google.com> wrote:
->
-> In protected mode, transition the allocation of the simple_ring_buffer
-> structures from the host to the hypervisor using the new pKVM heap
-> allocator.
->
-> Previously, the host allocated and donated a contiguous backing memory
-> for these structures. In pKVM the hypervisor can now allocate them
-> dynamically.
->
-> Use the pkvm_call_hyp_req() wrapper in the host to invoke
-> __tracing_load, which automatically handles any top-up requests if the
-> hypervisor runs out of heap memory during allocation.
->
-> Tested-by: Fuad Tabba <fuad.tabba@linux.dev>
-> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
-
-
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
-
-Cheers,
-/fuad
-
->
-> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> index 9bab1e802281..ec5bb8541ceb 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> @@ -750,7 +750,7 @@ static void handle___tracing_load(struct kvm_cpu_context *host_ctxt)
->         DECLARE_REG(unsigned long, desc_hva, host_ctxt, 1);
->         DECLARE_REG(size_t, desc_size, host_ctxt, 2);
->
-> -       cpu_reg(host_ctxt, 1) = __tracing_load(desc_hva, desc_size);
-> +       errno_to_smccc(__tracing_load(desc_hva, desc_size), host_ctxt);
->  }
->
->  static void handle___tracing_unload(struct kvm_cpu_context *host_ctxt)
-> diff --git a/arch/arm64/kvm/hyp/nvhe/trace.c b/arch/arm64/kvm/hyp/nvhe/trace.c
-> index 96afa3d6de2f..5ff19d210508 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/trace.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/trace.c
-> @@ -4,6 +4,7 @@
->   * Author: Vincent Donnefort <vdonnefort@google.com>
->   */
->
-> +#include <nvhe/alloc.h>
->  #include <nvhe/clock.h>
->  #include <nvhe/mem_protect.h>
->  #include <nvhe/mm.h>
-> @@ -62,18 +63,34 @@ static void __release_host_mem(void *start, u64 size)
->         WARN_ON(__pkvm_hyp_donate_host(hyp_virt_to_pfn(start), size >> PAGE_SHIFT));
->  }
->
-> -static int hyp_trace_buffer_load_bpage_backing(struct hyp_trace_buffer *trace_buffer,
-> -                                              struct hyp_trace_desc *desc)
-> +static int hyp_trace_buffer_alloc_bpages(struct hyp_trace_buffer *trace_buffer,
-> +                                        struct hyp_trace_desc *desc)
->  {
-> -       void *start = (void *)kern_hyp_va(desc->bpages_backing_start);
-> -       size_t size = desc->bpages_backing_size;
-> +       void *start;
-> +       size_t size;
->         int ret;
->
-> -       ret = __admit_host_mem(start, size);
-> -       if (ret)
-> -               return ret;
-> +       if (is_protected_kvm_enabled()) {
-> +               struct ring_buffer_desc *rb_desc;
-> +               int cpu;
->
-> -       memset(start, 0, size);
-> +               size = 0;
-> +               for_each_ring_buffer_desc(rb_desc, cpu, &desc->trace_buffer_desc)
-> +                       size += rb_desc->nr_page_va * sizeof(struct simple_buffer_page);
-> +
-> +               start = hyp_alloc(size);
-> +               if (!start)
-> +                       return hyp_alloc_errno();
-> +       } else {
-> +               start = (void *)kern_hyp_va(desc->bpages_backing_start);
-> +               size = desc->bpages_backing_size;
-> +
-> +               ret = __admit_host_mem(start, size);
-> +               if (ret)
-> +                       return ret;
-> +
-> +               memset(start, 0, size);
-> +       }
->
->         trace_buffer->bpages_backing_start = start;
->         trace_buffer->bpages_backing_size = size;
-> @@ -81,7 +98,7 @@ static int hyp_trace_buffer_load_bpage_backing(struct hyp_trace_buffer *trace_bu
->         return 0;
->  }
->
-> -static void hyp_trace_buffer_unload_bpage_backing(struct hyp_trace_buffer *trace_buffer)
-> +static void hyp_trace_buffer_free_bpages(struct hyp_trace_buffer *trace_buffer)
->  {
->         void *start = trace_buffer->bpages_backing_start;
->         size_t size = trace_buffer->bpages_backing_size;
-> @@ -89,9 +106,12 @@ static void hyp_trace_buffer_unload_bpage_backing(struct hyp_trace_buffer *trace
->         if (!size)
->                 return;
->
-> -       memset(start, 0, size);
-> -
-> -       __release_host_mem(start, size);
-> +       if (is_protected_kvm_enabled()) {
-> +               hyp_free(start);
-> +       } else {
-> +               memset(start, 0, size);
-> +               __release_host_mem(start, size);
-> +       }
->
->         trace_buffer->bpages_backing_start = 0;
->         trace_buffer->bpages_backing_size = 0;
-> @@ -128,7 +148,7 @@ static void hyp_trace_buffer_unload(struct hyp_trace_buffer *trace_buffer)
->                 simple_ring_buffer_unload_mm(per_cpu_ptr(trace_buffer->simple_rbs, cpu),
->                                              __unpin_shared_page);
->
-> -       hyp_trace_buffer_unload_bpage_backing(trace_buffer);
-> +       hyp_trace_buffer_free_bpages(trace_buffer);
->  }
->
->  static int hyp_trace_buffer_load(struct hyp_trace_buffer *trace_buffer,
-> @@ -143,7 +163,7 @@ static int hyp_trace_buffer_load(struct hyp_trace_buffer *trace_buffer,
->         if (hyp_trace_buffer_loaded(trace_buffer))
->                 return -EINVAL;
->
-> -       ret = hyp_trace_buffer_load_bpage_backing(trace_buffer, desc);
-> +       ret = hyp_trace_buffer_alloc_bpages(trace_buffer, desc);
->         if (ret)
->                 return ret;
->
-> @@ -168,18 +188,16 @@ static bool hyp_trace_desc_is_valid(struct hyp_trace_desc *desc, size_t desc_siz
->  {
->         struct ring_buffer_desc *rb_desc;
->         unsigned int cpu;
-> -       size_t nr_bpages;
->         void *desc_end;
->
->         if (!is_protected_kvm_enabled())
->                 return true;
->
->         /*
-> -        * Both desc_size and bpages_backing_size are untrusted host-provided
-> -        * values. We rely on __pkvm_host_donate_hyp() to enforce their validity.
-> +        * desc_size is an untrusted host-provided value. We rely on
-> +        * __pkvm_host_donate_hyp() to enforce its validity.
->          */
->         desc_end = (void *)desc + desc_size;
-> -       nr_bpages = desc->bpages_backing_size / sizeof(struct simple_buffer_page);
->
->         if (desc->trace_buffer_desc.nr_cpus != hyp_nr_cpus)
->                 return false;
-> @@ -197,17 +215,8 @@ static bool hyp_trace_desc_is_valid(struct hyp_trace_desc *desc, size_t desc_siz
->                 if ((void *)rb_desc + struct_size(rb_desc, page_va, rb_desc->nr_page_va) > desc_end)
->                         return false;
->
-> -               /* Overflow bpages backing memory? */
-> -               if (nr_bpages < rb_desc->nr_page_va)
-> -                       return false;
-> -
-> -               if (cpu >= hyp_nr_cpus)
-> -                       return false;
-> -
->                 if (cpu != rb_desc->cpu)
->                         return false;
-> -
-> -               nr_bpages -= rb_desc->nr_page_va;
->         }
->
->         return true;
-> diff --git a/arch/arm64/kvm/hyp_trace.c b/arch/arm64/kvm/hyp_trace.c
-> index 2411b4c32932..859a926c815f 100644
-> --- a/arch/arm64/kvm/hyp_trace.c
-> +++ b/arch/arm64/kvm/hyp_trace.c
-> @@ -13,6 +13,7 @@
->  #include <asm/kvm_host.h>
->  #include <asm/kvm_hyptrace.h>
->  #include <asm/kvm_mmu.h>
-> +#include <asm/kvm_pkvm.h>
->
->  #include "hyp_trace.h"
->
-> @@ -157,10 +158,17 @@ static void __unshare_page(unsigned long va)
->
->  static int hyp_trace_buffer_alloc_bpages_backing(struct hyp_trace_buffer *trace_buffer, size_t size)
->  {
-> -       int nr_bpages = (PAGE_ALIGN(size) / PAGE_SIZE) + 1;
->         size_t backing_size;
-> +       int nr_bpages;
->         void *start;
->
-> +       if (is_protected_kvm_enabled()) {
-> +               trace_buffer->desc->bpages_backing_start = 0;
-> +               trace_buffer->desc->bpages_backing_size = 0;
-> +               return 0;
-> +       }
-> +
-> +       nr_bpages = (PAGE_ALIGN(size) / PAGE_SIZE) + 1;
->         backing_size = PAGE_ALIGN(sizeof(struct simple_buffer_page) * nr_bpages *
->                                   num_possible_cpus());
->
-> @@ -176,6 +184,9 @@ static int hyp_trace_buffer_alloc_bpages_backing(struct hyp_trace_buffer *trace_
->
->  static void hyp_trace_buffer_free_bpages_backing(struct hyp_trace_buffer *trace_buffer)
->  {
-> +       if (!trace_buffer->desc->bpages_backing_start)
-> +               return;
-> +
->         free_pages_exact((void *)trace_buffer->desc->bpages_backing_start,
->                          trace_buffer->desc->bpages_backing_size);
->  }
-> @@ -264,7 +275,7 @@ static struct trace_buffer_desc *hyp_trace_load(unsigned long size, void *priv)
->         if (ret)
->                 goto err_free_buffer;
->
-> -       ret = kvm_call_hyp_nvhe(__tracing_load, (unsigned long)desc, desc_size);
-> +       ret = pkvm_call_hyp_req(__tracing_load, (unsigned long)desc, desc_size);
->         if (ret)
->                 goto err_unload_pages;
->
-> --
-> 2.55.0.508.g3f0d502094-goog
->
+=0A=
+> This kind of situation is very challenging to setup in the VM, and at=0A=
+> this point you may as well include the switch to the VM too.=0A=
+=0A=
+Passing through the PCI switch would not help because the device without=0A=
+a vDEVICE is the host Root Port. Neither the Root Port nor the switch=0A=
+should be exposed to the VM.=0A=
+=0A=
+A multi-device IOMMU group is an intentional effect of using=0A=
+'pci=3Dconfig_acs', and I would prefer to restore support for this=0A=
+configuration upstream.=0A=
+=0A=
+Dmitry=
 
