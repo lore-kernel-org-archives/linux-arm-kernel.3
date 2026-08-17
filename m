@@ -4,129 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B40B6C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 16:50:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 477B8C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 16:51:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aP+xReW61x9DVPc1KIECPYpEXVxKO+Il+0rYLR3S5o0=; b=TTCN+NmtzxT0efPXnvoVSACX4c
-	Eh0JuKWxWGG1OUvswdqCKLm/7b5Ko68HIO3ZwrEdaSUH/BgK49YV9mN4/PynaxR2TmVWqSuj0Wvtc
-	82yKJnm6jm38TE2uomoFshnSlPx68+Vxcc/oaJtbsGyMi/U3q4Pw6bNRQiuPLm7HzDLhqYrvT8ish
-	zdsUXz+QfE1j+qQoMYUUgsBwcF3iTOS3++3nnPfGLXG//XsZpxdMl8BFhBVC9R+qTt2OqD04jRA+t
-	dfzmKaeWuPx51UGoB9T7gjL9c1UUaTMY3gCb1Aasly/NVqup3CCeQfLEAUW4JmUSZoeRSVbDzI6rk
-	XmX+/HmQ==;
+	bh=p8BZPxQ0vjdM5ZAqdpodk/sQuicx5+EqnBVZoatnyUw=; b=c86hLTM2fg8Ynq5aMz/4urdaWy
+	zMr1V2aAEWg5G3gLBzpoTE7xOQgu40gtI6egZZfEB+ag+LLqwddVVnaWqOxgAXcZ6DyOfge2zfchZ
+	KoM8ueP3LYv0y6dGD988jhE6I7cnlwsjowKSAnlYLhklzx1bUISyhsStYGguWnhAAepdCCyVRPX8y
+	3vzYqfs6QXEUpCSi1diZgwpkeGF5NeG1Qzn1AbqGC0J3QxvQxAEnaJZd7M16AJ+6ycc9LuLz8A5dT
+	elsQybFYdivgTTigznXjk3iCd3fNJriKTJUnyN0QC7qjpoNxE7xVg42ioG+V5aUg6igXh0iIdsGbZ
+	UzSzJmFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww0XQ-00000006Y4V-0wfW;
-	Mon, 17 Aug 2026 16:50:16 +0000
-Received: from mail-northeuropeazon11011046.outbound.protection.outlook.com ([52.101.65.46] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1ww0Y9-00000006YDi-0gfe;
+	Mon, 17 Aug 2026 16:51:01 +0000
+Received: from sender4-op-o11.zoho.com ([136.143.188.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww0XO-00000006Y41-1Z7h
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 16:50:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wn68AXRoXs+5Jd4nj2uYeNGIC+Sdf+ZUst4SVQYzOkU2l4LycqkvdMcQ6p++EV2QhItiw0kGm/0RxIWUxdWjKgTQMuok8OMQDF6ceNYFcmFySItQBMKOzBNR2Un8+6x7KZZQwhi3jGFVSvv2PtppVv98n8WUGUqu6986UsU66PSm66KmhFZb1X4OW0Yc8/X8YBW+ZCoM6dOy867h7ytPM0drBVIIzOahCCAXPipxGgy/DUPw3pF+YV0P1RDjqW7aBOxrzgRx2xOY9IpdNkvjz8ccAevSk31TYMmg6LNSyFBEsEsFmCJcfiDmel2Gw1/oYQCzPKOAV507lLQNYICn6g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=aP+xReW61x9DVPc1KIECPYpEXVxKO+Il+0rYLR3S5o0=;
- b=ddz52xHk9JcQH86I1JQTuS/YyMAaNmksehZiz7HpXNvEI25iljs/OZ+bRjlbvS41we3LNk38ywbMKmvjRYxEp7DoA2kKexSVBWOBvpfvGTOSjZEQ3Hf18PCBfc80zmVnfDHd813u3X5WSQn4mfZ7k6t0zSdH+d2r15ElaqZwvXgXWq7FxiK2lpe5O/O/06M2hn5Hi/s+7UNRz1OH6zJku2Uy5Q1oIdmvSyDl60zwiUnpZ7YSsAbnPwoonIINCaoyrtbhpMlCuWk/pHtaSV9geJ/PBJbEZdGEABIMT5v5R/Q20Yo4EvBAJeDYJHxGq5YaNAA988haZotVfT/1G6eHmQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=aP+xReW61x9DVPc1KIECPYpEXVxKO+Il+0rYLR3S5o0=;
- b=N7yWRh0Cszp7KMtfc0pt/uxYrRaKQxQg50zEwEmC1ft3VxwkPQiugMvYJdSqe0WTc49QG9QE+IfLyuDKC53eFzXLrmRSDYH2M1TVSTpI/TmC1/Yr6NK1DirZTekqCwMKd325AXQsTwp2C0x31t85+omDCGjUJN5YENhXkK+PTJV2uD8xNG3DMagIM0IpMWXjt6LYwtXe7f1+Ag5jUJCMV/Nkt3Dpkk5nff8aV13g35V8TTZ6DHtuDUzc8dq7UVLBac9BYzenNBk0q+SgwUwik62NFDa9PH6KAa4PIvns2MblqnqhjEIyJCXbV1RzbhpCi02W9M4mZ8jodoBORePYDA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by PA4PR04MB9639.eurprd04.prod.outlook.com (2603:10a6:102:260::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.17; Mon, 17 Aug
- 2026 16:50:07 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0315.016; Mon, 17 Aug 2026
- 16:50:07 +0000
-Date: Mon, 17 Aug 2026 11:49:56 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Daniel Mack <daniel@zonque.org>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-	Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, dmaengine@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org
-Subject: Re: [PATCH] dmaengine: pxa: fix double counting of the hw descriptors
-Message-ID: <aoM7tGzvc4MtkRHP@SMW015318>
-References: <20260817-dmaengine-pxa-v1-1-850c215c1196@pengutronix.de>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260817-dmaengine-pxa-v1-1-850c215c1196@pengutronix.de>
-X-ClientProxiedBy: PH5P220CA0002.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:34a::17) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	id 1ww0Y6-00000006YD7-2FRi;
+	Mon, 17 Aug 2026 16:50:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1786985444; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=EZkKHJPVurUQDXKaVt/m0NoukL/HAQCAECxB89aVZXrDrJGKhQj0JEdRpLjuaPFW12cTyVM7zN+68Y3LeBhzbYvAAZezftXl/OI4uwcJd/Jy5BLrKUk7Bg0dCp7ENy0L22dImPYJW5iTPkOvNXrXnvlxK7b/riKzh95Csvsa9J8=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1786985444; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=p8BZPxQ0vjdM5ZAqdpodk/sQuicx5+EqnBVZoatnyUw=; 
+	b=KAXnjCklo1HB7ter3rjySfraFGngAMJDcSJsmMy2ez0k0NKymd1cmPZxtwZmM9tFKHx3fo5flqFxfH/bYrM+wm0RG+KlJXmGPXU1BXAHoDv6CEvB7D/tDhp+GR70LxVkLb654yV62G00nUm1pfpHDNt+SVdy/eKth4c5XmnRnIg=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1786985444;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=p8BZPxQ0vjdM5ZAqdpodk/sQuicx5+EqnBVZoatnyUw=;
+	b=dhWaKPrBowXvCR3m0H6MhzbCgJ2sxmBVrFIa4RHVPxBRQKKI7U7f/JeUYcoTKnno
+	pS6cBHVvjWM3tTeCIP2dlUMLG/ns/Ac/abXY3rmVYnrjh3C7CKEM8wJAkV9zaS9yNdm
+	NiUzK4h5lvbB5JWBWagb/FvSz1PNi94dwDB1G9mc=
+Received: by mx.zohomail.com with SMTPS id 1786985441065941.6995277721651;
+	Mon, 17 Aug 2026 09:50:41 -0700 (PDT)
+Received: by venus (Postfix, from userid 1000)
+	id CE641182033; Mon, 17 Aug 2026 18:50:34 +0200 (CEST)
+Date: Mon, 17 Aug 2026 18:50:34 +0200
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Igor Paunovic <royalnet026@gmail.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Frank Wang <frank.wang@rock-chips.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Thinh Nguyen <Thinh.Nguyen@synopsys.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Andy Yan <andy.yan@rock-chips.com>, 
+	Dmitry Baryshkov <lumag@kernel.org>, Yubing Zhang <yubing.zhang@rock-chips.com>, 
+	Alexey Charkov <alchark@flipper.net>, William Wu <william.wu@rock-chips.com>, 
+	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org, 
+	devicetree@vger.kernel.org, kernel@collabora.com
+Subject: Re: [PATCH v14 00/38] phy: rockchip: usbdp: Clean up the mess
+Message-ID: <aoM5PBrT5pBPS63N@venus>
+References: <20260813-rockchip-usbdp-cleanup-v14-0-b5ad9c68fa11@collabora.com>
+ <20260815121608.64818-1-royalnet026@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PA4PR04MB9639:EE_
-X-MS-Office365-Filtering-Correlation-Id: eb11b4b5-5868-463b-8622-08defc7f97e8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|1800799024|19092799006|7416014|376014|10067099003|56012099006|11063799006|18002099003|22082099003|41080700001;
-X-Microsoft-Antispam-Message-Info: bQGY7l41pgDgJBzmeUtihCeLzU0LcZUihNQd99E+QXRymIhv4mXYrE2EweY+bbCnNt7z1MI8YMlCrg9wBA7ECAr+ct4j9D9AvYOffj/AZe0doTEwRFdNrIw3HTRCBqZPyEAqivl51JRfKlcF/FvlhKChJ+XpqG2VmWh5bjiOGknmioDqIf9amjAphmw/ldCqHFIBu7GVlTMDFxptRbTZ7mUSO/giTfMUUGCaR6ESLSV8ER1nqfmmKAj0Agkc3O/iEAqIe530QB42xjUhmgBvIpH2j/BtMvR2EgmJ93qRNVx3g1sPgnooPCTZAfXQC5u0rdnciB3bozU9oBzxzCkpH+FbLnKxVn5wBrzKrvrOn+ubBIRhXn1Kg217CN4T+nbtkkESVCy9D/ymQ3TkiKy33LUGo27ORk2q9Fl+f4U/fbCdwA8DDQfqBF3WU3I6euRId2aSPAp6Tv09Ou8F4V0WE1V9mA+8Cm2bgmp612c2cyobsJE1JP55VlsOvhWXFE2UmQ3O5j55s+kVpi5BRM4Szmme37adqLrtwCawxl1h35adbVt9hehFKtqMgQ4+ZzmgmDWUtftDqmLOHD4uUsk4OBkiAdqNiPqgcqcztCz+U9kdav97NeOjr0r+H0LJbTwoXXl1gMHJQZspluauvHPLwZjA6+KTjKHdTz+mx1lzLVyJeh6RPRbYD643YiEp8pe7qDKOnfWQhP8Vr9GjAT/fqg==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(19092799006)(7416014)(376014)(10067099003)(56012099006)(11063799006)(18002099003)(22082099003)(41080700001);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?iU0CgkAu/NOaf4EvMxNgjNThFeLCUYjxFl2couEoyuX+EKp7drUDlGtuOb2z?=
- =?us-ascii?Q?IhgojRzPONNynJRFEGqHwHaV/fqHKlJ+ekHUSnPwgex5xkbNowBWgvgVuqYZ?=
- =?us-ascii?Q?3agKOAjSKFjdhHVlkXJ4gLKCPKg76u8IvuVV5JVud4s2PniFl8rbNmryNOS6?=
- =?us-ascii?Q?NiWsNcJyWP3VX6UkeqmciFom3Xud0mXKG8fvm3cUJ1699P3YRmRfnwpM7gJo?=
- =?us-ascii?Q?ovmGOzCVwNHuf0gDVO6Y0M7FBaMaNBvG9aA8rCcDpm5FFS7RuVWnIOARh8wy?=
- =?us-ascii?Q?7+tPBIeyxuOT4jLCvWlBe0Z5dq3D5+wYdMhzQz+abrXlURQP3CaMhqX1Y2Bj?=
- =?us-ascii?Q?Q2tV7TxTnN0p9eJnNslweQGg0AleQITB7PTXZBRJztDNGZPEjJDMaqv4ZjVh?=
- =?us-ascii?Q?NbbJ3eCsnyHnBy4Z/5+6cbZqDcI7X6ohwaSaNdfFY7Uvpt6Icvg6OumWvbPT?=
- =?us-ascii?Q?0A81E2KvDfiuKL1/dM6BWl8tGDglnfjozhbZ/6Z5IFvzfWusmz8CElMNEVMQ?=
- =?us-ascii?Q?P+98IcSWltEQn0rRSlK59Tw/3YkcyRpsKlaHA1eOShyKYmtwITzVDvGpx913?=
- =?us-ascii?Q?m5i78CyQYBt6wwOevI1I4DXhAJ3BESBfaOPGfq41QlGD4EmtNHlQ+6MFJ3C5?=
- =?us-ascii?Q?7BS5vaLNnAY0pDeiGTkX6OPeSZpV0FuT0LmdgLyq0xAyyPcJBfQzvENphPAb?=
- =?us-ascii?Q?rnIWWqce+isaBxjI/3W9vIzgb0kyiB0Wxyym2j/8vHnNOpWB044LxkmJ2yFr?=
- =?us-ascii?Q?SjmqFOR+eKxDV9juxHbCfbxKsQP/Ur6XX2c+Cbdi20jXTz8nM1Eb8tMp3j8b?=
- =?us-ascii?Q?P/YKYOFYzJH+fQTm+3OJyPLLiONt49/y5qKMqZUWoxSmtSwHHYT0Johje2NU?=
- =?us-ascii?Q?vYAgjM1QxujpBuWCtcOrhF+UIXKTseEXwV2r1Y5ngPE9NByM28MLLBN2v57u?=
- =?us-ascii?Q?b7Rlp2nhyREvJIrjDs9xI1u8jB7JV67vtcvgs9e970HxDh7Ed9wQz8GemCPS?=
- =?us-ascii?Q?ZvmaYPQ7DRM6loWvTQXvwG2d487STbsVrIRFtqlQewb/qVBAbXwimPgCu3Yz?=
- =?us-ascii?Q?XzmydQ50oQAFa7cXKuV/wYmDCi2gFM8ewUMPWuEeHxDuXblAmLyzQMdVcoYv?=
- =?us-ascii?Q?wanQaG/w5IR0qgrPvEU2syAdWJP1XaVoiMZTP27JGcOCgF8jITQgas8p4gq0?=
- =?us-ascii?Q?MuCsGPCpAaA2eZIAFjmhSA63NtxgWUPgSizjSaTK0QdwYLX+9+GQvMupswDb?=
- =?us-ascii?Q?UdP9dVMgkwBYiTC8wAhhy5h9ZZgccpqm6wfdxcS32RU3cRKakvGUqqDcjYic?=
- =?us-ascii?Q?nXOyiyGqVqIMhxgHN4iD2ZhQu/7zeDFkZRoU6ieSFurZqo48ja6aP8HgvHFk?=
- =?us-ascii?Q?78D17axH6XClVj3zGZnuEvBs10nzQzsVJC4cs3Nx5mX1y849DXl7qSGviHLo?=
- =?us-ascii?Q?FMn3jj4FrFIdhMWay8evAnT3KToar1jWWqVqe2K82m2Ru+m6vfBRgOjuy5c9?=
- =?us-ascii?Q?2DS6ZmjO5uzF/08z6pWU27aHHJsnm9VyTxTbhQV7BR2mNt/UCMl/K1NT1RwT?=
- =?us-ascii?Q?HJbgDGm27ldJkD7kc4ed5KRqGh3mdpPqM6Y1NZ//YHT35YP7I8c6o9PI9kP/?=
- =?us-ascii?Q?zwh0u8iPhhRrHI7AABT8op6OlalVBlBr+tQWkJV2Mhvmxeg5aEA3tbdqf/Yb?=
- =?us-ascii?Q?PQO7eiHmOmFx9vG5eiN+aNqN5xhNInNGe1wnX6fg3Lxh5xHF2B2mwif9fgeX?=
- =?us-ascii?Q?UjM4Ghyv8HvqlXQjSrOsewkZFXDdM9TnYR9CV8GQ0W746vDsxPIj?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: eb11b4b5-5868-463b-8622-08defc7f97e8
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Aug 2026 16:50:07.4847
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: A4dy2uID8stZWiOTE9+94Q8keiphpelUz1lm255/USq6sRflMJi635UPo/dypJ0/go1ssl7HiCqPuMKS7zlVGyc3fLOKmLa87fskltHAvM66uCDp0P0r4fnOHIOkYUzK
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB9639
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="idisms6hiinp7qil"
+Content-Disposition: inline
+In-Reply-To: <20260815121608.64818-1-royalnet026@gmail.com>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-0.2.10.1.5.2/286.975.6
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_095014_433515_4101E3E7 
-X-CRM114-Status: GOOD (  22.14  )
+X-CRM114-CacheID: sfid-20260817_095058_650222_C635BE6D 
+X-CRM114-Status: GOOD (  52.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,69 +91,248 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 17, 2026 at 06:09:23PM +0200, Sascha Hauer wrote:
-> pxad_alloc_desc() was converted from
->
-> 	kzalloc(struct_size(sw_desc, hw_desc, nb_hw_desc), GFP_NOWAIT)
->
-> to kzalloc_flex(). hw_desc[] is annotated with __counted_by(nb_desc), so
-> __alloc_flex() now initializes sw_desc->nb_desc to nb_hw_desc itself.
-> The loop below it still increments nb_desc for every descriptor it
-> allocates though, so nb_desc ends up being twice the number of
-> descriptors that are actually there.
->
-> Drop the now redundant increment. The error path has to set nb_desc to
-> the number of descriptors allocated so far, otherwise pxad_free_desc()
-> would free entries that were never allocated.
->
-> Fixes: 69050f8d6d075 ("treewide: Replace kmalloc with kmalloc_obj for non-scalar types")
-> Assisted-by: Claude:claude-opus-5
-> Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
-> ---
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+--idisms6hiinp7qil
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v14 00/38] phy: rockchip: usbdp: Clean up the mess
+MIME-Version: 1.0
 
-> pxad_alloc_desc() was converted from
+Hello Igor,
+
+On Sat, Aug 15, 2026 at 02:16:01PM +0200, Igor Paunovic wrote:
+> Hi Sebastian,
+>=20
+> I retested v14 on my Orange Pi 5 Plus, this time covering the phy-core
+> notifier patch and the new dwc3 glue patches (28/38-31/38), which do not
+> carry my tag yet.
+>=20
+> Test kernel: 7.2.0-rc7, built from your rockchip-devel branch at
+> ea51774c5c42 ("usb: typec: mux: initialize mux switch array"), which
+> already contains the whole v14 series (I checked that 1/38 and 28/38-32/38
+> are in that history, plus all 32 "phy: rockchip: usbdp:" commits are
+> ancestors of it).
+>=20
+> On top of that base I carry 50 local commits - display, GPU, media and
+> platform work. None of them touch drivers/usb/, drivers/usb/typec/ or
+> phy-rockchip-usbdp.c, but two are worth naming so you know exactly what
+> was under test:
+>=20
+>   - drivers/phy/rockchip/phy-rockchip-snps-pcie3.c: a one-line fix to the
+>     PCIe combo PHY SRAM-init check. Unrelated to this series.
+
+That's a completley unrelated :)
+
+>   - arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts: in mainline
+>     this board still has the old single-"port" graph for usbdp_phy0 and no
+>     altmodes node on the usb-c-connector, so there is no DP alt mode to
+>     exercise at all. I carry a local DT patch that converts usbdp_phy0 to
+>     the four-port "ports" graph and usb_host0_xhci to the two-port graph
+>     your bindings describe, and adds an altmodes/displayport node
+>     (svid 0xff01) to the connector. That DT change is mine, it is not in
+>     mainline and not part of v14 - so everything below is your v14 code,
+>     unmodified, driven by that DT.
+
+Sure, Otherwise you cannot test.
+
+> The USB-C link runs through an Epico EC65 "UltraLink 8K/60Hz HDMI to
+> USB-C" cable - an active DP alt-mode to HDMI converter (GsCooLink chip,
+> USB VID 0x3679) - into the HDMI input of a Samsung Odyssey G70B. So the
+> DP link partner your code negotiates with is that converter, not a
+> monitor directly.
+
+Correct, the most important part is the DP to HDMI adapter in your
+case.
+
+> What I actually exercised, running this kernel as my daily driver since it
+> booted on 2026-08-14 at 20:09 local time (17+ hours of continuous uptime
+> when I ran these checks):
+>=20
+> - The new glue driver is bound to both controllers:
+>=20
+>     /sys/bus/platform/drivers/dwc3-rockchip/fc000000.usb
+>     /sys/bus/platform/drivers/dwc3-rockchip/fc400000.usb
+>=20
+> - DisplayPort alt mode is active at the Type-C layer:
+>=20
+>     /sys/class/typec/port0-partner/port0-partner.0/svid   =3D ff01
+>     /sys/class/typec/port0-partner/port0-partner.0/mode   =3D 1
+>     /sys/class/typec/port0-partner/port0-partner.0/active =3D yes
+>=20
+>   driving DP-1 at 3840x2160@120 with HDR, simultaneously with two HDMI
+>   outputs: HDMI-A-1 to a Sony TV at 3840x2160@60 and HDMI-A-2 to a second
+>   Odyssey G70B at 3840x2160@120, both with HDR.
+>=20
+>   Two caveats about DP-1, both pre-existing on my setup and unrelated to
+>   your series: the converter emits a broken Y420VDB block, so I feed the
+>   connector a corrected EDID through edid_override, and after the EDK2
+>   firmware hand-off DP-1 comes up "disconnected" with the cable present,
+>   so a boot script does one unbind/bind of the fusb302 i2c device to kick
+>   it. Neither workaround was touched during the hotplug test below.
+
+obviously completley unrelated to USBDP PHY.
+
+> - Hot unplug/replug of the USB-C cable. The xHCI host controller was
+>   re-registered and the DisplayPort output came back on its own, with no
+>   manual intervention:
+>=20
+>     13:00:56  kernel: xhci-hcd xhci-hcd.6.auto: USB bus 4 deregistered
+>     13:00:57  kwin_wayland_drm: Removing output
+>     13:01:26  kernel: xhci-hcd xhci-hcd.6.auto: xHCI Host Controller
+>     13:01:26  kernel: xhci-hcd xhci-hcd.6.auto: Host supports USB 3.0 Sup=
+erSpeed
+>     13:01:29  kwin_wayland_drm: New output on GPU /dev/dri/card0: Odyssey=
+ G70B
+>=20
+>   (kernel and compositor lines interleaved, abridged.) Note the ~30 s
+>   between disconnect and re-registration - PD/alt-mode negotiation with
+>   this converter is slow. After the replug the connector is back at
+>   3840x2160@120 with HDR.
+
+30 seconds for PD negotiation is indeed very slow. Usually it's at
+least 10x faster. Have you checked for the root cause via TCPM log?
+Also you might want to check if there are firmware updates available
+for your adapter.
+
+> - No messages at all from dwc3, dwc3-rockchip or the usbdp PHY for the
+>   whole uptime, before or after the replug.
+>=20
+>   For completeness, the DP controller does print a burst of 32
+>   "dw-dp fde50000.dp: timeout waiting for AUX reply" right after the cable
+>   is pulled - that is the DRM side probing a dead link, it clears on
+>   replug and is not from your code. The converter's billboard device also
+>   logs one "cdc_acm 3-1:1.1: probe with driver cdc_acm failed with error
+>   -22" per connect - a converter quirk, seen daily on this setup since
+>   long before this kernel.
+
+The billboard device should be on USB2, so this series does not
+affect it.
+
+> One thing I should not hide: I do get a WARN from tcpm, but I trigger it
+> myself and it is not from this series:
+>=20
+>   WARNING: drivers/base/devres.c:1184 at devm_kfree+0xb8/0xd0
+>   Call trace:
+>     devm_kfree
+>     tcpm_port_unregister_pd [tcpm]
+>     tcpm_unregister_port [tcpm]
+>     devm_tcpm_unregister_port [tcpm]
+>     devm_action_release / release_nodes / devres_release_group
+>     i2c_device_remove / device_release_driver_internal / unbind_store
 >
->         kzalloc(struct_size(sw_desc, hw_desc, nb_hw_desc), GFP_NOWAIT)
->
-> to kzalloc_flex(). hw_desc[] is annotated with __counted_by(nb_desc), so
-> __alloc_flex() now initializes sw_desc->nb_desc to nb_hw_desc itself.
-> The loop below it still increments nb_desc for every descriptor it
-> allocates though, so nb_desc ends up being twice the number of
-> descriptors that are actually there.
->
-> Drop the now redundant increment. The error path has to set nb_desc to
-> the number of descriptors allocated so far, otherwise pxad_free_desc()
-> would free entries that were never allocated.
-> ---
->  drivers/dma/pxa_dma.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/dma/pxa_dma.c b/drivers/dma/pxa_dma.c
-> index fa2ee0b3e09f8..8252d27be8c3c 100644
-> --- a/drivers/dma/pxa_dma.c
-> +++ b/drivers/dma/pxa_dma.c
-> @@ -752,10 +752,11 @@ pxad_alloc_desc(struct pxad_chan *chan, unsigned int nb_hw_desc)
->  			dev_err(&chan->vc.chan.dev->device,
->  				"%s(): Couldn't allocate the %dth hw_desc from dma_pool %p\n",
->  				__func__, i, sw_desc->desc_pool);
-> +			/* Only the descriptors below i have been allocated */
-> +			sw_desc->nb_desc = i;
->  			goto err;
->  		}
->
-> -		sw_desc->nb_desc++;
->  		sw_desc->hw_desc[i] = desc;
->
->  		if (i == 0)
->
-> ---
-> base-commit: 8d3ae59288f1e7d58d76558a6ee96d533bc5019f
-> change-id: 20260817-dmaengine-pxa-64152bb34313
->
-> Best regards,
-> --
-> Sascha Hauer <s.hauer@pengutronix.de>
->
+> (trace abridged.) It fires when the boot script mentioned above explicitly
+> unbinds fusb302 (i2c 6-0022), i.e. on the devres teardown path introduced
+> by 48bf0f5f9ec8
+> ("usb: typec: tcpm: add device managed port registration") and fcdd23c198=
+4e
+> ("usb: typec: fusb302: Switch to device managed resources") in
+> rockchip-devel. Those are not part of v14 and I have not root-caused this,
+> but since they are in the branch I tested I thought you would rather know.
+> It does not fire on a normal cable unplug/replug, only on an explicit
+> driver unbind.
+
+That's unrelated to this series, but I fixed it up in rockchip-devel.
+
+> I am sending the Tested-by tags as separate replies to 28/38, 29/38, 30/38
+> and 31/38, so that they land on exactly those patches.
+>=20
+> I am deliberately not tagging 32/38 ("fix USB-C reconnect in gadget mode"=
+).
+> I have never used this board in gadget mode, so I cannot claim to have
+> tested that path.
+>=20
+> One build issue to report, starting at 31/38
+> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+>=20
+> The new glue driver cannot be built as a module once 31/38 is applied.
+> 29/38 alone is fine - the glue it introduces only pulls in module.h,
+> platform_device.h, pm_runtime.h and glue.h. It is 31/38 that adds
+> #include "io.h" and the dwc3_readl()/dwc3_writel() calls.
+>=20
+> Reproducer: ea51774c5c42, arm64 defconfig plus CONFIG_USB_DWC3=3Dy,
+> CONFIG_USB_DWC3_ROCKCHIP=3Dm, CONFIG_TRACEPOINTS=3Dy. The build then fail=
+s at
+> modpost:
+>=20
+>   ERROR: modpost: "__tracepoint_dwc3_readl" [drivers/usb/dwc3/dwc3-rockch=
+ip.ko] undefined!
+>   ERROR: modpost: "__traceiter_dwc3_readl" [drivers/usb/dwc3/dwc3-rockchi=
+p.ko] undefined!
+>   ERROR: modpost: "__tracepoint_dwc3_writel" [drivers/usb/dwc3/dwc3-rockc=
+hip.ko] undefined!
+>   ERROR: modpost: "__traceiter_dwc3_writel" [drivers/usb/dwc3/dwc3-rockch=
+ip.ko] undefined!
+>   make[2]: *** [scripts/Makefile.modpost:147: Module.symvers] Error 1
+>   [...]
+>=20
+> dwc3_readl()/dwc3_writel() call trace_dwc3_readl()/trace_dwc3_writel(),
+> and the dwc3 tracepoints are not exported - there is no
+> EXPORT_TRACEPOINT_SYMBOL* anywhere in drivers/usb/dwc3/ - so a separate
+> module cannot reference them. With CONFIG_TRACEPOINTS=3Dn the trace_* cal=
+ls
+> become empty inlines and this should not trigger; I only tested
+> CONFIG_TRACEPOINTS=3Dy.
+>=20
+> dwc3-rockchip.c is the only glue driver in drivers/usb/dwc3/ that calls
+> the core's dwc3_readl()/dwc3_writel(). dwc3-st.c also includes io.h, but
+> it reads through its own st_dwc3_readl()/st_dwc3_writel(), and e.g.
+> dwc3-keystone.c defines kdwc3_readl()/kdwc3_writel() - though those all
+> access their own glue registers, not the core register block.
+>=20
+> Two ways to fix it, whichever you prefer:
+>=20
+>   - EXPORT_TRACEPOINT_SYMBOL_GPL(dwc3_readl) and (dwc3_writel) in
+>     drivers/usb/dwc3/trace.c, or
+>   - open-code the access in the glue, e.g.
+>     readl(dwc->regs + DWC3_GUSB3PIPECTL(port) - DWC3_GLOBALS_REGS_START),
+>     at the cost of losing the dwc3_readl/dwc3_writel trace events.
+>=20
+> I worked around it locally with CONFIG_USB_DWC3_ROCKCHIP=3Dy, which is how
+> the kernel I tested above was built. Note that "default USB_DWC3" means
+> the glue follows the core: with CONFIG_USB_DWC3=3Dy the default is =3Dy a=
+nd
+> the problem stays hidden, but with CONFIG_USB_DWC3=3Dm the default would =
+be
+> =3Dm. I have not build-tested the CONFIG_USB_DWC3=3Dm case. The Kconfig e=
+ntry
+> added by 29/38 does promise "Say 'Y' or 'M' if you have such device."
+
+Thanks, I only tested non-modular and defconfig (which is modular,
+but does not have CONFIG_TRACEPOINTS=3Dy). I don't see a good reason
+for duplicating dwc3 readl/writel. Exporting is the reasonable thing
+to do and will be done in the next version.
+
+> This reply was prepared with the help of Claude (Anthropic). The board,
+> the tests and the measurements are mine, and I checked every claim above
+> before sending.
+
+Ideally you trim down its wall of text in future mails.
+
+Greetings,
+
+-- Sebastian
+
+--idisms6hiinp7qil
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmqDO88ACgkQ2O7X88g7
++ppLkA/9EPvTTlKH1OgWZB43TAFj/qGbrDbtMl6ILE70Ry9qpwqf0y7vF7Gc3xK5
+9A7ryEMJCOFOkGsBIYfH/SkX3FTM3sGZuoSEigh9NwJiNBucPd5SxHWS30aO5+h8
+UFHH3kh/FDN4wF0O+Cn/VSe3kF+P2WBUIovZn/w6Bc/SfOP5vWuhVflHuYgSqUXQ
+PANLgDpKlqbu96ssBMxAJ1GYoCTFIe7Rya92jdKYJspTmQ8hAZ21PpANKdB+iUNC
+qYU42HZlsKcem7MVkJ+RhOMRsV6Cnhn+J1QZVe0wOJrixZVy6b8euDYhF/jsL4RF
+cYqgUGYesyR0ui4yzh2iokK938/TgezLKEkae4faLaPy1oSss8iA8ER3Bpx8zUH4
+ar9i61Kpfzs3c09RJOAEM3dUS67ZAe5oJ+m8ws6EIwKMcIiwbOcgUrNQH2c3+Zer
+vANrXxml6KLrKA0x7Jk8WoijJAhnx8r57P3/SIxh6p3VhtTHDxtHh6OZOcQPdpXi
+3fdhhhSDgP8Hi1WgO65AsvpLhC+k0UJWr2AyzwHPx6EzWFbiJegrL4whzSxlt6Od
+XLxTu+afmbvGeZsCcgx3mhJOu9jU3QGwCXBT5TclwB/RDGT/+rKypf/4VUbYXvZR
+U2s0jB8L7eMgXOlzpfGduQkflh5rBX/5RmhIFX81iDN028V4olU=
+=EIL6
+-----END PGP SIGNATURE-----
+
+--idisms6hiinp7qil--
 
