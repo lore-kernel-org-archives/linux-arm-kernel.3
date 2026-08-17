@@ -4,59 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11EBAC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 18:56:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F5BBC5DF66
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 19:20:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=T33qGfs/0g0LtIrSUJXt4Q6Ekpi06sGsGWylhaYJd90=; b=5BJAZ3EbCJDQ88ESlVS555uTDk
-	k312Jw/EUFTm5eA1Ib8+fYwMPJYWc4DUtbPacnyLCZB/zG7RJr56Z9pZ5WbfaXd7GGtJ716pz8Z7E
-	Npls7M9//tUCOJlyyO4nba/+g4urQq8QKpT8tLzcu5fro4xgq8nSBXso4i+17ynSfy6QjY7VRiShN
-	/RlmrZekyO8+BJqQklAWs7pQ4Y42GUwgy3LsaUaVvPeb4OzBTaH0JHq97WQKHHEKVJ+FE3jZoTTMq
-	lVkkXaGTWLI1Uck6e7U7v3INMilIy0FJLOrKf41nHEpUa4C7AClYCLFGI9CacRc1KK8r4Xv1Uyo1B
-	hUpZ1W5A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qj1LpBLHaPSKpBBQikx2X5MWB+eO+B4IPml/AHn48RM=; b=uoEsAi2oERHGstiTcEKfiKt6KA
+	8Q/3hWLxFE1xgGxf3D5Dp/C+MfeaT7w0pe7MKkXdX6QNSKlfwAOX9A5wJmpagt2565mE0dU7vA2Ka
+	Nt7rXzYnkOWcBqQ8HleDQMMX+guZ5AXRtpE1HWKGueQNbwkAg2RcgIwNaGagKsPoPG2ZjkCtTqezb
+	81YWe9mgt0aHHEkTduuV3saZ/ULkFlktCpngYJNip7RroRmwtEvQDRka1FTuNhk9Vppe6Med655IS
+	FMJj4tkxi5Mof2SSLBaRIU2nNPp002ii3Nn1PbA1Vby/GSJawHGcCJ7Fe5X7Nn2fBx8EbnLpdY1to
+	ps8PmPjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww2VK-00000006gQG-1lO8;
-	Mon, 17 Aug 2026 18:56:14 +0000
+	id 1ww2sb-00000006iKc-2p68;
+	Mon, 17 Aug 2026 19:20:17 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww2VJ-00000006gQ9-2s4a
+	id 1ww2sZ-00000006iKU-2aiW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 18:56:13 +0000
+	Mon, 17 Aug 2026 19:20:15 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 975A843420;
-	Mon, 17 Aug 2026 18:56:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C37F1F00A3A;
-	Mon, 17 Aug 2026 18:56:11 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E12914348D;
+	Mon, 17 Aug 2026 19:20:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 091221F000E9;
+	Mon, 17 Aug 2026 19:20:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786992972;
-	bh=T33qGfs/0g0LtIrSUJXt4Q6Ekpi06sGsGWylhaYJd90=;
-	h=From:To:Cc:Subject:Date;
-	b=H/NpkALVtexLsn2fi4vjzvjSHCYJdXeTn7Jlgk51uq3IJV2bign4+t7t2bihbo+f3
-	 66G97/fTLRyfMkU/GHIxprq1o74nkEDWJCm14cCx6ZshFkLM86/95kQm3tltyq9oL0
-	 rqqbUyMnxJ3rpD7HFlNE/VupoZetJd6gcIA25u98YgGf1uMXV3cGeKFEBPD62AoS1L
-	 JgdKbVIEnfgBu2lIk57vfMUVD2BIzGWz2rqvfQiQ32RrUhaoZ0Mr7AuMm31bZIzApQ
-	 sZDs+EEpAdHbDiyZuPsOOApDXbzZWgtWmiM1w6xsea7EAD9I86a460xPMh4mApmn7J
-	 7wocNBaFsTnHw==
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Liviu Dudau <liviu.dudau@arm.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
+	s=k20260515; t=1786994414;
+	bh=qj1LpBLHaPSKpBBQikx2X5MWB+eO+B4IPml/AHn48RM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=QpDMikdxPODQRdzqbNH1qCaPrpy3zSeaUC8wDRyuxujKTmdbnguxSNFyvijWJwZ9L
+	 /UieoRZhAI9/4/xAXALDev67NgIXWwSqAKnX2YQRV0BHO71cPtUD2Bhyj4jaiFqoj5
+	 sTn8zH8HmCvyhTz+aGsy+dhQQRgcq23CIRLkOU5oBIL+etqg5TfMGPNBCDxkLsax7W
+	 91g4Fycr+zFyL+gxK4POUtoXznqlmYNhYw1bH6S22i7wlFg6sHfimpJYD7rcMcW6Uu
+	 yQ5PrYcwTvTaVr8cvn0zLl43v0ZG9xjJspc44odGIw5daBR2/X8HLl53l7iZp1IO0+
+	 06yZZUkSittsQ==
+Date: Mon, 17 Aug 2026 21:20:11 +0200
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Abdurrahman Hussain <abdurrahman@nexthop.ai>
+Cc: Michal Simek <michal.simek@amd.com>, 
+	Andy Shevchenko <andriy.shevchenko@intel.com>, linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org, 
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64: dts: arm: corstone1000-a320: Fix GIC redistributor region size
-Date: Mon, 17 Aug 2026 13:56:07 -0500
-Message-ID: <20260817185607.1756124-1-robh@kernel.org>
-X-Mailer: git-send-email 2.53.0
+Subject: Re: [PATCH v2] i2c: xiic: restore runtime PM teardown in remove to
+ fix clk WARN flood
+Message-ID: <aoNdskB_y8mOj5qr@zenone.zhora.eu>
+References: <20260814-i2c-xiic-restore-runtime-pm-teardown-v2-1-7ae5d0c30ff2@nexthop.ai>
+ <aoHf6UDxD68YxLYm@zenone.zhora.eu>
+ <DKQN4CNOESWV.2XRL8DIC87HYA@nexthop.ai>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <DKQN4CNOESWV.2XRL8DIC87HYA@nexthop.ai>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,31 +72,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Arm Corstone1000-A320 has a GICv4 which means the redistributor
-region should be 4x256KB rather than 512KB. This issue didn't become
-apparent as SMP was disabled as a work-around in early versions of the
-FVP.
+Hi Abdurraham,
 
-Fixes: 87599f1843d3 ("arm64: dts: arm/corstone1000: Add corstone-1000-a320")
-Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
----
- arch/arm64/boot/dts/arm/corstone1000-a320.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+> On Sun, Aug 16, 2026 at 06:14:08PM +0200, Andi Shyti wrote:
+> > isn't devm_pm_runtime_set_active_enabled() calling
+> > pm_runtime_disable() + pm_runtime_set_suspended() +
+> > pm_runtime_dont_use_autosuspend() at teardown?
+> 
+> It does call all three, but the ordering defeats it, in two places:
+> 
+> 1. Within the helper's own release, pm_runtime_disable_action() calls
+>    pm_runtime_dont_use_autosuspend() *before* pm_runtime_disable() --
+>    i.e. while runtime PM is still enabled.
+> 
+> 2. devres is LIFO, and devm_clk_get_enabled() is registered before
+>    devm_pm_runtime_set_active_enabled() in probe(), so the clock's
+>    clk_disable_unprepare() release runs *after* the runtime-PM releases.
+> 
+> pm_runtime_put_sync() in remove() leaves the device RPM_ACTIVE with the
+> autosuspend timer armed: rpm_idle() falls through to
+> rpm_suspend(RPM_AUTO), the delay hasn't expired, so it just re-arms the
+> timer -- runtime_status stays ACTIVE and the clock stays enabled.
+> 
+> Then the devres teardown runs. pm_runtime_dont_use_autosuspend() clears
+> use_autosuspend; update_autosuspend() takes the else branch and calls
+> rpm_idle(RPM_AUTO), but now pm_runtime_autosuspend_expiration() returns
+> 0, so rpm_suspend() no longer defers and suspends immediately --
+> xiic_i2c_runtime_suspend() clk_disable()s the clock, all while runtime
+> PM is still enabled. A moment later, further down the LIFO chain,
+> devm_clk_get_enabled()'s release does clk_disable_unprepare() on the
+> already-disabled clock and clk_core_disable() WARNs, once per device.
+> 
+> Calling pm_runtime_disable() in remove(), before any devres release
+> runs, closes that window: with runtime PM disabled the helper's
+> dont_use_autosuspend() can no longer trigger a suspend, so the clock
+> stays enabled and the clk release balances it cleanly.
+> 
+> You're right that set_suspended() and dont_use_autosuspend() are then
+> redundant with the helper -- pm_runtime_disable() is the only call that
+> has to happen early. So for v3 I'll drop those two and keep just
+> pm_runtime_disable() (with a short comment, and the full reasoning in
+> the commit log). Does that work for you?
 
-diff --git a/arch/arm64/boot/dts/arm/corstone1000-a320.dtsi b/arch/arm64/boot/dts/arm/corstone1000-a320.dtsi
-index f0937914350c..f895a024fc92 100644
---- a/arch/arm64/boot/dts/arm/corstone1000-a320.dtsi
-+++ b/arch/arm64/boot/dts/arm/corstone1000-a320.dtsi
-@@ -73,7 +73,7 @@ gic: interrupt-controller@1c000000 {
- 		#size-cells = <1>;
- 		interrupt-controller;
- 		reg = <0x1c000000 0x10000>,
--		      <0x1c040000 0x80000>;
-+		      <0x1c040000 0x100000>;
- 		interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_LOW>;
- 	};
- 
--- 
-2.53.0
+I understand the logic, but this still leaves runtime PM
+unbalanced. The explicit pm_runtime_disable() is followed by the
+managed cleanup calling pm_runtime_disable() again.
 
+A solution would be to drop the managed runtime-PM helper and
+restore the non managed runtime PM setup and teardown. Otherwise,
+this ordering issue needs to be addressed in the runtime-PM/clock
+framework.
+
+Does that work?
+
+Andi
 
