@@ -4,65 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4931FC5DF7A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 11:07:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0B7EC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 11:07:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n81T4W7eTaTT4B+ApvT6XYE8dIt+elKVf9cHQUeK6Jk=; b=4Rj9v8MGnYy/udSdGaI4AH1TeJ
-	sF4zq3Q6OY3ueCk+tMrZ9RXT7r25eMsKxGG9ZFD0/HgAu13TljuKyQhHzuINbp9XUX6t3UTUrHpQE
-	85BVV/GC6poX1XyoVQJoQ1F1fxDscSPavuKb/qEuW4a4u/57u1qUBEmfcunCOM1bcQo4zGZWyumYD
-	A/w3crlcQsr2Q+QSwZkWxIqfWIS60wj4oynA2ctFJR2dEm+N8HX79u/wgzKKN1L5ziUmAxFNbVvcx
-	yFoY4ZxDTLScyacXPiNvPF+HNbd/PMZ16ftei0VeuTgWEqj9/qAGoLclWr5ob4ztmFotu0S8rd04U
-	08b7sNbw==;
+	bh=biOqkm+9BioQJU4c0xKJHFjIa1LDWfVFN2S4cqtbLHw=; b=QGVlRp+d2CUhGTXnwFc5xN9wg6
+	K7/SlBU4+mQkWbOHHT5galBPkafD+5QHDmbJdV20e0YmmqQ3lM2fzcTLT5xq7JKfH8sAuVK1+S1pw
+	xxK3JRlZjMDOGjdAuOmy0xrDORfPw+uMUo/hxT567bFB1RDrZ6eKKtBplRKLsRzdImuSpk65EL4Rk
+	ygXpDtrTd7wEuRnzwyNUjYjXTfERK90Bp1Nu7WyifPWv+rjKqkD8QEsS/R79l8e5y2fdr+anucnM3
+	zO7jjZ+09K3+tBp1dG81eVysAx3c3xazE+VSKx4G9+lFB3bNlaZnW/4eX9dQ4wXOVj6rC+bXXqiQE
+	7LZ2XZrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvvBG-00000005zrh-2tTn;
-	Mon, 17 Aug 2026 11:07:02 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wvvBo-00000006009-3fdq;
+	Mon, 17 Aug 2026 11:07:36 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvvBF-00000005zrK-3nCb
+	id 1wvvBn-00000005zzu-2pKQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 11:07:01 +0000
+	Mon, 17 Aug 2026 11:07:35 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 14F1640604;
-	Mon, 17 Aug 2026 11:07:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6EBC71F000E9;
-	Mon, 17 Aug 2026 11:06:52 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3D2AF43283;
+	Mon, 17 Aug 2026 11:07:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8915D1F000E9;
+	Mon, 17 Aug 2026 11:07:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786964820;
-	bh=n81T4W7eTaTT4B+ApvT6XYE8dIt+elKVf9cHQUeK6Jk=;
+	s=k20260515; t=1786964855;
+	bh=biOqkm+9BioQJU4c0xKJHFjIa1LDWfVFN2S4cqtbLHw=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=UlMlXTuT1i9qWoH/ZmuDsBmC+/dqUxfA97bCzcw3GHd1RCpWl0gZRVFK7nEyHwsQO
-	 DUU3XCIyclryx69iu7+ilTc7VoXO64Hz71ST68T0hilcwuAkAqraMhEK4OqgfdfSif
-	 Yx3Qy3yml/J+XBZiY7X+l5yozg72fRqCgXrZ7hsjDSSAZqyn66rEvdyQv6iDM3bmrx
-	 8f14MDqP3/UyLqdeO7oe7xtmCVxH5NVts14jUmOIwA12FCGuGd/PGYzu7BmbC9oRgi
-	 A0zkF8mChjYvKyNKT97lFjegHnkXcv6QvEfYWXaU23ps+GotmubtsOovv6ts4MZ7u/
-	 d3XdkZMaYKIhg==
-Message-ID: <9b3b6f29-35a8-4b79-a002-bd0aac5dbee4@kernel.org>
-Date: Mon, 17 Aug 2026 13:06:48 +0200
+	b=EJIgrn516V7SW/w33JwxqLg1PgqwK4GlovqC0LNZgMFCT5oqsnoheHeeQAXF3YpKw
+	 1+amHPU1J9EhG37YzI3tS59PB1H3xehx99L9dXPb4w6oeO2ppOvfD0WPGRG7M7wCWH
+	 A5TmG8NqwBxgMPBGuPD6CKn3YVsJM5c8HUUZ8ccYA5iYYQqtU/75zdzGGJSg1pZpgS
+	 lbxuo8DEPc9mic7GhIN4nu6XwV7DVXDMcDi62rmppzu9HM5mYrL9PnjH8Tc1pJaahN
+	 GD7npcDpsmpkhn4YILvRPcjJNFh3UpWgNtOYGJgYqGw9CYG3UEnPhSAp1tMgbdiIpu
+	 muj52bDcqG0lA==
+Message-ID: <9e0c8579-fc12-403b-8df5-9cfe0a779fd2@kernel.org>
+Date: Mon, 17 Aug 2026 13:07:29 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] dt-bindings: net: wireless: add flag
- marvell,ignore-regulatory-hint
-To: George Valkov <gvalkov@gmail.com>
-Cc: briannorris@chromium.org, johannes@sipsolutions.net, andrew@lunn.ch,
- francesco@dolcini.it, johannes.berg@intel.com, kees@kernel.org,
- miriam.rachel.korenblit@intel.com, wenst@chromium.org,
- rafael.beims@toradex.com, avraham.stern@intel.com, error27@gmail.com,
- s.kerkmann@pengutronix.de, gregory.clement@bootlin.com,
- sebastian.hesselbarth@gmail.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, Frank.Li@nxp.com, chunfan.chen@gmail.com,
- linux-arm-kernel@lists.infradead.org, linux-wireless@vger.kernel.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- stable@vger.kernel.org
-References: <anoYr9H4KojJv-aZ@google.com>
- <20260814125025.90522-1-gvalkov@gmail.com>
- <20260817-hairy-serval-of-refinement-49039a@quoll>
- <CADOrJmb3uJPpYR481rB-CnL0A9B_5PQ683XP+Gdis47uihqMBw@mail.gmail.com>
+Subject: Re: [PATCH 0/2] Hi there,
+To: aidenisik@member.fsf.org, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Aiden Isik <aidenisik+git@member.fsf.org>
+References: <20260817-for-next-lucky7-v1-0-42ffb2b71ba2@member.fsf.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -108,7 +100,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <CADOrJmb3uJPpYR481rB-CnL0A9B_5PQ683XP+Gdis47uihqMBw@mail.gmail.com>
+In-Reply-To: <20260817-for-next-lucky7-v1-0-42ffb2b71ba2@member.fsf.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -125,85 +117,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/08/2026 12:43, George Valkov wrote:
-> On Mon, 17 Aug 2026 at 11:54, Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>
->> On Fri, Aug 14, 2026 at 03:50:23PM +0300, Georgi Valkov wrote:
->>> WRT3200ACM and WRT32x routers always report a fixed US regulatory domain
->>> from the mwifiex ROM, which conflicts with the platform regulatory
->>> configuration on units sold outside the US market. For example:
->>> - phy0 mwlwifi 5 GHz, hard-coded region 98 EU mapped to FR
->>> - phy1 mwlwifi 2.4 GHz, hard-coded region 98 EU mapped to FR
->>> - phy2 mwifiex 2.4 and 5 GHz, hard-coded region US
->>
->> v1 as reply to v3 in big thread. How tools can parse that?
-> 
-> Hello Krzysztof,
-> I apologise, I forgot to add the v4 tag to the subject.
-> I have documented the changes between each revision.
-> I saw my mistake after sending the mail. But I wasn't sure
-> what to do? I will make sure to add v5 to my next revision.
-> 
->> Does b4 diff work?
->>
->> b4 diff '20260814125025.90522-1-gvalkov@gmail.com'
-> 
-> What is b4?
+On 17/08/2026 12:27, Aiden Isik via B4 Relay wrote:
+> This patchset adds initial support for the Exynos 5515 SoC, along with
 
-Tool used by maintainers and contributors to handle/send patches. See
-korg docs (or just google "What is b4 Linux kernel").
-
-
-> 
-> 
->>> When the system boots, it detects a conflict between the user selected
->>> region and the radios, e.g. BG FR US, and applies extreme restrictions,
->>> preventing use of 5 GHz and DFS channels. This also affects phy0.
->>>
->>> Add a device-tree flag, which allows affected platforms to ignore
->>> an incorrect regulatory hint from ROM, so userspace can set the
->>> correct platform regulatory domain.
->>>
->>> [1] https://github.com/kaloz/mwlwifi/issues/173#issuecomment-307879699
->>> [2] https://github.com/openwrt/openwrt/issues/9956
->>>
->>> Tested-on: WRT3200ACM, OpenWrt
->>
->> Not a valid tag, drop.
-> 
-> I believe the tag is helpful because it describes that my changes
-> have been tested on a certain device and platform. It's a common
-> practice in OpenWrt contributions. My last two accepted patches
-> have this tag. Should I still remove it?
-
-Drop the tag everywhere and instead on the patches which were possible
-to be tested mention how did you test it.
-
-> 
-> 
->> And you cannot even do that, otherwise explain me
->> how did your device execute THIS (exactly THIS) code?
-> 
-> I am not used to your terminology and this gets me completely confused.
-> You have not quoted any particular code change, so I'm not sure what
-> you are referring to. Here is a summary of the patch series:
-
-Tested means executing or parsing or using the code on the device under
-test. How can you execute/parse/use this code on the device?
-
-> 
-> Patch 1 documents a new flag: marvell,ignore-regulatory-hint.
-> Patch 2 adds a device-tree node with the radio and the flag.
-> Patch 3 skips the regulatory_hint() call when the flag is set.
-
-I can read your patchsets and above does not proof how can you test binding.
-
-> 
->>> Cc: stable@vger.kernel.org
->>
->> Drop, what is the bug being fixed here?
-> 
-
+You already sent a thread called "Hi there,". One is enough. Please name
+cover letters correctly, so it won't get messed in our mailboxes.
 
 Best regards,
 Krzysztof
