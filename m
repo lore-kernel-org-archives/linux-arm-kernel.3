@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23622C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 01:50:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BD94C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 01:50:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7lWFkp9Q4odc+ATOu4u9xlSDDLg8SfOYSZzi8IhBBtg=; b=Z3R0w9lCxilvm/TmcfuJvKTJYb
-	q4L36LiH6TPWywFEQmVc5DCzMxd3rG8Tr6H1WCr9DXonHXT8ARN37cTLXji87kfIfpukazR77p+Z+
-	u18O6EGCHjLplF/sjxN4OeDKn++b19PWEryWN9zz9/xS9e6bZWnbygPEBDAu1DXFHiPbvQOT6ISRJ
-	7SKzM25ALxgHSUjNh09tdkgxo2tyiRKbU6RBbRVXG9jbG3WVA76TJ9qb0JIzTObzxWuY4km4ls/6x
-	xqZfQJiWmkgM5Rvue3w4gbwAgfH4ZkcPg7wn/GrH7jq4kAnkF78KCmuUbLj/G6MLzckP4oIbFtGyG
-	dlr3ASDQ==;
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BIZk7A7izJqKy2Haz7BZKGXXDdFkTiSSf5iOxivRfTY=; b=iJTOQBgfzYnIaR7MWX6oDawBYh
+	RnXpWrbXicsUaxeuJLtIpS6FE+IfYefDLvwZpT0um0vVRnOKOJhCqARVDQtZ9nBONxyg5R+DQAYXC
+	P24ik7SaN70AWgDdNojM05/hun9afXGS8wEA7XVzjcFqW+3QfU5qnD90YOONO6sXwEi1Axv+yymp+
+	uphm2liySRsk7GZzQ2rAGNOJoTg3dWaZX9UAHU0mX5Lr8LOW6JZu+Lk1Qn9j4kU48auMUWlwASdh8
+	Vvezh8Zim1TwCZud6TY5VlgqU91MiRQPnRylRkdRnJgkliyBqU/5blrTOwlrIkmVDQwb18FMN/Pwd
+	OsEXLskw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvmUA-00000005Gw5-1Zzo;
-	Mon, 17 Aug 2026 01:49:58 +0000
-Received: from mail-northcentralusazon11010053.outbound.protection.outlook.com ([52.101.193.53] helo=CH1PR05CU001.outbound.protection.outlook.com)
+	id 1wvmUJ-00000005GzW-35Cc;
+	Mon, 17 Aug 2026 01:50:07 +0000
+Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvmU7-00000005GvV-2TOW
+	id 1wvmUF-00000005Gwz-1SLO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 01:49:56 +0000
+	Mon, 17 Aug 2026 01:50:04 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=pH87oKXCxQs2UktN17trAZkBIdm9xAhDdGbXZdVAakf4b5Rqudv0d1b6NzVBNVzjCl5SiWQkPgEZo9ycV3vsGZ7P3eEEmOnCX4uEXv24cCf+e64BbW8EE32iyIsv7jTf0EjQMzeBh3fHMMx0NKb/T3T8RKm7wV8o6QZO18mcW+S6syPEgA4PsONf7nLCUyTONrNOvfz+kHOT9i00d5OA2Rc7d8k/UbblP+iYZAtgTHBE7UnrkuvkNtj5Sv7OaRWH+Cd26qeXwQfzqDZtvK6PNpXeCBGfSslE3XJm5ZEQr/wIrLZ+aNLvRsXX4roe4IQozJzrE7ao/3q48G740CpV+g==
+ b=HMAOizGVlKYn52fTyDX7zM39Inwou8MpqcHWQQl9MF+kccBO158/ov1wZbNHzmt76gEA7Wn5LlSY+K9l5TjF3TJgDz4fZLQJNYpOF4y1JyWZIrUVg64ItT+NJvahrWcIoBbCXoisS0A2SJCqVqKuKCUm//JNGmm+/Cbp6MCsV9gUwK+RqCZ/40BWcSzn7SNXiqBFZuM8TOq6uTa/wMsxntusnZQA/wAWDLgblMtaJu9cr7y4bzvPVWVOq5qz+zc/81OueKlZBWJbqAT+gFA8DN+a/l+urlCqUdXQ1CPMwUk+fe1itt4Y/e6OauKJ9yRVAclLT7NZC2JVO1xUvRkTIw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7lWFkp9Q4odc+ATOu4u9xlSDDLg8SfOYSZzi8IhBBtg=;
- b=WGr8MPbuQcb/yUEZczFkLH3BZdTpaDgoXxu6qXTR8oTjok6rebHw7pPAFlw2lmRRg+Ez58zFUsUOdQLZa4nwj64xqQNttHaYQ9mhSXck5ipqpnZJU7hmYL/+bM+aw9XabRirJgRPtSoojXzzHio3wON6wWHi1m9kj2cbSDjx2SKi2HnZ9p6TGu5vRvpUu7VAFOzOeHxDfbs+PTXQ9sU/qlZ7V4oU4wjKIKGckOwkmphilkcRyfRdMpNXyH1dEUMxc7r/ytnAK+GEjVrVNiEqFQQYnjZ6rLA0/jY7aWU89du+H6ZEfIopXglC7s6yO3Luwq8jtf4rvB8UIgnxr2iugA==
+ bh=BIZk7A7izJqKy2Haz7BZKGXXDdFkTiSSf5iOxivRfTY=;
+ b=t8nt0g0y0EbLWOtlGD4zO6RJ0DJTajB+yUeEGkKdMewDtINFWfh2Z6gD5x0Hn86zsGvLPr68Je+GjdET+GEdLSi4/n63lyIrsGFfpGWHt5LojW7Xyi4kSXEVmX52mb8qW5SjtfmPm8On6Y3ADm36MqOfhku/3mWga2KkYnjraa+813vPVQECB9VRyJ7nhGSo7try6Zmpp08lv1UbJ7qTdInp+Y0STchSeIKFB8pEiXGZjU0pBaA2bHlq5gMhnI6SPtiBcC38Odkg/n9ZbueecM7Jf5SNwfJKhKjb0z+ekjvk43QtcaPTK7q6gOn7mPWee71yzjzyFijGyENg9Uay6A==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
  dkim=pass header.d=nvidia.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7lWFkp9Q4odc+ATOu4u9xlSDDLg8SfOYSZzi8IhBBtg=;
- b=YaDEqVddhJRI/2ZZx8up8e0M+vadmUUMGJNBMVr2fIaz8qv/HehcOLQnIbE4yYpN/cLVN1cyK20HcYxfPyTuPnov8LTcd1kUQ1wN6t80B8ZmfC0erhXUMNYq6SBx/cds8ycOm1cOzlVk8A67qQv4mfqn32r6FPQPeaeVUIQIjyt1wDU0vVuzA0pGF1O95aFbgF8kv70FvLCH2pd/NR31bbWp4epKpfIM1Z4jflILUgXIOmGu7UvPOAMytofEhAYR/ovV/6jBZzM9xb0/4VUY1w9AiosW3OAKszBtxKje3TQcekYqABST8Uk3kYbXSvHXP0/zBhFFneIWYmugHTvTdg==
+ bh=BIZk7A7izJqKy2Haz7BZKGXXDdFkTiSSf5iOxivRfTY=;
+ b=qXjzROnBceATZI6pMrzFpWauy7k/9DRoJVAQNNwDIe5+HWN3kvXYjgDOJMkcm5Ky3rRBoXcRrXYu1b/5r1A1QrYKAPKFkgPrfVll/m9AwRM0OtIIaw5dDWRsdHNF11jbzq/kNwNjEXaZNUdUCd7ZbFox3Zzt1OXn53c5N6Akmo8VPztixmdGdSxxtlOcYworRByEf/RHzoTez0EU8dQo8EPzy0b5oAU+OxoJokk7iQKrlQpB1I83ycwaYUOApRFJy1/AE20z8vu827/GGqJKFUFzJ2Uol31fxUzo4ibKtNqf0gRZZJ2A7+zTzoUSvClmAjmz83lOLxyQd4RSCDCkWA==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nvidia.com;
 Received: from CHXPR12MB999244.namprd12.prod.outlook.com
  (2603:10b6:610:2fc::17) by CH1PR12MB9623.namprd12.prod.outlook.com
  (2603:10b6:610:2b3::15) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.17; Mon, 17 Aug
- 2026 01:49:47 +0000
+ 2026 01:49:59 +0000
 Received: from CHXPR12MB999244.namprd12.prod.outlook.com
  ([fe80::168f:599c:f74d:7688]) by CHXPR12MB999244.namprd12.prod.outlook.com
  ([fe80::168f:599c:f74d:7688%4]) with mapi id 15.21.0315.016; Mon, 17 Aug 2026
- 01:49:47 +0000
+ 01:49:59 +0000
 From: KobaK <kobak@nvidia.com>
 To: catalin.marinas@arm.com,
 	will@kernel.org
@@ -67,69 +67,71 @@ Cc: corbet@lwn.net,
 	kaihengf@nvidia.com,
 	rupakr@nvidia.com,
 	mohammedk@nvidia.com
-Subject: [RFC PATCH v6 0/3] arm64: expose CPU prefetch and cache modulation controls
-Date: Mon, 17 Aug 2026 09:49:40 +0800
-Message-ID: <20260817014943.10-1-kobak@nvidia.com>
+Subject: [RFC PATCH v6 2/3] Documentation/arch/arm64: document arm_cpumod
+Date: Mon, 17 Aug 2026 09:49:42 +0800
+Message-ID: <20260817014943.10-3-kobak@nvidia.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260817014943.10-1-kobak@nvidia.com>
+References: <20260817014943.10-1-kobak@nvidia.com>
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: TP0P295CA0060.TWNP295.PROD.OUTLOOK.COM
- (2603:1096:910:3::15) To CHXPR12MB999244.namprd12.prod.outlook.com
+X-ClientProxiedBy: SI2PR02CA0002.apcprd02.prod.outlook.com
+ (2603:1096:4:194::22) To CHXPR12MB999244.namprd12.prod.outlook.com
  (2603:10b6:610:2fc::17)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: CHXPR12MB999244:EE_|CH1PR12MB9623:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0fdc70ad-da6d-4400-745f-08defc01d190
+X-MS-Office365-Filtering-Correlation-Id: 109fd603-13f1-471d-0b81-08defc01d864
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|376014|366016|6133799003|10067099003|11063799006|56012099006|18002099003;
-X-Microsoft-Antispam-Message-Info: pVKc/GiYHEm8XjXLEUgbAfTedNQTrsiR8l1gyfqoVURbiGRfVMcc2nj//mQBlEpxZvo2DQiyrCQRjCmL/7FQ7iDBUFZFGSmXz27+BbDgWqZhxkFtkKsNaqQZoluyWjWyEQa01MycOJJnXd69jyTDLUZBfCHG5IRulIp6ZW3cflBOK5BUwAuhRLvDCuktrTE2AhDFEFB9R5zmvf2zUNkWLpa1/SilHHjM48ef729FESNXWavIU3Y+fOiSn09PZI6fY1sj6qYTc/JQC3otbN0tHBWT9+Td3QpTPHLhfg2HUco3mqpH4Od3zTUBn0bhMM94+NCQVdR+8FCR1lpYlFrlwCyVFF+mcSllsooz2hN8NhS1017N3ie09xOKpaYrBkyW4aFO7GAfXavBwjIwRw2FAMOyggUCqXbKeYjiTuC4w2rWPO59YKMjbEQ+SfnJXMkzcZumInCEz6RavlWBnex118tkTkTnYvrzPflk9MhEFKEOqu+093WpqBeH+Tbo6adeNZRrMjJQYt/0I9Kds8U4LPuh8Z/HSVc4NsScNWeVEjM2zb+VuLms7ijYHJmQMFr4/1NWPaV7eQLYv4N2pzIwSo4MrGZkq7tD5ba5yZPfR/2ByfCEscxHFr4lWHmOFcSFczM/PyPTGgwxm1wz6a/g1P34gldDq34PP/RVMtWCLZw=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHXPR12MB999244.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(366016)(6133799003)(10067099003)(11063799006)(56012099006)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|376014|366016|6133799003|10067099003|11063799006|56012099006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: F5n+Q7abgRbVhjN4G7kBdQofKTyxpg2knaIhUQ5gXUu6rgSgmSJL0myp3RT+/N9imFGLhu4c1d28eAbSELhBJlQOYk7yi73p4AU5gqzJoiPYYEcFBLU8lHm0JlYvgdBgBHswF5pDg1BGNTWKqwmoYeaFZY4d+ANab8qchIF/Y8XPQTa4J2DKRJ6d2HG+LEspPJlyisR1ePF/ZAHkuC8X+8/xgGZzL7YURtnEYTfI8h7b/wZDUJYfERGpaUDALs3JcBjJmPPcukWNVwEJhTa5ueYMJ1bPHGU+FGvz3qr20Qkkmlplk1s98GGSCeoY9KSNmmj7kiOTOKcyZAnj/e3HMzJ4o1mjN/1XnZyPlii14ZtCK26s2k6uk52q/i1luDfMoveIH+pQLvImHULg0Dd5u++T3qKJZtUktfWUwy0RSIB8+6FTR0YG9T3YvYSZgbLyPOv3h16YiXlv5EHcFnJ9Vs/iTzIWA86zyFMyB4mBPoi+BRlZph8hh+FmY7g3kaue32k0zMc2V2PH25gvVDW0vyAfLeI/D8OYW+L8avIm402YBqmCWwLxEO/aiU7n8lzX9URxuiHg6zLoEw7qdsSse5iUrrdm2LQy4PJkhAjoDctGjlsRdGbYNPXQnjsLlNxN+AUj3aituuJlH5hFpNiPlAK3l9XkvR8gtVI2MFjAeGw=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHXPR12MB999244.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(366016)(6133799003)(10067099003)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?UAywr0ajySr4xJEqxfk0uj4+tqr6MeGwnFUtyeRNEWd7ndn59zflp5vKivlY?=
- =?us-ascii?Q?WOCFeDjERGZQEMNCmTVNM9YJXatZRqv6StJWDhYjN/iY5bSsh9dMgkeWcWzE?=
- =?us-ascii?Q?0YM95SVoySwXBVVC6VKmUE1mZg1LkY0YqRhPPtRDd3OXD6EsBpZqZzhohdik?=
- =?us-ascii?Q?EPPSTZCaAg4/kSfZgAaQ/bUA8QwxDguMMgy16tcHBj0DZacsv/D8wpNJ5tWs?=
- =?us-ascii?Q?bAgAE/rffIwPdYOJmncqSR8VUoQsPXhO0oKkeEf6kRWG/6K5VZiNSEISwIRd?=
- =?us-ascii?Q?wL6/CD1S/NYgGC1f8k27OXeApkXuFVUh9JAA8ki/LQ45qTqsQc9I3hH9N5J1?=
- =?us-ascii?Q?/eCTuSlfum3R6xV62dd6VngHgQJIi76Sp24zD44VDEfZ4XAzyGUhfdG8vv0s?=
- =?us-ascii?Q?IVY1EJBXBxzsSpzb/Bu3v0tFsAcF+lt+P3lH4CFoMPh9h/zJ76e1lpqx6OXg?=
- =?us-ascii?Q?cutfxWlV+vNFvbPTCBBFNQfKO1imtxY19NH2coLhoGzYDtyJZoi5iD7SYYRM?=
- =?us-ascii?Q?AJxkyWQQR3I0lUFAZMWfJNMieRys2NC4K2qtBWsqzUGMraV/fOglKOcrrrPv?=
- =?us-ascii?Q?lkAjbutGVXg6hWLvNZDreMhORQYE4cAHxqw2hkEPUwJ9OBARC3UwWL0N3nQl?=
- =?us-ascii?Q?OMXP7QgqQS7iS7/vO4D2VvdzzTkV4O/OOCBIM69PML6mAEc+HOncVHvVW5yP?=
- =?us-ascii?Q?iRDK1e/xV60bUWUmY/OJkckWIK2agdSqFOu53Ati+dxBUorpmNevBFk9g4x1?=
- =?us-ascii?Q?pmSg6SAcX9SdGUNguuACIwOJKiAz/0fwYZVN3cYkNE6oGNlUEYmGeTeWep6h?=
- =?us-ascii?Q?gaVd6eCF0enlFhm6FRp1lTIDtDvcGJTGTOwCutqYceNvhPUPQ68ig69dtv2O?=
- =?us-ascii?Q?cv5tnT8JBP6iNKL+RyTocM5DD0joSq1/UNX6+ej3Qq2MLKWspbl45yNunBE3?=
- =?us-ascii?Q?Pd7RKdIULJ/u7pz7/FFpNvgrAwCCWXb4CTc5fE1O/oR0pSaySQZUuyaXM5PX?=
- =?us-ascii?Q?4NWUNrN3qQAI7P6sVYWPop/SQQ4YtRWku5YBnen6d6t0Y+024Yi/nR8n65Cx?=
- =?us-ascii?Q?2AO3D3BJyS1i0HbRL5tYQQE3dRO6Wz7tgQ8wWatCZ3ujnn9mlhINeoEFYNaW?=
- =?us-ascii?Q?cZ6KgDGRFQ6Xd+o4xnn+UfEEc28Y2h5Y8yzZyZjIZwnMFeJ5PgKA+293W/Mt?=
- =?us-ascii?Q?8Xkr1hOM+jP8ZJolyuHPOH1DkIbUyjJbx1jbrVeFGBZAvJ2WoODwRrq3xzEl?=
- =?us-ascii?Q?/GXPCLfj3kcZVZK4VVWvY8+/Tgtvb2zaF6zVB0PvKHm6QIICd3tHhD+dlXm5?=
- =?us-ascii?Q?9x16sDJnR9RtT5lyjR2i3WpO68gws/EhEDMQEzLkUau9OAWvdcGdihbOvvkF?=
- =?us-ascii?Q?1yV+ZYS3RqXGJeKWri9FFG3P3KsxoAFXv5KBVX/+G1qJXRGkdicLkWUoozWt?=
- =?us-ascii?Q?iLlgaWp6I4k3M5NAF+y0Sn/+lrkUDJKI9tQQOuWVaeoHsKF3pTsMiRsf6zIM?=
- =?us-ascii?Q?mkDJGOh24w6QJL24FZj9r7iF4ciNB/UVim7EVLOxDsSe7tuvrKMVjEAJzctd?=
- =?us-ascii?Q?c+FEFs9PTMn6nKttV39z9chY6+pMLlY11e2e+MAr+WBxW91c5qSmoSKGFaEm?=
- =?us-ascii?Q?UweMI7Nlu4tmOfDzzYZf2tqr3vOISm2ZEZuW4szfgLf5d/qcon3kfpPBJEQH?=
- =?us-ascii?Q?NbBzs+ORtKmyAfq1mHgqZuHCQs14Fh1shL6LrgykXId0Oeq09EBFch3y8GnY?=
- =?us-ascii?Q?vX+RPNgSWw=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?nhxfy9iYvcni6SQzxehxCSXYuF7qP5o4ZtgN9zEv8qbpGDfdih+kgID11gX+?=
+ =?us-ascii?Q?y9/p1IEBcFqiUa8pkoFJHasuXUAtXwUDQauMr73HpOKm/Vo/7nquus5tp4X6?=
+ =?us-ascii?Q?GWmpFNHbQoOzb9H+txNtEKRPzdmuE9TbVH7+cNy7/82VjdyKKelhMArSD69G?=
+ =?us-ascii?Q?lQRaj4QWb5+fBVxZ6wR6dnrUhl8Vnr98J1Mq2XnKcVY2f4qjeRQicDiJxABx?=
+ =?us-ascii?Q?BfQ/7/2RAdfbcu7Odv3paSyh0Upuf9nadPULB+UwwvNhtlDwTyhqLKwmevLg?=
+ =?us-ascii?Q?sVm7wNELEPL4KrQMGde3zU4aC4cuJRN4YhkADM4qE/BsOcsl7bIpn3UVMGI9?=
+ =?us-ascii?Q?2qP82lPmmMPbG8zBkXzqc4xdzaaLJ/JKU8AZvj2z9eN+P3+HBV1aoXjWA3Yg?=
+ =?us-ascii?Q?Z7FL+SZMVDd7eS6UeuULo+VSv0KK+llbKhfskzEPKZb39Upmp8Yjl6TX5Jzz?=
+ =?us-ascii?Q?2pWw0bF+d+LMoydJUwkC2b1qfVTzOCRgk2iEJy2dGMoqfKOE+HmJQEwTPdRZ?=
+ =?us-ascii?Q?AURC76p9RSdufwe+SvHLEX8I4i917SAzIPjdxmxCqIPGB97VjvghlTl/r7Y5?=
+ =?us-ascii?Q?9j7hziUk3uTYVGvpGfrSetC56oLxi/7BgZ3xz+U8cuNGJixKIZIuGtnOG9Eu?=
+ =?us-ascii?Q?M+yq4etJ5QsowPMFQZOFa1X1jBYvnXLYejrwOgtTxmXETwL7YR3A8tiFZb+p?=
+ =?us-ascii?Q?ABQaLzKTHef4BzChGHZPNLUPQPF0/zpPtc9U1IKq+jYMRwUtXeXoQUhmN8Hc?=
+ =?us-ascii?Q?jud2FNaiGN7HrqQW9VLcXYgdajhRqSX6GMhJ3yznL+DmRHkT80xbhXBaL8Dn?=
+ =?us-ascii?Q?U6zGsnONpl6bZO9I7C+NPd15/n6MiX07hgsx7nBNwWb/e9qzm5JRDumhtNND?=
+ =?us-ascii?Q?165Bz0XJvxZ2RIunEBQOjJk4Ytcp/BsfyeE3ExjshzRGTKFqLquHCZjrOHaX?=
+ =?us-ascii?Q?pRfhYwoYcTuZsaR3ntLRruC/UrmP/6B07/M1jqKz0kJF5o3VQDpvnN0oK/RR?=
+ =?us-ascii?Q?Ne+LqsO8N/+SP2LPEPUFpW/FOWvIuFc09grD/vICE51HtIvdxkNVx7gu56bs?=
+ =?us-ascii?Q?w8tzAmBz/bsbJRo7rIbyOa6SXwNoJFIM3m8d5V0FFREyUK6R3HmBvXXQBsW2?=
+ =?us-ascii?Q?26LjGGv0Iu/L3iBQ0hnzJM9ITn1zbgp9T5F66cTjG4YkuL1k02wy6aNyahHN?=
+ =?us-ascii?Q?6Ca+IuB0xPzG5n64dXR8EuYUSBngMag7Nr/pPeq676Egg7axtY6C20CrnbqJ?=
+ =?us-ascii?Q?DcRsHKIJyXbapGGaUwSBL7qgwLmGsseIfF4LW4uEXnyqJPcYlGr8u2N4Tiq8?=
+ =?us-ascii?Q?dEBFL+VEsStXXexJVaNJSocqWdMqpI+utRaNjkyQhvMfGmYNynr3CdvmbC0v?=
+ =?us-ascii?Q?yO+QnBuOFtvucCw4w/NNo171zkKroFRoh6XiGAASTy31KSDcdtrIMYLiS7GT?=
+ =?us-ascii?Q?Vg7vJiQQlNHfmYGHyJTUdOMdQKfjkYfnyuyFINMkoeD29iPnGMzrqgfQ0bk/?=
+ =?us-ascii?Q?fCyGYfznsqJSt/DOUbGiKtB0PSGyzkU4mrLsgCprMY4CBDYm7EAhnjf7IoUQ?=
+ =?us-ascii?Q?HopTXAdq/O5bxtNfK76rYrOpisxhzC8Vle6zvydbxVWRArZ3CgkRkEsyD3Tr?=
+ =?us-ascii?Q?+RCeXwQQFcVvuvnvmpTS/z7pHgh5ytXCOwVuA6EQI9fVygcvSy0Ys1H5OywG?=
+ =?us-ascii?Q?aj3gD04kN4paNA3q08W+ELD4jDS5dBcRV5U3ZQdLE2Hhxa0qJ6Mra3fskEsA?=
+ =?us-ascii?Q?WvLH+U2Uvg=3D=3D?=
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0fdc70ad-da6d-4400-745f-08defc01d190
+X-MS-Exchange-CrossTenant-Network-Message-Id: 109fd603-13f1-471d-0b81-08defc01d864
 X-MS-Exchange-CrossTenant-AuthSource: CHXPR12MB999244.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Aug 2026 01:49:47.5334
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Aug 2026 01:49:58.9530
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: GQwtnJV99IvJypo3NHWr597pIQrzRSOIypAtlGrDIO4DiZKTb6YiuCQfBu1oOthcu0ZmLmvUieEmxpGUjQ3L5A==
+X-MS-Exchange-CrossTenant-UserPrincipalName: KQ8nwnopKqUL821bhU1uhPUOSMewgq1RdziMcA1q1tFzss8WntCC8HGv3dV4loDbf4vr+UTRzrgP90LAQwVoLw==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH1PR12MB9623
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260816_184955_634965_B59C5621 
-X-CRM114-Status: GOOD (  10.76  )
+X-CRM114-CacheID: sfid-20260816_185003_396215_1356BF6E 
+X-CRM114-Status: GOOD (  15.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,55 +148,149 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Koba Ko <kobak@nvidia.com>
 
-This series adds CONFIG_ARM64_CPUMOD, a default-off arm64 interface for
-controlled performance characterization of selected implementation-defined
-CPU prefetch and cache-management fields. It exposes a small set of named,
-per-CPU attributes under the path below, with writable control fields
-range-checked before register state is changed:
+Document the ABI intent and scope for the new arm64 cpumod interface.
+The sysfs directory is per-CPU and is created only for recognized Grace
+and Vera profiles:
 
   /sys/devices/system/cpu/cpuN/cpumod/
 
-The directory is created for online CPUs whose MIDR matches a recognized
-Grace or Vera profile, with common and profile-specific attributes selected
-for that CPU. Register accesses execute on the CPU that owns the sysfs
-instance, and CPU hotplug creates or removes the per-CPU subtree as the CPU
-transitions online or offline. Unsupported CPU profiles are skipped without
-blocking module load or CPU hotplug.
+CPUs with unsupported MIDRs are skipped without blocking module load or
+CPU hotplug and do not receive a cpumod directory.
 
-The implementation keeps each dynamically allocated kobject in a private
-per-CPU pointer, avoiding use of the CPU device's shared driver-data slot.
-The documentation defines the ABI, firmware prerequisite, and hotplug
-lifecycle. The kselftest validates profile-specific layout, unsupported-CPU
-skipping, decimal affected_cpus reporting, value validation, optional
-writes, all-online-CPU coverage, and cleanup.
+Describe the common attributes, the Grace- and Vera-specific attributes,
+and the accepted range for each writable field. Out-of-range writes are
+documented as failing before either cached sysfs state or target CPU
+register state is changed.
 
-The controls require firmware to permit EL1 access to the relevant
-implementation control registers. This is an RFC interface for controlled
-evaluation, not a general raw-register or production-default tuning ABI.
+Document the CPU hotplug lifecycle explicitly: the cpumod directory is
+present only while a supported CPU is online, is removed when that CPU
+goes offline, and is recreated when it returns online. Reads and writes
+therefore require an online target CPU.
 
-Compile and static verification passed. DUT runtime validation was not run.
+Also document the firmware prerequisite: EL1 must be allowed to access
+the relevant implementation control registers. The interface remains an
+RFC for controlled performance characterization, is not a general
+production tuning ABI, and should stay disabled by default on production
+systems.
 
-Koba Ko (3):
-  arm64: add CPU prefetch and cache modulation sysfs interface
-  Documentation/arch/arm64: document arm_cpumod
-  selftests: arm64: add arm_cpumod kselftest
-
- Documentation/arch/arm64/arm-cpumod.rst       |  89 +++
- Documentation/arch/arm64/index.rst            |   1 +
- arch/arm64/Kconfig                            |  17 +
- arch/arm64/kernel/Makefile                    |   1 +
- arch/arm64/kernel/arm_cpumod.c                | 471 ++++++++++++++++
- arch/arm64/kernel/arm_cpumod_internal.h       | 113 ++++
- tools/testing/selftests/arm64/Makefile        |   2 +-
- .../selftests/arm64/arm_cpumod/Makefile       |   5 +
- .../selftests/arm64/arm_cpumod/arm_cpumod.sh  | 526 ++++++++++++++++++
- 9 files changed, 1224 insertions(+), 1 deletion(-)
+Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
+Reviewed-by: Tushar Dave <tdave@nvidia.com>
+Reviewed-by: Kai-Heng Feng <kaihengf@nvidia.com>
+Signed-off-by: Koba Ko <kobak@nvidia.com>
+---
+ Documentation/arch/arm64/arm-cpumod.rst | 89 +++++++++++++++++++++++++
+ Documentation/arch/arm64/index.rst      |  1 +
+ 2 files changed, 90 insertions(+)
  create mode 100644 Documentation/arch/arm64/arm-cpumod.rst
- create mode 100644 arch/arm64/kernel/arm_cpumod.c
- create mode 100644 arch/arm64/kernel/arm_cpumod_internal.h
- create mode 100644 tools/testing/selftests/arm64/arm_cpumod/Makefile
- create mode 100755 tools/testing/selftests/arm64/arm_cpumod/arm_cpumod.sh
 
+diff --git a/Documentation/arch/arm64/arm-cpumod.rst b/Documentation/arch/arm64/arm-cpumod.rst
+new file mode 100644
+index 0000000000000..7dbe2cd5404a2
+--- /dev/null
++++ b/Documentation/arch/arm64/arm-cpumod.rst
+@@ -0,0 +1,89 @@
++.. SPDX-License-Identifier: GPL-2.0
++
++====================================
++Arm CPU prefetch modulation controls
++====================================
++
++``ARM64_CPUMOD`` exposes selected CPU implementation control register fields
++through per-CPU sysfs attributes under::
++
++  /sys/devices/system/cpu/cpuN/cpumod/
++
++The ``cpumod`` directory is created only when the CPU MIDR matches a recognized
++Grace or Vera profile. CPUs with unsupported MIDRs are skipped without blocking
++module load or CPU hotplug and do not have a ``cpumod`` directory.
++
++The interface is intended for controlled performance characterization and
++evaluation. It is not intended as a general production tuning ABI, and the
++configuration should remain disabled by default on production systems.
++
++Configuration and placement
++===========================
++
++The controls are built when ``CONFIG_ARM64_CPUMOD`` is enabled. The code lives
++under ``arch/arm64/kernel/`` because the exposed state is CPU implementation
++control state accessed by the arm64 kernel, similar in placement to other
++architecture CPU-facing helpers.
++
++The ABI remains separate from the existing arm64 ``cpu*/regs`` sysfs files:
++``cpumod`` exposes a small set of named, range-checked control fields rather
++than a general raw register dump.
++
++CPU hotplug
++===========
++
++A ``cpumod`` directory is created only for online CPUs with a supported
++profile. The directory is removed when a CPU goes offline and recreated when
++the CPU comes back online, again only when its MIDR matches a supported
++profile. Reads and writes require the target CPU to be online.
++
++Firmware requirement
++====================
++
++The controls require firmware to permit EL1 reads and writes to the relevant
++CPU implementation control registers. On systems where firmware traps or
++blocks those accesses, the interface cannot be used.
++
++Current ABI
++===========
++
++Common attributes:
++
++``affected_cpus``
++  Read-only decimal CPU identifier for the sysfs instance.
++
++``pf_dis``
++  Hardware prefetch disable control. Valid values are ``0`` and ``1``.
++
++``pf_mode``
++  Hardware prefetch aggressiveness mode. Valid values are ``0`` through ``9``.
++  Values ``10`` through ``15`` are reserved and rejected.
++
++Grace-only attributes:
++
++``cbusy_filter_threshold``
++  Valid values are ``0`` through ``3``.
++
++``cbusy_filter_window``
++  Valid values are ``0`` through ``3``.
++
++``cmc_min_ways``
++  Valid values are ``0`` through ``7``.
++
++Vera-only attributes:
++
++``l2spr_cmc_max_ways``
++  Valid values are ``0`` through ``7``.
++
++Invalid writes
++==============
++
++Writes outside the documented range fail with ``-EINVAL`` before the cached
++sysfs state or remote CPU register state is updated.
++
++Open register inventory
++=======================
++
++The first RFC intentionally exposes only the currently validated subset. A
++complete documented-field inventory, including L2CDP, should be reviewed before
++adding further ABI nodes.
+diff --git a/Documentation/arch/arm64/index.rst b/Documentation/arch/arm64/index.rst
+index 98052b4ef4a1e..9e085ce55d9c4 100644
+--- a/Documentation/arch/arm64/index.rst
++++ b/Documentation/arch/arm64/index.rst
+@@ -8,6 +8,7 @@ ARM64 Architecture
+     :maxdepth: 1
+ 
+     acpi_object_usage
++    arm-cpumod
+     amu
+     arm-acpi
+     arm-cca
 -- 
 2.43.0
+
 
