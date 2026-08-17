@@ -4,91 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF34BC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 11:06:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF95EC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 11:06:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5YDm2MEhblHeSTo+p97BhcoDmU/H9pfWhKKQjOGcjQA=; b=dqKmlEkaQ+mNkodyleeHQOBshJ
-	P+/JoPiA1eipCwE95d56SljMF6fCVUCCwVW0LHdOrWfXHdKtQSnemyhwNcGSBTdVZB5xhvVHfOezY
-	hM2NFfQFC5zDuhkhZoFrQ87ABXGVaV7+vBMoNBE01gmBXyxoADD/xkcWMV2OmoDDYxHa9I/yjd41K
-	3nUeRJgoo9fBnsVVvH/ZCs/A35ypPgeGYxiSLplo1Msghwzq1T/u1AGo/Xd1nVVrvbysWtmxgKgvF
-	LG6I4jYLeEvUvMIcUwMi6kAcCGjvRCWSWqJmS9Bwg59tMOGr5cbZvSX+MduiznJBEUy6bkSZ69kSC
-	FQF9Hp1g==;
+	bh=6OwP5HDWaliFgti3Iscv9ilvEY9jqmGVYGbAyk7tFDg=; b=PX0Mj4i4Zht7eZrFdBRiAhVng3
+	T2JCtHBnEoShUBetQMNpEZXRgnx2bBeg9e0PZhw4g3FYX23E7GmTS357Vz6B/ahJ6HkCX1LMx4iU6
+	6XcLPVzRkfoaSzhEv6RGrOe9uVWMqCwqYlEUYCv5m9zf8JnGijuYiy7uGq0Sd7eh/mZGGmcqAeYVx
+	LcBvYDt05UDeRU5OxM4WXxUsYYCu+meOxmmWvGlH0wNHQ9kIQL05JcDbV9RG5P1jRD+pSL/L92nyh
+	OSapsQ1FMdn3iYU6BluwXQHNWBgUVNEq/9RpTKtqSw7CwfzkYfMW6b0SJPG4q5LeIvAE/UiSPwHYg
+	CU/PbumQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvvAK-00000005zcP-0JHI;
-	Mon, 17 Aug 2026 11:06:04 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wvvAh-00000005zgC-0tYd;
+	Mon, 17 Aug 2026 11:06:27 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvvAJ-00000005zcI-0rEY
+	id 1wvvAf-00000005zfP-0u55
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 11:06:03 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 374B2600AE;
-	Mon, 17 Aug 2026 11:06:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 463AE1F000E9;
-	Mon, 17 Aug 2026 11:06:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786964761;
-	bh=5YDm2MEhblHeSTo+p97BhcoDmU/H9pfWhKKQjOGcjQA=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=I0znWLArMuZUP6BdPh9ceJPBudigVPdyHP9unmmQ3yUEI36ROGSuALVz0IBdZejns
-	 NU/GYsmCm7CNeh8EgFq6ieWECKiQqPSNKxy7jS0JtkVstEWKCRRGLU5Qfsrrn3t7Oc
-	 B14yuqTS9VjaQE47UQDFUm6DRaaAfDy7K2v+oGiYxBYpTaK69YXSj4betyY5QU6WJf
-	 gG6rAcr508RL7I+VAKfygZ/g9xK5ZE/hDOgpbRV0CfFLl83jLvhZuB4pQ3C3WQBtoR
-	 e5a87+tWUux9PLKRkx0qqYZjhxMvs8Hm4gwHLREx4ikGvF4apHzHJjewqPJqxEvkoF
-	 bCi0G0uLPDsUQ==
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfauth.ams.internal (Postfix) with ESMTP id EAE1D1980062;
-	Mon, 17 Aug 2026 07:05:59 -0400 (EDT)
-Received: from ams-imap-11 ([10.64.2.31])
-  by ams-compute-02.internal (MEProxy); Mon, 17 Aug 2026 07:05:59 -0400
-X-ME-Sender: <xms:FeuCalPl3nblAg5cLX2Sdy9YMy-qJ_OEri82lyj4BmpAN8qR-E_0QQ>
-    <xme:FeuCaiwKAx3Nghd8c6xu9MMl23Zmx5VnpWk4vO16BRzxSqVRAP6g9cO6WvTnKen5b
-    jWbJG5LclKcruDGJA26P6CxbiM5h77xc4HgvwbHQjl3W09NRPdamkX->
-X-ME-Proxy-Cause: dmFkZTGQTHdWnJJCE22d/zqJDKF+JU5EHgBWnubh5cfMqZ6YpZC4QRyAcPIogwmsD7ZFvV
-    rpjOfIO7lr1q9eqfc3+CiXePGWFmdsM14RQa6WX2LKGHS1r/tHa+O1ao3urpQREtRewSHc
-    95m/2eg3vmA0WPhirsiFjG9t1Tj3PRGHDWnebRQFHUi5zIzq4Mfnkao6G6YiF3iP7bZRS8
-    IHR8yLciD4LE4B6OfJXkjWTT/ZczxC8BLxtrr+PGPg4KmcNAxm19G5CJzDoapvlrSbEybn
-    saX8AxbVSnMbpLAjW28JIQNo+itVuegoqNASFwyfn3u5IeUtYs4ZxaV15k5DHxvqzhiHew
-    cz5fUSxiHAKmlFd/EfY3HXC3PkP0TpK1r5YG+JJqNkzVG0pVmRgz3y+F5Tp7sIVMjXLc0Y
-    n27yPSeTCjuMXiCb/2OOAF49v8nDGcfXApjhVVEC/s/of89/B3uOyeRYcDPvbVaENbrk39
-    fwxgd4y5lndWRdIQ0jgR5PkbVnS0rtUAYJ8qwrGdZNYqEMsACbIvPhbVtbbOIh1OCMxcM5
-    OJmXnxyHbCdmfXCtNaBFWhVns2A2XYtv+o0ppWnUGTOol9ryIPzlk7cwHlxOanFvVlpI8/
-    qbcEcUqtr5+QPmT1lTIFC8PDIBfpi59InZ0g0Ru+ckDtGOTgosh8s6avroNw
-X-ME-Proxy: <xmx:F-uCamR3yQ3UVMcC3FBLKa86uKdnNdCGhaZugOJXDlCkift2hjSaqg>
-    <xmx:F-uCalL5oXnNVuUoeykyhNvQgRpFUnAtMM2wTykZ3aR_5rar7o_pHQ>
-    <xmx:F-uCasURjhNqoi7z8gj46235HXGKnvmh5rgqe7W8yRRxnyouJuXYKA>
-    <xmx:F-uCahgNSWu-nM8MqIbUnmZmvTFeAo2bKqp9gpzLlVMrZ4c5UziwUQ>
-    <xmx:F-uCagspqxAsWBDGMykXhxBbnCdtTVM5pchvScjv7hvAyLUvfcz6wkRv>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 2C96CF80070; Mon, 17 Aug 2026 07:05:57 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Mon, 17 Aug 2026 11:06:26 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-47c2ae992beso208602f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 04:06:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786964783; x=1787569583; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=6OwP5HDWaliFgti3Iscv9ilvEY9jqmGVYGbAyk7tFDg=;
+        b=Nz+AMxK8WWFSXSA/Zk5Ygr1EfvHPcD9n0w8TKZYzJ/dM2aZ+k7n5TNo6aQEfAThaeO
+         HblMb+SNKn6E9jDIB3S7Tupa7K0QgXTSAfIJd8e9wACKGFZIQ8Sm6/nCokEFETls7Qj8
+         OtNj/B++fI3bl975oIhRtPJi9DE6YXJbKOONFgm7Chv5YnN5PjTLh611SjyFlGyxd/lX
+         pCeBLdjduDA00629N62s8k/0o1G33BZT3mpfceWOanvLnVOdtcpHIPPRr6hJY6TWczO/
+         ABOJFEa+6uFcuPQEAXO4tw4RrufGgolX/vG9+QY6J9L5dZ/6Px5DuEiSR0VfFRoQG/V1
+         SR4Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786964783; x=1787569583;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=6OwP5HDWaliFgti3Iscv9ilvEY9jqmGVYGbAyk7tFDg=;
+        b=dz18d3AMkW6xAgpRK1OwoSv/Nkm5gBrQ1s92DIMPPk2Hvwyppmbi+izKJ2indyMzbP
+         XmcOnBYAobfpefBTDkEds6WyT2TQh7pknBcxbEXoZMSJ1KK0bg518pg2RosFwTvJdg9i
+         S18NdyB5BYOHia3lGuM9Tz9BUdk5AghkBo5+YCH0YFirzZTW1xNl69wHQAwRFaAG5YWy
+         bbVL7rcGstuCASwxWZ77ZUk+UgY/ufaCRR84u9uIbn1qXyR4g/XugOMXewno5lmRaIbG
+         gYKmiPPb2TfKK1Zs/e5FJHX/M2GEA23KLcZb+ZqjjwRC2vrJEcj7UpDhLdg5EtSeGwp2
+         70mQ==
+X-Forwarded-Encrypted: i=1; AHgh+Ro1xWjDpwMhZkIcCML4zItjPNVq9GoW/NaYlxwxkUvCHMiNvdvn1qa2u4xoTN2FfCLHJUEHnOvciwsK6narlAbU@lists.infradead.org
+X-Gm-Message-State: AOJu0YyKKGvpA5hWO69pE+eFt4RKr+bgsme2B7iXeuqTRMh585PT8z9h
+	VFGpc8lvvEZ0vECiw5IgV8DrrIoWM9AyIpCCNvtPlZQHmfeORbKzqZ2I
+X-Gm-Gg: AR+sD13F6lNm5z4sK3wTvvFSeVa8AlqmreGhNsLp/xUgK4M5GzHzuQxkI1/PWN/rtbG
+	7i8uxE9RPJfTs36Ofu7b6jcWMaHRnTGwLzcJS1IKN06/CwhPlYxmwn4QOtbbFheSNRJlF+Xnp00
+	Ole1aDnWcP/nWrM6PecT/BcddIMbfzthYILvSN2+q+JZDYeeGvwcOM426zDKkMiqi2KZUZM4UFx
+	nLJ4prLwll4N7oKL+XZPnMz17hl+fDM36nqnEN0+ej69xD/on/cpzNUMsUPqiyHLH+vw0EHZoaM
+	zD6HgNR6M/lHtXT0l92a7OgmHcPsmRwhF/bEVybvpYZthiHOa8YczJCSL/I3b7zb2QLlIaB99nl
+	uJiVZzPhNAcUGsjxT8EqD6zQZEm3T8+0EeslHZPwg/v1wZHfhq8al2z6y3hBeyeCrzooxRLHo55
+	2hYYUa2Z4KOm2RmYBClFWJb6/eas4INTA8kwhjy7EI/NqyxwYevFlccbEUltHJ42M2Jf23aTCMs
+	vm7BwkbYzdYy8PU5m5wvP/ncL3B2NL7qx+9AwiBdy4QPMy1G4ABD8RV5G+/UzjmEgzgtA==
+X-Received: by 2002:a05:6000:2585:b0:46f:7d90:8124 with SMTP id ffacd0b85a97d-481607738d1mr17922081f8f.2.1786964783101;
+        Mon, 17 Aug 2026 04:06:23 -0700 (PDT)
+Received: from OrangePi5-Plus.BB-HOME (20014C4E1B8FC50027494B64639367E4.dsl.pool.telekom.hu. [2001:4c4e:1b8f:c500:2749:4b64:6393:67e4])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-482a5a3b43dsm2982833f8f.12.2026.08.17.04.06.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Aug 2026 04:06:22 -0700 (PDT)
+From: Igor Paunovic <royalnet026@gmail.com>
+To: Jiaxing Hu <gahing@gahingwoo.com>
+Cc: Igor Paunovic <royalnet026@gmail.com>,
+	Tomeu Vizoso <tomeu@tomeuvizoso.net>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Alexey Charkov <alchark@flipper.net>,
+	dri-devel@lists.freedesktop.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v7 08/10] accel/rocket: add RK3576 NPU (RKNN) support
+Date: Mon, 17 Aug 2026 13:05:53 +0200
+Message-ID: <20260817110556.31613-1-royalnet026@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260817102021.1226525-1-gahing@gahingwoo.com>
+References: <CAEWPSH7ETfw2TDjUfOvcVtDm19FC43x2vP=Lh7m+XPOGptnPWA@mail.gmail.com> <20260817094544.1159366-1-gahing@gahingwoo.com> <20260817100046.24872-1-royalnet026@gmail.com> <20260817102021.1226525-1-gahing@gahingwoo.com>
 MIME-Version: 1.0
-Date: Mon, 17 Aug 2026 14:05:36 +0300
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Josh Poimboeuf" <jpoimboe@kernel.org>,
- "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- live-patching@vger.kernel.org, "Song Liu" <song@kernel.org>,
- "Miroslav Benes" <mbenes@suse.cz>, "Petr Mladek" <pmladek@suse.com>,
- "Joe Lawrence" <joe.lawrence@redhat.com>,
- "Mark Rutland" <mark.rutland@arm.com>, "Mark Brown" <broonie@kernel.org>,
- "Nick Desaulniers" <ndesaulniers@google.com>, "Kees Cook" <kees@kernel.org>,
- "Nathan Chancellor" <nathan@kernel.org>, linux-toolchains@vger.kernel.org
-Message-Id: <73bdec09-a2dd-4693-aa30-12fab36e7a18@app.fastmail.com>
-In-Reply-To: <a9662e64de17882d2ef2401bad0d8172ef48bc4b.1786768375.git.jpoimboe@kernel.org>
-References: <cover.1786768375.git.jpoimboe@kernel.org>
- <a9662e64de17882d2ef2401bad0d8172ef48bc4b.1786768375.git.jpoimboe@kernel.org>
-Subject: Re: [PATCH 03/12] arm64/bti: Fix BTI linker failures with long branches into
- .idmap.text
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260817_040625_285354_90DF8AF7 
+X-CRM114-Status: GOOD (  22.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,67 +106,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Josh,
+Hi Jiaxing,
 
-On Sat, 15 Aug 2026, at 07:45, Josh Poimboeuf wrote:
-> On a kernel whose text exceeds the +/128MB direct branch range, the
-> linker inserts veneers.  With BTI enabled, the veneers' indirect branch
-> targets need a BTI landing pad, which not all functions have starting
-> with Clang 21 (and for all versions of GCC).
->
-> In such cases the linker can emit a second veneer close to the target
-> which has the landing pad along with a direct branch to the target.  But
-> a long branch to .idmap.text never gets one because it's missing the
-> executable section flag.
->
-> With the LLVM linker, it's a silent failure, presumably only discovered
-> by a BTI exception at runtime.  With the GNU linker it's even worse, as
-> it dereferences the missing stub/veneer group entry and seg faults (this
-> was how I discovered it).
->
-> Make sure the section is executable by adding the "x" flag to all the
-> creators of the input section.
->
-> Also manually add "bti c" to primary_entry() and enter_vhe(), otherwise
-> the linker-generated veneer page pushes the .idmap.text past its
-> asserted 4KB size:
->
->   ld.bfd: ID map text too big or misaligned
->
-> Link: https://sourceware.org/bugzilla/show_bug.cgi?id=34525
-> Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
-> ---
->  arch/arm64/kernel/cpu-reset.S | 2 +-
->  arch/arm64/kernel/head.S      | 7 ++++---
->  arch/arm64/kernel/hyp-stub.S  | 1 +
->  arch/arm64/kernel/sleep.S     | 2 +-
->  arch/arm64/mm/proc.S          | 8 ++++----
->  5 files changed, 11 insertions(+), 9 deletions(-)
->
-> diff --git a/arch/arm64/kernel/cpu-reset.S b/arch/arm64/kernel/cpu-reset.S
-> index c87445dde6745..9943a7c70f6b0 100644
-> --- a/arch/arm64/kernel/cpu-reset.S
-> +++ b/arch/arm64/kernel/cpu-reset.S
-> @@ -14,7 +14,7 @@
->  #include <asm/virt.h>
-> 
->  .text
-> -.pushsection    .idmap.text, "a"
-> +.pushsection    .idmap.text, "ax"
-> 
+Thank you for withdrawing 40 and 72 before I built anything on them, and for
+the field table. I checked the table against registers.xml and it is right in
+all eighteen cells, including RESERVED_0 = 34, which is bits 12 and 16 and is
+not obvious. I also confirmed the part of your reasoning that matters most:
+your two words XOR to 0x100, and 0x124 against 0x80011111 and 0x024 against
+0x80011011 both XOR to 0x80011035. The five-field offset really is common mode
+across the two arms and cancels in an A against B.
 
-We've had issues in the past with this change.
+One thing I cannot resolve on my own before I write code.
 
-The problem is that the ID map is restricted to a single page, and
-[some versions of] the GNU linker concatenate generated veneers onto
-whichever executable input section came last in the input, which was
-this one at that point.
+You wrote: "Use your own constant with bit 8 cleared instead, 0x124 where the
+predicate is true and 0x024 where it is false." The merge request line you told
+me to take instead of your branch reads
 
-That resulted in the ID map start/end boundaries being placed further
-apart than the linker asserts would tolerate, even though the generated
-code in question would never be called via the 1:1 mapping.
+  R_DPU(0x4050, (DIV_ROUND_UP(output_channels, FEATURE_ATOMIC_SIZE) & 1)
+                   ? 0x80011011 : 0x80011111);
 
-Not sure whether that problem has simply disappeared by now, or older
-versions of the linker may still trigger it. But it is something to be
-aware of.
+which puts the SIZE_E_2 = 0 word on the true arm. Read with that predicate your
+sentence gives me 0x024 at oc = 64, where your merge request emits 0x80011111
+and current upstream emits 0x124, both SIZE_E_2 = 1. Read with "the predicate"
+meaning output_channels % 32 == 0, your sentence is exactly your modulo form at
+every count. Both readings agree at every count with oc mod 32 in 17..31, so
+your five discriminating counts are unaffected either way. They disagree only at
+oc mod 32 == 0 and 1..16 - and oc = 64 is the count you said you most want.
+
+So, concretely, so that I do not guess: at oc = 64, do you want SIZE_E_2 = 1 or
+SIZE_E_2 = 0? And if you meant your own form rather than the merge request's,
+send me the expression.
+
+I would rather we name the arms by value and by count than by the word
+predicate, since it now refers to two different things in this thread.
+
+Now the part I think is worth more than the A against B.
+
+I went looking for what SIZE_E means rather than which value works, and I think
+it falls out of the padding. In upstream rkt_task.c the output channel count is
+padded to a multiple of 32 for the normal case (line 87,
+align(MAX2(oc, 32), 32)) and to 64 for depthwise (lines 88-91), and
+FEATURE_ATOMIC_SIZE is 16 (rkt_ml.h:18). So the padded bank is 2 atoms of 16 in
+the normal case and 4 in the depthwise case. Upstream writes SIZE_E = 1 and
+SIZE_E = 3 respectively. That is 2 - 1 and 4 - 1.
+
+  SIZE_E_n + 1 = the number of 16-channel atoms in the final output channel bank
+
+If that reading is right, your parity predicate is not a fit at all, it is this
+same statement: I checked over oc = 1..512 with no exceptions that
+DIV_ROUND_UP(oc, 16) being odd is exactly the condition that the final
+32-channel bank holds one atom rather than two. Odd atom count means a
+half-populated last bank means SIZE_E_2 should be 0. That is the reason you said
+on 16 August you wanted for the field, and it is arithmetically identical to
+what you already wrote.
+
+It also explains why my eight counts said nothing, which had been bothering me.
+Upstream hands the padded count to the write path, not the real one -
+rkt_regcmd.c lines 201, 226 and 247 all take task->output_channels, and only
+ORIG_CHANNEL at line 225 takes output_channels_real. So on RK3588 the final bank
+is always declared full, the atom count is always 2, and SIZE_E_2 = 1 is simply
+correct at every remainder. My five new counts could not have discriminated
+anything; they were confirming that upstream never under-declares the last bank.
+
+And it predicts your losses arithmetically rather than describing them. An
+under-declared last bank keeps floor(oc/32) * 32 channels, which is 32, 64 and
+96 at oc = 56, 88 and 120 - your three numbers, including the lost ranges 32-55,
+64-87 and 96-119.
+
+Please treat that as a hypothesis. I derived it from the encoder's arithmetic,
+not from a TRM or a vendor document, and it assumes the three SIZE_E fields are
+independent, which is the same assumption you flagged. It also does not touch
+the timeout, and I agree with you that the timeout is unexplained.
+
+What I will run, once the polarity above is settled:
+
+  - oc = 64 both ways with the constant forced, no predicate in the build at
+    all, so the ambiguity cannot reach it. I will patch only the non-depthwise
+    branch at rkt_regcmd.c:239-241; clearing bit 8 in the depthwise arm would be
+    0x36c -> 0x26c, SIZE_E 3 -> 2, a different move. I will verify the emitted
+    word from the submitted register stream rather than the source, because at
+    oc = 64 real and padded are equal and a build that read the wrong one would
+    be invisible.
+  - oc = 20 and oc = 60 on stock upstream as the reference arm. Those need no
+    patch and no answer from you, so I can send them whenever. They also add
+    residues 20 and 28 to the table, which so far only has 1, 4, 8, 16 and 24.
+
+Generator and scorer are on the way in a separate mail.
+
+Two small things. Your sentence "modulo true implies parity true and never the
+reverse" is the wrong way round - parity true is residues 1..16, which is a
+subset of not-a-multiple-of-32, so the implication runs the other way. Nothing
+downstream of it changes. And your five are a sample rather than the set: below
+128 there are sixty counts with oc mod 32 in 17..31, and odd ones are fine since
+33 already ran, so 17, 25, 51, 83 and 117 would do just as well as 20 and 50.
+
+Regards,
+Igor
 
