@@ -4,87 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20DC6C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 09:06:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9932EC5DF70
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 09:16:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=luZ6/X1fUnmPIAGg7u9rfHAcCpIwRBZ6wNZmQs6CnhI=; b=CJB3NubaGqTNQesA+2U9spllFf
-	ouneCEEMFkdjebpzy/ryaKJH0NxzeHYVQgGZOAi1TGkexmpX0bgqILY33tGtpu6e6hhcAmnJy3Hfq
-	z+RiWEg6KjS1V+KuisnLQ8gst1SEhcrL3b3gzFoOZW05TxLFGRu+CYNfd76CX9julgUHNB/FnM9hI
-	WnGxgOPS93hMIlAOIzwEDd04w9aLXN9kTZJJOktkYTOC+TbnHkqRFn9JyDXidVUln3yxUounbNE+C
-	A6fnKrg+b3R9tVen+e4kZlgrLu1/DiVW2/flQhzswXWv/MZukcaE6VTKobCu76kxAAzPb0rrYfXKF
-	HEEpieZg==;
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CtS9wSJO7yQxTeHMAqbEeeg30dK8tgff88uUJOqCVPk=; b=gISv1Wu53Pu1DACpbEdBSfq5mc
+	nxhnmUFaIlm+UOv9hlgPmu8SCNY9bcGvJwpHsN82sMpysYoM8JeASaxvHAmE3+5TZSeI/AOWhx3Xg
+	R7bQ95rZixx2zTwnPEBV6TW5sLWP1AYgcMRy64GLxyXwj6FOwb5rIwR61gYlVy2Hvb7giLd0E2bxV
+	b7jm66mC2oPmkjBAOpl+RejqJcbO+g4/JwbssLGAnqWJiNgt5es9LTKzZqv8Z8a4IB9g5amLQwgPS
+	tm6pgWjzzAST2zIftOv8ut2IjMkjatbx0Nt6HnvtGwHMskol6pZBG//BpCBUOlRu/6KnOGf79W05f
+	bWXke92g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvtIQ-00000005m8k-1Hmx;
-	Mon, 17 Aug 2026 09:06:18 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1wvtRt-00000005n5m-2FyU;
+	Mon, 17 Aug 2026 09:16:05 +0000
+Received: from fhigh-a8-smtp.messagingengine.com ([103.168.172.159])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvtIK-00000005m3Q-1zOK
+	id 1wvtRq-00000005n5R-0xOp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 09:06:17 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-47fd4531020so1864506f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 02:06:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786957570; x=1787562370; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=luZ6/X1fUnmPIAGg7u9rfHAcCpIwRBZ6wNZmQs6CnhI=;
-        b=Ip1Ud9S8MhhCovqAhdNEJFh++pNSlHArG+k0drRnSqKZAnTMuWkWr3VUTS/3kgDkjF
-         CaeITAMzO6lTu0ApbNeHkiXaPPB6IRd8GdYO7yKHJbG/zHRog5WgKPXcPdb7LqLQjBns
-         /QYrZlpp09qIR2haoDRZLLYjDMJkBy3RxTtvfE5DvWXWouQjeOOgioktjxWgr+5hm+mx
-         lItSoTze6yEkyKljJj0ksZTD1yeQktRrFp6obHEE69efp3+X30FEgjD7TpfAFHyq3Wuz
-         BBPCt+FsSrmCneHv1vSPKU4SJKZGtsJixspea0dBIi8dcjK8GwRrfUcJlzEp4N3TZGdv
-         hSAQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786957570; x=1787562370;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=luZ6/X1fUnmPIAGg7u9rfHAcCpIwRBZ6wNZmQs6CnhI=;
-        b=ObrqoD9U/w3CxogEjxijOEbndEPZK3R/Fzy7bXusXy/ZjFxP/2vQqpiXDG1xI/ymfH
-         G2JNYCYwcrOWLHPv28tVQ2I2TpXz2v0kYdIEE/rlwlLi4ek4MmZxaGV3Cb8RI3Qnq9Jx
-         aaqEPwug/rmXVf0xGg9MIBHo4EywidWPqyYOufnj71soIdtta3VodlOQ/4xoXJZpNytq
-         roPScoylep3ku8j26XTmzTOmwHw4mjt8qnNiWLVCv4E+Euiy9q6M6bqirXVAgDT67Suk
-         sWXVJcI9ewBueXpIY8AdF5rnI3/3S5DoaODHFcMuYUg7JiKK4JaBb0vQbJ6JA4C58OyH
-         MLuA==
-X-Forwarded-Encrypted: i=1; AHgh+Rpg+OtRXVU2vcmh0jfjiKQVn+grRP1KthpwC0bWgdgSYC0P7fASuvx0Iolt7Vnz0IvtQtgAN0lfX9VG61c3FZL+@lists.infradead.org
-X-Gm-Message-State: AOJu0YwLfQjyFaAmO1mpNTUdCnCBu8nA4ayvvgGn2ou7oH85YCU2Dg1z
-	nxk0LboQJwGXzGmF54iqKlTogGyQ8CVQtTzXSdtLXrDbsOZqu9cLNnW4
-X-Gm-Gg: AR+sD10xt27L5RK8FT1vRU2SOnCb5SdlwTjjyIHQr38RAcEoDJ72C59CuBej1mIiN+s
-	+KqoQ8+4ML0O6qBrZSIQ5NwvXOpN36kdes4kbVV3VO2Zc0xka91JavSmwXZ7fkdGabaI5yXaJFF
-	kixWQ03hB0KMkzbqs4Fsrj/jpvUgFV/yuorFF3JGrfmgAfoynGgm/qWa9TwQTk/wV4b7ec35rX7
-	D/PxzYAoNtbnpJmwv9hsRrkm0c30UtAplP6DMgEfeq5CpP7NHeKH0ChIigerex6baGhqByNgiGX
-	huI+mdXBSfg7YhXl1mQVBbvJ/4ecnHVssVAn6VwH9XoWSBoaNC1VNLdMBf6kYXxA3zHNqdd7HP1
-	aDampjTgycovyV5f8fodw9t/4ymh2K9lBF4yI++2/qugRV+WJZLlIzI/gsohIb0JQAIBaVmTxZd
-	jYZL+hzhNvVaVEjGx6jqPiahOIZs4TcZFj1B4sQE3kqQN/joAs5xCO3EorPy/jGLKpprrR0FTOy
-	lfxhyRVm/kF0WS8ee7Xk+bav7n408QN/DQpEQQpLwEwIUpaQdMYg+M=
-X-Received: by 2002:a05:6000:230d:b0:47f:8ce7:8684 with SMTP id ffacd0b85a97d-481607100bdmr40751188f8f.6.1786957568437;
-        Mon, 17 Aug 2026 02:06:08 -0700 (PDT)
-Received: from fedora ([46.205.219.243])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-482a5a3b2e9sm2507130f8f.9.2026.08.17.02.06.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Aug 2026 02:06:07 -0700 (PDT)
-From: Daniel Pawlik <pawlik.dan@gmail.com>
-To: netdev@vger.kernel.org
-Cc: lorenzo@kernel.org,
-	win847@gmail.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Daniel Pawlik <pawlik.dan@gmail.com>
-Subject: [PATCH v8] net: airoha: npu: use cacheline-sized buffers for mailbox DMA
-Date: Mon, 17 Aug 2026 11:06:01 +0200
-Message-ID: <20260817090601.1256389-1-pawlik.dan@gmail.com>
-X-Mailer: git-send-email 2.55.0
+	Mon, 17 Aug 2026 09:16:03 +0000
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id C73B11400037;
+	Mon, 17 Aug 2026 05:15:59 -0400 (EDT)
+Received: from ams-imap-03 ([10.64.2.23])
+  by ams-compute-02.internal (MEProxy); Mon, 17 Aug 2026 05:16:00 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1786958159;
+	 x=1787044559; bh=CtS9wSJO7yQxTeHMAqbEeeg30dK8tgff88uUJOqCVPk=; b=
+	M5XW31s/udPv2pZep1A7RvH6dRxtxYIJkizEH9NHHV2iXiPI3Kugjb843ROAY05f
+	JHHg0PUg3Nc9GZ0OOacvE47Ihsq9wYtMEpENtsWsKFA0K4EdewMOHOqumtsBdkN/
+	d+QFkSDi0KNQ5YDwJdZu5fJ20zM2zzK6GKqhP+ZdAFDOUmsg5+unQY2wN7Sxvw+Y
+	1R9RJ0jT9L9eM+cgDkFKm0K/0I2f9jI6cVUezeu/4VDP82hUoa5XpPosPMTWdsed
+	ugyrVfXXWV8hTqRXBGtpcjJ2s7F5jJt5FI2hHkgiYG2cJTV/NVunP4HjmBI67ht6
+	bimh9f7ad/M1touSMnMKwA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1786958159; x=
+	1787044559; bh=CtS9wSJO7yQxTeHMAqbEeeg30dK8tgff88uUJOqCVPk=; b=A
+	UrY68IvOqOwZH3LMVdmaRTBhBX/+fvIFas5qgzW+p9IstKDMkeUA9lrjFIYAwJto
+	IRUtP1DX8772QaGMTzsg1syumuxzFhZFbGRdLCRcthSteZynfnpixw2uUKrqbE/+
+	b3kRMnrHenfx//yr5PTEMYphhiZW6C82BbeAt2pZx0trBQNKiGJ7OL3+6mIwAgZY
+	MYR0Ohaz9c4blY+iZAf+IWdblmDexaAP0SpEp2tA1fcd0VDkGR4C/D3PncUCH/2D
+	OrukiWxFPercz1GMAIxU6UsD3gmGxvS653HonqqJ9aujBYWpubj60iP0xV2PxKN2
+	uh4GwHtT9R9SEG+xSCByw==
+X-ME-Sender: <xms:StGCagn1wKta5VF6aYIMN5XKtn205JHOIdKHMHwC_PL2nNxHO9GcJw>
+    <xme:StGCaqo-KQu-_M1tuS12aBR4LYfocz7vl0sq_qyAd4IFblNVQTq0OonLjr6TOhX2S
+    6KU-mWI6z_2aIDQBVhk7hBvgT74ysO02s_GyNJZkPTO5xsCW17pj0GI>
+X-ME-Proxy-Cause: dmFkZTEzp/LQEyITID0FxiIgeeeGn/7LhpnhWO/TT+0Xiqu2JHkRt1Oi8GQ32eBY6RLl3I
+    RcuCYXzLT0qWSBZ6RtUHfBIt6Jjtyb5EVr4lvcg8ZHg9eYfkdCEJGge7iJwmUGbtHJt7J7
+    MR6O9EitekEWgMZPMkay3Ue8Pa+QeMu3Qed+am+jbogw0cSnjby1BBAQiZ5ZZ15FluJXv2
+    rmXnArupFuLb8Dn13N3K8OxKkTcKRo+DW43Hw+WTNsnRXqUCH5D/f+jODbY4UsfGNmNMU0
+    9G2XoexJjkHvVDj1/YOAzx2+16QpiEW4i0rK96q4+b06lTQSbliXtQ/lHW+fR9JwX5MXj4
+    JUauh9SS/CISKlVCOakMK23t6ZAbOJ6U54c+vndQf18C8F1p0p4XX+C40z4STNAQuz95kc
+    KQMVk8oxoeBirHyNqSxqbjUNq0OaoC8/X8A2HndhabbjlvQH66O5wBDoAQr7XEaGdnrcwE
+    TvpfNgVLt/b4coqpjc/9FyzkU+3yfFG05L97bu1qoK/b/JQELMpvggbfT/33mSBAkXsJbJ
+    udwUeH6PEBUaEVpBpswczs6Ky4sVuPHoNSEgaJwMz3UutHPNIrUUojm6BK+pRhCnQGfHNJ
+    pw1a0MDQcVdxyZV7+mTf4RCMTEc25K9dxE5s+6kAuLO6rFNyKm9LR2H3PYxw
+X-ME-Proxy: <xmx:TNGCaiNk81mgYmEo9IzxVEUb9fyxLHOM3DdrD5DF20DG6vPtPIWP7A>
+    <xmx:TNGCarB0KvV6N622tbb8fwJzuylyjwaO5iUQnenvjj7RI9sMf-LDzw>
+    <xmx:TNGCapIqBC4DneE6_oB9B5t15ECwy0otluvvwaHdZiQCAiN942EjTA>
+    <xmx:TNGCakNHBr8V5Rbt_9jlQNfUowqcQWOQRkY-Nfd_GlXaOU7IE6ITQg>
+    <xmx:T9GCar_YygLInF3ygbuTXP8FCYgsyfriTnjuC68bf3Ssu8m5Z7Us9upv>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 9517832A006E; Mon, 17 Aug 2026 05:15:54 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-ThreadId: Aqm_jcT6PvEF
+Date: Mon, 17 Aug 2026 11:15:33 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Karl Mehltretter" <kmehltretter@gmail.com>,
+ "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>
+Cc: "Mark Rutland" <mark.rutland@arm.com>, "Ard Biesheuvel" <ardb@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Message-Id: <e238944c-9349-497a-9d30-0dd2edd7f115@app.fastmail.com>
+In-Reply-To: <20260817000231.21311-1-kmehltretter@gmail.com>
+References: <20260817000231.21311-1-kmehltretter@gmail.com>
+Subject: Re: [PATCH] arm64: compat: Keep alignment address arithmetic 32-bit
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_020612_553338_2A67EBD7 
-X-CRM114-Status: GOOD (  12.27  )
+X-CRM114-CacheID: sfid-20260817_021602_627012_D12AD9DD 
+X-CRM114-Status: GOOD (  14.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,136 +109,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On EN7581 + MT7996 (Gemtek W1700K), mapping small caller buffers with
-DMA_BIDIRECTIONAL regresses NPU version probe: the mailbox completes
-successfully but WLAN_FUNC_GET_WAIT_NPU_VERSION reads as 0.0 instead of
-0.1111.
+On Mon, Aug 17, 2026, at 02:02, Karl Mehltretter wrote:
+> The compat alignment emulator inherited unsigned long data addresses
+> from the 32-bit ARM implementation. On arm64, negating the unsigned int
+> transfer size wraps it at 32 bits before it is added to a 64-bit
+> address. A decrementing LDM or STM therefore adds nearly 4 GiB instead
+> of subtracting its transfer size. The resulting address lies outside
+> the compat task's address space, so the access fails and the process
+> gets a spurious SIGBUS instead of the fixup.
+>
+> Using 64-bit addresses also prevents transfer and writeback arithmetic
+> from wrapping at the AArch32 address-space boundary.
 
-Allocate at least SMP_CACHE_BYTES for each mailbox payload and map
-ALIGN(len, SMP_CACHE_BYTES) with DMA_BIDIRECTIONAL while programming
-the original payload length into the mailbox length register.
+Hi Karl,
 
-Tested on Quantum Fiber / Gemtek W1700K (EN7581 + MT7996), kernel
-6.18.44, including two cold reboots and sustained WiFi use.
+Nice find! How did you come across this?
 
-Fixes: 6f884eb87a79 ("net: airoha: Fix DMA direction for NPU mailbox buffer")
-Link: https://patchwork.kernel.org/project/linux-mediatek/patch/20260814110017.2795022-1-pawlik.dan@gmail.com/
-Link: https://patchwork.kernel.org/project/linux-mediatek/patch/20260809152813.585797-1-pawlik.dan@gmail.com/
-Link: https://patchwork.kernel.org/project/linux-mediatek/patch/20260805070851.2885888-1-pawlik.dan@gmail.com/
-Assisted-by: Cursor:composer-2
-Signed-off-by: Daniel Pawlik <pawlik.dan@gmail.com>
----
- drivers/net/ethernet/airoha/airoha_npu.c | 25 +++++++++++++++---------
- 1 file changed, 16 insertions(+), 9 deletions(-)
+Your patch looks correct to me, but it took me a bit to understand
+it, as I found the use of compat_ptr() and changing the addressing
+to 32-bit a little confusing at first.
 
-diff --git a/drivers/net/ethernet/airoha/airoha_npu.c b/drivers/net/ethernet/airoha/airoha_npu.c
-index b679bed952de..d560b8763753 100644
---- a/drivers/net/ethernet/airoha/airoha_npu.c
-+++ b/drivers/net/ethernet/airoha/airoha_npu.c
-@@ -5,6 +5,7 @@
-  */
+>  	unsigned int rd, rn, nr_regs, regbits;
+> -	unsigned long eaddr, newaddr;
+> +	u32 eaddr, newaddr;
+>  	unsigned int val;
 
- #include <linux/devcoredump.h>
-+#include <linux/dma-mapping.h>
- #include <linux/firmware.h>
- #include <linux/platform_device.h>
- #include <linux/of_net.h>
-@@ -160,15 +161,21 @@ struct wlan_mbox_data {
- 	DECLARE_FLEX_ARRAY(u8, d);
- };
+As I understand it, the underlying problem here is the
+32-bit overflow of nr_regs. Wouldn't it be sufficient
+to just turn nr_regs into an 'unsigned long' or 'size_t'
+in both instances?
 
-+static size_t airoha_npu_mbox_size(size_t len)
-+{
-+	return ALIGN(max(len, SMP_CACHE_BYTES), SMP_CACHE_BYTES);
-+}
-+
- static int airoha_npu_send_msg(struct airoha_npu *npu, int func_id,
- 			       void *p, int size)
- {
- 	u16 core = 0; /* FIXME */
- 	u32 val, offset = core << 4;
- 	dma_addr_t dma_addr;
-+	size_t map_len = airoha_npu_mbox_size(size);
- 	int ret;
+> -				if (get_user(val, (u32 __user *)eaddr))
+> +				if (get_user(val,
+> +					     (u32 __user *)compat_ptr(eaddr)))
 
--	dma_addr = dma_map_single(npu->dev, p, size, DMA_BIDIRECTIONAL);
-+	dma_addr = dma_map_single(npu->dev, p, map_len, DMA_BIDIRECTIONAL);
- 	ret = dma_mapping_error(npu->dev, dma_addr);
- 	if (ret)
- 		return ret;
-@@ -191,7 +198,7 @@ static int airoha_npu_send_msg(struct airoha_npu *npu, int func_id,
+The individual compat_ptr() in each access looks like it would
+have been sufficient as well, by avoiding the effect of the
+overflow, and it also makes the address wrap back to zero
+at the end of the address space. What's a bit confusing here
+is that accessing an unaligned set of words at the end of the
+address space will still read a couple of bytes beyond the
+end of the 32-bit space.
 
- 	spin_unlock_bh(&npu->cores[core].lock);
+Again, none of this is wrong, just wondering whether a simpler
+change would make this easier to understand and keep the code
+closer to the original arm32 version.
 
--	dma_unmap_single(npu->dev, dma_addr, size, DMA_BIDIRECTIONAL);
-+	dma_unmap_single(npu->dev, dma_addr, map_len, DMA_BIDIRECTIONAL);
-
- 	return ret;
- }
-@@ -333,7 +340,7 @@ static int airoha_npu_ppe_init(struct airoha_npu *npu)
- 	struct ppe_mbox_data *ppe_data;
- 	int err;
-
--	ppe_data = kzalloc_obj(*ppe_data);
-+	ppe_data = kzalloc(airoha_npu_mbox_size(sizeof(*ppe_data)), GFP_KERNEL);
- 	if (!ppe_data)
- 		return -ENOMEM;
-
-@@ -354,7 +361,7 @@ static int airoha_npu_ppe_deinit(struct airoha_npu *npu)
- 	struct ppe_mbox_data *ppe_data;
- 	int err;
-
--	ppe_data = kzalloc_obj(*ppe_data);
-+	ppe_data = kzalloc(airoha_npu_mbox_size(sizeof(*ppe_data)), GFP_KERNEL);
- 	if (!ppe_data)
- 		return -ENOMEM;
-
-@@ -375,7 +382,7 @@ static int airoha_npu_ppe_flush_sram_entries(struct airoha_npu *npu,
- 	struct ppe_mbox_data *ppe_data;
- 	int err;
-
--	ppe_data = kzalloc_obj(*ppe_data);
-+	ppe_data = kzalloc(airoha_npu_mbox_size(sizeof(*ppe_data)), GFP_KERNEL);
- 	if (!ppe_data)
- 		return -ENOMEM;
-
-@@ -399,7 +406,7 @@ static int airoha_npu_foe_commit_entry(struct airoha_npu *npu,
- 	struct ppe_mbox_data *ppe_data;
- 	int err;
-
--	ppe_data = kzalloc_obj(*ppe_data, GFP_ATOMIC);
-+	ppe_data = kzalloc(airoha_npu_mbox_size(sizeof(*ppe_data)), GFP_ATOMIC);
- 	if (!ppe_data)
- 		return -ENOMEM;
-
-@@ -434,7 +441,7 @@ static int airoha_npu_ppe_stats_setup(struct airoha_npu *npu,
- 	int err, size = num_stats_entries * sizeof(*npu->stats);
- 	struct ppe_mbox_data *ppe_data;
-
--	ppe_data = kzalloc_obj(*ppe_data, GFP_ATOMIC);
-+	ppe_data = kzalloc(airoha_npu_mbox_size(sizeof(*ppe_data)), GFP_ATOMIC);
- 	if (!ppe_data)
- 		return -ENOMEM;
-
-@@ -466,7 +473,7 @@ static int airoha_npu_wlan_msg_send(struct airoha_npu *npu, int ifindex,
- 	int err, len;
-
- 	len = sizeof(*wlan_data) + data_len;
--	wlan_data = kzalloc(len, gfp);
-+	wlan_data = kzalloc(airoha_npu_mbox_size(len), gfp);
- 	if (!wlan_data)
- 		return -ENOMEM;
-
-@@ -489,7 +496,7 @@ static int airoha_npu_wlan_msg_get(struct airoha_npu *npu, int ifindex,
- 	int err, len;
-
- 	len = sizeof(*wlan_data) + data_len;
--	wlan_data = kzalloc(len, gfp);
-+	wlan_data = kzalloc(airoha_npu_mbox_size(len), gfp);
- 	if (!wlan_data)
- 		return -ENOMEM;
-
---
-2.55.0
-
+     Arnd
 
