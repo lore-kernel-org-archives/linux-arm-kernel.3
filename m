@@ -4,111 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8213AC5DF66
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 10:53:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEDBEC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 10:56:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QnqL1jhWyigtOy8qSZQIO8ZgAGVVwsq5hn8b4Iisrf4=; b=Dw9nBwft0H4JcsbcKyyluyAnEf
-	ummuYTQ+pBRShibegB7ZkaLIECpcYxyGgVOfCol5a90SuZAN6aKK4esvVopAdut09Q1ZCCpeIvuxc
-	L7KrBCfg/KerxHLRJwsPZ6y7JkAuCpf9zjtErWpBVZkRNkMRxswiBmq/Gd3d6B7/KPWK6LuGftO/C
-	E/rOQgGl7P/yAkx2I1U8jeUgU7fOgov1K/Fi+hWN2bNkWQ0bf9Z66goTufYvMyfWSO3Hs6OhoQWuu
-	lIsTYslP/MwBnx0OycYGkfUpDNGS3n0/Q4MG1NRWdeED/r3c4l3sTmg10nkGHfl5HL8v2Yoilwxfw
-	WQ556pbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=e/eaws+/ZFc3XbSb1qaAqDr6NzT+Mb74c6aaokulpTg=; b=2Cze9f2sedflFkVPPWD82txTCn
+	ZB/V2Ra+veC6VBxRnRohvcLOkoBUyC3LJNVdkmy76HBFBptXne3GInFLJw3k21vdUeYo8Q094VxHP
+	zsKaMhkkWADGTX0t0znu9WR658uYbWyiWchwCW8dmBoW0hxZs3htG6veiR7Nv8O8jTJA/XdAjPbuo
+	iDMMqUPRQ2qvNGTMPINTHcBwmaCpJElEz0gQzKhVWzz9Gt7Uju4OhcBe0uw+TTi0b6w0M4N1cbgQJ
+	k/tqbBn8GwNlIzcwVa0GncV5kSPkqZbVqaLhJtQ59+FYKVrN9IiutCM57T5mQWJzwOCPGD6KDRvr/
+	kako8bGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvuxw-00000005yAI-3cu9;
-	Mon, 17 Aug 2026 10:53:16 +0000
-Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1wvv0U-00000005yWO-1h4v;
+	Mon, 17 Aug 2026 10:55:54 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvuxt-00000005y82-1F4H
+	id 1wvv0R-00000005yVk-3e73
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 10:53:15 +0000
+	Mon, 17 Aug 2026 10:55:53 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PP+4uf1oNJPM4Ci2F3UO+3qYp3W4XfJ7Dnmj+WetWO2pfyizfHi7nnUamnhzxBABuaB40kNuHxyIB0loY7SgJuhyNftgunVfeiu5nG/iZa6JdSm7UmxZ+G9VL/A7zM1NW+8TblIAphXFJ4DkDx9UiODbMmdiYsHcvppHdw2K1y5q7OBQrcCeHoZ2kaYbrdMWlG7Pz+HM9kxQ0Owv5feuAzJre0b8M95lyEyp/AwRdyR8JLcbGB/YcgFhcoF6t43P9XvcbgW6pWc/sJEi9cQzqB7cCTPbIt/z8MMIJiuAf+evrJFuzppVe7nMYgica7av6YZV//fAb/0OGDzaa7o3/Q==
+ b=YXTfvqS4q6EbH4j8mRpgMGSe+b9PTRi2X8WyCnx/jwVv1kuGloDT8YqslMDDy7jdglR3BZdJyf2a10QXXDA/Rfzhmhmv7Ubr8J8jl1IDVdrsEw1PZ5Y8gd3QOujwvIRSTNzty2zXl8uR7ZQgG9ZK8Jc3Wgy6rJZLqAO0U8V9OOMzkhHepJjZm+Kgg5R1NJJBuca01t0N1F/DZDmIqaauiS4ruqXE24hhO+vwvYmLDe/rqnA8jMqrXYy0eNJ+UKT4yULnjHEHctqNbBLBdPQzDHIFEwG2vsat7hjEWV1hDmmHQS4Ca0FiNzgp7tgQeYlucTdstqxH+YtxgEkXhixT8w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QnqL1jhWyigtOy8qSZQIO8ZgAGVVwsq5hn8b4Iisrf4=;
- b=fTDMi3hLYUnLeovgUkyoEG2KK9hSJ2XDbkB4FNdrg7fEFuZrgQAR0n4eCn/UyAfyEBIMODpDymHbvRTffbhaO3JjxsatAATqLM/TUyZ8usewgpYEYMl436gkasrDU1L3ptA/8FEiiJqct2aQMA+0r+Eikxg7gjA79ZGzKrEYMCDKXPMzdSdugUyqYgn5K8nygYWCLZthZPEOHYad0SAuUfMRSVpcUAWWrn5+0S3goLMbiRsPH+jSYjzimqKhO0Vgfct67gonrCAZ1EUGbXdf4G8G0yQLX7bOTPKtbJjQIzjKnJ8ZWrE0vZLiJsSSRULaDyWB9ykisBwh0jQ3INtgGw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=linutronix.de smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ bh=e/eaws+/ZFc3XbSb1qaAqDr6NzT+Mb74c6aaokulpTg=;
+ b=omcsyw8iam8htaFmmNk4FaIVenNTr1M/ErJoXptH4oUbf+Om4t6IzrMtYGpaspJgqgkq+7sbnt87CieeaBcQnbRpSlSaYs7gk24bfxEToF6sizkDzewm7Sn4xhp4MeUvKsDTt+Atu5cFkZ4/7OGJRbacUSXu80mhWRlHsYumCow1Ft6Un0bo9bq2huZbirftxoF2g19Wi5gQtZSzlpmeXl7DTSBDbMe5IskAon8q8Thbc1PAsevZFEE+AFbVL31Hp/peCpErTfRbwVvEK1bfIeTqQFUXDOJWDscLEXfre9CB85L/nxamM+m0W+fF59gXtm7dyxKL/sbJZOUmKCuhjA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QnqL1jhWyigtOy8qSZQIO8ZgAGVVwsq5hn8b4Iisrf4=;
- b=DJ960OVjGFV48UXWgBmtmCm1nuREuTYHKxkdy8BwuT5vxEbfjaWGJ6btQl33JeixAa+pFD/G9RIFqpv5zRoC25RHQC1M5i47JQZqgPK1MeYTHMzKqDryp5EDTkTHCIavvaJwG2aafTyzBfw3IM3ZeogBRxzzTieWTtxF6cJRtiU=
-Received: from SJ0PR03CA0157.namprd03.prod.outlook.com (2603:10b6:a03:338::12)
- by DM4PR12MB6638.namprd12.prod.outlook.com (2603:10b6:8:b5::5) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.315.17; Mon, 17 Aug 2026 10:53:03 +0000
-Received: from SJ5PEPF000001D0.namprd05.prod.outlook.com
- (2603:10b6:a03:338:cafe::3c) by SJ0PR03CA0157.outlook.office365.com
- (2603:10b6:a03:338::12) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.315.17 via Frontend Transport; Mon,
- 17 Aug 2026 10:53:03 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- SJ5PEPF000001D0.mail.protection.outlook.com (10.167.242.52) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.339.3 via Frontend Transport; Mon, 17 Aug 2026 10:53:03 +0000
-Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 17 Aug
- 2026 05:53:02 -0500
-Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb09.amd.com
- (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Mon, 17 Aug
- 2026 05:53:01 -0500
-Received: from xhdtunimkar40.xilinx.com (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.45 via Frontend
- Transport; Mon, 17 Aug 2026 05:52:59 -0500
-From: Tushar Nimkar <tushar.nimkar@amd.com>
-To: Thomas Gleixner <tglx@linutronix.de>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-CC: Michal Simek <michal.simek@amd.com>, Anirudha Sarangi
-	<anirudha.sarangi@amd.com>, <git-dev@amd.com>, Tushar Nimkar
-	<tushar.nimkar@amd.com>
-Subject: [PATCH 2/2] irqchip: Add Xilinx Versal NET SMMU CSR interrupt controller driver
-Date: Mon, 17 Aug 2026 16:22:51 +0530
-Message-ID: <20260817105251.1557770-1-tushar.nimkar@amd.com>
-X-Mailer: git-send-email 2.34.1
-MIME-Version: 1.0
+ bh=e/eaws+/ZFc3XbSb1qaAqDr6NzT+Mb74c6aaokulpTg=;
+ b=j+3G7Xd4NX3tlrUNmDU52BLE6V8jGkgzxrEaANaKqW0vuZU5B7Hr5X0yUnlfjTxjgKjjk9M0mVwO4rzJ2zbcE+5QMZunQ8O1Y4PO/65gCJNPDQ9GoPbaRbmEGtPkPqwaIs7IdAOenjxwx+qWa5hvKA+tBvK1ZgOO/ny/OYa/CnnMxNMbhbV7P6r1dMlGEzJ8h+DxSxM9S8E+WxhuX8tXKu67kUTHpGSYw27R5Hzy5zvwD+Dze6cKFUOGy5pz1vikGj9xRm45H15OQ6sobSFQHbPnEB3L8By7ORGn0TwTqXhztHTj+aB95ZwTjhao/fRCzKirDc3KCjoRLRe9cOVZxg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
+ by GV1PR04MB9072.eurprd04.prod.outlook.com (2603:10a6:150:23::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.17; Mon, 17 Aug
+ 2026 10:55:43 +0000
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0315.016; Mon, 17 Aug 2026
+ 10:55:43 +0000
+From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Subject: [PATCH v11 0/6] clk: Support spread spectrum and use it in
+ clk-scmi
+Date: Mon, 17 Aug 2026 18:59:31 +0800
+Message-Id: <20260817-clk-v11-v11-0-36e9bc701b11@nxp.com>
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
+X-B4-Tracking: v=1; b=H4sIAJTpgmoC/yWMSw5AQBAFryK9Nokeid9VxGI+jUaQGUQi7m6wr
+ Jd6dYEnx+Shii5wdLDnZQ6AGEdgejV3JNiGAWQis6TAXJhpFAei0EqiRmNblZYQ7NVRy+eXqpu
+ f/a4HMtt7h/t+AANTIyZsAAAA
+X-Change-ID: 20260817-clk-v11-ba21b1cdfa39
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Sudeep Holla <sudeep.holla@kernel.org>, 
+ Cristian Marussi <cristian.marussi@arm.com>, 
+ Sebin Francis <sebin.francis@ti.com>
+Cc: linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
+ devicetree@vger.kernel.org, arm-scmi@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, Peng Fan <peng.fan@nxp.com>
+X-Mailer: b4 0.16-dev-7bc12
+X-ClientProxiedBy: SI3PR03CA0004.apcprd03.prod.outlook.com
+ (2603:1096:4:297::11) To AM8PR04MB7874.eurprd04.prod.outlook.com
+ (2603:10a6:20b:24d::9)
+MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF000001D0:EE_|DM4PR12MB6638:EE_
-X-MS-Office365-Filtering-Correlation-Id: 55386b49-1baf-42f9-756c-08defc4db64f
+X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|GV1PR04MB9072:EE_
+X-MS-Office365-Filtering-Correlation-Id: 78aeb62d-b79e-4c53-b513-08defc4e1547
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|23010399003|376014|36860700016|18002099003|56012099006|11063799006|10067099003;
-X-Microsoft-Antispam-Message-Info: RjlT8Bf16h/7yYxB+npsmsGV0rNoui0FncOeoGLRQWCWc8vgVBv49ZbEkRd+khKcv+UR74GzwhcMSofIFDdoTJSdo8pBEsaB15myIIRz0REz87VcPCkfqnmMexXvwgKxy/vyD1TzMdABUP7UhgDouXNlgpUVsqCzxa+Zt4LP1OuRZi/P0WPEDWxFXFVW2X5etKKjI/t9BmlUEhX5tgfOC+6UvJcAmSZ0qhoOledE11jmSoxBVdWDeLYpvh9rdc4fWvW5RMod05vI9fmeA1Rx6lJNhp+//SrGRN99QBzwNbjBuOjb8abBgBY3DNUr4damPxfZQlmM/hVpCYztQuFvoAuId0PgRbn8KjfNHOrhPBfee0n77AlB0TnI1kDGELL7bnRAZ8fk8Frahl4Tv0nwYfbx3VRYUdW8+5THNJUrYf2owFPe9MpfJwLc2ARHDVQ/xnKJJMmN1QutdnCdei6LawkJNluGKqiz5Mn/mW/ffwNshYqDF7LH4OQQRBi4H20s+lrr2PszeMtXs5GKqD6XBh4IzPDkggs3Df81nE6iER5vclRqa82w4ohMfdBAZ2cM9CbvjtwmWLLzPVQ02tPOlTRpduxJOcHdwx0IDtfpBnRHg9w+7MlJoYGZzHaGdU2SzB539GHM5P/hCALeHRLzTJ3kOhrccPdg3DewrJLGzC9FyI9a2dj2/hZ5BrsGEsrcBINU1tlNbLsp2Z3HX5Dybg==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(23010399003)(376014)(36860700016)(18002099003)(56012099006)(11063799006)(10067099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|19092799006|1800799024|7416014|376014|366016|10067099003|11063799006|56012099006|18002099003|3023799007;
+X-Microsoft-Antispam-Message-Info: ISQjytCy49/LxdpLqBzOm56/6oTbb20eqhBegb+CTOSE9BzeBM6eMXPhKqOan75MJfr826QXGhngc+NA2H/09qMRqLt5aLTCgZBHxQ9K2ZLbhF34priHoFUvG7ejabeH5ooTa1LF51yDckL/c8GnKyaGXLlgN1kxl77vpGP4PmBOmF1x5+jWBnUzZB4KgPMmb4AsXnAaFlJko6q7iCCl53uHYrUDxhIr1IrbPjZPiObx7Jqc5Cf2R3NONOWr6buSe9WeM9FfvhwP5t+eXHirn0E1wvNMqboy4cTwcorTFqldPF0jqvLJSFmD+sdUUVl6CALMri5jPUKz2MwUHyD/9hAvkCy+/ZV60sVpiZmo6q5alkuOx9fJsx0wH2hedgfNjnLqvnz2CRt6vwn8F2kP8ADVxnkQe8pGtzkz/RDodGHfNETdb6Rkovmhz6HKwc+NAxsm/8LMihUv9bEMtR00woGHvw440QNJlbvHE7k7CXYK6pQ4Qgm48VfM3Wz/LBq5PNcrGSQx3i+Lrbdk6ypWfuGau1LybJFnQ5w/lDEu6iba3oJb3YT0q+9W++64TnXegCg/JI36Xv2PlCVDRI4sHYx/dEDgKzZA0EiAVVheUvHo/TwPuWPz/p94nWdF2v4GnU7O7ddLSv3xeHFoxWOPAE04eE4i0tl+SMrIzbd3yQU=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(19092799006)(1800799024)(7416014)(376014)(366016)(10067099003)(11063799006)(56012099006)(18002099003)(3023799007);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: LncLvw19NXNNCXqWAU25Gv6y0DEbSQDpRjJciX1wO2d+hvDHhaxV5CDIXeRV9KxFZtW0i+0XrGJ4tWRxHY3RlnZQChFqNnoo89JxRFx8xWEnxlrbW430vgifi/QjMRx1+MhJF3zrdbq/ECjsfiTLHLtq5isGfZwkjEPfUwmMTO8eb3cR/5O4/pFElEcKtqDyi53i3Yhd+6zpUWaEV+FZsqGzH23sYc6ndrDWReAEveiFDm/QCREUlz3bbV5waCbxvSnrZLNlWvIivi22FE6a+vm3PNHjG+0YDNKcV+TsifFaxzY1X9yGydixSfpvwkz6Ctg9IEpkf4zrjmzIsfUVrb9l/kF0oNcHYCqMDtrfLq0yR0dKbaj3/lQ5noGAB/eE1ymmUFmJL0RYPkgN7b0FPpeqYCD3c/rA6bAJTEk4MLy60sOFuGEFAR37gB0ysXCE
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Aug 2026 10:53:03.3188
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TUdiTFpwT25zajhHWWlaRmd2MGJDUDRUSmlITjV6R1hac0FCR2g4YU90V05X?=
+ =?utf-8?B?aTlSVHQyRGxiUm1IRnJMM3NiSitCSmtwenp4U0grdGdUV0x6d1hSb1h0cktk?=
+ =?utf-8?B?NC9nWC9FSStjV2tBRE9yM1ZYdVQ1cGhKWjlXSW56bkJzNlRRR252T1JidUlT?=
+ =?utf-8?B?UjI2RExLRHRVSGZTaERzcmd1RERCeURTNFA4bWkvaTZqamc3U05TUFhpS29K?=
+ =?utf-8?B?ZEd2eUx3bC90ZlNraThOcS9XMVFoakdGY2xMVWR2dkJXZW9LOEJhalcrejhP?=
+ =?utf-8?B?MHIyZ2plcXlPYjRuVFBHNTZjVnQ3dnhkdzF2aHZkOFRoSStlS1NOdml0SEtQ?=
+ =?utf-8?B?dGJjTy9oWVBHNTVTNVNoNm5rMmpZQWRqNUVkSWRKV0Exd3ZOSjgzaGRPcFZz?=
+ =?utf-8?B?RFJDd0ZzNDdOWTRYZCs4ZUZBQlZPS1BwK1gzUzlGcHUxbDdnaUs3d3ZhOHhN?=
+ =?utf-8?B?TFo4S2tRc3JZMW1pYUxmbTVVUjdQSFZPUnlzNHp1ZFJMTG9xbXArcjdBbjVF?=
+ =?utf-8?B?VVVZQzNyZFJxNHdIMG14eU9aajlxWFFTb3VheHNQL24rdTh0K3JFa1ppYTln?=
+ =?utf-8?B?NFlxYllCVEtQelpPckYwMlhTNnlaY0U0VjdmaDg3UkF2Ly9NYkMzS3hoTS9E?=
+ =?utf-8?B?OHAybGczMkF6cXExTWF0aUY2TDJIdFI2MnBGcXBxNlAxUkJQSFlnbFJJdmhX?=
+ =?utf-8?B?LzhjWXEzNHRlTDdoSXVYVGpFN2xZMXBTekRSYU16UnM2dlE0cGhYR2tDbVdt?=
+ =?utf-8?B?aFBOOGZHMDRZbTg2cVZ5YURaQUNMblpHK09CeUVtWWJuVmlva2YwdXJrcFc5?=
+ =?utf-8?B?N1lTYklMZE9vMzJwUmtxWVBJV3I3YTZudVdvaVZKOGVhZVdGaUR2SXREcVgy?=
+ =?utf-8?B?dVhxTyt5czRwMkdrTGFKL2hyMGJ6TStNdnFhYWwvRnN0bWx2amc2Q2QzeGor?=
+ =?utf-8?B?TXhnYjFDcjVaRGVKYUhJclAxdzM4dTJ0UndHL3orL2xsYTZueHdRREZDZnBV?=
+ =?utf-8?B?YkNkbHVLUnlhMkRRYUNLSytnaFRnd3VGRGhWNTZoK0Z1dkpuOFdBQ1g5TDE1?=
+ =?utf-8?B?UEdiYVJ5WWNLemplNHI2cVdlZU1lNGgzWDhkNi9rU010OGlzZzh1c2U5MXRI?=
+ =?utf-8?B?TEpqUWw2bUUwVXZ2b2RCVWRmYWhrZHZ0R2NxOVI2a1NjNG9CbFJwTnFJbTJ2?=
+ =?utf-8?B?OGhxK1pEREx0bFdxNHlJa0J0RHEzRitYcTBLaUNmc1Z1MGh4SU9yMTB5TWNE?=
+ =?utf-8?B?Q1RuVXFlUzB0eitTamYwakpuM0lEdGlhak1zYVhGUUZSRE9zTElIaFBnK25W?=
+ =?utf-8?B?clBzR3ArbzVxem0yUENCUHlEd0QzNXV1TTVPTitUcFh1Q290bkdPbDNhNmxx?=
+ =?utf-8?B?QWxNU0xKdUJCOS9NTlo1KzVFYWVnTVhzZHFJbHorQzhLL1c1bFlKN1MwdUdy?=
+ =?utf-8?B?ZXhCejBZT2lhekJOQUNocDlQaHN0eFFQWDdvMXd5Wlo1SWlwS2xYTTFsRVJC?=
+ =?utf-8?B?aDVzVlBLNU9YY0xpUHJtVDRrVHJpYnhsMW44SEg1cTVkNjB4RG5PMktueUZq?=
+ =?utf-8?B?Mjh4MCszbDdGMWJjY2xSSVY2OEdSeHFHTUJuUXFoQ2dFZHBxRzJTU1Z1TXVs?=
+ =?utf-8?B?aktQZXgzeUk3NGFVU1k5UVp5dTNHbC9lenZTWGdteXhNSkNrN3MwOVltQ1FF?=
+ =?utf-8?B?d2NHR1pPM1puS0lKZnlmVUhXZWtJeFVtMU1jYlRKSTlTa2JCNDVGdUhNbFA1?=
+ =?utf-8?B?dzVkN0p1djRMd3Y1b0d1Rk9kVTYzOEhoNldERVlrc2Zsek1lRk54dHBEcEVo?=
+ =?utf-8?B?MUppdGRBSlJVNjlvV09La0tObjZTc2U4RENWWkUwU1RhMThtSWFlN0lqbDQ3?=
+ =?utf-8?B?WlBwalN2UnlrSUcydUJxMnIxY211ekNzaFVuWjI0eUtHbDVVOXpkclpDMU5o?=
+ =?utf-8?B?d0FKL3hKeENEdWd5VHovYUZoYm14Tjl1Ri9OdHFMZjJ1cjFBVVlyZ2RRRFk3?=
+ =?utf-8?B?ZG5wckNuRmtNRlFUM3JGRDJHd0ZUZmlBcFJlV2FrdlVsRkJ2dzkxSmdCaWFu?=
+ =?utf-8?B?SXRjWTJVL1NtdFFoVElRTkdRY2JicDRXRnBXZFlVdnRjUjVlU0pkckVVMGpn?=
+ =?utf-8?B?K0pPU3JTV0VXYlM2TE1qRGZVVHpEYmdleFQrZjlDS2VyVmIwRy8yMEk3WVlJ?=
+ =?utf-8?B?TkVUczdVY1dLNnQ3czFxU3dGTkh6VHF4TUdyNGZwdCtxVTBJaDRKL3FnSnJt?=
+ =?utf-8?B?aXJ4U1lUc0ZyM1pkcWtaVmFwZGsxMVQrUDhPN0wyK0dGaG10Z2RsQlN2RkRn?=
+ =?utf-8?B?ZFpUeTg1L1RBeHJZVmhCMVZGQUFjVDlIS3o1Tmx6SFVxWUErazRwVDhSaERr?=
+ =?utf-8?Q?GfIGhg6S22S32yrFaCYT4LX4AS3md3jR3cD1C?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 78aeb62d-b79e-4c53-b513-08defc4e1547
+X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Aug 2026 10:55:42.9707
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 55386b49-1baf-42f9-756c-08defc4db64f
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001D0.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB6638
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: BYF7bh/rIkwO7cBo4pZmMiO8gBxKFrL4QV1Z2bITYHSeosX9HABHruq7pNNV/+u6Iyhfd1AlzM6LHSFYlrKm1yZFJbi7/TJLlZy+5hAcZC43if69AFlHXoasSS1Ph931
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB9072
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_035313_419668_49C550DD 
-X-CRM114-Status: GOOD (  27.77  )
+X-CRM114-CacheID: sfid-20260817_035552_074089_5EBEB04E 
+X-CRM114-Status: GOOD (  17.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,324 +155,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Anirudha Sarangi <anirudha.sarangi@amd.com>
+Changes in v11:
+- Address "driver fails to link when compiled as a module" reported by sashiko-bot
 
-The Xilinx Versal NET SoC implements a Control and Status Register (CSR)
-block in front of the ARM SMMUv3 to manage EVENTQ, PRIQ and GLOBAL
-interrupts. Interrupts are enabled, cleared, and acknowledged
-through this block by writing to the relevant registers. Once an
-interrupt is acknowledged, it is forwarded to the parent interrupt
-controller for further processing.
+Since the assigned-clock-sscs property [1] has been accepted into the device
+tree schema, we can now support it in the Linux clock driver. Therefore,
+I've picked up the previously submitted work [2] titled "clk: Support
+spread spectrum and use it in clk-pll144x and clk-scmi."
+As more than six months have passed since [2] was posted, I’m treating this
+patchset as a new submission rather than a v3.
 
-Add an irqchip driver for the CSR block. The driver registers as an
-interrupt controller and chains to the upstream SMMUv3 driver, so
-that the standard SMMUv3 driver does not require modification while still
-supporting Xilinx SoCs.
+- Introduce clk_set_spread_spectrum to set the parameters for enabling
+  spread spectrum of a clock.
+- Parse 'assigned-clock-sscs' and configure it by default before using the
+  clock. This property is parsed before parsing clock rate.
+- Enable this feature for clk-scmi on i.MX95.
 
-The CSR block can also gate the SMMUv3 CMDQ_SYNC completion interrupt
-(bit 1), but it is intentionally left unsupported. The Linux arm-smmu-v3
-driver signals CMDQ_SYNC completion via polling or MSI and never requests
-a wired CMD_SYNC interrupt, so there is no in-kernel consumer for it.
-Exposing it as a child line would only risk spurious, never-acked
-interrupts, and it is omitted from the DT binding for the same reason.
+Because SCMI spec will not include spread spectrum as a standard
+extension, we still need to use NXP i.MX OEM extension.
 
-This driver is intended to operate in conjunction with the ARM SMMUv3
-driver and the kernel's IOMMU DMA infrastructure. These dependencies
-are not selected directly in Kconfig to avoid introducing dependency
-recursion.
+[1] https://github.com/devicetree-org/dt-schema/pull/154
+[2] https://lore.kernel.org/all/20250205-clk-ssc-v2-0-fa73083caa92@nxp.com/
 
-Signed-off-by: Anirudha Sarangi <anirudha.sarangi@amd.com>
-Co-developed-by: Tushar Nimkar <tushar.nimkar@amd.com>
-Signed-off-by: Tushar Nimkar <tushar.nimkar@amd.com>
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
+
+Changes in v11:
+- Address "driver fails to link when compiled as a module" reported by sashiko-bot
+
+Changes in v10:
+- For patch 4: per Stephen's comments, write a new testsuite, not modifying rate
+  tests. Updated commit log, and dropped the R-b tag.
+- Rebased to next-20260609
+- Link to v9: https://lore.kernel.org/linux-clk/177743031609.5403.8748588339056479001@localhost.localdomain/
+
+Changes in v9:
+- Rebased to next-20260311
+- Fix kunit test by setting return value to 0 when there is no
+  assigned-clocks in patch 3
+- Link to v8: https://lore.kernel.org/r/20260302-clk-ssc-v7-1-v8-0-2356443a7e4c@nxp.com
+
+Changes in v8:
+- Add R-b from Cristian for patch 5 and patch 6
+- Add comment for scmi_clk_oem_info in patch 6
+- Rebased to next-20260227
+- Link to v7: https://lore.kernel.org/r/20251231-clk-ssc-v7-1-v7-0-380e8b58f9e3@nxp.com
+
+Changes in v7:
+- Add R-b from Sebin
+- Drop __free usage per comment from Krzysztof in patch 3
+- Link to v6: https://lore.kernel.org/linux-clk/20251128-clk-ssc-v6-2-v6-0-cfafdb5d6811@nxp.com/
+
+Changes in v6:
+- Add kunit build warning
+- Update OEM string comparation per Sebin
+- Link to v5: https://lore.kernel.org/linux-clk/20251009-clk-ssc-v5-1-v5-0-d6447d76171e@nxp.com/
+
+Changes in v5:
+- Per Stephen, export clk_hw_set_spread_spectrum, use enum for method,
+  add const for set_spread_spectrum and rename clk_ss/conf to ss_conf.
+- Per Sebin, Cristian, Sudeep, I added clk-scmi-oem.c to support vendor
+
+Changes in v4:
+- Add R-b for patch 1 from Brian
+- Drop unecessary change in patch 4 Per Brian
+- Link to v3: https://lore.kernel.org/r/20250912-clk-ssc-version1-v3-0-fd1e07476ba1@nxp.com
+
+Changes in v3:
+- New patch 1 for dt-bindings per comment from Brian
+  https://lore.kernel.org/all/aLeEFzXkPog_dt2B@x1/
+  This might not be good to add a new dt-binding file in v3. But this is
+  quite a simple file that just has four macros to encode modulation
+  method. So hope this is fine for DT maintainers.
+- Add Brain's R-b for patch 2
+- New patch 3 to add Kunit test per Brain. Since Brain helped
+  draft part of the code, I added Co-developed-by tag from Brain.
+- Link to v2: https://lore.kernel.org/r/20250901-clk-ssc-version1-v2-0-1d0a486dffe6@nxp.com
+
+Changes in v2:
+- Simplify the code in patch 2 per Dan Carpenter and Brian Masney
+- Rebased to next-20250829
+- Link to v1: https://lore.kernel.org/r/20250812-clk-ssc-version1-v1-0-cef60f20d770@nxp.com
+
 ---
- MAINTAINERS                           |  10 ++
- drivers/irqchip/Kconfig               |  10 ++
- drivers/irqchip/Makefile              |   1 +
- drivers/irqchip/irq-xilinx-smmu-csr.c | 225 ++++++++++++++++++++++++++
- 4 files changed, 246 insertions(+)
- create mode 100644 drivers/irqchip/irq-xilinx-smmu-csr.c
+Peng Fan (6):
+      dt-bindings: clock: Add spread spectrum definition
+      clk: Introduce clk_hw_set_spread_spectrum
+      clk: conf: Support assigned-clock-sscs
+      clk: Add KUnit tests for assigned-clock-sscs
+      clk: scmi: Introduce common header for SCMI clock interface
+      clk: scmi: Add i.MX95 OEM extension support for SCMI clock driver
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 5c9c9b5cf44a..bf790567e756 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -29881,6 +29881,16 @@ F:	Documentation/misc-devices/xilinx_sdfec.rst
- F:	drivers/misc/xilinx_sdfec.c
- F:	include/uapi/misc/xilinx_sdfec.h
- 
-+XILINX SMMU CSR IRQ DRIVER
-+M:	Anirudha Sarangi <anirudha.sarangi@amd.com>
-+M:	Tushar Nimkar <tushar.nimkar@amd.com>
-+L:	git@amd.com
-+L:	linux-arm-kernel@lists.infradead.org
-+L:	linux-kernel@vger.kernel.org
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/interrupt-controller/xlnx,versal-net-smmu-csr.yaml
-+F:	drivers/irqchip/irq-xilinx-smmu-csr.c
-+
- XILINX TRNG DRIVER
- M:	Mounika Botcha <mounika.botcha@amd.com>
- M:	Harsh Jain <h.jain@amd.com>
-diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
-index 20b77fbc51ee..a08bda407a63 100644
---- a/drivers/irqchip/Kconfig
-+++ b/drivers/irqchip/Kconfig
-@@ -840,4 +840,14 @@ config SUNPLUS_SP7021_INTC
- 	  chained controller, routing all interrupt source in P-Chip to
- 	  the primary controller on C-Chip.
- 
-+config IRQCHIP_XILINX_SMMU_CSR
-+	bool "Xilinx SMMU CSR Interrupt Driver"
-+	depends on ARCH_ZYNQMP
-+	select IRQ_DOMAIN
-+	help
-+	  This driver does the initial handling of SMMU interrupts before
-+	  forwarding them to the ARM SMMU v3 driver.  It is intended for
-+	  ZynqMP-class platforms where a vendor CSR block mediates SMMU
-+	  interrupts.
-+
- endmenu
-diff --git a/drivers/irqchip/Makefile b/drivers/irqchip/Makefile
-index ab33cccd8471..16a5fd126c9a 100644
---- a/drivers/irqchip/Makefile
-+++ b/drivers/irqchip/Makefile
-@@ -135,3 +135,4 @@ obj-$(CONFIG_APPLE_AIC)			+= irq-apple-aic.o
- obj-$(CONFIG_MCHP_EIC)			+= irq-mchp-eic.o
- obj-$(CONFIG_SOPHGO_SG2042_MSI)		+= irq-sg2042-msi.o
- obj-$(CONFIG_SUNPLUS_SP7021_INTC)	+= irq-sp7021-intc.o
-+obj-$(CONFIG_IRQCHIP_XILINX_SMMU_CSR)	+= irq-xilinx-smmu-csr.o
-diff --git a/drivers/irqchip/irq-xilinx-smmu-csr.c b/drivers/irqchip/irq-xilinx-smmu-csr.c
-new file mode 100644
-index 000000000000..189185d89746
---- /dev/null
-+++ b/drivers/irqchip/irq-xilinx-smmu-csr.c
-@@ -0,0 +1,225 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Xilinx Versal Net SMMU CSR interrupt controller driver
-+ *
-+ * Copyright (C) 2026 Advanced Micro Devices, Inc.
-+ *
-+ * Vendor CSR block that gates the ARM SMMUv3 wired interrupts. Chains
-+ * off the single GIC parent line and demultiplexes the CSR status into
-+ * three children (eventq, gerror, priq), each enabled/acked
-+ * via SMMU_CSR_IER/IDR/ISR that the ARM SMMUv3 driver requests individually.
-+ */
-+
-+#include <linux/bitops.h>
-+#include <linux/io.h>
-+#include <linux/irqchip.h>
-+#include <linux/irqchip/chained_irq.h>
-+#include <linux/of_address.h>
-+#include <linux/of_irq.h>
-+#include <linux/slab.h>
-+#include <linux/spinlock.h>
-+
-+/* Interrupt types */
-+#define SMMU_INTR_EVENT		BIT(0)
-+#define SMMU_INTR_GLOBAL	BIT(2)
-+#define SMMU_INTR_PRI		BIT(3)
-+
-+/* Mask for all SMMU interrupts */
-+#define SMMU_INTR_ALL		(SMMU_INTR_EVENT | \
-+				 SMMU_INTR_GLOBAL | SMMU_INTR_PRI)
-+
-+#define SMMU_CSR_ISR		0x24	/* Interrupt Status */
-+#define SMMU_CSR_IER		0x2c	/* Interrupt Enable */
-+#define SMMU_CSR_IDR		0x30	/* Interrupt Disable */
-+
-+/**
-+ * struct xilinx_smmu_csr - SMMU CSR interrupt controller context
-+ * @base: MMIO base address of the CSR registers
-+ * @domain: IRQ domain for the child interrupts
-+ * @parent_irq: parent (GIC) IRQ this block is chained to
-+ * @lock: protects the SMMU_CSR_IER/IDR/ISR read and writes
-+ */
-+struct xilinx_smmu_csr {
-+	void __iomem		*base;
-+	struct irq_domain	*domain;
-+	int			parent_irq;
-+	raw_spinlock_t		lock;
-+};
-+
-+enum xilinx_smmu_csr_irq {
-+	SMMU_CSR_IRQ_EVENTQ = 0,
-+	SMMU_CSR_IRQ_GERROR = 2,
-+	SMMU_CSR_IRQ_PRIQ = 3,
-+	SMMU_CSR_IRQ_NR,
-+};
-+
-+static u32 xilinx_smmu_csr_hwirq_mask(irq_hw_number_t hwirq)
-+{
-+	if (hwirq >= SMMU_CSR_IRQ_NR)
-+		return 0;
-+
-+	return BIT(hwirq) & SMMU_INTR_ALL;
-+}
-+
-+static void xilinx_smmu_csr_irq_mask(struct irq_data *d)
-+{
-+	struct xilinx_smmu_csr *csr = irq_data_get_irq_chip_data(d);
-+	u32 mask = xilinx_smmu_csr_hwirq_mask(d->hwirq);
-+
-+	if (!mask)
-+		return;
-+
-+	raw_spin_lock(&csr->lock);
-+	writel(mask, csr->base + SMMU_CSR_IDR);
-+	raw_spin_unlock(&csr->lock);
-+}
-+
-+static void xilinx_smmu_csr_irq_unmask(struct irq_data *d)
-+{
-+	struct xilinx_smmu_csr *csr = irq_data_get_irq_chip_data(d);
-+	u32 mask = xilinx_smmu_csr_hwirq_mask(d->hwirq);
-+
-+	if (!mask)
-+		return;
-+
-+	raw_spin_lock(&csr->lock);
-+	writel(mask, csr->base + SMMU_CSR_IER);
-+	raw_spin_unlock(&csr->lock);
-+}
-+
-+static void xilinx_smmu_csr_irq_ack(struct irq_data *d)
-+{
-+	struct xilinx_smmu_csr *csr = irq_data_get_irq_chip_data(d);
-+	u32 mask = xilinx_smmu_csr_hwirq_mask(d->hwirq);
-+
-+	if (!mask)
-+		return;
-+
-+	raw_spin_lock(&csr->lock);
-+	writel(mask, csr->base + SMMU_CSR_ISR);
-+	raw_spin_unlock(&csr->lock);
-+}
-+
-+static struct irq_chip xilinx_smmu_csr_chip = {
-+	.name		= "xlnx-smmu-csr",
-+	.irq_mask	= xilinx_smmu_csr_irq_mask,
-+	.irq_unmask	= xilinx_smmu_csr_irq_unmask,
-+	.irq_ack	= xilinx_smmu_csr_irq_ack,
-+};
-+
-+static void xilinx_smmu_csr_irq_handler(struct irq_desc *desc)
-+{
-+	struct xilinx_smmu_csr *csr = irq_desc_get_handler_data(desc);
-+	struct irq_chip *chip = irq_desc_get_chip(desc);
-+	u32 status, pending;
-+
-+	chained_irq_enter(chip, desc);
-+	raw_spin_lock(&csr->lock);
-+	status = readl(csr->base + SMMU_CSR_ISR);
-+	raw_spin_unlock(&csr->lock);
-+
-+	/* Only service sources we support; SMMU_CSR_ISR latches raw status */
-+	pending = status & SMMU_INTR_ALL;
-+
-+	while (pending) {
-+		irq_hw_number_t hwirq = __ffs(pending);
-+		int ret;
-+
-+		ret = generic_handle_domain_irq(csr->domain, hwirq);
-+		if (ret) {
-+			raw_spin_lock(&csr->lock);
-+			writel(BIT(hwirq), csr->base + SMMU_CSR_ISR);
-+			raw_spin_unlock(&csr->lock);
-+			pr_err_ratelimited("xilinx-smmu-csr: Failed to handle domain IRQ %lu: %d\n",
-+					   hwirq, ret);
-+		}
-+
-+		pending &= ~BIT(hwirq);
-+	}
-+
-+	chained_irq_exit(chip, desc);
-+}
-+
-+static int xilinx_smmu_csr_domain_map(struct irq_domain *d, unsigned int virq,
-+				      irq_hw_number_t hwirq)
-+{
-+	struct xilinx_smmu_csr *csr = d->host_data;
-+
-+	if (!xilinx_smmu_csr_hwirq_mask(hwirq))
-+		return -EINVAL;
-+
-+	irq_set_chip_and_handler(virq, &xilinx_smmu_csr_chip, handle_level_irq);
-+	irq_set_chip_data(virq, csr);
-+	irq_set_status_flags(virq, IRQ_LEVEL);
-+
-+	return 0;
-+}
-+
-+static const struct irq_domain_ops xilinx_smmu_csr_domain_ops = {
-+	.map	= xilinx_smmu_csr_domain_map,
-+	.xlate	= irq_domain_xlate_onecell,
-+};
-+
-+static int __init xilinx_smmu_csr_init(struct device_node *node,
-+				       struct device_node *parent)
-+{
-+	struct xilinx_smmu_csr *csr;
-+	int ret;
-+
-+	if (WARN_ON_ONCE(!parent))
-+		return -EINVAL;
-+
-+	if (irq_find_matching_fwnode(of_fwnode_handle(node),
-+				     DOMAIN_BUS_ANY))
-+		return -ENODEV;
-+
-+	csr = kzalloc(sizeof(*csr), GFP_KERNEL);
-+	if (!csr)
-+		return -ENOMEM;
-+
-+	raw_spin_lock_init(&csr->lock);
-+
-+	csr->base = of_iomap(node, 0);
-+	if (!csr->base) {
-+		ret = -ENOMEM;
-+		goto free;
-+	}
-+
-+	/* Start from a known state: all sources disabled, latches cleared. */
-+	writel(SMMU_INTR_ALL, csr->base + SMMU_CSR_IDR);
-+	writel(SMMU_INTR_ALL, csr->base + SMMU_CSR_ISR);
-+
-+	csr->domain = irq_domain_create_linear(of_fwnode_handle(node), SMMU_CSR_IRQ_NR,
-+					       &xilinx_smmu_csr_domain_ops,
-+					       csr);
-+	if (!csr->domain) {
-+		pr_err("%pOF: failed to create irq domain\n", node);
-+		ret = -ENOMEM;
-+		goto unmap;
-+	}
-+
-+	csr->parent_irq = irq_of_parse_and_map(node, 0);
-+	if (!csr->parent_irq) {
-+		pr_err("%pOF: failed to map parent irq\n", node);
-+		ret = -EINVAL;
-+		goto remove_domain;
-+	}
-+
-+	irq_set_chained_handler_and_data(csr->parent_irq,
-+					 xilinx_smmu_csr_irq_handler, csr);
-+
-+	pr_debug("%pOF: Xilinx SMMU CSR interrupt controller registered\n", node);
-+
-+	return 0;
-+
-+remove_domain:
-+	irq_domain_remove(csr->domain);
-+unmap:
-+	iounmap(csr->base);
-+free:
-+	kfree(csr);
-+	return ret;
-+}
-+
-+IRQCHIP_DECLARE(xilinx_smmu_csr, "xlnx,versal-net-smmu-csr",
-+		xilinx_smmu_csr_init);
--- 
-2.34.1
+ drivers/clk/Makefile                               |  13 +-
+ drivers/clk/clk-conf.c                             |  76 ++++++++
+ drivers/clk/clk-scmi-oem.c                         | 108 +++++++++++
+ drivers/clk/clk-scmi.c                             |  44 ++---
+ drivers/clk/clk-scmi.h                             |  51 ++++++
+ drivers/clk/clk.c                                  |  27 +++
+ drivers/clk/clk_test.c                             | 203 ++++++++++++++++++++-
+ drivers/clk/kunit_clk_assigned_rates.h             |  10 +
+ .../clk/kunit_clk_assigned_rates_u64_multiple.dtso |   6 +
+ ...t_clk_assigned_rates_u64_multiple_consumer.dtso |   6 +
+ drivers/clk/kunit_clk_assigned_rates_u64_one.dtso  |   3 +
+ .../kunit_clk_assigned_rates_u64_one_consumer.dtso |   3 +
+ drivers/clk/kunit_clk_assigned_sscs_multiple.dtso  |  20 ++
+ .../kunit_clk_assigned_sscs_multiple_consumer.dtso |  24 +++
+ drivers/clk/kunit_clk_assigned_sscs_null.dtso      |  16 ++
+ .../clk/kunit_clk_assigned_sscs_null_consumer.dtso |  20 ++
+ drivers/clk/kunit_clk_assigned_sscs_one.dtso       |  16 ++
+ .../clk/kunit_clk_assigned_sscs_one_consumer.dtso  |  20 ++
+ drivers/clk/kunit_clk_assigned_sscs_without.dtso   |  15 ++
+ .../kunit_clk_assigned_sscs_without_consumer.dtso  |  19 ++
+ drivers/clk/kunit_clk_assigned_sscs_zero.dtso      |  12 ++
+ .../clk/kunit_clk_assigned_sscs_zero_consumer.dtso |  16 ++
+ include/dt-bindings/clock/clock.h                  |  14 ++
+ include/linux/clk-provider.h                       |  31 ++++
+ 24 files changed, 741 insertions(+), 32 deletions(-)
+---
+base-commit: 4477a78374a57c3809b172ad30cceabda48c47c6
+change-id: 20260817-clk-v11-ba21b1cdfa39
+
+Best regards,
+--  
+Peng Fan <peng.fan@nxp.com>
 
 
