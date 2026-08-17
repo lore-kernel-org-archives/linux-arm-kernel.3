@@ -4,105 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AE0FC5DF66
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 16:39:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40DEFC5DF66
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 16:41:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sDW6+B1/6deHWJRz59EqQ3HrDNwA7V1iNa634fXxC5I=; b=R5WIrl9YO0SDkbcjq8hrvWpXQs
-	GY0beF2PI0q59xVjBsHH6lvBHlh6cbwMX7ExKJSPhKEYOqLk1h81oW29jOiRMHlLlbnpLS2mcyOgg
-	nTQcgrfdDxhm7BhfqWSMXjJSwgtIeDgzDFH/UnPRMBCrBNT3QfSNY9ZvF6bJjkI/DCPZxrFKXUwnx
-	IoJ3wE8dNl6ExUfxWo9D90z4W6d0xDdwrD9WZPNtdHi/MopwS0QUep3U4eeRy0U1ehQl47uHWU1rY
-	fWhrYF/weKL7wdyijxX3tI877tpa59sWi0c56JGigp0kexVUekuPkTvZ0uJ25mD/ye1npB9D3XNo6
-	9ATKdD2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=scGHDOQsniGl9/8dMOFDd/VQBe6gjQ9BCaox4rixqOk=; b=3/HbLAxZWbenxoNcckIcHmryuo
+	GXTxtodzkhctT8ko8GM26OGcTSVEYH++agHSH936ZkWC1pG7jpYobGrlffd+Al8LPDd2CFCHvIulP
+	/7QvhjVdtGcmCumV3pGcABTfL6qeFQtEZH6YHRnxRrU4LkiDbRhacsL8oqwZH/iGpfNyAc3TQb+xT
+	QaetNGKa6deDjfjQiZffeSKCSydxJQSs3UodKCocyMHsfZ2deY9zHtidvHxDz36WBLMWySXBQAVu9
+	tQv3LmkAowKOHHMCEEmKysRU7WO01wEGOQN3izI4nNjb2mGrgYckx462Xj951UbvmePD77htacIes
+	1SIfaBUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww0Md-00000006X2c-2iAK;
-	Mon, 17 Aug 2026 16:39:07 +0000
-Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	id 1ww0PA-00000006XEB-0nM5;
+	Mon, 17 Aug 2026 16:41:44 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww0Mb-00000006X2E-18iG
+	id 1ww0P8-00000006XE2-2WWl
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 16:39:06 +0000
-Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-38dc69c74b8so3818657a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 09:39:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1786984744; x=1787589544; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=sDW6+B1/6deHWJRz59EqQ3HrDNwA7V1iNa634fXxC5I=;
-        b=vU1JwXUyk5Nq45fBoqdHjsOu2346+igWWR6qvo0lQGuBoGU6BnN1BTKIEmxcvHZe2q
-         DeSEWfSI6g7A1FOqkkBqJn9jMZSLB+WmRs7Yck/yB85vt/WdD/w88Q2W5rtUSvPPX56h
-         SuICloEQ0u4E6GvKh8Q8u2ZtSL1IBl3Rft95YAtG/C5JSXd4GnuKh0shFP9OTHTKGfBV
-         fkW4r+IU13b3VJB1GamtUltjGF8A0PTQ9o91LFos/UcdRsvLtYHS9J4Lp3SizITPS/ZH
-         04E9HHsiItp5nNW6Io/jG4e7jLxtD2p25YjMd9TY9WMxgfX3hI6UGi2F8BRWy3fDqJzL
-         DgSg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786984744; x=1787589544;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=sDW6+B1/6deHWJRz59EqQ3HrDNwA7V1iNa634fXxC5I=;
-        b=nVj4AQwnNzo2RSV9MKkserxUEQPdpbTk0HtyBVX9W0NKbxrim9cTlEFrSLeOvjxgxZ
-         ivMDMqU68QAvzbDWWbx7nVBlwGSbMDfHVDnNFYcBuz46FC5xkLhdMHvGa/99XL+5EJhL
-         zEVWkx8uOSrB6QPlASLP6hqVOl0elEowYPerE0kHkbBkE9yDDZAMqR2z7/ycshwwNZsT
-         FL7jqBgfgRmP6YNeJZFjJVkv6dSzD6LFtoJArD9aGKw6QUtYuDvVgRFVlVoAAjsrmBcR
-         CXn+JXDjAGnb2Uv4P1CiHnDOaSLzINEC5Gjs5+DA+RJlWhFkQDLlmSEiztT0Y2W5fL+3
-         3QuA==
-X-Forwarded-Encrypted: i=1; AHgh+Rq6e20uuLXf6NT2iuLTx3w7Wc3ObE01cCGlfWdtXB1ZXFlXbjybX+38u5ScEaP5IUgaR4vnJHHG1RzAdWNp5UKd@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzdxd1JJd14DigXdorCNHZEFyDaji9XN4XV7/YKzG5SDYiNHZfc
-	LvXd4IEmAB/DkoVp1JVBTYddik+ZrKZrW9vrZlGL8rztGMwx1u0U/TbP08OxmWTEzEA=
-X-Gm-Gg: AR+sD10dse7eBMhEyiMlf/YPtakZGrNwNN/KXEDp9YWbeaAvZ7VjX2PtsYGZwF7FEvl
-	BZNB1+Tz0fN0+LL6o7WL7kAm5Ae2r8HOzjv6+bfZd2pYPUBRIs6S8yJx+Mrr+QpnWx2cXLOQFip
-	ZWePHe0q7re2Omn9MyriNuh6O1R8vlx/wotN7wLiWHZd74Ihwo2DY49u/IKd6Hp8NSCWWmQQeUy
-	8Ucz105+tPTFyDDyFOZtfaIio620wGltg+oXxJIat+j/8P+qxJ93YDG+R7dsQRYY7aYDWYk/eI4
-	VApLdvZUL0mP9VofvWrt/vK5ofObQ6+PGevqiHJqJtyWMKbugjyXF0DJzHXsR/lmqxFSHcG5xgF
-	Q3QFnwK/1xrLX2gSx4rzEgv3bwgUBHPTjCNMY8UvUEsaQW0MhfgGekO+ti6GFqvVHCtupYzRf+b
-	700l+jWnQgTeFxk97txcIzmpoZLvB0NwTjgNN2zPVTWIU8rnbUi+kJ7h7UkaTf0Gmk
-X-Received: by 2002:a17:90b:2e4c:b0:390:b41a:b92a with SMTP id 98e67ed59e1d1-3933bd0d632mr29846740a91.4.1786984743634;
-        Mon, 17 Aug 2026 09:39:03 -0700 (PDT)
-Received: from p14s ([2604:3d09:148c:c800:4474:5926:fe69:196a])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3954d3b3b91sm3029317a91.13.2026.08.17.09.39.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Aug 2026 09:39:03 -0700 (PDT)
-Date: Mon, 17 Aug 2026 10:39:00 -0600
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: Jiafei Pan <jiafei.pan@nxp.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>,
-	"andersson@kernel.org" <andersson@kernel.org>,
-	"krzysztof.kozlowski@linaro.org" <krzysztof.kozlowski@linaro.org>,
-	Peng Fan <peng.fan@nxp.com>, Frank Li <frank.li@nxp.com>,
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
-	"kernel@pengutronix.de" <kernel@pengutronix.de>,
-	"festevam@gmail.com" <festevam@gmail.com>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"Z.Q. Hou" <zhiqiang.hou@nxp.com>, Mingkai Hu <mingkai.hu@nxp.com>
-Subject: Re: [EXT] Re: [PATCH v4 1/4] dt-bindings: remoteproc: add
- imx-rproc-psci
-Message-ID: <aoM5JKcbc4AxoyO_@p14s>
-References: <20260511023928.39640-2-Jiafei.Pan@nxp.com>
- <20260812104633.22420-1-Jiafei.Pan@nxp.com>
- <20260812104633.22420-2-Jiafei.Pan@nxp.com>
- <20260813-imposing-blazing-gharial-fbb19c@quoll>
- <80dfac6e-3408-4f62-887d-9da39c827dd5@kernel.org>
- <MRWPR04MB12277AD3869C2AA396ED9A5BA8ADA2@MRWPR04MB12277.eurprd04.prod.outlook.com>
+	Mon, 17 Aug 2026 16:41:42 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id C51EE600AE;
+	Mon, 17 Aug 2026 16:41:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2CA621F000E9;
+	Mon, 17 Aug 2026 16:41:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786984901;
+	bh=scGHDOQsniGl9/8dMOFDd/VQBe6gjQ9BCaox4rixqOk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=NI1tcbW88D/JM4DsY4r+8J6LPn4hOSRzw8om06DAydAEI9MoXW1UagY8v3foAQvBD
+	 t9pNJtGBrJcLO4jPwhkmMVuQuWmqhM/pjr82G9XPEIA+lq9tAL/a0RdqFlVA6Xrxni
+	 LOG5/P/oDuyn8a8Xo/farbHJfm3Sr7WMfZmwEddTBaDdENaboTDf89/Se2N3PKT4YK
+	 WLqR6a0pSg5aHgaAv4nIB5n3yRrFUVgqtco9jCcSHdbysuPbS4LTRMFdZMaReyV5+G
+	 b1z9EVvPoBKAjs+IRqY+ntT8NbuzQ7/mlMGFZYzt8oXjBwsynFRtQjX6Y40qkRtKa1
+	 A0nwgjKJ175hg==
+Date: Mon, 17 Aug 2026 09:41:40 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Maxime
+ Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH net-next v2] net: stmmac: improve TSO/GSO queue
+ selection
+Message-ID: <20260817094140.0e92f54c@kernel.org>
+In-Reply-To: <aoJwbQ-v--cTcysz@lore-qca>
+References: <20260808-stmmac_select_queue-tso-fix-v2-1-67175b29772e@oss.qualcomm.com>
+	<anybM_3Rdg8X8CMs@lore-qca>
+	<20260812161038.5602eac9@kernel.org>
+	<an4qzUrK62-rN7Q6@lore-qca>
+	<20260813172156.0243cb7a@kernel.org>
+	<aoJwbQ-v--cTcysz@lore-qca>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <MRWPR04MB12277AD3869C2AA396ED9A5BA8ADA2@MRWPR04MB12277.eurprd04.prod.outlook.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_093905_335693_890D3D14 
-X-CRM114-Status: GOOD (  19.95  )
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,56 +79,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 14, 2026 at 07:37:36AM +0000, Jiafei Pan wrote:
+On Mon, 17 Aug 2026 04:22:37 +0200 Lorenzo Bianconi wrote:
+> > > thx for the pointers. I reviewed Russell's commits and I guess we have two
+> > > options here:
+> > > 
+> > > - manages all the TSO/GSO checks in ndo_features_check() (stmmac_features_check())
+> > >   and disable TSO/GSO if the selected queue does not support checksum offload
+> > >   or it has TBS enabled. In this case I guess we can drop ndo_select_queue()
+> > >   callback completely (it does not make sense to me to always use queue 0 for
+> > >   TSO/GSO packets, e.g. it does not allow proper mqprio offload).
+> > >   Please note this approach would introduce some performance regressions with
+> > >   respect of the previous implementation.
+> > > - implements TSO/GSO checks in ndo_select_queue() callback
+> > >   (stmmac_select_queue()) in order to keep TSO/GSO enabled if the selected
+> > >   queue supports it and at the same time do not always use queue 0 for TSO/GSO
+> > >   packets (proper qdisc offload). Please note this is patch I am proposing.
+> > > 
+> > > What do you think?  
+> > 
+> > I don't know this driver, or how it's used.
+> > 
+> > From the commit message it sounds like "if the packet wants TSO and 
+> > the queue has a scheduler enabled - take the packet to another queue".
+> > Presumably you know why the TBS is enabled and whether the packet
+> > should or should not be going to that queue in the first place if
+> > you're sending the patch? What is the use case?  
 > 
-> NXP Confidential
-> > On 13/08/2026 09:49, Krzysztof Kozlowski wrote:
-> > > On Wed, Aug 12, 2026 at 06:46:30PM +0800, Jiafei Pan wrote:
-> > >> +
-> > >> +description:
-> > >> +  NXP i.MX SoCs integrate multiple Cortex-A cores. On certain i.MX
-> > >> +  platforms, one or more of these cores can be offloaded to run RTOS
-> > >> +  or bare-metal firmware as a remote processor, while the remaining
-> > >> +  cores run Linux. The cores are powered on and off via PSCI (Power
-> > >> +  State Coordination Interface) CPU_ON/CPU_OFF calls to the firmware.
-> > >> +
-> > >> +properties:
-> > >> +  compatible:
-> > >> +    items:
-> > >> +      - enum:
-> > >> +          - fsl,imx93-ca55-rproc
-> > >> +      - const: fsl,imx-rproc-psci
-> > >
-> > > Hm? So you just ignored the feedback?
-> > >
-> >
-> >
-> > Ah, you just did not bother even to wait for my reply!
-> >
-> > After three months after my review, you send reply to my comments and
-> > IMMEDIATELY you send v4 without waiting for me to address them.
-> >
-> > Srsly, if you have three months, then don't you think I deserve more than 1 hour?
-> >
-> > NAK
-> >
-> > Best regards,
-> > Krzysztof:
-> 
-> 
-> Hi Mathieu,
+> Reviewing the driver codebase, TBS and TSO can't be enabled at the same time
+> for a specific queue (TBS is not enabled via DTS but it is hardcoded in the
+> driver). Moreover, for some devices (e.g. dwmac-intel, dwmac-mediatek, ecc.)
+> TBS is enabled at bootstrap for Q1, Q2 .. Qn, (Q0 is never a TBS queue) while
+> for others (e.g. dwmac-stm32, dwmac-sunxi, ecc.) TBS is not enabled at all.
+> The current codebase forces TSO/GSO packets to Q0 (since the current driver
+> guarantees Q0 is a TSO queue). However this approach does not work with qdisc
+> offload (e.g. mqprio).
+> I think it is clean to just move the TSO logic in ndo_features_check() and drop
+> ndo_select_queue() (previous option 1) but I guess this could introduce a
+> performance regression with respect to the current codebase (we could disable TSO).
+> If we move the TSO logic in ndo_select_queue() (previous option 2), we could avoid
+> forcing the TSO/GSO traffic to Q0 if the selected queue supports it and
+> at the same time avoid any performance regression with respect to the current
+> driver.
 
-You probably meant "Krzysztof".
-
-> 
-> I sincerely apologize for the poor timing. I was not familiar with the upstream contribution workflow — I did not realize I should wait for you to respond to my replies before sending a new version. I sent v4 immediately after replying to your comments out of ignorance, not disrespect.
-> 
-> You are absolutely right, and I should have given you adequate time to review my responses. I will make sure this does not happen again.
-> 
-> I will wait for your feedback before sending any further versions.
-> 
-> Thank you for your patience.
-> 
-> Best regards, Jiafei
-> 
+Sounds like we don't have a clear understanding of the Intel / TBS use.
+I'd rather risk introducing a regression for them, and have someone who
+actually knows this system help with the fix than accumulate
+incompatible workarounds.
 
