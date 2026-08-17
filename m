@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E191DC5DF66
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 14:52:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E76CC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 14:53:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B5AFD1HGl3AuOCDl4IPtIyeqi6YYiPcxPv9BIIKFCA4=; b=YZE9PBx2PS41KiSDZS948bLPNO
-	Z6VECrrmWhlIb4pJ4Jq9Xl2evSSniEFpp5fT517hNddaQJ9iatI26jsmESHF/cFiiE5/mQVdqA423
-	VouKncFZxpIadSQvq8SDmf96YVkFTNv4VvyJFZYr35WA9pMsl/QKmiaTXiUVEytiVhQmcGJO3/HPJ
-	PbBWKsn8l4jKEOP8SrTLUDctZbnb6RAs+h+oGguwDxvHdLurD3NN1/XiGh02wbspyan+qc8tBU45c
-	sN8LpTZh+2ePow9OvQn8rA7Kx/ZE4hzuVgdgpu7CDIbZxZL6O8zygRao8ddGKNO52JMQNEqUDvOWW
-	8CPciARg==;
+	bh=wa6TFc9OL+cK5v7vkXc9oB2NfQRwG1NMvHL69PFrykQ=; b=a3lna80vaDs4TF3lXgKFg+9aEr
+	SvORHcVp0m7R25esXVuD/PcKb656PTc0pXdN9ataArHq72dw9W7Agmkh4d8RwiDW1jYHHIqK041lJ
+	1X/vRY/ogfCunBfmYMYkW3x3ARjYzTSNHQZZqhN868jLXUOmjnkykC/WvOyLtyC7U5dD8RLyawDTi
+	Mpo9Dt7htDEiWRBMPFjCuwXeY6WTPGYWVnvXA4qr7BSrE6RrCU8KgeWBSfJM+htLbg+izPKHN47eO
+	FYu59/fqaA6R6BWXHVoTAV3exvpEcub5gx7OjJzA14pWrnYYs74r6DNNc9jCjKRRsED4io3/wMGEq
+	omGakHCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvyhL-00000006LWw-2bBK;
-	Mon, 17 Aug 2026 14:52:23 +0000
+	id 1wvyi8-00000006Ldv-3blc;
+	Mon, 17 Aug 2026 14:53:12 +0000
 Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvyhH-00000006LWC-1oQc
+	id 1wvyi6-00000006LQL-0ZG5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 14:52:22 +0000
+	Mon, 17 Aug 2026 14:53:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
 	s=20170329; h=Content-Transfer-Encoding:Content-Type:From:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:From:Reply-To;
-	bh=B5AFD1HGl3AuOCDl4IPtIyeqi6YYiPcxPv9BIIKFCA4=; b=j00WuvRcV8YpN1DGWnH3bmbYyY
-	7y+w0YT5hbGgz0thMgXEY46qxio8bsv8MSLPVROnZesAZ9uD4W7uGsEEWvVTIE/JwBK8rT2k3P5RX
-	QRWJqnHgHMxdxGD1JplT2dyXsSOcZgP6SyuPPqniuxHuyHehVasyj2gJlfJX2Rzj8HbwsN/MgZBFs
-	r4uoYeWYUJn2hujqTd8zmcFZ1r3vS2Vr+8lQqVHDLMJ7ymSJ0vRAH1d1DburgpgVOJAv2G1H0aQIo
-	K6b2Rs54ynDSh1B2MrhBOUiyt/b0QFcgYvQFIRT8b3EGRp+PpnN+1VNUdV8XYuZytrl5BgF38Shbc
-	aaeeBWoQ==;
+	bh=wa6TFc9OL+cK5v7vkXc9oB2NfQRwG1NMvHL69PFrykQ=; b=fAHvbSQnYdOAyveILazATtC2xW
+	hmsrrmi+MwlVqrdbK6Dmh7hd2B9/fDs8Dlwka5cmGXWaPOWyTjE45rkxsWswsnp2DJk8MTziFcNJf
+	4IdGDFDe9iVXcIRFheuoDdK/Yi1nUYykFyZV9L/vEV7/yy9SDoS7OEYhPJkD/gthqbDhfGV6LdMnH
+	ULE/k8QwQ7pFEkDr//lMg09CecI7sgXFayVi4EFjRJvA9VeDmufmPoWUVML+DvAJz1lvsA2ZKME8M
+	w7BUUVsPTU1hjrINVWMRBdgkRfm0F+WYqELIXlhOhf8qD3vaSDLDmmk5jX8mL7CjKoQKnXi2YGHcg
+	6I68jhIQ==;
 Received: from [179.135.28.2] (helo=[192.168.1.56])
 	by fanzine2.igalia.com with esmtpsa 
 	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
-	id 1wvygw-004c4S-44; Mon, 17 Aug 2026 16:51:58 +0200
-Message-ID: <5c95bd13-993f-55be-4aa7-acb990738d91@igalia.com>
-Date: Mon, 17 Aug 2026 11:51:46 -0300
+	id 1wvydl-004bkh-GI; Mon, 17 Aug 2026 16:48:41 +0200
+Message-ID: <8207cba6-a6e0-38e6-a1bd-6f4453651793@igalia.com>
+Date: Mon, 17 Aug 2026 11:48:28 -0300
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
  Thunderbird/102.15.1
 Subject: Re: [PATCH] arm64/kernel: Expose the running CPU of a native task in
  TPIDRRO_EL0
+To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, mark.rutland@arm.com,
+ robin.murphy@arm.com, gshan@redhat.com, kernel-dev@igalia.com,
+ kernel@gpiccoli.net, Mark Brown <broonie@kernel.org>,
+ Ryan Houdek <sonicadvance1@gmail.com>
+References: <20260815152759.2046231-1-gpiccoli@igalia.com>
+ <aoGIEEje1NIMTjyv@willie-the-truck> <aoLLf_iZq6DLNpLO@arm.com>
 Content-Language: en-US
-To: Bradley Morgan <include@grrlz.net>
-Cc: broonie@kernel.org, catalin.marinas@arm.com, gshan@redhat.com,
- kernel-dev@igalia.com, kernel@gpiccoli.net,
- linux-arm-kernel@lists.infradead.org, mark.rutland@arm.com,
- robin.murphy@arm.com, sonicadvance1@gmail.com, will@kernel.org
-References: <404DF303-5478-4B5C-9DE1-3A7B3B3927A5@grrlz.net>
 From: "Guilherme G. Piccoli" <gpiccoli@igalia.com>
-In-Reply-To: <404DF303-5478-4B5C-9DE1-3A7B3B3927A5@grrlz.net>
+In-Reply-To: <aoLLf_iZq6DLNpLO@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_075219_480556_2149CA5B 
-X-CRM114-Status: GOOD (  11.24  )
+X-CRM114-CacheID: sfid-20260817_075310_185216_99B0B07D 
+X-CRM114-Status: GOOD (  16.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,36 +76,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/08/2026 13:52, Bradley Morgan wrote:
-> Hi, we meet again, :)
+On 17/08/2026 05:51, Catalin Marinas wrote:
+> On Sun, Aug 16, 2026 at 10:51:12AM +0100, Will Deacon wrote:
+>> On Sat, Aug 15, 2026 at 12:19:32PM -0300, Guilherme G. Piccoli wrote:
+>>> The register TPIDRRO_EL0 has 2 meanings / usages today, depending on
+>>> the mode userspace is running:
+>>>
+>>> - For native/arm64 mode, this register is always 0 from the userspace
+>>>   perspective. In the kernel, it is used during ventry (entry.S) as
+>>>   a scratch register, related to KPTI (stashes x30 in fact).
+>>>
+>>> - For 32-bit compat tasks, this register holds the TLS userspace pointer,
+>>>   and is not used for KPTI or anything else in entry.S. This is ABI and
+>>>   userspace can count on having a valid TLS pointer there.
+>>>
+>>> Happens that other operating systems follow a similar approach than 32-bit
+>>> compat mode, even for arm64: in both Windows[0] and MacOS (xnu/darwin)[1],
+>>> this register is used to hold the running CPU of the current task, hence
+>>> offering a very fast / non-syscall way for a given task to figure its
+>>> running CPU id.
+>>
+>> I don't think we should allocate TPIDRRO_EL0 for this as it precludes us
+>> using it for anything else in the future. If you want the current CPU,
+>> then I think you're better off using either rseq (which I thought could
+>> do this) or looking at reviving the vDSO work you mention (but that has
+>> unresolved limitations iirc).
 > 
-> Well, I looked at this assembly code until I was blind,heh, and I
-> couldnt particularly find anything bad about it, well, I know I'll
-> probably get these arm pros saying I'm dumb or something for not 
-> noticing a mistake, but I don't see any mistakes asm side.
+> Indeed. IIRC glibc already implements getcpu() using rseq.
 > 
-> 
-> For process.c, I really really like your comment, it's, straight
-> to the point, did your LLM write this, or did you write it?
-> 
-> For your patch;
-> 
-> Reviewed-by: Bradley Morgan <include@grrlz.net>
-> 
-> 
-> Note: I hope I don't get plonked, I couldnt find anything wrong, but who knows
-> Thanks!
+
+Hi Will / Catalin / all,
+first of all, thanks for your prompt responses!
+
+I'm a bit confused on what "using the register" means here. We have 2
+ways of using it, IIUC:
+
+a) Use it as it's already used today! On kernel space, this register is
+kinda free, right? Currently, it's used as the scratch, in the entry.
+But nothing prevents other usages, given that, as the final step of exit
+to EL0, it's restored to the value of the CPU id. So, AFAIU, it's fair
+use on kernel space with or without this patch.
+
+b) Use as in "expose something else to userspace". Is it OK doing that,
+even the ARM specification mentioning
+
+"Purpose
+Provides a location where software executing at EL1 or higher can store
+thread identifying information that is visible to software executing at
+EL0, for OS management purposes." ?
+
+Or do you mean exposing **different information** than the pure CPU id,
+but still related with thread information?
+
+Would it be better if we guard this usage with a Kconfig? Or as Ryan
+already said, prctl flag or another idea?
 
 
-Hey Bradley \o
-Thanks for your review.
+Finally, I would like to reinforce / disambiguate things here (though
+Ryan already mentioned): rseq or vDSO **are not** valid resources for
+our use case. What we are really interested is in having this register
+filled with CPU id.
+Cheers,
 
-I wrote the comment myself, but LLM helped me with ping-pong reviews,
-for example, checking corner cases, commenting on potential ideas. For
-example, in a first version I just updated this write_sysreg() to the
-CPU id, but then started to think "why am I doing this if the register
-is updated at every exit?". "Talking" with the LLM gave me confidence to
-suppress this write, due to the reason well explained in the comment heh
 
-Cheers!
+Guilherme
 
