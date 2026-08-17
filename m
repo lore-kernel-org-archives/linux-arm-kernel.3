@@ -4,93 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34FECC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 11:12:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD466C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 11:16:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hKHmE7HFsnKiN9x/NA7Ar8WwUxdcYL2GtFDwkU9a3nI=; b=SaPbcvJWjdTjVNvi0FNSw1zbLf
-	TUTbdbQe5gHxTm3VbNtlKouRbNE+adgyi9T2Lpg96/c/9SZyoimiGi0NNsBHHiwxkIBUEcwgwhctd
-	cFAiFq5G7E2uf4gU2R8IiwirRCnJbDK4uojzNfZuk8N5SHcvCuclqwBdn+y85BpdMF9CMgJSlqMeA
-	LzOIj56/EKwxwoKi05sCRVfmRAJ55dN1wpiH367fZzf6E5VGSikWnKnLkFsX+bNlqttFqlDdxRWVu
-	uI75tftT4eBb4c/U5wEedUxDzO+FOtnsj2aBQvkL6Y5GJq4ReTylwlBwxkM6wXx970zqrBMAKtujZ
-	alywIEXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=R+l+UxdGP4xSYpq+snL3DrvZxjB7YwI2tVyA/dO6w4c=; b=vwKbunYf8clu4crXea496I4GgQ
+	JLZFWGwPTFJX8PzMZKhTx5UW1TDQ0tPPL2wwJ6xEjlzQvVD2i6wBxyKRNixiYWjvrd0f9EFM34ccZ
+	+YIYO0mSLAPQ5hKrQYRV0HaI3PfxQb5xNQ2VIkePhrN6rCVx/cEoXEPAmTl5nqdrQDWEkycz2hPTb
+	UMPx4gY8LCPBfBJ7T7idWbMzvRfXNlR890sX5GgVXD+GNXFCJhJtYO04OkqFSu8d+O4Evs7Hcoll8
+	AF2U2VkkBTOxdGe8Fir0LFTZkfm25fHyVnVwnBCxOc5bPusXNwQMBxhNZd6vzSSADSqQWrHHhWzuQ
+	URwa/X5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvvFz-000000060QE-2N8J;
-	Mon, 17 Aug 2026 11:11:55 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wvvKP-000000060lw-0Pl4;
+	Mon, 17 Aug 2026 11:16:29 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvvFy-000000060Px-36eG
+	id 1wvvKN-000000060lT-0yOT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 11:11:54 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id F144C600AE;
-	Mon, 17 Aug 2026 11:11:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD4AB1F00A3A;
-	Mon, 17 Aug 2026 11:11:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786965112;
-	bh=hKHmE7HFsnKiN9x/NA7Ar8WwUxdcYL2GtFDwkU9a3nI=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=DXUTRKW7VSa9/1ECiVxOjFqPhxxM2/Y+R3nnXRCdzCxaBMSSw+3YKf/8lXpC//tTP
-	 oATEDKsoDK59M0AxkNjTi/xhmjG5pesPMIWLIAuAxF4110DmoOyVx/s7XQv+0pkX2X
-	 wRIgM+wKB9PExikewM9iQ9Tyk+JDo3zOZ0tKdUSIecZSJY1n74m7It1JdcOhWlpXIQ
-	 Z/k3bKKrU9Hafs56n/87uWOWufMHxArZ48nRNt22hjK0jjkgASgwYLJWJTKPLFy8yR
-	 oGXe8lmIv1p68swgToX/vuxrLDjaxxJs0cLWvTAUpSyq39skNLc2EDoS/gloivHSq6
-	 0niqzgw73MbhA==
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfauth.ams.internal (Postfix) with ESMTP id 68C5E198005C;
-	Mon, 17 Aug 2026 07:11:50 -0400 (EDT)
-Received: from ams-imap-11 ([10.64.2.31])
-  by ams-compute-02.internal (MEProxy); Mon, 17 Aug 2026 07:11:50 -0400
-X-ME-Sender: <xms:c-yCagqHF_GL7una0AQT0iWWh3YLZPKirKR336weVeMSA5ciBUPKuw>
-    <xme:c-yCahdPHs_Scb1GQs1yO2mS7gn9M5CrLjGdOvYc-YTVoDdFo41gzz-ItKGVJQAbs
-    FDB67CrC5gq5liI6ymsfD-ygjjpb6Iuyik-9Kntk9l0sFLF2KxSY_o>
-X-ME-Proxy-Cause: dmFkZTFi9nOk09DVxdl5FlNkGc8vg6SDda7HLe1KMtgLAPjgdCHbnF2Ou2YGV4kiMEGSaj
-    Jfh4fmBdAfggRip8FVSbc6Vm6x0xEcL6l2YfCwn/IXhwSXL/vENLdVC1URhdnwUgYKJ+3P
-    Qg2E2WqaoDfxBXtR4xJ0QhRJJz3rOviPFu9JslRYnYBVN2iJtSVfUsJOjmUPEwHVL1eSIy
-    COEKAeygEi2OHJ+lz8unrCbQZG2HQ1XA0v9uCiZvZ/qNf8B7BOm1J6gnz6DpjlUu5C30Rq
-    H8dT+OfI1RWvtRJBoLkZvU+niMPfc9WPA/4gj4Kq0nAe7WlVlvGqwIiBJ3LUvgL4W2H8Hp
-    2k9R2CRLxOIdWB3YyV2Yv6wiO+6VH2Syqe+Na3aFe/8RI7/OfiEhwksCbakdcucpxqetYv
-    UCt901wCFHdczPTuR0cXLIeqelwbJRBI52+NUwZMLVrDre/iL5wtewbDy2ogrh2FgrHhrX
-    w6kyeQVkVLvecAWhnqA+JRn2pxLjRl8X94CH+fjXMVbqgvt2yB0gHICzB5JEi+64qKx0k+
-    5Xgqjph+0w3hTSMLMsK0zw4HxTPD7MSy4qCKLWix9QbI5JhpAXpJ3yafnBOi1/YLgJhVn3
-    x381QnBKQxZ/eU2hJif6BmWMbqOTtM0iTLJZ3o64tj0rsl5f+JH8pyjlSS0Q
-X-ME-Proxy: <xmx:duyCatMuqheohB2LNK9roIZmx2rTtG4x0g0aFo9BbgQuYecbmrAA5Q>
-    <xmx:duyCapXNce8qe8NIcH6BPnYQ3W2rl7MHiSpd7_g2c_gD-ITDru0PhA>
-    <xmx:duyCakykg70vPPgJp1eBX8XIPHR8CkGS5xl01ZGcGv6BVOwhQdi9Rw>
-    <xmx:duyCapO68ZAxDYnBbevG5KGHWEh5kMe6ORXIx9gHdRgvLdor2mKrUg>
-    <xmx:duyCamqIvTzpNwpO0ThhdlK39AsUHsv69a0A1f3HDeAJBpu4qjtwj8rg>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 3E2C2F80070; Mon, 17 Aug 2026 07:11:47 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Mon, 17 Aug 2026 11:16:28 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2ccdf36f63dso246575ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 04:16:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1786965385; x=1787570185; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=R+l+UxdGP4xSYpq+snL3DrvZxjB7YwI2tVyA/dO6w4c=;
+        b=D0BP8wy+VXLquW529txP8tzuZ2gPEVy265xNMC/6/r07EjuI3N4B+cbJtfwlsPNLyp
+         u+fixgPGVJejaBboqZC9FbRZLuxL0dY8ZG4Nvb9PchOiRfLN+mAj8LISYdTyqHvTin8b
+         BNnfSPN3GN79v72kLC5gmRDNVAcKNH3ntGArCreeh9QLOTv0II0NU44yw9ERP8olF00W
+         9nLyNCF0ORwxwzn6tdbrg4y4lZJ5F3g99+/qA5+sHqIUHJdVTtK/k31VtP+MgREBu4Wj
+         efOr5ov/UsbnBHh9Fr99wJYCP1Hn28I06WQpRNzX6LoE4X2SzvDNuKb0eS7wgscHlQHv
+         +JtA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786965385; x=1787570185;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=R+l+UxdGP4xSYpq+snL3DrvZxjB7YwI2tVyA/dO6w4c=;
+        b=NyhbC1BU7IPS/TB07UBll9YGW9wp+XRsaUVdsQs4EbWxD545/62vt7vC7BZ/Hoi2DJ
+         R9fkvTK6aBIIFl6tOh5w5voSzOjPyA8Wt4LNksFWnB6SvIClxwoRYrUfMdgtpapqvtXp
+         fdNpUWOeWzf0qRY451Sh4ACGTxJgeblveOnpcf6bcL0LuLNuadTSZU5h4CEyXuAyrB4h
+         s67LJz+GJgR6JJ1iERqZRoaFhEDjEcTR0aZJ+0aRzoPjcPfS9FtnYB2mxnJMaFow4aXB
+         pmU0rFvYtZ+c7+j4MlSSEjlJoIpcFJ9R7prPtuEfHjcUAFWkmHF8ex5bGCf+J9itbAvm
+         NPig==
+X-Forwarded-Encrypted: i=1; AHgh+RoKU+yMUdqK9QQc30tn+9ZcEtVsgTAuGWU2wicwBFP116bPDQHiiTjalgZPd8M8ee2zUdFCpb+rf1l9otCX4IC3@lists.infradead.org
+X-Gm-Message-State: AOJu0YzcWpv1UOn1ZirlJKFZ4Ca/ZicNsjjp5IsNNlKj8L5tt+mA6Ylq
+	KsMQb0M9ch80nrXKYXOYIiX7V7cD37aoafacxnd+85jZtaaCb1YYbntJJccKVpfMBw==
+X-Gm-Gg: AR+sD11e4WNGjoH1iRHDep3qgS9/HQ6PItAiNBPUGdpMNUklx5ruc/RF+Oy8BforMo+
+	qqc7pOXod/VMfHGfpaHDRI8ZyMbMDku2AqwkabEJUnm1m4sLsztlVb0wp4inOTZc8avBPR8bbCB
+	9LpFYL1hJs92Fg6dSOo5Rs7StSzAXbmLUa/imOs6AZ+txgByUsU/LExhVVLdTum9HWFL6iNifD8
+	fjTBoiQN1/1NxHnYwQzf3vBgmn+JylEQ4fptmMGxSx0zTDF+4DV6z+nK6i0Y4mlOp1ZWnk3dMA0
+	NIiZZ6gtx8OdHIgd2X41ZBuP2BWyMG88I06w4akpYWx+4S0+1jBOD9UOHERmptuhCHW5rwL6/L3
+	f2lhVLPPGQKydqSDV5yeacdEkIBgvbwVSYElnnx4gpEyWQro9vc8QbSHuvyVdZS6VnhFbeIetCj
+	iiogcLCFkKQumsSwuy8xHUh16rST8OIp70TtLY0gxbhF5q3Ev2BMmgcaD2jw1MteeWBB12/o8Og
+	hfdJRs/SeDOL6weq7Fq+sQ=
+X-Received: by 2002:a17:903:2b0c:b0:2bf:1000:d3ac with SMTP id d9443c01a7336-2d596cfb925mr4566865ad.11.1786965384912;
+        Mon, 17 Aug 2026 04:16:24 -0700 (PDT)
+Received: from google.com (21.168.124.34.bc.googleusercontent.com. [34.124.168.21])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d5bb499e8csm3975245ad.2.2026.08.17.04.16.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Aug 2026 04:16:24 -0700 (PDT)
+Date: Mon, 17 Aug 2026 11:16:17 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Dmitry Malkin <dma@nebius.com>
+Cc: Jason Gunthorpe <jgg@nvidia.com>, Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
+	Nicolin Chen <nicolinc@nvidia.com>,
+	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"regressions@lists.linux.dev" <regressions@lists.linux.dev>,
+	"stable@vger.kernel.org" <stable@vger.kernel.org>,
+	NB-Core Team <NB-CoreTeam@nebius.com>
+Subject: Re: [RFC PATCH] iommu/arm-smmu-v3: Allow nested attach for PCI
+ bridges without vDEVICE
+Message-ID: <aoLtgeYLpYobpyKN@google.com>
+References: <PA1P190MB25578C482C8A3B06A4DCC6FDDBDA2@PA1P190MB2557.EURP190.PROD.OUTLOOK.COM>
+ <20260814174825.GC510472@nvidia.com>
+ <PA1P190MB25573D7CFE42EF7DD2A8CDE8DBDA2@PA1P190MB2557.EURP190.PROD.OUTLOOK.COM>
+ <20260814221103.GE510472@nvidia.com>
+ <PA1P190MB2557D53CB7FCB70EB8F79D09DBA72@PA1P190MB2557.EURP190.PROD.OUTLOOK.COM>
 MIME-Version: 1.0
-Date: Mon, 17 Aug 2026 14:11:26 +0300
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Josh Poimboeuf" <jpoimboe@kernel.org>
-Cc: "Catalin Marinas" <catalin.marinas@arm.com>,
- "Will Deacon" <will@kernel.org>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, live-patching@vger.kernel.org,
- "Song Liu" <song@kernel.org>, "Miroslav Benes" <mbenes@suse.cz>,
- "Petr Mladek" <pmladek@suse.com>, "Joe Lawrence" <joe.lawrence@redhat.com>,
- "Mark Rutland" <mark.rutland@arm.com>, "Mark Brown" <broonie@kernel.org>,
- "Nick Desaulniers" <ndesaulniers@google.com>, "Kees Cook" <kees@kernel.org>,
- "Nathan Chancellor" <nathan@kernel.org>, linux-toolchains@vger.kernel.org
-Message-Id: <b32fc053-6f1f-481e-9872-ab3cf22534e6@app.fastmail.com>
-In-Reply-To: <aoCu66bx1Qg14-uD@jpoimboe>
-References: <cover.1786768375.git.jpoimboe@kernel.org>
- <2ff1b2482406c61ca5979d6284ba5f948a3fbc20.1786768375.git.jpoimboe@kernel.org>
- <6bc20c00-21a9-4315-8ec3-33c7ad6ae95f@app.fastmail.com>
- <aoCu66bx1Qg14-uD@jpoimboe>
-Subject: Re: [PATCH 02/12] arm64/module: Fix BTI exceptions caused by omitted landing
- pads in Clang 21
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <PA1P190MB2557D53CB7FCB70EB8F79D09DBA72@PA1P190MB2557.EURP190.PROD.OUTLOOK.COM>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260817_041627_277097_C80C27B6 
+X-CRM114-Status: GOOD (  14.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,88 +112,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Aug 17, 2026 at 09:29:10AM +0000, Dmitry Malkin wrote:
+> > Don't use it that way?
+> 
+> Why not? We use pci=config_acs to configure ACS at kernel startup and
+> enable direct PCIe peer-to-peer traffic between GPUs and NICs. All 
+> affected devices are assigned to the same VM and IOMMU domain, which 
+> also reduces the memory footprint by reducing the number of page tables
+> and lowers IOTLB pressure.
+> 
 
+I'll defer the debate of enabling ACS or not OR supporting multi-device
+groups for vIOMMU for a moment.
 
-On Sat, 15 Aug 2026, at 21:57, Josh Poimboeuf wrote:
-> On Sat, Aug 15, 2026 at 12:56:11PM +0300, Ard Biesheuvel wrote:
->> Hi Josh,
->> 
->> On Sat, 15 Aug 2026, at 07:45, Josh Poimboeuf wrote:
->> > The following BTI exception was seen when loading a livepatch module:
->> >
->> >   Internal error: Oops - BTI: 0000000036000001 [#1]  SMP
->> >   pstate: 634004c9 (nZCv daIF +PAN -UAO +TCO +DIT -SSBS BTYPE=jc)
->> >   pc : kill_orphaned_pgrp+0x0/0x150
->> >   lr : do_exit+0x498/0xaf0 [livepatch_combined]
->> >
->> > The problem is that the patch module's do_exit() is branching to a
->> > static function in vmlinux using a module PLT veneer (indirect branch),
->> > but the target function doesn't have a BTI landing pad.
->> >
->> > Clang 21+ omits the landing pad for static functions which can only be
->> > reached by a direct branch.  But livepatch modules use klp relocations
->> > to reference arbitrary kernel symbols, and with
->> > CONFIG_RANDOMIZE_MODULE_REGION_FULL the module is far enough away that
->> > every call to vmlinux needs a PLT.
->> >
->> > Note this problem is actually not specific to livepatch.  It's possible
->> > for any module's .init section to be allocated > 128MB away from its
->> > .text section.  So calls from .init to .text via a PLT can trigger a BTI
->> > exception when the target function doesn't have a landing pad.
->> >
->> > GCC has always omitted the landing pad when possible, so kernel BTI is
->> > already considered incompatible with GCC since commit c0a454b9044f
->> > ("arm64/bti: Disable in kernel BTI when cross section thunks are
->> > broken").
->> >
->> > When missing landing pads are detected, allocate a page close to the
->> > target which can be used to hold BTI veneers which receive PLT veneer
->> > indirect branches and direct branch to the final target:
->> >
->> 
->> This does not work for cross-section calls from .init.text to .text.
->> 
->> If .init.text is far away from .text, it is likely because .text
->> ended up in the 128M 'near' module region, and .init.text did not.
->> (They tend to end up in direct branching range of each otherwise.)
->> 
->> Given that the module init code is typically small, I don't think
->> it is safe to assume that allocating a single page close enough to
->> .text is going to be possible if allocating the space for .init.*
->> was not.
->> 
->> IOW, the fix I proposed for cross-section calls is still needed
->> with this approach.
->
-> But the BTI veneer page is allocated from a *256MB* window, of which the
-> near region is only a 128MB subset.
->
+But, regarding PCI P2PDMA, you can still enable it with ACS enabled in
+the upstream kernel *IF* your hardware supports TLP forwarding between
+root ports.
 
-OK, so this window would be [_etext - 128M, _text + 128M), right? Or
-whichever the equivalent is for a kernel module?
+When ACS is enabled, all TLPs get forwarded to the host's Root Ports
+instead of getting routed directly through the switch. All that needs to
+be done is to add an entry of your hardware to the whitelist in p2pdma.c
+(pci_p2pdma_whitelist). Are you aware if your HW supports this? If yes,
+then a simple addition like [1] should work.
 
-I agree that this considerably reduces the likelihood of running out
-of veneer space within direct branching range.
+Thanks,
+Praan
 
-> There is a theoretical case where the 256MB window around the target is
-> completely full without any fragmentation, but I would think that there
-> would almost always be some fragmentation.  If that window is modules
-> stacked together, most modules have at least .init.plt and .init.text,
-> and many have .init.data.
->
-
-Are you saying these are freed again once the module is initialized, and
-therefore there is fragmentation? Not sure if it works like that if modules
-are loaded one after the other.
-
-> Right now it needs two pages (because of the default guard page) but we
-> could maybe fall back to VM_NO_GUARD in case of emergency.
->
-
-I like the advantage of only allocating veneers if they are really needed,
-as opposed to allocating the space unconditionally, which is what my
-solution does. But I need more convincing that this will actually cover
-all these cases, given that the cross-section call issue only occurs when
-running out of direct branching space to begin with.
-
+[1] https://lore.kernel.org/all/20260409150123.3538444-2-jmoroni@google.com/
 
