@@ -4,65 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B970DC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 13:06:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7A73C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 13:20:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YRugIjdT4x5jSv9AQPh6LQWTqYwwVqefuxtjX8C3dcc=; b=Eu8RfIvUoABByLceB1DHFXsA6u
-	PplEx9l3s2F5lv3ubQjrXgb/V90nqJnc1SjyYv/MV/F1ktgygrJoJwcUw75Yz8QMQrekBSW0psp1M
-	jucCCHNna6ofLVeSnwSAsOnxzQJK8RH6u9A+rO6Vh5puWwAbX9XvmCcyse1o17oh12iyDL3eDunHr
-	9oQaLOgG58nAAsGd4h056obnUy8FqGit+/a27xdVlDmWD3wm9TD3ex2EXQsWzuKE/0p3oaOejH9L7
-	u7obm+WbAGtxHhIBVDeEZZFuPLwxxZnYAJ6OYbh/clU1k4beg91S4zHghsAeeNc81SNitkJetmNhh
-	ysZU+ppA==;
+	bh=yceHBo3nFooDEH2xHhsyC5DfpLhq6tasQh2ju1Duoo8=; b=0CIaZDHjq5pI4S8hyViwuLGfR7
+	CQWbkE01lohccefrlV0HG02b1CSz18IZcMafufxTpuuN+WWue7PDDYScJW+lWQ8ZM/FYsfN3mnPcT
+	IiYiNtMDpAfxhr21ZfUwRj/nx2tlUb5t+expTyFLjSRFxbyYycDJ+Ira03hvC3Grn6qgezA3a8j5W
+	e1q1Y56iqq0q4WD+C455ywALrY1NDiq/TPLgWy+2243Ux3/pgkVaKynoGgXSkXfv2RUJFPp5J4uxL
+	NYbIX41ksSfUPnGTlo/z1iL7A/frDzgsmgp8IRYGPfgmPiSNchlkj/MCuOT0xxNWBAQlDkFZhMWUL
+	5poYPzAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvx2t-00000006BNB-0swR;
-	Mon, 17 Aug 2026 13:06:31 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvx2p-00000006BLg-3mQ9
+	id 1wvxGf-00000006CVP-1yQj;
+	Mon, 17 Aug 2026 13:20:45 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wvxGd-00000006CV5-1Y6d
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 13:06:30 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4DD361476;
-	Mon, 17 Aug 2026 06:06:20 -0700 (PDT)
-Received: from [10.1.34.163] (e121487-lin.cambridge.arm.com [10.1.34.163])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B1F2E3F85F;
-	Mon, 17 Aug 2026 06:06:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786971984; bh=ATkWfYmi41+1wjhUL20ADtcuZj1QqRuatkCKI4zuSs4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=R2CVA/nG71bbYbXIxOurknJ0LfY9QeLGt0wtmC6KdX6alfPAlXVWT3N1ga9iXlJ7T
-	 6DMMA3R6XWD/PULNjgIunbPy4jMGp48QV0dy4MqaCdcVypPfMf8tD6SGlCESVWi4iX
-	 GEtpSQiEAVnbLbZv9bK0SEqz6SM1Fgu/vB5JOKz0=
-Message-ID: <7ca33f92-2ded-4749-ab67-2fb564919b99@arm.com>
-Date: Mon, 17 Aug 2026 14:06:20 +0100
+	Mon, 17 Aug 2026 13:20:44 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67HD687a2329989
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 13:20:42 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	yceHBo3nFooDEH2xHhsyC5DfpLhq6tasQh2ju1Duoo8=; b=d9jN12bhgXLXzXem
+	VEdveKhdGhqe5nLxCs5296huHVlr/aYrcr5jRQF/aTcs6/VgXK7IdpmH++t/CEXM
+	3tGAXCXEAvPba16A5/Lk+UHWmVAwivmyjzJl0qwKkEn9WztqJkid19mIbMW0gjCA
+	qPG+sn8wuFPf+/x3aFW3VLBBVwgL2Pg2ePiBzmMBC/+IQ8FZgzG5NMnB+N92SHcW
+	u2Iy+DySCSb5rcy9gHLZ8dZOyF5TmgpOd6mTO7wQRxtTgA7wkahmWLIL48otdy3M
+	A3svpb563B8b44/Omh+6vdDAT+GE6B0vX81r3wxSj3npbn7kftMQ13j6Owlk/goI
+	4u7Beg==
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g3vghssr9-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 13:20:42 +0000 (GMT)
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-51ca37ce4c3so3867151cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 06:20:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1786972842; x=1787577642; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=yceHBo3nFooDEH2xHhsyC5DfpLhq6tasQh2ju1Duoo8=;
+        b=VoP6TDimolf/VEwz9X8lfGJo7zxL80UpcVXTskceanxC0eSsDEkF2QylPV7uW3GLeq
+         NrBKa4WwACOEKuXDpKITPQ6NHS9aBMYhOR+KJ/Ej4kOj6+uZhIdxlY+AnmpZLEmS9B0u
+         lj1F5iqIuNrLx75cSajUjabELZkkFQOIFQNJHWtl4Gv6y2GUr6wYl31ywtlhFrFr0hmp
+         xwrePokvZM+qK7rrAyYz5X27zXLLGox0qLhokJnFRzRJkJJD1BDnGexLj+E2w5GfDYvT
+         2BsaX/nF43dsHvdsZrsEvkq4j01QITMDgNTHr36OUBipei49mT2CHBEUk6C3KGv+qqjn
+         /M4Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786972842; x=1787577642;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=yceHBo3nFooDEH2xHhsyC5DfpLhq6tasQh2ju1Duoo8=;
+        b=Ecje6YxaN2yhA+tqYg08eacslUJ6NnxLZlRqApb7a1PRKB2bg9duhHfVWab4S92lbx
+         BK7bYB1yg7dq2ieItWf43472KkmtR+tZj/JUqMlWXoA0I+alY9yG87q7cx/YaQfRmype
+         6DKc8kYUGNE6kKdnAEqCHCmWp2MVVtjllR9Y0c5A3marCRauz4GezQw7/sCYpl1wue0s
+         GtqT1ABD22RsuLl3NFa5D7SbF/JaHKT+DOkKD9STcfAtC/oDnrJ+lcBZEG8EGxNkW/6R
+         JghT1ksCVhqhYAET4aahc6KbeBM1/Bvwt6qHJGOvTmXwWJ/PbRsBvX8EFTwTExGslrMZ
+         yZPw==
+X-Forwarded-Encrypted: i=1; AHgh+RpS6qSORzYb8zDhNk3zXpeEb5M7i9Hjze0MwkgeahSlxmuKcdcYOkvJrg2tn99tZIVWHZh6HYyeXA/Yg4TtC6iU@lists.infradead.org
+X-Gm-Message-State: AOJu0YxFWNvNJbgGhTIEZchDmDWiCoZPEy98qBJtTfGUW3arW5/9umc1
+	YfMJLpnf9IAic8wRv/il4b808haCLlRTPLDlloNLtZ11nC0SHTT7pVLgUepKTPwrEblg63T5LQV
+	0j5TdDYqVGVS2H7i1q8WG1yoxA7TNUnCtZ0CvL5Ms4JdQlOpufcyGxCzHp4aq+HySB4xruekf/L
+	5QzgLs4EX3Uw==
+X-Gm-Gg: AR+sD10oWF3DEmcgeFpCnhBXpPMBmPOoKSzPqO6fcfIgJwrYg4uCzgwL+aa49Sg0ve2
+	bCNj2hMhfCVhmq6/N7HnzRXlX+8If/iXO8y7264YdxAueZtC8Ff9MVNxLN6JXVReimLdXtW2Hpg
+	qbHfALG8o32GE7WEe8ei7WQqk+qOeGbGoF/pQ25fZjrDk9F9xGMcZxqzD+r3xsuQFaYHD2OZit6
+	Zino/StFlcr8qXwgD+kP7jETe1C42J0FYU8Ud7uEY73H6I3F/jS166clT6sPUa5witGTAbgU+s0
+	eMszBldXBgS79cjSB15EBaChv3Ksq+WuCWXIPw4DewH9FfdyjCYO5BYE3cDRhCco1sgG65B3fE3
+	zKVsMKmug7u9zVW/ux2YHXUSU
+X-Received: by 2002:a05:622a:2d6:b0:51c:2101:f0 with SMTP id d75a77b69052e-52d8533db8bmr193422541cf.2.1786972841721;
+        Mon, 17 Aug 2026 06:20:41 -0700 (PDT)
+X-Received: by 2002:a05:622a:2d6:b0:51c:2101:f0 with SMTP id d75a77b69052e-52d8533db8bmr193421921cf.2.1786972841183;
+        Mon, 17 Aug 2026 06:20:41 -0700 (PDT)
+Received: from [192.168.120.193] ([178.235.128.140])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c217fea1e64sm60193666b.21.2026.08.17.06.20.37
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 17 Aug 2026 06:20:40 -0700 (PDT)
+Message-ID: <efae422c-51e6-4dea-aa80-fb2669496ba3@oss.qualcomm.com>
+Date: Mon, 17 Aug 2026 15:20:36 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: hibernate: pass HVC_SET_VECTORS args to the resume
- hvc
-To: Will Deacon <will@kernel.org>, Bradley Morgan <include@grrlz.net>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
- Mark Rutland <mark.rutland@arm.com>,
- Pasha Tatashin <pasha.tatashin@soleen.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- maz@kernel.org, james.morse@arm.com
-References: <20260809213615.11646-1-include@grrlz.net>
- <anr28wUlKjci8JPn@willie-the-truck>
- <463DA5C2-C933-45EC-A200-21AAF6258418@grrlz.net>
- <anszjQ7jBeYDqesp@willie-the-truck>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <anszjQ7jBeYDqesp@willie-the-truck>
+Subject: Re: [PATCH v2 03/15] pmdomain: qcom: rpmhpd: Add power domains for
+ Kuno
+To: Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
+        Michael Turquette <mturquette@baylibre.com>,
+        Stephen Boyd
+ <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
+        Taniya Das <quic_tdas@quicinc.com>, Georgi Djakov <djakov@kernel.org>,
+        Bartosz Golaszewski <brgl@kernel.org>,
+        Linus Walleij <linusw@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+        Radu Rendec <radu@rendec.net>, Robert Marko <robimarko@gmail.com>,
+        Guru Das Srinagesh <linux@gurudas.dev>
+Cc: linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-pm@vger.kernel.org, linux-clk@vger.kernel.org,
+        linux-gpio@vger.kernel.org
+References: <20260814-kuno-soc-support-v2-0-3079794f0f73@oss.qualcomm.com>
+ <20260814-kuno-soc-support-v2-3-3079794f0f73@oss.qualcomm.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20260814-kuno-soc-support-v2-3-3079794f0f73@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+X-Authority-Analysis: v=2.4 cv=P9gKQCAu c=1 sm=1 tr=0 ts=6a830aaa cx=c_pps
+ a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
+ a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
+ a=EUspDBNiAAAA:8 a=ugQu5lbr4eJmBGCNh1wA:9 a=QEXdDO2ut3YA:10
+ a=a_PwQJl-kcHnX1M80qC6:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODE3MDEwMSBTYWx0ZWRfX+hDBBscQcs9l
+ ZSiBdeA6OvPNsDhEa6BFtw1y8F1Nh0PIAv+LAtg+jrSUxsWTZdS7UwCG3gCPkISgn9H6O6/W2aC
+ UcHfHQ5yn7nJWatAjNLloKczV0ocRBU=
+X-Proofpoint-ORIG-GUID: dZaLerxh5pBknlIV7D5a0BvPObkgMVqO
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODE3MDEwMSBTYWx0ZWRfXwtlPb5hoDGyx
+ ZYLiyhKWhqFvwQ4xZPuDuvrzfIp3auVoX+tKJ1KAS13tV/drTBewkgaku4NiOlbMMFQTWMArIZE
+ L6zSEykKFDIC64tfD2eUr9mrdtQHwZTU8PGVtvogE+MXoQcxav9dqyDWcYudJ4cCxERui8pBp0c
+ ugDX3DARb9IvKZOgTo0ARBDjQrxVWSbfdrhpN8YYn33rb0LiODL2/YuSjYUeaIrdxktO0YiOmW+
+ 3XoVM3pY5zPwv4tRObZWM+/AHxiVxoDw+wNcd8+KqCJB9l+CWPwgI7PhXHahpfURo42qfh9lWOK
+ 6eHoRHJVS12x8UpHDZ1AT7VKzIVSZGSPNd/xSpDZiE/qP2sPb1iMPU3HnASEzWHD61MLftZz3Fs
+ wUgxbF/UfWZMeHnstThihMqrmDhPcpRt2wdxvzJx8fu6ZHDMw5wAMNvTy9FH7/JmJW1NaGOlQMl
+ DfdSIM/wVxgtx5AOxsQ==
+X-Proofpoint-GUID: dZaLerxh5pBknlIV7D5a0BvPObkgMVqO
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-17_01,2026-08-12_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 impostorscore=0 malwarescore=0 lowpriorityscore=0
+ priorityscore=1501 adultscore=0 spamscore=0 phishscore=0 bulkscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2608170101
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_060628_117458_3E98617F 
-X-CRM114-Status: GOOD (  31.85  )
+X-CRM114-CacheID: sfid-20260817_062043_549948_1175503D 
+X-CRM114-Status: GOOD (  10.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,164 +168,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Will,
-
-On 8/11/26 15:37, Will Deacon wrote:
-> On Tue, Aug 11, 2026 at 01:50:14PM +0100, Bradley Morgan wrote:
->> On 11 August 2026 11:18:27 BST, Will Deacon <will@kernel.org> wrote:
->>> [+Maz, Pasha and James]
->>>
->>> On Sun, Aug 09, 2026 at 09:36:15PM +0000, Bradley Morgan wrote:
->>>> swsusp_arch_suspend_exit() reinstalls the restored kernel's hyp stub
->>>> vectors with an hvc, but never passes the arguments. x0 is not set to
->>>> HVC_SET_VECTORS and x1 is not set to the vector address, so the stub
->>>> dispatch falls through and returns without writing vbar_el2. EL2 is
->>>> left pointing at the trans_pgd copy of the vectors, a page that
->>>> swsusp_free() releases right after resume.
->>>>
->>>> Set the arguments up the same way __hyp_set_vectors() does.
->>>>
->>>> Fixes: 788bfdd97434 ("arm64: trans_pgd: hibernate: Add
->>> trans_pgd_copy_el2_vectors")
->>>> Cc: stable@vger.kernel.org
->>>> Signed-off-by: Bradley Morgan <include@grrlz.net>
->>>> ---
->>>>  arch/arm64/kernel/hibernate-asm.S | 2 ++
->>>>  1 file changed, 2 insertions(+)
->>>>
->>>> diff --git a/arch/arm64/kernel/hibernate-asm.S
->>> b/arch/arm64/kernel/hibernate-asm.S
->>>> index 0e1d9c3c6a93..2baefe7a82d3 100644
->>>> --- a/arch/arm64/kernel/hibernate-asm.S
->>>> +++ b/arch/arm64/kernel/hibernate-asm.S
->>>> @@ -89,6 +89,8 @@ alternative_insn "dc cvau, x4",  "dc civac, x4", 
->>> ARM64_WORKAROUND_CLEAN_CACHE
->>>>  	isb
->>>>  
->>>>  	cbz	x24, 3f		/* Do we need to re-initialise EL2? */
->>>> +	mov	x1, x24
->>>> +	mov	x0, #HVC_SET_VECTORS
->>>>  	hvc	#0
->>>>  3:	ret
->>>>  SYM_CODE_END(swsusp_arch_suspend_exit)
->>> I'm having a really hard time figuring out what's supposed to be going
->>> on here!
->>>
->>> The original hibernation code added by James in 82869ac57b5d ("arm64:
->>> kernel: Add support for hibernate/suspend-to-disk") unconditionally
->>> set the vectors in the exception handler:
->>>
->>> +el1_sync:
->>> +       msr     vbar_el2, x24
->>> +       eret
->>> +ENDPROC(el1_sync)
->>>
->>> However, it _also_ set the vectors from C code in swsusp_arch_resume():
->>>
->>> +       if (el2_reset_needed()) {
->>> +               phys_addr_t el2_vectors = phys_hibernate_exit;  /* base */
->>> +               el2_vectors += hibernate_el2_vectors -
->>> +                              __hibernate_exit_text_start;     /* offset */
->>> +
->>> +               __hyp_set_vectors(el2_vectors);
->>> +       }
->>>
->>> Later, Pasha refactored the assembly so that it could be shared with
->>> kexec in 788bfdd97434 ("arm64: trans_pgd: hibernate: Add
->>> trans_pgd_copy_el2_vectors"), however this added arguments to the
->>> exception handler without updating the hypercall on the hibernation path.
->>>
->>> So I think we need to figure out:
->>>
->>> 0. Whether this code is actually broken atm (I have a feeling it might
->>>   happen to work)
->> Yes, since 788bfdd97434.
-> Right, but did you manage to reproduce a crash? You're implying that this
-> hasn't worked for five years, which makes me wonder why we bother to try
-> to maintain this code!
+On 8/14/26 9:31 AM, Hardeep Sharma wrote:
+> Add the RPMh power-domain data for the Qualcomm Kuno SoC to enable the
+> new qcom,kuno-rpmhpd compatible to expose RPMh power domains. Kuno
+> exposes CX, MX and MXC domains (including always-on variants).
 > 
->>> 1. Why the original hibernation code set the vectors twice.
->> They do different jobs. The C call parks EL2 on the safe page copy
->> before the restore overwrites the current table. The asm call installs
->> the final __hyp_stub_vectors afterwards.
-> I think I probably need to spend some time understanding how all this is
-> supposed to work. I can't currently tell how we end up with the stub
-> vectors installed to start with nor why we can't do all this from C code.
-> 
+> Signed-off-by: Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>
+> ---
 
-Here is my understanding of how things work. Assuming nVHE mode, we
-restore the previously saved image X from the currently running kernel Y.
-I’ll use the suffixes _X and _Y for addresses belonging to the respective
-images.
+I believe I reviewed this already
 
-On the resume path, KVM teardown sets VBAR_EL2 to __hyp_stub_vectors_Y.
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 
-swsusp_arch_resume() then temporarily (re)sets VBAR_EL2 to trans_pgd_stub_vectors
-while transitioning to image X:
-
-|        if (el2_reset_needed())
-|                __hyp_set_vectors(el2_vectors);
-
-
-Currently, swsusp_arch_suspend_exit() attempts to restore VBAR_EL2 to
-__hyp_stub_vectors_X:
-
-
-|       cbz     x24, 3f         /* Do we need to re-initialise EL2? */
-|       hvc     #0
-
-where x24 is resume_hdr.__hyp_stub_vectors (in other words snapshot of
-__hyp_stub_vectors from image X)
-
-However, that request is ignored, so VBAR_EL2 remains pointing to
-trans_pgd_stub_vectors
-
-We re-enter the kernel X.
-
-During KVM initialisation, we call __hyp_reset_vectors(). This is
-handled by trans_pgd_stub_vectors, but ignored since HVC_RESET_VECTORS
-is not recognised. We then call __hyp_set_vectors(), which is also
-handled by trans_pgd_stub_vectors, but this time VBAR_EL2 get set to
-__kvm_hyp_init_X.
-
-From that point on, __kvm_hyp_init_X handles subsequent HVC calls,
-including the later call that redirects VBAR_EL2 to
-__kvm_hyp_host_vector_X during KVM setup.
-
-The memory containing trans_pgd_stub_vectors is freed later by
-swsusp_free(). That perhaps explains why we do not see any crash.
-
-With the proposed fix, swsusp_arch_suspend_exit() successfully restore
-VBAR_EL2 to __hyp_stub_vectors_X just before we re-enter kernel X, and
-that vector is used for subsequent HVC calls.
-
-__hyp_stub_vectors is similar to trans_pgd_stub_vectors (or another
-way around?) - it handles both HVC_SET_VECTORS and HVC_SOFT_RESTART,
-and ignores HVC_RESET_VECTORS.
-
-So the fix makes sense to me. It also restores clear boundary between
-the temporary resume mechanism and handing control over to the
-restored image.
-
-FWIW,
-
-Reviewed-by: Vladimir Murzin <vladimir.murzin@arm.com>
-
-
->>> 2. Assuming they only need to be set once, whether we can drop the hvc
->>>   from the swsusp_arch_suspend_exit assembly code entirely.
->> No. After the restore vbar_el2 is only writable from EL2, and the
->> temporary copy cannot stay. swsusp_free() frees it right after resume.
-> Isn't vbar_el2 always only writable from EL2?
-> 
->>> 3. Whether we can then drop the HVC_SET_VECTORS handling from this set
->>>   of vectors.
->>>
->> No, this hvc uses it, and so does kexec.
-> Where does kexec use it? I could only spot it making use of
-> HVC_SOFT_RESTART.
-> 
-> Will
-> 
-
+Konrad
 
