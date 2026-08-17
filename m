@@ -4,95 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 527E1C5DF66
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 13:57:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C53BDC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 13:58:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t8f5UJCABHvmBw6dzoHdGzw6KbaLnhVEoCCS6jqmRT4=; b=uII+KCYcF31NWZAQVztUmsHAQz
-	/BRRht4kHK/CmBSrPuAl3oURFAQIfblCH2tZfO2tsQY9+Y3cGWggSuYE+35fihclXkjYpvy2IdsRb
-	8/m/OwXtDlQh/NTXu+iaL1ENYMrjCb8QfB6QVkZD57s5Qpv3S7vm/DS0lIkZyMkp3MIxmLZjKXXUI
-	kpWAjBTOMirsiV47WBaSI4o2dHGudsyhbMcewU6NGbtaYJj97bEfl/bBPF0IBbFddJy/ssNmKPJOk
-	Zx3f8K468XSnNQn3ziQGrjRP4EiWBJ1zSrWSfn9EuWJkeGWV3dnxyHG0Pv4VEHU7wKMgSDM/aQc8A
-	jFDJM+XA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/zTjy6O6uybvfPxcgqH6QnK7U32G4vAnUh4izrwXhS0=; b=fD+X1oEYoHYzgzTJsv+3gBiaDb
+	Rj5o9IzNrBqHCgxXiEikNBQeFvBZl2uFCexHQwcT1gpAzm/TK+U8YGJfZLgVLHGGy3sbHui+vwST9
+	Ybs5shprCh4nDOwIa95mlTouSg8CACv13rroBNhThcWlbEl5BSA/zEH2cxIGEEcMukfDX0d6DL9Wc
+	gxLUsdzl/WtKEo0Qca7F2Y4ncNTM35Y7UE4O87ODpbdia+5A+3clBvj9HpGbdD+fwgwoTBh9WNoFj
+	YEXK4GhTSlATiuPyNixZvU/3YOFiH4/yNq00KPyihn02Rit/c187Moz3+afd5L9gZhlmFHSJXGMNK
+	sTwTweiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvxqP-00000006Fbr-0fi5;
-	Mon, 17 Aug 2026 13:57:41 +0000
-Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
+	id 1wvxrC-00000006FlR-1Hv5;
+	Mon, 17 Aug 2026 13:58:30 +0000
+Received: from mail-westusazon11012071.outbound.protection.outlook.com ([52.101.43.71] helo=SJ2PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvxqM-00000006Fac-1zlh
+	id 1wvxr8-00000006FkP-35Wm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 13:57:39 +0000
-Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-69848c9462aso554719a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 06:57:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=soundtrack.io; s=google; t=1786975057; x=1787579857; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=t8f5UJCABHvmBw6dzoHdGzw6KbaLnhVEoCCS6jqmRT4=;
-        b=JJm8ampHQt6MXsmme3j1uMuB+MSapsimca7pKiVWRegR3DiZT+ZrFwyx8BQ8QP1oJR
-         q+wSm37SQHo9o2rrXw4+iXN2/2y+Adpdo4tsBOMWtYOc75Ee3iAITXEOloyaD1IxNFVt
-         HCPtXUTXj1CYvM53/XgjK5SXT2quBs1k2CtOkB0g6DMUjc+EgXpNhTaT7B0DLZbjsdW6
-         oHkq9pfcbkPXUdBimBCWq7GCvNcVzbRaiiSoOphK+P7rDFf1y2I4UeUkVq62bTl/U63R
-         vlG7KQG/E9npBTSbCJed7qFEfs9gLUIqsHyCDwztES4lKkQmK94lhlhk0EOLwjEQ5Nw6
-         +toA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786975057; x=1787579857;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=t8f5UJCABHvmBw6dzoHdGzw6KbaLnhVEoCCS6jqmRT4=;
-        b=qUNhg02qurcDFMMvTJak3PJDABradnmOgy5QdbMR+qrIvMVjDhojGML+XZct3wpeR3
-         bd9jMqKgEx7LOsxjm2Z5shCC/y7y0EBkCzLl9lgCr6W+MXVFE4at8m8Zx/lAdWiJih/G
-         nhOBtztyQxH2TI+69KQ3MXQtZsEtLqeZDTXN+j7At83ADCkCakNGey7vDE3aymT7vnpm
-         N9jNL9R7fNM5VeVKi8oTXT0chXyzroEqIjlI2KQJz8lLtEcyUQ86Y6cpHvz7KOFGszxu
-         sjSvDmGF9QA0XtTiNBlrr6Jcc2hUk8JOdW/QSoRr1j2mLFC/3o80/rzUBZaaiaWJ6WGs
-         MtCg==
-X-Forwarded-Encrypted: i=1; AHgh+RpE7vqbMi+RAJ8KOd1mI6yAq14Hatadp6coHEjLqW0sg54UJCM0XHcX8htj8kfz7DgFlUdsX7KZt1QSxmcqH3oe@lists.infradead.org
-X-Gm-Message-State: AOJu0Yya0nHkmBLB1WFr+z9PgGebx13zZBQGiSjbq49NCMGyC221nWhr
-	D8D17C23Ey+IdKfBlQBtt2vmVF4dDRbeJLfGZAx6TltrUOOmRVwkwn81i6O1YujZPm8=
-X-Gm-Gg: AR+sD13VCCSpIW/7JTiqHD4koSOyCCHhag6NDn+EYb53Yts/859j4WFbkk5e4VvGDoJ
-	azEo8Oo3s6mUO1Q3ltuTzykPCOj/te4Mu/NR/Tdzs7W9zJU74YjlhevFFm4okIxCl0rBg/7Ykfg
-	xFbc/DIwqkp23j8hBqFkch58OQvrvHMhjOBmxkwibrGCT9W6sJSUADgfrt6rEwexO5WeGE45pmP
-	kwwdIXf71BYH7GZevXlPw93m51ng0L3bFmBea5dIf7hcKqudsddCWNOXa+ZZ6W+z5ynFmRLIygY
-	Dk40IRL7Nou2rG4FqyEkMF2LpAksW9UeOzqVHVvd6mCfQ+1W419OAi/r8ModTVWnQLVXLYDnwdN
-	jdgrNzVYJRTIZMuq5l1OGiBBQ30Oy+fFS+u110Zpis+gl2VcSdS4cY4MIQwb2ASaNzZkQW+1yQb
-	/ZyBQYGZozsGpO358tgj1nppylflSiEfCu0tqUVWO4kWkC32TeOkCqkTHElefgEMBXyXg8EWkLR
-	sm+7ifNfwPqL0Zjmroxv/4ecxjXWbpmoLy4FNr7uqmDG8MZpGAOP04bm7Y=
-X-Received: by 2002:a05:6402:2812:b0:6a3:8446:c56b with SMTP id 4fb4d7f45d1cf-6a38a8bf430mr6474052a12.1.1786975056608;
-        Mon, 17 Aug 2026 06:57:36 -0700 (PDT)
-Received: from Mac.localdomain (31-209-40-223.cust.bredband2.com. [31.209.40.223])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a3d85319b1sm810238a12.13.2026.08.17.06.57.35
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 17 Aug 2026 06:57:36 -0700 (PDT)
-From: Christian Lugnberg <christian.lugnberg@soundtrack.io>
-To: vkoul@kernel.org
-Cc: Frank.Li@kernel.org,
-	wens@kernel.org,
-	jernej.skrabec@gmail.com,
-	samuel@sholland.org,
-	dmaengine@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Christian Lugnberg <christian.lugnberg@soundtrack.io>,
-	stable@vger.kernel.org
-Subject: [PATCH v3 2/2] dmaengine: sun6i: fix undefined behaviour in sun6i_dma_tx_status
-Date: Mon, 17 Aug 2026 15:51:23 +0200
-Message-ID: <20260817135723.12807-3-christian.lugnberg@soundtrack.io>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260817135723.12807-1-christian.lugnberg@soundtrack.io>
-References: <20260817135723.12807-1-christian.lugnberg@soundtrack.io>
+	Mon, 17 Aug 2026 13:58:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Qm/OiiTfg4s4RLq2aSaY1he128g9QuwuIXItDqZI9rnqOKgUZJGLVJuyooYcwPYQmpjq+v2MqK9ZC8Xd+BK+KW9qEN/LORzf+47/wcSgzuX2+9aNQOTGv6R16uqhJEpqWz8GHX6AyUMe8LnNMfL6aLs9z0j5fmgWsHzI4ncUewOsegjP5viTfQ6Dp/AyG33k0o9a+DhGp2BUOQRUgJaEmj1BCUGhI12ZRegQWxvUGxfRkZ6s4SLnJ3l97GnED2z62OfjUIfzQxdyucHZBLd4wgc0dA0DjkXzNbwPZM8gZhSxkFI2UvbqNxsXSLtKZ2txkRx2IDcSMskoZMlUMgFEag==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/zTjy6O6uybvfPxcgqH6QnK7U32G4vAnUh4izrwXhS0=;
+ b=GcYdMNk7E1T2TmXs8tJuqNaQ4jNFp4r2U5ON6fh533/1ZVR18qxaky37dswt/6CYulQSkjaJG95ADA63hPjEWARmeUeLOMC/FCD2YmpcSJ6rZ+3L/QeWYx6IcO9tOm0GsL3/2+UzoM5kpn0FUMBxjcjGlPf9jg3BPc1VQHgEWAWUWA+8WYEEnd+JneNJfcgT/hlBkb1evvFD6ypltUudrOcHYhZa2G9J/L810dyZr1iPNXg+3ooBTCuxcRCX36L8FSysZSsyRGalht/hi5Nk+AXTClCnppa29uKaA8rwgRL/Jqe7XeXnblHIv3WF256puEi+dB3B6bWx5ppByBhovg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/zTjy6O6uybvfPxcgqH6QnK7U32G4vAnUh4izrwXhS0=;
+ b=qAnvaoJiaZt3uFfwrp30cptEZTXIlBLmg5AgeR1uPJVkASBkRAx6k7SzF8yR4PCzMuY/vraTMLektBJLQR6DA0MaIX3qT6dZ0ZYi8OyZFgTpHvyJSZB/so9gEg1zGSrt+lLCbLRHjlwr3bj8+vsZ/aG8pMZhTTwqAEMrnyND+sI=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from CY1PR12MB9697.namprd12.prod.outlook.com (2603:10b6:930:107::6)
+ by PH7PR12MB6786.namprd12.prod.outlook.com (2603:10b6:510:1ac::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.13; Mon, 17 Aug
+ 2026 13:58:18 +0000
+Received: from CY1PR12MB9697.namprd12.prod.outlook.com
+ ([fe80::3a41:55a0:8203:596d]) by CY1PR12MB9697.namprd12.prod.outlook.com
+ ([fe80::3a41:55a0:8203:596d%6]) with mapi id 15.21.0315.016; Mon, 17 Aug 2026
+ 13:58:18 +0000
+Message-ID: <0c2740dc-eefe-4ca4-8d6a-0b4a9fa8e139@amd.com>
+Date: Mon, 17 Aug 2026 19:28:10 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/3] net: xilinx: axienet: Propagate errors from
+ optional IRQ lookup
+To: phucduc.bui@gmail.com, Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Michal Simek <michal.simek@amd.com>,
+ Simon Horman <horms@kernel.org>
+Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260817105241.63345-1-phucduc.bui@gmail.com>
+Content-Language: en-US
+From: "Pandey, Radhey Shyam" <radheys@amd.com>
+In-Reply-To: <20260817105241.63345-1-phucduc.bui@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MA5P287CA0076.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:1d8::10) To CY1PR12MB9697.namprd12.prod.outlook.com
+ (2603:10b6:930:107::6)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY1PR12MB9697:EE_|PH7PR12MB6786:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8aa4ea65-d661-4091-e673-08defc679738
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|376014|7416014|366016|22082099003|18002099003|56012099006|11063799006|10067099003|6133799003;
+X-Microsoft-Antispam-Message-Info: Y7ifhbnierVsRlDkZm+HqGjmPBGPOaRR1bo91mdofjSB6QONSjSN/zRYLozURJcdPAQ9OjZmtAe1k73jHcxCxTz+QmOnhYiR+pL32K3o0lAx8WYR/VD0EnpBUdFstvm7aSa2obpCxhfjEyJvjnZxQXd/GRC5tau5B7FqhKar/GJEvqOVrEsgMPSIBAnukl3DWBUIU/YOKCKqKElN10RIBDs5uSJKzr1yryoGlQdoGynkzKV39fyBLegftco3jfLV7NStusqfFpX7GouiEqVVd2c5F38fRnSutyw9x0cOw38vFhFVi0CwjZmlx0ivQtLmhhMYCUv97OqP6zts6b0rOXTc6lPI/459ELpHwwZYLZZIxrQfKMUZKW7MTlC3hpdC/JBigvce0r4VxlreZhSoedWJqdj1/dkMxWuT4aVK4wHI+Hm/0E4heRKnpD8h4ZntULBz+WHromaXgj6/lewz09ED8HzOwmNcE1N6y35j+zrUQHU7AGIYYzXeSXytYoQkCvHWL2fComSAD8Agf3ufXobrtOsuwc+cOihKEQZtaHMNbal8upTFNX0a2hB8VQ0wHdJG4DC09vwyqPbY0w78MAROpzg2QtJJ4AU+lKAS1zGnX3uW3fgs713R4doLuJ5fO1/7rwJOTQ0ydCzJdOGaxbEkpHZXACw58mTXRtX7Ym8=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY1PR12MB9697.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(376014)(7416014)(366016)(22082099003)(18002099003)(56012099006)(11063799006)(10067099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SFlUUjQ3WSt0VzV5N0g1SExwTmEwbEE2RHpoUi93VUZxclNQalhKQ044L0o3?=
+ =?utf-8?B?VHpmL2IvQXAwV1dRTHdpUXlQdTFBN3RqbnY4UHlqZE84MElYellVMmRBblhY?=
+ =?utf-8?B?a0lPc00zaFVYK0pndk9KZmJJRzNuTDNWUHFrYnBEWVE2TVEyd0s2aUxveUVR?=
+ =?utf-8?B?RW5MT21KNmxCQ3lUT3RMY1RFNDlnQXprSjkzbWlYSWFsNTZ4SE5ha2w1blpO?=
+ =?utf-8?B?TElSRzM1MDZhNFRYRDVWeWU1YXpnREVyY1N1R1VNODJqNXdqVnRTWDNEdG5J?=
+ =?utf-8?B?Nkl4NmJkZUR1N3RyaDR3TGRDWkU5Q2ZTeFg2NWlBUXlyZjZwMGErdG1kdUxJ?=
+ =?utf-8?B?dGZBZzVucXNabWh5eVQxVjdUdFZENE9xSG1KcjJFS1B5WjkzVG1zWnZERitz?=
+ =?utf-8?B?N0RyZjUwRjE4RkVkQXczUVkzT0ZsV0NRanpFQXVXUlJUa2ROcEVJL3kxT3pq?=
+ =?utf-8?B?VXQ2cFRHKzZHclVmVDlxQzc1RzNMZWdlZVkzUEV5UTVhT2U0Y0VWVmIxODk4?=
+ =?utf-8?B?K2NsWHp3OHo5QzdlcFZRQ202T2ZXQnZPb2lPakxNajJkUTliYjk1NzRQMmdK?=
+ =?utf-8?B?N3BkUGZyN3o3L3RWdm5KVFZYZ05Jcm96KzRhMndoOTBnZmpPNERWdGtwT2xG?=
+ =?utf-8?B?ZmpxdDhSVDlEbC9id3dpMGdodDZ3bkZNYWgvZDhsT2xtSGpOaXl3ME5ueWU1?=
+ =?utf-8?B?TjdTcUMwdFpUaU54MTRJK2F0TklpK2x2dWt0N25LandYbTVKZXJLQVRqZWJx?=
+ =?utf-8?B?OG9oNEZkU2FUaDR3SGZyUmZzTW5WempWZkx4VE1tZ1ROcDB1aDFmUDlPdC95?=
+ =?utf-8?B?dmdlRFNJRUh2ZXUrWkVwNnY1Q2VoWis5UThkTkI1L3BWV1I5VnBHeHNDVzVQ?=
+ =?utf-8?B?UGRtejBRbWM2dndNdWpneG1sOWhtd1dhWVpKQVVGREJJZ1YxTVdvRys0ZTRk?=
+ =?utf-8?B?SEdlaE1ySi9qU3g3NVBaNXhEdks1NlZaMDZUTjd5aWQ1ZWRYVjhGZU1JSDlz?=
+ =?utf-8?B?KzRqc292RTlJV0htcDNpM01KK1ArcmljTnNSeEszbG1VMjl6Tk5GWHVwY0NV?=
+ =?utf-8?B?MTVBQmtqenQ0UGlqdWgxcDZsRDVrYzU2Z3JwSzBwOVBmVlNjUUdidGFxRjJ0?=
+ =?utf-8?B?TnZ1QTlRWWFSQTdoeFN0bjV4MDU4dDg5ZURSTElQYVE5VitOMGJtWWNWb3Aw?=
+ =?utf-8?B?OE1Oc0xiRUxhOXZOSENYbld4aVR1UEZ6WXJ5MFFTMDljYmluUGthVllYMHRi?=
+ =?utf-8?B?am4yL1ltRm5nL2prWWNKWHNIZUdPMnBqTW0vaXpFTTNETm9ib1JDbGdtRlI0?=
+ =?utf-8?B?M09vUXJ0eURIQVBMam1TRk1jMEdSa092UXB1bGNhUjF4VHVLanZRcEJiUE8z?=
+ =?utf-8?B?MHh2elRyekR2ODI0aU1MMEQ2UDBXT05CNEVXVVVaSkh0OWliUTQyUUZDMDNF?=
+ =?utf-8?B?eVhWRi9FU2NrdGx3ZytLakpFTXZXUFkydHRpR3ozdmFlVUVBQzBReUlCc204?=
+ =?utf-8?B?MWRmKzVLU2g5SEx3R0NkazUzcWJIL2diRzcwTmtDWHVhcEIwM25Ja1E4S1p0?=
+ =?utf-8?B?MHRML1FIREFweDcwM2YvaWZmUy84ODV5UmNnTlJ6UUpScUxaVG0rdHJaUXNa?=
+ =?utf-8?B?Uy81TytCeDgrVUViUnYveng4bnhSZXVnU2J4WGJxT1gwcWtZbVVBL0daOC9J?=
+ =?utf-8?B?OHR6OHJwc3hDNTU1SXBNSmhBbmhaOXlod2lrMzdmTVUxb3l2UlFKdzRaQUVk?=
+ =?utf-8?B?ZTRYc2dpYmtkSGRTenFBQ1R5L0p6Tjk0OVpObjRkTENGcjN4RFB3ajdVZDMr?=
+ =?utf-8?B?dWU1cm9vb0JjR2ZuUjZTRkV4c1hBKzJUZklVTkMzTGgrbzJTYWpKYmRyalhk?=
+ =?utf-8?B?SjNaOUpJMURwK2ErcndOQXBWVTNJUmVwV3pubWJreFErMmxSck5TcEw1VElL?=
+ =?utf-8?B?Yk0rS1hPZ1IrTHJWM2JJd0p4K1p5VHFxQ3RyV2dabWE4eE4rdnZQMzJaMDhu?=
+ =?utf-8?B?S3BhQzR1ckxkME9RR3doWG5kbXFhOFdRRnQvQk96RlBjTG1pZk1CZ0NIZW5G?=
+ =?utf-8?B?d3lhT0MxdzF0cldJNHUwdWZsOTNlUHFqeEJaNVlwcUd6YWJJc0FoUDR6YTZw?=
+ =?utf-8?B?R08zSXU3REN6aDVRbk5TVTNkUjVXMlF5cTQ3NDQ0SGJpazBmWC9qTGdxK1VC?=
+ =?utf-8?B?R2JObyt0VUpOMHE5WS84Y3d5bXNvTDJYQnFCbS9LcjROaGFTYVlubCtnR0sr?=
+ =?utf-8?B?amZWZ0JSSkE3ZlFZSkdMalVtbk1RTDNzQ1JaZUVPNGd1Zkxwc0lxakp1cnp6?=
+ =?utf-8?B?WXVtZFdtWldIVjdOTnpONjVWVUlWdlJmMzEwbm8xZ2l5RmdqUWJUUT09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8aa4ea65-d661-4091-e673-08defc679738
+X-MS-Exchange-CrossTenant-AuthSource: CY1PR12MB9697.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Aug 2026 13:58:18.3628
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: IG4m2ia0vQtFEYxvpdN/hKzrOrOJFThqVJvmTuVEoXqOdSQ7z593QdvCi1ZirVrI
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB6786
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_065738_525760_F5E847CE 
-X-CRM114-Status: GOOD (  14.78  )
+X-CRM114-CacheID: sfid-20260817_065826_996329_0FFCD28C 
+X-CRM114-Status: GOOD (  17.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,60 +150,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-sun6i_dma_tx_status() calls vchan_find_desc() to look up the virtual
-descriptor for a given cookie, before checking whether the pointer
-vd is NULL:
+On 8/17/2026 4:22 PM, phucduc.bui@gmail.com wrote:
+> From: bui duc phuc <phucduc.bui@gmail.com>
+> 
+> platform_get_irq_optional() returns a positive IRQ number on success or
+> a negative error code on failure. For an optional IRQ, -ENXIO indicates
+> that no optional IRQ is available, while other errors should be propagated.
+> 
+> Propagate all error codes returned by platform_get_irq_optional() other
+> than -ENXIO.
+> 
+> Another call to platform_get_irq_optional() in the same function already
+> handles the return value this way. Apply the same error handling to this
+> call site for consistency.
+> 
+> Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
 
-    vd = vchan_find_desc(&vchan->vc, cookie);
-    txd = to_sun6i_desc(&vd->tx);   /* vd may be NULL here */
+Reviewed-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+Thanks!
 
-    if (vd) {
-        for (lli = txd->v_lli; ...)
-
-vchan_find_desc() returns NULL when the descriptor has already been
-completed or is in-flight on a physical channel and no longer present
-in the virtual channel's descriptor list. When vd is NULL,
-to_sun6i_desc() is called unconditionally on &vd->tx before the NULL
-check, which is undefined behaviour. Move the call inside the if (vd)
-guard to ensure it is only reached with a valid pointer.
-
-    vd = vchan_find_desc(&vchan->vc, cookie);
-    if (vd) {
-        struct sun6i_desc *txd = to_sun6i_desc(&vd->tx);
-        for (lli = txd->v_lli; ...)
-
-Fixes: 555859308723 ("dmaengine: sun6i: Add driver for the Allwinner A31 DMA controller")
-Cc: stable@vger.kernel.org
-Assisted-by: Claude:claude-sonnet-4-6
-Signed-off-by: Christian Lugnberg <christian.lugnberg@soundtrack.io>
----
- drivers/dma/sun6i-dma.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
-
-diff --git a/drivers/dma/sun6i-dma.c b/drivers/dma/sun6i-dma.c
-index 04fe1f5042e9..7704b016aed8 100644
---- a/drivers/dma/sun6i-dma.c
-+++ b/drivers/dma/sun6i-dma.c
-@@ -981,7 +981,6 @@ static enum dma_status sun6i_dma_tx_status(struct dma_chan *chan,
- 	struct sun6i_pchan *pchan = vchan->phy;
- 	struct sun6i_dma_lli *lli;
- 	struct virt_dma_desc *vd;
--	struct sun6i_desc *txd;
- 	enum dma_status ret;
- 	unsigned long flags;
- 	size_t bytes = 0;
-@@ -993,9 +992,9 @@ static enum dma_status sun6i_dma_tx_status(struct dma_chan *chan,
- 	spin_lock_irqsave(&vchan->vc.lock, flags);
- 
- 	vd = vchan_find_desc(&vchan->vc, cookie);
--	txd = to_sun6i_desc(&vd->tx);
- 
- 	if (vd) {
-+		struct sun6i_desc *txd = to_sun6i_desc(&vd->tx);
- 		for (lli = txd->v_lli; lli != NULL; lli = lli->v_lli_next)
- 			bytes += lli->len;
- 	} else if (!pchan || !pchan->desc) {
--- 
-2.54.0 (Apple Git-156)
+> ---
+>   drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 2 ++
+>   1 file changed, 2 insertions(+)
+> 
+> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> index fcf517069d16..f92951422b2e 100644
+> --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> @@ -2972,6 +2972,8 @@ static int axienet_probe(struct platform_device *pdev)
+>   			dev_err(&pdev->dev, "could not determine irqs\n");
+>   			return -ENOMEM;
+>   		}
+> +		if (lp->eth_irq < 0 && lp->eth_irq != -ENXIO)
+> +			return lp->eth_irq;
+>   
+>   		/* Reset core now that clocks are enabled, prior to accessing MDIO */
+>   		ret = __axienet_device_reset(lp);
 
 
