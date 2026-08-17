@@ -4,79 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 477B8C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 16:51:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15B1EC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 16:55:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p8BZPxQ0vjdM5ZAqdpodk/sQuicx5+EqnBVZoatnyUw=; b=c86hLTM2fg8Ynq5aMz/4urdaWy
-	zMr1V2aAEWg5G3gLBzpoTE7xOQgu40gtI6egZZfEB+ag+LLqwddVVnaWqOxgAXcZ6DyOfge2zfchZ
-	KoM8ueP3LYv0y6dGD988jhE6I7cnlwsjowKSAnlYLhklzx1bUISyhsStYGguWnhAAepdCCyVRPX8y
-	3vzYqfs6QXEUpCSi1diZgwpkeGF5NeG1Qzn1AbqGC0J3QxvQxAEnaJZd7M16AJ+6ycc9LuLz8A5dT
-	elsQybFYdivgTTigznXjk3iCd3fNJriKTJUnyN0QC7qjpoNxE7xVg42ioG+V5aUg6igXh0iIdsGbZ
-	UzSzJmFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=te1z7GuVhseJYugKAtDD2RCu2nn1uAHfQBPcVhB9BZ4=; b=dx48towOerTmw2BD6hxOIhrI0H
+	YKZcoIpTNpy3+FEa7YtuTz0cgCUssKHKYdos+qHMJmkj+Zi+e1ZuFMWLN9/BxHyMrdjKjK8rmvpTj
+	rczPVgf+xAfDjLBdhZItDI/LWmKbNIL599yrbr4lRdU3/e645KCbfVqxbvqyeMIDj/thuHoPfgGh6
+	nOGqfFs2fqVYxkO7KSqT9Ak1/UF8JVbLiGMpdtyUVkXxMjWw8pYlJS6PLoybcrjbx86Kf1D+62dM4
+	/O4ex2zL0bJBhdR3mrp/FlX02pkrAJolVxsWW/yMzxZp+lfKwL++BXfHPlHqcgHpidfSb+AZDRhTb
+	Ij9TFgZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww0Y9-00000006YDi-0gfe;
-	Mon, 17 Aug 2026 16:51:01 +0000
-Received: from sender4-op-o11.zoho.com ([136.143.188.11])
+	id 1ww0c1-00000006Yea-0wMb;
+	Mon, 17 Aug 2026 16:55:01 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww0Y6-00000006YD7-2FRi;
-	Mon, 17 Aug 2026 16:50:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1786985444; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=EZkKHJPVurUQDXKaVt/m0NoukL/HAQCAECxB89aVZXrDrJGKhQj0JEdRpLjuaPFW12cTyVM7zN+68Y3LeBhzbYvAAZezftXl/OI4uwcJd/Jy5BLrKUk7Bg0dCp7ENy0L22dImPYJW5iTPkOvNXrXnvlxK7b/riKzh95Csvsa9J8=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1786985444; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=p8BZPxQ0vjdM5ZAqdpodk/sQuicx5+EqnBVZoatnyUw=; 
-	b=KAXnjCklo1HB7ter3rjySfraFGngAMJDcSJsmMy2ez0k0NKymd1cmPZxtwZmM9tFKHx3fo5flqFxfH/bYrM+wm0RG+KlJXmGPXU1BXAHoDv6CEvB7D/tDhp+GR70LxVkLb654yV62G00nUm1pfpHDNt+SVdy/eKth4c5XmnRnIg=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1786985444;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=p8BZPxQ0vjdM5ZAqdpodk/sQuicx5+EqnBVZoatnyUw=;
-	b=dhWaKPrBowXvCR3m0H6MhzbCgJ2sxmBVrFIa4RHVPxBRQKKI7U7f/JeUYcoTKnno
-	pS6cBHVvjWM3tTeCIP2dlUMLG/ns/Ac/abXY3rmVYnrjh3C7CKEM8wJAkV9zaS9yNdm
-	NiUzK4h5lvbB5JWBWagb/FvSz1PNi94dwDB1G9mc=
-Received: by mx.zohomail.com with SMTPS id 1786985441065941.6995277721651;
-	Mon, 17 Aug 2026 09:50:41 -0700 (PDT)
-Received: by venus (Postfix, from userid 1000)
-	id CE641182033; Mon, 17 Aug 2026 18:50:34 +0200 (CEST)
-Date: Mon, 17 Aug 2026 18:50:34 +0200
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Igor Paunovic <royalnet026@gmail.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Heiko Stuebner <heiko@sntech.de>, 
-	Frank Wang <frank.wang@rock-chips.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Andy Yan <andy.yan@rock-chips.com>, 
-	Dmitry Baryshkov <lumag@kernel.org>, Yubing Zhang <yubing.zhang@rock-chips.com>, 
-	Alexey Charkov <alchark@flipper.net>, William Wu <william.wu@rock-chips.com>, 
-	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org, 
-	devicetree@vger.kernel.org, kernel@collabora.com
-Subject: Re: [PATCH v14 00/38] phy: rockchip: usbdp: Clean up the mess
-Message-ID: <aoM5PBrT5pBPS63N@venus>
-References: <20260813-rockchip-usbdp-cleanup-v14-0-b5ad9c68fa11@collabora.com>
- <20260815121608.64818-1-royalnet026@gmail.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="idisms6hiinp7qil"
-Content-Disposition: inline
-In-Reply-To: <20260815121608.64818-1-royalnet026@gmail.com>
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-0.2.10.1.5.2/286.975.6
-X-ZohoMailClient: External
+	id 1ww0by-00000006Ydf-0f7l
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 17 Aug 2026 16:54:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1786985698; x=1818521698;
+  h=date:from:to:cc:subject:message-id;
+  bh=aoP3+++jhCgswqdF89+0vbsToZiwbK0wtHF7BZ08o08=;
+  b=fjk1Gu48kSKKAoeYFDxQaWCE4pYhqLaSIqT3DZBKwkGExW9epp5d3iux
+   ypgm+UV1IaJ4vPwaDwyyABOu87IaPgtsnDBkUGa46Mx7NB9C46cvS9oLr
+   MBTbL/bRtjoL0I3UoEZFxHT9j8qq1xJRbC/iXiCwHfeO8tdISprr4T/5+
+   vD11tvwBvzFhyJFfnMp4jA8g8+znw9YDHHUJghvlo08/7oJam0NvAcuCP
+   g7L1y0b9btzLLeQKtv5J6gdu5dDHnT+YN24EpgvUynowOpscOpE8zP7YT
+   GPYkCPd3Zt0F3T+bFIg0in1jBTXyHM9l+oHtgcEJmvEW1Jo2iRgAS7RwB
+   g==;
+X-CSE-ConnectionGUID: sP4HZ07gQ36fDaxu83X5FQ==
+X-CSE-MsgGUID: fEM0bIHkTWWVXnVY4EfBug==
+X-IronPort-AV: E=McAfee;i="6800,10657,11878"; a="74996389"
+X-IronPort-AV: E=Sophos;i="6.25,229,1779174000"; 
+   d="scan'208";a="74996389"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Aug 2026 09:54:57 -0700
+X-CSE-ConnectionGUID: UBC/rzGWQ46bghatmdTPog==
+X-CSE-MsgGUID: 18S67hlBRfC0E82lNjSARA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,229,1779174000"; 
+   d="scan'208";a="269247676"
+Received: from lkp-server01.sh.intel.com (HELO 6eda058d650d) ([10.239.97.150])
+  by orviesa005.jf.intel.com with ESMTP; 17 Aug 2026 09:54:56 -0700
+Received: from kbuild by 6eda058d650d with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1ww0bt-00000000dfa-1bsE;
+	Mon, 17 Aug 2026 16:54:53 +0000
+Date: Tue, 18 Aug 2026 00:54:20 +0800
+From: kernel test robot <lkp@intel.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ arm@kernel.org
+Subject: [soc:board-remove 167/217] Warning:
+ drivers/regulator/max8998.c:59 cannot understand function prototype: 'struct
+ max8998_regulator_data'
+Message-ID: <202608180027.jXWV7RZS-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_095058_650222_C635BE6D 
-X-CRM114-Status: GOOD (  52.98  )
+X-CRM114-CacheID: sfid-20260817_095458_256103_7DF431A1 
+X-CRM114-Status: UNSURE (   8.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,248 +85,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git board-remove
+head:   057394422bc04420585b2790b230d8a1f350ace8
+commit: 2a3be8c163ae1aac1daaa8a851aac755698ac63d [167/217] mfd: max8998: remove pdata based probing
+config: alpha-allyesconfig (https://download.01.org/0day-ci/archive/20260818/202608180027.jXWV7RZS-lkp@intel.com/config)
+compiler: alpha-linux-gcc (GCC) 16.1.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260818/202608180027.jXWV7RZS-lkp@intel.com/reproduce)
 
---idisms6hiinp7qil
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v14 00/38] phy: rockchip: usbdp: Clean up the mess
-MIME-Version: 1.0
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202608180027.jXWV7RZS-lkp@intel.com/
 
-Hello Igor,
+All warnings (new ones prefixed by >>):
 
-On Sat, Aug 15, 2026 at 02:16:01PM +0200, Igor Paunovic wrote:
-> Hi Sebastian,
->=20
-> I retested v14 on my Orange Pi 5 Plus, this time covering the phy-core
-> notifier patch and the new dwc3 glue patches (28/38-31/38), which do not
-> carry my tag yet.
->=20
-> Test kernel: 7.2.0-rc7, built from your rockchip-devel branch at
-> ea51774c5c42 ("usb: typec: mux: initialize mux switch array"), which
-> already contains the whole v14 series (I checked that 1/38 and 28/38-32/38
-> are in that history, plus all 32 "phy: rockchip: usbdp:" commits are
-> ancestors of it).
->=20
-> On top of that base I carry 50 local commits - display, GPU, media and
-> platform work. None of them touch drivers/usb/, drivers/usb/typec/ or
-> phy-rockchip-usbdp.c, but two are worth naming so you know exactly what
-> was under test:
->=20
->   - drivers/phy/rockchip/phy-rockchip-snps-pcie3.c: a one-line fix to the
->     PCIe combo PHY SRAM-init check. Unrelated to this series.
+>> Warning: drivers/regulator/max8998.c:59 cannot understand function prototype: 'struct max8998_regulator_data'
+--
+   drivers/power/supply/max8998_charger.c: In function 'max8998_battery_probe':
+>> drivers/power/supply/max8998_charger.c:95:28: warning: variable 'i2c' set but not used [-Wunused-but-set-variable=]
+      95 |         struct i2c_client *i2c;
+         |                            ^~~
 
-That's a completley unrelated :)
-
->   - arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts: in mainline
->     this board still has the old single-"port" graph for usbdp_phy0 and no
->     altmodes node on the usb-c-connector, so there is no DP alt mode to
->     exercise at all. I carry a local DT patch that converts usbdp_phy0 to
->     the four-port "ports" graph and usb_host0_xhci to the two-port graph
->     your bindings describe, and adds an altmodes/displayport node
->     (svid 0xff01) to the connector. That DT change is mine, it is not in
->     mainline and not part of v14 - so everything below is your v14 code,
->     unmodified, driven by that DT.
-
-Sure, Otherwise you cannot test.
-
-> The USB-C link runs through an Epico EC65 "UltraLink 8K/60Hz HDMI to
-> USB-C" cable - an active DP alt-mode to HDMI converter (GsCooLink chip,
-> USB VID 0x3679) - into the HDMI input of a Samsung Odyssey G70B. So the
-> DP link partner your code negotiates with is that converter, not a
-> monitor directly.
-
-Correct, the most important part is the DP to HDMI adapter in your
-case.
-
-> What I actually exercised, running this kernel as my daily driver since it
-> booted on 2026-08-14 at 20:09 local time (17+ hours of continuous uptime
-> when I ran these checks):
->=20
-> - The new glue driver is bound to both controllers:
->=20
->     /sys/bus/platform/drivers/dwc3-rockchip/fc000000.usb
->     /sys/bus/platform/drivers/dwc3-rockchip/fc400000.usb
->=20
-> - DisplayPort alt mode is active at the Type-C layer:
->=20
->     /sys/class/typec/port0-partner/port0-partner.0/svid   =3D ff01
->     /sys/class/typec/port0-partner/port0-partner.0/mode   =3D 1
->     /sys/class/typec/port0-partner/port0-partner.0/active =3D yes
->=20
->   driving DP-1 at 3840x2160@120 with HDR, simultaneously with two HDMI
->   outputs: HDMI-A-1 to a Sony TV at 3840x2160@60 and HDMI-A-2 to a second
->   Odyssey G70B at 3840x2160@120, both with HDR.
->=20
->   Two caveats about DP-1, both pre-existing on my setup and unrelated to
->   your series: the converter emits a broken Y420VDB block, so I feed the
->   connector a corrected EDID through edid_override, and after the EDK2
->   firmware hand-off DP-1 comes up "disconnected" with the cable present,
->   so a boot script does one unbind/bind of the fusb302 i2c device to kick
->   it. Neither workaround was touched during the hotplug test below.
-
-obviously completley unrelated to USBDP PHY.
-
-> - Hot unplug/replug of the USB-C cable. The xHCI host controller was
->   re-registered and the DisplayPort output came back on its own, with no
->   manual intervention:
->=20
->     13:00:56  kernel: xhci-hcd xhci-hcd.6.auto: USB bus 4 deregistered
->     13:00:57  kwin_wayland_drm: Removing output
->     13:01:26  kernel: xhci-hcd xhci-hcd.6.auto: xHCI Host Controller
->     13:01:26  kernel: xhci-hcd xhci-hcd.6.auto: Host supports USB 3.0 Sup=
-erSpeed
->     13:01:29  kwin_wayland_drm: New output on GPU /dev/dri/card0: Odyssey=
- G70B
->=20
->   (kernel and compositor lines interleaved, abridged.) Note the ~30 s
->   between disconnect and re-registration - PD/alt-mode negotiation with
->   this converter is slow. After the replug the connector is back at
->   3840x2160@120 with HDR.
-
-30 seconds for PD negotiation is indeed very slow. Usually it's at
-least 10x faster. Have you checked for the root cause via TCPM log?
-Also you might want to check if there are firmware updates available
-for your adapter.
-
-> - No messages at all from dwc3, dwc3-rockchip or the usbdp PHY for the
->   whole uptime, before or after the replug.
->=20
->   For completeness, the DP controller does print a burst of 32
->   "dw-dp fde50000.dp: timeout waiting for AUX reply" right after the cable
->   is pulled - that is the DRM side probing a dead link, it clears on
->   replug and is not from your code. The converter's billboard device also
->   logs one "cdc_acm 3-1:1.1: probe with driver cdc_acm failed with error
->   -22" per connect - a converter quirk, seen daily on this setup since
->   long before this kernel.
-
-The billboard device should be on USB2, so this series does not
-affect it.
-
-> One thing I should not hide: I do get a WARN from tcpm, but I trigger it
-> myself and it is not from this series:
->=20
->   WARNING: drivers/base/devres.c:1184 at devm_kfree+0xb8/0xd0
->   Call trace:
->     devm_kfree
->     tcpm_port_unregister_pd [tcpm]
->     tcpm_unregister_port [tcpm]
->     devm_tcpm_unregister_port [tcpm]
->     devm_action_release / release_nodes / devres_release_group
->     i2c_device_remove / device_release_driver_internal / unbind_store
->
-> (trace abridged.) It fires when the boot script mentioned above explicitly
-> unbinds fusb302 (i2c 6-0022), i.e. on the devres teardown path introduced
-> by 48bf0f5f9ec8
-> ("usb: typec: tcpm: add device managed port registration") and fcdd23c198=
-4e
-> ("usb: typec: fusb302: Switch to device managed resources") in
-> rockchip-devel. Those are not part of v14 and I have not root-caused this,
-> but since they are in the branch I tested I thought you would rather know.
-> It does not fire on a normal cable unplug/replug, only on an explicit
-> driver unbind.
-
-That's unrelated to this series, but I fixed it up in rockchip-devel.
-
-> I am sending the Tested-by tags as separate replies to 28/38, 29/38, 30/38
-> and 31/38, so that they land on exactly those patches.
->=20
-> I am deliberately not tagging 32/38 ("fix USB-C reconnect in gadget mode"=
-).
-> I have never used this board in gadget mode, so I cannot claim to have
-> tested that path.
->=20
-> One build issue to report, starting at 31/38
-> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
->=20
-> The new glue driver cannot be built as a module once 31/38 is applied.
-> 29/38 alone is fine - the glue it introduces only pulls in module.h,
-> platform_device.h, pm_runtime.h and glue.h. It is 31/38 that adds
-> #include "io.h" and the dwc3_readl()/dwc3_writel() calls.
->=20
-> Reproducer: ea51774c5c42, arm64 defconfig plus CONFIG_USB_DWC3=3Dy,
-> CONFIG_USB_DWC3_ROCKCHIP=3Dm, CONFIG_TRACEPOINTS=3Dy. The build then fail=
-s at
-> modpost:
->=20
->   ERROR: modpost: "__tracepoint_dwc3_readl" [drivers/usb/dwc3/dwc3-rockch=
-ip.ko] undefined!
->   ERROR: modpost: "__traceiter_dwc3_readl" [drivers/usb/dwc3/dwc3-rockchi=
-p.ko] undefined!
->   ERROR: modpost: "__tracepoint_dwc3_writel" [drivers/usb/dwc3/dwc3-rockc=
-hip.ko] undefined!
->   ERROR: modpost: "__traceiter_dwc3_writel" [drivers/usb/dwc3/dwc3-rockch=
-ip.ko] undefined!
->   make[2]: *** [scripts/Makefile.modpost:147: Module.symvers] Error 1
->   [...]
->=20
-> dwc3_readl()/dwc3_writel() call trace_dwc3_readl()/trace_dwc3_writel(),
-> and the dwc3 tracepoints are not exported - there is no
-> EXPORT_TRACEPOINT_SYMBOL* anywhere in drivers/usb/dwc3/ - so a separate
-> module cannot reference them. With CONFIG_TRACEPOINTS=3Dn the trace_* cal=
-ls
-> become empty inlines and this should not trigger; I only tested
-> CONFIG_TRACEPOINTS=3Dy.
->=20
-> dwc3-rockchip.c is the only glue driver in drivers/usb/dwc3/ that calls
-> the core's dwc3_readl()/dwc3_writel(). dwc3-st.c also includes io.h, but
-> it reads through its own st_dwc3_readl()/st_dwc3_writel(), and e.g.
-> dwc3-keystone.c defines kdwc3_readl()/kdwc3_writel() - though those all
-> access their own glue registers, not the core register block.
->=20
-> Two ways to fix it, whichever you prefer:
->=20
->   - EXPORT_TRACEPOINT_SYMBOL_GPL(dwc3_readl) and (dwc3_writel) in
->     drivers/usb/dwc3/trace.c, or
->   - open-code the access in the glue, e.g.
->     readl(dwc->regs + DWC3_GUSB3PIPECTL(port) - DWC3_GLOBALS_REGS_START),
->     at the cost of losing the dwc3_readl/dwc3_writel trace events.
->=20
-> I worked around it locally with CONFIG_USB_DWC3_ROCKCHIP=3Dy, which is how
-> the kernel I tested above was built. Note that "default USB_DWC3" means
-> the glue follows the core: with CONFIG_USB_DWC3=3Dy the default is =3Dy a=
-nd
-> the problem stays hidden, but with CONFIG_USB_DWC3=3Dm the default would =
-be
-> =3Dm. I have not build-tested the CONFIG_USB_DWC3=3Dm case. The Kconfig e=
-ntry
-> added by 29/38 does promise "Say 'Y' or 'M' if you have such device."
-
-Thanks, I only tested non-modular and defconfig (which is modular,
-but does not have CONFIG_TRACEPOINTS=3Dy). I don't see a good reason
-for duplicating dwc3 readl/writel. Exporting is the reasonable thing
-to do and will be done in the next version.
-
-> This reply was prepared with the help of Claude (Anthropic). The board,
-> the tests and the measurements are mine, and I checked every claim above
-> before sending.
-
-Ideally you trim down its wall of text in future mails.
-
-Greetings,
-
--- Sebastian
-
---idisms6hiinp7qil
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmqDO88ACgkQ2O7X88g7
-+ppLkA/9EPvTTlKH1OgWZB43TAFj/qGbrDbtMl6ILE70Ry9qpwqf0y7vF7Gc3xK5
-9A7ryEMJCOFOkGsBIYfH/SkX3FTM3sGZuoSEigh9NwJiNBucPd5SxHWS30aO5+h8
-UFHH3kh/FDN4wF0O+Cn/VSe3kF+P2WBUIovZn/w6Bc/SfOP5vWuhVflHuYgSqUXQ
-PANLgDpKlqbu96ssBMxAJ1GYoCTFIe7Rya92jdKYJspTmQ8hAZ21PpANKdB+iUNC
-qYU42HZlsKcem7MVkJ+RhOMRsV6Cnhn+J1QZVe0wOJrixZVy6b8euDYhF/jsL4RF
-cYqgUGYesyR0ui4yzh2iokK938/TgezLKEkae4faLaPy1oSss8iA8ER3Bpx8zUH4
-ar9i61Kpfzs3c09RJOAEM3dUS67ZAe5oJ+m8ws6EIwKMcIiwbOcgUrNQH2c3+Zer
-vANrXxml6KLrKA0x7Jk8WoijJAhnx8r57P3/SIxh6p3VhtTHDxtHh6OZOcQPdpXi
-3fdhhhSDgP8Hi1WgO65AsvpLhC+k0UJWr2AyzwHPx6EzWFbiJegrL4whzSxlt6Od
-XLxTu+afmbvGeZsCcgx3mhJOu9jU3QGwCXBT5TclwB/RDGT/+rKypf/4VUbYXvZR
-U2s0jB8L7eMgXOlzpfGduQkflh5rBX/5RmhIFX81iDN028V4olU=
-=EIL6
------END PGP SIGNATURE-----
-
---idisms6hiinp7qil--
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
