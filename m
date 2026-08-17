@@ -4,83 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05427C5DF66
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 09:44:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59823C5DF70
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 09:46:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+THMLn1UZx9nf5RAT2P7GzAZnM9DxkEgB9Bh6dff4ho=; b=djX7BaKhWMIGDiYG841IpmXksD
-	UW3foaoXos7hl//HVUlS1fQfhxwsUKJUtAUenjVoCP7Y3BES+q+MJajLXcDc2nQq2sVfhgVnvYIFz
-	pWdFOJTcNY5qfL2MU77con4dgDKMbFR2BSTxMia2CfxIZ0D0PQzmlWtXJwISQQCFmU2RoXvrAZIwK
-	kuQaA34CO8uGfOoh7BMklqwnSBwpt9v7KTA98tB4ApIJ/J7rUiuQXLILoQVca5LJtuU/QruKCv4P0
-	1cdYxwYMB5DbnUB56heqTupkZuzlBJUZtE27e6BVQkbFHXb74M/cky3fvM6WCU4UAuygMLhxQKjqo
-	TSvDdgNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KMiX0lpuCdiMpiwzWoB9LVEm9l7oTA1Ip8S52pJKwGo=; b=nyqp0SsHg3WnDesTJq3OEvqREr
+	3XSJiX0Xjzo9MFiolDrLUVCw6/uYAt01IhIgo3YhguH3F2Yv3ol/MTmydSyCbB04FB3RnvQBc0rol
+	fCWXD8dEa/0rCYyiYnEB5bon5wB8s8mCLvZs+uLSDrvdD442KT7hLstXJyf56bYQmpTsgSTg1/5bo
+	O/uu7vF+/VX/U3rVsEdxD0JhAuuicCPBbM2rzr11ifbQFzJ+fSSJz7DWVfM1EamJiV1fSiM8y+YFU
+	TLaJetpxXoxgo1mGkrWYiizUWc2KlmGdZ3UhimeftVC4b8ikEXiHRJKQ+ymtWKyNzy34JbmOmSLQo
+	2taChQ8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvttY-00000005q8y-2q6R;
-	Mon, 17 Aug 2026 09:44:40 +0000
-Received: from fanzine2.igalia.com ([213.97.179.56])
+	id 1wvtup-00000005qQF-0PWj;
+	Mon, 17 Aug 2026 09:45:59 +0000
+Received: from flow-a4-smtp.messagingengine.com ([103.168.172.139])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvttU-00000005q7F-18G0;
-	Mon, 17 Aug 2026 09:44:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:
-	From:Reply-To; bh=+THMLn1UZx9nf5RAT2P7GzAZnM9DxkEgB9Bh6dff4ho=; b=F9ED7xRebfO
-	fpKmtDdJPClyjkM0wdEcvuHinh/JJwYUq/anG2SrWwi7ulZMSHNb5DyOM2paCKQs6s1+1EydqZ7e4
-	NguAxHxj5o9yjk+tszmJgayTZR3WRQIqTqYItjv7rB1LVtFRp/MMsfAdN/N8xpAJ/XXwR5y8wzINo
-	g59JSsj6T+PpEDZEE88JBG0Ijjuq1T6ySXwPqQ6oRtx4JVd+x6F17ATJTTrWYqaQ1gFofG2TyxvwO
-	042PoThldp1pqUi3M8n/FzC+N4+txPch8hazThaEJBW1C+MaKLVWe9bt61FUV0EDNExBsfbCI3cEV
-	RZjJS2tHgicIp0AoouP6p0g==;
-Received: from maestria.local.igalia.com ([192.168.10.14] helo=mail.igalia.com)
-	by fanzine2.igalia.com with esmtps 
-	(Cipher TLS1.3:ECDHE_SECP256R1__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
-	id 1wvtt1-0046Zh-1a; Mon, 17 Aug 2026 11:44:07 +0200
-Received: from gate.service.igalia.com ([192.168.21.52])
-	by mail.igalia.com with esmtp (Exim)
-	id 1wvtt0-00AeNY-0G; Mon, 17 Aug 2026 11:44:06 +0200
-Received: from berto by gate.service.igalia.com with local (Exim 4.96)
-	(envelope-from <berto@igalia.com>)
-	id 1wvtsz-002qMz-2h;
-	Mon, 17 Aug 2026 09:44:05 +0000
-Date: Mon, 17 Aug 2026 11:44:05 +0200
-From: Alberto Garcia <berto@igalia.com>
-To: Rong Zhang <i@rong.moe>
-Cc: Michal Pecio <michal.pecio@gmail.com>,
-	Chris Lu =?utf-8?B?KOmZuOeomuazkyk=?= <Chris.Lu@mediatek.com>,
-	sean.wang@kernel.org, "luiz.dentz@gmail.com" <luiz.dentz@gmail.com>,
-	Will-CY Lee =?utf-8?B?KOadjuaUv+epjik=?= <Will-CY.Lee@mediatek.com>,
-	"marcel@holtmann.org" <marcel@holtmann.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	SS Wu =?utf-8?B?KOW3q+aGsuasoyk=?= <ss.wu@mediatek.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-bluetooth@vger.kernel.org" <linux-bluetooth@vger.kernel.org>,
-	"patchwork-bot+bluetooth@kernel.org" <patchwork-bot+bluetooth@kernel.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>
-Subject: Re: [PATCH] Bluetooth: btmtk: Disable remote wakeup for MT7922/MT7925
-Message-ID: <aoLX5TsNv5d9jw0g@igalia.com>
-References: <20260603-btmtk-remote-wakeup-v1-1-5c1006442f36@rong.moe>
- <178050901239.1520440.2026593395539384648.git-patchwork-notify@kernel.org>
- <3f9c376a5dbfc9d737e2a7f83c5db8e591fb8793.camel@mediatek.com>
- <17FE08E9-2229-4C97-846F-6FA099E22C90@rong.moe>
- <CABBYNZ+rR71SKUEuZBTf+E3SwRNzV2-s-zt8EwNJM3PSx9qB_A@mail.gmail.com>
- <fd8587e97a48e49332a4ad36e51e18739d000250.camel@mediatek.com>
- <4e96132bcfb267af05c06dc277b5ba6895e3ddde.camel@rong.moe>
- <99fb847b8fdedb1464798230407719912d6585c6.camel@mediatek.com>
- <20260809223320.24431a4a.michal.pecio@gmail.com>
- <868e97331dc74f176db2d3efdd1c579049b8e493.camel@rong.moe>
+	id 1wvtul-00000005qPU-1P8F;
+	Mon, 17 Aug 2026 09:45:57 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailflow.phl.internal (Postfix) with ESMTP id CD2C713802AE;
+	Mon, 17 Aug 2026 05:45:53 -0400 (EDT)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-04.internal (MEProxy); Mon, 17 Aug 2026 05:45:53 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
+	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
+	:from:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=fm2; t=1786959953; x=
+	1786963553; bh=KMiX0lpuCdiMpiwzWoB9LVEm9l7oTA1Ip8S52pJKwGo=; b=s
+	AR/TxMFWmNopDZS4zzIHNdMQ8KhExf9auUe0Ix6oOyiM/iOBqDLSLS7mAOtEnlbB
+	+iXHjnasYcL+ChYyPJitlj1KiHOTkuSdhrii4G48/RzfxkOT+E996zdoSeZqkRYv
+	2TLu8UgerFSFgiMaui8rz1W2RuaM5p6euodXKZc9mzScAm9DPmPEq/EWa1Rgjt7o
+	+EHJdnxE7rlWgN6xNaVfTkETyb/Knf5rCG85OK4RUo8EkWZCN1e7H9YjzVtkPSlr
+	wnbbLfbfxXYc/MFoCRah96QS+2LfIid1A34d5/xaQEAvu+pc41ONxMYBjz8umjpY
+	eFUBFgPdttO757nyu6qGA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
+	:x-me-sender:x-sasl-enc; s=fm3; t=1786959953; x=1786963553; bh=K
+	MiX0lpuCdiMpiwzWoB9LVEm9l7oTA1Ip8S52pJKwGo=; b=Fr6roOJRV4MVuiai+
+	R/Q1cw5k8imuJY83GFFZvG8oz8A0H/aq99jt286HGIHzKMXAzab3Ia4Hro49fAAa
+	LoAappbPzQF4Nd8/XMKdc22irHCZLw4DH5OcpYilqAPj9ogjJJGeLPi9A8tNljc8
+	pb1wzV1UFmRBXri8xcZ2H2mi3zz8oLddg6vSX1bTLk9buKrtg72Yawc6RvG4EjTX
+	ONwQJr9HLsSS1icjc06fn0AhKNYzRF1B9dtAJkGKDH0TiJvzNCU1KwxTAWVLoyi0
+	jMbwhtFZvMyqr0L3mdG+xoFx2U2qKl2ljZdjGCVhSU+ZDL7UKhlkNGoUdvDKbdkz
+	/r8Pw==
+X-ME-Sender: <xms:UNiCaiZYYEdmyxDDQuxbNWP-HldgQn_at4iiNsCY0wRoadhvCeYfqQ>
+    <xme:UNiCatm8sezKSR3B8VzowZXUQ6JZT_ZbbUOJDEA3gcBJWmLpPgJvkTO9AcgOYBvBb
+    XRUij0HZX-NeM5CglKcHTQXw3yfLcj8GKvpiF2I8iAfRVfd6sXXnwnD>
+X-ME-Received: <xmr:UNiCaogg30bTsW3guDAoQ-25OuJHzEM_hRK_jyVWG0e0AEaiV4Q827v3bqOdkEx7OXfkGFJ-Wg>
+X-ME-Proxy-Cause: dmFkZTEW/5JOkdI3iXwa6dLGZb2VIfdQ9j3pTYauZ3twR3nWWZHun4Wug0NVbCvnVLGFzF
+    qLCeelooNbSVomgngrCbN2qyOwXWXWTPuLsmf8+i+1vXwulmrRcfcDlFRvuzUIYM7gogH0
+    fEqlCuYDu2h38EKc6+PeMHzjIX5Koyql5vFR6fLjqDdLAFYpYRe0JBMB7Ii3Axa2BcPleq
+    TUUyYnZFPRz3CxWeWhgopvJCgcH3QiMljuEhIrisY+1cotyf30xbcGRC59KJZaAFy4fOtk
+    G4z7rcGaXdOcfa4iidylBWK+jpPPzpwesm0xHDYJF85xyGbTzN0kLKDQ1HSzYwnnyQa/Ku
+    WPa8Wj2WsuAA6qbnYat/CASXOerAXUMLyjexRJ2HMK/VUiew61buK8OOa46/BiO1Y7yZSE
+    oyvUe1sYppRSj6DTAHQtbXyoEWYeOKLmnb2jWLMCKFNiHuXbiDzS/UbQGPtj2MRzY9Fm2T
+    PDauUqNnNHBzpqf6dXzG98RWEK5ECC9vXMQnWtXppYxHQQajRpLNQRLEdMSwCMrs2u9uGw
+    xs8xKwdvfaQWWMq6Wgr2ikw1GMnqf0Y0L4p1Buwmln6xTUN7vlq27PDJ/yRv70UV7eM8hn
+    x27IRKDNuEPYelcNoMzTC18SIVsoI87JmO/TT6VHqBNz1yalCs40HSJfTxiA
+X-ME-Proxy: <xmx:UNiCavSPE_SUk1Rm5_rdC9pw-jdAC9PO8NN92LpvUGZv3VT7O3GDIg>
+    <xmx:UNiCapbG58N5zAj_1ArJZHGh6QyZyNUUdS39cCv8YerIzZxubudsjA>
+    <xmx:UNiCasQkR8MH9ovVvSh5CBbzpnvKAIJtfG1ONtKv8yEijSS49QKhKg>
+    <xmx:UNiCao_azbybFVzAh3KAVdrgaFK8BOfJ9A8GznMInH8CH_2LjEMbpw>
+    <xmx:UdiCah5ZbuC6Y7SdsYZR2HhCgWM8T22xo3A81LkIRqPJWlMfwPuac-ys>
+Feedback-ID: i7a5e4b5f:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
+ 17 Aug 2026 05:45:47 -0400 (EDT)
+From: Jiaxing Hu <gahing@gahingwoo.com>
+To: royalnet026@gmail.com
+Cc: tomeu@tomeuvizoso.net,
+	heiko@sntech.de,
+	chaoyi.chen@rock-chips.com,
+	alchark@flipper.net,
+	dri-devel@lists.freedesktop.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v7 08/10] accel/rocket: add RK3576 NPU (RKNN) support
+Date: Mon, 17 Aug 2026 21:45:44 +1200
+Message-ID: <20260817094544.1159366-1-gahing@gahingwoo.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <CAEWPSH7ETfw2TDjUfOvcVtDm19FC43x2vP=Lh7m+XPOGptnPWA@mail.gmail.com>
+References: <CAEWPSH7ETfw2TDjUfOvcVtDm19FC43x2vP=Lh7m+XPOGptnPWA@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <868e97331dc74f176db2d3efdd1c579049b8e493.camel@rong.moe>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_024437_405361_823E4D1D 
-X-CRM114-Status: UNSURE (   9.58  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260817_024555_821308_66CE0247 
+X-CRM114-Status: GOOD (  13.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,20 +112,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 11, 2026 at 04:03:38AM +0800, Rong Zhang wrote:
-> I have also seen claims that auto power management is broken in btusb:
-> > https://lore.kernel.org/linux-bluetooth/cover.1774348119.git.berto@igalia.com/T/#u
-> 
-> I believe the proper fix of autopm failure during initialization is
-> https://lore.kernel.org/linux-bluetooth/20250319231235.812700-1-sean.wang@kernel.org/
+Hi Igor,
 
-I'm afraid that patch does not fix the problem for me.
+Here are 88 and 120 on RK3576, with the 56 from earlier in this thread as
+a third point. A channel counts as matching when its maxdiff against the
+reference is at most 1, which is how perch.py scores.
 
-With a patched kernel 6.12.96, after a couple of reboots:
+  oc    parity form    modulo form, ROCKET_DPU4050_MOD32=1
+   56   56 of 56       32 of 56, timed out, lost 32 to 55
+   88   88 of 88       64 of 88, timed out, lost 64 to 87
+  120  120 of 120      96 of 120, timed out, lost 96 to 119
 
-kernel: Bluetooth: hci0: HW/SW Version: 0x008a008a, Build Time: 20241106151414
-kernel: Bluetooth: hci0: Failed to write uhw reg(-113)
-kernel: Bluetooth: hci0: HCI Enhanced Setup Synchronous Connection command is advertised, but not supported.
+Under the modulo form each count keeps whole groups of 32 output channels
+and drops the remainder, and all three of those runs also raise the
+driver's job timeout. Under the parity form all three compute the whole
+output at a maxdiff of 1.
 
-Berto
+What the three points cannot tell you. 56, 88 and 120 are all 24 modulo
+32, so the twenty four lost channels are forced by the arithmetic and are
+not corroboration, and the rule is untested at every other remainder. A
+count of 40 or 72 would say more than a fourth one at 24.
+
+The modulo numbers are read back from a job the driver declared timed out,
+so the obvious alternative is that the job died before writing the tail of
+the output. The log argues against it. At 120, nine of the twenty four
+wrong channels carry enough varying output to fit a line against the
+reference, and the surface reports 45 constant channels of 120 with 37 of
+those pinned at the output zero point, so the lost region was written
+rather than left untouched.
+
+ROCKET_DPU4050_MOD32 occurs once in the whole Mesa tree, inside the value
+expression for 0x4050, so at a given count the two register streams differ
+in that word and nothing else. That is an argument from the source, not a
+measurement. I meant to measure it at 64 output channels, where the two
+forms emit the same value by construction, and only got one side of it.
+Without the knob it was 64 of 64. The run with the knob did not complete,
+the entry hung after the 88 run had timed out.
+
+One confound to disclose. 88 both ways and 120 under the parity form are
+one boot. 120 under the modulo form is the next boot, on a kernel that
+also carries an unrelated power domain change, and the NPU rail reads
+enabled in the first and disabled in the second. The Mesa build is byte
+identical across the two and the modulo form times out under either
+kernel, but the 120 row is not a single variable comparison and should be
+read as two.
+
+If you still want the RK3588 side, ROCKET_DPU4050_MOD32=1 against your own
+build is the comparison.
+
+Jiaxing
 
