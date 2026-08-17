@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8B5FC5DF74
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 22:04:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C9A8C5DF74
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 22:08:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8QbmljoA7cUSu8InNHkDYKT1TQBGRW4y/Zfa/6fYwBE=; b=GjhpK945L8jbZhh86/PW3JEPIy
-	8gPapg7EYjBzgngfADorjmhwmQRAg+bZkKVLX6DM58Z2vaq9NtKLj78JUabnxnwZy0YB90r7K3PPv
-	C5e6C5S+O25ZFRk5CnzhaN3M6iOJhRdUw8Cn7oy0EgJjbQSM+N3Em0S3tiwafRV/yZZNfyt3m4JCk
-	p5TxBV3lqry+//GPV8jvMHH6bEL3lrWW0gI3P2f2x0r8xKsR/bGFu916Vjbd3M1iBS5IR5gmzCYQe
-	JMJfLDe828iyhv7T8EKXCAaQmQ3f9/E3EFFkmw5lY25XW9aEBVLlB86RwvdN6xxCKJ20XEea3tFQw
-	cZmoqnjA==;
+	bh=GmmIfh8c/8Lo9aj78fk3ufRovlVowXNbcmbUtWRPK7c=; b=HUIzfuEhm79RMgtuIfRelWTa5W
+	uoM2u9DsNVBpeaha1QxM1HRiKjYkNmvZfD1Igh9XVJUA/0TbAL4WCF2gjPAqf9cobD8AvyIA8NIyz
+	ru0bp2ol+8coKognaeA9r/6VHwXvqo/QB6RAZkkgpUZiQh3OlSF/ru7SHf2e5OP/JXWAMVAh2onZL
+	Wtywbb3zIcHZs+QVRe6kOq/w7Q8dI9tfTR6DV3vWm9jhp0dR/KYa455fL6ccbQEkwYuozT8+go6/0
+	c1VynyfL2CDK0swUqlqfhL3CiW0OTRZKqTAZzsnzgU0oSjOjcHidmBvG6AF+tKTVu9VIw6OuvE2YL
+	2nv0u4zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww5R0-00000006tRu-2kQJ;
-	Mon, 17 Aug 2026 22:03:58 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1ww5Uo-00000006tdG-0ZTM;
+	Mon, 17 Aug 2026 22:07:54 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww5Qz-00000006tRl-1GR6
+	id 1ww5Un-00000006td9-1bQB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 22:03:57 +0000
+	Mon, 17 Aug 2026 22:07:53 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C729C404A7;
-	Mon, 17 Aug 2026 22:03:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AE0B1F000E9;
-	Mon, 17 Aug 2026 22:03:56 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8B513600C8;
+	Mon, 17 Aug 2026 22:07:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C4E51F000E9;
+	Mon, 17 Aug 2026 22:07:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787004236;
-	bh=8QbmljoA7cUSu8InNHkDYKT1TQBGRW4y/Zfa/6fYwBE=;
+	s=k20260515; t=1787004472;
+	bh=GmmIfh8c/8Lo9aj78fk3ufRovlVowXNbcmbUtWRPK7c=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=IJveCKqguAtkA0rT2DSLIORNmt1ukydaTlK4aVIJATv2SrQr6Sa/IAjGWlnUSHsYL
-	 m+btWOz7UgN7o2OoCNxuh2OCCY+RnwRB5Gvc7fNyGWd+59+NYdOliNpNgKqYlhCIYF
-	 NTOOgae98pqE1nK4ei2X5Iv9mMymvxojHHEyi3ceFXkwgfY/9wg3aallrSn4WFGO+F
-	 qFHUlYHYMM4o7atUm2bSUc8F4yaM35TyJuxP7SXLc8TdIJnPPiXq4cC071vCqe+yb+
-	 q/9hRkTGXDsF9UDAo24bUS+ZKgSVrusX+oynUMOjhqQrbzWOC7jaJoiNU1elyEAFhx
-	 41cwUkKPkGRTA==
-Date: Mon, 17 Aug 2026 17:03:54 -0500
+	b=JgpSn8CYUzY/jaGbrTvIb0JtGh7s3QwiHtz+c4j6WxH7ZWIZj3K6ylFkViMYpKV6D
+	 XHw7Ga0i6WWDQyfOgIDuLWDwivBNa0lwUiDEp1B92dT7I6sDVMT2TV2PXjD7UUmopK
+	 Tv4JkdWtBoUrYHook6fzy4avdseLFCY9/hbruZylwWTpP+/iIJMXIgA0eUR1b2noUF
+	 ow8hbbPPzPm8UvwDi/qz4lXZvStQ2zFERqsCK1LM7fdovzw/FMY/LNdl3bmlEuW761
+	 uVfBzrfW9OGaPPABCDQY81gw6K7EkYYofwrZQ5NSFs6GJEIj4AIvB9PCCy4ZS7lxlR
+	 26cy3SVZBS6ng==
+Date: Mon, 17 Aug 2026 17:07:50 -0500
 From: Rob Herring <robh@kernel.org>
 To: KobaK <kobak@nvidia.com>
 Cc: Catalin Marinas <catalin.marinas@arm.com>,
@@ -53,14 +53,15 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	Fenghua Yu <fenghuay@nvidia.com>, Tushar Dave <tdave@nvidia.com>,
 	Kai-Heng Feng <kaihengf@nvidia.com>, rupakr@nvidia.com,
 	mohammedk@nvidia.com
-Subject: Re: [RFC PATCH 2/3] Documentation/arch/arm64: document arm_cpumod
-Message-ID: <20260817220354.GA2274565-robh@kernel.org>
+Subject: Re: [RFC PATCH 1/3] arm64: add CPU prefetch and cache modulation
+ sysfs interface
+Message-ID: <20260817220750.GB2274565-robh@kernel.org>
 References: <20260817022335.3-1-kobak@nvidia.com>
- <20260817022335.3-3-kobak@nvidia.com>
+ <20260817022335.3-2-kobak@nvidia.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260817022335.3-3-kobak@nvidia.com>
+In-Reply-To: <20260817022335.3-2-kobak@nvidia.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,135 +76,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 17, 2026 at 10:23:34AM +0800, KobaK wrote:
+On Mon, Aug 17, 2026 at 10:23:33AM +0800, KobaK wrote:
 > From: Koba Ko <kobak@nvidia.com>
 > 
-> Document the ABI intent and scope for the new arm64 cpumod interface.
-> The sysfs directory is per-CPU and is created only for recognized Grace
-> and Vera profiles:
+> Performance characterization on arm64 systems sometimes needs a way to
+> inspect and bracket selected implementation-defined prefetch and cache
+> controls without exposing raw register contents. Add an RFC-only arm64
+> cpumod interface that presents a small set of named, range-checked
+> per-CPU sysfs attributes under each CPU device.
 > 
->   /sys/devices/system/cpu/cpuN/cpumod/
+> Establish the Kconfig and Makefile plumbing, CPU profile detection for
+> Grace and Vera from the target CPU's MIDR, register-field descriptors,
+> per-CPU kobject and attribute helpers, locking, and target-CPU read/write
+> callbacks. Common attributes are exposed for all supported profiles,
+> while Grace- and Vera-specific fields are exposed only for the matching
+> profile. Place the option at the end of the top-level Kernel Features
+> menu because these implementation controls are not tied to an Arm
+> architecture revision.
 > 
-> CPUs with unsupported MIDRs are skipped without blocking module load or
-> CPU hotplug and do not receive a cpumod directory.
+> Per-CPU cpumod sysfs state follows the CPU lifecycle. Module
+> initialization populates subtrees for every online CPU while holding
+> cpus_read_lock(), so initial enumeration and CPU hotplug state
+> registration are serialized against concurrent topology changes. Offline
+> CPUs are intentionally skipped during initial setup because target-CPU
+> MIDR detection requires an IPI-capable online CPU; a later online callback
+> creates their subtree.
 > 
-> Describe the common attributes, the Grace- and Vera-specific attributes,
-> and the accepted range for each writable field. Out-of-range writes are
-> documented as failing before either cached sysfs state or target CPU
-> register state is changed.
+> Profile detection reads MIDR through a synchronous callback on the CPU
+> owning the sysfs subtree and returns nonzero only when that dispatch
+> fails, so no IPI error can be hidden. After a successful read, retain
+> CPUMOD_PROFILE_UNKNOWN as the unsupported-profile sentinel. Subtree
+> creation skips that profile during both initial online enumeration and
+> later CPUHP online callbacks without blocking module load or CPU hotplug.
+> Object and sysfs setup failures remain fatal and are propagated.
 > 
-> Document the CPU hotplug lifecycle explicitly: the cpumod directory is
-> present only while a supported CPU is online, is removed when that CPU
-> goes offline, and is recreated when it returns online. Reads and writes
-> therefore require an online target CPU.
+> Keep the dynamically allocated kobject state in a private per-CPU pointer
+> instead of the CPU device's generic driver-data slot. The online callback
+> is idempotent when that pointer already records a subtree. The offline
+> callback clears the private pointer before dropping the kobject reference,
+> allowing the release callback to retain ownership of the final free.
 > 
-> Also document the firmware prerequisite: EL1 must be allowed to access
-> the relevant implementation control registers. The interface remains an
-> RFC for controlled performance characterization, is not a general
-> production tuning ABI, and should stay disabled by default on production
-> systems.
+> Register the dynamic CPUHP state with
+> cpuhp_setup_state_nocalls_cpuslocked(). The nocalls form avoids replaying
+> startup callbacks for CPUs already initialized by the explicit online
+> enumeration. On init failure, release the CPU read lock, destroy all
+> subtrees created so far, and return the error. Module exit removes the
+> CPUHP state with the matching nocalls helper and tears down all remaining
+> per-CPU state across possible CPUs.
 > 
 > Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
 > Reviewed-by: Tushar Dave <tdave@nvidia.com>
 > Reviewed-by: Kai-Heng Feng <kaihengf@nvidia.com>
 > Signed-off-by: Koba Ko <kobak@nvidia.com>
 > ---
->  Documentation/arch/arm64/arm-cpumod.rst | 89 +++++++++++++++++++++++++
->  Documentation/arch/arm64/index.rst      |  1 +
->  2 files changed, 90 insertions(+)
->  create mode 100644 Documentation/arch/arm64/arm-cpumod.rst
+>  arch/arm64/Kconfig                      |  17 +
+>  arch/arm64/kernel/Makefile              |   1 +
+>  arch/arm64/kernel/arm_cpumod.c          | 471 ++++++++++++++++++++++++
+>  arch/arm64/kernel/arm_cpumod_internal.h | 113 ++++++
+>  4 files changed, 602 insertions(+)
+>  create mode 100644 arch/arm64/kernel/arm_cpumod.c
+>  create mode 100644 arch/arm64/kernel/arm_cpumod_internal.h
 > 
-> diff --git a/Documentation/arch/arm64/arm-cpumod.rst b/Documentation/arch/arm64/arm-cpumod.rst
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index b3afe0688919b..5e4ada4884b89 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -2417,6 +2417,23 @@ config ARM64_CONTPTE
+>  	  bit, for any mappings that meet the size and alignment requirements.
+>  	  This reduces TLB pressure and improves performance.
+>  
+> +config ARM64_CPUMOD
+> +	tristate "Arm CPU prefetch modulation sysfs controls"
+> +	help
+> +	  Expose selected CPU implementation control register fields through
+> +	  per-CPU sysfs attributes for performance characterization.
+> +
+> +	  The exposed controls allow hardware prefetch and cache-management
+> +	  policy fields to be inspected and adjusted on CPUs where firmware
+> +	  permits EL1 access to the relevant implementation control registers.
+> +	  Systems where firmware traps or blocks these writes cannot use this
+> +	  interface.
+> +
+> +	  This interface is intended for controlled performance evaluation and
+> +	  should not be enabled by default on production systems.
+> +
+> +	  If unsure, say N.
+> +
+>  endmenu # "Kernel Features"
+>  
+>  menu "Boot options"
+> diff --git a/arch/arm64/kernel/Makefile b/arch/arm64/kernel/Makefile
+> index d2690c3ec5288..f180a52284e7d 100644
+> --- a/arch/arm64/kernel/Makefile
+> +++ b/arch/arm64/kernel/Makefile
+> @@ -69,6 +69,7 @@ obj-$(CONFIG_VMCORE_INFO)		+= vmcore_info.o
+>  obj-$(CONFIG_ARM_SDE_INTERFACE)		+= sdei.o
+>  obj-$(CONFIG_ARM64_PTR_AUTH)		+= pointer_auth.o
+>  obj-$(CONFIG_ARM64_MPAM)		+= mpam.o
+> +obj-$(CONFIG_ARM64_CPUMOD)		+= arm_cpumod.o
+>  obj-$(CONFIG_ARM64_MTE)			+= mte.o
+>  obj-y					+= vdso-wrap.o
+>  obj-$(CONFIG_COMPAT_VDSO)		+= vdso32-wrap.o
+> diff --git a/arch/arm64/kernel/arm_cpumod.c b/arch/arm64/kernel/arm_cpumod.c
 > new file mode 100644
-> index 0000000000000..7dbe2cd5404a2
+> index 0000000000000..9e64f2c8e7810
 > --- /dev/null
-> +++ b/Documentation/arch/arm64/arm-cpumod.rst
-> @@ -0,0 +1,89 @@
-> +.. SPDX-License-Identifier: GPL-2.0
-> +
-> +====================================
-> +Arm CPU prefetch modulation controls
-> +====================================
-> +
-> +``ARM64_CPUMOD`` exposes selected CPU implementation control register fields
-> +through per-CPU sysfs attributes under::
-> +
-> +  /sys/devices/system/cpu/cpuN/cpumod/
-> +
-> +The ``cpumod`` directory is created only when the CPU MIDR matches a recognized
-> +Grace or Vera profile. CPUs with unsupported MIDRs are skipped without blocking
-> +module load or CPU hotplug and do not have a ``cpumod`` directory.
-> +
-> +The interface is intended for controlled performance characterization and
-> +evaluation. It is not intended as a general production tuning ABI, and the
-> +configuration should remain disabled by default on production systems.
-> +
-> +Configuration and placement
-> +===========================
-> +
-> +The controls are built when ``CONFIG_ARM64_CPUMOD`` is enabled. The code lives
-> +under ``arch/arm64/kernel/`` because the exposed state is CPU implementation
-> +control state accessed by the arm64 kernel, similar in placement to other
-> +architecture CPU-facing helpers.
-> +
-> +The ABI remains separate from the existing arm64 ``cpu*/regs`` sysfs files:
-> +``cpumod`` exposes a small set of named, range-checked control fields rather
-> +than a general raw register dump.
-> +
-> +CPU hotplug
-> +===========
-> +
-> +A ``cpumod`` directory is created only for online CPUs with a supported
-> +profile. The directory is removed when a CPU goes offline and recreated when
-> +the CPU comes back online, again only when its MIDR matches a supported
-> +profile. Reads and writes require the target CPU to be online.
-> +
-> +Firmware requirement
-> +====================
-> +
-> +The controls require firmware to permit EL1 reads and writes to the relevant
-> +CPU implementation control registers. On systems where firmware traps or
-> +blocks those accesses, the interface cannot be used.
+> +++ b/arch/arm64/kernel/arm_cpumod.c
+> @@ -0,0 +1,471 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
 
-How does the kernel discover if the interface can be enabled? Write a 
-register and if we're still alive we can enable it?
+Since the introduction of this...
 
-> +
-> +Current ABI
+> +/*
+> + * Copyright (c) 2026, NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+> + *
+> + * This program is free software; you can redistribute it and/or modify it
+> + * under the terms and conditions of the GNU General Public License,
+> + * version 2, as published by the Free Software Foundation.
+> + *
+> + * This program is distributed in the hope it will be useful, but WITHOUT
+> + * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+> + * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+> + * more details.
 
-Is the future ABI going to be different? ;)
+We stopped putting license text in.
 
-> +===========
-> +
-> +Common attributes:
-> +
-> +``affected_cpus``
-> +  Read-only decimal CPU identifier for the sysfs instance.
-> +
-> +``pf_dis``
-> +  Hardware prefetch disable control. Valid values are ``0`` and ``1``.
-> +
-> +``pf_mode``
-> +  Hardware prefetch aggressiveness mode. Valid values are ``0`` through ``9``.
-> +  Values ``10`` through ``15`` are reserved and rejected.
-> +
-> +Grace-only attributes:
-> +
-> +``cbusy_filter_threshold``
-> +  Valid values are ``0`` through ``3``.
-> +
-> +``cbusy_filter_window``
-> +  Valid values are ``0`` through ``3``.
-> +
-> +``cmc_min_ways``
-> +  Valid values are ``0`` through ``7``.
-> +
-> +Vera-only attributes:
-> +
-> +``l2spr_cmc_max_ways``
-> +  Valid values are ``0`` through ``7``.
-
-There is already a standard way to document sysfs entries. Use that.
+Before you go work on my comments, I'd wait for arm64 maintainers 
+comments. I doubt this whole thing will be accepted. In general, we 
+don't put in impdef interfaces to userspace.
 
 Rob
 
