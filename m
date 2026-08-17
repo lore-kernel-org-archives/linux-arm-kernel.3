@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0B7EC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 11:07:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB44DC5DF66
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 11:10:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=biOqkm+9BioQJU4c0xKJHFjIa1LDWfVFN2S4cqtbLHw=; b=QGVlRp+d2CUhGTXnwFc5xN9wg6
-	K7/SlBU4+mQkWbOHHT5galBPkafD+5QHDmbJdV20e0YmmqQ3lM2fzcTLT5xq7JKfH8sAuVK1+S1pw
-	xxK3JRlZjMDOGjdAuOmy0xrDORfPw+uMUo/hxT567bFB1RDrZ6eKKtBplRKLsRzdImuSpk65EL4Rk
-	ygXpDtrTd7wEuRnzwyNUjYjXTfERK90Bp1Nu7WyifPWv+rjKqkD8QEsS/R79l8e5y2fdr+anucnM3
-	zO7jjZ+09K3+tBp1dG81eVysAx3c3xazE+VSKx4G9+lFB3bNlaZnW/4eX9dQ4wXOVj6rC+bXXqiQE
-	7LZ2XZrQ==;
+	bh=dSeP13pLOt0UEaC0vv4QKQHllgx6b6/h0P1GwZl/yt8=; b=YtsSd6T9gLMLCpg14T6wZhaVLQ
+	GwCJKsHA8e4HpqLcPLeQq+zq2ocSQeAuVnKvdUIvCElTQ3UlAO6Vl/DK4mSEimMRTwcu0kIWufHHK
+	Q9iuq5KWcKMqDm0oK9yNVmHzYhX08ia33xZwhydDWmaG/bfkbhUBrvBaBOavN+bAKSzYkgIiIVXrp
+	/Xp6dJS1lKRDj0RAFxH3lURPt86lxiIbtlBpBtDDq/JmjczI96x3Lm1Q4/cv/9Plr/4cQmeuNLW3v
+	wGJ3PkSdYPu3zXT0ms1wkw083EpkWBoZWtcAPOpPoK9kLqOHHi7qw3M1uuqcZTmLCZ1lyjFrBerlF
+	ZxTVJZcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvvBo-00000006009-3fdq;
-	Mon, 17 Aug 2026 11:07:36 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wvvEV-000000060Fn-1Z6M;
+	Mon, 17 Aug 2026 11:10:23 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvvBn-00000005zzu-2pKQ
+	id 1wvvET-000000060Fg-2AZt
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 11:07:35 +0000
+	Mon, 17 Aug 2026 11:10:21 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3D2AF43283;
-	Mon, 17 Aug 2026 11:07:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8915D1F000E9;
-	Mon, 17 Aug 2026 11:07:31 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8AD10600AE;
+	Mon, 17 Aug 2026 11:10:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 622851F000E9;
+	Mon, 17 Aug 2026 11:10:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786964855;
-	bh=biOqkm+9BioQJU4c0xKJHFjIa1LDWfVFN2S4cqtbLHw=;
+	s=k20260515; t=1786965020;
+	bh=dSeP13pLOt0UEaC0vv4QKQHllgx6b6/h0P1GwZl/yt8=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=EJIgrn516V7SW/w33JwxqLg1PgqwK4GlovqC0LNZgMFCT5oqsnoheHeeQAXF3YpKw
-	 1+amHPU1J9EhG37YzI3tS59PB1H3xehx99L9dXPb4w6oeO2ppOvfD0WPGRG7M7wCWH
-	 A5TmG8NqwBxgMPBGuPD6CKn3YVsJM5c8HUUZ8ccYA5iYYQqtU/75zdzGGJSg1pZpgS
-	 lbxuo8DEPc9mic7GhIN4nu6XwV7DVXDMcDi62rmppzu9HM5mYrL9PnjH8Tc1pJaahN
-	 GD7npcDpsmpkhn4YILvRPcjJNFh3UpWgNtOYGJgYqGw9CYG3UEnPhSAp1tMgbdiIpu
-	 muj52bDcqG0lA==
-Message-ID: <9e0c8579-fc12-403b-8df5-9cfe0a779fd2@kernel.org>
-Date: Mon, 17 Aug 2026 13:07:29 +0200
+	b=La2eQUl4N7Q0Yhhht8ZGuQViek1nzUkVTDEQSlfFatl9XBkecyp0Wi46AV9yCw5AI
+	 Ja2C9I3f/J2fwlKfs9oSk+Ly+NkORgsUs4gfWoeCticGhhAgLvZIg5y0GJYnkklzT4
+	 V4qdEY9i2ONulOmVRKbET0QhzFEvlkdeW86Rk8cVilgYX6P1qQTlErKvSlnL3ugxok
+	 fjp/Iaf4vMtvsMCTCZxLWM2Yb+83MpSQJdpCYywFyVva5p1NakmNzMMXBUBXPLiEF8
+	 d/tVXvyBJEB1tyzskmj2G+xfKOG34/L6An+genrgQobdxR0SN7kMMRwoVi596oX70M
+	 z4adU6xDzjtyw==
+Message-ID: <d592c554-5e43-48f8-a1bf-5dc6c6525c27@kernel.org>
+Date: Mon, 17 Aug 2026 13:10:13 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] Hi there,
+Subject: Re: [PATCH 1/2] dt-bindings: hwinfo: samsung,exynos-chipid: Add
+ exynos5515 compatible
 To: aidenisik@member.fsf.org, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
@@ -54,7 +55,8 @@ To: aidenisik@member.fsf.org, Rob Herring <robh@kernel.org>,
 Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
  Aiden Isik <aidenisik+git@member.fsf.org>
-References: <20260817-for-next-lucky7-v1-0-42ffb2b71ba2@member.fsf.org>
+References: <20260817-for-next-lucky7-chipid-v1-0-eb2908705c0d@member.fsf.org>
+ <20260817-for-next-lucky7-chipid-v1-1-eb2908705c0d@member.fsf.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -100,7 +102,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260817-for-next-lucky7-v1-0-42ffb2b71ba2@member.fsf.org>
+In-Reply-To: <20260817-for-next-lucky7-chipid-v1-1-eb2908705c0d@member.fsf.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -117,11 +119,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/08/2026 12:27, Aiden Isik via B4 Relay wrote:
-> This patchset adds initial support for the Exynos 5515 SoC, along with
+On 17/08/2026 12:11, Aiden Isik via B4 Relay wrote:
+> From: Aiden Isik <aidenisik@member.fsf.org>
+> 
+> Add "samsung,exynos5515-chipid" compatible string to binding document.
+> Use the "samsung,exynos850-chipid" compatible, as it is the same on that
+> SoC as exynos5515.
 
-You already sent a thread called "Hi there,". One is enough. Please name
-cover letters correctly, so it won't get messed in our mailboxes.
+I do not see how you use "samsung,exynos850-chipid", probably you meant
+that devices are compatible? Just say that you add Exynos5515 ChipID
+fully compatible with foo bar (no differences in registers) instead of
+repeating the diff.
+
+s/exynos5515/Exynos5515/, in every commit msg
 
 Best regards,
 Krzysztof
