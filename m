@@ -4,138 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C53BDC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 13:58:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38DF4C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 14:01:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/zTjy6O6uybvfPxcgqH6QnK7U32G4vAnUh4izrwXhS0=; b=fD+X1oEYoHYzgzTJsv+3gBiaDb
-	Rj5o9IzNrBqHCgxXiEikNBQeFvBZl2uFCexHQwcT1gpAzm/TK+U8YGJfZLgVLHGGy3sbHui+vwST9
-	Ybs5shprCh4nDOwIa95mlTouSg8CACv13rroBNhThcWlbEl5BSA/zEH2cxIGEEcMukfDX0d6DL9Wc
-	gxLUsdzl/WtKEo0Qca7F2Y4ncNTM35Y7UE4O87ODpbdia+5A+3clBvj9HpGbdD+fwgwoTBh9WNoFj
-	YEXK4GhTSlATiuPyNixZvU/3YOFiH4/yNq00KPyihn02Rit/c187Moz3+afd5L9gZhlmFHSJXGMNK
-	sTwTweiA==;
+	bh=MqiG8RvlxgzJBzrABSolJSF9/xPm+qNQmSoqtGPZoHM=; b=SidVGU9KWI2goxnG9VuJpphs2O
+	EkszBQlEYKojSmSoSlqqAijxfPRE65pByXzCjpD94O74T3J8of0sKJXiVtwTMjMe4E0+RPTPUoZlz
+	fBypJSPVtIXj3uxCo9oSjvKCqL4C5FhBDC012kqlHuQDg7ggSjghdsTFFnATNzWrqOwnUgyDP7VMC
+	9p3jH2XKqvBFsl6wIZ1ysDnt919EyvmjrwtS7zvS9gZvkUwhHPRtFCMeT8Ydx9kdLH0a4maV3c4O7
+	9/aRYIbR/Hb0AK2fWogGQe6ePbeXUUR3PEBkXgkRZrBJL+FUotRhFFF0bNEA2BKAjrVtLTSOfhxr5
+	Sdb4X6Lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvxrC-00000006FlR-1Hv5;
-	Mon, 17 Aug 2026 13:58:30 +0000
-Received: from mail-westusazon11012071.outbound.protection.outlook.com ([52.101.43.71] helo=SJ2PR03CU001.outbound.protection.outlook.com)
+	id 1wvxtX-00000006FxY-2xyz;
+	Mon, 17 Aug 2026 14:00:55 +0000
+Received: from out-147.mta1.migadu.com ([2001:41d0:203:375::93] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvxr8-00000006FkP-35Wm
+	id 1wvxtV-00000006Fx8-1SCk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 13:58:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Qm/OiiTfg4s4RLq2aSaY1he128g9QuwuIXItDqZI9rnqOKgUZJGLVJuyooYcwPYQmpjq+v2MqK9ZC8Xd+BK+KW9qEN/LORzf+47/wcSgzuX2+9aNQOTGv6R16uqhJEpqWz8GHX6AyUMe8LnNMfL6aLs9z0j5fmgWsHzI4ncUewOsegjP5viTfQ6Dp/AyG33k0o9a+DhGp2BUOQRUgJaEmj1BCUGhI12ZRegQWxvUGxfRkZ6s4SLnJ3l97GnED2z62OfjUIfzQxdyucHZBLd4wgc0dA0DjkXzNbwPZM8gZhSxkFI2UvbqNxsXSLtKZ2txkRx2IDcSMskoZMlUMgFEag==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/zTjy6O6uybvfPxcgqH6QnK7U32G4vAnUh4izrwXhS0=;
- b=GcYdMNk7E1T2TmXs8tJuqNaQ4jNFp4r2U5ON6fh533/1ZVR18qxaky37dswt/6CYulQSkjaJG95ADA63hPjEWARmeUeLOMC/FCD2YmpcSJ6rZ+3L/QeWYx6IcO9tOm0GsL3/2+UzoM5kpn0FUMBxjcjGlPf9jg3BPc1VQHgEWAWUWA+8WYEEnd+JneNJfcgT/hlBkb1evvFD6ypltUudrOcHYhZa2G9J/L810dyZr1iPNXg+3ooBTCuxcRCX36L8FSysZSsyRGalht/hi5Nk+AXTClCnppa29uKaA8rwgRL/Jqe7XeXnblHIv3WF256puEi+dB3B6bWx5ppByBhovg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/zTjy6O6uybvfPxcgqH6QnK7U32G4vAnUh4izrwXhS0=;
- b=qAnvaoJiaZt3uFfwrp30cptEZTXIlBLmg5AgeR1uPJVkASBkRAx6k7SzF8yR4PCzMuY/vraTMLektBJLQR6DA0MaIX3qT6dZ0ZYi8OyZFgTpHvyJSZB/so9gEg1zGSrt+lLCbLRHjlwr3bj8+vsZ/aG8pMZhTTwqAEMrnyND+sI=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from CY1PR12MB9697.namprd12.prod.outlook.com (2603:10b6:930:107::6)
- by PH7PR12MB6786.namprd12.prod.outlook.com (2603:10b6:510:1ac::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.13; Mon, 17 Aug
- 2026 13:58:18 +0000
-Received: from CY1PR12MB9697.namprd12.prod.outlook.com
- ([fe80::3a41:55a0:8203:596d]) by CY1PR12MB9697.namprd12.prod.outlook.com
- ([fe80::3a41:55a0:8203:596d%6]) with mapi id 15.21.0315.016; Mon, 17 Aug 2026
- 13:58:18 +0000
-Message-ID: <0c2740dc-eefe-4ca4-8d6a-0b4a9fa8e139@amd.com>
-Date: Mon, 17 Aug 2026 19:28:10 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/3] net: xilinx: axienet: Propagate errors from
- optional IRQ lookup
-To: phucduc.bui@gmail.com, Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net,
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Michal Simek <michal.simek@amd.com>,
- Simon Horman <horms@kernel.org>
-Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260817105241.63345-1-phucduc.bui@gmail.com>
-Content-Language: en-US
-From: "Pandey, Radhey Shyam" <radheys@amd.com>
-In-Reply-To: <20260817105241.63345-1-phucduc.bui@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MA5P287CA0076.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:1d8::10) To CY1PR12MB9697.namprd12.prod.outlook.com
- (2603:10b6:930:107::6)
+	Mon, 17 Aug 2026 14:00:55 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=E052iV/UahZwZLqHPoeCbZVIwICG9funR37mcSBDpLA=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1786975251; v=1; x=1787580051;
+ b=AASG8pCSgOFWhZbj8SiRj1SD92svnqN36kIsJGN3tfuuY+IuI42WFTEcHlsteGczxcNJTQUy
+ 1IuDDAAc9UlD2Iy72FQPqZOGIyYTqW2siJN3NegB3Q80ax49Kq7+Ws1zHf5cErWjlteR/1hdBmD
+ /UzMPOEXvoBZJ7d6GGTl90jg=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: from mail-lf1-f47.google.com (209.85.167.47)
+	by smtp.migadu.com with ESMTPS id 86fba02b2335dee2;
+	Mon, 17 Aug 2026 14:00:51 +0000
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5aeb688ae83so18847e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 07:00:47 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RogmgPfElKjceyiANp7bs0TiRWhV+f4PbjjEmoQkSZiyFgyWIKg/yDml2abNWGMO9gUx63mwnDGMQBV5GxeQk7a@lists.infradead.org
+X-Gm-Message-State: AOJu0YzejgbeciSrEbbDvPuxVaDoH1HAQsfkpMSN0dMQY/PKQpmIBeO5
+	4ruRBiR5N+CuTLIAH3dzrivYr5xheF/1bd0erGMArcqXnuFwfKPVAPF+lNX1gPiqR3REakb4Yba
+	Xm9rv//+aw9K13G39sDN6xwzY7q23FgNm0DF4wxTq
+X-Received: by 2002:a05:6512:3b13:b0:5b2:a967:c0c9 with SMTP id
+ 2adb3069b0e04-5b47085689amr10313e87.7.1786975246266; Mon, 17 Aug 2026
+ 07:00:46 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY1PR12MB9697:EE_|PH7PR12MB6786:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8aa4ea65-d661-4091-e673-08defc679738
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|376014|7416014|366016|22082099003|18002099003|56012099006|11063799006|10067099003|6133799003;
-X-Microsoft-Antispam-Message-Info: Y7ifhbnierVsRlDkZm+HqGjmPBGPOaRR1bo91mdofjSB6QONSjSN/zRYLozURJcdPAQ9OjZmtAe1k73jHcxCxTz+QmOnhYiR+pL32K3o0lAx8WYR/VD0EnpBUdFstvm7aSa2obpCxhfjEyJvjnZxQXd/GRC5tau5B7FqhKar/GJEvqOVrEsgMPSIBAnukl3DWBUIU/YOKCKqKElN10RIBDs5uSJKzr1yryoGlQdoGynkzKV39fyBLegftco3jfLV7NStusqfFpX7GouiEqVVd2c5F38fRnSutyw9x0cOw38vFhFVi0CwjZmlx0ivQtLmhhMYCUv97OqP6zts6b0rOXTc6lPI/459ELpHwwZYLZZIxrQfKMUZKW7MTlC3hpdC/JBigvce0r4VxlreZhSoedWJqdj1/dkMxWuT4aVK4wHI+Hm/0E4heRKnpD8h4ZntULBz+WHromaXgj6/lewz09ED8HzOwmNcE1N6y35j+zrUQHU7AGIYYzXeSXytYoQkCvHWL2fComSAD8Agf3ufXobrtOsuwc+cOihKEQZtaHMNbal8upTFNX0a2hB8VQ0wHdJG4DC09vwyqPbY0w78MAROpzg2QtJJ4AU+lKAS1zGnX3uW3fgs713R4doLuJ5fO1/7rwJOTQ0ydCzJdOGaxbEkpHZXACw58mTXRtX7Ym8=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY1PR12MB9697.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(376014)(7416014)(366016)(22082099003)(18002099003)(56012099006)(11063799006)(10067099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SFlUUjQ3WSt0VzV5N0g1SExwTmEwbEE2RHpoUi93VUZxclNQalhKQ044L0o3?=
- =?utf-8?B?VHpmL2IvQXAwV1dRTHdpUXlQdTFBN3RqbnY4UHlqZE84MElYellVMmRBblhY?=
- =?utf-8?B?a0lPc00zaFVYK0pndk9KZmJJRzNuTDNWUHFrYnBEWVE2TVEyd0s2aUxveUVR?=
- =?utf-8?B?RW5MT21KNmxCQ3lUT3RMY1RFNDlnQXprSjkzbWlYSWFsNTZ4SE5ha2w1blpO?=
- =?utf-8?B?TElSRzM1MDZhNFRYRDVWeWU1YXpnREVyY1N1R1VNODJqNXdqVnRTWDNEdG5J?=
- =?utf-8?B?Nkl4NmJkZUR1N3RyaDR3TGRDWkU5Q2ZTeFg2NWlBUXlyZjZwMGErdG1kdUxJ?=
- =?utf-8?B?dGZBZzVucXNabWh5eVQxVjdUdFZENE9xSG1KcjJFS1B5WjkzVG1zWnZERitz?=
- =?utf-8?B?N0RyZjUwRjE4RkVkQXczUVkzT0ZsV0NRanpFQXVXUlJUa2ROcEVJL3kxT3pq?=
- =?utf-8?B?VXQ2cFRHKzZHclVmVDlxQzc1RzNMZWdlZVkzUEV5UTVhT2U0Y0VWVmIxODk4?=
- =?utf-8?B?K2NsWHp3OHo5QzdlcFZRQ202T2ZXQnZPb2lPakxNajJkUTliYjk1NzRQMmdK?=
- =?utf-8?B?N3BkUGZyN3o3L3RWdm5KVFZYZ05Jcm96KzRhMndoOTBnZmpPNERWdGtwT2xG?=
- =?utf-8?B?ZmpxdDhSVDlEbC9id3dpMGdodDZ3bkZNYWgvZDhsT2xtSGpOaXl3ME5ueWU1?=
- =?utf-8?B?TjdTcUMwdFpUaU54MTRJK2F0TklpK2x2dWt0N25LandYbTVKZXJLQVRqZWJx?=
- =?utf-8?B?OG9oNEZkU2FUaDR3SGZyUmZzTW5WempWZkx4VE1tZ1ROcDB1aDFmUDlPdC95?=
- =?utf-8?B?dmdlRFNJRUh2ZXUrWkVwNnY1Q2VoWis5UThkTkI1L3BWV1I5VnBHeHNDVzVQ?=
- =?utf-8?B?UGRtejBRbWM2dndNdWpneG1sOWhtd1dhWVpKQVVGREJJZ1YxTVdvRys0ZTRk?=
- =?utf-8?B?SEdlaE1ySi9qU3g3NVBaNXhEdks1NlZaMDZUTjd5aWQ1ZWRYVjhGZU1JSDlz?=
- =?utf-8?B?KzRqc292RTlJV0htcDNpM01KK1ArcmljTnNSeEszbG1VMjl6Tk5GWHVwY0NV?=
- =?utf-8?B?MTVBQmtqenQ0UGlqdWgxcDZsRDVrYzU2Z3JwSzBwOVBmVlNjUUdidGFxRjJ0?=
- =?utf-8?B?TnZ1QTlRWWFSQTdoeFN0bjV4MDU4dDg5ZURSTElQYVE5VitOMGJtWWNWb3Aw?=
- =?utf-8?B?OE1Oc0xiRUxhOXZOSENYbld4aVR1UEZ6WXJ5MFFTMDljYmluUGthVllYMHRi?=
- =?utf-8?B?am4yL1ltRm5nL2prWWNKWHNIZUdPMnBqTW0vaXpFTTNETm9ib1JDbGdtRlI0?=
- =?utf-8?B?M09vUXJ0eURIQVBMam1TRk1jMEdSa092UXB1bGNhUjF4VHVLanZRcEJiUE8z?=
- =?utf-8?B?MHh2elRyekR2ODI0aU1MMEQ2UDBXT05CNEVXVVVaSkh0OWliUTQyUUZDMDNF?=
- =?utf-8?B?eVhWRi9FU2NrdGx3ZytLakpFTXZXUFkydHRpR3ozdmFlVUVBQzBReUlCc204?=
- =?utf-8?B?MWRmKzVLU2g5SEx3R0NkazUzcWJIL2diRzcwTmtDWHVhcEIwM25Ja1E4S1p0?=
- =?utf-8?B?MHRML1FIREFweDcwM2YvaWZmUy84ODV5UmNnTlJ6UUpScUxaVG0rdHJaUXNa?=
- =?utf-8?B?Uy81TytCeDgrVUViUnYveng4bnhSZXVnU2J4WGJxT1gwcWtZbVVBL0daOC9J?=
- =?utf-8?B?OHR6OHJwc3hDNTU1SXBNSmhBbmhaOXlod2lrMzdmTVUxb3l2UlFKdzRaQUVk?=
- =?utf-8?B?ZTRYc2dpYmtkSGRTenFBQ1R5L0p6Tjk0OVpObjRkTENGcjN4RFB3ajdVZDMr?=
- =?utf-8?B?dWU1cm9vb0JjR2ZuUjZTRkV4c1hBKzJUZklVTkMzTGgrbzJTYWpKYmRyalhk?=
- =?utf-8?B?SjNaOUpJMURwK2ErcndOQXBWVTNJUmVwV3pubWJreFErMmxSck5TcEw1VElL?=
- =?utf-8?B?Yk0rS1hPZ1IrTHJWM2JJd0p4K1p5VHFxQ3RyV2dabWE4eE4rdnZQMzJaMDhu?=
- =?utf-8?B?S3BhQzR1ckxkME9RR3doWG5kbXFhOFdRRnQvQk96RlBjTG1pZk1CZ0NIZW5G?=
- =?utf-8?B?d3lhT0MxdzF0cldJNHUwdWZsOTNlUHFqeEJaNVlwcUd6YWJJc0FoUDR6YTZw?=
- =?utf-8?B?R08zSXU3REN6aDVRbk5TVTNkUjVXMlF5cTQ3NDQ0SGJpazBmWC9qTGdxK1VC?=
- =?utf-8?B?R2JObyt0VUpOMHE5WS84Y3d5bXNvTDJYQnFCbS9LcjROaGFTYVlubCtnR0sr?=
- =?utf-8?B?amZWZ0JSSkE3ZlFZSkdMalVtbk1RTDNzQ1JaZUVPNGd1Zkxwc0lxakp1cnp6?=
- =?utf-8?B?WXVtZFdtWldIVjdOTnpONjVWVUlWdlJmMzEwbm8xZ2l5RmdqUWJUUT09?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8aa4ea65-d661-4091-e673-08defc679738
-X-MS-Exchange-CrossTenant-AuthSource: CY1PR12MB9697.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Aug 2026 13:58:18.3628
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: IG4m2ia0vQtFEYxvpdN/hKzrOrOJFThqVJvmTuVEoXqOdSQ7z593QdvCi1ZirVrI
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB6786
+References: <20260731143541.956291-1-vdonnefort@google.com> <20260731143541.956291-17-vdonnefort@google.com>
+In-Reply-To: <20260731143541.956291-17-vdonnefort@google.com>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Mon, 17 Aug 2026 15:00:00 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTxniWpQ4YXF58FiqvG2mdnKO+xvtqwSVU8CFiNMEfradQ@mail.gmail.com>
+X-Gm-Features: AcwNN1W_AAsd7_VB-Kj-kfRzJQQpYdjSQX1n6UdwIFTBXMf5NarxswUq__9s38w
+Message-ID: <CA+EHjTxniWpQ4YXF58FiqvG2mdnKO+xvtqwSVU8CFiNMEfradQ@mail.gmail.com>
+Subject: Re: [PATCH v4 16/17] KVM: arm64: Reject hyp trace descriptors with
+ fewer than 3 pages
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, 
+	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com, 
+	qperret@google.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_065826_996329_0FFCD28C 
-X-CRM114-Status: GOOD (  17.98  )
+X-CRM114-CacheID: sfid-20260817_070053_669958_8EF16AFF 
+X-CRM114-Status: GOOD (  13.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,41 +83,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/17/2026 4:22 PM, phucduc.bui@gmail.com wrote:
-> From: bui duc phuc <phucduc.bui@gmail.com>
-> 
-> platform_get_irq_optional() returns a positive IRQ number on success or
-> a negative error code on failure. For an optional IRQ, -ENXIO indicates
-> that no optional IRQ is available, while other errors should be propagated.
-> 
-> Propagate all error codes returned by platform_get_irq_optional() other
-> than -ENXIO.
-> 
-> Another call to platform_get_irq_optional() in the same function already
-> handles the return value this way. Apply the same error handling to this
-> call site for consistency.
-> 
-> Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
+On Fri, 31 Jul 2026 at 15:36, Vincent Donnefort <vdonnefort@google.com> wrote:
+>
+> A trace descriptor with 0 nr_page_va allocates a 0-size bpages
+> backing region, which makes the ring buffer appear unloaded. Reject
+> descriptors with nr_page_va < 3 in hyp_trace_desc_is_valid() as this is
+> in any case the lower-limit for simple_ring_buffer.
+>
+> Tested-by: Fuad Tabba <fuad.tabba@linux.dev>
+> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-Reviewed-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-Thanks!
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
 
-> ---
->   drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 2 ++
->   1 file changed, 2 insertions(+)
-> 
-> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> index fcf517069d16..f92951422b2e 100644
-> --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> @@ -2972,6 +2972,8 @@ static int axienet_probe(struct platform_device *pdev)
->   			dev_err(&pdev->dev, "could not determine irqs\n");
->   			return -ENOMEM;
->   		}
-> +		if (lp->eth_irq < 0 && lp->eth_irq != -ENXIO)
-> +			return lp->eth_irq;
->   
->   		/* Reset core now that clocks are enabled, prior to accessing MDIO */
->   		ret = __axienet_device_reset(lp);
+Cheers,
+/fuad
 
+
+>
+> diff --git a/arch/arm64/kvm/hyp/nvhe/trace.c b/arch/arm64/kvm/hyp/nvhe/trace.c
+> index 6e716295247a..96afa3d6de2f 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/trace.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/trace.c
+> @@ -189,6 +189,10 @@ static bool hyp_trace_desc_is_valid(struct hyp_trace_desc *desc, size_t desc_siz
+>                 if ((void *)rb_desc + struct_size(rb_desc, page_va, 0) > desc_end)
+>                         return false;
+>
+> +               /* simple_ring_buffer_init_mm() expects at least 3 pages */
+> +               if (rb_desc->nr_page_va < 3)
+> +                       return false;
+> +
+>                 /* Overflow desc? */
+>                 if ((void *)rb_desc + struct_size(rb_desc, page_va, rb_desc->nr_page_va) > desc_end)
+>                         return false;
+> --
+> 2.55.0.508.g3f0d502094-goog
+>
 
