@@ -4,73 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E798C5DF66
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 09:58:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C42EC5DF70
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 10:01:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+xi+NJy3msELw2WDSWlgUfRUdVriSEiEowE49beImPc=; b=jb4tA7YEVbY/pchq0ejLZCXOM9
-	xvybdMla2MBoL4TfEK2QAV0o4iumWgxQlm26Y/vKJ0i6JsHLukZ3NqtyLNUgT8YUhGtfJIbInK4+5
-	yBhm/oUEMeLQqS/nsiiZRWXgqkxFRPBjrhzsgblVy0YKSlE3XCAcIZL2JKhL/kkVmn2nQjJKLJdSh
-	vZdZ/TSfu25hHF2Iba0hUejVjP2khuc3MxCZgYzxZ1iFF+O6lVEe+iQng0k/EXICCcZATV81sCcDu
-	x9aQ0n3KENRsltdJu13DV6HRjcmCy9r0AvbDe7PR255kAwHF91+jMQRIveovTlucAVlGSSTaWQOxo
-	sPDmrbsA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=C5xJAp5EsJh4mtoVRdetKKnVuOabsV+/QbXlIN6U2H4=; b=AKXlWFgEob0/ExhUrLqobYSPlh
+	Tczg3yJwc9k9U6xQCeFSZy0N4wPuVlOxOMC5rnxnqv931i9diayoayCqehk0M0XszJzq7s9bQAeL3
+	zs68AJkdmQEIQXQ3+vVO7n9qiTj8k0yYQLACPrxZStrNB0KjZVJ6fHFoA5YRBXOhrQVV808iNIlHn
+	wdN3nc+I94wSoNMGX5TiPb3Q3DLUhfV8yWncJzrnh53LGrdxu5oTcUfFPfFqNqknN2fAaoKse1yN8
+	Y9uU0rAtM4hTp6Gi7wIj6wtKHxFiqSjuSon+wWEAAUENi82XoT1T4nFw9VWvkYjhjwXamxf7ybSLa
+	zZbFVdog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvu6u-00000005rYb-0Xcz;
-	Mon, 17 Aug 2026 09:58:28 +0000
-Received: from mgamail.intel.com ([192.198.163.14])
+	id 1wvu9P-00000005roG-2H9G;
+	Mon, 17 Aug 2026 10:01:03 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvu6q-00000005rY3-2NTx
+	id 1wvu9M-00000005rm8-20tr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 09:58:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1786960705; x=1818496705;
-  h=date:from:to:cc:subject:message-id;
-  bh=ersfyARxZb4qdBPVQ7/vbfiqiaZq62qGdtvW05iuaTY=;
-  b=bSd8XK7x2OA9K4eGKfrZ5TI1pmzqAoZsJu2nsl4s4XF7IfUf9fevvQFC
-   0ywcvCjdLJHupMFcB/BB8UHI/FFqO79o7Y7bdGwDpOu2T8sYFD1aJuLmP
-   Mj3pAgj27OASLh/SvXXw0Cua6zmgulBqu8Qu4y/DbpjP5U8OR56SsSb6+
-   1d+Dby8GX39XrIBo1ixrfSZioNB5qc9bBcRtNie9SNL/I3WfZMsS7M/TC
-   U2veG+MAgZcOjVa6frArSTYxA5idswx1fxmmo/i6tJ8zLHxMSYN65Gp/G
-   1HLDsev3YnGZNlCZjh1jMF0iWFOnuVRv1jeakdAe2/8aWzAKL0Is5hhEm
-   g==;
-X-CSE-ConnectionGUID: 3s68k0qpR6SB/oJ0yKo5xw==
-X-CSE-MsgGUID: ROvYVb2PSC+qM9mL0KnhYg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11877"; a="87448818"
-X-IronPort-AV: E=Sophos;i="6.25,228,1779174000"; 
-   d="scan'208";a="87448818"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Aug 2026 02:58:24 -0700
-X-CSE-ConnectionGUID: SBPgZBFeRkm1uzwwTz/lzA==
-X-CSE-MsgGUID: 4gcKpvBZS1yvlHt39bqzEg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,228,1779174000"; 
-   d="scan'208";a="263104277"
-Received: from lkp-server01.sh.intel.com (HELO 6eda058d650d) ([10.239.97.150])
-  by orviesa006.jf.intel.com with ESMTP; 17 Aug 2026 02:58:23 -0700
-Received: from kbuild by 6eda058d650d with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1wvu6l-00000000dOz-3p8t;
-	Mon, 17 Aug 2026 09:58:19 +0000
-Date: Mon, 17 Aug 2026 17:57:45 +0800
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- arm@kernel.org
-Subject: [soc:board-remove 164/217]
- drivers/video/backlight/as3711_bl.c:439:25: error: incompatible types when
- assigning to type 'struct as3711_bl_pdata' from type 'struct as3711_bl_pdata
- *'
-Message-ID: <202608171741.2Y2e2Ina-lkp@intel.com>
-User-Agent: s-nail v14.9.25
+	Mon, 17 Aug 2026 10:01:02 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-47f502ff678so379137f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 03:00:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786960858; x=1787565658; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=C5xJAp5EsJh4mtoVRdetKKnVuOabsV+/QbXlIN6U2H4=;
+        b=fpDrnweK3Yyac73o2oqC93j7bLC4j7Yz14evNxW6pnu4kcCXlu64AQpR9qzkvPPORF
+         8aVZkLfWyfeZvulYoOoPDx4+c1+IzrDwBnhClrzREDXTqt4fMgGVTm4hA/lDWa3n58Gd
+         02FR2ESIz27CJxE/+Uma6XVaoihD8dLXRuI68VlbfhRx2jACfTULYwdAK/XMSpF6768w
+         BFsJga+mN90B+J62oNN84ambLuW+d9uOfRcgtUXb3jMa5fQnuqg/SOu4jtcnCh8aXT2y
+         ouM8UyTUUiiOAIA5Sdo+Ab0CGQocI7DVLKJr0o2R1NJ6Bnlo+plCp08zqXlSGzeATU1D
+         4TPw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786960858; x=1787565658;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=C5xJAp5EsJh4mtoVRdetKKnVuOabsV+/QbXlIN6U2H4=;
+        b=lQOA26hzITm1svKoRHsKW2HFrNhrYKG3n0JGWVokYaUqCIzFioa1yRAkjeAPJYEh7R
+         SK7j4hGXcZY7w/VXW/p9fFsqEqyoZsuwZv+regL3qr8g1c5wXM96UWcih2gwT2ngQS9p
+         1QzpSvzVm0lcKr8FoQ/ttqsuE/alX1+8In9wnTIGzHxp9DS1302OcMcGZgvvHJQK3GHq
+         BMyMHDwN9dSwGPQ16j+Vy2PCn21+OTBeDvtBvvGf/PJkkcVFg9KI9tMW1WvgSOGKzgPq
+         VkDAPjMfZffU3X2syZYZ4b0Tssrai6p9FuiTtkKfq4UYsqZUkHuRpXE8SuygtU31FIHG
+         B9RQ==
+X-Forwarded-Encrypted: i=1; AHgh+RrPqEKngzh50Pcktcx+wFWmCPltHPeLT16T4jVnh5bN2tGhV/n9i0KACatBI7jcGM2jrhB+RdtMKdzNSGCazueN@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxrg21OL4hmgzSKIvJWlDMXbBOnW8bKktSvFKnVwccW8Gefu2Zf
+	hzpWUX8aWyOl1w944bFSJuYwzbc7ZfuMULkAdMMGZA/5SC/kzCCaWZkU
+X-Gm-Gg: AR+sD10UvLWundG18uNFkSKGKoQJQc2C4fhj9w/BcMvih9hn7sT0bIEiGEw4Gf2+H6F
+	wHS9mH02kSRTRoB0t9cx2tNn0dBxpMZmCUsxjL39w9zt/FfYkynfBmnd6kegyQ9B6YG5oFaB5eY
+	/T0VjSrzRsRv0rJ+MXNvePCQji4b8sGF+7OVmToqZ3eHj6EByh+yGqrzirbjLw9EjzVRYT6chuz
+	etcvx12uJ6P18LS9Uo0iRYE2zqaxuTFvGMIHQlnL+21Do+PFSEMA+pQlhnK2fQANoF9PYL09lO6
+	prJDhkrXgQPC87s2yRtMA6InHnXhJEOC1Y2u0s6SKx2CMzpSw8LYSWhkPLJ9T4Kqj0H+q+O2Bxg
+	2VFB8I9MY0CXgd9+lIcdVXesOpMgDhoQXQodMqPeli6xC40jBYpDhVsotIlwui1bcoYA0Vwm7J3
+	ZJScUgNgo6skMF2iUsk0A10cuidc/fAbUApRt7VQpwB+UyonkkruSM8//gpem0JoeAG8u2Q21cm
+	Jbg2aihFxT/M6WU3bgw53KCRd0elZjXBnHHllDo2ITy1T0XHJIPL+A5hCWdetN1B3NYag==
+X-Received: by 2002:a05:600c:a0d:b0:498:1371:660c with SMTP id 5b1f17b1804b1-499878d5e0dmr175209465e9.0.1786960858323;
+        Mon, 17 Aug 2026 03:00:58 -0700 (PDT)
+Received: from OrangePi5-Plus.BB-HOME (20014C4E1B8FC50027494B64639367E4.dsl.pool.telekom.hu. [2001:4c4e:1b8f:c500:2749:4b64:6393:67e4])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49996109652sm167889155e9.4.2026.08.17.03.00.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Aug 2026 03:00:57 -0700 (PDT)
+From: Igor Paunovic <royalnet026@gmail.com>
+To: Jiaxing Hu <gahing@gahingwoo.com>
+Cc: Igor Paunovic <royalnet026@gmail.com>,
+	Tomeu Vizoso <tomeu@tomeuvizoso.net>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Alexey Charkov <alchark@flipper.net>,
+	dri-devel@lists.freedesktop.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v7 08/10] accel/rocket: add RK3576 NPU (RKNN) support
+Date: Mon, 17 Aug 2026 12:00:43 +0200
+Message-ID: <20260817100046.24872-1-royalnet026@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260817094544.1159366-1-gahing@gahingwoo.com>
+References: <CAEWPSH7ETfw2TDjUfOvcVtDm19FC43x2vP=Lh7m+XPOGptnPWA@mail.gmail.com> <20260817094544.1159366-1-gahing@gahingwoo.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_025824_617088_6852E87D 
-X-CRM114-Status: GOOD (  10.41  )
+X-CRM114-CacheID: sfid-20260817_030100_548522_361B8273 
+X-CRM114-Status: GOOD (  17.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,129 +106,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git board-remove
-head:   057394422bc04420585b2790b230d8a1f350ace8
-commit: 12ff7114412140adebfff278600b4a753e6bdf8f [164/217] mfd: as3711: remove pdata based probing
-config: alpha-allyesconfig (https://download.01.org/0day-ci/archive/20260817/202608171741.2Y2e2Ina-lkp@intel.com/config)
-compiler: alpha-linux-gcc (GCC) 16.1.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260817/202608171741.2Y2e2Ina-lkp@intel.com/reproduce)
+Hi Jiaxing,
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202608171741.2Y2e2Ina-lkp@intel.com/
+You asked for a count that is not 24 modulo 32, so here are five, on
+RK3588 with upstream Mesa. Same generator and same scoring as the 56, 88
+and 120 rows earlier in this thread: 1x1 conv, 64 input channels,
+uint8, output zero point 0, scored against the raw CPU reference with a
+channel counting as matching at maxdiff 1 or less.
 
-All errors (new ones prefixed by >>):
+  oc    oc mod 32   matching      bit exact
+   33       1        33 of 33        31
+   40       8        40 of 40        34
+   48      16        48 of 48        40
+   56      24        56 of 56        47     (16 Aug)
+   72       8        72 of 72        62
+   88      24        88 of 88        81     (16 Aug)
+  100       4       100 of 100       86
+  120      24       120 of 120      106     (16 Aug)
 
-   drivers/video/backlight/as3711_bl.c: In function 'as3711_backlight_probe':
->> drivers/video/backlight/as3711_bl.c:439:25: error: incompatible types when assigning to type 'struct as3711_bl_pdata' from type 'struct as3711_bl_pdata *'
-     439 |         supply->pdata = pdata;
-         |                         ^~~~~
+Eight counts across five distinct remainders. The upstream constant
+computes the whole output at every one of them, and the global maxdiff
+is 1 in all eight runs. So on this SoC BS_OW_CFG needs no term in the
+output channel count at any remainder, not just at 24.
 
+Controls, same as before. No channel of the reference is constant in any
+of the eight models - the generator refuses to emit a model where one
+is, since a constant reference makes a trivial match. No NPU channel is
+pinned at the output zero point. The NPU interrupt counters went from
+zero to five across the three cores over the five new models, one job per
+model, so each of them reached the hardware. And the counts that are not
+bit exact are off by exactly 1, which as you noted is not something a
+delegate falling back to the CPU produces.
 
-vim +439 drivers/video/backlight/as3711_bl.c
+What this does not say: it measures the upstream form only. It is not a
+statement about how the modulo form would behave on RK3588, and it does
+not touch your timeout observation.
 
-59eb2b5e57eaf0 Guennadi Liakhovetski 2013-04-29  400  
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  401  static int as3711_backlight_probe(struct platform_device *pdev)
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  402  {
-12ff7114412140 Arnd Bergmann         2026-08-07  403  	struct as3711_bl_pdata *pdata;
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  404  	struct as3711 *as3711 = dev_get_drvdata(pdev->dev.parent);
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  405  	struct as3711_bl_supply *supply;
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  406  	struct as3711_bl_data *su;
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  407  	unsigned int max_brightness;
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  408  	int ret;
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  409  
-12ff7114412140 Arnd Bergmann         2026-08-07  410  	supply = devm_kzalloc(&pdev->dev, sizeof(*supply), GFP_KERNEL);
-12ff7114412140 Arnd Bergmann         2026-08-07  411  	if (!supply)
-12ff7114412140 Arnd Bergmann         2026-08-07  412  		return -ENOMEM;
-12ff7114412140 Arnd Bergmann         2026-08-07  413  	pdata = &supply->pdata;
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  414  
-12ff7114412140 Arnd Bergmann         2026-08-07  415  	ret = as3711_backlight_parse_dt(&pdev->dev, pdata);
-41f1b3edb581db Krzysztof Kozlowski   2024-03-05  416  	if (ret < 0)
-41f1b3edb581db Krzysztof Kozlowski   2024-03-05  417  		return dev_err_probe(&pdev->dev, ret, "DT parsing failed\n");
-59eb2b5e57eaf0 Guennadi Liakhovetski 2013-04-29  418  
-59eb2b5e57eaf0 Guennadi Liakhovetski 2013-04-29  419  	if (!pdata->su1_fb && !pdata->su2_fb) {
-59eb2b5e57eaf0 Guennadi Liakhovetski 2013-04-29  420  		dev_err(&pdev->dev, "No framebuffer specified\n");
-59eb2b5e57eaf0 Guennadi Liakhovetski 2013-04-29  421  		return -EINVAL;
-59eb2b5e57eaf0 Guennadi Liakhovetski 2013-04-29  422  	}
-59eb2b5e57eaf0 Guennadi Liakhovetski 2013-04-29  423  
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  424  	/*
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  425  	 * Due to possible hardware damage I chose to block all modes,
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  426  	 * unsupported on my hardware. Anyone, wishing to use any of those modes
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  427  	 * will have to first review the code, then activate and test it.
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  428  	 */
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  429  	if (pdata->su1_fb ||
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  430  	    pdata->su2_fbprot != AS3711_SU2_GPIO4 ||
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  431  	    pdata->su2_feedback != AS3711_SU2_CURR_AUTO) {
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  432  		dev_warn(&pdev->dev,
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  433  			 "Attention! An untested mode has been chosen!\n"
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  434  			 "Please, review the code, enable, test, and report success:-)\n");
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  435  		return -EINVAL;
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  436  	}
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  437  
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  438  	supply->as3711 = as3711;
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21 @439  	supply->pdata = pdata;
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  440  
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  441  	if (pdata->su1_fb) {
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  442  		su = &supply->su1;
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  443  		su->type = AS3711_BL_SU1;
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  444  
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  445  		max_brightness = min(pdata->su1_max_uA, 31);
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  446  		ret = as3711_bl_register(pdev, max_brightness, su);
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  447  		if (ret < 0)
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  448  			return ret;
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  449  	}
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  450  
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  451  	if (pdata->su2_fb) {
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  452  		su = &supply->su2;
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  453  		su->type = AS3711_BL_SU2;
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  454  
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  455  		switch (pdata->su2_fbprot) {
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  456  		case AS3711_SU2_GPIO2:
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  457  		case AS3711_SU2_GPIO3:
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  458  		case AS3711_SU2_GPIO4:
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  459  		case AS3711_SU2_LX_SD4:
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  460  			break;
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  461  		default:
-83dedc056b61bc Jingoo Han            2013-11-12  462  			return -EINVAL;
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  463  		}
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  464  
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  465  		switch (pdata->su2_feedback) {
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  466  		case AS3711_SU2_VOLTAGE:
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  467  			max_brightness = min(pdata->su2_max_uA, 31);
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  468  			break;
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  469  		case AS3711_SU2_CURR1:
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  470  		case AS3711_SU2_CURR2:
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  471  		case AS3711_SU2_CURR3:
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  472  		case AS3711_SU2_CURR_AUTO:
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  473  			max_brightness = min(pdata->su2_max_uA / 150, 255);
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  474  			break;
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  475  		default:
-83dedc056b61bc Jingoo Han            2013-11-12  476  			return -EINVAL;
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  477  		}
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  478  
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  479  		ret = as3711_bl_init_su2(supply);
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  480  		if (ret < 0)
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  481  			return ret;
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  482  
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  483  		ret = as3711_bl_register(pdev, max_brightness, su);
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  484  		if (ret < 0)
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  485  			return ret;
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  486  	}
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  487  
-83dedc056b61bc Jingoo Han            2013-11-12  488  	platform_set_drvdata(pdev, supply);
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  489  
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  490  	return 0;
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  491  }
-de474b5bfcd544 Guennadi Liakhovetski 2013-02-21  492  
+Which brings me to your last line. I cannot run
+ROCKET_DPU4050_MOD32=1 against my build, because the knob is not there.
+Upstream Mesa has no occurrence of it anywhere in the tree, and
+src/gallium/drivers/rocket/rkt_regcmd.c emits BS_OW_CFG from the
+depthwise flag alone:
 
-:::::: The code at line 439 was first introduced by commit
-:::::: de474b5bfcd5448681549369efb36c51f870ea60 backlight: add an AS3711 PMIC backlight driver
+	if (operation->depthwise) {
+	   EMIT(REG_DPU_BS_OW_CFG, DPU_BS_OW_CFG_SIZE_E_2(3) |
+	                              DPU_BS_OW_CFG_SIZE_E_1(3) |
+	                              DPU_BS_OW_CFG_SIZE_E_0(3));
+	} else {
+	   EMIT(REG_DPU_BS_OW_CFG, DPU_BS_OW_CFG_SIZE_E_2(1) |
+	                              DPU_BS_OW_CFG_SIZE_E_1(1) |
+	                              DPU_BS_OW_CFG_SIZE_E_0(1));
+	}
 
-:::::: TO: Guennadi Liakhovetski <g.liakhovetski@gmx.de>
-:::::: CC: Linus Torvalds <torvalds@linux-foundation.org>
+which is 0x36c and 0x124, with no output channel term in either. Setting
+the variable on my build would be silently ignored, and I would have
+reported a null result as if it meant something.
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+So: send me the value expression your knob selects at 0x4050 and I will
+patch it into my tree locally and run the RK3588 side of the comparison.
+I would want to run your oc=64 control at the same time, both ways, since
+that is the one where the two forms emit the same value by construction
+and it is the cleanest discriminator you have. You got one side of it and
+the other hung. I can run both here, and I can also give you 40 and 72
+under the modulo form, where the remainder is 8 rather than 24.
+
+Two things I want to acknowledge rather than skip past. You flagged the
+mod-32 confound yourself before anyone asked, and you were right to,
+the twenty four lost channels at 56, 88 and 120 really are forced by the
+arithmetic and are not three independent confirmations. And you disclosed
+that the 120 modulo row is a different boot with an unrelated power
+domain change and a different NPU rail state. Reading that row as two
+points rather than one is the correct call, and saying so in the mail
+rather than after being asked is worth more than the row.
+
+If it is useful to anyone, I can send the generator and the scorer. The
+generator builds the flatbuffer by hand and self-checks against the CPU
+interpreter before emitting a model, and the scorer is your perch.py
+logic reduced to this one case.
+
+Regards,
+Igor
 
