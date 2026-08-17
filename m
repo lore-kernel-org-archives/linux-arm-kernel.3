@@ -4,56 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B105BC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 06:19:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63FC9C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 06:20:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=POGKE8+LRB9ANrHeL700hx5oCB9hZ3MzNcwPwGAW6kA=; b=eIu/9QaqAvJJfg6V2IElQobvqY
-	IM/WSTdLDMXWpkEf+8+FHOKp00f6Z4iNy2hnkELSSi6FF8lFRbuXllVWnlyxwUCy1AtSJQpVUf/TH
-	2iC3GPMd3nGcrP3dJdRiNFXuVPtuwBpROVK4i2mwjR9BXfQmfejV/JLLfS1FDFK28CWRzcvaHFt1m
-	HcnejgTauYhknRt5AxqaR4EEaGEfLzkiwqLGZvt34YJxldE7FjsnGI5Ugj84KTg+deDnq5kY8Q0HT
-	JaEcC/FFyUykQj3wmb60DZ7lt9rfa+lmVctrfOeK9cgg0RSXEae75XQHk6laSDEzf4kSAPBLqJbMi
-	YWVGdRSQ==;
+	bh=7bgBGN7+/ozSfdokjzvflhFj0ToHa1vgIl1PXuNzLXE=; b=H5XxR/YWsljgCUw8Wm+/E2kisY
+	N1OFgw83KwUtN6Xj+ncuACaBH2TFdAhazuswCoOv8e9PrXelPq41LE3HDZHKrBlBpAyXLXeINMqW/
+	+jteASM4FYDDtDhQfLfNapCgNayPIcA8sBxixVJM1sNi3rbYzGGNNLoOkIkpLgu8YzDZR4P7TDE1q
+	xIfH2XuemkxZm0pkGOxaHZLTktmoXM+r1sKGBGAlRLNonk61WrfwMGGOPEWPKCqBTdaRTciY682QO
+	n9Lt2GcVM8nZ0U+MX+dhB/ErCGaiIi90BR89JfvYpcPy+N0cwP8sJ0O0eFv58izyOcmeIZftLW56J
+	VyXIXyeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvqh5-00000005TXj-3XGx;
-	Mon, 17 Aug 2026 06:19:35 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wvqiB-00000005TjH-0oN8;
+	Mon, 17 Aug 2026 06:20:43 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvqh4-00000005TXR-2B26;
-	Mon, 17 Aug 2026 06:19:34 +0000
+	id 1wvqi9-00000005Tj6-3Bam;
+	Mon, 17 Aug 2026 06:20:41 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 22D7442A8A;
-	Mon, 17 Aug 2026 06:19:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92DFC1F000E9;
-	Mon, 17 Aug 2026 06:19:31 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D02BF6013A;
+	Mon, 17 Aug 2026 06:20:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E857D1F000E9;
+	Mon, 17 Aug 2026 06:20:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786947574;
-	bh=POGKE8+LRB9ANrHeL700hx5oCB9hZ3MzNcwPwGAW6kA=;
+	s=k20260515; t=1786947640;
+	bh=7bgBGN7+/ozSfdokjzvflhFj0ToHa1vgIl1PXuNzLXE=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=iWZf1veV0oiTZoKDh1jgp9v3u9+kUoaAXwT1XOFbavImhRAQrxSR6n96uSzDFwXeo
-	 t1OesDV1pybYvGFDPQ2cTgAeaAtmLjCMH3kB2vVFIjxUTE/68F+9qQhMjwdkmP0drL
-	 Iiq9dWiiGKthpqwLHe3bGz8A8eKcgWokLl0pIdUZNu3f0WQMLoanHje1RS1u1iA9ZQ
-	 7+JxKUj28NsbgQ8CtS79porhoE1bT6H2YtKh2fJ6sE/gEFp3yWvPrM1zjul0SaNlob
-	 QYc8gdRtgM+mNOGz3kEGxxmCumAd9EVXwFyJn3AGI88MmBMQE7D2NvD2NLET3tcZu5
-	 Zd8W+5M2GnxsA==
-Message-ID: <641880ef-3ba5-4b84-afd5-57f21d8f9805@kernel.org>
-Date: Mon, 17 Aug 2026 08:19:28 +0200
+	b=j397Yc+hZ1l8JyoyiSLUABxsCy1ya63BYN+M/fDZtMYvYUxuKJLMKwmXt0KrNNxAd
+	 8XA6YcfDGmUrwb3mlVarBaxOlXRtri+BVjBLuIC4oscNFwMYz9o+vb+HtlhvS84rB5
+	 ja8S9D1/at+oK2Q3cdanPN3y3G0qYvDFhlKDDM0xQFWn4uU6PMAEZ0Tren/bm/jwhe
+	 Ns6fmzevNpTWneUGJEdbVW+ZVkyUqH2vnLWaSb7ir7ptsaqwdsC0MaA9WW9b4y1nKn
+	 6fu3B76Swuqr23Sp83lSNGqh9m7z75k2gYdC02iavZ0IwYf3tNa7Biv4HZ89pFkXem
+	 kSkGfMmgA/abQ==
+Message-ID: <4998d0ca-eeb0-4b04-b3ac-a1f97c1829f2@kernel.org>
+Date: Mon, 17 Aug 2026 08:20:35 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 1/3] dt-bindings: perf: Add Broadcom Raspberry Pi AXI
- PMU definition
+Subject: Re: [PATCH v13 0/3] perf: Add Raspberry Pi AXI PMU driver
 To: Ian Rogers <irogers@google.com>, florian.fainelli@broadcom.com,
  linux-perf-users@vger.kernel.org, linux-rpi-kernel@lists.infradead.org
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  pbrobinson@gmail.com
 References: <20260815082048.4043217-1-irogers@google.com>
  <20260815172712.50119-1-irogers@google.com>
- <20260815172712.50119-2-irogers@google.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -99,7 +97,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260815172712.50119-2-irogers@google.com>
+In-Reply-To: <20260815172712.50119-1-irogers@google.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -117,43 +115,19 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 15/08/2026 19:27, Ian Rogers wrote:
-> Add Device Tree bindings for the Broadcom AXI PMU hardware blocks present
-> in the Raspberry Pi SoC line (BCM2835, BCM2711, BCM2712).
+> Motivation & Background
+> ==============================
+> Currently, Linux lacks a standard perf-API compatible driver for the
+> Broadcom AXI performance counter blocks on Raspberry Pi platforms. Prior
+> out-of-tree vendor solutions relied on custom debugfs nodes and ad-hoc
+> kthreads, preventing integration with standard Linux perf tooling (`perf stat`,
+> `perf list`, etc.).
 > 
-> Depending on the SoC and security configuration, these PMUs support either
-> direct MMIO access or routing via the Raspberry Pi firmware Mailbox IPC.
-> The bindings support defining 1 or 2 backing MMIO regions natively map
-> the system and VPU control surfaces.
-> 
-> Assisted-by: Antigravity:gemini-3.6-flash
-> Signed-off-by: Ian Rogers <irogers@google.com>
 
-What is this mess thread of 13 versions tied together? And still none of
-them are actually sent to maintainers?
+Slow down!
 
-
-Do not attach (thread) your patchsets to some other threads (unrelated
-or older versions). This buries them deep in the mailbox and might
-interfere with applying entire sets. See also:
-https://elixir.bootlin.com/linux/v6.16-rc2/source/Documentation/process/submitting-patches.rst#L830
-Please use scripts/get_maintainers.pl to get a list of necessary people
-and lists to CC. It might happen, that command when run on an older
-kernel, gives you outdated entries. Therefore please be sure you base
-your patches on recent Linux kernel.
-
-Tools like b4 or scripts/get_maintainer.pl provide you proper list of
-people, so fix your workflow. Tools might also fail if you work on some
-ancient tree (don't, instead use mainline) or work on fork of kernel
-(don't, instead use mainline). Just use b4 and everything should be
-fine, although remember about `b4 prep --auto-to-cc` if you added new
-patches to the patchset.
-
-You missed at least devicetree list (maybe more), so this won't be
-tested by automated tooling. Performing review on untested code might be
-a waste of time.
-
-Please kindly resend and include all necessary To/Cc entries.
-
+One version per 24h in normal cycle, not 13 patchsets in two days! (and
+even rarer during the merge window)
 
 Best regards,
 Krzysztof
