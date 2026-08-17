@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FC1BC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 19:40:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6272C5DF66
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 19:46:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lJq/NEqpyI0j+eTy2U2bsI6AtQTfq+l/OpHu1gOBeiI=; b=osoIVDV1dh283ZJzDUtmtUOn+t
-	CZhYVLdOrU5KESpDwUIIR4KgDcqHKryakWKd92dLIGBbMiqpJD9lijqEBoz9y7DQJoRnRYTcgH6S7
-	7sq5EV24PCOU3mQzuw+1QVxpZo7gvq1Ltso6iHBXZZ1BDbelaesdhZqtZJZgFofJHlHeNBOnTNU7U
-	uKl6UNA2zZQ6qI58iatwEzaZa15Qma4c2lBM6RLODZyM46ptiblB7GJPbquilkpNFEVyGRELgnnAq
-	NohzPW/sBvpRSQd0CGhsNlsjV98CZafdstD/JZGDrwg9I/D1Xq8+5SpNLE4Wb2EXNbbD82480jyS2
-	FtY/0RIQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=S0l/ndO/VYAORMAtNkSX1tYxaqQIs5GadFL6w9bnclY=; b=WWb1h5BnM482F4H+uN4+k7eLao
+	hIJAcBbtVnKFpH4w9LySz+ahS/YAm4vZ0njH00BPRbHHtecGFFxX76XSHLy+k5/TcwmKTweTI79+n
+	k4hoQNORnxzTRiuUX3HUrbssjnWlv4CbakajeQcqmIkF/gYrHqeOyrpCc9QAgf4ACObpBS78sGOzP
+	eCwcjsUkzcojKTIjtBM+Hd5bVEm7TMUb9r3jTE5G2l4p02Icy2X6upCkT5QAu6DF7wSpDro6hNK+U
+	aaU4UJdBQ06BZVEWYwlicnURR1NSpybo3qnjOF3mBqKAkIRHNoFTz3AQB50Sa5ZasEZTa8xH7b++N
+	QpChI10A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww3CG-00000006jKE-2Yiq;
-	Mon, 17 Aug 2026 19:40:36 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww3CD-00000006jJn-3aIM
+	id 1ww3I2-00000006jYs-0wB7;
+	Mon, 17 Aug 2026 19:46:34 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1ww3I1-00000006jYi-03hY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 19:40:35 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 084A31655
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 12:40:26 -0700 (PDT)
-Received: from [192.168.0.1] (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A96FE3F673
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 12:40:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786995629; bh=J3MdS4PH0Su/2ookildlSnvG/LcVZKRvW1iJ6HnLlBQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HuHPe3RQiHvIVgjbWXWwDI6MNgIRx1nYqT0l7fqPtuRaV539AWX3TVp3RfhNd559Z
-	 8xJ59tAbtrw3UmFMsM74g+pYx3pLuIRWA2vpRTm4f8WKQ2kxdy6aekiCy86De3cCmy
-	 Y+z4X96HzXYsldwOnJ3WLIJRYebHh2aR5/Zs3/X4=
-Date: Mon, 17 Aug 2026 20:40:23 +0100
-From: Liviu Dudau <liviu.dudau@arm.com>
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: arm: corstone1000-a320: Fix GIC
- redistributor region size
-Message-ID: <aoNjpw8p6tUw8b0v@e142607>
-References: <20260817185607.1756124-1-robh@kernel.org>
+	Mon, 17 Aug 2026 19:46:33 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 03D25601E0;
+	Mon, 17 Aug 2026 19:46:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACB131F000E9;
+	Mon, 17 Aug 2026 19:46:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786995991;
+	bh=S0l/ndO/VYAORMAtNkSX1tYxaqQIs5GadFL6w9bnclY=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=Zll/YueNPB0JNJpPWroXOsr+hmaJobuMEdN4moH9OJmziQcFJoTKAAbkrQglhllOy
+	 p6I7rA00H3hUYQ+QQjr0zCXAClD7ajRfqtDeXkzEL9/sQTrv3YySCKDmkYOb1qBDso
+	 E6spdpEJ4Sbh68/KAQs2iulAhVwo9gU+XRdJKrjJ3eywxA21B22LEZDegVUvqKXfz8
+	 A1XHV44Kw+FEKIeSy+hmRuvKZmhfPximYw1eeqNMRyFWOvhgXa4cpchAGgs8/yTwnM
+	 KOan9fNWp6xJAFMv6fFirIKfWNKltQgAHu90Ph3xXHSst+e8dDmxJboANu7+b6hFbv
+	 qLGvVe6YeZLuw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 197E43926262;
+	Mon, 17 Aug 2026 19:45:45 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260817185607.1756124-1-robh@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_124034_021156_41672867 
-X-CRM114-Status: GOOD (  17.31  )
+Subject: Re: [PATCH net-next v2 0/2] net: stmmac: DMA address handling fixes
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <178699594363.1691257.7676082110902844173.git-patchwork-notify@kernel.org>
+Date: Mon, 17 Aug 2026 19:45:43 +0000
+References: <20260812163832.271742-1-elder@riscstar.com>
+In-Reply-To: <20260812163832.271742-1-elder@riscstar.com>
+To: Alex Elder <elder@riscstar.com>
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ sashiko-bot@kernel.org, mcoquelin.stm32@gmail.com,
+ alexandre.torgue@foss.st.com, linux-stm32@st-md-mailman.stormreply.com,
+ netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,48 +75,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 17, 2026 at 01:56:07PM -0500, Rob Herring (Arm) wrote:
-> The Arm Corstone1000-A320 has a GICv4 which means the redistributor
-> region should be 4x256KB rather than 512KB. This issue didn't become
-> apparent as SMP was disabled as a work-around in early versions of the
-> FVP.
+Hello:
+
+This series was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
+
+On Wed, 12 Aug 2026 11:38:29 -0500 you wrote:
+> Update jumbo_frm() (implemented in both "chain_mode.c" and "ring_mode.c")
+> to ensure DMA errors don't get lost due to casting the result to an
+> integer of the wrong size.  This was a Sashiko suggestion.
 > 
-> Fixes: 87599f1843d3 ("arm64: dts: arm/corstone1000: Add corstone-1000-a320")
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-
-Reviewed-by: Liviu Dudau <liviu.dudau@arm.com>
-
-Best regards,
-Liviu
-
-> ---
->  arch/arm64/boot/dts/arm/corstone1000-a320.dtsi | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+> In addition, add explicit calls to lower_32_bits() to DMA addresses
+> before they are passed to cpu_to_le32(), to guarantee the type of
+> the converted value is u32.
 > 
-> diff --git a/arch/arm64/boot/dts/arm/corstone1000-a320.dtsi b/arch/arm64/boot/dts/arm/corstone1000-a320.dtsi
-> index f0937914350c..f895a024fc92 100644
-> --- a/arch/arm64/boot/dts/arm/corstone1000-a320.dtsi
-> +++ b/arch/arm64/boot/dts/arm/corstone1000-a320.dtsi
-> @@ -73,7 +73,7 @@ gic: interrupt-controller@1c000000 {
->  		#size-cells = <1>;
->  		interrupt-controller;
->  		reg = <0x1c000000 0x10000>,
-> -		      <0x1c040000 0x80000>;
-> +		      <0x1c040000 0x100000>;
->  		interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_LOW>;
->  	};
->  
-> -- 
-> 2.53.0
-> 
+> [...]
 
+Here is the summary with links:
+  - [net-next,v2,1/2] net: stmmac: use dma_addr_t for DMA addresses
+    https://git.kernel.org/netdev/net-next/c/0c1f9020d2ad
+  - [net-next,v2,2/2] net: stmmac: convert DMA address to lower 32 before assignment
+    https://git.kernel.org/netdev/net-next/c/c11c497af866
+
+You are awesome, thank you!
 -- 
-====================
-| I would like to |
-| fix the world,  |
-| but they're not |
-| giving me the   |
- \ source code!  /
-  ---------------
-    ¯\_(ツ)_/¯
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
