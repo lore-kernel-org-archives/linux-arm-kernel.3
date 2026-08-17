@@ -4,56 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91596C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 07:26:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBC8DC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 07:27:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jx/fJHlv+TyqL14DjIYnpch16uX3FqMcscjcOmZZRMI=; b=ETTwMYEidZKJc2iqo+Dfu4FP46
-	5QeoMbL/of7Z0XTLSXhvDi/EyOjwVKQGbfP4x7xTINu8gA3gBkyt6Hbb0rjpRi/bkACBj3jnLf7wb
-	LDQTzhWT+uvNE00OLr4MuSk1z7qOruRbJZTeEoX68+/W2AG8U66Mmsud9H/Xxcd9yZn4Zd/9vjyCu
-	TPqTcgEptsRxz+FxAc7LAG9YRGHw4ELlb/c8yKmA6Nohy3psUQ8OsiOwuo02NeE5CrNCwTulKQp+G
-	gRdRvRohmjSa61PRvJnozGozVYedpkf2wYeD9GW9Xjbr2GBrYEtxdlwQ9oCr5upYfZFZ4GrpC6Tnm
-	tMDGJbfw==;
+	bh=22SRUSIv/18uEngg3o+81aUEOkApE8icu3nDWQozYZo=; b=Cac6xwlZ/YbPqiv7O1qNIBF5oE
+	U9j85p5nCxU7ZtczX0K5//WfTA85902TP3Zh2SwsLctAzZb+olI3TbZqZ61fgYomNrIIYDZ07Z6WL
+	5rP23u3ZRvpalc35LZ9/rCIo+BfIcEEKhWRIKm0WRfwzl0pJEdghGX06A+mK40R4g+IPfl9RyzaPS
+	M1+0/OHnTWYJUWlq9/wxhLYhHM0iEodPQDgyH8EvneiRcd5y+EfiZCYcc9kme6xpMN3DqemAUwZAP
+	2H4zHEjZmfWsQRo1C3+1ybMbblCLggrjLzn47H2918cXJuGP8WEzhmHIQcp/ItYJ1DL4L/Gc5jxNk
+	cylhPHuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvrja-00000005XuI-153K;
-	Mon, 17 Aug 2026 07:26:14 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wvrkY-00000005Y61-2exs;
+	Mon, 17 Aug 2026 07:27:14 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvrjZ-00000005Xty-1lyF;
-	Mon, 17 Aug 2026 07:26:13 +0000
+	id 1wvrkW-00000005Y5n-47AR;
+	Mon, 17 Aug 2026 07:27:13 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D7ED3600AE;
-	Mon, 17 Aug 2026 07:26:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2E231F000E9;
-	Mon, 17 Aug 2026 07:26:09 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A8A334073D;
+	Mon, 17 Aug 2026 07:27:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E88941F00A3A;
+	Mon, 17 Aug 2026 07:27:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786951572;
-	bh=jx/fJHlv+TyqL14DjIYnpch16uX3FqMcscjcOmZZRMI=;
+	s=k20260515; t=1786951632;
+	bh=22SRUSIv/18uEngg3o+81aUEOkApE8icu3nDWQozYZo=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=TPVwsH0+yYuF5dCUWAaOeLMTyhwWvDtbJxenguD4vGcYaOy7OeWd5GLCdI1b8Zztc
-	 LnyRlbBg71hEc/bvOnKGUzR+PNnHGJ4+544wktNjY5KPjH/tUfM5XMzQ5O53/Myb8n
-	 j0J6bjOq3D3TRBSWgxFXiGP7eGDL85OXT6oqW6CPWag0wOCtLnh1EtOAcbFDIky4Nz
-	 JmIDBa4yD2kBN9rZC0eNk0wP1Pi5xwce+grNtntwZp3WNBqKiyA8ks2YPW12J2KVbE
-	 x6bS88gfmJ6WjulOI9SsamrKv+qZw+NEvCdOJcFJLGREEjdDtU4PY79DDYGc2sv4ks
-	 s4ZDE9DRz7TNw==
-Message-ID: <7cc71fbf-425e-4047-94c5-3f06d3ed8905@kernel.org>
-Date: Mon, 17 Aug 2026 09:26:06 +0200
+	b=YFocgvBascsKj+85+I0ToeIJCdop1GLLkWUWYtRSyxz5YOdpRMrvzMqYHorMNMgsd
+	 VIzh8YRc21XOsx2f7NWUbo8bwsRpNAZpIVLaCbErlonEPFvVjtRqUY4p0hvB+/gGfv
+	 df/3To5VtfjPr14e43z3c2EVS3f9/p/Ny/oAjeTLuqTct8Dixla+sCxj0sJWwfhlla
+	 /rXddDf0cEA2PipCrq3RS3qkM1ICuxtGBP/OCsBeLwtka5NTNH/z5w0v9nJPsZtzIe
+	 J4cagiAA0ucjtXo9RUk4KRhCQLAvDVc8Okq+LuKN/wedCJdZAMPY7NUL0soenz8ABy
+	 W+YWRtkkKCueg==
+Message-ID: <ddd4928a-f521-468c-8778-aa44f175c18c@kernel.org>
+Date: Mon, 17 Aug 2026 09:27:07 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 0/3] perf: Add Raspberry Pi AXI PMU driver
+Subject: Re: [PATCH v13 1/3] dt-bindings: perf: Add Broadcom Raspberry Pi AXI
+ PMU definition
 To: Ian Rogers <irogers@google.com>
 Cc: florian.fainelli@broadcom.com, linux-perf-users@vger.kernel.org,
  linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org, pbrobinson@gmail.com
 References: <20260815082048.4043217-1-irogers@google.com>
  <20260815172712.50119-1-irogers@google.com>
- <4998d0ca-eeb0-4b04-b3ac-a1f97c1829f2@kernel.org>
- <CAP-5=fVffrRgO4OM6u=JTEUwBY0np+fUExqOpbiYU1JgyMr7Rw@mail.gmail.com>
+ <20260815172712.50119-2-irogers@google.com>
+ <bca067e2-bbd7-43cf-9198-32bf4de35a7a@kernel.org>
+ <CAP-5=fVpy=mK75hXNnFKTcdv-J9ckDV-vqVCbcEKigftom=1Qw@mail.gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -99,9 +101,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <CAP-5=fVffrRgO4OM6u=JTEUwBY0np+fUExqOpbiYU1JgyMr7Rw@mail.gmail.com>
+In-Reply-To: <CAP-5=fVpy=mK75hXNnFKTcdv-J9ckDV-vqVCbcEKigftom=1Qw@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,31 +118,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/08/2026 08:57, Ian Rogers wrote:
-> On Sun, Aug 16, 2026 at 11:20 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
+On 17/08/2026 08:59, Ian Rogers wrote:
+>>> +  reg:
+>>> +    minItems: 1
+>>> +    maxItems: 2
+>>> +    description: |
+>>> +      Memory-mapped I/O resource regions for the AXI PMU endpoints.
+>>> +      Typically ordered as System monitor, followed by VPU monitor if directly
+>>> +      mapped.
+>>> +
+>>> +  firmware:
+>>> +    $ref: /schemas/types.yaml#/definitions/phandle
 >>
->> On 15/08/2026 19:27, Ian Rogers wrote:
->>> Motivation & Background
->>> ==============================
->>> Currently, Linux lacks a standard perf-API compatible driver for the
->>> Broadcom AXI performance counter blocks on Raspberry Pi platforms. Prior
->>> out-of-tree vendor solutions relied on custom debugfs nodes and ad-hoc
->>> kthreads, preventing integration with standard Linux perf tooling (`perf stat`,
->>> `perf list`, etc.).
->>>
+>> This was already rejected.
 >>
->> Slow down!
->>
->> One version per 24h in normal cycle, not 13 patchsets in two days! (and
->> even rarer during the merge window)
+>> https://lore.kernel.org/all/?q=broadcom+firmware
 > 
-> I'm familiar with perf-tools which was set up to follow BPF's example,
-> both have -next repos. The -next repos merge into linux-next for
-> testing. I agree that cherry-picking shouldn't be done straight into a
-> pull request to Linus. Is there a principle against using -next and
-> linux-next?
+> Ok, assume I'm ignorant of device tree things, how should this be
+> addressed? Your link is to "~70000" messages.
 
-How is this relevant? I don't think you read my comment.
+I am pretty sure you can narrow the search.
 
 Best regards,
 Krzysztof
