@@ -4,67 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2E2CC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 21:44:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25667C5DF74
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 21:55:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SYYWAFb6MNGQGSRSXAIPAH4FqybYazhn6qOSEXQ0npo=; b=kMHISqu6/Fi80Uuwp3f8SxsE3v
-	bg+OwWjdrFgj3qTClrzV0VsnbrT2X6RCAkLjXvFu416ixYRYPOC0vvP2uDJlYqxsmo8Y1WM6kNzfE
-	5jNs5cIZdJWnn7c3Ea4mSm1hL+HyleT3lXicgrhA57xkcvdSvVCpmg/tOM6s6GQWwKTqCIIvHk56s
-	j3i/EZsP3QRd/GlAsKWFl4LXzg5lWZ/lmZT7WvRzf1NK2DiIlfyES5mxQWJZU0F82gEOv/qdhWCni
-	DVP23SyOxy+DuNeQSOC5EyEu4hIt1ZaA6iWnfdTZj7y9Phvkq1TGOf3BQ6g2SC675X6NVaddu0cFV
-	zcMiPzMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kyG2XouO94IC0oaowF4bLz5IBlinDO6829l+v8pLt/w=; b=oKw00L55Jdi3xNaTCUonstMvYD
+	pJKZukeyAZ9JEXdSW+HA5ZwnX/E57R48jXxQozeVfUpUM8L/km+hTvwW076GkBc9nr5IUxkIKSwOI
+	iwItcuQLvVu9C4MUFFqnUWSs55+iXF3l4JTd0f8WIj7p74+G+5j9ORelPXDtWy2LjZ0+0pSeDTdxO
+	TjQBRDsxWFjLueQcVE+5cnOvzyEwpKtBPdGDsmPv3w6pZuc9ZE47ZftXptkC1dDg98vfyBHQxSiYc
+	ggoScQk/OofS5zwiAEZkDUMNg/N3OY+nEdVJ9grLuYCV5lJjSA3foHNOhZYUJVrr3Upq6WiSNGAVh
+	+9CVTVaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww588-00000006rka-20tR;
-	Mon, 17 Aug 2026 21:44:28 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1ww5Ib-00000006sos-0Fgh;
+	Mon, 17 Aug 2026 21:55:17 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww587-00000006rk7-07po
+	id 1ww5IY-00000006soN-1tQx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 21:44:27 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6C39843596;
-	Mon, 17 Aug 2026 21:44:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F00E1F000E9;
-	Mon, 17 Aug 2026 21:44:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787003066;
-	bh=SYYWAFb6MNGQGSRSXAIPAH4FqybYazhn6qOSEXQ0npo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=YvyXr0mF8oM0Qpvu8B995T9Niu1lMEuyvznn463YUnzlINCBL6c7oP3w5/b1Ik0Oj
-	 EIgVVvFhn1CxAtUcjww9aYnQh5EWlUeW8LkFNcAXZDKUyYCmckuluC53a+H9EPbz/l
-	 cr+nkXZNg9seXdnPrCWVpG5LXr7Xw9OUKKDN3qkO6269j3SOgLEJ3493HDDO+5CU+a
-	 zuRougM303roU30KkODvILas9ddQoNAX+6/eavYzCM4zyPqjJAtYatilCtSP3i6MCH
-	 6X/lSvmEV5vQrxR3NkQCHkzkDC2XrpBAm2kzphwFWbhlMzqGOGrJcqZ1HMhpAPx/kU
-	 +oVuu0zDnLYbw==
-Date: Mon, 17 Aug 2026 14:44:23 -0700
-From: Josh Poimboeuf <jpoimboe@kernel.org>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, live-patching@vger.kernel.org, Song Liu <song@kernel.org>, 
-	Miroslav Benes <mbenes@suse.cz>, Petr Mladek <pmladek@suse.com>, 
-	Joe Lawrence <joe.lawrence@redhat.com>, Mark Rutland <mark.rutland@arm.com>, 
-	Mark Brown <broonie@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Kees Cook <kees@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
-	linux-toolchains@vger.kernel.org
-Subject: Re: [PATCH 02/12] arm64/module: Fix BTI exceptions caused by omitted
- landing pads in Clang 21
-Message-ID: <aoMnkvrrjljQ6uOJ@jpoimboe>
-References: <cover.1786768375.git.jpoimboe@kernel.org>
- <2ff1b2482406c61ca5979d6284ba5f948a3fbc20.1786768375.git.jpoimboe@kernel.org>
- <6bc20c00-21a9-4315-8ec3-33c7ad6ae95f@app.fastmail.com>
- <aoCu66bx1Qg14-uD@jpoimboe>
- <b32fc053-6f1f-481e-9872-ab3cf22534e6@app.fastmail.com>
+	Mon, 17 Aug 2026 21:55:15 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-495757ccbc1so35639395e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 14:55:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787003712; x=1787608512; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=kyG2XouO94IC0oaowF4bLz5IBlinDO6829l+v8pLt/w=;
+        b=mCdbJqobsvEEuXnRKFugMp3Zm5vc6VteAyxcGe99X2AnObrTjwEe3ME0bmGHZn7jUY
+         dwjTlmhxIQi2n9i2pJPWEfc2niEuH2l/WM+Idl4ClbSsOoDwBZ259bVCGHG/uHjOzS6d
+         MM1b5rafgF1VGz7XMJpyzXr6cK40SD76gUSMCPKVgdpGyB/6Zoh5+iKZnchnI0OZAnnk
+         VQGzP47iX97xG98QV+PjlQq1D17AA21EOY8H3lSnggJihDgLA6SK4GvQqqvD4WxE58Cz
+         Ak511rVgYZ5Q5iwp2mDMXe0T1xoAVtNSD/Tl+tsuA/uT1lQydZnULaQMxDYWzJuObURy
+         jbRA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787003712; x=1787608512;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=kyG2XouO94IC0oaowF4bLz5IBlinDO6829l+v8pLt/w=;
+        b=LPHndxFxuGeQ6+nxRhaKNMfbfQaiR+Io4vlqDBwlATMigA2vHdYunk6McpWvFFV0g9
+         xl+logTDCKttQ5KtIbjYm7Qpo3AyxHQPUhWOwsl4+La9+/Jvo+9M3MdACB5rsVFLeobN
+         zRJZCnvL3udmgyG6erEvutpiBzVYu35j0HVxaxvSmZP0YKeSodWpVUuUcpG8zgjjxJ2O
+         Z3pEPUrKzRnIqCrJ4upgLMeDhIsDcvBdmLJvoQjAQ2es0rFR06aIEu99WusBVELqeP2D
+         bWmDwMVx1a6BKvrFyvF/Oy6MbjDhJVuJruviiCVHlsPUVz06M7QU9WsDg0+1VjdKNRZr
+         03Sg==
+X-Forwarded-Encrypted: i=1; AHgh+RqoHvqLZHuAIQeYdBEoK7vLO+wPB2oS323N0y45ZWwi9Fnt9zq69jgLcg5N2ElDMm2qntYRG4s70vmg4nIjaMo5@lists.infradead.org
+X-Gm-Message-State: AOJu0YwGY4fyFXExw8E8Ztye0x7XJgKmFVze5zoz/GWb+wVDtP1D2C0F
+	D6In1D38SMA/vx9KJn/BFno8S4mhmp3ygDsNXR/zSBpQV9sgIroJrKaI
+X-Gm-Gg: AR+sD13bpDygGS84DIM5lxmdohq9XpH8kjfQwp3Xn9NbfkZ/U5dZ6Ua1tQR08lleJYj
+	3rtBo2F5VKjPrFJah5VnNeCRkBBICbOF2w92fmHgjhvvpps0GAcMAQJYM4sGghsEKMyIjjU0akm
+	dVjWMXF7cfsDDD+584tCGED8539l5dYj2V2cF68DjCIqgX4NQ7iqDo4C9f2Mvei5uqX3X3oR1k3
+	8EDt1KebjWvdOUaJOp04lPzaUfxqV8QH5GSHVKkP95HxfJDJlvNw2DH1tKrcC893DGdILdNYg98
+	wgQYgneukbvOme22J6Ppir/iPJZJFegD8TpatcDe/z/diJid9RDJu67plDfByloIBjDyekkGuPt
+	YGX2fNGH+Tv2hnXmGiOjpJCixzvaraVUcnbbBBObDIe987YpgcNNjQC8OAFprx4RVI4tpXH8mCr
+	xyfCTG9XyehRVqVgZfjeH6tgvv3A2TRzTRYQ9CBISKWFcPEc3O5rP5y8NvkatfQNt/bsD0JSc4q
+	GjZB64VJL9L/JQBlFFAjCXKMe2mTx2Hr5qRY8iDg0kc5x+DhpxX+oiRwbeYTLDjCzAFFUeiYsCL
+	8T3kVj2Qdw==
+X-Received: by 2002:a05:600c:b99:b0:496:c379:b2a1 with SMTP id 5b1f17b1804b1-49987929903mr398757195e9.2.1787003712299;
+        Mon, 17 Aug 2026 14:55:12 -0700 (PDT)
+Received: from localhost.localdomain (85-118-76-205.mtel.net. [85.118.76.205])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49987b2a176sm309622525e9.4.2026.08.17.14.55.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Aug 2026 14:55:11 -0700 (PDT)
+From: Georgi Valkov <gvalkov@gmail.com>
+To: briannorris@chromium.org,
+	johannes@sipsolutions.net,
+	andrew@lunn.ch,
+	krzk+dt@kernel.org
+Cc: francesco@dolcini.it,
+	johannes.berg@intel.com,
+	kees@kernel.org,
+	miriam.rachel.korenblit@intel.com,
+	wenst@chromium.org,
+	rafael.beims@toradex.com,
+	avraham.stern@intel.com,
+	error27@gmail.com,
+	s.kerkmann@pengutronix.de,
+	gregory.clement@bootlin.com,
+	sebastian.hesselbarth@gmail.com,
+	robh@kernel.org,
+	conor+dt@kernel.org,
+	Frank.Li@nxp.com,
+	chunfan.chen@gmail.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	stable@vger.kernel.org,
+	gvalkov@gmail.com
+Subject: [PATCH v5 1/3] dt-bindings: net: wireless: add flag marvell,ignore-regulatory-hint
+Date: Tue, 18 Aug 2026 00:54:26 +0300
+Message-ID: <20260817215428.84740-1-gvalkov@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <CADOrJmbTyrGGkq+9OJDXCgTa2HvNo8BWxoE6yjafcrOq7WNamw@mail.gmail.com>
+References: <CADOrJmbTyrGGkq+9OJDXCgTa2HvNo8BWxoE6yjafcrOq7WNamw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <b32fc053-6f1f-481e-9872-ab3cf22534e6@app.fastmail.com>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260817_145514_533732_A01DC52A 
+X-CRM114-Status: GOOD (  14.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,121 +122,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 17, 2026 at 02:11:26PM +0300, Ard Biesheuvel wrote:
-> On Sat, 15 Aug 2026, at 21:57, Josh Poimboeuf wrote:
-> > On Sat, Aug 15, 2026 at 12:56:11PM +0300, Ard Biesheuvel wrote:
-> >> On Sat, 15 Aug 2026, at 07:45, Josh Poimboeuf wrote:
-> >> > The following BTI exception was seen when loading a livepatch module:
-> >> >
-> >> >   Internal error: Oops - BTI: 0000000036000001 [#1]  SMP
-> >> >   pstate: 634004c9 (nZCv daIF +PAN -UAO +TCO +DIT -SSBS BTYPE=jc)
-> >> >   pc : kill_orphaned_pgrp+0x0/0x150
-> >> >   lr : do_exit+0x498/0xaf0 [livepatch_combined]
-> >> >
-> >> > The problem is that the patch module's do_exit() is branching to a
-> >> > static function in vmlinux using a module PLT veneer (indirect branch),
-> >> > but the target function doesn't have a BTI landing pad.
-> >> >
-> >> > Clang 21+ omits the landing pad for static functions which can only be
-> >> > reached by a direct branch.  But livepatch modules use klp relocations
-> >> > to reference arbitrary kernel symbols, and with
-> >> > CONFIG_RANDOMIZE_MODULE_REGION_FULL the module is far enough away that
-> >> > every call to vmlinux needs a PLT.
-> >> >
-> >> > Note this problem is actually not specific to livepatch.  It's possible
-> >> > for any module's .init section to be allocated > 128MB away from its
-> >> > .text section.  So calls from .init to .text via a PLT can trigger a BTI
-> >> > exception when the target function doesn't have a landing pad.
-> >> >
-> >> > GCC has always omitted the landing pad when possible, so kernel BTI is
-> >> > already considered incompatible with GCC since commit c0a454b9044f
-> >> > ("arm64/bti: Disable in kernel BTI when cross section thunks are
-> >> > broken").
-> >> >
-> >> > When missing landing pads are detected, allocate a page close to the
-> >> > target which can be used to hold BTI veneers which receive PLT veneer
-> >> > indirect branches and direct branch to the final target:
-> >> >
-> >> 
-> >> This does not work for cross-section calls from .init.text to .text.
-> >> 
-> >> If .init.text is far away from .text, it is likely because .text
-> >> ended up in the 128M 'near' module region, and .init.text did not.
-> >> (They tend to end up in direct branching range of each otherwise.)
-> >> 
-> >> Given that the module init code is typically small, I don't think
-> >> it is safe to assume that allocating a single page close enough to
-> >> .text is going to be possible if allocating the space for .init.*
-> >> was not.
-> >> 
-> >> IOW, the fix I proposed for cross-section calls is still needed
-> >> with this approach.
-> >
-> > But the BTI veneer page is allocated from a *256MB* window, of which the
-> > near region is only a 128MB subset.
-> >
-> 
-> OK, so this window would be [_etext - 128M, _text + 128M), right? Or
-> whichever the equivalent is for a kernel module?
-> 
-> I agree that this considerably reduces the likelihood of running out
-> of veneer space within direct branching range.
+WRT3200ACM and WRT32x routers always report a fixed US regulatory domain
+from the mwifiex ROM, which conflicts with the platform regulatory
+configuration on units sold outside the US market. For example:
+- phy0 mwlwifi 5 GHz, hard-coded region 98 EU mapped to FR
+- phy1 mwlwifi 2.4 GHz, hard-coded region 98 EU mapped to FR
+- phy2 mwifiex 2.4 and 5 GHz, hard-coded region US
 
-It's a *moving* 256M window centered around a given branch target:
-[target - 128M, target + 128M).  The window always fully contains the
-near region, *plus* another 128MB: 128M - (target - base) below the
-region and (target - base) above, which always adds up to an extra
-128MB.  So it has a much bigger pool to choose from than module text
-does.
+When the system boots, it detects a conflict between the user selected
+region and the radios, e.g. BG FR US, and applies extreme restrictions,
+preventing use of 5 GHz and DFS channels. This also affects phy0.
 
-It does try to allocate inside the region, or right after it, so the
-page can be shared by other branches in the same module if possible.
-But it can allocate more above or below as needed.
+Add a device-tree flag, which allows affected platforms to ignore
+an incorrect regulatory hint from ROM, so userspace can set the
+correct platform regulatory domain.
 
-> > There is a theoretical case where the 256MB window around the target is
-> > completely full without any fragmentation, but I would think that there
-> > would almost always be some fragmentation.  If that window is modules
-> > stacked together, most modules have at least .init.plt and .init.text,
-> > and many have .init.data.
-> >
-> 
-> Are you saying these are freed again once the module is initialized, and
-> therefore there is fragmentation? Not sure if it works like that if modules
-> are loaded one after the other.
+[1] https://github.com/kaloz/mwlwifi/issues/173#issuecomment-307879699
+[2] https://github.com/openwrt/openwrt/issues/9956
 
-Not sure I understand your question, but yes, the module init mem is
-allocated from the same pool as other module memory, and freed once
-module init is done, able to be reused, causing fragmentation.
+Cc: stable@vger.kernel.org
+Signed-off-by: Georgi Valkov <gvalkov@gmail.com>
+---
+v5:
+1. description: remove tag Tested-on
+2. add #address-cells = <1>, #size-cells = <0> to fix a warning:
+arch/arm/boot/dts/marvell/armada-385-linksys-rango.dts:183.3-13:
+Warning (reg_format): /soc/internal-regs/sdhci@d8000/wifi@1:reg:
+property has invalid length (4 bytes) (#address-cells == 2, #size-cells == 1)
 
-If multiple modules get loaded all at the same time before any module
-init memory has a chance to get freed, presumably fragmentation wouldn't
-be much of an issue yet and the given module's .init.text would get
-allocated close to .text in the first place.
+3. description: add info about testing
 
-> > Right now it needs two pages (because of the default guard page) but we
-> > could maybe fall back to VM_NO_GUARD in case of emergency.
-> >
-> 
-> I like the advantage of only allocating veneers if they are really needed,
-> as opposed to allocating the space unconditionally, which is what my
-> solution does. But I need more convincing that this will actually cover
-> all these cases, given that the cross-section call issue only occurs when
-> running out of direct branching space to begin with.
+v4:
+1. Add binding documentation for flag marvell,ignore-regulatory-hint
+2. Add dt for sd8897 and move the flag there, I used sample from docs
+3. Use device_property_read_bool in the driver
 
-Right, so if .text fits in the near region, and a one-page .init.text
-doesn't, meaning the 128MB near region is completely full, the BTI
-veneer allocation still likely succeeds because it still has another
-128MB pool to allocate from above/below the region.
+v3:
+I implemented and tested a better approach with no board specific code:
+1. check for a device-tree flag in mwifiex_register_cfg80211in()
+  !of_property_read_bool(of_root, "marvell,ignore-regulatory-hint")
+2. add this flag to the root device tree of each affected board
+Currently this affects only armada-385-linksys-rango.dts,
+because Linux has no dts for venom. OpenWrt will take care of that.
+This approach is more flexible and scalable, because the flag can
+also be used in other drivers, e.g. mwlwifi (not part of Linux).
 
-So for the allocation to fail, it would need to be a perfect storm:
+v2:
+Replace the compatible device names, which are currently only available on
+OpenWrt with board names which are available on both Linux and OpenWrt.
 
-1) a *lot* of modules loaded and/or huge vmlinux
-2) the branch in init code is placed >128MB away from its .text
-3) the target is a static .text function with no landing pad
-4) there are 0 free pages in the 256MB region around the target
+ .../devicetree/bindings/net/wireless/marvell,sd8787.yaml    | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-Seems unrealistic to me, unless I'm missing something.
-
+diff --git a/Documentation/devicetree/bindings/net/wireless/marvell,sd8787.yaml b/Documentation/devicetree/bindings/net/wireless/marvell,sd8787.yaml
+index 930b700b73d0..5f235cb9f3e5 100644
+--- a/Documentation/devicetree/bindings/net/wireless/marvell,sd8787.yaml
++++ b/Documentation/devicetree/bindings/net/wireless/marvell,sd8787.yaml
+@@ -59,6 +59,12 @@ properties:
+     description: Calibration data for sub-band 3 in the 5GHz band.
+     maxItems: 502
+ 
++  marvell,ignore-regulatory-hint:
++    $ref: /schemas/types.yaml#/definitions/flag
++    description:
++      Ignore an incorrect regulatory hint from ROM,
++      so userspace can set the correct regulatory domain.
++
+   marvell,wakeup-pin:
+     $ref: /schemas/types.yaml#/definitions/uint32
+     description:
 -- 
-Josh
+2.55.0
+
 
