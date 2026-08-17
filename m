@@ -4,100 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59823C5DF70
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 09:46:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDE48C5DF66
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 09:52:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KMiX0lpuCdiMpiwzWoB9LVEm9l7oTA1Ip8S52pJKwGo=; b=nyqp0SsHg3WnDesTJq3OEvqREr
-	3XSJiX0Xjzo9MFiolDrLUVCw6/uYAt01IhIgo3YhguH3F2Yv3ol/MTmydSyCbB04FB3RnvQBc0rol
-	fCWXD8dEa/0rCYyiYnEB5bon5wB8s8mCLvZs+uLSDrvdD442KT7hLstXJyf56bYQmpTsgSTg1/5bo
-	O/uu7vF+/VX/U3rVsEdxD0JhAuuicCPBbM2rzr11ifbQFzJ+fSSJz7DWVfM1EamJiV1fSiM8y+YFU
-	TLaJetpxXoxgo1mGkrWYiizUWc2KlmGdZ3UhimeftVC4b8ikEXiHRJKQ+ymtWKyNzy34JbmOmSLQo
-	2taChQ8A==;
+	bh=cqgZX36tq3stw7WUYgCHB9nJa4XRCAPBMvSex21T0K4=; b=ofbWNe2rN547CxSGaVxPSW5GuB
+	N2HfKqcUFF8Ir5neykqnVlJchVyhKFtGT+WmYIicQcYyjcI6ZyLFGcciDubPmbIUFMBB505meZJ6v
+	DNlGNkFWUkOva/mO9pkCr+YEZDH7jNQKjGi5nyZo8O1lNBOLnVmx4GMdwXZGrUTYCxDTi3vAY8Vo2
+	1idfBO7u30h2fCiqghITT5mgGBNPh6nyAlqVpUfjp4xAGnbgK2wtj5RZdkQUrskrTTw88RcSRmRA5
+	zTk4H+V+4CHAC6PrU/3DrgNZhRi4ArkR6uLXOjEOP39va0dFLT+8ADhpy4b1ZBPFgQahKCdal1284
+	HbmECXPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvtup-00000005qQF-0PWj;
-	Mon, 17 Aug 2026 09:45:59 +0000
-Received: from flow-a4-smtp.messagingengine.com ([103.168.172.139])
+	id 1wvu1M-00000005qzV-3ZI7;
+	Mon, 17 Aug 2026 09:52:44 +0000
+Received: from out-105.mta1.migadu.com ([2001:41d0:203:375::69] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvtul-00000005qPU-1P8F;
-	Mon, 17 Aug 2026 09:45:57 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailflow.phl.internal (Postfix) with ESMTP id CD2C713802AE;
-	Mon, 17 Aug 2026 05:45:53 -0400 (EDT)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-04.internal (MEProxy); Mon, 17 Aug 2026 05:45:53 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
-	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
-	:from:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm2; t=1786959953; x=
-	1786963553; bh=KMiX0lpuCdiMpiwzWoB9LVEm9l7oTA1Ip8S52pJKwGo=; b=s
-	AR/TxMFWmNopDZS4zzIHNdMQ8KhExf9auUe0Ix6oOyiM/iOBqDLSLS7mAOtEnlbB
-	+iXHjnasYcL+ChYyPJitlj1KiHOTkuSdhrii4G48/RzfxkOT+E996zdoSeZqkRYv
-	2TLu8UgerFSFgiMaui8rz1W2RuaM5p6euodXKZc9mzScAm9DPmPEq/EWa1Rgjt7o
-	+EHJdnxE7rlWgN6xNaVfTkETyb/Knf5rCG85OK4RUo8EkWZCN1e7H9YjzVtkPSlr
-	wnbbLfbfxXYc/MFoCRah96QS+2LfIid1A34d5/xaQEAvu+pc41ONxMYBjz8umjpY
-	eFUBFgPdttO757nyu6qGA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm3; t=1786959953; x=1786963553; bh=K
-	MiX0lpuCdiMpiwzWoB9LVEm9l7oTA1Ip8S52pJKwGo=; b=Fr6roOJRV4MVuiai+
-	R/Q1cw5k8imuJY83GFFZvG8oz8A0H/aq99jt286HGIHzKMXAzab3Ia4Hro49fAAa
-	LoAappbPzQF4Nd8/XMKdc22irHCZLw4DH5OcpYilqAPj9ogjJJGeLPi9A8tNljc8
-	pb1wzV1UFmRBXri8xcZ2H2mi3zz8oLddg6vSX1bTLk9buKrtg72Yawc6RvG4EjTX
-	ONwQJr9HLsSS1icjc06fn0AhKNYzRF1B9dtAJkGKDH0TiJvzNCU1KwxTAWVLoyi0
-	jMbwhtFZvMyqr0L3mdG+xoFx2U2qKl2ljZdjGCVhSU+ZDL7UKhlkNGoUdvDKbdkz
-	/r8Pw==
-X-ME-Sender: <xms:UNiCaiZYYEdmyxDDQuxbNWP-HldgQn_at4iiNsCY0wRoadhvCeYfqQ>
-    <xme:UNiCatm8sezKSR3B8VzowZXUQ6JZT_ZbbUOJDEA3gcBJWmLpPgJvkTO9AcgOYBvBb
-    XRUij0HZX-NeM5CglKcHTQXw3yfLcj8GKvpiF2I8iAfRVfd6sXXnwnD>
-X-ME-Received: <xmr:UNiCaogg30bTsW3guDAoQ-25OuJHzEM_hRK_jyVWG0e0AEaiV4Q827v3bqOdkEx7OXfkGFJ-Wg>
-X-ME-Proxy-Cause: dmFkZTEW/5JOkdI3iXwa6dLGZb2VIfdQ9j3pTYauZ3twR3nWWZHun4Wug0NVbCvnVLGFzF
-    qLCeelooNbSVomgngrCbN2qyOwXWXWTPuLsmf8+i+1vXwulmrRcfcDlFRvuzUIYM7gogH0
-    fEqlCuYDu2h38EKc6+PeMHzjIX5Koyql5vFR6fLjqDdLAFYpYRe0JBMB7Ii3Axa2BcPleq
-    TUUyYnZFPRz3CxWeWhgopvJCgcH3QiMljuEhIrisY+1cotyf30xbcGRC59KJZaAFy4fOtk
-    G4z7rcGaXdOcfa4iidylBWK+jpPPzpwesm0xHDYJF85xyGbTzN0kLKDQ1HSzYwnnyQa/Ku
-    WPa8Wj2WsuAA6qbnYat/CASXOerAXUMLyjexRJ2HMK/VUiew61buK8OOa46/BiO1Y7yZSE
-    oyvUe1sYppRSj6DTAHQtbXyoEWYeOKLmnb2jWLMCKFNiHuXbiDzS/UbQGPtj2MRzY9Fm2T
-    PDauUqNnNHBzpqf6dXzG98RWEK5ECC9vXMQnWtXppYxHQQajRpLNQRLEdMSwCMrs2u9uGw
-    xs8xKwdvfaQWWMq6Wgr2ikw1GMnqf0Y0L4p1Buwmln6xTUN7vlq27PDJ/yRv70UV7eM8hn
-    x27IRKDNuEPYelcNoMzTC18SIVsoI87JmO/TT6VHqBNz1yalCs40HSJfTxiA
-X-ME-Proxy: <xmx:UNiCavSPE_SUk1Rm5_rdC9pw-jdAC9PO8NN92LpvUGZv3VT7O3GDIg>
-    <xmx:UNiCapbG58N5zAj_1ArJZHGh6QyZyNUUdS39cCv8YerIzZxubudsjA>
-    <xmx:UNiCasQkR8MH9ovVvSh5CBbzpnvKAIJtfG1ONtKv8yEijSS49QKhKg>
-    <xmx:UNiCao_azbybFVzAh3KAVdrgaFK8BOfJ9A8GznMInH8CH_2LjEMbpw>
-    <xmx:UdiCah5ZbuC6Y7SdsYZR2HhCgWM8T22xo3A81LkIRqPJWlMfwPuac-ys>
-Feedback-ID: i7a5e4b5f:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
- 17 Aug 2026 05:45:47 -0400 (EDT)
-From: Jiaxing Hu <gahing@gahingwoo.com>
-To: royalnet026@gmail.com
-Cc: tomeu@tomeuvizoso.net,
-	heiko@sntech.de,
-	chaoyi.chen@rock-chips.com,
-	alchark@flipper.net,
-	dri-devel@lists.freedesktop.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 08/10] accel/rocket: add RK3576 NPU (RKNN) support
-Date: Mon, 17 Aug 2026 21:45:44 +1200
-Message-ID: <20260817094544.1159366-1-gahing@gahingwoo.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <CAEWPSH7ETfw2TDjUfOvcVtDm19FC43x2vP=Lh7m+XPOGptnPWA@mail.gmail.com>
-References: <CAEWPSH7ETfw2TDjUfOvcVtDm19FC43x2vP=Lh7m+XPOGptnPWA@mail.gmail.com>
+	id 1wvu1J-00000005qyO-47p4
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 17 Aug 2026 09:52:43 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=1ja/V7nTbqqmXtS7BPIrWfg4KU9kF4ez22A8VfBaMI8=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1786960357; v=1; x=1787565157;
+ b=rNBIXpmLrBTjiANagf23NRgfs9kWm35rmmTr4Ow8pICWezRCNVk6uU3+YuBcZuGHVxjZS4uX
+ y3cfo2iEVK9dgR4U9AoDc6bRQlqvNnrl6+LRwk4l3oSdnHhAV/nHmcTNLxegh7rzLsxj5v+IRFe
+ mbDpEoDaZb892vReEfpyLAHg=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: from [IPV6:2408:820c:270a:b561:544d:9f6f:ea74:16a5] (2a14:7586:6109:1::198)
+	by smtp.migadu.com with ESMTPS id 051eb70d1ed59f2d;
+	Mon, 17 Aug 2026 09:52:37 +0000
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <29a29de8-ce58-40d5-9161-5ac36b7368c1@linux.dev>
+Date: Mon, 17 Aug 2026 17:52:31 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8] net: airoha: npu: use cacheline-sized buffers for
+ mailbox DMA
+To: Daniel Pawlik <pawlik.dan@gmail.com>, netdev@vger.kernel.org
+Cc: lorenzo@kernel.org, win847@gmail.com,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20260817090601.1256389-1-pawlik.dan@gmail.com>
+From: Qingfang Deng <qingfang.deng@linux.dev>
+In-Reply-To: <20260817090601.1256389-1-pawlik.dan@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_024555_821308_66CE0247 
-X-CRM114-Status: GOOD (  13.98  )
+X-CRM114-CacheID: sfid-20260817_025242_298668_1C521BB5 
+X-CRM114-Status: GOOD (  18.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,53 +71,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Igor,
+Hi,
 
-Here are 88 and 120 on RK3576, with the 56 from earlier in this thread as
-a third point. A channel counts as matching when its maxdiff against the
-reference is at most 1, which is how perch.py scores.
+On 2026/8/17 17:06, Daniel Pawlik wrote:
+> On EN7581 + MT7996 (Gemtek W1700K), mapping small caller buffers with
+> DMA_BIDIRECTIONAL regresses NPU version probe: the mailbox completes
+> successfully but WLAN_FUNC_GET_WAIT_NPU_VERSION reads as 0.0 instead of
+> 0.1111.
+>
+> Allocate at least SMP_CACHE_BYTES for each mailbox payload and map
+> ALIGN(len, SMP_CACHE_BYTES) with DMA_BIDIRECTIONAL while programming
+> the original payload length into the mailbox length register.
+>
+> Tested on Quantum Fiber / Gemtek W1700K (EN7581 + MT7996), kernel
+> 6.18.44, including two cold reboots and sustained WiFi use.
+>
+> Fixes: 6f884eb87a79 ("net: airoha: Fix DMA direction for NPU mailbox buffer")
+> Link: https://patchwork.kernel.org/project/linux-mediatek/patch/20260814110017.2795022-1-pawlik.dan@gmail.com/
+> Link: https://patchwork.kernel.org/project/linux-mediatek/patch/20260809152813.585797-1-pawlik.dan@gmail.com/
+> Link: https://patchwork.kernel.org/project/linux-mediatek/patch/20260805070851.2885888-1-pawlik.dan@gmail.com/
+> Assisted-by: Cursor:composer-2
+> Signed-off-by: Daniel Pawlik <pawlik.dan@gmail.com>
+> ---
+>   drivers/net/ethernet/airoha/airoha_npu.c | 25 +++++++++++++++---------
+>   1 file changed, 16 insertions(+), 9 deletions(-)
+>
+> --
+> 2.55.0
+>
+> diff --git a/drivers/net/ethernet/airoha/airoha_npu.c b/drivers/net/ethernet/airoha/airoha_npu.c
+> index b679bed952de..d560b8763753 100644
+> --- a/drivers/net/ethernet/airoha/airoha_npu.c
+> +++ b/drivers/net/ethernet/airoha/airoha_npu.c
+> @@ -5,6 +5,7 @@
+>    */
+>
+>   #include <linux/devcoredump.h>
+> +#include <linux/dma-mapping.h>
+>   #include <linux/firmware.h>
+>   #include <linux/platform_device.h>
+>   #include <linux/of_net.h>
+> @@ -160,15 +161,21 @@ struct wlan_mbox_data {
+>   	DECLARE_FLEX_ARRAY(u8, d);
+>   };
+>
+> +static size_t airoha_npu_mbox_size(size_t len)
+> +{
+> +	return ALIGN(max(len, SMP_CACHE_BYTES), SMP_CACHE_BYTES);
 
-  oc    parity form    modulo form, ROCKET_DPU4050_MOD32=1
-   56   56 of 56       32 of 56, timed out, lost 32 to 55
-   88   88 of 88       64 of 88, timed out, lost 64 to 87
-  120  120 of 120      96 of 120, timed out, lost 96 to 119
+SMP_CACHE_BYTES defaults to L1_CACHE_BYTES on Aarch64. On Cortex-A53 
+this is fine, but some CPU's L2 cache line size might differ. For 
+portability, please use dma_get_cache_alignment() instead.
 
-Under the modulo form each count keeps whole groups of 32 output channels
-and drops the remainder, and all three of those runs also raise the
-driver's job timeout. Under the parity form all three compute the whole
-output at a maxdiff of 1.
+Also "max" is redundant.
 
-What the three points cannot tell you. 56, 88 and 120 are all 24 modulo
-32, so the twenty four lost channels are forced by the arithmetic and are
-not corroboration, and the rule is untested at every other remainder. A
-count of 40 or 72 would say more than a fourth one at 24.
+> +}
+> +
+>   static int airoha_npu_send_msg(struct airoha_npu *npu, int func_id,
+>   			       void *p, int size)
+>   {
+>   	u16 core = 0; /* FIXME */
+>   	u32 val, offset = core << 4;
+>   	dma_addr_t dma_addr;
+> +	size_t map_len = airoha_npu_mbox_size(size);
+>   	int ret;
+>
+> -	dma_addr = dma_map_single(npu->dev, p, size, DMA_BIDIRECTIONAL);
+> +	dma_addr = dma_map_single(npu->dev, p, map_len, DMA_BIDIRECTIONAL);
+You don't have to align the size passed to DMA API. The underlying 
+implementation already aligns it.
+>   	ret = dma_mapping_error(npu->dev, dma_addr);
+>   	if (ret)
+>   		return ret;
+> @@ -191,7 +198,7 @@ static int airoha_npu_send_msg(struct airoha_npu *npu, int func_id,
+>
+>   	spin_unlock_bh(&npu->cores[core].lock);
+>
+> -	dma_unmap_single(npu->dev, dma_addr, size, DMA_BIDIRECTIONAL);
+> +	dma_unmap_single(npu->dev, dma_addr, map_len, DMA_BIDIRECTIONAL);
+>
+>   	return ret;
+>   }
 
-The modulo numbers are read back from a job the driver declared timed out,
-so the obvious alternative is that the job died before writing the tail of
-the output. The log argues against it. At 120, nine of the twenty four
-wrong channels carry enough varying output to fit a line against the
-reference, and the surface reports 45 constant channels of 120 with 37 of
-those pinned at the output zero point, so the lost region was written
-rather than left untouched.
+Best regards,
 
-ROCKET_DPU4050_MOD32 occurs once in the whole Mesa tree, inside the value
-expression for 0x4050, so at a given count the two register streams differ
-in that word and nothing else. That is an argument from the source, not a
-measurement. I meant to measure it at 64 output channels, where the two
-forms emit the same value by construction, and only got one side of it.
-Without the knob it was 64 of 64. The run with the knob did not complete,
-the entry hung after the 88 run had timed out.
+Qingfang
 
-One confound to disclose. 88 both ways and 120 under the parity form are
-one boot. 120 under the modulo form is the next boot, on a kernel that
-also carries an unrelated power domain change, and the NPU rail reads
-enabled in the first and disabled in the second. The Mesa build is byte
-identical across the two and the modulo form times out under either
-kernel, but the 120 row is not a single variable comparison and should be
-read as two.
-
-If you still want the RK3588 side, ROCKET_DPU4050_MOD32=1 against your own
-build is the comparison.
-
-Jiaxing
 
