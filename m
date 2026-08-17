@@ -4,108 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3E2FC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 09:03:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20DC6C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 09:06:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M9T+8NIUGYBAR6mlNIug3Q6VvqG8vRRPcgCMH1v4erc=; b=GJzAcKQ3zyL3/GwB0SHSXnVB/V
-	zrmlTxW3qDF1Kttaq+Vp+cb06ff+3JrQD+FT6XbeJuSPRI7auh6ps53UhAEOIuzfhUAIPfCSBPAs8
-	Evfq6lQ+kzIBY0AM+b2QG5DCjsg679da3BkZHTrrJc1xmjfuEAgBqx066+ZZOjnK3rCokCaIjBcjD
-	Y6/xo8zIxm1UmdB8zDWbWRSffkOoICBFMdZTcBtNYY9+y9OTPU+Vw1qRJzEVzKOF9i9TGn6swKA31
-	5ZpECQdmNqjcqsB5rFXXuYxoKTT/1EiBZ/AfBGCODaXREiw692pK+u/SCS9ubt39avUkrfNe9ffaQ
-	tHzNHpLA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=luZ6/X1fUnmPIAGg7u9rfHAcCpIwRBZ6wNZmQs6CnhI=; b=CJB3NubaGqTNQesA+2U9spllFf
+	ouneCEEMFkdjebpzy/ryaKJH0NxzeHYVQgGZOAi1TGkexmpX0bgqILY33tGtpu6e6hhcAmnJy3Hfq
+	z+RiWEg6KjS1V+KuisnLQ8gst1SEhcrL3b3gzFoOZW05TxLFGRu+CYNfd76CX9julgUHNB/FnM9hI
+	WnGxgOPS93hMIlAOIzwEDd04w9aLXN9kTZJJOktkYTOC+TbnHkqRFn9JyDXidVUln3yxUounbNE+C
+	A6fnKrg+b3R9tVen+e4kZlgrLu1/DiVW2/flQhzswXWv/MZukcaE6VTKobCu76kxAAzPb0rrYfXKF
+	HEEpieZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvsag-00000005enC-2aUv;
-	Mon, 17 Aug 2026 08:21:06 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1wvtIQ-00000005m8k-1Hmx;
+	Mon, 17 Aug 2026 09:06:18 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvsab-00000005ect-1SRj
+	id 1wvtIK-00000005m3Q-1zOK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 08:21:02 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4954df200ddso21445805e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 01:21:00 -0700 (PDT)
+	Mon, 17 Aug 2026 09:06:17 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-47fd4531020so1864506f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 02:06:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786954859; x=1787559659; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=M9T+8NIUGYBAR6mlNIug3Q6VvqG8vRRPcgCMH1v4erc=;
-        b=M3eTHYSolregJEXWCtXrq4pteXr7yVCTEvnX9GQVeIY4AWeYT4Kw849MkD7LhX+Rss
-         neV15GqtBav4LjyOc3r/H139HR4ycZ5s1WrXkrk7b6i7Q49wUB3TScPlKb0jHFhQl+uh
-         se1J2pA+cxv4zVVAuTcu9N2v/ZilHcTve9eLUcNnAZhEG8NxV6Yr9RprjnR9+EIUhXfx
-         a+Su0/p19VmMbcNAHpaft079740Oj9Ix/91l2eeJFS2inlnPXH0nsicrNCERJzlMzzXh
-         1wcZm3F0V5k3FXBDXmXC8uPTPcbVL3DN8D0S69PlkgFRxtny25HgFP5hh2hSum9AIER3
-         K/3A==
+        d=gmail.com; s=20251104; t=1786957570; x=1787562370; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=luZ6/X1fUnmPIAGg7u9rfHAcCpIwRBZ6wNZmQs6CnhI=;
+        b=Ip1Ud9S8MhhCovqAhdNEJFh++pNSlHArG+k0drRnSqKZAnTMuWkWr3VUTS/3kgDkjF
+         CaeITAMzO6lTu0ApbNeHkiXaPPB6IRd8GdYO7yKHJbG/zHRog5WgKPXcPdb7LqLQjBns
+         /QYrZlpp09qIR2haoDRZLLYjDMJkBy3RxTtvfE5DvWXWouQjeOOgioktjxWgr+5hm+mx
+         lItSoTze6yEkyKljJj0ksZTD1yeQktRrFp6obHEE69efp3+X30FEgjD7TpfAFHyq3Wuz
+         BBPCt+FsSrmCneHv1vSPKU4SJKZGtsJixspea0dBIi8dcjK8GwRrfUcJlzEp4N3TZGdv
+         hSAQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786954859; x=1787559659;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=M9T+8NIUGYBAR6mlNIug3Q6VvqG8vRRPcgCMH1v4erc=;
-        b=loeg2NZKYPaOnHmHNvdX2YZlh60LuzijtAFm21t4AjfL4MvlZL60JmXwL3myIw893H
-         belr9HzSxu3cE5YSGzzLgy4pCpMemdlQsmCuBIduAj2ptivbhSWbjnMEsGk+/1MIreKL
-         iXQCjuhIhPYPUfO3FX4aQ79gKOATa77XPtAGXzk7ZPFuBA2js+q2y8BODEY0kzZq3+C1
-         o46LG7g4A3nBF9BA/jTid/mENfgkh8WgDbEgGMVc9+pKgU6reAX8yce7gJg3pYLdZDqy
-         jZjkYM6QzHWdwDBOIFv0uMDJ+QlFCZtfX29drBl0v1ade80UUJE2DTDZFO3mp0/LsHzZ
-         0BBQ==
-X-Forwarded-Encrypted: i=1; AHgh+RouxiNI3nWSgmpzVnItw2/usY4erHcG2Z6eEBeh+i8pjRbCIubGC85GKexneLlgzazPZTVnzw432YJCLu211br2@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz6VeRf6T1S0ihCpzBdmhu6H62ImuGs2VtwxMQrczVDuEL6rIGX
-	fDH5iw/jJj3c5JMA1j9KU8dcjy8OgTLq+9GkNT8bj/chFCPrCMrw9GL9
-X-Gm-Gg: AR+sD12pLL8TBjOcfb69pmwHlv0QmwRwEjiV08u3PN0ZcRYBi3DymaSyz5XVzJ2yzTN
-	e62R/2Pj0cQjgc9D0qPbwCOAz1nTG5jhetGgg56wbUYCuiHsIiAWehxTz1nNyFeDHylZ2il/HWM
-	um6W92B6bkuy15dkxIzuOKF8SdCnpM1gy5gNtXXCOTeNVLL6l1pekaXK6SM+hcqVPJ+lrVF4I1N
-	7S1ugWhjHr/+7+bzWpAnygDXf9TpZmsSsM0ieAj7WCs2qvFKc41vZyLwSSC8IPsaoeVtWTdP32c
-	pIw3sj1voYYvUVzXXDjlsUFpnSaiTjhy+Mk5oRZ6U4WEbgbgdw47wV/E2H3uFlQ/RqHfAtPGE6U
-	6a3snchqj6MP5ShpBfQ0G1CsuU0FEKz5SPoUnueSI7lmWjrjPocWZ9EpgzbJiJgyXJOn1eMuRe6
-	JD/mZ8tElU2odtuVysYex3lnQhl5ft51zqMfdE4II3vx3msN21AMZYRiJ7jp8pYW/86NQX3B2jT
-	8i9Lq0nQUrOJGDYBPP1hzVGOjxJ6YRmxlduYorq9D6wFmr1zhO/3lL1Wy7cDrseOW4=
-X-Received: by 2002:a05:600c:4f52:b0:493:f5bf:4dc6 with SMTP id 5b1f17b1804b1-4998793dafcmr362760695e9.7.1786954859332;
-        Mon, 17 Aug 2026 01:20:59 -0700 (PDT)
-Received: from Ansuel-XPS24.localdomain (host-79-40-190-175.business.telecomitalia.it. [79.40.190.175])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4999d078517sm19684195e9.5.2026.08.17.01.20.57
+        d=1e100.net; s=20251104; t=1786957570; x=1787562370;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=luZ6/X1fUnmPIAGg7u9rfHAcCpIwRBZ6wNZmQs6CnhI=;
+        b=ObrqoD9U/w3CxogEjxijOEbndEPZK3R/Fzy7bXusXy/ZjFxP/2vQqpiXDG1xI/ymfH
+         G2JNYCYwcrOWLHPv28tVQ2I2TpXz2v0kYdIEE/rlwlLi4ek4MmZxaGV3Cb8RI3Qnq9Jx
+         aaqEPwug/rmXVf0xGg9MIBHo4EywidWPqyYOufnj71soIdtta3VodlOQ/4xoXJZpNytq
+         roPScoylep3ku8j26XTmzTOmwHw4mjt8qnNiWLVCv4E+Euiy9q6M6bqirXVAgDT67Suk
+         sWXVJcI9ewBueXpIY8AdF5rnI3/3S5DoaODHFcMuYUg7JiKK4JaBb0vQbJ6JA4C58OyH
+         MLuA==
+X-Forwarded-Encrypted: i=1; AHgh+Rpg+OtRXVU2vcmh0jfjiKQVn+grRP1KthpwC0bWgdgSYC0P7fASuvx0Iolt7Vnz0IvtQtgAN0lfX9VG61c3FZL+@lists.infradead.org
+X-Gm-Message-State: AOJu0YwLfQjyFaAmO1mpNTUdCnCBu8nA4ayvvgGn2ou7oH85YCU2Dg1z
+	nxk0LboQJwGXzGmF54iqKlTogGyQ8CVQtTzXSdtLXrDbsOZqu9cLNnW4
+X-Gm-Gg: AR+sD10xt27L5RK8FT1vRU2SOnCb5SdlwTjjyIHQr38RAcEoDJ72C59CuBej1mIiN+s
+	+KqoQ8+4ML0O6qBrZSIQ5NwvXOpN36kdes4kbVV3VO2Zc0xka91JavSmwXZ7fkdGabaI5yXaJFF
+	kixWQ03hB0KMkzbqs4Fsrj/jpvUgFV/yuorFF3JGrfmgAfoynGgm/qWa9TwQTk/wV4b7ec35rX7
+	D/PxzYAoNtbnpJmwv9hsRrkm0c30UtAplP6DMgEfeq5CpP7NHeKH0ChIigerex6baGhqByNgiGX
+	huI+mdXBSfg7YhXl1mQVBbvJ/4ecnHVssVAn6VwH9XoWSBoaNC1VNLdMBf6kYXxA3zHNqdd7HP1
+	aDampjTgycovyV5f8fodw9t/4ymh2K9lBF4yI++2/qugRV+WJZLlIzI/gsohIb0JQAIBaVmTxZd
+	jYZL+hzhNvVaVEjGx6jqPiahOIZs4TcZFj1B4sQE3kqQN/joAs5xCO3EorPy/jGLKpprrR0FTOy
+	lfxhyRVm/kF0WS8ee7Xk+bav7n408QN/DQpEQQpLwEwIUpaQdMYg+M=
+X-Received: by 2002:a05:6000:230d:b0:47f:8ce7:8684 with SMTP id ffacd0b85a97d-481607100bdmr40751188f8f.6.1786957568437;
+        Mon, 17 Aug 2026 02:06:08 -0700 (PDT)
+Received: from fedora ([46.205.219.243])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-482a5a3b2e9sm2507130f8f.9.2026.08.17.02.06.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Aug 2026 01:20:58 -0700 (PDT)
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Christian Marangi <ansuelsmth@gmail.com>,
-	Lee Jones <lee@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"Chester A. Unal" <chester.a.unal@arinc9.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Simon Horman <horms@kernel.org>,
+        Mon, 17 Aug 2026 02:06:07 -0700 (PDT)
+From: Daniel Pawlik <pawlik.dan@gmail.com>
+To: netdev@vger.kernel.org
+Cc: lorenzo@kernel.org,
+	win847@gmail.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
-	netdev@vger.kernel.org,
-	mfd@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next v20 08/10] net: dsa: mt7530: move MDIO bus locking into regmap
-Date: Mon, 17 Aug 2026 10:20:30 +0200
-Message-ID: <20260817082034.20326-10-ansuelsmth@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260817082034.20326-1-ansuelsmth@gmail.com>
-References: <20260817082034.20326-1-ansuelsmth@gmail.com>
+	Daniel Pawlik <pawlik.dan@gmail.com>
+Subject: [PATCH v8] net: airoha: npu: use cacheline-sized buffers for mailbox DMA
+Date: Mon, 17 Aug 2026 11:06:01 +0200
+Message-ID: <20260817090601.1256389-1-pawlik.dan@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_012101_443003_5A2E5579 
-X-CRM114-Status: GOOD (  15.52  )
+X-CRM114-CacheID: sfid-20260817_020612_553338_2A67EBD7 
+X-CRM114-Status: GOOD (  12.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,230 +99,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Daniel Golle <daniel@makrotopia.org>
+On EN7581 + MT7996 (Gemtek W1700K), mapping small caller buffers with
+DMA_BIDIRECTIONAL regresses NPU version probe: the mailbox completes
+successfully but WLAN_FUNC_GET_WAIT_NPU_VERSION reads as 0.0 instead of
+0.1111.
 
-The switch register regmap was created with .disable_locking = true,
-relying on callers to manually lock the MDIO bus. Move the locking
-into the regmap using .lock/.unlock callbacks, matching the PCS
-regmaps that already do this. This allows any code path reaching the
-regmap to be automatically protected.
+Allocate at least SMP_CACHE_BYTES for each mailbox payload and map
+ALIGN(len, SMP_CACHE_BYTES) with DMA_BIDIRECTIONAL while programming
+the original payload length into the mailbox length register.
 
-With regmap handling bus locking, the manual mt7530_mutex_lock/unlock
-wrappers in mt7530_write(), _mt7530_read(), mt7530_rmw() and
-mt7530_port_change_mtu() become redundant and are removed.
+Tested on Quantum Fiber / Gemtek W1700K (EN7581 + MT7996), kernel
+6.18.44, including two cold reboots and sustained WiFi use.
 
-The MT7531 indirect PHY access functions need serialization of their
-multi-step register sequences, but no longer need to hold bus->mdio_lock
-across the whole operation. Switch them to reg_mutex.
-
-core_write()/core_rmw() are the only remaining callers of
-mt7530_mutex_lock(). They access TRGMII core PHY registers via the
-clause 22 MMD indirect protocol -- a separate register space that
-bypasses regmap and needs manual bus->mdio_lock protection.
-
-Generated using the following semantic patch:
-
-// Remove mt7530_mutex_lock/unlock around single regmap-based calls.
-@@
-expression priv, reg, val;
-@@
- {
--	mt7530_mutex_lock(priv);
--
- 	mt7530_mii_write(priv, reg, val);
--
--	mt7530_mutex_unlock(priv);
- }
-
-@@
-expression priv, reg, mask, set;
-@@
- {
--	mt7530_mutex_lock(priv);
--
- 	regmap_update_bits(priv->regmap, reg, mask, set);
--
--	mt7530_mutex_unlock(priv);
- }
-
-@@
-expression p;
-identifier val;
-@@
- {
--	u32 val;
--	mt7530_mutex_lock(p->priv);
--	val = mt7530_mii_read(p->priv, p->reg);
--	mt7530_mutex_unlock(p->priv);
--	return val;
-+	return mt7530_mii_read(p->priv, p->reg);
- }
-
-@@
-expression priv;
-@@
--	mt7530_mutex_lock(priv);
- 	val = mt7530_mii_read(priv, MT7530_GMACCR);
- 	...
- 	mt7530_mii_write(priv, MT7530_GMACCR, val);
--	mt7530_mutex_unlock(priv);
-
-@@
-expression priv, port;
-@@
- 	INIT_MT7530_DUMMY_POLL(&p, priv, MT7531_PHY_IAC);
--	mt7530_mutex_lock(priv);
-+	mutex_lock(&priv->reg_mutex);
-
-@@
-expression priv;
-@@
- out:
--	mt7530_mutex_unlock(priv);
-+	mutex_unlock(&priv->reg_mutex);
-
-Signed-off-by: Daniel Golle <daniel@makrotopia.org>
-Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+Fixes: 6f884eb87a79 ("net: airoha: Fix DMA direction for NPU mailbox buffer")
+Link: https://patchwork.kernel.org/project/linux-mediatek/patch/20260814110017.2795022-1-pawlik.dan@gmail.com/
+Link: https://patchwork.kernel.org/project/linux-mediatek/patch/20260809152813.585797-1-pawlik.dan@gmail.com/
+Link: https://patchwork.kernel.org/project/linux-mediatek/patch/20260805070851.2885888-1-pawlik.dan@gmail.com/
+Assisted-by: Cursor:composer-2
+Signed-off-by: Daniel Pawlik <pawlik.dan@gmail.com>
 ---
- drivers/net/dsa/mt7530-mdio.c |  9 ++++++---
- drivers/net/dsa/mt7530.c      | 36 ++++++-----------------------------
- 2 files changed, 12 insertions(+), 33 deletions(-)
+ drivers/net/ethernet/airoha/airoha_npu.c | 25 +++++++++++++++---------
+ 1 file changed, 16 insertions(+), 9 deletions(-)
 
-diff --git a/drivers/net/dsa/mt7530-mdio.c b/drivers/net/dsa/mt7530-mdio.c
-index 784dd58a7158..422f785d2143 100644
---- a/drivers/net/dsa/mt7530-mdio.c
-+++ b/drivers/net/dsa/mt7530-mdio.c
-@@ -148,12 +148,14 @@ static const struct regmap_config regmap_config = {
- 	.val_bits = 32,
- 	.reg_stride = 4,
- 	.max_register = MT7530_CREV,
--	.disable_locking = true,
-+	.lock = mt7530_mdio_regmap_lock,
-+	.unlock = mt7530_mdio_regmap_unlock,
+diff --git a/drivers/net/ethernet/airoha/airoha_npu.c b/drivers/net/ethernet/airoha/airoha_npu.c
+index b679bed952de..d560b8763753 100644
+--- a/drivers/net/ethernet/airoha/airoha_npu.c
++++ b/drivers/net/ethernet/airoha/airoha_npu.c
+@@ -5,6 +5,7 @@
+  */
+
+ #include <linux/devcoredump.h>
++#include <linux/dma-mapping.h>
+ #include <linux/firmware.h>
+ #include <linux/platform_device.h>
+ #include <linux/of_net.h>
+@@ -160,15 +161,21 @@ struct wlan_mbox_data {
+ 	DECLARE_FLEX_ARRAY(u8, d);
  };
- 
- static int
- mt7530_probe(struct mdio_device *mdiodev)
+
++static size_t airoha_npu_mbox_size(size_t len)
++{
++	return ALIGN(max(len, SMP_CACHE_BYTES), SMP_CACHE_BYTES);
++}
++
+ static int airoha_npu_send_msg(struct airoha_npu *npu, int func_id,
+ 			       void *p, int size)
  {
-+	struct regmap_config rc = regmap_config;
- 	struct mt7530_priv *priv;
- 	struct device_node *dn;
+ 	u16 core = 0; /* FIXME */
+ 	u32 val, offset = core << 4;
+ 	dma_addr_t dma_addr;
++	size_t map_len = airoha_npu_mbox_size(size);
  	int ret;
-@@ -207,8 +209,9 @@ mt7530_probe(struct mdio_device *mdiodev)
- 			return PTR_ERR(priv->io_pwr);
- 	}
- 
--	priv->regmap = devm_regmap_init(priv->dev, &mt7530_regmap_bus, priv,
--					&regmap_config);
-+	rc.lock_arg = &priv->bus->mdio_lock;
-+	priv->regmap = devm_regmap_init(priv->dev, &mt7530_regmap_bus,
-+					priv, &rc);
- 	if (IS_ERR(priv->regmap))
- 		return PTR_ERR(priv->regmap);
- 
-diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
-index 2b7be091c056..d01772cfe3a2 100644
---- a/drivers/net/dsa/mt7530.c
-+++ b/drivers/net/dsa/mt7530.c
-@@ -188,29 +188,13 @@ mt7530_mii_read(struct mt7530_priv *priv, u32 reg)
- static int
- mt7530_write(struct mt7530_priv *priv, u32 reg, u32 val)
- {
--	int ret;
--
--	mt7530_mutex_lock(priv);
--
--	ret = mt7530_mii_write(priv, reg, val);
--
--	mt7530_mutex_unlock(priv);
--
--	return ret;
-+	return mt7530_mii_write(priv, reg, val);
- }
- 
- static u32
- _mt7530_read(struct mt7530_dummy_poll *p)
- {
--	u32 val;
--
--	mt7530_mutex_lock(p->priv);
--
--	val = mt7530_mii_read(p->priv, p->reg);
--
--	mt7530_mutex_unlock(p->priv);
--
--	return val;
-+	return mt7530_mii_read(p->priv, p->reg);
- }
- 
- static u32
-@@ -226,11 +210,7 @@ static void
- mt7530_rmw(struct mt7530_priv *priv, u32 reg,
- 	   u32 mask, u32 set)
- {
--	mt7530_mutex_lock(priv);
--
- 	regmap_update_bits(priv->regmap, reg, mask, set);
--
--	mt7530_mutex_unlock(priv);
- }
- 
- static void
-@@ -597,7 +577,7 @@ mt7531_ind_c45_phy_read(struct mt7530_priv *priv, int port, int devad,
- 
- 	ret = val & MT7531_MDIO_RW_DATA_MASK;
- out:
--	mt7530_mutex_unlock(priv);
-+	mutex_unlock(&priv->reg_mutex);
- 
+
+-	dma_addr = dma_map_single(npu->dev, p, size, DMA_BIDIRECTIONAL);
++	dma_addr = dma_map_single(npu->dev, p, map_len, DMA_BIDIRECTIONAL);
+ 	ret = dma_mapping_error(npu->dev, dma_addr);
+ 	if (ret)
+ 		return ret;
+@@ -191,7 +198,7 @@ static int airoha_npu_send_msg(struct airoha_npu *npu, int func_id,
+
+ 	spin_unlock_bh(&npu->cores[core].lock);
+
+-	dma_unmap_single(npu->dev, dma_addr, size, DMA_BIDIRECTIONAL);
++	dma_unmap_single(npu->dev, dma_addr, map_len, DMA_BIDIRECTIONAL);
+
  	return ret;
  }
-@@ -645,7 +625,7 @@ mt7531_ind_c45_phy_write(struct mt7530_priv *priv, int port, int devad,
- 	}
- 
- out:
--	mt7530_mutex_unlock(priv);
-+	mutex_unlock(&priv->reg_mutex);
- 
- 	return ret;
- }
-@@ -681,7 +661,7 @@ mt7531_ind_c22_phy_read(struct mt7530_priv *priv, int port, int regnum)
- 
- 	ret = val & MT7531_MDIO_RW_DATA_MASK;
- out:
--	mt7530_mutex_unlock(priv);
-+	mutex_unlock(&priv->reg_mutex);
- 
- 	return ret;
- }
-@@ -717,7 +697,7 @@ mt7531_ind_c22_phy_write(struct mt7530_priv *priv, int port, int regnum,
- 	}
- 
- out:
--	mt7530_mutex_unlock(priv);
-+	mutex_unlock(&priv->reg_mutex);
- 
- 	return ret;
- }
-@@ -1452,8 +1432,6 @@ mt7530_port_change_mtu(struct dsa_switch *ds, int port, int new_mtu)
- 	if (!dsa_is_cpu_port(ds, port))
- 		return 0;
- 
--	mt7530_mutex_lock(priv);
--
- 	val = mt7530_mii_read(priv, MT7530_GMACCR);
- 	val &= ~MAX_RX_PKT_LEN_MASK;
- 
-@@ -1473,8 +1451,6 @@ mt7530_port_change_mtu(struct dsa_switch *ds, int port, int new_mtu)
- 
- 	mt7530_mii_write(priv, MT7530_GMACCR, val);
- 
--	mt7530_mutex_unlock(priv);
--
- 	return 0;
- }
- 
--- 
-2.53.0
+@@ -333,7 +340,7 @@ static int airoha_npu_ppe_init(struct airoha_npu *npu)
+ 	struct ppe_mbox_data *ppe_data;
+ 	int err;
+
+-	ppe_data = kzalloc_obj(*ppe_data);
++	ppe_data = kzalloc(airoha_npu_mbox_size(sizeof(*ppe_data)), GFP_KERNEL);
+ 	if (!ppe_data)
+ 		return -ENOMEM;
+
+@@ -354,7 +361,7 @@ static int airoha_npu_ppe_deinit(struct airoha_npu *npu)
+ 	struct ppe_mbox_data *ppe_data;
+ 	int err;
+
+-	ppe_data = kzalloc_obj(*ppe_data);
++	ppe_data = kzalloc(airoha_npu_mbox_size(sizeof(*ppe_data)), GFP_KERNEL);
+ 	if (!ppe_data)
+ 		return -ENOMEM;
+
+@@ -375,7 +382,7 @@ static int airoha_npu_ppe_flush_sram_entries(struct airoha_npu *npu,
+ 	struct ppe_mbox_data *ppe_data;
+ 	int err;
+
+-	ppe_data = kzalloc_obj(*ppe_data);
++	ppe_data = kzalloc(airoha_npu_mbox_size(sizeof(*ppe_data)), GFP_KERNEL);
+ 	if (!ppe_data)
+ 		return -ENOMEM;
+
+@@ -399,7 +406,7 @@ static int airoha_npu_foe_commit_entry(struct airoha_npu *npu,
+ 	struct ppe_mbox_data *ppe_data;
+ 	int err;
+
+-	ppe_data = kzalloc_obj(*ppe_data, GFP_ATOMIC);
++	ppe_data = kzalloc(airoha_npu_mbox_size(sizeof(*ppe_data)), GFP_ATOMIC);
+ 	if (!ppe_data)
+ 		return -ENOMEM;
+
+@@ -434,7 +441,7 @@ static int airoha_npu_ppe_stats_setup(struct airoha_npu *npu,
+ 	int err, size = num_stats_entries * sizeof(*npu->stats);
+ 	struct ppe_mbox_data *ppe_data;
+
+-	ppe_data = kzalloc_obj(*ppe_data, GFP_ATOMIC);
++	ppe_data = kzalloc(airoha_npu_mbox_size(sizeof(*ppe_data)), GFP_ATOMIC);
+ 	if (!ppe_data)
+ 		return -ENOMEM;
+
+@@ -466,7 +473,7 @@ static int airoha_npu_wlan_msg_send(struct airoha_npu *npu, int ifindex,
+ 	int err, len;
+
+ 	len = sizeof(*wlan_data) + data_len;
+-	wlan_data = kzalloc(len, gfp);
++	wlan_data = kzalloc(airoha_npu_mbox_size(len), gfp);
+ 	if (!wlan_data)
+ 		return -ENOMEM;
+
+@@ -489,7 +496,7 @@ static int airoha_npu_wlan_msg_get(struct airoha_npu *npu, int ifindex,
+ 	int err, len;
+
+ 	len = sizeof(*wlan_data) + data_len;
+-	wlan_data = kzalloc(len, gfp);
++	wlan_data = kzalloc(airoha_npu_mbox_size(len), gfp);
+ 	if (!wlan_data)
+ 		return -ENOMEM;
+
+--
+2.55.0
 
 
