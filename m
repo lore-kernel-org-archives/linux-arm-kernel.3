@@ -4,89 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4285CC5DF70
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 00:45:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3F40C5DF66
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 00:48:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=virBiSedo0RsjgNtDHeYNu9b5zOw0VcBr57wB4SYviw=; b=qjUz9yMGx8QGRwsCa32IH5c2HU
-	You+5aD52kU3JCLIGMslFKgvbevNZmcKXwpS+CYotJ3qCf9oTqmy3FhwPfolbBM+UsLiAJGsztElA
-	ZRCGlr4YBTdKZfGLXuuxaSUT5tpWBap8HErPEfrx1xhS3/oyPT89ysXKkBIDF67iaHjQ0Q0FY/brb
-	dflOYGtU3iOxOFiQpjRUwxOGQk6GE81uaP/A5GF6VrvVrqSgCn2qOW7NOot5ioWQg7a2gyLDtNaoq
-	+BFt4QncQD6gClFp/Fok1kWLBj7TbgHChoHuPtnNjpulZ7iWrZuRwLgM6aw67gw4LKNSNAbMYd/2a
-	/gBEAvtQ==;
+	bh=AsDpBd372isRzW48/55A3QAr8UBvNqrMPu40ALNMZRw=; b=3OzrRr1Ivch0xy3Xz7f+j+EzBv
+	/hkL9Rn7wGEKQMVBLLGGAklhm2qGGN393pp/62ZIseuJ6A+VHqwB5B2RK66v5oOgoCj6u0jZBOn6z
+	DEENoMDWnUdHokJK4k+mzeHbczX6JgfQNXIOAVK96tyIJ5K3ngKBoLu5L/P5UM9ufbjiCz6hwK3VJ
+	GwPgeRfQeVnWBqVdqtdI/8Ulw7e+VTy+K1vkggVD3i96GLHfJiiDSsJfl+FU11jXTT1M174TqeAG/
+	BFCHittG5Jkra6wSCWHUNMhut5sf59eavWx3BtQFR+Fv2XasViAIQo5fLm2EbuxJ40v7likod0964
+	QqMaqBVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvlTQ-00000005EI1-1Rp9;
-	Mon, 17 Aug 2026 00:45:08 +0000
-Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
+	id 1wvlWC-00000005EWP-0kj6;
+	Mon, 17 Aug 2026 00:48:00 +0000
+Received: from mgamail.intel.com ([198.175.65.19])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvlTO-00000005EHd-0Vx6
+	id 1wvlW8-00000005EW3-39Uz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 00:45:07 +0000
-Received: by mail-pg1-x531.google.com with SMTP id 41be03b00d2f7-c966b9ee9cbso1733427a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 16 Aug 2026 17:45:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786927504; x=1787532304; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=virBiSedo0RsjgNtDHeYNu9b5zOw0VcBr57wB4SYviw=;
-        b=jW1pkbxWETC0S9QCzLJSIGWMe7VyDEklxmJPvoIMmAXTMJP8AQqdeKnyNfdCNenova
-         zgYTfiL7q5sKwLQKHlTN4aq+xi2LkOjoegeB1mP+dnbSToMiP/8p9rrM1sa72KO4cxp0
-         KS9cCFt/Y+Y1bqtsNjN0lhfimWFy7Ay35I3zgD8rQ2wA2wF5zAdDZzYoFZxxcQqU19JX
-         hnyDAq9LDZCZC0ynzgxuXym6hItydlWaIgWKP0+XXXlyi8uXOIECleeRKkOKsBYR7EpN
-         OtY70wSM+pUaR7QlJp1rhoh+DrOVD4Ei7XHumlNnz4prHEeY75fuKxQH2jA7jQO/sPG+
-         fBbg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786927504; x=1787532304;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=virBiSedo0RsjgNtDHeYNu9b5zOw0VcBr57wB4SYviw=;
-        b=JzeOoPppMgEG5JcGWmZPFkyzqfP2hHYPQReCPeYjDNlY6wpddeR4B7SN1EQ+j3vbPN
-         NGuLSUeUTjmdBqFn1cAuIdrKsLHv0etD7+6KF+8+RV7lib/p1PDA0pFUv+4xoK8C36o2
-         3utKeyzhm1N4rWE92XPdZntPO2ENlVNTxFPsuYlHr4lAHQcjdjxYF64n2F3yt2wk8qU4
-         K+qG0rZKRmQJ7SfakkYszBRMuS/Stfql+wGjNioKAaeuOlOWjPXLVIf8VBx/zkJHSYDe
-         nyss14kmYlanoL72fL44g/U5F5G54UmOI3EZl6YTyIaTgtTlxAjLeA+OCkykAXbtDJi9
-         Efsg==
-X-Forwarded-Encrypted: i=1; AHgh+RrwvwGT6f5a7hQsh8x/qCIhgg0GbTSGUJFiD25Kk/+WIWAU2vi5K1XRdH838GoDvTjtKLDzj+I2/LQaYghhIr+Q@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyo5FqVKVV56q7sVVeccVxgWc9BzS0FJ5DW4HMgT7V4SZWe7uhN
-	qCpplPOTgxKkSS6qlu3MJckO7fES3JGtHK9KBJCihgy6aeeuYnW+YoS7
-X-Gm-Gg: AR+sD11kwRhxCbPWGabzNQIb1WpgCGvp+QSnb50nOht0nzGzRDMcwsKApf9ySvPcY9E
-	uvQq2AokOwB+33fgnM38v7taBIm7ju3dwHiWxDvMh17otGllsrMK22QNyUyAjZs9H5wOmcwkeEg
-	qs00stOVQUJwPsBH460TOx35PINzFVOG2866hODYmJ5E0MyHDsMzWQAaqEWxdeMggnaJoRxVtVK
-	FKaLK3fC+wasIv5CM+d7qWD/QNqKLdDFRGXYddTFSukS21jOq+1UQJwFpJbg31zGYaYy1GhdRmv
-	4GLVlU1KA0fO0slvU4WGN3Xm2rHSB359hqiljwqmiraV3tq6zT87+GG+wdBiy+GqUyGMIwt0NZw
-	5NdhJQTPQHUIFI4pQkiGSBX/+VByzobL3CCfmdRxMeLJurQAvNcYmL99uNd6T9PPNujUgLli1D/
-	2VONtbeEKQdkIUCn6AFBrRUnzAT13MIIXFb30oBEIz49KVCBdcgdHs0Th56tZtW4yrUlJwkDzYV
-	2tJqFUV4Hu8v89IruZVA5QbUgouQwMS3LKL6Lsuep4OfyjLsdIVQWnFjlFx5UZizUo7KYvbS7GH
-	hezbK9JzZsxuVsS9YJeHdXMSbY1LIYFiM07aK+ClbRqfXe6q
-X-Received: by 2002:a05:6a00:179f:b0:842:2419:6bfe with SMTP id d2e1a72fcca58-84fde364c19mr20472853b3a.7.1786927504085;
-        Sun, 16 Aug 2026 17:45:04 -0700 (PDT)
-Received: from ryzen.lan ([2601:644:8000:7a86::e35])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8517d01c2e7sm2164077b3a.13.2026.08.16.17.45.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 16 Aug 2026 17:45:02 -0700 (PDT)
-From: Rosen Penev <rosenp@gmail.com>
-To: dmaengine@vger.kernel.org
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Frank Li <Frank.Li@kernel.org>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	linux-kernel@vger.kernel.org (open list),
-	linuxppc-dev@lists.ozlabs.org (open list:FREESCALE SOC DRIVERS),
-	linux-arm-kernel@lists.infradead.org (moderated list:FREESCALE SOC DRIVERS)
-Subject: [PATCH] dmaengine: bestcomm: ioremap and get irq early
-Date: Sun, 16 Aug 2026 17:45:00 -0700
-Message-ID: <20260817004500.59251-1-rosenp@gmail.com>
-X-Mailer: git-send-email 2.55.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Mon, 17 Aug 2026 00:47:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1786927677; x=1818463677;
+  h=date:from:to:cc:subject:message-id;
+  bh=1PLO5Ilx9TbXwf1yvM93LzKql71nGhWVQD4LOtyYCSw=;
+  b=TDcnAKSj2jljGbppTITJIKt1R/R/dRixqroVwDXRMRkxbyFpwKBmitAr
+   Ua5QHYZqlxViJTwLaNzbvX25CgdVFNjFqkZP7uXSvER4YdS2p+swk/8+H
+   BsUuzCii9fiUApJNVriHPj/ejMrjD64iWj8/Wikm+cgdbF2zmHxczH7jG
+   yB+7jh7HmcIbYnTkvUmjUcFRT9eqmwz4T4D0jehL0OO+XI+/KShe+fFNB
+   sJaKChmHPhML7vZvMGsOlOo4mgaHGiAR/I7yYLFubDGue5bGnkaunKcSs
+   qinTBGW3H6KijRokOAjWaB6Lmjf+pdBC3IUQceMjBl8eQ9JfXe+bfBKjp
+   Q==;
+X-CSE-ConnectionGUID: vppwuZwWSLajMaJhzpDTew==
+X-CSE-MsgGUID: OX3YGl6iT3aExbxKf9mpLw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11877"; a="87322214"
+X-IronPort-AV: E=Sophos;i="6.25,228,1779174000"; 
+   d="scan'208";a="87322214"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Aug 2026 17:47:55 -0700
+X-CSE-ConnectionGUID: 8MIANVFlRA+tWb2rZFPbkA==
+X-CSE-MsgGUID: EuRwRdOySm6NWdfbH3n9rg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,228,1779174000"; 
+   d="scan'208";a="268256347"
+Received: from lkp-server01.sh.intel.com (HELO 6eda058d650d) ([10.239.97.150])
+  by orviesa003.jf.intel.com with ESMTP; 16 Aug 2026 17:47:54 -0700
+Received: from kbuild by 6eda058d650d with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wvlW2-00000000dB8-3v3i;
+	Mon, 17 Aug 2026 00:47:50 +0000
+Date: Mon, 17 Aug 2026 08:47:32 +0800
+From: kernel test robot <lkp@intel.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ arm@kernel.org
+Subject: [soc:board-remove 160/217]
+ drivers/mfd/88pm860x-core.c:841:13: warning: 'device_codec_init' defined but
+ not used
+Message-ID: <202608170852.2QxCkILI-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260816_174506_182835_8A6B3DB4 
-X-CRM114-Status: GOOD (  20.37  )
+X-CRM114-CacheID: sfid-20260816_174756_886283_8407D121 
+X-CRM114-Status: GOOD (  14.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,205 +84,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Doing so allows handling potential -EPROBE_DEFER before any work gets
-done.
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git board-remove
+head:   057394422bc04420585b2790b230d8a1f350ace8
+commit: 59d0d39f2a1e71a171b677f5c4a10641c22d6fff [160/217] mfd: 88pm860x: remove pdata based probing
+config: alpha-allyesconfig (https://download.01.org/0day-ci/archive/20260817/202608170852.2QxCkILI-lkp@intel.com/config)
+compiler: alpha-linux-gcc (GCC) 16.1.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260817/202608170852.2QxCkILI-lkp@intel.com/reproduce)
 
-Replace the open-coded resource lookup, request_mem_region, ioremap and
-the manual iounmap/release_mem_region cleanup in probe/remove with the
-managed devm_platform_get_and_ioremap_resource() helper. This removes the
-now-unused error-unmap/release paths and simplifies the driver.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202608170852.2QxCkILI-lkp@intel.com/
 
-Assisted-by: opencode:hy3-free
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
+All warnings (new ones prefixed by >>):
 
-dmaengine: bestcomm: get irq early
+   drivers/mfd/88pm860x-core.c: In function 'pm860x_probe':
+   drivers/mfd/88pm860x-core.c:985:36: error: 'np' undeclared (first use in this function); did you mean 'up'?
+     985 |         ret = of_property_read_u32(np, "marvell,88pm860x-slave-addr",
+         |                                    ^~
+         |                                    up
+   drivers/mfd/88pm860x-core.c:985:36: note: each undeclared identifier is reported only once for each function it appears in
+   In file included from include/linux/device.h:15,
+                    from include/linux/acpi.h:15,
+                    from include/linux/i2c.h:13,
+                    from drivers/mfd/88pm860x-core.c:13:
+   drivers/mfd/88pm860x-core.c:988:25: error: 'dev' undeclared (first use in this function); did you mean 'cdev'?
+     988 |                 dev_err(dev,
+         |                         ^~~
+   include/linux/dev_printk.h:110:25: note: in definition of macro 'dev_printk_index_wrap'
+     110 |                 _p_func(dev, fmt, ##__VA_ARGS__);                       \
+         |                         ^~~
+   drivers/mfd/88pm860x-core.c:988:17: note: in expansion of macro 'dev_err'
+     988 |                 dev_err(dev,
+         |                 ^~~~~~~
+   drivers/mfd/88pm860x-core.c:980:29: warning: unused variable 'node' [-Wunused-variable]
+     980 |         struct device_node *node = client->dev.of_node;
+         |                             ^~~~
+   drivers/mfd/88pm860x-core.c: At top level:
+>> drivers/mfd/88pm860x-core.c:841:13: warning: 'device_codec_init' defined but not used [-Wunused-function]
+     841 | static void device_codec_init(struct pm860x_chip *chip)
+         |             ^~~~~~~~~~~~~~~~~
+>> drivers/mfd/88pm860x-core.c:326:33: warning: 'chg_desc_regulator_data' defined but not used [-Wunused-variable]
+     326 | static struct charger_regulator chg_desc_regulator_data[] = {
+         |                                 ^~~~~~~~~~~~~~~~~~~~~~~
+--
+   drivers/input/touchscreen/88pm860x-ts.c: In function 'pm860x_touch_probe':
+>> drivers/input/touchscreen/88pm860x-ts.c:174:34: warning: unused variable 'data' [-Wunused-variable]
+     174 |         int irq, ret, res_x = 0, data = 0;
+         |                                  ^~~~
 
-platform_get_irq can return -EPROBE_DEFER, which is useful to avoid
-doing extra work in such a case
 
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
----
- drivers/dma/bestcomm/bestcomm.c            | 70 ++++++----------------
- include/linux/fsl/bestcomm/bestcomm_priv.h |  2 +-
- 2 files changed, 18 insertions(+), 54 deletions(-)
+vim +/device_codec_init +841 drivers/mfd/88pm860x-core.c
 
-diff --git a/drivers/dma/bestcomm/bestcomm.c b/drivers/dma/bestcomm/bestcomm.c
-index 432b43520ddc..55ad7bc34df7 100644
---- a/drivers/dma/bestcomm/bestcomm.c
-+++ b/drivers/dma/bestcomm/bestcomm.c
-@@ -48,6 +48,7 @@ bcom_task_alloc(int bd_count, int bd_size, int priv_size)
- {
- 	int i, tasknum = -1;
- 	struct bcom_task *tsk;
-+	int irq;
- 
- 	/* Don't try to do anything if bestcomm init failed */
- 	if (!bcom_eng)
-@@ -68,6 +69,10 @@ bcom_task_alloc(int bd_count, int bd_size, int priv_size)
- 	if (tasknum < 0)
- 		return NULL;
- 
-+	irq = platform_get_irq(bcom_eng->pdev, tasknum);
-+	if (irq < 0)
-+		return irq;
-+
- 	/* Allocate our structure */
- 	tsk = kzalloc(sizeof(struct bcom_task) + priv_size, GFP_KERNEL);
- 	if (!tsk)
-@@ -77,10 +82,7 @@ bcom_task_alloc(int bd_count, int bd_size, int priv_size)
- 	if (priv_size)
- 		tsk->priv = (void*)tsk + sizeof(struct bcom_task);
- 
--	/* Get IRQ of that task */
--	tsk->irq = irq_of_parse_and_map(bcom_eng->ofnode, tsk->tasknum);
--	if (!tsk->irq)
--		goto error;
-+	tsk->irq = irq;
- 
- 	/* Init the BDs, if needed */
- 	if (bd_count) {
-@@ -102,8 +104,6 @@ bcom_task_alloc(int bd_count, int bd_size, int priv_size)
- 
- error:
- 	if (tsk) {
--		if (tsk->irq)
--			irq_dispose_mapping(tsk->irq);
- 		bcom_sram_free(tsk->bd);
- 		kfree(tsk->cookie);
- 		kfree(tsk);
-@@ -126,7 +126,6 @@ bcom_task_free(struct bcom_task *tsk)
- 	bcom_eng->tdt[tsk->tasknum].stop  = 0;
- 
- 	/* Free everything */
--	irq_dispose_mapping(tsk->irq);
- 	bcom_sram_free(tsk->bd);
- 	kfree(tsk->cookie);
- 	kfree(tsk);
-@@ -365,23 +364,24 @@ bcom_engine_cleanup(void)
- static int mpc52xx_bcom_probe(struct platform_device *op)
- {
- 	struct device_node *ofn_sram;
--	struct resource res_bcom;
-+	struct resource *res_bcom;
-+	void __iomem *regs;
- 
- 	int rv;
- 
- 	/* Inform user we're ok so far */
- 	printk(KERN_INFO "DMA: MPC52xx BestComm driver\n");
- 
--	/* Get the bestcomm node */
--	of_node_get(op->dev.of_node);
-+	regs = devm_platform_get_and_ioremap_resource(op, 0, &res_bcom);
-+	if (IS_ERR(regs))
-+		return PTR_ERR(regs);
- 
- 	/* Prepare SRAM */
- 	ofn_sram = of_find_matching_node(NULL, mpc52xx_sram_ids);
- 	if (!ofn_sram) {
- 		printk(KERN_ERR DRIVER_NAME ": "
- 			"No SRAM found in device tree\n");
--		rv = -ENODEV;
--		goto error_ofput;
-+		return -ENODEV;
- 	}
- 	rv = bcom_sram_init(ofn_sram, DRIVER_NAME);
- 	of_node_put(ofn_sram);
-@@ -389,7 +389,7 @@ static int mpc52xx_bcom_probe(struct platform_device *op)
- 	if (rv) {
- 		printk(KERN_ERR DRIVER_NAME ": "
- 			"Error in SRAM init\n");
--		goto error_ofput;
-+		return rv;
- 	}
- 
- 	/* Get a clean struct */
-@@ -400,37 +400,14 @@ static int mpc52xx_bcom_probe(struct platform_device *op)
- 	}
- 
- 	/* Save the node */
--	bcom_eng->ofnode = op->dev.of_node;
--
--	/* Get, reserve & map io */
--	if (of_address_to_resource(op->dev.of_node, 0, &res_bcom)) {
--		printk(KERN_ERR DRIVER_NAME ": "
--			"Can't get resource\n");
--		rv = -EINVAL;
--		goto error_sramclean;
--	}
--
--	if (!request_mem_region(res_bcom.start, resource_size(&res_bcom),
--				DRIVER_NAME)) {
--		printk(KERN_ERR DRIVER_NAME ": "
--			"Can't request registers region\n");
--		rv = -EBUSY;
--		goto error_sramclean;
--	}
--
--	bcom_eng->regs_base = res_bcom.start;
--	bcom_eng->regs = ioremap(res_bcom.start, sizeof(struct mpc52xx_sdma));
--	if (!bcom_eng->regs) {
--		printk(KERN_ERR DRIVER_NAME ": "
--			"Can't map registers\n");
--		rv = -ENOMEM;
--		goto error_release;
--	}
-+	bcom_eng->pdev = op;
-+	bcom_eng->regs = regs;
-+	bcom_eng->regs_base = res_bcom->start;
- 
- 	/* Now, do the real init */
- 	rv = bcom_engine_init();
- 	if (rv)
--		goto error_unmap;
-+		goto error_sramclean;
- 
- 	/* Done ! */
- 	printk(KERN_INFO "DMA: MPC52xx BestComm engine @%08lx ok !\n",
-@@ -439,15 +416,9 @@ static int mpc52xx_bcom_probe(struct platform_device *op)
- 	return 0;
- 
- 	/* Error path */
--error_unmap:
--	iounmap(bcom_eng->regs);
--error_release:
--	release_mem_region(res_bcom.start, sizeof(struct mpc52xx_sdma));
- error_sramclean:
- 	kfree(bcom_eng);
- 	bcom_sram_cleanup();
--error_ofput:
--	of_node_put(op->dev.of_node);
- 
- 	printk(KERN_ERR "DMA: MPC52xx BestComm init failed !\n");
- 
-@@ -463,13 +434,6 @@ static void mpc52xx_bcom_remove(struct platform_device *op)
- 	/* Cleanup SRAM */
- 	bcom_sram_cleanup();
- 
--	/* Release regs */
--	iounmap(bcom_eng->regs);
--	release_mem_region(bcom_eng->regs_base, sizeof(struct mpc52xx_sdma));
--
--	/* Release the node */
--	of_node_put(bcom_eng->ofnode);
--
- 	/* Release memory */
- 	kfree(bcom_eng);
- 	bcom_eng = NULL;
-diff --git a/include/linux/fsl/bestcomm/bestcomm_priv.h b/include/linux/fsl/bestcomm/bestcomm_priv.h
-index 3b52f3ffbdf8..cddde7c74cb5 100644
---- a/include/linux/fsl/bestcomm/bestcomm_priv.h
-+++ b/include/linux/fsl/bestcomm/bestcomm_priv.h
-@@ -66,7 +66,7 @@ struct bcom_tdt {
-  * This holds all info needed globaly to handle the engine
-  */
- struct bcom_engine {
--	struct device_node		*ofnode;
-+	struct platform_device		*pdev;
- 	struct mpc52xx_sdma __iomem     *regs;
- 	phys_addr_t                      regs_base;
- 
--- 
-2.55.0
+   840	
+ > 841	static void device_codec_init(struct pm860x_chip *chip)
+   842	{
+   843		int ret;
+   844	
+   845		codec_devs[0].num_resources = ARRAY_SIZE(codec_resources);
+   846		codec_devs[0].resources = &codec_resources[0];
+   847		ret = mfd_add_devices(chip->dev, 0, &codec_devs[0],
+   848				      ARRAY_SIZE(codec_devs), &codec_resources[0], 0,
+   849				      NULL);
+   850		if (ret < 0)
+   851			dev_err(chip->dev, "Failed to add codec subdev\n");
+   852	}
+   853	
 
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
