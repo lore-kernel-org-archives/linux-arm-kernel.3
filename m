@@ -4,64 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C9A8C5DF74
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 22:08:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E545AC5DF74
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 22:22:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GmmIfh8c/8Lo9aj78fk3ufRovlVowXNbcmbUtWRPK7c=; b=HUIzfuEhm79RMgtuIfRelWTa5W
-	uoM2u9DsNVBpeaha1QxM1HRiKjYkNmvZfD1Igh9XVJUA/0TbAL4WCF2gjPAqf9cobD8AvyIA8NIyz
-	ru0bp2ol+8coKognaeA9r/6VHwXvqo/QB6RAZkkgpUZiQh3OlSF/ru7SHf2e5OP/JXWAMVAh2onZL
-	Wtywbb3zIcHZs+QVRe6kOq/w7Q8dI9tfTR6DV3vWm9jhp0dR/KYa455fL6ccbQEkwYuozT8+go6/0
-	c1VynyfL2CDK0swUqlqfhL3CiW0OTRZKqTAZzsnzgU0oSjOjcHidmBvG6AF+tKTVu9VIw6OuvE2YL
-	2nv0u4zg==;
+	bh=QA3sfzUpR36V83Sktub5Y8E5Bqm2HmxtE56t6ViakSo=; b=avDmrVaAkMdwBGLCiL53RK5WL5
+	rEwOE9++u4ppDlTQ62VHPuzfLLWDVZ6Afi2buwtoAONxI6Wd/QS2jUixS316sYzmrjJP/DHRMihCY
+	GsURwFw8ZnpAWanJlWHLHe3sY1OaFpuwBZhQxX86VhAKETGZjrqmXFQ8vb7fVEyehoisCIPFF7Q1u
+	t0ZMaX5u2Xpf87n1Rym7re5bxH+quSz0RtQ4fs/9R+Qj9ONnOPTriLRPR7Lh3tp1Qkc/2n3z4WQ+J
+	E/5OBau3T4hOX1V+Y2lud9SFn3GRkoaSDa5UgiqOneuNDBzVr2x9wCigDV6UnBT/hObyd+u4WpGkT
+	4Ottyafg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww5Uo-00000006tdG-0ZTM;
-	Mon, 17 Aug 2026 22:07:54 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ww5jC-00000006uJR-1KFs;
+	Mon, 17 Aug 2026 22:22:46 +0000
+Received: from mx0a-00082601.pphosted.com ([67.231.145.42])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww5Un-00000006td9-1bQB
+	id 1ww5j9-00000006uHo-32Ih
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 22:07:53 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8B513600C8;
-	Mon, 17 Aug 2026 22:07:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C4E51F000E9;
-	Mon, 17 Aug 2026 22:07:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787004472;
-	bh=GmmIfh8c/8Lo9aj78fk3ufRovlVowXNbcmbUtWRPK7c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=JgpSn8CYUzY/jaGbrTvIb0JtGh7s3QwiHtz+c4j6WxH7ZWIZj3K6ylFkViMYpKV6D
-	 XHw7Ga0i6WWDQyfOgIDuLWDwivBNa0lwUiDEp1B92dT7I6sDVMT2TV2PXjD7UUmopK
-	 Tv4JkdWtBoUrYHook6fzy4avdseLFCY9/hbruZylwWTpP+/iIJMXIgA0eUR1b2noUF
-	 ow8hbbPPzPm8UvwDi/qz4lXZvStQ2zFERqsCK1LM7fdovzw/FMY/LNdl3bmlEuW761
-	 uVfBzrfW9OGaPPABCDQY81gw6K7EkYYofwrZQ5NSFs6GJEIj4AIvB9PCCy4ZS7lxlR
-	 26cy3SVZBS6ng==
-Date: Mon, 17 Aug 2026 17:07:50 -0500
-From: Rob Herring <robh@kernel.org>
-To: KobaK <kobak@nvidia.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	Fenghua Yu <fenghuay@nvidia.com>, Tushar Dave <tdave@nvidia.com>,
-	Kai-Heng Feng <kaihengf@nvidia.com>, rupakr@nvidia.com,
-	mohammedk@nvidia.com
-Subject: Re: [RFC PATCH 1/3] arm64: add CPU prefetch and cache modulation
- sysfs interface
-Message-ID: <20260817220750.GB2274565-robh@kernel.org>
-References: <20260817022335.3-1-kobak@nvidia.com>
- <20260817022335.3-2-kobak@nvidia.com>
+	Mon, 17 Aug 2026 22:22:45 +0000
+Received: from pps.filterd (m0109333.ppops.net [127.0.0.1])
+	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67HLo6JW1568585;
+	Mon, 17 Aug 2026 15:22:25 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fb.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	pps82601-s2048-2026-q3; bh=QA3sfzUpR36V83Sktub5Y8E5Bqm2HmxtE56t6
+	ViakSo=; b=S3tumvlCcRJM9mRtBsAbdgm9S3Iq+Rm9NHqh9GYrAMAvg8fiLyRt1
+	1BM66TZ19TWiY3sr14Twa6BQJfOwEuRxEai6EnyDzGtTNcfD7rMIs8MQ1tCJDgEe
+	emEzbQWgFDONdUPrQWPgnqJG4zeMKd+VTULYeHW5YIp9aDAV2wP/SnR7VdNu/TF7
+	H5FcNy9ighxK7D0jnl8dcWEZr+a9ZhmUFWDjxHH/5zPm4EKpZfAQL4nS3F0wNjCv
+	Nm5Nh2b8QG5SpVNMJVWV+JCmrhKQTTl/YUuoCmfEST5WPFkpsGNZYti+3l8aZ1LE
+	Bij5ko/ZGXT1jQ13NB66ATo67qm+Krviw==
+Received: from mail.thefacebook.com ([163.114.134.16])
+	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4g2m516h9c-2
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
+	Mon, 17 Aug 2026 15:22:25 -0700 (PDT)
+Received: from localhost (2620:10d:c085:108::150d) by mail.thefacebook.com
+ (2620:10d:c08b:78::c78f) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.45; Mon, 17 Aug
+ 2026 22:22:24 +0000
+From: Amir Ayupov <aaupov@fb.com>
+To: <linux-perf-users@vger.kernel.org>, <coresight@lists.linaro.org>,
+        <linux-arm-kernel@lists.infradead.org>,
+        Suzuki K Poulose
+	<suzuki.poulose@arm.com>,
+        James Clark <james.clark@linaro.org>, Leo Yan
+	<leo.yan@arm.com>,
+        Peter Zijlstra <peterz@infradead.org>, Ingo Molnar
+	<mingo@redhat.com>,
+        Arnaldo Carvalho de Melo <acme@kernel.org>,
+        Namhyung Kim
+	<namhyung@kernel.org>,
+        Mark Rutland <mark.rutland@arm.com>,
+        Alexander
+ Shishkin <alexander.shishkin@linux.intel.com>,
+        Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+        Adrian Hunter <adrian.hunter@intel.com>,
+        John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>
+CC: <linux-doc@vger.kernel.org>, Mike Leach <mike.leach@arm.com>,
+        Jonathan
+ Corbet <corbet@lwn.net>,
+        Shuah Khan <skhan@linuxfoundation.org>,
+        Swapnil
+ Sapkal <swapnil.sapkal@amd.com>
+Subject: [PATCH v2 5/5] Documentation: coresight: Document context-sensitive PGO workflow
+Date: Mon, 17 Aug 2026 15:22:20 -0700
+Message-ID: <9c4b59cac4a2cb21ab552398e3deda9e5067fe32.1787005265.git.aaupov@fb.com>
+X-Mailer: git-send-email 2.52.0
+In-Reply-To: <cover.1787005265.git.aaupov@fb.com>
+References: <cover.1787005265.git.aaupov@fb.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260817022335.3-2-kobak@nvidia.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [2620:10d:c085:108::150d]
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODE3MDE3MSBTYWx0ZWRfX86pegc5PAdDS
+ oWEyRoxq7fivVx5qZIwUz0sRmNAqBcSoF4RCDS5J2GcXf1RYNcFMtlhyy9fkQvHP3WuxQ4c+8t0
+ WgUE4RGDtzwhYWzElzmGqntKNd8eQt4=
+X-Authority-Analysis: v=2.4 cv=W9cIkxWk c=1 sm=1 tr=0 ts=6a8389a1 cx=c_pps
+ a=CB4LiSf2rd0gKozIdrpkBw==:117 a=CB4LiSf2rd0gKozIdrpkBw==:17
+ a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=7x6HtfJdh03M6CCDgxCd:22
+ a=tpM8CJlwf7uhpglF1g9U:22 a=FOH2dFAWAAAA:8 a=QDGUGMRHXpoeSueRYaEA:9
+X-Proofpoint-GUID: fTOAckTrz00MqZBg9mhMlcohR2Y3XDRT
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODE3MDE3MSBTYWx0ZWRfX8/GrdqnvpG2x
+ AiuyLYuERMlADDlBReLE46quACr8JAFy8iL9RbdISgn3ph+gfPuN15d7pv4K++6QfZHlgPDs3I7
+ 4n4FLVPm97LrZwUgIyYuPL9EdOcusAHH9BZ+YbWudOKG1bhU67X2EaaV8K0dv7IF0Bdx0r/mRhI
+ muPpGgvDPEXbClEzAOznouw1mMWevk/k0KXISBVCFYZoG1Up/XxUFOjHfbMzfLTc3/x298Dzjhs
+ Uox60eX3lDKfWge5Wqts9Ey4dSAJBv1jngRuJUoHmORCx9zg73TDNSVZFxlk1bjWrpEQgrH8l+y
+ GMBlz6U1f3t+xLHbzIbw8+j79vMDE077PDrWrSiBl39Q3Ne3eH4WS6l/Dl4tQe26tLpvGiUVLcm
+ ezX+o++X9274EolkeQbn4umZDzxrLjz7b48a8qj3VuetcuQ3h4cJ7vYqH2+tMLsG64irBKv1ySX
+ n+fnNgL6EtrN2PMQgsA==
+X-Proofpoint-ORIG-GUID: fTOAckTrz00MqZBg9mhMlcohR2Y3XDRT
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-17_04,2026-08-12_01,2025-10-01_01
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260817_152243_833858_78EC8F3A 
+X-CRM114-Status: GOOD (  15.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,134 +119,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 17, 2026 at 10:23:33AM +0800, KobaK wrote:
-> From: Koba Ko <kobak@nvidia.com>
-> 
-> Performance characterization on arm64 systems sometimes needs a way to
-> inspect and bracket selected implementation-defined prefetch and cache
-> controls without exposing raw register contents. Add an RFC-only arm64
-> cpumod interface that presents a small set of named, range-checked
-> per-CPU sysfs attributes under each CPU device.
-> 
-> Establish the Kconfig and Makefile plumbing, CPU profile detection for
-> Grace and Vera from the target CPU's MIDR, register-field descriptors,
-> per-CPU kobject and attribute helpers, locking, and target-CPU read/write
-> callbacks. Common attributes are exposed for all supported profiles,
-> while Grace- and Vera-specific fields are exposed only for the matching
-> profile. Place the option at the end of the top-level Kernel Features
-> menu because these implementation controls are not tied to an Arm
-> architecture revision.
-> 
-> Per-CPU cpumod sysfs state follows the CPU lifecycle. Module
-> initialization populates subtrees for every online CPU while holding
-> cpus_read_lock(), so initial enumeration and CPU hotplug state
-> registration are serialized against concurrent topology changes. Offline
-> CPUs are intentionally skipped during initial setup because target-CPU
-> MIDR detection requires an IPI-capable online CPU; a later online callback
-> creates their subtree.
-> 
-> Profile detection reads MIDR through a synchronous callback on the CPU
-> owning the sysfs subtree and returns nonzero only when that dispatch
-> fails, so no IPI error can be hidden. After a successful read, retain
-> CPUMOD_PROFILE_UNKNOWN as the unsupported-profile sentinel. Subtree
-> creation skips that profile during both initial online enumeration and
-> later CPUHP online callbacks without blocking module load or CPU hotplug.
-> Object and sysfs setup failures remain fatal and are propagated.
-> 
-> Keep the dynamically allocated kobject state in a private per-CPU pointer
-> instead of the CPU device's generic driver-data slot. The online callback
-> is idempotent when that pointer already records a subtree. The offline
-> callback clears the private pointer before dropping the kobject reference,
-> allowing the release callback to retain ownership of the final free.
-> 
-> Register the dynamic CPUHP state with
-> cpuhp_setup_state_nocalls_cpuslocked(). The nocalls form avoids replaying
-> startup callbacks for CPUs already initialized by the explicit online
-> enumeration. On init failure, release the CPU read lock, destroy all
-> subtrees created so far, and return the error. Module exit removes the
-> CPUHP state with the matching nocalls helper and tears down all remaining
-> per-CPU state across possible CPUs.
-> 
-> Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
-> Reviewed-by: Tushar Dave <tdave@nvidia.com>
-> Reviewed-by: Kai-Heng Feng <kaihengf@nvidia.com>
-> Signed-off-by: Koba Ko <kobak@nvidia.com>
-> ---
->  arch/arm64/Kconfig                      |  17 +
->  arch/arm64/kernel/Makefile              |   1 +
->  arch/arm64/kernel/arm_cpumod.c          | 471 ++++++++++++++++++++++++
->  arch/arm64/kernel/arm_cpumod_internal.h | 113 ++++++
->  4 files changed, 602 insertions(+)
->  create mode 100644 arch/arm64/kernel/arm_cpumod.c
->  create mode 100644 arch/arm64/kernel/arm_cpumod_internal.h
-> 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index b3afe0688919b..5e4ada4884b89 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -2417,6 +2417,23 @@ config ARM64_CONTPTE
->  	  bit, for any mappings that meet the size and alignment requirements.
->  	  This reduces TLB pressure and improves performance.
->  
-> +config ARM64_CPUMOD
-> +	tristate "Arm CPU prefetch modulation sysfs controls"
-> +	help
-> +	  Expose selected CPU implementation control register fields through
-> +	  per-CPU sysfs attributes for performance characterization.
-> +
-> +	  The exposed controls allow hardware prefetch and cache-management
-> +	  policy fields to be inspected and adjusted on CPUs where firmware
-> +	  permits EL1 access to the relevant implementation control registers.
-> +	  Systems where firmware traps or blocks these writes cannot use this
-> +	  interface.
-> +
-> +	  This interface is intended for controlled performance evaluation and
-> +	  should not be enabled by default on production systems.
-> +
-> +	  If unsure, say N.
-> +
->  endmenu # "Kernel Features"
->  
->  menu "Boot options"
-> diff --git a/arch/arm64/kernel/Makefile b/arch/arm64/kernel/Makefile
-> index d2690c3ec5288..f180a52284e7d 100644
-> --- a/arch/arm64/kernel/Makefile
-> +++ b/arch/arm64/kernel/Makefile
-> @@ -69,6 +69,7 @@ obj-$(CONFIG_VMCORE_INFO)		+= vmcore_info.o
->  obj-$(CONFIG_ARM_SDE_INTERFACE)		+= sdei.o
->  obj-$(CONFIG_ARM64_PTR_AUTH)		+= pointer_auth.o
->  obj-$(CONFIG_ARM64_MPAM)		+= mpam.o
-> +obj-$(CONFIG_ARM64_CPUMOD)		+= arm_cpumod.o
->  obj-$(CONFIG_ARM64_MTE)			+= mte.o
->  obj-y					+= vdso-wrap.o
->  obj-$(CONFIG_COMPAT_VDSO)		+= vdso32-wrap.o
-> diff --git a/arch/arm64/kernel/arm_cpumod.c b/arch/arm64/kernel/arm_cpumod.c
-> new file mode 100644
-> index 0000000000000..9e64f2c8e7810
-> --- /dev/null
-> +++ b/arch/arm64/kernel/arm_cpumod.c
-> @@ -0,0 +1,471 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
+Document combining callchain-bearing AUX pause samples with the ETM
+branch history that precedes them, which is the pairing that
+context-sensitive PGO tools consume, and the --itrace=L64 decode with the
+non-empty branch-stack dlfilter.
 
-Since the introduction of this...
+Assisted-by: Devmate:GPT-5.6
+Signed-off-by: Amir Ayupov <aaupov@fb.com>
+---
+ .../trace/coresight/coresight-perf.rst        | 62 +++++++++++++++++++
+ 1 file changed, 62 insertions(+)
 
-> +/*
-> + * Copyright (c) 2026, NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
-> + *
-> + * This program is free software; you can redistribute it and/or modify it
-> + * under the terms and conditions of the GNU General Public License,
-> + * version 2, as published by the Free Software Foundation.
-> + *
-> + * This program is distributed in the hope it will be useful, but WITHOUT
-> + * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-> + * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
-> + * more details.
+diff --git a/Documentation/trace/coresight/coresight-perf.rst b/Documentation/trace/coresight/coresight-perf.rst
+index 0a77741a431ef..c0c82b3d26ea8 100644
+--- a/Documentation/trace/coresight/coresight-perf.rst
++++ b/Documentation/trace/coresight/coresight-perf.rst
+@@ -109,6 +109,68 @@ Example for triggering AUX pause and resume with PMU event::
+         -e cycles/aux-action=pause,period=10000000/ \
+         -e cycles/aux-action=resume,period=1050000/ -- sleep 1
+ 
++Context-sensitive sampled PGO (CSSPGO) profiling
++~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++
++A callchain-bearing pause event can be combined with the branch history from
++its preceding ETM trace window. This provides the synchronized callchain and
++branch stack consumed by context-sensitive PGO tools without continuously
++recording ETM trace for a long-running process.
++
++For example, record user-space ETM trace, resume it periodically, and pause it
++with a cycle event that also captures a frame-pointer callchain::
++
++  perf record -T \
++        -e cs_etm/aux-action=start-paused,timestamp/u \
++        -e cycles/aux-action=resume,period=8350251/u \
++        -e cycles/aux-action=pause,period=100003,call-graph=fp/u \
++        -- ./workload
++
++The two cycle events count independently. With pause period ``P`` and resume
++period ``R``, each trace window is approximately 0 to ``P`` cycles long, so the
++average duty cycle is ``P / (2 * R)``. The periods above give about 0.6% duty.
++
++Do not make ``R`` an integer multiple of ``P``: coincident pause and resume
++interrupts can produce zero-length windows. Choosing ``R`` near
++``(k + 1/2) * P``, as above, moves the resume phase across the pause interval.
++Pause events that fire while ETM is already paused have no branch history; the
++dlfilter below removes those samples.
++
++The ``-T`` option timestamps the pause samples, while ``timestamp`` enables
++ETM timestamp packets. Both are required to correlate the sample with ETM
++trace. This mode also requires virtual ETM timestamps correlated to perf time
++and a callchain on the pause event. Use ``call-graph=dwarf`` instead of
++``call-graph=fp`` when the workload does not preserve frame pointers.
++
++Tuning duty cycle
++^^^^^^^^^^^^^^^^^
++
++The example above favors low recording overhead for fleet collection. With
++independent counters, ``P / R`` is the nominal window ratio while
++``P / (2 * R)`` is the expected average ETM-on duty. For ``P = 100003``, two
++measured Neoverse V2 operating points are:
++
++- Fleet collection: ``R = 8350251``, 1.2% nominal ratio and 0.6% average duty.
++- Targeted profiling: ``R = 1050031``, 9.5% nominal ratio and 4.8% average duty.
++
++AUX buffer size must also scale with trace volume. A 128 KiB AUX buffer worked
++at 0.6% duty but was unstable at some higher-duty points, where it increased
++output size or overran and reduced useful-sample yield. Use 4 MiB as a
++conservative starting point around ``R/P = 6.7`` to ``12.5``. These values are
++workload and platform dependent; verify useful samples per MiB and lost AUX
++records when tuning another system.
++
++Add up to 64 decoded ETM branches to each existing pause sample and emit the
++hybrid samples in the regular perf-script format::
++
++  perf script -i perf.data --itrace=L64 \
++        --dlfilter=dlfilter-nonempty-brstack.so > perf.script
++
++The ``dlfilter-nonempty-brstack.so`` filter drops samples that ended up with
++no branch history at all, for example samples from a thread that was never
++traced, or samples recorded before the first or after the last trace window.
++It is built and installed with perf's other dlfilters.
++
+ Perf test - Verify kernel and userspace perf CoreSight work
+ -----------------------------------------------------------
+ 
+-- 
+2.52.0
 
-We stopped putting license text in.
-
-Before you go work on my comments, I'd wait for arm64 maintainers 
-comments. I doubt this whole thing will be accepted. In general, we 
-don't put in impdef interfaces to userspace.
-
-Rob
 
