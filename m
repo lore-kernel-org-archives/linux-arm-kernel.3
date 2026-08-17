@@ -4,63 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21829C5DF66
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 20:14:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 173D3C5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 20:34:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LzDo4tCip7tML0cOu39bcJDTCn2tQGOUfV7WiNPRYwQ=; b=HTPhRC8ds00LizpIlp63PHAkwj
-	JbLxjsP72xzm47uBQTgFnlSxAsXo9dlvIdpxj2Nm+bbA57cK2qXRwD7+hZweoj4knraPa6fG5j18t
-	3XigNVTlOL867pY3OoYqLeAXLi3gyW7TfrdVQlkgdbHRAsfCo9A9MdAUzCuDecI2VHxVMwFZAqmyN
-	rKaYd5iyOwiYEDiU+xo5vmLEqt84GwRK1Gy/hsG232GK3OfHJ3JAvT+FJxRjUEpxV4rCyYBnqbVLy
-	6ST53LFSEWKE2AGm4dChfRTQ0GAUsqIGcSEfN1vMLj7nJQGmqhnVZxnmad/TihUvh1X/MHftbno5C
-	I5DE54fQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7lA3sg9Ze5Hg1p9KNTE2Wkxzq7TpBw3xISkEF/MJsew=; b=GFfJOcO8cF1enwgPIaNOap7G1M
+	CkxFDnXQkO7d5eCuQ6CXIk2ddZR39oLX6S8urn3glAETvn100V7/m7KVW9kq183NoO252anGHDflS
+	gpB21ce9yebg/oS0laFexz1glk1AOuPFbwznF/3fzPNRXDagMrG7kODvB/WM/DeB3kZ97caxmIr7l
+	lj3KBoaYu2i1Rhw5zlGfi6hAY8x6CEeEVEoYUiBNbqUJmKr70RIQUwxL+FHGwxpXqHgEH2IfTwl3I
+	3EWmS8gAhLpnGK0pfCGTNGF4tw1mzzbdvQ7FdMbiEqw7Cd/qYootJ6nr+3qnL/yCOw9eL4InUAN+Y
+	EZN8aXaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww3it-00000006lky-1aBZ;
-	Mon, 17 Aug 2026 20:14:19 +0000
+	id 1ww42X-00000006mu7-1cIX;
+	Mon, 17 Aug 2026 20:34:37 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww3is-00000006lkh-09ma
+	id 1ww42V-00000006mu1-1qw4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 20:14:18 +0000
+	Mon, 17 Aug 2026 20:34:35 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7085043CC3;
-	Mon, 17 Aug 2026 20:14:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3EA01F000E9;
-	Mon, 17 Aug 2026 20:14:16 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id CF810404A6
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 20:34:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BF8A1F000E9;
+	Mon, 17 Aug 2026 20:34:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786997657;
-	bh=LzDo4tCip7tML0cOu39bcJDTCn2tQGOUfV7WiNPRYwQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=RlF9qY+1mkQtzswGYaVaeetdd3Yn0Bb8KP+3jj04RD3M5/I1r+reUT7OnViAjSLYZ
-	 56DeVM4GTu8eKILOcJEkE2/zB1sKe8y5RVSccGxVl/3pgq7Qn+lYGgz2l1zq+U0RWp
-	 v1AyrLVvm6eNc8dRy6tFMbjwT2oVLhksronzmSTB51EpTSwp+rop+q2BKivp2LT8gG
-	 eM+wwCLpQ/w6aescpANkRdOn+SO5qU8qUOsyTa1Dyn1dZpgSJCYMqTc6a/ruFaf+jS
-	 jYSiMFKfJqcyJM98ok/H5Iwh1DeVBKS7rwdR9Y/eXPyyh258/tI71jgmvjAJy7o+NT
-	 4WD4jZ5kkGM8w==
-Date: Mon, 17 Aug 2026 13:14:16 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Maxime
- Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, "Russell King (Oracle)"
- <rmk+kernel@armlinux.org.uk>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH net v2] net: stmmac: keep gso_enabled_types in sync with
- netdev features
-Message-ID: <20260817131416.409fc7fc@kernel.org>
-In-Reply-To: <20260812-stmmac-fix-tso6-features-v2-1-72c3b06eb8d4@oss.qualcomm.com>
-References: <20260812-stmmac-fix-tso6-features-v2-1-72c3b06eb8d4@oss.qualcomm.com>
+	s=k20260515; t=1786998874;
+	bh=7lA3sg9Ze5Hg1p9KNTE2Wkxzq7TpBw3xISkEF/MJsew=;
+	h=From:Date:Subject:To:Cc;
+	b=UMw59CKpg6oLomoZj9QSbzg3q4Z+FROT8CjN0hS773aDFHCKG/936vJLX1t2zWcQB
+	 ZqdvBK3Z5lOM9uKdTYZl3AwuK1gelGw5Ml7TfoCwpfzxz6JcARzz2Xd7QaSDaOqFYs
+	 9ZKYD+VPKbcRpC6bUs7cHvgdRwUCLrr37rvE5YdjaTzTf3B7uLal+3JPjz+le8Pkhq
+	 qPmDnqMbsQ2XHVH9/lLEfpstoZXrfz7GLOMXF0+Db9r673GwgJiIdIuORy1mO0ZEAN
+	 qbviu0rEE5koDYP9aTWkl9kPZ9RPDQDQISNI8wCsQEN7+I22QNRVrUuDM4FubXelnd
+	 NEeXMqwhgYHnw==
+From: Linus Walleij <linusw@kernel.org>
+Date: Mon, 17 Aug 2026 22:34:31 +0200
+Subject: [PATCH] ARM: dts: ux500: Make panel regulators have unique names
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20260817-ux500-dts-fixes-v1-1-24379c6c2495@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3LQQqAIBBA0avErBsww6iuEi1Mx5pNhVMhSHdPW
+ j4+P4NQZBIYqwyRHhY+9oKmrsBtdl8J2ReDVrpTfdPhnYxS6C/BwIkEnR/aYPXih95Auc5Ifyj
+ TNL/vB9r52O1hAAAA
+X-Change-ID: 20260816-ux500-dts-fixes-cd93fa2bd985
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ Linus Walleij <linusw@kernel.org>
+X-Mailer: b4 0.14.3
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,107 +72,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 12 Aug 2026 06:38:13 +0200 Lorenzo Bianconi wrote:
-> stmmac_set_gso_types() derives priv->gso_enabled_types all-or-nothing
-> from NETIF_F_TSO, but stmmac_set_gso_features() advertises NETIF_F_TSO,
-> NETIF_F_TSO6 and (on GMAC4) NETIF_F_GSO_UDP_L4 as independently
-> toggleable features. Since netdev_fix_features() only ties TSO6 to the
-> checksum features, disabling TSO (ethtool -K ethX tx-tcp-segmentation
-> off) leaves TSO6 enabled in dev->features while gso_enabled_types
-> becomes 0.
-> 
-> For a TCPv6 GSO skb the stack then keeps the frame unsegmented
-> (NETIF_F_TSO6 is still set), stmmac_features_check() does not clear the
-> GSO mask, and the stmmac_xmit() gate (gso_type & gso_enabled_types) is
-> false, so the multi-MSS skb is transmitted through the ordinary
-> descriptor path as a single oversized frame.
-> 
-> Derive each GSO type from its own feature bit instead, so the mask stays
-> in sync with dev->features and TCPv6 (or UDP L4 on GMAC4) segmentation
-> keeps working when only TSO is disabled.
-> 
-> Fixes: 9edfa7dab811 ("net: stmmac: enable TSO for IPv6")
-> Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-> ---
-> Changes in v2:
-> - Fix possible race between stmmac_set_gso_types() and stmmac_xmit().
-> - Fix fixes tag.
-> - Link to v1: https://lore.kernel.org/r/20260808-stmmac-fix-tso6-features-v1-1-f82b17595052@oss.qualcomm.com
-> ---
->  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 28 +++++++++++++----------
->  1 file changed, 16 insertions(+), 12 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index a71f0df26378..df3549f55741 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -4371,16 +4371,20 @@ static void stmmac_flush_tx_descriptors(struct stmmac_priv *priv, int queue)
->  	stmmac_set_queue_tx_tail_ptr(priv, tx_q, queue, tx_q->cur_tx);
->  }
->  
-> -static void stmmac_set_gso_types(struct stmmac_priv *priv, bool tso)
-> +static void stmmac_set_gso_types(struct stmmac_priv *priv,
-> +				 netdev_features_t features)
->  {
-> -	if (!tso) {
-> -		priv->gso_enabled_types = 0;
-> -	} else {
-> -		/* Manage oversized TCP frames for GMAC4 device */
-> -		priv->gso_enabled_types = SKB_GSO_TCPV4 | SKB_GSO_TCPV6;
-> -		if (priv->plat->core_type == DWMAC_CORE_GMAC4)
-> -			priv->gso_enabled_types |= SKB_GSO_UDP_L4;
-> -	}
-> +	unsigned int gso_types = 0;
-> +
-> +	if (features & NETIF_F_TSO)
-> +		gso_types |= SKB_GSO_TCPV4;
-> +	if (features & NETIF_F_TSO6)
-> +		gso_types |= SKB_GSO_TCPV6;
-> +	/* Manage oversized UDP frames for GMAC4 devices */
-> +	if (features & NETIF_F_GSO_UDP_L4)
-> +		gso_types |= SKB_GSO_UDP_L4;
-> +
-> +	WRITE_ONCE(priv->gso_enabled_types, gso_types);
->  }
->  
->  static void stmmac_set_gso_features(struct net_device *ndev)
-> @@ -4416,7 +4420,7 @@ static void stmmac_set_gso_features(struct net_device *ndev)
->  	if (priv->plat->core_type == DWMAC_CORE_GMAC4)
->  		ndev->hw_features |= NETIF_F_GSO_UDP_L4;
->  
-> -	stmmac_set_gso_types(priv, true);
-> +	stmmac_set_gso_types(priv, ndev->hw_features);
->  
->  	dev_info(priv->device, "TSO feature enabled\n");
->  }
-> @@ -4766,7 +4770,7 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb, struct net_device *dev)
->  		stmmac_stop_sw_lpi(priv);
->  
->  	if (skb_is_gso(skb) &&
-> -	    skb_shinfo(skb)->gso_type & priv->gso_enabled_types)
-> +	    (skb_shinfo(skb)->gso_type & READ_ONCE(priv->gso_enabled_types)))
+U-Boot is not happy about regulators with the same name though
+Linux can deal with it. Make the names unique, it's more elegant.
 
-Maybe I'm missing something but I don't see any device configuration
-based on gso_enabled_types. Why does this mask exist in the first place?
+Link: https://lore.kernel.org/u-boot/20260817-ux500-external-sdcard-v2-8-ca9a110bd9c6@kernel.org/
+Signed-off-by: Linus Walleij <linusw@kernel.org>
+---
+ arch/arm/boot/dts/st/ste-ux500-samsung-golden.dts | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-Right now AFAICT packets which miss the mask check get chucked on the
-wire as one giant frame, without segmentation.
+diff --git a/arch/arm/boot/dts/st/ste-ux500-samsung-golden.dts b/arch/arm/boot/dts/st/ste-ux500-samsung-golden.dts
+index f736888474e7..d4f364ec8685 100644
+--- a/arch/arm/boot/dts/st/ste-ux500-samsung-golden.dts
++++ b/arch/arm/boot/dts/st/ste-ux500-samsung-golden.dts
+@@ -510,7 +510,7 @@ wl_reg_on: regulator-wl-reg-on {
+ 	panel_reg_1v8: regulator-panel-1v8 {
+ 		compatible = "regulator-fixed";
+ 
+-		regulator-name = "panel-fixed-supply";
++		regulator-name = "panel-fixed-supply-1v8";
+ 		regulator-min-microvolt = <1800000>;
+ 		regulator-max-microvolt = <1800000>;
+ 		/* GPIO219 */
+@@ -527,7 +527,7 @@ panel_reg_1v8: regulator-panel-1v8 {
+ 	panel_reg_3v0: regulator-panel-3v0 {
+ 		compatible = "regulator-fixed";
+ 
+-		regulator-name = "panel-fixed-supply";
++		regulator-name = "panel-fixed-supply-3v0";
+ 		regulator-min-microvolt = <3000000>;
+ 		regulator-max-microvolt = <3000000>;
+ 		/* GPIO219 */
 
-Can we just delete gso_enabled_types completely? Stack should obey the
-features for future frames, and avoiding races here may be hard.
+---
+base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
+change-id: 20260816-ux500-dts-fixes-cd93fa2bd985
 
->  		return stmmac_tso_xmit(skb, dev);
->  
->  	if (priv->est && priv->est->enable &&
-> @@ -6198,7 +6202,7 @@ static int stmmac_set_features(struct net_device *netdev,
->  			stmmac_enable_sph(priv, priv->ioaddr, sph_en, chan);
->  	}
->  
-> -	stmmac_set_gso_types(priv, features & NETIF_F_TSO);
-> +	stmmac_set_gso_types(priv, features);
->  
->  	if (features & NETIF_F_HW_VLAN_CTAG_RX)
->  		priv->hw->hw_vlan_en = true;
+Best regards,
 -- 
-pw-bot: cr
+Linus Walleij <linusw@kernel.org>
+
 
