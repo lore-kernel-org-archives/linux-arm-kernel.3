@@ -4,108 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 487E0C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 21:02:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DE1FC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 21:14:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YsdJSQ5fYAT9wBvdQXX0+jSKWG1ZCV+4ju+rZFixoe4=; b=lzpAaPVRNarFgkHNY6p3o151EW
-	k76VGc1OW+IZGqYt4bVeM3tCdKwrdRF7aWAD6mqCV5i4t5z/CS3xAIk2qnIQ9i/pT622e6ey/jUq1
-	o+7Eh9mWH5YoITFWVsCAHZwZZnnTfPY0vwxw1NhyWqdP0cYTMiBmVLtGD0QxanoxeRZcRjtvrSvuA
-	DBgKN68hzbEnqD7EAPsXCKBc0FX97fk6u4ZuL71GzCW+Q2wDqtQWMGhLJo14XCcu39AmliFLooOSi
-	uxuTDBx8nLC2zgelP8vKsFnHV27fOFFKZ1au8pJC8GVL0ChoWLHARLqddlMq2Pg0nveF69LEEnzOA
-	G00TPn+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mm3hvT4aeyyCxbTRBeO5ywVBxWxJNoMgGy+q5pgZHTE=; b=urNFbPRxnV9uZdZHSTRTFCH3Yj
+	DLRyEg7948QC/9x6gXh7JgwnnJxiXbWXvZxeNidAstxNBQpZ4vlwh6F6LxE4xLDZ1tgvOgstRZqwT
+	e09PQJFQOmzBubOmzFqWZfm39+JtrpzrB2vApPN8aRM0ysef5b8rbtdrTahc399zz7MF62iwuw0YV
+	Qg7s9ybY7IRUPp3vD+foEspRMCgGiiiz+j5UQ16HulE4mdCipv4+QsHy+tsCWoG3IN5BtAKtX/a0l
+	I5Ang57Kbhvo4aqcXN/koRIDQRtLgd7RNGbX5SJBcx2mA5FTpM9I6EDaGvJEANW5WUP2L5MF9Qof1
+	TvGPLVKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww4Tk-00000006o8k-14FB;
-	Mon, 17 Aug 2026 21:02:44 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1ww4eZ-00000006ogt-3TQd;
+	Mon, 17 Aug 2026 21:13:55 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww4Ti-00000006o82-0GMO
+	id 1ww4eY-00000006ogf-1YCm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 21:02:43 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4954df200ddso27372565e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 14:02:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787000560; x=1787605360; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:subject:cc:to:from:date:message-id:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=YsdJSQ5fYAT9wBvdQXX0+jSKWG1ZCV+4ju+rZFixoe4=;
-        b=iCx/evyzg5yrMD9AszKws400xVvcOw+wLLYNmIPUVSE86w586TZdgilHKTWvz5fKMw
-         sSCwtQOdUB0Z5MXrdYtJQSLKmYtsfWF3xMrXdcc2kji3SXl10kqvhvID3yFDPMTnr0sC
-         WdiiP7bUlzf+jCkIRYIcFEWFNfpojKYmseIC2C12y2vE9g9asHWlwVQc+mkjMcYTPfdf
-         KZRDAyHBJ3M/WaSDgvh2COe79JmoJtZrEm3Of1BKQVX/Vy7MB9spLaGm1n13WS17nfnq
-         Rm3I0YR0VNBPb2iEJqvqMeY0BmgwImKwzEDyw6HAJdak3oAob79rR+inknxKVF1iC8hb
-         d9xw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787000560; x=1787605360;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:subject:cc:to:from:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=YsdJSQ5fYAT9wBvdQXX0+jSKWG1ZCV+4ju+rZFixoe4=;
-        b=DVPacsw2sa1yOzAf+q3CT5pzqlQfZcRNTG4WdMskN2Bw0HXIdLVyPxlN8fkjtACurs
-         hoyRrMo+Q/vJetA/+kkB/wvgiDV2iSzUJdOeEBT2djdUUqZ58b+6rS+UelSlvN49wXBr
-         xLLNRM9WgQsi4p9CGtlU6Dx9QuioBj1tW2W4sPySKbjNYgrU3ZzPhnpdnUMUmE59Prvj
-         F73SYPSCunShxUsV/ORx2CKj+2353tfH2LijKcWbSl+VdYlH7p/+HH0qFKMvrUFc4RQv
-         wVMTEyrtvQda4okhStfNbsmEfBHuJd95/3dTC+gm3TYOjSgEHNaqDS0AzZ/lrUqB8edN
-         LLkg==
-X-Forwarded-Encrypted: i=1; AHgh+RqwSSnbRzUwBR9/cFDYbveqP5mLM5bq7Fq2pJg17qNMlincN6gy7porIuqW//zsx6am8uBbug3PgD7ih3hfjhDO@lists.infradead.org
-X-Gm-Message-State: AOJu0YyY0IBWKo25f4J6tQ2UpeA3wVzI2ebtSVw69p0MQ7QTcPGST/P3
-	QpwK/y3FJA2BPSFjdS0JZIx/JMKMnONAomVaTAIBb5C4621/9fSsX+do
-X-Gm-Gg: AR+sD10V/aOHhbLABTuS/dx8gxj+rq7vmA3hnaS/B/bTlCDus3o3ZMvxXZY3Fuaoz/d
-	pLqyP1iGDDlFIoVbCyB+CAyKnQ/KHmcJfoSTuWo22Spi9T0V8VW0oKmHDwdNt39NMdMX18Su4Ag
-	GmgGIsHEZzN5qPbJX6PaIcKQwU8ABsxGAFwkO108cKhS6OUA6vcRWm/6a1EJVCLgYowRnW10S8I
-	KHq7IFIP97alE1y3/tSMIb6fpW8+P1tNKymObiasH2htu4Tn+C6vOYXbdL9o7xbcy8Eh3Z6DrGL
-	aavmBXxiVA/38dusEIdV3tOpFQ16+eRfJDd5vo4O9TqiEe5lme6RxG11hv6AhEwy8cNFM9g1QQ0
-	cdYfLc06mmjGGd4bFqHzYAfukVRMwn5z2rIT9bVb6vtW1xeEfqGh+6+tvT08j4IZp1sNj0h9k5M
-	Xx1k5MZ3EPCFfstI85oxsYjG1n74N4fgMu+UiMZZ7ANDg6qOzBhhcDOtkI332RgdUqbM5abRo06
-	nqxiPgdXtRPsSDefbKMaJeoY0TZYdc=
-X-Received: by 2002:a05:600c:8209:b0:490:e5c1:b8bf with SMTP id 5b1f17b1804b1-4998796f497mr470360865e9.13.1787000560141;
-        Mon, 17 Aug 2026 14:02:40 -0700 (PDT)
-Received: from Ansuel-XPS. (host-87-21-27-15.retail.telecomitalia.it. [87.21.27.15])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-482a5b81748sm7050409f8f.37.2026.08.17.14.02.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Aug 2026 14:02:39 -0700 (PDT)
-Message-ID: <6a8376ef.be1895d6.92f57.c9dd@mx.google.com>
-X-Google-Original-Message-ID: <aoN2606mlY7pWZ-X@Ansuel-XPS.>
-Date: Mon, 17 Aug 2026 23:02:36 +0200
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Simon Horman <horms@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, llvm@lists.linux.dev
-Subject: Re: [PATCH v14 00/12] net: pcs: Introduce support for fwnode PCS
-References: <20260813083536.970196-1-ansuelsmth@gmail.com>
- <20260817134727.1f76d6dd@kernel.org>
+	Mon, 17 Aug 2026 21:13:54 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7C1CA601DE;
+	Mon, 17 Aug 2026 21:13:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A84991F000E9;
+	Mon, 17 Aug 2026 21:13:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787001233;
+	bh=mm3hvT4aeyyCxbTRBeO5ywVBxWxJNoMgGy+q5pgZHTE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=olxO1rMmeg5p8l8iTU8CMNGQJmbsHAYG1h/8MUgHSJPV7Q7h67VFgyqMBLULrmOQe
+	 SoWUzwhwUcpN+RwM/WwmX18Vol1zhao8FcfVpGNUFJtexRjovQXzwG68fSJm1JQGoa
+	 3PxRWtdryDJJREXPP8ZOhNGRspz6qpai5IgoCT+y9e/9IwpgNLIUWfQT02bL5AYUln
+	 cST5apKEmqFnfNQVXU9RFdUzSeRxMzzmAHfDNXrZq8hPYFkEmY8Cu+5FUEpRR1f0RR
+	 N0pkhkOmsPLywQMKH6vYuK4JFReaHbp106dk2eShSiR2aQDnf5kCt/2r0H+iHhk2T0
+	 ahNwmEY267PpQ==
+From: Jakub Kicinski <kuba@kernel.org>
+To: jensemil.schulzostergaard@microchip.com
+Cc: Jakub Kicinski <kuba@kernel.org>,
+	horatiu.vultur@microchip.com,
+	UNGLinuxDriver@microchip.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	pabeni@redhat.com,
+	daniel.machon@microchip.com,
+	Steen.Hegelund@microchip.com,
+	kees@kernel.org,
+	gustavoars@kernel.org,
+	robert.marko@sartura.hr,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-hardening@vger.kernel.org
+Subject: Re: [PATCH net-next v2 1/9] net: microchip: vcap: fix rule move for rules of coprime size
+Date: Mon, 17 Aug 2026 14:13:33 -0700
+Message-ID: <20260817211333.3633182-1-kuba@kernel.org>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260810-sparx5_l3_routing-v2-1-59e68cc8c8ca@microchip.com>
+References: <20260810-sparx5_l3_routing-v2-1-59e68cc8c8ca@microchip.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260817134727.1f76d6dd@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_140242_144936_A92BF46E 
-X-CRM114-Status: GOOD (  19.27  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,38 +82,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 17, 2026 at 01:47:27PM -0700, Jakub Kicinski wrote:
-> On Thu, 13 Aug 2026 10:35:05 +0200 Christian Marangi wrote:
-> > This series introduce a most awaited feature that is correctly
-> > provide PCS with fwnode without having to use specific export symbol
-> > and additional handling of PCS in phylink.
-> > 
-> > At times there were 2 different implementation (this and the one
-> > from Sean) but Sean agreed that this can be picked and used in favor
-> > of his implementation as long as his case with race condition is
-> > correctly handled.
-> 
-> Coccicheck says:
-> 
->   drivers/net/phy/phylink.c:1039:31-34:
->     ERROR: invalid reference to the index variable of the iterator on line 1028
-> 
->   drivers/net/phy/phylink.c:1364:26-29:
->     ERROR: invalid reference to the index variable of the iterator on line 1346
-> 
->   drivers/net/phy/phylink.c:582:7-10:
->     ERROR: invalid reference to the index variable of the iterator on line 569
-> 
-> I vaguely recall that you're supposed to make a copy of the pointer,
-> not just add a "found" boolean. Dunno if it ever happened but Linus
-> was trying to make the list iterators override the pointer on exit.
+This is an AI-generated review of your patch. The human sending this
+email has considered the AI review valid, or at least plausible.
+---
+net: microchip: vcap: fix rule move for rules of coprime size
 
-Oh! I wasn't aware of this intention... I have seen lots of pattern where
-the last value of the iterator was directly used (if detected valid)
+This reworks the VCAP rule move logic so that insert and delete compute a
+single uniform address offset, aligned to the LCM of the rule sizes in the
+moved block, instead of per-rule "optimal" offsets. The goal is to keep the
+software rule addresses in sync with what the hardware move command does,
+which becomes necessary once rules of coprime sizes (2 and 3) appear with
+the LPM VCAP.
 
-It's and easy fix... I can send a new revision right away if you want,
-I'm already on it fixing this in the meantime.
+One question about the delete algorithm description in the changelog.
 
+> On delete:
+>
+> 1. Initialize HW memory at the deleted rule's addresses before
+>    moving, since the moved block may not fully cover them due to
+>    padding.
+> 2. Reclaim any padding between rules in the block.
+
+[Severity: Low]
+Is step 2 accurate for the new implementation?  As far as I can tell the
+padding that sits between rules inside the moved block is preserved, not
+reclaimed, because a single offset is applied to every rule in the block:
+
+drivers/net/ethernet/microchip/vcap/vcap_api.c:vcap_move_rules_sw() {
+	list_for_each_entry_continue(pos, &admin->rules, list)
+		pos->addr -= move->offset;
+}
+
+Since every rule in the block is shifted by the same move->offset, the gaps
+between rules within the block are structurally invariant across the move.
+
+What appears to be reclaimed is the deleted rule's own space plus the
+padding adjacent to its position, and only down to block_lcm granularity.
+In the delete path unaligned_offset is always negative (block_first->addr +
+block_first->size <= ri->addr <= base_addr), so the truncating branch is
+taken in vcap_move_from_block():
+
+drivers/net/ethernet/microchip/vcap/vcap_api.c:vcap_move_from_block() {
+	unaligned_offset = (block_first->addr + block_first->size) - base_addr;
+	if (unaligned_offset > 0)
+		move->offset =
+			((unaligned_offset + (block_lcm - 1)) / block_lcm) *
+			block_lcm;
+	else
+		move->offset = (unaligned_offset / block_lcm) * block_lcm;
+}
+
+Integer division truncating toward zero leaves up to block_lcm - 1 addresses
+of the gap unreclaimed at the boundary.
+
+Could the changelog wording be adjusted to describe what is actually
+reclaimed, for example the deleted rule's addresses plus adjacent padding,
+rounded down to the block LCM?
+
+> diff --git a/drivers/net/ethernet/microchip/vcap/vcap_api.c b/drivers/net/ethernet/microchip/vcap/vcap_api.c
+> index 788c0728d7636..75c2ca54fddd2 100644
+> --- a/drivers/net/ethernet/microchip/vcap/vcap_api.c
+> +++ b/drivers/net/ethernet/microchip/vcap/vcap_api.c
+
+[ ... ]
+
+> @@ -2106,12 +2108,63 @@ static u32 vcap_set_rule_id(struct vcap_rule_internal *ri)
+>  	return ri->data.id;
+>  }
+>  
+> +static void vcap_move_from_block(u32 base_addr,
+> +				 struct vcap_rule_internal *block_first,
+> +				 struct vcap_rule_internal *block_last,
+> +				 int block_lcm, struct vcap_rule_move *move)
+> +{
+> +	int unaligned_offset;
+> +
+> +	if (!block_first || !block_last)
+> +		return;
+> +
+> +	move->addr = block_last->addr;
+> +	move->count = block_first->addr + block_first->size - block_last->addr;
+> +	/* Integer division rounds toward zero. We want to round toward +inf
+> +	 * for the positive case (insertion) to ensure enough room.
+> +	 */
+> +	unaligned_offset = (block_first->addr + block_first->size) - base_addr;
+> +	if (unaligned_offset > 0)
+> +		move->offset =
+> +			((unaligned_offset + (block_lcm - 1)) / block_lcm) *
+> +			block_lcm;
+> +	else
+> +		move->offset = (unaligned_offset / block_lcm) * block_lcm;
+> +}
+> +
+> +static void vcap_move_rules_sw(struct vcap_admin *admin,
+> +			       struct vcap_rule_internal *pos,
+> +			       struct vcap_rule_move const *move)
+> +{
+> +	if (move->count == 0 || move->offset == 0)
+> +		return;
+> +
+> +	list_for_each_entry_continue(pos, &admin->rules, list)
+> +		pos->addr -= move->offset;
+> +}
+
+[ ... ]
 -- 
-	Ansuel
+pw-bot: cr
 
