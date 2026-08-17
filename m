@@ -4,138 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9ABEC5CFC1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 07:42:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC9DDC5DF70
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 07:42:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bm7ErM3OvgIg7xytrfP6XbDiJ8mepGNbhtLK5plYGSg=; b=jHYMRPVgqgdFz1P3PHAPfwbl59
-	APuK+H4K654bEAR36dyU59xkok+8ftu7tV9+7dmyWOUYPM8X9Obm/el1liSk1EzDC/9DwPShn/j3u
-	qJ7h3dueatE7u/VL9RNWZCMFjKRBgSVZ1vdT9uYzBvEIzrt9tMc1jos5Nak5airVUpBwZq+JzJ+H5
-	Ifwahki9WucBy+qXab0+8vdYXu+SM3uKLzng5SYavLuiCkViB+GM2V9XfPm5nUNLnIkAs4MZ+5YJh
-	TR/tBVVzJaLYK7To5rvXO43V518vXT7wNmoO509JUyK9BTRUGr+kbkHeWQYOh4V+pv5uYYtcDmG9U
-	ScPyTLYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qT2yF0faTkPR5ST2LgRX7fG1uocE5gd79N8AzmJ0fhs=; b=ctVmJeSf+p0SIpWCIo/0xCIf/Y
+	nNJrGBsWDL7oisCBt9UHHBYEffOkmTnVnTelfObV/GRJkyDfC9DEsu4o4vhP0fIY1/dyxRlPb/OQp
+	XBBX79pNtidQw/YVqv1EtJNx3GZjKltu/2zrr6TReLYKy5OrsnPf+BDajSRUPQL+JfQDKjDS7FgXl
+	eTtA5O4f7NUgpk6g9KnA3Tg/7g6aAD5xo9dOodFiOzqFufeeKxnvQps4DwipNe/tLZxVenKsMwQxT
+	gwh71lTVYGN9NBPfzV+DCOzM0LZOCw6Vg6DcXLYvz+CyOLYtB4jfxpRQhvQwKnsu2kamG+Vz3CmMf
+	7oc0NVLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvrzQ-00000005aEr-1EfQ;
-	Mon, 17 Aug 2026 07:42:36 +0000
-Received: from mail-westcentralusazon11013056.outbound.protection.outlook.com ([40.93.201.56] helo=CY3PR05CU001.outbound.protection.outlook.com)
+	id 1wvrzW-00000005aI3-3zKw;
+	Mon, 17 Aug 2026 07:42:42 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvrzM-00000005aBv-29ob
+	id 1wvrzT-00000005aHF-2H35
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 07:42:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=aoDbY0ZEQ/W/TIgsFhUePKaT9LAfK9ixGg8qZmueJ66BOvWOrbQ+9vUQbotMDcVhIWBXxuiaePXufMd+JzzQ2rLOqgeSIaBDy47iPF2Z8U+zukbMoB/eqqYBkk6+S0moaqJo2NVToIjaiTh2qxAEiW4fiXhbmacpc5W6CgdTJtZqAsN8WaS3bwma48/rU9aFniT+dDTLby+M5w7LVV2CEELMtfP6UJuqQvJfEUfOOYFvThwWgRIqScHvGUHeDQ1fqrH+CzzllQhVWhjovkN1YiiSGN72DQU51yqKAThuSd0U/Hcyke1vbSO5As0pdUTTOvPug9zooLvMKUoKWJuoFw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Bm7ErM3OvgIg7xytrfP6XbDiJ8mepGNbhtLK5plYGSg=;
- b=F8j28hGXROfDkN4c1X0gMkx3PdQEHGjwpbfwH4lj7BwKfMiYDejMtecZw9mO6SwggPoIrDHfLLjCJUt7S9M1Dk4zUaevIx5/CzwyebSIcQ2kzhIy/poJuhBUcVvv88Mreoop9K/Ga3HZhBtgj+HIonk4FceOyrL4xzj7Bt1FFmjuKrzYvMVOF2x06iAHtVNqAXUMRLNoUytYFT/Qjy1bNLZpRVEIqd+XQHXC2su1tdoSC0YOaoPh+Ll83JDpiEc+CxyYF6c6YuNWn51Ai4DyzsxKmefitYOTwTRCAJwU49IuCGla0pxnPiLqTghfznnWA2DNflwrEvAo+090YMNaiw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
- dkim=pass header.d=altera.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Bm7ErM3OvgIg7xytrfP6XbDiJ8mepGNbhtLK5plYGSg=;
- b=LPkax5M74v86DjC68x1l0GoM9PCxH1SARl0YsJswrutENmPvj3d3u7uOVi3V94N6v2h4/yUlNEGPA/rbxCt6UfzkZ0Hk00MscyDwW/d5UbIjxBVWuOHRygeCdsshgqQph6Gzra17tgqvsftRDgGHj01BHx9KUOq8kpn/LwSm5Z30yqOk8HgMq7wBl/XAOaSSIiML0AESPrW+04g4GwNUQ+LoI+gmyklG84/Cl++OzNCnX3M+loQmDmGbfsW2/9RL74Pz+XE73weWml6vmHeydExWyVEPfTerIQlKXCN5gaiRejMWFamCwOBE8vXE6eK5ii1AIHYVO/D9Hmxrkehlow==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=altera.com;
-Received: from SJ0PR03MB6964.namprd03.prod.outlook.com (2603:10b6:a03:432::18)
- by SJ0PR03MB5502.namprd03.prod.outlook.com (2603:10b6:a03:279::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.17; Mon, 17 Aug
- 2026 07:42:25 +0000
-Received: from SJ0PR03MB6964.namprd03.prod.outlook.com
- ([fe80::b965:bfa8:58fb:e775]) by SJ0PR03MB6964.namprd03.prod.outlook.com
- ([fe80::b965:bfa8:58fb:e775%4]) with mapi id 15.21.0315.016; Mon, 17 Aug 2026
- 07:42:25 +0000
-From: muhammad.nazim.amirul.nazle.asmade@altera.com
-To: netdev@vger.kernel.org,
-	dinguyen@kernel.org,
-	maxime.chevallier@bootlin.com
-Cc: andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/2] arm64: dts: intel: agilex5: Add per-queue GMAC interrupts
-Date: Mon, 17 Aug 2026 00:42:21 -0700
-Message-ID: <20260817074221.27459-3-muhammad.nazim.amirul.nazle.asmade@altera.com>
-X-Mailer: git-send-email 2.43.7
-In-Reply-To: <20260817074221.27459-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
-References: <20260817074221.27459-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: BYAPR21CA0025.namprd21.prod.outlook.com
- (2603:10b6:a03:114::35) To SJ0PR03MB6964.namprd03.prod.outlook.com
- (2603:10b6:a03:432::18)
+	Mon, 17 Aug 2026 07:42:39 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id C2AC3601FB;
+	Mon, 17 Aug 2026 07:42:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92B381F000E9;
+	Mon, 17 Aug 2026 07:42:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786952558;
+	bh=qT2yF0faTkPR5ST2LgRX7fG1uocE5gd79N8AzmJ0fhs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=D/dr3avspgTLyOXH3DNYNYYFRTZr97wbzFT0314TKUmqNdoNFX+chhYdkqg/htvqA
+	 nJrSYrw4l9oFPX2ukSJrUct+yQMCKOBgDFr65Eck2EbBvMT989WTl7aZrl50D2P6jW
+	 QXmF5f0f2BdsVdf0XaqpHqLcahBJPgcO034wM63bqQBt5dwxBKInHjnNCtCeilGPbs
+	 eqaa3PIBq1U+LH11E+328Q3+kBARwanGIrqipuTi4nXsVyCjJzHYIfC8yrqhd3/cvp
+	 Dn8wzfxHp19mTWNYTT2TqzlavbHxUMfU55YDVOtm3ql0wwmiCg317jLor3tHpVIvQi
+	 iTMLAytSmj0NQ==
+Date: Mon, 17 Aug 2026 09:42:30 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+	Conor Dooley <conor+dt@kernel.org>, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+	David Airlie <airlied@gmail.com>, Jessica Zhang <jesszhan0024@gmail.com>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Rob Herring <robh@kernel.org>, Simona Vetter <simona@ffwll.ch>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH 1/4] dt-bindings: display: panel: Document 10" Raspberry
+ Pi Touch Display 2
+Message-ID: <20260817-whimsical-fictional-dove-89b3d6@quoll>
+References: <20260809200107.842945-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ0PR03MB6964:EE_|SJ0PR03MB5502:EE_
-X-MS-Office365-Filtering-Correlation-Id: 32983cea-5028-4d14-5304-08defc33145b
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|23010399003|376014|366016|1800799024|10067099003|11063799006|56012099006|22082099003|18002099003|55112099003;
-X-Microsoft-Antispam-Message-Info: Ig7tWocpfpwSk2OiNSi7eRt7NbSUKD7N0TOoB79Wz+sjzIfY+G5eT5PvgLn0Xw/eCeeJkgrsFpYvYAu/yncRpZOunz3nGyykubV+EtS+vOX/9Te3HG/vPaqC2RZPBbS9Hf8se0GmC50YM5DNhZP21s/MbRxIMif3RdiAQO+CBTnBNRlKlCQH7eYsb3TwGhY7iuaVXseOR8Y4upT6k96DMxbnChRZxKPf0hAwbSdvQpWo+TuaPT3ZZSnzaEbYcf36PmsfwDx7soZGY3lqGX3ssFYlUE9P8G/s6qNI16rQN4MIovQ1PdnmdZ7a1ZQq4rREUBr6uboP5IYhcqn1h/IKYZ/bRSjATHwWHq0Jxz5/65BZislZjBIW8zBPMTduybaIjk08X38/mo/lorF9r+0IgqNIS80mG0EY9BduZUbaTQEUBWVSDpH6oNn8y4pr01xvT1IgPH9/vSRyLzdKZzM6eG2gI7eWWV7SlCch/+GH3jm26VlphXlUlBRsLuofKzugKE2FYj+6OrVF1ETRiqVIkzQGX0TiDx91GJ/NFdvzdqy2pV0AKmIoFdNHUePbvUuev079RCyO1sw7Bg9UK/HrST140vvNOfi3PshONxS5b4kq8q8/Ps52GIcxCWaGU33n8Bg4hskEB6qpCqi56PL2H6qeaOckLQPs8n1eRF/RXvg=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR03MB6964.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(23010399003)(376014)(366016)(1800799024)(10067099003)(11063799006)(56012099006)(22082099003)(18002099003)(55112099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?EBcMw0w23F9weM0qAnBgu1WyU2X5wi9OjgvgjBNHXZlOwvlfTnGu1uhA71RX?=
- =?us-ascii?Q?VugKNFP4QhS3kMtiIPfZubyjIEP95gNMAtcRtRiY4hydQ7z3SDazHRX1ZP20?=
- =?us-ascii?Q?x91he1Ro7IsaSxuiccFpESqBk7CpT0gav1ddAEpmfsfqOmFz3qiJJQbgAmEd?=
- =?us-ascii?Q?dnG/sBvqJg7IZaIWyGC2xoeAEScP9p0VRGkd3tCqiD1h9MCqqlIR9CT6Y9pR?=
- =?us-ascii?Q?fC49ASdXalI62hEf2PfGpgWIjdZh5AUSRdi7x2AfUF9hBLnYk8vXOoj76uq1?=
- =?us-ascii?Q?ZR7+WwF0nCOeLncljZhlUD4aeDRaYXDPIcm00fF/a0nWTovAYndqXRVwT2Z/?=
- =?us-ascii?Q?yyuKV+31+3Dh/uxnxX9yBSNj3sOA9zncTOWrPqE7IqfC8L4fOIq5hqjitozM?=
- =?us-ascii?Q?xQmIUKnLbZitF9nRFnRXxmDkDtoung6mX41o9l3Bqre1fgaDy81y5liX+vwQ?=
- =?us-ascii?Q?cvIPfX7ucJhIp85UKgWeIa3Ht1aEzozS0zG9irk6GMq8A5DafJkp2xCfJMZS?=
- =?us-ascii?Q?Z1lCNPexIptJEF3sV9cmpiahxWF0BKs21lPp+yUz4jA8yVBHSblbyQofK2oQ?=
- =?us-ascii?Q?2QKmcj/bqf/qi1OLeGV0xojtKhc7e8T23095uPtMZRsGRtDUhV/Jx/Qf441H?=
- =?us-ascii?Q?n997GTRetAJYqgArHz3/er1a3njRaa1fgDAagYj/Ckufo9OXJ+2PxNm66C6R?=
- =?us-ascii?Q?UemsKKu+LoXPE7jnvH+N04s9K4jG5N17q7UUFRAecnE5OVbrrdxGY/2BzLYE?=
- =?us-ascii?Q?9IaQaH2KoKUPjjdgtgG1crhjqvvLmjNV8VDcc2pXXjvrvZ2OYcVrcNoRxgym?=
- =?us-ascii?Q?5iwM9NjcLXOAzY8d8G2FnZknwySAeylJeIILocPuYJSfIEp3DIW+cZ4VOO7p?=
- =?us-ascii?Q?IVZuTEn9HlmcI7yKXZURqskG3M9WheTAzfbGRYRAnK1WtkOjRSuHz9qXVLHs?=
- =?us-ascii?Q?A1WXTOb/aM9CxzDh1rAG+3cDG7ncZF5uJTT1jppw5Eg4RMRjfvibQhorDueP?=
- =?us-ascii?Q?W6GBIuRLEWvwgkPrhz1M+l0rxxT97ijqMeGBR0LI9UIBUmdyEQa2gQvU/ZKH?=
- =?us-ascii?Q?2F7JeRFiELIBcJY41vJPVNuK0jxWkkLgAcPleZ5XlxKBQeVxaKjQszB5VXdV?=
- =?us-ascii?Q?kPTUDY+Co6trDlTwYA5d8uAHZkFAWlTpfAAPLPO9fgGcQnsqHOI3+4uGCA70?=
- =?us-ascii?Q?Af8mbQ/hv4l5ewj+qyvWjJ/hj+qidT2mZ8899jEunCv2MAbFcsuhhGfGrHMe?=
- =?us-ascii?Q?hJgPVkB/WIXoSc1IsN/wL04m8RzzSlslg6EFSjAH9K1ENrknZupQdccXERve?=
- =?us-ascii?Q?/XU7Ld/GBzggwL0ulOjrzq/lE6mAu5CdPCLsTyEQnnlNi3/LRakqLOJqBAxk?=
- =?us-ascii?Q?yvVdRnNOlflJ5Sk4kle7jikvI63q37LOfqjfyis5WKmOEHYP1hNPBuIJE4ab?=
- =?us-ascii?Q?UW7geYWPdF8OtxFS0ufWzWfgPj5DWO1E76ds1zMiXjJFDm0CjzKp5PQ+FnWF?=
- =?us-ascii?Q?1oE1yTg4nJ7HBezSxZQlPLsF5ir0Lh3djgYTsh8MnRaLEZnsVHjAyIqaNWlj?=
- =?us-ascii?Q?OkMt39HGeyYCaJsWYmlIKRHJiE6Ot/IUV0fyls0QbjOXkos025/vOXBuEfna?=
- =?us-ascii?Q?ZcilsdNpkOzkh+x8ExolYzYKta+8p6Zc5ayhKrY3vZzklvoT4Lx0/acRTXq9?=
- =?us-ascii?Q?Y7RlO8sd4Ul/zJmHDVa8756ITEULm4Txg25YZa8MUfwhAAtQT9xJuAORjmVS?=
- =?us-ascii?Q?6M0xuvgZT5afI6oDmKsxsnk0IWP5QjTzdGsgpGd4U7mXjg8Ug05D/rxG76LT?=
-X-MS-Exchange-AntiSpam-MessageData-1: vddXOvt+vZbtCw==
-X-OriginatorOrg: altera.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 32983cea-5028-4d14-5304-08defc33145b
-X-MS-Exchange-CrossTenant-AuthSource: SJ0PR03MB6964.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Aug 2026 07:42:25.0378
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: fbd72e03-d4a5-4110-adce-614d51f2077a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 1hIg9Q6IzIlMT106jXE8LhVfOEeIpFHrmLLDKAqlPc56bDiPWN+HcD7RIXzaBycmFE4Mkah5w6vGol+t0EC6lWgd1GIJB4XexBWc4C39hzJs1/uIG86n/7oHokYal++5RzCfZSe7VUUwmIo5Aa6Dew==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR03MB5502
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_004232_560727_338970D9 
-X-CRM114-Status: UNSURE (   8.73  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260809200107.842945-1-marek.vasut+renesas@mailbox.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,151 +75,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
+On Sun, Aug 09, 2026 at 09:58:50PM +0200, Marek Vasut wrote:
+> Document the 10" Raspberry Pi Touch Display 2 MIPI-DSI TFT LCD panel.
+> The panel is based on the Ilitek ILI79600A controller.
+> 
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+> ---
+> Cc: Conor Dooley <conor+dt@kernel.org>
+> Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>
+> Cc: David Airlie <airlied@gmail.com>
+> Cc: Jessica Zhang <jesszhan0024@gmail.com>
+> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
+> Cc: Maxime Ripard <mripard@kernel.org>
+> Cc: Neil Armstrong <neil.armstrong@linaro.org>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Simona Vetter <simona@ffwll.ch>
+> Cc: Thomas Zimmermann <tzimmermann@suse.de>
+> Cc: devicetree@vger.kernel.org
+> Cc: dri-devel@lists.freedesktop.org
+> Cc: linux-renesas-soc@vger.kernel.org
+> ---
+>  .../display/panel/ilitek,ili79600a.yaml       | 65 +++++++++++++++++++
+>  1 file changed, 65 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/display/panel/ilitek,ili79600a.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/display/panel/ilitek,ili79600a.yaml b/Documentation/devicetree/bindings/display/panel/ilitek,ili79600a.yaml
+> new file mode 100644
+> index 0000000000000..0a3baffef293e
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/display/panel/ilitek,ili79600a.yaml
+> @@ -0,0 +1,65 @@
+> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/display/panel/ilitek,ili79600a.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Ilitek ILI79600A based MIPI-DSI panels
+> +
+> +maintainers:
+> +  - Dave Stevenson <dave.stevenson@raspberrypi.com>
+> +  - Marek Vasut <marek.vasut+renesas@mailbox.org>
+> +
+> +allOf:
+> +  - $ref: panel-common.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - enum:
+> +          - raspberrypi,dsi-10inch
+> +      - const: ilitek,ili79600a
 
-Describe the per-DMA-channel TX/RX completion SPIs for gmac0/1/2 using
-the upstream interrupt-names "tx-queue-N" and "rx-queue-N", alongside
-macirq. This matches snps,dwmac.yaml and stmmac_get_platform_resources().
+Binding looks exactly like boe,tv101wum-nl6, so either properties are
+copy-pasted without checking in datasheet or this does not need new
+binding file.
 
-Signed-off-by: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
----
- .../arm64/boot/dts/intel/socfpga_agilex5.dtsi | 108 +++++++++++++++++-
- 1 file changed, 102 insertions(+), 6 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi b/arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi
-index b06c6d5d60ee..213e4aa4e962 100644
---- a/arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi
-+++ b/arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi
-@@ -557,8 +557,40 @@ gmac0: ethernet@10810000 {
- 			compatible = "altr,socfpga-stmmac-agilex5",
- 				     "snps,dwxgmac-2.10";
- 			reg = <0x10810000 0x3500>;
--			interrupts = <GIC_SPI 190 IRQ_TYPE_LEVEL_HIGH>;
--			interrupt-names = "macirq";
-+			interrupts = <GIC_SPI 190 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 191 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 192 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 193 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 194 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 195 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 196 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 197 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 198 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 199 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 200 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 201 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 202 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 203 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 204 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 205 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 206 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "macirq",
-+					  "tx-queue-0",
-+					  "tx-queue-1",
-+					  "tx-queue-2",
-+					  "tx-queue-3",
-+					  "tx-queue-4",
-+					  "tx-queue-5",
-+					  "tx-queue-6",
-+					  "tx-queue-7",
-+					  "rx-queue-0",
-+					  "rx-queue-1",
-+					  "rx-queue-2",
-+					  "rx-queue-3",
-+					  "rx-queue-4",
-+					  "rx-queue-5",
-+					  "rx-queue-6",
-+					  "rx-queue-7";
- 			resets = <&rst EMAC0_RESET>, <&rst EMAC0_OCP_RESET>;
- 			reset-names = "stmmaceth", "ahb";
- 			clocks = <&clkmgr AGILEX5_EMAC0_CLK>,
-@@ -670,8 +702,40 @@ gmac1: ethernet@10820000 {
- 			compatible = "altr,socfpga-stmmac-agilex5",
- 				     "snps,dwxgmac-2.10";
- 			reg = <0x10820000 0x3500>;
--			interrupts = <GIC_SPI 207 IRQ_TYPE_LEVEL_HIGH>;
--			interrupt-names = "macirq";
-+			interrupts = <GIC_SPI 207 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 208 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 209 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 210 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 211 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 212 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 213 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 214 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 215 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 216 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 217 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 218 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 219 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 220 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 221 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 222 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 223 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "macirq",
-+					  "tx-queue-0",
-+					  "tx-queue-1",
-+					  "tx-queue-2",
-+					  "tx-queue-3",
-+					  "tx-queue-4",
-+					  "tx-queue-5",
-+					  "tx-queue-6",
-+					  "tx-queue-7",
-+					  "rx-queue-0",
-+					  "rx-queue-1",
-+					  "rx-queue-2",
-+					  "rx-queue-3",
-+					  "rx-queue-4",
-+					  "rx-queue-5",
-+					  "rx-queue-6",
-+					  "rx-queue-7";
- 			resets = <&rst EMAC1_RESET>, <&rst EMAC1_OCP_RESET>;
- 			reset-names = "stmmaceth", "ahb";
- 			clocks = <&clkmgr AGILEX5_EMAC1_CLK>,
-@@ -783,8 +847,40 @@ gmac2: ethernet@10830000 {
- 			compatible = "altr,socfpga-stmmac-agilex5",
- 				     "snps,dwxgmac-2.10";
- 			reg = <0x10830000 0x3500>;
--			interrupts = <GIC_SPI 224 IRQ_TYPE_LEVEL_HIGH>;
--			interrupt-names = "macirq";
-+			interrupts = <GIC_SPI 224 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 225 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 226 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 227 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 228 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 229 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 230 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 231 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 232 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 233 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 234 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 235 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 236 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 237 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 238 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 239 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 240 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "macirq",
-+					  "tx-queue-0",
-+					  "tx-queue-1",
-+					  "tx-queue-2",
-+					  "tx-queue-3",
-+					  "tx-queue-4",
-+					  "tx-queue-5",
-+					  "tx-queue-6",
-+					  "tx-queue-7",
-+					  "rx-queue-0",
-+					  "rx-queue-1",
-+					  "rx-queue-2",
-+					  "rx-queue-3",
-+					  "rx-queue-4",
-+					  "rx-queue-5",
-+					  "rx-queue-6",
-+					  "rx-queue-7";
- 			resets = <&rst EMAC2_RESET>, <&rst EMAC2_OCP_RESET>;
- 			reset-names = "stmmaceth", "ahb";
- 			clocks = <&clkmgr AGILEX5_EMAC2_CLK>,
--- 
-2.43.7
+Best regards,
+Krzysztof
 
 
