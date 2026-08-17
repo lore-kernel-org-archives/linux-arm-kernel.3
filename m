@@ -4,127 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 789A7C5DF66
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 13:47:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36D94C5DF66
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 13:48:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i83YtrA8pSoyiSbaCWZ03LKsKZZfC3uOeN1He1BPLhw=; b=xJBK3KYBt81CRp39O2dDnIUxA7
-	/mLQCsoy3i+7QbqxnFHY3bb51ntSGVLvs5FfB8TYEU73ZcN+jd/OcyxyxxyYxI1zsOmRVckxEC8de
-	iWdAo/jSHDlwstytdMsdiw03J8nnAux0tR/bPvx6BswusOV0qA0DMgnofXPkgfuyM3wJn2AP22BZR
-	71JFbmv0twoAqt0Fwyye6eo/W8NLuUGGLwnkWgWbn7Od4ZKmHzJQuoSGfLoJtYvOPKHMllrsWle4q
-	Pd+0yUt3DcDGkVPCjRIR7aPsVcyg+btPTOI7t9tG/Pn3aRfATijaVLp4eauTU5GjW43jD/5rbhiPE
-	XiIqBjSQ==;
+	bh=B7to3S/vyHJi4C50qM1skSCpv39eeSlcQqbFpwDuuSA=; b=Eo0DUcJUY4tYut4mG0Dufl/3ZD
+	JWVPZDax6WSGR4JrP2Q/7STZZckaf4uy+JIDE3oIPFdkdkPY8ge47FzdwzMD3ngltSwuFsTLtDWtm
+	tRsKrR+CR2nAsQXW3n9WLYPAKFvrOMfrj/8euzzOGXbcx1WHn4MRSRv8cJ0Nehlo6pHOtIn2R+6jh
+	tU1JUcZxpGDoTC/3Pw52KzFFh3OdeFpFvUyLrwEQhYGlRo5ag5Wf+dwa7EulWGmr3DhbpvnV8/Oak
+	oKZ1Qqwu+WeW47ZBPJgDo8JfTtZZR0JH36naQOmFaX1E2dwU4eN0dFS/xwrmKe8TSKS6iAeGCfKPH
+	GqoMBr+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvxgP-00000006Ezp-3kPi;
-	Mon, 17 Aug 2026 13:47:21 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1wvxhJ-00000006FAW-0I4x;
+	Mon, 17 Aug 2026 13:48:17 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvxgN-00000006Eyh-0HSx
+	id 1wvxhG-00000006F9Y-10PK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 13:47:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UeLlr4r6vE2HBh5Irr9Ve+FSb+q//VIWJ0Qdp9mGJk6+QpN2oVSlhNglnuS9kn6F7v9YjrPEtxjz5IRVEf00bmfcGttzcMhDLIrOVkTlhuLMFVRbmQLrHM87tS8ZtGqkdCPeSDw+StXlGIGp09BI9+GDN8AnuCg4uLu25gfsC1OIyXX4QwOwZyymJyxHRorIC4bnbAPmsBaJX7BxGfDkbRrEJUOHlJjrsjiHDNCzKh9YPkZe2kB53C85GHWaXSc2Vj4OGQEIit0zjhKSvLf2q77sufUlQLPwsVidAH47eRGy6KL3qAYA0vHmC8kLscwmb18RFxAUdveV5ASzRHSv7A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=i83YtrA8pSoyiSbaCWZ03LKsKZZfC3uOeN1He1BPLhw=;
- b=OWYCh7NNE4je+z1ip/fjwIBfIGYJbYF2Ci2s5NKFI+rF0EoxWoMLiFbUnx4KA9m0HfQD0VRYKH+HKUlg5SnV61tuvvjzwhPMheuLX7Dv1j+U1Rn52fyuNQh7Feoro1HnbDHnTxfvzUISCccY73ygosSWYIJ1JlG6e7i4jow3ZbEY+rJkTSIldf/C3iaz9KXadwN8ySR+nRCgb9Nckw7fO7ZKx75lw7o7hlejHzcE5qFvdvH9Bknozm2T3VuJmd3uDzPiNbhzIDTcJQu7s1oOilRPZ8FubkHEwa9uz7EKuX4tHyo8KxmqBntFKsF6Ph1/b1gYrB/ySJR4wYa8FrCGFA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=i83YtrA8pSoyiSbaCWZ03LKsKZZfC3uOeN1He1BPLhw=;
- b=SdjG6T7ITT6p5OmDgpVShhPTJIxIcxd8uPcfKkYMN4v+6LcCe3UDKyyu4JFbR4/WuSKatreWhyCRDci13CGhJF9/f6HWA9ZGSaj7Wumf8NbJups9mR8cWWU1Bx+cqXSyIhHLTFZMOusurmPP+kl0n9fXAB6YhAn7RgwehQOVd5/0IUcPAqBmieG/ItR3Xc4QQj1BUcQs7dNVGTcgBqkXSa56dmenYPrL0zj6Q0TK4aPZBIVDi3Dikulpav5HwbD0MZZx3q4ZtoNexoPY3TZofHTlUtlSlh5DLY/DB78FebC/65e7n2INaP1WA7AhdxnnFmyFZ+Z6KzvDFsgPGeXpnA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by VI0PR04MB12323.eurprd04.prod.outlook.com (2603:10a6:800:320::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.17; Mon, 17 Aug
- 2026 13:47:11 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0315.016; Mon, 17 Aug 2026
- 13:47:11 +0000
-Date: Mon, 17 Aug 2026 08:47:00 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Alex Bereza <alex@bereza.email>
-Cc: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-	Michal Simek <michal.simek@amd.com>,
-	Kedareswara rao Appana <appana.durga.rao@xilinx.com>,
-	dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] dmaengine: xilinx_dma: Fix hardware buffer descriptor
- reuse order
-Message-ID: <aoMQ1Iz21TuUUWfD@SMW015318>
-References: <20260817-fix-hw-buf-desc-reuse-v1-1-d79827a844c7@bereza.email>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260817-fix-hw-buf-desc-reuse-v1-1-d79827a844c7@bereza.email>
-X-ClientProxiedBy: PH0PR07CA0103.namprd07.prod.outlook.com
- (2603:10b6:510:4::18) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Mon, 17 Aug 2026 13:48:15 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-5b2a22c52c1so2968729e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 06:48:13 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1786974492; cv=none;
+        d=google.com; s=arc-20260327;
+        b=jHpnn30ZaVq8B+gSPPdgk/CkQUPTseT+A0/rQ9VpMurkNiJLjDs7D/UrN18EzXGKVd
+         GpcG7OpzXR2ufFlOTmSeTRI3Azxl7r4JwCMzj+3DyWEJjo3EcmshnKGDAYugGAW8RMwr
+         fDxQyep6qB7AcfjlRa/Y4sDFlIgsuF6ctOsxQq6uoItHZgX1W62e3asHCgCW5wZ23Nzz
+         L2ZU4SiCjojqBxxBjQj6Rzem1Euo+oBh/C9srhlPPGP8W87OUnsg34QnsrTd43sh5HNK
+         wsed333bzBVkp951eJ7AT3iLjYRndDU+aBBBVUC3nuDegUp7aNZ92Bw0vbqnP2hF+2jc
+         XDeQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=B7to3S/vyHJi4C50qM1skSCpv39eeSlcQqbFpwDuuSA=;
+        fh=jhauULQli3CYEEEbk/i1tLqy9vP4WX0tWfSQBpGGzAo=;
+        b=IRQjp+l+Jw6x3V8gMGzJ3GcpsaX+MgMkS8h0w7xtU1h4Vvob9XiCgCsTvdTLXjG7Au
+         FDmVl5f0xUVC1BPGWKJuwwHXOYh0TJRIWwN9F84Th/DXDn0tmVJIvFmHcFI0BVbKrYWk
+         wOn9eK8E2x9e8cTxS9wh/cq7pChYKjz+6MHib23bH7SnqnrNn4kjGP0z8BVrFWZKaGTY
+         K0jzzsc6zVaCJgqAQaNWVk+hEwTMEHCTCujV7OxsRcKVLB7oqaBn1f5dNAKmA8G1gTP8
+         HVOc5NXnFJOUyjrPs6mmkxrDUGGwtHOKjyMUrEN6h1mFyVfkax0HwX7b9CU4UERosnUU
+         ne/w==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786974492; x=1787579292; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=B7to3S/vyHJi4C50qM1skSCpv39eeSlcQqbFpwDuuSA=;
+        b=NELZM/Sl1aai+lizabopg2WNMrWqHUlvSnxKBOI6TV+/YegQiYBnmwDfmEvoFILw49
+         GxmjOD/Py6JPo7MtD78pYD3TUEGRkwWPsS9Xd5JTyka/n2BYHO7JiBC5fVngXCa/ecs6
+         beaSiuWoCEm5JkqroeRKnIAio/0iMbfnkYFUdCvRqEroFzUxt3cdEkQmRtc+VzwMweFZ
+         bJ/BLVpngYZEl79Xep6ba+ngmzjdqPF+ja2Z1KXUEi0l40MjqhUR+hqj8sKbTVI48C24
+         58kKLgbIyskCyjMHHzkNdLJhWA2xSgthVmMoGUKyp5npyo308cciiKo+j/20zzR0Y4pP
+         BZbQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786974492; x=1787579292;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=B7to3S/vyHJi4C50qM1skSCpv39eeSlcQqbFpwDuuSA=;
+        b=ALD+14XXe9Qf32tHbsoWnJ7nSdOpX/WEOBvmCIez2/rAz8AU27ni37cQgUU8AdvtyL
+         urwzgi6/YielcC12b2fnU1YGyNKaQcb9p8hDZWYPkA1gtiouNL+9Wm+vBquWKmX6CDnI
+         Vm63H9vhYs9NoYft4LhTnh+b2DX39jApPv6ZDAsnOXMzVTipXIgz2CMDJZuU1Z9aUbF1
+         XAiV+IVgC9oGR9IKQm5iPQpSskMAe6/09/tULSvaAHa2G99YLMHwoyUGSqGsV8CIQRvP
+         KKiQQfXpuTnQgN2ihKO1cBYZlSKSIf7OSesuv1cE40QufA6cKZ7CYo5eLwI5N8Bag7B3
+         jREA==
+X-Forwarded-Encrypted: i=1; AHgh+Roh7Pnei/ccFO4C+XnvsERxtcdY8zCQpc+r6FQAp2uBchjgbNhERyWWLahIQxz9RT6hz8O9FfULISok4jHRoF28@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy5ot3PKm4w0HRPFLR7kaOcncuSI0kxh9Qj+QhpwqW7i/GKg6VL
+	nktNU2sfNOGvSUzKY4llfa3SwD7SY8P2a1BTOglBcp/zTmdJA25ueOlEsnviBJ/kM9W4AxDNC1x
+	rFjEyKizu4p3SNa62offmif0Aqz6EgMQ=
+X-Gm-Gg: AR+sD12tOYAhTrzUHPyPeA8ILZgVqnEexVpYBwIbjuBpa++DoaglAbQXiiJPtQLaZW6
+	qQhUT/yAuDEtHAAwbIYvW1WW5IKHGo827Hk/zB1XVvqUQg8P/FdrViCqknRAfpftitQa5zXS2A0
+	vh8dU4fKThU5UOQm4wjpsAGa1B1PCBwOCWIR8yTNzBxp2twStP/1a9vt+9OIU04YGHLN4U6F+Ut
+	/GPyVfxzbUqCu3FaBQ24+RS/8FTfqbKjao/7U6CBx+A0EDncdll0T+WBiCEKn2JVhO6vP3HQs5e
+	IrEvvAMXkPKnYA9u3fTVDUyI7L/easFLtzXL/W4bxn3aS4MeRG0rP0pgI2f03KzfdTzb8Sy0Nho
+	6X5zGG2C7BM9jCpI+sUndGj4h
+X-Received: by 2002:a2e:be21:0:b0:3a1:3299:4b72 with SMTP id
+ 38308e7fff4ca-3a132994c9bmr27554591fa.5.1786974491759; Mon, 17 Aug 2026
+ 06:48:11 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI0PR04MB12323:EE_
-X-MS-Office365-Filtering-Correlation-Id: 65f144da-97cf-418a-1865-08defc66098e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|1800799024|19092799006|376014|10067099003|11063799006|56012099006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: xxa/ntAl8KN26ls+U/OT7WavbTS2JqsW4unsI2I5yhICRGnx3KmkMNzxlYUD6wwaBaRN7voNLCgRvMYXoRF2aclyzyBzH3hUHMCDLjMvfxtA9G80a1Mr3o1d+UNY+hG/dXxcem6fZ6yI37kvepHd346O1Zfi1qhIMNZiwxLyXtPNCQWX+tv+TJlfHWSxocWjDLqZ+KDY25g5kLxBGykIVaJurHdp8RFLG2mAZfh2M77SyjPKx/65DPfw9RHDM2glOZ9PcuJ0wQ4O4IB0gWYZcsWKE7e22bzpkXnbBWYoaJHoilia+7e3DmK7t8yxKayawPug7otRKcFuTQjizAXIQkEv9hGG2rSLH6uKuYUHD7Phm98q4+UEfHCZ0StUCrYq0N7zuaYXG5nfiOB/zxyAdobuxzJtwGBAcKDkFhecFx4KtxIoc3axViZtzg9TnXA0TLk7Cp9yj3TDgIyanRxpNFE1dlYat05jIcbq/SGazMDHJ+CkMNJq75KKU3FRqFfgQIiGE72k4Y+40FtY8gfZlZiZSHEO4AppzzTC25jLHQ2cc8BnxPJlSlcwrTnO2j2JSq2KHn5g9yb9F1OIo5BsPNBW81wRWFU/8fWuJ6PfeX9o1SQ1XvzC3JX4cyFX+SmNoqUq/FIkFMoMx07+cmkn/VM5Q4m++qcSknoBKowsH8k=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(19092799006)(376014)(10067099003)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?GuoTcv71q7VUFOMMobMLNzlLz4i2a4MCMwChBx43SsjWwV2YnMv6T91HlYw8?=
- =?us-ascii?Q?i3PojzZUi8wioLb/gytElcX2ahZHfQ77WgoGCMjrOpdGq4hiSADTlG1wZWG4?=
- =?us-ascii?Q?X8aPpf8LSkCtJvWgHbnECJaKeqAUleyYy2Fc9UCRBEYWkTfpqmgNzzKIkn9U?=
- =?us-ascii?Q?Wh2qN1FDPohFwoc12Hb0UhqfnGTpKbQUWKW6aSOcvmBP0S1fkmKTVMBTO7vF?=
- =?us-ascii?Q?g3I2neWGYZRW7imnVyBN9GQDbkrAWMKsTFvI9oJjmWW1WzNGVhFUqv2T6Ndv?=
- =?us-ascii?Q?mjid4/7cM/64hzZuu1/fAetb4VHRH3FFBp+JqVSS7iHr7YqeM2/Ml0c6kihu?=
- =?us-ascii?Q?GLM8Syd37T3ajb1eMywMU+P2O6JDMt+m3dw/hDt3F2plCP5NsY8S0oxkY//n?=
- =?us-ascii?Q?qrfsNxBKSmaHD66AXeCGXtu+x2cfG1de/PqctyddUXwwUp1MxT7nsHvEuEDl?=
- =?us-ascii?Q?KE0xZQ+y4z3HTjdK4A91rewNpYtLSWzZzHep3cn1/rYBS03L4HA8aHZEOVag?=
- =?us-ascii?Q?M5XYy3U7EzQT9Rsyd8LJNhKrPDI23TVUEmnxLJl2CohjZ95ZedpbRqCUWKNw?=
- =?us-ascii?Q?KcZV39lV+GhzA0ETG711K3mDyhRyN51WBSLidTdh9rNFWkX+ph4lsld2CCLw?=
- =?us-ascii?Q?nnGGnVSQihpktqo9dnNmGrlPksLHf4R+b55/qzu1f+UpL4Gg5rnK2t237z5X?=
- =?us-ascii?Q?dBRekteOe71LbGmXUwYTgUDj3jlFYLYOL/xhuOmIo/We5HymTkujum4ZPvbQ?=
- =?us-ascii?Q?T86VcJxb2C8Oo7EAU4YY54sM3lcPHsXlj/hjHkHZGwoSvzm7dRWohtPQn2nc?=
- =?us-ascii?Q?NmCob8VADM/5o1PXmekp6a98XxH3I6L6zhR9JK8P+tEWYzuGkeKvRL4mrL7J?=
- =?us-ascii?Q?AWEmPTMd8lj2lz8Hb4YVur8sk9hCNKN4LJhsT/aciQTIvD23QJ8P3akOcYvI?=
- =?us-ascii?Q?TMejtt2+ceaFZpymZWB7wuUm2NntK00gGZR3IR5GvMQiVc3DZl6C6cUz6IqH?=
- =?us-ascii?Q?AZ5qnGj7d43d4MUBjF8gt/69rHljJgpYw20DK6CyJaHGou1QkPQLdGbv1NmP?=
- =?us-ascii?Q?F0z+JMOZd4RzNxVMLPJT0jaCZU4EW1Dhz2fpyfG8AGechR5c++X3LjO1d7f4?=
- =?us-ascii?Q?8Ba/OV9i3mV2AJ44dYAuBFTj+HV4OIGxlD2Ebfvm87R7nHniJ6SLhHBUdXyY?=
- =?us-ascii?Q?oT0gx8Bg56wJXf8rPpG30bMHVlC7hxAacLfOfoQypQ0F3fRjb+WUtpdTcq8/?=
- =?us-ascii?Q?GMYWcwyfSwmbj+YfBOtC/GNkOU5Gie9DLpQxCJb5BG4ysSolBJnzhMr8wdwc?=
- =?us-ascii?Q?cKxgaxO8J8qfwvsIerjfZagGQNWM933uy5+k0n5eTgalsBqnoihZpsbBTwI+?=
- =?us-ascii?Q?BLO+8hkFDhUDubowgNgf8ppFfBepQ/cQqTwBB1bcJJ5KKRH6i+X/otG/gJfd?=
- =?us-ascii?Q?G6Njy+5iLuiQ/F6oirbPixlOniimP0mPmSP+rClVN+PJ/vg+iAB2lFLwNzSZ?=
- =?us-ascii?Q?Cfa8dcKqvYcOuZ+yXD/LL2Ej4CL+Fhhks6Y9hDJrUqvIYkYP/h8dCdyXLYq8?=
- =?us-ascii?Q?hZ25E0Wp5KtRsQhWZz+YPLcwlwn2xv5HNG00PvheOiUe+EbiCIYeM423eSsD?=
- =?us-ascii?Q?bKV8+QLpZMF0RCB3Y+PUWfM8X63h+tmVFMgA42SL3hfBp6VEPHw91fgHO107?=
- =?us-ascii?Q?6/ss34SEiuh72R0ZlGXUTl1hDKOtEpZEVjmE44MlOQqQGv7bvXyZVKAOgLGW?=
- =?us-ascii?Q?spgA72CVb7p66THvxvfW/6vtBTfO8Nck13qwZd0HAkT4iG6f0lKa?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 65f144da-97cf-418a-1865-08defc66098e
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Aug 2026 13:47:11.6248
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: JXhyotauqYmBqLyiGoWkk9em1tzE/PJD8a7YdCxdHr4xsAEfsoeCXQlUbE1T7mD5g+/myotDg7sZESvDyaR+As3BQA49S0pJl+LCVrUw0HEGMHeTjE7RvJ8ZG/H0mlTS
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB12323
+References: <anoYr9H4KojJv-aZ@google.com> <20260814125025.90522-1-gvalkov@gmail.com>
+ <20260817-hairy-serval-of-refinement-49039a@quoll> <CADOrJmb3uJPpYR481rB-CnL0A9B_5PQ683XP+Gdis47uihqMBw@mail.gmail.com>
+ <9b3b6f29-35a8-4b79-a002-bd0aac5dbee4@kernel.org> <CADOrJmZRBQb9u9oi2m=4iJuKDLVi6HNjOoSurRwE5QKPB_LetA@mail.gmail.com>
+ <2f264b09-98e9-4260-b413-97a494ba789f@kernel.org>
+In-Reply-To: <2f264b09-98e9-4260-b413-97a494ba789f@kernel.org>
+From: George Valkov <gvalkov@gmail.com>
+Date: Mon, 17 Aug 2026 16:48:00 +0300
+X-Gm-Features: AcwNN1XSM-kUj0y-bm3ADk8-VJqO006hhwhFkIs6frzRNq7J5ZP1Fvf40UVJSGU
+Message-ID: <CADOrJmbTyrGGkq+9OJDXCgTa2HvNo8BWxoE6yjafcrOq7WNamw@mail.gmail.com>
+Subject: Re: [PATCH 1/3] dt-bindings: net: wireless: add flag marvell,ignore-regulatory-hint
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: briannorris@chromium.org, johannes@sipsolutions.net, andrew@lunn.ch, 
+	francesco@dolcini.it, johannes.berg@intel.com, kees@kernel.org, 
+	miriam.rachel.korenblit@intel.com, wenst@chromium.org, 
+	rafael.beims@toradex.com, avraham.stern@intel.com, error27@gmail.com, 
+	s.kerkmann@pengutronix.de, gregory.clement@bootlin.com, 
+	sebastian.hesselbarth@gmail.com, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, Frank.Li@nxp.com, chunfan.chen@gmail.com, 
+	linux-arm-kernel@lists.infradead.org, linux-wireless@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_064719_122645_B10427CD 
-X-CRM114-Status: GOOD (  26.71  )
+X-CRM114-CacheID: sfid-20260817_064814_328115_6614483E 
+X-CRM114-Status: GOOD (  49.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,67 +127,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 17, 2026 at 11:23:55AM +0200, Alex Bereza wrote:
-> [You don't often get email from alex@bereza.email. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+On Mon, 17 Aug 2026 at 16:25, Krzysztof Kozlowski <krzk@kernel.org> wrote:
 >
-> xilinx_dma_alloc_chan_resources() builds a static ring of hardware
-> buffer descriptors once and the driver uses this ring throughout the
-> lifetime of a channel. This requires the allocation order of hardware
-> buffer descriptors from chan->free_seg_list to stay in sync with the
-> hardware buffer descriptor ring built at channel allocation time by
-> returning oldest descriptors to chan->free_seg_list first.
+> On 17/08/2026 15:20, George Valkov wrote:
+> > On Mon, 17 Aug 2026 at 14:07, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+> >>
+> >> On 17/08/2026 12:43, George Valkov wrote:
+> >>> On Mon, 17 Aug 2026 at 11:54, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+> >>>>
+> >>>> On Fri, Aug 14, 2026 at 03:50:23PM +0300, Georgi Valkov wrote:
+> >>>>> WRT3200ACM and WRT32x routers always report a fixed US regulatory domain
+> >>>>> from the mwifiex ROM, which conflicts with the platform regulatory
+> >>>>> configuration on units sold outside the US market. For example:
+> >>>>> - phy0 mwlwifi 5 GHz, hard-coded region 98 EU mapped to FR
+> >>>>> - phy1 mwlwifi 2.4 GHz, hard-coded region 98 EU mapped to FR
+> >>>>> - phy2 mwifiex 2.4 and 5 GHz, hard-coded region US
+> >>>>
+> >>>> v1 as reply to v3 in big thread. How tools can parse that?
+> >>>
+> >>> Hello Krzysztof,
+> >>> I apologise, I forgot to add the v4 tag to the subject.
+> >>> I have documented the changes between each revision.
+> >>> I saw my mistake after sending the mail. But I wasn't sure
+> >>> what to do? I will make sure to add v5 to my next revision.
+> >>>
+> >>>> Does b4 diff work?
+> >>>>
+> >>>> b4 diff '20260814125025.90522-1-gvalkov@gmail.com'
+> >>>
+> >>> What is b4?
+> >>
+> >> Tool used by maintainers and contributors to handle/send patches. See
+> >> korg docs (or just google "What is b4 Linux kernel").
+> >
+> > Thanks!
+> >
+> >
+> >>>>> When the system boots, it detects a conflict between the user selected
+> >>>>> region and the radios, e.g. BG FR US, and applies extreme restrictions,
+> >>>>> preventing use of 5 GHz and DFS channels. This also affects phy0.
+> >>>>>
+> >>>>> Add a device-tree flag, which allows affected platforms to ignore
+> >>>>> an incorrect regulatory hint from ROM, so userspace can set the
+> >>>>> correct platform regulatory domain.
+> >>>>>
+> >>>>> [1] https://github.com/kaloz/mwlwifi/issues/173#issuecomment-307879699
+> >>>>> [2] https://github.com/openwrt/openwrt/issues/9956
+> >>>>>
+> >>>>> Tested-on: WRT3200ACM, OpenWrt
+> >>>>
+> >>>> Not a valid tag, drop.
+> >>>
+> >>> I believe the tag is helpful because it describes that my changes
+> >>> have been tested on a certain device and platform. It's a common
+> >>> practice in OpenWrt contributions. My last two accepted patches
+> >>> have this tag. Should I still remove it?
+> >>
+> >> Drop the tag everywhere and instead on the patches which were possible
+> >> to be tested mention how did you test it.
+> >
+> > ok
+> >
+> >
+> >>>> And you cannot even do that, otherwise explain me
+> >>>> how did your device execute THIS (exactly THIS) code?
+> >>>
+> >>> I am not used to your terminology and this gets me completely confused.
+> >>> You have not quoted any particular code change, so I'm not sure what
+> >>> you are referring to. Here is a summary of the patch series:
+> >>
+> >> Tested means executing or parsing or using the code on the device under
+> >> test. How can you execute/parse/use this code on the device?
+> >
+> > Test procedure:
+> > Compile, FLASH and run OpenWrt firmware for WRT3200ACM.
+> > This compiles the Linux kernel along with all dts files and drivers.
+> >
+> > 1. Before the fix
+> > Notice how each radio has its own country:
+> > iw reg get
+> > https://github.com/kaloz/mwlwifi/issues/173#issuecomment-307879699
+> >
+> > If the user sets their correct country code, e.g. BG, then global
+> > will be set to BG. This conflicts with FR from phy0 and phy1.
+> > And also conflicts with phy2 which reports US.
+> > Result: the main radio phy0 does not start.
+> >
+> > 2. With the fix applied
+> > iw reg get
+> > phy2 does not appear in the list, so there is no conflict with the US
+> > region. I can address phy0 and phy1 later in another PR. They need
+> > a similar device-tree flag in the board file. The actual driver is not part
+> > of Linux. So I'm not sure if there is any place to add documentation?
+> > Result: phy0 and phy2 work. 5 GHz and DFS work.
+> >
+> > I also used this test code to confirm that the flag is set:
+> > mwifiex_dbg(adapter, ERROR,
+> >             "[%s][%pfwP] ignore-regulatory-hint %u ++\n",
+> >             dev_name(adapter->dev), dev_fwnode(adapter->dev),
+> >             device_property_read_bool(adapter->dev,
+> >                                       "marvell,ignore-regulatory-hint"));
+> >
+> > [   19.927595] mwifiex_sdio mmc0:0001:1:
+> > [mmc0:0001:1][wifi@1] ignore-regulatory-hint 1 ++
 >
-> When chan->pending_list is not empty e.g. during
-> xilinx_dma_terminate_all() the chan->free_seg_list and the order of the
-> static hardware buffer descriptor ring get out of sync. Descriptors age
-> in this order: pending -> active -> done. So freeing pending_list first
-> returns the newest buffer descriptors to the chan->free_seg_list first
-> and thus breaks the order required by the static hardware buffer
-> descriptor ring. Then when the channel is reused, after a wrap around of
-> the free_seg_list the DMA will find a hardware buffer descriptor with a
-> length field that is still zeroed and stop with something like this:
+> You are not responding to the actual problem.
 >
->   xilinx-vdma 86000000.dma: Channel 000000003a21d7b8 has errors 10, cdr 6de4c000 tdr 6de4c000
->
-> After this no more descriptors are completed and a consumer potentially
-> blocks and waits forever. The only way to get out of this error state is
-> to rebuild the static hardware buffer descriptor ring and the
-> free_seg_list by releasing and re-acquiring the channel.
->
-> Fix the order in which hardware buffer descriptors are returned to
-> free_seg_list to ensure the mentioned requirement holds.
->
-> Fixes: 23059408b6a3 ("dmaengine: xilinx_dma: Fix race condition in the driver for multiple descriptor scenario")
-> Signed-off-by: Alex Bereza <alex@bereza.email>
-> ---
+> In very simple words, like one or two sentences, explain me how this
+> YAML file affected `iw reg get`?
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+It does not affect `iw reg get`.
+I was asked to document the flag there, before I use it.
+Documentation/devicetree/bindings/net/wireless/marvell,sd8787.yaml
 
->  drivers/dma/xilinx/xilinx_dma.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+
+> >>> Patch 1 documents a new flag: marvell,ignore-regulatory-hint.
+> >>> Patch 2 adds a device-tree node with the radio and the flag.
+> >>> Patch 3 skips the regulatory_hint() call when the flag is set.
+> >>
+> >> I can read your patchsets and above does not proof how can you test binding.
+> >
+> > Ah, you mean how I tested if the device-tree changes are valid?
+> > I have almost no experience with dts. I ran this command before
+> > sending v4, and I think it seems fine. Here's a link to the output:
+> > make dt_binding_check
+> > https://httpstorm.com/share/.openwrt/test/2026-08-17_mwifiex/dt_binding_check-01.txt
 >
-> diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
-> index bef2b031dba1..0817b74f7450 100644
-> --- a/drivers/dma/xilinx/xilinx_dma.c
-> +++ b/drivers/dma/xilinx/xilinx_dma.c
-> @@ -920,9 +920,9 @@ static void xilinx_dma_free_descriptors(struct xilinx_dma_chan *chan)
+> This is a make process, so build stage. Nothing related to testing on DUT.
 >
->         spin_lock_irqsave(&chan->lock, flags);
->
-> -       xilinx_dma_free_desc_list(chan, &chan->pending_list);
->         xilinx_dma_free_desc_list(chan, &chan->done_list);
->         xilinx_dma_free_desc_list(chan, &chan->active_list);
-> +       xilinx_dma_free_desc_list(chan, &chan->pending_list);
->
->         spin_unlock_irqrestore(&chan->lock, flags);
->  }
->
-> ---
-> base-commit: 0d995da5fb97e8c312834575604d4423eb6225b7
-> change-id: 20260817-fix-hw-buf-desc-reuse-b730e9e02185
->
-> Best regards,
-> --
-> Alex Bereza <alex@bereza.email>
->
+> Building kernel (and running standard tools) is not testing, so I repeat
+> - do not introduce "tested" statements to commits which is impossible to
+> test by the definition of "tested" in Linux kernel. We discuss all this
+> in this very specific patch, not some other patches.
+
+ok, I will drop the Tested-on tag for patch 1 and 2.
+For patch 3, which can be tested, I need to describe how
+I tested the changes, e.g: iw reg get, and print the flag.
+
+Note taken. Thank you!
+
+Georgi Valkov
 
