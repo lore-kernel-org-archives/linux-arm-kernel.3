@@ -4,63 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D732C5DF80
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 19:46:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFBABC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 19:46:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jYtufi31esdthh9skm50DsS40oKA05LQqbajS7Trxzs=; b=Z7Gc2e3cKrvcPCRg8oRq3hQFjQ
-	XCEeKNjS1vUf61Pc6c3YZMDlljiMQ+LOF26dJhrCh14fQnretuXgdCNhflFi4OxEhD5Az/rd85Z3J
-	dQz1uygJTFU4rKOOENFNuT9YixPMvFDNcTU8I+gGaZ8A3hz3T61HN+ukCUesL66jMejunZC4zRqVy
-	HGJx4dvybnFcHchc+sXWYZRMPogpJB1rNy7MCu4M44u+Hu4eJpcLk3xj9BlbML14tH0+Ixey4PFKm
-	h3FzuMalpdtXbHAyHW3nxqm7N7hAWpc4W+Lxxje8BQtZlmSxp4p+2OXjXtvgM5v2dA+fE0/SXab5F
-	mbFu4Oyw==;
+	bh=P+/rhBP8KQx/YWJt8eXm/+AkyHsUlWrW8px5nRnzrtE=; b=fBSdVWGaxIeSKHhXDS+i6QZ7tt
+	Sqp+MPYSzExwJmwhezaSvevMbSDQih6tKD5H+WzE/NlVueWeX81khhBYONFT85CeKhbv06mIWeWeT
+	xgjo9bHjJMK1QVSCQEad2l2SzYy1FJujx0nVir3R1plDVGXVPQjqi4BIP+kOaqf5JMIcR5jr8RZK6
+	cLE34k2VxUHEbRjK588GS29NU4pJSfubCPUyWKRnNqhJQVFfTykHzR9vcJX22kaw6eHGUnTJxoqFp
+	dEC/sYKb/3EDluLGmaXiptAmJ3md+2wMz7o2/1KW1Y1XmUMo56N/D0scADrufriGlXz9gY3n0PKua
+	WanekEGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww3I7-00000006jbZ-2dCW;
-	Mon, 17 Aug 2026 19:46:39 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1ww3IF-00000006jiz-25Vd;
+	Mon, 17 Aug 2026 19:46:47 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww3I5-00000006ja0-0SR3;
-	Mon, 17 Aug 2026 19:46:37 +0000
+	id 1ww3I8-00000006jbY-0PTT;
+	Mon, 17 Aug 2026 19:46:40 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7E78C60A69;
-	Mon, 17 Aug 2026 19:46:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33AC11F000E9;
-	Mon, 17 Aug 2026 19:46:36 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id CEE1D405C4;
+	Mon, 17 Aug 2026 19:46:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF3E21F00A3A;
+	Mon, 17 Aug 2026 19:46:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786995996;
-	bh=jYtufi31esdthh9skm50DsS40oKA05LQqbajS7Trxzs=;
+	s=k20260515; t=1786995997;
+	bh=P+/rhBP8KQx/YWJt8eXm/+AkyHsUlWrW8px5nRnzrtE=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=EXE9SNbuoc/FVdgBY3XEwncT9Oe1hlZbedIMw2pfqDCgd+yI5VThgL3nQEqLF8z2O
-	 6BQeLZvK9w3M+2GJ8Zf2jN31swsywkBchOlK8KLCYSQ0vDSenuRGA858WO+hQHoXbG
-	 ROq8+MWxb4TfjQljoc1JMennkP8rOmRFld9dszNEAAs4TAJY9FAZp9YI//aVyHWgx+
-	 q2x9NjTIM6mbK2he4cFc00s2cgvDB2I2ESU9OCi9lX5x7z5xQW6858PD/5jv2hqPal
-	 +jxMTenqk3m5yC48AXZp8iPP+BrpIQqNBK934knQNQKweJ0gZ4NcEZFXsNGz3x5Hf9
-	 9v/dW25V+jnrQ==
+	b=QBA8P8nlfZuaP5mblhmWvlabJEQZh/N7rc+C1uhxzYrGkzkTeiTVmhHpa5WMnC5G0
+	 EOXjlebQjK9MEzFbqV7MImVIfPuYr06xx2ciOV3i2OEilBkrmlvdW+8aeyhpDrh8JV
+	 dUOYNYYufZRfs+a0KkEnwUb14mmmeamo8hBJGFY1Jfad2YXd4wg64gORzvRmgxE7Gd
+	 92BieTwqCF11Mp/cMWc+DZBPAsGzicxO6XdE2T51d5nNVnj8i8VNsAXkhWmmlbGnZ3
+	 eBL0hLl1PfXopGwAGtm17QzMlCDz8O5R7btjAmZLttGKxfkzFUoT5wmywOxK6zZlmR
+	 Y67khiOo8uRXw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 939C13926262;
-	Mon, 17 Aug 2026 19:45:49 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 198E63926262;
+	Mon, 17 Aug 2026 19:45:51 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net v2] net: airoha: npu: load the firmware without the
- sysfs
- fallback
+Subject: Re: [PATCH net-next] selftests: net: separate ipv6_flowlabel_mgr test
 From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <178699594816.1691257.16349624064991937172.git-patchwork-notify@kernel.org>
-Date: Mon, 17 Aug 2026 19:45:48 +0000
-References: <20260811181717.19339-1-sochnev.v.74@gmail.com>
-In-Reply-To: <20260811181717.19339-1-sochnev.v.74@gmail.com>
-To: Vitaliy Sochnev <sochnev.v.74@gmail.com>
-Cc: lorenzo@kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- stable@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org
+Message-Id: <178699594964.1691257.13662709727520463245.git-patchwork-notify@kernel.org>
+Date: Mon, 17 Aug 2026 19:45:49 +0000
+References: <20260813030708.37609-1-marcelomspessoto@gmail.com>
+In-Reply-To: <20260813030708.37609-1-marcelomspessoto@gmail.com>
+To: Marcelo Mendes Spessoto Junior <marcelomspessoto@gmail.com>
+Cc: davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+ pabeni@redhat.com, horms@kernel.org, shuah@kernel.org, afaerber@suse.de,
+ mani@kernel.org, netdev@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-actions@lists.infradead.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,25 +78,25 @@ Hello:
 This patch was applied to netdev/net-next.git (main)
 by Jakub Kicinski <kuba@kernel.org>:
 
-On Tue, 11 Aug 2026 19:16:59 +0100 you wrote:
-> airoha_npu_load_firmware() maps a missing firmware file to -EPROBE_DEFER
-> so that the NPU can be brought up once the rootfs carrying /lib/firmware
-> has been mounted. That mapping holds only as long as request_firmware()
-> reports -ENOENT.
+On Thu, 13 Aug 2026 00:07:05 -0300 you wrote:
+> The ipv6_flowlabel_mgr used to be a component of a broader overall
+> flow label test, defined in the ipv6_flowlabel.sh file. This wrapper
+> script called tests defined on ipv6_flowlabel.c and
+> ipv6_flowlabel_mgr.c files, using predefined parameters and enforcing
+> the in_netns.sh helper to set network namespaces for each test env.
 > 
-> It does not when the sysfs fallback is in play. With
-> CONFIG_FW_LOADER_USER_HELPER_FALLBACK set, or with the fallback armed at
-> runtime through /proc/sys/kernel/firmware_config/force_sysfs_fallback,
-> request_firmware() hands the request to a userspace helper, waits out the
-> full loading_timeout and returns -ETIMEDOUT. The -ENOENT test no longer
-> matches, dev_err_probe() turns the result into a hard failure, and the
-> NPU is left unbound after stalling the boot for 60 seconds:
+> However, the ipv6_flowlabel_mgr.c was drastically changed recently.
+> These modifications led to the mgr tests becoming a self contained and
+> independent test suite, enforcing netns creation by itself and
+> not relying on the ipv6_flowlabel.sh wrapper for proper test execution
+> anymore. Therefore, remove the mgr tests from the wrapper and update
+> the Makefile to handle it as a standalone test program instead.
 > 
 > [...]
 
 Here is the summary with links:
-  - [net,v2] net: airoha: npu: load the firmware without the sysfs fallback
-    https://git.kernel.org/netdev/net-next/c/a085e68b1390
+  - [net-next] selftests: net: separate ipv6_flowlabel_mgr test
+    https://git.kernel.org/netdev/net-next/c/96bf660d4c14
 
 You are awesome, thank you!
 -- 
