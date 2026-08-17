@@ -4,108 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DC55C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 07:47:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 420B0C5CFC1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 07:51:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lz7UJVJWoWy2wE7hc0CFyPVX5/AZ2HsTSf2ypZMOWxI=; b=ACGOBGpeHneabc6qSMJAJaoonx
-	VuWxBty3bsxlOGqQd5iqGhNUF7ekGQSij9UA9OeiVmlm+Ky+MBLwcLu/+v3+HUdu6Jq7jDWw58IuW
-	XoMq9eJWEN8rPyCV1c4HAbPj8OZWFFUukR0772nnvbC+igImwslmHomTSTtmbqebOjjABdEtufhQx
-	b3kMZ9kq4GW0Cu067ifGAbR5JZ9UkAi61FCZR2LfnBAo9nLQG/AwhclsJrgBX1gydbLu1Q6Lian9I
-	YxTRCfbvRbhUEQNrwER56UNoC+pgdu6c3z63ktwlxrLbmOS8U+5M2KZXkePgkR1OhLmCygFjJQldM
-	Rmcm0w2Q==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DDeFtTnxMBvDDeM+UXcBJoOG/+TlVBVJ2Mo0e9wRHls=; b=ZYP/RUFDDa8kDdH3K+bYTWQsFG
+	fdkYGWj2t4yyK8lltX6BiYYqL4XQe3KBtrXT5nyTrd20AV1DxKZ/lLv8wdGFmkq+n72w9Vrsr5GYG
+	VENn6pvlhHiH5UOWH9Cx7eLf+lw3361N/0uFji+/1HAwSzZNj3CDZUHDcob70IbA6lSS+VWwMWGOM
+	0gFiBh6uWlQ+sLvO1JY0jXW6RmI6CWFIJNRxV42krsZoRQ36wDc96v/iiSI2FbmqOWUZYHzfaH2RK
+	bLj3wR4CTF7VCFiVEjKDDvDw50DhPXYrUrIo+bV7G7772p+++GFK3ARtpChCfh2s4I5lBgyKbeuEO
+	EocgrKiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvs3d-00000005atw-3HvF;
-	Mon, 17 Aug 2026 07:46:57 +0000
-Received: from mail-qt1-x831.google.com ([2607:f8b0:4864:20::831])
+	id 1wvs7h-00000005bEl-1KOi;
+	Mon, 17 Aug 2026 07:51:09 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvs3a-00000005ash-3DAC
+	id 1wvs7e-00000005bE9-3dWR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 07:46:56 +0000
-Received: by mail-qt1-x831.google.com with SMTP id d75a77b69052e-51c01c79467so676781cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 00:46:54 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1786952813; cv=none;
-        d=google.com; s=arc-20260327;
-        b=bJeHSCFt9a7Cx8zkqw5N/gxqolLRBjJIMyrE5aadDS57EWgXyifgsada9XgUaL8h/p
-         +SmMixoYevJmv+bq0c2Z/9KBPjNOr525nRRqQ8lHKBdO7YexUJUUZicAdF2QKeg1gDp8
-         zLA7KdzOroRabFizjyaqXgiK7pC4Pk8qab9gGiLqaRrWDwK+hVuvqowQ/qy3YFWSeYq/
-         R/g9gs6Z5aByOdf3ItwqRbKFTCA18v+FQ8hDVdBvMk+9jPBxX+rk3+sKl+xnGaIsWE8g
-         dWRJg5BLO/j0ugazWonbey+suu5XKXq6Nf07kqSN+aBVVR0nPhfUvybd18Y4ukIjJG99
-         Jjew==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=lz7UJVJWoWy2wE7hc0CFyPVX5/AZ2HsTSf2ypZMOWxI=;
-        fh=XVbLI2v8z7ogakFzyMgZOwL6I4J+07PQwuuZzLailOQ=;
-        b=L9I3BLFD+ePf0fy9wx1BrQAxtsRt6IgiK07gSEqwgePlfwcP4rk8/5Y+6+gmN1dDCL
-         Emc9LRqFGfe/+YjqT4h0bIQJCm/OoSDtfTk03lG3NIZRJEUtvm4kcNx82MDSocM5dss1
-         +DAb4Z/bNb+rqo/v7n4CDool3z8NV0b6VUVgsGwr1gKGfbaGn3ATxskn4Kkea2kJtO5y
-         SHFvR4V6XRUhwGSITcraWmOyg6DVIEUaH2UMb5hCXdW6jWSjKKopyFj8+W+3mFYNEgkZ
-         L5INJp5UtFuyJrhs11aX/Tfu43ZFVOYA1iXqynXZErfs05p4QeDk3bNFJooSMBwwLdrg
-         m9rQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Mon, 17 Aug 2026 07:51:07 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4954a32cf1eso15275635e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 00:51:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1786952813; x=1787557613; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=lz7UJVJWoWy2wE7hc0CFyPVX5/AZ2HsTSf2ypZMOWxI=;
-        b=LbPvqieN15eXYoOhKTwOPnUueDZc/9IvvK2lud/mFnzMDJbF0tEwH0UBgVKRhRgo+H
-         27FS4GoA7ZVECFL/5R/yy4UHoQBQVum7ANQUOHcNu4OOrnZNIhCpjHQCeQGGqcDZIN4r
-         aj/HcTviliGGCuLcpJvUw/22xv1i6w6/ayxdoyPCq7mhhJznG8PwYH9McAzvN8tQofGT
-         J94JooGPAOAbzNF5zcWxYAEqD0IXkWEBCf49LEMk/Ili+tzAVfk0Vwwa0ts9DDjnKBXU
-         banGbDFf1o+T3tDC4/4yzopZglYCfJ7OHrqm7YguTiC7XMipIzgijeiu0eIG9ONSaMSR
-         fXHg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786952813; x=1787557613;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=gmail.com; s=20251104; t=1786953063; x=1787557863; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=lz7UJVJWoWy2wE7hc0CFyPVX5/AZ2HsTSf2ypZMOWxI=;
-        b=Xs9lmhKlbrZ0L3jQnRFaBbPyxODuzdJkrC3xJOha7TGXl8SYHOSoObjwEJxSOGTdn1
-         okx7fa0vH+wqizlKfmV7ER0/thsHB/fdpNWyXyqxDFN01yrbnhYL0uBRuf0eGSMdBPff
-         JJJ7ySTNvqZzOvWNbu6PwXDSPQYlJGaa8mMm9STZv+WF+t6SKpGEvUUuV4QS2idE5Prg
-         wJLHo6BPLQB7JSR72DKbFflpZAjJFirhAOsxZTbNra5nx4gMxHGlcO77NiyG5w2F5JSQ
-         E+itbyIHST24yX3VDEjIsmWCLowf46/yQP5DQQ5PZ1ehXVIt9t9y5j2Y1MGpEJrb2pIi
-         vYig==
-X-Forwarded-Encrypted: i=1; AHgh+Rq9p1SRRPy7DvqH9jY8dHtsM05Fs61K53esQaMi3oCaiStDgi3AjvvOG/jYLZrlDrzWKabcFdClfuHaIbMMfFz8@lists.infradead.org
-X-Gm-Message-State: AOJu0YxnGd8dIJ/ileai0UBTkO9EsE6XtEzxoK0LWkWBvCAnnW2884FA
-	rhhyOODEZU6EjRpWAv3LlqwutXHemF/KfOi225+Eu5D8OO+7QWniUHMHYy1CBr3VmTNOWMUgKth
-	c2E84M+GYx0iHVds4kYItV5rIqLZgUdOeMbKElVYx
-X-Gm-Gg: AR+sD12xpWjfs7ZF4cuTHBk2Q7TzkdSCrFuAQsmfP5wT5gs6uogx0dMCfVrGEYk73+6
-	TA/sFMj9ry0i8CYwVkT5cfPxdcHnzXq0BH+5J7zL/3NQXmHcKg0MYs9KerLfAP8m4C5URu/TqXV
-	LzjX0xhL9fmziR0IdW9nWfCLhV7myFQpJiHxS70XbjkHupHeKKhBOfmp6fBdtAQjxvp1HvyhTp/
-	k+AGDkshagI+CvCshsu4cOa5N16wE+DLDHirl8nuBBvEiypnsehZQykmMAqG5C2RfZ3CjJXIkIx
-	JkgVCUs7S4CmCKcVBvis+f0vFZphFks2akPYlyfsNhjvmw==
-X-Received: by 2002:a05:622a:120d:b0:51c:ca9:3d15 with SMTP id
- d75a77b69052e-52db093ef72mr8236741cf.12.1786952812842; Mon, 17 Aug 2026
- 00:46:52 -0700 (PDT)
+        bh=DDeFtTnxMBvDDeM+UXcBJoOG/+TlVBVJ2Mo0e9wRHls=;
+        b=laHDzsSrq40dRqeTMQZeopZxOyY5HvOsQ2JPnk0cZyMAOCRL/mfXQcep/U3SmcUV+g
+         IoOwETgH43d3g6/sF/LAgoHD7/h+3wcfHtVVEegUB17IZbKqIBr06jHSGri4cfTrraWL
+         33B1/V/QPFcUi1KZlxUYXDlcWD6IFaSjPAw/OH4oSpIRHg1ZhVW76C1FhCg7eMZ/y3Mf
+         lPcp/5N14txq3mPXm2Kzs2ZWgzK4oka45yb4tFrvUGCDWWiegy+rWrYsd3XqoF8sBSOL
+         lFjIXPYS9gWLNsg0LKF4xXRlUm0UujgUR1F/5Ki4mFA8I6uTmJP6L9bSK/o0yZDY2Qve
+         LJ+w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786953063; x=1787557863;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=DDeFtTnxMBvDDeM+UXcBJoOG/+TlVBVJ2Mo0e9wRHls=;
+        b=chCMrJFqOx3PNi0C35jgr6HxgBwrIjVyEGftdH/VPKiIlKveGjguBG+s1PU4PN7aDB
+         XI4Daa3mrcKCqR0M8kSvIwceAD7qGWtuYwsNwvEAmZeazTm9E2klXjAOpvxlpfDU/3S9
+         xtof3H9aeSmDptmPbTqx01cASbMrc2yI98GkJqZ7a3Hi6qHH7xKp6YOt4br7r+qQWIjG
+         ndfhmioGEPfd79g+XeAnS1IRUb23sXAZQaX2dqyVCdrdh9VuU+PhKrvOZ+KgA1Bf+el0
+         vuLoL1ILuCHmFa7Zd1EtMC7znNwk41qg21/9FP2S3cf2Yq4zq1lmC+FK9eg4/rY6HXb5
+         fsAw==
+X-Forwarded-Encrypted: i=1; AHgh+RpqpV76e5JT8MSkW9Otf20whZ85/8JfOijuyAeKcBhBIDaTkYsi8B2/KGWImNMKrSx6qbsZiRTMWy+1j52h4LbH@lists.infradead.org
+X-Gm-Message-State: AOJu0YxrVw1ff61yH2EzNvz3xyl1LrllIwXTvE7/xSGMXd+dXhb8+o3a
+	hJh5XwECpTsJVPgaluEZgpE4VmvIJyyeuaVFzm9HHr9ypQoxfEUiAt/M
+X-Gm-Gg: AR+sD10xhzbjG1wRd9NH757s6zHvNS0gJqslYmOu0QlyYuZh96qS8j+SraKPOpnY8oB
+	Mg/PonbDiJxxW2t6ejd+Uy7JSM+VdL0uI7zsOs38c24Mile/sjwKTLxQKEjZyR+tfwT/b0xy76c
+	jaV5B1JxB5EmY1+tajWnQ4ZA+hl5NmNyothdT044bhS2YLsQEDncrg4oojwLdZEWCrObdtGaCxO
+	cCZP0XUQBuVksgCijNpBYeUolb2jknC04M+W4D8aSvWCxKvbkpCwuGNaduJA4SWIeJ50H7FUtQg
+	kwva8Vj1JavKLaQVFWQ9/5tRVfSLziry3wc2KksCtT2LbqMZ71XggN0805aR4pRJbUfuL2fZIJB
+	uA/5/8jZpGY8vae2a670pkix1roa3tr55rm/9U1ob8KvjogIY0iisLnR5c+BMhD8+EKEv4UDIjR
+	TV05p3KcYLuJ5BKrGPO6/BEEdRAqdrK6WmpUD2PB6brwXzbEozqxkgx6HgCypnWla0ZCiheL1uN
+	VOoQTYBK65i7yfJJWpJ+A9NgSW5WPkqt9M1UeQw6ngNathjtgPhaxWJ
+X-Received: by 2002:a05:600c:3114:b0:495:63e4:7f78 with SMTP id 5b1f17b1804b1-49987971986mr331622695e9.10.1786953063033;
+        Mon, 17 Aug 2026 00:51:03 -0700 (PDT)
+Received: from Ansuel-XPS24.localdomain (host-79-40-190-175.business.telecomitalia.it. [79.40.190.175])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4999d11f073sm22486255e9.15.2026.08.17.00.51.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Aug 2026 00:51:02 -0700 (PDT)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Lorenzo Bianconi <lorenzo@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: =?UTF-8?q?Leto=20Liu=20=28=E5=88=98=E6=B6=9B=29?= <Leto.Liu@airoha.com>,
+	Christian Marangi <ansuelsmth@gmail.com>
+Subject: [PATCH net v4] net: airoha: Add retry mechanism to airoha_qdma_set_trtcm_param()
+Date: Mon, 17 Aug 2026 09:50:39 +0200
+Message-ID: <20260817075044.17691-1-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-References: <20260815082048.4043217-1-irogers@google.com> <20260815172712.50119-1-irogers@google.com>
- <4998d0ca-eeb0-4b04-b3ac-a1f97c1829f2@kernel.org> <CAP-5=fVffrRgO4OM6u=JTEUwBY0np+fUExqOpbiYU1JgyMr7Rw@mail.gmail.com>
- <7cc71fbf-425e-4047-94c5-3f06d3ed8905@kernel.org>
-In-Reply-To: <7cc71fbf-425e-4047-94c5-3f06d3ed8905@kernel.org>
-From: Ian Rogers <irogers@google.com>
-Date: Mon, 17 Aug 2026 00:46:41 -0700
-X-Gm-Features: AcwNN1WuYOhNid9ghYjSUIFLSR0oHbLNq9UQxrihJM05AZi4ux_k8Z5V-9XdhW8
-Message-ID: <CAP-5=fW7yQmH+4+x5QCqr2vO_MNSYuPW4T8X8qTns=GitOUN8w@mail.gmail.com>
-Subject: Re: [PATCH v13 0/3] perf: Add Raspberry Pi AXI PMU driver
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: florian.fainelli@broadcom.com, linux-perf-users@vger.kernel.org, 
-	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, pbrobinson@gmail.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_004654_813170_821ED76F 
-X-CRM114-Status: GOOD (  18.82  )
+X-CRM114-CacheID: sfid-20260817_005106_913643_3CF7F6C7 
+X-CRM114-Status: GOOD (  14.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,52 +107,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 17, 2026 at 12:26=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.o=
-rg> wrote:
->
-> On 17/08/2026 08:57, Ian Rogers wrote:
-> > On Sun, Aug 16, 2026 at 11:20=E2=80=AFPM Krzysztof Kozlowski <krzk@kern=
-el.org> wrote:
-> >>
-> >> On 15/08/2026 19:27, Ian Rogers wrote:
-> >>> Motivation & Background
-> >>> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D
-> >>> Currently, Linux lacks a standard perf-API compatible driver for the
-> >>> Broadcom AXI performance counter blocks on Raspberry Pi platforms. Pr=
-ior
-> >>> out-of-tree vendor solutions relied on custom debugfs nodes and ad-ho=
-c
-> >>> kthreads, preventing integration with standard Linux perf tooling (`p=
-erf stat`,
-> >>> `perf list`, etc.).
-> >>>
-> >>
-> >> Slow down!
-> >>
-> >> One version per 24h in normal cycle, not 13 patchsets in two days! (an=
-d
-> >> even rarer during the merge window)
-> >
-> > I'm familiar with perf-tools which was set up to follow BPF's example,
-> > both have -next repos. The -next repos merge into linux-next for
-> > testing. I agree that cherry-picking shouldn't be done straight into a
-> > pull request to Linus. Is there a principle against using -next and
-> > linux-next?
->
-> How is this relevant? I don't think you read my comment.
+From: Leto Liu (刘涛) <Leto.Liu@airoha.com>
 
-I think I addressed all the points in your email. The -next
-development is relevant because it directly addresses your point about
-not sending emails during a merge window. Except when the -next branch
-is becoming the main branch, merging patches at will is acceptable and
-you also benefit from the linux-next testing. Not sending patches 5
-times a year during the two-week merge window, it is nice to think
-that this timetable fits everybody.
+CPU accesses QDMA via the bus. When multiple modules are using the bus
+simultaneously, CPU access to QDMA may encounter bus timeouts and fails,
+resulting in QDMA configuration failures and potentially causing packet
+transmission issues. In order to mitigate the issue, introduce a retry
+mechanism to airoha_qdma_set_trtcm_param routine in order to ensure the
+configuration is correctly applied to the hardware.
 
-Thanks,
-Ian
+Fixes: ef1ca9271313b ("net: airoha: Add sched HTB offload support")
+Signed-off-by: Leto Liu (刘涛) <Leto.Liu@airoha.com>
+Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+---
+Changes v4:
+- Rebase on top of net
+Changes v3:
+- Init data
+- Use continue instead of negative error for poll
+- Add memory block after CFG_PARAM
 
-> Best regards,
-> Krzysztof
+ drivers/net/ethernet/airoha/airoha_eth.c | 29 +++++++++++++++++++-----
+ 1 file changed, 23 insertions(+), 6 deletions(-)
+
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+index 79418e682f71..302f8c432055 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.c
++++ b/drivers/net/ethernet/airoha/airoha_eth.c
+@@ -2712,14 +2712,31 @@ static int airoha_qdma_set_trtcm_param(struct airoha_qdma *qdma, int channel,
+ 		     FIELD_PREP(TRTCM_METER_GROUP_MASK, group) |
+ 		     FIELD_PREP(TRTCM_PARAM_INDEX_MASK, idx) |
+ 		     FIELD_PREP(TRTCM_PARAM_RATE_TYPE_MASK, mode);
++	int i;
+ 
+-	airoha_qdma_wr(qdma, REG_TRTCM_DATA_LOW(addr), val);
+-	airoha_qdma_wr(qdma, REG_TRTCM_CFG_PARAM(addr), config);
++	for (i = 0; i < 100; i++) {
++		u32 data = 0;
+ 
+-	return read_poll_timeout(airoha_qdma_rr, val,
+-				 val & TRTCM_PARAM_RW_DONE_MASK,
+-				 USEC_PER_MSEC, 10 * USEC_PER_MSEC, true,
+-				 qdma, REG_TRTCM_CFG_PARAM(addr));
++		airoha_qdma_wr(qdma, REG_TRTCM_DATA_LOW(addr), val);
++		wmb();
++		airoha_qdma_wr(qdma, REG_TRTCM_CFG_PARAM(addr), config);
++		wmb();
++
++		if (read_poll_timeout(airoha_qdma_rr, data,
++				      data & TRTCM_PARAM_RW_DONE_MASK,
++				      USEC_PER_MSEC, 10 * USEC_PER_MSEC,
++				      true, qdma, REG_TRTCM_CFG_PARAM(addr)))
++			continue;
++
++		if (airoha_qdma_get_trtcm_param(qdma, channel, addr, param,
++						mode, &data, NULL))
++			continue;
++
++		if (data == val)
++			return 0;
++	}
++
++	return -EBUSY;
+ }
+ 
+ static int airoha_qdma_set_trtcm_config(struct airoha_qdma *qdma, int channel,
+-- 
+2.53.0
+
 
