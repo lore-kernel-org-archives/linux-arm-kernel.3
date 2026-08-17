@@ -4,58 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07B6BC5DF66
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 01:56:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68FA0C5DF66
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 02:21:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3jU4tOtpt0N2CNGog4ZXhtt5MKvEVYITAXmgNSw14DY=; b=daJHbVm7jhOe7518p67XX0JzCt
-	Kix6p54j56bpBSYg3fgrt3w5GwT55DUzQ859SFuCCPYpT9bjgI5EHtWIRyhD2lZ9oWk/mFalHiMAA
-	pQKDQRE9TnyO0+GQjNdRVYTX6E7U1xgSI3t0XiBJ//oZS+yI5LiET6kcafr2Ur5gH4bgRjQg4ur0X
-	zlBmKaMxfMNX3yW1yWw5zpFCu5S6gtFDXZg5wnzMCdTqSnSIJGHMa152X3bZ21x9q7UNhVzOTvQAV
-	Q7We27tdLPKqU/4UhFBlXQSHO5aM3r9oa0p7KVU0Bp7bPx3Dgoqeplx4Jkn2Sa6uhdZniO5eLrR5f
-	BUrXTpbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pkLyOjuFXoSog4wa8qTLt+EA1gJPhjPj7PkIMVeVaXY=; b=gh89mhbGvI0coiTrKD2Sbpop7e
+	3X1k5ztHD+s4ZzKJ5PSCygMYQbYpz4q2TWeCOA67tbwUAjzsVHIKYOodclAt2bPlItX0BoH0/RSWs
+	/D1EKo0M+X60NQ5iZTfKROVslIs9lj1mZy34S5GTAKfFeP1A5+TMUDbCv3o/uqmm6mA4bM1PJAWyc
+	upDGlGHckzg1yuYUlY1UrFDc2sQ7eyqYLGqJ3sMTLw4PxZHxf1E0k344SNxY6X0vR21DcCCv4xetF
+	oNn18K2iIFiEMQZBYfypTzf4WMfy0YvXIozW8hZb6Ni5oG42aqaIG7q5hM/cVwR1SN4Lrhfqkxg5+
+	GI5kIBWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvmae-00000005HkZ-43CS;
-	Mon, 17 Aug 2026 01:56:41 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wvmyt-00000005Izw-1Bnx;
+	Mon, 17 Aug 2026 02:21:43 +0000
+Received: from mail-eastus2azon11010058.outbound.protection.outlook.com ([52.101.56.58] helo=BN1PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvmac-00000005HkE-2lna;
-	Mon, 17 Aug 2026 01:56:38 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 93953601DE;
-	Mon, 17 Aug 2026 01:56:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15D0B1F000E9;
-	Mon, 17 Aug 2026 01:56:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786931797;
-	bh=3jU4tOtpt0N2CNGog4ZXhtt5MKvEVYITAXmgNSw14DY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=QOuCv99wUAkezZJtwI61Fv1GJWp99WBNuQxWObmyDW3oEjctUCwwMOAxt+tt9e8gT
-	 zO3aHyIagk/GYOEIH+YTrXO9oP+oeYfDNjJI8kI2GkfLp+jat5rErZkFWF7Lxr+rdS
-	 Z8gxRXjgMPu8VetOmGzWR9E9QwuyuGiG26VHQr4jI1K0sGhIDbtSsDrcCQhgz67oPz
-	 OZX2uC/9HVGAPaTAeUa8aIk8Qu07Mth4PY/Nm6Jtsln8w3ZjfPc3lwt4KtSVeHQPVm
-	 2y8iEZ5vDY9AivHf/A5Nc2QcAcn5UjkxUcDfVAwp2jLx8EEXpApNcLc7GQVi5sJPpS
-	 a7DWjemdHUsDw==
-Date: Mon, 17 Aug 2026 03:56:36 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Daniel Pawlik <pawlik.dan@gmail.com>
-Cc: netdev@vger.kernel.org, win847@gmail.com,
+	id 1wvmyq-00000005IzW-1Ut3
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 17 Aug 2026 02:21:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bsGb5Q2YxlE3CyHDkJCb/l/SNUCd7El17/2ZyGEipTwDA6znzp4eY3oFZH8m2DifuUKMKKeY/cr586pEbKcknwR5X8zcP61LstjCCbFIjTwMP33LKHKKOcDl01bBRj4PTLiNykYgs3HMpw2y4lluleh3QRdlw194WLi9VxEEbhJYKzBXUficO24lX6HN6wP5d+Fzd+FkLcibwWRTlnU717hYRyQNRRHEgUTF5FT6JsmUvzHLdeXf8cjvS6vcckZzZ6kz3kckab5rYvzq3GPzGL2DMO4iN01H+Wv88RwhDqpRM4lBVHbF3tliHGcoB43PvgSErmh3iWQ9l7Fuzv4YDQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=pkLyOjuFXoSog4wa8qTLt+EA1gJPhjPj7PkIMVeVaXY=;
+ b=G7IhZPXCviEGLobOLuY1oJ+x9da9d6qy3pwXQfbPHJ16z7VwO7ebOJa/hR+1S7CQrsfldFAysKI9/lBKFi4TxALLFyFefj/vkJkiU+XLzdNmHqGlfgwx0F5lz/UtEck2zffroEz0/l9IT3uNWT2UH2iwVLHGOW2yinHJy4G91EX/WIEHa+4jpEzL633b4VMNXc6xB0VsmKitKLpCqHPPwfSjZ2qBzCJzQw3p+dwAIEIx2iRmgILPiYBLWakRUE1h7FvWiScMmOcZEAfq3Wma3ndk8XbcAtIjiovQ7zHeIpejUkef6z/qEXD7qqmpWMkLwzfNBNyO9CUgOVb2lXGAtA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=pkLyOjuFXoSog4wa8qTLt+EA1gJPhjPj7PkIMVeVaXY=;
+ b=drsnkK81I8kfRrS3YErNgVshkZO00lQt5ZDGE0Ds3gBkTrHujESN0qIqOwJYydg41MtbLIpMKW1dBEA6J98Wrprrg8Mgtgk68+HZwsGTbZHlEJSDBDbcZJaAR5Q/TD1On2yzxILhlrfpKHVnZGo0WdQJQL6TpbCbMOaN7KCyNPL/qFRr4rzGZoC3L8VyA570NlBHePlvneRtZXobcdIIswbVrSd/izcW7+pVVSffrVTuFavv7jFDYMPXfkT04AbrC/4TkP3faHboOwqnVWdw/+zz3ZhUi+5Q++WWDLrNfclajQEd0DehhIlvB9yJgA61MOsU1nnz/zLJz5RnB9VMZQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CHXPR12MB999244.namprd12.prod.outlook.com
+ (2603:10b6:610:2fc::17) by PH8PR12MB7304.namprd12.prod.outlook.com
+ (2603:10b6:510:217::20) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.17; Mon, 17 Aug
+ 2026 02:21:32 +0000
+Received: from CHXPR12MB999244.namprd12.prod.outlook.com
+ ([fe80::168f:599c:f74d:7688]) by CHXPR12MB999244.namprd12.prod.outlook.com
+ ([fe80::168f:599c:f74d:7688%4]) with mapi id 15.21.0315.016; Mon, 17 Aug 2026
+ 02:21:32 +0000
+From: KobaK <kobak@nvidia.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v7] net: airoha: npu: use aligned streaming DMA for
- mailbox messages
-Message-ID: <aoJqU7G9xIoAQfXA@lore-qca>
-References: <20260814110017.2795022-1-pawlik.dan@gmail.com>
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	Fenghua Yu <fenghuay@nvidia.com>,
+	Tushar Dave <tdave@nvidia.com>,
+	Kai-Heng Feng <kaihengf@nvidia.com>,
+	rupakr@nvidia.com,
+	mohammedk@nvidia.com
+Subject: Re: [RFC PATCH v6 0/3] arm64: expose CPU prefetch and cache modulation controls
+Date: Mon, 17 Aug 2026 10:21:26 +0800
+Message-ID: <20260817022126.3-1-kobak@nvidia.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260817014943.10-1-kobak@nvidia.com>
+References: <20260817014943.10-1-kobak@nvidia.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI1PR02CA0008.apcprd02.prod.outlook.com
+ (2603:1096:4:1f7::14) To CHXPR12MB999244.namprd12.prod.outlook.com
+ (2603:10b6:610:2fc::17)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="k48ETKoVT/LBu6qS"
-Content-Disposition: inline
-In-Reply-To: <20260814110017.2795022-1-pawlik.dan@gmail.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CHXPR12MB999244:EE_|PH8PR12MB7304:EE_
+X-MS-Office365-Filtering-Correlation-Id: 657a29f3-f2ac-44ca-1dd6-08defc0640f0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016|23010399003|18002099003|22082099003|56012099006|11063799006|10067099003;
+X-Microsoft-Antispam-Message-Info: mVK0/WVl0IVW/WqHGKy+fK8u3b1D4WX4M1/YcMJ/HcDVO4cZr4KOY+t1hMJ9gjc2dWtoBl7zqvnH/rRqTrqmTD64DjdoAhk2A/lL6KDOQdheotcRQeCJJuebdzipJcz6hy2R9/3RyUM7P/znJco0Eb8AQK9bBOFAuqZAJbLubqxHJXi9lBOb9SEr741OpZqyaqayK9L8KkO9lfrhWOSXyoWKekW60RaoIPjr7HcZ5PFlWiioDWXgwG8dp8ux+HgqC2G+9GYjtzMjaTWk7RcQ7cfZTMGNURsFakfnw/vNSCJ/StBpFQqGxzwTCkSwe+im0Q8ViIUoPPqvj69Se6T5kPN36Ibm3oGTnrkG28EaAImyU6x0PHRYbHhenOkgpELEWnV9k+wiNV6Y0HY8l8Xm9UyWAhy0mDTJ8TxG6qpErR5pHB8zN5CYJhJ1CAwAeqmzMFKwynEleBEyc34LHbBsMjmL8+sE4iaHm+dCpsCKAVvMJGHANTemcFNhiktzfsByuAivIPY2nMyJEbfR/E7A3JG372tk+Dr3KXveECUEY83TfmPor22yaoH4zfZCsLni7hYlRz6js0pan+aBc2a4O2huowbWXen7h1lyqx7nBz9nCTn+tvCjA9BaamSTwX2cjQIM05leW3tr1HIfuHm3dw7Esk0Eg9AZdEMxJVe5npE=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHXPR12MB999244.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(23010399003)(18002099003)(22082099003)(56012099006)(11063799006)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?LbvPcK4L/pgWBUQG0+a9QUje5uwDXCnPB70vryQmXNpa65N135UbKE87o9Ee?=
+ =?us-ascii?Q?Yj0Sp+OjrDGfhCrut/bDFfdaWshzxpPoTpKGbYXVf5CvxjKiWpgCzStRjCgC?=
+ =?us-ascii?Q?P2xQugTfJMNbmEC1neywbbN4dwOFdUBqZa3Iybi1/vONIYPgl0cLcCcpw3mE?=
+ =?us-ascii?Q?Xno/Ia+dkEe1cEGL3vTc9PK7029Z0pIAfcGlch91ifvCR9ldTu0c1hKQ8nbh?=
+ =?us-ascii?Q?28YuL+6sMmkIepfBCv4uqIRcvB4zxssKBUxBL1M4usnsngn9mdjvTVF67Kxl?=
+ =?us-ascii?Q?IQfJSnPWCS3F5E3cBw/8prR6jXOvzB/gC/LQPWUrtMXiQ0FUjpKOQuxAUWUf?=
+ =?us-ascii?Q?5QJFnJPkb/bDml363+Gm/mDKp3hSE2nGV3BN5O/bgACLZ1Xe2pvibc3oeT36?=
+ =?us-ascii?Q?/0WCDS99ZnMn39nwNfjAZ5NTozgwFYJyla/Zqc0ACYp97vlOIKvofF8IuRxi?=
+ =?us-ascii?Q?CxZ3jWLE33rVqkt8FMblSP/8FYz2jtwp43k22QPQw8NYaVwG3yYMh2SiCs7Q?=
+ =?us-ascii?Q?9bNPsaqSg+bE9jc3fPKCIoPmddaUlc95lAGtnPVh7zncKF2YKewXnMVHs4z6?=
+ =?us-ascii?Q?S7vyj7I1HZHh/dzL7XA9Yo1nr6R39fdasgZqKwoVqLLjSIBcvWOA/1VuHeow?=
+ =?us-ascii?Q?zX12gqnN3uMBWAWFk7lJXqYKaAmdyrZoyNq/SfMdU5ISH7ls4uUn3plT1sp3?=
+ =?us-ascii?Q?7DctRVYvuHAt8m2X9FqVDeLGCKQbv4YNGbU/MpzccNqQTVw4jh9fvNm47Reh?=
+ =?us-ascii?Q?alfbUUSBV0UZVefs5eXBvu0x1x0F2jhg0We4expwZi24kJQRWo5WAACgGA0m?=
+ =?us-ascii?Q?nANa3DB5J0p2l1Hv0hcmdJeFzM0eWrt7O/sygLKjPi339SOM12xdmFeBRX5S?=
+ =?us-ascii?Q?VHoxF2aNDj8Oje0Ycj6wWyUo/aVyq15nUBx6ZmVG4kg9h6WdVGmfKEY6KW6T?=
+ =?us-ascii?Q?uxhUNIlr2USpJ72Aw3JTmkLV+DuR/wXNYaHfBwY+PEEbF/rfJ2ARM9dM5rIW?=
+ =?us-ascii?Q?vNBVThitsCjPVrN22CBAImfIWvjtUgAlC6h6o1FQz3/dNFuPOi9Yl1DYg5EL?=
+ =?us-ascii?Q?8/mXcA7YN2VKoW3/LxKv9nfjAo6EcUqkW9yjld3uMLts1L+r4DV06m1hqwU8?=
+ =?us-ascii?Q?kc3k2wF3gzJKv4SaDZ16rbSElaAO0WrVDeUdMiz+f2yFPZuVqPDGRZkP6ebB?=
+ =?us-ascii?Q?fnEAatOj0GvfvnY1Cy5yWwK8cF2Y0FejWMfrneLjRIckNUv3NF9Ar1RadTV7?=
+ =?us-ascii?Q?/G1BjC+8wJWs3FWrBY5Skay3/XnC4HP8yWfnaUNdkomfnBY+8lF2qRUeM4hY?=
+ =?us-ascii?Q?Grr9rum6FgRxoftKvCzhYWZwvyuhb1hRmavizXMRBH7QcGGjsf85zCF6Ew30?=
+ =?us-ascii?Q?9V05m8ZzwDO50OonlJJlm6Hp7VZvWACbjJW//OFtadSpCIUcpmxsibRBgQEr?=
+ =?us-ascii?Q?tY3XMgKXIgl5f97HFbuSnOcT4NpxCBEpnk6rzpTh/ifstQntwsuAHYXkWOQ4?=
+ =?us-ascii?Q?B9O9ICPRdTBeQOSlS0qSgNxDKSxRreycp3lbyhcHHJwSbqki7kvlBN8Qecar?=
+ =?us-ascii?Q?QU5+/uk1BB5P0YFYrDAc82FUlv+E7+Qes/6Hw9vXVLyJ9xkzMYqtlruz8XdL?=
+ =?us-ascii?Q?Amb+CiqMJLm8UWCgMDYaBYzGncQBikm5ICO9Z+mUL+kAfouqqCrVM0DUrDXJ?=
+ =?us-ascii?Q?THwxRbnZQJ2a6O+qm4YNQj9IkNuL0vbKEY5Hqq7yg3LQh5rsyrSx9PvZcFVp?=
+ =?us-ascii?Q?vdZX+9jHpg=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 657a29f3-f2ac-44ca-1dd6-08defc0640f0
+X-MS-Exchange-CrossTenant-AuthSource: CHXPR12MB999244.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Aug 2026 02:21:32.3714
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 7QmqLYGatN6ggnD/l6T6m9e8rud7sZ9CiKVZR/MT0DtBQoV0QC6u5mJdmPROUGSHsxGdRMvhs6GelBgnSynLgg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB7304
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260816_192140_397691_03C2B4BD 
+X-CRM114-Status: UNSURE (   5.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,214 +147,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---k48ETKoVT/LBu6qS
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+From: Koba Ko <kobak@nvidia.com>
 
-> On EN7581 + MT7996 (Gemtek W1700K), mapping small caller buffers with
-> DMA_BIDIRECTIONAL regresses NPU version probe: the mailbox completes
-> successfully but WLAN_FUNC_GET_WAIT_NPU_VERSION reads as 0.0 instead of
-> 0.1111.
+Please ignore this series. I used the wrong version tag in the subject.
+I will resend it with the corrected subject.
 
-IIUC you are suggesting the issue is if we allocate a small buffer it could=
- fit
-in the same cacheline of a neighbour object so if the DMA reads/writes the =
-same
-cacheline, it could invalidate data, right? (I am not sure if this device is
-DMA-coherent or not).
-If so, in the airoha_npu_send_msg() callers, I guess it is enough to alloca=
-te
-something like:
-
-	kzalloc(max(len, SMP_CACHE_BYTES))
-
-and avoid the extra copy in __airoha_npu_send_msg(). What do you think?
-IIRC kzalloc() aligns to SMP_CACHE_BYTES is len >=3D SMP_CACHE_BYTES.
-
-Regards,
-Lorenzo
-
->=20
-> Bounce mailbox traffic through a per-core cacheline-aligned buffer
-> allocated at probe. Map ALIGN(len, SMP_CACHE_BYTES) with
-> DMA_BIDIRECTIONAL while programming the original payload length into the
-> mailbox length register. Copy the reply only after dma_unmap_single() so
-> the CPU sees the NPU-written payload on non-coherent DMA.
->=20
-> Introduce __airoha_npu_send_msg() with an optional reply pointer so GET
-> callers can copy the trailing response payload once. Keep
-> airoha_npu_send_msg() as a wrapper that copies the full response back
-> into the caller buffer, matching the old bidirectional mapping.
->=20
-> Tested on Quantum Fiber / Gemtek W1700K (EN7581 + MT7996), kernel
-> 6.18.44, including two cold reboots and sustained WiFi use.
->=20
-> Fixes: 6f884eb87a79 ("net: airoha: Fix DMA direction for NPU mailbox buff=
-er")
-> Link: https://patchwork.kernel.org/project/linux-mediatek/patch/202608050=
-70851.2885888-1-pawlik.dan@gmail.com/
-> Assisted-by: Cursor:composer-2
-> Signed-off-by: Daniel Pawlik <pawlik.dan@gmail.com>
-> ---
->  drivers/net/ethernet/airoha/airoha_npu.c  | 62 ++++++++++++++++++-----
->  include/linux/soc/airoha/airoha_offload.h |  1 +
->  2 files changed, 49 insertions(+), 14 deletions(-)
->=20
-> diff --git a/drivers/net/ethernet/airoha/airoha_npu.c b/drivers/net/ether=
-net/airoha/airoha_npu.c
-> index b679bed952de..2ba78bf0e97b 100644
-> --- a/drivers/net/ethernet/airoha/airoha_npu.c
-> +++ b/drivers/net/ethernet/airoha/airoha_npu.c
-> @@ -5,6 +5,7 @@
->   */
-> =20
->  #include <linux/devcoredump.h>
-> +#include <linux/dma-mapping.h>
->  #include <linux/firmware.h>
->  #include <linux/platform_device.h>
->  #include <linux/of_net.h>
-> @@ -23,6 +24,8 @@
->  #define NPU_EN7581_FIRMWARE_RV32_MAX_SIZE	0x200000
->  #define NPU_EN7581_FIRMWARE_DATA_MAX_SIZE	0x10000
->  #define NPU_DUMP_SIZE				512
-> +/* Maximum mailbox DMA payload (PPE ~28 bytes, WLAN TLV up to 24). */
-> +#define AIROHA_NPU_MBOX_SIZE			256
-> =20
->  #define REG_NPU_LOCAL_SRAM		0x0
-> =20
-> @@ -160,23 +163,33 @@ struct wlan_mbox_data {
->  	DECLARE_FLEX_ARRAY(u8, d);
->  };
-> =20
-> -static int airoha_npu_send_msg(struct airoha_npu *npu, int func_id,
-> -			       void *p, int size)
-> +static int __airoha_npu_send_msg(struct airoha_npu *npu, int func_id,
-> +				 const void *data, int len, void *reply,
-> +				 u16 reply_len)
->  {
-> -	u16 core =3D 0; /* FIXME */
-> -	u32 val, offset =3D core << 4;
-> +	struct airoha_npu_core *core =3D &npu->cores[0]; /* FIXME: core */
->  	dma_addr_t dma_addr;
-> +	unsigned int map_len =3D ALIGN(len, SMP_CACHE_BYTES);
-> +	u32 val, offset =3D 0;
->  	int ret;
-> =20
-> -	dma_addr =3D dma_map_single(npu->dev, p, size, DMA_BIDIRECTIONAL);
-> +	if (len <=3D 0 || len > AIROHA_NPU_MBOX_SIZE)
-> +		return -EINVAL;
-> +
-> +	if (reply && reply_len > len)
-> +		return -EINVAL;
-> +
-> +	spin_lock_bh(&core->lock);
-> +
-> +	memcpy(core->buf, data, len);
-> +
-> +	dma_addr =3D dma_map_single(npu->dev, core->buf, map_len, DMA_BIDIRECTI=
-ONAL);
->  	ret =3D dma_mapping_error(npu->dev, dma_addr);
->  	if (ret)
-> -		return ret;
-> -
-> -	spin_lock_bh(&npu->cores[core].lock);
-> +		goto unlock;
-> =20
->  	regmap_write(npu->regmap, REG_CR_MBQ0_CTRL(0) + offset, dma_addr);
-> -	regmap_write(npu->regmap, REG_CR_MBQ0_CTRL(1) + offset, size);
-> +	regmap_write(npu->regmap, REG_CR_MBQ0_CTRL(1) + offset, len);
->  	regmap_read(npu->regmap, REG_CR_MBQ0_CTRL(2) + offset, &val);
->  	regmap_write(npu->regmap, REG_CR_MBQ0_CTRL(2) + offset, val + 1);
->  	val =3D FIELD_PREP(MBOX_MSG_FUNC_ID, func_id) | MBOX_MSG_WAIT_RSP;
-> @@ -189,13 +202,23 @@ static int airoha_npu_send_msg(struct airoha_npu *n=
-pu, int func_id,
->  	if (!ret && FIELD_GET(MBOX_MSG_STATUS, val) !=3D NPU_MBOX_SUCCESS)
->  		ret =3D -EINVAL;
-> =20
-> -	spin_unlock_bh(&npu->cores[core].lock);
-> +	dma_unmap_single(npu->dev, dma_addr, map_len, DMA_BIDIRECTIONAL);
-> =20
-> -	dma_unmap_single(npu->dev, dma_addr, size, DMA_BIDIRECTIONAL);
-> +	/* Copy the trailing reply_len bytes of the response. */
-> +	if (!ret && reply)
-> +		memcpy(reply, core->buf + len - reply_len, reply_len);
-> +unlock:
-> +	spin_unlock_bh(&core->lock);
-> =20
->  	return ret;
->  }
-> =20
-> +static int airoha_npu_send_msg(struct airoha_npu *npu, int func_id,
-> +			       void *data, int len)
-> +{
-> +	return __airoha_npu_send_msg(npu, func_id, data, len, data, len);
-> +}
-> +
->  static int airoha_npu_load_firmware(struct device *dev, void __iomem *ad=
-dr,
->  				    const char *fw_name, int fw_max_size)
->  {
-> @@ -497,9 +520,8 @@ static int airoha_npu_wlan_msg_get(struct airoha_npu =
-*npu, int ifindex,
->  	wlan_data->func_type =3D NPU_OP_GET;
->  	wlan_data->func_id =3D func_id;
-> =20
-> -	err =3D airoha_npu_send_msg(npu, NPU_FUNC_WIFI, wlan_data, len);
-> -	if (!err)
-> -		memcpy(data, wlan_data->d, data_len);
-> +	err =3D __airoha_npu_send_msg(npu, NPU_FUNC_WIFI, wlan_data, len,
-> +				    data, data_len);
->  	kfree(wlan_data);
-> =20
->  	return err;
-> @@ -770,6 +792,18 @@ static int airoha_npu_probe(struct platform_device *=
-pdev)
->  	if (err)
->  		return err;
-> =20
-> +	for (i =3D 0; i < ARRAY_SIZE(npu->cores); i++) {
-> +		struct airoha_npu_core *core =3D &npu->cores[i];
-> +		void *raw;
-> +
-> +		raw =3D devm_kmalloc(dev, AIROHA_NPU_MBOX_SIZE + SMP_CACHE_BYTES,
-> +				   GFP_KERNEL);
-> +		if (!raw)
-> +			return -ENOMEM;
-> +
-> +		core->buf =3D PTR_ALIGN(raw, SMP_CACHE_BYTES);
-> +	}
-> +
->  	err =3D airoha_npu_run_firmware(dev, base, &res);
->  	if (err)
->  		return dev_err_probe(dev, err, "failed to run npu firmware\n");
-> diff --git a/include/linux/soc/airoha/airoha_offload.h b/include/linux/so=
-c/airoha/airoha_offload.h
-> index 7589fccfeef6..f635766e3dba 100644
-> --- a/include/linux/soc/airoha/airoha_offload.h
-> +++ b/include/linux/soc/airoha/airoha_offload.h
-> @@ -173,6 +173,7 @@ struct airoha_npu {
->  		/* protect concurrent npu memory accesses */
->  		spinlock_t lock;
->  		struct work_struct wdt_work;
-> +		void *buf; /* mailbox DMA bounce buffer */
->  	} cores[NPU_NUM_CORES];
-> =20
->  	int irqs[NPU_NUM_IRQ];
-> --=20
-> 2.55.0
->=20
-
---k48ETKoVT/LBu6qS
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaoJqUwAKCRA6cBh0uS2t
-rJKHAQCxbJO+swWF67vpy0YipmSukJEskcpf4E5FlW4+fsqZ7AEAkI8UQNvU/9WD
-52cI/EuNY2zC2edZWZkbH7TmFi/ZFgs=
-=SfV1
------END PGP SIGNATURE-----
-
---k48ETKoVT/LBu6qS--
+-- 
+Koba Ko
 
