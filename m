@@ -4,96 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 589DDC5DF7D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 11:33:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D92A3C5DF66
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 11:34:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wSS0SfwEXWK8UDGH0T0SV6yCqHjHKlU1qZXbtoO+aOs=; b=MmIcy+CC9BpAMiVc0InM1F65B/
-	qC8JxaS9BO/mGtIdVCVvGr+twd67oShaEcZ1HL5gMT0k0Ir6yVvb77HvN7IWLMwKMuefFNq4/ZTVn
-	e+2H3Mvpz3p5ChCOLDwWdHA7Z2U//+A1Lsd2WmoYxpoFg5mNcfU4brFwyBL/YxXoZzKvtasQ+6SKt
-	FGeXgNGsTX+kd//CYZmk+l5aYUb6P7/Ne5vGHa47I8Fr/3M5Vlq/SSi9cfLGv3jDS7gLnCstpF3jS
-	cWPnoLFLFPD85r16qqaTJ4RbB6Tq9BRRZfafCEygA3diWyuWRiU2vOR/lwdIpeu5Tg0oDAf3X/olB
-	KduwqLzg==;
+	bh=FjHlsmYEYzijKqgNs4Mx5SPcKYbT3PPdor0Bf0avHyQ=; b=yeAeqCTo/t4ZGD0xl8hlCqpPAs
+	7l42E4+ikE+/BcG+6/cAOWj/Qy1QesjK+wuLf1OVRiSicUAKDNOJkEunITg/S29iGxR1EudwrOCQI
+	BVSNc2be4SH27FNRzmmzbVzjs7whwGOYXU2Bg5fY98nErIwKd9YJgcO9M2+0d2PoEd8RJNj3Zumb2
+	cw5mR7AJtg2boHjAIwc1C4J5uVu4p7baishPzu5cH5cP3OCX/IGzAkUbK2o9CUA9Eh8bZUH8PB6Bz
+	ABkKdjtFhSvDtQhVJjBxCu+aotar9f0ug8JjynujMFCe9qXVS3sBDSMd/GLIYu4dmGj1jqinSxIM/
+	FbMUmg2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvvad-000000061nu-1MkX;
-	Mon, 17 Aug 2026 11:33:15 +0000
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	id 1wvvc0-0000000629j-2xTT;
+	Mon, 17 Aug 2026 11:34:40 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvvaZ-000000061lN-2X2z
+	id 1wvvbz-0000000629S-2KrP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 11:33:12 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-3811f512167so4604831a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 04:33:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786966391; x=1787571191; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=wSS0SfwEXWK8UDGH0T0SV6yCqHjHKlU1qZXbtoO+aOs=;
-        b=LJL+9Ni3sjyMP2I95ZHstVueW2gs/faBq6fJESsC8Pf8CbqQNnRBJ/b4pTe524cymo
-         2DtVs/4K0LM/9dVDEKBeElNeZODGKFRKqeqoLJOVZhFKWHEgwz0SIZY8amMvGFLh5bql
-         HgIO0gFioc/pt8jZeNJnGHvCzYz30snK8np/++2h51zElOWS4ZfCn52CRpE3trYqCMRl
-         /Q69SZKKLVUXCnaiH+e2k4PxNkEmKHDrW4iykkY9SwJ0CFuc6RJcJYUbSamVMH5Whvui
-         ROavlh6Z/r4PsUVVIf4V2Q2sL7BnujJX7EMhYcuVk0SWhDJWdaKVSIOFvO+LazX6t9dr
-         oAHQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786966391; x=1787571191;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=wSS0SfwEXWK8UDGH0T0SV6yCqHjHKlU1qZXbtoO+aOs=;
-        b=XkqVMewmajooUH11hRSBrCb8FiFBwqL0YOiRUL44J5q7vEf/wW9gQBvfVGUJu2370F
-         GkzdYIykb0diq9DCo7jDALKVw5uFK12GgAU8zk22nth4foHlPZfh0p7rYTWs6hzo9vy6
-         3ryXejJNd88Q4+04y9tOcs2ezvuztvYLlsmbtCOekT0GRfgfUmamcMbZsGw34jGXtroN
-         NG7SN8dAbk81QAsZg/YA7NcGQb9Lys4zYX5g8qT7IzVo8uTDkuABuIdLZX2ZwfP2S+Gp
-         ZPAUCA9yYYD766LeGaQbA2ozxZquTGCJO+Uz9NfxtKqp2ptQ3O6mMLl4n/9B5oGx3+76
-         K0Rg==
-X-Forwarded-Encrypted: i=1; AHgh+Rq8bmbSheyk+Unjr0KiabfKsfV87kQWbeMjsHuO5sS9XqLCK6dcIBG66TWnYKXzyHZmWS8/wMUIfeIZu0wlJ1HK@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQ2qlL8kLZbJNFIbRuKvghpx464LrmWrrwrCb6S8TOTJ/73ajY
-	efJBkqLUMwtG69GBn/21B9UDhASSSWfY0e2znDY9gvk6DaP/bLGewSl4
-X-Gm-Gg: AR+sD10nQIfYwdKPLbahGtNC8z8ujKOlW0cLejwLP3ibslkEKG+dQukMJPRGnH3BHeu
-	b0TXDun5h3KRrao9moMXGYbz9+Tq9iJb8kfjYASvV5Oraw5CyoUF9nK5h8FNew3pho+qdwnvWhF
-	XKhQ5Mhd0ockNXspyp4AIEu3AlE/WOA5EcQyuEqbgKIak4EI4Mm0gSdFz2oF2AbN2SX6HSzCRVh
-	z4gAfLXFkxOtSPfiA5vhlbPJ24rruO7uwjDdF0QhkQM8IVz5pGeBaEmivQf8YlhrS3Q8CVMKqmF
-	TNk/naEB2Rw1/bpwQciCUAp7SzJYGBWCZwy0OSIBEuhvqes5TuJrBhdbDjGp1Aw3pJEj2/eye4T
-	GdgSCl11D+lVfhPjWkyOM6gSlKNfdRuQV+rADNQNGflJQJhW9wGlIFlu6sJOUbRVEoyK/4HwEfF
-	rMnIEknmIa3N9GlbdLKAQbGJmM5ie/GSPldROTU64ky6AogyHB94Qhmoy0NE+pHnLiRtQum4Pq8
-	hP+EKXHSjVFMVb2miLyUhY8IP7NG6OQjxIYdZ3BC6Bs8FpcsmS+EztEm6AScZ7nfznuPWY2+JHd
-	UmnXGtkKjQ==
-X-Received: by 2002:a17:90b:2891:b0:381:152b:d596 with SMTP id 98e67ed59e1d1-3933b8e1ec2mr25650063a91.11.1786966390655;
-        Mon, 17 Aug 2026 04:33:10 -0700 (PDT)
-Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3954d3b3b91sm2071705a91.13.2026.08.17.04.33.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Aug 2026 04:33:10 -0700 (PDT)
-From: phucduc.bui@gmail.com
-To: Mark Brown <broonie@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	linux-sound@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH 2/3] ASoC: mt6797: Use dev_err_probe() for error handling
-Date: Mon, 17 Aug 2026 18:32:48 +0700
-Message-ID: <20260817113249.69252-2-phucduc.bui@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260817113249.69252-1-phucduc.bui@gmail.com>
-References: <20260817113249.69252-1-phucduc.bui@gmail.com>
+	Mon, 17 Aug 2026 11:34:39 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8E226601E0;
+	Mon, 17 Aug 2026 11:34:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 201CD1F00A3A;
+	Mon, 17 Aug 2026 11:34:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786966478;
+	bh=FjHlsmYEYzijKqgNs4Mx5SPcKYbT3PPdor0Bf0avHyQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=Cnp3ospn5OkaQDkq5Itjxg8hE1vg3hKPqo3W1GsUtdWTAuWaglKlTfpS7mmzKn/RE
+	 5L9LOcJFa5CKuT15jpEpNj7kWcSxhQ1OsCJuYGZFC5lmR5eosXS9tLP2Jn7lqiMFLs
+	 453H6l686fx70UqrrPHtC9+BfnpTSws3cdb3olIZv5K0CRAKB6AYIHBcrMiVFelfYF
+	 TyN88E+2IML5T0Mh+5enCkekscNd2AOX+GhmXU2IoQ3uRiMy9u67+tnCaFzc+W1kkm
+	 oZ2xgOvlp7FHZmmLN1WdzPUbIqM/icgNPOTA4/H5yVtQ84DiIKga1pRz2u0OYXCcXY
+	 CLWfYteKQ4ClA==
+Message-ID: <c4047dcc-c0d4-4b53-aa89-a126d81445e0@kernel.org>
+Date: Mon, 17 Aug 2026 14:34:24 +0300
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_043311_735806_2D2CFA88 
-X-CRM114-Status: GOOD (  11.23  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 5/5] i2c: pnx: fix device_node refcount leak in
+ i2c_pnx_probe()/i2c_pnx_remove()
+To: Liu Zhenlong <dragonliu2018@gmail.com>, andi.shyti@kernel.org,
+ chris.packham@alliedtelesis.co.nz, jochen@scram.de, maddy@linux.ibm.com,
+ piotr.wojtaszczyk@timesys.com
+Cc: mpe@ellerman.id.uk, npiggin@gmail.com, chleroy@kernel.org,
+ grant.likely@secretlab.ca, neelegup@linux.vnet.ibm.com,
+ benh@kernel.crashing.org, wsa@kernel.org, stigge@antcom.de,
+ linux-i2c@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+References: <20260815181204.2321-1-dragonliu2018@gmail.com>
+ <20260815181204.2321-6-dragonliu2018@gmail.com>
+From: Vladimir Zapolskiy <vz@kernel.org>
+In-Reply-To: <20260815181204.2321-6-dragonliu2018@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,37 +77,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: bui duc phuc <phucduc.bui@gmail.com>
+On 8/15/26 21:12, Liu Zhenlong wrote:
+> i2c_pnx_probe() calls of_node_get() to take an extra reference on the
+> platform device's of_node when assigning it to the adapter device, but
+> none of the probe error paths nor i2c_pnx_remove() drops it.
+> 
+> device_release() does not call of_node_put() and i2c_adapter_dev_release()
+> only completes a struct, so the extra reference is never released, leaking
+> the device_node on every probe failure and every adapter removal.
+> 
+> Add the matching of_node_put() to all probe error paths (the three early
+> return paths before clk_prepare_enable(), and the out_clock label which
+> covers the wait_reset(), platform_get_irq(), devm_request_irq() and
+> i2c_add_numbered_adapter() failure paths; dev is devm_kzalloc'ed so
+> adapter.dev.of_node is NULL and of_node_put() is a no-op when CONFIG_OF
+> is not set) and to i2c_pnx_remove().
+> 
+> In i2c_pnx_remove(), i2c_del_adapter() clears adap->dev with memset()
+> at the end (commit bd4bc3dbded9 ("i2c: Clear i2c_adapter.dev on adapter
+> removal")), which zeroes adap->dev.of_node before of_node_put() runs.
+> Cache the pointer before calling i2c_del_adapter(), the same approach
+> used in i2c-mux (i2c_mux_del_adapters) and mtd (commit 56570bdad5e3
+> ("mtd: core: Fix refcount error in del_mtd_device()")).
+> 
+> Compile-tested with gcc on arm64 defconfig using COMPILE_TEST; no
+> hardware available for runtime testing.
+> 
+> Fixes: b41a216dafe4 ("i2c: Add device tree support to i2c-pnx.c")
+> Cc: stable@vger.kernel.org
+> Assisted-by: Claude:claude-opus-5
+> Signed-off-by: Liu Zhenlong <dragonliu2018@gmail.com>
 
-Replace dev_err() with dev_err_probe() to prevent log spam when probe
-returns -EPROBE_DEFER.
+Reviewed-by: Vladimir Zapolskiy <vz@kernel.org>
 
-Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
----
- sound/soc/mediatek/mt6797/mt6797-afe-clk.c | 9 +++------
- 1 file changed, 3 insertions(+), 6 deletions(-)
-
-diff --git a/sound/soc/mediatek/mt6797/mt6797-afe-clk.c b/sound/soc/mediatek/mt6797/mt6797-afe-clk.c
-index 0ac04d73b777..2326496f8b27 100644
---- a/sound/soc/mediatek/mt6797/mt6797-afe-clk.c
-+++ b/sound/soc/mediatek/mt6797/mt6797-afe-clk.c
-@@ -43,12 +43,9 @@ int mt6797_init_clock(struct mtk_base_afe *afe)
- 
- 	for (i = 0; i < CLK_NUM; i++) {
- 		afe_priv->clk[i] = devm_clk_get(afe->dev, aud_clks[i]);
--		if (IS_ERR(afe_priv->clk[i])) {
--			dev_err(afe->dev, "%s(), devm_clk_get %s fail, ret %ld\n",
--				__func__, aud_clks[i],
--				PTR_ERR(afe_priv->clk[i]));
--			return PTR_ERR(afe_priv->clk[i]);
--		}
-+		if (IS_ERR(afe_priv->clk[i]))
-+			return dev_err_probe(afe->dev, PTR_ERR(afe_priv->clk[i]),
-+					     "failed to get clock %s\n", aud_clks[i]);
- 	}
- 
- 	return 0;
 -- 
-2.43.0
-
+Best wishes,
+Vladimir
 
