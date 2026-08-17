@@ -4,71 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F41CC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 05:16:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B105BC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 06:19:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=pibiIHcs1nQ5PqesA7d/pc0kX16e810a/N+i8rUabVI=; b=qwiVZBcjH5aJu32hsofz2m9h7g
-	Uab6qHKwRwPQcuEiHRlNw2nb8LtW1XiIkMGmggT07D/XpadPr35JblDbRMhgLAld8Mw/Hro336myd
-	wfhHuYj9WF4932LjrzKJKW039Y+BJDy8Ysc5ym4dLqe58TOdTk+sVOHIOShXL3xpzP7qoEjXHJC3A
-	XI8+eldV6+xYkerUrMeO5QOGb9xl6XQp/zWcP9vFqZExgXMrKzIfVuzxI0JBTR2N0piC4Q+F3vvN3
-	YRfLs9jgvfmpUyADIhM93CZMU+Nk2VbV6lsKKQ+eegKRL9C2xWGoeGK7q8+uktoJ/a3+OZrpiBYar
-	pMqbySPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=POGKE8+LRB9ANrHeL700hx5oCB9hZ3MzNcwPwGAW6kA=; b=eIu/9QaqAvJJfg6V2IElQobvqY
+	IM/WSTdLDMXWpkEf+8+FHOKp00f6Z4iNy2hnkELSSi6FF8lFRbuXllVWnlyxwUCy1AtSJQpVUf/TH
+	2iC3GPMd3nGcrP3dJdRiNFXuVPtuwBpROVK4i2mwjR9BXfQmfejV/JLLfS1FDFK28CWRzcvaHFt1m
+	HcnejgTauYhknRt5AxqaR4EEaGEfLzkiwqLGZvt34YJxldE7FjsnGI5Ugj84KTg+deDnq5kY8Q0HT
+	JaEcC/FFyUykQj3wmb60DZ7lt9rfa+lmVctrfOeK9cgg0RSXEae75XQHk6laSDEzf4kSAPBLqJbMi
+	YWVGdRSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvpi1-00000005QpG-3eyv;
-	Mon, 17 Aug 2026 05:16:29 +0000
-Received: from mgamail.intel.com ([198.175.65.18])
+	id 1wvqh5-00000005TXj-3XGx;
+	Mon, 17 Aug 2026 06:19:35 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvphy-00000005Qow-1nU2
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 05:16:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1786943786; x=1818479786;
-  h=date:from:to:cc:subject:message-id;
-  bh=0gRjb7GbT7paYjKUZ9ewHtfHxURlAGynqCWuCCnJDx8=;
-  b=jQTAAqNAZtOTMKBmZr9hOCXkqx/ZRfC0nTH8kTqtAXkyA8CDCY7HiviZ
-   kSyKQ2CV4HZPotHREbvuQ8S/A+pjKtPW6D5loVVEZvx3V8qnAZVBvjRPM
-   mGkHHD3Bq5F6fNZlsOzsM6i/Et8MvymfwdQpUZFhU/Xb0YbTp9DsziisS
-   oDSlrRUWhjVdQeY2+TFiIaTNEV9M9qqwTyOC4tZ3c13YASeEu//HU+thN
-   HC2C8PhzPwsi0471QCX2Ts3mXG62W9/I5AHnsSbQI7gZygFDvWZYO10Lv
-   T8CgAgaUT3SovvDhMwiNtqE731HB4O7lChQz8e1Lkf3qooJlf3+VjJ5rB
-   Q==;
-X-CSE-ConnectionGUID: Gjpq/HMQQtagWWyGLiPNZQ==
-X-CSE-MsgGUID: cGvm0FBuRPeOU7C+gvTOzA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11877"; a="87480292"
-X-IronPort-AV: E=Sophos;i="6.25,228,1779174000"; 
-   d="scan'208";a="87480292"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Aug 2026 22:16:25 -0700
-X-CSE-ConnectionGUID: gaX2yrFdRQ+u8MR4i4y78w==
-X-CSE-MsgGUID: KMUivrqmQK+YuSh8naMc4A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,228,1779174000"; 
-   d="scan'208";a="261531174"
-Received: from lkp-server01.sh.intel.com (HELO 6eda058d650d) ([10.239.97.150])
-  by fmviesa007.fm.intel.com with ESMTP; 16 Aug 2026 22:16:23 -0700
-Received: from kbuild by 6eda058d650d with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1wvphs-00000000dJ0-3eSL;
-	Mon, 17 Aug 2026 05:16:20 +0000
-Date: Mon, 17 Aug 2026 13:16:00 +0800
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- arm@kernel.org
-Subject: [soc:board-remove 132/217]
- drivers/i2c/busses/i2c-pxa-pci.c:41:29: warning: unused variable 'prop'
-Message-ID: <202608171507.CDOR43wB-lkp@intel.com>
-User-Agent: s-nail v14.9.25
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260816_221626_505395_85794BE4 
-X-CRM114-Status: GOOD (  10.12  )
+	id 1wvqh4-00000005TXR-2B26;
+	Mon, 17 Aug 2026 06:19:34 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 22D7442A8A;
+	Mon, 17 Aug 2026 06:19:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92DFC1F000E9;
+	Mon, 17 Aug 2026 06:19:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786947574;
+	bh=POGKE8+LRB9ANrHeL700hx5oCB9hZ3MzNcwPwGAW6kA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=iWZf1veV0oiTZoKDh1jgp9v3u9+kUoaAXwT1XOFbavImhRAQrxSR6n96uSzDFwXeo
+	 t1OesDV1pybYvGFDPQ2cTgAeaAtmLjCMH3kB2vVFIjxUTE/68F+9qQhMjwdkmP0drL
+	 Iiq9dWiiGKthpqwLHe3bGz8A8eKcgWokLl0pIdUZNu3f0WQMLoanHje1RS1u1iA9ZQ
+	 7+JxKUj28NsbgQ8CtS79porhoE1bT6H2YtKh2fJ6sE/gEFp3yWvPrM1zjul0SaNlob
+	 QYc8gdRtgM+mNOGz3kEGxxmCumAd9EVXwFyJn3AGI88MmBMQE7D2NvD2NLET3tcZu5
+	 Zd8W+5M2GnxsA==
+Message-ID: <641880ef-3ba5-4b84-afd5-57f21d8f9805@kernel.org>
+Date: Mon, 17 Aug 2026 08:19:28 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v13 1/3] dt-bindings: perf: Add Broadcom Raspberry Pi AXI
+ PMU definition
+To: Ian Rogers <irogers@google.com>, florian.fainelli@broadcom.com,
+ linux-perf-users@vger.kernel.org, linux-rpi-kernel@lists.infradead.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ pbrobinson@gmail.com
+References: <20260815082048.4043217-1-irogers@google.com>
+ <20260815172712.50119-1-irogers@google.com>
+ <20260815172712.50119-2-irogers@google.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20260815172712.50119-2-irogers@google.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,104 +116,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git board-remove
-head:   057394422bc04420585b2790b230d8a1f350ace8
-commit: 965e36538dc05c1751e466c2afa3124be407bc2d [132/217] i2c: pxa: remove platform data based probing
-config: i386-allmodconfig (https://download.01.org/0day-ci/archive/20260817/202608171507.CDOR43wB-lkp@intel.com/config)
-compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260817/202608171507.CDOR43wB-lkp@intel.com/reproduce)
+On 15/08/2026 19:27, Ian Rogers wrote:
+> Add Device Tree bindings for the Broadcom AXI PMU hardware blocks present
+> in the Raspberry Pi SoC line (BCM2835, BCM2711, BCM2712).
+> 
+> Depending on the SoC and security configuration, these PMUs support either
+> direct MMIO access or routing via the Raspberry Pi firmware Mailbox IPC.
+> The bindings support defining 1 or 2 backing MMIO regions natively map
+> the system and VPU control surfaces.
+> 
+> Assisted-by: Antigravity:gemini-3.6-flash
+> Signed-off-by: Ian Rogers <irogers@google.com>
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202608171507.CDOR43wB-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
-   drivers/i2c/busses/i2c-pxa-pci.c: In function 'add_i2c_device':
->> drivers/i2c/busses/i2c-pxa-pci.c:41:29: warning: unused variable 'prop' [-Wunused-variable]
-      41 |                 const void *prop;
-         |                             ^~~~
+What is this mess thread of 13 versions tied together? And still none of
+them are actually sent to maintainers?
 
 
-vim +/prop +41 drivers/i2c/busses/i2c-pxa-pci.c
+Do not attach (thread) your patchsets to some other threads (unrelated
+or older versions). This buries them deep in the mailbox and might
+interfere with applying entire sets. See also:
+https://elixir.bootlin.com/linux/v6.16-rc2/source/Documentation/process/submitting-patches.rst#L830
+Please use scripts/get_maintainers.pl to get a list of necessary people
+and lists to CC. It might happen, that command when run on an older
+kernel, gives you outdated entries. Therefore please be sure you base
+your patches on recent Linux kernel.
 
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  21  
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  22  static struct platform_device *add_i2c_device(struct pci_dev *dev, int bar)
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  23  {
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  24  	struct platform_device *pdev;
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  25  	struct resource res[2];
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  26  	struct device_node *child;
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  27  	static int devnum;
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  28  	int ret;
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  29  
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  30  	memset(&res, 0, sizeof(res));
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  31  
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  32  	res[0].flags = IORESOURCE_MEM;
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  33  	res[0].start = pci_resource_start(dev, bar);
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  34  	res[0].end = pci_resource_end(dev, bar);
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  35  
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  36  	res[1].flags = IORESOURCE_IRQ;
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  37  	res[1].start = dev->irq;
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  38  	res[1].end = dev->irq;
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  39  
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  40  	for_each_child_of_node(dev->dev.of_node, child) {
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02 @41  		const void *prop;
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  42  		struct resource r;
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  43  		int ret;
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  44  
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  45  		ret = of_address_to_resource(child, 0, &r);
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  46  		if (ret < 0)
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  47  			continue;
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  48  		if (r.start != res[0].start)
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  49  			continue;
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  50  		if (r.end != res[0].end)
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  51  			continue;
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  52  		if (r.flags != res[0].flags)
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  53  			continue;
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  54  
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  55  		break;
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  56  	}
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  57  
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  58  	if (!child) {
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  59  		dev_err(&dev->dev, "failed to match a DT node for bar %d.\n",
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  60  				bar);
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  61  		ret = -EINVAL;
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  62  		goto out;
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  63  	}
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  64  
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  65  	pdev = platform_device_alloc("ce4100-i2c", devnum);
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  66  	if (!pdev) {
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  67  		of_node_put(child);
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  68  		ret = -ENOMEM;
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  69  		goto out;
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  70  	}
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  71  	pdev->dev.parent = &dev->dev;
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  72  	pdev->dev.of_node = child;
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  73  
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  74  	ret = platform_device_add_resources(pdev, res, ARRAY_SIZE(res));
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  75  	if (ret)
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  76  		goto err;
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  77  
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  78  	ret = platform_device_add(pdev);
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  79  	if (ret)
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  80  		goto err;
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  81  	devnum++;
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  82  	return pdev;
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  83  err:
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  84  	platform_device_put(pdev);
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  85  out:
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  86  	return ERR_PTR(ret);
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  87  }
-7e94dd154e934aa Sebastian Andrzej Siewior 2011-03-02  88  
+Tools like b4 or scripts/get_maintainer.pl provide you proper list of
+people, so fix your workflow. Tools might also fail if you work on some
+ancient tree (don't, instead use mainline) or work on fork of kernel
+(don't, instead use mainline). Just use b4 and everything should be
+fine, although remember about `b4 prep --auto-to-cc` if you added new
+patches to the patchset.
 
-:::::: The code at line 41 was first introduced by commit
-:::::: 7e94dd154e934aa2137c427c3b1c8e9a6e465fcd i2c-pxa2xx: Add PCI support for PXA I2C controller
+You missed at least devicetree list (maybe more), so this won't be
+tested by automated tooling. Performing review on untested code might be
+a waste of time.
 
-:::::: TO: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-:::::: CC: Ben Dooks <ben-linux@fluff.org>
+Please kindly resend and include all necessary To/Cc entries.
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+
+Best regards,
+Krzysztof
 
