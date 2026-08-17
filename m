@@ -4,70 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E70AC5DF66
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 13:40:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6ED1C5DF74
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 13:43:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y9zBdbqmI1Ettw3r/bP1OKzk2Uk5NbbjRSVa3fuxVs8=; b=c3NF9Xcz2JZzeWWnNdhsIJRLWz
-	/HUZHKLwvqTGAJoWaGfyYvnyrj4lk4jQFawNKYKjksotV3XUT0IHL/V0Pue7TMBWKKN65CPG9uDN9
-	3rikpY5xXi/pV+rPZlF3qmqme3TaKLHL9ZyHTcaOi7lF0eJvmwVj3/CdhogszOaGpsNLqAxoRl41d
-	H/RBB7soE55orVtmIhOCccr43CpO7qKRKDc/MejBvO0ZaZ7NM0YQBzq4i99SkbIZrJoS7w9z1LgKB
-	BtC6VXvwNTVnzXBP4mclXaRloWH28iL8pxYPwgcR/vJbw7AkvhSTBdPByHKY8WYU71TE9UAMgdEBj
-	YYL+7j6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FUi1Ed4tbVFVG10HnIR5+E8xIvkprA3oG5hrzoj+z/M=; b=HApUyyV1TFwQcNKeeyaIy5Se/d
+	iMKzY9umnSYtAdny3jG8xbpWiGDH/lCWM6idXI0QpytIzVuS7fHSDsg4ePc3eWEsJDI/+h9xaiPv7
+	Jpxv3N7ELKJQUtHR42UUwWoTIBNbsifCj4RQZSthzX5nPrO1UkNp3we1eHAzY1gvBdMTnKe3zKgCn
+	T8JS3pmKXK8Fjkxh2b0H2L6cxEFdpTES9u3EdxFO30nZxXXRh/jgWVGHvy80o1u3cYtbiLAkvRTIE
+	u0+5fKL2sOiswcpEusPaQ1q1GcKu07vLda8eUl3onPdVaivdLPNghHGPlQQkn8wSlS/zlceO3RecH
+	fE9+Feaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvxZX-00000006EPQ-2aJh;
-	Mon, 17 Aug 2026 13:40:15 +0000
-Received: from out-165.mta1.migadu.com ([2001:41d0:203:375::a5] helo=mta1.migadu.com)
+	id 1wvxcN-00000006Ear-3rEg;
+	Mon, 17 Aug 2026 13:43:11 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvxZU-00000006EOi-3ect
+	id 1wvxcL-00000006EaS-3jSG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 13:40:14 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=oIqhYYCQ42thzV4no1HyBU1GFI5X3kNrT8tmjn8e7Es=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1786974010; v=1; x=1787578810;
- b=iU5j1rJ9/pp5FG9j9YTbP/A3XcltElZC6mmRsbyD1KZss3kVhsfwHKagnhKGKwEqOWi12Q55
- +zyTah0gZf0bGiMLu2b9mwuJZPj2RXxV/YRTWYguTV+YgCMKGo772+ko5F5Yetf1rvWONHCC8XJ
- x/4o/r411E/DQXnE5O5Ol+Y0=
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: from mail-lf1-f42.google.com (209.85.167.42)
-	by smtp.migadu.com with ESMTPS id 60b853335d97ee4e;
-	Mon, 17 Aug 2026 13:40:10 +0000
-X-Migadu-Flow: FLOW_OUT
-Received: by mail-lf1-f42.google.com with SMTP id 2adb3069b0e04-5aeb688ae83so18662e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 06:40:05 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RrOwhsycodRVmaLgP5HAvD6LCRCv4G0mVet5rC3DXKO23SgiJbmiKtd+rf5a+emW7+di09lWlNHY77rBwWlei5t@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz5wYXiRzY9qHxs6/cVNiWpvkJ4DNOpxQqkHoTpQQcLdp7M7sY2
-	LxeaGjQPzfinTnAr+625N9BEAakp+xAhDIziUbM2+3vwuZD4VKH7N0KzrSAz6TYpprgmGr0gWkC
-	RNT50wx+NFdHhkLaKXVSWFswhYjmBXP7/IVx7hmT5
-X-Received: by 2002:a05:6512:3d8c:b0:5aa:79d6:b559 with SMTP id
- 2adb3069b0e04-5b4707819c5mr10435e87.0.1786974004934; Mon, 17 Aug 2026
- 06:40:04 -0700 (PDT)
+	Mon, 17 Aug 2026 13:43:11 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67HD5o6l2238632
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 13:43:08 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	FUi1Ed4tbVFVG10HnIR5+E8xIvkprA3oG5hrzoj+z/M=; b=aXp1MmBtty1BQMei
+	PbRVOkhD3g8tb2bRrp9KrkuIaxeEg2qxHuZA66DnRlM8cyrEdyJHVsyVfdXbLk4l
+	WE9kTc53n5tuUZkEuqie25QBeLkxIPPpeCl3aVrrEKYeA+X2rSbWFELSci5VH/ce
+	14sKa565PKv3DUN1EsWC881P+fHM6nFXvGxcNm/Od/sHksRHOX6T7jZwVaqC0kfe
+	j63F0xvREL/e6u/PCxnY6EnNvWkF+Wpl3JW6/72r2f0tktHg2PBt8c0tMpFdNydA
+	Efq4tTtNfOUVG7E7iPXihypiwKKqZjg/Gxdg5rz501LpRNDJPHEAceugz2P1u+F0
+	8xJrKw==
+Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com [209.85.219.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g3xyk95qr-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 13:43:07 +0000 (GMT)
+Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-904c1d588bbso13752376d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 06:43:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1786974187; x=1787578987; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=FUi1Ed4tbVFVG10HnIR5+E8xIvkprA3oG5hrzoj+z/M=;
+        b=STyaMaW+ZnkFI9Jsqn1aMX/f9jDT3XZKKA+J06IAcPJR2kmLC5DtGrB7rPV5qj0rWt
+         YGTrD6q8aNwM9adq9fe0eHzDEvxWB6VCSU9UMiKINJi+kYufrAYHNUbbpRUJUs9MTvtc
+         HZ+sMAeCA4xcZSDH1uhp83KwUZxw+QwjoqetBaEbCOHwCY7NO7z9csQQlffzG3JjfP1S
+         lX6/svATB6ly/KUYOWJRZ/IGAz+82b8RgvGmMDNVP/yAe+H0R8h4TcaYjgpv9szu9+xl
+         HBQa/8oYxALumi/Mxs4suEp8FBgrTpV/ib5hNncSuJ9BWhTezP8THEQGoz3un0sdePDt
+         jwhg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786974187; x=1787578987;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=FUi1Ed4tbVFVG10HnIR5+E8xIvkprA3oG5hrzoj+z/M=;
+        b=HtVUISWdLsj0pO+x+01ZhMnYB4zis9kFkXGkbopnsuYukTjUnesqfB8pA4CYwGzRuW
+         mYmlYU/x/lDXbQlNfdOKXlTT80TA7cE9fZPSaiv7W1MgpKq9P0qT1VdD8WmIB4O6vsrv
+         8Jmt08Os8XfIdOl7uYddJYzA4f8m3QVyK8aWFDzLtcgnMgbh22z3ku9GgzNgC7j8kxT2
+         NkjTFA49P0mLfPUgGe15WMDCFj1pCKu219Wm5PhV5NWcPzCuTYXvNj02JypBY+mcQFnV
+         sR/V9OC+PXJMmmU5yuBgm8VoX/usBEKMHmurdPywgMsdwxEqB2AuLaTCcULBERjiEnbq
+         /yEw==
+X-Forwarded-Encrypted: i=1; AHgh+RodjVI5sCGyTEiZQz8d+nNfMY+Tt2pxxkSEN3OTaULrXhp0ek0mtqf7WxLcX0k+GR3HVcDgCGWJ6OTrQpCTxDq/@lists.infradead.org
+X-Gm-Message-State: AOJu0YyGbuB5J9vKUAbBFN5M4m9JsiVUXFgtZasAHx4Iq+/GxWYKtEJl
+	NFbIwSIoH369BCgWZ1AkDodSI1BXzGQdEjwrV7UV9gfivPwPrgsGno7UJuEty0iGmZMord9XO8S
+	K61fFZbxeEsb6Zp6eE7gvSLfQdmQo+/C5zp6r2ALQMX1sMfae/jEsLHa+LvR6IBawy8a+mEitqv
+	TSnA==
+X-Gm-Gg: AR+sD13v8DSMWOMdYXiZbkaMittoL1/53UaT1NtuM2PFMBdxDWnaStnFu4tcdD/Hv07
+	oFSy5zKPZ7JjUUD9Wa8pYOyLKWVXHnLXtd5dZB6cds5EfmwSMbv1EKDkxcdRwIH99fMuXjGJWoM
+	16v2UusIiPd6uDnLWLuhQoRQOCib37siw51SxtTJf3Lky57JuAXSVHqlOQyOh3xT5g2bEN8gI6p
+	O8ClvI6U2ymTLAHp69TSCokbx9YJpLc1iorwYgoEr8AGtc65XJsDLTds6xTE1zjPi4d+uK00KFq
+	voFm3kGxfUYtR70Q1XjYxk1jF4IlCyxKQ/4fbzQoGdCNbk2v7zJ6Vb34rg5Caw2lGIKoumWgvcz
+	atqktRARWrVMePskZ87+BZY3MhJdbvvWI
+X-Received: by 2002:a05:6214:da5:b0:908:488b:14f with SMTP id 6a1803df08f44-90a809cfdb6mr331432866d6.5.1786974187209;
+        Mon, 17 Aug 2026 06:43:07 -0700 (PDT)
+X-Received: by 2002:a05:6214:da5:b0:908:488b:14f with SMTP id 6a1803df08f44-90a809cfdb6mr331432306d6.5.1786974186747;
+        Mon, 17 Aug 2026 06:43:06 -0700 (PDT)
+Received: from [192.168.1.6] ([122.171.16.103])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-90c45976942sm9108656d6.42.2026.08.17.06.42.57
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 17 Aug 2026 06:43:06 -0700 (PDT)
+Message-ID: <4e7a398b-e75c-4dca-8380-440ca7cb22c6@oss.qualcomm.com>
+Date: Mon, 17 Aug 2026 19:12:55 +0530
 MIME-Version: 1.0
-References: <20260731143541.956291-1-vdonnefort@google.com> <20260731143541.956291-15-vdonnefort@google.com>
-In-Reply-To: <20260731143541.956291-15-vdonnefort@google.com>
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Mon, 17 Aug 2026 14:39:28 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTwf+nh2ogqe2iV8PrtZtSXXB58GHuj8YywSkkV6H8mBYQ@mail.gmail.com>
-X-Gm-Features: AcwNN1U7UGTnIOj5WRITq592LKY8QcwtciRniCjB9moUCxtIEA3KXLFqaUm5XLA
-Message-ID: <CA+EHjTwf+nh2ogqe2iV8PrtZtSXXB58GHuj8YywSkkV6H8mBYQ@mail.gmail.com>
-Subject: Re: [PATCH v4 14/17] KVM: arm64: Alloc pkvm_hyp_vcpu using pKVM heap allocator
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, 
-	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com, 
-	qperret@google.com
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 09/15] pinctrl: qcom: Add Kuno pinctrl driver
+To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
+        Michael Turquette <mturquette@baylibre.com>,
+        Stephen Boyd
+ <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
+        Taniya Das <quic_tdas@quicinc.com>, Georgi Djakov <djakov@kernel.org>,
+        Bartosz Golaszewski <brgl@kernel.org>,
+        Linus Walleij <linusw@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+        Radu Rendec <radu@rendec.net>, Robert Marko <robimarko@gmail.com>,
+        Guru Das Srinagesh <linux@gurudas.dev>
+Cc: linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-pm@vger.kernel.org, linux-clk@vger.kernel.org,
+        linux-gpio@vger.kernel.org
+References: <20260814-kuno-soc-support-v2-0-3079794f0f73@oss.qualcomm.com>
+ <20260814-kuno-soc-support-v2-9-3079794f0f73@oss.qualcomm.com>
+ <b88c7884-f86b-460d-9880-8dbc23798b02@oss.qualcomm.com>
+Content-Language: en-US
+From: Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>
+In-Reply-To: <b88c7884-f86b-460d-9880-8dbc23798b02@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-GUID: hmyCGvntW_fmkqKfRrn7Urf432QUKrz2
+X-Proofpoint-ORIG-GUID: hmyCGvntW_fmkqKfRrn7Urf432QUKrz2
+X-Authority-Analysis: v=2.4 cv=dLaWXuZb c=1 sm=1 tr=0 ts=6a830fec cx=c_pps
+ a=wEM5vcRIz55oU/E2lInRtA==:117 a=deEPgmDcWg2uv8mOPSE3jA==:17
+ a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
+ a=EUspDBNiAAAA:8 a=xskrFx3CC3nc2tfbzagA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=OIgjcC2v60KrkQgK7BGD:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODE3MDEwNSBTYWx0ZWRfX1tfj2Rv60Bh5
+ qzfcgO7JutAKqWsmYMDFJd33P2IgKBb8YLr/Uq+BzbzgKnECr86S7fmY8468lX7mHgBnRPftUxT
+ zYY7ubZNxJgsy4QqyLDRn9o4oKaCvhmr6O//gJznD1xtThneSd8gEDngwLdXinpe1dF97IgJd5w
+ Bcw49z4It9qjgINMR3R7D6KofpxqB3DBCQjnr7h0bndXol2oNdd7TYbZLW+TY5jsEngz3D9FufI
+ NnJ5vgFKlasbURIs7aA/rwj1UsCOUPOp7wqQCdGLQXMGgPyucmL3bcIHsatvGrI+9nqF27WxKG1
+ OD0UcKJK93sWaQ63PEpR6mYuWXrlbC0J3VhdY8J+Q4mnkti9Zmc2f7AfYSLuR7npm8k3HieFsuc
+ cPvKBB65vV/keftdgm/X+9u7fLRjGxGVJUDqYIhkpnGGoLRG4YFa7xtEMylVZGsxuINd7yDKiks
+ O6GZbXJ1X6mTLRKHfUA==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODE3MDEwNSBTYWx0ZWRfX6yDC7GnIRoAg
+ ms8dWKCqeWlbDVm//o0OrWK6qbWb0gho2rKditJGfatLsVHoC9lLnSMn9vMqMgFCQuj9HXks1kP
+ Cu5X09oz31sHKlHPK4DzhdBadtxc2ac=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-17_01,2026-08-12_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 phishscore=0 spamscore=0 lowpriorityscore=0
+ priorityscore=1501 bulkscore=0 suspectscore=0 adultscore=0 malwarescore=0
+ clxscore=1015 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2608170105
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_064013_055998_B0B4CF1F 
-X-CRM114-Status: GOOD (  21.25  )
+X-CRM114-CacheID: sfid-20260817_064310_049503_2BEF1B46 
+X-CRM114-Status: GOOD (  17.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,230 +168,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 31 Jul 2026 at 15:36, 'Vincent Donnefort' via kernel-team
-<kernel-team@android.com> wrote:
->
-> Transition the allocation of the hypervisor vCPU state structure
-> (pkvm_hyp_vcpu) from the host to the hypervisor using the new pKVM heap
-> allocator (hyp_alloc()).
->
-> Previously, the host was responsible for calculating the size of,
-> allocating, and donating memory for pkvm_hyp_vcpu during VM creation.
-> With the heap allocator in place, the hypervisor now allocates this
-> structure dynamically at EL2.
->
-> Use the pkvm_call_hyp_req() wrapper in the host to invoke
-> __pkvm_create_hyp_vcpu, which automatically handles any top-up requests
-> if the hypervisor runs out of heap memory during allocation.
->
-> Tested-by: Fuad Tabba <fuad.tabba@linux.dev>
-> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+On 8/17/2026 6:54 PM, Konrad Dybcio wrote:
+> On 8/14/26 9:31 AM, Hardeep Sharma wrote:
+>> Add the TLMM pinctrl driver for the Qualcomm Kuno platform, supporting
+>> 110 GPIOs and their pin multiplexing, pin configuration and gpiolib
+>> interface through the common pinctrl-msm driver.
+>>
+>> Signed-off-by: Hardeep Sharma <hardeep.sharma@oss.qualcomm.com>
+>> ---
+> [...]
+>
+>> +	[65] = PINGROUP(65, qup0_se1, qdss_cti_trig1, qdss_cti_trig1, NA, NA, NA, NA, NA, NA),
+>> +	[66] = PINGROUP(66, qup0_se1, qdss_cti_trig1, qdss_cti_trig1, NA, NA, NA, NA, NA, NA),
+> Function3 can't be selected because of repeating names
+>
+> In qdss_cti_trig1_groups, you have qdss_cti_trig1 specified twice.
+> Perhaps there was a longer name that got truncated?
+>
+> Konrad
 
-Cheers,
-/fuad
+Thanks Konrad for review.
 
+It's a real qdss_cti_trig1 line - the in/out
+mirror partner of funcsel 2:
 
->
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index caea8e9986d1..95e05cee0f3a 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -268,7 +268,6 @@ typedef u16 pkvm_handle_t;
->
->  struct kvm_protected_vm {
->         pkvm_handle_t handle;
-> -       struct kvm_hyp_memcache teardown_mc;
->         struct kvm_hyp_memcache stage2_teardown_mc;
->         bool is_protected;
->         bool is_created;
-> diff --git a/arch/arm64/kvm/hyp/hyp-constants.c b/arch/arm64/kvm/hyp/hyp-constants.c
-> index 501ab35a3840..b2caae21f271 100644
-> --- a/arch/arm64/kvm/hyp/hyp-constants.c
-> +++ b/arch/arm64/kvm/hyp/hyp-constants.c
-> @@ -7,6 +7,5 @@
->  int main(void)
->  {
->         DEFINE(STRUCT_HYP_PAGE_SIZE,    sizeof(struct hyp_page));
-> -       DEFINE(PKVM_HYP_VCPU_SIZE,      sizeof(struct pkvm_hyp_vcpu));
->         return 0;
->  }
-> diff --git a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-> index 8e930c8729af..cfb6e409bf49 100644
-> --- a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-> +++ b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-> @@ -83,8 +83,7 @@ void pkvm_hyp_vm_table_init(void *tbl);
->  int __pkvm_reserve_vm(void);
->  void __pkvm_unreserve_vm(pkvm_handle_t handle);
->  int __pkvm_init_vm(struct kvm *host_kvm, void *pgd);
-> -int __pkvm_init_vcpu(pkvm_handle_t handle, struct kvm_vcpu *host_vcpu,
-> -                    unsigned long vcpu_hva);
-> +int __pkvm_init_vcpu(pkvm_handle_t handle, struct kvm_vcpu *host_vcpu);
->
->  int __pkvm_reclaim_dying_guest_page(pkvm_handle_t handle, u64 gfn);
->  int __pkvm_start_teardown_vm(pkvm_handle_t handle);
-> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> index c1aa6d773c26..9bab1e802281 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> @@ -610,10 +610,9 @@ static void handle___pkvm_init_vcpu(struct kvm_cpu_context *host_ctxt)
->  {
->         DECLARE_REG(pkvm_handle_t, handle, host_ctxt, 1);
->         DECLARE_REG(struct kvm_vcpu *, host_vcpu, host_ctxt, 2);
-> -       DECLARE_REG(unsigned long, vcpu_hva, host_ctxt, 3);
->
->         host_vcpu = kern_hyp_va(host_vcpu);
-> -       cpu_reg(host_ctxt, 1) = __pkvm_init_vcpu(handle, host_vcpu, vcpu_hva);
-> +       errno_to_smccc(__pkvm_init_vcpu(handle, host_vcpu), host_ctxt);
->  }
->
->  static void handle___pkvm_vcpu_in_poison_fault(struct kvm_cpu_context *host_ctxt)
-> diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> index 09f609db8556..fffd2f4bc071 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> @@ -645,30 +645,6 @@ static size_t pkvm_get_hyp_vm_size(unsigned int nr_vcpus)
->                 size_mul(sizeof(struct pkvm_hyp_vcpu *), nr_vcpus));
->  }
->
-> -static void *map_donated_memory_noclear(unsigned long host_va, size_t size)
-> -{
-> -       void *va = (void *)kern_hyp_va(host_va);
-> -
-> -       if (!PAGE_ALIGNED(va))
-> -               return NULL;
-> -
-> -       if (__pkvm_host_donate_hyp(hyp_virt_to_pfn(va),
-> -                                  PAGE_ALIGN(size) >> PAGE_SHIFT))
-> -               return NULL;
-> -
-> -       return va;
-> -}
-> -
-> -static void *map_donated_memory(unsigned long host_va, size_t size)
-> -{
-> -       void *va = map_donated_memory_noclear(host_va, size);
-> -
-> -       if (va)
-> -               memset(va, 0, size);
-> -
-> -       return va;
-> -}
-> -
->  static void __unmap_donated_memory(void *va, size_t size)
->  {
->         kvm_flush_dcache_to_poc(va, size);
-> @@ -896,16 +872,15 @@ static int register_hyp_vcpu(struct pkvm_hyp_vm *hyp_vm,
->         return 0;
->  }
->
-> -int __pkvm_init_vcpu(pkvm_handle_t handle, struct kvm_vcpu *host_vcpu,
-> -                    unsigned long vcpu_hva)
-> +int __pkvm_init_vcpu(pkvm_handle_t handle, struct kvm_vcpu *host_vcpu)
->  {
->         struct pkvm_hyp_vcpu *hyp_vcpu;
->         struct pkvm_hyp_vm *hyp_vm;
->         int ret;
->
-> -       hyp_vcpu = map_donated_memory(vcpu_hva, sizeof(*hyp_vcpu));
-> +       hyp_vcpu = hyp_alloc(sizeof(*hyp_vcpu));
->         if (!hyp_vcpu)
-> -               return -ENOMEM;
-> +               return hyp_alloc_errno();
->
->         hyp_spin_lock(&vm_table_lock);
->
-> @@ -926,24 +901,12 @@ int __pkvm_init_vcpu(pkvm_handle_t handle, struct kvm_vcpu *host_vcpu,
->         }
->  unlock:
->         hyp_spin_unlock(&vm_table_lock);
-> -
->         if (ret)
-> -               unmap_donated_memory(hyp_vcpu, sizeof(*hyp_vcpu));
-> +               hyp_free(hyp_vcpu);
-> +
->         return ret;
->  }
->
-> -static void
-> -teardown_donated_memory(struct kvm_hyp_memcache *mc, void *addr, size_t size)
-> -{
-> -       size = PAGE_ALIGN(size);
-> -       memset(addr, 0, size);
-> -
-> -       for (void *start = addr; start < addr + size; start += PAGE_SIZE)
-> -               push_hyp_memcache(mc, start, hyp_virt_to_phys);
-> -
-> -       unmap_donated_memory_noclear(addr, size);
-> -}
-> -
->  int __pkvm_reclaim_dying_guest_page(pkvm_handle_t handle, u64 gfn)
->  {
->         struct pkvm_hyp_vm *hyp_vm = get_pkvm_hyp_vm(handle);
-> @@ -993,7 +956,7 @@ int __pkvm_start_teardown_vm(pkvm_handle_t handle)
->
->  int __pkvm_finalize_teardown_vm(pkvm_handle_t handle)
->  {
-> -       struct kvm_hyp_memcache *mc, *stage2_mc;
-> +       struct kvm_hyp_memcache *stage2_mc;
->         struct pkvm_hyp_vm *hyp_vm;
->         struct kvm *host_kvm;
->         unsigned int idx;
-> @@ -1014,7 +977,6 @@ int __pkvm_finalize_teardown_vm(pkvm_handle_t handle)
->         hyp_spin_unlock(&vm_table_lock);
->
->         /* Reclaim guest pages (including page-table pages) */
-> -       mc = &host_kvm->arch.pkvm.teardown_mc;
->         stage2_mc = &host_kvm->arch.pkvm.stage2_teardown_mc;
->         reclaim_pgtable_pages(hyp_vm, stage2_mc);
->         unpin_host_vcpus(hyp_vm->vcpus, hyp_vm->kvm.created_vcpus);
-> @@ -1036,7 +998,7 @@ int __pkvm_finalize_teardown_vm(pkvm_handle_t handle)
->                         unmap_donated_memory_noclear(addr, PAGE_SIZE);
->                 }
->
-> -               teardown_donated_memory(mc, hyp_vcpu, sizeof(*hyp_vcpu));
-> +               hyp_free(hyp_vcpu);
->         }
->
->         hyp_free(hyp_vm);
-> diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-> index a9b85ad37787..3b29b3f43ffa 100644
-> --- a/arch/arm64/kvm/pkvm.c
-> +++ b/arch/arm64/kvm/pkvm.c
-> @@ -153,28 +153,19 @@ static void __pkvm_destroy_hyp_vm(struct kvm *kvm)
->
->         kvm->arch.pkvm.handle = 0;
->         kvm->arch.pkvm.is_created = false;
-> -       free_hyp_memcache(&kvm->arch.pkvm.teardown_mc);
->         free_hyp_memcache(&kvm->arch.pkvm.stage2_teardown_mc);
->  }
->
->  static int __pkvm_create_hyp_vcpu(struct kvm_vcpu *vcpu)
->  {
-> -       size_t hyp_vcpu_sz = PAGE_ALIGN(PKVM_HYP_VCPU_SIZE);
->         pkvm_handle_t handle = vcpu->kvm->arch.pkvm.handle;
-> -       void *hyp_vcpu;
->         int ret;
->
->         init_hyp_stage2_memcache(&vcpu->arch.pkvm_memcache);
->
-> -       hyp_vcpu = alloc_pages_exact(hyp_vcpu_sz, GFP_KERNEL_ACCOUNT);
-> -       if (!hyp_vcpu)
-> -               return -ENOMEM;
-> -
-> -       ret = kvm_call_hyp_nvhe(__pkvm_init_vcpu, handle, vcpu, hyp_vcpu);
-> +       ret = pkvm_call_hyp_req(__pkvm_init_vcpu, handle, vcpu);
->         if (!ret)
->                 vcpu_set_flag(vcpu, VCPU_PKVM_FINALIZED);
-> -       else
-> -               free_pages_exact(hyp_vcpu, hyp_vcpu_sz);
->
->         return ret;
->  }
-> --
-> 2.55.0.508.g3f0d502094-goog
->
-> To unsubscribe from this group and stop receiving emails from it, send an email to kernel-team+unsubscribe@android.com.
->
+    GPIO65: fsel2 = qdss_cti_trig1_in_mirb, fsel3 = qdss_cti_trig1_out_mire
+    GPIO66: fsel2 = qdss_cti_trig1_out_mirb, fsel3 = qdss_cti_trig1_in_mire
+
+Both map to the same name because the driver uses one coarse
+"qdss_cti_trig1" for the in/out mirror variants.
+
+Listing the function on both funcsels is the normal sdx convention for
+these mirror pairs - the in-tree drivers do it, including the same pins
+on sdx65:
+
+    - sdx55 [16][17][22][23][54][55][94][95] → in pinctrl-sdx55.c, pins
+16, 17, 22, 23, 54, 55, 94, 95 each repeat qdss_cti at two funcsels.
+    - sdx65 [65]/[66] → in pinctrl-sdx65.c, pins 65 and 66 do it —
+    - sdx75 [16][52][53][56][57][78][79] → in pinctrl-sdx75.c, those pins
+do it.
+
+Only funcsel 2
+is selectable from DT (first-match), which is expected and matches those
+drivers.
+
+Best Wishes
+
+Hardeep Sharma
+
 
