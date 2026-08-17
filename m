@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FB2DC5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 22:22:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2219C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 22:22:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XF8cb9U+V+GSAfsXb/sFGag3v7S7sIUwnt8Qrau/Dp4=; b=e2TI7LmqMndNk0ch3CgbXMffdl
-	t9IpLFMGvIkpna2LYDlwx4pIzALKrq8Zta2Dcqoj3kUWWeY8gMVZOltNS529vosfrhak4R/MRdFCm
-	oPsaXHDr5PoQQYoYs+aZ6RQtZ0lV3Uunic41eBagKAenbfAS34QDqO4DqdAi3yqsoVf6LZo5vtHXA
-	tZpRPqd1UJ1S+pb6RfS0DTA5jZ+CMaKWEFqbQoMPEp9UCuiPXkbWzzXYeLGXO4zBd7tBS6CCsAUer
-	750dhgJiCCOg+rL88/n9EmxFmOPDHXy6pSUKXe0/T0ZT8vB0pAZ3LAyi4ajy5v4dz9uF35c/7Sf+M
-	08itHXDg==;
+	bh=fcOjNh83Gg6HFDGJpbZwAA6h6Wl/YrAEepi9Zg4D8Ok=; b=BPMeX1qK9/H3DwY5+GMub/mE4a
+	KrVC5hLVMX8t/rWY/kD+yiymv8Kmmpga04y0PxLUrwH4+OnFkQJpQV4r57Ws8qESi4NUrNaTw1BZ/
+	emxXjt16YjLFcEklPrvQnpGqkrQYAznSIb0BiFPr6BNcIVWVVXKc5CqkD/AgKtanoZQnD7PhxEKp0
+	Oh7YZ9Dcwj5Idkxwx7xlSsSn2rxXGUWxPXsAYAVoWIFRkf8CwFN9f4n6oFEYuUShwGQH8Pdoh4vMd
+	85NF+6ovBt4/o47HWJ7Wp7Q8TCgGk5P/+mD0bVbCu8Suo3PiNA9FtthlRruUBz1ULfGQe8YHIeXvV
+	oSGicGIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww5jH-00000006uM8-0HUn;
-	Mon, 17 Aug 2026 22:22:51 +0000
-Received: from mx0b-00082601.pphosted.com ([67.231.153.30])
+	id 1ww5jG-00000006uLW-3DQw;
+	Mon, 17 Aug 2026 22:22:50 +0000
+Received: from mx0a-00082601.pphosted.com ([67.231.145.42])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww5j9-00000006uHq-3VPZ
+	id 1ww5j9-00000006uHn-37bT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 22:22:47 +0000
-Received: from pps.filterd (m0109331.ppops.net [127.0.0.1])
-	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67HLoAXP1515142;
+	Mon, 17 Aug 2026 22:22:46 +0000
+Received: from pps.filterd (m0109333.ppops.net [127.0.0.1])
+	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67HLoD5w1568991;
 	Mon, 17 Aug 2026 15:22:23 -0700
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fb.com; h=cc
 	:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=
-	pps82601-s2048-2026-q3; bh=XF8cb9U+V+GSAfsXb/sFGag3v7S7sIUwnt8Qr
-	au/Dp4=; b=hWZ/ppc/qnLublOcFUDb9uvAhRk6NctJr4scv9JUp+wCb0KP8gpWS
-	U5C/FHbGInOYydSgs6ZV/NrBxHh7R3x8o2W7oUFHXeSv1FWZ3ixRBRVXjZ7EbSvi
-	ngPRqnER7Lo/73cohKpM7QkD1MyANMznhxLx29vWdC3yRT8Sl5B0tNQ6NoiqHz1K
-	hFps5hxvv+2ljAISDBaEOqoQ2LeyR3TTU0uOQb56ISLuBAyPm7NzbsvV8Z6UdR1N
-	7mx+NWwuR1MebGQzGZ0FjNCqm1lnDhJKVvX23ZHmYJxUl+CpFOGwvteEv5guyPqC
-	xv5s0BUZSzTkG8BdLhddpc9JpqbAxfnLQ==
+	pps82601-s2048-2026-q3; bh=fcOjNh83Gg6HFDGJpbZwAA6h6Wl/YrAEepi9Z
+	g4D8Ok=; b=acy0N6IbraVT/NecS434c3ymxGbUWtkhBvwJH310BmkalZHvn4K7j
+	Bd9mbIcIYItD3L43GY2Pj9jOTR7Am3GW7H58mSOqitioNBjDOda6stU6cWWr+J3A
+	jiRdBeXEIkCgWURuo5Mu8PsrBTGu8/YhovWd9YGsIsuccLGyNfRWLAl8AngJD56W
+	2Ak4a6K6x7t+HepkH0T/p/M0kY4cXp8lH5dVOB/gJYVwCULSI/P56T3doRgDM46F
+	LGE1KMCFvTk/HKZw4EiAvD/Qzm6op+tfWuMW89sbqqPBJDubkLDAPmBKE3002XVW
+	+3mGRoHVqSvXYK08KPZauvkONmfdniEBA==
 Received: from mail.thefacebook.com ([163.114.134.16])
-	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4g2nx9v064-2
+	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4g2m516h9a-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Mon, 17 Aug 2026 15:22:23 -0700 (PDT)
-Received: from localhost (2620:10d:c085:108::150d) by mail.thefacebook.com
- (2620:10d:c08b:78::c78f) with Microsoft SMTP Server (version=TLS1_2,
+	Mon, 17 Aug 2026 15:22:22 -0700 (PDT)
+Received: from localhost (2620:10d:c085:208::f) by mail.thefacebook.com
+ (2620:10d:c08b:78::2ac9) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.45; Mon, 17 Aug
  2026 22:22:22 +0000
 From: Amir Ayupov <aaupov@fb.com>
@@ -72,39 +72,40 @@ CC: <linux-doc@vger.kernel.org>, Mike Leach <mike.leach@arm.com>,
         Shuah Khan <skhan@linuxfoundation.org>,
         Swapnil
  Sapkal <swapnil.sapkal@amd.com>
-Subject: [PATCH v2 2/5] perf cs-etm: Split up cs_etm__process_timestamped_queues()
-Date: Mon, 17 Aug 2026 15:22:17 -0700
-Message-ID: <ac33d12949419373516ca02f2972c7e0af01c069.1787005265.git.aaupov@fb.com>
+Subject: [PATCH v2 1/5] perf dlfilter: Add non-empty branch stack filter
+Date: Mon, 17 Aug 2026 15:22:16 -0700
+Message-ID: <58f96797f94467859fec160320a7b9426be8cce7.1787005265.git.aaupov@fb.com>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <cover.1787005265.git.aaupov@fb.com>
 References: <cover.1787005265.git.aaupov@fb.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-Originating-IP: [2620:10d:c085:108::150d]
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODE3MDE3MSBTYWx0ZWRfXwqbQqbh7N9vZ
- kMG6KYAFSXSGf13LoBU3Ty6R+7tQJQtHTnSGBV6pxlHt1VrTyGnIZl4lOu+upps60aBRfgeDx8J
- oZXbO3N+fJRSCu1vHpfc+2ojQBS0zPA=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODE3MDE3MSBTYWx0ZWRfX7VaFG2YT19Zt
- 3SdWi9HPY7QKv+TOR4UKiy5gROgiiqPsVmhzFdl5MvPeBr/WTMR8pN4uOPr4x/dw4+el3hC2ymm
- YCm/+Unt77vY/GYIxeNSa59kU9FvgwPEjGfpFn4NM863ri/v7RUky52qvVh9pHfljU+uh4aY+gu
- 39aBu9EgISNsB3VtddJzVDrkfvTYrj3T0QsrmE/jO5pexg9Bnwpr/TYruln2nTVskEkTNTu9mjR
- NLmJ7pkIh6bQJHNo0nRbtZtd1XVNJUgNQT7PFhrT7DLfNZT4N3HM3iqdg1T+t3v59+2cx3YqFWu
- QaLtYalATUwlVYx4pXgXwhT6ZU/omZMArYfdoV2jy7+69PVm1poFztbQKTvXzCIPflZ1Ah5kN6l
- GZA9nLFmPLL6fvv9zwlJT16p/+hsWb1vmeOn4bxpbbgDMg3cITpZKWKkochSilIJRej+C3YdHPp
- UzFkshhdoMvqQ1ET1AQ==
-X-Proofpoint-GUID: -NVO-2kNuPnbpx6GVH61LRminefBMhDz
-X-Proofpoint-ORIG-GUID: -NVO-2kNuPnbpx6GVH61LRminefBMhDz
-X-Authority-Analysis: v=2.4 cv=D7t37PRj c=1 sm=1 tr=0 ts=6a83899f cx=c_pps
+X-Originating-IP: [2620:10d:c085:208::f]
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODE3MDE3MSBTYWx0ZWRfX+2mldDsupIRo
+ 1lIsmoKUEegP8JvhX2XHnWW27TKbEyyzvrWKsMNwqno23F3qQ1iKrMlucv3uM5eC4kAk/bi5Wwi
+ s3b5H4x4C8se/H5VOmlUsGQImOWYFkw=
+X-Authority-Analysis: v=2.4 cv=W9cIkxWk c=1 sm=1 tr=0 ts=6a83899e cx=c_pps
  a=CB4LiSf2rd0gKozIdrpkBw==:117 a=CB4LiSf2rd0gKozIdrpkBw==:17
  a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=7x6HtfJdh03M6CCDgxCd:22
- a=wpfVPzegXHpEFt3DAXn9:22 a=FOH2dFAWAAAA:8 a=nEhC7NrZ7_LQuKocUF8A:9
+ a=tpM8CJlwf7uhpglF1g9U:22 a=FOH2dFAWAAAA:8 a=KKAkSRfTAAAA:8
+ a=V9ESVAem-2N_HGRc-uMA:9 a=cvBusfyB2V15izCimMoJ:22
+X-Proofpoint-GUID: vE5hBX1EEVsbfIHBGa-MQBuLixTyL6WD
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODE3MDE3MSBTYWx0ZWRfXxCROpaD7YfDG
+ gHmeABRCoFSbVXlW7Qh1mI7z3HrQgLu0viiABMkF56My67jZGbh+u/YzEpH29Y/2ECyQpEtoOF8
+ pG3DSWVNk9IvKN+infIdj9yoe9S9YRKb3OKtT/o2As337RelASj70SJHNbE+J1gt3fyMsiECCe2
+ c0ohp9hFVUsBBdifup5ydKFCqxSoQw/PRzIsYtfvYLCm9fo+kODPfY/BF4WuGws8gWtdRKftoLA
+ mSN7jLVvh9B9+ps7srRkGghCeg+B+j8S1dd6WqJSUB49MlCxhsDmL50RNmJxi4OrJmbaTPrc4/U
+ 4FvARLCAwJfXc0V6yOf/Guei0FhGJT4CCCrhHD+iUVRs+D1/TnBCauQd37gI4LK0yEPR5uX6Tzm
+ ZD5cnc0jAfjISDEhTFb4mBL3WA4V6Di+D70t4meoMVRR64MUc7IC1DAWR9e69lg9GgBvr8HoIkA
+ RyKD/ourwaKLrKhNVWA==
+X-Proofpoint-ORIG-GUID: vE5hBX1EEVsbfIHBGa-MQBuLixTyL6WD
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-08-17_04,2026-08-12_01,2025-10-01_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_152243_997331_62DD118D 
-X-CRM114-Status: GOOD (  23.00  )
+X-CRM114-CacheID: sfid-20260817_152243_833766_DEEC23B5 
+X-CRM114-Status: GOOD (  16.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,185 +120,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-cs_etm__process_timestamped_queues() currently does three things: it seeds
-the auxtrace heap with one entry per queue, it decodes until the heap is
-empty, and it then walks every traceID queue to flush whatever is left in
-the branch stacks. That is fine while the only caller is
-cs_etm__flush_events(), which runs once, but it does not survive the
-function being called repeatedly.
+--itrace=L adds decoded branch history to existing samples, but a sample
+that was recorded while the decoder had no trace for that thread keeps an
+empty branch stack. Consumers of the resulting perf script output, such
+as profile generators for context-sensitive PGO, have no use for those
+samples.
 
-Seeding cannot be repeated because a queue that still holds a heap slot
-would be seeded again, adding duplicate entries and growing the heap
-without bound. Flushing cannot be repeated either, because ending a block
-finalises state that later trace still needs.
-
-Move both out. Seeding becomes cs_etm__update_queues(), gated on
-queues.new_data so it only runs when new AUX data has been queued, with
-etmq->on_heap tracking whether a queue currently occupies a heap slot;
-this mirrors intel_pt_update_queues() and intel_pt_queue::on_heap.
-Flushing becomes cs_etm__flush_timestamped_queues(). What remains is the
-decode loop on its own, which a later patch can then drive incrementally.
-
-No functional change: the sole caller performs the same three steps in the
-same order.
+Add an opt-in dlfilter that drops samples whose parsed branch stack is
+empty, so users can exclude them without changing default sample
+semantics. Build and install it alongside perf's existing dlfilters.
 
 Assisted-by: Devmate:GPT-5.6
 Signed-off-by: Amir Ayupov <aaupov@fb.com>
+Reviewed-by: James Clark <james.clark@linaro.org>
 ---
- tools/perf/util/cs-etm.c | 71 ++++++++++++++++++++++++++++++++++------
- 1 file changed, 61 insertions(+), 10 deletions(-)
+ tools/perf/Makefile.perf                      |  1 +
+ .../dlfilters/dlfilter-nonempty-brstack.c     | 26 +++++++++++++++++++
+ 2 files changed, 27 insertions(+)
+ create mode 100644 tools/perf/dlfilters/dlfilter-nonempty-brstack.c
 
-diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
-index 114b3cd2da495..4d895f11deb7f 100644
---- a/tools/perf/util/cs-etm.c
-+++ b/tools/perf/util/cs-etm.c
-@@ -136,9 +136,13 @@ struct cs_etm_queue {
- 	 */
- 	struct intlist *own_traceid_list;
- 	u32 sink_id;
-+	/* Whether this queue currently occupies a slot in etm->heap */
-+	bool on_heap;
- };
+diff --git a/tools/perf/Makefile.perf b/tools/perf/Makefile.perf
+index 29cfd44c427f3..750bd1cce1287 100644
+--- a/tools/perf/Makefile.perf
++++ b/tools/perf/Makefile.perf
+@@ -425,6 +425,7 @@ PROGRAMS += $(OUTPUT)$(LIBJVMTI)
+ endif
  
-+static int cs_etm__update_queues(struct cs_etm_auxtrace *etm);
- static int cs_etm__process_timestamped_queues(struct cs_etm_auxtrace *etm);
-+static int cs_etm__flush_timestamped_queues(struct cs_etm_auxtrace *etm);
- static int cs_etm__process_timeless_queues(struct cs_etm_auxtrace *etm,
- 					   pid_t tid);
- static int cs_etm__get_data_block(struct cs_etm_queue *etmq);
-@@ -939,6 +943,8 @@ static int cs_etm__flush_events(struct perf_session *session,
- 	struct cs_etm_auxtrace *etm = container_of(session->auxtrace,
- 						   struct cs_etm_auxtrace,
- 						   auxtrace);
-+	int ret;
-+
- 	if (dump_trace)
- 		return 0;
+ DLFILTERS := dlfilter-test-api-v0.so dlfilter-test-api-v2.so dlfilter-show-cycles.so
++DLFILTERS += dlfilter-nonempty-brstack.so
+ DLFILTERS := $(patsubst %,$(OUTPUT)dlfilters/%,$(DLFILTERS))
  
-@@ -953,7 +959,15 @@ static int cs_etm__flush_events(struct perf_session *session,
- 		return cs_etm__process_timeless_queues(etm, -1);
- 	}
- 
--	return cs_etm__process_timestamped_queues(etm);
-+	ret = cs_etm__update_queues(etm);
-+	if (ret)
-+		return ret;
-+
-+	ret = cs_etm__process_timestamped_queues(etm);
-+	if (ret)
-+		return ret;
-+
-+	return cs_etm__flush_timestamped_queues(etm);
- }
- 
- static void cs_etm__free_traceid_queues(struct cs_etm_queue *etmq)
-@@ -1330,6 +1344,8 @@ static int cs_etm__queue_first_cs_timestamp(struct cs_etm_auxtrace *etm,
- 	 */
- 	cs_queue_nr = TO_CS_QUEUE_NR(queue_nr, trace_chan_id);
- 	ret = auxtrace_heap__add(&etm->heap, cs_queue_nr, cs_timestamp);
-+	if (!ret)
-+		etmq->on_heap = true;
- out:
- 	return ret;
- }
-@@ -2767,23 +2783,30 @@ static int cs_etm__process_timeless_queues(struct cs_etm_auxtrace *etm,
- 	return 0;
- }
- 
--static int cs_etm__process_timestamped_queues(struct cs_etm_auxtrace *etm)
+ # what 'all' will build and 'install' will install, in perfexecdir
+diff --git a/tools/perf/dlfilters/dlfilter-nonempty-brstack.c b/tools/perf/dlfilters/dlfilter-nonempty-brstack.c
+new file mode 100644
+index 0000000000000..9e66205b841d5
+--- /dev/null
++++ b/tools/perf/dlfilters/dlfilter-nonempty-brstack.c
+@@ -0,0 +1,26 @@
++// SPDX-License-Identifier: GPL-2.0
 +/*
-+ * Seed the heap with one entry from each queue that is not already
-+ * represented in it, so that decoding proceeds in time order across all
-+ * queues. Only queues that have newly queued data need to be considered.
++ * dlfilter-nonempty-brstack.c: Filter out samples with no branch stack
++ * Copyright (c) 2026, Meta Platforms, Inc.
 + */
-+static int cs_etm__update_queues(struct cs_etm_auxtrace *etm)
- {
- 	int ret = 0;
--	unsigned int cs_queue_nr, queue_nr, i;
--	u8 trace_chan_id;
--	u64 cs_timestamp;
--	struct auxtrace_queue *queue;
-+	unsigned int i;
- 	struct cs_etm_queue *etmq;
--	struct cs_etm_traceid_queue *tidq;
++#include <stddef.h>
 +
-+	if (!etm->queues.new_data)
-+		return 0;
++#include <perf/perf_dlfilter.h>
 +
-+	etm->queues.new_data = false;
- 
- 	/*
- 	 * Pre-populate the heap with one entry from each queue so that we can
--	 * start processing in time order across all queues.
-+	 * start processing in time order across all queues. Skip queues that
-+	 * already occupy a heap slot, otherwise they would be added twice.
- 	 */
- 	for (i = 0; i < etm->queues.nr_queues; i++) {
- 		etmq = etm->queues.queue_array[i].priv;
--		if (!etmq)
-+		if (!etmq || etmq->on_heap)
- 			continue;
- 
- 		ret = cs_etm__queue_first_cs_timestamp(etm, etmq, i);
-@@ -2791,6 +2814,19 @@ static int cs_etm__process_timestamped_queues(struct cs_etm_auxtrace *etm)
- 			return ret;
- 	}
- 
-+	return ret;
++int filter_event(void *data, const struct perf_dlfilter_sample *sample, void *ctx)
++{
++	/* Return 1 to filter out the sample, 0 to keep it */
++	return !sample->brstack_nr;
 +}
 +
-+static int cs_etm__process_timestamped_queues(struct cs_etm_auxtrace *etm)
++const char *filter_description(const char **long_description)
 +{
-+	int ret = 0;
-+	unsigned int cs_queue_nr, queue_nr;
-+	u8 trace_chan_id;
-+	u64 cs_timestamp;
-+	struct auxtrace_queue *queue;
-+	struct cs_etm_queue *etmq;
-+	struct cs_etm_traceid_queue *tidq;
++	static char *long_desc =
++		"Instruction trace decoders can add branch history to existing "
++		"samples, but samples that were recorded while no trace was "
++		"being collected get an empty branch stack. Filter those out so "
++		"that only samples carrying branch history remain.";
 +
- 	while (1) {
- 		if (!etm->heap.heap_cnt)
- 			break;
-@@ -2807,6 +2843,7 @@ static int cs_etm__process_timestamped_queues(struct cs_etm_auxtrace *etm)
- 		 * to process it.
- 		 */
- 		auxtrace_heap__pop(&etm->heap);
-+		etmq->on_heap = false;
- 
- 		tidq  = cs_etm__etmq_get_traceid_queue(etmq, trace_chan_id);
- 		if (!tidq) {
-@@ -2874,7 +2911,21 @@ static int cs_etm__process_timestamped_queues(struct cs_etm_auxtrace *etm)
- 		 */
- 		cs_queue_nr = TO_CS_QUEUE_NR(queue_nr, trace_chan_id);
- 		ret = auxtrace_heap__add(&etm->heap, cs_queue_nr, cs_timestamp);
-+		if (ret)
-+			goto out;
-+		etmq->on_heap = true;
- 	}
-+out:
-+	return ret;
++	*long_description = long_desc;
++	return "Keep only samples with a non-empty branch stack";
 +}
-+
-+/* Flush any branch stack entries left over once all trace is decoded */
-+static int cs_etm__flush_timestamped_queues(struct cs_etm_auxtrace *etm)
-+{
-+	int ret = 0;
-+	unsigned int i;
-+	struct cs_etm_queue *etmq;
-+	struct cs_etm_traceid_queue *tidq;
- 
- 	for (i = 0; i < etm->queues.nr_queues; i++) {
- 		struct int_node *inode;
-@@ -2893,7 +2944,7 @@ static int cs_etm__process_timestamped_queues(struct cs_etm_auxtrace *etm)
- 				return ret;
- 		}
- 	}
--out:
-+
- 	return ret;
- }
- 
 -- 
 2.52.0
 
