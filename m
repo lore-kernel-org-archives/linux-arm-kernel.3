@@ -4,85 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64F86C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 11:00:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF34BC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 11:06:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WgZek3MLzFeMHdXhhGCcqInoE60fl4kfr+VHKyEfYgE=; b=B2+rccrWyYLTxL+9KQff4BWD2w
-	g6n7aoZgm5XoXwn/8XOu/ADWGELN/4bpT015q4i/kDe387W5c5d71z6XkWheKP5MlMd7YkCIJ5qOP
-	+mX8ebashTE2ZPbeWuNTy+7BbeUhLRF7wlUt+uYuILnlqpz4D/WObzaoW0BeUJK6LaHLQmuDYZE/c
-	B2d310nPHMjyCd4lWpPFC3msHFuLsaWgwRoFiR+mci0ZW90vmBRaELYpH2iniQQtSb9g/TmvCaM0o
-	6IG+cG8MmF4HqIIXllqFy+8P2NrbxkElSjgDqE1o+ISqqSabOcS5r2Le5PN86HALz80qzG0x08ge3
-	ah30DdUw==;
+	bh=5YDm2MEhblHeSTo+p97BhcoDmU/H9pfWhKKQjOGcjQA=; b=dqKmlEkaQ+mNkodyleeHQOBshJ
+	P+/JoPiA1eipCwE95d56SljMF6fCVUCCwVW0LHdOrWfXHdKtQSnemyhwNcGSBTdVZB5xhvVHfOezY
+	hM2NFfQFC5zDuhkhZoFrQ87ABXGVaV7+vBMoNBE01gmBXyxoADD/xkcWMV2OmoDDYxHa9I/yjd41K
+	3nUeRJgoo9fBnsVVvH/ZCs/A35ypPgeGYxiSLplo1Msghwzq1T/u1AGo/Xd1nVVrvbysWtmxgKgvF
+	LG6I4jYLeEvUvMIcUwMi6kAcCGjvRCWSWqJmS9Bwg59tMOGr5cbZvSX+MduiznJBEUy6bkSZ69kSC
+	FQF9Hp1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvv5A-00000005zNX-1drp;
-	Mon, 17 Aug 2026 11:00:44 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wvvAK-00000005zcP-0JHI;
+	Mon, 17 Aug 2026 11:06:04 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvv59-00000005zNQ-0dff
+	id 1wvvAJ-00000005zcI-0rEY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 11:00:43 +0000
+	Mon, 17 Aug 2026 11:06:03 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 42BE0601DE;
-	Mon, 17 Aug 2026 11:00:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5064F1F00A3D;
-	Mon, 17 Aug 2026 11:00:41 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 374B2600AE;
+	Mon, 17 Aug 2026 11:06:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 463AE1F000E9;
+	Mon, 17 Aug 2026 11:06:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786964442;
-	bh=WgZek3MLzFeMHdXhhGCcqInoE60fl4kfr+VHKyEfYgE=;
+	s=k20260515; t=1786964761;
+	bh=5YDm2MEhblHeSTo+p97BhcoDmU/H9pfWhKKQjOGcjQA=;
 	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=jE5+qBcofa3iaptC/r1s6otVm61yiia6EbeDF8M6J3bdhI6AuC1AO+51CA8/Le0Q+
-	 Jq+BdJpzpvH5p8kv/c+Wc4d9TImQhXtP4P3hw8ylQ5qvq1DheTOwXLm0Z/z69nr8S9
-	 zGU7YuniCI6kaUMqD9YkstStFnq336Ae6H+ZasTwLDg5u8gY7otxTF0gACJHTh5eyN
-	 FXPYp8g80g+Wo6hFs59vii5q9SPs18mUwvmkIY9+GkiI+6ZDGelTNFD6qvEwbr3q48
-	 KcrgBSpXrpXr0BlJqr6vFEtvI/Q4ApeXcYAWnOf82szAjcfSAx0KI5hdZeSK0hYjr2
-	 ZkIENq2bha4tQ==
+	b=I0znWLArMuZUP6BdPh9ceJPBudigVPdyHP9unmmQ3yUEI36ROGSuALVz0IBdZejns
+	 NU/GYsmCm7CNeh8EgFq6ieWECKiQqPSNKxy7jS0JtkVstEWKCRRGLU5Qfsrrn3t7Oc
+	 B14yuqTS9VjaQE47UQDFUm6DRaaAfDy7K2v+oGiYxBYpTaK69YXSj4betyY5QU6WJf
+	 gG6rAcr508RL7I+VAKfygZ/g9xK5ZE/hDOgpbRV0CfFLl83jLvhZuB4pQ3C3WQBtoR
+	 e5a87+tWUux9PLKRkx0qqYZjhxMvs8Hm4gwHLREx4ikGvF4apHzHJjewqPJqxEvkoF
+	 bCi0G0uLPDsUQ==
 Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfauth.ams.internal (Postfix) with ESMTP id CFF901980043;
-	Mon, 17 Aug 2026 07:00:39 -0400 (EDT)
+	by mailfauth.ams.internal (Postfix) with ESMTP id EAE1D1980062;
+	Mon, 17 Aug 2026 07:05:59 -0400 (EDT)
 Received: from ams-imap-11 ([10.64.2.31])
-  by ams-compute-02.internal (MEProxy); Mon, 17 Aug 2026 07:00:39 -0400
-X-ME-Sender: <xms:1emCalKArvwvNmgaCKkLWBp44spTDS3Hj_8MpmN0uCk-0VSsycv0vQ>
-    <xme:1emCar8ivaBcTUFp-HIf0TgyWS8tAIuNW7FLrAu3KJhhOEK03kpUNRhIDDTyH89wC
-    7rI39k6Y5deLX_iRHOPV1XMVJcFdHO9uisq0y8DncYYr93VQVLI5QQ>
-X-ME-Proxy-Cause: dmFkZTGFUvGG64XM3aHdY4FfNtEGYmsaFPVJruv7HVb5v2o0qqPbtO0YoGtvtHfKaZwnBk
-    FOCn0qDvT5Xa8xaNUroCWfk1bYePNbxbkjOQUJxN3I3p0GnWn8s38tGqeST352hSjzEpRo
-    N+yYmchntE7ydUKwsED2FXXb12tjG5U3f4/Ea5fBtHOwqpGreH6W2QeJmUyEoxRVuJ2i96
-    pDu6xgg1EXMEncKmCSAzhEmFlVzHDFn5bQRx/7mNV6zC/Y2GuiI2F79Lr0WzfbwTiG2RkC
-    39uYQF3Eh6Cwb3bIwgWeobWy/vvhhvuykwjYMqqqdKexO11WlidV+Dyv+bZrWPIa8QhzR7
-    6ujRA7KxhSM5SCZr00yX183SRl1VIme2lwWQ1Wvy00IThid8mModNmch4OWd5GtA3p28VY
-    oxwIKAjJMPUceqFfHgjX+PO61zIvRfflljqRlOKSWcsh05T4EtTm3uqNpjq/Aadv9n5Arl
-    UR0cWqT08UdZa4oKpf81Ow4WFAc9N/SrIJqzQtAnstCR0r8wIc6mCgLDksmfUaMcNBb1tk
-    oKZKCuoywLbFHBtlfeN5lZXbI+YhNR4o9sE7tkjIqxFOXZS3kYAKujzicFnkKQlg281CJy
-    oTDrg7a7j2UaaWibCxknjjpwxB0APOVjWVUu8AZB/H4cG6xq2nbw07ry35Gg
-X-ME-Proxy: <xmx:1-mCapCHMpiJFeBG91Wj6Z9230jpPvZIjo9F-ajbTvOBKcuvBsjsrQ>
-    <xmx:1-mCaoOGvpqY5tzn1TlysnWF8iXqLWyAS_8fFBrey8f7S_IyD36dsg>
-    <xmx:1-mCaizMcfK9bCNNsS-cQTDPekbH4ErMeAXQ8gQRugLUsar53maiFA>
-    <xmx:1-mCaoXWwCpEqq7ERIiXJY07Xf7g55tWYrVjlhDFEc76SklptaE3Bg>
-    <xmx:1-mCakMwTQEF5PJ3TvZH1ZlK32efmBGjxaV7aJmRkXQ8m-9qzLp3xw91>
+  by ams-compute-02.internal (MEProxy); Mon, 17 Aug 2026 07:05:59 -0400
+X-ME-Sender: <xms:FeuCalPl3nblAg5cLX2Sdy9YMy-qJ_OEri82lyj4BmpAN8qR-E_0QQ>
+    <xme:FeuCaiwKAx3Nghd8c6xu9MMl23Zmx5VnpWk4vO16BRzxSqVRAP6g9cO6WvTnKen5b
+    jWbJG5LclKcruDGJA26P6CxbiM5h77xc4HgvwbHQjl3W09NRPdamkX->
+X-ME-Proxy-Cause: dmFkZTGQTHdWnJJCE22d/zqJDKF+JU5EHgBWnubh5cfMqZ6YpZC4QRyAcPIogwmsD7ZFvV
+    rpjOfIO7lr1q9eqfc3+CiXePGWFmdsM14RQa6WX2LKGHS1r/tHa+O1ao3urpQREtRewSHc
+    95m/2eg3vmA0WPhirsiFjG9t1Tj3PRGHDWnebRQFHUi5zIzq4Mfnkao6G6YiF3iP7bZRS8
+    IHR8yLciD4LE4B6OfJXkjWTT/ZczxC8BLxtrr+PGPg4KmcNAxm19G5CJzDoapvlrSbEybn
+    saX8AxbVSnMbpLAjW28JIQNo+itVuegoqNASFwyfn3u5IeUtYs4ZxaV15k5DHxvqzhiHew
+    cz5fUSxiHAKmlFd/EfY3HXC3PkP0TpK1r5YG+JJqNkzVG0pVmRgz3y+F5Tp7sIVMjXLc0Y
+    n27yPSeTCjuMXiCb/2OOAF49v8nDGcfXApjhVVEC/s/of89/B3uOyeRYcDPvbVaENbrk39
+    fwxgd4y5lndWRdIQ0jgR5PkbVnS0rtUAYJ8qwrGdZNYqEMsACbIvPhbVtbbOIh1OCMxcM5
+    OJmXnxyHbCdmfXCtNaBFWhVns2A2XYtv+o0ppWnUGTOol9ryIPzlk7cwHlxOanFvVlpI8/
+    qbcEcUqtr5+QPmT1lTIFC8PDIBfpi59InZ0g0Ru+ckDtGOTgosh8s6avroNw
+X-ME-Proxy: <xmx:F-uCamR3yQ3UVMcC3FBLKa86uKdnNdCGhaZugOJXDlCkift2hjSaqg>
+    <xmx:F-uCalL5oXnNVuUoeykyhNvQgRpFUnAtMM2wTykZ3aR_5rar7o_pHQ>
+    <xmx:F-uCasURjhNqoi7z8gj46235HXGKnvmh5rgqe7W8yRRxnyouJuXYKA>
+    <xmx:F-uCahgNSWu-nM8MqIbUnmZmvTFeAo2bKqp9gpzLlVMrZ4c5UziwUQ>
+    <xmx:F-uCagspqxAsWBDGMykXhxBbnCdtTVM5pchvScjv7hvAyLUvfcz6wkRv>
 Feedback-ID: ice86485a:Fastmail
 Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 63442F8006E; Mon, 17 Aug 2026 07:00:37 -0400 (EDT)
+	id 2C96CF80070; Mon, 17 Aug 2026 07:05:57 -0400 (EDT)
 X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Date: Mon, 17 Aug 2026 14:00:16 +0300
+Date: Mon, 17 Aug 2026 14:05:36 +0300
 From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Leif Lindholm" <leif.lindholm@oss.qualcomm.com>
-Cc: linux-efi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- "Huacai Chen" <chenhuacai@kernel.org>, "WANG Xuerui" <kernel@xen0n.name>,
- loongarch@lists.linux.dev
-Message-Id: <92baff04-d30b-4174-b5f5-87b24e6a1cc0@app.fastmail.com>
-In-Reply-To: <aoLR9BPGt4Kzbr3y@leviathan>
-References: <20260813074506.643472-5-ardb@kernel.org>
- <20260813074506.643472-7-ardb@kernel.org> <an8xTBiCy_PEuwZi@leviathan>
- <a0d10b63-bf9a-4ad7-a9d8-ab748a9c0c2c@app.fastmail.com>
- <aoLR9BPGt4Kzbr3y@leviathan>
-Subject: Re: [PATCH 2/3] efi: Pass EFI boot memmap struct address to core kernel
+To: "Josh Poimboeuf" <jpoimboe@kernel.org>,
+ "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ live-patching@vger.kernel.org, "Song Liu" <song@kernel.org>,
+ "Miroslav Benes" <mbenes@suse.cz>, "Petr Mladek" <pmladek@suse.com>,
+ "Joe Lawrence" <joe.lawrence@redhat.com>,
+ "Mark Rutland" <mark.rutland@arm.com>, "Mark Brown" <broonie@kernel.org>,
+ "Nick Desaulniers" <ndesaulniers@google.com>, "Kees Cook" <kees@kernel.org>,
+ "Nathan Chancellor" <nathan@kernel.org>, linux-toolchains@vger.kernel.org
+Message-Id: <73bdec09-a2dd-4693-aa30-12fab36e7a18@app.fastmail.com>
+In-Reply-To: <a9662e64de17882d2ef2401bad0d8172ef48bc4b.1786768375.git.jpoimboe@kernel.org>
+References: <cover.1786768375.git.jpoimboe@kernel.org>
+ <a9662e64de17882d2ef2401bad0d8172ef48bc4b.1786768375.git.jpoimboe@kernel.org>
+Subject: Re: [PATCH 03/12] arm64/bti: Fix BTI linker failures with long branches into
+ .idmap.text
 Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -99,205 +103,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Josh,
 
-
-On Mon, 17 Aug 2026, at 12:18, Leif Lindholm wrote:
-> On Mon, Aug 17, 2026 at 11:41:51 +0300, Ard Biesheuvel wrote:
->> On Fri, 14 Aug 2026, at 18:16, Leif Lindholm wrote:
->> > On Thu, Aug 13, 2026 at 09:45:09 +0200, Ard Biesheuvel wrote:
->> >> The EFI stub already passes a struct efi_boot_memmap populated with the
->> >> information of the EFI memory map as a configuration table, and so
->> >> passing the physical address, size, descriptor size and descriptor
->> >> version via 4 different DT properties is kind of redundant.
->> >> 
->> >> Instead, pass the physical address of this struct in memory so that the
->> >> kernel can just retrieve the values directly.
->> >> 
->> >> Unfortunately, the scheme with four separate properties is boot ABI for
->> >> Xen, and so this needs to remain supported.
->> >
->> > To clarify, you mean boot ABI when running under Xen?
->> >
->> 
->> Yes. We've allowed Xen dom0 to omit the EFI stub entirely, and boot the
->> kernel proper in EFI mode, passing the EFI system table and memory map
->> addresses via these special DT properties.
->> 
->> >> But for the EFI stub itself,
->> >> this is just an internal ABI that can be modified.
->> >
->> > Hmm...
->> >
->> > So this leaves only three properties that cannot be derived from the
->> > System Table:
->> > - The System Table address itself
->> > - kaslr-seed
->> > - bootargs
->> >
->> > The latter two could also be given the config table treatment.
->> >
->> 
->> The latter two are generic boot ABI for the arm64 kernel, and there
->> is no need to treat them differently for EFI boot. Note that we also
->> support passing the initrd directly via DT when doing EFI boot, rather
->> than via the EFI specific device path.
+On Sat, 15 Aug 2026, at 07:45, Josh Poimboeuf wrote:
+> On a kernel whose text exceeds the +/128MB direct branch range, the
+> linker inserts veneers.  With BTI enabled, the veneers' indirect branch
+> targets need a BTI landing pad, which not all functions have starting
+> with Clang 21 (and for all versions of GCC).
 >
-> Ah, yes, noted.
+> In such cases the linker can emit a second veneer close to the target
+> which has the landing pad along with a direct branch to the target.  But
+> a long branch to .idmap.text never gets one because it's missing the
+> executable section flag.
 >
->> > Is it time to update the boot ABI to say x0 will hold the physical
->> > address of "device tree blob (dtb) or EFI System Table in system RAM"?
->> > They can be distinguished by 0xd00dfeed / "IBI SYST".
->> 
->> Let's avoid 'boot ABI' here, given that we are talking about an internal
->> interface between the EFI stub and the kernel proper.
+> With the LLVM linker, it's a silent failure, presumably only discovered
+> by a BTI exception at runtime.  With the GNU linker it's even worse, as
+> it dereferences the missing stub/veneer group entry and seg faults (this
+> was how I discovered it).
 >
-> It's an internal business in the topic under discussion, but if we
-> were to change it, that would mean updating booting.rst, which I
-> consider an ABI.
+> Make sure the section is executable by adding the "x" flag to all the
+> creators of the input section.
 >
-
-But not an external ABI. It documents specifically how the EFI stub
-interfaces with the kernel proper. This might change at any point,
-without any obligation whatsoever to remain compatible with the
-previous method.
-
->> This internal interface uses DT under the hood, even on ACPI platforms,
->> because it simplifies the early boot code. I don't think we should change
->> this.
->> 
->> Also, the DT provided by the bootloader (if any) may differ from the one
->> passed by the EFI stub, and so discovering the DT from the EFI system
->> table is not straight-forward - they are not the same, and making them
->> the same may have unintended side effects.
+> Also manually add "bti c" to primary_entry() and enter_vhe(), otherwise
+> the linker-generated veneer page pushes the .idmap.text past its
+> asserted 4KB size:
 >
-> Right, but this confusion exists precisely because of the two ways the
-> device tree can be accessed with the curreent design.
+>   ld.bfd: ID map text too big or misaligned
 >
-
-Both the EFI stub and the kernel have precisely one way to access the
-platform provided device tree each: the EFI stub uses the config table,
-and the kernel proper uses what is passed via X0.
-
-I don't think that should change, whatever we decide wrt passing the EFI
-system table pointer. The whole point of the EFI stub is impedance
-matching between the EFI loading/calling convention and the Linux/arm64
-boot ABI, and so passing the DTB, iff received via a EFI config table, on
-to the kernel in register X0 is literally its purpose in life.
-
-It would be nice if the EFI stub could pass the pristine DT without
-modifying it, so there is less ambiguity about where certain DT
-properties came from, but I don't think it justifies deviating from the
-above.
-
->> > The use of a generated DT when none was provided by firmware has led
->> > to both confusion and shenanigans, and might be nice to get rid of?
->> >
->> 
->> I don't disagree with that. But that would imply adding new code to the
->> early startup code doing command line parsing and KASLR randomization to
->> reason about whether these assets are passed via DT or via some other means.
->
-> I take your point about the invasiveness, so won't pursue that further
-> at this time. But I can't promise I won't bring it up again eventually :)
->
-
-Happy to debate this further at any point in the future :-)
-
->> What would make sense imo is to pass the EFI system table address via X1
->> when doing EFI boot, so we don't have to get anything at all from the DT.
->
-> That certainly sounds like a clear improvement.
->
-
-Ack. I'll prototype that to see how it looks.
-
-...
->> > Minor bikeshedding below.
->> >
->> >> @@ -123,8 +134,24 @@ u64 __init efi_get_fdt_params(struct efi_memory_map_data *mm)
->> >>  			pr_err("Can't find property '%s' in DT!\n", pname);
->> >>  			return 0;
->> >>  		}
->> >> -		if (dt_params[i].paravirt)
->> >> +		if (IS_ENABLED(CONFIG_XEN) && dt_params[i].paravirt) {
->> >>  			set_bit(EFI_PARAVIRT, &efi.flags);
->> >> +		} else {
->> >
->> > This condition branch doesn't in fact have anything to do with the fdt.
->> > Should it still live in fdtparams.c?
->> >
->> 
->> I don't follow. The EFI_PARAVIRT flag is set based on whether we are 
->> using the generic or the Xen-specific set of DT properties. What would
->> be a better place to decide this?
->
-> Apologies, I may have commented confusingly - my comment was about the
-> else branch:
->
-> +
-> +                       bm = early_memremap_ro(memmap, sizeof(*bm));
-> +                       if (!bm) {
-> +                               pr_err("Cannot remap EFI boot memory map\n");
-> +                               return 0;
-> +                       }
-> +
-> +                       mm->phys_map            = memmap + sizeof(*bm);
-> +                       mm->size                = bm->map_size;
-> +                       mm->desc_size           = bm->desc_size;
-> +                       mm->desc_version        = bm->desc_ver;
-> +
-> +                       early_memunmap(bm, sizeof(*bm));
->
-> So to restate - this function is called from efi_init():
+> Link: https://sourceware.org/bugzilla/show_bug.cgi?id=34525
+> Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
 > ---
->         /* Grab UEFI information placed in FDT by stub */
->         efi_system_table = efi_get_fdt_params(&data);
->         if (!efi_system_table)
->                 return;
-> ---
+>  arch/arm64/kernel/cpu-reset.S | 2 +-
+>  arch/arm64/kernel/head.S      | 7 ++++---
+>  arch/arm64/kernel/hyp-stub.S  | 1 +
+>  arch/arm64/kernel/sleep.S     | 2 +-
+>  arch/arm64/mm/proc.S          | 8 ++++----
+>  5 files changed, 11 insertions(+), 9 deletions(-)
 >
-> Before this set, this function called get_fdt_params() indeed gets
-> "params" from a device tree. After this set, this function gets params
-> from a device tree in some instances, and not in others.
-> Which feels suboptimal.
->
-> We could rename the function, but then there's still DT-unrelated
-> code held in fdtparams.c.
->
-> If we go down the route of passing the system table in x1 on boot,
-> then I guess the effect of assigning efi_system_table will already be
-> broken out. But should we then split the mm struct initialisation into
-> separate DT and config table helper functions?
->
+> diff --git a/arch/arm64/kernel/cpu-reset.S b/arch/arm64/kernel/cpu-reset.S
+> index c87445dde6745..9943a7c70f6b0 100644
+> --- a/arch/arm64/kernel/cpu-reset.S
+> +++ b/arch/arm64/kernel/cpu-reset.S
+> @@ -14,7 +14,7 @@
+>  #include <asm/virt.h>
+> 
+>  .text
+> -.pushsection    .idmap.text, "a"
+> +.pushsection    .idmap.text, "ax"
+> 
 
-Not disagreeing but I think it is fine to leave it as I suggested at this
-point.
+We've had issues in the past with this change.
 
-Some additional work is needed to get rid of linux,uefi-boot-memmap
-entirely, and until that happens, passing the EFI system table via
-X1 and linux,uefi-boot-memmap via DT is not a huge improvement.
+The problem is that the ID map is restricted to a single page, and
+[some versions of] the GNU linker concatenate generated veneers onto
+whichever executable input section came last in the input, which was
+this one at that point.
 
-linux,uefi-boot-memmap is needed when SetVirtualAddressMap() is called
-[with a non-1:1 mapping], as the EFI system table contains a remapped
-address of the config table array in that case.
+That resulted in the ID map start/end boundaries being placed further
+apart than the linker asserts would tolerate, even though the generated
+code in question would never be called via the 1:1 mapping.
 
-There are currently two remaining reasons why calling
-SetVirtualAddressMap() is required:
-- some Ampere boxes crash otherwise (but these systems tolerate SVAM
-being called with a 1:1 mapping)
-- kernel configs with a VA space < 48 bits are not guaranteed to be
-able to map the EFI runtime services 1:1, so there, SVAM is still
-needed as well.
-
-Both can be fixed, and I have been meaning to address the latter by
-always making the EFI runtime map (which is essentially a 1:1 map)
-use 48 bits of VA in all configs. (The ID map already does the same)
-
-Then, the former can be addressed by installing a 1:1 mapping when
-calling SVAM.
-
-That would remove the need entirely to ever call SVAM() on arm64,
-and therefore the need to pass the address of the EFI memory map
-separately.
-
+Not sure whether that problem has simply disappeared by now, or older
+versions of the linker may still trigger it. But it is something to be
+aware of.
 
