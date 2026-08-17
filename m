@@ -4,108 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B9DEC5DF66
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 09:00:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3E2FC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 09:03:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3OSbmtJaxuAXKm9wxovJJHMJ29/ztwYERcUJ/tlgLm4=; b=AD228VOvnIzR0Ggonuc8j0Q7No
-	Z4Xr45rlhH0ARgA8GVVoQP1tq0gmJZ5CvnwkQoqVsZliv2l+88ZNR++BrLTuKXsgkfkFTT9qTdv2v
-	iZA1KwlMaeKYlfyj6hndxT5qBTwk+3H9z1b1EYzh4FbL9T2lvFyQqY5olrKTSvwhwD6anB/rcK97D
-	58NFyhPI3O52y/5NlNSPMe2r5hiNeGIn4ddi+ms7QmAfuQXUeOTX6wCeLAvmF3k19q99i5hzUBJs/
-	dwB2xhjBgBxq8GOhWQcmbLeLbPEp/FGolgzcTC/58x2cLs6weUpOvyWPQsh+UqBCvJW97YVpJYYM7
-	64Ar2+zg==;
+	bh=M9T+8NIUGYBAR6mlNIug3Q6VvqG8vRRPcgCMH1v4erc=; b=GJzAcKQ3zyL3/GwB0SHSXnVB/V
+	zrmlTxW3qDF1Kttaq+Vp+cb06ff+3JrQD+FT6XbeJuSPRI7auh6ps53UhAEOIuzfhUAIPfCSBPAs8
+	Evfq6lQ+kzIBY0AM+b2QG5DCjsg679da3BkZHTrrJc1xmjfuEAgBqx066+ZZOjnK3rCokCaIjBcjD
+	Y6/xo8zIxm1UmdB8zDWbWRSffkOoICBFMdZTcBtNYY9+y9OTPU+Vw1qRJzEVzKOF9i9TGn6swKA31
+	5ZpECQdmNqjcqsB5rFXXuYxoKTT/1EiBZ/AfBGCODaXREiw692pK+u/SCS9ubt39avUkrfNe9ffaQ
+	tHzNHpLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvtCZ-00000005kzi-3hkd;
-	Mon, 17 Aug 2026 09:00:15 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1wvsag-00000005enC-2aUv;
+	Mon, 17 Aug 2026 08:21:06 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvtCW-00000005kzF-37yP
+	id 1wvsab-00000005ect-1SRj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 09:00:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1786957210;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=3OSbmtJaxuAXKm9wxovJJHMJ29/ztwYERcUJ/tlgLm4=;
-	b=Zjql0Si5/4zEBtBrvAfgQxo2UgFEIj5KhVEMGV4jKGDni/NHXz6pAxeYyr0NG2Tnqk1X0o
-	KdYtQiwGqgL9h2I7UzUK8PGxo6vKPEXCeG+0qKnkox7FJrSIDTmwIpLgFHZzVh5PgL03fc
-	0b0QUw6B7LzKyskSRKAIAReL9CrrNdQ=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-509-U-zUxgqdOj-UZFbCwXW1Dw-1; Mon, 17 Aug 2026 05:00:08 -0400
-X-MC-Unique: U-zUxgqdOj-UZFbCwXW1Dw-1
-X-Mimecast-MFC-AGG-ID: U-zUxgqdOj-UZFbCwXW1Dw_1786957208
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-4957287363bso18635785e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 02:00:08 -0700 (PDT)
+	Mon, 17 Aug 2026 08:21:02 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4954df200ddso21445805e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 01:21:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786954859; x=1787559659; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=M9T+8NIUGYBAR6mlNIug3Q6VvqG8vRRPcgCMH1v4erc=;
+        b=M3eTHYSolregJEXWCtXrq4pteXr7yVCTEvnX9GQVeIY4AWeYT4Kw849MkD7LhX+Rss
+         neV15GqtBav4LjyOc3r/H139HR4ycZ5s1WrXkrk7b6i7Q49wUB3TScPlKb0jHFhQl+uh
+         se1J2pA+cxv4zVVAuTcu9N2v/ZilHcTve9eLUcNnAZhEG8NxV6Yr9RprjnR9+EIUhXfx
+         a+Su0/p19VmMbcNAHpaft079740Oj9Ix/91l2eeJFS2inlnPXH0nsicrNCERJzlMzzXh
+         1wcZm3F0V5k3FXBDXmXC8uPTPcbVL3DN8D0S69PlkgFRxtny25HgFP5hh2hSum9AIER3
+         K/3A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786957208; x=1787562008;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:content-language:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=3OSbmtJaxuAXKm9wxovJJHMJ29/ztwYERcUJ/tlgLm4=;
-        b=dJ289HKjkaz7iAHHi+rsbvKnBwebpefkpPlEqgZa6+zeVJgGvY2A/J46MUMvZ1n/Qg
-         BWHo7b2GvCjVN0Iy/10vUICQYlJzOzUZe5KFwL6dyJGuFZ/805A2w9NlzJzaB4eptucP
-         IFJseKShwnz8+cgfydPY++fqYbRqubOQWr6dFm3Y7l/QIcSUfFo5EXZVXILuObtU+syF
-         T1fkxldT4uLZbPHQclilJGgG34ZZ16t5EsYO/6t21L1M1aQaVJgCE1g4gKXyQZPxe4pE
-         E0TQ/LGjD2sjxTQZ5x2ucNvvbGiRN1x5Sh67hdD6CYxLctWt/cJp/qg5qh18QTYwuVXm
-         Dk1g==
-X-Forwarded-Encrypted: i=1; AHgh+Rr4/Vhl9MqZDhkQapmHGJQKrtXgLU+NyJDH4dR5H7YXyFsYKIhMXW/vApxzlnNXRQN1THlqDBuonp3NYZJeSUd0@lists.infradead.org
-X-Gm-Message-State: AOJu0YyJwvR74uuEWbqlbdEOQ0XahVd0qjG/qdyLO0wkNqJkaq4lTGFf
-	rmQWVVYy4fCFcJ5cCTmlHeY7rNQdzXuJZ9McGT/7WSfmfwAIramDnJ7J8ZywPHO1416//KVrtql
-	42QR3t8hWGXb30tu488Znb+fJ3qq1QAdGV7dy3FGVpxikQ0EgttHO3luKIg9+yeGFTmgCLTZMrn
-	Zs
-X-Gm-Gg: AR+sD11q/WuSkZVj6KP2Y2J0m+GeY2a/gbjWsmRnF7O4X9aqJNNllLiiR4I9XBsUvFx
-	HnZNLJGiXCWQb3IVt+hJPVz9O6ZmrB0p+CO5rC+y4Epnn4117+gnwUYPocW0bd+kdbVNYeG8Aj0
-	QhaxINZKgHDffVgnTeW0A8X7JuYw1xOrr8IrKq1anj8qNP2cdF9UNhQvjxuVPxJGZHTCIZzzQla
-	gvrzWx4ISI5GXsUnTCN9270V8jPNjU9HRzk7EBMqIkZKQcyJt3WbsDF10nr1hTgucuIoCXo+3pf
-	bOt3brtcLrKPblesiMbYRBlq279ORupzxvSgs8UTn8+HLpQ6yJHHOM5405/X8mRFRwEIa2Ksoz9
-	40YgCwAjRrxVzF7e6wJeLnrLD/+SCMmuZhG6rI2e70rA=
-X-Received: by 2002:a05:600c:564a:b0:498:ff3:71ed with SMTP id 5b1f17b1804b1-49987993affmr279071005e9.17.1786957207591;
-        Mon, 17 Aug 2026 02:00:07 -0700 (PDT)
-X-Received: by 2002:a05:600c:564a:b0:498:ff3:71ed with SMTP id 5b1f17b1804b1-49987993affmr279069755e9.17.1786957206839;
-        Mon, 17 Aug 2026 02:00:06 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:f0e:9070:527b:9dff:feef:3874? ([2a01:e0a:f0e:9070:527b:9dff:feef:3874])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-482a5a31572sm2267922f8f.5.2026.08.17.02.00.05
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 17 Aug 2026 02:00:05 -0700 (PDT)
-Message-ID: <cccb848c-a1d7-4c6e-bc79-ce699f92d09a@redhat.com>
-Date: Mon, 17 Aug 2026 11:00:03 +0200
+        d=1e100.net; s=20251104; t=1786954859; x=1787559659;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=M9T+8NIUGYBAR6mlNIug3Q6VvqG8vRRPcgCMH1v4erc=;
+        b=loeg2NZKYPaOnHmHNvdX2YZlh60LuzijtAFm21t4AjfL4MvlZL60JmXwL3myIw893H
+         belr9HzSxu3cE5YSGzzLgy4pCpMemdlQsmCuBIduAj2ptivbhSWbjnMEsGk+/1MIreKL
+         iXQCjuhIhPYPUfO3FX4aQ79gKOATa77XPtAGXzk7ZPFuBA2js+q2y8BODEY0kzZq3+C1
+         o46LG7g4A3nBF9BA/jTid/mENfgkh8WgDbEgGMVc9+pKgU6reAX8yce7gJg3pYLdZDqy
+         jZjkYM6QzHWdwDBOIFv0uMDJ+QlFCZtfX29drBl0v1ade80UUJE2DTDZFO3mp0/LsHzZ
+         0BBQ==
+X-Forwarded-Encrypted: i=1; AHgh+RouxiNI3nWSgmpzVnItw2/usY4erHcG2Z6eEBeh+i8pjRbCIubGC85GKexneLlgzazPZTVnzw432YJCLu211br2@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz6VeRf6T1S0ihCpzBdmhu6H62ImuGs2VtwxMQrczVDuEL6rIGX
+	fDH5iw/jJj3c5JMA1j9KU8dcjy8OgTLq+9GkNT8bj/chFCPrCMrw9GL9
+X-Gm-Gg: AR+sD12pLL8TBjOcfb69pmwHlv0QmwRwEjiV08u3PN0ZcRYBi3DymaSyz5XVzJ2yzTN
+	e62R/2Pj0cQjgc9D0qPbwCOAz1nTG5jhetGgg56wbUYCuiHsIiAWehxTz1nNyFeDHylZ2il/HWM
+	um6W92B6bkuy15dkxIzuOKF8SdCnpM1gy5gNtXXCOTeNVLL6l1pekaXK6SM+hcqVPJ+lrVF4I1N
+	7S1ugWhjHr/+7+bzWpAnygDXf9TpZmsSsM0ieAj7WCs2qvFKc41vZyLwSSC8IPsaoeVtWTdP32c
+	pIw3sj1voYYvUVzXXDjlsUFpnSaiTjhy+Mk5oRZ6U4WEbgbgdw47wV/E2H3uFlQ/RqHfAtPGE6U
+	6a3snchqj6MP5ShpBfQ0G1CsuU0FEKz5SPoUnueSI7lmWjrjPocWZ9EpgzbJiJgyXJOn1eMuRe6
+	JD/mZ8tElU2odtuVysYex3lnQhl5ft51zqMfdE4II3vx3msN21AMZYRiJ7jp8pYW/86NQX3B2jT
+	8i9Lq0nQUrOJGDYBPP1hzVGOjxJ6YRmxlduYorq9D6wFmr1zhO/3lL1Wy7cDrseOW4=
+X-Received: by 2002:a05:600c:4f52:b0:493:f5bf:4dc6 with SMTP id 5b1f17b1804b1-4998793dafcmr362760695e9.7.1786954859332;
+        Mon, 17 Aug 2026 01:20:59 -0700 (PDT)
+Received: from Ansuel-XPS24.localdomain (host-79-40-190-175.business.telecomitalia.it. [79.40.190.175])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4999d078517sm19684195e9.5.2026.08.17.01.20.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Aug 2026 01:20:58 -0700 (PDT)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Christian Marangi <ansuelsmth@gmail.com>,
+	Lee Jones <lee@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Simon Horman <horms@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	netdev@vger.kernel.org,
+	mfd@lists.linux.dev,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net-next v20 08/10] net: dsa: mt7530: move MDIO bus locking into regmap
+Date: Mon, 17 Aug 2026 10:20:30 +0200
+Message-ID: <20260817082034.20326-10-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260817082034.20326-1-ansuelsmth@gmail.com>
+References: <20260817082034.20326-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/4] KVM: arm64: vgic-its: Don't dereference a NULL
- collection on ITT save
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
- Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>,
- Sascha Bischoff <sascha.bischoff@arm.com>,
- Sebastian Ene <sebastianene@google.com>, kvmarm@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260807104102.2410744-1-fuad.tabba@linux.dev>
- <20260807104102.2410744-2-fuad.tabba@linux.dev>
- <0ce5e496-a067-48fd-80d2-94fe9981d505@redhat.com>
- <CA+EHjTzsCgBbaJQpv1ne-0Xo_3wdwv-R1RWMabdLxiMjMh4peA@mail.gmail.com>
-From: Eric Auger <eauger@redhat.com>
-In-Reply-To: <CA+EHjTzsCgBbaJQpv1ne-0Xo_3wdwv-R1RWMabdLxiMjMh4peA@mail.gmail.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: PuT1QGrXhcibNMTamEo8cVjAI7wI2ZEQVb7ySGREd8k_1786957208
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_020012_898479_42F9C319 
-X-CRM114-Status: GOOD (  30.65  )
+X-CRM114-CacheID: sfid-20260817_012101_443003_5A2E5579 
+X-CRM114-Status: GOOD (  15.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,110 +120,230 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Fuad,
+From: Daniel Golle <daniel@makrotopia.org>
 
-On 8/15/26 2:18 AM, Fuad Tabba wrote:
-> Hi Eric,
-> 
-> On Fri, 14 Aug 2026 at 14:36, Eric Auger <eauger@redhat.com> wrote:
->>
->> Hi Fuad,
->>
->> On 8/7/26 12:40 PM, Fuad Tabba wrote:
->>> MAPC with V=0 drops ite->collection but leaves the ITE on the device's
->>> ITT list, and vgic_its_save_ite() dereferences it unconditionally. A
->>> guest that issues MAPD, MAPTI and then MAPC(V=0) therefore oopses the
->>> host when the VMM issues KVM_DEV_ARM_ITS_SAVE_TABLES to migrate it.
->> Thank you for fixing this bug!
->>> That sequence is UNPREDICTABLE per the architecture, but KVM already
->>> handles the resulting state in the translate, MOVI and DISCARD paths.
->> Maybe: "its_is_collection_mapped() already checks the collection is non
->> null in translate, movi and discard"
-> 
-> Agreed, that's more accurate. This went into kvmarm/next on the 8th
-> [1], so it's the comment rather than the commit message I can still
-> fix.
-sorry I did not notice. That's not a big deal either.
-> 
-> ...
-> 
->>> diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
->>> index 36ab3e4929154..ed281fbf008b9 100644
->>> --- a/arch/arm64/kvm/vgic/vgic-its.c
->>> +++ b/arch/arm64/kvm/vgic/vgic-its.c
->>> @@ -2119,6 +2119,14 @@ static int vgic_its_save_ite(struct vgic_its *its, struct its_device *dev,
->>>       u32 next_offset;
->>>       u64 val;
->>>
->>> +     /*
->>> +      * MAPC with V=0 keeps the ITEs mapped but drops their collection,
->>> +      * and with it the ICID. Save a zeroed entry, which the restore path
->>> +      * reads back as invalid.
->> in
->>
->> https://lore.kernel.org/all/CA+EHjTymdanCKoQO3ATmUZ=7Ph2wv4ES8SfkSsTgmOYAYBWayQ@mail.gmail.com/
->>
->> you also mentionned this can also happen on clearing
->> GITS_BASER<coll>.Valid clear. So maybe don't specifically focus on MAPC
->> in in the comment.
-> 
-> Yes, and the BASER case is the one that justifies the check: MAPC(V=0)
-> is UNPREDICTABLE, so it could be answered by dropping the ITEs, while
-> clearing GITS_BASER<coll>.Valid on a disabled ITS cannot. The comment
-> names only the case that doesn't. I'll send a patch on top to reword
-> it.
-OK
-> 
->>
->>
->>> +      */
->>> +     if (!ite->collection)
->>> +             return vgic_its_write_entry_lock(its, gpa, 0ULL, ite);
->> I would rather squash 4/4 here to emphasize we are unlinking that entry
->> from the scan chain.
-> 
-> 1/4 has Cc: stable and 4/4 isn't a fix, so I kept them apart. 4/4
-ok makes sense
-> doesn't make the write unnecessary either: an orphaned ITE with no
-> valid predecessor is read directly, regardless of the offsets.
-indeed
+The switch register regmap was created with .disable_locking = true,
+relying on callers to manually lock the MDIO bus. Move the locking
+into the regmap using .lock/.unlock callbacks, matching the PCS
+regmaps that already do this. This allows any code path reaching the
+regmap to be automatically protected.
 
-> 
->> Besides I also wonder if we should directly remove those entries from
->> the &device->itt_head on MAPC and GITS_BASER<coll>.Valid reset.
-> 
-> For MAPC(V=0) I think it works, and it would stop the event slot being
-> wedged: an orphaned ITE today can't be DISCARD-ed or remapped with
-> MAPTI. But the ITT entry has to be zeroed with it, the way DISCARD
-> does, or an earlier save's entry stays in the slot and restore fails
-> find_collection() on the destination. Oliver suggested the same on v1
-> [2].
-> 
-> That pairing is what makes me doubt the BASER reset. There we would be
-> zeroing every ITE of every mapped device from the GITS_BASER write
-> handler, which is an unbounded number of guest memory writes on a
-> register access, and unlike MAPC(V=0) that write isn't UNPREDICTABLE
-> to begin with.
+With regmap handling bus locking, the manual mt7530_mutex_lock/unlock
+wrappers in mt7530_write(), _mt7530_read(), mt7530_rmw() and
+mt7530_port_change_mtu() become redundant and are removed.
 
-Yes effectively this would imply to null the associated ITEs... On the
-other end, overwriting GITS_BASER<n>  while V already set looks rather
-far fetched but well ...
+The MT7531 indirect PHY access functions need serialization of their
+multi-step register sequences, but no longer need to hold bus->mdio_lock
+across the whole operation. Switch them to reg_mutex.
 
-Thanks
+core_write()/core_rmw() are the only remaining callers of
+mt7530_mutex_lock(). They access TRGMII core PHY registers via the
+clause 22 MMD indirect protocol -- a separate register space that
+bypasses regmap and needs manual bus->mdio_lock protection.
 
-Eric
-> Cheers,
-> /fuad
-> 
-> [1] https://lore.kernel.org/all/178621413198.380376.1272590130654213471.b4-ty@kernel.org/
-> [2] https://lore.kernel.org/all/anQQ3dcbk72N1g1a@kernel.org/
-> 
->> Thanks
->>
->> Eric>   next_offset = compute_next_eventid_offset(&dev->itt_head, ite);
->>>       val = ((u64)next_offset << KVM_ITS_ITE_NEXT_SHIFT) |
->>>              ((u64)ite->irq->intid << KVM_ITS_ITE_PINTID_SHIFT) |
->>
-> 
+Generated using the following semantic patch:
+
+// Remove mt7530_mutex_lock/unlock around single regmap-based calls.
+@@
+expression priv, reg, val;
+@@
+ {
+-	mt7530_mutex_lock(priv);
+-
+ 	mt7530_mii_write(priv, reg, val);
+-
+-	mt7530_mutex_unlock(priv);
+ }
+
+@@
+expression priv, reg, mask, set;
+@@
+ {
+-	mt7530_mutex_lock(priv);
+-
+ 	regmap_update_bits(priv->regmap, reg, mask, set);
+-
+-	mt7530_mutex_unlock(priv);
+ }
+
+@@
+expression p;
+identifier val;
+@@
+ {
+-	u32 val;
+-	mt7530_mutex_lock(p->priv);
+-	val = mt7530_mii_read(p->priv, p->reg);
+-	mt7530_mutex_unlock(p->priv);
+-	return val;
++	return mt7530_mii_read(p->priv, p->reg);
+ }
+
+@@
+expression priv;
+@@
+-	mt7530_mutex_lock(priv);
+ 	val = mt7530_mii_read(priv, MT7530_GMACCR);
+ 	...
+ 	mt7530_mii_write(priv, MT7530_GMACCR, val);
+-	mt7530_mutex_unlock(priv);
+
+@@
+expression priv, port;
+@@
+ 	INIT_MT7530_DUMMY_POLL(&p, priv, MT7531_PHY_IAC);
+-	mt7530_mutex_lock(priv);
++	mutex_lock(&priv->reg_mutex);
+
+@@
+expression priv;
+@@
+ out:
+-	mt7530_mutex_unlock(priv);
++	mutex_unlock(&priv->reg_mutex);
+
+Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+---
+ drivers/net/dsa/mt7530-mdio.c |  9 ++++++---
+ drivers/net/dsa/mt7530.c      | 36 ++++++-----------------------------
+ 2 files changed, 12 insertions(+), 33 deletions(-)
+
+diff --git a/drivers/net/dsa/mt7530-mdio.c b/drivers/net/dsa/mt7530-mdio.c
+index 784dd58a7158..422f785d2143 100644
+--- a/drivers/net/dsa/mt7530-mdio.c
++++ b/drivers/net/dsa/mt7530-mdio.c
+@@ -148,12 +148,14 @@ static const struct regmap_config regmap_config = {
+ 	.val_bits = 32,
+ 	.reg_stride = 4,
+ 	.max_register = MT7530_CREV,
+-	.disable_locking = true,
++	.lock = mt7530_mdio_regmap_lock,
++	.unlock = mt7530_mdio_regmap_unlock,
+ };
+ 
+ static int
+ mt7530_probe(struct mdio_device *mdiodev)
+ {
++	struct regmap_config rc = regmap_config;
+ 	struct mt7530_priv *priv;
+ 	struct device_node *dn;
+ 	int ret;
+@@ -207,8 +209,9 @@ mt7530_probe(struct mdio_device *mdiodev)
+ 			return PTR_ERR(priv->io_pwr);
+ 	}
+ 
+-	priv->regmap = devm_regmap_init(priv->dev, &mt7530_regmap_bus, priv,
+-					&regmap_config);
++	rc.lock_arg = &priv->bus->mdio_lock;
++	priv->regmap = devm_regmap_init(priv->dev, &mt7530_regmap_bus,
++					priv, &rc);
+ 	if (IS_ERR(priv->regmap))
+ 		return PTR_ERR(priv->regmap);
+ 
+diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
+index 2b7be091c056..d01772cfe3a2 100644
+--- a/drivers/net/dsa/mt7530.c
++++ b/drivers/net/dsa/mt7530.c
+@@ -188,29 +188,13 @@ mt7530_mii_read(struct mt7530_priv *priv, u32 reg)
+ static int
+ mt7530_write(struct mt7530_priv *priv, u32 reg, u32 val)
+ {
+-	int ret;
+-
+-	mt7530_mutex_lock(priv);
+-
+-	ret = mt7530_mii_write(priv, reg, val);
+-
+-	mt7530_mutex_unlock(priv);
+-
+-	return ret;
++	return mt7530_mii_write(priv, reg, val);
+ }
+ 
+ static u32
+ _mt7530_read(struct mt7530_dummy_poll *p)
+ {
+-	u32 val;
+-
+-	mt7530_mutex_lock(p->priv);
+-
+-	val = mt7530_mii_read(p->priv, p->reg);
+-
+-	mt7530_mutex_unlock(p->priv);
+-
+-	return val;
++	return mt7530_mii_read(p->priv, p->reg);
+ }
+ 
+ static u32
+@@ -226,11 +210,7 @@ static void
+ mt7530_rmw(struct mt7530_priv *priv, u32 reg,
+ 	   u32 mask, u32 set)
+ {
+-	mt7530_mutex_lock(priv);
+-
+ 	regmap_update_bits(priv->regmap, reg, mask, set);
+-
+-	mt7530_mutex_unlock(priv);
+ }
+ 
+ static void
+@@ -597,7 +577,7 @@ mt7531_ind_c45_phy_read(struct mt7530_priv *priv, int port, int devad,
+ 
+ 	ret = val & MT7531_MDIO_RW_DATA_MASK;
+ out:
+-	mt7530_mutex_unlock(priv);
++	mutex_unlock(&priv->reg_mutex);
+ 
+ 	return ret;
+ }
+@@ -645,7 +625,7 @@ mt7531_ind_c45_phy_write(struct mt7530_priv *priv, int port, int devad,
+ 	}
+ 
+ out:
+-	mt7530_mutex_unlock(priv);
++	mutex_unlock(&priv->reg_mutex);
+ 
+ 	return ret;
+ }
+@@ -681,7 +661,7 @@ mt7531_ind_c22_phy_read(struct mt7530_priv *priv, int port, int regnum)
+ 
+ 	ret = val & MT7531_MDIO_RW_DATA_MASK;
+ out:
+-	mt7530_mutex_unlock(priv);
++	mutex_unlock(&priv->reg_mutex);
+ 
+ 	return ret;
+ }
+@@ -717,7 +697,7 @@ mt7531_ind_c22_phy_write(struct mt7530_priv *priv, int port, int regnum,
+ 	}
+ 
+ out:
+-	mt7530_mutex_unlock(priv);
++	mutex_unlock(&priv->reg_mutex);
+ 
+ 	return ret;
+ }
+@@ -1452,8 +1432,6 @@ mt7530_port_change_mtu(struct dsa_switch *ds, int port, int new_mtu)
+ 	if (!dsa_is_cpu_port(ds, port))
+ 		return 0;
+ 
+-	mt7530_mutex_lock(priv);
+-
+ 	val = mt7530_mii_read(priv, MT7530_GMACCR);
+ 	val &= ~MAX_RX_PKT_LEN_MASK;
+ 
+@@ -1473,8 +1451,6 @@ mt7530_port_change_mtu(struct dsa_switch *ds, int port, int new_mtu)
+ 
+ 	mt7530_mii_write(priv, MT7530_GMACCR, val);
+ 
+-	mt7530_mutex_unlock(priv);
+-
+ 	return 0;
+ }
+ 
+-- 
+2.53.0
 
 
