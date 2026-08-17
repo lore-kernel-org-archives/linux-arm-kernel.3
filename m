@@ -4,108 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB98EC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 08:28:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3974C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 08:31:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MN0cvyBLl/Yf0HEK0e3keV9BG5lWd3AQZRn2j6pmwM4=; b=PrQ4G+Ei713EZWBpl4n5zOYKai
-	YBFXLDYAn3ApYGZgTEgRHTNbq1HryO/VmbsE3zPc4oYQBnXnzDNrpGZJpNi8uMVNnaQCP0xDqVv+L
-	xMvsqK7FwisCQ2gj3B+TSOm17kZq1/AszsOFVVxRPjYx10hOjLJcTaqBXg0Jhnpdi1UXhZIH30vi/
-	xdAmrQb9o8y5xjao4qxbSYfPWEf/vNODksIHt9Va3Ghzx/CHqsvamuIQe1poAsTRqXh9CtpfLCT8P
-	IzmG/Lb1NxPP+/TNw9VVjMuk+rGBT2WxOBLNVjveozv+zaEx9pjBsJ9ZgIx3K9wZMhcxI9yf3Qtp9
-	sE6sa0SA==;
+	bh=kj9UPD7yNU1rZZL7clJ6XwnELwdTPhFdY55NIi4wXmo=; b=Wm0rQ2T7kLfZDoq2D6ODHe5eP2
+	rn65ue4LfAGPCT2BSA6mSBAMzwOpTBm4LFRwNeBdopT7Z4hzw+1lJI578rB6eeOT1MhvUlJGhdSCv
+	yoY9DtfslgEGLHBkxwlVeolgwjE2xYBnRMSt65atNqsOh3PHdivhy7rEohzc70Slj+mMNjp1RZmOn
+	D8QhWWlYnNoepxxs6JnPLLqIrB6TX7CgGIJrCheqBLClgOU4GwUK3Spl6xp0sRXU9S2z4xM2YUaSj
+	Mf3ohELeqhOM4sxzlndQWuVkr9dQhw+OiX9O3NAyVF/aMs5JSyGH/vy2AvNimh38SG8HkKzFkFVgK
+	9fk0GiNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvsaY-00000005eaw-3QaJ;
-	Mon, 17 Aug 2026 08:20:58 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1wvsku-00000005hEv-4AWT;
+	Mon, 17 Aug 2026 08:31:41 +0000
+Received: from flow-a5-smtp.messagingengine.com ([103.168.172.140])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvsaQ-00000005eQB-1NJr
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 08:20:51 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-498028b3d5eso39385095e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 01:20:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786954848; x=1787559648; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=MN0cvyBLl/Yf0HEK0e3keV9BG5lWd3AQZRn2j6pmwM4=;
-        b=Kdb3rn0KzPhrFWUnLANezMwYW3Wvqt1wLD1QJhQ5oxzvRZcPQ8K1K6EZ6N88zMROa9
-         o+Hg2HF98Xl6q7DICZKU9rKkqnlPJQXO1+coWH5/CrVac5Xn7AizdehBpo1slRcFHC1r
-         ho2ctoG+K7Blw8+rN29Cu0DUsdDYxBm6aUEPGo5Yeqq3eL6eolz1jPwCT6Qv+WutBrkq
-         8hIpcnbjKlOvufksuzuND0mCFBTSmKHbDm+ffda0M92KSssO9XrJ4lP2MrIivUG+5JA6
-         lhb/w9wzwbsbSoPjUKqam5+Pbj3fkC5kA5qHsT0ykBxS2EMWPYchhepZHshjBnxLrpYB
-         RBxA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786954848; x=1787559648;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=MN0cvyBLl/Yf0HEK0e3keV9BG5lWd3AQZRn2j6pmwM4=;
-        b=JqYNaSvH4TiWzXK+5FCUgynCfeLjAhr+jf0sKGFmsjFjnG9PNjzXIhTmsArSLhtdFq
-         mxHgoXIs//ribNuMehfpNfus+ntzC6DMeXku8sqHyBxFpEXEDMnuQxeqRKHrQOvRSvF+
-         8biWqwtZNK6havbtxyn3qD8LE0KbYQS1p4Y/rufZq2BBsKem8Zwxt2DgoEtdvtM88r46
-         6AoOOBRmxPUEfWCClDMAKMt7bJ4bU7bNtLKiOrT6PdKzl9xzjld8nYfDmb2uS5ehjYUP
-         /jsrQFT8W3RsFFMkup2ev00bV1L6z296ChrOEo6W1vvhqMtb3+rT9W6BOSd13FBYg1eZ
-         sQtA==
-X-Forwarded-Encrypted: i=1; AHgh+RqGybeL4vmlao1FliUtzNvY+siFbN0QZ64zKnlZ8GjUsmNx3zHUFB1F1rinfoUq/m8g0CA5MgyYKymLkeJRnC2z@lists.infradead.org
-X-Gm-Message-State: AOJu0YyAhoq9vG3UOGelXo8/wNASePkr1Ooxm7jPRfnwkAJbR7q/SlEd
-	OIXClzaFWpJFSLLAV131WjJAQKFXE1YO1FLkoyP5PkfeKl1+5A8ePWSN
-X-Gm-Gg: AR+sD13jJb5pBUqKngPY5HqjDlVZ1U0ywZrh2vl4wg+Zz7s5gJfmOlMykXaL+hqKrHm
-	nD2Q0+q/r7oOkC14BKWHnHoggQx6wzB1EbCTdUE73N2FXCoGtKeOLP/iUYKtPjWao8WFIa0QuY6
-	i6lscWweAq8KG+YJamgxXDeFjZCKcshY9pFMkOinu/WPkWBUvK0jfJWFvda2To+zO5yujPcOdAJ
-	WH340V/KkxJ8oymwItL8YYsaV6bJhRe/HTuSUWMCoORj729fIHl7SAQY6+x3LAPLYCM70GRywYz
-	mN4S9+dCU3vz9/L00zB4S0HISYnVApkUpkczbXZEmOtSDmGukJf87txlwrKb19UHea1ajsTms+S
-	doP5y/P5O3MKwAbNW/2ysWhtKxgB2Zw+6UGHBA82/4gsqxJNpVZk8VC+gmWhulne1Z9CbmM+QHd
-	fmmyRXC/c+2NT6lvRDGkJzSZ+tYXicdPQn9tp3Z2G1Cs9sALGzvVt0vdgd/Mwgy+Al5QiThzm0w
-	+e38C0+A8yvE1dX/8DfdKRC3BjVIIglw11uI0nSW7RTiFLHzev2VCue
-X-Received: by 2002:a05:600c:1c22:b0:499:9a29:583b with SMTP id 5b1f17b1804b1-4999a29588bmr67529265e9.19.1786954848286;
-        Mon, 17 Aug 2026 01:20:48 -0700 (PDT)
-Received: from Ansuel-XPS24.localdomain (host-79-40-190-175.business.telecomitalia.it. [79.40.190.175])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4999d078517sm19684195e9.5.2026.08.17.01.20.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Aug 2026 01:20:47 -0700 (PDT)
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Christian Marangi <ansuelsmth@gmail.com>,
-	Lee Jones <lee@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"Chester A. Unal" <chester.a.unal@arinc9.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Simon Horman <horms@kernel.org>,
+	id 1wvsks-00000005hDy-15oc;
+	Mon, 17 Aug 2026 08:31:40 +0000
+Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
+	by mailflow.phl.internal (Postfix) with ESMTP id F17191380143;
+	Mon, 17 Aug 2026 04:31:34 -0400 (EDT)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-05.internal (MEProxy); Mon, 17 Aug 2026 04:31:34 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
+	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
+	:from:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=fm2; t=1786955494; x=
+	1786959094; bh=kj9UPD7yNU1rZZL7clJ6XwnELwdTPhFdY55NIi4wXmo=; b=P
+	aaws1DygV6CWPsT1yFuHmNr83IcgjVFY4tw6UsuWXJ10IboxcKYEHhiPdmub196i
+	ZRLNwJUSh8pt4TDsIYZRbMaC0Q99dK4NxLv1iwvtMh/fmXSRHVdVjtgWnfVkHDD4
+	rvDwvPaLRIABQ5TtcjXqJ9rYbk9h+VsHVAE7op5etzF9jB5vh25pjALQHpluStmK
+	bkcwZ/lQjOH2FJ0qwFIWt1Y8m0LUGggQRkLMr0D+EUfprc2MUo/YEWZ7aoR83WB1
+	5HHh1V3/0fZnBs7aH5m6095ra3cASmDqu6YsAMIA8JY6kfcQq1SUozMuRi15jMGs
+	SmX/oO03WThSFbliKrymA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
+	:x-me-sender:x-sasl-enc; s=fm3; t=1786955494; x=1786959094; bh=k
+	j9UPD7yNU1rZZL7clJ6XwnELwdTPhFdY55NIi4wXmo=; b=fusojT3AbeEoLiPbg
+	FLFOmF8zEwo96m/weet8nKzJyRvnM38kSuBqPzg7ECqeSIR6boAwgVcaBd86ud5T
+	a4jt29rb7R3Y94qFVUR5WGJOmGkBpbVjhTkf6WKtv/jenLZMuDFq4Jbb92/8gzLD
+	hASefWv8mDADa+BUKsiXNnnRUc7AO/VydbeqTjlrilkbB8m3PhfKJbnA5fmmKSFZ
+	IMj7z1mROBqlPvKORPuiDOSmCt2GoAsgImZrbtiDJ3gq41qFjGYEoXu0jSaRGaqr
+	m4Q1dZe1LtwWe9rpfnC33pg6sG3s8CLTsMQn93+5m2ipsencgOOZ3o/3DdBaBc3w
+	D078g==
+X-ME-Sender: <xms:5caCaj3Knhc7S12quhG9dCJdItmqlvkm_zj1TcdZf8lHydMNcFrtIg>
+    <xme:5caCaqT6_NDNjFsm1TT2XyIkxw4C9jCHglC-AgDiV7B8hMlvnS143-lZX0JIrKcYH
+    DoaV7yHGAImJR5c6iQ_leF8uxyJOPuxwlsGLIRrCzyAGFYTXkWINg7r>
+X-ME-Received: <xmr:5caCavfRkBWuY-wD9o2GjGN4dqOgJLkTlysp0cfUMlpm82J0J0tt3wtkmNrSR07PxG5T29lNUA>
+X-ME-Proxy-Cause: dmFkZTGlNFCMXBhh0Xuz13lLCPT1t5X10ZDK1t62HPqVbkp7Dk4pJngkT1MnhUQxOP8CBI
+    4Bww0yxB4Y+GycYYQ/Y7IrgOz9b/R/OsK5/UGU0LRv9/gimevfWVw8daqMdv+ION89QSgI
+    7s+zEFikrZPNx8xF19L11DeSbGzHrSaxR/TZSxJKcKRrdQZP00IgaOhCzh0paQccyuUEtf
+    2aKpu16E3ur/j753HClRzVnnvutPLto7r+KpP98IaiP2XVEFFj4Tk1xWJTf4Cqn+P1w2vU
+    SCEgsD3w6LJgJzhtuyjGaPlX/83O1ieb2n8w/ROZXZy+7jlI1TxEktInD61673lvBgJkR2
+    IhnZWTGA2wDU5qv9AXMyIXaCXEsC4pH0XzhjEU+A646uGzg9I9l491pxhJ5bZTz0Xy+OMA
+    39mt8uQOc6y0QRnv6YV2PsJ/EGdA9FhU3+OBTVJbhD7dGYnaaPiqssJQWFik5iyUneb2wf
+    hmlTQE4fxuBC8IZfNT/N0IDnFD/QV0XKSEUFXh9xo5hsmNnJEj86mOlovn0N/rXxaIyLta
+    9cDr67UATUOXLmsgbSBPQsvNj62l6wEoZWXNcVtHhqeWQXU7JlelgEzW8721nsZ3SWri0U
+    ck1TzFuhWY3g9JHWGxVws2DxVv6DFDn9IIa2t9Rb9T38dqvIUr1UUsqHhnaA
+X-ME-Proxy: <xmx:5caCajfWeW8AqWCzv1IQ8ExKG4Qjzab_mKuPgXnckUelnDKX43pnjA>
+    <xmx:5caCah3jVxF5N6An0rH8xxJdnhhaLTlSRrmGcpsstkNBHZj6NnC4oQ>
+    <xmx:5caCaj-UGNSkdzbFFAez5V5cQYcQApfPjwm1fJzgc9PkO0j_8DgbWQ>
+    <xmx:5caCau7Thn8zArVn3YylDAOsV9WClJrPdYApZiE-rjWUcpBHyVk4pg>
+    <xmx:5saCagFXsRUYpeT7IdJdCoUrDroJY46akElxp0Q0lGvuqnDB5pDBC7j0>
+Feedback-ID: i7a5e4b5f:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
+ 17 Aug 2026 04:31:28 -0400 (EDT)
+From: Jiaxing Hu <gahing@gahingwoo.com>
+To: royalnet026@gmail.com
+Cc: tomeu@tomeuvizoso.net,
+	heiko@sntech.de,
+	chaoyi.chen@rock-chips.com,
+	alchark@flipper.net,
+	dri-devel@lists.freedesktop.org,
+	linux-rockchip@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	netdev@vger.kernel.org,
-	mfd@lists.linux.dev,
-	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next v20 03/10] dt-bindings: mfd: Document support for Airoha AN8855 Switch SoC
-Date: Mon, 17 Aug 2026 10:20:24 +0200
-Message-ID: <20260817082034.20326-4-ansuelsmth@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260817082034.20326-1-ansuelsmth@gmail.com>
-References: <20260817082034.20326-1-ansuelsmth@gmail.com>
+Subject: Re: [PATCH v7 08/10] accel/rocket: add RK3576 NPU (RKNN) support
+Date: Mon, 17 Aug 2026 20:31:26 +1200
+Message-ID: <20260817083126.984173-1-gahing@gahingwoo.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <CAEWPSH7ETfw2TDjUfOvcVtDm19FC43x2vP=Lh7m+XPOGptnPWA@mail.gmail.com>
+References: <CAEWPSH7ETfw2TDjUfOvcVtDm19FC43x2vP=Lh7m+XPOGptnPWA@mail.gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_012050_400206_F3664B17 
-X-CRM114-Status: GOOD (  14.54  )
+X-CRM114-CacheID: sfid-20260817_013138_771107_003F1636 
+X-CRM114-Status: GOOD (  12.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,200 +112,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document support for Airoha AN8855 Switch SoC. This SoC expose various
-peripherals like an Ethernet Switch, a NVMEM provider and Ethernet PHYs.
+Hi Igor,
 
-It does also support i2c and timers but those are not currently
-supported/used.
+That is the measurement I could not make from here, and between your row and one
+of mine the question is answered.
 
-Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
----
- .../bindings/mfd/airoha,an8855.yaml           | 175 ++++++++++++++++++
- 1 file changed, 175 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/mfd/airoha,an8855.yaml
+The control you propose is not one I can run in that form. Upstream Mesa has no
+RK3576 path, so its encoder emits the RK3588 register layout, and this SoC does
+not share that layout at the same offsets. I would not expect the result to be a
+convolution at all, and I have not run it to find out.
 
-diff --git a/Documentation/devicetree/bindings/mfd/airoha,an8855.yaml b/Documentation/devicetree/bindings/mfd/airoha,an8855.yaml
-new file mode 100644
-index 000000000000..472da8384a30
---- /dev/null
-+++ b/Documentation/devicetree/bindings/mfd/airoha,an8855.yaml
-@@ -0,0 +1,175 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/mfd/airoha,an8855.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Airoha AN8855 Switch SoC
-+
-+maintainers:
-+  - Christian Marangi <ansuelsmth@gmail.com>
-+
-+description: >
-+  Airoha AN8855 Switch is a SoC that expose various peripherals like an
-+  Ethernet Switch, a NVMEM provider and Ethernet PHYs.
-+
-+  It does also support i2c and timers but those are not currently
-+  supported/used.
-+
-+properties:
-+  compatible:
-+    const: airoha,an8855
-+
-+  reg:
-+    maxItems: 1
-+
-+  reset-gpios: true
-+
-+  efuse:
-+    type: object
-+    $ref: /schemas/nvmem/airoha,an8855-efuse.yaml
-+    description: EFUSE exposed by the Airoha AN8855 SoC
-+
-+  ethernet-switch:
-+    type: object
-+    $ref: /schemas/net/dsa/airoha,an8855-switch.yaml
-+    description: Switch exposed by the Airoha AN8855 SoC
-+
-+  mdio:
-+    type: object
-+    $ref: /schemas/net/mdio.yaml#
-+    description: MDIO exposed by the Airoha AN8855 SoC
-+    unevaluatedProperties: true
-+
-+required:
-+  - compatible
-+  - reg
-+  - mdio
-+  - ethernet-switch
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/gpio/gpio.h>
-+
-+    mdio {
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+
-+        soc@1 {
-+            compatible = "airoha,an8855";
-+            reg = <1>;
-+
-+            reset-gpios = <&pio 39 GPIO_ACTIVE_HIGH>;
-+
-+            efuse {
-+                compatible = "airoha,an8855-efuse";
-+
-+                #nvmem-cell-cells = <0>;
-+
-+                nvmem-layout {
-+                    compatible = "fixed-layout";
-+                    #address-cells = <1>;
-+                    #size-cells = <1>;
-+
-+                    shift_sel_port0_tx_a: shift-sel-port0-tx-a@c {
-+                       reg = <0xc 0x4>;
-+                    };
-+
-+                    shift_sel_port0_tx_b: shift-sel-port0-tx-b@10 {
-+                        reg = <0x10 0x4>;
-+                    };
-+
-+                    shift_sel_port0_tx_c: shift-sel-port0-tx-c@14 {
-+                        reg = <0x14 0x4>;
-+                    };
-+
-+                    shift_sel_port0_tx_d: shift-sel-port0-tx-d@18 {
-+                       reg = <0x18 0x4>;
-+                    };
-+
-+                    shift_sel_port1_tx_a: shift-sel-port1-tx-a@1c {
-+                        reg = <0x1c 0x4>;
-+                    };
-+
-+                    shift_sel_port1_tx_b: shift-sel-port1-tx-b@20 {
-+                        reg = <0x20 0x4>;
-+                    };
-+
-+                    shift_sel_port1_tx_c: shift-sel-port1-tx-c@24 {
-+                       reg = <0x24 0x4>;
-+                    };
-+
-+                    shift_sel_port1_tx_d: shift-sel-port1-tx-d@28 {
-+                        reg = <0x28 0x4>;
-+                    };
-+                };
-+            };
-+
-+            ethernet-switch {
-+                compatible = "airoha,an8855-switch";
-+
-+                ports {
-+                    #address-cells = <1>;
-+                    #size-cells = <0>;
-+
-+                    port@0 {
-+                        reg = <0>;
-+                        label = "lan1";
-+                        phy-mode = "internal";
-+                        phy-handle = <&internal_phy1>;
-+                    };
-+
-+                    port@1 {
-+                        reg = <1>;
-+                        label = "lan2";
-+                        phy-mode = "internal";
-+                        phy-handle = <&internal_phy2>;
-+                    };
-+
-+                    port@5 {
-+                        reg = <5>;
-+                        label = "cpu";
-+                        ethernet = <&gmac0>;
-+                        phy-mode = "2500base-x";
-+
-+                        fixed-link {
-+                            speed = <2500>;
-+                            full-duplex;
-+                            pause;
-+                        };
-+                    };
-+                };
-+            };
-+
-+            mdio {
-+                #address-cells = <1>;
-+                #size-cells = <0>;
-+
-+                internal_phy1: ethernet-phy@1 {
-+                  compatible = "ethernet-phy-idc0ff.0410",
-+                               "ethernet-phy-ieee802.3-c22";
-+                  reg = <1>;
-+
-+                  nvmem-cells = <&shift_sel_port0_tx_a>,
-+                      <&shift_sel_port0_tx_b>,
-+                      <&shift_sel_port0_tx_c>,
-+                      <&shift_sel_port0_tx_d>;
-+                  nvmem-cell-names = "tx_a", "tx_b", "tx_c", "tx_d";
-+                };
-+
-+                internal_phy2: ethernet-phy@2 {
-+                  compatible = "ethernet-phy-idc0ff.0410",
-+                               "ethernet-phy-ieee802.3-c22";
-+                  reg = <2>;
-+
-+                  nvmem-cells = <&shift_sel_port1_tx_a>,
-+                      <&shift_sel_port1_tx_b>,
-+                      <&shift_sel_port1_tx_c>,
-+                      <&shift_sel_port1_tx_d>;
-+                  nvmem-cell-names = "tx_a", "tx_b", "tx_c", "tx_d";
-+                };
-+            };
-+        };
-+    };
--- 
-2.53.0
+What I can run is the vendor userspace, which is the same trade the other way
+around, same silicon and an entirely different stack. Five models, output tensor
+read as int8, the NPU interrupt count advancing by exactly one per run so
+each of them reached the hardware.
 
+  model    zero point   values below it            sitting exactly on it
+  a_lin       17          2478 of 4096    60.50%      32
+  a_lin2     -14          2420 of 4096    59.08%      41
+  g_cal       -8        108564 of 204800  53.01%    2551
+  pq_oc        0         62720 of 128576  48.78%    3136
+  w_160        0        236287 of 409600  57.69%    2877
+
+g_cal is conv2d-cal's geometry exactly, 16 input channels to 128 output over an
+80x80 surface, 5x5 at stride 2. pq_oc and w_160 carry conv2d-cal's zero point
+exactly, 0 in int8 being the 128 my tables report in uint8. So the geometry and
+the zero point are each covered by a model that does not clamp. The counts
+sitting on the zero point are 0.7 to 2.4 percent of the surface, which is close
+to what you measured on the other side and close to what the distribution gives.
+
+The grid now reads
+
+  RK3576, vendor userspace     does not clamp
+  RK3588, upstream Mesa        does not clamp, your run
+  RK3576, my Mesa              clamps
+
+The first and third rows are the same silicon. So the clamp is mine, and there
+is no hardware behaviour left for me to appeal to. Your third control is the one
+that makes your row carry weight, since fifteen channels off by one is something
+a delegate falling back to the CPU could not produce.
+
+I have not found it yet. The register stream is byte identical to the vendor's
+at this geometry apart from addresses, the requantisation, the pad value and the
+padding. A, B and C swapped one at a time from the vendor's records each leave
+the floor where it is. The weight buffer is the last thing I have not compared.
+
+The 88 and 120 sweep is queued for the next time the board is flashed, and I
+will send what it says either way.
+
+Jiaxing
 
