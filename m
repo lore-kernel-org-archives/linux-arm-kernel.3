@@ -4,135 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68FA0C5DF66
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 02:21:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A7A0C5DF66
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 02:22:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pkLyOjuFXoSog4wa8qTLt+EA1gJPhjPj7PkIMVeVaXY=; b=gh89mhbGvI0coiTrKD2Sbpop7e
-	3X1k5ztHD+s4ZzKJ5PSCygMYQbYpz4q2TWeCOA67tbwUAjzsVHIKYOodclAt2bPlItX0BoH0/RSWs
-	/D1EKo0M+X60NQ5iZTfKROVslIs9lj1mZy34S5GTAKfFeP1A5+TMUDbCv3o/uqmm6mA4bM1PJAWyc
-	upDGlGHckzg1yuYUlY1UrFDc2sQ7eyqYLGqJ3sMTLw4PxZHxf1E0k344SNxY6X0vR21DcCCv4xetF
-	oNn18K2iIFiEMQZBYfypTzf4WMfy0YvXIozW8hZb6Ni5oG42aqaIG7q5hM/cVwR1SN4Lrhfqkxg5+
-	GI5kIBWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=x9kex6Z3WEWdGPRk9qXlwnM8PV8rrpdTWy9hzLWAGRM=; b=u6U1FSfcB/Un2fsLewyfcC0GKH
+	3TNGOcBcpJuAdJ7fknaIZ0JPeF0+eMlcLHX3TailnevAyyV0mATktlmkm58hfcS66twy6cR87ZgLs
+	ZweNip/MG/a82NOEmPVRLNV4LlBecuUhpA+eMDeemCK+g3SDgPTkdpTuxAntOId0zrHDZYuSOjlqv
+	Ki9ssbGlsbheGfBxUW1kP+IAoPCj3lL6fbm/EnfA9JxaLkYCmpH6M1KiIO8Y7uGpbwewkphH6dhSZ
+	+Trl8UpnycsPV8plCVeAOXMU/HjHSLp8JuUKFfVZPJScX1hj49uRDxxKE5aKpCpOqLHXouvL6IULz
+	UJWRgWvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvmyt-00000005Izw-1Bnx;
-	Mon, 17 Aug 2026 02:21:43 +0000
-Received: from mail-eastus2azon11010058.outbound.protection.outlook.com ([52.101.56.58] helo=BN1PR04CU002.outbound.protection.outlook.com)
+	id 1wvmzu-00000005J8s-2AVn;
+	Mon, 17 Aug 2026 02:22:46 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvmyq-00000005IzW-1Ut3
+	id 1wvmzr-00000005J8H-1ziE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 02:21:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bsGb5Q2YxlE3CyHDkJCb/l/SNUCd7El17/2ZyGEipTwDA6znzp4eY3oFZH8m2DifuUKMKKeY/cr586pEbKcknwR5X8zcP61LstjCCbFIjTwMP33LKHKKOcDl01bBRj4PTLiNykYgs3HMpw2y4lluleh3QRdlw194WLi9VxEEbhJYKzBXUficO24lX6HN6wP5d+Fzd+FkLcibwWRTlnU717hYRyQNRRHEgUTF5FT6JsmUvzHLdeXf8cjvS6vcckZzZ6kz3kckab5rYvzq3GPzGL2DMO4iN01H+Wv88RwhDqpRM4lBVHbF3tliHGcoB43PvgSErmh3iWQ9l7Fuzv4YDQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pkLyOjuFXoSog4wa8qTLt+EA1gJPhjPj7PkIMVeVaXY=;
- b=G7IhZPXCviEGLobOLuY1oJ+x9da9d6qy3pwXQfbPHJ16z7VwO7ebOJa/hR+1S7CQrsfldFAysKI9/lBKFi4TxALLFyFefj/vkJkiU+XLzdNmHqGlfgwx0F5lz/UtEck2zffroEz0/l9IT3uNWT2UH2iwVLHGOW2yinHJy4G91EX/WIEHa+4jpEzL633b4VMNXc6xB0VsmKitKLpCqHPPwfSjZ2qBzCJzQw3p+dwAIEIx2iRmgILPiYBLWakRUE1h7FvWiScMmOcZEAfq3Wma3ndk8XbcAtIjiovQ7zHeIpejUkef6z/qEXD7qqmpWMkLwzfNBNyO9CUgOVb2lXGAtA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pkLyOjuFXoSog4wa8qTLt+EA1gJPhjPj7PkIMVeVaXY=;
- b=drsnkK81I8kfRrS3YErNgVshkZO00lQt5ZDGE0Ds3gBkTrHujESN0qIqOwJYydg41MtbLIpMKW1dBEA6J98Wrprrg8Mgtgk68+HZwsGTbZHlEJSDBDbcZJaAR5Q/TD1On2yzxILhlrfpKHVnZGo0WdQJQL6TpbCbMOaN7KCyNPL/qFRr4rzGZoC3L8VyA570NlBHePlvneRtZXobcdIIswbVrSd/izcW7+pVVSffrVTuFavv7jFDYMPXfkT04AbrC/4TkP3faHboOwqnVWdw/+zz3ZhUi+5Q++WWDLrNfclajQEd0DehhIlvB9yJgA61MOsU1nnz/zLJz5RnB9VMZQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CHXPR12MB999244.namprd12.prod.outlook.com
- (2603:10b6:610:2fc::17) by PH8PR12MB7304.namprd12.prod.outlook.com
- (2603:10b6:510:217::20) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.17; Mon, 17 Aug
- 2026 02:21:32 +0000
-Received: from CHXPR12MB999244.namprd12.prod.outlook.com
- ([fe80::168f:599c:f74d:7688]) by CHXPR12MB999244.namprd12.prod.outlook.com
- ([fe80::168f:599c:f74d:7688%4]) with mapi id 15.21.0315.016; Mon, 17 Aug 2026
- 02:21:32 +0000
-From: KobaK <kobak@nvidia.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	Fenghua Yu <fenghuay@nvidia.com>,
-	Tushar Dave <tdave@nvidia.com>,
-	Kai-Heng Feng <kaihengf@nvidia.com>,
-	rupakr@nvidia.com,
-	mohammedk@nvidia.com
-Subject: Re: [RFC PATCH v6 0/3] arm64: expose CPU prefetch and cache modulation controls
-Date: Mon, 17 Aug 2026 10:21:26 +0800
-Message-ID: <20260817022126.3-1-kobak@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260817014943.10-1-kobak@nvidia.com>
-References: <20260817014943.10-1-kobak@nvidia.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI1PR02CA0008.apcprd02.prod.outlook.com
- (2603:1096:4:1f7::14) To CHXPR12MB999244.namprd12.prod.outlook.com
- (2603:10b6:610:2fc::17)
+	Mon, 17 Aug 2026 02:22:44 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67GLDPaQ4119389
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 02:22:42 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=x9kex6Z3WEWdGPRk9qXlwnM8
+	PV8rrpdTWy9hzLWAGRM=; b=h449e2ON73OsHk9px/cswg7IFKCKrsbdpAfXeZfV
+	BjS9B0tqF6uMBE5v64QugdxRZzmb2KSSVg3Ly1eqNd6+Q8KySbXaEqfboUNsWrde
+	wmGxN85khnVugoeVeqMzUpvBxXmmWzj+KNJhBSmuc9H4ep2mTg589ORv4PDR3OX7
+	yt0lzIOnqJ3tsFx8qnct8hzy0ACZaTIIUapLACl7PR/X8DdOtjLGrBgXRCWNS5aM
+	Rnpwg7VfJOAYXNudAbr0TwSyuS2WDg5FqSOSK9SZucRSeh1og25JtQgrwrICQV2q
+	xihm2ZUGBFle1/hg7JnwgKhOfd9Hy865RgAmWvjmxPeh2A==
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4g2ghfcvnw-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 02:22:42 +0000 (GMT)
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2cfc52ddc55so43961305ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 16 Aug 2026 19:22:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1786933361; x=1787538161; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=x9kex6Z3WEWdGPRk9qXlwnM8PV8rrpdTWy9hzLWAGRM=;
+        b=ajoChiVYw5DJVPd/bv1FzCd3eQJVvstcJLuzU9xTd/MpuAddKxtGSA46M+RlvwVTfc
+         pkBtaeKdKUEdzJ1wGESOyysaGZZvnfLrWUzDqlNe0nRDRKuGlFzLdHgE9D5OyayXrPVW
+         lAuLrKwK4KkJ/ke4HwZpw6YNS3bO9XPc/aW5omrvpf6UHQl+XhPiarh4+IeHgyR5rSBO
+         5CSXVEyZ8aMYvgy9BAWqlTY5T1xR7cPQrMN9jwOQu3L01RaRvPMSq9Jy+E3HnZMC45Ev
+         RNBRvk3JJRi8Iv8Q8SZAPDIvpTyG9+M4aPxikHpeRriE0VWRSNqse0YOxq7em8cHJh1h
+         GWWA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786933361; x=1787538161;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=x9kex6Z3WEWdGPRk9qXlwnM8PV8rrpdTWy9hzLWAGRM=;
+        b=Wu+fX20FrweKwmCkPE+oAlT2aYdsbvhjG9c5eZab8DrACUX2yBrokoqwt86IOwdDor
+         xXHH33VLxgb6l9swznVDyTeCgDWMgNW130Dp28Y6J41Ykx/Oe5uS8HU4St5ZrLziHZRm
+         Azqt4k4/+7yVUJ3q7lD4slnNHtpJlRiDzqoPHiXuP+iR8/pRIxL47PaTh3pQH3410fvy
+         WPSfvoAyKpsHMO7Oz/AGFHPPQo4fPYeTWDbc8v6t0T8p1I4yITxS1JaC4K/dVaG8n3bv
+         NvyFmzL14keilLVtpP3BQmatiftmANR8NmnZxS0q0W0GFd+rg1dUL83Yl8Qf5dxl2MqR
+         WCqQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rq7bt+LL9kgcaCPAoRtgSrMuaPyNYNDmWxPY+IbjjntlR/s1hXLNt0Xm4yH8krZCKrNxHQc6CD9V+TVb1tPqe2U@lists.infradead.org
+X-Gm-Message-State: AOJu0YysQN85Fy6W6HZfDT/5Kcr2l2Es0Jd0xN487LeqKphtCsN1vSzj
+	rmGtAWz3AL9cM1An/ifPG7leZVzFEqnVyoOc0TVQ4opnxtnNyypw9NcRzOJzaFws9v9HQ0OBChe
+	qJNeaX14JaiHDOfnUYzdK8wug+r1xpNIRfBtLMbObg381/p5msIxvBdNnBqbTHCCMAqlLw9nIWq
+	qaDQ==
+X-Gm-Gg: AR+sD13p1iyAnkTVK5NeJYotZfjxLShWpqlLBXjW08csM0FBoIQISWwEXCdI/21bQLB
+	9ZG69s9WhYh9pOi7XrMjcV0rRK6C9TYVmDm/DhjqPx6Yqv11iuRTJ4nVEM0fMWUXOiyTj7Rfhi3
+	Em7nbcYN1+ingDUxGPnXK8hqQ/dBSn0eShImbruCZfWCi5bX3KcZtcxjK7fl9QVn/cIXPtDd5df
+	kWiJDOkufWvrLVrW7wC8ahkT9eIRH728uYOKLS0dFY9TFxEqFKpc2uYXut2nXpZER5Fh+2A4fW2
+	8RcTKM2FX3ZFUQ7gtioBq6bPov6iHLfs4X3UKa8Ym6XnvAjcplCYx08EPArzc8BGaMiekLmBhqt
+	NYZ2QpEzbSPxShg==
+X-Received: by 2002:a05:6a21:339a:b0:3c3:91f5:82c2 with SMTP id adf61e73a8af0-3cc71b16a94mr23599384637.16.1786933360844;
+        Sun, 16 Aug 2026 19:22:40 -0700 (PDT)
+X-Received: by 2002:a05:6a21:339a:b0:3c3:91f5:82c2 with SMTP id adf61e73a8af0-3cc71b16a94mr23599319637.16.1786933360209;
+        Sun, 16 Aug 2026 19:22:40 -0700 (PDT)
+Received: from localhost ([4.43.230.125])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cc095a1faf1sm2645151a12.16.2026.08.16.19.22.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 16 Aug 2026 19:22:39 -0700 (PDT)
+Date: Mon, 17 Aug 2026 04:22:37 +0200
+From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH net-next v2] net: stmmac: improve TSO/GSO queue selection
+Message-ID: <aoJwbQ-v--cTcysz@lore-qca>
+References: <20260808-stmmac_select_queue-tso-fix-v2-1-67175b29772e@oss.qualcomm.com>
+ <anybM_3Rdg8X8CMs@lore-qca>
+ <20260812161038.5602eac9@kernel.org>
+ <an4qzUrK62-rN7Q6@lore-qca>
+ <20260813172156.0243cb7a@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CHXPR12MB999244:EE_|PH8PR12MB7304:EE_
-X-MS-Office365-Filtering-Correlation-Id: 657a29f3-f2ac-44ca-1dd6-08defc0640f0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016|23010399003|18002099003|22082099003|56012099006|11063799006|10067099003;
-X-Microsoft-Antispam-Message-Info: mVK0/WVl0IVW/WqHGKy+fK8u3b1D4WX4M1/YcMJ/HcDVO4cZr4KOY+t1hMJ9gjc2dWtoBl7zqvnH/rRqTrqmTD64DjdoAhk2A/lL6KDOQdheotcRQeCJJuebdzipJcz6hy2R9/3RyUM7P/znJco0Eb8AQK9bBOFAuqZAJbLubqxHJXi9lBOb9SEr741OpZqyaqayK9L8KkO9lfrhWOSXyoWKekW60RaoIPjr7HcZ5PFlWiioDWXgwG8dp8ux+HgqC2G+9GYjtzMjaTWk7RcQ7cfZTMGNURsFakfnw/vNSCJ/StBpFQqGxzwTCkSwe+im0Q8ViIUoPPqvj69Se6T5kPN36Ibm3oGTnrkG28EaAImyU6x0PHRYbHhenOkgpELEWnV9k+wiNV6Y0HY8l8Xm9UyWAhy0mDTJ8TxG6qpErR5pHB8zN5CYJhJ1CAwAeqmzMFKwynEleBEyc34LHbBsMjmL8+sE4iaHm+dCpsCKAVvMJGHANTemcFNhiktzfsByuAivIPY2nMyJEbfR/E7A3JG372tk+Dr3KXveECUEY83TfmPor22yaoH4zfZCsLni7hYlRz6js0pan+aBc2a4O2huowbWXen7h1lyqx7nBz9nCTn+tvCjA9BaamSTwX2cjQIM05leW3tr1HIfuHm3dw7Esk0Eg9AZdEMxJVe5npE=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHXPR12MB999244.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(23010399003)(18002099003)(22082099003)(56012099006)(11063799006)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?LbvPcK4L/pgWBUQG0+a9QUje5uwDXCnPB70vryQmXNpa65N135UbKE87o9Ee?=
- =?us-ascii?Q?Yj0Sp+OjrDGfhCrut/bDFfdaWshzxpPoTpKGbYXVf5CvxjKiWpgCzStRjCgC?=
- =?us-ascii?Q?P2xQugTfJMNbmEC1neywbbN4dwOFdUBqZa3Iybi1/vONIYPgl0cLcCcpw3mE?=
- =?us-ascii?Q?Xno/Ia+dkEe1cEGL3vTc9PK7029Z0pIAfcGlch91ifvCR9ldTu0c1hKQ8nbh?=
- =?us-ascii?Q?28YuL+6sMmkIepfBCv4uqIRcvB4zxssKBUxBL1M4usnsngn9mdjvTVF67Kxl?=
- =?us-ascii?Q?IQfJSnPWCS3F5E3cBw/8prR6jXOvzB/gC/LQPWUrtMXiQ0FUjpKOQuxAUWUf?=
- =?us-ascii?Q?5QJFnJPkb/bDml363+Gm/mDKp3hSE2nGV3BN5O/bgACLZ1Xe2pvibc3oeT36?=
- =?us-ascii?Q?/0WCDS99ZnMn39nwNfjAZ5NTozgwFYJyla/Zqc0ACYp97vlOIKvofF8IuRxi?=
- =?us-ascii?Q?CxZ3jWLE33rVqkt8FMblSP/8FYz2jtwp43k22QPQw8NYaVwG3yYMh2SiCs7Q?=
- =?us-ascii?Q?9bNPsaqSg+bE9jc3fPKCIoPmddaUlc95lAGtnPVh7zncKF2YKewXnMVHs4z6?=
- =?us-ascii?Q?S7vyj7I1HZHh/dzL7XA9Yo1nr6R39fdasgZqKwoVqLLjSIBcvWOA/1VuHeow?=
- =?us-ascii?Q?zX12gqnN3uMBWAWFk7lJXqYKaAmdyrZoyNq/SfMdU5ISH7ls4uUn3plT1sp3?=
- =?us-ascii?Q?7DctRVYvuHAt8m2X9FqVDeLGCKQbv4YNGbU/MpzccNqQTVw4jh9fvNm47Reh?=
- =?us-ascii?Q?alfbUUSBV0UZVefs5eXBvu0x1x0F2jhg0We4expwZi24kJQRWo5WAACgGA0m?=
- =?us-ascii?Q?nANa3DB5J0p2l1Hv0hcmdJeFzM0eWrt7O/sygLKjPi339SOM12xdmFeBRX5S?=
- =?us-ascii?Q?VHoxF2aNDj8Oje0Ycj6wWyUo/aVyq15nUBx6ZmVG4kg9h6WdVGmfKEY6KW6T?=
- =?us-ascii?Q?uxhUNIlr2USpJ72Aw3JTmkLV+DuR/wXNYaHfBwY+PEEbF/rfJ2ARM9dM5rIW?=
- =?us-ascii?Q?vNBVThitsCjPVrN22CBAImfIWvjtUgAlC6h6o1FQz3/dNFuPOi9Yl1DYg5EL?=
- =?us-ascii?Q?8/mXcA7YN2VKoW3/LxKv9nfjAo6EcUqkW9yjld3uMLts1L+r4DV06m1hqwU8?=
- =?us-ascii?Q?kc3k2wF3gzJKv4SaDZ16rbSElaAO0WrVDeUdMiz+f2yFPZuVqPDGRZkP6ebB?=
- =?us-ascii?Q?fnEAatOj0GvfvnY1Cy5yWwK8cF2Y0FejWMfrneLjRIckNUv3NF9Ar1RadTV7?=
- =?us-ascii?Q?/G1BjC+8wJWs3FWrBY5Skay3/XnC4HP8yWfnaUNdkomfnBY+8lF2qRUeM4hY?=
- =?us-ascii?Q?Grr9rum6FgRxoftKvCzhYWZwvyuhb1hRmavizXMRBH7QcGGjsf85zCF6Ew30?=
- =?us-ascii?Q?9V05m8ZzwDO50OonlJJlm6Hp7VZvWACbjJW//OFtadSpCIUcpmxsibRBgQEr?=
- =?us-ascii?Q?tY3XMgKXIgl5f97HFbuSnOcT4NpxCBEpnk6rzpTh/ifstQntwsuAHYXkWOQ4?=
- =?us-ascii?Q?B9O9ICPRdTBeQOSlS0qSgNxDKSxRreycp3lbyhcHHJwSbqki7kvlBN8Qecar?=
- =?us-ascii?Q?QU5+/uk1BB5P0YFYrDAc82FUlv+E7+Qes/6Hw9vXVLyJ9xkzMYqtlruz8XdL?=
- =?us-ascii?Q?Amb+CiqMJLm8UWCgMDYaBYzGncQBikm5ICO9Z+mUL+kAfouqqCrVM0DUrDXJ?=
- =?us-ascii?Q?THwxRbnZQJ2a6O+qm4YNQj9IkNuL0vbKEY5Hqq7yg3LQh5rsyrSx9PvZcFVp?=
- =?us-ascii?Q?vdZX+9jHpg=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 657a29f3-f2ac-44ca-1dd6-08defc0640f0
-X-MS-Exchange-CrossTenant-AuthSource: CHXPR12MB999244.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Aug 2026 02:21:32.3714
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 7QmqLYGatN6ggnD/l6T6m9e8rud7sZ9CiKVZR/MT0DtBQoV0QC6u5mJdmPROUGSHsxGdRMvhs6GelBgnSynLgg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB7304
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="QAuoag7Qlga7XwOH"
+Content-Disposition: inline
+In-Reply-To: <20260813172156.0243cb7a@kernel.org>
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODE3MDAxNyBTYWx0ZWRfX0pxg3g+syaMu
+ +tFWOfkW6aQuz1PMzVTuH/JRs9vTXYzp2HlfTRbtHWr+8dK5eVNz6Plh3b9bjmjBBUO6j7NVYGh
+ 2dJu44PCcfbeVE0eHOOOKAImW2foDME=
+X-Proofpoint-ORIG-GUID: mwxGK0foTQJwWuszcRxn7vl4dvsuowbn
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODE3MDAxNyBTYWx0ZWRfX1M777yD9+411
+ AA+z1R/MvKigK+LwZzXkZn6rLuJbEKs52y96tnqUO5zptqaB1zGw2Zs15MuDhIS6Pi4lLtbVR4e
+ GiTNWqlXtuRLK/br6VBzBla7UlmHCqCNXy/bWwVj5/mcMC9qC4aicRpB+Eu02Ctka2+UaMitZLZ
+ +PmnSW5y6vcS3eGdKRK2bKTFBR5/m6tZE18LO0/s33ziCvNhpPoTfdEfga6TgDPDrppBJZvFoYA
+ XOVIigT0EEQcSMKTCmClGVS9txuBaZhwIvC4TPcSSESnIoUJZGmlkgUCOKPBTSzNgi1UVaBya3J
+ 1uUAuMrOtaVGkCD0F6lC/8mlAW7Cqzec+cMioMLeCLkElm961HXWUFW0jySZGD/VZeYl4WgwESK
+ SpJjmstA3B73WKAGzSuz6y2QjWZLykiAZuHjkQz+3R+xhGh1l2Gy2nRjOIbEHXWA1Lt+9DOuNdP
+ UgsbzzHEtKqNDdOB7lA==
+X-Proofpoint-GUID: mwxGK0foTQJwWuszcRxn7vl4dvsuowbn
+X-Authority-Analysis: v=2.4 cv=I/dVgtgg c=1 sm=1 tr=0 ts=6a827072 cx=c_pps
+ a=IZJwPbhc+fLeJZngyXXI0A==:117 a=y9u56/S6JbnHW3dtX7SsYA==:17
+ a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22 a=eGnkRP_O6TsY_KFkqcMA:9
+ a=CjuIK1q_8ugA:10 a=eUwoYkQ2b4UhtwRhp3UA:9 a=uG9DUKGECoFWVXl0Dc02:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-16_06,2026-08-12_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 priorityscore=1501 malwarescore=0 adultscore=0 clxscore=1015
+ suspectscore=0 lowpriorityscore=0 impostorscore=0 bulkscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608170017
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260816_192140_397691_03C2B4BD 
-X-CRM114-Status: UNSURE (   5.28  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260816_192243_634190_3FDBCE9D 
+X-CRM114-Status: GOOD (  35.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,11 +155,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Koba Ko <kobak@nvidia.com>
+--QAuoag7Qlga7XwOH
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Please ignore this series. I used the wrong version tag in the subject.
-I will resend it with the corrected subject.
+> On Thu, 13 Aug 2026 22:36:29 +0200 Lorenzo Bianconi wrote:
+> > On Aug 12, Jakub Kicinski wrote:
+> > > On Wed, 12 Aug 2026 18:11:31 +0200 Lorenzo Bianconi wrote: =20
+> > > > please drop this version, I will post v3 to fix some pending issues=
+=2E =20
+> > >=20
+> > > FTR Russell was trying to fix TSO in this driver too, before giving up
+> > > (on us?). The direction he was following of clearing the TSO caps in
+> > > ndo_features_check and letting the stack GSO instead of all the weird
+> > > hacks this driver has seemed much more sane. But maybe I'm missing
+> > > something TBS specific here  =20
+> >=20
+> > thx for the pointers. I reviewed Russell's commits and I guess we have =
+two
+> > options here:
+> >=20
+> > - manages all the TSO/GSO checks in ndo_features_check() (stmmac_featur=
+es_check())
+> >   and disable TSO/GSO if the selected queue does not support checksum o=
+ffload
+> >   or it has TBS enabled. In this case I guess we can drop ndo_select_qu=
+eue()
+> >   callback completely (it does not make sense to me to always use queue=
+ 0 for
+> >   TSO/GSO packets, e.g. it does not allow proper mqprio offload).
+> >   Please note this approach would introduce some performance regression=
+s with
+> >   respect of the previous implementation.
+> > - implements TSO/GSO checks in ndo_select_queue() callback
+> >   (stmmac_select_queue()) in order to keep TSO/GSO enabled if the selec=
+ted
+> >   queue supports it and at the same time do not always use queue 0 for =
+TSO/GSO
+> >   packets (proper qdisc offload). Please note this is patch I am propos=
+ing.
+> >=20
+> > What do you think?
+>=20
+> I don't know this driver, or how it's used.
+>=20
+> From the commit message it sounds like "if the packet wants TSO and=20
+> the queue has a scheduler enabled - take the packet to another queue".
+> Presumably you know why the TBS is enabled and whether the packet
+> should or should not be going to that queue in the first place if
+> you're sending the patch? What is the use case?
 
--- 
-Koba Ko
+Reviewing the driver codebase, TBS and TSO can't be enabled at the same time
+for a specific queue (TBS is not enabled via DTS but it is hardcoded in the
+driver). Moreover, for some devices (e.g. dwmac-intel, dwmac-mediatek, ecc.)
+TBS is enabled at bootstrap for Q1, Q2 .. Qn, (Q0 is never a TBS queue) whi=
+le
+for others (e.g. dwmac-stm32, dwmac-sunxi, ecc.) TBS is not enabled at all.
+The current codebase forces TSO/GSO packets to Q0 (since the current driver
+guarantees Q0 is a TSO queue). However this approach does not work with qdi=
+sc
+offload (e.g. mqprio).
+I think it is clean to just move the TSO logic in ndo_features_check() and =
+drop
+ndo_select_queue() (previous option 1) but I guess this could introduce a
+performance regression with respect to the current codebase (we could disab=
+le TSO).
+If we move the TSO logic in ndo_select_queue() (previous option 2), we coul=
+d avoid
+forcing the TSO/GSO traffic to Q0 if the selected queue supports it and
+at the same time avoid any performance regression with respect to the curre=
+nt
+driver.
+
+Regards,
+Lorenzo
+
+
+--QAuoag7Qlga7XwOH
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaoJwbQAKCRA6cBh0uS2t
+rHTwAP9OB+KuL9paucKapmcutF0REO2rHlCVsGoKX73Bqi4/wwD/S3Pmqa6JYHkp
+oialF9o4sGc2cArZAMTn5p49Fe/u9Q4=
+=jfRM
+-----END PGP SIGNATURE-----
+
+--QAuoag7Qlga7XwOH--
 
