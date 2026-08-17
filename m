@@ -4,106 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB44DC5DF66
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 11:10:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34FECC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 11:12:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dSeP13pLOt0UEaC0vv4QKQHllgx6b6/h0P1GwZl/yt8=; b=YtsSd6T9gLMLCpg14T6wZhaVLQ
-	GwCJKsHA8e4HpqLcPLeQq+zq2ocSQeAuVnKvdUIvCElTQ3UlAO6Vl/DK4mSEimMRTwcu0kIWufHHK
-	Q9iuq5KWcKMqDm0oK9yNVmHzYhX08ia33xZwhydDWmaG/bfkbhUBrvBaBOavN+bAKSzYkgIiIVXrp
-	/Xp6dJS1lKRDj0RAFxH3lURPt86lxiIbtlBpBtDDq/JmjczI96x3Lm1Q4/cv/9Plr/4cQmeuNLW3v
-	wGJ3PkSdYPu3zXT0ms1wkw083EpkWBoZWtcAPOpPoK9kLqOHHi7qw3M1uuqcZTmLCZ1lyjFrBerlF
-	ZxTVJZcQ==;
+	bh=hKHmE7HFsnKiN9x/NA7Ar8WwUxdcYL2GtFDwkU9a3nI=; b=SaPbcvJWjdTjVNvi0FNSw1zbLf
+	TUTbdbQe5gHxTm3VbNtlKouRbNE+adgyi9T2Lpg96/c/9SZyoimiGi0NNsBHHiwxkIBUEcwgwhctd
+	cFAiFq5G7E2uf4gU2R8IiwirRCnJbDK4uojzNfZuk8N5SHcvCuclqwBdn+y85BpdMF9CMgJSlqMeA
+	LzOIj56/EKwxwoKi05sCRVfmRAJ55dN1wpiH367fZzf6E5VGSikWnKnLkFsX+bNlqttFqlDdxRWVu
+	uI75tftT4eBb4c/U5wEedUxDzO+FOtnsj2aBQvkL6Y5GJq4ReTylwlBwxkM6wXx970zqrBMAKtujZ
+	alywIEXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvvEV-000000060Fn-1Z6M;
-	Mon, 17 Aug 2026 11:10:23 +0000
+	id 1wvvFz-000000060QE-2N8J;
+	Mon, 17 Aug 2026 11:11:55 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvvET-000000060Fg-2AZt
+	id 1wvvFy-000000060Px-36eG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 11:10:21 +0000
+	Mon, 17 Aug 2026 11:11:54 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8AD10600AE;
-	Mon, 17 Aug 2026 11:10:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 622851F000E9;
-	Mon, 17 Aug 2026 11:10:16 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id F144C600AE;
+	Mon, 17 Aug 2026 11:11:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD4AB1F00A3A;
+	Mon, 17 Aug 2026 11:11:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786965020;
-	bh=dSeP13pLOt0UEaC0vv4QKQHllgx6b6/h0P1GwZl/yt8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=La2eQUl4N7Q0Yhhht8ZGuQViek1nzUkVTDEQSlfFatl9XBkecyp0Wi46AV9yCw5AI
-	 Ja2C9I3f/J2fwlKfs9oSk+Ly+NkORgsUs4gfWoeCticGhhAgLvZIg5y0GJYnkklzT4
-	 V4qdEY9i2ONulOmVRKbET0QhzFEvlkdeW86Rk8cVilgYX6P1qQTlErKvSlnL3ugxok
-	 fjp/Iaf4vMtvsMCTCZxLWM2Yb+83MpSQJdpCYywFyVva5p1NakmNzMMXBUBXPLiEF8
-	 d/tVXvyBJEB1tyzskmj2G+xfKOG34/L6An+genrgQobdxR0SN7kMMRwoVi596oX70M
-	 z4adU6xDzjtyw==
-Message-ID: <d592c554-5e43-48f8-a1bf-5dc6c6525c27@kernel.org>
-Date: Mon, 17 Aug 2026 13:10:13 +0200
+	s=k20260515; t=1786965112;
+	bh=hKHmE7HFsnKiN9x/NA7Ar8WwUxdcYL2GtFDwkU9a3nI=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject;
+	b=DXUTRKW7VSa9/1ECiVxOjFqPhxxM2/Y+R3nnXRCdzCxaBMSSw+3YKf/8lXpC//tTP
+	 oATEDKsoDK59M0AxkNjTi/xhmjG5pesPMIWLIAuAxF4110DmoOyVx/s7XQv+0pkX2X
+	 wRIgM+wKB9PExikewM9iQ9Tyk+JDo3zOZ0tKdUSIecZSJY1n74m7It1JdcOhWlpXIQ
+	 Z/k3bKKrU9Hafs56n/87uWOWufMHxArZ48nRNt22hjK0jjkgASgwYLJWJTKPLFy8yR
+	 oGXe8lmIv1p68swgToX/vuxrLDjaxxJs0cLWvTAUpSyq39skNLc2EDoS/gloivHSq6
+	 0niqzgw73MbhA==
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfauth.ams.internal (Postfix) with ESMTP id 68C5E198005C;
+	Mon, 17 Aug 2026 07:11:50 -0400 (EDT)
+Received: from ams-imap-11 ([10.64.2.31])
+  by ams-compute-02.internal (MEProxy); Mon, 17 Aug 2026 07:11:50 -0400
+X-ME-Sender: <xms:c-yCagqHF_GL7una0AQT0iWWh3YLZPKirKR336weVeMSA5ciBUPKuw>
+    <xme:c-yCahdPHs_Scb1GQs1yO2mS7gn9M5CrLjGdOvYc-YTVoDdFo41gzz-ItKGVJQAbs
+    FDB67CrC5gq5liI6ymsfD-ygjjpb6Iuyik-9Kntk9l0sFLF2KxSY_o>
+X-ME-Proxy-Cause: dmFkZTFi9nOk09DVxdl5FlNkGc8vg6SDda7HLe1KMtgLAPjgdCHbnF2Ou2YGV4kiMEGSaj
+    Jfh4fmBdAfggRip8FVSbc6Vm6x0xEcL6l2YfCwn/IXhwSXL/vENLdVC1URhdnwUgYKJ+3P
+    Qg2E2WqaoDfxBXtR4xJ0QhRJJz3rOviPFu9JslRYnYBVN2iJtSVfUsJOjmUPEwHVL1eSIy
+    COEKAeygEi2OHJ+lz8unrCbQZG2HQ1XA0v9uCiZvZ/qNf8B7BOm1J6gnz6DpjlUu5C30Rq
+    H8dT+OfI1RWvtRJBoLkZvU+niMPfc9WPA/4gj4Kq0nAe7WlVlvGqwIiBJ3LUvgL4W2H8Hp
+    2k9R2CRLxOIdWB3YyV2Yv6wiO+6VH2Syqe+Na3aFe/8RI7/OfiEhwksCbakdcucpxqetYv
+    UCt901wCFHdczPTuR0cXLIeqelwbJRBI52+NUwZMLVrDre/iL5wtewbDy2ogrh2FgrHhrX
+    w6kyeQVkVLvecAWhnqA+JRn2pxLjRl8X94CH+fjXMVbqgvt2yB0gHICzB5JEi+64qKx0k+
+    5Xgqjph+0w3hTSMLMsK0zw4HxTPD7MSy4qCKLWix9QbI5JhpAXpJ3yafnBOi1/YLgJhVn3
+    x381QnBKQxZ/eU2hJif6BmWMbqOTtM0iTLJZ3o64tj0rsl5f+JH8pyjlSS0Q
+X-ME-Proxy: <xmx:duyCatMuqheohB2LNK9roIZmx2rTtG4x0g0aFo9BbgQuYecbmrAA5Q>
+    <xmx:duyCapXNce8qe8NIcH6BPnYQ3W2rl7MHiSpd7_g2c_gD-ITDru0PhA>
+    <xmx:duyCakykg70vPPgJp1eBX8XIPHR8CkGS5xl01ZGcGv6BVOwhQdi9Rw>
+    <xmx:duyCapO68ZAxDYnBbevG5KGHWEh5kMe6ORXIx9gHdRgvLdor2mKrUg>
+    <xmx:duyCamqIvTzpNwpO0ThhdlK39AsUHsv69a0A1f3HDeAJBpu4qjtwj8rg>
+Feedback-ID: ice86485a:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 3E2C2F80070; Mon, 17 Aug 2026 07:11:47 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: hwinfo: samsung,exynos-chipid: Add
- exynos5515 compatible
-To: aidenisik@member.fsf.org, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
- Aiden Isik <aidenisik+git@member.fsf.org>
-References: <20260817-for-next-lucky7-chipid-v1-0-eb2908705c0d@member.fsf.org>
- <20260817-for-next-lucky7-chipid-v1-1-eb2908705c0d@member.fsf.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20260817-for-next-lucky7-chipid-v1-1-eb2908705c0d@member.fsf.org>
-Content-Type: text/plain; charset=UTF-8
+Date: Mon, 17 Aug 2026 14:11:26 +0300
+From: "Ard Biesheuvel" <ardb@kernel.org>
+To: "Josh Poimboeuf" <jpoimboe@kernel.org>
+Cc: "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Will Deacon" <will@kernel.org>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, live-patching@vger.kernel.org,
+ "Song Liu" <song@kernel.org>, "Miroslav Benes" <mbenes@suse.cz>,
+ "Petr Mladek" <pmladek@suse.com>, "Joe Lawrence" <joe.lawrence@redhat.com>,
+ "Mark Rutland" <mark.rutland@arm.com>, "Mark Brown" <broonie@kernel.org>,
+ "Nick Desaulniers" <ndesaulniers@google.com>, "Kees Cook" <kees@kernel.org>,
+ "Nathan Chancellor" <nathan@kernel.org>, linux-toolchains@vger.kernel.org
+Message-Id: <b32fc053-6f1f-481e-9872-ab3cf22534e6@app.fastmail.com>
+In-Reply-To: <aoCu66bx1Qg14-uD@jpoimboe>
+References: <cover.1786768375.git.jpoimboe@kernel.org>
+ <2ff1b2482406c61ca5979d6284ba5f948a3fbc20.1786768375.git.jpoimboe@kernel.org>
+ <6bc20c00-21a9-4315-8ec3-33c7ad6ae95f@app.fastmail.com>
+ <aoCu66bx1Qg14-uD@jpoimboe>
+Subject: Re: [PATCH 02/12] arm64/module: Fix BTI exceptions caused by omitted landing
+ pads in Clang 21
+Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -119,20 +105,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/08/2026 12:11, Aiden Isik via B4 Relay wrote:
-> From: Aiden Isik <aidenisik@member.fsf.org>
-> 
-> Add "samsung,exynos5515-chipid" compatible string to binding document.
-> Use the "samsung,exynos850-chipid" compatible, as it is the same on that
-> SoC as exynos5515.
 
-I do not see how you use "samsung,exynos850-chipid", probably you meant
-that devices are compatible? Just say that you add Exynos5515 ChipID
-fully compatible with foo bar (no differences in registers) instead of
-repeating the diff.
 
-s/exynos5515/Exynos5515/, in every commit msg
+On Sat, 15 Aug 2026, at 21:57, Josh Poimboeuf wrote:
+> On Sat, Aug 15, 2026 at 12:56:11PM +0300, Ard Biesheuvel wrote:
+>> Hi Josh,
+>> 
+>> On Sat, 15 Aug 2026, at 07:45, Josh Poimboeuf wrote:
+>> > The following BTI exception was seen when loading a livepatch module:
+>> >
+>> >   Internal error: Oops - BTI: 0000000036000001 [#1]  SMP
+>> >   pstate: 634004c9 (nZCv daIF +PAN -UAO +TCO +DIT -SSBS BTYPE=jc)
+>> >   pc : kill_orphaned_pgrp+0x0/0x150
+>> >   lr : do_exit+0x498/0xaf0 [livepatch_combined]
+>> >
+>> > The problem is that the patch module's do_exit() is branching to a
+>> > static function in vmlinux using a module PLT veneer (indirect branch),
+>> > but the target function doesn't have a BTI landing pad.
+>> >
+>> > Clang 21+ omits the landing pad for static functions which can only be
+>> > reached by a direct branch.  But livepatch modules use klp relocations
+>> > to reference arbitrary kernel symbols, and with
+>> > CONFIG_RANDOMIZE_MODULE_REGION_FULL the module is far enough away that
+>> > every call to vmlinux needs a PLT.
+>> >
+>> > Note this problem is actually not specific to livepatch.  It's possible
+>> > for any module's .init section to be allocated > 128MB away from its
+>> > .text section.  So calls from .init to .text via a PLT can trigger a BTI
+>> > exception when the target function doesn't have a landing pad.
+>> >
+>> > GCC has always omitted the landing pad when possible, so kernel BTI is
+>> > already considered incompatible with GCC since commit c0a454b9044f
+>> > ("arm64/bti: Disable in kernel BTI when cross section thunks are
+>> > broken").
+>> >
+>> > When missing landing pads are detected, allocate a page close to the
+>> > target which can be used to hold BTI veneers which receive PLT veneer
+>> > indirect branches and direct branch to the final target:
+>> >
+>> 
+>> This does not work for cross-section calls from .init.text to .text.
+>> 
+>> If .init.text is far away from .text, it is likely because .text
+>> ended up in the 128M 'near' module region, and .init.text did not.
+>> (They tend to end up in direct branching range of each otherwise.)
+>> 
+>> Given that the module init code is typically small, I don't think
+>> it is safe to assume that allocating a single page close enough to
+>> .text is going to be possible if allocating the space for .init.*
+>> was not.
+>> 
+>> IOW, the fix I proposed for cross-section calls is still needed
+>> with this approach.
+>
+> But the BTI veneer page is allocated from a *256MB* window, of which the
+> near region is only a 128MB subset.
+>
 
-Best regards,
-Krzysztof
+OK, so this window would be [_etext - 128M, _text + 128M), right? Or
+whichever the equivalent is for a kernel module?
+
+I agree that this considerably reduces the likelihood of running out
+of veneer space within direct branching range.
+
+> There is a theoretical case where the 256MB window around the target is
+> completely full without any fragmentation, but I would think that there
+> would almost always be some fragmentation.  If that window is modules
+> stacked together, most modules have at least .init.plt and .init.text,
+> and many have .init.data.
+>
+
+Are you saying these are freed again once the module is initialized, and
+therefore there is fragmentation? Not sure if it works like that if modules
+are loaded one after the other.
+
+> Right now it needs two pages (because of the default guard page) but we
+> could maybe fall back to VM_NO_GUARD in case of emergency.
+>
+
+I like the advantage of only allocating veneers if they are really needed,
+as opposed to allocating the space unconditionally, which is what my
+solution does. But I need more convincing that this will actually cover
+all these cases, given that the cross-section call issue only occurs when
+running out of direct branching space to begin with.
+
 
