@@ -4,126 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70749C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 21:38:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2E2CC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 21:44:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Tl6qZluDNVD0XJHBfRo/3IHu/mfCL6sV0OHSIRwpFco=; b=K3PQpGNGc9o2unEFwI1lc4JS84
-	gvT/ogSrxObUHWF8KJHP9XZPOs7KhoGNeKia+4iTSvYJI9ygnh5n5CiRbQYnSr6HNV/cQnk7x6YYV
-	/6SzuvXbkmTLH4bbm4n+ojzPAfhEF+L4Qb8wJOI3l3ZX2z0bvC13fm0PQrRTJ/Bzw72r4H64eprm+
-	5dsUaMweZ4cQSVlJ6QRInI7fbJWZXrYlQuyIMLDtWGcuG79BlXxooZ1QJ4Qr8a3AqgkBQWOWDh3D1
-	1Na58zykQ8KKXC/Z1tPuN6FgqvCeboidtn0ydqoxo45KQ8Bkqp0EcovPx9KkaCplnUs4Phcu43IR8
-	FXZ4KFoQ==;
+	bh=SYYWAFb6MNGQGSRSXAIPAH4FqybYazhn6qOSEXQ0npo=; b=kMHISqu6/Fi80Uuwp3f8SxsE3v
+	bg+OwWjdrFgj3qTClrzV0VsnbrT2X6RCAkLjXvFu416ixYRYPOC0vvP2uDJlYqxsmo8Y1WM6kNzfE
+	5jNs5cIZdJWnn7c3Ea4mSm1hL+HyleT3lXicgrhA57xkcvdSvVCpmg/tOM6s6GQWwKTqCIIvHk56s
+	j3i/EZsP3QRd/GlAsKWFl4LXzg5lWZ/lmZT7WvRzf1NK2DiIlfyES5mxQWJZU0F82gEOv/qdhWCni
+	DVP23SyOxy+DuNeQSOC5EyEu4hIt1ZaA6iWnfdTZj7y9Phvkq1TGOf3BQ6g2SC675X6NVaddu0cFV
+	zcMiPzMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww527-00000006r3L-3OKN;
-	Mon, 17 Aug 2026 21:38:15 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1ww588-00000006rka-20tR;
+	Mon, 17 Aug 2026 21:44:28 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww525-00000006r2z-3HxS
+	id 1ww587-00000006rk7-07po
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 21:38:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HOpm2FNc3A86oFWlmdXxwMO/ywPBIDes98uXRf6kQzH4piLNNNqDBWSm551irkJtikoku8nmi744uyYvfcaIEfDfu3A1+w0Vwa7jRKTOZeYOZhBhQ18SGi7/dnrs61K6fbHOPJgwPYkUZUsyCrhZ2RlxMTW3yiJ/MB/YXXk3y/MPQqPN91rAibnhHivgEh74yPEyVGngUP0pLyR88W8Jlmt3kLtZH7f3VewaB9e8v70YyM0Nhx3/EMNh/hIkd+7lMGiNS+w9Zlj/mOi3oLIbNeM4yqvCQAdZNve5WluWwbGSK+4oxrvCoCgLrSQ4KUUoWE62oyAM0LqT2ZoNoYBvpA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Tl6qZluDNVD0XJHBfRo/3IHu/mfCL6sV0OHSIRwpFco=;
- b=NH+r/sTcUMExIxFIRjzOlMB7IaYS+xMG5LXBjq2bLrub2DK2TK01jxAl8CFVFpzsl2X+SWELFk6vtoujqsxFJVlDniNuNBfsWxYzGde2kplVVYVXuhTpJFqJHLWtBdWsNTJo1bKvCwykPGj8g4pkpaiurEB0rS0nnbU1BI6pl89Jh/rrjQC7XElQJOh8cOwE92JZRNfrkFRUw6xH+N6/JpLL4Mlx00A9blUt/62bWLTDhKi2iygVJFKQC1T/EkUKW2+VDTGBVRdudFq33MyG3rxfHhD1bizqAZ7T94vq9X8GL4KyF41pKoHyIQiDkhPpSdNp9/tPkvrBhd8/cvWluQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Tl6qZluDNVD0XJHBfRo/3IHu/mfCL6sV0OHSIRwpFco=;
- b=lK0e5Oj1y5LOZIhWFELjbosQw4HuymxQsn//jldnI598Azotkf6S72ho9miqYMI8qTE74mmmKrx7DNRaOo6rwFeHAAQ3y4kX3sHlaz6BJI+KKwBjT5nw6lCgafDTD9mu6usfZN16eBF1XpYErM5VNKwyD+64LQFhjvA/f1/DqSCMcEcf6snNd2Ddqz3iUrmcTuexewU6dWr1VhJbMQpcwgvzCR5GhJ5R1P6r2mHoHIInUyf2GB1z0eCewfrd3UchvuJ9ROwRTBoHSCf5D5D7vZac+CYtfQcTfU52Nnnm2zfhgJEzgrrViEKLwYvniJ54XqgLHaZbO4fQofQ58E9dHQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by VI2PR04MB10954.eurprd04.prod.outlook.com (2603:10a6:800:278::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.17; Mon, 17 Aug
- 2026 21:38:07 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0315.016; Mon, 17 Aug 2026
- 21:38:07 +0000
-Date: Mon, 17 Aug 2026 16:37:57 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Rosen Penev <rosenp@gmail.com>
-Cc: dmaengine@vger.kernel.org,
-	Ludovic Desroches <ludovic.desroches@microchip.com>,
-	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
-	"moderated list:MICROCHIP AT91 DMA DRIVERS" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCHv3] dmaengine: at_hdmac: use devm APIs in probe()
-Message-ID: <aoN_NUzODjRb-IDd@SMW015318>
-References: <20260817201200.10952-1-rosenp@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260817201200.10952-1-rosenp@gmail.com>
-X-ClientProxiedBy: PH8P220CA0057.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:2d9::17) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Mon, 17 Aug 2026 21:44:27 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6C39843596;
+	Mon, 17 Aug 2026 21:44:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F00E1F000E9;
+	Mon, 17 Aug 2026 21:44:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787003066;
+	bh=SYYWAFb6MNGQGSRSXAIPAH4FqybYazhn6qOSEXQ0npo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=YvyXr0mF8oM0Qpvu8B995T9Niu1lMEuyvznn463YUnzlINCBL6c7oP3w5/b1Ik0Oj
+	 EIgVVvFhn1CxAtUcjww9aYnQh5EWlUeW8LkFNcAXZDKUyYCmckuluC53a+H9EPbz/l
+	 cr+nkXZNg9seXdnPrCWVpG5LXr7Xw9OUKKDN3qkO6269j3SOgLEJ3493HDDO+5CU+a
+	 zuRougM303roU30KkODvILas9ddQoNAX+6/eavYzCM4zyPqjJAtYatilCtSP3i6MCH
+	 6X/lSvmEV5vQrxR3NkQCHkzkDC2XrpBAm2kzphwFWbhlMzqGOGrJcqZ1HMhpAPx/kU
+	 +oVuu0zDnLYbw==
+Date: Mon, 17 Aug 2026 14:44:23 -0700
+From: Josh Poimboeuf <jpoimboe@kernel.org>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, live-patching@vger.kernel.org, Song Liu <song@kernel.org>, 
+	Miroslav Benes <mbenes@suse.cz>, Petr Mladek <pmladek@suse.com>, 
+	Joe Lawrence <joe.lawrence@redhat.com>, Mark Rutland <mark.rutland@arm.com>, 
+	Mark Brown <broonie@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
+	Kees Cook <kees@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
+	linux-toolchains@vger.kernel.org
+Subject: Re: [PATCH 02/12] arm64/module: Fix BTI exceptions caused by omitted
+ landing pads in Clang 21
+Message-ID: <aoMnkvrrjljQ6uOJ@jpoimboe>
+References: <cover.1786768375.git.jpoimboe@kernel.org>
+ <2ff1b2482406c61ca5979d6284ba5f948a3fbc20.1786768375.git.jpoimboe@kernel.org>
+ <6bc20c00-21a9-4315-8ec3-33c7ad6ae95f@app.fastmail.com>
+ <aoCu66bx1Qg14-uD@jpoimboe>
+ <b32fc053-6f1f-481e-9872-ab3cf22534e6@app.fastmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI2PR04MB10954:EE_
-X-MS-Office365-Filtering-Correlation-Id: c08ca25a-0694-4f5c-ce2e-08defca7d3b7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|19092799006|1800799024|366016|18002099003|22082099003|56012099006|6133799003|11063799006|10067099003;
-X-Microsoft-Antispam-Message-Info: h+GiEe79FwvY5ytOKuAyp2wLEAnXx+BfihYPL6XlXT4QAwb5Hn3iQiskHqvWf5jpHdngiXY4P4pcGpwl9v80m5ljONFlHebqcUhbU1Fa17DXWQ8Sp6+c5j+RNoueamXHAzdx3gBkD4So56z+MiyCTkrExtuHmLY1bMOCuLM78lXM/aAW7dq1e6Dnpv/GleMpaKGv2NJrIgDMYZGaNozN7fNG+knpG3QOtFrQZ22XJ6/8f18ViS8W7sL+v0SnQw9k3inTCeFgXMzmXga5yqTdtF2Vk/AWeIaKD43vfwfVp8uqkMHTkUpeyZXQ1EWL4UK5uCamAuPUVx5ugPqgSipQy73EEAUBgFV0MV4zVXGRxFUas1rYFoV3NR+Ro0B3eTJRgTnatfdtK9V9bVqzELzJPIjljIR0i/zTaiscWz10pO2rDn/nyzMN7zbdkYx7ZPijQdRfjfHPFbAZsguVYPgHFnZesJxesYXOrtxdLfSfC8NNBpq8HHGITxFy+4YB102mUK+0SF7ZqRhnws6PTsv7F91mWQoPmUueBVTidritkBg8bcU/K825vX2duMgBfuHulQPguj/gQZEvMrA4Krz+0tkBuMDE+CZ9Y2CJqv4TzDnpkz3/VO1ybXkra4m5t9Q6T7vs5pQhIKlhgkEDMsU7w8At475xlhxAAub0SxgpRyg=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(19092799006)(1800799024)(366016)(18002099003)(22082099003)(56012099006)(6133799003)(11063799006)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?NdQOzG6hncNl7lhvfc6GDwuN3w/o2z9VSfmU9wb90a7FZF5TVsdgob9LDfIm?=
- =?us-ascii?Q?p3uaWtMG+tOHQO/6fOF8/9FQJb8K1+a177xeO/Sx621OS9QH4VI9uL+cUPsd?=
- =?us-ascii?Q?KXSwMdo5QMDCddI+Kki/LOm0BxRsZd6h1Nb3xIK9vTtL06gg3d3swFLI2D9i?=
- =?us-ascii?Q?+VLqlCObkxU12QDXrDboYtHBWk7TP006XNqwyhEsGRfAujiTDNvGV7p6oYYH?=
- =?us-ascii?Q?njfYcfXXdaUVXLptqMK2QdB5aQJhyyfp0HiE9AzpP/L8oFD3+2kS10xMMbMN?=
- =?us-ascii?Q?LnpXizBEwIaXInWrcsCB9qP0FdDXaiki5R40Rqga/9K8/cs17VEvLL0r5iDy?=
- =?us-ascii?Q?1zEZkl4jyPg6JXCk0ZZZueomUyyCJdGjMXUqn/tBsiJET0nVVw3UHHSK/NhO?=
- =?us-ascii?Q?pVXNc+jYN8jZh4C4+ZNX4XF96fk9xVMZOEa7U/uofRJXaP/lhtnoE+Pn6Ihy?=
- =?us-ascii?Q?amweB88UHARV5rT7l1CCQDrg0NI2Ij2bBZ73NK0pzyK4mGKs7/1Id0vZolRf?=
- =?us-ascii?Q?K14Sq3qcryDNelAhR5IOqLqdZ6W+SRdFg3KhQgVCAXynZHvmYQNjIAviFQLT?=
- =?us-ascii?Q?/pVnsMUEUTIoqOMHprwnxqryOIRvR64pQUgq4lCijHXqdWtQS/5qgoMfaBhf?=
- =?us-ascii?Q?yYurr/zmR03ZGwpQvBodF6FroJJK72QX9NJBxZva18sjTSUtjZQwaDnExEHS?=
- =?us-ascii?Q?7LYq4eS7Gj7SKCGs4LAQoycyNc9iXzBzlAdiiRgTakw7sVkfaVEEQSR127AL?=
- =?us-ascii?Q?N8vH0xdxz2SLCE2RG/XKyeNP/i/1s03lCYmY+cPT5gwypXDaPHPfcK67iWbp?=
- =?us-ascii?Q?5qutzHBKMozRvOTVzdroakVvLR0AgJb+QYShsEzjAC1Dx/s9oxIZKkwAYsYK?=
- =?us-ascii?Q?Bx8aumbySl023fKlep3eGXxEpghv7xOiQO7dTGDppfhXEw9T5KmtE88cToc5?=
- =?us-ascii?Q?pxUGK9UeRrRB7X9IKRI9XW2sBOlzZ6J75QF7KeAPWBfpyZRwlEQaNVOO+8S3?=
- =?us-ascii?Q?nvaknDMEQ94ILYlac7Uv4UUqFKG5v6q1hVmwuH5RjoKpMiqFXN2Tw84CJvM8?=
- =?us-ascii?Q?PuaucCWv/TvHPl6SNOV/6tLSGav33P7X5m9rtGSEB2+OSdHCNE/JIlY3E8LZ?=
- =?us-ascii?Q?tANxbsoFodozX4kC2+j89psrWtV3W1PAjq/p744huvHC/F/8Y4afDaoica+h?=
- =?us-ascii?Q?z+xXDD9s7PHF+t7ne9xCSHgSDZ3L2KSOnM4YoBeuy6iveoiJFC9HOeKB7Fak?=
- =?us-ascii?Q?QLUG41PTAm4rF7Pyo+L7FI0vHpac6VqAR8HykcdRJXe8WRBlbOfOm5aqo2um?=
- =?us-ascii?Q?0CsgDFuHgJ+Re7ZbAyqcU968BGenrQoAvKdK2ukZQdos4OYoeyl4aIhTRK53?=
- =?us-ascii?Q?kFFvdKTn15w8fJPktQbCHodb/WeBIlyKlyD5wX0VsiU4cP7dGjsm7vfBplS+?=
- =?us-ascii?Q?ouMmGcvdf3GsdtagICsUqFfkkcBjGNK/zlkVFVUtPY0ddqkn9DfZEbhJUDTm?=
- =?us-ascii?Q?xdV3tHLKc9ym7UElKat/lwX74vxq4/0r5Y+5sWsfeghJFlGoWhYuAp1HNFMF?=
- =?us-ascii?Q?d2xC3fP2KcF/rMe5i+AXOM3pFnQfPFCyEbje6ndd9ITCT+ahcB44SlHxawN0?=
- =?us-ascii?Q?7PXnyrPglvHGV4cqy9abcKiwBgf5zquxU2bfE7uA3fDRvW3/JMi5VLePrQ5P?=
- =?us-ascii?Q?T+6qwRPOUjmeK2z+ED3EdbYOzrIGcvaOEojf4J3i7uhyv28S4LLRU7keO6aM?=
- =?us-ascii?Q?NbUlhJYyCoQ1BexXtwlobWWVNAvMDFHqdqr/34c4HDZggvrNBB2y?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c08ca25a-0694-4f5c-ce2e-08defca7d3b7
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Aug 2026 21:38:07.7723
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: eW4Zz6zFAXlc0jZ+V448F8mXORMRtvsnZtrgXY7XfT8/aMyajTGmmzWsRiCvRZdQGhGVjFaYvdZNltY/9qW9mTWhRpIaKmIUQrz9jimmY7whhA3IQhsj2FoAYRXdhn2k
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10954
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_143813_832141_019BADFE 
-X-CRM114-Status: GOOD (  19.44  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <b32fc053-6f1f-481e-9872-ab3cf22534e6@app.fastmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,140 +79,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 17, 2026 at 01:12:00PM -0700, Rosen Penev wrote:
-> Convert resource allocation and setup in probe() to use devm-managed APIs.
-> Simplify the error handling path and removes explicit cleanup code.
->
-> Assisted-by: opencode:big-pickle
-> Signed-off-by: Rosen Penev <rosenp@gmail.com>
-> ---
+On Mon, Aug 17, 2026 at 02:11:26PM +0300, Ard Biesheuvel wrote:
+> On Sat, 15 Aug 2026, at 21:57, Josh Poimboeuf wrote:
+> > On Sat, Aug 15, 2026 at 12:56:11PM +0300, Ard Biesheuvel wrote:
+> >> On Sat, 15 Aug 2026, at 07:45, Josh Poimboeuf wrote:
+> >> > The following BTI exception was seen when loading a livepatch module:
+> >> >
+> >> >   Internal error: Oops - BTI: 0000000036000001 [#1]  SMP
+> >> >   pstate: 634004c9 (nZCv daIF +PAN -UAO +TCO +DIT -SSBS BTYPE=jc)
+> >> >   pc : kill_orphaned_pgrp+0x0/0x150
+> >> >   lr : do_exit+0x498/0xaf0 [livepatch_combined]
+> >> >
+> >> > The problem is that the patch module's do_exit() is branching to a
+> >> > static function in vmlinux using a module PLT veneer (indirect branch),
+> >> > but the target function doesn't have a BTI landing pad.
+> >> >
+> >> > Clang 21+ omits the landing pad for static functions which can only be
+> >> > reached by a direct branch.  But livepatch modules use klp relocations
+> >> > to reference arbitrary kernel symbols, and with
+> >> > CONFIG_RANDOMIZE_MODULE_REGION_FULL the module is far enough away that
+> >> > every call to vmlinux needs a PLT.
+> >> >
+> >> > Note this problem is actually not specific to livepatch.  It's possible
+> >> > for any module's .init section to be allocated > 128MB away from its
+> >> > .text section.  So calls from .init to .text via a PLT can trigger a BTI
+> >> > exception when the target function doesn't have a landing pad.
+> >> >
+> >> > GCC has always omitted the landing pad when possible, so kernel BTI is
+> >> > already considered incompatible with GCC since commit c0a454b9044f
+> >> > ("arm64/bti: Disable in kernel BTI when cross section thunks are
+> >> > broken").
+> >> >
+> >> > When missing landing pads are detected, allocate a page close to the
+> >> > target which can be used to hold BTI veneers which receive PLT veneer
+> >> > indirect branches and direct branch to the final target:
+> >> >
+> >> 
+> >> This does not work for cross-section calls from .init.text to .text.
+> >> 
+> >> If .init.text is far away from .text, it is likely because .text
+> >> ended up in the 128M 'near' module region, and .init.text did not.
+> >> (They tend to end up in direct branching range of each otherwise.)
+> >> 
+> >> Given that the module init code is typically small, I don't think
+> >> it is safe to assume that allocating a single page close enough to
+> >> .text is going to be possible if allocating the space for .init.*
+> >> was not.
+> >> 
+> >> IOW, the fix I proposed for cross-section calls is still needed
+> >> with this approach.
+> >
+> > But the BTI veneer page is allocated from a *256MB* window, of which the
+> > near region is only a 128MB subset.
+> >
+> 
+> OK, so this window would be [_etext - 128M, _text + 128M), right? Or
+> whichever the equivalent is for a kernel module?
+> 
+> I agree that this considerably reduces the likelihood of running out
+> of veneer space within direct branching range.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+It's a *moving* 256M window centered around a given branch target:
+[target - 128M, target + 128M).  The window always fully contains the
+near region, *plus* another 128MB: 128M - (target - base) below the
+region and (target - base) above, which always adds up to an extra
+128MB.  So it has a much bigger pool to choose from than module text
+does.
 
->  v3: fix subject and description
->  v2: remove list_del
->  drivers/dma/at_hdmac.c | 50 ++++++++++--------------------------------
->  1 file changed, 11 insertions(+), 39 deletions(-)
->
-> diff --git a/drivers/dma/at_hdmac.c b/drivers/dma/at_hdmac.c
-> index 971f8bc9ec48..49a85ac66e83 100644
-> --- a/drivers/dma/at_hdmac.c
-> +++ b/drivers/dma/at_hdmac.c
-> @@ -1986,40 +1986,34 @@ static int __init at_dma_probe(struct platform_device *pdev)
->  	atdma->dma_device.cap_mask = plat_dat->cap_mask;
->  	atdma->all_chan_mask = (1 << plat_dat->nr_channels) - 1;
->
-> -	atdma->clk = devm_clk_get(&pdev->dev, "dma_clk");
-> +	atdma->clk = devm_clk_get_enabled(&pdev->dev, "dma_clk");
->  	if (IS_ERR(atdma->clk))
->  		return PTR_ERR(atdma->clk);
->
-> -	err = clk_prepare_enable(atdma->clk);
-> -	if (err)
-> -		return err;
-> -
->  	/* force dma off, just in case */
->  	at_dma_off(atdma);
->
-> -	err = request_irq(irq, at_dma_interrupt, 0, "at_hdmac", atdma);
-> +	err = devm_request_irq(&pdev->dev, irq, at_dma_interrupt, 0, "at_hdmac", atdma);
->  	if (err)
-> -		goto err_irq;
-> +		return err;
->
->  	platform_set_drvdata(pdev, atdma);
->
->  	/* create a pool of consistent memory blocks for hardware descriptors */
-> -	atdma->lli_pool = dma_pool_create("at_hdmac_lli_pool",
-> +	atdma->lli_pool = dmam_pool_create("at_hdmac_lli_pool",
->  					  &pdev->dev, sizeof(struct at_lli),
->  					  4 /* word alignment */, 0);
->  	if (!atdma->lli_pool) {
->  		dev_err(&pdev->dev, "Unable to allocate DMA LLI descriptor pool\n");
-> -		err = -ENOMEM;
-> -		goto err_desc_pool_create;
-> +		return -ENOMEM;
->  	}
->
->  	/* create a pool of consistent memory blocks for memset blocks */
-> -	atdma->memset_pool = dma_pool_create("at_hdmac_memset_pool",
-> +	atdma->memset_pool = dmam_pool_create("at_hdmac_memset_pool",
->  					     &pdev->dev, sizeof(int), 4, 0);
->  	if (!atdma->memset_pool) {
->  		dev_err(&pdev->dev, "No memory for memset dma pool\n");
-> -		err = -ENOMEM;
-> -		goto err_memset_pool_create;
-> +		return -ENOMEM;
->  	}
->
->  	/* clear any pending interrupt */
-> @@ -2086,10 +2080,10 @@ static int __init at_dma_probe(struct platform_device *pdev)
->  	  dma_has_cap(DMA_SLAVE, atdma->dma_device.cap_mask)  ? "slave " : "",
->  	  plat_dat->nr_channels);
->
-> -	err = dma_async_device_register(&atdma->dma_device);
-> +	err = dmaenginem_async_device_register(&atdma->dma_device);
->  	if (err) {
->  		dev_err(&pdev->dev, "Unable to register: %d.\n", err);
-> -		goto err_dma_async_device_register;
-> +		return err;
->  	}
->
->  	/*
-> @@ -2098,27 +2092,15 @@ static int __init at_dma_probe(struct platform_device *pdev)
->  	 * dma_request_channel().
->  	 */
->  	if (pdev->dev.of_node) {
-> -		err = of_dma_controller_register(pdev->dev.of_node,
-> +		err = devm_of_dma_controller_register(&pdev->dev, pdev->dev.of_node,
->  						 at_dma_xlate, atdma);
->  		if (err) {
->  			dev_err(&pdev->dev, "could not register of_dma_controller\n");
-> -			goto err_of_dma_controller_register;
-> +			return err;
->  		}
->  	}
->
->  	return 0;
-> -
-> -err_of_dma_controller_register:
-> -	dma_async_device_unregister(&atdma->dma_device);
-> -err_dma_async_device_register:
-> -	dma_pool_destroy(atdma->memset_pool);
-> -err_memset_pool_create:
-> -	dma_pool_destroy(atdma->lli_pool);
-> -err_desc_pool_create:
-> -	free_irq(platform_get_irq(pdev, 0), atdma);
-> -err_irq:
-> -	clk_disable_unprepare(atdma->clk);
-> -	return err;
->  }
->
->  static void at_dma_remove(struct platform_device *pdev)
-> @@ -2127,22 +2109,12 @@ static void at_dma_remove(struct platform_device *pdev)
->  	struct dma_chan		*chan, *_chan;
->
->  	at_dma_off(atdma);
-> -	if (pdev->dev.of_node)
-> -		of_dma_controller_free(pdev->dev.of_node);
-> -	dma_async_device_unregister(&atdma->dma_device);
-> -
-> -	dma_pool_destroy(atdma->memset_pool);
-> -	dma_pool_destroy(atdma->lli_pool);
-> -	free_irq(platform_get_irq(pdev, 0), atdma);
->
->  	list_for_each_entry_safe(chan, _chan, &atdma->dma_device.channels,
->  			device_node) {
->  		/* Disable interrupts */
->  		atc_disable_chan_irq(atdma, chan->chan_id);
-> -		list_del(&chan->device_node);
->  	}
-> -
-> -	clk_disable_unprepare(atdma->clk);
->  }
->
->  static void at_dma_shutdown(struct platform_device *pdev)
-> --
-> 2.55.0
->
+It does try to allocate inside the region, or right after it, so the
+page can be shared by other branches in the same module if possible.
+But it can allocate more above or below as needed.
+
+> > There is a theoretical case where the 256MB window around the target is
+> > completely full without any fragmentation, but I would think that there
+> > would almost always be some fragmentation.  If that window is modules
+> > stacked together, most modules have at least .init.plt and .init.text,
+> > and many have .init.data.
+> >
+> 
+> Are you saying these are freed again once the module is initialized, and
+> therefore there is fragmentation? Not sure if it works like that if modules
+> are loaded one after the other.
+
+Not sure I understand your question, but yes, the module init mem is
+allocated from the same pool as other module memory, and freed once
+module init is done, able to be reused, causing fragmentation.
+
+If multiple modules get loaded all at the same time before any module
+init memory has a chance to get freed, presumably fragmentation wouldn't
+be much of an issue yet and the given module's .init.text would get
+allocated close to .text in the first place.
+
+> > Right now it needs two pages (because of the default guard page) but we
+> > could maybe fall back to VM_NO_GUARD in case of emergency.
+> >
+> 
+> I like the advantage of only allocating veneers if they are really needed,
+> as opposed to allocating the space unconditionally, which is what my
+> solution does. But I need more convincing that this will actually cover
+> all these cases, given that the cross-section call issue only occurs when
+> running out of direct branching space to begin with.
+
+Right, so if .text fits in the near region, and a one-page .init.text
+doesn't, meaning the 128MB near region is completely full, the BTI
+veneer allocation still likely succeeds because it still has another
+128MB pool to allocate from above/below the region.
+
+So for the allocation to fail, it would need to be a perfect storm:
+
+1) a *lot* of modules loaded and/or huge vmlinux
+2) the branch in init code is placed >128MB away from its .text
+3) the target is a static .text function with no landing pad
+4) there are 0 free pages in the 256MB region around the target
+
+Seems unrealistic to me, unless I'm missing something.
+
+-- 
+Josh
 
