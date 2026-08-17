@@ -4,54 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63FC9C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 06:20:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 174ECC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 06:23:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7bgBGN7+/ozSfdokjzvflhFj0ToHa1vgIl1PXuNzLXE=; b=H5XxR/YWsljgCUw8Wm+/E2kisY
-	N1OFgw83KwUtN6Xj+ncuACaBH2TFdAhazuswCoOv8e9PrXelPq41LE3HDZHKrBlBpAyXLXeINMqW/
-	+jteASM4FYDDtDhQfLfNapCgNayPIcA8sBxixVJM1sNi3rbYzGGNNLoOkIkpLgu8YzDZR4P7TDE1q
-	xIfH2XuemkxZm0pkGOxaHZLTktmoXM+r1sKGBGAlRLNonk61WrfwMGGOPEWPKCqBTdaRTciY682QO
-	n9Lt2GcVM8nZ0U+MX+dhB/ErCGaiIi90BR89JfvYpcPy+N0cwP8sJ0O0eFv58izyOcmeIZftLW56J
-	VyXIXyeA==;
+	bh=jOw+j1q+Tq+Mexz//qGGI8SqaRBLcQGBThbcAl9p1Go=; b=z1o8Ojb1PIR1Vnmap4L1A8v36w
+	tH4qNgTv5cApiw8QAH2mnzLmj5Y7zb7c9JMbA+OW6Wtrmlcya34JFXOoqq3Y4FYinYwCMKBtM7WDJ
+	f7KyszmkprpERBTiSi6oqO8ITpwcXu4JLbGkLBeyFnGSJWEMnRr2lTK8YlM+/SdM9i5IDl7gQMZqe
+	B48UEbficPIhAfruK44XCzWGFsBs9lvwLjbhK4MQJuVPwFfQHM2aRLZy4HrNeLq3s8S1tx2lL/YYH
+	YuA70hurvcaCwIPcaE8EpV7rZEu3Hma558tHEkX/5/VOD9dq1fOubrxGL/v255p96E0u9ZFHzSa0i
+	oFtqjjAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvqiB-00000005TjH-0oN8;
-	Mon, 17 Aug 2026 06:20:43 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wvqki-00000005Tx0-2p8H;
+	Mon, 17 Aug 2026 06:23:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvqi9-00000005Tj6-3Bam;
-	Mon, 17 Aug 2026 06:20:41 +0000
+	id 1wvqkh-00000005Twq-1nE5;
+	Mon, 17 Aug 2026 06:23:19 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D02BF6013A;
-	Mon, 17 Aug 2026 06:20:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E857D1F000E9;
-	Mon, 17 Aug 2026 06:20:37 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2A255600AE;
+	Mon, 17 Aug 2026 06:23:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 999F31F000E9;
+	Mon, 17 Aug 2026 06:23:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786947640;
-	bh=7bgBGN7+/ozSfdokjzvflhFj0ToHa1vgIl1PXuNzLXE=;
+	s=k20260515; t=1786947797;
+	bh=jOw+j1q+Tq+Mexz//qGGI8SqaRBLcQGBThbcAl9p1Go=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=j397Yc+hZ1l8JyoyiSLUABxsCy1ya63BYN+M/fDZtMYvYUxuKJLMKwmXt0KrNNxAd
-	 8XA6YcfDGmUrwb3mlVarBaxOlXRtri+BVjBLuIC4oscNFwMYz9o+vb+HtlhvS84rB5
-	 ja8S9D1/at+oK2Q3cdanPN3y3G0qYvDFhlKDDM0xQFWn4uU6PMAEZ0Tren/bm/jwhe
-	 Ns6fmzevNpTWneUGJEdbVW+ZVkyUqH2vnLWaSb7ir7ptsaqwdsC0MaA9WW9b4y1nKn
-	 6fu3B76Swuqr23Sp83lSNGqh9m7z75k2gYdC02iavZ0IwYf3tNa7Biv4HZ89pFkXem
-	 kSkGfMmgA/abQ==
-Message-ID: <4998d0ca-eeb0-4b04-b3ac-a1f97c1829f2@kernel.org>
-Date: Mon, 17 Aug 2026 08:20:35 +0200
+	b=YNwPL6QmU5C3HJm060nzfgtL+xf0UOxLnRJdelGugZbuMDrb5lip493qGL9lQgExP
+	 tl2Ti6fXt1XPb8c2fg2Z12VDvqf+cGwYZuKa0JcBTHt9LGDSV2LPM5EgXacy+7/Opr
+	 NjeuGrnxORsx2Ibg0lLhpjAJnfoK+6sVs3zMvxxwYcD3lbFkPYJOwsM9k0kt4iP71N
+	 U9r6/fCJ4ZMPQfRHmFe9MFHN0Q4QZ35hgVGsHdVP8GhPrlrcam0o3yqMQ1hAZvVYuF
+	 vt26w5nKTwR0coqYQj2p/aDjPnqWOnPGnJ6C9qhniNQBQxj2UYkiHFa/TduuYW5Jf6
+	 nvydrMdKvWwww==
+Message-ID: <bca067e2-bbd7-43cf-9198-32bf4de35a7a@kernel.org>
+Date: Mon, 17 Aug 2026 08:23:13 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v13 0/3] perf: Add Raspberry Pi AXI PMU driver
+Subject: Re: [PATCH v13 1/3] dt-bindings: perf: Add Broadcom Raspberry Pi AXI
+ PMU definition
 To: Ian Rogers <irogers@google.com>, florian.fainelli@broadcom.com,
  linux-perf-users@vger.kernel.org, linux-rpi-kernel@lists.infradead.org
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  pbrobinson@gmail.com
 References: <20260815082048.4043217-1-irogers@google.com>
  <20260815172712.50119-1-irogers@google.com>
+ <20260815172712.50119-2-irogers@google.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -97,7 +99,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260815172712.50119-1-irogers@google.com>
+In-Reply-To: <20260815172712.50119-2-irogers@google.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -115,19 +117,78 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 15/08/2026 19:27, Ian Rogers wrote:
-> Motivation & Background
-> ==============================
-> Currently, Linux lacks a standard perf-API compatible driver for the
-> Broadcom AXI performance counter blocks on Raspberry Pi platforms. Prior
-> out-of-tree vendor solutions relied on custom debugfs nodes and ad-hoc
-> kthreads, preventing integration with standard Linux perf tooling (`perf stat`,
-> `perf list`, etc.).
+> Add Device Tree bindings for the Broadcom AXI PMU hardware blocks present
+> in the Raspberry Pi SoC line (BCM2835, BCM2711, BCM2712).
 > 
+> Depending on the SoC and security configuration, these PMUs support either
+> direct MMIO access or routing via the Raspberry Pi firmware Mailbox IPC.
+> The bindings support defining 1 or 2 backing MMIO regions natively map
+> the system and VPU control surfaces.
+> 
+> Assisted-by: Antigravity:gemini-3.6-flash
+> Signed-off-by: Ian Rogers <irogers@google.com>
+> ---
+>  .../bindings/perf/brcm,bcm2835-axiperf.yaml   | 77 +++++++++++++++++++
+>  1 file changed, 77 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/perf/brcm,bcm2835-axiperf.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/perf/brcm,bcm2835-axiperf.yaml b/Documentation/devicetree/bindings/perf/brcm,bcm2835-axiperf.yaml
+> new file mode 100644
+> index 000000000000..8a4857aa448c
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/perf/brcm,bcm2835-axiperf.yaml
+> @@ -0,0 +1,77 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/perf/brcm,bcm2835-axiperf.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Broadcom BCM2835/2711/2712 AXI Performance Monitor
+> +
+> +maintainers:
+> +  - Ian Rogers <irogers@google.com>
+> +
+> +description: |
+> +  The Broadcom BCM2835 series (including BCM2711 and BCM2712) features hardware
+> +  performance monitors on the AXI bus for evaluating memory bandwidth and
+> +  system traffic. Depending on the SoC architecture, multiple monitors exist.
+> +  The primary
+> +  monitor evaluates the System fabric, while the secondary monitor evaluates the
+> +  VideoCore VPU hardware.
+> +
+> +  Older silicon generally restricts direct MMIO access to the VPU endpoints,
+> +  requiring them to be accessed over the Raspberry Pi firmware mailbox
+> +  interface. If the VPU endpoints are memory-mapped, they are supplied as
+> +  secondary resources.
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - brcm,bcm2835-axiperf
+> +      - brcm,bcm2711-axiperf
+> +      - brcm,bcm2712-axiperf
+> +
+> +  reg:
+> +    minItems: 1
+> +    maxItems: 2
+> +    description: |
+> +      Memory-mapped I/O resource regions for the AXI PMU endpoints.
+> +      Typically ordered as System monitor, followed by VPU monitor if directly
+> +      mapped.
+> +
+> +  firmware:
+> +    $ref: /schemas/types.yaml#/definitions/phandle
 
-Slow down!
+This was already rejected.
 
-One version per 24h in normal cycle, not 13 patchsets in two days! (and
-even rarer during the merge window)
+https://lore.kernel.org/all/?q=broadcom+firmware
+
+> +    description: |
+> +      Phandle to the Raspberry Pi firmware node. Required on older silicon
+> +      (BCM2835-BCM2711) where VideoCore VPU endpoints are exclusively accessed
+> +      via firmware mailbox IPC.
+
 
 Best regards,
 Krzysztof
