@@ -4,73 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15B1EC5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 16:55:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5281C5DF70
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 16:59:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=te1z7GuVhseJYugKAtDD2RCu2nn1uAHfQBPcVhB9BZ4=; b=dx48towOerTmw2BD6hxOIhrI0H
-	YKZcoIpTNpy3+FEa7YtuTz0cgCUssKHKYdos+qHMJmkj+Zi+e1ZuFMWLN9/BxHyMrdjKjK8rmvpTj
-	rczPVgf+xAfDjLBdhZItDI/LWmKbNIL599yrbr4lRdU3/e645KCbfVqxbvqyeMIDj/thuHoPfgGh6
-	nOGqfFs2fqVYxkO7KSqT9Ak1/UF8JVbLiGMpdtyUVkXxMjWw8pYlJS6PLoybcrjbx86Kf1D+62dM4
-	/O4ex2zL0bJBhdR3mrp/FlX02pkrAJolVxsWW/yMzxZp+lfKwL++BXfHPlHqcgHpidfSb+AZDRhTb
-	Ij9TFgZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3llulX3328L3Ek3yxprc6vIvWXNUGeLhpBQoQq6NfSI=; b=3JEQaMYrnFkniUGOmW4CzJARCN
+	HIvawc3mm/jzs7ZXhttjNvUpQWV4j+6AmI5Pfi4xBXB4sAeQvefdeOCY441/SP8Q+hRfICoQDSpin
+	VVXJT3RDKPvnTo8Zb8W27bZrYuiIFAn90ksuYCX+ijhGKuWYkN5QQX4wU5nzcwAmFOMX+Yhl/FKw2
+	nY40ZmrDJK2cFiUQtihyKKxA7m/cRLbzN96buIZM8vspUbV4hBZ6x/iqOSj4YQGB3MbZxupTQ3lDg
+	H90h4GcbOksY1PPuoOjaPxKMGyHrfsI0TtMyxAFdo8TCUNS2Y3t9P0uP/X4YWTsLp5+2NwxPh4qq9
+	+s11QGXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww0c1-00000006Yea-0wMb;
-	Mon, 17 Aug 2026 16:55:01 +0000
-Received: from mgamail.intel.com ([192.198.163.16])
+	id 1ww0gK-00000006Yse-33kI;
+	Mon, 17 Aug 2026 16:59:28 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww0by-00000006Ydf-0f7l
+	id 1ww0gK-00000006YsX-0k2b
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 16:54:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1786985698; x=1818521698;
-  h=date:from:to:cc:subject:message-id;
-  bh=aoP3+++jhCgswqdF89+0vbsToZiwbK0wtHF7BZ08o08=;
-  b=fjk1Gu48kSKKAoeYFDxQaWCE4pYhqLaSIqT3DZBKwkGExW9epp5d3iux
-   ypgm+UV1IaJ4vPwaDwyyABOu87IaPgtsnDBkUGa46Mx7NB9C46cvS9oLr
-   MBTbL/bRtjoL0I3UoEZFxHT9j8qq1xJRbC/iXiCwHfeO8tdISprr4T/5+
-   vD11tvwBvzFhyJFfnMp4jA8g8+znw9YDHHUJghvlo08/7oJam0NvAcuCP
-   g7L1y0b9btzLLeQKtv5J6gdu5dDHnT+YN24EpgvUynowOpscOpE8zP7YT
-   GPYkCPd3Zt0F3T+bFIg0in1jBTXyHM9l+oHtgcEJmvEW1Jo2iRgAS7RwB
-   g==;
-X-CSE-ConnectionGUID: sP4HZ07gQ36fDaxu83X5FQ==
-X-CSE-MsgGUID: fEM0bIHkTWWVXnVY4EfBug==
-X-IronPort-AV: E=McAfee;i="6800,10657,11878"; a="74996389"
-X-IronPort-AV: E=Sophos;i="6.25,229,1779174000"; 
-   d="scan'208";a="74996389"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Aug 2026 09:54:57 -0700
-X-CSE-ConnectionGUID: UBC/rzGWQ46bghatmdTPog==
-X-CSE-MsgGUID: 18S67hlBRfC0E82lNjSARA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,229,1779174000"; 
-   d="scan'208";a="269247676"
-Received: from lkp-server01.sh.intel.com (HELO 6eda058d650d) ([10.239.97.150])
-  by orviesa005.jf.intel.com with ESMTP; 17 Aug 2026 09:54:56 -0700
-Received: from kbuild by 6eda058d650d with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1ww0bt-00000000dfa-1bsE;
-	Mon, 17 Aug 2026 16:54:53 +0000
-Date: Tue, 18 Aug 2026 00:54:20 +0800
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- arm@kernel.org
-Subject: [soc:board-remove 167/217] Warning:
- drivers/regulator/max8998.c:59 cannot understand function prototype: 'struct
- max8998_regulator_data'
-Message-ID: <202608180027.jXWV7RZS-lkp@intel.com>
-User-Agent: s-nail v14.9.25
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_095458_256103_7DF431A1 
-X-CRM114-Status: UNSURE (   8.72  )
-X-CRM114-Notice: Please train this message.
+	Mon, 17 Aug 2026 16:59:28 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6F09060A58;
+	Mon, 17 Aug 2026 16:59:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F5491F000E9;
+	Mon, 17 Aug 2026 16:59:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786985967;
+	bh=3llulX3328L3Ek3yxprc6vIvWXNUGeLhpBQoQq6NfSI=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject;
+	b=mnBw6EIWGNULVx0W8kvE/NLBA5bt3cfsKbMg12I2bZiOg0VYkksZvlnG53qFDLK/8
+	 rOlB9Oy/Lf22hL6rGJeu34lRvCh4Iyi0OP9c7PSMDgL7Tlqk1i+MM+5cyxe+JFwuIa
+	 8gdO1hQueYZ8IveAlXulQOSIIkJ09hHJRD8EfSbbFKknUkWGNyyOqOYSVJcx3QT+gT
+	 4r6V2cp6ugQANfoXV5CqvtPuqzaLRqvHupw0rBfjoHcxdv+3hGtnJLTO4hL3c6WA/H
+	 pQqhxMBd8h1vnaSwDEzwfBz4Hq1Nv479ulAyPlxO8jOY2YswIvXIGzhutpNseh7A4M
+	 gtlvYZ0B6a7Ew==
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfauth.ams.internal (Postfix) with ESMTP id F2635198005A;
+	Mon, 17 Aug 2026 12:59:24 -0400 (EDT)
+Received: from ams-imap-11 ([10.64.2.31])
+  by ams-compute-02.internal (MEProxy); Mon, 17 Aug 2026 12:59:24 -0400
+X-ME-Sender: <xms:6j2DajBLqUlsCMxiWpJVM57j4vDzsqoGdXqibdORWyEbL__RQA2yxw>
+    <xme:6j2DakX3cEIQiTkFEKIs2Hsw0opViKFDAnoFQis8ch5YRH--a5IadIO8fp9wXHiU8
+    3S0J5J-hhzVzp64TbCIgVNK8RQ8SFHf0q9W20G32plG7GZ0UT0IWXGR>
+X-ME-Proxy-Cause: dmFkZTGWu6WDxCMnrRb1S3oKmk5iStRE3JaOXC54KSBpqPeipijwwR2HrCmeM/GVeLZWSt
+    s/eB1469nVCVVflUTjbd+qswpbrqXXrhXA4ApuQS8LI2sKJzb8PHg/IImzC7JB/jP1Sytq
+    cReM4bk+nka73PAkzlFdd6UuaZaoz8JkNOhc7QqtpOuETM92JuVHOyJ7x7rTLP/wjCqjqY
+    9NyiJTlNHR0yJSfrSmL0vKxlP8oqqrzRKDlcVeYleOsVAfmnEgS3XmwJLrM/Z3kHOIJUpM
+    5+zA3bJtqp0uSdxO1KgwkeojQQEBxJnqtg2GqfHtQc+U7qpYO4ejNX5oomUoRv1XEqugFP
+    Lv0luHj88B6zo+rCCZvzIOUniSLQRL3ra1LLYQ/i/1RmW/dLvPc1wfhSo2nh0lnJecyffB
+    pgODSi+jzRs4nYeUbEHmgmnXH3b/fufoFdl/hcoQ6CcoRwoSDJwhXJwybouSvxVxA3zOrv
+    fyF2YwAYT3YQSyopA34B5JfBXsFMgx0M2jDPf209xPrH097NrNVsl0Ns34RTUI1yp4hiqH
+    n0fl2t0KRiyPRwnn7Vkyb44OePTmrmPN5SGUs18qYiojQAWmgDa+DDwvYAi4FV6ylkQRXf
+    c5bm2Eh0GkegawCm9g/SXOuBjEvPzfeF6xIElleYhtChO24izz/HiASSKI0Q
+X-ME-Proxy: <xmx:7D2Daj5q29beGjnbsbtA93utKnpj9jmj2wsgLPILJ8Cyuy4WuNVhCA>
+    <xmx:7D2Daplet-CiwwBZf6VZIRWLwcDLoDccMe7H2E08akQqO74c4x7fpQ>
+    <xmx:7D2DaoqR0ZcLFyx5S2nxSP0eUbVjvcFiyk6hgmnWPYLugRXHbo7NDg>
+    <xmx:7D2DaotTgha0tXeupLxmjBoNAs4--vN6aS7WieJPHzMFJ5mJTYSlSQ>
+    <xmx:7D2DatHPiq5B-tvkrlgYrlZ6-RrGWxOM-WUeyM0ssjBfIP7Vu-5t0RKY>
+Feedback-ID: ice86485a:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id C4C4EF80071; Mon, 17 Aug 2026 12:59:22 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
+MIME-Version: 1.0
+Date: Mon, 17 Aug 2026 19:59:02 +0300
+From: "Ard Biesheuvel" <ardb@kernel.org>
+To: "Leif Lindholm" <leif.lindholm@oss.qualcomm.com>
+Cc: linux-efi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ "Huacai Chen" <chenhuacai@kernel.org>, "WANG Xuerui" <kernel@xen0n.name>,
+ loongarch@lists.linux.dev
+Message-Id: <c3cd6952-87fd-442b-8d54-13c814b8d5f2@app.fastmail.com>
+In-Reply-To: <aoMV3TX0hgTsj3_m@leviathan>
+References: <20260813074506.643472-5-ardb@kernel.org>
+ <20260813074506.643472-7-ardb@kernel.org> <an8xTBiCy_PEuwZi@leviathan>
+ <a0d10b63-bf9a-4ad7-a9d8-ab748a9c0c2c@app.fastmail.com>
+ <aoLR9BPGt4Kzbr3y@leviathan>
+ <92baff04-d30b-4174-b5f5-87b24e6a1cc0@app.fastmail.com>
+ <aoMV3TX0hgTsj3_m@leviathan>
+Subject: Re: [PATCH 2/3] efi: Pass EFI boot memmap struct address to core kernel
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,28 +101,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git board-remove
-head:   057394422bc04420585b2790b230d8a1f350ace8
-commit: 2a3be8c163ae1aac1daaa8a851aac755698ac63d [167/217] mfd: max8998: remove pdata based probing
-config: alpha-allyesconfig (https://download.01.org/0day-ci/archive/20260818/202608180027.jXWV7RZS-lkp@intel.com/config)
-compiler: alpha-linux-gcc (GCC) 16.1.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260818/202608180027.jXWV7RZS-lkp@intel.com/reproduce)
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202608180027.jXWV7RZS-lkp@intel.com/
 
-All warnings (new ones prefixed by >>):
+On Mon, 17 Aug 2026, at 17:08, Leif Lindholm wrote:
+> On Mon, Aug 17, 2026 at 14:00:16 +0300, Ard Biesheuvel wrote:
+>> >> > Is it time to update the boot ABI to say x0 will hold the physical
+>> >> > address of "device tree blob (dtb) or EFI System Table in system RAM"?
+>> >> > They can be distinguished by 0xd00dfeed / "IBI SYST".
+>> >> 
+>> >> Let's avoid 'boot ABI' here, given that we are talking about an internal
+>> >> interface between the EFI stub and the kernel proper.
+>> >
+>> > It's an internal business in the topic under discussion, but if we
+>> > were to change it, that would mean updating booting.rst, which I
+>> > consider an ABI.
+>> >
+>> 
+>> But not an external ABI. It documents specifically how the EFI stub
+>> interfaces with the kernel proper. This might change at any point,
+>> without any obligation whatsoever to remain compatible with the
+>> previous method.
+>
+> So you're saying if the kernel proper decides to use x1 for something
+> else, we'll move to x2?
+>
+> I agree that in the context of how the stub calls the kernel proper,
+> this is not ABI, but x1 is one of the registers currently marked as
+> "reserved for future use" in booting.rst. So it feels weird for me to
+> allocate one of those registers for this internal use then not mention
+> it.
+>
 
->> Warning: drivers/regulator/max8998.c:59 cannot understand function prototype: 'struct max8998_regulator_data'
---
-   drivers/power/supply/max8998_charger.c: In function 'max8998_battery_probe':
->> drivers/power/supply/max8998_charger.c:95:28: warning: variable 'i2c' set but not used [-Wunused-but-set-variable=]
-      95 |         struct i2c_client *i2c;
-         |                            ^~~
+Whether we mention it or not is irrelevant: the only thing that matters
+is that this allocation is not something that OS loaders other than the
+EFI stub are able to rely upon, given that EFI boot on arm64 requires
+booting via the stub (except for Xen dom0).
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+> In that case, couldn't we instead pick a register outside of the
+> reserved ones?
+>
+
+It has to be a reserved one, given that the state of other registers is
+unspecified at boot. Otherwise, we'd have to reason about whether a non-zero
+value is accidental, or represents a physical address that we can map and
+dereference, which is needed even to check the system table's magin
+
+>> ...
+>> >> > Minor bikeshedding below.
+>> >> >
+>> >> >> @@ -123,8 +134,24 @@ u64 __init efi_get_fdt_params(struct efi_memory_map_data *mm)
+>> >> >>  			pr_err("Can't find property '%s' in DT!\n", pname);
+>> >> >>  			return 0;
+>> >> >>  		}
+>> >> >> -		if (dt_params[i].paravirt)
+>> >> >> +		if (IS_ENABLED(CONFIG_XEN) && dt_params[i].paravirt) {
+>> >> >>  			set_bit(EFI_PARAVIRT, &efi.flags);
+>> >> >> +		} else {
+>> >> >
+>> >> > This condition branch doesn't in fact have anything to do with the fdt.
+>> >> > Should it still live in fdtparams.c?
+>> >> >
+>> >> 
+>> >> I don't follow. The EFI_PARAVIRT flag is set based on whether we are 
+>> >> using the generic or the Xen-specific set of DT properties. What would
+>> >> be a better place to decide this?
+>> >
+>> > Apologies, I may have commented confusingly - my comment was about the
+>> > else branch:
+>> >
+>> > +
+>> > +                       bm = early_memremap_ro(memmap, sizeof(*bm));
+>> > +                       if (!bm) {
+>> > +                               pr_err("Cannot remap EFI boot memory map\n");
+>> > +                               return 0;
+>> > +                       }
+>> > +
+>> > +                       mm->phys_map            = memmap + sizeof(*bm);
+>> > +                       mm->size                = bm->map_size;
+>> > +                       mm->desc_size           = bm->desc_size;
+>> > +                       mm->desc_version        = bm->desc_ver;
+>> > +
+>> > +                       early_memunmap(bm, sizeof(*bm));
+>> >
+>> > So to restate - this function is called from efi_init():
+>> > ---
+>> >         /* Grab UEFI information placed in FDT by stub */
+>> >         efi_system_table = efi_get_fdt_params(&data);
+>> >         if (!efi_system_table)
+>> >                 return;
+>> > ---
+>> >
+>> > Before this set, this function called get_fdt_params() indeed gets
+>> > "params" from a device tree. After this set, this function gets params
+>> > from a device tree in some instances, and not in others.
+>> > Which feels suboptimal.
+>> >
+>> > We could rename the function, but then there's still DT-unrelated
+>> > code held in fdtparams.c.
+>> >
+>> > If we go down the route of passing the system table in x1 on boot,
+>> > then I guess the effect of assigning efi_system_table will already be
+>> > broken out. But should we then split the mm struct initialisation into
+>> > separate DT and config table helper functions?
+>> >
+>> 
+>> Not disagreeing but I think it is fine to leave it as I suggested at this
+>> point.
+>> 
+>> Some additional work is needed to get rid of linux,uefi-boot-memmap
+>> entirely, and until that happens, passing the EFI system table via
+>> X1 and linux,uefi-boot-memmap via DT is not a huge improvement.
+>> 
+>> linux,uefi-boot-memmap is needed when SetVirtualAddressMap() is called
+>> [with a non-1:1 mapping], as the EFI system table contains a remapped
+>> address of the config table array in that case.
+>
+> Of course, the devil on my shoulder suggests the stub could always
+> add an address fixup handler for the config table too...
+>
+
+What is an address fixup handler? We cannot change this value back,
+as that might break the runtime services.
 
