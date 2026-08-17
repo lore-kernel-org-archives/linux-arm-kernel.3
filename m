@@ -4,94 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C42EC5DF70
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 10:01:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39076C5DF70
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 10:04:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C5xJAp5EsJh4mtoVRdetKKnVuOabsV+/QbXlIN6U2H4=; b=AKXlWFgEob0/ExhUrLqobYSPlh
-	Tczg3yJwc9k9U6xQCeFSZy0N4wPuVlOxOMC5rnxnqv931i9diayoayCqehk0M0XszJzq7s9bQAeL3
-	zs68AJkdmQEIQXQ3+vVO7n9qiTj8k0yYQLACPrxZStrNB0KjZVJ6fHFoA5YRBXOhrQVV808iNIlHn
-	wdN3nc+I94wSoNMGX5TiPb3Q3DLUhfV8yWncJzrnh53LGrdxu5oTcUfFPfFqNqknN2fAaoKse1yN8
-	Y9uU0rAtM4hTp6Gi7wIj6wtKHxFiqSjuSon+wWEAAUENi82XoT1T4nFw9VWvkYjhjwXamxf7ybSLa
-	zZbFVdog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tEq44YM8srCrqasWkzTPxHmjyNX41xjenIAItmbJ1vw=; b=XZjmms9F5h8C34vfsyjMOE/IRb
+	Cp3/5XzNeSsIy/DysNeoFaZQmGhkNUIFnvZPOc6Et7UDT8nj0kNb+RW/BAIc51GErA0UjQY/Z/HtN
+	y40zSgC/+nEH0sMQv3+ar/K58m4l74zsFeZyE95c2OVPgsh6OcbzVl+6D+kjIb7njDMmnEVfVvczF
+	EiWgOg0xdcKbiVpisDyOfUEgJNllhiW9gmSt81LwgRVzP+daHRxVBNLDIEeq+cffxRdgD+egmC5rv
+	3sAd4OPp4xJe7OkcSokWFZu240qd+s+ussCy5ESPFYN9UvmBLKCMdwT4TE7hzEPLEus8ST30Hu8Ux
+	FtHkQXHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvu9P-00000005roG-2H9G;
-	Mon, 17 Aug 2026 10:01:03 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1wvuCP-00000005s2a-47Xa;
+	Mon, 17 Aug 2026 10:04:09 +0000
+Received: from mail-eastusazon11011068.outbound.protection.outlook.com ([52.101.52.68] helo=BL2PR02CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvu9M-00000005rm8-20tr
+	id 1wvuCM-00000005s2F-1ERB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 10:01:02 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-47f502ff678so379137f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 03:00:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786960858; x=1787565658; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=C5xJAp5EsJh4mtoVRdetKKnVuOabsV+/QbXlIN6U2H4=;
-        b=fpDrnweK3Yyac73o2oqC93j7bLC4j7Yz14evNxW6pnu4kcCXlu64AQpR9qzkvPPORF
-         8aVZkLfWyfeZvulYoOoPDx4+c1+IzrDwBnhClrzREDXTqt4fMgGVTm4hA/lDWa3n58Gd
-         02FR2ESIz27CJxE/+Uma6XVaoihD8dLXRuI68VlbfhRx2jACfTULYwdAK/XMSpF6768w
-         BFsJga+mN90B+J62oNN84ambLuW+d9uOfRcgtUXb3jMa5fQnuqg/SOu4jtcnCh8aXT2y
-         ouM8UyTUUiiOAIA5Sdo+Ab0CGQocI7DVLKJr0o2R1NJ6Bnlo+plCp08zqXlSGzeATU1D
-         4TPw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786960858; x=1787565658;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=C5xJAp5EsJh4mtoVRdetKKnVuOabsV+/QbXlIN6U2H4=;
-        b=lQOA26hzITm1svKoRHsKW2HFrNhrYKG3n0JGWVokYaUqCIzFioa1yRAkjeAPJYEh7R
-         SK7j4hGXcZY7w/VXW/p9fFsqEqyoZsuwZv+regL3qr8g1c5wXM96UWcih2gwT2ngQS9p
-         1QzpSvzVm0lcKr8FoQ/ttqsuE/alX1+8In9wnTIGzHxp9DS1302OcMcGZgvvHJQK3GHq
-         BMyMHDwN9dSwGPQ16j+Vy2PCn21+OTBeDvtBvvGf/PJkkcVFg9KI9tMW1WvgSOGKzgPq
-         VkDAPjMfZffU3X2syZYZ4b0Tssrai6p9FuiTtkKfq4UYsqZUkHuRpXE8SuygtU31FIHG
-         B9RQ==
-X-Forwarded-Encrypted: i=1; AHgh+RrPqEKngzh50Pcktcx+wFWmCPltHPeLT16T4jVnh5bN2tGhV/n9i0KACatBI7jcGM2jrhB+RdtMKdzNSGCazueN@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxrg21OL4hmgzSKIvJWlDMXbBOnW8bKktSvFKnVwccW8Gefu2Zf
-	hzpWUX8aWyOl1w944bFSJuYwzbc7ZfuMULkAdMMGZA/5SC/kzCCaWZkU
-X-Gm-Gg: AR+sD10UvLWundG18uNFkSKGKoQJQc2C4fhj9w/BcMvih9hn7sT0bIEiGEw4Gf2+H6F
-	wHS9mH02kSRTRoB0t9cx2tNn0dBxpMZmCUsxjL39w9zt/FfYkynfBmnd6kegyQ9B6YG5oFaB5eY
-	/T0VjSrzRsRv0rJ+MXNvePCQji4b8sGF+7OVmToqZ3eHj6EByh+yGqrzirbjLw9EjzVRYT6chuz
-	etcvx12uJ6P18LS9Uo0iRYE2zqaxuTFvGMIHQlnL+21Do+PFSEMA+pQlhnK2fQANoF9PYL09lO6
-	prJDhkrXgQPC87s2yRtMA6InHnXhJEOC1Y2u0s6SKx2CMzpSw8LYSWhkPLJ9T4Kqj0H+q+O2Bxg
-	2VFB8I9MY0CXgd9+lIcdVXesOpMgDhoQXQodMqPeli6xC40jBYpDhVsotIlwui1bcoYA0Vwm7J3
-	ZJScUgNgo6skMF2iUsk0A10cuidc/fAbUApRt7VQpwB+UyonkkruSM8//gpem0JoeAG8u2Q21cm
-	Jbg2aihFxT/M6WU3bgw53KCRd0elZjXBnHHllDo2ITy1T0XHJIPL+A5hCWdetN1B3NYag==
-X-Received: by 2002:a05:600c:a0d:b0:498:1371:660c with SMTP id 5b1f17b1804b1-499878d5e0dmr175209465e9.0.1786960858323;
-        Mon, 17 Aug 2026 03:00:58 -0700 (PDT)
-Received: from OrangePi5-Plus.BB-HOME (20014C4E1B8FC50027494B64639367E4.dsl.pool.telekom.hu. [2001:4c4e:1b8f:c500:2749:4b64:6393:67e4])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49996109652sm167889155e9.4.2026.08.17.03.00.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Aug 2026 03:00:57 -0700 (PDT)
-From: Igor Paunovic <royalnet026@gmail.com>
-To: Jiaxing Hu <gahing@gahingwoo.com>
-Cc: Igor Paunovic <royalnet026@gmail.com>,
-	Tomeu Vizoso <tomeu@tomeuvizoso.net>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	Alexey Charkov <alchark@flipper.net>,
-	dri-devel@lists.freedesktop.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 08/10] accel/rocket: add RK3576 NPU (RKNN) support
-Date: Mon, 17 Aug 2026 12:00:43 +0200
-Message-ID: <20260817100046.24872-1-royalnet026@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260817094544.1159366-1-gahing@gahingwoo.com>
-References: <CAEWPSH7ETfw2TDjUfOvcVtDm19FC43x2vP=Lh7m+XPOGptnPWA@mail.gmail.com> <20260817094544.1159366-1-gahing@gahingwoo.com>
-MIME-Version: 1.0
+	Mon, 17 Aug 2026 10:04:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=lTWUT8zaZJ6/5trxzX6t5ObBPH0FC5DorBLzdOl7Pw+skIVzCq4BEJyDIPM5BTso8vQO0oHMk0ayQoVfeKXMaPDb/ARh13ovc4b24uDR7nZI6wD00uD0xZvjHyBbQeWw5eEuzRawLkBK/H2x7j2y0mQjsMcMuZiKlhRwSCpiABul0cQ/7cnDBvuZkEI0aoSFJwI7VFsHBzxLSxgfx6tYnwy6nHn7b2COWby3vLveAw1FaFqwq/KMFmk2+D8bzcw34OLjSDTEbAC/T02mGANCV4RPGDlqKBzvH7CgQA7TmMZETVDGasYSOskDGqP0BOkNklKAHgQOkET5tz/49GhMWg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=tEq44YM8srCrqasWkzTPxHmjyNX41xjenIAItmbJ1vw=;
+ b=PJQzsFPyBiL0NV/skZYZWm+PWy/mwwWCFw0g4hfUKrM6k+X8WSSzzrMv0bW9j3UfFwq5mqicPcJaueu64vJtQXAQbQ0WRHTzFg+F0JL7grtFmClINltloyU64svklTSrnUPLd5eFQe7OoNAS2NH/kj1JmL2sG06CgFCDqfgc5eFoAeq4XnGn2o5gHhHI3PpVlvnHcOTVkM2zXVsxMblj9b9IWYkh+sqap2sHRB/TMtsv34K2wu48EqRbOTUPuoN9hsHmSq5/qQ9OpbSyx5ufqth74j2Ej0dVFFIr/xaZuenVGDw8cdbshr81dlOvR1NBWz6oyiZ4xlUP3CwXn5B8+g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=tEq44YM8srCrqasWkzTPxHmjyNX41xjenIAItmbJ1vw=;
+ b=oIjoNyErpbI/eVCHjVPxvGJS5tRHG76vTP8SO9SH1gzT7JK/9l8WTMayqsoApM96vrzFBRVvmN83+lyWrxoNuD9XQNEn5UK0DOmNYxtMR4QT6b/8octGLQfoi+NfLpQVLoatoeOuXt2o28ooRqi/ct7L28ChKEmhJQfgkghl8NA=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from SN7PR12MB8147.namprd12.prod.outlook.com (2603:10b6:806:32e::5)
+ by CH3PR12MB9171.namprd12.prod.outlook.com (2603:10b6:610:1a2::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.17; Mon, 17 Aug
+ 2026 10:03:53 +0000
+Received: from SN7PR12MB8147.namprd12.prod.outlook.com
+ ([fe80::3923:c1a4:778b:56f2]) by SN7PR12MB8147.namprd12.prod.outlook.com
+ ([fe80::3923:c1a4:778b:56f2%5]) with mapi id 15.21.0315.016; Mon, 17 Aug 2026
+ 10:03:53 +0000
+Message-ID: <1d8922bf-5ed9-4ba6-9d3a-a7b981a41fdd@amd.com>
+Date: Mon, 17 Aug 2026 15:33:43 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 01/20] dt-bindings: net: add Xilinx TSN Endpoint Ethernet
+ MAC
+To: Rob Herring <robh@kernel.org>
+Cc: Jakub Kicinski <kuba@kernel.org>, nagadheeraj.rottela@amd.com,
+ srinivas.neeli@amd.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, pabeni@redhat.com, krzk+dt@kernel.org,
+ conor+dt@kernel.org, richardcochran@gmail.com, michal.simek@amd.com,
+ andrew@lunn.ch, olteanv@gmail.com, horms@kernel.org, linux@armlinux.org.uk,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ git-dev@amd.com
+References: <20260807104431.157230-2-nagadheeraj.rottela@amd.com>
+ <20260808194815.132344-1-kuba@kernel.org>
+ <ba624013-e8e2-4262-a451-650c29dc6b8f@amd.com>
+ <20260814180413.GF1981719-robh@kernel.org>
+Content-Language: en-US
+From: "Neeli, Srinivas" <srneeli@amd.com>
+In-Reply-To: <20260814180413.GF1981719-robh@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: PN2PR01CA0227.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:c01:eb::14) To SN7PR12MB8147.namprd12.prod.outlook.com
+ (2603:10b6:806:32e::5)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN7PR12MB8147:EE_|CH3PR12MB9171:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8906b3b2-80b2-4aa2-9e46-08defc46d7b1
+X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|7416014|376014|366016|6133799003|10067099003|4143699003|11063799006|5023799004|56012099006|22082099003|18002099003|3023799007;
+X-Microsoft-Antispam-Message-Info: gQoLjScchCWoI4zNIFz7iEZ0tVgZEAcQ5mleLzGlQreOegLeRzOoKgVUFIdTuUQJHJVwFHY37eKghjVdx990ANGBkZwLRKu/cuuN07FkaD1m+ikRERfSN7v4eyBbvxexqiizytDvZ1Rorl6z78dXDSFKxiwJ9Zips0t5L4SFgPs3r5SUIq1aiez+NiR1b6lmuZAPvQmQR+npau66lumi4JxVWIQyon17dwjt+ausisNkjlUk/H3sI3mtCdBfduNfQGNkgbPTS6T/sxHeaABSuiIJX3UsVJCAmxqjSFfZABG85XrQFprsc3+Iwozhd2bkeT0ZlG5XkRmv1zrcOCj58bLkZjKHYrrMr3sYH7dAr+Xvurt+2peLO/QhfNeWjWR5SCyRkslKKSchC/T7R6fOOzW6Y6K55OIzpjuHTfN6yGzVdOfrPWSFSgNrFKp0MmwTZ50OiFKMrXs/sA9DSTiS5ymkPo2HEA6i7wyMYZi5TMfpZljNAybCwMvFS4PgazMWenb++qyofBx5HTNGAQc27F04z0cUKun6ZgLYhkSt/8q+XSP0T+fBIPS5p1MzkFCtfa1RFtY4jFpB+Nu7Gu1I+Euy5jWqW+hGcrUnju1qyzAFGhE99ZcP8W8UmJpquAnaSB60egPiOSwgJi48jgQUnui+vQfgrJyRgJpzpopABBk=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SN7PR12MB8147.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(7416014)(376014)(366016)(6133799003)(10067099003)(4143699003)(11063799006)(5023799004)(56012099006)(22082099003)(18002099003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MTBCTENQbG1tTWU0Z3hFUUIwVUtWenFjS041NzJOSjdXQzMyekxnaVdTSmdn?=
+ =?utf-8?B?aXJsdENGNmFQVG9EeWEwQnV2WU5XcjUyOGpPQjNISmpHazJ0RG9WRTU1dnVF?=
+ =?utf-8?B?NHEvN0hkc1UrQWYvTXA0SjdtcFluY2tPdS93OHJYa1NvR0hPSE9IS1pHejNK?=
+ =?utf-8?B?dFhNbW1yWHhJOEtOVEhwYVorZHoxbDQ0NklUMlJSZGxqWEJNeWlncHg3N3Ew?=
+ =?utf-8?B?aVlXZ2p4WDdUb3RvQWE0d1RzVWs2cE1xUjBwZ0hFQmRtMjRXWTN0Z3JadTJy?=
+ =?utf-8?B?WDZnRGx2RUQvQkhvRkcrNHJjako4QlBGUmQ3UVhHUHFpOXQzNVlpMERnMVI5?=
+ =?utf-8?B?TDNMcFRIV0hpY3MwYSt6U0hqSVQ1QkxSeWlub1lNRnYwZjVETFRDWHlQL0xZ?=
+ =?utf-8?B?c0E4ZUgwUzQ2V05YNXNraGJoa0FLTmluMkJTYnpzMVRzMDBIQ1BYejFLV2gw?=
+ =?utf-8?B?Vlh4TXFEVnZPUm5tTFNacHB0RGZLd1hEelIzZWJQMXBxTk9jT3FMNHlMSlFh?=
+ =?utf-8?B?VzZzb083ZWxxVXJCVGlFVWppRmdDOHpxTkppT0svcFJxNGg2U3R1Y1lXNzMy?=
+ =?utf-8?B?UUpLKzd3Q0liR2tIek5NY2VCVlJHMHRsLzgwSWozMEduQlFBbGZtNzZRRFh0?=
+ =?utf-8?B?bFU4bWZNL1RueXd3c2tyRHBRR0w4VHh1Mk0yU0k5TkdBWnJJUHFqNGUrdFdQ?=
+ =?utf-8?B?T3BzZTdHMlY3TEdhcW1uMmQrc3lqck0zOEoxd09OMFZTR1N2Vlc0Vjd3NVhh?=
+ =?utf-8?B?VUw3RlpLODdHOVlyZE1TcktlYTFEZFRPK0Y2T0QySHZDOFBBSk1tR2NMY1Bp?=
+ =?utf-8?B?UzgvdnBNUkVkWUx4WDJRcmpNVjNibUVpUlhBa1FIZmhKZ2haNitucGhrZG1H?=
+ =?utf-8?B?MHhCUDBNcWQxb3UyRlZwWENlYmc3aTdzSUFtUk5EV2FmVVRwRzZmVStBeEVn?=
+ =?utf-8?B?Y01TcW9IUW5RUUtQelVQQzhFNiszRFphZGtPL1dKWUErQmdZY1Y2ODRlcWly?=
+ =?utf-8?B?UURFb0x2WTNkTGxWb2tBcHhBY1NxbUpSNjU5T3dBSGV3REZla1JJbXZueXVm?=
+ =?utf-8?B?VU42a001VVE0OTBMZFYxVUxuQzlGNnIwWDQyMFpBa1NxM0M4cXlOMWpza2NN?=
+ =?utf-8?B?Zm1uT2FXaVQ1ektqS01OK0hIVjh3ZGE3Mnh5WFh6Y3Jwa0RTL1ZvckZYN0ZH?=
+ =?utf-8?B?UjhlaW4wVDk1L0hPVkduNnpVdnQ4TWp3RWloNGtCSVNCQkRrdFN2cnRaZjFr?=
+ =?utf-8?B?OTBReE9zbXVmSXQ3Ui9JeW9QMFdzT3JUajBNMmZhMGx1NVRUSStBbk15WEt3?=
+ =?utf-8?B?eE5EanEwODRmTnBScmp0cC9lem02Q3YxM0dXTUZVNWZGeE54S0NhaTRIenZw?=
+ =?utf-8?B?NHpNcGZmbjFtZVdNZGlhZDc0OTNpNG5HVkNOcCtidVQ4MWg0ZnQ0azlMTG1N?=
+ =?utf-8?B?cW94aE5IWXJvb2NkVitWbmVLbEZ2a1UydktHRTNDWjBTeXEwU3QydCtTcUtZ?=
+ =?utf-8?B?SytWbnhJTG56ZWl0ZjkyYzJVWElQdVJRVWNsb1hEWlBNa1dka0ZUQUM3NTV5?=
+ =?utf-8?B?U2VGb3J1ZE5QTHVGSWdOZnhYZ3AybW5ZUmhXQlB0blZwWlo0MlU2aGZCdUYx?=
+ =?utf-8?B?N2hWZ2dSdS9vaEMwSXh2UlN4djNPZTBWUjhmcUhyUG5kU3JHUFp6MFF2dDQy?=
+ =?utf-8?B?SFJYZmJEbWZMQndDZWlHOWY1U3BKaFJhVlpSeUpXYW03dTN6anhyTFRsV1Nm?=
+ =?utf-8?B?R1NEbDR3dHkyWWlWSGYxcVN2MzZNMTloTW5ha1lqWkRxbzlaSmxlWmx0RnV6?=
+ =?utf-8?B?bndCQ1Y1UUlBMVBHZTg5Ykl3VVYyeXVyMXJ4a3g1SEFjRkhMcUQyU1NyODI0?=
+ =?utf-8?B?TEE0TlBObE9Ub2p5cUlLSmNuSGM4dWl3b0lmY0pBc29GWDh4eUxjWTI1UWJY?=
+ =?utf-8?B?SnJGYlJLOWxJbWcwT1p3RStnSG5UbzhvZ2xLV1htWW9qajlMS3E4RDdlZkVp?=
+ =?utf-8?B?UzhiMkUxNmluay9OMVpkeTA2Zmo4akRNOVoxZXhQNmozalVEVFh2VXBUZ2Er?=
+ =?utf-8?B?U0ZtMEFza011RnA1Wk1aSk1ZUmVJVEh6ajFFK0djNmFTclZ6Vmx4c3hKeGVj?=
+ =?utf-8?B?bnY2YmlJT0FmSk1MLy96RkMvU2p0SXFHUStBWGVNKzM5ckFjSU1oNEpwd2Uv?=
+ =?utf-8?B?MzFHWnkxV25lSHB1V3c1ektrMTlTMnhYb1NVek9jZklPMXBKNTBXdHgvQ25l?=
+ =?utf-8?B?bTJPWFlDbjcwOEVoK1JtbmFRdURjMlpXbGVoaUJYVnBnNmZ1UGdSVU9oam5t?=
+ =?utf-8?Q?WqNWYzz+SQ1gvSgV4o?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8906b3b2-80b2-4aa2-9e46-08defc46d7b1
+X-MS-Exchange-CrossTenant-AuthSource: SN7PR12MB8147.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Aug 2026 10:03:53.3473
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: nYaRIf3WF9yNHEdHgsNHD5bHQ2oIAHP/5eNR4AOsoUecoWeqy8zQym/cOGU52F2Q
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9171
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_030100_548522_361B8273 
-X-CRM114-Status: GOOD (  17.28  )
+X-CRM114-CacheID: sfid-20260817_030406_446488_3EF107DB 
+X-CRM114-Status: GOOD (  28.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,84 +156,173 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jiaxing,
+Hi Rob,
 
-You asked for a count that is not 24 modulo 32, so here are five, on
-RK3588 with upstream Mesa. Same generator and same scoring as the 56, 88
-and 120 rows earlier in this thread: 1x1 conv, 64 input channels,
-uint8, output zero point 0, scored against the raw CPU reference with a
-channel counting as matching at maxdiff 1 or less.
+On 8/14/2026 11:34 PM, Rob Herring wrote:
+> On Fri, Aug 14, 2026 at 03:59:27PM +0530, Neeli, Srinivas wrote:
+>> Hi Jakub,
+>>
+>> On 8/9/2026 1:18 AM, Jakub Kicinski wrote:
+>>> This is an AI-generated review of your patch. The human sending this
+>>> email has considered the AI review valid, or at least plausible.
+>>> ---
+>>> dt-bindings: net: add Xilinx TSN Endpoint Ethernet MAC
+>>>
+>>> This adds a new binding for the Xilinx TSN Endpoint Ethernet MAC IP,
+>>> describing a wrapper node that owns the six IP clocks and
+>>> xlnx,num-priorities, plus an endpoint MAC child and a three-port switch
+>>> child.  A MAINTAINERS entry is added for the new file.
+>>>
+>>> A few questions about the schema below.
+>>>
+>>>> diff --git a/Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml b/Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml
+>>>> new file mode 100644
+>>>> index 000000000000..00f52b7b623c
+>>>> --- /dev/null
+>>>> +++ b/Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml
+>>>> @@ -0,0 +1,343 @@
+>>> [ ... ]
+>>>
+>>>> +properties:
+>>>> +  compatible:
+>>>> +    const: xlnx,tsn-endpoint-ethernet-mac-3.0
+>>>> +
+>>>> +  reg:
+>>>> +    maxItems: 1
+>>> [Severity: Low]
+>>> Should the wrapper node have a reg at all?  It is listed in the top-level
+>>> required list alongside ranges, and in the example the two describe the
+>>> same window:
+>>>
+>>>       reg = <0x80040000 0x40000>;
+>>>       ranges = <0x0 0x80040000 0x40000>;
+>>>
+>>> Every child window (mac1 0x0+0x14000, ep-mac 0x16000+0xa000, mac2
+>>> 0x20000+0x14000, switch 0x38000+0x8000) falls inside the parent's own
+>>> reg.
+>>>
+>>> The commit message says the wrapper only owns the six shared clocks and
+>>> xlnx,num-priorities, and the wrapper driver in this series never maps
+>>> that region:
+>>>
+>>> drivers/net/ethernet/xilinx/tsn/xilinx_tsn_main.c:tsn_ip_probe() {
+>>>       ...
+>>>       ret = devm_clk_bulk_get(dev, TSN_NUM_CLOCKS, w->clks);
+>>>       ...
+>>>       return devm_of_platform_populate(dev);
+>>> }
+>>>
+>>> Would it be cleaner for a bus node that translates its children through
+>>> ranges to either drop reg or describe only a wrapper-private register
+>>> block that no child window overlaps?
+>> Thanks. We would prefer to keep reg as a required property of the wrapper,
+>> for two reasons.
+>>
+>> First, reg describes the whole TSN IP register window, which is a hardware
+>> property of the IP, and ranges translates the child offsets within it. The
+>> child windows do not fully cover the IP window, mac1, ep-mac, mac2 and the
+>> switch fabric account for 232 KB of the 256 KB window, leaving 24 KB
+>> unmapped by any child (0x14000..0x16000 and 0x34000..0x38000). That reserved
+>> space is where the IP places top-level registers that are not owned by any
+>> child node.
+> Why not describe those 2 ranges in reg? Otherwise, you are mapping the
+> child addresses twice potentially.
+>
+>> Second, we intend to use that space. A planned use is a wrapper-level
+>> build/configuration register that tells software which sub-blocks the IP
+>> instantiates, so the wrapper can decide which children to populate. For
+>> example, an endpoint-only build has no switch block, and the wrapper would
+>> read that register to skip the switch node instead of relying on the child
+>> nodes alone. That register lives in the wrapper window, not in any child, so
+>> the wrapper needs its own reg to reach it.
+>>
+>> Because reg is in the required list, making it optional later and then
+>> requiring it again would be an ABI change. Keeping it required now avoids
+>> that
+>> churn once the wrapper starts reading its own register. The wrapper driver
+>> in
+>> this series does not map reg yet, which is a driver limitation rather than a
+>> reason to drop the hardware description.
+> If there are registers outside of the child nodes, then absolutely you
+> should have 'reg'. But please describe what registers and functionality
+> are there.
 
-  oc    oc mod 32   matching      bit exact
-   33       1        33 of 33        31
-   40       8        40 of 40        34
-   48      16        48 of 48        40
-   56      24        56 of 56        47     (16 Aug)
-   72       8        72 of 72        62
-   88      24        88 of 88        81     (16 Aug)
-  100       4       100 of 100       86
-  120      24       120 of 120      106     (16 Aug)
+Sorry, I had misunderstood the IP here. My thinking was that we might
+eventually want a common register in the wrapper to drive some behavior,
+and that reserving the space for it now would be cleaner.
 
-Eight counts across five distinct remainders. The upstream constant
-computes the whole output at every one of them, and the global maxdiff
-is 1 in all eight runs. So on this SoC BS_OW_CFG needs no term in the
-output channel count at any remainder, not just at 24.
+I checked with the IP team and that is not the case. There is no such
+register in the wrapper, and the reserved memory is only there for future
+extension of the child nodes (EP/switch/MAC), not for the wrapper.
 
-Controls, same as before. No channel of the reference is constant in any
-of the eight models - the generator refuses to emit a model where one
-is, since a constant reference makes a trivial match. No NPU channel is
-pinned at the output zero point. The NPU interrupt counters went from
-zero to five across the three cores over the five new models, one job per
-model, so each of them reached the hardware. And the counts that are not
-bit exact are off by exactly 1, which as you noted is not something a
-delegate falling back to the CPU produces.
+So I will drop the reg property from the wrapper node and keep ranges for
+the child translation.
 
-What this does not say: it measures the upstream form only. It is not a
-statement about how the modulo form would behave on RK3588, and it does
-not touch your timeout observation.
+>
+> [...]
+>
+>>>> +      mdio-mac1:
+>>>> +        $ref: /schemas/net/mdio.yaml#
+>>>> +        description:
+>>>> +          MDIO bus controller for MAC1. Registers reside inside the mac1
+>>>> +          reg-names window.
+>>>> +        unevaluatedProperties: false
+>>>> +
+>>>> +      mdio-mac2:
+>>>> +        $ref: /schemas/net/mdio.yaml#
+>>>> +        description:
+>>>> +          MDIO bus controller for MAC2. Registers reside inside the mac2
+>>>> +          reg-names window.
+>>>> +        unevaluatedProperties: false
+>>> [Severity: Low]
+>>> This isn't a bug, but the child node names contradict the $nodename
+>>> patterns of the generic schemas this binding references.
+>>>
+>>> mdio.yaml documents:
+>>>
+>>>       pattern: '^mdio(-(bus|external))?(@.+|-([0-9]+))?$'
+>>>
+>>> and -mac1 / -mac2 matches none of the allowed suffixes (-bus, -external,
+>>> @<addr>, -<digits>).  Similarly the patternProperties key "^ep-mac@"
+>>> forces names like the example's ep-mac@16000, while
+>>> ethernet-controller.yaml documents:
+>>>
+>>>       pattern: "^ethernet(@.*)?$"
+>>>
+>>> Other in-tree bindings that $ref mdio.yaml for a child use a conforming
+>>> name (qca8k.yaml, realtek.yaml, renesas,rzn1-a5psw.yaml,
+>>> renesas,etheravb.yaml, faraday,ftgmac100.yaml, microchip,lan7800.yaml).
+>>> Would mdio@<offset> (or mdio-0 / mdio-1) and ethernet@<offset> work here
+>>> instead?
+>>>
+>>> Related: the mdio-mac<N> nodes carry no reg, so nothing in DT locates the
+>>> MDIO block inside the parent mac1/mac2 window.  The offset is instead
+>>> hard-coded in the driver added later in this series:
+>>>
+>>> drivers/net/dsa/xilinx/xilinx_tsn.h:
+>>>       #define TSN_MDIO_MC_OFFSET		0x00000500
+>>>
+>>> Could the buses be described as mdio@500 with a reg so the offset comes
+>>> from DT?
+>>   Thanks, accepted. In next version renames ep-mac@ to ethernet@ and
+>> mdio-mac1/mdio-mac2 to
+>>    mdio-1/mdio-2 to match the referenced schemas. The MDIO registers sit at a
+>>    fixed offset inside the per-MAC window the driver already maps and have no
+>>    standalone address, so the mdio-1/2 nodes keep that form without a reg
+>>    rather than mdio@500.
+> If there is a register address associated with them, then using that is
+> strongly preferred over mdio-N.
+>
+> Rob
+The MDIO block sits at a fixed offset (0x500), but it isn't a separately
+decoded window. It's a few registers inside the MAC core register space,
+which the binding already describes as one window via reg-names
+"mac1"/"mac2". Giving it its own mdio@500 with a reg would overlap that MAC
+window, so I will follow your previous advice and use mdio-1 / mdio-2 
+form that
+mdio.yaml allows.
 
-Which brings me to your last line. I cannot run
-ROCKET_DPU4050_MOD32=1 against my build, because the knob is not there.
-Upstream Mesa has no occurrence of it anywhere in the tree, and
-src/gallium/drivers/rocket/rkt_regcmd.c emits BS_OW_CFG from the
-depthwise flag alone:
+Thanks
+Srinivas Neeli
 
-	if (operation->depthwise) {
-	   EMIT(REG_DPU_BS_OW_CFG, DPU_BS_OW_CFG_SIZE_E_2(3) |
-	                              DPU_BS_OW_CFG_SIZE_E_1(3) |
-	                              DPU_BS_OW_CFG_SIZE_E_0(3));
-	} else {
-	   EMIT(REG_DPU_BS_OW_CFG, DPU_BS_OW_CFG_SIZE_E_2(1) |
-	                              DPU_BS_OW_CFG_SIZE_E_1(1) |
-	                              DPU_BS_OW_CFG_SIZE_E_0(1));
-	}
-
-which is 0x36c and 0x124, with no output channel term in either. Setting
-the variable on my build would be silently ignored, and I would have
-reported a null result as if it meant something.
-
-So: send me the value expression your knob selects at 0x4050 and I will
-patch it into my tree locally and run the RK3588 side of the comparison.
-I would want to run your oc=64 control at the same time, both ways, since
-that is the one where the two forms emit the same value by construction
-and it is the cleanest discriminator you have. You got one side of it and
-the other hung. I can run both here, and I can also give you 40 and 72
-under the modulo form, where the remainder is 8 rather than 24.
-
-Two things I want to acknowledge rather than skip past. You flagged the
-mod-32 confound yourself before anyone asked, and you were right to,
-the twenty four lost channels at 56, 88 and 120 really are forced by the
-arithmetic and are not three independent confirmations. And you disclosed
-that the 120 modulo row is a different boot with an unrelated power
-domain change and a different NPU rail state. Reading that row as two
-points rather than one is the correct call, and saying so in the mail
-rather than after being asked is worth more than the row.
-
-If it is useful to anyone, I can send the generator and the scorer. The
-generator builds the flatbuffer by hand and self-checks against the CPU
-interpreter before emitting a model, and the scorer is your perch.py
-logic reduced to this one case.
-
-Regards,
-Igor
 
