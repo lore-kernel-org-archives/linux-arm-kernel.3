@@ -4,74 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 805CAC5DF66
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 16:09:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40B9EC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 16:13:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mUhpdzwt83JAQo5ReLBcjX70G4Xlj7y9/Aum4Qf1/y8=; b=GoqMreu8XolPkopzOWjYGVgvYo
-	j3+ZwbdIR3dWyXgMNSATIpgtOi4LE3Nrkd47mx7y6QiaTQOLWhHNrSWVDa25T7HIAY9J8STK/fXWG
-	KaZBs6udmOWVRxexxAR4qgcSPY2YQJFTyNPDAgrwJT2muFr2jginr6CnZIFPNIZh0PZ69ApnekIA5
-	ylMDYd74GnK69VIPpeHleo04waJN0hRCYWpV+G4zzOhPzIjrPOs+G4gjZIC4kKEr2P7Hg9q0do83h
-	X4BW28XBc063Wwj/SMmOw3FiEP5FTQADdN6KFmzSy8XtvBEre12T3bJoKjp0+9AMJM4Ly1bpuTks7
-	k/aYiF9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xJefdQ0fcifSAbmN42YkvhRzBSsRE/Tok4/E/KLKe4w=; b=MSvM+6e6Eduepok8a95XkIKd22
+	6BR/Sy4Aw/zVDCZ9tqGpITwQ+o7OddaU+hGFHOq6hnoztnMTSk5PbPSwpRe9s6OfWguOt07SR+FLa
+	Nom9qAfAr56QP4epHwRgkTo9p4AjT4TE3sxPTVgn1dN2to86KVrPlsPVaGncwI/cfl4JRmO7fMK8f
+	nU+adzrmr4q3JQRzD+ODShVVv7T3qJnvAQYyHZuOY+CV6ecAyIkz5kehFU2xria1gbpAhQK+h/uo5
+	4wYP68VwKvwnbDWOL9dQEDOsjN1qnYLIfR3V4tWVAq4Wa13kjpXkJ06OZInJeBqU6ZTEEpTguC/3v
+	Nl445r+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvzu2-00000006U9c-3NbY;
-	Mon, 17 Aug 2026 16:09:34 +0000
-Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
+	id 1wvzxl-00000006UNr-0zRw;
+	Mon, 17 Aug 2026 16:13:25 +0000
+Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvztz-00000006U9F-2i5l
+	id 1wvzxi-00000006UNM-3L5z
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 16:09:33 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
-	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 9B97D2021FE;
-	Mon, 17 Aug 2026 18:09:25 +0200 (CEST)
-Received: from dude02.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::28])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <s.hauer@pengutronix.de>)
-	id 1wvztt-001z5B-1l;
-	Mon, 17 Aug 2026 18:09:25 +0200
-Received: from [::1] (helo=dude02.red.stw.pengutronix.de)
-	by dude02.red.stw.pengutronix.de with esmtp (Exim 4.98.2)
-	(envelope-from <s.hauer@pengutronix.de>)
-	id 1wvztt-0000000GIh1-1rnO;
-	Mon, 17 Aug 2026 18:09:25 +0200
-From: Sascha Hauer <s.hauer@pengutronix.de>
-Date: Mon, 17 Aug 2026 18:09:23 +0200
-Subject: [PATCH] dmaengine: pxa: fix double counting of the hw descriptors
+	Mon, 17 Aug 2026 16:13:23 +0000
+Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-ca80d708489so38150a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 09:13:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786983201; x=1787588001; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=xJefdQ0fcifSAbmN42YkvhRzBSsRE/Tok4/E/KLKe4w=;
+        b=pXoVC1Fk3VsFWFK8OOGlei/VHJS90HGD/iXQ8Djx3tX6AxgerxM5lcuanoEJsS0RvO
+         quWvyF/JSbk6oEC9/VUFKAAZQQv9WjHHrWJCCMjwsbYYSxSOKNVnVb3i6NutfxEJaIdV
+         YIMsYZimKbwkrOY3nLInE6nRbjHFT/JNgUoGraFTwSBnGEd5PVbEjNF3E0uLsOWTWoix
+         vj9JycggcbqPrs8kOIn7PwdLoXkVVLqaJhp8AVU4o6dvMRnIci4InVEQzsx0oFdDTNNZ
+         V+X+WUdnGQLl8iTRbxRTvcFLFOlMTyAc3hpbaZ65NJ4fhhNyq7KHcv595gf0mowSEwIN
+         lR7A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786983201; x=1787588001;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=xJefdQ0fcifSAbmN42YkvhRzBSsRE/Tok4/E/KLKe4w=;
+        b=Ek1HHTBqC9Ol8w+uuDPzCS0EbkN7EdchENSQyW1phCtH141F2AG64WdIVGRFSEo3hK
+         5n669RIiQc5fL5fNcfyiMag4Czp2lCRSNfY1Vvy9BxAYnTGwBGFTN+ClwmMLtJPo+TOP
+         dy3zLgEJimmHssm4yvX+JtRrUHxOW9Vz5CICYItILLN8djTkMXP1BZMLo8RXG9JDNify
+         7JMHPtsWa/DMgQLrq5SB/XEBGvxJHfWClhjSDjamiy3+mZwxekZ4zMotwMIAcIdPOqfg
+         SiQEA54lK2kXby8iLHHY9yj0ylXmt02QnPcMQfU3zTUU3QV91GYYKfSPprMsUUQgDwLp
+         sAsQ==
+X-Forwarded-Encrypted: i=1; AHgh+RpWHaUscysSDZahReFmborBFJyc7I8TXE+x/MTPIGkJRRqozms26qFLEjT7uraBF5UmHgZ2OE6uHMhz3xEVwUjc@lists.infradead.org
+X-Gm-Message-State: AOJu0YyRSnakewxhNNA9XhlYiQnNbd0B84zi+U9fbh9Ur6ua9fv0FvWH
+	/mQZLLIT0Vcif6+VKby4sJ2kkS0DRzIiRZiGh/tCdMHtaJorwoTD8JUB
+X-Gm-Gg: AR+sD136kxScQHJ+OGqpaC4Qsq6rMC7tfprSPDPSLLnTPgLHo59ev7v1n3Ww48colRI
+	myZARbzNhXWQtMiZkat71f1znnL1PRE6aKYpcv27NDhLRmoUZbEpvqFuvm4/h2ljdEmsHntjLLV
+	WFVaNmXu7qWPQR6MleiwovCniCL4rgxc7ABjVsT9UFy+pHVNZ9sbt8OGsY8Pszj3huXa1v7juFp
+	MGPAXnI+hPHwdk0LUX8boQX92qxGo6Ytzi87qOLy1w4PQ1iPuDEv5xs+VhLjASrxczFW8USOY5c
+	+Opcbfp21k4UyiW8P6mNEzex6f0BT34pklDBPN7oyPc6MUXHJ5jf0D39xVZpTVrRnf8vUaLf6++
+	UeErAuEByv9eOt9CPBaZ94vnP3Rh35fI4S1+Rat3IKQZXDU8aESIQP/senw1UXPBrxM7T4zDd1Z
+	RQOPmlFDv4dB4Xc0aYUorAUIBQH9yBorWVoNxvnzJKfTUwiIKHpJuEDjW/yRo=
+X-Received: by 2002:a17:90a:d005:b0:38e:4f42:d0d6 with SMTP id 98e67ed59e1d1-3955f1d0d60mr113069a91.12.1786983201436;
+        Mon, 17 Aug 2026 09:13:21 -0700 (PDT)
+Received: from ubuntu.. ([2405:201:8026:213e:faaa:24d8:b961:4887])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-32678dd22f7sm11391087eec.1.2026.08.17.09.13.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Aug 2026 09:13:20 -0700 (PDT)
+From: mdshahid03@gmail.com
+To: daeinki@gmail.com
+Cc: airlied@gmail.com,
+	alim.akhtar@samsung.com,
+	dri-devel@lists.freedesktop.org,
+	krzk@kernel.org,
+	kyungmin.park@samsung.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-samsung-soc@vger.kernel.org,
+	peter.griffin@linaro.org,
+	simona@ffwll.ch,
+	sw0312.kim@samsung.com
+Subject: Re: [PATCH] drm/exynos: vidi: use memdup_user() instead of kmalloc() and copy_from_user()
+Date: Mon, 17 Aug 2026 21:42:47 +0530
+Message-ID: <20260817161247.156884-1-mdshahid03@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <CAAQKjZPwb00MePpUTmKZbn67jXp=UWX7m81evttd29L+9UcVxw@mail.gmail.com>
+References: <CAAQKjZPwb00MePpUTmKZbn67jXp=UWX7m81evttd29L+9UcVxw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260817-dmaengine-pxa-v1-1-850c215c1196@pengutronix.de>
-X-B4-Tracking: v=1; b=H4sIADIyg2oC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzMDC0Nz3ZTcxNS89My8VN2CikRdMxNDU6OkJGMTY0NjJaCegqLUtMwKsHn
- RsbW1ALVd3pRfAAAA
-X-Change-ID: 20260817-dmaengine-pxa-64152bb34313
-To: Daniel Mack <daniel@zonque.org>, 
- Haojian Zhuang <haojian.zhuang@gmail.com>, 
- Robert Jarzmik <robert.jarzmik@free.fr>, Vinod Koul <vkoul@kernel.org>, 
- Frank Li <Frank.Li@kernel.org>, Kees Cook <kees@kernel.org>, 
- "Gustavo A. R. Silva" <gustavoars@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, dmaengine@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
- Sascha Hauer <s.hauer@pengutronix.de>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1786982965; l=2267;
- i=s.hauer@pengutronix.de; s=20230412; h=from:subject:message-id;
- bh=D9WRnoe4v155Yuh2kUpX0fyEN+hFQCP5ZrigCdKEEeo=;
- b=AJKvO/QZuJIonFzDi8gj1ix7neC3X40fbm6QZwMVke1PYjFEDVIN7VH8cxTIzDQ8lLPhuVxn6
- xuXZ3vIU6bLDjMf5VjMVix91xfM12GyXBu4X9HCQIoOflCqLeWdBSv3
-X-Developer-Key: i=s.hauer@pengutronix.de; a=ed25519;
- pk=4kuc9ocmECiBJKWxYgqyhtZOHj5AWi7+d0n/UjhkwTg=
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_090931_854427_EAD02C9B 
-X-CRM114-Status: GOOD (  10.89  )
+X-CRM114-CacheID: sfid-20260817_091322_839498_855D53E4 
+X-CRM114-Status: UNSURE (   7.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,65 +108,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-pxad_alloc_desc() was converted from
+Hi Inki,
 
-	kzalloc(struct_size(sw_desc, hw_desc, nb_hw_desc), GFP_NOWAIT)
+Thanks for the response. I appreciate you taking the time to review the patch.
 
-to kzalloc_flex(). hw_desc[] is annotated with __counted_by(nb_desc), so
-__alloc_flex() now initializes sw_desc->nb_desc to nb_hw_desc itself.
-The loop below it still increments nb_desc for every descriptor it
-allocates though, so nb_desc ends up being twice the number of
-descriptors that are actually there.
+For context, a similar cleanup patch of mine was recently accepted by Greg KH and is now in linux-next.
 
-Drop the now redundant increment. The error path has to set nb_desc to
-the number of descriptors allocated so far, otherwise pxad_free_desc()
-would free entries that were never allocated.
-
-Fixes: 69050f8d6d075 ("treewide: Replace kmalloc with kmalloc_obj for non-scalar types")
-Assisted-by: Claude:claude-opus-5
-Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
----
-pxad_alloc_desc() was converted from
-
-        kzalloc(struct_size(sw_desc, hw_desc, nb_hw_desc), GFP_NOWAIT)
-
-to kzalloc_flex(). hw_desc[] is annotated with __counted_by(nb_desc), so
-__alloc_flex() now initializes sw_desc->nb_desc to nb_hw_desc itself.
-The loop below it still increments nb_desc for every descriptor it
-allocates though, so nb_desc ends up being twice the number of
-descriptors that are actually there.
-
-Drop the now redundant increment. The error path has to set nb_desc to
-the number of descriptors allocated so far, otherwise pxad_free_desc()
-would free entries that were never allocated.
----
- drivers/dma/pxa_dma.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/dma/pxa_dma.c b/drivers/dma/pxa_dma.c
-index fa2ee0b3e09f8..8252d27be8c3c 100644
---- a/drivers/dma/pxa_dma.c
-+++ b/drivers/dma/pxa_dma.c
-@@ -752,10 +752,11 @@ pxad_alloc_desc(struct pxad_chan *chan, unsigned int nb_hw_desc)
- 			dev_err(&chan->vc.chan.dev->device,
- 				"%s(): Couldn't allocate the %dth hw_desc from dma_pool %p\n",
- 				__func__, i, sw_desc->desc_pool);
-+			/* Only the descriptors below i have been allocated */
-+			sw_desc->nb_desc = i;
- 			goto err;
- 		}
- 
--		sw_desc->nb_desc++;
- 		sw_desc->hw_desc[i] = desc;
- 
- 		if (i == 0)
-
----
-base-commit: 8d3ae59288f1e7d58d76558a6ee96d533bc5019f
-change-id: 20260817-dmaengine-pxa-64152bb34313
-
-Best regards,
--- 
-Sascha Hauer <s.hauer@pengutronix.de>
+Thanks,
+Shahid
 
 
