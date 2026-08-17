@@ -4,65 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B02B6C5DF66
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 02:46:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06CC4C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 02:57:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A8y6rSl+mOT4rzHXtsv7e1d7LlCzxXlgMvDb3lpWqsc=; b=zpbVF2CWLuDwSL8Inz+6JBPjqH
-	8vMJsQ/kYxYd9uyo5zkvX+YcVDTSUMl5DK9JpTdJhbQXCScMawH1ec/ZyzLKrkfjTCeT3W8MOZnrZ
-	nJBJN7q4JhWpkKHdlM8Dvj5rcfFFeLeI8I0sU7FQU9A5IQd/5yNyLafYi3JCwh9GJhAMDioi+FMVT
-	Gj3CDDqT4MFjO6WdJqvpZkWN2Tz2cpgIK6DuV/58StHvVlNW9I2Ejz+t8APrvnuiliHExWevVQpci
-	GFUZkKseaB7fHripu/jMeY4N0mq241meYEagM2XVmOL6XeqFwuftVWVNLAOCIwdE6Vpp8J7sumkai
-	wxTPeJfg==;
+	bh=3E9pfv5IoCCsu+3HPCYQctwF4eS0EkJccI7K/G2Hrfc=; b=Z3Nx/zLkWz4WfnpTdBpVgssGy/
+	DX936Yoc7EEyeSY57RXKfs5NrU71tI+nBqizXSbiRmuqvkFwgb/Yqya+OKRzEUQH6l9dXmc9sw5YB
+	q+80P1F/A/x9y2K3SX1nFnm5ENgDFbWPGIMmfy08PhvIK0x17VUK8OFyIl0wXhrAtWKy7FNBaNcqo
+	iQpLspdXeiiRvLr60jfY3aJxBhs2pUxavDg/KGP7va4CvwD9Mtk5yITA6d65un3xuWddlXiQk2gTt
+	UkhI+8qg3oXrjmEwuMHGH3/+MdnyZqMpsRaSMW/sUHyaHdo85SfXPNguq1kcsJOPHwDlIQ0esqPoI
+	5t0P+rxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvnMD-00000005Kko-1aUc;
-	Mon, 17 Aug 2026 02:45:49 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wvnXR-00000005LGI-3K7n;
+	Mon, 17 Aug 2026 02:57:25 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvnMC-00000005Kki-0l7g
+	id 1wvnXP-00000005LFw-1MIx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 02:45:48 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6D93441A60;
-	Mon, 17 Aug 2026 02:45:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38E011F000E9;
-	Mon, 17 Aug 2026 02:45:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786934747;
-	bh=A8y6rSl+mOT4rzHXtsv7e1d7LlCzxXlgMvDb3lpWqsc=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=Lo6ioraAzzVI9sgU3qv0U0dMaDFu+0BR1KhIKpbso8eHCx4TAJgUtS8DXZi4Px08S
-	 nwNAlIn947dhYdqmNmRESAAufsdcpNcaoDTSYAlfE6z7d3b+y4xoX+Zmp9YTyo0nAu
-	 KqbdcV9BQH35sM7pTdmVpd3Vy1cZzWKr/iZI20GKJPh7NNKwNr2wvnQ4jlKpPt2vRP
-	 7iWOPSyWFX/C9XImK1K4HhOGN5ierxVJPwLQe32nQtibqTsaDTnI7KeyM9/sI1cgZg
-	 JL4nrE3Ik0jvqkxiR7WzKvhSDT8riSZ7ijSlsSZIQ6S6iBebXOSqQcw8436Tm0O157
-	 dlgppLJ5jqV5w==
-Date: Mon, 17 Aug 2026 03:45:41 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: Petar Stepanovic <pstepanovic@axiado.com>, Akhila Kavi
- <akavi@axiado.com>, Prasad Bolisetty <pbolisetty@axiado.com>, David Lechner
- <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy
- Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Harshit
- Shah <hshah@axiado.com>, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 2/2] iio: adc: add Axiado SARADC driver
-Message-ID: <20260817034541.053dac28@jic23-huawei>
-In-Reply-To: <anoYDi-bt-t6ZeeD@ashevche-desk.local>
-References: <20260810-axiado-ax3000-ax3005-saradc-v5-0-bb0df3ecedaa@axiado.com>
-	<20260810-axiado-ax3000-ax3005-saradc-v5-2-bb0df3ecedaa@axiado.com>
-	<anoYDi-bt-t6ZeeD@ashevche-desk.local>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	Mon, 17 Aug 2026 02:57:24 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-49557167508so28978375e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 16 Aug 2026 19:57:22 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1786935441; cv=none;
+        d=google.com; s=arc-20260327;
+        b=MrPPBYg5NZS41lLW3l/pZb433r/Rv5DAbHxynePBZ3sjuFRDjZygDcWEZtuZYzcwoG
+         zEoCpfo4KydFSWdc4m9o1Dzy39tf4br8vLm8c0onwT+XeFIm2euJUDCROoBkP6znViNd
+         g17ygRQNLhvMtjEy4Qq/lYc2Qyh+hRmWRn98t1fjOsgYgqteuZ1eaMmZA3njzn96zoN/
+         oTMaPD3ekodtJBL+7eC6Wd2lfHv/nwLpNwYf6SneYLWbvZZCmpcrOcdNhpMtY1Okdrgo
+         NEIaKdczKT6JkYWNt2VJNxwXfJGyvXcKY2qKrlzvxiTJJUJwfao1QhxHSHxv1UBZzocE
+         I7Qw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=3E9pfv5IoCCsu+3HPCYQctwF4eS0EkJccI7K/G2Hrfc=;
+        fh=4l9oP0nSBGXYUJZc10XaKTZm4a1EvbSpEzmex8mwhIk=;
+        b=oIZc4rzXaKGzKp4/8iWo0bAq1mxDSnX6vP6hKromuyZ124mfTsnqejKu+cPaJuJJSA
+         PKn8Xd3Fpj9qIONKAnGaqBbQGMTj0DoR8+v+uwXr0HMiQ6C6iYQfOLg5SNyayfkXCPVK
+         0w+CGplqGPWE+2MQb7uxabLMM/NX8iyrIk8ZELbRe8lmqg39+UxSpssO8SRP/4zARb6o
+         vn7xKmm9VKY3lqp6+zo39ZtkNj43j/26mRnhQM1LZkETHerTDfPcbxpiamgXEl1g/dig
+         uT/pbDt/7TaRIvK/FefVmvv3k2cmdMZuZm/EcYIXNSG8B9jv1URWc9Kbh/4qejwOaYwZ
+         0Rxw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786935441; x=1787540241; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=3E9pfv5IoCCsu+3HPCYQctwF4eS0EkJccI7K/G2Hrfc=;
+        b=ptTaihBls1UwVujyU4dUuN0/fF/zlo/n3I24QTHzeBZz13d7p+r2Qhh5jNvoZGlsIU
+         MR2ack88YzRoxxkMliv1yKVpqlwBbPOu9FmqA8fqvuevy8NOFKEnuyPUNvGUZ1+LajxG
+         MhwzZ/p1oOERN+uN7h/lkcf4CyH0/Yf8xkRtQReL84nmZIROf7dVJqYINWheFpdukAVH
+         47MjQyJKoUGwsiTdY393nwe1bcfSZIFoX3mvG4uSIORr4FuAWWIIsNTQkNZ/7FWrTVh0
+         V+CXFVhwsxrq+YtiaUgQKKKvpvv9WRcAUJ4ffhjvlHgMv9JD50I3you9kgzW8ObPihI8
+         R2Zw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786935441; x=1787540241;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=3E9pfv5IoCCsu+3HPCYQctwF4eS0EkJccI7K/G2Hrfc=;
+        b=WVGwTvhi9E5BBVXaRm6SOYzVM+ftYHwSMyy6pKeimgVPOVX25Fne7fg3IHNDGe4CWu
+         pdTUxvqoPSCaQEJomVqDF/lo6xtOcxOQHfqSARMV63oy8fhx+oIBP6OUcI68fqQlBete
+         O57x1VqOjJuWdWHU0suYJbNHBCOC1RjZU4K4f5KhTKa4SJ7I4l6mViF7nC7Pxh/UjjT2
+         VGZaExwIxR50XLJiS6vzHwHCn5IJCDOaBO21aIulPti5FWSBlYKr1jw62gypkT4MgOTb
+         mAJVetHD8+fz4OyBbvssoceURp+YF3h27zc1XMDuLM7VwrSZKo12U5UKJ1dht2iYXepR
+         Z+ZQ==
+X-Forwarded-Encrypted: i=1; AHgh+RqhFRKVSGBFpL9/+7sdAlM94mJCzyBdOvtHRPEJdYfTz3jEm6WPuyn3Tqi0tCkpbjHFJpnPjcWmYUu+kiag6daa@lists.infradead.org
+X-Gm-Message-State: AOJu0YxVyKN3NtqRR0dp7RHKjWKuWjNUfkcy/KtDX/YJnLBgz9GOYjvU
+	2KpuAx1tJ21J9QWhIqdmUz2TbJ0AUIunIQiNVVwI0+k7+7Dhj4fUYGMwXZpQIoO960xbM+p/1rT
+	QdU11ktqJaFOurCsUlFVpp4AhBpVdOOg=
+X-Gm-Gg: AR+sD12CAULmQA5DAqKq8jYqZNXaNbOxEDTunYbpKsSoU5CBtpNiTMK4pUDeEhFEPQF
+	2zy17uJQpIygZ9rsRh4cclLfH5NIxNQW1iBZmV2DBKQ6/7yUBSR3AC7haOA5Fm0RoHwhrgtRV5u
+	TKbm56pIWxRW9MtTUmLkA5TyBMx4kqJjtJm4hYvF078/z/h3zV8fISiDTMSmFmFkR7D4XzoaxUt
+	fCDrgCDluhHJrDlP4Xle9f+JwGuxBm1TaiPNC320z1mfjqjEYWqUTZEX1XATQYYIsRydiIPslxQ
+	doKHPi8C9k5v9MwqbDF4omHasp7rhJYHRvtRe742l3XdMrlDyW2Y0qV/IKs1VpbBQH621H+4n+M
+	mrA==
+X-Received: by 2002:a05:600c:4e13:b0:498:11b5:3ff7 with SMTP id
+ 5b1f17b1804b1-499879bd2e1mr332951265e9.18.1786935440695; Sun, 16 Aug 2026
+ 19:57:20 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+References: <20260816142222.689624-1-kunwu.chan@linux.dev> <20260816165630.84808-1-sj@kernel.org>
+In-Reply-To: <20260816165630.84808-1-sj@kernel.org>
+From: KunWu Chan <kunwu.chan@gmail.com>
+Date: Mon, 17 Aug 2026 10:57:09 +0800
+X-Gm-Features: AcwNN1Wv4FilngBM7zb7KtysHXMyaR6NdUjrcCRsxZOtSQWQVLsk7gEZuLi0ywA
+Message-ID: <CAN_Opa-aEvmx7Y0xPXHvhaOurt2-nnDMxLjGaHCdMXDsQC=2Xw@mail.gmail.com>
+Subject: Re: [RFC PATCH 0/4] mm/damon/perf: add ARM SPE AUX backend
+To: SJ Park <sj@kernel.org>
+Cc: will@kernel.org, mark.rutland@arm.com, akpm@linux-foundation.org, 
+	shuah@kernel.org, kunwu.chan@linux.dev, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+	damon@lists.linux.dev, linux-mm@kvack.org, linux-kselftest@vger.kernel.org, 
+	lianux.mm@gmail.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260816_195723_412156_94A7CF41 
+X-CRM114-Status: GOOD (  24.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,151 +121,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 10 Aug 2026 21:27:26 +0300
-Andy Shevchenko <andriy.shevchenko@intel.com> wrote:
+Hello SJ,
 
-> On Mon, Aug 10, 2026 at 07:49:36AM -0700, Petar Stepanovic wrote:
-> > Add support for the SARADC controller found on Axiado AX3000 and
-> > AX3005 SoCs.
-> > 
-> > The driver supports single-shot voltage reads through the IIO
-> > subsystem. The number of available input channels is selected from
-> > the SoC match data, allowing AX3000 and AX3005 variants to use the
-> > same driver.  
-> 
-> ...
-> 
-> > +/* MANUAL_CTRL register fields */  
-> 
-> ^^^
-> 
-> > +#define AX_SARADC_MANUAL_CTRL_ENABLE	BIT(0)
-> > +#define AX_SARADC_MANUAL_CTRL_CH_SEL_MASK	GENMASK(4, 1)
-> > +
-> > +#define AX_RESOLUTION_BITS	10
-> > +#define AX_SARADC_CONV_CYCLES	13
-> > +#define AX_SARADC_CONV_DELAY_MARGIN_US	10
-> > +
-> > +struct axiado_saradc {
-> > +	struct regmap *regmap;
-> > +	struct mutex lock; /* Serializes ADC conversions. */  
-> 
-> Choose the same style for all single-line comments (here is a period present
-> while in the above, for instance, there is none).
+On Mon, Aug 17, 2026 at 12:56=E2=80=AFAM SJ Park <sj@kernel.org> wrote:
+>
+> Hello Kunwu,
+>
+> On Sun, 16 Aug 2026 22:22:17 +0800 Kunwu Chan <kunwu.chan@gmail.com> wrot=
+e:
+>
+> > From: Kunwu Chan <kunwu.chan@gmail.com>
+> >
+> > This series adds an AUX trace-buffer backend to the DAMON perf
+> > observability framework, enabling ARM SPE (Statistical Profiling
+> > Extension) to deliver hardware-sampled access reports into DAMON's
+> > existing SPSC report ring.
+>
+> Awesome.  Thank you for making this.  This will make DAMON be more useful=
+ on
+> ARM machines.
 
-Hmm. It is inconsistent in other places, but those two are arguably
-correct. The second is a sentence, the first is not (no verb)
+Thanks for the feedback.
 
-Anyhow, I did a sweep for other sentences and not all of them have
-periods.  Given the rest of the driver looked fine to me and the other
-suggestions Andy made are easy to apply.
+>
+> >
+> > Patch 2 touches drivers/perf/arm_spe_pmu.c to expose the PMU matcher.
+> > This change is tightly coupled with the DAMON AUX backend.  ARM SPE
+> > PMU driver maintainers only need to review patch 2.
+> >
+> > This series is based on the Ravi's hardware-sampled access reports
+> > branch [1], and depends on the perf AUX kernel-consumer RFC series [2].
+> > The dependencies is not upstream yet, so this series remains RFC.
+>
+> Unfortunately I haven't had a time to thoroughly read the dependent patch=
+es.  I
+> believe the basic idea of this patch series is aligned with the ongoing D=
+AMON
+> extension roadmap [1], though.  That is, this series is supposed to be a =
+part
+> of the milestone 3.  We are currently at the near end of milestone 1, and=
+ aim
+> to complete milestone 2 by the time around next year's LSFMMBPF.
 
-Applied with the following diff to the testing branch of iio.git
-Note I'm fine with rebasing that (and will do on rc1 once that's available)
-so extra tags or review comments are easy to add for a few weeks at least.
+One clarification on the architecture: the AUX backend is intended as a
+transport/front-end for damon_report_access(), rather than a separate
+reporting path. spe_submit() ultimately calls
+damon_report_access(&report), and the AUX path shares the same SPSC
+report ring and kdamond_check_reported_accesses() consumer with the
+existing overflow-callback path. The main difference is the producer
+context: the overflow path enqueues from NMI context, while the AUX path
+enqueues from kdamond process context.
 
-Mostly I did this just to reduce how many patch sets were undergoing
-revisions... I'm still over a 100 emails to read and run out of
-time for today.
+The perf AUX kernel-consumer API is still an upstream dependency, so there
+is no specific part that needs your review right now. The implementation is
+already functional and tested on Kunpeng 920, and I can rebase and resend
+once the dependency chain is ready and the relevant DAMON infrastructure
+has landed.
 
-Jonathan
+Separately, the DAMON perf observability framework
+(CONFIG_DAMON_PERF_OBSERVE) was developed in parallel with the AUX backend
+and is already implemented. It provides the observability infrastructure
+used by both the existing overflow path and the new AUX path, including
+per-CPU pipeline counters, debugfs statistics, and tracepoints. This work i=
+s
+independent of the AUX transport, and I will post it shortly as a standalon=
+e
+series.
 
+Thanks,
+Kunwu
 
-diff --git a/drivers/iio/adc/axiado_saradc.c b/drivers/iio/adc/axiado_saradc.c
-index daa98dd2f176..699ee31616fc 100644
---- a/drivers/iio/adc/axiado_saradc.c
-+++ b/drivers/iio/adc/axiado_saradc.c
-@@ -34,10 +34,10 @@
- #define AX_SARADC_GLOBAL_CTRL_PD               BIT(2)
- #define AX_SARADC_GLOBAL_CTRL_ENABLE           BIT(0)
- 
--/* GLOBAL_CTRL SAMPLE_MASK field value: 0 selects 16 samples */
-+/* GLOBAL_CTRL SAMPLE_MASK field value: 0 selects 16 samples. */
- #define AX_SARADC_GLOBAL_CTRL_SAMPLE_16        0
- 
--/* GLOBAL_CTRL MODE_MASK field value: 1 selects manual mode */
-+/* GLOBAL_CTRL MODE_MASK field value: 1 selects manual mode. */
- #define AX_SARADC_GLOBAL_CTRL_MODE_MANUAL      1
- 
- /* MANUAL_CTRL register fields */
-@@ -76,16 +76,15 @@ static int axiado_saradc_conversion(struct axiado_saradc *info,
- 
-        guard(mutex)(&info->lock);
- 
--       /* Select the channel to be used and trigger conversion */
-+       /* Select the channel to be used and trigger conversion. */
-        ret = regmap_write(info->regmap, AX_SARADC_MANUAL_CTRL_REG,
-                           AX_SARADC_MANUAL_CTRL_ENABLE |
-                           FIELD_PREP(AX_SARADC_MANUAL_CTRL_CH_SEL_MASK, chan->channel));
-        if (ret)
-                return ret;
- 
--       /* Hardware requires 13 conversion cycles at clk_rate */
--       usecs = DIV_ROUND_UP(AX_SARADC_CONV_CYCLES * USEC_PER_SEC,
--                            info->clk_rate);
-+       /* Hardware requires 13 conversion cycles at clk_rate. */
-+       usecs = DIV_ROUND_UP(AX_SARADC_CONV_CYCLES * USEC_PER_SEC, info->clk_rate);
-        fsleep(usecs + AX_SARADC_CONV_DELAY_MARGIN_US);
- 
-        ret = regmap_read(info->regmap, AX_SARADC_DOUT_REG, &regval);
-@@ -220,7 +219,7 @@ static int axiado_saradc_probe(struct platform_device *pdev)
- 
-        soc_data = device_get_match_data(dev);
-        if (!soc_data)
--               return dev_err_probe(dev, -EINVAL, "failed to get match data\n");
-+               return dev_err_probe(dev, -ENODATA, "failed to get match data\n");
-> 
-> > +	unsigned long clk_rate;
-> > +	int vref_uV;
-> > +};  
-> 
-> ...
-> 
-> > +static int axiado_saradc_conversion(struct axiado_saradc *info,
-> > +				    struct iio_chan_spec const *chan, int *val)
-> > +{
-> > +	unsigned long usecs;
-> > +	unsigned int regval;
-> > +	int ret;
-> > +
-> > +	guard(mutex)(&info->lock);
-> > +
-> > +	/* Select the channel to be used and trigger conversion */
-> > +	ret = regmap_write(info->regmap, AX_SARADC_MANUAL_CTRL_REG,
-> > +			   AX_SARADC_MANUAL_CTRL_ENABLE |
-> > +			   FIELD_PREP(AX_SARADC_MANUAL_CTRL_CH_SEL_MASK, chan->channel));
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	/* Hardware requires 13 conversion cycles at clk_rate */  
-> 
-> > +	usecs = DIV_ROUND_UP(AX_SARADC_CONV_CYCLES * USEC_PER_SEC,
-> > +			     info->clk_rate);  
-> 
-> I think it's okay to have this on a single line (83 characters).
-> 
-> > +	fsleep(usecs + AX_SARADC_CONV_DELAY_MARGIN_US);
-> > +
-> > +	ret = regmap_read(info->regmap, AX_SARADC_DOUT_REG, &regval);
-> > +
-> > +	/* Best effort to stop manual conversion. */
-> > +	regmap_write(info->regmap, AX_SARADC_MANUAL_CTRL_REG, 0);
-> > +
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	*val = regval & GENMASK(AX_RESOLUTION_BITS - 1, 0);
-> > +
-> > +	return 0;
-> > +}  
-> 
-> ...
-> 
-> > +	soc_data = device_get_match_data(dev);
-> > +	if (!soc_data)
-> > +		return dev_err_probe(dev, -EINVAL, "failed to get match data\n");  
-> 
-> -ENODATA
-> 
-
+>
+> I will hold review of this series for now, and take more time on making
+> milestones 1 and 2 for thier planned delivery timeline.  Sorry for being =
+a
+> bottleneck of your work, and thanks in advance for your patience.
+>
+> Please feel free to let me know if you have specific parts that need my r=
+eview
+> right now, though.  Otherwise, please make sure this is aligned with the
+> roadmap until we finish the milestone 2.  I do want ARM SPE support of DA=
+MON.
+>
+> [1] https://lore.kernel.org/all/20260525225208.1179-1-sj@kernel.org/
+>
+>
+> Thanks,
+> SJ
+>
+> [...]
 
