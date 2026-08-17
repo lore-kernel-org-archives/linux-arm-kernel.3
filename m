@@ -4,59 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B14F5C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 06:44:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86BEFC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 06:50:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wwrt1tSO+ObTIAvJDiC+q9v5Mkn7NyI4zZb78Q+U42k=; b=FedJwqFtAjbj9fMjnfMHNIns5H
-	xIqAyPH7isZUA6HjiUCYPcVIbGi9NNzvXzJKS09JAoJ1W5jQBjRpa3RiaGYAbUGKtd0Gv1x/DLpNM
-	8V/ljslS97l+yw6lrETuo1G+586a1vcL13CxQJpqxhqcKEOKGtuk14JXuo0cMBWyYjqKlOqG+p/9T
-	ktteEPZmapi+IEO4zY06YRoUKj6K/JRNQ4ufGC4QPz4KnozAKCNZMxzmRk1rLgLvZX60uDBKgrBNu
-	FDWMvGCC+FuNW6JJ6qoLvSoKqqrvJdSV3BxC2eUxC2aPq0ohyeQpucL/jNVs8LW5z34/qOj6gehay
-	9MZ47zqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Z5Hd9s97wvmrvHXBMv0u/DeCJAlkAHgq7W5Ck7s/6cs=; b=AUJ1MXevLtERwQNE4IT8giOTAz
+	k2scWISzOXD0m5SADTfnj/84OFllXu7QopQvB71qjSD3EZ6Zj8Y9rxX5Iho8yX+IBNUSKHCrpVeAE
+	zZhlrjM9BjtzfneiHRdrvGMLDp/c4Rl6rHGZKSibk+48BM2WCO5188Tzk+Ir4jTJkUz+SKDVb5RS2
+	b5LtsLUImbOIw8Xcqwkz3PUBOVw3l0Oqop973f/eZgDYvZeMM9LdyVU2h+zyZz6RYk1LrQsuh/jWT
+	DrDwhZSCzrzHNsfl/z+h7P8yAMEnm4+LgNXtAJSIRWiZ95IC9pNFAX36068m+pg5Ur2wZIBKH9z84
+	JCnTFhLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvr5J-00000005UjM-3Ehy;
-	Mon, 17 Aug 2026 06:44:37 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wvrB0-00000005UwM-1yNG;
+	Mon, 17 Aug 2026 06:50:30 +0000
+Received: from mail-m49197.qiye.163.com ([45.254.49.197])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvr5I-00000005UjC-0Byr
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 06:44:36 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 555AC40A8F;
-	Mon, 17 Aug 2026 06:44:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC6731F000E9;
-	Mon, 17 Aug 2026 06:44:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786949075;
-	bh=Wwrt1tSO+ObTIAvJDiC+q9v5Mkn7NyI4zZb78Q+U42k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=E0B4p/lgNkDwPetEXebupGsNQaL4XvaxLAu3lKaITjbIshxEm5JE8/kUiDJfX2OQo
-	 jfLKyhkvQs9w9HyOmzNoQ7poc8Onwuoa87u6brIkoO8+fdtqEnDif5wVkVVtvR86/Y
-	 OI7Ef7HNxyBmBylcEaSBls3zmUy90u0duHvhp2rZ/J2MALsIjSKMTloI3WnZG/ialM
-	 DduIC4ztJpSyJk29PoThR/Lk2HxzjeNbH1RAFyZp2RxTkxd+bDzkWJ8IR0ifsZkpoz
-	 TMGm3reHioipOVf1ay7erfyiqK51Tsu+jnRdbh3AKFt5AaOiJ2J66850yVqzRB+2u9
-	 nBdWDg8TPBqmQ==
-Date: Mon, 17 Aug 2026 08:44:29 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Long Zhao <longzhao@ambarella.com>
-Cc: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Bartosz Golaszewski <brgl@kernel.org>, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 1/4] dt-bindings: pinctrl: add Ambarella CV75 pinctrl
-Message-ID: <20260817-perfect-berserk-sunfish-ef2d5f@quoll>
-References: <20260814-cv75-v4-b-v4-0-ef2e83ec0eac@ambarella.com>
- <20260814-cv75-v4-b-v4-1-ef2e83ec0eac@ambarella.com>
+	id 1wvrAv-00000005UvU-1oWO;
+	Mon, 17 Aug 2026 06:50:29 +0000
+Received: from Vostro-3710.lan (unknown [IPV6:240e:3bc:2e87:7f70:16d5:d57:cd0e:58c1])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 4a36f9033;
+	Mon, 17 Aug 2026 14:50:18 +0800 (GMT+08:00)
+From: Chukun Pan <amadeus@jmu.edu.cn>
+To: andrew@lunn.ch
+Cc: amadeus@jmu.edu.cn,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	heiko@sntech.de,
+	krzk+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	naoki@radxa.com,
+	robh@kernel.org
+Subject: Re: [PATCH 2/2] arm64: dts: rockchip: Add Radxa E54C
+Date: Mon, 17 Aug 2026 14:50:10 +0800
+Message-Id: <20260817065010.4163977-1-amadeus@jmu.edu.cn>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <6248f137-ff98-4d3e-9ca6-f94741533686@lunn.ch>
+References: <6248f137-ff98-4d3e-9ca6-f94741533686@lunn.ch>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260814-cv75-v4-b-v4-1-ef2e83ec0eac@ambarella.com>
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0aa00e7c3e3503a2kunm8aa2e3fb2528f7
+X-HM-MType: 10
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaTBgZVh5PHx5NHkxOGRhCT1YeHw
+	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlJT0seQUgZGEFJHkNMQUwdTEtBSk0fTkEfTkxBGB9LHkFOQx
+	hKWVdZFhoPEhUdFFlBWU9LSFVCQklOS1VKS0tVSkJLQlkG
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260816_235025_670553_CB818051 
+X-CRM114-Status: UNSURE (   4.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,23 +73,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 14, 2026 at 02:25:41PM +0800, Long Zhao wrote:
-> +          - vin_master_sync
-> +          - vsync0
-> +          - vsync1
-> +          - vsync2
-> +          - vsync3
-> +          - wdt
-> +
-> +      groups:
-> +        $ref: /schemas/types.yaml#/definitions/string-array
+Hi,
 
-Why are you redefining existing property from pincfg bindings?
+> Both the MAC and the switch are using rgmii-id? How does that work?
 
-Since this cannot be tested by automation, I will not provide final
-reviews.
+The switch driver uses phy_interface_mode_is_rgmii() to enter rgmii
+mode. I will change the phy-mode on the switch to "rgmii".
 
-Best regards,
-Krzysztof
-
+Thanks,
+Chukun
 
