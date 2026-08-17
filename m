@@ -4,102 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF013C5DF66
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 12:53:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5318CC5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Aug 2026 12:54:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U/HO5352xrmxomcN/usyEVXCVrY50VpsMFDwsFMZfKc=; b=RSQw6nz+2GZBfBesE9DHyyyCwi
-	DcA6iwY/Q+KjsiRBZBbxGN/igyOdK5QEpLBlebOhDoseohuGAjA+gUIaopTANRhQiOe2C839FLNMz
-	pIYg5cEQqqkNcJdGCR17O/YfN5xHHt6Vwk6J/jz2FFfM79GAFHGEsq3x9NAnLT61/FVOfuwYQz2YI
-	/s8/5txJGjiUf/Extpp+fCloGMkGFmHExQh0q/nFHoA7/LqfnTdwTrr4Iv+Q0QyfuJkNU9AjjOWyj
-	TyXF2no7xhIPxmlwDIb6E3gg6jkK/DCo/BJ9dNUWMaqnTAsgwLuwdUJK39eOyhSJ715pst48PNi80
-	60aS8u5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=heyrqMT9bhKb2iYgMBqnNPSLDsSf0gtkf9pXDJmC29s=; b=BFmIH3SV2IhN+zfqPeJQjqhbKj
+	w5/vOI7dHr1TdatvZDvo1MRp1M0gFucviIwRA+wFusHrcFLHPTqZ9Jhkf7GClfij0UqpBjtsqKzyx
+	VAK63xlp+WcDRgkNrUHrH/x/i+i0NH0MsRsUQRg42J/a9BXmLcDxsrAlMR3wNfYfgl1fQORkKdPFo
+	3Dn0STM5XfkIuXRatVygyyRqoeeLFRy6lM38bY+IlfkRRpMbFjY/hFDKHzuK9c+wsi/s/XqQweuIJ
+	lGw3ARsNKlr7ghIvG1yObkkhqhwPFr1rCEgdcMVIxQkl0U69njcCI4LkHyoicHFI+qiP2wTmCWE9n
+	rCquP7BQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvwqZ-000000069xa-1pBx;
-	Mon, 17 Aug 2026 12:53:47 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1wvwql-00000006A0l-3DF0;
+	Mon, 17 Aug 2026 12:53:59 +0000
+Received: from mail-oa1-x33.google.com ([2001:4860:4864:20::33])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wvwqW-000000069x4-3Njz
+	id 1wvwqk-00000006A00-0gdK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Aug 2026 12:53:45 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2cede6375caso261825ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 05:53:44 -0700 (PDT)
+	Mon, 17 Aug 2026 12:53:59 +0000
+Received: by mail-oa1-x33.google.com with SMTP id 586e51a60fabf-45e2fd33133so1678852fac.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 05:53:57 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1786971236; cv=none;
+        d=google.com; s=arc-20260327;
+        b=nnnQJXX6N5WBodV82OxD34pnFbB2FTQJTZ6FWWyGPCgNCW/lG3o+gLmGOa5vL5QGWm
+         o56oclV7ezpJPF0G2YEG/yarUcIKEnc4YQZS0aZrDDCop9g3BFWI490auAa0H9Yss5iw
+         VMIVD+K3nWmvfTMdK5cjCFN3V9z7xpCZTD6U+kGgEda+gIw+ZWBz8x/xlJqP9pzV9RBX
+         XIyPeyqz/2TZq/vBPJNkFnF/gpnT9+XiQvKR8MGL3p0MhurRbi6hFebgLWjdeYG/Exrs
+         1MM7rUdKoOA4ERIl25C0KEMFjIIuRgCQN8eh6TA5owd05KhWqLRDjc/YQK1BVWxOgJxC
+         Ejlw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=heyrqMT9bhKb2iYgMBqnNPSLDsSf0gtkf9pXDJmC29s=;
+        fh=yBb7uVI3UKhRH2FAeWnIncih3yFvNcAYGTd8dT81E9A=;
+        b=dWDvgE5tKcAiLd44aInZzwfmMduBAx9ZXvm1j8TYQcjWb1QoSZeyxQYVBjcuMIjWKP
+         6PdCsP78EVd2vAZBLeQk9VkyrUHpfY6A2maUS6B3jLEnnTTm/kOKOn3dIlVWHF0yo/IQ
+         jTPguzvc8B6zLeOCA88ppAuEf7obyyHI6KqW8cN7UtzAW/fASb8gANtoPvKj1UxCC9hg
+         pLlcmkWQ78K4nKjKK32AD3IPaETJyvKQF78gmiddEzj800ahu26M6pcpIIX65DUqpcHH
+         ojZQlJNQnj106+Ucq7Eyx3guHY9mYVZS7f03ayZvFaQ5sJDm/7REDrcHANIb3QKLNoqr
+         9FCQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1786971224; x=1787576024; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+        d=gmail.com; s=20251104; t=1786971236; x=1787576036; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=U/HO5352xrmxomcN/usyEVXCVrY50VpsMFDwsFMZfKc=;
-        b=aFHTsHToaYo2ZK2RI8jMRVJKeaQth/irWcGxtWgDjobodBpfRUHddZy2nwEkcsx5yh
-         MUbK49ONznWi3I3hOfNMapT79JNzncM5taIfGflnILxwdXrLnlfgn2KfJFMAbgPTku+c
-         XKK/gom1eyrslYQlFA3sb3YkDoqwNO32pHaZ4F+hB47s4B+3EK7UkJ0lpp2Cy6fU8zqs
-         gn6auweJ0+oYIkQfB/AEHr8gSuzMPUM2sGcDlW5BsOjFo8VLt+wc4IAR9ckwlPGU7XDE
-         WpevaxLHnHnRD9/ObnK8xaKj3gfbnw2QjdUAWeztLVP0iXFApFjOkgk2A8zHBC09IHHy
-         bBfQ==
+        bh=heyrqMT9bhKb2iYgMBqnNPSLDsSf0gtkf9pXDJmC29s=;
+        b=B2XyW9k1kqqnmp4bmydpD3xX6Zn4mjJTg45DEepyQdcKcKMK3el+nJ7ePYvOhca8l4
+         QdT9GQ+6suBMtx8SLtJ8IrKLfITqh0PTHa6KML2uWGiF9uynbxwoUursM7fpPIw2fmmb
+         8mSNPKp6uVfU7VMMISsabah2ZdJBHyLYcTooeSGpnFGNj7yu0soVovFuUrXb2SZJz3UH
+         yiPHStZ56ClXqGHEvnrrBUJXbRCmkCnSsiMpwbXwjJBoNDENtbd790tsJl5VDyBSDerJ
+         1qM3R4qHmmRnppC3QStZUIuDqMHI0vmZflZh2FlB4ylWoGdWzZ+QmYQGR6SgTrxgb84r
+         zhhg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786971224; x=1787576024;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20251104; t=1786971236; x=1787576036;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=U/HO5352xrmxomcN/usyEVXCVrY50VpsMFDwsFMZfKc=;
-        b=tKSJ3C29BRyENSdsYrv5clPxrv+rRROI6rfD0ZLT5U6YDMqxVhZ/Sblsi1Fy6Baw/W
-         LDOXkCDkQzl20cAmJhJTku/JlmcJUKTCIAry4ZUIZoZ6gPy/OvlrBg0DYrlipCc+624U
-         xRGJuIhojWOpHf6qTaWUW0jM0ZoN9NV2UA5qH8UP2dUmep2HMSz/NVwfVLtbcXVYUeEC
-         gFLvQtTyPEfTG3xrGGgRCh7uoURX0W2YEseHmluiqMggM3e29M2oRfW08s1RlttaB+kN
-         zxsCx8CfAzTQuxKRZ1nnnN9ncVyecE66vKH1OTnz5ALzg92NA3syRN2/BJuKvPqiZ8/F
-         Xn/g==
-X-Forwarded-Encrypted: i=1; AHgh+RpuC7iSBVPNOiJtVrcyyIutFDb3GYQ7iK3+zzKfdp9Mm0EhG0GHjGaJxxUrk9W3F0vcefRmexz4+adtrEH+NiJJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YxpDU8eSVDJAlw4cxfGqWob4w+BBIPvEGhiQxIpKHIvT4XXrmuZ
-	uynn5c5jWDX/lFHAaGf6pUWKG6MRJdWcjv4p+UFGpjYl23AfNwUhZWxsh5VPgZyaXw==
-X-Gm-Gg: AR+sD11SZHPsJCh/xUt2P8KyXx2qm6BWmcAYrjH9Xqcl0MbPI1UPSERmOqutOJPgG9A
-	Fac6UxcZQx69Ih8QPk12DaD1dJ2QHj5IHR8W1KpxUORkXbo4J5+AilC8WPOMQTu6VICjkipXQkp
-	Sw1qh+Q4JDYShlsG+CUKj/G4qUTUDrYjqg3Cn/WVqhVzcp2TuS6JHQdfNmP+8RrkBRMKhqsoezE
-	RUyNrH9+rk1uSGwkAkXhXTHY3AwrFx0/T0XpLVJKlUWR8SNIySfZt/GElDKHJP4uk9KuhQFZZqG
-	/3hGAB4WTm7/ja2S56z1eSfasDjPNV+dY8m1IXJXhPBeGP+l2LYRpUO2lcEsyOZGIXIzymj3wvO
-	zE/2/mw95WAFqig8yH0tD37Udo81FD9O7nkGRP8CgCpfTKHCzY6ICAaI00sfoRXeIitpI5MqAN2
-	tzZ6iaRdkn2btD6sEGSFCbYRjaJhiOO7LlIB0yQrPq2HLeZmBATM0Yhprntb2mt7JwYXVL0J5A/
-	7NmAAMIZyFSTdtVt9yPo08=
-X-Received: by 2002:a17:902:d983:b0:2cf:41ba:96b8 with SMTP id d9443c01a7336-2d590bad516mr5207305ad.6.1786971223287;
-        Mon, 17 Aug 2026 05:53:43 -0700 (PDT)
-Received: from google.com (21.168.124.34.bc.googleusercontent.com. [34.124.168.21])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d5bb499d4bsm5258655ad.4.2026.08.17.05.53.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Aug 2026 05:53:42 -0700 (PDT)
-Date: Mon, 17 Aug 2026 12:53:36 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Dmitry Malkin <dma@nebius.com>, Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"regressions@lists.linux.dev" <regressions@lists.linux.dev>,
-	"stable@vger.kernel.org" <stable@vger.kernel.org>,
-	NB-Core Team <NB-CoreTeam@nebius.com>
-Subject: Re: [RFC PATCH] iommu/arm-smmu-v3: Allow nested attach for PCI
- bridges without vDEVICE
-Message-ID: <aoMEUDQKlaWzvE8n@google.com>
-References: <PA1P190MB25578C482C8A3B06A4DCC6FDDBDA2@PA1P190MB2557.EURP190.PROD.OUTLOOK.COM>
- <20260814174825.GC510472@nvidia.com>
- <PA1P190MB25573D7CFE42EF7DD2A8CDE8DBDA2@PA1P190MB2557.EURP190.PROD.OUTLOOK.COM>
- <20260814221103.GE510472@nvidia.com>
- <PA1P190MB2557D53CB7FCB70EB8F79D09DBA72@PA1P190MB2557.EURP190.PROD.OUTLOOK.COM>
- <aoLtgeYLpYobpyKN@google.com>
- <20260817114407.GB1175472@nvidia.com>
+        bh=heyrqMT9bhKb2iYgMBqnNPSLDsSf0gtkf9pXDJmC29s=;
+        b=PvCRzOp18jIi9wwOO/CVkSvnZSdbAd+pRsvQGMzqKow6fy5cOQW1V4fpvm/U8vjjZJ
+         MWR1EeumnESe9juX4m5LRzMT/so149hZRZ91tLf1sWN5s0fG51EXGSCx4s+OMqZMKq6V
+         jy2/19OWV92A9pbVCco4oEZqkqsm8i+ALA0UWxK5qxSAvK3vlIZ+2ZYPKWkPTyMEJFYd
+         capthl5co529fPBn4t1yunj2h7QWCe5eWkLLWvN/isa/WgYfM92Vt+VvBfDUEmt1xmvg
+         SrT2VvjdwWmzsBKYK7s0ieMeZhJOFQINUKsAo8CKO9UZmi/dePBdTzdAfbCAYh5WqbVV
+         yzUA==
+X-Forwarded-Encrypted: i=1; AHgh+RqLSXywogIFednAITKuLQcKd6zPhycGlrgsuM79vX/wG+RXHMMX413RUhiuXqjEfONV9fzaRT9Uzy0Guj/xwuTk@lists.infradead.org
+X-Gm-Message-State: AOJu0YyoFD/Kx4aOlDfd7DRYoSE1zYfoD9eQKflys6hGqJ7kMoj/fFvD
+	0O3jOw6gu7FaEvCgl3MYcJ0cM6PGwnaPP/iL5dDVEDX1iWuKQPotRS5PEQLtD7SOms2i3STMwWs
+	1pPhy44OLuKS38nx9ka+phBK7GX4IKX4=
+X-Gm-Gg: AR+sD1195Ib3PHjUQY9VKukpyTh7zAcqM0vsdY/1LY1m4ARh2sAgd3lVIyxJa75WtT/
+	nMtkT2i1oBgr/kuwLGvM1+TOzb24AFBtNyMuRgplLDNt9bcCAwX3u76wvehp/OIoL80Zy5Lmuik
+	8hLs0X+MIAGisSwSaQhPAlAv+EtY8g+s8ZsG3qon2DXOp0y/MUxF1CRILf0jM71by5AkH1jAc3G
+	jgOPApikv2XAFIgluA+8hAFm7ZjsvRNpEwJUC0Prgnf8qPznto8wKjxjC7wnW7n2VIV1XEP3Uf8
+	qKEvsPOWh6oS6ATt/KhYBnIbWOx+cHVJa3OL4acyd02GG5jX2p31dUrn/xoodmCkp/PhADt31/N
+	L0o+qMx1d3AprT5f2vbSnyCfnUVdvb0c1aY7JLWYWhJM0nLJ2RJvTpfs=
+X-Received: by 2002:a05:6870:1406:b0:45e:2d52:abfe with SMTP id
+ 586e51a60fabf-45f46d0bf86mr29099fac.21.1786971236153; Mon, 17 Aug 2026
+ 05:53:56 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260817114407.GB1175472@nvidia.com>
+References: <20260815152759.2046231-1-gpiccoli@igalia.com> <aoGIEEje1NIMTjyv@willie-the-truck>
+ <aoLLf_iZq6DLNpLO@arm.com>
+In-Reply-To: <aoLLf_iZq6DLNpLO@arm.com>
+From: Ryan Houdek <sonicadvance1@gmail.com>
+Date: Mon, 17 Aug 2026 05:53:44 -0700
+X-Gm-Features: AcwNN1VwFBnUMMlGBz82LX73bNnE8excwOst3wTjz9OJH25CB-_0VAvGTPYuTWM
+Message-ID: <CABnRqDfeiop1sG_Eir+yU2o90Q8-caDp-Lj6=aBFqYwiHAhQ-g@mail.gmail.com>
+Subject: Re: [PATCH] arm64/kernel: Expose the running CPU of a native task in TPIDRRO_EL0
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>, "Guilherme G. Piccoli" <gpiccoli@igalia.com>, 
+	linux-arm-kernel@lists.infradead.org, mark.rutland@arm.com, 
+	robin.murphy@arm.com, gshan@redhat.com, kernel-dev@igalia.com, 
+	kernel@gpiccoli.net, Mark Brown <broonie@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_055344_846597_36E5B7F2 
-X-CRM114-Status: GOOD (  13.15  )
+X-CRM114-CacheID: sfid-20260817_055358_214799_05B61037 
+X-CRM114-Status: GOOD (  24.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,25 +121,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 17, 2026 at 08:44:07AM -0300, Jason Gunthorpe wrote:
-> On Mon, Aug 17, 2026 at 11:16:17AM +0000, Pranjal Shrivastava wrote:
-> > But, regarding PCI P2PDMA, you can still enable it with ACS enabled in
-> > the upstream kernel *IF* your hardware supports TLP forwarding between
-> > root ports.
-> > 
-> > When ACS is enabled, all TLPs get forwarded to the host's Root Ports
-> > instead of getting routed directly through the switch.
-> 
-> Generally nobody wants to run like that, the performance is
-> terrible. The reason these systems have a PCI switch is because of
-> performance of the P2P path.
+On Mon, Aug 17, 2026 at 1:51=E2=80=AFAM Catalin Marinas <catalin.marinas@ar=
+m.com> wrote:
+>
+> On Sun, Aug 16, 2026 at 10:51:12AM +0100, Will Deacon wrote:
+> > On Sat, Aug 15, 2026 at 12:19:32PM -0300, Guilherme G. Piccoli wrote:
+> > > The register TPIDRRO_EL0 has 2 meanings / usages today, depending on
+> > > the mode userspace is running:
+> > >
+> > > - For native/arm64 mode, this register is always 0 from the userspace
+> > >   perspective. In the kernel, it is used during ventry (entry.S) as
+> > >   a scratch register, related to KPTI (stashes x30 in fact).
+> > >
+> > > - For 32-bit compat tasks, this register holds the TLS userspace poin=
+ter,
+> > >   and is not used for KPTI or anything else in entry.S. This is ABI a=
+nd
+> > >   userspace can count on having a valid TLS pointer there.
+> > >
+> > > Happens that other operating systems follow a similar approach than 3=
+2-bit
+> > > compat mode, even for arm64: in both Windows[0] and MacOS (xnu/darwin=
+)[1],
+> > > this register is used to hold the running CPU of the current task, he=
+nce
+> > > offering a very fast / non-syscall way for a given task to figure its
+> > > running CPU id.
+> >
+> > I don't think we should allocate TPIDRRO_EL0 for this as it precludes u=
+s
+> > using it for anything else in the future. If you want the current CPU,
+> > then I think you're better off using either rseq (which I thought could
+> > do this) or looking at reviving the vDSO work you mention (but that has
+> > unresolved limitations iirc).
+>
+> Indeed. IIRC glibc already implements getcpu() using rseq.
+>
+> --
+> Catalin
 
-Ack. I was assuming the enablement was the major challenge. For perf we
-definitly need to hairpin at the switch. 
+Reading through the full cover, they state clearly that rseq/vdso can't be =
+used,
+since it's ABI and the primary support candidate is Win32 ARM applications
+under WINE on Linux. FEX just happens to get a benefit that it matches some
+edge-case behaviour.
 
-> 
-> Jason
-
-Thanks,
-Praan
+ARMv8 was introduced 15 years ago and there hasn't been a found use case
+for this register yet. This sounds as good as any since it also matches ABI=
+ for
+compatibility sake. Worst case instead of checking for TIF_32BIT, add some
+prctl flag check with the same cost, allowing another 15 years to find anot=
+her
+use for this register.
 
