@@ -4,103 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48D62C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 17:04:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7221DC5DF81
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 17:10:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LARP5bmG64wd0GpLVR0nEMY/+zhPU+0Nmo0aQ8UdxmY=; b=i79ylMksTGGkZqZGdDVHsN3Q+r
-	vSftMoVKZA90oKx7hMA+YDZ2dDWggdyr+4QsDdMAoneRGNSxD9IVrwnXEfoMu97rsNbA+XkkhZeDu
-	GGyhBFOhmRUOKa1Bk5TxGzm3HE++K9XT1hCsgKqNvJG3mL4gZNEjyehWy49r9yNymSyDew/OFfbNi
-	HGpbTbGt3PMFBrK/x7ps36q3Qix/B0rU1cQl40PH8pXvcAj4OpUQ/bBtMlYVSmYB32eYz2LbiwPZ1
-	OYoE5Nk2rgePYcynwXFIY8HGpjB4ATo/s6og86o8sB8+k1ZrhvsNkLoQViRwwsHVMeZtifU8ARO2o
-	5XnQRsPw==;
+	bh=uBZk4YT8qgXdmFVphk3af38SH0U45FRNDQkqVdk1COs=; b=falCELsXixm9OYY0iDZBRbsj1t
+	i+lB8mdtLaUFEcOuyzELNP0zNycburR9exsYM00XE/reu7M6I1wUe9sY00UBOJN3hsTBegO2TdiKf
+	yxnYjB3eUFUTBXOBGaSnOFwJNNAlLB06QAzRQ7I49NVtHzWzWYkfjgy8ck3+3r9lHt77PCi+1qkap
+	RMZgqeP4Gty7Kn3AbQS0sjbqPKNcFXTKZ/rh0WPLUdoGuDLJZ9xgaffDVq5WaAEDmJpdwmXo4EYna
+	i+/03BNWd0CoCvWUt75+NTgQHoRKZfR5pSDgUUkOT6Ld92VrdXd/V9rPgYb/lEl7GG+z/izUQpooY
+	wxJ0MLRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwNEM-00000008OiZ-3IcV;
-	Tue, 18 Aug 2026 17:04:06 +0000
-Received: from mail-pg1-x544.google.com ([2607:f8b0:4864:20::544])
+	id 1wwNKJ-00000008P47-1wW3;
+	Tue, 18 Aug 2026 17:10:15 +0000
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwNEC-00000008Ogh-2JdY
+	id 1wwNKG-00000008P3i-3LzV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 17:04:00 +0000
-Received: by mail-pg1-x544.google.com with SMTP id 41be03b00d2f7-ca80d708489so1004299a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Aug 2026 10:03:56 -0700 (PDT)
+	Tue, 18 Aug 2026 17:10:14 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-6a173ad7cf4so100657a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Aug 2026 10:10:11 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1787073010; cv=none;
+        d=google.com; s=arc-20260327;
+        b=hTmPlWUOhvaJNLNeMOzf5gH/teeWJIQoXjFLuLgmOPhB/3Wisz6belAO9nRgHWca7b
+         1S/vxQvGALcy9yA2zqYt0kiD1LDSO2F8TmXQi4wn8ttxuHTL+W06Xd6OKUxPwjBoI3PX
+         RbEf4CD85OskhhFXF2QHyVCeBxLT/GLRGbRncq7Z2ZaM/jB4mGJ39+seqIksZwhUC8NC
+         iGg86UZUbjA/FdS92uLTWzvOQCeMSkTXl6vXTHluZdeEpIKh7MuwQofZJR7MGiEc3H2r
+         nzH9tXZY5qcAd1uefUAx3E1P6ROihiCwYQAPKVr6Zdtm/KCrkaMfz9XoxOdwklgKGzgd
+         Ij5w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=uBZk4YT8qgXdmFVphk3af38SH0U45FRNDQkqVdk1COs=;
+        fh=IJWZAsS5OHLwJl8lkMpjXoIIxD6bPevqoZ+JMwSy+Jc=;
+        b=KMh5MUvNhJaT0zawKxJTItHGb79K2yP9PY7MYrfug49zSN2SbX2yO0zAiArErLRRIf
+         WUqzkcJPy5q8sqfY0LW8WCIZRMER/z/l9ymHy+WD99lNwz051mskJHxh+JH+NAENFo1N
+         XqydTwA0YyewIiSpznA8I5qlZZ2ZjjNUbEgdPfx4JQLI8KFsVj4U6q7wUSz4PXfVv90F
+         KDCkWLI7rgLTqg9UE3WcAarI3GClP0fXYFB4geoWFJDMGWQOGTQqTVul5H9ctIbTMVNd
+         WonCd/MT9quhYFtAVOt7VATXy2DBCCaLqXzJYyqjkREiqoa2d3m5g7YW7U+WUBbHA6br
+         Xp0w==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787072635; x=1787677435; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=LARP5bmG64wd0GpLVR0nEMY/+zhPU+0Nmo0aQ8UdxmY=;
-        b=Qvy+Y0Xadplgvs6z8Qrm84qlO9SGtrmBOLfDz84FWrvga2I88zaL1cHBkh7oKoxkCJ
-         u5qHR7ZZyGlx3uwx5NvzgTNXCgYXGKVhxRSseAObz2LCzBzkH+2V0eJWRVShZ6Nn/CsT
-         tm4+F1QUqBN01DO4eHlJ8n/oVp6clUN7L4VwT4m9WLcSuNIbeF6mtlNx8fVSW9wu5cgH
-         AGhlBXwnsQUKGkSeroiDbVXSgun+wUN6ELYEft2HgbTOMED64aTqNQOrUcpMAhxN8kzu
-         /wj23fD9otJuLbwNfqVrih3Ut5ufl+iAUF1CYSzQU4huhmLX7iZDY/d5XNIABIbC60yW
-         3CxA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787072635; x=1787677435;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=linaro.org; s=google; t=1787073010; x=1787677810; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=LARP5bmG64wd0GpLVR0nEMY/+zhPU+0Nmo0aQ8UdxmY=;
-        b=JS+AghGv3kMbKOMNTqZtTj1l4cV8MR0oLmpQNWr6/AA+NG+ri6ystcps43r7vEkSzV
-         CBUMpbkS0AxFpSv7KDN9CHh1qBaLEBjwff1IybTMiaoC+yckzNKnWbzJvVZ+zWuGuWoZ
-         kqDU7t3GQ1+WH9a13JNESCu0gLWo9/bEmNkgyVRTZl4uSwPys6XseaLTQnroeT90HjQB
-         AsC2DOsy4yhQDTVFWg2BYHNfZNhFkk1B5aTwOAjfLE40ErzaCcBC1mGgVwK+F41MgN3/
-         N6Gk7dCVeohxMTPP2+S5jqZHWdYwQm7cLOeGWPW01Aur8Uy2JCCsHHHLQ97aZfogOpN4
-         f9dQ==
-X-Forwarded-Encrypted: i=1; AHgh+RraBAJKxig0NKTSxxt/PLfbnt8FbRTtfj6Wt94LQ9uWvvReTICz2aRCxU9lC4i319pu/miToko+2qQaXr8PQSJo@lists.infradead.org
-X-Gm-Message-State: AOJu0YyO0lnRX7yo2GKiBfzJWy63KVGeAbUTVwWMFXvjtDgeISEKPsCy
-	4Y4mW0aP4RqnZy8BG5ExM3aawbDlckhMdcfQPbJ9vmTYjny1u9BQOxWf
-X-Gm-Gg: AR+sD12Tv5j5cU3QW1Wjn78SsBCLuc6L7qK1qFmNtuz96Q1VxDHKJ9glPG7jasPHIdf
-	hPi3VWe0oxOel3SqVYePOGvpXQdZXGTPy35yM2RcCjjC4zXw9eQp7J57oH0HZkPJ4JwzcBRKmkS
-	ank1qOVB4nz+EAtpfTf/D0eMYA3lDluSHLE2oEUEFnaJp/XMtGA+b6SHedJf7TYCWNDpIkSTV1U
-	aDGZyYf5xNKBh2/2I2mJw1qFO9QEb7kAtqyUzMP9hqDCrJg716mlw3XilkODVcKNvjZg9iYVhT5
-	ZPJCLpHzalppQ2XXoiQqOd7Y0Q9be27aD5SdiKXzXMUcW/IiQgK0diPismC78X20qmE9btA/8Ol
-	6hHxEdyM9Dr8L/QfacaAJD2Ux+EsxYO6DRm0wp9sVvHODMM3NXNa/ls57zyNGpVnREbZzJ/iw+9
-	XV+3lHs2OwySKf7kLY46JRPs5vQwQnk3BaQP4DQo6g0jABMycX9Eaesv9xb3Cz9DZ+
-X-Received: by 2002:a05:6a20:2446:b0:39b:bc11:9ec5 with SMTP id adf61e73a8af0-3ccded40c3emr7581611637.13.1787072635279;
-        Tue, 18 Aug 2026 10:03:55 -0700 (PDT)
-Received: from localhost ([2a03:2880:2ff:56::])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cc13c0445c6sm2311742a12.32.2026.08.18.10.03.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 18 Aug 2026 10:03:54 -0700 (PDT)
-Date: Tue, 18 Aug 2026 10:03:38 -0700
-From: Stanislav Fomichev <sdf.kernel@gmail.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Netdev <netdev@vger.kernel.org>, 
-	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Anthony L Nguyen <anthony.l.nguyen@intel.com>, Przemek Kitszel <przemyslaw.kitszel@intel.com>, 
-	andrew+netdev@lunn.ch, Saeed Mahameed <saeedm@nvidia.com>, 
-	Tariq Toukan <tariqt@nvidia.com>, Mark Bloch <mbloch@nvidia.com>, 
-	Maxime Chevallier <maxime.chevallier@bootlin.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Alexander Lobakin <aleksander.lobakin@intel.com>, 
-	Simon Horman <horms@kernel.org>, magnus.karlsson@intel.com, 
-	Maciej Fijalkowski <maciej.fijalkowski@intel.com>, Stanislav Fomichev <sdf@fomichev.me>, 
-	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
-	Jesper Dangaard Brouer <hawk@kernel.org>, John Fastabend <john.fastabend@gmail.com>, witu@nvidia.com, 
-	Martin KaFai Lau <martin.lau@kernel.org>, yoong.siang.song@intel.com, rohan.g.thomas@intel.com, 
-	"intel-wired-lan@lists.osuosl.org" <intel-wired-lan@lists.osuosl.org>, linux-kernel@vger.kernel.org, linux-rdma@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org, 
-	Leon Romanovsky <leon@kernel.org>
-Subject: Re: [PATCH net v2 1/3] xsk: align TX metadata layout across ABIs
-Message-ID: <aoSQWPGrYEBfZUnP@devvm7509.cco0.facebook.com>
-References: <20260813190800.222527-1-sdf@fomichev.me>
- <20260813190800.222527-2-sdf@fomichev.me>
- <06f8153d-2156-4e7d-9d49-006db4b2cec4@app.fastmail.com>
+        bh=uBZk4YT8qgXdmFVphk3af38SH0U45FRNDQkqVdk1COs=;
+        b=psPjmzMr1Hz/FFYfQGRM2UywVmpmcZk+1rAjULrs3S/YLBquXidlYb3R1QHDO7qGXq
+         7JFWUhq/YcnPzZIrFgAnablgvDuWcHxYfJtCGOtSCBNKebsm6rnLURFugplChMmK6ebc
+         iZwINsfcJsVlOEP+SzaiQn74XMlb5eAXenGXJoJZkX3fWQfy+xFIYElehX1EpYnKbgQE
+         sS/TGZG7U9/27LNgbd5p1pWqD5ijJ0RW1RM3BqZC0PaaQI1rsQQQ1ojRa/0FWp81Sr45
+         zx+XAEWXZaxAayI6vurBWvLuDlM//aFk1sgNaOj0bM1hwIw/1X1vLuMYrEkSt7k+LYx1
+         aCnw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787073010; x=1787677810;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=uBZk4YT8qgXdmFVphk3af38SH0U45FRNDQkqVdk1COs=;
+        b=LtErQDklRf1uI6Zu+DoI23R2sE4tlu1qQbz+w2mIHuNnlavG3zv5breoC5AlLlb0x9
+         doOw4vUzU/xP571bN+XQdu90HNjs/AGaIcBLBfbubt3InN+x6+AbNJKyirT3eR7yRRtL
+         QLpVpY721YLuDKH9YOcgov8TlR6NIyN8FXJCvkPhYLZc5/Q8keZBxtiG/b3EV6BLxdc8
+         evygPg2HGXtvWJ21plNb7wYtmobcn4dx8RxuQihfg3QBge1T42i9lMzUipj3Qus/Axlz
+         im9TIWVujGqw9AdmBV05znqilNVw596s2bHkNVvhmGyfEsEoepHfy6vWdEa5kZd0vAO8
+         DceQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rp59g2SVIpwTQO7KKIUTms+Oio53GEVivEAbhyu3ZCpO88JHMZvHUDuOfsDYDLzE3x/Y/g6cy3pZ0/MQn91Y/uW@lists.infradead.org
+X-Gm-Message-State: AOJu0YxYwxQwfZvF30VmfWLHTYGEcqNO68rMCNVc50Xz3p2pTJY1k93K
+	7+SXF2tZjAltshlSbXHG+VOjOY6bazqeeu7b3B5erpfsjpixuSu0WzKySVhma7aQp+BKHmogcnz
+	8Fs0ulKOqvi54YZXo+8fdqTJSWK7gyDPM1KPiv3FwNQ==
+X-Gm-Gg: AR+sD11NsylHa36RLR4SUftpZx6xzYItZf/IP778plRQUrf+xq3aLAj2Gx7FlKw6EHs
+	lsC9EvjrbBppJYV7JHicsDeEtdFay036HDoaHlLO2RqsQv0zVtYVU4/xK7qloO8IH0b+mtVT49k
+	ztxYwJU7hTGsXhlMKP/4qWRivX67a7asCe3GQHaIf9Hm1afaU9xr+XiI+IV5Z8W8KSmhmJ7/2E4
+	vYzlscOQRHvW96dkzCVxPk1GRRaYgtUNNtlj9dgJKQL6W6wpHMraC9leuNyEFmdTWlqF3ZcU+GL
+	xO/klCCBPQ3GD+gCcD5ozJhDMS4EWVhyzZpEVrNggDuzUXO3FXapEKHi+Fg0HOdPg+6MmXaVqvk
+	/4Cw=
+X-Received: by 2002:a05:6402:51c7:b0:6a3:867f:edd0 with SMTP id
+ 4fb4d7f45d1cf-6a38a927568mr15910469a12.5.1787073009842; Tue, 18 Aug 2026
+ 10:10:09 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <06f8153d-2156-4e7d-9d49-006db4b2cec4@app.fastmail.com>
+References: <20260810051907.27136-1-phucduc.bui@gmail.com>
+In-Reply-To: <20260810051907.27136-1-phucduc.bui@gmail.com>
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+Date: Tue, 18 Aug 2026 11:09:58 -0600
+X-Gm-Features: AcwNN1W0aiakkr2e92E9x-HbBeSLfkJ2O2xbcsCE6IBCSzoDBvWOIXWBuDs1O54
+Message-ID: <CANLsYkzHog8P=0Zxnn58zOQZP+RWiVpQxw3EDb4TkPdYxdYMfw@mail.gmail.com>
+Subject: Re: [PATCH] remoteproc: stm32_rproc: Propagate errors from optional
+ IRQ lookup
+To: phucduc.bui@gmail.com
+Cc: Bjorn Andersson <andersson@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, linux-remoteproc@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_100356_591884_1942A271 
-X-CRM114-Status: GOOD (  24.19  )
+X-CRM114-CacheID: sfid-20260818_101012_862786_172CFBEA 
+X-CRM114-Status: GOOD (  19.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,39 +119,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/17, Arnd Bergmann wrote:
-> On Thu, Aug 13, 2026, at 21:07, Stanislav Fomichev wrote:
-> > Add explicit padding before launch_time so xsk_tx_metadata has the same
-> > layout on 32-bit and 64-bit systems.
-> >
-> > On i386 and m68k, the old native 32-bit layout put launch_time at offset 12
-> > and had a natural size of 20 bytes. Using sizeof(struct xsk_tx_metadata) as
-> > tx_metadata_len was already rejected because the length must be a multiple
-> > of eight, so the straightforward use of the interface was broken on those
-> > ABIs. Userspace could still register a padded length of 24 bytes, though;
-> > mixing the old and new layouts then silently reads launch_time from the
-> > wrong offset and misprograms packet launch times. This intentionally
-> > replaces that incompatible layout while the interface is still new.
-> >
-> > Fixes: ca4419f15abd ("xsk: Add launch time hardware offload support to 
-> > XDP Tx metadata")
-> > Signed-off-by: Stanislav Fomichev <sdf@fomichev.me>
-> 
-> This is probably the right approach, given lack of alternatives.
-> In the changelog text, it may be worth noting a few more points:
-> 
-> - A few additional architectures have the same issue: csky,
->   nios2, openrisc and sh.
-> - the commit that introduced the mistake was part of linux-6.15,
->   so the 6.18-lts release also needs an ABI change. I don't
->   think the "while the interface is still new" wording
->   makes sense here.
-> - what actually saves us here is that none of the affected
->   architectures are likely to have notable use cases for
->   xdp that would care about the ABI break.
->   The one that is most likely to have affected users
->   is x86-compat, and that is also the only one that is
->   broken right now.
+On Sun, 9 Aug 2026 at 23:19, <phucduc.bui@gmail.com> wrote:
+>
+> From: bui duc phuc <phucduc.bui@gmail.com>
+>
+> platform_get_irq_optional() returns a positive IRQ number on success or
+> a negative error code on failure. For an optional IRQ, -ENXIO indicates
+> that no IRQ is available, while other errors should be propagated.
+>
+> Instead of only checking for -EPROBE_DEFER, propagate all error codes
+> returned by platform_get_irq_optional() other than -ENXIO, so that
+> failures are properly reported to the caller.
+>
+> Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
+> ---
+>  drivers/remoteproc/stm32_rproc.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
 
-Will try to add that to the commit description, thanks!
+I'll pick this up when rc1 comes out.
+
+Thanks,
+Mathieu
+
+> diff --git a/drivers/remoteproc/stm32_rproc.c b/drivers/remoteproc/stm32_rproc.c
+> index 632614013dc6..9301e1dab830 100644
+> --- a/drivers/remoteproc/stm32_rproc.c
+> +++ b/drivers/remoteproc/stm32_rproc.c
+> @@ -705,7 +705,7 @@ static int stm32_rproc_parse_dt(struct platform_device *pdev,
+>         int err, irq;
+>
+>         irq = platform_get_irq_optional(pdev, 0);
+> -       if (irq == -EPROBE_DEFER)
+> +       if (irq < 0 && irq != -ENXIO)
+>                 return irq;
+>
+>         if (irq > 0) {
+> --
+> 2.43.0
+>
 
