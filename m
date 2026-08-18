@@ -4,68 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A612DC5DF70
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 09:27:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1790C5DF80
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 09:27:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xUcfhj85sX4cPSzt12bp3zzQ/yVXxAtFH+q/piQ/qBI=; b=yO88PF8x862HScE374KYDqKpL7
-	L/OnMmf3fRwTgVuAEqVkHHb5Kx/zF+C/r7oMBEwNoDIdFQ7TV1WOssX/VDjW8TFFTb0Sy3c3wonYQ
-	rEl1topK+SrbrkJgvlBljHmkVZgJSA0w1xRRgRTBdOd49xzcGrDi1+QDyBSY5qtTqBVKdNC+1md/V
-	ZQ2FoAoDSZyzu0FkbHrvjXmd/ZAgwVEf6K0AvYEvwknd1Iy0a049JFYirjcqCVd3Zy0jKBsezRg/B
-	324+2FQ3uNImKbM06juG8sr3kop7+O2emRHAy6TdOtxhGAIOnqjN8/T4QSk7fCBGYdH28mvErnHV7
-	BrfdmUNA==;
+	bh=pCAeP45dNHcS3g9M4gwt3hWaJQOzRtTIoJ9n13+qIfo=; b=dBo5rj1OAYOMxPn4mMfsY3YCQC
+	Hj1HsBPZH1P6GSbQ1z4HQYYEX4PHdVnCdU/UPJxt/5AwKOlKoA+Zb3/c2c9uQhPRqlmmq2X6DI++4
+	8xJ9bfuY30rHrxmwDrHxZ+WGxSdu2CVOU3WaNrkbTryI5zwd6SImdwVXEtGC+ve6ZTml3WsFQcjZ7
+	xZn8cN1rvM4vl2r5XoVMvot/AeHxm0PoggvYgzey+tLVAaTGLIU17CZ16llGJGcD/fBIFgbcfnnaD
+	DCR/XR+n2UyR11SjLoQmhbSuVvIigApT4Q6act9gH/l8YZq+eyS7yTwFfNo9vaEauIPRBGUlZrHvr
+	/LAkqW2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwG6D-00000007cN1-1pap;
-	Tue, 18 Aug 2026 09:27:13 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wwG6M-00000007cPY-2FNJ;
+	Tue, 18 Aug 2026 09:27:22 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwG6C-00000007cMv-2b0e
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 09:27:12 +0000
+	id 1wwG6L-00000007cP0-0kpI;
+	Tue, 18 Aug 2026 09:27:21 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 26C6E435AA;
-	Tue, 18 Aug 2026 09:27:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 073451F00ACA;
+	by sea.source.kernel.org (Postfix) with ESMTP id EA5194365B;
+	Tue, 18 Aug 2026 09:27:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 807891F00A3D;
 	Tue, 18 Aug 2026 09:27:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787045232;
-	bh=xUcfhj85sX4cPSzt12bp3zzQ/yVXxAtFH+q/piQ/qBI=;
+	s=k20260515; t=1787045240;
+	bh=pCAeP45dNHcS3g9M4gwt3hWaJQOzRtTIoJ9n13+qIfo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=nAg4bcC2+xd4rXCg1Xoy05lf0LRLLNQkiFqvbfD1IZWaPZSWI34IBfju7U4vO1r+Q
-	 n4+E3PM/xuCbBLjsOhVYbKrZ+8M+aFTsDHOHiMaAxEIoywpR4tMLpybhBVzRmGXRQf
-	 AmHs+8M/RWjcxUZFa5vlMaQn7c+8SS7wAvccJiyCL7audVJddbgsGZ1dDVtbV1FrTN
-	 65e5nDotPtuakJ7snWZFdnM5i8faaPQOJHezh+irnjm0AlAmnuVkzvZW353tiwG4CB
-	 UpaSA+l+dB3St2LCtm9OcXWuq/cM4LInNCYeVpKbmolYlwbm0hdUyTQWi2w5rB17y0
-	 OXulz5OKBHQLw==
-Received: from johan by xi.lan with local (Exim 4.99.4)
-	(envelope-from <johan@kernel.org>)
-	id 1wwG69-00000000oqO-2TCu;
-	Tue, 18 Aug 2026 11:27:09 +0200
-Date: Tue, 18 Aug 2026 11:27:09 +0200
-From: Johan Hovold <johan@kernel.org>
-To: Guangshuo Li <lgs201920130244@gmail.com>
-Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Dong Aisheng <aisheng.dong@nxp.com>,
-	Shawn Guo <shawnguo@kernel.org>, linux-clk@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH] clk: imx: scu: fix autosuspend cleanup on probe failure
-Message-ID: <aoQlbUquNf44_eav@hovoldconsulting.com>
-References: <20260808082933.2692878-1-lgs201920130244@gmail.com>
+	b=FXKhSwse5JpUIXXbguePgh5Q4+Wjri1Bk6ZOg8YeaYZemFTg1obCHqVZG2uPbI1Ea
+	 zi6eiRfzz5dqkwzZpjf4gRxD5f5DD4tKT/8aBvA4zmkDWwV/BbCO6tOlMONcexyKou
+	 g0AfU95Db6jL5E0+9H2sBm2hLkTjUPYtCpN2td0tzyqpLwNaB1ECxjqkGFQ5mWelvw
+	 Xn4jH5f6IvgGaQt51GRfoklu1XNSBevKtjELBHLNMiK0+s0c8cIBJ83EHhbHk6IPpk
+	 RVz8GwpdEeLJfzDAaR/JqoUfwUQwZRHwbqldpRS7P93yPKEivpwLdNxzy9R/QKCC+L
+	 oll2GRe8z2ltQ==
+Date: Tue, 18 Aug 2026 11:27:07 +0200
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Sebastian Reichel <sebastian.reichel@collabora.com>
+Cc: Vinod Koul <vkoul@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Frank Wang <frank.wang@rock-chips.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Thinh Nguyen <Thinh.Nguyen@synopsys.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Andy Yan <andy.yan@rock-chips.com>, 
+	Dmitry Baryshkov <lumag@kernel.org>, Yubing Zhang <yubing.zhang@rock-chips.com>, 
+	Alexey Charkov <alchark@flipper.net>, Igor Paunovic <royalnet026@gmail.com>, 
+	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, kernel@collabora.com, 
+	devicetree@vger.kernel.org, linux-usb@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>, 
+	William Wu <william.wu@rock-chips.com>
+Subject: Re: [PATCH v14 00/38] phy: rockchip: usbdp: Clean up the mess
+Message-ID: <h54c2hrcsv3zjzzgojzf5sjmu3vtpobz6rwloam5kp7mwqqn3n@bqjnlellvnz6>
+References: <20260813-rockchip-usbdp-cleanup-v14-0-b5ad9c68fa11@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260808082933.2692878-1-lgs201920130244@gmail.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260813-rockchip-usbdp-cleanup-v14-0-b5ad9c68fa11@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,37 +78,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 08, 2026 at 04:29:33PM +0800, Guangshuo Li wrote:
-> imx_clk_scu_probe() calls pm_runtime_use_autosuspend() for non-CPU
-> clocks, but its probe failure paths do not call the matching
-> pm_runtime_dont_use_autosuspend() before disabling runtime PM.
+On Thu, Aug 13, 2026 at 10:51:43PM +0200, Sebastian Reichel wrote:
+> This series does a major overhaul of the Rockchip USBDP driver. The
+> initial main goal was to add USB-C DP AltMode support to the RK3576
+> and RK3588 and this series still prepares the PHY driver for exactly
+> that. But in addition to that I uncovered a huge amount of issues,
+> that are fixed along the way. Some of the more interesting ones are:
 > 
-> If the autosuspend delay is set to a negative value while autosuspend
-> is enabled, the runtime PM core increments usage_count to prevent
-> runtime suspend. Without calling pm_runtime_dont_use_autosuspend()
-> during cleanup, this reference is not dropped and usage_count remains
-> unbalanced.
-
-As I've explained elsewhere, this is just misleading. There is no usage
-count leak here as the count is balanced whenever the user re-enables
-autosuspend through sysfs (by writing a non-negative timeout).
-
-Drivers should clean up after themselves and disable autosuspend, but
-this is more of a clean up than a fix and should not be backported.
-
-You've sent upwards of 60 of these in the matter of just a few days,
-some of which have even been picked up. Please send follow-ups (replies
-or v2s) as soon as possible to prevent further of these from getting
-merged.
-
-> Add the missing pm_runtime_dont_use_autosuspend() calls to the probe
-> failure paths before disabling runtime PM.
+>  * Currently the driver might trigger a fatal SError on USB-C hotplug,
+>    since re-initializing the PHY stops the clocks going to DWC3. If
+>    the DWC3 driver tries to access its registers at the same time the
+>    system will crash.
+>  * The DWC3 hardware can get into a buggy state when the PHY is
+>    disabled, which results in the PHY not coming up properly again.
+>  * Swithcing the USB-C connector orientation during hotplug breaks
+>    USB3 speed, as the PHY is not being re-initialized.
+>  * The code always enables DP mode when USB-C is involved.
+>  * The driver has some locking issues uncovered by Sashiko.
 > 
-> This issue was found by manual code inspection.
+> In addition to these bigger ones, Sashiko also found a bunch of
+> minor problems, which are mostly harmless, but were fixed while
+> going at it.
 > 
-> Fixes: 78edeb080330 ("clk: imx: scu: add runtime pm support")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
 
-Johan
+38 patches for a single series is too much to review. Please consider splitting
+it up into multiple series not exceeding ~10 patches per series. Thanks!
+
+- Mani
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
