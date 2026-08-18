@@ -4,135 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6E08C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 16:24:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25402C5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 16:24:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5/9uq9C0DKWc1aXQQNv3SWRWx7ud2vMql/XjbY4IZ9M=; b=L433uHNHRr3c15PGzMzJ69cQr/
-	iUqhwYFigL4+fU4hoZzuw3QGxqKuiUPZDT/cMyq/6PApTG2RKB9TdpeG2ZLC9puIm2lJx2Zy52RBH
-	k3ahEWiUUM6i80RfYc3d9FfkGbQa77R95FCeZGBs/8awxru+VBEAKBPVR2rUGL9bGxI+9hn+vFt2f
-	RXrYDh6obJAe/ysozBWn5fX8ay1VMxv6MlvhrzN88CHUzxGvP9sRia7c6SBzeYk91Gf0Lg8YfpQcZ
-	R0mCKdd4cWaq5gTHHxrsvnTsnvYBLkxaOJq6lyXk67jzPMJSukFz2N05aDvi9SPkK7s+JmKUABSCA
-	a8FbKSKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lAH3pJNXPJ/mpBu0kcIh+xNKTmt6P69p829a8VtOvMM=; b=Wq5gpsXU9bpd5eBXt1AaB8Wgy9
+	PiOFCrYLEVcc84Q3HidCXcztaw1eS8cO33t75FZ9yzIGK2JHVHbi6Dy0WpP3giX5fWBfZ8gvEpbve
+	2bIb1HAyN8pYktaTOHP8N/LVmY5jB899wudixd6uEI+ZzSbw5l1aobHSRsgJ+4lkX4A8NwPXnJwDC
+	NalMcNHvtmY4gZ+INeWluDLUj1rv9+BczYx/YWeolEKRhBh2KJuEOpaGv9UQA0w55HkFnkqOHy4eh
+	BmnqEurA5uccBHNqc7iKESBGQlV3q/PxbDs+POSiYoRU3hwZRxaR9mGoy6Vu0HibJ/vM0ZzIZa6ja
+	UypIdsaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwMbk-00000008Kyl-3K08;
-	Tue, 18 Aug 2026 16:24:12 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1wwMcI-00000008L3h-43g7;
+	Tue, 18 Aug 2026 16:24:46 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwMbi-00000008Ky0-08nT;
-	Tue, 18 Aug 2026 16:24:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TMZpjA2GRSB4kgdwoNkSNKGJmSVNv28hMD2xil0liVay2SC8oT4rAmG5gP9FoCqFtHjkX3h6RKMXePSRypfRqeSQBHI3rNjcWAtY9g7eSeYL/xOOyHMPPV6ZRC+HamyKtClIz0ZT+dQTDtbbODI7tgeo+79wi5EFTnTTddSAonT55mE2qySatOErE5MfzkaFI0k6Aogv7AkonPfNyjZu7BG764kq6GFC2OeDL10G4bbwKBkXf66vBXC7XvRIJk3ji+1fIA6auBv/B02A0wWrEQP72jEGm+8xuPuRYLKMxx9SsVBdGaLU3w9Puu3Z+6BsTussquVei1CwNP+LlNhiyA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5/9uq9C0DKWc1aXQQNv3SWRWx7ud2vMql/XjbY4IZ9M=;
- b=OTrfop72wMGcpRczEOl1pDayPnDzDsZCBIt01crgHslqYsJpvsGZjP/SjdYrMtdybvqpt2PdCQ45l2TwQm2O0iLfhnhkjM1gdLhjHjGvKnsOs+8rKqa0JZDVwYoXx+vDgIxdgrQzerwgKvAPRIdr+NETeWgaQ2oiUwMW40MA33ubvozf1xo0GudML/P4kIkWPO9FhyuFrxowRRvVwQYQbnEMxVR+jZVT2DFFIMIaGrCkBgah+XXNpY4YkkUFhR6J+cti0b+6Y6JzIltjIrqjRnAC7ExDkQiSUeRUFpFqc28H9QixTHJF5oukD7PYjYe8HePcWDh4jCv2wynQSqEH4g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5/9uq9C0DKWc1aXQQNv3SWRWx7ud2vMql/XjbY4IZ9M=;
- b=S5zMhttVVYjYle8ZgGXwsXE2QneJvOiuL7zDNhv/xXflN+aIhAlxH0wkRheB1YxbBQSJ553kn1cZmjAZOpDrqYWrVS4LJpvCqHgJa/EH9RoIwnqbaQT1K6QXYZwZTRn9wRalKdTVa3RhM6ob0LVJymLzB8F7R3dcuHeT+EHjj3xOuUyKlm3djwzXF/ZQf/rmznK8kO3XvhYUWHcdcJNxyDRKO4Lsjiu4SPKhYibVcgIrF+rWHhmGvvsghLhm7yidTJHKbzKbgDchdevUHfxii5BcRroSuaWTXdXWlCWysCZblNIVGXFK4QRTXCpbMhoR5zRhXp55XboIsZEA1+GgZg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by GV1PR04MB9055.eurprd04.prod.outlook.com (2603:10a6:150:1e::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.17; Tue, 18 Aug
- 2026 16:24:02 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0315.016; Tue, 18 Aug 2026
- 16:24:01 +0000
-Date: Tue, 18 Aug 2026 11:23:52 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Stefan Wahren <wahrenst@gmx.net>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Marc Kleine-Budde <mkl@pengutronix.de>,
-	Vincent Mailhol <mailhol@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Aswath Govindraju <a-govindraju@ti.com>,
-	Christoph Stoidner <c.stoidner@phytec.de>,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-can@vger.kernel.org, linux-phy@lists.infradead.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH RFC 2/4] dt-bindings: phy: ti,tcan104x-can: Document
- Microchip MCP2542
-Message-ID: <aoSHGLd-KyShQWOu@SMW015318>
-References: <20260818091701.6441-1-wahrenst@gmx.net>
- <20260818091701.6441-3-wahrenst@gmx.net>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260818091701.6441-3-wahrenst@gmx.net>
-X-ClientProxiedBy: SA1P222CA0072.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:806:2c1::28) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	id 1wwMcH-00000008L3J-2NZh
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 18 Aug 2026 16:24:45 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id E671243224;
+	Tue, 18 Aug 2026 16:24:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 333431F000E9;
+	Tue, 18 Aug 2026 16:24:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787070284;
+	bh=lAH3pJNXPJ/mpBu0kcIh+xNKTmt6P69p829a8VtOvMM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=Bvv2WUii6kPGfFMnUBHavzMRt6MiX+8jYJeKt3gdN0E+jnY/489pqoEyEbCGlX9w5
+	 5PAmXWAcMQkPsTolXP1HaWwia1K0FQBRUaL2zyDeuowiqCQHMYYFGycASzWRV3xKYk
+	 iSgPOhSmT4uD1Eww8lr5NT0f+n1Bw6eUbkYcZ/ZdWJwqKtCI0XKCXgPQ3+J/LDCfGf
+	 KR1T5pQ8n1Rx6bAxoutfWwv/SOABcXWAzozbgyDI6dKUXhE3q+E2HGqNcxs5JUjzpR
+	 u4u0pPlGpLvb0b4PP5FDsXwYFZ+pPDndH6iJj+mAxYzAdrgYg2M+6wGTp6lvyJy7y/
+	 TOPlVERvk3/eg==
+From: Jakub Kicinski <kuba@kernel.org>
+To: sdf.kernel@gmail.com
+Cc: Jakub Kicinski <kuba@kernel.org>,
+	netdev@vger.kernel.org,
+	davem@davemloft.net,
+	edumazet@google.com,
+	pabeni@redhat.com,
+	anthony.l.nguyen@intel.com,
+	przemyslaw.kitszel@intel.com,
+	andrew+netdev@lunn.ch,
+	saeedm@nvidia.com,
+	tariqt@nvidia.com,
+	mbloch@nvidia.com,
+	maxime.chevallier@bootlin.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	aleksander.lobakin@intel.com,
+	horms@kernel.org,
+	magnus.karlsson@intel.com,
+	maciej.fijalkowski@intel.com,
+	sdf@fomichev.me,
+	ast@kernel.org,
+	daniel@iogearbox.net,
+	hawk@kernel.org,
+	john.fastabend@gmail.com,
+	witu@nvidia.com,
+	martin.lau@kernel.org,
+	yoong.siang.song@intel.com,
+	rohan.g.thomas@intel.com,
+	intel-wired-lan@lists.osuosl.org,
+	linux-kernel@vger.kernel.org,
+	linux-rdma@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	bpf@vger.kernel.org,
+	leon@kernel.org
+Subject: Re: [Intel-wired-lan] [PATCH net v2 3/3] net: stmmac: skip queueMaxSDU check for AF_XDP
+Date: Tue, 18 Aug 2026 09:24:42 -0700
+Message-ID: <20260818162442.3980697-1-kuba@kernel.org>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260813190800.222527-4-sdf@fomichev.me>
+References: <20260813190800.222527-4-sdf@fomichev.me>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GV1PR04MB9055:EE_
-X-MS-Office365-Filtering-Correlation-Id: 31ab7c92-dbd2-41d9-d33a-08defd451d13
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|1800799024|19092799006|7416014|376014|10067099003|56012099006|4143699003|11063799006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: kA9KiG+/hGSbURcDlMquQ1kRze6ANHu1pQQ1Bt26oE4meOefQPTQHx/3WeLfG1KrKVd/xlxBdAkOR3hRk/r0sAeEfTULDUgxzfVDlxnB2JBBr2O+K3rcjO42FxiGxWrt7Q0LobbwlipcRNNQjgAn5hpHWTn0fzlSA1JsHrufcnPEgJR+9+N4lFm9CT+UdqQAolv+4vb48rzWYZPQNjO19t7qGXJX+W30fJObSoGCfiSbtsoO6f8C6vT2ZUSL9jaXf7eK3X0NtF80PVsE9ycXpIOqXazaYG/CVrOKvXyaLBQU3Tv8S/TddNan+L4DQRIzsX2lwUfo+FSLUEWX0nS/4QJ/6lO7W3HVl9/rBrlNUgSrw6j/8iNY+xm2AXj2y4jTAPQacDV+3K0WFXs3Z0fe0twdIw+dqjlX2BL12lTfRXroSLkC5i0/IMvFWKZvk8b5/bWmdkvnjlkrwOtXOq/9cpbtKJz4AK0ogtCFYCnwfZ54DHlaNC46RQXretO4tAaY7wIpxXhmeWu2os+Ls8clyGT1trDyrhD7KXj92KIIgkHGEAxiMKhSSSoAh+3ZJ38cx+zz1v1d7SmQVNZKUZgart5a8vqG5XRCFq9mavF78Ric4VmYBpHwXzJTMDN+0fMn2lcSNCNbT9/3uG9LkyscmRGxbBRbhEDCLPOKxIgSQ1c=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(19092799006)(7416014)(376014)(10067099003)(56012099006)(4143699003)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ZJ4U7aEaB4GtJ97V8VuGgx0njEoYJzYIA+FuQtgtxBN5T+LMr9k8beHPs1Lk?=
- =?us-ascii?Q?rxN2QCH6+IpU9YYpAJPcuAwviM3m3vho+14oelvAotNUs09TOE1ZVOy0dn0l?=
- =?us-ascii?Q?qx1z+Ym4dBk/ul8frhVmSASEcyk/mCJZXxVq0/28MABcZDbBFvpWniB6Pdy4?=
- =?us-ascii?Q?Hc5ChKKMQ8uGXfuMIpvsaMYOTqO8kDY9RjSR++ljpgv1hxaFbvS+wvo4+Gi3?=
- =?us-ascii?Q?5LlPlqimCdjNyBUR005N1dBgBhloLfANEZcPjm04xlLuBtzRimi+vBVMJbxg?=
- =?us-ascii?Q?QiIQSbI4UlhSxuNcED+06NbPGAuS/NoC4dLAG0B7lQrPUx/G77CBGeeJXWiJ?=
- =?us-ascii?Q?gGVQArf+Rr3X+R9YouUEnlmpMnxGX9JGU97ReUx1IrYgevn49c88hst48bWl?=
- =?us-ascii?Q?6lqZQ5OZz8BjgOzX3ULXAxzxdJd9Psbl4VnFkRPP05EZtodTxwNguz66+35V?=
- =?us-ascii?Q?mi8eyTINQ8pNEPsT/l0t17zGDm10ypb+ADjZWlYoes/7omJniP0iHfkp2WpT?=
- =?us-ascii?Q?Ancnw4LUVhNbgBHGu6l3W+qW5QifHw/NgvIo17yhvj3nD3ObEP6L+El+no3u?=
- =?us-ascii?Q?XrErQ24YlSylJk/Vn7Dpowkd6occI8IGOUD5Jci+oXQRVnrbh5DC9eI9nnpn?=
- =?us-ascii?Q?bqIAYx1iUeW+2hy9f3rJSWtk7EGbVsOVkDXMBtKoo6i4IM/nScFHnIU1n3Ai?=
- =?us-ascii?Q?eGHbWikOXXldGgbrwcCzTO1exuD6q6CU3bAJg6G+AHM/HddsGrKCvHWIkdl4?=
- =?us-ascii?Q?6XbDAmCzEBliuq1bYxmxxvZS8VdDbOfMs0ujXBvjYq8yNf31jFNKr6HfVorI?=
- =?us-ascii?Q?9DD2dtC6MzDBc8YFCG9pwEEVucM+kYYgr7RjrcUNizFIClVWh6DZzkQ3HxxP?=
- =?us-ascii?Q?M0oLVs6FSMtTr10iPf7b+S1cEgxpmYWBdbvn4ynKWBp+01EyFgsagJSWWE/t?=
- =?us-ascii?Q?HanJNmRtVJPK8aBxTJoKKGCyZPW6RWEJqHWN/dIMrHcGHqtX61+oPHguF887?=
- =?us-ascii?Q?sRtxhzarFAg9RCFZzw7DtswXmMqgJP7D8e4ZLt1bipFVrOUtK972clVAIpYk?=
- =?us-ascii?Q?/cXWQW0Q63peqrukkqFA0HM6xgqEV1aUdBbz8Ch0qDMyU8uKQGHKrhIJmXjO?=
- =?us-ascii?Q?o5m3spo/H/QldGcuD4h2gwvhlk4gakfkIFarlSoQdpc3LBAMzKgwadhB6NRl?=
- =?us-ascii?Q?IOgKHmEu2HIpDnVNObIWLqLEUo9zIKZijvTy2Tzo5MX2vsHoyOH4ASqJSmPe?=
- =?us-ascii?Q?9pJpjmCF/FikCUdrmKPDmEjz2sKF6TbW3r2gbrIHGAFw+97PeBiKRR6KB6Vt?=
- =?us-ascii?Q?tI2412Wu/GHCO9UEONAL54BVpip9XcIoFvBYeRc92uJPu052Yv+3/viF3ODh?=
- =?us-ascii?Q?cadulJZ2krQb756GFCENHk3+hbxFutPRFlmQS909VJcWkDoij+ahGIo4+UdP?=
- =?us-ascii?Q?jR4OmO4Di+VAzjc9YU0FBT/JTikvmg9HJc1uIhe+uEAHsc56NXAPeDx/7eQd?=
- =?us-ascii?Q?PAHsOhDbiMUsB3YcCCfIppB92N82ZdokHdiRxA0WxPsw5bi55ZUm6oBEPug4?=
- =?us-ascii?Q?Tm0coGRDRzavy81t5ff95SlMRQ+vihBwPnTm/2CYGB+547SHuuvT60VtJDaY?=
- =?us-ascii?Q?/pBbserM+jV9WxN3QQyuYUSEpkvq+fux3Aw6iTDxGYqJeWOk3qxkW+IwdVzS?=
- =?us-ascii?Q?XBphEmk0hDHSuHCtz3E+hIYjI2l5llNTCw3ot/bQ6pskoJ4j97oY9Lpqheit?=
- =?us-ascii?Q?khnHTav+DAWR504vp4TUD0sRkNWk9sxvQwsvAXtLnFZZDgHwL2pr?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 31ab7c92-dbd2-41d9-d33a-08defd451d13
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Aug 2026 16:24:01.9052
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: PwJ99BFnhwcCKlY36O6oUEx9rImDBpZB1HfkCj3xY65lKFOPDBK8/39M75cpX9ZSaHBrW2SI5o7dxtaSYyLC3L8eE9WBZi98lvZnVysEgMHkzWE6ffPlabH4ZAVEQX4a
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB9055
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_092410_079917_49FF3227 
-X-CRM114-Status: GOOD (  14.28  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,57 +100,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 18, 2026 at 11:16:59AM +0200, Stefan Wahren wrote:
-> [You don't often get email from wahrenst@gmx.net. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
->
-> The Microchip MCP2542 High-speed CAN transceiver with Sleep mode is a
-> pin-compatible alternative for the TI TCAN1042.
->
-> Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
-> ---
->  Documentation/devicetree/bindings/phy/ti,tcan104x-can.yaml | 2 ++
->  1 file changed, 2 insertions(+)
->
-> diff --git a/Documentation/devicetree/bindings/phy/ti,tcan104x-can.yaml b/Documentation/devicetree/bindings/phy/ti,tcan104x-can.yaml
-> index 9f5c37ca6496..2ebc954ce769 100644
-> --- a/Documentation/devicetree/bindings/phy/ti,tcan104x-can.yaml
-> +++ b/Documentation/devicetree/bindings/phy/ti,tcan104x-can.yaml
-> @@ -24,6 +24,7 @@ properties:
->            - const: ti,tcan1046
->            - const: nxp,tja1048
->        - enum:
-> +          - microchip,mcp2542
+This is an AI-generated review of your patch. The human sending this
+email has considered the AI review valid, or at least plausible.
+---
+net: stmmac: skip queueMaxSDU check for AF_XDP
 
+This drops the per-queue max SDU length check from the stmmac AF_XDP
+zero-copy transmit path, on the grounds that xsk_tx_peek_desc() has
+already reserved a completion ring entry and the old "continue" skipped
+both queuing and completion. The change is tagged for stable via a Fixes:
+tag on c5c3e1bfc9e0.
 
-which compatible with ti,jia1042 according to second patch.
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index 62de03e65a90c..4a82f4351303a 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -2710,13 +2710,6 @@ static bool stmmac_xdp_xmit_zc(struct stmmac_priv *priv, u32 queue, u32 budget)
+>  		if (!xsk_tx_peek_desc(pool, &xdp_desc))
+>  			break;
+>  
+> -		if (priv->est && priv->est->enable &&
+> -		    priv->est->max_sdu[queue] &&
+> -		    xdp_desc.len > priv->est->max_sdu[queue]) {
+> -			priv->xstats.max_sdu_txq_drop[queue]++;
+> -			continue;
+> -		}
+> -
 
-so just add microchip,mcp2542 after microchip,ata6561
+[Severity: Medium]
+The completion ring imbalance described in the commit message looks real:
+xsk_tx_peek_desc() reserves the cq slot with xskq_prod_reserve_addr() and
+only xsk_tx_completed() submits it, so the old "continue" left the cq
+producer permanently offset.
 
-          - enum:
-              - microchip,ata6561
-              - microchip,mcp2542
-                ^^^^^^^^^^^^^^^^
-              - ti,tcan1051
-          - const: ti,tcan1042
+Was completing the reserved descriptor considered instead of removing the
+check, i.e. keeping the length test and doing:
 
-use
-	compatible = "microchip,ata6561", "microchip,ata6561" in dts
+	if (priv->est && priv->est->enable &&
+	    priv->est->max_sdu[queue] &&
+	    xdp_desc.len > priv->est->max_sdu[queue]) {
+		priv->xstats.max_sdu_txq_drop[queue]++;
+		xsk_tx_completed(pool, 1);
+		continue;
+	}
 
-Frank
+That would fix the ring accounting without dropping the enforcement.
 
->            - ti,tcan1042
->            - ti,tcan1043
->            - nxp,tja1048
-> @@ -72,6 +73,7 @@ allOf:
->        properties:
->          compatible:
->            enum:
-> +            - microchip,mcp2542
->              - nxp,tjr1443
->              - ti,tcan1042
->              - ti,tcan1043
-> --
-> 2.43.0
->
->
+On stmmac, queueMaxSDU has no hardware table. priv->est->max_sdu[] is
+written only by tc_taprio_map_maxsdu_txq() in stmmac_tc.c:
+
+		for (j = offset; j < offset + count; j++)
+			priv->est->max_sdu[j] = qopt->max_sdu[i] + ETH_HLEN - ETH_TLEN;
+
+and read only by the length checks in stmmac_main.c. With this hunk gone,
+does an AF_XDP zero-copy socket now transmit frames above the configured
+per-queue limit while tc_query_caps() still reports:
+
+		caps->gate_mask_per_txq = true;
+		caps->supports_queue_max_sdu = true;
+
+That capability is what taprio uses to accept a queueMaxSDU configuration
+in the first place, and sch_taprio comments in
+taprio_skb_exceeds_queue_max_sdu() that "Devices with full offload are
+expected to honor this in hardware".
+
+The "bypasses the qdisc" rationale also applies to stmmac_xdp_xmit_xdpf(),
+which serves XDP_TX and ndo_xdp_xmit and does not traverse the qdisc
+either, yet still enforces the same limit:
+
+	if (priv->est && priv->est->enable &&
+	    priv->est->max_sdu[queue] &&
+	    xdpf->len > priv->est->max_sdu[queue]) {
+		priv->xstats.max_sdu_txq_drop[queue]++;
+		return STMMAC_XDP_CONSUMED;
+	}
+
+Should that check be removed as well so the XDP paths agree? The cited igc
+precedent checks only in igc_xmit_frame_ring() and in neither of its XDP
+paths, so matching igc would mean touching stmmac_xdp_xmit_xdpf() too.
+
+There is also a hardware side to this. An oversized frame on an EST-gated
+queue raises MTL_EST_STATUS.HLBF, and est_irq_status() in stmmac_est.c only
+counts it and clears the error register:
+
+	if (status & EST_HLBF) {
+		value = readl(est_addr + EST_FRM_SZ_ERR);
+	...
+				x->mtl_est_txq_hlbf[i]++;
+		/* Clear Interrupt */
+		writel(feqn, est_addr + EST_FRM_SZ_ERR);
+
+There is no queue flush or EST reprogramming. est_configure() programs only:
+
+	if (cfg->enable)
+		ctrl |= EST_EEST | EST_SSWL | EST_DFBS;
+
+and no DDBF (drop-on-frame-size-error) definition exists in the tree, so
+the drop-versus-retain response is left at the reset value. If the IP
+retains the frame after the doorbell was rung and cur_tx advanced, does
+dirty_tx stop advancing and xsk_tx_completed() never run for that
+descriptor, reintroducing the same ring imbalance from the hardware side?
+
+One related side effect worth mentioning in the changelog: for zero-copy
+traffic, taprio window_drops attribution moves from max_sdu_txq_drop to
+the HLBF counters reported through stmmac_tc.c.
+
+Also, in the commit message:
+
+>     The assumptions is that AF_XDP zero-copy traffic bypasses the qdisc, so
+
+"The assumptions is" should be "The assumption is".
+-- 
+pw-bot: cr
 
