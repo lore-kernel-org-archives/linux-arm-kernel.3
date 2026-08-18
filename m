@@ -4,99 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEA6EC5DF7E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 15:35:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E730AC5DF7E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 15:44:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BJxkO70MopchWEw+ENjoFGNji5+cFc80kc/rYib2sLU=; b=D8RJxGWVQR5KxxRn+jEpnktIqC
-	yqrIi5F/B5zY/7iIcYn/Tgr6F2Aa+Npto60HhrUn5JWlkc25iZ8093lf0kZlMiw3J6pZ8+gSAwNg0
-	/xm43sB82h2HeCOjdJk61LJUXA4J2dwQiUBTyIBZw5q7WAB1PQE9XhL+8+XUMueYhIlGhUbKWS2P9
-	NSpGbQp+t38eHajPAG4TZjnzELc011i5E6R95G7K5HN684KikkciVxO0XN9ttIiKQOLq+mLj60t8I
-	GykfrXrRDRkX3BQMgdA20dldIzMyzLjDSJR/ux87LUBseCelCx8Pb+XVK75zK85Bz3wOwaMGNRPAr
-	lHTxXDuw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iJNDxw4YwLiT6RLarIpaZvjqLzSJMNgnKXM7LBt3+is=; b=Lyipy8bSCDGW2PnR8IiKYiCCed
+	qT2IakWn7S3LnGXbGDeh/XdIxQB09JEZVcHkX1v/Cza+/2aSOKP5go0Z8jGlBdjTYtOYHR3PNIJIc
+	0dJrtL0rJFYLV2UvGnv068vsN61PRlkyLCwtfkT1bBXYOpvZlYtysv0SXmGmTyScbI25GTlQtr4pZ
+	3mKiGA+ykUkALQG80BwSDmqxRyw3r+hFz2lj3PBt2pVnqfVeOB7LuJLI7RUqBFhb3Z457dz7fQlYz
+	FEVf92sm564gmItZP6a7LquzIPphyMfPzPrjHy91k0OGw9rdbbe1Ff2+qc532HCxx0f8tG+2xRm1/
+	x0coDBkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwLqP-00000008HMH-2hw8;
-	Tue, 18 Aug 2026 15:35:17 +0000
-Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
+	id 1wwLyp-00000008I0T-37l4;
+	Tue, 18 Aug 2026 15:43:59 +0000
+Received: from out-171.mta1.migadu.com ([2001:41d0:203:375::ab] helo=mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwLqN-00000008HLL-1VX3
+	id 1wwLym-00000008Hzn-0Syl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 15:35:16 +0000
-Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-ca80d708489so935049a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Aug 2026 08:35:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=nexthop.ai; s=google; t=1787067314; x=1787672114; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=BJxkO70MopchWEw+ENjoFGNji5+cFc80kc/rYib2sLU=;
-        b=do8MkAtAiZJBIg3ECnv7T2KtXKBtK6B4CfBU1vF5gBk3ByPy49P8HUbpuEVbuVlgOY
-         gIv/gqIDuzfgN3Ox2157ukfE+L0KZ0WQ6/83MNlrrg4FkwpruHOYhLshSDaPeemzofuz
-         QokGv/EYhu/PqcJcwGMiPRGqT0HsrIsJ+VCs9EUqP+houUQlbHvkdCDKcvcNovSIEiO3
-         1lSJkJbYkQ3VG6uB9OpLjochxfMxzx8s/VwFK7MBURak4hQRsi7wvY8BBQk80d7Eoyxu
-         /AeJa2wR5kkkC9AlV5YAhm5JBlYVlX7LLi5zaY/lPpnjH35PZRftO9Rp4SY/VZZbDUqx
-         f8ug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787067314; x=1787672114;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=BJxkO70MopchWEw+ENjoFGNji5+cFc80kc/rYib2sLU=;
-        b=jvcnTCN+1DiA4Qu6bIXJ8fYRVgWJFgdPal2hBWxXfAy8KWbU3WqzbDKve+Pr3eu4AO
-         PrBsSV4AcIU9+xYZvrfN/9hS4ZO22KVWS9UbtGm66MgAc5KInIdn4O+pIR3bvoCcVCc0
-         4kpM0Mm9ElRvxBBbpezSDNjmmguTi2MiYXwU0UNhGv/3J2HlRak6seqVt0+gQKOubK63
-         So8u7eI/pLJuo+0f1RUf1gUTz83X8DevU219Gl8P5qWYDD9MWqlDc564436c3Iqx4a2v
-         FANtmAhijIGoaQSisE2SfPJg0G3umMpSEwyphuqFUaGIEeAI583JW30fid9x9ouEhJwi
-         fCIQ==
-X-Gm-Message-State: AOJu0Ywa4hx/RNnC1zYcMLoYYPNZtJ9atNYsE3mLjZfaS/jW9A0f1/si
-	eDrkCEKDRFDksj5/inGghzeYBoapOtnQdBLOpVVDlen9sPI5Dwz2SwLtgYZou4xPALZ8rVzx7zJ
-	0k01YiHQ=
-X-Gm-Gg: AR+sD13Wm4nt9C7Lso7S1sFGL5KsTxikpjni/FqJybf2bw4/IKmhu1rAnqs7i6JllW9
-	ZHFqJffYVKUjbd4Tbhg86eUNFftvEC5IVdrMlLOJ47IxFyrvBZOVr7ZGj1lBXQCYB1+YpeCWPB7
-	c9nMfZJ8aJniVR56XSio5F2lkS65QepZ3Hzve6ddupkT9z0idDb2AyShCo45Wo37fLjnuW9UUNg
-	sOe8HF7qEcLfJNRR6W9Of4b2FdddLlHc763ULGrzTc+dzrTwkI6O88XgmHHq8ynxQskECaROxON
-	2u1Ky1zSPqrzzuzZKugYLKwMZ3pBw230JybZL5aLz93pDueuSu67Cc6yYf1Qa76f2rVtGOmzgEW
-	YJtnKgOGB4WtEfciPDHIv88JkJ5Qpkl4blMhWxmzeYMxRB+Jb6UxzJjVC2+CyuwwTZ2ESZxiMF6
-	ZwPoF9/Q6PjJixurslUEyxibbsSXVFtoPc0NX2buJ33tBmvJm5XCg1Bfmbie8hFaE=
-X-Received: by 2002:a17:90b:5404:b0:380:8bb9:aba9 with SMTP id 98e67ed59e1d1-3955f0c0364mr8515980a91.3.1787067313991;
-        Tue, 18 Aug 2026 08:35:13 -0700 (PDT)
-Received: from [127.0.0.2] ([50.145.100.174])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1415315900csm18033268c88.11.2026.08.18.08.35.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 18 Aug 2026 08:35:13 -0700 (PDT)
-From: Abdurrahman Hussain <abdurrahman@nexthop.ai>
-Date: Tue, 18 Aug 2026 08:35:10 -0700
-Subject: [PATCH v3] i2c: xiic: restore non-managed runtime PM to fix clk
- WARN flood
+	Tue, 18 Aug 2026 15:43:57 +0000
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+DKIM-Signature: a=rsa-sha256; bh=xqCmZn8IMffi1+IzepnqMRv/vTN47LqYxZG5/JsvG8w=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1787067834; v=1; x=1787672634;
+ b=ODeemdVM3TPY7vPwZaWJayKjcn4XIYkktZg9f2ccJEoi/8Q3RrrE6F3kU4enktZ66iVxIePc
+ CPAZvp5MXVjc+w7Ra6k3IhjBkqi8b1iuoD7u0rn8ASU0SPq1lgNDSNpRX7t3BnYI9z4DfEClS2E
+ L5w2rVNuj55/ntn4fdwh7A3E=
+X-Envelope-To: linux-arm-kernel@lists.infradead.org
+Received: from mail-lf1-f49.google.com (209.85.167.49)
+	by smtp.migadu.com with ESMTPS id 26e133c209c9b88e;
+	Tue, 18 Aug 2026 15:43:53 +0000
+X-Migadu-Flow: FLOW_OUT
+Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-5b0129cf6ffso9684e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Aug 2026 08:43:53 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RpBaXWjUpColyaZr9lxwvWpWIbb5Gk8bxDBetf3rSQMBjEF7cW9wlp03ov8RvlaWFdKHeQAwOaie3ZWzUkz6LHZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YytQ4LdY1qulL0qLVv7xBG2Y2tPPgRmW1DpPh38b6/BbuYCofqm
+	Iw0NvQEKL8tFGASM/NPkZL7Ay8ct0XhOVvF7ohYjBv7dKpLKEkuXBCsa45yXhWyxW6msoounK8U
+	f7uQGm1os9t+RfP8zMyGXHn9AWseYH5SALD0E63Of
+X-Received: by 2002:a05:6512:39d2:b0:5aa:79d6:b559 with SMTP id
+ 2adb3069b0e04-5b471d7c3afmr252829e87.0.1787067832468; Tue, 18 Aug 2026
+ 08:43:52 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260818-i2c-xiic-restore-runtime-pm-teardown-v3-1-5fd315b078e1@nexthop.ai>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/5XOsQ7CMAwE0F9BmTFyXKDAxH8ghjRxqZFIqySUI
- tR/p4EFNhhPOr27h4ochKPazR4qcC9RWj+FYj5TtjH+xCBuyoqQ1rjRBQhZGEQsBI6pDQzh6pN
- cGLoLJDbBtTcPzqGptKvIIqmJ6gLXMrxmDsd3jtfqzDZlOzcaydr99aPXuffnZK9BA3Lp6opwX
- W5x73lITdstjKi82dOnuvxRpUktDa8c2gLrmr7UcRyfG8Vws0EBAAA=
-X-Change-ID: 20260813-i2c-xiic-restore-runtime-pm-teardown-dd0ab1db2c02
-To: Michal Simek <michal.simek@amd.com>, Andi Shyti <andi.shyti@kernel.org>, 
- Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Abdurrahman Hussain <abdurrahman@nexthop.ai>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1787067313; l=4647;
- i=abdurrahman@nexthop.ai; s=20260510; h=from:subject:message-id;
- bh=g80eYQhKz7g1873uZRKJPXvkY5aQW0Hozvxpfa+GqI0=;
- b=Po0ZSxvDkegPgxo3O3Ziz9EKRCqbDqeHczclmEEE6BlxsYDrLbtWrdfc504VO8Q8rITosSdtl
- ixHRWZAL3/7C7Z2FhAFcUAV8ePng7/wTwvC8EpSzojnY5swq2dPjTtW
-X-Developer-Key: i=abdurrahman@nexthop.ai; a=ed25519;
- pk=omTm9cCAbO0ZhS32aKfJDKue0W3sQGpG9ub5eYHif8I=
+References: <20260731143541.956291-1-vdonnefort@google.com> <20260731143541.956291-10-vdonnefort@google.com>
+In-Reply-To: <20260731143541.956291-10-vdonnefort@google.com>
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Tue, 18 Aug 2026 16:43:16 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTy7SUFsE3N5ERV_FQw-3GyEo17mqe2=RbV1wz8bVT+JXw@mail.gmail.com>
+X-Gm-Features: AcwNN1U_P4-IFma-j9U4XnVKaABI9s42IM8oaP9t3k1XNqFyc34ZYFaR_aP_vmU
+Message-ID: <CA+EHjTy7SUFsE3N5ERV_FQw-3GyEo17mqe2=RbV1wz8bVT+JXw@mail.gmail.com>
+Subject: Re: [PATCH v4 09/17] KVM: arm64: Add selftests for the pKVM heap allocator
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, 
+	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com, 
+	qperret@google.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_083515_426848_85DDB399 
-X-CRM114-Status: GOOD (  17.27  )
+X-CRM114-CacheID: sfid-20260818_084356_442177_02444113 
+X-CRM114-Status: GOOD (  28.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,130 +82,420 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The devres conversion replaced manual pm_runtime_enable()/disable() with
-devm_pm_runtime_set_active_enabled() and dropped the remove-time runtime
-PM teardown. The managed release tears runtime PM down in the wrong
-order: it calls pm_runtime_dont_use_autosuspend() before
-pm_runtime_disable(), i.e. while runtime PM is still enabled, and devres
-is LIFO so the devm_clk_get_enabled() release runs afterwards.
+Hi Vincent,
 
-At remove(), pm_runtime_put_sync() leaves the device active with the
-autosuspend timer armed. Clearing use_autosuspend then makes rpm_idle()
-suspend immediately, and xiic_i2c_runtime_suspend() clk_disable()s the
-clock. The later devm_clk_get_enabled() release clk_disable_unprepare()s
-the already-disabled clock, so clk_core_disable() WARNs ("clkN already
-disabled") on every teardown.
+On Fri, 31 Jul 2026 at 15:36, Vincent Donnefort <vdonnefort@google.com> wrote:
+>
+> Introduce a comprehensive runtime selftest for the pKVM hypervisor heap
+> allocator, executed during init when CONFIG_NVHE_EL2_DEBUG is enabled.
+>
+> The selftest runs entirely at EL2 and exercises allocator's core
+> mechanisms:
+>
+>   * over-sized allocations
+>   * basic allocation and alignment
+>   * chunk recycling, splitting, merging
+>   * memory reclaiming
+>   * memory topup
+>
+> Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+> Tested-by: Fuad Tabba <fuad.tabba@linux.dev>
+> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+>
+> diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
+> index 0c3126179704..08466f608d1f 100644
+> --- a/arch/arm64/include/asm/kvm_asm.h
+> +++ b/arch/arm64/include/asm/kvm_asm.h
+> @@ -92,6 +92,7 @@ enum __kvm_host_smccc_func {
+>         __KVM_HOST_SMCCC_FUNC___pkvm_hyp_topup,
+>         __KVM_HOST_SMCCC_FUNC___pkvm_hyp_reclaim,
+>         __KVM_HOST_SMCCC_FUNC___pkvm_hyp_reclaimable,
+> +       __KVM_HOST_SMCCC_FUNC___pkvm_hyp_alloc_selftest,
+>
+>         MARKER(__KVM_HOST_SMCCC_FUNC_PKVM_ONLY),
+>
+> diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
+> index 99daa985856f..73c8881e14ec 100644
+> --- a/arch/arm64/include/asm/kvm_pkvm.h
+> +++ b/arch/arm64/include/asm/kvm_pkvm.h
+> @@ -19,8 +19,10 @@
+>
+>  enum pkvm_topup_id {
+>         PKVM_TOPUP_HYP_ALLOC,
+> +       PKVM_TOPUP_HYP_ALLOC_SELFTEST,
+>  };
+>
+> +void pkvm_selftests(void);
+>  int pkvm_init_host_vm(struct kvm *kvm, unsigned long type);
+>  int pkvm_create_hyp_vm(struct kvm *kvm);
+>  bool pkvm_hyp_vm_is_created(struct kvm *kvm);
+> @@ -206,6 +208,7 @@ struct pkvm_mapping {
+>  enum pkvm_hyp_req_type {
+>         PKVM_HYP_NO_REQ = 0,
+>         PKVM_HYP_REQ_HYP_ALLOC,
+> +       PKVM_HYP_REQ_HYP_ALLOC_SELFTEST,
+>         __PKVM_HYP_REQ_TYPE_MAX,
+>  };
+>
+> @@ -233,6 +236,7 @@ static inline size_t pkvm_hyp_req_arg_size(u8 type)
+>         case PKVM_HYP_NO_REQ:
+>                 return 0;
+>         case PKVM_HYP_REQ_HYP_ALLOC:
+> +       case PKVM_HYP_REQ_HYP_ALLOC_SELFTEST:
+>                 return sizeof(req->mem);
+>         default:
+>                 WARN_ON(1);
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index 50adfff75be8..750862705a70 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -2883,6 +2883,8 @@ static int __init init_hyp_mode(void)
+>                         kvm_err("Failed to init hyp memory protection\n");
+>                         goto out_err;
+>                 }
+> +
+> +               pkvm_selftests();
+>         }
+>
+>         return 0;
+> diff --git a/arch/arm64/kvm/hyp/include/nvhe/alloc.h b/arch/arm64/kvm/hyp/include/nvhe/alloc.h
+> index 8f87a63f8946..329250dad6f6 100644
+> --- a/arch/arm64/kvm/hyp/include/nvhe/alloc.h
+> +++ b/arch/arm64/kvm/hyp/include/nvhe/alloc.h
+> @@ -14,4 +14,11 @@ int hyp_alloc_init(size_t size);
+>  int hyp_alloc_topup(struct kvm_hyp_memcache *host_mc);
+>  unsigned long hyp_alloc_reclaimable(void);
+>  void hyp_alloc_reclaim(struct kvm_hyp_memcache *host_mc, unsigned long target);
+> +
+> +#ifdef CONFIG_NVHE_EL2_DEBUG
+> +int hyp_allocator_selftest(void);
+> +u32 hyp_alloc_selftest_topup_needed(void);
+> +int hyp_alloc_selftest_topup(struct kvm_hyp_memcache *host_mc);
+> +void hyp_alloc_selftest_reclaim(struct kvm_hyp_memcache *host_mc, unsigned long target);
+> +#endif
+>  #endif
+> diff --git a/arch/arm64/kvm/hyp/nvhe/alloc.c b/arch/arm64/kvm/hyp/nvhe/alloc.c
+> index af4ab53784f7..de636fdf976b 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/alloc.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/alloc.c
+> @@ -1015,9 +1015,17 @@ int hyp_alloc_errno(void)
+>         return hyp_allocator_errno(&hyp_allocator);
+>  }
+>
+> +static int selftest_init(void);
+> +
+>  int hyp_alloc_init(size_t size)
+>  {
+> -       return hyp_allocator_init(&hyp_allocator, size);
+> +       int ret;
+> +
+> +       ret = hyp_allocator_init(&hyp_allocator, size);
+> +       if (ret)
+> +               return ret;
+> +
+> +       return selftest_init();
+>  }
+>
+>  void hyp_alloc_reclaim(struct kvm_hyp_memcache *mc, unsigned long target)
+> @@ -1039,3 +1047,179 @@ u32 hyp_alloc_topup_needed(void)
+>  {
+>         return hyp_allocator_topup_needed(&hyp_allocator);
+>  }
+> +
+> +#ifdef CONFIG_NVHE_EL2_DEBUG
+> +#define SELFTEST_MAX_PAGES 6
+> +#define SELFTEST_MAX_SIZE (PAGE_SIZE * SELFTEST_MAX_PAGES)
+> +
+> +static DEFINE_PER_CPU(int, __selftest_errno);
+> +static DEFINE_PER_CPU(u32, __selftest_topup_needed);
+> +
+> +static struct hyp_allocator selftest_allocator = {
+> +       .errno = &__selftest_errno,
+> +       .topup_needed = &__selftest_topup_needed,
+> +       .lock = __HYP_SPIN_LOCK_UNLOCKED,
+> +};
+> +
+> +int hyp_alloc_selftest_topup(struct kvm_hyp_memcache *host_mc)
+> +{
+> +       return hyp_allocator_topup(&selftest_allocator, host_mc);
+> +}
+> +
+> +void hyp_alloc_selftest_reclaim(struct kvm_hyp_memcache *host_mc, unsigned long target)
+> +{
+> +       hyp_allocator_reclaim(&selftest_allocator, host_mc, target);
+> +}
+> +
+> +u32 hyp_alloc_selftest_topup_needed(void)
+> +{
+> +       return hyp_allocator_topup_needed(&selftest_allocator);
+> +}
+> +
+> +static int selftest_init(void)
+> +{
+> +       return hyp_allocator_init(&selftest_allocator, SELFTEST_MAX_SIZE);
+> +}
+> +
+> +static void *selftest_alloc(size_t size)
+> +{
+> +       return hyp_allocator_alloc(&selftest_allocator, size);
+> +}
+> +
+> +static void selftest_free(void *addr)
+> +{
+> +       hyp_allocator_free(&selftest_allocator, addr);
+> +}
+> +
+> +static int selftest_errno(void)
+> +{
+> +       return hyp_allocator_errno(&selftest_allocator);
+> +}
+> +
+> +int hyp_allocator_selftest(void)
+> +{
+> +       struct hyp_allocator *allocator = &selftest_allocator;
+> +       static DEFINE_HYP_SPINLOCK(selftest_lock);
+> +       struct kvm_hyp_memcache host_mc = { };
+> +       void *addr1, *addr2, *addr3, *addr4;
+> +       int ret;
+> +
+> +       guard(hyp_spinlock)(&selftest_lock);
+> +
+> +       if (allocator->mc.nr_pages < SELFTEST_MAX_PAGES) {
+> +               *this_cpu_ptr(allocator->topup_needed) = SELFTEST_MAX_PAGES -
+> +                                                        allocator->mc.nr_pages;
+> +               return -ENOMEM;
+> +       }
+> +
+> +       selftest_alloc(SELFTEST_MAX_SIZE);
+> +       if (selftest_errno() != -E2BIG)
+> +               return -EINVAL;
+> +
+> +       selftest_alloc(SIZE_MAX);
+> +       if (selftest_errno() != -E2BIG)
+> +               return -EINVAL;
+> +
+> +       /* Test first chunk */
+> +       addr1 = selftest_alloc(0);
+> +       if (!addr1 || addr1 != (void *)allocator->start + chunk_hdr_size())
+> +               return -EINVAL;
+> +
+> +       /* Test second contiguous chunk with unaligned size */
+> +       addr2 = selftest_alloc(MIN_ALLOC_SIZE + 1);
+> +       if (!addr2)
+> +               return -EINVAL;
+> +       addr3 = selftest_alloc(0);
+> +       if (!addr3 ||
+> +           addr3 != addr2 + (2 * MIN_ALLOC_SIZE) + chunk_hdr_size())
+> +               return -EINVAL;
+> +
+> +       selftest_free(addr3);
+> +
+> +       /* Test chunk recycling */
+> +       selftest_free(addr1);
+> +       if (addr1 != selftest_alloc(0))
+> +               return -EINVAL;
+> +
+> +       /* Test chunk forward merging */
+> +       addr3 = selftest_alloc(0);
+> +       selftest_free(addr2);
+> +       selftest_free(addr1);
+> +       if (addr1 != selftest_alloc(MIN_ALLOC_SIZE * 2))
+> +               return -EINVAL;
+> +
+> +       selftest_free(addr1);
+> +
+> +       /* Test chunk splitting */
+> +       if (addr1 != selftest_alloc(0))
+> +               return -EINVAL;
+> +       if (addr2 != selftest_alloc(0))
+> +               return -EINVAL;
+> +
+> +       /* Test chunk backward merging */
+> +       selftest_free(addr1);
+> +       selftest_free(addr2);
+> +       if (addr1 != selftest_alloc(MIN_ALLOC_SIZE * 2))
+> +               return -EINVAL;
+> +
+> +       selftest_free(addr1);
+> +
+> +       /* Test chunk 3-way merging */
+> +       addr1 = selftest_alloc(0);
+> +       addr2 = selftest_alloc(0);
+> +       addr4 = selftest_alloc(0);
+> +       selftest_free(addr1);
+> +       selftest_free(addr3);
+> +       selftest_free(addr2);
+> +       if (addr1 != selftest_alloc(MIN_ALLOC_SIZE * 3))
+> +               return -EINVAL;
+> +
+> +       selftest_free(addr4);
+> +       selftest_free(addr1);
+> +
+> +       /* Test reclaiming */
+> +       if (addr1 != selftest_alloc(0))
+> +               return -EINVAL;
+> +       if (addr2 != selftest_alloc(PAGE_SIZE * 2))
+> +               return -EINVAL;
+> +       addr3 = selftest_alloc(0);
+> +       addr4 = selftest_alloc(PAGE_SIZE);
+> +
+> +       /* Test reclaiming the last chunk of the list */
+> +       selftest_free(addr4);
+> +       hyp_allocator_reclaim(allocator, &host_mc, SELFTEST_MAX_PAGES);
+> +       if (host_mc.nr_pages != SELFTEST_MAX_PAGES - 3)
+> +               return -EINVAL;
+> +
+> +       /* Test punching a hole in the middle of a free chunk ... */
+> +       selftest_free(addr2);
+> +       hyp_allocator_reclaim(allocator, &host_mc, SELFTEST_MAX_PAGES);
+> +       if (host_mc.nr_pages != SELFTEST_MAX_PAGES - 2)
+> +               return -EINVAL;
+> +
+> +       if (selftest_alloc(PAGE_SIZE))
+> +               return -EINVAL;
+> +       if (selftest_errno() != -ENOMEM)
+> +               return -EINVAL;
+> +
+> +       /* ... and to refill this hole */
+> +       ret = hyp_allocator_topup(allocator, &host_mc);
+> +       if (ret)
+> +               return ret;
+> +       /* Chunk at addr2 was made smaller by the reclaim */
+> +       if (addr2 != selftest_alloc(PAGE_SIZE))
+> +               return -EINVAL;
+> +
+> +       /* Test reclaiming the entire allocator from the host */
+> +       selftest_free(addr3);
+> +       selftest_free(addr2);
+> +       selftest_free(addr1);
+> +       if (addr1 != selftest_alloc(SELFTEST_MAX_PAGES * PAGE_SIZE - chunk_hdr_size()))
+> +               return -EINVAL;
+> +       selftest_free(addr1);
+> +
+> +       return 0;
+> +}
+> +#else
+> +static int selftest_init(void) { return 0; }
+> +#endif
+> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> index 346365e76ef2..d99c9b1b0c82 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> @@ -633,6 +633,28 @@ static void handle___pkvm_finalize_teardown_vm(struct kvm_cpu_context *host_ctxt
+>         cpu_reg(host_ctxt, 1) = __pkvm_finalize_teardown_vm(handle);
+>  }
+>
+> +#ifdef CONFIG_NVHE_EL2_DEBUG
+> +static void handle___pkvm_hyp_alloc_selftest(struct kvm_cpu_context *host_ctxt)
+> +{
+> +       struct pkvm_hyp_req req = { .type = PKVM_HYP_NO_REQ };
+> +       int ret;
+> +
+> +       ret = hyp_allocator_selftest();
+> +       if (ret == -ENOMEM) {
+> +               req.type = PKVM_HYP_REQ_HYP_ALLOC_SELFTEST;
+> +               req.mem.nr_pages = hyp_alloc_selftest_topup_needed();
+> +       }
+> +
+> +       cpu_reg(host_ctxt, 1) = ret;
+> +       pkvm_hyp_req_to_smccc(host_ctxt, &req);
+> +}
+> +#else
+> +static void handle___pkvm_hyp_alloc_selftest(struct kvm_cpu_context *host_ctxt)
+> +{
+> +       cpu_reg(host_ctxt, 1) = -EPERM;
+> +}
+> +#endif
 
-Drop the managed helper and restore the non-managed runtime PM setup and
-teardown, so runtime PM is enabled once in probe and disabled once in
-remove and the clock enable count stays balanced.
+My tag stands, but thought about this while going through Sashiko's reviews.
 
-Fixes: 50c63491ff26 ("i2c: xiic: switch to devres managed APIs")
-Signed-off-by: Abdurrahman Hussain <abdurrahman@nexthop.ai>
----
-Changes in v3:
-- Drop the managed devm_pm_runtime_set_active_enabled() helper entirely
-  and restore the non-managed runtime PM setup (pm_runtime_set_active +
-  pm_runtime_enable, with probe error unwinding) and teardown
-  (pm_runtime_disable + set_suspended + dont_use_autosuspend), so the
-  disable depth stays balanced rather than being disabled twice (Andi).
-- Link to v2: https://patch.msgid.link/20260814-i2c-xiic-restore-runtime-pm-teardown-v2-1-7ae5d0c30ff2@nexthop.ai
+The other arm writes x2 through pkvm_hyp_req_to_smccc(), this one does
+not, and -EPERM is an error so pkvm_call_hyp_req() goes and decodes
+x2. Nothing initialises it on a call with no arguments.
 
-Changes in v2:
-- Move the Signed-off-by into the commit message proper (Andy).
-- Link to v1: https://patch.msgid.link/20260813-i2c-xiic-restore-runtime-pm-teardown-v1-1-0e7dfb206790@nexthop.ai
+It is inert because pkvm_selftests() sits behind the same #ifdef, but
+the handler is registered either way and nothing states the rule.
+errno_to_smccc(-EPERM, host_ctxt) here would write the zero, and it
+may be worth saying on pkvm_call_hyp_req() that any handler reached
+through it has to set x2.
 
-To: Michal Simek <michal.simek@amd.com>
-To: Andi Shyti <andi.shyti@kernel.org>
-To: Abdurrahman Hussain <abdurrahman@nexthop.ai>
-To: Andy Shevchenko <andriy.shevchenko@intel.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-i2c@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
----
- drivers/i2c/busses/i2c-xiic.c | 29 ++++++++++++++++++++++-------
- 1 file changed, 22 insertions(+), 7 deletions(-)
+Cheers,
+/fuad
 
-diff --git a/drivers/i2c/busses/i2c-xiic.c b/drivers/i2c/busses/i2c-xiic.c
-index 3e7735e1dae0..85f3c322b1a2 100644
---- a/drivers/i2c/busses/i2c-xiic.c
-+++ b/drivers/i2c/busses/i2c-xiic.c
-@@ -1475,9 +1475,13 @@ static int xiic_i2c_probe(struct platform_device *pdev)
- 
- 	pm_runtime_set_autosuspend_delay(dev, XIIC_PM_TIMEOUT);
- 	pm_runtime_use_autosuspend(dev);
--	ret = devm_pm_runtime_set_active_enabled(dev);
--	if (ret)
--		return ret;
-+	/*
-+	 * Enable runtime PM by hand: devm_pm_runtime_set_active_enabled()
-+	 * tears down in an order that races the devm-enabled clock release and
-+	 * makes clk_core_disable() WARN (see xiic_i2c_remove()).
-+	 */
-+	pm_runtime_set_active(dev);
-+	pm_runtime_enable(dev);
- 
- 	/* SCL frequency configuration */
- 	i2c->input_clk = clk_get_rate(i2c->clk);
-@@ -1489,7 +1493,7 @@ static int xiic_i2c_probe(struct platform_device *pdev)
- 	ret = devm_request_threaded_irq(dev, irq, NULL, xiic_process,
- 					IRQF_ONESHOT, pdev->name, i2c);
- 	if (ret)
--		return ret;
-+		goto err_pm_disable;
- 
- 	i2c->singlemaster = device_property_read_bool(dev, "single-master");
- 
-@@ -1506,14 +1510,16 @@ static int xiic_i2c_probe(struct platform_device *pdev)
- 		i2c->endianness = BIG;
- 
- 	ret = xiic_reinit(i2c);
--	if (ret)
--		return dev_err_probe(dev, ret, "Cannot xiic_reinit\n");
-+	if (ret) {
-+		dev_err_probe(dev, ret, "Cannot xiic_reinit\n");
-+		goto err_pm_disable;
-+	}
- 
- 	/* add i2c adapter to i2c tree */
- 	ret = i2c_add_numbered_adapter(&i2c->adap);
- 	if (ret) {
- 		xiic_deinit(i2c);
--		return ret;
-+		goto err_pm_disable;
- 	}
- 
- 	if (pdata) {
-@@ -1526,6 +1532,12 @@ static int xiic_i2c_probe(struct platform_device *pdev)
- 		res, irq, i2c->i2c_clk);
- 
- 	return 0;
-+
-+err_pm_disable:
-+	pm_runtime_disable(dev);
-+	pm_runtime_set_suspended(dev);
-+
-+	return ret;
- }
- 
- static void xiic_i2c_remove(struct platform_device *pdev)
-@@ -1545,6 +1557,9 @@ static void xiic_i2c_remove(struct platform_device *pdev)
- 		xiic_deinit(i2c);
- 
- 	pm_runtime_put_sync(dev);
-+	pm_runtime_disable(dev);
-+	pm_runtime_set_suspended(dev);
-+	pm_runtime_dont_use_autosuspend(dev);
- }
- 
- static const struct dev_pm_ops xiic_dev_pm_ops = {
-
----
-base-commit: d58772d8520c7ef247c4b95c9bd76d3a25da9ff5
-change-id: 20260813-i2c-xiic-restore-runtime-pm-teardown-dd0ab1db2c02
-
-Best regards,
---  
-Abdurrahman Hussain <abdurrahman@nexthop.ai>
-
+> +
+>  static void handle___pkvm_hyp_topup(struct kvm_cpu_context *host_ctxt)
+>  {
+>         DECLARE_REG(enum pkvm_topup_id, id, host_ctxt, 1);
+> @@ -648,6 +670,11 @@ static void handle___pkvm_hyp_topup(struct kvm_cpu_context *host_ctxt)
+>         case PKVM_TOPUP_HYP_ALLOC:
+>                 ret = hyp_alloc_topup(&host_mc);
+>                 break;
+> +#ifdef CONFIG_NVHE_EL2_DEBUG
+> +       case PKVM_TOPUP_HYP_ALLOC_SELFTEST:
+> +               ret = hyp_alloc_selftest_topup(&host_mc);
+> +               break;
+> +#endif
+>         default:
+>                 ret = -EINVAL;
+>         }
+> @@ -668,6 +695,11 @@ static void handle___pkvm_hyp_reclaim(struct kvm_cpu_context *host_ctxt)
+>         case PKVM_TOPUP_HYP_ALLOC:
+>                 hyp_alloc_reclaim(&host_mc, target);
+>                 break;
+> +#ifdef CONFIG_NVHE_EL2_DEBUG
+> +       case PKVM_TOPUP_HYP_ALLOC_SELFTEST:
+> +               hyp_alloc_selftest_reclaim(&host_mc, target);
+> +               break;
+> +#endif
+>         default:
+>                 ret = -EINVAL;
+>         }
+> @@ -804,6 +836,7 @@ static const hcall_t host_hcall[] = {
+>         HANDLE_FUNC(__pkvm_hyp_topup),
+>         HANDLE_FUNC(__pkvm_hyp_reclaim),
+>         HANDLE_FUNC(__pkvm_hyp_reclaimable),
+> +       HANDLE_FUNC(__pkvm_hyp_alloc_selftest),
+>
+>         HANDLE_FUNC(__pkvm_host_share_hyp),
+>         HANDLE_FUNC(__pkvm_host_unshare_hyp),
+> diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+> index a82e773a1c2d..d28422f5c3d6 100644
+> --- a/arch/arm64/kvm/pkvm.c
+> +++ b/arch/arm64/kvm/pkvm.c
+> @@ -326,6 +326,22 @@ static int __init pkvm_drop_host_privileges(void)
+>         return ret;
+>  }
+>
+> +void __init pkvm_selftests(void)
+> +{
+> +#ifdef CONFIG_NVHE_EL2_DEBUG
+> +       int ret = pkvm_call_hyp_req(__pkvm_hyp_alloc_selftest);
+> +       unsigned long reclaimed;
+> +
+> +       reclaimed = pkvm_hyp_reclaim(PKVM_TOPUP_HYP_ALLOC_SELFTEST, ULONG_MAX);
+> +
+> +       /* On failure, not all the pages may be reclaimable */
+> +       if (!ret)
+> +               WARN_ON(reclaimed != 6 /* SELFTEST_MAX_PAGES */);
+> +       else
+> +               kvm_err("pKVM hyp allocator selftest failed (%d)\n", ret);
+> +#endif
+> +}
+> +
+>  static int __init finalize_pkvm(void)
+>  {
+>         int ret;
+> @@ -652,6 +668,9 @@ static int pkvm_handle_hyp_req(struct pkvm_hyp_req *req)
+>         case PKVM_HYP_REQ_HYP_ALLOC:
+>                 ret = pkvm_hyp_topup(PKVM_TOPUP_HYP_ALLOC, req->mem.nr_pages);
+>                 break;
+> +       case PKVM_HYP_REQ_HYP_ALLOC_SELFTEST:
+> +               ret = pkvm_hyp_topup(PKVM_TOPUP_HYP_ALLOC_SELFTEST, req->mem.nr_pages);
+> +               break;
+>         }
+>
+>         trace_kvm_handle_pkvm_hyp_req(req, ret);
+> --
+> 2.55.0.508.g3f0d502094-goog
+>
 
