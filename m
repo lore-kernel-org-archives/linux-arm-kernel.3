@@ -4,119 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83D6FC5DF7D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 09:45:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 983D0C5DF70
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 09:49:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:MIME-Version:References:In-Reply-To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BeFyeN+d7Fl6w7s7F00mypvhcoz1q5bXaJcc27nMLck=; b=Ck1qOgBS8NFp+GokuoAp9CBKZp
-	SlaZePuh+bDEwkeEg6XzbSGkidFp/ltNKHeWEb2EG+xoIMuMuhKb+m2uCfVWCAvkgD2gN/dH4Xnoz
-	hpCCIE+GwF8XXNb5NIykmsZpMVWo80w6MMfuzEpKTUJO7rFTRusjfc5o38YyrcLzfShxpO0gs5A5B
-	5obaZP2NXF7lG/sUDfG80ay/4T0uu2z33vOFT7nYfj1fMwbb5vtim411kfz/D15nPaRn6wKIfPOvO
-	LV/Ydwq4QihKmstQlAKiIVipEjKO2iiVTNoFNDlGNzUUvt0h7a8wyAh61SzCv0j//87KYeKUjufZ7
-	cZ+r/jsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+3gQstz+ynLenZZkOIHRG2TEYZzSHYIitb2qWK/ts+w=; b=j5dKgSI3j2WmWkDiH+ao+3f2O3
+	llqXen+C8kUH5tUEaKwTkJ9m5ZSm6bSpyvgfEtV8U8Y4WNWnJueJVZWk0i6p+PFfG20Tbr6ULjNCj
+	lmhG3+z3M4Lvfq3DmQcmh3ktC8IyfOmDhV/m8j0YWeXkv/LsFoCjkvSm77uzAMqeoFZR4QK5iBM/R
+	DqBquTL1CuAZ3/hRCVb7htOu0nKC7tjLWAX4k+UJC1aiOtGss5vSiAw6ihV7y4POGeNG3Ive9GJ3a
+	dJGTehkn0/GhPA5KLqPVl1etPxH7QX6eJQTFdzUg9VoK9x7OS2YcUJQoT0BZzR3PVGnRSI1zdqDKu
+	AdIvjTmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwGNQ-00000007ep8-09hR;
-	Tue, 18 Aug 2026 09:45:00 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1wwGS1-00000007fbw-4B9b;
+	Tue, 18 Aug 2026 09:49:46 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwGN2-00000007eXj-2UDy
+	id 1wwGS1-00000007fbn-0FRG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 09:44:38 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-848643382fcso4640107b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Aug 2026 02:44:36 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1787046275; cv=none;
-        d=google.com; s=arc-20260327;
-        b=mcYZLETEJd+2dAbSbFuNVLh+uVrZo4S9BEhI8v+S1KcWJ+wPZA0W6nEr43STjKI29z
-         uY/PxTq6b7slgPVTXC2hu6NQD0ugwQq3qz+iYLdgqTHqOVQOZY4Xa1O2LmQPYLXcjnIH
-         1Xu8n/hUH64nmKqMvCqjHp/qaqwSWxYgtTuwW/0Lt3ScISkX+z3C+X7TKVq2MXYaQ4NG
-         aoGE/ddGvzcXEDwlzGtBnfQ2nC0/TY1h7YOXYUczLi93xU776H0n3H3/QA/oHIMRiHJ7
-         l3CdPZHHaqD/vBw46oa4SKoRqHqDaWNH3QHt7yshNiH/oARXAWOjFkEDnQDW1XDPBy63
-         cp0g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
-         :from:dkim-signature;
-        bh=BeFyeN+d7Fl6w7s7F00mypvhcoz1q5bXaJcc27nMLck=;
-        fh=JMa54GftFD+rDg6SNxjU0cTkbeaP3U36ZF7qehJSmt0=;
-        b=nNaYzm+8LlIVksLoYmERHE/E7CTqqu+9ljYZ0aJIvra8k6+VGK4BEHWx60EesgBAdz
-         Vf7HIK4L2ZN25wbHZyGHmpmc1IjW0n13p2wjx07QcrZhRaLViXpOBCzrQnO1zfsNtZVj
-         gewEk6anDtl3KBEgB5svI+01ZFxPkAtef8C5mTKIJC1R3WpsoK08MLV5B7ENsCfOJOVE
-         j+lkNQy0qFzzntiRqimDUS4WXFddfmte9bDs2MOquVLNUxCwaz7Zd2e+A0CbsaDwXSwn
-         6nMvv3eIDBsnLuHz8z0vSvUnls0M8VMdu7rbYicVj5JzOQJtzooEN8/MusP7dZUKZ7Ea
-         mlBA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1787046275; x=1787651075; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:mime-version:references
-         :in-reply-to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=BeFyeN+d7Fl6w7s7F00mypvhcoz1q5bXaJcc27nMLck=;
-        b=o8kYhktzLWSlYX8YX+0bZHxzRpvtXuPwCbMP/ZJw72vtZVivXSwEM2y9I02xTp2oxy
-         qDpWEvmp0ym8SV1mNw+TVrrVrYEmufzZVOEs9hKtENdM5Gg9L+6TLReGWFtGw9/x5CNP
-         d41Tr+Z+8a68hxEvQCOq/vSqj8tueH+EOFZD/mDZ8UyozwZkFMNN1hCohOMRDdPxaifm
-         hPe+cVClnpLINhmtYepzhNHry1lqx8d3SUJnb1u3asCY+xaiDTR2On6kjyzRT4DVdqkh
-         zxeGUQjunl0vtnOsmFonyODqs4XPaBPHrOmePFlsiRwzBAGQwi8Gq7A2NG04L6NE9cjp
-         hhtw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787046275; x=1787651075;
-        h=content-type:cc:to:subject:message-id:date:mime-version:references
-         :in-reply-to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=BeFyeN+d7Fl6w7s7F00mypvhcoz1q5bXaJcc27nMLck=;
-        b=Ud1KpNUIHULnFzBl2nXwPr5lk43Mi2pOSTuME9fqeoeLCnBeYYFbo14taGxOICG2cT
-         PXdeM7Pn1j7v6rqN2o+UmzfWfTUa38YBemUxHsikG8pxe1oN3HbZOmlvlpRZiR3XQtcf
-         /E83SKT8Q+dIprX9qZdaNCzWuQVtyFZDRvH3HHTuEhhMSnRfOg3XKGXzBplf1DtllzdB
-         95fsppuVR+/GBq/7M3weQ56pe/+7IwvpPrYIQeKOqzImntrQ3NmnGZPX8mqsvUUlxNXp
-         gzYyJhvPB76gCQHvFyHqv0Y0rMR0CY6eteYLNWTzxX6hWKe859/CBdSil1yWY3QSHfH4
-         0j+g==
-X-Forwarded-Encrypted: i=1; AHgh+RotmKScK+mWNr1iofPiSpjKxHgvELHV+nS90htzW58eCjcazpr4zMwKJktbHIYkBDyCB1x8z8wVwfIDnAKLU4yv@lists.infradead.org
-X-Gm-Message-State: AOJu0YwXTAhWwj7j212N/JV6nvhd667ghLwIblITFICgSd2l2S85ztfL
-	MJC7hex7OqeSArYXsEuwOWQDk1IX+I1TElwLj/iQuieH9eQe3jTT+y75TZuefvAcjPeEVsKtSBt
-	Lvg7/WI+Py5vBxXT/uPJrYCjEzEMNDXr6ClFfXpaW
-X-Gm-Gg: AR+sD12T71mxYRW23M9Z3aycgAlVemk3z1ONmHYvJf3LerBgULouNssBZX83uPCPwBb
-	twzUGXqL6BE/5Ewuaq2IWOVAt3Eow4k1xgMUU9q8YtGlu0RPf17iz6Z7GZfPZDRT80fVtIgolVB
-	i60Afq5xJXZ333tNBTqPznWMHdg+GiQlgn5KTggFy+VNsBXop5+tMvuhksA3jnv1AhcNfbI56T6
-	tZ9fv+7NFKcFtP3mdM+c9LuGW7ABzIgL2Rns7Nqm0xuz/XPIab+PpR7VX6fw4qwaHc8aBvMH9/7
-	h6g6SVrMDRi9K5fyDxqg+mim9GS3+7jFgSMOAdroHj8ziXuADwVCnFWLE5kyWTjQWzuMNcSl4Du
-	PSt6mvMBExMmsKQY=
-X-Received: by 2002:a05:6a21:3103:b0:3c1:fbf:1e2e with SMTP id
- adf61e73a8af0-3ccda9ad8e4mr10134494637.10.1787046274831; Tue, 18 Aug 2026
- 02:44:34 -0700 (PDT)
-Received: from 176938342045 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 18 Aug 2026 02:44:33 -0700
-Received: from 176938342045 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 18 Aug 2026 02:44:33 -0700
-From: Ackerley Tng <ackerleytng@google.com>
-In-Reply-To: <aoQZFtSd671ti4sr@yzhao56-desk.sh.intel.com>
-References: <20260818-gmem-no-return-page-v1-0-4f8d939efdbc@google.com>
- <20260818-gmem-no-return-page-v1-4-4f8d939efdbc@google.com> <aoQZFtSd671ti4sr@yzhao56-desk.sh.intel.com>
+	Tue, 18 Aug 2026 09:49:45 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6C055601FB;
+	Tue, 18 Aug 2026 09:49:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADB6A1F000E9;
+	Tue, 18 Aug 2026 09:49:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787046584;
+	bh=+3gQstz+ynLenZZkOIHRG2TEYZzSHYIitb2qWK/ts+w=;
+	h=From:Date:Subject:To:Cc;
+	b=Mp127J7X2WYfzJHcXaLguKI0yBVpMLYIP9vedFanrNG6QmKilyIXCzDYvExuVcTUg
+	 1wbfOeMevZRupYhrZDUa92eRQUV9jcdoHPM+G+H8SC/MeDwY4koLjNLwCTNTZOuoQa
+	 wVKFnsomqqj+g9uip8WtnQjnJ+ypHQnXlw1Z4vc0FdFlYN6EYqwtW09gS/CEc7ZiFD
+	 uYVA3NXKn3L+SlFdErNN+/Jdg3qt388skhOSaSvNAisCoFqLPNqAyztpKgBDOlYABq
+	 CPqPTXXK/GHXybs9Y4w2pb91WPubUTsr5rp/v1HV3okJLRyQOG7yjMAkCwGafesmWX
+	 mdE2QEScmZJyg==
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Date: Tue, 18 Aug 2026 10:49:34 +0100
+Subject: [PATCH] Bluetooth: hci_bcm4377: Ignore reserved PHY in ext adv
+ reports on BCM4378
 MIME-Version: 1.0
-Date: Tue, 18 Aug 2026 02:44:33 -0700
-X-Gm-Features: AcwNN1U5ehd_NTGTo4zZtHEtfJhdWWWuVuXA16suZpoLtMBQBlqamb-zw5aEarA
-Message-ID: <CAEvNRgG8gxZSmOrsENemNqbaZuDyqNXj35M4VyChA6HQ_ofYVg@mail.gmail.com>
-Subject: Re: [PATCH 4/4] KVM: guest_memfd: Stop returning struct page from PFN lookup
-To: Yan Zhao <yan.y.zhao@intel.com>
-Cc: Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
-	"H. Peter Anvin" <hpa@zytor.com>, Ashish Kalra <ashish.kalra@amd.com>, 
-	Michael Roth <michael.roth@amd.com>, Brijesh Singh <brijesh.singh@amd.com>, 
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, David Hildenbrand <david@kernel.org>, Fuad Tabba <tabba@google.com>, 
-	"Edgecombe, Rick P" <rick.p.edgecombe@intel.com>, Vishal Annapurve <vannapurve@google.com>, kvm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_024436_646728_FA61F4E3 
-X-CRM114-Status: GOOD (  10.94  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260818-fix-bcm4378-ext-adv-v1-1-81a143eac194@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x2MQQqAIBAAvxJ7bkEzVPpKdChdaw9ZaIQQ/T3pO
+ DAzD2RKTBmG5oFEN2c+YgXZNuC2Oa6E7CtDJzotrLQYuODi9l4Zi1QunP2NwijjlAte6wVqeSa
+ q2n8dp/f9AOPzgC5lAAAA
+X-Change-ID: 20260818-fix-bcm4378-ext-adv-0737c3cfd66b
+To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Neal Gompa <neal@gompa.dev>, Marcel Holtmann <marcel@holtmann.org>, 
+ Luiz Augusto von Dentz <luiz.dentz@gmail.com>
+Cc: Luiz Augusto von Dentz <luiz.von.dentz@intel.com>, 
+ asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ stable@vger.kernel.org, "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2533; i=ljs@kernel.org;
+ h=from:subject:message-id; bh=y5GD6lS0t2jnsBMwQDdXpyEkybJrOftyeRvVeWJIWFc=;
+ b=owGbwMvMwCV2fu7ZrsZH9SKMp9WSGLJatDZdiBD26Z6Xf+nL2WZpx1a+tqLKTMmZzpGielYcB
+ SaPZG06SlkYxLgYZMUUWZ5/Ed8fJBI2r/OCvxvMHFYmkCEMXJwCMJGinwz/lBVsyhezFPzeFSVb
+ bhmXP+1RBfs0Wb4gbcHlsnuPygYIMDJ0nph/O/0ue4bR/nOmXcGmIhsS/96p0rX5fE30tPWmz7v
+ 4AA==
+X-Developer-Key: i=ljs@kernel.org; a=openpgp;
+ fpr=E7F417BF5214569E89D04F46CF9DCD8A81E27F14
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,42 +84,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Yan Zhao <yan.y.zhao@intel.com> writes:
+Commit ed2a2ef16a6b ("Bluetooth: Add quirk to ignore reserved PHY bits in
+LE Extended Adv Report") added a quirk to handle creative use of the
+reserved bits in the PHY fields for 4388 controllers in Apple silicon.
 
-> Hi Ackerley,
->
->> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
->> index 6c941aaa10c63..e5d637a5ec558 100644
->> --- a/arch/arm64/kvm/mmu.c
->> +++ b/arch/arm64/kvm/mmu.c
->> @@ -1613,7 +1613,7 @@ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
->>  	enum kvm_pgtable_prot prot = KVM_PGTABLE_PROT_R;
->>  	struct kvm_pgtable *pgt = s2fd->vcpu->arch.hw_mmu->pgt;
->>  	unsigned long mmu_seq;
->> -	struct page *page;
-> Just drop the page should be ok, since
->> +	struct page *page = NULL;
->>  	struct kvm *kvm = s2fd->vcpu->kvm;
->>  	void *memcache = NULL;
->>  	kvm_pfn_t pfn;
->> @@ -1641,7 +1641,7 @@ static int gmem_abort(const struct kvm_s2_fault_desc *s2fd)
->>  	/* Pairs with the smp_wmb() in kvm_mmu_invalidate_end(). */
->>  	smp_rmb();
->>
->> -	ret = kvm_gmem_get_pfn(kvm, s2fd->memslot, gfn, &pfn, &page, NULL);
->> +	ret = kvm_gmem_get_pfn(kvm, s2fd->memslot, gfn, &pfn, NULL);
->>  	if (ret) {
->>  		kvm_prepare_memory_fault_exit(s2fd->vcpu, s2fd->fault_ipa, PAGE_SIZE,
->>  					      write_fault, exec_fault, false);
-> here missed a hunk:
->  out_unlock:
-> -       kvm_release_faultin_page(kvm, page, !!ret, prot & KVM_PGTABLE_PROT_W);
->         kvm_fault_unlock(kvm);
->
-> I will fully test this series tomorrow.
+I observed the same issue with the BCM4378 Bluetooth controller (14e4:5f69,
+rev 05) on an Apple MacBook Pro (13-inch, M2, 2022):
 
-Makes sense. gmem_abort() is purely gmem and there's non-gmem path to
-fill the page pointer in, so the above is correct.
+> HCI Event: LE Meta Event (0x3e) plen 51
+      LE Extended Advertising Report (0x0d)
+        Num reports: 1
+        Entry 0
+          Event type: 0x2513
+            Props: 0x0013
+              Connectable
+              Scannable
+              Use legacy advertising PDUs
+            Data status: Complete
+            Reserved (0x2500)
+          Legacy PDU Type: Reserved (0x2513)
+          Address type: Random (0x01)
+          Address: EA:C1:82:F0:24:C6 (Static)
+          Primary PHY: Reserved
+          Secondary PHY: No packets
+          SID: no ADI field (0xff)
+          TX power: 127 dBm
+          RSSI: -57 dBm (0xc7)
+          Periodic advertising interval: 0.00 msec (0x0000)
+          Direct address type: Public (0x00)
+          Direct address: 00:00:00:00:00:00 (OUI 00-00-00)
+          Data length: 25
 
-I'll not be respinning again today, sorry about the flurry of emails!
+This results in the firmware rejecting connection attempts with
+"Unsupported Feature or Parameter Value" (0x11).
+
+Fix the issue by using the same quirk for BCM4378 devices too.
+
+I tested this locally and confirmed that the issue is resolved.
+
+This was observed when attempting to connect a Kinesis Advantage 360
+keyboard to the MacBook.
+
+Assisted-by: Claude:claude-fable-5
+Fixes: 2e7ed5f5e69b ("Bluetooth: hci_sync: Use advertised PHYs on hci_le_ext_create_conn_sync")
+Cc: stable@vger.kernel.org
+Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+---
+ drivers/bluetooth/hci_bcm4377.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/drivers/bluetooth/hci_bcm4377.c b/drivers/bluetooth/hci_bcm4377.c
+index 925d0a635945..66d49b471544 100644
+--- a/drivers/bluetooth/hci_bcm4377.c
++++ b/drivers/bluetooth/hci_bcm4377.c
+@@ -2490,6 +2490,7 @@ static const struct bcm4377_hw bcm4377_hw_variants[] = {
+ 		.has_bar0_core2_window2 = true,
+ 		.broken_mws_transport_config = true,
+ 		.broken_le_coded = true,
++		.broken_le_ext_adv_report_phy = true,
+ 		.send_calibration = bcm4378_send_calibration,
+ 		.send_ptb = bcm4378_send_ptb,
+ 	},
+
+---
+base-commit: 0f23d56f17fdfc7db69d51f64c8b91bbab947aa9
+change-id: 20260818-fix-bcm4378-ext-adv-0737c3cfd66b
+
+Best regards,
+-- 
+Lorenzo Stoakes (ARM) <ljs@kernel.org>
+
 
