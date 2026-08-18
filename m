@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8047C5DF81
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 20:23:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE7DAC5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 20:35:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QfuOGyOWUUq/N7DdSSsipIf5/Rfcf9wzgqQTSgIOlAI=; b=q/OAqW0tpia3x/7UI2MWw3cgVz
-	MUtJ8QZnVc2s22xcIYNMRWhugpT5Orr5WKfx8ZH7CfXkKIsQ+wDBrtBl/3Yb9mxPW75SXfkMQfsmc
-	fTXPUCxuMKxlbj+cvuxbHqi27IMR5SNPW9amBcAc1FTBIy9FyZLicXYIRW7gWqvYoD2TmV9D7+Y/e
-	BxGZloMs74l9SwJkO+gYxY21CvTHC6JIXn8Pj3aUT5mKqfL3bm7rFEuEtPe2MamFT4cYJTtHSLwtD
-	fzgHiVcDhI/btcmdBIhaUC6AzfuVT1q/uRHtsdw2hj1tiQNaipqUyZbjxUP30y9Kd5OTNURP3umXx
-	r2D5142g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=WLKsiChz5lYZiCXTi8lrf6MYnUiVxf7oa0rlcjDVEk4=; b=zQr22bqFKPq7Mz2oB3+x944kJv
+	8MBR+Yy2++MrWdaHx7z9ZjyAq/dhdFFWDUjggOQLWfw/KcmzSlqDtPWYZFwq7STd3BpSOxT1WguWd
+	mkgwOEbzF9fWOaj37LpDLFUPjtiQYuwAOojphScynroC7wtdK5gQK+coS3S4JgYIpxhV/Q8i2pLa+
+	CqCnD4uWdi/xJ0A70oHLFrpFKrqZjj0lLvKjsBV1EV2VqPSk60Xra7QUfHYfp6myRC6LcFBNX0PLg
+	b1bDlGF9g4n+uEPswwMsajZXlaAxU8CK76fCTLa0G3a2aKo19akszx86uRp1CzSrE4qqW0ri9A7JX
+	Id0/pEYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwQLP-00000008dGA-390P;
-	Tue, 18 Aug 2026 20:23:35 +0000
-Received: from out-234.mta1.migadu.com ([2001:41d0:203:375::ea] helo=mta1.migadu.com)
+	id 1wwQXA-00000008dga-09ra;
+	Tue, 18 Aug 2026 20:35:44 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwQLM-00000008dFO-1rWE
+	id 1wwQX7-00000008dgH-2aiY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 20:23:34 +0000
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-DKIM-Signature: a=rsa-sha256; bh=AqJeH+5LKRNmRQzJ4ZHVSBjhlvotk7eHnatQlagjm3E=;
- c=simple/simple; d=cknow-tech.com;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1787084609; v=1; x=1787689409;
- b=EuV0Ut8m3bx+Jytvwzqdg2h8IEQsQw453LdXkbQtrC3ORpOre07Tbei7lUgOTZi3qUtj+JsH
- fYOYY6vJhb8ocWkfupU9xrzbw38FuQ4QVsFVN5SKzhuQv4fvzlggrAK1iDo6Ki3inl5TDlsAsPr
- FsWizV7G/i8RuUEXHSVYaI17hehjI0H+qjZq2Ti9V1D5BHj6/NMsM0XkrD3tdiBASUL2494i4V2
- LAOlenuPwemcftck0H1udTkgnPxgDl7zpA6kc6TFyqBbnrEjAOiu4gjs6wn2g/zxHznh9X4cglb
- EAQ07jyqXAA93/F7oOkavbjtWiwqcIcYsxhsi4yl8E4+g==
-X-Envelope-To: linux-arm-kernel@lists.infradead.org
-Received: from localhost (92.254.112.55)
-	by smtp.migadu.com with ESMTPS id 00a65aeb1c26adae;
-	Tue, 18 Aug 2026 20:23:19 +0000
-X-Migadu-Flow: FLOW_OUT
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 18 Aug 2026 22:23:18 +0200
-Message-Id: <DKSCMAUXS10I.2AB9KERO16FRG@cknow-tech.com>
-Cc: "Dawid Olesinski" <dawidro@gmail.com>, "Herbert Xu"
- <herbert@gondor.apana.org.au>, "David S . Miller" <davem@davemloft.net>,
- "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
- <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Heiko
- Stuebner" <heiko@sntech.de>, "Corentin Labbe" <clabbe@baylibre.com>,
- <linux-crypto@vger.kernel.org>, <devicetree@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 0/4] crypto: rockchip: Add RK356x/RK3588
- cryptographic offloader
-From: "Diederik de Haas" <diederik@cknow-tech.com>
-To: "Eric Biggers" <ebiggers@kernel.org>, "Diederik de Haas"
- <diederik@cknow-tech.com>
-X-Mailer: aerc 0.22.0-9-ge948bb7230f4
-References: <20260708175837.1718437-1-dawidro@gmail.com>
- <DKF8V3IHKTL2.1PUA8O5IVIRYC@cknow-tech.com> <20260818185810.GA7030@quark>
- <DKSBIH29Z9DE.1OR442P0XUSCS@cknow-tech.com>
- <20260818200454.GA2718123@google.com>
-In-Reply-To: <20260818200454.GA2718123@google.com>
+	Tue, 18 Aug 2026 20:35:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1787085341; x=1818621341;
+  h=date:from:to:cc:subject:message-id;
+  bh=2OUnK0I5efJeU4BU39eXbDxuJ2cvF/SK9a7SUF4VTvk=;
+  b=SqzBb7ffXWGlaX8qtQR7AelML07YPvhb4TOZtYJLCJwSOZVITL4a1ezq
+   qNzZt/xM3rKvN8DV+614ZDlLvLpmE8UyT3RNUtkaGC1ostYvXHfDWOqdd
+   4azGHF8pyfEoWejxF1piy2eNqPXHMZcY96Wbozn3czqDTFiGOP91CJY+z
+   bcFDTFSlvfh1IjMdTVHwfg/CCpSdQPPmS3Dlccr5Tl1dFVolWPX4PfO40
+   TeAnbZriLwTpkv+9b9+KHkpD4PF/oBwoHRYKNN29z/dLdg8IgLvagLWMj
+   N2JfAxxVQfFp6104tKtBKGODhE29lVNijWhPUVhDV0S+Ps27ceWWTOI8v
+   g==;
+X-CSE-ConnectionGUID: sae26CL8T+2nBqourlZLuw==
+X-CSE-MsgGUID: jrE6lo6XQCK+jmy6DJFfuA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11879"; a="105123339"
+X-IronPort-AV: E=Sophos;i="6.25,230,1779174000"; 
+   d="scan'208";a="105123339"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Aug 2026 13:35:37 -0700
+X-CSE-ConnectionGUID: ewapnlZ+Tfyj8i9YJtaFSw==
+X-CSE-MsgGUID: 7HxnKt1zSpOuxVUuMMABpg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,230,1779174000"; 
+   d="scan'208";a="261118491"
+Received: from lkp-server01.sh.intel.com (HELO 6eda058d650d) ([10.239.97.150])
+  by fmviesa006.fm.intel.com with ESMTP; 18 Aug 2026 13:35:35 -0700
+Received: from kbuild by 6eda058d650d with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wwQWy-00000000eZ8-3498;
+	Tue, 18 Aug 2026 20:35:32 +0000
+Date: Wed, 19 Aug 2026 04:34:58 +0800
+From: kernel test robot <lkp@intel.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ arm@kernel.org
+Subject: [soc:board-remove 188/217] Warning:
+ drivers/memory/emif.c:140 struct member 'ip_rev' not described in
+ 'emif_platform_data'
+Message-ID: <202608190446.ZgG9cXrH-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_132332_688553_4C6769E3 
-X-CRM114-Status: UNSURE (   8.15  )
+X-CRM114-CacheID: sfid-20260818_133541_671882_74EC7F43 
+X-CRM114-Status: UNSURE (   9.12  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,23 +85,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue Aug 18, 2026 at 10:04 PM CEST, Eric Biggers wrote:
-> tcrypt.c reports cycle counts from get_cycles(), which has an
-> architecture-dependent meaning.  On x86_64 it is something approximating
-> the CPU cycles (3-5 GHz) whereas on arm64 it is the ARM Generic Timer
-> which tends to be around 24 MHz or so, over 100 times slower than the
-> actual CPU.  So 9044 vs 115 "cycles" for x86_64 vs arm64 sounds about
-> expected, and they suggest the real times are likely similar but
-> slightly faster on x86_64 as expected.
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git board-remove
+head:   057394422bc04420585b2790b230d8a1f350ace8
+commit: a2959dbcdfccfdb2802d2371710176d42b3a9b37 [188/217] memory: emif: remove pdata based probing
+config: alpha-allyesconfig (https://download.01.org/0day-ci/archive/20260819/202608190446.ZgG9cXrH-lkp@intel.com/config)
+compiler: alpha-linux-gcc (GCC) 16.1.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260819/202608190446.ZgG9cXrH-lkp@intel.com/reproduce)
 
-Phew, thanks for the explanation :-)
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202608190446.ZgG9cXrH-lkp@intel.com/
 
-> This sort of thing is why benchmarks usually should measure real time.
-> The legacy module tcrypt.c unfortunately uses get_cycles() instead.
+All warnings (new ones prefixed by >>):
 
-What would be a better/non-legacy way to test crypto performance?
-Is that documented somewhere?
+>> Warning: drivers/memory/emif.c:140 struct member 'ip_rev' not described in 'emif_platform_data'
+>> Warning: drivers/memory/emif.c:140 struct member 'phy_type' not described in 'emif_platform_data'
+>> Warning: drivers/memory/emif.c:140 struct member 'ip_rev' not described in 'emif_platform_data'
+>> Warning: drivers/memory/emif.c:140 struct member 'phy_type' not described in 'emif_platform_data'
 
-Cheers,
-  Diederik
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
