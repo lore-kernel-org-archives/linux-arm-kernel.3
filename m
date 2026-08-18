@@ -4,73 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 887EAC5DF70
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 01:32:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 016F1C5DF74
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 01:55:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8BDXup+KovfHlg8q3KEYfrDc11B1j3g5NKheFukyWuk=; b=p8sX6y6U+pCoO8FUuh9Xy7drIo
-	bME7p2rVLza73LFuBFnLADkno60Yj5/Ec1EuC10vYC05SRyptdH27b78adPW+CbIdqhi19Rfnidkt
-	ndRnvc/jWSMlXp8+ZvH9084R9TVCisLIf8x+6++H9dIDzhIrVtL+lS2O7lvMg/e9oxxLIaYO4mqkY
-	WQnnpWJ32Lpr9C5CZ80wie7rAQbvvfscE0vs8QF14qdEhQTffqNCUiIVzJqoqRFtoaANfpo/6yQC/
-	xWQTOJ5LVpf140NxXkrmDJohO7TL6PyhGluFv51yP4UtmgY5mj8a0Uxosn5x8BMTcUkGOQoIXwHuB
-	a1E61Juw==;
+	bh=qgbYfTaLJzZ/mWrE8M0JIJXKh7owvbsDYdf4//0WP8A=; b=QBa/cwVuLaJiawXNtUsnG8Ugeg
+	heWxlz4/8dIv/Ff9u3p31W5X5pb7oPR8DzgxJK7UerFF9LFMoKaQQlbIXLv+4Oj9mQBCwR0UiH8Ox
+	xDSY7QvCQATKScv+GPFuwX3PTTac76ZxXkFY8kQgwm1dUzCvlS1FGWGIPQEkvzJ899Q3M5MIYUnt6
+	AePrP1epMoxtl3902bOWwOYee08g+vQE9aFIdNjRiSpb0wG9eRvwzEnwuFn145GNTaw31Wg044ESR
+	cYRXrBSecMqUuruOvL4HLJ3JnPbx/rWThK0TGhZWpaG1mAetFRi3g9YQIN+8A07VrcrqnQhEWaEF9
+	HDHo1sdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww8gz-000000073iJ-2ki3;
-	Tue, 18 Aug 2026 01:32:41 +0000
-Received: from mgamail.intel.com ([192.198.163.7])
+	id 1ww92n-000000074dR-2rDN;
+	Tue, 18 Aug 2026 01:55:13 +0000
+Received: from mail-yx1-xb136.google.com ([2607:f8b0:4864:20::b136])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww8gw-000000073hy-3fpI
+	id 1ww92j-000000074cc-4Bx2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 01:32:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1787016759; x=1818552759;
-  h=date:from:to:cc:subject:message-id:mime-version:
-   content-transfer-encoding;
-  bh=2vWFEBHibTOxT3/r4CeW986tfa1DjxpVITmuF1N60BE=;
-  b=ilRf+HZchV5ALK1GsapgS3eomVe57uYQCQ82wVOfqT3ENjmz2UazQFdM
-   XjTsWHgxZdHA+wHB2lJHs/FiRNl5+puPIUu8L573uEvn+qjdPvnyWbrvS
-   MjSMaxiIkbQhWJfJG89CK1C9kUGwm0rGvUjvxl7coEw7QOePwvxp4QWW3
-   qC/AvJESVuGVgn1IZoZVgwTTQWcqxx4pejw9P4XjN+vT4dkebrGNSkvuF
-   Arp2p2BLbgBRksK7XOouD6EkfUFvwnu42olB5q8Hh8YAq6JK5PpBSkRz7
-   u+l4Lew6XuoYpCBjtpZY7psSwBjDZrLqmHiArV+0ohx70AehlS/ySIb78
-   Q==;
-X-CSE-ConnectionGUID: Ybba0A9mSmqDknCzSIHzHQ==
-X-CSE-MsgGUID: G419z6LCT821d2qD8N+EEw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11878"; a="113040633"
-X-IronPort-AV: E=Sophos;i="6.25,230,1779174000"; 
-   d="scan'208";a="113040633"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Aug 2026 18:32:37 -0700
-X-CSE-ConnectionGUID: HNQb535pQWGteCmQjaq2Zw==
-X-CSE-MsgGUID: husMGr+6TJmqUy1QNhz1TQ==
-X-ExtLoop1: 1
-Received: from lkp-server01.sh.intel.com (HELO 6eda058d650d) ([10.239.97.150])
-  by fmviesa003.fm.intel.com with ESMTP; 17 Aug 2026 18:32:35 -0700
-Received: from kbuild by 6eda058d650d with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1ww8gq-00000000e0k-2r8Z;
-	Tue, 18 Aug 2026 01:32:32 +0000
-Date: Tue, 18 Aug 2026 09:31:59 +0800
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- arm@kernel.org
-Subject: [soc:board-remove 171/217] drivers/mfd/tc3589x.c:351:37:
- warning: unused variable 'id'
-Message-ID: <202608180816.NQy2zxZG-lkp@intel.com>
-User-Agent: s-nail v14.9.25
+	Tue, 18 Aug 2026 01:55:11 +0000
+Received: by mail-yx1-xb136.google.com with SMTP id 956f58d0204a3-6688a2dceb8so2747933d50.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 18:55:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1787018107; x=1787622907; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=qgbYfTaLJzZ/mWrE8M0JIJXKh7owvbsDYdf4//0WP8A=;
+        b=A+k9MBF18lA0PCL/2gFP/3+Jqa389D5/Ibnr6S+ZMqYGo+cQaiMN0W2J+I3QGQXs18
+         usf+8pmM+0m18TqfElhMtUOAjVPIjpio1ofMaoxTUPB84dIG4PYZAOpM+sLZnYfg3Uhg
+         sgS6ZSFq2yp01Rd1Ik5BbN7VnKgkczANR9Z3A/qBW60ZlWuyxyBHAHqfvzJWBZ0aZt5E
+         VL6qZj3LQZ+9ONkDRVG7fcviPnBFbiU2CW8TU36MpTX+mWFHUk1p/Uyz1dgPI1MKaqLe
+         or95itVC9+aKCLiPMiEUbVqCWYcjIgtAudH/bM/UPIfgucOl1O9rpaGIwee5AmnjCGNM
+         EgFQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1787018107; x=1787622907;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=qgbYfTaLJzZ/mWrE8M0JIJXKh7owvbsDYdf4//0WP8A=;
+        b=JaAyXcE3qjdrKSBWIgDPj4i6qMYyLd6z9Ad6l5a446dApVTzjwXg8V5nCkvo4NxPVP
+         ct5T9IHzJa4yh2tLRGdC9IMlHOpc/OEDnnFB/GnoQbyeWqI/K6O4dj86pTkZdpGv6+ma
+         2zkdJY/CKulkIjUDGqBhUFnEq7u097lFZDyiRo883HWcnYQgRsnHV++CLeYcdPspjxbX
+         yvJPsreblCl0T8s6WYYMHunc1o26tEE9OL6a1GF1QxAtZEpFpHy0V9X738dYx3rsFKI6
+         7VE9JknWeXFykg47NFnbhdS5R0erLNxEZVhUGtl0Mo+Tnh5XI/WirPOq+vbllzesPgs/
+         SJtQ==
+X-Forwarded-Encrypted: i=1; AHgh+RppfrjhG50eM7Q8yu6aiNdmlDicySFNJAp9jQrxBnkX2gUWALP8dNJhKOBoNbbm8SoZifLewXWRtgmDeCeHNTfM@lists.infradead.org
+X-Gm-Message-State: AOJu0YyPx91Fr5De9r8cO1S4j2nVRzA2ESI7jCjjPBRI/QZB8vc9CQ17
+	x8iOZbdzNmpX/R+IPdpZoZMqC9o3s4292pvsBOQ6Abq+JErgq+liVyRN
+X-Gm-Gg: AR+sD1165IF9LsKfPGa+Z7UXGE8gFRNThDEQTKUDUQ879wm8buBvqxNW//RHiqkBbYf
+	32v6p86a3OjHdr+UatT8o8us/wpGxQ/mAkWdkKv5w+Pf9UhbFhCVs7MxqfsB7LI/a24NaoRD4Es
+	5cwGjczYHVq+Av2fpzxqyOKErsQXmZI86QiXdTFad5/1ESTo8yCav3UUIBANeNUMrMA1geLv7ph
+	Fi4BRblOFtZT8lnZdO7K9y9FcOUDZOLw0INeA5wePVObuTDtkpQo2l9wNgtBDlesblIIt3y+mvK
+	Dx23qizzgtdEHHk+3Eb3/2Qmu7mzzXJWH9R36sdQiV2SMcQT3ddXaBn6gdG8l4vy4P7Oylf/c/5
+	wVoUvKt8NreBP/G2LctuFM7owDvBm1m+ndv7zzZICkhEHHnDGud4IFP29clCPZVaBhyQmFVITKZ
+	g0WFkO1+bZVJh1uKT/VwHVEeR2xS6d2iYnXs7TvYUSMJ8xdrJ/KcbI5d2Rm9jtmyts1xgbHRF0u
+	mCjkn5CpeV96z1LeX2nVeAEr/B6sFp/NPmBsRpCxzcTklZ1VuQxKMj6grcY5A==
+X-Received: by 2002:a05:690e:1189:b0:667:a95b:59f0 with SMTP id 956f58d0204a3-66c72c826ccmr9003965d50.34.1787018107417;
+        Mon, 17 Aug 2026 18:55:07 -0700 (PDT)
+Received: from tux ([2601:7c0:c37e:2360::6219])
+        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-66cb47a6f8dsm1598940d50.16.2026.08.17.18.55.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Aug 2026 18:55:07 -0700 (PDT)
+From: Ethan Tidmore <ethantidmore06@gmail.com>
+To: Felix Fietkau <nbd@nbd.name>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Shayne Chen <shayne.chen@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Jeremy Yu <chengwei.yu@mediatek.com>,
+	Stella Liu <yu-ching.liu@mediatek.com>
+Cc: linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Ethan Tidmore <ethantidmore06@gmail.com>
+Subject: [PATCH] wifi: mt76: mt7925: Remove useless condition
+Date: Mon, 17 Aug 2026 20:54:40 -0500
+Message-ID: <20260818015440.875703-1-ethantidmore06@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_183238_979262_AE27FFD5 
-X-CRM114-Status: UNSURE (   7.95  )
+X-CRM114-CacheID: sfid-20260817_185510_051716_E51E3877 
+X-CRM114-Status: UNSURE (   9.88  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,172 +108,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git board-r=
-emove
-head:   057394422bc04420585b2790b230d8a1f350ace8
-commit: 9220687cca8bad538843ff5a1a062b10e008e238 [171/217] mfd: tc3589x: re=
-move pdata based probing
-config: alpha-allyesconfig (https://download.01.org/0day-ci/archive/2026081=
-8/202608180816.NQy2zxZG-lkp@intel.com/config)
-compiler: alpha-linux-gcc (GCC) 16.1.0
-reproduce (this is a W=3D1 build): (https://download.01.org/0day-ci/archive=
-/20260818/202608180816.NQy2zxZG-lkp@intel.com/reproduce)
+The condition (master_pref > NAN_MAX_MASTER_PREFERENCE) will always be
+false because the variable 'master_pref' is of type u8 and the macro
+'NAN_MAX_MASTER_PREFERENCE' is equal to 255.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new versio=
-n of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202608180816.NQy2zxZG-lkp@i=
-ntel.com/
+Fixes: a5487a6824068 ("wifi: mt76: mt7925: add NAN MCU helpers")
+Signed-off-by: Ethan Tidmore <ethantidmore06@gmail.com>
+---
+ drivers/net/wireless/mediatek/mt76/mt7925/nan.c | 3 ---
+ 1 file changed, 3 deletions(-)
 
-All warnings (new ones prefixed by >>):
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7925/nan.c b/drivers/net/wireless/mediatek/mt76/mt7925/nan.c
+index d260e803d056..8d13a42b72a8 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7925/nan.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7925/nan.c
+@@ -255,9 +255,6 @@ mt7925_nan_mp_tlv(struct sk_buff *skb, u8 master_pref)
+ 
+ 	mp_tlv = (struct mt7925_nan_master_preference_tlv *)tlv;
+ 
+-	if (master_pref > NAN_MAX_MASTER_PREFERENCE)
+-		return 0;
+-
+ 	mp_tlv->master_preference = master_pref;
+ 
+ 	return 0;
+-- 
+Thanks,
+ET
+https://github.com/sponsors/ethantidmore
 
-   drivers/mfd/tc3589x.c: In function 'tc3589x_of_probe':
-   drivers/mfd/tc3589x.c:335:24: error: returning 'void *' from a function =
-with return type 'int' makes integer from pointer without a cast [-Wint-con=
-version]
-     335 |                 return ERR_PTR(-ENODEV);
-         |                        ^~~~~~~~~~~~~~~~
-   drivers/mfd/tc3589x.c: In function 'tc3589x_probe':
->> drivers/mfd/tc3589x.c:351:37: warning: unused variable 'id' [-Wunused-va=
-riable]
-     351 |         const struct i2c_device_id *id =3D i2c_client_get_device=
-_id(i2c);
-         |                                     ^~
-
-
-vim +/id +351 drivers/mfd/tc3589x.c
-
-a435ae1d51e2f18 drivers/mfd/tc3589x.c Lee Jones        2012-09-07  348 =20
-d28fa288ea50681 drivers/mfd/tc3589x.c Uwe Kleine-K=C3=B6nig 2022-11-18  349=
-  static int tc3589x_probe(struct i2c_client *i2c)
-b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  350  {
-d28fa288ea50681 drivers/mfd/tc3589x.c Uwe Kleine-K=C3=B6nig 2022-11-18 @351=
-  	const struct i2c_device_id *id =3D i2c_client_get_device_id(i2c);
-a435ae1d51e2f18 drivers/mfd/tc3589x.c Lee Jones        2012-09-07  352  	st=
-ruct device_node *np =3D i2c->dev.of_node;
-20406ebff4a298e drivers/mfd/tc3589x.c Sundar Iyer      2010-12-13  353  	st=
-ruct tc3589x *tc3589x;
-a381b13e2aa0641 drivers/mfd/tc3589x.c Linus Walleij    2014-01-23  354  	en=
-um tc3589x_version version;
-9220687cca8bad5 drivers/mfd/tc3589x.c Arnd Bergmann    2026-08-07  355  	un=
-signed int block;
-b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  356  	in=
-t ret;
-b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  357 =20
-9220687cca8bad5 drivers/mfd/tc3589x.c Arnd Bergmann    2026-08-07  358  	re=
-t =3D tc3589x_of_probe(&i2c->dev, &version, &block);
-9220687cca8bad5 drivers/mfd/tc3589x.c Arnd Bergmann    2026-08-07  359  	if=
- (ret)
-9220687cca8bad5 drivers/mfd/tc3589x.c Arnd Bergmann    2026-08-07  360  		r=
-eturn ret;
-a435ae1d51e2f18 drivers/mfd/tc3589x.c Lee Jones        2012-09-07  361 =20
-b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  362  	if=
- (!i2c_check_functionality(i2c->adapter, I2C_FUNC_SMBUS_BYTE_DATA
-b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  363  			=
-	     | I2C_FUNC_SMBUS_I2C_BLOCK))
-b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  364  		r=
-eturn -EIO;
-b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  365 =20
-1383e00f79a7bd6 drivers/mfd/tc3589x.c Jingoo Han       2013-02-20  366  	tc=
-3589x =3D devm_kzalloc(&i2c->dev, sizeof(struct tc3589x),
-1383e00f79a7bd6 drivers/mfd/tc3589x.c Jingoo Han       2013-02-20  367  			=
-	GFP_KERNEL);
-20406ebff4a298e drivers/mfd/tc3589x.c Sundar Iyer      2010-12-13  368  	if=
- (!tc3589x)
-b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  369  		r=
-eturn -ENOMEM;
-b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  370 =20
-20406ebff4a298e drivers/mfd/tc3589x.c Sundar Iyer      2010-12-13  371  	mu=
-tex_init(&tc3589x->lock);
-b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  372 =20
-20406ebff4a298e drivers/mfd/tc3589x.c Sundar Iyer      2010-12-13  373  	tc=
-3589x->dev =3D &i2c->dev;
-20406ebff4a298e drivers/mfd/tc3589x.c Sundar Iyer      2010-12-13  374  	tc=
-3589x->i2c =3D i2c;
-e64c1eb47352d62 drivers/mfd/tc3589x.c Linus Walleij    2013-10-18  375 =20
-a381b13e2aa0641 drivers/mfd/tc3589x.c Linus Walleij    2014-01-23  376  	sw=
-itch (version) {
-e64c1eb47352d62 drivers/mfd/tc3589x.c Linus Walleij    2013-10-18  377  	ca=
-se TC3589X_TC35893:
-e64c1eb47352d62 drivers/mfd/tc3589x.c Linus Walleij    2013-10-18  378  	ca=
-se TC3589X_TC35895:
-e64c1eb47352d62 drivers/mfd/tc3589x.c Linus Walleij    2013-10-18  379  	ca=
-se TC3589X_TC35896:
-e64c1eb47352d62 drivers/mfd/tc3589x.c Linus Walleij    2013-10-18  380  		t=
-c3589x->num_gpio =3D 20;
-e64c1eb47352d62 drivers/mfd/tc3589x.c Linus Walleij    2013-10-18  381  		b=
-reak;
-e64c1eb47352d62 drivers/mfd/tc3589x.c Linus Walleij    2013-10-18  382  	ca=
-se TC3589X_TC35890:
-e64c1eb47352d62 drivers/mfd/tc3589x.c Linus Walleij    2013-10-18  383  	ca=
-se TC3589X_TC35892:
-e64c1eb47352d62 drivers/mfd/tc3589x.c Linus Walleij    2013-10-18  384  	ca=
-se TC3589X_TC35894:
-e64c1eb47352d62 drivers/mfd/tc3589x.c Linus Walleij    2013-10-18  385  	ca=
-se TC3589X_UNKNOWN:
-e64c1eb47352d62 drivers/mfd/tc3589x.c Linus Walleij    2013-10-18  386  	de=
-fault:
-e64c1eb47352d62 drivers/mfd/tc3589x.c Linus Walleij    2013-10-18  387  		t=
-c3589x->num_gpio =3D 24;
-e64c1eb47352d62 drivers/mfd/tc3589x.c Linus Walleij    2013-10-18  388  		b=
-reak;
-e64c1eb47352d62 drivers/mfd/tc3589x.c Linus Walleij    2013-10-18  389  	}
-b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  390 =20
-20406ebff4a298e drivers/mfd/tc3589x.c Sundar Iyer      2010-12-13  391  	i2=
-c_set_clientdata(i2c, tc3589x);
-b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  392 =20
-20406ebff4a298e drivers/mfd/tc3589x.c Sundar Iyer      2010-12-13  393  	re=
-t =3D tc3589x_chip_init(tc3589x);
-b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  394  	if=
- (ret)
-1383e00f79a7bd6 drivers/mfd/tc3589x.c Jingoo Han       2013-02-20  395  		r=
-eturn ret;
-b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  396 =20
-a435ae1d51e2f18 drivers/mfd/tc3589x.c Lee Jones        2012-09-07  397  	re=
-t =3D tc3589x_irq_init(tc3589x, np);
-b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  398  	if=
- (ret)
-1383e00f79a7bd6 drivers/mfd/tc3589x.c Jingoo Han       2013-02-20  399  		r=
-eturn ret;
-b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  400 =20
-20406ebff4a298e drivers/mfd/tc3589x.c Sundar Iyer      2010-12-13  401  	re=
-t =3D request_threaded_irq(tc3589x->i2c->irq, NULL, tc3589x_irq,
-b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  402  			=
-	   IRQF_TRIGGER_FALLING | IRQF_ONESHOT,
-20406ebff4a298e drivers/mfd/tc3589x.c Sundar Iyer      2010-12-13  403  			=
-	   "tc3589x", tc3589x);
-b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  404  	if=
- (ret) {
-20406ebff4a298e drivers/mfd/tc3589x.c Sundar Iyer      2010-12-13  405  		d=
-ev_err(tc3589x->dev, "failed to request IRQ: %d\n", ret);
-1383e00f79a7bd6 drivers/mfd/tc3589x.c Jingoo Han       2013-02-20  406  		r=
-eturn ret;
-b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  407  	}
-b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  408 =20
-9220687cca8bad5 drivers/mfd/tc3589x.c Arnd Bergmann    2026-08-07  409  	re=
-t =3D tc3589x_device_init(tc3589x, block);
-b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  410  	if=
- (ret) {
-611b7590afa6e6c drivers/mfd/tc3589x.c Sundar Iyer      2010-12-13  411  		d=
-ev_err(tc3589x->dev, "failed to add child devices\n");
-1383e00f79a7bd6 drivers/mfd/tc3589x.c Jingoo Han       2013-02-20  412  		r=
-eturn ret;
-b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  413  	}
-b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  414 =20
-b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  415  	re=
-turn 0;
-b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  416  }
-b4ecd326b789f10 drivers/mfd/tc35892.c Rabin Vincent    2010-05-10  417 =20
-
-:::::: The code at line 351 was first introduced by commit
-:::::: d28fa288ea506812ef73980b8c3dc9c39ec8c18b mfd: tc3589x: Convert to i2=
-c's .probe_new()
-
-:::::: TO: Uwe Kleine-K=C3=B6nig <u.kleine-koenig@pengutronix.de>
-:::::: CC: Lee Jones <lee@kernel.org>
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
