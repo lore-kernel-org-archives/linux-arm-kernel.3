@@ -4,64 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DDA2C5DF74
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 02:54:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62739C5B572
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 03:01:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=CU34VfRBGlFPG6xpPnVoxqZtiK8MLBnDhQFkRH1yJgQ=; b=TpQOttLlp1yP9Onje5Tzt+bSTV
-	JUqeUppOnNMj4Pr/rSB8cQhOfHt8rS4qsX2DLAd4bvhEP5hX8haMOP6LBRLdQFaezoFYA5VEa3x4Z
-	Zvi0stQVPcW1zmdEZAAIB/q26ojmNeNjjudJxrP5ucIAiNlOwEOjKxXgs3dbL1iHtSv2zsNorIQLh
-	ODqT5gtrApR1uGX7Iohr8Ysa4yCjra6bJZUEpK8rqTvGYUu2FgfpJdFXi6euOhTNN15C/4AlvAztN
-	A2Fdx4+EzWU+v1J/HjlhkhpPr1vA9tCqoutPXCGHp2KLVPPVBWCRQ2ePa9QBwy82TXOrjqjgAzhFi
-	+g7uZteA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b8DaECQ3JNQpRp/xVNNj6/OuhoV+zn4RSKyoCeMesfU=; b=oLS4rguO+PIAWta3oUT7e24Nzi
+	4sBxLajLSDMNPm6XH/wmXlRzt3FttwXfQEh6PKUWyCKiRFqWoHz1nBbazsFg0dFAPr26g73A48xro
+	kTOMIDmXxA2b8KBq8J+X+xAucEdHEAYl3vVHuU4Sr4ljIC3r778MMxi2eOK2Sip3EcEXT2l9JezM4
+	NIq6jB6Srk5uaZrO9gBTaPdNDQExZ+0aYRpwN6IGCLwAgM+WlSJNW91Li5sZoiom6ibup9Sg5afpo
+	YZtTCofx8Iqwz223KWs2kiWdFKBt6PNfJevBSMFVQ80UYYIEJGXKCRHaUTL8wnccEafLVYkFReIKP
+	5ErphMCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww9xp-000000077Cj-0wyu;
-	Tue, 18 Aug 2026 02:54:09 +0000
-Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
+	id 1wwA4L-000000077Wr-02NO;
+	Tue, 18 Aug 2026 03:00:53 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww9xl-000000077B7-4312
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 02:54:07 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=CU34VfRBGlFPG6xpPnVoxqZtiK8MLBnDhQFkRH1yJgQ=;
-	b=x/ehyKsBnfHsPIgDHao7JuTumCE6PmOm7tqvq3HjDH3frmAvGUWA/nhr4qsoopp6YtWE2yCaI
-	ItEYfcRKg7jJ5uyiklLZtw7KHMOIzRLJwhXsZ3t8jkVrCRY+Zlu4b1t0FMjPGIr00kGJy8r8wqn
-	THLYghC54P9Bfd1TfixqfD0=
-Received: from mail.maildlp.com (unknown [172.19.162.140])
-	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4hPDXN4P07z1prKd;
-	Tue, 18 Aug 2026 10:43:16 +0800 (CST)
-Received: from kwepemr200004.china.huawei.com (unknown [7.202.195.241])
-	by mail.maildlp.com (Postfix) with ESMTPS id 29C7B20104;
-	Tue, 18 Aug 2026 10:53:59 +0800 (CST)
-Received: from huawei.com (10.50.163.32) by kwepemr200004.china.huawei.com
- (7.202.195.241) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 18 Aug
- 2026 10:53:58 +0800
-From: Pengjie Zhang <zhangpengjie2@huawei.com>
-To: <xuwei5@huawei.com>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-CC: <linuxarm@huawei.com>, <zhanjie9@hisilicon.com>, <lihuisong@huawei.com>
-Subject: [PATCH] Documentation: ABI: kunpeng_hccs: update the Contact
-Date: Tue, 18 Aug 2026 10:53:58 +0800
-Message-ID: <20260818025358.1408963-1-zhangpengjie2@huawei.com>
-X-Mailer: git-send-email 2.33.0
+	id 1wwA4I-000000077WK-3beS;
+	Tue, 18 Aug 2026 03:00:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id DC2E642A9A;
+	Tue, 18 Aug 2026 03:00:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id BB7E2C2BCF6;
+	Tue, 18 Aug 2026 03:00:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1787022049;
+	bh=lN8gr0eID1lGrFTTNUIMwNSjyBOb3TsnREZbiNkECnI=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=PCg+PM7Wu34xP4J6pU+hUNvIEVAclWRTyQ35wJ2I8BJphLNlnrQ19zTlMmSrRMo7Z
+	 mcspFGeJhVb549bJfvEPONTECS5gsFq4Fa2atgbHYjiT7cxTj0n169oLzL7PV8+Jy8
+	 LYp5q4FGeY6AH8uTCmRloQcLCkxjWupaE0RqSaq70WK4+ncD6YHTV8Sn5bNYBqGEVY
+	 czgUiCY/AFwl47Y2epxQodJS8RymI0y3JX9DgEduVLAlNNwjHFJqq++DyRwSkxdMn3
+	 l2xRjBRSFv1bdD9hwROctuH7wKekAzUIK4ga3ZSP079AihIEVsjDb9lxQSaQh9PILE
+	 DUzGWhKMzOi/A==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id A8F4EC5DF74;
+	Tue, 18 Aug 2026 03:00:49 +0000 (UTC)
+From: George Maraveyas via B4 Relay <devnull+george.0xfff.gmail.com@kernel.org>
+Date: Tue, 18 Aug 2026 04:55:21 +0200
+Subject: [PATCH RFC 2/2] Bluetooth: mt7925: recover subsystem-reset timeout
+ through USB re-enumeration
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.50.163.32]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemr200004.china.huawei.com (7.202.195.241)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_195406_367465_06940042 
-X-CRM114-Status: UNSURE (   9.78  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260818-mt7925-rfc-v1-2-284d856ac572@gmail.com>
+References: <20260818-mt7925-rfc-v1-0-284d856ac572@gmail.com>
+In-Reply-To: <20260818-mt7925-rfc-v1-0-284d856ac572@gmail.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Marcel Holtmann <marcel@holtmann.org>, 
+ Luiz Augusto von Dentz <luiz.dentz@gmail.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-bluetooth@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, 
+ George Maraveyas <george.0xfff@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1787022047; l=5329;
+ i=george.0xfff@gmail.com; s=20260818; h=from:subject:message-id;
+ bh=tw21DpwflFbWWZ7xCtmAWfoLs4aafF589lcKdxB+wGk=;
+ b=Ix8UDLUTd3fPtF4Fj9V9Qd5tWoAqB0bL7oV7Wy8yEsyle2hgNl34XqyvZ4pF2vAGU+VqagctJ
+ 6n8FspmR5/4CqOkdPqZG3dZEfv488nXnL9APzijyoGt5lNuJYL0VPI/
+X-Developer-Key: i=george.0xfff@gmail.com; a=ed25519;
+ pk=Jz8kMnumjUlo1GJvJ5kdfkF3ZP8DjPbYaYQR5J8IHMI=
+X-Endpoint-Received: by B4 Relay for george.0xfff@gmail.com/20260818 with
+ auth_id=960
+X-Original-From: George Maraveyas <george.0xfff@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,66 +85,149 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: george.0xfff@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update the Contact for the kunpeng_hccs sysfs interfaces.
+From: George Maraveyas <george.0xfff@gmail.com>
 
-Signed-off-by: Pengjie Zhang <zhangpengjie2@huawei.com>
+The MT7925 Bluetooth controller on an ASUS ROG Strix B850-I Gaming WiFi
+can remain unusable after a warm reboot even though its USB function
+initially enumerates normally.
+
+The Bluetooth USB function on the test system is:
+
+  idVendor=13d3, idProduct=3602
+  Manufacturer: MediaTek Inc.
+  Product: Wireless_Device
+
+The problem was reproduced with ASUS motherboard BIOS versions 1644 and
+1681.  Updating from BIOS 1644 to 1681 did not change the failure.
+
+The Bluetooth firmware reported during testing was:
+
+  HW/SW Version: 0x00000000
+  Build Time: 20260605184935
+
+A typical Windows 11-to-Linux failure is:
+
+  1. The MT7925 USB function enumerates as 13d3:3602.
+  2. Bluetooth setup begins.
+  3. The WMT function-control command times out with -ETIMEDOUT (-110).
+  4. The existing MediaTek reset work runs.
+  5. btmtk_usb_subsys_reset() also times out.
+  6. Resetting the existing usb_device does not recover the controller.
+
+The relevant log contains:
+
+  Bluetooth: hci0: Execution of wmt command timed out
+  Bluetooth: hci0: Failed to send wmt func ctrl (-110)
+  Bluetooth: hci0: MT7925 WMT func ctrl timed out (dev_id=0x7925), scheduling device reset
+  Bluetooth: hci0: Failed to read uhw reg(-110)
+
+The WMT timeout handling and scheduling of the MediaTek reset already
+exist before this change.  This patch begins later, inside
+btusb_mtk_reset(), after btmtk_usb_subsys_reset() has returned.
+
+The existing path calls btmtk_usb_subsys_reset() and then queues
+usb_queue_reset_device().  On the affected MT7925 the subsystem reset
+returns -ETIMEDOUT, and resetting the existing usb_device does not recover
+the controller.
+
+After btmtk_usb_subsys_reset() returns, check for an MT7925 device and an
+-ETIMEDOUT result.  When both conditions are present, request
+re-enumeration through usb_queue_reenumerate_device(), added by Patch 1.
+
+If the re-enumeration request is queued successfully, clear
+BTMTK_HW_RESET_ACTIVE and return the original subsystem-reset error.  If
+the request cannot be queued, report the error and continue into the
+existing usb_queue_reset_device() path.
+
+Other MediaTek devices and MT7925 reset results other than -ETIMEDOUT
+continue to use the existing recovery path unchanged.
+
+The re-enumeration request gives the MT7925 another chance to go through
+normal USB enumeration via the helper in Patch 1, which does this.  This
+patch calls that helper when the MT7925 subsystem reset has timed out.
+
+Chia-Lin Kao's preceding _PRR patch is required for the port recovery
+used on this machine.  Re-enumeration does not itself request a port
+power-cycle or an ACPI _PRR reset.  If the re-enumerated device continues
+to fail during enumeration, the existing hub retry path can reach its
+port power-cycle, where the _PRR prerequisite supplies the ACPI reset.
+
+The _PRR prerequisite does not fix this failure by itself because the
+first USB enumeration has already succeeded before the WMT timeout and
+subsequent subsystem-reset timeout occur.
+
+A representative successful recovery was:
+
+  Bluetooth: hci0: MT7925 subsystem reset timed out, requesting USB re-enumeration
+  usb 1-11: USB disconnect, device number 4
+  usb 1-11: device descriptor read/64, error -110
+  usb 1-11: device descriptor read/64, error -110
+  usb usb1-port11: attempt power cycle
+  usb 1-11: New USB device found, idVendor=13d3, idProduct=3602
+
+Three Windows 11-to-Linux warm restart tests recovered successfully with
+this series.  The observed average interval from the initial WMT timeout
+to successful Bluetooth setup was about 70.9 seconds.
+
+Bluetooth remains unavailable during most of this interval, so recovery
+should not be expected immediately after usb_queue_reenumerate_device()
+is called.
+
+Signed-off-by: George Maraveyas <george.0xfff@gmail.com>
 ---
- .../ABI/testing/sysfs-devices-platform-kunpeng_hccs    | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+ drivers/bluetooth/btmtk.c |  4 ++++
+ drivers/bluetooth/btusb.c | 16 ++++++++++++++++
+ 2 files changed, 20 insertions(+)
 
-diff --git a/Documentation/ABI/testing/sysfs-devices-platform-kunpeng_hccs b/Documentation/ABI/testing/sysfs-devices-platform-kunpeng_hccs
-index d1b3a95a5518..70853468f0f7 100644
---- a/Documentation/ABI/testing/sysfs-devices-platform-kunpeng_hccs
-+++ b/Documentation/ABI/testing/sysfs-devices-platform-kunpeng_hccs
-@@ -3,7 +3,7 @@ What:		/sys/devices/platform/HISI04Bx:00/chipX/linked_full_lane
- What:		/sys/devices/platform/HISI04Bx:00/chipX/crc_err_cnt
- Date:		November 2023
- KernelVersion:	6.6
--Contact:	Huisong Li <lihuisong@huawei.com>
-+Contact:	Pengjie Zhang <zhangpengjie2@huawei.com>
- Description:
- 		The /sys/devices/platform/HISI04Bx:00/chipX/ directory
- 		contains read-only attributes exposing some summarization
-@@ -26,7 +26,7 @@ What:		/sys/devices/platform/HISI04Bx:00/chipX/dieY/linked_full_lane
- What:		/sys/devices/platform/HISI04Bx:00/chipX/dieY/crc_err_cnt
- Date:		November 2023
- KernelVersion:	6.6
--Contact:	Huisong Li <lihuisong@huawei.com>
-+Contact:	Pengjie Zhang <zhangpengjie2@huawei.com>
- Description:
- 		The /sys/devices/platform/HISI04Bx:00/chipX/dieY/ directory
- 		contains read-only attributes exposing some summarization
-@@ -54,7 +54,7 @@ What:		/sys/devices/platform/HISI04Bx:00/chipX/dieY/hccsN/lane_mask
- What:		/sys/devices/platform/HISI04Bx:00/chipX/dieY/hccsN/crc_err_cnt
- Date:		November 2023
- KernelVersion:	6.6
--Contact:	Huisong Li <lihuisong@huawei.com>
-+Contact:	Pengjie Zhang <zhangpengjie2@huawei.com>
- Description:
- 		The /sys/devices/platform/HISI04Bx/chipX/dieX/hccsN/ directory
- 		contains read-only attributes exposing information about
-@@ -83,7 +83,7 @@ Description:
- What:		/sys/devices/platform/HISI04Bx:00/used_types
- Date:		August 2024
- KernelVersion:	6.12
--Contact:	Huisong Li <lihuisong@huawei.com>
-+Contact:	Pengjie Zhang <zhangpengjie2@huawei.com>
- Description:
- 		This interface is used to show all HCCS types used on the
- 		platform, like, HCCS-v1, HCCS-v2 and so on.
-@@ -93,7 +93,7 @@ What:		/sys/devices/platform/HISI04Bx:00/dec_lane_of_type
- What:		/sys/devices/platform/HISI04Bx:00/inc_lane_of_type
- Date:		August 2024
- KernelVersion:	6.12
--Contact:	Huisong Li <lihuisong@huawei.com>
-+Contact:	Pengjie Zhang <zhangpengjie2@huawei.com>
- Description:
- 		These interfaces under /sys/devices/platform/HISI04Bx/ are
- 		used to support the low power consumption feature of some
+diff --git a/drivers/bluetooth/btmtk.c b/drivers/bluetooth/btmtk.c
+index 66b346761..e8f02f1e3 100644
+--- a/drivers/bluetooth/btmtk.c
++++ b/drivers/bluetooth/btmtk.c
+@@ -1413,6 +1413,10 @@ int btmtk_usb_setup(struct hci_dev *hdev)
+ 		err = btmtk_usb_hci_wmt_sync(hdev, &wmt_params);
+ 		if (err < 0) {
+ 			bt_dev_err(hdev, "Failed to send wmt func ctrl (%d)", err);
++
++			if (dev_id == 0x7925 && err == -ETIMEDOUT)
++				btmtk_reset_sync(hdev);
++
+ 			return err;
+ 		}
+ 
+diff --git a/drivers/bluetooth/btusb.c b/drivers/bluetooth/btusb.c
+index 2bae85b00..5b56c26de 100644
+--- a/drivers/bluetooth/btusb.c
++++ b/drivers/bluetooth/btusb.c
+@@ -2943,6 +2943,22 @@ static int btusb_mtk_reset(struct hci_dev *hdev, void *rst_data)
+ 
+ 	err = btmtk_usb_subsys_reset(hdev, btmtk_data->dev_id);
+ 
++	if (btmtk_data->dev_id == 0x7925 && err == -ETIMEDOUT) {
++		int reenum_err;
++
++		bt_dev_warn(hdev,
++			    "MT7925 subsystem reset timed out, requesting USB re-enumeration");
++
++		reenum_err = usb_queue_reenumerate_device(data->intf);
++		if (!reenum_err) {
++			clear_bit(BTMTK_HW_RESET_ACTIVE, &btmtk_data->flags);
++			return err;
++		}
++
++		bt_dev_err(hdev, "Failed to queue USB re-enumeration (%d)",
++			   reenum_err);
++	}
++
+ 	usb_queue_reset_device(data->intf);
+ 	clear_bit(BTMTK_HW_RESET_ACTIVE, &btmtk_data->flags);
+ 
+
 -- 
-2.33.0
+2.53.0
+
 
 
