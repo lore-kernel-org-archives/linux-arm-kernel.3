@@ -4,84 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A24D0C5B572
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 01:19:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFDADC5DF70
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 01:22:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	MIME-Version:Content-Type:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mfkLuSdmwN1ckqZLOyJ0ADFIrM3kNuRenkgg7slseYo=; b=vLlNpY0n2Jww4mFOndXyHsJQEi
-	hujB2blzXb5t9Ornri3nYEM+/3Qmzr5IoAyHCEj1BJpOBhAl95UjNJQxlbQyFZtrT/APHfDaHI6G0
-	9UEy0H/1n7xlPLZBRUxTKkqU0/hFFXAmPlNRKcqPdzqKz0sateBNnoU7jEN3TzMrqultWx0BNBv59
-	ZU/Y43vh13JtM0UFuafzb55rv5zVyfn1SNEqzQ3V99vR4NPlPrYgQOqt3ieIV1pcaU8tQW4lT/Edi
-	sX8BHpF1lRk59zPY+6IdbPPilRJJ9s5gb2NRUFvY/WW/aOyoaNTGh3nY9x7M6PeUHjYNhlLW/jZVG
-	JtEGUwJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/pUf4UguUZ3PrCyGaWpk3YN1u32lpacWG/svSkNXjuw=; b=QhUoOVaysKvsFhj+6b1VlTP3hK
+	P/CzHCp7GiCyqBlxi8EGGD+4Fyokc1eT4nVJCKF3rd9o+0rWd4swmdzoAg+cQIK7q3ACcH+6wB0h4
+	+vDjZl/dM8uXky+4szTVpjcwVSlDCMaVKqd+PPj0rnuzAX1fiTiH31itRAG67v7I0OrjYnPixVU8R
+	ftobIkYLUfzDzqyRlyGYJLyAtLcf7/MXz9Z9ZPUYreKlkDWFVaQL35KCvmrdF6ntqrNrUxM78g3B4
+	yZG2ESu06EhJgcUBiQ7HDdeuZwVP7yKOeYrNayZOCV7JJgmhmndf/EW0Bec1th/lHS0SgVoVyB7kn
+	dwIcvgqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww8UK-000000073Fv-16nr;
-	Tue, 18 Aug 2026 01:19:36 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1ww8XF-000000073Ov-39ca;
+	Tue, 18 Aug 2026 01:22:37 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ww8UH-000000073FC-1Ab8
+	id 1ww8XD-000000073OY-3P2C
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 01:19:34 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-84847482584so378592b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Aug 2026 18:19:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1787015972; x=1787620772; darn=lists.infradead.org;
-        h=references:in-reply-to:mime-version:content-type:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=mfkLuSdmwN1ckqZLOyJ0ADFIrM3kNuRenkgg7slseYo=;
-        b=MOXmeJV0igmKdukikiDrKgo+0qX/0MCZkIbwD2rxxdBA1A8Wl+7lySvtmJZCmFjj+8
-         +wSmyJOFL6s/RYBWUn2ITjwxhJUxJo73wNJc/uRKI7XwipzHkLZm5oa8+80wf4CO3Gbe
-         sG5ACzyRi90/rRoR3fxsFSUN/PyCqwjpfZap4nybaDjRn2On3xI+BT2GieElF0HXuR/b
-         D3N+AjR7J/XWdDuVVr99qJsBXOthFJhtAf/O7ElCa6pwPujxm28bXab1GOEU8pRvEk5N
-         Md85uKD8VImilEYKGzti8CEA9JtaN9KlUNHDpO8pOJL82QFRbw4f3VftUKDZJdJH2Cuq
-         rKcQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787015972; x=1787620772;
-        h=references:in-reply-to:mime-version:content-type:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=mfkLuSdmwN1ckqZLOyJ0ADFIrM3kNuRenkgg7slseYo=;
-        b=s2cL1xPoRxrOwzfvGTsS7vIsh2HCjyyoNpJ3KYbts80OrPNS4NMafKNDjsAnzoiSWR
-         0Skwo/lf0xJK6rJg/oJyCPKRg7Y1jfHQq24egk6E/Cr2dOK3g07tzPEBLrrtRP+NQOh6
-         /Av/WdQn5AO8OkczNPyRR3+zYm6ra6aL5czAqY1OsLYi3dLlbObZ20qyYBtK48Wh3sEh
-         UEoptKoAvvFzB8bPsas9yBIoWDXY+ddZQGGd996vJoev6VWtnTMQ18ZAvZjXN1U8VO+y
-         FvxiZ8r/39nMmzItIzQdmLwz/evWXQQbtKhphNGgKqq/mormeK9blZPVSIYHEcW/1uoO
-         I9GA==
-X-Forwarded-Encrypted: i=1; AHgh+Rq/xP04oybZSYffwC2GHREJrFgQGYgVHJxLeUmItlSAWBkPWcSI3J0RS/JIA315EZnuUpvkXlGkeMN616nbsXpV@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx7GX9xWRW5itOx+9uDHtjAApLzQqDa73mZBQtoVjh0edXkrCsv
-	Gqt0oH0H+YglU1+bn0v5NJ6gFqAH7NRE+ktgo/y9fyqPpIFfC0YV4UUa
-X-Gm-Gg: AR+sD11JeN/aj45aCb+5V0OSupF/LH4cL4ob3T2g9eKzAlIBQFl2Z1p/kaBVdlAAxBo
-	8+5aEUWCGSVL2RCFSETKGHPvBRW1Q9RrWy/NiBIgOAn7L1ptxl6WT05ac3hO2uTP/j4i7s05UEK
-	vl1yqnIqRuQSN49nsXS93RzFJF7yOsnD7ITBsgx0gBOrAIUVwHkmsOlCY3McR/0XHu3LKXcbPBj
-	TJQIEyV5x7f3MIn3beLQJ29KfK9f+KpunKtfxiu6ivbitW5zA5VI4qBlG9fAGTBdYxhcjsGD1ew
-	s0Tl47Zm4oC67/JLF5QJvL/ccPK/yt82UcIuYzcyolBmYnbmH4O96hZQT8Sa9oT0gKwUMRmYzJ/
-	2M6Lhgvy53zFxWgHLbbgak3r3fUO7sCxVPOUySD+Xzj+QzTh5ztpn9Zm5HufLcGR6G4CkvQH5JW
-	MBFGiyf7Im+8Z3iW0wCi4B2N3VqkVDl+TVydjTP30IKOI/eDBe/zfGxA==
-X-Received: by 2002:a05:6a00:ba8e:b0:848:52bf:4296 with SMTP id d2e1a72fcca58-851bc3ccf5fmr2527196b3a.15.1787015972070;
-        Mon, 17 Aug 2026 18:19:32 -0700 (PDT)
-Received: from [127.0.1.1] ([47.253.114.73])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-851b3d1099esm1196713b3a.0.2026.08.17.18.19.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Aug 2026 18:19:31 -0700 (PDT)
-From: Wayen Yan <win847@gmail.com>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>, Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, mfd@lists.linux.dev, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v20 04/10] mfd: an8855: Add support for Airoha AN8855 Switch
-Date: Tue, 18 Aug 2026 09:19:25 +0800
-Message-ID: <178701596581.1096543.14003915779643840966@gmail.com>
-Content-Type: text/plain; charset=utf-8
+	Tue, 18 Aug 2026 01:22:35 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id CF8CB600C8;
+	Tue, 18 Aug 2026 01:22:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C2D51F000E9;
+	Tue, 18 Aug 2026 01:22:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1787016154;
+	bh=/pUf4UguUZ3PrCyGaWpk3YN1u32lpacWG/svSkNXjuw=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=Ep4N8HNGX0IulE1edNrTiyQPY+wl0f73rm4kFGNm8AsLynlQgprSN+T/+rEX6Hb3C
+	 gOeTY0Vyb+xDiAn2jlyfzpLqFJIEtMUtfNxLLF18WK7dlkuhXS5GnkN55OAZDNAF5U
+	 1ozrWEnF2lTPLcUDD7rA3edkIZzsWRYoYwbtX5kzQZKbfByiFTv582Yz2uviMptD3A
+	 X7FCm5VCrdRzTX8DmzFlXuPXUxLkmAL/Cc43hhh+T4RSejy+Nvl1up2DoQQqp7o6UU
+	 Ai2yODCnZR2x02Q+pnYh9dMrttoRj+Lc3qHb20FvWLwvYWsCfp2d5pFtYUqXV3jaBt
+	 1ZRGAr5/cYtfA==
+From: Jakub Kicinski <kuba@kernel.org>
+To: PKneuper@dspace.de
+Cc: Jakub Kicinski <kuba@kernel.org>,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	rmk+kernel@armlinux.org.uk,
+	maxime.chevallier@bootlin.com,
+	0x1207@gmail.com,
+	si.yanteng@linux.dev,
+	larysa.zaremba@intel.com,
+	aleksander.lobakin@intel.com,
+	netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	DBaldin@dspace.de
+Subject: Re: [PATCH net] net: stmmac: restore NET_IP_ALIGN in the non-XDP RX path
+Date: Mon, 17 Aug 2026 18:22:17 -0700
+Message-ID: <20260818012216.3825070-2-kuba@kernel.org>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260813092923.284285-1-PKneuper@dspace.de>
+References: <20260813092923.284285-1-PKneuper@dspace.de>
 MIME-Version: 1.0
-In-Reply-To: <20260817082034.20326-6-ansuelsmth@gmail.com>
-References: <20260817082034.20326-1-ansuelsmth@gmail.com> <20260817082034.20326-6-ansuelsmth@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260817_181933_326812_ECF3C8F3 
-X-CRM114-Status: GOOD (  12.20  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,62 +84,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Christian,
+This is an AI-generated review of your patch. The human sending this
+email has considered the AI review valid, or at least plausible.
+---
+net: stmmac: restore NET_IP_ALIGN in the non-XDP RX path
 
-I noticed a possible MDIO bus locking issue in
-an8855_core_probe().
+This adds NET_IP_ALIGN back to the RX DMA offset returned by
+stmmac_rx_offset() for the non-XDP case, so that the page pool page handed
+to the stack as the skb head places the IP header at a 4-byte aligned
+address again. Without it, ARM32 takes an alignment exception in
+icmp_echo() for any received echo request.
 
-The helper an8855_mii_set_page() is declared as:
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index a71f0df263785..2a57415be25cf 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -1529,7 +1529,7 @@ static unsigned int stmmac_rx_offset(struct stmmac_priv *priv)
+>  	if (stmmac_xdp_is_enabled(priv))
+>  		return XDP_PACKET_HEADROOM;
+>  
+> -	return NET_SKB_PAD;
+> +	return NET_SKB_PAD + NET_IP_ALIGN;
+>  }
 
-static int an8855_mii_set_page(struct an8855_core_priv *priv,
-                               u8 addr, u8 page)
-        __must_hold(&priv->bus->mdio_lock)
+[Severity: High]
+Should the XDP branch of stmmac_rx_offset() get the same treatment?
 
-and uses __mdiobus_write(). The latter requires the caller to hold
-bus->mdio_lock and checks this with lockdep_assert_held_once().
+When an XDP program is attached, stmmac_rx_offset() returns bare
+XDP_PACKET_HEADROOM (256) with no NET_IP_ALIGN, and an XDP_PASS packet goes
+to the stack through exactly the code this patch is fixing, in stmmac_rx():
 
-The other callers of an8855_mii_set_page() correctly hold the MDIO bus
-lock, for example:
+	skb = napi_build_skb(page_address(buf->page),
+			     rx_q->napi_skb_frag_size);
+	...
+	/* XDP program may adjust header */
+	head_pad_len = ctx.xdp.data - ctx.xdp.data_hard_start;
+	skb_reserve(skb, head_pad_len);
+	skb_put(skb, buf1_len);
 
-        mutex_lock_nested(&bus->mdio_lock, MDIO_MUTEX_NESTED);
-        ret = an8855_mii_set_page(priv, addr, page);
-        ...
-        mutex_unlock(&bus->mdio_lock);
+For a program that returns XDP_PASS without touching the head, head_pad_len
+is 256, so the Ethernet header starts at 256, the IP header at 270 and the
+ICMP or TCP header at 290:
 
-However, an8855_core_probe() calls the same helper directly:
+	290 % 4 == 2
 
-        ret = an8855_mii_set_page(priv, priv->switch_addr,
-                                  AN8855_PHY_PAGE_STANDARD);
+which is the same 2 mod 4 misalignment class as the 98 in the reported
+crash, so the icmp_echo() panic quoted in the commit message looks
+reproducible on the same board by attaching an XDP_PASS program.
 
-The MDIO device probe path does not hold bus->mdio_lock around the
-driver's probe callback. Therefore this call can trigger the lockdep
-assertion, and the MDIO page-select write is not protected by the MDIO
-bus lock against concurrent accesses to the same bus.
+The 2021 commit a955318fe67e ("stmmac: align RX buffers") cited in the
+commit message changed both returns (XDP_PACKET_HEADROOM + NET_IP_ALIGN as
+well); here only one return changes, leaving the two branches of the same
+helper with different alignment guarantees.
 
-Could this be changed to take the bus lock around the call, for example:
+Page pool sizing is derived from stmmac_rx_offset() for both branches in
+__alloc_dma_rx_desc_resources():
 
-        mutex_lock(&priv->bus->mdio_lock);
-        ret = an8855_mii_set_page(priv, priv->switch_addr,
-                                  AN8855_PHY_PAGE_STANDARD);
-        mutex_unlock(&priv->bus->mdio_lock);
-        if (ret)
-                return ret;
+	dma_buf_sz_pad = stmmac_rx_offset(priv) + dma_conf->dma_buf_sz +
+			 SKB_DATA_ALIGN(sizeof(struct skb_shared_info));
+	num_pages = DIV_ROUND_UP(dma_buf_sz_pad, PAGE_SIZE);
 
-Alternatively, if there is a reason why the probe path is serialized by
-another mechanism, it would be useful to document that assumption and
-annotate the call accordingly.
+so wouldn't the extra two bytes be accounted for in the XDP case too?
 
-I don't think changing an8855_mii_set_page() to use mdiobus_write() would
-be appropriate, since the helper is also called by paths that already
-hold mdio_lock; that could result in recursive locking. Keeping the
-helper as an unlocked MDIO primitive with an explicit locking contract
-seems reasonable, but the probe caller appears to need the missing lock.
+If the intent is to fix only the non-XDP configuration, could the commit
+message say so explicitly, since stable backporters and anyone running XDP
+on ARM32 would still hit the panic?
 
-This is a discussion and fix suggestion rather than a request to redesign
-the series. Please let me know if I am missing an existing serialization
-guarantee in the MDIO device probe path.
-
-Thanks,
-Wayen
-
+Cross-instance finding from sashiko-gemini (bb586704729c8cac27b6f004c29082ebde7dad94593b943d82d5139137628cdb):
+[Severity: Critical]
+Hardware DMA address truncation and silent packet corruption due to unaligned RX offset.
+-- 
+pw-bot: cr
 
