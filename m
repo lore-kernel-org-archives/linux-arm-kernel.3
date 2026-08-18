@@ -4,59 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCACAC5DF74
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 14:58:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20CEFC5DF7D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 15:05:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UAkcgdEMwmE9sdUoY4qewo8s31VVAONo66F8/bIGiz8=; b=l/hl0UqOe+u48U8pspBLKOEnzj
-	xC1lA0koCJ1GQce+LDv8ty9YjjGMwiHMXaN59zUiYkjT3wCa4C0N3Tq9jPN6l0nthu8rVG6zhpsNB
-	59AlYakVRT3PAbEjk58smFFkZ0W5AQt2ZDCrK86XqQXJhgUXorJDL2Cfq7BF1Ti0dD+AA7nyR3Boj
-	kqRlfkYlDbV4S5blDqKYZqqMi8YjKrGdDIG9xRbvGsC9bJ1WNo2GxSs6YZlHhv7pfmwM7YLPZziVj
-	CAK6ryL/4jqYCd5t/hcqlF0Ip4SMEesIHysWsz3tLRBSLPcyP9iLz/15IhLKiS7SmOXHr9i8X/5IV
-	vO+XxBfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QMF/k00A+M1XHfFhX1jiXE4OeuC5rRDr4p+usN3kA9s=; b=CCIJF+ndycWpyUa1Vk0RVKp6HP
+	Iqmsux0sIZ+5zYHNsE4wzCZp9MgjNp5shtX9YlCqC2Uw8ydObyKd41wltHz3AHxnd+Wu5TISyyOjb
+	/YS2L587JKyfV6HTFRuQ46GRXaDRasAJ0WkZ8jwfOU/fQ+ibWqlohJoqUT5HZKuZK2kVfrkhMQk5P
+	xTDi16LuiqvvUwiKCXu3SYmhrPqy/NuUGLWQdkn4JX5Mn38zMG1rq9ZN4UhEs9K4wjCMXmwt+JF+Q
+	3JOL74oHNoaBBaRX2AMQ4c2Ddlg76KiGDm3vtk87CA8+ZJidb+cPoSe0lfzwx6yPwpC3Uxv20Ps+0
+	4WUB6xVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwLGb-00000008DDC-44LP;
-	Tue, 18 Aug 2026 14:58:17 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wwLN0-00000008Dpl-379D;
+	Tue, 18 Aug 2026 15:04:54 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwLGa-00000008DCT-2Lmu;
-	Tue, 18 Aug 2026 14:58:16 +0000
+	id 1wwLMz-00000008Dpc-0OKj
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 18 Aug 2026 15:04:53 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 53A9C4120F;
-	Tue, 18 Aug 2026 14:58:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95E6D1F000E9;
-	Tue, 18 Aug 2026 14:58:15 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 221BF601DE;
+	Tue, 18 Aug 2026 15:04:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67F961F000E9;
+	Tue, 18 Aug 2026 15:04:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787065096;
-	bh=UAkcgdEMwmE9sdUoY4qewo8s31VVAONo66F8/bIGiz8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=gxm/qsLK/jepvvBrLNu7hBTqsLfuIpD3GgIpFs5cidsKSl9iPBEXZog8OZYQsXY4/
-	 HwnDymvczFtUEK1rgDO8omopD4PnogHS32yDGzgtzSOT5E4Eq9OXELNvGCthAKexy2
-	 vdaYJLYqFO6jDEKAXxejuNgqFeLGZFhPMzagzItcGeteDH38JflsP3t7t/y4WzfmXg
-	 1zDgjpbseESHdmjKdhpXbLO3FyWh5H5mPgPTwdXK5XH+pXg5cE+bhUrNT/W0VgawSs
-	 3P7Tfekl7c0Ca6LSTRFrDC54h6AjAwd23jzOKfipgpb0tbc243/16jyJXwLImmtflH
-	 DMYWhOXQDK8Iw==
-Date: Tue, 18 Aug 2026 16:58:13 +0200
-From: Andi Shyti <andi.shyti@kernel.org>
-To: zhaohaiyang1 <yewentian395@gmail.com>
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>, 
-	bcm-kernel-feedback-list@broadcom.com, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, linux-i2c@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	zhaohaiyang1 <zhaohaiyang1@xiaomi.com>
-Subject: Re: [PATCH] i2c: bcm2835: add missing braces to for loop in
- bcm2835_i2c_xfer
-Message-ID: <aoRysYp25Ni4jMaL@zenone.zhora.eu>
-References: <20260817130234.372628-1-yewentian395@gmail.com>
+	s=k20260515; t=1787065491;
+	bh=QMF/k00A+M1XHfFhX1jiXE4OeuC5rRDr4p+usN3kA9s=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=Sg45YUpY84v7AXDKtFlfxy1T2WdMBO8FkrFLsQndraP3QcfVMoQdgkIh9s0PCSKGl
+	 IB+zjlvbby2cq5ZrsMufkYSD291FftX/t92jtRhM/52nV7ArGelIpte+mGJtBl9ccD
+	 SpzdutzUfPWvn547irtkpDhZNNBVtQ8oq+9AgBVbR7XfFczHAEwCIeV4CR2be5ycAQ
+	 ZEx8n45zUgUGx7/hTwt2Gnt9FdXeOuGdeRuOpwNF+I222+Sl+Oj84i8nYgUcBIU2cq
+	 pKM0DL8qXKUg+xsGwl8QyJEbW354dJ5Hl5DRDq8B4waETfX/JmB5ogn7eSopDbsCbU
+	 DNhjC3xqDpxvg==
+Date: Tue, 18 Aug 2026 08:04:50 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Zxyan Zhu <zxyan0222@gmail.com>
+Cc: maxime.chevallier@bootlin.com, mcoquelin.stm32@gmail.com,
+ alexandre.torgue@foss.st.com, andrew+netdev@lunn.ch,
+ richardcochran@gmail.com, davem@davemloft.net, edumazet@google.com,
+ pabeni@redhat.com, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ muhammad.nazim.amirul.nazle.asmade@altera.com
+Subject: Re: [PATCH net-next v3 0/2] net: stmmac: dwxgmac2: timestamp
+ interrupt + Agilex5 fix
+Message-ID: <20260818080450.7e010425@kernel.org>
+In-Reply-To: <20260818132722.1852876-1-zxyan0222@gmail.com>
+References: <20260818132722.1852876-1-zxyan0222@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260817130234.372628-1-yewentian395@gmail.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,49 +74,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Tue, 18 Aug 2026 21:27:20 +0800 Zxyan Zhu wrote:
+> This series adds auxiliary snapshot (EXTTS) interrupt support to
+> DWXGMAC2/DWXLGMAC2 and fixes a regression it would introduce on the
+> Agilex5 cross-timestamp path.
 
-On Mon, Aug 17, 2026 at 09:02:34PM +0800, zhaohaiyang1 wrote:
-> From: zhaohaiyang1 <zhaohaiyang1@xiaomi.com>
-> 
-> Add curly braces around the multi-statement body of the for loop
-> that checks for unsupported read messages. This fixes a coding
-> style issue where the compound statement lacked explicit braces.
+## Form letter - net-next-closed
 
-it's not a multi statement body, if you look very carefully from
-closer, there is only one single solitary 'if' statement.
+The merge window for v7.3 has started, and therefore net-next is closed
+for new drivers, features, code refactoring and optimizations.
+We will only consider applying net-next patches which were posted
+before the announcement:
 
-> Signed-off-by: zhaohaiyang1 <zhaohaiyang1@xiaomi.com>
+https://lore.kernel.org/20260816155953.072d73da@kernel.org
 
-Please next time use your real name here.
+Fixes are obviously welcome at any time. net-next patches may be sent
+for review and discussion only with an RFC tag.
 
-Thanks,
-Andi
+Please repost when net-next reopens.
 
-> ---
->  drivers/i2c/busses/i2c-bcm2835.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/i2c/busses/i2c-bcm2835.c b/drivers/i2c/busses/i2c-bcm2835.c
-> index 8554e790f8e3..76d017cf1582 100644
-> --- a/drivers/i2c/busses/i2c-bcm2835.c
-> +++ b/drivers/i2c/busses/i2c-bcm2835.c
-> @@ -349,12 +349,13 @@ static int bcm2835_i2c_xfer(struct i2c_adapter *adap, struct i2c_msg msgs[],
->  	unsigned long time_left;
->  	int i;
->  
-> -	for (i = 0; i < (num - 1); i++)
-> +	for (i = 0; i < (num - 1); i++) {
->  		if (msgs[i].flags & I2C_M_RD) {
->  			dev_warn_once(i2c_dev->dev,
->  				      "only one read message supported, has to be last\n");
->  			return -EOPNOTSUPP;
->  		}
-> +	}
->  
->  	i2c_dev->curr_msg = msgs;
->  	i2c_dev->num_msgs = num;
-> -- 
-> 2.43.0
-> 
+See: https://www.kernel.org/doc/html/next/process/maintainer-netdev.html#development-cycle
+-- 
+pw-bot: defer
+pv-bot: closed
+
 
