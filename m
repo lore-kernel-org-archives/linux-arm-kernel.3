@@ -4,66 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A5E5C5DF7D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 10:34:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55CABC5DF70
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 10:36:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sZM15aJl/IiF+ko6tAqrikn0vE3IWALTGs5YFH4xitE=; b=Zp79RwwY+rv1G1Rtzdy9sFLN+r
-	OtsEL38GOIJQU7jVCKm20Y5bt+FxLwGfF6D/j84l52dfxhdbfQ4dgyythqj62Gz8qZnl/6Yeci2Gi
-	qUc9uaT8h4it5Bn8E1/TFsGTKALyWOZ4Fv/oC/PQflH0yfUV2yLNx4OTkEea/4sYNEpxWSUK4Rh0U
-	XFjIKVsXaLhxXl1SCypQK4y/XQTrCvNZPg8pngHVGrZrEc9YzKn94K6X3NfHF+f7DsUZci6QvyOBj
-	tt2J6nZNfsvPFJSnRYHVXGIH7Qd2LJMFUPsREY/+dw+UBDyrfbdHS54UTBteNc7Vc7JBw8tWe+/nb
-	eTnRYzOQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=06KvyJDsWfX1sCzC5b2kL3swopYadMJBrscw4udw5tE=; b=FcKTj6tuo8V6QDM9hDmIRA8ynO
+	UXvLtaaO4YY1CnGp1hcVGm/khPfxXZCx/7l3RWWQEs7yOcNJH3TpQBKuhxCa306+1f1abBYj3fN+n
+	ulA1vBOeHKlLNNhf7IMP1iDTqV3BM3heqDHQkI2907WI3/MHPKdYWbZN1aXp8XPn80NLXqHSVw1uQ
+	TQoGcG9LdlCVtPuYZfgSxy/Gkl/PJL6IVTvhRtNXbx8M5ye+or5mFAgg4FHTqrOh55TtgwASssgR+
+	lLSLjhzdrEPPMwffPBATyqpGiuDyhe4NeZLX/HV1eSayqhjvji6iolSkCG3L0d00EDkQ+1KlFdw6L
+	ND6aaX/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwH8p-00000007kZP-1bgL;
-	Tue, 18 Aug 2026 10:33:59 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wwHAw-00000007ksX-2ycy;
+	Tue, 18 Aug 2026 10:36:10 +0000
+Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwH8o-00000007kYj-1iq7
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 10:33:58 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 729B3601E0;
-	Tue, 18 Aug 2026 10:33:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E82101F000E9;
-	Tue, 18 Aug 2026 10:33:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1787049237;
-	bh=sZM15aJl/IiF+ko6tAqrikn0vE3IWALTGs5YFH4xitE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=XRrBCzA1/25V6ScR6VDocxj61aZ0LB13yx9J5vVmkRZNCoyAknKZwvurJG05lqxYN
-	 pryFy4Ljaf3tLH/Rh9F+Slko2hSg6UjUjxinWJhmnzG4tscOFmsYaqLtbLfgtgNPNO
-	 2VBstL9ueAMHnHitbRxMkoA4GNBgQWVHfpfDRFhzKiDeMnfSypmhDwcItD8I4Wbb7J
-	 W2RYH2JwzXjluGgsZvqaMfebcrC59l9swSpeTLb5Fsxhe3KWa4ojJDD5a6i8frITwG
-	 44W80b7Q9OSLgLUvPbw8H+wI/80TfYP4+4ja8Etd0uvWO2Vct6AJ9GrfpGz1KK3wUn
-	 8aEp2bY5z9PqQ==
-Date: Tue, 18 Aug 2026 11:33:51 +0100
-From: Will Deacon <will@kernel.org>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Eric Biggers <ebiggers@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Marc Zyngier <maz@kernel.org>, Linus Walleij <linusw@kernel.org>
-Subject: Re: [PATCH 00/12] arm64: Remove unused big-endian support
-Message-ID: <aoQ1D9xT8BZ28KLD@willie-the-truck>
-References: <20260811140132.22778-1-will@kernel.org>
- <6632712f-7782-4580-84c0-62124a016f46@app.fastmail.com>
- <aoGHINU1DWOHXgYC@willie-the-truck>
- <b14ee6f2-1b90-4254-822c-ad352646005e@app.fastmail.com>
+	id 1wwHAs-00000007krX-2hyo;
+	Tue, 18 Aug 2026 10:36:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Content-Transfer-Encoding:Content-Type:From:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:From:Reply-To;
+	bh=06KvyJDsWfX1sCzC5b2kL3swopYadMJBrscw4udw5tE=; b=ZNUthQ1al5CuRZNllVdLE7mtBV
+	+/sdOMl3kxwugwFMfBr2su4xJY+q6jGAidmetV1rc1cvUnQWr29Y5XFrgiREERYWvUOQlIIhtQQ6Y
+	6R4yfWt07FggaEjp34D4mOhmxkVMJGIVYl9fQwmD6ugNePQXHyBBJ5elphi4GQRRWHO1lpWCdk/Hw
+	6MHkP8a6c4ROWwBFInPaHtZ9zNyuwum/AtrO8UgwS4xCbWvqJeEzPVPWaiBzSZyJ5R6oeqlYWZWi6
+	kEFvMgxcBTjMW+fLcd4z3dumKKjIrRfo9DvVKHAD77aOB7ekMKKAM35ptsrU/xr284E31a9dZRCHn
+	prxyxJUg==;
+Received: from [179.105.94.163] (helo=[192.168.0.6])
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
+	id 1wwHAZ-005ZNJ-55; Tue, 18 Aug 2026 12:35:47 +0200
+Message-ID: <3ab273be-e811-45e4-adf1-75532c840bc8@igalia.com>
+Date: Tue, 18 Aug 2026 07:35:39 -0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <b14ee6f2-1b90-4254-822c-ad352646005e@app.fastmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/4] dt-bindings: display: bcm2835-v3d: Add an optional
+ reset line
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Maxime Ripard <mripard@kernel.org>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+ Stefan Wahren <wahrenst@gmx.net>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, kernel-dev@igalia.com,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+References: <20260816-vc4-reset-control-v1-0-896444373716@igalia.com>
+ <20260816-vc4-reset-control-v1-2-896444373716@igalia.com>
+ <20260818-idealistic-chivalrous-sawfish-08ddae@quoll>
+From: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
+Content-Language: en-US
+Autocrypt: addr=mcanal@igalia.com; keydata=
+ xsBNBGcCwywBCADgTji02Sv9zjHo26LXKdCaumcSWglfnJ93rwOCNkHfPIBll85LL9G0J7H8
+ /PmEL9y0LPo9/B3fhIpbD8VhSy9Sqz8qVl1oeqSe/rh3M+GceZbFUPpMSk5pNY9wr5raZ63d
+ gJc1cs8XBhuj1EzeE8qbP6JAmsL+NMEmtkkNPfjhX14yqzHDVSqmAFEsh4Vmw6oaTMXvwQ40
+ SkFjtl3sr20y07cJMDe++tFet2fsfKqQNxwiGBZJsjEMO2T+mW7DuV2pKHr9aifWjABY5EPw
+ G7qbrh+hXgfT+njAVg5+BcLz7w9Ju/7iwDMiIY1hx64Ogrpwykj9bXav35GKobicCAwHABEB
+ AAHNIE1hw61yYSBDYW5hbCA8bWNhbmFsQGlnYWxpYS5jb20+wsCRBBMBCAA7FiEE+ORdfQEW
+ dwcppnfRP/MOinaI+qoFAmcCwywCGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgkQ
+ P/MOinaI+qoUBQgAqz2gzUP7K3EBI24+a5FwFlruQGtim85GAJZXToBtzsfGLLVUSCL3aF/5
+ O335Bh6ViSBgxmowIwVJlS/e+L95CkTGzIIMHgyUZfNefR2L3aZA6cgc9z8cfow62Wu8eXnq
+ GM/+WWvrFQb/dBKKuohfBlpThqDWXxhozazCcJYYHradIuOM8zyMtCLDYwPW7Vqmewa+w994
+ 7Lo4CgOhUXVI2jJSBq3sgHEPxiUBOGxvOt1YBg7H9C37BeZYZxFmU8vh7fbOsvhx7Aqu5xV7
+ FG+1ZMfDkv+PixCuGtR5yPPaqU2XdjDC/9mlRWWQTPzg74RLEw5sz/tIHQPPm6ROCACFls7A
+ TQRnAsMsAQgAxTU8dnqzK6vgODTCW2A6SAzcvKztxae4YjRwN1SuGhJR2isJgQHoOH6oCItW
+ Xc1CGAWnci6doh1DJvbbB7uvkQlbeNxeIz0OzHSiB+pb1ssuT31Hz6QZFbX4q+crregPIhr+
+ 0xeDi6Mtu+paYprI7USGFFjDUvJUf36kK0yuF2XUOBlF0beCQ7Jhc+UoI9Akmvl4sHUrZJzX
+ LMeajARnSBXTcig6h6/NFVkr1mi1uuZfIRNCkxCE8QRYebZLSWxBVr3h7dtOUkq2CzL2kRCK
+ T2rKkmYrvBJTqSvfK3Ba7QrDg3szEe+fENpL3gHtH6h/XQF92EOulm5S5o0I+ceREwARAQAB
+ wsB2BBgBCAAgFiEE+ORdfQEWdwcppnfRP/MOinaI+qoFAmcCwywCGwwACgkQP/MOinaI+qpI
+ zQf+NAcNDBXWHGA3lgvYvOU31+ik9bb30xZ7IqK9MIi6TpZqL7cxNwZ+FAK2GbUWhy+/gPkX
+ it2gCAJsjo/QEKJi7Zh8IgHN+jfim942QZOkU+p/YEcvqBvXa0zqW0sYfyAxkrf/OZfTnNNE
+ Tr+uBKNaQGO2vkn5AX5l8zMl9LCH3/Ieaboni35qEhoD/aM0Kpf93PhCvJGbD4n1DnRhrxm1
+ uEdQ6HUjWghEjC+Jh9xUvJco2tUTepw4OwuPxOvtuPTUa1kgixYyG1Jck/67reJzMigeuYFt
+ raV3P8t/6cmtawVjurhnCDuURyhUrjpRhgFp+lW8OGr6pepHol/WFIOQEg==
+In-Reply-To: <20260818-idealistic-chivalrous-sawfish-08ddae@quoll>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260818_033606_689179_48F56D3C 
+X-CRM114-Status: GOOD (  13.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,49 +106,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Aug 16, 2026 at 12:15:44PM +0200, Arnd Bergmann wrote:
-> On Sun, Aug 16, 2026, at 11:47, Will Deacon wrote:
-> > On Tue, Aug 11, 2026 at 05:11:47PM +0200, Arnd Bergmann wrote:
-> >> On Tue, Aug 11, 2026, at 16:01, Will Deacon wrote:
-> >>
-> >> My suggestions there was to possibly remove arm32 big-endian mode at
-> >> the same time as on arm64, but that does feel a little rushed if
-> >> ixp4xx only has one release of supporting both, and removing be8
-> >> but leaving be32 for a little while longer is probably not worth it.
-> >
-> > Yeah, maybe give it another LTS on the arm32 side? I think arm64 going
-> > first is ok, though.
-> 
-> Right, one more LTS for 32-bit is probably good. We'll see how the
-> OpenWRT/ixp4xx conversion goes for users.
-> 
-> My feeling so far is that running ixp4xx in LE mode is probably fine
-> (there may still be driver bugs), but flashing a running system
-> from one mode to the other is a bit risky and BE32 mode makes this
-> more confusing the BE8.
-> 
-> >> > I've broken this down into fairly coarse chunks, as it seemed a lot
-> >> > easier to manage than one giant patch (even with the Kconfig being
-> >> > effectively disabled already) and not all of it is just mindless
-> >> > deletion. Despite that, I'm anticipating the whole thing going via the
-> >> > arm64 tree.
-> >> 
-> >> I would have done even larger patches, this does already feel fairly
-> >> fine-grained to me ;-). I had a look at the individual patches to make
-> >> sure this all makes sense, and I found nothing wrong here.
-> >
-> > If it was just a sed script or similar, I think I'd would've done a giant
-> > patch, but some of it is surprisingly error-prone (e.g. when you have a
-> > file with a load of '#ifdef CPU_BIG_ENDIAN' and then an '#ifndef
-> > CPU_BIG_ENDIAN' hiding in the middle of it all).
-> 
-> Yes, definitely, I've found out the hard way during other feature
-> removal before.
-> 
-> scripts/unifdef.c should be able to help with this, but I never
-> remember that this is a thing.
+Hi Krzysztof,
 
-I didn't even know about that! I'll see if it spots anything I missed...
+On 18/08/26 06:05, Krzysztof Kozlowski wrote:
+> On Sun, Aug 16, 2026 at 11:05:41AM -0300, Maíra Canal wrote:
+>> The BCM2835 PM block has exposed a reset line for the V3D block since
+>> commit 670c672608a1 ("soc: bcm: bcm2835-pm: Add support for power domains
+> 
+> This is a reset provider driver, so not really relevant here. Driver
+> commit would be relevant if it was about consumer who implemented
+> undocumented ABI. I suggest to drop reference to driver and instead
+> describe the hardware.
 
-Will
+Ack.
+
+> 
+>> under a new binding."), which allows the GPU to be reset without
+>> power-cycling its domain. Document it so that the vc4 driver can use it to
+>> recover from a GPU hang.
+> 
+> Does every device have it? Cygnus as well?
+
+I'm not familiar to the Cygnus hardware, only Raspberry Pi, so I'd
+appreciate if one of the folks from Broadcom could help us with this
+information.
+
+However, just like the power domain, I added this property as optional
+to accommodate the fact that the current Cygnus DT doesn't expose any
+power domain or reset controller.
+
+Best regards,
+- Maíra
+
+> 
+> Best regards,
+> Krzysztof
+> 
+
 
