@@ -4,100 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8064C5DF7D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 10:32:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8A0FC5DF70
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Aug 2026 10:32:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KU+bDqYU/O9Dr1Oo3XPL7kKeSTUBEiouuUJWuvT/yEQ=; b=kRQgeq6Ty46FdGrYcP9ZU9ZPry
-	d9bVsCFtznrAcQzAM8bnM7mai8rEaLKJtXMw+eSk+gNonvGiJSQ2+FJl2OarV8JpipQ40H+ig+2B3
-	+jcZIyeqTYBUssv77NLt/aYrlrNriPnbsfGemY//+uB9U0IHw7/GW7WDerZnSOJtLZjcYSdtEQUvo
-	MMlrnseQ5GyYhGwHhOv35NTlJ6v5a7wWwk564ZlyM0ZFWKSbtoK0rMdyze8FCfDYkYLmqi9eOp281
-	azL0qw7SKT6m8F8LxPdDwguzDhaxW8SRTYvHfft4vpkTA5NXCJHE4+SIAVWtAuSGT9T6VxKn1qFQt
-	evq0C2RA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=F7fVzaEBj0PKQ851icJcgUWwPk3IE0JoqeEqChNPIFM=; b=LsvKujOYRUbFBqTNsbQpj5oxki
+	t4ZineZb7zCqf8Sry58GuIoCZAKif46Qc0znnmeb3wRU13FbbdrBidEt5xj32QRIeOl/6TOj2oYrF
+	8QbBCfCuf3RJwZkexk3qHTC/qkTmp8t+Lu4JfIgkwyxPJAeT9DSPTtBWCbcosvBRDdoD3BwxCYJzM
+	kfkEUGh2+YuARWik80uPIk3aj1uhjsOza9KbHEdDIoVEOSjgoElMzI+RibQnt1IfBFAWoHBenL2SR
+	Yzl/L4983i3OmKB62pE4ZQG+xT1UrdqnL87AvdsRi7R3de3cPezDTsvBpBULWvLmbxwhZI6EhEjP/
+	p6ZnsXxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwH6r-00000007ioK-380j;
-	Tue, 18 Aug 2026 10:31:57 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1wwH79-00000007j5p-2o6M;
+	Tue, 18 Aug 2026 10:32:15 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wwH6l-00000007iiy-0F7D
+	id 1wwH78-00000007j3a-0ngA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Aug 2026 10:31:52 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-49554ebb87dso44436765e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Aug 2026 03:31:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=9elements.com; s=google; t=1787049109; x=1787653909; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=KU+bDqYU/O9Dr1Oo3XPL7kKeSTUBEiouuUJWuvT/yEQ=;
-        b=XDK0RIxPHFJxwvl1144ojE1H4UGOSYVpz5/OxHdrsEiXNmWdx8WZ95cWHe0pAxwKZE
-         0SMB2KTqAzQCvB4YVs9a9LPWTEbuPWypaAev33zE8uIgl24n6uwck7CH5agbhfYDvyoz
-         rYLj61mR0edQ9qUpCCy/3eq6dQAtThOqueojjuikY+NqTEITOYeCYUatcwW3PphOYd+d
-         E0EuqNIZPhf8OVw/Fz4r7M0rJzCNznVI2fQ8dKGiOZmQmJYSPamLJjkEDOw0SV7gP/Tk
-         mcsDHtKbaLquRWeKMOo4YkVOY8HGn7qBqex9midyfm9iE46/Delp+3ciYgpZMIHyPaAJ
-         2NMQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1787049109; x=1787653909;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=KU+bDqYU/O9Dr1Oo3XPL7kKeSTUBEiouuUJWuvT/yEQ=;
-        b=DgzRqE+NodS/n8wtr+xrFcAXLRIrrGnouivSnlWHZRSAIpaXp7E28Oj0R/o4w9ybAc
-         FKQ4XVbhdmBCh5Tt2GxZ2MwfazW4s3IPRFIf6uvcI9uO2yhBKnhXtG4EAKbBiD5Dfq4d
-         QhfvrhNNyiiotYRw41COIlly/ozwZS90xGd2oO/Z9Q6/3SFtClxHHJmYuXhbMCQMGBYW
-         hIb5DTpd1xuc9FN8EdiyyvCvL+TwS32XKsfBe0+y5b7s1HnuMAiGyvfZpT+ZK8R3ATwx
-         WsvGNxHKgUR97FZMP81DlsmAwWlUqx0e1QboGXYCeM8bZY2lxmz2Sy4sGeo8+266+Bzd
-         VUOw==
-X-Forwarded-Encrypted: i=1; AHgh+RpqADD+3YH47AbmVJprsR8dYZHB1nc5nonrC7GN0NkJHMcjUmlUfUo6EbDfravqYe2Yep2tnIkd2NCAhvoSMof+@lists.infradead.org
-X-Gm-Message-State: AOJu0YyXSvDxQXeNxMocqrRCmsPSAcSLLLkjiOnH+5If8sD2d/ppXAms
-	4V2MwcwfJOkKM0Q/j41AGQlrXDbxbk3mKLYcjPUIIV+ogYNLko0Cyhy3IKfnUFP4X+Y=
-X-Gm-Gg: AR+sD13j+ECibNmxVrajG8K8UFa0iI66ZcqjEdeO9nRiEFSw4zwIQCYy7m8TzzGe9EA
-	xaZAYofKbzCgFBUnK8vTbmX+PAxS1XWcZTJq+IQ4PrriQLxqMnRMxemUhUxf0y4BTRyeD6XkraX
-	yWUDGBoJjlWeRgL67pgxhYKmuR+WcgXS7N0ijfr9imTiZt9U5JCUOUXs2QjWLHa9ILY51j688fm
-	zJkK4wvX0Fm//H+JO2US8/pj+XjzZnCKEWp1z+bdTv9Yeee1yb+i2Cg7/Dmz7LzuhafZwPNrGm5
-	AEsk5oa2INUTAAmSLK7Fz+hh7qTFyG1+BmmUFKy5ntEtrvQ7rAZ+4nibQf51hZZ7f25G2evu4N+
-	tAbkzCq/+9Rj2V5CUuGdwNJO3lETtVtW/lt7uLEIpFBhmK8i7iWnzxFZt/k68seWbuyh4W7ZMJK
-	sdsuBFeeDyk4e7wbAQL38TEJuY5A7NB/YoRZb15YZHGQQGdAw7IeA9qqXDgX/w++qvo3elWbLCR
-	0LAv1ZqI0S8blTdrMogK8D7MMt35CkZ3hZEqja96hWu49QVcjN4Oo4QXeoI
-X-Received: by 2002:a05:600c:3b8f:b0:495:4491:b8c2 with SMTP id 5b1f17b1804b1-499906ce446mr411847085e9.3.1787049109066;
-        Tue, 18 Aug 2026 03:31:49 -0700 (PDT)
-Received: from [127.0.0.2] ([188.111.3.154])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-499960988c6sm246025575e9.0.2026.08.18.03.31.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 18 Aug 2026 03:31:48 -0700 (PDT)
-From: =?utf-8?q?Gr=C3=A9goire_Layet?= <gregoire.layet@9elements.com>
-Date: Tue, 18 Aug 2026 10:29:17 +0000
-Subject: [PATCH v6 4/6] mfd: aspeed-pci-core: add AST2600 PCIe BMC device
- driver
+	Tue, 18 Aug 2026 10:32:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9BA9140AAF;
+	Tue, 18 Aug 2026 10:32:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 6DA8FC19425;
+	Tue, 18 Aug 2026 10:32:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1787049133;
+	bh=SwW+bFSdjpPbLIIaN9qwdh9Xs8IFm4iqtAaKHOy5+wI=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=DQIQAFFpVq47DoRgAODW8yHYWTRjoN6lHrCj16MH4D3ibS2c0t/JZSSircHnXLff+
+	 LM6eIQxqWeZIPczAXER6gACQlTX/ij0FRO0yMgoNiT4uysFc2AOCJkBfI8rBEVg8x7
+	 guxgP2n6dOXb09dA56VGg7CZg5tfi0+GH//UwCZ2nzf0P1b8IsxufnH5ClBSCCGlfQ
+	 lIYmZD5GcsYYKX8QHyTpF13y1r7HHzgaYTET/o+YLD4GbTFJmq1xWqJTshv97PWiRd
+	 ci0z2gmNleG3tvpfaEaBaVx3yFY6qK92ZY7rxfuboHGO36s9xPrdWpbeuvvrvvt1nj
+	 zH3wRYJsMCN5A==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 438D7C5DF70;
+	Tue, 18 Aug 2026 10:32:13 +0000 (UTC)
+From: Long Zhao via B4 Relay <devnull+longzhao.ambarella.com@kernel.org>
+Subject: [PATCH v5 00/12] Ambarella CV75 SoC minimal bring-up
+Date: Tue, 18 Aug 2026 18:31:14 +0800
+Message-Id: <20260818-cv75-v5-v5-0-7bbb12f0360f@ambarella.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260818-aspeed-driver-v6-v6-4-fd7cc0b338ea@9elements.com>
-References: <20260818-aspeed-driver-v6-v6-0-fd7cc0b338ea@9elements.com>
-In-Reply-To: <20260818-aspeed-driver-v6-v6-0-fd7cc0b338ea@9elements.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Lubomir Rintel <lkundrak@v3.sk>, 
- devicetree@vger.kernel.org, Joel Stanley <joel@jms.id.au>, 
- Andrew Jeffery <andrew@codeconstruct.com.au>, Lee Jones <lee@kernel.org>, 
- =?utf-8?q?Gr=C3=A9goire_Layet?= <git@gregoirelayet.com>, 
- Tan Siewert <tan.siewert@9elements.com>
-Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
- mfd@lists.linux.dev, andrew@lunn.ch, jacky_chou@aspeedtech.com, 
- yh_chung@aspeedtech.com, ninad@linux.ibm.com, anirudhsriniv@gmail.com, 
- =?utf-8?q?Gr=C3=A9goire_Layet?= <gregoire.layet@9elements.com>
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAHM0hGoC/yXMQQ5AMBCF4avIrDWpVlFXEQutwVggLY1E3F2x/
+ JL/vQs8OkIPdXKBw0Ce1iVCpQnYqVtGZNRHg+Ci4FVWMRtKxYJiGgWX2shcGwux3hwOdH5PTfv
+ bH2ZGu79zuO8H0MIQd2sAAAA=
+X-Change-ID: 20260818-cv75-v5-9e2039b349bc
+To: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, soc@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Linus Walleij <linusw@kernel.org>, 
+ Bartosz Golaszewski <brgl@kernel.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jiri Slaby <jirislaby@kernel.org>, 
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
+ linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Brian Masney <bmasney@redhat.com>, 
+ Lee Jones <lee@kernel.org>, mfd@lists.linux.dev, 
+ Long Zhao <zl020895@163.com>, Long Zhao <longzhao@ambarella.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 X-Mailer: b4 0.15.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260818_033151_229627_86AD8E83 
-X-CRM114-Status: GOOD (  30.46  )
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1787049130; l=5497;
+ i=longzhao@ambarella.com; s=20260730; h=from:subject:message-id;
+ bh=SwW+bFSdjpPbLIIaN9qwdh9Xs8IFm4iqtAaKHOy5+wI=;
+ b=PXFTaJd97E5i+nXkFbLaY6nvDuOvYlrc+HQTkitftqGKpuENrGlnDHWRC8wpqq0reJ30wYyDj
+ ZobHjFFnFB9BSNdcR/1HgzZ4lnA7OHc5MeDWMyu3r89Zsa+cUtk+w0j
+X-Developer-Key: i=longzhao@ambarella.com; a=ed25519;
+ pk=/xGhPTOX0/eYsyTWzyjjgAIW1Z/YD+IlnOnvcdRozow=
+X-Endpoint-Received: by B4 Relay for longzhao@ambarella.com/20260730 with
+ auth_id=903
+X-Original-From: Long Zhao <longzhao@ambarella.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,222 +96,120 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: longzhao@ambarella.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for UART over PCIe between ASPEED AST2600 BMC and
-host. This is the host-side driver.
+This series adds minimal Ambarella CV75 support for early bring-up with
+a serial console: DT bindings, RCT/CCU clocks, pinctrl, PL061 GPIO
+variant, 8250-based UART, ARCH_AMBARELLA, CV75 EVK DT, and MAINTAINERS.
 
-Based on ASPEED 6.18 Kernel SDK and trimmed down and changed to
-MFD driver.
+This is again a single unified series (as in v2). It supersedes the v3
+A/B/C split and the later v4 B resend.
 
-The AST2600 has two 8250-compatible register set usable over PCIe.
-These act as two UARTs. As there is only a FIFO internally between both
-ends, they are called Virtual UARTs. This patch adds both VUARTs as
-plat_serial8250_port. This is the core driver in charge of setting up
-MSI interrupts. It doesn't bind the whole PCIe resource to allow each
-sub-driver to bind the needed addresses.
+  v3-A: bindings + RCT/CCU + SoC/EVK DT + MAINTAINERS
+  v3-B / v4-B: pinctrl + PL061 GPIO
+  v3-C: 8250_dw UART quirks
 
-This is not added as a PCI 8250 UART device, but as a MFD driver, as this
-host driver can be expanded upon for IPMI over KCS. It can also be used
-in the future for custom BMC<->host communication with shared memory and
-doorbell.
+Please apply via the SoC tree; subsystem maintainers are Cc'd for their
+pieces.
 
-This host module should be the entry point for setting up all features
-related to an AST2600 present on the PCI bus.
+Verified with checkpatch --strict, dt_binding_check (ambarella),
+CHECK_DTBS for cv75-evk, and CV75 boot / UART / clk_summary.
 
-Notes on the implementation:
-The host can't detect the VUART addresses, so they are forced to
-0x3f8 and 0x2f8, as in the initial ASPEED driver.
-
-The MSI vector index of VUART2 has been changed from 15 to 17.
-The index 15 used in the initial driver was not working.
-
-Tested:
-Data path in both direction is tested on both VUARTs.
-
-Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
-Signed-off-by: aspeedyh <yh_chung@aspeedtech.com>
-Signed-off-by: Grégoire Layet <gregoire.layet@9elements.com>
+Signed-off-by: Long Zhao <longzhao@ambarella.com>
 ---
- MAINTAINERS                   |   6 +++
- drivers/mfd/Kconfig           |  12 +++++
- drivers/mfd/Makefile          |   2 +
- drivers/mfd/aspeed-pci-core.c | 115 ++++++++++++++++++++++++++++++++++++++++++
- 4 files changed, 135 insertions(+)
+Changes in v5:
+- Reunify into one series toward soc@ (v2-style topics); supersede
+  v3 A/B/C and v4 B (Krzysztof)
+- UART: drop 8250_dw quirks; add standalone 8250_ambarella + binding
+  (Linus, Andy)
+- Fold review/self-fix commits into the corresponding topic patches
+- pinctrl binding: drop redundant groups $ref (Krzysztof)
+- Sashiko: address applicable findings
+  - clk: guard parent_rate == 0; include fsdiv/fsout in PLL approx;
+    clamp VCO range; clear divider disable bit on non-zero set_rate;
+    integer determine_rate uses achievable params; 32-bit
+    COMPILE_TEST uses DIV64_U64_ROUND_CLOSEST
+  - PINCTRL_AMB depends on HAS_IOMEM and defaults when ARCH_AMBARELLA
+    (ARCH no longer selects PINCTRL_AMB)
+  - IOMUX: one commit per group; use BIT() for altfunc (offset 31)
+  - PL061: per-pin AFSEL claim instead of wiping the bank at probe
+  - GIC: omit unused #size-cells, keep only #address-cells = <0>
+  - RCT remains clock-only (no #reset-cells / reset provider)
+- No change: ARM_PSCI / HAVE_ARM_ARCH_TIMER (same as ARCH_AIROHA);
+  syscon.yaml has no select block; GPIO pinconf-only DT nodes (GPIO
+  mux is via gpiochip request, IOMUX alt 0)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 562754f2d166..7ea6c7d4703e 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -4011,6 +4011,12 @@ S:	Maintained
- F:	Documentation/devicetree/bindings/crypto/aspeed,*
- F:	drivers/crypto/aspeed/
- 
-+ASPEED PCI BMC DEVICE DRIVER
-+M:	Grégoire Layet <git@gregoirelayet.com>
-+M:	Tan Siewert <tan.siewert@9elements.com>
-+S:	Maintained
-+F:	drivers/mfd/aspeed-pci-core.c
-+
- ASPEED PECI CONTROLLER
- M:	Iwona Winiarska <iwona.winiarska@intel.com>
- L:	linux-aspeed@lists.ozlabs.org (moderated for non-subscribers)
-diff --git a/drivers/mfd/Kconfig b/drivers/mfd/Kconfig
-index 763ce6a34782..dd780f72d169 100644
---- a/drivers/mfd/Kconfig
-+++ b/drivers/mfd/Kconfig
-@@ -2573,5 +2573,17 @@ config MFD_MAX7360
- 	  additional drivers must be enabled in order to use the functionality
- 	  of the device.
- 
-+config MFD_ASPEED_PCI_BMC_DEVICE
-+	tristate "ASPEED BMC PCIe device"
-+	depends on PCI
-+	select MFD_CORE
-+	help
-+	  Host-side driver for the ASPEED AST2600 BMC PCIe device found on
-+	  BMC expansion cards. Exposes two 8250-compatible VUART
-+	  ports.
-+
-+	  If unsure, say N. Choose M here if this machine has an
-+	  AST2600-based BMC expansion card on its PCIe bus.
-+
- endmenu
- endif
-diff --git a/drivers/mfd/Makefile b/drivers/mfd/Makefile
-index dd4bb7e77c33..a364b1b5936b 100644
---- a/drivers/mfd/Makefile
-+++ b/drivers/mfd/Makefile
-@@ -303,3 +303,5 @@ obj-$(CONFIG_MFD_RSMU_SPI)	+= rsmu_spi.o rsmu_core.o
- obj-$(CONFIG_MFD_UPBOARD_FPGA)	+= upboard-fpga.o
- 
- obj-$(CONFIG_MFD_LOONGSON_SE)	+= loongson-se.o
-+
-+obj-$(CONFIG_MFD_ASPEED_PCI_BMC_DEVICE)	+= aspeed-pci-core.o
-diff --git a/drivers/mfd/aspeed-pci-core.c b/drivers/mfd/aspeed-pci-core.c
-new file mode 100644
-index 000000000000..2f299955bc1b
---- /dev/null
-+++ b/drivers/mfd/aspeed-pci-core.c
-@@ -0,0 +1,115 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+// Copyright (C) ASPEED Technology Inc.
-+
-+#include <linux/init.h>
-+#include <linux/module.h>
-+#include <linux/kernel.h>
-+#include <linux/errno.h>
-+#include <linux/pci.h>
-+#include <linux/serial_8250.h>
-+#include <linux/mfd/core.h>
-+
-+#define ASPEED_BMC_MULTI_MSI		32
-+#define ASPEED_BMC_PCI_DEVICE_ID	0x2402
-+#define ASPEED_BMC_REVISION_AST2700	0x27
-+#define ASPEED_BMC_NR_VUART		2
-+
-+#define DRIVER_NAME "ast2600-pci-core"
-+
-+static const unsigned int vuart_msi_index[ASPEED_BMC_NR_VUART] = { 16, 17 };
-+static const u16 vuart_port_addr[ASPEED_BMC_NR_VUART] = { 0x3f8, 0x2f8 };
-+
-+static struct plat_serial8250_port aspeed_uart_port[ASPEED_BMC_NR_VUART + 1] = {
-+	{
-+		.uartclk = 115200 * 16,
-+		.iotype = UPIO_MEM32,
-+		.type = PORT_16550A,
-+		.flags = (UPF_IOREMAP | UPF_FIXED_PORT | UPF_FIXED_TYPE),
-+		.regshift = 2
-+	},
-+	{
-+		.uartclk = 115200 * 16,
-+		.iotype = UPIO_MEM32,
-+		.type = PORT_16550A,
-+		.flags = (UPF_IOREMAP | UPF_FIXED_PORT | UPF_FIXED_TYPE),
-+		.regshift = 2
-+	},
-+	{ 0 }
-+};
-+
-+static const struct mfd_cell aspeed_bmc_cell = {
-+	.name		= "serial8250",
-+	.platform_data	= aspeed_uart_port,
-+	.pdata_size	= sizeof(aspeed_uart_port),
-+};
-+
-+static int aspeed_pci_bmc_device_setup_vuart(struct pci_dev *pdev)
-+{
-+	resource_size_t bar = pci_resource_start(pdev, 1);
-+	unsigned int i;
-+
-+	for (i = 0; i < ASPEED_BMC_NR_VUART; i++) {
-+		aspeed_uart_port[i].mapbase = bar + (vuart_port_addr[i] << 2);
-+		aspeed_uart_port[i].irq = pci_irq_vector(pdev, vuart_msi_index[i]);
-+	}
-+
-+	return 0;
-+}
-+
-+static void aspeed_bmc_pci_free_irqs(void *pdev)
-+{
-+	pci_free_irq_vectors(pdev);
-+}
-+
-+static int aspeed_pci_host_bmc_device_probe(struct pci_dev *pdev,
-+					    const struct pci_device_id *ent)
-+{
-+	struct device *dev = &pdev->dev;
-+	int rc = 0;
-+
-+	if (pdev->revision == ASPEED_BMC_REVISION_AST2700)
-+		return dev_err_probe(dev, -ENODEV, "AST2700 detected but not supported\n");
-+
-+	rc = pcim_enable_device(pdev);
-+	if (rc)
-+		return dev_err_probe(dev, rc, "failed to enable device\n");
-+
-+	pci_set_master(pdev);
-+
-+	rc = pci_alloc_irq_vectors(pdev, ASPEED_BMC_MULTI_MSI, ASPEED_BMC_MULTI_MSI, PCI_IRQ_MSI);
-+	if (rc < 0)
-+		return dev_err_probe(dev, rc, "failed to allocate %d MSI vectors\n",
-+				     ASPEED_BMC_MULTI_MSI);
-+
-+	rc = devm_add_action_or_reset(dev, aspeed_bmc_pci_free_irqs, pdev);
-+	if (rc)
-+		return rc;
-+
-+	aspeed_pci_bmc_device_setup_vuart(pdev);
-+
-+	return devm_mfd_add_devices(dev, PLATFORM_DEVID_AUTO,
-+				    &aspeed_bmc_cell, 1, &pdev->resource[1],
-+				    0, NULL);
-+}
-+
-+static struct pci_device_id aspeed_bmc_dev_pci_ids[] = {
-+	{ PCI_DEVICE(PCI_VENDOR_ID_ASPEED, ASPEED_BMC_PCI_DEVICE_ID),
-+		.class = PCI_CLASS_OTHERS << 16,
-+		.class_mask = 0xFFFF00
-+	},
-+	{ 0 }
-+};
-+
-+MODULE_DEVICE_TABLE(pci, aspeed_bmc_dev_pci_ids);
-+
-+static struct pci_driver aspeed_host_bmc_dev_driver = {
-+	.name		= DRIVER_NAME,
-+	.id_table	= aspeed_bmc_dev_pci_ids,
-+	.probe		= aspeed_pci_host_bmc_device_probe,
-+};
-+
-+module_pci_driver(aspeed_host_bmc_dev_driver);
-+
-+MODULE_AUTHOR("Grégoire Layet <gregoire.layet@9elements.com>");
-+MODULE_DESCRIPTION("Host-side driver for the ASPEED BMC PCIe device");
-+MODULE_LICENSE("GPL");
+Link to v2:
+https://lore.kernel.org/r/20260806-longzhao-upstream-cv75-v2-v2-0-6b09707c5fe9@ambarella.com
+Link to v3-A:
+https://lore.kernel.org/r/20260813-cv75-v3-a-v3-0-cfdd20b1b4dd@ambarella.com
+Link to v3-B:
+https://lore.kernel.org/r/20260813-cv75-v3-b-v3-0-1d82e18da09b@ambarella.com
+Link to v3-C:
+https://lore.kernel.org/r/20260813-cv75-v3-c-v3-0-9352b3fd6026@ambarella.com
+Link to v4-B:
+https://lore.kernel.org/r/20260814-cv75-v4-b-v4-0-622e63153d97@ambarella.com
 
--- 
-2.54.0
+---
+Long Zhao (12):
+      dt-bindings: arm: add Ambarella CV75 platforms
+      dt-bindings: mfd: syscon: add Ambarella CV75 secure scratchpad
+      dt-bindings: clock: add Ambarella CV75 RCT
+      dt-bindings: pinctrl: add Ambarella CV75 pinctrl
+      dt-bindings: gpio: pl061: add Ambarella CV75 variant
+      dt-bindings: serial: add Ambarella CV75 UART
+      clk: ambarella: add CV75 CCU driver
+      gpio: pl061: add Ambarella CV75 register layout variant
+      pinctrl: ambarella: add CV75 pin controller
+      serial: 8250: add Ambarella UART driver
+      arm64: ambarella: add ARCH_AMBARELLA and CV75 EVK DT
+      MAINTAINERS: add ARM/AMBARELLA SoC support
+
+ .../devicetree/bindings/arm/ambarella.yaml         |  24 +
+ .../bindings/clock/ambarella,cv75-rct.yaml         |  58 ++
+ .../devicetree/bindings/gpio/pl061-gpio.yaml       |  35 +-
+ Documentation/devicetree/bindings/mfd/syscon.yaml  |   1 +
+ .../bindings/pinctrl/ambarella,cv75-pinctrl.yaml   | 239 ++++++
+ .../bindings/serial/ambarella,cv75-uart.yaml       |  56 ++
+ .../devicetree/bindings/vendor-prefixes.yaml       |   2 +
+ MAINTAINERS                                        |  16 +
+ arch/arm64/Kconfig.platforms                       |   8 +
+ arch/arm64/boot/dts/Makefile                       |   1 +
+ arch/arm64/boot/dts/ambarella/Makefile             |   3 +
+ arch/arm64/boot/dts/ambarella/cv75-evk.dts         |  30 +
+ arch/arm64/boot/dts/ambarella/cv75.dtsi            | 176 +++++
+ arch/arm64/configs/defconfig                       |   2 +
+ drivers/clk/Kconfig                                |   1 +
+ drivers/clk/Makefile                               |   1 +
+ drivers/clk/ambarella/Kconfig                      |  13 +
+ drivers/clk/ambarella/Makefile                     |   6 +
+ drivers/clk/ambarella/ccu-cv75.c                   | 296 +++++++
+ drivers/clk/ambarella/ccu_common.c                 |  60 ++
+ drivers/clk/ambarella/ccu_common.h                 |  25 +
+ drivers/clk/ambarella/ccu_mux_div.c                | 234 ++++++
+ drivers/clk/ambarella/ccu_mux_div.h                |  35 +
+ drivers/clk/ambarella/ccu_pll.c                    | 421 ++++++++++
+ drivers/clk/ambarella/ccu_pll.h                    |  70 ++
+ drivers/gpio/gpio-pl061.c                          | 314 ++++++--
+ drivers/pinctrl/Kconfig                            |  15 +
+ drivers/pinctrl/Makefile                           |   2 +
+ drivers/pinctrl/pinctrl-ambarella-cv75.c           | 561 ++++++++++++++
+ drivers/pinctrl/pinctrl-ambarella.c                | 863 +++++++++++++++++++++
+ drivers/pinctrl/pinctrl-ambarella.h                |  50 ++
+ drivers/tty/serial/8250/8250_ambarella.c           | 312 ++++++++
+ drivers/tty/serial/8250/Kconfig                    |   9 +
+ drivers/tty/serial/8250/Makefile                   |   1 +
+ include/dt-bindings/clock/ambarella,cv75-rct.h     |  15 +
+ 35 files changed, 3883 insertions(+), 72 deletions(-)
+---
+base-commit: 34cf6dafc47441dfb6b356a095b89c3585a93714
+change-id: 20260818-cv75-v5-9e2039b349bc
+
+Best regards,
+--  
+Long Zhao <longzhao@ambarella.com>
+
 
 
